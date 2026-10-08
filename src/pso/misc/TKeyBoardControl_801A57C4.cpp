@@ -47,7 +47,7 @@ s32 check_input_ready__16TKeyBoardControlFi(M2C_UNK *);
     extern unsigned char lbl_805D5D09;
 void reset__16TKeyBoardControlFv(void) { lbl_805D5D09 = 0; }
 
-extern u8 lbl_805D5D0A;
+extern u8 keyboard_reset_button_pressed;
 
 s32 TKeyBoardControl__sub_801A57D0(void) {
     s32 i;
@@ -62,13 +62,13 @@ s32 TKeyBoardControl__sub_801A57D0(void) {
 
 s32 check_reset_button__16TKeyBoardControlFv(void) {
     if (OSGetResetButtonState() != 0) {
-        lbl_805D5D0A = 1;
+        keyboard_reset_button_pressed = 1;
     }
-    if ((s8) lbl_805D5D0A != 0) {
+    if ((s8) keyboard_reset_button_pressed != 0) {
         if (OSGetResetButtonState() != 0) {
             return 0;
         }
-        lbl_805D5D0A = 0;
+        keyboard_reset_button_pressed = 0;
         return 1;
     }
     return 0;

@@ -152,7 +152,7 @@ void rotate_matrix_by_node_angles(void *, int);
 void push_matrix(void);
 void scale_current_matrix(void *);
 void post_translate_matrix(void *);
-extern u8 lbl_8058DBD0[];
+extern u8 chunk_object_current_matrix[];
 void transform_point_by_current_matrix(u8 *, u8 *);
 void rotate_vector_by_current_matrix(u8 *, u8 *);
 void transform_vertex_list__10TObjPlayerFPv(Hdr_803E34B0 *arg0);
@@ -307,7 +307,7 @@ void transform_chunk_object_tree(void *arg0, void (*cb)(void *)) {
         flags = node->flags;
         r = 0;
         if (flags & 0x800) {
-            get_current_matrix(lbl_8058DBD0);
+            get_current_matrix(chunk_object_current_matrix);
         }
         if ((flags & 7) == 7) {
             if (!(flags & 8)) {
@@ -323,7 +323,7 @@ void transform_chunk_object_tree(void *arg0, void (*cb)(void *)) {
             }
             if (!(flags & 2)) {
                 if (flags & 0x1000) {
-                    TObjPlayer__sub_803E2F28((struct Mtx_803DC994 *)lbl_8058DBD0);
+                    TObjPlayer__sub_803E2F28((struct Mtx_803DC994 *)chunk_object_current_matrix);
                 } else if (flags & 0x400) {
                     ((void (*)(f32, f32 *))apply_quat_rotation__10TObjPlayerFPvf)(node->f34, (f32 *)node->ang);
                 } else {

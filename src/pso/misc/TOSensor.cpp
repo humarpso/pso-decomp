@@ -315,7 +315,7 @@ struct Buf_80175D0C { s32 a; s32 b; s32 c; s32 d; };
 extern "C" {
 M2C_UNK init_switch_id__5TOKeyFPv(void *);
 extern M2C_UNK __vt__17TOSensorAncient01[];
-extern s32 lbl_805D3148;
+extern s32 TOSensorAncient01_class_name;
 extern u32 lbl_805D5A88;
 u8 *TOSensorAncient01__ct(u8 *arg0, M2C_UNK arg1, s32 arg2);
 void *load_resource_from_descriptor(void *, s32, void *, s32, s32, s32);
@@ -511,7 +511,7 @@ u8 *TOSensorAncient01__ct(u8 *arg0, M2C_UNK arg1, s32 arg2) {
     s32 temp_r0;
     ((s32 (*)(void *))TOSensor__ct)((void *) (arg0));
     M2C_FIELD(arg0, M2C_UNK **, 0x18) = &(*(RecoveredGlobal_80175E2C___vt__17TOSensorAncient01 *)&__vt__17TOSensorAncient01).value;
-    M2C_FIELD(arg0, s32 *, 0) = (s32) lbl_805D3148;
+    M2C_FIELD(arg0, s32 *, 0) = (s32) TOSensorAncient01_class_name;
     ((VObj_18_1a504b *)(arg0))->m5(arg2);
     init_switch_id__5TOKeyFPv((void *) (arg0));
     temp_r0 = M2C_FIELD(arg0, s32 *, 0x8C);

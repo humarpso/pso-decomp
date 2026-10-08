@@ -53,7 +53,7 @@ struct Ent_8021DDB8 {
 typedef s32 M2C_UNK;
 extern "C" {
 s32 TShopGenerator__sub_80222DAC(s32);
-extern RecoveredGlobal_8021E110_TShopGenerator__data_80513ED0 TShopGenerator__data_80513ED0;
+extern RecoveredGlobal_8021E110_TShopGenerator__data_80513ED0 TShopGenerator__slot_active_table;
 u8 TShopGenerator__sub_8021E110(s32 arg0);
 f32 xyz_distance_squared(void *, void *);
 f32 vec3_dot(void *, void *);
@@ -67,13 +67,13 @@ extern RecoveredGlobal_8021DC30_lbl_8058D490 lbl_8058D490;
 extern const f32 lbl_805DC6E8;
 bool is_player_in_service_range__14TShopGeneratorFPvPvf(u8 *arg0, u8 *arg1, f32 farg0);
 s32 TShopGenerator__sub_80222DAC(s32);
-extern RecoveredGlobal_8021E110_TShopGenerator__data_80513ED0 TShopGenerator__data_80513ED0;
+extern RecoveredGlobal_8021E110_TShopGenerator__data_80513ED0 TShopGenerator__slot_active_table;
 void TShopGenerator__sub_8021E14C(s32 arg0);
 s32 TShopGenerator__sub_80222DAC(s32);
-extern RecoveredGlobal_8021E110_TShopGenerator__data_80513ED0 TShopGenerator__data_80513ED0;
+extern RecoveredGlobal_8021E110_TShopGenerator__data_80513ED0 TShopGenerator__slot_active_table;
 void THunterGuildSeqOffline__sub_8021E180(s32 arg0);
 extern Tbl_8021E1FC TShopGenerator__data_804C9FA8;
-extern RecoveredGlobal_8021E110_TShopGenerator__data_80513ED0 TShopGenerator__data_80513ED0;
+extern RecoveredGlobal_8021E110_TShopGenerator__data_80513ED0 TShopGenerator__slot_active_table;
 void TMedicalCenterMes__sub_80216238(void);
 void TShopGenerator__sub_8021E1FC(void);
 s32 obj_getField1c(s32);
@@ -103,7 +103,7 @@ extern const f32 lbl_805DC6EC;
 void run_task__14TShopGeneratorFv(u8 *self);
 void TMedicalCenterMes__sub_80216260(void);
 extern Tbl_8021E1FC TShopGenerator__data_804C9FA8;
-extern RecoveredGlobal_8021E110_TShopGenerator__data_80513ED0 TShopGenerator__data_80513ED0;
+extern RecoveredGlobal_8021E110_TShopGenerator__data_80513ED0 TShopGenerator__slot_active_table;
 void TShopGenerator__sub_8021E270(void);
 }
 
@@ -253,17 +253,17 @@ void *TShopGenerator__ct(void *arg0, s32 arg1) {
 
 typedef char RecoveredGlobal_8021E110_TShopGenerator__data_80513ED0_size[sizeof(RecoveredGlobal_8021E110_TShopGenerator__data_80513ED0) == 0x10 ? 1 : -1];
 u8 TShopGenerator__sub_8021E110(s32 arg0) {
-    return (u8) (M2C_FIELD(&TShopGenerator__data_80513ED0.value, M2C_UNK *, ((TShopGenerator__sub_80222DAC(arg0) * 4) & 0x3FFFC)) == 1);
+    return (u8) (M2C_FIELD(&TShopGenerator__slot_active_table.value, M2C_UNK *, ((TShopGenerator__sub_80222DAC(arg0) * 4) & 0x3FFFC)) == 1);
 }
 
 void TShopGenerator__sub_8021E14C(s32 arg0) {
     u16 idx = TShopGenerator__sub_80222DAC(arg0);
-    ((s32 *)&TShopGenerator__data_80513ED0)[idx] = 0;
+    ((s32 *)&TShopGenerator__slot_active_table)[idx] = 0;
 }
 
 void THunterGuildSeqOffline__sub_8021E180(s32 arg0) {
     u16 idx = TShopGenerator__sub_80222DAC(arg0);
-    ((s32 *)&TShopGenerator__data_80513ED0)[idx] = 1;
+    ((s32 *)&TShopGenerator__slot_active_table)[idx] = 1;
 }
 
 void *TShopGenerator__create(void *arg0) {
@@ -286,7 +286,7 @@ void TShopGenerator__sub_8021E1FC(void) {
         f();
     } while (--n > 0);
     for (i = 0; i < 4; i++) {
-        ((s32 *)&TShopGenerator__data_80513ED0)[i] = 0;
+        ((s32 *)&TShopGenerator__slot_active_table)[i] = 0;
     }
 }
 void TShopGenerator__sub_8021E270(void) {
@@ -301,7 +301,7 @@ void TShopGenerator__sub_8021E270(void) {
     } while (--n > 0);
     TMedicalCenterMes__sub_80216260();
     for (i = 0; i < 4; i++) {
-        ((s32 *)&TShopGenerator__data_80513ED0)[i] = 0;
+        ((s32 *)&TShopGenerator__slot_active_table)[i] = 0;
     }
 }
 

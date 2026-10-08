@@ -150,7 +150,7 @@ s32 create_quest_thread(s32);
 s32 get_register__12TQuestThreadFPvi(s32, s32);
 s32 TShopWindowBase__sub_802239EC(void *);
 s32 TShopWindowBase__sub_80223A48(void *);
-extern s32 THunterGuildSeqOffline__data_80513DC8[];
+extern s32 THunterGuildSeqOffline__quest_result_callbacks[];
 extern s32 lbl_805D5EE8;
 void THunterGuildSeqOffline__sub_80213980(Obj_80213980 *self);
 }
@@ -226,14 +226,14 @@ void THunterGuildSeqOffline__sub_80213980(Obj_80213980 *self) {
         if (is_quest_active() != 0) {
             if (get_register__12TQuestThreadFPvi(lbl_805D5EE8, 0xFF) != 0) {
                 self->m7(0xB, 1);
-                if (THunterGuildSeqOffline__data_80513DC8[1] != -1) {
-                    self->thread = create_quest_thread(THunterGuildSeqOffline__data_80513DC8[1]);
+                if (THunterGuildSeqOffline__quest_result_callbacks[1] != -1) {
+                    self->thread = create_quest_thread(THunterGuildSeqOffline__quest_result_callbacks[1]);
                 }
                 set_field_20__12TQuestListVMFPvi((void *)(self), (M2C_UNK)(4));
             } else if (get_register__12TQuestThreadFPvi(lbl_805D5EE8, 0xFD) != 0) {
                 self->m7(0x12, 1);
-                if (THunterGuildSeqOffline__data_80513DC8[0] != -1) {
-                    self->thread = create_quest_thread(THunterGuildSeqOffline__data_80513DC8[0]);
+                if (THunterGuildSeqOffline__quest_result_callbacks[0] != -1) {
+                    self->thread = create_quest_thread(THunterGuildSeqOffline__quest_result_callbacks[0]);
                 }
                 set_field_20__12TQuestListVMFPvi((void *)(self), (M2C_UNK)(5));
             } else {

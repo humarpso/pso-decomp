@@ -6,7 +6,7 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 #define M2C_BITWISE(type, expr) ((type)(expr))
 extern "C" {
 M2C_UNK queue_destruction__7TObjectFv();
-extern u32 lbl_805D4D10;
+extern u32 TBoss3Volopt__fade_active_flag;
 extern const f32 lbl_805D8850;
 extern const f32 lbl_805D8858;
 void TBoss3Volopt__sub_80048AA0(u8 *arg0);
@@ -82,7 +82,7 @@ void TBoss3Volopt__sub_80048AA0(u8 *arg0) {
         } else {
             queue_destruction__7TObjectFv();
         }
-        (*(s32 *)&lbl_805D4D10) = 1;
+        (*(s32 *)&TBoss3Volopt__fade_active_flag) = 1;
     }
 }
 #pragma pop
@@ -101,7 +101,7 @@ void *TBoss3Volopt__sub_80048B08(void *arg0, s16 arg1) {
 extern void *tl_fade;
 extern const f32 lbl_805D8854;
 extern M2C_UNK lbl_804848B8[];
-extern u32 lbl_805D4D10;
+extern u32 TBoss3Volopt__fade_active_flag;
 
 void *init_fade__12TBoss3VoloptFPvPvPv(void *arg0, void *arg1, void *arg2) {
     init_object__12TBoss3VoloptFPvPv((void *)((void *)(arg0)), (void *)((void *)(tl_fade)));
@@ -111,7 +111,7 @@ void *init_fade__12TBoss3VoloptFPvPvPv(void *arg0, void *arg1, void *arg2) {
     M2C_FIELD(arg0, u8 *, 0x20) = 255;
     M2C_FIELD(arg0, u8 *, 0x21) = 255;
     M2C_FIELD(arg0, u8 *, 0x22) = 255;
-    lbl_805D4D10 = 0;
+    TBoss3Volopt__fade_active_flag = 0;
     return arg0;
 }
 

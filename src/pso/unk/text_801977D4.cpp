@@ -42,7 +42,7 @@ void reset_line_width(void);
 void set_line_width(int);
 void subtract_vector(void *, void *);
 f32 normalize_vector(void *);
-extern u8 *lbl_804B8998[];
+extern u8 *TObjRain__streak_line_list[];
 extern u8 *lbl_805D4DF0;
 extern const f32 lbl_805DBF10;
 extern const f32 lbl_805DBF14;
@@ -59,7 +59,7 @@ void draw_streaks__8TObjRainFPv(struct Rain_801977D4 *self) {
     for (i = 0; i < self->count; drop++, i++) {
         if (drop->active != 0) {
             set_line_width(5);
-            VecCopy__FP3VecPC3Vec(lbl_804B8998[0], &drop->position);
+            VecCopy__FP3VecPC3Vec(TObjRain__streak_line_list[0], &drop->position);
             struct Vec_801977D4 pos = drop->position;
             if (xz_distance_squared(lbl_805D4DF0 + 0x178, &pos) < lbl_805DBF10) {
                 struct Vec_801977D4 dir = drop->velocity;
@@ -68,8 +68,8 @@ void draw_streaks__8TObjRainFPv(struct Rain_801977D4 *self) {
                 dir.y *= lbl_805DBF14;
                 dir.z *= lbl_805DBF14;
                 subtract_vector(&pos, &drop->velocity);
-                VecCopy__FP3VecPC3Vec(lbl_804B8998[0] + 0xC, &pos);
-                draw_line_list(lbl_804B8998, 1, 5);
+                VecCopy__FP3VecPC3Vec(TObjRain__streak_line_list[0] + 0xC, &pos);
+                draw_line_list(TObjRain__streak_line_list, 1, 5);
             }
         }
     }

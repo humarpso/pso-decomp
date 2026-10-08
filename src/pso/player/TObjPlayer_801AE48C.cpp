@@ -7,8 +7,8 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 extern "C" {
 int alloc__23TAdSinglePlyChrSelectGCFPv(void *);
 u8 * alloc_tables__6TLobbyFPvii(void *, s32, s32);
-extern u8 *lbl_805D5D28;
-extern u32 lbl_805D5D58;
+extern u8 *photon_blast_shared_resource;
+extern u32 pilla_photon_buffer_pair;
 void create_pilla_photon_blast_model(void);
 }
 
@@ -17,13 +17,13 @@ extern "C" {
 void free_buffer_pair__10TObjPlayerFv(void);
 M2C_UNK destroy_buffer_pair(void*, M2C_UNK);
 
-extern u32 lbl_805D5D58;
+extern u32 pilla_photon_buffer_pair;
 
 void free_buffer_pair__10TObjPlayerFv(void) {
-    if ((u32) lbl_805D5D58 != 0U) {
-        destroy_buffer_pair((void*)lbl_805D5D58, 1);
+    if ((u32) pilla_photon_buffer_pair != 0U) {
+        destroy_buffer_pair((void*)pilla_photon_buffer_pair, 1);
     }
-    lbl_805D5D58 = 0U;
+    pilla_photon_buffer_pair = 0U;
 }
 void create_pilla_photon_blast_model(void) {
     s32 temp_r3;
@@ -31,9 +31,9 @@ void create_pilla_photon_blast_model(void) {
     temp_r3 = alloc__23TAdSinglePlyChrSelectGCFPv((void *)0x14);
     var_r0 = temp_r3;
     if (var_r0 != 0) {
-        var_r0 = (long) (alloc_tables__6TLobbyFPvii((void *) temp_r3, M2C_FIELD(M2C_FIELD(M2C_FIELD(lbl_805D5D28, u8 **, 0x42C), void **, 8), s32 *, 0x2C), 0));
+        var_r0 = (long) (alloc_tables__6TLobbyFPvii((void *) temp_r3, M2C_FIELD(M2C_FIELD(M2C_FIELD(photon_blast_shared_resource, u8 **, 0x42C), void **, 8), s32 *, 0x2C), 0));
     }
-    (*(s32 *)&lbl_805D5D58) = var_r0;
+    (*(s32 *)&pilla_photon_buffer_pair) = var_r0;
 }
 
 }

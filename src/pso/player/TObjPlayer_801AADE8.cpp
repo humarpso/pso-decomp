@@ -26,8 +26,8 @@ struct Self_801AAF00 {
 extern "C" {
 int alloc__23TAdSinglePlyChrSelectGCFPv(void *);
 u8 * alloc_tables__6TLobbyFPvii(void *, s32, s32);
-extern u8 *lbl_805D5D28;
-extern u32 lbl_805D5D30;
+extern u8 *photon_blast_shared_resource;
+extern u32 estlla_photon_blast_model;
 void create_estlla_photon_blast_model(void);
 s32 copy_vec4__13TRaderMapCoreFPvPv(void *, void *);
 s32 scroll_strip_uvs(void *, s16, int);
@@ -50,7 +50,7 @@ extern Color_801AAF00 lbl_8058D4C0;
 extern s32 lbl_805D5660;
 extern s32 lbl_805D5664;
 extern s32 lbl_805D5668;
-extern void *lbl_805D5D38;
+extern void *farlla_photon_blast_model_buffers;
 extern s32 lbl_805D7780;
 extern s32 lbl_805D7784;
 extern s32 some_id_805c6f74;
@@ -69,13 +69,13 @@ u32 get_battle_param__10TObjPlayerFi(s32);
 M2C_UNK init_all_slots__10TObjPlayerFv();
 u32 obj_getField1c();
 
-extern u32 lbl_805D5D30;
+extern u32 estlla_photon_blast_model;
 
 void destroy_global_buffer__10TObjPlayerFv(void) {
-    if ((u32) lbl_805D5D30 != 0U) {
-        destroy_buffer_pair((void*)lbl_805D5D30, 1);
+    if ((u32) estlla_photon_blast_model != 0U) {
+        destroy_buffer_pair((void*)estlla_photon_blast_model, 1);
     }
-    lbl_805D5D30 = 0U;
+    estlla_photon_blast_model = 0U;
 }
 
     extern const float lbl_805DC158;
@@ -86,9 +86,9 @@ void create_estlla_photon_blast_model(void) {
     temp_r3 = alloc__23TAdSinglePlyChrSelectGCFPv((void *)0x14);
     var_r0 = temp_r3;
     if (var_r0 != 0) {
-        var_r0 = (long) (alloc_tables__6TLobbyFPvii((void *) temp_r3, M2C_FIELD(M2C_FIELD(M2C_FIELD(lbl_805D5D28, u8 **, 0x42C), void **, 0x98), s32 *, 0x2C), 0));
+        var_r0 = (long) (alloc_tables__6TLobbyFPvii((void *) temp_r3, M2C_FIELD(M2C_FIELD(M2C_FIELD(photon_blast_shared_resource, u8 **, 0x42C), void **, 0x98), s32 *, 0x2C), 0));
     }
-    (*(s32 *)&lbl_805D5D30) = var_r0;
+    (*(s32 *)&estlla_photon_blast_model) = var_r0;
 }
 
 void TObjPlayer__sub_801AAE6C(void* a0) { *(float*)((char*)a0 + 0x184) = lbl_805DC158; *(float*)((char*)a0 + 0x188) = lbl_805DC158; *(float*)((char*)a0 + 0x18c) = lbl_805DC158; *(float*)((char*)a0 + 0x190) = lbl_805DC158; }
@@ -110,7 +110,7 @@ void update_all_slots__10TObjPlayerFPv(void *arg0) {
 }
 void render__13TPhotonFarllaFPv(Self_801AAF00 *self) {
     if (self->started != 0) {
-        scroll_strip_uvs(lbl_805D5D38, self->f14C, 0);
+        scroll_strip_uvs(farlla_photon_blast_model_buffers, self->f14C, 0);
         begin_effect_render__13TParticleCtrlFv();
         set_global_param__8TObjFishFi(self->f24);
         push_matrix();

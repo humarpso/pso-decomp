@@ -242,7 +242,7 @@ extern "C" {
 s32 calc_technique_parameters(int, int, int);
 s32 is_technique_ready__8TTecCtrlFv();
 s32 copy_params__8TTecAntiFPvPv(void *, int);
-extern RecoveredGlobal_80235348_lbl_804CC510 lbl_804CC510;
+extern RecoveredGlobal_80235348_lbl_804CC510 tech_high_level_linear_power_table;
 extern RecoveredGlobal_80235348_lbl_804CC55C lbl_804CC55C;
 void init_parameters__9TTecMegidFPv(u8 *arg0);
 M2C_UNK queue_destruction__7TObjectFv(void *);
@@ -413,7 +413,7 @@ void init_parameters__9TTecMegidFPv(u8 *arg0) {
   copy_params__8TTecAntiFPvPv((void *) (arg0 + 0xCC), (int) new_var);
   if ((((s16) ((RecoveredFields_80235348_arg0 *) arg0)->field_C4) >= 0xF) && (is_technique_ready__8TTecCtrlFv() == 0))
   {
-    ((RecoveredFields_80235348_arg0 *) arg0)->field_CC = (f32) ((*((s16 *) (((s8 *) (&lbl_804CC510.value)) + 0x48))) + ((*((s16 *) (((s8 *) (&lbl_804CC510.value)) + 0x4A))) * ((RecoveredFields_80235348_arg0 *) arg0)->field_C4));
+    ((RecoveredFields_80235348_arg0 *) arg0)->field_CC = (f32) ((*((s16 *) (((s8 *) (&tech_high_level_linear_power_table.value)) + 0x48))) + ((*((s16 *) (((s8 *) (&tech_high_level_linear_power_table.value)) + 0x4A))) * ((RecoveredFields_80235348_arg0 *) arg0)->field_C4));
   }
   else
   {

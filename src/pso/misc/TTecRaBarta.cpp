@@ -195,7 +195,7 @@ void TTecRaBarta__vt6(Rabarta_80237494 *self, void *pos);
 s32 is_technique_ready__8TTecCtrlFv();
 void copy_params__8TTecAntiFPvPv(void *, s32);
 s32 calc_technique_parameters(s32, s32, s32);
-extern Params_802377FC lbl_804CC510;
+extern Params_802377FC tech_high_level_linear_power_table;
 extern Scale_802377FC lbl_804CC55C;
 void calc_parameters__11TTecRaBartaFv(RaBarta_802377FC *self);
 
@@ -243,7 +243,7 @@ extern const Profile_80237494 lbl_8044D9F8[6] = {
     {(Emitter_80237494 *)lbl_8044D98C, 3}, {(Emitter_80237494 *)lbl_8044D9B0, 3}, {(Emitter_80237494 *)lbl_8044D9D4, 3},
 };
 extern const Emitter_80237494 lbl_8044DA28 = {470, 0x10828, 0.0f};
-const char *lbl_805D37F8 = "TTecRaBarta";
+const char *TTecRaBarta_class_name = "TTecRaBarta";
 __declspec(section ".sdata2") extern const f32 lbl_805DC8C4;
 }
 typedef struct Emitter_80237494 Emitter_80237494;
@@ -349,7 +349,7 @@ void calc_parameters__11TTecRaBartaFv(RaBarta_802377FC *self) {
     s32 res = calc_technique_parameters(5, self->level, 0xFFFF);
     copy_params__8TTecAntiFPvPv(&self->amount, res);
     if (self->level >= 0xF && is_technique_ready__8TTecCtrlFv() == 0) {
-        self->amount = lbl_804CC510.base + lbl_804CC510.per_level * self->level;
+        self->amount = tech_high_level_linear_power_table.base + tech_high_level_linear_power_table.per_level * self->level;
         return;
     }
     self->amount = self->amount + (f32)(self->per_level * self->level);
@@ -386,7 +386,7 @@ void TTecRaBarta__vt4(Obj_80237900 *self, VObj_80237900 *target) {
 
 #undef attach_particle_model
 
-#define lbl_805D37F8 ((u32)lbl_805D37F8)
+#define TTecRaBarta_class_name ((u32)TTecRaBarta_class_name)
 #define __nw__7TObjectFUl ((void * (*)(int))__nw__7TObjectFUl)
 #define lbl_8044D9F8 ((struct Profile_80237A94 *)lbl_8044D9F8)
 #define __dl__7TObjectFPv ((M2C_UNK (*)(void *))__dl__7TObjectFPv)
@@ -609,7 +609,7 @@ void *TTecRaBarta__ct(void *self_, void *source, void *origin, void *pos, void *
     typedef Vec_80237DAC *(*VecCopyFn_80237BD8)(void *, void *);
     construct_area_technique_base(self_, source, origin, pos, level);
     self->vt = __vt__11TTecRaBarta;
-    self->f0 = lbl_805D37F8;
+    self->f0 = TTecRaBarta_class_name;
     calc_parameters__11TTecRaBartaFv(self);
     self->ff0 = 1;
     ((VecCopyFn_80237BD8)VecCopy__FP3VecPC3Vec)(self->pos, ((VecCopyFn_80237BD8)VecCopy__FP3VecPC3Vec)(self->src_pos, pos));
@@ -634,7 +634,7 @@ void *construct_area__11TTecRaBartaFPvPvPvPv(void *self, void *source, void *ori
     s32 i;
     construct_area_technique_base(self, source, origin, origin, level);
     M2C_FIELD(self, M2C_UNK **, 0x18) = __vt__11TTecRaBarta;
-    M2C_FIELD(self, u32 *, 0) = lbl_805D37F8;
+    M2C_FIELD(self, u32 *, 0) = TTecRaBarta_class_name;
     M2C_FIELD(self, s32 *, 0xF0) = 0;
     calc_parameters__11TTecRaBartaFv(self);
     if (M2C_FIELD(self, u8 **, 0xE8) != NULL) {
@@ -666,4 +666,4 @@ void TTecRaFoie__vt6(TTecRaFoie_80237FB8 *self);
 #undef __dl__7TObjectFPv
 #undef lbl_8044D9F8
 #undef __nw__7TObjectFUl
-#undef lbl_805D37F8
+#undef TTecRaBarta_class_name

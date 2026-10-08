@@ -23,7 +23,7 @@ int is_visible__17TWindowSubComCardFPv(void *);
 void init__9TItemDataFv(void *);
 s32 get_selected_menu_value(void *);
 void set_entry_item__18TChallenge4PResultFPvPvi(s32, M2C_UNK, s32);
-extern RecoveredGlobal_8034B158_lbl_804F00C8 lbl_804F00C8;
+extern RecoveredGlobal_8034B158_lbl_804F00C8 TChallenge4PItemSelect__item_table;
 void submit_selected_item__22TChallenge4PItemSelectFPv(u8 *arg0);
 }
 
@@ -71,7 +71,7 @@ void queue_destruction_with_callback__22TChallenge4PItemSelectFPv(void *arg0) {
     queue_destruction__7TObjectFv((void *)(arg0));
 }
 
-extern M2C_UNK lbl_804F00A8[];
+extern M2C_UNK challenge4p_item_select_text_ids[];
 extern const f32 lbl_805DFD98;
 extern const f32 lbl_805DFD9C;
 extern const f32 lbl_805DFDA0;
@@ -88,7 +88,7 @@ void submit_selected_item__22TChallenge4PItemSelectFPv(u8 *arg0) {
     u8 *temp_r3;
     temp_r3 = (u8 *)(M2C_FIELD(arg0, u8 **, 0x2C));
     if ((temp_r3 != NULL) && (is_visible__17TWindowSubComCardFPv(temp_r3) != 0)) {
-        temp_r31 = (u8 *)&lbl_804F00C8.value + (get_selected_menu_value(M2C_FIELD(arg0, u8 **, 0x2C)) * 0xC);
+        temp_r31 = (u8 *)&TChallenge4PItemSelect__item_table.value + (get_selected_menu_value(M2C_FIELD(arg0, u8 **, 0x2C)) * 0xC);
         init__9TItemDataFv(&stack.sp8);
         stack.sp8 = (s8) M2C_FIELD(temp_r31, s32 *, 0);
         stack.sp9 = (s8) M2C_FIELD(temp_r31, s32 *, 4);
@@ -114,7 +114,7 @@ void challenge4p_item_select_open_menu(void *arg0) {
         if ((u32) M2C_FIELD(arg0, u32 *, 0x2C) != 0U) {
             var_r29 = 0;
             do {
-                forward_trade_action_default__16TObjCityMainWarpFPviii(M2C_FIELD(arg0, u32 *, 0x2C), get_text_collection(lbl_804F00A8[var_r29]), 6, var_r29);
+                forward_trade_action_default__16TObjCityMainWarpFPviii(M2C_FIELD(arg0, u32 *, 0x2C), get_text_collection(challenge4p_item_select_text_ids[var_r29]), 6, var_r29);
                 var_r29 += 1;
             } while (var_r29 < 8);
             set_scroll_target__17TWindowSubComCardFPvff(M2C_FIELD(arg0, u32 *, 0x2C), lbl_805DFD98, lbl_805DFD9C);

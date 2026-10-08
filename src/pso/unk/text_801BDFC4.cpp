@@ -7,7 +7,7 @@ extern "C" {
 int alloc__23TAdSinglePlyChrSelectGCFPv(void *);
 int alloc_buffer__11TOBoss4RockFPv(void *);
 s32 fn_801C2360(s32);
-extern u32 lbl_805D5D68;
+extern u32 TObjPlayer__shared_photon_blast_state;
 extern u32 TObjPlayer__data_805D5D80;
 extern u32 lbl_805D5D84;
 void alloc_shared_buffers__10TObjPlayerFv(void);
@@ -24,13 +24,13 @@ void alloc_shared_buffers__10TObjPlayerFv(void) {
     if ((u32) lbl_805D5D84 == 0U) {
         lbl_805D5D84 = alloc_buffer__11TOBoss4RockFPv((void *)0x4800);
     }
-    if ((u32) lbl_805D5D68 == 0U) {
+    if ((u32) TObjPlayer__shared_photon_blast_state == 0U) {
         temp_r3 = alloc__23TAdSinglePlyChrSelectGCFPv((void *)0x60);
         var_r0 = temp_r3;
         if (var_r0 != 0) {
             var_r0 = fn_801C2360(temp_r3);
         }
-        lbl_805D5D68 = (u32) var_r0;
+        TObjPlayer__shared_photon_blast_state = (u32) var_r0;
     }
 }
 

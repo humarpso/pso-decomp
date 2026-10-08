@@ -11,25 +11,25 @@ void release_ref__6TLobbyFv(void);
 M2C_UNK TLobby__sub_803D3988();
 M2C_UNK TLobby__sub_803D39C0();
 
-extern s32 lbl_805D7518;
+extern s32 TLobby__init_ref_count;
 
 void release_ref__6TLobbyFv(void) {
     s32 temp_r0;
 
-    temp_r0 = lbl_805D7518 - 1;
-    lbl_805D7518 = temp_r0;
+    temp_r0 = TLobby__init_ref_count - 1;
+    TLobby__init_ref_count = temp_r0;
     if (temp_r0 == 0) {
         TLobby__sub_803D3988();
     }
 }
 
-extern s32 lbl_805D7518;
+extern s32 TLobby__init_ref_count;
 
 void init_once__6TLobbyFv(void) {
-    if ((s32) lbl_805D7518 == 0) {
+    if ((s32) TLobby__init_ref_count == 0) {
         TLobby__sub_803D39C0();
     }
-    lbl_805D7518 += 1;
+    TLobby__init_ref_count += 1;
 }
 
 }

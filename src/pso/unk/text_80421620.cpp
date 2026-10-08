@@ -197,7 +197,7 @@ s16 TLobby__sub_8041A230();
 s32 TLobby__sub_80420C5C(void);
 s16 TLobby__sub_80420C9C();
 extern char lbl_804800F0[];
-extern u32 lbl_805D7B00;
+extern u32 TLobby__network_stack_init_count;
 extern u8 *lbl_805E1188;
 s16 init_network_stack__6TLobbyFv(void);
 M2C_UNK unlock_mutex__10TUdpSocketFi(void *);
@@ -319,11 +319,11 @@ s16 init_network_stack__6TLobbyFv(void) {
     if ((s32) *lbl_805E1188 != 0xA) {
         return -1;
     }
-    if ((u32) lbl_805D7B00 == 0U) {
+    if ((u32) TLobby__network_stack_init_count == 0U) {
         OSReport(lbl_804800F0);
     }
-    temp_r3 = lbl_805D7B00;
-    lbl_805D7B00 = temp_r3 + 1;
+    temp_r3 = TLobby__network_stack_init_count;
+    TLobby__network_stack_init_count = temp_r3 + 1;
     var_r31 = TLobby__sub_80419A34((int) (temp_r3));
     if (var_r31 >= 0) {
         var_r31 = TLobby__sub_80415690();

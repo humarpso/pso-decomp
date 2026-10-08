@@ -101,14 +101,14 @@ extern "C" {
 u8 * load_resource_from_descriptor(void *, s32, void *, s32, s32, s32);
 int alloc__23TAdSinglePlyChrSelectGCFPv(void *);
 extern RecoveredGlobal_8014A8F0_lbl_804A9120 lbl_804A9120;
-extern u32 TObjNpcFemaleTall__data_805D5790;
+extern u32 TObjNpcFemaleTall__instance;
 void TObjNpcFemaleTall__sub_8014A8F0(void);
 s32 init_position_vectors__10TObjPlayerFi(void *);
 s32 setup_common__11TObjNpcBaseFv(void *);
 s32 construct_female_base__17TObjNpcFemaleBaseFPv(void *);
 extern M2C_UNK __vt__16TObjNpcFemaleOld[];
 extern s32 lbl_805D2D9C;
-extern u8 *TObjNpcFemaleOld__data_805D5788;
+extern u8 *TObjNpcFemaleOld__static_instance;
 u8 *TObjNpcFemaleOld__ct(u8 *arg0, M2C_UNK arg1, s32 arg2);
 }
 
@@ -146,8 +146,8 @@ u8 *TObjNpcFemaleOld__ct(u8 *arg0, M2C_UNK arg1, s32 arg2) {
     M2C_FIELD(arg0, s32 *, 0) = (s32) lbl_805D2D9C;
     ((VObj_18_aa4667 *)(arg0))->m79(arg2);
     init_position_vectors__10TObjPlayerFi((void *) (arg0));
-    M2C_FIELD(arg0, s32 *, 0x34) = (s32) M2C_FIELD(M2C_FIELD(TObjNpcFemaleOld__data_805D5788, u8 **, 0x42C), s32 *, 8);
-    M2C_FIELD(arg0, s32 *, 0x24) = (s32) M2C_FIELD(M2C_FIELD(TObjNpcFemaleOld__data_805D5788, u8 **, 0x42C), s32 *, 0xC);
+    M2C_FIELD(arg0, s32 *, 0x34) = (s32) M2C_FIELD(M2C_FIELD(TObjNpcFemaleOld__static_instance, u8 **, 0x42C), s32 *, 8);
+    M2C_FIELD(arg0, s32 *, 0x24) = (s32) M2C_FIELD(M2C_FIELD(TObjNpcFemaleOld__static_instance, u8 **, 0x42C), s32 *, 0xC);
     setup_common__11TObjNpcBaseFv((void *) (arg0));
     return arg0;
 }
@@ -166,12 +166,12 @@ void * TObjNpcFemaleTall__create(void *arg0) {
     return o2;
 }
 
-extern u32 TObjNpcFemaleTall__data_805D5790;
+extern u32 TObjNpcFemaleTall__instance;
 
 void destroy_instance__17TObjNpcFemaleTallFv(void) {
-    if ((u32) TObjNpcFemaleTall__data_805D5790 != 0U) {
-        TLobby__sub_8001FE7C((void*)TObjNpcFemaleTall__data_805D5790, 1);
-        TObjNpcFemaleTall__data_805D5790 = 0U;
+    if ((u32) TObjNpcFemaleTall__instance != 0U) {
+        TLobby__sub_8001FE7C((void*)TObjNpcFemaleTall__instance, 1);
+        TObjNpcFemaleTall__instance = 0U;
     }
 }
 void TObjNpcFemaleTall__sub_8014A8F0(void) {
@@ -182,7 +182,7 @@ void TObjNpcFemaleTall__sub_8014A8F0(void) {
     if (var_r0 != 0) {
         var_r0 = (long) (load_resource_from_descriptor((void *) temp_r3, 1, &lbl_804A9120.value, 0, 0, 0));
     }
-    (*(s32 *)&TObjNpcFemaleTall__data_805D5790) = var_r0;
+    (*(s32 *)&TObjNpcFemaleTall__instance) = var_r0;
 }
 
 }

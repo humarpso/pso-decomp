@@ -77,7 +77,7 @@ void Dolphin_GXInitTexObj(TexObj_803E1D90 *, void *, u16, u16, s32, s32, s32, u8
 void GXInitTexObjCI(TexObj_803E1D90 *, void *, u16, u16, s32, s32, s32, u8, u32);
 void GXLoadTexObj(TexObj_803E1D90 *, s32);
 extern s32 lbl_804FC7D0[];
-extern TexObj_803E1D90 lbl_8058DB90;
+extern TexObj_803E1D90 list_texture_tex_obj;
 extern Ctx_803E1D90 *lbl_805D774C;
 void load_list_texture(s32 idx, s32 wrapS, s32 wrapT, s32 map);
 extern const f32 lbl_805E1020;
@@ -396,11 +396,11 @@ void load_list_texture(s32 idx, s32 wrapS, s32 wrapT, s32 map) {
         mip = 0;
     }
     if (flags & 0x8000) {
-        GXInitTexObjCI(&lbl_8058DB90, hdr->image, hdr->width, hdr->height, hdr->format, wrapS, wrapT, mip, info->tlut);
+        GXInitTexObjCI(&list_texture_tex_obj, hdr->image, hdr->width, hdr->height, hdr->format, wrapS, wrapT, mip, info->tlut);
     } else {
-        Dolphin_GXInitTexObj(&lbl_8058DB90, hdr->image, hdr->width, hdr->height, hdr->format, wrapS, wrapT, mip);
+        Dolphin_GXInitTexObj(&list_texture_tex_obj, hdr->image, hdr->width, hdr->height, hdr->format, wrapS, wrapT, mip);
     }
-    GXLoadTexObj(&lbl_8058DB90, lbl_804FC7D0[map]);
+    GXLoadTexObj(&list_texture_tex_obj, lbl_804FC7D0[map]);
 }
 
 void reload_texture__10TObjPlayerFPviUiPv(void *arg0, s32 arg1, u32 arg2, void *arg3) {

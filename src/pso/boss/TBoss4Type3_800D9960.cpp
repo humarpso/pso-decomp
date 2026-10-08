@@ -45,9 +45,9 @@ void clear_global_state__10TObjPlayerFv();
 extern Vec_800D9994 lbl_80500F80;
 extern s32 lbl_805D5230;
 extern s32 lbl_805D5234;
-extern s32 lbl_805D5238;
+extern s32 motion_trail_node_index;
 extern s32 lbl_805D523C;
-extern s32 lbl_805D5240;
+extern s32 TBoss4Type3__motion_trail_points;
 extern const f32 lbl_805DA3EC;
 void draw_motion_trail__11TBoss4Type3FPviiii(Arg_800D9994 *arg0, s32 arg1, s32 arg2, s32 arg3, s32 arg4);
 }
@@ -75,11 +75,11 @@ void draw_motion_trail__11TBoss4Type3FPviiii(Arg_800D9994 *arg0, s32 arg1, s32 a
     lbl_805D5230 = arg0->a;
     lbl_805D5234 = arg0->b;
     lbl_805D523C = arg3;
-    lbl_805D5240 = arg4;
+    TBoss4Type3__motion_trail_points = arg4;
     push_matrix(&lbl_80500F80);
     f = arg0->start;
     for (i = 0; i < arg0->count; i++) {
-        lbl_805D5238 = 0;
+        motion_trail_node_index = 0;
         set_matrix_identity__10TObjPlayerFPv(0);
         bind_motion_context(arg2, f);
         transform_motion_node_points(arg0, arg1, 0);

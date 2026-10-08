@@ -139,7 +139,7 @@ extern RecoveredGlobal_802D78A0_lbl_804A7CB8 lbl_804A7CB8;
 extern RecoveredGlobal_802D78A0_lbl_804A7CDC lbl_804A7CDC;
 extern RecoveredGlobal_802D78A0_lbl_804E2680 lbl_804E2680;
 extern M2C_UNK __vt__12TObjNpcEnemy[];
-extern s32 lbl_805D3F58;
+extern s32 TObjNpcEnemy_class_name;
 u8 *TObjNpcEnemy__ct(u8 *arg0, M2C_UNK arg1, s32 arg2);
 M2C_UNK advance_animation_playback(void *);
 M2C_UNK draw_debug_info__12TObjNpcEnemyFPv();
@@ -415,7 +415,7 @@ typedef char RecoveredGlobal_802D78A0___vt__12TObjNpcEnemy_size[sizeof(Recovered
 u8 *TObjNpcEnemy__ct(u8 *arg0, M2C_UNK arg1, s32 arg2) {
     TObjNpcBase__ct((void *) (arg0));
     M2C_FIELD(arg0, M2C_UNK **, 0x18) = &(*(RecoveredGlobal_802D78A0___vt__12TObjNpcEnemy *)&__vt__12TObjNpcEnemy).value;
-    M2C_FIELD(arg0, s32 *, 0) = (s32) lbl_805D3F58;
+    M2C_FIELD(arg0, s32 *, 0) = (s32) TObjNpcEnemy_class_name;
     ((VObj_18_cff70e *)(arg0))->m79(arg2);
     init_position_vectors__10TObjPlayerFi((void *) (arg0));
     ((VObj_18_cff70e *)(arg0))->m85(0, 1);

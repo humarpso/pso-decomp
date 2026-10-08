@@ -97,7 +97,7 @@ extern Color_801AA818 lbl_8058D4C0;
 extern s32 lbl_805D5660;
 extern s32 lbl_805D5664;
 extern s32 lbl_805D5668;
-extern void *lbl_805D5D30;
+extern void *estlla_photon_blast_model;
 extern s32 lbl_805D7780;
 extern s32 lbl_805D7784;
 extern s32 some_id_805c6f74;
@@ -135,7 +135,7 @@ void spawn_line__13TPhotonEstllaFPv(Self_801AA710 *self) {
 
 void render__13TPhotonEstllaFv(Self_801AA818 *self) {
     if (self->started != 0) {
-        scroll_strip_uvs(lbl_805D5D30, self->f14C, 0);
+        scroll_strip_uvs(estlla_photon_blast_model, self->f14C, 0);
         begin_effect_render__13TParticleCtrlFv();
         set_global_param__8TObjFishFi(self->f24);
         push_matrix();

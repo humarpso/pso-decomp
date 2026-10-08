@@ -27,7 +27,7 @@ struct Glob_8001EE48 { s8 value; u8 remaining[0x1F]; };
 
 extern "C" {
 s32 strcmp(void *, void *);
-extern RecoveredGlobal_8001EDF4_lbl_804FE148 lbl_804FE148;
+extern RecoveredGlobal_8001EDF4_lbl_804FE148 TLobby__tmp_buf_name;
 extern s32 lbl_805D4AD4;
 void TLobby__sub_8001EDF4(u8 *arg0);
 s32 get_bml_motion(Fish_8001ED9C *self, s32 i);
@@ -36,7 +36,7 @@ s32 get_bml_model(Fish_8001EDC4 *self, s32 i);
 void TLobby__sub_8001EDD8(List_8001EDD8 *self, s32 item);
 char *strncpy(char *d, const char *s, u32 n);
 void debug_print__6TLobbyFii(s32 arg0, ...);
-extern RecoveredGlobal_8001EDF4_lbl_804FE148 lbl_804FE148;
+extern RecoveredGlobal_8001EDF4_lbl_804FE148 TLobby__tmp_buf_name;
 extern char lbl_80434AE8[];
 extern s32 lbl_805D4AD4;
 extern s32 lbl_805D4ACC;
@@ -45,7 +45,7 @@ s32 strcmp(void *, void *);
 void debug_print__6TLobbyFii(s32 arg0, ...);
 extern char lbl_80434AA0[];
 extern char lbl_80434AC0[];
-extern RecoveredGlobal_8001EDF4_lbl_804FE148 lbl_804FE148;
+extern RecoveredGlobal_8001EDF4_lbl_804FE148 TLobby__tmp_buf_name;
 extern s32 lbl_805D4AD4;
 s32 tmp_buf_release__6TLobbyFi(s32 arg0);
 }
@@ -79,9 +79,9 @@ void TLobby__sub_8001EDD8(List_8001EDD8 *self, s32 item) {
 }
 
 void TLobby__sub_8001EDF4(u8 *arg0) {
-    if (((s32) lbl_805D4AD4 == 0) && (strcmp(&lbl_804FE148.value, arg0) == 0)) {
+    if (((s32) lbl_805D4AD4 == 0) && (strcmp(&TLobby__tmp_buf_name.value, arg0) == 0)) {
         lbl_805D4AD4 = 1;
-        lbl_804FE148.value = 0;
+        TLobby__tmp_buf_name.value = 0;
     }
 }
 
@@ -91,13 +91,13 @@ s32 tmp_buf_release__6TLobbyFi(s32 arg0) {
             debug_print__6TLobbyFii((s32)lbl_80434AA0, arg0);
             return 0;
         }
-        if (strcmp(&lbl_804FE148, (void *)arg0) != 0) {
-            debug_print__6TLobbyFii((s32)lbl_80434AC0, arg0, &lbl_804FE148);
+        if (strcmp(&TLobby__tmp_buf_name, (void *)arg0) != 0) {
+            debug_print__6TLobbyFii((s32)lbl_80434AC0, arg0, &TLobby__tmp_buf_name);
             return 0;
         }
     }
     lbl_805D4AD4 = 1;
-    (*(Glob_8001EE48 *)&lbl_804FE148).value = 0;
+    (*(Glob_8001EE48 *)&TLobby__tmp_buf_name).value = 0;
     return 1;
 }
 
@@ -107,7 +107,7 @@ s32 TLobby__sub_8001EEF4(void) {
 s32 tmp_buf_use_req__6TLobbyFPv(const char *name) {
     if (lbl_805D4AD4 != 0) {
         lbl_805D4AD4 = 0;
-        strncpy(((char *)&lbl_804FE148), name, 0x20);
+        strncpy(((char *)&TLobby__tmp_buf_name), name, 0x20);
         return lbl_805D4ACC;
     }
     debug_print__6TLobbyFii((s32)lbl_80434AE8);

@@ -123,7 +123,7 @@ void VecCopy__FP3VecPC3Vec(Vec_8022AE10 *, const Vec_8022AE10 *);
 void *create_timed_particle_emitter_with_flags(Vec_8022AE10 *, s32, s32, s32, s32);
 void set_owner_id__13TParticleCtrlFPvUs(void *, s32);
 void __ct__7TObjectFP7TObject(void *, void *);
-extern AntiRow_8022AE10 lbl_804CC0A8[];
+extern AntiRow_8022AE10 TTecAnti__self_effect_rows[];
 extern M2C_UNK lbl_804CC0E8[];
 Obj_8022AE10 *construct_self_effect__8TTecAntiFPvPvPviPv(Obj_8022AE10 *self, const Vec_8022AE10 *body, const Vec_8022AE10 *ground, s32 actor, void *parent);
 int queue_destruction__7TObjectFv(void*);
@@ -184,7 +184,7 @@ Obj_8022AE10 *construct_self_effect__8TTecAntiFPvPvPviPv(Obj_8022AE10 *self, con
     VecCopy__FP3VecPC3Vec(&self->body, body);
     VecCopy__FP3VecPC3Vec(&self->ground, ground);
     for (i = 0; i < 4; i++) {
-        AntiRow_8022AE10 *row = &lbl_804CC0A8[i];
+        AntiRow_8022AE10 *row = &TTecAnti__self_effect_rows[i];
         void *p;
         if (row->flags & 1) {
             p = create_timed_particle_emitter_with_flags(&self->ground, row->c, row->a, row->b, 0x10);

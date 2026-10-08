@@ -133,7 +133,7 @@ s32 get_draw_count__9TWindowDDFPv(void **arg0) {
 }
 
 extern s32 TWindowDD__data_805D6E30;
-extern s32 lbl_805D6E3C;
+extern s32 twindowdd_entry_count;
 
 #pragma push
 #pragma fp_contract on
@@ -177,7 +177,7 @@ s32 TWindowDD__sub_80348B70(s16 arg0) {
 }
 
 s32 get_entry__9TWindowDDFi(s32 arg0) {
-    if ((arg0 < 0) || (arg0 >= (s32) lbl_805D6E3C)) {
+    if ((arg0 < 0) || (arg0 >= (s32) twindowdd_entry_count)) {
         return 0;
     }
     return TWindowDD__data_805D6E30 + (arg0 * 8);

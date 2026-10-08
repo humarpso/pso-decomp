@@ -213,8 +213,8 @@ void TAdMultiPlyChrSelectGC__sub_802E0024(O_802E0024 *self, s32 v) {
 
 s32 get_card_index__22TAdMultiPlyChrSelectGCFPv(void* p) { return *(s32*)((char*)p + 0x4e8); }
 
-    extern int lbl_805D67E4;
-int get_card_instance__22TAdMultiPlyChrSelectGCFv(void) {  return lbl_805D67E4; }
+    extern int ad_chr_sel_ply_plate_instance;
+int get_card_instance__22TAdMultiPlyChrSelectGCFv(void) {  return ad_chr_sel_ply_plate_instance; }
 
 s32 get_selection__22TAdMultiPlyChrSelectGCFPv(void* p) { return *(s32*)((char*)p + 0x4f8); }
 

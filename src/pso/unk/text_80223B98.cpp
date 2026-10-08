@@ -52,7 +52,7 @@ extern "C" {
 extern RecoveredGlobal_80224404_lbl_80513F20 lbl_80513F20;
 void TLobby__sub_80224404(s32 arg0, s32 arg1, s32 arg2);
 M2C_UNK memset(void *, int, int);
-extern RecoveredGlobal_802243D4_lbl_80513F10 lbl_80513F10;
+extern RecoveredGlobal_802243D4_lbl_80513F10 shop_tool_flags;
 void clear_shop_tool_flags(void);
 extern RecoveredGlobal_80224404_lbl_80513F20 lbl_80513F20;
 void mark_shop_tool_sold_out(s32 a, s32 b);
@@ -62,12 +62,12 @@ s32 classify_tool_shop_level_bracket(s32 arg0);
 extern Pair_802242F8 lbl_8044C398[];
 extern s32 lbl_80513EF0[];
 extern RecoveredGlobal_80224404_lbl_80513F20 lbl_80513F20;
-extern Tbl_802242F8 **lbl_805D6260;
+extern Tbl_802242F8 **lobby_tool_random_rel;
 extern s32 lbl_805D6264;
 void generate_shop_common_tool_pool(s32 arg0);
 s32 TLobby__sub_80223D48(s32 arg0);
 s32 rand();
-extern Tbl_802242F8 **lbl_805D6260;
+extern Tbl_802242F8 **lobby_tool_random_rel;
 extern s32 lbl_805D6264;
 void roll_shop_technique_level(Obj_80223EE0 *arg0, s32 arg1);
 s32 fn_80223B98(s32 arg0);
@@ -83,7 +83,7 @@ s32 TLobby__sub_80223DD8(Item_802242F8 *, s32);
 extern RecoveredGlobal_80224404_lbl_80513F20 lbl_80513F20;
 extern s32 lbl_80513EF0[];
 extern s32 lbl_8044C418[];
-extern Tbl_802242F8 **lbl_805D6260;
+extern Tbl_802242F8 **lobby_tool_random_rel;
 extern s32 lbl_805D6264;
 void generate_shop_technique_pool(s32 arg0);
 s32 fn_80223C28(s32 arg0);
@@ -98,7 +98,7 @@ s32 TLobby__sub_80223E64(Item_802242F8 *, s32);
 extern RecoveredGlobal_80224404_lbl_80513F20 lbl_80513F20;
 extern s32 lbl_80513EF0[];
 extern Pair_802242F8 lbl_8044C398[];
-extern Tbl_802242F8 **lbl_805D6260;
+extern Tbl_802242F8 **lobby_tool_random_rel;
 extern s32 lbl_805D6264;
 void generate_shop_rare_tool_pool(s32 arg0);
 }
@@ -199,7 +199,7 @@ typedef char RecoveredGlobal_802243D4_lbl_80513F10_size[sizeof(RecoveredGlobal_8
 struct RecoveredGlobal_80224404_lbl_80513F20;
 
 void roll_shop_technique_level(Obj_80223EE0 *arg0, s32 arg1) {
-    Tbl_80223EE0 *t = ((Tbl_80223EE0 **)lbl_805D6260)[2];
+    Tbl_80223EE0 *t = ((Tbl_80223EE0 **)lobby_tool_random_rel)[2];
     s32 idx = TLobby__sub_80223D48(lbl_805D6264);
     Ent_80223EE0 *e;
     s32 level;
@@ -258,7 +258,7 @@ void generate_shop_technique_pool(s32 arg0) {
     if (n > 0) {
         reset_counter_64__6TLobbyFPv(&ctr);
         i = TLobby__sub_80223D48(lbl_805D6264);
-        t = ((Tbl_8022403C **)lbl_805D6260)[1];
+        t = ((Tbl_8022403C **)lobby_tool_random_rel)[1];
         e = &t->base[i * t->count];
         c = 0;
         while (c++ < t->count) {
@@ -305,7 +305,7 @@ void generate_shop_rare_tool_pool(s32 arg0) {
     if (n > 0) {
         reset_counter_64__6TLobbyFPv(&ctr);
         i = TLobby__sub_80223D48(lbl_805D6264);
-        t = ((Tbl_80224190 **)lbl_805D6260)[1];
+        t = ((Tbl_80224190 **)lobby_tool_random_rel)[1];
         e = &t->base[i * t->count];
         c = 0;
         while (c++ < t->count) {
@@ -350,7 +350,7 @@ void generate_shop_common_tool_pool(s32 arg0) {
     arr = ((Item_802242F8 **)&lbl_80513F20)[arg0];
     row = classify_tool_shop_level_bracket(lbl_805D6264);
     if (row >= 0) {
-        t = *lbl_805D6260;
+        t = *lobby_tool_random_rel;
         row *= t->count;
         p = t->base + row;
         for (i = 0; i < t->count; i++, p++) {
@@ -366,7 +366,7 @@ void generate_shop_common_tool_pool(s32 arg0) {
 }
 
 void clear_shop_tool_flags(void) {
-    memset((void *) (&lbl_80513F10.value), (int) (0), (int) (0x10));
+    memset((void *) (&shop_tool_flags.value), (int) (0), (int) (0x10));
 }
 
 void TLobby__sub_80224404(s32 arg0, s32 arg1, s32 arg2) {

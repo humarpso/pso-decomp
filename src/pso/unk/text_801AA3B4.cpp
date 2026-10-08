@@ -12,7 +12,7 @@ void TLobby__sub_8001FE7C(u32, int);
 void call_funcs_reverse__6TLobbyFPvUi(void *, int);
 extern u8 lbl_804C344C[];
 extern u32 lbl_8050E880[];
-extern u32 lbl_805D5D28;
+extern u32 photon_blast_shared_resource;
 void TObjPlayer__sub_801AA3B4(void);
 extern struct PhotonBlastChain_801AA424 lbl_8050E890[];
 void TObjPlayer__sub_801AA424(void);
@@ -23,7 +23,7 @@ void TObjPlayer__sub_801AA424(void);
 extern u8 lbl_804C343C[];
 extern u8 lbl_804C344C[];
 extern u32 lbl_8050E880[];
-extern u32 lbl_805D5D28;
+extern u32 photon_blast_shared_resource;
 void load_photon_blast_resources(void);
 }
 
@@ -32,9 +32,9 @@ extern "C" {
 void TObjPlayer__sub_801AA3B4(void) {
     s32 i;
     call_funcs_reverse__6TLobbyFPvUi(lbl_804C344C, 0x50);
-    if (lbl_805D5D28 != 0U) {
-        TLobby__sub_8001FE7C(lbl_805D5D28, 1);
-        lbl_805D5D28 = 0U;
+    if (photon_blast_shared_resource != 0U) {
+        TLobby__sub_8001FE7C(photon_blast_shared_resource, 1);
+        photon_blast_shared_resource = 0U;
     }
     for (i = 0; i < 4; i++) {
         lbl_8050E880[i] = 0;
@@ -59,7 +59,7 @@ void load_photon_blast_resources(void) {
     if (p != NULL) {
         p = load_resource_from_descriptor(p, 1, lbl_804C343C, 0, 0, 0);
     }
-    lbl_805D5D28 = (u32) p;
+    photon_blast_shared_resource = (u32) p;
     run_load_callback_table(lbl_804C344C, 0x50);
     for (i = 0; i < 4; i++) {
         lbl_8050E880[i] = 0;

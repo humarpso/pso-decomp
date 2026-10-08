@@ -52,9 +52,9 @@ s32 measure_char_overflow__19TWindowKeyBoardSoftFPvUsPvPvPv(Field_80080D1C *f, u
 s32 TWindowKeyBoardSoft__sub_80080DFC(F_80080DFC *arg0, u16 *arg1);
 extern s32 lbl_805D5544;
 void TWindowKeyBoardSoft__sub_8008081C(Kb_8008081C *kb, char *s);
-extern u16 lbl_8048E02C[];
+extern u16 keyboard_soft_small_kana_sjis[];
 s32 TWindowKeyBoardSoft__sub_80080A08(F_80080A08 *arg0);
-extern u16 lbl_8048DFF8[];
+extern u16 TWindowKeyBoardSoft__hiragana_sjis_table[];
 s32 TWindowKeyBoardSoft__sub_80080B34(F_80080B34 *arg0);
 }
 
@@ -174,7 +174,7 @@ s32 TWindowKeyBoardSoft__sub_80080A08(F_80080A08 *arg0) {
         c -= 0xA1;
     }
     for (i = 0; i < 10; i++) {
-        if (c == lbl_8048E02C[i]) {
+        if (c == keyboard_soft_small_kana_sjis[i]) {
             p[-1]--;
             return 1;
         }
@@ -224,7 +224,7 @@ s32 TWindowKeyBoardSoft__sub_80080B34(F_80080B34 *arg0) {
         c -= 0xA1;
     }
     for (i = 0; i < 20; i++) {
-        if (c == lbl_8048DFF8[i]) {
+        if (c == TWindowKeyBoardSoft__hiragana_sjis_table[i]) {
             p[-1]++;
             return 1;
         }

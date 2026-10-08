@@ -100,7 +100,7 @@ s32 setup_common__11TObjNpcBaseFv(void *);
 s32 construct_male_npc_base(void *);
 extern M2C_UNK __vt__18TObjNpcConnoisseur[];
 extern s32 lbl_805D2D60;
-extern u32 TObjNpcConnoisseur__data_805D574C;
+extern u32 TObjNpcConnoisseur__instance;
 u8 *TObjNpcConnoisseur__ct(u8 *arg0, M2C_UNK arg1, s32 arg2);
 void *load_resource_from_descriptor(void *, s32, s32, s32, s32, s32);
 void *alloc__23TAdSinglePlyChrSelectGCFPv(s32);
@@ -108,7 +108,7 @@ s32 get_task_id__14TFontSmallTaskFPv(void *);
 extern s32 lbl_804A8310[];
 extern u8 TLobby__data_805011D8[];
 extern s32 lbl_805D5748;
-extern u32 TObjNpcConnoisseur__data_805D574C;
+extern u32 TObjNpcConnoisseur__instance;
 void load_section_motion__18TObjNpcConnoisseurFv(void);
 }
 
@@ -124,12 +124,12 @@ void __dl__7TObjectFPv(void *);
 void *__nw__7TObjectFUl(int);
 void destroy_npc_lappy_base__12TObjNpcLappyFPvs(void *, int);
 
-extern u32 TObjNpcConnoisseur__data_805D574C;
+extern u32 TObjNpcConnoisseur__instance;
 
 void destroy_instance__18TObjNpcConnoisseurFv(void) {
-    if ((u32) TObjNpcConnoisseur__data_805D574C != 0U) {
-        TLobby__sub_8001FE7C((void*)TObjNpcConnoisseur__data_805D574C, 1);
-        TObjNpcConnoisseur__data_805D574C = 0U;
+    if ((u32) TObjNpcConnoisseur__instance != 0U) {
+        TLobby__sub_8001FE7C((void*)TObjNpcConnoisseur__instance, 1);
+        TObjNpcConnoisseur__instance = 0U;
     }
 }
 
@@ -142,7 +142,7 @@ void load_section_motion__18TObjNpcConnoisseurFv(void) {
     if (o != 0) {
         o = load_resource_from_descriptor(o, 1, lbl_804A8310[lbl_805D5748], 0, 0, 0);
     }
-    TObjNpcConnoisseur__data_805D574C = (u32)o;
+    TObjNpcConnoisseur__instance = (u32)o;
 }
 
 void *__dt__18TObjNpcConnoisseurFv(void *arg0, s16 arg1) {
@@ -165,8 +165,8 @@ u8 *TObjNpcConnoisseur__ct(u8 *arg0, M2C_UNK arg1, s32 arg2) {
     M2C_FIELD(arg0, s32 *, 0) = (s32) lbl_805D2D60;
     ((VObj_18_aa4667 *)(arg0))->m79(arg2);
     init_position_vectors__10TObjPlayerFi((void *) (arg0));
-    M2C_FIELD(arg0, s32 *, 0x34) = (s32) M2C_FIELD(M2C_FIELD((*(u8 * *)&TObjNpcConnoisseur__data_805D574C), u8 **, 0x42C), s32 *, 8);
-    M2C_FIELD(arg0, s32 *, 0x24) = (s32) M2C_FIELD(M2C_FIELD((*(u8 * *)&TObjNpcConnoisseur__data_805D574C), u8 **, 0x42C), s32 *, 0xC);
+    M2C_FIELD(arg0, s32 *, 0x34) = (s32) M2C_FIELD(M2C_FIELD((*(u8 * *)&TObjNpcConnoisseur__instance), u8 **, 0x42C), s32 *, 8);
+    M2C_FIELD(arg0, s32 *, 0x24) = (s32) M2C_FIELD(M2C_FIELD((*(u8 * *)&TObjNpcConnoisseur__instance), u8 **, 0x42C), s32 *, 0xC);
     setup_common__11TObjNpcBaseFv((void *) (arg0));
     return arg0;
 }

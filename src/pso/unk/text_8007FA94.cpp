@@ -24,7 +24,7 @@ M2C_UNK play_sound_effect(M2C_UNK, void *, M2C_UNK, M2C_UNK);
 M2C_UNK play_cue_stream_file(void *);
 extern u8 lbl_80438D40[];
 extern u8 lbl_80438D58[];
-f32 lbl_8048DFA0[3] = { 320.0f, 221.0f, 0.5f };
+f32 duel_start_countdown_effect_pos[3] = { 320.0f, 221.0f, 0.5f };
 void update_duel_start_countdown(Obj_8007FB14 *self);
 }
 
@@ -90,7 +90,7 @@ void update_duel_start_countdown(Obj_8007FB14 *self) {
         }
         break;
     case 0xA0:
-        spawn_particle_effect_with_flags(lbl_8048DFA0, 0x1F1, 0x48C0);
+        spawn_particle_effect_with_flags(duel_start_countdown_effect_pos, 0x1F1, 0x48C0);
         play_cue_stream_file(lbl_80438D58);
         break;
     case 0xB4:

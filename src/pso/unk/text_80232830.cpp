@@ -17,7 +17,7 @@ extern "C" {
 s32 calc_technique_parameters(int, int, int);
 s32 is_technique_ready__8TTecCtrlFv();
 s32 copy_params__8TTecAntiFPvPv(void *, int);
-extern RecoveredGlobal_80232830_lbl_804CC510 lbl_804CC510;
+extern RecoveredGlobal_80232830_lbl_804CC510 tech_high_level_linear_power_table;
 extern RecoveredGlobal_80232830_lbl_804CC55C lbl_804CC55C;
 void init_parameters__10TTecGrantsFPv(u8 *arg0);
 }
@@ -37,7 +37,7 @@ void init_parameters__10TTecGrantsFPv(u8 *arg0) {
   copy_params__8TTecAntiFPvPv((void *) (arg0 + 0x88), new_var3);
   if ((((s16) (*((s16 *) (new_var + 0x78)))) >= 0xF) && (is_technique_ready__8TTecCtrlFv() == 0))
   {
-    new_var2 = &lbl_804CC510.value;
+    new_var2 = &tech_high_level_linear_power_table.value;
     new_var = new_var;
     *((f32 *) (new_var + 0x88)) = (f32) ((*((s16 *) (((s8 *) new_var2) + 0x24))) + ((*((s16 *) (((s8 *) new_var2) + 0x26))) * (*((s16 *) (new_var + 0x78)))));
     return;

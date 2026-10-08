@@ -35,7 +35,7 @@ M2C_UNK set_global_param__8TObjFishFi(s32);
 extern void *lbl_805D4C10;
 extern s32 lbl_805D4D18;
 extern s32 lbl_805D4D1C;
-extern s32 lbl_805D4D20;
+extern s32 volopt_cage_breakup_model;
 extern s32 lbl_805D4D24;
 
 void init_break_model__14TObjVoloptCageFv(void) {
@@ -48,7 +48,7 @@ void init_break_model__14TObjVoloptCageFv(void) {
     if (var_r0 != 0) {
         var_r0 = init_from_model__11TBreakUpMdlFPvi(var_r0, lbl_805D4D24);
     }
-    lbl_805D4D20 = var_r0;
+    volopt_cage_breakup_model = var_r0;
     lbl_805D4D18 = register_boss__6TLobbyFPv(0x26);
     lbl_805D4D1C = dispatch_shared_handler_a__6TLobbyFPv(0x26);
 }

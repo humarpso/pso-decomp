@@ -177,8 +177,8 @@ M2C_UNK set_matrix_identity__10TObjPlayerFPv(void *);
 M2C_UNK rotate_matrix_y(void *, int);
 extern u8 lbl_80472044[];
 extern Entry_802C9E3C lbl_804E0FE4[];
-extern s32 TOTrapSeabed01__data_805D6810;
-extern s32 TOTrapSeabed01__data_805D6814;
+extern s32 TOTrapSeabed01__bml_resource;
+extern s32 TOTrapSeabed01__texture_file;
 extern const f32 TOTrapSeabed01__data_805DE644;
 extern const f32 lbl_805DE648;
 void TOTrapSeabed01__vt83(Trap_802C9E3C *self);
@@ -204,7 +204,7 @@ void TOTrapSeabed01__vt20(s32 arg0, s32 arg1, f32 farg0) {
     set_triggered_state__6TOTrapFPvUi(arg0, arg1, farg0);
 }
 
-extern u32 lbl_805D6818;
+extern u32 TOTrapSeabed01__ginja_model;
 
 void TOTrapSeabed01__vt83(Trap_802C9E3C *self) {
     Mtx_802C9E3C m;
@@ -215,11 +215,11 @@ void TOTrapSeabed01__vt83(Trap_802C9E3C *self) {
     void *o;
     copy_transform__8TObjChipFPvPv(&p, lbl_80472044);
     y = TOTrapSeabed01__data_805DE644;
-    p.f44 = TOTrapSeabed01__data_805D6814;
+    p.f44 = TOTrapSeabed01__texture_file;
     for (i = 0; i < 6; i++) {
         e = &lbl_804E0FE4[i];
         VecCopy__FP3VecPC3Vec(&p.pos, &e->pos);
-        p.model = get_bml_model(TOTrapSeabed01__data_805D6810, e->id);
+        p.model = get_bml_model(TOTrapSeabed01__bml_resource, e->id);
         p.arg = e->arg;
         o = __nw__7TObjectFUl(0x24C);
         if (o != NULL) {
@@ -315,7 +315,7 @@ void TOTrapSeabed01__vt79(u8 *arg0) {
 }
 
 void trigger_by_id__14TOTrapSeabed01FUi(u32 arg0) {
-    if (arg0 == (u32) lbl_805D6818) {
+    if (arg0 == (u32) TOTrapSeabed01__ginja_model) {
         begin_effect_render__13TParticleCtrlFv();
         return;
     }

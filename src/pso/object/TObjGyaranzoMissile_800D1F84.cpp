@@ -103,8 +103,8 @@ struct Idx_800D23D4 { s32 v[4]; };
 extern "C" {
 f32 TObjGyaranzoMissile__sub_800D40EC(s32);
 extern f32 lbl_805D51F0;
-extern f32 TObjGyaranzoMissile__data_805D51F4;
-extern f32 lbl_805D51F8;
+extern f32 TObjGyaranzoMissile__speed_scale;
+extern f32 TObjGyaranzoMissile__max_range;
 void TObjGyaranzoMissile__sub_800D1F84(u8 *arg0);
 s32 check_path_obstructed(void *, void *);
 M2C_UNK VecCopy__FP3VecPC3Vec(void *, void *);
@@ -127,7 +127,7 @@ M2C_UNK TObjGyaranzoMissile__ct(void *, void *, void *, u16);
 s32 copy_target_state__14TObjEnePanarmsFPvPv(void *, s32);
 M2C_UNK play_sound_effect(int, void *, int, int);
 void *__nw__7TObjectFUl(int);
-extern s32 lbl_805D520C;
+extern s32 gyaranzo_missile_volley_end_time;
 void spawn_missile_volley__19TObjGyaranzoMissileFPv(u8 *arg0);
 }
 
@@ -143,8 +143,8 @@ M2C_UNK update_if_active__15TObjEneMe1GiGueFPv(void *, M2C_UNK, s32);
 void TObjGyaranzoMissile__sub_800D1F84(u8 *arg0) {
     M2C_FIELD(M2C_FIELD(arg0, u8 **, 0x350), f32 *, 4) = TObjGyaranzoMissile__sub_800D40EC(1);
     lbl_805D51F0 = TObjGyaranzoMissile__sub_800D40EC(2);
-    TObjGyaranzoMissile__data_805D51F4 = TObjGyaranzoMissile__sub_800D40EC(3);
-    lbl_805D51F8 = TObjGyaranzoMissile__sub_800D40EC(4);
+    TObjGyaranzoMissile__speed_scale = TObjGyaranzoMissile__sub_800D40EC(3);
+    TObjGyaranzoMissile__max_range = TObjGyaranzoMissile__sub_800D40EC(4);
 }
 
 void update__19TObjGyaranzoMissileFPv(u8 *arg0) {
@@ -257,7 +257,7 @@ void copy_from__19TObjGyaranzoMissileFPvPv(void* p, void* q) { *(u32*)((char*)p 
 void spawn_missile_volley__19TObjGyaranzoMissileFPv(u8 *arg0) {
     Vec_800D23D4 pos;
     s32 i;
-    lbl_805D520C = TObjGyaranzoMissile__sub_800D40FC(1) + 0x96;
+    gyaranzo_missile_volley_end_time = TObjGyaranzoMissile__sub_800D40FC(1) + 0x96;
     render_anim_model_at_pos__12TBoss3VoloptFPv(arg0);
     {
         Desc_800D23D4 d1 = { &pos, -0x1000, M2C_FIELD(arg0, s32 *, 0x60) + 0x800, 1024.0f, 3.0f, 0.0f };

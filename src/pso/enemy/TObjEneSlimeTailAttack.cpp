@@ -520,7 +520,7 @@ extern RecoveredGlobal_800E8128_lbl_80496704 lbl_80496704;
 extern RecoveredGlobal_800E8128_lbl_80496710 lbl_80496710;
 extern M2C_UNK lbl_8049671C[];
 extern RecoveredGlobal_800E8128_lbl_80501010 lbl_80501010;
-extern s32 lbl_805D2ADC;
+extern s32 TObjEneSlimeOne_class_name;
 extern s32 lbl_805D2AE0;
 extern int lbl_805D52B4;
 extern s32 lbl_805D586C;
@@ -1699,7 +1699,7 @@ u8 *TObjEneSlimeOne__ct(u8 *arg0, M2C_UNK arg1, s32 arg2, s32 arg3, s32 arg4) {
     Stack_800EB3D4 stack;
     initialize__9TObjEnemyFPv((void *) (arg0));
     M2C_FIELD(arg0, M2C_UNK **, 0x18) = &(*(RecoveredGlobal_800EB3D4___vt__15TObjEneSlimeOne *)&__vt__15TObjEneSlimeOne).value;
-    M2C_FIELD(arg0, s32 *, 0) = (s32) lbl_805D2ADC;
+    M2C_FIELD(arg0, s32 *, 0) = (s32) TObjEneSlimeOne_class_name;
     add_flags_2e4__10TObjPlayerFPvUi((void *) (arg0), (int) (2));
     ((VObj_18_aa4667 *)(arg0))->m79(arg3);
     if (exchange_object_state__6TLobbyFPvis((void *) (arg0), (void *) (&stack.sp8), (int) (1)) != 0) {
@@ -1720,7 +1720,7 @@ u8 *init__15TObjEneSlimeOneFPviii(u8 *arg0, M2C_UNK arg1, s32 arg2, s32 arg3) {
     Stack_800EB4A0 stack;
     initialize__9TObjEnemyFPv((void *) (arg0));
     M2C_FIELD(arg0, M2C_UNK **, 0x18) = &(*(RecoveredGlobal_800EB4A0___vt__15TObjEneSlimeOne *)&__vt__15TObjEneSlimeOne).value;
-    M2C_FIELD(arg0, s32 *, 0) = (s32) lbl_805D2ADC;
+    M2C_FIELD(arg0, s32 *, 0) = (s32) TObjEneSlimeOne_class_name;
     add_flags_2e4__10TObjPlayerFPvUi((void *) (arg0), (int) (2));
     ((VObj_18_aa4667 *)(arg0))->m79(arg3);
     if (exchange_object_state__6TLobbyFPvis((void *) (arg0), (void *) (&stack.sp8), (int) (1)) != 0) {

@@ -33,7 +33,7 @@ u32 init_collision_body_parts(void *, s32, s32);
 u8 * TORockCave__ct(void *);
 extern RecoveredGlobal_80174954_lbl_804B3BA8 lbl_804B3BA8;
 extern RecoveredGlobal_80174954___vt__13TORockCaveL01 __vt__13TORockCaveL01;
-extern s32 lbl_805D3124;
+extern s32 TORockCaveL01_class_name;
 extern u8 *lbl_805D5A80;
 extern const f32 lbl_805DB970;
 u8 *TORockCaveL01__ct(u8 *arg0, s32 arg1);
@@ -46,7 +46,7 @@ typedef char RecoveredGlobal_80174954___vt__13TORockCaveL01_size[sizeof(Recovere
 u8 *TORockCaveL01__ct(u8 *arg0, s32 arg1) {
     TORockCave__ct(arg0);
     M2C_FIELD(arg0, M2C_UNK **, 0x18) = &__vt__13TORockCaveL01.value;
-    M2C_FIELD(arg0, s32 *, 0) = (s32) lbl_805D3124;
+    M2C_FIELD(arg0, s32 *, 0) = (s32) TORockCaveL01_class_name;
     ((VObj_18_1a504b *)(arg0))->m5(arg1);
     M2C_FIELD(arg0, s32 *, 0x34) = get_bml_model(lbl_805D5A80, 0);
     M2C_FIELD(arg0, s32 *, 0x24) = TObjFish__sub_8001EDB0(lbl_805D5A80, 0);

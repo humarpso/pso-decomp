@@ -101,18 +101,18 @@ extern "C" {
 u8 * load_resource_from_descriptor(void *, s32, void *, s32, s32, s32);
 int alloc__23TAdSinglePlyChrSelectGCFPv(void *);
 extern RecoveredGlobal_8014ABC4_lbl_804A9428 lbl_804A9428;
-extern u32 TObjNpcGovernorBase__data_805D57A0;
+extern u32 TObjNpcGovernorBase__shared_resource;
 void TObjNpcGovernorBase__sub_8014ABC4(void);
 s32 init_position_vectors__10TObjPlayerFi(void *);
 s32 setup_common__11TObjNpcBaseFv(void *);
 s32 construct_male_npc_base(void *);
 extern M2C_UNK __vt__19TObjNpcGovernorBase[];
 extern s32 lbl_805D2DAC;
-extern u32 TObjNpcGovernorBase__data_805D57A0;
+extern u32 TObjNpcGovernorBase__shared_resource;
 u8 *TObjNpcGovernorBase__ct(u8 *arg0, M2C_UNK arg1, s32 arg2);
 void *create_named_object(const char *name);
 void *load_gvm_texture_file(const char *name);
-extern u32 TObjNpcHFW00__data_805D57A8;
+extern u32 TObjNpcHFW00__shared_resource_obj;
 extern u32 TObjNpcHFW00__data_805D57AC;
 extern char lbl_8043FA38[];
 extern char lbl_8043FA4C[];
@@ -135,12 +135,12 @@ void *__nw__7TObjectFUl(int);
 void destroy_npc_lappy_base__12TObjNpcLappyFPvs(void *, int);
 M2C_UNK safe_free__23TAdSinglePlyChrSelectGCFUi(u32);
 
-extern u32 TObjNpcGovernorBase__data_805D57A0;
+extern u32 TObjNpcGovernorBase__shared_resource;
 
 void free_shared_data__19TObjNpcGovernorBaseFv(void) {
-    if ((u32) TObjNpcGovernorBase__data_805D57A0 != 0U) {
-        TLobby__sub_8001FE7C((void*)TObjNpcGovernorBase__data_805D57A0, 1);
-        TObjNpcGovernorBase__data_805D57A0 = 0U;
+    if ((u32) TObjNpcGovernorBase__shared_resource != 0U) {
+        TLobby__sub_8001FE7C((void*)TObjNpcGovernorBase__shared_resource, 1);
+        TObjNpcGovernorBase__shared_resource = 0U;
     }
 }
 
@@ -154,7 +154,7 @@ void TObjNpcGovernorBase__sub_8014ABC4(void) {
     if (var_r0 != 0) {
         var_r0 = (long) (load_resource_from_descriptor((void *) temp_r3, 1, &lbl_804A9428.value, 0, 0, 0));
     }
-    (*(s32 *)&TObjNpcGovernorBase__data_805D57A0) = var_r0;
+    (*(s32 *)&TObjNpcGovernorBase__shared_resource) = var_r0;
 }
 
 void *__dt__19TObjNpcGovernorBaseFv(void *arg0, s16 arg1) {
@@ -177,8 +177,8 @@ u8 *TObjNpcGovernorBase__ct(u8 *arg0, M2C_UNK arg1, s32 arg2) {
     M2C_FIELD(arg0, s32 *, 0) = (s32) lbl_805D2DAC;
     ((VObj_18_aa4667 *)(arg0))->m79(arg2);
     init_position_vectors__10TObjPlayerFi((void *) (arg0));
-    M2C_FIELD(arg0, s32 *, 0x34) = (s32) M2C_FIELD(M2C_FIELD((*(u8 * *)&TObjNpcGovernorBase__data_805D57A0), u8 **, 0x42C), s32 *, 8);
-    M2C_FIELD(arg0, s32 *, 0x24) = (s32) M2C_FIELD(M2C_FIELD((*(u8 * *)&TObjNpcGovernorBase__data_805D57A0), u8 **, 0x42C), s32 *, 0xC);
+    M2C_FIELD(arg0, s32 *, 0x34) = (s32) M2C_FIELD(M2C_FIELD((*(u8 * *)&TObjNpcGovernorBase__shared_resource), u8 **, 0x42C), s32 *, 8);
+    M2C_FIELD(arg0, s32 *, 0x24) = (s32) M2C_FIELD(M2C_FIELD((*(u8 * *)&TObjNpcGovernorBase__shared_resource), u8 **, 0x42C), s32 *, 0xC);
     setup_common__11TObjNpcBaseFv((void *) (arg0));
     return arg0;
 }
@@ -197,7 +197,7 @@ void * TObjNpcHFW00__create(void *arg0) {
     return o2;
 }
 
-extern u32 TObjNpcHFW00__data_805D57A8;
+extern u32 TObjNpcHFW00__shared_resource_obj;
 extern u32 TObjNpcHFW00__data_805D57AC;
 
 void free_resources__12TObjNpcHFW00Fv(void) {
@@ -206,13 +206,13 @@ void free_resources__12TObjNpcHFW00Fv(void) {
         safe_free__23TAdSinglePlyChrSelectGCFUi(TObjNpcHFW00__data_805D57AC);
         TObjNpcHFW00__data_805D57AC = 0U;
     }
-    if ((u32) TObjNpcHFW00__data_805D57A8 != 0U) {
-        free_nodes_with_id__6TLobbyFUi((void*)TObjNpcHFW00__data_805D57A8);
-        TObjNpcHFW00__data_805D57A8 = 0U;
+    if ((u32) TObjNpcHFW00__shared_resource_obj != 0U) {
+        free_nodes_with_id__6TLobbyFUi((void*)TObjNpcHFW00__shared_resource_obj);
+        TObjNpcHFW00__shared_resource_obj = 0U;
     }
 }
 void load_resources__12TObjNpcHFW00Fv(void) {
-    TObjNpcHFW00__data_805D57A8 = (u32)create_named_object(lbl_8043FA38);
+    TObjNpcHFW00__shared_resource_obj = (u32)create_named_object(lbl_8043FA38);
     TObjNpcHFW00__data_805D57AC = (u32)load_gvm_texture_file(lbl_8043FA4C);
 }
 

@@ -21,7 +21,7 @@ extern QuestSavedEnemyFloor_8020C1F0 TLobby__data_80513AD0[];
 extern QuestEnemyRow_8020C1F0 *TLobby__data_805D6114;
 extern s32 TLobby__data_805D6118;
 s32 is_room_enemy_set_cleared(s32 floor, s16 room);
-extern Ent_8020BFE4 *lbl_80498E98[];
+extern Ent_8020BFE4 *enemy_factory_area_table[];
 s32 get_enemy_factory_child_count(s32 arg0, s16 *arg1);
 extern Ent_8020C030 *TLobby__data_804C1ED8[];
 s32 TLobby__sub_8020C030(s32 arg0, s16 *arg1);
@@ -39,7 +39,7 @@ s32 TLobby__sub_8020C118(void);
 extern "C" {
 
 s32 get_enemy_factory_child_count(s32 arg0, s16 *arg1) {
-    Ent_8020BFE4 *base = lbl_80498E98[arg0];
+    Ent_8020BFE4 *base = enemy_factory_area_table[arg0];
     Ent_8020BFE4 *p = base;
     for (; base != 0 && p->id != -1; p++) {
         if (p->id == *arg1) {

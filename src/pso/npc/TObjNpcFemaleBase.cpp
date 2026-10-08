@@ -104,19 +104,19 @@ extern "C" {
 u8 * load_resource_from_descriptor(void *, s32, void *, s32, s32, s32);
 int alloc__23TAdSinglePlyChrSelectGCFPv(void *);
 extern RecoveredGlobal_80149DE0_lbl_804A87C0 lbl_804A87C0;
-extern u32 TObjNpcFemaleBase__data_805D5760;
+extern u32 TObjNpcFemaleBase__shared_resource_obj;
 void TObjNpcFemaleBase__sub_80149DE0(void);
 u8 * load_resource_from_descriptor(void *, s32, void *, s32, s32, s32);
 int alloc__23TAdSinglePlyChrSelectGCFPv(void *);
 extern RecoveredGlobal_80149FB8_lbl_804A8950 lbl_804A8950;
-extern u32 TObjNpcFemaleChild__data_805D5768;
+extern u32 TObjNpcFemaleChild__static_instance;
 void TObjNpcFemaleChild__sub_80149FB8(void);
 s32 init_position_vectors__10TObjPlayerFi(void *);
 s32 setup_common__11TObjNpcBaseFv(void *);
 s32 construct_female_base__17TObjNpcFemaleBaseFPv(void *);
 extern M2C_UNK __vt__17TObjNpcFemaleBase[];
 extern s32 lbl_805D2D74;
-extern u32 TObjNpcFemaleBase__data_805D5760;
+extern u32 TObjNpcFemaleBase__shared_resource_obj;
 u8 *TObjNpcFemaleBase__ct(u8 *arg0, M2C_UNK arg1, s32 arg2);
 }
 
@@ -150,12 +150,12 @@ void * TObjNpcFemaleBase__create(void *arg0) {
     return o2;
 }
 
-extern u32 TObjNpcFemaleBase__data_805D5760;
+extern u32 TObjNpcFemaleBase__shared_resource_obj;
 
 void free_static_data__17TObjNpcFemaleBaseFv(void) {
-    if ((u32) TObjNpcFemaleBase__data_805D5760 != 0U) {
-        TLobby__sub_8001FE7C((void*)TObjNpcFemaleBase__data_805D5760, 1);
-        TObjNpcFemaleBase__data_805D5760 = 0U;
+    if ((u32) TObjNpcFemaleBase__shared_resource_obj != 0U) {
+        TLobby__sub_8001FE7C((void*)TObjNpcFemaleBase__shared_resource_obj, 1);
+        TObjNpcFemaleBase__shared_resource_obj = 0U;
     }
 }
 
@@ -169,7 +169,7 @@ void TObjNpcFemaleBase__sub_80149DE0(void) {
     if (var_r0 != 0) {
         var_r0 = (long) (load_resource_from_descriptor((void *) temp_r3, 1, &lbl_804A87C0.value, 0, 0, 0));
     }
-    (*(s32 *)&TObjNpcFemaleBase__data_805D5760) = var_r0;
+    (*(s32 *)&TObjNpcFemaleBase__shared_resource_obj) = var_r0;
 }
 
 void *__dt__17TObjNpcFemaleBaseFv(void *arg0, s16 arg1) {
@@ -192,8 +192,8 @@ u8 *TObjNpcFemaleBase__ct(u8 *arg0, M2C_UNK arg1, s32 arg2) {
     M2C_FIELD(arg0, s32 *, 0) = (s32) lbl_805D2D74;
     ((VObj_18_aa4667 *)(arg0))->m79(arg2);
     init_position_vectors__10TObjPlayerFi((void *) (arg0));
-    M2C_FIELD(arg0, s32 *, 0x34) = (s32) M2C_FIELD(M2C_FIELD((*(u8 * *)&TObjNpcFemaleBase__data_805D5760), u8 **, 0x42C), s32 *, 8);
-    M2C_FIELD(arg0, s32 *, 0x24) = (s32) M2C_FIELD(M2C_FIELD((*(u8 * *)&TObjNpcFemaleBase__data_805D5760), u8 **, 0x42C), s32 *, 0xC);
+    M2C_FIELD(arg0, s32 *, 0x34) = (s32) M2C_FIELD(M2C_FIELD((*(u8 * *)&TObjNpcFemaleBase__shared_resource_obj), u8 **, 0x42C), s32 *, 8);
+    M2C_FIELD(arg0, s32 *, 0x24) = (s32) M2C_FIELD(M2C_FIELD((*(u8 * *)&TObjNpcFemaleBase__shared_resource_obj), u8 **, 0x42C), s32 *, 0xC);
     setup_common__11TObjNpcBaseFv((void *) (arg0));
     return arg0;
 }
@@ -212,12 +212,12 @@ void * TObjNpcFemaleChild__create(void *arg0) {
     return o2;
 }
 
-extern u32 TObjNpcFemaleChild__data_805D5768;
+extern u32 TObjNpcFemaleChild__static_instance;
 
 void release_static_instance__18TObjNpcFemaleChildFv(void) {
-    if ((u32) TObjNpcFemaleChild__data_805D5768 != 0U) {
-        TLobby__sub_8001FE7C((void*)TObjNpcFemaleChild__data_805D5768, 1);
-        TObjNpcFemaleChild__data_805D5768 = 0U;
+    if ((u32) TObjNpcFemaleChild__static_instance != 0U) {
+        TLobby__sub_8001FE7C((void*)TObjNpcFemaleChild__static_instance, 1);
+        TObjNpcFemaleChild__static_instance = 0U;
     }
 }
 void TObjNpcFemaleChild__sub_80149FB8(void) {
@@ -228,7 +228,7 @@ void TObjNpcFemaleChild__sub_80149FB8(void) {
     if (var_r0 != 0) {
         var_r0 = (long) (load_resource_from_descriptor((void *) temp_r3, 1, &lbl_804A8950.value, 0, 0, 0));
     }
-    (*(s32 *)&TObjNpcFemaleChild__data_805D5768) = var_r0;
+    (*(s32 *)&TObjNpcFemaleChild__static_instance) = var_r0;
 }
 
 }

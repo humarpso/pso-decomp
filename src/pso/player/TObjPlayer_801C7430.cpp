@@ -2121,7 +2121,7 @@ extern f32 lbl_8050BFE0[];
 extern void *lbl_8050EA10[];
 extern u8 *lbl_805D3530;
 extern s32 lbl_805D39B8;
-extern u8 *lbl_805D5D68;
+extern u8 *TObjPlayer__shared_photon_blast_state;
 extern const f32 lbl_805DC364;
 extern const f32 lbl_805DC370;
 extern const f32 lbl_805DC374;
@@ -4481,57 +4481,57 @@ void run_guard_reaction_phase__10TObjPlayerFis(s32 arg0, s16 arg1) {
 }
 
 void TObjPlayer__sub_801CBC90(s32 arg0) {
-    if ((void *) lbl_805D5D68 != NULL) {
-        create_party_effects__10TObjPlayerFPvi(lbl_805D5D68, arg0);
+    if ((void *) TObjPlayer__shared_photon_blast_state != NULL) {
+        create_party_effects__10TObjPlayerFPvi(TObjPlayer__shared_photon_blast_state, arg0);
     }
 }
 
 u8 *TObjPlayer__sub_801CBCC4(s32 arg0) {
-    if ((void *) lbl_805D5D68 != NULL) {
-        return find_by_section_id__10TObjPlayerFPvi(lbl_805D5D68, arg0);
+    if ((void *) TObjPlayer__shared_photon_blast_state != NULL) {
+        return find_by_section_id__10TObjPlayerFPvi(TObjPlayer__shared_photon_blast_state, arg0);
     }
     return NULL;
 }
 
 s32 get_current_target_id__10TObjPlayerFv(void) {
-    if ((u32) (*(u32 *)&lbl_805D5D68) != 0U) {
-        return find_first_valid_target_id__10TObjPlayerFPv((void*)(*(u32 *)&lbl_805D5D68));
+    if ((u32) (*(u32 *)&TObjPlayer__shared_photon_blast_state) != 0U) {
+        return find_first_valid_target_id__10TObjPlayerFPv((void*)(*(u32 *)&TObjPlayer__shared_photon_blast_state));
     }
     return 0xFFFF;
 }
 
 void remove_photon_blast_participant(s32 arg0) {
-    if ((void *) lbl_805D5D68 != NULL) {
-        TObjPlayer__sub_80312E98(lbl_805D5D68, arg0);
+    if ((void *) TObjPlayer__shared_photon_blast_state != NULL) {
+        TObjPlayer__sub_80312E98(TObjPlayer__shared_photon_blast_state, arg0);
     }
 }
 
 void update_photon_blast_state__10TObjPlayerFv(void) {
-    if ((u32) (*(u32 *)&lbl_805D5D68) != 0U) {
-        process_all_elements__10TObjPlayerFPv((void*)(*(u32 *)&lbl_805D5D68));
+    if ((u32) (*(u32 *)&TObjPlayer__shared_photon_blast_state) != 0U) {
+        process_all_elements__10TObjPlayerFPv((void*)(*(u32 *)&TObjPlayer__shared_photon_blast_state));
     }
 }
 
 u8 *TObjPlayer__sub_801CBD98(s32 arg0) {
-    if ((void *) lbl_805D5D68 != NULL) {
-        return ((u8 * (*)(void *, int))get_element__10TObjPlayerFPvi)(lbl_805D5D68, arg0);
+    if ((void *) TObjPlayer__shared_photon_blast_state != NULL) {
+        return ((u8 * (*)(void *, int))get_element__10TObjPlayerFPvi)(TObjPlayer__shared_photon_blast_state, arg0);
     }
     return NULL;
 }
 
 void apply_photon_blast__10TObjPlayerFii(s32 arg0, s32 arg1) {
-    if ((u32) (*(u32 *)&lbl_805D5D68) != 0U) {
-        append_photon_blast_request((*(u32 *)&lbl_805D5D68), arg0, arg1);
+    if ((u32) (*(u32 *)&TObjPlayer__shared_photon_blast_state) != 0U) {
+        append_photon_blast_request((*(u32 *)&TObjPlayer__shared_photon_blast_state), arg0, arg1);
     }
 }
 
 void update_active_instance__10TObjPlayerFi(s32 arg0) {
-    if ((u32) (*(u32 *)&lbl_805D5D68) != 0U) {
+    if ((u32) (*(u32 *)&TObjPlayer__shared_photon_blast_state) != 0U) {
         if (((s32 (*)(void))reset_volopt_state__10TObjPlayerFv)() == 0) {
-            ((M2C_UNK (*)(u32))process_all_elements__10TObjPlayerFPv)((*(u32 *)&lbl_805D5D68));
+            ((M2C_UNK (*)(u32))process_all_elements__10TObjPlayerFPv)((*(u32 *)&TObjPlayer__shared_photon_blast_state));
             return;
         }
-        release_photon_blast_requests((*(u32 *)&lbl_805D5D68));
+        release_photon_blast_requests((*(u32 *)&TObjPlayer__shared_photon_blast_state));
         admit_photon_blast_sequence(((s32 (*)(s32))TObjPlayer__sub_801CBD98)(0), arg0);
     }
 }

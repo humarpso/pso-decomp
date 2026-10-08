@@ -88,26 +88,26 @@ extern char lbl_805D4710[8];
 extern char lbl_805D4718[8];
 extern char lbl_805D4720[8];
 extern char lbl_805D4728[8];
-extern char lbl_805D4730[4];
-extern char lbl_805D4734[4];
-extern char lbl_805D4738[4];
-extern char lbl_805D473C[4];
+extern char TQuestVmDownLoadServer__config_key_nam[4];
+extern char quest_download_config_key_pan[4];
+extern char TQuestVmDownLoadServer__config_prefix_man[4];
+extern char quest_vm_config_key_sgn[4];
 extern char lbl_805D4740[4];
-extern char lbl_805D4744[4];
-extern char lbl_805D4748[4];
+extern char quest_download_config_prefix_pn[4];
+extern char quest_download_config_prefix_li[4];
 extern char lbl_805D474C[4];
-extern char lbl_805D4750[4];
-extern char lbl_805D4754[4];
-extern char lbl_805D4758[4];
-extern char lbl_805D475C[4];
+extern char TQuestVmDownLoadServer__config_key_d1[4];
+extern char quest_download_config_key_d2[4];
+extern char TQuestVmDownLoadServer__config_prefix_it[4];
+extern char quest_vm_config_key_pxs[4];
 extern char lbl_805D4760[4];
-extern char lbl_805D4764[4];
-extern char lbl_805D4768[4];
+extern char quest_download_config_prefix_at[4];
+extern char quest_download_config_prefix_dt[4];
 extern char lbl_805D476C[4];
-extern char lbl_805D4770[4];
-extern char lbl_805D4774[4];
-extern char lbl_805D4778[4];
-extern char lbl_805D477C[4];
+extern char TQuestVmDownLoadServer__config_key_ol[4];
+extern char quest_download_config_key_od[4];
+extern char TQuestVmDownLoadServer__config_prefix_t1[4];
+extern char quest_vm_config_key_t2[4];
 extern char lbl_805D4780[4];
 extern char lbl_805D4784[4];
 extern char lbl_805D4788[4];
@@ -180,48 +180,48 @@ s32 parse_config_line__22TQuestVmDownLoadServerFPvUiPv(char *s, u32 n, Q_803F63F
         q->v6 = TQuestVmDownLoadServer__sub_803F7058((char *)(s), (u32)(n));
     }
     if (lbl_805D79E8 == 0 && i < 6) {
-        if (strncmp(s, lbl_805D4730, 3) == 0) {
+        if (strncmp(s, TQuestVmDownLoadServer__config_key_nam, 3) == 0) {
             CPY(q->a[i].name, 0x20);
-        } else if (strncmp(s, lbl_805D4734, 3) == 0) {
+        } else if (strncmp(s, quest_download_config_key_pan, 3) == 0) {
             q->a[i].v20 = GET();
-        } else if (strncmp(s, lbl_805D4738, 3) == 0) {
+        } else if (strncmp(s, TQuestVmDownLoadServer__config_prefix_man, 3) == 0) {
             q->a[i].v22 = GET();
-        } else if (strncmp(s, lbl_805D473C, 3) == 0) {
+        } else if (strncmp(s, quest_vm_config_key_sgn, 3) == 0) {
             q->a[i].v24 = GET();
         } else if (strncmp(s, lbl_805D4740, 3) == 0) {
             q->a[i].v26 = GET();
         }
     }
     if (lbl_805D79E8 == 0 && i < 6) {
-        if (strncmp(s, lbl_805D4744, 3) == 0) {
+        if (strncmp(s, quest_download_config_prefix_pn, 3) == 0) {
             CPY(q->b[i].s000, 0x20);
-        } else if (strncmp(s, lbl_805D4748, 3) == 0) {
+        } else if (strncmp(s, quest_download_config_prefix_li, 3) == 0) {
             CPY(q->b[i].s020, 0x80);
         } else if (strncmp(s, lbl_805D474C, 3) == 0) {
             CPY(q->b[i].s0A0, 0x20);
-        } else if (strncmp(s, lbl_805D4750, 3) == 0) {
+        } else if (strncmp(s, TQuestVmDownLoadServer__config_key_d1, 3) == 0) {
             q->b[i].v0C0 = GETL();
-        } else if (strncmp(s, lbl_805D4754, 3) == 0) {
+        } else if (strncmp(s, quest_download_config_key_d2, 3) == 0) {
             q->b[i].v0C4 = GETL();
-        } else if (strncmp(s, lbl_805D4758, 3) == 0) {
+        } else if (strncmp(s, TQuestVmDownLoadServer__config_prefix_it, 3) == 0) {
             q->b[i].v0C8 = GET();
-        } else if (strncmp(s, lbl_805D475C, 3) == 0) {
+        } else if (strncmp(s, quest_vm_config_key_pxs, 3) == 0) {
             CPY(q->b[i].s0CC, 0x40);
         } else if (strncmp(s, lbl_805D4760, 3) == 0) {
             q->b[i].v10C = GETL();
-        } else if (strncmp(s, lbl_805D4764, 3) == 0) {
+        } else if (strncmp(s, quest_download_config_prefix_at, 3) == 0) {
             q->b[i].v10E = GET();
-        } else if (strncmp(s, lbl_805D4768, 3) == 0) {
+        } else if (strncmp(s, quest_download_config_prefix_dt, 3) == 0) {
             q->b[i].v110 = GET();
         } else if (strncmp(s, lbl_805D476C, 3) == 0) {
             q->b[i].v111 = GET();
-        } else if (strncmp(s, lbl_805D4770, 3) == 0) {
+        } else if (strncmp(s, TQuestVmDownLoadServer__config_key_ol, 3) == 0) {
             CPY(q->b[i].s114, 0x10);
-        } else if (strncmp(s, lbl_805D4774, 3) == 0) {
+        } else if (strncmp(s, quest_download_config_key_od, 3) == 0) {
             CPY(q->b[i].s124, 0x10);
-        } else if (strncmp(s, lbl_805D4778, 3) == 0) {
+        } else if (strncmp(s, TQuestVmDownLoadServer__config_prefix_t1, 3) == 0) {
             CPY(q->b[i].s134, 0x20);
-        } else if (strncmp(s, lbl_805D477C, 3) == 0) {
+        } else if (strncmp(s, quest_vm_config_key_t2, 3) == 0) {
             CPY(q->b[i].s154, 0x20);
         } else if (strncmp(s, lbl_805D4780, 3) == 0) {
             CPY(q->b[i].s174, 0x20);

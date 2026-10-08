@@ -23,7 +23,7 @@ void __dl__7TObjectFPv(void*);
 void* __nw__7TObjectFUl(M2C_UNK);
 extern s32 tl_03;
 extern s32 lbl_805D5C60;
-extern void* lbl_804B8D70[];
+extern void* language_lobby_texture_descriptor[];
 extern Pair_80198F14 lbl_8050DD50[];
 int set_timer_value__12TWindowTimerFii(int,int);
 void bswap_6x79_gogo_ball__12TWindowTimerFi(s32);
@@ -267,7 +267,7 @@ struct Vec_80198E84 { f32 x; f32 y; f32 z; s32 w; u8 pad10[2]; s16 f12; };
 extern "C" {
 void TLobby__sub_8001FE7C(s32, int, void *, f32);
 void free_if_valid__10TObjPlayerFi(int);
-extern s32 lbl_804B8DAC[];
+extern s32 lobby_gvm_texture_handles[];
 extern Vec_80198E84 lbl_8050DDAC[];
 extern s32 lbl_805D5C60;
 void fn_80198E84(void);
@@ -287,8 +287,8 @@ void fn_80198E84(void) {
     TLobby__sub_8001FE7C(lbl_805D5C60, 1, lbl_8050DDAC, (63.0f));
     lbl_805D5C60 = 0;
     for (i = 0; i < 9; i++) {
-        free_if_valid__10TObjPlayerFi(lbl_804B8DAC[i]);
-        lbl_804B8DAC[i] = 0;
+        free_if_valid__10TObjPlayerFi(lobby_gvm_texture_handles[i]);
+        lobby_gvm_texture_handles[i] = 0;
     }
 }
 
@@ -296,7 +296,7 @@ void fn_80198E84(void) {
 
 #define lbl_8050DDAC (*(Cfg_80198F14 *)&lbl_8050DDAC)
 #define lbl_805D5C60 (*(void* *)&lbl_805D5C60)
-#define lbl_804B8D70 (*(u8 (*)[1])&lbl_804B8D70)
+#define language_lobby_texture_descriptor (*(u8 (*)[1])&language_lobby_texture_descriptor)
 
 #include "types.h"
 struct Cfg_80198F14 { f32 f0; f32 f4; f32 f8; s32 fC; u8 pad10[2]; s16 f12; u8 pad14[4]; s8 f18; };
@@ -316,7 +316,7 @@ extern char lbl_804460E0[];
 extern char lbl_804460FC[];
 extern char lbl_8044610C[];
 extern char lbl_80446124[];
-extern s32 lbl_804B8DAC[];
+extern s32 lobby_gvm_texture_handles[];
 extern Pair_80198F14 lbl_8050DD50[];
 void load_lobby_textures__9TLanguageFv(void);
 }
@@ -337,25 +337,25 @@ void load_lobby_textures__9TLanguageFv(void) {
     p->b = 0;
     obj = alloc__23TAdSinglePlyChrSelectGCFPv(0x440);
     if (obj != 0) {
-        obj = load_resource_from_descriptor(obj, 5, lbl_804B8D70, 0, 0, 0);
+        obj = load_resource_from_descriptor(obj, 5, language_lobby_texture_descriptor, 0, 0, 0);
     }
     lbl_805D5C60 = obj;
-    lbl_804B8DAC[0] = load_gvm_texture_file(lbl_80446088);
-    lbl_804B8DAC[1] = load_gvm_texture_file(lbl_80446098);
-    lbl_804B8DAC[2] = load_gvm_texture_file(lbl_804460A8);
-    lbl_804B8DAC[3] = load_gvm_texture_file(lbl_804460B8);
-    lbl_804B8DAC[4] = load_gvm_texture_file(lbl_804460C8);
-    lbl_804B8DAC[5] = load_gvm_texture_file(lbl_804460E0);
-    lbl_804B8DAC[6] = load_gvm_texture_file(lbl_804460FC);
-    lbl_804B8DAC[7] = load_gvm_texture_file(lbl_8044610C);
-    lbl_804B8DAC[8] = load_gvm_texture_file(lbl_80446124);
+    lobby_gvm_texture_handles[0] = load_gvm_texture_file(lbl_80446088);
+    lobby_gvm_texture_handles[1] = load_gvm_texture_file(lbl_80446098);
+    lobby_gvm_texture_handles[2] = load_gvm_texture_file(lbl_804460A8);
+    lobby_gvm_texture_handles[3] = load_gvm_texture_file(lbl_804460B8);
+    lobby_gvm_texture_handles[4] = load_gvm_texture_file(lbl_804460C8);
+    lobby_gvm_texture_handles[5] = load_gvm_texture_file(lbl_804460E0);
+    lobby_gvm_texture_handles[6] = load_gvm_texture_file(lbl_804460FC);
+    lobby_gvm_texture_handles[7] = load_gvm_texture_file(lbl_8044610C);
+    lobby_gvm_texture_handles[8] = load_gvm_texture_file(lbl_80446124);
 }
 
 }
 
 #undef lbl_8050DDAC
 #undef lbl_805D5C60
-#undef lbl_804B8D70
+#undef language_lobby_texture_descriptor
 #define lbl_8050DD58 (*(u8 (*)[1])&lbl_8050DD58)
 #define lbl_8050DDAC (*(RecoveredGlobal_80199470_lbl_8050DDAC *)&lbl_8050DDAC)
 #define lbl_8050E208 (*(s32 (*)[1])&lbl_8050E208)
@@ -533,7 +533,7 @@ void *lbl_804B8D58[6] = {
     (void *)&lbl_80445FF0, (void *)&lbl_80446000, (void *)&lbl_80446018, (void *)&lbl_80446028,
     (void *)&lbl_80446038, (void *)0x0,
 };
-void *lbl_804B8D70[4] = {
+void *language_lobby_texture_descriptor[4] = {
     (void *)&lbl_80446050, (void *)&lbl_804B8D58, (void *)&lbl_805D3438, (void *)0x50000,
 };
 void *lbl_804B8D80[5] = {
@@ -903,7 +903,7 @@ M2C_UNK set_chunk_material_color(void *);
 M2C_UNK draw_chunk_object(s32);
 extern Color_80199A44 lbl_80446060[];
 extern const f32 lbl_804A7418[];
-extern s32 lbl_804B8DAC[];
+extern s32 lobby_gvm_texture_handles[];
 extern u8 lbl_8050BEC0[];
 extern u8 lbl_8058D490[];
 extern u8 lbl_8058D4C0[];
@@ -965,10 +965,10 @@ void draw_model__8TObjFishFPv(u8 *arg0) {
         TObjPlayer__sub_803D8BFC(0, &dir, F(s32, 0x338));
     }
     rotate_matrix_y(0, F(s32, 0x334));
-    if (lbl_804B8DAC != 0 && lbl_805D5C60 != 0) {
+    if (lobby_gvm_texture_handles != 0 && lbl_805D5C60 != 0) {
         switch (lbl_8050DD58.kind) {
         case 0:
-            set_global_param__8TObjFishFi(lbl_804B8DAC[0]);
+            set_global_param__8TObjFishFi(lobby_gvm_texture_handles[0]);
             set_cull_back__8TObjFishFv();
             draw_chunk_object(get_bml_model(lbl_805D5C60, 3));
             set_cull_mode_front__8TObjFishFv();
@@ -976,7 +976,7 @@ void draw_model__8TObjFishFPv(u8 *arg0) {
             set_cull_none__8TObjFishFv();
             break;
         case 1:
-            set_global_param__8TObjFishFi(lbl_804B8DAC[1]);
+            set_global_param__8TObjFishFi(lobby_gvm_texture_handles[1]);
             set_cull_back__8TObjFishFv();
             draw_chunk_object(get_bml_model(lbl_805D5C60, 0));
             set_cull_mode_front__8TObjFishFv();
@@ -984,7 +984,7 @@ void draw_model__8TObjFishFPv(u8 *arg0) {
             set_cull_none__8TObjFishFv();
             break;
         case 2:
-            set_global_param__8TObjFishFi(lbl_804B8DAC[2]);
+            set_global_param__8TObjFishFi(lobby_gvm_texture_handles[2]);
             set_cull_back__8TObjFishFv();
             draw_chunk_object(get_bml_model(lbl_805D5C60, 0));
             set_cull_mode_front__8TObjFishFv();
@@ -992,7 +992,7 @@ void draw_model__8TObjFishFPv(u8 *arg0) {
             set_cull_none__8TObjFishFv();
             break;
         case 3:
-            set_global_param__8TObjFishFi(lbl_804B8DAC[3]);
+            set_global_param__8TObjFishFi(lobby_gvm_texture_handles[3]);
             set_cull_back__8TObjFishFv();
             draw_chunk_object(get_bml_model(lbl_805D5C60, 0));
             set_cull_mode_front__8TObjFishFv();
@@ -1000,7 +1000,7 @@ void draw_model__8TObjFishFPv(u8 *arg0) {
             set_cull_none__8TObjFishFv();
             break;
         case 6:
-            set_global_param__8TObjFishFi(lbl_804B8DAC[6]);
+            set_global_param__8TObjFishFi(lobby_gvm_texture_handles[6]);
             set_cull_back__8TObjFishFv();
             draw_chunk_object(get_bml_model(lbl_805D5C60, 2));
             set_cull_mode_front__8TObjFishFv();

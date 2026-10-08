@@ -121,7 +121,7 @@ void TObjEneMe3Shinowa__ct(void *, void *);
 void invoke_initialization_hook__9TObjEneDDFPv(void *, void *);
 void fn_800E762C(void *);
 void init_enemy__23TObjEneMe3ShinowaMirageFPv(void *);
-extern s32 lbl_805D2ACC;
+extern s32 TObjEneMe3ShinowaReal_class_name;
 extern M2C_UNK __vt__21TObjEneMe3ShinowaReal[];
 Obj_800E46D4 *TObjEneMe3ShinowaReal__ct(Obj_800E46D4 *arg0, void *arg1, void *arg2);
 }
@@ -201,7 +201,7 @@ Obj_800E46D4 *TObjEneMe3ShinowaReal__ct(Obj_800E46D4 *arg0, void *arg1, void *ar
     s32 i;
     TObjEneMe3Shinowa__ct(arg0, arg1);
     *(void **) ((u8 *) arg0 + 0x18) = ((u8 *)&__vt__21TObjEneMe3ShinowaReal);
-    arg0->f0 = lbl_805D2ACC;
+    arg0->f0 = TObjEneMe3ShinowaReal_class_name;
     invoke_initialization_hook__9TObjEneDDFPv(arg0, arg2);
     fn_800E762C(arg0);
     init_enemy__23TObjEneMe3ShinowaMirageFPv(arg0);

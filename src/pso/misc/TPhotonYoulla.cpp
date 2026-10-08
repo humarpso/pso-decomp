@@ -60,7 +60,7 @@ M2C_UNK spawn_photon_blast_attachment_effects(void *, M2C_UNK);
 extern u8 lbl_804C3B48[];
 extern M2C_UNK __vt__13TPhotonYoulla[];
 extern s32 lbl_805D3528;
-extern u8 *lbl_805D5D28;
+extern u8 *photon_blast_shared_resource;
 u8 *TPhotonYoulla__ct(u8 *arg0, u8 *arg1);
 }
 
@@ -197,10 +197,10 @@ u8 *TPhotonYoulla__ct(u8 *arg0, u8 *arg1) {
     if (temp_r3 != NULL) {
         M2C_FIELD(arg0, s32 *, 0x60) = (s32) M2C_FIELD(temp_r3, s32 *, 0x60);
     }
-    M2C_FIELD(arg0, s32 *, 0x34) = (s32) M2C_FIELD(M2C_FIELD(lbl_805D5D28, u8 **, 0x42C), s32 *, 0xB8);
-    M2C_FIELD(arg0, s32 *, 0x24) = (s32) M2C_FIELD(M2C_FIELD(lbl_805D5D28, u8 **, 0x42C), s32 *, 0xBC);
+    M2C_FIELD(arg0, s32 *, 0x34) = (s32) M2C_FIELD(M2C_FIELD(photon_blast_shared_resource, u8 **, 0x42C), s32 *, 0xB8);
+    M2C_FIELD(arg0, s32 *, 0x24) = (s32) M2C_FIELD(M2C_FIELD(photon_blast_shared_resource, u8 **, 0x42C), s32 *, 0xBC);
     set_field_d8__10TObjPlayerFPvi(arg0, (s32) lbl_804C3B48);
-    set_field_dc__10TObjPlayerFPvi(arg0, M2C_FIELD(lbl_805D5D28, s32 *, 0x430));
+    set_field_dc__10TObjPlayerFPvi(arg0, M2C_FIELD(photon_blast_shared_resource, s32 *, 0x430));
     M2C_FIELD(arg0, s16 *, 0xB8) = 1;
     set_animation__10TObjPlayerFPvs(arg0, M2C_FIELD(arg0, s16 *, 0xB8));
     set_field_b8__14TObjEnePanarmsFPvs(arg0, M2C_FIELD(arg0, s16 *, 0xB8));

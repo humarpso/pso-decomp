@@ -105,7 +105,7 @@ void construct_area_technique_base(void *, void *, void *, void *, int);
 #define construct_area_technique_base ((void (*)(void *, void *, void *, void *, void *))construct_area_technique_base)
 void calc_parameters__11TTecRaBartaFv(void *);
 extern M2C_UNK __vt__11TTecRaBarta[];
-extern u32 lbl_805D37F8;
+extern u32 TTecRaBarta_class_name;
 void *construct_area__11TTecRaBartaFPvPvPvPv(void *self, void *source, void *origin, void *level);
 s32 is_split_screen();
 void get_bml_model(void *, s32);
@@ -143,7 +143,7 @@ extern struct Profile_80237A94 lbl_8044D9F8[];
 u16 obj_getField1c(void *);
 void calc_parameters__11TTecRaBartaFv(void *);
 extern M2C_UNK __vt__11TTecRaBarta[];
-extern u32 lbl_805D37F8;
+extern u32 TTecRaBarta_class_name;
 void *TTecRaBarta__ct(void *self_, void *source, void *origin, void *pos, void *level);
 }
 
@@ -182,7 +182,7 @@ extern const RafoieBursts_80237DAC lbl_8044DAB4[6] = {
     {(RafoieBurst_80237DAC *)lbl_8044DA48, 1}, {(RafoieBurst_80237DAC *)lbl_8044DA48, 1}, {(RafoieBurst_80237DAC *)lbl_8044DA48, 1},
     {(RafoieBurst_80237DAC *)lbl_8044DA54, 2}, {(RafoieBurst_80237DAC *)lbl_8044DA6C, 2}, {(RafoieBurst_80237DAC *)lbl_8044DA84, 4},
 };
-const char *lbl_805D3800 = "TTecRaFoie";
+const char *TTecRaFoie_class_name = "TTecRaFoie";
 extern const RecoveredGlobal_80238388_lbl_8044DAF0 lbl_8044DAF0 = {0};
 }
 
@@ -396,7 +396,7 @@ void update_rafoie_explosion(u8 *arg0);
 s32 calc_technique_parameters(int, int, int);
 s32 is_technique_ready__8TTecCtrlFv();
 s32 copy_params__8TTecAntiFPvPv(void *, int);
-extern RecoveredGlobal_80230D9C_lbl_804CC510 lbl_804CC510;
+extern RecoveredGlobal_80230D9C_lbl_804CC510 tech_high_level_linear_power_table;
 extern RecoveredGlobal_80230D9C_lbl_804CC55C lbl_804CC55C;
 void calc_area_parameters__10TTecRaFoieFPv(u8 *arg0);
 void get_bml_model(void *, s32);
@@ -436,7 +436,7 @@ f32 cos_table_lookup(s32);
 f32 vector_length(void *);
 void normalize_vector(void *);
 extern void *__vt__11TTecRaZonde[];
-extern u32 lbl_805D3808;
+extern u32 TTecRaZonde_class_name;
 extern s32 tl_07;
 extern const f32 lbl_805DC8F0;
 extern const f32 lbl_805DC8F4;
@@ -460,7 +460,7 @@ typedef char RecoveredGlobal_80230D9C_lbl_804CC510_size[((sizeof(RecoveredGlobal
 typedef char RecoveredGlobal_80230D9C_lbl_804CC55C_size[((sizeof(RecoveredGlobal_80230D9C_lbl_804CC55C)) == 0x98) ? (1) : (-1)];
 void calc_area_parameters__10TTecRaFoieFPv(u8 *arg0) {
   int new_var;
- new_var = (int) calc_technique_parameters((int) 0x2, (int) ((RecoveredFields_80230D9C_arg0 *) arg0)->field_78, (int) 0xFFFF); do { copy_params__8TTecAntiFPvPv((void *) (arg0 + ((0, 0x88))), new_var); if ((((s16) ((RecoveredFields_80230D9C_arg0 *) arg0)->field_78) >= 0xF) && (is_technique_ready__8TTecCtrlFv() == 0)) { ((RecoveredFields_80230D9C_arg0 *) arg0)->field_88 = (f32) ((*((s16 *) (((s8 *) (&lbl_804CC510.value)) + 0x8))) + ((*((s16 *) (((s8 *) (&lbl_804CC510.value)) + 0xa))) * ((RecoveredFields_80230D9C_arg0 *) arg0)->field_78)); return; } } while (0);
+ new_var = (int) calc_technique_parameters((int) 0x2, (int) ((RecoveredFields_80230D9C_arg0 *) arg0)->field_78, (int) 0xFFFF); do { copy_params__8TTecAntiFPvPv((void *) (arg0 + ((0, 0x88))), new_var); if ((((s16) ((RecoveredFields_80230D9C_arg0 *) arg0)->field_78) >= 0xF) && (is_technique_ready__8TTecCtrlFv() == 0)) { ((RecoveredFields_80230D9C_arg0 *) arg0)->field_88 = (f32) ((*((s16 *) (((s8 *) (&tech_high_level_linear_power_table.value)) + 0x8))) + ((*((s16 *) (((s8 *) (&tech_high_level_linear_power_table.value)) + 0xa))) * ((RecoveredFields_80230D9C_arg0 *) arg0)->field_78)); return; } } while (0);
   ((RecoveredFields_80230D9C_arg0 *) arg0)->field_88 = (f32) (((RecoveredFields_80230D9C_arg0 *) arg0)->field_88 + ((f32) (((RecoveredFields_80230D9C_arg0 *) arg0)->field_AC * ((RecoveredFields_80230D9C_arg0 *) arg0)->field_78)));
   if (is_technique_ready__8TTecCtrlFv())
   {
@@ -990,7 +990,7 @@ Obj_80238AE8 *TTecRaFoie__ct(Obj_80238AE8 *arg0, void * _w1, void * _w2, void * 
     construct_area_technique_base((void *)(arg0), (void *)(_w1), (void *)(_w2), (void *)(_w3), (int)(_w4));
     M2C_FIELD(arg0, void **, 0x18) = ((void * *)&__vt__10TTecRaFoie);
     construct_target_cursor_records__10TObjPlayerFi((u8 *)arg0 + 0xEC);
-    M2C_FIELD(arg0, u32 *, 0) = (u32)lbl_805D3800;
+    M2C_FIELD(arg0, u32 *, 0) = (u32)TTecRaFoie_class_name;
     calc_area_parameters__10TTecRaFoieFPv((u8 *)arg0);
     fn_80044330((u8 *)arg0 + 0xEC);
     M2C_FIELD(arg0, s32 *, 0x148) = 1;
@@ -1012,7 +1012,7 @@ u8 *construct_targeted__10TTecRaFoieFPvPvPvPvi(u8 *self, void *source, void *ori
     construct_area_technique_base(self, source, origin, origin, level);
     M2C_FIELD(self, M2C_UNK **, 0x18) = __vt__10TTecRaFoie;
     construct_target_cursor_records__10TObjPlayerFi(self + 0xEC);
-    M2C_FIELD(self, u32 *, 0) = (u32)lbl_805D3800;
+    M2C_FIELD(self, u32 *, 0) = (u32)TTecRaFoie_class_name;
     calc_area_parameters__10TTecRaFoieFPv(self);
     M2C_FIELD(self, s32 *, 0x148) = 0;
     copy_technique_target_list(self + 0xEC, targets);

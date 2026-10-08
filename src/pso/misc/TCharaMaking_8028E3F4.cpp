@@ -22,7 +22,7 @@ s32 TLobby__sub_801E3E9C(s32, void *, void *, s32);
 extern s32 lbl_8045122C[];
 extern u8 lbl_80451280[];
 extern void *lbl_804D3910[];
-extern Ent_8028E6B4 lbl_804D88B8[];
+extern Ent_8028E6B4 player_class_texture_archive_table[];
 extern u8 lbl_8051BC64[];
 void TCharaMaking__sub_8028E6B4(void);
 void build_appearance_texture_names__12TCharaMakingFv(TextureOutput *output, Appearance *appearance, ClassAppearance *definition, TextureList *source);
@@ -118,7 +118,7 @@ void TCharaMaking__sub_8028E6B4(void) {
         if (is_ready__22TQuestVmDownLoadServerFv() != 0) {
             return;
         }
-        if (TLobby__sub_801E3E9C(lbl_804D88B8[i].id, lbl_804D88B8[i].name, lbl_804D3910[i], lbl_8045122C[i]) != 0) {
+        if (TLobby__sub_801E3E9C(player_class_texture_archive_table[i].id, player_class_texture_archive_table[i].name, lbl_804D3910[i], lbl_8045122C[i]) != 0) {
             if (is_ready__22TQuestVmDownLoadServerFv() == 0) {
                 return;
             }

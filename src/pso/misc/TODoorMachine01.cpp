@@ -102,7 +102,7 @@ s32 reset_photon_effect__10TObjPlayerFPv(void *);
 s32 refresh_collision_body_centers(void *);
 s32 init_collision_body_parts(void *, void *, int);
 s32 init_door_base(void *);
-extern RecoveredGlobal_80163158_lbl_804B1608 lbl_804B1608;
+extern RecoveredGlobal_80163158_lbl_804B1608 TODoorMachine01__collision_body_parts;
 extern M2C_UNK __vt__15TODoorMachine01[];
 extern s32 lbl_805D2F78;
 extern u32 lbl_805D5970;
@@ -143,7 +143,7 @@ s32 is_online_ready__6TLobbyFv();
 extern u8 lbl_80440F38[];
 extern u8 lbl_80440F50[];
 extern u8 lbl_804B15D8[];
-extern u8 lbl_804B15F8[];
+extern u8 todoormachine01_resource_descriptor[];
 extern s32 enable_v2_features;
 extern u32 lbl_805D5970;
 extern s32 *lbl_805D5974;
@@ -373,7 +373,7 @@ void load_resources__15TODoorMachine01Fv(void) {
     if (enable_v2_features == 1 && is_online_ready__6TLobbyFv() != 0) {
         p = alloc__23TAdSinglePlyChrSelectGCFPv(0x440);
         if (p != NULL) {
-            p = (void *)load_resource_from_descriptor(p, 1, lbl_804B15F8, 0, 0, 0);
+            p = (void *)load_resource_from_descriptor(p, 1, todoormachine01_resource_descriptor, 0, 0, 0);
         }
         lbl_805D5970 = (u32)p;
         lbl_805D5974[0] = load_gvm_texture_file(lbl_80440F38);
@@ -413,7 +413,7 @@ u8 *TODoorMachine01__ct(u8 *arg0, M2C_UNK arg1, s32 arg2) {
     M2C_FIELD(arg0, u8 **, 0xBC) = (unsigned char *) ((void *) M2C_FIELD(M2C_FIELD((*(u8 * *)&lbl_805D5970), u8 **, 0x430), void **, 4));
     M2C_FIELD(arg0, f32 *, 0xB4) = (f32) ((f32) M2C_FIELD(M2C_FIELD(arg0, u8 **, 0xBC), u32 *, 4) - lbl_805DB4FC);
     M2C_FIELD(arg0, f32 *, 0xB8) = (f32) lbl_805DB508;
-    init_collision_body_parts((void *) (arg0), (void *) (&lbl_804B1608.value), (int) (1));
+    init_collision_body_parts((void *) (arg0), (void *) (&TODoorMachine01__collision_body_parts.value), (int) (1));
     refresh_collision_body_centers((void *) (arg0));
     reset_photon_effect__10TObjPlayerFPv((void *) (arg0));
     ((VObj_18_4a4f5b *)(arg0))->m17();

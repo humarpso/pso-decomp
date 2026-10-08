@@ -40,13 +40,13 @@ u32 alloc__22TQuestVmDownLoadServerFPv(s32);
 s32 TLobby__sub_803CC53C(u32);
 s32 read_checked_align__6TLobbyFiii(u32, s32, u32);
 u32 adxf_open_afs__6TLobbyFii(s32, s32);
-extern Te_8028BFA4 lbl_804D88B8[];
+extern Te_8028BFA4 player_class_texture_archive_table[];
 void start_read__22TChCrLoadAfsTextureReqFPv(Cl_8028BFA4 *arg0);
 M2C_UNK queue_destruction__7TObjectFv(void *);
 f32 get_status_value_f32__23TObjEneMe1CanadinLeaderFv(f32);
 f32 TLobby__sub_8028C50C(f32);
 s32 strcmp(const char *, const char *);
-extern Te_8028BFA4 lbl_804D88B8[];
+extern Te_8028BFA4 player_class_texture_archive_table[];
 extern const f32 lbl_805DD920;
 s32 find_player_texture_name_ordinal(u8 *arg0);
 M2C_UNK queue_destruction__7TObjectFv(void *);
@@ -204,12 +204,12 @@ s32 find_player_texture_name_ordinal(u8 *arg0) {
     f32 l2;
     s32 r;
     name = *(char **)(*M2C_FIELD(arg0, u8 ***, 0x30) + M2C_FIELD(arg0, s32 *, 0x5C) * 0xC);
-    count = (&lbl_804D88B8[M2C_FIELD(arg0, s32 *, 0x70)].id)[1];
+    count = (&player_class_texture_archive_table[M2C_FIELD(arg0, s32 *, 0x70)].id)[1];
     l2 = TLobby__sub_8028C50C(lbl_805DD920);
     steps = (s32)get_status_value_f32__23TObjEneMe1CanadinLeaderFv(TLobby__sub_8028C50C(count) / l2) + 1;
     mid = (count + 1) >> 1;
     step = (mid + 1) >> 1;
-    list = (char **)(&lbl_804D88B8[M2C_FIELD(arg0, s32 *, 0x70)].id)[3];
+    list = (char **)(&player_class_texture_archive_table[M2C_FIELD(arg0, s32 *, 0x70)].id)[3];
     for (i = 0; i < steps; i++) {
         r = strcmp(name + 3, list[mid] + 3);
         if (r == 0) {
@@ -285,7 +285,7 @@ void start_read__22TChCrLoadAfsTextureReqFPv(Cl_8028BFA4 *arg0) {
     s32 n;
     u32 t;
     void *buf;
-    t = adxf_open_afs__6TLobbyFii(lbl_804D88B8[arg0->f70].id, find_player_texture_name_ordinal((u8 *)(arg0)));
+    t = adxf_open_afs__6TLobbyFii(player_class_texture_archive_table[arg0->f70].id, find_player_texture_name_ordinal((u8 *)(arg0)));
     arg0->f60 = t;
     if (t != 0) {
         arg0->f20 = 0;

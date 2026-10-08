@@ -108,7 +108,7 @@ extern "C" {
 s32 calc_technique_parameters(int, int, int);
 s32 is_technique_ready__8TTecCtrlFv();
 s32 copy_params__8TTecAntiFPvPv(void *, int);
-extern RecoveredGlobal_8022B6FC_lbl_804CC510 lbl_804CC510;
+extern RecoveredGlobal_8022B6FC_lbl_804CC510 tech_high_level_linear_power_table;
 extern RecoveredGlobal_8022B6FC_lbl_804CC55C lbl_804CC55C;
 void init_parameters__9TTecBartaFPv(u8 *arg0);
 extern TechniqueContactVtable __vt__9TTecBarta;
@@ -267,7 +267,7 @@ void init_parameters__9TTecBartaFPv(u8 *arg0) {
   copy_params__8TTecAntiFPvPv((void *) (arg0 + 0xCC), new_var);
   if ((((s16) (*((s16 *) (((s8 *) arg0) + 0xC4)))) >= 0xF) && (is_technique_ready__8TTecCtrlFv() == 0))
   {
-    *((f32 *) (((s8 *) arg0) + 0xCC)) = (f32) ((*((s16 *) (((s8 *) (&lbl_804CC510.value)) + 0xC))) + ((*((s16 *) (((s8 *) (&lbl_804CC510.value)) + 0xE))) * (*((s16 *) (((s8 *) arg0) + 0xC4)))));
+    *((f32 *) (((s8 *) arg0) + 0xCC)) = (f32) ((*((s16 *) (((s8 *) (&tech_high_level_linear_power_table.value)) + 0xC))) + ((*((s16 *) (((s8 *) (&tech_high_level_linear_power_table.value)) + 0xE))) * (*((s16 *) (((s8 *) arg0) + 0xC4)))));
   }
   else
   {

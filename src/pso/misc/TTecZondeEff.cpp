@@ -87,18 +87,18 @@ struct Zonde_8023D6B0 {
 extern "C" {
 void __ct__7TObjectFP7TObject(void *, void *);
 extern RecoveredGlobal_8023D988___vt__12TTecZondeEff __vt__12TTecZondeEff;
-extern s32 lbl_805D3840;
+extern s32 TTecZondeEff_class_name;
 u8 *__ct__12TTecZondeEffFv(u8 *arg0, u8 *arg1, s32 arg2, s32 arg3, f32 farg0);
 void VecCopy__FP3VecPC3Vec(void *, void *);
 void __ct__7TObjectFP7TObject(void *, void *);
 extern RecoveredGlobal_8023D988___vt__12TTecZondeEff __vt__12TTecZondeEff;
-extern s32 lbl_805D3840;
+extern s32 TTecZondeEff_class_name;
 extern const f32 TTecZondeEff__data_805DC994;
 u8 *construct__12TTecZondeEffFPvPvPvPvf(u8 *arg0, u8 *arg1, u8 *arg2, u8 *arg3, f32 farg0);
 void VecCopy__FP3VecPC3Vec(void *, void *);
 void __ct__7TObjectFP7TObject(void *, void *);
 extern RecoveredGlobal_8023D988___vt__12TTecZondeEff __vt__12TTecZondeEff;
-extern s32 lbl_805D3840;
+extern s32 TTecZondeEff_class_name;
 u8 *construct_bolt_effect__9TTecZondeFPvPvPvPviiff(u8 *arg0, u8 *arg1, u8 *arg2, u8 *arg3, s32 arg4, s32 arg5, f32 farg0, f32 farg1);
 extern P_8023DBB4 lbl_805161D8;
 extern char lbl_804CC8C8[];
@@ -342,7 +342,7 @@ void run_task__12TTecZondeEffFv(Zonde_8023D7A0 *arg0) {
 u8 *__ct__12TTecZondeEffFv(u8 *arg0, u8 *arg1, s32 arg2, s32 arg3, f32 farg0) {
     __ct__7TObjectFP7TObject(arg0, arg1);
     M2C_FIELD(arg0, M2C_UNK **, 0x18) = &__vt__12TTecZondeEff.value;
-    M2C_FIELD(arg0, s32 *, 0) = (s32) lbl_805D3840;
+    M2C_FIELD(arg0, s32 *, 0) = (s32) TTecZondeEff_class_name;
     M2C_FIELD(arg0, f32 *, 0x244) = farg0;
     M2C_FIELD(arg0, s32 *, 0x254) = arg2;
     M2C_FIELD(arg0, s32 *, 0x258) = arg3;
@@ -361,7 +361,7 @@ typedef char RecoveredGlobal_8023DA10___vt__12TTecZondeEff_size[sizeof(Recovered
 u8 *construct_bolt_effect__9TTecZondeFPvPvPvPviiff(u8 *arg0, u8 *arg1, u8 *arg2, u8 *arg3, s32 arg4, s32 arg5, f32 farg0, f32 farg1) {
     __ct__7TObjectFP7TObject(arg0, arg1);
     M2C_FIELD(arg0, M2C_UNK **, 0x18) = &(*(RecoveredGlobal_8023DA10___vt__12TTecZondeEff *)&__vt__12TTecZondeEff).value;
-    M2C_FIELD(arg0, s32 *, 0) = (s32) lbl_805D3840;
+    M2C_FIELD(arg0, s32 *, 0) = (s32) TTecZondeEff_class_name;
     M2C_FIELD(arg0, f32 *, 0x244) = farg1;
     M2C_FIELD(arg0, s32 *, 0x254) = arg4;
     M2C_FIELD(arg0, s32 *, 0x258) = arg5;
@@ -382,7 +382,7 @@ u8 *construct_bolt_effect__9TTecZondeFPvPvPvPviiff(u8 *arg0, u8 *arg1, u8 *arg2,
 u8 *construct__12TTecZondeEffFPvPvPvPvf(u8 *arg0, u8 *arg1, u8 *arg2, u8 *arg3, f32 farg0) {
     __ct__7TObjectFP7TObject(arg0, arg1);
     M2C_FIELD(arg0, M2C_UNK **, 0x18) = &(*(RecoveredGlobal_8023DADC___vt__12TTecZondeEff *)&__vt__12TTecZondeEff).value;
-    M2C_FIELD(arg0, s32 *, 0) = (s32) lbl_805D3840;
+    M2C_FIELD(arg0, s32 *, 0) = (s32) TTecZondeEff_class_name;
     M2C_FIELD(arg0, f32 *, 0x244) = (f32) TTecZondeEff__data_805DC994;
     M2C_FIELD(arg0, s32 *, 0x254) = 0x08000000;
     M2C_FIELD(arg0, s32 *, 0x258) = 0x14;

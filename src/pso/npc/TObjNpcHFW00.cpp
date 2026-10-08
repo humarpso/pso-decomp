@@ -100,7 +100,7 @@ s32 setup_common__11TObjNpcBaseFv(void *);
 s32 fn_8014AAC4(void *);
 extern M2C_UNK __vt__12TObjNpcHFW00[];
 extern s32 lbl_805D2DB0;
-extern s32 *TObjNpcHFW00__data_805D57A8;
+extern s32 *TObjNpcHFW00__shared_resource_obj;
 extern s32 TObjNpcHFW00__data_805D57AC;
 u8 *TObjNpcHFW00__ct(u8 *arg0, M2C_UNK arg1, s32 arg2);
 void *create_named_object(const char *name);
@@ -148,7 +148,7 @@ u8 *TObjNpcHFW00__ct(u8 *arg0, M2C_UNK arg1, s32 arg2) {
     M2C_FIELD(arg0, s32 *, 0) = (s32) lbl_805D2DB0;
     ((VObj_18_aa4667 *)(arg0))->m79(arg2);
     init_position_vectors__10TObjPlayerFi((void *) (arg0));
-    M2C_FIELD(arg0, s32 *, 0x34) = (s32) *TObjNpcHFW00__data_805D57A8;
+    M2C_FIELD(arg0, s32 *, 0x34) = (s32) *TObjNpcHFW00__shared_resource_obj;
     M2C_FIELD(arg0, s32 *, 0x24) = (s32) TObjNpcHFW00__data_805D57AC;
     setup_common__11TObjNpcBaseFv((void *) (arg0));
     return arg0;

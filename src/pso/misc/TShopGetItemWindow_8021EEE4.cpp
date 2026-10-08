@@ -55,7 +55,7 @@ extern M2C_UNK TLobby__data_805011D8[];
 extern s32 lbl_805D53A0;
 extern s32 lbl_805D5550;
 extern s32 lbl_805D6238;
-extern s32 lbl_805D623C;
+extern s32 shop_world_player_level;
 extern s32 lbl_805D6240;
 extern s32 lbl_805D6244;
 void init_shop_world_context(void);
@@ -101,16 +101,16 @@ void init_shop_world_context(void) {
     void *temp_r3;
     temp_r3 = get_player_by_client_id(lbl_805D53A0);
     if (temp_r3 != NULL) {
-        lbl_805D623C = ((ShopPlayerLevel*)temp_r3)->levelIndex();
-        lbl_805D623C++;
+        shop_world_player_level = ((ShopPlayerLevel*)temp_r3)->levelIndex();
+        shop_world_player_level++;
     } else {
-        lbl_805D623C = 1;
+        shop_world_player_level = 1;
     }
-    if ((s32) lbl_805D623C < 1) {
-        lbl_805D623C = 1;
+    if ((s32) shop_world_player_level < 1) {
+        shop_world_player_level = 1;
     }
-    if ((s32) lbl_805D623C > 0xC7) {
-        lbl_805D623C = 0xC7;
+    if ((s32) shop_world_player_level > 0xC7) {
+        shop_world_player_level = 0xC7;
     }
     temp_r3_3 = get_task_id__14TFontSmallTaskFPv(TLobby__data_805011D8);
     lbl_805D6238 = temp_r3_3;

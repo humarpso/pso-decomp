@@ -576,7 +576,7 @@ extern const f32 TNpcPlayer__data_805DB23C;
 extern int TObjPlayer__data_805D5874;
 extern V3_80150050 lbl_8043FFAC;
 extern const f64 lbl_8043FFD8;
-extern Text_8014E250 lbl_804F0280[];
+extern Text_8014E250 npc_partner_dialogue_state[];
 extern u8 lbl_8058D490[];
 extern s32 lbl_805D2E74;
 extern u32 lbl_805D5860;
@@ -1867,7 +1867,7 @@ void deliver_partner_chatter(Npc_8014E250 *self) {
         if (text != 0) {
             open__11TWindowCtrlFiii(id, text, 0x1B);
         } else {
-            text = lbl_804F0280[self->state].text;
+            text = npc_partner_dialogue_state[self->state].text;
             if (text[0] != 0) {
                 open__11TWindowCtrlFiii(id, text, 0x1B);
             }

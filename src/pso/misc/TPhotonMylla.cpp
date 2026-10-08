@@ -168,7 +168,7 @@ extern u8 lbl_80446E8C[];
 extern u8 lbl_804C39D8[];
 extern M2C_UNK __vt__12TPhotonMylla[];
 extern s32 lbl_805D3510;
-extern Game_801AD970 *lbl_805D5D28;
+extern Game_801AD970 *photon_blast_shared_resource;
 extern const f32 lbl_805DC1FC;
 extern const f32 lbl_805DC200;
 void *TPhotonMylla__ct(Mylla_801AD970 *self, Pkt_801AD970 *pkt);
@@ -346,10 +346,10 @@ void *TPhotonMylla__ct(Mylla_801AD970 *self, Pkt_801AD970 *pkt) {
     if (F_801AD970(self, u8 *, 0x180) != NULL) {
         F_801AD970(self, s32, 0x60) = F_801AD970(F_801AD970(self, u8 *, 0x180), s32, 0x60);
     }
-    F_801AD970(self, s32, 0x34) = lbl_805D5D28->res->fA8;
-    F_801AD970(self, s32, 0x24) = lbl_805D5D28->res->fAC;
+    F_801AD970(self, s32, 0x34) = photon_blast_shared_resource->res->fA8;
+    F_801AD970(self, s32, 0x24) = photon_blast_shared_resource->res->fAC;
     set_field_d8__10TObjPlayerFPvi(self, lbl_804C39D8);
-    set_field_dc__10TObjPlayerFPvi(self, lbl_805D5D28->f430);
+    set_field_dc__10TObjPlayerFPvi(self, photon_blast_shared_resource->f430);
     F_801AD970(self, s16, 0xB8) = 1;
     set_animation__10TObjPlayerFPvs(self, F_801AD970(self, s16, 0xB8));
     set_field_b8__14TObjEnePanarmsFPvs(self, F_801AD970(self, s16, 0xB8));

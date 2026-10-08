@@ -19,7 +19,7 @@ void *create__18TCheckRoomSequenceFPv(void *arg0) {
     return o;
 }
 
-    extern int TCheckRoomSequence__data_80513DB8[];
-int TCheckRoomSequence__sub_8021E4B0(int a0) {  return TCheckRoomSequence__data_80513DB8[a0]; }
+    extern int TCheckRoomSequence__slot_active_flags[];
+int TCheckRoomSequence__sub_8021E4B0(int a0) {  return TCheckRoomSequence__slot_active_flags[a0]; }
 
 }

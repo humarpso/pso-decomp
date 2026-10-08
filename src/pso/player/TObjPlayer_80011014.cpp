@@ -1142,9 +1142,9 @@ extern const f64 lbl_80434098;
 extern const f64 lbl_804340A0;
 extern u8 lbl_804340A8[];
 extern s32 lbl_804340B0[];
-extern SceneEntry_8000FD54 lbl_804805E0[];
+extern SceneEntry_8000FD54 main_phase_table[];
 extern void *lbl_804806E8[];
-extern SceneState_8000FD54 lbl_804FE120;
+extern SceneState_8000FD54 main_phase_state;
 extern Vec_800182A0 lbl_8050BEE0;
 extern RecoveredGlobal_80010E44_lbl_8050EA40 lbl_8050EA40;
 extern RecoveredGlobal_8001806C_lbl_8058D490 lbl_8058D490;
@@ -1205,27 +1205,27 @@ void main(void) {
     SceneFn_8000FD54 update;
 
     init_game_systems();
-    while (lbl_804FE120.cur != 0) {
-        lbl_804FE120.result = 0;
-        fn = lbl_804805E0[lbl_804FE120.cur].init;
+    while (main_phase_state.cur != 0) {
+        main_phase_state.result = 0;
+        fn = main_phase_table[main_phase_state.cur].init;
         if (fn != NULL) {
             fn();
         }
-        update = lbl_804805E0[lbl_804FE120.cur].update;
-        while (lbl_804FE120.result == 0 && update != NULL) {
+        update = main_phase_table[main_phase_state.cur].update;
+        while (main_phase_state.result == 0 && update != NULL) {
             update();
             lbl_805D53A4++;
         }
-        fn = lbl_804805E0[lbl_804FE120.cur].exit;
+        fn = main_phase_table[main_phase_state.cur].exit;
         if (fn != NULL) {
             fn();
         }
-        switch (lbl_804FE120.result) {
+        switch (main_phase_state.result) {
         case 1:
         case 2:
         case 3:
-            lbl_804FE120.prev = lbl_804FE120.cur;
-            lbl_804FE120.cur = lbl_804FE120.next;
+            main_phase_state.prev = main_phase_state.cur;
+            main_phase_state.cur = main_phase_state.next;
             break;
         }
     }

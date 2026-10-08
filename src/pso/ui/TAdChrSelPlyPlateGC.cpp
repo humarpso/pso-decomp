@@ -11,13 +11,13 @@ M2C_UNK __dl__7TObjectFPv(void *);
 M2C_UNK __dt__7TObjectFv(void *, M2C_UNK);
 
 extern M2C_UNK lbl_804E0B10[];
-extern u32 lbl_805D67E4;
+extern u32 ad_chr_sel_ply_plate_instance;
 
 void *destroy__19TAdChrSelPlyPlateGCFPvs(void *arg0, s16 arg1) {
     if (arg0 != NULL) {
         M2C_FIELD(arg0, M2C_UNK **, 0x18) = lbl_804E0B10;
-        if ((u32) lbl_805D67E4 != 0U) {
-            lbl_805D67E4 = 0U;
+        if ((u32) ad_chr_sel_ply_plate_instance != 0U) {
+            ad_chr_sel_ply_plate_instance = 0U;
         }
         __dt__7TObjectFv(arg0, 0);
         if (arg1 > 0) {

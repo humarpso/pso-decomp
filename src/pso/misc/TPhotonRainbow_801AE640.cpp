@@ -15,22 +15,22 @@ M2C_UNK VecCopy__FP3VecPC3Vec(void *, s32);
 
 extern void *__vt__14TPhotonRainbow[];
 extern s32 lbl_805D3520;
-extern u8 *lbl_805D5D28;
+extern u8 *photon_blast_shared_resource;
 
 u8 *TPhotonRainbow__ct(u8 *arg0, s32 arg1_unused, s32 arg2) {
     TPhotonMagicSquare__sub_801A2640();
     M2C_FIELD(arg0, M2C_UNK **, 0x18) = (M2C_UNK *)&__vt__14TPhotonRainbow;
     M2C_FIELD(arg0, s32 *, 0) = (s32) lbl_805D3520;
     if ((s32) M2C_FIELD(arg0, s32 *, 0xA8) == 1) {
-        M2C_FIELD(arg0, s32 *, 0x90) = (s32) M2C_FIELD(M2C_FIELD(lbl_805D5D28, void **, 0x42C), s32 *, 0x6C);
-        M2C_FIELD(arg0, s32 *, 0x94) = (s32) M2C_FIELD(M2C_FIELD(lbl_805D5D28, void **, 0x42C), s32 *, 0x8C);
-        M2C_FIELD(arg0, s32 *, 0x98) = (s32) M2C_FIELD(M2C_FIELD(lbl_805D5D28, void **, 0x42C), s32 *, 0x68);
-        M2C_FIELD(arg0, s32 *, 0x9C) = (s32) M2C_FIELD(M2C_FIELD(lbl_805D5D28, void **, 0x42C), s32 *, 0x88);
+        M2C_FIELD(arg0, s32 *, 0x90) = (s32) M2C_FIELD(M2C_FIELD(photon_blast_shared_resource, void **, 0x42C), s32 *, 0x6C);
+        M2C_FIELD(arg0, s32 *, 0x94) = (s32) M2C_FIELD(M2C_FIELD(photon_blast_shared_resource, void **, 0x42C), s32 *, 0x8C);
+        M2C_FIELD(arg0, s32 *, 0x98) = (s32) M2C_FIELD(M2C_FIELD(photon_blast_shared_resource, void **, 0x42C), s32 *, 0x68);
+        M2C_FIELD(arg0, s32 *, 0x9C) = (s32) M2C_FIELD(M2C_FIELD(photon_blast_shared_resource, void **, 0x42C), s32 *, 0x88);
     } else {
-        M2C_FIELD(arg0, s32 *, 0x90) = (s32) M2C_FIELD(M2C_FIELD(lbl_805D5D28, void **, 0x42C), s32 *, 0x5C);
-        M2C_FIELD(arg0, s32 *, 0x94) = (s32) M2C_FIELD(M2C_FIELD(lbl_805D5D28, void **, 0x42C), s32 *, 0x7C);
-        M2C_FIELD(arg0, s32 *, 0x98) = (s32) M2C_FIELD(M2C_FIELD(lbl_805D5D28, void **, 0x42C), s32 *, 0x58);
-        M2C_FIELD(arg0, s32 *, 0x9C) = (s32) M2C_FIELD(M2C_FIELD(lbl_805D5D28, void **, 0x42C), s32 *, 0x78);
+        M2C_FIELD(arg0, s32 *, 0x90) = (s32) M2C_FIELD(M2C_FIELD(photon_blast_shared_resource, void **, 0x42C), s32 *, 0x5C);
+        M2C_FIELD(arg0, s32 *, 0x94) = (s32) M2C_FIELD(M2C_FIELD(photon_blast_shared_resource, void **, 0x42C), s32 *, 0x7C);
+        M2C_FIELD(arg0, s32 *, 0x98) = (s32) M2C_FIELD(M2C_FIELD(photon_blast_shared_resource, void **, 0x42C), s32 *, 0x58);
+        M2C_FIELD(arg0, s32 *, 0x9C) = (s32) M2C_FIELD(M2C_FIELD(photon_blast_shared_resource, void **, 0x42C), s32 *, 0x78);
     }
     VecCopy__FP3VecPC3Vec(arg0 + 0x38, arg2);
     return arg0;

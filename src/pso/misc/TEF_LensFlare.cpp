@@ -32,7 +32,7 @@ struct RecoveredGlobal_800818D8_lbl_8048E130 {
 
 extern "C" {
 s32 TPhotonMagicSquare__sub_801A2640(void *, void *);
-extern RecoveredGlobal_800818D8_lbl_8048E040 lbl_8048E040;
+extern RecoveredGlobal_800818D8_lbl_8048E040 lens_flare_reflected_element_descriptors;
 extern M2C_UNK lbl_8048E130[];
 extern s32 lbl_805D28F0;
 u8 *TEF_LensFlare__ct(u8 *arg0, s32 arg1, s32 arg2);
@@ -67,7 +67,7 @@ u8 *TEF_LensFlare__ct(u8 *arg0, s32 arg1, s32 arg2) {
     M2C_FIELD(arg0, M2C_UNK **, 0x18) = &(*(RecoveredGlobal_800818D8_lbl_8048E130 *)&lbl_8048E130).value;
     M2C_FIELD(arg0, s32 *, 0) = (s32) lbl_805D28F0;
     ((VObj_18_1a504b *)(arg0))->m5(arg2);
-    M2C_FIELD(arg0, M2C_UNK **, 0x90) = &lbl_8048E040.value;
+    M2C_FIELD(arg0, M2C_UNK **, 0x90) = &lens_flare_reflected_element_descriptors.value;
     return arg0;
 }
 

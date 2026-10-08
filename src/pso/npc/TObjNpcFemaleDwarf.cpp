@@ -101,14 +101,14 @@ extern "C" {
 u8 * load_resource_from_descriptor(void *, s32, void *, s32, s32, s32);
 int alloc__23TAdSinglePlyChrSelectGCFPv(void *);
 extern RecoveredGlobal_8014A368_lbl_804A8C70 lbl_804A8C70;
-extern u32 TObjNpcFemaleFat__data_805D5778;
+extern u32 TObjNpcFemaleFat__static_model;
 void TObjNpcFemaleFat__sub_8014A368(void);
 s32 init_position_vectors__10TObjPlayerFi(void *);
 s32 setup_common__11TObjNpcBaseFv(void *);
 s32 construct_female_base__17TObjNpcFemaleBaseFPv(void *);
 extern M2C_UNK __vt__18TObjNpcFemaleDwarf[];
 extern s32 lbl_805D2D84;
-extern u8 *TObjNpcFemaleDwarf__data_805D5770;
+extern u8 *TObjNpcFemaleDwarf__static_data;
 u8 *TObjNpcFemaleDwarf__ct(u8 *arg0, M2C_UNK arg1, s32 arg2);
 }
 
@@ -146,8 +146,8 @@ u8 *TObjNpcFemaleDwarf__ct(u8 *arg0, M2C_UNK arg1, s32 arg2) {
     M2C_FIELD(arg0, s32 *, 0) = (s32) lbl_805D2D84;
     ((VObj_18_aa4667 *)(arg0))->m79(arg2);
     init_position_vectors__10TObjPlayerFi((void *) (arg0));
-    M2C_FIELD(arg0, s32 *, 0x34) = (s32) M2C_FIELD(M2C_FIELD(TObjNpcFemaleDwarf__data_805D5770, u8 **, 0x42C), s32 *, 8);
-    M2C_FIELD(arg0, s32 *, 0x24) = (s32) M2C_FIELD(M2C_FIELD(TObjNpcFemaleDwarf__data_805D5770, u8 **, 0x42C), s32 *, 0xC);
+    M2C_FIELD(arg0, s32 *, 0x34) = (s32) M2C_FIELD(M2C_FIELD(TObjNpcFemaleDwarf__static_data, u8 **, 0x42C), s32 *, 8);
+    M2C_FIELD(arg0, s32 *, 0x24) = (s32) M2C_FIELD(M2C_FIELD(TObjNpcFemaleDwarf__static_data, u8 **, 0x42C), s32 *, 0xC);
     setup_common__11TObjNpcBaseFv((void *) (arg0));
     return arg0;
 }
@@ -166,12 +166,12 @@ void * TObjNpcFemaleFat__create(void *arg0) {
     return o2;
 }
 
-extern u32 TObjNpcFemaleFat__data_805D5778;
+extern u32 TObjNpcFemaleFat__static_model;
 
 void free_static_model__16TObjNpcFemaleFatFv(void) {
-    if ((u32) TObjNpcFemaleFat__data_805D5778 != 0U) {
-        TLobby__sub_8001FE7C((void*)TObjNpcFemaleFat__data_805D5778, 1);
-        TObjNpcFemaleFat__data_805D5778 = 0U;
+    if ((u32) TObjNpcFemaleFat__static_model != 0U) {
+        TLobby__sub_8001FE7C((void*)TObjNpcFemaleFat__static_model, 1);
+        TObjNpcFemaleFat__static_model = 0U;
     }
 }
 void TObjNpcFemaleFat__sub_8014A368(void) {
@@ -182,7 +182,7 @@ void TObjNpcFemaleFat__sub_8014A368(void) {
     if (var_r0 != 0) {
         var_r0 = (long) (load_resource_from_descriptor((void *) temp_r3, 1, &lbl_804A8C70.value, 0, 0, 0));
     }
-    (*(s32 *)&TObjNpcFemaleFat__data_805D5778) = var_r0;
+    (*(s32 *)&TObjNpcFemaleFat__static_model) = var_r0;
 }
 
 }

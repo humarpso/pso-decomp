@@ -471,7 +471,7 @@ extern s32 lbl_805D51EC;
 extern u32 lbl_805D51FC;
 extern u32 *lbl_805D5200;
 extern u32 *lbl_805D5204;
-extern s32 lbl_805D5208;
+extern s32 gyaranzo_breakup_model_obj;
 extern s32 lbl_805D5660;
 extern const f32 lbl_805DA258;
 extern const f32 lbl_805DA27C;
@@ -923,7 +923,7 @@ void update_death_breakup__10TObjPlayerFPv(Ene_800D2F6C *arg0) {
         advance_animation_playback(arg0);
         arg0->timer--;
         if (arg0->timer < 0) {
-            create_breakup_mdl__12TBoss3VoloptFiiiii(lbl_805D5208, lbl_8049426C, arg0->f24, arg0->v2FC, arg0->f60);
+            create_breakup_mdl__12TBoss3VoloptFiiiii(gyaranzo_breakup_model_obj, lbl_8049426C, arg0->f24, arg0->v2FC, arg0->f60);
             send_entity_set_flags__6TLobbyFPv(arg0);
             trigger_dell_biter_events__10TObjPlayerFPv(arg0->v2FC);
             play_sound_effect((void *)copy_target_state__14TObjEnePanarmsFPvPv(arg0, 0x4003AD10), arg0->pos, 0, 0);
@@ -1280,11 +1280,11 @@ void free_static_instances__15TObjEneGyaranzoFv(void) {
         TLobby__sub_8001FE7C(lbl_805D51FC, 1);
         lbl_805D51FC = 0U;
     }
-    if ((*(struct VObj_800D3BA0_800D3B38 * *)&lbl_805D5208) != 0) {
-        if ((*(struct VObj_800D3BA0_800D3B38 * *)&lbl_805D5208) != 0) {
-            (*(struct VObj_800D3BA0_800D3B38 * *)&lbl_805D5208)->m0(1);
+    if ((*(struct VObj_800D3BA0_800D3B38 * *)&gyaranzo_breakup_model_obj) != 0) {
+        if ((*(struct VObj_800D3BA0_800D3B38 * *)&gyaranzo_breakup_model_obj) != 0) {
+            (*(struct VObj_800D3BA0_800D3B38 * *)&gyaranzo_breakup_model_obj)->m0(1);
         }
-        (*(struct VObj_800D3BA0_800D3B38 * *)&lbl_805D5208) = 0;
+        (*(struct VObj_800D3BA0_800D3B38 * *)&gyaranzo_breakup_model_obj) = 0;
     }
 }
 
@@ -1317,7 +1317,7 @@ void load_gyaranzo_resources__6TLobbyFv(void) {
     if (p != NULL) {
         p = init__11TBreakUpMdlFPviif(p, AREA->res->r38, get_bml_motion(lbl_805D51FC, 3), lbl_805DA294);
     }
-    (*(struct VObj_800D3BA0_800D3B38 * *)&lbl_805D5208) = (VObj_800D3BA0_800D3B38 *)p;
+    (*(struct VObj_800D3BA0_800D3B38 * *)&gyaranzo_breakup_model_obj) = (VObj_800D3BA0_800D3B38 *)p;
     lbl_805D51E0 = register_boss__6TLobbyFPv(0x1D);
     lbl_805D51E4 = dispatch_shared_handler_b__6TLobbyFPv(0x1D);
     lbl_805D51E8 = register_object__6TLobbyFPv(0x1D);

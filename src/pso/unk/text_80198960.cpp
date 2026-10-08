@@ -22,7 +22,7 @@ M2C_UNK pop_matrix();
 M2C_UNK post_translate_matrix(void *);
 M2C_UNK set_global_param__8TObjFishFi(int);
 M2C_UNK draw_chunk_object();
-extern RecoveredGlobal_80198960_lbl_804B8DAC lbl_804B8DAC;
+extern RecoveredGlobal_80198960_lbl_804B8DAC lobby_gvm_texture_handles;
 extern RecoveredGlobal_80198960_lbl_8050DD58 lbl_8050DD58;
 extern u32 lbl_805D5C60;
 extern const f32 lbl_805DBF44;
@@ -34,11 +34,11 @@ extern "C" {
 typedef char RecoveredGlobal_80198960_lbl_804B8DAC_size[sizeof(RecoveredGlobal_80198960_lbl_804B8DAC) == 0x24 ? 1 : -1];
 typedef char RecoveredGlobal_80198960_lbl_8050DD58_size[sizeof(RecoveredGlobal_80198960_lbl_8050DD58) == 0x54 ? 1 : -1];
 void TWindowTimer__sub_80198960(u8 *arg0) {
-    if ((((u32) lbl_805D5C60 != 0U) || ((u32) M2C_FIELD(&lbl_804B8DAC.value, u32 *, 0x10) != 0U)) && ((u16) M2C_FIELD(&lbl_8050DD58.value, u16 *, 0x48) != 6)) {
+    if ((((u32) lbl_805D5C60 != 0U) || ((u32) M2C_FIELD(&lobby_gvm_texture_handles.value, u32 *, 0x10) != 0U)) && ((u16) M2C_FIELD(&lbl_8050DD58.value, u16 *, 0x48) != 6)) {
         if ((s32) M2C_FIELD(arg0, s32 *, 0x50) == 1) {
-            set_global_param__8TObjFishFi((int) (M2C_FIELD(&lbl_804B8DAC.value, u32 *, 0x10)));
+            set_global_param__8TObjFishFi((int) (M2C_FIELD(&lobby_gvm_texture_handles.value, u32 *, 0x10)));
         } else {
-            set_global_param__8TObjFishFi((int) (M2C_FIELD(&lbl_804B8DAC.value, u32 *, 0x14)));
+            set_global_param__8TObjFishFi((int) (M2C_FIELD(&lobby_gvm_texture_handles.value, u32 *, 0x14)));
         }
         push_matrix();
         post_translate_matrix((void *) (arg0 + 0x1C));

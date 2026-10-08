@@ -60,7 +60,7 @@ void request_creation_motion(s32 arg0);
 s32 alloc__22TQuestVmDownLoadServerFPv(int);
 s32 request_file_read__6TLobbyFiiPvPv(int, int, void *, int);
 s32 get_display_index__12TCharaMakingFPv(void *);
-extern s32 lbl_804D886C[];
+extern s32 chara_select_creation_shape_rel_files[];
 extern u32 lbl_805D6520;
 void load_creation_shape_rel(W_80290250 *arg0);
 extern Slot_8028F150 lbl_8051D288[];
@@ -1472,7 +1472,7 @@ typedef char RecoveredGlobal_8029057C_lbl_804D3F74_size[sizeof(RecoveredGlobal_8
 void load_creation_shape_rel(W_80290250 *arg0) {
     s32 rc;
     arg0->bufp = alloc__22TQuestVmDownLoadServerFPv(0x44000);
-    rc = request_file_read__6TLobbyFiiPvPv(lbl_804D886C[get_display_index__12TCharaMakingFPv((*(void * *)&lbl_805D6520))], arg0->bufp, arg0->data, 0);
+    rc = request_file_read__6TLobbyFiiPvPv(chara_select_creation_shape_rel_files[get_display_index__12TCharaMakingFPv((*(void * *)&lbl_805D6520))], arg0->bufp, arg0->data, 0);
     arg0->rc = rc;
     if (rc >= 0) {
         if (arg0->rc > 0x44000) {

@@ -11,7 +11,7 @@ s32 get_state_flag__9TMainTaskFv();
 void render_by_state__18TAdLoadQuestLineGCFPv(void *arg0);
 s32 __nw__7TObjectFUl(int);
 void *TAdLoadQuestLineGC__ct(void *arg0, void *arg1, void *arg2);
-extern TAdLoadQuestLineGC *lbl_804EFF60[3];
+extern TAdLoadQuestLineGC *ad_load_quest_line_instances[3];
 s32 get_or_create_line__14TAdLoadQuestGCFii(s32 arg0, s32 arg1);
 }
 
@@ -52,8 +52,8 @@ void TAdLoadQuestLineGC::render() {
 void TAdLoadQuestLineGC::run_task() {}
 
 TAdLoadQuestLineGC::~TAdLoadQuestLineGC() {
-    if (lbl_804EFF60[m_state] != NULL) {
-        lbl_804EFF60[m_state] = NULL;
+    if (ad_load_quest_line_instances[m_state] != NULL) {
+        ad_load_quest_line_instances[m_state] = NULL;
     }
 }
 
@@ -75,15 +75,15 @@ s32 get_or_create_line__14TAdLoadQuestGCFii(s32 arg0, s32 arg1) {
     s32 temp_r3;
     s32 var_r0;
     temp_r30 = arg1 * 4;
-    if ((u32) M2C_FIELD((s32 *)lbl_804EFF60, M2C_UNK *, temp_r30) == 0U) {
+    if ((u32) M2C_FIELD((s32 *)ad_load_quest_line_instances, M2C_UNK *, temp_r30) == 0U) {
         temp_r3 = __nw__7TObjectFUl((int) (0x24));
         var_r0 = temp_r3;
         if (var_r0 != 0) {
             var_r0 = ((s32)TAdLoadQuestLineGC__ct((void *)((int) (temp_r3)), (void *)((void *) (arg0)), (void *)((void *) (arg1))));
         }
-        M2C_FIELD((s32 *)lbl_804EFF60, M2C_UNK *, temp_r30) = var_r0;
+        M2C_FIELD((s32 *)ad_load_quest_line_instances, M2C_UNK *, temp_r30) = var_r0;
     }
-    return M2C_FIELD((s32 *)lbl_804EFF60, M2C_UNK *, temp_r30);
+    return M2C_FIELD((s32 *)ad_load_quest_line_instances, M2C_UNK *, temp_r30);
 }
 
 }

@@ -87,8 +87,8 @@ void TODoorCave03__vt13(u8 *arg0);
 u8 * load_resource_from_descriptor(void *, s32, void *, s32, s32, s32);
 int alloc__23TAdSinglePlyChrSelectGCFPv(void *);
 s32 is_online_ready__6TLobbyFv(void);
-extern RecoveredGlobal_80162740_lbl_804B1518 lbl_804B1518;
-extern RecoveredGlobal_80162740_lbl_804B1538 lbl_804B1538;
+extern RecoveredGlobal_80162740_lbl_804B1518 TODoorCave03__resource_descriptor;
+extern RecoveredGlobal_80162740_lbl_804B1538 door_cave03_resource_descriptor;
 extern s32 enable_v2_features;
 extern u32 TODoorCave03__data_805D5968;
 void load_resources__12TODoorCave03Fv(void);
@@ -260,7 +260,7 @@ void load_resources__12TODoorCave03Fv(void) {
         temp_r3 = alloc__23TAdSinglePlyChrSelectGCFPv((void *)0x440);
         var_r0 = temp_r3;
         if (var_r0 != 0) {
-            var_r0 = (long) (load_resource_from_descriptor((void *) temp_r3, 1, &lbl_804B1538.value, 0, 0, 0));
+            var_r0 = (long) (load_resource_from_descriptor((void *) temp_r3, 1, &door_cave03_resource_descriptor.value, 0, 0, 0));
         }
         (*(s32 *)&TODoorCave03__data_805D5968) = var_r0;
         return;
@@ -268,7 +268,7 @@ void load_resources__12TODoorCave03Fv(void) {
     temp_r3_2 = alloc__23TAdSinglePlyChrSelectGCFPv((void *)0x440);
     var_r0_2 = temp_r3_2;
     if (var_r0_2 != 0) {
-        var_r0_2 = (long) (load_resource_from_descriptor((void *) temp_r3_2, 1, &lbl_804B1518.value, 0, 0, 0));
+        var_r0_2 = (long) (load_resource_from_descriptor((void *) temp_r3_2, 1, &TODoorCave03__resource_descriptor.value, 0, 0, 0));
     }
     (*(s32 *)&TODoorCave03__data_805D5968) = var_r0_2;
 }

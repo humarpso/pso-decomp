@@ -61,7 +61,7 @@ f32 sin_table_lookup(s32);
 f32 cos_table_lookup(s32);
 extern u16 lbl_80483770[];
 extern u16 lbl_805D271C;
-extern s32 lbl_805D4D10;
+extern s32 TBoss3Volopt__fade_active_flag;
 extern const f32 lbl_805D8658;
 extern const f32 lbl_805D8664;
 extern const f32 lbl_805D8670;
@@ -871,7 +871,7 @@ void TBoss3Volopt__sub_8003D7BC(u8 *arg0) {
         M2C_FIELD(arg0, s32 *, 0x37C) = 5;
         break;
     case 5:
-        if (lbl_805D4D10 == 1) {
+        if (TBoss3Volopt__fade_active_flag == 1) {
             M2C_FIELD(arg0, s32 *, 0x374) = 3;
         }
         break;

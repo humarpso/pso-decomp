@@ -160,14 +160,14 @@ void byteswap_header__10TNpcPlayerFPv(void* p);
 int TLobby__send_and_handle_60(void*);
 void send_state_60__10TNpcPlayerFPv(void* p);
 void build_6x69_npc_control(void* p);
-extern E_8034E02C lbl_804F0280[];
+extern E_8034E02C npc_partner_dialogue_state[];
 void clear_partner_dialogue_flags(void);
 s32 obj_isState3_324();
 s32 obj_getField1c(s32);
 s16 get_stat_by_key_state__10TObjPlayerFPv(s32);
 s32 get_player_by_client_id(s32);
 void open__11TWindowCtrlFiii(s32, void *, s32);
-extern E_8034E02C lbl_804F0280[];
+extern E_8034E02C npc_partner_dialogue_state[];
 extern int lbl_805D6EA0;
 void show_partner_chatter_for_key(s16 key);
 void send_6x24_teleport_player(u16, s32, s32);
@@ -206,7 +206,7 @@ s32 obj_getField1c(s32);
 s16 get_stat_by_key_state__10TObjPlayerFPv(s32);
 s32 get_player_by_client_id(s32);
 void open__11TWindowCtrlFiii(s32, void *, s32);
-extern E_8034E02C lbl_804F0280[];
+extern E_8034E02C npc_partner_dialogue_state[];
 extern int lbl_805D6EA0;
 void notify_partner_room_cleared(s32 arg0);
 s32 obj_isState3_324();
@@ -271,14 +271,14 @@ void set_partner_common_remark(s32 kind, const char *text) {
 
     if (kind < 25 && strlen(text) < 53) {
         sprintf(buf, lbl_805DFDF0, text);
-        strcpy((char *)&lbl_804F0280[kind], buf);
+        strcpy((char *)&npc_partner_dialogue_state[kind], buf);
     }
 }
 
 void clear_partner_dialogue_flags(void) {
     s32 i;
     for (i = 0; i < 25; i++) {
-        lbl_804F0280[i].flag = 0;
+        npc_partner_dialogue_state[i].flag = 0;
     }
 }
 
@@ -429,7 +429,7 @@ void quest_remove_npc_player(u16 arg0) {
 }
 
 void notify_partner_room_cleared(s32 arg0) {
-    s8 *win = (s8 *)((M2C_UNK *)&lbl_804F0280) + 0x3CC;
+    s8 *win = (s8 *)((M2C_UNK *)&npc_partner_dialogue_state) + 0x3CC;
     s32 i;
     s32 p;
     i = 0;
@@ -448,8 +448,8 @@ void show_partner_chatter_for_key(s16 key) {
     for (i = 0; i < 4; i++) {
         player = get_player_by_client_id(i);
         if (player && obj_isState3_324() && key == get_stat_by_key_state__10TObjPlayerFPv(player)
-            && !(lbl_805D6EA0 & 2) && (*(Global_8034E5A8 *)&lbl_804F0280).f46e) {
-            open__11TWindowCtrlFiii(obj_getField1c(player), &(*(Global_8034E5A8 *)&lbl_804F0280).f46e, 0x1B);
+            && !(lbl_805D6EA0 & 2) && (*(Global_8034E5A8 *)&npc_partner_dialogue_state).f46e) {
+            open__11TWindowCtrlFiii(obj_getField1c(player), &(*(Global_8034E5A8 *)&npc_partner_dialogue_state).f46e, 0x1B);
         }
     }
 }

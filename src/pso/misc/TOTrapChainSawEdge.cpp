@@ -387,13 +387,13 @@ void *lbl_804E0C00[4] = {
 const char *lbl_805D3F00 = "TOTrapChainSaw";
 __declspec(section ".rodata") F4_802C8FF8 lbl_80471EDC = { 1.0f, 2.0f, 3.0f, 6.0f };
 const T_802C8F68 lbl_80471EEC = { { { 0x4D01F, 0x4C122, 0x4BC21 }, { 0x4004D01F, 0x4004C122, 0x4004BC21 }, { 0x4004D01F, 0x4004C122, 0x4004BC21 } } };
-const char *lbl_805D3F04 = "TOTrapChainSawDamage";
+const char *TOTrapChainSawDamage_class_name = "TOTrapChainSawDamage";
 const s32 lbl_80471F28[2] = { 0, 1 };
 const s32 lbl_80471F30[2] = { 0, 1 };
 const char *lbl_805D3F08 = "TOTrapChainSawKey";
 const s32 lbl_80471F4C[2] = { 3, 4 };
 const s32 lbl_80471F54[2] = { 3, 4 };
-const char *lbl_805D3F0C = "TOTrapChainSawEdge";
+const char *TOTrapChainSawEdge_class_name = "TOTrapChainSawEdge";
 const s32 lbl_80471F70[2] = { 0, 1 };
 const s32 lbl_80471F78[2] = { 0, 1 };
 void *lbl_804E0C10[44] = {
@@ -514,7 +514,7 @@ void *__dt__18TOTrapChainSawEdgeFv(void *arg0, s16 arg1) {
 u8 *TOTrapChainSawEdge__ct(u8 *arg0) {
     ((M2C_UNK (*)(void))TOTrapChainSaw__ct)();
     M2C_FIELD(arg0, M2C_UNK **, 0x18) = __vt__18TOTrapChainSawEdge;
-    M2C_FIELD(arg0, s32 *, 0) = (s32) lbl_805D3F0C;
+    M2C_FIELD(arg0, s32 *, 0) = (s32) TOTrapChainSawEdge_class_name;
     ((VObj_18_373ea7 *)(arg0))->m13();
     ((VObj_18_373ea7 *)(arg0))->m14();
     M2C_FIELD(arg0, s32 *, 0x100) = 0;
@@ -816,7 +816,7 @@ void *TOTrapChainSawDamage__ct(void *arg0, void *arg1, void *arg2) {
     void *o;
     ((void * (*)(void *, void *, void *))TOTrapChainSaw__ct)(arg0, arg1, arg2);
     *(M2C_UNK **)(((u8 *)arg0) + 0x18) = __vt__20TOTrapChainSawDamage;
-    *(s32 *)(((u8 *)arg0) + 0) = (s32) lbl_805D3F04;
+    *(s32 *)(((u8 *)arg0) + 0) = (s32) TOTrapChainSawDamage_class_name;
     ((VObj_802C8E24 *)arg0)->m13();
     ((VObj_802C8E24 *)arg0)->m14();
     ((s32 (*)(void *, void *, int))init_collision_body_parts)(arg0, &((Ent_802C8E24 *)lbl_804E0C10)[*(s32 *)(((u8 *)arg0) + 0xF8)], 2);

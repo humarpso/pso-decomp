@@ -71,8 +71,8 @@ void *create__22THunterGuildSeqOfflineFPv(void *arg0) {
     return o;
 }
 
-    extern int THunterGuildSeqOffline__data_80513DD8[];
-int THunterGuildSeqOffline__sub_80212060(int a0) {  return THunterGuildSeqOffline__data_80513DD8[a0]; }
+    extern int THunterGuildSeqOffline__instance_table[];
+int THunterGuildSeqOffline__sub_80212060(int a0) {  return THunterGuildSeqOffline__instance_table[a0]; }
 
 s32 THunterGuildSeqOffline__sub_80212074(void) {
     s32 temp_r3;

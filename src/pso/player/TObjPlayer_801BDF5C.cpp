@@ -10,14 +10,14 @@ void free_shared_data__10TObjPlayerFv(void);
 void free__11TOBoss4RockFUi(void*);
 void fn_801C2308(void*, int);
 
-extern u32 lbl_805D5D68;
+extern u32 TObjPlayer__shared_photon_blast_state;
 extern u32 TObjPlayer__data_805D5D80;
 extern u32 lbl_805D5D84;
 
 void free_shared_data__10TObjPlayerFv(void) {
-    if ((u32) lbl_805D5D68 != 0U) {
-        fn_801C2308((void*)lbl_805D5D68, 1);
-        lbl_805D5D68 = 0U;
+    if ((u32) TObjPlayer__shared_photon_blast_state != 0U) {
+        fn_801C2308((void*)TObjPlayer__shared_photon_blast_state, 1);
+        TObjPlayer__shared_photon_blast_state = 0U;
     }
     if ((u32) lbl_805D5D84 != 0U) {
         free__11TOBoss4RockFUi((void*)lbl_805D5D84);

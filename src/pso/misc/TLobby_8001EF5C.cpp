@@ -136,7 +136,7 @@ extern "C" {
 M2C_UNK TItemDrop__sub_800FE2DC();
 s32 alloc__22TQuestVmDownLoadServerFPv(M2C_UNK);
 s32 xmalloc__FUl(M2C_UNK);
-extern s8 lbl_804FE148[];
+extern s8 TLobby__tmp_buf_name[];
 extern s32 lbl_805D4ACC;
 extern s32 lbl_805D4AD4;
 extern u32 lbl_805D4AD8;
@@ -565,7 +565,7 @@ void init_download_buffers__6TLobbyFv(void) {
     lbl_805D4ACC = alloc__22TQuestVmDownLoadServerFPv(0x40000);
     TItemDrop__sub_800FE2DC();
     lbl_805D4AD4 = 1;
-    lbl_804FE148[0] = 0;
+    TLobby__tmp_buf_name[0] = 0;
 }
 
 void check_bin_model_loaded__6TLobbyFPvPv(Obj_8001F8D8 *self, void * _w1) {

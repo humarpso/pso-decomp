@@ -77,7 +77,7 @@ void set_tev_passclr__10TObjPlayerFv(void);
 void Dolphin_GXInitTexObj(TexObj_803E224C *, void *, u16, u16, s32, s32, s32, u8);
 void GXInitTexObjCI(TexObj_803E224C *, void *, u16, u16, s32, s32, s32, u8, u32);
 void GXLoadTexObj(TexObj_803E224C *, s32);
-extern TexObj_803E224C lbl_8058DBB0;
+extern TexObj_803E224C context_texture_obj;
 extern Ctx_803E224C *lbl_805D774C;
 void load_context_texture_obj(void);
 void GXBegin(int, int, u16);
@@ -159,11 +159,11 @@ void load_context_texture_obj(void) {
         wrapT = 2;
     }
     if (flags & 0x8000) {
-        GXInitTexObjCI(&lbl_8058DBB0, hdr->image, hdr->width, hdr->height, hdr->format, wrapS, wrapT, mip, ctx->tlut);
+        GXInitTexObjCI(&context_texture_obj, hdr->image, hdr->width, hdr->height, hdr->format, wrapS, wrapT, mip, ctx->tlut);
     } else {
-        Dolphin_GXInitTexObj(&lbl_8058DBB0, hdr->image, hdr->width, hdr->height, hdr->format, wrapS, wrapT, mip);
+        Dolphin_GXInitTexObj(&context_texture_obj, hdr->image, hdr->width, hdr->height, hdr->format, wrapS, wrapT, mip);
     }
-    GXLoadTexObj(&lbl_8058DBB0, 0);
+    GXLoadTexObj(&context_texture_obj, 0);
 }
 
 void setup_vertex_format__10TObjPlayerFv(void) {

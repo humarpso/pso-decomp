@@ -22,8 +22,8 @@ void *create_instance__22TShopEquipmentSequenceFPv(void *arg0) {
     return o;
 }
 
-    extern int TShopEquipmentSequence__data_80513EC0[];
-int TShopEquipmentSequence__sub_8021E330(int a0) {  return TShopEquipmentSequence__data_80513EC0[a0]; }
+    extern int TShopEquipmentSequence__slot_active_flags[];
+int TShopEquipmentSequence__sub_8021E330(int a0) {  return TShopEquipmentSequence__slot_active_flags[a0]; }
 
 extern void *tl_05;
 

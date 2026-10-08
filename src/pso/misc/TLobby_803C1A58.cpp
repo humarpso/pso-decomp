@@ -76,7 +76,7 @@ extern "C" {
 s32 cv_fs_get_stat__6TLobbyFPv(u32);
 s32 cv_fs_req_rd__6TLobbyFPvii(u32, s32, s32);
 M2C_UNK TLobby__sub_803D3130(void *, s32, Pair_803C8678 *, Pair_803C8678 *);
-extern s32 lbl_805D7554;
+extern s32 tlobby_stream_read_retry_limit;
 extern s32 lbl_805D7558;
 M2C_UNK TLobby__sub_803D3130(void *, s32, Pair_803C8678 *, Pair_803C8678 *);
 M2C_UNK memset(void *, int, int);
@@ -608,8 +608,8 @@ void update_stream_read__6TLobbyFPv(S_803C8678 *s) {
             s->retry = 0;
         } else if (r == 3) {
             st->vt->release(st, 0, &s->buf);
-            if (lbl_805D7554 >= 0) {
-                if (s->retry >= lbl_805D7554) {
+            if (tlobby_stream_read_retry_limit >= 0) {
+                if (s->retry >= tlobby_stream_read_retry_limit) {
                     s->state = 4;
                 } else {
                     s->retry++;
@@ -644,8 +644,8 @@ void update_stream_read__6TLobbyFPv(S_803C8678 *s) {
             s->nread = cv_fs_req_rd__6TLobbyFPvii(s->h, c, s->buf);
             if (s->nread <= 0) {
                 st->vt->release(st, 0, &s->buf);
-                if (cv_fs_get_stat__6TLobbyFPv(s->h) == 3 && lbl_805D7554 >= 0) {
-                    if (s->retry >= lbl_805D7554) {
+                if (cv_fs_get_stat__6TLobbyFPv(s->h) == 3 && tlobby_stream_read_retry_limit >= 0) {
+                    if (s->retry >= tlobby_stream_read_retry_limit) {
                         s->state = 4;
                     } else {
                         s->retry++;

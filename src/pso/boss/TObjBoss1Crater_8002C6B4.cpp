@@ -12,10 +12,10 @@ struct Obj_8002C730 { f32 x; u8 pad[4]; f32 z; };
 extern "C" {
 void attack_target_list_remove(u8 *arg0, s32 arg1);
 extern s32 TObjBoss1Crater__data_805D4B58;
-extern s32 TObjBoss1Crater__data_804FE1E8[];
+extern s32 TObjBoss1Crater__instance_list[];
 void TObjBoss1Crater__sub_8002C7B8(void);
 f32 newton_sqrtf(f32);
-extern s32 TObjBoss1Crater__data_804FE1E8[];
+extern s32 TObjBoss1Crater__instance_list[];
 extern s32 TObjBoss1Crater__data_805D4B58;
 extern const f32 lbl_805D8168;
 extern const f32 lbl_805D816C;
@@ -78,7 +78,7 @@ f32 calc_nearest_crater_distance(Obj_8002C730 *self) {
     x = self->x;
     z = self->z;
     for (i = 0; i < TObjBoss1Crater__data_805D4B58; i++) {
-        Ent_8002C730 *e = (Ent_8002C730 *)TObjBoss1Crater__data_804FE1E8[i];
+        Ent_8002C730 *e = (Ent_8002C730 *)TObjBoss1Crater__instance_list[i];
         dx = e->f38 - x;
         dz = e->f40 - z;
         d = dx * dx + dz * dz;
@@ -96,7 +96,7 @@ void TObjBoss1Crater__sub_8002C7B8(void) {
     s32 i;
     TObjBoss1Crater__data_805D4B58 = 0;
     for (i = 0; i < 20; i++) {
-        TObjBoss1Crater__data_804FE1E8[i] = 0;
+        TObjBoss1Crater__instance_list[i] = 0;
     }
 }
 

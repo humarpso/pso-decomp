@@ -8,7 +8,7 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 extern "C" {
 void* construct_actor_base__10TObjPlayerFPvPv(TObjEnemy*,void*);
 extern M2C_UNK __vt__9TObjEnemy[];
-extern void* lbl_805D2B00;
+extern void* TObjEnemy_class_name;
 extern const f32 lbl_805DA8E0;
 }
 
@@ -56,7 +56,7 @@ TObjEnemy* TObjEnemy::initialize(void* parent) {
     TObjEnemy* self=this;
     construct_actor_base__10TObjPlayerFPvPv(self,parent);
     self->dispatch=((u32 *)&__vt__9TObjEnemy);
-    self->typeName=lbl_805D2B00;
+    self->typeName=TObjEnemy_class_name;
     self->targetId=0xFFFF;
     self->variant=0;
     self->state36C=0;

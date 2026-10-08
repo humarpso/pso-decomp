@@ -103,7 +103,7 @@ void *TBoss8Dragon__sub_800BC5EC(void *, int);
 s32 rand();
 extern const V3_8002C544 lbl_80435560;
 extern M2C_UNK __vt__15TObjBoss1Crater[];
-extern Crater_8002C544 *TObjBoss1Crater__data_804FE1E8[];
+extern Crater_8002C544 *TObjBoss1Crater__instance_list[];
 extern s32 lbl_805D2688;
 extern s32 TObjBoss1Crater__data_805D4B58;
 extern const f32 lbl_805D8160;
@@ -243,7 +243,7 @@ Crater_8002C544 *TObjBoss1Crater__ct(Crater_8002C544 *self, void *arg1, void *ar
         self->fB8[i] = 0;
     }
     if (TObjBoss1Crater__data_805D4B58 < 0x14) {
-        TObjBoss1Crater__data_804FE1E8[TObjBoss1Crater__data_805D4B58++] = self;
+        TObjBoss1Crater__instance_list[TObjBoss1Crater__data_805D4B58++] = self;
     }
     switch (isV2Mode__12TBoss1DragonFv()) {
     case 0:

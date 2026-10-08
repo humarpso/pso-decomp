@@ -44,7 +44,7 @@ M2C_UNK pop_matrix();
 M2C_UNK post_translate_matrix(void *);
 M2C_UNK set_global_param__8TObjFishFi(int);
 M2C_UNK draw_ginja_model(void *);
-extern RecoveredGlobal_801982D4_lbl_804B8DAC lbl_804B8DAC;
+extern RecoveredGlobal_801982D4_lbl_804B8DAC lobby_gvm_texture_handles;
 extern s32 lbl_805D5C60;
 void draw_hinged_model__10TObjPlayerFPv(u8 *arg0);
 s32 TPhotonMagicSquare__sub_801A2640(void *, void *);
@@ -181,9 +181,9 @@ void draw_hinged_model__10TObjPlayerFPv(u8 *arg0) {
     temp_r3 = (u8 *)(get_bml_model(lbl_805D5C60, 1));
     if (temp_r3 != NULL) {
         if ((s32) M2C_FIELD(arg0, s32 *, 0x28) != 0) {
-            set_global_param__8TObjFishFi((int) (M2C_FIELD(&lbl_804B8DAC.value, s32 *, 0x1C)));
+            set_global_param__8TObjFishFi((int) (M2C_FIELD(&lobby_gvm_texture_handles.value, s32 *, 0x1C)));
         } else {
-            set_global_param__8TObjFishFi((int) (M2C_FIELD(&lbl_804B8DAC.value, s32 *, 0x20)));
+            set_global_param__8TObjFishFi((int) (M2C_FIELD(&lobby_gvm_texture_handles.value, s32 *, 0x20)));
         }
         push_matrix();
         post_translate_matrix((void *) (arg0 + 0x1C));

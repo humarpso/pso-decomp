@@ -11,7 +11,7 @@ s32 get_state_flag__9TMainTaskFv();
 void render_state__18TAdLoadQuestCellGCFPv(void *arg0);
 s32 __nw__7TObjectFUl(int);
 void *TAdLoadQuestCellGC__ct(void *arg0, void *arg1, void *arg2);
-__declspec(section ".data") TAdLoadQuestCellGC *lbl_804EFF38[3] = { 0, 0, 0 };
+__declspec(section ".data") TAdLoadQuestCellGC *ad_load_quest_cell_table[3] = { 0, 0, 0 };
 s32 get_or_create_cell__14TAdLoadQuestGCFii(s32 arg0, s32 arg1);
 }
 
@@ -56,8 +56,8 @@ void TAdLoadQuestCellGC::render() {
 void TAdLoadQuestCellGC::run_task() {}
 
 TAdLoadQuestCellGC::~TAdLoadQuestCellGC() {
-    if (lbl_804EFF38[m_state] != NULL) {
-        lbl_804EFF38[m_state] = NULL;
+    if (ad_load_quest_cell_table[m_state] != NULL) {
+        ad_load_quest_cell_table[m_state] = NULL;
     }
 }
 
@@ -79,15 +79,15 @@ s32 get_or_create_cell__14TAdLoadQuestGCFii(s32 arg0, s32 arg1) {
     s32 temp_r3;
     s32 var_r0;
     temp_r30 = arg1 * 4;
-    if ((u32) M2C_FIELD((s32 *)lbl_804EFF38, M2C_UNK *, temp_r30) == 0U) {
+    if ((u32) M2C_FIELD((s32 *)ad_load_quest_cell_table, M2C_UNK *, temp_r30) == 0U) {
         temp_r3 = __nw__7TObjectFUl((int) (0x24));
         var_r0 = temp_r3;
         if (var_r0 != 0) {
             var_r0 = ((s32)TAdLoadQuestCellGC__ct((void *)((int) (temp_r3)), (void *)((void *) (arg0)), (void *)((void *) (arg1))));
         }
-        M2C_FIELD((s32 *)lbl_804EFF38, M2C_UNK *, temp_r30) = var_r0;
+        M2C_FIELD((s32 *)ad_load_quest_cell_table, M2C_UNK *, temp_r30) = var_r0;
     }
-    return M2C_FIELD((s32 *)lbl_804EFF38, M2C_UNK *, temp_r30);
+    return M2C_FIELD((s32 *)ad_load_quest_cell_table, M2C_UNK *, temp_r30);
 }
 
 }

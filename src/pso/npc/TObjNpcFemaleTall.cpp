@@ -100,7 +100,7 @@ s32 setup_common__11TObjNpcBaseFv(void *);
 s32 construct_female_base__17TObjNpcFemaleBaseFPv(void *);
 extern M2C_UNK __vt__17TObjNpcFemaleTall[];
 extern s32 lbl_805D2DA4;
-extern u8 *TObjNpcFemaleTall__data_805D5790;
+extern u8 *TObjNpcFemaleTall__instance;
 u8 *TObjNpcFemaleTall__ct(u8 *arg0, M2C_UNK arg1, s32 arg2);
 }
 
@@ -131,8 +131,8 @@ u8 *TObjNpcFemaleTall__ct(u8 *arg0, M2C_UNK arg1, s32 arg2) {
     M2C_FIELD(arg0, s32 *, 0) = (s32) lbl_805D2DA4;
     ((VObj_18_aa4667 *)(arg0))->m79(arg2);
     init_position_vectors__10TObjPlayerFi((void *) (arg0));
-    M2C_FIELD(arg0, s32 *, 0x34) = (s32) M2C_FIELD(M2C_FIELD(TObjNpcFemaleTall__data_805D5790, u8 **, 0x42C), s32 *, 8);
-    M2C_FIELD(arg0, s32 *, 0x24) = (s32) M2C_FIELD(M2C_FIELD(TObjNpcFemaleTall__data_805D5790, u8 **, 0x42C), s32 *, 0xC);
+    M2C_FIELD(arg0, s32 *, 0x34) = (s32) M2C_FIELD(M2C_FIELD(TObjNpcFemaleTall__instance, u8 **, 0x42C), s32 *, 8);
+    M2C_FIELD(arg0, s32 *, 0x24) = (s32) M2C_FIELD(M2C_FIELD(TObjNpcFemaleTall__instance, u8 **, 0x42C), s32 *, 0xC);
     setup_common__11TObjNpcBaseFv((void *) (arg0));
     return arg0;
 }

@@ -25,17 +25,17 @@ struct Fmt_803C46DC { s16 a; s16 b; s16 c; s16 d; s32 e; s32 f; s32 g; s32 h; };
 extern "C" {
 M2C_UNK memset(void *, int, int);
 extern RecoveredGlobal_803C5850_lbl_80572020 lbl_80572020;
-extern s32 lbl_805D7528;
-extern s32 lbl_805D752C;
+extern s32 lobby_error_callback;
+extern s32 tlobby_error_callback_arg;
 void TLobby__sub_803C5850(void);
 M2C_UNK memset(void *, int, int);
 extern RecoveredGlobal_803C5850_lbl_80572020 lbl_80572020;
-extern s32 lbl_805D7528;
-extern s32 lbl_805D752C;
+extern s32 lobby_error_callback;
+extern s32 tlobby_error_callback_arg;
 void TLobby__sub_803C588C(void);
 extern RecoveredGlobal_803C5850_lbl_80572020 lbl_80572020;
-extern s32 lbl_805D7528;
-extern s32 lbl_805D752C;
+extern s32 lobby_error_callback;
+extern s32 tlobby_error_callback_arg;
 char *strncpy(char *dst, const char *src, u32 n);
 void strncat(char *buf, s32 arg, s32 n);
 void TLobby__sub_803D38B4(const char *fmt, ...);
@@ -45,8 +45,8 @@ s32 TLobby__sub_803C4A00(s16 *arg0, s32 arg1, s16 *arg2);
 char *strncpy(char *dst, const char *src, u32 n);
 void TLobby__sub_803D38B4(const char *fmt, ...);
 extern RecoveredGlobal_803C5850_lbl_80572020 lbl_80572020;
-extern s32 lbl_805D7528;
-extern s32 lbl_805D752C;
+extern s32 lobby_error_callback;
+extern s32 tlobby_error_callback_arg;
 void notify_error__6TLobbyFPv(const char *arg0);
 s32 TLobby__sub_803C47F8(u8 *arg0, s32 arg1, u16 *arg2, u16 *arg3);
 s32 ARStartDMA(u8 *arg0, s32 arg1, s16 *arg2, u8 *arg3, s8 *arg4, s8 *arg5, u8 *arg6, s32 *arg7, s32 *arg8, s32 *arg9);
@@ -72,8 +72,8 @@ void process_connection_state__6TLobbyFv(void);
 void TLobby__sub_803C5B2C(void);
 extern u8 lbl_80572120[];
 extern s32 lbl_805D4658;
-extern s32 lbl_805D7538;
-extern s32 lbl_805D753C;
+extern s32 TLobby_init_ref_count;
+extern s32 TLobby__svm_cb_svr_handle;
 extern s32 lbl_805D7540;
 extern const s32 lbl_805E0D30;
 void init_and_add_ref__6TLobbyFv(void);
@@ -113,10 +113,10 @@ M2C_UNK release_ref__6TLobbyFv();
 M2C_UNK shutdown_cleanup__6TLobbyFv();
 M2C_UNK si_get_type_async__6TLobbyFv();
 
-extern s32 lbl_805D7518;
+extern s32 TLobby__init_ref_count;
 
 void TLobby__sub_803C4698(void) {
-    lbl_805D7518 = 0;
+    TLobby__init_ref_count = 0;
 }
 
 extern s32 lbl_805D7520;
@@ -286,8 +286,8 @@ void dispatch_receive_update__6TLobbyFv(void) {
     decode_adx_stereo_downmix();
 }
 
-extern s32 lbl_805D7528;
-extern s32 lbl_805D752C;
+extern s32 lobby_error_callback;
+extern s32 tlobby_error_callback_arg;
 
 typedef void (*Callback_803C5744)(s32 ctx, char *msg);
 
@@ -325,23 +325,23 @@ void format_number_pair__6TLobbyFiiPvi(s32 arg0, s32 arg1, char *arg2, s32 arg3)
 void report_adx_error__6TLobbyFPvi(const char *msg, s32 arg) {
     strncpy(((char *)&lbl_80572020), msg, 0xFF);
     strncat(((char *)&lbl_80572020), arg, 0xFF);
-    if ((*(Callback_803C5744 *)&lbl_805D7528) != 0) {
-        (*(Callback_803C5744 *)&lbl_805D7528)(lbl_805D752C, ((char *)&lbl_80572020));
+    if ((*(Callback_803C5744 *)&lobby_error_callback) != 0) {
+        (*(Callback_803C5744 *)&lobby_error_callback)(tlobby_error_callback_arg, ((char *)&lbl_80572020));
     }
     TLobby__sub_803D38B4(((char *)&lbl_80572020));
 }
 
 void notify_error__6TLobbyFPv(const char *arg0) {
     strncpy(((char *)&lbl_80572020), arg0, 0xFF);
-    if ((*(RecoveredCallback_e2efd47cbcab *)&lbl_805D7528) != NULL) {
-        (*(RecoveredCallback_e2efd47cbcab *)&lbl_805D7528)(lbl_805D752C, ((char *)&lbl_80572020));
+    if ((*(RecoveredCallback_e2efd47cbcab *)&lobby_error_callback) != NULL) {
+        (*(RecoveredCallback_e2efd47cbcab *)&lobby_error_callback)(tlobby_error_callback_arg, ((char *)&lbl_80572020));
     }
     TLobby__sub_803D38B4(((char *)&lbl_80572020));
 }
 
 void set_params__6TLobbyFii(s32 arg0, s32 arg1) {
-    lbl_805D7528 = arg0;
-    lbl_805D752C = arg1;
+    lobby_error_callback = arg0;
+    tlobby_error_callback_arg = arg1;
     TLobby__sub_803D33F4();
 }
 
@@ -350,15 +350,15 @@ extern s32 lbl_805D7530;
 typedef char RecoveredGlobal_803C5850_lbl_80572020_size[sizeof(RecoveredGlobal_803C5850_lbl_80572020) == 0x100 ? 1 : -1];
 void TLobby__sub_803C5850(void) {
     memset((void *) (&lbl_80572020.value), (int) (0), (int) (0x100));
-    lbl_805D7528 = 0;
-    lbl_805D752C = 0;
+    lobby_error_callback = 0;
+    tlobby_error_callback_arg = 0;
 }
 
 typedef char RecoveredGlobal_803C588C_lbl_80572020_size[sizeof(RecoveredGlobal_803C588C_lbl_80572020) == 0x100 ? 1 : -1];
 void TLobby__sub_803C588C(void) {
     memset((void *) (&(*(RecoveredGlobal_803C588C_lbl_80572020 *)&lbl_80572020).value), (int) (0), (int) (0x100));
-    lbl_805D7528 = 0;
-    lbl_805D752C = 0;
+    lobby_error_callback = 0;
+    tlobby_error_callback_arg = 0;
 }
 
 void ARAlloc(void) {
@@ -377,14 +377,14 @@ void ARAlloc(void) {
     }
 }
 
-extern s32 lbl_805D7538;
-extern s32 lbl_805D753C;
+extern s32 TLobby_init_ref_count;
+extern s32 TLobby__svm_cb_svr_handle;
 
 void dec_ref_and_shutdown__6TLobbyFv(void) {
     s32 temp_r0;
 
-    temp_r0 = lbl_805D7538 - 1;
-    lbl_805D7538 = temp_r0;
+    temp_r0 = TLobby_init_ref_count - 1;
+    TLobby_init_ref_count = temp_r0;
     if (temp_r0 == 0) {
         shutdown_cleanup__6TLobbyFv();
         dec_ref_and_reset_tables__6TLobbyFv();
@@ -393,7 +393,7 @@ void dec_ref_and_shutdown__6TLobbyFv(void) {
         init_once__6TLobbyFv();
         SVM_DelCbSvr__6TLobbyFii((int) (2), (void *) (1));
         SVM_DelCbSvr__6TLobbyFii((int) (2), (void *) (3));
-        SVM_DelCbSvr__6TLobbyFii((int) (4), (void *) (lbl_805D753C));
+        SVM_DelCbSvr__6TLobbyFii((int) (4), (void *) (TLobby__svm_cb_svr_handle));
         TLobby__sub_803D3194();
         release_ref__6TLobbyFv();
         init_once__6TLobbyFv();
@@ -407,7 +407,7 @@ void dec_ref_and_shutdown__6TLobbyFv(void) {
 }
 void init_and_add_ref__6TLobbyFv(void) {
     s32 v = lbl_805E0D30;
-    if (lbl_805D7538 == 0) {
+    if (TLobby_init_ref_count == 0) {
         ((void (*)(s32))TLobby__sub_803C4698)(v);
         init_once__6TLobbyFv();
         TLobby__sub_803D2ED4();
@@ -424,12 +424,12 @@ void init_and_add_ref__6TLobbyFv(void) {
         if (lbl_805D4658 == 1) {
             SVM_SetCbSvrId__6TLobbyFiiii(2, 1, (void *)get_state_zero__6TLobbyFv, 0);
             SVM_SetCbSvrId__6TLobbyFiiii(2, 3, (void *)ar_alloc__6TLobbyFv, 0);
-            lbl_805D753C = svm_set_cb_svr__6TLobbyFiii(4, (void *)process_connection_state__6TLobbyFv, 0);
+            TLobby__svm_cb_svr_handle = svm_set_cb_svr__6TLobbyFiii(4, (void *)process_connection_state__6TLobbyFv, 0);
         }
         lbl_805D7540 = 0;
         release_ref__6TLobbyFv();
     }
-    lbl_805D7538 += 1;
+    TLobby_init_ref_count += 1;
 }
 
 }

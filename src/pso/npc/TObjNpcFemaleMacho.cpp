@@ -101,14 +101,14 @@ extern "C" {
 u8 * load_resource_from_descriptor(void *, s32, void *, s32, s32, s32);
 int alloc__23TAdSinglePlyChrSelectGCFPv(void *);
 extern RecoveredGlobal_8014A718_lbl_804A8F90 lbl_804A8F90;
-extern u32 TObjNpcFemaleOld__data_805D5788;
+extern u32 TObjNpcFemaleOld__static_instance;
 void TObjNpcFemaleOld__sub_8014A718(void);
 s32 init_position_vectors__10TObjPlayerFi(void *);
 s32 setup_common__11TObjNpcBaseFv(void *);
 s32 construct_female_base__17TObjNpcFemaleBaseFPv(void *);
 extern M2C_UNK __vt__18TObjNpcFemaleMacho[];
 extern s32 lbl_805D2D94;
-extern u8 *TObjNpcFemaleMacho__data_805D5780;
+extern u8 *TObjNpcFemaleMacho__lobby_resource;
 u8 *TObjNpcFemaleMacho__ct(u8 *arg0, M2C_UNK arg1, s32 arg2);
 }
 
@@ -146,8 +146,8 @@ u8 *TObjNpcFemaleMacho__ct(u8 *arg0, M2C_UNK arg1, s32 arg2) {
     M2C_FIELD(arg0, s32 *, 0) = (s32) lbl_805D2D94;
     ((VObj_18_aa4667 *)(arg0))->m79(arg2);
     init_position_vectors__10TObjPlayerFi((void *) (arg0));
-    M2C_FIELD(arg0, s32 *, 0x34) = (s32) M2C_FIELD(M2C_FIELD(TObjNpcFemaleMacho__data_805D5780, u8 **, 0x42C), s32 *, 8);
-    M2C_FIELD(arg0, s32 *, 0x24) = (s32) M2C_FIELD(M2C_FIELD(TObjNpcFemaleMacho__data_805D5780, u8 **, 0x42C), s32 *, 0xC);
+    M2C_FIELD(arg0, s32 *, 0x34) = (s32) M2C_FIELD(M2C_FIELD(TObjNpcFemaleMacho__lobby_resource, u8 **, 0x42C), s32 *, 8);
+    M2C_FIELD(arg0, s32 *, 0x24) = (s32) M2C_FIELD(M2C_FIELD(TObjNpcFemaleMacho__lobby_resource, u8 **, 0x42C), s32 *, 0xC);
     setup_common__11TObjNpcBaseFv((void *) (arg0));
     return arg0;
 }
@@ -166,12 +166,12 @@ void * TObjNpcFemaleOld__create(void *arg0) {
     return o2;
 }
 
-extern u32 TObjNpcFemaleOld__data_805D5788;
+extern u32 TObjNpcFemaleOld__static_instance;
 
 void destroy_static_instance__16TObjNpcFemaleOldFv(void) {
-    if ((u32) TObjNpcFemaleOld__data_805D5788 != 0U) {
-        TLobby__sub_8001FE7C((void*)TObjNpcFemaleOld__data_805D5788, 1);
-        TObjNpcFemaleOld__data_805D5788 = 0U;
+    if ((u32) TObjNpcFemaleOld__static_instance != 0U) {
+        TLobby__sub_8001FE7C((void*)TObjNpcFemaleOld__static_instance, 1);
+        TObjNpcFemaleOld__static_instance = 0U;
     }
 }
 void TObjNpcFemaleOld__sub_8014A718(void) {
@@ -182,7 +182,7 @@ void TObjNpcFemaleOld__sub_8014A718(void) {
     if (var_r0 != 0) {
         var_r0 = (long) (load_resource_from_descriptor((void *) temp_r3, 1, &lbl_804A8F90.value, 0, 0, 0));
     }
-    (*(s32 *)&TObjNpcFemaleOld__data_805D5788) = var_r0;
+    (*(s32 *)&TObjNpcFemaleOld__static_instance) = var_r0;
 }
 
 }

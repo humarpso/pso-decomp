@@ -12,23 +12,23 @@ M2C_UNK TDeadSpot__sub_800D80E4(void *, s32, s32, s32, s32, s32, f32);
 M2C_UNK __ct__9TDeadSpotFv(void *, s32, s32, s32, s32, s32, f32);
 void *__nw__7TObjectFUl(M2C_UNK);
 
-extern void *lbl_805D5228;
+extern void *player_corpse_mark_resource;
 extern s32 tl_05;
 
 void TObjPlayer__sub_800D93F0(s32 arg0, s32 arg1, s32 arg2, f32 farg0) {
     void *obj = __nw__7TObjectFUl(0xCC);
     if (obj != NULL) {
-        TDeadSpot__sub_800D80E4(obj, tl_05, arg0, M2C_FIELD(M2C_FIELD(lbl_805D5228, void **, 0x42C), s32 *, 0xC), arg1, arg2, farg0);
+        TDeadSpot__sub_800D80E4(obj, tl_05, arg0, M2C_FIELD(M2C_FIELD(player_corpse_mark_resource, void **, 0x42C), s32 *, 0xC), arg1, arg2, farg0);
     }
 }
 
-extern void *lbl_805D5228;
+extern void *player_corpse_mark_resource;
 extern s32 tl_05;
 
 void spawn_dead_spot__10TObjPlayerFiiif(s32 arg0, s32 arg1, s32 arg2, f32 farg0) {
     void *obj = __nw__7TObjectFUl(0xC8);
     if (obj != NULL) {
-        __ct__9TDeadSpotFv(obj, tl_05, arg0, M2C_FIELD(M2C_FIELD(lbl_805D5228, void **, 0x42C), s32 *, 0xC), arg1, arg2, farg0);
+        __ct__9TDeadSpotFv(obj, tl_05, arg0, M2C_FIELD(M2C_FIELD(player_corpse_mark_resource, void **, 0x42C), s32 *, 0xC), arg1, arg2, farg0);
     }
 }
 

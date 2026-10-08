@@ -36,7 +36,7 @@ void set_chunk_material_color(void *, s32);
 extern Vec_80232934 lbl_8044D5A8;
 extern Quad_80232934 lbl_8044D5B4;
 extern u8 lbl_804CC868[];
-extern u8 lbl_804CC934[];
+extern u8 technique_ringwave_texture_list[];
 extern s32 lbl_805D5660;
 extern s32 lbl_805D63AC;
 extern s32 some_id_805c6f74;
@@ -55,7 +55,7 @@ void grants_flash_render(Obj_80232934 *arg0) {
         get_global_state__14TOKeyMachine01Fv() == 0xF) {
         return;
     }
-    init_texture_copy_rect(&ctx, lbl_804CC868, lbl_804CC934, 0, arg0->f48 + 1);
+    init_texture_copy_rect(&ctx, lbl_804CC868, technique_ringwave_texture_list, 0, arg0->f48 + 1);
     Vec_80232934 v = lbl_8044D5A8;
     Quad_80232934 q = lbl_8044D5B4;
     approach_alpha_clamped(arg0->f38, &q, lbl_805DC840);

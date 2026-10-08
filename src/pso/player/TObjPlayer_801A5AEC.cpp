@@ -91,7 +91,7 @@ extern const f64 lbl_804469E8[];
 extern RecoveredGlobal_801A5EC4_lbl_8050E208 lbl_8050E208;
 extern u32 lbl_8050E568[];
 extern u8 lbl_805D5D09;
-extern s8 lbl_805D5D0C[4];
+extern s8 pad_recalibration_hold_frames[4];
 extern const f32 lbl_805DC0B4;
 void update_pad_recalibration(void);
 s32 is_split_screen();
@@ -223,17 +223,17 @@ void update_pad_recalibration(void) {
     Masks_801A5C4C masks = { 0x80000000, 0x40000000, 0x20000000, 0x10000000 };
     for (i = 0; i < 4; i++) {
         if ((((Pad_801A5C4C *)&lbl_8050E208)[i].hold & 0x40A) == 0x40A) {
-            lbl_805D5D0C[i]++;
-            if (15.0 == (f64)lbl_805D5D0C[i]) {
+            pad_recalibration_hold_frames[i]++;
+            if (15.0 == (f64)pad_recalibration_hold_frames[i]) {
                 lbl_805D5D09 = 1;
                 for (j = 0; j < 4; j++) {
                     PADRecalibrate(masks.m[j]);
                 }
-            } else if ((f64)lbl_805D5D0C[i] > 15.0) {
-                lbl_805D5D0C[i] = 0x10;
+            } else if ((f64)pad_recalibration_hold_frames[i] > 15.0) {
+                pad_recalibration_hold_frames[i] = 0x10;
             }
         } else {
-            lbl_805D5D0C[i] = 0;
+            pad_recalibration_hold_frames[i] = 0;
         }
     }
     for (i = 0; i < 4; i++) {
@@ -506,8 +506,8 @@ extern "C" {
 s32 TKeyBoardControl__sub_803DEB74(int);
 extern s32 lbl_805D34C8;
 extern s8 lbl_805D5D08;
-extern s8 lbl_805D5D0A;
-extern s8 lbl_805D5D0C[4];
+extern s8 keyboard_reset_button_pressed;
+extern s8 pad_recalibration_hold_frames[4];
 void TKeyBoardControl__sub_801A6854(void);
 u8 get_key_state_2__16TKeyBoardControlFPv(void *);
 s32 read_input__16TKeyBoardControlFi(u8);
@@ -648,9 +648,9 @@ void TKeyBoardControl__sub_801A6854(void) {
     lbl_8050E208[3] = TKeyBoardControl__sub_803DEB74(0x12);
     lbl_805D5D08 = 0;
     lbl_805D5D09 = 0;
-    lbl_805D5D0A = 0;
+    keyboard_reset_button_pressed = 0;
     for (i = 0; i < 4; i++) {
-        lbl_805D5D0C[i] = 0;
+        pad_recalibration_hold_frames[i] = 0;
     }
     lbl_805D34C8 = 1;
 }

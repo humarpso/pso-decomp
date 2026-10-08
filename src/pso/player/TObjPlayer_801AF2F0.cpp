@@ -3044,7 +3044,7 @@ extern const Vec_801B92EC lbl_80446F2C;
 extern u8 lbl_80446F50[];
 extern u8 lbl_80446F5C[];
 extern const f64 lbl_80446F68;
-extern u8 lbl_804FE120[];
+extern u8 main_phase_state[];
 extern Vec_801B6964 lbl_8050BEE0[];
 extern DeathItemPosition lbl_8050BF60;
 extern Color_801B6964 lbl_8050BFE0[];
@@ -3409,7 +3409,7 @@ f32 TObjPlayer__vt20(s32 arg0, s32 arg1, f32 farg0) {
 s16 get_handle_value__10TObjPlayerFPv(void* p) { return (s16)(sub_802a7290_fwd__10TObjPlayerFPv(*(void**)((char*)p + 0x380))); }
 
 void set_action_provider_variant__10TObjPlayerFPvs(Player_801AFCF4 *arg0, s16 arg1) {
-    if (arg1 != ((s32 (*)(void *))sub_802a7290_fwd__10TObjPlayerFPv)(arg0->obj) && fn_8000F740(lbl_804FE120) != 0) {
+    if (arg1 != ((s32 (*)(void *))sub_802a7290_fwd__10TObjPlayerFPv)(arg0->obj) && fn_8000F740(main_phase_state) != 0) {
         arg0->obj->m4(((u16 (*)(void *))obj_getField1c)(arg0), ((s32 (*)(void *))has_valid_handle__10TObjPlayerFPv)(arg0), arg1);
         apply_motion_entry__10TObjPlayerFPv(arg0);
     }

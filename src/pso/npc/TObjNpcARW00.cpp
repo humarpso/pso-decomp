@@ -121,13 +121,13 @@ s32 setup_common__11TObjNpcBaseFv(void *);
 s32 construct_female_base__17TObjNpcFemaleBaseFPv(void *);
 extern M2C_UNK __vt__12TObjNpcARW00[];
 extern s32 lbl_805D2D18;
-extern u32 TObjNpcARW00__data_805D5730;
-extern u32 TObjNpcARW00__data_805D5734;
+extern u32 TObjNpcARW00__static_model;
+extern u32 TObjNpcARW00__gvm_texture_handle;
 u8 *TObjNpcARW00__ct(u8 *arg0, M2C_UNK arg1, s32 arg2);
 void *create_named_object(const char *name);
 void *load_gvm_texture_file(const char *name);
-extern u32 TObjNpcARW00__data_805D5730;
-extern u32 TObjNpcARW00__data_805D5734;
+extern u32 TObjNpcARW00__static_model;
+extern u32 TObjNpcARW00__gvm_texture_handle;
 extern char lbl_8043F4A8[];
 extern char lbl_8043F4BC[];
 void load_resources__12TObjNpcARW00Fv(void);
@@ -153,26 +153,26 @@ void __dl__7TObjectFPv(void *);
 void destroy_npc_female_base__17TObjNpcFemaleBaseFPvs(void *, int);
 M2C_UNK safe_free__23TAdSinglePlyChrSelectGCFUi(u32);
 
-extern u32 TObjNpcARW00__data_805D5730;
-extern u32 TObjNpcARW00__data_805D5734;
+extern u32 TObjNpcARW00__static_model;
+extern u32 TObjNpcARW00__gvm_texture_handle;
 
 void free_resources__12TObjNpcARW00Fv(void) {
-    if ((u32) TObjNpcARW00__data_805D5734 != 0U) {
-        TLobby__sub_803DA16C((void*)TObjNpcARW00__data_805D5734);
-        safe_free__23TAdSinglePlyChrSelectGCFUi(TObjNpcARW00__data_805D5734);
-        TObjNpcARW00__data_805D5734 = 0U;
+    if ((u32) TObjNpcARW00__gvm_texture_handle != 0U) {
+        TLobby__sub_803DA16C((void*)TObjNpcARW00__gvm_texture_handle);
+        safe_free__23TAdSinglePlyChrSelectGCFUi(TObjNpcARW00__gvm_texture_handle);
+        TObjNpcARW00__gvm_texture_handle = 0U;
     }
-    if ((u32) TObjNpcARW00__data_805D5730 != 0U) {
-        free_nodes_with_id__6TLobbyFUi((void*)TObjNpcARW00__data_805D5730);
-        TObjNpcARW00__data_805D5730 = 0U;
+    if ((u32) TObjNpcARW00__static_model != 0U) {
+        free_nodes_with_id__6TLobbyFUi((void*)TObjNpcARW00__static_model);
+        TObjNpcARW00__static_model = 0U;
     }
 }
 
 extern M2C_UNK __vt__12TObjNpcARW00[];
 
 void load_resources__12TObjNpcARW00Fv(void) {
-    TObjNpcARW00__data_805D5730 = (u32)create_named_object(lbl_8043F4A8);
-    TObjNpcARW00__data_805D5734 = (u32)load_gvm_texture_file(lbl_8043F4BC);
+    TObjNpcARW00__static_model = (u32)create_named_object(lbl_8043F4A8);
+    TObjNpcARW00__gvm_texture_handle = (u32)load_gvm_texture_file(lbl_8043F4BC);
 }
 
 void *__dt__12TObjNpcARW00Fv(void *arg0, s16 arg1) {
@@ -193,8 +193,8 @@ u8 *TObjNpcARW00__ct(u8 *arg0, M2C_UNK arg1, s32 arg2) {
     M2C_FIELD(arg0, s32 *, 0) = (s32) lbl_805D2D18;
     ((VObj_18_aa4667 *)(arg0))->m79(arg2);
     init_position_vectors__10TObjPlayerFi((void *) (arg0));
-    M2C_FIELD(arg0, s32 *, 0x34) = (s32) *(*(s32 * *)&TObjNpcARW00__data_805D5730);
-    M2C_FIELD(arg0, s32 *, 0x24) = (s32) (*(s32 *)&TObjNpcARW00__data_805D5734);
+    M2C_FIELD(arg0, s32 *, 0x34) = (s32) *(*(s32 * *)&TObjNpcARW00__static_model);
+    M2C_FIELD(arg0, s32 *, 0x24) = (s32) (*(s32 *)&TObjNpcARW00__gvm_texture_handle);
     setup_common__11TObjNpcBaseFv((void *) (arg0));
     return arg0;
 }

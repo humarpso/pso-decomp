@@ -2120,7 +2120,7 @@ void init_global__22TObjEneMe1GiGueBarrierFv();
 
 extern s32 TObjEneMe1GiGue__data_805D6834;
 extern Spawn_802CD62C lbl_80472264;
-extern s32 lbl_805D6828;
+extern s32 ene_me1_gigue_boss_id;
 extern s32 lbl_805D682C;
 extern s32 lbl_805D6830;
 extern void *tl_04;
@@ -2474,7 +2474,7 @@ void load_resources__15TObjEneMe1GiGueFv(void) {
         }
         TObjEneMe1GiGue__data_805D6838 = o;
     }
-    lbl_805D6828 = register_boss__6TLobbyFPv(0x1A);
+    ene_me1_gigue_boss_id = register_boss__6TLobbyFPv(0x1A);
     lbl_805D682C = dispatch_shared_handler_b__6TLobbyFPv(0x1A);
     lbl_805D6830 = register_object__6TLobbyFPv(0x1A);
     TObjEneMe1GiGue__data_805D6834 = dispatch_shared_handler_a__6TLobbyFPv(0x1A);
@@ -2567,7 +2567,7 @@ M2C_UNK bind_enemy_combat_stats(void *, s32, s32, s32);
 M2C_UNK set_animation__10TObjPlayerFPvs(void *, int);
 M2C_UNK init_collision_body_parts(void *, void *, int);
 extern s32 lbl_805D3F18;
-extern s32 lbl_805D6828;
+extern s32 ene_me1_gigue_boss_id;
 extern s32 lbl_805D682C;
 extern s32 lbl_805D6830;
 extern s32 TObjEneMe1GiGue__data_805D6834;
@@ -2607,7 +2607,7 @@ u8 *TObjEneMe1GiGue__ct(u8 *arg0, M2C_UNK arg1, u8 *arg2) {
     init_collision_body_parts(arg0, lbl_804E1304, 2);
     M2C_FIELD(M2C_FIELD(arg0, u8 **, 0xA4), u32 *, 0x44) &= ~1;
     M2C_FIELD(arg0, void **, 0x350) = lbl_804E12E8;
-    bind_enemy_combat_stats(arg0, lbl_805D6828, lbl_805D682C, lbl_805D6830);
+    bind_enemy_combat_stats(arg0, ene_me1_gigue_boss_id, lbl_805D682C, lbl_805D6830);
     update_direction__15TObjEneMe1GiGueFPv(arg0);
     ((void (*)(void *))load_params__15TObjEneMe1GiGueFi)(arg0);
     M2C_FIELD(arg0, s16 *, 0xB8) = 0;

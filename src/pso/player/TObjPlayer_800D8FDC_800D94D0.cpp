@@ -7,8 +7,8 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 extern "C" {
 extern const f32 lbl_805DA3D8;
 s32 TObjPlayer__sub_800D9560(f32 *arg0);
-extern u32 lbl_805D5228;
-extern s32 lbl_805D522C;
+extern u32 player_corpse_mark_resource;
+extern s32 player_particle_effect_enabled;
 extern u8 lbl_80494A48[];
 int alloc__23TAdSinglePlyChrSelectGCFPv(void *);
 u8 *load_resource_from_descriptor(void *, s32, void *, s32, s32, s32);
@@ -23,12 +23,12 @@ void TLobby__sub_8001FE7C(void*, int);
 M2C_UNK set_chunk_blend(M2C_UNK);
 M2C_UNK set_chunk_material_override_pair(M2C_UNK, M2C_UNK);
 
-extern u32 lbl_805D5228;
+extern u32 player_corpse_mark_resource;
 
 void destroy_static_lobby__10TObjPlayerFv(void) {
-    if ((u32) lbl_805D5228 != 0U) {
-        TLobby__sub_8001FE7C((void*)lbl_805D5228, 1);
-        lbl_805D5228 = 0U;
+    if ((u32) player_corpse_mark_resource != 0U) {
+        TLobby__sub_8001FE7C((void*)player_corpse_mark_resource, 1);
+        player_corpse_mark_resource = 0U;
     }
 }
 
@@ -39,8 +39,8 @@ void load_corpse_mark_resource(void) {
     if (p != 0) {
         p = load_resource_from_descriptor(p, 1, lbl_80494A48, 0, 0, 0);
     }
-    lbl_805D5228 = (u32)p;
-    lbl_805D522C = 1;
+    player_corpse_mark_resource = (u32)p;
+    player_particle_effect_enabled = 1;
 }
 
 s32 TObjPlayer__sub_800D9560(f32 *arg0) {

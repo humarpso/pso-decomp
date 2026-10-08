@@ -77,7 +77,7 @@ M2C_UNK set_field_20__12TQuestListVMFPvi(void *, M2C_UNK);
 s32 create_quest_thread(s32);
 void TWindow__close(void *);
 s32 get_selected_menu_value(void *);
-extern RecoveredGlobal_802128B0_THunterGuildSeqOffline__data_80513DC8 THunterGuildSeqOffline__data_80513DC8;
+extern RecoveredGlobal_802128B0_THunterGuildSeqOffline__data_80513DC8 THunterGuildSeqOffline__quest_result_callbacks;
 void handle_cancel_choice__22THunterGuildSeqOfflineFPv(u8 *arg0);
 M2C_UNK set_field_20__12TQuestListVMFPvi(void *, M2C_UNK);
 List_80212B88 *TQuestListOffline__ct(void *, s32, Seq_80212B88 *, s32);
@@ -160,8 +160,8 @@ void handle_cancel_choice__22THunterGuildSeqOfflineFPv(u8 *arg0) {
                 M2C_FIELD(arg0, u8 **, 0x2C) = NULL;
                 ((VObj_18_97738d *)(arg0))->m7(9, 1);
                 M2C_FIELD(arg0, s32 *, 0x38) = 1;
-                if ((s32) M2C_FIELD(&THunterGuildSeqOffline__data_80513DC8.value, s32 *, 8) != -1) {
-                    M2C_FIELD(arg0, s32 *, 0x34) = create_quest_thread(M2C_FIELD(&THunterGuildSeqOffline__data_80513DC8.value, s32 *, 8));
+                if ((s32) M2C_FIELD(&THunterGuildSeqOffline__quest_result_callbacks.value, s32 *, 8) != -1) {
+                    M2C_FIELD(arg0, s32 *, 0x34) = create_quest_thread(M2C_FIELD(&THunterGuildSeqOffline__quest_result_callbacks.value, s32 *, 8));
                 }
                 set_field_20__12TQuestListVMFPvi((void *)(arg0), (M2C_UNK)(5));
                 return;

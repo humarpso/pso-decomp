@@ -407,11 +407,11 @@ void set_position__18TCheckRoomSequenceFPvff(void* p, f32 a, f32 b);
 u32 lbl_80513D88[4];
 u32 lbl_80513D98[4];
 u32 lbl_80513DA8[4];
-u32 TCheckRoomSequence__data_80513DB8[4];
+u32 TCheckRoomSequence__slot_active_flags[4];
 #define lbl_80513D88 (*(Rec_80211034 *(*)[4])lbl_80513D88)
 #define lbl_80513D98 (*(s32 (*)[4])lbl_80513D98)
 #define lbl_80513DA8 (*(s32 (*)[4])lbl_80513DA8)
-#define TCheckRoomSequence__data_80513DB8 (*(s32 (*)[4])TCheckRoomSequence__data_80513DB8)
+#define TCheckRoomSequence__slot_active_flags (*(s32 (*)[4])TCheckRoomSequence__slot_active_flags)
 
 s32 check_room_ready__18TCheckRoomSequenceFv(void) {
     if (is_not_split_screen__13TRaderMapCoreFv() == 0) {
@@ -963,7 +963,7 @@ u8 *__dt__18TCheckRoomSequenceFv(u8 *arg0, s16 arg1) {
             M2C_FIELD(arg0, TWin_8020F070 **, 0x3C) = NULL;
         }
         TCheckRoomSequence__sub_8020F070((TCheckRoomSequence_8020F070 *)arg0);
-        TCheckRoomSequence__data_80513DB8[TShopWindowBase__sub_8022397C(arg0)] = 0;
+        TCheckRoomSequence__slot_active_flags[TShopWindowBase__sub_8022397C(arg0)] = 0;
         if (M2C_FIELD(arg0, u32 *, 0x30) != 0) {
             safe_free__23TAdSinglePlyChrSelectGCFUi(M2C_FIELD(arg0, s32 *, 0x30));
             M2C_FIELD(arg0, s32 *, 0x30) = 0;
@@ -993,7 +993,7 @@ void *TCheckRoomSequence__ct(void *arg0, s32 arg1, s32 arg2_) {
     set_field_20__12TQuestListVMFPvi(arg0, 0);
     TCheckRoomSequence__data_805D616C = (s32)arg0;
     self->f30 = 0;
-    TCheckRoomSequence__data_80513DB8[TShopWindowBase__sub_8022397C(arg0)] = 1;
+    TCheckRoomSequence__slot_active_flags[TShopWindowBase__sub_8022397C(arg0)] = 1;
     return arg0;
 }
 #undef self
@@ -1006,7 +1006,7 @@ void TCheckRoomSequence__sub_80210810(void) {
     TCheckRoomSequence__data_805D6168 = 0;
     TCheckRoomSequence__data_805D616C = 0;
     for (s32 i = 0; i < 4; i++) {
-        TCheckRoomSequence__data_80513DB8[i] = 0;
+        TCheckRoomSequence__slot_active_flags[i] = 0;
     }
 }
 #pragma pop
@@ -1019,7 +1019,7 @@ void TCheckRoomSequence__sub_80210860(void) {
     TCheckRoomSequence__data_805D6168 = 0;
     TCheckRoomSequence__data_805D616C = 0;
     for (s32 i = 0; i < 4; i++) {
-        TCheckRoomSequence__data_80513DB8[i] = 0;
+        TCheckRoomSequence__slot_active_flags[i] = 0;
     }
 }
 #pragma pop

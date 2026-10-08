@@ -101,14 +101,14 @@ extern "C" {
 u8 * load_resource_from_descriptor(void *, s32, void *, s32, s32, s32);
 int alloc__23TAdSinglePlyChrSelectGCFPv(void *);
 extern RecoveredGlobal_80149738_lbl_804A8098 lbl_804A8098;
-extern u32 TObjNpcCloakroomBase__data_805D5740;
+extern u32 TObjNpcCloakroomBase__static_instance;
 void TObjNpcCloakroomBase__sub_80149738(void);
 s32 init_position_vectors__10TObjPlayerFi(void *);
 s32 setup_common__11TObjNpcBaseFv(void *);
 s32 construct_female_base__17TObjNpcFemaleBaseFPv(void *);
 extern M2C_UNK __vt__20TObjNpcCloakroomBase[];
 extern s32 lbl_805D2D34;
-extern u32 TObjNpcCloakroomBase__data_805D5740;
+extern u32 TObjNpcCloakroomBase__static_instance;
 u8 *TObjNpcCloakroomBase__ct(u8 *arg0, M2C_UNK arg1, s32 arg2);
 }
 
@@ -153,12 +153,12 @@ void * create__20TObjNpcCloakroomBaseFPv(void *arg0) {
     return o2;
 }
 
-extern u32 TObjNpcCloakroomBase__data_805D5740;
+extern u32 TObjNpcCloakroomBase__static_instance;
 
 void destroy_static_instance__20TObjNpcCloakroomBaseFv(void) {
-    if ((u32) TObjNpcCloakroomBase__data_805D5740 != 0U) {
-        TLobby__sub_8001FE7C((void*)TObjNpcCloakroomBase__data_805D5740, 1);
-        TObjNpcCloakroomBase__data_805D5740 = 0U;
+    if ((u32) TObjNpcCloakroomBase__static_instance != 0U) {
+        TLobby__sub_8001FE7C((void*)TObjNpcCloakroomBase__static_instance, 1);
+        TObjNpcCloakroomBase__static_instance = 0U;
     }
 }
 
@@ -172,7 +172,7 @@ void TObjNpcCloakroomBase__sub_80149738(void) {
     if (var_r0 != 0) {
         var_r0 = (long) (load_resource_from_descriptor((void *) temp_r3, 1, &lbl_804A8098.value, 0, 0, 0));
     }
-    (*(s32 *)&TObjNpcCloakroomBase__data_805D5740) = var_r0;
+    (*(s32 *)&TObjNpcCloakroomBase__static_instance) = var_r0;
 }
 
 void *__dt__20TObjNpcCloakroomBaseFv(void *arg0, s16 arg1) {
@@ -195,8 +195,8 @@ u8 *TObjNpcCloakroomBase__ct(u8 *arg0, M2C_UNK arg1, s32 arg2) {
     M2C_FIELD(arg0, s32 *, 0) = (s32) lbl_805D2D34;
     ((VObj_18_aa4667 *)(arg0))->m79(arg2);
     init_position_vectors__10TObjPlayerFi((void *) (arg0));
-    M2C_FIELD(arg0, s32 *, 0x34) = (s32) M2C_FIELD(M2C_FIELD((*(u8 * *)&TObjNpcCloakroomBase__data_805D5740), u8 **, 0x42C), s32 *, 8);
-    M2C_FIELD(arg0, s32 *, 0x24) = (s32) M2C_FIELD(M2C_FIELD((*(u8 * *)&TObjNpcCloakroomBase__data_805D5740), u8 **, 0x42C), s32 *, 0xC);
+    M2C_FIELD(arg0, s32 *, 0x34) = (s32) M2C_FIELD(M2C_FIELD((*(u8 * *)&TObjNpcCloakroomBase__static_instance), u8 **, 0x42C), s32 *, 8);
+    M2C_FIELD(arg0, s32 *, 0x24) = (s32) M2C_FIELD(M2C_FIELD((*(u8 * *)&TObjNpcCloakroomBase__static_instance), u8 **, 0x42C), s32 *, 0xC);
     setup_common__11TObjNpcBaseFv((void *) (arg0));
     return arg0;
 }

@@ -50,7 +50,7 @@ extern Color_801ADDDC lbl_8058D4C0;
 extern s32 lbl_805D5660;
 extern s32 lbl_805D5664;
 extern s32 lbl_805D5668;
-extern void *lbl_805D5D58;
+extern void *pilla_photon_buffer_pair;
 extern s32 lbl_805D7780;
 extern s32 lbl_805D7784;
 extern s32 some_id_805c6f74;
@@ -144,7 +144,7 @@ void spawn_laser__12TPhotonPillaFPv(u8 *self) {
 
 void render__12TPhotonPillaFPv(Self_801ADDDC *self) {
     if (self->started != 0) {
-        scroll_strip_uvs(lbl_805D5D58, self->f14C, 0);
+        scroll_strip_uvs(pilla_photon_buffer_pair, self->f14C, 0);
         begin_effect_render__13TParticleCtrlFv();
         set_global_param__8TObjFishFi(self->f24);
         push_matrix();

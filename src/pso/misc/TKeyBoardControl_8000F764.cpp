@@ -82,23 +82,23 @@ void TKeyBoardControl__sub_8000F764(void);
 M2C_UNK run_tasks__7TObjectFv(M2C_UNK *);
 extern RecoveredGlobal_8000F7FC_lbl_80515F48 lbl_80515F48;
 void TKeyBoardControl__sub_8000F7FC(void);
-extern RecoveredGlobal_8000F9E4_lbl_804FE120 lbl_804FE120;
+extern RecoveredGlobal_8000F9E4_lbl_804FE120 main_phase_state;
 void TKeyBoardControl__sub_8000F9E4(void);
-extern RecoveredGlobal_8000F9E4_lbl_804FE120 lbl_804FE120;
+extern RecoveredGlobal_8000F9E4_lbl_804FE120 main_phase_state;
 void TKeyBoardControl__sub_8000F90C(s32 arg0);
-extern RecoveredGlobal_8000F9E4_lbl_804FE120 lbl_804FE120;
+extern RecoveredGlobal_8000F9E4_lbl_804FE120 main_phase_state;
 void TKeyBoardControl__sub_8000F9CC(s32 arg0);
-extern RecoveredGlobal_8000F9E4_lbl_804FE120 lbl_804FE120;
+extern RecoveredGlobal_8000F9E4_lbl_804FE120 main_phase_state;
 s32 get_main_phase(void);
-extern RecoveredGlobal_8000F9E4_lbl_804FE120 lbl_804FE120;
+extern RecoveredGlobal_8000F9E4_lbl_804FE120 main_phase_state;
 s32 TKeyBoardControl__sub_8000F8EC(void);
-extern RecoveredGlobal_8000F9E4_lbl_804FE120 lbl_804FE120;
+extern RecoveredGlobal_8000F9E4_lbl_804FE120 main_phase_state;
 void TKeyBoardControl__sub_8000F91C(s32 arg0);
 extern s32 lbl_805D49BC;
 bool TKeyBoardControl__sub_8000F968(void);
-extern RecoveredGlobal_8000F9E4_lbl_804FE120 lbl_804FE120;
+extern RecoveredGlobal_8000F9E4_lbl_804FE120 main_phase_state;
 s32 TKeyBoardControl__sub_8000F92C(void);
-extern RecoveredGlobal_8000F9E4_lbl_804FE120 lbl_804FE120;
+extern RecoveredGlobal_8000F9E4_lbl_804FE120 main_phase_state;
 s32 request_queued_main_phase(void);
 void set_cull_none__8TObjFishFv(void);
 void GXSetCopyClear(GXColor_8000FA00 clear_clr, u32 clear_z);
@@ -286,25 +286,25 @@ typedef char RecoveredGlobal_8000F8FC_lbl_804FE120_size[sizeof(RecoveredGlobal_8
 
 typedef char RecoveredGlobal_8000F8EC_lbl_804FE120_size[sizeof(RecoveredGlobal_8000F8EC_lbl_804FE120) == 0x18 ? 1 : -1];
 s32 TKeyBoardControl__sub_8000F8EC(void) {
-    return M2C_FIELD(&(*(RecoveredGlobal_8000F8EC_lbl_804FE120 *)&lbl_804FE120).value, s32 *, 0x14);
+    return M2C_FIELD(&(*(RecoveredGlobal_8000F8EC_lbl_804FE120 *)&main_phase_state).value, s32 *, 0x14);
 }
 
 s32 get_main_phase(void) {
-    return (*(RecoveredGlobal_8000F8FC_lbl_804FE120 *)&lbl_804FE120).value;
+    return (*(RecoveredGlobal_8000F8FC_lbl_804FE120 *)&main_phase_state).value;
 }
 
 void TKeyBoardControl__sub_8000F90C(s32 arg0) {
-    M2C_FIELD(&(*(RecoveredGlobal_8000F90C_lbl_804FE120 *)&lbl_804FE120).value, s32 *, 0xC) = arg0;
+    M2C_FIELD(&(*(RecoveredGlobal_8000F90C_lbl_804FE120 *)&main_phase_state).value, s32 *, 0xC) = arg0;
 }
 
 typedef char RecoveredGlobal_8000F91C_lbl_804FE120_size[sizeof(RecoveredGlobal_8000F91C_lbl_804FE120) == 0x18 ? 1 : -1];
 void TKeyBoardControl__sub_8000F91C(s32 arg0) {
-    M2C_FIELD(&(*(RecoveredGlobal_8000F91C_lbl_804FE120 *)&lbl_804FE120).value, s32 *, 8) = arg0;
+    M2C_FIELD(&(*(RecoveredGlobal_8000F91C_lbl_804FE120 *)&main_phase_state).value, s32 *, 8) = arg0;
 }
 
 s32 TKeyBoardControl__sub_8000F92C(void) {
-    (*(G_8000F92C *)&lbl_804FE120).f10 = 3;
-    return (*(G_8000F92C *)&lbl_804FE120).f4 = (*(G_8000F92C *)&lbl_804FE120).fc;
+    (*(G_8000F92C *)&main_phase_state).f10 = 3;
+    return (*(G_8000F92C *)&main_phase_state).f4 = (*(G_8000F92C *)&main_phase_state).fc;
 }
 
 s32 get_input__16TKeyBoardControlFv(void) {
@@ -349,20 +349,20 @@ typedef char RecoveredGlobal_8000F9E4_lbl_804FE120_size[sizeof(RecoveredGlobal_8
 typedef char RecoveredGlobal_8000F9CC_lbl_804FE120_size[sizeof(RecoveredGlobal_8000F9CC_lbl_804FE120) == 0x18 ? 1 : -1];
 
 s32 request_queued_main_phase(void) {
-    (*(G_8000F9B0 *)&lbl_804FE120).f10 = 2;
-    return (*(G_8000F9B0 *)&lbl_804FE120).f4 = (*(G_8000F9B0 *)&lbl_804FE120).f8;
+    (*(G_8000F9B0 *)&main_phase_state).f10 = 2;
+    return (*(G_8000F9B0 *)&main_phase_state).f4 = (*(G_8000F9B0 *)&main_phase_state).f8;
 }
 
 void TKeyBoardControl__sub_8000F9CC(s32 arg0) {
-    M2C_FIELD(&(*(RecoveredGlobal_8000F9CC_lbl_804FE120 *)&lbl_804FE120).value, s32 *, 4) = arg0;
-    M2C_FIELD(&(*(RecoveredGlobal_8000F9CC_lbl_804FE120 *)&lbl_804FE120).value, s32 *, 0x10) = 1;
+    M2C_FIELD(&(*(RecoveredGlobal_8000F9CC_lbl_804FE120 *)&main_phase_state).value, s32 *, 4) = arg0;
+    M2C_FIELD(&(*(RecoveredGlobal_8000F9CC_lbl_804FE120 *)&main_phase_state).value, s32 *, 0x10) = 1;
 }
 
 void TKeyBoardControl__sub_8000F9E4(void) {
-    M2C_FIELD(&lbl_804FE120.value, s32 *, 0) = 1;
-    M2C_FIELD(&lbl_804FE120.value, s32 *, 8) = 1;
-    M2C_FIELD(&lbl_804FE120.value, s32 *, 0xC) = 1;
-    M2C_FIELD(&lbl_804FE120.value, s32 *, 0x14) = 1;
+    M2C_FIELD(&main_phase_state.value, s32 *, 0) = 1;
+    M2C_FIELD(&main_phase_state.value, s32 *, 8) = 1;
+    M2C_FIELD(&main_phase_state.value, s32 *, 0xC) = 1;
+    M2C_FIELD(&main_phase_state.value, s32 *, 0x14) = 1;
 }
 void init_gx_lighting_defaults(void) {
     GXColor_8000FA00 c0 = lbl_805D7D00;

@@ -114,7 +114,7 @@ s32 create_named_object(void *);
 s32 alloc_buffer__11TOBoss4RockFPv(s32);
 extern u8 lbl_8044C478[];
 extern M2C_UNK lbl_80513F20[];
-extern u32 lbl_805D6260;
+extern u32 lobby_tool_random_rel;
 extern int lbl_805D6264;
 void load_tool_random_rel(void);
 M2C_UNK free_nodes_with_id__6TLobbyFUi(u32);
@@ -188,7 +188,7 @@ void sort_shop_items(s32, s32, s32);
 void generate_shop_technique_pool(s32);
 void generate_shop_rare_tool_pool(s32);
 void generate_shop_common_tool_pool(s32);
-extern u32 lbl_805D6260;
+extern u32 lobby_tool_random_rel;
 void generate_shop_inventory__6TLobbyFi(s32 idx);
 }
 
@@ -222,16 +222,16 @@ M2C_UNK free__11TOBoss4RockFUi(u32);
 void set_6264_and_call_2244B0__6TLobbyFii(int a0, int a1) { lbl_805D6264 = a1; generate_shop_inventory__6TLobbyFi((s32)(a0)); }
 
 extern M2C_UNK lbl_80513F20[];
-extern u32 lbl_805D6260;
+extern u32 lobby_tool_random_rel;
 
 s32 lbl_80513EF0[4];
 s32 lbl_80513F00[4];
-s32 lbl_80513F10[4];
+s32 shop_tool_flags[4];
 s32 lbl_80513F20[4];
 void generate_shop_inventory__6TLobbyFi(s32 idx) {
-    if (lbl_805D6260 != 0) {
-        if (lbl_80513F10[idx] == 0) {
-            lbl_80513F10[idx] = 1;
+    if (lobby_tool_random_rel != 0) {
+        if (shop_tool_flags[idx] == 0) {
+            shop_tool_flags[idx] = 1;
             lbl_80513EF0[idx] = 0;
             lbl_80513F00[idx] = 0;
             generate_shop_common_tool_pool(idx);
@@ -256,15 +256,15 @@ void free_all_rocks__6TLobbyFv(void) {
         var_r28 -= 1;
         var_r31 -= 1;
     } while (var_r28 >= 0);
-    if ((u32) lbl_805D6260 != 0U) {
-        free_nodes_with_id__6TLobbyFUi(lbl_805D6260);
-        lbl_805D6260 = var_r30;
+    if ((u32) lobby_tool_random_rel != 0U) {
+        free_nodes_with_id__6TLobbyFUi(lobby_tool_random_rel);
+        lobby_tool_random_rel = var_r30;
     }
 }
 
 void load_tool_random_rel(void) {
     s32 i;
-    (*(s32 *)&lbl_805D6260) = create_named_object(lbl_8044C478);
+    (*(s32 *)&lobby_tool_random_rel) = create_named_object(lbl_8044C478);
     for (i = 0; i < 4; i++) {
         ((s32 *)&lbl_80513F20)[i] = 0;
     }

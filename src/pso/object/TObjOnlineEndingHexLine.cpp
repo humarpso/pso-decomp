@@ -51,11 +51,11 @@ extern "C" {
 V4_802E62A4 lbl_804E3A98[1] = {
     { 0x3E800000, 0x3F800000, 0x00000000, 0x41200000 },
 };
-Param_802E5CB0 TObjOnlineEndingHexLine__data_804E3AA8 = { 0.0f, 0.0f, 0, 0.0f };
-Param_802E5CB0 lbl_804E3AB8 = { 0.0f, 0.0f, 0, 0.0f };
-u32 lbl_804E3AC8[4] = { 0x00000000, 0x00150000, 0x00000013, 0x00150013 };
-u32 lbl_804E3AD8[4] = { 0, 0, 0, 0 };
-P2_802E530C lbl_804E3AE8[18] = {
+Param_802E5CB0 TObjOnlineEndingHexLine__hex_line_params = { 0.0f, 0.0f, 0, 0.0f };
+Param_802E5CB0 online_ending_hex_line_param = { 0.0f, 0.0f, 0, 0.0f };
+u32 TObjOnlineEndingHexLine_corner_offsets[4] = { 0x00000000, 0x00150000, 0x00000013, 0x00150013 };
+u32 TObjOnlineEndingHexMove__default_move_params[4] = { 0, 0, 0, 0 };
+P2_802E530C TObjOnlineEndingHexLine__direction_table[18] = {
     { -1, 0 }, { 0, -1 }, { 0, 1 },
     { 0, 0 }, { 0, 0 }, { 0, 0 },
     { 1, 0 }, { -1, -1 }, { -1, 1 },
@@ -145,7 +145,7 @@ void TObjOnlineEndingHexLine__sub_802E530C(void *arg0_) {
         TObjOnlineEndingHexLine__sub_802E55A4(&h->pts[i], &h->pts[i - 1]);
     }
     base = ((s16)(h->pts[0].x % 3) + (s16)(h->pts[0].y & 1) * 3) * 3;
-    dirs = &lbl_804E3AE8[base];
+    dirs = &TObjOnlineEndingHexLine__direction_table[base];
     nbad = 0;
     last = -1;
     for (j = 0; j < 3; j++) {
@@ -214,7 +214,7 @@ void render__23TObjOnlineEndingHexLineFv(u8 *arg0) {
     s32 n;
     s32 i;
     s32 last;
-    n = (s32) TObjOnlineEndingHexLine__data_804E3AA8.d;
+    n = (s32) TObjOnlineEndingHexLine__hex_line_params.d;
     last = n - 1;
     for (i = 0; i < n; i++) {
         if (i == 0) {
@@ -241,7 +241,7 @@ void render__23TObjOnlineEndingHexLineFv(u8 *arg0) {
 #pragma pop
 
 void run_task__23TObjOnlineEndingHexLineFv(u8 *arg0) {
-    M2C_FIELD(arg0, f32 *, 0x9C) = (f32) (M2C_FIELD(arg0, f32 *, 0x9C) + TObjOnlineEndingHexLine__data_804E3AA8.a);
+    M2C_FIELD(arg0, f32 *, 0x9C) = (f32) (M2C_FIELD(arg0, f32 *, 0x9C) + TObjOnlineEndingHexLine__hex_line_params.a);
     if (M2C_FIELD(arg0, f32 *, 0x9C) >= lbl_805DE968) {
         TObjOnlineEndingHexLine__sub_802E530C(arg0);
     }
@@ -298,7 +298,7 @@ void * create__23TObjOnlineEndingHexLineFPvPv(void *arg0, void *arg1) {
     return o;
 }
 
-#define BASE_802E5930 TObjOnlineEndingHexLine__data_804E3AA8
+#define BASE_802E5930 TObjOnlineEndingHexLine__hex_line_params
 
 void handle_6x92(u8 *arg0) {
     f32 v;
@@ -315,7 +315,7 @@ void handle_6x92(u8 *arg0) {
             if (v < lbl_805DE96C || v > lbl_805DE970) {
                 return;
             }
-            lbl_804E3AB8.a = v;
+            online_ending_hex_line_param.a = v;
             lbl_805412B0.a = lbl_805DE96C * (v - BASE_802E5930.a);
             break;
         case 1:
@@ -323,19 +323,19 @@ void handle_6x92(u8 *arg0) {
                 return;
             }
             d = v - BASE_802E5930.b;
-            lbl_804E3AB8.b = v;
+            online_ending_hex_line_param.b = v;
             lbl_805412B0.b = lbl_805DE96C * d;
             break;
         case 2:
-            lbl_804E3AB8.c = (s32) v;
-            lbl_805412B0.c = (s32) (lbl_805DE96C * (f32) angle_diff_s16(BASE_802E5930.c, lbl_804E3AB8.c));
+            online_ending_hex_line_param.c = (s32) v;
+            lbl_805412B0.c = (s32) (lbl_805DE96C * (f32) angle_diff_s16(BASE_802E5930.c, online_ending_hex_line_param.c));
             break;
         case 3:
             if (v < lbl_805DE978 || v > lbl_805DE97C) {
                 return;
             }
             d = v - BASE_802E5930.d;
-            lbl_804E3AB8.d = v;
+            online_ending_hex_line_param.d = v;
             lbl_805412B0.d = lbl_805DE96C * d;
             break;
         }
@@ -360,13 +360,13 @@ M2C_UNK TObjOnlineEndingHexLine__sub_802E5B0C(V2_802E55B8 *arg0, P2_802E55B8 *ar
     }
     f32 y = (f32) (M2C_FIELD(arg1, s16 *, 2) * 0x19);
     V2_802E5B0C ctr = lbl_80472C00[0];
-    ang = M2C_FIELD(&TObjOnlineEndingHexLine__data_804E3AA8, s32 *, 8);
+    ang = M2C_FIELD(&TObjOnlineEndingHexLine__hex_line_params, s32 *, 8);
     p.x = p.x - ctr.x;
     p.y = y;
     p.y = p.y - ctr.y;
     s = sin_table_lookup(ang);
-    c = cos_table_lookup(M2C_FIELD(&TObjOnlineEndingHexLine__data_804E3AA8, s32 *, 8));
-    sc = M2C_FIELD(&TObjOnlineEndingHexLine__data_804E3AA8, f32 *, 4);
+    c = cos_table_lookup(M2C_FIELD(&TObjOnlineEndingHexLine__hex_line_params, s32 *, 8));
+    sc = M2C_FIELD(&TObjOnlineEndingHexLine__hex_line_params, f32 *, 4);
     V2_802E5B0C q = p;
     p.x = c * q.x - s * q.y;
     p.y = s * q.x + c * q.y;
@@ -379,7 +379,7 @@ M2C_UNK TObjOnlineEndingHexLine__sub_802E5B0C(V2_802E55B8 *arg0, P2_802E55B8 *ar
 }
 #pragma pop
 
-#define CUR_802E5CB0 TObjOnlineEndingHexLine__data_804E3AA8
+#define CUR_802E5CB0 TObjOnlineEndingHexLine__hex_line_params
 
 void TObjOnlineEndingHexLine__sub_802E5CB0(void) {
     f32 d;
@@ -387,13 +387,13 @@ void TObjOnlineEndingHexLine__sub_802E5CB0(void) {
     s32 n;
 
     if (lbl_805DE958 != lbl_805412B0.a) {
-        d = lbl_804E3AB8.a - CUR_802E5CB0.a;
+        d = online_ending_hex_line_param.a - CUR_802E5CB0.a;
         if (d * lbl_805412B0.a < lbl_805DE958) {
             lbl_805412B0.a = lbl_805DE958;
         } else {
             t = get_random_float__8TObjFishFv(lbl_805412B0.a);
             if (get_random_float__8TObjFishFv(d) < t) {
-                CUR_802E5CB0.a = lbl_804E3AB8.a;
+                CUR_802E5CB0.a = online_ending_hex_line_param.a;
                 lbl_805412B0.a = lbl_805DE958;
             } else {
                 CUR_802E5CB0.a = CUR_802E5CB0.a + lbl_805412B0.a;
@@ -401,13 +401,13 @@ void TObjOnlineEndingHexLine__sub_802E5CB0(void) {
         }
     }
     if (lbl_805DE958 != lbl_805412B0.b) {
-        d = lbl_804E3AB8.b - CUR_802E5CB0.b;
+        d = online_ending_hex_line_param.b - CUR_802E5CB0.b;
         if (d * lbl_805412B0.b < lbl_805DE958) {
             lbl_805412B0.b = lbl_805DE958;
         } else {
             t = get_random_float__8TObjFishFv(lbl_805412B0.b);
             if (get_random_float__8TObjFishFv(d) < t) {
-                CUR_802E5CB0.b = lbl_804E3AB8.b;
+                CUR_802E5CB0.b = online_ending_hex_line_param.b;
                 lbl_805412B0.b = lbl_805DE958;
             } else {
                 CUR_802E5CB0.b = CUR_802E5CB0.b + lbl_805412B0.b;
@@ -415,22 +415,22 @@ void TObjOnlineEndingHexLine__sub_802E5CB0(void) {
         }
     }
     if (lbl_805412B0.c != 0) {
-        n = angle_difference_abs(CUR_802E5CB0.c, lbl_804E3AB8.c);
+        n = angle_difference_abs(CUR_802E5CB0.c, online_ending_hex_line_param.c);
         if (n < angle_difference_abs(0, lbl_805412B0.c)) {
-            CUR_802E5CB0.c = lbl_804E3AB8.c;
+            CUR_802E5CB0.c = online_ending_hex_line_param.c;
             lbl_805412B0.c = 0;
         } else {
             CUR_802E5CB0.c = CUR_802E5CB0.c + lbl_805412B0.c;
         }
     }
     if (lbl_805DE958 != lbl_805412B0.d) {
-        d = lbl_804E3AB8.d - CUR_802E5CB0.d;
+        d = online_ending_hex_line_param.d - CUR_802E5CB0.d;
         if (d * lbl_805412B0.d < lbl_805DE958) {
             lbl_805412B0.d = lbl_805DE958;
         } else {
             t = get_random_float__8TObjFishFv(lbl_805412B0.d);
             if (get_random_float__8TObjFishFv(d) < t) {
-                CUR_802E5CB0.d = lbl_804E3AB8.d;
+                CUR_802E5CB0.d = online_ending_hex_line_param.d;
                 lbl_805412B0.d = lbl_805DE958;
             } else {
                 CUR_802E5CB0.d = CUR_802E5CB0.d + lbl_805412B0.d;
@@ -469,19 +469,19 @@ void TObjOnlineEndingHexMove::run_task() {
                 case 0:
                     step = lbl_805DE984;
                     max = lbl_805DE970;
-                    v = TObjOnlineEndingHexLine__data_804E3AA8.a;
+                    v = TObjOnlineEndingHexLine__hex_line_params.a;
                     min = lbl_805DE96C;
                     break;
                 case 1:
                     step = lbl_805DE988;
                     max = lbl_805DE974;
-                    v = TObjOnlineEndingHexLine__data_804E3AA8.b;
+                    v = TObjOnlineEndingHexLine__hex_line_params.b;
                     min = lbl_805DE968;
                     break;
                 case 3:
                     step = lbl_805DE98C;
                     max = lbl_805DE97C;
-                    v = TObjOnlineEndingHexLine__data_804E3AA8.d;
+                    v = TObjOnlineEndingHexLine__hex_line_params.d;
                     min = lbl_805DE978;
                     break;
                 }
@@ -499,7 +499,7 @@ void TObjOnlineEndingHexMove::run_task() {
                 pkt.val = v;
                 break;
             case 2:
-                ang = TObjOnlineEndingHexLine__data_804E3AA8.c;
+                ang = TObjOnlineEndingHexLine__hex_line_params.c;
                 if (is_on_current_screen__11TCameraCtrlFPv(pad, 0x10000) != 0) {
                     ang += 0x1999;
                 } else {
@@ -525,9 +525,9 @@ u8 *TObjOnlineEndingHexMove__ct(u8 *arg0, void *arg1) {
     M2C_FIELD(arg0, M2C_UNK **, 0x18) = __vt__23TObjOnlineEndingHexMove;
     M2C_FIELD(arg0, s32 *, 0) = lbl_805D3FA0;
     for (i = 0; i < 4; i++) {
-        create__23TObjOnlineEndingHexLineFPvPv(arg1, &lbl_804E3AC8[i]);
+        create__23TObjOnlineEndingHexLineFPvPv(arg1, &TObjOnlineEndingHexLine_corner_offsets[i]);
     }
-    copy_move_params__23TObjOnlineEndingHexMoveFPvPv((void*)(&lbl_805412B0), (void*)(lbl_804E3AD8));
+    copy_move_params__23TObjOnlineEndingHexMoveFPvPv((void*)(&lbl_805412B0), (void*)(TObjOnlineEndingHexMove__default_move_params));
     M2C_FIELD(arg0, s32 *, 0x1C) = 0x1E;
     return arg0;
 }
@@ -544,8 +544,8 @@ void * fn_802E6218(void *arg0) {
 }
 
 void fn_802E6260(void) {
-    copy_move_params__23TObjOnlineEndingHexMoveFPvPv(&TObjOnlineEndingHexLine__data_804E3AA8,
-        ((void *(*)(void *, void *))copy_move_params__23TObjOnlineEndingHexMoveFPvPv)(&lbl_804E3AB8, lbl_804E3A98));
+    copy_move_params__23TObjOnlineEndingHexMoveFPvPv(&TObjOnlineEndingHexLine__hex_line_params,
+        ((void *(*)(void *, void *))copy_move_params__23TObjOnlineEndingHexMoveFPvPv)(&online_ending_hex_line_param, lbl_804E3A98));
 }
 
 }

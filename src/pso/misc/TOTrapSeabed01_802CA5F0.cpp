@@ -144,8 +144,8 @@ s32 init_collision_body_parts(void *, void *, int);
 s32 TOTrap__ct(void *);
 extern RecoveredGlobal_802CA9AC_lbl_804E0FB8 lbl_804E0FB8;
 extern M2C_UNK __vt__14TOTrapSeabed01[];
-extern s32 lbl_805D3F10;
-extern u32 TOTrapSeabed01__data_805D6810;
+extern s32 TOTrapSeabed01_class_name;
+extern u32 TOTrapSeabed01__bml_resource;
 extern const f32 lbl_805DE640;
 u8 *TOTrapSeabed01__ct(u8 *arg0, M2C_UNK arg1, s32 arg2);
 s32 get_bml_model(int, int);
@@ -157,11 +157,11 @@ s32 find_entry_by_name__12TObjDoorJungFPvPv(u32, void *);
 extern u8 lbl_804720E8[];
 extern u8 lbl_80472100[];
 extern u8 lbl_804E0FA8[];
-extern u32 TOTrapSeabed01__data_805D6810;
-extern u32 TOTrapSeabed01__data_805D6814;
-extern s32 lbl_805D6818;
+extern u32 TOTrapSeabed01__bml_resource;
+extern u32 TOTrapSeabed01__texture_file;
+extern s32 TOTrapSeabed01__ginja_model;
 extern s32 lbl_805D681C;
-extern s32 lbl_805D6820;
+extern s32 seabed01_ginja_mesh_index;
 void load_resources__14TOTrapSeabed01Fv(void);
 extern s32 lbl_80472090[];
 extern const f32 lbl_805DE658;
@@ -257,18 +257,18 @@ void *create__14TOTrapSeabed01FPv(void *arg0) {
     return o;
 }
 
-extern u32 TOTrapSeabed01__data_805D6810;
-extern u32 TOTrapSeabed01__data_805D6814;
+extern u32 TOTrapSeabed01__bml_resource;
+extern u32 TOTrapSeabed01__texture_file;
 
 void free_static_resources__14TOTrapSeabed01Fv(void) {
-    if ((u32) TOTrapSeabed01__data_805D6814 != 0U) {
-        TLobby__sub_803DA16C((void*)TOTrapSeabed01__data_805D6814);
-        safe_free__23TAdSinglePlyChrSelectGCFUi(TOTrapSeabed01__data_805D6814);
-        TOTrapSeabed01__data_805D6814 = 0U;
+    if ((u32) TOTrapSeabed01__texture_file != 0U) {
+        TLobby__sub_803DA16C((void*)TOTrapSeabed01__texture_file);
+        safe_free__23TAdSinglePlyChrSelectGCFUi(TOTrapSeabed01__texture_file);
+        TOTrapSeabed01__texture_file = 0U;
     }
-    if ((u32) TOTrapSeabed01__data_805D6810 != 0U) {
-        TLobby__sub_8001FE7C((void*)TOTrapSeabed01__data_805D6810, 1);
-        TOTrapSeabed01__data_805D6810 = 0U;
+    if ((u32) TOTrapSeabed01__bml_resource != 0U) {
+        TLobby__sub_8001FE7C((void*)TOTrapSeabed01__bml_resource, 1);
+        TOTrapSeabed01__bml_resource = 0U;
     }
 }
 
@@ -277,15 +277,15 @@ void load_resources__14TOTrapSeabed01Fv(void) {
     if (p != 0) {
         p = load_resource_from_descriptor(p, 5, lbl_804E0FA8, 0, 0, 0);
     }
-    TOTrapSeabed01__data_805D6810 = (u32)p;
-    TOTrapSeabed01__data_805D6814 = load_gvm_texture_file(lbl_804720E8);
-    s32 n = count_linked_switches__23TObjSeabedSuisoBrakableFUii(get_bml_model(TOTrapSeabed01__data_805D6810, 0), 5);
-    u32 t = TOTrapSeabed01__data_805D6814;
-    lbl_805D6818 = n;
+    TOTrapSeabed01__bml_resource = (u32)p;
+    TOTrapSeabed01__texture_file = load_gvm_texture_file(lbl_804720E8);
+    s32 n = count_linked_switches__23TObjSeabedSuisoBrakableFUii(get_bml_model(TOTrapSeabed01__bml_resource, 0), 5);
+    u32 t = TOTrapSeabed01__texture_file;
+    TOTrapSeabed01__ginja_model = n;
     lbl_805D681C = 0;
-    lbl_805D6820 = -1;
+    seabed01_ginja_mesh_index = -1;
     if (t != 0U) {
-        lbl_805D6820 = find_entry_by_name__12TObjDoorJungFPvPv(t, lbl_80472100);
+        seabed01_ginja_mesh_index = find_entry_by_name__12TObjDoorJungFPvPv(t, lbl_80472100);
     }
 }
 
@@ -323,10 +323,10 @@ void *__dt__14TOTrapSeabed01Fv(void *arg0, s16 arg1) {
 u8 *TOTrapSeabed01__ct(u8 *arg0, M2C_UNK arg1, s32 arg2) {
     TOTrap__ct((void *) (arg0));
     M2C_FIELD(arg0, M2C_UNK **, 0x18) = &(*(RecoveredGlobal_802CA9AC___vt__14TOTrapSeabed01 *)&__vt__14TOTrapSeabed01).value;
-    M2C_FIELD(arg0, s32 *, 0) = (s32) lbl_805D3F10;
+    M2C_FIELD(arg0, s32 *, 0) = (s32) TOTrapSeabed01_class_name;
     ((VObj_18_1a504b *)(arg0))->m5(arg2);
-    M2C_FIELD(arg0, s32 *, 0x34) = get_bml_model((int) ((*(s32 *)&TOTrapSeabed01__data_805D6810)), (int) (0));
-    M2C_FIELD(arg0, s32 *, 0xF8) = get_bml_motion((int) ((*(s32 *)&TOTrapSeabed01__data_805D6810)), (int) (0));
+    M2C_FIELD(arg0, s32 *, 0x34) = get_bml_model((int) ((*(s32 *)&TOTrapSeabed01__bml_resource)), (int) (0));
+    M2C_FIELD(arg0, s32 *, 0xF8) = get_bml_motion((int) ((*(s32 *)&TOTrapSeabed01__bml_resource)), (int) (0));
     M2C_FIELD(arg0, f32 *, 0xC8) = (f32) lbl_805DE640;
     M2C_FIELD(arg0, f32 *, 0xC0) = (f32) TOTrapSeabed01__data_805DE644[0];
     TOTrapSeabed01__sub_802CA5F4((void *)((void *) (arg0)));

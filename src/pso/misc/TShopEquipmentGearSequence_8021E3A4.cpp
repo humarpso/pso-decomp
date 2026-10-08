@@ -22,8 +22,8 @@ void *create_instance__26TShopEquipmentGearSequenceFPv(void *arg0) {
     return o;
 }
 
-    extern int TShopEquipmentGearSequence__data_80513EB0[];
-int TShopEquipmentGearSequence__sub_8021E3F0(int a0) {  return TShopEquipmentGearSequence__data_80513EB0[a0]; }
+    extern int TShopEquipmentGearSequence__window_slot_table[];
+int TShopEquipmentGearSequence__sub_8021E3F0(int a0) {  return TShopEquipmentGearSequence__window_slot_table[a0]; }
 
 extern void *tl_05;
 
@@ -35,7 +35,7 @@ void *create_shop_item_tec_sequence(void *arg0) {
     return o;
 }
 
-    extern int TShopItemTecSequence__data_80513EE0[];
-int TShopItemTecSequence__sub_8021E450(int a0) {  return TShopItemTecSequence__data_80513EE0[a0]; }
+    extern int TShopItemTecSequence__slot_table[];
+int TShopItemTecSequence__sub_8021E450(int a0) {  return TShopItemTecSequence__slot_table[a0]; }
 
 }

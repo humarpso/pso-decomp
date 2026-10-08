@@ -65,7 +65,7 @@ M2C_UNK post_translate_matrix(void *);
 M2C_UNK set_global_param__8TObjFishFi(int);
 M2C_UNK draw_model_motion(int, int, f32);
 extern f32 lbl_804E3A38[];
-extern V2_802E4C70 lbl_804E3A44[];
+extern V2_802E4C70 online_ending_quad_vertices[];
 extern const f32 lbl_805D3F94;
 extern f32 lbl_805D3F98;
 extern f32 lbl_805D68F0;
@@ -141,16 +141,16 @@ void draw_scene__16TObjOnlineEndingFPv(Obj_802E4C70 *arg0) {
         e = &arg0->ent[i];
         if (e->active != 0) {
             if (lbl_805D68F9 == 0) {
-                lbl_804E3A44[0].y = lbl_805DE938 + lbl_805D3F98;
-                lbl_804E3A44[1].y = lbl_805DE93C + lbl_805D3F98;
-                lbl_804E3A44[2].y = lbl_805DE93C + lbl_805D3F98;
-                lbl_804E3A44[3].y = lbl_805DE938 + lbl_805D3F98;
+                online_ending_quad_vertices[0].y = lbl_805DE938 + lbl_805D3F98;
+                online_ending_quad_vertices[1].y = lbl_805DE93C + lbl_805D3F98;
+                online_ending_quad_vertices[2].y = lbl_805DE93C + lbl_805D3F98;
+                online_ending_quad_vertices[3].y = lbl_805DE938 + lbl_805D3F98;
                 lbl_805D68F9 = 1;
             }
             {
                 u8 *name = e->name;
                 u32 w = calc_text_width(name);
-                V2_802E4C70 v = lbl_804E3A44[i];
+                V2_802E4C70 v = online_ending_quad_vertices[i];
                 v.x -= (f32)(w >> 1);
                 render_status_line__15TAdSubPlyItemGCFPvi(name, -1, v.x, v.y, lbl_805DE940);
             }

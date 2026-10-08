@@ -105,7 +105,7 @@ void update_rafoie_explosion(u8 *arg0);
 s32 calc_technique_parameters(int, int, int);
 s32 is_technique_ready__8TTecCtrlFv();
 s32 copy_params__8TTecAntiFPvPv(void *, int);
-extern RecoveredGlobal_80230D9C_lbl_804CC510 lbl_804CC510;
+extern RecoveredGlobal_80230D9C_lbl_804CC510 tech_high_level_linear_power_table;
 extern RecoveredGlobal_80230D9C_lbl_804CC55C lbl_804CC55C;
 void calc_area_parameters__10TTecRaFoieFPv(u8 *arg0);
 void get_bml_model(void *, s32);
@@ -293,7 +293,7 @@ extern const Profile_80238C6C TTecRaZonde__data_8044DB44[6] = {
     {(Entry_80238C6C *)lbl_8044DB08, 1}, {(Entry_80238C6C *)lbl_8044DB08, 1}, {(Entry_80238C6C *)lbl_8044DB08, 1},
     {(Entry_80238C6C *)lbl_8044DB14, 2}, {(Entry_80238C6C *)lbl_8044DB14, 2}, {(Entry_80238C6C *)lbl_8044DB2C, 2},
 };
-const char *lbl_805D3808 = "TTecRaZonde";
+const char *TTecRaZonde_class_name = "TTecRaZonde";
 }
 
 struct Self_80238C6C {
@@ -394,7 +394,7 @@ u16 obj_getField1c(void *);
 void construct_target_cursor_records__10TObjPlayerFi(void *);
 void copy_technique_target_list(void *, void *);
 extern M2C_UNK __vt__10TTecRaFoie[];
-extern u32 lbl_805D3800;
+extern u32 TTecRaFoie_class_name;
 u8 *construct_targeted__10TTecRaFoieFPvPvPvPvi(u8 *self, void *source, void *origin, void *targets, int level);
 s32 create_particle_emitter(void *, int);
 s32 alloc_buffer__11TOBoss4RockFPv(int);
@@ -404,7 +404,7 @@ void construct_target_cursor_records__10TObjPlayerFi(void *);
 void fn_80044330(void *);
 void construct_area_technique_base(void *, void *, void *, void *, int);
 extern M2C_UNK __vt__10TTecRaFoie[];
-extern u32 lbl_805D3800;
+extern u32 TTecRaFoie_class_name;
 Obj_80238AE8 *TTecRaFoie__ct(Obj_80238AE8 *arg0, void * _w1, void * _w2, void * _w3, int _w4);
 void TTecRaZonde__vt4(u8 *arg0, u8 *arg1);
 }
@@ -465,7 +465,7 @@ void calc_damage__11TTecRaZondeFPv(u8 *arg0) {
   copy_params__8TTecAntiFPvPv((void *) (arg0 + 0x88), (int) new_var);
   if ((((s16) ((RecoveredFields_80238D10_arg0 *) arg0)->field_78) >= 0xF) && (is_technique_ready__8TTecCtrlFv() == 0))
   {
-    ((RecoveredFields_80238D10_arg0 *) arg0)->field_88 = (f32) ((*((s16 *) (((s8 *) (&lbl_804CC510.value)) + 0x20))) + ((*((s16 *) (((s8 *) (&lbl_804CC510.value)) + 0x22))) * ((RecoveredFields_80238D10_arg0 *) arg0)->field_78));
+    ((RecoveredFields_80238D10_arg0 *) arg0)->field_88 = (f32) ((*((s16 *) (((s8 *) (&tech_high_level_linear_power_table.value)) + 0x20))) + ((*((s16 *) (((s8 *) (&tech_high_level_linear_power_table.value)) + 0x22))) * ((RecoveredFields_80238D10_arg0 *) arg0)->field_78));
     return;
   }
   ((RecoveredFields_80238D10_arg0 *) arg0)->field_88 = (f32) (((RecoveredFields_80238D10_arg0 *) arg0)->field_88 + ((f32) (((RecoveredFields_80238D10_arg0 *) arg0)->field_AC * ((RecoveredFields_80238D10_arg0 *) arg0)->field_78)));
@@ -598,7 +598,7 @@ void *TTecRaZonde__ct(void *self_, void *source, void *origin, void *level) {
     Vec_80239070 b;
     construct_area_technique_base(self_, source, origin, origin, (int)level);
     self->vt = __vt__11TTecRaZonde;
-    self->f0 = (u32)lbl_805D3808;
+    self->f0 = (u32)TTecRaZonde_class_name;
     calc_damage__11TTecRaZondeFPv((u8 *)self);
     if (self->holder != 0) {
         self->holder->eff->scale = (5.0f) + self->range;

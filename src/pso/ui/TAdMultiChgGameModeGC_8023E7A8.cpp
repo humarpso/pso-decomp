@@ -8,7 +8,7 @@ struct V3_8023E834 { s32 x; s32 y; s32 z; };
 
 extern "C" {
 M2C_UNK sync_mode_state__21TAdMultiChgGameModeGCFv();
-extern s32 lbl_805D3848;
+extern s32 multi_chg_game_mode_state;
 extern s32 lbl_805D63C8;
 void set_change_mode_flags__21TAdMultiChgGameModeGCFv(void);
 M2C_UNK TLobby__sub_80226C3C();
@@ -16,35 +16,35 @@ s32 strcmp(M2C_UNK, s32);
 M2C_UNK play_area_music(s32);
 void apply_bgm_col_ctrl__21TAdMultiChgGameModeGCFi(s32 arg0);
 M2C_UNK sync_mode_state__21TAdMultiChgGameModeGCFv();
-extern s32 lbl_805D3848;
+extern s32 multi_chg_game_mode_state;
 extern s32 lbl_805D63C8;
 void set_state_0x1a__21TAdMultiChgGameModeGCFv(void);
 M2C_UNK sync_mode_state__21TAdMultiChgGameModeGCFv();
-extern s32 lbl_805D3848;
+extern s32 multi_chg_game_mode_state;
 extern s32 lbl_805D63C8;
 void reset_and_set_mode__21TAdMultiChgGameModeGCFv(void);
 M2C_UNK sync_mode_state__21TAdMultiChgGameModeGCFv();
-extern s32 lbl_805D3848;
+extern s32 multi_chg_game_mode_state;
 extern s32 lbl_805D63C8;
 void set_mode_18__21TAdMultiChgGameModeGCFv(void);
 M2C_UNK sync_mode_state__21TAdMultiChgGameModeGCFv();
-extern s32 lbl_805D3848;
+extern s32 multi_chg_game_mode_state;
 extern s32 lbl_805D63C8;
 void set_mode_17__21TAdMultiChgGameModeGCFv(void);
 M2C_UNK sync_mode_state__21TAdMultiChgGameModeGCFv();
-extern s32 lbl_805D3848;
+extern s32 multi_chg_game_mode_state;
 extern s32 lbl_805D63C8;
 void set_mode_0x15__21TAdMultiChgGameModeGCFv(void);
 M2C_UNK sync_mode_state__21TAdMultiChgGameModeGCFv();
-extern s32 lbl_805D3848;
+extern s32 multi_chg_game_mode_state;
 extern s32 lbl_805D63C8;
 void set_mode_0x14__21TAdMultiChgGameModeGCFv(void);
 M2C_UNK sync_mode_state__21TAdMultiChgGameModeGCFv();
-extern s32 lbl_805D3848;
+extern s32 multi_chg_game_mode_state;
 extern s32 lbl_805D63C8;
 void request_transition__21TAdMultiChgGameModeGCFv(void);
 u32 get_main_phase();
-extern s32 lbl_805D3848;
+extern s32 multi_chg_game_mode_state;
 s32 TAdMultiChgGameModeGC__sub_8023E7A8();
 s32 set_active_camera_pose(void *, void *);
 s32 activate_camera_mode(int);
@@ -58,7 +58,7 @@ extern "C" {
 void set_mode_change_state__21TAdMultiChgGameModeGCFv(void);
 M2C_UNK sync_mode_state__21TAdMultiChgGameModeGCFv();
 
-extern s32 lbl_805D3848;
+extern s32 multi_chg_game_mode_state;
 extern s32 lbl_805D63C8;
 
 s32 TAdMultiChgGameModeGC__sub_8023E7A8() {
@@ -78,7 +78,7 @@ s32 TAdMultiChgGameModeGC__sub_8023E7A8() {
     case 9:
     case 10:
     case 13:
-        switch (lbl_805D3848) {
+        switch (multi_chg_game_mode_state) {
         case 7:
         case 14:
         case 24:
@@ -105,10 +105,10 @@ void set_default_camera__21TAdMultiChgGameModeGCFv(void) {
 
 void set_mode_change_state__21TAdMultiChgGameModeGCFv(void) {
     sync_mode_state__21TAdMultiChgGameModeGCFv();
-    lbl_805D3848 = 3;
+    multi_chg_game_mode_state = 3;
     lbl_805D63C8 = 1;
 }
-void set_change_mode_flags__21TAdMultiChgGameModeGCFv(void) { sync_mode_state__21TAdMultiChgGameModeGCFv(); (*(int *)&lbl_805D3848) = 1; (*(int *)&lbl_805D63C8) = 1; }
+void set_change_mode_flags__21TAdMultiChgGameModeGCFv(void) { sync_mode_state__21TAdMultiChgGameModeGCFv(); (*(int *)&multi_chg_game_mode_state) = 1; (*(int *)&lbl_805D63C8) = 1; }
 void apply_bgm_col_ctrl__21TAdMultiChgGameModeGCFi(s32 arg0) {
     if (strcmp(TLobby__sub_80226C3C(), arg0) != 0) {
         play_area_music(arg0);
@@ -116,37 +116,37 @@ void apply_bgm_col_ctrl__21TAdMultiChgGameModeGCFi(s32 arg0) {
 }
 void set_state_0x1a__21TAdMultiChgGameModeGCFv(void) {
     sync_mode_state__21TAdMultiChgGameModeGCFv();
-    lbl_805D3848 = 0x1A;
+    multi_chg_game_mode_state = 0x1A;
     lbl_805D63C8 = 1;
 }
 void reset_and_set_mode__21TAdMultiChgGameModeGCFv(void) {
     sync_mode_state__21TAdMultiChgGameModeGCFv();
-    lbl_805D3848 = 0x19;
+    multi_chg_game_mode_state = 0x19;
     lbl_805D63C8 = 1;
 }
 void set_mode_18__21TAdMultiChgGameModeGCFv(void) {
     sync_mode_state__21TAdMultiChgGameModeGCFv();
-    lbl_805D3848 = 0x18;
+    multi_chg_game_mode_state = 0x18;
     lbl_805D63C8 = 1;
 }
 void set_mode_17__21TAdMultiChgGameModeGCFv(void) {
     sync_mode_state__21TAdMultiChgGameModeGCFv();
-    lbl_805D3848 = 0x17;
+    multi_chg_game_mode_state = 0x17;
     lbl_805D63C8 = 1;
 }
 void set_mode_0x15__21TAdMultiChgGameModeGCFv(void) {
     sync_mode_state__21TAdMultiChgGameModeGCFv();
-    lbl_805D3848 = 0x15;
+    multi_chg_game_mode_state = 0x15;
     lbl_805D63C8 = 1;
 }
 void set_mode_0x14__21TAdMultiChgGameModeGCFv(void) {
     sync_mode_state__21TAdMultiChgGameModeGCFv();
-    lbl_805D3848 = 0x14;
+    multi_chg_game_mode_state = 0x14;
     lbl_805D63C8 = 1;
 }
 void request_transition__21TAdMultiChgGameModeGCFv(void) {
     sync_mode_state__21TAdMultiChgGameModeGCFv();
-    lbl_805D3848 = 0x11;
+    multi_chg_game_mode_state = 0x11;
     lbl_805D63C8 = 1;
 }
 

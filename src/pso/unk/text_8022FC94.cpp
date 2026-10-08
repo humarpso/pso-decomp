@@ -93,7 +93,7 @@ s32 calc_technique_parameters(int, int, int);
 s32 is_technique_ready__8TTecCtrlFv();
 s32 copy_params__8TTecAntiFPvPv(void *, int);
 s32 clamp_nonnegative_int(int);
-extern RecoveredGlobal_8022FE84_lbl_804CC510 lbl_804CC510;
+extern RecoveredGlobal_8022FE84_lbl_804CC510 tech_high_level_linear_power_table;
 extern RecoveredGlobal_8022FE84_lbl_804CC55C lbl_804CC55C;
 void init_projectile_params__8TTecFoieFPv(u8 *arg0);
 s32 play_sound_effect(s32 id, void *pos, s32 a, s32 b);
@@ -186,7 +186,7 @@ void init_projectile_params__8TTecFoieFPv(u8 *arg0) {
   copy_params__8TTecAntiFPvPv((void *) (arg0 + 0xCC), (int) new_var);
   if ((((s16) ((RecoveredFields_8022FE84_arg0 *) arg0)->field_C4) >= 0xF) && (is_technique_ready__8TTecCtrlFv() == 0))
   {
-    ((RecoveredFields_8022FE84_arg0 *) arg0)->field_CC = (f32) ((*((s16 *) (((s8 *) (&lbl_804CC510.value)) + 0))) + ((*((s16 *) (((s8 *) (&lbl_804CC510.value)) + 2))) * ((RecoveredFields_8022FE84_arg0 *) arg0)->field_C4));
+    ((RecoveredFields_8022FE84_arg0 *) arg0)->field_CC = (f32) ((*((s16 *) (((s8 *) (&tech_high_level_linear_power_table.value)) + 0))) + ((*((s16 *) (((s8 *) (&tech_high_level_linear_power_table.value)) + 2))) * ((RecoveredFields_8022FE84_arg0 *) arg0)->field_C4));
   }
   else
   {

@@ -188,7 +188,7 @@ void TTecRaBarta__vt6(Rabarta_80237494 *self, void *pos);
 s32 is_technique_ready__8TTecCtrlFv();
 void copy_params__8TTecAntiFPvPv(void *, s32);
 s32 calc_technique_parameters(s32, s32, s32);
-extern Params_802377FC lbl_804CC510;
+extern Params_802377FC tech_high_level_linear_power_table;
 extern Scale_802377FC lbl_804CC55C;
 void calc_parameters__11TTecRaBartaFv(RaBarta_802377FC *self);
 }

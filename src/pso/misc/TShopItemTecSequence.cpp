@@ -114,13 +114,13 @@ s32 TShopWindowBase__sub_8022397C(void *);
 M2C_UNK __dl__7TObjectFPv(void *);
 M2C_UNK TWindow__close(void *);
 extern RecoveredGlobal_802203E4___vt__20TShopItemTecSequence __vt__20TShopItemTecSequence;
-extern RecoveredGlobal_802203E4_TShopItemTecSequence__data_80513EE0 TShopItemTecSequence__data_80513EE0;
+extern RecoveredGlobal_802203E4_TShopItemTecSequence__data_80513EE0 TShopItemTecSequence__slot_table;
 extern s32 lbl_805D6250;
 u8 *__dt__20TShopItemTecSequenceFv(u8 *arg0, s16 arg1);
 s32 TShopSequence__ct(void *);
 s32 TShopWindowBase__sub_8022397C(void *);
 extern RecoveredGlobal_802203E4___vt__20TShopItemTecSequence __vt__20TShopItemTecSequence;
-extern RecoveredGlobal_802203E4_TShopItemTecSequence__data_80513EE0 TShopItemTecSequence__data_80513EE0;
+extern RecoveredGlobal_802203E4_TShopItemTecSequence__data_80513EE0 TShopItemTecSequence__slot_table;
 extern s32 lbl_805D36D8;
 extern s32 lbl_805D6248;
 extern s32 lbl_805D624C;
@@ -132,9 +132,9 @@ s32 close_if_done__20TShopItemTecSequenceFPv(void *arg0);
 s32 open_greeting__20TShopItemTecSequenceFPv(u8 *arg0);
 s32 restore_player_state__13TShopSequenceFPv(void *);
 void TShopItemTecSequence__vt9(u8 *arg0);
-extern RecoveredGlobal_802203E4_TShopItemTecSequence__data_80513EE0 TShopItemTecSequence__data_80513EE0;
+extern RecoveredGlobal_802203E4_TShopItemTecSequence__data_80513EE0 TShopItemTecSequence__slot_table;
 void TShopItemTecSequence__sub_80220560(void);
-extern RecoveredGlobal_802203E4_TShopItemTecSequence__data_80513EE0 TShopItemTecSequence__data_80513EE0;
+extern RecoveredGlobal_802203E4_TShopItemTecSequence__data_80513EE0 TShopItemTecSequence__slot_table;
 void TShopItemTecSequence__sub_80220538(void);
 M2C_UNK set_field_20__12TQuestListVMFPvi(void *, s32);
 s32 reset_controller_input_state(void);
@@ -358,7 +358,7 @@ u8 *__dt__20TShopItemTecSequenceFv(u8 *arg0, s16 arg1) {
             M2C_FIELD(arg0, u32 *, 0x30) = 0U;
         }
         lbl_805D6250 = 0;
-        M2C_FIELD(&TShopItemTecSequence__data_80513EE0.value, M2C_UNK *, (TShopWindowBase__sub_8022397C((void *) (arg0)) * 4)) = 0;
+        M2C_FIELD(&TShopItemTecSequence__slot_table.value, M2C_UNK *, (TShopWindowBase__sub_8022397C((void *) (arg0)) * 4)) = 0;
         __dt__13TShopSequenceFv((void *) (arg0), (int) (0));
         if (arg1 > 0) {
             __dl__7TObjectFPv((void *) (arg0));
@@ -381,21 +381,21 @@ u8 *TShopItemTecSequence__ct(u8 *arg0, M2C_UNK arg1, s32 arg2) {
     (*(u8 * *)&lbl_805D6250) = arg0;
     lbl_805D6248 = 0;
     lbl_805D624C = 0;
-    M2C_FIELD(&(*(RecoveredGlobal_802204B0_TShopItemTecSequence__data_80513EE0 *)&TShopItemTecSequence__data_80513EE0).value, M2C_UNK *, (TShopWindowBase__sub_8022397C((void *) (arg0)) * 4)) = 1;
+    M2C_FIELD(&(*(RecoveredGlobal_802204B0_TShopItemTecSequence__data_80513EE0 *)&TShopItemTecSequence__slot_table).value, M2C_UNK *, (TShopWindowBase__sub_8022397C((void *) (arg0)) * 4)) = 1;
     return arg0;
 }
 
 void TShopItemTecSequence__sub_80220538(void) {
     s32 i;
     for (i = 0; i < 4; i++) {
-        ((s32 *)&TShopItemTecSequence__data_80513EE0)[i] = 0;
+        ((s32 *)&TShopItemTecSequence__slot_table)[i] = 0;
     }
 }
 
 void TShopItemTecSequence__sub_80220560(void) {
     s32 i;
     for (i = 0; i < 4; i++) {
-        ((s32 *)&TShopItemTecSequence__data_80513EE0)[i] = 0;
+        ((s32 *)&TShopItemTecSequence__slot_table)[i] = 0;
     }
 }
 

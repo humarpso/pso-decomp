@@ -47,7 +47,7 @@ extern u8 lbl_80446E04[];
 extern u8 lbl_804C3778[];
 extern M2C_UNK __vt__13TPhotonLeilla[];
 extern s32 lbl_805D34F8;
-extern Game_801AC808 *lbl_805D5D28;
+extern Game_801AC808 *photon_blast_shared_resource;
 extern const f32 lbl_805DC1C4;
 
 void *TPhotonLeilla__ct(Leilla_801AC808 *self, Pkt_801AC808 *pkt) {
@@ -64,10 +64,10 @@ void *TPhotonLeilla__ct(Leilla_801AC808 *self, Pkt_801AC808 *pkt) {
     if (owner != NULL) {
         F_801AC808(self, s32, 0x60) = F_801AC808(owner, s32, 0x60);
     }
-    F_801AC808(self, s32, 0x34) = lbl_805D5D28->res->f18;
-    F_801AC808(self, s32, 0x24) = lbl_805D5D28->res->f1C;
+    F_801AC808(self, s32, 0x34) = photon_blast_shared_resource->res->f18;
+    F_801AC808(self, s32, 0x24) = photon_blast_shared_resource->res->f1C;
     set_field_d8__10TObjPlayerFPvi(self, lbl_804C3778);
-    set_field_dc__10TObjPlayerFPvi(self, lbl_805D5D28->f430);
+    set_field_dc__10TObjPlayerFPvi(self, photon_blast_shared_resource->f430);
     F_801AC808(self, s16, 0xB8) = 1;
     set_animation__10TObjPlayerFPvs(self, F_801AC808(self, s16, 0xB8));
     set_field_b8__14TObjEnePanarmsFPvs(self, F_801AC808(self, s16, 0xB8));

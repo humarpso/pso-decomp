@@ -126,7 +126,7 @@ extern RecoveredGlobal_800D4BD0_lbl_80494468 lbl_80494468;
 extern M2C_UNK __vt__19TObjGyaranzoMissile[];
 extern RecoveredGlobal_800D4668_lbl_8058D490 lbl_8058D490;
 extern s32 lbl_805D2A80;
-extern f32 TObjGyaranzoMissile__data_805D51F4;
+extern f32 TObjGyaranzoMissile__speed_scale;
 extern s32 tl_04;
 extern const f32 lbl_805DA2C4;
 extern const f32 lbl_805DA2CC;
@@ -162,9 +162,9 @@ s32 project_actor_to_ground(void *, void *, int);
 int vec3_add_to(void *, void *);
 f32 vector_length(void *);
 int subtract_vector(void *, void *);
-extern f32 TObjGyaranzoMissile__data_805D51F4;
-extern const f32 lbl_805D51F8;
-extern s32 lbl_805D520C;
+extern f32 TObjGyaranzoMissile__speed_scale;
+extern const f32 TObjGyaranzoMissile__max_range;
+extern s32 gyaranzo_missile_volley_end_time;
 extern const f32 lbl_805DA2C8;
 void run_task__19TObjGyaranzoMissileFv(Gyr_800D4990 *self);
 }
@@ -296,10 +296,10 @@ void run_task__19TObjGyaranzoMissileFv(Gyr_800D4990 *self) {
         Vec_800D4990 d = t->pos;
         subtract_vector(&d, &self->pos);
         dist = vector_length(&d);
-        if (self->timer >= 15 && dist > lbl_805D51F8) {
-            scale_velocity__19TObjGyaranzoMissileFPvf(&d, lbl_805D51F8);
+        if (self->timer >= 15 && dist > TObjGyaranzoMissile__max_range) {
+            scale_velocity__19TObjGyaranzoMissileFPvf(&d, TObjGyaranzoMissile__max_range);
             vec3_add_to(&self->vel, &d);
-            scale_velocity__19TObjGyaranzoMissileFPvf(&self->vel, TObjGyaranzoMissile__data_805D51F4);
+            scale_velocity__19TObjGyaranzoMissileFPvf(&self->vel, TObjGyaranzoMissile__speed_scale);
         }
     }
     VecCopy__FP3VecPC3Vec(&self->prev, &self->pos);
@@ -329,7 +329,7 @@ void run_task__19TObjGyaranzoMissileFv(Gyr_800D4990 *self) {
         }
     }
     self->timer++;
-    if (self->timer > lbl_805D520C) {
+    if (self->timer > gyaranzo_missile_volley_end_time) {
         TObjGyaranzoMissile__sub_800D47B4((Missile_800D47B4 *)self);
     }
 }
@@ -368,7 +368,7 @@ u8 *TObjGyaranzoMissile__ct(u8 *arg0, u8 *arg1, u8 *arg2, s16 arg3) {
     M2C_FIELD(arg0, u16 *, 0xD8) = obj_getField1c((void *) (arg1));
     M2C_FIELD(arg0, f32 *, 0xAC) = (f32) lbl_805DA2C4;
     M2C_FIELD(arg0, f32 *, 0xB0) = (f32) lbl_805DA2C4;
-    M2C_FIELD(arg0, f32 *, 0xB4) = (f32) TObjGyaranzoMissile__data_805D51F4;
+    M2C_FIELD(arg0, f32 *, 0xB4) = (f32) TObjGyaranzoMissile__speed_scale;
     push_matrix_from((void *) (&(*(RecoveredGlobal_800D4BD0_lbl_8058D490 *)&lbl_8058D490).value));
     rotate_matrix_y((int) (0), (int) (M2C_FIELD(arg0, s32 *, 0x60)));
     rotate_matrix_x((int) (0), (int) (M2C_FIELD(arg0, s32 *, 0x5C)));
