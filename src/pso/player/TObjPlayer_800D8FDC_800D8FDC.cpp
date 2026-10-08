@@ -9,7 +9,7 @@ extern "C" {
 void create_dead_spot__10TObjPlayerFiif(s32 arg0, s32 arg1, f32 farg0);
 void set_field_e4__10TObjPlayerFii(s32 arg1, s32 arg2);
 void spawn_effect_f8__10TObjPlayerFii(s32 arg1, s32 arg2);
-M2C_UNK TDeadSpot__sub_800D7F60(s32, s32, s32, s32, f32);
+M2C_UNK construct_fire_base__9TDeadSpotFPvPvPvif(s32, s32, s32, s32, f32);
 s32 create_timed_particle_emitter(s32, M2C_UNK, M2C_UNK, s32);
 s32 __nw__7TObjectFUl(M2C_UNK);
 M2C_UNK create_dead_spot__10TObjPlayerFiiif(M2C_UNK, s32, s32);
@@ -21,7 +21,7 @@ void create_dead_spot__10TObjPlayerFiif(s32 arg0, s32 arg1, f32 farg0) {
 
     temp_r3 = __nw__7TObjectFUl(0x38);
     if (temp_r3 != 0) {
-        TDeadSpot__sub_800D7F60(temp_r3, tl_05, arg0, create_timed_particle_emitter((s32)(arg0), (M2C_UNK)(0xF8), (M2C_UNK)(0), (s32)(arg1)), farg0);
+        construct_fire_base__9TDeadSpotFPvPvPvif(temp_r3, tl_05, arg0, create_timed_particle_emitter((s32)(arg0), (M2C_UNK)(0xF8), (M2C_UNK)(0), (s32)(arg1)), farg0);
     }
 }
 

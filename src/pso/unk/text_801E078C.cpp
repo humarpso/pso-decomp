@@ -10,7 +10,7 @@ extern "C" {
 
 s32 __ct__16TPlyGuildCardTagFRC16TPlyGuildCardTag();
 
-Ent_801E078C *fn_801E078C(Ent_801E078C *arg0, Ent_801E078C *arg1) {
+Ent_801E078C *copy_game_list_entry(Ent_801E078C *arg0, Ent_801E078C *arg1) {
     __ct__16TPlyGuildCardTagFRC16TPlyGuildCardTag();
     arg0->difficulty = arg1->difficulty;
     arg0->players = arg1->players;

@@ -181,7 +181,7 @@ extern s32 TObjDoor__data_805D5BC8;
 void update_state__8TObjDoorFPv(TObjDoor* door);
 M2C_UNK reset_photon_effect__10TObjPlayerFPv(void *);
 M2C_UNK init_collision_body_parts(void *, void *, M2C_UNK);
-M2C_UNK TObjPlayer__sub_801569F4(void *, void *);
+M2C_UNK construct_collider_proxy__10TObjPlayerFPv(void *, void *);
 extern M2C_UNK __vt__8TObjDoor[];
 extern s32 lbl_805D3330;
 void *TObjDoor__ct(void *arg0, void *arg1, void *arg2);
@@ -632,7 +632,7 @@ void *__dt__8TObjDoorFv(void *arg0, s16 arg1) {
 
 #define d ((Door_8018F15C *)arg0)
 void *TObjDoor__ct(void *arg0, void *arg1, void *arg2) {
-    TObjPlayer__sub_801569F4(arg0, arg1);
+    construct_collider_proxy__10TObjPlayerFPv(arg0, arg1);
     d->vt = __vt__8TObjDoor;
     d->f0 = lbl_805D3330;
     ((DoorVt_8018F15C *)d)->m5(arg2);

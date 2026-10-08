@@ -53,7 +53,7 @@ void TObjEneMorfos__sub_80337500(O_80337500 *arg0, V_80337500 *arg1, V_80337500 
 M2C_UNK VecCopy__FP3VecPC3Vec(void *, int);
 s16 obj_getField1c(void *);
 s32 spawn_particle_effect_with_rotation(void *, void *, s32, s32);
-void TObjPlayer__sub_801569F4(void *, s32);
+void construct_collider_proxy__10TObjPlayerFPv(void *, s32);
 s32 TObjEneMorfos__sub_803375F0(M2C_UNK arg0, s32 arg1);
 f32 sin_table_lookup(s32);
 f32 cos_table_lookup(s32);
@@ -164,7 +164,7 @@ void *__dt__13TObjEneMorfosFPvs(void *arg0, s16 arg1) {
 }
 O_80337824 *TObjEneMorfos__sub_80337824(O_80337824 *arg0, Vec_80337824 *arg1, s32 arg2, void *arg3) {
     Ang_80337824 a;
-    TObjPlayer__sub_801569F4(arg0, tl_06);
+    construct_collider_proxy__10TObjPlayerFPv(arg0, tl_06);
     arg0->vt = ((u8 *)&lbl_804EF130);
     VecCopy__FP3VecPC3Vec((void *)(&arg0->pos), (int)(arg1));
     arg0->fDC = lbl_805DF994;

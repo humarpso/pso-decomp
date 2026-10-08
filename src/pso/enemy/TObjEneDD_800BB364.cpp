@@ -9,8 +9,9 @@ struct RecoveredGlobal_800BB45C_lbl_80500B98 {
     u8 remaining[0x1C];
 };
 
+struct Ent_800BB484 { s16 id; f32 dist; };
+
 extern "C" {
-s32 collect_enemy_target_candidates(s32, void *, f32);
 extern RecoveredGlobal_800BB45C_lbl_80500B98 lbl_80500B98;
 void TObjEneDD__sub_800BB45C(s32 arg0, f32 farg0);
 typedef struct Ent_800BB388 {
@@ -30,11 +31,22 @@ s32 get_enemy_count__9TObjEneDDFv(void);
 f32 horizontal_distance_squared(void *, void *);
 
 u16 enemy_nearest_visible_enemy_sq(Ent_800BB388 *self, f32 range);
+u16 obj_getField1c(void *);
+s32 get_game_mode__6TLobbyFv(void);
+s32 is_alive__9TObjEneDDFPv(void *);
+M2C_UNK TBoss8Dragon__sub_800BB650(void *, void *);
+f32 horizontal_distance_squared(void *, void *);
+extern const f32 TObjEneDD__data_805D9E8C;
+s32 collect_enemy_target_candidates(s32 arg0, Ent_800BB484 *out, f32 farg0);
 }
 
 extern "C" {
 
 void set_squared_value__9TObjEneDDFf(f32 farg0);
+
+extern "C" {
+Ent_800BB388 *get_player_data__10TObjPlayerFi(s32);
+}
 
 void set_squared_value__9TObjEneDDFf(f32 farg0) {
     ((M2C_UNK (*)(f32))enemy_nearest_visible_enemy_sq)(farg0 * farg0);
@@ -64,7 +76,62 @@ u16 enemy_nearest_visible_enemy_sq(Ent_800BB388 *self, f32 range) {
 }
 typedef char RecoveredGlobal_800BB45C_lbl_80500B98_size[sizeof(RecoveredGlobal_800BB45C_lbl_80500B98) == 0x20 ? 1 : -1];
 void TObjEneDD__sub_800BB45C(s32 arg0, f32 farg0) {
-    collect_enemy_target_candidates(arg0, &lbl_80500B98.value, farg0);
+    collect_enemy_target_candidates((s32)(arg0), (Ent_800BB484 *)(&lbl_80500B98.value), farg0);
+}
+s32 collect_enemy_target_candidates(s32 arg0, Ent_800BB484 *out, f32 farg0) {
+    s32 n;
+    s32 cnt;
+    Ent_800BB484 tmp;
+    u8 *p;
+    s32 mi;
+    s32 j;
+    f32 mx;
+    f32 d;
+    s32 k;
+    n = 0;
+    cnt = get_game_mode__6TLobbyFv();
+    if (farg0 > TObjEneDD__data_805D9E8C) {
+        for (s32 i = 0; i < cnt; i++) {
+            p = ((u8 *)get_player_data__10TObjPlayerFi((s32)(i)));
+            if (is_alive__9TObjEneDDFPv(p) != 0) {
+                d = horizontal_distance_squared((void *)(arg0 + 0x38), p + 0x38);
+                if (d < farg0) {
+                    out[n].id = obj_getField1c(p);
+                    out[n].dist = d;
+                    n++;
+                }
+            }
+        }
+    } else {
+        for (s32 i = 0; i < cnt; i++) {
+            p = ((u8 *)get_player_data__10TObjPlayerFi((s32)(i)));
+            if (is_alive__9TObjEneDDFPv(p) != 0) {
+                d = horizontal_distance_squared((void *)(arg0 + 0x38), p + 0x38);
+                out[n].id = obj_getField1c(p);
+                out[n].dist = d;
+                n++;
+            }
+        }
+    }
+    if (n > 1) {
+        for (k = n - 1; k >= 1; k--) {
+            mx = out[0].dist;
+            mi = 0;
+            for (j = 1; j <= k; j++) {
+                f32 v = out[j].dist;
+                if (v > mx) {
+                    mx = v;
+                    mi = j;
+                }
+            }
+            if (mi != k) {
+                TBoss8Dragon__sub_800BB650(&tmp, &out[mi]);
+                TBoss8Dragon__sub_800BB650(&out[mi], &out[k]);
+                TBoss8Dragon__sub_800BB650(&out[k], &tmp);
+            }
+        }
+    }
+    return n;
 }
 
 }

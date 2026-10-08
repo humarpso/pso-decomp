@@ -393,7 +393,7 @@ void normalize_vector(Vec_8004C940 *);
 extern s32 lbl_805D5550;
 extern const f32 lbl_805D8948;
 extern const f32 lbl_805D894C;
-void TBoss4DarkFalz__sub_8004C940(Obj_8004C940 *arg0);
+void enter_demo2_phase__14TBoss4DarkFalzFPv(Obj_8004C940 *arg0);
 }
 
 extern "C" {
@@ -423,7 +423,7 @@ s32 is_timer_expired__14TBoss4DarkFalzFPv();
 void TBoss4DarkFalz__sub_8004C93C(void) {  }
 
 #pragma fp_contract on
-void TBoss4DarkFalz__sub_8004C940(Obj_8004C940 *arg0) {
+void enter_demo2_phase__14TBoss4DarkFalzFPv(Obj_8004C940 *arg0) {
     u16 arr[4];
     Vec_8004C940 v;
     s32 flag;

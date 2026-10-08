@@ -4,6 +4,16 @@ typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
 typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 #define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
 #define M2C_BITWISE(type, expr) ((type)(expr))
+
+struct Obj_800FFF68 {
+    u8 pad0[0x2C];
+    s16 idx;
+    u8 pad2E[0xD8 - 0x2E];
+    s32 handle;
+};
+
+union Pk_800FFF68 { s32 w; u16 h[2]; };
+
 extern "C" {
 s32 get_field_d8__10TObjPlayerFPv(void *);
 M2C_UNK notify_owner__5TItemFPvi(void *, M2C_UNK);
@@ -18,6 +28,13 @@ void *find_eligible_combination_recipe(u32, void *);
 void *find_unique_combination_target(u32, void *);
 M2C_UNK init__9TItemDataFv(u8 *);
 void use_combination_recipe__5TItemFPv(void *arg0);
+s32 get_main_phase();
+u32 build_item_id(u16);
+s32 advance_item_id_counter(u16);
+extern s32 lbl_805D53A0;
+extern s32 lbl_805D5450;
+extern s32 *TLobby__data_805D6140;
+void TLobby__sub_800FFF68(Obj_800FFF68 *o);
 }
 
 extern "C" {
@@ -60,6 +77,19 @@ void use_combination_recipe__5TItemFPv(void *arg0) {
         notify_owner__5TItemFPvi(arg0, 0x40001421);
         get_field_d8__10TObjPlayerFPv(arg0);
         consume_item_by_id();
+    }
+}
+void TLobby__sub_800FFF68(Obj_800FFF68 *o) {
+    Pk_800FFF68 p;
+    if (get_main_phase() == 15) {
+        if (o->handle == -1) {
+            lbl_805D5450 = 1;
+            p.w = TLobby__data_805D6140[o->idx];
+            o->handle = build_item_id(p.h[1]);
+        }
+    } else if (o->handle == -1) {
+        lbl_805D5450 = 1;
+        o->handle = advance_item_id_counter(lbl_805D53A0);
     }
 }
 

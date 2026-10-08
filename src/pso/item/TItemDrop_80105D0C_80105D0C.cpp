@@ -53,7 +53,7 @@ extern char lbl_805DAAD0;
 void format_drop_table_filename(void *out, s32 arg1);
 void init_drop_table__9TItemDropFv(void);
 u32 roll_channel_below__9TItemDropFPviUi(void *, u8, s32);
-void TItemData__sub_8010CDC8(u8 *, s16);
+void set_unit_modifier__9TItemDataFPvs(u8 *, s16);
 M2C_UNK init__9TItemDataFv(void *);
 u8 *lookup_item_pmt_record(u8 *);
 extern u8 *TItemDrop__data_805D5468;
@@ -267,18 +267,18 @@ void select_unit_drop__9TItemDropFv(void *self, u8 kind, u8 *item) {
                     v = *(s16 *)(data + 0xC);
                     switch (r) {
                     case 0:
-                        TItemData__sub_8010CDC8(item, -(v * 2));
+                        set_unit_modifier__9TItemDataFPvs(item, -(v * 2));
                         break;
                     case 1:
-                        TItemData__sub_8010CDC8(item, -v);
+                        set_unit_modifier__9TItemDataFPvs(item, -v);
                         break;
                     case 2:
                         break;
                     case 3:
-                        TItemData__sub_8010CDC8(item, v);
+                        set_unit_modifier__9TItemDataFPvs(item, v);
                         break;
                     case 4:
-                        TItemData__sub_8010CDC8(item, v * 2);
+                        set_unit_modifier__9TItemDataFPvs(item, v * 2);
                         break;
                     }
                 } else if (kind < 0x88) {

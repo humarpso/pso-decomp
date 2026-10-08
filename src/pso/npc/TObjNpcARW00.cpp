@@ -118,7 +118,7 @@ M2C_UNK play_sound_effect(int, void *, int, int);
 void TObjNpcARW00__vt88(s32 arg0);
 s32 init_position_vectors__10TObjPlayerFi(void *);
 s32 setup_common__11TObjNpcBaseFv(void *);
-s32 TObjNpcFemaleBase__sub_80149CE0(void *);
+s32 construct_female_base__17TObjNpcFemaleBaseFPv(void *);
 extern M2C_UNK __vt__12TObjNpcARW00[];
 extern s32 lbl_805D2D18;
 extern u32 TObjNpcARW00__data_805D5730;
@@ -188,7 +188,7 @@ void *__dt__12TObjNpcARW00Fv(void *arg0, s16 arg1) {
 
 typedef char RecoveredGlobal_80148038___vt__12TObjNpcARW00_size[sizeof(RecoveredGlobal_80148038___vt__12TObjNpcARW00) == 0x178 ? 1 : -1];
 u8 *TObjNpcARW00__ct(u8 *arg0, M2C_UNK arg1, s32 arg2) {
-    TObjNpcFemaleBase__sub_80149CE0((void *) (arg0));
+    construct_female_base__17TObjNpcFemaleBaseFPv((void *) (arg0));
     M2C_FIELD(arg0, M2C_UNK **, 0x18) = &(*(RecoveredGlobal_80148038___vt__12TObjNpcARW00 *)&__vt__12TObjNpcARW00).value;
     M2C_FIELD(arg0, s32 *, 0) = (s32) lbl_805D2D18;
     ((VObj_18_aa4667 *)(arg0))->m79(arg2);

@@ -8,7 +8,7 @@ extern "C" {
 
 s32 try_assign_battle_ctrl__10TObjPlayerFiUs(s32 arg0, u16 arg1);
 s32 update_battle__10TObjPlayerFi(s32 arg0);
-M2C_UNK TObjPlayer__sub_802C4374(void *, s32);
+M2C_UNK export_player_record__10TObjPlayerFPvPv(void *, s32);
 s32 get_player_by_client_id(void *);
 s32 update_battle_controller__10TObjPlayerFv();
 
@@ -17,7 +17,7 @@ s32 try_assign_battle_ctrl__10TObjPlayerFiUs(s32 arg0, u16 arg1) {
     if (temp == 0) {
         return 0;
     }
-    TObjPlayer__sub_802C4374((void *)((void *) (arg0)), (s32)(temp));
+    export_player_record__10TObjPlayerFPvPv((void *)((void *) (arg0)), (s32)(temp));
     return 1;
 }
 
@@ -27,7 +27,7 @@ s32 update_battle__10TObjPlayerFi(s32 arg0) {
     if (r == 0) {
         return 0;
     }
-    TObjPlayer__sub_802C4374((void *)(arg0), (s32)(r));
+    export_player_record__10TObjPlayerFPvPv((void *)(arg0), (s32)(r));
     return 1;
 }
 

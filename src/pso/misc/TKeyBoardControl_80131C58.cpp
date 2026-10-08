@@ -80,7 +80,7 @@ s32 TKeyBoardControl__sub_803F1604(s32, M2C_UNK *);
 void TKeyBoardControl__sub_801327DC(M2C_UNK arg0, u8 arg1);
 int is_key_held__16TKeyBoardControlFPv(void* p);
 s32 TWindowShortListCtrl__check_controller_button(void *, int, int);
-M2C_UNK TWindowSubTradeMain__sub_80244A4C(void *);
+M2C_UNK request_close__19TWindowSubTradeMainFPv(void *);
 M2C_UNK window_request_show(void *);
 s32 is_player_input_active(int);
 M2C_UNK TKeyBoardControl__sub_8025EC04(int);
@@ -158,7 +158,7 @@ void run_task__16TKeyBoardControlFv(u8 *arg0) {
     } else if (((s32)is_key_held__16TKeyBoardControlFPv((void*)((int) (M2C_FIELD(arg0, s32 *, 0x24))))) == 0) {
         M2C_FIELD(arg0, u16 *, 0x1C) = (u16) (M2C_FIELD(arg0, u16 *, 0x1C) | 1);
         if ((u32) M2C_FIELD(arg0, u32 *, 0x28) != 0U) {
-            TWindowSubTradeMain__sub_80244A4C(M2C_FIELD(arg0, void **, 0x28));
+            request_close__19TWindowSubTradeMainFPv(M2C_FIELD(arg0, void **, 0x28));
         }
     }
 }

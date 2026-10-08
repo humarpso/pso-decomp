@@ -31,7 +31,7 @@ M2C_UNK TObjRoomId__sub_80141CF4(void *, void *);
 extern const f32 lbl_805DBA2C;
 extern const f32 lbl_805DBA30;
 void render__17TOSymbolchatColliFv(u8 *arg0);
-void TObjPlayer__sub_80019038(void *);
+void construct_actor_base__10TObjPlayerFPvPv(void *);
 void reset_photon_effect__10TObjPlayerFPv(void *);
 void init_collision_body_parts(void *, void *, int);
 void TOSymbolchatColli__sub_8017873C(void *);
@@ -159,7 +159,7 @@ void *__dt__17TOSymbolchatColliFv(void *arg0, s16 arg1) {
 }
 Obj_80178AD4 *TOSymbolchatColli__ct(Obj_80178AD4 *arg0, void *arg1, s32 arg2) {
     s32 i;
-    TObjPlayer__sub_80019038(arg0);
+    construct_actor_base__10TObjPlayerFPvPv(arg0);
     *(u8 **)((u8 *)arg0 + 0x18) = ((u8 *)&__vt__17TOSymbolchatColli);
     *(s32 *)arg0 = lbl_805D3194;
     arg0->v5(arg2);

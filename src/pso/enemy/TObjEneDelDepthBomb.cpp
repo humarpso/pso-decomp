@@ -522,7 +522,7 @@ f32 calc_boss4_scale__10TObjPlayerFi(void *);
 M2C_UNK render_with_position_override__10TObjPlayerFPvPvi(void *, void *, int);
 u16 find_nearest_visible_player(void *, int, f32);
 void destroy_motion_object__10TObjPlayerFPvs(void *, int);
-s32 TObjPlayer__sub_80019038(void *);
+s32 construct_actor_base__10TObjPlayerFPvPv(void *);
 s32 VecCopy__FP3VecPC3Vec(void *, void *);
 s32 add_flags_2e4__10TObjPlayerFPvUi(void *, int);
 f32 get_random_float__8TObjFishFv(f32);
@@ -820,7 +820,7 @@ void *__dt__19TObjEneDelDepthBombFv(void *arg0, s16 arg1) {
 u8 *TObjEneDelDepthBomb__ct(u8 *arg0, M2C_UNK arg1, s32 arg2, s32 arg3, s32 arg4) {
     f32 temp_f30;
     f32 temp_f31;
-    TObjPlayer__sub_80019038((void *) (arg0));
+    construct_actor_base__10TObjPlayerFPvPv((void *) (arg0));
     M2C_FIELD(arg0, M2C_UNK **, 0x18) = &(*(RecoveredGlobal_803135B4___vt__19TObjEneDelDepthBomb *)&__vt__19TObjEneDelDepthBomb).value;
     M2C_FIELD(arg0, s32 *, 0) = (s32) lbl_805D411C;
     M2C_FIELD(arg0, s32 *, 0x348) = arg2;

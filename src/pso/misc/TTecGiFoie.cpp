@@ -176,8 +176,8 @@ u8 * destroy_technique_base__9TTecLukerFPvs(void *, s16);
 void construct_area_technique_base(void *, void *, void *, void *, void *);
 s32 calc_technique_parameters(int, int, int);
 void calc_params__10TTecGiFoieFPv(u8 *arg0);
-u8 * fn_80231224(Task_80231224 *task, s16 flag);
-Task_802312E4 * TTecGiFoie__sub_802312E4(Task_802312E4 *self, Vec_802312E4 *pos, s32 arg2, u8 band, s32 arg4, void *parent, u8 single);
+u8 * gifoie_orbit_dtor(Task_80231224 *task, s16 flag);
+Task_802312E4 * construct_orbit__10TTecGiFoieFPvPviUciPvUc(Task_802312E4 *self, Vec_802312E4 *pos, s32 arg2, u8 band, s32 arg4, void *parent, u8 single);
 void create__10TTecGiFoieFPvPvPv(void *arg0, void *arg1, void *arg2);
 void TTecGiFoie__vt4(Obj_8023154C *self, VObj_8023154C *target);
 u8 * __dt__10TTecGiFoieFv(u8 *arg0, s16 arg1);
@@ -216,7 +216,7 @@ void calc_params__10TTecGiFoieFPv(u8 *arg0) {
   }
 }
 
-u8 *fn_80231224(Task_80231224 *task, s16 flag) {
+u8 *gifoie_orbit_dtor(Task_80231224 *task, s16 flag) {
     u32 i;
     if (task != NULL) {
         task->vt = lbl_804CC800;
@@ -236,7 +236,7 @@ u8 *fn_80231224(Task_80231224 *task, s16 flag) {
     return (u8 *)task;
 }
 
-Task_802312E4 *TTecGiFoie__sub_802312E4(Task_802312E4 *self, Vec_802312E4 *pos, s32 arg2, u8 band, s32 arg4, void *parent, u8 single) {
+Task_802312E4 *construct_orbit__10TTecGiFoieFPvPviUciPvUc(Task_802312E4 *self, Vec_802312E4 *pos, s32 arg2, u8 band, s32 arg4, void *parent, u8 single) {
     __ct__7TObjectFP7TObject(self, parent);
     self->vt = lbl_804CC800;
     self->x46 = 0;
@@ -420,7 +420,7 @@ void *TTecGiFoie__ct(void *self_, void *source, void *origin, void *level) {
         p.z = self->pos.z + v.z;
         o = __nw__7TObjectFUl(0x4C);
         if (o != NULL) {
-            o = ((Task_8023179C *(*)(void *, Vec_8023179C *, s32, s32, s32, void *, u8))TTecGiFoie__sub_802312E4)(o, &p, angle, self->band, self->level, (void *)tl_07, 0);
+            o = ((Task_8023179C *(*)(void *, Vec_8023179C *, s32, s32, s32, void *, u8))construct_orbit__10TTecGiFoieFPvPviUciPvUc)(o, &p, angle, self->band, self->level, (void *)tl_07, 0);
         }
         self->tasks[k] = (Task_8023179C *)o;
     }

@@ -67,7 +67,7 @@ extern s32 lbl_805D7784;
 extern s32 some_id_805c6f74;
 void render__11TOVS2Wall01Fv(u8 *arg0);
 void calc_attach_pos__10TObjPlayerFPv(void *);
-void TObjPlayer__sub_80019038(void *, void *);
+void construct_actor_base__10TObjPlayerFPvPv(void *, void *);
 void obj_setFlags30(void *, s32);
 s32 TObjFish__sub_8001EDB0(s32, s32);
 s32 get_bml_model(s32, s32);
@@ -182,7 +182,7 @@ void *__dt__11TOVS2Wall01Fv(void *arg0, s16 arg1) {
 #pragma opt_common_subs off
 void *TOVS2Wall01__ct(void *arg0, void *arg1) {
     s32 t;
-    TObjPlayer__sub_80019038(arg0, tl_05);
+    construct_actor_base__10TObjPlayerFPvPv(arg0, tl_05);
     M2C_FIELD(arg0, M2C_UNK **, 0x18) = __vt__11TOVS2Wall01;
     init_and_activate__10TObjPlayerFPv((u8 *)arg0 + 0x340);
     M2C_FIELD(arg0, s32 *, 0) = lbl_805D31E0;

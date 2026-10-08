@@ -17,7 +17,7 @@ struct RecoveredGlobal_8017BC10_lbl_8044311C {
 };
 
 extern "C" {
-M2C_UNK TObjChip__sub_80180BD4(void *, int, void *);
+M2C_UNK construct_debris__8TObjChipFPvPvPv(void *, int, void *);
 s32 TObjFish__sub_8001EDB0(int, void *);
 s32 get_bml_model(int, void *);
 u32 __nw__7TObjectFUl(int);
@@ -66,7 +66,7 @@ void TOVS2Wall01__sub_8017BC10(u8 *arg0, s32 arg1) {
     (*(s32 *)(copy_storage_8017BC10.bytes + 0x44)) = TObjFish__sub_8001EDB0((int) (TOVS2Wall01__data_805D5AE8), (void *) (arg1));
     chip = (u8 *) __nw__7TObjectFUl((int) (0x234));
     if (chip != NULL) {
-        TObjChip__sub_80180BD4((void *) chip, (int) (tl_05), (void *) ((copy_storage_8017BC10.bytes)));
+        construct_debris__8TObjChipFPvPvPv((void *) chip, (int) (tl_05), (void *) ((copy_storage_8017BC10.bytes)));
     }
 }
 

@@ -6,7 +6,7 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 
 extern "C" {
 
-void TObjPlayer__sub_801BC858(void *arg0);
+void reset_area_entry_state__10TObjPlayerFPv(void *arg0);
 void destroy_owned_object__10TObjPlayerFPv(void* p);
 void init_battle__10TObjPlayerFi(s32 arg0);
 s32 is_locally_controlled__10TObjPlayerFPv(void *);
@@ -61,7 +61,7 @@ extern "C" {
 
 }
 
-void TObjPlayer__sub_801BC858(void *arg0) {
+void reset_area_entry_state__10TObjPlayerFPv(void *arg0) {
     s32 x;
     update_child__10TObjPlayerFPvPv((void *)((char *)arg0 + 900), arg0);
     enter_battle_state__10TObjPlayerFPv((void *)((char *)arg0 + 1588));

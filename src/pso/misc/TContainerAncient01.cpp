@@ -63,7 +63,7 @@ struct Stack_8018BEE4 {
 };
 
 extern "C" {
-s32 TObjPlayer__sub_80019038(void *);
+s32 construct_actor_base__10TObjPlayerFPvPv(void *);
 s32 VecCopy__FP3VecPC3Vec(void *, void *);
 s32 TObjFish__sub_8001EDB0(int, int);
 s32 get_bml_model(int, int);
@@ -133,7 +133,7 @@ typedef char RecoveredGlobal_8018BD00_TContainerAncient01__data_804B6DC0_size[si
 typedef char RecoveredGlobal_8018BD00_lbl_804B6DEC_size[sizeof(RecoveredGlobal_8018BD00_lbl_804B6DEC) == 0x30 ? 1 : -1];
 typedef char RecoveredGlobal_8018BD00___vt__19TContainerAncient01_size[sizeof(RecoveredGlobal_8018BD00___vt__19TContainerAncient01) == 0x140 ? 1 : -1];
 u8 *TContainerAncient01__ct(u8 *arg0, M2C_UNK arg1, s32 arg2) {
-    TObjPlayer__sub_80019038((void *) (arg0));
+    construct_actor_base__10TObjPlayerFPvPv((void *) (arg0));
     M2C_FIELD(arg0, M2C_UNK **, 0x18) = &(*(RecoveredGlobal_8018BD00___vt__19TContainerAncient01 *)&__vt__19TContainerAncient01).value;
     M2C_FIELD(arg0, s32 *, 0) = (s32) lbl_805D3300;
     ((VObj_18_1a504b *)(arg0))->m5(arg2);
@@ -699,7 +699,7 @@ struct Obj_8018C9F0 {
 };
 
 void spawn_particle_effect_with_flags(void *, int, int);
-void TObjChip__sub_80180BD4(void *, void *, void *);
+void construct_debris__8TObjChipFPvPvPv(void *, void *, void *);
 void play_container_break_sound(void *);
 void *__nw__7TObjectFUl(int);
 extern Spawn_8018C9F0 lbl_80445398;
@@ -741,11 +741,11 @@ void TObjContainerJungEnemy__vt77(Obj_8018C9F0 *self) {
         spawn_particle_effect_with_flags(&self->pos, 0x46, 0x40);
         o = __nw__7TObjectFUl(0x234);
         if (o != 0) {
-            TObjChip__sub_80180BD4(o, tl_05, &a);
+            construct_debris__8TObjChipFPvPvPv(o, tl_05, &a);
         }
         o = __nw__7TObjectFUl(0x234);
         if (o != 0) {
-            TObjChip__sub_80180BD4(o, tl_05, &b);
+            construct_debris__8TObjChipFPvPvPv(o, tl_05, &b);
         }
         play_container_break_sound(self);
     }

@@ -403,7 +403,7 @@ u8 *TParticleCtrl__sub_80085E78(u8 *arg0, s32 arg1, s32 arg2) {
 
 #pragma push
 #pragma fp_contract on
-void TParticleCtrl__sub_80085EE4(Particle_80085EE4 *p, s32 kind) {
+void draw_sprite_quad__13TParticleCtrlFPvi(Particle_80085EE4 *p, s32 kind) {
     Vec_80085EE4 view;
     Vec_80085EE4 world;
     Quad_80085EE4 quad;

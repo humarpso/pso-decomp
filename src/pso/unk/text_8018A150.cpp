@@ -17,7 +17,7 @@ struct VObj_18_1a504b : VBase_18_1a504b {
 struct RecoveredGlobal_8018A150_lbl_804B6C24 { M2C_UNK value; u8 remaining[0x148]; };
 
 extern "C" {
-u8 * TObjPlayer__sub_80019038(void *);
+u8 * construct_actor_base__10TObjPlayerFPvPv(void *);
 u8 * init_vtable_804AF8D8__14TOAirconCave01FPv(void *);
 M2C_UNK fn_80156CEC(void *);
 M2C_UNK TLazerFenceSw__sub_8018A554(void *, f32);
@@ -35,7 +35,7 @@ extern "C" {
 #pragma push
 #pragma fp_contract on
 u8 *fn_8018A150(u8 *arg0, M2C_UNK arg1, s32 arg2) {
-    TObjPlayer__sub_80019038(arg0);
+    construct_actor_base__10TObjPlayerFPvPv(arg0);
     M2C_FIELD(arg0, M2C_UNK **, 0x18) = &lbl_804B6C24.value;
     init_vtable_804AF8D8__14TOAirconCave01FPv(arg0 + 0x340);
     M2C_FIELD(arg0, s32 *, 0) = (s32) lbl_805D32E8;

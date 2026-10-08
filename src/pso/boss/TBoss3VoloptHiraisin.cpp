@@ -869,7 +869,7 @@ void *create__20TBoss3VoloptHiraisinFPv(void *arg0);
 void damage_player_if_aligned__20TBoss3VoloptHiraisinFPv(void *arg0);
 void init_models__20TBoss3VoloptHiraisinFv(void);
 void update_state__20TBoss3VoloptHiraisinFPv(void *arg0);
-s32 TBreakUpMdl__sub_8009705C(s32, s32);
+s32 init_from_model__11TBreakUpMdlFPvi(s32, s32);
 void free_collision_body_parts(void *);
 #define get_bml_model ((s32 (*)(s32, M2C_UNK))get_bml_model)
 void __dl__7TObjectFPv(void *);
@@ -895,7 +895,7 @@ void init_models__20TBoss3VoloptHiraisinFv(void) {
     *temp_r3 &= 0xFFFFFFFD;
     var_r31 = alloc__23TAdSinglePlyChrSelectGCFPv(0x10);
     if (var_r31 != 0) {
-        var_r31 = TBreakUpMdl__sub_8009705C(var_r31, get_bml_model(TBoss3VoloptHiraisin__data_805D4C80, 0x10));
+        var_r31 = init_from_model__11TBreakUpMdlFPvi(var_r31, get_bml_model(TBoss3VoloptHiraisin__data_805D4C80, 0x10));
     }
     lbl_805D4C88 = var_r31;
     lbl_805D4C70 = register_boss__6TLobbyFPv(0x24);
@@ -1118,8 +1118,8 @@ extern "C" void TObjPlayer__sub_80010A80();
 extern "C" void TObjPlayer__sub_800111D8();
 extern "C" void TObjPlayer__sub_80014830();
 extern "C" void TObjPlayer__sub_80014838();
-extern "C" void TObjPlayer__sub_80015884();
-extern "C" void TObjPlayer__sub_80016C54();
+extern "C" void apply_slow_status__10TObjPlayerFPv();
+extern "C" void update_shock_clock__10TObjPlayerFPv();
 extern "C" void TObjPlayer__sub_800172CC();
 extern "C" void TObjPlayer__sub_80018E6C();
 extern "C" void TObjPlayer__sub_80019568();
@@ -1196,8 +1196,8 @@ void *__vt__20TBoss3VoloptHiraisin[83] = {
     (void *)&TObjEnemyCustom__sub_800C7DF4, (void *)&TObjPlayer__sub_8000FF3C, (void *)&is_target_in_attack_range__10TObjPlayerFv, (void *)&test_flag_256__10TObjPlayerFPv,
     (void *)&test_flag30_512__10TObjPlayerFPv, (void *)&has_flag_0x800__10TObjPlayerFPv, (void *)&test_flag_1000__10TObjPlayerFPv, (void *)&update_poison_status__10TObjPlayerFv,
     (void *)&update_action_hold_status__10TObjPlayerFv, (void *)&update_action_timer__10TObjPlayerFPv, (void *)&update_flag30_timer__10TObjPlayerFPv, (void *)&update_movement_status__10TObjPlayerFv,
-    (void *)&TObjPlayer__sub_80016C54, (void *)&update_attack_stat_status, (void *)&update_defense_stat_status, (void *)&TObjPlayer__sub_800172CC,
-    (void *)&apply_poison_status__10TObjPlayerFv, (void *)&apply_paralysis__10TObjPlayerFv, (void *)&TObjPlayer__sub_80015884, (void *)&apply_confusion_status__10TObjPlayerFv,
+    (void *)&update_shock_clock__10TObjPlayerFPv, (void *)&update_attack_stat_status, (void *)&update_defense_stat_status, (void *)&TObjPlayer__sub_800172CC,
+    (void *)&apply_poison_status__10TObjPlayerFv, (void *)&apply_paralysis__10TObjPlayerFv, (void *)&apply_slow_status__10TObjPlayerFPv, (void *)&apply_confusion_status__10TObjPlayerFv,
     (void *)&apply_movement_ailment__10TObjPlayerFv, (void *)&apply_shock_status__10TObjPlayerFv, (void *)&clear_harmful_statuses__10TObjPlayerFv, (void *)&apply_attack_stat_status__10TObjPlayerFv,
     (void *)&apply_defense_stat_status__10TObjPlayerFv, (void *)&cure_poison_ailment, (void *)&cure_paralysis__10TObjPlayerFv, (void *)&clear_all_status_effects,
     (void *)&apply_action_hold_status, (void *)&apply_anti_technique__10TObjPlayerFv, (void *)&TObjEnemyCustom__sub_800C7DD0, (void *)&update_if_active__15TObjEnemyCustomFPv,

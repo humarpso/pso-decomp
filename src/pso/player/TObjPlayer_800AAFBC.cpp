@@ -243,7 +243,7 @@ M2C_UNK clear_counter__10TObjPlayerFPv(void *);
 u32 TObjPlayer__sub_800A4204(void *, void *, void *, void *, int);
 f32 TObjPlayer__sub_8013153C(void *, int);
 s32 collect_and_count__12TBoss3VoloptFUii(void *, int);
-M2C_UNK TObjPlayer__sub_801569F4(void *, void *);
+M2C_UNK construct_collider_proxy__10TObjPlayerFPv(void *, void *);
 void *__nw__7TObjectFUl(int);
 M2C_UNK vec3_add_to(void *, void *);
 s32 rotate_vector_by_matrix(int, void *, void *);
@@ -508,7 +508,7 @@ u8 *TObjPlayer__sub_800AB7A0(u8 *arg0, s32 arg1, u8 *arg2, s32 arg3, s32 arg4) {
     void *obj;
     u8 *temp_r3;
     s32 t;
-    TObjPlayer__sub_801569F4(arg0, tl_06);
+    construct_collider_proxy__10TObjPlayerFPv(arg0, tl_06);
     M2C_FIELD(arg0, M2C_UNK **, 0x18) = lbl_80491478;
     M2C_FIELD(arg0, s16 *, 0xAC) = arg1;
     M2C_FIELD(arg0, s16 *, 0xD4) = obj_getField1c((void *) (arg2));

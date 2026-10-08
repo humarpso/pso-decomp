@@ -297,7 +297,7 @@ M2C_UNK bind_enemy_combat_stats(void *, int, int, int);
 void initialize__9TObjEnemyFPv(void *, void *);
 void set_animation__10TObjPlayerFPvs(void *, s16);
 void init_collision_body_parts(void *, void *, int);
-void *TObjPlayer__sub_801569F4(void *, int);
+void *construct_collider_proxy__10TObjPlayerFPv(void *, int);
 void * __nw__7TObjectFUl(int);
 void update_shadow_height__14TObjEneGibblesFPv(void *arg0);
 void update_position__14TObjEneGibblesFPv(u8 *arg0);
@@ -715,10 +715,10 @@ extern "C" {
 void TObjPlayer__sub_80014840();
 }
 extern "C" {
-void TObjPlayer__sub_80015884();
+void apply_slow_status__10TObjPlayerFPv();
 }
 extern "C" {
-void TObjPlayer__sub_80016C54();
+void update_shock_clock__10TObjPlayerFPv();
 }
 extern "C" {
 void TObjPlayer__sub_800172CC();
@@ -998,8 +998,8 @@ void *lbl_804E29F0[83] = {
     (void *)&TObjEneGibbles__sub_802DAD50, (void *)&TObjPlayer__sub_8000FF3C, (void *)&TObjEneGibbles__sub_802D9EB4, (void *)&TObjEneGibbles__sub_802D8828,
     (void *)&test_flag30_512__10TObjPlayerFPv, (void *)&has_flag_0x800__10TObjPlayerFPv, (void *)&test_flag_1000__10TObjPlayerFPv, (void *)&update_poison_status__10TObjPlayerFv,
     (void *)&TObjEneGibbles__sub_802DAC90, (void *)&update_action_timer__10TObjPlayerFPv, (void *)&update_flag30_timer__10TObjPlayerFPv, (void *)&TObjEneGibbles__sub_802DABD0,
-    (void *)&TObjPlayer__sub_80016C54, (void *)&update_attack_stat_status, (void *)&update_defense_stat_status, (void *)&TObjPlayer__sub_800172CC,
-    (void *)&apply_poison_status__10TObjPlayerFv, (void *)&apply_paralysis__10TObjPlayerFv, (void *)&TObjPlayer__sub_80015884, (void *)&apply_confusion_status__10TObjPlayerFv,
+    (void *)&update_shock_clock__10TObjPlayerFPv, (void *)&update_attack_stat_status, (void *)&update_defense_stat_status, (void *)&TObjPlayer__sub_800172CC,
+    (void *)&apply_poison_status__10TObjPlayerFv, (void *)&apply_paralysis__10TObjPlayerFv, (void *)&apply_slow_status__10TObjPlayerFPv, (void *)&apply_confusion_status__10TObjPlayerFv,
     (void *)&apply_movement_ailment__10TObjPlayerFv, (void *)&apply_shock_status__10TObjPlayerFv, (void *)&clear_harmful_statuses__10TObjPlayerFv, (void *)&apply_attack_stat_status__10TObjPlayerFv,
     (void *)&apply_defense_stat_status__10TObjPlayerFv, (void *)&cure_poison_ailment, (void *)&cure_paralysis__10TObjPlayerFv, (void *)&clear_all_status_effects,
     (void *)&apply_action_hold_status, (void *)&apply_anti_technique__10TObjPlayerFv, (void *)&TObjEneGibbles__sub_802DAAC8, (void *)&update_state__14TObjEneGibblesFPv,
@@ -2673,13 +2673,13 @@ u8 *TObjEneGibbles__ct(u8 *arg0, void *arg1, s32 arg2) {
     M2C_FIELD(arg0, s32 *, 0x384) = 0x101;
     p = __nw__7TObjectFUl(0xAC);
     if (p != NULL) {
-        p = TObjPlayer__sub_801569F4(p, 0);
+        p = construct_collider_proxy__10TObjPlayerFPv(p, 0);
     }
     M2C_FIELD(arg0, void **, 0x3B4) = p;
     init_collision_body_parts(M2C_FIELD(arg0, void **, 0x3B4), (u8 *)lbl_804E296C + 0x2C, 1);
     p = __nw__7TObjectFUl(0xAC);
     if (p != NULL) {
-        p = TObjPlayer__sub_801569F4(p, 0);
+        p = construct_collider_proxy__10TObjPlayerFPv(p, 0);
     }
     M2C_FIELD(arg0, void **, 0x3B8) = p;
     init_collision_body_parts(M2C_FIELD(arg0, void **, 0x3B8), (u8 *)lbl_804E296C + 0x58, 1);

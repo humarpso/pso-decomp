@@ -191,7 +191,7 @@ extern int lbl_805D6EA0;
 void notify_partner_room_cleared(s32 arg0);
 s32 obj_isState3_324();
 void TNpcPlayer__ct(void *, u16, u16, s16, s32, s32);
-void TNpcPlayer__sub_80152330(void *, u16, u16, s16, s32);
+void construct_partner__10TNpcPlayerFPviisPv(void *, u16, u16, s16, s32);
 s32 load_npc_player_template(s16);
 M2C_UNK notify_field1c__10TObjPlayerFi();
 s32 get_player_by_client_id(s32);
@@ -456,7 +456,7 @@ void handle_6x69_npc_control(Pkt_8034E814 *pkt) {
             set_npc_ctrl_state__10TNpcPlayerFPvi((void*)(p), (s32)(pkt->state));
             o = __nw__7TObjectFUl(0xE8);
             if (o != NULL) {
-                TNpcPlayer__sub_80152330(o, (u16)lbl_805D53A0, pkt->target, pkt->state, tl_00);
+                construct_partner__10TNpcPlayerFPviisPv(o, (u16)lbl_805D53A0, pkt->target, pkt->state, tl_00);
             }
         } else {
             p = create_player_object(pkt->target, 4, load_npc_player_template(pkt->state));

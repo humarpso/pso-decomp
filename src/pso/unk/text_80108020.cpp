@@ -105,7 +105,7 @@ void *__nw__7TObjectFUl(u32);
 Quest_80108164 *get_quest_id__12TQuestListVMFPv(Player_80108164 *);
 extern const f32 lbl_805DAB04;
 extern const f32 lbl_805DAB08;
-void TObjPlayer__sub_80108164(s32 idx);
+void spawn_appearance_effect__10TObjPlayerFi(s32 idx);
 void copy_vec4__13TRaderMapCoreFPvPv(void *, void *);
 s32 create_particle_emitter(void *, s32);
 void get_item_params__9TItemLoadFPvPvPv(void *, void *, void *);
@@ -153,7 +153,7 @@ Self_80108020 *TItemEffArmor__ct(Self_80108020 *self, u8 *obj, f32 a, f32 b) {
     return self;
 }
 
-void TObjPlayer__sub_80108164(s32 idx) {
+void spawn_appearance_effect__10TObjPlayerFi(s32 idx) {
     Player_80108164 *p = get_player_by_client_id(idx);
     if (p != 0) {
         Quest_80108164 *q = get_quest_id__12TQuestListVMFPv(p);

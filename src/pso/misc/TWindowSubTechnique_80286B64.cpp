@@ -4,7 +4,7 @@ extern "C" {
 
 s32 get_technique_name(s16);
 s32 draw_text_gray__17TWindowSubComCardFiiii(s32, s32, s32, s16);
-s32 TWindowSubTradeMain__sub_80266200(s32, s32, s32, s16, s32);
+s32 add_text_entry__19TWindowSubTradeMainFPviiii(s32, s32, s32, s16, s32);
 s32 forward_trade_action_default__16TObjCityMainWarpFPviii(s32, s32, s32, s16);
 u32 get_player_by_client_id(s32);
 s32 can_use_palette_action__10TObjPlayerFPvUcUc(u32, s32, u8);

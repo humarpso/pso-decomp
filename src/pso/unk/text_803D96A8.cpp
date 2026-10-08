@@ -43,7 +43,7 @@ void TObjPlayer__sub_803D9C60(u32 *p);
 f32 PSMTXConcat(int, int, int);
 void PSMTXQuat(void *, void *);
 extern u32 lbl_805D7774;
-void TObjPlayer__sub_803D98E4(f32 *arg0);
+void concat_quaternion_rotation__10TObjPlayerFPv(f32 *arg0);
 f32 PSMTXConcat(int, int, int);
 void PSMTXQuat(void *, void *);
 extern u32 lbl_805D7774;
@@ -142,7 +142,7 @@ s32 pop_matrices(s32 arg0) {
 }
 #pragma pop
 
-void TObjPlayer__sub_803D98E4(f32 *arg0) {
+void concat_quaternion_rotation__10TObjPlayerFPv(f32 *arg0) {
     u8 sp18[0x30];
     Q_803D98E4 q;
     q.w = arg0[0];

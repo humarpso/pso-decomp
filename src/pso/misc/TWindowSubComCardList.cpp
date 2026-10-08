@@ -105,7 +105,7 @@ M2C_UNK get_cursor_pos__21TWindowSubCustomEquipFPvPv(s32, Ev_802758C8 *);
 M2C_UNK toggle_action_binding__21TWindowSubCustomEquipFPvPv(s32, Ev_802758C8 *);
 Ev_802758C8 *calc_equip_index__21TWindowSubCustomEquipFPv(void *);
 void *TWindowSubCustomSelect__ct(void *, s32);
-void TWindowSubCustomEquip__sub_80275A8C(Self_80275A8C *self);
+void update_customize_state__21TWindowSubCustomEquipFPv(Self_80275A8C *self);
 }
 
 extern "C" {
@@ -284,7 +284,7 @@ void update_customize_help_text(Win_802758C8 *self, Ev_802758C8 *ev) {
 }
 
 void TWindowSubCustomEquip__sub_80275A88(void) {  }
-void TWindowSubCustomEquip__sub_80275A8C(Self_80275A8C *self) {
+void update_customize_state__21TWindowSubCustomEquipFPv(Self_80275A8C *self) {
     Ev_802758C8 ev;
     void *p;
     switch (self->state) {

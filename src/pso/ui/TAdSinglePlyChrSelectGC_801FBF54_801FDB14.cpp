@@ -117,7 +117,7 @@ void DateToSeconds__FP9DateStampPi(DateStamp_801FDEE4 *, s32 *);
 void getDateStamp__FP9DateStamp(DateStamp_801FDEE4 *);
 void *TAdSinglePlyChrSelectGC__sub_801FDFB8(void *, void *);
 void *TAdSinglePlyChrSelectGC__sub_80202B1C(void *, s32);
-void TAdSinglePlyChrSelectGC__sub_80203220(void *);
+void clear_inventory_slot__23TAdSinglePlyChrSelectGCFPv(void *);
 void TAdSinglePlyChrSelectGC__sub_80211584(void *);
 s32 TAdSinglePlyChrSelectGC__sub_801FDEE4(u32 arg0, s32 arg1, u32 arg2, s32 arg3);
 void* copy_item_data__23TAdSinglePlyChrSelectGCFPvPv(void* p, void* a1);
@@ -242,7 +242,7 @@ s32 TAdSinglePlyChrSelectGC__sub_801FDEE4(u32 arg0, s32 arg1, u32 arg2, s32 arg3
     chr = dst[arg3].chr;
     TAdSinglePlyChrSelectGC__sub_801FDFB8(src[arg1].chr, chr);
     for (i = 0; i < 30; i++) {
-        TAdSinglePlyChrSelectGC__sub_80203220(TAdSinglePlyChrSelectGC__sub_80202B1C(chr, i));
+        clear_inventory_slot__23TAdSinglePlyChrSelectGCFPv(TAdSinglePlyChrSelectGC__sub_80202B1C(chr, i));
     }
     dst[arg3].f370 = 0;
     dst[arg3].f668 = 0;

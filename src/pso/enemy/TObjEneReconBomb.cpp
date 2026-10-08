@@ -35,7 +35,7 @@ s32 TObjEneRecon__sub_8031C274(int);
 f32 TObjEneRecon__sub_8031C2BC(int);
 f32 TObjEneRecon__sub_8031C2C8(int);
 f32 TObjEneRecon__sub_8031C2D4(int);
-M2C_UNK TObjPlayer__sub_80019038();
+M2C_UNK construct_actor_base__10TObjPlayerFPvPv();
 M2C_UNK VecCopy__FP3VecPC3Vec(void *, void *, int);
 void __dl__7TObjectFPv(void *);
 void destroy_motion_object__10TObjPlayerFPvs(void *, int);
@@ -105,7 +105,7 @@ u8 *TObjEneReconBomb__ct(u8 *arg0, s32 arg1, s32 arg2, s32 arg3) {
     f32 temp_f31;
     u8 *temp_r5;
 
-    TObjPlayer__sub_80019038();
+    construct_actor_base__10TObjPlayerFPvPv();
     M2C_FIELD(arg0, M2C_UNK **, 0x18) = (M2C_UNK *) __vt__16TObjEneReconBomb;
     M2C_FIELD(arg0, s32 *, 0) = (s32) lbl_805D4128;
     M2C_FIELD(arg0, s32 *, 0x334) = arg2;

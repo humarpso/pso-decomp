@@ -124,10 +124,10 @@ void fn_801DF4B8(s32 arg0);
 s32 bswap_16__FPUs(s32);
 int bswap_32__FPUl(void* a0);
 void fn_801DF4B8(s32 arg0);
-void fn_801DF838(s32 arg0);
+void bswap_save_packet(s32 arg0);
 int bswap_32__FPUl(void* a0);
 int bswap__13packet_headerFv(void* a0);
-void fn_801DF838(s32 arg0);
+void bswap_save_packet(s32 arg0);
 void* fn_801DF3F0(void* p, void* a1);
 s32 *fn_801DF394(s32 *arg0, s32 *arg1);
 s32 *fn_801DF4FC(s32 *arg0, s32 *arg1);
@@ -147,7 +147,7 @@ s32 __ct__16TPlyGuildCardTagFv(s32);
 int bswap_32__FPUl(void* a0 = 0);
 void bswap_cmd_88_body(void* p);
 void fn_801DF42C(void* p);
-void fn_801DF6F0(void* p);
+void bswap_choice_search_config(void* p);
 void bswap_c0_lobby_entries(void* p);
 int __ct__16TPlyGuildCardTagFRC16TPlyGuildCardTag(void*);
 void* fn_801DF3F0(void* p, void* a1);
@@ -249,8 +249,8 @@ Obj_801DF61C *fn_801DF61C(Obj_801DF61C *dst, Obj_801DF61C *src) {
     return dst;
 }
 
-void fn_801DF6BC(void* p) { bswap__13packet_headerFv(p); fn_801DF6F0((char*)p + 0x4); }
-void fn_801DF6F0(void* p) { bswap_32__FPUl(p); { int i; for (i = 0; i < 5; i++) { fn_801DF740((void*)((char*)p + 0x4 + i * 4)); } } }
+void fn_801DF6BC(void* p) { bswap__13packet_headerFv(p); bswap_choice_search_config((char*)p + 0x4); }
+void bswap_choice_search_config(void* p) { bswap_32__FPUl(p); { int i; for (i = 0; i < 5; i++) { fn_801DF740((void*)((char*)p + 0x4 + i * 4)); } } }
 
 void fn_801DF740(void* p) { bswap_16__FPUs((s32)((void*)(p))); bswap_16__FPUs((s32)((void*)((char*)p + 0x2))); }
 
@@ -268,7 +268,7 @@ void fn_801DF7F8(void* p) { fn_801DF740((void*)(p)); }
 
 int bswap_packet_header_cmd_b1(void* p) { return bswap__13packet_headerFv(p); }
 
-void fn_801DF838(s32 arg0) {
+void bswap_save_packet(s32 arg0) {
     ((M2C_UNK)bswap__13packet_headerFv((void*)(arg0)));
     ((M2C_UNK)bswap_32__FPUl((void*)(arg0 + 4)));
     ((M2C_UNK)bswap_32__FPUl((void*)(arg0 + 8)));

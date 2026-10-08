@@ -6,12 +6,12 @@ extern "C" {
 
 void *init_instance__16TObjEneDellBiterFPvPvPvPvPv(void *arg0, void *arg1, void *arg2, void *arg3, void *arg4);
 void init_collision_body_parts(void *, void *, void *);
-void TObjPlayer__sub_801569F4(void *);
+void construct_collider_proxy__10TObjPlayerFPv(void *);
 
 extern M2C_UNK lbl_804928CC[];
 
 void *init_instance__16TObjEneDellBiterFPvPvPvPvPv(void *arg0, void *arg1, void *arg2, void *arg3, void *arg4) {
-    TObjPlayer__sub_801569F4(arg0);
+    construct_collider_proxy__10TObjPlayerFPv(arg0);
     M2C_FIELD(arg0, M2C_UNK **, 0x18) = lbl_804928CC;
     init_collision_body_parts(arg0, arg3, arg4);
     M2C_FIELD(arg0, void **, 0xAC) = arg2;

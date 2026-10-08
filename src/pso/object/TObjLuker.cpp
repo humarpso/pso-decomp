@@ -85,7 +85,7 @@ void *create_window_menu(void *p, s32 a, s32 b);
 void *check_room_seq_4__16TAdChrSelASlotGCFii(void *p, s32 a);
 s32 get_player_floor__6TLobbyFi(s32 p);
 s32 get_floor_destination_name(s32 f);
-void TWindowSubTradeMain__sub_80266200(void *w, s32 a, s32 b, s32 c, s32 d);
+void add_text_entry__19TWindowSubTradeMainFPviiii(void *w, s32 a, s32 b, s32 c, s32 d);
 void set_flag_40__16TAdChrSelASlotGCFPv(void *w);
 void TWindowSubComCard__sub_80265F60(void *w);
 void align_menu_entry_positions(void *w);
@@ -96,7 +96,7 @@ Ctrl_801A0E38 *get_player_by_client_id(u16 id);
 void TWindowSubComCard__sub_802655E4(void *w);
 s32 get_player_floor__6TLobbyFi(s32 p);
 s32 get_floor_destination_name(s32 f);
-void TWindowSubTradeMain__sub_80266200(void *w, s32 a, s32 b, s32 c, s32 d);
+void add_text_entry__19TWindowSubTradeMainFPviiii(void *w, s32 a, s32 b, s32 c, s32 d);
 void TWindowSubComCard__sub_80265F60(void *w);
 void align_menu_entry_positions(void *w);
 void TObjLuker__sub_801A0CE8(Obj_801A0CE8 *self);
@@ -217,7 +217,7 @@ void TObjLuker__sub_801A0CE8(Obj_801A0CE8 *self) {
                 }
                 self->cur = target;
             }
-            TWindowSubTradeMain__sub_80266200(self->wins[i], get_floor_destination_name(get_player_floor__6TLobbyFi(target)), 2, 0, -1);
+            add_text_entry__19TWindowSubTradeMainFPviiii(self->wins[i], get_floor_destination_name(get_player_floor__6TLobbyFi(target)), 2, 0, -1);
             TWindowSubComCard__sub_80265F60(self->wins[i]);
             align_menu_entry_positions(self->wins[i]);
         }
@@ -249,7 +249,7 @@ void TObjLuker__sub_801A0E38(Obj_801A0E38 *self) {
             }
             if (self->wins[i] != 0) {
                 self->cur = target;
-                TWindowSubTradeMain__sub_80266200(self->wins[i], get_floor_destination_name(get_player_floor__6TLobbyFi(target)), 2, 0, -1);
+                add_text_entry__19TWindowSubTradeMainFPviiii(self->wins[i], get_floor_destination_name(get_player_floor__6TLobbyFi(target)), 2, 0, -1);
                 set_flag_40__16TAdChrSelASlotGCFPv(self->wins[i]);
                 TWindowSubComCard__sub_80265F60(self->wins[i]);
                 align_menu_entry_positions(self->wins[i]);

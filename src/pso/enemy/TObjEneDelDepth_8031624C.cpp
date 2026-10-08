@@ -34,7 +34,7 @@ M2C_UNK draw_model_motion(int, int, f32);
 M2C_UNK set_global_flag__10TObjPlayerFv();
 M2C_UNK clear_global_state__10TObjPlayerFv();
 void TObjEneDelDepth__sub_803162A8(u8 *arg0);
-s32 TObjPlayer__sub_800114D8(void *, void *, f32);
+s32 find_nearest_hittable_enemy__10TObjPlayerFiPvf(void *, void *, f32);
 int TObjEneDelDepth__sub_80316258(u8 *arg0, s32 arg1, f32 farg0);
 s32 get_bml_model(M2C_UNK, s32);
 M2C_UNK TObjFish__sub_8001EDB0(M2C_UNK, int);
@@ -63,7 +63,7 @@ int get_flag_bit4__15TObjEneDelDepthFPv(void* p) { return (*(u32*)((char*)p + 0x
 int TObjEneDelDepth__sub_80316258(u8 *arg0, s32 arg1, f32 farg0) {
     u16 temp_r3;
     M2C_FIELD(arg0, s32 *, 0x30) = (s32) (M2C_FIELD(arg0, s32 *, 0x30) | 0x02000000);
-    temp_r3 = TObjPlayer__sub_800114D8((void *) (arg0), (void *) (arg1), (f32) (farg0));
+    temp_r3 = find_nearest_hittable_enemy__10TObjPlayerFiPvf((void *) (arg0), (void *) (arg1), (f32) (farg0));
     M2C_FIELD(arg0, s32 *, 0x30) = (s32) (M2C_FIELD(arg0, s32 *, 0x30) & 0xFDFFFFFF);
     return temp_r3;
 }

@@ -22,7 +22,7 @@ void close_child_window__15TWindowMainMenuFPv(void* p);
 void destroy_submenu__15TWindowMainMenuFPv(void* p);
 void update_description_text__15TWindowMainMenuFPvi(void *arg0, s32 arg1);
 void update_keyboard_card_state__15TWindowMainMenuFPv(void *arg0);
-u32 TLobby__sub_80269CC0(u32, M2C_UNK *, M2C_UNK, s32);
+u32 create_message_window__6TLobbyFiiUis(u32, M2C_UNK *, M2C_UNK, s32);
 M2C_UNK TWindowMainMenu__sub_80263DBC(void *);
 u32 get_window_layout_position(M2C_UNK);
 int TWindow__close(void*);
@@ -121,7 +121,7 @@ void update_description_text__15TWindowMainMenuFPvi(void *arg0, s32 arg1) {
         M2C_FIELD(arg0, s32 *, 0x48) = arg1;
         if ((u32) M2C_FIELD(arg0, u32 *, 0x24) == 0U) {
             u32 tmp = get_window_layout_position(0x1B);
-            M2C_FIELD(arg0, u32 *, 0x24) = TLobby__sub_80269CC0(tmp, lbl_8044F2E0, 1, M2C_FIELD(arg0, s32 *, 0x54));
+            M2C_FIELD(arg0, u32 *, 0x24) = create_message_window__6TLobbyFiiUis(tmp, lbl_8044F2E0, 1, M2C_FIELD(arg0, s32 *, 0x54));
             set_field_1c__6TLobbyFPvf(M2C_FIELD(arg0, u32 *, 0x24), lbl_805DD13C);
             call_if_split_screen(M2C_FIELD(arg0, u32 *, 0x24), M2C_FIELD(arg0, s32 *, 0x54));
         }

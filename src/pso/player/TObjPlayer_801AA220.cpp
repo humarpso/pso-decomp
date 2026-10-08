@@ -10,7 +10,7 @@ void start_photon_blast__10TObjPlayerFiUs(s32 arg0, u16 arg1);
 void* get_photon_blast_entry__10TObjPlayerFi(int a0);
 M2C_UNK spawn_particle_effect(s32, M2C_UNK);
 s32 is_locally_controlled__10TObjPlayerFPv(s32);
-M2C_UNK TPhotonMagicSquare__sub_801AD330(void *, s32, s32, s32);
+M2C_UNK construct_at_owner__18TPhotonMagicSquareFPviii(void *, s32, s32, s32);
 s32 get_player_by_client_id(u16);
 u32 __nw__7TObjectFUl(M2C_UNK);
 M2C_UNK play_effect_default__10TObjPlayerFii(s32, s16);
@@ -35,42 +35,42 @@ void start_photon_blast__10TObjPlayerFiUs(s32 arg0, u16 arg1) {
         case 2:
             temp_nw = (void *) __nw__7TObjectFUl(0xD0);
             if (temp_nw != NULL) {
-                TPhotonMagicSquare__sub_801AD330(temp_nw, tl_07, 2, arg1);
+                construct_at_owner__18TPhotonMagicSquareFPviii(temp_nw, tl_07, 2, arg1);
                 return;
             }
             break;
         case 3:
             temp_nw = (void *) __nw__7TObjectFUl(0xD0);
             if (temp_nw != NULL) {
-                TPhotonMagicSquare__sub_801AD330(temp_nw, tl_07, 3, arg1);
+                construct_at_owner__18TPhotonMagicSquareFPviii(temp_nw, tl_07, 3, arg1);
                 return;
             }
             break;
         case 4:
             temp_nw = (void *) __nw__7TObjectFUl(0xD0);
             if (temp_nw != NULL) {
-                TPhotonMagicSquare__sub_801AD330(temp_nw, tl_07, 4, arg1);
+                construct_at_owner__18TPhotonMagicSquareFPviii(temp_nw, tl_07, 4, arg1);
                 return;
             }
             break;
         case 0:
             temp_nw = (void *) __nw__7TObjectFUl(0xD0);
             if (temp_nw != NULL) {
-                TPhotonMagicSquare__sub_801AD330(temp_nw, tl_07, 0, arg1);
+                construct_at_owner__18TPhotonMagicSquareFPviii(temp_nw, tl_07, 0, arg1);
                 return;
             }
             break;
         case 1:
             temp_nw = (void *) __nw__7TObjectFUl(0xD0);
             if (temp_nw != NULL) {
-                TPhotonMagicSquare__sub_801AD330(temp_nw, tl_07, 1, arg1);
+                construct_at_owner__18TPhotonMagicSquareFPviii(temp_nw, tl_07, 1, arg1);
                 return;
             }
             break;
         case 5:
             temp_nw = (void *) __nw__7TObjectFUl(0xD0);
             if (temp_nw != NULL) {
-                TPhotonMagicSquare__sub_801AD330(temp_nw, tl_07, 5, arg1);
+                construct_at_owner__18TPhotonMagicSquareFPviii(temp_nw, tl_07, 5, arg1);
             }
             break;
         }

@@ -681,9 +681,9 @@ void TObjEneBm3Fly__sub_800B1574(s32 arg0);
 void *copy_target_state__14TObjEnePanarmsFPvPv(void *, int);
 M2C_UNK play_effect_if_v2__10TObjPlayerFi(int);
 s32 play_persistent_sound(void *, void *, void *, int, int);
-void TObjEneBm3Fly__sub_800B15C4(s32 arg0);
+void play_pitched_cue__13TObjEneBm3FlyFi(s32 arg0);
 f32 calc_scaled_value__15TObjBoss2TunnelFif(int, int, f32, f32);
-void TObjEneBm3Fly__sub_800B15C4(s32 arg0);
+void play_pitched_cue__13TObjEneBm3FlyFi(s32 arg0);
 M2C_UNK TObjEneBm3Fly__sub_800B1634(void *);
 f32 approach_value__13TObjEneBm3FlyFff(void *, f32, f32);
 M2C_UNK clamp_flight_height__13TObjEneBm3FlyFPv(void *);
@@ -735,7 +735,7 @@ void TObjEneBm3Fly__sub_800B1214(u8 *arg0, s32 arg1);
 f32 calc_boss4_scale__10TObjPlayerFi(void *);
 M2C_UNK VecCopy__FP3VecPC3Vec(void *, void *);
 f32 get_ad_end_text_start__10TObjPlayerFv(f32, f32);
-void TObjEneBm3Fly__sub_800B15C4(s32 arg0);
+void play_pitched_cue__13TObjEneBm3FlyFi(s32 arg0);
 M2C_UNK choose_attack__13TObjEneBm3FlyFPv(void *);
 f32 approach_value__13TObjEneBm3FlyFff(void *, f32, f32);
 M2C_UNK clamp_flight_height__13TObjEneBm3FlyFPv(void *);
@@ -927,7 +927,7 @@ void TObjEneBm3Fly__sub_800B02C8(u8 *arg0, s32 arg1) {
         ((VObj_18_b7c757 *)(arg0))->m86();
         clamp_flight_height__13TObjEneBm3FlyFPv((void *) (arg0));
         TObjEneDD__sub_800BA934((void *) (arg0));
-        TObjEneBm3Fly__sub_800B15C4((s32) arg0);
+        play_pitched_cue__13TObjEneBm3FlyFi((s32) arg0);
         break;
     }
 }
@@ -1013,7 +1013,7 @@ void TObjEneBm3Fly__sub_800B044C(u8 *arg0, s32 arg1) {
         I(0x60) = (s32)(TObjEneBm3Fly__data_8043B118[0] * get_ad_end_text_start__10TObjPlayerFv(
             M2C_FIELD(P(0x390), f32 *, 0x38) - R(0x38), M2C_FIELD(P(0x390), f32 *, 0x40) - R(0x40)));
         V->m87();
-        TObjEneBm3Fly__sub_800B15C4((s32)arg0);
+        play_pitched_cue__13TObjEneBm3FlyFi((s32)arg0);
         break;
     case 1:
         break;
@@ -1119,7 +1119,7 @@ void execute_action__13TObjEneBm3FlyFPvi(u8 *arg0, s32 arg1) {
             break;
         }
         ((VObjB0_800b07d0 *)arg0)->v87();
-        TObjEneBm3Fly__sub_800B15C4((s32)((void *) (arg0)));
+        play_pitched_cue__13TObjEneBm3FlyFi((s32)((void *) (arg0)));
         return;
     case 5:
         M2C_FIELD(arg0, s32 *, 0x454) = 0;
@@ -1247,7 +1247,7 @@ void TObjEneBm3Fly__sub_800B0B20(u8 *arg0, s32 arg1) {
         pos->x -= R(0x38);
         pos->y -= R(0x42C);
         pos->z -= R(0x40);
-        TObjEneBm3Fly__sub_800B15C4((s32)arg0);
+        play_pitched_cue__13TObjEneBm3FlyFi((s32)arg0);
         break;
     case 5:
         R(0x43C) = M2C_FIELD(P(0x350), f32 *, 4);
@@ -1413,7 +1413,7 @@ void TObjEneBm3Fly__sub_800B1574(s32 arg0) {
     play_persistent_sound((void *) (((s32)copy_target_state__14TObjEnePanarmsFPvPv((void *) (arg0), (int) (0x4003AB23)))), (void *) (arg0), (void *) (arg0 + 0x38), (int) (0), (int) (0));
     play_effect_if_v2__10TObjPlayerFi((int) (-0x400));
 }
-void TObjEneBm3Fly__sub_800B15C4(s32 arg0) {
+void play_pitched_cue__13TObjEneBm3FlyFi(s32 arg0) {
     play_persistent_sound((void *) (((s32)copy_target_state__14TObjEnePanarmsFPvPv((void *) (arg0), (int) (0x40039E22)))), (void *) (arg0), (void *) (arg0 + 0x38), (int) (0), (int) (0));
     play_effect_if_v2__10TObjPlayerFi((int) (-0x400));
 }

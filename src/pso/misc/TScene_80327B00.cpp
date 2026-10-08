@@ -15,7 +15,7 @@ struct Scene_80327B40 { u8 pad0[4]; s32 count; Entry_80327B40 *entries; };
 
 extern "C" {
 void DCFlushRangeNoSync(void *, u32);
-void TScene__sub_80327B40(void *arg0, s16 arg1, s16 arg2);
+void apply_uv_offset__6TSceneFPvss(void *arg0, s16 arg1, s16 arg2);
 }
 
 extern "C" {
@@ -25,17 +25,17 @@ void *init_buffers__6TSceneFPvii(void *arg0, s32 arg1, s32 arg2);
 void offset_position__6TSceneFPvii(void *arg0, s32 arg1, s32 arg2);
 M2C_UNK __dl__FPv(void *);
 s32 alloc_buffer__11TOBoss4RockFPv(s32);
-M2C_UNK fn_80327844(void *, s32, s32);
-M2C_UNK fn_803279CC();
+M2C_UNK visit_matching_models(void *, s32, s32);
+M2C_UNK visit_model_tree_recursive();
 M2C_UNK free__11TOBoss4RockFUi(void *);
 
 void offset_position__6TSceneFPvii(void *arg0, s32 arg1, s32 arg2) {
     M2C_FIELD(arg0, s16 *, 0x10) = (s16) (M2C_FIELD(arg0, s16 *, 0x10) + arg1);
     M2C_FIELD(arg0, s16 *, 0x12) = (s16) (M2C_FIELD(arg0, s16 *, 0x12) + arg2);
-    TScene__sub_80327B40((void *)(arg0), (s16)(M2C_FIELD(arg0, s16 *, 0x10)), (s16)(M2C_FIELD(arg0, s16 *, 0x12)));
+    apply_uv_offset__6TSceneFPvss((void *)(arg0), (s16)(M2C_FIELD(arg0, s16 *, 0x10)), (s16)(M2C_FIELD(arg0, s16 *, 0x12)));
 }
 
-void TScene__sub_80327B40(void *arg0, s16 arg1, s16 arg2) {
+void apply_uv_offset__6TSceneFPvss(void *arg0, s16 arg1, s16 arg2) {
     Scene_80327B40 *scene = (Scene_80327B40 *)arg0;
     s16 dx = arg1 % 256;
     s16 dy = arg2 % 256;
@@ -80,7 +80,7 @@ void *init_buffers__6TSceneFPvii(void *arg0, s32 arg1, s32 arg2) {
 
     M2C_FIELD(arg0, s32 *, 4) = 0;
     M2C_FIELD(arg0, s32 *, 0) = 0;
-    fn_803279CC();
+    visit_model_tree_recursive();
     M2C_FIELD(arg0, s32 *, 8) = 0;
     M2C_FIELD(arg0, s32 *, 0xC) = 0;
     temp_r0 = M2C_FIELD(arg0, s32 *, 4);
@@ -89,7 +89,7 @@ void *init_buffers__6TSceneFPvii(void *arg0, s32 arg1, s32 arg2) {
         M2C_FIELD(arg0, s32 *, 0xC) = alloc_buffer__11TOBoss4RockFPv(M2C_FIELD(arg0, s32 *, 0) * 4);
         lbl_805D6C70 = M2C_FIELD(arg0, s32 *, 8);
         lbl_805D6C74 = M2C_FIELD(arg0, s32 *, 0xC);
-        fn_80327844(arg0, arg1, arg2);
+        visit_matching_models(arg0, arg1, arg2);
     }
     M2C_FIELD(arg0, s16 *, 0x10) = 0;
     M2C_FIELD(arg0, s16 *, 0x12) = 0;

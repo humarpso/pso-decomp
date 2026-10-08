@@ -37,6 +37,23 @@ typedef struct Obj_800FF070 {
     D2_800FF070 *c;
 } Obj_800FF070;
 
+struct Vec_800FF2D0 { f32 x, y, z; };
+
+struct Rec_800FF2D0 { s8 n; u8 pad1[0x10 - 1]; void *f10; void *f14; };
+
+struct Ang_800FF2D0 { s32 a; u8 pad4[0xC]; };
+
+struct Blob_800FF2D0 { f32 scale; Vec_800FF2D0 pos; };
+
+struct Obj_800FF2D0 {
+    u8 pad0[0x1C];
+    s32 f1C;
+    Rec_800FF2D0 *recs;
+    Ang_800FF2D0 *angs;
+    Blob_800FF2D0 *blobs;
+    Vec_800FF2D0 *pts;
+};
+
 extern "C" {
 void TObjPlayer__sub_800FF220(s32 *arg0, s32 *arg1);
 void TObjPlayer__sub_800FF1FC(f32 *arg0, f32 *arg1);
@@ -50,6 +67,35 @@ void *TObjEZRopeBase__ct(void *);
 extern u8 lbl_8049DCF0[];
 extern s32 lbl_805D2B54;
 void *TObjPlayer__sub_800FF070(void *arg0, void *arg1, void *arg2, void *arg3);
+M2C_UNK VecCopy__FP3VecPC3Vec(void *, void *);
+f32 get_random_float__8TObjFishFv(f32);
+f32 get_ad_end_text_start__10TObjPlayerFv(f32, f32);
+f32 get_scale_factor__10TObjPlayerFv(f32);
+M2C_UNK scale_matrix(int, f32, f32, f32);
+f32 vector_length(void *);
+M2C_UNK set_position_vec3__10TObjPlayerFPvPv(int, void *);
+M2C_UNK rotate_matrix_y(int, int);
+M2C_UNK subtract_vector(void *, void *);
+M2C_UNK rotate_matrix_x(int, int);
+M2C_UNK normalize_vector(void *);
+M2C_UNK push_matrix();
+M2C_UNK pop_matrix();
+M2C_UNK set_chunk_material_override_pair(int, int);
+M2C_UNK set_chunk_material_color(void *);
+M2C_UNK draw_chunk_object(void *);
+extern const f64 lbl_8043DF40;
+extern u8 lbl_8048DEF4[];
+extern u8 lbl_8049DCF0[];
+extern s32 lbl_805D5660;
+extern s32 lbl_805D5664;
+extern s32 lbl_805D5668;
+extern s32 lbl_805D7780;
+extern s32 lbl_805D7784;
+extern s32 some_id_805c6f74;
+extern const f32 lbl_805DAA58;
+extern const f32 lbl_805DAA5C;
+extern const f32 lbl_805DAA60;
+void TObjPlayer__sub_800FF2D0(Obj_800FF2D0 *arg0);
 }
 
 extern "C" {
@@ -156,6 +202,72 @@ void * create_hairmove__10TObjPlayerFPvPvPv(void *arg0, void *arg1, void *arg2) 
         o = TObjPlayer__sub_800FF070((void *)(o), (void *)(arg0), (void *)(arg1), (void *)(arg2));
     }
     return o;
+}
+void TObjPlayer__sub_800FF2D0(Obj_800FF2D0 *arg0) {
+    Vec_800FF2D0 d;
+    Rec_800FF2D0 *rec;
+    Ang_800FF2D0 *ang;
+    Vec_800FF2D0 *pt;
+    s32 n;
+    s32 yaw;
+    Blob_800FF2D0 *b;
+    if (arg0->f1C == 0 || arg0->recs == NULL || arg0->angs == NULL || arg0->pts == NULL) {
+        return;
+    }
+    rec = arg0->recs;
+    ang = arg0->angs;
+    pt = arg0->pts;
+    for (; rec->n >= 2; rec++, ang++) {
+        for (n = rec->n - 1; n > 0; n--, pt++) {
+            push_matrix();
+            set_position_vec3__10TObjPlayerFPvPv(0, pt);
+            VecCopy__FP3VecPC3Vec(&d, &pt[1]);
+            subtract_vector(&d, pt);
+            if (lbl_805DAA58 == vector_length(&d)) {
+                d.x = lbl_805DAA58;
+                d.y = lbl_805DAA5C;
+                d.z = lbl_805DAA58;
+            } else {
+                normalize_vector(&d);
+            }
+            yaw = 0;
+            if (lbl_805DAA58 != get_random_float__8TObjFishFv(d.x) + get_random_float__8TObjFishFv(d.z)) {
+                yaw = (s32)(lbl_8043DF40 * get_ad_end_text_start__10TObjPlayerFv(-d.x, -d.z));
+                rotate_matrix_y(0, yaw);
+            }
+            rotate_matrix_x(0, (s32)(lbl_8043DF40 * get_scale_factor__10TObjPlayerFv(-d.y)));
+            rotate_matrix_y(0, ang->a - yaw);
+            if (n == 1) {
+                if (rec->f14 != NULL) {
+                    draw_chunk_object(rec->f14);
+                }
+            } else if (rec->f10 != NULL) {
+                draw_chunk_object(rec->f10);
+            }
+            pop_matrix();
+        }
+        pt++;
+    }
+    if (arg0->blobs != NULL) {
+        lbl_805D5660 = some_id_805c6f74;
+        lbl_805D5664 = lbl_805D7784;
+        lbl_805D5668 = lbl_805D7780;
+        some_id_805c6f74 |= 0x10;
+        set_chunk_material_override_pair(0, 0x800);
+        set_chunk_material_color(lbl_8049DCF0);
+        for (b = arg0->blobs; b->scale >= lbl_805DAA58; b++) {
+            f32 s;
+            push_matrix();
+            set_position_vec3__10TObjPlayerFPvPv(0, &b->pos);
+            s = lbl_805DAA60 * b->scale;
+            scale_matrix(0, s, s, s);
+            draw_chunk_object(lbl_8048DEF4);
+            pop_matrix();
+        }
+        lbl_805D7784 = lbl_805D5664;
+        lbl_805D7780 = lbl_805D5668;
+        some_id_805c6f74 = lbl_805D5660;
+    }
 }
 
 }

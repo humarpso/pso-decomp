@@ -101,7 +101,7 @@ extern LogHdr_803CD16C lbl_8057B7B0;
 extern LogEnt_803CD16C lbl_8057B7D0[];
 extern Slot_803CD16C lbl_8057CBD0[];
 extern s32 lbl_805D75E0;
-Slot_803CD16C *TLobby__sub_803CD16C(s32 arg0, s32 arg1);
+Slot_803CD16C *adxf_open_afs__6TLobbyFii(s32 arg0, s32 arg1);
 M2C_UNK release_ref__6TLobbyFv();
 M2C_UNK init_once__6TLobbyFv();
 M2C_UNK TLobby__sub_803C57C8(void *);
@@ -353,7 +353,7 @@ inline s32 open_803CD16C(Slot_803CD16C *s, s32 arg0, s32 arg1) {
     s->f10 = c << 11;
     return 0;
 }
-Slot_803CD16C *TLobby__sub_803CD16C(s32 arg0, s32 arg1) {
+Slot_803CD16C *adxf_open_afs__6TLobbyFii(s32 arg0, s32 arg1) {
     Slot_803CD16C *s;
     {
         LogEnt_803CD16C *e;

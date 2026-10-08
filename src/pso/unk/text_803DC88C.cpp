@@ -76,7 +76,7 @@ s32 push_matrix();
 s32 pop_matrix();
 extern struct MotionCtx_803DC894 * const lbl_805D4698;
 extern RecoveredCallback_1268626c296b lbl_805D76B8;
-void TObjPlayer__sub_803DCB40(struct Node_803DCB40 *arg0);
+void draw_motion_node_tree__10TObjPlayerFPv(struct Node_803DCB40 *arg0);
 extern const Tbl_803DCC34 lbl_8047E3D8;
 extern u8 *lbl_805D774C;
 void abs__4cXyzCFv(s32 arg0, s32 arg1);
@@ -89,7 +89,7 @@ M2C_UNK scale_current_matrix(void *);
 M2C_UNK post_translate_matrix(void *);
 void TObjPlayer__sub_803DC994(struct Mtx_803DC994 *src);
 extern M2C_UNK lbl_8058CE10[];
-void TObjPlayer__sub_803DC9E4(struct N_803DC9E4 *p, M2C_UNK (*cb)(s32));
+void traverse_node_tree__10TObjPlayerFv(struct N_803DC9E4 *p, M2C_UNK (*cb)(s32));
 }
 
 extern "C" {
@@ -155,7 +155,7 @@ void TObjPlayer__sub_803DC994(struct Mtx_803DC994 *src) {
 }
 
 struct Mtx_803DC994;
-void TObjPlayer__sub_803DC9E4(struct N_803DC9E4 *p, M2C_UNK (*cb)(s32)) {
+void traverse_node_tree__10TObjPlayerFv(struct N_803DC9E4 *p, M2C_UNK (*cb)(s32)) {
     do {
         u32 f = p->flags;
         if (f & 0x800) {
@@ -166,7 +166,7 @@ void TObjPlayer__sub_803DC9E4(struct N_803DC9E4 *p, M2C_UNK (*cb)(s32)) {
                 cb(p->m4);
             }
             if (!(f & 0x10)) {
-                TObjPlayer__sub_803DC9E4(p->child, cb);
+                traverse_node_tree__10TObjPlayerFv(p->child, cb);
             }
         } else {
             push_matrix();
@@ -189,7 +189,7 @@ void TObjPlayer__sub_803DC9E4(struct N_803DC9E4 *p, M2C_UNK (*cb)(s32)) {
                 cb(p->m4);
             }
             if (!(f & 0x10)) {
-                TObjPlayer__sub_803DC9E4(p->child, cb);
+                traverse_node_tree__10TObjPlayerFv(p->child, cb);
             }
             pop_matrix();
         }
@@ -197,7 +197,7 @@ void TObjPlayer__sub_803DC9E4(struct N_803DC9E4 *p, M2C_UNK (*cb)(s32)) {
     } while (p != NULL);
 }
 
-void TObjPlayer__sub_803DCB40(struct Node_803DCB40 *arg0) {
+void draw_motion_node_tree__10TObjPlayerFPv(struct Node_803DCB40 *arg0) {
     u32 t;
     do {
         push_matrix();
@@ -210,7 +210,7 @@ void TObjPlayer__sub_803DCB40(struct Node_803DCB40 *arg0) {
             ((void (*)(u32, struct MotionCtx_803DC894 *))lbl_805D4698->fn)(t, lbl_805D4698);
         }
         if (arg0->child != NULL) {
-            TObjPlayer__sub_803DCB40(arg0->child);
+            draw_motion_node_tree__10TObjPlayerFPv(arg0->child);
         }
         pop_matrix();
         arg0 = arg0->next;

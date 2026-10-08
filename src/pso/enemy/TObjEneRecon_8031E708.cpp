@@ -41,7 +41,7 @@ s32 register_object__6TLobbyFPv(int);
 s32 dispatch_shared_handler_b__6TLobbyFPv(int);
 s32 register_boss__6TLobbyFPv(int);
 s32 alloc__23TAdSinglePlyChrSelectGCFPv(int);
-s32 TBreakUpMdl__sub_8009705C(int, void *);
+s32 init_from_model__11TBreakUpMdlFPvi(int, void *);
 s32 spawn_npc_enemy__6TLobbyFsiiiff(int, int, int, void *, f32, f32);
 s32 TObjEneRecon__sub_8031BC94();
 u8 *TObjEneRecobox__sub_803201D0();
@@ -77,7 +77,7 @@ void TObjEneRecon__sub_8031E708(void) {
   temp_r3 = (var_r4 = alloc__23TAdSinglePlyChrSelectGCFPv((int) 0x10));
   if (var_r4 != 0)
   {
-    var_r4 = TBreakUpMdl__sub_8009705C((int) temp_r3, (void *) (*((s32 *) (((s8 *) ((RecoveredFields_8031E708_TObjEneRecon__data_805D6B00 *) TObjEneRecon__data_805D6B00)->field_42C) + 8))));
+    var_r4 = init_from_model__11TBreakUpMdlFPvi((int) temp_r3, (void *) (*((s32 *) (((s8 *) ((RecoveredFields_8031E708_TObjEneRecon__data_805D6B00 *) TObjEneRecon__data_805D6B00)->field_42C) + 8))));
   }
   lbl_805D6B04 = var_r4;
   lbl_805D6B08 = 0;

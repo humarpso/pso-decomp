@@ -18,7 +18,7 @@ extern "C" {
 
 void *__ct__16TObjBagWarnWin4PFv(void *arg0);
 void create_window__16TObjBagWarnWin4PFPv(u8 *arg0);
-u32 TLobby__sub_80269CC0(M2C_UNK, void *, M2C_UNK, M2C_UNK);
+u32 create_message_window__6TLobbyFiiUis(M2C_UNK, void *, M2C_UNK, M2C_UNK);
 s32 TLobby__sub_8030A770();
 s32 get_game_play_mode();
 u32 get_player_by_client_id(s32);
@@ -93,7 +93,7 @@ void run_task__16TObjBagWarnWin4PFv(u8 *arg0) {
 
 void create_window__16TObjBagWarnWin4PFPv(u8 *arg0) {
     M2C_UNK r3 = get_window_layout_position(0x5B);
-    M2C_FIELD(arg0, u32 *, 0x1C) = TLobby__sub_80269CC0(r3, lbl_80488E48, 1, 4);
+    M2C_FIELD(arg0, u32 *, 0x1C) = create_message_window__6TLobbyFiiUis(r3, lbl_80488E48, 1, 4);
     if ((u32) M2C_FIELD(arg0, u32 *, 0x1C) != 0U) {
         strncpy(arg0 + 0x20, TQuestVmDownLoadServer__sub_8006EF6C(0x69), 0x7F);
         M2C_FIELD(arg0, s8 *, 0x9F) = 0;

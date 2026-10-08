@@ -412,7 +412,7 @@ u8 *alloc__23TAdSinglePlyChrSelectGCFPv(int);
 s32 check_v2_mode__9TObjEneDDFv();
 u8 *load_enemy_bml_resource_named(void *, void *);
 M2C_UNK draw_trail_with_colors(void *, s32, s32, int, int);
-u8 *TBoss4Type3__sub_800D9ABC(void *, int, f32, f32, f32);
+u8 *init_trail_buffer__11TBoss4Type3FPvifff(void *, int, f32, f32, f32);
 s32 *alloc_buffer__11TOBoss4RockFPv(int);
 M2C_UNK spawn_npc_enemy__6TLobbyFsiiiff(int, s32, s32, Quad_800BF66C *, f32, f32);
 extern Quad_800BF66C lbl_8043B780;
@@ -2056,12 +2056,12 @@ void TObjGrass__sub_800BF66C(void) {
     lbl_80500BD0.x = lbl_80500BD0.y = lbl_80500BD0.z = (0.0f);
     p = alloc__23TAdSinglePlyChrSelectGCFPv(0x18);
     if (p != NULL) {
-        p = TBoss4Type3__sub_800D9ABC(p, 2, (0.0f), (2e+01f), (0.7f));
+        p = init_trail_buffer__11TBoss4Type3FPvifff(p, 2, (0.0f), (2e+01f), (0.7f));
     }
     lbl_805D5158 = (u32) p;
     p = alloc__23TAdSinglePlyChrSelectGCFPv(0x18);
     if (p != NULL) {
-        p = TBoss4Type3__sub_800D9ABC(p, 2, (0.0f), (2e+01f), (0.7f));
+        p = init_trail_buffer__11TBoss4Type3FPvifff(p, 2, (0.0f), (2e+01f), (0.7f));
     }
     lbl_805D515C = (u32) p;
     draw_trail_with_colors((void *) lbl_805D5158, ((Data_800BF66C *)TObjGrass__data_805D5154)->f42c->f8, ((Data_800BF66C *)TObjGrass__data_805D5154)->f430[lbl_80492964[9]].f4, 0x46, 0x48);

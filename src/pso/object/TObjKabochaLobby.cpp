@@ -33,7 +33,7 @@ struct Kabocha_80353520 {
 };
 
 extern "C" {
-s32 TLobby__sub_80351DFC(void);
+s32 get_filtered_event_theme__6TLobbyFv(void);
 void run_task__16TObjKabochaLobbyFv(Kabocha_80353520 *o);
 }
 
@@ -59,7 +59,7 @@ int alloc__23TAdSinglePlyChrSelectGCFPv(void *);
 s32 get_lobby_type__6TLobbyFv(void);
 extern RecoveredGlobal_80353684_lbl_804F11E8 lbl_804F11E8;
 extern u32 TObjKabochaLobby__data_805D6EE8;
-void TObjKabochaLobby__sub_80353684(void);
+void load_resources__16TObjKabochaLobbyFv(void);
 void *__dt__16TObjKabochaLobbyFv(void *arg0, s16 arg1);
 void __dl__7TObjectFPv(void *);
 void destroy_key_base__5TOKeyFPvs(void *, int);
@@ -93,7 +93,7 @@ extern void *tl_05;
 void run_task__16TObjKabochaLobbyFv(Kabocha_80353520 *o) {
     switch (o->state) {
     case 0:
-        if (TLobby__sub_80351DFC() == 5) {
+        if (get_filtered_event_theme__6TLobbyFv() == 5) {
             o->state = 2;
         }
         break;
@@ -117,7 +117,7 @@ void run_task__16TObjKabochaLobbyFv(Kabocha_80353520 *o) {
         break;
     case 3:
     default:
-        if (TLobby__sub_80351DFC() != 5) {
+        if (get_filtered_event_theme__6TLobbyFv() != 5) {
             o->state = 1;
         }
         break;
@@ -138,7 +138,7 @@ void unload_static_data__16TObjKabochaLobbyFv(void) {
         TObjKabochaLobby__data_805D6EE8 = 0U;
     }
 }
-void TObjKabochaLobby__sub_80353684(void) {
+void load_resources__16TObjKabochaLobbyFv(void) {
     s32 temp_r3;
     s32 var_r0;
     temp_r3 = alloc__23TAdSinglePlyChrSelectGCFPv((void *)0x440);
@@ -164,7 +164,7 @@ void *TObjKabochaLobby__ct(void *arg0, s32 arg1, s32 arg2) {
     M2C_FIELD(arg0, M2C_UNK **, 0x18) = __vt__16TObjKabochaLobby;
     M2C_FIELD(arg0, s32 *, 0) = (s32) lbl_805D4384;
     ((TObjKabochaLobby803537_803536DC *)arg0)->ct(arg2);
-    if (TLobby__sub_80351DFC() == 5) {
+    if (get_filtered_event_theme__6TLobbyFv() == 5) {
         M2C_FIELD(arg0, s32 *, 0xC8) = 3;
     } else {
         M2C_FIELD(arg0, s32 *, 0xC8) = 0;

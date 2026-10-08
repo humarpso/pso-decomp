@@ -15,7 +15,7 @@ extern f32 lbl_805D4AF4;
 extern f32 lbl_805D4AF8;
 extern f32 lbl_805D4AFC;
 extern f32 lbl_805D4B40;
-void TBoss1Dragon__sub_8002B0CC(void);
+void init_gravity_globals__12TBoss1DragonFv(void);
 s32 TBoss1Dragon__sub_8002B108(O_8002B108 *self, s32 i);
 void TBoss1DragonColli__sub_8002B35C(void *c);
 void disable_dragon_blocking_bodies(Obj_8002B118 *self);
@@ -23,7 +23,7 @@ void disable_dragon_blocking_bodies(Obj_8002B118 *self);
 
 extern "C" {
 
-void TBoss1Dragon__sub_8002B0CC(void) {
+void init_gravity_globals__12TBoss1DragonFv(void) {
     lbl_805D4AF0 = TBoss1Dragon__data_805D7F9C * lbl_805D9E80;
     lbl_805D4AF4 = TBoss1Dragon__data_805D7F24 * lbl_805D9E80;
     lbl_805D4AF8 = TBoss1Dragon__data_805D7FF8 * lbl_805D9E80;
@@ -42,4 +42,4 @@ void disable_dragon_blocking_bodies(Obj_8002B118 *self) {
 
 }
 
-__declspec(section ".ctors") static void *const __sinit_TBoss1Dragon_8002B0CC_cpp_ref = (void *)TBoss1Dragon__sub_8002B0CC;
+__declspec(section ".ctors") static void *const __sinit_TBoss1Dragon_8002B0CC_cpp_ref = (void *)init_gravity_globals__12TBoss1DragonFv;

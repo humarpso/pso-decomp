@@ -83,7 +83,7 @@ void TLobby__sub_80139094(void);
 void TLobby__sub_80139104(void);
 void TLobby__sub_801391BC(void);
 void handle_com_card__6TLobbyFv(void);
-void TLobby__sub_801392F8(void);
+void update_game_list_menu__6TLobbyFv(void);
 void update_menu_window__6TLobbyFv(void);
 void handle_warp_menu_input__6TLobbyFv(void);
 void handle_game_list_select__6TLobbyFv(void);
@@ -241,7 +241,7 @@ void run_task__6TLobbyFv(void *self) {
         CALL_80139690(update_menu_window__6TLobbyFv);
         break;
     case 6:
-        CALL_80139690(TLobby__sub_801392F8);
+        CALL_80139690(update_game_list_menu__6TLobbyFv);
         break;
     case 9:
         CALL_80139690(handle_comcard_window__6TLobbyFv);

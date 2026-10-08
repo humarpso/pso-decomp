@@ -118,7 +118,7 @@ void bswap_fields_4_8_12__6TLobbyFPv(void *arg0);
 M2C_UNK bswap_16__FPUs(s32);
 void TLobby__sub_80072AB8(void *arg0);
 void bswap_packet_field__6TLobbyFv(void * _w0);
-M2C_UNK TLobby__sub_80072994(s32 arg0);
+M2C_UNK bswap_challenge_battle_records__6TLobbyFi(s32 arg0);
 s32 TQuestVmDownLoadServer__sub_8006EF6C(M2C_UNK);
 int TWindow__close(void*);
 void set_field_1c__6TLobbyFPvf(u32, f32);
@@ -206,7 +206,7 @@ void TLobby__sub_800728FC(u8 *arg0) {
 void bswap_6x7C_packet__6TLobbyFi(s32 arg0) {
     read_be16_field2__10TObjPlayerFPv((void *)(arg0));
     bswap_16__FPUs(arg0 + 4);
-    TLobby__sub_80072994((s32)(arg0 + 8));
+    bswap_challenge_battle_records__6TLobbyFi((s32)(arg0 + 8));
 }
 void send_6x7C_packet__6TLobbyFi(s32 arg0) {
     bswap_6x7C_packet__6TLobbyFi((s32)(arg0));
@@ -217,7 +217,7 @@ void init_pkt_cmd_7C__6TLobbyFPv(u8 *arg0) {
     M2C_FIELD(arg0, s8 *, 1) = 0x42;
 }
 
-M2C_UNK TLobby__sub_80072994(s32 arg0) {
+M2C_UNK bswap_challenge_battle_records__6TLobbyFi(s32 arg0) {
     S_80072994 *s = (S_80072994 *)arg0;
     s32 i;
     bswap_16__FPUs(arg0);

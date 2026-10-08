@@ -368,10 +368,10 @@ extern M2C_UNK lbl_80488E00[];
 extern u16 TCameraCtrl__data_805D2840;
 extern u8 TCameraCtrl__data_805D4E20;
 extern void *lbl_805D53A0;
-void *TCameraCtrl__sub_8006E714(void *arg0);
+void *construct_view_controller__11TCameraCtrlFPv(void *arg0);
 s32 is_split_screen();
 extern Pads_8006D1A4 lbl_8050E208;
-void TCameraCtrl__sub_8006D1A4(Obj_8006D1A4 *arg0);
+void rotate_heading_by_stick__11TCameraCtrlFPv(Obj_8006D1A4 *arg0);
 s32 is_split_screen();
 int get_camera_mode__11TCameraCtrlFv();
 s32 predict_obstruction__11TCameraCtrlFPv(void *);
@@ -441,7 +441,7 @@ void reset_cameras_to_actor(void *p, s32 x);
 s32 TCameraCtrl__sub_8006CDD0(u8 *arg0);
 s32 is_flag_set__11TCameraCtrlFv(void);
 void TCameraCtrl__sub_8006CF38(void *);
-void TCameraCtrl__sub_8006D1A4(Obj_8006D1A4 *arg0);
+void rotate_heading_by_stick__11TCameraCtrlFPv(Obj_8006D1A4 *arg0);
 void end_conversation_camera(void);
 void update_follow_motion_state__11TCameraCtrlFPv(u8 *arg0);
 void calc_follow_position__11TCameraCtrlFPv(Cam_8006D95C *self);
@@ -635,7 +635,7 @@ void TCameraCtrl__sub_8006CF38(void *arg0_) {
 
 #pragma pop
 
-void TCameraCtrl__sub_8006D1A4(Obj_8006D1A4 *arg0) {
+void rotate_heading_by_stick__11TCameraCtrlFPv(Obj_8006D1A4 *arg0) {
     Pad_8006D1A4 *p;
     f32 mag;
     s16 sx;
@@ -1053,7 +1053,7 @@ void follow_camera_init_pose(Cam_8006DEF8 *self) {
 void *TCameraCtrl__vt0(void) {
     void *o = __nw__7TObjectFUl(0x110);
     if (o != NULL) {
-        o = TCameraCtrl__sub_8006E714((void *)(o));
+        o = construct_view_controller__11TCameraCtrlFPv((void *)(o));
     }
     return o;
 }
@@ -1188,7 +1188,7 @@ void update_follow_camera__11TCameraCtrlFv(u8 *arg0) {
                 M2C_FIELD(arg0, s32 *, 0xF4) = 0;
             } else if (flags & 0x800) {
                 M2C_FIELD(arg0, s32 *, 0xF4) = 0;
-                TCameraCtrl__sub_8006D1A4((Obj_8006D1A4 *)arg0);
+                rotate_heading_by_stick__11TCameraCtrlFPv((Obj_8006D1A4 *)arg0);
             } else {
                 update_follow_motion_state__11TCameraCtrlFPv(arg0);
             }
@@ -1214,7 +1214,7 @@ void *deleting_dtor__11TCameraCtrlFPvs(void *arg0, s16 arg1) {
 }
 
 #define O_8006E714 ((Obj_8006E714 *)arg0)
-void *TCameraCtrl__sub_8006E714(void *arg0) {
+void *construct_view_controller__11TCameraCtrlFPv(void *arg0) {
     s32 i;
     TCameraCtrl__sub_80068714();
     O_8006E714->vt = ((u8 *)&lbl_80488E00);

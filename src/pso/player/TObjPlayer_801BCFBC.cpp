@@ -7,7 +7,7 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 extern "C" {
 
 void update_action_animation__10TObjPlayerFPv(u8 *arg0);
-s32 TFontSmallLobby__sub_801AFEE0();
+s32 is_lobby_floor_15__15TFontSmallLobbyFv();
 s16 get_action_animation__10TObjPlayerFPv(void *);
 M2C_UNK set_pos_z__10TObjPlayerFPvf(void *, f32);
 s32 is_mounted__15TPlyPhotonChairFPv(void *);
@@ -41,7 +41,7 @@ void update_action_animation__10TObjPlayerFPv(u8 *arg0) {
             revive_or_spawn_marker__10TObjPlayerFi(arg0);
             return;
         }
-        if ((TFontSmallLobby__sub_801AFEE0() != 0) && (is_mounted__15TPlyPhotonChairFPv(arg0) != 0)) {
+        if ((is_lobby_floor_15__15TFontSmallLobbyFv() != 0) && (is_mounted__15TPlyPhotonChairFPv(arg0) != 0)) {
             run_action_state_phase__10TObjPlayerFisi(arg0, 0x18, 0);
             return;
         }

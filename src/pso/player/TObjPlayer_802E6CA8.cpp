@@ -191,7 +191,7 @@ void alloc_breakup_model__10TObjPlayerFPvi(void *arg0, s32 arg1);
 void destroy_child__8TObjFishFPv(void* p);
 int get_instance__10TObjPlayerFv(void);
 void *init_zeroed_object__10TObjPlayerFPv(void *arg0);
-s32 *TBreakUpMdl__sub_8009705C(s32 *, s32);
+s32 *init_from_model__11TBreakUpMdlFPvi(s32 *, s32);
 s32 TObjPlayer__sub_802E75B8(void *, s32 *);
 void __ct__7TObjectFP7TObject(void *);
 void __dl__7TObjectFPv(void *);
@@ -383,7 +383,7 @@ void alloc_breakup_model__10TObjPlayerFPvi(void *arg0, s32 arg1) {
 
     var_r0 = alloc__23TAdSinglePlyChrSelectGCFPv(0x10);
     if (var_r0 != NULL) {
-        var_r0 = TBreakUpMdl__sub_8009705C(var_r0, arg1);
+        var_r0 = init_from_model__11TBreakUpMdlFPvi(var_r0, arg1);
     }
     M2C_FIELD(arg0, s32 **, 0x1C) = var_r0;
     temp_r4 = M2C_FIELD(arg0, s32 **, 0x1C);

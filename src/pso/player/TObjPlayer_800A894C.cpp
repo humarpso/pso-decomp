@@ -388,7 +388,7 @@ extern "C" {
 s32 TObjPlayer__sub_800A8A34(s32 arg0);
 void set_flag_start_effect__10TObjPlayerFPv(u8 *arg0);
 s32 try_apply_800a89b0__10TObjPlayerFi(s32 arg0);
-s32 TObjPlayer__sub_80016C54();
+s32 update_shock_clock__10TObjPlayerFPv();
 s32 update_movement_status__10TObjPlayerFv();
 M2C_UNK create_dead_spot__10TObjPlayerFiif(void *, s16, f32);
 
@@ -423,7 +423,7 @@ s32 try_apply_800a89b0__10TObjPlayerFi(s32 arg0) {
 }
 
 s32 TObjPlayer__sub_800A8A34(s32 arg0) {
-    if (TObjPlayer__sub_80016C54() != 0) {
+    if (update_shock_clock__10TObjPlayerFPv() != 0) {
         TObjPlayer__sub_800A89B0((u8 *)arg0);
         return 1;
     }

@@ -84,7 +84,7 @@ extern "C" {
 void VecCopy__FP3VecPC3Vec(void *, void *);
 f32 TObjPlayer__sub_8013153C(void *, void *);
 void init_collision_body_parts(void *, void *, s32);
-void TObjPlayer__sub_801569F4(void *, s32);
+void construct_collider_proxy__10TObjPlayerFPv(void *, s32);
 extern u8 lbl_80484B38[];
 extern M2C_UNK __vt__16TObjVoloptPillar[];
 extern u8 lbl_804FEE68[];
@@ -303,7 +303,7 @@ void *__dt__16TObjVoloptPillarFv(void *arg0, s16 arg1) {
 #pragma fp_contract on
 S_8004A574 *TObjVoloptPillar__ct(S_8004A574 *o, void *pos, s32 arg2) {
     f32 d;
-    TObjPlayer__sub_801569F4(o, tl_04);
+    construct_collider_proxy__10TObjPlayerFPv(o, tl_04);
     o->vt = ((u8 *)&__vt__16TObjVoloptPillar);
     o->f0 = lbl_805D2760;
     init_collision_body_parts(o, lbl_80484B38, 1);

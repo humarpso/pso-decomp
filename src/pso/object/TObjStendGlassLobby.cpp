@@ -32,7 +32,7 @@ s32 get_lobby_type__6TLobbyFv(void);
 extern RecoveredGlobal_80359944_lbl_804F1A30 lbl_804F1A30;
 extern u32 TObjStendGlassLobby__data_805D6F28;
 extern s32 lbl_805D6F2C;
-void TObjStendGlassLobby__sub_80359944(void);
+void load_resources__19TObjStendGlassLobbyFv(void);
 s32 init_map_object_base(void *);
 void update_state__19TObjStendGlassLobbyFPv(void *arg0);
 extern M2C_UNK __vt__19TObjStendGlassLobby[];
@@ -42,7 +42,7 @@ extern s32 lbl_805D6F2C;
 extern const f32 TObjStendGlassLobby__data_805E00A0;
 u8 *TObjStendGlassLobby__ct(u8 *arg0, M2C_UNK arg1, s32 arg2);
 s32 check_demo_mode__10TObjPlayerFv();
-s32 TLobby__sub_80351DFC();
+s32 get_filtered_event_theme__6TLobbyFv();
 void TObjStendGlassLobby__sub_803596C0(void);
 void run_task__19TObjStendGlassLobbyFv(Obj_80359758 *self);
 }
@@ -56,7 +56,7 @@ void free_static_model__19TObjStendGlassLobbyFv(void);
 void render__19TObjStendGlassLobbyFv(u8 *arg0);
 void update_state__19TObjStendGlassLobbyFPv(void *arg0);
 void TLobby__sub_8001FE7C(void*, int);
-s32 TLobby__sub_80351DFC();
+s32 get_filtered_event_theme__6TLobbyFv();
 M2C_UNK post_translate_matrix(void *);
 M2C_UNK scale_matrix(int, f32, f32, f32);
 M2C_UNK draw_ginja_object(int);
@@ -99,7 +99,7 @@ void run_task__19TObjStendGlassLobbyFv(Obj_80359758 *self) {
     }
     switch (self->state) {
     case 0:
-        if (self->flag == TLobby__sub_80351DFC()) {
+        if (self->flag == get_filtered_event_theme__6TLobbyFv()) {
             self->state = 2;
         }
         break;
@@ -125,7 +125,7 @@ void run_task__19TObjStendGlassLobbyFv(Obj_80359758 *self) {
         break;
     case 3:
     default:
-        if (self->flag != TLobby__sub_80351DFC()) {
+        if (self->flag != get_filtered_event_theme__6TLobbyFv()) {
             self->state = 1;
         }
         break;
@@ -138,7 +138,7 @@ void update_state__19TObjStendGlassLobbyFPv(void *arg0) {
     } else {
         M2C_FIELD(arg0, s32 *, 0xD0) = 1;
     }
-    if ((s32) M2C_FIELD(arg0, s32 *, 0xD0) == TLobby__sub_80351DFC()) {
+    if ((s32) M2C_FIELD(arg0, s32 *, 0xD0) == get_filtered_event_theme__6TLobbyFv()) {
         M2C_FIELD(arg0, s32 *, 0xC8) = 3;
         return;
     }
@@ -166,7 +166,7 @@ void free_static_model__19TObjStendGlassLobbyFv(void) {
 
 extern M2C_UNK __vt__19TObjStendGlassLobby[];
 
-void TObjStendGlassLobby__sub_80359944(void) {
+void load_resources__19TObjStendGlassLobbyFv(void) {
     s32 temp_r3;
     s32 var_r0;
     temp_r3 = alloc__23TAdSinglePlyChrSelectGCFPv((void *)0x440);

@@ -38,7 +38,7 @@ void TObjPlayer__sub_801D45B0(s32 *arg0, s32 arg1);
 s32 copy_to_item_data__5TItemFPvPv(void *, void *);
 s8 TObjPlayer__sub_80102C30(void *);
 s32 get_item_flags__10TObjPlayerFPv(void *);
-s32 TObjPlayer__sub_801D4308(s32 arg0, u8 *arg1);
+s32 export_inventory_entry__10TObjPlayerFiPv(s32 arg0, u8 *arg1);
 s32 start_inventory_update__10TObjPlayerFPvi(void *, void *);
 s32 get_owner_if_alive__10TObjPlayerFPv(int);
 s32 set_field_1c__10TObjPlayerFPvi(int, int);
@@ -148,7 +148,7 @@ s32 fn_801D4270(s32 arg0) {
 
 int reset(void* p) { return memset(p, 0, 28); }
 
-s32 TObjPlayer__sub_801D4308(s32 arg0, u8 *arg1) {
+s32 export_inventory_entry__10TObjPlayerFiPv(s32 arg0, u8 *arg1) {
     if (copy_to_item_data__5TItemFPvPv((void *)(arg0), (void *) (arg1 + 8)) != 0) {
         M2C_FIELD(arg1, s8 *, 0) = TObjPlayer__sub_80102C30((void *) (arg0));
         M2C_FIELD(arg1, s32 *, 4) = get_item_flags__10TObjPlayerFPv((void *) (arg0));

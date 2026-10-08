@@ -23,7 +23,7 @@ extern u8 lbl_805DD898;
 void TWindowSubStatusDisp__sub_80288104(u8 *arg0, s32 arg1);
 u8 *TWindowSubStatusDisp__sub_80287A00(u8 *arg0, u8 *arg1, s32 arg2, s8 arg3, s32 arg4);
 extern u8 lbl_8044FCF0[];
-u8 *TWindowSubStatusDisp__sub_802880BC(u8 *arg0, s32 arg1, s32 arg2);
+u8 *construct_type1_heading__20TWindowSubStatusDispFPvii(u8 *arg0, s32 arg1, s32 arg2);
 }
 
 extern "C" {
@@ -48,7 +48,7 @@ s32 destroy_status_display__20TWindowSubStatusDispFis(s32 arg0, s16 arg1) {
     return arg0;
 }
 
-u8 *TWindowSubStatusDisp__sub_802880BC(u8 *arg0, s32 arg1, s32 arg2) {
+u8 *construct_type1_heading__20TWindowSubStatusDispFPvii(u8 *arg0, s32 arg1, s32 arg2) {
     TWindowSubStatusDisp__sub_80287A00(arg0, lbl_8044FCF0, arg1, 1, arg2);
     return arg0;
 }

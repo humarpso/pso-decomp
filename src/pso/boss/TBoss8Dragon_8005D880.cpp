@@ -2109,7 +2109,7 @@ extern "C" {
 void TObjPlayer__sub_80014898();
 }
 extern "C" {
-void TObjPlayer__sub_80016C54();
+void update_shock_clock__10TObjPlayerFPv();
 }
 extern "C" {
 void TObjPlayer__sub_800172CC();
@@ -2607,7 +2607,7 @@ void *lbl_804882C8[107] = {
     (void *)&TBoss8Dragon__sub_8006536C, (void *)&TObjPlayer__sub_8000FF3C, (void *)&is_target_in_attack_range__10TObjPlayerFv, (void *)&test_flag_256__10TObjPlayerFPv,
     (void *)&test_flag30_512__10TObjPlayerFPv, (void *)&has_flag_0x800__10TObjPlayerFPv, (void *)&test_flag_1000__10TObjPlayerFPv, (void *)&update_poison_status__10TObjPlayerFv,
     (void *)&update_action_hold_status__10TObjPlayerFv, (void *)&update_action_timer__10TObjPlayerFPv, (void *)&update_flag30_timer__10TObjPlayerFPv, (void *)&update_movement_status__10TObjPlayerFv,
-    (void *)&TObjPlayer__sub_80016C54, (void *)&update_attack_stat_status, (void *)&update_defense_stat_status, (void *)&TObjPlayer__sub_800172CC,
+    (void *)&update_shock_clock__10TObjPlayerFPv, (void *)&update_attack_stat_status, (void *)&update_defense_stat_status, (void *)&TObjPlayer__sub_800172CC,
     (void *)&TBoss8Dragon__sub_80065F1C, (void *)&TBoss8Dragon__sub_80065F20, (void *)&TBoss8Dragon__sub_80065F24, (void *)&TBoss8Dragon__sub_80065F28,
     (void *)&TBoss8Dragon__sub_80065F2C, (void *)&TBoss8Dragon__sub_80065F30, (void *)&TBoss8Dragon__sub_80065F34, (void *)&apply_attack_stat_status__10TObjPlayerFv,
     (void *)&apply_defense_stat_status__10TObjPlayerFv, (void *)&cure_poison_ailment, (void *)&cure_paralysis__10TObjPlayerFv, (void *)&clear_all_status_effects,

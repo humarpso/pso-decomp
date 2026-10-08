@@ -178,7 +178,7 @@ u8 *create_orbit_particle(u8 *arg0, u8 *arg1, u8 *arg2, s32 arg3, u16 arg4, s16 
 void *alloc_particle_memory(int);
 void *TParticleCtrl__sub_8008B060(void *, void *, void *, void *, void *);
 void *TParticleCtrl__sub_8008B060(void *arg0, void *arg1, void *arg2, void *arg3, void *arg4);
-void * TParticleCtrl__sub_80089FEC(void *arg0, void *arg1, void *arg2, void *arg3);
+void * alloc_child_particle__13TParticleCtrlFPvPvPvPv(void *arg0, void *arg1, void *arg2, void *arg3);
 extern const f32 TParticleCtrl__data_805D9528;
 int queue_destruction__7TObjectFv(void *);
 void retire_orbit_particle(u8 *arg0);

@@ -69,7 +69,7 @@ void TLobby__sub_8011AED8(s8 arg0, s16 arg1, u8 *arg2, f32 farg0, f32 farg1);
 s32 get_global_state__14TOKeyMachine01Fv();
 extern s32 lbl_805D54E8;
 void set_boss_buf_entry__6TLobbyFii(s32 v, u16 idx);
-void TLobby__sub_8011A7F8(int id);
+void observe_item_id__6TLobbyFi(int id);
 void bswap_pick_up_item_request__6TLobbyFi(Msg_8011A9D8 *msg);
 void *TLobby__sub_80103D10(s16 a, u32 b);
 void TLobby__sub_80103044(Cmd_8011A9D8 *cmd);
@@ -77,7 +77,7 @@ void send_pick_up_item__6TLobbyFi(Cmd_8011A9D8 *cmd);
 void handle_6x5A_pick_up_item_request(Msg_8011A9D8 *msg);
 extern s32 lbl_805D54E8;
 extern s32 lbl_805D54EC;
-void TLobby__sub_8011AFB8(void);
+void reset_item_id_counters__6TLobbyFv(void);
 s32 get_main_phase();
 s32 is_quest_active();
 extern s32 lbl_805D54E4;
@@ -142,7 +142,7 @@ u32 build_item_id(u16 arg0) {
     return id;
 }
 
-void TLobby__sub_8011A7F8(int id) {
+void observe_item_id__6TLobbyFi(int id) {
     if (get_global_state__14TOKeyMachine01Fv() != 0xf) {
         s32 lo = 0x10000;
         if (lo < id && id < 0x2010000) {
@@ -311,7 +311,7 @@ void TLobby__sub_8011AED8(s8 arg0, s16 arg1, u8 *arg2, f32 farg0, f32 farg1) {
     stack.sp10 = farg1;
     stack.sp14 = arg1;
     copy_item_data__6TLobbyFPvPv((void *) (&stack.sp18), (void *) (arg2));
-    TLobby__sub_8011A7F8((int)((int) (M2C_FIELD(arg2, s32 *, 0xC))));
+    observe_item_id__6TLobbyFi((int)((int) (M2C_FIELD(arg2, s32 *, 0xC))));
     TLobby__sub_80103DD8((void *) (&stack.sp8));
 }
 
@@ -321,7 +321,7 @@ u32 advance_item_id_counter(s32 client) {
         return ((u32*)lbl_805D54EC)[(u16)client]++;
     return ((u32*)lbl_805D54E8)[(u16)client]++;
 }
-void TLobby__sub_8011AFB8(void) {
+void reset_item_id_counters__6TLobbyFv(void) {
     s32 i;
     if ((s32 *)lbl_805D54E8 == 0 || (s32 *)lbl_805D54EC == 0) {
         return;

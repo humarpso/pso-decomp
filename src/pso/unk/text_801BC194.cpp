@@ -26,7 +26,7 @@ M2C_UNK play_effect_default__10TObjPlayerFii(void *, int);
 void *get_player_by_client_id(s32);
 s32 has_active_camera_event__10TObjPlayerFv(void *);
 u8 *find_player_arrival_set(void *, s32);
-M2C_UNK TObjPlayer__sub_801BEA38(void *, int, f32, f32);
+M2C_UNK set_position_history_entry__10TObjPlayerFiiff(void *, int, f32, f32);
 M2C_UNK set_position__10TObjPlayerFPvfff(void *, f32, f32, f32);
 u8 *get_sub_object__10TObjPlayerFPv(void *);
 s32 get_lock_timer__10TObjPlayerFPv(void *);
@@ -86,7 +86,7 @@ void place_on_area_entry__10TObjPlayerFPv(u8 *arg0) {
     save_position__14TBoss4DarkFalzFi(arg0);
     calc_attach_pos__10TObjPlayerFPv(arg0);
     copy_offset_position__10TObjPlayerFPvPv(arg0 + 0x84C, arg0);
-    TObjPlayer__sub_801BEA38(arg0, 0, M2C_FIELD(arg0, f32 *, 0x38), M2C_FIELD(arg0, f32 *, 0x40));
+    set_position_history_entry__10TObjPlayerFiiff(arg0, 0, M2C_FIELD(arg0, f32 *, 0x38), M2C_FIELD(arg0, f32 *, 0x40));
     clear_movement_history(arg0 + 0x6AC);
     if (is_single_screen__10TObjPlayerFv() != 0) {
         reset_cameras_to_actor(arg0, 0);

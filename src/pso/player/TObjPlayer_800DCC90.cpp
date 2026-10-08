@@ -159,7 +159,7 @@ s32 spawn_particle_effect_with_rotation(Vec_800DCD04 *, s32 *, s32, s32);
 f32 TObjPlayer__sub_8013153C(Vec_800DCD04 *, Vec_800DCD04 *);
 f32 xz_distance_squared(Vec_800DCD04 *, Vec_800DCD04 *);
 u8 *find_entity_by_id(s16);
-void TObjPlayer__sub_801569F4(void *, void *);
+void construct_collider_proxy__10TObjPlayerFPv(void *, void *);
 void matrix_mult_vec(s32, Vec_800DCD04 *, Vec_800DCD04 *);
 void rotate_matrix_y(s32, s32);
 void rotate_matrix_x(s32, s32);
@@ -198,7 +198,7 @@ void *destroy_particle_obj__10TObjPlayerFPvs(void *arg0, s16 arg1) {
 }
 Obj_800DCD04 *TObjPlayer__sub_800DCD04(Obj_800DCD04 *self, Vec_800DCD04 *pos, s16 id, s32 *rot, s32 arg4, s16 arg5) {
     Vec_800DCD04 *pp;
-    TObjPlayer__sub_801569F4(self, tl_04);
+    construct_collider_proxy__10TObjPlayerFPv(self, tl_04);
     self->vt = lbl_80494E48;
     self->id = id;
     self->f102 = arg5;

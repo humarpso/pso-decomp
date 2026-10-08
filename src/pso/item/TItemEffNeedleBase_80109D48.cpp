@@ -31,7 +31,7 @@ M2C_UNK disallow_rendering__7TObjectFv(void *);
 u32 query_game_join_id__10TObjPlayerFv(int);
 extern const f32 lbl_805DAB50;
 extern const f32 lbl_805DAB54;
-void TItemEffNeedleBase__sub_80109E18(u8 *arg0);
+void run_task__18TItemEffNeedleBaseFPv(u8 *arg0);
 void copy_vec4__13TRaderMapCoreFPvPv(void *, void *);
 u32 query_game_join_id__10TObjPlayerFv(int);
 void begin_effect_render__13TParticleCtrlFv();
@@ -48,7 +48,7 @@ extern u8 lbl_8050BEC0[];
 extern u8 lbl_8058D4C0[];
 extern u32 lbl_805D5660;
 extern u32 some_id_805c6f74;
-void TItemEffNeedleBase__sub_80109D48(Needle_80109D48 *self);
+void draw_model__18TItemEffNeedleBaseFPv(Needle_80109D48 *self);
 }
 
 extern "C" {
@@ -61,7 +61,7 @@ extern M2C_UNK __vt__18TItemEffNeedleBase[];
 extern s32 lbl_805D2BC8;
 extern const f32 lbl_805DAB4C;
 
-void TItemEffNeedleBase__sub_80109D48(Needle_80109D48 *self) {
+void draw_model__18TItemEffNeedleBaseFPv(Needle_80109D48 *self) {
     if (all_parents_unqueued_for_destruction__7TObjectFv(self) == 0 ||
         query_game_join_id__10TObjPlayerFv(*(int *)self->m_2c) == 0) {
         return;
@@ -84,7 +84,7 @@ void TItemEffNeedleBase__sub_80109D48(Needle_80109D48 *self) {
     }
 }
 
-void TItemEffNeedleBase__sub_80109E18(u8 *arg0) {
+void run_task__18TItemEffNeedleBaseFPv(u8 *arg0) {
     if (query_game_join_id__10TObjPlayerFv((int) (M2C_FIELD(arg0, s32 *, 0x2C))) == 0U) {
         queue_destruction__7TObjectFv((void *) (arg0));
         disallow_rendering__7TObjectFv((void *)((void *) (arg0)));

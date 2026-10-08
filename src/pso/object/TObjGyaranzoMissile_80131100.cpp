@@ -34,7 +34,7 @@ extern "C" {
 void* init_missile__19TObjGyaranzoMissileFPv(void *, M2C_UNK, s32);
 u8 *alloc_from_obj_heap__10TObjPlayerFPv(M2C_UNK);
 extern s32 tl_05;
-u8 *TObjGyaranzoMissile__sub_80131180(s32 arg0);
+u8 *create_yasminkov_2000h__19TObjGyaranzoMissileFi(s32 arg0);
 void item_equip_variant_deleting_dtor_80120CF8(void *, int);
 void free_obj_heap__10TObjPlayerFPv(void *);
 extern M2C_UNK lbl_804A6DC0[];
@@ -48,14 +48,14 @@ void* init_effect__19TObjGyaranzoMissileFPv(void* a0, M2C_UNK _w1, void * _w2);
 void* init_effect__19TObjGyaranzoMissileFPv(void* a0, M2C_UNK _w1, void * _w2);
 u8 *alloc_from_obj_heap__10TObjPlayerFPv(M2C_UNK);
 extern s32 tl_05;
-u8 *TObjGyaranzoMissile__sub_80131430(u8 *arg0);
+u8 *create_yasminkov_7000v__19TObjGyaranzoMissileFPv(u8 *arg0);
 f32 vec_squared_length();
 f32 newton_sqrtf();
 extern f32 lbl_805DB068;
 extern f32 lbl_805DB06C;
 f32 scale_velocity__19TObjGyaranzoMissileFPvf(void *arg0, f32 farg0);
 void TObjPlayer__sub_8013153C(u8 *arg0, u8 *arg1);
-void TObjPlayer__sub_8012E284(s32, u32, s32, u32, u32);
+void launch_weapon_casing__10TObjPlayerFiUiiUiUi(s32, u32, s32, u32, u32);
 f32 sin_table_lookup(s32);
 f32 cos_table_lookup(s32);
 extern s32 tl_05;
@@ -63,7 +63,7 @@ extern const f32 lbl_805DB050;
 extern const float lbl_805DB054;
 extern const f32 lbl_805DB058;
 extern const f32 lbl_805DB05C;
-void TObjGyaranzoMissile__sub_80131214(u8 *arg0);
+void update_recoil__19TObjGyaranzoMissileFPv(u8 *arg0);
 void draw_status_icon__10TObjPlayerFPvi(void *self, void *buf);
 void spawn_particle_effect(void *buf, s32 n);
 void TObjGyaranzoMissile__sub_80131334(Obj_80131334 *self);
@@ -85,7 +85,7 @@ int get_player_list__10TObjPlayerFv(void*);
     extern const float lbl_805DB04C;
 void* init_missile__19TObjGyaranzoMissileFPv(void* a0, M2C_UNK _w1, s32 _w2) { TItemWeapon__ct(); *(int*)((char*)a0 + 0x18) = (int)lbl_804A6CC8; *(int*)((char*)a0 + 0x1f0) = 0; *(int*)((char*)a0 + 0x1ec) = (int)spawn_weapon_impact_effect; *(float*)((char*)a0 + 0x1e4) = lbl_805DB04C; *(int*)((char*)a0 + 0x1f8) = 0; *(float*)((char*)a0 + 0x204) = lbl_805DB038; *(float*)((char*)a0 + 0x200) = lbl_805DB038; *(float*)((char*)a0 + 0x1fc) = lbl_805DB038; *(int*)((char*)a0 + 0x208) = 0; *(float*)((char*)a0 + 0x214) = lbl_805DB044; *(float*)((char*)a0 + 0x210) = lbl_805DB044; *(float*)((char*)a0 + 0x20c) = lbl_805DB044; return a0; }
 
-u8 *TObjGyaranzoMissile__sub_80131180(s32 arg0) {
+u8 *create_yasminkov_2000h__19TObjGyaranzoMissileFi(s32 arg0) {
     u8 *temp_r3;
     u8 *var_r0;
     if (arg0 != 0) {
@@ -113,7 +113,7 @@ void TObjGyaranzoMissile__sub_801311D8(void* p) { if (get_player_list__10TObjPla
 
 #pragma push
 #pragma opt_common_subs off
-void TObjGyaranzoMissile__sub_80131214(u8 *arg0) {
+void update_recoil__19TObjGyaranzoMissileFPv(u8 *arg0) {
     f32 buffer_14[3];
     s32 buffer_8[3];
     s32 temp_r0;
@@ -145,7 +145,7 @@ void TObjGyaranzoMissile__sub_80131214(u8 *arg0) {
         buffer_8[0] = 0x4000;
         buffer_8[1] = M2C_FIELD(M2C_FIELD(arg0, u8 **, 0xF0), s32 *, 0x60);
         buffer_8[2] = 0;
-        TObjPlayer__sub_8012E284(tl_05, (u32) arg0, 2, (u32) &buffer_14[0], (u32) &buffer_8[0]);
+        launch_weapon_casing__10TObjPlayerFiUiiUiUi(tl_05, (u32) arg0, 2, (u32) &buffer_14[0], (u32) &buffer_8[0]);
         break;
     }
 }
@@ -169,7 +169,7 @@ void *TObjGyaranzoMissile__sub_8013136C(void *arg0, s16 arg1) {
     return arg0;
 }
 void* init_effect__19TObjGyaranzoMissileFPv(void* a0, M2C_UNK _w1, void * _w2) { TItemWeapon__ct(); *(int*)((char*)a0 + 0x18) = (int)((unsigned char *)&lbl_804A6DC0); *(int*)((char*)a0 + 0x1f0) = 0; *(int*)((char*)a0 + 0x1ec) = (int)spawn_weapon_impact_effect; *(float*)((char*)a0 + 0x1e4) = lbl_805DB060; *(int*)((char*)a0 + 0x1f8) = 0; *(float*)((char*)a0 + 0x204) = lbl_805DB054; *(float*)((char*)a0 + 0x200) = lbl_805DB054; *(float*)((char*)a0 + 0x1fc) = lbl_805DB054; return a0; }
-u8 *TObjGyaranzoMissile__sub_80131430(u8 *arg0) {
+u8 *create_yasminkov_7000v__19TObjGyaranzoMissileFPv(u8 *arg0) {
     u8 *temp_r3;
     u8 *var_r0;
     if (arg0 != NULL) {

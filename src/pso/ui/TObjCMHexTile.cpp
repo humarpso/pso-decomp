@@ -12,14 +12,32 @@ typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
 typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 #define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
 #define M2C_BITWISE(type, expr) ((type)(expr))
+
+struct H_80294324 { u8 pad0[0x34]; f32 f34; f32 f38; f32 f3c; f32 f40; u8 pad44[4]; f32 f48; f32 f4c; };
+
 extern "C" {
 void queue_destruction__7TObjectFv(void *);
 extern const f32 lbl_805DDA0C;
 extern const f32 lbl_805DDA10;
 void run_task__13TObjCMHexTileFv(u8 *arg0);
+void draw_ui_sprite_scaled(int, void *, void *, f32, f32);
+extern const f32 lbl_805DDA00;
+extern const f32 lbl_805DDA04;
+extern const f32 lbl_805DDA08;
+void render__13TObjCMHexTileFv(H_80294324 *arg0);
 }
 
 extern "C" {
+
+void render__13TObjCMHexTileFv(H_80294324 *arg0) {
+    f32 sp10[2];
+    f32 sp8[2];
+    f32 sc = lbl_805DDA00 * arg0->f4c;
+    sp10[0] = sp10[1] = lbl_805DDA04 * arg0->f48;
+    sp8[0] = arg0->f3c + arg0->f34;
+    sp8[1] = arg0->f40 + arg0->f38;
+    draw_ui_sprite_scaled(3, sp8, sp10, lbl_805DDA08, sc);
+}
 
 void run_task__13TObjCMHexTileFv(u8 *arg0) {
     f32 temp_f1;

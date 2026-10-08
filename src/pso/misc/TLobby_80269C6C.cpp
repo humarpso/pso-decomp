@@ -27,7 +27,7 @@ M2C_UNK TLobby__sub_80269DA4(V2_80269DA4 size, void *arg1);
 extern G_80269DA4 lbl_804D06F8[];
 u8 * TWindowMessage__ct(void *, s32, u32, s16);
 u8 *__nw__7TObjectFUl(M2C_UNK);
-u8 *TLobby__sub_80269CC0(s32 arg0, s32 arg1, u32 arg2, s16 arg3);
+u8 *create_message_window__6TLobbyFiiUis(s32 arg0, s32 arg1, u32 arg2, s16 arg3);
 extern RecoveredGlobal_80269CA4_lbl_804D071C lbl_804D071C;
 void TLobby__sub_80269CA4(s32 arg0);
 extern RecoveredGlobal_80269CA4_lbl_804D071C lbl_804D071C;
@@ -62,7 +62,7 @@ M2C_UNK *TLobby__sub_80269CB4(void) {
     return &(*(RecoveredGlobal_80269CB4_lbl_804D071C *)&lbl_804D071C).value;
 }
 
-u8 *TLobby__sub_80269CC0(s32 arg0, s32 arg1, u32 arg2, s16 arg3) {
+u8 *create_message_window__6TLobbyFiiUis(s32 arg0, s32 arg1, u32 arg2, s16 arg3) {
     u8 *temp_r3;
     u8 *var_r0;
     ((M2C_UNK (*)(void *, void *))TLobby__sub_80269DA4)((void *) (arg1), (void *) (arg2));
@@ -75,7 +75,7 @@ u8 *TLobby__sub_80269CC0(s32 arg0, s32 arg1, u32 arg2, s16 arg3) {
 }
 
 void set_window_mode_4__6TLobbyFPvii(void *arg0, M2C_UNK arg1, M2C_UNK arg2) {
-    TLobby__sub_80269CC0((s32)(arg0), (s32)(arg1), (u32)(arg2), (s16)(4));
+    create_message_window__6TLobbyFiiUis((s32)(arg0), (s32)(arg1), (u32)(arg2), (s16)(4));
 }
 
 extern const f32 lbl_805DD238;

@@ -55,7 +55,7 @@ void TBoss5GryphonDemo__sub_80066304(O_80066304 *self);
 u8 *alloc_buffer__11TOBoss4RockFPv(s32);
 void register_entity_by_id(void *);
 int refresh_collision_body_centers(void*);
-void TObjPlayer__sub_801569F4(void *);
+void construct_collider_proxy__10TObjPlayerFPv(void *);
 s16 TLobby__sub_801A2078(s32);
 extern M2C_UNK lbl_80488668[];
 extern M2C_UNK lbl_804886AC[];
@@ -131,7 +131,7 @@ Obj_800663DC *TBoss5GryphonDemo__sub_800663DC(Obj_800663DC *arg0, M2C_UNK arg1, 
     f32 z;
     Seg_800663DC *s;
     s32 i;
-    TObjPlayer__sub_801569F4(arg0);
+    construct_collider_proxy__10TObjPlayerFPv(arg0);
     arg0->vt = lbl_804886AC;
     arg0->f0 = lbl_805D2808;
     arg0->f1c = TLobby__sub_801A2078(0);

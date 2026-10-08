@@ -34,6 +34,10 @@ struct Rect_80243B6C { f32 x0, y0, x1, y1, u0, v0, u1, v1; };
 
 struct Ctx_80243B6C { f32 x; f32 y; u8 pad8[0x34 - 0x8]; s32 tex; };
 
+struct Obj_80243968 { u8 pad[0x20]; s16 id; u8 pad22[0x3e]; u32 cur[3]; };
+
+struct Ent_80243968 { u8 pad[0x2c]; s32 color; };
+
 extern "C" {
 void* get_array_entry__20TWindowSubStatusDispFPvi(TWindowActionPalette*,int);
 void set_sprite_uv_from_pixels(void*,float,float);
@@ -53,7 +57,6 @@ u16 get_current_target_id__10TObjPlayerFv();
 void* get_array_entry__20TWindowSubStatusDispFPvi(TWindowActionPalette*,int);
 s32 set_help_text__15TWindowHelpItemFii(void *, int);
 void set_bank_panel_art__20TWindowActionPaletteFPvi(TWindowActionPalette* self,unsigned short state);
-s32 TWindowActionPalette__sub_80243968(void *, int, int, int);
 void update_slot_sprites__20TWindowActionPaletteFv(void *, int, int, u16);
 u8 get_enabled__11TMainCursorFPv(void *);
 u8 get_type__11TMainCursorFPv(void *);
@@ -124,6 +127,16 @@ extern const f32 lbl_805DCA94;
 extern const f32 lbl_805DCA98;
 extern const f32 lbl_805DCA9C;
 void draw_frame__20TWindowActionPaletteFv(void *self, int arg1);
+s32 get_player_by_client_id(int);
+void* get_array_entry__20TWindowSubStatusDispFPvi(TWindowActionPalette*,int);
+s32 TObjPlayer__sub_80354C7C(s32);
+s32 set_flag0_bit2__15TWindowHelpItemFPv(void *);
+u8 get_enabled__11TMainCursorFPv(void *);
+u8 get_type__11TMainCursorFPv(void *);
+void draw_action_palette_icon(void *, int, u16);
+void set_slot__20TWindowActionPaletteFPvUc(void *, u8);
+void set_mode__20TWindowActionPaletteFPvUc(void *, u8);
+void TWindowActionPalette__sub_80243968(void *arg0, int idx, int mode, int slot);
 }
 
 extern "C" {
@@ -148,6 +161,27 @@ void set_bank_panel_art__20TWindowActionPaletteFPvi(TWindowActionPalette* self,u
 }
 
 extern "C" {
+
+#define self ((Obj_80243968 *)arg0)
+void TWindowActionPalette__sub_80243968(void *arg0, int idx, int mode, int slot) {
+    if (((u32 (*)(int))get_player_by_client_id)(self->id) != 0) {
+        Ent_80243968 *ent = (Ent_80243968 *)((void *)get_array_entry__20TWindowSubStatusDispFPvi((TWindowActionPalette*)(self), (int)(4)));
+        if (TObjPlayer__sub_80354C7C((u16)self->id) != 0) {
+            ent->color = -1;
+        } else {
+            ent->color = 0xFF404040;
+        }
+        set_flag0_bit2__15TWindowHelpItemFPv(((void *)get_array_entry__20TWindowSubStatusDispFPvi((TWindowActionPalette*)(self), (int)(5))));
+        void *cur = &self->cur[idx];
+        if ((u16)mode != get_type__11TMainCursorFPv(cur) || get_enabled__11TMainCursorFPv(cur) != (u16)slot) {
+            set_mode__20TWindowActionPaletteFPvUc(cur, mode);
+            set_slot__20TWindowActionPaletteFPvUc(cur, slot);
+            ((void (*)(void *, int, int))draw_action_palette_icon)(ent, mode, slot);
+        }
+    }
+}
+#undef self
+
 void update_slot_sprites__20TWindowActionPaletteFv(void *arg0, int idx, int mode, u16 slot) {
     s32 player;
     u8 *help;
@@ -275,7 +309,7 @@ void run_task__20TWindowActionPaletteFv(u8 *arg0) {
         update_slot_sprites__20TWindowActionPaletteFv(arg0, 0, 7, v);
     }
     if (TObjPlayer__sub_80354D5C((u16)M2C_FIELD(arg0, s16 *, 0x20)) != 0 && TWindowActionPalette__sub_801C1C00((void *)(player + 0x500)) != 0) {
-        TWindowActionPalette__sub_80243968(arg0, 1, 7, 7);
+        TWindowActionPalette__sub_80243968((void *)(arg0), (int)(1), (int)(7), (int)(7));
     } else {
         v = TWindowActionPalette__sub_801C1DB8(effect, 2);
         update_slot_sprites__20TWindowActionPaletteFv(arg0, 1, TWindowActionPalette__sub_801C1E1C(effect, 2), v);

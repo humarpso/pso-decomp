@@ -17,7 +17,7 @@ s32 rand(void);
 extern RecoveredGlobal_8012E414_lbl_804A5D10 lbl_804A5D10;
 extern const f32 lbl_805DAF74;
 extern const f32 lbl_805DAF78;
-u8 *TObjPlayer__sub_8012E414(u8 *arg0, u8 *arg1, u8 *arg2, u8 *arg3, u8 *arg4, u8 *arg5);
+u8 *construct_weapon_casing__10TObjPlayerFPvPvPvPvPvPv(u8 *arg0, u8 *arg1, u8 *arg2, u8 *arg3, u8 *arg4, u8 *arg5);
 }
 
 extern "C" {
@@ -26,7 +26,7 @@ extern "C" {
 #pragma opt_common_subs off
 #pragma fp_contract on
 typedef char RecoveredGlobal_8012E414_lbl_804A5D10_size[sizeof(RecoveredGlobal_8012E414_lbl_804A5D10) == 0x18 ? 1 : -1];
-u8 *TObjPlayer__sub_8012E414(u8 *arg0, u8 *arg1, u8 *arg2, u8 *arg3, u8 *arg4, u8 *arg5) {
+u8 *construct_weapon_casing__10TObjPlayerFPvPvPvPvPvPv(u8 *arg0, u8 *arg1, u8 *arg2, u8 *arg3, u8 *arg4, u8 *arg5) {
     __ct__7TObjectFP7TObject(arg0, arg1);
     M2C_FIELD(arg0, M2C_UNK **, 0x18) = &lbl_804A5D10.value;
     M2C_FIELD(arg0, s32 *, 0x1C) = get_field_d8__10TObjPlayerFPv(arg2);

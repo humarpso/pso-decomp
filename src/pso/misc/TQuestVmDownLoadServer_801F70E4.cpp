@@ -117,7 +117,7 @@ M2C_UNK safe_free__23TAdSinglePlyChrSelectGCFUi(void *);
 void *alloc__22TQuestVmDownLoadServerFPv(s32);
 s32 TQuestVmDownLoadServer__sub_801F8538(void *, s32);
 M2C_UNK move_data__6TLobbyFv(void *, s32, s32);
-s32 TQuestVmDownLoadServer__sub_801F84B8(s32 arg0, s32 arg1);
+s32 verify_checksum__22TQuestVmDownLoadServerFii(s32 arg0, s32 arg1);
 s32 TQuestVmDownLoadServer__sub_8006EF6C(M2C_UNK);
 s32 TWindowShortListCtrl__check_controller_button(int, int);
 M2C_UNK TQuestVmDownLoadServer__sub_801F6E08(void *, s32, M2C_UNK);
@@ -152,7 +152,7 @@ void subtractive_rng_make_shuffle(RecoveredGlobal_801F8FA4_TQuestVmDownLoadServe
 void subtractive_rng_unshuffle(RecoveredGlobal_801F8FA4_TQuestVmDownLoadServer__data_80512C18 *, void *, void *, s32);
 void TAdSinglePlyChrSelectGC__sub_8007C0CC(RecoveredGlobal_801F8FA4_TQuestVmDownLoadServer__data_80512C18 *, u32 *, u32);
 void subtractive_rng_xor_buffer(RecoveredGlobal_801F8FA4_TQuestVmDownLoadServer__data_80512C18 *, u32 *, u32);
-void TQuestVmDownLoadServer__sub_801F8588(u32 *data, s32 size);
+void unshuffle_and_decrypt__22TQuestVmDownLoadServerFPvi(u32 *data, s32 size);
 M2C_UNK safe_free__23TAdSinglePlyChrSelectGCFUi(void *);
 void *alloc__22TQuestVmDownLoadServerFPv(s32);
 s32 TQuestVmDownLoadServer__sub_801F8538(void *, s32);
@@ -980,7 +980,7 @@ M2C_UNK *TQuestVmDownLoadServer__sub_801F84AC(void) {
     return &lbl_80512BDC.value;
 }
 
-s32 TQuestVmDownLoadServer__sub_801F84B8(s32 arg0, s32 arg1) {
+s32 verify_checksum__22TQuestVmDownLoadServerFii(s32 arg0, s32 arg1) {
   s32 temp_r31;
   void *temp_r3;
   s32 temp_r29;
@@ -999,7 +999,7 @@ s32 TQuestVmDownLoadServer__sub_801F84B8(s32 arg0, s32 arg1) {
 typedef char RecoveredGlobal_801F8FA4_TQuestVmDownLoadServer__data_80512C18_size[sizeof(RecoveredGlobal_801F8FA4_TQuestVmDownLoadServer__data_80512C18) == 0xE8 ? 1 : -1];
 
 struct RecoveredGlobal_801F8FA4_TQuestVmDownLoadServer__data_80512C18;
-void TQuestVmDownLoadServer__sub_801F8588(u32 *data, s32 size) {
+void unshuffle_and_decrypt__22TQuestVmDownLoadServerFPvi(u32 *data, s32 size) {
     void *src;
     void *dst;
     src = alloc__22TQuestVmDownLoadServerFPv(size);

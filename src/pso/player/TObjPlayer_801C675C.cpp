@@ -10,6 +10,7 @@ struct RecoveredGlobal_801C6FF8_lbl_804C4008 {
 };
 
 typedef s32 M2C_UNK;
+
 extern "C" {
 u8 fn_801C6F2C(u8 *arg0);
 s32 has_water_ground_flag(void *);
@@ -50,6 +51,9 @@ s32 get_player_by_client_id(u16);
 u8 *TObjPlayer__sub_801C6FF8(u8 *arg0, u8 *arg1, s16 arg2, s8 arg3);
 void *__nw__7TObjectFUl(u32);
 u8 *TObjPlayer__sub_801C6D40(s16 arg0, s8 arg1);
+s32 TMainCursor__sub_8013E03C(void);
+s32 get_player_by_client_id(u16);
+s32 TObjPlayer__sub_801C6DAC(u8 *arg0);
 }
 
 extern "C" {
@@ -129,6 +133,14 @@ u8 *TObjPlayer__sub_801C6D40(s16 arg0, s8 arg1) {
         p = TObjPlayer__sub_801C6FF8(p, e, arg0, arg1);
     }
     return p;
+}
+
+s32 TObjPlayer__sub_801C6DAC(u8 *arg0) {
+    M2C_FIELD(arg0, u8 **, 4) = (u8 *)get_player_by_client_id(TMainCursor__sub_8013E03C());
+    if (M2C_FIELD(arg0, u8 **, 4) != NULL) {
+        return 1;
+    }
+    return 0;
 }
 
 void free__10TObjPlayerFPv(void* a0) { heap_free__5THeapFPv((void*)(obj_heap), a0); }

@@ -71,7 +71,7 @@ struct Sifta_8023AF94 {
 typedef s32 M2C_UNK;
 extern "C" {
 s32 obj_getField1c(int);
-s32 TObjPlayer__sub_8004433C(void *);
+s32 construct_target_cursor_records__10TObjPlayerFi(void *);
 s32 TTecPlayerInfluence__ct(void *, void *, void *, void *);
 int TTecSifta__sub_8023AC88(void* p);
 void update_effect_params__9TTecSiftaFPv(u8 *arg0);
@@ -93,7 +93,7 @@ s32 is_parents_unqueued__9TTecLukerFUi(u32);
 void deliver_technique_to_party_targets(void *);
 void run_task__9TTecSiftaFv(Sifta_8023AF94 *self);
 s32 obj_getField1c(int);
-s32 TObjPlayer__sub_8004433C(void *);
+s32 construct_target_cursor_records__10TObjPlayerFi(void *);
 s32 TTecPlayerInfluence__ct(void *, void *, void *, void *);
 int TTecSifta__sub_8023AC88(void* p);
 void play_sifta_cast_sound(Obj_8023ACA8 *arg0);
@@ -239,7 +239,7 @@ void *TTecSifta__ct(void *arg0_, void *arg1, void *arg2, void *arg3, void *arg4)
     u32 t;
     TTecPlayerInfluence__ct(arg0, arg1, arg2, arg4);
     M2C_FIELD(arg0, M2C_UNK **, 0x18) = __vt__9TTecSifta;
-    TObjPlayer__sub_8004433C(arg0 + 0xE0);
+    construct_target_cursor_records__10TObjPlayerFi(arg0 + 0xE0);
     M2C_FIELD(arg0, s32 *, 0) = lbl_805D3820;
     M2C_FIELD(arg0, s32 *, 0x13C) = 1;
     copy_technique_target_list(arg0 + 0xE0, arg3);
@@ -266,7 +266,7 @@ u8 *TTecSifta__sub_8023B17C(u8 *arg0, s32 arg1, s32 arg2, s32 arg3) {
     u8 *temp_r3;
     TTecPlayerInfluence__ct((void *) (arg0), (void *) (arg1), (void *) (arg2), (void *) (arg3));
     M2C_FIELD(arg0, M2C_UNK **, 0x18) = &(*(RecoveredGlobal_8023B17C___vt__9TTecSifta *)&__vt__9TTecSifta).value;
-    TObjPlayer__sub_8004433C((void *) (arg0 + 0xE0));
+    construct_target_cursor_records__10TObjPlayerFi((void *) (arg0 + 0xE0));
     M2C_FIELD(arg0, s32 *, 0) = (s32) lbl_805D3820;
     M2C_FIELD(arg0, s32 *, 0x13C) = 0;
     update_effect_params__9TTecSiftaFPv((u8 *)((void *) (arg0)));

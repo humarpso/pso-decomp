@@ -98,12 +98,12 @@ extern f32 lbl_805D4B90;
 extern const f32 lbl_805D8258;
 void TObjPlayer__sub_8002EF80(void);
 int alloc__23TAdSinglePlyChrSelectGCFPv(void *);
-u8 * TBreakUpMdl__sub_8009705C(void *, s32);
+u8 * init_from_model__11TBreakUpMdlFPvi(void *, s32);
 extern void *lbl_805D4B8C;
 extern u8 *lbl_805D4BA4;
 void TObjPlayer__sub_8002E7C8(void);
 int alloc__23TAdSinglePlyChrSelectGCFPv(void *);
-u8 * TBreakUpMdl__sub_8009705C(void *, s32);
+u8 * init_from_model__11TBreakUpMdlFPvi(void *, s32);
 extern struct VObj8002EB88_8002eb88_8002E784 *lbl_805D4B88;
 extern u8 *lbl_805D4BA4;
 void TObjPlayer__sub_8002EBCC(void);
@@ -215,7 +215,7 @@ void TObjPlayer__sub_8002E7C8(void) {
     temp_r3 = alloc__23TAdSinglePlyChrSelectGCFPv((void *)0x10);
     var_r0 = temp_r3;
     if (var_r0 != 0) {
-        var_r0 = (long) (TBreakUpMdl__sub_8009705C((void *) temp_r3, M2C_FIELD(M2C_FIELD(lbl_805D4BA4, u8 **, 0x42C), s32 *, 0x58)));
+        var_r0 = (long) (init_from_model__11TBreakUpMdlFPvi((void *) temp_r3, M2C_FIELD(M2C_FIELD(lbl_805D4BA4, u8 **, 0x42C), s32 *, 0x58)));
     }
     (*(u8 * *)&lbl_805D4B8C) = (unsigned char *) ((void *) var_r0);
     TObjPlayer__sub_8002ECC4((Obj_8002ECC4 *)((void *) var_r0), (s32)(0x1C));
@@ -297,7 +297,7 @@ void TObjPlayer__sub_8002EBCC(void) {
     temp_r3 = alloc__23TAdSinglePlyChrSelectGCFPv((void *)0x10);
     var_r0 = temp_r3;
     if (var_r0 != 0) {
-        var_r0 = (long) (TBreakUpMdl__sub_8009705C((void *) temp_r3, M2C_FIELD(M2C_FIELD(lbl_805D4BA4, u8 **, 0x42C), s32 *, 0x68)));
+        var_r0 = (long) (init_from_model__11TBreakUpMdlFPvi((void *) temp_r3, M2C_FIELD(M2C_FIELD(lbl_805D4BA4, u8 **, 0x42C), s32 *, 0x68)));
     }
     (*(u8 * *)&lbl_805D4B88) = (unsigned char *) ((void *) var_r0);
     TObjPlayer__sub_8002ED48((Obj_8002ED48 *)((void *) var_r0), (s32)(0x13));

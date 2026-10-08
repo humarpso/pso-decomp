@@ -78,7 +78,7 @@ M2C_UNK init_and_activate__10TObjPlayerFPv(void *);
 M2C_UNK reset_photon_effect__10TObjPlayerFPv(void *);
 M2C_UNK refresh_collision_body_centers(void *);
 M2C_UNK init_collision_body_parts(void *, void *, int);
-M2C_UNK TObjPlayer__sub_801569F4();
+M2C_UNK construct_collider_proxy__10TObjPlayerFPv();
 s32 create__10TObjMapCsnFi(void *);
 extern M2C_UNK lbl_804B9034[];
 extern M2C_UNK __vt__14TObjBigTuitate[];
@@ -168,7 +168,7 @@ void *TObjBigTuitate__ct(void *arg0, void *arg1, void *arg2) {
     struct CopyStack_8019ABE8 { u8 bytes[0x3C]; };
     CopyStack_8019ABE8 copy_storage_8019ABE8;
     s32 temp_r4;
-    TObjPlayer__sub_801569F4();
+    construct_collider_proxy__10TObjPlayerFPv();
     M2C_FIELD(arg0, M2C_UNK **, 0x18) = __vt__14TObjBigTuitate;
     init_and_activate__10TObjPlayerFPv((void *) ((u8 *)arg0 + 0xAC));
     M2C_FIELD(arg0, s32 *, 0) = (s32) lbl_805D3454;

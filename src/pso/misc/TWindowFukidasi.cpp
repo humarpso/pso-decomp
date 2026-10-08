@@ -286,10 +286,10 @@ void clear_visible_flag__15TWindowFukidasiFPv(Fuki_802504C0 *);
 void set_flag__15TWindowFukidasiFPv(Fuki_802504C0 *);
 void TWindowFukidasi__sub_80252C68(Fuki_802504C0 *);
 s32 is_flag_set__15TWindowFukidasiFPv(Fuki_802504C0 *);
-void TWindowFukidasi__sub_80252C84();
+void clear_flag_20__15TWindowFukidasiFPv();
 int is_active__15TWindowFukidasiFPv(void *);
 M2C_UNK clear_flag__15TWindowFukidasiFPv(void *);
-s32 fn_80252CB0(void *);
+s32 is_balloon_visible(void *);
 s32 fn_80252CBC(void);
 void draw_visible_window_entries(void *, void *, View_80252764 *);
 void update_window_entry_list(void *, void *);
@@ -777,7 +777,7 @@ s32 is_speaker_far_or_offscreen__15TWindowFukidasiFPv(Fuki_802504C0 *arg0) {
     f32 xx;
     f32 yy;
     f32 zz;
-    TWindowFukidasi__sub_80252C84();
+    clear_flag_20__15TWindowFukidasiFPv();
     if (project_anchor__15TWindowFukidasiFv((Fuki_80250F70 *)arg0, pos, scr) == 0) {
         return 1;
     }
@@ -1099,7 +1099,7 @@ void draw_tail__15TWindowFukidasiFPvPvUiPvf(Fuki_802521E8 *b, void *view, u32 co
     f32 s;
     f32 y0;
     s32 angle;
-    if (fn_80252CB0(b) != 0) {
+    if (is_balloon_visible(b) != 0) {
         project_anchor__15TWindowFukidasiFv((Fuki_80250F70 *)b, pos, scr);
         cx = b->center[0];
         cy = b->center[1];

@@ -21,7 +21,7 @@ s16 obj_getField1c(void *);
 void TBoss4DarkFalz__sub_8004C220(void *, void *);
 void reset_photon_effect__10TObjPlayerFPv(void *);
 void initialize_linked_object_reference(void *, void *);
-void TObjPlayer__sub_801569F4(void *, int);
+void construct_collider_proxy__10TObjPlayerFPv(void *, int);
 extern u8 lbl_804E7578[];
 extern M2C_UNK __vt__22TPlyFollowParticleCtrl[];
 extern s32 lbl_805D40C0;
@@ -73,7 +73,7 @@ void *__dt__22TPlyFollowParticleCtrlFv(void *arg0, s16 arg1) {
     return arg0;
 }
 Ctrl_8030A5B8 *TPlyFollowParticleCtrl__ct(Ctrl_8030A5B8 *self, u8 *arg1) {
-    TObjPlayer__sub_801569F4(self, tl_06);
+    construct_collider_proxy__10TObjPlayerFPv(self, tl_06);
     self->vt = ((u8 *)&__vt__22TPlyFollowParticleCtrl);
     *(s32 *)self = lbl_805D40C0;
     initialize_linked_object_reference(self, lbl_804E7578);

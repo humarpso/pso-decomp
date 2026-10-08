@@ -79,7 +79,7 @@ void fn_80244958(void *arg0);
 s32 fn_80244994(void *arg0);
 void fn_802449E0(u8 *arg0);
 void TWindow__close(u8 *arg0);
-void TWindowSubTradeMain__sub_80244A4C(u8 *arg0);
+void request_close__19TWindowSubTradeMainFPv(u8 *arg0);
 s32 is_window_reveal_complete(u8 *arg0);
 void window_request_refresh(u8 *arg0);
 void window_request_show(void *arg0);
@@ -213,11 +213,11 @@ void fn_802449E0(u8 *arg0) {
 }
 
 void TWindow__close(u8 *arg0) {
-    TWindowSubTradeMain__sub_80244A4C((u8 *)(arg0));
+    request_close__19TWindowSubTradeMainFPv((u8 *)(arg0));
     M2C_FIELD(arg0, s32 *, 0x2C) = (s32) (M2C_FIELD(arg0, s32 *, 0x2C) | 0x10);
 }
 
-void TWindowSubTradeMain__sub_80244A4C(u8 *arg0) {
+void request_close__19TWindowSubTradeMainFPv(u8 *arg0) {
     s32 temp_r3;
     temp_r3 = M2C_FIELD(arg0, s32 *, 0x2C);
     if (!(temp_r3 & 1)) {
@@ -548,7 +548,7 @@ void update_fade__17TWindowSubComCardFPv(void *arg0) {
     M2C_FIELD(arg0, u32 *, 0x50) = (u32) (M2C_FIELD(arg0, u32 *, 0x50) - 1);
 }
 
-void TWindowSubComCard__sub_80246464(u8 *arg0) {
+void update_open_close__17TWindowSubComCardFPv(u8 *arg0) {
     s32 temp_r3;
     s32 temp_r5;
 

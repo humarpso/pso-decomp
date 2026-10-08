@@ -29,7 +29,7 @@ s32 init_map_object_base(void *, void *);
 extern M2C_UNK __vt__17TObjParticleLobby[];
 extern s32 lbl_805D44B8;
 u8 *TObjParticleLobby__ct(u8 *arg0, s32 arg1, s32 arg2);
-s32 TLobby__sub_80351DFC();
+s32 get_filtered_event_theme__6TLobbyFv();
 s32 TObjParticleLobby__sub_80369654(void);
 s32 check_demo_mode__10TObjPlayerFv(void);
 void set_position_xy__10TObjPlayerFPvff(void *, f32, f32);
@@ -58,7 +58,7 @@ void destroy_key_base__5TOKeyFPvs(void *, int);
 void queue_destruction__7TObjectFv(void *);
 
 s32 TObjParticleLobby__sub_80369654(void) {
-    s32 r = TLobby__sub_80351DFC();
+    s32 r = get_filtered_event_theme__6TLobbyFv();
     switch (r) {
     case 12:
         return 0;

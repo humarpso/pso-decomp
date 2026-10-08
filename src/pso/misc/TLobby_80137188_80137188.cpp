@@ -34,8 +34,8 @@ extern "C" {
 
 void disable_window_flags__6TLobbyFPv(void* a0);
 void handle_state__6TLobbyFi(s32 arg0);
-M2C_UNK TAdSinglePlyChrSelectGC__sub_80200B28();
-M2C_UNK TAdSinglePlyChrSelectGC__sub_80200C00();
+M2C_UNK reset_character_data__23TAdSinglePlyChrSelectGCFv();
+M2C_UNK save_online_character__23TAdSinglePlyChrSelectGCFv();
 s32 TLobby__sub_80146740();
 M2C_UNK close_and_set_state_13__6TLobbyFv(M2C_UNK);
 M2C_UNK send_server_time_request__9TProtocolFv(s32);
@@ -68,7 +68,7 @@ void handle_state__6TLobbyFi(s32 arg0) {
     s32 temp_r3;
 
     if (arg0 != 0) {
-        TAdSinglePlyChrSelectGC__sub_80200C00();
+        save_online_character__23TAdSinglePlyChrSelectGCFv();
         temp_r3 = TLobby__sub_80146740();
         switch (temp_r3) {
         case 0:
@@ -83,8 +83,8 @@ void handle_state__6TLobbyFi(s32 arg0) {
         }
     } else {
         reset_state__6TLobbyFv(0x20);
-        TAdSinglePlyChrSelectGC__sub_80200B28();
-        TAdSinglePlyChrSelectGC__sub_80200C00();
+        reset_character_data__23TAdSinglePlyChrSelectGCFv();
+        save_online_character__23TAdSinglePlyChrSelectGCFv();
     }
 }
 

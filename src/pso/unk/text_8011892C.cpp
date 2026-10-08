@@ -66,7 +66,7 @@ M2C_UNK set_flags__10TObjPlayerFPvUi(void *, int);
 extern const f32 TItemProUnit__data_805DABF8;
 extern const f32 lbl_805DAC00;
 void TItemProUnit__sub_80118D58(u8 *arg0);
-void TItemData__sub_8010CDC8(Out_80118958 *out, s16 v);
+void set_unit_modifier__9TItemDataFPvs(Out_80118958 *out, s16 v);
 void TItemProUnit__vt16(Self_80118958 *self, Out_80118958 *out);
 f32 TItemProUnit__sub_8011901C(void *);
 void set_evp__12TItemProUnitFPvf(void *, f32);
@@ -129,7 +129,7 @@ void TItemProUnit__vt12(u8 *arg0) {
 
 void TItemProUnit__vt16(Self_80118958 *self, Out_80118958 *out) {
     out->b4 = (s8)self->m31() - 9;
-    TItemData__sub_8010CDC8(out, self->s1bc);
+    set_unit_modifier__9TItemDataFPvs(out, self->s1bc);
 }
 
 void TItemProUnit__vt47(u8 *arg0) {

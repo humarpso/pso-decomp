@@ -105,7 +105,7 @@ extern u32 TObjNpcFemaleMacho__data_805D5780;
 void load_resources__18TObjNpcFemaleMachoFv(void);
 s32 init_position_vectors__10TObjPlayerFi(void *);
 s32 setup_common__11TObjNpcBaseFv(void *);
-s32 TObjNpcFemaleBase__sub_80149CE0(void *);
+s32 construct_female_base__17TObjNpcFemaleBaseFPv(void *);
 extern M2C_UNK __vt__16TObjNpcFemaleFat[];
 extern s32 lbl_805D2D8C;
 extern u8 *TObjNpcFemaleFat__data_805D5778;
@@ -141,7 +141,7 @@ extern void *tl_04;
 
 typedef char RecoveredGlobal_8014A410___vt__16TObjNpcFemaleFat_size[sizeof(RecoveredGlobal_8014A410___vt__16TObjNpcFemaleFat) == 0x178 ? 1 : -1];
 u8 *TObjNpcFemaleFat__ct(u8 *arg0, M2C_UNK arg1, s32 arg2) {
-    TObjNpcFemaleBase__sub_80149CE0((void *) (arg0));
+    construct_female_base__17TObjNpcFemaleBaseFPv((void *) (arg0));
     M2C_FIELD(arg0, M2C_UNK **, 0x18) = &(*(RecoveredGlobal_8014A410___vt__16TObjNpcFemaleFat *)&__vt__16TObjNpcFemaleFat).value;
     M2C_FIELD(arg0, s32 *, 0) = (s32) lbl_805D2D8C;
     ((VObj_18_aa4667 *)(arg0))->m79(arg2);

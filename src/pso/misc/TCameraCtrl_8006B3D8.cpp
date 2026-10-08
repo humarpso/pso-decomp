@@ -90,7 +90,7 @@ s32 __ct__7TObjectFP7TObject(void *, void *);
 extern const M2C_UNK lbl_80488AD8[];
 extern u32 lbl_805D4DF0;
 extern s32 TCameraCtrl__data_805D4E10;
-u8 *TCameraCtrl__sub_8006B588(u8 *arg0, s32 arg1, s32 arg2, s32 arg3);
+u8 *init_conversation_camera__11TCameraCtrlFPviii(u8 *arg0, s32 arg1, s32 arg2, s32 arg3);
 s32 VecCopy__FP3VecPC3Vec(void *, void *);
 void TCameraCtrl__sub_8006CD78(void *, void *);
 s32 __ct__7TObjectFP7TObject(void *, void *);
@@ -159,7 +159,7 @@ u8 *create_conversation_camera(s32 arg0) {
     temp_r3 = (u8 *)(((u8 *)__nw__7TObjectFUl((int)(0x38))));
     var_r0 = (u8 *)(temp_r3);
     if (var_r0 != NULL) {
-        var_r0 = (u8 *)(TCameraCtrl__sub_8006B588((u8 *)(temp_r3), (s32)(temp_r31), (s32)(arg0), (s32)(tl_07)));
+        var_r0 = (u8 *)(init_conversation_camera__11TCameraCtrlFPviii((u8 *)(temp_r3), (s32)(temp_r31), (s32)(arg0), (s32)(tl_07)));
     }
     return var_r0;
 }
@@ -189,7 +189,7 @@ extern s32 tl_07;
 
 typedef struct RecoveredFields_8006B588_arg0 RecoveredFields_8006B588_arg0;
 typedef struct RecoveredGlobal_8006B588_lbl_80488AD8 RecoveredGlobal_8006B588_lbl_80488AD8;
-u8 *TCameraCtrl__sub_8006B588(u8 *arg0, s32 arg1, s32 arg2, s32 arg3) {
+u8 *init_conversation_camera__11TCameraCtrlFPviii(u8 *arg0, s32 arg1, s32 arg2, s32 arg3) {
   void *new_var;
   __ct__7TObjectFP7TObject((void *) arg0, (void *) arg3);
   ((RecoveredFields_8006B588_arg0 *) arg0)->field_18 = &(*(RecoveredGlobal_8006B588_lbl_80488AD8 *)&lbl_80488AD8).value;

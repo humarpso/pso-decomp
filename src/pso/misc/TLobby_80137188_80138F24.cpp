@@ -71,7 +71,7 @@ extern s32 TLobby__data_805D5580;
 extern u32 TLobby__data_805D55D0;
 extern s32 lbl_805D5600;
 extern char TLobby__data_805DB0B0;
-void TLobby__sub_801392F8(void);
+void update_game_list_menu__6TLobbyFv(void);
 }
 
 extern "C" {
@@ -227,7 +227,7 @@ void handle_com_card__6TLobbyFv(void) {
         close_all_windows__6TLobbyFv();
     }
 }
-void TLobby__sub_801392F8(void) {
+void update_game_list_menu__6TLobbyFv(void) {
     if (TLobby__data_805D55D0 != 0U) {
         if (get_status_flag__6TLobbyFPv(TLobby__data_805D55D0) != 0) {
             lbl_805D5600 = select_cursor_entry__6TLobbyFPv(TLobby__data_805D55D0);

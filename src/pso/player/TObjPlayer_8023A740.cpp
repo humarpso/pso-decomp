@@ -13,7 +13,7 @@ M2C_UNK register_object__10TObjPlayerFi(void *);
 void *__ct__7TEffectFv(void *);
 M2C_UNK direction_to_rotation_xz(void *, void *, void *);
 M2C_UNK init_collision_body_parts(u32, void *, int);
-u32 TObjPlayer__sub_801569F4(u32, void *);
+u32 construct_collider_proxy__10TObjPlayerFPv(u32, void *);
 u32 __nw__7TObjectFUl(int);
 s16 get_level_tier__10TObjPlayerFi(s16);
 f32 vector_length(void *);
@@ -34,7 +34,7 @@ M2C_UNK register_object__10TObjPlayerFi(void *);
 void *__ct__7TEffectFv(void *);
 M2C_UNK direction_to_rotation_xz(void *, void *, void *);
 M2C_UNK init_collision_body_parts(u32, void *, int);
-u32 TObjPlayer__sub_801569F4(u32, void *);
+u32 construct_collider_proxy__10TObjPlayerFPv(u32, void *);
 u32 __nw__7TObjectFUl(int);
 s16 get_level_tier__10TObjPlayerFi(s16);
 f32 vector_length(void *);
@@ -49,7 +49,7 @@ extern const f32 lbl_805DC92C;
 extern const f32 lbl_805DC930;
 extern const f32 lbl_805DC934;
 extern const f32 lbl_805DC938;
-u8 *TObjPlayer__sub_8023AA4C(u8 *arg0, s32 arg1, u8 *arg2, s32 arg3, s32 arg4);
+u8 *construct_facing_technique__10TObjPlayerFPviPvii(u8 *arg0, s32 arg1, u8 *arg2, s32 arg3, s32 arg4);
 }
 
 extern "C" {
@@ -145,7 +145,7 @@ u8 *construct_aimed_technique_projectile(u8 *arg0, s32 arg1, u8 *arg2, u8 *arg3,
     }
     var_r0 = __nw__7TObjectFUl(0xAC);
     if (var_r0 != 0U) {
-        var_r0 = TObjPlayer__sub_801569F4(var_r0, arg0);
+        var_r0 = construct_collider_proxy__10TObjPlayerFPv(var_r0, arg0);
     }
     M2C_FIELD(arg0, u32 *, 0x128) = var_r0;
     if (M2C_FIELD(arg0, u32 *, 0x128) != 0U) {
@@ -154,7 +154,7 @@ u8 *construct_aimed_technique_projectile(u8 *arg0, s32 arg1, u8 *arg2, u8 *arg3,
     return arg0;
 }
 
-u8 *TObjPlayer__sub_8023AA4C(u8 *arg0, s32 arg1, u8 *arg2, s32 arg3, s32 arg4) {
+u8 *construct_facing_technique__10TObjPlayerFPviPvii(u8 *arg0, s32 arg1, u8 *arg2, s32 arg3, s32 arg4) {
     u32 var_r0;
     __ct__7TEffectFv(arg0);
     M2C_FIELD(arg0, M2C_UNK **, 0x18) = lbl_804CCC68;
@@ -213,7 +213,7 @@ u8 *TObjPlayer__sub_8023AA4C(u8 *arg0, s32 arg1, u8 *arg2, s32 arg3, s32 arg4) {
     }
     var_r0 = __nw__7TObjectFUl(0xAC);
     if (var_r0 != 0U) {
-        var_r0 = TObjPlayer__sub_801569F4(var_r0, arg0);
+        var_r0 = construct_collider_proxy__10TObjPlayerFPv(var_r0, arg0);
     }
     M2C_FIELD(arg0, u32 *, 0x128) = var_r0;
     if (M2C_FIELD(arg0, u32 *, 0x128) != 0U) {

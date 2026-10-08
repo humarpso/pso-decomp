@@ -53,7 +53,7 @@ u8 *get_player_by_client_id(s32);
 M2C_UNK text_builder_append();
 M2C_UNK text_builder_reset();
 M2C_UNK send_and_handle__6TLobbyFPvii(int, int, int);
-s32 TLobby__sub_80269CC0(s32, void *, int, int);
+s32 create_message_window__6TLobbyFiiUis(s32, void *, int, int);
 s32 get_window_layout_position(int);
 extern u8 lbl_80470AA8[];
 s32 fn_802B1B80(u8 *arg0, s32 arg1, s32 arg2);
@@ -87,7 +87,7 @@ s32 fn_802B1B80(u8 *arg0, s32 arg1, s32 arg2) {
         ((M2C_UNK (*)(M2C_UNK))text_builder_append)(p->m10());
     }
     ((M2C_UNK (*)(s32))text_builder_append)(arg2);
-    r = TLobby__sub_80269CC0(get_window_layout_position(0x5B), lbl_80470AA8, 1, M2C_FIELD(arg0, s32 *, 0x20));
+    r = create_message_window__6TLobbyFiiUis(get_window_layout_position(0x5B), lbl_80470AA8, 1, M2C_FIELD(arg0, s32 *, 0x20));
     send_and_handle__6TLobbyFPvii(r, get_shared_text_buffer(), 0x82);
     return r;
 }

@@ -53,7 +53,7 @@ u8 *load_enemy_bml_resource_named(void *, void *);
 u8 *load_resource_from_descriptor(void *, s32, void *, s32, s32, s32);
 void *alloc__23TAdSinglePlyChrSelectGCFPv(s32);
 void draw_trail_with_colors(void *, s32, s32, s32, s32);
-void *TBoss4Type3__sub_800D9ABC(void *, s32, f32, f32, f32);
+void *init_trail_buffer__11TBoss4Type3FPvifff(void *, s32, f32, f32, f32);
 s32 *alloc_buffer__11TOBoss4RockFPv(s32);
 void spawn_npc_enemy__6TLobbyFsiiiff(int, int, int, void *, f32, f32);
 extern Ids_800A8118 lbl_8043AA8C[];
@@ -122,8 +122,8 @@ extern "C" void TObjPlayer__sub_800111D8();
 extern "C" void TObjPlayer__sub_80014830();
 extern "C" void TObjPlayer__sub_80014838();
 extern "C" void TObjPlayer__sub_80014840();
-extern "C" void TObjPlayer__sub_80015884();
-extern "C" void TObjPlayer__sub_80016C54();
+extern "C" void apply_slow_status__10TObjPlayerFPv();
+extern "C" void update_shock_clock__10TObjPlayerFPv();
 extern "C" void TObjPlayer__sub_800172CC();
 extern "C" void TObjPlayer__sub_80018E6C();
 extern "C" void TObjPlayer__sub_80019568();
@@ -288,8 +288,8 @@ void *lbl_80490EEC[103] = {
     (void *)&beast_select_target, (void *)&TObjPlayer__sub_8000FF3C, (void *)&is_target_in_attack_range__10TObjPlayerFv, (void *)&is_lying_down__12TObjEneBeastFv,
     (void *)&test_flag30_512__10TObjPlayerFPv, (void *)&has_flag_0x800__10TObjPlayerFPv, (void *)&test_flag_1000__10TObjPlayerFPv, (void *)&update_poison_status__10TObjPlayerFv,
     (void *)&update_action_hold__12TObjEneBeastFPv, (void *)&update_action_timer__10TObjPlayerFPv, (void *)&update_flag30_timer__10TObjPlayerFPv, (void *)&tick_freeze_and_reset_appearance,
-    (void *)&TObjPlayer__sub_80016C54, (void *)&update_attack_stat_status, (void *)&update_defense_stat_status, (void *)&TObjPlayer__sub_800172CC,
-    (void *)&apply_poison_status__10TObjPlayerFv, (void *)&apply_paralysis__10TObjPlayerFv, (void *)&TObjPlayer__sub_80015884, (void *)&apply_confusion_status__10TObjPlayerFv,
+    (void *)&update_shock_clock__10TObjPlayerFPv, (void *)&update_attack_stat_status, (void *)&update_defense_stat_status, (void *)&TObjPlayer__sub_800172CC,
+    (void *)&apply_poison_status__10TObjPlayerFv, (void *)&apply_paralysis__10TObjPlayerFv, (void *)&apply_slow_status__10TObjPlayerFPv, (void *)&apply_confusion_status__10TObjPlayerFv,
     (void *)&apply_movement_ailment__10TObjPlayerFv, (void *)&apply_shock_status__10TObjPlayerFv, (void *)&clear_harmful_statuses__10TObjPlayerFv, (void *)&apply_attack_stat_status__10TObjPlayerFv,
     (void *)&apply_defense_stat_status__10TObjPlayerFv, (void *)&cure_poison_ailment, (void *)&cure_paralysis__10TObjPlayerFv, (void *)&clear_all_status_effects,
     (void *)&apply_action_hold_status, (void *)&apply_anti_technique__10TObjPlayerFv, (void *)&tick_freeze_state__10TObjPlayerFPv, (void *)&beast_enter_approach,
@@ -398,12 +398,12 @@ void TLobby__sub_800A8118(void) {
     lbl_80500994[2] = 0;
     p = alloc__23TAdSinglePlyChrSelectGCFPv(0x18);
     if (p != NULL) {
-        p = TBoss4Type3__sub_800D9ABC(p, 2, lbl_805D9AC0, lbl_805D9AA4, lbl_805D9AB8);
+        p = init_trail_buffer__11TBoss4Type3FPvifff(p, 2, lbl_805D9AC0, lbl_805D9AA4, lbl_805D9AB8);
     }
     lbl_805D5084 = p;
     p = alloc__23TAdSinglePlyChrSelectGCFPv(0x18);
     if (p != NULL) {
-        p = TBoss4Type3__sub_800D9ABC(p, 2, lbl_805D9AC0, lbl_805D9AA4, lbl_805D9AB8);
+        p = init_trail_buffer__11TBoss4Type3FPvifff(p, 2, lbl_805D9AC0, lbl_805D9AA4, lbl_805D9AB8);
     }
     lbl_805D5088 = p;
     draw_trail_with_colors(lbl_805D5084, RES_800A8118->bodies->model,

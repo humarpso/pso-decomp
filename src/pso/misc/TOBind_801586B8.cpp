@@ -40,7 +40,7 @@ s32 get_bml_model(int, int);
 s32 reset_photon_effect__10TObjPlayerFPv(void *);
 s32 refresh_collision_body_centers(void *);
 s32 init_collision_body_parts(void *, void *, int);
-s32 TObjPlayer__sub_801569F4(void *, int);
+s32 construct_collider_proxy__10TObjPlayerFPv(void *, int);
 extern RecoveredGlobal_80158890_lbl_804AFC54 lbl_804AFC54;
 extern M2C_UNK __vt__6TOBind[];
 extern s32 lbl_805D2EA8;
@@ -150,7 +150,7 @@ void *__dt__6TOBindFv(void *arg0, s16 arg1) {
 typedef char RecoveredGlobal_80158890_lbl_804AFC54_size[sizeof(RecoveredGlobal_80158890_lbl_804AFC54) == 0x58 ? 1 : -1];
 typedef char RecoveredGlobal_80158890___vt__6TOBind_size[sizeof(RecoveredGlobal_80158890___vt__6TOBind) == 0x3C ? 1 : -1];
 u8 *TOBind__ct(u8 *arg0, s32 arg1) {
-    TObjPlayer__sub_801569F4((void *) (arg0), (int) (tl_05));
+    construct_collider_proxy__10TObjPlayerFPv((void *) (arg0), (int) (tl_05));
     M2C_FIELD(arg0, M2C_UNK **, 0x18) = &(*(RecoveredGlobal_80158890___vt__6TOBind *)&__vt__6TOBind).value;
     M2C_FIELD(arg0, s32 *, 0) = (s32) lbl_805D2EA8;
     ((VObj_18_1a504b *)(arg0))->m5(arg1);

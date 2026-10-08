@@ -141,7 +141,7 @@ s32 play_sound_effect(s32 id, void *pos, s32 a, s32 b);
 void *__nw__7TObjectFUl(int);
 void construct_area_technique_base(void *, void *, void *, void *, int);
 void TTecRaZonde__sub_80238D10(u8 *arg0);
-u8 *TTecZonde__sub_8023DA10(u8 *arg0, u8 *arg1, u8 *arg2, u8 *arg3, s32 arg4, s32 arg5, f32 farg0, f32 farg1);
+u8 *construct_bolt_effect__9TTecZondeFPvPvPvPviiff(u8 *arg0, u8 *arg1, u8 *arg2, u8 *arg3, s32 arg4, s32 arg5, f32 farg0, f32 farg1);
 f32 sin_table_lookup(s32);
 f32 cos_table_lookup(s32);
 f32 vector_length(void *);
@@ -391,16 +391,16 @@ s32 TTecAnti__sub_8022B35C(void *, int);
 void TTecRaZonde__sub_80238D10(u8 *arg0);
 void TTecRaFoie__vt4(u8 *self, u8 *target);
 u16 obj_getField1c(void *);
-void TObjPlayer__sub_8004433C(void *);
+void construct_target_cursor_records__10TObjPlayerFi(void *);
 void copy_technique_target_list(void *, void *);
 extern M2C_UNK __vt__10TTecRaFoie[];
 extern u32 lbl_805D3800;
-u8 *TTecRaFoie__sub_80238BA4(u8 *self, void *source, void *origin, void *targets, int level);
+u8 *construct_targeted__10TTecRaFoieFPvPvPvPvi(u8 *self, void *source, void *origin, void *targets, int level);
 s32 create_particle_emitter(void *, int);
 s32 alloc_buffer__11TOBoss4RockFPv(int);
 void TTecRaZonde__vt6(struct Self_80238C6C *self);
 u16 obj_getField1c(void *);
-void TObjPlayer__sub_8004433C(void *);
+void construct_target_cursor_records__10TObjPlayerFi(void *);
 void fn_80044330(void *);
 void construct_area_technique_base(void *, void *, void *, void *, int);
 extern M2C_UNK __vt__10TTecRaFoie[];
@@ -449,7 +449,7 @@ typedef char RecoveredGlobal_80238D10_lbl_804CC55C_size[((sizeof(RecoveredGlobal
 Obj_80238AE8 *TTecRaFoie__ct(Obj_80238AE8 *arg0, void * _w1, void * _w2, void * _w3, int _w4);
 #pragma pop
 
-u8 *TTecRaFoie__sub_80238BA4(u8 *self, void *source, void *origin, void *targets, int level);
+u8 *construct_targeted__10TTecRaFoieFPvPvPvPvi(u8 *self, void *source, void *origin, void *targets, int level);
 
 void TTecRaZonde__vt6(struct Self_80238C6C *self) {
     u32 i;
@@ -633,13 +633,13 @@ void *TTecRaZonde__ct(void *self_, void *source, void *origin, void *level) {
         {
             u8 *o = (u8 *)__nw__7TObjectFUl(0x260);
             if (o != 0) {
-                TTecZonde__sub_8023DA10(o, (u8 *)tl_07, (u8 *)&a, (u8 *)&b, 0x14000000, 6, len, (5.0f));
+                construct_bolt_effect__9TTecZondeFPvPvPvPviiff(o, (u8 *)tl_07, (u8 *)&a, (u8 *)&b, 0x14000000, 6, len, (5.0f));
             }
         }
         if (self->band == 5) {
             u8 *o = (u8 *)__nw__7TObjectFUl(0x260);
             if (o != 0) {
-                TTecZonde__sub_8023DA10(o, (u8 *)tl_07, (u8 *)&a, (u8 *)&b, 0x14000000, 6, len, (0.5f));
+                construct_bolt_effect__9TTecZondeFPvPvPvPviiff(o, (u8 *)tl_07, (u8 *)&a, (u8 *)&b, 0x14000000, 6, len, (0.5f));
             }
         }
     }

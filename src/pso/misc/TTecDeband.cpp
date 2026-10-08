@@ -73,7 +73,7 @@ struct Obj_8022F588 { u8 pad[0x1C]; u8 *source; u8 pad20[0x74 - 0x20]; f32 power
 typedef s32 M2C_UNK;
 extern "C" {
 s32 obj_getField1c(int);
-s32 TObjPlayer__sub_8004433C(void *);
+s32 construct_target_cursor_records__10TObjPlayerFi(void *);
 s32 fn_8022F42C(void *);
 int init_params__10TTecDebandFPv(void* p);
 void update_effect_params__10TTecDebandFPv(u8 *arg0);
@@ -94,7 +94,7 @@ s32 is_script_controlled__10TObjPlayerFPv(void *);
 void show_party_effect__11TWindowCtrlFPvPvPv(s32, s32, s32);
 void TTecDeband__vt5(Obj_8022F588 *arg0, VObj_18_b27ba1 *arg1);
 s32 obj_getField1c(int);
-s32 TObjPlayer__sub_8004433C(void *);
+s32 construct_target_cursor_records__10TObjPlayerFi(void *);
 s32 fn_8022F42C(void *);
 int init_params__10TTecDebandFPv(void* p);
 void update_effect_params__10TTecDebandFPv(u8 *arg0);
@@ -216,7 +216,7 @@ s32 TTecDeband__ct(u32 a0, s32 arg1, s32 arg2, s32 arg3, s32 arg4) {
     u8 *temp_r3;
     TTecPlayerInfluence__ct((void *) (arg0), (void *) (arg1), (void *) (arg2), (void *) (arg4));
     M2C_FIELD(arg0, M2C_UNK **, 0x18) = __vt__10TTecDeband;
-    TObjPlayer__sub_8004433C((void *) (arg0 + 0xE0));
+    construct_target_cursor_records__10TObjPlayerFi((void *) (arg0 + 0xE0));
     s32 g = lbl_805D37A8;
     M2C_FIELD(arg0, s32 *, 0) = g;
     M2C_FIELD(arg0, s32 *, 0x13C) = 1;
@@ -244,7 +244,7 @@ u8 *TTecDeband__sub_8022F948(u8 *arg0, s32 arg1, s32 arg2, s32 arg3) {
     u8 *temp_r3;
     TTecPlayerInfluence__ct((void *) (arg0), (void *) (arg1), (void *) (arg2), (void *) (arg3));
     M2C_FIELD(arg0, M2C_UNK **, 0x18) = &(*(RecoveredGlobal_8022F948___vt__10TTecDeband *)&__vt__10TTecDeband).value;
-    TObjPlayer__sub_8004433C((void *) (arg0 + 0xE0));
+    construct_target_cursor_records__10TObjPlayerFi((void *) (arg0 + 0xE0));
     M2C_FIELD(arg0, s32 *, 0) = (s32) lbl_805D37A8;
     M2C_FIELD(arg0, s32 *, 0x13C) = 0;
     update_effect_params__10TTecDebandFPv((u8 *)((void *) (arg0)));

@@ -28,7 +28,7 @@ struct Bonus_8010BA9C { u8 kind; u8 pad; s16 val; };
 struct Stats_8010BA9C { u8 pad0[2]; s16 x2; u8 pad4[2]; s16 x6; u8 pad8[4]; s16 xC; };
 
 extern "C" {
-void TItemData__sub_8010B848(u8 *arg0, s32 arg1);
+void set_present_color__9TItemDataFPvi(u8 *arg0, s32 arg1);
 s32 TItemData__sub_8010B8B0(u8 *arg0);
 s32 get_minutes__6TLobbyFv(void);
 extern M2C_UNK lbl_8043E348;
@@ -48,7 +48,7 @@ void TItemData__sub_8010EDA8(void *arg0, s32 arg1);
 void add_quantity__9TItemDataFPvi(void *arg0, s32 arg1);
 void add_armor_stat_contribution__9TItemDataFPviiPv(u8 *self, s32 player, s32 unused, s16 *out);
 extern u8 lbl_805DAB68;
-void TItemData__sub_8010C498(struct Item_8010C498 *self);
+void set_wrapped__9TItemDataFPv(struct Item_8010C498 *self);
 s32 lookup_item_def__9TItemDataFPv(void *);
 u8 is_wrapped__9TItemDataFPv(Item_8010C52C *it);
 f32 calc_clock_bonus__9TItemDataFPv(u8 *arg0);
@@ -118,7 +118,7 @@ void add_s16__9TItemDataFPvi(s16 *arg0, s32 arg1) {
     *arg0 += arg1;
 }
 
-void TItemData__sub_8010B848(u8 *arg0, s32 arg1) {
+void set_present_color__9TItemDataFPvi(u8 *arg0, s32 arg1) {
     u8 temp_r0;
     temp_r0 = M2C_FIELD(arg0, u8 *, 0);
     switch ((s32) temp_r0) {
@@ -349,7 +349,7 @@ void add_armor_stat_contribution__9TItemDataFPviiPv(u8 *self, s32 player, s32 un
 }
 #pragma pop
 
-void TItemData__sub_8010C498(struct Item_8010C498 *self) {
+void set_wrapped__9TItemDataFPv(struct Item_8010C498 *self) {
     switch (self->kind) {
     case 0:
     case 1:

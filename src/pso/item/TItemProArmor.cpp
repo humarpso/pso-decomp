@@ -189,12 +189,12 @@ void *init_vtable__13TItemProArmorFPv(void *arg0);
 void update_armor__13TItemProArmorFPv(void* p);
 void write_item_data__13TItemProArmorFPvPv(void *arg0, void *arg1);
 s32 TItemData__sub_8010CE1C(void *, u8);
-s32 TItemData__sub_8010CE70(void *, u8);
+s32 set_dfp_bonus__9TItemDataFPvs(void *, u8);
 void TItemObject__ct(void *);
 s32 get_tool_pmt_amount_byte(void *);
 void TItemTimerEvent__ct(void *);
 M2C_UNK refresh_owner_stats__5TItemFPv();
-int TObjPlayer__sub_80108164(void);
+int spawn_appearance_effect__10TObjPlayerFi(void);
 M2C_UNK add_weapon_grind(s32, s32);
 void __dt__11TItemObjectFv(void *, int);
 void __dt__14TItemEquipBaseFv(void *, int);
@@ -312,7 +312,7 @@ void TItemProArmor__sub_801178D4(u8 *arg0) {
 
 void write_item_data__13TItemProArmorFPvPv(void *arg0, void *arg1) {
     M2C_FIELD(arg1, u8 *, 5) = (u8) M2C_FIELD(arg0, u8 *, 0x192);
-    TItemData__sub_8010CE70(arg1, M2C_FIELD(arg0, u8 *, 0x193));
+    set_dfp_bonus__9TItemDataFPvs(arg1, M2C_FIELD(arg0, u8 *, 0x193));
     TItemData__sub_8010CE1C(arg1, M2C_FIELD(arg0, u8 *, 0x194));
 }
 
@@ -546,7 +546,7 @@ void TItemProArmor__vt14(void *arg0) {
     }
 }
 
-void update_armor__13TItemProArmorFPv(void* p) { if (get_flag_40__8TItemMagFPv(p) == 0) { obj_getField1c(*(void**)((char*)p + 0xf0)); TObjPlayer__sub_80108164(); } }
+void update_armor__13TItemProArmorFPv(void* p) { if (get_flag_40__8TItemMagFPv(p) == 0) { obj_getField1c(*(void**)((char*)p + 0xf0)); spawn_appearance_effect__10TObjPlayerFi(); } }
 
 typedef char RecoveredGlobal_80117B98___vt__13TItemProArmor_size[sizeof(RecoveredGlobal_80117B98___vt__13TItemProArmor) == 0xCC ? 1 : -1];
 u8 *TItemProArmor__ct(u8 *arg0, M2C_UNK arg1, u8 *arg2) {

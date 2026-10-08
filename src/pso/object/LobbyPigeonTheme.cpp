@@ -7,12 +7,12 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 extern "C" {
 
 s32 filter_lobby_pigeon_theme(void);
-s32 TLobby__sub_80351DFC();
+s32 get_filtered_event_theme__6TLobbyFv();
 
 s32 filter_lobby_pigeon_theme(void) {
     s32 var_r3;
 
-    var_r3 = TLobby__sub_80351DFC();
+    var_r3 = get_filtered_event_theme__6TLobbyFv();
     switch (var_r3) {
     case 3:
     case 9:

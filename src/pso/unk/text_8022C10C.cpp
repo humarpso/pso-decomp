@@ -10,7 +10,7 @@ u16 obj_getField1c(s32);
 s32 get_type__10TObjPlayerFPv(s32);
 void *__ct__7TEffectFv(void *);
 M2C_UNK init_collision_body_parts(u32, void *, M2C_UNK);
-u32 TObjPlayer__sub_801569F4(u32, void *);
+u32 construct_collider_proxy__10TObjPlayerFPv(u32, void *);
 u32 __nw__7TObjectFUl(M2C_UNK);
 s16 get_level_tier__10TObjPlayerFi(s16);
 extern void *lbl_804CC148[];
@@ -26,7 +26,7 @@ u16 obj_getField1c(s32);
 s32 get_type__10TObjPlayerFPv(s32);
 void *__ct__7TEffectFv(void *);
 M2C_UNK init_collision_body_parts(u32, void *, M2C_UNK);
-u32 TObjPlayer__sub_801569F4(u32, void *);
+u32 construct_collider_proxy__10TObjPlayerFPv(u32, void *);
 u32 __nw__7TObjectFUl(M2C_UNK);
 s16 get_level_tier__10TObjPlayerFi(s16);
 extern void *lbl_804CC148[];
@@ -36,12 +36,12 @@ extern const f32 lbl_805DC7BC;
 extern const f32 lbl_805DC7C0;
 extern const f32 lbl_805DC7C4;
 extern const f32 lbl_805DC7C8;
-u8 *fn_8022C10C(u8 *arg0, s32 arg1, s32 arg2, s32 arg4);
+u8 *init_technique_effect_base(u8 *arg0, s32 arg1, s32 arg2, s32 arg4);
 }
 
 extern "C" {
 
-u8 *fn_8022C10C(u8 *arg0, s32 arg1, s32 arg2, s32 arg4) {
+u8 *init_technique_effect_base(u8 *arg0, s32 arg1, s32 arg2, s32 arg4) {
     u32 var_r0;
     __ct__7TEffectFv(arg0);
     M2C_FIELD(arg0, void ***, 0x18) = lbl_804CC148;
@@ -87,7 +87,7 @@ u8 *fn_8022C10C(u8 *arg0, s32 arg1, s32 arg2, s32 arg4) {
     }
     var_r0 = __nw__7TObjectFUl(0xAC);
     if (var_r0 != 0U) {
-        var_r0 = TObjPlayer__sub_801569F4(var_r0, arg0);
+        var_r0 = construct_collider_proxy__10TObjPlayerFPv(var_r0, arg0);
     }
     M2C_FIELD(arg0, u32 *, 0xE8) = var_r0;
     if (M2C_FIELD(arg0, u32 *, 0xE8) != 0U) {
@@ -140,7 +140,7 @@ u8 *construct_area_technique_base(u8 *arg0, s32 arg1, s32 arg2, s32 arg3, s32 ar
     }
     var_r0 = __nw__7TObjectFUl(0xAC);
     if (var_r0 != 0U) {
-        var_r0 = TObjPlayer__sub_801569F4(var_r0, arg0);
+        var_r0 = construct_collider_proxy__10TObjPlayerFPv(var_r0, arg0);
     }
     M2C_FIELD(arg0, u32 *, 0xE8) = var_r0;
     if (M2C_FIELD(arg0, u32 *, 0xE8) != 0U) {

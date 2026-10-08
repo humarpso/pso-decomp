@@ -64,10 +64,11 @@ struct Hit_8006809C { u8 pad0[4]; void *pos; };
 
 struct Cam_8006809C { u8 pad0[0x1C]; Obj_8006809C *obj; u8 pad20[0x60 - 0x20]; Vec_8006835C out; };
 
+typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
+#define M2C_BITWISE(type, expr) ((type)(expr))
 extern "C" {
 extern G_80068018 lbl_8050E208;
 extern M2C_UNK lbl_80488838[];
-void TCameraCtrl__sub_80068714(void *);
 O_80068018 *TCameraCtrl__sub_80068018(O_80068018 *self);
 Vec_8006835C *get_target__11TCameraCtrlFPv(void *);
 void direction_to_pitch_yaw(void *, void *, void *);
@@ -117,6 +118,12 @@ extern const f32 lbl_805D8F88;
 extern const f32 lbl_805D8F8C;
 extern const f32 lbl_805D8F90;
 s32 predict_obstruction__11TCameraCtrlFPv(Cam_8006809C *self);
+M2C_UNK __ct__7TObjectFP7TObject(void *, void *);
+extern M2C_UNK lbl_80488A28[];
+extern const f32 TCameraCtrl__data_805D8F80;
+extern const f32 TCameraCtrl__data_805D8F84;
+extern const f32 lbl_805D8FA0;
+void *TCameraCtrl__sub_80068714(void *arg0);
 }
 
 extern "C" {
@@ -143,7 +150,7 @@ void *TCameraCtrl__sub_80067FC0(void *arg0, s16 arg1) {
 }
 
 O_80068018 *TCameraCtrl__sub_80068018(O_80068018 *self) {
-    TCameraCtrl__sub_80068714(self);
+    TCameraCtrl__sub_80068714((void *)(self));
     *(void **)((u8 *)self + 0x18) = ((char *)&lbl_80488838);
     self->x38 = 0;
     self->x6c = lbl_8050E208.sub;
@@ -311,6 +318,30 @@ void *TCameraCtrl__sub_800686BC(void *arg0, s16 arg1) {
             __dl__7TObjectFPv(arg0);
         }
     }
+    return arg0;
+}
+void *TCameraCtrl__sub_80068714(void *arg0) {
+    __ct__7TObjectFP7TObject(arg0, 0);
+    M2C_FIELD(arg0, M2C_UNK **, 0x18) = lbl_80488A28;
+    M2C_FIELD(arg0, f32 *, 0x3C) = (f32) TCameraCtrl__data_805D8F84;
+    M2C_FIELD(arg0, f32 *, 0x40) = (f32) TCameraCtrl__data_805D8F84;
+    M2C_FIELD(arg0, f32 *, 0x44) = (f32) TCameraCtrl__data_805D8F84;
+    M2C_FIELD(arg0, s32 *, 0x2C) = 0;
+    M2C_FIELD(arg0, s32 *, 0x30) = 0;
+    M2C_FIELD(arg0, s32 *, 0x34) = 0;
+    M2C_FIELD(arg0, f32 *, 0x48) = (f32) TCameraCtrl__data_805D8F84;
+    M2C_FIELD(arg0, f32 *, 0x4C) = (f32) TCameraCtrl__data_805D8F84;
+    M2C_FIELD(arg0, f32 *, 0x50) = (f32) TCameraCtrl__data_805D8F80;
+    M2C_FIELD(arg0, f32 *, 0x60) = (f32) TCameraCtrl__data_805D8F84;
+    M2C_FIELD(arg0, f32 *, 0x64) = (f32) TCameraCtrl__data_805D8F84;
+    M2C_FIELD(arg0, f32 *, 0x68) = (f32) TCameraCtrl__data_805D8F84;
+    M2C_FIELD(arg0, s32 *, 0x28) = 0;
+    M2C_FIELD(arg0, s32 *, 0x24) = 0;
+    M2C_FIELD(arg0, s32 *, 0x38) = 0;
+    M2C_FIELD(arg0, f32 *, 0x58) = (f32) TCameraCtrl__data_805D8F84;
+    M2C_FIELD(arg0, f32 *, 0x5C) = (f32) lbl_805D8FA0;
+    M2C_FIELD(arg0, s32 *, 0x54) = 0x36C1;
+    M2C_FIELD(arg0, u16 *, 0x20) = 0xFFFF;
     return arg0;
 }
 

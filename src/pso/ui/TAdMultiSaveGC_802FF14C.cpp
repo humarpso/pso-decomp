@@ -7,7 +7,7 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 
 extern "C" {
 s32 TQuestVmDownLoadServer__sub_8006EF6C(int);
-M2C_UNK TWindowSubComCard__sub_80265E60(int, f32);
+M2C_UNK update_layout_height__17TWindowSubComCardFPvf(int, f32);
 M2C_UNK forward_trade_action_default__16TObjCityMainWarpFPviii(int, int, int, int);
 s32 check_room_seq_4__16TAdChrSelASlotGCFii(void *, int);
 extern M2C_UNK lbl_80474D90[];
@@ -71,7 +71,7 @@ s32 TAdMultiSaveGC__sub_802FF170(void) {
     temp_r31 = check_room_seq_4__16TAdChrSelASlotGCFii((void *) (lbl_80474D90), (int) (2));
     forward_trade_action_default__16TObjCityMainWarpFPviii((int) (temp_r31), (int) (TQuestVmDownLoadServer__sub_8006EF6C((int) (0xD))), (int) (6), (int) (0));
     forward_trade_action_default__16TObjCityMainWarpFPviii((int) (temp_r31), (int) (TQuestVmDownLoadServer__sub_8006EF6C((int) (0xE))), (int) (6), (int) (1));
-    TWindowSubComCard__sub_80265E60((int) (temp_r31), (f32) (lbl_805DEF28));
+    update_layout_height__17TWindowSubComCardFPvf((int) (temp_r31), (f32) (lbl_805DEF28));
     return temp_r31;
 }
 s32 TAdMultiSaveGC__sub_802FF1F4(void) {

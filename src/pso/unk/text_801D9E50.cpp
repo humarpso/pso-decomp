@@ -25,12 +25,12 @@ struct Stack_801D9E50 {
 
 extern "C" {
 void bswap__13packet_headerFv(s32);
-void fn_801D9E50(u8 *arg0);
+void send_keepalive(u8 *arg0);
 }
 
 extern "C" {
 
-void fn_801D9E50(u8 *arg0) {
+void send_keepalive(u8 *arg0) {
     Stack_801D9E50 stack;
     stack.sp8 = 0x1D;
     stack.sp9 = 0;

@@ -228,6 +228,13 @@ struct VObj_18_9ebd6c : VBase_18_9ebd6c {
     virtual s32 m37();
 };
 
+struct Pair_8015D518 { s32 a; s32 b; };
+
+struct Obj_8015D518 {
+    u8 pad0[0x326];
+    s16 f326;
+};
+
 extern "C" {
 M2C_UNK queue_destruction__7TObjectFv(void *);
 M2C_UNK TLobby__sub_800F6510(void *, void *);
@@ -315,6 +322,9 @@ extern s32 lbl_805D29F8;
 extern s32 lbl_805D586C;
 extern s32 lbl_805D5870;
 void TOCtrlDubchik__sub_8015CA74(void *arg0_);
+f32 receive_direct_attack__10TObjPlayerFv(void *, s32, Pair_8015D518, void *, s32, s32);
+extern const f32 TOCtrlDubchik__data_805DB3A8;
+f32 TOCtrlDubchik__vt21(Obj_8015D518 *arg0, s32 arg1, Pair_8015D518 arg2, void *arg3);
 }
 
 extern "C" {
@@ -584,6 +594,13 @@ s32 TOCtrlDubchik__vt18(void *arg0) {
         return select_melee_contact_body__10TObjPlayerFv();
     }
     return 0;
+}
+
+f32 TOCtrlDubchik__vt21(Obj_8015D518 *arg0, s32 arg1, Pair_8015D518 arg2, void *arg3) {
+    if (arg0->f326 != 0) {
+        return receive_direct_attack__10TObjPlayerFv(arg0, arg1, arg2, arg3, -1, -1);
+    }
+    return TOCtrlDubchik__data_805DB3A8;
 }
 
 s32 TOCtrlDubchik__vt24(u8 *arg0, s32 arg1, s32 arg2) {

@@ -19,7 +19,7 @@ u8 * TQuestThread__sub_801F5E58(void);
 s32 get_array_entry__20TWindowSubStatusDispFPvi(void *, s32);
 s32 get_field_20__17TWindowSubComCardFPv(void *);
 u8 * get_window_layout_position(s32);
-s32 TWindowSubStatusDisp__sub_802880BC(s32, s32, s32);
+s32 construct_type1_heading__20TWindowSubStatusDispFPvii(s32, s32, s32);
 s32 get_message_10__20TWindowSubStatusDispFPv(int);
 u32 calc_text_width();
 M2C_UNK TWindowDD__sub_802466E0(void *, void *, int, int);
@@ -49,7 +49,7 @@ u8 *TWindowSubQuestBoardSelect__ct(u8 *arg0) {
     M2C_FIELD(arg0, s32 *, 0) = (s32) lbl_805D3A80;
     var_r30 = alloc__23TAdSinglePlyChrSelectGCFPv((void *)0x24);
     if (var_r30 != 0) {
-        var_r30 = TWindowSubStatusDisp__sub_802880BC(var_r30, get_message_10__20TWindowSubStatusDispFPv((int) (0x2B)), (s32) M2C_FIELD(arg0, s16 *, 0x20));
+        var_r30 = construct_type1_heading__20TWindowSubStatusDispFPvii(var_r30, get_message_10__20TWindowSubStatusDispFPv((int) (0x2B)), (s32) M2C_FIELD(arg0, s16 *, 0x20));
     }
     M2C_FIELD(arg0, s32 *, 0x64) = var_r30;
     M2C_FIELD(arg0, s8 *, 0x60) = 0;

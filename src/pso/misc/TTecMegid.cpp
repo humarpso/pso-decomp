@@ -263,11 +263,11 @@ u8 *TTecMegid__ct(u8 *arg0, s32 _w1, s32 _w2, s32 _w3, s32 _w4);
 u16 obj_getField1c(void *);
 void update_by_state__9TTecMegidFPv(u8 *arg0);
 void init_parameters__9TTecMegidFPv(u8 *arg0);
-void TObjPlayer__sub_8023AA4C();
+void construct_facing_technique__10TObjPlayerFPviPvii();
 extern void *__vt__9TTecMegid[];
 extern s32 lbl_805D37E8;
 extern const f32 lbl_805DC884;
-u8 *TTecMegid__sub_80235940(u8 *arg0, s32 _w1, s32 _w2, s32 _w3, s32 _w4);
+u8 *construct_facing__9TTecMegidFPviiii(u8 *arg0, s32 _w1, s32 _w2, s32 _w3, s32 _w4);
 u16 obj_getField1c(void *);
 s32 obj_isState3_324(void *);
 M2C_UNK queue_destruction__7TObjectFv(void *);
@@ -470,7 +470,7 @@ void create_ex__9TTecMegidFiiii(s32 arg0, s32 arg1, s32 arg2, s32 arg3) {
     u32 obj;
     obj = __nw__7TObjectFUl(0x17C);
     if (obj != 0U) {
-        TTecMegid__sub_80235940((u8 *)(obj), (s32)(arg0), (s32)(arg1), (s32)(arg2), (s32)(arg3));
+        construct_facing__9TTecMegidFPviiii((u8 *)(obj), (s32)(arg0), (s32)(arg1), (s32)(arg2), (s32)(arg3));
     }
 }
 void render__9TTecMegidFv(void) {  }
@@ -542,9 +542,9 @@ u8 *TTecMegid__ct(u8 *arg0, s32 _w1, s32 _w2, s32 _w3, s32 _w4) {
     return arg0;
 }
 
-u8 *TTecMegid__sub_80235940(u8 *arg0, s32 _w1, s32 _w2, s32 _w3, s32 _w4) {
+u8 *construct_facing__9TTecMegidFPviiii(u8 *arg0, s32 _w1, s32 _w2, s32 _w3, s32 _w4) {
     s32 i;
-    TObjPlayer__sub_8023AA4C();
+    construct_facing_technique__10TObjPlayerFPviPvii();
     M2C_FIELD(arg0, void **, 0x18) = __vt__9TTecMegid;
     M2C_FIELD(arg0, s32 *, 0) = lbl_805D37E8;
     init_parameters__9TTecMegidFPv(arg0);

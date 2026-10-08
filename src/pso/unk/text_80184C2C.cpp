@@ -25,6 +25,17 @@ extern const char lbl_80444A00[];
 extern const char lbl_80444A10[];
 extern const char *lbl_804B6028[];
 void TObjLaboMapWarp__vt17(Obj_80185160 *self);
+void TLobby__sub_8001FE7C(void *, s32);
+void destroy_buffer_pair(void *, s32);
+extern int lbl_8050DC38[];
+extern int lbl_8050DC50[];
+extern void *lbl_805D5B34;
+extern void *lbl_805D5B38;
+extern s32 lbl_805D5B3C;
+extern s32 lbl_805D5B40;
+extern s32 lbl_805D5B44;
+extern void *lbl_805D5B48;
+void TLobby__sub_80184D28(void);
 }
 
 extern "C" {
@@ -68,6 +79,33 @@ void TLobby__sub_80184D00(void* _w0) {
         ((s32 *)&lbl_8050DC20)[i] = 0;
     }
 }
+
+void TLobby__sub_80184D28(void) {
+    s32 i;
+    if (lbl_805D5B48 != NULL) {
+        destroy_buffer_pair(lbl_805D5B48, 1);
+        lbl_805D5B48 = NULL;
+    }
+    if (lbl_805D5B38 != NULL) {
+        TLobby__sub_8001FE7C(lbl_805D5B38, 1);
+        lbl_805D5B38 = NULL;
+    }
+    lbl_805D5B44 = 0;
+    lbl_805D5B3C = 0;
+    lbl_805D5B40 = 0;
+    if (lbl_805D5B34 != NULL) {
+        destroy_buffer_pair(lbl_805D5B34, 1);
+        lbl_805D5B34 = NULL;
+    }
+    for (i = 5; i >= 0; i--) {
+        if ((u32)lbl_8050DC38[i] != 0) {
+            TLobby__sub_8001FE7C((void *)lbl_8050DC38[i], 1);
+        }
+        lbl_8050DC38[i] = 0;
+        lbl_8050DC50[i] = 0;
+    }
+}
+
 void TObjLaboMapWarp__vt17(Obj_80185160 *self) {
     TObjLaboMapWarp__sub_80185400(self);
     set_global_count__12TObjNpcEnemyFi(0xFF00FF);

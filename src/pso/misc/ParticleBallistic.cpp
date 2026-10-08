@@ -197,7 +197,7 @@ u8 *create_orbit_particle(u8 *arg0, u8 *arg1, u8 *arg2, s32 arg3, u16 arg4, s16 
 void *alloc_particle_memory(int);
 void *TParticleCtrl__sub_8008B060(void *, void *, void *, void *, void *);
 void *TParticleCtrl__sub_8008B060(void *arg0, void *arg1, void *arg2, void *arg3, void *arg4);
-void * TParticleCtrl__sub_80089FEC(void *arg0, void *arg1, void *arg2, void *arg3);
+void * alloc_child_particle__13TParticleCtrlFPvPvPvPv(void *arg0, void *arg1, void *arg2, void *arg3);
 extern const f32 TParticleCtrl__data_805D9528;
 int queue_destruction__7TObjectFv(void *);
 void retire_orbit_particle(u8 *arg0);
@@ -345,7 +345,7 @@ f64 get_ad_end_text_start__10TObjPlayerFv(f32, f32);
 M2C_UNK disable_if_single_screen__13TParticleCtrlFv();
 M2C_UNK setup_particle_tev(M2C_UNK);
 M2C_UNK load_projected_texture_matrix(f32);
-void TParticleCtrl__sub_80085EE4(void *, int);
+void draw_sprite_quad__13TParticleCtrlFPvi(void *, int);
 s32 is_particle_sprite_additive(void *, s32);
 M2C_UNK draw_particle_refraction_quad(void *);
 M2C_UNK apply_particle_model_fade_color(void *, M2C_UNK);
@@ -678,7 +678,7 @@ void draw_ballistic_sprite_particle(Part_800890F4 *p) {
             id = p->tex;
         }
         set_depth_buffer_settings_2__Fv();
-        TParticleCtrl__sub_80085EE4(p, id);
+        draw_sprite_quad__13TParticleCtrlFPvi(p, id);
         restore_saved_depth_alpha_state();
     } else if (p->def->flags & 0x20) {
         id = p->tex + 0x36;

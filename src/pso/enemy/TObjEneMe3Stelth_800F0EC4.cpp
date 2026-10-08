@@ -229,6 +229,107 @@ struct Spd_800F1098 { s32 a; f32 speed; s32 turn; };
 
 struct Tbl_800F1098 { u8 pad[0x24]; s32 lvl; };
 
+struct Obj_800F0EC4 { u8 pad0[0x326]; s16 f326; u8 pad328[0x3C0 - 0x328]; s32 f3C0; u8 pad3C4[0x3E0 - 0x3C4]; f32 f3E0; };
+
+struct Pair_800F0EC4 { s32 a; s32 b; };
+
+struct VBase_18_800F0F84 { char pad[0x18]; };
+
+struct VObj_18_800F0F84 : VBase_18_800F0F84 {
+    virtual void m0();
+    virtual void m1();
+    virtual void m2();
+    virtual void m3();
+    virtual void m4();
+    virtual void m5();
+    virtual void m6();
+    virtual void m7();
+    virtual void m8();
+    virtual void m9();
+    virtual void m10();
+    virtual void m11();
+    virtual void m12();
+    virtual void m13();
+    virtual void m14();
+    virtual void m15();
+    virtual void m16();
+    virtual void m17();
+    virtual void m18();
+    virtual void m19();
+    virtual void m20();
+    virtual void m21();
+    virtual void m22();
+    virtual void m23();
+    virtual void m24();
+    virtual void m25();
+    virtual void m26();
+    virtual void m27();
+    virtual void m28();
+    virtual void m29();
+    virtual void m30();
+    virtual void m31();
+    virtual void m32();
+    virtual void m33();
+    virtual void m34();
+    virtual void m35();
+    virtual void m36();
+    virtual void m37();
+    virtual void m38();
+    virtual void m39();
+    virtual void m40();
+    virtual void m41();
+    virtual void m42();
+    virtual void m43();
+    virtual void m44();
+    virtual void m45();
+    virtual void m46();
+    virtual void m47();
+    virtual void m48();
+    virtual void m49();
+    virtual void m50();
+    virtual void m51();
+    virtual void m52();
+    virtual void m53();
+    virtual void m54();
+    virtual void m55();
+    virtual void m56();
+    virtual void m57();
+    virtual void m58();
+    virtual void m59();
+    virtual void m60();
+    virtual void m61();
+    virtual void m62();
+    virtual void m63();
+    virtual void m64();
+    virtual void m65();
+    virtual void m66();
+    virtual void m67();
+    virtual void m68();
+    virtual void m69();
+    virtual void m70();
+    virtual void m71();
+    virtual void m72();
+    virtual void m73();
+    virtual void m74();
+    virtual void m75();
+    virtual void m76();
+    virtual void m77();
+    virtual void m78();
+    virtual void m79();
+    virtual void m80();
+    virtual void m81();
+    virtual void m82();
+    virtual void m83();
+    virtual void m84();
+    virtual void m85();
+    virtual void m86();
+    virtual void m87();
+};
+
+struct Vec_800F0F84 { f32 x, y, z; };
+
+struct Ent_800F0F84 { u8 pad0[0x18]; u32 f18; };
+
 extern "C" {
 s32 is_split_screen();
 s32 get_flag_b4__21TObjEneMe3ShinowaRealFPv(void *);
@@ -278,6 +379,18 @@ extern u8 *lbl_805D5678;
 extern const f32 TObjEneMe3Stelth__data_805DA820;
 extern const f32 TObjEneMe3Stelth__data_805DA824;
 void TObjEneMe3Stelth__sub_800F1098(u8 *arg0, s32 arg1);
+f32 calc_boss4_scale__10TObjPlayerFi(void *);
+s32 receive_direct_attack__10TObjPlayerFv(void *, void *, void *, void *, s32, s32);
+u16 obj_getField1c(void *);
+M2C_UNK transition_enemy_state(void *, int);
+void TObjEneMe3Stelth__sub_800F0EC4(Obj_800F0EC4 *arg0, void *arg1, Pair_800F0EC4 arg2, void *arg3);
+M2C_UNK VecCopy__FP3VecPC3Vec(void *, void *);
+u16 obj_getField1c(void *);
+M2C_UNK fn_8002B630(void *, void *);
+u32 get_valid_target_player__10TNpcPlayerFv(int);
+M2C_UNK init_all_slots__10TObjPlayerFv();
+extern u8 lbl_804976E4[];
+s32 TObjEneMe3Stelth__sub_800F0F84(u8 *arg0, Vec_800F0F84 *arg1);
 }
 
 extern "C" {
@@ -286,6 +399,47 @@ extern "C" {
 #define VO ((VObj_18 *)(arg0))
 
 #define F(T, o) (*(T *)(arg0 + (o)))
+
+void TObjEneMe3Stelth__sub_800F0EC4(Obj_800F0EC4 *arg0, void *arg1, Pair_800F0EC4 arg2, void *arg3) {
+    if (arg0->f3C0 == 1 && obj_getField1c(arg1) < 0x1000 && calc_boss4_scale__10TObjPlayerFi(arg0) <= arg0->f3E0) {
+        transition_enemy_state(arg0, 0x12);
+    } else if (arg0->f326 == 2) {
+        transition_enemy_state(arg0, 6);
+    }
+    ((s32 (*)(void *, void *, Pair_800F0EC4, void *, s32, s32))receive_direct_attack__10TObjPlayerFv)(arg0, arg1, arg2, arg3, -1, -1);
+}
+
+s32 TObjEneMe3Stelth__sub_800F0F84(u8 *arg0, Vec_800F0F84 *arg1) {
+    Ent_800F0F84 *ent;
+    s32 result;
+    u32 saved;
+    Vec_800F0F84 sp;
+    u8 unused[12];
+    ent = *(Ent_800F0F84 **)(arg0 + 0xA4);
+    saved = ent->f18;
+    ent->f18 = 0x9D01;
+    VecCopy__FP3VecPC3Vec(&sp, arg0 + 0x38);
+    VecCopy__FP3VecPC3Vec(arg0 + 0x38, arg1);
+    init_all_slots__10TObjPlayerFv();
+    ((VObj_18_800F0F84 *)arg0)->m87();
+    if ((ent->f18 & 0x80000) && get_valid_target_player__10TNpcPlayerFv(obj_getField1c((void *)(M2C_FIELD(arg0, s32 *, 0x390)))) == 0) {
+        VecCopy__FP3VecPC3Vec(arg0 + 0x38, &sp);
+        init_all_slots__10TObjPlayerFv();
+        return 1;
+    }
+    if ((ent->f18 & 0x100000) && get_valid_target_player__10TNpcPlayerFv(M2C_FIELD(arg0, u16 *, 0x1C)) == 0) {
+        VecCopy__FP3VecPC3Vec(arg0 + 0x38, &sp);
+        init_all_slots__10TObjPlayerFv();
+        return 1;
+    }
+    result = (ent->f18 & 0x200000) != 0;
+    VecCopy__FP3VecPC3Vec(arg0 + 0x38, &sp);
+    init_all_slots__10TObjPlayerFv();
+    fn_8002B630(ent, lbl_804976E4);
+    ent->f18 = saved;
+    return result;
+}
+
 void TObjEneMe3Stelth__sub_800F1098(u8 *arg0, s32 arg1) {
     Vec_800F1098 d;
     Vec_800F1098 out;

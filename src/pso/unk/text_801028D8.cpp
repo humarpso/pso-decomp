@@ -29,7 +29,7 @@ s8 TItemData__sub_8010B8B0(void *);
 s32 is_rare_item__9TItemDataFPv(void *);
 s32 clamp_s32__10TObjPlayerFiii(s32, s32, s32);
 void initialize_linked_object_reference(void *, void *);
-void TObjPlayer__sub_801569F4(void *, void *);
+void construct_collider_proxy__10TObjPlayerFPv(void *, void *);
 extern u8 lbl_8043DF68[];
 extern u8 lbl_8043DF94[];
 extern void *__vt__5TItem[];
@@ -41,7 +41,7 @@ u8 *TItem__ct(u8 *self, void *parent, u8 *item);
 extern "C" {
 
 u8 *TItem__ct(u8 *self, void *parent, u8 *item) {
-    TObjPlayer__sub_801569F4(self, parent);
+    construct_collider_proxy__10TObjPlayerFPv(self, parent);
     M2C_FIELD(self, void **, 0x18) = __vt__5TItem;
     M2C_FIELD(self, s32 *, 0) = lbl_805D2B60;
     obj_setFlags30(self, 0x80000000);

@@ -97,7 +97,7 @@ s32 VecCopy__FP3VecPC3Vec(void *, void *);
 u16 obj_getField1c(void *);
 s32 reset_photon_effect__10TObjPlayerFPv(void *);
 s32 init_collision_body_parts(void *, void *, int);
-s32 TObjPlayer__sub_801569F4(void *, int);
+s32 construct_collider_proxy__10TObjPlayerFPv(void *, int);
 s32 rotate_vector_by_matrix(int, int, int);
 M2C_UNK rotate_matrix_y(int, int);
 s32 push_matrix_from(void *);
@@ -115,7 +115,7 @@ u8 *TObjGyaranzoMissile__sub_800D4668(u8 *arg0, u8 *arg1, u8 *arg2, s32 arg3, s3
 s32 VecCopy__FP3VecPC3Vec(void *, void *);
 u16 obj_getField1c(void *);
 s32 init_collision_body_parts(void *, void *, int);
-s32 TObjPlayer__sub_801569F4(void *, int);
+s32 construct_collider_proxy__10TObjPlayerFPv(void *, int);
 s32 rand();
 s32 matrix_mult_vec(int, int, int);
 M2C_UNK rotate_matrix_y(int, int);
@@ -214,7 +214,7 @@ typedef char RecoveredGlobal_800D4668_lbl_8049442C_size[sizeof(RecoveredGlobal_8
 typedef char RecoveredGlobal_800D4668_lbl_8058D490_size[sizeof(RecoveredGlobal_800D4668_lbl_8058D490) == 0x30 ? 1 : -1];
 u8 *TObjGyaranzoMissile__sub_800D4668(u8 *arg0, u8 *arg1, u8 *arg2, s32 arg3, s32 arg4) {
     u8 *temp_r4;
-    TObjPlayer__sub_801569F4((void *) (arg0), (int) (tl_04));
+    construct_collider_proxy__10TObjPlayerFPv((void *) (arg0), (int) (tl_04));
     M2C_FIELD(arg0, M2C_UNK **, 0x18) = &(*(RecoveredGlobal_800D4668_lbl_8049442C *)&lbl_8049442C).value;
     VecCopy__FP3VecPC3Vec((void *) (arg0 + 0x38), (void *) (arg2));
     VecCopy__FP3VecPC3Vec((void *) (arg0 + 0xE0), (void *) (arg0 + 0x38));
@@ -352,7 +352,7 @@ typedef char RecoveredGlobal_800D4BD0___vt__19TObjGyaranzoMissile_size[sizeof(Re
 typedef char RecoveredGlobal_800D4BD0_lbl_8058D490_size[sizeof(RecoveredGlobal_800D4BD0_lbl_8058D490) == 0x30 ? 1 : -1];
 u8 *TObjGyaranzoMissile__ct(u8 *arg0, u8 *arg1, u8 *arg2, s16 arg3) {
     u8 *temp_r4;
-    TObjPlayer__sub_801569F4((void *) (arg0), (int) (tl_04));
+    construct_collider_proxy__10TObjPlayerFPv((void *) (arg0), (int) (tl_04));
     M2C_FIELD(arg0, M2C_UNK **, 0x18) = &(*(RecoveredGlobal_800D4BD0___vt__19TObjGyaranzoMissile *)&__vt__19TObjGyaranzoMissile).value;
     M2C_FIELD(arg0, s32 *, 0) = (s32) lbl_805D2A80;
     init_collision_body_parts((void *) (arg0), (void *) (&lbl_80494468.value), (int) (1));

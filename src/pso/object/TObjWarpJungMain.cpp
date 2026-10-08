@@ -46,6 +46,17 @@ extern s32 lbl_805D5CC4;
 extern const f32 lbl_805DC040;
 extern const f32 lbl_805DC044;
 void render__16TObjWarpJungMainFv(VObj_18_8019FB8C *arg0);
+M2C_UNK set_loss_flag__6TLobbyFPv(u32);
+s32 get_localized_text_entry(M2C_UNK, s32);
+M2C_UNK set_flag70_bit10__16TObjCityMainWarpFPv(u32);
+M2C_UNK request_active_window_close();
+M2C_UNK align_menu_entry_positions(u32);
+M2C_UNK TWindowSubComCard__sub_80265F60(u32);
+M2C_UNK forward_trade_action_default__16TObjCityMainWarpFPviii(u32, s32, M2C_UNK, s32);
+u32 create_window_menu(M2C_UNK, M2C_UNK, s16);
+M2C_UNK get_window_layout_position(M2C_UNK);
+extern s32 lbl_804B964C[];
+void TObjWarpJungMain__vt13(void *arg0, s16 arg1);
 }
 
 extern "C" {
@@ -224,6 +235,22 @@ s32 TObjWarpJungMain__vt16(u8 *arg0) {
 int TObjWarpJungMain__vt17(void* p) { return confirm_area_transfer__12TObjAreaWarpFPvi(p); }
 
 void TObjWarpJungMain__vt12(void* p) { TObjWarpBase__vt12(p); clear_flag__11TWindowCtrlFv(); }
+
+void TObjWarpJungMain__vt13(void *arg0, s16 arg1) {
+    s32 var_r29;
+    if ((u32) M2C_FIELD(arg0, u32 *, 0xB0) == 0U) {
+        M2C_FIELD(arg0, u32 *, 0xB0) = create_window_menu(get_window_layout_position(0x32), 3, arg1);
+        for (var_r29 = 0; var_r29 < 3; var_r29++) {
+            forward_trade_action_default__16TObjCityMainWarpFPviii(M2C_FIELD(arg0, u32 *, 0xB0), get_localized_text_entry(9, lbl_804B964C[var_r29]), 0xE, var_r29);
+        }
+        TWindowSubComCard__sub_80265F60(M2C_FIELD(arg0, u32 *, 0xB0));
+        align_menu_entry_positions(M2C_FIELD(arg0, u32 *, 0xB0));
+        set_flag70_bit10__16TObjCityMainWarpFPv(M2C_FIELD(arg0, u32 *, 0xB0));
+        set_loss_flag__6TLobbyFPv(M2C_FIELD(arg0, u32 *, 0xB0));
+        request_active_window_close();
+        M2C_FIELD(arg0, s16 *, 0xB8) = arg1;
+    }
+}
 
 void run_task__16TObjWarpJungMainFv(u8 *arg0) {
   *((f32 *) (((s8 *) arg0) + 0xC4)) = (f32) ((*((f32 *) (((s8 *) arg0) + 0xC4))) + lbl_805DC048);

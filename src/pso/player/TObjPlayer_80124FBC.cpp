@@ -11,7 +11,7 @@ void play_side_step_particle__10TObjPlayerFPv(void *arg0);
 void TObjPlayer__sub_80125090(void *arg0);
 M2C_UNK rotate_matrix_z(M2C_UNK, s32);
 M2C_UNK play_particle_effect_once__10TObjPlayerFv();
-M2C_UNK TObjPlayer__sub_8011E2FC(void *, f32);
+M2C_UNK drain_owner_hp_fraction__10TObjPlayerFPvf(void *, f32);
 s32 is_mode_two_and_ready__10TObjPlayerFPv();
 M2C_UNK update_active_game_effect__10TObjPlayerFPv(void *);
 s32 get_player_list__10TObjPlayerFv();
@@ -23,7 +23,7 @@ extern f32 lbl_805DAD3C;
 void update_tech_effect__10TObjPlayerFPv(void *arg0) {
     if (is_mode_two_and_ready__10TObjPlayerFPv() != 0) {
         if (get_tech_level__10TObjPlayerFPv(M2C_FIELD(arg0, s32 *, 0xF0) + 0x7CC) == 0) {
-            TObjPlayer__sub_8011E2FC(arg0, lbl_805DAD3C);
+            drain_owner_hp_fraction__10TObjPlayerFPvf(arg0, lbl_805DAD3C);
             TObjPlayer__sub_80124C90(arg0);
         }
     } else {

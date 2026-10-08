@@ -177,7 +177,7 @@ M2C_UNK __ct__7TObjectFP7TObject();
 M2C_UNK __dl__7TObjectFPv(void *);
 M2C_UNK __dt__7TObjectFv(void *, M2C_UNK);
 void *__nw__7TObjectFUl(M2C_UNK);
-void *fn_803281B8(void *, M2C_UNK, M2C_UNK, s32);
+void *construct_indirect_effect_task(void *, M2C_UNK, M2C_UNK, s32);
 M2C_UNK queue_destruction__7TObjectFv(void *);
 M2C_UNK set_active_scene__6TSceneFi(M2C_UNK);
 M2C_UNK set_id__6TSceneFi(M2C_UNK);
@@ -232,7 +232,7 @@ void *create_instance__10TSceneSoraFPv(void *arg0) {
     M2C_FIELD(arg0, s32 *, 0x1C) = (s32) lbl_805D65FC;
     obj = __nw__7TObjectFUl(0x20);
     if (obj != NULL) {
-        obj = fn_803281B8(obj, 0x28, 1, tl_05);
+        obj = construct_indirect_effect_task(obj, 0x28, 1, tl_05);
     }
     M2C_FIELD(arg0, void **, 0x20) = obj;
     M2C_FIELD(arg0, f32 *, 0x24) = (f32) lbl_805DDD8C;

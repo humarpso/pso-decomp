@@ -65,7 +65,7 @@ M2C_UNK __dl__7TObjectFPv(void *);
 extern RecoveredGlobal_8034DC24_lbl_804F07C8 lbl_804F07C8;
 u8 *TNpcPlayer__sub_8034DC24(u8 *arg0, s16 arg1);
 s32 obj_isState3_324(int);
-void TNpcPlayer__sub_80152330(void *, u16, u16, s32, void *);
+void construct_partner__10TNpcPlayerFPviisPv(void *, u16, u16, s32, void *);
 u16 get_action_flags__10TNpcPlayerFPv(int);
 u8 *get_player_by_client_id(s32);
 void *__nw__7TObjectFUl(u32);
@@ -73,7 +73,7 @@ void __ct__7TObjectFP7TObject(void *, void *);
 s32 get_field_67c__10TNpcPlayerFPv(u8 *);
 extern RecoveredGlobal_8034DC24_lbl_804F07C8 lbl_804F07C8;
 extern void *tl_00;
-u8 *TNpcPlayer__sub_8034DD14(u8 *self, void *parent);
+u8 *construct_party_area__10TNpcPlayerFPvPv(u8 *self, void *parent);
 }
 
 extern "C" {
@@ -128,7 +128,7 @@ u8 *TNpcPlayer__sub_8034DC24(u8 *arg0, s16 arg1) {
   return arg0;
 }
 
-u8 *TNpcPlayer__sub_8034DD14(u8 *self, void *parent) {
+u8 *construct_party_area__10TNpcPlayerFPvPv(u8 *self, void *parent) {
     void *task;
     s32 slot;
     u8 *player;
@@ -142,7 +142,7 @@ u8 *TNpcPlayer__sub_8034DD14(u8 *self, void *parent) {
         }
         task = __nw__7TObjectFUl(0xE8);
         if (task != NULL) {
-            TNpcPlayer__sub_80152330(task, ((u16 (*)(u8 *)) get_action_flags__10TNpcPlayerFPv)(player), (u16) slot, get_field_67c__10TNpcPlayerFPv(player), tl_00);
+            construct_partner__10TNpcPlayerFPviisPv(task, ((u16 (*)(u8 *)) get_action_flags__10TNpcPlayerFPv)(player), (u16) slot, get_field_67c__10TNpcPlayerFPv(player), tl_00);
         }
         M2C_FIELD(self, s32 *, 0x1C)++;
     }

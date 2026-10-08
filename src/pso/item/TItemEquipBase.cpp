@@ -465,7 +465,7 @@ s32 TItemEquipBase__sub_8010AC60(s32 arg0, M2C_UNK arg1, s32 arg2);
 s32 VecCopy__FP3VecPC3Vec(void *, void *);
 s32 spawn_particle_effect(void *, int);
 u8 *resolve_hittable_target(s32, s32);
-void fn_8010A710(M2C_UNK arg0, M2C_UNK arg1, s32 arg2, s16 arg3);
+void play_target_impact_effect(M2C_UNK arg0, M2C_UNK arg1, s32 arg2, s16 arg3);
 M2C_UNK set_flags__10TObjPlayerFPvUi(void *, void *);
 s32 test_flags_any(void *, void *);
 s32 update_owner_visibility__5TItemFPv(void *);
@@ -580,7 +580,7 @@ s32 get_id__10TObjPlayerFPv(void *);
 s32 get_level__10TObjPlayerFPv(void *);
 int memset(void*, void*, void*);
 
-void fn_8010A710(M2C_UNK arg0, M2C_UNK arg1, s32 arg2, s16 arg3) {
+void play_target_impact_effect(M2C_UNK arg0, M2C_UNK arg1, s32 arg2, s16 arg3) {
     typedef char sp8_offset[(offsetof(Stack_8010A710, sp8) == 0x0) ? 1 : -1];
     typedef char spC_offset[(offsetof(Stack_8010A710, spC) == 0x4) ? 1 : -1];
     Stack_8010A710 stack;

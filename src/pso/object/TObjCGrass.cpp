@@ -31,6 +31,36 @@ struct Grass_800B8BB4 {
     u8 f10C[4];
 };
 
+struct Vec_800B8EFC { f32 x, y, z; };
+
+struct Rec_800B8EFC { Vec_800B8EFC pos; Vec_800B8EFC v2; s32 f18; u32 flags; };
+
+struct Src_800B8EFC { u8 pad0[8]; s32 f8; s32 fC; };
+
+struct Mgr_800B8EFC { u8 pad0[0x42C]; Src_800B8EFC *src; s32 f430; };
+
+struct Grass_800B8EFC {
+    s32 f0;
+    u8 pad4[0x18 - 0x4];
+    void *vt;
+    u8 pad1C[0x24 - 0x1C];
+    s32 f24;
+    u8 pad28[0x34 - 0x28];
+    s32 f34;
+    Vec_800B8EFC f38;
+    u8 pad44[0xC4 - 0x44];
+    f32 fC4;
+    u8 padC8[0xD8 - 0xC8];
+    void *fD8;
+    s32 fDC;
+    u8 padE0[0xFC - 0xE0];
+    Rec_800B8EFC *recs;
+    f32 f100;
+    s32 count;
+    s32 f108;
+    u8 f10C[4];
+};
+
 extern "C" {
 s32 reset_transform_state__10TObjPlayerFv();
 s32 set_position_vec3__10TObjPlayerFPvPv(int, void *);
@@ -48,6 +78,30 @@ extern s32 lbl_805D53A4;
 extern const f32 lbl_805D9E60;
 extern const f32 TObjCGrass__data_805D9E64;
 void run_task__10TObjCGrassFv(u8 *arg0);
+M2C_UNK VecCopy__FP3VecPC3Vec(void *, void *);
+M2C_UNK register_object__10TObjPlayerFi(void *);
+M2C_UNK set_field_d8__10TObjPlayerFPvi(void *, void *);
+u8 *csnVectorUnder(void *, void *, int);
+M2C_UNK set_animation__10TObjPlayerFPvs(void *, int);
+M2C_UNK TObjMotion__ct(void *, s32);
+s32 alloc_buffer__11TOBoss4RockFPv(int);
+s32 rand(void);
+M2C_UNK rotate_vector_by_matrix(int, void *, void *);
+s32 rotate_matrix_y(int, int);
+s32 push_matrix_from(int);
+s32 pop_matrices(int);
+extern M2C_UNK lbl_80492510[];
+extern M2C_UNK __vt__10TObjCGrass[];
+extern u8 lbl_8058D490[];
+extern s32 lbl_805D2A28;
+extern u32 lbl_805D5130;
+extern s32 tl_06;
+extern const f32 TObjCGrass__data_805D9E64;
+extern const f32 lbl_805D9E6C;
+extern const f32 lbl_805D9E70;
+extern const f32 lbl_805D9E74;
+extern const f32 lbl_805D9E78;
+u8 *TObjCGrass__ct(Grass_800B8EFC *self, u8 *arg1, s32 arg2, s32 arg3);
 }
 
 extern "C" {
@@ -203,5 +257,54 @@ void *__dt__10TObjCGrassFv(void *arg0, s16 arg1) {
     }
     return arg0;
 }
+#pragma push
+#pragma fp_contract on
+u8 *TObjCGrass__ct(Grass_800B8EFC *self, u8 *arg1, s32 arg2, s32 arg3) {
+    u8 *hit;
+    TObjMotion__ct(self, tl_06);
+    self->vt = __vt__10TObjCGrass;
+    register_object__10TObjPlayerFi(self->f10C);
+    self->f0 = lbl_805D2A28;
+    hit = csnVectorUnder(arg1, self->f10C, 1);
+    if (hit != NULL) {
+        VecCopy__FP3VecPC3Vec(&self->f38, *(void **)(hit + 4));
+    } else {
+        VecCopy__FP3VecPC3Vec(&self->f38, arg1);
+    }
+    self->f34 = (*(Mgr_800B8EFC * *)&lbl_805D5130)->src->f8;
+    self->f24 = (*(Mgr_800B8EFC * *)&lbl_805D5130)->src->fC;
+    self->fDC = (*(Mgr_800B8EFC * *)&lbl_805D5130)->f430;
+    self->fD8 = lbl_80492510;
+    set_field_d8__10TObjPlayerFPvi(self, self->fD8);
+    set_animation__10TObjPlayerFPvs(self, 0);
+    self->f100 = self->fC4 - lbl_805D9E6C;
+    self->count = arg2;
+    if (arg2 != 0) {
+        self->recs = (Rec_800B8EFC *)alloc_buffer__11TOBoss4RockFPv(self->count << 5);
+    } else {
+        self->recs = NULL;
+    }
+    {
+    s32 i;
+    for (i = 0; i < self->count; i++) {
+        s32 a;
+        Vec_800B8EFC v;
+        VecCopy__FP3VecPC3Vec(&self->recs[i].pos, &self->f38);
+        v.x = TObjCGrass__data_805D9E64;
+        v.y = lbl_805D9E70 * (f32)rand();
+        v.z = lbl_805D9E70 * (f32)rand() + lbl_805D9E6C;
+        a = (s32)(lbl_805D9E74 * (lbl_805D9E78 * (lbl_805D9E70 * (f32)rand())));
+        self->recs[i].f18 = a;
+        ((s32 (*)(void *))push_matrix_from)(lbl_8058D490);
+        rotate_matrix_y(0, a);
+        rotate_vector_by_matrix(0, &v, &self->recs[i].v2);
+        pop_matrices(1);
+        self->recs[i].flags = 0;
+    }
+    }
+    self->f108 = arg3;
+    return (u8 *)self;
+}
+#pragma pop
 
 }

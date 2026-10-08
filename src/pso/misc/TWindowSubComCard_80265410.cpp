@@ -133,7 +133,7 @@ void set_active_flag__11TWindowMenuFPv(void *arg0);
 void confirm_selection__11TWindowMenuFPv(u8 *arg0);
 void select_next_item__11TWindowMenuFPv(void *arg0);
 void move_cursor_prev__11TWindowMenuFPv(void *arg0);
-void TWindowSubComCard__sub_802659AC(u8 *arg0);
+void update_target_y__17TWindowSubComCardFPv(u8 *arg0);
 void clamp_menu_choice_scroll(u8 *arg0);
 void advance_past_disabled_menu_rows(Card_80265AA4 *arg0);
 M2C_UNK TWindowSubComCard__sub_80265B5C(void *);
@@ -142,13 +142,13 @@ void set_selected_index__17TWindowSubComCardFPvs(void *arg0, s16 arg1);
 void align_menu_entry_positions(Win_80265C30 *self);
 void TWindowSubComCard__sub_80265CFC(u8 *arg0, f32 farg0);
 void set_scroll_target__17TWindowSubComCardFPvff(void *arg0, f32 farg0, f32 farg1);
-void TWindowSubComCard__sub_80265E60(Win_80265E60 *self, f32 x);
+void update_layout_height__17TWindowSubComCardFPvf(Win_80265E60 *self, f32 x);
 void TWindowSubComCard__sub_80265F60(Win_80265F60 *self);
 void TWindowSubComCard__sub_80266078(u8 *arg0);
 void clear_transition_flag__17TWindowSubComCardFPv(void *arg0);
 void open__17TWindowOptionCtrlFPv(void *arg0);
 void draw_text_gray__17TWindowSubComCardFiiii(s32 arg0, s32 arg1, s32 arg2, s32 arg3);
-s32 TWindowSubTradeMain__sub_80266200(u8 *arg0, s32 arg1, s32 arg2, s32 arg3, s32 arg4);
+s32 add_text_entry__19TWindowSubTradeMainFPviiii(u8 *arg0, s32 arg1, s32 arg2, s32 arg3, s32 arg4);
 int forward_trade_action_default__16TObjCityMainWarpFPviii(void* p, int a1, int a2, int a3);
 void fn_80266378(s32 arg0);
 u8 * create_yes_no_window(s32 arg0, s32 arg1, u32 arg2, u32 arg3);
@@ -177,7 +177,7 @@ s32 set_entry_state__20TWindowSubStatusDispFPvc(s32 a0 = 0, s32 a1 = 0);
 M2C_UNK forward_render__20TWindowSubStatusDispFPv(s32, s32);
 M2C_UNK update_subwindow__20TWindowSubStatusDispFPv(void *);
 void destroy_status_display__20TWindowSubStatusDispFis(void *, int);
-s32 TWindowSubStatusDisp__sub_802880BC(s32, s32, s32);
+s32 construct_type1_heading__20TWindowSubStatusDispFPvii(s32, s32, s32);
 
 extern M2C_UNK __vt__11TWindowMenu[];
 extern const f64 lbl_8044F330;
@@ -401,7 +401,7 @@ block_4:
 
 #pragma push
 #pragma fp_contract on
-void TWindowSubComCard__sub_802659AC(u8 *arg0) {
+void update_target_y__17TWindowSubComCardFPv(u8 *arg0) {
     f32 v;
     f32 t;
     f32 base;
@@ -504,7 +504,7 @@ void TWindowSubComCard__sub_80265CFC(u8 *arg0, f32 farg0) {
 }
 
 void set_scroll_target__17TWindowSubComCardFPvff(void *arg0, f32 farg0, f32 farg1) {
-    TWindowSubComCard__sub_80265E60((Win_80265E60 *)(arg0), farg0);
+    update_layout_height__17TWindowSubComCardFPvf((Win_80265E60 *)(arg0), farg0);
     if (M2C_FIELD(arg0, f32 *, 0x3C) > farg1) {
         ((M2C_UNK (*)(void *))TWindowSubComCard__sub_8026556C)(arg0);
     }
@@ -514,7 +514,7 @@ void set_scroll_target__17TWindowSubComCardFPvff(void *arg0, f32 farg0, f32 farg
     ((M2C_UNK (*)(void *))TWindowSubComCard__sub_80265484)(arg0);
 }
 
-void TWindowSubComCard__sub_80265E60(Win_80265E60 *self, f32 x) {
+void update_layout_height__17TWindowSubComCardFPvf(Win_80265E60 *self, f32 x) {
     f32 sum = lbl_805DD150;
     u32 i;
     for (i = 0; i < self->count; i++) {
@@ -612,10 +612,10 @@ void open__17TWindowOptionCtrlFPv(void *arg0) {
 }
 
 void draw_text_gray__17TWindowSubComCardFiiii(s32 arg0, s32 arg1, s32 arg2, s32 arg3) {
-    ((M2C_UNK (*)(s32, s32, s32, s32, s32))TWindowSubTradeMain__sub_80266200)(arg0, arg1, arg2 | 0x10, arg3, 0xFF909090);
+    ((M2C_UNK (*)(s32, s32, s32, s32, s32))add_text_entry__19TWindowSubTradeMainFPviiii)(arg0, arg1, arg2 | 0x10, arg3, 0xFF909090);
 }
 
-s32 TWindowSubTradeMain__sub_80266200(u8 *arg0, s32 arg1, s32 arg2, s32 arg3, s32 arg4) {
+s32 add_text_entry__19TWindowSubTradeMainFPviiii(u8 *arg0, s32 arg1, s32 arg2, s32 arg3, s32 arg4) {
     s16 temp_r7;
     u8 *temp_r3;
     u8 *temp_r30;
@@ -659,7 +659,7 @@ s32 TWindowSubTradeMain__sub_80266200(u8 *arg0, s32 arg1, s32 arg2, s32 arg3, s3
     return 1;
 }
 
-int forward_trade_action_default__16TObjCityMainWarpFPviii(void* p, int a1, int a2, int a3) { return ((int (*)(void*, int, int, int, int))TWindowSubTradeMain__sub_80266200)(p, a1, a2, a3, -1); }
+int forward_trade_action_default__16TObjCityMainWarpFPviii(void* p, int a1, int a2, int a3) { return ((int (*)(void*, int, int, int, int))add_text_entry__19TWindowSubTradeMainFPviiii)(p, a1, a2, a3, -1); }
 
 void fn_80266378(s32 arg0) {
     M2C_FIELD(&lbl_804D05A8.value, s32 *, 4) = arg0;
@@ -689,7 +689,7 @@ u8 *create_yes_no_window(s32 arg0, s32 arg1, u32 arg2, u32 arg3) {
   ((s32 (*)(int))TWindowSubComCard__sub_80265F60)((int) ((u8 *) temp_r3));
   if ((*((f32 *) (((s8 *) ((u8 *) temp_r3)) + 0x48))) < lbl_805DD170)
   {
-    ((s32 (*)(int, f32))TWindowSubComCard__sub_80265E60)((int) ((u8 *) temp_r3), (f32) lbl_805DD170);
+    ((s32 (*)(int, f32))update_layout_height__17TWindowSubComCardFPvf)((int) ((u8 *) temp_r3), (f32) lbl_805DD170);
   }
   ((s32 (*)(int))align_menu_entry_positions)((int) ((u8 *) temp_r3));
   set_ready_flag__18TCheckRoomSequenceFPv((int) ((u8 *) temp_r3));
@@ -723,7 +723,7 @@ s32 create_titled_window_menu(s32 arg0, s32 arg1, s32 arg2, s32 arg3) {
     temp_r3 = ((int (*)(void *))alloc__23TAdSinglePlyChrSelectGCFPv)((void *)0x24);
     var_r0 = temp_r3;
     if (var_r0 != 0) {
-        var_r0 = TWindowSubStatusDisp__sub_802880BC(temp_r3, arg2, arg3);
+        var_r0 = construct_type1_heading__20TWindowSubStatusDispFPvii(temp_r3, arg2, arg3);
     }
     M2C_FIELD(temp_r31, s32 *, 0x88) = var_r0;
     M2C_FIELD(temp_r31, s32 *, 0x2C) = (s32) (M2C_FIELD(temp_r31, s32 *, 0x2C) | 0x40);
@@ -823,7 +823,7 @@ void run_task__11TWindowMenuFv(u8 *arg0) {
     initialize_subwindow__9TWindowDDFPv((void *) (arg0));
     TWindowSubComCard__sub_80265B5C((void *) (arg0));
     step_window_tween((void *) (arg0));
-    ((M2C_UNK (*)(void *))TWindowSubComCard__sub_802659AC)((void *) (arg0));
+    ((M2C_UNK (*)(void *))update_target_y__17TWindowSubComCardFPv)((void *) (arg0));
     ((M2C_UNK (*)(void *))clamp_menu_choice_scroll)((void *) (arg0));
     ((M2C_UNK (*)(void *))advance_past_disabled_menu_rows)((void *) (arg0));
     update_window_entry_list((void *) (arg0), (void *) (arg0 + 0x24));

@@ -109,7 +109,7 @@ extern "C" {
 void calc_death_pose_height_offset(Out_801C58CC *arg0, Actor_801C58CC *arg1);
 s32 obj_testFlags30(int, int);
 s32 is_inactive__10TObjPlayerFPv();
-M2C_UNK TObjPlayer__sub_80108164(int);
+M2C_UNK spawn_appearance_effect__10TObjPlayerFi(int);
 s32 get_mode__11TCameraCtrlFv();
 s32 is_on_current_floor__10TObjPlayerFi(int);
 M2C_UNK refresh_equipment_slot__10TObjPlayerFv(int);
@@ -213,7 +213,7 @@ void update_player_appear_fade(u8 *arg0) {
                     M2C_FIELD(arg0, s32 *, 4) = 1;
                     activate_body_collision__10TObjPlayerFPv((int) (temp_r3));
                     if (obj_testFlags30((int) (temp_r3), (int) (0x800)) == 0) {
-                        TObjPlayer__sub_80108164((int) (M2C_FIELD(arg0, u16 *, 0)));
+                        spawn_appearance_effect__10TObjPlayerFi((int) (M2C_FIELD(arg0, u16 *, 0)));
                     }
                     M2C_FIELD(temp_r3, f32 *, 0x624) = (f32) lbl_805DC32C[0];
                     refresh_equipment_slot__10TObjPlayerFv((int) (temp_r3));

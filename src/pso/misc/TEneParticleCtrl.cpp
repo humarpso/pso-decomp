@@ -24,7 +24,7 @@ u32 spawn_continuous_particle_effect_with_flags(void *, int, int);
 s32 set_owner_id__13TParticleCtrlFPvUs(int, int);
 s32 reset_photon_effect__10TObjPlayerFPv(void *);
 s32 init_collision_body_parts(void *, void *, int);
-s32 TObjPlayer__sub_801569F4(void *, void *);
+s32 construct_collider_proxy__10TObjPlayerFPv(void *, void *);
 extern RecoveredGlobal_80338C88_lbl_804EF458 lbl_804EF458;
 extern M2C_UNK __vt__16TEneParticleCtrl[];
 extern s32 lbl_805D4258;
@@ -73,7 +73,7 @@ typedef char RecoveredGlobal_80338C88___vt__16TEneParticleCtrl_size[sizeof(Recov
 u8 *TEneParticleCtrl__ct(u8 *arg0, s32 arg1, s32 arg2) {
     u32 temp_r3;
     u8 *temp_r4;
-    TObjPlayer__sub_801569F4((void *) (arg0), (void *) (arg1));
+    construct_collider_proxy__10TObjPlayerFPv((void *) (arg0), (void *) (arg1));
     M2C_FIELD(arg0, M2C_UNK **, 0x18) = &(*(RecoveredGlobal_80338C88___vt__16TEneParticleCtrl *)&__vt__16TEneParticleCtrl).value;
     M2C_FIELD(arg0, s32 *, 0) = (s32) lbl_805D4258;
     init_collision_body_parts((void *) (arg0), (void *) (&lbl_804EF458.value), (int) (1));

@@ -89,7 +89,7 @@ void TObjPlayer__sub_803E53BC(void);
 extern u8 *lbl_805D7818;
 void TObjPlayer__sub_803E5378(s32 n);
 void bind_motion_context(s32);
-void TObjPlayer__sub_803DCB40(s32);
+void draw_motion_node_tree__10TObjPlayerFPv(s32);
 void TObjPlayer__sub_803E53F8(u8 *arg0, f32 farg0);
 void TObjPlayer__sub_803E5458(s32 arg0);
 extern u8 *lbl_805D4698;
@@ -124,7 +124,7 @@ void TObjPlayer__sub_803E4D8C(s32 arg0, s32 arg1, u8 *arg2, f32 farg0, s32 arg3)
     bind_motion_context(arg1);
     *(s32 *)(p + 0xC) = arg3;
     if (arg2 == NULL) {
-        TObjPlayer__sub_803DCB40(arg0);
+        draw_motion_node_tree__10TObjPlayerFPv(arg0);
         return;
     }
     TObjPlayer__sub_803E5458(0);

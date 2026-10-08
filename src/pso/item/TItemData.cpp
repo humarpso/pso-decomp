@@ -4,6 +4,14 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 #define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
 #define M2C_BITWISE(type, expr) ((type)(expr))
 
+struct Tbl_8010C8B4 { s32 w[19]; };
+
+extern "C" {
+u8 get_weapon_class_motion_type(u8);
+extern const Tbl_8010C8B4 lbl_8043E2D8;
+s32 get_item_icon_index(const u8 *q);
+}
+
 extern "C" {
 
 int TItemData__sub_8010C738(void);
@@ -84,6 +92,19 @@ void unpack_from_item__9TItemDataFPvPv(void *arg0, void *arg1) {
             break;
         }
     }
+}
+s32 get_item_icon_index(const u8 *q) {
+    u8 v;
+    if (q[0] == 0) {
+        Tbl_8010C8B4 t = lbl_8043E2D8;
+        if ((v = q[1]) < 0xAA) {
+            v = get_weapon_class_motion_type(v);
+        }
+        if (v < 0x13) {
+            return t.w[v];
+        }
+    }
+    return 0;
 }
 
 }

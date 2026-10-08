@@ -100,7 +100,7 @@ void TDLGraph__sub_8007F6F8(s32, s32);
 VObj_8007C5C0 *create__8TDLGraphFv(void);
 void wait_ready_loop__6TLobbyFv(void);
 s32 get_localized_text_entry(s32, s32);
-void TLobby__sub_80137928(void);
+void process_deferred_player_setup__6TLobbyFv(void);
 void reset_state_flags__6TLobbyFv(void);
 s8 func_801A5E54__Fv(void);
 void controller_stuff__Fv(void);
@@ -112,7 +112,7 @@ void render__9TMainTaskFv(void *);
 void set_field_1c__6TLobbyFPvf(void *, f32);
 void complete_reveal__14TWindowMessageFPv(void *);
 void send_and_handle__6TLobbyFPvii(void *, s32, s32);
-void *TLobby__sub_80269CC0(f32 *, f32 *, s32, s32);
+void *create_message_window__6TLobbyFiiUis(f32 *, f32 *, s32, s32);
 void func_803DCDFC__Fv(void);
 extern f32 lbl_80438A78[];
 extern f32 lbl_80438A80[];
@@ -132,7 +132,7 @@ s32 get_main_phase(void);
 void TCameraCtrl__sub_8006AF9C(u32, s32);
 void wait_ready_loop__6TLobbyFv(void);
 s32 get_localized_text_entry(s32, s32);
-void TLobby__sub_80137928(void);
+void process_deferred_player_setup__6TLobbyFv(void);
 void reset_state_flags__6TLobbyFv(void);
 s8 func_801A5E54__Fv(void);
 void controller_stuff__Fv(void);
@@ -141,7 +141,7 @@ void render__9TMainTaskFv(void *);
 void set_field_1c__6TLobbyFPvf(void *, f32);
 void complete_reveal__14TWindowMessageFPv(void *);
 void send_and_handle__6TLobbyFPvii(void *, s32, s32);
-void *TLobby__sub_80269CC0(f32 *, f32 *, s32, s32);
+void *create_message_window__6TLobbyFiiUis(f32 *, f32 *, s32, s32);
 void func_803DCDFC__Fv(void);
 extern f32 lbl_80438A68[];
 extern f32 lbl_80438A70[];
@@ -183,7 +183,7 @@ s32 TObjBoss2Tunnel__sub_8007C5C0(void) {
         lbl_805D4EA4 = lbl_80438A80[0] - lbl_805D9218;
         lbl_805D4EA8 = 1;
     }
-    win = (VObj_8007C5C0 *)TLobby__sub_80269CC0(lbl_80438A78, lbl_80438A80, 1, 4);
+    win = (VObj_8007C5C0 *)create_message_window__6TLobbyFiiUis(lbl_80438A78, lbl_80438A80, 1, 4);
     if (win != NULL) {
         send_and_handle__6TLobbyFPvii(win, get_localized_text_entry(0x24, 0xB), 3);
         set_field_1c__6TLobbyFPvf(win, lbl_805D921C);
@@ -235,7 +235,7 @@ s32 TObjBoss2Tunnel__sub_8007C5C0(void) {
         delete graph;
     }
     if (get_main_phase() == 0xF) {
-        TLobby__sub_80137928();
+        process_deferred_player_setup__6TLobbyFv();
     }
     if (win != NULL) {
         delete win;
@@ -259,7 +259,7 @@ void TObjBoss2Tunnel__sub_8007C8AC(s32 arg0) {
         lbl_805D4E9C = lbl_80438A70[0] - lbl_805D9218;
         lbl_805D4EA0 = 1;
     }
-    win = (VObj_8007C8AC *)TLobby__sub_80269CC0(lbl_80438A68, lbl_80438A70, 1, 4);
+    win = (VObj_8007C8AC *)create_message_window__6TLobbyFiiUis(lbl_80438A68, lbl_80438A70, 1, 4);
     if (win != NULL) {
         switch (arg0) {
         case -2:
@@ -298,7 +298,7 @@ void TObjBoss2Tunnel__sub_8007C8AC(s32 arg0) {
         render_tick__Fv();
     }
     if (get_main_phase() == 0xF) {
-        TLobby__sub_80137928();
+        process_deferred_player_setup__6TLobbyFv();
     }
     if (win != NULL) {
         delete win;

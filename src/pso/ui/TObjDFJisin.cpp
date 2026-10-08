@@ -170,7 +170,7 @@ struct Ball_8005123C {
 struct Obj_80050AF8 { u8 pad[0x358]; u32 objs[2]; };
 
 void destroy_motion_object__10TObjPlayerFPvs(void *, s32);
-M2C_UNK TObjPlayer__sub_80019038(void *, M2C_UNK);
+M2C_UNK construct_actor_base__10TObjPlayerFPvPv(void *, M2C_UNK);
 void VecCopy__FP3VecPC3Vec(void *, void *);
 Player_80050D74 * get_player_data__10TObjPlayerFi(s32);
 s16 obj_getField1c(void *);
@@ -346,7 +346,7 @@ u8 *TObjDFHorming__ct(u8 *arg0, M2C_UNK arg1, s32 arg2, u16 arg3) {
     u8 *p;
     s32 i;
 
-    TObjPlayer__sub_80019038(arg0, arg1);
+    construct_actor_base__10TObjPlayerFPvPv(arg0, arg1);
     M2C_FIELD(arg0, u8 **, 0x18) = (u8 *)__vt__13TObjDFHorming;
     M2C_FIELD(arg0, s32 *, 0) = lbl_805D27C8;
     M2C_FIELD(arg0, u16 *, 0x334) = arg3;
@@ -609,8 +609,8 @@ void TObjPlayer__sub_8001488C();
 void TObjPlayer__sub_80014890();
 void TObjPlayer__sub_80014894();
 void TObjPlayer__sub_80014898();
-void TObjPlayer__sub_80015884();
-void TObjPlayer__sub_80016C54();
+void apply_slow_status__10TObjPlayerFPv();
+void update_shock_clock__10TObjPlayerFPv();
 void TObjPlayer__sub_800172CC();
 void TObjPlayer__sub_80018E6C();
 void TObjPlayer__sub_80019568();
@@ -715,13 +715,13 @@ void *__vt__13TObjDFHorming[] = {
     (void *)update_action_timer__10TObjPlayerFPv,
     (void *)update_flag30_timer__10TObjPlayerFPv,
     (void *)update_movement_status__10TObjPlayerFv,
-    (void *)TObjPlayer__sub_80016C54,
+    (void *)update_shock_clock__10TObjPlayerFPv,
     (void *)update_attack_stat_status,
     (void *)update_defense_stat_status,
     (void *)TObjPlayer__sub_800172CC,
     (void *)apply_poison_status__10TObjPlayerFv,
     (void *)apply_paralysis__10TObjPlayerFv,
-    (void *)TObjPlayer__sub_80015884,
+    (void *)apply_slow_status__10TObjPlayerFPv,
     (void *)apply_confusion_status__10TObjPlayerFv,
     (void *)apply_movement_ailment__10TObjPlayerFv,
     (void *)apply_shock_status__10TObjPlayerFv,

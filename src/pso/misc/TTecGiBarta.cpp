@@ -169,10 +169,10 @@ u16 obj_getField1c(void *);
 void update_technique_by_phase__11TTecGiBartaFPv(u8 *arg0);
 void create_particles__11TTecGiBartaFv(void *);
 void calc_params__11TTecGiBartaFPv(u8 *arg0);
-void TObjPlayer__sub_8023AA4C();
+void construct_facing_technique__10TObjPlayerFPviPvii();
 extern void *__vt__11TTecGiBarta[];
 extern s32 lbl_805D37B8;
-u8 *TTecGiBarta__sub_80230CFC(u8 *arg0, void * _w1, void * _w2, void * _w3, void * _w4);
+u8 *construct_facing__11TTecGiBartaFPvPvPvPvPv(u8 *arg0, void * _w1, void * _w2, void * _w3, void * _w4);
 }
 
 extern "C" {
@@ -368,7 +368,7 @@ void create_ex__11TTecGiBartaFPvPvPvPv(void *arg0, void *arg1, void *arg2, void 
     void *o;
     o = __nw__7TObjectFUl(0x178);
     if (o != NULL) {
-        TTecGiBarta__sub_80230CFC((u8 *)(o), (void *)(arg0), (void *)(arg1), (void *)(arg2), (void *)(arg3));
+        construct_facing__11TTecGiBartaFPvPvPvPvPv((u8 *)(o), (void *)(arg0), (void *)(arg1), (void *)(arg2), (void *)(arg3));
     }
 }
 
@@ -418,9 +418,9 @@ TTecGiBarta_80230C58 *TTecGiBarta__ct(TTecGiBarta_80230C58 *self, void * _w1, vo
     return self;
 }
 
-u8 *TTecGiBarta__sub_80230CFC(u8 *arg0, void * _w1, void * _w2, void * _w3, void * _w4) {
+u8 *construct_facing__11TTecGiBartaFPvPvPvPvPv(u8 *arg0, void * _w1, void * _w2, void * _w3, void * _w4) {
     s32 i;
-    TObjPlayer__sub_8023AA4C();
+    construct_facing_technique__10TObjPlayerFPviPvii();
     M2C_FIELD(arg0, void **, 0x18) = __vt__11TTecGiBarta;
     M2C_FIELD(arg0, s32 *, 0) = lbl_805D37B8;
     calc_params__11TTecGiBartaFPv(arg0);

@@ -51,7 +51,7 @@ s32 VecCopy__FP3VecPC3Vec(void *, void *);
 f32 TBoss3Volopt__sub_8004812C(int);
 s32 spawn_particle_effect_with_rotation(void *, void *, int, int);
 s32 init_collision_body_parts(void *, void *, int);
-s32 TObjPlayer__sub_801569F4(void *, void *);
+s32 construct_collider_proxy__10TObjPlayerFPv(void *, void *);
 s32 matrix_mult_vec(int, int, int);
 s32 rotate_matrix_y(int, int);
 s32 rotate_matrix_x(int, int);
@@ -164,7 +164,7 @@ typedef char RecoveredGlobal_80049E9C_lbl_80484AFC_size[sizeof(RecoveredGlobal_8
 typedef char RecoveredGlobal_80049E9C_lbl_8058D490_size[sizeof(RecoveredGlobal_80049E9C_lbl_8058D490) == 0x30 ? 1 : -1];
 u8 *TBoss3Volopt__sub_80049E9C(u8 *arg0, s32 arg1, s32 arg2, s32 arg3, s32 arg4) {
     u8 *temp_r4;
-    TObjPlayer__sub_801569F4((void *) (arg0), (void *) (arg1));
+    construct_collider_proxy__10TObjPlayerFPv((void *) (arg0), (void *) (arg1));
     M2C_FIELD(arg0, M2C_UNK **, 0x18) = &(*(RecoveredGlobal_80049E9C_lbl_80484AFC *)&lbl_80484AFC).value;
     init_collision_body_parts((void *) (arg0), (void *) (&lbl_80484AD0.value), (int) (1));
     M2C_FIELD(M2C_FIELD(arg0, u8 **, 0xA4), f32 *, 0xC) = (f32) lbl_805D88AC;

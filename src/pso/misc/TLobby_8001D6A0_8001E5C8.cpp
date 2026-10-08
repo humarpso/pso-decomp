@@ -5,9 +5,9 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 #define M2C_BITWISE(type, expr) ((type)(expr))
 
 extern "C" {
-s32 TLobby__sub_8001E75C(void *);
 extern f32 TLobby__data_805D7EC8;
 s32 TLobby__sub_8001E6D4(s32 arg0);
+s32 TLobby__sub_8001E75C(void *arg0);
 }
 
 extern "C" {
@@ -24,11 +24,17 @@ s32 TLobby__sub_8001E6D4(s32 arg0) {
   int new_var2;
   s32 temp_r31_2;
   s32 temp_r31;
-  temp_r31_2 = TLobby__sub_8001E75C((void *) (arg0 + 0xC));
+  temp_r31_2 = TLobby__sub_8001E75C((void *)((void *) (arg0 + 0xC)));
   new_var = &arg0;
-  temp_r31 = (temp_r31_2 * 0x3C) + TLobby__sub_8001E75C((void *) (arg0 + 0xF));
-  new_var2 = (temp_r31 * 0x3C) + TLobby__sub_8001E75C((void *) ((*new_var) + 0x12));
+  temp_r31 = (temp_r31_2 * 0x3C) + TLobby__sub_8001E75C((void *)((void *) (arg0 + 0xF)));
+  new_var2 = (temp_r31 * 0x3C) + TLobby__sub_8001E75C((void *)((void *) ((*new_var) + 0x12)));
   return (s32) (TLobby__data_805D7EC8 * ((f32) new_var2));
+}
+s32 TLobby__sub_8001E75C(void *arg0) {
+    s8 *s = (s8 *)arg0;
+    s32 v = (s[0] - '0') * 10;
+    v += s[1] - '0';
+    return v;
 }
 
 }

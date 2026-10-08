@@ -21,10 +21,10 @@ struct Curtain_8035B94C {
 };
 
 extern "C" {
-s32 TLobby__sub_80351DFC(void);
-s32 TObjCurtainLobby__sub_8035B87C(void);
+s32 get_filtered_event_theme__6TLobbyFv(void);
+s32 get_lobby_theme_clamped__16TObjCurtainLobbyFv(void);
 s32 check_demo_mode__10TObjPlayerFv();
-s32 TObjCurtainLobby__sub_8035B87C(void);
+s32 get_lobby_theme_clamped__16TObjCurtainLobbyFv(void);
 void TObjCurtainLobby__sub_8035B8B4(void);
 void run_task__16TObjCurtainLobbyFv(Curtain_8035B94C *self);
 }
@@ -53,7 +53,7 @@ s32 get_lobby_type__6TLobbyFv(void);
 extern RecoveredGlobal_8035BACC_lbl_804F1D98 lbl_804F1D98;
 extern u32 TObjCurtainLobby__data_805D6F58;
 extern s32 lbl_805D6F5C;
-void TObjCurtainLobby__sub_8035BACC(void);
+void load_resources__16TObjCurtainLobbyFv(void);
 void *__dt__16TObjCurtainLobbyFv(void *arg0, s16 arg1);
 void __dl__7TObjectFPv(void *);
 void destroy_key_base__5TOKeyFPvs(void *, int);
@@ -63,9 +63,9 @@ extern s32 lbl_805D4424;
 
 #pragma push
 #pragma opt_propagation off
-s32 TObjCurtainLobby__sub_8035B87C(void) {
+s32 get_lobby_theme_clamped__16TObjCurtainLobbyFv(void) {
     s32 var_r3;
-    var_r3 = TLobby__sub_80351DFC();
+    var_r3 = get_filtered_event_theme__6TLobbyFv();
     if (var_r3 < 0xE) {
         if (var_r3 < 0xC) {
             return var_r3;
@@ -103,7 +103,7 @@ void run_task__16TObjCurtainLobbyFv(Curtain_8035B94C *self) {
     }
     switch (self->state) {
     case 0:
-        if (((s32 (*)(void *))TObjCurtainLobby__sub_8035B87C)(self) == 0xC) {
+        if (((s32 (*)(void *))get_lobby_theme_clamped__16TObjCurtainLobbyFv)(self) == 0xC) {
             self->state = 2;
         }
         break;
@@ -123,7 +123,7 @@ void run_task__16TObjCurtainLobbyFv(Curtain_8035B94C *self) {
         break;
     case 3:
     default:
-        if (((s32 (*)(void *))TObjCurtainLobby__sub_8035B87C)(self) != 0xC) {
+        if (((s32 (*)(void *))get_lobby_theme_clamped__16TObjCurtainLobbyFv)(self) != 0xC) {
             self->state = 1;
         }
         break;
@@ -144,7 +144,7 @@ void close_dialog_window__16TObjCurtainLobbyFv(void) {
         TObjCurtainLobby__data_805D6F58 = 0U;
     }
 }
-void TObjCurtainLobby__sub_8035BACC(void) {
+void load_resources__16TObjCurtainLobbyFv(void) {
     s32 temp_r3;
     s32 var_r0;
     temp_r3 = alloc__23TAdSinglePlyChrSelectGCFPv((void *)0x440);
@@ -170,7 +170,7 @@ void *TObjCurtainLobby__ct(void *arg0, s32 arg1, s32 arg2) {
     M2C_FIELD(arg0, M2C_UNK **, 0x18) = __vt__16TObjCurtainLobby;
     M2C_FIELD(arg0, s32 *, 0) = (s32) lbl_805D4424;
     ((TObjCurtainLobby8035BB_8035BB24 *)arg0)->ct(arg2);
-    if (((s32 (*)(void *))TObjCurtainLobby__sub_8035B87C)(arg0) == 0xC) {
+    if (((s32 (*)(void *))get_lobby_theme_clamped__16TObjCurtainLobbyFv)(arg0) == 0xC) {
         M2C_FIELD(arg0, s32 *, 0xC8) = 3;
     } else {
         M2C_FIELD(arg0, s32 *, 0xC8) = 0;

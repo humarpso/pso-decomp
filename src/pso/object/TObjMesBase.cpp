@@ -68,7 +68,7 @@ void TObjMesBase__vt12(void);
 void *__dt__11TObjMesBaseFv(void *arg0, s16 arg1);
 void clear_ref_if_destroyed__11TObjMesBaseFPv(void *arg0);
 void dispatch_state__11TObjMesBaseFPv(void *arg0);
-M2C_UNK TObjPlayer__sub_801569F4();
+M2C_UNK construct_collider_proxy__10TObjPlayerFPv();
 void __dl__7TObjectFPv(void *);
 s32 all_parents_unqueued_for_destruction__7TObjectFv(void *obj);
 void destroy_particle_controller__10TObjPlayerFPvs(void *, int);
@@ -157,7 +157,7 @@ extern M2C_UNK __vt__11TObjMesBase[];
 extern s32 lbl_805D33C8;
 
 void *TObjMesBase__ct(void *arg0, s32 arg1, s32 arg2) {
-    TObjPlayer__sub_801569F4();
+    construct_collider_proxy__10TObjPlayerFPv();
     M2C_FIELD(arg0, M2C_UNK **, 0x18) = __vt__11TObjMesBase;
     M2C_FIELD(arg0, s32 *, 0) = (s32) lbl_805D33C8;
     ((TObjMesBase80194_80194C98 *)arg0)->ct(arg2);

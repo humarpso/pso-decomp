@@ -26,7 +26,7 @@ struct RecoveredGlobal_803548B4_TBoss6Rock__data_80543778 {
 
 extern "C" {
 s32 VecCopy__FP3VecPC3Vec(void *, int);
-s32 TObjPlayer__sub_801569F4(void *);
+s32 construct_collider_proxy__10TObjPlayerFPv(void *);
 s32 create__10TBoss6RockFv();
 s32 TBoss6Rock__sub_80353FF0(void *);
 extern RecoveredGlobal_80354948___vt__10TBoss6Rock __vt__10TBoss6Rock;
@@ -76,7 +76,7 @@ u8 *__dt__10TBoss6RockFv(u8 *arg0, s16 arg1) {
 }
 
 u8 *TBoss6Rock__ct(u8 *arg0, M2C_UNK arg1, s32 arg2) {
-    TObjPlayer__sub_801569F4((void *) (arg0));
+    construct_collider_proxy__10TObjPlayerFPv((void *) (arg0));
     M2C_FIELD(arg0, M2C_UNK **, 0x18) = &__vt__10TBoss6Rock.value;
     M2C_FIELD(arg0, s32 *, 0) = (s32) lbl_805D438C;
     M2C_FIELD(arg0, s32 *, 0xAC) = arg2;

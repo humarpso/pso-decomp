@@ -31,11 +31,11 @@ extern "C" {
 
 void render__11TChCrEffTagFv(void* p);
 int restore_saved_depth_alpha_state(void);
-int fn_8029A97C(void*);
-int fn_8029A9B8(void*);
+int draw_chcr_tag_heading_frame(void*);
+int draw_chcr_tag_frame(void*);
 int set_depth_buffer_settings_1__Fv(void*);
 
-void render__11TChCrEffTagFv(void* p) { set_depth_buffer_settings_1__Fv(p); fn_8029A9B8(p); fn_8029A97C(p); restore_saved_depth_alpha_state(); }
+void render__11TChCrEffTagFv(void* p) { set_depth_buffer_settings_1__Fv(p); draw_chcr_tag_frame(p); draw_chcr_tag_heading_frame(p); restore_saved_depth_alpha_state(); }
 typedef char RecoveredGlobal_8029AA74_lbl_804652A4_size[sizeof(RecoveredGlobal_8029AA74_lbl_804652A4) == 0x34 ? 1 : -1];
 void refresh_label__11TChCrEffTagFPv(u8 *arg0) {
     typedef char sp8_offset[(offsetof(Stack_8029AA74, sp8) == 0x0) ? 1 : -1];

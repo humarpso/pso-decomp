@@ -51,7 +51,7 @@ struct Laser_801AC17C {
 };
 
 extern "C" {
-void TObjPlayer__sub_80019038(void *, void *);
+void construct_actor_base__10TObjPlayerFPvPv(void *, void *);
 Vec_801AC36C *VecCopy__FP3VecPC3Vec(Vec_801AC36C *, const Vec_801AC36C *);
 s32 create_particle_emitter(Vec_801AC36C *, s32);
 extern M2C_UNK __vt__12TPhotonLaser[];
@@ -150,7 +150,7 @@ void *__dt__12TPhotonLaserFv(void *arg0, s16 arg1) {
 }
 
 Laser_801AC36C *TPhotonLaser__ct(Laser_801AC36C *self, Params_801AC36C *p, void *parent, s16 arg3) {
-    TObjPlayer__sub_80019038(self, parent);
+    construct_actor_base__10TObjPlayerFPvPv(self, parent);
     self->vt18 = ((s32 *)&__vt__12TPhotonLaser);
     self->f0 = lbl_805D34F0;
     VecCopy__FP3VecPC3Vec(&self->f334, VecCopy__FP3VecPC3Vec(&self->f340, &p->pos));

@@ -12,7 +12,7 @@ f32 get_random_float__21TObjEneMe3ShinowaRealFv(f32);
 f32 lerp__9TDeadSpotFff(f32, f32);
 f32 fn_801811FC(void *);
 f32 fn_80181204(void *);
-void *fn_80181278(void *, void *, s32, s32, f32);
+void *construct_city_air_car(void *, void *, s32, s32, f32);
 void *__nw__7TObjectFUl(u32);
 s32 all_parents_unqueued_for_destruction__7TObjectFv(void *);
 s32 rand(void);
@@ -81,7 +81,7 @@ void run_task__19TObjCityAirCar_CtrlFv(Ctrl_80181310 *self) {
             }
             o = __nw__7TObjectFUl(0xAC);
             if (o != NULL) {
-                o = fn_80181278(o, self, i, type, speed);
+                o = construct_city_air_car(o, self, i, type, speed);
             }
             r->objs[count++] = o;
         }

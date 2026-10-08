@@ -1040,7 +1040,7 @@ M2C_UNK set_field_b8__14TObjEnePanarmsFPvs(void *, int);
 M2C_UNK set_field_dc__10TObjPlayerFPvi(void *, int);
 M2C_UNK set_field_d8__10TObjPlayerFPvi(void *, void *);
 void fn_80044330(void *);
-void TObjPlayer__sub_8004433C(void *);
+void construct_target_cursor_records__10TObjPlayerFi(void *);
 s16 get_field_2b8__14TItemProShieldFPv(void *);
 u32 csnVectorUnder(void *, void *, s32);
 f32 clamp_velocity__15TObjBoss2TunnelFPv(Vec_800EE0F8 *);
@@ -1303,10 +1303,10 @@ extern "C" {
 void TObjPlayer__sub_80014898();
 }
 extern "C" {
-void TObjPlayer__sub_80015884();
+void apply_slow_status__10TObjPlayerFPv();
 }
 extern "C" {
-void TObjPlayer__sub_80016C54();
+void update_shock_clock__10TObjPlayerFPv();
 }
 extern "C" {
 void TObjPlayer__sub_800172CC();
@@ -1569,8 +1569,8 @@ void *__vt__18TObjEneRe4Sorcerer[107] = {
     (void *)&TObjEneRe4Sorcerer__vt26, (void *)&TObjPlayer__sub_8000FF3C, (void *)&is_target_in_attack_range__10TObjPlayerFv, (void *)&test_flag_256__10TObjPlayerFPv,
     (void *)&test_flag30_512__10TObjPlayerFPv, (void *)&has_flag_0x800__10TObjPlayerFPv, (void *)&test_flag_1000__10TObjPlayerFPv, (void *)&update_poison_status__10TObjPlayerFv,
     (void *)&update_action_hold_status__10TObjPlayerFv, (void *)&update_action_timer__10TObjPlayerFPv, (void *)&update_flag30_timer__10TObjPlayerFPv, (void *)&update_movement_status__10TObjPlayerFv,
-    (void *)&TObjPlayer__sub_80016C54, (void *)&update_attack_stat_status, (void *)&update_defense_stat_status, (void *)&TObjPlayer__sub_800172CC,
-    (void *)&apply_poison_status__10TObjPlayerFv, (void *)&apply_paralysis__10TObjPlayerFv, (void *)&TObjPlayer__sub_80015884, (void *)&apply_confusion_status__10TObjPlayerFv,
+    (void *)&update_shock_clock__10TObjPlayerFPv, (void *)&update_attack_stat_status, (void *)&update_defense_stat_status, (void *)&TObjPlayer__sub_800172CC,
+    (void *)&apply_poison_status__10TObjPlayerFv, (void *)&apply_paralysis__10TObjPlayerFv, (void *)&apply_slow_status__10TObjPlayerFPv, (void *)&apply_confusion_status__10TObjPlayerFv,
     (void *)&apply_movement_ailment__10TObjPlayerFv, (void *)&apply_shock_status__10TObjPlayerFv, (void *)&clear_harmful_statuses__10TObjPlayerFv, (void *)&apply_attack_stat_status__10TObjPlayerFv,
     (void *)&apply_defense_stat_status__10TObjPlayerFv, (void *)&cure_poison_ailment, (void *)&cure_paralysis__10TObjPlayerFv, (void *)&clear_all_status_effects,
     (void *)&apply_action_hold_status, (void *)&apply_anti_technique__10TObjPlayerFv, (void *)&TObjPlayer__sub_80014898, (void *)&TObjPlayer__sub_80014894,
@@ -2561,7 +2561,7 @@ void *TObjEneRe4Sorcerer__ct(void *arg0, void *arg1, void *arg2) {
     init_object__9TObjEneDDFPv(arg0);
     M2C_FIELD(arg0, M2C_UNK **, 0x18) = __vt__18TObjEneRe4Sorcerer;
     init_vtable_and_field18__10TObjPlayerFPv((void *)((char *)arg0 + 1020));
-    TObjPlayer__sub_8004433C((void *)((char *)arg0 + 1048));
+    construct_target_cursor_records__10TObjPlayerFi((void *)((char *)arg0 + 1048));
     __construct_array((void *)((char *)arg0 + 1140), init_and_activate__10TObjPlayerFPv, TObjPlayer__sub_800D7C58, 28, 4);
     M2C_FIELD(arg0, void **, 0x0) = lbl_805D2AF0;
     invoke_initialization_hook__9TObjEneDDFPv(arg0, arg2);

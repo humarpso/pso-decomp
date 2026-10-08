@@ -7,12 +7,12 @@ extern "C" {
 Eff_80109CBC *__ct__14TItemEffNeedleFv(void *, s32, void *, s32, s32);
 s32 get_entity_id__10TObjPlayerFPv(void *);
 void *__nw__7TObjectFUl(u32);
-void fn_80109CBC(s32 a, Obj_80109CBC *p, s32 id, s32 c);
+void spawn_target_needle(s32 a, Obj_80109CBC *p, s32 id, s32 c);
 }
 
 extern "C" {
 
-void fn_80109CBC(s32 a, Obj_80109CBC *p, s32 id, s32 c) {
+void spawn_target_needle(s32 a, Obj_80109CBC *p, s32 id, s32 c) {
     Eff_80109CBC *e;
     if ((u16)id != 0xFFFF && p != 0) {
         e = (Eff_80109CBC *)__nw__7TObjectFUl(0x64);

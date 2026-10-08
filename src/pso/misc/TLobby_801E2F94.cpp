@@ -25,7 +25,7 @@ void set_global_param__8TObjFishFi(s32);
 void set_texture_num(s32);
 void draw_particle_strip(void *, int, int);
 
-void TObjPlayer__sub_801E2FEC(Self_801E2FEC *self, s32 arg1, s32 flags) {
+void draw_shadow_quad__10TObjPlayerFPvii(Self_801E2FEC *self, s32 arg1, s32 flags) {
     Vtx_801E2FEC v[4];
     f32 ey, ex, cx, cy, z;
     f32 u0, v0, u1, v1;

@@ -8,8 +8,8 @@ extern "C" {
 
 u8 *construct_player_instance__10TObjPlayerFPvisiPv(u8 *arg0, s32 arg1, s16 arg2, s32 arg3, u8 *arg4);
 M2C_UNK TFontSmallLobby__sub_801C0164(void *);
-M2C_UNK TFontSmallLobby__sub_801D65B4(void *);
-M2C_UNK TObjPlayer__sub_80019038();
+M2C_UNK construct_pb_controller__15TFontSmallLobbyFi(void *);
+M2C_UNK construct_actor_base__10TObjPlayerFPvPv();
 M2C_UNK clear_header_struct__10TObjPlayerFPv(void *);
 M2C_UNK setup_control_role__10TObjPlayerFPvi(void *, void *);
 M2C_UNK TObjPlayer__sub_801BB8B0(void *, void *);
@@ -31,7 +31,7 @@ M2C_UNK TObjPlayer__sub_801BF660(void *);
 M2C_UNK TObjPlayer__sub_801BFB4C(void *);
 M2C_UNK clear_base__10TObjPlayerFPv(void *);
 M2C_UNK set_vec3_const_wrapper__10TObjPlayerFPv(void *);
-M2C_UNK TObjPlayer__sub_801BFBEC(void *);
+M2C_UNK construct_hurt_timer__10TObjPlayerFPv(void *);
 M2C_UNK reset_and_clear__10TObjPlayerFPv(void *);
 M2C_UNK set_vec4_const_wrapper__10TObjPlayerFPv(void *);
 M2C_UNK init_members__10TObjPlayerFPv(void *);
@@ -75,7 +75,7 @@ extern M2C_UNK __vt__10TObjPlayer[];
 extern s32 lbl_805D3530;
 
 u8 *construct_player_instance__10TObjPlayerFPvisiPv(u8 *arg0, s32 arg1, s16 arg2, s32 arg3, u8 *arg4) {
-    TObjPlayer__sub_80019038();
+    construct_actor_base__10TObjPlayerFPvPv();
     M2C_FIELD(arg0, M2C_UNK **, 0x18) = __vt__10TObjPlayer;
     init_subobject__10TObjPlayerFPv((void *) (arg0 + 0x340));
     setup_ctrl__10TObjPlayerFPv((void *) (arg0 + 0x34C));
@@ -84,7 +84,7 @@ u8 *construct_player_instance__10TObjPlayerFPvisiPv(u8 *arg0, s32 arg1, s16 arg2
     TObjPlayer__sub_80309E9C((void *) (arg0 + 0x384));
     init_forward__10TObjPlayerFPv((void *) (arg0 + 0x41C));
     TFontSmallLobby__sub_801C0164((void *) (arg0 + 0x428));
-    TFontSmallLobby__sub_801D65B4((void *) (arg0 + 0x4AC));
+    construct_pb_controller__15TFontSmallLobbyFi((void *) (arg0 + 0x4AC));
     __ct__14TPlyDispConfigFv((void *) (arg0 + 0x500));
     TObjPlayer__sub_80351974((void *) (arg0 + 0x550));
     init_subobjects__10TObjPlayerFPv((void *) (arg0 + 0x5B0));
@@ -94,7 +94,7 @@ u8 *construct_player_instance__10TObjPlayerFPvisiPv(u8 *arg0, s32 arg1, s16 arg2
     set_vec4_const_wrapper__10TObjPlayerFPv((void *) (arg0 + 0x608));
     wrap_update__10TObjPlayerFPv((void *) (arg0 + 0x634));
     reset_and_clear__10TObjPlayerFPv((void *) (arg0 + 0x63C));
-    TObjPlayer__sub_801BFBEC((void *) (arg0 + 0x644));
+    construct_hurt_timer__10TObjPlayerFPv((void *) (arg0 + 0x644));
     reset_fields__10TObjPlayerFPv((void *) (arg0 + 0x64C));
     reset_scale_vector__10TObjPlayerFPv((void *) (arg0 + 0x658));
     set_vec3_const_wrapper__10TObjPlayerFPv((void *) (arg0 + 0x66C));

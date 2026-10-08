@@ -35,10 +35,10 @@ struct Obj_8035255C { u8 pad0[0xB0]; f32 f_b0; u8 padB4[0x1C]; s16 idx; };
 struct Fish_8035255C { s32 a; u32 cnt; };
 
 extern "C" {
-void TObjLobbyMain__sub_80352624(u8 *arg0);
-void TObjLobbyMain__sub_803525F0(u8 *arg0);
-s32 fn_80352094();
-void TObjLobbyMain__sub_803520DC(u8 *arg0);
+void update_fade__13TObjLobbyMainFPv(u8 *arg0);
+void update_fade_in__13TObjLobbyMainFPv(u8 *arg0);
+s32 get_theme_lobby_type();
+void resolve_theme_index__13TObjLobbyMainFPv(u8 *arg0);
 void TObjLobbyMain__sub_803521A4(u8 *arg0);
 void set_param_ptr__11TBoss4Type2FPvi(void *, int);
 void copy_pos__11TNowLoadingFPvPv(void *, void *);
@@ -48,7 +48,7 @@ void rotate_matrix_y(int, s32);
 void push_matrix();
 void pop_matrix();
 void post_translate_matrix(void *);
-void TObjLobbyMain__sub_80352240(u8 *arg0);
+void update_emitter_positions__13TObjLobbyMainFPv(u8 *arg0);
 s32 get_bml_motion(void *, s32);
 s32 get_bml_model(void *, s32);
 M2C_UNK scale_matrix(int, f32, f32, f32);
@@ -64,7 +64,7 @@ extern void *lbl_805D6ECC;
 void render__13TObjLobbyMainFv(u8 *arg0);
 s32 get_bml_motion(void *, s32);
 extern void *TObjLobbyMain__data_805D6EC8;
-void TObjLobbyMain__sub_8035255C(Obj_8035255C *o);
+void advance_motion_frame__13TObjLobbyMainFPv(Obj_8035255C *o);
 }
 
 extern "C" {
@@ -77,13 +77,13 @@ M2C_UNK PPCSync();
 M2C_UNK scroll_ginja_mesh_uvs(s32, M2C_UNK, M2C_UNK, M2C_UNK, M2C_UNK);
 M2C_UNK clear_active_flag__13TParticleCtrlFPv(void *);
 M2C_UNK enable__13TParticleCtrlFPv(void *);
-s32 fn_80352094();
+s32 get_theme_lobby_type();
 
 void TObjLobbyMain__sub_803520D8(void) {  }
 
-void TObjLobbyMain__sub_803520DC(u8 *arg0) {
+void resolve_theme_index__13TObjLobbyMainFPv(u8 *arg0) {
     u32 temp_r0;
-    M2C_FIELD(arg0, u32 *, 0xCC) = ((u32)fn_80352094());
+    M2C_FIELD(arg0, u32 *, 0xCC) = ((u32)get_theme_lobby_type());
     temp_r0 = M2C_FIELD(arg0, u32 *, 0xCC);
     switch (temp_r0) {
     case 1:
@@ -156,7 +156,7 @@ void TObjLobbyMain__sub_803521A4(u8 *arg0) {
     }
 }
 
-void TObjLobbyMain__sub_80352240(u8 *arg0) {
+void update_emitter_positions__13TObjLobbyMainFPv(u8 *arg0) {
     switch (*(s16 *)(arg0 + 0xD0)) {
     case 3:
     if (*(void **)(arg0 + 0xD8) != NULL) {
@@ -253,7 +253,7 @@ void update_computer_machines__13TObjLobbyMainFv(void) {
     }
 }
 
-void TObjLobbyMain__sub_8035255C(Obj_8035255C *o) {
+void advance_motion_frame__13TObjLobbyMainFPv(Obj_8035255C *o) {
     f32 a, b;
     s32 v = lbl_80479078[o->idx];
     if (v != 5) {
@@ -266,7 +266,7 @@ void TObjLobbyMain__sub_8035255C(Obj_8035255C *o) {
     }
 }
 
-void TObjLobbyMain__sub_803525F0(u8 *arg0) {
+void update_fade_in__13TObjLobbyMainFPv(u8 *arg0) {
     M2C_FIELD(arg0, f32 *, 0xD4) += 0.1f;
     if (M2C_FIELD(arg0, f32 *, 0xD4) >= (1.0f)) {
         M2C_FIELD(arg0, s32 *, 0xC8) = 2;
@@ -274,19 +274,19 @@ void TObjLobbyMain__sub_803525F0(u8 *arg0) {
     }
 }
 
-void TObjLobbyMain__sub_80352624(u8 *arg0) {
+void update_fade__13TObjLobbyMainFPv(u8 *arg0) {
     M2C_FIELD(arg0, f32 *, 0xD4) -= 0.1f;
     if (M2C_FIELD(arg0, f32 *, 0xD4) <= (0.0f)) {
         M2C_FIELD(arg0, s32 *, 0xC8) = 1;
         M2C_FIELD(arg0, f32 *, 0xD4) = (f32) (0.0f);
-        TObjLobbyMain__sub_803520DC((u8 *)(arg0));
-        TObjLobbyMain__sub_80352240((u8 *)((void *) (arg0)));
+        resolve_theme_index__13TObjLobbyMainFPv((u8 *)(arg0));
+        update_emitter_positions__13TObjLobbyMainFPv((u8 *)((void *) (arg0)));
         M2C_FIELD(arg0, f32 *, 0xB0) = (f32) (0.0f);
     }
 }
 
 void reset_state__13TObjLobbyMainFPv(void *arg0) {
-    if ((s32) M2C_FIELD(arg0, s32 *, 0xCC) != fn_80352094()) {
+    if ((s32) M2C_FIELD(arg0, s32 *, 0xCC) != get_theme_lobby_type()) {
         M2C_FIELD(arg0, s32 *, 0xC8) = 0;
         M2C_FIELD(arg0, f32 *, 0xD4) = (f32) (1.0f);
     }
@@ -294,13 +294,13 @@ void reset_state__13TObjLobbyMainFPv(void *arg0) {
 
 }
 
-#define TObjLobbyMain__sub_803520DC ((M2C_UNK (*)(void *))TObjLobbyMain__sub_803520DC)
+#define resolve_theme_index__13TObjLobbyMainFPv ((M2C_UNK (*)(void *))resolve_theme_index__13TObjLobbyMainFPv)
 #define TObjLobbyMain__sub_803521A4 ((M2C_UNK (*)(void *))TObjLobbyMain__sub_803521A4)
-#define TObjLobbyMain__sub_80352240 ((s32 (*)(void *))TObjLobbyMain__sub_80352240)
+#define update_emitter_positions__13TObjLobbyMainFPv ((s32 (*)(void *))update_emitter_positions__13TObjLobbyMainFPv)
 #define TObjLobbyMain__sub_803520D8 ((M2C_UNK (*)(void *))TObjLobbyMain__sub_803520D8)
-#define TObjLobbyMain__sub_8035255C ((M2C_UNK (*)(void *))TObjLobbyMain__sub_8035255C)
-#define TObjLobbyMain__sub_803525F0 ((M2C_UNK (*)(void *))TObjLobbyMain__sub_803525F0)
-#define TObjLobbyMain__sub_80352624 ((M2C_UNK (*)(void *))TObjLobbyMain__sub_80352624)
+#define advance_motion_frame__13TObjLobbyMainFPv ((M2C_UNK (*)(void *))advance_motion_frame__13TObjLobbyMainFPv)
+#define update_fade_in__13TObjLobbyMainFPv ((M2C_UNK (*)(void *))update_fade_in__13TObjLobbyMainFPv)
+#define update_fade__13TObjLobbyMainFPv ((M2C_UNK (*)(void *))update_fade__13TObjLobbyMainFPv)
 #define reset_state__13TObjLobbyMainFPv ((M2C_UNK (*)(void *))reset_state__13TObjLobbyMainFPv)
 #define update_computer_machines__13TObjLobbyMainFv ((M2C_UNK (*)(void *))update_computer_machines__13TObjLobbyMainFv)
 #define update_particles__13TObjLobbyMainFPv ((M2C_UNK (*)(void *))update_particles__13TObjLobbyMainFPv)
@@ -376,10 +376,10 @@ void run_task__13TObjLobbyMainFv(void *arg0) {
     temp_r0 = M2C_FIELD(arg0, s32 *, 0xC8);
     switch (temp_r0) {
     case 0:
-        TObjLobbyMain__sub_80352624(arg0);
+        update_fade__13TObjLobbyMainFPv(arg0);
         break;
     case 1:
-        TObjLobbyMain__sub_803525F0(arg0);
+        update_fade_in__13TObjLobbyMainFPv(arg0);
         break;
     default:
     case 2:
@@ -387,7 +387,7 @@ void run_task__13TObjLobbyMainFv(void *arg0) {
         break;
     }
     update_computer_machines__13TObjLobbyMainFv(arg0);
-    TObjLobbyMain__sub_8035255C(arg0);
+    advance_motion_frame__13TObjLobbyMainFPv(arg0);
     update_particles__13TObjLobbyMainFPv(arg0);
 }
 
@@ -461,8 +461,8 @@ u8 *TObjLobbyMain__ct(u8 *arg0, M2C_UNK arg1, s32 arg2) {
         enable__13TParticleCtrlFPv((int) (M2C_FIELD(arg0, u32 *, 0xDC)));
     }
     TObjLobbyMain__sub_803521A4((void *) (arg0));
-    TObjLobbyMain__sub_803520DC((void *) (arg0));
-    TObjLobbyMain__sub_80352240((void *) (arg0));
+    resolve_theme_index__13TObjLobbyMainFPv((void *) (arg0));
+    update_emitter_positions__13TObjLobbyMainFPv((void *) (arg0));
     M2C_FIELD(arg0, f32 *, 0xD4) = (f32) (1.0f);
     M2C_FIELD(arg0, s32 *, 0xC8) = 2;
     M2C_FIELD(arg0, f32 *, 0xC4) = (f32) (1.2e+02f);
@@ -475,13 +475,13 @@ u8 *TObjLobbyMain__ct(u8 *arg0, M2C_UNK arg1, s32 arg2) {
 
 }
 
-#undef TObjLobbyMain__sub_803520DC
+#undef resolve_theme_index__13TObjLobbyMainFPv
 #undef TObjLobbyMain__sub_803521A4
-#undef TObjLobbyMain__sub_80352240
+#undef update_emitter_positions__13TObjLobbyMainFPv
 #undef TObjLobbyMain__sub_803520D8
-#undef TObjLobbyMain__sub_8035255C
-#undef TObjLobbyMain__sub_803525F0
-#undef TObjLobbyMain__sub_80352624
+#undef advance_motion_frame__13TObjLobbyMainFPv
+#undef update_fade_in__13TObjLobbyMainFPv
+#undef update_fade__13TObjLobbyMainFPv
 #undef reset_state__13TObjLobbyMainFPv
 #undef update_computer_machines__13TObjLobbyMainFv
 #undef update_particles__13TObjLobbyMainFPv

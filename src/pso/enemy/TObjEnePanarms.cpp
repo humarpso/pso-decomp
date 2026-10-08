@@ -264,7 +264,7 @@ struct O_800E2FB4 { u8 pad[0x378]; s32 state; };
 struct Vec_800E06DC { f32 x, y, z; };
 
 f32 calc_boss4_scale__10TObjPlayerFi(void *);
-s32 TObjPlayer__sub_800114D8(void *, void *, f32);
+s32 find_nearest_hittable_enemy__10TObjPlayerFiPvf(void *, void *, f32);
 u16 find_nearest_visible_player(void *, Vec_800E0A44 *, f32);
 M2C_UNK VecCopy__FP3VecPC3Vec(void *, void *);
 s32 is_split_screen();
@@ -446,7 +446,7 @@ extern s32 tl_04;
 int TObjEnePanarms__sub_800DFBD0(u8 *arg0, s32 arg1, f32 farg0) {
     u16 temp_r3;
     M2C_FIELD(arg0, s32 *, 0x30) = (s32) (M2C_FIELD(arg0, s32 *, 0x30) | 0x02000000);
-    temp_r3 = TObjPlayer__sub_800114D8((void *) (arg0), (void *) (arg1), (f32) (farg0));
+    temp_r3 = find_nearest_hittable_enemy__10TObjPlayerFiPvf((void *) (arg0), (void *) (arg1), (f32) (farg0));
     M2C_FIELD(arg0, s32 *, 0x30) = (s32) (M2C_FIELD(arg0, s32 *, 0x30) & 0xFDFFFFFF);
     return temp_r3;
 }
@@ -1662,7 +1662,7 @@ u8 is_below_half_hp__14TObjEnePanarmsFPv(void *arg0) {
 int TObjEnePanarms__sub_800E2F6C(u8 *arg0, s32 arg1, f32 farg0) {
     u16 temp_r3;
     M2C_FIELD(arg0, s32 *, 0x30) = (s32) (M2C_FIELD(arg0, s32 *, 0x30) | 0x02000000);
-    temp_r3 = TObjPlayer__sub_800114D8((void *) (arg0), (void *) (arg1), (f32) (farg0));
+    temp_r3 = find_nearest_hittable_enemy__10TObjPlayerFiPvf((void *) (arg0), (void *) (arg1), (f32) (farg0));
     M2C_FIELD(arg0, s32 *, 0x30) = (s32) (M2C_FIELD(arg0, s32 *, 0x30) & 0xFDFFFFFF);
     return temp_r3;
 }

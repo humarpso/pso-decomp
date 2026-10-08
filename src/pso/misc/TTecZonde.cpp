@@ -155,9 +155,9 @@ typedef char RecoveredGlobal_8023CD48___vt__9TTecZonde_size[sizeof(RecoveredGlob
 
 extern "C" {
 u16 obj_getField1c(void *);
-s32 TObjPlayer__sub_8004433C(s32);
+s32 construct_target_cursor_records__10TObjPlayerFi(s32);
 void copy_technique_target_list(void *, void *);
-u8 * TObjPlayer__sub_8023AA4C(void *, s32, void *, s32, s16);
+u8 * construct_facing_technique__10TObjPlayerFPviPvii(void *, s32, void *, s32, s16);
 extern M2C_UNK __vt__9TTecZonde[];
 extern s32 lbl_805D3838;
 u8 *TTecZonde__ct(u8 *arg0, s32 arg1, u8 *arg2, u8 *arg3, s16 arg4);
@@ -195,8 +195,8 @@ s32 play_sound_effect(s32, void *, s32, s32);
 void *__nw__7TObjectFUl(int);
 s32 is_parents_unqueued__9TTecLukerFUi(u32);
 s32 is_valid_and_active__10TObjPlayerFUi(void *);
-u8 *TTecGiZonde__sub_8023CE54(u8 *arg0, u8 *arg1, u8 *arg2, u8 *arg3, s32 arg4);
-u8 *TTecZonde__sub_8023DA10(u8 *arg0, u8 *arg1, u8 *arg2, u8 *arg3, s32 arg4, s32 arg5, f32 farg0, f32 farg1);
+u8 *construct_helper_effect__11TTecGiZondeFPvPvPvPvi(u8 *arg0, u8 *arg1, u8 *arg2, u8 *arg3, s32 arg4);
+u8 *construct_bolt_effect__9TTecZondeFPvPvPvPviiff(u8 *arg0, u8 *arg1, u8 *arg2, u8 *arg3, s32 arg4, s32 arg5, f32 farg0, f32 farg1);
 s32 rand();
 f32 vector_length(void *);
 void normalize_vector(void *);
@@ -256,28 +256,28 @@ void run_task__9TTecZondeFv(Zonde_8023C79C *self) {
         case 0:
             o = __nw__7TObjectFUl(0x260);
             if (o != NULL) {
-                TTecZonde__sub_8023DA10((u8 *)o, tl_07, (u8 *)segs[0].a, (u8 *)segs[0].b, 0x14000000, 0x14, segs[0].len, lbl_805DC97C);
+                construct_bolt_effect__9TTecZondeFPvPvPvPviiff((u8 *)o, tl_07, (u8 *)segs[0].a, (u8 *)segs[0].b, 0x14000000, 0x14, segs[0].len, lbl_805DC97C);
             }
             break;
         case 1:
             scale *= lbl_805DC980;
             o = __nw__7TObjectFUl(0x260);
             if (o != NULL) {
-                TTecZonde__sub_8023DA10((u8 *)o, tl_07, (u8 *)segs[0].a, (u8 *)segs[0].b, 0x14000000, 0x14, segs[0].len, scale);
+                construct_bolt_effect__9TTecZondeFPvPvPvPviiff((u8 *)o, tl_07, (u8 *)segs[0].a, (u8 *)segs[0].b, 0x14000000, 0x14, segs[0].len, scale);
             }
             break;
         case 2:
             scale *= lbl_805DC984;
             o = __nw__7TObjectFUl(0x260);
             if (o != NULL) {
-                TTecZonde__sub_8023DA10((u8 *)o, tl_07, (u8 *)segs[0].a, (u8 *)segs[0].b, 0x14000000, 0x14, segs[0].len, scale);
+                construct_bolt_effect__9TTecZondeFPvPvPvPviiff((u8 *)o, tl_07, (u8 *)segs[0].a, (u8 *)segs[0].b, 0x14000000, 0x14, segs[0].len, scale);
             }
             break;
         case 3:
             for (j = 0; j < 3; j++) {
                 o = __nw__7TObjectFUl(0x260);
                 if (o != NULL) {
-                    TTecZonde__sub_8023DA10((u8 *)o, tl_07, (u8 *)segs[j].a, (u8 *)segs[j].b, 0x14000000, 0x14, segs[j].len, lbl_805DC97C);
+                    construct_bolt_effect__9TTecZondeFPvPvPvPviiff((u8 *)o, tl_07, (u8 *)segs[j].a, (u8 *)segs[j].b, 0x14000000, 0x14, segs[j].len, lbl_805DC97C);
                 }
             }
             break;
@@ -286,7 +286,7 @@ void run_task__9TTecZondeFv(Zonde_8023C79C *self) {
             for (k = 0; k < 3; k++) {
                 o = __nw__7TObjectFUl(0x260);
                 if (o != NULL) {
-                    TTecZonde__sub_8023DA10((u8 *)o, tl_07, (u8 *)segs[k].a, (u8 *)segs[k].b, 0x14000000, 0x14, segs[k].len, scale);
+                    construct_bolt_effect__9TTecZondeFPvPvPvPviiff((u8 *)o, tl_07, (u8 *)segs[k].a, (u8 *)segs[k].b, 0x14000000, 0x14, segs[k].len, scale);
                 }
             }
             break;
@@ -295,12 +295,12 @@ void run_task__9TTecZondeFv(Zonde_8023C79C *self) {
                 if (l == 0) {
                     o = __nw__7TObjectFUl(0x260);
                     if (o != NULL) {
-                        TTecZonde__sub_8023DA10((u8 *)o, tl_07, (u8 *)segs[l].a, (u8 *)segs[l].b, 0x14000000, 0x14, segs[l].len, lbl_805DC988);
+                        construct_bolt_effect__9TTecZondeFPvPvPvPviiff((u8 *)o, tl_07, (u8 *)segs[l].a, (u8 *)segs[l].b, 0x14000000, 0x14, segs[l].len, lbl_805DC988);
                     }
                 } else {
                     o = __nw__7TObjectFUl(0x260);
                     if (o != NULL) {
-                        TTecZonde__sub_8023DA10((u8 *)o, tl_07, (u8 *)segs[l].a, (u8 *)segs[l].b, 0x14000000, 0x14, segs[l].len, lbl_805DC97C);
+                        construct_bolt_effect__9TTecZondeFPvPvPvPviiff((u8 *)o, tl_07, (u8 *)segs[l].a, (u8 *)segs[l].b, 0x14000000, 0x14, segs[l].len, lbl_805DC97C);
                     }
                 }
             }
@@ -309,7 +309,7 @@ void run_task__9TTecZondeFv(Zonde_8023C79C *self) {
         if (self->level != 5) {
             o = __nw__7TObjectFUl(0x40);
             if (o != NULL) {
-                TTecGiZonde__sub_8023CE54((u8 *)o, (u8 *)segs, (u8 *)&t->x, tl_07, 0x19F);
+                construct_helper_effect__11TTecGiZondeFPvPvPvPvi((u8 *)o, (u8 *)segs, (u8 *)&t->x, tl_07, 0x19F);
             }
         }
         {
@@ -355,9 +355,9 @@ void run_task__9TTecZondeFv(Zonde_8023C79C *self) {
 #pragma pop
 u8 *TTecZonde__ct(u8 *arg0, s32 arg1, u8 *arg2, u8 *arg3, s16 arg4) {
     u8 *temp_r3;
-    TObjPlayer__sub_8023AA4C(arg0, arg1, arg2, 0, arg4);
+    construct_facing_technique__10TObjPlayerFPviPvii(arg0, arg1, arg2, 0, arg4);
     M2C_FIELD(arg0, M2C_UNK **, 0x18) = &(*(RecoveredGlobal_8023CD48___vt__9TTecZonde *)&__vt__9TTecZonde).value;
-    TObjPlayer__sub_8004433C((s32) (arg0 + 0x130));
+    construct_target_cursor_records__10TObjPlayerFi((s32) (arg0 + 0x130));
     M2C_FIELD(arg0, s32 *, 0) = (s32) lbl_805D3838;
     init_parameters__9TTecZondeFPv(arg0);
     copy_technique_target_list(arg0 + 0x130, arg3);

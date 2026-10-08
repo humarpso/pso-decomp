@@ -113,7 +113,7 @@ M2C_UNK set_field_1c__6TLobbyFPvf(void *, f32);
 void *create_yes_no_window(s32, u16, s32, s32);
 s32 select_cursor_entry__6TLobbyFPv(s32);
 M2C_UNK send_and_handle__6TLobbyFPvii(void *, s32, s32);
-void *TLobby__sub_80269CC0(s32, Pair_80288DA4 *, s32, u16);
+void *create_message_window__6TLobbyFiiUis(s32, Pair_80288DA4 *, s32, u16);
 s32 get_window_layout_position(s32);
 extern Pair_80288DA4 lbl_80450AB4[];
 extern const f32 lbl_805DD8E0;
@@ -318,7 +318,7 @@ void TQuestListChallenge__sub_80288DA4(QLC_80288DA4 *self) {
         p.a = lbl_80450AB4[0].a;
         p.b = lbl_80450AB4[0].b;
         id = (u16)obj_getField1c(self->f24);
-        self->f40 = TLobby__sub_80269CC0(get_window_layout_position(0x2E), &p, 1, id);
+        self->f40 = create_message_window__6TLobbyFiiUis(get_window_layout_position(0x2E), &p, 1, id);
         text2 = SUB_80222C28(self->f50, self->entries[sel].f8);
         send_and_handle__6TLobbyFPvii(self->f40, text2, 0x80);
         set_field_1c__6TLobbyFPvf(self->f40, lbl_805DD8E0);

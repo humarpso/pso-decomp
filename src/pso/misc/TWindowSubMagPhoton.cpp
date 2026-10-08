@@ -90,7 +90,7 @@ void update_quest_board_card_flags(void *arg0);
 M2C_UNK play_sound_effect(M2C_UNK, M2C_UNK, M2C_UNK, M2C_UNK);
 s32 get_selected_menu_value(s32);
 M2C_UNK align_menu_entry_positions(s32);
-M2C_UNK TWindowSubComCard__sub_80265E60(s32, f32);
+M2C_UNK update_layout_height__17TWindowSubComCardFPvf(s32, f32);
 M2C_UNK get_window_layout_position(M2C_UNK);
 M2C_UNK TWindowSubEquip__sub_80263AF8(s32, M2C_UNK);
 M2C_UNK TWindowSubQuestBoard__sub_8027CF50(s32, s32);
@@ -334,7 +334,7 @@ s32 create_option_menu_window(void *arg0) {
         forward_trade_action_default__16TObjCityMainWarpFPviii(temp_r31, get_message_10__20TWindowSubStatusDispFPv(0x6E), 6, 5);
     }
     set_flag70_bit10__16TObjCityMainWarpFPv(temp_r31);
-    TWindowSubComCard__sub_80265E60(temp_r31, lbl_805DD688);
+    update_layout_height__17TWindowSubComCardFPvf(temp_r31, lbl_805DD688);
     align_menu_entry_positions(temp_r31);
     TWindowSubEquip__sub_80263AF8(M2C_FIELD(arg0, s32 *, 0x24), 0);
     set_field_1c__6TLobbyFPvf(temp_r31);

@@ -40,7 +40,7 @@ struct RecoveredGlobal_802FEF98___vt__14TOJungleDesign {
 extern "C" {
 s32 reset_photon_effect__10TObjPlayerFPv(void *);
 s32 init_collision_body_parts(void *, int, int);
-s32 TObjPlayer__sub_801569F4(void *);
+s32 construct_collider_proxy__10TObjPlayerFPv(void *);
 s32 init_design_variant__14TOJungleDesignFPv(void *);
 extern RecoveredGlobal_802FEF98_lbl_804E6580 lbl_804E6580;
 extern M2C_UNK __vt__14TOJungleDesign[];
@@ -94,7 +94,7 @@ void *__dt__14TOJungleDesignFv(void *arg0, s16 arg1) {
 typedef char RecoveredGlobal_802FEF98_lbl_804E6580_size[sizeof(RecoveredGlobal_802FEF98_lbl_804E6580) == 0x84 ? 1 : -1];
 typedef char RecoveredGlobal_802FEF98___vt__14TOJungleDesign_size[sizeof(RecoveredGlobal_802FEF98___vt__14TOJungleDesign) == 0x3C ? 1 : -1];
 u8 *TOJungleDesign__ct(u8 *arg0, M2C_UNK arg1, s32 arg2) {
-    TObjPlayer__sub_801569F4((void *) (arg0));
+    construct_collider_proxy__10TObjPlayerFPv((void *) (arg0));
     M2C_FIELD(arg0, M2C_UNK **, 0x18) = &(*(RecoveredGlobal_802FEF98___vt__14TOJungleDesign *)&__vt__14TOJungleDesign).value;
     M2C_FIELD(arg0, s32 *, 0) = (s32) lbl_805D4044;
     ((VObj_18_1a504b *)(arg0))->m5(arg2);

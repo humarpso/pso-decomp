@@ -7,7 +7,7 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 extern "C" {
 
 void send_position_update__6TLobbyFv(void);
-M2C_UNK fn_801DB684(s32, s32, s32);
+M2C_UNK send_packet_96(s32, s32, s32);
 s32 increment_frame__23TAdSinglePlyChrSelectGCFv();
 s32 get_player_count__23TAdSinglePlyChrSelectGCFv();
 
@@ -19,7 +19,7 @@ void send_position_update__6TLobbyFv(void) {
 
     temp_r31 = increment_frame__23TAdSinglePlyChrSelectGCFv();
     temp_r4 = get_player_count__23TAdSinglePlyChrSelectGCFv();
-    fn_801DB684(TLobby__data_805D5580, temp_r4, temp_r31);
+    send_packet_96(TLobby__data_805D5580, temp_r4, temp_r31);
 }
 
 }

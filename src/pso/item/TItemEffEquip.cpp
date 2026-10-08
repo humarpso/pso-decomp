@@ -61,7 +61,7 @@ void fn_8002B630(void *, void *);
 s32 TLobby__sub_80103AD4();
 void reset_photon_effect__10TObjPlayerFPv(void *);
 void initialize_linked_object_reference(void *, void *);
-void TObjPlayer__sub_801569F4(void *, void *);
+void construct_collider_proxy__10TObjPlayerFPv(void *, void *);
 extern u8 lbl_8043E1A0[];
 
 #include "types.h"
@@ -296,7 +296,7 @@ void *destroy__13TItemEffFlameFPvs(void *arg0, s16 arg1) {
 }
 
 Obj_80108C90 *TItemEffFlame__sub_80108C90(Obj_80108C90 *self, void *parent, s16 a, s32 b) {
-    TObjPlayer__sub_801569F4(self, parent);
+    construct_collider_proxy__10TObjPlayerFPv(self, parent);
     self->vt = lbl_8049F038;
     self->f_AC = a;
     self->f_B0 = b;

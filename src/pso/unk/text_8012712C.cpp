@@ -16,12 +16,12 @@ u8 get_slot_count__14TItemProShieldFPv(void *);
 void fn_80109710(void);
 extern void *lbl_804A3070[];
 extern const f32 lbl_805DADB8;
-u8 *TObjPlayer__sub_8012712C(void *self_, s32 a, void *b);
+u8 *construct_agito__10TObjPlayerFPviPv(void *self_, s32 a, void *b);
 }
 
 extern "C" {
 
-u8 *TObjPlayer__sub_8012712C(void *self_, s32 a, void *b) {
+u8 *construct_agito__10TObjPlayerFPviPv(void *self_, s32 a, void *b) {
     Self_8012712C *self = (Self_8012712C *)self_;
     TItemWeapon__ct(self, a, b);
     self->vt = lbl_804A3070;
@@ -41,7 +41,7 @@ u8 *create_agito_weapon(u8 *arg0) {
         temp_r3 = (u8 *)(alloc_from_obj_heap__10TObjPlayerFPv(0x1F8));
         var_r0 = (u8 *)(temp_r3);
         if (var_r0 != NULL) {
-            var_r0 = (u8 *)(TObjPlayer__sub_8012712C((void *)(temp_r3), (s32)(tl_05), (void *)(arg0)));
+            var_r0 = (u8 *)(construct_agito__10TObjPlayerFPviPv((void *)(temp_r3), (s32)(tl_05), (void *)(arg0)));
         }
         return var_r0;
     }

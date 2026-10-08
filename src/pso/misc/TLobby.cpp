@@ -28,8 +28,8 @@ extern u8 lbl_8050AEB8[];
 extern s32 TLobby__data_805D5594;
 extern void *lbl_805D55F8;
 extern s32 tl_window;
-void TLobby__sub_8013634C();
-void TLobby__sub_80136C94();
+void on_game_player_add__6TLobbyFiii();
+void handle_game_join__6TLobbyFPv();
 
 extern s32 TLobby__data_805D5580;
 
@@ -136,8 +136,8 @@ s32 get_option_state__6TLobbyFv(void) {
 }
 
 void TLobby__sub_80134D28(void) {
-    *(void (**)())(TLobby__data_805D5580 + 0xBC04) = TLobby__sub_80136C94;
-    *(void (**)())(TLobby__data_805D5580 + 0xBC18) = TLobby__sub_8013634C;
+    *(void (**)())(TLobby__data_805D5580 + 0xBC04) = handle_game_join__6TLobbyFPv;
+    *(void (**)())(TLobby__data_805D5580 + 0xBC18) = on_game_player_add__6TLobbyFiii;
 }
 
 }

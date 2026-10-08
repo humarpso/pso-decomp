@@ -157,7 +157,7 @@ void update_destruction_countdown__6TLobbyFPv(void *arg0);
 s32 TAdPlayerLoadGC__sub_801E1510();
 M2C_UNK TLobby__sub_80074034(s32);
 M2C_UNK TLobby__sub_802925C4(void *);
-M2C_UNK TObjPlayer__sub_802C3D38(u32, u32);
+M2C_UNK export_character_data__10TObjPlayerFPvPv(u32, u32);
 u32 get_player_by_client_id(u32);
 M2C_UNK create_ch_time_win(s32);
 u32 create_challenge4p__6TLobbyFv();
@@ -421,7 +421,7 @@ void setup_split_screen(void) {
             temp_r30 = get_player_by_client_id(var_r31);
             temp_r4 = get_char_index__23TAdSinglePlyChrSelectGCFUi(var_r31);
             if ((temp_r30 != 0U) && (temp_r4 != 0U)) {
-                TObjPlayer__sub_802C3D38(temp_r30, temp_r4);
+                export_character_data__10TObjPlayerFPvPv(temp_r30, temp_r4);
             }
             var_r31 += 1;
         } while (var_r31 != 4U);

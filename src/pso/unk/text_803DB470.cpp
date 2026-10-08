@@ -146,7 +146,7 @@ void set_ginja_material_color(u32 v);
 void init_model_draw_queue(void *);
 void flush_model_draw_queue(void);
 void prepare_ginja_model(void);
-void TObjPlayer__sub_803DC9E4(void *, void *);
+void traverse_node_tree__10TObjPlayerFv(void *, void *);
 void set_effect_active__10TObjPlayerFv(void);
 void apply_scene_fog(void);
 s32 queue_model_draw_current_matrix(s32 arg0);
@@ -181,7 +181,7 @@ s32 TObjPlayer__sub_803DB550(u32 arg0, s32 arg1);
 void draw_ginja_object(void *arg0) {
     prepare_ginja_model();
     init_model_draw_queue((void *) draw_ginja_model_lists);
-    TObjPlayer__sub_803DC9E4(arg0, (void *) queue_model_draw_current_matrix);
+    traverse_node_tree__10TObjPlayerFv(arg0, (void *) queue_model_draw_current_matrix);
     flush_model_draw_queue();
     if (lbl_805D76E4 != NULL) {
         lbl_805D76E4();

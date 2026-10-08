@@ -10,13 +10,13 @@ struct RecoveredGlobal_801E4E4C_lbl_804C57E0 {
 
 extern "C" {
 extern RecoveredGlobal_801E4E4C_lbl_804C57E0 lbl_804C57E0;
-void fn_801E4E4C(u8 *arg0, s32 arg1);
+void construct_texture_wave(u8 *arg0, s32 arg1);
 }
 
 extern "C" {
 
 typedef char RecoveredGlobal_801E4E4C_lbl_804C57E0_size[sizeof(RecoveredGlobal_801E4E4C_lbl_804C57E0) == 0x10 ? 1 : -1];
-void fn_801E4E4C(u8 *arg0, s32 arg1) {
+void construct_texture_wave(u8 *arg0, s32 arg1) {
     M2C_FIELD(arg0, M2C_UNK **, 0x50) = &lbl_804C57E0.value;
     M2C_FIELD(arg0, s32 *, 0x4C) = 0;
     M2C_FIELD(arg0, s32 *, 0x40) = 0;

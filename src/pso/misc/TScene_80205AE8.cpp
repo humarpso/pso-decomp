@@ -17,7 +17,7 @@ struct Info_80205AEC { u8 a0; u8 a1; u8 tex; u8 b; u8 c; };
 struct Def_80206058 { u16 id, texture; f32 u, v, du, dv; };
 
 extern "C" {
-u8 *TScene__sub_80081A30(void *, M2C_UNK, s32, s32, s32);
+u8 *construct_pvr_wave__6TSceneFPvPvPvii(void *, M2C_UNK, s32, s32, s32);
 u8 *__nw__7TObjectFUl(M2C_UNK);
 extern void **TScene__data_805D5FD0;
 void create_texture_wave_tasks__6TSceneFi(s32 arg0);
@@ -133,7 +133,7 @@ void create_texture_wave_tasks__6TSceneFi(s32 arg0) {
     temp_r3 = (u8 *) __nw__7TObjectFUl(0x38);
     if (temp_r3 != 0)
     {
-      TScene__sub_80081A30(temp_r3, arg0, *((s32 *) (((s8 *) var_r31) + 4)), *((s32 *) (((s8 *) var_r31) + 8)), (s32) (*((s16 *) (((s8 *) var_r31) + 0))));
+      construct_pvr_wave__6TSceneFPvPvPvii(temp_r3, arg0, *((s32 *) (((s8 *) var_r31) + 4)), *((s32 *) (((s8 *) var_r31) + 8)), (s32) (*((s16 *) (((s8 *) var_r31) + 0))));
     }
     temp_r0 = *((s16 *) (new_var + 0xC));
     var_r31 += 0xC;

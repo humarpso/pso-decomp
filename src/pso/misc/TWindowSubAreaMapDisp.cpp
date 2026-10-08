@@ -46,7 +46,7 @@ s32 text_builder_reset();
 s32 TWindowDD__sub_802466E0(void *, void *, void *, int);
 s32 get_window_layout_position(int);
 s32 fn_80271E40();
-s32 TWindowSubStatusDisp__sub_802880BC(int, int, int);
+s32 construct_type1_heading__20TWindowSubStatusDispFPvii(int, int, int);
 s32 get_game_play_mode();
 s32 strncpy(int, int, void *);
 extern RecoveredGlobal_80271D00_lbl_804D0FC0 lbl_804D0FC0;
@@ -269,7 +269,7 @@ u8 *TWindowSubAreaMapDisp__ct(u8 *arg0) {
     temp_r3_2 = alloc__23TAdSinglePlyChrSelectGCFPv((int) ((void *)0x24));
     var_r0 = temp_r3_2;
     if (var_r0 != 0) {
-        var_r0 = TWindowSubStatusDisp__sub_802880BC((int) (temp_r3_2), (int) (M2C_FIELD(arg0, s32 *, 0x74)), (int) ((s32) M2C_FIELD(arg0, s16 *, 0x20)));
+        var_r0 = construct_type1_heading__20TWindowSubStatusDispFPvii((int) (temp_r3_2), (int) (M2C_FIELD(arg0, s32 *, 0x74)), (int) ((s32) M2C_FIELD(arg0, s16 *, 0x20)));
     }
     M2C_FIELD(arg0, s32 *, 0x70) = var_r0;
     M2C_FIELD(arg0, s32 *, 0x6C) = 0;

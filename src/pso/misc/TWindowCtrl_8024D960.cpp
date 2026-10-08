@@ -20,7 +20,7 @@ struct W_8024DCE8 : WBase_8024DCE8 {
 
 extern "C" {
 u32 get_player_by_client_id(int);
-M2C_UNK TWindowSubTradeMain__sub_80244A4C(u32);
+M2C_UNK request_close__19TWindowSubTradeMainFPv(u32);
 M2C_UNK window_request_show(u32);
 s32 is_flag_2_set__11TWindowCtrlFPv(void *);
 s32 is_enabled__11TWindowCtrlFPv(void *);
@@ -29,7 +29,7 @@ s32 get_active_menu__11TWindowCtrlFPv(void *arg0);
 void TWindowCtrl__sub_8024DF5C(u8 *arg0);
 s32 is_split_screen();
 u32 get_player_by_client_id(int);
-M2C_UNK TWindowSubTradeMain__sub_80244A4C(u32);
+M2C_UNK request_close__19TWindowSubTradeMainFPv(u32);
 M2C_UNK window_request_show(u32);
 s32 is_flag_2_set__11TWindowCtrlFPv(void *);
 s32 TWindowCtrl__sub_8024C7F8(void *);
@@ -105,7 +105,7 @@ void spawn_palette_slot_light__15TWindowCtrlMainFPv(void* p);
 s32 TWindowMainMenu__sub_8024E3D4(void *);
 s32 TWindowMainMenu__sub_8024E3E0(void *);
 s32 get_window_layout_position(M2C_UNK);
-M2C_UNK TWindowSubTradeMain__sub_80244A4C(u32);
+M2C_UNK request_close__19TWindowSubTradeMainFPv(u32);
 int spawn_action_palette_slot_light(void*);
 void free_member__15TWindowCtrlMainFPv(void* p);
 int open_submenu__15TWindowSubEquipFii(void*);
@@ -209,7 +209,7 @@ void update_short_list_request__11TWindowCtrlFPv(void *arg0) {
 void show_active_window__11TWindowCtrlFPv(void *arg0) {
     if ((u32) M2C_FIELD(arg0, u32 *, 0x2C) != 0U) {
         if (is_visible__11TWindowCtrlFPv((void *)(arg0)) != 0) {
-            TWindowSubTradeMain__sub_80244A4C(M2C_FIELD(arg0, u32 *, 0x2C));
+            request_close__19TWindowSubTradeMainFPv(M2C_FIELD(arg0, u32 *, 0x2C));
             return;
         }
         window_request_show(M2C_FIELD(arg0, u32 *, 0x2C));
@@ -300,7 +300,7 @@ void TWindowCtrl__sub_8024DF5C(u8 *arg0) {
     if (((u32) M2C_FIELD(arg0, u32 *, 0x34) != 0U) && (is_flag_2_set__11TWindowCtrlFPv((void *) M2C_FIELD(arg0, u32 *, 0x34)) == 0)) {
         temp_r31 = get_player_by_client_id((int) (M2C_FIELD(arg0, s32 *, 0x24)));
         if ((get_active_menu__11TWindowCtrlFPv((void *) (arg0)) != 0) || (is_visible__11TWindowCtrlFPv((void *)((void *) (arg0))) != 0) || (is_enabled__11TWindowCtrlFPv((void *) (arg0)) != 0) || (temp_r31 == 0U)) {
-            TWindowSubTradeMain__sub_80244A4C((u32)((int) (M2C_FIELD(arg0, u32 *, 0x34))));
+            request_close__19TWindowSubTradeMainFPv((u32)((int) (M2C_FIELD(arg0, u32 *, 0x34))));
             return;
         }
         window_request_show((u32)((int) (M2C_FIELD(arg0, u32 *, 0x34))));
@@ -310,7 +310,7 @@ void TWindowCtrl__sub_8024DF5C(u8 *arg0) {
 void TWindowCtrl__sub_8024DFF4(u8 *arg0) {
     if (((u32) M2C_FIELD(arg0, u32 *, 0x30) != 0U) && (is_flag_2_set__11TWindowCtrlFPv((void *) M2C_FIELD(arg0, u32 *, 0x30)) == 0)) {
         if ((get_player_by_client_id((int) (M2C_FIELD(arg0, s32 *, 0x24))) == 0U) || (is_visible__11TWindowCtrlFPv((void *) (arg0)) != 0) || (TWindowCtrl__sub_8024C7F8((void *) (arg0)) != 0) || ((is_split_screen() != 0) && (get_active_menu__11TWindowCtrlFPv((void *) (arg0)) != 0))) {
-            TWindowSubTradeMain__sub_80244A4C((u32)((int) (M2C_FIELD(arg0, u32 *, 0x30))));
+            request_close__19TWindowSubTradeMainFPv((u32)((int) (M2C_FIELD(arg0, u32 *, 0x30))));
             return;
         }
         window_request_show((u32)((int) (M2C_FIELD(arg0, u32 *, 0x30))));

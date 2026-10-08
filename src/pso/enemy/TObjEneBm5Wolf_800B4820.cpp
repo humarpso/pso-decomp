@@ -2601,13 +2601,13 @@ void update_action_hold_status__10TObjPlayerFv(void);
 void update_action_timer__10TObjPlayerFPv(void);
 void update_flag30_timer__10TObjPlayerFPv(void);
 void update_movement_status__10TObjPlayerFv(void);
-void TObjPlayer__sub_80016C54(void);
+void update_shock_clock__10TObjPlayerFPv(void);
 void update_attack_stat_status(void);
 void update_defense_stat_status(void);
 void TObjPlayer__sub_800172CC(void);
 void apply_poison_status__10TObjPlayerFv(void);
 void apply_paralysis__10TObjPlayerFv(void);
-void TObjPlayer__sub_80015884(void);
+void apply_slow_status__10TObjPlayerFPv(void);
 void apply_confusion_status__10TObjPlayerFv(void);
 void apply_movement_ailment__10TObjPlayerFv(void);
 void apply_shock_status__10TObjPlayerFv(void);
@@ -2706,13 +2706,13 @@ void *lbl_804922F8[107] = {
     (void *)update_action_timer__10TObjPlayerFPv,
     (void *)update_flag30_timer__10TObjPlayerFPv,
     (void *)update_movement_status__10TObjPlayerFv,
-    (void *)TObjPlayer__sub_80016C54,
+    (void *)update_shock_clock__10TObjPlayerFPv,
     (void *)update_attack_stat_status,
     (void *)update_defense_stat_status,
     (void *)TObjPlayer__sub_800172CC,
     (void *)apply_poison_status__10TObjPlayerFv,
     (void *)apply_paralysis__10TObjPlayerFv,
-    (void *)TObjPlayer__sub_80015884,
+    (void *)apply_slow_status__10TObjPlayerFPv,
     (void *)apply_confusion_status__10TObjPlayerFv,
     (void *)apply_movement_ailment__10TObjPlayerFv,
     (void *)apply_shock_status__10TObjPlayerFv,

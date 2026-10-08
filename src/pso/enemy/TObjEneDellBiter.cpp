@@ -2208,7 +2208,7 @@ M2C_UNK activate_and_dispatch__10TObjPlayerFPv(void *);
 s32 create__12TObjEneSaverFPvPv(s32, s32);
 M2C_UNK set_animation__10TObjPlayerFPvs(void *, s16);
 s32 init_collision_body_parts(void *, void *, int);
-void *TObjPlayer__sub_801569F4(void *, s32);
+void *construct_collider_proxy__10TObjPlayerFPv(void *, s32);
 void *__nw__7TObjectFUl(int);
 s32 get_camera_mode__11TCameraCtrlFv();
 s32 is_main_phase_15__9TObjEneDDFv();
@@ -2259,8 +2259,8 @@ extern "C" void TObjPlayer__sub_80014840();
 extern "C" void TObjPlayer__sub_80014890();
 extern "C" void TObjPlayer__sub_80014894();
 extern "C" void TObjPlayer__sub_80014898();
-extern "C" void TObjPlayer__sub_80015884();
-extern "C" void TObjPlayer__sub_80016C54();
+extern "C" void apply_slow_status__10TObjPlayerFPv();
+extern "C" void update_shock_clock__10TObjPlayerFPv();
 extern "C" void TObjPlayer__sub_800172CC();
 extern "C" void TObjPlayer__sub_80018E6C();
 extern "C" void TObjPlayer__sub_80019568();
@@ -2423,8 +2423,8 @@ void *__vt__16TObjEneDellBiter[107] = {
     (void *)&TObjEneDellBiter__vt26, (void *)&TObjPlayer__sub_8000FF3C, (void *)&is_target_in_attack_range__10TObjPlayerFv, (void *)&test_flag_256__10TObjPlayerFPv,
     (void *)&test_flag30_512__10TObjPlayerFPv, (void *)&has_flag_0x800__10TObjPlayerFPv, (void *)&test_flag_1000__10TObjPlayerFPv, (void *)&update_poison_status__10TObjPlayerFv,
     (void *)&update_action_hold_status__10TObjPlayerFv, (void *)&update_action_timer__10TObjPlayerFPv, (void *)&update_flag30_timer__10TObjPlayerFPv, (void *)&update_movement_status__10TObjPlayerFv,
-    (void *)&TObjPlayer__sub_80016C54, (void *)&update_attack_stat_status, (void *)&update_defense_stat_status, (void *)&TObjPlayer__sub_800172CC,
-    (void *)&apply_poison_status__10TObjPlayerFv, (void *)&apply_paralysis__10TObjPlayerFv, (void *)&TObjPlayer__sub_80015884, (void *)&apply_confusion_status__10TObjPlayerFv,
+    (void *)&update_shock_clock__10TObjPlayerFPv, (void *)&update_attack_stat_status, (void *)&update_defense_stat_status, (void *)&TObjPlayer__sub_800172CC,
+    (void *)&apply_poison_status__10TObjPlayerFv, (void *)&apply_paralysis__10TObjPlayerFv, (void *)&apply_slow_status__10TObjPlayerFPv, (void *)&apply_confusion_status__10TObjPlayerFv,
     (void *)&apply_movement_ailment__10TObjPlayerFv, (void *)&apply_shock_status__10TObjPlayerFv, (void *)&clear_harmful_statuses__10TObjPlayerFv, (void *)&apply_attack_stat_status__10TObjPlayerFv,
     (void *)&apply_defense_stat_status__10TObjPlayerFv, (void *)&cure_poison_ailment, (void *)&cure_paralysis__10TObjPlayerFv, (void *)&clear_all_status_effects,
     (void *)&apply_action_hold_status, (void *)&apply_anti_technique__10TObjPlayerFv, (void *)&TObjPlayer__sub_80014898, (void *)&TObjPlayer__sub_80014894,
@@ -3917,7 +3917,7 @@ void TObjEneDellBiter__sub_80306468(void *arg0_) {
     self->f498 = n;
     n = __nw__7TObjectFUl(0xAC);
     if (n != NULL) {
-        n = TObjPlayer__sub_801569F4(n, 0);
+        n = construct_collider_proxy__10TObjPlayerFPv(n, 0);
     }
     self->f49C = n;
     init_collision_body_parts(self->f49C, &((Part_80306468 *)lbl_804E6B8C)[3], 1);

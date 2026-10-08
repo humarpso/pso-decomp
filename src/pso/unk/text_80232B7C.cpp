@@ -52,7 +52,7 @@ void stop_sound_request(s32);
 void __dl__7TObjectFPv(void *);
 extern Ent_80232E0C lbl_8044D53C[];
 extern u8 lbl_804CC888[];
-Obj_80232E0C *fn_80232E0C(Obj_80232E0C *arg0, s16 arg1);
+Obj_80232E0C *destroy_grants_effect(Obj_80232E0C *arg0, s16 arg1);
 void VecCopy__FP3VecPC3Vec(Vec_80232B7C *, Vec_80232B7C *);
 void __ct__7TObjectFP7TObject(void *self, void *parent);
 extern u8 lbl_804CC870[];
@@ -60,14 +60,14 @@ extern const f32 lbl_805DC844;
 extern const f32 lbl_805DC84C;
 extern const f32 lbl_805DC850;
 extern const f32 lbl_805DC854;
-Obj_80232B7C *fn_80232B7C(Obj_80232B7C *self, s32 id, void *parent, Vec_80232B7C *pos, f32 scale);
+Obj_80232B7C *construct_grants_flash(Obj_80232B7C *self, s32 id, void *parent, Vec_80232B7C *pos, f32 scale);
 void queue_destruction__7TObjectFv(void *);
 s32 get_bml_model(s32, u32);
 M2C_UNK attach_particle_model(s32, s32, s32, int, int, f32);
 s32 spawn_particle_effect(void *, s32);
 u8 *find_entity_by_id(u16);
 void *__nw__7TObjectFUl(u32);
-Obj_80232B7C *fn_80232B7C(Obj_80232B7C *self, s32 id, void *parent, Vec_80232B7C *pos, f32 scale);
+Obj_80232B7C *construct_grants_flash(Obj_80232B7C *self, s32 id, void *parent, Vec_80232B7C *pos, f32 scale);
 M2C_UNK construct_timed_sound_voice(void *, void *, int, int, int, void *);
 extern SGrp_80232C50 lbl_8044D56C[];
 extern void *tl_07;
@@ -79,7 +79,7 @@ void grants_presentation_update(Ctl_80232C50 *arg0);
 
 extern "C" {
 
-Obj_80232B7C *fn_80232B7C(Obj_80232B7C *self, s32 id, void *parent, Vec_80232B7C *pos, f32 scale) {
+Obj_80232B7C *construct_grants_flash(Obj_80232B7C *self, s32 id, void *parent, Vec_80232B7C *pos, f32 scale) {
     __ct__7TObjectFP7TObject(self, parent);
     self->vt = lbl_804CC870;
     self->id = id;
@@ -115,7 +115,7 @@ void grants_presentation_update(Ctl_80232C50 *arg0) {
     if (arg0->timer % 5 == 0) {
         p = __nw__7TObjectFUl(0x50);
         if (p != 0) {
-            fn_80232B7C((Obj_80232B7C *) p, arg0->id, tl_07, 0, lbl_805DC854);
+            construct_grants_flash((Obj_80232B7C *) p, arg0->id, tl_07, 0, lbl_805DC854);
         }
     }
     if (arg0->timer >= 30) {
@@ -155,7 +155,7 @@ void grants_presentation_update(Ctl_80232C50 *arg0) {
     }
 }
 
-Obj_80232E0C *fn_80232E0C(Obj_80232E0C *arg0, s16 arg1) {
+Obj_80232E0C *destroy_grants_effect(Obj_80232E0C *arg0, s16 arg1) {
     u32 i;
     if (arg0 != NULL) {
         arg0->vt = lbl_804CC888;

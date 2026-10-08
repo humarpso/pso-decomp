@@ -162,7 +162,7 @@ extern const f32 lbl_805D8234;
 extern const f32 lbl_805D8238;
 extern const f32 lbl_805D823C;
 extern const f32 lbl_805D8240;
-Obj_8002E62C *TObjPlayer__sub_8002E62C(Obj_8002E62C *self, M2C_UNK arg1, s32 arg2);
+Obj_8002E62C *construct_piece_controller__10TObjPlayerFPvii(Obj_8002E62C *self, M2C_UNK arg1, s32 arg2);
 }
 
 extern "C" {
@@ -186,7 +186,7 @@ void *construct__13TObjBoss1RockFPvPvPvPvPv(void *arg0, void *arg1, void *arg2, 
 
 extern const f32 lbl_805D8224;
 
-void *TObjBoss1Rock__sub_8002E334(void *arg0, void *arg1, void *arg2, void *arg3) {
+void *construct_random__13TObjBoss1RockFPvPvPvPv(void *arg0, void *arg1, void *arg2, void *arg3) {
     s32 flag;
 
     __ct__7TObjectFP7TObject(arg0);
@@ -288,7 +288,7 @@ void *TObjPlayer__sub_8002E5D4(void *arg0, s16 arg1) {
     }
     return arg0;
 }
-Obj_8002E62C *TObjPlayer__sub_8002E62C(Obj_8002E62C *self, M2C_UNK arg1, s32 arg2) {
+Obj_8002E62C *construct_piece_controller__10TObjPlayerFPvii(Obj_8002E62C *self, M2C_UNK arg1, s32 arg2) {
     Part_8002E62C *p;
     s32 i;
     Vec_8002E62C *v;

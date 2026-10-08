@@ -176,7 +176,7 @@ s32 register_boss__6TLobbyFPv(int);
 Node_803627DC *get_bml_model(void *, int);
 u8 *load_resource_from_descriptor(void *, int, void *, int, int, int);
 u8 *alloc__23TAdSinglePlyChrSelectGCFPv(int);
-u8 *TBreakUpMdl__sub_8009705C(void *, void *);
+u8 *init_from_model__11TBreakUpMdlFPvi(void *, void *);
 M2C_UNK TObjPlayer__sub_800F0928(void *);
 s32 spawn_npc_enemy__6TLobbyFsiiiff(int, int, int, void *, f32, f32);
 extern Quad_803627DC lbl_80479FAC;
@@ -251,12 +251,12 @@ void TObjEneEpsilonGuard__sub_803627DC(void) {
     lbl_805D6FA0 = p;
     p = alloc__23TAdSinglePlyChrSelectGCFPv(0x10);
     if (p != NULL) {
-        p = TBreakUpMdl__sub_8009705C(p, get_bml_model(lbl_805D6FA0, 5));
+        p = init_from_model__11TBreakUpMdlFPvi(p, get_bml_model(lbl_805D6FA0, 5));
     }
     lbl_805D6FA4 = p;
     p = alloc__23TAdSinglePlyChrSelectGCFPv(0x10);
     if (p != NULL) {
-        p = TBreakUpMdl__sub_8009705C(p, get_bml_model(lbl_805D6FA0, 6));
+        p = init_from_model__11TBreakUpMdlFPvi(p, get_bml_model(lbl_805D6FA0, 6));
     }
     lbl_805D6FA8 = p;
     lbl_805D6F80 = register_boss__6TLobbyFPv(0x23);

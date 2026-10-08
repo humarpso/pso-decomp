@@ -11,14 +11,14 @@ extern void *TLobby__data_805D5580;
 extern s32 lbl_805D5CF8;
 extern s32 lbl_805D5CFC;
 extern s32 lbl_805D5D04;
-void TLobby__sub_801A5350(void);
+void drain_deferred_packets__6TLobbyFv(void);
 }
 
 extern "C" {
 
 void buffer_reset(void);
 void copy_packet__FP6packet(void *arg0);
-void fn_801A5338(void *arg0);
+void set_fresh_card_flag(void *arg0);
 void set_card_window_flags__19TWindowKeyBoardHardFPvii(void *arg0, s32 arg1, s32 arg2);
 s32 test_card_flag__19TWindowKeyBoardHardFii(s32 arg1, s32 arg2);
 void *get_card_window__17TWindowSubComCardFUi();
@@ -46,7 +46,7 @@ void set_card_window_flags__19TWindowKeyBoardHardFPvii(void *arg0, s32 arg1, s32
     }
 }
 
-void fn_801A5338(void *arg0) {
+void set_fresh_card_flag(void *arg0) {
     if (arg0 != NULL) {
         M2C_FIELD(arg0, s32 *, 0x10) = 0x40058;
     }
@@ -55,7 +55,7 @@ void fn_801A5338(void *arg0) {
 extern s32 lbl_805D5CF8;
 extern s32 lbl_805D5CFC;
 
-void TLobby__sub_801A5350(void) {
+void drain_deferred_packets__6TLobbyFv(void) {
     lbl_805D5CFC = 0;
     lbl_805D5D04 = 2;
     s32 i;

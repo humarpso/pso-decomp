@@ -66,13 +66,13 @@ struct RecoveredGlobal_8012E83C_lbl_8043E9C0 {
 extern "C" {
 s32 draw_icon__10TObjPlayerFPvii(void *, int, void *);
 extern RecoveredGlobal_8012E83C_lbl_8043E9C0 lbl_8043E9C0;
-void TObjPlayer__sub_8012E83C(u8 *arg0);
+void fire_five_joint_shots__10TObjPlayerFPv(u8 *arg0);
 }
 
 extern "C" {
 
 typedef char RecoveredGlobal_8012E83C_lbl_8043E9C0_size[sizeof(RecoveredGlobal_8012E83C_lbl_8043E9C0) == 0x18 ? 1 : -1];
-void TObjPlayer__sub_8012E83C(u8 *arg0) {
+void fire_five_joint_shots__10TObjPlayerFPv(u8 *arg0) {
     M2C_UNK sp8;
     draw_icon__10TObjPlayerFPvii((void *) (arg0), (int) (1), (void *) (&sp8));
     ((VObj_18_8622c5 *)(arg0))->m49(&sp8, 0, M2C_FIELD(&lbl_8043E9C0.value, s32 *, 0), 1);

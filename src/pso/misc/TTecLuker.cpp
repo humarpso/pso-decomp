@@ -155,11 +155,11 @@ void VecCopy__FP3VecPC3Vec(void *, void *);
 s32 obj_setFlags30(void *, int);
 s32 reset_photon_effect__10TObjPlayerFPv(void *);
 s32 init_collision_body_parts(void *, void *, int);
-s32 TObjPlayer__sub_801569F4(void *, void *);
+s32 construct_collider_proxy__10TObjPlayerFPv(void *, void *);
 void TTecLuker__sub_80234F68(void* p);
 extern RecoveredGlobal_80233D18_lbl_804CC9A8 lbl_804CC9A8;
 extern M2C_UNK lbl_804CC9D4[];
-u8 *TTecLuker__sub_80233D18(u8 *arg0, s32 arg1, s32 arg2, s32 arg3);
+u8 *construct_field_collider__9TTecLukerFPviii(u8 *arg0, s32 arg1, s32 arg2, s32 arg3);
 bool TTecLuker__sub_8023401C(u8 *arg0);
 extern u32 lbl_804CC988[];
 void* spawn_particle_effect(float*,u32);
@@ -197,7 +197,7 @@ s32 obj_getField1c(void *);
 s32 get_stat_by_key_state__10TObjPlayerFPv(void *);
 s32 get_current_floor(void);
 void *create_telepipe_visual(void *self, Vec_802347B4 *pos, u16 id, s32 res);
-u8 *TTecLuker__sub_80233D18(u8 *arg0, s32 arg1, s32 arg2, s32 arg3);
+u8 *construct_field_collider__9TTecLukerFPviii(u8 *arg0, s32 arg1, s32 arg2, s32 arg3);
 void TBoss4DarkFalz__sub_8004C220(void *c, Vec_802347B4 *pos);
 void write_telepipe_record(u8 *arg0, u16 arg1, s16 arg2, u8 *arg3, s32 arg4);
 void TTecLuker__sub_802340E4(u8 *arg0);
@@ -384,8 +384,8 @@ void *__dt__9TTecLukerFPvs(void *arg0, s16 arg1) {
 
 typedef char RecoveredGlobal_80233D18_lbl_804CC9A8_size[sizeof(RecoveredGlobal_80233D18_lbl_804CC9A8) == 0x2C ? 1 : -1];
 typedef char RecoveredGlobal_80233D18_lbl_804CC9D4_size[sizeof(RecoveredGlobal_80233D18_lbl_804CC9D4) == 0x38 ? 1 : -1];
-u8 *TTecLuker__sub_80233D18(u8 *arg0, s32 arg1, s32 arg2, s32 arg3) {
-    TObjPlayer__sub_801569F4((void *) (arg0), (void *) (arg2));
+u8 *construct_field_collider__9TTecLukerFPviii(u8 *arg0, s32 arg1, s32 arg2, s32 arg3) {
+    construct_collider_proxy__10TObjPlayerFPv((void *) (arg0), (void *) (arg2));
     M2C_FIELD(arg0, M2C_UNK **, 0x18) = &(*(RecoveredGlobal_80233D18_lbl_804CC9D4 *)&lbl_804CC9D4).value;
     VecCopy__FP3VecPC3Vec((void *) (arg0 + 0x38), (void *) (arg1));
     init_collision_body_parts((void *) (arg0), (void *) (&lbl_804CC9A8.value), (int) (1));
@@ -701,7 +701,7 @@ void setup_telepipe_field__9TTecLukerFPv(Pipe_802347B4 *s) {
     } else {
         u8 *c = (u8 *)__nw__7TObjectFUl(0xb4);
         if (c != 0) {
-            c = TTecLuker__sub_80233D18(c, (s32)&s->pos, tl_05, 0);
+            c = construct_field_collider__9TTecLukerFPviii(c, (s32)&s->pos, tl_05, 0);
         }
         s->collider = c;
     }

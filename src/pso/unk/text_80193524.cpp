@@ -140,7 +140,7 @@ void *TLazerFenceSw__ct(void *arg0, void *arg1, void *arg2);
 s32 reset_photon_effect__10TObjPlayerFPv(void *);
 void refresh_collision_body_centers(void *);
 s32 init_collision_body_parts(void *, void *, int);
-void TObjPlayer__sub_801569F4(void *);
+void construct_collider_proxy__10TObjPlayerFPv(void *);
 void TObjLazerFence4__sub_80193188(void *);
 extern u16 lbl_80445BE0[];
 extern u8 lbl_804B8128[];
@@ -171,7 +171,7 @@ void *__nw__7TObjectFUl(int);
 void call_vt21__12TBoss3VoloptFPv(void *);
 void destroy__14TOAirconCave01FPvs(void *, int);
 M2C_UNK destroy_particle_controller__10TObjPlayerFPvs(void *, M2C_UNK);
-M2C_UNK fn_80156CA0(void *);
+M2C_UNK step_laser_fence_fade(void *);
 M2C_UNK free_if_valid__10TObjPlayerFi(s32);
 
 __declspec(section ".data") u32 lbl_8050DCE8[2];
@@ -208,7 +208,7 @@ extern const f32 TLazerFenceSw__data_805DBE84;
 #define self ((Fence_801935D8 *)arg0)
 void *TObjLazerFence4__ct(void *arg0, void *arg1, void *arg2) {
     s32 i;
-    ((void (*)(void *, void *, void *))TObjPlayer__sub_801569F4)(self, arg1, arg2);
+    ((void (*)(void *, void *, void *))construct_collider_proxy__10TObjPlayerFPv)(self, arg1, arg2);
     self->vt = (void *)__vt__15TObjLazerFence4;
     self->id = lbl_805D33A8;
     ((V_801935D8 *)self)->init(arg2);
@@ -388,7 +388,7 @@ void TLazerFenceSw__vt15(u8 *arg0) {
 }
 
 void run_task__13TLazerFenceSwFv(u8 *arg0) {
-    fn_80156CA0(arg0 + 0xF0);
+    step_laser_fence_fade(arg0 + 0xF0);
     TOKey__sub_8016AAE0(arg0);
     M2C_FIELD(arg0, f32 *, 0x110) = (f32) (M2C_FIELD(arg0, f32 *, 0x110) + lbl_805DBE88);
 }

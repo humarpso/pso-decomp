@@ -15,7 +15,7 @@ u8 * init_vtable_804A3548__10TObjPlayerFPv(void *, M2C_UNK, void *);
 u8 *alloc_from_obj_heap__10TObjPlayerFPv(M2C_UNK);
 extern s32 tl_05;
 u8 *TObjPlayer__sub_80127B88(u8 *arg0);
-void TObjPlayer__sub_8004433C(void *);
+void construct_target_cursor_records__10TObjPlayerFi(void *);
 s32 draw_icon__10TObjPlayerFPvii(void *, s32, void *);
 s16 is_status_subsystem_ready__10TObjPlayerFPv(s32);
 s32 get_extended_state__10TObjPlayerFPv(s32);
@@ -64,7 +64,7 @@ void TObjPlayer__sub_80127BE0(Self_80127BE0 *self) {
             for (i = 0; i != TObjPlayer__sub_8012125C(ext); i++) {
                 item = TObjPlayer__sub_80121248(ext, i);
                 if (item != NULL) {
-                    TObjPlayer__sub_8004433C(&tec);
+                    construct_target_cursor_records__10TObjPlayerFi(&tec);
                     tec.kind = 1;
                     tec.a = item->a;
                     tec.b = item->b;

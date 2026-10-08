@@ -126,7 +126,7 @@ void create__8TTecFoieFPvPvPvPv(void *arg0, void *arg1, void *arg2, void *arg3);
 void create_ex__8TTecFoieFPvPvPvPv(void *arg0, void *arg1, void *arg2, void *arg3);
 M2C_UNK spawn_particle_effect(s32, M2C_UNK);
 void *TTecFoie__ct(void *, void *, void *, void *, void *);
-void *TTecFoie__sub_802302A0(void *, void *, void *, void *, void *);
+void *construct_aimed__8TTecFoieFPviPvPvs(void *, void *, void *, void *, void *);
 void *__nw__7TObjectFUl(int);
 
 typedef struct RecoveredFields_8022FE84_arg0 RecoveredFields_8022FE84_arg0;
@@ -218,7 +218,7 @@ void create_ex__8TTecFoieFPvPvPvPv(void *arg0, void *arg1, void *arg2, void *arg
     void *o;
     o = __nw__7TObjectFUl(0x134);
     if (o != NULL) {
-        TTecFoie__sub_802302A0(o, arg0, arg1, arg2, arg3);
+        construct_aimed__8TTecFoieFPviPvPvs(o, arg0, arg1, arg2, arg3);
     }
 }
 

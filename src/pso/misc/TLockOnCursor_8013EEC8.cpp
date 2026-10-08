@@ -10,7 +10,7 @@ void TMainCursor__sub_8013F10C(void* p, s32 v);
 void TMainCursor__sub_8013F104(void* p, s32 v);
 void *fn_8013F0A0(void *arg0);
 int init_gc_tag(void*);
-void TObjPlayer__sub_8004433C(void *);
+void construct_target_cursor_records__10TObjPlayerFi(void *);
 void TMainCursor__sub_8013B3AC(void *);
 void * TLockOnCursor__sub_8013EFB8(void *arg0);
 void __construct_array(void *, void *, int, int, int);
@@ -64,7 +64,7 @@ void* cleanup__13TLockOnCursorFPv(void* p) { init_gc_tag((void*)((char*)p + 0x8)
 
 void *TLockOnCursor__sub_8013EFB8(void *arg0) {
     init_gc_tag((void*)(arg0));
-    TObjPlayer__sub_8004433C((void *)((char *)arg0 + 64));
+    construct_target_cursor_records__10TObjPlayerFi((void *)((char *)arg0 + 64));
     TLockOnCursor__sub_8013F000((void *)((void *)((void *)((char *)arg0 + 156))));
     TMainCursor__sub_8013B3AC(arg0);
     return arg0;

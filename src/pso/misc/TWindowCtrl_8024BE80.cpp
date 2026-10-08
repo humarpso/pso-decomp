@@ -17,7 +17,7 @@ s32 is_script_controlled__10TObjPlayerFPv(void *);
 u16 get_action_flags__10TNpcPlayerFPv(void *);
 s32 get_field_828__10TObjPlayerFPv(void *);
 void *get_player_by_client_id(s32);
-void TWindowSubTradeMain__sub_80244A4C(void *);
+void request_close__19TWindowSubTradeMainFPv(void *);
 void window_request_show(void *);
 s32 has_player_active_menu__11TWindowCtrlFi(s32);
 s32 TWindowCtrl__sub_8024B048(void *);
@@ -47,7 +47,7 @@ void update_party_status_rows__11TWindowCtrlFPv(Ctrl_8024BE80 *self) {
                 is_script_controlled__10TObjPlayerFPv(pl) != 0 ||
                 (obj_isState3_324(pl) != 0 &&
                  (get_field_828__10TObjPlayerFPv(pl) != 0 || get_action_flags__10TNpcPlayerFPv(pl) == 0xFFFF))) {
-                TWindowSubTradeMain__sub_80244A4C(w);
+                request_close__19TWindowSubTradeMainFPv(w);
             } else {
                 window_request_show(w);
                 if (w->y != y) {

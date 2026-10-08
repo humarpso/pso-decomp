@@ -48,7 +48,7 @@ s32 copy_vec4__13TRaderMapCoreFPvPv(void *, void *);
 s32 TObjLight__sub_801344A4(void *, void *, int);
 s32 __ct__7TObjectFP7TObject(void *, void *);
 extern M2C_UNK lbl_804CCAA8[];
-u8 *TObjLight__sub_80235E9C(u8 *arg0, s32 arg1, s32 arg2, s32 arg3, s32 arg4, s32 arg5, f32 farg0, f32 farg1, f32 farg2, M2C_UNK arg_sp0);
+u8 *construct_actor_light__9TObjLightFPviiiiifffi(u8 *arg0, s32 arg1, s32 arg2, s32 arg3, s32 arg4, s32 arg5, f32 farg0, f32 farg1, f32 farg2, M2C_UNK arg_sp0);
 s32 VecCopy__FP3VecPC3Vec(void *, void *);
 s32 obj_getField1c(int);
 s32 copy_vec4__13TRaderMapCoreFPvPv(void *, void *);
@@ -133,7 +133,7 @@ void *TObjLight__sub_80235E44(void *arg0, s16 arg1) {
     return arg0;
 }
 typedef char RecoveredGlobal_80235E9C_lbl_804CCAA8_size[sizeof(RecoveredGlobal_80235E9C_lbl_804CCAA8) == 0x18 ? 1 : -1];
-u8 *TObjLight__sub_80235E9C(u8 *arg0, s32 arg1, s32 arg2, s32 arg3, s32 arg4, s32 arg5, f32 farg0, f32 farg1, f32 farg2, M2C_UNK arg_sp0) {
+u8 *construct_actor_light__9TObjLightFPviiiiifffi(u8 *arg0, s32 arg1, s32 arg2, s32 arg3, s32 arg4, s32 arg5, f32 farg0, f32 farg1, f32 farg2, M2C_UNK arg_sp0) {
     Stack_80235E9C stack;
     __ct__7TObjectFP7TObject((void *) (arg0), (void *) (arg5));
     M2C_FIELD(arg0, M2C_UNK **, 0x18) = &(*(RecoveredGlobal_80235E9C_lbl_804CCAA8 *)&lbl_804CCAA8).value;

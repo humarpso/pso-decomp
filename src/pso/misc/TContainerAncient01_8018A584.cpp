@@ -178,7 +178,7 @@ struct Obj_8018B030 : VBase_8018B030 {
 };
 
 extern "C" {
-void TObjPlayer__sub_80019038(void *, void *, void *);
+void construct_actor_base__10TObjPlayerFPvPv(void *, void *, void *);
 s32 TObjFish__sub_8001EDB0(int, int);
 void set_field_b8__14TObjEnePanarmsFPvs(void *, s16);
 void set_field_d8__10TObjPlayerFPvi(void *, void *);
@@ -352,8 +352,8 @@ extern "C" void TObjPlayer__sub_8001488C();
 extern "C" void TObjPlayer__sub_80014890();
 extern "C" void TObjPlayer__sub_80014894();
 extern "C" void TObjPlayer__sub_80014898();
-extern "C" void TObjPlayer__sub_80015884();
-extern "C" void TObjPlayer__sub_80016C54();
+extern "C" void apply_slow_status__10TObjPlayerFPv();
+extern "C" void update_shock_clock__10TObjPlayerFPv();
 extern "C" void TObjPlayer__sub_800172CC();
 extern "C" void TObjPlayer__sub_80018E6C();
 extern "C" void TObjPlayer__sub_80019568();
@@ -456,8 +456,8 @@ void *lbl_804B6E1C[79] = {
     (void *)&TObjPlayer__sub_80011010, (void *)&TObjPlayer__sub_8000FF3C, (void *)&is_target_in_attack_range__10TObjPlayerFv, (void *)&test_flag_256__10TObjPlayerFPv,
     (void *)&test_flag30_512__10TObjPlayerFPv, (void *)&has_flag_0x800__10TObjPlayerFPv, (void *)&test_flag_1000__10TObjPlayerFPv, (void *)&update_poison_status__10TObjPlayerFv,
     (void *)&update_action_hold_status__10TObjPlayerFv, (void *)&update_action_timer__10TObjPlayerFPv, (void *)&update_flag30_timer__10TObjPlayerFPv, (void *)&update_movement_status__10TObjPlayerFv,
-    (void *)&TObjPlayer__sub_80016C54, (void *)&update_attack_stat_status, (void *)&update_defense_stat_status, (void *)&TObjPlayer__sub_800172CC,
-    (void *)&apply_poison_status__10TObjPlayerFv, (void *)&apply_paralysis__10TObjPlayerFv, (void *)&TObjPlayer__sub_80015884, (void *)&apply_confusion_status__10TObjPlayerFv,
+    (void *)&update_shock_clock__10TObjPlayerFPv, (void *)&update_attack_stat_status, (void *)&update_defense_stat_status, (void *)&TObjPlayer__sub_800172CC,
+    (void *)&apply_poison_status__10TObjPlayerFv, (void *)&apply_paralysis__10TObjPlayerFv, (void *)&apply_slow_status__10TObjPlayerFPv, (void *)&apply_confusion_status__10TObjPlayerFv,
     (void *)&apply_movement_ailment__10TObjPlayerFv, (void *)&apply_shock_status__10TObjPlayerFv, (void *)&clear_harmful_statuses__10TObjPlayerFv, (void *)&apply_attack_stat_status__10TObjPlayerFv,
     (void *)&apply_defense_stat_status__10TObjPlayerFv, (void *)&cure_poison_ailment, (void *)&cure_paralysis__10TObjPlayerFv, (void *)&clear_all_status_effects,
     (void *)&apply_action_hold_status, (void *)&apply_anti_technique__10TObjPlayerFv, (void *)&TObjPlayer__sub_80014898, (void *)&TObjPlayer__sub_80014894,
@@ -768,7 +768,7 @@ void *dt__20TContainerAncient01RFPvs(void *arg0, s16 arg1) {
 void *TContainerAncient01R__ct(Obj_8018B030 *self, void *arg1, void *arg2) {
     Coll_8018B030 *c;
 
-    TObjPlayer__sub_80019038(self, arg1, arg2);
+    construct_actor_base__10TObjPlayerFPvPv(self, arg1, arg2);
     *(void **)((u8 *)self + 0x18) = (void *)lbl_804B6E1C;
     *(s32 *)self = lbl_805D3304;
     self->m5(arg2);

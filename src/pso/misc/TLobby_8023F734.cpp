@@ -43,7 +43,7 @@ M2C_UNK sndFXCtrl(int, int, int);
 void send_voice_controller_updates(u8 *arg0);
 int TLobby__sub_80240E8C(void);
 extern const f32 lbl_805DC9E4;
-s32 TLobby__sub_80242058(void *arg0, s32 arg1, s32 arg2, s32 arg3, s32 arg4);
+s32 init_sound_voice__6TLobbyFPviiii(void *arg0, s32 arg1, s32 arg2, s32 arg3, s32 arg4);
 M2C_UNK sndFXKeyOff(int);
 s32 start_voice_fade(struct Voice_80241FD8 *v, s32 step);
 s32 OSDisableInterrupts(void);
@@ -395,7 +395,7 @@ s32 start_voice_fade(struct Voice_80241FD8 *v, s32 step) {
 
 #pragma push
 #pragma fp_contract on
-s32 TLobby__sub_80242058(void *arg0, s32 arg1, s32 arg2, s32 arg3, s32 arg4) {
+s32 init_sound_voice__6TLobbyFPviiii(void *arg0, s32 arg1, s32 arg2, s32 arg3, s32 arg4) {
     M2C_FIELD(arg0, s32 *, 4) = 0;
     M2C_FIELD(arg0, s32 *, 8) = arg4;
     M2C_FIELD(arg0, s32 *, 0xC) = arg1;

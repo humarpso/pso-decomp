@@ -73,7 +73,7 @@ int set_field_20__12TQuestListVMFPvi(void*, int);
 s32 set_position_xy(int, f32, f32);
 s32 set_field_1c__6TLobbyFPvf(int, f32);
 s32 send_and_handle__6TLobbyFPvii(int, void *, int);
-u32 TLobby__sub_80269CC0(int, void *, int, int);
+u32 create_message_window__6TLobbyFiiUis(int, void *, int, int);
 s32 get_window_layout_position(int);
 extern RecoveredGlobal_80217EC4_lbl_8044BEDC lbl_8044BEDC;
 extern u32 TQuestListOnline__data_805D6194;
@@ -308,7 +308,7 @@ void TQuestListOnline__sub_80217EC4(u8 *arg0) {
         stack.sp8 = M2C_FIELD(&lbl_8044BEDC.value, s32 *, 0);
         stack.spC = M2C_FIELD(&lbl_8044BEDC.value, s32 *, 4);
         temp_r31 = obj_getField1c((int) (M2C_FIELD(arg0, s32 *, 0x24)));
-        M2C_FIELD(arg0, u32 *, 0x40) = TLobby__sub_80269CC0((int) (get_window_layout_position((int) (0x2E))), (void *) (&stack.sp8), (int) (1), (int) ((s32) temp_r31));
+        M2C_FIELD(arg0, u32 *, 0x40) = create_message_window__6TLobbyFiiUis((int) (get_window_layout_position((int) (0x2E))), (void *) (&stack.sp8), (int) (1), (int) ((s32) temp_r31));
         set_field_1c__6TLobbyFPvf((int) (M2C_FIELD(arg0, u32 *, 0x40)), (f32) (lbl_805DC6A4));
         if (get_camera_id__11TCameraCtrlFv() >= 2) {
             set_position_xy((int) (M2C_FIELD(arg0, u32 *, 0x40)), (f32) (lbl_805DC6A8), (f32) (lbl_805DC6A8));

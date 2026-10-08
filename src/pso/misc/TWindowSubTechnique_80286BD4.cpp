@@ -44,7 +44,7 @@ extern const f32 lbl_805DD838;
 s32 get_cursor_pos__20TWindowShortListCtrlFPv(s32);
 void TWindowSubComCard__sub_802655E4(s32);
 void draw_technique_row__19TWindowSubTechniqueFiii(s32 arg0, s32 arg1, s32 arg2);
-void TWindowSubComCard__sub_80265E60(s32, f32);
+void update_layout_height__17TWindowSubComCardFPvf(s32, f32);
 void align_menu_entry_positions(s32);
 void set_selected_index__17TWindowSubComCardFPvs(s32, s32);
 
@@ -57,7 +57,7 @@ s32 lookup_technique__19TWindowSubTechniqueFii(s32 arg0, s32 arg1);
 s32 get_technique_name(s16);
 s32 can_use_palette_action__10TObjPlayerFPvUcUc(u32, s32, u8);
 u32 get_player_by_client_id(s32);
-s32 TWindowSubTradeMain__sub_80266200(s32, s32, s32, s16, s32);
+s32 add_text_entry__19TWindowSubTradeMainFPviiii(s32, s32, s32, s16, s32);
 s32 draw_text_gray__17TWindowSubComCardFiiii(s32, s32, s32, s16);
 s32 forward_trade_action_default__16TObjCityMainWarpFPviii(s32, s32, s32, s16);
 
@@ -94,7 +94,7 @@ void draw_technique_row__19TWindowSubTechniqueFiii(s32 arg0, s32 arg1, s32 arg2)
         return;
     }
     if (TWindowSubTechnique__sub_80286BF4((s32)((void*)((void*)(arg0))), (s32)((void*)((void*)(arg1)))) == 0) {
-        TWindowSubTradeMain__sub_80266200(arg2, temp_r31, 0x16, arg0, 0xFFFD3901);
+        add_text_entry__19TWindowSubTradeMainFPviiii(arg2, temp_r31, 0x16, arg0, 0xFFFD3901);
         return;
     }
     forward_trade_action_default__16TObjCityMainWarpFPviii(arg2, temp_r31, 6, arg0);
@@ -111,7 +111,7 @@ void TWindowSubTechnique::rebuildTechniqueList(s32 list, s32 category) {
         draw_technique_row__19TWindowSubTechniqueFiii(*entry, playerIndex, list);
         ++entry;
     }
-    TWindowSubComCard__sub_80265E60(list, lbl_805DD838);
+    update_layout_height__17TWindowSubComCardFPvf(list, lbl_805DD838);
     align_menu_entry_positions(list);
     set_selected_index__17TWindowSubComCardFPvs(list, selected);
 }

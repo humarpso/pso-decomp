@@ -26,7 +26,7 @@ s32 fn_802C7ECC(void *, int);
 M2C_UNK TWindowSubTradeMain__sub_802D3940(int);
 M2C_UNK TWindowSubTradeMain__sub_802D3958(int);
 s32 disallow_rendering__7TObjectFv(void *);
-s32 TObjPlayer__sub_801569F4(void *);
+s32 construct_collider_proxy__10TObjPlayerFPv(void *);
 extern M2C_UNK __vt__18TObjTradeCollision[];
 extern s32 lbl_805D3EF8;
 u8 *TObjTradeCollision__ct(u8 *arg0, M2C_UNK arg1, s32 arg2);
@@ -73,7 +73,7 @@ extern void *tl_05;
 
 typedef char RecoveredGlobal_802C8034___vt__18TObjTradeCollision_size[sizeof(RecoveredGlobal_802C8034___vt__18TObjTradeCollision) == 0x38 ? 1 : -1];
 u8 *TObjTradeCollision__ct(u8 *arg0, M2C_UNK arg1, s32 arg2) {
-    TObjPlayer__sub_801569F4((void *) (arg0));
+    construct_collider_proxy__10TObjPlayerFPv((void *) (arg0));
     M2C_FIELD(arg0, M2C_UNK **, 0x18) = &(*(RecoveredGlobal_802C8034___vt__18TObjTradeCollision *)&__vt__18TObjTradeCollision).value;
     M2C_FIELD(arg0, s32 *, 0) = (s32) lbl_805D3EF8;
     ((VObj_18_1a504b *)(arg0))->m5(arg2);

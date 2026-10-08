@@ -20,7 +20,7 @@ s32 TWindowSubQuestBoard__sub_8027CE74(int, void *, int);
 s32 TWindowSubQuestBoard__ct(int, void *, int);
 s32 TWindowSubShortCut__ct(int, void *, int);
 s32 TWindowSubShortMail__ct(int, void *, int);
-s32 fn_8027FCE4(int, void *, int);
+s32 construct_status_category_window(int, void *, int);
 s32 TWindowSubSymbolChat__ct(int, void *, int);
 s32 TWindowSubTechnique__ct(int, void *, int);
 s32 TWindowSubTrade__ct(int, void *, int);
@@ -95,7 +95,7 @@ void create_submenu__15TWindowMainMenuFPvUi(u8 *arg0, u32 arg1) {
         temp_r3 = ((s32)__nw__7TObjectFUl((int) (0x2C)));
         var_r0 = temp_r3;
         if (var_r0 != 0) {
-            var_r0 = fn_8027FCE4((int) (temp_r3), (void *) (arg0), (int) (M2C_FIELD(arg0, s32 *, 0x54)));
+            var_r0 = construct_status_category_window((int) (temp_r3), (void *) (arg0), (int) (M2C_FIELD(arg0, s32 *, 0x54)));
         }
         M2C_FIELD(arg0, s32 *, 0x20) = var_r0;
         return;

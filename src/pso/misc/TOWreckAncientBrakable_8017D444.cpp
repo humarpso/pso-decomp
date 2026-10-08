@@ -24,7 +24,7 @@ extern "C" {
 void VecCopy__FP3VecPC3Vec(Vec_8017D448 *, Vec_8017D448 *);
 s32 TObjFish__sub_8001EDB0(void *, int);
 s32 get_bml_model(void *, int);
-void TObjChip__sub_80180BD4(void *, s32, Param_8017D448 *);
+void construct_debris__8TObjChipFPvPvPv(void *, s32, Param_8017D448 *);
 void *__nw__7TObjectFUl(u32);
 void vec3_add_to(Vec_8017D448 *, Vec_8017D448 *);
 void rotate_vector_by_matrix(int, Vec_8017D448 *, Vec_8017D448 *);
@@ -66,7 +66,7 @@ void TOWreckAncientBrakable__sub_8017D448(u8 *arg0) {
         p.f44 = TObjFish__sub_8001EDB0(lbl_805D5AFC, i);
         obj = __nw__7TObjectFUl(0x234);
         if (obj != 0) {
-            TObjChip__sub_80180BD4(obj, tl_05, &p);
+            construct_debris__8TObjChipFPvPvPv(obj, tl_05, &p);
         }
     }
 }

@@ -105,7 +105,7 @@ extern u32 TObjNpcCloakroomBase__data_805D5740;
 void TObjNpcCloakroomBase__sub_80149738(void);
 s32 init_position_vectors__10TObjPlayerFi(void *);
 s32 setup_common__11TObjNpcBaseFv(void *);
-s32 TObjNpcFemaleBase__sub_80149CE0(void *);
+s32 construct_female_base__17TObjNpcFemaleBaseFPv(void *);
 extern M2C_UNK __vt__20TObjNpcCloakroomBase[];
 extern s32 lbl_805D2D34;
 extern u32 TObjNpcCloakroomBase__data_805D5740;
@@ -190,7 +190,7 @@ extern f32 lbl_805DB1E8;
 
 typedef char RecoveredGlobal_801497E0___vt__20TObjNpcCloakroomBase_size[sizeof(RecoveredGlobal_801497E0___vt__20TObjNpcCloakroomBase) == 0x178 ? 1 : -1];
 u8 *TObjNpcCloakroomBase__ct(u8 *arg0, M2C_UNK arg1, s32 arg2) {
-    TObjNpcFemaleBase__sub_80149CE0((void *) (arg0));
+    construct_female_base__17TObjNpcFemaleBaseFPv((void *) (arg0));
     M2C_FIELD(arg0, M2C_UNK **, 0x18) = &(*(RecoveredGlobal_801497E0___vt__20TObjNpcCloakroomBase *)&__vt__20TObjNpcCloakroomBase).value;
     M2C_FIELD(arg0, s32 *, 0) = (s32) lbl_805D2D34;
     ((VObj_18_aa4667 *)(arg0))->m79(arg2);

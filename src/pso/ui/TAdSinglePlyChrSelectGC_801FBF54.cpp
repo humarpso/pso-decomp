@@ -99,7 +99,7 @@ void run_save_load_sequence__23TAdSinglePlyChrSelectGCFv(void);
 void TWindowSubSymbolChat__sub_80077544(Card_80201354 *);
 s32 TLobby__sub_80146D50(s32);
 s32 TLobby__sub_80146D68(s32);
-void fn_801A5338(Card_80201354 *);
+void set_fresh_card_flag(Card_80201354 *);
 M2C_UNK DateToSeconds__FP9DateStampPi(M2C_UNK *, s32 *);
 M2C_UNK getDateStamp__FP9DateStamp(M2C_UNK *);
 void clear_all_story_flags();
@@ -274,7 +274,7 @@ s32 init_fresh_character_card(void) {
         TAdSinglePlyChrSelectGC__sub_80211584(&card->items[i]);
     }
     TWindowSubSymbolChat__sub_80077544(card);
-    fn_801A5338(card);
+    set_fresh_card_flag(card);
     TWindowShortListCtrl__sub_8026E884(card->f22C4);
 }
 

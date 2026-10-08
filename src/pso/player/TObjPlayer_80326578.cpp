@@ -64,7 +64,7 @@ void sync_hp_from_target__10TObjPlayerFPv(void *arg0);
 M2C_UNK rotate_matrix_x(M2C_UNK, s32);
 s32 add_actor_tp(s32, s16);
 int refresh_owner_stats__5TItemFPv(void*);
-M2C_UNK TObjPlayer__sub_80115BC0(void *, int, int);
+M2C_UNK add_angle_clamped__10TObjPlayerFPvii(void *, int, int);
 int update_trail_slot__11TItemWeaponFPvi(void*, void*);
 int draw_weapon_at_joint(void*, void*);
 void set_weapon_trail_joints(void *, int, int, int);
@@ -247,16 +247,16 @@ void apply_container_item__10TObjPlayerFPv(void *arg0) {
 }
 
 void approach_target_angle__10TObjPlayerFPv(u8 *arg0) {
-    TObjPlayer__sub_80115BC0(arg0 + 0x1F8, 0x71C, 0x4000);
+    add_angle_clamped__10TObjPlayerFPvii(arg0 + 0x1F8, 0x71C, 0x4000);
     if ((s32) M2C_FIELD(arg0, s32 *, 0x1F8) == 0x4000) {
-        TObjPlayer__sub_80115BC0(arg0 + 0x1FC, 0x71C, 0x4000);
+        add_angle_clamped__10TObjPlayerFPvii(arg0 + 0x1FC, 0x71C, 0x4000);
     }
 }
 
 void step_angles__10TObjPlayerFPv(u8 *arg0) {
-    TObjPlayer__sub_80115BC0(arg0 + 0x1FC, -0xAAA, 0);
+    add_angle_clamped__10TObjPlayerFPvii(arg0 + 0x1FC, -0xAAA, 0);
     if ((s32) M2C_FIELD(arg0, s32 *, 0x1FC) == 0) {
-        TObjPlayer__sub_80115BC0(arg0 + 0x1F8, -0xAAA, 0);
+        add_angle_clamped__10TObjPlayerFPvii(arg0 + 0x1F8, -0xAAA, 0);
     }
 }
 

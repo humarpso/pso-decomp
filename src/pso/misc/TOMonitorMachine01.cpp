@@ -48,6 +48,8 @@ struct Mon_80172220 : VObj_80172220 {
     f32 fD0;
 };
 
+typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
+#define M2C_BITWISE(type, expr) ((type)(expr))
 extern "C" {
 void TLobby__sub_8001FE7C(void *, s32);
 extern s32 TOMonitorMachine01__data_8050DB68[];
@@ -79,6 +81,13 @@ int end_effect_render__13TParticleCtrlFv();
 extern const f32 lbl_805DB8F0;
 extern const f32 TOMonitorMachine01__data_805DB8F8;
 void render__18TOMonitorMachine01Fv(Mon_80172220 *self);
+u32 load_resource_from_descriptor(void *, int, void *, int, int, int);
+void *alloc__23TAdSinglePlyChrSelectGCFPv(M2C_UNK);
+extern u8 lbl_804B3888[];
+extern s32 TOMonitorMachine01__data_8050DB68[];
+extern void *TOMonitorMachine01__data_805D5A58;
+extern s32 TOMonitorMachine01__data_805D5A5C;
+void TOMonitorMachine01__sub_8017246C(void);
 }
 
 extern "C" {
@@ -209,6 +218,20 @@ void TOMonitorMachine01__sub_8017240C(void) {
         TLobby__sub_8001FE7C(TOMonitorMachine01__data_805D5A58, 1);
         TOMonitorMachine01__data_805D5A58 = 0;
     }
+}
+
+void TOMonitorMachine01__sub_8017246C(void) {
+    void *temp_r5;
+    void *p;
+    p = alloc__23TAdSinglePlyChrSelectGCFPv(0x440);
+    if (p != NULL) {
+        p = (void *)load_resource_from_descriptor(p, 1, lbl_804B3888, 0, 0, 0);
+    }
+    TOMonitorMachine01__data_805D5A58 = p;
+    temp_r5 = M2C_FIELD(M2C_FIELD(M2C_FIELD(M2C_FIELD(M2C_FIELD(p, void **, 0x42C), void **, 8), void **, 0x2C), void **, 0x30), void **, 0x30);
+    TOMonitorMachine01__data_8050DB68[1] = M2C_FIELD(temp_r5, s32 *, 4);
+    TOMonitorMachine01__data_8050DB68[0] = M2C_FIELD(M2C_FIELD(M2C_FIELD(temp_r5, void **, 0x30), void **, 0x30), s32 *, 4);
+    TOMonitorMachine01__data_805D5A5C = 0;
 }
 
 void *__dt__18TOMonitorMachine01Fv(void *arg0, s16 arg1) {

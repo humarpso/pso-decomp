@@ -60,7 +60,7 @@ M2C_UNK apply_drop_restrictions(void *, void *);
 void init_rare_item_data__9TItemDropFPvPv(void *arg0, void *arg1);
 void handle_type3__9TItemDropFPvPv(void* p, void* a1);
 void apply_item_data__9TItemDropFPvPv(void *arg0, void *arg1);
-M2C_UNK roll_armor_bonuses__9TItemDropFv(s32, void *);
+void roll_armor_bonuses__9TItemDropFv(s32, void *);
 void set_flag__9TItemDropFPvPv(void *arg0, void *arg1);
 s32 try_generate_rare_item__9TItemDropFiPvPv(s32 arg0, u8 *arg1, u8 *arg2);
 void init_rare_item_data__9TItemDropFPvPv(void *arg0, void *arg1);
@@ -181,7 +181,7 @@ void set_flag__9TItemDropFPvPv(void *arg0, void *arg1);
 M2C_UNK serialize_mag__9TItemDataFPvPv(void *, M2C_UNK *);
 s32 is_rare_item__9TItemDataFPv(void *);
 M2C_UNK count_unit_star_buckets__9TItemDropFv();
-M2C_UNK roll_armor_bonuses__9TItemDropFv(s32, void *);
+void roll_armor_bonuses__9TItemDropFv(s32, void *);
 int TLobby__sub_801D6DDC(void*);
 s32 alloc_buffer__11TOBoss4RockFPv(M2C_UNK);
 s32 can_drop__9TItemDropFv();
@@ -430,6 +430,40 @@ void apply_item_data__9TItemDropFPvPv(void *arg0, void *arg1) {
         serialize_mag__9TItemDataFPvPv(arg1, &sp8);
     }
 }
+
+struct Def_80106D0C {
+    u8 pad[0x16];
+    u8 a;
+    u8 b;
+};
+void set_drop_index__9TItemDropFPvPv(void *, void *);
+Def_80106D0C *lookup_item_pmt_record(u8 *);
+void set_dfp_bonus__9TItemDataFPvs(u8 *, s32);
+void TItemData__sub_8010CE1C(u8 *, s32);
+
+#define item ((u8 *)item_)
+void roll_armor_bonuses__9TItemDropFv(s32 rng, void *item_) {
+    Def_80106D0C *def;
+
+    if (item[0] != 1) {
+        return;
+    }
+    switch (item[1]) {
+    case 1:
+        set_drop_index__9TItemDropFPvPv((void *)rng, item);
+    case 2:
+        def = lookup_item_pmt_record(item);
+        if (def != NULL) {
+            f32 r;
+            r = ((f32 (*)(u8 *, u32))TItemDrop__sub_801065B4)((u8 *)rng, 12);
+            set_dfp_bonus__9TItemDataFPvs(item, (s32)(def->a * r));
+            r = ((f32 (*)(u8 *, u32))TItemDrop__sub_801065B4)((u8 *)rng, 13);
+            TItemData__sub_8010CE1C(item, (s32)(def->b * r));
+        }
+        break;
+    }
+}
+#undef item
 
 extern u8 lbl_805DAAE0;
 

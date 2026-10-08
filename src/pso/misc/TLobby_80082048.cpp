@@ -55,7 +55,7 @@ int alloc__23TAdSinglePlyChrSelectGCFPv(void *);
 extern RecoveredGlobal_80082080_lbl_8048E194 lbl_8048E194;
 extern u32 lbl_805D4ED0;
 void TLobby__sub_80082080(void);
-M2C_UNK TObjPlayer__sub_80019038(void *, void *);
+M2C_UNK construct_actor_base__10TObjPlayerFPvPv(void *, void *);
 M2C_UNK VecCopy__FP3VecPC3Vec(void *, void *);
 s16 obj_getField1c(void *);
 M2C_UNK queue_destruction__7TObjectFv(void *);
@@ -70,7 +70,7 @@ extern const f32 lbl_805D9378;
 extern const f32 lbl_805D9398;
 extern const f32 lbl_805D939C;
 extern const f32 lbl_805D93A0;
-u8 *TObjPlayer__sub_8008213C(u8 *arg0, u8 *arg1, u8 *arg2);
+u8 *construct_freeze_shell__10TObjPlayerFPvPvPv(u8 *arg0, u8 *arg1, u8 *arg2);
 }
 
 extern "C" {
@@ -142,9 +142,9 @@ typedef char RecoveredFields_8008213C_arg2_C_offset[offsetof(RecoveredFields_800
 typedef char RecoveredFields_8008213C_arg1_60_offset[offsetof(RecoveredFields_8008213C_arg1, field_60) == 0x60 ? 1 : -1];
 typedef char RecoveredFields_8008213C_arg1_A4_offset[offsetof(RecoveredFields_8008213C_arg1, field_A4) == 0xA4 ? 1 : -1];
 typedef char RecoveredFields_8008213C_temp_r3_10_offset[offsetof(RecoveredFields_8008213C_temp_r3, field_10) == 0x10 ? 1 : -1];
-u8 *TObjPlayer__sub_8008213C(u8 *arg0, u8 *arg1, u8 *arg2) {
+u8 *construct_freeze_shell__10TObjPlayerFPvPvPv(u8 *arg0, u8 *arg1, u8 *arg2) {
     u8 *temp_r3;
-    TObjPlayer__sub_80019038((void *) (arg0), (void *) (tl_05));
+    construct_actor_base__10TObjPlayerFPvPv((void *) (arg0), (void *) (tl_05));
     ((RecoveredFields_8008213C_arg0 *)arg0)->field_18 = lbl_8048E1A4;
     ((RecoveredFields_8008213C_arg0 *)arg0)->field_34 = get_bml_model((void *) ((*(s32 *)&lbl_805D4ED0)), (int) (1));
     if (arg1 != NULL) {

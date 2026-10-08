@@ -4,7 +4,7 @@ typedef struct Tbl_801D79DC {
 } Tbl_801D79DC;
 
 extern "C" {
-void TWindowActionPalette__sub_801C1CA8(void *, s32, s32, s32, u16);
+void set_palette_entry__20TWindowActionPaletteFiiiii(void *, s32, s32, s32, u16);
 u16 TWindowActionPalette__sub_801C1DE0(void *, s32, s32);
 extern Tbl_801D79DC lbl_80447178;
 void assign_photon_blast_palette_slot(u8 *arg0, s32 arg1);
@@ -19,7 +19,7 @@ void assign_photon_blast_palette_slot(u8 *arg0, s32 arg1) {
     for (i = 0; i < 3; i++) {
         id = t.v[i];
         if (TWindowActionPalette__sub_801C1DE0(arg0 + 0x24, 1, id) == 0) {
-            TWindowActionPalette__sub_801C1CA8(arg0 + 0x24, 1, id, 5, arg1);
+            set_palette_entry__20TWindowActionPaletteFiiiii(arg0 + 0x24, 1, id, 5, arg1);
             return;
         }
     }

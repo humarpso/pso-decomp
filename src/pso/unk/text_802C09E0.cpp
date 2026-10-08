@@ -13,12 +13,12 @@ s32 get_lobby_type__6TLobbyFv(void);
 extern RecoveredGlobal_802C09E0_lbl_804E0878 lbl_804E0878;
 extern s32 lbl_805D67B8;
 extern s32 lbl_805D67BC;
-void TObjPlayer__sub_802C09E0(void);
+void load_lobby_pigeon_resource__10TObjPlayerFv(void);
 }
 
 extern "C" {
 
-void TObjPlayer__sub_802C09E0(void) {
+void load_lobby_pigeon_resource__10TObjPlayerFv(void) {
     s32 temp_r3;
     s32 var_r0;
     temp_r3 = alloc__23TAdSinglePlyChrSelectGCFPv((void *)0x440);

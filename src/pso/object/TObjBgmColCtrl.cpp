@@ -16,14 +16,14 @@ extern char lbl_804438F8[];
 extern char lbl_80443904[];
 extern u32 lbl_805D55A0;
 extern u32 TObjBgmColCtrl__data_805D5B0C;
-void TObjBgmColCtrl__sub_8017E1E4(void);
+void play_lobby_theme_music__14TObjBgmColCtrlFv(void);
 }
 
 extern "C" {
 
 void render__14TObjBgmColCtrlFv(void);
 
-void TObjBgmColCtrl__sub_8017E1E4(void) {
+void play_lobby_theme_music__14TObjBgmColCtrlFv(void) {
     Names_8017E1E4 names = lbl_80443898[0];
     const char *name;
     if (get_global_state__14TOKeyMachine01Fv() == 0xF) {

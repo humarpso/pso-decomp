@@ -6,7 +6,7 @@ typedef s32 M2C_UNK;
 struct Self_80179244 { s32 type; u8 pad4[0x18 - 4]; M2C_UNK *vt; u8 pad1c[0x334 - 0x1C]; f32 f334; f32 f338; u16 s33c; u8 pad33e[2]; s32 f340; };
 
 extern "C" {
-void *TObjPlayer__sub_80019038(void *, void *, void *);
+void *construct_actor_base__10TObjPlayerFPvPv(void *, void *, void *);
 extern M2C_UNK __vt__6TOTrap[];
 extern s32 lbl_805D3198;
 extern const f32 TOTrap__data_805DBA3C;
@@ -36,7 +36,7 @@ void *__dt__6TOTrapFv(void *arg0, s16 arg1) {
 }
 
 Self_80179244 *TOTrap__ct(Self_80179244 *self, void *a, void *b) {
-    TObjPlayer__sub_80019038(self, a, b);
+    construct_actor_base__10TObjPlayerFPvPv(self, a, b);
     self->vt = __vt__6TOTrap;
     self->type = lbl_805D3198;
     self->f334 = self->f338 = TOTrap__data_805DBA3C;

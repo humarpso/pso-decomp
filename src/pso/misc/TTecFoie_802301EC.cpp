@@ -20,12 +20,12 @@ void create_particle_emitters__8TTecFoieFPv(void *);
 void init_projectile_params__8TTecFoieFPv(void *);
 u8 * construct_aimed_technique_projectile(void *, s32, void *, void *, s16);
 extern RecoveredGlobal_802302A0___vt__8TTecFoie __vt__8TTecFoie;
-u8 *TTecFoie__sub_802302A0(u8 *arg0, s32 arg1, u8 *arg2, u8 *arg3, s16 arg4);
+u8 *construct_aimed__8TTecFoieFPviPvPvs(u8 *arg0, s32 arg1, u8 *arg2, u8 *arg3, s16 arg4);
 u16 obj_getField1c(void *);
 void play_foie_cast_sound(void *);
 void create_particle_emitters__8TTecFoieFPv(void *);
 void init_projectile_params__8TTecFoieFPv(void *);
-u8 * TObjPlayer__sub_8023AA4C(void *, s32, void *, s32, s16);
+u8 * construct_facing_technique__10TObjPlayerFPviPvii(void *, s32, void *, s32, s16);
 extern RecoveredGlobal_802302A0___vt__8TTecFoie __vt__8TTecFoie;
 extern s32 lbl_805D37B0;
 u8 *TTecFoie__ct(u8 *arg0, s32 arg1, u8 *arg2, s32 arg3, s16 arg4);
@@ -58,7 +58,7 @@ void run_task__8TTecFoieFv(Foie_802301EC *self) {
     dispatch_technique_contact(self, 1);
 }
 
-u8 *TTecFoie__sub_802302A0(u8 *arg0, s32 arg1, u8 *arg2, u8 *arg3, s16 arg4) {
+u8 *construct_aimed__8TTecFoieFPviPvPvs(u8 *arg0, s32 arg1, u8 *arg2, u8 *arg3, s16 arg4) {
     u8 *temp_r3;
     construct_aimed_technique_projectile(arg0, arg1, arg2, arg3, arg4);
     M2C_FIELD(arg0, M2C_UNK **, 0x18) = &__vt__8TTecFoie.value;
@@ -73,7 +73,7 @@ u8 *TTecFoie__sub_802302A0(u8 *arg0, s32 arg1, u8 *arg2, u8 *arg3, s16 arg4) {
 }
 u8 *TTecFoie__ct(u8 *arg0, s32 arg1, u8 *arg2, s32 arg3, s16 arg4) {
     u8 *temp_r3;
-    TObjPlayer__sub_8023AA4C(arg0, arg1, arg2, arg3, arg4);
+    construct_facing_technique__10TObjPlayerFPviPvii(arg0, arg1, arg2, arg3, arg4);
     M2C_FIELD(arg0, M2C_UNK **, 0x18) = &__vt__8TTecFoie.value;
     M2C_FIELD(arg0, s32 *, 0) = (s32) lbl_805D37B0;
     temp_r3 = (u8 *)(M2C_FIELD(arg0, u8 **, 0x1C));

@@ -97,6 +97,9 @@ typedef struct Gauge_80262E90 {
     f32 max;
 } Gauge_80262E90;
 
+struct C_80263944 { void f(); };
+typedef void (C_80263944::*PMF_80263944)();
+
 extern "C" {
 u32 obj_getArrWord_254(Ent_80262E90 *, s32);
 s16 obj_getS16_2BA(Ent_80262E90 *);
@@ -150,7 +153,14 @@ void __dl__7TObjectFPv(void *);
 void destroy_window_base__9TWindowDDFPvs(void *, int);
 void queue_destruction__7TObjectFv(void *);
 void *__nw__7TObjectFUl(u32);
-void *TWindowLockOn__ct(void *, s32, u16);
+u8 *TWindowLockOn__ct(u8 *, s16, s32);
+s32 get_camera_id__11TCameraCtrlFv(void);
+M2C_UNK TWindowDD__sub_802466E0(void *, void *, void *, int);
+s32 get_window_layout_position(int);
+extern u8 lbl_804D0268[];
+extern s32 lbl_805D3948;
+extern const f32 lbl_805DD130;
+extern const f32 lbl_805DD134;
 
 void validate_target__13TWindowLockOnFPv(u8 *arg0);
 bool TWindowLockOn__sub_80262DC4(s32 arg0);
@@ -466,7 +476,7 @@ void *create_for_target__13TWindowLockOnFiUs(s32 arg0, u16 arg1) {
     }
     p = __nw__7TObjectFUl(0x7C);
     if (p != NULL) {
-        p = TWindowLockOn__ct(p, arg0, arg1);
+        p = ((void *(*)(void *, s32, u16))TWindowLockOn__ct)(p, arg0, arg1);
     }
     return p;
 }
@@ -506,6 +516,26 @@ void *__dt__13TWindowLockOnFv(void *arg0, s16 arg1) {
             __dl__7TObjectFPv(arg0);
         }
     }
+    return arg0;
+}
+
+u8 *TWindowLockOn__ct(u8 *arg0, s16 arg1, s32 arg2) {
+    TWindowDD__sub_802466E0((void *) (arg0), (void *) (lbl_804D0268), (void *) (arg1), (int) (get_window_layout_position((int) (0x1E))));
+    M2C_FIELD(arg0, M2C_UNK **, 0x18) = __vt__13TWindowLockOn;
+    M2C_FIELD(arg0, s32 *, 0) = (s32) lbl_805D3948;
+    if (get_camera_id__11TCameraCtrlFv() > 2) {
+        M2C_FIELD(arg0, f32 *, 0x68) = (f32) lbl_805DD130;
+        M2C_FIELD(arg0, f32 *, 0x6C) = (f32) lbl_805DD130;
+    } else {
+        M2C_FIELD(arg0, f32 *, 0x68) = (f32) lbl_805DD134;
+        M2C_FIELD(arg0, f32 *, 0x6C) = (f32) lbl_805DD134;
+    }
+    M2C_FIELD(arg0, u16 *, 0x60) = 0xFFFF;
+    M2C_FIELD(arg0, s16 *, 0x20) = arg1;
+    M2C_FIELD(arg0, s32 *, 0x64) = 0;
+    M2C_FIELD(arg0, PMF_80263944 *, 0x70) = 0;
+    ((void (*)(void *, s32))bind_target__13TWindowLockOnFv)(arg0, arg2);
+    M2C_FIELD(arg0, s32 *, 0x50) = 0;
     return arg0;
 }
 

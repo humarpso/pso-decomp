@@ -6,7 +6,7 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 
 extern "C" {
 
-void TPlyDispConfig__sub_801E0A68(void* p);
+void bswap_pair__14TPlyDispConfigFPv(void* p);
 void bswap__12TPlyCharDataFv(s32 arg0);
 M2C_UNK bswap__12player_statsFv(s32);
 M2C_UNK bswap__15disp_data_part2Fv(s32);
@@ -22,9 +22,9 @@ void bswap__12TPlyCharDataFv(s32 arg0) {
     }
     bswap__15disp_data_part2Fv(arg0 + 0x370);
     bswap__12player_statsFv(arg0 + 0x34C);
-    TPlyDispConfig__sub_801E0A68((void*)(arg0 + 0x3C0));
+    bswap_pair__14TPlyDispConfigFPv((void*)(arg0 + 0x3C0));
 }
 
-void TPlyDispConfig__sub_801E0A68(void* p) { bswap__18TPlyDispConfigSmthFv(p); bswap__18TPlyDispConfigSmthFv((char*)p + 0x24); }
+void bswap_pair__14TPlyDispConfigFPv(void* p) { bswap__18TPlyDispConfigSmthFv(p); bswap__18TPlyDispConfigSmthFv((char*)p + 0x24); }
 
 }

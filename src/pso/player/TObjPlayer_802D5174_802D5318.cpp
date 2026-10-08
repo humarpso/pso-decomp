@@ -8,7 +8,7 @@ extern "C" {
 
 void setup_radar_marker__10TObjPlayerFPvPv(void *arg0, void *arg1);
 void* setup_state__10TObjPlayerFPv(void* a0);
-M2C_UNK TObjPlayer__sub_8011E2FC(void *, f32);
+M2C_UNK drain_owner_hp_fraction__10TObjPlayerFPvf(void *, f32);
 int init_state_445__10TObjPlayerFPv(void);
 s32 is_mode_two_and_ready__10TObjPlayerFPv(void *);
 M2C_UNK set_radar_marker_params__10TObjPlayerFPvPv();
@@ -20,7 +20,7 @@ extern const f32 lbl_805DE78C;
 void setup_radar_marker__10TObjPlayerFPvPv(void *arg0, void *arg1) {
     set_radar_marker_params__10TObjPlayerFPvPv();
     if (is_mode_two_and_ready__10TObjPlayerFPv(arg0) != 0) {
-        TObjPlayer__sub_8011E2FC(arg0, lbl_805DE788);
+        drain_owner_hp_fraction__10TObjPlayerFPvf(arg0, lbl_805DE788);
         M2C_FIELD(arg1, s32 *, 0x10) = 0xA;
         M2C_FIELD(arg1, s32 *, 0x44) = (s32) M2C_FIELD(arg0, s32 *, 0x188);
         M2C_FIELD(arg1, f32 *, 0x4C) = lbl_805DE78C;

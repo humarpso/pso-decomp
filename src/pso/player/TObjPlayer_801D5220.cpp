@@ -41,7 +41,7 @@ void count_owned_items__10TObjPlayerFPv(void *arg0);
 s32 get_owner_if_alive__10TObjPlayerFPv(void *arg0);
 void set_field_1c__10TObjPlayerFPvi(void* p, s32 v);
 s32 item_identity_matches(M2C_UNK *, s32);
-s32 TObjPlayer__sub_801D4308(u32, s32);
+s32 export_inventory_entry__10TObjPlayerFiPv(u32, s32);
 s32 all_parents_unqueued_for_destruction__7TObjectFv(s32);
 M2C_UNK copy_to_item_data__5TItemFPvPv(M2C_UNK, M2C_UNK *);
 s32 is_item_valid__9TItemListFi(void *);
@@ -55,7 +55,7 @@ void count_owned_items__10TObjPlayerFPv(void *arg0) {
 
     var_r31 = M2C_FIELD(arg0, void **, 0x14);
     while (var_r31 != NULL) {
-        if ((is_item_valid__9TItemListFi((void *)(var_r31)) != 0) && ((temp = get_owner_if_alive__10TObjPlayerFPv((void *)(var_r31))) != 0U) && (TObjPlayer__sub_801D4308(temp, lbl_805D5E00) != 0)) {
+        if ((is_item_valid__9TItemListFi((void *)(var_r31)) != 0) && ((temp = get_owner_if_alive__10TObjPlayerFPv((void *)(var_r31))) != 0U) && (export_inventory_entry__10TObjPlayerFiPv(temp, lbl_805D5E00) != 0)) {
             lbl_805D5E00 += 0x1C;
             lbl_805D5DF4 += 1;
         }

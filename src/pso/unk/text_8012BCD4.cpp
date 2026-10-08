@@ -30,7 +30,7 @@ extern "C" {
 u8 *alloc_from_obj_heap__10TObjPlayerFPv(M2C_UNK);
 extern s32 tl_05;
 u8 *TObjPlayer__sub_8012BD50(s32 arg0);
-s32 TObjPlayer__sub_8004433C(s32);
+s32 construct_target_cursor_records__10TObjPlayerFi(s32);
 u8 * TItemWeapon__ct(void *, void *);
 void set_status_flags__10TObjPlayerFPvUi(void *, s32);
 extern RecoveredGlobal_8012BCD4_lbl_804A4F60 lbl_804A4F60;
@@ -43,7 +43,7 @@ extern "C" {
 u8 *TObjPlayer__sub_8012BCD4(u8 *arg0, u8 *arg1, s32 _w2) {
     TItemWeapon__ct(arg0, arg1);
     M2C_FIELD(arg0, M2C_UNK **, 0x18) = &lbl_804A4F60.value;
-    TObjPlayer__sub_8004433C((s32) (arg0 + 0x208));
+    construct_target_cursor_records__10TObjPlayerFi((s32) (arg0 + 0x208));
     set_status_flags__10TObjPlayerFPvUi(arg0, 0x22);
     M2C_FIELD(arg0, s32 *, 0x278) = 0;
     M2C_FIELD(arg0, f32 *, 0x274) = (f32) lbl_805DAEC8;

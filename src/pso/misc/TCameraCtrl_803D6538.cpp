@@ -196,13 +196,13 @@ u32 find_motion_key_partition_u32(u8 *base, u32 stride, u32 hi, u32 key);
 u32 find_motion_key_partition_u16(u8 *base, u32 stride, u32 hi, u32 key);
 extern u8 *lbl_805D76BC;
 void set_motion_row_stride(s32 n);
-void TObjPlayer__sub_803D98E4(void *);
+void concat_quaternion_rotation__10TObjPlayerFPv(void *);
 void rotate_matrix_by_node_angles(void *, int);
 void scale_current_matrix(void *);
 void post_translate_matrix(void *);
 void compose_motion_node_matrix(void *arg0);
 s32 blend_motion_poses(void *, void *, void *, void *, void *);
-void TObjPlayer__sub_803D98E4(void *);
+void concat_quaternion_rotation__10TObjPlayerFPv(void *);
 void rotate_matrix_by_node_angles(void *, int);
 void scale_current_matrix(void *);
 void post_translate_matrix(void *);
@@ -222,13 +222,13 @@ s32 TObjPlayer__sub_803D6C1C(s32 arg0);
 extern u8 *lbl_805D76BC;
 s32 TObjPlayer__sub_803D6C94(s32 arg0);
 extern u8 *lbl_805D76BC;
-s32 TObjPlayer__sub_803D6D0C(s32 arg0);
+s32 sample_next_quaternion_key__10TObjPlayerFi(s32 arg0);
 u32 find_motion_key_partition_u16(u8 *base, u32 stride, u32 hi, u32 key);
 void find_motion_key_interval_u16(u8 *keys, u32 stride, u32 count, f32 t, u16 **k0, u16 **k1, f32 *frac);
 void select_motion_sampler(M2C_UNK *arg0, f32 farg0);
 s32 sample_motion_vector_channel(s32 arg0);
 s32 TObjPlayer__sub_803D6C94(s32 arg0);
-s32 TObjPlayer__sub_803D6D0C(s32 arg0);
+s32 sample_next_quaternion_key__10TObjPlayerFi(s32 arg0);
 s32 TObjPlayer__sub_803D7FD0(void);
 s32 TObjPlayer__sub_803D7FD8(void);
 extern u8 *lbl_805D76BC;
@@ -465,7 +465,7 @@ s32 TObjPlayer__sub_803D6C94(s32 arg0) {
 }
 
 #define G_803D6D0C ((St_803D6D0C *)lbl_805D76BC)
-s32 TObjPlayer__sub_803D6D0C(s32 arg0) {
+s32 sample_next_quaternion_key__10TObjPlayerFi(s32 arg0) {
     if (G_803D6D0C->keys[G_803D6D0C->idx] != 0) {
       interpolate_motion_quaternion_keys(
           (u32)(G_803D6D0C->keys[G_803D6D0C->idx]),
@@ -714,7 +714,7 @@ void TObjPlayer__sub_803D76B4(void *arg0) {
         rotate_matrix_by_node_angles(&rot, 1);
         break;
     default:
-        TObjPlayer__sub_803D98E4(&quat);
+        concat_quaternion_rotation__10TObjPlayerFPv(&quat);
         break;
     }
     scale_current_matrix(&scale);
@@ -879,7 +879,7 @@ void bind_motion_channel_samplers(int arg0, f32 farg0) {
         M2C_FIELD(lbl_805D76BC, void **, 0x3C) = NULL;
     } else if ((u32) (temp_r5 & 0x2000) != 0) {
         M2C_FIELD(lbl_805D76BC, void **, 0x34) = NULL;
-        M2C_FIELD(lbl_805D76BC, void **, 0x3C) = (void *)TObjPlayer__sub_803D6D0C;
+        M2C_FIELD(lbl_805D76BC, void **, 0x3C) = (void *)sample_next_quaternion_key__10TObjPlayerFi;
     } else {
         M2C_FIELD(lbl_805D76BC, void **, 0x34) = (void *)TObjPlayer__sub_803D7FD8;
         M2C_FIELD(lbl_805D76BC, void **, 0x3C) = NULL;
@@ -907,7 +907,7 @@ void compose_motion_node_matrix(void *arg0) {
         rotate_matrix_by_node_angles(&rot, 1);
         break;
     default:
-        TObjPlayer__sub_803D98E4(&quat);
+        concat_quaternion_rotation__10TObjPlayerFPv(&quat);
         break;
     }
     scale_current_matrix(&scale);

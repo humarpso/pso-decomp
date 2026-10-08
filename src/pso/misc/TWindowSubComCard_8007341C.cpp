@@ -28,6 +28,10 @@ struct Chal_80073428 {
 
 struct Slot_80073428 { s32 a; s32 slot; };
 
+struct Chal_8007369C { u8 pad[0x4C]; void *window; u8 rest[0x748 - 0x50]; };
+
+struct Chal_800738F4 { u8 pad[0x4C]; void *window; u8 rest[0x748 - 0x50]; };
+
 extern "C" {
 extern RecoveredGlobal_800739BC_lbl_8048C9D8 lbl_8048C9D8;
 void TLobby__sub_800739BC(void);
@@ -75,6 +79,27 @@ extern char lbl_805D9128[2];
 extern char lbl_805D912C[2];
 extern char lbl_805D9130[2];
 void TAdSinglePlyChrSelectGC__sub_80073428(M2C_UNK arg0, s32 arg1);
+s32 get_camera_id__11TCameraCtrlFv();
+void TAdSinglePlyChrSelectGC__sub_80073428(M2C_UNK arg0, s32 arg1);
+void set_position_xy(void *, f32, f32);
+void set_field_1c__6TLobbyFPvf(void *, f32);
+void send_and_handle__6TLobbyFPvii(void *, char *, s32);
+void *set_window_mode_4__6TLobbyFPvii(void *, void *, s32);
+void *get_window_layout_position(s32);
+extern RecoveredGlobal_800739BC_lbl_8048C9D8 lbl_8048C9D8;
+extern u8 lbl_8048D150[];
+extern char lbl_804FF838[];
+extern const f32 lbl_805D9134;
+extern const f32 lbl_805D9138;
+void TLobby__sub_8007369C(s32 arg0, s32 arg1);
+void queue_destruction__7TObjectFv(void *);
+void TLobby__sub_8007369C(s32 arg0, s32 arg1);
+void TLobby__sub_80073738(void *arg0, void *arg1);
+void TLobby__sub_800739BC(void);
+void TWindow__close(void *);
+s32 TWindowCtrlMain__sub_8024CE58();
+extern RecoveredGlobal_800739BC_lbl_8048C9D8 lbl_8048C9D8;
+void TLobby__sub_800738F4(void *arg0, s32 arg1);
 }
 
 extern "C" {
@@ -148,6 +173,21 @@ void TAdSinglePlyChrSelectGC__sub_80073428(M2C_UNK arg0, s32 arg1) {
     }
 }
 
+void TLobby__sub_8007369C(s32 arg0, s32 arg1) {
+    void *win;
+    win = set_window_mode_4__6TLobbyFPvii(get_window_layout_position(0x3B), lbl_8048D150, 1);
+    (*(Chal_8007369C *)&lbl_8048C9D8).window = win;
+    if (win == NULL) {
+        return;
+    }
+    set_field_1c__6TLobbyFPvf(win, lbl_805D9134);
+    if (get_camera_id__11TCameraCtrlFv() >= 2) {
+        set_position_xy((*(Chal_8007369C *)&lbl_8048C9D8).window, lbl_805D9138, lbl_805D9138);
+    }
+    TAdSinglePlyChrSelectGC__sub_80073428((M2C_UNK)(arg0), (s32)(arg1));
+    send_and_handle__6TLobbyFPvii((*(Chal_8007369C *)&lbl_8048C9D8).window, lbl_804FF838, 0);
+}
+
 void TLobby__sub_80073738(void *arg0, void *arg1) {
     char tmp[32];
     s32 n;
@@ -182,6 +222,34 @@ void TLobby__sub_80073738(void *arg0, void *arg1) {
         }
     }
     send_and_handle__6TLobbyFPvii(CHAL->window, lbl_804FF838, 0);
+}
+
+void TLobby__sub_800738F4(void *arg0, s32 arg1) {
+    if (TWindowCtrlMain__sub_8024CE58() == 0) {
+        ((void (*)(void *))TLobby__sub_800739BC)(arg0);
+        return;
+    }
+    if ((*(Chal_800738F4 *)&lbl_8048C9D8).window != NULL) {
+        if (arg1 == 0) {
+            TWindow__close((*(Chal_800738F4 *)&lbl_8048C9D8).window);
+        } else {
+            queue_destruction__7TObjectFv((*(Chal_800738F4 *)&lbl_8048C9D8).window);
+        }
+        ((void (*)(void *))TLobby__sub_800739BC)(arg0);
+    }
+    switch (arg1) {
+    case 0:
+        return;
+    case 1:
+        TLobby__sub_80073738(arg0, (void *)0);
+        break;
+    case 2:
+        TLobby__sub_80073738(arg0, (void *)1);
+        break;
+    default:
+        TLobby__sub_8007369C((s32)(arg0), (s32)(arg1));
+        break;
+    }
 }
 
 void TLobby__sub_800739BC(void) {

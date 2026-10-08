@@ -60,7 +60,7 @@ M2C_UNK draw_right_aligned_number(void *);
 M2C_UNK set_status_entry_target(void *, s32);
 s32 update_hp_entry__20TWindowSubStatusDispFPv(void *);
 extern const f32 lbl_805DD430;
-void TWindowSubStatusDisp__sub_80270F14(u8 *arg0);
+void update_hp_tp_values__20TWindowSubStatusDispFPv(u8 *arg0);
 }
 
 extern "C" {
@@ -183,7 +183,7 @@ u8 *TWindowSoundBalance__ct(u8 *arg0, s32 arg1) {
 }
 #pragma pop
 
-void TWindowSubStatusDisp__sub_80270F14(u8 *arg0) {
+void update_hp_tp_values__20TWindowSubStatusDispFPv(u8 *arg0) {
     u8 *pl;
     u8 *e;
     u8 *a;

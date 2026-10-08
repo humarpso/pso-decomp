@@ -28,12 +28,12 @@ void __ct__7TObjectFP7TObject(void *, void *);
 s32 get_level_tier__10TObjPlayerFi(s32);
 extern Profile_80232EC0 lbl_8044D53C[];
 extern void *lbl_804CC888[];
-Task_80232EC0 *TBoss3Volopt__sub_80232EC0(Task_80232EC0 *self, u8 *src, s32 level, void *parent);
+Task_80232EC0 *construct_grants_effect__12TBoss3VoloptFPvPviPv(Task_80232EC0 *self, u8 *src, s32 level, void *parent);
 }
 
 extern "C" {
 
-Task_80232EC0 *TBoss3Volopt__sub_80232EC0(Task_80232EC0 *self, u8 *src, s32 level, void *parent) {
+Task_80232EC0 *construct_grants_effect__12TBoss3VoloptFPvPviPv(Task_80232EC0 *self, u8 *src, s32 level, void *parent) {
     u32 i;
     __ct__7TObjectFP7TObject(self, parent);
     self->vt = lbl_804CC888;

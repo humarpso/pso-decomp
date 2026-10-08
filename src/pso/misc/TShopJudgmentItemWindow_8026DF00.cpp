@@ -8,7 +8,7 @@ extern "C" {
 s32 get_camera_id__11TCameraCtrlFv();
 u8 *__nw__7TObjectFUl(int);
 M2C_UNK TShopJudgmentItemWindow__sub_80267F9C(void *, int);
-u8 *TWindowSubStatusDisp__sub_8026E168(u8 *, s32, s32, s32);
+u8 *construct_item_list__20TWindowSubStatusDispFPviis(u8 *, s32, s32, s32);
 extern M2C_UNK lbl_8044F55C[];
 u8 *create_item_list_window(s32 arg0, s32 arg1, s32 arg2);
 }
@@ -37,7 +37,7 @@ u8 *create_item_list_window(s32 arg0, s32 arg1, s32 arg2) {
     }
     var_r0 = __nw__7TObjectFUl((int) (0x8C));
     if (var_r0 != NULL) {
-        var_r0 = TWindowSubStatusDisp__sub_8026E168(var_r0, arg0, arg1, arg2);
+        var_r0 = construct_item_list__20TWindowSubStatusDispFPviis(var_r0, arg0, arg1, arg2);
     }
     return var_r0;
 }

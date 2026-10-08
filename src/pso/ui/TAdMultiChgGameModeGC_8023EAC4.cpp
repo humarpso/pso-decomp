@@ -25,7 +25,7 @@ void *TAdTimeSetGC__ct(void *, s32);
 void *TAdTrialAgreementGC__ct(void *, s32);
 void *TAdTrialModemChkGC__ct(void *, s32);
 void *TAdVIConfigGC__ct(void *, s32);
-void *TLobby__sub_80336520(void *, s32);
+void *construct_title_scene__6TLobbyFPv(void *, s32);
 void *__ct__12TLevelSelectFv(void *);
 void *__ct__16TAdStorySelectGCFv(void *, s32);
 void *__ct__19TAdSelectGameModeGCFv(void *, s32);
@@ -195,7 +195,7 @@ void TAdMultiChgGameModeGC__sub_8023ED34(void) {
     case 0:
         p = __nw__7TObjectFUl(0x4C);
         if (p != NULL) {
-            p = TLobby__sub_80336520(p, tl_01);
+            p = construct_title_scene__6TLobbyFPv(p, tl_01);
         }
         lbl_805D63CC = (s32)p;
         break;

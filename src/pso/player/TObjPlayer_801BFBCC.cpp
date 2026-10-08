@@ -14,7 +14,7 @@ struct O_801BFC90 { u16 a; u16 b; s32 c; };
 extern "C" {
 s32 reset_type__10TObjPlayerFPv(void *);
 extern RecoveredGlobal_801BFBEC_lbl_804C3E38 lbl_804C3E38;
-u8 *TObjPlayer__sub_801BFBEC(u8 *arg0);
+u8 *construct_hurt_timer__10TObjPlayerFPv(u8 *arg0);
 void TObjPlayer__sub_801BFC90(O_801BFC90 *p);
 void clear_id__10TObjPlayerFPv(void *);
 void set_speed__10TObjPlayerFPvf(void *, f32);
@@ -51,7 +51,7 @@ void reset_scale_vector__10TObjPlayerFPv(void *arg0) {
 }
 
 typedef char RecoveredGlobal_801BFBEC_lbl_804C3E38_size[sizeof(RecoveredGlobal_801BFBEC_lbl_804C3E38) == 0xC ? 1 : -1];
-u8 *TObjPlayer__sub_801BFBEC(u8 *arg0) {
+u8 *construct_hurt_timer__10TObjPlayerFPv(u8 *arg0) {
     M2C_FIELD(arg0, M2C_UNK **, 4) = &lbl_804C3E38.value;
     reset_type__10TObjPlayerFPv((void *) (arg0));
     return arg0;

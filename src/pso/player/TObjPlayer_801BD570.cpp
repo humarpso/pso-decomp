@@ -7,7 +7,7 @@ extern "C" {
 void *TObjPlayer__ct(void *arg0, void *arg1, void *arg2);
 void *__ct__10TObjPlayerFPvPvPv(void *arg0, void *arg1, void *arg2);
 void TFontSmallLobby__sub_801C0164(void *);
-void TFontSmallLobby__sub_801D65B4(void *);
+void construct_pb_controller__15TFontSmallLobbyFi(void *);
 void init_forward__10TObjPlayerFPv(void *);
 void reset_fields__10TObjPlayerFPv(void *);
 void setup_control_role__10TObjPlayerFPvi(void *, int);
@@ -36,7 +36,7 @@ void clear_base__10TObjPlayerFPv(void *);
 void forward_release__10TObjPlayerFPv(void *);
 void set_vec3_const_wrapper__10TObjPlayerFPv(void *);
 void reset_scale_vector__10TObjPlayerFPv(void *);
-void TObjPlayer__sub_801BFBEC(void *);
+void construct_hurt_timer__10TObjPlayerFPv(void *);
 void reset_and_clear__10TObjPlayerFPv(void *);
 void wrap_update__10TObjPlayerFPv(void *);
 void set_vec4_const_wrapper__10TObjPlayerFPv(void *);
@@ -53,7 +53,7 @@ void setup_ctrl__10TObjPlayerFPv(void *);
 void init_partial__10TObjPlayerFi(void *);
 void init_sub_objects__10TObjPlayerFPv(void *);
 void __ct__14TPlyDispConfigFv(void *);
-void TObjPlayer__sub_80019038(void *);
+void construct_actor_base__10TObjPlayerFPvPv(void *);
 void clear_header_struct__10TObjPlayerFPv(void *);
 void init_class_flags__10TObjPlayerFPvi(void *, void *);
 void TObjPlayer__sub_801BBB70(void *, void *);
@@ -65,7 +65,7 @@ extern M2C_UNK __vt__10TObjPlayer[];
 extern void *lbl_805D3530;
 
 void *TObjPlayer__ct(void *arg0, void *arg1, void *arg2) {
-    TObjPlayer__sub_80019038(arg0);
+    construct_actor_base__10TObjPlayerFPvPv(arg0);
     M2C_FIELD(arg0, M2C_UNK **, 0x18) = __vt__10TObjPlayer;
     init_subobject__10TObjPlayerFPv((void *)((char *)arg0 + 832));
     setup_ctrl__10TObjPlayerFPv((void *)((char *)arg0 + 844));
@@ -74,7 +74,7 @@ void *TObjPlayer__ct(void *arg0, void *arg1, void *arg2) {
     TObjPlayer__sub_80309E9C((void *)((char *)arg0 + 900));
     init_forward__10TObjPlayerFPv((void *)((char *)arg0 + 1052));
     TFontSmallLobby__sub_801C0164((void *)((char *)arg0 + 1064));
-    TFontSmallLobby__sub_801D65B4((void *)((char *)arg0 + 1196));
+    construct_pb_controller__15TFontSmallLobbyFi((void *)((char *)arg0 + 1196));
     __ct__14TPlyDispConfigFv((void *)((char *)arg0 + 1280));
     TObjPlayer__sub_80351974((void *)((char *)arg0 + 1360));
     init_subobjects__10TObjPlayerFPv((void *)((char *)arg0 + 1456));
@@ -84,7 +84,7 @@ void *TObjPlayer__ct(void *arg0, void *arg1, void *arg2) {
     set_vec4_const_wrapper__10TObjPlayerFPv((void *)((char *)arg0 + 1544));
     wrap_update__10TObjPlayerFPv((void *)((char *)arg0 + 1588));
     reset_and_clear__10TObjPlayerFPv((void *)((char *)arg0 + 1596));
-    TObjPlayer__sub_801BFBEC((void *)((char *)arg0 + 1604));
+    construct_hurt_timer__10TObjPlayerFPv((void *)((char *)arg0 + 1604));
     reset_fields__10TObjPlayerFPv((void *)((char *)arg0 + 1612));
     reset_scale_vector__10TObjPlayerFPv((void *)((char *)arg0 + 1624));
     set_vec3_const_wrapper__10TObjPlayerFPv((void *)((char *)arg0 + 1644));
@@ -116,7 +116,7 @@ extern M2C_UNK __vt__10TObjPlayer[];
 extern void *lbl_805D3530;
 
 void *__ct__10TObjPlayerFPvPvPv(void *arg0, void *arg1, void *arg2) {
-    TObjPlayer__sub_80019038(arg0);
+    construct_actor_base__10TObjPlayerFPvPv(arg0);
     M2C_FIELD(arg0, M2C_UNK **, 0x18) = __vt__10TObjPlayer;
     init_subobject__10TObjPlayerFPv((void *)((char *)arg0 + 832));
     setup_ctrl__10TObjPlayerFPv((void *)((char *)arg0 + 844));
@@ -125,7 +125,7 @@ void *__ct__10TObjPlayerFPvPvPv(void *arg0, void *arg1, void *arg2) {
     TObjPlayer__sub_80309E9C((void *)((char *)arg0 + 900));
     init_forward__10TObjPlayerFPv((void *)((char *)arg0 + 1052));
     TFontSmallLobby__sub_801C0164((void *)((char *)arg0 + 1064));
-    TFontSmallLobby__sub_801D65B4((void *)((char *)arg0 + 1196));
+    construct_pb_controller__15TFontSmallLobbyFi((void *)((char *)arg0 + 1196));
     __ct__14TPlyDispConfigFv((void *)((char *)arg0 + 1280));
     TObjPlayer__sub_80351974((void *)((char *)arg0 + 1360));
     init_subobjects__10TObjPlayerFPv((void *)((char *)arg0 + 1456));
@@ -135,7 +135,7 @@ void *__ct__10TObjPlayerFPvPvPv(void *arg0, void *arg1, void *arg2) {
     set_vec4_const_wrapper__10TObjPlayerFPv((void *)((char *)arg0 + 1544));
     wrap_update__10TObjPlayerFPv((void *)((char *)arg0 + 1588));
     reset_and_clear__10TObjPlayerFPv((void *)((char *)arg0 + 1596));
-    TObjPlayer__sub_801BFBEC((void *)((char *)arg0 + 1604));
+    construct_hurt_timer__10TObjPlayerFPv((void *)((char *)arg0 + 1604));
     reset_fields__10TObjPlayerFPv((void *)((char *)arg0 + 1612));
     reset_scale_vector__10TObjPlayerFPv((void *)((char *)arg0 + 1624));
     set_vec3_const_wrapper__10TObjPlayerFPv((void *)((char *)arg0 + 1644));

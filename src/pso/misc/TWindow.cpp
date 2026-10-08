@@ -114,7 +114,7 @@ M2C_UNK set_field_1c__6TLobbyFPvf(void *, f32);
 void *create_yes_no_window(void *, s32, s32, s32);
 s32 select_cursor_entry__6TLobbyFPv(s32);
 M2C_UNK send_and_handle__6TLobbyFPvii(void *, s32, s32);
-void *TLobby__sub_80269CC0(void *, void *, s32, s32);
+void *create_message_window__6TLobbyFiiUis(void *, void *, s32, s32);
 void *get_window_layout_position(s32);
 extern Pos_80216CF8 lbl_8044BEA4[];
 extern const f32 lbl_805DC694;
@@ -241,7 +241,7 @@ void update_list_navigation__17TQuestListOfflineFPv(Win_80216CF8 *self) {
         if (self->f44 == NULL) {
             pos.a = lbl_8044BEA4[0].a;
             pos.b = lbl_8044BEA4[0].b;
-            self->f44 = TLobby__sub_80269CC0(get_window_layout_position(0x2E), &pos, 1, obj_getField1c(self->f24));
+            self->f44 = create_message_window__6TLobbyFiiUis(get_window_layout_position(0x2E), &pos, 1, obj_getField1c(self->f24));
             msg2 = get_quest_list_text(0xE, self->f54[sel].fC);
             send_and_handle__6TLobbyFPvii(self->f44, msg2, 0x80);
             set_field_1c__6TLobbyFPvf(self->f44, lbl_805DC694);

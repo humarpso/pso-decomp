@@ -42,7 +42,7 @@ struct Ply_80190FDC { u8 pad0[0x38]; f32 pos[3]; };
 extern "C" {
 s32 reset_photon_effect__10TObjPlayerFPv(void *);
 s32 init_collision_body_parts(void *, void *, int);
-s32 TObjPlayer__sub_801569F4(void *);
+s32 construct_collider_proxy__10TObjPlayerFPv(void *);
 extern RecoveredGlobal_8019118C_lbl_804B7BD8 lbl_804B7BD8;
 extern RecoveredGlobal_8019118C_lbl_804B7C1C lbl_804B7C1C;
 u8 *TLobby__sub_8019118C(u8 *arg0, M2C_UNK arg1, s32 arg2);
@@ -192,7 +192,7 @@ Obj_801910F4 *TLobby__sub_801910F4(Obj_801910F4 *arg0, s16 arg1) {
 }
 
 u8 *TLobby__sub_8019118C(u8 *arg0, M2C_UNK arg1, s32 arg2) {
-    TObjPlayer__sub_801569F4((void *) (arg0));
+    construct_collider_proxy__10TObjPlayerFPv((void *) (arg0));
     M2C_FIELD(arg0, M2C_UNK **, 0x18) = &lbl_804B7C1C.value;
     ((VObj_18_1a504b *)(arg0))->m5(arg2);
     M2C_FIELD(arg0, s16 *, 0xAC) = 3;

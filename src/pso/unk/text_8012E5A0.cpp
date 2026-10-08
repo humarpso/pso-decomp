@@ -15,7 +15,7 @@ struct Ang_8012E5A0 { s32 x, y, z; };
 
 extern "C" {
 void approach_value__20TItemEffOrgaFlowShotFPvff(void *, f32, f32);
-void TObjPlayer__sub_8012E284(s32, void *, s32, void *, void *);
+void launch_weapon_casing__10TObjPlayerFiUiiUiUi(s32, void *, s32, void *, void *);
 f32 sin_table_lookup(s32);
 f32 cos_table_lookup(s32);
 extern s32 tl_05;
@@ -23,12 +23,12 @@ extern const f32 lbl_805DAF7C;
 extern const f32 lbl_805DAF84;
 extern const f32 lbl_805DAF88;
 extern const f32 lbl_805DAF8C;
-void TObjPlayer__sub_8012E5A0(Self_8012E5A0 *self);
+void update_casing_eject__10TObjPlayerFPv(Self_8012E5A0 *self);
 }
 
 extern "C" {
 
-void TObjPlayer__sub_8012E5A0(Self_8012E5A0 *self) {
+void update_casing_eject__10TObjPlayerFPv(Self_8012E5A0 *self) {
     s32 ang;
     Vec_8012E5A0 v;
     Ang_8012E5A0 a;
@@ -43,7 +43,7 @@ void TObjPlayer__sub_8012E5A0(Self_8012E5A0 *self) {
             a.x = 0x4000;
             a.y = self->owner->f60;
             a.z = 0;
-            TObjPlayer__sub_8012E284(tl_05, self, 3, &v, &a);
+            launch_weapon_casing__10TObjPlayerFiUiiUiUi(tl_05, self, 3, &v, &a);
         }
     } else if (self->state == 2) {
         approach_value__20TItemEffOrgaFlowShotFPvff(&self->f1FC, lbl_805DAF8C, lbl_805DAF7C);

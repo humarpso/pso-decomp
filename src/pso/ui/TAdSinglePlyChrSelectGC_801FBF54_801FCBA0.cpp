@@ -59,6 +59,9 @@ struct A_801FD8B8;
 struct C_801FD8B8;
 struct RecoveredGlobal_801FDA4C_lbl_804C88C0;
 typedef s32 M2C_UNK;
+
+struct Ent_801FD6B4 { u8 pad[0x420]; u8 sub[8]; u32 f428; u8 pad2[0x2790 - 0x42C]; u32 f2790; u32 f2794; };
+
 extern "C" {
 void TAdSinglePlyChrSelectGC__sub_801FCCB4(u8 *arg0, s32 arg1);
 s32 TAdSinglePlyChrSelectGC__sub_801FCCC0(u8 *arg0);
@@ -69,7 +72,7 @@ s32 __ct__12TPlyCharDataFv(s32);
 int alloc__23TAdSinglePlyChrSelectGCFPv(void *);
 s32 TAdSinglePlyChrSelectGC__sub_801FC984(s32);
 M2C_UNK memset(int, int, int);
-void TAdSinglePlyChrSelectGC__sub_801FCC18(s32 arg0);
+void alloc_char_records__23TAdSinglePlyChrSelectGCFi(s32 arg0);
 M2C_UNK get_fog_ctrl__16TKeyBoardControlFPv();
 s32 is_split_screen();
 M2C_UNK TCameraCtrl__sub_80068A68();
@@ -157,7 +160,7 @@ void TAdSinglePlyChrSelectGC__sub_801FCD74(void);
 s32 TAdSinglePlyChrSelectGC__sub_801FD8B8(A_801FD8B8 *a, A_801FD8B8 *b, C_801FD8B8 *c, C_801FD8B8 *d);
 s32 TAdSinglePlyChrSelectGC__sub_801FDA4C(void);
 void TAdSinglePlyChrSelectGC__sub_80200560(s32);
-void TAdSinglePlyChrSelectGC__sub_80200778(Ent_801FD668 *);
+void encrypt_save_data__23TAdSinglePlyChrSelectGCFPvPv(Ent_801FD668 *);
 void TAdSinglePlyChrSelectGC__sub_80200A44(s32);
 void TAdSinglePlyChrSelectGC__sub_802010E8();
 void run_save_load_sequence__23TAdSinglePlyChrSelectGCFv();
@@ -201,7 +204,7 @@ void TAdSinglePlyChrSelectGC__sub_801FCD74(void);
 s32 TAdSinglePlyChrSelectGC__sub_801FD8B8(A_801FD8B8 *a, A_801FD8B8 *b, C_801FD8B8 *c, C_801FD8B8 *d);
 s32 TAdSinglePlyChrSelectGC__sub_801FDA4C(void);
 void TAdSinglePlyChrSelectGC__sub_80200560(s32);
-void TAdSinglePlyChrSelectGC__sub_80200778(Ent_801FD668 *);
+void encrypt_save_data__23TAdSinglePlyChrSelectGCFPvPv(Ent_801FD668 *);
 void TAdSinglePlyChrSelectGC__sub_80200A44(s32);
 void TAdSinglePlyChrSelectGC__sub_802010E8();
 void TAdSinglePlyChrSelectGC__sub_8028DC14();
@@ -223,6 +226,10 @@ extern s32 lbl_805D5F78;
 extern s32 lbl_805D5F7C;
 extern s32 lbl_805D5F84;
 s32 TAdSinglePlyChrSelectGC__sub_801FD21C(void);
+void TAdSinglePlyChrSelectGC__sub_801FC0C8(void *);
+void init_fresh_character_slot(s32 arg0);
+extern Ent_801FD668 *lbl_805D5F58;
+void TAdSinglePlyChrSelectGC__sub_801FD6B4(void);
 }
 
 extern "C" {
@@ -251,7 +258,7 @@ void TAdSinglePlyChrSelectGC__sub_801FCBA0(Obj_801FCBA0* arg0) {
     }
 }
 
-void TAdSinglePlyChrSelectGC__sub_801FCC18(s32 arg0) {
+void alloc_char_records__23TAdSinglePlyChrSelectGCFi(s32 arg0) {
   s32 temp_r3_2;
   s32 var_r0;
   s32 temp_r3;
@@ -438,7 +445,7 @@ s32 TAdSinglePlyChrSelectGC__sub_801FCE6C(void) {
             set_global_flags__23TAdSinglePlyChrSelectGCFi(1);
             memcpy(TAdSinglePlyChrSelectGC__sub_801FCD3C((Obj_801FCD3C *)lbl_805D5F58), (void *)lbl_805D5F64, 0x2370);
             lbl_80513910[0] = lbl_80513910[1] = get_field_118__22TAdEnterSerialAccessGCFv();
-            TAdSinglePlyChrSelectGC__sub_80200778(lbl_805D5F58);
+            encrypt_save_data__23TAdSinglePlyChrSelectGCFPvPv(lbl_805D5F58);
             TAdSinglePlyChrSelectGC__sub_80200A44(1);
             while (TAdSinglePlyChrSelectGC__sub_801FDA4C() != 0) {
                 run_save_load_sequence__23TAdSinglePlyChrSelectGCFv();
@@ -580,7 +587,7 @@ s32 TAdSinglePlyChrSelectGC__sub_801FD21C(void) {
             memcpy(TAdSinglePlyChrSelectGC__sub_801FCD3C((Obj_801FCD3C *)lbl_805D5F58), (void *)lbl_805D5F64, 0x2370);
             M2C_FIELD(TAdSinglePlyChrSelectGC__sub_801FCD04((Obj_801FCD04 *)lbl_805D5F58), s32 *, 0x36C) = 0;
             lbl_80513910[0] = lbl_80513910[1] = get_field_118__22TAdEnterSerialAccessGCFv();
-            TAdSinglePlyChrSelectGC__sub_80200778(lbl_805D5F58);
+            encrypt_save_data__23TAdSinglePlyChrSelectGCFPvPv(lbl_805D5F58);
             TAdSinglePlyChrSelectGC__sub_80200A44(1);
             ret = TAdSinglePlyChrSelectGC__sub_801FDA4C();
             if (ret == 0) {
@@ -616,6 +623,19 @@ s32 TAdSinglePlyChrSelectGC__sub_801FD668(void) {
         }
     }
     return 1;
+}
+
+void TAdSinglePlyChrSelectGC__sub_801FD6B4(void) {
+    s32 i;
+    for (i = 0; i < 7; i++) {
+        if (((Ent_801FD6B4 *)lbl_805D5F58)[i].f428 == 0xA205B064) {
+            if (((Ent_801FD6B4 *)lbl_805D5F58)[i].f2790 == 0) {
+                init_fresh_character_slot(i);
+            } else {
+                TAdSinglePlyChrSelectGC__sub_801FC0C8(((Ent_801FD6B4 *)lbl_805D5F58)[i].sub);
+            }
+        }
+    }
 }
 
 void init_fresh_character_slot(s32 arg0) {

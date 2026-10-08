@@ -159,7 +159,7 @@ s32 open_edit_menu__20TWindowSubSymbolChatFPv(void *arg0);
 void render__20TWindowSubSymbolChatFv(void);
 M2C_UNK TWindowSubComCard__sub_80265680(s32, s16);
 M2C_UNK align_menu_entry_positions(s32);
-M2C_UNK TWindowSubComCard__sub_80265E60(s32, f32);
+M2C_UNK update_layout_height__17TWindowSubComCardFPvf(s32, f32);
 M2C_UNK get_window_layout_position(M2C_UNK);
 M2C_UNK __ct__7TObjectFP7TObject();
 s32 draw_card_icon__17TWindowSubComCardFiii(s32, M2C_UNK, s32);
@@ -209,7 +209,7 @@ s32 open_main_menu__20TWindowSubSymbolChatFv(void * _w0) {
     forward_trade_action_default__16TObjCityMainWarpFPviii(temp_r31, get_message_10__20TWindowSubStatusDispFPv(0xAC), 6, 0x26);
     forward_trade_action_default__16TObjCityMainWarpFPviii(temp_r31, get_message_10__20TWindowSubStatusDispFPv(0xAD), 6, 0x28);
     set_flag70_bit10__16TObjCityMainWarpFPv(temp_r31);
-    TWindowSubComCard__sub_80265E60(temp_r31, lbl_805DD73C);
+    update_layout_height__17TWindowSubComCardFPvf(temp_r31, lbl_805DD73C);
     align_menu_entry_positions(temp_r31);
     return temp_r31;
 }

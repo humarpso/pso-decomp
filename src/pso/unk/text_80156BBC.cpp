@@ -32,7 +32,7 @@ s32 fn_80156BBC(O_80156BBC *arg0, void *arg1);
 s32 is_not_split_screen__13TRaderMapCoreFv();
 extern const f32 lbl_805DB2A8;
 s32 fn_80156C38(f32 *arg0);
-void fn_80156CA0(struct Laser_80156CA0 *p);
+void step_laser_fence_fade(struct Laser_80156CA0 *p);
 }
 
 extern "C" {
@@ -60,7 +60,7 @@ s32 fn_80156C88(f32 *arg0) {
     return *arg0 > lbl_805DB2AC;
 }
 
-void fn_80156CA0(struct Laser_80156CA0 *p) {
+void step_laser_fence_fade(struct Laser_80156CA0 *p) {
     f32 x = p->value;
     if (p->dir == 0) {
         x += 0.04f;

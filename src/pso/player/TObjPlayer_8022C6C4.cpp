@@ -53,7 +53,7 @@ void capture_technique_targets__10TObjPlayerFv(int kind, Owner_8022CDE8 *owner);
 void VecCopy__FP3VecPC3Vec(void *, void *);
 u16 obj_getField1c(void *);
 s32 is_split_screen();
-void TObjPlayer__sub_8004433C(void *);
+void construct_target_cursor_records__10TObjPlayerFi(void *);
 Ent_8022D27C *find_entity_by_id(u16);
 void get_hand_joint_position__10TObjPlayerFPvi(void *, void *);
 Target_8022D27C *get_technique_data__10TObjPlayerFPv(void *);
@@ -95,7 +95,7 @@ void launch_technique__10TObjPlayerFv(s32 tech, s32 unused, Player_8022D27C *pl)
 s32 is_locally_controlled__10TObjPlayerFPv(void *);
 void *__nw__7TObjectFUl(u32);
 Params_8022C738 *get_technique_base_params(void);
-void *TObjLight__sub_80235E9C(void *, Col_8022C738 *, Vec_8022C738 *, s32, void *, s32, f32, f32, f32);
+void *construct_actor_light__9TObjLightFPviiiiifffi(void *, Col_8022C738 *, Vec_8022C738 *, s32, void *, s32, f32, f32, f32);
 void *initialize__9TObjLightFPvii(void *, void *, s32);
 void *init__9TObjLightFPvii(void *, void *, s32);
 void *init_from_owner__10TTecSlicerFPvii(void *, void *, s32);
@@ -169,7 +169,7 @@ s32 get_level_tier__10TObjPlayerFi(s32 arg0) {
         void *o = __nw__7TObjectFUl(100);                                                        \
         if (o != NULL) {                                                                         \
             ((void *(*)(f32, f32, f32, void *, Col_8022C738 *, Vec_8022C738 *, s32, void *, s32)) \
-                 TObjLight__sub_80235E9C)(lbl_805DC7DC, lbl_805DC7E0, TObjLight__data_80506320.f1C, \
+                 construct_actor_light__9TObjLightFPviiiiifffi)(lbl_805DC7DC, lbl_805DC7E0, TObjLight__data_80506320.f1C, \
                                           o, &c, &v, base, owner, tl_07);                        \
         }                                                                                        \
         if (is_locally_controlled__10TObjPlayerFPv(owner) != 0) {                                \
@@ -333,7 +333,7 @@ void launch_technique__10TObjPlayerFv(s32 tech, s32 unused, Player_8022D27C *pl)
     Target_8022D27C *targets;
     s32 i;
     Ent_8022D27C *ent;
-    TObjPlayer__sub_8004433C(&list);
+    construct_target_cursor_records__10TObjPlayerFi(&list);
     ofs.x = lbl_805DC7D8;
     ofs.y = lbl_805DC7D8;
     ofs.z = lbl_805DC7E4;

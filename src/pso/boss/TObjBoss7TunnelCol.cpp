@@ -17,7 +17,7 @@ void run_task__18TObjBoss7TunnelColFv(void);
 void update_collision__18TObjBoss7TunnelColFPv(void *arg0);
 void rotate_matrix_yxz(void *, void *, void *, void *);
 void unregister_object_by_id(void *);
-void TObjPlayer__sub_801569F4(void *);
+void construct_collider_proxy__10TObjPlayerFPv(void *);
 void TObjPlayer__sub_803D8CD4(void *);
 void __dl__7TObjectFPv(void *);
 void clear_obj_links(void *);
@@ -54,7 +54,7 @@ extern const f32 lbl_805DEC9C;
 
 void *TObjBoss7TunnelCol__ct(void *arg0) {
     struct VOff_802F1BEC_arg0_802F1B7C *self = (struct VOff_802F1BEC_arg0_802F1B7C *)arg0;
-    TObjPlayer__sub_801569F4(arg0);
+    construct_collider_proxy__10TObjPlayerFPv(arg0);
     M2C_FIELD(arg0, M2C_UNK **, 0x18) = __vt__18TObjBoss7TunnelCol;
     M2C_FIELD(arg0, void **, 0x0) = lbl_805D3FF0;
     fn_8002B630(self->f_AC, lbl_80474420);

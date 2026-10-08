@@ -60,7 +60,7 @@ extern s32 TLobby__data_805D5594;
 extern s32 TLobby__data_805D5598;
 extern u32 TLobby__data_805D55D8;
 extern s32 lbl_805D53A0;
-void TLobby__sub_8013634C(s32 arg0, s32 arg1, s32 arg2);
+void on_game_player_add__6TLobbyFiii(s32 arg0, s32 arg1, s32 arg2);
 }
 
 extern "C" {
@@ -312,10 +312,10 @@ void __dl__FPv(void *);
 void * alloc__23TAdSinglePlyChrSelectGCFPv(s32);
 int bswap_packet_header__6TLobbyFPv(void *);
 void TFontSmallTask__sub_800FD5F4(void *, s32);
-void TLobby__sub_80103890(void *);
-s32 TLobby__sub_801039BC(void *);
+void apply_sync_item_state__6TLobbyFPv(void *);
+s32 write_sync_item_state__6TLobbyFPv(void *);
 s32 TKeyBoardControl__sub_80132368(void *);
-void TLobby__sub_80134E30(void);
+void send_game_character__6TLobbyFv(void);
 void TLobby__sub_80134F9C(u8 *arg0);
 u8 * TLobby__sub_80135198(u8 *arg0, s32 arg1);
 void TLobby__sub_80135208(s32 arg0);
@@ -332,15 +332,15 @@ void TLobby__sub_80135AE0(s32 arg0);
 void TLobby__sub_80135BD0(s32 arg0);
 void TLobby__sub_80135CD8(s32 arg0);
 void TLobby__sub_80135FFC(void);
-void TLobby__sub_80136000(s32 idx, s32 v);
-void TLobby__sub_80136080(s32 arg0, s32 arg1);
+void retire_lobby_player__6TLobbyFii(s32 idx, s32 v);
+void on_lobby_player_add__6TLobbyFii(s32 arg0, s32 arg1);
 s32 __dt__18TPlyJoinLobbyEntryFv(s32 arg0, s16 arg1);
 void TLobby__sub_801361E8(u32 arg0, s32 arg1, s32 arg2);
 void handle_6x72_done_loading_into_game(void);
-void TLobby__sub_801368B0(Ent_801368B0 *ents, s32 n, s32 client_id, s32 leader, s32 arg4, s32 arg5, s32 arg6, s32 arg7);
+void handle_lobby_enter__6TLobbyFPviiiiiii(Ent_801368B0 *ents, s32 n, s32 client_id, s32 leader, s32 arg4, s32 arg5, s32 arg6, s32 arg7);
 void TLobby__sub_80136A8C(void);
-void TLobby__sub_80136C94(Pkt_80136C94 *pkt);
-void TLobby__sub_801378AC(Ent_801368B0 *, s32, s32, s32);
+void handle_game_join__6TLobbyFPv(Pkt_80136C94 *pkt);
+void add_lobby_members__6TLobbyFPvisi(Ent_801368B0 *, s32, s32, s32);
 void destroy_all_objects__6TLobbyFv();
 void set_menu_mode_1__6TLobbyFv(void);
 void set_menu_mode_0__6TLobbyFv(void);
@@ -357,7 +357,7 @@ void TLobby__sub_8013A9F4(void *);
 void bswap_6x6B__6TLobbyFPv(void *);
 void TLobby__sub_8013AA64(void *, void *);
 void fn_8013ACE4(s32);
-void fn_8013ACEC(s32);
+void set_area_random_seed(s32);
 s32 TLobby__sub_8013F810(void *, void *, s32, void *);
 s32 TLobby__sub_8013F99C(void *, void *, s32, void *);
 s32 free__11TOBoss4RockFUi(int);
@@ -374,7 +374,7 @@ s32 get_player_by_client_id(void *);
 Plr_801354AC * create_remote_player_object(void *);
 u8 * create_player_object(s32, s32, void *);
 void TLobby__sub_801DB554(void *);
-void TProtocol__sub_801DC1E4(void *, void *, void *, void *, void *, void *, void *);
+void send_player_data_98__9TProtocolFPvPvPvPvPvPvPv(void *, void *, void *, void *, void *, void *, void *);
 s32 DateToSeconds__FP9DateStampPi(void *, void *);
 s32 getDateStamp__FP9DateStamp(void *);
 void bswap_32__FPUl(u32 *);
@@ -506,7 +506,7 @@ extern Mgr_801361E8 *lbl_805D5E48;
 extern RecoveredGlobal_8013630C_main_task main_task;
 }
 
-void TLobby__sub_80134E30(void) {
+void send_game_character__6TLobbyFv(void) {
     A_80134E30 a;
     u8 b[0x7C];
     char c[0xAC];
@@ -538,7 +538,7 @@ void TLobby__sub_80134E30(void) {
     d.h[6] = *(u16 *)(card + 0x21B4);
     d.w0 = *(u32 *)(card + 0x21B8);
     d.w1 = *(u32 *)(card + 0x21BC);
-    TProtocol__sub_801DC1E4((*(void * *)&TLobby__data_805D5580), get_char_index__23TAdSinglePlyChrSelectGCFUi(0xFFFF), &d, &a, b, e, c);
+    send_player_data_98__9TProtocolFPvPvPvPvPvPvPv((*(void * *)&TLobby__data_805D5580), get_char_index__23TAdSinglePlyChrSelectGCFUi(0xFFFF), &d, &a, b, e, c);
 }
 
 void TLobby__sub_80134F9C(u8 *arg0) {
@@ -726,7 +726,7 @@ void handle_6x6D_sync_game_state(Pkt_8013574C *arg0) {
                 TLobby__sub_8013F810(tmp, arg0->data + 0, len, buf);
                 __dl__FPv(tmp);
             }
-            TLobby__sub_80103890(buf);
+            apply_sync_item_state__6TLobbyFPv(buf);
             free__11TOBoss4RockFUi((int)buf);
         }
     }
@@ -833,7 +833,7 @@ void TLobby__sub_80135AE0(s32 arg0) {
         src = alloc_buffer__11TOBoss4RockFPv((M2C_UNK)(0x8000));
         if (src != NULL) {
             memset(src, 0, 0x8000);
-            n = TLobby__sub_801039BC(src);
+            n = write_sync_item_state__6TLobbyFPv(src);
             tmp = alloc__23TAdSinglePlyChrSelectGCFPv(0x7230);
             if (tmp != NULL) {
                 len = TLobby__sub_8013F99C(tmp, src, n, buf->data);
@@ -965,7 +965,7 @@ void TLobby__sub_80135E7C(s32 arg0, Ent_80135E7C *arg1) {
 
 void TLobby__sub_80135FFC(void) {  }
 
-void TLobby__sub_80136000(s32 idx, s32 v) {
+void retire_lobby_player__6TLobbyFii(s32 idx, s32 v) {
     Obj_80136000 *p;
     TLobby__data_805D53AC = v;
     p = (Obj_80136000 *)get_player_by_client_id((void *)idx);
@@ -976,7 +976,7 @@ void TLobby__sub_80136000(s32 idx, s32 v) {
     strncpy(TLobby__data_8050AAE8[idx], TLobby__data_805DB0B0, 0x10);
 }
 
-void TLobby__sub_80136080(s32 arg0, s32 arg1) {
+void on_lobby_player_add__6TLobbyFii(s32 arg0, s32 arg1) {
     Entry_80136080 e;
     Obj_80136080 *p;
     u8 *plr;
@@ -1047,7 +1047,7 @@ void handle_6x72_done_loading_into_game(void) {
     clear_flag3_all_tasks__9TMainTaskFv((void *) (&main_task.value));
 }
 
-void TLobby__sub_8013634C(s32 arg0, s32 arg1, s32 arg2) {
+void on_game_player_add__6TLobbyFiii(s32 arg0, s32 arg1, s32 arg2) {
     Entry_8013634C e;
     s32 pkt;
     Obj_801361E8 *p;
@@ -1129,7 +1129,7 @@ void TLobby__sub_8013634C(s32 arg0, s32 arg1, s32 arg2) {
 
 #pragma push
 #pragma opt_propagation off
-void TLobby__sub_801368B0(Ent_801368B0 *ents, s32 n, s32 client_id, s32 leader, s32 arg4, s32 arg5, s32 arg6, s32 arg7) {
+void handle_lobby_enter__6TLobbyFPviiiiiii(Ent_801368B0 *ents, s32 n, s32 client_id, s32 leader, s32 arg4, s32 arg5, s32 arg6, s32 arg7) {
     s32 v4;
     Obj_801368B0 *p;
     s32 i;
@@ -1164,7 +1164,7 @@ void TLobby__sub_801368B0(Ent_801368B0 *ents, s32 n, s32 client_id, s32 leader, 
             TLobby__sub_8013A170(TLobby__data_8043EF38, i);
         }
     }
-    TLobby__sub_801378AC(ents, n, client_id, leader);
+    add_lobby_members__6TLobbyFPvisi(ents, n, client_id, leader);
     TLobby__sub_80207750(get_current_floor(), v4);
     lbl_805D55A0 = arg7;
     TKeyBoardControl__sub_8000F978();
@@ -1209,7 +1209,7 @@ void TLobby__sub_80136A8C(void) {
     }
 }
 
-void TLobby__sub_80136C94(Pkt_80136C94 *pkt) {
+void handle_game_join__6TLobbyFPv(Pkt_80136C94 *pkt) {
     Hdr_80136C94 hdr;
     Obj_80136C94 *p;
     s32 i;
@@ -1229,7 +1229,7 @@ void TLobby__sub_80136C94(Pkt_80136C94 *pkt) {
     TLobby__data_805D4E30 = pkt->b10b;
     lbl_805D5550 = pkt->b107;
     lbl_805D55A0 = pkt->b109;
-    fn_8013ACEC(pkt->w10c);
+    set_area_random_seed(pkt->w10c);
     TFontSmallTask__sub_800FD5F4(TLobby__data_805011D8, pkt->b10a);
     if ((s32)pkt->b110 == 2) {
         TAdStorySelectGC__sub_80207D44(1);

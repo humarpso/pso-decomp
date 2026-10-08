@@ -7,7 +7,7 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 struct Zone_8017E748 { u8 pad[0x9C]; s32 category; };
 
 extern "C" {
-void TObjBgmColCtrl__sub_8017E1E4();
+void play_lobby_theme_music__14TObjBgmColCtrlFv();
 s32 check__10TObjBgmColFPv(void *arg0);
 s32 get_bgm_object__13TQuestBgmCtrlFv();
 void play_area_music(s32);
@@ -46,7 +46,7 @@ void run_task__10TObjBgmColFv(Zone_8017E748 *zone) {
         case 1:
             if (lbl_805D5B00 != zone->category) {
                 if (zone->category == 4) {
-                    TObjBgmColCtrl__sub_8017E1E4();
+                    play_lobby_theme_music__14TObjBgmColCtrlFv();
                 } else {
                     play_area_music(lbl_804B5780[zone->category]);
                 }

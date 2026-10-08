@@ -133,7 +133,7 @@ u8 get_field_ed__10TObjPlayerFPv(s32);
 void set_flag_4__9TObjLukerFPv(void *);
 u8 * get_type__8TItemMagFPv(s32);
 M2C_UNK set_type__10TObjPlayerFPvi(s32, s32);
-void TObjPlayer__sub_8004433C(void *);
+void construct_target_cursor_records__10TObjPlayerFi(void *);
 s32 is_quest_active();
 s32 is_flag_set__6TLobbyFv();
 s16 get_field_2b8__14TItemProShieldFPv(void *);
@@ -1207,7 +1207,7 @@ void cast_support_technique__8TItemMagFPvi(u8 *self, s32 technique) {
         create__9TTecRestaFPvPvPv(M2C_FIELD(self, u8 **, 0xF0), M2C_FIELD(self, u8 **, 0xF0) + 0x38, level);
         break;
     case 17:
-        TObjPlayer__sub_8004433C(&targets);
+        construct_target_cursor_records__10TObjPlayerFi(&targets);
         targets.count = 1;
         targets.ids[0] = obj_getField1c(M2C_FIELD(self, u8 **, 0xF0));
         targets.ids[1] = 0;

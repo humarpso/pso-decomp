@@ -64,7 +64,7 @@ void call_if_split_screen(void *, s32);
 M2C_UNK TWindowSubEquip__sub_80263AF8(s32, M2C_UNK);
 s16 get_selected_menu_value(void *);
 void set_selected_index__17TWindowSubComCardFPvs(void *, s16);
-void *TLobby__sub_80269CC0(s32, void *, s32, s32);
+void *create_message_window__6TLobbyFiiUis(s32, void *, s32, s32);
 void clear_flag70_bit4__17TWindowOptionCtrlFPv(void *);
 M2C_UNK get_window_layout_position(M2C_UNK);
 s32 fn_80286AA8(void *);
@@ -90,7 +90,7 @@ void clear_trade_flag__19TWindowSubTradeMainFPv(void* p);
 s32 open_menu__19TWindowSubTechniqueFPv(void *arg0);
 void render__19TWindowSubTechniqueFv(void);
 M2C_UNK align_menu_entry_positions(s32);
-M2C_UNK TWindowSubComCard__sub_80265E60(s32, f32);
+M2C_UNK update_layout_height__17TWindowSubComCardFPvf(s32, f32);
 M2C_UNK get_window_layout_position(M2C_UNK);
 M2C_UNK TWindowSubEquip__sub_80263AF8(s32, M2C_UNK);
 void TWindow__close(void *);
@@ -119,7 +119,7 @@ s32 open_menu__19TWindowSubTechniqueFPv(void *arg0) {
     forward_trade_action_default__16TObjCityMainWarpFPviii(temp_r31, get_message_10__20TWindowSubStatusDispFPv(0x9F), 6, 3);
     forward_trade_action_default__16TObjCityMainWarpFPviii(temp_r31, get_message_10__20TWindowSubStatusDispFPv(0xA0), 6, 4);
     set_flag70_bit10__16TObjCityMainWarpFPv(temp_r31);
-    TWindowSubComCard__sub_80265E60(temp_r31, lbl_805DD838);
+    update_layout_height__17TWindowSubComCardFPvf(temp_r31, lbl_805DD838);
     align_menu_entry_positions(temp_r31);
     return temp_r31;
 }
@@ -202,7 +202,7 @@ void run_task__19TWindowSubTechniqueFv(Tech_802870C4 *self) {
         break;
     }
     case 3:
-        self->help = TLobby__sub_80269CC0(get_window_layout_position(0x14), lbl_8044FC54, 1, self->player);
+        self->help = create_message_window__6TLobbyFiiUis(get_window_layout_position(0x14), lbl_8044FC54, 1, self->player);
         TWindowSubEquip__sub_80263AF8((s32)self->f30, 2);
         set_field_1c__6TLobbyFPvf((s32)self->help);
         call_if_split_screen(self->help, self->player);

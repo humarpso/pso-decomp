@@ -8,9 +8,9 @@ extern "C" {
 
 void update_flag8_from_1f8__10TObjPlayerFPv(void *arg0);
 u32 fire_shoot_particle__10TObjPlayerFPviif(void *arg0, s32 arg1, s32 arg2, f32 farg0);
-M2C_UNK TItemShootParticle__sub_8011B704(u32, M2C_UNK, M2C_UNK);
+M2C_UNK spawn_slot_emitter__18TItemShootParticleFPvii(u32, M2C_UNK, M2C_UNK);
 u32 spawn_shoot_particle__10TObjPlayerFUiiif(void *, s32, s32, f32);
-u32 TObjPlayer__sub_8011BA54();
+u32 create_shoot_model__10TObjPlayerFUiiif();
 M2C_UNK set_parent__7TObjectFP7TObject(u32, u32);
 
 void update_flag8_from_1f8__10TObjPlayerFPv(void *arg0) {
@@ -38,7 +38,7 @@ u32 fire_shoot_particle__10TObjPlayerFPviif(void *arg0, s32 arg1, s32 arg2, f32 
     u32 temp_r30;
     void *temp_r5;
 
-    temp_r31 = TObjPlayer__sub_8011BA54();
+    temp_r31 = create_shoot_model__10TObjPlayerFUiiif();
     temp_r30 = spawn_shoot_particle__10TObjPlayerFUiiif(arg0, arg1, arg2, farg0);
     if ((temp_r31 != 0U) && (temp_r30 != 0U)) {
         temp_r5 = M2C_FIELD(arg0, void **, 0x188);
@@ -50,7 +50,7 @@ u32 fire_shoot_particle__10TObjPlayerFPviif(void *arg0, s32 arg1, s32 arg2, f32 
                 M2C_FIELD(temp_r5, s32 *, 0x1C) = 0x8000;
             }
         }
-        TItemShootParticle__sub_8011B704(temp_r30, 0xDD, 0);
+        spawn_slot_emitter__18TItemShootParticleFPvii(temp_r30, 0xDD, 0);
         set_parent__7TObjectFP7TObject(temp_r30, temp_r31);
     }
     return temp_r31;

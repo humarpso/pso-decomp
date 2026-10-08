@@ -65,13 +65,13 @@ void TLobby__sub_801E6840(void);
 int sprintf(char *, const char *, ...);
 M2C_UNK append_string(void *);
 extern char lbl_80449C74[];
-void TLobby__sub_801E6868(s32 arg0);
+void append_color_code__6TLobbyFi(s32 arg0);
 s32 TLobby__sub_801E6BB8();
 s8 read_byte_advance__6TLobbyFv();
 void TLobby__sub_801E6C2C(s8);
 void TLobby__sub_801E6C40();
 s32 expand_message_substitutions(s32 arg0, s32 arg1);
-void TLobby__sub_801E6868(s32 arg0);
+void append_color_code__6TLobbyFi(s32 arg0);
 s32 parse_f_index(s32 a0);
 s32 parse_r_index(char *);
 void TLobby__sub_801E6A60(s32);
@@ -95,7 +95,7 @@ extern M2C_UNK TLobby__data_805DC4A0;
 void TLobby__sub_801E677C(void);
 int sscanf(M2C_UNK, M2C_UNK *, ...);
 extern M2C_UNK lbl_80449C7C[];
-s32 TLobby__sub_801E68A4(char *s);
+s32 parse_color_code__6TLobbyFPv(char *s);
 }
 
 extern "C" {
@@ -158,8 +158,8 @@ void TLobby__sub_801E6604() {
                 TLobby__sub_801E6A60(idx);
                 return;
             }
-            if ((idx = TLobby__sub_801E68A4((char *)(buf))) != -1) {
-                TLobby__sub_801E6868(idx);
+            if ((idx = parse_color_code__6TLobbyFPv((char *)(buf))) != -1) {
+                append_color_code__6TLobbyFi(idx);
                 return;
             }
             for (i = 0; i < 12; i++) {
@@ -225,13 +225,13 @@ void TLobby__sub_801E6840(void) {
 }
 
 typedef s32 M2C_UNK;
-void TLobby__sub_801E6868(s32 arg0) {
+void append_color_code__6TLobbyFi(s32 arg0) {
     char buf[64];
     sprintf(buf, lbl_80449C74, arg0);
     append_string(buf);
 }
 
-s32 TLobby__sub_801E68A4(char *s) {
+s32 parse_color_code__6TLobbyFPv(char *s) {
     s32 v;
     v = -1;
     sscanf((M2C_UNK)s, lbl_80449C7C, &v);

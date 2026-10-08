@@ -82,7 +82,7 @@ M2C_UNK init_display__20TWindowSubStatusDispFPvii(s32, s32, s32);
 u32 alloc__23TAdSinglePlyChrSelectGCFPv(int);
 u32 reset_selection__20TWindowSubStatusDispFPv(int, void *);
 s32 TWindowMenu__sub_80266B18(void *, s32);
-u32 TWindowSubStatusDisp__sub_802880BC(u32, s32, s16);
+u32 construct_type1_heading__20TWindowSubStatusDispFPvii(u32, s32, s16);
 s32 get_status_flag__6TLobbyFPv(void *);
 s32 is_flag_4_set__20TWindowSubStatusDispFPv();
 M2C_UNK set_entry_state__20TWindowSubStatusDispFPvc(void *, M2C_UNK);
@@ -515,7 +515,7 @@ void ensure_status_display__20TWindowSubStatusDispFPvi(void *arg0, s32 arg1) {
     if ((u32) M2C_FIELD(arg0, u32 *, 0x80) == 0U) {
         var_r0 = alloc__23TAdSinglePlyChrSelectGCFPv(0x24);
         if (var_r0 != 0U) {
-            var_r0 = TWindowSubStatusDisp__sub_802880BC(var_r0, arg1, M2C_FIELD(arg0, s16 *, 0x20));
+            var_r0 = construct_type1_heading__20TWindowSubStatusDispFPvii(var_r0, arg1, M2C_FIELD(arg0, s16 *, 0x20));
         }
         M2C_FIELD(arg0, u32 *, 0x80) = var_r0;
         M2C_FIELD(arg0, s32 *, 0x2C) = (s32) (M2C_FIELD(arg0, s32 *, 0x2C) | 0x40);

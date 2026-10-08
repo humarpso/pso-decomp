@@ -1209,7 +1209,112 @@ struct RecoveredFields_800E50D8_arg0
   s32 field_404;
 };
 
-struct Info_800E6F0C { u8 pad[0x18]; s32 frame; };
+struct Info_800E6F0C { u8 pad[0x18]; s32 frame; s32 frame_1C; };
+
+struct VBase_18_800E530C { char pad[0x18]; };
+struct VObj_18_800E530C : VBase_18_800E530C {
+    virtual void m0();
+    virtual void m1();
+    virtual void m2();
+    virtual void m3();
+    virtual void m4();
+    virtual void m5();
+    virtual void m6();
+    virtual void m7();
+    virtual void m8();
+    virtual void m9();
+    virtual void m10();
+    virtual void m11();
+    virtual void m12();
+    virtual void m13();
+    virtual void m14();
+    virtual void m15();
+    virtual void m16();
+    virtual void m17();
+    virtual void m18();
+    virtual void m19();
+    virtual void m20();
+    virtual void m21();
+    virtual void m22();
+    virtual void m23();
+    virtual void m24();
+    virtual void m25();
+    virtual void m26();
+    virtual void m27();
+    virtual void m28();
+    virtual void m29();
+    virtual void m30();
+    virtual void m31();
+    virtual void m32();
+    virtual void m33();
+    virtual void m34();
+    virtual void m35();
+    virtual void m36();
+    virtual void m37();
+    virtual void m38();
+    virtual void m39();
+    virtual void m40();
+    virtual void m41();
+    virtual void m42();
+    virtual void m43();
+    virtual void m44();
+    virtual void m45();
+    virtual void m46();
+    virtual void m47();
+    virtual void m48();
+    virtual void m49();
+    virtual void m50();
+    virtual void m51();
+    virtual void m52();
+    virtual void m53();
+    virtual void m54();
+    virtual void m55();
+    virtual void m56();
+    virtual void m57();
+    virtual void m58();
+    virtual void m59();
+    virtual void m60();
+    virtual void m61();
+    virtual void m62();
+    virtual void m63();
+    virtual void m64();
+    virtual void m65();
+    virtual void m66();
+    virtual void m67();
+    virtual void m68();
+    virtual void m69();
+    virtual void m70();
+    virtual void m71();
+    virtual void m72();
+    virtual void m73();
+    virtual void m74();
+    virtual void m75();
+    virtual void m76();
+    virtual void m77();
+    virtual void m78();
+    virtual void m79();
+    virtual void m80();
+    virtual void m81();
+    virtual void m82();
+    virtual void m83();
+    virtual void m84();
+    virtual void m85();
+    virtual void m86();
+    virtual void m87();
+    virtual void m88();
+    virtual void m89();
+    virtual void m90();
+    virtual void m91();
+    virtual void m92();
+    virtual void m93();
+    virtual void m94();
+    virtual void m95();
+    virtual void m96();
+    virtual void m97();
+    virtual void m98();
+    virtual void m99();
+    virtual void m100();
+};
 
 struct Obj_800E6F0C { u8 pad[0x38]; u8 pos[0x3c0 - 0x38]; s32 kind; };
 
@@ -2283,6 +2388,8 @@ M2C_UNK play_sound_effect(void *, void *, int, int);
 s32 toggle_flag_9__10TObjPlayerFPv(void *);
 void __dl__7TObjectFPv(void *);
 s32 create__9TTecRestaFPvPvPv(void *, void *, int);
+M2C_UNK create__10TTecDebandFiii(void *, void *, s32);
+M2C_UNK create__9TTecSiftaFPvPvPv(void *, void *, s32);
 f32 sin_table_lookup(int);
 f32 cos_table_lookup(int);
 void bind_motion_context(s32, f32);
@@ -2457,10 +2564,10 @@ extern "C" {
 void TObjPlayer__sub_80014898();
 }
 extern "C" {
-void TObjPlayer__sub_80015884();
+void apply_slow_status__10TObjPlayerFPv();
 }
 extern "C" {
-void TObjPlayer__sub_80016C54();
+void update_shock_clock__10TObjPlayerFPv();
 }
 extern "C" {
 void TObjPlayer__sub_800172CC();
@@ -2736,8 +2843,8 @@ void *__vt__23TObjEneMe3ShinowaMirage[119] = {
     (void *)&TObjEneMe3Shinowa__sub_800E7720, (void *)&TObjPlayer__sub_8000FF3C, (void *)&is_target_in_attack_range__10TObjPlayerFv, (void *)&test_flag_256__10TObjPlayerFPv,
     (void *)&test_flag30_512__10TObjPlayerFPv, (void *)&has_flag_0x800__10TObjPlayerFPv, (void *)&test_flag_1000__10TObjPlayerFPv, (void *)&update_poison_status__10TObjPlayerFv,
     (void *)&update_action_hold_status__10TObjPlayerFv, (void *)&update_action_timer__10TObjPlayerFPv, (void *)&update_flag30_timer__10TObjPlayerFPv, (void *)&update_movement_status__10TObjPlayerFv,
-    (void *)&TObjPlayer__sub_80016C54, (void *)&update_attack_stat_status, (void *)&update_defense_stat_status, (void *)&TObjPlayer__sub_800172CC,
-    (void *)&apply_poison_status__10TObjPlayerFv, (void *)&apply_paralysis__10TObjPlayerFv, (void *)&TObjPlayer__sub_80015884, (void *)&apply_confusion_status__10TObjPlayerFv,
+    (void *)&update_shock_clock__10TObjPlayerFPv, (void *)&update_attack_stat_status, (void *)&update_defense_stat_status, (void *)&TObjPlayer__sub_800172CC,
+    (void *)&apply_poison_status__10TObjPlayerFv, (void *)&apply_paralysis__10TObjPlayerFv, (void *)&apply_slow_status__10TObjPlayerFPv, (void *)&apply_confusion_status__10TObjPlayerFv,
     (void *)&apply_movement_ailment__10TObjPlayerFv, (void *)&apply_shock_status__10TObjPlayerFv, (void *)&clear_harmful_statuses__10TObjPlayerFv, (void *)&apply_attack_stat_status__10TObjPlayerFv,
     (void *)&apply_defense_stat_status__10TObjPlayerFv, (void *)&cure_poison_ailment, (void *)&cure_paralysis__10TObjPlayerFv, (void *)&clear_all_status_effects,
     (void *)&apply_action_hold_status, (void *)&apply_anti_technique__10TObjPlayerFv, (void *)&TObjPlayer__sub_80014898, (void *)&TObjPlayer__sub_80014894,
@@ -3012,6 +3119,58 @@ void TObjEneMe3ShinowaMirage__sub_800E5220(void *arg0, s32 arg1) {
         break;
     }
 }
+
+void TObjEneMe3ShinowaMirage__sub_800E530C(void *arg0_, s32 arg1) {
+#define arg0 ((u8 *)arg0_)
+    switch (arg1) {
+    case 4:
+        M2C_FIELD(arg0, s16 *, 0xB8) = 7;
+        set_field_378__9TObjEneDDFPvi(arg0, 0xA);
+        ((VObj_18_800E530C *)arg0)->m94();
+        M2C_FIELD(arg0, s32 *, 0x3C4) &= ~3;
+        M2C_FIELD(arg0, s32 *, 0x404) = 0;
+        M2C_FIELD(arg0, s32 *, 0x408) = 0;
+        break;
+    case 3:
+        if (M2C_FIELD(arg0, s32 *, 0x408) > TObjEneMe3ShinowaMirage__data_80500FE4[M2C_FIELD(arg0, s32 *, 0x3C0)]->frame_1C) {
+            transition_enemy_state(arg0, 4);
+        }
+        break;
+    case 5:
+        break;
+    case 0:
+        advance_animation_playback(arg0, arg1);
+        switch (M2C_FIELD(arg0, s32 *, 0x404)) {
+        case 0:
+            if (get_flag_b4__21TObjEneMe3ShinowaRealFPv(arg0) != 0) {
+                TObjEneMe3ShinowaMirage__sub_800E6F0C((Obj_800E6F0C *)arg0);
+                if (check_v2_mode__9TObjEneDDFv() != 0) {
+                    M2C_FIELD(arg0, s32 *, 0x404) = 2;
+                } else {
+                    M2C_FIELD(arg0, s32 *, 0x404) = 1;
+                }
+                M2C_FIELD(arg0, s32 *, 0x408) = 0;
+            }
+            break;
+        case 1:
+            M2C_FIELD(arg0, s32 *, 0x408)++;
+            break;
+        case 2:
+            M2C_FIELD(arg0, s32 *, 0x408)++;
+            if (M2C_FIELD(arg0, s32 *, 0x408) == 5) {
+                create__9TTecSiftaFPvPvPv(arg0, arg0 + 0x38, clamp_frame_index__9TObjEneDDFi(TObjEneMe3ShinowaMirage__data_80500FE4[M2C_FIELD(arg0, s32 *, 0x3C0)]->frame));
+            } else if (M2C_FIELD(arg0, s32 *, 0x408) == 0xA) {
+                create__10TTecDebandFiii(arg0, arg0 + 0x38, clamp_frame_index__9TObjEneDDFi(TObjEneMe3ShinowaMirage__data_80500FE4[M2C_FIELD(arg0, s32 *, 0x3C0)]->frame));
+                M2C_FIELD(arg0, s32 *, 0x404) = 1;
+                M2C_FIELD(arg0, s32 *, 0x408) = 0;
+            }
+            break;
+        }
+        ((VObj_18_800E530C *)arg0)->m100();
+        break;
+    }
+}
+#undef arg0
 
 #define arg0 ((u8 *)arg0_)
 #define F(t, o) M2C_FIELD(arg0, t *, o)

@@ -2207,7 +2207,7 @@ extern "C" {
 extern u8 TObjPlayer__sub_80016944[];
 }
 extern "C" {
-void TObjPlayer__sub_80016C54();
+void update_shock_clock__10TObjPlayerFPv();
 }
 extern "C" {
 extern u8 TObjPlayer__sub_80016D78[];
@@ -2600,7 +2600,7 @@ void *lbl_804E5534[107] = {
     (void *)&TBoss8Dragon__sub_802FCD0C, (void *)&TObjPlayer__sub_8000FF3C, (void *)&TObjPlayer__sub_8001745C, (void *)&test_flag_256__10TObjPlayerFPv,
     (void *)&test_flag30_512__10TObjPlayerFPv, (void *)&has_flag_0x800__10TObjPlayerFPv, (void *)&test_flag_1000__10TObjPlayerFPv, (void *)&TObjPlayer__sub_800171A0,
     (void *)&TObjPlayer__sub_80016FF8, (void *)&update_action_timer__10TObjPlayerFPv, (void *)&update_flag30_timer__10TObjPlayerFPv, (void *)&TObjPlayer__sub_80016D78,
-    (void *)&TObjPlayer__sub_80016C54, (void *)&TObjPlayer__sub_80016944, (void *)&TObjPlayer__sub_800166DC, (void *)&TObjPlayer__sub_800172CC,
+    (void *)&update_shock_clock__10TObjPlayerFPv, (void *)&TObjPlayer__sub_80016944, (void *)&TObjPlayer__sub_800166DC, (void *)&TObjPlayer__sub_800172CC,
     (void *)&TBoss8Dragon__sub_802FDE68, (void *)&TBoss8Dragon__sub_802FDE6C, (void *)&TBoss8Dragon__sub_802FDE70, (void *)&TBoss8Dragon__sub_802FDE74,
     (void *)&TBoss8Dragon__sub_802FDE78, (void *)&TBoss8Dragon__sub_802FDE7C, (void *)&TBoss8Dragon__sub_802FDE80, (void *)&TObjPlayer__sub_80014E74,
     (void *)&TObjPlayer__sub_80014C78, (void *)&TObjPlayer__sub_80014C1C, (void *)&TObjPlayer__sub_80014B5C, (void *)&TObjPlayer__sub_80014900,

@@ -280,7 +280,7 @@ extern const f32 lbl_805D844C;
 void TBoss2DeRolLe__sub_800360A8(void *arg0);
 M2C_UNK TBoss2DeRolLe__sub_80033D44(void *);
 s32 queue_destruction__7TObjectFv(void *);
-s32 TObjPlayer__sub_8002E62C(int, void *, int);
+s32 construct_piece_controller__10TObjPlayerFPvii(int, void *, int);
 s32 TBoss2DeRolLe__sub_8003383C(void *);
 s32 update_projectile_spawns__13TBoss2DeRolLeFPv(void *);
 s32 TBoss2DeRolLe__sub_80033AA4(void *);
@@ -467,7 +467,7 @@ void run_task__13TBoss2DeRolLeFPv(u8 *arg0) {
     temp_r3_2 = ((u32)__nw__7TObjectFUl((int) 0x500));
     if (temp_r3_2 != 0U)
     {
-      TObjPlayer__sub_8002E62C((int) temp_r3_2, (void *) arg0, (int) (*((s32 *) (((s8 *) arg0) + 0x618))));
+      construct_piece_controller__10TObjPlayerFPvii((int) temp_r3_2, (void *) arg0, (int) (*((s32 *) (((s8 *) arg0) + 0x618))));
     }
   }
   if ((is_main_phase_15__9TObjEneDDFv() != 0) && (((s32) (*((s32 *) (((s8 *) arg0) + 0x3C8)))) == 0))

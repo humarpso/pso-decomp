@@ -164,7 +164,7 @@ void VecCopy__FP3VecPC3Vec(void *, void *);
 u16 obj_getField1c(void *);
 void __ct__7TEffectFv(void *);
 void init_collision_body_parts(void *, f32 *, s32);
-void *TObjPlayer__sub_801569F4(void *, void *);
+void *construct_collider_proxy__10TObjPlayerFPv(void *, void *);
 void *__nw__7TObjectFUl(u32);
 int get_level_tier__10TObjPlayerFi(s32);
 extern M2C_UNK __vt__19TTecPlayerInfluence[];
@@ -289,7 +289,7 @@ Obj_80237310 *TTecPlayerInfluence__ct(Obj_80237310 *self, Owner_80237310 *owner,
   p = __nw__7TObjectFUl(0xAC);
   if (p != 0)
   {
-    p = TObjPlayer__sub_801569F4(p, self);
+    p = construct_collider_proxy__10TObjPlayerFPv(p, self);
   }
   self->fdc = p;
   if (self->fdc != 0)

@@ -464,7 +464,7 @@ void run_task__10TNpcPlayerFv(u8 *arg0);
 u8 * __dt__10TNpcPlayerFv(u8 *arg0, s16 arg1);
 Npc_80152168 * TNpcPlayer__ct(Npc_80152168 *self, s32 a, s32 b, s16 kind, s32 arg4, void *parent);
 void copy__10TNpcPlayerFPvPv(void* p, void* q);
-Npc_80152330 * TNpcPlayer__sub_80152330(Npc_80152330 *self, s32 a, s32 b, s16 kind, void *parent);
+Npc_80152330 * construct_partner__10TNpcPlayerFPviisPv(Npc_80152330 *self, s32 a, s32 b, s16 kind, void *parent);
 void ensure_rock_singleton__10TNpcPlayerFv(void);
 void TNpcPlayer__sub_8015286C(void);
 void set_technique_seed_level(Obj_801528A8 *self, s16 i, u8 v);
@@ -529,7 +529,7 @@ Actor_8014F424 * find_entity_by_id(s32);
 Contact_8014F140 * find_actor_body_contact(void *, void *, f32);
 M2C_UNK free_collision_body_parts(u32);
 void init_collision_body_parts(void *, void *, s32);
-void * TObjPlayer__sub_801569F4(void *, void *);
+void * construct_collider_proxy__10TObjPlayerFPv(void *, void *);
 s32 get_stat_by_key_state__10TObjPlayerFPv(void *);
 s32 is_any_teammate_in_state__10TObjPlayerFv(void *self);
 void send_item_pickup_request__10TObjPlayerFi(s32);
@@ -2461,7 +2461,7 @@ Npc_8014F844 *TNpcPlayer__sub_8014F844(Npc_8014F844 *self, s32 id) {
     self->fC4 = 0x1103;
     p = __nw__7TObjectFUl(0xAC);
     if (p != 0) {
-        p = TObjPlayer__sub_801569F4(p, tl_05);
+        p = construct_collider_proxy__10TObjPlayerFPv(p, tl_05);
     }
     self->fA8 = p;
     if (self->fA8 != 0) {
@@ -3550,7 +3550,7 @@ Npc_80152168 *TNpcPlayer__ct(Npc_80152168 *self, s32 a, s32 b, s16 kind, s32 arg
 
 void copy__10TNpcPlayerFPvPv(void* p, void* q) { *(u16*)((char*)p + 0x0) = *(u16*)((char*)q + 0x0); *(u16*)((char*)p + 0x2) = *(u16*)((char*)q + 0x2); *(u32*)((char*)p + 0x4) = *(u32*)((char*)q + 0x4); *(f32*)((char*)p + 0x8) = *(f32*)((char*)q + 0x8); *(f32*)((char*)p + 0xc) = *(f32*)((char*)q + 0xc); *(f32*)((char*)p + 0x10) = *(f32*)((char*)q + 0x10); *(f32*)((char*)p + 0x14) = *(f32*)((char*)q + 0x14); *(f32*)((char*)p + 0x18) = *(f32*)((char*)q + 0x18); *(f32*)((char*)p + 0x1c) = *(f32*)((char*)q + 0x1c); *(u8*)((char*)p + 0x20) = *(u8*)((char*)q + 0x20); *(u8*)((char*)p + 0x21) = *(u8*)((char*)q + 0x21); *(u8*)((char*)p + 0x22) = *(u8*)((char*)q + 0x22); *(u8*)((char*)p + 0x23) = *(u8*)((char*)q + 0x23); *(f32*)((char*)p + 0x24) = *(f32*)((char*)q + 0x24); }
 
-Npc_80152330 *TNpcPlayer__sub_80152330(Npc_80152330 *self, s32 a, s32 b, s16 kind, void *parent) {
+Npc_80152330 *construct_partner__10TNpcPlayerFPviisPv(Npc_80152330 *self, s32 a, s32 b, s16 kind, void *parent) {
     void *p;
 
     __ct__7TObjectFP7TObject(self, parent);

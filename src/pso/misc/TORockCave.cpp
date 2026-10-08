@@ -49,7 +49,7 @@ void *__dt__10TORockCaveFv(void *arg0, s16 arg1);
 void free_instances__10TORockCaveFv(void);
 void TLobby__sub_8001FE7C(void*, int);
 void TOSensor__sub_80175468(void);
-void TObjPlayer__sub_801569F4(void *, void *);
+void construct_collider_proxy__10TObjPlayerFPv(void *, void *);
 void __dl__7TObjectFPv(void *);
 void destroy_particle_controller__10TObjPlayerFPvs(void *, int);
 
@@ -131,7 +131,7 @@ extern const f32 lbl_805DB978;
 extern void *lbl_805D30F8;
 
 void *TORockCave__ct(void *arg0) {
-    TObjPlayer__sub_801569F4(arg0, tl_05);
+    construct_collider_proxy__10TObjPlayerFPv(arg0, tl_05);
     M2C_FIELD(arg0, M2C_UNK **, 0x18) = __vt__10TORockCave;
     M2C_FIELD(arg0, void **, 0x0) = lbl_805D30F8;
     M2C_FIELD(arg0, f32 *, 0xAC) = lbl_805DB974;

@@ -29,7 +29,7 @@ extern "C" {
 s32 reset_photon_effect__10TObjPlayerFPv(void *);
 s32 refresh_collision_body_centers(void *);
 s32 init_collision_body_parts(void *, void *, int);
-s32 TObjPlayer__sub_801569F4(void *);
+s32 construct_collider_proxy__10TObjPlayerFPv(void *);
 s32 select_models__18TObjLazerFenceNormFPv(void *);
 extern RecoveredGlobal_80192E70_lbl_804B7FB0 lbl_804B7FB0;
 extern M2C_UNK __vt__18TObjLazerFenceNorm[];
@@ -91,7 +91,7 @@ typedef char RecoveredGlobal_80192E70___vt__18TObjLazerFenceNorm_size[sizeof(Rec
 u8 *TObjLazerFenceNorm__ct(u8 *arg0, M2C_UNK arg1, s32 arg2) {
     u32 temp_r4;
     u32 temp_r6;
-    TObjPlayer__sub_801569F4((void *) (arg0));
+    construct_collider_proxy__10TObjPlayerFPv((void *) (arg0));
     M2C_FIELD(arg0, M2C_UNK **, 0x18) = &(*(RecoveredGlobal_80192E70___vt__18TObjLazerFenceNorm *)&__vt__18TObjLazerFenceNorm).value;
     M2C_FIELD(arg0, s32 *, 0) = (s32) lbl_805D33A0;
     ((VObj_18_1a504b *)(arg0))->m5(arg2);

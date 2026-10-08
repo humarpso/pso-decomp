@@ -154,7 +154,7 @@ M2C_UNK apply_technique_to_area_targets(void *);
 s32 is_parents_unqueued__9TTecLukerFUi(u32);
 void run_task__9TTecZaruaFv(struct Self_8023C1B8 *self);
 void construct_area_technique_base(void *);
-s32 TObjPlayer__sub_8004433C(void *);
+s32 construct_target_cursor_records__10TObjPlayerFi(void *);
 extern s32 lbl_805D3830;
 extern M2C_UNK __vt__9TTecZarua[];
 void calc_range__9TTecZaruaFPv(u8 *arg0);
@@ -165,11 +165,11 @@ s32 obj_getField1c(void *);
 Zarua_8023C420 *TTecZarua__sub_8023C420(Zarua_8023C420 *self, s32 _w1, s32 _w2, s32 _w3, s32 _w4);
 void VecCopy__FP3VecPC3Vec(Vec_8023C420 *, Vec_8023C420 *);
 s32 obj_getField1c(void *);
-s32 TObjPlayer__sub_8004433C(void *);
+s32 construct_target_cursor_records__10TObjPlayerFi(void *);
 s32 update_technique_slot__10TTecRaFoieFi(s32, s32, s32);
 s32 play_sound_effect(int, void *, int, int);
 void copy_technique_target_list(void *, void *);
-void fn_8022C10C(void *, void *, void *, void *);
+void init_technique_effect_base(void *, void *, void *, void *);
 void calc_range__9TTecZaruaFPv(u8 *arg0);
 extern M2C_UNK __vt__9TTecZarua[];
 extern s32 lbl_805D3830;
@@ -259,9 +259,9 @@ void *__dt__9TTecZaruaFv(void *arg0, s16 arg1) {
 
 Zarua_8023C2D0 *TTecZarua__ct(Zarua_8023C2D0 *self, void *_w1, void *_w2, void *_w3, void *_w4) {
     s32 r;
-    fn_8022C10C(self, _w1, _w2, _w4);
+    init_technique_effect_base(self, _w1, _w2, _w4);
     self->vt = __vt__9TTecZarua;
-    TObjPlayer__sub_8004433C(self->sub);
+    construct_target_cursor_records__10TObjPlayerFi(self->sub);
     self->f0 = lbl_805D3830;
     self->fec = 1;
     copy_technique_target_list(self->sub, _w3);
@@ -300,7 +300,7 @@ Zarua_8023C420 *TTecZarua__sub_8023C420(Zarua_8023C420 *self, s32 _w1, s32 _w2, 
     s32 r;
     construct_area_technique_base(self);
     self->vt = ((s32 *)&__vt__9TTecZarua);
-    TObjPlayer__sub_8004433C(self->sub);
+    construct_target_cursor_records__10TObjPlayerFi(self->sub);
     self->f0 = lbl_805D3830;
     self->fec = 0;
     calc_range__9TTecZaruaFPv((u8 *)self);

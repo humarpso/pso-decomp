@@ -192,11 +192,11 @@ int TItemList__sub_801D591C(void);
 int TItemList__sub_801D598C(void);
 int TItemList__sub_801D59A0(void);
 int TWindowActionPalette__sub_801C1C20(void* p);
-int TFontSmallLobby__sub_801D65B4(void);
+int construct_pb_controller__15TFontSmallLobbyFi(void);
 int TFontSmallLobby__sub_801D6614(void);
 int TObjPlayer__sub_801C1F50(void* p);
 int test_flags_any(void*, int);
-int TFontSmallLobby__sub_801D65B4(void);
+int construct_pb_controller__15TFontSmallLobbyFi(void);
 int TFontSmallLobby__sub_801D6614(void);
 int TObjPlayer__sub_801C1F50(void* p);
 void TObjPlayer__sub_801C1F78(void* p, s16 v);
@@ -331,7 +331,7 @@ M2C_UNK is_channel_active__11TMainCursorFPv(s32);
 void TWindowActionPalette__sub_801C1C30(s32 arg0, s32 arg1, s32 arg2);
 s32 set_slot__20TWindowActionPaletteFPvUc(s32, u8);
 s32 set_mode__20TWindowActionPaletteFPvUc(s32, u8);
-void TWindowActionPalette__sub_801C1CA8(s32 arg0, s32 arg1, s32 arg2, s32 arg3, s32 arg4);
+void set_palette_entry__20TWindowActionPaletteFiiiii(s32 arg0, s32 arg1, s32 arg2, s32 arg3, s32 arg4);
 s32 set_slot__20TWindowActionPaletteFPvUc(s32, u8);
 void TWindowActionPalette__sub_801C1CFC(s32 arg0, s32 arg1, s32 arg2, s32 arg3);
 s32 set_mode__20TWindowActionPaletteFPvUc(s32, u8);
@@ -490,7 +490,7 @@ void is_action_channel_active(s32 *arg0, s32 arg1) {
     TWindowActionPalette__sub_801C1C30((s32) arg0, *arg0, arg1);
 }
 
-void TWindowActionPalette__sub_801C1CA8(s32 arg0, s32 arg1, s32 arg2, s32 arg3, s32 arg4) {
+void set_palette_entry__20TWindowActionPaletteFiiiii(s32 arg0, s32 arg1, s32 arg2, s32 arg3, s32 arg4) {
     s32 *p = (s32 *)((s32)TWindowActionPalette__sub_801C1C68((O_801C1C68 *)((s32)(arg0)), (s32)((s32)(arg1))));
     s32 temp_r31 = (s32)(p + arg2);
     set_mode__20TWindowActionPaletteFPvUc(temp_r31, (u8)arg3);

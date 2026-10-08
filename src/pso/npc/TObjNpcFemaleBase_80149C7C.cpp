@@ -21,7 +21,7 @@ M2C_UNK set_motion_interpolation_flag(void *);
 extern RecoveredGlobal_80149CE0_lbl_8043F810 lbl_8043F810;
 extern M2C_UNK lbl_804A8640[];
 extern s32 *lbl_805D5738;
-u8 *TObjNpcFemaleBase__sub_80149CE0(u8 *arg0);
+u8 *construct_female_base__17TObjNpcFemaleBaseFPv(u8 *arg0);
 }
 
 extern "C" {
@@ -49,7 +49,7 @@ void *destroy_npc_female_base__17TObjNpcFemaleBaseFPvs(void *arg0, s16 arg1) {
 }
 typedef char RecoveredGlobal_80149CE0_lbl_8043F810_size[sizeof(RecoveredGlobal_80149CE0_lbl_8043F810) == 0x20 ? 1 : -1];
 typedef char RecoveredGlobal_80149CE0_lbl_804A8640_size[sizeof(RecoveredGlobal_80149CE0_lbl_804A8640) == 0x178 ? 1 : -1];
-u8 *TObjNpcFemaleBase__sub_80149CE0(u8 *arg0) {
+u8 *construct_female_base__17TObjNpcFemaleBaseFPv(u8 *arg0) {
     TObjNpcBase__ct(arg0);
     M2C_FIELD(arg0, M2C_UNK **, 0x18) = &(*(RecoveredGlobal_80149CE0_lbl_804A8640 *)&lbl_804A8640).value;
     init_npc_animation__10TObjPlayerFPvPvPvPv((void *) (arg0), (void *) (&lbl_8043F810.value), (void *) (*lbl_805D5738), (int) (0));

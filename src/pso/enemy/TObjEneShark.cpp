@@ -55,7 +55,7 @@ u8 *load_enemy_bml_resource_named(void *, void *);
 u8 *load_resource_from_descriptor(void *, s32, void *, s32, s32, s32);
 void *alloc__23TAdSinglePlyChrSelectGCFPv(s32);
 void draw_trail_with_colors(void *, s32, s32, s32, s32);
-void *TBoss4Type3__sub_800D9ABC(void *, s32, f32, f32, f32);
+void *init_trail_buffer__11TBoss4Type3FPvifff(void *, s32, f32, f32, f32);
 s32 *alloc_buffer__11TOBoss4RockFPv(s32);
 void spawn_npc_enemy__6TLobbyFsiiiff(int, int, int, void *, f32, f32);
 extern u8 lbl_8043AEDC[];
@@ -167,12 +167,12 @@ void TLobby__sub_800AC318(void) {
     }
     p = alloc__23TAdSinglePlyChrSelectGCFPv(0x18);
     if (p != NULL) {
-        p = TBoss4Type3__sub_800D9ABC(p, 2, lbl_805D9BC8, lbl_805D9BAC, lbl_805D9BC0);
+        p = init_trail_buffer__11TBoss4Type3FPvifff(p, 2, lbl_805D9BC8, lbl_805D9BAC, lbl_805D9BC0);
     }
     G_BC = p;
     p = alloc__23TAdSinglePlyChrSelectGCFPv(0x18);
     if (p != NULL) {
-        p = TBoss4Type3__sub_800D9ABC(p, 2, lbl_805D9BC8, lbl_805D9BAC, lbl_805D9BC0);
+        p = init_trail_buffer__11TBoss4Type3FPvifff(p, 2, lbl_805D9BC8, lbl_805D9BAC, lbl_805D9BC0);
     }
     G_C0 = p;
     draw_trail_with_colors(G_BC, RES->bodies->model, RES->motions[lbl_80491504[3].idx].b, 5, 8);

@@ -9,7 +9,7 @@ extern "C" {
 s32 window_request_show(void * a0 = 0);
 s32 clear_flag60_bit200__16TKeyBoardControlFPv(void * a0 = 0);
 s32 set_flag60_bit200__16TKeyBoardControlFPv(void *);
-s32 TWindowSubTradeMain__sub_80244A4C(void *);
+s32 request_close__19TWindowSubTradeMainFPv(void *);
 int set_keyboard_flag62_bit2__15TWindowMakeTeamFPv(void* p);
 int get_lobby_field_20__15TWindowMakeTeamFPv(void* p);
 int set_flag62_bit2__16TKeyBoardControlFPv(void*);
@@ -25,7 +25,7 @@ void TWindowSubShortMail__sub_80131998(void *arg0) {
             set_flag60_bit200__16TKeyBoardControlFPv(M2C_FIELD(arg0, void **, 0x24));
         }
         if ((u32) M2C_FIELD(arg0, u32 *, 0x28) != 0U) {
-            TWindowSubTradeMain__sub_80244A4C(M2C_FIELD(arg0, void **, 0x28));
+            request_close__19TWindowSubTradeMainFPv(M2C_FIELD(arg0, void **, 0x28));
         }
     }
 }

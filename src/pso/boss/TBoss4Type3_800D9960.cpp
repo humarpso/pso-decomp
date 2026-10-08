@@ -34,7 +34,7 @@ f32 get_status_value_f32__23TObjEneMe1CanadinLeaderFv(f32);
 Vec_800D9ABC *alloc_buffer__11TOBoss4RockFPv(int);
 extern const f32 lbl_805DA3EC;
 extern const f32 lbl_805DA3F0;
-Trail_800D9ABC *TBoss4Type3__sub_800D9ABC(Trail_800D9ABC *arg0, s32 segs, f32 start, f32 end, f32 step);
+Trail_800D9ABC *init_trail_buffer__11TBoss4Type3FPvifff(Trail_800D9ABC *arg0, s32 segs, f32 start, f32 end, f32 step);
 void fn_800D97E8(void *, s32, M2C_UNK);
 void bind_motion_context(s32, f32);
 void TObjPlayer__sub_803D8CD4(M2C_UNK);
@@ -99,7 +99,7 @@ s32 *__dt__11TBoss4Type3FPvs(s32 *arg0, s16 arg1) {
     }
     return arg0;
 }
-Trail_800D9ABC *TBoss4Type3__sub_800D9ABC(Trail_800D9ABC *arg0, s32 segs, f32 start, f32 end, f32 step) {
+Trail_800D9ABC *init_trail_buffer__11TBoss4Type3FPvifff(Trail_800D9ABC *arg0, s32 segs, f32 start, f32 end, f32 step) {
     s32 n;
     s32 i;
     arg0->step = step;

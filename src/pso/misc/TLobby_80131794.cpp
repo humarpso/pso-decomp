@@ -20,7 +20,7 @@ s32 TLobby__sub_8013189C(char *arg0, char *arg1, char *arg2);
 extern "C" {
 
 void debug_print__6TLobbyFii(s32 arg0, ...);
-s32 TWindowSubTradeMain__sub_80244A4C(void *);
+s32 request_close__19TWindowSubTradeMainFPv(void *);
 s32 clear_flag60_bit200__16TKeyBoardControlFPv(void * a0 = 0);
 int get_lobby_field_20__15TWindowMakeTeamFPv(void* p);
 int set_field_1c__6TLobbyFPvf(void*);

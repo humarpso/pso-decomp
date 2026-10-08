@@ -41,7 +41,7 @@ void *TParticleCtrl__sub_80328160(void *arg0, s16 arg1);
 s32 VecCopy__FP3VecPC3Vec(void *, void *);
 s32 __nw__7TObjectFUl(int);
 s32 __ct__7TObjectFP7TObject(void *, void *);
-s32 fn_803281B8(int, int, int, int);
+s32 construct_indirect_effect_task(int, int, int, int);
 extern M2C_UNK lbl_804ED598[];
 extern s32 tl_05;
 u8 *create_telepipe_marker(u8 *arg0, s32 arg1, s8 arg2, s8 arg3, s32 arg4, s32 arg5, s32 arg6, f32 farg0, f32 farg1);
@@ -177,7 +177,7 @@ u8 *create_telepipe_marker(u8 *arg0, s32 arg1, s8 arg2, s8 arg3, s32 arg4, s32 a
     temp_r3 = __nw__7TObjectFUl((int) (0x20));
     var_r0 = temp_r3;
     if (var_r0 != 0) {
-        var_r0 = fn_803281B8((int) (temp_r3), (int) (0x1F), (int) (0), (int) (tl_05));
+        var_r0 = construct_indirect_effect_task((int) (temp_r3), (int) (0x1F), (int) (0), (int) (tl_05));
     }
     M2C_FIELD(arg0, s32 *, 0x40) = var_r0;
     M2C_FIELD(arg0, s32 *, 0x38) = 1;

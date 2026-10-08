@@ -185,7 +185,7 @@ int is_locally_controlled__10TObjPlayerFPv(void *);
 s32 get_field_d8__10TObjPlayerFPv(void *);
 u8 *find_item_by_id(s32);
 void dispatch_action__10TObjPlayerFPvii(void *, s32, s32);
-void TObjPlayer__sub_801B9634(u32);
+void send_unequip_held_item__10TObjPlayerFUi(u32);
 s32 get_player_by_client_id(void *);
 u8 get_field_ed__10TObjPlayerFPv(u32);
 s32 get_field_d8__10TObjPlayerFPv(void *);
@@ -310,7 +310,7 @@ s32 consume_item_by_id(s32 arg0) {
   dispatch_action__10TObjPlayerFPvii((void *) temp_r3_2, arg0, 1);
   if (is_locally_controlled__10TObjPlayerFPv((void *) temp_r3_2) != 0)
   {
-    TObjPlayer__sub_801B9634((u32) temp_r3_2);
+    send_unequip_held_item__10TObjPlayerFUi((u32) temp_r3_2);
   }
   if ((find_item_by_id(temp_r30) != 0) && (temp_r31 < 2))
   {

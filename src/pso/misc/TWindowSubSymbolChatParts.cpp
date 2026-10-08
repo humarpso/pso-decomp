@@ -153,7 +153,7 @@ M2C_UNK set_entry_state__20TWindowSubStatusDispFPvc(s32, M2C_UNK);
 M2C_UNK forward_render__20TWindowSubStatusDispFPv(s32, s32);
 void update_subwindow__20TWindowSubStatusDispFPv(s32);
 void destroy_status_display__20TWindowSubStatusDispFis(void *, int);
-void * TWindowSubStatusDisp__sub_802880BC(void *, s32, s16);
+void * construct_type1_heading__20TWindowSubStatusDispFPvii(void *, s32, s16);
 f32 TWindowSubStatusDisp__sub_803D647C(f32);
 
 extern M2C_UNK __vt__25TWindowSubSymbolChatParts[];
@@ -443,7 +443,7 @@ Parts_80285D38 *TWindowSubSymbolChatParts__ct(Parts_80285D38 *arg0, void *arg1, 
     arg0->f80 = arg3;
     p = alloc__23TAdSinglePlyChrSelectGCFPv(0x24);
     if (p != NULL) {
-        p = TWindowSubStatusDisp__sub_802880BC(p, get_message_10__20TWindowSubStatusDispFPv(0x33), arg0->id);
+        p = construct_type1_heading__20TWindowSubStatusDispFPvii(p, get_message_10__20TWindowSubStatusDispFPv(0x33), arg0->id);
     }
     arg0->sub88 = p;
     v.x = lbl_805DD7E4;

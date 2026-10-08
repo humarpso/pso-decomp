@@ -93,7 +93,7 @@ M2C_UNK set_flag70_bit10__16TObjCityMainWarpFPv(int);
 M2C_UNK set_field_1c__6TLobbyFPvf(s32);
 M2C_UNK TWindowSubEquip__sub_80263AF8(s32, M2C_UNK);
 M2C_UNK align_menu_entry_positions(int);
-M2C_UNK TWindowSubComCard__sub_80265E60(int, f32);
+M2C_UNK update_layout_height__17TWindowSubComCardFPvf(int, f32);
 M2C_UNK forward_trade_action_default__16TObjCityMainWarpFPviii(s32, s32, M2C_UNK, s32);
 s32 create_titled_window_menu(int, int, int, int);
 s32 get_window_layout_position(M2C_UNK);
@@ -103,7 +103,7 @@ M2C_UNK set_flag70_bit10__16TObjCityMainWarpFPv(int);
 M2C_UNK set_field_1c__6TLobbyFPvf(s32);
 M2C_UNK TWindowSubEquip__sub_80263AF8(s32, M2C_UNK);
 M2C_UNK align_menu_entry_positions(int);
-M2C_UNK TWindowSubComCard__sub_80265E60(int, f32);
+M2C_UNK update_layout_height__17TWindowSubComCardFPvf(int, f32);
 s32 create_titled_window_menu(int, int, int, int);
 s32 get_window_layout_position(M2C_UNK);
 void draw_slot__14TWindowSubItemFiii(s32 arg1, s32 arg2, s32 arg3);
@@ -191,7 +191,6 @@ void set_displayed_item__14TWindowSubItemFPvi(void *arg0, s32 arg1);
 void TWindowSubItem__sub_802797FC(u8 *arg0);
 void close_windows__14TWindowSubItemFPvi(void *arg0, s32 arg1);
 void exec_item_command__14TWindowSubItemFPvii(void *arg0, s32 arg1, s32 arg2);
-void TWindowSubItem__sub_802799E4(void *, s32);
 s32 create_count_input__14TWindowSubItemFPvi(void *arg0, s32 arg1);
 s32 TWindowSubItem__sub_80279E68(u8 *arg0);
 s32 open_purpose_window__14TWindowSubItemFPvi(u8 *arg0, s32 arg1);
@@ -202,6 +201,7 @@ void set_field_74__14TWindowSubItemFPvs(void* p, s16 v);
 void refresh__14TWindowSubItemFPv(void* p);
 extern Pad_80279FFC lbl_8050E208[];
 void run_task__14TWindowSubItemFv(u8 *arg0);
+void TWindowSubItem__sub_802799E4(void *arg0, s32 arg1);
 }
 
 extern "C" {
@@ -357,6 +357,31 @@ void exec_item_command__14TWindowSubItemFPvii(void *arg0, s32 arg1, s32 arg2) {
     }
 }
 
+void TWindowSubItem__sub_802799E4(void *arg0, s32 arg1) {
+    switch (arg1) {
+    case 3:
+        M2C_FIELD(arg0, s8 *, 0x1C) = 0xC;
+        return;
+    case 4:
+        M2C_FIELD(arg0, s8 *, 0x1C) = 0xF;
+        return;
+    case 5:
+        M2C_FIELD(arg0, s8 *, 0x1C) = 0x11;
+        return;
+    case 6:
+        M2C_FIELD(arg0, s8 *, 0x1C) = 0x13;
+        return;
+    case 7:
+        M2C_FIELD(arg0, s8 *, 0x1C) = 6;
+        return;
+    case 0:
+    case 1:
+    case 2:
+        M2C_FIELD(arg0, s8 *, 0x1C) = 5;
+        return;
+    }
+}
+
 void add_item_purpose_actions(u8 *arg0, s32 arg1, s32 arg2) {
   M2C_UNK sp8;
   s32 temp_r3;
@@ -468,7 +493,7 @@ s32 TWindowSubItem__sub_80279E68(u8 *arg0) {
     TWindowSubEquip__sub_80263AF8((s32)((int) (M2C_FIELD(arg0, s32 *, 0x2C))), (M2C_UNK)((int) (2)));
     set_field_1c__6TLobbyFPvf((s32)((int) (temp_r31)));
     set_flag70_bit10__16TObjCityMainWarpFPv((int) (temp_r31));
-    TWindowSubComCard__sub_80265E60((int) (temp_r31), (f32) (lbl_805DD630));
+    update_layout_height__17TWindowSubComCardFPvf((int) (temp_r31), (f32) (lbl_805DD630));
     align_menu_entry_positions((int) (temp_r31));
     return temp_r31;
 }
@@ -486,7 +511,7 @@ s32 open_purpose_window__14TWindowSubItemFPvi(u8 *arg0, s32 arg1) {
     TWindowSubEquip__sub_80263AF8((s32)((int) (M2C_FIELD(arg0, s32 *, 0x2C))), (M2C_UNK)((int) (1)));
     set_field_1c__6TLobbyFPvf((s32)((int) (temp_r31)));
     set_flag70_bit10__16TObjCityMainWarpFPv((int) (temp_r31));
-    TWindowSubComCard__sub_80265E60((int) (temp_r31), (f32) (lbl_805DD630));
+    update_layout_height__17TWindowSubComCardFPvf((int) (temp_r31), (f32) (lbl_805DD630));
     align_menu_entry_positions((int) (temp_r31));
     return temp_r31;
 }
@@ -572,7 +597,7 @@ void run_task__14TWindowSubItemFv(u8 *arg0) {
                 F(u8, 0x1C) = 1;
             }
             if (is_visible__17TWindowSubComCardFPv(F(u32, 0x34)) != 0) {
-                TWindowSubItem__sub_802799E4(arg0, get_selected_menu_value(F(u32, 0x34)));
+                TWindowSubItem__sub_802799E4((void *)(arg0), (s32)(get_selected_menu_value(F(u32, 0x34))));
                 return;
             }
             break;

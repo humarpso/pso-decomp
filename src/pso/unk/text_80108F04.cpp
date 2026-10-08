@@ -20,7 +20,7 @@ void *__nw__7TObjectFUl(u32 size);
 void spawn_item_timer__13TItemAttackerFiii(void *obj, void *cb, s32 frames);
 int destroy__14TItemEffHeavenFPv(void *p);
 extern void *tl_05;
-void fn_80108F8C(void *self, void *target);
+void spawn_flame_effect(void *self, void *target);
 s16 obj_getField1c(void *);
 void disallow_rendering__7TObjectFv(void *);
 void *create_particle_emitter(void *, s32);
@@ -50,7 +50,7 @@ void *TItemEffFlame__ct(void *arg0, void *parent, void *target) {
 #undef self
 #undef arg2
 
-void fn_80108F8C(void *self, void *target) {
+void spawn_flame_effect(void *self, void *target) {
     void *p;
     if (target != NULL) {
         p = __nw__7TObjectFUl(0x28);

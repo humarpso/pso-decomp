@@ -130,7 +130,7 @@ void clear_player_status_flag__10TObjPlayerFPviUi(void *, s32, u32);
 void reset_photon_effect__10TObjPlayerFPv(void *);
 void refresh_collision_body_centers(void *);
 void init_collision_body_parts(void *, void *, s32);
-void TObjPlayer__sub_801569F4(void *, void *);
+void construct_collider_proxy__10TObjPlayerFPv(void *, void *);
 void TObjFish__sub_80192434(void *);
 extern Ent_80192874 lbl_804B7FB0[];
 extern M2C_UNK __vt__19TObjLazerFenceExtra[];
@@ -184,7 +184,7 @@ extern void *tl_05;
 #define self ((u8 *)arg0)
 void *TObjLazerFenceExtra__ct(void *arg0, void *arg1, void *arg2) {
     s32 i;
-    TObjPlayer__sub_801569F4(arg0, arg1);
+    construct_collider_proxy__10TObjPlayerFPv(arg0, arg1);
     M2C_FIELD(self, M2C_UNK **, 0x18) = __vt__19TObjLazerFenceExtra;
     M2C_FIELD(self, s32 *, 0) = lbl_805D33A4;
     ((VObj_80192874 *)self)->m5(arg2);

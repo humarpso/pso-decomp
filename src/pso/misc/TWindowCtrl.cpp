@@ -605,7 +605,7 @@ s32 has_player_active_menu__11TWindowCtrlFi(s32);
 s32 TWindowCtrl__sub_8024B000(void *, s32);
 s32 is_slot_visible__11TWindowCtrlFi(s32);
 s32 TWindowShortListCtrl__check_controller_button(void *, s32, M2C_UNK *);
-M2C_UNK TWindowSubTradeMain__sub_80244A4C(u32);
+M2C_UNK request_close__19TWindowSubTradeMainFPv(u32);
 s32 is_split_screen();
 s32 fn_8002AE08(s32);
 M2C_UNK advance_card_status__15TWindowCtrlMainFi(s32);
@@ -616,7 +616,7 @@ extern s32 lbl_805D53A0;
 void TWindowCtrl__sub_8024B9C0(void *arg0) {
     if ((u32) M2C_FIELD(arg0, u32 *, 0x30) != 0U) {
         if (is_slot_visible__11TWindowCtrlFi(lbl_805D53A0) != 0) {
-            TWindowSubTradeMain__sub_80244A4C(M2C_FIELD(arg0, u32 *, 0x30));
+            request_close__19TWindowSubTradeMainFPv(M2C_FIELD(arg0, u32 *, 0x30));
             return;
         }
         window_request_show(M2C_FIELD(arg0, u32 *, 0x30));
@@ -628,7 +628,7 @@ extern s32 lbl_805D53A0;
 void update_trade_window__11TWindowCtrlFPv(void *arg0) {
     if ((u32) M2C_FIELD(arg0, u32 *, 0x34) != 0U) {
         if ((is_slot_visible__11TWindowCtrlFi(lbl_805D53A0) != 0) || (TWindowCtrl__sub_8024B000((void *)(arg0), (s32)(lbl_805D53A0)) != 0) || ((is_split_screen() != 0) && (is_active__13TRaderMapCoreFv() == 0))) {
-            TWindowSubTradeMain__sub_80244A4C(M2C_FIELD(arg0, u32 *, 0x34));
+            request_close__19TWindowSubTradeMainFPv(M2C_FIELD(arg0, u32 *, 0x34));
             return;
         }
         window_request_show(M2C_FIELD(arg0, u32 *, 0x34));
@@ -1101,7 +1101,7 @@ extern "C" {
 void show_active_window__11TWindowCtrlFPv(void *arg0);
 s32 is_visible__11TWindowCtrlFPv();
 s32 get_window_layout_position(M2C_UNK);
-M2C_UNK TWindowSubTradeMain__sub_80244A4C(u32);
+M2C_UNK request_close__19TWindowSubTradeMainFPv(u32);
 M2C_UNK window_request_show(u32);
 s32 get_active_menu__11TWindowCtrlFPv(void *);
 M2C_UNK set_position__11TWindowCtrlFPvPv(u32, s32);
@@ -1109,7 +1109,7 @@ M2C_UNK set_position__11TWindowCtrlFPvPv(u32, s32);
 void show_active_window__11TWindowCtrlFPv(void *arg0) {
     if ((u32) M2C_FIELD(arg0, u32 *, 0x2C) != 0U) {
         if (is_visible__11TWindowCtrlFPv() != 0) {
-            TWindowSubTradeMain__sub_80244A4C(M2C_FIELD(arg0, u32 *, 0x2C));
+            request_close__19TWindowSubTradeMainFPv(M2C_FIELD(arg0, u32 *, 0x2C));
             return;
         }
         window_request_show(M2C_FIELD(arg0, u32 *, 0x2C));

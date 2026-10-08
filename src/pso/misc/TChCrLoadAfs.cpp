@@ -39,7 +39,7 @@ extern "C" {
 u32 alloc__22TQuestVmDownLoadServerFPv(s32);
 s32 TLobby__sub_803CC53C(u32);
 s32 TLobby__sub_803CCB5C(u32, s32, u32);
-u32 TLobby__sub_803CD16C(s32, s32);
+u32 adxf_open_afs__6TLobbyFii(s32, s32);
 extern Te_8028BFA4 lbl_804D88B8[];
 void start_read__22TChCrLoadAfsTextureReqFPv(Cl_8028BFA4 *arg0);
 M2C_UNK queue_destruction__7TObjectFv(void *);
@@ -82,7 +82,7 @@ void TChCrLoadAfs__sub_8028B940(void);
 void TChCrLoadAfs__sub_8028B944(void);
 s32 TLobby__sub_803CC53C(u32);
 s32 TLobby__sub_803CCB5C(u32, s32, u32);
-u32 TLobby__sub_803CD16C(s32, s32);
+u32 adxf_open_afs__6TLobbyFii(s32, s32);
 void __ct__7TObjectFP7TObject(void *);
 void *__nw__7TObjectFUl(int);
 u32 alloc__22TQuestVmDownLoadServerFPv(s32);
@@ -94,7 +94,7 @@ void start_download__12TChCrLoadAfsFPv(void *arg0) {
     u32 temp_r3_3;
 
     if (try_begin_load__12TChCrLoadAfsFPv() != 0) {
-        temp_r3 = TLobby__sub_803CD16C(M2C_FIELD(arg0, s32 *, 0x20), M2C_FIELD(arg0, s32 *, 0x24));
+        temp_r3 = adxf_open_afs__6TLobbyFii(M2C_FIELD(arg0, s32 *, 0x20), M2C_FIELD(arg0, s32 *, 0x24));
         M2C_FIELD(arg0, u32 *, 0x1C) = temp_r3;
         if (temp_r3 == 0U) {
             M2C_FIELD(arg0, s32 *, 0x2C) = 3;
@@ -285,7 +285,7 @@ void start_read__22TChCrLoadAfsTextureReqFPv(Cl_8028BFA4 *arg0) {
     s32 n;
     u32 t;
     void *buf;
-    t = TLobby__sub_803CD16C(lbl_804D88B8[arg0->f70].id, find_player_texture_name_ordinal((u8 *)(arg0)));
+    t = adxf_open_afs__6TLobbyFii(lbl_804D88B8[arg0->f70].id, find_player_texture_name_ordinal((u8 *)(arg0)));
     arg0->f60 = t;
     if (t != 0) {
         arg0->f20 = 0;

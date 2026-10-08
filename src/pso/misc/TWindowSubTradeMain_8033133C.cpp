@@ -17,8 +17,8 @@ struct RecoveredFields_80331520_arg0
 extern "C" {
 s32 get_message_10__20TWindowSubStatusDispFPv(s32);
 M2C_UNK align_menu_entry_positions(int);
-M2C_UNK TWindowSubComCard__sub_80265E60(int, f32);
-s32 TWindowSubTradeMain__sub_80266200(int, int, int, int, int);
+M2C_UNK update_layout_height__17TWindowSubComCardFPvf(int, f32);
+s32 add_text_entry__19TWindowSubTradeMainFPviiii(int, int, int, int, int);
 s32 forward_trade_action_default__16TObjCityMainWarpFPviii(int, int, int, int);
 s32 create_titled_window_menu(int, int, int, int);
 s32 get_window_layout_position(int);
@@ -26,8 +26,8 @@ extern const f32 TWindowSubTradeMain__data_805DF858;
 s32 TWindowSubTradeMain__sub_80331434(u8 *arg0);
 s32 get_message_10__20TWindowSubStatusDispFPv(s32);
 M2C_UNK align_menu_entry_positions(int);
-M2C_UNK TWindowSubComCard__sub_80265E60(int, f32);
-s32 TWindowSubTradeMain__sub_80266200(int, int, int, int, int);
+M2C_UNK update_layout_height__17TWindowSubComCardFPvf(int, f32);
+s32 add_text_entry__19TWindowSubTradeMainFPviiii(int, int, int, int, int);
 s32 forward_trade_action_default__16TObjCityMainWarpFPviii(int, int, int, int);
 s32 create_titled_window_menu(int, int, int, int);
 s32 get_window_layout_position(int);
@@ -61,9 +61,9 @@ s32 TWindowSubTradeMain__sub_80331434(u8 *arg0) {
   temp_r31 = create_titled_window_menu((int) get_window_layout_position((int) 0x5E), (int) 4, (int) temp_r31_2, (int) ((RecoveredFields_80331434_arg0 *) arg0)->field_28);
   forward_trade_action_default__16TObjCityMainWarpFPviii((int) temp_r31, (int) get_message_10__20TWindowSubStatusDispFPv((s32)((int) 0xDC)), (int) 6, (int) 0x11);
   forward_trade_action_default__16TObjCityMainWarpFPviii((int) temp_r31, (int) get_message_10__20TWindowSubStatusDispFPv((s32)((int) 0xE3)), (int) 6, (int) 0x16);
-  TWindowSubTradeMain__sub_80266200((int) temp_r31, (int) get_message_10__20TWindowSubStatusDispFPv((s32)((int) 0xDE)), (int) 6, (int) 0x1A, (int) 0xFFEE946E);
-  TWindowSubTradeMain__sub_80266200((int) temp_r31, (int) get_message_10__20TWindowSubStatusDispFPv((s32)((int) 0xDF)), (int) 6, (int) 0x17, (int) 0xFFEE6ED8);
-  TWindowSubComCard__sub_80265E60((int) temp_r31, (f32) TWindowSubTradeMain__data_805DF858);
+  add_text_entry__19TWindowSubTradeMainFPviiii((int) temp_r31, (int) get_message_10__20TWindowSubStatusDispFPv((s32)((int) 0xDE)), (int) 6, (int) 0x1A, (int) 0xFFEE946E);
+  add_text_entry__19TWindowSubTradeMainFPviiii((int) temp_r31, (int) get_message_10__20TWindowSubStatusDispFPv((s32)((int) 0xDF)), (int) 6, (int) 0x17, (int) 0xFFEE6ED8);
+  update_layout_height__17TWindowSubComCardFPvf((int) temp_r31, (f32) TWindowSubTradeMain__data_805DF858);
   align_menu_entry_positions((int) temp_r31);
   return temp_r31;
 }
@@ -78,9 +78,9 @@ s32 TWindowSubTradeMain__sub_80331520(u8 *arg0) {
   forward_trade_action_default__16TObjCityMainWarpFPviii((int) temp_r31, (int) get_message_10__20TWindowSubStatusDispFPv((s32)((int) 0xDA)), (int) 6, (int) 3);
   forward_trade_action_default__16TObjCityMainWarpFPviii((int) temp_r31, (int) get_message_10__20TWindowSubStatusDispFPv((s32)((int) 0xDB)), (int) 6, (int) 0xA);
   forward_trade_action_default__16TObjCityMainWarpFPviii((int) temp_r31, (int) get_message_10__20TWindowSubStatusDispFPv((s32)((int) 0xDC)), (int) 6, (int) 0x11);
-  TWindowSubTradeMain__sub_80266200((int) temp_r31, (int) get_message_10__20TWindowSubStatusDispFPv((s32)((int) 0xDD)), (int) 6, (int) 0x14, (int) 0xFFEE946E);
-  TWindowSubTradeMain__sub_80266200((int) temp_r31, (int) get_message_10__20TWindowSubStatusDispFPv((s32)((int) 0xDF)), (int) 6, (int) 0x17, (int) 0xFFEE6ED8);
-  TWindowSubComCard__sub_80265E60((int) temp_r31, (f32) TWindowSubTradeMain__data_805DF858);
+  add_text_entry__19TWindowSubTradeMainFPviiii((int) temp_r31, (int) get_message_10__20TWindowSubStatusDispFPv((s32)((int) 0xDD)), (int) 6, (int) 0x14, (int) 0xFFEE946E);
+  add_text_entry__19TWindowSubTradeMainFPviiii((int) temp_r31, (int) get_message_10__20TWindowSubStatusDispFPv((s32)((int) 0xDF)), (int) 6, (int) 0x17, (int) 0xFFEE6ED8);
+  update_layout_height__17TWindowSubComCardFPvf((int) temp_r31, (f32) TWindowSubTradeMain__data_805DF858);
   align_menu_entry_positions((int) temp_r31);
   return temp_r31;
 }

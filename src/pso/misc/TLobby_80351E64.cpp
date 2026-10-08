@@ -25,14 +25,14 @@ int load_gvm_texture_file(void*);
 extern int lbl_805D6EC4;
 void load_obj_lobby_main(void);
 void __ct__7TObjectFP7TObject(void *, void *);
-s32 TLobby__sub_80351DFC(void);
+s32 get_filtered_event_theme__6TLobbyFv(void);
 extern const M2C_UNK lbl_804F0EA8[];
 extern u8 *tl_00;
 u8 *TLobby__sub_80351FDC(u8 *arg0);
-s32 TLobby__sub_80351DFC(void);
-s32 fn_80352094(void);
+s32 get_filtered_event_theme__6TLobbyFv(void);
+s32 get_theme_lobby_type(void);
 void TLobby__sub_80351DF8(void *, s32);
-s32 TLobby__sub_80351DFC(void);
+s32 get_filtered_event_theme__6TLobbyFv(void);
 void TLobby__sub_80351EAC(L_80351EAC *arg0);
 }
 
@@ -68,7 +68,7 @@ int get_lobby_type__6TLobbyFv(void) {  return lbl_805D6EC4; }
 extern void *lbl_805D6EC0;
 
 void TLobby__sub_80351EAC(L_80351EAC *arg0) {
-    s32 mode = TLobby__sub_80351DFC();
+    s32 mode = get_filtered_event_theme__6TLobbyFv();
     arg0->flags &= ~7;
     if (arg0->mode != mode) {
         arg0->flags |= 1;
@@ -106,7 +106,7 @@ void *destroy_and_clear_instance__6TLobbyFPvs(void *arg0, s16 arg1) {
 u8 *TLobby__sub_80351FDC(u8 *arg0) {
     __ct__7TObjectFP7TObject(arg0, tl_00);
     M2C_FIELD(arg0, M2C_UNK **, 0x18) = &(*(RecoveredGlobal_80351FDC_lbl_804F0EA8 *)&lbl_804F0EA8).value;
-    M2C_FIELD(arg0, s32 *, 0x20) = TLobby__sub_80351DFC();
+    M2C_FIELD(arg0, s32 *, 0x20) = get_filtered_event_theme__6TLobbyFv();
     M2C_FIELD(arg0, s32 *, 0x1C) = 0;
     return arg0;
 }
@@ -119,8 +119,8 @@ void TLobby__sub_8035202C(void) {
     }
 }
 void load_obj_lobby_main(void) { lbl_805D6EC4 = load_gvm_texture_file(lbl_80478E20); }
-s32 fn_80352094(void) {
-    s32 r = TLobby__sub_80351DFC();
+s32 get_theme_lobby_type(void) {
+    s32 r = get_filtered_event_theme__6TLobbyFv();
     switch (r) {
     case 12:
         r = 0;

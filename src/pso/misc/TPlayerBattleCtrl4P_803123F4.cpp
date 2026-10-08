@@ -198,7 +198,7 @@ void *__dt__19TPlayerBattleCtrl4PFPvs(void *arg0, s16 arg1) {
 s32 get_player_by_client_id(s32);
 s32 get_char_index__23TAdSinglePlyChrSelectGCFUi(s32);
 M2C_UNK __ct__7TObjectFP7TObject(void *, void *);
-M2C_UNK TObjPlayer__sub_802C3D38(s32, s32);
+M2C_UNK export_character_data__10TObjPlayerFPvPv(s32, s32);
 M2C_UNK TPlayerBattleCtrl4P__sub_803102A4(void *);
 extern s32 lbl_805D4110;
 extern s32 lbl_805D5544;
@@ -222,7 +222,7 @@ void *TPlayerBattleCtrl4P__ct(void *arg0, void *parent) {
     for (i = 0; i < 4; i++) {
         s32 pl = get_player_by_client_id(i);
         if (pl != 0) {
-            TObjPlayer__sub_802C3D38(pl, get_char_index__23TAdSinglePlyChrSelectGCFUi(i));
+            export_character_data__10TObjPlayerFPvPv(pl, get_char_index__23TAdSinglePlyChrSelectGCFUi(i));
         }
     }
     TPlayerBattleCtrl4P__data_805D6AA8 = (s32)arg0;

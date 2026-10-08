@@ -1807,7 +1807,7 @@ void init_air_turn__12TBoss1DragonFv(void *, s32);
 void move_with_wall_stop__9TObjEneDDFPvfff(void *, f32, f32, f32);
 void rotate_vec_xz(void *, void *, s32);
 void TBoss1DragonEffBullet__ct(void *, void *, void *, void *);
-void TObjBoss1Rock__sub_8002E334(void *, s32, void *, void *);
+void construct_random__13TObjBoss1RockFPvPvPvPv(void *, s32, void *, void *);
 void prepare_flight_destination__12TBoss1DragonFPv(u8 *arg0);
 
 extern const f32 lbl_805D800C;
@@ -2290,7 +2290,7 @@ void set_field_d8__10TObjPlayerFPvi(void *, void *);
 s32 TLobby__sub_8002AFD4(void *, void *, s32);
 void *TBoss1DragonColli__ct(void *, void *);
 void *TBoss1DragonEffTail__ct(void *, void *, void *);
-void *TBoss8Dragon__sub_8002D41C(void *, s32, void *, void *);
+void *construct_trail__12TBoss8DragonFPvPvPvi(void *, s32, void *, void *);
 void init_single_player_chr_select__6TLobbyFPv(void *);
 void reset_coords__15TObjBoss2TunnelFPv(void *);
 void reset_coords_pass__15TObjBoss2TunnelFi(void *);
@@ -2344,7 +2344,7 @@ extern "C" void TObjPlayer__sub_80014840();
 extern "C" void TObjPlayer__sub_80014890();
 extern "C" void TObjPlayer__sub_80014894();
 extern "C" void TObjPlayer__sub_80014898();
-extern "C" void TObjPlayer__sub_80016C54();
+extern "C" void update_shock_clock__10TObjPlayerFPv();
 extern "C" void TObjPlayer__sub_800172CC();
 extern "C" void TObjPlayer__sub_80018E6C();
 extern "C" void TObjPlayer__sub_80019568();
@@ -2577,7 +2577,7 @@ void *lbl_80481280[107] = {
     (void *)&TBoss1Dragon__sub_80029678, (void *)&TObjPlayer__sub_8000FF3C, (void *)&is_target_in_attack_range__10TObjPlayerFv, (void *)&test_flag_256__10TObjPlayerFPv,
     (void *)&test_flag30_512__10TObjPlayerFPv, (void *)&has_flag_0x800__10TObjPlayerFPv, (void *)&test_flag_1000__10TObjPlayerFPv, (void *)&update_poison_status__10TObjPlayerFv,
     (void *)&update_action_hold_status__10TObjPlayerFv, (void *)&update_action_timer__10TObjPlayerFPv, (void *)&update_flag30_timer__10TObjPlayerFPv, (void *)&update_movement_status__10TObjPlayerFv,
-    (void *)&TObjPlayer__sub_80016C54, (void *)&update_attack_stat_status, (void *)&update_defense_stat_status, (void *)&TObjPlayer__sub_800172CC,
+    (void *)&update_shock_clock__10TObjPlayerFPv, (void *)&update_attack_stat_status, (void *)&update_defense_stat_status, (void *)&TObjPlayer__sub_800172CC,
     (void *)&TBoss1Dragon__sub_8002ADAC, (void *)&apply_paralysis__12TBoss1DragonFv, (void *)&TBoss1Dragon__sub_8002ADB4, (void *)&apply_confusion__12TBoss1DragonFv,
     (void *)&apply_freeze__12TBoss1DragonFv, (void *)&apply_shock__12TBoss1DragonFv, (void *)&TBoss1Dragon__sub_8002ADC4, (void *)&apply_attack_stat_status__10TObjPlayerFv,
     (void *)&apply_defense_stat_status__10TObjPlayerFv, (void *)&cure_poison_ailment, (void *)&cure_paralysis__10TObjPlayerFv, (void *)&clear_all_status_effects,
@@ -5017,7 +5017,7 @@ void update_dive_state__12TBoss1DragonFv(u8 *arg0, u32 arg1) {
             vel.z = cs * s;
             mem = __nw__7TObjectFUl(0x54);
             if (mem != 0) {
-                TObjBoss1Rock__sub_8002E334(mem, tl_05, &pos, &vel);
+                construct_random__13TObjBoss1RockFPvPvPvPv(mem, tl_05, &pos, &vel);
             }
             F(f32, 0x5DC) = F(f32, 0x5DC) + F(f32, 0x888);
             move_with_wall_stop__9TObjEneDDFPvfff(arg0, F(f32, 0x3A0), F(f32, 0x3A8), F(f32, 0x884));
@@ -7743,7 +7743,7 @@ u8 *TBoss1Dragon__ct(u8 *arg0, void *arg1, void *arg2) {
     }
     p = __nw__7TObjectFUl(0x40);
     if (p != 0) {
-        p = TBoss8Dragon__sub_8002D41C(p, tl_05, arg0 + 0x38, arg0 + 0x60);
+        p = construct_trail__12TBoss8DragonFPvPvPvi(p, tl_05, arg0 + 0x38, arg0 + 0x60);
     }
     F_29DE4(arg0, void *, 0x6D8) = p;
     F_29DE4(arg0, void *, 0x6DC) = 0;

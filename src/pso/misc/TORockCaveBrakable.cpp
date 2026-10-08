@@ -34,7 +34,7 @@ extern "C" {
 void VecCopy__FP3VecPC3Vec(void *, void *);
 s32 TObjFish__sub_8001EDB0(void *, int);
 s32 get_bml_model(void *, int);
-void TObjChip__sub_80180BD4(void *, s32, void *);
+void construct_debris__8TObjChipFPvPvPv(void *, s32, void *);
 void *__nw__7TObjectFUl(u32);
 void vec3_add_to(void *, void *);
 void rotate_vector_by_matrix(int, void *, void *);
@@ -115,7 +115,7 @@ void TORockCaveBrakable__sub_80174CFC(u8 *arg0) {
         M2C_FIELD(&init, s32 *, 0x44) = TObjFish__sub_8001EDB0(lbl_805D5A84, i);
         p = __nw__7TObjectFUl(0x234);
         if (p != NULL) {
-            TObjChip__sub_80180BD4(p, tl_05, &init);
+            construct_debris__8TObjChipFPvPvPv(p, tl_05, &init);
         }
     }
 }

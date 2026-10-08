@@ -98,7 +98,7 @@ M2C_UNK setup_blended_textured_draw();
 M2C_UNK load_context_texture_obj();
 void TLobby__sub_803E2EE4(s32 arg0);
 void TObjPlayer__sub_803E4354(void *);
-void TObjPlayer__sub_803E44D4(void *);
+s32 TObjPlayer__sub_803E44D4(void *);
 void draw_chunk_model(void *arg0);
 void GXSetNumTexGens(u8);
 M2C_UNK GXSetTevOp(int, int);
@@ -140,7 +140,7 @@ extern s32 lbl_805D77FC;
 extern s32 lbl_805D77F8;
 void TObjPlayer__sub_803E492C(s32 a, s32 b);
 void TObjPlayer__sub_803E4354(void *);
-void TObjPlayer__sub_803E44D4(void *);
+s32 TObjPlayer__sub_803E44D4(void *);
 void transform_chunk_object_tree(void *, void (*)(void *));
 void TObjPlayer__sub_803E4468(void);
 void draw_chunk_object(void *arg0);
@@ -203,6 +203,17 @@ void GXBegin(int, int, u16);
 void clear_move_state_bits__10TObjPlayerFv(void);
 extern s32 lbl_805D77F8;
 void draw_chunk_textured_strips(s16 *list, Vtx_803E352C *verts, u32 info, s32 large);
+struct ChunkModel_803E44D4 { u32 *vertices; u16 *polygons; };
+struct ChunkBuffer_803E44D4 { void *vertices; s32 bytes; };
+struct ChunkRecording_803E44D4 { ChunkBuffer_803E44D4 buffers[32]; s32 index; };
+void OSReport(const char*, ...);
+void* memmove(void*, const void*, unsigned long);
+void* xmalloc__FUl(unsigned long);
+s32 dispatch_chunk_vertex_list(u32*, s32);
+void dispatch_chunk_polygon_list(u16*, s32);
+extern const char lbl_804FC810[];
+extern u32 lbl_805D77E4;
+extern ChunkRecording_803E44D4* lbl_805D77E8;
 }
 
 extern "C" {
@@ -681,6 +692,43 @@ void TObjPlayer__sub_803E4468(void) {
 }
 #pragma pop
 
+s32 TObjPlayer__sub_803E44D4(void* arg) {
+    ChunkModel_803E44D4* model = (ChunkModel_803E44D4*)arg;
+    s32 cache;
+    s32 count = 0;
+    if ((u32)lbl_805D77F8 & 4) return 0;
+    lbl_805D77E0 = 0;
+    cache = lbl_805D7800;
+    if (lbl_805D77E4 & 4) {
+        if (lbl_805D77E8->buffers[lbl_805D77E8->index].bytes != 0) {
+            memmove((void*)lbl_805D7800, lbl_805D77E8->buffers[lbl_805D77E8->index].vertices, lbl_805D77E8->buffers[lbl_805D77E8->index].bytes);
+        }
+        lbl_805D77E8->index++;
+    } else if (model->vertices != 0) {
+        count = dispatch_chunk_vertex_list(model->vertices, lbl_805D7800);
+    }
+    if (lbl_805D77E4 & 1) {
+        if (lbl_805D77E8) {
+            if (lbl_805D77E8->buffers[lbl_805D77E8->index].vertices == 0) {
+                if (count) {
+                    lbl_805D77E8->buffers[lbl_805D77E8->index].vertices = xmalloc__FUl(count << 5);
+                    lbl_805D77E8->buffers[lbl_805D77E8->index].bytes = count << 5;
+                }
+            } else {
+                OSReport(lbl_804FC810);
+            }
+            lbl_805D77E8->index++;
+        }
+    } else {
+        if (lbl_805D77E4 & 2) {
+            if (count) memmove(lbl_805D77E8->buffers[lbl_805D77E8->index].vertices, (void*)lbl_805D7800, count << 5);
+            lbl_805D77E8->index++;
+        }
+        if (model->polygons) dispatch_chunk_polygon_list(model->polygons, cache);
+        return 0;
+    }
+}
+
 void draw_chunk_model(void *arg0) {
     TObjPlayer__sub_803E4354(arg0);
     TObjPlayer__sub_803E44D4(arg0);
@@ -691,7 +739,7 @@ void draw_chunk_model(void *arg0) {
 #pragma scheduling off
 void draw_chunk_object(void *arg0) {
     TObjPlayer__sub_803E4354(arg0);
-    transform_chunk_object_tree(arg0, TObjPlayer__sub_803E44D4);
+    transform_chunk_object_tree(arg0, (void (*)(void *))TObjPlayer__sub_803E44D4);
     TObjPlayer__sub_803E4468();
 }
 #pragma pop

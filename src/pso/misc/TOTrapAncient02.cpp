@@ -176,7 +176,7 @@ void create_ex__8TTecFoieFPvPvPvPv(void *, void *, void *, s32);
 void create_ex__11TTecGiBartaFPvPvPvPv(void *, void *, s32, s32);
 void create__10TTecGiFoieFPvPvPv(void *, void *, s32);
 void create__9TTecMegidFiiii(void *, void *, void *, s32);
-void TTecZonde__sub_8023DA10(void *, s32, void *, void *, s32, s32, f32, f32);
+void construct_bolt_effect__9TTecZondeFPvPvPvPviiff(void *, s32, void *, void *, s32, s32, f32, f32);
 void rotate_vector_by_matrix(int, void *, void *);
 M2C_UNK rotate_matrix_y(int, int);
 void subtract_vector(void *, void *);
@@ -196,6 +196,11 @@ extern const f32 lbl_805DBA90;
 extern const f32 lbl_805DBA94;
 extern const f32 lbl_805DBA98;
 void TOTrapAncient02R__vt79(Obj_8017A3C0 *o);
+void set_indexed_flags(void *, s32, s32);
+void submit_cursor_candidate(void *, s32);
+extern const f32 lbl_805DBA78;
+extern const f32 lbl_805DBA80;
+void TOTrapAncient02R__vt80(void *arg0);
 }
 
 extern "C" {
@@ -529,6 +534,46 @@ void calc_trap_count__16TOTrapAncient02RFPv(void *arg0) {
 extern int fold_flush_0;
 #pragma pop
 
+void TOTrapAncient02R__vt80(void *arg0) {
+    f32 temp_f1;
+    f32 temp_f1_2;
+    s16 temp_r0;
+    set_indexed_flags(arg0, 0, 1);
+    submit_cursor_candidate(arg0, -1);
+    temp_r0 = M2C_FIELD(arg0, s16 *, 0x328);
+    switch (temp_r0) {
+    case 0:
+    case 1:
+        M2C_FIELD(arg0, s16 *, 0x328) = 2;
+    case 2:
+        M2C_FIELD(arg0, s32 *, 0x354) = (s32) (M2C_FIELD(arg0, s32 *, 0x354) - 1);
+        if ((s32) M2C_FIELD(arg0, s32 *, 0x354) < 0) {
+            M2C_FIELD(arg0, s16 *, 0x328) = 3;
+            M2C_FIELD(arg0, s32 *, 0x354) = (s32) M2C_FIELD(arg0, s32 *, 0x350);
+        }
+        break;
+    case 3:
+        if (lbl_805DBA80 < M2C_FIELD(arg0, f32 *, 0x348)) {
+            M2C_FIELD(arg0, f32 *, 0x348) -= lbl_805DBA78;
+            return;
+        }
+        M2C_FIELD(arg0, s16 *, 0x328) = 4;
+        M2C_FIELD(arg0, f32 *, 0x348) = (f32) lbl_805DBA80;
+        return;
+    case 4:
+        if (lbl_805DBA80 < M2C_FIELD(arg0, f32 *, 0x344)) {
+            M2C_FIELD(arg0, f32 *, 0x344) -= lbl_805DBA78;
+            return;
+        }
+        M2C_FIELD(arg0, s16 *, 0x326) = 0;
+        M2C_FIELD(arg0, s16 *, 0x328) = 0;
+        M2C_FIELD(arg0, f32 *, 0x344) = (f32) lbl_805DBA80;
+        M2C_FIELD(arg0, u16 *, 0x33C) = 0xFFFF;
+        M2C_FIELD(arg0, s32 *, 0x2A8) = 0;
+        break;
+    }
+}
+
 #pragma push
 #pragma fp_contract on
 void TOTrapAncient02R__vt79(Obj_8017A3C0 *o) {
@@ -588,7 +633,7 @@ void TOTrapAncient02R__vt79(Obj_8017A3C0 *o) {
                         {
                             void *t = __nw__7TObjectFUl(0x260);
                             if (t != NULL) {
-                                TTecZonde__sub_8023DA10(t, tl_07, lbl_8050BEE0, lbl_8050BF00, 0x14000000, 0x14, o->range, lbl_805DBA98);
+                                construct_bolt_effect__9TTecZondeFPvPvPvPviiff(t, tl_07, lbl_8050BEE0, lbl_8050BF00, 0x14000000, 0x14, o->range, lbl_805DBA98);
                             }
                         }
                         play_sound_effect(0x4002A408, lbl_8050BEE0, 0, 0);

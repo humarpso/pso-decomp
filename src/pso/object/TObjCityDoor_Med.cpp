@@ -708,7 +708,7 @@ s32 TLobby__sub_80182E60(void);
 void fn_80182E7C(void* a0);
 M2C_UNK reset_photon_effect__10TObjPlayerFPv(void *);
 M2C_UNK init_collision_body_parts(void *, void *, int, int);
-M2C_UNK TObjPlayer__sub_801569F4();
+M2C_UNK construct_collider_proxy__10TObjPlayerFPv();
 extern RecoveredGlobal_80182D8C_lbl_80443F20 lbl_80443F20;
 extern M2C_UNK lbl_804B5BA8[];
 u8 *init_city_door(u8 *arg0, M2C_UNK arg1, s32 arg2, u8 *arg3);
@@ -877,7 +877,7 @@ u8 *init_city_door(u8 *arg0, M2C_UNK arg1, s32 arg2, u8 *arg3) {
     CopyStack_80182D8C copy_storage_80182D8C;
     u8 *temp_r4;
     u8 *temp_r6;
-    TObjPlayer__sub_801569F4();
+    construct_collider_proxy__10TObjPlayerFPv();
     M2C_FIELD(arg0, M2C_UNK **, 0x18) = &(*(RecoveredGlobal_80182D8C_lbl_804B5BA8 *)&lbl_804B5BA8).value;
     ((VObj_18_1a504b *)(arg0))->m5(arg2);
     M2C_FIELD(arg0, s32 *, 0xAC) = 0;

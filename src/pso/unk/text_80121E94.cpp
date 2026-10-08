@@ -1,6 +1,6 @@
 #include "types.h"
 extern "C" {
-u32 TObjPlayer__sub_8011BA54();
+u32 create_shoot_model__10TObjPlayerFUiiif();
 long TObjPlayer__sub_80121E94(u8 *arg0);
 }
 
@@ -9,7 +9,7 @@ extern "C" {
 long TObjPlayer__sub_80121E94(u8 *arg0) {
   s32 temp_r4;
   u8 *temp_r6;
-  if (TObjPlayer__sub_8011BA54() != 0U)
+  if (create_shoot_model__10TObjPlayerFUiiif() != 0U)
   {
     temp_r6 = (unsigned char *) (*((void **) (((s8 *) arg0) + 0x188)));
     if (temp_r6 != 0)

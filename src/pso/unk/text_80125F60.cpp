@@ -27,7 +27,7 @@ void set_status_flags__10TObjPlayerFPvUi(void *, s32);
 extern RecoveredGlobal_80125FD8_lbl_804A2868 lbl_804A2868;
 extern const f32 lbl_805DAD68;
 u8 *TObjPlayer__sub_80125FD8(u8 *arg0, u8 *arg1, s32 _w2);
-void fn_80108F8C();
+void spawn_flame_effect();
 void TObjPlayer__sub_80125FB8(Obj_80125FB8 *self, Out_80125FB8 *o);
 }
 
@@ -51,7 +51,7 @@ typedef char RecoveredGlobal_80125FD8_lbl_804A2868_size[sizeof(RecoveredGlobal_8
 
 void TObjPlayer__sub_80125FB8(Obj_80125FB8 *self, Out_80125FB8 *o) {
     o->f78 = 0x1bb;
-    o->f74 = (void *)fn_80108F8C;
+    o->f74 = (void *)spawn_flame_effect;
     o->f10 = self->a;
 }
 

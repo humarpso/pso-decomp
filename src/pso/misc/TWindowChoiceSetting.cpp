@@ -22,7 +22,7 @@ extern "C" {
 s32 set_text__20TWindowSubStatusDispFPvUiii(s32, s32, s32, s32);
 s32 set_text__20TWindowSubStatusDispFPvUii(s32, s32, s32);
 u32 alloc__23TAdSinglePlyChrSelectGCFPv(s32);
-u32 TWindowSubStatusDisp__sub_802880BC(u32, s32, s16);
+u32 construct_type1_heading__20TWindowSubStatusDispFPvii(u32, s32, s16);
 s32 set_entry_state__20TWindowSubStatusDispFPvc(s32 a0 = 0, s32 a1 = 0);
 s32 TWindowSubComCard__sub_8026906C(void);
 void move_next_choice__20TWindowChoiceSettingFPv(void *arg0);
@@ -106,7 +106,7 @@ void create_sub_window__20TWindowChoiceSettingFPvi(void *arg0, s32 arg1) {
     if ((u32) M2C_FIELD(arg0, u32 *, 0x78) == 0U) {
         var_r0 = alloc__23TAdSinglePlyChrSelectGCFPv(0x24);
         if (var_r0 != 0U) {
-            var_r0 = TWindowSubStatusDisp__sub_802880BC(var_r0, arg1, M2C_FIELD(arg0, s16 *, 0x20));
+            var_r0 = construct_type1_heading__20TWindowSubStatusDispFPvii(var_r0, arg1, M2C_FIELD(arg0, s16 *, 0x20));
         }
         M2C_FIELD(arg0, u32 *, 0x78) = var_r0;
         M2C_FIELD(arg0, s32 *, 0x2C) = (s32) (M2C_FIELD(arg0, s32 *, 0x2C) | 0x40);

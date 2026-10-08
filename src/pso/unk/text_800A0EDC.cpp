@@ -332,7 +332,7 @@ M2C_UNK free_collision_body_parts(void *);
 M2C_UNK init_collision_body_parts(void *, void *, int);
 s32 project_actor_to_ground(void *, void *, int);
 M2C_UNK destroy_particle_controller__10TObjPlayerFPvs(void *, M2C_UNK);
-M2C_UNK TObjPlayer__sub_801569F4(void *, void *);
+M2C_UNK construct_collider_proxy__10TObjPlayerFPv(void *, void *);
 M2C_UNK submit_cursor_candidate(void *, M2C_UNK);
 void free_if_valid__10TObjPlayerFi(void*);
 M2C_UNK minimap_render_dot(void *, M2C_UNK, M2C_UNK, M2C_UNK);
@@ -405,10 +405,10 @@ extern "C" {
 void TObjPlayer__sub_80014838();
 }
 extern "C" {
-void TObjPlayer__sub_80015884();
+void apply_slow_status__10TObjPlayerFPv();
 }
 extern "C" {
-void TObjPlayer__sub_80016C54();
+void update_shock_clock__10TObjPlayerFPv();
 }
 extern "C" {
 void TObjPlayer__sub_800172CC();
@@ -713,8 +713,8 @@ void *lbl_804907EC[83] = {
     (void *)&TObjPlayer__sub_800A31F4, (void *)&TObjPlayer__sub_8000FF3C, (void *)&is_target_in_attack_range__10TObjPlayerFv, (void *)&test_flag_256__10TObjPlayerFPv,
     (void *)&test_flag30_512__10TObjPlayerFPv, (void *)&has_flag_0x800__10TObjPlayerFPv, (void *)&test_flag_1000__10TObjPlayerFPv, (void *)&update_poison_status__10TObjPlayerFv,
     (void *)&TObjPlayer__sub_800A1058, (void *)&update_action_timer__10TObjPlayerFPv, (void *)&update_flag30_timer__10TObjPlayerFPv, (void *)&TObjPlayer__sub_800A1010,
-    (void *)&TObjPlayer__sub_80016C54, (void *)&update_attack_stat_status, (void *)&update_defense_stat_status, (void *)&TObjPlayer__sub_800172CC,
-    (void *)&apply_poison_status__10TObjPlayerFv, (void *)&apply_paralysis__10TObjPlayerFv, (void *)&TObjPlayer__sub_80015884, (void *)&apply_confusion_status__10TObjPlayerFv,
+    (void *)&update_shock_clock__10TObjPlayerFPv, (void *)&update_attack_stat_status, (void *)&update_defense_stat_status, (void *)&TObjPlayer__sub_800172CC,
+    (void *)&apply_poison_status__10TObjPlayerFv, (void *)&apply_paralysis__10TObjPlayerFv, (void *)&apply_slow_status__10TObjPlayerFPv, (void *)&apply_confusion_status__10TObjPlayerFv,
     (void *)&apply_movement_ailment__10TObjPlayerFv, (void *)&apply_shock_status__10TObjPlayerFv, (void *)&clear_harmful_statuses__10TObjPlayerFv, (void *)&apply_attack_stat_status__10TObjPlayerFv,
     (void *)&apply_defense_stat_status__10TObjPlayerFv, (void *)&cure_poison_ailment, (void *)&cure_paralysis__10TObjPlayerFv, (void *)&clear_all_status_effects,
     (void *)&apply_action_hold_status, (void *)&apply_anti_technique__10TObjPlayerFv, (void *)&TObjPlayer__sub_800A31F8, (void *)&TObjPlayer__sub_800A31FC,
@@ -1353,7 +1353,7 @@ void *TObjPlayer__sub_800A3478(void *arg0, s16 arg1) {
 u8 *TObjPlayer__sub_800A34E8(u8 *arg0, u8 *arg1, s32 arg2, s32 arg3) {
     s32 var_r0;
     u8 *temp_r3;
-    TObjPlayer__sub_801569F4(arg0, tl_04);
+    construct_collider_proxy__10TObjPlayerFPv(arg0, tl_04);
     M2C_FIELD(arg0, M2C_UNK **, 0x18) = lbl_804909C4;
     init_collision_body_parts((void *) (arg0), (void *) (lbl_80490998), (int) (1));
     M2C_FIELD(M2C_FIELD(arg0, u8 **, 0xA4), f32 *, 0xC) = lbl_805D99D4 * lbl_805D5008;

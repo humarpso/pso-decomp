@@ -41,7 +41,7 @@ extern "C" {
 M2C_UNK VecCopy__FP3VecPC3Vec(void *, void *);
 M2C_UNK TObjTombstone__sub_80075D68(void *);
 void setup__13TObjTombstoneFPvii(u8 *arg0, s32 arg1, s32 arg2);
-M2C_UNK TObjPlayer__sub_801569F4();
+M2C_UNK construct_collider_proxy__10TObjPlayerFPv();
 extern RecoveredGlobal_8007643C___vt__13TObjTombstone __vt__13TObjTombstone;
 extern s32 lbl_805D289C;
 extern s32 TObjTombstone__data_805D4E48;
@@ -100,7 +100,7 @@ u8 *TObjTombstone__ct(u8 *arg0, M2C_UNK arg1, s32 arg2, u8 *arg3) {
     typedef char spA_offset[(offsetof(Stack_8007643C, spA) == 0x2) ? 1 : -1];
     typedef char sp18_offset[(offsetof(Stack_8007643C, sp18) == 0x10) ? 1 : -1];
     Stack_8007643C stack;
-    TObjPlayer__sub_801569F4();
+    construct_collider_proxy__10TObjPlayerFPv();
     M2C_FIELD(arg0, M2C_UNK **, 0x18) = &__vt__13TObjTombstone.value;
     M2C_FIELD(arg0, s32 *, 0) = (s32) lbl_805D289C;
     if ((u32) (*(u32 *)&TObjTombstone__data_805D4E48) == 0U) {

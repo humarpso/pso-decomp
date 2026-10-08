@@ -33,7 +33,7 @@ u8 * get_window_layout_position(s32);
 M2C_UNK fn_802683F4(void *, int, void *, void *);
 M2C_UNK TWindowShop__ct(void *, void *);
 extern M2C_UNK lbl_804D0948[];
-u8 *TWindowSubStatusDisp__sub_8026E168(u8 *arg0, s32 arg1, s32 arg2, s16 arg3);
+u8 *construct_item_list__20TWindowSubStatusDispFPviis(u8 *arg0, s32 arg1, s32 arg2, s16 arg3);
 }
 
 extern "C" {
@@ -93,7 +93,7 @@ u8 *TWindowSubStatusDisp__sub_8026E110(u8 *arg0, s32 arg1, s32 arg2, s32 arg3, s
     return arg0;
 }
 typedef char RecoveredGlobal_8026E168_lbl_804D0948_size[sizeof(RecoveredGlobal_8026E168_lbl_804D0948) == 0x20 ? 1 : -1];
-u8 *TWindowSubStatusDisp__sub_8026E168(u8 *arg0, s32 arg1, s32 arg2, s16 arg3) {
+u8 *construct_item_list__20TWindowSubStatusDispFPviis(u8 *arg0, s32 arg1, s32 arg2, s16 arg3) {
     fn_802683F4((void *) (arg0), (int) (get_window_layout_position(0x26)), (void *) (arg2), (void *) (arg3));
     M2C_FIELD(arg0, M2C_UNK **, 0x18) = &(*(RecoveredGlobal_8026E168_lbl_804D0948 *)&lbl_804D0948).value;
     TWindowShop__ct((void *) (arg0), (void *) (arg1));

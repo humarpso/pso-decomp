@@ -46,7 +46,7 @@ extern "C" {
 f32 get_random_float__8TObjFishFv(f32);
 f32 get_ad_end_text_start__10TObjPlayerFv(f32, f32);
 void init_collision_body_parts(void *, void *, int);
-void *TObjPlayer__sub_801569F4(void *, void *);
+void *construct_collider_proxy__10TObjPlayerFPv(void *, void *);
 void *__nw__7TObjectFUl(u32);
 void __ct__7TObjectFP7TObject(void *, void *);
 f32 vector_length(Vec_802A47C8 *);
@@ -131,7 +131,7 @@ TNeedleShoot_802A47C8 *TNeedleShoot__ct(TNeedleShoot_802A47C8 *self, s32 arg1, V
     self->f54 = 0x40007;
     p = __nw__7TObjectFUl(0xAC);
     if (p != NULL) {
-        p = TObjPlayer__sub_801569F4(p, self);
+        p = construct_collider_proxy__10TObjPlayerFPv(p, self);
     }
     self->f68 = p;
     if (self->f68 != NULL) {

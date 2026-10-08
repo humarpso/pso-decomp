@@ -553,7 +553,7 @@ s32 create__12TObjEneSaverFPvPv(s32, s32);
 M2C_UNK TBoss3Volopt__sub_800D8C48(void *);
 void TBoss4Type3__sub_800D9994(void *, s32, u8 *, s32 *, V3_800959F8 *);
 void __dt__11TBoss4Type3FPvs(void*, int);
-void * TBoss4Type3__sub_800D9ABC(void *arg0, s32 segs, f32 start, f32 end, f32 step);
+void * init_trail_buffer__11TBoss4Type3FPvifff(void *arg0, s32 segs, f32 start, f32 end, f32 step);
 void destroy_buffer_pair(void*, int);
 void * alloc_tables__6TLobbyFPvii(void *, s32, s32);
 s32 copy_target_state__14TObjEnePanarmsFPvPv(void *, int);
@@ -673,8 +673,8 @@ extern "C" void TObjPlayer__sub_80014840();
 extern "C" void TObjPlayer__sub_80014890();
 extern "C" void TObjPlayer__sub_80014894();
 extern "C" void TObjPlayer__sub_80014898();
-extern "C" void TObjPlayer__sub_80015884();
-extern "C" void TObjPlayer__sub_80016C54();
+extern "C" void apply_slow_status__10TObjPlayerFPv();
+extern "C" void update_shock_clock__10TObjPlayerFPv();
 extern "C" void TObjPlayer__sub_800172CC();
 extern "C" void TObjPlayer__sub_80018E6C();
 extern "C" void TObjPlayer__sub_80019568();
@@ -790,8 +790,8 @@ void *__vt__16TObjEneRe7Berura[107] = {
     (void *)&TObjEneRe7Berura__vt26, (void *)&TObjPlayer__sub_8000FF3C, (void *)&is_target_in_attack_range__10TObjPlayerFv, (void *)&test_flag_256__10TObjPlayerFPv,
     (void *)&test_flag30_512__10TObjPlayerFPv, (void *)&has_flag_0x800__10TObjPlayerFPv, (void *)&test_flag_1000__10TObjPlayerFPv, (void *)&update_poison_status__10TObjPlayerFv,
     (void *)&update_action_hold_status__10TObjPlayerFv, (void *)&update_action_timer__10TObjPlayerFPv, (void *)&update_flag30_timer__10TObjPlayerFPv, (void *)&update_movement_status__10TObjPlayerFv,
-    (void *)&TObjPlayer__sub_80016C54, (void *)&update_attack_stat_status, (void *)&update_defense_stat_status, (void *)&TObjPlayer__sub_800172CC,
-    (void *)&apply_poison_status__10TObjPlayerFv, (void *)&apply_paralysis__10TObjPlayerFv, (void *)&TObjPlayer__sub_80015884, (void *)&apply_confusion_status__10TObjPlayerFv,
+    (void *)&update_shock_clock__10TObjPlayerFPv, (void *)&update_attack_stat_status, (void *)&update_defense_stat_status, (void *)&TObjPlayer__sub_800172CC,
+    (void *)&apply_poison_status__10TObjPlayerFv, (void *)&apply_paralysis__10TObjPlayerFv, (void *)&apply_slow_status__10TObjPlayerFPv, (void *)&apply_confusion_status__10TObjPlayerFv,
     (void *)&apply_movement_ailment__10TObjPlayerFv, (void *)&apply_shock_status__10TObjPlayerFv, (void *)&clear_harmful_statuses__10TObjPlayerFv, (void *)&apply_attack_stat_status__10TObjPlayerFv,
     (void *)&apply_defense_stat_status__10TObjPlayerFv, (void *)&cure_poison_ailment, (void *)&cure_paralysis__10TObjPlayerFv, (void *)&clear_all_status_effects,
     (void *)&apply_action_hold_status, (void *)&apply_anti_technique__10TObjPlayerFv, (void *)&TObjPlayer__sub_80014898, (void *)&TObjPlayer__sub_80014894,
@@ -1388,7 +1388,7 @@ void TObjEneRe7Berura__sub_800959F8(void) {
     lbl_805D4F8C = (u32)p;
     p = alloc__23TAdSinglePlyChrSelectGCFPv(0x18);
     if (p != NULL) {
-        p = TBoss4Type3__sub_800D9ABC(p, 4, lbl_805D9780, lbl_805D9784, TObjEneRe7Berura__data_805D9738);
+        p = init_trail_buffer__11TBoss4Type3FPvifff(p, 4, lbl_805D9780, lbl_805D9784, TObjEneRe7Berura__data_805D9738);
     }
     lbl_805D4FA0 = (u32)p;
     pair[0] = 0x2E;

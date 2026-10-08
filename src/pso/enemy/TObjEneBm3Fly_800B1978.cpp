@@ -1461,7 +1461,7 @@ s32 check_demo_mode__10TObjPlayerFv();
 M2C_UNK spawn_particle_effect(void *, int);
 u8 * create_particle_emitter(void *, s32);
 s32 enable__13TParticleCtrlFPv(int);
-s32 TBreakUpMdl__sub_8009705C(int, void *);
+s32 init_from_model__11TBreakUpMdlFPvi(int, void *);
 s32 handle_message__13TObjEneBm3FlyFPvi(void *, void *);
 s32 state_death_fall__13TObjEneBm3FlyFPvi(void *, void *);
 s32 action__13TObjEneBm3FlyFPvi(void *, void *);
@@ -1531,7 +1531,7 @@ void * create__17TObjEneBm3FlyNestFPv(void *arg0);
 void load_resources__17TObjEneBm3FlyNestFv(void);
 void render_parts__17TObjEneBm3FlyNestFPv(u8 *arg0);
 void * TObjEneBm3FlyNest__sub_800B4630(void *arg0, s16 arg1);
-u8 * TObjEneBm3FlyNest__sub_800B4688(u8 *self, void *parent, s32 a, s32 b, s32 unused, s32 c, s32 d);
+u8 * construct_carrier__17TObjEneBm3FlyNestFPvPviiiii(u8 *self, void *parent, s32 a, s32 b, s32 unused, s32 c, s32 d);
 u32 TObjEneEpsilon__sub_800B92F8(void *, void *, f32);
 s32 enemy_copy_target_destination();
 void __dt__9TObjEneDDFv(void *, int);
@@ -1634,8 +1634,8 @@ void TObjPlayer__sub_80014840();
 void TObjPlayer__sub_80014890();
 void TObjPlayer__sub_80014894();
 void TObjPlayer__sub_80014898();
-void TObjPlayer__sub_80015884();
-void TObjPlayer__sub_80016C54();
+void apply_slow_status__10TObjPlayerFPv();
+void update_shock_clock__10TObjPlayerFPv();
 void TObjPlayer__sub_800172CC();
 void TObjPlayer__sub_80018E6C();
 void TObjPlayer__sub_80019568();
@@ -1835,8 +1835,8 @@ void *__vt__13TObjEneBm3Fly[107] = {
     (void *)&TObjEneBm3Fly__vt26, (void *)&TObjPlayer__sub_8000FF3C, (void *)&is_target_in_attack_range__10TObjPlayerFv, (void *)&test_flag_256__10TObjPlayerFPv,
     (void *)&test_flag30_512__10TObjPlayerFPv, (void *)&has_flag_0x800__10TObjPlayerFPv, (void *)&test_flag_1000__10TObjPlayerFPv, (void *)&update_poison_status__10TObjPlayerFv,
     (void *)&update_action_hold_status__10TObjPlayerFv, (void *)&update_action_timer__10TObjPlayerFPv, (void *)&update_flag30_timer__10TObjPlayerFPv, (void *)&update_movement_status__10TObjPlayerFv,
-    (void *)&TObjPlayer__sub_80016C54, (void *)&update_attack_stat_status, (void *)&update_defense_stat_status, (void *)&TObjPlayer__sub_800172CC,
-    (void *)&apply_poison_status__10TObjPlayerFv, (void *)&apply_paralysis__10TObjPlayerFv, (void *)&TObjPlayer__sub_80015884, (void *)&apply_confusion_status__10TObjPlayerFv,
+    (void *)&update_shock_clock__10TObjPlayerFPv, (void *)&update_attack_stat_status, (void *)&update_defense_stat_status, (void *)&TObjPlayer__sub_800172CC,
+    (void *)&apply_poison_status__10TObjPlayerFv, (void *)&apply_paralysis__10TObjPlayerFv, (void *)&apply_slow_status__10TObjPlayerFPv, (void *)&apply_confusion_status__10TObjPlayerFv,
     (void *)&apply_movement_ailment__10TObjPlayerFv, (void *)&apply_shock_status__10TObjPlayerFv, (void *)&clear_harmful_statuses__10TObjPlayerFv, (void *)&apply_attack_stat_status__10TObjPlayerFv,
     (void *)&apply_defense_stat_status__10TObjPlayerFv, (void *)&cure_poison_ailment, (void *)&cure_paralysis__10TObjPlayerFv, (void *)&clear_all_status_effects,
     (void *)&apply_action_hold_status, (void *)&apply_anti_technique__10TObjPlayerFv, (void *)&TObjPlayer__sub_80014898, (void *)&TObjPlayer__sub_80014894,
@@ -2218,7 +2218,7 @@ void load_resources__13TObjEneBm3FlyFv(void) {
     temp_r3 = alloc__23TAdSinglePlyChrSelectGCFPv((int) (0x10));
     var_r0 = temp_r3;
     if (var_r0 != 0) {
-        var_r0 = TBreakUpMdl__sub_8009705C((int) (temp_r3), (void *) (M2C_FIELD(M2C_FIELD(lbl_805D50F0, u8 **, 0x42C), s32 *, 8)));
+        var_r0 = init_from_model__11TBreakUpMdlFPvi((int) (temp_r3), (void *) (M2C_FIELD(M2C_FIELD(lbl_805D50F0, u8 **, 0x42C), s32 *, 8)));
     }
     (*(s32 *)&TObjEneBm3Fly__data_805D50F4) = var_r0;
     lbl_805D50E0 = register_boss__6TLobbyFPv((int) (0));

@@ -31,7 +31,7 @@ s32 draw_model_motion(int, int, f32);
 extern const f32 lbl_805DB2E8;
 extern const f32 lbl_805DB2EC;
 void render__5TOKeyFv(u8 *arg0);
-int TObjPlayer__sub_801569F4(void);
+int construct_collider_proxy__10TObjPlayerFPv(void);
 extern M2C_UNK lbl_804AFBF8[];
 extern const f32 lbl_805DB2EC;
     extern const float lbl_805DB2F0;
@@ -86,7 +86,7 @@ void *destroy_key_base__5TOKeyFPvs(void *arg0, s16 arg1) {
     }
     return arg0;
 }
-void* init_map_object_base(void* a0) { TObjPlayer__sub_801569F4(); *(int*)((char*)a0 + 0x18) = (int)((unsigned char *)&lbl_804AFBF8); *(int*)((char*)a0 + 0xac) = 0; *(float*)((char*)a0 + 0xb0) = lbl_805DB2F0; *(float*)((char*)a0 + 0xb4) = lbl_805DB2F0; *(float*)((char*)a0 + 0xb8) = lbl_805DB2F4; *(int*)((char*)a0 + 0xbc) = 0; *(int*)((char*)a0 + 0x30) = (*(int*)((char*)a0 + 0x30) | 0x40000000); *(float*)((char*)a0 + 0xc0) = lbl_805DB2F8; *(float*)((char*)a0 + 0xc4) = (*(const float *)&lbl_805DB2EC); return a0; }
+void* init_map_object_base(void* a0) { construct_collider_proxy__10TObjPlayerFPv(); *(int*)((char*)a0 + 0x18) = (int)((unsigned char *)&lbl_804AFBF8); *(int*)((char*)a0 + 0xac) = 0; *(float*)((char*)a0 + 0xb0) = lbl_805DB2F0; *(float*)((char*)a0 + 0xb4) = lbl_805DB2F0; *(float*)((char*)a0 + 0xb8) = lbl_805DB2F4; *(int*)((char*)a0 + 0xbc) = 0; *(int*)((char*)a0 + 0x30) = (*(int*)((char*)a0 + 0x30) | 0x40000000); *(float*)((char*)a0 + 0xc0) = lbl_805DB2F8; *(float*)((char*)a0 + 0xc4) = (*(const float *)&lbl_805DB2EC); return a0; }
 void TORainbowCave01__sub_80158604(void) {  }
 
 }

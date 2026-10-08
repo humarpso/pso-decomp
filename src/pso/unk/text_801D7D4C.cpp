@@ -27,7 +27,7 @@ s32 is_flag_clear__17TObjWarpBossMultiFPv(void *);
 s32 is_technique_ready__8TTecCtrlFv();
 s32 TObjPlayer__sub_801C1F50(void *);
 
-void TObjPlayer__sub_801D7D4C(Obj_801D7D4C *arg0);
+void init_action_config__10TObjPlayerFPv(Obj_801D7D4C *arg0);
 u32 get_item_field_6__10TObjPlayerFPv(void *);
 s32 weapon_has_extra_attack(u32);
 s32 check_flag_100__10TObjPlayerFPv(void *);
@@ -47,7 +47,7 @@ bool can_use_palette_action__10TObjPlayerFPvUcUc(TObjPlayer_801D8044 *self, u8 k
 
 extern "C" {
 
-void TObjPlayer__sub_801D7D4C(Obj_801D7D4C *arg0) {
+void init_action_config__10TObjPlayerFPv(Obj_801D7D4C *arg0) {
     s32 i;
     i = 0;
     arg0->n = 0;

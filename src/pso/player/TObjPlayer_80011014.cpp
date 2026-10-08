@@ -302,12 +302,12 @@ void TObjPlayer__sub_800101B0(s32 arg0, s32 arg1);
 void TObjPlayer__sub_800192B4(void* a0, int a1);
 s16 get_s16_2c4__10TObjPlayerFPv(void* p);
 s16 test_immunity_flags__10TObjPlayerFPvi(u8 *arg0, s32 arg1);
-void TObjPlayer__sub_80015884(void *arg0);
-void TObjPlayer__sub_800100A0(s32 arg0, s32 arg1);
+void apply_slow_status__10TObjPlayerFPv(void *arg0);
+void play_shock_feedback__10TObjPlayerFii(s32 arg0, s32 arg1);
 void TObjPlayer__sub_800192B4(void* a0, int a1);
 s16 get_s16_2c4__10TObjPlayerFPv(void* p);
 void reset_status_effect_row(u8 *arg0);
-s32 TObjPlayer__sub_80016C54(u8 *arg0);
+s32 update_shock_clock__10TObjPlayerFPv(u8 *arg0);
 void TObjPlayer__sub_800192B4(void* a0, int a1);
 s16 get_s16_2c4__10TObjPlayerFPv(void* p);
 void reset_status_effect_row(u8 *arg0);
@@ -352,7 +352,7 @@ u8 obj_is_hit_receivable(u8 *arg0);
 int get_player_data__10TObjPlayerFi(int a0);
 extern s32 lbl_805D586C;
 extern s32 lbl_805D5870;
-u16 TObjPlayer__sub_800114D8(s32 arg0, Vec_800114D8 *arg1, f32 farg0);
+u16 find_nearest_hittable_enemy__10TObjPlayerFiPvf(s32 arg0, Vec_800114D8 *arg1, f32 farg0);
 s32 check_heavy_damage_flag(void *arg0, f32 farg0);
 s32 is_local_player__10TObjPlayerFi(s32 arg0);
 void activate_switch_attacks__10TObjPlayerFii(s32 arg0, s32 arg1);
@@ -409,7 +409,7 @@ void TObjMotion__ct(void *, void *);
 void __construct_array(void *, void *, void *, u32, u32);
 void* init_192dc_return_self__10TObjPlayerFPv(void* p);
 extern void *lbl_804806E8[];
-Obj_80019038 *TObjPlayer__sub_80019038(Obj_80019038 *self, void *parent);
+Obj_80019038 *construct_actor_base__10TObjPlayerFPvPv(Obj_80019038 *self, void *parent);
 }
 
 extern "C" {
@@ -916,7 +916,7 @@ void TObjPlayer__sub_8000FF4C(void* p, s16 v);
 u16 get_field_2d4__10TObjPlayerFPv(void* p);
 s32 is_local_player__10TObjPlayerFi(s32 arg0);
 void spawn_freeze_shell_effect(u8 *arg0, u32 arg1, s32 arg2);
-void TObjPlayer__sub_800100A0(s32 arg0, s32 arg1);
+void play_shock_feedback__10TObjPlayerFii(s32 arg0, s32 arg1);
 void spawn_confusion_feedback_effect(s32 arg0, s32 arg1);
 void TObjPlayer__sub_800101B0(s32 arg0, s32 arg1);
 void spawn_paralysis_feedback_effect(s32 arg0, s32 arg1);
@@ -946,11 +946,11 @@ s32 get_actor_level_index(void* p);
 s32 TObjPlayer__sub_800111A8(u8 *arg0, s32 arg1);
 s32 TObjPlayer__sub_800111D8(u8 *arg0, s32 arg1);
 s32 add_actor_exp(u8 *arg0, s32 arg1);
-int TObjPlayer__sub_8001124C(u8 *arg0);
+int get_tp_materials_clamped__10TObjPlayerFPv(u8 *arg0);
 s32 add_actor_tp_bonus(O_80011274 *self, s32 x);
 s32 add_actor_tp(u8 *arg0, s32 arg1);
 s32 subtract_actor_tp(O_800112D4 *self, s32 x);
-int TObjPlayer__sub_80011350(u8 *arg0);
+int get_hp_material_points__10TObjPlayerFPv(u8 *arg0);
 s32 add_actor_hp_bonus(O_80011378 *self, s32 x);
 s32 clamp_hp_value__10TObjPlayerFPvPv(u8 *arg0, s16 *arg1);
 void set_hp_clamped__10TObjPlayerFPvs(u8 *arg0, s16 arg1);
@@ -1075,7 +1075,7 @@ f32 get_ad_end_text_start__10TObjPlayerFv(void);
 f64 fabs_double(f64 x);
 f32 newton_sqrtf(f32 x);
 s32 register_object__10TObjPlayerFi(s32 arg0);
-void TObjPlayer__sub_80019828(O_80019828 *self);
+void clear_ground_candidates__10TObjPlayerFPv(O_80019828 *self);
 u32 csnLookAt(void *, void *);
 u8 * csnVectorUnder(f32 *, void *, M2C_UNK, void *, f32);
 u32 csnVecterUnder(void *, int);
@@ -1288,7 +1288,7 @@ void spawn_freeze_shell_effect(u8 *arg0, u32 arg1, s32 arg2) {
     }
 }
 
-void TObjPlayer__sub_800100A0(s32 arg0, s32 arg1) {
+void play_shock_feedback__10TObjPlayerFii(s32 arg0, s32 arg1) {
     s32 temp_r3;
     if (((s32)((int (*)(void*, int))obj_testFlags30)((void*)(arg0), (int)(0x02000000))) == 0) {
         temp_r3 = spawn_particle_effect_with_flags((s32)(arg0 + 0x2FC), (s32)(0x21), (s32)(0x50));
@@ -1795,7 +1795,7 @@ s32 add_actor_exp(u8 *arg0, s32 arg1) {
   return 1;
 }
 
-int TObjPlayer__sub_8001124C(u8 *arg0) {
+int get_tp_materials_clamped__10TObjPlayerFPv(u8 *arg0) {
   int new_var;
   s16 temp_r0;
   new_var = 0xFFFFu;
@@ -1846,7 +1846,7 @@ s32 check_can_act__10TObjPlayerFii(s32 arg0, s32 arg1) {
     return ((int (*)(void*, void*))subtract_actor_tp)((void*)(arg0), (void*)(arg1));
 }
 
-int TObjPlayer__sub_80011350(u8 *arg0) {
+int get_hp_material_points__10TObjPlayerFPv(u8 *arg0) {
   s16 temp_r0;
   int new_var;
   new_var = *((s16 *) (((s8 *) arg0) + 0x2BC));
@@ -1930,7 +1930,7 @@ s32 damage_hp__10TObjPlayerFii(s32 arg0, s32 arg1) {
     return ((int (*)(void*, void*))TObjectV8047c128_subtract_hp)((void*)(arg0), (void*)(arg1));
 }
 
-u16 TObjPlayer__sub_800114D8(s32 arg0, Vec_800114D8 *arg1, f32 farg0) {
+u16 find_nearest_hittable_enemy__10TObjPlayerFiPvf(s32 arg0, Vec_800114D8 *arg1, f32 farg0) {
     Vec_800114D8 pos;
     f32 best;
     f32 dist;
@@ -2140,13 +2140,13 @@ void *lbl_804806E8[] = {
     (void *)update_action_timer__10TObjPlayerFPv,
     (void *)update_flag30_timer__10TObjPlayerFPv,
     (void *)update_movement_status__10TObjPlayerFv,
-    (void *)TObjPlayer__sub_80016C54,
+    (void *)update_shock_clock__10TObjPlayerFPv,
     (void *)update_attack_stat_status,
     (void *)update_defense_stat_status,
     (void *)TObjPlayer__sub_800172CC,
     (void *)apply_poison_status__10TObjPlayerFv,
     (void *)apply_paralysis__10TObjPlayerFv,
-    (void *)TObjPlayer__sub_80015884,
+    (void *)apply_slow_status__10TObjPlayerFPv,
     (void *)apply_confusion_status__10TObjPlayerFv,
     (void *)apply_movement_ailment__10TObjPlayerFv,
     (void *)apply_shock_status__10TObjPlayerFv,
@@ -3521,7 +3521,7 @@ void apply_shock_status__10TObjPlayerFv(u8 *arg0) {
     }
     if (ok != 0) {
         if (((s32 (*)(void *, int))obj_testFlags30)(arg0, 0x02000000) == 0) {
-            ((void (*)(void *, int))TObjPlayer__sub_800100A0)(arg0, 1);
+            ((void (*)(void *, int))play_shock_feedback__10TObjPlayerFii)(arg0, 1);
         }
         switch (((int (*)(void *, int))obj_getArrWord_254)(arg0, 1)) {
         case 2:
@@ -3592,7 +3592,7 @@ struct ObjArr254;
 struct O_800193FC;
 struct O_8001940C;
 struct O_8001941C;
-void TObjPlayer__sub_80015884(void *arg0) {
+void apply_slow_status__10TObjPlayerFPv(void *arg0) {
     f32 temp_f31;
     s32 temp_r3;
     if (((u16) M2C_FIELD(arg0, u16 *, 0x1C) <= 0x1000U) && (((s16 (*)(void *, s32))test_immunity_flags__10TObjPlayerFPvi)(arg0, 8) == 0)) {
@@ -3954,7 +3954,7 @@ s32 update_attack_stat_status(u8 *arg0) {
 
 struct ObjFlags;
 struct O_800194AC;
-s32 TObjPlayer__sub_80016C54(u8 *arg0) {
+s32 update_shock_clock__10TObjPlayerFPv(u8 *arg0) {
     f32 temp_f31;
     f32 fv;
     s32 temp_ret;
@@ -3964,7 +3964,7 @@ s32 TObjPlayer__sub_80016C54(u8 *arg0) {
             ((void (*)(void *, s32))obj_clearFlags30)(arg0, 0x3C);
             ((void (*)(void *, s32))obj_setFlags30)(arg0, 4);
             if ((temp_ret % 45) == 0) {
-                ((void (*)(void *, s32))TObjPlayer__sub_800100A0)(arg0, 1);
+                ((void (*)(void *, s32))play_shock_feedback__10TObjPlayerFii)(arg0, 1);
             }
             return 1;
         }
@@ -4718,7 +4718,7 @@ void *destroy_motion_object__10TObjPlayerFPvs(void *arg0, s16 arg1) {
 
 #pragma push
 #pragma opt_common_subs off
-Obj_80019038 *TObjPlayer__sub_80019038(Obj_80019038 *self, void *parent) {
+Obj_80019038 *construct_actor_base__10TObjPlayerFPvPv(Obj_80019038 *self, void *parent) {
     u8 *p = (u8 *)self;
     Layout_80019038 *l;
     s32 i;
@@ -5117,11 +5117,11 @@ f32 newton_sqrtf(f32 x) {
 #pragma pop
 
 s32 register_object__10TObjPlayerFi(s32 arg0) {
-    TObjPlayer__sub_80019828((O_80019828 *)(arg0));
+    clear_ground_candidates__10TObjPlayerFPv((O_80019828 *)(arg0));
     return arg0;
 }
 
-void TObjPlayer__sub_80019828(O_80019828 *self) {
+void clear_ground_candidates__10TObjPlayerFPv(O_80019828 *self) {
     s32 i;
     for (i = 0; i < 16; i++) {
         self->arr[i] = 0;

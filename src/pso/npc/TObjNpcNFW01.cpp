@@ -97,7 +97,7 @@ struct RecoveredGlobal_8014CF50___vt__12TObjNpcNFW01 {
 extern "C" {
 s32 init_position_vectors__10TObjPlayerFi(void *);
 s32 setup_common__11TObjNpcBaseFv(void *);
-s32 TObjNpcFemaleBase__sub_80149CE0(void *);
+s32 construct_female_base__17TObjNpcFemaleBaseFPv(void *);
 extern M2C_UNK __vt__12TObjNpcNFW01[];
 extern s32 lbl_805D2E38;
 extern s32 *TObjNpcNFW01__data_805D5828;
@@ -132,7 +132,7 @@ extern void *tl_04;
 
 typedef char RecoveredGlobal_8014CF50___vt__12TObjNpcNFW01_size[sizeof(RecoveredGlobal_8014CF50___vt__12TObjNpcNFW01) == 0x178 ? 1 : -1];
 u8 *TObjNpcNFW01__ct(u8 *arg0, M2C_UNK arg1, s32 arg2) {
-    TObjNpcFemaleBase__sub_80149CE0((void *) (arg0));
+    construct_female_base__17TObjNpcFemaleBaseFPv((void *) (arg0));
     M2C_FIELD(arg0, M2C_UNK **, 0x18) = &(*(RecoveredGlobal_8014CF50___vt__12TObjNpcNFW01 *)&__vt__12TObjNpcNFW01).value;
     M2C_FIELD(arg0, s32 *, 0) = (s32) lbl_805D2E38;
     ((VObj_18_aa4667 *)(arg0))->m79(arg2);

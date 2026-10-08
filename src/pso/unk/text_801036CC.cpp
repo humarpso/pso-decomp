@@ -72,7 +72,7 @@ Player_801036CC *get_player_data__10TObjPlayerFi(s32 i);
 s32 test_elt_flag__10TObjPlayerFPvii(void *p, s32 a, s32 mask);
 void queue_destruction__7TObjectFv(void *);
 s32 get_lobby_flag__6TLobbyFv(void);
-void TLobby__sub_80103F68(void);
+void reset_floor_items__6TLobbyFv(void);
 extern void *tl_05;
 void TLobby__sub_801036CC(void);
 void update_and_send__6TLobbyFPv(void *);
@@ -82,7 +82,7 @@ extern s32 TLobby__data_805D53AC;
 extern Ent_801037A0 **lbl_805D541C;
 extern s32 lbl_805D5420;
 void TLobby__sub_801037A0(s32 n);
-void TLobby__sub_80103F68(void);
+void reset_floor_items__6TLobbyFv(void);
 void TLobby__sub_801042C0(void *);
 void set_boss_buf_entry__6TLobbyFii(s32, u16);
 void TLobby__sub_80104258(void *, void *);
@@ -94,7 +94,7 @@ extern u16 *lbl_805D542C;
 extern Ent_801037A0 **lbl_805D541C;
 extern s32 lbl_805D5420;
 extern s32 lbl_805D5440;
-void TLobby__sub_80103890(Save_80103890 *src);
+void apply_sync_item_state__6TLobbyFPv(Save_80103890 *src);
 void TLobby__sub_8010314C(Ent_801037A0 *);
 void debug_print__6TLobbyFii(const char *, ...);
 void *memcpy(void *, const void *, u32);
@@ -122,14 +122,14 @@ extern Ent_801037A0 **lbl_805D541C;
 extern s32 lbl_805D5420;
 void TLobby__sub_80103B70(s32 n);
 void TLobby__sub_801042C0(void *);
-s32 TLobby__sub_80104384(u16);
+s32 get_sync_counter__6TLobbyFi(u16);
 void TLobby__sub_80104258(void *, void *);
 void bswap_item__6TLobbyFPv(void *);
 void normalize__9TItemDataFv(void *);
 extern u16 *lbl_805D542C;
 extern Ent_801037A0 **lbl_805D541C;
 extern s32 lbl_805D5420;
-s32 TLobby__sub_801039BC(void *arg0);
+s32 write_sync_item_state__6TLobbyFPv(void *arg0);
 }
 
 extern "C" {
@@ -146,7 +146,7 @@ void TLobby__sub_801036CC(void) {
             queue_destruction__7TObjectFv(p);
         }
     }
-    TLobby__sub_80103F68();
+    reset_floor_items__6TLobbyFv();
 }
 
 void handle_6x63_destroy_floor_item(void *arg0) {
@@ -190,7 +190,7 @@ s32 TLobby__sub_8010385C(s32 arg0) {
     return 1;
 }
 
-void TLobby__sub_80103890(Save_80103890 *src) {
+void apply_sync_item_state__6TLobbyFPv(Save_80103890 *src) {
     s32 i;
     u16 b;
     s32 k;
@@ -198,7 +198,7 @@ void TLobby__sub_80103890(Save_80103890 *src) {
     s32 count;
     Ent_801037A0 *p;
     s32 n;
-    TLobby__sub_80103F68();
+    reset_floor_items__6TLobbyFv();
     TLobby__sub_801042C0(src);
     for (i = 0; i < 0x10; i++) {
         lbl_805D542C[i] = src->slots[i];
@@ -227,7 +227,7 @@ void TLobby__sub_80103890(Save_80103890 *src) {
 
 #pragma push
 #pragma opt_propagation off
-s32 TLobby__sub_801039BC(void *arg0) {
+s32 write_sync_item_state__6TLobbyFPv(void *arg0) {
     s32 i;
     u16 b;
     Save_801039BC *dst = (Save_801039BC *)arg0;
@@ -241,7 +241,7 @@ s32 TLobby__sub_801039BC(void *arg0) {
         dst->slots[i] = lbl_805D542C[i];
     }
     for (b = 0; b != 0xC; b++) {
-        dst->boss[b] = TLobby__sub_80104384(b);
+        dst->boss[b] = get_sync_counter__6TLobbyFi(b);
     }
     for (i = 0; i < 0xF; i++) {
         dst->counts[i] = (*(s32 **)&lbl_805D5420)[i];

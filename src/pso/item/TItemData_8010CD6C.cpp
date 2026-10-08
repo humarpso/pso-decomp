@@ -37,11 +37,11 @@ struct Item_8010E59C {
 
 extern "C" {
 int bswap_16__FPUs(void*);
-void TItemData__sub_8010CDC8(u8 *arg0, s16 arg1);
+void set_unit_modifier__9TItemDataFPvs(u8 *arg0, s16 arg1);
 int bswap_16__FPUs(void*);
 void TItemData__sub_8010CE1C(u8 *arg0, s16 arg1);
 int bswap_16__FPUs(void*);
-void TItemData__sub_8010CE70(u8 *arg0, s16 arg1);
+void set_dfp_bonus__9TItemDataFPvs(u8 *arg0, s16 arg1);
 int test_flag3__9TItemDataFPv(void *);
 int get_item_field_2__9TItemDataFPv(void *);
 u8 get_slot_count__14TItemProShieldFPv(void *);
@@ -175,7 +175,7 @@ s16 get_field6_bswap__9TItemDataFPv(void *arg0) {
     return sp8;
 }
 
-void TItemData__sub_8010CDC8(u8 *arg0, s16 arg1) {
+void set_unit_modifier__9TItemDataFPvs(u8 *arg0, s16 arg1) {
     M2C_FIELD(arg0, s16 *, 6) = arg1;
     bswap_16__FPUs((void*)((void *) (arg0 + 6)));
 }
@@ -201,7 +201,7 @@ s16 getS16_06__9TItemDataFPv(void *arg0) {
     return sp8;
 }
 
-void TItemData__sub_8010CE70(u8 *arg0, s16 arg1) {
+void set_dfp_bonus__9TItemDataFPvs(u8 *arg0, s16 arg1) {
     M2C_FIELD(arg0, s16 *, 6) = arg1;
     bswap_16__FPUs((void*)((void *) (arg0 + 6)));
 }

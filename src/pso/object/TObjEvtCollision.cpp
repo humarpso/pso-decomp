@@ -26,7 +26,7 @@ struct Obj_80190CFC { u8 pad0[0x1C]; u16 id; u8 pad1E[0x84 - 0x1E]; s32 x84; u8 
 
 extern "C" {
 s32 disallow_rendering__7TObjectFv(void *);
-s32 TObjPlayer__sub_801569F4(void *);
+s32 construct_collider_proxy__10TObjPlayerFPv(void *);
 extern M2C_UNK __vt__16TObjEvtCollision[];
 extern s32 lbl_805D3358;
 u8 *TObjEvtCollision__ct(u8 *arg0, M2C_UNK arg1, s32 arg2);
@@ -119,7 +119,7 @@ void *__dt__16TObjEvtCollisionFv(void *arg0, s16 arg1) {
 }
 typedef char RecoveredGlobal_80190DE4___vt__16TObjEvtCollision_size[sizeof(RecoveredGlobal_80190DE4___vt__16TObjEvtCollision) == 0x38 ? 1 : -1];
 u8 *TObjEvtCollision__ct(u8 *arg0, M2C_UNK arg1, s32 arg2) {
-    TObjPlayer__sub_801569F4((void *) (arg0));
+    construct_collider_proxy__10TObjPlayerFPv((void *) (arg0));
     M2C_FIELD(arg0, M2C_UNK **, 0x18) = &(*(RecoveredGlobal_80190DE4___vt__16TObjEvtCollision *)&__vt__16TObjEvtCollision).value;
     M2C_FIELD(arg0, s32 *, 0) = (s32) lbl_805D3358;
     ((VObj_18_1a504b *)(arg0))->m5(arg2);

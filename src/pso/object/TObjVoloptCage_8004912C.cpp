@@ -21,7 +21,7 @@ struct TObjVoloptCageVObj_8004912C : TObjVoloptCageBase_8004912C {
 
 void init_break_model__14TObjVoloptCageFv(void);
 void render__14TObjVoloptCageFv(u8 *arg0);
-s32 TBreakUpMdl__sub_8009705C(s32, s32);
+s32 init_from_model__11TBreakUpMdlFPvi(s32, s32);
 M2C_UNK post_translate_matrix(void *);
 M2C_UNK draw_chunk_object(s32);
 M2C_UNK rotate_matrix_y(M2C_UNK, s32);
@@ -46,7 +46,7 @@ void init_break_model__14TObjVoloptCageFv(void) {
     lbl_805D4D24 = M2C_FIELD(temp_r4, s32 *, 0x128);
     var_r0 = alloc__23TAdSinglePlyChrSelectGCFPv(0x10, temp_r4);
     if (var_r0 != 0) {
-        var_r0 = TBreakUpMdl__sub_8009705C(var_r0, lbl_805D4D24);
+        var_r0 = init_from_model__11TBreakUpMdlFPvi(var_r0, lbl_805D4D24);
     }
     lbl_805D4D20 = var_r0;
     lbl_805D4D18 = register_boss__6TLobbyFPv(0x26);

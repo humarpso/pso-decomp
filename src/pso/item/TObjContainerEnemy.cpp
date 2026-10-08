@@ -148,7 +148,7 @@ extern const f32 lbl_805DBCFC;
 void TObjContainerItem__vt79(struct Box_80189A50 *self);
 s32 VecCopy__FP3VecPC3Vec(void *, void *);
 M2C_UNK spawn_particle_effect_with_flags(void *, int, int);
-M2C_UNK TObjChip__sub_80180BD4(void *, void *, void *);
+M2C_UNK construct_debris__8TObjChipFPvPvPv(void *, void *, void *);
 M2C_UNK play_container_break_sound(void *);
 s32 get_container_param(int);
 void *__nw__7TObjectFUl(int);
@@ -262,11 +262,11 @@ void TObjContainerItem__vt77(Obj_8018990C *self) {
         spawn_particle_effect_with_flags(&self->x, 0x46, 0x40);
         o = __nw__7TObjectFUl(0x234);
         if (o != NULL) {
-            TObjChip__sub_80180BD4(o, tl_05, &a);
+            construct_debris__8TObjChipFPvPvPv(o, tl_05, &a);
         }
         o = __nw__7TObjectFUl(0x234);
         if (o != NULL) {
-            TObjChip__sub_80180BD4(o, tl_05, &b);
+            construct_debris__8TObjChipFPvPvPv(o, tl_05, &b);
         }
         play_container_break_sound(self);
     }

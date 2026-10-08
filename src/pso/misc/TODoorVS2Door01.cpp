@@ -47,6 +47,36 @@ struct RecoveredGlobal_80164340___vt__15TODoorVS2Door01 {
     u8 remaining[0x50];
 };
 
+typedef s32 M2C_UNK;
+struct Node_80163FB4 {
+    u8 pad0[4];
+    s32 f4;
+    u8 mtx[0x2C - 8];
+    Node_80163FB4 *child;
+    Node_80163FB4 *next;
+};
+
+struct VBase_80163FB4 { char pad[0x18]; };
+
+struct VObj_80163FB4 : VBase_80163FB4 {
+    virtual void m0(); virtual void m1(); virtual void m2(); virtual void m3();
+    virtual void m4(); virtual void m5(); virtual void m6(); virtual void m7();
+    virtual s32 m8(f32, f32);
+};
+
+struct Door_80163FB4 : VObj_80163FB4 {
+    u8 pad1c[0x34 - 0x1C];
+    Node_80163FB4 *model;
+    u8 mtx[0x60 - 0x38];
+    s32 f60;
+    u8 pad64[0xC0 - 0x64];
+    f32 fC0;
+    f32 fC4;
+    u8 padC8[0xD0 - 0xC8];
+    s32 fD0;
+    f32 fD4;
+};
+
 extern "C" {
 extern const f32 lbl_805DB550;
 void TODoorVS2Door01__vt14(u8 *arg0);
@@ -74,6 +104,20 @@ extern const f32 lbl_805DB558;
 u8 *TODoorVS2Door01__ct(u8 *arg0, M2C_UNK arg1, s32 arg2);
 extern const f32 TODoorVS2Door01__data_805DB548;
 void TODoorVS2Door01__vt16(u8 *arg0);
+u8 is_open__15TODoorVS2Door01FPv(void *arg0);
+M2C_UNK begin_effect_render__13TParticleCtrlFv();
+M2C_UNK end_effect_render__13TParticleCtrlFv();
+M2C_UNK rotate_matrix_y(int, int);
+M2C_UNK translate_matrix(int, f32, f32, f32);
+M2C_UNK push_matrix();
+M2C_UNK pop_matrix();
+M2C_UNK post_translate_matrix(void *);
+M2C_UNK set_global_param__8TObjFishFi(int);
+M2C_UNK draw_ginja_model(int);
+extern s32 *TODoorVS2Door01__data_805D598C;
+extern const f32 TODoorVS2Door01__data_805DB548;
+extern const f32 lbl_805DB558;
+void render__15TODoorVS2Door01Fv(Door_80163FB4 *self);
 }
 
 extern "C" {
@@ -155,6 +199,72 @@ u8 is_open__15TODoorVS2Door01FPv(void *arg0) {
 }
 
 extern void *tl_05;
+
+void render__15TODoorVS2Door01Fv(Door_80163FB4 *self) {
+    Node_80163FB4 *n;
+    f32 v;
+    if (self->m8(self->fC0, self->fC4) != 0 && ((s32 (*)(void *, f32))is_open__15TODoorVS2Door01FPv)(self, lbl_805DB558) != 0) {
+        push_matrix();
+        post_translate_matrix(self->mtx);
+        rotate_matrix_y(0, self->f60);
+        set_global_param__8TObjFishFi(TODoorVS2Door01__data_805D598C[self->fD0 & 1]);
+        n = self->model;
+        post_translate_matrix(n->mtx);
+        push_matrix();
+        v = -self->fD4;
+        translate_matrix(0, v, TODoorVS2Door01__data_805DB548, TODoorVS2Door01__data_805DB548);
+        draw_ginja_model(n->f4);
+        pop_matrix();
+        n = n->child;
+        push_matrix();
+        post_translate_matrix(n->mtx);
+        push_matrix();
+        v = self->fD4;
+        translate_matrix(0, v, TODoorVS2Door01__data_805DB548, TODoorVS2Door01__data_805DB548);
+        draw_ginja_model(n->f4);
+        pop_matrix();
+        pop_matrix();
+        begin_effect_render__13TParticleCtrlFv();
+        n = n->child;
+        push_matrix();
+        post_translate_matrix(n->mtx);
+        push_matrix();
+        v = self->fD4;
+        translate_matrix(0, v, TODoorVS2Door01__data_805DB548, TODoorVS2Door01__data_805DB548);
+        draw_ginja_model(n->f4);
+        pop_matrix();
+        pop_matrix();
+        n = n->next;
+        push_matrix();
+        post_translate_matrix(n->mtx);
+        push_matrix();
+        v = self->fD4;
+        translate_matrix(0, v, TODoorVS2Door01__data_805DB548, TODoorVS2Door01__data_805DB548);
+        draw_ginja_model(n->f4);
+        pop_matrix();
+        pop_matrix();
+        n = self->model->child->next;
+        push_matrix();
+        post_translate_matrix(n->mtx);
+        push_matrix();
+        v = -self->fD4;
+        translate_matrix(0, v, 0.0f, 0.0f);
+        draw_ginja_model(n->f4);
+        pop_matrix();
+        pop_matrix();
+        n = n->next;
+        push_matrix();
+        post_translate_matrix(n->mtx);
+        push_matrix();
+        v = -self->fD4;
+        translate_matrix(0, v, 0.0f, 0.0f);
+        draw_ginja_model(n->f4);
+        pop_matrix();
+        pop_matrix();
+        end_effect_render__13TParticleCtrlFv();
+        pop_matrix();
+    }
+}
 
 void *create__15TODoorVS2Door01FPv(void *arg0) {
     void *o = __nw__7TObjectFUl(0xD8);

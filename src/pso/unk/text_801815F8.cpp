@@ -17,7 +17,7 @@ void __ct__7TObjectFP7TObject(void *);
 extern u8 lbl_804B593C[];
 extern s32 lbl_805D3248;
 extern const f32 lbl_805DBBC8;
-Obj_801815F8 *fn_801815F8(Obj_801815F8 *arg0);
+Obj_801815F8 *construct_traffic_manager(Obj_801815F8 *arg0);
 Info_80181698 *get_city_common_motion(s32);
 void *get_city_common_model(s32);
 void bind_motion_context(s32, f32);
@@ -31,7 +31,7 @@ extern "C" {
 
 #pragma push
 #pragma opt_propagation off
-Obj_801815F8 *fn_801815F8(Obj_801815F8 *arg0) {
+Obj_801815F8 *construct_traffic_manager(Obj_801815F8 *arg0) {
     s32 i;
     s32 j;
     s32 off;

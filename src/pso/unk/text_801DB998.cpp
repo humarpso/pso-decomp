@@ -37,12 +37,12 @@ M2C_UNK fn_801DF954(void *);
 M2C_UNK __as__8TPlySmthFRC8TPlySmth(void *, void *);
 M2C_UNK strncpy(void *, void *, int);
 M2C_UNK memset(void *, int, int);
-void fn_801DB998(u8 *arg0);
+void send_register_9c(u8 *arg0);
 }
 
 extern "C" {
 
-void fn_801DB998(u8 *arg0) {
+void send_register_9c(u8 *arg0) {
     Stack_801DB998 stack;
     fn_801DF954((void *) (&stack.sp8));
     memset((void *) (&stack.sp8), (int) (0), (int) (0xA4));

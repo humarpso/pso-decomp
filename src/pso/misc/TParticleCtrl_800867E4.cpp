@@ -22,9 +22,9 @@ extern "C" {
 s32 get_bml_model(void *, s32);
 extern u8 *TParticleCtrl__data_805D4F00;
 s32 TParticleCtrl__sub_80086884(s32 arg0);
-s32 TParticleCtrl__sub_80089FEC(void *, void *, void *, void *);
+s32 alloc_child_particle__13TParticleCtrlFPvPvPvPv(void *, void *, void *, void *);
 extern RecoveredGlobal_8008683C_lbl_804393F0 lbl_804393F0;
-void TParticleCtrl__sub_8008683C(s32 arg0, s32 arg1, s32 arg2);
+void generate_child_default__13TParticleCtrlFiii(s32 arg0, s32 arg1, s32 arg2);
 extern s32 lbl_805D2948;
 extern Ent_800868C4 *lbl_805D4EF8;
 extern Ent_800868C4 *lbl_805D4EFC;
@@ -68,7 +68,7 @@ void init_heap__13TParticleCtrlFPv(void *arg0) {
     extern int TParticleCtrl__data_805D4F04;
 
 typedef char RecoveredGlobal_8008683C_lbl_804393F0_size[sizeof(RecoveredGlobal_8008683C_lbl_804393F0) == 0xC ? 1 : -1];
-void TParticleCtrl__sub_8008683C(s32 arg0, s32 arg1, s32 arg2) {
+void generate_child_default__13TParticleCtrlFiii(s32 arg0, s32 arg1, s32 arg2) {
     typedef char sp8_offset[(offsetof(Stack_8008683C, sp8) == 0x0) ? 1 : -1];
     typedef char spC_offset[(offsetof(Stack_8008683C, spC) == 0x4) ? 1 : -1];
     typedef char sp10_offset[(offsetof(Stack_8008683C, sp10) == 0x8) ? 1 : -1];
@@ -76,7 +76,7 @@ void TParticleCtrl__sub_8008683C(s32 arg0, s32 arg1, s32 arg2) {
     stack.sp8 = M2C_FIELD(&lbl_804393F0.value, s32 *, 0);
     stack.spC = M2C_FIELD(&lbl_804393F0.value, s32 *, 4);
     stack.sp10 = M2C_FIELD(&lbl_804393F0.value, s32 *, 8);
-    TParticleCtrl__sub_80089FEC((void *) (arg0), (void *) (arg1), (void *) (&stack.sp8), (void *) (arg2));
+    alloc_child_particle__13TParticleCtrlFPvPvPvPv((void *) (arg0), (void *) (arg1), (void *) (&stack.sp8), (void *) (arg2));
 }
 
 s32 TParticleCtrl__sub_80086884(s32 arg0) {

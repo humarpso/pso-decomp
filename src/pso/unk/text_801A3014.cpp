@@ -176,7 +176,7 @@ M2C_UNK TLobby__sub_801A2E00();
 M2C_UNK reset_quest_state__6TLobbyFv();
 void reset_controller_input_state();
 M2C_UNK TObjPlayer__sub_801B1A84(void *);
-M2C_UNK fn_801B802C(void *);
+M2C_UNK rebuild_player_inventory(void *);
 M2C_UNK render_tick__Fv();
 void create_quad_sprites__13TParticleCtrlFv();
 M2C_UNK backup_story_select__6TLobbyFv();
@@ -229,7 +229,7 @@ extern u32 lbl_805D5EE8;
 M2C_UNK reset_quest_state__6TLobbyFv();
 void reset_controller_input_state();
 M2C_UNK TObjPlayer__sub_801B1A84(void *);
-M2C_UNK fn_801B802C(void *);
+M2C_UNK rebuild_player_inventory(void *);
 M2C_UNK render_tick__Fv();
 void create_quad_sprites__13TParticleCtrlFv();
 M2C_UNK get_team_state__6TLobbyFPv();
@@ -445,7 +445,7 @@ void TLobby__sub_801A3014(void) {
         if (p != NULL) {
             set_parent__7TObjectFP7TObject(p, tl_03);
             ((VObj_801A3014 *)p)->m6();
-            fn_801B802C(p);
+            rebuild_player_inventory(p);
             TObjPlayer__sub_801B1A84(fn_801B309C);
         }
     }
@@ -523,7 +523,7 @@ void TLobby__sub_801A31D8(void) {
         if (p != NULL) {
             set_parent__7TObjectFP7TObject(p, tl_03);
             ((VObj_801A31D8 *)p)->m6();
-            fn_801B802C(p);
+            rebuild_player_inventory(p);
             TObjPlayer__sub_801B1A84(fn_801B309C);
         }
     }

@@ -5,7 +5,7 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 #define M2C_BITWISE(type, expr) ((type)(expr))
 
 extern "C" {
-void TObjPlayer__sub_80115BC0(s32 *arg0, s32 arg1, s32 arg2);
+void add_angle_clamped__10TObjPlayerFPvii(s32 *arg0, s32 arg1, s32 arg2);
 void advance_angle_wrap(s32 *arg0, s32 arg1);
 s32 is_split_screen(void);
 u8 * __ct__15TEffStarLight2DFv(void *, s32, s32, s32);
@@ -53,7 +53,7 @@ void approach_value__20TItemEffOrgaFlowShotFPvff(f32 *arg0, f32 farg0, f32 farg1
     }
 }
 
-void TObjPlayer__sub_80115BC0(s32 *arg0, s32 arg1, s32 arg2) {
+void add_angle_clamped__10TObjPlayerFPvii(s32 *arg0, s32 arg1, s32 arg2) {
     *arg0 += arg1;
     if (arg1 > 0) {
         if ((s32) *arg0 > arg2) {

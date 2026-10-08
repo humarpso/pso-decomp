@@ -33,12 +33,12 @@ struct Wave_80081A30 {
 extern "C" {
 void __ct__7TObjectFP7TObject(void *, void *);
 void *alloc__23TAdSinglePlyChrSelectGCFPv(u32);
-void *fn_801E4E4C(void *, void *);
+void *construct_texture_wave(void *, void *);
 void init_image_buffer__23TAdSinglePlyChrSelectGCFPvPvi(void *, void *, s32);
 s32 TScene__sub_80081B24(void);
 extern u8 lbl_8048E168[];
 extern void *lbl_805D28F8;
-Wave_80081A30 *TScene__sub_80081A30(Wave_80081A30 *self, void *parent, void *image, s32 size, s32 index);
+Wave_80081A30 *construct_pvr_wave__6TSceneFPvPvPvii(Wave_80081A30 *self, void *parent, void *image, s32 size, s32 index);
 }
 
 extern "C" {
@@ -47,7 +47,7 @@ s32 TScene__sub_80081B24(void);
 
 extern s32 TScene__data_805D5FCC;
 
-Wave_80081A30 *TScene__sub_80081A30(Wave_80081A30 *self, void *parent, void *image, s32 size, s32 index) {
+Wave_80081A30 *construct_pvr_wave__6TSceneFPvPvPvii(Wave_80081A30 *self, void *parent, void *image, s32 size, s32 index) {
     void *p;
     TexList_80081A30 *list;
     __ct__7TObjectFP7TObject(self, parent);
@@ -56,7 +56,7 @@ Wave_80081A30 *TScene__sub_80081A30(Wave_80081A30 *self, void *parent, void *ima
     self->index = index;
     p = alloc__23TAdSinglePlyChrSelectGCFPv(0x54);
     if (p != NULL) {
-        p = fn_801E4E4C(p, &self->tex);
+        p = construct_texture_wave(p, &self->tex);
     }
     self->wave = p;
     init_image_buffer__23TAdSinglePlyChrSelectGCFPvPvi(self->wave, image, size);

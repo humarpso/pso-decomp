@@ -1955,6 +1955,7 @@ pso/enemy/TObjEneBm5Wolf.cpp:
 
 pso/object/TObjCGrass.cpp:
 	.text       start:0x800B8B00 end:0x800B9194
+	.rodata     start:0x8043B650 end:0x8043B658
 
 pso/unk/text_800B9194.cpp:
 	.text       start:0x800B9194 end:0x800B9254
@@ -2068,6 +2069,7 @@ pso/object/TObjGrass.cpp:
 pso/player/TObjPlayer_800BFBBC.cpp:
 	.text       start:0x800BFBBC end:0x800C16E0
 	.rodata     start:0x8043BA20 end:0x8043BA28
+	.sdata2     start:0x805D9F24 end:0x805D9F50
 
 pso/enemy/TObjEneLappy_800C16E0.cpp:
 	.text       start:0x800C16E0 end:0x800C1748
@@ -3492,7 +3494,7 @@ pso/item/TItemShootGun_dtor.cpp:
 
 pso/player/TObjPlayer_8011C000.cpp:
 	.text       start:0x8011C000 end:0x8011CC58
-	.rodata     start:0x8043E7D0 end:0x8043E7D8
+	.rodata     start:0x8043E7C8 end:0x8043E7D8
 
 pso/misc/item_param.cpp:
 	.text       start:0x8011CC58 end:0x8011CDC4
@@ -5509,6 +5511,7 @@ pso/ui/TAdSinglePlyChrSelectGC_80145778.cpp:
 
 pso/unk/text_80145804.cpp:
 	.text       start:0x80145804 end:0x80145A28
+	.bss        start:0x8050C040 end:0x8050C090
 
 pso/misc/TWindowCtrl_80145A28.cpp:
 	.text       start:0x80145A28 end:0x80145A44
@@ -6046,6 +6049,7 @@ pso/misc/TODoorVoShip.cpp:
 
 pso/misc/TODoorVS2Door01.cpp:
 	.text       start:0x80163E14 end:0x80164414
+	.sdata2     start:0x805DB548 end:0x805DB54C
 
 pso/misc/TODragonflyCave01.cpp:
 	.text       start:0x80164414 end:0x80164F50
@@ -9316,6 +9320,7 @@ pso/misc/TOTrapAncient01_80226534.cpp:
 
 pso/misc/TLobby_802268F4.cpp:
 	.text       start:0x802268F4 end:0x80227390
+	.bss        start:0x80514C60 end:0x80514CF8
 
 pso/misc/TLoadCtrl_80227390.cpp:
 	.text       start:0x80227390 end:0x80227A2C
@@ -10213,6 +10218,7 @@ pso/misc/TWindowSubStatusDisp_802598E4.cpp:
 pso/misc/TWindowHelpItem_8025A12C.cpp:
 	.text       start:0x8025A12C end:0x8025AD38
 	.rodata     start:0x8044F018 end:0x8044F058
+	.sdata2     start:0x805DCF90 end:0x805DCFA8
 
 pso/misc/TWindowDuelResult_8025AD38.cpp:
 	.text       start:0x8025AD38 end:0x8025AD5C

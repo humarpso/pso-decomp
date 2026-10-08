@@ -158,6 +158,17 @@ struct P_8008F1DC : T_8008F1DC {
     s32 f400;
 };
 
+struct En0Base { char pad[0x14]; };
+
+struct En0VObj : En0Base {
+    virtual void m0();
+    virtual void m1();
+    virtual void m2();
+    virtual void m3();
+    virtual void m4();
+    virtual s32 m5();
+};
+
 extern "C" {
 extern Row_8008ED48 lbl_805006F8[];
 void TObjPlayer__sub_8008ED48(void *arg0, s32 arg1);
@@ -263,6 +274,13 @@ extern const f32 lbl_805D9658;
 extern const f32 lbl_805D965C;
 extern const f32 lbl_805D9660;
 void TObjPlayer__sub_8008F1DC(void *arg0);
+M2C_UNK reset_enemy_state__10TObjPlayerFPv();
+M2C_UNK apply_actor_gravity(void *, M2C_UNK, f32);
+M2C_UNK TObjPlayer__sub_800A0554(void *);
+M2C_UNK TBoss3Volopt__sub_800D8C48(void *);
+M2C_UNK advance_animation_playback(void *);
+extern const f32 lbl_805D9620;
+void TObjPlayer__sub_8008EC3C(u8 *arg0);
 }
 
 extern "C" {
@@ -291,6 +309,40 @@ void update_dragon_boss_state__10TObjPlayerFPv(void *arg0) {
         return;
     }
 }
+
+void TObjPlayer__sub_8008EC3C(u8 *arg0) {
+    s32 temp_r0;
+    s32 temp_r4;
+    s32 temp_r4_2;
+    s32 temp_r5;
+    temp_r0 = M2C_FIELD(arg0, s32 *, 0x37C);
+    switch (temp_r0) {
+    case 0:
+        temp_r4 = M2C_FIELD(arg0, s32 *, 0x388) | 4;
+        M2C_FIELD(arg0, s32 *, 0x388) = temp_r4;
+        M2C_FIELD(arg0, s32 *, 0x30) = (s32) (M2C_FIELD(arg0, s32 *, 0x30) | 0x04000000);
+        M2C_FIELD(arg0, s16 *, 0xB8) = (M2C_FIELD(arg0, s32 *, 0x388) & 0x01000000) ? 0 : 5;
+        TBoss3Volopt__sub_800D8C48(arg0 + 0x38);
+        TObjPlayer__sub_800A0554(arg0 + 0x390);
+        M2C_FIELD(arg0, s32 *, 0x37C) = 1;
+    case 1:
+        advance_animation_playback(arg0);
+        apply_actor_gravity(arg0, 0, lbl_805D9620);
+        if (((En0VObj*)(arg0 + 0x390))->m5() == 1) {
+            temp_r5 = M2C_FIELD(arg0, s32 *, 0x388);
+            temp_r4_2 = temp_r5 & ~5;
+            M2C_FIELD(arg0, s32 *, 0x388) = temp_r4_2;
+            M2C_FIELD(arg0, s32 *, 0x37C) = -1;
+            ((M2C_UNK (*)(void *, s32, s32))reset_enemy_state__10TObjPlayerFPv)(arg0, temp_r4_2, temp_r5);
+        }
+        return;
+    case -1:
+        M2C_FIELD(arg0, s32 *, 0x388) = (s32) (M2C_FIELD(arg0, s32 *, 0x388) & ~5);
+        M2C_FIELD(arg0, s32 *, 0x30) = (s32) (M2C_FIELD(arg0, s32 *, 0x30) & 0xFBFFFFFF);
+        break;
+    }
+}
+
 void TObjPlayer__sub_8008ED48(void *arg0, s32 arg1) {
     s32 i;
     s32 j;

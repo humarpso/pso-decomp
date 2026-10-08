@@ -538,7 +538,7 @@ s32 TObjFish__sub_8001EDB0(s32, s32);
 s32 get_bml_model(s32, s32);
 s32 get_game_mode__6TLobbyFv();
 M2C_UNK fn_80044330(void *);
-M2C_UNK TObjPlayer__sub_8004433C(void *);
+M2C_UNK construct_target_cursor_records__10TObjPlayerFi(void *);
 void fn_8004AA04(void *);
 s32 TBoss4Type3__sub_8004AE60(void);
 s32 TBoss4DarkFalz__sub_8004AF5C(s32, s16 *, s16 *);

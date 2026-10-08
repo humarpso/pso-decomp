@@ -69,7 +69,7 @@ M2C_UNK draw_arrows__18TWindowInputNumberFv(void *, int, int, int);
 s32 setup_window_draw_context(void *, void *);
 M2C_UNK draw_window_frame(void *, int);
 M2C_UNK draw_visible_window_entries(void *, void *, int);
-u32 TWindowSubStatusDisp__sub_802880BC(u32, s32, s16);
+u32 construct_type1_heading__20TWindowSubStatusDispFPvii(u32, s32, s16);
 void __dl__7TObjectFPv(void *);
 u32 alloc__23TAdSinglePlyChrSelectGCFPv(M2C_UNK);
 s32 apply_choice__20TWindowChoiceSettingFiiii(void *, M2C_UNK, M2C_UNK, M2C_UNK);
@@ -103,7 +103,7 @@ void create__18TWindowInputNumberFPvi(void *arg0, s32 arg1) {
         var_r0 = alloc__23TAdSinglePlyChrSelectGCFPv(0x24);
         if (var_r0 != 0U) {
             u32 saved = var_r0;
-            var_r0 = TWindowSubStatusDisp__sub_802880BC(saved, arg1, M2C_FIELD(arg0, s16 *, 0x20));
+            var_r0 = construct_type1_heading__20TWindowSubStatusDispFPvii(saved, arg1, M2C_FIELD(arg0, s16 *, 0x20));
         }
         M2C_FIELD(arg0, u32 *, 0x70) = var_r0;
         M2C_FIELD(arg0, s32 *, 0x2C) = (s32) (M2C_FIELD(arg0, s32 *, 0x2C) | 0x40);

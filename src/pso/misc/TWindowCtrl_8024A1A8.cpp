@@ -101,7 +101,7 @@ s32 check_card_match_enabled__15TWindowFukidasiFPvi(void *, void *);
 u16 get_flags__11TWindowCtrlFPv(void *);
 extern void *TWindowCtrl__data_805D63F8;
 void *show_chat_balloon__11TWindowCtrlFPviiPvPv(Ctrl_8024A928 *self, s32 player, s32 flags, void *text, void *local);
-char *TWindowCtrl__sub_8024A570(void *self, char *s);
+char *skip_name_prefix__11TWindowCtrlFPvPv(void *self, char *s);
 s32 TWindowCtrl__sub_8024A7CC(Obj_8024A7CC *self);
 void *get_player_by_client_id(s32);
 extern s32 lbl_805D53A0;
@@ -124,10 +124,10 @@ extern const f32 lbl_805DCBDC;
 void get_speaker_balloon_anchor__11TWindowCtrlFPviPvPv(Ctrl_8024A928 *arg0, s32 arg1, f32 *arg2, s32 *arg3);
 void TOChatSensorCapture__sub_8015A99C(u16 arg0, const char *arg1);
 void *get_player_by_client_id(s32);
-char *TWindowCtrl__sub_8024A570(void *self, char *s);
+char *skip_name_prefix__11TWindowCtrlFPvPv(void *self, char *s);
 s32 open__11TWindowCtrlFiii(s32 arg0, s32 arg1, s32 arg2);
 extern void *TWindowCtrl__data_805D63F8;
-void TWindowCtrl__sub_8024AA08(Obj_8024AA08 *arg0, char *arg1);
+void handle_chat_message__11TWindowCtrlFPvPv(Obj_8024AA08 *arg0, char *arg1);
 }
 
 extern "C" {
@@ -298,7 +298,7 @@ void create_alt_timer__11TWindowCtrlFv(void) {
 typedef struct RecoveredFields_8024A688_arg1 RecoveredFields_8024A688_arg1;
 typedef struct RecoveredFields_8024A688_temp_r3 RecoveredFields_8024A688_temp_r3;
 
-char *TWindowCtrl__sub_8024A570(void *self, char *s) {
+char *skip_name_prefix__11TWindowCtrlFPvPv(void *self, char *s) {
     char *p;
     for (p = s; *p != '\0'; p++) {
         if (*p == '\t') break;
@@ -459,13 +459,13 @@ void *show_chat_balloon__11TWindowCtrlFPviiPvPv(Ctrl_8024A928 *self, s32 player,
     return acquire_balloon_slot__11TWindowCtrlFPviiPv((Ctrl_8024A928 *)((*(Ctrl_8024A928 * *)&TWindowCtrl__data_805D63F8)), (s32)(player), (s32)(flags), (void *)(local));
 }
 
-void TWindowCtrl__sub_8024AA08(Obj_8024AA08 *arg0, char *arg1) {
+void handle_chat_message__11TWindowCtrlFPvPv(Obj_8024AA08 *arg0, char *arg1) {
     s32 i;
     u32 key;
     char *v;
     Ply_8024AA08 *p;
     if (TWindowCtrl__data_805D63F8 != NULL) {
-        v = TWindowCtrl__sub_8024A570(TWindowCtrl__data_805D63F8, arg1);
+        v = skip_name_prefix__11TWindowCtrlFPvPv(TWindowCtrl__data_805D63F8, arg1);
         key = arg0->f4;
         for (i = 0; i < 12; i++) {
             p = (Ply_8024AA08 *)get_player_by_client_id(i);

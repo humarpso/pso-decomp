@@ -6,7 +6,7 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 
 #include "pso/enemy/TObjEnemy.h"
 extern "C" {
-void* TObjPlayer__sub_80019038(TObjEnemy*,void*);
+void* construct_actor_base__10TObjPlayerFPvPv(TObjEnemy*,void*);
 extern M2C_UNK __vt__9TObjEnemy[];
 extern void* lbl_805D2B00;
 extern const f32 lbl_805DA8E0;
@@ -54,7 +54,7 @@ extern s32 TLobby__data_805D6144;
 
 TObjEnemy* TObjEnemy::initialize(void* parent) {
     TObjEnemy* self=this;
-    TObjPlayer__sub_80019038(self,parent);
+    construct_actor_base__10TObjPlayerFPvPv(self,parent);
     self->dispatch=((u32 *)&__vt__9TObjEnemy);
     self->typeName=lbl_805D2B00;
     self->targetId=0xFFFF;

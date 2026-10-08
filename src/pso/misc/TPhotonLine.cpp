@@ -53,7 +53,7 @@ struct Line_801ACB14 {
 };
 
 extern "C" {
-void TObjPlayer__sub_80019038(void *, void *);
+void construct_actor_base__10TObjPlayerFPvPv(void *, void *);
 Vec_801ACD14 *VecCopy__FP3VecPC3Vec(Vec_801ACD14 *, const Vec_801ACD14 *);
 void reset_photon_effect__10TObjPlayerFPv(void *);
 void *find_entity_by_id(u16);
@@ -147,7 +147,7 @@ void *__dt__11TPhotonLineFv(void *arg0, s16 arg1) {
 }
 Line_801ACD14 *TPhotonLine__ct(Line_801ACD14 *self, Params_801ACD14 *p, void *parent, u16 arg3) {
     s32 i;
-    TObjPlayer__sub_80019038(self, parent);
+    construct_actor_base__10TObjPlayerFPvPv(self, parent);
     self->vt18 = ((s32 *)&__vt__11TPhotonLine);
     self->f0 = lbl_805D3500;
     VecCopy__FP3VecPC3Vec(&self->f50, VecCopy__FP3VecPC3Vec(&self->f38, &p->pos));

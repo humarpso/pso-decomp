@@ -19,7 +19,7 @@ void update_selected_entry__17TWindowSubComCardFPv(void *arg0);
 s32 play_sound_effect(s32 a0 = 0, s32 a1 = 0, s32 a2 = 0, s32 a3 = 0);
 s32 TWindowMenu__sub_80266B18(void *, s32);
 s32 TWindowSubComCard__sub_8026906C(void);
-u32 TWindowSubStatusDisp__sub_802880BC(u32, s32, s16);
+u32 construct_type1_heading__20TWindowSubStatusDispFPvii(u32, s32, s16);
 u32 alloc__23TAdSinglePlyChrSelectGCFPv(s32);
 void clear_flag70_bit80__19TWindowSubTradeMainFPv(void* p);
 void clear_flag__19TWindowSubTradeMainFPv(void* p);

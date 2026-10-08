@@ -36,13 +36,13 @@ u32 get_message_10__20TWindowSubStatusDispFPv(M2C_UNK);
 void TWindowSubComCard__sub_80244888(s32);
 M2C_UNK set_selected_index__17TWindowSubComCardFPvs(u32, s16);
 M2C_UNK align_menu_entry_positions(u32);
-M2C_UNK TWindowSubComCard__sub_80265E60(u32, f32);
+M2C_UNK update_layout_height__17TWindowSubComCardFPvf(u32, f32);
 M2C_UNK forward_trade_action_default__16TObjCityMainWarpFPviii(u32, u32, M2C_UNK, M2C_UNK);
 u32 create_window_menu(M2C_UNK *, M2C_UNK, M2C_UNK);
 u32 check_room_seq_4__16TAdChrSelASlotGCFii(M2C_UNK *, M2C_UNK);
 M2C_UNK complete_reveal__14TWindowMessageFPv(u32);
 M2C_UNK send_and_handle__6TLobbyFPvii(u32, u32, M2C_UNK);
-u32 TLobby__sub_80269CC0(M2C_UNK *, M2C_UNK *, M2C_UNK, M2C_UNK);
+u32 create_message_window__6TLobbyFiiUis(M2C_UNK *, M2C_UNK *, M2C_UNK, M2C_UNK);
 u32 update_window_mode_from_progress__6TLobbyFiPv(M2C_UNK *, M2C_UNK *);
 M2C_UNK clear_flag70_bit4__17TWindowOptionCtrlFPv(u32);
 extern M2C_UNK lbl_80477DB4[];
@@ -74,7 +74,7 @@ void TWindowSubComCard__sub_8033BDB0(void *arg0, u32 arg1, s32 arg2, u32 arg3, u
         return;
     }
     if (M2C_FIELD(arg0, s32 *, 0x4C) != 0) {
-        M2C_FIELD(arg0, u32 *, 0x30) = TLobby__sub_80269CC0(lbl_80477DB4, lbl_80477DBC, 1, 4);
+        M2C_FIELD(arg0, u32 *, 0x30) = create_message_window__6TLobbyFiiUis(lbl_80477DB4, lbl_80477DBC, 1, 4);
     } else {
         M2C_FIELD(arg0, u32 *, 0x30) = update_window_mode_from_progress__6TLobbyFiPv(lbl_80477DB4, lbl_80477DBC);
     }
@@ -114,7 +114,7 @@ void TWindowSubComCard__sub_8033BDB0(void *arg0, u32 arg1, s32 arg2, u32 arg3, u
         }
         forward_trade_action_default__16TObjCityMainWarpFPviii(M2C_FIELD(arg0, u32 *, 0x34), msg, 5, 1);
     }
-    TWindowSubComCard__sub_80265E60(M2C_FIELD(arg0, u32 *, 0x34), lbl_805D6D98);
+    update_layout_height__17TWindowSubComCardFPvf(M2C_FIELD(arg0, u32 *, 0x34), lbl_805D6D98);
     align_menu_entry_positions(M2C_FIELD(arg0, u32 *, 0x34));
     if (arg2 != -2) {
         set_selected_index__17TWindowSubComCardFPvs(M2C_FIELD(arg0, u32 *, 0x34), arg2);

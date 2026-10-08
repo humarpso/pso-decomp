@@ -8,7 +8,7 @@ extern "C" {
 
 u8 *__ct__13TObjSuisoChipFv(u8 *arg0, u8 *arg1);
 u8 *init__13TObjSuisoChipFPvPv(u8 *arg0, u8 *arg1);
-M2C_UNK TObjChip__sub_80180BD4(void *, void *);
+M2C_UNK construct_debris__8TObjChipFPvPvPv(void *, void *);
 M2C_UNK VecCopy__FP3VecPC3Vec(void *, void *);
 M2C_UNK __ct__8TObjChipFv(void *, void *);
 void __dt__8TObjChipFv(void *, s16);
@@ -56,7 +56,7 @@ extern s32 tl_05;
 extern const f32 lbl_805DDFF8;
 
 u8 *init__13TObjSuisoChipFPvPv(u8 *arg0, u8 *arg1) {
-    TObjChip__sub_80180BD4((void *) (arg0), (void *) (tl_05));
+    construct_debris__8TObjChipFPvPvPv((void *) (arg0), (void *) (tl_05));
     M2C_FIELD(arg0, void ***, 0x18) = __vt__13TObjSuisoChip;
     M2C_FIELD(arg0, s32 *, 0) = (s32) lbl_805D3E08;
     if (arg1 != NULL) {

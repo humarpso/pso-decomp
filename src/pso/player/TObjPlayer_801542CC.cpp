@@ -191,7 +191,7 @@ void check_object_collisions__10TObjPlayerFPv(void *arg0);
 void update_collisions__10TObjPlayerFPv(void* p);
 void clear_obj_links(void* p);
 void* initialize_linked_object_reference(void* p, void* a1);
-int TObjPlayer__sub_80019828(void*);
+int clear_ground_candidates__10TObjPlayerFPv(void*);
 void release_member_90__10TObjPlayerFPv(void* p);
 void init_all_slots__10TObjPlayerFv(void);
 void TObjPlayer__sub_80156934(void);
@@ -270,7 +270,7 @@ void TObjPlayer__sub_80156A68(void* p);
 void TObjPlayer__sub_80156A74(void* p);
 void TPhotonMagicSquare__sub_801A2640(void);
 extern M2C_UNK lbl_804AF8A0[];
-u8 *TObjPlayer__sub_801569F4(u8 *arg0);
+u8 *construct_collider_proxy__10TObjPlayerFPv(u8 *arg0);
 extern unsigned char lbl_8050DAD0[];
 extern int lbl_805D5878;
 void TObjPlayer__sub_801546D0(u32 arg0, s32 arg1);
@@ -1244,7 +1244,7 @@ s32 project_actor_to_ground(Obj_80156844 *self, Vec_80156844 *pos, Vec_80156844 
     return 1;
 }
 
-void release_member_90__10TObjPlayerFPv(void* p) { void* m = *(void**)((char*)p + 0x90); if (m) TObjPlayer__sub_80019828(m); }
+void release_member_90__10TObjPlayerFPv(void* p) { void* m = *(void**)((char*)p + 0x90); if (m) clear_ground_candidates__10TObjPlayerFPv(m); }
 void TObjPlayer__sub_80156934(void) { TObjPlayer__sub_801549D0(); init_all_slots__10TObjPlayerFv(); }
 void reset__10TObjPlayerFv(void) { (*(int *)&lbl_805D5868) = 0; (*(int *)&lbl_805D586C) = 0; (*(int *)&lbl_805D5870) = 0; (*(int *)&TObjPlayer__data_805D5874) = 0; TObjPlayer__sub_801549D0(); init_all_slots__10TObjPlayerFv(); }
 void *destroy_particle_controller__10TObjPlayerFPvs(void *arg0, s16 arg1) {
@@ -1260,7 +1260,7 @@ void *destroy_particle_controller__10TObjPlayerFPvs(void *arg0, s16 arg1) {
     return arg0;
 }
 
-u8 *TObjPlayer__sub_801569F4(u8 *arg0) {
+u8 *construct_collider_proxy__10TObjPlayerFPv(u8 *arg0) {
     struct Actor_801569F4 *s = (struct Actor_801569F4 *) arg0;
     TPhotonMagicSquare__sub_801A2640();
     s->vtable = ((void * *)&lbl_804AF8A0);

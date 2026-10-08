@@ -5,7 +5,7 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 #define M2C_BITWISE(type, expr) ((type)(expr))
 
 extern "C" {
-int TLobby__sub_8011AFB8(void);
+int reset_item_id_counters__6TLobbyFv(void);
 int alloc_buffer__11TOBoss4RockFPv(void*);
     extern int lbl_805D54E0;
     extern int lbl_805D54E4;
@@ -49,7 +49,7 @@ s32 free_rock_objects__6TLobbyFis(s32 arg0, s16 arg1) {
     }
     return arg0;
 }
-void* init_bosses__6TLobbyFPv(void* a0) { (*(int *)&lbl_805D54EC) = alloc_buffer__11TOBoss4RockFPv((void*)48); (*(int *)&lbl_805D54E8) = alloc_buffer__11TOBoss4RockFPv((void*)48); TLobby__sub_8011AFB8(); lbl_805D54E0 = 0; lbl_805D54E4 = 0; return a0; }
+void* init_bosses__6TLobbyFPv(void* a0) { (*(int *)&lbl_805D54EC) = alloc_buffer__11TOBoss4RockFPv((void*)48); (*(int *)&lbl_805D54E8) = alloc_buffer__11TOBoss4RockFPv((void*)48); reset_item_id_counters__6TLobbyFv(); lbl_805D54E0 = 0; lbl_805D54E4 = 0; return a0; }
 void send_item_packet__6TLobbyFPv(void* p) { bswap_item_packet__6TLobbyFPv((void*)((void*)(p))); TLobby__send_and_handle_60(p); }
 void bswap_item_packet__6TLobbyFPv(void* p) { read_be16_field2__10TObjPlayerFPv(p); bswap_item__6TLobbyFPv((char*)p + 0x4); }
 void *init_header_packet__6TLobbyFPv(void *arg0) {

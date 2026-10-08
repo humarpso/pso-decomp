@@ -22,17 +22,17 @@ extern const f32 lbl_805DB02C;
 void TObjPlayer__sub_80130CD8(Obj_80130CD8 *arg0);
 M2C_UNK spawn_particle_effect(void *, M2C_UNK);
 M2C_UNK draw_icon__10TObjPlayerFPvii(void *, M2C_UNK, void *);
-M2C_UNK TObjPlayer__sub_8012E284(s32, void *, M2C_UNK, struct Vec_80130C2C *, struct Ang_80130C2C *);
+M2C_UNK launch_weapon_casing__10TObjPlayerFiUiiUiUi(s32, void *, M2C_UNK, struct Vec_80130C2C *, struct Ang_80130C2C *);
 f32 sin_table_lookup(s32);
 f32 cos_table_lookup(s32);
 extern s32 tl_05;
 extern const f32 lbl_805DB020;
-void TObjPlayer__sub_80130C2C(struct Pl_80130C2C *arg0);
+void eject_casing_at_marker__10TObjPlayerFPv(struct Pl_80130C2C *arg0);
 }
 
 extern "C" {
 
-void TObjPlayer__sub_80130C2C(struct Pl_80130C2C *arg0) {
+void eject_casing_at_marker__10TObjPlayerFPv(struct Pl_80130C2C *arg0) {
     struct Vec_80130C2C pos;
     struct Ang_80130C2C ang;
     struct Vec_80130C2C sp8;
@@ -45,7 +45,7 @@ void TObjPlayer__sub_80130C2C(struct Pl_80130C2C *arg0) {
     ang.x = 0x4000;
     ang.y = arg0->f0->angle;
     ang.z = 0;
-    TObjPlayer__sub_8012E284(tl_05, arg0, 3, &pos, &ang);
+    launch_weapon_casing__10TObjPlayerFiUiiUiUi(tl_05, arg0, 3, &pos, &ang);
     draw_icon__10TObjPlayerFPvii(arg0, 2, &sp8);
     spawn_particle_effect(&sp8, 9);
 }

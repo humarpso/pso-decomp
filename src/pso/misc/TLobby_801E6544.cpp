@@ -1722,9 +1722,9 @@ int TLobby__sub_801EDDDC(void);
 int TLobby__sub_801EDE00(void);
 void TLobby__sub_801EDE24(s32 a, s32 b);
 void store_status__6TLobbyFi(int a0);
-void TLobby__sub_801EDF04(s32 arg0);
+void qst_op_get_difficulty_level2__6TLobbyFi(s32 arg0);
 void create_quest_bgm_ctrl__6TLobbyFv(void);
-void TLobby__sub_801EDF64(s32 arg0);
+void send_switch_changed_from_args__6TLobbyFi(s32 arg0);
 void TLobby__sub_801EDFE0(u8 reg);
 void TLobby__sub_801EDFF4(u8 reg);
 int forward_801F36E4__6TLobbyFPv(void* p);
@@ -1745,7 +1745,7 @@ void process_static_805D53A0__6TLobbyFv(void);
 void TLobby__sub_801EE4D4(void);
 int TLobby__sub_801EE4D8(void);
 void notify_guild_offline__6TLobbyFUs(u16 arg0);
-void TLobby__sub_801EE520(s32 arg0);
+void qst_op_get_difficulty_level_v1__6TLobbyFi(s32 arg0);
 void TLobby__sub_801EE54C(void);
 void qst_op_clear_quest_board_handler(void);
 void qst_op_set_quest_board_handler(void);
@@ -1776,7 +1776,7 @@ void qst_op_set_floor_handler(void);
 int TLobby__sub_801EF24C(void* p);
 void TLobby__sub_801EF26C(void);
 void qst_op_set_mainwarp(void);
-void TLobby__sub_801EF2D8(void);
+void qst_op_force_bgm__6TLobbyFv(void);
 void qst_op_playbgm_epi(void);
 void qst_op_switch_off(void);
 void qst_op_switch_on(void);
@@ -2529,8 +2529,8 @@ void TLobby__sub_801E7EB0(void) {
     M2C_FIELD(((*(s32 *)&TLobby__data_805D5E78) + ((*(RecoveredGlobal_801E7EB0_TLobby__data_80512220 *)&TLobby__data_80512220).value * 4)), s32 *, 0) = lbl_805D5544;
 }
 
-void TItemData__sub_8010C498(Item_801EE77C *);
-void TItemData__sub_8010B848(Item_801EE77C *, s8);
+void set_wrapped__9TItemDataFPv(Item_801EE77C *);
+void set_present_color__9TItemDataFPvi(Item_801EE77C *, s8);
 void TLobby__sub_801E7ECC(void) {
     s32 id;
     s8 n;
@@ -2548,15 +2548,15 @@ void TLobby__sub_801E7ECC(void) {
     player = get_player_by_client_id(lbl_805D53A0);
     if (player != 0) {
         send_6x29_delete_item__10TObjPlayerFPvii(player, id, 1);
-        TItemData__sub_8010C498(&item);
-        TItemData__sub_8010B848(&item, n);
+        set_wrapped__9TItemDataFPv(&item);
+        set_present_color__9TItemDataFPvi(&item, n);
         if (can_inventory_accept_item__10TObjPlayerFPvPv((void *)player, (Item_801EEE68 *)&item) > 0) {
             fn_801B849C((void *)player, (Item_801EEE68 *)&item);
         }
     }
 }
 
-void TItemData__sub_8010C498(Item_801EE77C *);
+void set_wrapped__9TItemDataFPv(Item_801EE77C *);
 void TLobby__sub_801E7F70(void) {
     s32 id;
     u32 player;
@@ -2572,7 +2572,7 @@ void TLobby__sub_801E7F70(void) {
     player = get_player_by_client_id(lbl_805D53A0);
     if (player != 0) {
         send_6x29_delete_item__10TObjPlayerFPvii(player, id, 1);
-        TItemData__sub_8010C498(&item);
+        set_wrapped__9TItemDataFPv(&item);
         if (can_inventory_accept_item__10TObjPlayerFPvPv((void *)player, (Item_801EEE68 *)&item) > 0) {
             fn_801B849C((void *)player, (Item_801EEE68 *)&item);
         }
@@ -6945,7 +6945,7 @@ void store_status__6TLobbyFi(int a0) { TLobby__data_805D5E78[(unsigned char)(a0)
 #pragma inline_depth(1)
 #pragma auto_inline off
 #pragma dont_inline off
-void TLobby__sub_801EDF04(s32 arg0) {
+void qst_op_get_difficulty_level2__6TLobbyFi(s32 arg0) {
     s32 var_r5;
     var_r5 = lbl_805D5550;
     if (var_r5 < 0) {
@@ -6965,7 +6965,7 @@ void create_quest_bgm_ctrl__6TLobbyFv(void) {
     }
 }
 
-void TLobby__sub_801EDF64(s32 arg0) {
+void send_switch_changed_from_args__6TLobbyFi(s32 arg0) {
     Pkt_801EDF64 pkt;
     init_6x05_switch_changed__6TLobbyFPv(&pkt);
     pkt.b = 0;
@@ -7110,7 +7110,7 @@ void notify_guild_offline__6TLobbyFUs(u16 arg0) {
     set_quest_exit_callback((void *) (arg0));
 }
 
-void TLobby__sub_801EE520(s32 arg0) {
+void qst_op_get_difficulty_level_v1__6TLobbyFi(s32 arg0) {
     s32 var_r5;
     var_r5 = lbl_805D5550;
     if (var_r5 < 0) {
@@ -7411,7 +7411,7 @@ void qst_op_set_floor_handler(void) {
     set_floor_handler((int) (M2C_FIELD(&(*(RecoveredGlobal_801EF100_TLobby__data_80512220 *)&TLobby__data_80512220).value, s32 *, 0)), (int) ((u16) M2C_FIELD(&(*(RecoveredGlobal_801EF100_TLobby__data_80512220 *)&TLobby__data_80512220).value, s32 *, 4)));
 }
 
-void TLobby__sub_801EF134(u8 arg0) {
+void qst_set_camera_offsets__6TLobbyFUc(u8 arg0) {
     s32 i = arg0;
     Vec_801EF134 a;
     Vec_801EF134 b;
@@ -7438,7 +7438,7 @@ void qst_op_set_mainwarp(void) {
     set_main_warp_id__8TObjDoorFi((int) (temp_r31));
 }
 
-void TLobby__sub_801EF2D8(void) {
+void qst_op_force_bgm__6TLobbyFv(void) {
     TQuestBgmCtrl__sub_801E63A4((int) (M2C_FIELD(&(*(RecoveredGlobal_80141730_lbl_8050C028 *)&TLobby__data_80512220).value, s32 *, 0x0)));
 }
 

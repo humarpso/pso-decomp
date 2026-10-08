@@ -219,7 +219,7 @@ struct Obj_80189F24 : VBase_80189F24 {
 };
 
 extern "C" {
-M2C_UNK fn_80156CA0(void *);
+M2C_UNK step_laser_fence_fade(void *);
 void TObjPlayer__sub_80189FEC(u8 *arg0);
 f32 xyz_distance_squared(void *, void *);
 s32 TObjPlayer__sub_8018A10C(u8 *arg0, s32 arg1);
@@ -257,7 +257,7 @@ void render__17TObjContainerBaseFPv(Obj_80189F24 *self) {
 }
 
 void TObjPlayer__sub_80189FEC(u8 *arg0) {
-    fn_80156CA0((void *) (arg0 + 0x340));
+    step_laser_fence_fade((void *) (arg0 + 0x340));
     ((VObj_18 *)(arg0))->m78();
     M2C_FIELD(arg0, s32 *, 0x364) = 0;
 }

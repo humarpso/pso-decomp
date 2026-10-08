@@ -352,8 +352,8 @@ void TItem__sub_80101CF0(void);
 void TItem__sub_80101CF4(void);
 void TItem__sub_80101CF8(void);
 s32 copy_to_item_data__5TItemFPvPv(void *arg0, void *arg1);
-M2C_UNK TItemData__sub_8010B848(void *, s8);
-M2C_UNK TItemData__sub_8010C498(void *);
+M2C_UNK set_present_color__9TItemDataFPvi(void *, s8);
+M2C_UNK set_wrapped__9TItemDataFPv(void *);
 M2C_UNK set_packed_value__9TItemDataFPvUs(void *, u16);
 M2C_UNK init__9TItemDataFv(void *);
 
@@ -378,8 +378,8 @@ s32 copy_to_item_data__5TItemFPvPv(void *arg0, void *arg1) {
             set_packed_value__9TItemDataFPvUs(item, M2C_FIELD(o, u16 *, 0xE8));
         }
         if (M2C_FIELD(o, s32 *, 0xDC) & 0x400) {
-            TItemData__sub_8010C498(item);
-            TItemData__sub_8010B848(item, (s8) M2C_FIELD(o, u8 *, 0xEA));
+            set_wrapped__9TItemDataFPv(item);
+            set_present_color__9TItemDataFPvi(item, (s8) M2C_FIELD(o, u8 *, 0xEA));
         }
         return 1;
     }

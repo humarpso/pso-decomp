@@ -90,7 +90,7 @@ extern u32 lbl_805D5EEC;
 extern s32 tl_00;
 extern const f32 lbl_805DB2C8;
 f32 TOAttackableCol__sub_80157728(u8 *arg0, s32 arg1);
-s32 TObjPlayer__sub_80019038(void *, int);
+s32 construct_actor_base__10TObjPlayerFPvPv(void *, int);
 s32 calc_attach_pos__10TObjPlayerFPv(void *);
 s32 obj_setFlags30(void *, int);
 M2C_UNK set_indexed_flags(void *, M2C_UNK, M2C_UNK);
@@ -363,7 +363,7 @@ void *__dt__15TOAttackableColFv(void *arg0, s16 arg1) {
 typedef char RecoveredGlobal_80157AD8_lbl_804AF9A8_size[sizeof(RecoveredGlobal_80157AD8_lbl_804AF9A8) == 0x2C ? 1 : -1];
 typedef char RecoveredGlobal_80157AD8___vt__15TOAttackableCol_size[sizeof(RecoveredGlobal_80157AD8___vt__15TOAttackableCol) == 0x13C ? 1 : -1];
 u8 *TOAttackableCol__ct(u8 *arg0, s32 arg1) {
-    TObjPlayer__sub_80019038((void *) (arg0), (int) (tl_05));
+    construct_actor_base__10TObjPlayerFPvPv((void *) (arg0), (int) (tl_05));
     M2C_FIELD(arg0, M2C_UNK **, 0x18) = &(*(RecoveredGlobal_80157AD8___vt__15TOAttackableCol *)&__vt__15TOAttackableCol).value;
     M2C_FIELD(arg0, s32 *, 0) = (s32) lbl_805D2E98;
     ((VObj_18_1a504b *)(arg0))->m5(arg1);

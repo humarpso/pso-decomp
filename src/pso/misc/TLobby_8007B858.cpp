@@ -69,7 +69,7 @@ M2C_UNK TWindowTimer__sub_80198D98();
 M2C_UNK create__11TSetManagerFv();
 M2C_UNK TLobby__sub_8032BDC4(u32, s32);
 M2C_UNK TLobby__sub_8033ED24(u32, s32);
-M2C_UNK TNpcPlayer__sub_8034DD14(u32, s32);
+M2C_UNK construct_party_area__10TNpcPlayerFPvPv(u32, s32);
 M2C_UNK TLobby__sub_80351F3C();
 s32 get_main_phase();
 M2C_UNK init__13TQuestColCtrlFv();
@@ -128,7 +128,7 @@ void create_tasks__6TLobbyFv(void) {
     restore_floor_telepipes();
     tmp = __nw__7TObjectFUl(0x20);
     if (tmp != 0U) {
-        TNpcPlayer__sub_8034DD14(tmp, tl_06);
+        construct_party_area__10TNpcPlayerFPvPv(tmp, tl_06);
     }
     tmp = __nw__7TObjectFUl(0x28);
     if (tmp != 0U) {

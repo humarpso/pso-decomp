@@ -289,7 +289,7 @@ extern RecoveredGlobal_801FA964_lbl_804C8784 lbl_804C8784;
 extern s32 lbl_805D4DF0;
 extern const f32 TRaderMapCore__data_805DC538;
 extern const f32 TRaderMapCore__data_805DC53C;
-void TRaderMapCore__sub_801FA964(s32 arg0, s32 arg1);
+void setup_view__13TRaderMapCoreFii(s32 arg0, s32 arg1);
 extern RecoveredGlobal_801F9720_TRaderMapCore__data_80513708 TRaderMapCore__data_80513708;
 extern const f32 lbl_805D35F4;
 extern const f32 lbl_805D35F8;
@@ -1014,7 +1014,7 @@ extern s32 lbl_805D53A0;
 extern s32 lbl_805DC56C;
 
 typedef char RecoveredGlobal_801FA964_lbl_804C8784_size[sizeof(RecoveredGlobal_801FA964_lbl_804C8784) == 0x30 ? 1 : -1];
-void TRaderMapCore__sub_801FA964(s32 arg0, s32 arg1) {
+void setup_view__13TRaderMapCoreFii(s32 arg0, s32 arg1) {
     GXSetScissorBoxOffset((int) (0), (int) (0));
     TCameraCtrl__sub_801E32D8((f32) (TRaderMapCore__data_805DC538), (f32) (TRaderMapCore__data_805DC53C));
     TCameraCtrl__sub_8006AF9C((void *) (lbl_805D4DF0), (int) (0));
@@ -1123,7 +1123,7 @@ void render__13TRaderMapCoreFv(u8 *arg0) {
             render_region_records__13TRaderMapCoreFv((Self_801FAAEC *)((void *) (arg0)), (void *)((void *) (TRaderMapCore__data_805D5F3C)));
             draw_enemy_gate_markers__13TRaderMapCoreFv((u8 *)((void *) (arg0)));
             draw_player_markers__13TRaderMapCoreFv((u8 *)((void *) (arg0)));
-            TRaderMapCore__sub_801FA964((s32)((void *) (arg0)), (s32)((void *) (TRaderMapCore__data_805D5F3C)));
+            setup_view__13TRaderMapCoreFii((s32)((void *) (arg0)), (s32)((void *) (TRaderMapCore__data_805D5F3C)));
             draw_compass__13TRaderMapCoreFv((void *) (arg0), (void *) (TRaderMapCore__data_805D5F3C));
             break;
         case 1:
@@ -1134,7 +1134,7 @@ void render__13TRaderMapCoreFv(u8 *arg0) {
             render_region_records__13TRaderMapCoreFv((Self_801FAAEC *)((void *) (arg0)), (void *)((void *) (TRaderMapCore__data_805D5F3C)));
             draw_enemy_gate_markers__13TRaderMapCoreFv((u8 *)((void *) (arg0)));
             draw_player_markers__13TRaderMapCoreFv((u8 *)((void *) (arg0)));
-            TRaderMapCore__sub_801FA964((s32)((void *) (arg0)), (s32)((void *) (TRaderMapCore__data_805D5F3C)));
+            setup_view__13TRaderMapCoreFii((s32)((void *) (arg0)), (s32)((void *) (TRaderMapCore__data_805D5F3C)));
             restore_full_screen_view__11TCameraCtrlFv();
             M2C_FIELD(arg0, s32 *, 0x174) = 0;
             draw_compass__13TRaderMapCoreFv((void *) (arg0), (void *) (TRaderMapCore__data_805D5F3C));
@@ -1146,7 +1146,7 @@ void render__13TRaderMapCoreFv(u8 *arg0) {
             render_region_records__13TRaderMapCoreFv((Self_801FAAEC *)((void *) (arg0)), (void *)((void *) (TRaderMapCore__data_805D5F3C)));
             draw_enemy_gate_markers__13TRaderMapCoreFv((u8 *)((void *) (arg0)));
             draw_player_markers__13TRaderMapCoreFv((u8 *)((void *) (arg0)));
-            TRaderMapCore__sub_801FA964((s32)((void *) (arg0)), (s32)((void *) (TRaderMapCore__data_805D5F3C)));
+            setup_view__13TRaderMapCoreFii((s32)((void *) (arg0)), (s32)((void *) (TRaderMapCore__data_805D5F3C)));
             break;
         }
         lbl_805D5F2C = 0;

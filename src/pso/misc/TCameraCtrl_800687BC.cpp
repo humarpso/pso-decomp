@@ -479,7 +479,7 @@ extern RecoveredGlobal_80069534_lbl_804381BC lbl_804381BC;
 extern RecoveredGlobal_800695E8_TCameraCtrl__data_804FF628 TCameraCtrl__data_804FF628;
 void TCameraCtrl__sub_80069534(void);
 extern RecoveredGlobal_800695E8_TCameraCtrl__data_804FF628 TCameraCtrl__data_804FF628;
-s32 TCameraCtrl__sub_80069D7C(void);
+s32 release_photon_blast_camera__11TCameraCtrlFv(void);
 extern RecoveredGlobal_80069094_camera_controller_registry camera_controller_registry;
 extern RecoveredGlobal_800695E8_TCameraCtrl__data_804FF628 TCameraCtrl__data_804FF628;
 s32 activate_camera_mode(s32 arg0);
@@ -1208,7 +1208,7 @@ void set_active_camera_pose_from_params(u8 *arg0) {
 #pragma opt_common_subs off
 #pragma opt_propagation off
 typedef char RecoveredGlobal_80069D7C_TCameraCtrl__data_804FF628_size[sizeof(RecoveredGlobal_80069D7C_TCameraCtrl__data_804FF628) == 0xC ? 1 : -1];
-s32 TCameraCtrl__sub_80069D7C(void) {
+s32 release_photon_blast_camera__11TCameraCtrlFv(void) {
     s32 temp_r0;
     if (M2C_FIELD(&(*(RecoveredGlobal_80069D7C_TCameraCtrl__data_804FF628 *)&TCameraCtrl__data_804FF628).value, s32 *, 8) & 8) {
         temp_r0 = M2C_FIELD(&(*(RecoveredGlobal_80069D7C_TCameraCtrl__data_804FF628 *)&TCameraCtrl__data_804FF628).value, s32 *, 8) & 0xFFFFFFF7;

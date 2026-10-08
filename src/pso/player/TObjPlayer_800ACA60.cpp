@@ -603,7 +603,7 @@ f32 update_scale__15TObjBoss2TunnelFPv(void *);
 M2C_UNK pop_matrix();
 void *__nw__7TObjectFUl(u32);
 f32 get_pos_x__10TObjPlayerFPv(u32);
-void TTecZonde__sub_8023DA10(void *, s32, void *, void *, s32, s32, f32, f32);
+void construct_bolt_effect__9TTecZondeFPvPvPvPviiff(void *, s32, void *, void *, s32, s32, f32, f32);
 void create_ex__11TTecGiBartaFPvPvPvPv(void *, void *, s32, s32);
 void create_ex__8TTecFoieFPvPvPvPv(void *, void *, void *, s32);
 void create__8TTecFoieFPvPvPvPv(void *, void *, s32, s32);
@@ -911,7 +911,7 @@ M2C_UNK update_technique_state__11TObjEneMojaFv(void *self_800AD3D8) {
                     }
                     obj = __nw__7TObjectFUl(0x260);
                     if (obj != NULL) {
-                        TTecZonde__sub_8023DA10(obj, tl_07, &pos, &dir, 0x14000000, 20,
+                        construct_bolt_effect__9TTecZondeFPvPvPvPviiff(obj, tl_07, &pos, &dir, 0x14000000, 20,
                                                 get_pos_x__10TObjPlayerFPv(self->f318), lbl_805D9C24);
                     }
                     play_sound_effect((void *) 0x4002A408, &pos, 0, 0);

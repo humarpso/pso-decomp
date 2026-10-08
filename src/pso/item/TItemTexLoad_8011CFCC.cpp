@@ -8,7 +8,7 @@ extern "C" {
 M2C_UNK unload_texture__12TItemTexLoadFPv(void *);
 s32 TLobby__sub_803CC53C(int);
 M2C_UNK TLobby__sub_803CCB5C(int, int, int);
-u32 TLobby__sub_803CD16C(int, int);
+u32 adxf_open_afs__6TLobbyFii(int, int);
 s32 TItemTexLoad__sub_8011CFCC(u8 *arg0, s32 arg1);
 s32 *lookup_item_pmt_record(void *);
 s32 TItemTexLoad__sub_8011CFCC(u8 *arg0, s32 arg1);
@@ -24,7 +24,7 @@ s32 TItemTexLoad__sub_8011CFCC(u8 *arg0, s32 arg1) {
         }
         unload_texture__12TItemTexLoadFPv((void *) (arg0));
         M2C_FIELD(arg0, s32 *, 0x24) = arg1;
-        M2C_FIELD(arg0, u32 *, 0x28) = TLobby__sub_803CD16C((int) (0xB8), (int) (M2C_FIELD(arg0, s32 *, 0x24)));
+        M2C_FIELD(arg0, u32 *, 0x28) = adxf_open_afs__6TLobbyFii((int) (0xB8), (int) (M2C_FIELD(arg0, s32 *, 0x24)));
         if ((u32) M2C_FIELD(arg0, u32 *, 0x28) == 0U) {
             unload_texture__12TItemTexLoadFPv((void *) (arg0));
             return 0;

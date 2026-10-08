@@ -53,7 +53,7 @@ s32 TAdMultiPlyChrSelectGC__sub_802DBD64(s32 arg0);
 s32 get_localized_text_entry(int, int);
 M2C_UNK set_selected_index__17TWindowSubComCardFPvs(int, int);
 M2C_UNK align_menu_entry_positions(int);
-M2C_UNK TWindowSubComCard__sub_80265E60(int, f32);
+M2C_UNK update_layout_height__17TWindowSubComCardFPvf(int, f32);
 M2C_UNK forward_trade_action_default__16TObjCityMainWarpFPviii(int, int, int, int);
 s32 create_window_menu(void *, int, int);
 s32 get_clamped_cursor__22TAdMultiPlyChrSelectGCFv();
@@ -159,7 +159,7 @@ s32 TAdMultiPlyChrSelectGC__sub_802DBF3C(void) {
     forward_trade_action_default__16TObjCityMainWarpFPviii((int) (temp_r31), (int) (get_localized_text_entry((int) (0x1F), (int) (3))), (int) (6), (int) (1));
     forward_trade_action_default__16TObjCityMainWarpFPviii((int) (temp_r31), (int) (get_localized_text_entry((int) (0x1F), (int) (4))), (int) (6), (int) (2));
     forward_trade_action_default__16TObjCityMainWarpFPviii((int) (temp_r31), (int) (get_localized_text_entry((int) (0x1F), (int) (5))), (int) (6), (int) (3));
-    TWindowSubComCard__sub_80265E60((int) (temp_r31), (f32) (lbl_805DE894));
+    update_layout_height__17TWindowSubComCardFPvf((int) (temp_r31), (f32) (lbl_805DE894));
     set_selected_index__17TWindowSubComCardFPvs((int) (temp_r31), (int) (0));
     align_menu_entry_positions((int) (temp_r31));
     return temp_r31;

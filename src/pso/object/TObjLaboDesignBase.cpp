@@ -68,7 +68,7 @@ s32 draw_ginja_model(int);
 void TObjLaboDesignBase__sub_80364F18(s32 arg0, u8 *arg1);
 M2C_UNK reset_photon_effect__10TObjPlayerFPv(void *);
 M2C_UNK init_collision_body_parts(void *, int, int);
-M2C_UNK TObjPlayer__sub_801569F4();
+M2C_UNK construct_collider_proxy__10TObjPlayerFPv();
 s32 create__10TObjMapCsnFi(void *, f32, f32);
 void* fn_80365320(int a0);
 int fn_80365334(int a0);
@@ -364,7 +364,7 @@ u8 *TObjLaboDesignBase__ct(u8 *arg0, M2C_UNK arg1, s32 arg2, s32 arg3) {
     CopyStack_80365210 copy_storage_80365210;
     s32 temp_r0;
     s32 temp_r4;
-    TObjPlayer__sub_801569F4();
+    construct_collider_proxy__10TObjPlayerFPv();
     M2C_FIELD(arg0, M2C_UNK **, 0x18) = &(*(RecoveredGlobal_80365210___vt__18TObjLaboDesignBase *)&__vt__18TObjLaboDesignBase).value;
     M2C_FIELD(arg0, s32 *, 0) = (s32) lbl_805D44A0;
     ((VObj_18_1a504b *)(arg0))->m5(arg2);

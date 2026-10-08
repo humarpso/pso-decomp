@@ -21,7 +21,7 @@ extern "C" {
 void destroy__13TObjTombstoneFv(void);
 void *init__13TObjTombstoneFPviii(void *arg0, s32 arg1, s32 arg2, s32 arg3);
 void TLobby__sub_8001FE7C(void*, int);
-M2C_UNK TObjPlayer__sub_801569F4();
+M2C_UNK construct_collider_proxy__10TObjPlayerFPv();
 M2C_UNK TObjTombstone__sub_80074FAC();
 M2C_UNK init_parts__13TObjTombstoneFPv(void *);
 M2C_UNK setup__13TObjTombstoneFPvii(void *, s32, s32);
@@ -33,7 +33,7 @@ extern s32 lbl_805D53A0;
 extern s32 TLobby__data_805D53AC;
 
 void *init__13TObjTombstoneFPviii(void *arg0, s32 arg1, s32 arg2, s32 arg3) {
-    TObjPlayer__sub_801569F4();
+    construct_collider_proxy__10TObjPlayerFPv();
     M2C_FIELD(arg0, M2C_UNK **, 0x18) = __vt__13TObjTombstone;
     M2C_FIELD(arg0, s32 *, 0) = (s32) lbl_805D289C;
     if ((u32) TObjTombstone__data_805D4E48 == 0U) {

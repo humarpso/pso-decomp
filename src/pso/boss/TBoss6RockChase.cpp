@@ -31,7 +31,7 @@ extern const f32 lbl_805E03E4;
 s32 TBoss6RockChase__sub_8036D6D4(s32 arg0, s32 arg1);
 s32 VecCopy__FP3VecPC3Vec(void *, void *);
 s32 get_bml_model(int, int);
-s32 TObjPlayer__sub_801569F4(void *);
+s32 construct_collider_proxy__10TObjPlayerFPv(void *);
 s32 TBoss6Rock__sub_80353A04();
 s32 TBoss6Rock__sub_80353A0C();
 s32 rand();
@@ -127,7 +127,7 @@ void *__dt__15TBoss6RockChaseFv(void *arg0, s16 arg1) {
 typedef char RecoveredGlobal_8036D4E0_lbl_8047ACE8_size[sizeof(RecoveredGlobal_8036D4E0_lbl_8047ACE8) == 0x10 ? 1 : -1];
 typedef char RecoveredGlobal_8036D4E0___vt__15TBoss6RockChase_size[sizeof(RecoveredGlobal_8036D4E0___vt__15TBoss6RockChase) == 0x38 ? 1 : -1];
 u8 *TBoss6RockChase__ct(u8 *arg0, s32 arg1, s32 arg2, s32 arg3) {
-    TObjPlayer__sub_801569F4((void *) (arg0));
+    construct_collider_proxy__10TObjPlayerFPv((void *) (arg0));
     M2C_FIELD(arg0, M2C_UNK **, 0x18) = &(*(RecoveredGlobal_8036D4E0___vt__15TBoss6RockChase *)&__vt__15TBoss6RockChase).value;
     M2C_FIELD(arg0, s32 *, 0) = (s32) lbl_805D44F0;
     M2C_FIELD(arg0, s32 *, 0xAC) = arg1;

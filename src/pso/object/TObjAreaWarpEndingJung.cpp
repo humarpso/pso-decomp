@@ -404,7 +404,7 @@ s32 register_warp__16TObjMapForceWarpFPv(int);
 void * get_dest_area__17TObjAreaWarpQuestFPv(void *);
 void TObjAreaWarpQuest__sub_8019DCD8(void *, s32);
 void bswap_6x94_inter_level_warp(void *);
-M2C_UNK fn_8019DD14(s32, M2C_UNK);
+M2C_UNK mask_action_buttons(s32, M2C_UNK);
 f32 get_static_field4_as_float__12TObjWarpJungFv(f32);
 M2C_UNK set_global_render_param__12TObjWarpJungFv();
 M2C_UNK render_warp_effect__12TObjWarpJungFii(M2C_UNK, s32);
@@ -434,7 +434,7 @@ void TWindow__close(void *);
 void suppress_slot__11TWindowCtrlFi(s32);
 M2C_UNK align_menu_entry_positions(u32);
 M2C_UNK TWindowSubComCard__sub_80265F60(u32);
-M2C_UNK TWindowSubTradeMain__sub_80266200(u32, s32, M2C_UNK, M2C_UNK, M2C_UNK);
+M2C_UNK add_text_entry__19TWindowSubTradeMainFPviiii(u32, s32, M2C_UNK, M2C_UNK, M2C_UNK);
 u32 create_window_menu(M2C_UNK, s32, s16);
 M2C_UNK get_window_layout_position(M2C_UNK);
 s32 find_active_player__12TObjAreaWarpFPv(void *);
@@ -807,9 +807,9 @@ void open_confirm_window__18TObjAreaWarpEndingFPvs(void *arg0, s16 arg1) {
     if ((u32) M2C_FIELD(arg0, u32 *, 0xB0) == 0U) {
         M2C_FIELD(arg0, u32 *, 0xB0) = create_window_menu(get_window_layout_position(0x33), 1, arg1);
         if (get_main_phase() == 0xE) {
-            TWindowSubTradeMain__sub_80266200(M2C_FIELD(arg0, u32 *, 0xB0), get_localized_text_entry(9, 0x26), 3, 0, -1);
+            add_text_entry__19TWindowSubTradeMainFPviiii(M2C_FIELD(arg0, u32 *, 0xB0), get_localized_text_entry(9, 0x26), 3, 0, -1);
         } else {
-            TWindowSubTradeMain__sub_80266200(M2C_FIELD(arg0, u32 *, 0xB0), get_localized_text_entry(9, 0x23), 2, 0, -1);
+            add_text_entry__19TWindowSubTradeMainFPviiii(M2C_FIELD(arg0, u32 *, 0xB0), get_localized_text_entry(9, 0x23), 2, 0, -1);
         }
         TWindowSubComCard__sub_80265F60(M2C_FIELD(arg0, u32 *, 0xB0));
         align_menu_entry_positions(M2C_FIELD(arg0, u32 *, 0xB0));
@@ -1289,10 +1289,10 @@ void open_confirm_window__12TObjAreaWarpFPvUs(void *arg0, u16 arg1) {
     if ((u32) M2C_FIELD(arg0, u32 *, 0xB0) == 0U) {
         M2C_FIELD(arg0, u32 *, 0xB0) = ((u32 (*)(M2C_UNK, s32, u16))create_window_menu)(get_window_layout_position(0x33), 1, arg1);
         if (((s32 (*)(void))get_game_play_mode)() == 1) {
-            TWindowSubTradeMain__sub_80266200(M2C_FIELD(arg0, u32 *, 0xB0), TObjCityMainWarp__sub_80186AF4(), 2, 0, -1);
+            add_text_entry__19TWindowSubTradeMainFPviiii(M2C_FIELD(arg0, u32 *, 0xB0), TObjCityMainWarp__sub_80186AF4(), 2, 0, -1);
         } else {
             get_player_floor__6TLobbyFi(M2C_FIELD(arg0, s32 *, 0xBC));
-            TWindowSubTradeMain__sub_80266200(M2C_FIELD(arg0, u32 *, 0xB0), get_floor_destination_name(), 2, 0, -1);
+            add_text_entry__19TWindowSubTradeMainFPviiii(M2C_FIELD(arg0, u32 *, 0xB0), get_floor_destination_name(), 2, 0, -1);
         }
         TWindowSubComCard__sub_80265F60(M2C_FIELD(arg0, u32 *, 0xB0));
         align_menu_entry_positions(M2C_FIELD(arg0, u32 *, 0xB0));
@@ -1301,7 +1301,7 @@ void open_confirm_window__12TObjAreaWarpFPvUs(void *arg0, u16 arg1) {
         M2C_FIELD(arg0, u16 *, 0xB8) = arg1;
         temp_r3 = ((u32 (*)(s32))get_player_by_client_id)((s32)(M2C_FIELD(arg0, u16 *, 0xB8)));
         if (temp_r3 != 0U) {
-            fn_8019DD14(temp_r3 + 0x550, 4);
+            mask_action_buttons(temp_r3 + 0x550, 4);
         }
     }
 }

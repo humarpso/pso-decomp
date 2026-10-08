@@ -267,12 +267,12 @@ void TItem__sub_80101CF8(void *);
 void TLobby__sub_80134BC4(void *, void *);
 void TProtocol__sub_8013A650(void *, void *);
 void TProtocol__sub_801DF774(void *, void *);
-void fn_801DFC3C(void *);
+void bswap_player_record_upload(void *);
 void destroy__9TProtocolFis(void *, int);
 void init_char_data__9TProtocolFi(void *);
 void validate_player_visual_record(void *);
 
-void TProtocol__sub_801DC1E4(Proto_801DC1E4 *self, u8 *char_data, void *challenge, void *choice_search_config,
+void send_player_data_98__9TProtocolFPvPvPvPvPvPvPv(Proto_801DC1E4 *self, u8 *char_data, void *challenge, void *choice_search_config,
                                List_801DC1E4 *blocked_senders, Text_801DC1E4 *auto_reply, char *info_board) {
     if (self->connected) {
         validate_player_visual_record(char_data + 0x370);
@@ -295,7 +295,7 @@ void TProtocol__sub_801DC1E4(Proto_801DC1E4 *self, u8 *char_data, void *challeng
         const int packet_size = strlen(tmp.auto_reply) + 0x680;
         tmp.size = packet_size & ~3;
         TItem__sub_80101CF8(tmp.char_data);
-        fn_801DFC3C(&tmp);
+        bswap_player_record_upload(&tmp);
         ((VObj_801DC1E4 *)self)->send(&tmp, packet_size & ~3);
         destroy__9TProtocolFis(&tmp, -1);
     }
@@ -338,12 +338,12 @@ void TItem__sub_80101CF8(void *);
 void TLobby__sub_80134BC4(void *, void *);
 void TProtocol__sub_8013A650(void *, void *);
 void TProtocol__sub_801DF774(void *, void *);
-void fn_801DFC3C(void *);
+void bswap_player_record_upload(void *);
 void destroy__9TProtocolFis(void *, int);
 void init_char_data__9TProtocolFi(void *);
 void validate_player_visual_record(void *);
 
-void TProtocol__sub_801DC34C(Proto_801DC34C *self, u8 *char_data, void *challenge, void *choice_search_config,
+void send_player_data_61__9TProtocolFPvPvPvPvPvPvPv(Proto_801DC34C *self, u8 *char_data, void *challenge, void *choice_search_config,
                                List_801DC34C *blocked_senders, Text_801DC34C *auto_reply, char *info_board) {
     if (self->connected) {
         validate_player_visual_record(char_data + 0x370);
@@ -366,7 +366,7 @@ void TProtocol__sub_801DC34C(Proto_801DC34C *self, u8 *char_data, void *challeng
         const int packet_size = strlen(tmp.auto_reply) + 0x680;
         tmp.size = packet_size & ~3;
         TItem__sub_80101CF8(tmp.char_data);
-        fn_801DFC3C(&tmp);
+        bswap_player_record_upload(&tmp);
         ((VObj_801DC34C *)self)->send(&tmp, packet_size & ~3);
         destroy__9TProtocolFis(&tmp, -1);
     }
@@ -921,6 +921,11 @@ void TProtocol::recv_start_game(packet &pkt) {
 
 };
 
+struct Tag_801DDB44 { u8 c[8]; };
+struct Name_801DDB44 { char c[16]; };
+struct Game_801DDB44 { Tag_801DDB44 tag; u8 difficulty_tag; u8 num_players; Name_801DDB44 name; u8 episode; u8 flags; };
+extern "C" Game_801DDB44 *__as__13GameListEntryFRC13GameListEntry(void *arg0, const void *arg1);
+
 void TProtocol::recv_text_list(packet &pkt) {
 	typedef TMenuList<GameListEntry, 64, 1> text_list;
 	text_list tmp = as(text_list &, pkt);
@@ -929,13 +934,34 @@ void TProtocol::recv_text_list(packet &pkt) {
 	m_entry_count = tmp.header.flags;
 
 	for (int i = 0; i < m_entry_count; ++i) {
-		m_game_entries[i] = tmp.entries[i];
+		__as__13GameListEntryFRC13GameListEntry(&m_game_entries[i], &tmp.entries[i]);
 	}
 
 	if (m_recv_handlers.handle_1F_recv_text_list != nullptr) {
 		m_recv_handlers.handle_1F_recv_text_list(m_entry_count, m_game_entries, tmp.pad_entries[0]);
 	}
 };
+
+#pragma push
+#pragma inline_depth(1)
+#pragma auto_inline off
+#pragma dont_inline off
+#pragma scheduling off
+#define arg0 ((Game_801DDB44 *)arg0_)
+#define arg1 ((const Game_801DDB44 *)arg1_)
+extern "C" Game_801DDB44 *__as__13GameListEntryFRC13GameListEntry(void *arg0_, const void *arg1_) {
+    arg0->tag = arg1->tag;
+    arg0->difficulty_tag = arg1->difficulty_tag;
+    arg0->num_players = arg1->num_players;
+    arg0->name = arg1->name;
+    arg0->episode = arg1->episode;
+    arg0->flags = arg1->flags;
+    return arg0;
+}
+#undef arg0
+#undef arg1
+struct Game_801DDB44;
+#pragma pop
 
 void TProtocol::recv_game_list(packet &pkt) {
 	typedef TMenuList<GameListEntry, 64, 1> game_list;
@@ -945,7 +971,7 @@ void TProtocol::recv_game_list(packet &pkt) {
 	m_entry_count = tmp.header.flags;
 
 	for (int i = 0; i < m_entry_count; ++i) {
-		m_game_entries[i] = tmp.entries[i];
+		__as__13GameListEntryFRC13GameListEntry(&m_game_entries[i], &tmp.entries[i]);
 	}
 
 	if (m_recv_handlers.handle_08_recv_game_list != nullptr) {
@@ -961,7 +987,7 @@ void TProtocol::recv_dir_list(packet &pkt) {
 	m_entry_count = tmp.header.flags;
 
 	for (int i = 0; i < m_entry_count; ++i) {
-		m_game_entries[i] = tmp.entries[i];
+		__as__13GameListEntryFRC13GameListEntry(&m_game_entries[i], &tmp.entries[i]);
 	}
 
 	if (m_recv_handlers.handle_07_A0_A1_recv_dir_list != nullptr) {

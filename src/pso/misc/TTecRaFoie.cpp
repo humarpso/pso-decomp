@@ -106,7 +106,7 @@ void construct_area_technique_base(void *, void *, void *, void *, int);
 void calc_parameters__11TTecRaBartaFv(void *);
 extern M2C_UNK __vt__11TTecRaBarta[];
 extern u32 lbl_805D37F8;
-void *TTecRaBarta__sub_80237CCC(void *self, void *source, void *origin, void *level);
+void *construct_area__11TTecRaBartaFPvPvPvPv(void *self, void *source, void *origin, void *level);
 s32 is_split_screen();
 void get_bml_model(void *, s32);
 #define get_bml_model ((void * (*)(void *, int))get_bml_model)
@@ -195,7 +195,7 @@ void *TTecRaBarta__ct(void *self_, void *source, void *origin, void *pos, void *
 #undef self
 #pragma pop
 
-void *TTecRaBarta__sub_80237CCC(void *self, void *source, void *origin, void *level);
+void *construct_area__11TTecRaBartaFPvPvPvPv(void *self, void *source, void *origin, void *level);
 
 void spawn_rafoie_explosion_bursts(Obj_80237DAC *self) {
     Vec_80237DAC higher;
@@ -430,7 +430,7 @@ s32 play_sound_effect(s32 id, void *pos, s32 a, s32 b);
 void *__nw__7TObjectFUl(int);
 void construct_area_technique_base(void *, void *, void *, void *, int);
 void TTecRaZonde__sub_80238D10(u8 *arg0);
-u8 *TTecZonde__sub_8023DA10(u8 *arg0, u8 *arg1, u8 *arg2, u8 *arg3, s32 arg4, s32 arg5, f32 farg0, f32 farg1);
+u8 *construct_bolt_effect__9TTecZondeFPvPvPvPviiff(u8 *arg0, u8 *arg1, u8 *arg2, u8 *arg3, s32 arg4, s32 arg5, f32 farg0, f32 farg1);
 f32 sin_table_lookup(s32);
 f32 cos_table_lookup(s32);
 f32 vector_length(void *);
@@ -768,16 +768,16 @@ s32 TTecAnti__sub_8022B35C(void *, int);
 void TTecRaZonde__sub_80238D10(u8 *arg0);
 void TTecRaFoie__vt4(u8 *self, u8 *target);
 u16 obj_getField1c(void *);
-void TObjPlayer__sub_8004433C(void *);
+void construct_target_cursor_records__10TObjPlayerFi(void *);
 void copy_technique_target_list(void *, void *);
 extern M2C_UNK __vt__10TTecRaFoie[];
-u8 *TTecRaFoie__sub_80238BA4(u8 *self, void *source, void *origin, void *targets, int level);
+u8 *construct_targeted__10TTecRaFoieFPvPvPvPvi(u8 *self, void *source, void *origin, void *targets, int level);
 s32 create_particle_emitter(void *, int);
 s32 alloc_buffer__11TOBoss4RockFPv(int);
 extern struct Profile_80238C6C TTecRaZonde__data_8044DB44[];
 void TTecRaZonde__vt6(struct Self_80238C6C *self);
 u16 obj_getField1c(void *);
-void TObjPlayer__sub_8004433C(void *);
+void construct_target_cursor_records__10TObjPlayerFi(void *);
 void fn_80044330(void *);
 void construct_area_technique_base(void *, void *, void *, void *, int);
 extern M2C_UNK __vt__10TTecRaFoie[];
@@ -961,7 +961,7 @@ void create_ex__10TTecRaFoieFPvPvPvPv(void *arg0, void *arg1, void *arg2, void *
     void *o;
     o = __nw__7TObjectFUl(0x14C);
     if (o != NULL) {
-        TTecRaFoie__sub_80238BA4((u8 *)(o), (void *)(arg0), (void *)(arg1), (void *)(arg2), (int)(arg3));
+        construct_targeted__10TTecRaFoieFPvPvPvPvi((u8 *)(o), (void *)(arg0), (void *)(arg1), (void *)(arg2), (int)(arg3));
     }
 }
 
@@ -989,7 +989,7 @@ Obj_80238AE8 *TTecRaFoie__ct(Obj_80238AE8 *arg0, void * _w1, void * _w2, void * 
     Sub_80238AE8 *t;
     construct_area_technique_base((void *)(arg0), (void *)(_w1), (void *)(_w2), (void *)(_w3), (int)(_w4));
     M2C_FIELD(arg0, void **, 0x18) = ((void * *)&__vt__10TTecRaFoie);
-    TObjPlayer__sub_8004433C((u8 *)arg0 + 0xEC);
+    construct_target_cursor_records__10TObjPlayerFi((u8 *)arg0 + 0xEC);
     M2C_FIELD(arg0, u32 *, 0) = (u32)lbl_805D3800;
     calc_area_parameters__10TTecRaFoieFPv((u8 *)arg0);
     fn_80044330((u8 *)arg0 + 0xEC);
@@ -1007,11 +1007,11 @@ Obj_80238AE8 *TTecRaFoie__ct(Obj_80238AE8 *arg0, void * _w1, void * _w2, void * 
 }
 #pragma pop
 
-u8 *TTecRaFoie__sub_80238BA4(u8 *self, void *source, void *origin, void *targets, int level) {
+u8 *construct_targeted__10TTecRaFoieFPvPvPvPvi(u8 *self, void *source, void *origin, void *targets, int level) {
     u8 *proxy;
     construct_area_technique_base(self, source, origin, origin, level);
     M2C_FIELD(self, M2C_UNK **, 0x18) = __vt__10TTecRaFoie;
-    TObjPlayer__sub_8004433C(self + 0xEC);
+    construct_target_cursor_records__10TObjPlayerFi(self + 0xEC);
     M2C_FIELD(self, u32 *, 0) = (u32)lbl_805D3800;
     calc_area_parameters__10TTecRaFoieFPv(self);
     M2C_FIELD(self, s32 *, 0x148) = 0;

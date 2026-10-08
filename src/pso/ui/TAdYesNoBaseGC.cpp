@@ -27,7 +27,7 @@ s32 update_window_mode_from_progress__6TLobbyFiPv(void *, void *);
 s32 TAdYesNoBaseGC__sub_8032C0B4(u8 *arg0);
 void set_selected_index__17TWindowSubComCardFPvs(s32, s16);
 void align_menu_entry_positions(s32);
-void TWindowSubComCard__sub_80265E60(f32);
+void update_layout_height__17TWindowSubComCardFPvf(f32);
 s32 init_shop_judgment_window(void *);
 extern T_8032C118 lbl_804772E8[];
 extern const f32 lbl_805DF788;
@@ -76,7 +76,7 @@ s32 TAdYesNoBaseGC__sub_8032C0B4(u8 *arg0) {
 s32 TAdYesNoBaseGC__sub_8032C118(O_8032C118 *arg0) {
     T_8032C118 t = lbl_804772E8[0];
     s32 r = init_shop_judgment_window(&t);
-    TWindowSubComCard__sub_80265E60(lbl_805DF788);
+    update_layout_height__17TWindowSubComCardFPvf(lbl_805DF788);
     align_menu_entry_positions(r);
     set_selected_index__17TWindowSubComCardFPvs(r, (s16)arg0->sel);
     return r;

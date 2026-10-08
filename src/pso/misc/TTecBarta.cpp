@@ -130,7 +130,7 @@ TTecBarta_8022BC10 *TTecBarta__ct(TTecBarta_8022BC10 *self, void * _w1, void * _
 u16 obj_getField1c(void *);
 void update_technique_by_state__9TTecBartaFPv(u8 *arg0);
 void init_parameters__9TTecBartaFPv(u8 *arg0);
-void TObjPlayer__sub_8023AA4C();
+void construct_facing_technique__10TObjPlayerFPviPvii();
 extern TechniqueContactVtable __vt__9TTecBarta;
 extern s32 lbl_805D3798;
 extern const f32 lbl_805DC7A8;
@@ -388,7 +388,7 @@ TTecBarta_8022BC10 *TTecBarta__ct(TTecBarta_8022BC10 *self, void * _w1, void * _
 
 u8 *construct_tec_barta_facing(u8 *arg0, void * _w1, void * _w2, void * _w3, void * _w4) {
     s32 i;
-    TObjPlayer__sub_8023AA4C();
+    construct_facing_technique__10TObjPlayerFPviPvii();
     M2C_FIELD(arg0, void **, 0x18) = ((u8 *)&__vt__9TTecBarta);
     M2C_FIELD(arg0, s32 *, 0) = lbl_805D3798;
     init_parameters__9TTecBartaFPv((u8 *)(arg0));

@@ -24,7 +24,7 @@ extern "C" {
 extern struct Rec_801AA17C lbl_8050E890[];
 s32 get_photon_blast_chain(struct Rec_801AA17C *output, s32 player);
 void __dt__7TObjectFv(void *, int);
-void TCameraCtrl__sub_80069D7C(void);
+void release_photon_blast_camera__11TCameraCtrlFv(void);
 void restore_player_cameras(void);
 void reset_cameras_to_actor(void *, int);
 void TFogCtrl__sub_800FAC10(int, int);
@@ -51,7 +51,7 @@ Obj_801A9CB8 *destroy_photon_blast_sequence(Obj_801A9CB8 *self, s16 flag) {
             release_photon_blast_player_holds((u8 *)self + 0x90);
             if (get_player_by_client_id(lbl_805D53A0) != NULL) {
                 TLobby__sub_8024AC20(lbl_805D53A0);
-                TCameraCtrl__sub_80069D7C();
+                release_photon_blast_camera__11TCameraCtrlFv();
                 restore_player_cameras();
                 reset_cameras_to_actor(get_player_by_client_id(lbl_805D53A0), 0);
             }

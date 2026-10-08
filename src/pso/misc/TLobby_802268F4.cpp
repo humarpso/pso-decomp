@@ -49,6 +49,12 @@ struct Ent_802269B4 {
     u8 pad2[0x28 - 0x1A];
 };
 
+struct Passage_80226FA0 { s16 first, repeat, count, transition, next; };
+
+struct Program_80226FA0 { char archive[32]; s32 count, ntsc, pal; Passage_80226FA0 *modes[2]; };
+
+struct Buffers_80226FA0 { u8 unknown[0x80]; s32 segments[2]; s32 ticks[2]; s32 positions[2]; };
+
 extern "C" {
 int TLobby__sub_80226308(void);
 void update_lobby_subsystems__6TLobbyFv(void);
@@ -115,6 +121,25 @@ extern s8 lbl_805D6279;
 extern int lbl_805D62B0;
 extern const f32 lbl_805DC74C;
 void update_sound_request_slots(void);
+s32 TLobby__sub_803C5D00(void *);
+void append_music_stream_segment(void *, int, int);
+s32 TLobby__sub_803C97B8(void *);
+extern M2C_UNK lbl_804CB850[];
+extern s32 lbl_805D62E0;
+extern s32 lbl_805D62E4;
+extern s32 lbl_805D62E8;
+extern s32 lbl_805D62F0;
+extern s32 lbl_805D62F4;
+extern Program_80226FA0 *lbl_805D6304;
+extern s32 lbl_805D6308;
+extern s32 lbl_805D630C;
+extern s32 lbl_805D6310;
+extern s32 lbl_805D6318;
+extern s32 lbl_805D631C;
+extern s32 lbl_805D6320;
+extern s32 lbl_805D6324;
+extern s16 lbl_805D6334;
+void update_music_sequencer(void);
 }
 
 extern "C" {
@@ -222,6 +247,79 @@ void release_bgm_resource__6TLobbyFv(void) {
         init_layout_positions__6TLobbyFv();
     }
 }
+
+u8 lbl_80514C60[0x80];
+__declspec(section ".data") s32 lbl_80514CE0[2];
+__declspec(section ".data") s32 lbl_80514CE8[2];
+__declspec(section ".data") s32 lbl_80514CF0[2];
+void update_music_sequencer(void) {
+    Passage_80226FA0 *passage;
+    Passage_80226FA0 *next;
+    if (lbl_805D62E0 != 1) {
+        return;
+    }
+    if (lbl_805D62E4 != 1) {
+        return;
+    }
+    lbl_80514CE8[lbl_805D62E8]++;
+    if (lbl_805D6324 > 0) {
+        lbl_805D6324--;
+    } else if (lbl_805D6320 == 0 && lbl_805D631C != lbl_805D6318) {
+        lbl_805D6320 = 1;
+        lbl_805D6324 = 600;
+    }
+    if (lbl_80514CE8[lbl_805D62E8] < lbl_805D62F4 && TLobby__sub_803C5D00((void *)((s32 *)&lbl_804CB850)[0]) != 1) {
+        return;
+    }
+    passage = &lbl_805D6304->modes[lbl_805D6318][lbl_805D6308];
+    switch (lbl_805D6320) {
+    case 0:
+        if (++lbl_805D630C >= passage->count) {
+            lbl_805D6308 = passage->next;
+            lbl_805D630C = 0;
+            next = &lbl_805D6304->modes[lbl_805D6318][lbl_805D6308];
+            if (lbl_805D6310) {
+                lbl_805D62F0 = next->repeat;
+            } else {
+                lbl_805D62F0 = next->first;
+                lbl_805D6310 = 1;
+            }
+        } else {
+            lbl_805D62F0 = passage->first + lbl_805D630C;
+        }
+        break;
+    case 1:
+        lbl_805D6308 = passage->next;
+        lbl_805D630C = 0;
+        lbl_805D6318 = 1 - lbl_805D6318;
+        lbl_805D6324 = 600;
+        if (passage->transition >= 0) {
+            lbl_805D62F0 = passage->transition;
+            lbl_805D6320 = 2;
+        } else {
+            lbl_805D62F0 = lbl_805D6304->modes[lbl_805D631C][lbl_805D6308].first;
+            lbl_805D6310 = 1;
+            lbl_805D6320 = 0;
+        }
+        break;
+    case 2:
+        if (lbl_805D6310) {
+            lbl_805D62F0 = passage->repeat;
+        } else {
+            lbl_805D62F0 = passage->first;
+            lbl_805D6310 = 1;
+        }
+        lbl_805D6320 = 0;
+        break;
+    }
+    lbl_80514CE0[lbl_805D62E8] = lbl_805D62F0;
+    lbl_805D6334 = lbl_805D62E8;
+    append_music_stream_segment((void *)((s32 *)&lbl_804CB850)[0], 190, lbl_80514CE0[lbl_805D62E8]);
+    lbl_805D62E8 = 1 - lbl_805D62E8;
+    lbl_80514CE8[lbl_805D62E8] = 0;
+    lbl_80514CF0[lbl_805D62E8] = TLobby__sub_803C97B8((void *)((s32 *)&lbl_804CB850)[lbl_805D62E8]);
+}
+
 void set_dark_falz_music_request(s32 arg0) {
     if ((s32) lbl_805D6300 == 4) {
         lbl_805D631C = arg0;

@@ -13,14 +13,14 @@ extern const f32 lbl_805DAEB0;
 extern const f32 lbl_805DAEB4;
 extern const f32 lbl_805DAEB8;
 extern const f32 lbl_805DAEBC;
-void TObjPlayer__sub_8012B664(u8 *self);
+void update_swing_angle__10TObjPlayerFPv(u8 *self);
 }
 
 extern "C" {
 
 #pragma push
 #pragma fp_contract on
-void TObjPlayer__sub_8012B664(u8 *self) {
+void update_swing_angle__10TObjPlayerFPv(u8 *self) {
     s32 flag;
     s32 ok;
     s32 lo;

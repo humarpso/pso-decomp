@@ -7,14 +7,14 @@ struct Src_80327A38 { Rec_80327A38 *recs; u8 pad[4]; void *t0; void *t1; };
 struct Acc_80327A38 { s32 sum; s32 count; };
 
 extern "C" {
-void fn_803279CC(s32 arg0, u8 *arg1, s32 arg2);
+void visit_model_tree_recursive(s32 arg0, u8 *arg1, s32 arg2);
 s32 has_texture_scroll_entry(void *, u16);
 void fn_80327A38(Acc_80327A38 *acc, Src_80327A38 *src, s32 id);
 }
 
 extern "C" {
 
-void fn_803279CC(s32 arg0, u8 *arg1, s32 arg2) {
+void visit_model_tree_recursive(s32 arg0, u8 *arg1, s32 arg2) {
   unsigned int new_var;
   u32 temp_r4;
   u8 *temp_r4_2;
@@ -31,7 +31,7 @@ void fn_803279CC(s32 arg0, u8 *arg1, s32 arg2) {
     temp_r4_2 = (u8 *) (*((u8 **) (((s8 *) var_r30) + 0x2C)));
     if (temp_r4_2 != 0)
     {
-      fn_803279CC(arg0, temp_r4_2, new_var);
+      visit_model_tree_recursive(arg0, temp_r4_2, new_var);
     }
     var_r30 = (u8 *) (*((u8 **) (((s8 *) var_r30) + 0x30)));
   }

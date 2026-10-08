@@ -19,7 +19,7 @@ void TChCrLoadAfs__sub_8028B940(void);
 void TChCrLoadAfs__sub_8028B944(void);
 s32 TLobby__sub_803CC53C(u32);
 s32 TLobby__sub_803CCB5C(u32, s32, u32);
-u32 TLobby__sub_803CD16C(s32, s32);
+u32 adxf_open_afs__6TLobbyFii(s32, s32);
 u32 alloc__22TQuestVmDownLoadServerFPv(s32);
 s32 try_begin_load__12TChCrLoadAfsFPv();
 

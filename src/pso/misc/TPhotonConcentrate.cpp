@@ -58,7 +58,7 @@ u8 *TPhotonConcentrate__ct(u8 *arg0, u8 *arg1, s32 arg2, s32 arg3);
 void *__dt__18TPhotonConcentrateFv(void *arg0, s16 arg1);
 void render__18TPhotonConcentrateFv(void);
 s32 create_particle_emitter(void *, M2C_UNK);
-M2C_UNK TObjPlayer__sub_801569F4(s32, s32);
+M2C_UNK construct_collider_proxy__10TObjPlayerFPv(s32, s32);
 s32 find_entity_by_id(s32, f32);
 u8 *VecCopy__FP3VecPC3Vec(void *, void *);
 void __dl__7TObjectFPv(void *);
@@ -117,7 +117,7 @@ void *__dt__18TPhotonConcentrateFv(void *arg0, s16 arg1) {
 u8 *TPhotonConcentrate__ct(u8 *arg0, u8 *arg1, s32 arg2, s32 arg3) {
     f32 temp_f1;
 
-    TObjPlayer__sub_801569F4((s32)arg0, arg2);
+    construct_collider_proxy__10TObjPlayerFPv((s32)arg0, arg2);
     M2C_FIELD(arg0, M2C_UNK **, 0x18) = __vt__18TPhotonConcentrate;
     M2C_FIELD(arg0, s32 *, 0) = (s32) lbl_805D34D0;
     VecCopy__FP3VecPC3Vec(arg0 + 0xAC, VecCopy__FP3VecPC3Vec(arg0 + 0xB8, arg1));

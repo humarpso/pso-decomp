@@ -16,7 +16,7 @@ void inc_player_count__10TObjPlayerFv(void);
 extern s32 lbl_805D53F0;
 extern u32 lbl_805D53F4;
 extern u32 lbl_805D5400;
-void TObjPlayer__sub_80102B44(void);
+void alloc_game_systems__10TObjPlayerFv(void);
 }
 
 extern "C" {
@@ -98,7 +98,7 @@ void free_globals__10TObjPlayerFv(void) {
 
 extern M2C_UNK lbl_805D53EC;
 
-void TObjPlayer__sub_80102B44(void) {
+void alloc_game_systems__10TObjPlayerFv(void) {
     void *p;
     lbl_805D53F0 = 0;
     lbl_805D53F4 = alloc_buffer__11TOBoss4RockFPv(0x1000);

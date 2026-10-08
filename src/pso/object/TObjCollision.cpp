@@ -10,7 +10,7 @@ typedef char RecoveredGlobal_8006754C___vt__13TObjCollision_size[sizeof(Recovere
 extern "C" {
 f32 get_random_float__8TObjFishFv(f32);
 u32 init_collision_body_parts(void *, s32, s32);
-u8 * TObjPlayer__sub_801569F4(void *);
+u8 * construct_collider_proxy__10TObjPlayerFPv(void *);
 M2C_UNK VecCopy__FP3VecPC3Vec(void *, void *);
 M2C_UNK copy_xyz__10TObjPlayerFPvPv(void *, void *);
 M2C_UNK reset_photon_effect__10TObjPlayerFPv(void *);
@@ -62,7 +62,7 @@ void *__dt__13TObjCollisionFv(void *arg0, s16 arg1) {
 }
 u8 *TObjCollision__ct(u8 *arg0, M2C_UNK arg1, s32 arg2) {
     s32 var_r0;
-    TObjPlayer__sub_801569F4(arg0);
+    construct_collider_proxy__10TObjPlayerFPv(arg0);
     M2C_FIELD(arg0, M2C_UNK **, 0x18) = &(*(RecoveredGlobal_8006754C___vt__13TObjCollision *)&__vt__13TObjCollision).value;
     M2C_FIELD(arg0, s32 *, 0) = (s32) lbl_805D2830;
     VecCopy__FP3VecPC3Vec((void *) (arg0 + 0x38), (void *) (arg2 + 0xC));

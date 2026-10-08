@@ -27,12 +27,12 @@ void *destroy_window_base__9TWindowDDFPvs(void *arg0, s16 arg1);
 int TWindowSubComCard__sub_8024634C(void*);
 void __dl__7TObjectFPv(void *);
 void __dt__7TObjectFv(void *, int);
-int TWindowSubComCard__sub_80246464(void*);
+int update_open_close__17TWindowSubComCardFPv(void*);
 void TWindowSubStatusDisp__sub_80257CB8(void *);
 void TWindowCtrlMain__sub_8026CC28(void *);
 
 int update_com_card__9TWindowDDFPv(void* p) { return TWindowSubComCard__sub_8024634C(p); }
-int initialize_subwindow__9TWindowDDFPv(void* p) { return TWindowSubComCard__sub_80246464(p); }
+int initialize_subwindow__9TWindowDDFPv(void* p) { return update_open_close__17TWindowSubComCardFPv(p); }
 void TWindowDD__sub_8024666C(void) {  }
 void TWindowDD__sub_80246670(void) {  }
 

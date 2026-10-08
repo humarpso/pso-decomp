@@ -29,7 +29,7 @@ extern RecoveredGlobal_8017DDA8_lbl_804B5408 lbl_804B5408;
 extern u32 lbl_805D5AF8;
 extern u32 lbl_805D5AFC;
 void TOWreckAncient__sub_8017DDA8(void);
-s32 TObjPlayer__sub_801569F4(void *, int);
+s32 construct_collider_proxy__10TObjPlayerFPv(void *, int);
 s32 TObjFish__sub_8001EDB0(void *, void *);
 s32 get_bml_model(void *, void *);
 extern M2C_UNK __vt__14TOWreckAncient[];
@@ -119,7 +119,7 @@ void *__dt__14TOWreckAncientFv(void *arg0, s16 arg1) {
 }
 typedef char RecoveredGlobal_8017DE94___vt__14TOWreckAncient_size[sizeof(RecoveredGlobal_8017DE94___vt__14TOWreckAncient) == 0x3C ? 1 : -1];
 u8 *TOWreckAncient__ct(u8 *arg0, s32 arg1) {
-    TObjPlayer__sub_801569F4((void *) (arg0), (int) (tl_05));
+    construct_collider_proxy__10TObjPlayerFPv((void *) (arg0), (int) (tl_05));
     M2C_FIELD(arg0, M2C_UNK **, 0x18) = &(*(RecoveredGlobal_8017DE94___vt__14TOWreckAncient *)&__vt__14TOWreckAncient).value;
     M2C_FIELD(arg0, s32 *, 0) = (s32) lbl_805D31F8;
     M2C_FIELD(arg0, s32 *, 0x34) = get_bml_model((void *) ((*(s32 *)&lbl_805D5AF8)), (void *) (arg1));

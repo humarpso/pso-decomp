@@ -208,7 +208,7 @@ extern RecoveredGlobal_80180AA4___vt__8TObjChip __vt__8TObjChip;
 extern s32 lbl_805D3240;
 extern const f32 lbl_805DBB94;
 extern const f32 lbl_805DBB98;
-u8 *TObjChip__sub_80180BD4(u8 *arg0, u8 *arg1, u8 *arg2);
+u8 *construct_debris__8TObjChipFPvPvPv(u8 *arg0, u8 *arg1, u8 *arg2);
 M2C_UNK scroll_strip_uvs(int, s16, int);
 M2C_UNK get_city_common_model(int);
 M2C_UNK begin_effect_render__13TParticleCtrlFv();
@@ -553,7 +553,7 @@ void TObjChip__sub_80180B38(u8 *arg0, u8 *arg1) {
 }
 
 typedef char RecoveredGlobal_80180BD4___vt__8TObjChip_size[sizeof(RecoveredGlobal_80180BD4___vt__8TObjChip) == 0x38 ? 1 : -1];
-u8 *TObjChip__sub_80180BD4(u8 *arg0, u8 *arg1, u8 *arg2) {
+u8 *construct_debris__8TObjChipFPvPvPv(u8 *arg0, u8 *arg1, u8 *arg2) {
     __ct__7TObjectFP7TObject(arg0, arg1);
     M2C_FIELD(arg0, M2C_UNK **, 0x18) = &(*(RecoveredGlobal_80180BD4___vt__8TObjChip *)&__vt__8TObjChip).value;
     M2C_FIELD(arg0, s32 *, 0) = (s32) lbl_805D3240;

@@ -18,8 +18,8 @@ extern s32 lbl_805D53A0;
 extern s32 lbl_805D53A8;
 void apply_char_to_players__6TLobbyFv(void);
 M2C_UNK THunterGuildSeqOffline__sub_80213430();
-M2C_UNK TLobby__sub_80103F68();
-M2C_UNK TLobby__sub_8011AFB8();
+M2C_UNK reset_floor_items__6TLobbyFv();
+M2C_UNK reset_item_id_counters__6TLobbyFv();
 int clear_counter__6TLobbyFv(void);
 M2C_UNK clear_quest_state__6TLobbyFv();
 M2C_UNK reset_quest_counter__6TLobbyFv();
@@ -105,8 +105,8 @@ void reset_quest_state__6TLobbyFv(void) {
     TRaderMapCore__sub_801F9540();
     clear_switch_table();
     apply_all_players__9TTecLukerFv();
-    TLobby__sub_8011AFB8();
-    TLobby__sub_80103F68();
+    reset_item_id_counters__6TLobbyFv();
+    reset_floor_items__6TLobbyFv();
     enable_all_battle_ctrl__10TNpcPlayerFv();
     if ((u32) lbl_805D5EE8 != 0U) {
         queue_destruction__7TObjectFv(lbl_805D5EE8);

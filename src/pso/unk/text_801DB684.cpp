@@ -73,8 +73,8 @@ struct Pkt_801DB7EC { u8 cmd; u8 flag; u16 size; u8 tag[0x18]; };
 extern "C" {
 void bswap__12TChatMessageFv(s32);
 void fn_801DB878(u8 *arg0, u8 *arg1);
-void fn_801DF838(s32);
-void fn_801DB684(u8 *arg0, s32 arg1, s32 arg2);
+void bswap_save_packet(s32);
+void send_packet_96(u8 *arg0, s32 arg1, s32 arg2);
 void bswap__13packet_headerFv(s32);
 void fn_801DB6F0(u8 *arg0);
 M2C_UNK __as__16TPlyGuildCardTagFRC16TPlyGuildCardTag(void *, void *);
@@ -99,14 +99,14 @@ typedef struct Stack_801DB684 Stack_801DB684;
 typedef struct VBase_18_44382c VBase_18_44382c;
 typedef struct VObj_18_44382c VObj_18_44382c;
 #define PSO_VCALL_VObj_18_44382c_m8(_self, _arg0, _arg1) (((VObj_18_44382c *)(_self))->m8((_arg0), (_arg1)))
-void fn_801DB684(u8 *arg0, s32 arg1, s32 arg2) {
+void send_packet_96(u8 *arg0, s32 arg1, s32 arg2) {
   Stack_801DB684 stack;
   stack.sp8 = (double) 0x96;
   stack.sp9 = 0;
   stack.spA = 0xC;
   stack.spC = arg1;
   stack.sp10 = arg2;
-  fn_801DF838((s32) (&stack.sp8));
+  bswap_save_packet((s32) (&stack.sp8));
   PSO_VCALL_VObj_18_44382c_m8(arg0, &stack.sp8, 0xC);
 }
 

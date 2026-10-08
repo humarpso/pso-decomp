@@ -196,7 +196,7 @@ s32 TWindow__close(int);
 M2C_UNK set_field_1c__6TLobbyFPvf(int, f32);
 M2C_UNK suppress_slot__11TWindowCtrlFi(s32);
 M2C_UNK send_and_handle__6TLobbyFPvii(int, s32, s32);
-int TLobby__sub_80269CC0(s32, Pair_80215380 *, s32, s32);
+int create_message_window__6TLobbyFiiUis(s32, Pair_80215380 *, s32, s32);
 s32 get_window_layout_position(s32);
 M2C_UNK memcpy(int, void *, int);
 extern Pair_80215380 lbl_8044BCB8[];
@@ -302,7 +302,7 @@ void TQuestListOnline__sub_80215380(void *arg0) {
             }
             p.a = lbl_8044BCB8[0].a;
             p.b = lbl_8044BCB8[0].b;
-            TQuestListOnline__data_805D61A4 = TLobby__sub_80269CC0(get_window_layout_position(0x2E), &p, 1, lbl_805D53A0);
+            TQuestListOnline__data_805D61A4 = create_message_window__6TLobbyFiiUis(get_window_layout_position(0x2E), &p, 1, lbl_805D53A0);
             set_field_1c__6TLobbyFPvf(TQuestListOnline__data_805D61A4, lbl_805DC664);
             send_and_handle__6TLobbyFPvii(TQuestListOnline__data_805D61A4, TQuestListOnline__data_805D6194 + 4, 0x80);
             if (get_camera_id__11TCameraCtrlFv() >= 2) {

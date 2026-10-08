@@ -27,7 +27,7 @@ s32 query_teammate_state__9TObjEneDDFPv(void);
 
 extern "C" {
 void VecCopy__FP3VecPC3Vec(void *, void *);
-void TObjPlayer__sub_801569F4(void *);
+void construct_collider_proxy__10TObjPlayerFPv(void *);
 M2C_UNK TBoss6GravBall__sub_80323278(void *, int);
 void TBoss6GravBall__sub_80323320(void *);
 extern s32 lbl_8047667C[];
@@ -210,7 +210,7 @@ void *__dt__14TBoss6GravBallFv(void *arg0, s16 arg1) {
 }
 Obj_80323D20 *TBoss6GravBall__ct(Obj_80323D20 *arg0, s32 arg1, void *arg2) {
     s32 i;
-    TObjPlayer__sub_801569F4(arg0);
+    construct_collider_proxy__10TObjPlayerFPv(arg0);
     ((u8 **)arg0)[0x18 / 4] = ((u8 *)&__vt__14TBoss6GravBall);
     arg0->f0 = lbl_805D4170;
     arg0->fAC = arg1;

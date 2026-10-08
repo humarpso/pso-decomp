@@ -203,7 +203,7 @@ void spawn_effect__10TObjPlayerFPv(void *arg0);
 M2C_UNK rotate_matrix_z(M2C_UNK, s32);
 M2C_UNK rotate_matrix_x(M2C_UNK, s32);
 M2C_UNK spawn_particle_effect(void *, M2C_UNK);
-int TObjPlayer__sub_80115BC0(void*, void*, void*);
+int add_angle_clamped__10TObjPlayerFPvii(void*, void*, void*);
 int update_trail_slot__11TItemWeaponFPvi(void*, void*);
 int draw_weapon_at_joint(void*, void*);
 void free_obj_heap__10TObjPlayerFPv(void *);
@@ -230,8 +230,8 @@ void TObjPlayer__sub_8034F020(P_8034F020 *arg0) {
 }
 
 void reset_shoot_models__10TObjPlayerFPv(void* p) { draw_weapon_at_joint(p, (void*)49); update_trail_slot__11TItemWeaponFPvi(p, (void*)0); update_trail_slot__11TItemWeaponFPvi(p, (void*)1); }
-int apply_recoil_forward__10TObjPlayerFPv(void* p) { return TObjPlayer__sub_80115BC0((void*)((char*)p + 0x1f8), (void*)(1820), (void*)(13653)); }
-int shrink_field1f8__10TObjPlayerFPv(void* p) { return TObjPlayer__sub_80115BC0((void*)((char*)p + 0x1f8), (void*)(-4551), (void*)(0)); }
+int apply_recoil_forward__10TObjPlayerFPv(void* p) { return add_angle_clamped__10TObjPlayerFPvii((void*)((char*)p + 0x1f8), (void*)(1820), (void*)(13653)); }
+int shrink_field1f8__10TObjPlayerFPv(void* p) { return add_angle_clamped__10TObjPlayerFPvii((void*)((char*)p + 0x1f8), (void*)(-4551), (void*)(0)); }
 
 extern M2C_UNK lbl_804F0810[];
 
@@ -404,9 +404,9 @@ void handle_turn_input__10TObjPlayerFPv(void *arg0) {
     }
 }
 
-void clamp_angles__10TObjPlayerFPv(void* p) { TObjPlayer__sub_80115BC0((void*)((char*)p + 0x1f8), (void*)((void*)1820), (void*)((void*)7281)); TObjPlayer__sub_80115BC0((void*)((char*)p + 0x1fc), (void*)((void*)-1820), (void*)((void*)-5461)); TObjPlayer__sub_80115BC0((void*)((char*)p + 0x200), (void*)((void*)1820), (void*)((void*)9102)); }
+void clamp_angles__10TObjPlayerFPv(void* p) { add_angle_clamped__10TObjPlayerFPvii((void*)((char*)p + 0x1f8), (void*)((void*)1820), (void*)((void*)7281)); add_angle_clamped__10TObjPlayerFPvii((void*)((char*)p + 0x1fc), (void*)((void*)-1820), (void*)((void*)-5461)); add_angle_clamped__10TObjPlayerFPvii((void*)((char*)p + 0x200), (void*)((void*)1820), (void*)((void*)9102)); }
 
-void reset_aim_angles__10TObjPlayerFPv(void* p) { TObjPlayer__sub_80115BC0((void*)((char*)p + 0x1f8), (void*)((void*)-3640), (void*)((void*)0)); TObjPlayer__sub_80115BC0((void*)((char*)p + 0x1fc), (void*)((void*)2730), (void*)((void*)0)); TObjPlayer__sub_80115BC0((void*)((char*)p + 0x200), (void*)((void*)-1820), (void*)((void*)0)); }
+void reset_aim_angles__10TObjPlayerFPv(void* p) { add_angle_clamped__10TObjPlayerFPvii((void*)((char*)p + 0x1f8), (void*)((void*)-3640), (void*)((void*)0)); add_angle_clamped__10TObjPlayerFPvii((void*)((char*)p + 0x1fc), (void*)((void*)2730), (void*)((void*)0)); add_angle_clamped__10TObjPlayerFPvii((void*)((char*)p + 0x200), (void*)((void*)-1820), (void*)((void*)0)); }
 
 extern M2C_UNK lbl_804F0A00[];
 
@@ -468,9 +468,9 @@ void dispatch_by_state__10TObjPlayerFPv(void *arg0) {
 
 void reset_animation_flags__10TObjPlayerFPv(void* p) { draw_weapon_at_joint(p, (void*)49); update_trail_slot__11TItemWeaponFPvi(p, (void*)0); update_trail_slot__11TItemWeaponFPvi(p, (void*)1); }
 
-void TObjPlayer__sub_8034F8B8(void* p) { TObjPlayer__sub_80115BC0((void*)((char*)p + 0x1f8), (void*)((void*)-8192), (void*)((void*)-30947)); TObjPlayer__sub_80115BC0((void*)((char*)p + 0x1fc), (void*)((void*)-1820), (void*)((void*)-7281)); }
+void TObjPlayer__sub_8034F8B8(void* p) { add_angle_clamped__10TObjPlayerFPvii((void*)((char*)p + 0x1f8), (void*)((void*)-8192), (void*)((void*)-30947)); add_angle_clamped__10TObjPlayerFPvii((void*)((char*)p + 0x1fc), (void*)((void*)-1820), (void*)((void*)-7281)); }
 
-void TObjPlayer__sub_8034F900(void* p) { TObjPlayer__sub_80115BC0((void*)((char*)p + 0x1f8), (void*)((void*)16384), (void*)((void*)0)); TObjPlayer__sub_80115BC0((void*)((char*)p + 0x1fc), (void*)((void*)3640), (void*)((void*)0)); }
+void TObjPlayer__sub_8034F900(void* p) { add_angle_clamped__10TObjPlayerFPvii((void*)((char*)p + 0x1f8), (void*)((void*)16384), (void*)((void*)0)); add_angle_clamped__10TObjPlayerFPvii((void*)((char*)p + 0x1fc), (void*)((void*)3640), (void*)((void*)0)); }
 
 extern M2C_UNK lbl_804F0AF8[];
 

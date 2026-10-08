@@ -168,7 +168,7 @@ void VecCopy__FP3VecPC3Vec(void *, void *);
 u16 obj_getField1c(void *);
 void __ct__7TEffectFv(void *);
 void init_collision_body_parts(void *, f32 *, s32);
-void *TObjPlayer__sub_801569F4(void *, void *);
+void *construct_collider_proxy__10TObjPlayerFPv(void *, void *);
 void *__nw__7TObjectFUl(u32);
 int get_level_tier__10TObjPlayerFi(s32);
 extern M2C_UNK __vt__19TTecPlayerInfluence[];
@@ -497,7 +497,7 @@ u16 obj_getField1c(void *);
 void construct_area_technique_base(void *, void *, void *, void *, void *);
 
 extern M2C_UNK __vt__11TTecRaBarta[];
-void *TTecRaBarta__sub_80237CCC(void *self, void *source, void *origin, void *level);
+void *construct_area__11TTecRaBartaFPvPvPvPv(void *self, void *source, void *origin, void *level);
 s32 is_split_screen();
 void *get_bml_model(void *, int);
 void attach_particle_model(void *, void *, void *, int, int, f32);
@@ -552,7 +552,7 @@ void create__11TTecRaBartaFPvPvPv(void *arg0, void *arg1, void *arg2) {
     void *o;
     o = __nw__7TObjectFUl(0x13C);
     if (o != NULL) {
-        TTecRaBarta__sub_80237CCC((void *)(o), (void *)(arg0), (void *)(arg1), (void *)(arg2));
+        construct_area__11TTecRaBartaFPvPvPvPv((void *)(o), (void *)(arg0), (void *)(arg1), (void *)(arg2));
     }
 }
 
@@ -630,7 +630,7 @@ void *TTecRaBarta__ct(void *self_, void *source, void *origin, void *pos, void *
 #undef self
 #pragma pop
 
-void *TTecRaBarta__sub_80237CCC(void *self, void *source, void *origin, void *level) {
+void *construct_area__11TTecRaBartaFPvPvPvPv(void *self, void *source, void *origin, void *level) {
     s32 i;
     construct_area_technique_base(self, source, origin, origin, level);
     M2C_FIELD(self, M2C_UNK **, 0x18) = __vt__11TTecRaBarta;

@@ -11,7 +11,7 @@ void trigger_megid_special__10TObjPlayerFPv(void *arg0);
 s32 get_id__13TItemProArmorFPv(void *);
 u8 get_slot_count__14TItemProShieldFPv();
 M2C_UNK create_item_eff_cane__10TObjPlayerFiUiii(s32, void *, M2C_UNK, M2C_UNK);
-M2C_UNK TObjPlayer__sub_8011E2FC(void *, f32);
+M2C_UNK drain_owner_hp_fraction__10TObjPlayerFPvf(void *, f32);
 s32 is_mode_two_and_ready__10TObjPlayerFPv(void *);
 M2C_UNK update_active_game_effect__10TObjPlayerFPv(void *);
 s32 draw_icon__10TObjPlayerFPvii(void *, M2C_UNK, M2C_UNK *);
@@ -51,7 +51,7 @@ void trigger_megid_special__10TObjPlayerFPv(void *arg0) {
             if (draw_icon__10TObjPlayerFPvii(arg0, 2, &sp8) != 0) {
                 temp_r3 = M2C_FIELD(arg0, void **, 0xF0);
                 create_ex__9TTecMegidFiiii(temp_r3, &sp8, M2C_FIELD(temp_r3, s32 *, 0x60), 0);
-                TObjPlayer__sub_8011E2FC(arg0, lbl_805DAF18);
+                drain_owner_hp_fraction__10TObjPlayerFPvf(arg0, lbl_805DAF18);
             }
         } else {
             update_active_game_effect__10TObjPlayerFPv(arg0);

@@ -116,7 +116,7 @@ s32 spawn_particle_effect_with_rotation(void *, void *, int, int);
 s32 spawn_continuous_particle_effect_with_flags(void *, int, int);
 s32 TObjPlayer__sub_800DC5F4(M2C_UNK arg0, s32 arg1);
 f32 TObjPlayer__sub_8013153C(void *, void *);
-M2C_UNK TObjPlayer__sub_801569F4(void *, int);
+M2C_UNK construct_collider_proxy__10TObjPlayerFPv(void *, int);
 f32 vector_length(void *);
 M2C_UNK subtract_vector(void *, void *);
 extern M2C_UNK lbl_80494E10[];
@@ -275,7 +275,7 @@ void *TObjPlayer__sub_800DC7B0(void *arg0, s16 arg1) {
 u8 *TObjPlayer__sub_800DC83C(u8 *arg0, Vec_800DC83C *arg1, Vec_800DC83C *arg2, s32 arg3, void *arg4) {
     Ang_800DC83C ang;
     f32 s;
-    TObjPlayer__sub_801569F4(arg0, tl_06);
+    construct_collider_proxy__10TObjPlayerFPv(arg0, tl_06);
     M2C_FIELD(arg0, M2C_UNK **, 0x18) = lbl_80494E10;
     M2C_FIELD(arg0, s32 *, 0xF4) = arg3;
     VecCopy__FP3VecPC3Vec(arg0 + 0xAC, (int)arg1);

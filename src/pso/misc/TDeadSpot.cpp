@@ -62,7 +62,7 @@ void TDeadSpot__sub_800D7E94(u8 *arg0);
 void VecCopy__FP3VecPC3Vec(void *, void *);
 void __ct__7TObjectFP7TObject(void *, void *);
 extern M2C_UNK lbl_804949F4[];
-u8 *TDeadSpot__sub_800D7F60(u8 *arg0, u8 *arg1, u8 *arg2, s32 arg3, f32 farg0);
+u8 *construct_fire_base__9TDeadSpotFPvPvPvif(u8 *arg0, u8 *arg1, u8 *arg2, s32 arg3, f32 farg0);
 s32 calc_random_scaled__10TObjPlayerFv();
 s32 adjust_to_ground__15TObjBoss2TunnelFiPv(void *, void *);
 s32 copy_pos__11TNowLoadingFPvPv(int, void *);
@@ -145,7 +145,7 @@ void *TDeadSpot__sub_800D7D74(void *arg0, s16 arg1) {
 extern M2C_UNK lbl_804949D8[];
 
 void *init__9TDeadSpotFPv(void *arg0, u8 * _w1, u8 * _w2, s32 _w3, f32 _w4) {
-    TDeadSpot__sub_800D7F60((u8 *)(arg0), (u8 *)(_w1), (u8 *)(_w2), (s32)(_w3), _w4);
+    construct_fire_base__9TDeadSpotFPvPvPvif((u8 *)(arg0), (u8 *)(_w1), (u8 *)(_w2), (s32)(_w3), _w4);
     M2C_FIELD(arg0, M2C_UNK **, 0x18) = lbl_804949D8;
     M2C_FIELD(arg0, u32 *, 0x30) = 8;
     return arg0;
@@ -196,7 +196,7 @@ extern M2C_UNK lbl_80494A10[];
 #pragma push
 #pragma fp_contract on
 typedef char RecoveredGlobal_800D7F60_lbl_804949F4_size[sizeof(RecoveredGlobal_800D7F60_lbl_804949F4) == 0x1C ? 1 : -1];
-u8 *TDeadSpot__sub_800D7F60(u8 *arg0, u8 *arg1, u8 *arg2, s32 arg3, f32 farg0) {
+u8 *construct_fire_base__9TDeadSpotFPvPvPvif(u8 *arg0, u8 *arg1, u8 *arg2, s32 arg3, f32 farg0) {
     __ct__7TObjectFP7TObject(arg0, arg1);
     M2C_FIELD(arg0, M2C_UNK **, 0x18) = &(*(RecoveredGlobal_800D7F60_lbl_804949F4 *)&lbl_804949F4).value;
     VecCopy__FP3VecPC3Vec(arg0 + 0x1C, arg2);

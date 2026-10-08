@@ -9,19 +9,19 @@ extern "C" {
 void grow_field200_if_small__10TObjPlayerFPv(u8 *arg0);
 void TObjPlayer__sub_80129A14(u8 *arg0);
 void* init_dead_state__10TObjPlayerFPv(void* a0);
-M2C_UNK TObjPlayer__sub_80115BC0(void *, M2C_UNK, M2C_UNK);
+M2C_UNK add_angle_clamped__10TObjPlayerFPvii(void *, M2C_UNK, M2C_UNK);
 int set_status_flags__10TObjPlayerFPvUi(void*, void*);
 int TObjPlayer__sub_8012A884(void);
 
 void grow_field200_if_small__10TObjPlayerFPv(u8 *arg0) {
     if ((s32) M2C_FIELD(arg0, s32 *, 0x200) < 0x2000) {
-        TObjPlayer__sub_80115BC0(arg0 + 0x200, 0x2D8, 0x2000);
+        add_angle_clamped__10TObjPlayerFPvii(arg0 + 0x200, 0x2D8, 0x2000);
     }
 }
 
 void TObjPlayer__sub_80129A14(u8 *arg0) {
     if ((s32) M2C_FIELD(arg0, s32 *, 0x200) > 0) {
-        TObjPlayer__sub_80115BC0(arg0 + 0x200, -0x2000, 0);
+        add_angle_clamped__10TObjPlayerFPvii(arg0 + 0x200, -0x2000, 0);
     }
 }
 

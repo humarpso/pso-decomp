@@ -11,7 +11,7 @@ struct TItemShootParticle_8011B7FC { u32 f0; u8 pad4[0x14]; void *vt; u8 pad1c[0
 extern "C" {
 void request_destroy__11TBoss4Type2FUi(u32);
 s32 spawn_particle_effect_with_rotation(s32, s32, s32, s32);
-s32 TItemShootParticle__sub_8011B704(u8 *arg0, s32 arg1, s32 arg2);
+s32 spawn_slot_emitter__18TItemShootParticleFPvii(u8 *arg0, s32 arg1, s32 arg2);
 void request_destroy__11TBoss4Type2FUi(u32);
 void __dt__10TItemShootFv(void *self, s32 flag);
 void __dl__7TObjectFPv(void *p);
@@ -28,7 +28,7 @@ extern "C" {
 
 #pragma push
 #pragma opt_propagation off
-s32 TItemShootParticle__sub_8011B704(u8 *arg0, s32 arg1, s32 arg2) {
+s32 spawn_slot_emitter__18TItemShootParticleFPvii(u8 *arg0, s32 arg1, s32 arg2) {
     s32 temp_r31;
     if ((arg2 >= 0) && (arg2 < 2)) {
         temp_r31 = (arg2 * 4) + 0x58;

@@ -19,8 +19,8 @@ struct O_802C4698 { u8 pad[6]; E_802C4698 e[1]; };
 struct O_802C4688 { u8 pad[0x408]; u8 buf[1]; };
 
 extern "C" {
-s8 TObjPlayer__sub_8001124C(void *);
-s8 TObjPlayer__sub_80011350(void *);
+s8 get_tp_materials_clamped__10TObjPlayerFPv(void *);
+s8 get_hp_material_points__10TObjPlayerFPv(void *);
 void set_hp_clamped__10TObjPlayerFPvs(void *, s16);
 s16 obj_getS16_32E(void *);
 s16 obj_getS16_32C(void *);
@@ -55,7 +55,7 @@ u8 *TObjPlayer__sub_802C4688(O_802C4688 *self, s32 i);
 E_802C4698 *TObjPlayer__sub_802C4698(O_802C4698 *self, s32 i);
 void set_flag_524288__10TObjPlayerFPv(void *p);
 void set_flag_80000__10TObjPlayerFPv(void *p);
-void TObjPlayer__sub_802C3D38(u8 *arg0, u8 *arg1);
+void export_character_data__10TObjPlayerFPvPv(u8 *arg0, u8 *arg1);
 }
 
 extern "C" {
@@ -71,7 +71,7 @@ s32 send_command__10TNpcPlayerFiciiPv(s32 arg0, s8 arg1, s32 arg2, s32 arg3, s8 
     init_character_stats_for_level(arg0, arg4, arg3);
     return 1;
 }
-void TObjPlayer__sub_802C3D38(u8 *arg0, u8 *arg1) {
+void export_character_data__10TObjPlayerFPvPv(u8 *arg0, u8 *arg1) {
     s32 i;
     s16 hp;
     s16 facing;
@@ -89,8 +89,8 @@ void TObjPlayer__sub_802C3D38(u8 *arg0, u8 *arg1) {
             eq->on(1);
         }
     }
-    M2C_FIELD(arg1, s8 *, 1) = TObjPlayer__sub_80011350(arg0);
-    M2C_FIELD(arg1, s8 *, 2) = TObjPlayer__sub_8001124C(arg0);
+    M2C_FIELD(arg1, s8 *, 1) = get_hp_material_points__10TObjPlayerFPv(arg0);
+    M2C_FIELD(arg1, s8 *, 2) = get_tp_materials_clamped__10TObjPlayerFPv(arg0);
     set_flag_e7__10TObjPlayerFPvUc(arg1, get_field_374__10TObjPlayerFPv(arg0));
     set_flag_103__10TObjPlayerFPvUc(arg1, get_field_374_state__10TObjPlayerFPv(arg0));
     set_action_flags__10TObjPlayerFPvUc(arg1, get_inventory_state__10TObjPlayerFPv(arg0));

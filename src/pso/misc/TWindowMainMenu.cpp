@@ -119,7 +119,7 @@ void update_submenu__15TWindowMainMenuFPv(void *arg0);
 void update_trade_submenu__15TWindowMainMenuFPv(void* p);
 int pop_level__15TWindowMainMenuFPv(void*);
 int park_selection__15TWindowMainMenuFPv(void*);
-int TWindowSubTradeMain__sub_80244A4C(void*);
+int request_close__19TWindowSubTradeMainFPv(void*);
 int TWindow__close(void*);
 int clear_menu_flags__15TWindowMainMenuFPv(void*);
 s32 get_message_10__20TWindowSubStatusDispFPv(s32);
@@ -130,7 +130,7 @@ int update_scaled_position__15TWindowMainMenuFi(void*);
 int window_request_show(void*);
 
 void show_child_window__15TWindowMainMenuFPv(void* p) { if (*(unsigned int*)((char*)p + 0x1c) != 0) { window_request_show(*(void**)((char*)p + 0x1c)); update_scaled_position__15TWindowMainMenuFi(*(void**)((char*)p + 0x1c)); } }
-void update_trade_submenu__15TWindowMainMenuFPv(void* p) { void* m = *(void**)((char*)p + 0x1c); if (m) TWindowSubTradeMain__sub_80244A4C(m); }
+void update_trade_submenu__15TWindowMainMenuFPv(void* p) { void* m = *(void**)((char*)p + 0x1c); if (m) request_close__19TWindowSubTradeMainFPv(m); }
 void update_submenu__15TWindowMainMenuFPv(void *arg0) {
     if ((u32) M2C_FIELD(arg0, u32 *, 0x1C) != 0U) {
         park_selection__15TWindowMainMenuFPv((void*)(M2C_FIELD(arg0, void **, 0x1C)));

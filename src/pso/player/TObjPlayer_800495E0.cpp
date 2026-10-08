@@ -70,7 +70,7 @@ s32 TBoss3Volopt__sub_8004816C(int);
 f32 TObjPlayer__sub_800499FC(s32 arg0);
 s32 spawn_particle_effect_with_rotation(void *, void *, int, int);
 void init_collision_body_parts(void *, void *, int);
-void TObjPlayer__sub_801569F4();
+void construct_collider_proxy__10TObjPlayerFPv();
 void rotate_vector_by_matrix(int, void *, void *);
 M2C_UNK rotate_matrix_y(M2C_UNK, s32);
 void push_matrix_from(void *);
@@ -231,7 +231,7 @@ void *destroy__10TObjPlayerFPvs(void *arg0, s16 arg1) {
 }
 
 Obj_800498E8 *TObjPlayer__sub_800498E8(Obj_800498E8 *arg0, Obj_800498E8 *arg1, void *arg2, s32 arg3) {
-    TObjPlayer__sub_801569F4();
+    construct_collider_proxy__10TObjPlayerFPv();
     arg0->vt = lbl_80484A94;
     init_collision_body_parts(arg0, lbl_80484A68, 1);
     arg0->fdc = obj_getField1c(arg1);

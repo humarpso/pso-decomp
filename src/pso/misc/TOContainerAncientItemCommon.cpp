@@ -135,7 +135,7 @@ s32 TObjFish__sub_8001EDB0(void *, s32);
 s32 get_bml_model(void *, s32);
 s32 check_value_equals__13TQuestColCtrlFPvi(void *, s32);
 s32 spawn_particle_effect(void *, int);
-u8 *TObjChip__sub_80180BD4(u8 *arg0, u8 *arg1, u8 *arg2);
+u8 *construct_debris__8TObjChipFPvPvPv(u8 *arg0, u8 *arg1, u8 *arg2);
 void play_container_break_sound(s32 arg0);
 extern Desc_8015C234 lbl_80440700;
 extern Desc_8015C234 lbl_8044074C;
@@ -261,13 +261,13 @@ void TObjFish__sub_8015C234(Obj_8015C234 *self) {
     {
         u8 *o = (u8 *)__nw__7TObjectFUl(0x234);
         if (o != NULL) {
-            TObjChip__sub_80180BD4(o, tl_05, (u8 *)&a);
+            construct_debris__8TObjChipFPvPvPv(o, tl_05, (u8 *)&a);
         }
     }
     {
         u8 *o = (u8 *)__nw__7TObjectFUl(0x234);
         if (o != NULL) {
-            TObjChip__sub_80180BD4(o, tl_05, (u8 *)&b);
+            construct_debris__8TObjChipFPvPvPv(o, tl_05, (u8 *)&b);
         }
     }
     spawn_particle_effect(&self->x, 0x45);

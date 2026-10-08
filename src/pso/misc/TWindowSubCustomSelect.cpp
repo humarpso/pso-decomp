@@ -73,7 +73,7 @@ Big_80277AEC *get_player_by_client_id(int);
 s32 construct_with_parent__15TWindowAdditionFPvPv(void *, void *, s16, s32);
 s32 get_window_layout_position(int);
 void *reset_selection__20TWindowSubStatusDispFPv(void *, Pos_80277AEC *);
-void *TWindowSubStatusDisp__sub_802880BC(void *, s32, s32);
+void *construct_type1_heading__20TWindowSubStatusDispFPvii(void *, s32, s32);
 extern u8 lbl_8044F818[];
 extern u8 lbl_8044F8B8[];
 extern u8 lbl_804D153C[];
@@ -346,7 +346,7 @@ u8 *TWindowSubCustomSelect__ct(u8 *arg0, s32 arg1) {
     }
     o = alloc__23TAdSinglePlyChrSelectGCFPv(0x24);
     if (o != NULL) {
-        o = TWindowSubStatusDisp__sub_802880BC(o, get_message_10__20TWindowSubStatusDispFPv(0x22), M2C_FIELD(arg0, s16 *, 0x20));
+        o = construct_type1_heading__20TWindowSubStatusDispFPvii(o, get_message_10__20TWindowSubStatusDispFPv(0x22), M2C_FIELD(arg0, s16 *, 0x20));
     }
     M2C_FIELD(arg0, void **, 0x7C) = o;
     pos.x = lbl_805DD5E8;

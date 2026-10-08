@@ -190,7 +190,7 @@ u32 __nw__7TObjectFUl(s32);
 s32 check_disconnect_conditions__6TLobbyFv();
 M2C_UNK create_tasks__6TLobbyFv();
 M2C_UNK fn_8006EBC4(s32);
-M2C_UNK fn_801815F8(void *, s32);
+M2C_UNK construct_traffic_manager(void *, s32);
 M2C_UNK get_global_state__14TOKeyMachine01Fv();
 M2C_UNK reset_settings_to_default__6TLobbyFPv(M2C_UNK *);
 extern M2C_UNK lbl_804A7370[];
@@ -254,7 +254,7 @@ M2C_UNK get_global_state__14TOKeyMachine01Fv();
 M2C_UNK load_floor_sound_bank();
 extern M2C_UNK lbl_804A73D0[];
 extern M2C_UNK lbl_8050EA40[];
-s32 TLobby__sub_80140A6C(void);
+s32 init_lobby_floor_scene__6TLobbyFv(void);
 int TLobby__sub_8007BA20(void);
 int TLobby__sub_8022743C(void);
 int refresh_render_state__6TLobbyFv(void);
@@ -648,7 +648,7 @@ s32 setup_scene__6TLobbyFv(void) {
     if (((s32)get_global_state__14TOKeyMachine01Fv()) == 0) {
         obj = ((void *)__nw__7TObjectFUl((s32)(0x78)));
         if (obj != NULL) {
-            fn_801815F8(obj, tl_05);
+            construct_traffic_manager(obj, tl_05);
         }
     }
     obj = ((void *)__nw__7TObjectFUl((s32)(0x1C)));
@@ -703,7 +703,7 @@ void update_floor_download__6TLobbyFv(void) {
     TLobby__sub_8022743C();
     TLobby__sub_8007BA20();
 }
-s32 TLobby__sub_80140A6C(void) {
+s32 init_lobby_floor_scene__6TLobbyFv(void) {
     get_global_state__14TOKeyMachine01Fv();
     load_floor_sound_bank();
     if (((s32)run_load_callback_table((M2C_UNK *)((void *) (&(*(RecoveredGlobal_80140A6C_lbl_804A73D0 *)&lbl_804A73D0).value)), (M2C_UNK)((int) (0x30)))) == 0) {

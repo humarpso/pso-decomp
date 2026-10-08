@@ -244,6 +244,10 @@ struct VObj_18_800C0E30 : VBase_18_800C0E30 {
 
 struct Vec_800C0E30 { s32 x, y, z; };
 
+struct Vec_800C0318 { f32 x, y, z; };
+
+struct Lappy_800C0318 { u8 pad0[0x2FC]; Vec_800C0318 pos; f32 vx; f32 vy; f32 vz; };
+
 extern "C" {
 extern const f32 lbl_805D9F80;
 extern const f32 lbl_805D9F84;
@@ -322,7 +326,6 @@ s32 check_demo_mode__10TObjPlayerFv();
 void TObjPlayer__sub_800BFF54(void *);
 void set_boss4_state__10TObjPlayerFPv(void *arg0);
 M2C_UNK apply_move_friction__10TObjPlayerFPv(void *arg0);
-M2C_UNK update_hurt__12TObjEneLappyFv(void *);
 void update_idle_state__12TObjEneLappyFv(void *);
 M2C_UNK fn_800C20C0();
 u8 *find_active_entity_by_id(u16);
@@ -426,6 +429,13 @@ extern const f32 lbl_805D9F74;
 extern const f32 lbl_805D9F78;
 extern const f32 lbl_805D9F7C;
 void update_moving__12TObjEneLappyFv(u8 *arg0);
+M2C_UNK apply_actor_gravity(void *, M2C_UNK, f32);
+M2C_UNK move_with_wall_slide(void *);
+s32 check_path_obstructed(void *, void *);
+void set_boss4_state__10TObjPlayerFPv(void *arg0);
+M2C_UNK advance_animation_playback(void *);
+M2C_UNK update_collisions__10TObjPlayerFPv(void *);
+void update_hurt__12TObjEneLappyFv(u8 *arg0);
 }
 
 extern "C" {
@@ -649,6 +659,32 @@ void handle_death__10TObjPlayerFPv(u8 *arg0) {
         M2C_FIELD(arg0, s16 *, 0x380) = 0;
     }
 }
+
+void update_hurt__12TObjEneLappyFv(u8 *arg0) {
+    advance_animation_playback(arg0);
+    Lappy_800C0318 *self = (Lappy_800C0318 *)arg0;
+    Vec_800C0318 v = self->pos;
+    v.x += self->vx;
+    v.z += self->vz;
+    if (check_path_obstructed(arg0, &v) == 0) {
+        move_with_wall_slide(arg0);
+    } else {
+        self->vx = self->vz = 0.0f;
+    }
+    self->vx *= 0.5f;
+    self->vz *= 0.5f;
+    apply_actor_gravity(arg0, 0, 0.0f);
+    update_collisions__10TObjPlayerFPv(arg0);
+    if (M2C_FIELD(arg0, u32 *, 0xB4) != 8U) {
+        M2C_FIELD(arg0, s32 *, 0x30) &= ~0x200;
+        M2C_FIELD(arg0, s16 *, 0x33E) = M2C_FIELD(arg0, s16 *, 0x32C);
+        if (M2C_FIELD(arg0, s16 *, 0x374) & 2) {
+            set_boss4_state__10TObjPlayerFPv(arg0);
+            M2C_FIELD(arg0, s16 *, 0xB8) = 4;
+        }
+    }
+}
+
 void enter_state_4__10TObjPlayerFPv(u8 *arg0) {
     s32 temp_r3;
     M2C_FIELD(arg0, s32 *, 0x30) = (s32) (M2C_FIELD(arg0, s32 *, 0x30) & 0xFFDFFFFF);
@@ -1136,7 +1172,7 @@ void run_task__12TObjEneLappyFPv(u8 *arg0) {
         update_invuln_timer__10TObjPlayerFPv((u8 *)((void *) (arg0)));
         break;
     case 4:
-        update_hurt__12TObjEneLappyFv((void *) (arg0));
+        update_hurt__12TObjEneLappyFv((u8 *)((void *) (arg0)));
         break;
     case 5:
         apply_move_friction__10TObjPlayerFPv((void *) (arg0));

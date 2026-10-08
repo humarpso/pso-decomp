@@ -178,7 +178,7 @@ extern RecoveredGlobal_801AD0F0_TPhotonMagicSquare__data_804C3940 TPhotonMagicSq
 extern RecoveredGlobal_801AD0F0___vt__18TPhotonMagicSquare __vt__18TPhotonMagicSquare;
 extern s32 TPhotonMagicSquare__data_805D3508;
 extern u8 *lbl_805D5D28;
-u8 *TPhotonMagicSquare__sub_801AD330(u8 *arg0, M2C_UNK arg1, s32 arg2, s32 arg3);
+u8 *construct_at_owner__18TPhotonMagicSquareFPviii(u8 *arg0, M2C_UNK arg1, s32 arg2, s32 arg3);
 }
 
 extern "C" {
@@ -246,7 +246,7 @@ u8 *construct_photon_magic_square_normal(u8 *arg0, M2C_UNK arg1, s32 arg2, s32 a
     M2C_FIELD(arg0, s32 *, 0xCC) = 0xFFFFFF;
     return arg0;
 }
-u8 *TPhotonMagicSquare__sub_801AD330(u8 *arg0, M2C_UNK arg1, s32 arg2, s32 arg3) {
+u8 *construct_at_owner__18TPhotonMagicSquareFPviii(u8 *arg0, M2C_UNK arg1, s32 arg2, s32 arg3) {
     s32 temp_r3;
     TPhotonMagicSquare__sub_801A2640((void *) (arg0));
     M2C_FIELD(arg0, M2C_UNK **, 0x18) = &(*(RecoveredGlobal_801AD330___vt__18TPhotonMagicSquare *)&__vt__18TPhotonMagicSquare).value;

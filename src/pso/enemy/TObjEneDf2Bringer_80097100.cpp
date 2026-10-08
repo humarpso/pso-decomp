@@ -169,7 +169,7 @@ s32 push_matrix_from(u32);
 M2C_UNK pop_matrix();
 extern M2C_UNK TBreakUpMdl__data_8048FA00[];
 extern RecoveredGlobal_80096F54_lbl_8058D490 lbl_8058D490;
-u8 *TBreakUpMdl__sub_8009705C(u8 *arg0, s32 arg1);
+u8 *init_from_model__11TBreakUpMdlFPvi(u8 *arg0, s32 arg1);
 extern const f32 lbl_805D97C8;
 void init_alpha__11TBreakUpMdlFPvif(u8 *arg0, s32 arg1, f32 farg0);
 s32 count_active_segments__15TObjBoss2TunnelFPv(void *);

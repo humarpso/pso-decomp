@@ -107,13 +107,13 @@ extern s32 *lbl_805D5F64;
 extern int lbl_805D5F74;
 s32 TAdSinglePlyChrSelectGC__sub_80202A74(s32 arg0, s16 arg1);
 void init__9TItemDataFv(void *);
-void TAdSinglePlyChrSelectGC__sub_80203220(u8 *arg0);
+void clear_inventory_slot__23TAdSinglePlyChrSelectGCFPv(u8 *arg0);
 s32 init_single_player_chr_select__6TLobbyFPv(s32);
 extern RecoveredGlobal_80202A40_lbl_8051381C lbl_8051381C;
 void TAdSinglePlyChrSelectGC__sub_80202A40(void);
 s32 *TAdSinglePlyChrSelectGC__sub_80202B38(Obj_80202B38 *self, s32 i);
 Ent_80202B1C *TAdSinglePlyChrSelectGC__sub_80202B1C(Obj_80202B1C *self, s32 i);
-void TAdSinglePlyChrSelectGC__sub_80203220(u8 *arg0);
+void clear_inventory_slot__23TAdSinglePlyChrSelectGCFPv(u8 *arg0);
 void TAdSinglePlyChrSelectGC__sub_80202B4C(Obj_80202B4C *self, s32 i);
 void TAdSinglePlyChrSelectGC__sub_80202C08(Obj_80202C08 *self);
 void TAdSinglePlyChrSelectGC__sub_80202C3C(Obj_80202C3C *self);
@@ -212,7 +212,7 @@ s32 *TAdSinglePlyChrSelectGC__sub_80202B38(Obj_80202B38 *self, s32 i) {
     extern int lbl_805D5F74;
 
 void TAdSinglePlyChrSelectGC__sub_80202B4C(Obj_80202B4C *self, s32 i) {
-    TAdSinglePlyChrSelectGC__sub_80203220((u8 *)(&self->e[i]));
+    clear_inventory_slot__23TAdSinglePlyChrSelectGCFPv((u8 *)(&self->e[i]));
 }
 
 int get_selection__23TAdSinglePlyChrSelectGCFv(void) {  return lbl_805D5F74; }
@@ -353,7 +353,7 @@ u8 *TAdSinglePlyChrSelectGC__sub_80203190(u8 *arg0) {
 void* init_guild_card_tag__23TAdSinglePlyChrSelectGCFPv(void* p) { init_guild_card_tag__17TWindowSubComCardFi(p); return p; }
 void TAdSinglePlyChrSelectGC__sub_80203210(void* p) { *(u32*)((char*)p + 0x4) &= 0xfffffff7; }
 
-void TAdSinglePlyChrSelectGC__sub_80203220(u8 *arg0) {
+void clear_inventory_slot__23TAdSinglePlyChrSelectGCFPv(u8 *arg0) {
     M2C_FIELD(arg0, s8 *, 0) = 0;
     M2C_FIELD(arg0, s8 *, 1) = -1;
     M2C_FIELD(arg0, s32 *, 4) = 0;

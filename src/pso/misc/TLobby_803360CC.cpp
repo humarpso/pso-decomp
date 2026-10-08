@@ -232,7 +232,7 @@ void *destroy__6TLobbyFPvs(void *arg0, s16 arg1) {
     }
     return arg0;
 }
-u8 *TLobby__sub_80336520(u8 *arg0) {
+u8 *construct_title_scene__6TLobbyFPv(u8 *arg0) {
     void *p;
 
     __ct__7TObjectFP7TObject(arg0);

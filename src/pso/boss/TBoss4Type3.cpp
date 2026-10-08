@@ -621,7 +621,7 @@ s32 TObjFish__sub_8001EDB0(s32, s32);
 s32 get_bml_model(s32, s32);
 s32 get_game_mode__6TLobbyFv();
 M2C_UNK fn_80044330(void *);
-M2C_UNK TObjPlayer__sub_8004433C(void *);
+M2C_UNK construct_target_cursor_records__10TObjPlayerFi(void *);
 void fn_8004AA04(void *);
 s32 TBoss4Type3__sub_8004AE60(void);
 s32 TBoss4DarkFalz__sub_8004AF5C(s32, s16 *, s16 *);
@@ -1001,7 +1001,7 @@ extern "C" u8 TObjPlayer__sub_800162E0[];
 extern "C" u8 TObjPlayer__sub_80016454[];
 extern "C" u8 TObjPlayer__sub_800166DC[];
 extern "C" u8 TObjPlayer__sub_80016944[];
-extern "C" void TObjPlayer__sub_80016C54();
+extern "C" void update_shock_clock__10TObjPlayerFPv();
 extern "C" u8 TObjPlayer__sub_80016D78[];
 extern "C" u8 TObjPlayer__sub_80016FF8[];
 extern "C" u8 TObjPlayer__sub_800171A0[];
@@ -1184,7 +1184,7 @@ void *lbl_80487184[83] = {
     (void *)&TObjPlayer__sub_80011010, (void *)&TObjPlayer__sub_8000FF3C, (void *)&TObjPlayer__sub_8001745C, (void *)&test_flag_256__10TObjPlayerFPv,
     (void *)&test_flag30_512__10TObjPlayerFPv, (void *)&has_flag_0x800__10TObjPlayerFPv, (void *)&test_flag_1000__10TObjPlayerFPv, (void *)&TObjPlayer__sub_800171A0,
     (void *)&TObjPlayer__sub_80016FF8, (void *)&update_action_timer__10TObjPlayerFPv, (void *)&update_flag30_timer__10TObjPlayerFPv, (void *)&TObjPlayer__sub_80016D78,
-    (void *)&TObjPlayer__sub_80016C54, (void *)&TObjPlayer__sub_80016944, (void *)&TObjPlayer__sub_800166DC, (void *)&TObjPlayer__sub_800172CC,
+    (void *)&update_shock_clock__10TObjPlayerFPv, (void *)&TObjPlayer__sub_80016944, (void *)&TObjPlayer__sub_800166DC, (void *)&TObjPlayer__sub_800172CC,
     (void *)&TBoss4Bishi__sub_8005BABC, (void *)&TBoss4Bishi__sub_8005BAC0, (void *)&TBoss4Bishi__sub_8005BAC4, (void *)&TBoss4Bishi__sub_8005BAC8,
     (void *)&TBoss4Bishi__sub_8005BACC, (void *)&TBoss4Bishi__sub_8005BAD0, (void *)&TBoss4Bishi__sub_8005BAD4, (void *)&TObjPlayer__sub_80014E74,
     (void *)&TObjPlayer__sub_80014C78, (void *)&TObjPlayer__sub_80014C1C, (void *)&TObjPlayer__sub_80014B5C, (void *)&TObjPlayer__sub_80014900,
@@ -1467,7 +1467,7 @@ void TBoss4Type3__vt33(u8 *arg0) {
         r29 = *(s32 *)(dispatch_shared_handler_a__6TLobbyFPv(0x38) + 0x18);
         for (i = 0; i < 4; i++) {
             if (TBoss4Type3__sub_8005254C(i) != 0) {
-                TObjPlayer__sub_8004433C(&g);
+                construct_target_cursor_records__10TObjPlayerFi(&g);
                 fn_80044330(&g);
                 g.f0 = 1;
                 g.f4 = i;
@@ -2272,7 +2272,7 @@ S_8005AD50 *TBoss4Type3__sub_8005AD50(S_8005AD50 *o, s16 flag) {
 void *alloc__23TAdSinglePlyChrSelectGCFPv(int);
 s32 create__12TObjEneSaverFPvPv(s32, s32);
 void draw_trail_with_colors(s32, s32, s32, s32, s32);
-s32 TBoss4Type3__sub_800D9ABC(void *, s32, f32, f32, f32);
+s32 init_trail_buffer__11TBoss4Type3FPvifff(void *, s32, f32, f32, f32);
 extern u8 lbl_804377FC[];
 extern s32 lbl_805D27E4;
 extern const f32 lbl_805D8CAC;
@@ -2315,14 +2315,14 @@ Self_8005AE60 *TBoss4Type3__ct(Self_8005AE60 *self, s32 arg1, s32 *arg2) {
     model = get_bml_model(self->f390, ((s32 *)lbl_80486FB0)[0]);
     p = (s32)alloc__23TAdSinglePlyChrSelectGCFPv(0x18);
     if (p != 0) {
-        p = TBoss4Type3__sub_800D9ABC((void *)p, 2, lbl_805D8C58, lbl_805D8C5C, lbl_805D8CAC);
+        p = init_trail_buffer__11TBoss4Type3FPvifff((void *)p, 2, lbl_805D8C58, lbl_805D8C5C, lbl_805D8CAC);
     }
     *(s32 *)((u8 *)self + 0x51C) = p;
     draw_trail_with_colors(*(s32 *)((u8 *)self + 0x51C), model, get_bml_motion(self->f390, ((s32 *)&TBoss4Type3__data_80486FC8)[0x44 / 4]), 0x16, 0x17);
     *(s32 *)((u8 *)self + 0x524) = create__12TObjEneSaverFPvPv(0xA0303030, 0xFFFF0088);
     p = (s32)alloc__23TAdSinglePlyChrSelectGCFPv(0x18);
     if (p != 0) {
-        p = TBoss4Type3__sub_800D9ABC((void *)p, 2, lbl_805D8C58, lbl_805D8C5C, lbl_805D8CAC);
+        p = init_trail_buffer__11TBoss4Type3FPvifff((void *)p, 2, lbl_805D8C58, lbl_805D8C5C, lbl_805D8CAC);
     }
     *(s32 *)((u8 *)self + 0x520) = p;
     draw_trail_with_colors(*(s32 *)((u8 *)self + 0x520), model, get_bml_motion(self->f390, ((s32 *)&TBoss4Type3__data_80486FC8)[0x58 / 4]), 9, 10);
