@@ -217,7 +217,7 @@ s32 TLobby__sub_801C3C1C(Lobby_801C484C *, s32);
 void TLobby__sub_801C3CFC(s8 arg0, s32 arg1, s32 arg2);
 s64 OSGetTime();
 void set_timer_window_time__11TWindowCtrlFi(s32);
-s32 TLobby__sub_801C271C(Lobby_801C484C *);
+s32 check_battle_end__6TLobbyFv(Lobby_801C484C *);
 void TLobby__sub_801C2898(Lobby_801C484C *, s32);
 void send_battle_mode_state__6TLobbyFPv(Lobby_801C484C *);
 void update_timed_wait__6TLobbyFPv(Lobby_801C484C *self);
@@ -945,7 +945,7 @@ void update_timed_wait__6TLobbyFPv(Lobby_801C484C *self) {
             TLobby__sub_801C3CFC(3, 0, 0);
             return;
         }
-        if (TLobby__sub_801C271C(self) != 0) {
+        if (check_battle_end__6TLobbyFv(self) != 0) {
             if (--self->timer48 <= 0) {
                 self->result = 3;
                 TLobby__sub_801C3CFC(3, 0, 0);

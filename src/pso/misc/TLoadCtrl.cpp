@@ -41,7 +41,7 @@ extern u32 TLoadCtrl__data_805D4A80;
 bool TLoadCtrl__sub_8001C60C(void);
 u8 *TLoadCtrl__ct(u8 *arg0, s32 arg1);
 M2C_UNK TNowLoading__sub_8001D4D4();
-M2C_UNK TCameraCtrl__sub_800693F4();
+M2C_UNK init_default_view__11TCameraCtrlFv();
 M2C_UNK TCameraCtrl__sub_8006A35C();
 M2C_UNK TCameraCtrl__ct(u8 *, s32);
 M2C_UNK TLoadCtrl__sub_80226DA0(int);
@@ -81,7 +81,7 @@ void poll_default__9TLoadCtrlFv(void);
 void render__9TLoadCtrlFv(void);
 M2C_UNK TAdLoadQuestGC__sub_8030984C();
 M2C_UNK reset_default_view__11TCameraCtrlFv();
-M2C_UNK TCameraCtrl__sub_800693F4();
+M2C_UNK init_default_view__11TCameraCtrlFv();
 M2C_UNK TCameraCtrl__sub_8006A35C();
 M2C_UNK TNowLoading__sub_8001D4D0();
 M2C_UNK create__11TCameraCtrlFv();
@@ -220,7 +220,7 @@ void cleanup_scene__9TLoadCtrlFv(void) {
         lbl_805D4DF0 = NULL;
     }
     TCameraCtrl__sub_8006A35C();
-    TCameraCtrl__sub_800693F4();
+    init_default_view__11TCameraCtrlFv();
     create__11TCameraCtrlFv();
 }
 
@@ -231,7 +231,7 @@ void start_loading__9TLoadCtrlFUi(u32 arg0) {
     u32 var_r31;
     var_r31 = arg0;
     TCameraCtrl__sub_8006A35C();
-    TCameraCtrl__sub_800693F4();
+    init_default_view__11TCameraCtrlFv();
     if (var_r31 == 2U) {
         temp_r3 = select_area_entrance((void *) (lbl_80515BA0));
         if (temp_r3 == 0) {

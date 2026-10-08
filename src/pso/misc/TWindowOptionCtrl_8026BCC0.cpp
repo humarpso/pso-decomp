@@ -29,7 +29,7 @@ s32 get_status_flag__17TWindowSubComCardFPv(void *);
 s32 is_visible__17TWindowSubComCardFPv(void *);
 s32 get_selected_menu_value(void *);
 void open__17TWindowOptionCtrlFPv(void *);
-void *TWindowOptionCtrl__sub_8026BA88(void *);
+void *create_select_menu_window__17TWindowOptionCtrlFv(void *);
 s32 get_flag_bit2__6TLobbyFPv(void *);
 s32 update_selected_item__17TWindowOptionCtrlFPv(void *);
 s32 handle_input__17TWindowOptionCtrlFPvi(void *arg0, s32 arg1);
@@ -58,7 +58,7 @@ void *ct__17TWindowOptionCtrlFPv(void *arg0);
 s32 get_field_24__17TWindowOptionCtrlFPv(void *);
 void queue_destruction__7TObjectFv(void *);
 M2C_UNK TKeyBoardControl__sub_8000F9CC(int);
-void *TWindowOptionCtrl__sub_8026B774(void *);
+void *create_sub_menu_window__17TWindowOptionCtrlFv(void *);
 void *create_option_menu__17TWindowOptionCtrlFv(void *);
 void set_field_value__17TWindowOptionCtrlFis(s32 arg0, s16 arg1);
 s32 TWindowOptionCtrl__sub_8026B64C(s32 arg0, s32 arg1, s32 arg2);
@@ -120,7 +120,7 @@ void run_task__17TWindowOptionCtrlFv(Opt_8026BCC0 *self) {
     case 3:
         open__17TWindowOptionCtrlFPv(self->f28);
         if (self->f34 == NULL) {
-            self->f34 = TWindowOptionCtrl__sub_8026BA88(self);
+            self->f34 = create_select_menu_window__17TWindowOptionCtrlFv(self);
         }
         self->state = 4;
     case 4:
@@ -247,7 +247,7 @@ void run_task__17TWindowOptionCtrlFv(Opt_8026BCC0 *self) {
             self->f30 = NULL;
         }
         if (self->f2C == NULL) {
-            self->f2C = TWindowOptionCtrl__sub_8026B774(self);
+            self->f2C = create_sub_menu_window__17TWindowOptionCtrlFv(self);
         }
         open__17TWindowOptionCtrlFPv(self->f28);
         clear_transition_flag__17TWindowSubComCardFPv(self->f2C);

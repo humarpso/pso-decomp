@@ -40,7 +40,7 @@ s32 is_item_area_enabled();
 s32 get_player_by_client_id(u16);
 void __dl__7TObjectFPv(void *);
 void __dt__7TObjectFv(void *, int);
-s16 TObjPlayer__sub_80117F14(u16, s8 *);
+s16 count_nearby_players_with_shield__10TObjPlayerFUsPv(u16, s8 *);
 M2C_UNK init__9TItemDataFv(s8 *);
 M2C_UNK queue_destruction__7TObjectFv(void *);
 
@@ -65,7 +65,7 @@ void update_dropped_item__10TObjPlayerFPv(void *arg0) {
         sp8.a = 1;
         sp8.b = 2;
         sp8.c = M2C_FIELD(arg0, u8 *, 0x2A);
-        if ((TObjPlayer__sub_80117F14(M2C_FIELD(arg0, u16 *, 0x28), &sp8.a) > 0) && ((s32) M2C_FIELD(arg0, s32 *, 0x20) != -1)) {
+        if ((count_nearby_players_with_shield__10TObjPlayerFUsPv(M2C_FIELD(arg0, u16 *, 0x28), &sp8.a) > 0) && ((s32) M2C_FIELD(arg0, s32 *, 0x20) != -1)) {
             temp_r3 = get_player_by_client_id(M2C_FIELD(arg0, u16 *, 0x28));
             if (temp_r3 != 0) {
                 get_field_3e0__12TBoss3VoloptFPv();

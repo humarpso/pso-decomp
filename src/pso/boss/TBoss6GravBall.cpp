@@ -49,7 +49,7 @@ void subtract_vector(void *, void *);
 void normalize_vector(void *);
 s32 project_actor_to_ground(void *, void *, int);
 int TBoss6GravBall__sub_803231D0(void*, void*);
-M2C_UNK TBoss6GravBall__sub_80323278(void *, int);
+M2C_UNK create_emitter__14TBoss6GravBallFii(void *, int);
 u16 obj_getField1c(void *);
 s32 is_active__14TBoss6PlotFalzFPv(void *);
 f32 sin_table_lookup(s32);
@@ -70,7 +70,7 @@ void subtract_vector(void *, void *);
 void normalize_vector(void *);
 s32 project_actor_to_ground(void *, void *, int);
 int TBoss6GravBall__sub_803231D0(void*, void*);
-M2C_UNK TBoss6GravBall__sub_80323278(void *, int);
+M2C_UNK create_emitter__14TBoss6GravBallFii(void *, int);
 u16 obj_getField1c(void *);
 s32 is_active__14TBoss6PlotFalzFPv(void *);
 f32 sin_table_lookup(s32);
@@ -147,7 +147,7 @@ void TBoss6GravBall__sub_803233AC(u8 *self) {
         TBoss6PlotFalz__sub_802AC724(pl, &v);
         if (flag != 0) {
             pl->flags |= 0x20000;
-            TBoss6GravBall__sub_80323278(self, id);
+            create_emitter__14TBoss6GravBallFii(self, id);
         }
     }
 }
@@ -202,7 +202,7 @@ void TBoss6GravBall__sub_80323544(u8 *self) {
         TBoss6PlotFalz__sub_802AC724(pl, &v);
         if (flag != 0) {
             pl->flags |= 0x20000;
-            TBoss6GravBall__sub_80323278(self, id);
+            create_emitter__14TBoss6GravBallFii(self, id);
         }
     }
 }

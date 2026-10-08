@@ -37,7 +37,7 @@ void destroy_window_base__9TWindowDDFPvs(void *, int);
 M2C_UNK TWindowKeyBoardHard__sub_8025CC48(void *);
 s32 TKeyBoardControl__sub_8025EC54(void *);
 M2C_UNK TKeyBoardControl__sub_8025FBE8(void *);
-M2C_UNK TKeyBoardControl__sub_8025FC60(void *);
+M2C_UNK update_modifier_flags__16TKeyBoardControlFPv(void *);
 
 extern s32 lbl_805D5544;
 
@@ -58,7 +58,7 @@ void run_task__19TWindowKeyBoardHardFv(void *arg0) {
                     TWindowKeyBoardHard__sub_8025CC48(M2C_FIELD(arg0, void **, 0x70));
                 }
             }
-            TKeyBoardControl__sub_8025FC60(arg0);
+            update_modifier_flags__16TKeyBoardControlFPv(arg0);
             TKeyBoardControl__sub_8025FBE8(arg0);
         }
         temp_r3_2 = M2C_FIELD(arg0, s32 *, 0x68);

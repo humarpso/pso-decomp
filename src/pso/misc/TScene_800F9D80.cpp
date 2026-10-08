@@ -2,7 +2,7 @@
 
 extern "C" {
 
-s32 TLobby__sub_803CC500();
+s32 adxf_get_fsize_byte__6TLobbyFPv();
 s32 TLobby__sub_803CCE9C(s32);
 s32 adxf_open__6TLobbyFUii(s32, s32);
 int update_lobby_scene__6TSceneFPv(void* p);

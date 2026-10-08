@@ -17,7 +17,7 @@ u32 run_and_get_result__10TObjPlayerFPvi(int, void *);
 void calc_list_content_extent(void *);
 void add_list_entry__20TWindowSubStatusDispFPvi(void *, int);
 void add_list_entry__23TShopJudgmentItemWindowFPvii(void *, void *, int);
-void fn_802788A8(Wn_802788A8 *arg0);
+void build_usable_item_list(Wn_802788A8 *arg0);
 u8 *find_item_by_id(int);
 void calc_list_content_extent(void *);
 void add_list_entry__20TWindowSubStatusDispFPvi(void *, int);
@@ -61,7 +61,7 @@ void fn_802787F0(Wn_802787F0 *arg0, Ent_802787F0 *arg1) {
     }
 }
 
-void fn_802788A8(Wn_802788A8 *arg0) {
+void build_usable_item_list(Wn_802788A8 *arg0) {
     s32 list[0x20];
     u8 *id;
     u32 i;

@@ -206,7 +206,7 @@ void concat_quaternion_rotation__10TObjPlayerFPv(void *);
 void rotate_matrix_by_node_angles(void *, int);
 void scale_current_matrix(void *);
 void post_translate_matrix(void *);
-void TObjPlayer__sub_803D76B4(void *arg0);
+void apply_motion_node_transform__10TObjPlayerFPv(void *arg0);
 void TCameraCtrl__sub_803D65F8(u8 *);
 void set_camera_look_at(u8* eye, u8* target, u8* up);
 void set_matrix_identity__10TObjPlayerFPv(s32);
@@ -698,7 +698,7 @@ typedef char RecoveredGlobal_803D77C0_lbl_804FA51C_size[sizeof(RecoveredGlobal_8
 #pragma scheduling off
 #pragma opt_common_subs off
 #pragma peephole off
-void TObjPlayer__sub_803D76B4(void *arg0) {
+void apply_motion_node_transform__10TObjPlayerFPv(void *arg0) {
     struct Vec_803D7CA4 trans;
     struct Vec_803D7CA4 scale;
     struct Angles_803D7CA4 rot;

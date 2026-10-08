@@ -354,7 +354,7 @@ s32 get_camera_mode__11TCameraCtrlFv();
 s32 TCameraCtrl__sub_8006B358(int);
 extern RecoveredGlobal_80069094_camera_controller_registry camera_controller_registry;
 extern u8 *lbl_805D4DF0;
-s32 TCameraCtrl__sub_80069094(s32 arg0);
+s32 get_camera_target_id__11TCameraCtrlFi(s32 arg0);
 s32 is_split_screen();
 void TCameraCtrl__sub_801E32D8(f32, f32);
 s32 GXSetScissor(int, int, int, int);
@@ -412,7 +412,7 @@ s32 get_camera_no__11TCameraCtrlFv();
 extern RecoveredGlobal_800691C8_TCameraCtrl__data_804FF6D0 TCameraCtrl__data_804FF6D0;
 extern RecoveredGlobal_800691C8_TCameraCtrl__data_804FF700 TCameraCtrl__data_804FF700;
 extern RecoveredGlobal_800691C8_main_task main_task;
-M2C_UNK *TCameraCtrl__sub_80069258(void);
+M2C_UNK *get_view_matrix__11TCameraCtrlFv(void);
 s32 is_split_screen();
 M2C_UNK approach_camera_vector(void *, void *, f32);
 s32 get_camera_no__11TCameraCtrlFv();
@@ -461,7 +461,7 @@ extern const f32 lbl_805D8FCC;
 extern const f32 TCameraCtrl__data_805D8FD0;
 extern const f32 TCameraCtrl__data_805D8FD4;
 extern const f32 TCameraCtrl__data_805D8FD8;
-void TCameraCtrl__sub_800693F4(void);
+void init_default_view__11TCameraCtrlFv(void);
 void TCameraCtrl__sub_8006961C(u8 *arg0);
 extern RecoveredGlobal_800695E8_TCameraCtrl__data_804FF628 TCameraCtrl__data_804FF628;
 extern const f32 TCameraCtrl__data_805D8FA8;
@@ -760,7 +760,7 @@ void restore_full_screen_view__11TCameraCtrlFv(void) {
     }
 }
 
-s32 TCameraCtrl__sub_80069094(s32 arg0) {
+s32 get_camera_target_id__11TCameraCtrlFi(s32 arg0) {
     s32 var_r31;
     s32 var_r3;
     u32 temp_r3;
@@ -822,7 +822,7 @@ void TCameraCtrl__sub_800691C8(void) {
 typedef char RecoveredGlobal_80069258_TCameraCtrl__data_804FF6D0_size[sizeof(RecoveredGlobal_80069258_TCameraCtrl__data_804FF6D0) == 0x30 ? 1 : -1];
 typedef char RecoveredGlobal_80069258_TCameraCtrl__data_804FF700_size[sizeof(RecoveredGlobal_80069258_TCameraCtrl__data_804FF700) == 0xC0 ? 1 : -1];
 typedef char RecoveredGlobal_80069258_main_task_size[sizeof(RecoveredGlobal_80069258_main_task) == 0x34 ? 1 : -1];
-M2C_UNK *TCameraCtrl__sub_80069258(void) {
+M2C_UNK *get_view_matrix__11TCameraCtrlFv(void) {
     if (is_split_screen() != 0) {
         if (get_mode__11TCameraCtrlFPv((void *) (&(*(RecoveredGlobal_80069258_main_task *)&main_task).value)) & 1) {
             return (long *) ((u8 *)&(*(RecoveredGlobal_80069258_TCameraCtrl__data_804FF700 *)&TCameraCtrl__data_804FF700).value + ((get_instance__11TCameraCtrlFv() - 1) * 0x30));
@@ -881,7 +881,7 @@ void reset_default_view__11TCameraCtrlFv(void) {
     TCameraCtrl__sub_803D66DC((void *) (&stack.sp8));
 }
 
-void TCameraCtrl__sub_800693F4(void) {
+void init_default_view__11TCameraCtrlFv(void) {
     typedef char sp8_offset[(offsetof(Stack_800693F4, sp8) == 0x0) ? 1 : -1];
     typedef char sp10_offset[(offsetof(Stack_800693F4, sp10) == 0x8) ? 1 : -1];
     typedef char sp14_offset[(offsetof(Stack_800693F4, sp14) == 0xC) ? 1 : -1];

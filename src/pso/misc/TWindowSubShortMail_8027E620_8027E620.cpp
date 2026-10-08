@@ -13,7 +13,7 @@ M2C_UNK update_layout_height__17TWindowSubComCardFPvf(s32, f32);
 M2C_UNK forward_trade_action_default__16TObjCityMainWarpFPviii(s32, s32, M2C_UNK, M2C_UNK);
 s32 check_room_seq_4__16TAdChrSelASlotGCFii(M2C_UNK, M2C_UNK);
 s32 get_window_layout_position(M2C_UNK);
-s32 TWindowSubShortMail__sub_8027E9FC(void);
+s32 create_confirm_menu_window__19TWindowSubShortMailFv(void);
 s32 get_main_phase();
 s32 get_message_10__20TWindowSubStatusDispFPv(M2C_UNK);
 M2C_UNK set_flag70_bit10__16TObjCityMainWarpFPv(s32);
@@ -67,7 +67,7 @@ s32 open_menu__19TWindowSubShortMailFv(void);
 void update_mail_count__19TWindowSubShortMailFPv(void *arg0);
 s32 TKeyBoardControl__ct(s32, s32, M2C_UNK, M2C_UNK, M2C_UNK, s32);
 s32 get_shared_text_buffer();
-M2C_UNK TLobby__sub_80225828(s32, s32);
+M2C_UNK send_simple_mail__6TLobbyFiPv(s32, s32);
 u32 TLobby__sub_80225924(s32);
 s32 TLobby__sub_8022598C(s32);
 int TLobby__sub_802421C4(void*);
@@ -120,7 +120,7 @@ void close__19TWindowSubShortMailFPv(void *arg0) {
 
     temp_r31 = realloc_buffer__17TWindowSubComCardFPv(M2C_FIELD(arg0, s32 *, 0x5C));
     TWindowSubComCard__sub_80225E80(temp_r31, get_shared_text_buffer());
-    TLobby__sub_80225828(M2C_FIELD(arg0, s32 *, 0x2C), get_shared_text_buffer());
+    send_simple_mail__6TLobbyFiPv(M2C_FIELD(arg0, s32 *, 0x2C), get_shared_text_buffer());
     free__11TOBoss4RockFUi(temp_r31);
     temp_r31_2 = get_short_mail_ctrl__6TLobbyFv();
     for (var_r29 = 0; var_r29 < temp_r31_2; var_r29 += 1) {
@@ -213,7 +213,7 @@ s32 create_window__19TWindowSubShortMailFv(void) {
 extern s32 lbl_805D53A0;
 extern s32 tl_00;
 
-s32 TWindowSubShortMail__sub_8027E9FC(void) {
+s32 create_confirm_menu_window__19TWindowSubShortMailFv(void) {
     s32 temp_r31;
     temp_r31 = check_room_seq_4__16TAdChrSelASlotGCFii((M2C_UNK)((void *)(((M2C_UNK)get_window_layout_position((int) (0xA0))))), (M2C_UNK)((int) (2)));
     forward_trade_action_default__16TObjCityMainWarpFPviii((s32)((int) (temp_r31)), (s32)((int) (get_message_10__20TWindowSubStatusDispFPv((int) (0x107)))), (M2C_UNK)((int) (6)), (M2C_UNK)((int) (0x16)));

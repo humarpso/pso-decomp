@@ -32,7 +32,7 @@ M2C_UNK TGStream__ct(M2C_UNK *, M2C_UNK);
 M2C_UNK open__8TGStreamFPvPvi(M2C_UNK *, s32, M2C_UNK);
 M2C_UNK move_data__6TLobbyFv(void *, M2C_UNK *, s32);
 extern u8 lbl_80504200[];
-s32 TGStream__sub_800FDADC(s32 arg0, u8 *arg1);
+s32 read_whole_file__8TGStreamFiPv(s32 arg0, u8 *arg1);
 }
 
 extern "C" {
@@ -68,7 +68,7 @@ s32 load_file__8TGStreamFi(s32 arg0) {
     return temp_r3;
 }
 
-s32 TGStream__sub_800FDADC(s32 arg0, u8 *arg1) {
+s32 read_whole_file__8TGStreamFiPv(s32 arg0, u8 *arg1) {
     struct { u8 d[0x38]; } s;
     s32 size;
     s32 n;

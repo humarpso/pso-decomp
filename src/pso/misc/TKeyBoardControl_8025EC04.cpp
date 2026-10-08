@@ -52,7 +52,7 @@ s32 TKeyBoardControl__sub_801322E4(void *);
 s32 TKeyBoardControl__sub_801323C8(void *, int);
 u8 get_key_state__16TKeyBoardControlFPv(M2C_UNK *);
 extern M2C_UNK TKeyBoardControl__data_80506270[];
-void TKeyBoardControl__sub_8025FC60(struct RecoveredFields_8025FC60_arg0 *arg0);
+void update_modifier_flags__16TKeyBoardControlFPv(struct RecoveredFields_8025FC60_arg0 *arg0);
 bool TKeyBoardControl__sub_8025EC1C(M2C_UNK arg0, u8 arg1);
 extern s32 lbl_805D5544;
 s32 TKeyBoardControl__sub_8025F21C(Ctl_8025F21C *c);
@@ -339,7 +339,7 @@ block_7:
 }
 
 typedef char RecoveredGlobal_8025FC60_TKeyBoardControl__data_80506270_size[sizeof(RecoveredGlobal_8025FC60_TKeyBoardControl__data_80506270) == 0xB0 ? 1 : -1];
-void TKeyBoardControl__sub_8025FC60(struct RecoveredFields_8025FC60_arg0 *arg0) {
+void update_modifier_flags__16TKeyBoardControlFPv(struct RecoveredFields_8025FC60_arg0 *arg0) {
     s32 temp_r3;
     s32 temp_r3_2;
     u32 temp_r4;

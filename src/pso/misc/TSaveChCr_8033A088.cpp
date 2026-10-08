@@ -20,7 +20,7 @@ struct RecoveredGlobal_8033A184_lbl_804EF658 {
 
 extern "C" {
 extern TSaveChCrStateActions lbl_804EF658[];
-void TSaveChCr__sub_8033A184(u8 *arg0, s32 arg1);
+void set_state__9TSaveChCrFPvi(u8 *arg0, s32 arg1);
 }
 
 extern "C" {
@@ -91,7 +91,7 @@ extern void *tl_03;
 
 typedef char MemberActionStorage_8033A184_size[sizeof(MemberActionStorage_8033A184) == 12 ? 1 : -1];
 typedef char RecoveredGlobal_8033A184_lbl_804EF658_size[sizeof(RecoveredGlobal_8033A184_lbl_804EF658) == 0x78 ? 1 : -1];
-void TSaveChCr__sub_8033A184(u8 *arg0, s32 arg1) {
+void set_state__9TSaveChCrFPvi(u8 *arg0, s32 arg1) {
     MemberActionStorage_8033A184 member_action;
     typedef char sp8_offset[(offsetof(Stack_8033A184, sp8) == 0x0) ? 1 : -1];
     typedef char spC_offset[(offsetof(Stack_8033A184, spC) == 0x4) ? 1 : -1];
@@ -119,7 +119,7 @@ void TSaveChCr::run_task() {
   card_status = poll_memcard_status(this);
   if (card_status & 1)
   {
-    TSaveChCr__sub_8033A184((u8 *)this, 0);
+    set_state__9TSaveChCrFPvi((u8 *)this, 0);
   }
   entry = &lbl_804EF658[state_index];
   TSaveChCrStateAction action = (*entry).task;
@@ -157,7 +157,7 @@ u8 *TSaveChCr__ct(u8 *arg0, u8 *arg1, s32 arg2) {
     M2C_FIELD(arg0, s32 *, 0x3C) = 0;
     M2C_FIELD(arg0, s32 *, 0x38) = 0;
     TSaveChCr__sub_8033A0D0(arg0);
-    TSaveChCr__sub_8033A184((u8 *)(arg0), (s32)(0));
+    set_state__9TSaveChCrFPvi((u8 *)(arg0), (s32)(0));
     return arg0;
 }
 

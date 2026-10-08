@@ -41,14 +41,14 @@ typedef s32 M2C_UNK;
 extern "C" {
 u8 * get_bml_model(void *, int);
 extern u32 lbl_805D65D0;
-u8 *TORockJungleS01__sub_8029CAFC(s32 arg0);
+u8 *get_model__15TORockJungleS01Fi(s32 arg0);
 s32 VecCopy__FP3VecPC3Vec(void *, void *);
 s32 reset_photon_effect__10TObjPlayerFPv(void *);
 s32 refresh_collision_body_centers(void *);
 s32 init_collision_body_parts(void *, void *, int);
 s32 TORockCaveBrakable__ct(void *);
 s32 create__10TObjMapCsnFi(void *);
-u8 *TORockJungleS01__sub_8029CAFC(s32 arg0);
+u8 *get_model__15TORockJungleS01Fi(s32 arg0);
 extern RecoveredGlobal_8029C9C8_lbl_804DC3A0 lbl_804DC3A0;
 extern RecoveredGlobal_8029C9C8_lbl_804DC424 lbl_804DC424;
 extern M2C_UNK __vt__15TORockJungleS01[];
@@ -62,7 +62,7 @@ void *alloc__23TAdSinglePlyChrSelectGCFPv(M2C_UNK);
 s32 load_gvm_texture_file(void *);
 s32 get_global_state__14TOKeyMachine01Fv();
 s32 TORockJungleS01__sub_8029CAE8(s32 a);
-u8 *TORockJungleS01__sub_8029CAFC(s32 arg0);
+u8 *get_model__15TORockJungleS01Fi(s32 arg0);
 M2C_UNK add_entry__11TMotorcycleFsiiff(M2C_UNK, void *, s32, f32, f32);
 extern u8 lbl_804658EC[];
 extern u8 lbl_80465904[];
@@ -135,7 +135,7 @@ u8 *TORockJungleS01__ct(u8 *arg0, s32 arg1) {
     M2C_FIELD(arg0, M2C_UNK **, 0x18) = &(*(RecoveredGlobal_8029C9C8___vt__15TORockJungleS01 *)&__vt__15TORockJungleS01).value;
     M2C_FIELD(arg0, s32 *, 0) = (s32) lbl_805D3D3C;
     ((VObj_18_1a504b *)(arg0))->m5(arg1);
-    M2C_FIELD(arg0, u8 **, 0x34) = TORockJungleS01__sub_8029CAFC(0);
+    M2C_FIELD(arg0, u8 **, 0x34) = get_model__15TORockJungleS01Fi(0);
     M2C_FIELD(arg0, s32 *, 0x24) = TORockJungleS01__sub_8029CAE8((s32)((int) (0)));
     M2C_FIELD(arg0, f32 *, 0xB0) = (f32) (lbl_805DDD1C + M2C_FIELD(M2C_FIELD(M2C_FIELD(arg0, u8 **, 0x34), void **, 4), f32 *, 0x14));
     init_collision_body_parts((void *) (arg0), (void *) (&lbl_804DC3A0.value), (int) (1));
@@ -158,7 +158,7 @@ s32 TORockJungleS01__sub_8029CAE8(s32 a) {
     return 0;
 }
 
-u8 *TORockJungleS01__sub_8029CAFC(s32 arg0) {
+u8 *get_model__15TORockJungleS01Fi(s32 arg0) {
     if ((void *) (*(u8 * *)&lbl_805D65D0) != NULL) {
         return get_bml_model((*(u8 * *)&lbl_805D65D0), arg0);
     }
@@ -195,7 +195,7 @@ void load_resources__15TORockJungleS01Fv(void) {
         lbl_805D65D4 = load_gvm_texture_file(lbl_8046591C);
         break;
     }
-    add_entry__11TMotorcycleFsiiff(0x3E, TORockJungleS01__sub_8029CAFC(0), TORockJungleS01__sub_8029CAE8(0), lbl_805DDD20, lbl_805DDD24);
+    add_entry__11TMotorcycleFsiiff(0x3E, get_model__15TORockJungleS01Fi(0), TORockJungleS01__sub_8029CAE8(0), lbl_805DDD20, lbl_805DDD24);
 }
 
 }

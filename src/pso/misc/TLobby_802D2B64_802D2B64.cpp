@@ -33,7 +33,7 @@ void reset__6TLobbyFv(void);
 void TLobby__sub_802D3284(s32, s32);
 extern s32 TLobby__data_805D5580;
 extern u8 TLobby__data_805D688B;
-void TLobby__sub_802D2D64(void);
+void cancel_trade__6TLobbyFv(void);
 }
 
 extern "C" {
@@ -114,10 +114,10 @@ extern u32 TLobby__data_805D689C;
 
 void check_flags_and_proceed__6TLobbyFv(void) {
     if (((u32) TLobby__data_805D6894 == 0U) && ((u32) TLobby__data_805D6898 == 0U) && ((u32) TLobby__data_805D689C == 0U)) {
-        TLobby__sub_802D2D64();
+        cancel_trade__6TLobbyFv();
     }
 }
-void TLobby__sub_802D2D64(void) {
+void cancel_trade__6TLobbyFv(void) {
     s8 s = TLobby__data_805D688B;
     switch (s) {
     case 0:

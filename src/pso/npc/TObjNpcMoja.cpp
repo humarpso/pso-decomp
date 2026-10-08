@@ -120,7 +120,7 @@ void __dt__11TObjNpcBaseFv(void *, int);
 void *__nw__7TObjectFUl(int);
 M2C_UNK safe_free__23TAdSinglePlyChrSelectGCFUi(u32);
 
-void TObjPlayer__sub_8001882C(void *, void *);
+void set_motion_params__10TObjPlayerFPvPv(void *, void *);
 s32 TObjFish__sub_8001EDB0(void *, s32);
 s32 get_bml_model(void *, s32);
 void copy_position__20TBoss3VoloptHiraisinFi(void *);
@@ -302,7 +302,7 @@ void *TObjNpcMoja__ct(void *selfv, void *parent, void *arg2v) {
     *(s32 *)(self + 0x24) = TObjFish__sub_8001EDB0(lbl_805D50D8, 0);
     init_npc_animation__10TObjPlayerFPvPvPvPv(self, lbl_804AABB8, *(s32 *)(lbl_805D50D8 + 0x430), *(s16 *)(self + 0xB8));
     *(u8 **)(self + 0x350) = lbl_804A7CDC;
-    TObjPlayer__sub_8001882C(self, lbl_804A7CB8);
+    set_motion_params__10TObjPlayerFPvPv(self, lbl_804A7CB8);
     init_collision_body_parts(self, lbl_804AABD8, 1);
     reset_photon_effect__10TObjPlayerFPv(self);
     update_prev_position__10TObjPlayerFPv(self);

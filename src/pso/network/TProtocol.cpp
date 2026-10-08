@@ -265,7 +265,7 @@ struct Proto_801DC1E4 { u8 pad[0x1910]; s32 connected; u8 pad1914[0x74]; u8 char
 
 void TItem__sub_80101CF8(void *);
 void TLobby__sub_80134BC4(void *, void *);
-void TProtocol__sub_8013A650(void *, void *);
+void copy_player_data__9TProtocolFPvPv(void *, void *);
 void TProtocol__sub_801DF774(void *, void *);
 void bswap_player_record_upload(void *);
 void destroy__9TProtocolFis(void *, int);
@@ -276,14 +276,14 @@ void send_player_data_98__9TProtocolFPvPvPvPvPvPvPv(Proto_801DC1E4 *self, u8 *ch
                                List_801DC1E4 *blocked_senders, Text_801DC1E4 *auto_reply, char *info_board) {
     if (self->connected) {
         validate_player_visual_record(char_data + 0x370);
-        TProtocol__sub_8013A650(self->char_data, char_data);
+        copy_player_data__9TProtocolFPvPv(self->char_data, char_data);
         Join_801DC1E4 tmp;
         init_char_data__9TProtocolFi(&tmp);
         memset(&tmp, 0, sizeof(tmp));
         tmp.command = 0x98;
         tmp.flags = 3;
         tmp.size = sizeof(tmp);
-        TProtocol__sub_8013A650(tmp.char_data, self->char_data);
+        copy_player_data__9TProtocolFPvPv(tmp.char_data, self->char_data);
         TLobby__sub_80134BC4(tmp.challenge, challenge);
         TProtocol__sub_801DF774(tmp.choice_search_config, choice_search_config);
         strncpy(tmp.info_board, info_board, sizeof(tmp.info_board));
@@ -336,7 +336,7 @@ struct Proto_801DC34C { u8 pad[0x1910]; s32 connected; u8 pad1914[0x74]; u8 char
 
 void TItem__sub_80101CF8(void *);
 void TLobby__sub_80134BC4(void *, void *);
-void TProtocol__sub_8013A650(void *, void *);
+void copy_player_data__9TProtocolFPvPv(void *, void *);
 void TProtocol__sub_801DF774(void *, void *);
 void bswap_player_record_upload(void *);
 void destroy__9TProtocolFis(void *, int);
@@ -347,14 +347,14 @@ void send_player_data_61__9TProtocolFPvPvPvPvPvPvPv(Proto_801DC34C *self, u8 *ch
                                List_801DC34C *blocked_senders, Text_801DC34C *auto_reply, char *info_board) {
     if (self->connected) {
         validate_player_visual_record(char_data + 0x370);
-        TProtocol__sub_8013A650(self->char_data, char_data);
+        copy_player_data__9TProtocolFPvPv(self->char_data, char_data);
         Join_801DC34C tmp;
         init_char_data__9TProtocolFi(&tmp);
         memset(&tmp, 0, sizeof(tmp));
         tmp.command = 0x61;
         tmp.flags = 3;
         tmp.size = sizeof(tmp);
-        TProtocol__sub_8013A650(tmp.char_data, self->char_data);
+        copy_player_data__9TProtocolFPvPv(tmp.char_data, self->char_data);
         TLobby__sub_80134BC4(tmp.challenge, challenge);
         TProtocol__sub_801DF774(tmp.choice_search_config, choice_search_config);
         strncpy(tmp.info_board, info_board, sizeof(tmp.info_board));

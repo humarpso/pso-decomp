@@ -83,7 +83,7 @@ s32 access_object_saved_state(u8 *arg0, s32 arg1, s16 arg2);
 void init__17TOBarrierEnergy01FPv(void *);
 void update_and_send_60__6TLobbyFPv(void *);
 void TODoorCave01__sub_80161320(Self_80161320 *self, State_80161320 *src);
-void fn_8015D5D4(u8 *arg0);
+void play_door_sound(u8 *arg0);
 u8 is_current_floor_switch_set(u16);
 }
 
@@ -212,7 +212,7 @@ void TODoorCave01__vt12(u8 *arg0) {
 
     switch (d->state) {
     case 1:
-        fn_8015D5D4(arg0);
+        play_door_sound(arg0);
         d->flags |= 0xF0001;
         d->count = 4;
         break;
@@ -228,7 +228,7 @@ void TODoorCave01__vt12(u8 *arg0) {
             d->flags |= 1 << (i + 0x10);
         }
         if (d->count == 4) {
-            fn_8015D5D4(arg0);
+            play_door_sound(arg0);
             d->flags |= 1;
         } else {
             d->flags &= ~1;
@@ -250,7 +250,7 @@ void TODoorCave01__vt12(u8 *arg0) {
             d->flags |= 1 << (i + 0x10);
         }
         if (d->count == 4) {
-            fn_8015D5D4(arg0);
+            play_door_sound(arg0);
             d->flags |= 1;
             if (d->obj != NULL && ((s32 (*)(u8 *, void *, s16))access_object_saved_state)(arg0, &st, 1) != 0) {
                 st.a = 1;

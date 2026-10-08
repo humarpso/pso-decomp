@@ -30,7 +30,7 @@ M2C_UNK forward_trade_action_default__16TObjCityMainWarpFPviii(s32, s32, M2C_UNK
 s32 check_room_seq_4__16TAdChrSelASlotGCFii(void *, int);
 s32 get_window_layout_position(M2C_UNK);
 extern const f32 lbl_805DD528;
-s32 TWindowSubComCard__sub_80273308(void);
+s32 create_single_entry_window__17TWindowSubComCardFv(void);
 s32 get_message_10__20TWindowSubStatusDispFPv(M2C_UNK);
 M2C_UNK set_flag70_bit10__16TObjCityMainWarpFPv(s32);
 M2C_UNK align_menu_entry_positions(s32);
@@ -130,7 +130,7 @@ u32 create_keyboard__17TWindowSubComCardFi(void *);
 u32 create__17TWindowSubComCardFv(void *);
 u32 TWindowSubComCard__sub_80272640(void *);
 u32 TWindowSubComCard__sub_80272714(void *);
-u32 TWindowSubComCard__sub_80272814();
+u32 create_card_action_window__17TWindowSubComCardFv();
 u32 TWindowSubComCard__sub_802728CC(void *);
 u32 create_menu_window__17TWindowSubComCardFv(void *);
 u32 TWindowSubComCard__sub_80272A64(void *);
@@ -144,7 +144,7 @@ u32 TWindowSubComCard__sub_80273004(void *);
 s32 open_yesno_dialog__17TWindowSubComCardFPv(void *arg0);
 s32 confirm_and_free__17TWindowSubComCardFPv(void *arg0);
 s32 open_menu__17TWindowSubComCardFv(void);
-s32 TWindowSubComCard__sub_80273308(void);
+s32 create_single_entry_window__17TWindowSubComCardFv(void);
 u32 TWindowSubComCard__sub_8027337C();
 s32 TWindowSubComCard__sub_8027346C(void);
 s32 TWindowSubComCard__sub_8027353C(void);
@@ -253,7 +253,7 @@ s32 open_menu__17TWindowSubComCardFv(void) {
 
 extern const f32 lbl_805DD530;
 
-s32 TWindowSubComCard__sub_80273308(void) {
+s32 create_single_entry_window__17TWindowSubComCardFv(void) {
     s32 temp_r31;
     temp_r31 = check_room_seq_4__16TAdChrSelASlotGCFii((void *)(((M2C_UNK)get_window_layout_position((M2C_UNK)((int) (0x84))))), (int) (1));
     forward_trade_action_default__16TObjCityMainWarpFPviii((s32)((int) (temp_r31)), (s32)((int) (get_message_10__20TWindowSubStatusDispFPv((int) (0x38)))), (M2C_UNK)((int) (3)), (M2C_UNK)((int) (0)));
@@ -446,7 +446,7 @@ void run_task__17TWindowSubComCardFv(u8 *arg0) {
             M2C_FIELD(arg0, u32 *, 0x68) = 0U;
         }
         if ((u32) M2C_FIELD(arg0, u32 *, 0x68) == 0U) {
-            M2C_FIELD(arg0, u32 *, 0x68) = ((s32 (*)(void *)) TWindowSubComCard__sub_80273308)((void *) (arg0));
+            M2C_FIELD(arg0, u32 *, 0x68) = ((s32 (*)(void *)) create_single_entry_window__17TWindowSubComCardFv)((void *) (arg0));
         }
         M2C_FIELD(arg0, u8 *, 0x1C) = 8U;
     case 0x8:
@@ -1064,7 +1064,7 @@ void run_task__17TWindowSubComCardFv(u8 *arg0) {
         }
         break;
     case 0x3F:
-        M2C_FIELD(arg0, u32 *, 0x68) = TWindowSubComCard__sub_80272814();
+        M2C_FIELD(arg0, u32 *, 0x68) = create_card_action_window__17TWindowSubComCardFv();
         M2C_FIELD(arg0, u8 *, 0x1C) = 0x40U;
     case 0x40:
         if (get_status_flag__17TWindowSubComCardFPv((int) (M2C_FIELD(arg0, u32 *, 0x68))) != 0) {

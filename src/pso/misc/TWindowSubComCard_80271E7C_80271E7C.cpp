@@ -21,7 +21,7 @@ extern "C" {
 u8 *get_shared_text_buffer(void);
 s32 realloc_buffer__17TWindowSubComCardFPv(void *);
 void free__11TOBoss4RockFUi(u32);
-void TLobby__sub_80225828(s32, s32);
+void send_simple_mail__6TLobbyFiPv(s32, s32);
 void TWindowSubComCard__sub_80225E80(void *, void *);
 s32 get_id__6TLobbyFPv(void *);
 u8 *TWindowSubComCard__sub_80275228(void);
@@ -33,8 +33,8 @@ s32 open_hard_keyboard__6TLobbyFPv(void *);
 void *get_field_20__17TWindowSubComCardFPv(void *);
 void *get_selected_entry__17TWindowSubComCardFPv(void *);
 void TWindowSubComCard__sub_8026853C(void *, u32);
-void TWindowSubComCard__sub_802685C4(void *, u32);
-void TWindowMakeTeam__sub_80268650(void *, void *, s32);
+void disable_entry_by_id__17TWindowSubComCardFPvi(void *, u32);
+void set_entry_string_by_id__15TWindowMakeTeamFPvPvi(void *, void *, s32);
 void get_message_10__17TWindowSubComCardFPvPv(void* p, void* a1);
 void set_com_param__17TWindowSubComCardFii(void *, s32);
 void TWindowSubComCard__sub_80271F04(u8 *arg0, Ent_80271F04 *arg1, s32 arg2, s32 arg3);
@@ -87,11 +87,11 @@ void TWindowSubComCard__sub_80271F04(u8 *arg0, Ent_80271F04 *arg1, s32 arg2, s32
         if (arg3 != open_hard_keyboard__6TLobbyFPv(*(void **)(arg0 + 0x20))) {
             arg0[0x1D] |= 1;
             set_com_param__17TWindowSubComCardFii(*(void **)(arg0 + 0x20), arg3);
-            TWindowMakeTeam__sub_80268650(*(void **)(arg0 + 0x7C), ((GetMsg_80271F04)get_message_10__17TWindowSubComCardFPvPv)(arg0, (void *)arg3), 0);
+            set_entry_string_by_id__15TWindowMakeTeamFPvPvi(*(void **)(arg0 + 0x7C), ((GetMsg_80271F04)get_message_10__17TWindowSubComCardFPvPv)(arg0, (void *)arg3), 0);
             if (arg3 != 0) {
                 for (i = 0; i < 5; i++) {
                     if (arg1[i].id != 0) {
-                        TWindowSubComCard__sub_802685C4(*(void **)(arg0 + 0x7C), arg1[i].id);
+                        disable_entry_by_id__17TWindowSubComCardFPvi(*(void **)(arg0 + 0x7C), arg1[i].id);
                     }
                 }
             } else {
@@ -105,7 +105,7 @@ void TWindowSubComCard__sub_80271F04(u8 *arg0, Ent_80271F04 *arg1, s32 arg2, s32
     } else if (arg3 != TWindowSubComCard__sub_80077840(arg1, arg2)) {
         arg0[0x1D] |= 1;
         fn_80077814(arg1, arg2, arg3);
-        TWindowMakeTeam__sub_80268650(*(void **)(arg0 + 0x7C), get_field_20__17TWindowSubComCardFPv(get_selected_entry__17TWindowSubComCardFPv(*(void **)(arg0 + 0x64))), arg2);
+        set_entry_string_by_id__15TWindowMakeTeamFPvPvi(*(void **)(arg0 + 0x7C), get_field_20__17TWindowSubComCardFPv(get_selected_entry__17TWindowSubComCardFPv(*(void **)(arg0 + 0x64))), arg2);
     }
 }
 
@@ -151,7 +151,7 @@ void TWindowSubComCard__sub_802721D8(u8 *arg0) {
   TWindowSubComCard__sub_80225E80((void *) temp_r30, get_shared_text_buffer());
   new_var = get_shared_text_buffer();
   temp_r31 = (u8 *) new_var;
-  TLobby__sub_80225828(get_id__6TLobbyFPv(temp_r29), (s32) temp_r31);
+  send_simple_mail__6TLobbyFiPv(get_id__6TLobbyFPv(temp_r29), (s32) temp_r31);
   free__11TOBoss4RockFUi((u32) temp_r30);
 }
 

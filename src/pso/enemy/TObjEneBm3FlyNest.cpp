@@ -1543,7 +1543,7 @@ M2C_UNK update_secondary_light__9TObjEneDDFPv(void *);
 void get_camera_ctrl__9TObjEneDDFPv(s32, s32);
 s32 get_random_scaled__9TObjEneDDFv(void *);
 f32 rand_range__9TObjEneDDFff(void *, f32, f32);
-int TObjEneDD__sub_800BAAE4(void*, void*, void*);
+int set_part_local_pos__9TObjEneDDFPvPvi(void*, void*, void*);
 u32 move_with_wall_slide_commit__9TObjEneDDFPvfff();
 s32 was_hit_by_ranged__9TObjEneDDFPv();
 M2C_UNK clear_attack_receipts();
@@ -2540,7 +2540,7 @@ void update_replenish__17TObjEneBm3FlyNestFPv(u8 *arg0) {
     }
 }
 
-void init_nest_sub__17TObjEneBm3FlyNestFPv(void* p) { TObjEneDD__sub_800BAAE4(p, (char*)p + 0x2fc, (void*)0); }
+void init_nest_sub__17TObjEneBm3FlyNestFPv(void* p) { set_part_local_pos__9TObjEneDDFPvPvi(p, (char*)p + 0x2fc, (void*)0); }
 
 void copy_pos__17TObjEneBm3FlyNestFPv(void* p) { ((int (*)(void*, void*))VecCopy__FP3VecPC3Vec)((char*)p + 0x74, (char*)p + 0x2fc); }
 

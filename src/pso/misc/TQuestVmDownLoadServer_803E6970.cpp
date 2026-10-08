@@ -452,7 +452,7 @@ Node_803EB794 *TQuestVmDownLoadServer__sub_803EB794(Node_803EB794 *p, s32 n);
 s32 TQuestVmDownLoadServer__sub_803E8804(const u8 *p, const u8 *end);
 extern s32 lbl_805D78AC;
 extern M2C_UNK *lbl_805D78B0;
-void TQuestVmDownLoadServer__sub_803ECD54(Node_803ECD54 *p);
+void free_node_list__22TQuestVmDownLoadServerFPv(Node_803ECD54 *p);
 Node_803EB878 *TQuestVmDownLoadServer__sub_803EB878(Node_803EB878 *p);
 s32 TQuestVmDownLoadServer__sub_803EB844(Node_803EB844 *p);
 extern s32 lbl_805D78AC;
@@ -497,7 +497,7 @@ Node_803EA384 *TQuestVmDownLoadServer__sub_803ECF84(void);
 Node_803EA384 *TQuestVmDownLoadServer__sub_803EA384(s32 arg0, Hdr_803EA384 *arg1);
 extern RecoveredGlobal_803E9F20_lbl_80595998 lbl_80595998;
 s32 TQuestVmDownLoadServer__sub_803EA960(s32 i, s32 end);
-void TQuestVmDownLoadServer__sub_803ECD54(Node_803ECD54 *p);
+void free_node_list__22TQuestVmDownLoadServerFPv(Node_803ECD54 *p);
 void TQuestVmDownLoadServer__sub_803ECD8C(Node_803ECD8C *p);
 void TQuestVmDownLoadServer__sub_803EADD4(Obj_803EADD4 *arg0, s32 arg1);
 s32 TQuestVmDownLoadServer__sub_803EC95C(u16 *, u8 *, int);
@@ -648,7 +648,7 @@ extern RecoveredGlobal_803E6ACC_lbl_805A0470 lbl_805A0470;
 void *TQuestVmDownLoadServer__sub_803E9FFC(s32 arg0, s32 arg1, Tok_803E9FFC *t);
 u32 strlen(const char *);
 void *TQuestVmDownLoadServer__sub_803ECED0(void);
-void TQuestVmDownLoadServer__sub_803ECD54(Node_803ECD54 *p);
+void free_node_list__22TQuestVmDownLoadServerFPv(Node_803ECD54 *p);
 s32 is_sjis_lead_byte__22TQuestVmDownLoadServerFUc(u8 arg0);
 void *build_text_node_chain__22TQuestVmDownLoadServerFPvPviPvPv(void *sp, void *a1, s32 a2, void *hp, void *tp);
 extern u8 *lbl_805D7858;
@@ -2175,7 +2175,7 @@ void TQuestVmDownLoadServer__sub_803EADD4(Obj_803EADD4 *arg0, s32 arg1) {
     }
     arg0->x8 = NULL;
     if (arg0->xc != NULL) {
-        TQuestVmDownLoadServer__sub_803ECD54(arg0->xc);
+        free_node_list__22TQuestVmDownLoadServerFPv(arg0->xc);
     }
     arg0->xc = NULL;
     arg0->x10 = 0;
@@ -2404,7 +2404,7 @@ char *strncpy(char *, const char *, u32);
 s32 TQuestVmDownLoadServer__sub_803E6970(s32 start, s32 count, u16 *buf, s32 flag);
 s32 TQuestVmDownLoadServer__sub_803EC95C(u16 *, u8 *, int);
 s32 TQuestVmDownLoadServer__sub_803EC71C(u16 *, u8 *, s32);
-void TQuestVmDownLoadServer__sub_803ECD54(Node_803ECD54 *p);
+void free_node_list__22TQuestVmDownLoadServerFPv(Node_803ECD54 *p);
 extern u8 lbl_80596264[];
 extern u16 lbl_805A0340[];
 extern u16 lbl_805A02A8[];
@@ -2472,7 +2472,7 @@ void append_unique_node__22TQuestVmDownLoadServerFiPvPvPv(s32 arg0, Node_803EB8B
     len = Conv_803EB8BC(arg0, lbl_805D78EC, n, lbl_805A0340);
     len = TQuestVmDownLoadServer__sub_803EC71C(lbl_805A0340, (u8 *)lbl_805A02A8, len);
     if (Find_803EB8BC((u8 *)lbl_805A02A8, len)) {
-        TQuestVmDownLoadServer__sub_803ECD54((Node_803ECD54 *)n);
+        free_node_list__22TQuestVmDownLoadServerFPv((Node_803ECD54 *)n);
         return;
     }
     Add_803EB8BC((u8 *)lbl_805A02A8, len);
@@ -2543,7 +2543,7 @@ struct N_803EBEFC {
     N_803EBEFC *next;
 };
 void *TQuestVmDownLoadServer__sub_803ECED0(void);
-void TQuestVmDownLoadServer__sub_803ECD54(Node_803ECD54 *p);
+void free_node_list__22TQuestVmDownLoadServerFPv(Node_803ECD54 *p);
 s32 TQuestVmDownLoadServer__sub_803EEA48(s32 arg0, s32 arg1, void *arg2, s32 *arg3);
 s32 TQuestVmDownLoadServer__sub_803EFE14(s32, u8, u8, void *, s32 *);
 extern s32 lbl_805D78F0;
@@ -2618,7 +2618,7 @@ void *build_text_node_chain__22TQuestVmDownLoadServerFPvPviPvPv(void *sp, void *
     while (rem > 0) {
         m = (N_803EBD38 *)TQuestVmDownLoadServer__sub_803ECED0();
         if (m == NULL) {
-            TQuestVmDownLoadServer__sub_803ECD54((Node_803ECD54 *)*headp);
+            free_node_list__22TQuestVmDownLoadServerFPv((Node_803ECD54 *)*headp);
             return NULL;
         }
         n->flags |= 1;
@@ -2674,7 +2674,7 @@ build:
     head = NULL;
     while (count > 0) {
         if (build_text_node_chain__22TQuestVmDownLoadServerFPvPviPvPv((void *)(p), (void *)(t), (s32)(t->x0), (void *)(&first), (void *)(&tl)) == NULL) {
-            TQuestVmDownLoadServer__sub_803ECD54((Node_803ECD54 *)head);
+            free_node_list__22TQuestVmDownLoadServerFPv((Node_803ECD54 *)head);
             return NULL;
         }
         if (head == NULL) {
@@ -3051,7 +3051,7 @@ void TQuestVmDownLoadServer__sub_803ECD1C(Node_803ECD1C *p) {
     }
 }
 
-void TQuestVmDownLoadServer__sub_803ECD54(Node_803ECD54 *p) {
+void free_node_list__22TQuestVmDownLoadServerFPv(Node_803ECD54 *p) {
     while (p != NULL) {
         Node_803ECD54 *next = p->next;
         if (p != NULL) {
@@ -3479,6 +3479,105 @@ s32 TQuestVmDownLoadServer__sub_803EEA48(s32 arg0, s32 arg1, void *arg2, s32 *ar
     }
     return 1;
 }
+
+struct Tbl_803EEB10 {
+    u8 pad[0x44];
+    u8 *sets[2];
+    u8 *units;
+};
+struct Out_803EEB10 {
+    u16 mode;
+    s16 x2;
+    u8 x4;
+    u8 text[1];
+};
+extern Tbl_803EEB10 lbl_8047FC68;
+
+#pragma push
+#pragma dont_inline off
+#pragma inline_depth(1)
+inline s32 IsSmall_803EEB10(s32 d) {
+    s32 r = 0;
+    if (d >= 1 && d <= 3) {
+        r = 1;
+    }
+    return r;
+}
+
+#define n ((s16)arg1)
+void *TQuestVmDownLoadServer__sub_803EEB10(s32 arg0, s32 arg1, void *arg2, s32 mode) {
+    u8 *s = (u8 *)arg0;
+    Out_803EEB10 *o = (Out_803EEB10 *)arg2;
+    Tbl_803EEB10 *t = &lbl_8047FC68;
+    s32 u;
+    u8 **mp;
+    u8 **up;
+    u8 *p;
+    u8 *mark;
+    s32 i;
+    s32 pos;
+    s32 d;
+    s32 rem;
+    s32 set;
+
+    if (mode >= 2 && n > 0xD) {
+        return NULL;
+    }
+    o->mode = mode;
+    o->x2 = 0;
+    o->x4 = 0;
+    p = o->text;
+    mp = (u8 **)((u8 *)t->sets + mode * 4);
+    mark = p;
+    up = &t->units;
+    for (i = 0; i < n; i++, s++) {
+        d = *s - '0';
+        if (mode < 2) {
+            *p++ = (*mp)[d * 2];
+            *p++ = (*mp)[d * 2 + 1];
+            continue;
+        }
+        rem = n - i - 1;
+        pos = rem % 4;
+        if (d != 0 && !(mode == 2 && d == 1 && (u32)(pos - 1) <= 1)) {
+            set = IsSmall_803EEB10(d) ? mode - 1 : 1;
+            *p++ = (*(u8 **)((u8 *)t->sets + set * 4))[d * 2];
+            *p++ = (*(u8 **)((u8 *)t->sets + set * 4))[d * 2 + 1];
+        }
+        if (rem == 0) {
+            continue;
+        }
+        if (pos == 0 && mark == p) {
+            continue;
+        }
+        if (pos != 0 && d == 0) {
+            continue;
+        }
+        if (pos == 0) {
+            u = rem / 4 + 6;
+        } else if (pos == 1) {
+            if (mode == 2) {
+                u = 4;
+            } else {
+                u = 0;
+            }
+        } else {
+            u = pos + 3;
+        }
+        *p++ = (*up)[u * 2];
+        *p++ = (*up)[u * 2 + 1];
+        if (pos == 0) {
+            mark = p;
+        }
+    }
+    if (p == o->text) {
+        return NULL;
+    }
+    *p = 0;
+    return p + 1;
+}
+#undef n
+#pragma pop
 
 #pragma push
 #pragma dont_inline off

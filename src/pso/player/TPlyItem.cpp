@@ -112,7 +112,7 @@ s32 is_item_valid__9TItemListFi(void *);
 extern u8 *lbl_805D5DE0;
 extern u8 lbl_805D5E04;
 extern u8 lbl_805D5E05;
-void TLobby__sub_801D5004(void *arg0);
+void reduce_owner_matched_items__6TLobbyFPv(void *arg0);
 u8 get_field_ec__12TOSwitchItemFPv(void *);
 M2C_UNK reduce_item_amount__6TLobbyFPviii(s32, void *, void *, s32);
 void *get_owner_if_alive__10TObjPlayerFPv(void *);
@@ -158,7 +158,7 @@ void *TPlyItem__ct(void *arg0) {
     M2C_FIELD(arg0, u16 *, 0x1E) = 0;
     return arg0;
 }
-void TLobby__sub_801D5004(void *arg0) {
+void reduce_owner_matched_items__6TLobbyFPv(void *arg0) {
     Item_801D5004 *self = (Item_801D5004 *)arg0;
     VObj_801D5004 *owner;
     Item_801D5004 *it;

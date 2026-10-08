@@ -58,7 +58,7 @@ M2C_UNK DateToSeconds__FP9DateStampPi(M2C_UNK *, s32 *);
 M2C_UNK getDateStamp__FP9DateStamp(M2C_UNK *);
 extern M2C_UNK lbl_80513904[];
 extern void *lbl_805D5F64;
-s32 TAdSinglePlyChrSelectGC__sub_802010E8(void);
+s32 update_play_time__23TAdSinglePlyChrSelectGCFv(void);
 u8 * __dt__12TPlyCharDataFv(void *, short);
 void __dl__FPv(void*);
 void register_callback__23TAdSinglePlyChrSelectGCFis(void*, int);
@@ -76,7 +76,7 @@ extern s32 lbl_805D5F68;
 void release_all__23TAdSinglePlyChrSelectGCFv(void);
 s32 TAdPlayerLoadGC__sub_801E1B50(void *);
 s32 TAdSinglePlyChrSelectGC__sub_801FDA4C();
-s32 TAdSinglePlyChrSelectGC__sub_801FE75C();
+s32 load_chr_select_slot__23TAdSinglePlyChrSelectGCFv();
 M2C_UNK TAdSinglePlyChrSelectGC__sub_801FEBBC();
 M2C_UNK load_selected_char__23TAdSinglePlyChrSelectGCFv();
 M2C_UNK load_and_verify_data(int);
@@ -185,7 +185,7 @@ s32 update_elapsed_time__23TAdSinglePlyChrSelectGCFPv(void *arg0) {
 }
 
 typedef char RecoveredGlobal_802010E8_lbl_80513904_size[sizeof(RecoveredGlobal_802010E8_lbl_80513904) == 0xC ? 1 : -1];
-s32 TAdSinglePlyChrSelectGC__sub_802010E8(void) {
+s32 update_play_time__23TAdSinglePlyChrSelectGCFv(void) {
     s32 spC;
     s32 sp8;
     if ((void *) (*(u8 * *)&lbl_805D5F64) != NULL) {
@@ -392,7 +392,7 @@ void run_save_load_sequence__23TAdSinglePlyChrSelectGCFv(void) {
         }
         break;
     case 7:
-        if (TAdSinglePlyChrSelectGC__sub_801FE75C() == 0) {
+        if (load_chr_select_slot__23TAdSinglePlyChrSelectGCFv() == 0) {
             lbl_805D5F78 = 8;
             break;
         }

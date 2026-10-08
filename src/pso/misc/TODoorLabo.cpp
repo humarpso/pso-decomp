@@ -71,7 +71,7 @@ extern u8 lbl_804DC854[];
 extern u32 lbl_805D6624;
 extern u32 lbl_805D6628;
 extern u32 lbl_805D662C;
-void TODoorLabo__sub_8029F97C(void);
+void load_resources__10TODoorLaboFv(void);
 s32 get_bml_model(s32, s32);
 extern s32 lbl_80465FF8[];
 extern s32 lbl_805D6618;
@@ -162,7 +162,7 @@ void free_resources__10TODoorLaboFv(void) {
 
 extern s32 lbl_805D661C;
 
-void TODoorLabo__sub_8029F97C(void) {
+void load_resources__10TODoorLaboFv(void) {
     s32 r = alloc__23TAdSinglePlyChrSelectGCFPv(0x440);
     if (r != 0) {
         r = load_resource_from_descriptor(r, 5, lbl_804DC854, 0, 0, 0);

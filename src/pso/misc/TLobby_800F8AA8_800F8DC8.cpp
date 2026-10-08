@@ -13,7 +13,7 @@ void *tmp_buf_use_req__6TLobbyFPv(const char *);
 s32 prs_decompress_buffer(void *, void *);
 s32 load_gvm_texture_archive(void *, void *);
 void tmp_buf_release__6TLobbyFi(const char *s);
-void TLobby__sub_800F8EB4(void);
+void load_font_texture__6TLobbyFv(void);
 void set_global_param__8TObjFishFi(void *);
 void begin_screen_draw(int);
 void get_player__20TWindowSubStatusDispFv();
@@ -62,7 +62,7 @@ void TLobby__sub_800F8E78(void) {
     lbl_805D533C = 0;
 }
 
-void TLobby__sub_800F8EB4(void) {
+void load_font_texture__6TLobbyFv(void) {
     void *file = tmp_buf_use_req__6TLobbyFPv(lbl_8043D9F4);
     if (file != 0) {
         s32 r;

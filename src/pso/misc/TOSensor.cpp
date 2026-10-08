@@ -58,7 +58,7 @@ void TOSensor__sub_8017546C(u8 *arg0);
 void TOSensor__sub_80175514(u8 *arg0);
 extern s32 lbl_805D53A0;
 extern const f32 lbl_805DB980;
-void TOSensor__sub_801755BC(Obj_801755BC *self);
+void update_switch_state__8TOSensorFPv(Obj_801755BC *self);
 s32 obj_testFlags30(void *, s32);
 f32 horizontal_distance_squared(void *, void *);
 Player_801756C4 *get_player_by_client_id(s32);
@@ -156,7 +156,7 @@ void TOSensor__sub_80175514(u8 *arg0) {
     }
 }
 
-void TOSensor__sub_801755BC(Obj_801755BC *self) {
+void update_switch_state__8TOSensorFPv(Obj_801755BC *self) {
     self->m12();
     if (self->state != 1) {
         self->m15();

@@ -519,7 +519,7 @@ f32 vector_length(void *, f32);
 extern const f32 TBoss6Type1__data_805DE2D0;
 extern const f32 TBoss6Type1__data_805DE2E0;
 extern const float TBoss6Type1__data_805DE344;
-void TBoss6Type1__sub_802B6B34(Boss_802B6B34 *arg0);
+void damage_players_in_range__11TBoss6Type1FPv(Boss_802B6B34 *arg0);
 M2C_UNK VecCopy__FP3VecPC3Vec(void *, void *);
 f32 get_random_float__8TObjFishFv(f32);
 M2C_UNK play_sound_effect(int, void *, int, int, void *);
@@ -542,7 +542,7 @@ f32 cos_table_lookup(s32);
 f32 vector_length(void *, f32);
 extern const f64 TBoss6Type1__data_80471038;
 extern const f32 TBoss6Type1__data_805DE2D0;
-void TBoss6Type1__sub_802B4D5C(u8 *self, s32 num, s32 den);
+void rotate_around_center__11TBoss6Type1FPvii(u8 *self, s32 num, s32 den);
 s32 rand();
 f32 xyz_distance(void *, void *);
 f32 vec3_add_to(void *, void *);
@@ -704,7 +704,7 @@ void TBoss6Type1__sub_802B4D38(Obj_802B4D38 *self) {
     for (i = 0; i < 4; i++) self->arr[i] = 0;
 }
 
-void TBoss6Type1__sub_802B4D5C(u8 *self, s32 num, s32 den) {
+void rotate_around_center__11TBoss6Type1FPvii(u8 *self, s32 num, s32 den) {
     Vec_802B4D5C v;
     f32 dist;
     s32 angle;
@@ -1337,7 +1337,7 @@ void spawn_grav_ball__11TBoss6Type1FPv(Boss_802B683C *arg0) {
 }
 #pragma pop
 
-void TBoss6Type1__sub_802B6B34(Boss_802B6B34 *arg0) {
+void damage_players_in_range__11TBoss6Type1FPv(Boss_802B6B34 *arg0) {
     s32 n;
     s32 i;
     Player_802B6B34 *p;

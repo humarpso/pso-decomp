@@ -6,12 +6,12 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 extern "C" {
 s32 get_global_state__14TOKeyMachine01Fv(void);
 s32 play_sound_effect(s32, void *, s32, s32);
-void fn_8015D5D4(u8 *arg0);
+void play_door_sound(u8 *arg0);
 }
 
 extern "C" {
 
-void fn_8015D5D4(u8 *arg0) {
+void play_door_sound(u8 *arg0) {
     if (!(*(s32 *)(arg0 + 0xD0) & 1)) {
         switch ((u32)get_global_state__14TOKeyMachine01Fv()) {
         case 0:

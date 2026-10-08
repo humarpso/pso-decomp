@@ -64,7 +64,7 @@ M2C_UNK handle_box_drop_directive(void *);
 void handle_6xA2_specializable_item_drop_request(void *arg0);
 s32 copy_item_data__6TLobbyFPvPv(void *, void *);
 s32 drop_stacked_item_passthrough__6TLobbyFi(void *);
-s32 TLobby__sub_80103DD8(void *);
+s32 insert_sorted_entry__6TLobbyFPv(void *);
 void TLobby__sub_8011AED8(s8 arg0, s16 arg1, u8 *arg2, f32 farg0, f32 farg1);
 s32 get_global_state__14TOKeyMachine01Fv();
 extern s32 lbl_805D54E8;
@@ -312,7 +312,7 @@ void TLobby__sub_8011AED8(s8 arg0, s16 arg1, u8 *arg2, f32 farg0, f32 farg1) {
     stack.sp14 = arg1;
     copy_item_data__6TLobbyFPvPv((void *) (&stack.sp18), (void *) (arg2));
     observe_item_id__6TLobbyFi((int)((int) (M2C_FIELD(arg2, s32 *, 0xC))));
-    TLobby__sub_80103DD8((void *) (&stack.sp8));
+    insert_sorted_entry__6TLobbyFPv((void *) (&stack.sp8));
 }
 
 void handle_6x62(void) {  }

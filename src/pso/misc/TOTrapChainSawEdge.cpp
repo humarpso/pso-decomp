@@ -342,7 +342,7 @@ void TOTrapChainSaw__sub_802C9094(u8 *arg0);
 int clear_field_d8__14TOTrapChainSawFPv(void* p);
 void TOTrapChainSaw__sub_802C9124(S_802C9124 *arg0, void *arg1);
 s32 TOTrapChainSaw__sub_802C9174(S_802C9174 *arg0, void *arg1);
-int TOTrapChainSaw__sub_802C91DC(void *arg0);
+int check_player_contact__14TOTrapChainSawFPv(void *arg0);
 void update_sweep__14TOTrapChainSawFPv(void *arg0);
 void TOTrapChainSaw__sub_802C9600(u8 *arg0);
 void update_active_flag__14TOTrapChainSawFPv(void *arg0);
@@ -541,7 +541,7 @@ void TParticleCtrl__sub_802C8464(u32 arg0) {
 
 void TOTrapChainSawKey__vt25(void) {  }
 
-void TOTrapChainSawKey__vt15(void* p) { if (*(int*)((char*)p + 0xf0) != 1) { TOTrapChainSaw__sub_802C91DC(p); } }
+void TOTrapChainSawKey__vt15(void* p) { if (*(int*)((char*)p + 0xf0) != 1) { check_player_contact__14TOTrapChainSawFPv(p); } }
 
 void TOTrapChainSawKey__vt23(void *arg0) {
     set_global_param__8TObjFishFi(M2C_FIELD(arg0, void **, 0x24));
@@ -911,7 +911,7 @@ s32 TOTrapChainSaw__sub_802C9174(S_802C9174 *arg0, void *arg1) {
     return 0;
 }
 
-int TOTrapChainSaw__sub_802C91DC(void *arg0) {
+int check_player_contact__14TOTrapChainSawFPv(void *arg0) {
     s32 i;
     s32 p;
     s32 t;
@@ -1186,7 +1186,7 @@ M2C_UNK __vt__20TOTrapChainSawDamage[31] = {
     (M2C_UNK)&TOTrapChainSawDamage__vt12,
     (M2C_UNK)&TOTrapChainSawDamage__vt13,
     (M2C_UNK)&TOTrapChainSawDamage__vt14,
-    (M2C_UNK)&TOTrapChainSaw__sub_802C91DC,
+    (M2C_UNK)&check_player_contact__14TOTrapChainSawFPv,
     (M2C_UNK)&TOTrapChainSawDamage__vt16,
     (M2C_UNK)&TOTrapChainSaw__sub_802C9174,
     (M2C_UNK)&TOTrapChainSaw__sub_802C9124,
@@ -1219,7 +1219,7 @@ M2C_UNK __vt__14TOTrapChainSaw[31] = {
     (M2C_UNK)&TOTrapChainSaw__sub_802C9090,
     (M2C_UNK)&decode_params__14TOTrapChainSawFPv,
     (M2C_UNK)&TOTrapChainSaw__vt14,
-    (M2C_UNK)&TOTrapChainSaw__sub_802C91DC,
+    (M2C_UNK)&check_player_contact__14TOTrapChainSawFPv,
     (M2C_UNK)&TOTrapChainSaw__sub_802C9BE4,
     (M2C_UNK)&TOTrapChainSaw__sub_802C9174,
     (M2C_UNK)&TOTrapChainSaw__sub_802C9124,

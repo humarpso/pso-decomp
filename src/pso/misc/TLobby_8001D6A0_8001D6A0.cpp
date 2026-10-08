@@ -30,7 +30,7 @@ s32 get_shared_text_buffer();
 M2C_UNK TWindowSubComCard__sub_80225E80(void *, int);
 M2C_UNK strncpy(int, int, int);
 extern s32 TLobby__data_805D4A98;
-void TLobby__sub_8001DAB4(s32 arg0);
+void set_short_mail_text__6TLobbyFi(s32 arg0);
 Ent_8001D768 *TLobby__sub_8001D768(Obj_8001D768 *self);
 void archive_pool_free(Pool_8001D7AC *pool, Node_8001D7AC *node);
 Ent_8001D768 *TLobby__sub_8001D768(Obj_8001D768 *self);
@@ -54,7 +54,7 @@ s32 get_card_window_area__6TLobbyFv(void);
 u8 *init_memory_pool__6TLobbyFPviii(u8 *arg0, s32 arg1, s32 arg2, s32 arg3);
 void send_or_handle_packet__6TLobbyFPvPvPvPvUi(void *arg0, void *arg1, void *arg2, void *arg3, u32 arg4);
 M2C_UNK TLobby__sub_8001D568(M2C_UNK, s32);
-M2C_UNK TLobby__sub_8001D600(M2C_UNK, void *, s32);
+M2C_UNK aram_transfer_sync__6TLobbyFiUiii(M2C_UNK, void *, s32);
 M2C_UNK __dl__FPv(u32 *);
 u8 *fn_803DE864(s32, M2C_UNK);
 s32 get_card_window__17TWindowSubComCardFUi(M2C_UNK);
@@ -62,7 +62,7 @@ M2C_UNK xfree__FPv(u32);
 
 void send_or_handle_packet__6TLobbyFPvPvPvPvUi(void *arg0, void *arg1, void *arg2, void *arg3, u32 arg4) {
     if (arg4 == 0U) {
-        TLobby__sub_8001D600(0, arg1, M2C_FIELD(arg2, s32 *, 8));
+        aram_transfer_sync__6TLobbyFiUiii(0, arg1, M2C_FIELD(arg2, s32 *, 8));
         return;
     }
     TLobby__sub_8001D568(0, M2C_FIELD(arg1, s32 *, 8));
@@ -207,7 +207,7 @@ void TLobby__sub_8001DA00(void) {
 s32 get_card_window_area__6TLobbyFv(void) {
     return get_card_window__17TWindowSubComCardFUi(0xFFFF) + 0x2050;
 }
-void TLobby__sub_8001DAB4(s32 arg0) {
+void set_short_mail_text__6TLobbyFi(s32 arg0) {
     u8 *temp_r31;
     temp_r31 = (u8 *)(get_card_window__17TWindowSubComCardFUi((M2C_UNK)(0xFFFFU)) + 0x2050);
     TWindowSubComCard__sub_80225E80((void *) (arg0), (int) (get_shared_text_buffer()));

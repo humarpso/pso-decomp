@@ -112,7 +112,7 @@ void TNpcPlayer__sub_8034EAC4(s16 arg0);
 M2C_UNK set_arrival_override_coords(s32, s32, f32, f32, f32);
 M2C_UNK notify_field1c__10TObjPlayerFi();
 s32 get_player_by_client_id(s32);
-void TNpcPlayer__sub_8034EB08(s16 arg0, u16 arg1, s16 arg2, u8 *arg3, s32 arg4);
+void send_npc_control_create__10TNpcPlayerFsUssPvi(s16 arg0, u16 arg1, s16 arg2, u8 *arg3, s32 arg4);
 void send_6x24_teleport_player(u16, s32, s32);
 M2C_UNK set_arrival_override_coords(s32, s32, f32, f32, f32);
 void create_default_companion__10TNpcPlayerFssPvi(s16 arg0, s16 arg1, u8 *arg2, s32 arg3);
@@ -521,7 +521,7 @@ void TNpcPlayer__sub_8034EAC4(s16 arg0) {
     stack.sp10 = 1;
     send_state_60__10TNpcPlayerFPv((void*)(&stack.sp8));
 }
-void TNpcPlayer__sub_8034EB08(s16 arg0, u16 arg1, s16 arg2, u8 *arg3, s32 arg4) {
+void send_npc_control_create__10TNpcPlayerFsUssPvi(s16 arg0, u16 arg1, s16 arg2, u8 *arg3, s32 arg4) {
     Stack_8034EB08 stack;
     s32 var_r31;
     build_6x69_npc_control((void*)((void *) (&stack.sp8)));

@@ -155,7 +155,7 @@ void maybe_handle_destruction__6TLobbyFPv(void* p);
 void setup_split_screen(void);
 void update_destruction_countdown__6TLobbyFPv(void *arg0);
 s32 TAdPlayerLoadGC__sub_801E1510();
-M2C_UNK TLobby__sub_80074034(s32);
+M2C_UNK create_new_floor_windows__6TLobbyFi(s32);
 M2C_UNK TLobby__sub_802925C4(void *);
 M2C_UNK export_character_data__10TObjPlayerFPvPv(u32, u32);
 u32 get_player_by_client_id(u32);
@@ -475,7 +475,7 @@ void TLobby__sub_802932EC() {
 void create_time_window2__6TLobbyFv(void * _w0) {
     TLobby__sub_802932EC();
     create_ch_time_win(tl_07);
-    TLobby__sub_80074034(tl_07);
+    create_new_floor_windows__6TLobbyFi(tl_07);
     if ((s32) M2C_FIELD(lbl_804DB1F0, s32 *, 0x30) == 0) {
         create_solo_play_win__6TLobbyFPv(tl_07);
     }

@@ -185,7 +185,7 @@ int queue_destruction__13TObjDFHormingFPv(void* p);
 S_80050A68 * __dt__13TObjDFHormingFv(S_80050A68 *o, s16 flag);
 u8 * TObjDFHorming__ct(u8 *arg0, M2C_UNK arg1, s32 arg2, u16 arg3);
 void * create_horming__11TBoss4Type3FPvPvPv(void *arg0, void *arg1, void *arg2);
-void fn_80050D74(M2C_UNK arg0, Vec_80050D74 *arg1);
+void damage_players_near_point(M2C_UNK arg0, Vec_80050D74 *arg1);
 void fn_80050E64(M2C_UNK arg0, s32 arg1);
 u8 * TObjDFJisin__ct(u8 *arg0, u8 *arg1, s32 arg2);
 void * create_jisin__11TBoss4Type2FPvPv(void *arg0, void *arg1);
@@ -393,7 +393,7 @@ void * create_horming__11TBoss4Type3FPvPvPv(void *arg0, void *arg1, void *arg2) 
     return o;
 }
 
-void fn_80050D74(M2C_UNK arg0, Vec_80050D74 *arg1) {
+void damage_players_near_point(M2C_UNK arg0, Vec_80050D74 *arg1) {
     Vec_80050D74 pos = *arg1;
     Hit_80050D74 hit;
     s32 i;
@@ -444,7 +444,7 @@ void TObjDFJisin::run_task() {
         v.z = ((Obj_80050EB4 *)this)->radius * cos_table_lookup(ang) + ((Obj_80050EB4 *)this)->cz;
         if (!(vector_length(&v) > max)) {
             ((void (*)(void *, Vec_80050EB4 *))fn_80050E64)(((Obj_80050EB4 *)this), &v);
-            ((void (*)(void *, Vec_80050EB4 *))fn_80050D74)(((Obj_80050EB4 *)this), &v);
+            ((void (*)(void *, Vec_80050EB4 *))damage_players_near_point)(((Obj_80050EB4 *)this), &v);
             count++;
         }
     }

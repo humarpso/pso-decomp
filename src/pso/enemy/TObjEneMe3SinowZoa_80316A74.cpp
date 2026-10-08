@@ -349,7 +349,7 @@ M2C_UNK toggle_particle_effect__10TObjPlayerFv();
 s32 TObjEneMe3SinowZoa__sub_8031A454(void *);
 s32 TObjEneMe3SinowZoa__sub_8031A494(void *);
 s32 TObjEneMe3SinowZoa__sub_8031A4D0(void *);
-f32 TObjEneMe3SinowZoa__sub_8031A9A0(void *);
+f32 get_node_height__18TObjEneMe3SinowZoaFPv(void *);
 M2C_UNK end_effect_render__13TParticleCtrlFv();
 M2C_UNK queue_debug_text__13TObjEneMe1GeeFiPv(s32, const char *);
 M2C_UNK fn_803D81D0(s32, s32, f32);
@@ -754,7 +754,7 @@ void render_with_stealth_debug__18TObjEneMe3SinowZoaFPv(Obj_803173D0 *arg0) {
             clear_global_state__10TObjPlayerFv();
             arg0->fF8 = motion;
             arg0->fc0 = frame;
-            frame = TObjEneMe3SinowZoa__sub_8031A9A0(arg0);
+            frame = get_node_height__18TObjEneMe3SinowZoaFPv(arg0);
             fn_803D81D0(TObjEneDD__sub_800BB878(0, 7), 5, frame);
         } else {
             some_id_805c6f74 &= ~0x400;

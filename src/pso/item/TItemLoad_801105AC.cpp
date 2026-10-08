@@ -23,7 +23,7 @@ extern void *TItemLoad__data_805D5484;
 extern void *TItemLoad__data_805D5488;
 extern s32 TItemLoad__data_805D548C;
 extern s32 lbl_805D5490;
-void TItemLoad__sub_8011063C(void);
+void init_resources__9TItemLoadFv(void);
 }
 
 extern "C" {
@@ -74,7 +74,7 @@ void free_all__9TItemLoadFv(void) {
 
 extern s32 tl_05;
 
-void TItemLoad__sub_8011063C(void) {
+void init_resources__9TItemLoadFv(void) {
     void *p;
     u32 buf;
     s32 i;

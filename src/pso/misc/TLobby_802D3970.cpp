@@ -15,7 +15,7 @@ void byteswap_trade_packet__6TLobbyFPv(void* p);
 int close_trade_request__6TLobbyFPv(void* p);
 void prepare_and_send_trade_packet__6TLobbyFPvPv(void* p, void* a1);
 void update_game_modes__6TLobbyFv(void);
-int TLobby__sub_801E44D8(void*, void*);
+int send_subcommand_to_client__6TLobbyFPvUi(void*, void*);
 int TLobby__sub_802D245C(void);
 int TLobby__sub_802D2518(void);
 int TLobby__sub_802D3820(void);
@@ -32,7 +32,7 @@ int TLobby__sub_802D39BC(void* p) { return close_trade_request__6TLobbyFv(p); }
 int TLobby__sub_802D39DC(void* p) { return TLobby__sub_802D38B4(p); }
 int TLobby__sub_802D39FC(void* p) { return TLobby__sub_802D38B4(p); }
 void byteswap_trade_packet__6TLobbyFPv(void* p) { read_be16_field2__10TObjPlayerFPv(p); bswap_32__FPUl((char*)p + 0x8); bswap_32__FPUl((char*)p + 0xc); }
-void prepare_and_send_trade_packet__6TLobbyFPvPv(void* p, void* a1) { prepare_trade_packet__6TLobbyFPv(p); TLobby__sub_801E44D8(p, a1); }
+void prepare_and_send_trade_packet__6TLobbyFPvPv(void* p, void* a1) { prepare_trade_packet__6TLobbyFPv(p); send_subcommand_to_client__6TLobbyFPvUi(p, a1); }
 void build_6xA6_modify_trade_proposal(void* p) { *(u8*)((char*)p + 0x0) = 166; *(u8*)((char*)p + 0x1) = 4; }
 
 extern u16 lbl_805D63FC;

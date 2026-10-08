@@ -63,7 +63,7 @@ void TLobby__sub_803D1CC0(void);
 void TLobby__sub_803D25DC(void);
 void TLobby__sub_803D2E44(void);
 void TLobby__sub_803D2ED4(void);
-void TLobby__sub_803D3540(int, int, void *, int);
+void SVM_SetCbSvrId__6TLobbyFiiii(int, int, void *, int);
 s32 TLobby__sub_803D3750(int, void *, int);
 M2C_UNK memset(void *, int, int);
 void ar_alloc__6TLobbyFv(void);
@@ -82,7 +82,7 @@ void strncat(char *buf, s32 arg, s32 n);
 s32 strlen(const char *);
 extern char lbl_80572000[];
 extern const char lbl_805E0D28[2];
-void TLobby__sub_803C526C(s32 arg0, s32 arg1, char *arg2, s32 arg3);
+void format_number_pair__6TLobbyFiiPvi(s32 arg0, s32 arg1, char *arg2, s32 arg3);
 }
 
 extern "C" {
@@ -300,7 +300,7 @@ inline void num_to_str_803C526C(s32 v, char *out, s32 n) {
     }
     out[i] = 0;
 }
-void TLobby__sub_803C526C(s32 arg0, s32 arg1, char *arg2, s32 arg3) {
+void format_number_pair__6TLobbyFiiPvi(s32 arg0, s32 arg1, char *arg2, s32 arg3) {
     num_to_str_803C526C(arg0, arg2, arg3);
     strncat(arg2, (s32)lbl_805E0D28, arg3 - strlen(arg2) - 1);
     num_to_str_803C526C(arg1, arg2 + strlen(arg2), 4 - strlen(arg2));
@@ -407,8 +407,8 @@ void init_and_add_ref__6TLobbyFv(void) {
         memset(lbl_80572120, 0, 0xA80);
         TLobby__sub_803D1CC0();
         if (lbl_805D4658 == 1) {
-            TLobby__sub_803D3540(2, 1, (void *)get_state_zero__6TLobbyFv, 0);
-            TLobby__sub_803D3540(2, 3, (void *)ar_alloc__6TLobbyFv, 0);
+            SVM_SetCbSvrId__6TLobbyFiiii(2, 1, (void *)get_state_zero__6TLobbyFv, 0);
+            SVM_SetCbSvrId__6TLobbyFiiii(2, 3, (void *)ar_alloc__6TLobbyFv, 0);
             lbl_805D753C = TLobby__sub_803D3750(4, (void *)process_connection_state__6TLobbyFv, 0);
         }
         lbl_805D7540 = 0;

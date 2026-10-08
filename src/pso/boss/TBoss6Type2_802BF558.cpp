@@ -49,7 +49,7 @@ void tick_timer_460__11TBoss6Type2FPv(void *arg0);
 void update_zako_phase__11TBoss6Type2FPv(void *arg0);
 void update_zako_spawn_timer__11TBoss6Type2FPv(void *arg0);
 M2C_UNK play_sound_effect(int, void *, int, int);
-M2C_UNK TBoss6Type2__sub_802B9BBC(int, int);
+M2C_UNK destroy_part__11TBoss6Type2Fii(int, int);
 s32 spawn_particle_slot__11TBoss6Type2FPvi(void *, s32);
 s32 TBoss6Type2__sub_802BA944(void *);
 s32 TBoss6Type2__sub_802BA9E4();
@@ -97,7 +97,7 @@ void start_death_sequence__11TBoss6Type2FPv(u8 *arg0) {
         break;
     }
     play_sound_effect((int) (var_r3), (void *) (temp_r31 + 0x38), (int) (0), (int) (1));
-    TBoss6Type2__sub_802B9BBC((int) (temp_r31), (int) (0xD));
+    destroy_part__11TBoss6Type2Fii((int) (temp_r31), (int) (0xD));
 }
 
 }

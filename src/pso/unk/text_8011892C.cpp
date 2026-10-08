@@ -248,7 +248,7 @@ void TParticleCtrl__sub_801A2124();
 void TItem__sub_80100B8C();
 void classify_actor_view_detail();
 void register_attack__5TItemFPv();
-void TItem__sub_801022FC();
+void try_pick_up_item__5TItemFPvi();
 void TItem__sub_801005E0();
 void TItem__sub_80100678();
 void set_attach_slot__14TItemEquipBaseFPvc();
@@ -295,7 +295,7 @@ void *__vt__12TItemProUnit[51] = {
     (void *)TItem__sub_80100B8C,
     (void *)classify_actor_view_detail,
     (void *)register_attack__5TItemFPv,
-    (void *)TItem__sub_801022FC,
+    (void *)try_pick_up_item__5TItemFPvi,
     (void *)TItemProUnit__vt12,
     (void *)TItem__sub_801005E0,
     (void *)TItemProUnit__vt14,

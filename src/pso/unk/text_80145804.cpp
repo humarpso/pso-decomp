@@ -29,7 +29,7 @@ typedef struct Glyph_80145804 {
 
 extern "C" {
 void TLobby__sub_800F8E78(void);
-void TLobby__sub_800F8EB4(void);
+void load_font_texture__6TLobbyFv(void);
 s32 set_stream_and_load_file__6TLobbyFi(void *);
 void *TNECFontEORFunction__ct(void *);
 void *alloc_buffer__11TOBoss4RockFPv(u32);
@@ -76,7 +76,7 @@ void load_menu_font(void) {
     u32 k;
     u32 u;
     u32 v;
-    TLobby__sub_800F8EB4();
+    load_font_texture__6TLobbyFv();
     lbl_805D56B0 = set_stream_and_load_file__6TLobbyFi(lbl_8043F3D8);
     TLobby__sub_800F8E78();
     for (i = 0; i < 2; i++) {

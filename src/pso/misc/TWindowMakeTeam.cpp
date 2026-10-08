@@ -20,7 +20,7 @@ void calc_window_size__17TWindowSubComCardFPv(s32);
 void forward_trade_action_default__16TObjCityMainWarpFPviii(s32, s32, s32, s32);
 s32 check_room_seq_4__16TAdChrSelASlotGCFii(void *, s32);
 extern u8 lbl_8044F300[];
-s32 TWindowMakeTeam__sub_80264D3C(u8 *arg0);
+s32 create_entry_menu_window__15TWindowMakeTeamFPv(u8 *arg0);
 void init_status_disp__15TWindowMakeTeamFc(s8 arg0);
 void set_selected_index__17TWindowSubComCardFPvs(s32, s16);
 void align_menu_entry_positions(s32);
@@ -28,7 +28,7 @@ void calc_window_size__17TWindowSubComCardFPv(s32);
 void forward_trade_action_default__16TObjCityMainWarpFPviii(s32, s32, s32, s32);
 s32 check_room_seq_4__16TAdChrSelASlotGCFii(void *, s32);
 extern u8 lbl_8044F308[];
-s32 TWindowMakeTeam__sub_80264C54(u8 *arg0);
+s32 create_status_menu_window__15TWindowMakeTeamFPv(u8 *arg0);
 }
 
 extern "C" {
@@ -41,7 +41,7 @@ void update_ok_button__15TWindowMakeTeamFPv(void *arg0);
 void TWindowMainMenu__sub_80264A64(void);
 void TWindowMainMenu__vt7(void);
 M2C_UNK TWindowSubComCard__sub_8026853C(s32, M2C_UNK);
-M2C_UNK TWindowSubComCard__sub_802685C4(s32, M2C_UNK);
+M2C_UNK disable_entry_by_id__17TWindowSubComCardFPvi(s32, M2C_UNK);
 s32 get_message_10__20TWindowSubStatusDispFPv(s32);
 s8 get_mode__6TLobbyFPv();
 int test_card_flag__19TWindowKeyBoardHardFii(void*, int);
@@ -96,7 +96,7 @@ void send_state__15TWindowMakeTeamFPv(void *arg0) {
         TWindowSubComCard__sub_8026853C(M2C_FIELD(arg0, s32 *, 0x2C), 3);
         return;
     }
-    TWindowSubComCard__sub_802685C4(M2C_FIELD(arg0, s32 *, 0x2C), 3);
+    disable_entry_by_id__17TWindowSubComCardFPvi(M2C_FIELD(arg0, s32 *, 0x2C), 3);
 }
 
 void update_ok_button__15TWindowMakeTeamFPv(void *arg0) {
@@ -107,11 +107,11 @@ void update_ok_button__15TWindowMakeTeamFPv(void *arg0) {
         TWindowSubComCard__sub_8026853C(M2C_FIELD(arg0, s32 *, 0x2C), 4);
         return;
     }
-    TWindowSubComCard__sub_802685C4(M2C_FIELD(arg0, s32 *, 0x2C), 4);
+    disable_entry_by_id__17TWindowSubComCardFPvi(M2C_FIELD(arg0, s32 *, 0x2C), 4);
 }
 
 #define STATUS(n) ((s32 (*)(s8)) init_status_disp__15TWindowMakeTeamFc)(n)
-s32 TWindowMakeTeam__sub_80264C54(u8 *arg0) {
+s32 create_status_menu_window__15TWindowMakeTeamFPv(u8 *arg0) {
     s32 r;
     s32 m;
     r = check_room_seq_4__16TAdChrSelASlotGCFii(lbl_8044F308, 4);
@@ -128,7 +128,7 @@ s32 TWindowMakeTeam__sub_80264C54(u8 *arg0) {
     return r;
 }
 
-s32 TWindowMakeTeam__sub_80264D3C(u8 *arg0) {
+s32 create_entry_menu_window__15TWindowMakeTeamFPv(u8 *arg0) {
     s32 r;
     r = check_room_seq_4__16TAdChrSelASlotGCFii(lbl_8044F300, 3);
     forward_trade_action_default__16TObjCityMainWarpFPviii(r, draw_entry_0x110__15TWindowMakeTeamFc(0), 6, 0);

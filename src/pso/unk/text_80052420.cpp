@@ -85,12 +85,12 @@ s32 TBoss4Type3__sub_8005254C(s32);
 void send_6x2F_change_player_hp(s32, s32, s16);
 VObj_80052420 *get_player_by_client_id(u16);
 void calc_photon_blast_charge__10TObjPlayerFv(VObj_80052420 *, u32);
-u32 fn_80052420(s32 arg0, u32 arg1);
+u32 drain_player_hp(s32 arg0, u32 arg1);
 }
 
 extern "C" {
 
-u32 fn_80052420(s32 arg0, u32 arg1) {
+u32 drain_player_hp(s32 arg0, u32 arg1) {
     u32 n;
     VObj_80052420 *p;
     s32 v;

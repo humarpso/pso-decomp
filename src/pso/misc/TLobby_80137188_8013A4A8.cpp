@@ -36,8 +36,8 @@ void *TObjPlayer__sub_8013A748(void *arg0, void *arg1);
 void* TObjPlayer__sub_8013A788(void* p, void* a1);
 void *TObjPlayer__sub_8013A748(void *arg0, void *arg1);
 void *TObjPlayer__sub_8013A748(void *arg0, void *arg1);
-u8 *TProtocol__sub_8013A650(u8 *arg0, u8 *arg1);
-u8 *TProtocol__sub_8013A650(u8 *arg0, u8 *arg1);
+u8 *copy_player_data__9TProtocolFPvPv(u8 *arg0, u8 *arg1);
+u8 *copy_player_data__9TProtocolFPvPv(u8 *arg0, u8 *arg1);
 Rec_8013A5D4 *TLobby__sub_8013A5D4(Rec_8013A5D4 *dst, Rec_8013A5D4 *src);
 }
 
@@ -51,7 +51,7 @@ void bswap_and_handle_packet__6TLobbyFii(s32 arg0, s32 arg1);
 void bswap_header_fields__6TLobbyFi(s32 arg0);
 void send_packet_60__6TLobbyFi(s32 arg0);
 s32 TLobby__send_and_handle_60(s32);
-s32 TLobby__sub_801E44D8(s32, s32);
+s32 send_subcommand_to_client__6TLobbyFPvUi(s32, s32);
 s32 bswap_16__FPUs(s32);
 s32 bswap_32__FPUl(s32);
 s32 bswap_packet_header__6TLobbyFPv();
@@ -67,7 +67,7 @@ void bswap_header_fields__6TLobbyFi(s32 arg0) {
 }
 void bswap_and_handle_packet__6TLobbyFii(s32 arg0, s32 arg1) {
     bswap_packet_header__6TLobbyFPv();
-    TLobby__sub_801E44D8(arg0, arg1);
+    send_subcommand_to_client__6TLobbyFPvUi(arg0, arg1);
 }
 void TLobby__sub_8013A578(void* p) { *(u8*)((char*)p + 0x0) = 111; *(u8*)((char*)p + 0x1) = 129; }
 void send_packet_60__6TLobbyFi(s32 arg0) {
@@ -82,11 +82,11 @@ Rec_8013A5D4 *TLobby__sub_8013A5D4(Rec_8013A5D4 *dst, Rec_8013A5D4 *src) {
     dst->fc = src->fc;
     dst->f10 = src->f10;
     dst->f18 = src->f18;
-    TProtocol__sub_8013A650(dst->f20, src->f20);
+    copy_player_data__9TProtocolFPvPv(dst->f20, src->f20);
     return dst;
 }
 
-u8 *TProtocol__sub_8013A650(u8 *arg0, u8 *arg1) {
+u8 *copy_player_data__9TProtocolFPvPv(u8 *arg0, u8 *arg1) {
     u8 *temp_r4;
     u8 *temp_r4_2;
     u8 *temp_r5;

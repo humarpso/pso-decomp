@@ -35,7 +35,7 @@ void transform_part_positions__9TObjEneDDFPv(Obj_800BA934 *self);
 void VecCopy__FP3VecPC3Vec(Vec_800BAAE4 *dst, const Vec_800BAAE4 *src);
 void rotate_xz_pair_by_angle(f32 *x, f32 *z, s32 angle);
 void subtract_vector(Vec_800BAAE4 *a, Vec_800BAAE4 *b);
-void TObjEneDD__sub_800BAAE4(Obj_800BAAE4 *self, Vec_800BAAE4 *v, s32 i);
+void set_part_local_pos__9TObjEneDDFPvPvi(Obj_800BAAE4 *self, Vec_800BAAE4 *v, s32 i);
 void VecCopy__FP3VecPC3Vec(Vec_800BAAE4 *dst, const Vec_800BAAE4 *src);
 void rotate_xz_pair_by_angle(f32 *x, f32 *z, s32 angle);
 void vec3_add_to(Vec_800BA9BC *a, Vec_800BA9BC *b);
@@ -95,7 +95,7 @@ void update_local_colliders_from_world(Obj_800BAA2C *arg0, V3_800BAA2C *arg1) {
     pop_matrix();
 }
 
-void TObjEneDD__sub_800BAAE4(Obj_800BAAE4 *self, Vec_800BAAE4 *v, s32 i) {
+void set_part_local_pos__9TObjEneDDFPvPvi(Obj_800BAAE4 *self, Vec_800BAAE4 *v, s32 i) {
     Vec_800BAAE4 *p;
     VecCopy__FP3VecPC3Vec(&self->parts[i].b, v);
     p = &self->parts[i].a;

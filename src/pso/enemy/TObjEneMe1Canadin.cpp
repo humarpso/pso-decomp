@@ -568,6 +568,10 @@ extern const f32 TObjEneMe1Canadin__data_805D988C;
 extern const f32 TObjEneMe1Canadin__data_805D98BC;
 extern const f32 lbl_805D9910;
 void TObjEneMe1Canadin__sub_8009D320(void *arg0, s32 arg1);
+u32 __cvt_fp2unsigned(f32);
+extern const f32 TObjEneMe1Canadin__data_805D98B4;
+extern const f32 lbl_805D9914;
+void TObjEneMe1Canadin__sub_8009E3E4(u8 *arg0);
 }
 
 extern "C" {
@@ -2644,7 +2648,6 @@ int TObjEneMe1CanadinLeader__sub_8009E36C(void* p);
 void fn_8009E378(void *arg0);
 int TObjEneMe1Canadin__vt107(void);
 void TObjEneMe1Canadin__vt111(void *arg0);
-int TObjEneMe1Canadin__sub_8009E3E4(void *);
 void reset_map_core__17TObjEneMe1CanadinFPv(void* p, void * _w1);
 void TObjEneMe1CanadinLeader__sub_8009E4AC(u8 *arg0, s32 arg1);
 void TObjEneMe1CanadinLeader__sub_8009E504(void *);
@@ -4398,7 +4401,7 @@ void TObjEneMe1Canadin__vt108(u8 *arg0, s32 arg1) {
             M2C_FIELD(arg0, f32 *, 0x4A8) = p[1];
             M2C_FIELD(arg0, f32 *, 0x4AC) = p[2];
             M2C_FIELD(arg0, f32 *, 0x4B0) = p[3];
-            TObjEneMe1Canadin__sub_8009E3E4(arg0);
+            TObjEneMe1Canadin__sub_8009E3E4((u8 *)(arg0));
         }
         M2C_FIELD(arg0, s32 *, 0x470) = 0;
         return;
@@ -4701,7 +4704,14 @@ void TObjEneMe1Canadin__vt111(void *arg0) {
     *lbl_805D4FF0 = M2C_FIELD(arg0, s32 *, 0x4B4);
 }
 
-void reset_map_core__17TObjEneMe1CanadinFPv(void* p, void * _w1) { ((int (*)(void*))copy_vec4__13TRaderMapCoreFPvPv)((char*)p + 0x4a4); TObjEneMe1Canadin__sub_8009E3E4(p); }
+void TObjEneMe1Canadin__sub_8009E3E4(u8 *arg0) {
+    M2C_FIELD(arg0, u32 *, 0x4B4) = ((u8) __cvt_fp2unsigned(lbl_805D9914 * M2C_FIELD(arg0, f32 *, 0x4AC)) << 24)
+        | ((u8) __cvt_fp2unsigned(lbl_805D9914 * M2C_FIELD(arg0, f32 *, 0x4B0)) << 16)
+        | ((u8) __cvt_fp2unsigned(TObjEneMe1Canadin__data_805D98B4 * (lbl_805D9914 * M2C_FIELD(arg0, f32 *, 0x4A4))) << 8)
+        | (u8) __cvt_fp2unsigned(lbl_805D9914 * M2C_FIELD(arg0, f32 *, 0x4A8));
+}
+
+void reset_map_core__17TObjEneMe1CanadinFPv(void* p, void * _w1) { ((int (*)(void*))copy_vec4__13TRaderMapCoreFPvPv)((char*)p + 0x4a4); TObjEneMe1Canadin__sub_8009E3E4((u8 *)(p)); }
 
 void TObjEneMe1CanadinLeader__sub_8009E4AC(u8 *arg0, s32 arg1) {
     reset_map_core__17TObjEneMe1CanadinFPv((void *)((void *) (arg0)), (void *)((void *) (&lbl_8043A2A0.value)));
@@ -4723,7 +4733,7 @@ void TObjEneMe1CanadinLeader__sub_8009E504(void *pv) {
             p->f4a4 = lbl_805D9898;
             p->state = 0;
         }
-        TObjEneMe1Canadin__sub_8009E3E4(p);
+        TObjEneMe1Canadin__sub_8009E3E4((u8 *)(p));
         break;
     case 2:
         if (p->f4a4 < lbl_805D98D4) {
@@ -4732,7 +4742,7 @@ void TObjEneMe1CanadinLeader__sub_8009E504(void *pv) {
             p->f4a4 = lbl_805D98D4;
             p->state = 0;
         }
-        TObjEneMe1Canadin__sub_8009E3E4(p);
+        TObjEneMe1Canadin__sub_8009E3E4((u8 *)(p));
         break;
     case 3:
         p->timer++;
@@ -4750,7 +4760,7 @@ void TObjEneMe1CanadinLeader__sub_8009E504(void *pv) {
                 p->f4a4 = lbl_805D98D4;
                 break;
             }
-            TObjEneMe1Canadin__sub_8009E3E4(p);
+            TObjEneMe1Canadin__sub_8009E3E4((u8 *)(p));
         }
         break;
     }

@@ -48,7 +48,7 @@ u32 __ct__18TAdGameStartBackGCFv(int, void *);
 u32 __ct__20TAdGameStartShadowGCFv(int, void *);
 u32 __ct__18TAdGameStartLineGCFv(int, void *);
 u32 __ct__19TAdGameStartShineGCFv(int, void *);
-void TAdGameStartGC__sub_802E644C(u8 *arg0);
+void create_effects__14TAdGameStartGCFPv(u8 *arg0);
 M2C_UNK __ct__7TObjectFP7TObject(void *);
 extern M2C_UNK __vt__14TAdGameStartGC[];
 extern void *lbl_805D3FA8[2];
@@ -109,7 +109,7 @@ void TAdGameStartGC__sub_802E6380(Obj_802E6380 *o) {
     o->f9C = -1;
 }
 
-void TAdGameStartGC__sub_802E644C(u8 *arg0) {
+void create_effects__14TAdGameStartGCFPv(u8 *arg0) {
     u32 temp_r3;
     u32 temp_r3_2;
     u32 temp_r3_3;

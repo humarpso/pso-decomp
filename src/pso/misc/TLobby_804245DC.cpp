@@ -117,6 +117,8 @@ typedef struct Ent_80427C6C {
     u8 rest[0xE10];
 } Ent_80427C6C;
 
+struct R_804253A0 { s32 a; s32 b; };
+
 extern "C" {
 M2C_UNK OSInitMessageQueue(void *, void *, int);
 M2C_UNK TLobby__sub_803F9B28(void *);
@@ -137,7 +139,6 @@ extern s32 lbl_805D7BB8;
 extern u32 lbl_805D7BBC;
 extern u32 lbl_805D7BC0;
 void TLobby__sub_80425BD0(void);
-void TLobby__sub_804253A0(s32);
 void TLobby__sub_804264D4(s32 arg0);
 s32 str_length__6TLobbyFi(void *);
 s32 TLobby__sub_803F9F04(void *, void *, int);
@@ -263,7 +264,6 @@ s32 OSSendMessage(void *mq, void *msg, s32 flags);
 u8 *TLobby__sub_804256B8(s32);
 s32 TLobby__sub_80425C70(void *arg0, s32 arg1, s32 arg2, s32 arg3);
 s32 OSReceiveMessage(void *, void *, int);
-void TLobby__sub_804253A0(s32);
 void TLobby__sub_80425D88(u8 v);
 void TLobby__sub_8042B334(s32 arg0, s32 arg1, s32 arg2);
 extern u8 lbl_805CF240[];
@@ -364,7 +364,7 @@ extern s32 lbl_805D7C7C;
 extern s32 lbl_805D7C80;
 extern s32 lbl_805D7C84;
 extern s32 lbl_805D7C88;
-M2C_UNK TLobby__sub_8042B370(int, int);
+M2C_UNK exi_start_send_dma__6TLobbyFii(int, int);
 extern Ent_804253F8 lbl_805C30C0[0x20];
 void TLobby__sub_804253F8(u32 arg0);
 extern Ent_804253F8 lbl_805C30C0[0x20];
@@ -391,6 +391,21 @@ M2C_UNK OSSleepThread(void *);
 void TLobby__sub_80429598(void);
 extern M2C_UNK lbl_805D7C38;
 u8 exi_read_status_byte__6TLobbyFv(void);
+M2C_UNK unlock_mutex__10TUdpSocketFi(void *);
+M2C_UNK lock_mutex__6TLobbyFi(void *);
+u8 *TLobby__sub_80425870(s32 arg0);
+extern u32 lbl_805D7BA8;
+void TLobby__sub_804253A0(s32 a);
+void TLobby__sub_803F9AEC(void *);
+void TLobby__sub_803F9B48(void *);
+void TLobby__sub_80419DDC(void *);
+void TLobby__sub_80425BD0(void);
+extern s16 lbl_805D4828;
+extern s32 lbl_805D7BB0;
+extern s32 lbl_805D7BB4;
+extern s32 lbl_805D7BB8;
+extern u32 lbl_805D7BBC;
+void TLobby__sub_80425B70(void);
 }
 
 extern "C" {
@@ -416,7 +431,7 @@ extern u32 lbl_805D7B6C;
 extern u32 lbl_805D7B78;
 extern u32 lbl_805D7B7C;
 
-void TLobby__sub_804245E4(u8 *arg0) {
+void parse_dhcp_lease_times__6TLobbyFPv(u8 *arg0) {
     s32 TLobby__sub_80424830(u8 *p, u8 tag, u8 **out);
     u8 *p;
     s32 v;
@@ -583,6 +598,19 @@ static inline Ent_804253F8 *find_804253F8(u32 arg0) {
     }
     return &lbl_805C30C0[i];
 }
+
+void TLobby__sub_804253A0(s32 a) {
+    R_804253A0 *r;
+    u8 unused[8];
+    lock_mutex__6TLobbyFi((void *)lbl_805D7BA8);
+    r = (R_804253A0 *)TLobby__sub_80425870(a);
+    unlock_mutex__10TUdpSocketFi((void *)lbl_805D7BA8);
+    if (r != 0) {
+        r->a = 0;
+        r->b = 0;
+    }
+}
+
 void TLobby__sub_804253F8(u32 arg0) {
     Ent_804253F8 *e = find_804253F8(arg0);
     if (e != NULL) {
@@ -607,6 +635,19 @@ u8 *TLobby__sub_80425870(s32 arg0) {
 
 void TLobby__sub_804259F0(void) {
     TLobby__sub_803F95E4(lbl_805D7BA8);
+}
+
+void TLobby__sub_80425B70(void) {
+    if ((u32)lbl_805D7BB4 != 0) {
+        TLobby__sub_803F9AEC((void *)lbl_805D7BB4);
+        TLobby__sub_803F9B48((void *)lbl_805D7BB4);
+        lbl_805D7BB4 = 0;
+    }
+    TLobby__sub_80419DDC((void *)TLobby__sub_80425BD0);
+    lbl_805D4828 = -1;
+    lbl_805D7BB8 = 0;
+    lbl_805D7BBC = 0;
+    lbl_805D7BB0 = 0;
 }
 
 void TLobby__sub_80425BD0(void) {
@@ -664,7 +705,7 @@ void TLobby__sub_80425CFC(void) {
             OSReceiveMessage(lbl_805CF380, &sp8, 1);
             lbl_805D7BCC -= 1;
         }
-        TLobby__sub_804253A0(id);
+        TLobby__sub_804253A0((s32)(id));
     }
 }
 
@@ -766,7 +807,7 @@ s32 post_send_message__6TLobbyFiUs(s32 arg0, u16 arg1) {
 }
 
 void TLobby__sub_804264D4(s32 arg0) {
-    TLobby__sub_804253A0(arg0);
+    TLobby__sub_804253A0((s32)(arg0));
 }
 
 u16 TLobby__sub_804264F4(s32 *arg0, u16 *arg1) {
@@ -998,7 +1039,7 @@ void TLobby__sub_80429A38(s32 chan, void *ctx);
 
 void TLobby__sub_8042B334(s32 arg0, s32 arg1, s32 arg2);
 
-M2C_UNK TLobby__sub_8042B370(int, int);
+M2C_UNK exi_start_send_dma__6TLobbyFii(int, int);
 
 void TLobby__sub_8042B538(void *dst);
 

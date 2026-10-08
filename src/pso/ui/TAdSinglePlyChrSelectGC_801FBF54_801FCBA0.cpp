@@ -162,7 +162,7 @@ s32 TAdSinglePlyChrSelectGC__sub_801FDA4C(void);
 void decrypt_char_data__23TAdSinglePlyChrSelectGCFPv(s32);
 void encrypt_save_data__23TAdSinglePlyChrSelectGCFPvPv(Ent_801FD668 *);
 void save_character_file__23TAdSinglePlyChrSelectGCFi(s32);
-void TAdSinglePlyChrSelectGC__sub_802010E8();
+void update_play_time__23TAdSinglePlyChrSelectGCFv();
 void run_save_load_sequence__23TAdSinglePlyChrSelectGCFv();
 s32 get_field_118__22TAdEnterSerialAccessGCFv();
 s32 get_card_window__17TWindowSubComCardFUi(u32);
@@ -206,7 +206,7 @@ s32 TAdSinglePlyChrSelectGC__sub_801FDA4C(void);
 void decrypt_char_data__23TAdSinglePlyChrSelectGCFPv(s32);
 void encrypt_save_data__23TAdSinglePlyChrSelectGCFPvPv(Ent_801FD668 *);
 void save_character_file__23TAdSinglePlyChrSelectGCFi(s32);
-void TAdSinglePlyChrSelectGC__sub_802010E8();
+void update_play_time__23TAdSinglePlyChrSelectGCFv();
 void TAdSinglePlyChrSelectGC__sub_8028DC14();
 void run_save_load_sequence__23TAdSinglePlyChrSelectGCFv();
 s32 get_field_118__22TAdEnterSerialAccessGCFv();
@@ -441,7 +441,7 @@ s32 TAdSinglePlyChrSelectGC__sub_801FCE6C(void) {
             register_callback__23TAdSinglePlyChrSelectGCFis(obj, 1);
         }
         if (get_instance__15TAdPlayerLoadGCFv() == 0 && (ret = TAdPlayerLoadGC__sub_801E1B50(lbl_805D5F7C)) == 0) {
-            TAdSinglePlyChrSelectGC__sub_802010E8();
+            update_play_time__23TAdSinglePlyChrSelectGCFv();
             set_global_flags__23TAdSinglePlyChrSelectGCFi(1);
             memcpy(TAdSinglePlyChrSelectGC__sub_801FCD3C((Obj_801FCD3C *)lbl_805D5F58), (void *)lbl_805D5F64, 0x2370);
             lbl_80513910[0] = lbl_80513910[1] = get_field_118__22TAdEnterSerialAccessGCFv();
@@ -581,7 +581,7 @@ s32 load_character_from_card__23TAdSinglePlyChrSelectGCFv(void) {
         }
         if (get_instance__15TAdPlayerLoadGCFv() == 0 && (ret = TAdPlayerLoadGC__sub_801E1B50(lbl_805D5F7C)) == 0) {
             TAdSinglePlyChrSelectGC__sub_8028DC14();
-            TAdSinglePlyChrSelectGC__sub_802010E8();
+            update_play_time__23TAdSinglePlyChrSelectGCFv();
             set_global_flags__23TAdSinglePlyChrSelectGCFi(1);
             memcpy(TAdSinglePlyChrSelectGC__sub_801FCD04((Obj_801FCD04 *)lbl_805D5F58), lbl_805D5F60, 0x41C);
             memcpy(TAdSinglePlyChrSelectGC__sub_801FCD3C((Obj_801FCD3C *)lbl_805D5F58), (void *)lbl_805D5F64, 0x2370);

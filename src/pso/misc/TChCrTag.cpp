@@ -19,7 +19,7 @@ M2C_UNK queue_destruction__7TObjectFv(void *);
 s32 get_selected_index__15TChCrCharSelectFv();
 extern const f32 lbl_805DDE00;
 extern const f32 lbl_805DDE04;
-void TChCrTag__sub_802A1A00(u8 *arg0);
+void update_fade__8TChCrTagFPv(u8 *arg0);
 }
 
 extern "C" {
@@ -44,7 +44,7 @@ extern const f32 lbl_805DDE0C;
 
 #pragma push
 #pragma opt_common_subs off
-void TChCrTag__sub_802A1A00(u8 *arg0) {
+void update_fade__8TChCrTagFPv(u8 *arg0) {
     f32 temp_f2;
     f32 temp_f2_2;
     f32 temp_f2_3;
@@ -119,7 +119,7 @@ void *__ct__8TChCrTagFv(void *arg0, void *arg1, void *arg2) {
 }
 
 void *__vt__8TChCrTag[7] = {
-    0, 0, (void *)__dt__8TChCrTagFv, (void *)TChCrTag__sub_802A1A00,
+    0, 0, (void *)__dt__8TChCrTagFv, (void *)update_fade__8TChCrTagFPv,
     (void *)render__8TChCrTagFv, (void *)render_shadows__7TObjectFv,
     (void *)TChCrTag__vt4,
 };

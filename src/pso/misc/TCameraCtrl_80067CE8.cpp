@@ -55,7 +55,7 @@ s32 push_matrix_from(void *);
 s32 pop_matrix();
 extern RecoveredGlobal_80067E30_lbl_8058D490 lbl_8058D490;
 extern const f32 lbl_805D8F74;
-void TCameraCtrl__sub_80067E30(u8 *arg0);
+void reset_behind_player__11TCameraCtrlFPv(u8 *arg0);
 f32 sin_table_lookup(s32);
 f32 cos_table_lookup(s32);
 void TCameraCtrl__sub_80067D20(Obj_80067D20 *arg0);
@@ -107,7 +107,7 @@ void TCameraCtrl__sub_80067D20(Obj_80067D20 *arg0) {
 }
 #pragma pop
 
-void TCameraCtrl__sub_80067E30(u8 *arg0) {
+void reset_behind_player__11TCameraCtrlFPv(u8 *arg0) {
     typedef char sp8_offset[(offsetof(Stack_80067E30, sp8) == 0x0) ? 1 : -1];
     typedef char spC_offset[(offsetof(Stack_80067E30, spC) == 0x4) ? 1 : -1];
     typedef char sp10_offset[(offsetof(Stack_80067E30, sp10) == 0x8) ? 1 : -1];

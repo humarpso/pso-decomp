@@ -62,7 +62,7 @@ M2C_UNK play_sound_effect(int, int, int, int);
 extern RecoveredGlobal_80335A58_lbl_8050E208 lbl_8050E208;
 extern RecoveredGlobal_80335A58_lbl_8050E3B8 lbl_8050E3B8;
 extern const f32 lbl_805DF8B4;
-void TAdTrialAgreementGC__sub_80335A58(u8 *arg0);
+void handle_cursor_input__19TAdTrialAgreementGCFPv(u8 *arg0);
 f32 sin_table_lookup(s32);
 s32 test_flag_4c__23TAdSinglePlyChrSelectGCFPv(void *, int);
 s32 TWindowShortListCtrl__check_controller_button(int, int);
@@ -105,7 +105,7 @@ void update_title_prompt__19TAdTrialAgreementGCFPv(u8 *arg0) {
   *((f32 *) (((s8 *) arg0) + 0x28)) = (f32) (new_var * lbl_805DF8BC);
 }
 
-void TAdTrialAgreementGC__sub_80335A58(u8 *arg0) {
+void handle_cursor_input__19TAdTrialAgreementGCFPv(u8 *arg0) {
     u8 *temp_r30;
     temp_r30 = (u8 *)&lbl_8050E3B8.value + 0x20;
     M2C_FIELD(arg0, f32 *, 0x28) = (f32) lbl_805DF8B4;
@@ -182,7 +182,7 @@ void run_state__19TAdTrialAgreementGCFPv(void *arg0) {
         update_title_prompt__19TAdTrialAgreementGCFPv((u8 *)(arg0));
         break;
     case 1:
-        TAdTrialAgreementGC__sub_80335A58((u8 *)(arg0));
+        handle_cursor_input__19TAdTrialAgreementGCFPv((u8 *)(arg0));
         break;
     case 2:
         break;

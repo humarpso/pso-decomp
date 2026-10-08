@@ -209,7 +209,7 @@ void update_close__12TQuestListVMFPv(void *arg0);
 M2C_UNK quest_vm_load(void *arg0);
 void TQuestListVM__sub_8021916C(void *);
 void TQuestListVM__sub_802194BC(QL_802194BC *);
-M2C_UNK TQuestListVM__sub_80219A9C(u8 *arg0);
+M2C_UNK load_quest_vm__12TQuestListVMFPv(u8 *arg0);
 M2C_UNK init__12TQuestListVMFPv(void* p);
 void TQuestListVM__vt9(u8 *arg0);
 int set_field_20__12TQuestListVMFPvi(void*, void*);
@@ -935,7 +935,7 @@ void scan_memcard_quest_files__12TQuestListVMFPv(void *arg0) {
 }
 #undef q
 
-M2C_UNK TQuestListVM__sub_80219A9C(u8 *arg0) {
+M2C_UNK load_quest_vm__12TQuestListVMFPv(u8 *arg0) {
     if (TLobby__sub_8001EEF4() != 0) {
         M2C_FIELD(arg0, s32 *, 0x2384) = tmp_buf_use_req__6TLobbyFPv((M2C_UNK *)((s32) &(*(RecoveredGlobal_80219A9C_TQuestListVM__data_8044BF20 *)&TQuestListVM__data_8044BF20).value));
         TQuestListVM__data_805D6200 = M2C_FIELD(arg0, s32 *, 0x2384);
@@ -963,7 +963,7 @@ void TQuestListVM__vt9(u8 *arg0) {
         init__12TQuestListVMFPv((void*)((void *) (arg0)));
         return;
     case 1:
-        TQuestListVM__sub_80219A9C((u8 *)((void *) (arg0)));
+        load_quest_vm__12TQuestListVMFPv((u8 *)((void *) (arg0)));
         return;
     case 2:
         scan_memcard_quest_files__12TQuestListVMFPv((void *)((void *) (arg0)));

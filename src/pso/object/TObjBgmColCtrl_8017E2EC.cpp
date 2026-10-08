@@ -15,7 +15,7 @@ u32 __nw__7TObjectFUl(int);
 u32 __ct__7TObjectFP7TObject(int, int);
 extern u32 TObjBgmColCtrl__data_805D5B08;
 extern s32 tl_05;
-void TObjBgmColCtrl__sub_8017E3B8(void);
+void create_controller__14TObjBgmColCtrlFv(void);
 M2C_UNK __dt__7TObjectFv(void *, M2C_UNK);
 M2C_UNK __dl__7TObjectFPv(void *);
 extern void *__vt__14TObjBgmColCtrl[];
@@ -67,7 +67,7 @@ void run_task__14TObjBgmColCtrlFv(void *arg0) {
         }
     }
 }
-void TObjBgmColCtrl__sub_8017E3B8(void) {
+void create_controller__14TObjBgmColCtrlFv(void) {
     u32 temp_r3;
     u32 temp_r3_2;
     u32 var_r0;

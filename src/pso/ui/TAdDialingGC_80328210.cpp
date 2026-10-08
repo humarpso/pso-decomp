@@ -37,7 +37,7 @@ extern Obj_80328730 *TAdDialingGC__data_805D6C78;
 void update_dialing_display__12TAdDialingGCFv(s32);
 void TAdDialingGC__sub_80328990(void *);
 void init_dialog__12TAdDialingGCFv(void *);
-void TAdDialingGC__sub_80328AA0(void *);
+void draw_dialing_status__12TAdDialingGCFv(void *);
 void TAdDialingGC__sub_803285C0(Obj_803285C0 *arg0);
 }
 
@@ -235,7 +235,7 @@ void TAdDialingGC__sub_803285C0(Obj_803285C0 *arg0) {
             break;
         case 2:
             init_dialog__12TAdDialingGCFv(arg0);
-            TAdDialingGC__sub_80328AA0(arg0);
+            draw_dialing_status__12TAdDialingGCFv(arg0);
             break;
         case 3:
             update_dialing_display__12TAdDialingGCFv(2);

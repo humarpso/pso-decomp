@@ -14,7 +14,7 @@ M2C_UNK TMCFormatSequence__sub_801F65C4();
 M2C_UNK TMCFormatSequence__sub_801F6640();
 M2C_UNK check_memcard_load_result__17TMCFormatSequenceFPv();
 M2C_UNK process_format_result__17TMCFormatSequenceFPv();
-M2C_UNK TMCFormatSequence__sub_801F68FC();
+M2C_UNK open_windows__17TMCFormatSequenceFPv();
 void run_task__17TMCFormatSequenceFv(u8 *arg0);
 }
 
@@ -33,7 +33,7 @@ void run_task__17TMCFormatSequenceFv(u8 *arg0) {
     temp_r0 = M2C_FIELD(arg0, s32 *, 0x24);
     switch (temp_r0) {
     case 0:
-        TMCFormatSequence__sub_801F68FC();
+        open_windows__17TMCFormatSequenceFPv();
         return;
     case 1:
         process_format_result__17TMCFormatSequenceFPv();

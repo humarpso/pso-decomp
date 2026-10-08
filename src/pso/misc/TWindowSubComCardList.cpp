@@ -66,7 +66,7 @@ void TWindowMenu__ct(void *, s32, s32, void *);
 M2C_UNK set_flag70_bit100__17TWindowOptionCtrlFPv(void *);
 void *init__21TWindowSubComCardListFPviii(void *, s32, s8, s32);
 M2C_UNK TWindowSubComCardList__sub_80275360(void *);
-f32 TWindowSubStatusDisp__sub_803D647C(f32);
+f32 round_away_from_zero__20TWindowSubStatusDispFf(f32);
 extern M2C_UNK __vt__21TWindowSubComCardList[];
 extern s32 lbl_805D3A18;
 extern s32 lbl_805D53A0;
@@ -83,7 +83,7 @@ void TWindowMenu__ct(void *, s32, s32, void *);
 M2C_UNK set_flag70_bit100__17TWindowOptionCtrlFPv(void *);
 void *init__21TWindowSubComCardListFPviii(void *, s32, s8, s32);
 M2C_UNK TWindowSubComCardList__sub_80275360(void *);
-f32 TWindowSubStatusDisp__sub_803D647C(f32);
+f32 round_away_from_zero__20TWindowSubStatusDispFf(f32);
 extern M2C_UNK __vt__21TWindowSubComCardList[];
 extern s32 lbl_805D3A18;
 extern s32 lbl_805D53A0;
@@ -174,7 +174,7 @@ u8 *TWindowSubComCardList__ct(u8 *arg0, void *arg1) {
     TWindowMenu__ct(arg0, 7, 4, arg1);
     *(M2C_UNK **)(arg0 + 0x18) = __vt__21TWindowSubComCardList;
     *(s32 *)(arg0 + 0) = lbl_805D3A18;
-    n = TWindowSubStatusDisp__sub_803D647C((f32)TWindowSubComCard__sub_8007AFB8() / lbl_805DD540);
+    n = round_away_from_zero__20TWindowSubStatusDispFf((f32)TWindowSubComCard__sub_8007AFB8() / lbl_805DD540);
     if (n <= 0) {
         n = 1;
     }
@@ -201,7 +201,7 @@ u8 *TWindowSubComCardList__sub_802757AC(u8 *arg0, void *arg1, s32 arg2, s32 arg3
     TWindowMenu__ct(arg0, 7, 4, arg1);
     *(M2C_UNK **)(arg0 + 0x18) = __vt__21TWindowSubComCardList;
     *(s32 *)(arg0 + 0) = lbl_805D3A18;
-    n = TWindowSubStatusDisp__sub_803D647C((f32)TWindowSubComCard__sub_8007AF60(arg2, arg3) / lbl_805DD540);
+    n = round_away_from_zero__20TWindowSubStatusDispFf((f32)TWindowSubComCard__sub_8007AF60(arg2, arg3) / lbl_805DD540);
     if (n <= 0) {
         n = 1;
     }

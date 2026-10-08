@@ -119,7 +119,7 @@ void *TAdSinglePlyChrSelectGC__sub_801FDFB8(void *, void *);
 void *TAdSinglePlyChrSelectGC__sub_80202B1C(void *, s32);
 void clear_inventory_slot__23TAdSinglePlyChrSelectGCFPv(void *);
 void TAdSinglePlyChrSelectGC__sub_80211584(void *);
-s32 TAdSinglePlyChrSelectGC__sub_801FDEE4(u32 arg0, s32 arg1, u32 arg2, s32 arg3);
+s32 copy_character_to_slot__23TAdSinglePlyChrSelectGCFUiiUii(u32 arg0, s32 arg1, u32 arg2, s32 arg3);
 void* copy_item_data__23TAdSinglePlyChrSelectGCFPvPv(void* p, void* a1);
 void *TAdSinglePlyChrSelectGC__sub_80076D9C(void *, void *);
 S_801FE010 *TAdSinglePlyChrSelectGC__sub_801FE010(S_801FE010 *arg0, S_801FE010 *arg1);
@@ -211,7 +211,7 @@ s32 try_move_char__23TAdSinglePlyChrSelectGCFii(s32 arg0, s32 arg1) {
     }
     if ((lbl_805D5F58 != 0U) && (lbl_805D5F5C != 0U) && (check_page_cross__23TAdSinglePlyChrSelectGCFiiii((s32)(lbl_805D5F58), (s32)(arg0), (s32)(lbl_805D5F5C), (s32)(arg1)) != 0)) {
         increment_counters__23TAdSinglePlyChrSelectGCFv();
-        TAdSinglePlyChrSelectGC__sub_801FDEE4((u32)(lbl_805D5F58), (s32)(arg0), (u32)(lbl_805D5F5C), (s32)(arg1));
+        copy_character_to_slot__23TAdSinglePlyChrSelectGCFUiiUii((u32)(lbl_805D5F58), (s32)(arg0), (u32)(lbl_805D5F5C), (s32)(arg1));
         return 1;
     }
     return 0;
@@ -228,7 +228,7 @@ s32 check_page_cross__23TAdSinglePlyChrSelectGCFiiii(s32 arg1, s32 arg2, s32 arg
 }
 typedef char RecoveredGlobal_801FE3E4_lbl_805137C8_size[sizeof(RecoveredGlobal_801FE3E4_lbl_805137C8) == 0x10 ? 1 : -1];
 
-s32 TAdSinglePlyChrSelectGC__sub_801FDEE4(u32 arg0, s32 arg1, u32 arg2, s32 arg3) {
+s32 copy_character_to_slot__23TAdSinglePlyChrSelectGCFUiiUii(u32 arg0, s32 arg1, u32 arg2, s32 arg3) {
     s32 secs;
     DateStamp_801FDEE4 ds;
     Slot_801FDEE4 *src = (Slot_801FDEE4 *)arg0;

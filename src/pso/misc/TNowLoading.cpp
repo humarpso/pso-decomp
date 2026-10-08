@@ -65,7 +65,7 @@ void run_frame__6TLobbyFv(void);
 void ARQPostRequest(void *, u32, u32, u32, u32, u32, u32, void *);
 void TLobby__sub_8001D9DC(void);
 extern s32 lbl_805D4A90;
-s32 TLobby__sub_8001D600(s32 arg0, u32 arg1, s32 arg2, s32 arg3);
+s32 aram_transfer_sync__6TLobbyFiUiii(s32 arg0, u32 arg1, s32 arg2, s32 arg3);
 }
 
 extern "C" {
@@ -226,7 +226,7 @@ s32 TLobby__sub_8001D568(s32 arg0, s32 arg1, s32 arg2, s32 arg3) {
     DCInvalidateRange((void *)arg2, len);
     return 1;
 }
-s32 TLobby__sub_8001D600(s32 arg0, u32 arg1, s32 arg2, s32 arg3) {
+s32 aram_transfer_sync__6TLobbyFiUiii(s32 arg0, u32 arg1, s32 arg2, s32 arg3) {
     u8 sp8[0x20];
     s32 len;
     if (arg2 == 0 && arg1 == 0) {

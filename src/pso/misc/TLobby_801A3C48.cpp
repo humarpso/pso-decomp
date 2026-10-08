@@ -130,7 +130,7 @@ M2C_UNK TObjBoss2Tunnel__sub_8007D1D0();
 s32 is_ready__22TQuestVmDownLoadServerFv();
 M2C_UNK TLobby__sub_800FA464();
 M2C_UNK disconnect_protocol__6TLobbyFv();
-int TLobby__sub_8013998C(void);
+int send_logout__6TLobbyFv(void);
 void init_chr_select__6TLobbyFv(void);
 void update_periodic_tick__6TLobbyFv(void);
 s8 func_801A5E54__Fv();
@@ -166,7 +166,7 @@ M2C_UNK TObjBoss2Tunnel__sub_8007D1D0();
 s32 is_ready__22TQuestVmDownLoadServerFv();
 M2C_UNK TLobby__sub_800FA464();
 M2C_UNK disconnect_protocol__6TLobbyFv();
-int TLobby__sub_8013998C(void);
+int send_logout__6TLobbyFv(void);
 void reset_to_chr_select__6TLobbyFv(void);
 void update_periodic_tick__6TLobbyFv(void);
 s8 func_801A5E54__Fv();
@@ -192,7 +192,7 @@ void run_lobby_frame__6TLobbyFv(void);
 M2C_UNK update__16TKeyBoardControlFv();
 M2C_UNK clear_resource_load_tasks();
 M2C_UNK call_funcs_reverse__6TLobbyFPvUi(void *, int);
-int TLobby__sub_8013998C(void);
+int send_logout__6TLobbyFv(void);
 M2C_UNK cleanup__6TLobbyFv();
 void free_objects__6TLobbyFv(void);
 M2C_UNK render_tick__Fv();
@@ -478,7 +478,7 @@ M2C_UNK init_area_lights();
 M2C_UNK process_deferred_player_setup__6TLobbyFv();
 M2C_UNK reset_state_flags__6TLobbyFv();
 M2C_UNK create_map_csn_ctrl__6TLobbyFv();
-M2C_UNK TObjBgmColCtrl__sub_8017E3B8();
+M2C_UNK create_controller__14TObjBgmColCtrlFv();
 int reset_controller_input_state(void);
 M2C_UNK TObjPlayer__sub_801B1BA4();
 M2C_UNK TObjPlayer__sub_801B1C8C();
@@ -516,7 +516,7 @@ int TKeyBoardControl__sub_8000F91C(int);
 int TKeyBoardControl__sub_8000F95C(void);
 int TKeyBoardControl__sub_8000F9CC(int);
 int reset_controller_input_state(void);
-int TLobby__sub_8013998C(void);
+int send_logout__6TLobbyFv(void);
 int clear_counter__6TLobbyFv(void);
 int init__23TAdSinglePlyChrSelectGCFv(void);
 int reset__16TKeyBoardControlFv(void);
@@ -525,8 +525,8 @@ int reset__16TKeyBoardControlFv(void);
     extern int TLobby__data_805D5CEC;
 void set_flag_and_update__6TLobbyFv(void) { TLobby__data_805D5CEC = (TLobby__data_805D5CEC | 0x1); TLobby__sub_801A4C6C((void*)(lbl_80515BA0)); }
 
-void init_chr_select__6TLobbyFv(void) { reset__16TKeyBoardControlFv(); TLobby__sub_8013998C(); init__23TAdSinglePlyChrSelectGCFv(); TKeyBoardControl__sub_8000F91C(9); TKeyBoardControl__sub_8000F9CC(18); }
-void reset_to_chr_select__6TLobbyFv(void) { reset_controller_input_state(); TLobby__sub_8013998C(); free_objects__6TLobbyFv(); TKeyBoardControl__sub_8000F95C(); clear_counter__6TLobbyFv(); init__23TAdSinglePlyChrSelectGCFv(); TKeyBoardControl__sub_8000F91C(9); TKeyBoardControl__sub_8000F9CC(18); }
+void init_chr_select__6TLobbyFv(void) { reset__16TKeyBoardControlFv(); send_logout__6TLobbyFv(); init__23TAdSinglePlyChrSelectGCFv(); TKeyBoardControl__sub_8000F91C(9); TKeyBoardControl__sub_8000F9CC(18); }
+void reset_to_chr_select__6TLobbyFv(void) { reset_controller_input_state(); send_logout__6TLobbyFv(); free_objects__6TLobbyFv(); TKeyBoardControl__sub_8000F95C(); clear_counter__6TLobbyFv(); init__23TAdSinglePlyChrSelectGCFv(); TKeyBoardControl__sub_8000F91C(9); TKeyBoardControl__sub_8000F9CC(18); }
 void TLobby__sub_801A3CF8(void) {  }
 
 void start_udp_test_game__6TLobbyFv(void) {
@@ -687,7 +687,7 @@ void reload_floor_scene__6TLobbyFv(void) {
     }
     process_deferred_player_setup__6TLobbyFv();
     TObjPlayer__sub_801B1BA4();
-    TObjBgmColCtrl__sub_8017E3B8();
+    create_controller__14TObjBgmColCtrlFv();
     __dt__7TObjectFv(&sp8, -1);
 }
 
@@ -863,7 +863,7 @@ void cleanup_online_lobby_scene(void) {
     s32 var_r4;
     stop_audio_streams__6TLobbyFv();
     update_lobby_subsystems__6TLobbyFv();
-    TLobby__sub_8013998C();
+    send_logout__6TLobbyFv();
     free_objects__6TLobbyFv();
     var_r3 = (M2C_UNK *)(&(*(RecoveredGlobal_801A4610_main_task *)&main_task).value);
     var_r3 = (M2C_UNK *)(&(*(RecoveredGlobal_801A4610_main_task *)&main_task).value);
@@ -933,7 +933,7 @@ void run_lobby_frame__6TLobbyFv(void) {
         reset_to_chr_select__6TLobbyFv();
     }
     if (is_ready__22TQuestVmDownLoadServerFv() != 0) {
-        TLobby__sub_8013998C();
+        send_logout__6TLobbyFv();
         TKeyBoardControl__sub_8000F9CC((int) (0));
     }
     if (get_key_state__16TKeyBoardControlFv() != 0) {
@@ -998,7 +998,7 @@ void run_main_frame__6TLobbyFv(void) {
         init_chr_select__6TLobbyFv();
     }
     if (is_ready__22TQuestVmDownLoadServerFv() != 0) {
-        TLobby__sub_8013998C();
+        send_logout__6TLobbyFv();
         TKeyBoardControl__sub_8000F9CC((int) (0));
     }
     render_tick__Fv();

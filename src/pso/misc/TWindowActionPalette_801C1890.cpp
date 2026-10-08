@@ -358,7 +358,7 @@ extern "C" {
 
 f32 fn_801C19A4(void* p);
 int clear_flags__11TAdRicoRingFPvUi(void*, int);
-s32 TLobby__sub_801E44D8(s32, s32);
+s32 send_subcommand_to_client__6TLobbyFPvUi(s32, s32);
 s32 TLobby__sub_801E4534(s32);
 s32 TLobby__send_and_handle_60(s32);
 int __dl__FPv();

@@ -186,7 +186,7 @@ extern RecoveredGlobal_800ABA9C_lbl_8058D490 lbl_8058D490;
 extern const f32 lbl_805D9BA0;
 extern const f32 lbl_805D9BA4;
 extern const f32 lbl_805D9BA8;
-void TObjPlayer__sub_800ABA9C(u8 *arg0);
+void spawn_front_ground_effect__10TObjPlayerFPv(u8 *arg0);
 s32 play_area_sound_effect__12TBoss3VoloptFi(void *);
 s32 TObjEneMe3SinowZoa__sub_800D758C(void *);
 s32 advance_animation_playback();
@@ -565,7 +565,7 @@ void TObjPlayer__sub_800ABA50(s32 arg0) {
     play_effect_if_v2__10TObjPlayerFi((int) (-0x300));
 }
 
-void TObjPlayer__sub_800ABA9C(u8 *arg0) {
+void spawn_front_ground_effect__10TObjPlayerFPv(u8 *arg0) {
     typedef char sp8_offset[(offsetof(Stack_800ABA9C, sp8) == 0x0) ? 1 : -1];
     typedef char spC_offset[(offsetof(Stack_800ABA9C, spC) == 0x4) ? 1 : -1];
     typedef char sp10_offset[(offsetof(Stack_800ABA9C, sp10) == 0x8) ? 1 : -1];

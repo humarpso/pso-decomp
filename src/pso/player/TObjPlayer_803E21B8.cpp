@@ -86,7 +86,7 @@ void setup_opaque_color_draw(void);
 void TObjPlayer__sub_803E21DC(void);
 void TObjPlayer__sub_803E2248(void);
 extern const f32 lbl_805E1070;
-void TObjPlayer__sub_803E26A4(Vtx_803E26A4 *v, s32 n, s32 mode);
+void draw_projected_line_strip__10TObjPlayerFPvii(Vtx_803E26A4 *v, s32 n, s32 mode);
 void GXSetNumChans(u8);
 void GXSetChanCtrl(int, int, int, int, int, int, int);
 M2C_UNK TObjPlayer__sub_803E2468(int arg0);
@@ -261,7 +261,7 @@ static inline void GXPosition3f32_803E26A4(f32 x, f32 y, f32 z) {
 static inline void GXColor1u32_803E26A4(u32 c) {
     (*(volatile WGPipe_803E26A4 *)0xCC008000).u32 = c;
 }
-void TObjPlayer__sub_803E26A4(Vtx_803E26A4 *v, s32 n, s32 mode) {
+void draw_projected_line_strip__10TObjPlayerFPvii(Vtx_803E26A4 *v, s32 n, s32 mode) {
     f32 inv;
     u32 c;
     load_screen_space_matrix__10TObjPlayerFv();

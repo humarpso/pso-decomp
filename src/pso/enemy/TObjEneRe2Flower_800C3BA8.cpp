@@ -7,7 +7,7 @@ s32 get_game_mode__6TLobbyFv();
 s32 is_valid_target__9TObjEneDDFPv(void *);
 f32 horizontal_distance_squared(void *, void *);
 extern const f32 lbl_805D9FF4;
-u8 *TObjEneRe2Flower__sub_800C3BAC(u8 *arg0);
+u8 *find_target_in_range__16TObjEneRe2FlowerFPv(u8 *arg0);
 }
 
 extern "C" {
@@ -16,7 +16,7 @@ int get_flag_11__16TObjEneRe2FlowerFPv(void* p);
 void TObjEneRe2Flower__sub_800C3BA8(void);
 
 void TObjEneRe2Flower__sub_800C3BA8(void) {  }
-u8 *TObjEneRe2Flower__sub_800C3BAC(u8 *arg0) {
+u8 *find_target_in_range__16TObjEneRe2FlowerFPv(u8 *arg0) {
     s32 n;
     u8 *result;
     u8 *p;

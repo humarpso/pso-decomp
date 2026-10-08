@@ -114,7 +114,7 @@ struct Obj_8031FACC { u8 pad[0x3F4]; s32 f3F4; s32 f3F8; u8 pad2[0x410 - 0x3FC];
 extern "C" {
 M2C_UNK VecCopy__FP3VecPC3Vec(void *, void *);
 u8 *csnVectorUnder(M2C_UNK *, void *, M2C_UNK);
-M2C_UNK TObjEneDD__sub_800BAAE4(void *, void *, int);
+M2C_UNK set_part_local_pos__9TObjEneDDFPvPvi(void *, void *, int);
 extern const f32 lbl_805DF450;
 extern const f32 lbl_805DF460;
 void TObjEneRecon__sub_8031FB6C(u8 *arg0);
@@ -153,7 +153,7 @@ void TObjEneRecon__sub_8031FB6C(u8 *arg0) {
     if ((temp_r3 == NULL) || (M2C_FIELD(arg0, f32 *, 0x300) >= (lbl_805DF460 + M2C_FIELD(M2C_FIELD(temp_r3, u8 **, 4), f32 *, 4)))) {
         ((VObj_18_965ca6 *)(arg0))->m95();
     }
-    TObjEneDD__sub_800BAAE4((void *) (arg0), (void *) (arg0 + 0x2FC), (int) (0));
+    set_part_local_pos__9TObjEneDDFPvPvi((void *) (arg0), (void *) (arg0 + 0x2FC), (int) (0));
 }
 
 }

@@ -21,7 +21,7 @@ M2C_UNK draw_tri_fan_2d__14TObjCMHairMenuFPviif(void *, int, int, f32);
 extern u32 lbl_804CFA84[];
 extern const f32 lbl_805DD048;
 extern const f32 lbl_805DD058;
-void TWindowSubStatusDisp__sub_8025DECC(void *arg0, void *arg1, void *arg2);
+void draw_text_glyphs__20TWindowSubStatusDispFPvPvPv(void *arg0, void *arg1, void *arg2);
 }
 
 extern "C" {
@@ -112,7 +112,7 @@ void convert_input_text__19TWindowKeyBoardSoftFPv(void *arg0);
 M2C_UNK TWindowKeyBoardSoft__sub_8025DBDC(void *, M2C_UNK);
 s32 fn_8025DE10(void *, void *);
 s32 TWindowSubStatusDisp__sub_8025E148(void *, void *, void *, int, int);
-void TWindowSubStatusDisp__sub_8025E350(void *arg0, void *arg1, void *arg2);
+void draw_wrapped_text__20TWindowSubStatusDispFPvPvPv(void *arg0, void *arg1, void *arg2);
 s32 TWindowSubStatusDisp__sub_8025E530(void *, void *, void *, int, int, int);
 void TWindowSubStatusDisp__sub_8025E6DC(u8 *arg0, u8 *arg1);
 M2C_UNK strncpy(M2C_UNK *, u8 *, M2C_UNK);
@@ -442,7 +442,7 @@ void convert_input_text__19TWindowKeyBoardSoftFPv(void *arg0) {
     }
 }
 
-void TWindowSubStatusDisp__sub_8025DECC(void *arg0, void *arg1, void *arg2) {
+void draw_text_glyphs__20TWindowSubStatusDispFPvPvPv(void *arg0, void *arg1, void *arg2) {
     Quad_8025E350 q;
     f32 pos[8];
     Desc_8025DECC d;
@@ -504,7 +504,7 @@ void TWindowSubStatusDisp__sub_8025DECC(void *arg0, void *arg1, void *arg2) {
     }
 }
 
-void TWindowSubStatusDisp__sub_8025E350(void *arg0, void *arg1, void *arg2) {
+void draw_wrapped_text__20TWindowSubStatusDispFPvPvPv(void *arg0, void *arg1, void *arg2) {
     Quad_8025E350 q;
     f32 scale;
     u8 n;
@@ -569,7 +569,7 @@ void TWindowSubStatusDisp__sub_8025E6DC(u8 *arg0, u8 *arg1) {
         temp_r3 = M2C_FIELD(arg0, u16 *, 0x60);
         if (temp_r3 & 2) {
             if (temp_r3 & 4) {
-                TWindowSubStatusDisp__sub_8025DECC((void *)((void *) (arg0)), (void *)((void *) (arg1)), (void *)((void *) (&stack.sp10)));
+                draw_text_glyphs__20TWindowSubStatusDispFPvPvPv((void *)((void *) (arg0)), (void *)((void *) (arg1)), (void *)((void *) (&stack.sp10)));
                 var_r31 = 0;
             } else {
                 TWindowSubStatusDisp__sub_8025E148((void *) (arg0), (void *) (arg1), (void *) (&stack.sp10), (int) (M2C_FIELD(arg0, s32 *, 0x84)), (int) (M2C_FIELD(arg0, s32 *, 0x94)));
@@ -582,7 +582,7 @@ void TWindowSubStatusDisp__sub_8025E6DC(u8 *arg0, u8 *arg1) {
         temp_r3_2 = M2C_FIELD(arg0, u16 *, 0x60);
         if (temp_r3_2 & 2) {
             if (temp_r3_2 & 4) {
-                ((s32 (*)(void *, void *, void *))TWindowSubStatusDisp__sub_8025E350)((void *) (arg0), (void *) (arg1), (void *) (&stack.sp10));
+                ((s32 (*)(void *, void *, void *))draw_wrapped_text__20TWindowSubStatusDispFPvPvPv)((void *) (arg0), (void *) (arg1), (void *) (&stack.sp10));
             } else {
                 TWindowSubStatusDisp__sub_8025E530((void *) (arg0), (void *) (arg1), (void *) (&stack.sp10), (int) (M2C_FIELD(arg0, s32 *, 0x84)), (int) (M2C_FIELD(arg0, s32 *, 0x88)), (int) (1));
                 stack.sp8 = stack.sp10;

@@ -45,7 +45,7 @@ void set_flags__11TBoss4Type2FPvUi(void *, u32);
 void copy_pos__11TNowLoadingFPvPv(void *, void *);
 void enable__13TParticleCtrlFPv(void *);
 void TObjEneRe7BeruraPunch__sub_80095FAC(void *);
-void TObjEneRe7BeruraPunch__sub_80096030(void *);
+void update_flight__21TObjEneRe7BeruraPunchFPv(void *);
 u32 find_entity_by_id(u16);
 s32 all_parents_unqueued_for_destruction__7TObjectFv();
 f32 sin_table_lookup(s32);
@@ -143,7 +143,7 @@ void run_task__21TObjEneRe7BeruraPunchFv(u8 *arg0) {
     case 0:
         break;
     case 1:
-        TObjEneRe7BeruraPunch__sub_80096030(arg0);
+        update_flight__21TObjEneRe7BeruraPunchFPv(arg0);
         break;
     case 2:
         TObjEneRe7BeruraPunch__sub_80095FAC(arg0);

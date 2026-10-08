@@ -105,7 +105,7 @@ void *get_player_by_client_id(s32);
 s32 get_state__19TPlayerBattleCtrl4PFPv(void *);
 u8 TLobby__sub_801D7100(void *);
 extern u8 lbl_8050EA40[];
-void TPlayerBattleCtrl4P__sub_803104CC(Ctl_803104CC *self);
+void update_player_alive_flags__19TPlayerBattleCtrl4PFPv(Ctl_803104CC *self);
 void *get_player_by_client_id(s32);
 void init_all__11TWindowCtrlFPvPv(void *, s32);
 void notify_lobby__19TPlayerBattleCtrl4PFPvPvPv(void* p, void* a1, void* a2);
@@ -132,7 +132,7 @@ u8 get_rule_field_a__6TLobbyFPv(void *);
 u8 TLobby__sub_801D7100(void *);
 extern P_803109D4 lbl_80475B80[];
 extern u8 lbl_8050EA40[];
-u8 TPlayerBattleCtrl4P__sub_803109D4(O_803109D4 *o);
+u8 is_battle_decided__19TPlayerBattleCtrl4PFPv(O_803109D4 *o);
 void *get_player_by_client_id(s32);
 extern RecoveredGlobal_80310300_TPlayerBattleCtrl4P__data_80542E90 TPlayerBattleCtrl4P__data_80542E90;
 s32 TPlayerBattleCtrl4P__sub_8031030C(void);
@@ -327,7 +327,7 @@ s32 TPlayerBattleCtrl4P__sub_80310380(void *self, u8 *arg1) {
     return mode;
 }
 
-void TPlayerBattleCtrl4P__sub_803104CC(Ctl_803104CC *self) {
+void update_player_alive_flags__19TPlayerBattleCtrl4PFPv(Ctl_803104CC *self) {
     s32 i;
     Ent_803104CC *e;
     s32 v;
@@ -348,7 +348,7 @@ void TPlayerBattleCtrl4P__sub_803104CC(Ctl_803104CC *self) {
     }
 }
 
-void TPlayerBattleCtrl4P__sub_8031058C(void* p) { TPlayerBattleCtrl4P__sub_803104CC((Ctl_803104CC *)(p)); }
+void TPlayerBattleCtrl4P__sub_8031058C(void* p) { update_player_alive_flags__19TPlayerBattleCtrl4PFPv((Ctl_803104CC *)(p)); }
 
 extern void *TPlayerBattleCtrl4P__data_805D6AA8;
 
@@ -495,7 +495,7 @@ void TPlayerBattleCtrl4P__sub_80310910(Ctl_80310910 *o, s32 frames) {
         break;
     }
 }
-u8 TPlayerBattleCtrl4P__sub_803109D4(O_803109D4 *o) {
+u8 is_battle_decided__19TPlayerBattleCtrl4PFPv(O_803109D4 *o) {
     s32 count = 0;
     s32 i = 0;
     s32 ok;

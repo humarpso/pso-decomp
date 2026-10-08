@@ -15,7 +15,7 @@ u8 is_script_controlled__10TObjPlayerFPv(u8 *arg0);
 void clear_id__10TObjPlayerFPv(void *);
 void fn_80103674(void);
 s32 fn_8010F210(s32);
-void TItemLoad__sub_8011063C(void);
+void init_resources__9TItemLoadFv(void);
 extern RecoveredGlobal_801058AC_lbl_8049EE60 lbl_8049EE60;
 extern M2C_UNK lbl_805D5440;
 extern int lbl_805D5444;
@@ -42,7 +42,7 @@ void free_item_globals__10TObjPlayerFv(void) { TItemDrop__sub_8010F168((void*)(l
 typedef char RecoveredGlobal_801058AC_lbl_8049EE60_size[sizeof(RecoveredGlobal_801058AC_lbl_8049EE60) == 0x78 ? 1 : -1];
 void TObjPlayer__sub_801058AC(void) {
     fn_80103674();
-    TItemLoad__sub_8011063C();
+    init_resources__9TItemLoadFv();
     (*(s32 *)&lbl_805D5444) = fn_8010F210((s32) &lbl_8049EE60.value);
     clear_id__10TObjPlayerFPv(&lbl_805D5440);
 }

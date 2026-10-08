@@ -36,7 +36,7 @@ M2C_UNK get_player__20TWindowSubStatusDispFv();
 M2C_UNK draw_textured_quad_at_depth(void *, f32);
 M2C_UNK set_draw_texture_and_color(int, int);
 extern s32 lbl_805D7018;
-void TWindowSubStatusDisp__sub_8036DA94(void);
+void draw_bottom_bar__20TWindowSubStatusDispFv(void);
 M2C_UNK TCameraCtrl__sub_80068EF0();
 M2C_UNK restore_full_screen_view__11TCameraCtrlFv();
 M2C_UNK set_depth_buffer_settings_2__Fv();
@@ -44,7 +44,7 @@ M2C_UNK restore_saved_depth_alpha_state();
 M2C_UNK reset_transform_state__10TObjPlayerFv();
 M2C_UNK begin_effect_render__13TParticleCtrlFv();
 M2C_UNK end_effect_render__13TParticleCtrlFv();
-void TWindowSubStatusDisp__sub_8036DA94(void);
+void draw_bottom_bar__20TWindowSubStatusDispFv(void);
 extern s32 lbl_805D7018;
 extern s32 lbl_805D701C;
 void draw_split_screen_hud__20TWindowSubStatusDispFv(void);
@@ -56,7 +56,7 @@ M2C_UNK get_player__20TWindowSubStatusDispFv();
 M2C_UNK draw_textured_quad_at_depth(void *, f32);
 M2C_UNK set_draw_texture_and_color(int, int);
 extern s32 lbl_805D7018;
-void TWindowSubStatusDisp__sub_8036D88C(void);
+void draw_tiled_background__20TWindowSubStatusDispFv(void);
 M2C_UNK reset_transform_state__10TObjPlayerFv();
 M2C_UNK init_xyz_limits__10TObjPlayerFv();
 M2C_UNK set_global_param__8TObjFishFi(void *);
@@ -103,7 +103,7 @@ void TWindowSubStatusDisp__sub_8036D774(void) {
     draw_strip_swap_color__15TWindowCtrlMainFPviif(&d, 4, 0x16, (-2.0f));
 }
 
-void TWindowSubStatusDisp__sub_8036D88C(void) {
+void draw_tiled_background__20TWindowSubStatusDispFv(void) {
     s32 i;
     s32 j;
     f32 buf[8];
@@ -165,7 +165,7 @@ void TWindowSubStatusDisp__sub_8036D994(void) {
 }
 #pragma pop
 
-void TWindowSubStatusDisp__sub_8036DA94(void) {
+void draw_bottom_bar__20TWindowSubStatusDispFv(void) {
   s32 var_r31;
   f32 buffer_8[8];
   f32 temp_f31;
@@ -199,9 +199,9 @@ void draw_split_screen_hud__20TWindowSubStatusDispFv(void) {
         reset_transform_state__10TObjPlayerFv();
         begin_effect_render__13TParticleCtrlFv();
         restore_full_screen_view__11TCameraCtrlFv();
-        TWindowSubStatusDisp__sub_8036DA94();
+        draw_bottom_bar__20TWindowSubStatusDispFv();
         TWindowSubStatusDisp__sub_8036D994();
-        TWindowSubStatusDisp__sub_8036D88C();
+        draw_tiled_background__20TWindowSubStatusDispFv();
         TWindowSubStatusDisp__sub_8036D774();
         TCameraCtrl__sub_80068EF0();
         end_effect_render__13TParticleCtrlFv();

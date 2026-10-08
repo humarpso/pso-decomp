@@ -1961,10 +1961,10 @@ s32 VecCopy__FP3VecPC3Vec(s32, s32);
 s32 is_split_screen();
 void draw__12TBoss1DragonFPv(u8 *arg0);
 s32 TBoss1Dragon__sub_80021260(s32 arg0, Obj_80021260 *arg1);
-s32 TBoss1Dragon__sub_800212D8(f32 farg0);
+s32 is_sphere_visible__12TBoss1DragonFf(f32 farg0);
 s32 get_camera_mode__11TCameraCtrlFv();
 s32 TBoss1Dragon__sub_8002B108(s32, s32);
-s32 TCameraCtrl__sub_80069094(s32);
+s32 get_camera_target_id__11TCameraCtrlFi(s32);
 f32 clamp_velocity__15TObjBoss2TunnelFPv(void *, f32, f32);
 s32 check_demo_mode__10TObjPlayerFv();
 void clear_global_flag_400__9TObjEneDDFv();
@@ -2032,7 +2032,7 @@ extern u8 lbl_804FE1DC[0xC];
 extern const f32 lbl_805D4B30;
 extern const f32 TBoss1Dragon__data_805D7F40;
 extern const f32 TBoss1Dragon__data_805D7F50;
-s32 TBoss1Dragon__sub_800212D8(f32 farg0);
+s32 is_sphere_visible__12TBoss1DragonFf(f32 farg0);
 s32 is_destination_ahead__12TBoss1DragonFPv(u8 *s);
 s32 objInBand__FP7GameObjf(void *, f32);
 void play_se_at_pos__12TBoss1DragonFii(s32 arg0, s32 arg1);
@@ -2887,7 +2887,7 @@ void render__12TBoss1DragonFv(u8 *arg0) {
             hit = 0;
             if (lbl_805D4DF0 != NULL && state != 0x1D && state != 0x16 && state != 0x15 &&
                 M2C_FIELD(arg0, s32 *, 0x3E4) == 0) {
-                ent = find_entity_by_id(TCameraCtrl__sub_80069094(-1));
+                ent = find_entity_by_id(get_camera_target_id__11TCameraCtrlFi(-1));
                 if (ent != NULL) {
                     Vec_80020B54 origin;
                     Vec_80020B54 delta;
@@ -2907,7 +2907,7 @@ void render__12TBoss1DragonFv(u8 *arg0) {
                     points[2] = (f32 *) (arg0 + 0x46C);
                     points[3] = (f32 *) (arg0 + 0x478);
                     for (i = 0; i < 4; i++) {
-                        if (((s32 (*)(void *, void *, f32)) TBoss1Dragon__sub_800212D8)(arg0, points[i], TBoss1Dragon__data_805D7F38) != 0) {
+                        if (((s32 (*)(void *, void *, f32)) is_sphere_visible__12TBoss1DragonFf)(arg0, points[i], TBoss1Dragon__data_805D7F38) != 0) {
                             hit = 1;
                             break;
                         }
@@ -2917,7 +2917,7 @@ void render__12TBoss1DragonFv(u8 *arg0) {
                             probe.x = M2C_FIELD(arg0, f32 *, 0x38) - TBoss1Dragon__data_805D7F3C * sin_table_lookup(M2C_FIELD(arg0, s32 *, 0x60));
                             probe.y = TBoss1Dragon__data_805D7F28;
                             probe.z = M2C_FIELD(arg0, f32 *, 0x40) - TBoss1Dragon__data_805D7F3C * cos_table_lookup(M2C_FIELD(arg0, s32 *, 0x60));
-                            hit = ((s32 (*)(void *, void *, f32)) TBoss1Dragon__sub_800212D8)(arg0, &probe, TBoss1Dragon__data_805D7F1C);
+                            hit = ((s32 (*)(void *, void *, f32)) is_sphere_visible__12TBoss1DragonFf)(arg0, &probe, TBoss1Dragon__data_805D7F1C);
                         }
                         if (hit == 0) {
                             hit = ((s32 (*)(void *, s32)) TBoss1Dragon__sub_80021260)(arg0, TBoss1Dragon__sub_8002B108(M2C_FIELD(arg0, s32 *, 0x68C), 1));
@@ -3493,7 +3493,7 @@ s32 TBoss1Dragon__sub_80021260(s32 arg0, Obj_80021260 *arg1) {
     n = arg1->count;
     for (; i < n; i++, off += sizeof(Rec_80021260)) {
         Rec_80021260 *r = (Rec_80021260 *)((u8 *)arg1->recs + off);
-        if (((s32 (*)(void *, void *, f32))TBoss1Dragon__sub_800212D8)((void *)arg0, r->b1C, r->f0C) != 0) {
+        if (((s32 (*)(void *, void *, f32))is_sphere_visible__12TBoss1DragonFf)((void *)arg0, r->b1C, r->f0C) != 0) {
             return 1;
         }
     }
@@ -3502,7 +3502,7 @@ s32 TBoss1Dragon__sub_80021260(s32 arg0, Obj_80021260 *arg1) {
 
 #pragma push
 #pragma fp_contract on
-s32 TBoss1Dragon__sub_800212D8(f32 farg0) {
+s32 is_sphere_visible__12TBoss1DragonFf(f32 farg0) {
     Stack_800212D8 stack;
     f32 temp_f1;
     f32 temp_f31;

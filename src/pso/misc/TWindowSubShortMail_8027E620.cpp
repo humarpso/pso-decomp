@@ -92,7 +92,7 @@ void open__17TWindowOptionCtrlFPv(void *);
 void *open_confirm_dialog__19TWindowSubShortMailFPv(void *);
 void TLobby__sub_80225A74(s32);
 s32 is_active__6TLobbyFv(void);
-void *TWindowSubShortMail__sub_8027E9FC(void *);
+void *create_confirm_menu_window__19TWindowSubShortMailFv(void *);
 void *create_window__19TWindowSubShortMailFv(void *);
 void *open_menu__19TWindowSubShortMailFv(void);
 s32 set_flag_bit0__6TLobbyFi(s32);
@@ -100,7 +100,7 @@ void *get_card_window_area__6TLobbyFv(void);
 void get_keyboard_field_6c__15TWindowMakeTeamFPv(void *, void *);
 void *open_delete_confirm_dialog__19TWindowSubShortMailFPv(void *);
 void *realloc_buffer__17TWindowSubComCardFPv(void *);
-void TLobby__sub_8001DAB4(void *);
+void set_short_mail_text__6TLobbyFi(void *);
 void free__11TOBoss4RockFUi(void *);
 void run_task__19TWindowSubShortMailFv(ShortMail_8027EF98 *o);
 }
@@ -315,7 +315,7 @@ void run_task__19TWindowSubShortMailFv(ShortMail_8027EF98 *o) {
     case 20:
         if (o->w4c != NULL) { TWindow__close(o->w4c); o->w4c = NULL; }
         if (o->w44 == NULL) {
-            o->w44 = TWindowSubShortMail__sub_8027E9FC(o);
+            o->w44 = create_confirm_menu_window__19TWindowSubShortMailFv(o);
         }
         if (o->w48 == NULL) {
             o->w48 = create_window__19TWindowSubShortMailFv(o);
@@ -377,7 +377,7 @@ void run_task__19TWindowSubShortMailFv(ShortMail_8027EF98 *o) {
         } else if (is_child_visible__17TWindowSubComCardFPv(o->w50) != 0) {
             if (get_slot_or_neg1__17TWindowSubComCardFPv(o->w50) == 0) {
                 void *b = realloc_buffer__17TWindowSubComCardFPv(o->w5c);
-                TLobby__sub_8001DAB4(b);
+                set_short_mail_text__6TLobbyFi(b);
                 free__11TOBoss4RockFUi(b);
                 o->state = 1;
             } else {

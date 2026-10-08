@@ -27,7 +27,7 @@ M2C_UNK forward_trade_action_default__16TObjCityMainWarpFPviii(int, void *, int,
 s32 draw_card_icon__17TWindowSubComCardFiii(int, int, void *);
 s32 get_window_layout_position(M2C_UNK);
 extern const f32 lbl_805DD508;
-s32 TWindowSubComCard__sub_80272814(void);
+s32 create_card_action_window__17TWindowSubComCardFv(void);
 void *get_message_10__20TWindowSubStatusDispFPv(int);
 M2C_UNK forward_trade_action_default__16TObjCityMainWarpFPviii(int, void *, int, int);
 s32 get_window_layout_position(M2C_UNK);
@@ -56,7 +56,7 @@ void *get_message_10__20TWindowSubStatusDispFPv(int);
 s32 open_hard_keyboard__6TLobbyFPv(void *);
 u8 *get_card_window__17TWindowSubComCardFUi(u32);
 s32 TWindowSubComCard__sub_802491C4(s32, void *, s32);
-void TWindowSubComCard__sub_802685C4(void *, u32);
+void disable_entry_by_id__17TWindowSubComCardFPvi(void *, u32);
 void update_next_entry__17TWindowSubComCardFPviii(s32, void *, void *, u32);
 void create_sub_window__20TWindowChoiceSettingFPvi(s32, void *);
 s32 get_window_layout_position(M2C_UNK);
@@ -167,7 +167,7 @@ s32 create__17TWindowSubComCardFv(void) {
     set_field_1c__6TLobbyFPvf(lbl_805DD4FC);
     return temp_r31;
 }
-s32 TWindowSubComCard__sub_80272814(void) {
+s32 create_card_action_window__17TWindowSubComCardFv(void) {
     s32 temp_r31;
     void *temp_r31_2;
     temp_r31 = draw_card_icon__17TWindowSubComCardFiii(((M2C_UNK)get_window_layout_position((M2C_UNK)((int) (0x93)))), (int) (3), get_message_10__20TWindowSubStatusDispFPv((int) (0x1D)));
@@ -244,7 +244,7 @@ s32 create_entry_list_window__17TWindowSubComCardFPv(u8 *arg0) {
             if (e->id >= 500) {
                 update_next_entry__17TWindowSubComCardFPviii(w, e->name, TWindowSubComCard__sub_80272034(arg0, card + 0x22EC, idx), e->id);
                 if (hard != 0) {
-                    TWindowSubComCard__sub_802685C4((void *)w, e->id);
+                    disable_entry_by_id__17TWindowSubComCardFPvi((void *)w, e->id);
                 }
             }
         }

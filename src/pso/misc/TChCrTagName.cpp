@@ -118,7 +118,7 @@ void create_all__12TChCrTagNameFv(void);
 void render__12TChCrTagNameFv(void* p);
 void run_task__12TChCrTagNameFv(void *arg0);
 struct TChCrTagName_802A226C; int TChCrTagName__sub_802A226C(TChCrTagName_802A226C *);
-M2C_UNK TChCrTag__sub_802A1A00();
+M2C_UNK update_fade__8TChCrTagFPv();
 void *__nw__7TObjectFUl(int);
 
 #pragma push
@@ -310,7 +310,7 @@ void TChCrTagName__sub_802A26E0(u8 *arg0) {
 }
 
 void run_task__12TChCrTagNameFv(void *arg0) {
-    TChCrTag__sub_802A1A00();
+    update_fade__8TChCrTagFPv();
     TChCrTagName__sub_802A26E0((u8 *)(arg0));
     M2C_FIELD(arg0, s32 *, 0x44) = (s32) (M2C_FIELD(arg0, s32 *, 0x44) + 1);
 }

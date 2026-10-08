@@ -439,7 +439,7 @@ u32 create_window_menu(M2C_UNK, s32, s16);
 M2C_UNK get_window_layout_position(M2C_UNK);
 s32 find_active_player__12TObjAreaWarpFPv(void *);
 s32 get_field_14__13TAdVIConfigGCFPv(void *);
-M2C_UNK TAdVIConfigGC__sub_80307DF4(void *);
+M2C_UNK update_visibility__13TAdVIConfigGCFPv(void *);
 u8 * destroy__13TAdVIConfigGCFPvs(void *, s16);
 s32 init__13TAdVIConfigGCFPvf(int, void *, f32);
 s32 get_game_play_mode(int);
@@ -1225,7 +1225,7 @@ void handle_area_selection__12TObjAreaWarpFPv(VObj_8019CAB0 *self) {
         if (is_split_screen() != 0) {
             found = 0;
             if (d->fC0 != NULL) {
-                TAdVIConfigGC__sub_80307DF4(d->fC0);
+                update_visibility__13TAdVIConfigGCFPv(d->fC0);
                 if (get_field_14__13TAdVIConfigGCFPv(d->fC0) == 0) {
                     self->m12();
                     return;

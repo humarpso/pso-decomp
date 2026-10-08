@@ -10,7 +10,7 @@ extern const f32 lbl_805E0DE0;
 f32 TWindowSubComCard__sub_803D6438(f32 farg0);
 f64 ceil(f64);
 extern const f32 lbl_805E0DE8;
-f32 TWindowSubStatusDisp__sub_803D647C(f32 farg0);
+f32 round_away_from_zero__20TWindowSubStatusDispFf(f32 farg0);
 }
 
 extern "C" {
@@ -27,7 +27,7 @@ f32 TWindowSubComCard__sub_803D6438(f32 farg0) {
 
 #pragma push
 #pragma scheduling off
-f32 TWindowSubStatusDisp__sub_803D647C(f32 farg0) {
+f32 round_away_from_zero__20TWindowSubStatusDispFf(f32 farg0) {
     if (farg0 < lbl_805E0DE8) {
         return -(f32) ceil(-farg0);
     }

@@ -687,7 +687,7 @@ extern RecoveredGlobal_8006ABAC_lbl_804381B0 lbl_804381B0;
 extern RecoveredGlobal_8006ABAC_lbl_804FF610 lbl_804FF610;
 extern RecoveredGlobal_8006ABAC_lbl_804FF61C lbl_804FF61C;
 extern RecoveredGlobal_8006ABAC_lbl_8058D490 lbl_8058D490;
-void TCameraCtrl__sub_8006ABAC(M2C_UNK arg0, s32 arg1, s32 arg2);
+void calc_axes_from_angles__11TCameraCtrlFiii(M2C_UNK arg0, s32 arg1, s32 arg2);
 s32 rotate_matrix_y(int, void *);
 s32 rotate_matrix_x(int, void *);
 s32 push_matrix_from(void *);
@@ -698,7 +698,7 @@ extern RecoveredGlobal_8006AC70_lbl_80438198 lbl_80438198;
 extern RecoveredGlobal_8006ABAC_lbl_804FF610 lbl_804FF610;
 extern RecoveredGlobal_8006ABAC_lbl_804FF61C lbl_804FF61C;
 extern RecoveredGlobal_8006ABAC_lbl_8058D490 lbl_8058D490;
-void TCameraCtrl__sub_8006AC70(u8 *arg0);
+void calc_rotated_axes__11TCameraCtrlFPv(u8 *arg0);
 struct V3_8006AD34 { f32 x, y, z; };
 u8 *get_target__11TCameraCtrlFPv(void *);
 M2C_UNK TCameraCtrl__sub_80069F20(void *);
@@ -784,7 +784,7 @@ typedef char RecoveredGlobal_8006ABAC_lbl_804381B0_size[sizeof(RecoveredGlobal_8
 typedef char RecoveredGlobal_8006ABAC_lbl_804FF610_size[sizeof(RecoveredGlobal_8006ABAC_lbl_804FF610) == 0xC ? 1 : -1];
 typedef char RecoveredGlobal_8006ABAC_lbl_804FF61C_size[sizeof(RecoveredGlobal_8006ABAC_lbl_804FF61C) == 0xC ? 1 : -1];
 typedef char RecoveredGlobal_8006ABAC_lbl_8058D490_size[sizeof(RecoveredGlobal_8006ABAC_lbl_8058D490) == 0x30 ? 1 : -1];
-void TCameraCtrl__sub_8006ABAC(M2C_UNK arg0, s32 arg1, s32 arg2) {
+void calc_axes_from_angles__11TCameraCtrlFiii(M2C_UNK arg0, s32 arg1, s32 arg2) {
     typedef char sp8_offset[(offsetof(Stack_8006ABAC, sp8) == 0x0) ? 1 : -1];
     typedef char spC_offset[(offsetof(Stack_8006ABAC, spC) == 0x4) ? 1 : -1];
     typedef char sp10_offset[(offsetof(Stack_8006ABAC, sp10) == 0x8) ? 1 : -1];
@@ -816,7 +816,7 @@ typedef char RecoveredGlobal_8006AC70_lbl_80438198_size[sizeof(RecoveredGlobal_8
 typedef char RecoveredGlobal_8006AC70_lbl_804FF610_size[sizeof(RecoveredGlobal_8006AC70_lbl_804FF610) == 0xC ? 1 : -1];
 typedef char RecoveredGlobal_8006AC70_lbl_804FF61C_size[sizeof(RecoveredGlobal_8006AC70_lbl_804FF61C) == 0xC ? 1 : -1];
 typedef char RecoveredGlobal_8006AC70_lbl_8058D490_size[sizeof(RecoveredGlobal_8006AC70_lbl_8058D490) == 0x30 ? 1 : -1];
-void TCameraCtrl__sub_8006AC70(u8 *arg0) {
+void calc_rotated_axes__11TCameraCtrlFPv(u8 *arg0) {
     typedef char sp8_offset[(offsetof(Stack_8006AC70, sp8) == 0x0) ? 1 : -1];
     typedef char spC_offset[(offsetof(Stack_8006AC70, spC) == 0x4) ? 1 : -1];
     typedef char sp10_offset[(offsetof(Stack_8006AC70, sp10) == 0x8) ? 1 : -1];
@@ -894,7 +894,7 @@ void update_view__11TCameraCtrlFPv(u8 *arg0) {
     } else {
         render__15TObjBoss2TunnelFPvPv(lbl_804FF5E8, TCameraCtrl__data_804FF6D0);
     }
-    TCameraCtrl__sub_8006AC70(arg0);
+    calc_rotated_axes__11TCameraCtrlFPv(arg0);
 }
 #undef ISNAN
 #undef G

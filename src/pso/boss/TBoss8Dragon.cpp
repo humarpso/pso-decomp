@@ -280,7 +280,7 @@ s32 check_damage_reaction__12TBoss8DragonFPv(void *arg0);
 void send_action_packet__12TBoss8DragonFPvi(u8 *arg0, s32 arg1);
 s32 is_health_low__12TBoss8DragonFPv(void *arg0);
 extern s32 lbl_805D69B4;
-void TBoss8Dragon__sub_802FCDB8(u8 *arg0);
+void select_next_action__12TBoss8DragonFPv(u8 *arg0);
 s32 TBoss8Dragon__sub_802FBFA4(u8 *arg0);
 M2C_UNK advance_animation_playback();
 M2C_UNK play_cue_stream_file(void *);
@@ -1783,7 +1783,7 @@ void freeze_player_at_self__12TBoss8DragonFPv(u8 *arg0);
 void TBoss8Dragon__sub_802FAF18(u8 *arg0);
 u16 TBoss8Dragon__sub_802FAFD8(void *arg0);
 void TBoss8Dragon__sub_802FB09C(s32 arg0);
-void TBoss8Dragon__sub_802FB0DC(u8 *arg0);
+void spawn_ground_effect__12TBoss8DragonFPv(u8 *arg0);
 int setup_instance__12TBoss8DragonFPv(void* p);
 int get_state_flags__12TBoss8DragonFPv(void* p);
 int emit_effect__12TBoss8DragonFPv(void* p);
@@ -5181,7 +5181,7 @@ void TBoss8Dragon__sub_802F8578(Dragon_802F8578 *arg0, u32 arg1) {
                 spawn_effect__12TBoss8DragonFii((s32)arg0, 0x4003A804);
             }
             if (objInBand__FP7GameObjf(arg0, lbl_805DEE50) != 0) {
-                TBoss8Dragon__sub_802FB0DC((u8 *)arg0);
+                spawn_ground_effect__12TBoss8DragonFPv((u8 *)arg0);
             }
             if (objInBand__FP7GameObjf(arg0, TBoss8Dragon__data_805DEE30) != 0) {
                 fill_value_array(arg0->field_680);
@@ -5384,7 +5384,7 @@ s32 objInBand__FP7GameObjf(void *, f32);
 M2C_UNK advance_animation_playback();
 void * __nw__7TObjectFUl(int);
 void TBoss8Dragon__sub_802FB09C(s32 arg0);
-void TBoss8Dragon__sub_802FB0DC(u8 *arg0);
+void spawn_ground_effect__12TBoss8DragonFPv(u8 *arg0);
 void pick_next_action__12TBoss8DragonFPv(u8 *arg0);
 void send_action_packet__12TBoss8DragonFPvi(u8 *arg0, s32 arg1);
 s32 TBoss8Dragon__sub_802FBFA4(u8 *arg0);
@@ -5488,7 +5488,7 @@ void TBoss8DragonEffBullet__sub_802F8F88(u8 *arg0, u32 arg1) {
                 spawn_effect__12TBoss8DragonFii((s32)arg0, 0x4003AD0A);
             }
             if (objInBand__FP7GameObjf(arg0, TBoss8Dragon__data_805DEE38) != 0 || objInBand__FP7GameObjf(arg0, lbl_805DEE7C) != 0) {
-                TBoss8Dragon__sub_802FB0DC(arg0);
+                spawn_ground_effect__12TBoss8DragonFPv(arg0);
             }
             if (F(u32, 0x894) == 0) {
                 if (F(f32, 0xC0) >= TBoss8Dragon__data_805DED58) {
@@ -5699,7 +5699,7 @@ void TBoss8Dragon__sub_802F9850(void *arg0p, u32 arg1) {
             ((s32 (*)(void *, s32))spawn_effect__12TBoss8DragonFii)((void *) (((u8 *)arg0p)), (int) (0x4003A803));
         }
         if (objInBand__FP7GameObjf((void *) (((u8 *)arg0p)), (f32) (lbl_805DEE98)) != 0) {
-            ((M2C_UNK (*)(void *))TBoss8Dragon__sub_802FB0DC)((void *) (((u8 *)arg0p)));
+            ((M2C_UNK (*)(void *))spawn_ground_effect__12TBoss8DragonFPv)((void *) (((u8 *)arg0p)));
         }
         temp_r0 = M2C_FIELD(((u8 *)arg0p), s32 *, 0x84C);
         switch (temp_r0) {
@@ -6299,11 +6299,11 @@ u16 TBoss8Dragon__sub_802FAFD8(void *arg0) {
 
 void TBoss8Dragon__sub_802FB09C(s32 arg0) {
     if (((s32 (*)(f32))objInBand__FP7GameObjf)((f32) (TBoss8Dragon__data_805DEE38)) != 0) {
-        TBoss8Dragon__sub_802FB0DC((u8 *)((void *) (arg0)));
+        spawn_ground_effect__12TBoss8DragonFPv((u8 *)((void *) (arg0)));
     }
 }
 
-void TBoss8Dragon__sub_802FB0DC(u8 *arg0) {
+void spawn_ground_effect__12TBoss8DragonFPv(u8 *arg0) {
     Stack_802FB0DC stack;
     f32 temp_f1;
     u8 *temp_r3;
@@ -6973,7 +6973,7 @@ block_8:
     ((D_V *) arg0)->m85(M2C_FIELD(arg0, s16 *, 0x326), 0xB);
 }
 
-void TBoss8Dragon__sub_802FCDB8(u8 *arg0) {
+void select_next_action__12TBoss8DragonFPv(u8 *arg0) {
     s32 temp_r4;
     temp_r4 = M2C_FIELD(arg0, s32 *, 0x3C0);
     if (temp_r4 & 0x40) {
@@ -7098,7 +7098,7 @@ void TBoss8Dragon__sub_802FCF00(u8 *arg0) {
                         }
                         clear_attack_receipts((void *) (arg0));
                     }
-                    TBoss8Dragon__sub_802FCDB8((u8 *)((void *) (arg0)));
+                    select_next_action__12TBoss8DragonFPv((u8 *)((void *) (arg0)));
                 }
                 ((VObj_18 *)(arg0))->m85(M2C_FIELD(arg0, s16 *, 0x326), 8);
                 ((VObj_18 *)(arg0))->m85(M2C_FIELD(arg0, s16 *, 0x326), 0);

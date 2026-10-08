@@ -45,7 +45,7 @@ M2C_UNK strncpy(void *, s32, M2C_UNK);
 extern u8 lbl_80488E40[];
 extern const f32 lbl_805D90C8;
 extern const f32 lbl_805D90CC;
-void TObjBagWarnWin__sub_8006EDD8(u8 *arg0);
+void open_message_window__14TObjBagWarnWinFPv(u8 *arg0);
 }
 
 extern "C" {
@@ -95,7 +95,7 @@ void run_task__14TObjBagWarnWinFv(u8 *arg0) {
                 M2C_FIELD(arg0, s32 *, 0xA0) = 0x1E;
             }
             if ((s32) M2C_FIELD(arg0, s32 *, 0xA0) == 0) {
-                TObjBagWarnWin__sub_8006EDD8((u8 *)((void *) (arg0)));
+                open_message_window__14TObjBagWarnWinFPv((u8 *)((void *) (arg0)));
             }
         }
     } else if (TObjBagWarnWin__sub_8006EC20((void *)((void *) (arg0))) == 0) {
@@ -104,7 +104,7 @@ void run_task__14TObjBagWarnWinFv(u8 *arg0) {
         M2C_FIELD(arg0, s32 *, 0xA0) = 0x1E;
     }
 }
-void TObjBagWarnWin__sub_8006EDD8(u8 *arg0) {
+void open_message_window__14TObjBagWarnWinFPv(u8 *arg0) {
     M2C_FIELD(arg0, u32 *, 0x1C) = set_window_mode_4__6TLobbyFPvii(get_window_layout_position(0x38), lbl_80488E40, 1);
     if ((u32) M2C_FIELD(arg0, u32 *, 0x1C) != 0U) {
         set_field_1c__6TLobbyFPvf(M2C_FIELD(arg0, u32 *, 0x1C), lbl_805D90C8);

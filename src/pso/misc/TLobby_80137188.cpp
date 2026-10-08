@@ -6,7 +6,7 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 
 extern "C" {
 
-void TLobby__sub_8013998C(void);
+void send_logout__6TLobbyFv(void);
 void TLobby__sub_8013A16C(void);
 void TLobby__sub_8013A170(s32 arg0, ...);
 int get_seq_phase__6TLobbyFPv(void* p);
@@ -15,7 +15,7 @@ int fn_8013ADD0(void*);
 
 extern u32 TLobby__data_805D5580;
 
-void TLobby__sub_8013998C(void) {
+void send_logout__6TLobbyFv(void) {
     if ((u32) TLobby__data_805D5580 != 0U) {
         send_logout__9TProtocolFv((void*)TLobby__data_805D5580);
     }

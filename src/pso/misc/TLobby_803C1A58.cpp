@@ -214,7 +214,7 @@ extern u8 lbl_80572BE0[];
 void TLobby__sub_803C5B50(Obj_803C5B50 *arg0, s32 arg1, s32 arg2, s32 arg3);
 void *memcpy(void *, const void *, u32);
 s32 TRKRequestSend(Obj_803C7C10 *arg0);
-void TLobby__sub_803C526C(s32, s32, char *, s32);
+void format_number_pair__6TLobbyFiiPvi(s32, s32, char *, s32);
 void report_adx_error__6TLobbyFPvi(const char *, const char *);
 s32 get_afs_file_info__6TLobbyFiiPvPvPvPv(s32 arg0, s32 arg1, char *arg2, s32 *arg3, s32 *arg4, s32 *arg5);
 void TLobby__sub_803D16BC(s32, char *, s32, s32, s32);
@@ -357,7 +357,7 @@ void append_music_stream_segment(u8 *arg0, s32 arg1, s32 arg2) {
         TLobby__sub_803D16BC(h, lbl_80572FE0, a, b, c);
         return;
     }
-    TLobby__sub_803C526C(arg1, arg2, buf, 0x10);
+    format_number_pair__6TLobbyFiiPvi(arg1, arg2, buf, 0x10);
     report_adx_error__6TLobbyFPvi(lbl_8047C5D8, buf);
 }
 

@@ -8,6 +8,26 @@ struct O_802D361C { u8 pad[5]; u8 state; };
 
 struct O_802D3654 { u8 pad[5]; u8 state; };
 
+typedef struct S_802D35B0 {
+    u8 pad0[2];
+    u16 f2;
+    u8 pad4;
+    u8 f5;
+    u8 pad6[2];
+    s32 f8;
+    s32 fC;
+} S_802D35B0;
+
+typedef struct S_802D3544 {
+    u8 pad0[2];
+    u16 f2;
+    u8 pad4;
+    u8 f5;
+    u8 pad6[2];
+    s32 f8;
+    s32 fC;
+} S_802D3544;
+
 extern "C" {
 M2C_UNK get_shared_text_buffer();
 M2C_UNK get_message_10__20TWindowSubStatusDispFPv(M2C_UNK);
@@ -28,6 +48,18 @@ void TLobby__sub_802D361C(O_802D361C *self);
 s32 close_request_window__19TWindowTradeRequestFv();
 void reset__6TLobbyFv(void);
 void TLobby__sub_802D3654(O_802D3654 *self);
+void TLobby__sub_802D1E64(void *, s32, s32, void *);
+void update_trade_window__19TWindowSubTradeMainFPv(u32);
+extern u8 TLobby__data_80540BD0[];
+extern s8 TLobby__data_805D688A;
+extern u32 TLobby__data_805D6898;
+void TLobby__sub_802D35B0(S_802D35B0 *arg0);
+void TLobby__sub_802D1DE4(void *, s32, s32, void *);
+void update_trade_window__19TWindowSubTradeMainFPv(u32);
+extern u8 TLobby__data_80540BD0[];
+extern s8 TLobby__data_805D688A;
+extern u32 TLobby__data_805D6898;
+void TLobby__sub_802D3544(S_802D3544 *arg0);
 }
 
 extern "C" {
@@ -78,6 +110,40 @@ void update_flag_by_state__6TLobbyFPv(void *arg0) {
         if (TLobby__data_805D6898 != 0U) {
             notify_child_if_present__19TWindowSubTradeMainFPvi(TLobby__data_805D6898, 0);
         }
+        break;
+    }
+}
+
+void TLobby__sub_802D3544(S_802D3544 *arg0) {
+    s32 t = arg0->f5;
+    switch (t) {
+    case 0:
+        if (arg0->f2 == TLobby__data_805D688A) {
+            TLobby__sub_802D1DE4(TLobby__data_80540BD0 + 0x1F0, arg0->f8, arg0->fC, TLobby__data_80540BD0);
+            if (TLobby__data_805D6898 != 0) {
+                update_trade_window__19TWindowSubTradeMainFPv(TLobby__data_805D6898);
+            }
+        }
+        break;
+    case 1:
+    case 2:
+        break;
+    }
+}
+
+void TLobby__sub_802D35B0(S_802D35B0 *arg0) {
+    s32 t = arg0->f5;
+    switch (t) {
+    case 0:
+        if (arg0->f2 == TLobby__data_805D688A) {
+            TLobby__sub_802D1E64(TLobby__data_80540BD0 + 0x1F0, arg0->f8, arg0->fC, TLobby__data_80540BD0);
+            if (TLobby__data_805D6898 != 0) {
+                update_trade_window__19TWindowSubTradeMainFPv(TLobby__data_805D6898);
+            }
+        }
+        break;
+    case 1:
+    case 2:
         break;
     }
 }

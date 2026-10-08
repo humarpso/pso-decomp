@@ -25,7 +25,7 @@ u8 get_effective_technique_level__10TObjPlayerFPvs(void *, int);
 s32 TObjPlayer__sub_801C010C(void *, s16);
 s32 clamp_to_max__10TObjPlayerFiUcUc(void *, s32, s32);
 u8 TObjPlayer__sub_801D96CC(Rec_801D96CC *p);
-void TObjPlayer__sub_801D97C8(void *p, s32 add);
+void level_up_all_techniques__10TObjPlayerFPvi(void *p, s32 add);
 
 s16 get_section_clamped__10TObjPlayerFPv(void *arg0) {
     s16 temp_r4;
@@ -96,7 +96,7 @@ void update_all_units__10TObjPlayerFii(s32 arg0, s32 arg1) {
     } while (var_r31 < 0x13);
 }
 
-void TObjPlayer__sub_801D97C8(void *p, s32 add) {
+void level_up_all_techniques__10TObjPlayerFPvi(void *p, s32 add) {
     s32 i = 0;
     do {
         s32 v = ((s32 (*)(void *, s16))get_cast_technique_level)(p, i);

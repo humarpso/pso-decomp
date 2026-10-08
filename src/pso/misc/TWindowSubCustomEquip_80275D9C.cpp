@@ -19,7 +19,7 @@ void update_palette_item_count_label(u8 *, u8 *, s32, s32, s32);
 void draw_action_palette_icon(u8 *, s32, s32);
 extern u8 lbl_8044F738[];
 extern u8 lbl_8044F740[];
-void TWindowSubCustomEquip__sub_80275FD8(u8 *arg0, s32 arg1, s32 arg2, s32 arg3);
+void update_palette_slot__21TWindowSubCustomEquipFPviii(u8 *arg0, s32 arg1, s32 arg2, s32 arg3);
 u8 *get_array_entry__20TWindowSubStatusDispFPvi(void *, s32);
 void set_relative_pos__21TWindowSubCustomEquipFPvPv(void *, void *);
 extern u8 lbl_8044F738[];
@@ -105,7 +105,7 @@ void TWindowSubCustomEquip__sub_80275F90(Win_80275F90 *arg0, u8 *arg1) {
     ((void (*)(f32, u8 *, Vec2_80275DE8 *, s32))draw_cursor_sprite__21TWindowSubCustomEquipFPvPvif)(lbl_805DD564, arg1, &pos, arg0->f66);
 }
 
-void TWindowSubCustomEquip__sub_80275FD8(u8 *arg0, s32 arg1, s32 arg2, s32 arg3) {
+void update_palette_slot__21TWindowSubCustomEquipFPviii(u8 *arg0, s32 arg1, s32 arg2, s32 arg3) {
     void *pl;
     u8 *a;
     u8 *b;

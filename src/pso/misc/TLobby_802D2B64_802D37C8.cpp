@@ -7,7 +7,7 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 struct Half_802D38B4 { u8 data[0x1F0]; };
 
 extern "C" {
-M2C_UNK TLobby__sub_802D2D64();
+M2C_UNK cancel_trade__6TLobbyFv();
 M2C_UNK TLobby__sub_802D3070(s32);
 u32 get_player_by_client_id(s32);
 s32 TWindowSubTradeMain__sub_802D3924(s32);
@@ -31,7 +31,7 @@ extern "C" {
 
 void close_trade_request__6TLobbyFv(void);
 void update_battle_mode__6TLobbyFv(void);
-M2C_UNK TLobby__sub_802D2D64();
+M2C_UNK cancel_trade__6TLobbyFv();
 M2C_UNK TLobby__sub_802D3070(s32);
 u32 get_player_by_client_id(s32);
 s32 TWindowSubTradeMain__sub_802D3924(s32);
@@ -43,7 +43,7 @@ extern u8 TLobby__data_805D688B;
 void update_battle_mode__6TLobbyFv(void) {
     if ((s8) TLobby__data_805D688B != 0) {
         if (get_player_by_client_id(lbl_805D53A0) == 0U) {
-            TLobby__sub_802D2D64();
+            cancel_trade__6TLobbyFv();
             return;
         }
         if (TWindowSubTradeMain__sub_802D3924(lbl_805D53A0) == 0) {
@@ -62,7 +62,7 @@ void TLobby__sub_802D3820(void) {
         return;
     }
     if (get_player_by_client_id(TLobby__data_805D688A) == 0U) {
-        TLobby__sub_802D2D64();
+        cancel_trade__6TLobbyFv();
         return;
     }
     if (TWindowSubTradeMain__sub_802D3924(TLobby__data_805D688A) == 0) {

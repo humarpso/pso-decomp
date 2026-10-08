@@ -68,7 +68,7 @@ extern f32 TObjTombstone__data_805D9178;
 extern f32 TObjTombstone__data_805D917C;
 extern const f32 lbl_805D9180;
 extern f32 TObjTombstone__data_805D9184;
-void TObjTombstone__sub_80075340(u8 *arg0);
+void update_fade_by_distance__13TObjTombstoneFPv(u8 *arg0);
 void copy_matrix__13TObjTombstoneFPvPv(void* p, void* q);
 extern RecoveredGlobal_80074FAC_lbl_8043878C lbl_8043878C;
 extern RecoveredGlobal_80074FAC_TObjTombstone__data_8048D250 TObjTombstone__data_8048D250;
@@ -217,7 +217,7 @@ s32 project_to_screen__13TObjTombstoneFPvPvPv(void *arg0, f32 *arg1, void *arg2)
     return 1;
 }
 
-void TObjTombstone__sub_80075340(u8 *arg0) {
+void update_fade_by_distance__13TObjTombstoneFPv(u8 *arg0) {
     f32 temp_f1;
     u32 temp_r3;
     get_camera_no__11TCameraCtrlFv();

@@ -20,7 +20,7 @@ void *__nw__7TObjectFUl(int);
 int check_ship_door__12TBoss6ThanksFv(void*);
 M2C_UNK dispatch_darkfalz_phase__12TBoss6ThanksFv();
 s32 fn_8035CAE0();
-s32 fn_8035D2EC();
+s32 any_player_has_listed_equipment();
 s32 get_main_phase();
 s32 is_split_screen();
 
@@ -46,7 +46,7 @@ int TBoss6Thanks__sub_8035D270(void* p) { return check_ship_door__12TBoss6Thanks
 extern s32 lbl_805D5550;
 
 s32 try_dispatch_darkfalz_phase__12TBoss6ThanksFv(void) {
-    if (((s32) lbl_805D5550 == 0) || ((get_main_phase() == 0xE) && (is_split_screen() == 0)) || (fn_8035D2EC() == 0)) {
+    if (((s32) lbl_805D5550 == 0) || ((get_main_phase() == 0xE) && (is_split_screen() == 0)) || (any_player_has_listed_equipment() == 0)) {
         return 0;
     }
     dispatch_darkfalz_phase__12TBoss6ThanksFv();

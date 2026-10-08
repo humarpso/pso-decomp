@@ -80,7 +80,7 @@ s32 TLobby__sub_80072724(void *);
 void TLobby__sub_800722AC(s32 arg0);
 s32 TLobby__sub_800703D0(void *, void *);
 s32 is_flag_set__6TLobbyFv();
-void TLobby__sub_800726A0(u32);
+void send_challenge_records__6TLobbyFUi(u32);
 s32 get_card_window__17TWindowSubComCardFUi(int);
 extern M2C_UNK lbl_8048C9D8[];
 extern void *lbl_805D4E28;
@@ -88,7 +88,7 @@ extern s32 lbl_805D53A0;
 void TLobby__sub_80072618(void);
 s32 TLobby__sub_800703D0(void *, void *);
 s32 is_flag_set__6TLobbyFv();
-void TLobby__sub_800726A0(u32 _w0);
+void send_challenge_records__6TLobbyFUi(u32 _w0);
 M2C_UNK bswap_6x7C_packet__6TLobbyFi(void *);
 extern M2C_UNK lbl_8048C9D8[];
 extern void *lbl_805D4E28;
@@ -231,7 +231,7 @@ void handle_6x7C_set_challenge_records(Pkt7C_80072230 *pkt) {
         return;
     }
     if (id == 0xFFFF) {
-        TLobby__sub_800726A0((u32)lbl_805D4E28);
+        send_challenge_records__6TLobbyFUi((u32)lbl_805D4E28);
         return;
     }
     if (id < 0 || id >= 4) {
@@ -239,7 +239,7 @@ void handle_6x7C_set_challenge_records(Pkt7C_80072230 *pkt) {
     }
     rec = &(*(Chal_80072230 *)&lbl_8048C9D8).recs[id];
     if (rec->flag == 0) {
-        TLobby__sub_800726A0((u32)lbl_805D4E28);
+        send_challenge_records__6TLobbyFUi((u32)lbl_805D4E28);
     }
     rec->flag = 1;
     TLobby__sub_800703D0(rec->data, pkt->recs);
@@ -259,13 +259,13 @@ void TLobby__sub_80072618(void) {
         if (((u32)get_card_window__17TWindowSubComCardFUi((int)(0xFFFF))) != 0) {
             TLobby__sub_800703D0(q + 1, (void *)(((u32)get_card_window__17TWindowSubComCardFUi((int)(0xFFFF))) + 0x21C4));
             if ((*(u32 *)&lbl_805D4E28) != 0) {
-                TLobby__sub_800726A0((u32)((*(u32 *)&lbl_805D4E28)));
+                send_challenge_records__6TLobbyFUi((u32)((*(u32 *)&lbl_805D4E28)));
             }
         }
     }
 }
 
-void TLobby__sub_800726A0(u32 _w0) {
+void send_challenge_records__6TLobbyFUi(u32 _w0) {
     G_SetChallengeRecords_V3_6x7C packet;
     init_pkt_cmd_7C__6TLobbyFPv((void *) (&packet.__base_G_SetChallengeRecordsBase_6x7C.header));
     packet.__base_G_SetChallengeRecordsBase_6x7C.client_id = (s16) lbl_805D53A0;

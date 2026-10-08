@@ -43,7 +43,7 @@ s32 init__23TAdSinglePlyChrSelectGCFv(void);
 s32 load_and_verify_data(s32 arg0);
 M2C_UNK TAdSinglePlyChrSelectGC__sub_801FFF98(s32);
 M2C_UNK prepare_save_data__23TAdSinglePlyChrSelectGCFv();
-M2C_UNK TAdSinglePlyChrSelectGC__sub_802010E8();
+M2C_UNK update_play_time__23TAdSinglePlyChrSelectGCFv();
 u32 TAdSinglePlyChrSelectGC__sub_80201204(u32 *, M2C_UNK);
 M2C_UNK TAdSinglePlyChrSelectGC__sub_8028DC14();
 u32 get_player_by_client_id(s32);
@@ -74,7 +74,7 @@ s32 init__23TAdSinglePlyChrSelectGCFv(void) {
             TAdSinglePlyChrSelectGC__sub_8028DC14();
         }
         clear_flags__23TAdSinglePlyChrSelectGCFi(3);
-        TAdSinglePlyChrSelectGC__sub_802010E8();
+        update_play_time__23TAdSinglePlyChrSelectGCFv();
         copy_card_window_data();
         prepare_save_data__23TAdSinglePlyChrSelectGCFv();
     }

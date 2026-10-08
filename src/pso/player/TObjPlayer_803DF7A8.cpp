@@ -71,7 +71,7 @@ void OSPanic(const char *, int, const char *, ...);
 void TObjPlayer__sub_803DAE1C(void *, int, void *);
 extern char lbl_804FC7F8[];
 extern char lbl_805D46F0[4];
-void TObjPlayer__sub_803E1EE8(void *arg0, s32 arg1, u32 arg2, void *arg3);
+void reload_texture__10TObjPlayerFPviUiPv(void *arg0, s32 arg1, u32 arg2, void *arg3);
 void TObjPlayer__sub_803E1B1C(struct Vec_803E1B1C *pts, struct Vec_803E1B1C *mn, struct Vec_803E1B1C *mx);
 void Dolphin_GXInitTexObj(TexObj_803E1D90 *, void *, u16, u16, s32, s32, s32, u8);
 void GXInitTexObjCI(TexObj_803E1D90 *, void *, u16, u16, s32, s32, s32, u8, u32);
@@ -90,7 +90,7 @@ void TObjPlayer__sub_803E1B1C(struct Vec_803E1B1C *pts, struct Vec_803E1B1C *mn,
 s32 TObjPlayer__sub_803DFB1C(Vec_803E1B1C *a, Vec_803E1B1C *b);
 s32 __SITransfer(Vec_803E1B1C *a, Vec_803E1B1C *b);
 extern const Faces_803E0ED4 lbl_8047E438;
-s32 TObjPlayer__sub_803E0ED4(Vec_803E1B1C *boxA, Vec_803E1B1C *boxB);
+s32 test_box_overlap__10TObjPlayerFPvPv(Vec_803E1B1C *boxA, Vec_803E1B1C *boxB);
 }
 
 extern "C" {
@@ -165,7 +165,7 @@ static inline CollisionPoint collisionNormalize(CollisionPoint p) {
 
 
 #pragma use_lmw_stmw off
-s32 TObjPlayer__sub_803E0ED4(Vec_803E1B1C *boxA, Vec_803E1B1C *boxB) {
+s32 test_box_overlap__10TObjPlayerFPvPv(Vec_803E1B1C *boxA, Vec_803E1B1C *boxB) {
     Vec_803E1B1C qa[4];
     Vec_803E1B1C qb[4];
     Vec_803E1B1C mnA;
@@ -403,7 +403,7 @@ void load_list_texture(s32 idx, s32 wrapS, s32 wrapT, s32 map) {
     GXLoadTexObj(&lbl_8058DB90, lbl_804FC7D0[map]);
 }
 
-void TObjPlayer__sub_803E1EE8(void *arg0, s32 arg1, u32 arg2, void *arg3) {
+void reload_texture__10TObjPlayerFPviUiPv(void *arg0, s32 arg1, u32 arg2, void *arg3) {
     s32 size;
     if ((arg2 & 0x40000000) != 0) {
         size = arg1;

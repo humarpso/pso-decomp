@@ -40,7 +40,7 @@ void *create__17TChCrTagPlGraphicFPv(void *arg0);
 void render__17TChCrTagPlGraphicFv(void* p);
 void run_task__17TChCrTagPlGraphicFv(void* p);
 int TChCrTagPlGraphic__sub_802A3230(void*);
-int TChCrTag__sub_802A1A00(void*);
+int update_fade__8TChCrTagFPv(void*);
 void *__nw__7TObjectFUl(int);
 int restore_saved_depth_alpha_state(void);
 int draw_class_illustration__17TChCrTagPlGraphicFPv(void*);
@@ -48,7 +48,7 @@ int set_depth_buffer_settings_1__Fv(void*);
 
 void render__17TChCrTagPlGraphicFv(void* p) { set_depth_buffer_settings_1__Fv(p); draw_class_illustration__17TChCrTagPlGraphicFPv(p); restore_saved_depth_alpha_state(); }
 
-void run_task__17TChCrTagPlGraphicFv(void* p) { TChCrTag__sub_802A1A00(p); TChCrTagPlGraphic__sub_802A3230(p); }
+void run_task__17TChCrTagPlGraphicFv(void* p) { update_fade__8TChCrTagFPv(p); TChCrTagPlGraphic__sub_802A3230(p); }
 
 extern void *tl_03;
 

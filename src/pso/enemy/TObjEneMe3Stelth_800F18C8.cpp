@@ -33,7 +33,7 @@ M2C_UNK toggle_particle_effect__10TObjPlayerFv();
 s32 TObjEneMe3Stelth__sub_800F47D4(void *);
 s32 TObjEneMe3Stelth__sub_800F4814(void *);
 s32 TObjEneMe3Stelth__sub_800F4850(void *);
-f32 TObjEneMe3Stelth__sub_800F4D68(void *);
+f32 get_node_world_y__16TObjEneMe3StelthFPv(void *);
 M2C_UNK end_effect_render__13TParticleCtrlFv();
 M2C_UNK queue_debug_text__13TObjEneMe1GeeFiPv(s32, const char *);
 M2C_UNK fn_803D81D0(s32, s32, f32);
@@ -142,7 +142,7 @@ void draw_with_debug_info__16TObjEneMe3StelthFPv(Obj_800F18C8 *arg0) {
             set_depth_buffer_id__16TObjEneMe3StelthFi(1);
             arg0->fF8 = motion;
             arg0->fc0 = frame;
-            frame = TObjEneMe3Stelth__sub_800F4D68(arg0);
+            frame = get_node_world_y__16TObjEneMe3StelthFPv(arg0);
             fn_803D81D0(TObjEneDD__sub_800BB878(0, 7), 5, frame);
         } else {
             some_id_805c6f74 &= ~0x400;

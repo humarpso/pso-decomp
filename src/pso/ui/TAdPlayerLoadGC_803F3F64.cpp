@@ -96,7 +96,7 @@ extern char lbl_804FCF18[];
 extern u32 lbl_805D7980;
 extern Big_803F47BC *lbl_805D79C0;
 extern void *lbl_805D79E0;
-void TAdSinglePlyChrSelectGC__sub_803F47BC(void);
+void init_net_config_defaults__23TAdSinglePlyChrSelectGCFv(void);
 void *OSAllocFromHeap(s32 heap, u32 size);
 void OSFreeToHeap(s32 heap, void *p);
 extern s32 __OSCurrHeap;
@@ -111,7 +111,7 @@ s32 TAdPlayerLoadGC__sub_803F3690(s32 arg0, const char *arg1);
 void TAdPlayerLoadGC__sub_803F389C(s32 chan);
 s32 TAdPlayerLoadGC__sub_803F38BC(s32 arg0, s32 *arg1);
 s32 TAdPlayerLoadGC__sub_803F3998(s32 arg0);
-void TAdSinglePlyChrSelectGC__sub_803F47BC(void);
+void init_net_config_defaults__23TAdSinglePlyChrSelectGCFv(void);
 s32 TLobby__sub_803F4AEC(void);
 s32 TAdPlayerLoadGC__sub_803F4B24(void);
 s32 TAdPlayerLoadGC__sub_803F4B80(void);
@@ -251,7 +251,7 @@ void update_network_info_load__15TAdPlayerLoadGCFv(void) {
                     lbl_805D79A0->crc = 0;
                     sum = fn_803F4D4C(lbl_805D79A0, 0x8000);
                     if (sum != crc) {
-                        TAdSinglePlyChrSelectGC__sub_803F47BC();
+                        init_net_config_defaults__23TAdSinglePlyChrSelectGCFv();
                         TAdPlayerLoadGC__sub_803F3328(lbl_805A82C0.x10);
                         get_or_set_channel_flag__15TAdPlayerLoadGCFii(TAdPlayerLoadGC__sub_803F4B24(), 0);
                         TAdPlayerLoadGC__sub_803F389C(TAdPlayerLoadGC__sub_803F4B24());
@@ -262,7 +262,7 @@ void update_network_info_load__15TAdPlayerLoadGCFv(void) {
                         memset((*(s16 * *)&lbl_805D79C0), 0, 0x19D4);
                         lbl_805A82C0.a = fn_803F7254(key, lbl_805A5F00, lbl_805D79A0->size, (*(s16 * *)&lbl_805D79C0));
                         if (lbl_805A82C0.a != 0) {
-                            TAdSinglePlyChrSelectGC__sub_803F47BC();
+                            init_net_config_defaults__23TAdSinglePlyChrSelectGCFv();
                             TAdPlayerLoadGC__sub_803F3328(lbl_805A82C0.x10);
                             get_or_set_channel_flag__15TAdPlayerLoadGCFii(TAdPlayerLoadGC__sub_803F4B24(), 0);
                             TAdPlayerLoadGC__sub_803F389C(TAdPlayerLoadGC__sub_803F4B24());
@@ -403,7 +403,7 @@ void TAdPlayerLoadGC__sub_803F467C(void) {
 
 #pragma scheduling off
 #pragma optimization_level 2
-void TAdSinglePlyChrSelectGC__sub_803F47BC(void) {
+void init_net_config_defaults__23TAdSinglePlyChrSelectGCFv(void) {
     s16 i;
     memset(lbl_805D79C0, 0, 0x19D4);
     lbl_805D79C0->cur = -1;
@@ -491,7 +491,7 @@ s32 TAdPlayerLoadGC__sub_803F4B24(void) {
 void TLobby__sub_803F4B2C(s32 arg0) {
     if (TLobby__sub_803F4AB4() >= 1) {
         lbl_805D4708 = arg0;
-        TAdSinglePlyChrSelectGC__sub_803F47BC();
+        init_net_config_defaults__23TAdSinglePlyChrSelectGCFv();
     }
 }
 

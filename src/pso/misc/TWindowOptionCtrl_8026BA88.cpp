@@ -11,12 +11,12 @@ s32 refresh_with_default_list__20TWindowSubStatusDispFii(int, void *);
 int get_option_entry__17TWindowOptionCtrlFi(int);
 extern M2C_UNK lbl_8044F48C[];
 extern s32 lbl_805D5544;
-s32 TWindowOptionCtrl__sub_8026BA88(void);
+s32 create_select_menu_window__17TWindowOptionCtrlFv(void);
 }
 
 extern "C" {
 
-s32 TWindowOptionCtrl__sub_8026BA88(void) {
+s32 create_select_menu_window__17TWindowOptionCtrlFv(void) {
     s32 temp_r31;
     temp_r31 = refresh_with_default_list__20TWindowSubStatusDispFii(get_option_entry__17TWindowOptionCtrlFi((int) (0xCF)), (void *) (lbl_8044F48C));
     add_menu_item__17TWindowOptionCtrlFiii((int) (temp_r31), (int) (get_localized_text_entry((int) (0xF), (int) (8))), (int) (0));

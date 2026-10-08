@@ -36,7 +36,7 @@ int play_sound_effect(void*, void*, void*, void*);
 int TBoss6Type2__sub_8032E770(void*, void*);
 int TBoss6Type2__sub_8032E7B4(void*, void*);
 s32 enforce_min_distance__11TBoss6Type2FPv(void *);
-s32 TBoss6Type2__sub_8032EBB4(void *);
+s32 push_out_from_points__11TBoss6Type2FPv(void *);
 s32 push_out_from_target__11TBoss6Type2FPv(void *);
 s32 TBoss6Type2__sub_8032F5FC(void *);
 s32 turn_toward_target__11TBoss6Type2FPv();
@@ -109,7 +109,7 @@ void update_effect_subsystems__11TBoss6Type2FPv(void *arg0) {
     turn_toward_target__11TBoss6Type2FPv();
     TBoss6Type2__sub_8032F5FC(arg0);
     push_out_from_target__11TBoss6Type2FPv(arg0);
-    TBoss6Type2__sub_8032EBB4(arg0);
+    push_out_from_points__11TBoss6Type2FPv(arg0);
     enforce_min_distance__11TBoss6Type2FPv(arg0);
     if ((s32) M2C_FIELD(arg0, s32 *, 0x40C) != 0) {
         set_action__11TBoss6Type2FPvi(arg0, 1);

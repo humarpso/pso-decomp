@@ -12,7 +12,7 @@ s32 is_split_screen(void);
 void *__ct__15TObjNewFloorWinFv(void *arg0, void *arg1, void *arg2);
 s32 get_player_by_client_id(u32);
 u8 *__nw__7TObjectFUl(M2C_UNK);
-u8 *TLobby__sub_80074034(s32 arg0);
+u8 *create_new_floor_windows__6TLobbyFi(s32 arg0);
 }
 
 extern "C" {
@@ -38,7 +38,7 @@ void *__ct__15TObjNewFloorWinFv(void *arg0, void *arg1, void *arg2) {
     return arg0;
 }
 
-u8 *TLobby__sub_80074034(s32 arg0) {
+u8 *create_new_floor_windows__6TLobbyFi(s32 arg0) {
   u32 var_r30;
   u8 *temp_r3;
   u8 *temp_r3_2;

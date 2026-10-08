@@ -19,6 +19,11 @@ struct Obj_800E9BCC {
 };
 
 typedef struct { f32 x, y, z; } Vec_800EB654;
+
+struct Vec_800EAD84 { f32 x, y, z; };
+
+struct Obj_800EAD84 { u8 pad0[0x38]; Vec_800EAD84 pos; };
+
 extern "C" {
 void calc_distance_to_client__10TObjPlayerFiUsUi(void *, u16, void *);
 M2C_UNK VecCopy__FP3VecPC3Vec(void *, void *);
@@ -49,6 +54,9 @@ extern const f32 lbl_805DA6B4;
 extern const f32 lbl_805DA718;
 extern const f32 lbl_805DA758;
 M2C_UNK try_spawn_child__15TObjEneSlimeOneFiPv(int arg0, void *arg1);
+s32 project_actor_to_ground(void *, void *, int);
+extern const f32 lbl_805DA6AC;
+s32 TObjEneSlimeOne__sub_800EAD84(Obj_800EAD84 *arg0);
 }
 
 extern "C" {
@@ -400,13 +408,12 @@ void TObjEneSlimeOne__vt61(void* p);
 void clear_child_flag__15TObjEneSlimeOneFPv(void *arg0);
 void set_target_flag_bit0__15TObjEneSlimeOneFPv(void *arg0);
 void set_display_mode__15TObjEneSlimeOneFPvi(void *arg0, s32 arg1);
-s32 TObjEneSlimeOne__sub_800EAD84(void *);
 void set_random_timer__15TObjEneSlimeOneFPvii(void *arg0, s32 arg1, s32 arg2);
 void set_state__15TObjEneSlimeOneFPvi(TSlime_800EAE78 *arg0, s32 arg1);
 void * __dt__15TObjEneSlimeOneFv(void *arg0, s16 arg1);
 s32 TObjEneSlimeOne__sub_800EB1B4(void *);
 u8 * TObjEneSlimeOne__ct(u8 *arg0, M2C_UNK arg1, s32 arg2, s32 arg3, s32 arg4);
-u8 * TObjEneSlimeOne__sub_800EB4A0(u8 *arg0, M2C_UNK arg1, s32 arg2, s32 arg3);
+u8 * init__15TObjEneSlimeOneFPviii(u8 *arg0, M2C_UNK arg1, s32 arg2, s32 arg3);
 s32 create__15TObjEneSlimeOneFiii(s32 arg0, s32 arg1, s32 arg2);
 s32 create__15TObjEneSlimeOneFii(s32 arg0, s32 arg1);
 void fn_800EB778(void *, s32);
@@ -1359,7 +1366,7 @@ void TObjPlayer__sub_800EA364(u8 *arg0) {
         M2C_FIELD(arg0, f32 *, 0x38) += M2C_FIELD(arg0, f32 *, 0x3B4) * M2C_FIELD(arg0, f32 *, 0x3B8);
         M2C_FIELD(arg0, f32 *, 0x3C) += M2C_FIELD(arg0, f32 *, 0x3B4) * M2C_FIELD(arg0, f32 *, 0x3BC);
         M2C_FIELD(arg0, f32 *, 0x40) += M2C_FIELD(arg0, f32 *, 0x3B4) * M2C_FIELD(arg0, f32 *, 0x3C0);
-        if (TObjEneSlimeOne__sub_800EAD84(arg0) != 0 && csnLookAt(arg0 + 0x44, arg0 + 0x38) == 0) {
+        if (TObjEneSlimeOne__sub_800EAD84((Obj_800EAD84 *)(arg0)) != 0 && csnLookAt(arg0 + 0x44, arg0 + 0x38) == 0) {
             break;
         }
         ang = i << 12;
@@ -1576,6 +1583,19 @@ void set_display_mode__15TObjEneSlimeOneFPvi(void *arg0, s32 arg1) {
     }
 }
 
+#pragma push
+#pragma fp_contract on
+s32 TObjEneSlimeOne__sub_800EAD84(Obj_800EAD84 *arg0) {
+    Vec_800EAD84 sp = arg0->pos;
+    sp.y = sp.y + lbl_805DA6AC;
+    if (project_actor_to_ground((void *)(arg0), (void *)(&sp), (int)(0)) != 0) {
+        arg0->pos.y += 0.5f * (sp.y - arg0->pos.y);
+        return 1;
+    }
+    return 0;
+}
+#pragma pop
+
 void set_random_timer__15TObjEneSlimeOneFPvii(void *arg0, s32 arg1, s32 arg2) {
     M2C_FIELD(arg0, s32 *, 0x390) = (s32) (arg1 + (s32) ((f32) arg2 * ((f32 (*)(void))calc_boss4_scale__10TObjPlayerFi)()));
 }
@@ -1624,7 +1644,7 @@ u8 *TObjEneSlimeOne__ct(u8 *arg0, M2C_UNK arg1, s32 arg2, s32 arg3, s32 arg4) {
     return arg0;
 }
 
-u8 *TObjEneSlimeOne__sub_800EB4A0(u8 *arg0, M2C_UNK arg1, s32 arg2, s32 arg3) {
+u8 *init__15TObjEneSlimeOneFPviii(u8 *arg0, M2C_UNK arg1, s32 arg2, s32 arg3) {
     typedef char sp8_offset[(offsetof(Stack_800EB4A0, sp8) == 0x0) ? 1 : -1];
     typedef char spE_offset[(offsetof(Stack_800EB4A0, spE) == 0x6) ? 1 : -1];
     Stack_800EB4A0 stack;
@@ -1670,7 +1690,7 @@ s32 create__15TObjEneSlimeOneFii(s32 arg0, s32 arg1) {
         if (var_r4 != 0) {
             var_r4 = ((s32 (*)(s32, s32))TObjControl__ct)(var_r4, tl_04);
         }
-        var_r31 = ((s32)TObjEneSlimeOne__sub_800EB4A0((u8 *)(var_r31), (M2C_UNK)(var_r4), (s32)(arg0), (s32)(arg1)));
+        var_r31 = ((s32)init__15TObjEneSlimeOneFPviii((u8 *)(var_r31), (M2C_UNK)(var_r4), (s32)(arg0), (s32)(arg1)));
     }
     return var_r31;
 }

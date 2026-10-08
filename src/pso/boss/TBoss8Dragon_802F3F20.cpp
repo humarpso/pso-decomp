@@ -40,7 +40,7 @@ extern const f32 lbl_805DED68;
 extern const f32 lbl_805DED6C;
 void TBoss8Dragon__sub_802F4098(u8 *arg0, u8 *arg1);
 void VecCopy__FP3VecPC3Vec(void *, void *);
-void TCameraCtrl__sub_80069094(s32);
+void get_camera_target_id__11TCameraCtrlFi(s32);
 f32 clamp_velocity__15TObjBoss2TunnelFPv(void *);
 u8 *find_entity_by_id(void);
 s32 TBoss8Dragon__sub_802F4760(void *, void *, f32);
@@ -109,7 +109,7 @@ s32 TBoss8Dragon__sub_802F3F20(u8 *arg0) {
     if (*(s32 *)(arg0 + 0x3E4) != 0) {
         return 0;
     }
-    TCameraCtrl__sub_80069094(-1);
+    get_camera_target_id__11TCameraCtrlFi(-1);
     temp_r3 = find_entity_by_id();
     if (temp_r3 == 0) {
         return 0;

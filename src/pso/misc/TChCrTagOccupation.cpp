@@ -161,13 +161,13 @@ void create_all__18TChCrTagOccupationFv(void) { { int i; for (i = 0; i < 3; i++)
 }
 
 extern "C" {
-void TChCrTag__sub_802A1A00();
+void update_fade__8TChCrTagFPv();
 void render_shadows__7TObjectFv();
 void *__vt__18TChCrTagOccupation[7] = {
     0,
     0,
     (void *)__dt__18TChCrTagOccupationFv,
-    (void *)TChCrTag__sub_802A1A00,
+    (void *)update_fade__8TChCrTagFPv,
     (void *)render__18TChCrTagOccupationFv,
     (void *)render_shadows__7TObjectFv,
     (void *)TChCrTagOccupation__vt4,

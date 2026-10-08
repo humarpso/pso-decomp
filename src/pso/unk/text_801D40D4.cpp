@@ -61,7 +61,7 @@ s32 is_both_confirmed__23TAdSinglePlyChrSelectGCFPv(void *);
 void TAdSinglePlyChrSelectGC__sub_801FC138(void *);
 s32 get_char_index__23TAdSinglePlyChrSelectGCFUi(int);
 void memcpy(void *, void *, s32);
-void fn_801D41B4(s32 arg0);
+void remove_list_entry_by_id(s32 arg0);
 void TObjPlayer__sub_801D4730(void* p);
 void TObjPlayer__sub_801D47D8(void* p, void* q);
 void TObjPlayer__sub_801D4744(List_801D4744 *arg0);
@@ -103,7 +103,7 @@ s32 check_player_action_allowed(void) {
     return get_game_mode__23TAdSinglePlyChrSelectGCFv();
 }
 
-void fn_801D41B4(s32 arg0) {
+void remove_list_entry_by_id(s32 arg0) {
     u8 *cnt;
     s32 i;
     s32 n;

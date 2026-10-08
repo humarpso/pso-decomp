@@ -7,7 +7,7 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 extern "C" {
 s32 TObjEneBm3FlyNest__sub_800B3AC8(u8 *arg0);
 void TObjEneEpsilonGuard__vt86(void* p);
-int TObjEneDD__sub_800BAAE4(void*, void*, void*);
+int set_part_local_pos__9TObjEneDDFPvPvi(void*, void*, void*);
 s32 TObjEneBm3FlyNest__sub_800B3AC8(u8 *arg0);
     extern int lbl_805D5108;
 void TObjEneEpsilonGuard__vt86(void* p);
@@ -75,6 +75,6 @@ void update_center_position__19TObjEneEpsilonGuardFPv(u8 *arg0) {
     M2C_FIELD(arg0, f32 *, 0x304) = (f32) M2C_FIELD(arg0, f32 *, 0x40);
     VecCopy__FP3VecPC3Vec((void *) (arg0 + 0x74), (void *) (arg0 + 0x2FC), (void *) (arg0), (f32) (TObjEneEpsilonGuard__data_805E01DC));
 }
-void TObjEneEpsilonGuard__vt86(void* p) { TObjEneDD__sub_800BAAE4(p, (char*)p + 0x2fc, (void*)0); }
+void TObjEneEpsilonGuard__vt86(void* p) { set_part_local_pos__9TObjEneDDFPvPvi(p, (char*)p + 0x2fc, (void*)0); }
 
 }

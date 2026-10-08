@@ -49,7 +49,7 @@ void VISetBlack(s32);
 u32 VIGetRetraceCount(void);
 M2C_UNK LCEnable();
 s32 OSCreateHeap(int, int);
-M2C_UNK fn_803DD430(void *, void *);
+M2C_UNK get_render_mode_for_tv_format(void *, void *);
 void *GXInit(s32, s32);
 void GXInitTlutRegion(Tlut_803DD0D8 *, u32, u32);
 void GXSetDispCopySrc(u16, u16, u16, u16);
@@ -170,7 +170,7 @@ void set_present_interval(M2C_UNK *arg0, s32 arg1) {
     if (arg0 != NULL) {
         (*(M2C_UNK * *)&lbl_805D7734) = arg0;
     } else {
-        fn_803DD430((void *) ((*(M2C_UNK * *)&lbl_805D7734)), (void *) (lbl_8058D340));
+        get_render_mode_for_tv_format((void *) ((*(M2C_UNK * *)&lbl_805D7734)), (void *) (lbl_8058D340));
         (*(M2C_UNK * *)&lbl_805D7734) = lbl_8058D340;
         var_r4 = 1;
     }

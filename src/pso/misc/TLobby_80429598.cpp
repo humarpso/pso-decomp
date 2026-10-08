@@ -365,7 +365,7 @@ extern s32 lbl_805D7C7C;
 extern s32 lbl_805D7C80;
 extern s32 lbl_805D7C84;
 extern s32 lbl_805D7C88;
-M2C_UNK TLobby__sub_8042B370(int, int);
+M2C_UNK exi_start_send_dma__6TLobbyFii(int, int);
 extern Ent_804253F8 lbl_805C30C0[0x20];
 void TLobby__sub_804253F8(u32 arg0);
 extern Ent_804253F8 lbl_805C30C0[0x20];
@@ -434,7 +434,7 @@ extern u32 lbl_805D7B6C;
 extern u32 lbl_805D7B78;
 extern u32 lbl_805D7B7C;
 
-void TLobby__sub_804245E4(u8 *arg0);
+void parse_dhcp_lease_times__6TLobbyFPv(u8 *arg0);
 
 u8 TLobby__sub_80424830(u8 *p, u8 tag, u8 **out);
 
@@ -618,13 +618,13 @@ void TLobby__sub_8042B334(s32 arg0, s32 arg1, s32 arg2) {
     var_r4 = 0;
     lbl_805D7C40 = 1;
     lbl_805D7C54 = arg2;
-    TLobby__sub_8042B370((int)((int) (0)), (int)((int) (0)));
+    exi_start_send_dma__6TLobbyFii((int)((int) (0)), (int)((int) (0)));
 }
 
-M2C_UNK TLobby__sub_8042B370(int, int) {
+M2C_UNK exi_start_send_dma__6TLobbyFii(int, int) {
     u8 pad[4];
     s32 cmd;
-    if (EXILock(0, 2, (u32)TLobby__sub_8042B370) != 0) {
+    if (EXILock(0, 2, (u32)exi_start_send_dma__6TLobbyFii) != 0) {
         if (lbl_805D7C80 < 0x3C) {
             lbl_805D7C80 = 0x3C;
         }

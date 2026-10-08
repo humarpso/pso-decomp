@@ -156,6 +156,8 @@ struct Ents_802BE0D4 { u8 pad[0x400]; Ent_802BE0D4 ents[2]; };
 
 struct Arr_802BE0D4 { u8 pad[0x378]; s32 arr[32]; };
 
+struct Boss_802BD7EC { u8 pad[0x2E4]; s32 f2E4; };
+
 extern "C" {
 s32 get_bml_model(s32, M2C_UNK);
 s32 collect_and_count__12TBoss3VoloptFUii(int, int);
@@ -276,6 +278,11 @@ extern s32 lbl_805D3EB8;
 extern const f32 TBoss6Type2__data_805DE40C;
 extern const f32 TBoss6Type2__data_805DE410;
 s32 TBoss6Type2__ct(s32 arg0_, s32 arg1, s32 arg2_);
+s32 TBoss6Type2__sub_802BD870(u32 v);
+s32 rand(void);
+extern const f32 TBoss6Type2__data_805DE468;
+extern const f32 lbl_805DE4C4;
+s32 TBoss6Type2__sub_802BD7EC(Boss_802BD7EC *o);
 }
 
 extern "C" {
@@ -623,7 +630,7 @@ s32 project_actor_to_ground(void *, void *, int);
 u8 * get_player_by_client_id(u32);
 M2C_UNK play_sound_effect(s32, void *, s32, s32);
 s32 __nw__7TObjectFUl(M2C_UNK);
-void TBoss6PlotFalz__sub_802AAD84(s32, s32);
+void damage_player_hp__14TBoss6PlotFalzFiUi(s32, s32);
 int TBoss6PlotFalz__sub_802AAFCC(void*);
 s32 is_active__14TBoss6PlotFalzFPv();
 s32 is_state_1f__14TBoss6PlotFalzFUi(void *);
@@ -644,9 +651,9 @@ void TBoss6Type2__sub_802B9938(f32 *arg0, s8 *arg1, s8 *arg2);
 void TBoss6Type2__sub_802B9994(s8 arg0, s8 arg1, f32 *arg2);
 void call_9A24_plus_1__11TBoss6Type2Fi(s32 arg0);
 void unpack_path_entry__11TBoss6Type2FPvPv(u8 *arg0, s32 *arg1);
-s32 TBoss6Type2__sub_802B9A68(s32 id);
+s32 is_player_in_rock_area__11TBoss6Type2Fi(s32 id);
 void TBoss6Type2__sub_802B9B20(Boss_802B9B20 *o);
-void TBoss6Type2__sub_802B9BBC(s32 arg0, s32 arg1);
+void destroy_part__11TBoss6Type2Fii(s32 arg0, s32 arg1);
 void spawn_particle_slot__11TBoss6Type2FPvi(u8 *arg0, s32 arg1);
 void TBoss6Type2__sub_802B9C80(Boss_802B9C80 *o);
 void init_parts__11TBoss6Type2FPv(s32 arg0);
@@ -655,7 +662,7 @@ void TBoss6Type2__sub_802B9D90(u8 *arg0);
 void set_fields_554__11TBoss6Type2FPv(void* p);
 void TBoss6Type2__sub_802B9EE4(T2_802B9EE4 *arg0);
 void TBoss6Type2__sub_802B9F0C(T2_802B9EE4 *arg0);
-void TBoss6Type2__sub_802B9F3C(Boss_802B9F3C *arg0, Vec_802B9A68 *arg1);
+void aim_toward_point__11TBoss6Type2FPvPv(Boss_802B9F3C *arg0, Vec_802B9A68 *arg1);
 void TBoss6Type2__sub_802BA000(T2_802BA000 *arg0);
 void TBoss6Type2__sub_802BA078(Boss_802BA078 *arg0);
 void TBoss6Type2__sub_802BA158(Obj_802BA158 *self);
@@ -732,13 +739,12 @@ void TBoss6Type2__vt60(u8 *arg0);
 s32 TBoss6Type2__sub_802BD68C(T1_802BD68C *arg0, s32 arg1, s32 arg2);
 void set_target_state__11TBoss6Type2FPvii(void *arg0, s32 arg1, s32 arg2);
 s32 TBoss6Type2__sub_802BD76C(T2_802BD76C *arg0);
-s32 TBoss6Type2__sub_802BD7EC(void *);
 s32 TBoss6Type2__sub_802BD870(u32 v);
 int get_table_entry__11TBoss6Type2Fi(int a0);
 void TBoss6Type2__sub_802BD938(u8 *arg0, u8 *arg1);
 void update_attack_target__11TBoss6Type2FPv(void *arg0);
 void update_action_state__11TBoss6Type2FPv(void *arg0);
-void TBoss6Type2__sub_802BDD6C(void *arg0, s32 arg1, M2C_UNK *arg2);
+void send_action_packet_if_idle__11TBoss6Type2FPviPv(void *arg0, s32 arg1, M2C_UNK *arg2);
 void send_action_packet__11TBoss6Type2FPvc(u8 *arg0, s8 arg1);
 void parse_action_packet__11TBoss6Type2FPvPv(void *arg0, void *arg1);
 void TBoss6Type2__sub_802BDF50(u8 *arg0, u8 *arg1);
@@ -873,7 +879,7 @@ void unpack_path_entry__11TBoss6Type2FPvPv(u8 *arg0, s32 *arg1) {
     ((M2C_UNK (*)(int, int, void *, void *))TBoss6Type2__sub_802B9994)((int) (M2C_FIELD(arg0, u8 *, 0)), (int) (M2C_FIELD(arg0, u8 *, 1)), (void *) ((u8 *) arg1 + 4), (void *) (arg0));
 }
 
-s32 TBoss6Type2__sub_802B9A68(s32 id) {
+s32 is_player_in_rock_area__11TBoss6Type2Fi(s32 id) {
     Vec_802B9A68 a;
     Vec_802B9A68 b;
     f32 r;
@@ -921,7 +927,7 @@ void TBoss6Type2__sub_802B9B20(Boss_802B9B20 *o) {
 
 #pragma push
 #pragma opt_common_subs off
-void TBoss6Type2__sub_802B9BBC(s32 arg0, s32 arg1) {
+void destroy_part__11TBoss6Type2Fii(s32 arg0, s32 arg1) {
     u32 temp_r3;
     u8 *temp_r31;
     temp_r31 = (u8 *)(arg0 + (arg1 * 4));
@@ -965,7 +971,7 @@ void init_parts__11TBoss6Type2FPv(s32 arg0) {
     s32 var_r31;
     var_r31 = 0;
     do {
-        TBoss6Type2__sub_802B9BBC(arg0, var_r31);
+        destroy_part__11TBoss6Type2Fii(arg0, var_r31);
         var_r31 += 1;
     } while (var_r31 < 0xE);
 }
@@ -1088,7 +1094,7 @@ extern int fold_flush_5;
 #pragma opt_common_subs reset
 #pragma opt_propagation reset
 #pragma opt_dead_assignments reset
-void TBoss6Type2__sub_802B9F3C(Boss_802B9F3C *arg0, Vec_802B9A68 *arg1) {
+void aim_toward_point__11TBoss6Type2FPvPv(Boss_802B9F3C *arg0, Vec_802B9A68 *arg1) {
     Vec_802B9A68 v;
     s32 ang;
     s32 i;
@@ -1137,7 +1143,7 @@ void TBoss6Type2__sub_802BA078(Boss_802BA078 *arg0) {
         p = (Player_802BA078 *)get_player_by_client_id(arg0->f55C);
         if (is_active__14TBoss6PlotFalzFPv() != 0) {
             s32 r = rand_vary_count__14TBoss6PlotFalzFif(arg0->f4B8, TBoss6Type2__data_805DE430);
-            TBoss6PlotFalz__sub_802AAD84(arg0->f55C, r);
+            damage_player_hp__14TBoss6PlotFalzFiUi(arg0->f55C, r);
             p->f30 |= 0x200;
             spawn_particle_effect_with_flags((s32)&p->pos, 0x212, 0x40);
             {
@@ -1267,7 +1273,7 @@ void update_possess_target__11TBoss6Type2FPv(u8 *arg0) {
         if (done != 0) {
             ((int (*)(void *))TBoss6Type2__sub_802BA180)(arg0);
             M2C_FIELD(arg0, u16 *, 0x464) = 0xFFFF;
-            M2C_FIELD(arg0, s32 *, 0x428) = TBoss6Type2__sub_802BD7EC(arg0);
+            M2C_FIELD(arg0, s32 *, 0x428) = TBoss6Type2__sub_802BD7EC((Boss_802BD7EC *)(arg0));
             M2C_FIELD(arg0, s32 *, 0x430) = ((s32 (*)(void *))TBoss6Type2__sub_802BD76C)(arg0);
         }
         switch (M2C_FIELD(arg0, s32 *, 0x374)) {
@@ -1310,7 +1316,7 @@ void TBoss6Type2__sub_802BA7BC(u8 *o) {
         f32 lo = e->lo;
         f32 v = *(f32 *)(o + e->idx * 0xC + 0x5A0);
         if (v < lo || v > k + lo) {
-            ((void (*)(void *, int))TBoss6Type2__sub_802B9BBC)(o, e->arg);
+            ((void (*)(void *, int))destroy_part__11TBoss6Type2Fii)(o, e->arg);
         } else {
             ((void (*)(void *, int))spawn_particle_slot__11TBoss6Type2FPvi)(o, e->arg);
         }
@@ -1537,17 +1543,17 @@ void TBoss6Type2__sub_802BB498(T2_802BB498 *arg0) {
     }
 }
 
-int TBoss6Type2__sub_802BB4DC(void* p) { return ((int (*)(void*, int))TBoss6Type2__sub_802B9F3C)(p, 0); }
+int TBoss6Type2__sub_802BB4DC(void* p) { return ((int (*)(void*, int))aim_toward_point__11TBoss6Type2FPvPv)(p, 0); }
 
 void update_target__11TBoss6Type2FPv(void *arg0) {
     s32 temp_r3;
 
     temp_r3 = ((s32 (*)(u16))get_player_by_client_id)(M2C_FIELD(arg0, u16 *, 0x466));
     if (temp_r3 != 0) {
-        ((int (*)(void*, int))TBoss6Type2__sub_802B9F3C)(arg0, temp_r3 + 0x38);
+        ((int (*)(void*, int))aim_toward_point__11TBoss6Type2FPvPv)(arg0, temp_r3 + 0x38);
         return;
     }
-    ((int (*)(void*, int))TBoss6Type2__sub_802B9F3C)(arg0, 0);
+    ((int (*)(void*, int))aim_toward_point__11TBoss6Type2FPvPv)(arg0, 0);
 }
 
 void TBoss6Type2__sub_802BB554(T2_802BB554 *arg0) {
@@ -2586,6 +2592,16 @@ extern int fold_flush_26;
 #pragma inline_depth(1)
 #pragma auto_inline off
 #pragma dont_inline off
+
+s32 TBoss6Type2__sub_802BD7EC(Boss_802BD7EC *o) {
+    s32 t = TBoss6Type2__sub_802BD870(o->f2E4);
+    s32 r = t + (s32)(lbl_805DE4C4 * (TBoss6Type2__data_805DE468 * (f32)rand())) + 1;
+    if (r >= 4) {
+        r -= 4;
+    }
+    return r;
+}
+
 s32 TBoss6Type2__sub_802BD870(u32 v) {
     s32 i;
     for (i = 0; i < 4; i++) {
@@ -2715,7 +2731,7 @@ void update_attack_target__11TBoss6Type2FPv(void *arg0) {
         break;
     }
     TBoss6Type2__sub_802BD938((u8 *)(arg0), (u8 *)(&sp8));
-    TBoss6Type2__sub_802BDD6C((void *)(arg0), (s32)(var_r31), (M2C_UNK *)(&sp8));
+    send_action_packet_if_idle__11TBoss6Type2FPviPv((void *)(arg0), (s32)(var_r31), (M2C_UNK *)(&sp8));
 }
 extern int fold_flush_29;
 #pragma pop
@@ -2736,7 +2752,7 @@ void update_action_state__11TBoss6Type2FPv(void *arg0) {
     if ((s32) M2C_FIELD(arg0, s32 *, 0x46C) == 0) {
         var_r4 = 5;
     }
-    TBoss6Type2__sub_802BDD6C((void *)(arg0), (s32)(var_r4), (M2C_UNK *)(&sp8));
+    send_action_packet_if_idle__11TBoss6Type2FPviPv((void *)(arg0), (s32)(var_r4), (M2C_UNK *)(&sp8));
 }
 extern int fold_flush_30;
 #pragma pop
@@ -2748,7 +2764,7 @@ extern int fold_flush_30;
 #pragma inline_depth(1)
 #pragma auto_inline off
 #pragma dont_inline off
-void TBoss6Type2__sub_802BDD6C(void *arg0, s32 arg1, M2C_UNK *arg2) {
+void send_action_packet_if_idle__11TBoss6Type2FPviPv(void *arg0, s32 arg1, M2C_UNK *arg2) {
     Pkt_802BDD6C p;
     u8 *s; s32 i;
     if (is_idle__11TBoss6Type1FPv(*(s32 *)((u8 *)arg0 + 0x3F8)) != 0) {

@@ -58,7 +58,7 @@ void disallow_rendering__7TObjectFv(void *);
 s32 clear_flag4_bit4__22TQuestVmDownLoadServerFPv(void *);
 s32 TLobby__sub_801B0974();
 M2C_UNK fn_80307BE8(void *);
-void TAdVIConfigGC__sub_80307DF4(u8 *arg0);
+void update_visibility__13TAdVIConfigGCFPv(u8 *arg0);
 void set_close_flag__19TWindowSubTradeMainFPv(u32);
 void set_visible__19TWindowSubTradeMainFPv(u32);
 u8 *get_player_by_client_id(s32);
@@ -127,7 +127,7 @@ void open_player_names_window__13TAdVIConfigGCFPv(Cfg_80307D00 *arg0) {
 
 s32 get_field_14__13TAdVIConfigGCFPv(void* p) { return *(s32*)((char*)p + 0x14); }
 
-void TAdVIConfigGC__sub_80307DF4(u8 *arg0) {
+void update_visibility__13TAdVIConfigGCFPv(u8 *arg0) {
     s32 temp_r3;
     u8 *temp_r3_2;
     temp_r3 = TLobby__sub_801B0974();

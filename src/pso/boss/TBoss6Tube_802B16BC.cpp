@@ -13,7 +13,7 @@ extern u8 lbl_80470A68[];
 extern u8 lbl_804DE888[];
 extern u32 lbl_805D6718;
 extern u32 lbl_805D671C;
-void TBoss6Tube__sub_802B1760(void);
+void load_resources__10TBoss6TubeFv(void);
 }
 
 extern "C" {
@@ -50,7 +50,7 @@ void free_resources__10TBoss6TubeFv(void) {
     }
     reset_state__10TBoss6TubeFv();
 }
-void TBoss6Tube__sub_802B1760(void) {
+void load_resources__10TBoss6TubeFv(void) {
     s32 r;
     reset_state__10TBoss6TubeFv();
     r = alloc__23TAdSinglePlyChrSelectGCFPv(0x440);

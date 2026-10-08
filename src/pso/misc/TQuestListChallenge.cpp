@@ -159,7 +159,7 @@ s32 get_guild_text(s32);
 void calc_list_content_extent(u32);
 void add_list_entry__6TLobbyFPviii(u32, s32, s32, s32);
 s32 create_item_list_window(s32, s32, s32);
-void TQuestListChallenge__sub_80288FDC(QLC_80288FDC *arg0);
+void create_quest_list_window__19TQuestListChallengeFPv(QLC_80288FDC *arg0);
 }
 
 extern "C" {
@@ -338,7 +338,7 @@ void update_selection__19TQuestListChallengeFPv(QLC_80288DA4 *self) {
     }
 }
 
-void TQuestListChallenge__sub_80288FDC(QLC_80288FDC *arg0) {
+void create_quest_list_window__19TQuestListChallengeFPv(QLC_80288FDC *arg0) {
     u16 id;
     s32 i;
     s32 e;

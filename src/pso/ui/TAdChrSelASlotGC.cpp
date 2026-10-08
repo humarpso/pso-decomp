@@ -91,7 +91,7 @@ int sprintf(char *, const char *, ...);
 void *memset(void *, int, unsigned long);
 extern char lbl_80542D60[];
 extern const f32 lbl_805DF20C;
-s32 TAdChrSelASlotGC__sub_8030C8D8(s32 arg0, s32 arg1, s32 arg2);
+s32 create_format_message_window__16TAdChrSelASlotGCFiii(s32 arg0, s32 arg1, s32 arg2);
 void copy_vec2__28TWindowSubSymbolChatPartsSetFPvPv(void *, void *);
 s32 get_localized_text_entry(M2C_UNK, M2C_UNK);
 M2C_UNK free_member__17TWindowSubComCardFPv(s32, M2C_UNK);
@@ -101,7 +101,7 @@ extern u8 TAdChrSelASlotGC__data_804758A8[];
 extern u8 TAdChrSelASlotGC__data_804758B0[];
 extern u8 TAdChrSelASlotGC__data_804758B8[];
 extern const f32 TAdChrSelASlotGC__data_805DF208;
-s32 TAdChrSelASlotGC__sub_8030C750(u8 *arg0, s32 arg1, s32 arg2);
+s32 open_confirm_message__16TAdChrSelASlotGCFPvii(u8 *arg0, s32 arg1, s32 arg2);
 void copy_vec2__28TWindowSubSymbolChatPartsSetFPvPv(void *, void *);
 s32 get_localized_text_entry(M2C_UNK, M2C_UNK);
 M2C_UNK free_member__17TWindowSubComCardFPv(s32, M2C_UNK);
@@ -111,7 +111,7 @@ extern u8 TAdChrSelASlotGC__data_804758A8[];
 extern u8 TAdChrSelASlotGC__data_804758B0[];
 extern u8 TAdChrSelASlotGC__data_804758B8[];
 extern const f32 TAdChrSelASlotGC__data_805DF208;
-s32 TAdChrSelASlotGC__sub_8030C814(u8 *arg0, s32 arg1, s32 arg2);
+s32 create_message_window__16TAdChrSelASlotGCFPvii(u8 *arg0, s32 arg1, s32 arg2);
 }
 
 extern "C" {
@@ -200,7 +200,7 @@ G_8030C45C *TAdChrSelASlotGC__sub_8030C45C(s32 arg0, s32 arg1, s32 arg2, void *a
     return &lbl_80542E60;
 }
 
-s32 TAdChrSelASlotGC__sub_8030C750(u8 *arg0, s32 arg1, s32 arg2) {
+s32 open_confirm_message__16TAdChrSelASlotGCFPvii(u8 *arg0, s32 arg1, s32 arg2) {
     V2_8030C750 pos;
     s32 w;
     w = create__19TWindowMessageYesNoFPvPvPvPv((s32)arg0, arg2, 0, 0);
@@ -217,7 +217,7 @@ s32 TAdChrSelASlotGC__sub_8030C750(u8 *arg0, s32 arg1, s32 arg2) {
     return w;
 }
 
-s32 TAdChrSelASlotGC__sub_8030C814(u8 *arg0, s32 arg1, s32 arg2) {
+s32 create_message_window__16TAdChrSelASlotGCFPvii(u8 *arg0, s32 arg1, s32 arg2) {
     V2_8030C814 pos;
     s32 w;
     w = create__19TWindowMessageYesNoFPvPvPvPv((s32)arg0, arg2, 0, 0);
@@ -234,7 +234,7 @@ s32 TAdChrSelASlotGC__sub_8030C814(u8 *arg0, s32 arg1, s32 arg2) {
     return w;
 }
 
-s32 TAdChrSelASlotGC__sub_8030C8D8(s32 arg0, s32 arg1, s32 arg2) {
+s32 create_format_message_window__16TAdChrSelASlotGCFiii(s32 arg0, s32 arg1, s32 arg2) {
     s32 w;
     w = create__19TWindowMessageYesNoFPvPvPvPv((s32)(arg0), (s32)(arg2), (M2C_UNK)(0), (M2C_UNK)(0));
     memset(lbl_80542D60, 0, 0x100);

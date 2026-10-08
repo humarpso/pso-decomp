@@ -23,7 +23,7 @@ extern RecoveredGlobal_8032B390_lbl_80477198 lbl_80477198;
 extern RecoveredGlobal_8032B390_lbl_804771B8 lbl_804771B8;
 extern s32 tl_clipout;
 extern int lbl_805D6CA8;
-void TAdEnterBaseGC__sub_8032B390(u8 *arg0);
+void create_parts__14TAdEnterBaseGCFPv(u8 *arg0);
 }
 
 extern "C" {
@@ -45,7 +45,7 @@ void run_task__14TAdEnterBaseGCFv(void) {  }
 
 typedef char RecoveredGlobal_8032B390_lbl_80477198_size[sizeof(RecoveredGlobal_8032B390_lbl_80477198) == 0x20 ? 1 : -1];
 typedef char RecoveredGlobal_8032B390_lbl_804771B8_size[sizeof(RecoveredGlobal_8032B390_lbl_804771B8) == 0x10 ? 1 : -1];
-void TAdEnterBaseGC__sub_8032B390(u8 *arg0) {
+void create_parts__14TAdEnterBaseGCFPv(u8 *arg0) {
     u32 temp_r3;
     u32 temp_r3_2;
     u32 temp_r3_3;

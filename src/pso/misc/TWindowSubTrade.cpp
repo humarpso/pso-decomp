@@ -45,7 +45,7 @@ s32 is_child_visible__17TWindowSubComCardFPv(int);
 u32 open_trade_confirm_prompt(void *, int);
 u32 fn_802B1B80(void *, int, int);
 u32 TWindowSubComCard__sub_802B1C1C(void *);
-M2C_UNK TLobby__sub_802D2D64();
+M2C_UNK cancel_trade__6TLobbyFv();
 M2C_UNK send_modify_trade_proposal__6TLobbyFi(int);
 extern M2C_UNK lbl_8050E208[];
 void run_task__15TWindowSubTradeFv(u8 *arg0);
@@ -124,7 +124,7 @@ void run_task__15TWindowSubTradeFv(u8 *arg0) {
         temp_r5 = temp_r30 * 0x50;
         if ((TWindowShortListCtrl__check_controller_button((void *) ((u8 *)(((u8 *)(lbl_8050E208) + temp_r5)) + 0x20), (int) (2), (int) (temp_r5)) != 0) || (test_flag_4c__23TAdSinglePlyChrSelectGCFPv((void *) ((u8 *)(lbl_8050E208) + 0x160), (int) (2)) != 0)) {
             play_sound_effect((int) (0x52F16), (int) (0), (int) (0), (int) (0));
-            TLobby__sub_802D2D64();
+            cancel_trade__6TLobbyFv();
             M2C_FIELD(arg0, u8 *, 0x1C) = 1U;
         }
         break;

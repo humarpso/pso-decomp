@@ -112,7 +112,7 @@ M2C_UNK queue_destruction__7TObjectFv(void *);
 void transition_enemy_state(void *, s32);
 void advance_animation_playback(void *);
 void select_next_target__12TObjEneReconFPv(void *, s32);
-void TObjEneRecon__sub_8031DD14(void *);
+void clamp_min_height__12TObjEneReconFPv(void *);
 void spawn_trap_b__12TObjEneReconFi(s32);
 void update_velocity__9TObjEneDDFPv(void *);
 }
@@ -375,7 +375,7 @@ void transition_enemy_state(void *, s32);
 void advance_animation_playback(void *);
 void play_sound_effect(s32, void *, s32, s32);
 void select_next_target__12TObjEneReconFPv(void *, s32);
-void TObjEneRecon__sub_8031DD14(void *);
+void clamp_min_height__12TObjEneReconFPv(void *);
 void set_flag2__12TObjEneReconFPv(void *, f32, f32, f32);
 s32 remap_area_sound_id__14TObjEneRecoboxFUi(s32);
 extern const f32 TObjEneRecon__data_805DF3E0;
@@ -391,7 +391,7 @@ void refresh_lobby_state__10TObjPlayerFPv(void *);
 void advance_animation_playback(void *);
 s32 project_actor_to_ground(void *, void *, void *);
 void play_sound_effect(s32, void *, s32, s32);
-void TObjEneRecon__sub_8031DD14(void *);
+void clamp_min_height__12TObjEneReconFPv(void *);
 void set_flag2__12TObjEneReconFPv(void *, f32, f32, f32);
 s32 remap_area_sound_id__14TObjEneRecoboxFUi(s32);
 f32 sin_table_lookup(s32);
@@ -464,7 +464,7 @@ void TObjEneRecon__sub_8031C364(u8 *arg0, s32 arg1) {
                 }
             }
             F(f32, 0x3E4) *= lbl_805DF3D8;
-            TObjEneRecon__sub_8031DD14(arg0);
+            clamp_min_height__12TObjEneReconFPv(arg0);
             break;
         case 2:
             F(s32, 0x444) |= 1;
@@ -517,7 +517,7 @@ void TObjEneRecon__sub_8031C624(u8 *arg0, s32 arg1) {
         M2C_FIELD(arg0, f32 *, 0x454) = M2C_FIELD(arg0, f32 *, 0x310);
         v = clamp_velocity__15TObjBoss2TunnelFPv(arg0 + 0x44C, n);
         set_flag2__12TObjEneReconFPv(arg0, M2C_FIELD(arg0, f32 *, 0x44C), M2C_FIELD(arg0, f32 *, 0x454), v);
-        TObjEneRecon__sub_8031DD14(arg0);
+        clamp_min_height__12TObjEneReconFPv(arg0);
         M2C_FIELD(arg0, f32 *, 0x308) *= TObjEneRecon__data_805DF3E0;
         M2C_FIELD(arg0, f32 *, 0x310) *= TObjEneRecon__data_805DF3E0;
         ((VObj_18_414afc *)(arg0))->m87();
@@ -599,7 +599,7 @@ void run_task__12TObjEneReconFPvi(u8 *arg0, s32 arg1) {
         ((M2C_UNK (*)()) advance_animation_playback)();
         ((M2C_UNK (*)(void *)) update_velocity__9TObjEneDDFPv)((void *) (arg0));
         ((VObj_8031c7bc *) arg0)->m86();
-        ((M2C_UNK (*)(void *)) TObjEneRecon__sub_8031DD14)((void *) (arg0));
+        ((M2C_UNK (*)(void *)) clamp_min_height__12TObjEneReconFPv)((void *) (arg0));
         transform_part_positions__9TObjEneDDFPv((void *) (arg0));
         ((M2C_UNK (*)(void *)) spawn_trap_b__12TObjEneReconFi)((void *) (arg0));
         break;
@@ -1109,7 +1109,7 @@ void TObjEneRecon__sub_8031C920(u8 *arg0, s32 arg1) {
             VecCopy__FP3VecPC3Vec(arg0 + 0x44C, arg0 + 0x3A0);
             set_flag2__12TObjEneReconFPv(arg0, F(f32, 0x44C), F(f32, 0x454), r);
             F(f32, 0x448) = approach_value__12TObjEneReconFff(arg0, F(f32, 0x448), F(f32, 0x398) + h);
-            ((M2C_UNK (*)(void *)) TObjEneRecon__sub_8031DD14)(arg0);
+            ((M2C_UNK (*)(void *)) clamp_min_height__12TObjEneReconFPv)(arg0);
             t = F(Obj_8031C920 *, 0x390);
             F(s32, 0x60) = TObjEneRecon__data_80476110 * get_ad_end_text_start__10TObjPlayerFv(t->x - F(f32, 0x38), t->z - F(f32, 0x40));
             ((VObj_18_2afebf *)(arg0))->m87();
@@ -1234,7 +1234,7 @@ void TObjEneRecon__sub_8031CF30(u8 *arg0, s32 arg1) {
             F(f32, 0x454) = cos_table_lookup(F(s32, 0x60));
             update_collide_flag__12TObjEneReconFPv(arg0);
             F(f32, 0x448) = approach_value__12TObjEneReconFff(arg0, F(f32, 0x448), F(f32, 0x398));
-            ((M2C_UNK (*)(void *)) TObjEneRecon__sub_8031DD14)(arg0);
+            ((M2C_UNK (*)(void *)) clamp_min_height__12TObjEneReconFPv)(arg0);
             if (TObjEneRecon__sub_8031DA90(arg0) != 0) {
                 F(s16, 0xB8) = 1;
                 F(s32, 0x3C0) = 1;
@@ -1428,7 +1428,7 @@ void TObjEneRecon__sub_8031D4B0(u8 *arg0, s32 arg1) {
         update_flag_0x444__12TObjEneReconFPv((void *) (arg0));
         M2C_FIELD(arg0, f32 *, 0x44) = (f32) M2C_FIELD(arg0, f32 *, 0x2FC);
         M2C_FIELD(arg0, f32 *, 0x4C) = (f32) M2C_FIELD(arg0, f32 *, 0x304);
-        ((M2C_UNK (*)(void *)) TObjEneRecon__sub_8031DD14)((void *) (arg0));
+        ((M2C_UNK (*)(void *)) clamp_min_height__12TObjEneReconFPv)((void *) (arg0));
         ((VObj_18_aab587 *)(arg0))->m86();
         break;
     }

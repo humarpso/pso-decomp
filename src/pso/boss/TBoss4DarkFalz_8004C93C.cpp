@@ -43,7 +43,7 @@ extern int TBoss4DarkFalz__data_805D4D64;
     extern int lbl_805D4D68;
 void TBoss4DarkFalz__sub_8004C540(void);
 s32 TBoss4DarkFalz__sub_8004B07C(s32);
-M2C_UNK TBoss4DarkFalz__sub_8004B1BC(s32, M2C_UNK);
+M2C_UNK send_action_packet__14TBoss4DarkFalzFPvi(s32, M2C_UNK);
 s32 get_action_state__14TBoss4DarkFalzFPv(void* p);
 extern int TBoss4DarkFalz__data_805D4D64;
 extern int lbl_805D4D68;
@@ -237,7 +237,7 @@ void begin_defeat_sequence__14TBoss4DarkFalzFPv(u8 *arg0) {
 void TBoss4DarkFalz__sub_8004C540(void) {  }
 void request_action_e__14TBoss4DarkFalzFi(s32 arg0) {
     if (((u32) (*(u32 *)&TBoss4DarkFalz__data_805D4D64) == 0U) || (get_action_state__14TBoss4DarkFalzFPv((void*)((*(u32 *)&TBoss4DarkFalz__data_805D4D64))) == 3) || (get_action_state__14TBoss4DarkFalzFPv((void*)((*(u32 *)&TBoss4DarkFalz__data_805D4D64))) == 2) || (TBoss4DarkFalz__sub_8004B07C(arg0) != 0)) {
-        TBoss4DarkFalz__sub_8004B1BC(arg0, 0xE);
+        send_action_packet__14TBoss4DarkFalzFPvi(arg0, 0xE);
     }
 }
 void start_phase__14TBoss4DarkFalzFPv(void* p) { end_player_camera_pans__14TBoss4DarkFalzFPv(p); refresh_player_equipment__14TBoss4DarkFalzFPv(p); }
@@ -412,7 +412,7 @@ void update_parts__14TBoss4DarkFalzFPv(void* p);
 void update_parts__14TBoss4DarkFalzFi(s32 arg0);
 s32 play_sound_effect(s32, s32, s32, s32);
 s32 TBoss4DarkFalz__sub_8004B07C(s32);
-s32 TBoss4DarkFalz__sub_8004B1BC(s32, s32);
+s32 send_action_packet__14TBoss4DarkFalzFPvi(s32, s32);
 s32 spawn_zako_rings__14TBoss4DarkFalzFPv(s32);
 int refresh_player_equipment__14TBoss4DarkFalzFPv(void*);
 int end_player_camera_pans__14TBoss4DarkFalzFPv(void*);
@@ -463,7 +463,7 @@ void TBoss4DarkFalz__sub_8004CA80(void) {  }
 
 void request_action_9__14TBoss4DarkFalzFi(s32 arg0) {
     if (((u32) TBoss4DarkFalz__data_805D4D60 == 0U) || (get_phase__14TBoss4DarkFalzFPv((void *)TBoss4DarkFalz__data_805D4D60) == 3) || (get_phase__14TBoss4DarkFalzFPv((void *)TBoss4DarkFalz__data_805D4D60) == 2) || (TBoss4DarkFalz__sub_8004B07C(arg0) != 0)) {
-        TBoss4DarkFalz__sub_8004B1BC((s32)(arg0), (s32)(9));
+        send_action_packet__14TBoss4DarkFalzFPvi((s32)(arg0), (s32)(9));
     }
 }
 
@@ -510,7 +510,7 @@ void spawn_ancient_trap__14TBoss4DarkFalzFi(s32 arg0) {
 
 void request_action_7__14TBoss4DarkFalzFi(s32 arg0) {
     if (((u32) TBoss4DarkFalz__data_805D4D5C == 0U) || (get_state__14TBoss4DarkFalzFPv((void *)TBoss4DarkFalz__data_805D4D5C) == 3) || (get_state__14TBoss4DarkFalzFPv((void *)TBoss4DarkFalz__data_805D4D5C) == 4) || (TBoss4DarkFalz__sub_8004B07C(arg0) != 0)) {
-        TBoss4DarkFalz__sub_8004B1BC((s32)(arg0), (s32)(7));
+        send_action_packet__14TBoss4DarkFalzFPvi((s32)(arg0), (s32)(7));
     }
 }
 
@@ -576,7 +576,7 @@ void spawn_trap__14TBoss4DarkFalzFi(s32 arg0) {
 }
 void check_timeout__14TBoss4DarkFalzFi(s32 arg0) {
     if ((is_timer_expired__14TBoss4DarkFalzFPv() != 0) || (TBoss4DarkFalz__sub_8004B07C(arg0) != 0)) {
-        TBoss4DarkFalz__sub_8004B1BC((s32)(arg0), (s32)(5));
+        send_action_packet__14TBoss4DarkFalzFPvi((s32)(arg0), (s32)(5));
     }
 }
 void update_parts__14TBoss4DarkFalzFi(s32 arg0) {
@@ -680,12 +680,12 @@ void TBoss4DarkFalz__sub_8004D1E4(void *self) {
     for (i = 0; i < lbl_805D586C; i++) {
         p = get_player_data__10TObjPlayerFi(i);
         if (p != 0 && horizontal_distance_squared(&v, (u8 *)p + 0x2FC) <= lim) {
-            ((void (*)(void *, s32))TBoss4DarkFalz__sub_8004B1BC)(self, 2);
+            ((void (*)(void *, s32))send_action_packet__14TBoss4DarkFalzFPvi)(self, 2);
             return;
         }
     }
     if (((s32 (*)(void *))TBoss4DarkFalz__sub_8004B07C)(self) != 0) {
-        ((void (*)(void *, s32))TBoss4DarkFalz__sub_8004B1BC)(self, 2);
+        ((void (*)(void *, s32))send_action_packet__14TBoss4DarkFalzFPvi)(self, 2);
     }
 }
 

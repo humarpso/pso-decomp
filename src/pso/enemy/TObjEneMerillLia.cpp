@@ -459,7 +459,7 @@ extern RecoveredGlobal_800D5060_lbl_8058D490 lbl_8058D490;
 extern const f32 TObjEneMerillLia__data_805DA300;
 extern const f32 lbl_805DA304;
 extern const f32 TObjEneMerillLia__data_805DA308;
-void TObjEneMerillLia__sub_800D5060(u8 *arg0);
+void spawn_front_ground_effect__16TObjEneMerillLiaFPv(u8 *arg0);
 extern const f32 lbl_805DA2EC;
 extern const f32 TObjEneMerillLia__data_805DA300;
 extern const f32 lbl_805DA334;
@@ -467,7 +467,7 @@ extern const f32 lbl_805DA338;
 void TObjEneMerillLia__sub_800D69B4(u8 *arg0);
 M2C_UNK copy_position__20TBoss3VoloptHiraisinFi(void *);
 s32 check_demo_mode__10TObjPlayerFv();
-void TObjEneMerillLia__sub_800D5614(void *);
+void search_target__16TObjEneMerillLiaFPv(void *);
 s32 get_current_floor();
 s32 get_field_3e4__10TObjPlayerFPv(void *);
 f32 xz_distance_squared(void *, void *);
@@ -860,7 +860,7 @@ void *lbl_80494728[103] = {
     (void *)&TObjPlayer__sub_800F673C, (void *)&apply_set_data__9TObjEnemyFPvPv, (void *)&fn_800F5D80, (void *)&TObjEneMerillLia__sub_800D64F0,
     (void *)&TObjEneMerillLia__sub_800D5BCC, (void *)&update_turn_toward_target__10TObjPlayerFPv, (void *)&update_chase_target__16TObjEneMerillLiaFPv, (void *)&TObjEneMerillLia__sub_800D6110,
     (void *)&beast_update_attack, (void *)&TObjPlayer__sub_800C53B4, (void *)&TObjEneMerillLia__sub_800D59E4, (void *)&beast_update_dead,
-    (void *)&beast_retire_corpse, (void *)&TObjEneMerillLia__sub_800D50FC, (void *)&TObjEneMerillLia__sub_800D5060, (void *)&TObjPlayer__sub_800C69FC,
+    (void *)&beast_retire_corpse, (void *)&TObjEneMerillLia__sub_800D50FC, (void *)&spawn_front_ground_effect__16TObjEneMerillLiaFPv, (void *)&TObjPlayer__sub_800C69FC,
     (void *)&TObjEneMerillLia__sub_800D4FD8, (void *)&TObjEneMerillLia__sub_800D4F94, (void *)&TObjEneMerillLia__sub_800D4F50, (void *)&TObjEneMerillLia__sub_800D4F0C,
     (void *)&TObjPlayer__sub_80092A7C, (void *)&TObjEneMerillLia__sub_800D4D70, (void *)&request_stand_action__12TObjEneBeastFPv,
 };
@@ -916,7 +916,7 @@ void TObjEneMerillLia__sub_800D501C(s32 arg0) {
     play_sound_effect((void *) (copy_target_state__14TObjEnePanarmsFPvPv((void *) (arg0), (int) (0x3B206))), (void *) (arg0 + 0x38), (int) (0), (int) (0));
 }
 
-void TObjEneMerillLia__sub_800D5060(u8 *arg0) {
+void spawn_front_ground_effect__16TObjEneMerillLiaFPv(u8 *arg0) {
     typedef char sp8_offset[(offsetof(Stack_800D5060, sp8) == 0x0) ? 1 : -1];
     typedef char spC_offset[(offsetof(Stack_800D5060, spC) == 0x4) ? 1 : -1];
     typedef char sp10_offset[(offsetof(Stack_800D5060, sp10) == 0x8) ? 1 : -1];
@@ -1135,7 +1135,7 @@ void TObjEneMerillLia__sub_800D5570(Obj_800D5570 *arg0) {
 }
 
 #define arg0 ((Obj_800D5614 *)ov)
-void TObjEneMerillLia__sub_800D5614(void *ov) {
+void search_target__16TObjEneMerillLiaFPv(void *ov) {
     Pl_800D5614 *p;
     s32 v;
     arg0->f338 = find_nearest_visible_player(arg0, 0, *arg0->f350);
@@ -1679,7 +1679,7 @@ void run_state_dispatch__16TObjEneMerillLiaFPv(u8 *arg0) {
         TObjEneMerillLia__sub_800D56B4((void *) arg0);
         break;
       case 12:
-        TObjEneMerillLia__sub_800D5614((void *) arg0);
+        search_target__16TObjEneMerillLiaFPv((void *) arg0);
         break;
       case 13:
         TObjEneMerillLia__sub_800D5570((Obj_800D5570 *)((void *) arg0));

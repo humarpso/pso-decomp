@@ -154,7 +154,7 @@ M2C_UNK forward_render__20TWindowSubStatusDispFPv(s32, s32);
 void update_subwindow__20TWindowSubStatusDispFPv(s32);
 void destroy_status_display__20TWindowSubStatusDispFis(void *, int);
 void * construct_type1_heading__20TWindowSubStatusDispFPvii(void *, s32, s16);
-f32 TWindowSubStatusDisp__sub_803D647C(f32);
+f32 round_away_from_zero__20TWindowSubStatusDispFf(f32);
 
 extern M2C_UNK __vt__25TWindowSubSymbolChatParts[];
 extern u8 lbl_804D2DD8[];
@@ -175,7 +175,7 @@ extern const f32 lbl_805DD80C;
 #pragma fp_contract on
 void fn_80284C04(u8 *arg0) {
     Stack_80284C04 stack;
-    M2C_FIELD(arg0, s8 *, 0x74) = (s8) TWindowSubStatusDisp__sub_803D647C((f32) M2C_FIELD(arg0, s16 *, 0x76) * lbl_805DD7C8);
+    M2C_FIELD(arg0, s8 *, 0x74) = (s8) round_away_from_zero__20TWindowSubStatusDispFf((f32) M2C_FIELD(arg0, s16 *, 0x76) * lbl_805DD7C8);
     stack.sp8 = lbl_805DD7CC;
     stack.spC = (lbl_805DD7D4 * (f32) (s8) (u8) M2C_FIELD(arg0, s8 *, 0x74)) + lbl_805DD7D0;
     copy_position__11TWindowMenuFPvPv(M2C_FIELD(arg0, u8 **, 0x8C), &stack.sp8);

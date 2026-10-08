@@ -30,7 +30,7 @@ M2C_UNK pop_matrix();
 M2C_UNK post_translate_matrix(void *);
 M2C_UNK set_global_param__8TObjFishFi(int);
 M2C_UNK draw_ginja_object(int);
-void TORockCave__sub_80175134(u8 *arg0);
+void draw_model__10TORockCaveFPv(u8 *arg0);
 u32 load_resource_from_descriptor(void *, s32, void *, s32, s32, s32);
 void *alloc__23TAdSinglePlyChrSelectGCFPv(u32);
 s32 get_global_state__14TOKeyMachine01Fv(void);
@@ -56,7 +56,7 @@ void destroy_particle_controller__10TObjPlayerFPvs(void *, int);
 extern u32 lbl_805D5A80;
 extern u32 lbl_805D5A84;
 
-void TORockCave__sub_80175134(u8 *arg0) {
+void draw_model__10TORockCaveFPv(u8 *arg0) {
     if (((VObj_18 *)(arg0))->m8(M2C_FIELD(arg0, f32 *, 0xAC), M2C_FIELD(arg0, f32 *, 0xB0)) != 0) {
         ((VObj_18 *)(arg0))->m12();
         push_matrix();

@@ -756,7 +756,7 @@ M2C_UNK advance_animation_playback(void *);
 M2C_UNK play_sound_effect(M2C_UNK, void *, M2C_UNK, M2C_UNK);
 u32 __nw__7TObjectFUl(int);
 M2C_UNK TObjEneBm9Mericarol__sub_802D073C(void *);
-s32 TObjEneBm9Mericarol__sub_802D0854(void *);
+s32 find_nearby_target__19TObjEneBm9MericarolFi(void *);
 M2C_UNK TObjEneBm9Mericarol__sub_802D093C(void *);
 s32 construct__19TObjEneBm9MericarolFPvii(int, void *, int);
 void TObjEneBm9Mericarol__sub_802CF4F8(u8 *arg0, s32 arg1);
@@ -1223,7 +1223,7 @@ void TObjEneBm9Mericarol__sub_802CF4F8(u8 *arg0, s32 arg1) {
       temp_r0 = *((s32 *) (((s8 *) arg0) + 0x490));
       if (temp_r0 == 6)
     {
-      temp_r3 = TObjEneBm9Mericarol__sub_802D0854((void *) arg0);
+      temp_r3 = find_nearby_target__19TObjEneBm9MericarolFi((void *) arg0);
       if (temp_r3 != 0)
       {
         temp_r3_2 = __nw__7TObjectFUl((int) 0x28);

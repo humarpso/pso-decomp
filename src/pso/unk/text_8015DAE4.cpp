@@ -29,7 +29,7 @@ struct VObj_18 : VBase_18 {
 };
 
 extern "C" {
-M2C_UNK fn_8015D5D4(void *);
+M2C_UNK play_door_sound(void *);
 u8 is_current_floor_switch_set(int);
 void update_door_switch_state(u8 *arg0);
 s32 check_demo_mode__10TObjPlayerFv();
@@ -46,12 +46,12 @@ void update_door_switch_state(u8 *arg0) {
     temp_r0 = M2C_FIELD(arg0, s32 *, 0xCC);
     switch (temp_r0) {
     case 1:
-        fn_8015D5D4((void *) (arg0));
+        play_door_sound((void *) (arg0));
         M2C_FIELD(arg0, s32 *, 0xD0) = (s32) (M2C_FIELD(arg0, s32 *, 0xD0) | 1);
         return;
     case 2:
         if (is_current_floor_switch_set((int) ((u16) M2C_FIELD(arg0, s32 *, 0xC8))) == 1) {
-            fn_8015D5D4((void *) (arg0));
+            play_door_sound((void *) (arg0));
             M2C_FIELD(arg0, s32 *, 0xD0) = (s32) (M2C_FIELD(arg0, s32 *, 0xD0) | 1);
             return;
         }
@@ -59,7 +59,7 @@ void update_door_switch_state(u8 *arg0) {
         return;
     case 3:
         if (is_current_floor_switch_set((int) ((u16) M2C_FIELD(arg0, s32 *, 0xC8))) == 1) {
-            fn_8015D5D4((void *) (arg0));
+            play_door_sound((void *) (arg0));
             M2C_FIELD(arg0, s32 *, 0xD0) = (s32) (M2C_FIELD(arg0, s32 *, 0xD0) | 1);
         }
         break;

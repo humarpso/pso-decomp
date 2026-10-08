@@ -2362,7 +2362,7 @@ void TObjEneMe3ShinowaMirage__sub_800E7324(u8 *arg0);
 void TObjEneMe3ShinowaMirage__sub_800E7378(u8 *arg0);
 s32 check_in_range__23TObjEneMe3ShinowaMirageFPv(void *arg0);
 u8 TObjEneMe3ShinowaMirage__sub_800E750C(Obj_800E750C *arg0, s32 arg1, f32 farg0);
-f32 TObjEneMe3ShinowaMirage__sub_800E75AC(Obj_800E75AC *self);
+f32 get_node_world_y__23TObjEneMe3ShinowaMirageFPv(Obj_800E75AC *self);
 void fn_800E762C(void);
 void TObjEneMe3Shinowa__sub_800E7630(u8 *arg0);
 void copy_position_vector__17TObjEneMe3ShinowaFPv(void* p);
@@ -3720,9 +3720,9 @@ void TObjEneMe3ShinowaMirage__sub_800E66FC(u8 *arg0, s32 arg1) {
         temp_r0 = M2C_FIELD(arg0, s32 *, 0x404);
         switch (temp_r0) {
         case 0:
-            temp_f31 = TObjEneMe3ShinowaMirage__sub_800E75AC((Obj_800E75AC *)arg0);
+            temp_f31 = get_node_world_y__23TObjEneMe3ShinowaMirageFPv((Obj_800E75AC *)arg0);
             ((M2C_UNK (*)(void *))advance_animation_playback)((void *) (arg0));
-            M2C_FIELD(arg0, f32 *, 0x414) = TObjEneMe3ShinowaMirage__sub_800E75AC((Obj_800E75AC *)arg0);
+            M2C_FIELD(arg0, f32 *, 0x414) = get_node_world_y__23TObjEneMe3ShinowaMirageFPv((Obj_800E75AC *)arg0);
             M2C_FIELD(arg0, f32 *, 0x3C8) = (f32) (M2C_FIELD(arg0, f32 *, 0x3C8) + (temp_f31 - M2C_FIELD(arg0, f32 *, 0x414)));
             M2C_FIELD(arg0, s32 *, 0x60) = (s32) (M2C_FIELD(arg0, s32 *, 0x60) + 0x8000);
             M2C_FIELD(arg0, s32 *, 0x404) = 1;
@@ -3739,7 +3739,7 @@ void TObjEneMe3ShinowaMirage__sub_800E66FC(u8 *arg0, s32 arg1) {
                 M2C_FIELD(arg0, f32 *, 0x410) = -5.0f;
             }
             M2C_FIELD(arg0, f32 *, 0x3C8) = (f32) (M2C_FIELD(arg0, f32 *, 0x3C8) + M2C_FIELD(arg0, f32 *, 0x410));
-            temp_f1 = TObjEneMe3ShinowaMirage__sub_800E75AC((Obj_800E75AC *)arg0);
+            temp_f1 = get_node_world_y__23TObjEneMe3ShinowaMirageFPv((Obj_800E75AC *)arg0);
             M2C_FIELD(arg0, f32 *, 0x3C8) = (f32) (M2C_FIELD(arg0, f32 *, 0x3C8) - (temp_f1 - M2C_FIELD(arg0, f32 *, 0x414)));
             M2C_FIELD(arg0, f32 *, 0x414) = temp_f1;
             if (M2C_FIELD(arg0, f32 *, 0x3C8) < M2C_FIELD(arg0, f32 *, 0x3C)) {
@@ -4163,7 +4163,7 @@ extern int fold_flush_6;
 
 #pragma push
 #pragma fp_contract on
-f32 TObjEneMe3ShinowaMirage__sub_800E75AC(Obj_800E75AC *self) {
+f32 get_node_world_y__23TObjEneMe3ShinowaMirageFPv(Obj_800E75AC *self) {
     Vec_800E75AC v;
     Node_800E75AC *node;
     v.x = TObjEneMe3ShinowaMirage__data_805DA5B8;

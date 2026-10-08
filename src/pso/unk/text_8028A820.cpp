@@ -10,12 +10,12 @@ extern u8 lbl_804D34D0[];
 extern u8 lbl_804D34F0[];
 extern void *lbl_805D64C8;
 extern void *lbl_805D64CC;
-void fn_8028A820(void);
+void load_green_door_resources(void);
 }
 
 extern "C" {
 
-void fn_8028A820(void) {
+void load_green_door_resources(void) {
     void *p;
     lbl_805D64C8 = 0;
     lbl_805D64CC = 0;

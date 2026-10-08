@@ -23,12 +23,12 @@ s32 TChCrTagOccHeader__vt4(Hdr_802A2C30 *arg0);
 extern "C" {
 
 void run_task__17TChCrTagOccHeaderFv(u8 *arg0);
-M2C_UNK TChCrTag__sub_802A1A00();
+M2C_UNK update_fade__8TChCrTagFPv();
 int fn_802A2A00(void*);
 int render__17TChCrTagOccHeaderFv(void* p);
 
 void run_task__17TChCrTagOccHeaderFv(u8 *arg0) {
-    TChCrTag__sub_802A1A00();
+    update_fade__8TChCrTagFPv();
     M2C_FIELD(arg0, s32 *, 0x3C) = (s32) (M2C_FIELD(arg0, s32 *, 0x3C) + 1);
 }
 s32 TChCrTagOccHeader__vt4(Hdr_802A2C30 *arg0) {

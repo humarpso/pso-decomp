@@ -146,7 +146,7 @@ typedef char RecoveredGlobal_800B8DC4_lbl_80492500_size[sizeof(RecoveredGlobal_8
 extern RecoveredGlobal_800B8DC4_lbl_80492500 lbl_80492500;
 extern const f32 TObjCGrass__data_805D9E64;
 extern const f32 lbl_805D9E68;
-void TObjCGrass__sub_800B8DC4(void);
+void load_resources__10TObjCGrassFv(void);
 
 void* fn_800B8B00(void* p) { return (char*)p + 0x3e8; }
 
@@ -218,7 +218,7 @@ void release_global_805D5130__10TObjCGrassFv(void) {
     }
 }
 
-void TObjCGrass__sub_800B8DC4(void) {
+void load_resources__10TObjCGrassFv(void) {
     Stack_800B8DC4 stack;
 
     u8 *temp_r3;

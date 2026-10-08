@@ -115,7 +115,7 @@ void *memcpy(void *, const void *, u32);
 extern Ent_801037A0 **lbl_805D541C;
 extern s32 lbl_805D5420;
 extern u16 *lbl_805D542C;
-s32 TLobby__sub_80103DD8(Ent_80103DD8 *e);
+s32 insert_sorted_entry__6TLobbyFPv(Ent_80103DD8 *e);
 void *find_item_by_id(s32);
 void spawn_dropped_item_from_msg(void *, s32);
 extern Ent_801037A0 **lbl_805D541C;
@@ -376,7 +376,7 @@ Ent_801037A0 *TLobby__sub_80103D10(s32 n, s32 val) {
     debug_print__6TLobbyFii(lbl_8043E048);
     return NULL;
 }
-s32 TLobby__sub_80103DD8(Ent_80103DD8 *e) {
+s32 insert_sorted_entry__6TLobbyFPv(Ent_80103DD8 *e) {
     s32 *counts;
     s32 idx;
     Ent_80103DD8 *list;

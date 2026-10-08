@@ -60,7 +60,7 @@ extern s8 lbl_80581B5C[];
 extern Ent_803CF958 lbl_80581B68[];
 extern RecoveredCallback_4873a87e26d6 lbl_805D75F8;
 extern s32 lbl_805D75FC;
-void TLobby__sub_803CF958(char *arg0);
+void cvFsSetDefDev__6TLobbyFPv(char *arg0);
 void *memset(void *, s32, u32);
 extern s32 lbl_805D7600;
 void SIGetTypeAsync(void);
@@ -198,7 +198,7 @@ inline s32 find_803CF958(char *s, s32 len) {
     }
     return 0;
 }
-void TLobby__sub_803CF958(char *arg0) {
+void cvFsSetDefDev__6TLobbyFPv(char *arg0) {
     s32 len;
     u32 j;
     u32 n;

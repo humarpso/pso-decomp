@@ -58,8 +58,8 @@ extern "C" {
 s32 is_visible__17TWindowSubComCardFPv(int);
 s32 get_status_flag__17TWindowSubComCardFPv(int);
 M2C_UNK set_field_20__12TQuestListVMFPvi(void *, M2C_UNK);
-s32 TCheckRoomSequence__sub_80210904(int);
-s32 TCheckRoomSequence__sub_80210E28(int, int, int);
+s32 compact_items__18TCheckRoomSequenceFi(int);
+s32 remove_bank_item_amount__18TCheckRoomSequenceFiii(int, int, int);
 s32 copy_item_record__18TCheckRoomSequenceFiPvi(int, void *, int);
 s32 copy_bank_to_card_window(int);
 s32 TShopWindowBase__sub_8022397C(void *);
@@ -167,8 +167,8 @@ void handle_confirm_dialog__21TShopDeleteItemWindowFPv(u8 *arg0) {
         if (temp_r3_2 == 0) {
             temp_r3_3 = select_cursor_entry__6TLobbyFPv((int) (M2C_FIELD(arg0, s32 *, 0x30)));
             if (copy_item_record__18TCheckRoomSequenceFiPvi((int) (temp_r3_3), (void *) (&stack.sp8), (int) (temp_r30)) != 0) {
-                TCheckRoomSequence__sub_80210E28((int) (temp_r3_3), (int) (M2C_FIELD(arg0, s32 *, 0x5C)), (int) (temp_r30));
-                TCheckRoomSequence__sub_80210904((int) (temp_r30));
+                remove_bank_item_amount__18TCheckRoomSequenceFiii((int) (temp_r3_3), (int) (M2C_FIELD(arg0, s32 *, 0x5C)), (int) (temp_r30));
+                compact_items__18TCheckRoomSequenceFi((int) (temp_r30));
                 copy_bank_to_card_window((int) (temp_r30));
                 set_field_20__12TQuestListVMFPvi((void *)((void *) (arg0)), (M2C_UNK)((int) (0)));
             }

@@ -30,7 +30,7 @@ u32 get_player_by_client_id(s32);
 s32 is_palette_entry_displayable__10TObjPlayerFv(s32, M2C_UNK, u8);
 s32 reset_key_machine_state__10TObjPlayerFv();
 s32 lookup_technique__19TWindowSubTechniqueFii(s32 arg0, s32 arg1);
-s32 TWindowSubTechnique__sub_80286BF4(s32 arg0, s32 arg1);
+s32 is_technique_available__19TWindowSubTechniqueFii(s32 arg0, s32 arg1);
 s32 get_message_10__20TWindowSubStatusDispFPv(int);
 M2C_UNK set_flag70_bit10__16TObjCityMainWarpFPv(int);
 M2C_UNK set_field_1c__6TLobbyFPvf(int);
@@ -63,7 +63,7 @@ s32 forward_trade_action_default__16TObjCityMainWarpFPviii(s32, s32, s32, s16);
 
 int get_current_selection__19TWindowSubTechniqueFPvPv(void* p, void* _w1) { return get_selection__19TWindowSubTechniqueFPvPvi((void*)(p), (void*)(_w1)); }
 
-s32 TWindowSubTechnique__sub_80286BF4(s32 arg0, s32 arg1) {
+s32 is_technique_available__19TWindowSubTechniqueFii(s32 arg0, s32 arg1) {
     s32 temp_r3;
     temp_r3 = ((s32)get_player_by_client_id(arg1));
     if (temp_r3 == 0) {
@@ -93,7 +93,7 @@ void draw_technique_row__19TWindowSubTechniqueFiii(s32 arg0, s32 arg1, s32 arg2)
         draw_text_gray__17TWindowSubComCardFiiii(arg2, temp_r31, 6, arg0);
         return;
     }
-    if (TWindowSubTechnique__sub_80286BF4((s32)((void*)((void*)(arg0))), (s32)((void*)((void*)(arg1)))) == 0) {
+    if (is_technique_available__19TWindowSubTechniqueFii((s32)((void*)((void*)(arg0))), (s32)((void*)((void*)(arg1)))) == 0) {
         add_text_entry__19TWindowSubTradeMainFPviiii(arg2, temp_r31, 0x16, arg0, 0xFFFD3901);
         return;
     }

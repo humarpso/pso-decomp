@@ -397,7 +397,7 @@ void * TObjPlayer__sub_802C27A4(void *arg0, s16 arg1);
 u8 *TObjPlayer__sub_802C27FC(u8 *arg0, s32 arg1, const void* _w2);
 void * TObjPlayer__sub_802C28B4(void *arg0);
 void TObjPlayer__sub_802C2900(void);
-void TObjPlayer__sub_802C2958(void);
+void load_seabed_dolphin__10TObjPlayerFv(void);
 s32 TObjPlayer__sub_802C2A10(Obj_802C2A10 *self);
 s32 TObjPlayer__sub_802C2C48(Obj_802C2C48 *self);
 void draw_model_parts__10TObjPlayerFPv(u8 *arg0);
@@ -1212,7 +1212,7 @@ void TObjPlayer__sub_802C2900(void) {
     }
 }
 
-void TObjPlayer__sub_802C2958(void) {
+void load_seabed_dolphin__10TObjPlayerFv(void) {
     Obj_802C2958 *o = ((Obj_802C2958 * (*)(s32))alloc__23TAdSinglePlyChrSelectGCFPv)(0x440);
     if (o != 0) {
         o = ((Obj_802C2958 * (*)(Obj_802C2958 *, s32, void *, s32, s32, s32))load_resource_from_descriptor)(o, 5, lbl_804E07C4, 0, 0, 0);

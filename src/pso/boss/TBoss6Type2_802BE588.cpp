@@ -20,13 +20,13 @@ extern f32 lbl_805DE4DC;
 extern const f32 lbl_805DE4F0;
 void TBoss6Type2__sub_802BF424(u8 *arg0);
 M2C_UNK play_persistent_sound(int, void *, void *, int, int);
-M2C_UNK TBoss6Type2__sub_802B9BBC(void *, M2C_UNK);
+M2C_UNK destroy_part__11TBoss6Type2Fii(void *, M2C_UNK);
 M2C_UNK copy_anim_state__11TBoss6Type2FPv(void *);
 s32 set_action_state__11TBoss6Type2FPvPv(void * a0, s32 a1);
 extern const f32 lbl_805DE4E0;
 extern const f32 lbl_805DE4E4;
 void TBoss6Type2__sub_802BE8B8(u8 *arg0);
-M2C_UNK TBoss6Type2__sub_802B9BBC(void *, M2C_UNK);
+M2C_UNK destroy_part__11TBoss6Type2Fii(void *, M2C_UNK);
 M2C_UNK copy_anim_state__11TBoss6Type2FPv(void *);
 s32 set_action_state__11TBoss6Type2FPvPv(void * a0, s32 a1);
 M2C_UNK spawn_particle_effect(void *, int);
@@ -58,7 +58,7 @@ void update_timer__11TBoss6Type2FPv(u8 *arg0);
 void update_when_timer_zero__11TBoss6Type2FPv(void* p);
 void update_zako_timer__11TBoss6Type2FPv(void *arg0);
 M2C_UNK play_sound_effect(int, void *, int, int);
-M2C_UNK TBoss6Type2__sub_802B9BBC(void *, M2C_UNK);
+M2C_UNK destroy_part__11TBoss6Type2Fii(void *, M2C_UNK);
 s32 spawn_particle_slot__11TBoss6Type2FPvi(void *, s32);
 s32 TBoss6Type2__sub_802BA944(void *);
 s32 TBoss6Type2__sub_802BA9E4(void *);
@@ -216,7 +216,7 @@ void TBoss6Type2__sub_802BE8B8(u8 *arg0) {
         M2C_FIELD(arg0, s32 *, 0x418) = 0;
         M2C_FIELD(arg0, f32 *, 0x41C) = (f32) lbl_805DE4E0;
         copy_anim_state__11TBoss6Type2FPv((void *) (arg0));
-        TBoss6Type2__sub_802B9BBC((void *)((void *) (arg0)), (M2C_UNK)((int) (7)));
+        destroy_part__11TBoss6Type2Fii((void *)((void *) (arg0)), (M2C_UNK)((int) (7)));
         set_action_state__11TBoss6Type2FPvPv((void *)((void *) (arg0)), (s32)((int) (0)));
     }
 }
@@ -273,7 +273,7 @@ void TBoss6Type2__sub_802BEC28(u8 *arg0) {
             }
         }
         copy_anim_state__11TBoss6Type2FPv((void *) (arg0));
-        TBoss6Type2__sub_802B9BBC((void *)((void *) (arg0)), (M2C_UNK)((int) (6)));
+        destroy_part__11TBoss6Type2Fii((void *)((void *) (arg0)), (M2C_UNK)((int) (6)));
         set_action_state__11TBoss6Type2FPvPv((void *)((void *) (arg0)), (s32)((int) (0x1B)));
     }
 }
@@ -316,17 +316,17 @@ void update_attack_sequence__11TBoss6Type2FPv(u8 *arg0) {
         spawn_particle_slot__11TBoss6Type2FPvi((void *)(arg0), (s32)(0xA));
         break;
     case 0x50:
-        TBoss6Type2__sub_802B9BBC(arg0, 8);
-        TBoss6Type2__sub_802B9BBC(arg0, 9);
-        TBoss6Type2__sub_802B9BBC(arg0, 0xA);
+        destroy_part__11TBoss6Type2Fii(arg0, 8);
+        destroy_part__11TBoss6Type2Fii(arg0, 9);
+        destroy_part__11TBoss6Type2Fii(arg0, 0xA);
         break;
     case 0x82:
         spawn_particle_slot__11TBoss6Type2FPvi((void *)(arg0), (s32)(0xB));
         spawn_particle_slot__11TBoss6Type2FPvi((void *)(arg0), (s32)(0xC));
         break;
     case 0x49:
-        TBoss6Type2__sub_802B9BBC(arg0, 0xB);
-        TBoss6Type2__sub_802B9BBC(arg0, 0xC);
+        destroy_part__11TBoss6Type2Fii(arg0, 0xB);
+        destroy_part__11TBoss6Type2Fii(arg0, 0xC);
         break;
     }
     if ((s32) M2C_FIELD(arg0, s32 *, 0x460) == 0x36) {

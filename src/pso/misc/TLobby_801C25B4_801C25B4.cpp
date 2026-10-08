@@ -35,7 +35,7 @@ u8 get_rule_field_a__6TLobbyFPv(void *);
 u8 TLobby__sub_801D7100(void *);
 extern u8 lbl_8050EA40[];
 extern s32 TLobby__data_80511CA0[];
-u8 TLobby__sub_801C271C(void);
+u8 check_battle_end__6TLobbyFv(void);
 u32 get_player_by_client_id(s32);
 extern Ent_801C26A8 TLobby__data_80511C80[];
 s32 TLobby__sub_801C26A8(void);
@@ -114,7 +114,7 @@ s32 TLobby__sub_801C26A8(void) {
     return result;
 }
 
-u8 TLobby__sub_801C271C(void) {
+u8 check_battle_end__6TLobbyFv(void) {
     u8 *p;
     s32 cnt;
     s32 i;

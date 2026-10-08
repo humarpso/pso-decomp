@@ -29,13 +29,13 @@ s32 check_room_seq_4__16TAdChrSelASlotGCFii(f32 *, M2C_UNK, f32);
 extern s32 lbl_804B9710[];
 extern const f32 lbl_805DC058;
 extern const f32 lbl_805DC05C;
-void TObjWarpLobby__sub_801A0760(void *arg0);
+void open_lobby_menu__13TObjWarpLobbyFPv(void *arg0);
 M2C_UNK queue_destruction__7TObjectFv(u32);
 s32 is_visible__17TWindowSubComCardFPv(u32);
 M2C_UNK send_room_change__6TLobbyFi(s32);
 s32 is_idle__6TLobbyFv();
 u32 find_warp_player_in_range(void *, u16, f32);
-void TObjWarpLobby__sub_801A0760(void *arg0);
+void open_lobby_menu__13TObjWarpLobbyFPv(void *arg0);
 M2C_UNK TWindow__close(void *);
 M2C_UNK clear_flag__11TWindowCtrlFv();
 s32 get_selected_menu_value(u32);
@@ -66,7 +66,7 @@ extern s32 lbl_805D5CCC;
 extern const f32 lbl_805DC060;
 extern const f32 lbl_805DC064;
 
-void TObjWarpLobby__sub_801A0760(void *arg0) {
+void open_lobby_menu__13TObjWarpLobbyFPv(void *arg0) {
     f32 sp[2];
     s32 i;
     sp[0] = lbl_805DC058;
@@ -105,7 +105,7 @@ void run_task__13TObjWarpLobbyFv(VO_801A0894 *arg0) {
     M2C_FIELD(arg0, f32 *, 0xC4) = (f32) (M2C_FIELD(arg0, f32 *, 0xC4) + lbl_805DC070);
     if ((find_warp_player_in_range(arg0, (u16) lbl_805D53A0, M2C_FIELD(arg0, f32 *, 0xAC)) != 0U) && (arg0->m14() != 0)) {
         if (((u32) M2C_FIELD(arg0, u32 *, 0xB0) == 0U) && (is_idle__6TLobbyFv() != 0)) {
-            TObjWarpLobby__sub_801A0760(arg0);
+            open_lobby_menu__13TObjWarpLobbyFPv(arg0);
         }
         if (((u32) M2C_FIELD(arg0, u32 *, 0xB0) != 0U) && (is_visible__17TWindowSubComCardFPv(M2C_FIELD(arg0, u32 *, 0xB0)) != 0)) {
             temp_r31 = get_selected_menu_value(M2C_FIELD(arg0, u32 *, 0xB0));

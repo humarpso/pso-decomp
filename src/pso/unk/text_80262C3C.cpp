@@ -163,7 +163,7 @@ extern const f32 lbl_805DD130;
 extern const f32 lbl_805DD134;
 
 void validate_target__13TWindowLockOnFPv(u8 *arg0);
-bool TWindowLockOn__sub_80262DC4(s32 arg0);
+bool is_lockable_target__13TWindowLockOnFi(s32 arg0);
 void refresh_ground_item__13TWindowLockOnFv(void);
 void TWindowLockOn__sub_80262FDC(u8 *arg0);
 void TWindowLockOn__update_for_enemy(s32, s32);
@@ -220,7 +220,7 @@ void validate_target__13TWindowLockOnFPv(u8 *arg0) {
 }
 #undef PSO_VCALL_VObj_18_7b8813_m31
 
-bool TWindowLockOn__sub_80262DC4(s32 arg0) {
+bool is_lockable_target__13TWindowLockOnFi(s32 arg0) {
     if (arg0 == 0) {
         return 0;
     }
@@ -448,7 +448,7 @@ void bind_target__13TWindowLockOnFv(Win_8026366C *w, u16 id) {
         return;
     }
     actor = find_entity_by_id(id);
-    if (((s32 (*)(s32))TWindowLockOn__sub_80262DC4)(actor) == 0) {
+    if (((s32 (*)(s32))is_lockable_target__13TWindowLockOnFi)(actor) == 0) {
         return;
     }
     if (w->id == id) {
@@ -471,7 +471,7 @@ void *create_for_target__13TWindowLockOnFiUs(s32 arg0, u16 arg1) {
     if (arg1 == 0xFFFF) {
         return NULL;
     }
-    if (((s32 (*)(s32))TWindowLockOn__sub_80262DC4)(find_entity_by_id(arg1)) == 0) {
+    if (((s32 (*)(s32))is_lockable_target__13TWindowLockOnFi)(find_entity_by_id(arg1)) == 0) {
         return NULL;
     }
     p = __nw__7TObjectFUl(0x7C);

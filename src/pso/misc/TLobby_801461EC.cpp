@@ -176,7 +176,7 @@ extern s32 lbl_805D56F4;
 s32 TLobby__sub_80145E40(void);
 s32 init_struct(void *);
 s32 init_work(int, void *);
-void TLobby__sub_80146D7C(void);
+void load_network_configs__6TLobbyFv(void);
 }
 
 extern "C" {
@@ -494,7 +494,7 @@ void* TLobby__sub_80146D68(int a0) {  return (char*)lbl_8050C784 + a0 * 460; }
 #define A_80146D7C (*(Acct_80146D7C (*)[3])lbl_8050C784)
 #define C_80146D7C (*(Conn_80146D7C *)&lbl_8050CCE8)
 #define S_80146D7C ((char *(*)(char *, const char *, u32))strncpy)
-void TLobby__sub_80146D7C(void) {
+void load_network_configs__6TLobbyFv(void) {
     Work_80146D7C w;
     Info_80146D7C info;
 
@@ -713,7 +713,7 @@ void init_account_entries__6TLobbyFv(void) {
     if (TLobby__sub_8014618C() != 0) {
         lbl_805D5704 = 1;
     }
-    TLobby__sub_80146D7C();
+    load_network_configs__6TLobbyFv();
     memset(lbl_8050CE14, 0, 0x20);
     strncpy(lbl_8050CE14, lbl_8050C784[2].user, 0x1F);
     memset(lbl_8050CE34, 0, 0x20);

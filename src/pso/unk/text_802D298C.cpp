@@ -32,7 +32,7 @@ M2C_UNK try_spend_actor_meseta(s32, s32);
 M2C_UNK send_6x29_delete_item__10TObjPlayerFPvii(s32, s32, s32);
 s32 get_player_by_client_id(s32);
 s32 check_player_action_allowed();
-M2C_UNK fn_801D41B4(s32);
+M2C_UNK remove_list_entry_by_id(s32);
 s32 fn_801D4270(s32);
 M2C_UNK send_trade_ready__9TProtocolFv(s32);
 s32 load_character_from_card__23TAdSinglePlyChrSelectGCFv();
@@ -136,7 +136,7 @@ void apply_trade_items__6TLobbyFv(void) {
                             try_spend_actor_meseta(player, count);
                         } else {
                             if ((allowed != 0) && (fn_801D4270(id) != 0)) {
-                                fn_801D41B4(id);
+                                remove_list_entry_by_id(id);
                                 flag = 1;
                             }
                             send_6x29_delete_item__10TObjPlayerFPvii(player, id, count);

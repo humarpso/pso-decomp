@@ -376,7 +376,7 @@ void TWindowKeyBoardSoft__sub_802615B8(u8 *arg0, s32 arg1, s32 arg2) {
 extern int fold_flush_8;
 #pragma pop
 
-void TWindowKeyBoardSoft__sub_80262038(void *self, f32 *rect, u32 color, s32 idx, f32 x0, f32 y, f32 w, f32 scale) {
+void draw_key_frame__19TWindowKeyBoardSoftFPvPvUiiffff(void *self, f32 *rect, u32 color, s32 idx, f32 x0, f32 y, f32 w, f32 scale) {
     Quad_80262038 q;
     f32 v;
     f32 y2;

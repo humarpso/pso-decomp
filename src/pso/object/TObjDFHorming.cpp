@@ -226,7 +226,7 @@ void swap_and_send__14TBoss4DarkFalzFPv(void *p);
 void send_code_25_4__14TBoss4DarkFalzFPvi(Obj_8004B16C *self, s32 arg);
 void set_code_25_4__14TBoss4DarkFalzFPv(void *p);
 void swap_and_send__14TBoss4DarkFalzFPv(void *p);
-void TBoss4DarkFalz__sub_8004B1BC(Obj_8004B1BC *self, s32 arg);
+void send_action_packet__14TBoss4DarkFalzFPvi(Obj_8004B1BC *self, s32 arg);
 s32 get_field_3e0__12TBoss3VoloptFPv(void *p);
 void refresh_equipment_slot__10TObjPlayerFv(void *p);
 extern s32 lbl_805D586C;
@@ -389,7 +389,7 @@ void send_code_25_4__14TBoss4DarkFalzFPvi(Obj_8004B16C *self, s32 arg) {
     swap_and_send__14TBoss4DarkFalzFPv(&msg);
 }
 
-void TBoss4DarkFalz__sub_8004B1BC(Obj_8004B1BC *self, s32 arg) {
+void send_action_packet__14TBoss4DarkFalzFPvi(Obj_8004B1BC *self, s32 arg) {
     Msg_8004B1BC msg;
     set_code_25_4__14TBoss4DarkFalzFPv(&msg);
     msg.id = self->id;

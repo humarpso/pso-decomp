@@ -47,7 +47,7 @@ M2C_UNK set_select_mode__22TAdMultiPlyChrSelectGCFii(s32, M2C_UNK);
 M2C_UNK set_field_4ec__22TAdMultiPlyChrSelectGCFPvi(s32, s32);
 u32 get_global_state__22TAdMultiPlyChrSelectGCFv();
 s32 get_ready_state__22TAdMultiPlyChrSelectGCFPv(s32);
-M2C_UNK TAdGameStartGC__sub_802E644C(s32);
+M2C_UNK create_effects__14TAdGameStartGCFPv(s32);
 s32 TAdMultiPlyChrSelectGC__sub_8030E2E4(void *, M2C_UNK);
 M2C_UNK TAdChrMoveEffectGC__sub_803490AC();
 void reset_to_select__22TAdMultiPlyChrSelectGCFPv(void *arg0);
@@ -325,7 +325,7 @@ void reset_to_select__22TAdMultiPlyChrSelectGCFPv(void *arg0) {
         temp_r31 = count_ready__22TAdMultiPlyChrSelectGCFv();
         temp_r3 = TAdMultiPlyChrSelectGC__sub_802C6558();
         if (temp_r3 != temp_r31) {
-            TAdGameStartGC__sub_802E644C(M2C_FIELD(arg0, s32 *, 0x78));
+            create_effects__14TAdGameStartGCFPv(M2C_FIELD(arg0, s32 *, 0x78));
         }
     }
     M2C_FIELD(arg0, s32 *, 0x20) = 0;

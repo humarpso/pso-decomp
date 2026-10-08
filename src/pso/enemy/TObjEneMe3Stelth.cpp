@@ -527,7 +527,7 @@ void TObjEneMe3Stelth__sub_800F4A8C(void);
 void attack_and_unequip__16TObjEneMe3StelthFPv(Stelth_800F4A90 *self);
 bool TObjEneMe3Stelth__sub_800F4C10(u8 *arg0);
 u8 TObjEneMe3Stelth__sub_800F4CC8(Obj_800F4CC8 *arg0, s32 arg1, f32 farg0);
-f32 TObjEneMe3Stelth__sub_800F4D68(Obj_800F4D68 *self);
+f32 get_node_world_y__16TObjEneMe3StelthFPv(Obj_800F4D68 *self);
 void setup_move_bounds__16TObjEneMe3StelthFPv(void *arg0);
 void update_shadow_height__16TObjEneMe3StelthFPv(void *arg0);
 void TObjEneMe3Stelth__sub_800F4EBC(u8 *arg0);
@@ -998,7 +998,7 @@ u8 TObjEneMe3Stelth__sub_800F4CC8(Obj_800F4CC8 *arg0, s32 arg1, f32 farg0) {
     return res;
 }
 
-f32 TObjEneMe3Stelth__sub_800F4D68(Obj_800F4D68 *self) {
+f32 get_node_world_y__16TObjEneMe3StelthFPv(Obj_800F4D68 *self) {
     Vec_800F4D68 v;
     Node_800F4D68 *node;
     v.x = TObjEneMe3Stelth__data_805DA840;
@@ -2031,13 +2031,13 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 extern "C" {
 
 void spawn_attack__16TObjEneMe3StelthFsiiiff(s16 arg0, s32 arg1, s32 arg2, s32 arg3, f32 farg0, f32 farg1);
-u8 *TObjNpcEnemy__sub_802D732C();
+u8 *insert_slot_by_id__12TObjNpcEnemyFs();
 M2C_UNK copy_position_data(void *, s32);
 
 void spawn_attack__16TObjEneMe3StelthFsiiiff(s16 arg0, s32 arg1, s32 arg2, s32 arg3, f32 farg0, f32 farg1) {
     u8 *temp_r3;
 
-    temp_r3 = TObjNpcEnemy__sub_802D732C();
+    temp_r3 = insert_slot_by_id__12TObjNpcEnemyFs();
     if (temp_r3 != NULL) {
         M2C_FIELD(temp_r3, s16 *, 0) = arg0;
         M2C_FIELD(temp_r3, s16 *, 2) = 3;

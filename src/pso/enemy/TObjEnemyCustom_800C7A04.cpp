@@ -40,7 +40,7 @@ M2C_UNK update_angle__10TObjPlayerFPviPv(void *, void *, void *);
 M2C_UNK advance_animation_playback(void *);
 M2C_UNK update_collisions__10TObjPlayerFPv(void *);
 extern const f32 lbl_805DA070;
-void TObjEnemyCustom__sub_800C7C30(u8 *arg0);
+void update_wander_state__15TObjEnemyCustomFPv(u8 *arg0);
 }
 
 extern "C" {
@@ -132,7 +132,7 @@ void update__15TObjEnemyCustomFPv(void *arg0) {
 }
 
 int update_gigue__15TObjEnemyCustomFPv(void* p) { return update_if_active__15TObjEneMe1GiGueFPv(p, 2); }
-void TObjEnemyCustom__sub_800C7C30(u8 *arg0) {
+void update_wander_state__15TObjEnemyCustomFPv(u8 *arg0) {
     f32 temp_f1;
     s32 temp_r0;
     u8 *temp_r3;

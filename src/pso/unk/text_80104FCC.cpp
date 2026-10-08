@@ -140,7 +140,7 @@ int check_class_equip_permission(Player_80105348 *player, s32 perm) {
 }
 
 int roll_weapon_special_channel15(void* p) { return roll_weapon_special_for_stars(p); }
-s32 TLobby__sub_8010542C(Item_8010542C *src) {
+s32 dispatch_item_by_type__6TLobbyFPv(Item_8010542C *src) {
     Fn_8010542C fn;
     if (src != 0) {
         Item_8010542C item = *src;

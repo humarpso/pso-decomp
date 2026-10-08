@@ -22,7 +22,7 @@ extern s32 lbl_8050DC68[];
 extern u32 TContainerAncient01__data_805D5B90;
 extern const f32 TContainerAncient01__data_805DBD14;
 extern const f32 TContainerAncient01__data_805DBD20;
-void TContainerAncient01__sub_8018BB64(void);
+void load_resources__19TContainerAncient01Fv(void);
 }
 
 extern "C" {
@@ -51,7 +51,7 @@ void release_static_resource__19TContainerAncient01Fv(void) {
         TContainerAncient01__data_805D5B90 = 0U;
     }
 }
-void TContainerAncient01__sub_8018BB64(void) {
+void load_resources__19TContainerAncient01Fv(void) {
     void *p;
     TContainerAncient01__data_805D5B90 = 0;
     if (is_global_state_in_table__19TContainerAncient01Fv() != 0) {

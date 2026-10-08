@@ -70,7 +70,7 @@ M2C_UNK get_window_layout_position(M2C_UNK);
 s32 fn_80286AA8(void *);
 s32 update_selection__19TWindowSubTechniqueFPvPv(void *, void *, s32);
 void get_current_selection__19TWindowSubTechniqueFPvPv(void *, void *, s32);
-s32 TWindowSubTechnique__sub_80286BF4(s32, s32);
+s32 is_technique_available__19TWindowSubTechniqueFii(s32, s32);
 void rebuildTechniqueList__19TWindowSubTechniqueFll(void *, void *, s16);
 void *create_title_window__19TWindowSubTechniqueFPv(void *, s16);
 void update_selected_help__19TWindowSubTechniqueFPvi(u8 *arg0, s32 arg1);
@@ -226,7 +226,7 @@ void run_task__19TWindowSubTechniqueFv(Tech_802870C4 *self) {
         break;
     case 5:
         update_cursor__10TObjPlayerFPvi(ply, get_selected_menu_value(self->sel));
-        if (TWindowSubTechnique__sub_80286BF4(get_selected_menu_value(self->sel), self->player) == 0 ||
+        if (is_technique_available__19TWindowSubTechniqueFii(get_selected_menu_value(self->sel), self->player) == 0 ||
             TWindowShortListCtrl__check_controller_button(lbl_8050E208[port].m20, 2) != 0 ||
             test_flag_4c__23TAdSinglePlyChrSelectGCFPv(lbl_8050E208[4].m20, 2) != 0) {
             play_sound_effect(0x52F16, 0, 0, 0);

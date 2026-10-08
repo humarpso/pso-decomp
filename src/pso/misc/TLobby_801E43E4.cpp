@@ -18,7 +18,7 @@ M2C_UNK dispatch_6x_subcommand(void *);
 extern u32 lbl_805D53A0;
 extern u32 TLobby__data_805D5580;
 extern s32 lbl_805D5E50;
-void TLobby__sub_801E44D8(void *arg0, u32 arg1);
+void send_subcommand_to_client__6TLobbyFPvUi(void *arg0, u32 arg1);
 void tmp_buf_release__6TLobbyFi(char *);
 void *tmp_buf_use_req__6TLobbyFPv(char *);
 void safe_free__23TAdSinglePlyChrSelectGCFUi(void *);
@@ -104,7 +104,7 @@ extern s32 lbl_805D5E50;
 
 typedef s32 M2C_UNK;
 
-void TLobby__sub_801E44D8(void *arg0, u32 arg1) {
+void send_subcommand_to_client__6TLobbyFPvUi(void *arg0, u32 arg1) {
     s32 size;
     size = M2C_FIELD(arg0, u8 *, 1) * 4;
     if ((u32) lbl_805D53A0 == arg1) {

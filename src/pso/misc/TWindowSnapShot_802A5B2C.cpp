@@ -67,7 +67,7 @@ void fn_802A5C7C(void *arg0);
 void fn_802A5CB8(void* p);
 s32 open_stream__15TWindowSnapShotFPvi(void *arg0, s32 arg1);
 void reset__15TWindowSnapShotFPv(u8 *arg0);
-s32 TGStream__sub_800FDADC(s32, s32);
+s32 read_whole_file__8TGStreamFiPv(s32, s32);
 s32 get_resource_file_size__6TLobbyFPv(s32);
 u32 alloc_buffer__11TOBoss4RockFPv();
 M2C_UNK memset(void *, int, int);
@@ -129,7 +129,7 @@ s32 alloc_buffer__15TWindowSnapShotFPv(void *arg0) {
     return 1;
 }
 s32 open_stream__15TWindowSnapShotFPvi(void *arg0, s32 arg1) {
-    M2C_FIELD(arg0, s32 *, 0xC) = TGStream__sub_800FDADC(arg1, M2C_FIELD(arg0, s32 *, 8));
+    M2C_FIELD(arg0, s32 *, 0xC) = read_whole_file__8TGStreamFiPv(arg1, M2C_FIELD(arg0, s32 *, 8));
     if (TWindowSnapShot__sub_802A605C((u8 *)(arg0)) == 0) {
         set_mode__15TWindowSnapShotFPvi((void*)(arg0), (s32)(2));
         TWindowSnapShot__sub_802A5D28((void *)((void*)((void*)(arg0))));

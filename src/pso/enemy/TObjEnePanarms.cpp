@@ -313,7 +313,7 @@ void init_split__14TObjEnePanarmsFPv(void *arg0);
 void TObjEnePanarms__sub_800E152C(u8 *arg0);
 void reset_state__14TObjEnePanarmsFPv(void* a0);
 void TObjEnePanarms__sub_800E15B4(u8 *arg0);
-void TObjEnePanarms__sub_800E1608(u8 *arg0, s32 arg1);
+void attack_target_player__14TObjEnePanarmsFPvi(u8 *arg0, s32 arg1);
 s32 try_move_with_detour__14TObjEnePanarmsFPvPv(u8 *arg0, Vec_800E18B0 *arg1);
 void TObjEnePanarms__sub_800E1A44(u8 *arg0);
 void TObjEnePanarms__sub_800E1B50(u8 *arg0);
@@ -688,7 +688,7 @@ void update_attack__14TObjEnePanarmsFPv(u8 *arg0) {
     temp_r0 = M2C_FIELD(arg0, s32 *, 0x3B4) - 1;
     M2C_FIELD(arg0, s32 *, 0x3B4) = temp_r0;
     if (temp_r0 == 0) {
-        ((M2C_UNK (*)(void *, s32))TObjEnePanarms__sub_800E1608)(arg0, M2C_FIELD(arg0, s32 *, 0x3B8));
+        ((M2C_UNK (*)(void *, s32))attack_target_player__14TObjEnePanarmsFPvi)(arg0, M2C_FIELD(arg0, s32 *, 0x3B8));
         play_sound_effect(copy_target_state__14TObjEnePanarmsFPvPv(arg0, 0x4003B72F), arg0 + 0x38, 0, 0);
     }
     if (M2C_FIELD(arg0, f32 *, 0xC0) < TObjEnePanarms__data_805DA544) {
@@ -1202,7 +1202,7 @@ extern int fold_flush_4;
 #pragma inline_depth(1)
 #pragma auto_inline off
 #pragma dont_inline off
-void TObjEnePanarms__sub_800E1608(u8 *arg0, s32 arg1) {
+void attack_target_player__14TObjEnePanarmsFPvi(u8 *arg0, s32 arg1) {
     u8 *t;
     f32 sc;
     s32 lv;

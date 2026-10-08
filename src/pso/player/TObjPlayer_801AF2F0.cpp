@@ -2031,7 +2031,7 @@ s32 check_player_flag1__6TLobbyFPv(s32);
 M2C_UNK check_flag__10TObjPlayerFPvi(void *, M2C_UNK);
 void set_position_from__14TBoss4DarkFalzFPvPv(u32, f32 *);
 s32 get_position_ptr__10TObjPlayerFPv();
-s32 TCameraCtrl__sub_80069258();
+s32 get_view_matrix__11TCameraCtrlFv();
 void reset_cameras_to_actor(u32, s32);
 s32 get_mode__11TCameraCtrlFPv(M2C_UNK *);
 void copy_header_struct__6TLobbyFPvPv(void *, void *);
@@ -2291,7 +2291,7 @@ int is_flag_400_set__10TObjPlayerFPv(void* p);
 void enable_action_input__10TObjPlayerFPv(void* p);
 void disable_primary_action_input__10TObjPlayerFPv(void* p);
 void disable_action_input__10TObjPlayerFPv(void* p);
-int TObjPlayer__sub_801B3674(void *arg0, int arg1, int arg2, int arg3);
+int try_use_item_by_type__10TObjPlayerFPviii(void *arg0, int arg1, int arg2, int arg3);
 s32 check_can_add_item__10TObjPlayerFPvcc(void *arg0, s8 arg1, s8 arg2);
 s32 can_use_item__10TObjPlayerFPvPv(u8 *arg0, void *arg1);
 s32 can_use_camera_field__10TObjPlayerFi(s32 arg0);
@@ -2511,7 +2511,7 @@ M2C_UNK update_recobox__10TObjPlayerFi(void *);
 void apply_motion_entry__10TObjPlayerFPv(void *);
 M2C_UNK update_input_and_draw__10TObjPlayerFi(void *);
 M2C_UNK TObjPlayer__sub_801BD3A4(void *);
-void TObjPlayer__sub_801BDE60(u16, Rec_801B09A4 *);
+void create_player_instance__10TObjPlayerFii(u16, Rec_801B09A4 *);
 s32 check_camera_mode__10TObjPlayerFv();
 s32 is_ready__10TObjPlayerFPv(s32);
 M2C_UNK check_stat_flag_41c__10TObjPlayerFPv(s32);
@@ -2919,7 +2919,7 @@ f32 get_class_hp_factor__10TObjPlayerFPv(s32);
 f32 get_class_technique_boost(s32, s32);
 void split_capped_value__10TObjPlayerFUcPvPv(u8, void *, void *);
 void update_all_units__10TObjPlayerFii(void *, u8);
-void TObjPlayer__sub_801D97C8(void *, u8);
+void level_up_all_techniques__10TObjPlayerFPvi(void *, u8);
 void TObjPlayer__sub_801D9B38(void *, s32);
 void TObjPlayer__sub_801D9B90(void *, s32);
 s32 reset_slots__10TObjPlayerFPv(void *);
@@ -3128,7 +3128,7 @@ void handle_6x9B_level_up_all_techniques(void *arg0) {
     if (validate_6x9B_level_up_all_techniques(&m) != 0) {
         p = ((u8 * (*)(u16))get_player_by_client_id)(m.id);
         if (p != NULL) {
-            TObjPlayer__sub_801D97C8(p + 0x428, m.level);
+            level_up_all_techniques__10TObjPlayerFPvi(p + 0x428, m.level);
         }
     }
 }
@@ -3756,7 +3756,7 @@ void TLobby__sub_801B09A4(void) {
     }
     for (i = 0; i < 12; i++) {
         if (players[i] != NULL) {
-            TObjPlayer__sub_801BDE60(i, &lbl_805D5DB8[i]);
+            create_player_instance__10TObjPlayerFii(i, &lbl_805D5DB8[i]);
             TLobby__sub_8024AC20(i);
         }
     }
@@ -4981,7 +4981,7 @@ void disable_primary_action_input__10TObjPlayerFPv(void* p) { ((int (*)(void*, v
 
 void disable_action_input__10TObjPlayerFPv(void* p) { ((int (*)(void*, void*))set_state_flags__10TObjPlayerFPvUi)((void*)(p), (void*)((void*)1024)); ((int (*)(void*, void*))get_player_result__18TChallenge4PResultFPv)(p, (void*)1); ((int (*)(void*, void*))get_player_result__18TChallenge4PResultFPv)(p, (void*)2); ((int (*)(void*, void*))get_player_result__18TChallenge4PResultFPv)(p, (void*)3); }
 
-int TObjPlayer__sub_801B3674(void *arg0, int arg1, int arg2, int arg3) {
+int try_use_item_by_type__10TObjPlayerFPviii(void *arg0, int arg1, int arg2, int arg3) {
     s8 sp8[24];
     init__9TItemDataFv(sp8);
     sp8[0] = arg1;
@@ -5099,21 +5099,21 @@ s32 can_use_camera_field__10TObjPlayerFi(s32 arg0) {
 s32 TObjPlayer__sub_801B3A18(s32 arg0, u32 arg1) {
     switch (arg1) {
     case 0:
-        return ((s32)TObjPlayer__sub_801B3674((void *)((void *)((void *) (arg0))), (int)((int)((int) (3))), (int)((int)((int) (0))), (int)((int)((int) (0)))));
+        return ((s32)try_use_item_by_type__10TObjPlayerFPviii((void *)((void *)((void *) (arg0))), (int)((int)((int) (3))), (int)((int)((int) (0))), (int)((int)((int) (0)))));
     case 1:
-        return ((s32)TObjPlayer__sub_801B3674((void *)((void *)((void *) (arg0))), (int)((int)((int) (3))), (int)((int)((int) (0))), (int)((int)((int) (1)))));
+        return ((s32)try_use_item_by_type__10TObjPlayerFPviii((void *)((void *)((void *) (arg0))), (int)((int)((int) (3))), (int)((int)((int) (0))), (int)((int)((int) (1)))));
     case 2:
-        return ((s32)TObjPlayer__sub_801B3674((void *)((void *)((void *) (arg0))), (int)((int)((int) (3))), (int)((int)((int) (0))), (int)((int)((int) (2)))));
+        return ((s32)try_use_item_by_type__10TObjPlayerFPviii((void *)((void *)((void *) (arg0))), (int)((int)((int) (3))), (int)((int)((int) (0))), (int)((int)((int) (2)))));
     case 3:
-        return ((s32)TObjPlayer__sub_801B3674((void *)((void *)((void *) (arg0))), (int)((int)((int) (3))), (int)((int)((int) (1))), (int)((int)((int) (0)))));
+        return ((s32)try_use_item_by_type__10TObjPlayerFPviii((void *)((void *)((void *) (arg0))), (int)((int)((int) (3))), (int)((int)((int) (1))), (int)((int)((int) (0)))));
     case 4:
-        return ((s32)TObjPlayer__sub_801B3674((void *)((void *)((void *) (arg0))), (int)((int)((int) (3))), (int)((int)((int) (1))), (int)((int)((int) (1)))));
+        return ((s32)try_use_item_by_type__10TObjPlayerFPviii((void *)((void *)((void *) (arg0))), (int)((int)((int) (3))), (int)((int)((int) (1))), (int)((int)((int) (1)))));
     case 5:
-        return ((s32)TObjPlayer__sub_801B3674((void *)((void *)((void *) (arg0))), (int)((int)((int) (3))), (int)((int)((int) (1))), (int)((int)((int) (2)))));
+        return ((s32)try_use_item_by_type__10TObjPlayerFPviii((void *)((void *)((void *) (arg0))), (int)((int)((int) (3))), (int)((int)((int) (1))), (int)((int)((int) (2)))));
     case 6:
-        return ((s32)TObjPlayer__sub_801B3674((void *)((void *)((void *) (arg0))), (int)((int)((int) (3))), (int)((int)((int) (6))), (int)((int)((int) (0)))));
+        return ((s32)try_use_item_by_type__10TObjPlayerFPviii((void *)((void *)((void *) (arg0))), (int)((int)((int) (3))), (int)((int)((int) (6))), (int)((int)((int) (0)))));
     case 7:
-        return ((s32)TObjPlayer__sub_801B3674((void *)((void *)((void *) (arg0))), (int)((int)((int) (3))), (int)((int)((int) (6))), (int)((int)((int) (1)))));
+        return ((s32)try_use_item_by_type__10TObjPlayerFPviii((void *)((void *)((void *) (arg0))), (int)((int)((int) (3))), (int)((int)((int) (6))), (int)((int)((int) (1)))));
     case 8:
         return check_can_add_item__10TObjPlayerFPvcc((void *)((void *) (arg0)), (s8)((int) (3)), (s8)((int) (3)));
     case 9:
@@ -7275,7 +7275,7 @@ void TObjPlayer__vt63(s32 arg0, s32 arg1, s32 arg2) {
     stack.sp8 = TObjPlayer__data_805DC278;
     push_matrix_from((int) (0));
     TObjPlayer__sub_803D9324((int) (0), (void *) (get_item_ptr__10TObjPlayerFPvi((void *) (arg0), (void *) (arg1))));
-    TCameraCtrl__sub_803D976C((int) (0), (int) (TCameraCtrl__sub_80069258()));
+    TCameraCtrl__sub_803D976C((int) (0), (int) (get_view_matrix__11TCameraCtrlFv()));
     matrix_mult_vec((int) (0), (void *) (&stack.sp8), (void *) (arg2));
     pop_matrix();
 }

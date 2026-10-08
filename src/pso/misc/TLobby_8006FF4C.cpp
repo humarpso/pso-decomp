@@ -118,7 +118,7 @@ s32 TLobby__sub_80070078(void *);
 M2C_UNK TLobby__sub_800722AC(s32);
 M2C_UNK TLobby__sub_80072618();
 s32 TLobby__sub_800739BC(void *);
-M2C_UNK TLobby__sub_80074034(s32);
+M2C_UNK create_new_floor_windows__6TLobbyFi(s32);
 s32 TLobby__sub_8026A328();
 u32 get_player_by_client_id(s32);
 s32 check_player_state_flag_2__6TLobbyFPv();
@@ -406,7 +406,7 @@ void *lbl_8048D108[6] = {
 void create_time_window__6TLobbyFv(void * _w0) {
     TLobby__sub_8006FE7C();
     create_ch_time_win(tl_07);
-    TLobby__sub_80074034(tl_07);
+    create_new_floor_windows__6TLobbyFi(tl_07);
     if ((s32) M2C_FIELD(lbl_8048C9D8, s32 *, 0x30) == 0) {
         create_solo_play_win__6TLobbyFPv(tl_07);
     }
@@ -626,7 +626,7 @@ Obj_80070774 *TLobby__sub_80070774(Obj_80070774 *arg0, s16 arg1) {
 }
 
 struct Obj_80070944 { s32 f0; u8 pad4[0x14]; void *vt; s32 f1C, f20, f24, f28, f2C; };
-void TLobby__sub_800726A0(void *);
+void send_challenge_records__6TLobbyFUi(void *);
 void __ct__7TObjectFP7TObject(void *, void *);
 extern s32 lbl_805D2850;
 
@@ -636,7 +636,7 @@ Obj_80070944 *TChallenge__ct(Obj_80070944 *arg0, void *parent) {
     arg0->f0 = lbl_805D2850;
     TLobby__sub_800707F4((u8 *)lbl_8048C9D8, (u8 *)lbl_8048C348);
     ((void (*)(void *))TLobby__sub_80070358)(arg0);
-    TLobby__sub_800726A0(arg0);
+    send_challenge_records__6TLobbyFUi(arg0);
     arg0->f20 = 0;
     arg0->f24 = 0;
     arg0->f28 = 1;

@@ -13,7 +13,7 @@ u8 get_field_ed__10TObjPlayerFPv(void *);
 u8 get_slot_count__14TItemProShieldFPv(void *);
 void *get_equip_field_d04__10TObjPlayerFPv(void *, int);
 extern u8 lbl_80479BB4[][3];
-s32 fn_8035D2EC(void);
+s32 any_player_has_listed_equipment(void);
 void copy_vec4__13TRaderMapCoreFPvPv(void *, void *);
 void get_weapon_color__11TItemWeaponFPv(void *, void *);
 void TObjPlayer__sub_8010941C(void);
@@ -22,7 +22,7 @@ void fn_8035D3E0(Obj_8035D3E0 *arg0, Out_8035D3E0 *arg1);
 
 extern "C" {
 
-s32 fn_8035D2EC(void) {
+s32 any_player_has_listed_equipment(void) {
     s32 n = get_game_mode__6TLobbyFv();
     s32 i;
     for (i = 0; i < n; i++) {

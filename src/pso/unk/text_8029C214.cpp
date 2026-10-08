@@ -37,11 +37,11 @@ s32 init_collision_body_parts(void *, void *, int);
 s32 TORockCave__ct(void *);
 s32 create__10TObjMapCsnFi(void *);
 s32 TORockJungleS01__sub_8029CAE8(s32 a);
-u8 *TORockJungleS01__sub_8029CAFC(s32 arg0);
+u8 *get_model__15TORockJungleS01Fi(s32 arg0);
 extern "C" void TAdRayGC__sub_8029C054();
-extern "C" void TBoss8Dragon__sub_8029C094();
+extern "C" void update_near_fade__12TBoss8DragonFPv();
 extern "C" void TLobby__sub_801A1FD8();
-extern "C" void TORockCave__sub_80175134();
+extern "C" void draw_model__10TORockCaveFPv();
 extern "C" void TORockJungleL01__sub_8029C030();
 extern "C" void TObjPlayer__sub_80019568();
 extern "C" void TObjRoomId__sub_801A1E2C();
@@ -92,9 +92,9 @@ void *lbl_804DC424[9] = {
 };
 void *lbl_804DC448[16] = {
     (void *)0x0, (void *)0x0, (void *)&destroy__15TORockJungleL01FPvs, (void *)&TORockJungleL01__sub_8029C030,
-    (void *)&TORockCave__sub_80175134, (void *)&render_shadows__7TObjectFv, (void *)&TLobby__sub_801A1FD8, (void *)&apply_object_set_data,
+    (void *)&draw_model__10TORockCaveFPv, (void *)&render_shadows__7TObjectFv, (void *)&TLobby__sub_801A1FD8, (void *)&apply_object_set_data,
     (void *)&release_member_90__10TObjPlayerFPv, (void *)&TParticleCtrl__sub_801A2124, (void *)&update_object_view_visibility, (void *)&classify_actor_view_detail,
-    (void *)&TObjRoomId__sub_801A1E2C, (void *)&TObjPlayer__sub_80019568, (void *)&TBoss8Dragon__sub_8029C094, (void *)&TAdRayGC__sub_8029C054,
+    (void *)&TObjRoomId__sub_801A1E2C, (void *)&TObjPlayer__sub_80019568, (void *)&update_near_fade__12TBoss8DragonFPv, (void *)&TAdRayGC__sub_8029C054,
 };
 #define lbl_804DC3A0 (*(Inner_8029C214 *)lbl_804DC3A0)
 u8 *TORockJungleL01__ct(u8 *arg0, s32 arg1) {
@@ -103,7 +103,7 @@ u8 *TORockJungleL01__ct(u8 *arg0, s32 arg1) {
     init_and_activate__10TObjPlayerFPv(arg0 + 0xB4);
     M2C_FIELD(arg0, s32 *, 0) = lbl_805D3D44;
     ((VObj_8029C214 *)(arg0))->m5(arg1);
-    M2C_FIELD(arg0, u8 **, 0x34) = TORockJungleS01__sub_8029CAFC(4);
+    M2C_FIELD(arg0, u8 **, 0x34) = get_model__15TORockJungleS01Fi(4);
     M2C_FIELD(arg0, s32 *, 0x24) = TORockJungleS01__sub_8029CAE8(4);
     M2C_FIELD(arg0, f32 *, 0xB0) = lbl_805DDD1C + M2C_FIELD(M2C_FIELD(M2C_FIELD(arg0, u8 **, 0x34), void **, 4), f32 *, 0x14);
     ((s32 (*)(void *, void *, int, f32))init_collision_body_parts)(arg0, &lbl_804DC3A0.v, 1, lbl_805DDD1C);

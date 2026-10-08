@@ -65,7 +65,7 @@ s8 *TLobby__sub_80146D14(void);
 s8 *TLobby__sub_80146D44(void);
 void init_account_entries__6TLobbyFv(void);
 int reset_mode_state__21TAdMultiChgGameModeGCFv(void*);
-void TAdEnterBaseGC__sub_8032B390(void *);
+void create_parts__14TAdEnterBaseGCFPv(void *);
 void reset__14TAdEnterBaseGCFPvi(void *, int);
 void TAdEnterBaseGC__ct(void *);
 extern M2C_UNK __vt__17TAdEnterPPPPassGC[];
@@ -288,7 +288,7 @@ T_8033954C *TAdEnterPPPPassGC__ct(T_8033954C *arg0) {
         queue_destruction__7TObjectFv(arg0);
         return arg0;
     }
-    TAdEnterBaseGC__sub_8032B390(arg0);
+    create_parts__14TAdEnterBaseGCFPv(arg0);
     return arg0;
 }
 

@@ -5,7 +5,7 @@ extern "C" {
 void TWindowSnapShot__sub_802A7DA0(void);
 void alloc_buffer__15TWindowSnapShotFv(void);
 void init_default__15TWindowSnapShotFv(void);
-int TLobby__sub_8001D600(void*, void*, void*, void*);
+int aram_transfer_sync__6TLobbyFiUiii(void*, void*, void*, void*);
 int get_resource_file_size__6TLobbyFPv(void);
 int Dolphin_ARAlloc(void);
 int TWindowSnapShot__sub_802A7EAC(void);
@@ -14,7 +14,7 @@ int get_field_8__15TWindowSnapShotFPv(void*);
     extern int lbl_805D6690;
     extern int lbl_805D669C;
     extern int lbl_805D66A0;
-void init_default__15TWindowSnapShotFv(void) { TLobby__sub_8001D600((void*)1, (void*)get_field_8__15TWindowSnapShotFPv((void*)(lbl_805D6690)), (void*)(lbl_805D669C), (void*)(lbl_805D66A0)); }
+void init_default__15TWindowSnapShotFv(void) { aram_transfer_sync__6TLobbyFiUiii((void*)1, (void*)get_field_8__15TWindowSnapShotFPv((void*)(lbl_805D6690)), (void*)(lbl_805D669C), (void*)(lbl_805D66A0)); }
 
 void TWindowSnapShot__sub_802A7DA0(void) {  }
 

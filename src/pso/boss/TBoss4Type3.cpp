@@ -635,7 +635,7 @@ void draw_player_model_by_id__10TObjPlayerFif(int, f32);
 s32 TBoss4Type2__sub_800522CC(s32 n, f32 *w, s32 *t);
 s32 sync_player_globals__10TObjPlayerFv();
 s32 TObjPlayer__sub_80052390(f32);
-M2C_UNK fn_80052420(u16, s32);
+M2C_UNK drain_player_hp(u16, s32);
 f32 TBoss4Type3__sub_800524E8(f32);
 s32 TBoss4Type3__sub_8005254C(u16);
 M2C_UNK TBoss4Type2__sub_80055300();
@@ -670,7 +670,7 @@ void TBoss4Type2__vt3(u8 *arg0);
 void TBoss4Type2__vt2(void *arg0);
 void TBoss4Type2__vt1(u8 *arg0);
 void TBoss4Type2__vt0(void *arg0);
-void TBoss4Type2__sub_8005676C(Obj_8005676C *arg0);
+void spawn_afterimages__11TBoss4Type2FPv(Obj_8005676C *arg0);
 void spawn_bishi_around_players__11TBoss4Type2FPv(Obj_8005683C *arg0);
 void apply_resta_heal__11TBoss4Type2FPv(void *arg0);
 void TBoss4Type2__sub_80056998(u8 *arg0);
@@ -741,7 +741,7 @@ void update_target_effect_timer__11TBoss4Type3FPv(void *arg0);
 void handle_damage_taken__11TBoss4Type3FPv(O_80059618 *o);
 int TBoss4Type3__sub_800599F4(void*, void*, void*);
 void calc_grid_index__11TBoss4Type3FPv(void *arg0);
-void TBoss4Type3__sub_80059ABC(Obj_80059ABC *self, s32 arg1);
+void turn_toward_player__11TBoss4Type3FPvi(Obj_80059ABC *self, s32 arg1);
 s32 get_random_scaled__11TBoss4Type3Fv(void);
 void interp_position_between_nodes__11TBoss4Type3FPv(u8 *arg0);
 void spawn_random_effect__11TBoss4Type3Fi(s32 arg0);
@@ -1225,7 +1225,7 @@ void TBoss4Type3__vt45(S_80058224 *o) {
         ((void (*)(void *, s32))set_action_from_table__11TBoss4Type3FPvi)(o, 1);
         return;
     }
-    ((void (*)(void *, u16))TBoss4Type3__sub_80059ABC)(o, id);
+    ((void (*)(void *, u16))turn_toward_player__11TBoss4Type3FPvi)(o, id);
     if (o->f398 == 0x31) {
         spawn_effect__11TBoss4Type3Fsss(0xC0, 0xF, (s16)o->f3ba);
         o->f3b8 = 0xFFFF;
@@ -1308,7 +1308,7 @@ void TBoss4Type3__vt39(u8 *arg0) {
     } else {
         VecCopy__FP3VecPC3Vec(&v, (u8 *)p + 0x2FC);
     }
-    TBoss4Type3__sub_80059ABC((Obj_80059ABC *)arg0, M2C_FIELD(arg0, u16 *, 0x3B8));
+    turn_toward_player__11TBoss4Type3FPvi((Obj_80059ABC *)arg0, M2C_FIELD(arg0, u16 *, 0x3B8));
     if (M2C_FIELD(arg0, s32 *, 0x398) == 0x31) {
         play_sound_effect(0x4003AA2E, 0, 0, 0);
         spawn_effect__11TBoss4Type3Fsss(0xC0, 0xF, (s16)M2C_FIELD(arg0, u16 *, 0x3B8));
@@ -1508,7 +1508,7 @@ void TBoss4Type3__vt30(O_80058BA0 *o) {
         return;
     }
     if (o->f398 > 0x93) {
-        ((void (*)(void *, u16))TBoss4Type3__sub_80059ABC)(o, id);
+        ((void (*)(void *, u16))turn_toward_player__11TBoss4Type3FPvi)(o, id);
     } else if (o->f398 == 0x93) {
         if ((o->f424 = ((void * (*)(void *, int))create_particle_emitter)(a, 0xF7)) != 0) {
             set_flags__11TBoss4Type2FPvUi(o->f424, 0x40);
@@ -1829,7 +1829,7 @@ void handle_damage_taken__11TBoss4Type3FPv(O_80059618 *o) {
         o->f3e4 = o->f32c;
         return;
     }
-    fn_80052420(o->f3ba, o->f3e4 - o->f32c);
+    drain_player_hp(o->f3ba, o->f3e4 - o->f32c);
     o->f3e4 = o->f32c;
     ((M2C_UNK (*)(void *, s32, u16))create_yutai__11TBoss4Type3FPvPvPv)(o, 2, o->f3ba);
     Vec_80059618 pos = *(Vec_80059618 *)(p + 0x2FC);
@@ -1923,7 +1923,7 @@ void calc_grid_index__11TBoss4Type3FPv(void *arg0) {
     M2C_FIELD(arg0, s32 *, 0x3A8) = (s32) (((u32) -(M2C_FIELD(arg0, s32 *, 0x60) + 0x800) >> 0xCU) & 0xF);
 }
 
-void TBoss4Type3__sub_80059ABC(Obj_80059ABC *self, s32 arg1) {
+void turn_toward_player__11TBoss4Type3FPvi(Obj_80059ABC *self, s32 arg1) {
     Ply_80059ABC *p;
     if ((u16)arg1 != 0xFFFF) {
         p = get_player_by_client_id((u16)arg1);

@@ -22,7 +22,7 @@ void TWindowSubStatusDisp__sub_80228D4C();
 void text_builder_append(char *);
 void text_builder_reset();
 char *TLobby__sub_802424A4(char *s, s32 a, s32 b);
-char *TLobby__sub_802424D8(char *list);
+char *build_text_from_comma_list__6TLobbyFPv(char *list);
 }
 
 extern "C" {
@@ -68,7 +68,7 @@ char *TLobby__sub_802424A4(char *s, s32 a, s32 b) {
     return s;
 }
 
-char *TLobby__sub_802424D8(char *list) {
+char *build_text_from_comma_list__6TLobbyFPv(char *list) {
     char buf[0x11];
     char *s;
     char *d;

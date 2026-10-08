@@ -17,7 +17,7 @@ void TLobby__sub_801030EC(void *);
 s32 fn_8010319C(s32);
 s32 can_pickup_item_by_id__10TObjPlayerFii(s32, void *);
 s32 get_player_by_client_id(u16);
-void TItem__sub_801022FC(Player_801022FC *p, s32 id);
+void try_pick_up_item__5TItemFPvi(Player_801022FC *p, s32 id);
 }
 
 extern "C" {
@@ -26,7 +26,7 @@ s32 fn_8010319C(s32);
 s32 submit_cursor_candidate(void *, s32);
 void TItem__sub_80102420(void);
 
-void TItem__sub_801022FC(Player_801022FC *p, s32 id) {
+void try_pick_up_item__5TItemFPvi(Player_801022FC *p, s32 id) {
     Msg_801022FC m;
     if ((u16)id != 0xFFFF) {
         if (can_pickup_item_by_id__10TObjPlayerFii(get_player_by_client_id(id), p) != 0 && fn_8010319C((s32)(p)) == 0) {

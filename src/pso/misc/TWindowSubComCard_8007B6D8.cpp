@@ -18,7 +18,7 @@ int get_keyboard_mode__17TWindowSubComCardFv(void);
 void init_card__17TWindowSubComCardFPvPv(void* p, void* a1);
 void *init_guild_card__17TWindowSubComCardFPv(void *arg0);
 int is_active__17TWindowSubComCardFPv(void* p);
-int TLobby__sub_801E44D8(void*, void*);
+int send_subcommand_to_client__6TLobbyFPvUi(void*, void*);
 int bswap__16TPlyGuildCardTagFv(void*);
 void init_guild_card_tag__17TWindowSubComCardFi(void *);
 int read_be16_field2__10TObjPlayerFPv(void*);
@@ -36,7 +36,7 @@ s32 TWindowSubComCard__sub_8007B6F4(O_8007B6F4 *self) {
 
 void bswap_guild_card__17TWindowSubComCardFPv(void* p) { read_be16_field2__10TObjPlayerFPv(p); bswap_guild_card_tag__17TWindowSubComCardFPv((void*)((char*)p + 0x4)); }
 int bswap_guild_card_tag__17TWindowSubComCardFPv(void* p) { return bswap__16TPlyGuildCardTagFv(p); }
-void init_card__17TWindowSubComCardFPvPv(void* p, void* a1) { bswap_guild_card__17TWindowSubComCardFPv((void*)(p)); TLobby__sub_801E44D8(p, a1); }
+void init_card__17TWindowSubComCardFPvPv(void* p, void* a1) { bswap_guild_card__17TWindowSubComCardFPv((void*)(p)); send_subcommand_to_client__6TLobbyFPvUi(p, a1); }
 
     extern int lbl_805D4E80;
 int get_keyboard_mode__17TWindowSubComCardFv(void) {  return lbl_805D4E80; }

@@ -8,7 +8,7 @@ extern "C" {
 f32 sin_table_lookup(s32);
 f32 cos_table_lookup(s32);
 void rotate_vec_xz(void *arg0, void *arg1, s32 arg2);
-s32 TCameraCtrl__sub_80069258();
+s32 get_view_matrix__11TCameraCtrlFv();
 M2C_UNK matrix_mult_vec(M2C_UNK, s32, s32);
 M2C_UNK TCameraCtrl__sub_803D976C(M2C_UNK, s32);
 M2C_UNK push_matrix();
@@ -192,7 +192,7 @@ bool is_vec_xz_cross_negative(u8 *arg0, u8 *arg1) {
 #pragma fp_contract on
 void transform_vec_by_camera__15TObjBoss2TunnelFiii(s32 arg0, s32 arg1, s32 arg2) {
     push_matrix();
-    TCameraCtrl__sub_803D976C(0, TCameraCtrl__sub_80069258());
+    TCameraCtrl__sub_803D976C(0, get_view_matrix__11TCameraCtrlFv());
     matrix_mult_vec(0, arg1, arg2);
     pop_matrix();
 }

@@ -52,7 +52,7 @@ struct Vec_80190020 { f32 x, y, z; };
 extern "C" {
 void TObjDoorKey__vt14(u8 *arg0);
 void VecCopy__FP3VecPC3Vec(void *, void *);
-void TOKey__sub_8016AA20();
+void debug_draw_key_id__5TOKeyFPv();
 void set_global_count__12TObjNpcEnemyFi(int);
 void debug_printf_at(int, void *, ...);
 extern u8 lbl_804456C8[];
@@ -236,7 +236,7 @@ M2C_UNK draw_inactive_badge__11TObjDoorKeyFPv(void *arg) {
 }
 
 void TObjDoorKey__vt24(Key_8018FD9C *arg0) {
-    TOKey__sub_8016AA20();
+    debug_draw_key_id__5TOKeyFPv();
     VecCopy__FP3VecPC3Vec(&arg0->f74, arg0->f38);
     arg0->f78 = arg0->f78 + lbl_805DBE08;
     set_global_count__12TObjNpcEnemyFi(0xFF00FF);

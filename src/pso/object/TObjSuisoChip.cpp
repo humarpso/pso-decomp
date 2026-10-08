@@ -193,7 +193,7 @@ void update_anim_if_active__23TObjSeabedSuisoBrakableFPv(void* p);
 void update_switch_lock__23TObjSeabedSuisoBrakableFPv(void *arg0);
 M2C_UNK scroll_ginja_mesh_uvs(s32, M2C_UNK, M2C_UNK, u16, M2C_UNK);
 u8 is_current_floor_switch_set(u16);
-M2C_UNK TORockCave__sub_80175134(void *);
+M2C_UNK draw_model__10TORockCaveFPv(void *);
 void free_collision_body_parts(void *);
 void unregister_object_by_id(void *);
 struct Obj_802A6DA8; Obj_802A6DA8 *init__23TObjSeabedSuisoBrakableFPvii(Obj_802A6DA8 *, s32, s32);
@@ -246,7 +246,7 @@ void TObjSeabedSuisoBrakable__vt12(void *arg0) {
 void render__23TObjSeabedSuisoBrakableFv(void *arg0) {
     struct VObj_802A63F8_802A62E8 *o = (struct VObj_802A63F8_802A62E8 *)arg0;
     o->m12();
-    TORockCave__sub_80175134(arg0);
+    draw_model__10TORockCaveFPv(arg0);
 }
 
 typedef char RecoveredGlobal_802A6438_lbl_804DD388_size[sizeof(RecoveredGlobal_802A6438_lbl_804DD388) == 0x360 ? 1 : -1];

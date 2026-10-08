@@ -71,7 +71,7 @@ extern RecoveredGlobal_801FE75C_lbl_804C88C0 lbl_804C88C0;
 extern s32 lbl_805D49B4;
 extern s32 lbl_805D5F7C;
 extern s32 lbl_805D5F94;
-s32 TAdSinglePlyChrSelectGC__sub_801FE75C(void);
+s32 load_chr_select_slot__23TAdSinglePlyChrSelectGCFv(void);
 s32 TAdSinglePlyChrSelectGC__sub_801FC564(s32);
 s32 TAdSinglePlyChrSelectGC__sub_801FCCDC(s32, s32);
 s32 check_ready__23TAdSinglePlyChrSelectGCFv();
@@ -140,7 +140,7 @@ void TAdSinglePlyChrSelectGC__sub_801FE710(void *arg0, void *arg1) {
     *(Req_801FE5F8 *)arg0 = *(Req_801FE5F8 *)arg1;
 }
 
-s32 TAdSinglePlyChrSelectGC__sub_801FE75C(void) {
+s32 load_chr_select_slot__23TAdSinglePlyChrSelectGCFv(void) {
     s32 var_r0;
     s8 temp_r3;
     temp_r3 = ((u8 (*)(void))get_chr_select_state__23TAdSinglePlyChrSelectGCFv)();

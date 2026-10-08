@@ -65,16 +65,16 @@ void create_judgment_item_window__15TShopWindowBaseFPv(void *);
 void update__15TShopWindowBaseFPv(void *);
 void update_confirm_input__15TShopWindowBaseFPv(void *);
 void THunterGuildSeqOffline__sub_802145F8(void *);
-void THunterGuildSeqOffline__sub_8021488C(void *);
-void THunterGuildSeqOffline__sub_80214978(Seq_80214978 *arg0);
+void init_window__22THunterGuildSeqOfflineFPv(void *);
+void dispatch_state__22THunterGuildSeqOfflineFPv(Seq_80214978 *arg0);
 }
 
 extern "C" {
 
-void THunterGuildSeqOffline__sub_80214978(Seq_80214978 *arg0) {
+void dispatch_state__22THunterGuildSeqOfflineFPv(Seq_80214978 *arg0) {
     switch (arg0->state) {
     case 0: arg0->m10(); break;
-    case 1: THunterGuildSeqOffline__sub_8021488C(arg0); break;
+    case 1: init_window__22THunterGuildSeqOfflineFPv(arg0); break;
     case 3: THunterGuildSeqOffline__sub_802145F8(arg0); break;
     case 8: fn_80214058(arg0); break;
     case 4: update_confirm_input__15TShopWindowBaseFPv(arg0); break;

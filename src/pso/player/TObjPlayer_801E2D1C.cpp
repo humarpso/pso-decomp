@@ -25,7 +25,7 @@ M2C_UNK GXLoadPosMtxImm(s32, M2C_UNK);
 extern M2C_UNK (*lbl_805D7710)(void *);
 M2C_UNK PSMTXInverse(s32, M2C_UNK *);
 M2C_UNK PSMTXTranspose(M2C_UNK *, M2C_UNK *);
-M2C_UNK TObjPlayer__sub_803D76B4(void *);
+M2C_UNK apply_motion_node_transform__10TObjPlayerFPv(void *);
 M2C_UNK compose_motion_node_matrix(void *);
 M2C_UNK push_matrix();
 M2C_UNK pop_matrix();
@@ -41,7 +41,7 @@ void render_model_tree__10TObjPlayerFPv(void *arg0) {
     var_r31 = arg0;
     do {
         push_matrix();
-        TObjPlayer__sub_803D76B4(var_r31);
+        apply_motion_node_transform__10TObjPlayerFPv(var_r31);
         if (((M2C_UNK (*)(void *)) lbl_805D7710) != NULL) {
             lbl_805D7710(var_r31);
         }

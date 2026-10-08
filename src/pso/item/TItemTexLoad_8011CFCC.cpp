@@ -9,15 +9,15 @@ M2C_UNK unload_texture__12TItemTexLoadFPv(void *);
 s32 TLobby__sub_803CC53C(int);
 M2C_UNK read_checked_align__6TLobbyFiii(int, int, int);
 u32 adxf_open_afs__6TLobbyFii(int, int);
-s32 TItemTexLoad__sub_8011CFCC(u8 *arg0, s32 arg1);
+s32 load_texture__12TItemTexLoadFPvi(u8 *arg0, s32 arg1);
 s32 *lookup_item_pmt_record(void *);
-s32 TItemTexLoad__sub_8011CFCC(u8 *arg0, s32 arg1);
+s32 load_texture__12TItemTexLoadFPvi(u8 *arg0, s32 arg1);
 s32 TItemTexLoad__sub_8011D098(u8 *arg0, u8 *arg1);
 }
 
 extern "C" {
 
-s32 TItemTexLoad__sub_8011CFCC(u8 *arg0, s32 arg1) {
+s32 load_texture__12TItemTexLoadFPvi(u8 *arg0, s32 arg1) {
     if ((arg1 >= 0) && (arg1 < 0x17B) && ((u32) M2C_FIELD(arg0, u32 *, 0x1C) != 0U)) {
         if (arg1 == (s32) M2C_FIELD(arg0, s32 *, 0x24)) {
             return 1;
@@ -52,16 +52,16 @@ s32 TItemTexLoad__sub_8011D098(u8 *arg0, u8 *arg1) {
             switch (arg1[0]) {
             case 0:
                 if (id >= 0x94 && id < 0x20E) {
-                    return TItemTexLoad__sub_8011CFCC(arg0, id - 0x94);
+                    return load_texture__12TItemTexLoadFPvi(arg0, id - 0x94);
                 }
-                return TItemTexLoad__sub_8011CFCC(arg0, 0x17A);
+                return load_texture__12TItemTexLoadFPvi(arg0, 0x17A);
             case 1:
                 break;
             case 2:
                 if (arg1[1] < 0x42U) {
-                    return TItemTexLoad__sub_8011CFCC(arg0, arg1[1] + 0x12E);
+                    return load_texture__12TItemTexLoadFPvi(arg0, arg1[1] + 0x12E);
                 }
-                return TItemTexLoad__sub_8011CFCC(arg0, 0x12E);
+                return load_texture__12TItemTexLoadFPvi(arg0, 0x12E);
             }
         }
     }

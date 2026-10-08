@@ -41,7 +41,7 @@ extern "C" {
 int send_and_handle__6TLobbyFPvii(void* p, int a1, int a2);
 void set_window_mode_4__6TLobbyFPvii(void *arg0, M2C_UNK arg1, M2C_UNK arg2);
 void update_window_mode_from_progress__6TLobbyFiPv(s32 arg0, void *arg1);
-f32 TWindowSubStatusDisp__sub_803D647C(f32);
+f32 round_away_from_zero__20TWindowSubStatusDispFf(f32);
 int append_message_window_line(void*, int, int, int);
 
 int send_and_handle__6TLobbyFPvii(void* p, int a1, int a2) { return append_message_window_line(p, a1, a2, -1); }
@@ -81,7 +81,7 @@ void set_window_mode_4__6TLobbyFPvii(void *arg0, M2C_UNK arg1, M2C_UNK arg2) {
 extern const f32 lbl_805DD238;
 
 void update_window_mode_from_progress__6TLobbyFiPv(s32 arg0, void *arg1) {
-    set_window_mode_4__6TLobbyFPvii((void *)((void *)(arg0)), (M2C_UNK)((M2C_UNK)(arg1)), (M2C_UNK)((M2C_UNK)((s32) TWindowSubStatusDisp__sub_803D647C((M2C_FIELD(arg1, f32 *, 4) - lbl_805DD238) / lbl_805DD238) + 2)));
+    set_window_mode_4__6TLobbyFPvii((void *)((void *)(arg0)), (M2C_UNK)((M2C_UNK)(arg1)), (M2C_UNK)((M2C_UNK)((s32) round_away_from_zero__20TWindowSubStatusDispFf((M2C_FIELD(arg1, f32 *, 4) - lbl_805DD238) / lbl_805DD238) + 2)));
 }
 
 M2C_UNK TLobby__sub_80269DA4(V2_80269DA4 size, void *arg1) {

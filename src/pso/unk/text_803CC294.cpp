@@ -61,7 +61,7 @@ struct Snd_803CC980 {
 extern "C" {
 M2C_UNK notify_error__6TLobbyFPv(void *);
 extern RecoveredGlobal_803CC500_lbl_8047C910 lbl_8047C910;
-s32 TLobby__sub_803CC500(u8 *arg0);
+s32 adxf_get_fsize_byte__6TLobbyFPv(u8 *arg0);
 M2C_UNK notify_error__6TLobbyFPv(void *);
 extern RecoveredGlobal_803CC53C_lbl_8047C93C lbl_8047C93C;
 s32 TLobby__sub_803CC53C(u8 *arg0);
@@ -201,7 +201,7 @@ s32 TLobby__sub_803CC4C0(Obj_803CC4C0 *p) {
     return p->b;
 }
 
-s32 TLobby__sub_803CC500(u8 *arg0) {
+s32 adxf_get_fsize_byte__6TLobbyFPv(u8 *arg0) {
     if (arg0 == NULL) {
         notify_error__6TLobbyFPv((void *) (&lbl_8047C910.value));
         return -3;

@@ -19,7 +19,7 @@ struct VObj_18_204a81 : VBase_18_204a81 {
 
 extern "C" {
 M2C_UNK init__22THunterGuildSeqOfflineFPvPvPv(void *, s32, void *);
-M2C_UNK TLobby__sub_8013998C();
+M2C_UNK send_logout__6TLobbyFv();
 u32 __nw__7TObjectFUl(int);
 M2C_UNK fn_8024AB54(int);
 s32 get_slot_or_neg1__17TWindowSubComCardFPv(int);
@@ -94,7 +94,7 @@ void run_task__17TWindowSubGameEndFv(u8 *arg0) {
                         init__22THunterGuildSeqOfflineFPvPvPv(obj, tl_00, (void *)init_char_select__16TKeyBoardControlFv);
                     }
                     fn_8024AB54(M2C_FIELD(arg0, s32 *, 0x20));
-                    TLobby__sub_8013998C();
+                    send_logout__6TLobbyFv();
                     lbl_805D6480 = 1;
                 }
                 M2C_FIELD(arg0, s32 *, 0x1C) = 2;

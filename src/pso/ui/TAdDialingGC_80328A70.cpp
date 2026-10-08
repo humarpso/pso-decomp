@@ -23,8 +23,8 @@ s32 fn_80145A44(void *);
 s32 call_146CA0_with_5708__6TLobbyFv();
 int sprintf(char *, const char *, ...);
 extern char lbl_804767C8[];
-void TAdDialingGC__sub_80328AA0(void);
-void TAdDialingGC__sub_80328AA0(void) {
+void draw_dialing_status__12TAdDialingGCFv(void);
+void draw_dialing_status__12TAdDialingGCFv(void) {
     char a[0x20];
     char c[0x100];
     char b[0x100];

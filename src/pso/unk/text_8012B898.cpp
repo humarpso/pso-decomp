@@ -26,7 +26,7 @@ s32 reset_key_machine_state__10TObjPlayerFv();
 M2C_UNK create_ex__9TTecBartaFPvPvPvPv(int, void *, int, int);
 M2C_UNK create__8TTecFoieFPvPvPvPv(int, void *, int, int);
 M2C_UNK create_tec_zonde__10TObjPlayerFPvPvPvPv(int, void *, void *, int);
-void TObjPlayer__sub_8012B8F0(u8 *arg0, s32 arg1);
+void create_technique_by_index__10TObjPlayerFPvi(u8 *arg0, s32 arg1);
 u8 * init_vtable_and_clear_field1f8__10TObjPlayerFPv(void *, M2C_UNK, void *);
 u8 *alloc_from_obj_heap__10TObjPlayerFPv(M2C_UNK);
 extern s32 tl_05;
@@ -61,7 +61,7 @@ u8 *TObjPlayer__sub_8012B898(u8 *arg0) {
     return NULL;
 }
 
-void TObjPlayer__sub_8012B8F0(u8 *arg0, s32 arg1) {
+void create_technique_by_index__10TObjPlayerFPvi(u8 *arg0, s32 arg1) {
   s32 new_var;
   s32 temp_r31;
   if (((u32) (*((u32 *) (((s8 *) arg0) + 0xF0)))) != 0U)

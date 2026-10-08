@@ -77,7 +77,7 @@ s32 get_selected_menu_value(int);
 M2C_UNK open__17TWindowOptionCtrlFPv(int);
 M2C_UNK set_selection_state__21TAdMultiSelGameModeGCFPvi(s32, M2C_UNK);
 s32 get_player_index__22TAdMultiPlyChrSelectGCFPv(s32);
-s32 TAdChrSelASlotGC__sub_8030C8D8(int, void *, int);
+s32 create_format_message_window__16TAdChrSelASlotGCFiii(int, void *, int);
 s32 TAdChrSelASlotGC__sub_8030C978(int, void *, int);
 extern M2C_UNK lbl_80472538[];
 void handle_menu_selection__23TAdSinglePlyChrSelectGCFPv(u8 *arg0);
@@ -371,7 +371,7 @@ void handle_menu_selection__23TAdSinglePlyChrSelectGCFPv(u8 *arg0) {
             return;
         case 1:
             open__17TWindowOptionCtrlFPv((int) (M2C_FIELD(arg0, s32 *, 0x38)));
-            M2C_FIELD(arg0, s32 *, 0x4C) = TAdChrSelASlotGC__sub_8030C8D8((int) (M2C_FIELD(arg0, s32 *, 0x28)), (void *) (lbl_80472538), (int) (0));
+            M2C_FIELD(arg0, s32 *, 0x4C) = create_format_message_window__16TAdChrSelASlotGCFiii((int) (M2C_FIELD(arg0, s32 *, 0x28)), (void *) (lbl_80472538), (int) (0));
             M2C_FIELD(arg0, s32 *, 0x20) = 9;
             return;
         case 2:

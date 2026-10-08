@@ -135,7 +135,7 @@ extern const f32 lbl_805D8CE0;
 s32 TBoss4Bishi__ct(s32 arg0, s32 arg1, s32 arg2);
 void VecCopy__FP3VecPC3Vec(void *, void *);
 struct Obj_8005C6E4;
-void TBoss4Uro__sub_8005C6E4(Obj_8005C6E4 *arg0);
+void clamp_min_player_distance__9TBoss4UroFPv(Obj_8005C6E4 *arg0);
 s32 get_player_by_client_id(u32);
 f32 sin_table_lookup(s32);
 f32 cos_table_lookup(s32);
@@ -383,7 +383,7 @@ void TBoss4Uro__vt61(void* p) { if (*(int*)((char*)p + 0x374) != 3) { distribute
 
 #pragma push
 #pragma fp_contract on
-void TBoss4Uro__sub_8005C6E4(Obj_8005C6E4 *arg0) {
+void clamp_min_player_distance__9TBoss4UroFPv(Obj_8005C6E4 *arg0) {
     Vec_8005C6E4 target;
     Vec_8005C6E4 d;
     f32 len;
@@ -519,7 +519,7 @@ void update_orbit_velocity__10TBoss4ZakoFPv(void *p) {
     } else {
         o->vel.z -= lbl_805D8CEC;
     }
-    TBoss4Uro__sub_8005C6E4((Obj_8005C6E4 *)o);
+    clamp_min_player_distance__9TBoss4UroFPv((Obj_8005C6E4 *)o);
     o->f398 = vector_length(&o->vel);
     if (o->f398 > o->f3a0) {
         o->f398 += lbl_805D8CF0;

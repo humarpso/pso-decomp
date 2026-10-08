@@ -35,7 +35,7 @@ void inc_player_count__10TObjPlayerFv(void);
 void init_forward_default__10TObjPlayerFv(void);
 int lookup_inventory_item__10TObjPlayerFPv(void* p);
 int test_item_flags__10TObjPlayerFPvUi(void* p, u32 m);
-int TLobby__sub_8010542C(void*);
+int dispatch_item_by_type__6TLobbyFPv(void*);
 void TObjPlayer__sub_80102C58(void* p);
 void TObjPlayer__sub_80102C68(void* p);
 void bswap_32__FPUl(u32* p);
@@ -75,7 +75,7 @@ void inc_player_count__10TObjPlayerFv(void) {
     lbl_805D5408 = temp_r3 + 1;
 }
 
-int lookup_inventory_item__10TObjPlayerFPv(void* p) { return TLobby__sub_8010542C(p); }
+int lookup_inventory_item__10TObjPlayerFPv(void* p) { return dispatch_item_by_type__6TLobbyFPv(p); }
 
 extern s32 lbl_805D53F0;
 extern u32 lbl_805D53F4;

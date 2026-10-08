@@ -192,7 +192,7 @@ extern s32 lbl_805D7A10;
 extern s32 lbl_805D7A14;
 extern s32 lbl_805D7A18;
 extern s32 lbl_805D7A20;
-s32 TLobby__sub_803F7C4C(u8 *src, s32 len);
+s32 write_ring_buffer__6TLobbyFPvi(u8 *src, s32 len);
 M2C_UNK unlock_mutex__10TUdpSocketFi(int);
 M2C_UNK lock_mutex__6TLobbyFi(int);
 s16 TLobby__sub_803F96AC(void *);
@@ -517,7 +517,7 @@ Q_803F7AF4 *TLobby__sub_803F7B74(void) {
     return &lbl_805D7A24;
 }
 
-s32 TLobby__sub_803F7C4C(u8 *src, s32 len) {
+s32 write_ring_buffer__6TLobbyFPvi(u8 *src, s32 len) {
     s32 first;
     s32 over;
     s32 end;

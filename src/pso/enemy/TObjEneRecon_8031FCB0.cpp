@@ -247,7 +247,7 @@ s32 TObjEneRecon__sub_8031F6C0(void *, void *);
 s32 handle_state__12TObjEneReconFPvi(void *, void *);
 void TObjEneRecon__sub_8031F800(void *);
 M2C_UNK restore_position__12TObjEneReconFPv(void *);
-void TObjEneRecon__sub_8031FCB0(s32 arg0, u32 arg1, s32 arg2);
+void dispatch_state__12TObjEneReconFiUii(s32 arg0, u32 arg1, s32 arg2);
 void fn_8031FD3C(u8 *arg0);
 Obj_8031FE14 * fn_8031FE14(Obj_8031FE14 *arg0, s16 arg1);
 void __destroy_arr(void *, void *, int, int);
@@ -449,7 +449,7 @@ void *lbl_804EC7A0[107] = {
     (void *)&enemy_spawn_zalure_effect, (void *)&TObjPlayer__sub_80010A80, (void *)&TObjPlayer__sub_800F65D0, (void *)&fn_80010EC8,
     (void *)&fn_80010EC4, (void *)&fn_80010EC0, (void *)&fn_80010EBC, (void *)&TObjEneDD__vt77,
     (void *)&TObjPlayer__sub_800F673C, (void *)&apply_set_data__9TObjEnemyFPvPv, (void *)&fn_800F5D80, (void *)&TObjEneEpsilon__vt81,
-    (void *)&TObjEneDD__vt82, (void *)&TObjEneDD__vt83, (void *)&TObjEneDD__vt84, (void *)&TObjEneRecon__sub_8031FCB0,
+    (void *)&TObjEneDD__vt82, (void *)&TObjEneDD__vt83, (void *)&TObjEneDD__vt84, (void *)&dispatch_state__12TObjEneReconFiUii,
     (void *)&TObjEneRecon__sub_8031FB6C, (void *)&TObjEneDD__vt86, (void *)&TObjEneDD__vt87, (void *)&TObjEneDD__vt88,
     (void *)&TObjEneDD__vt89, (void *)&TObjEneDD__vt90, (void *)&TObjEneDD__vt91, (void *)&TObjEneDD__vt92,
     (void *)&TObjEneDD__vt93, (void *)&TObjEneDD__vt94, (void *)&TObjEneDD__vt95, (void *)&TObjEneDD__vt96,
@@ -461,7 +461,7 @@ void *lbl_804EC7A0[107] = {
 #define lbl_804EC760 ((u8 *)lbl_804EC760)
 #define lbl_804EC7A0 ((u8 *)lbl_804EC7A0)
 
-void TObjEneRecon__sub_8031FCB0(s32 arg0, u32 arg1, s32 arg2) {
+void dispatch_state__12TObjEneReconFiUii(s32 arg0, u32 arg1, s32 arg2) {
     switch (arg1) {
     case 0:
         TObjEneRecon__sub_8031F6C0((void *) (arg0), (void *) (arg2));

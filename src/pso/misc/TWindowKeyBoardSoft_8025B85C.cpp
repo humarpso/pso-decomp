@@ -99,9 +99,9 @@ bool TWindowKeyBoardSoft__sub_8025B85C(u16 arg0);
 extern s32 lbl_805D5544;
 u16 map_char_to_font_code(u16);
 u8 get_font_char_advance(u16);
-s32 TWindowKeyBoardSoft__sub_80080D1C(Field_8025C974 *, u16, u32 *, u32 *, u32 *);
+s32 measure_char_overflow__19TWindowKeyBoardSoftFPvUsPvPvPv(Field_8025C974 *, u16, u32 *, u32 *, u32 *);
 void export_keyboard_text(Base_8025C974 *base, char *out);
-s32 TWindowKeyBoardSoft__sub_80080D1C(Field_8025C974 *, u16, u32 *, u32 *, u32 *);
+s32 measure_char_overflow__19TWindowKeyBoardSoftFPvUsPvPvPv(Field_8025C974 *, u16, u32 *, u32 *, u32 *);
 s32 TWindowKeyBoardSoft__sub_8025CA70(Base_8025C974 *arg0);
 M2C_UNK TWindowKeyBoardSoft__sub_800808FC(int, int);
 bool TWindowKeyBoardSoft__sub_8025B85C(u16 arg0);
@@ -678,7 +678,7 @@ void export_keyboard_text(Base_8025C974 *base, char *out) {
     while ((s32)*in != 0) {
         code = *in++;
         get_font_char_advance(map_char_to_font_code(code));
-        if (TWindowKeyBoardSoft__sub_80080D1C(&base->field, code, &a, &b, &c)) {
+        if (measure_char_overflow__19TWindowKeyBoardSoftFPvUsPvPvPv(&base->field, code, &a, &b, &c)) {
             *out = 0;
             return;
         }
@@ -698,7 +698,7 @@ s32 TWindowKeyBoardSoft__sub_8025CA70(Base_8025C974 *arg0) {
     u16 *p = arg0->field.buffer;
     while ((s32)*p != 0) {
         ch = *p++;
-        if (TWindowKeyBoardSoft__sub_80080D1C(&arg0->field, ch, &a, &b, &c) != 0) {
+        if (measure_char_overflow__19TWindowKeyBoardSoftFPvUsPvPvPv(&arg0->field, ch, &a, &b, &c) != 0) {
             break;
         }
     }

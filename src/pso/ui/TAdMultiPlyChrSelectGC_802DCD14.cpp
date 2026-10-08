@@ -46,7 +46,7 @@ void update_confirm_start__22TAdMultiPlyChrSelectGCFPv(void *arg0);
 void update_state_move__22TAdMultiPlyChrSelectGCFPv(void *arg0);
 M2C_UNK TAdChrMoveEffectGC__sub_803490AC();
 M2C_UNK TAdChrMoveEffectGC__sub_803490D8(u32, s32, u32);
-M2C_UNK TAdGameStartGC__sub_802E644C(s32);
+M2C_UNK create_effects__14TAdGameStartGCFPv(s32);
 s32 TAdMultiPlyChrSelectGC__sub_802C64D0(M2C_UNK);
 s32 TAdMultiPlyChrSelectGC__sub_802C6558();
 M2C_UNK reset_slot_selections__22TAdMultiPlyChrSelectGCFv();
@@ -119,7 +119,7 @@ void update_confirm_start__22TAdMultiPlyChrSelectGCFPv(void *arg0) {
         temp_r31 = count_ready__22TAdMultiPlyChrSelectGCFv();
         temp_r3 = TAdMultiPlyChrSelectGC__sub_802C6558();
         if (temp_r3 != temp_r31) {
-            TAdGameStartGC__sub_802E644C(M2C_FIELD(arg0, s32 *, 0x78));
+            create_effects__14TAdGameStartGCFPv(M2C_FIELD(arg0, s32 *, 0x78));
         }
     }
     set_state_ready__22TAdMultiPlyChrSelectGCFPv(M2C_FIELD(arg0, s32 *, 0x5C));

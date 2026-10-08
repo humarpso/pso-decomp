@@ -192,7 +192,7 @@ M2C_UNK pop_matrix();
 extern const f32 lbl_805D9620;
 extern const f32 lbl_805D962C;
 extern const f32 lbl_805D9630;
-void TObjPlayer__sub_8008E18C(Obj_8008E18C *self, s32 slot, Vec_8008E18C *out, s32 *angle_out);
+void calc_slot_offset_position__10TObjPlayerFPviPvPv(Obj_8008E18C *self, s32 slot, Vec_8008E18C *out, s32 *angle_out);
 M2C_UNK apply_actor_gravity(void *, M2C_UNK, f32);
 M2C_UNK move_with_wall_slide(void *);
 M2C_UNK calc_velocity_toward_destination(void *, Vec_8008DD14, Vec_8008DD14, Info_8008DD14 *, f32);
@@ -250,7 +250,7 @@ void TObjPlayer__sub_8008E254(void *arg0);
 void set_hp_clamped__10TObjPlayerFPvs(void *, s16);
 void set_field_b8__14TObjEnePanarmsFPvs(void *, s16);
 M2C_UNK TObjEneBalClawClaw__sub_8008DC90(void *);
-void TObjPlayer__sub_8008E18C(Obj_8008E18C *self, s32 slot, Vec_8008E18C *out, s32 *angle_out);
+void calc_slot_offset_position__10TObjPlayerFPviPvPv(Obj_8008E18C *self, s32 slot, Vec_8008E18C *out, s32 *angle_out);
 void TObjPlayer__sub_80090418(void *self, s32 i);
 void TObjEneBalClawClaw__sub_80090A10(u8 *arg0, u8 *arg1, s32 arg2, s16 arg3);
 void *create__18TObjEneBalClawClawFPvPvPvPvPvPv(void *arg0, void *arg1, void *arg2, void *arg3, void *arg4, void *arg5);
@@ -403,7 +403,7 @@ s32 TObjPlayer__sub_8008E098(Obj_8008E098 *self) {
     return self->count;
 }
 
-void TObjPlayer__sub_8008E18C(Obj_8008E18C *self, s32 slot, Vec_8008E18C *out, s32 *angle_out) {
+void calc_slot_offset_position__10TObjPlayerFPviPvPv(Obj_8008E18C *self, s32 slot, Vec_8008E18C *out, s32 *angle_out) {
     s32 angle;
     push_matrix();
     angle = (s32)(lbl_805D962C * (f32)(slot * 0x5A + 0x2D));
@@ -667,7 +667,7 @@ void TObjPlayer__sub_8008E934(void *arg0_, s32 arg1) {
                     id2 = M2C_FIELD(arg0, s16 *, 0x2C) + i;
                     id++;
                     id2++;
-                    TObjPlayer__sub_8008E18C((Obj_8008E18C *)arg0, i, &a, &angA);
+                    calc_slot_offset_position__10TObjPlayerFPviPvPv((Obj_8008E18C *)arg0, i, &a, &angA);
                     ((void *(*)(void *, u16, void *, void *, void *, void *))create__18TObjEneBalClawClawFPvPvPvPvPvPv)(arg0, id, (void *)id2, &a, (void *)angA, (void *)M2C_FIELD(arg0, s16 *, 0x32C));
                 }
             }
@@ -676,7 +676,7 @@ void TObjPlayer__sub_8008E934(void *arg0_, s32 arg1) {
             for (k = 0; k < M2C_FIELD(arg0, s16 *, 0x3D8); k++) {
                 ent = get_enemy_entity(((Self_8008E934 *)arg0)->ids[k]);
                 if (ent != NULL) {
-                    TObjPlayer__sub_8008E18C((Obj_8008E18C *)arg0, k, &b, &angB);
+                    calc_slot_offset_position__10TObjPlayerFPviPvPv((Obj_8008E18C *)arg0, k, &b, &angB);
                     TObjEneBalClawClaw__sub_80090A10(ent, (u8 *)&b, angB, M2C_FIELD(arg0, s16 *, 0x32C));
                     n++;
                 }

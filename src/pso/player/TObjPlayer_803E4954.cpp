@@ -39,7 +39,7 @@ M2C_UNK end_chunk_draw__10TObjPlayerFv();
 void draw_chunk_vertices_cached__10TObjPlayerFPv();
 void TObjPlayer__sub_803E4D8C(void *, void *, void *, f32, void (*)(void));
 void TObjEneSlimeOne__sub_803E4B54(void *arg0, void *arg1, void *arg2, f32 farg0);
-s32 TObjPlayer__sub_803D76B4(int);
+s32 apply_motion_node_transform__10TObjPlayerFPv(int);
 s32 push_matrix();
 s32 pop_matrix();
 extern A_803E4BDC *lbl_805D4698;
@@ -91,7 +91,7 @@ s32 draw_object_tree_recursive(void *arg) {
     u32 t;
     do {
         push_matrix();
-        TObjPlayer__sub_803D76B4((int) arg0);
+        apply_motion_node_transform__10TObjPlayerFPv((int) arg0);
         if (lbl_805D7810 != NULL) {
             lbl_805D7810(arg0);
         }

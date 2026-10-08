@@ -45,7 +45,7 @@ void set_cull_back__8TObjFishFv();
 s32 is_not_split_screen__13TRaderMapCoreFv();
 void matrix_mult_vec(s32, void *, void *);
 extern const f32 lbl_805DDD18;
-void TBoss8Dragon__sub_8029C094(Rd_8029C094 *arg0);
+void update_near_fade__12TBoss8DragonFPv(Rd_8029C094 *arg0);
 }
 
 extern "C" {
@@ -63,7 +63,7 @@ void TAdRayGC__sub_8029C054(u8 *arg0) {
     }
     set_cull_none__8TObjFishFv();
 }
-void TBoss8Dragon__sub_8029C094(Rd_8029C094 *arg0) {
+void update_near_fade__12TBoss8DragonFPv(Rd_8029C094 *arg0) {
     Vec_8029C094 v;
     set_cull_back__8TObjFishFv();
     matrix_mult_vec(0, arg0->pos, &v);

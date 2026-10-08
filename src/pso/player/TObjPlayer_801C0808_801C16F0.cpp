@@ -7,7 +7,7 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 
 extern "C" {
 void TObjPlayer__sub_801C16F0(void* p, void* a1);
-s32 TLobby__sub_801E44D8(s32, s32);
+s32 send_subcommand_to_client__6TLobbyFPvUi(s32, s32);
 int bswap_pkt_u16x2_u32x2__10TObjPlayerFPv(void* p);
 void TObjPlayer__sub_801C16F0(void* p, void* a1);
 void bswap_pkt_u32x5__10TObjPlayerFPv(void* p);
@@ -43,7 +43,7 @@ void* copy_warp_target__10TObjPlayerFPvPv(void* p, void* a1);
 void* handle_6x1F_set_floor__10TObjPlayerFPvPv(void* p, void* a1);
 int TFontSmallLobby__sub_801C0228(void*);
 s32 TLobby__send_and_handle_60(s32);
-s32 TLobby__sub_801E44D8(s32, s32);
+s32 send_subcommand_to_client__6TLobbyFPvUi(s32, s32);
 s32 TLobby__sub_801E4534(s32);
 int test_flags_any(void*, int);
 int __dl__FPv();
@@ -56,7 +56,7 @@ int set_flags__10TObjPlayerFPvUi(void*, int);
 s32 set_mode__20TWindowActionPaletteFPvUc(s32, u8);
 s32 set_slot__20TWindowActionPaletteFPvUc(s32, u8);
 
-void TObjPlayer__sub_801C16F0(void* p, void* a1) { bswap_pkt_u16x2_u32x2__10TObjPlayerFPv(p); TLobby__sub_801E44D8((s32)(p), (s32)(a1)); }
+void TObjPlayer__sub_801C16F0(void* p, void* a1) { bswap_pkt_u16x2_u32x2__10TObjPlayerFPv(p); send_subcommand_to_client__6TLobbyFPvUi((s32)(p), (s32)(a1)); }
 
 void TObjPlayer__sub_801C172C(void* p) { bswap_pkt_u32x5__10TObjPlayerFPv((void*)(p)); TLobby__sub_801E4534((s32)(p)); }
 

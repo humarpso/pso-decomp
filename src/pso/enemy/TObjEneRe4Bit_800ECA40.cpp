@@ -288,7 +288,7 @@ void TObjEneRe4Bit__sub_800ECD28(u8 *arg0, s32 arg1);
 void TObjEneRe4Bit__sub_800ED150(u8 *arg0);
 M2C_UNK set_field_378__9TObjEneDDFPvi(void *, M2C_UNK);
 M2C_UNK transition_enemy_state(void *, M2C_UNK);
-M2C_UNK TObjEneRe4Bit__sub_800ED4BC(void *);
+M2C_UNK update_homing_velocity__13TObjEneRe4BitFPv(void *);
 void update_position_flag__13TObjEneRe4BitFPv(void *);
 extern const f32 lbl_805DA76C;
 extern const f32 lbl_805DA778;
@@ -300,7 +300,7 @@ s32 handle_event__13TObjEneRe4BitFPvi(void *arg0, s32 arg1);
 void TObjEneRe4Bit__vt85(s32 arg0, u32 arg1, s32 arg2);
 M2C_UNK set_field_378__9TObjEneDDFPvi(void *, M2C_UNK);
 M2C_UNK transition_enemy_state(void *, M2C_UNK);
-M2C_UNK TObjEneRe4Bit__sub_800ED4BC(void *);
+M2C_UNK update_homing_velocity__13TObjEneRe4BitFPv(void *);
 void update_position_flag__13TObjEneRe4BitFPv(void *);
 extern const f32 TObjEneRe4Bit__data_805DA770;
 extern const f32 lbl_805DA778;
@@ -489,7 +489,7 @@ void TObjEneRe4Bit__sub_800ECE04(u8 *arg0, s32 arg1) {
             M2C_FIELD(arg0, f32 *, 0x3D8) = (f32) TObjEneRe4Bit__data_805DA770;
         }
         M2C_FIELD(arg0, s32 *, 0x60) = (s32) (M2C_FIELD(arg0, s32 *, 0x60) - 0x1800);
-        TObjEneRe4Bit__sub_800ED4BC(arg0);
+        update_homing_velocity__13TObjEneRe4BitFPv(arg0);
         update_position_flag__13TObjEneRe4BitFPv(arg0);
         break;
     }
@@ -532,7 +532,7 @@ void TObjEneRe4Bit__sub_800ECED0(void *arg0, s32 arg1) {
             M2C_FIELD(arg0, s32 *, 0x60) = (s32) (M2C_FIELD(arg0, s32 *, 0x60) + 0x1800);
             break;
         }
-        TObjEneRe4Bit__sub_800ED4BC((void *)(arg0));
+        update_homing_velocity__13TObjEneRe4BitFPv((void *)(arg0));
         update_position_flag__13TObjEneRe4BitFPv(arg0);
         return;
     case 5:
@@ -565,7 +565,7 @@ s32 handle_event__13TObjEneRe4BitFPvi(void *arg0, s32 arg1) {
     case 5:
         break;
     case 0:
-        TObjEneRe4Bit__sub_800ED4BC((void *)(arg0));
+        update_homing_velocity__13TObjEneRe4BitFPv((void *)(arg0));
         update_position_flag__13TObjEneRe4BitFPv((void *)(arg0));
         break;
     }

@@ -365,7 +365,7 @@ void vec3_add_to(void *, void *);
 void subtract_vector(void *, void *);
 extern const f32 lbl_805DA77C;
 extern const f32 lbl_805DA780;
-void TObjEneRe4Bit__sub_800ED4BC(Obj_800ED4BC *arg0);
+void update_homing_velocity__13TObjEneRe4BitFPv(Obj_800ED4BC *arg0);
 }
 
 extern "C" {
@@ -389,7 +389,7 @@ s16 obj_getField1c(void *);
 
 #pragma push
 #pragma fp_contract on
-void TObjEneRe4Bit__sub_800ED4BC(Obj_800ED4BC *arg0) {
+void update_homing_velocity__13TObjEneRe4BitFPv(Obj_800ED4BC *arg0) {
     Vec_800ED4BC sp;
     f32 s;
     VecCopy__FP3VecPC3Vec((void*)(&sp), (void*)(arg0->f3C0));

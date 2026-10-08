@@ -74,7 +74,7 @@ s32 select_action_palette__10TObjPlayerFi(u8 *, s32);
 u8 *get_player_by_client_id(s32);
 s32 TWindowActionPalette__sub_801C1D7C(s32, s32, s32);
 s32 get_slot_type__20TWindowActionPaletteFiii(s32, s32, s32);
-s32 TWindowSubCustomEquip__sub_80275FD8(void *, s32, s32, s32);
+s32 update_palette_slot__21TWindowSubCustomEquipFPviii(void *, s32, s32, s32);
 s32 refresh_palette_slots__21TWindowSubCustomEquipFPv(void *arg0);
 }
 
@@ -145,22 +145,22 @@ s32 refresh_palette_slots__21TWindowSubCustomEquipFPv(void *arg0) {
     if (player == NULL || (pal = select_action_palette__10TObjPlayerFi(player, 0)) == 0) {
         return;
     }
-    TWindowSubCustomEquip__sub_80275FD8(arg0, 0,
+    update_palette_slot__21TWindowSubCustomEquipFPviii(arg0, 0,
         get_slot_type__20TWindowActionPaletteFiii(pal, M2C_FIELD(arg0, s8 *, 0x64), 2),
         TWindowActionPalette__sub_801C1D7C(pal, M2C_FIELD(arg0, s8 *, 0x64), 2));
-    TWindowSubCustomEquip__sub_80275FD8(arg0, 1,
+    update_palette_slot__21TWindowSubCustomEquipFPviii(arg0, 1,
         get_slot_type__20TWindowActionPaletteFiii(pal, M2C_FIELD(arg0, s8 *, 0x64), 1),
         TWindowActionPalette__sub_801C1D7C(pal, M2C_FIELD(arg0, s8 *, 0x64), 1));
-    TWindowSubCustomEquip__sub_80275FD8(arg0, 2,
+    update_palette_slot__21TWindowSubCustomEquipFPviii(arg0, 2,
         get_slot_type__20TWindowActionPaletteFiii(pal, M2C_FIELD(arg0, s8 *, 0x64), 3),
         TWindowActionPalette__sub_801C1D7C(pal, M2C_FIELD(arg0, s8 *, 0x64), 3));
-    TWindowSubCustomEquip__sub_80275FD8(arg0, 3,
+    update_palette_slot__21TWindowSubCustomEquipFPviii(arg0, 3,
         get_slot_type__20TWindowActionPaletteFiii(pal, M2C_FIELD(arg0, s8 *, 0x65), 2),
         TWindowActionPalette__sub_801C1D7C(pal, M2C_FIELD(arg0, s8 *, 0x65), 2));
-    TWindowSubCustomEquip__sub_80275FD8(arg0, 4,
+    update_palette_slot__21TWindowSubCustomEquipFPviii(arg0, 4,
         get_slot_type__20TWindowActionPaletteFiii(pal, M2C_FIELD(arg0, s8 *, 0x65), 1),
         TWindowActionPalette__sub_801C1D7C(pal, M2C_FIELD(arg0, s8 *, 0x65), 1));
-    TWindowSubCustomEquip__sub_80275FD8(arg0, 5,
+    update_palette_slot__21TWindowSubCustomEquipFPviii(arg0, 5,
         get_slot_type__20TWindowActionPaletteFiii(pal, M2C_FIELD(arg0, s8 *, 0x65), 3),
         TWindowActionPalette__sub_801C1D7C(pal, M2C_FIELD(arg0, s8 *, 0x65), 3));
 }

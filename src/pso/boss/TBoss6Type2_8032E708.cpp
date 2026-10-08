@@ -389,7 +389,7 @@ s32 TBoss6Type2__sub_802BD2D0(void *, void *, void *);
 f32 vector_length(void *);
 f32 subtract_vector(void *, int);
 f32 normalize_vector(void *);
-void TBoss6Type2__sub_8032EBB4(O_8032EBB4 *arg0);
+void push_out_from_points__11TBoss6Type2FPv(O_8032EBB4 *arg0);
 s32 VecCopy__FP3VecPC3Vec(void *, void *);
 f32 get_ad_end_text_start__10TObjPlayerFv(f32, f32);
 s32 angle_difference_abs(s32, s32);
@@ -419,7 +419,7 @@ f32 cos_table_lookup(void *);
 f32 subtract_vector(void *, int);
 void turn_toward_target__11TBoss6Type2FPv(u8 *arg0);
 s32 VecCopy__FP3VecPC3Vec(void *, void *);
-void TBoss6Rock__sub_80353C60(void *, f32);
+void push_out_of_rocks__10TBoss6RockFPvf(void *, f32);
 void TBoss6Type2__sub_80356E88(s32, void *, s32);
 s32 rand(void);
 f32 sin_table_lookup(void *);
@@ -612,7 +612,7 @@ void enforce_min_distance__11TBoss6Type2FPv(u8 *arg0) {
   }
 }
 
-void TBoss6Type2__sub_8032EBB4(O_8032EBB4 *arg0) {
+void push_out_from_points__11TBoss6Type2FPv(O_8032EBB4 *arg0) {
     V3_8032EBB4 v;
     V3_8032EBB4 pts[2];
     s32 i;
@@ -855,7 +855,7 @@ void spawn_falling_rocks__11TBoss6Type2FPv(u8 *arg0) {
         p->x = r * ((f32 (*)(s32))sin_table_lookup)(ang) + p->x;
         p->y = (0.0f);
         p->z = r * ((f32 (*)(s32))cos_table_lookup)(ang) + p->z;
-        TBoss6Rock__sub_80353C60(p, (1e+01f));
+        push_out_of_rocks__10TBoss6RockFPvf(p, (1e+01f));
     }
     TBoss6Type2__sub_80356E88(M2C_FIELD(arg0, s32 *, 0x384), pts, 3);
 }

@@ -40,7 +40,7 @@ s32 init_shop_judgment_window();
 s32 set_text__18TWindowMessagePageFiii(s32, void *, s32);
 s32 get_window_layout_position(s32);
 extern Pair_801F68FC lbl_8044A684[];
-void TMCFormatSequence__sub_801F68FC(MCFmt_801F68FC *self);
+void open_windows__17TMCFormatSequenceFPv(MCFmt_801F68FC *self);
 }
 
 extern "C" {
@@ -155,7 +155,7 @@ void process_format_result__17TMCFormatSequenceFPv(void *arg0) {
         close_window__17TMCFormatSequenceFPv((void*)(arg0));
     }
 }
-void TMCFormatSequence__sub_801F68FC(MCFmt_801F68FC *self) {
+void open_windows__17TMCFormatSequenceFPv(MCFmt_801F68FC *self) {
     if (self->f34 == 0) {
         Pair_801F68FC t = lbl_8044A684[0];
         self->f34 = set_text__18TWindowMessagePageFiii(get_window_layout_position(0x2F), &t, 1);

@@ -22,7 +22,7 @@ extern M2C_UNK __vt__19TWindowKeyBoardBase[];
 extern s32 lbl_805D3920;
 extern s32 lbl_805D5544;
 u8 *TWindowKeyBoardBase__ct(u8 *arg0);
-M2C_UNK TLobby__sub_8001D600(M2C_UNK, s32, s32, s32);
+M2C_UNK aram_transfer_sync__6TLobbyFiUiii(M2C_UNK, s32, s32, s32);
 M2C_UNK safe_free__23TAdSinglePlyChrSelectGCFUi(s32);
 s32 set_stream_and_load_file__6TLobbyFi(M2C_UNK *);
 s32 get_resource_file_size__6TLobbyFPv(M2C_UNK *);
@@ -114,7 +114,7 @@ void load_ask_dictionary__6TLobbyFv(void) {
     aligned = (size + 0x1F) & ~0x1F;
     aram = Dolphin_ARAlloc(aligned);
     data = set_stream_and_load_file__6TLobbyFi(lbl_8044F098);
-    TLobby__sub_8001D600(3, data, aram, aligned);
+    aram_transfer_sync__6TLobbyFiUiii(3, data, aram, aligned);
     safe_free__23TAdSinglePlyChrSelectGCFUi(data);
     TQuestVmDownLoadServer__sub_803F0C04(aram, size, 3, 1, 0x2710);
     TQuestVmDownLoadServer__sub_803F09A4();

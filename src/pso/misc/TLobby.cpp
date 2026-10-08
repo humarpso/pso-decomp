@@ -283,7 +283,7 @@ extern "C" {
 
 s32 create_file_load_entry__6TLobbyFiiUiiPv(s32 arg0, s32 arg1, u32 arg2, s32 arg3, void **arg4);
 u8 *alloc_from_heap__6TLobbyFPv(M2C_UNK);
-s32 TLobby__sub_803CC500();
+s32 adxf_get_fsize_byte__6TLobbyFPv();
 s32 TLobby__sub_803CC53C(s32);
 M2C_UNK TLobby__sub_803CCE9C(s32);
 s32 adxf_open__6TLobbyFUii(s32, M2C_UNK);
@@ -304,7 +304,7 @@ s32 create_file_load_entry__6TLobbyFiiUiiPv(s32 arg0, s32 arg1, u32 arg2, s32 ar
     if (temp_r3 == 0) {
         return -2;
     }
-    if (TLobby__sub_803CC500() > 0x40000) {
+    if (adxf_get_fsize_byte__6TLobbyFPv() > 0x40000) {
         TLobby__sub_803CCE9C(temp_r3);
         return -3;
     }
@@ -340,7 +340,7 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 extern "C" {
 
 s32 create_named_entry__6TLobbyFiiUiiPv(s32 arg0, s32 arg1, u32 arg2, s32 arg3, void **arg4);
-s32 TLobby__sub_803CC500(int);
+s32 adxf_get_fsize_byte__6TLobbyFPv(int);
 s32 TLobby__sub_803CC53C(int);
 M2C_UNK TLobby__sub_803CCE9C(int);
 s32 adxf_open__6TLobbyFUii(void *, int);
@@ -367,7 +367,7 @@ s32 create_named_entry__6TLobbyFiiUiiPv(s32 arg0, s32 arg1, u32 arg2, s32 arg3, 
     strncpy((void *) (var_r31 + 8), (void *) (arg0), (int) (0x20));
     M2C_FIELD(var_r31, s32 *, 0) = 1;
     M2C_FIELD(var_r31, s32 *, 0x28) = arg1;
-    M2C_FIELD(var_r31, s32 *, 0x2C) = TLobby__sub_803CC500((int) (temp_r3));
+    M2C_FIELD(var_r31, s32 *, 0x2C) = adxf_get_fsize_byte__6TLobbyFPv((int) (temp_r3));
     M2C_FIELD(var_r31, s32 *, 0x30) = TLobby__sub_803CC53C((int) (temp_r3));
     TLobby__sub_803CCE9C((int) (temp_r3));
     M2C_FIELD(var_r31, s32 *, 0x34) = 0;
@@ -394,7 +394,7 @@ extern "C" {
 
 s32 request_file_read__6TLobbyFiiPvPv(s32 arg0, s32 arg1, s32 *arg2, void **arg3);
 u8 *alloc_from_heap__6TLobbyFPv(M2C_UNK);
-s32 TLobby__sub_803CC500(s32);
+s32 adxf_get_fsize_byte__6TLobbyFPv(s32);
 s32 TLobby__sub_803CC53C(s32);
 M2C_UNK TLobby__sub_803CCE9C(s32);
 s32 adxf_open__6TLobbyFUii(s32, M2C_UNK);
@@ -421,7 +421,7 @@ s32 request_file_read__6TLobbyFiiPvPv(s32 arg0, s32 arg1, s32 *arg2, void **arg3
     strncpy((u8 *)var_r31 + 8, arg0, 0x20);
     M2C_FIELD(var_r31, s32 *, 0) = 1;
     M2C_FIELD(var_r31, s32 *, 0x28) = arg1;
-    M2C_FIELD(var_r31, s32 *, 0x2C) = TLobby__sub_803CC500(temp_r3);
+    M2C_FIELD(var_r31, s32 *, 0x2C) = adxf_get_fsize_byte__6TLobbyFPv(temp_r3);
     M2C_FIELD(var_r31, s32 *, 0x30) = TLobby__sub_803CC53C(temp_r3);
     TLobby__sub_803CCE9C(temp_r3);
     M2C_FIELD(var_r31, s32 **, 0x34) = arg2;

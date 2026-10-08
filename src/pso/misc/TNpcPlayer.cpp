@@ -429,12 +429,12 @@ s32 partner_find_wall_segment(M2C_UNK arg0, s32 arg1, s32 arg2, s32 arg3, s32 ar
 s32 partner_probe_obstacles(View_8014F140 *view);
 s32 TNpcPlayer__sub_8014F28C(s32 self, Ent_8014F28C *a, s32 lo, s32 hi);
 void quick_sort__10TNpcPlayerFiiii(s32 arg0, s32 arg1, s32 arg2, s32 arg3);
-s32 TNpcPlayer__sub_8014F424(View_8014F424 *view, void *pos, s32 id, f32 range);
+s32 find_parts_in_range__10TNpcPlayerFPvPvif(View_8014F424 *view, void *pos, s32 id, f32 range);
 s32 scan_nearby_enemies__10TNpcPlayerFPvPvf(View_8014F57C *view, void *pos, f32 range);
 bool is_target_line_clear__10TNpcPlayerFPvUs(u8 *arg0, u16 arg1);
 void * dt__10TNpcPlayerFPvs(void *arg0, s16 arg1);
 s32 refresh_npc_view_actor_lost(void *arg0);
-Npc_8014F844 * TNpcPlayer__sub_8014F844(Npc_8014F844 *self, s32 id);
+Npc_8014F844 * init_ai_state__10TNpcPlayerFPvi(Npc_8014F844 *self, s32 id);
 s32 partner_view_update_hp_change(void *arg0);
 s32 partner_view_update_conditions(u8 *arg0);
 s32 try_update_target_flag__10TNpcPlayerFPvi(void *arg0, s32 arg1);
@@ -2313,7 +2313,7 @@ void quick_sort__10TNpcPlayerFiiii(s32 arg0, s32 arg1, s32 arg2, s32 arg3) {
     }
 }
 
-s32 TNpcPlayer__sub_8014F424(View_8014F424 *view, void *pos, s32 id, f32 range) {
+s32 find_parts_in_range__10TNpcPlayerFPvPvif(View_8014F424 *view, void *pos, s32 id, f32 range) {
     Actor_8014F424 *actor;
     s32 found;
     s32 i;
@@ -2434,7 +2434,7 @@ s32 refresh_npc_view_actor_lost(void *arg0) {
 extern int fold_flush_3;
 #pragma pop
 
-Npc_8014F844 *TNpcPlayer__sub_8014F844(Npc_8014F844 *self, s32 id) {
+Npc_8014F844 *init_ai_state__10TNpcPlayerFPvi(Npc_8014F844 *self, s32 id) {
     s32 i;
     void *p;
     self->f94 = ((s32 (*)(u16))find_entity_by_id)(id);
@@ -2549,7 +2549,7 @@ s32 try_update_target_flag__10TNpcPlayerFPvi(void *arg0, s32 arg1) {
     s32 temp_r6;
 
     temp_r6 = M2C_FIELD(arg0, s32 *, 0x94);
-    if (((s32 (*)(void *, s32, s32, s32))TNpcPlayer__sub_8014F424)(arg0, temp_r6 + 0x38, arg1, temp_r6) != 0) {
+    if (((s32 (*)(void *, s32, s32, s32))find_parts_in_range__10TNpcPlayerFPvPvif)(arg0, temp_r6 + 0x38, arg1, temp_r6) != 0) {
         M2C_FIELD(arg0, s32 *, 0x8C) = (s32) (M2C_FIELD(arg0, s32 *, 0x8C) | 2);
         return 1;
     }
@@ -3531,12 +3531,12 @@ Npc_80152168 *TNpcPlayer__ct(Npc_80152168 *self, s32 a, s32 b, s16 kind, s32 arg
     self->f8D = 0;
     p = alloc__23TAdSinglePlyChrSelectGCFPv(0x108);
     if (p != 0) {
-        p = ((void *(*)(void *, u16))TNpcPlayer__sub_8014F844)(p, a);
+        p = ((void *(*)(void *, u16))init_ai_state__10TNpcPlayerFPvi)(p, a);
     }
     self->f74 = p;
     p = alloc__23TAdSinglePlyChrSelectGCFPv(0x108);
     if (p != 0) {
-        p = ((void *(*)(void *, u16))TNpcPlayer__sub_8014F844)(p, b);
+        p = ((void *(*)(void *, u16))init_ai_state__10TNpcPlayerFPvi)(p, b);
     }
     self->f78 = (Own_80152168 *)p;
     copy__10TNpcPlayerFPvPv(self->f30, (u8 *)&TNpcPlayer__data_804ABC90[self->f2C]);
@@ -3582,12 +3582,12 @@ Npc_80152330 *construct_partner__10TNpcPlayerFPviisPv(Npc_80152330 *self, s32 a,
     self->f8D = 0;
     p = alloc__23TAdSinglePlyChrSelectGCFPv(0x108);
     if (p != 0) {
-        p = ((void *(*)(void *, u16))TNpcPlayer__sub_8014F844)(p, a);
+        p = ((void *(*)(void *, u16))init_ai_state__10TNpcPlayerFPvi)(p, a);
     }
     self->f74 = p;
     p = alloc__23TAdSinglePlyChrSelectGCFPv(0x108);
     if (p != 0) {
-        p = ((void *(*)(void *, u16))TNpcPlayer__sub_8014F844)(p, b);
+        p = ((void *(*)(void *, u16))init_ai_state__10TNpcPlayerFPvi)(p, b);
     }
     self->f78 = (Own_80152330 *)p;
     copy__10TNpcPlayerFPvPv(self->f30, (u8 *)&TNpcPlayer__data_804ABC90[self->f2C]);

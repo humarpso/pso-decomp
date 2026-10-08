@@ -1654,7 +1654,7 @@ void TLobby__sub_801EC15C(u8 arg0, u8 arg1);
 void init_window__6TLobbyFv(void);
 void init_state__6TLobbyFv(void);
 void TLobby__sub_801EC43C(void);
-void TLobby__sub_801EC494(s32 i);
+void write_mag_stats__6TLobbyFi(s32 i);
 void TLobby__sub_801EC5E4(void);
 void TLobby__sub_801EC624(void);
 void TLobby__sub_801EC64C(void);
@@ -1692,7 +1692,7 @@ void TLobby__sub_801ED300(void);
 void TLobby__sub_801ED360(void);
 void TLobby__sub_801ED3C4(s32 arg0);
 void TLobby__sub_801ED400(s32 arg0, s32 arg1);
-void TLobby__sub_801ED468(s32 a, s32 b);
+void warp_player_to_area__6TLobbyFii(s32 a, s32 b);
 void TLobby__sub_801ED50C(void* p);
 void TLobby__sub_801ED52C(s32 arg0);
 void TLobby__sub_801ED55C(s32 arg0);
@@ -1963,7 +1963,7 @@ M2C_UNK clear_floor_event_flags();
 M2C_UNK init_sub_objects__6TLobbyFv();
 int TLobby__sub_8020C118(void);
 s32 is_room_enemy_set_cleared(int, int, void *);
-s32 TLobby__sub_8020C73C(s32, s32, s32, s32);
+s32 unhide_enemies_at__6TLobbyFiii(s32, s32, s32, s32);
 void unhide_room_set_objects(s32 a, s16 b, s16 c, s32 d);
 M2C_UNK TLobby__sub_8020DBCC();
 s32 TCheckRoomSequence__sub_80210D44(Item_801EE0BC *, s32);
@@ -2077,7 +2077,7 @@ s32 quest_remove_npc_player(int);
 void send_inter_level_warp_all__10TNpcPlayerFi();
 s32 TNpcPlayer__sub_8034EA80(int);
 s32 TNpcPlayer__sub_8034EAC4(int);
-void TNpcPlayer__sub_8034EB08(u16, u16, s32, Vec_801F12F0 *, s32);
+void send_npc_control_create__10TNpcPlayerFsUssPvi(u16, u16, s32, Vec_801F12F0 *, s32);
 void create_companion__10TNpcPlayerFUsUsiPvi(u16 leader, u16 slot, int appearance, f32* pos, int heading);
 void create_default_companion__10TNpcPlayerFssPvi(u16 leader, int appearance, f32* pos, int heading);
 s32 TNpcPlayer__sub_8034ECD0(s32, s32, s32);
@@ -2531,7 +2531,7 @@ void TLobby__sub_801E7EB0(void) {
 
 void set_wrapped__9TItemDataFPv(Item_801EE77C *);
 void set_present_color__9TItemDataFPvi(Item_801EE77C *, s8);
-void TLobby__sub_801E7ECC(void) {
+void wrap_item_as_present__6TLobbyFv(void) {
     s32 id;
     s8 n;
     u32 player;
@@ -5523,7 +5523,7 @@ void TLobby__sub_801EC43C(void) {
 #pragma inline_depth(1)
 #pragma auto_inline off
 #pragma dont_inline off
-void TLobby__sub_801EC494(s32 i) {
+void write_mag_stats__6TLobbyFi(s32 i) {
     s32 r;
     if (((u32 (*)(void *))get_player_by_client_id)((void *)lbl_805D53A0) != 0) {
         r = activate_d04_slot__10TObjPlayerFPv();
@@ -6503,7 +6503,7 @@ void TLobby__sub_801ED400(s32 arg0, s32 arg1) {
 #pragma inline_depth(1)
 #pragma auto_inline off
 #pragma dont_inline off
-void TLobby__sub_801ED468(s32 a, s32 b) {
+void warp_player_to_area__6TLobbyFii(s32 a, s32 b) {
     u32 r = ((u32 (*)(int, int))get_player_by_client_id)((*(s32 * *)&TLobby__data_805D5E78)[(u8)a], b);
     if (r != 0 && lbl_805D53A0 == (*(s32 * *)&TLobby__data_805D5E78)[(u8)a]) {
         set_area__6TLobbyFPvi(lbl_80515BA0, (*(s32 * *)&TLobby__data_805D5E78)[(u8)b], get_floor_map_terrain((*(s32 * *)&TLobby__data_805D5E78)[(u8)b]));
@@ -7639,7 +7639,7 @@ void qst_op_unhide_ene(s32 arg0) {
     s32 v0 = TLobby__data_805D5E78[(u8)arg0];
     s32 v1 = TLobby__data_805D5E78[(u8)++arg0];
     s32 v2 = TLobby__data_805D5E78[(u8)++arg0];
-    TLobby__sub_8020C73C(v0, (s16)v1, (s16)v2, arg0);
+    unhide_enemies_at__6TLobbyFiii(v0, (s16)v1, (s16)v2, arg0);
 }
 
 void qst_op_unhide_obj(s32 arg0) {
@@ -8004,7 +8004,7 @@ void qst_op_npc_crppk(u8 arg0) {
     b = TLobby__data_805D5E78[i++];
     c = TLobby__data_805D5E78[i];
     free_luker_object__6TLobbyFv();
-    TNpcPlayer__sub_8034EB08(a, c, b, &v, angle);
+    send_npc_control_create__10TNpcPlayerFsUssPvi(a, c, b, &v, angle);
     clear_quest_vm_flag__6TLobbyFv();
 }
 

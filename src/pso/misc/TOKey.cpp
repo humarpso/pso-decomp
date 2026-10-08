@@ -102,7 +102,7 @@ void TOKey__sub_8016AAE0(u8 *arg0);
 void set_global_count__12TObjNpcEnemyFi(s32);
 void debug_printf_at(s32, const char *, ...);
 extern char lbl_80441958[];
-void TOKey__sub_8016AA20(VObj_8016AA20 *arg0);
+void debug_draw_key_id__5TOKeyFPv(VObj_8016AA20 *arg0);
 }
 
 extern "C" {
@@ -176,7 +176,7 @@ void update_armed_switch__5TOKeyFPv(u8 *arg0) {
     }
 }
 
-void TOKey__sub_8016AA20(VObj_8016AA20 *arg0) {
+void debug_draw_key_id__5TOKeyFPv(VObj_8016AA20 *arg0) {
     arg0->f84 = arg0->f84 % 256;
     if (arg0->f84 < 0 || arg0->f84 > 0xFF) {
         arg0->fC8 = -1;

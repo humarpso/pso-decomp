@@ -10,7 +10,7 @@ s32 angle_difference_abs(s32, s32);
 s32 approach_angle_limited(s32, s32, void *);
 void subtract_vector(void *, void *);
 extern const f64 lbl_8043BCC8[];
-void TBoss3Volopt__sub_800C7458(Obj_800C7458 *arg0, V3_800C7458 *arg1, void *arg2, s32 arg3);
+void turn_toward_point__12TBoss3VoloptFPvPvPvi(Obj_800C7458 *arg0, V3_800C7458 *arg1, void *arg2, s32 arg3);
 }
 
 extern "C" {
@@ -18,7 +18,7 @@ extern "C" {
 void clear_flag8_all__12TBoss3VoloptFPv(u32 **arg0);
 void set_flag8_list__12TBoss3VoloptFPv(u32 **arg0);
 
-void TBoss3Volopt__sub_800C7458(Obj_800C7458 *arg0, V3_800C7458 *arg1, void *arg2, s32 arg3) {
+void turn_toward_point__12TBoss3VoloptFPvPvPvi(Obj_800C7458 *arg0, V3_800C7458 *arg1, void *arg2, s32 arg3) {
     V3_800C7458 v = *arg1;
     subtract_vector(&v, arg0->pos);
     arg3 += (s32)(lbl_8043BCC8[0] * get_ad_end_text_start__10TObjPlayerFv(v.x, v.z));

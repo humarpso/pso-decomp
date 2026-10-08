@@ -221,7 +221,7 @@ u16 obj_getField1c(void *);
 s32 is_alive__9TObjEneDDFPv(void *);
 s32 is_player_entity_id(u16);
 s32 get_flag_11__16TObjEneRe2FlowerFPv(void *);
-u8 *TObjEneRe2Flower__sub_800C3BAC(void *);
+u8 *find_target_in_range__16TObjEneRe2FlowerFPv(void *);
 void *init_target_ref__10TObjPlayerFPvii(void *, void *, void *);
 void send_6x2F_change_player_hp(s32, u16, s32);
 void *__nw__7TObjectFUl(u32);
@@ -305,7 +305,7 @@ void TObjEneRe2Flower__sub_800C2E64(Obj_800C2E64 *self, s32 state) {
     case 0:
         ((void (*)(void *))advance_animation_playback)(self);
         if (F(self, s32, 0x410) == 6) {
-            t = TObjEneRe2Flower__sub_800C3BAC(self);
+            t = find_target_in_range__16TObjEneRe2FlowerFPv(self);
             if (t != NULL) {
                 void *m = __nw__7TObjectFUl(0x28);
                 if (m != NULL) {

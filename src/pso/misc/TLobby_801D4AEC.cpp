@@ -53,7 +53,7 @@ void reduce_item_amount__6TLobbyFPviii(void *arg0, s32 arg1, s32 arg2, s32 arg3)
 int set_globals_and_notify__6TLobbyFPvii(void* a0, int a1, int a2);
 void set_globals_and_update__6TLobbyFPvii(void* a0, int a1, int a2);
 s32 use_item__6TLobbyFiiii(s32 arg0, s32 arg1, s32 arg2, s32 arg3);
-int TLobby__sub_801D5004(void*);
+int reduce_owner_matched_items__6TLobbyFPv(void*);
 int reduce_child_item_amounts__6TLobbyFPv(void*);
 M2C_UNK try_spend_actor_meseta(s32, s32);
 s32 is_item_equipped(void *);
@@ -101,7 +101,7 @@ s32 use_item__6TLobbyFiiii(s32 arg0, s32 arg1, s32 arg2, s32 arg3) {
     extern int lbl_805D5DE0;
     extern unsigned char lbl_805D5E04;
     extern unsigned char lbl_805D5E05;
-void TLobby__sub_801D4C28(void* a0, int a1, int a2, int a3) { lbl_805D5DE0 = a1; lbl_805D5E04 = a2; lbl_805D5E05 = a3; TLobby__sub_801D5004((void*)(*(int*)((char*)a0 + 0x1c4))); }
+void TLobby__sub_801D4C28(void* a0, int a1, int a2, int a3) { lbl_805D5DE0 = a1; lbl_805D5E04 = a2; lbl_805D5E05 = a3; reduce_owner_matched_items__6TLobbyFPv((void*)(*(int*)((char*)a0 + 0x1c4))); }
 
     extern int lbl_805D5DE0;
     extern unsigned char lbl_805D5E04;

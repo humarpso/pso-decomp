@@ -147,7 +147,7 @@ struct Vec_803561C4 { f32 x, y, z; };
 union Val_803561C4 { f32 f; s32 i; };
 struct Prm_803561C4 { s32 a; Val_803561C4 b; s32 c; Val_803561C4 d; };
 
-void fn_803561C4(u8 *arg0) {
+void damage_players_in_radius(u8 *arg0) {
     Vec_803561C4 v;
     s32 n;
     s32 i;
@@ -188,7 +188,7 @@ extern "C" {
 
 void run_task__15TBoss6SwordShotFv(u8 *arg0) {
     if (query_teammate_state__9TObjEneDDFPv() == 0) {
-        fn_803561C4((u8 *) (arg0));
+        damage_players_in_radius((u8 *) (arg0));
         M2C_FIELD(arg0, s32 *, 0x30) = (s32) (M2C_FIELD(arg0, s32 *, 0x30) + 1);
         if ((s32) M2C_FIELD(arg0, s32 *, 0x30) > 7) {
             queue_destruction__7TObjectFv((void *) (arg0));

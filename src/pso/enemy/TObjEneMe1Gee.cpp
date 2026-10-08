@@ -3460,7 +3460,7 @@ s32 TObjEneMe1Gee__vt106(u8 *arg0);
 void TObjEneMe1Gee__vt105(void);
 s32 TObjEneMe1Gee__sub_800CBA80(u8 *arg0);
 s32 check_can_attack__13TObjEneMe1GeeFPv(void *arg0);
-s32 TObjEneMe1Gee__sub_800CBB34(Gee_800CBB34 *arg0, f32 *out);
+s32 find_attack_target__13TObjEneMe1GeeFPvPv(Gee_800CBB34 *arg0, f32 *out);
 void TObjEneMe1Gee__sub_800CBC04(u8 *arg0);
 void TObjEneMe1Gee__sub_800CBC1C(u8 *arg0);
 void TObjEneMe1Gee__vt103(u8 *arg0);
@@ -4303,7 +4303,7 @@ void TObjEneMe1Gee__sub_800C9DF8(void *o_, s32 arg1) {
                     o->f3C0 = (VObj_800C9DF8 *)find_entity_by_id(o->f48C);
                     if (o->f3C0->m114(o->f390) != 0) {
                         o->flags |= 0x40000;
-                    } else if (((s32 (*)(void *, f32 *, f32))TObjEneMe1Gee__sub_800CBB34)(o, &dist, lbl_805DA104) != 0) {
+                    } else if (((s32 (*)(void *, f32 *, f32))find_attack_target__13TObjEneMe1GeeFPvPv)(o, &dist, lbl_805DA104) != 0) {
                         if (dist < lbl_805DA100) {
                             o->flags |= 0x40000;
                         }
@@ -5156,14 +5156,14 @@ s32 check_can_attack__13TObjEneMe1GeeFPv(void *arg0) {
         var_r31 = 1;
         M2C_FIELD(arg0, void **, 0x3C0) = ((void * (*)(u16))find_entity_by_id)(M2C_FIELD(arg0, u16 *, 0x48C));
         temp_r3 = M2C_FIELD(arg0, void **, 0x3C0);
-        if ((((VObj_800CBA98 *)temp_r3)->m114(M2C_FIELD(arg0, s32 *, 0x390)) == 0) && (((s32 (*)(void *, f32 *, f32))TObjEneMe1Gee__sub_800CBB34)(arg0, &sp8, lbl_805DA138) != 0) && (sp8 > lbl_805DA0FC)) {
+        if ((((VObj_800CBA98 *)temp_r3)->m114(M2C_FIELD(arg0, s32 *, 0x390)) == 0) && (((s32 (*)(void *, f32 *, f32))find_attack_target__13TObjEneMe1GeeFPvPv)(arg0, &sp8, lbl_805DA138) != 0) && (sp8 > lbl_805DA0FC)) {
             var_r31 = 0;
         }
     }
     return var_r31;
 }
 
-s32 TObjEneMe1Gee__sub_800CBB34(Gee_800CBB34 *arg0, f32 *out) {
+s32 find_attack_target__13TObjEneMe1GeeFPvPv(Gee_800CBB34 *arg0, f32 *out) {
     Rec_800CBB34 recs[5];
     s32 found;
     s32 n;

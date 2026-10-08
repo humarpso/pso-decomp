@@ -38,7 +38,7 @@ struct F_80080B34 { u16 *buffer; u32 cursor; };
 extern "C" {
 u16 map_char_to_font_code(u16);
 u8 get_font_char_advance(u16);
-s32 TWindowKeyBoardSoft__sub_80080D1C(Field_80080D1C *f, u16 code, u32 *x, u32 *y, u32 *count);
+s32 measure_char_overflow__19TWindowKeyBoardSoftFPvUsPvPvPv(Field_80080D1C *f, u16 code, u32 *x, u32 *y, u32 *count);
 void TWindowKeyBoardSoft__sub_80080C64(Field_80080C64 *f, s32 pos, s32 n);
 extern u16 lbl_8048E020[];
 s32 TWindowKeyBoardSoft__sub_80080ABC(Field_80080ABC *f);
@@ -48,7 +48,7 @@ s32 TWindowKeyBoardSoft__sub_80080ABC(Field_80080ABC *f);
 void TWindowKeyBoardSoft__sub_80080CC0(Field_80080CC0 *f);
 s32 TWindowKeyBoardSoft__sub_80080F68(F_80080F68 *arg0, u16 arg1);
 void TWindowKeyBoardSoft__sub_800808FC(Kb_800808FC *kb, u16 ch);
-s32 TWindowKeyBoardSoft__sub_80080D1C(Field_80080D1C *f, u16 code, u32 *x, u32 *y, u32 *count);
+s32 measure_char_overflow__19TWindowKeyBoardSoftFPvUsPvPvPv(Field_80080D1C *f, u16 code, u32 *x, u32 *y, u32 *count);
 s32 TWindowKeyBoardSoft__sub_80080DFC(F_80080DFC *arg0, u16 *arg1);
 extern s32 lbl_805D5544;
 void TWindowKeyBoardSoft__sub_8008081C(Kb_8008081C *kb, char *s);
@@ -306,7 +306,7 @@ void TWindowKeyBoardSoft__sub_80080CC0(Field_80080CC0 *f) {
     f->length++;
 }
 
-s32 TWindowKeyBoardSoft__sub_80080D1C(Field_80080D1C *f, u16 code, u32 *x, u32 *y, u32 *count) {
+s32 measure_char_overflow__19TWindowKeyBoardSoftFPvUsPvPvPv(Field_80080D1C *f, u16 code, u32 *x, u32 *y, u32 *count) {
     u8 w;
     code = map_char_to_font_code(code);
     (*count)++;
@@ -342,7 +342,7 @@ s32 TWindowKeyBoardSoft__sub_80080DFC(F_80080DFC *arg0, u16 *arg1) {
     p = arg0->buffer;
     n = arg0->cursor;
     while (n > 0) {
-        if (TWindowKeyBoardSoft__sub_80080D1C((Field_80080D1C *)arg0, *p, &x, &y, &count) != 0) {
+        if (measure_char_overflow__19TWindowKeyBoardSoftFPvUsPvPvPv((Field_80080D1C *)arg0, *p, &x, &y, &count) != 0) {
             *p = 0;
             *arg1 = 0;
             arg0->cursor -= n;
@@ -353,7 +353,7 @@ s32 TWindowKeyBoardSoft__sub_80080DFC(F_80080DFC *arg0, u16 *arg1) {
         n--;
     }
     for (p = arg1; (c = *p) != 0; p++) {
-        if (TWindowKeyBoardSoft__sub_80080D1C((Field_80080D1C *)arg0, c, &x, &y, &count) != 0) {
+        if (measure_char_overflow__19TWindowKeyBoardSoftFPvUsPvPvPv((Field_80080D1C *)arg0, c, &x, &y, &count) != 0) {
             *p = 0;
             arg0->buffer[arg0->cursor] = 0;
             arg0->scroll = arg0->cursor;
@@ -363,7 +363,7 @@ s32 TWindowKeyBoardSoft__sub_80080DFC(F_80080DFC *arg0, u16 *arg1) {
     p = &arg0->buffer[arg0->cursor];
     n = arg0->scroll - arg0->cursor;
     while (n > 0) {
-        if (TWindowKeyBoardSoft__sub_80080D1C((Field_80080D1C *)arg0, *p, &x, &y, &count) != 0) {
+        if (measure_char_overflow__19TWindowKeyBoardSoftFPvUsPvPvPv((Field_80080D1C *)arg0, *p, &x, &y, &count) != 0) {
             *p = 0;
             arg0->scroll -= n;
             return 1;
@@ -391,7 +391,7 @@ s32 TWindowKeyBoardSoft__sub_80080F68(F_80080F68 *arg0, u16 arg1) {
             c = *p++;
         }
         n++;
-        if (TWindowKeyBoardSoft__sub_80080D1C((Field_80080D1C *)arg0, c, &x, &y, &count) != 0) {
+        if (measure_char_overflow__19TWindowKeyBoardSoftFPvUsPvPvPv((Field_80080D1C *)arg0, c, &x, &y, &count) != 0) {
             return 1;
         }
     }

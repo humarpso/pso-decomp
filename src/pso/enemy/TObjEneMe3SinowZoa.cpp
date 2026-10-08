@@ -1017,7 +1017,7 @@ void TObjEneMe3SinowZoa__sub_8031A69C(void);
 void TObjEneMe3SinowZoa__sub_8031A6A0(u8 *arg0);
 bool TObjEneMe3SinowZoa__sub_8031A820(u8 *arg0);
 u8 TObjEneMe3SinowZoa__sub_8031A900(Obj_800E750C *arg0, s32 arg1, f32 farg0);
-f32 TObjEneMe3SinowZoa__sub_8031A9A0(Obj_800E75AC *self);
+f32 get_node_height__18TObjEneMe3SinowZoaFPv(Obj_800E75AC *self);
 void setup_move_bounds__18TObjEneMe3SinowZoaFPv(void *arg0);
 void activate_appear__18TObjEneMe3SinowZoaFPv(void* p);
 void init_setup__18TObjEneMe3SinowZoaFPv(void* p);
@@ -3113,9 +3113,9 @@ void TObjEneMe3SinowZoa__sub_80319748(u8 *arg0, s32 arg1) {
         temp_r0 = M2C_FIELD(arg0, s32 *, 0x434);
         switch (temp_r0) {
         case 0:
-            temp_f31 = TObjEneMe3SinowZoa__sub_8031A9A0((Obj_800E75AC *)arg0);
+            temp_f31 = get_node_height__18TObjEneMe3SinowZoaFPv((Obj_800E75AC *)arg0);
             advance_animation_playback(arg0);
-            M2C_FIELD(arg0, f32 *, 0x444) = TObjEneMe3SinowZoa__sub_8031A9A0((Obj_800E75AC *)arg0);
+            M2C_FIELD(arg0, f32 *, 0x444) = get_node_height__18TObjEneMe3SinowZoaFPv((Obj_800E75AC *)arg0);
             M2C_FIELD(arg0, f32 *, 0x3E0) = (f32) (M2C_FIELD(arg0, f32 *, 0x3E0) + (temp_f31 - M2C_FIELD(arg0, f32 *, 0x444)));
             M2C_FIELD(arg0, s32 *, 0x434) = 1;
             M2C_FIELD(arg0, f32 *, 0x3E4) = (f32) (M2C_FIELD(arg0, f32 *, 0x3E0) - M2C_FIELD(arg0, f32 *, 0x3C));
@@ -3130,7 +3130,7 @@ void TObjEneMe3SinowZoa__sub_80319748(u8 *arg0, s32 arg1) {
                 M2C_FIELD(arg0, f32 *, 0x440) = -5.0f;
             }
             M2C_FIELD(arg0, f32 *, 0x3E0) = (f32) (M2C_FIELD(arg0, f32 *, 0x3E0) + M2C_FIELD(arg0, f32 *, 0x440));
-            temp_f1 = TObjEneMe3SinowZoa__sub_8031A9A0((Obj_800E75AC *)arg0);
+            temp_f1 = get_node_height__18TObjEneMe3SinowZoaFPv((Obj_800E75AC *)arg0);
             M2C_FIELD(arg0, f32 *, 0x3E0) = (f32) (M2C_FIELD(arg0, f32 *, 0x3E0) - (temp_f1 - M2C_FIELD(arg0, f32 *, 0x444)));
             M2C_FIELD(arg0, f32 *, 0x444) = temp_f1;
             if (M2C_FIELD(arg0, f32 *, 0x3E0) < M2C_FIELD(arg0, f32 *, 0x3C)) {
@@ -3889,7 +3889,7 @@ extern int fold_flush_3;
 
 #pragma push
 #pragma fp_contract on
-f32 TObjEneMe3SinowZoa__sub_8031A9A0(Obj_800E75AC *self) {
+f32 get_node_height__18TObjEneMe3SinowZoaFPv(Obj_800E75AC *self) {
     Vec_800E75AC v;
     Node_800E75AC *node;
     v.x = TObjEneMe3SinowZoa__data_805DF31C;

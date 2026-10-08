@@ -15,7 +15,7 @@ M2C_UNK GXSetCopyClear(GXColor_8029F5F8, M2C_UNK);
 M2C_UNK GXCopyTex(s32, M2C_UNK);
 M2C_UNK GXSetZMode(M2C_UNK, M2C_UNK, M2C_UNK);
 extern GXColor_8029F5F8 lbl_805E1220;
-void TObjPlayer__sub_8029F5F8(void *arg0);
+void copy_efb_to_texture__10TObjPlayerFPv(void *arg0);
 }
 
 extern "C" {
@@ -39,7 +39,7 @@ void TScene__sub_8029F5E4(f32 farg0) {
 }
 
 void TScene__sub_8029F5EC(void) { TScene__data_805D5FE0 = 1; }
-void TObjPlayer__sub_8029F5F8(void *arg0) {
+void copy_efb_to_texture__10TObjPlayerFPv(void *arg0) {
     GXColor_8029F5F8 clr = lbl_805E1220;
     GXSetZMode(0, 7, 1);
     GXSetCopyClear(clr, 0xFFFFFF);

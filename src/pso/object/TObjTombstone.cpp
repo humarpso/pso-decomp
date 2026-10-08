@@ -78,7 +78,7 @@ extern char lbl_804387C8[];
 extern char lbl_804387E0[];
 extern s32 lbl_805D53A0;
 extern s32 lbl_805D5544;
-void TObjTombstone__sub_80075A00(Tomb_80075A00 *self);
+void format_date_text__13TObjTombstoneFPv(Tomb_80075A00 *self);
 const char *TQuestVmDownLoadServer__sub_8006EF6C(s32);
 s32 enemy_name_for_rt_index(s32);
 int sprintf(char *, const char *, ...);
@@ -90,7 +90,7 @@ extern "C" {
 
 void render__13TObjTombstoneFv(s32 arg0);
 s32 resolve_player_slot__20TWindowSubStatusDispFi(M2C_UNK);
-M2C_UNK TObjTombstone__sub_80075340(s32);
+M2C_UNK update_fade_by_distance__13TObjTombstoneFPv(s32);
 M2C_UNK draw_name_labels__13TObjTombstoneFPv(s32);
 M2C_UNK update_render_flags__13TObjTombstoneFPv(s32);
 s32 check_height_ready__13TObjTombstoneFPv();
@@ -104,7 +104,7 @@ void render__13TObjTombstoneFv(s32 arg0) {
         switch (temp_r3) {
         case 2:
         case 3:
-            TObjTombstone__sub_80075340(arg0);
+            update_fade_by_distance__13TObjTombstoneFPv(arg0);
             break;
         default:
             draw_name_labels__13TObjTombstoneFPv(arg0);
@@ -124,7 +124,7 @@ f32 TObjTombstone__sub_8007598C(Obj_8007598C *self, void * _w1) {
     return vector_length(&v);
 }
 
-void TObjTombstone__sub_80075A00(Tomb_80075A00 *self) {
+void format_date_text__13TObjTombstoneFPv(Tomb_80075A00 *self) {
     char *text;
     s32 month;
     s32 day;

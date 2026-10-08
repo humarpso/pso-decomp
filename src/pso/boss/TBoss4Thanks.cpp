@@ -51,7 +51,7 @@ s32 TBoss4Type3__sub_8005254C(s32);
 f32 xyz_distance(void *, void *);
 extern u8 TBoss4Thanks__data_80479B40[];
 extern const f32 lbl_805E0180;
-int TBoss4Thanks__sub_8035C4A4(void *arg0);
+int is_player_nearby__12TBoss4ThanksFPv(void *arg0);
 }
 
 extern "C" {
@@ -121,7 +121,7 @@ void TBoss4Thanks__sub_8035C480(s32 arg0) {
     }
 }
 
-int TBoss4Thanks__sub_8035C4A4(void *arg0) {
+int is_player_nearby__12TBoss4ThanksFPv(void *arg0) {
     s32 n;
     s32 i;
     f32 lim;
@@ -164,7 +164,7 @@ void advance_thanks_state__12TBoss4ThanksFPv(void *arg0) {
     }
 }
 
-void mark_done__12TBoss4ThanksFPv(void* p) { if (TBoss4Thanks__sub_8035C4A4((void *)(p)) != 0) { *(int*)((char*)p + 0x24) = 1; *(int*)((char*)p + 0x1c) = 1; } }
+void mark_done__12TBoss4ThanksFPv(void* p) { if (is_player_nearby__12TBoss4ThanksFPv((void *)(p)) != 0) { *(int*)((char*)p + 0x24) = 1; *(int*)((char*)p + 0x1c) = 1; } }
 
 u8 *__dt__12TBoss4ThanksFv(u8 *arg0, s16 arg1) {
     if (arg0 != NULL) {

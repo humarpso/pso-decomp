@@ -21,7 +21,7 @@ M2C_UNK set_field_1c__6TLobbyFPvf(int);
 M2C_UNK TWindowSubEquip__sub_80263AF8(int, int);
 M2C_UNK ensure_status_display__20TWindowSubStatusDispFPvi(int, int);
 void *get_window_layout_position(int);
-M2C_UNK fn_80278460(int);
+M2C_UNK mark_unequippable_items(int);
 M2C_UNK save_and_refresh_cursor__20TShopArmorListWindowFPvPvPv(int, int, int);
 M2C_UNK init_and_setup__13TWindowSubMagFPvPv(int, int);
 s32 create_equip_kind_window(void *, void *, int);
@@ -99,7 +99,7 @@ s32 open_equip_kind_list__15TWindowSubEquipFPvUi(u8 *arg0, u32 arg1) {
         init_and_setup__13TWindowSubMagFPvPv((int) (temp_r31), (int) (2));
         break;
     }
-    fn_80278460((int) (temp_r31));
+    mark_unequippable_items((int) (temp_r31));
     return temp_r31;
 }
 

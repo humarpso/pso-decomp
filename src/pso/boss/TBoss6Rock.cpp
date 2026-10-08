@@ -88,7 +88,7 @@ extern const f32 lbl_805DFF94;
 extern const f32 lbl_805DFF98;
 extern const f32 lbl_805DFF9C;
 extern const f32 lbl_805DFFA0;
-void TBoss6Rock__sub_80354520(u8 *arg0);
+void update_fall__10TBoss6RockFPv(u8 *arg0);
 extern RecoveredGlobal_80354148_TBoss6Rock__data_80479258 TBoss6Rock__data_80479258;
 extern RecoveredGlobal_80353E10_TBoss6Rock__data_80543778 TBoss6Rock__data_80543778;
 u8 *TBoss6Rock__sub_80354148(s32 arg0);
@@ -122,7 +122,7 @@ extern const f32 TBoss6Rock__data_805DFF50;
 extern const f32 TBoss6Rock__data_805DFF5C;
 extern const f32 lbl_805DFF60;
 extern const f32 lbl_805DFF64;
-s32 TBoss6Rock__sub_80353C60(Vec_80353C60 *arg0, f32 r);
+s32 push_out_of_rocks__10TBoss6RockFPvf(Vec_80353C60 *arg0, f32 r);
 s32 TBoss6Rock__sub_80353E10(s32 arg0);
 u8 *TBoss6Rock__sub_80354148(s32 arg0);
 void VecCopy__FP3VecPC3Vec(void *, const void *);
@@ -320,7 +320,7 @@ void break_rocks_in_radius__10TBoss6RockFPvf(Vec_80353B7C *arg0, f32 r) {
     }
 }
 
-s32 TBoss6Rock__sub_80353C60(Vec_80353C60 *arg0, f32 r) {
+s32 push_out_of_rocks__10TBoss6RockFPvf(Vec_80353C60 *arg0, f32 r) {
     Vec_80353C60 v;
     s32 hit;
     s32 i;
@@ -462,7 +462,7 @@ void TBoss6Rock__sub_80354494(u8 *arg0) {
 #pragma push
 #pragma opt_common_subs off
 #pragma opt_propagation off
-void TBoss6Rock__sub_80354520(u8 *arg0) {
+void update_fall__10TBoss6RockFPv(u8 *arg0) {
     f32 var_f1;
     f32 var_f2;
     var_f1 = lbl_805DFF94;

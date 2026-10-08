@@ -22,7 +22,7 @@ extern u32 TOGrassJungle__data_805D65D8;
 extern u32 TOGrassJungle__data_805D65DC;
 extern const f32 lbl_805DDD28;
 extern const f32 lbl_805DDD2C;
-void TOGrassJungle__sub_8029CD0C(void);
+void load_resources__13TOGrassJungleFv(void);
 }
 
 extern "C" {
@@ -59,7 +59,7 @@ void release_static_instance__13TOGrassJungleFv(void) {
         TOGrassJungle__data_805D65D8 = 0U;
     }
 }
-void TOGrassJungle__sub_8029CD0C(void) {
+void load_resources__13TOGrassJungleFv(void) {
     s32 temp_r3;
     s32 var_r0;
     temp_r3 = alloc__23TAdSinglePlyChrSelectGCFPv((void *)0x440);

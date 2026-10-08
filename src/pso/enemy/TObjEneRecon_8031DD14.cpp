@@ -1,7 +1,7 @@
 #include "types.h"
 extern "C" {
 extern f32 TObjEneRecon__data_805DF3D4;
-void TObjEneRecon__sub_8031DD14(u8 *arg0);
+void clamp_min_height__12TObjEneReconFPv(u8 *arg0);
 }
 
 extern "C" {
@@ -9,7 +9,7 @@ extern "C" {
 #pragma opt_common_subs off
 #pragma opt_propagation off
 #pragma opt_dead_assignments off
-void TObjEneRecon__sub_8031DD14(u8 *arg0) {
+void clamp_min_height__12TObjEneReconFPv(u8 *arg0) {
   f32 new_var;
   f32 temp_f2;
   new_var = *((f32 *) (((s8 *) arg0) + 0x448));

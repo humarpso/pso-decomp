@@ -142,7 +142,7 @@ extern RecoveredGlobal_80420C5C_lbl_805C1DF0 lbl_805C1DF0;
 void set_value_and_enable__6TLobbyFPvi(u8 *, s32);
 s16 TLobby__sub_8040D8F0(void *, void *, int, void *, int);
 s16 is_addr_unspecified__6TLobbyFPv(void *);
-s16 TLobby__sub_8040DBFC(void *, void *);
+s16 compare_sockaddr__6TLobbyFPvPv(void *, void *);
 s16 TLobby__sub_8040DB34(void *, s32);
 s16 TLobby__sub_80421F10(void *, void *, void *, u16, s32, s16);
 void TLobby__sub_80406EB8(void *, u32);
@@ -431,14 +431,14 @@ s32 udp_input__6TLobbyFPvPvPvi(O_80420DE4 *arg0, Addr_80420DE4 *src, Addr_80420D
             if (e->f28.family != 0 && e->f28.family != src->family) {
                 goto next;
             }
-        } else if (TLobby__sub_8040DBFC(&e->f28, src) != 0) {
+        } else if (compare_sockaddr__6TLobbyFPvPv(&e->f28, src) != 0) {
             goto next;
         }
         if (is_addr_unspecified__6TLobbyFPv(&e->f14) != 0) {
             if (e->f14.family != 0 && e->f14.family != dst->family) {
                 goto next;
             }
-        } else if (TLobby__sub_8040DBFC(&e->f14, dst) != 0) {
+        } else if (compare_sockaddr__6TLobbyFPvPv(&e->f14, dst) != 0) {
             goto next;
         }
         if (e->f10 != 0 && e->f10 != hdr.src) {

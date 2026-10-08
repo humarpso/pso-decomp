@@ -45,7 +45,7 @@ M2C_UNK TObjEneRe7BeruraPunch__sub_80096300(void *);
 extern const f32 TObjEneRe7BeruraPunch__data_805D97A0;
 extern const f32 lbl_805D97A4;
 extern const f32 lbl_805D97A8;
-void TObjEneRe7BeruraPunch__sub_80096030(u8 *arg0);
+void update_flight__21TObjEneRe7BeruraPunchFPv(u8 *arg0);
 s32 TObjEneRe7Berura__sub_80094C68(u8 *);
 s32 TObjEneRe7Berura__sub_80094CD0(u8 *);
 s32 check_v2_mode__9TObjEneDDFv(void);
@@ -148,7 +148,7 @@ void TObjEneRe7BeruraPunch__sub_80095FAC(u8 *arg0) {
 #pragma opt_common_subs off
 #pragma opt_propagation off
 #pragma fp_contract on
-void TObjEneRe7BeruraPunch__sub_80096030(u8 *arg0) {
+void update_flight__21TObjEneRe7BeruraPunchFPv(u8 *arg0) {
     typedef char sp8_offset[(offsetof(Stack_80096030, sp8) == 0x0) ? 1 : -1];
     typedef char spC_offset[(offsetof(Stack_80096030, spC) == 0x4) ? 1 : -1];
     typedef char sp10_offset[(offsetof(Stack_80096030, sp10) == 0x8) ? 1 : -1];

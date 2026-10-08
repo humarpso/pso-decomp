@@ -28,7 +28,7 @@ s32 query_teammate_state__9TObjEneDDFPv(void);
 extern "C" {
 void VecCopy__FP3VecPC3Vec(void *, void *);
 void construct_collider_proxy__10TObjPlayerFPv(void *);
-M2C_UNK TBoss6GravBall__sub_80323278(void *, int);
+M2C_UNK create_emitter__14TBoss6GravBallFii(void *, int);
 void TBoss6GravBall__sub_80323320(void *);
 extern s32 lbl_8047667C[];
 extern M2C_UNK __vt__14TBoss6GravBall[];
@@ -42,7 +42,7 @@ s32 get_state__14TBoss6GravBallFPv(int);
 M2C_UNK fn_80323134(void *);
 M2C_UNK TBoss6GravBall__sub_803231D0(void *, int);
 M2C_UNK TBoss6GravBall__sub_80323214(void *, int);
-M2C_UNK TBoss6GravBall__sub_80323278(void *, int);
+M2C_UNK create_emitter__14TBoss6GravBallFii(void *, int);
 M2C_UNK TBoss6GravBall__sub_80323544(void *);
 M2C_UNK TBoss6GravBall__sub_803236F8(void *);
 s32 TBoss6GravBall__sub_803237A0();
@@ -57,7 +57,7 @@ void *__dt__14TBoss6GravBallFv(void *arg0, s16 arg1);
 void update_charge_effects__14TBoss6GravBallFPv(u8 *arg0);
 M2C_UNK play_sound_effect(int, void *, int, int);
 M2C_UNK TBoss6GravBall__sub_803231D0(void *, int);
-M2C_UNK TBoss6GravBall__sub_80323278(void *, int);
+M2C_UNK create_emitter__14TBoss6GravBallFii(void *, int);
 void TBoss6GravBall__sub_80323348(void *);
 M2C_UNK TBoss6GravBall__sub_803233AC();
 M2C_UNK play_persistent_sound(int, void *, void *, int, int);
@@ -79,19 +79,19 @@ void update_charge_effects__14TBoss6GravBallFPv(u8 *arg0) {
     temp_r0 = M2C_FIELD(arg0, s32 *, 0xB8);
     if (temp_r0 >= 0x96) {
         if (temp_r0 == 0x96) {
-            TBoss6GravBall__sub_80323278((void *) (arg0), (int) (3));
+            create_emitter__14TBoss6GravBallFii((void *) (arg0), (int) (3));
         }
     } else if (temp_r0 > 0x4B) {
         temp_r0_2 = temp_r0 & 0xF;
         if (temp_r0_2 == 0) {
-            TBoss6GravBall__sub_80323278((void *) (arg0), (int) (3));
+            create_emitter__14TBoss6GravBallFii((void *) (arg0), (int) (3));
         } else if (temp_r0_2 == 0xE) {
             TBoss6GravBall__sub_803231D0((void *) (arg0), (int) (3));
         }
     } else {
         temp_r0_3 = temp_r0 & 0xF;
         if (temp_r0_3 == 0) {
-            TBoss6GravBall__sub_80323278((void *) (arg0), (int) (3));
+            create_emitter__14TBoss6GravBallFii((void *) (arg0), (int) (3));
         } else if (temp_r0_3 == 0xA) {
             TBoss6GravBall__sub_803231D0((void *) (arg0), (int) (3));
         }
@@ -145,7 +145,7 @@ void update_state__14TBoss6GravBallFPv(u8 *arg0) {
     }
     fn_80323134((void *) (arg0));
     if (temp_r3 != 0) {
-        TBoss6GravBall__sub_80323278((void *) (arg0), (int) (2));
+        create_emitter__14TBoss6GravBallFii((void *) (arg0), (int) (2));
         temp_f2 = M2C_FIELD(arg0, f32 *, 0xBC);
         if (temp_f2 < lbl_805DF568) {
             M2C_FIELD(arg0, f32 *, 0xBC) = (f32) (temp_f2 + lbl_805DF578);
@@ -222,7 +222,7 @@ Obj_80323D20 *TBoss6GravBall__ct(Obj_80323D20 *arg0, s32 arg1, void *arg2) {
     arg0->fC4 = 0;
     TBoss6GravBall__sub_80323320(arg0);
     for (i = 0; i < 2; i++) {
-        TBoss6GravBall__sub_80323278((void *)(arg0), (int)(lbl_8047667C[i]));
+        create_emitter__14TBoss6GravBallFii((void *)(arg0), (int)(lbl_8047667C[i]));
     }
     return arg0;
 }

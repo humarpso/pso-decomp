@@ -86,7 +86,7 @@ void TCameraCtrl__sub_80068EF0(void);
 void restore_full_screen_view__11TCameraCtrlFv(void);
 const char *TQuestVmDownLoadServer__sub_8006EF6C(s32);
 u32 calc_text_width(void *);
-void TObjWarpString__sub_80145750(const char *, u32, f32, f32);
+void draw_string__14TObjWarpStringFPviff(const char *, u32, f32, f32);
 s32 validate_character_name__14TObjCMMainMenuFPv(void *);
 s32 is_active__23TAdSinglePlyChrSelectGCFv();
 f32 get_scale__14TObjCMMainMenuFv(void);
@@ -1538,7 +1538,7 @@ void TObjCMMainMenu__sub_80297B18(Menu_80297B18 *m) {
             const char *str = TQuestVmDownLoadServer__sub_8006EF6C(i + 0x3B);
             f32 x = lbl_805DDBA0 - (f32)calc_text_width((void *)str);
             restore_full_screen_view__11TCameraCtrlFv();
-            TObjWarpString__sub_80145750(str, color, x, y);
+            draw_string__14TObjWarpStringFPviff(str, color, x, y);
             TCameraCtrl__sub_80068EF0();
             y += step;
         }

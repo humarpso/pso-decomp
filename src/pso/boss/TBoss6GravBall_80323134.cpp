@@ -27,7 +27,7 @@ void TBoss6GravBall__sub_80323214(s32 arg0, s32 arg1);
 s32 create_particle_emitter(s32, s32);
 void set_flags__11TBoss4Type2FPvUi(void *, s32);
 extern RecoveredGlobal_80323214_lbl_80476658 lbl_80476658;
-void TBoss6GravBall__sub_80323278(s32 arg0, s32 arg1);
+void create_emitter__14TBoss6GravBallFii(s32 arg0, s32 arg1);
 s32 request_destroy__11TBoss4Type2FUi(int);
 void TBoss6GravBall__sub_803231D0(s32 arg0, s32 arg1);
 void TBoss6GravBall__sub_803231D0(s32 arg0, s32 arg1);
@@ -104,7 +104,7 @@ void TBoss6GravBall__sub_80323214(s32 arg0, s32 arg1) {
 #pragma push
 #pragma opt_common_subs off
 typedef char RecoveredGlobal_80323278_lbl_80476658_size[sizeof(RecoveredGlobal_80323278_lbl_80476658) == 0x24 ? 1 : -1];
-void TBoss6GravBall__sub_80323278(s32 arg0, s32 arg1) {
+void create_emitter__14TBoss6GravBallFii(s32 arg0, s32 arg1) {
     s32 temp_r5;
     u8 *temp_r31;
     u8 *temp_r3;

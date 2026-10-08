@@ -133,7 +133,7 @@ M2C_UNK release_grabbed_player__12TBoss8DragonFPv(void *);
 M2C_UNK freeze_player_at_self__12TBoss8DragonFPv(void *);
 M2C_UNK store_position__12TBoss8DragonFi(void *);
 M2C_UNK check_death__12TBoss8DragonFPv(void *);
-M2C_UNK TBoss8Dragon__sub_802FCDB8(void *);
+M2C_UNK select_next_action__12TBoss8DragonFPv(void *);
 extern s32 lbl_805D53A0;
 extern s32 TBoss8Dragon__data_805D69B8;
 extern const f32 lbl_805E00B0;
@@ -211,7 +211,7 @@ void TBoss8Dragon__sub_80359A7C(u8 *arg0) {
                 if (temp_r0_2 == 2) {
                     ((VObj_18 *)(arg0))->m85(M2C_FIELD(arg0, s16 *, 0x326), 2);
                 } else {
-                    TBoss8Dragon__sub_802FCDB8((void *) (arg0));
+                    select_next_action__12TBoss8DragonFPv((void *) (arg0));
                 }
                 ((VObj_18 *)(arg0))->m85(M2C_FIELD(arg0, s16 *, 0x326), 8);
                 ((VObj_18 *)(arg0))->m85(M2C_FIELD(arg0, s16 *, 0x326), 0);

@@ -85,7 +85,7 @@ SceneMaterialNode* resolve_indirect_object_record(void*,SceneMaterialAnimated*);
 s32 TScene__sub_802040D4(void *arg0, Obj_802040D4 *o, f32 f0, f32 f1);
 extern const f32 lbl_805DC5DC;
 extern const f32 lbl_805DC5E0;
-void TScene__sub_802041F4(void *task, SceneMaterialSection *room);
+void update_room_object_visibility__6TSceneFPvPv(void *task, SceneMaterialSection *room);
 extern SceneMaterialRoot* TScene__data_805D5FCC;
 extern const f32 TScene__data_805DC5D8;
 extern const f32 TScene__data_805DC600;
@@ -488,7 +488,7 @@ bool TScene__sub_80204188(f32 farg0) {
     return (sp[2] < -farg0) == 0;
 }
 
-void TScene__sub_802041F4(void *task, SceneMaterialSection *room) {
+void update_room_object_visibility__6TSceneFPvPv(void *task, SceneMaterialSection *room) {
     SceneMaterialStatic *object;
     s32 i;
     SceneMaterialAnimated *anim;
@@ -554,7 +554,7 @@ extern u8 lbl_8058D490[];
 extern Root_80204024 *lbl_805D4DF0;
 bool TScene__sub_80204188(f32 farg0);
 s32 TScene__sub_80204024(f32 thr, s32 unused, void *a, void *b, Vec_80204024 *c);
-void TScene__sub_802041F4(void *task, SceneMaterialSection *room);
+void update_room_object_visibility__6TSceneFPvPv(void *task, SceneMaterialSection *room);
 SceneMaterialNode* resolve_indirect_node_record(void*,SceneMaterialStatic*);
 SceneMaterialNode* resolve_indirect_object_record(void*,SceneMaterialAnimated*);
 f32 vec3_dot(void *, void *);
@@ -602,7 +602,7 @@ void cull_sections__6TSceneFPv(Task_80204688 *task) {
     sec = TScene__data_805D5FCC->sections;
     for (i = 0; i < TScene__data_805D5FCC->count; i++) {
         if (sec->flags & 0x80000) {
-            TScene__sub_802041F4(task, sec);
+            update_room_object_visibility__6TSceneFPvPv(task, sec);
             sec++;
         } else {
             f32 dist;

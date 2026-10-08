@@ -296,7 +296,7 @@ Hit_80156844 *csnVecterUnder(Vec_80156844 *, s32);
 u16 TObjRoomId__sub_801A1DB8(u16);
 extern const f32 lbl_805DB2A0;
 s32 project_actor_to_ground(Obj_80156844 *self, Vec_80156844 *pos, Vec_80156844 *normal);
-s32 TObjPlayer__sub_803E0ED4(CollisionBox_80155C54*,CollisionBox_80155C54*);
+s32 test_box_overlap__10TObjPlayerFPvPv(CollisionBox_80155C54*,CollisionBox_80155C54*);
 s32 test_box_sphere_contact(CollisionBox_80155C54*,CollisionSphere_80155C54*);
 s32 spheres_overlap(CollisionSphere_80155C54*,CollisionSphere_80155C54*);
 }
@@ -987,7 +987,7 @@ void* refresh_actor_body_spheres(CollisionBody_80155FBC a,CollisionBody_80155FBC
                     case 1:
                         build_collision_box_corners(worldA,facingA,source,&boxAA);
                         build_collision_box_corners(worldB,facingB,destination,&boxBB);
-                        if (TObjPlayer__sub_803E0ED4(&boxAA,&boxBB)) return destination;
+                        if (test_box_overlap__10TObjPlayerFPvPv(&boxAA,&boxBB)) return destination;
                         break;
                     case 0: default:
                         build_collision_box_corners(worldA,facingA,source,&boxAB);

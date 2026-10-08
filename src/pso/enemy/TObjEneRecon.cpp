@@ -421,7 +421,7 @@ M2C_UNK advance_animation_playback();
 M2C_UNK create_timed_particle_emitter(void *, int, int, int);
 M2C_UNK transform_part_positions__9TObjEneDDFPv(void *);
 M2C_UNK transition_enemy_state(void *, int);
-M2C_UNK TObjEneRecon__sub_8031DD14(void *);
+M2C_UNK clamp_min_height__12TObjEneReconFPv(void *);
 M2C_UNK TObjEneRecon__sub_8031EFAC(int, void *);
 s32 find_entity_by_id(int);
 s32 is_anim_6__12TObjEneReconFPv();
@@ -463,7 +463,7 @@ void run_task__12TObjEneReconFPvi(u8 *arg0, s32 arg1) {
         advance_animation_playback();
         update_velocity__9TObjEneDDFPv((void *) (arg0));
         ((VObj_8031c7bc *) arg0)->m86();
-        TObjEneRecon__sub_8031DD14((void *) (arg0));
+        clamp_min_height__12TObjEneReconFPv((void *) (arg0));
         transform_part_positions__9TObjEneDDFPv((void *) (arg0));
         spawn_trap_b__12TObjEneReconFi((void *) (arg0));
         break;
@@ -616,13 +616,13 @@ extern "C" {
 
 void TObjEneRecon__vt87(void *arg0);
 M2C_UNK TObjEneDD__vt86(void *);
-M2C_UNK TObjEneRecon__sub_8031DD14(void *);
+M2C_UNK clamp_min_height__12TObjEneReconFPv(void *);
 
 void TObjEneRecon__vt87(void *arg0) {
     struct VObj_8031DCCC *o = (struct VObj_8031DCCC *)arg0;
     o->m86();
     TObjEneDD__vt86(arg0);
-    TObjEneRecon__sub_8031DD14(arg0);
+    clamp_min_height__12TObjEneReconFPv(arg0);
 }
 
 }

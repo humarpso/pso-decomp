@@ -11,7 +11,7 @@ u8 get_slot_count__14TItemProShieldFPv(void *);
 f32 horizontal_distance_squared(void *, void *);
 Pl_80117F14 *get_player_by_client_id(s32);
 extern const f64 lbl_8043E650[];
-s32 TObjPlayer__sub_80117F14(u16 idx, u8 *item);
+s32 count_nearby_players_with_shield__10TObjPlayerFUsPv(u16 idx, u8 *item);
 }
 
 extern "C" {
@@ -35,7 +35,7 @@ void *init_item_timer_event__10TObjPlayerFPv(void *arg0) {
     M2C_FIELD(arg0, M2C_UNK **, 0x18) = lbl_804A0648;
     return arg0;
 }
-s32 TObjPlayer__sub_80117F14(u16 idx, u8 *item) {
+s32 count_nearby_players_with_shield__10TObjPlayerFUsPv(u16 idx, u8 *item) {
     s32 key;
     Pl_80117F14 *me;
     s32 count;

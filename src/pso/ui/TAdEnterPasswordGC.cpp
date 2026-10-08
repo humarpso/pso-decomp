@@ -91,7 +91,7 @@ void queue_destruction__7TObjectFv(void *);
 u8 *get_instance__23TAdSinglePlyChrSelectGCFv();
 u32 __nw__7TObjectFUl(int);
 s32 __ct__10TAdTitleGCFv(int, void *, int);
-s32 TAdEnterBaseGC__sub_8032B390(void *);
+s32 create_parts__14TAdEnterBaseGCFPv(void *);
 s32 reset__14TAdEnterBaseGCFPvi(void *, int);
 s32 TAdEnterBaseGC__ct(void *);
 void TAdEnterPasswordGC__sub_8032BA8C(s32 arg0);
@@ -320,7 +320,7 @@ u8 *TAdEnterPasswordGC__ct(u8 *arg0) {
         queue_destruction__7TObjectFv((void *) (arg0));
         return arg0;
     }
-    TAdEnterBaseGC__sub_8032B390((void *) (arg0));
+    create_parts__14TAdEnterBaseGCFPv((void *) (arg0));
     temp_r3 = __nw__7TObjectFUl((int) (0x138));
     if (temp_r3 != 0U) {
         __ct__10TAdTitleGCFv((int) (temp_r3), (void *) (arg0), (int) (0xC));

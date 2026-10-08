@@ -152,7 +152,7 @@ void reset_battle_state__6TLobbyFPv(void *arg0);
 void set_flag_and_notify__6TLobbyFPv(void *arg0);
 void tmp_buf_release__6TLobbyFi(const char *s);
 extern char lbl_80434C38[];
-void TLobby__sub_8001F8D8(Obj_8001F8D8 *self, void * _w1);
+void check_bin_model_loaded__6TLobbyFPvPv(Obj_8001F8D8 *self, void * _w1);
 s32 alloc_load_data__6TLobbyFPviii(void *arg0, s32 arg1, s32 arg2, s32 arg3);
 M2C_UNK debug_print__6TLobbyFii(M2C_UNK *, ...);
 extern M2C_UNK lbl_80434CC4[];
@@ -184,7 +184,7 @@ extern s32 lbl_805D4ACC;
 s32 load_bin_model__6TLobbyFPvii(Lobby_8001FD98 *arg0, s32 arg1, s32 arg2);
 M2C_UNK TLobby__sub_8001EDD8(void *, s32);
 s32 alloc_load_data__6TLobbyFPviii(void *arg0, s32 arg1, s32 arg2, s32 arg3);
-void TLobby__sub_8001F8D8(Obj_8001F8D8 *self, void * _w1);
+void check_bin_model_loaded__6TLobbyFPvPv(Obj_8001F8D8 *self, void * _w1);
 s32 create_file_load_entry__6TLobbyFiiUiiPv(void *, s32, void *, void *, void *);
 M2C_UNK debug_print__6TLobbyFii(M2C_UNK *, ...);
 M2C_UNK change_file_extension__6TLobbyFPvPvPv(void *, void *, void *);
@@ -568,7 +568,7 @@ void init_download_buffers__6TLobbyFv(void) {
     lbl_804FE148[0] = 0;
 }
 
-void TLobby__sub_8001F8D8(Obj_8001F8D8 *self, void * _w1) {
+void check_bin_model_loaded__6TLobbyFPvPv(Obj_8001F8D8 *self, void * _w1) {
     if (self->f434 <= self->f4 && self->f438 <= self->f8 && self->f43c <= self->fc) {
         set_flag_and_notify__6TLobbyFPv(self);
         self->f418 = 0;
@@ -581,7 +581,7 @@ void increment_ref_and_set_flag__6TLobbyFPv(void *arg0) {
     void *temp_r4;
     temp_r4 = M2C_FIELD(arg0, void **, 0);
     M2C_FIELD(temp_r4, s32 *, 0xC) = (s32) (M2C_FIELD(temp_r4, s32 *, 0xC) + 1);
-    TLobby__sub_8001F8D8((Obj_8001F8D8 *)(M2C_FIELD(arg0, void **, 0)), (void *)(temp_r4));
+    check_bin_model_loaded__6TLobbyFPvPv((Obj_8001F8D8 *)(M2C_FIELD(arg0, void **, 0)), (void *)(temp_r4));
     temp_r3 = M2C_FIELD(arg0, s32 **, 4);
     *temp_r3 |= 1;
 }
@@ -599,7 +599,7 @@ void load_bin_motion_callback(void *arg0) {
     *M2C_FIELD(arg0, s32 **, 0) = temp_r3;
     temp_r4 = M2C_FIELD(arg0, void **, 4);
     M2C_FIELD(temp_r4, s32 *, 8) = (s32) (M2C_FIELD(temp_r4, s32 *, 8) + 1);
-    TLobby__sub_8001F8D8((Obj_8001F8D8 *)(M2C_FIELD(arg0, void **, 4)), (void *)(temp_r4));
+    check_bin_model_loaded__6TLobbyFPvPv((Obj_8001F8D8 *)(M2C_FIELD(arg0, void **, 4)), (void *)(temp_r4));
 }
 
 struct Obj_8001F8D8;
@@ -639,7 +639,7 @@ void load_bin_model_callback__6TLobbyFPv(Lobby_8001FA1C *self) {
             break;
         }
     }
-    ((void (*)(void *))TLobby__sub_8001F8D8)(self->fC);
+    ((void (*)(void *))check_bin_model_loaded__6TLobbyFPvPv)(self->fC);
 }
 
 s32 bind_bml_motion(struct Lobby_8001FB6C *self, s32 idx, void *bytes) {

@@ -13,7 +13,7 @@ u16 *get_array_entry__20TWindowSubStatusDispFPvi(void *, s16);
 void get_cursor_pos__14TWindowSubItemFPv(void *);
 s32 is_flag_4_set__20TWindowSubStatusDispFPv();
 s32 is_flag80_set__20TWindowSubStatusDispFPv(void *);
-void fn_80278460(Wn_80278460 *arg0);
+void mark_unequippable_items(Wn_80278460 *arg0);
 u16 *get_array_entry__20TWindowSubStatusDispFPvi(void *, s16);
 void get_cursor_pos__14TWindowSubItemFPv(void *);
 s32 is_flag_4_set__20TWindowSubStatusDispFPv();
@@ -22,7 +22,7 @@ void fn_80278518(void *arg0, s32 arg1);
 
 extern "C" {
 
-void fn_80278460(Wn_80278460 *arg0) {
+void mark_unequippable_items(Wn_80278460 *arg0) {
     u8 sp8[8];
     s32 i;
     u8 *item;

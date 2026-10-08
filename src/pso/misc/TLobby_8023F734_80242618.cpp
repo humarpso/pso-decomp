@@ -47,7 +47,7 @@ void reset_state_805D63DC__6TLobbyFv(void*);
 void reset_state__6TLobbyFPv(void* p);
 M2C_UNK TLobby__sub_802422EC(void *, void *, int);
 void *TLobby__sub_80242458(void *, void *);
-void *TLobby__sub_802424D8(void *);
+void *build_text_from_comma_list__6TLobbyFPv(void *);
 M2C_UNK __as__21TPlyMeetUserExtensionFRC21TPlyMeetUserExtension(void *, void *);
 int clear_flag_bit2__6TLobbyFv(void);
 u32 find_card_by_id__17TWindowSubComCardFUi();
@@ -76,7 +76,7 @@ void init_player_entry__6TLobbyFPvPv(u8 *arg0, u8 *arg1) {
         strncpy((void *) (arg0 + 8), (void *) (get_com_card_list__6TLobbyFPv()), (int) (0x10));
     }
     M2C_FIELD(arg0, s8 *, 0x18) = 0;
-    p = TLobby__sub_802424D8((void *) (arg1 + 0x1C));
+    p = build_text_from_comma_list__6TLobbyFPv((void *) (arg1 + 0x1C));
     p = TLobby__sub_80242458(p, (void *) (arg0 + 0x19));
     p = TLobby__sub_80242458(p, (void *) (arg0 + 0x2A));
     p = TLobby__sub_80242458(p, (void *) (arg0 + 0x2A));

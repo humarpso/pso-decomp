@@ -527,7 +527,7 @@ s32 is_valid_and_active__10TObjPlayerFUi();
 void TObjEneGibbles__sub_802D7A2C(M2C_UNK arg0, s32 arg1, f32 farg0);
 void TObjEneGibbles__sub_802D7A54(void *arg0);
 s32 TObjEneGibbles__sub_802D7BE0(s32 arg0);
-void TObjEneGibbles__sub_802D7C78(s32 arg0);
+void play_distance_sound__14TObjEneGibblesFi(s32 arg0);
 void TObjEneGibbles__sub_802D7DAC(s32 arg0);
 void TObjEneGibbles__sub_802D7E3C(void);
 void update_shadow_height__14TObjEneGibblesFPv(void *arg0);
@@ -1088,7 +1088,7 @@ s32 TObjEneGibbles__sub_802D7BE0(s32 arg0) {
     return 2;
 }
 
-void TObjEneGibbles__sub_802D7C78(s32 arg0) {
+void play_distance_sound__14TObjEneGibblesFi(s32 arg0) {
     if (objInBand__FP7GameObjf((void *) (arg0), (f32) (TObjEneGibbles__data_805DE7F8)) != 0) {
         if (((s32)spawn_ground_impact_effects__14TObjEneGibblesFPvPvf((void *)((void *)arg0), (void *)((void *)(arg0 + 0x38)), TObjEneGibbles__data_805DE7F4)) != 0) {
             TObjEneGibbles__sub_800D8988((void *) (arg0 + 0x38));
@@ -1732,7 +1732,7 @@ void TObjEneGibbles__sub_802D9110(Gib_802D9110 *self) {
         }
         break;
     }
-    TObjEneGibbles__sub_802D7C78((s32)self);
+    play_distance_sound__14TObjEneGibblesFi((s32)self);
     ((void (*)(void *))advance_animation_playback)(self);
     clamp_angle__14TObjEneGibblesFPvi(self, 0);
     check_object_collisions__10TObjPlayerFPv(self);

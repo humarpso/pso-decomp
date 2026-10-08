@@ -109,7 +109,7 @@ extern u32 lbl_805D5970;
 extern const f32 lbl_805DB4FC;
 extern const f32 lbl_805DB508;
 u8 *TODoorMachine01__ct(u8 *arg0, M2C_UNK arg1, s32 arg2);
-void fn_8015D5D4(void *);
+void play_door_sound(void *);
 u8 is_current_floor_switch_set(u16);
 void TODoorMachine01__vt12(Door_80162A70 *self);
 s32 is_in_view_depth(void *, f32);
@@ -208,7 +208,7 @@ void TODoorMachine01__vt12(Door_80162A70 *self) {
     s32 k;
     switch (self->fCC) {
     case 1:
-        fn_8015D5D4(self);
+        play_door_sound(self);
         self->fD0 |= 0xF0001;
         self->fD4 = 4;
         break;
@@ -233,7 +233,7 @@ void TODoorMachine01__vt12(Door_80162A70 *self) {
             }
         }
         if (self->fD4 == 4) {
-            fn_8015D5D4(self);
+            play_door_sound(self);
             self->fD0 |= 1;
         } else {
             self->fD0 &= ~1;
@@ -257,7 +257,7 @@ void TODoorMachine01__vt12(Door_80162A70 *self) {
             }
         }
         if (self->fD4 == 4) {
-            fn_8015D5D4(self);
+            play_door_sound(self);
             self->fD0 |= 1;
         }
         break;

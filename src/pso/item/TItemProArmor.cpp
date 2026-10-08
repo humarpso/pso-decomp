@@ -328,7 +328,7 @@ void TItemObject__vt7();
 void TItem__sub_80100B8C();
 void classify_actor_view_detail();
 void register_attack__5TItemFPv();
-void TItem__sub_801022FC();
+void try_pick_up_item__5TItemFPvi();
 void TItemObject__vt12();
 void TItem__sub_801005E0();
 void TItem__sub_801005DC();
@@ -394,7 +394,7 @@ void *lbl_8049FF88[46] = {
     (void *)TItem__sub_80100B8C,
     (void *)classify_actor_view_detail,
     (void *)register_attack__5TItemFPv,
-    (void *)TItem__sub_801022FC,
+    (void *)try_pick_up_item__5TItemFPvi,
     (void *)TItemObject__vt12,
     (void *)TItem__sub_801005E0,
     (void *)TItem__sub_801005DC,
@@ -443,7 +443,7 @@ void *__vt__13TItemProArmor[51] = {
     (void *)TItem__sub_80100B8C,
     (void *)classify_actor_view_detail,
     (void *)register_attack__5TItemFPv,
-    (void *)TItem__sub_801022FC,
+    (void *)try_pick_up_item__5TItemFPvi,
     (void *)TItemProArmor__sub_801178D4,
     (void *)TItem__sub_801005E0,
     (void *)TItemProArmor__vt14,

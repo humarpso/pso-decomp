@@ -208,7 +208,7 @@ s32 TAdSinglePlyChrSelectGC__sub_801FDA4C(void);
 void increment_counter__23TAdSinglePlyChrSelectGCFv();
 void decrypt_char_data__23TAdSinglePlyChrSelectGCFPv(void *arg0);
 M2C_UNK encrypt_save_data__23TAdSinglePlyChrSelectGCFPvPv(void *arg0, void *arg1);
-void TAdSinglePlyChrSelectGC__sub_802010E8();
+void update_play_time__23TAdSinglePlyChrSelectGCFv();
 s32 get_field_118__22TAdEnterSerialAccessGCFv();
 s32 get_card_window__17TWindowSubComCardFUi(u32);
 void set_global_flags__23TAdSinglePlyChrSelectGCFi(s32);
@@ -695,7 +695,7 @@ s32 save_online_character__23TAdSinglePlyChrSelectGCFv(void) {
         if (get_instance__15TAdPlayerLoadGCFv() == 0 && TAdPlayerLoadGC__sub_801E1B50(lbl_805D5F7C) == 0) {
             sync_char_select_state__10TObjPlayerFv();
             TAdSinglePlyChrSelectGC__sub_8028DC14();
-            TAdSinglePlyChrSelectGC__sub_802010E8();
+            update_play_time__23TAdSinglePlyChrSelectGCFv();
             set_global_flags__23TAdSinglePlyChrSelectGCFi(1);
             M2C_FIELD(lbl_805D5F64, s32 *, 0x14)++;
             increment_counter__23TAdSinglePlyChrSelectGCFv();

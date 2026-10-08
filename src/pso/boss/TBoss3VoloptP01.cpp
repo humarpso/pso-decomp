@@ -16,7 +16,7 @@ M2C_UNK subtract_vector(void*,void*);
 void rotate_matrix_y(s32,s32);
 void translate_matrix(s32,f32,f32,f32);
 void pop_matrix(void);
-void TObjPlayer__sub_80042DE8(Obj_80042DE8*);
+void push_nearby_players__10TObjPlayerFPv(Obj_80042DE8*);
 s32 obj_testFlags30(void*,M2C_UNK);
 M2C_UNK update_if_active__15TObjEneMe1GiGueFPv(void*,M2C_UNK);
 s32 TBoss3VoloptP01__sub_8004301C(S_8004301C*);
@@ -276,7 +276,7 @@ void TObjPlayer__sub_80042ED0(P_80042ED0 *o, s32 idx, s32 arg2);
 void scale_velocity__19TObjGyaranzoMissileFPvf(Vec_80042DE8 *, f32);
 void vec3_add_to(Vec_80042DE8 *, Vec_80042DE8 *);
 extern s32 lbl_805D586C;
-void TObjPlayer__sub_80042DE8(Obj_80042DE8 *self);
+void push_nearby_players__10TObjPlayerFPv(Obj_80042DE8 *self);
 }
 
 extern "C" {
@@ -294,7 +294,7 @@ void set_target_id__10TObjPlayerFPvi(void *arg0, s32 arg1) {
     }
 }
 
-void TObjPlayer__sub_80042DE8(Obj_80042DE8 *self) {
+void push_nearby_players__10TObjPlayerFPv(Obj_80042DE8 *self) {
     f32 r2;
     s32 i;
     Obj_80042DE8 *pl;
@@ -343,7 +343,7 @@ void TObjPlayer__sub_80042ED0(P_80042ED0 *o, s32 idx, s32 arg2) {
 #define rotate_matrix_y ((M2C_UNK (*)(M2C_UNK,s32))rotate_matrix_y)
 #define translate_matrix ((M2C_UNK (*)(M2C_UNK,f32,f32,f32))translate_matrix)
 #define pop_matrix ((M2C_UNK (*)(void))pop_matrix)
-#define TObjPlayer__sub_80042DE8 ((M2C_UNK (*)(void*))TObjPlayer__sub_80042DE8)
+#define push_nearby_players__10TObjPlayerFPv ((M2C_UNK (*)(void*))push_nearby_players__10TObjPlayerFPv)
 #define obj_testFlags30 ((s32 (*)(void*,int))obj_testFlags30)
 #define update_if_active__15TObjEneMe1GiGueFPv ((M2C_UNK (*)(void*,int))update_if_active__15TObjEneMe1GiGueFPv)
 #define TBoss3VoloptP01__sub_8004301C ((s32 (*)(void*))TBoss3VoloptP01__sub_8004301C)
@@ -1018,7 +1018,7 @@ extern int fold_flush_0;
 #undef rotate_matrix_y
 #undef translate_matrix
 #undef pop_matrix
-#undef TObjPlayer__sub_80042DE8
+#undef push_nearby_players__10TObjPlayerFPv
 #undef obj_testFlags30
 #undef update_if_active__15TObjEneMe1GiGueFPv
 #undef TBoss3VoloptP01__sub_8004301C
@@ -1060,7 +1060,7 @@ s32 TBoss3VoloptP01__sub_8004301C(S_8004301C *o) {
 #define rotate_matrix_y ((M2C_UNK (*)(M2C_UNK,s32))rotate_matrix_y)
 #define translate_matrix ((M2C_UNK (*)(M2C_UNK,f32,f32,f32))translate_matrix)
 #define pop_matrix ((M2C_UNK (*)(void))pop_matrix)
-#define TObjPlayer__sub_80042DE8 ((M2C_UNK (*)(void*))TObjPlayer__sub_80042DE8)
+#define push_nearby_players__10TObjPlayerFPv ((M2C_UNK (*)(void*))push_nearby_players__10TObjPlayerFPv)
 #define obj_testFlags30 ((s32 (*)(void*,int))obj_testFlags30)
 #define update_if_active__15TObjEneMe1GiGueFPv ((M2C_UNK (*)(void*,int))update_if_active__15TObjEneMe1GiGueFPv)
 #define TBoss3VoloptP01__sub_8004301C ((s32 (*)(void*))TBoss3VoloptP01__sub_8004301C)
@@ -1117,7 +1117,7 @@ void TBoss3VoloptP01__sub_800430D0(void *arg0_) {
             F430D0(s16, 0x33C) = 0x14;
             F430D0(s32, 0x3A0) = 1;
             F430D0(s32, 0x37C) = 1;
-            TObjPlayer__sub_80042DE8(arg0);
+            push_nearby_players__10TObjPlayerFPv(arg0);
             F430D0(s16, 0x39C) = 0;
         }
         if (F430D0(s32, 0x3A8) != 0) {
@@ -1263,7 +1263,7 @@ void run_state_machine__15TBoss3VoloptP01FPv(u8 *arg0) {
         } else {
             reset_state__15TBoss3VoloptP01FPv(arg0);
             set_mode__11TCameraCtrlFPv(M2C_FIELD(arg0, u8 **, 0x3B8));
-            TObjPlayer__sub_80042DE8((void *) (arg0));
+            push_nearby_players__10TObjPlayerFPv((void *) (arg0));
             M2C_FIELD(arg0, s32 *, 0x37C) = 1;
         }
         M2C_FIELD(arg0, s32 *, 0x388) = (s32) (M2C_FIELD(arg0, s32 *, 0x388) & 0xFFF7FFFF);
@@ -1324,7 +1324,7 @@ extern int fold_flush_1;
 #undef rotate_matrix_y
 #undef translate_matrix
 #undef pop_matrix
-#undef TObjPlayer__sub_80042DE8
+#undef push_nearby_players__10TObjPlayerFPv
 #undef obj_testFlags30
 #undef update_if_active__15TObjEneMe1GiGueFPv
 #undef TBoss3VoloptP01__sub_8004301C
@@ -1371,7 +1371,7 @@ void TBoss3VoloptP01__sub_80043758(u8 *arg0) {
 #define rotate_matrix_y ((M2C_UNK (*)(M2C_UNK,s32))rotate_matrix_y)
 #define translate_matrix ((M2C_UNK (*)(M2C_UNK,f32,f32,f32))translate_matrix)
 #define pop_matrix ((M2C_UNK (*)(void))pop_matrix)
-#define TObjPlayer__sub_80042DE8 ((M2C_UNK (*)(void*))TObjPlayer__sub_80042DE8)
+#define push_nearby_players__10TObjPlayerFPv ((M2C_UNK (*)(void*))push_nearby_players__10TObjPlayerFPv)
 #define obj_testFlags30 ((s32 (*)(void*,int))obj_testFlags30)
 #define update_if_active__15TObjEneMe1GiGueFPv ((M2C_UNK (*)(void*,int))update_if_active__15TObjEneMe1GiGueFPv)
 #define TBoss3VoloptP01__sub_8004301C ((s32 (*)(void*))TBoss3VoloptP01__sub_8004301C)
@@ -1718,7 +1718,7 @@ void init_cursor_record__15TBoss3VoloptP01FPv(O_800443BC *self) {
 #undef rotate_matrix_y
 #undef translate_matrix
 #undef pop_matrix
-#undef TObjPlayer__sub_80042DE8
+#undef push_nearby_players__10TObjPlayerFPv
 #undef obj_testFlags30
 #undef update_if_active__15TObjEneMe1GiGueFPv
 #undef TBoss3VoloptP01__sub_8004301C

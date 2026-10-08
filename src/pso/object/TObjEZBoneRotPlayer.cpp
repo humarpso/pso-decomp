@@ -52,7 +52,7 @@ void concat_matrix__10TObjPlayerFUiUi(s32, void *);
 void push_matrix(void);
 void pop_matrix(void);
 extern u8 lbl_8049DD20[];
-void TObjPlayer__sub_800FEEA4(Self_800FEEA4 *self);
+void update_bone_attach_points__10TObjPlayerFPv(Self_800FEEA4 *self);
 }
 
 extern "C" {
@@ -61,7 +61,7 @@ int TObjPlayer__sub_800FEE84(void* p);
 int TObjPlayer__sub_800FF2D0(void*);
 
 int TObjPlayer__sub_800FEE84(void* p) { return TObjPlayer__sub_800FF2D0(p); }
-void TObjPlayer__sub_800FEEA4(Self_800FEEA4 *self) {
+void update_bone_attach_points__10TObjPlayerFPv(Self_800FEEA4 *self) {
     RotSrc_800FEEA4 *rs;
     RotDst_800FEEA4 *rd;
     PosSrc_800FEEA4 *ps;

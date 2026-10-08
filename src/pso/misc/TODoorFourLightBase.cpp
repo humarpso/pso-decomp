@@ -109,7 +109,7 @@ f32 post_translate_matrix(void *);
 void render_lights__19TODoorFourLightBaseFPv(Door_802A0670 *self);
 M2C_UNK send_object_state_update(void *, void *);
 s32 access_object_saved_state(void *, void *, int);
-M2C_UNK fn_8015D5D4(void *);
+M2C_UNK play_door_sound(void *);
 u8 is_current_floor_switch_set(int);
 void TODoorFourLightBase__vt12(u8 *arg0);
 void render_lights__19TODoorFourLightBaseFPv(Door_802A0670 *self);
@@ -166,7 +166,7 @@ void TODoorFourLightBase__vt12(u8 *arg0) {
     s16 sp8;
     switch (M2C_FIELD(arg0, s32 *, 0xCC)) {
     case 1:
-        fn_8015D5D4(arg0);
+        play_door_sound(arg0);
         M2C_FIELD(arg0, s32 *, 0xD0) |= 1;
         break;
     case 2: {
@@ -180,7 +180,7 @@ void TODoorFourLightBase__vt12(u8 *arg0) {
         if (found != 0) {
             M2C_FIELD(arg0, s32 *, 0xD0) &= ~1;
         } else {
-            fn_8015D5D4(arg0);
+            play_door_sound(arg0);
             M2C_FIELD(arg0, s32 *, 0xD0) |= 1;
         }
         break;
@@ -200,7 +200,7 @@ void TODoorFourLightBase__vt12(u8 *arg0) {
         if (found != 0) {
             M2C_FIELD(arg0, s32 *, 0xD0) &= ~1;
         } else {
-            fn_8015D5D4(arg0);
+            play_door_sound(arg0);
             M2C_FIELD(arg0, s32 *, 0xD0) |= 1;
         }
         if (found == 0 && M2C_FIELD(arg0, void **, 0x80) != NULL && access_object_saved_state(arg0, &sp8, 1) == 1) {

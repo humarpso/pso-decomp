@@ -1545,7 +1545,7 @@ M2C_UNK update_secondary_light__9TObjEneDDFPv(void *);
 void get_camera_ctrl__9TObjEneDDFPv(s32, s32);
 s32 get_random_scaled__9TObjEneDDFv(void *);
 f32 rand_range__9TObjEneDDFff(void *, f32, f32);
-int TObjEneDD__sub_800BAAE4(void*, void*, void*);
+int set_part_local_pos__9TObjEneDDFPvPvi(void*, void*, void*);
 u32 move_with_wall_slide_commit__9TObjEneDDFPvfff();
 s32 was_hit_by_ranged__9TObjEneDDFPv();
 M2C_UNK clear_attack_receipts();

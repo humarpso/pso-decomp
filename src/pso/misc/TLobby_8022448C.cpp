@@ -129,7 +129,7 @@ s32 init_guild_card_tag__6TLobbyFi(void *);
 void* get_com_card_list__6TLobbyFPv(void* p);
 s32 strncpy(void *, void *, int);
 extern u8 *TLobby__data_805D5580;
-void TLobby__sub_80225828(s32 arg0, void *arg1);
+void send_simple_mail__6TLobbyFiPv(s32 arg0, void *arg1);
 s32 memcmp(const void *, const void *, u32);
 extern Cnt_80224B7C lbl_80513F40[];
 extern G_80225550 lbl_80513F60;
@@ -758,7 +758,7 @@ void try_close__6TLobbyFPv(void* p) { if (TLobby__sub_80225B90((O_80225B90 *)(p)
 typedef struct RecoveredGlobal_802258C8_lbl_80513F70 RecoveredGlobal_802258C8_lbl_80513F70;
 typedef char RecoveredGlobal_802258C8_lbl_80513F70_size[((sizeof(RecoveredGlobal_802258C8_lbl_80513F70)) == 0x680) ? (1) : (-1)];
 
-void TLobby__sub_80225828(s32 arg0, void *arg1) {
+void send_simple_mail__6TLobbyFiPv(s32 arg0, void *arg1) {
     Tag_80225828 t;
     s32 mode;
     init_guild_card_tag__6TLobbyFi(&t);

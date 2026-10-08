@@ -6,14 +6,14 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 
 extern "C" {
 
-void TWindowMakeTeam__sub_80268650(u8 *arg0, void *arg1, s32 arg2);
+void set_entry_string_by_id__15TWindowMakeTeamFPvPvi(u8 *arg0, void *arg1, s32 arg2);
 void set_string__20TWindowSubStatusDispFPvUi(u8 *, void *);
 struct Ent_802684BC { u8 p0[0x1C]; s32 f1C; };
 struct Win_802684BC { u8 p0[0x76]; s16 f76; };
 s32 TWindowSubComCard__sub_802684BC(Win_802684BC *w, s32 arg1);
 s32 is_flag_4_set__17TWindowSubComCardFPv(void *);
 void TWindowSubComCard__sub_8026853C(u8 *arg0, s32 arg1);
-void TWindowSubComCard__sub_802685C4(u8 *arg0, s32 arg1);
+void disable_entry_by_id__17TWindowSubComCardFPvi(u8 *arg0, s32 arg1);
 void update_next_entry__17TWindowSubComCardFPviii(void *arg0, s32 arg1, s32 arg2, s32 arg3);
 void update_selected_entry__17TWindowSubComCardFPv(void *arg0);
 s32 play_sound_effect(s32 a0 = 0, s32 a1 = 0, s32 a2 = 0, s32 a3 = 0);
@@ -61,7 +61,7 @@ void TWindowSubComCard__sub_8026853C(u8 *arg0, s32 arg1) {
         }
     }
 }
-void TWindowSubComCard__sub_802685C4(u8 *arg0, s32 arg1) {
+void disable_entry_by_id__17TWindowSubComCardFPvi(u8 *arg0, s32 arg1) {
     s32 i;
     u8 *e;
     for (i = 0; i < *(s16 *)(arg0 + 0x76); i++) {
@@ -72,7 +72,7 @@ void TWindowSubComCard__sub_802685C4(u8 *arg0, s32 arg1) {
         }
     }
 }
-void TWindowMakeTeam__sub_80268650(u8 *arg0, void *arg1, s32 arg2) {
+void set_entry_string_by_id__15TWindowMakeTeamFPvPvi(u8 *arg0, void *arg1, s32 arg2) {
     s32 i;
     u8 *e;
     for (i = 0; i < *(s16 *)(arg0 + 0x76); i++) {

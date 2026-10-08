@@ -127,7 +127,7 @@ s32 obj_isState2_324(void *);
 s16 obj_getS16_32C(void *);
 M2C_UNK send_6x2F_change_player_hp(int, s32, s16);
 M2C_UNK calc_photon_blast_charge__10TObjPlayerFv(void *, s32);
-s32 TBoss6PlotFalz__sub_802AAD84(s32 arg0, u32 arg1);
+s32 damage_player_hp__14TBoss6PlotFalzFiUi(s32 arg0, u32 arg1);
 
 struct TBoss6PlotFalz_802AACF4 { u8 pad[0x3D0]; s32 f3D0; s32 f3D4; s32 f3D8; };
 void set_shake_preset__11TCameraCtrlFi(int);
@@ -150,7 +150,7 @@ void TBoss6PlotFalz__sub_802AACF4(TBoss6PlotFalz_802AACF4 *o) {
 }
 #pragma pop
 
-s32 TBoss6PlotFalz__sub_802AAD84(s32 arg0, u32 arg1) {
+s32 damage_player_hp__14TBoss6PlotFalzFiUi(s32 arg0, u32 arg1) {
     u32 v;
     u8 *p;
     s32 hp;
@@ -408,7 +408,7 @@ void TBoss6PlotFalz__sub_802AB684(s32 arg0);
 int spawn_particle_effect(void *, int);
 int play_sound_effect(int, int, int, int);
 int TBoss6Thanks__sub_8035D270();
-void TBoss6PlotFalz__sub_802AB3E0(void);
+void spawn_player_hit_effects__14TBoss6PlotFalzFv(void);
 f64 get_ad_end_text_start__10TObjPlayerFv(f32, f32);
 s32 get_nth_view_player_id__11TCameraCtrlFi();
 s32 angle_diff_s16(s32, s32);
@@ -435,7 +435,7 @@ void set_visible_flag__14TBoss6PlotFalzFPv(void *arg0) {
     M2C_FIELD(arg0, s32 *, 0x374) = 1;
 }
 
-void TBoss6PlotFalz__sub_802AB3E0(void) {
+void spawn_player_hit_effects__14TBoss6PlotFalzFv(void) {
     Vec_802AB3E0 v;
     Player_802AB3E0 *p;
     s32 i;
@@ -547,7 +547,7 @@ s32 send_entity_set_flags__6TLobbyFPv(void *);
 extern s32 lbl_805D53A0;
 
 void award_exp_and_destroy__14TBoss6PlotFalzFPv(u8 *arg0) {
-    TBoss6PlotFalz__sub_802AB3E0();
+    spawn_player_hit_effects__14TBoss6PlotFalzFv();
     if (is_split_screen() != 0) {
         distribute_experience(arg0);
     } else {
@@ -1456,7 +1456,7 @@ extern "C" {
 s32 query_teammate_state__9TObjEneDDFPv();
 void run_task__14TBoss6PlotFalzFv(u8 *arg0);
 u8 * load_resource_from_descriptor(void *, s32, void *, s32, s32, s32);
-M2C_UNK TBoss6Tube__sub_802B1760();
+M2C_UNK load_resources__10TBoss6TubeFv();
 M2C_UNK fn_802E52AC();
 M2C_UNK TBoss6Rock__sub_80354B18();
 M2C_UNK TItemEffOrgaFlowShot__sub_80357210();
@@ -1685,7 +1685,7 @@ void TBoss6PlotFalz__sub_802ACBE4(void) {
         TLobby__sub_8036DDE8();
         TItemEffOrgaFlowShot__sub_80357210();
         TBoss6Rock__sub_80354B18();
-        TBoss6Tube__sub_802B1760();
+        load_resources__10TBoss6TubeFv();
         fn_802E52AC();
     }
 }

@@ -80,7 +80,7 @@ s32 init_collision_body_parts(void *, void *, int);
 s32 TORockCaveBrakable__ct(void *);
 s32 create__10TObjMapCsnFi(void *);
 s32 TORockJungleS01__sub_8029CAE8(int);
-u8 *TORockJungleS01__sub_8029CAFC(s32);
+u8 *get_model__15TORockJungleS01Fi(s32);
 extern RecoveredGlobal_8029C588_lbl_804DC3A0 lbl_804DC3A0;
 extern RecoveredGlobal_8029C588_lbl_804DC424 lbl_804DC424;
 extern M2C_UNK __vt__15TORockJungleM01[];
@@ -160,7 +160,7 @@ u8 *TORockJungleM01__ct(u8 *arg0, s32 arg1) {
     init_and_activate__10TObjPlayerFPv((void *) (arg0 + 0xBC));
     M2C_FIELD(arg0, s32 *, 0) = (s32) lbl_805D3D40;
     ((VObj_18_1a504b *)(arg0))->m5(arg1);
-    M2C_FIELD(arg0, u8 **, 0x34) = TORockJungleS01__sub_8029CAFC(2);
+    M2C_FIELD(arg0, u8 **, 0x34) = get_model__15TORockJungleS01Fi(2);
     M2C_FIELD(arg0, s32 *, 0x24) = TORockJungleS01__sub_8029CAE8((int) (2));
     M2C_FIELD(arg0, f32 *, 0xB0) = (f32) (lbl_805DDD1C + M2C_FIELD(M2C_FIELD(M2C_FIELD(arg0, u8 **, 0x34), void **, 4), f32 *, 0x14));
     init_collision_body_parts((void *) (arg0), (void *) ((u8 *)&lbl_804DC3A0.value + 0x2C), (int) (1));

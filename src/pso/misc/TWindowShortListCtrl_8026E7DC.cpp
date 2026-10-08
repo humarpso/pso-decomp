@@ -126,7 +126,7 @@ void update_variant_c__20TWindowShortListCtrlFPv(void *);
 void *create_equip_kind_window(s32, u8 *, s32);
 s32 update_selection__19TWindowSubTechniqueFPvPv(void *, void *, s32);
 void get_current_selection__19TWindowSubTechniqueFPvPv(void *, void *, s32);
-s32 TWindowSubTechnique__sub_80286BF4(s32, s32);
+s32 is_technique_available__19TWindowSubTechniqueFii(s32, s32);
 extern u8 lbl_8044F5A0[];
 void run_task__20TWindowShortListCtrlFv(u8 *arg0);
 }
@@ -517,7 +517,7 @@ void run_task__20TWindowShortListCtrlFv(u8 *arg0) {
             queue_destruction__7TObjectFv(self);
             return;
         }
-        if (TWindowSubTechnique__sub_80286BF4(get_selected_menu_value(self->tech_win), self->player_id) == 0) {
+        if (is_technique_available__19TWindowSubTechniqueFii(get_selected_menu_value(self->tech_win), self->player_id) == 0) {
             refresh_technique_rows__20TWindowShortListCtrlFPviPv((Wn_8026EBB0 *) self, (s32) self->tech_win, (Sc_8026EBB0 *) lbl_8044F5A0);
             self->state = 9;
             return;

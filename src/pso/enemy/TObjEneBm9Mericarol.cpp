@@ -288,7 +288,7 @@ s32 get_game_mode__6TLobbyFv();
 s32 is_valid_target__9TObjEneDDFPv(s32);
 f32 horizontal_distance_squared(void *, void *);
 extern const f32 lbl_805DE74C;
-s32 TObjEneBm9Mericarol__sub_802D0854(s32 arg0);
+s32 find_nearby_target__19TObjEneBm9MericarolFi(s32 arg0);
 M2C_UNK queue_destruction__7TObjectFv(void *);
 M2C_UNK __dt__9TObjEneDDFv(void *, int);
 M2C_UNK delete_buffer__12TBoss8DragonFis(void *, int);
@@ -642,7 +642,7 @@ void TObjEneBm9Mericarol__sub_802D078C(u8 *arg0) {
 }
 #pragma pop
 
-s32 TObjEneBm9Mericarol__sub_802D0854(s32 arg0) {
+s32 find_nearby_target__19TObjEneBm9MericarolFi(s32 arg0) {
     s32 best = 0;
     s32 n = get_game_mode__6TLobbyFv();
     s32 pl;

@@ -257,7 +257,7 @@ f32 vector_length(void *);
 M2C_UNK subtract_vector(void *, void *);
 M2C_UNK normalize_vector(void *);
 extern const f32 TObjEnePanarms__data_805DA4A0;
-s32 TObjEnePanarms__sub_800DE6A8(void *arg0, Vec_800DE6A8 *arg1, Vec_800DE6A8 *arg2, f32 step, f32 dy);
+s32 check_ground_along_path__14TObjEnePanarmsFPvPvPvff(void *arg0, Vec_800DE6A8 *arg1, Vec_800DE6A8 *arg2, f32 step, f32 dy);
 M2C_UNK VecCopy__FP3VecPC3Vec(void *, void *);
 u32 csnLookAt(void *, void *);
 f32 horizontal_distance_squared(void *, void *);
@@ -275,7 +275,7 @@ s32 try_warp_to_position__14TObjEnePanarmsFPvPv(u8 *arg0, Vec_800DEB48 *arg1);
 M2C_UNK VecCopy__FP3VecPC3Vec(void *, void *);
 f64 get_ad_end_text_start__10TObjPlayerFv(f32, f32);
 s32 TObjEnePanarms__sub_800DE528(void *arg0, Vec_800DE528 *arg1);
-s32 TObjEnePanarms__sub_800DE6A8(void *arg0, Vec_800DE6A8 *arg1, Vec_800DE6A8 *arg2, f32 step, f32 dy);
+s32 check_ground_along_path__14TObjEnePanarmsFPvPvPvff(void *arg0, Vec_800DE6A8 *arg1, Vec_800DE6A8 *arg2, f32 step, f32 dy);
 s32 project_actor_to_ground(void *, void *, int);
 f32 vec3_add_to(void *, void *);
 f32 vector_length(void *);
@@ -950,7 +950,7 @@ s32 TObjEnePanarms__sub_800DE528(void *arg0, Vec_800DE528 *arg1) {
 }
 #pragma pop
 
-s32 TObjEnePanarms__sub_800DE6A8(void *arg0, Vec_800DE6A8 *arg1, Vec_800DE6A8 *arg2, f32 step, f32 dy) {
+s32 check_ground_along_path__14TObjEnePanarmsFPvPvPvff(void *arg0, Vec_800DE6A8 *arg1, Vec_800DE6A8 *arg2, f32 step, f32 dy) {
     Vec_800DE6A8 p = *arg1;
     Vec_800DE6A8 d = *arg2;
     f32 len;
@@ -1004,8 +1004,8 @@ M2C_UNK find_combine_position__14TObjEnePanarmsFPv(void *p) {
         sp14.y += TObjEnePanarms__data_805DA4A4;
         if (project_actor_to_ground(arg0, &sp14, 0) != 0 &&
             TObjEnePanarms__sub_800DE528(arg0, (Vec_800DE528 *) &sp14) != 0 &&
-            TObjEnePanarms__sub_800DE6A8(arg0, (Vec_800DE6A8 *) (M2C_FIELD(arg0, u8 **, 0x3E4) + 0x38), (Vec_800DE6A8 *) &sp14, TObjEnePanarms__data_805DA4A4, TObjEnePanarms__data_805DA4A4) != 0 &&
-            TObjEnePanarms__sub_800DE6A8(arg0, (Vec_800DE6A8 *) (M2C_FIELD(arg0, u8 **, 0x3E8) + 0x38), (Vec_800DE6A8 *) &sp14, TObjEnePanarms__data_805DA4A4, TObjEnePanarms__data_805DA4A4) != 0) {
+            check_ground_along_path__14TObjEnePanarmsFPvPvPvff(arg0, (Vec_800DE6A8 *) (M2C_FIELD(arg0, u8 **, 0x3E4) + 0x38), (Vec_800DE6A8 *) &sp14, TObjEnePanarms__data_805DA4A4, TObjEnePanarms__data_805DA4A4) != 0 &&
+            check_ground_along_path__14TObjEnePanarmsFPvPvPvff(arg0, (Vec_800DE6A8 *) (M2C_FIELD(arg0, u8 **, 0x3E8) + 0x38), (Vec_800DE6A8 *) &sp14, TObjEnePanarms__data_805DA4A4, TObjEnePanarms__data_805DA4A4) != 0) {
             u8 *a;
             u8 *b;
             VecCopy__FP3VecPC3Vec(arg0 + 0x38, &sp14);

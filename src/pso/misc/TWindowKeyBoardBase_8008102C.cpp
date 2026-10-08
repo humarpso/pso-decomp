@@ -11,7 +11,7 @@ u8 * TEF_LensFlare__ct(void *, M2C_UNK, s32);
 u8 *__nw__7TObjectFUl(M2C_UNK);
 extern s32 tl_05;
 u8 *TEF_LensFlare__create(s32 arg0);
-f32 TWindowSubStatusDisp__sub_803D647C(f32);
+f32 round_away_from_zero__20TWindowSubStatusDispFf(f32);
 M2C_UNK free__11TOBoss4RockFUi(u32);
 s16 *alloc_buffer__11TOBoss4RockFPv(s32);
 u32 __cvt_fp2unsigned(f32);
@@ -37,7 +37,7 @@ void init_keyboard_text_buffer(u8 *arg0, u32 arg1, u32 arg2) {
     if (arg2 == 0) {
         M2C_FIELD(arg0, u32 *, 0x14) = arg1;
     } else {
-        M2C_FIELD(arg0, u32 *, 0x14) = __cvt_fp2unsigned((f32) arg2 * TWindowSubStatusDisp__sub_803D647C((f32) (arg1 / 6U)));
+        M2C_FIELD(arg0, u32 *, 0x14) = __cvt_fp2unsigned((f32) arg2 * round_away_from_zero__20TWindowSubStatusDispFf((f32) (arg1 / 6U)));
     }
     temp_r3_2 = M2C_FIELD(arg0, u32 *, 0x14);
     if (temp_r3_2 != 0) {

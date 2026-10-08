@@ -33,8 +33,8 @@ extern "C" {
 s32 is_split_screen();
 s32 TCameraCtrl__sub_80068EF0();
 s32 restore_full_screen_view__11TCameraCtrlFv();
-s32 TCameraCtrl__sub_8006ABAC(void *, int, int);
-s32 TCameraCtrl__sub_8006AC70(void *);
+s32 calc_axes_from_angles__11TCameraCtrlFiii(void *, int, int);
+s32 calc_rotated_axes__11TCameraCtrlFPv(void *);
 s32 TCameraCtrl__sub_8006AF9C(void *, int);
 s32 direction_to_pitch_yaw(void *, void *, void *);
 s32 TObjPlayer__sub_80084744();
@@ -144,7 +144,7 @@ void TCameraCtrl__sub_800830B0(u8 *arg0) {
             stack.sp18 = M2C_FIELD(arg0, f32 *, 0x30) - M2C_FIELD(arg0, f32 *, 0x24);
             stack.sp1C = M2C_FIELD(arg0, f32 *, 0x34) - M2C_FIELD(arg0, f32 *, 0x28);
             direction_to_pitch_yaw((void *) (&stack.sp14), (void *) (&stack.sp10), (void *) (&stack.spC));
-            TCameraCtrl__sub_8006ABAC((void *) (lbl_805D4DF0), (int) (stack.sp10), (int) (stack.spC));
+            calc_axes_from_angles__11TCameraCtrlFiii((void *) (lbl_805D4DF0), (int) (stack.sp10), (int) (stack.spC));
         }
         TObjPlayer__sub_80084754();
         render_scene_passes__9TMainTaskFv((void *) (&main_task.value));
@@ -161,7 +161,7 @@ void TCameraCtrl__sub_800830B0(u8 *arg0) {
         GXSetViewport((f32) (lbl_805D93D0), (f32) (lbl_805D93D0), (f32) (lbl_805D9404), (f32) (lbl_805D9408), (f32) (lbl_805D93D0), (f32) (lbl_805D93D8));
         GXSetScissor((int) (0), (int) (0), (int) (0x280), (int) (0x1E0));
         TCameraCtrl__sub_80068EF0();
-        TCameraCtrl__sub_8006AC70((void *) (lbl_805D4DF0));
+        calc_rotated_axes__11TCameraCtrlFPv((void *) (lbl_805D4DF0));
         TCameraCtrl__sub_8006AF9C((void *) (lbl_805D4DF0), (int) (0));
     }
 }

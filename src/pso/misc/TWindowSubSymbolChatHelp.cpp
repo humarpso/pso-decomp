@@ -61,7 +61,7 @@ int get_parts_entry__28TWindowSubSymbolChatPartsSetFi(int);
 void apply_context_transform_to_rect(void *, void *);
 void draw_textured_quad_at_depth(void *, f32);
 void set_constant_material_color(s32);
-void TWindowSubSymbolChatHelp__sub_8028429C(Self_8028429C *arg0, Win_8028429C *arg1);
+void draw_color_palette__24TWindowSubSymbolChatHelpFPvPv(Self_8028429C *arg0, Win_8028429C *arg1);
 void apply_context_transform_to_rect(void *, void *);
 void draw_textured_quad_at_depth(void *, f32);
 void set_constant_material_color(s32);
@@ -94,7 +94,7 @@ extern s32 lbl_805D63F0;
 
 #pragma push
 #pragma fp_contract on
-void TWindowSubSymbolChatHelp__sub_8028429C(Self_8028429C *arg0, Win_8028429C *arg1) {
+void draw_color_palette__24TWindowSubSymbolChatHelpFPvPv(Self_8028429C *arg0, Win_8028429C *arg1) {
     Quad_8028429C q;
     f32 scale;
     s32 i;
@@ -209,7 +209,7 @@ void draw_help_entries__24TWindowSubSymbolChatHelpFPvPv(void *arg0, void *arg1) 
             TWindowSubSymbolChatHelp__sub_802845EC((s32)(arg0), (Win_802845EC *)(arg1), (s32)(4), (s32)(0xFF808080));
             TWindowSubSymbolChatHelp__sub_802845EC((s32)(arg0), (Win_802845EC *)(arg1), (s32)(5), (s32)(0xFF808080));
         }
-        TWindowSubSymbolChatHelp__sub_8028429C((Self_8028429C *)(arg0), (Win_8028429C *)(arg1));
+        draw_color_palette__24TWindowSubSymbolChatHelpFPvPv((Self_8028429C *)(arg0), (Win_8028429C *)(arg1));
         get_player__20TWindowSubStatusDispFv();
         begin_screen_draw(1);
         begin_render__20TWindowSubStatusDispFv();

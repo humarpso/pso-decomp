@@ -4263,7 +4263,7 @@ extern "C" {
 f32 get_random_float__21TObjEneMe3ShinowaRealFv(f32);
 Hit_800D0E14 *csnVector(void *, void *, s32);
 f32 rand_range__9TObjEneDDFff(void *, f32, f32);
-void TObjEneBm5GibonU__sub_800D0E14(Ene_800D0E14 *arg0);
+void pick_wander_destination__16TObjEneBm5GibonUFPv(Ene_800D0E14 *arg0);
 s32 angle_diff_s16(s32, s32);
 s32 approach_angle_limited(s32, s32, s32);
 }
@@ -4297,7 +4297,7 @@ void approach_target__16TObjEneBm5GibonUFPvf(void *arg0, f32 farg0) {
 
 #pragma push
 #pragma fp_contract on
-void TObjEneBm5GibonU__sub_800D0E14(Ene_800D0E14 *arg0) {
+void pick_wander_destination__16TObjEneBm5GibonUFPv(Ene_800D0E14 *arg0) {
     Vec_800D0E14 v;
     f32 d;
     Hit_800D0E14 *hit;

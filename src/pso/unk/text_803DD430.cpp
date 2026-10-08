@@ -18,7 +18,7 @@ extern GXRenderModeObj_803DD430 GXMpal480IntDf;
 extern GXRenderModeObj_803DD430 GXPal528IntDf;
 extern char lbl_804FC668[];
 extern char lbl_804FC674[];
-void fn_803DD430(GXRenderModeObj_803DD430 *rmode, GXRenderModeObj_803DD430 *out);
+void get_render_mode_for_tv_format(GXRenderModeObj_803DD430 *rmode, GXRenderModeObj_803DD430 *out);
 void *OSGetArenaLo(void);
 void OSSetArenaLo(void *);
 f64 cos(f64);
@@ -33,7 +33,7 @@ extern "C" {
 
 
 
-void fn_803DD430(GXRenderModeObj_803DD430 *rmode, GXRenderModeObj_803DD430 *out) {
+void get_render_mode_for_tv_format(GXRenderModeObj_803DD430 *rmode, GXRenderModeObj_803DD430 *out) {
     switch (VIGetTvFormat()) {
     case 0:
         rmode = &GXNtsc480IntDf;

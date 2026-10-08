@@ -71,7 +71,7 @@ extern const f32 lbl_805DD8F8;
 u8 *TODoorFourLightSpace__ct(u8 *arg0, M2C_UNK arg1, s32 arg2);
 void send_object_state_update(void *, void *);
 s32 access_object_saved_state(void *, void *, s32);
-void fn_8015D5D4(void *);
+void play_door_sound(void *);
 u8 is_current_floor_switch_set(u16);
 void TODoorFourLightSpace__vt12(u8 *arg0);
 M2C_UNK post_translate_matrix(void *);
@@ -171,7 +171,7 @@ void TODoorFourLightSpace__vt12(u8 *arg0) {
     s32 i;
     switch (M2C_FIELD(arg0, s32 *, 0xCC)) {
     case 1:
-        fn_8015D5D4(arg0);
+        play_door_sound(arg0);
         M2C_FIELD(arg0, s32 *, 0xD0) |= 1;
         break;
     case 2:
@@ -184,7 +184,7 @@ void TODoorFourLightSpace__vt12(u8 *arg0) {
         if (fail != 0) {
             M2C_FIELD(arg0, s32 *, 0xD0) &= ~1;
         } else {
-            fn_8015D5D4(arg0);
+            play_door_sound(arg0);
             M2C_FIELD(arg0, s32 *, 0xD0) |= 1;
         }
         break;
@@ -199,7 +199,7 @@ void TODoorFourLightSpace__vt12(u8 *arg0) {
                 }
             }
             if (bad == 0) {
-                fn_8015D5D4(arg0);
+                play_door_sound(arg0);
                 M2C_FIELD(arg0, s32 *, 0xD0) |= 1;
             } else {
                 M2C_FIELD(arg0, s32 *, 0xD0) &= ~1;
@@ -444,7 +444,7 @@ void TODoorFourLightRuins__vt12(u8 *arg0) {
     s32 j;
     switch (M2C_FIELD(arg0, s32 *, 0xCC)) {
     case 1:
-        ((M2C_UNK (*)(void *))fn_8015D5D4)(arg0);
+        ((M2C_UNK (*)(void *))play_door_sound)(arg0);
         M2C_FIELD(arg0, s32 *, 0xD0) |= 1;
         break;
     case 2:
@@ -457,7 +457,7 @@ void TODoorFourLightRuins__vt12(u8 *arg0) {
         if (off != 0) {
             M2C_FIELD(arg0, s32 *, 0xD0) &= ~1;
         } else {
-            ((M2C_UNK (*)(void *))fn_8015D5D4)(arg0);
+            ((M2C_UNK (*)(void *))play_door_sound)(arg0);
             M2C_FIELD(arg0, s32 *, 0xD0) |= 1;
         }
         break;
@@ -474,7 +474,7 @@ void TODoorFourLightRuins__vt12(u8 *arg0) {
         if (off2 != 0) {
             M2C_FIELD(arg0, s32 *, 0xD0) &= ~1;
         } else {
-            ((M2C_UNK (*)(void *))fn_8015D5D4)(arg0);
+            ((M2C_UNK (*)(void *))play_door_sound)(arg0);
             M2C_FIELD(arg0, s32 *, 0xD0) |= 1;
         }
         if (off2 == 0 && M2C_FIELD(arg0, u32 *, 0x80) != 0 && ((s32 (*)(void *, void *, int))access_object_saved_state)(arg0, &sp8, 1) == 1) {

@@ -133,7 +133,7 @@ f32 vec3_dot(void *, void *);
 extern s32 TObjEneBm3Fly__data_805D50E4;
 extern f32 TObjEneBm3Fly__data_805D9C88;
 extern f32 TObjEneBm3Fly__data_805D9CC8;
-s32 TObjEneBm3Fly__sub_800B177C(u8 *arg0);
+s32 can_attack_target__13TObjEneBm3FlyFPv(u8 *arg0);
 s32 get_random_scaled__9TObjEneDDFv(void *);
 f32 calc_elapsed_scaled__9TObjEneDDFv(void *);
 extern const f32 TObjEneBm3Fly__data_805D9C94;
@@ -205,7 +205,7 @@ void choose_attack__13TObjEneBm3FlyFPv(Fly_800B1684 *s) {
     s->f454 = 0;
 }
 
-s32 TObjEneBm3Fly__sub_800B177C(u8 *arg0) {
+s32 can_attack_target__13TObjEneBm3FlyFPv(u8 *arg0) {
     f32 temp_f31;
     if ((M2C_FIELD(arg0, f32 *, 0x3AC) < (TObjEneBm3Fly__data_805D9CC8 + get_pos_x__10TObjPlayerFPv((int) (TObjEneBm3Fly__data_805D50E4)))) && (get_random_float__8TObjFishFv((f32) (M2C_FIELD(arg0, f32 *, 0x42C) - M2C_FIELD(arg0, f32 *, 0x398))) < TObjEneBm3Fly__data_805D9C88)) {
         temp_f31 = vec3_dot((void *) (arg0 + 0x430), (void *) (arg0 + 0x3A0));

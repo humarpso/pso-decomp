@@ -30,7 +30,7 @@ int request_queued_main_phase(void);
 s32 TKeyBoardControl__sub_8000F9CC(s32);
 int TSaveChCr__sub_80339F30(void*);
 s32 TSaveChCr__sub_8033A138(void *);
-int TSaveChCr__sub_8033A184(void*, void*);
+int set_state__9TSaveChCrFPvi(void*, void*);
 int close_and_advance__9TSaveChCrFPvPv(void*, int);
 s32 poll_memcard_status();
 int queue_destruction__7TObjectFv(void*);
@@ -38,7 +38,7 @@ s32 save_character__9TSaveChCrFPv(void *);
 
 void destroy_if_keyboard_idle__9TSaveChCrFPv(void* p) { if (*(int*)((char*)p + 0x38) == 0) { queue_destruction__7TObjectFv(p); request_queued_main_phase(); } }
 int TSaveChCr__sub_80339B94(void* p) { return close_window__9TSaveChCrFPv(p); }
-void save_if_dirty__9TSaveChCrFPv(void* p) { if (TSaveChCr__sub_80339F30(p) != 0) { TSaveChCr__sub_8033A184(p, (void*)4); } }
+void save_if_dirty__9TSaveChCrFPv(void* p) { if (TSaveChCr__sub_80339F30(p) != 0) { set_state__9TSaveChCrFPvi(p, (void*)4); } }
 int close_and_advance_to_3__9TSaveChCrFPv(void* p) { return close_and_advance__9TSaveChCrFPvPv(p, 3); }
 void update_save_status__9TSaveChCrFPv(void *arg0) {
     s32 var_r3;
@@ -47,7 +47,7 @@ void update_save_status__9TSaveChCrFPv(void *arg0) {
         M2C_FIELD(arg0, s32 *, 0x28) = 0;
         M2C_FIELD(arg0, s32 *, 0x2C) = poll_memcard_status();
         if ((s32) M2C_FIELD(arg0, s32 *, 0x2C) != 0) {
-            TSaveChCr__sub_8033A184((void*)(arg0), (void*)(1));
+            set_state__9TSaveChCrFPvi((void*)(arg0), (void*)(1));
             return;
         }
         if ((s32) M2C_FIELD(arg0, s32 *, 0x20) == 0) {
@@ -56,7 +56,7 @@ void update_save_status__9TSaveChCrFPv(void *arg0) {
             var_r3 = TSaveChCr__sub_8033A138(arg0);
         }
         if (var_r3 == 7) {
-            TSaveChCr__sub_8033A184((void*)(arg0), (void*)(4));
+            set_state__9TSaveChCrFPvi((void*)(arg0), (void*)(4));
             return;
         }
         queue_destruction__7TObjectFv((void*)(arg0));
@@ -77,11 +77,11 @@ void update_save_state__9TSaveChCrFPv(void *arg0) {
             }
         } else {
             if (temp_r4 & 4) {
-                TSaveChCr__sub_8033A184((void*)(arg0), (void*)(1));
+                set_state__9TSaveChCrFPvi((void*)(arg0), (void*)(1));
                 return;
             }
             if (temp_r4 == 0) {
-                TSaveChCr__sub_8033A184((void*)(arg0), (void*)(2));
+                set_state__9TSaveChCrFPvi((void*)(arg0), (void*)(2));
             }
         }
     }

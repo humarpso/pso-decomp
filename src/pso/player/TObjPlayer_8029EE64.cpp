@@ -75,7 +75,7 @@ void TSceneSora__sub_8029F584(Vec_8029EFFC *);
 void TScene__sub_8029F5D8();
 void TScene__sub_8029F5E4(f32);
 void TScene__sub_8029F5EC();
-void TObjPlayer__sub_8029F5F8(s32);
+void copy_efb_to_texture__10TObjPlayerFPv(s32);
 f32 vec_squared_length(Vec_8029EFFC *);
 void reflect_matrix_in_plane(s32, Cam_8029EFFC *);
 void normalize_vector(Vec_8029EFFC *);
@@ -268,7 +268,7 @@ void render_reflections__10TSceneSoraFPv(Sora_8029EFFC *o) {
     if (TSceneSora__data_805D6050 != 0) {
         TSceneSora__data_805D3620 = 1;
     }
-    TObjPlayer__sub_8029F5F8(o->f1C);
+    copy_efb_to_texture__10TObjPlayerFPv(o->f1C);
     set_scene_flag__10TSceneSoraFi(o->f1C + 0x1C);
 }
 

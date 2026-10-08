@@ -226,7 +226,7 @@ void TCheckRoomSequence__sub_802114D4(u8 *arg0, u8 *arg1);
 u8 is_item_record_empty(u8 *arg0);
 void TCheckRoomSequence__sub_80211408(Obj_80211408 *self);
 void copy_item_data__23TAdSinglePlyChrSelectGCFPvPv(void *, void *);
-void TCheckRoomSequence__sub_80210904(s32 slot);
+void compact_items__18TCheckRoomSequenceFi(s32 slot);
 M2C_UNK queue_destruction__7TObjectFv(void *);
 s8 get_chr_select_state__23TAdSinglePlyChrSelectGCFv();
 s32 TAdPlayerLoadGC__sub_801E1B50(int);
@@ -361,7 +361,7 @@ void *TCheckRoomSequence__ct(void *arg0, s32 arg1, s32 arg2_);
 void TCheckRoomSequence__sub_80211408(Obj_80211408 *self);
 u8 is_item_record_empty(u8 *arg0);
 s32 get_item_def__18TCheckRoomSequenceFUi(void *);
-void TCheckRoomSequence__sub_80210E28(s32 idx, s32 amount, s32 slot);
+void remove_bank_item_amount__18TCheckRoomSequenceFiii(s32 idx, s32 amount, s32 slot);
 M2C_UNK queue_destruction__7TObjectFv(void *);
 M2C_UNK safe_free__23TAdSinglePlyChrSelectGCFUi(int);
 void TCheckRoomSequence__sub_8020F070(TCheckRoomSequence_8020F070 *self);
@@ -1040,7 +1040,7 @@ s32 get_bank_meseta_capacity(s32 i) {
 
 #pragma push
 #pragma optimization_level 1
-void TCheckRoomSequence__sub_80210904(s32 slot) {
+void compact_items__18TCheckRoomSequenceFi(s32 slot) {
     u8 *a;
     u8 *b;
     u8 *base;
@@ -1105,7 +1105,7 @@ s32 bank_credit_meseta(s32 v, s32 i) {
 
 #pragma push
 #pragma optimization_level 1
-void TCheckRoomSequence__sub_80210E28(s32 idx, s32 amount, s32 slot) {
+void remove_bank_item_amount__18TCheckRoomSequenceFiii(s32 idx, s32 amount, s32 slot) {
     Item_80210E28 *recs = (Item_80210E28 *)lbl_80513D88[slot];
     s32 n;
     if (idx <= 199) {

@@ -77,7 +77,7 @@ u32 __nw__7TObjectFUl(int);
 s32 get_window_layout_position(s32);
 extern const f32 lbl_805DC658;
 extern const f32 lbl_805DC65C;
-void THunterGuildSeqOffline__sub_8021488C(u8 *arg0);
+void init_window__22THunterGuildSeqOfflineFPv(u8 *arg0);
 s32 is_quest_active();
 s32 set_field_20__12TQuestListVMFPvi(void *, s32);
 s32 create_quest_thread(s32);
@@ -232,7 +232,7 @@ void THunterGuildSeqOffline__sub_802145F8(u8 *arg0) {
     }
 }
 
-void THunterGuildSeqOffline__sub_8021488C(u8 *arg0) {
+void init_window__22THunterGuildSeqOfflineFPv(u8 *arg0) {
     typedef char sp8_offset[(offsetof(Stack_8021488C, sp8) == 0x0) ? 1 : -1];
     typedef char spC_offset[(offsetof(Stack_8021488C, spC) == 0x4) ? 1 : -1];
     Stack_8021488C stack;

@@ -25,12 +25,12 @@ s32 get_char_data__10TObjPlayerFPv(void *);
 s32 TObjPlayer__sub_801C22B4(void *);
 u8 *__nw__7TObjectFUl(M2C_UNK);
 extern s32 tl_03;
-u8 *TObjPlayer__sub_801BDE60(s32 arg0, s32 arg1);
+u8 *create_player_instance__10TObjPlayerFii(s32 arg0, s32 arg1);
 }
 
 extern "C" {
 
-u8 *TObjPlayer__sub_801BDE60(s32 arg0, s32 arg1) {
+u8 *create_player_instance__10TObjPlayerFii(s32 arg0, s32 arg1) {
     u8 *p;
     p = __nw__7TObjectFUl(0xDB8);
     if (p != NULL) {

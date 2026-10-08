@@ -21,6 +21,8 @@ struct Tag_8013634C {
     char name[16];
 };
 
+struct Ent_80136FA0 { u8 pad[0xA]; char name[0x12]; };
+
 extern "C" {
 void copy_header_struct__6TLobbyFPvPv(void *, void *);
 void open_udp_socket_for_player__6TLobbyFi(s32 arg0);
@@ -61,6 +63,14 @@ extern s32 TLobby__data_805D5598;
 extern u32 TLobby__data_805D55D8;
 extern s32 lbl_805D53A0;
 void on_game_player_add__6TLobbyFiii(s32 arg0, s32 arg1, s32 arg2);
+s32 queue_destruction__7TObjectFv(void *);
+void set_menu_mode_2__6TLobbyFv();
+void calc_list_content_extent(void *);
+void add_status_disp_entry__6TLobbyFPvii(void *, void *, int);
+void * open_default__23TShopJudgmentItemWindowFi(void *);
+extern char lbl_8043EFF8[];
+extern void *TLobby__data_805D55D0;
+void TLobby__sub_80136FA0(s32 arg0, Ent_80136FA0 *arg1);
 }
 
 extern "C" {
@@ -378,7 +388,7 @@ void send_player_data_98__9TProtocolFPvPvPvPvPvPvPv(void *, void *, void *, void
 s32 DateToSeconds__FP9DateStampPi(void *, void *);
 s32 getDateStamp__FP9DateStamp(void *);
 void bswap_32__FPUl(u32 *);
-M2C_UNK TLobby__sub_801E44D8(void *, void *);
+M2C_UNK send_subcommand_to_client__6TLobbyFPvUi(void *, void *);
 void init__23TAdSinglePlyChrSelectGCFv(void);
 u8 * get_card_window__17TWindowSubComCardFUi(u32);
 void * get_char_index__23TAdSinglePlyChrSelectGCFUi(u32);
@@ -663,7 +673,7 @@ void TLobby__sub_80135458(s32 arg0) {
     stack.sp9 = 1;
     stack.spA = 0;
     bswap_packet_header__6TLobbyFPv(&stack.sp8);
-    TLobby__sub_801E44D8((void *) (&stack.sp8), (void *) (arg0));
+    send_subcommand_to_client__6TLobbyFPvUi((void *) (&stack.sp8), (void *) (arg0));
 }
 
 void handle_6x70_sync_player_disp_and_inventory(Pkt_801354AC *arg0) {
@@ -1252,6 +1262,22 @@ void handle_game_join__6TLobbyFPv(Pkt_80136C94 *pkt) {
     set_area__6TLobbyFPvi(lbl_80515BA0, 0, 0);
     set_flag_and_update__6TLobbyFv();
     mark_area_change_pending();
+}
+
+void TLobby__sub_80136FA0(s32 arg0, Ent_80136FA0 *arg1) {
+    void *w = lbl_8043EFF8;
+    s32 i;
+    void *old = TLobby__data_805D55D0;
+    if (old != 0) {
+        queue_destruction__7TObjectFv(old);
+        TLobby__data_805D55D0 = 0;
+    }
+    TLobby__data_805D55D0 = open_default__23TShopJudgmentItemWindowFi(w);
+    for (i = 0; i < arg0; i++) {
+        add_status_disp_entry__6TLobbyFPvii(TLobby__data_805D55D0, arg1[i].name, i);
+    }
+    calc_list_content_extent(TLobby__data_805D55D0);
+    set_menu_mode_2__6TLobbyFv();
 }
 
 void open_ship_block_select_menu__6TLobbyFiPvPv(s32 arg0, Ent_8013703C *arg1, Ent_8013703C *arg2) {

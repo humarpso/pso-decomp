@@ -3,7 +3,7 @@
 extern "C" void safe_free__23TAdSinglePlyChrSelectGCFUi(void*);
 
 extern "C" void TObjPlayer__sub_800FEE84();
-extern "C" void TObjPlayer__sub_800FEEA4();
+extern "C" void update_bone_attach_points__10TObjPlayerFPv();
 extern "C" void dt_ad_single_ply_chr_select__10TObjPlayerFPvs();
 extern "C" void render_shadows__7TObjectFv();
 f32 lbl_8049DCF0[12] = {
@@ -11,7 +11,7 @@ f32 lbl_8049DCF0[12] = {
 };
 f32 lbl_8049DD20[3] = { 0.0f, -0.75f, 0.0f };
 void *lbl_8049DD2C[6] = {
-    (void *)0x0, (void *)0x0, (void *)&dt_ad_single_ply_chr_select__10TObjPlayerFPvs, (void *)&TObjPlayer__sub_800FEEA4,
+    (void *)0x0, (void *)0x0, (void *)&dt_ad_single_ply_chr_select__10TObjPlayerFPvs, (void *)&update_bone_attach_points__10TObjPlayerFPv,
     (void *)&TObjPlayer__sub_800FEE84, (void *)&render_shadows__7TObjectFv,
 };
 

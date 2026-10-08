@@ -101,7 +101,7 @@ struct Res_80148274 { struct Hdr_80148274 hdr; u8 anim[0x1C]; u8 tex[0x10]; };
 struct Obj_80148274 { u8 pad0[0x350]; void *anim; };
 
 extern "C" {
-void TObjPlayer__sub_8001882C(void *, void *);
+void set_motion_params__10TObjPlayerFPvPv(void *, void *);
 void copy_position__20TBoss3VoloptHiraisinFi(void *);
 void update_prev_position__10TObjPlayerFPv(void *);
 void reset_photon_effect__10TObjPlayerFPv(void *);
@@ -126,7 +126,7 @@ void *lbl_804A7CF8[11] = {
     (void *)0x0, (void *)0x0, (void *)0x0,
 };
 void setup_common__11TObjNpcBaseFv(Obj_80148274 *self) {
-    TObjPlayer__sub_8001882C(self, lbl_804A7CB8);
+    set_motion_params__10TObjPlayerFPvPv(self, lbl_804A7CB8);
     self->anim = lbl_804A7CDC;
     init_collision_body_parts(self, lbl_804A7CF8, 1);
     reset_photon_effect__10TObjPlayerFPv(self);

@@ -228,6 +228,111 @@ struct Fade_800EDCCC { u8 b[0x1C]; };
 
 struct Sorc_800EDCCC { u8 pad[0x474]; Fade_800EDCCC fades[2]; };
 
+struct VBase_18_d3ac76 { char pad[0x18]; };
+
+struct VObj_18_d3ac76 : VBase_18_d3ac76 {
+    virtual void m0();
+    virtual void m1();
+    virtual void m2();
+    virtual void m3();
+    virtual void m4();
+    virtual void m5();
+    virtual void m6();
+    virtual void m7();
+    virtual void m8();
+    virtual void m9();
+    virtual void m10();
+    virtual void m11();
+    virtual void m12();
+    virtual void m13();
+    virtual void m14();
+    virtual void m15();
+    virtual void m16();
+    virtual void m17();
+    virtual void m18();
+    virtual void m19();
+    virtual void m20();
+    virtual void m21();
+    virtual void m22();
+    virtual void m23();
+    virtual void m24();
+    virtual void m25();
+    virtual void m26();
+    virtual void m27();
+    virtual void m28();
+    virtual void m29();
+    virtual void m30();
+    virtual void m31();
+    virtual void m32();
+    virtual void m33();
+    virtual void m34();
+    virtual void m35();
+    virtual void m36();
+    virtual void m37();
+    virtual void m38();
+    virtual void m39();
+    virtual void m40();
+    virtual void m41();
+    virtual void m42();
+    virtual void m43();
+    virtual void m44();
+    virtual void m45();
+    virtual void m46();
+    virtual void m47();
+    virtual void m48();
+    virtual void m49();
+    virtual void m50();
+    virtual void m51();
+    virtual void m52();
+    virtual void m53();
+    virtual void m54();
+    virtual void m55();
+    virtual void m56();
+    virtual void m57();
+    virtual void m58();
+    virtual void m59();
+    virtual void m60();
+    virtual void m61();
+    virtual void m62();
+    virtual void m63();
+    virtual void m64();
+    virtual void m65();
+    virtual void m66();
+    virtual void m67();
+    virtual void m68();
+    virtual void m69();
+    virtual void m70();
+    virtual void m71();
+    virtual void m72();
+    virtual void m73();
+    virtual void m74();
+    virtual void m75();
+    virtual void m76();
+    virtual void m77();
+    virtual void m78();
+    virtual void m79();
+    virtual void m80();
+    virtual void m81();
+    virtual void m82();
+    virtual void m83();
+    virtual void m84();
+    virtual void m85();
+    virtual void m86();
+    virtual void m87();
+    virtual void m88();
+    virtual void m89();
+    virtual void m90();
+    virtual void m91();
+    virtual void m92();
+    virtual void m93();
+    virtual void m94();
+    virtual void m95();
+    virtual void m96();
+    virtual s32 m97();
+};
+
+struct Obj_800EFB60 : VObj_18_d3ac76 { u8 pad2[0x3e4 - 0x1c]; u16 orbs[2]; };
+
 extern "C" {
 f64 get_ad_end_text_start__10TObjPlayerFv(f32, f32);
 s32 get_flag_b4__21TObjEneMe3ShinowaRealFPv(void *);
@@ -291,6 +396,20 @@ extern const f32 TObjEneRe4Sorcerer__data_805DA78C;
 extern const f32 TObjEneRe4Sorcerer__data_805DA790;
 extern const f32 TObjEneRe4Sorcerer__data_805DA794;
 void render__18TObjEneRe4SorcererFv(u8 *arg0);
+u8 *get_player_data__10TObjPlayerFi(s32);
+s16 obj_getField1c(void *);
+s32 get_game_mode__6TLobbyFv(void);
+u32 csnLookAt(void *, void *);
+s32 enemy_bind_or_clear_target(void *, u16);
+M2C_UNK enemy_clear_target(void *);
+void enemy_set_target_id(void *, u16);
+s32 TObjEneDD__sub_800BA6C4(void *);
+s32 is_alive__9TObjEneDDFPv(s32);
+s32 transform_relative_position__9TObjEneDDFPvPv(void *, void *);
+s32 get_enemy_count__9TObjEneDDFv(void);
+f32 horizontal_distance_squared(void *, void *);
+u32 find_entity_by_id(u16);
+s32 TObjEneRe4Sorcerer__sub_800EFB60(s32 arg0, f32 farg0, f32 farg1);
 }
 
 extern "C" {
@@ -1125,7 +1244,6 @@ void request_death_effect__18TObjEneRe4SorcererFPv(void *arg0);
 void set_motion_by_state__18TObjEneRe4SorcererFPv(void *arg0);
 void TObjEneRe4Sorcerer__sub_800EF95C(Obj_800EF95C *self, f32 speed);
 s32 try_attack__18TObjEneRe4SorcererFiff(s32 arg0, f32 farg0, f32 farg1);
-s32 TObjEneRe4Sorcerer__sub_800EFB60(s32, f32, f32);
 void TObjEneRe4Sorcerer__vt100(u8 *arg0);
 void TObjEneRe4Sorcerer__vt99(u8 *arg0);
 void TObjEneRe4Sorcerer__sub_800EFE30(void);
@@ -2392,13 +2510,78 @@ void TObjEneRe4Sorcerer__sub_800EF95C(Obj_800EF95C *self, f32 speed) {
 
 s32 try_attack__18TObjEneRe4SorcererFiff(s32 arg0, f32 farg0, f32 farg1) {
     if (tick_period_counter(arg0, arg0 + 0x3B0, 0x1E) != 0) {
-        return TObjEneRe4Sorcerer__sub_800EFB60(arg0, farg0, farg1);
+        return TObjEneRe4Sorcerer__sub_800EFB60((s32)(arg0), farg0, farg1);
     }
     if (enemy_has_live_target(arg0) != 0) {
         return 1;
     }
     ((M2C_UNK (*)(s32))enemy_clear_target)(arg0);
     return 0;
+}
+
+s32 TObjEneRe4Sorcerer__sub_800EFB60(s32 arg0, f32 farg0, f32 farg1) {
+#define self ((Obj_800EFB60 *)arg0)
+    f32 d;
+    f32 best;
+    s32 id;
+    u8 *p;
+    s32 n;
+    int i;
+    u32 o1;
+    u32 o2;
+    if (self->m97() != 0) {
+        best = farg1;
+        id = 0xFFFF;
+        o1 = find_entity_by_id(self->orbs[0]);
+        o2 = find_entity_by_id(self->orbs[1]);
+        p = (u8 *)get_game_mode__6TLobbyFv();
+        n = (s32)p + get_enemy_count__9TObjEneDDFv();
+        for (i = (s32)p; i < n; i++) {
+            p = get_player_data__10TObjPlayerFi(i);
+            if (p != (u8 *)self && (u32)p != o1 && (u32)p != o2 && is_alive__9TObjEneDDFPv((s32)p) != 0) {
+                d = horizontal_distance_squared((void *)(arg0 + 0x2FC), p + 0x38);
+                if (d < best && csnLookAt((void *)(arg0 + 0x2FC), p + 0x2FC) == 0) {
+                    id = ((s32 (*)(void *))obj_getField1c)(p);
+                    best = d;
+                }
+            }
+        }
+        if (((s32 (*)(void *, s32))enemy_bind_or_clear_target)(self, id) != 0) {
+            return 1;
+        }
+    }
+    {
+    u8 *q; s32 tA; s32 tB; s32 j; s32 m; f32 e;
+    tA = 0xFFFF;
+    tB = tA;
+    m = get_game_mode__6TLobbyFv();
+    for (j = 0; j < m; j++) {
+        q = get_player_data__10TObjPlayerFi(j);
+        if (is_alive__9TObjEneDDFPv((s32)q) != 0) {
+            e = horizontal_distance_squared((void *)(arg0 + 0x2FC), q + 0x2FC);
+            if (TObjEneDD__sub_800BA6C4(q) != 0) {
+                if (e < farg0 && transform_relative_position__9TObjEneDDFPvPv(self, q) != 0) {
+                    farg0 = e;
+                    tA = ((s32 (*)(void *))obj_getField1c)(q);
+                }
+            } else if (e < farg1 && transform_relative_position__9TObjEneDDFPvPv(self, q) != 0) {
+                farg1 = e;
+                tB = ((s32 (*)(void *))obj_getField1c)(q);
+            }
+        }
+    }
+    if ((u16)tA != 0xFFFF) {
+        ((void (*)(void *, s32))enemy_set_target_id)(self, tA);
+        return 1;
+    }
+    if ((u16)tB != 0xFFFF) {
+        ((void (*)(void *, s32))enemy_set_target_id)(self, tB);
+        return 1;
+    }
+    }
+    enemy_clear_target(self);
+    return 0;
+#undef self
 }
 
 void TObjEneRe4Sorcerer__vt100(u8 *arg0) {

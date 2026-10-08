@@ -9,13 +9,13 @@ extern "C" {
 void read_disc_file(int a0);
 s32 get_file_size__6TLobbyFv(void);
 void run_frame__6TLobbyFv(void);
-int TGStream__sub_800FDADC(void);
+int read_whole_file__8TGStreamFiPv(void);
 u32 TLoadCtrl__sub_800F9F00();
 M2C_UNK TLobby__sub_800F8AD0();
 M2C_UNK TLobby__sub_800F8F34();
 int get_resource_file_size__6TLobbyFPv(void*);
 M2C_UNK TLobby__sub_803382E4();
-s32 TLobby__sub_803CC500();
+s32 adxf_get_fsize_byte__6TLobbyFPv();
 s32 TLobby__sub_803CCE9C(s32);
 s32 adxf_open__6TLobbyFUii(s32, s32);
 s32 all_parents_unqueued_for_destruction__7TObjectFv();
@@ -42,13 +42,13 @@ s32 get_file_size__6TLobbyFv(void) {
     if (temp_r3 == 0) {
         return -1;
     }
-    temp_r31 = TLobby__sub_803CC500();
+    temp_r31 = adxf_get_fsize_byte__6TLobbyFPv();
     TLobby__sub_803CCE9C(temp_r3);
     return temp_r31;
 }
 
     extern int lbl_805D5338;
-void read_disc_file(int a0) { lbl_805D5338 = a0; TGStream__sub_800FDADC(); }
+void read_disc_file(int a0) { lbl_805D5338 = a0; read_whole_file__8TGStreamFiPv(); }
 
 extern s32 tl_su;
 extern s32 tl_camera;

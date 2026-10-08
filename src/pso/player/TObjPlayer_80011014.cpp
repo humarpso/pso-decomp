@@ -298,7 +298,7 @@ struct Layout_80019038 {
 };
 
 extern "C" {
-void TObjPlayer__sub_800101B0(s32 arg0, s32 arg1);
+void spawn_slow_effect__10TObjPlayerFii(s32 arg0, s32 arg1);
 void TObjPlayer__sub_800192B4(void* a0, int a1);
 s16 get_s16_2c4__10TObjPlayerFPv(void* p);
 s16 test_immunity_flags__10TObjPlayerFPvi(u8 *arg0, s32 arg1);
@@ -316,7 +316,7 @@ s32 TObjPlayer__sub_800172CC(Player_800172CC *self);
 M2C_UNK VecCopy__FP3VecPC3Vec(s32, s32);
 void subtract_vector(void *a, void *b);
 f32 calc_xz_distance_sq__10TObjPlayerFiUiPv(s32 arg0, u32 arg1, void *arg2);
-s32 TObjPlayer__sub_8001882C(Player_8001882C *p, Motion_8001882C *motion);
+s32 set_motion_params__10TObjPlayerFPvPv(Player_8001882C *p, Motion_8001882C *motion);
 s32 get_main_phase();
 s32 check_heavy_damage_flag(void *arg0, f32 farg0);
 s32 is_local_player__10TObjPlayerFi(s32 arg0);
@@ -918,7 +918,7 @@ s32 is_local_player__10TObjPlayerFi(s32 arg0);
 void spawn_freeze_shell_effect(u8 *arg0, u32 arg1, s32 arg2);
 void play_shock_feedback__10TObjPlayerFii(s32 arg0, s32 arg1);
 void spawn_confusion_feedback_effect(s32 arg0, s32 arg1);
-void TObjPlayer__sub_800101B0(s32 arg0, s32 arg1);
+void spawn_slow_effect__10TObjPlayerFii(s32 arg0, s32 arg1);
 void spawn_paralysis_feedback_effect(s32 arg0, s32 arg1);
 void spawn_poison_effect__10TObjPlayerFii(s32 arg0, s32 arg1);
 void TObjPlayer__sub_8001053C(u8 *arg0);
@@ -1314,7 +1314,7 @@ void spawn_confusion_feedback_effect(s32 arg0, s32 arg1) {
     }
 }
 
-void TObjPlayer__sub_800101B0(s32 arg0, s32 arg1) {
+void spawn_slow_effect__10TObjPlayerFii(s32 arg0, s32 arg1) {
     s32 temp_r3;
     if (((s32)((int (*)(void*, int))obj_testFlags30)((void*)(arg0), (int)(0x02000000))) == 0) {
         temp_r3 = spawn_particle_effect_with_flags((s32)(arg0 + 0x2FC), (s32)(0x27), (s32)(0x50));
@@ -3596,7 +3596,7 @@ void apply_slow_status__10TObjPlayerFPv(void *arg0) {
     f32 temp_f31;
     s32 temp_r3;
     if (((u16) M2C_FIELD(arg0, u16 *, 0x1C) <= 0x1000U) && (((s16 (*)(void *, s32))test_immunity_flags__10TObjPlayerFPvi)(arg0, 8) == 0)) {
-        ((void (*)(void *, s32))TObjPlayer__sub_800101B0)(arg0, 0);
+        ((void (*)(void *, s32))spawn_slow_effect__10TObjPlayerFii)(arg0, 0);
         temp_r3 = ((s32 (*)(void *, s32))obj_getArrWord_254)(arg0, 1);
         switch (temp_r3) {
         case 2:
@@ -4038,7 +4038,7 @@ s32 update_action_timer__10TObjPlayerFPv(u8 *arg0) {
         temp_ret = ((s32 (*)(void *, M2C_UNK, M2C_UNK))add_status_effect_timer__10TObjPlayerFPvii)(arg0, 1, -1);
         if (temp_ret > 0) {
             if ((temp_ret % 45) == 0) {
-                ((M2C_UNK (*)(void *, M2C_UNK))TObjPlayer__sub_800101B0)(arg0, 1);
+                ((M2C_UNK (*)(void *, M2C_UNK))spawn_slow_effect__10TObjPlayerFii)(arg0, 1);
             }
             return 1;
         }
@@ -4554,7 +4554,7 @@ f32 calc_distance_to_client__10TObjPlayerFiUsUi(s32 arg0, u16 arg1, u32 arg2) {
 
 #undef VCOPY
 
-s32 TObjPlayer__sub_8001882C(Player_8001882C *p, Motion_8001882C *motion) {
+s32 set_motion_params__10TObjPlayerFPvPv(Player_8001882C *p, Motion_8001882C *motion) {
     if (motion != NULL) {
         p->motion = motion;
         p->f2b8 = p->motion->f6 + p->motion->f18 + p->f2bc;
