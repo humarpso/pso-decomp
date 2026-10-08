@@ -68,6 +68,8 @@ public:
 
 typedef void (Menu_802987AC::*MenuFn_802987AC)();
 
+struct M_802983A0 { u8 pad[0x40]; f32 f40; };
+
 extern "C" {
 M2C_UNK queue_destruction__7TObjectFv(void *);
 s32 play_sound_effect(s32, s32, s32, s32);
@@ -110,7 +112,6 @@ void TObjCMMainMenu__sub_80297B18(Menu_80297B18 *m);
 M2C_UNK run_tasks__7TObjectFv(void *);
 M2C_UNK request_creation_motion(int);
 s32 TAdSinglePlyChrSelectGC__sub_802905B8();
-M2C_UNK TObjCMMainMenu__sub_802983A0(void *);
 M2C_UNK reset_proportions__15TChCrCharSelectFv();
 M2C_UNK rand();
 extern const f32 lbl_805DDC10;
@@ -123,6 +124,12 @@ extern s32 TObjCMMainMenu__data_805D659C;
 extern const f32 lbl_805DDBF4;
 extern const f32 lbl_805DDBF8;
 void update_random_proportion_action__14TObjCMMainMenuFPv(void * _w0);
+extern s32 TObjCMMainMenu__data_805D659C;
+extern const f32 lbl_805DDA70;
+extern const f32 lbl_805DDA90;
+extern const f32 lbl_805DDBFC;
+extern const f32 TObjCMMainMenu__data_805DDC00;
+void TObjCMMainMenu__sub_802983A0(M_802983A0 *arg0);
 }
 
 extern "C" {
@@ -1648,6 +1655,29 @@ void update_random_proportion_action__14TObjCMMainMenuFPv(void * _w0) {
     }
 }
 
+#pragma push
+#pragma opt_common_subs off
+void TObjCMMainMenu__sub_802983A0(M_802983A0 *arg0) {
+    f32 v;
+    switch (TObjCMMainMenu__data_805D659C) {
+    case 1:
+        v = arg0->f40 + lbl_805DDBFC;
+        arg0->f40 = v;
+        if (v < lbl_805DDA90) {
+            arg0->f40 = lbl_805DDA90;
+        }
+        break;
+    default:
+        v = arg0->f40 + TObjCMMainMenu__data_805DDC00;
+        arg0->f40 = v;
+        if (v > lbl_805DDA70) {
+            arg0->f40 = lbl_805DDA70;
+        }
+        break;
+    }
+}
+#pragma pop
+
 void update_submenu_fade__14TObjCMMainMenuFv(M_802983F8 *arg0) {
     f32 v;
     switch (TObjCMMainMenu__data_805D659C) {
@@ -1810,7 +1840,7 @@ void run_task__14TObjCMMainMenuFv(Menu_802987AC *arg0) {
     rand();
     ((void (*)(void *, int))update_menu_reveal__14TObjCMMainMenuFv)(arg0, arg0->f34++);
     ((void (*)(void *))update_submenu_fade__14TObjCMMainMenuFv)(arg0);
-    TObjCMMainMenu__sub_802983A0(arg0);
+    TObjCMMainMenu__sub_802983A0((M_802983A0 *)(arg0));
     static MenuFn_802987AC table[7] = {
         &Menu_802987AC::s0, &Menu_802987AC::s1, &Menu_802987AC::s2,
         &Menu_802987AC::s3, &Menu_802987AC::s4, &Menu_802987AC::s5,

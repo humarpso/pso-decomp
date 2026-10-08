@@ -9,6 +9,22 @@ struct Rec_8025D3CC { u8 a; s8 len; };
 
 struct Desc_8025DECC { f32 *pos; u32 *col; s32 a; s32 b; };
 
+struct KbRec_8025D264 {
+    u8 tag;
+    s8 len;
+    u8 kind;
+    char str[1];
+};
+
+struct KbSoft_8025D264 {
+    u8 pad0[0xa0];
+    u8 *buf;
+    u8 *cursor;
+    s32 kind;
+    u8 padac[4];
+    s32 remain;
+};
+
 extern "C" {
 s32 strnlen__19TWindowKeyBoardSoftFPvUi(void *, u32);
 M2C_UNK strncpy(M2C_UNK *, u8 *, M2C_UNK);
@@ -22,6 +38,9 @@ extern u32 lbl_804CFA84[];
 extern const f32 lbl_805DD048;
 extern const f32 lbl_805DD058;
 void draw_text_glyphs__20TWindowSubStatusDispFPvPvPv(void *arg0, void *arg1, void *arg2);
+s32 measure_string_len__20TWindowSubStatusDispFPv(void *);
+M2C_UNK strncpy(M2C_UNK *, u8 *, M2C_UNK);
+void TWindowKeyBoardSoft__sub_8025D264(KbSoft_8025D264 *self, char *src);
 }
 
 extern "C" {
@@ -96,7 +115,6 @@ s32 fn_8025CE00(void *, u8 *);
 M2C_UNK TWindowKeyBoardSoft__sub_8025CF50(void *, int, int);
 void TWindowKeyBoardSoft__sub_8025CFA8(void *, M2C_UNK *);
 int TWindowKeyBoardSoft__sub_8025D1C8(void*, void*);
-int TWindowKeyBoardSoft__sub_8025D264(void*, void*);
 void update_input__19TWindowKeyBoardSoftFPvPv(void* p, void* a1);
 s32 TWindowKeyBoardSoft__sub_8025D378(void *, void *);
 void write_name_and_text__19TWindowKeyBoardSoftFPvPvPv(KbSoft_8025D47C *self, char *name, char *text);
@@ -222,7 +240,43 @@ void TWindowKeyBoardSoft__sub_8025CFA8(void *arg0, M2C_UNK *arg1) {
 #undef self
 #undef text
 
-void update_input__19TWindowKeyBoardSoftFPvPv(void* p, void* a1) { TWindowKeyBoardSoft__sub_8025D1C8(p, *(void**)((char*)p + 0xa0)); TWindowKeyBoardSoft__sub_8025D264(p, a1); }
+#pragma push
+#pragma opt_propagation off
+void TWindowKeyBoardSoft__sub_8025D264(KbSoft_8025D264 *self, char *src) {
+    s32 n;
+    u8 *p = self->buf;
+    s8 len = measure_string_len__20TWindowSubStatusDispFPv(src);
+    KbRec_8025D264 *rec;
+    u8 *dst;
+    s8 total;
+    s8 *q;
+    u8 saved = p[0];
+    total = 0;
+    p[0] = len;
+    while ((s8)p[0] != 0) {
+        s8 step = p[1] + 3;
+        p += step;
+        total += step;
+    }
+    n = len + 3;
+    dst = p + n;
+    do {
+        *dst-- = *p--;
+    } while (total-- != 0);
+    q = (s8 *)self->buf;
+    q[0] = saved;
+    q[1] = len;
+    q[2] = self->kind;
+    q += 3;
+    strncpy((M2C_UNK *)q, (u8 *)src, len);
+    self->remain -= n;
+    if (self->cursor > self->buf) {
+        self->cursor += n;
+    }
+}
+#pragma pop
+
+void update_input__19TWindowKeyBoardSoftFPvPv(void* p, void* a1) { TWindowKeyBoardSoft__sub_8025D1C8(p, *(void**)((char*)p + 0xa0)); TWindowKeyBoardSoft__sub_8025D264((KbSoft_8025D264 *)(p), (char *)(a1)); }
 
 typedef s32 M2C_UNK;
 void append_text_entry__19TWindowKeyBoardSoftFPvPv(u8 *arg0, u8 *arg1) {

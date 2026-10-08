@@ -19,6 +19,13 @@ struct Elem_8013DAB0 { u8 b[0x124]; };
 
 struct Cur_8013DAB0 { u8 pad[0x5C]; Elem_8013DAB0 arr[4]; };
 
+struct Ent_8013D91C { u16 id; s16 idx; u8 pad[8]; };
+
+struct RecoveredGlobal_8013D91C_main_task {
+    M2C_UNK value;
+    u8 remaining[0x30];
+};
+
 extern "C" {
 u8 * TLobby__sub_8001FE7C(void *, s16);
 extern u8 *lbl_805D5640;
@@ -68,6 +75,24 @@ extern s32 tl_loc_start;
 extern s32 tl_loc_end;
 extern s32 tl_window;
 void reset_and_spawn_cursors__13TLockOnCursorFi(s32 arg0);
+s32 is_split_screen();
+s32 get_split_screen_view_index__11TCameraCtrlFUs(void *);
+s32 get_mode__11TCameraCtrlFPv(void *);
+u16 get_type_id__10TObjPlayerFPv(int);
+Ent_8013D91C *TObjPlayer__sub_80116620(s32, M2C_UNK);
+M2C_UNK renderSecondaryCursor__13TLockOnCursorFPUcll(void *, int, int, int);
+s32 get_selected_entry__11TMainCursorFPv(s32);
+u8 get_active__11TMainCursorFPv(int);
+u8 TMainCursor__sub_8013E900(int);
+s32 get_target_id__11TMainCursorFPv(s32);
+s32 render_part__13TLockOnCursorFPv(int);
+s32 test_flag_1_at_8__13TLockOnCursorFPv(int);
+s32 get_target__13TLockOnCursorFPv(void *);
+s32 TLockOnCursor__sub_8013EB6C(void *, int);
+u8 *find_entity_by_id(u16);
+s32 get_camera_no__11TCameraCtrlFv();
+extern RecoveredGlobal_8013D91C_main_task main_task;
+void render__13TLockOnCursorFv(s32 arg0);
 }
 
 extern "C" {
@@ -94,6 +119,46 @@ void init_forward__10TObjPlayerFPv(void *);
 void init_forward__13TLockOnCursorFPv(void *);
 void init_vtable__13TLockOnCursorFPv(void *);
 void reset_fields__13TLockOnCursorFPv(void *);
+
+#pragma push
+#pragma opt_loop_invariants off
+typedef char RecoveredGlobal_8013D91C_main_task_size[sizeof(RecoveredGlobal_8013D91C_main_task) == 0x34 ? 1 : -1];
+void render__13TLockOnCursorFv(s32 arg0) {
+    s32 i;
+    s32 j;
+    u8 *c;
+    s32 n;
+    Ent_8013D91C *p;
+    s32 e;
+    u8 *o;
+    if (is_split_screen() != 0) {
+        if (get_camera_no__11TCameraCtrlFv() != get_split_screen_view_index__11TCameraCtrlFUs((void *)((M2C_UNK)get_target_id__11TMainCursorFPv((s32)((void *)arg0))))) {
+            return;
+        }
+    } else if (get_mode__11TCameraCtrlFPv(&main_task.value) & 0x10) {
+        return;
+    }
+    for (i = 0; i < 4; i++) {
+        c = (u8 *)TLockOnCursor__sub_8013EB6C((void *)arg0, i);
+        if (get_selected_entry__11TMainCursorFPv((s32)c) != 0) {
+            n = get_target__13TLockOnCursorFPv((void *)(c + 0x9C));
+            for (p = TObjPlayer__sub_80116620((s32)(c + 0x9C), 0), j = 0; j < n; j++, p++) {
+                if (test_flag_1_at_8__13TLockOnCursorFPv((int)p) == 0 &&
+                    render_part__13TLockOnCursorFPv((int)p) == 0 &&
+                    get_type_id__10TObjPlayerFPv((int)p) != 0xFFFF) {
+                    o = find_entity_by_id(p->id);
+                    if (o != NULL) {
+                        e = *(s32 *)(o + 0xA4) + p->idx * 0x2C;
+                        if (e != 0) {
+                            renderSecondaryCursor__13TLockOnCursorFPUcll((void *)arg0, e, TMainCursor__sub_8013E900((int)c), get_active__11TMainCursorFPv((int)c));
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+#pragma pop
 
 void run_task__13TLockOnCursorFv(s32 arg0) {
     if (is_channel_active__11TMainCursorFPv(arg0 + 0x520) != 0) {

@@ -508,6 +508,10 @@ struct Ent_8040A19C { s16 f0; s16 f2; u8 pad[0x2C]; };
 
 struct G_8040A19C { s16 n; Ent_8040A19C *p; };
 
+struct Ent_80409F44 { s16 st; s16 pad2; s32 (*f4)(s32); s32 (*f8)(s32); s32 (*fC)(s32); s32 (*f10)(s32); u8 pad14[0x30-0x14]; };
+
+struct Tbl_80409F44 { s16 count; Ent_80409F44 *list; };
+
 extern "C" {
 s32 clear_flag_bit4__6TLobbyFiPv(M2C_UNK arg0, u8 *arg1);
 extern RecoveredGlobal_803F8AA0_lbl_805BA5C0 lbl_805BA5C0;
@@ -963,6 +967,8 @@ extern s16 lbl_805D7AF8;
 s32 TLobby__sub_8040A13C(s16 i);
 extern s16 lbl_805D7AF8;
 s32 TLobby__sub_8040A19C(s16 i);
+extern s16 lbl_805D7AF8;
+s32 TLobby__sub_80409F44(s16 i, s32 arg);
 }
 
 extern "C" {
@@ -3125,6 +3131,24 @@ typedef struct Mgr_8040A3C0 {
 void TLobby__sub_803F86BC(void *);
 s32 TLobby__sub_80421844(void *);
 void tick_connection_timeouts__6TLobbyFv(void);
+
+#pragma push
+#pragma opt_propagation off
+s32 TLobby__sub_80409F44(s16 i, s32 arg) {
+    Ent_80409F44 *e;
+    if (i < 0 || i > (*(Tbl_80409F44 *)&lbl_805D7AF8).count) {
+        return -0x10F;
+    }
+    e = (*(Tbl_80409F44 *)&lbl_805D7AF8).list + i;
+    if (e->st == 0) {
+        return -2;
+    }
+    if (e->f10 == 0) {
+        return -2;
+    }
+    return e->f10(arg);
+}
+#pragma pop
 
 #pragma push
 #pragma optimization_level 2
