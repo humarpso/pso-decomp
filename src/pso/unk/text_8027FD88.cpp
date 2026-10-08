@@ -133,6 +133,23 @@ M2C_UNK set_text_entry_string(void *, s32, M2C_UNK);
 extern M2C_UNK lbl_804D244C[];
 extern const f32 TWindowSubStatusDisp__data_805DD708;
 void TWindowSubStatusDisp__vt7(u8 *arg0);
+s32 get_shared_text_buffer();
+s32 get_layout_id__20TWindowSubStatusDispFv(s32);
+s32 TWindowSubStatusDisp__sub_80071A24(s32, u16, s32);
+s32 get_message_10__20TWindowSubStatusDispFPv(M2C_UNK);
+void *get_array_entry__20TWindowSubStatusDispFPvi(void *, M2C_UNK);
+M2C_UNK append_play_time__20TWindowSubStatusDispFUi(s32);
+M2C_UNK append_padded_number(s32, M2C_UNK);
+M2C_UNK text_builder_append(char *);
+M2C_UNK text_builder_reset();
+M2C_UNK init_window_layout_entries(void *, M2C_UNK *, s16);
+M2C_UNK set_text_entry_string(void *, s32, M2C_UNK);
+s32 TWindowSubStatusDisp__sub_8027FD9C(Win_8027FD9C *arg0);
+extern s32 lbl_8044FAF0[];
+extern M2C_UNK lbl_804D27DC[];
+extern char lbl_805DD6E4[2];
+extern const f32 TWindowSubStatusDisp__data_805DD708;
+void TWindowSubStatusDisp__vt5(u8 *arg0);
 }
 
 extern "C" {
@@ -167,6 +184,56 @@ s32 TWindowSubStatusDisp__sub_8027FD9C(Win_8027FD9C *arg0) {
 }
 
 void TWindowSubStatusDisp__vt16(void) {  }
+
+typedef struct Win_8027FD9C Win_8027FD9C;
+void TWindowSubStatusDisp__vt5(u8 *arg0) {
+  s32 type;
+  s32 n;
+  u16 *e;
+  s32 r;
+  u8 *new_var;
+  int new_var2;
+  s32 i;
+  if (((f32) (*((s32 *) (((s8 *) arg0) + 0x5C)))) > TWindowSubStatusDisp__data_805DD708)
+  {
+    *((s32 *) (((s8 *) arg0) + 0x5C)) = 7;
+  }
+  init_window_layout_entries(arg0 + 0x24, lbl_804D27DC, *((s16 *) (((s8 *) arg0) + 0x20)));
+  new_var = arg0;
+  type = TWindowSubStatusDisp__sub_8027FD9C((Win_8027FD9C *) new_var);
+  e = (u16 *) get_array_entry__20TWindowSubStatusDispFPvi(arg0, 0);
+  set_text_entry_string(e, get_message_10__20TWindowSubStatusDispFPv(lbl_8044FAF0[type]), 0);
+  n = get_layout_id__20TWindowSubStatusDispFv(type);
+  i = 0;
+  do
+  {
+    e = (u16 *) get_array_entry__20TWindowSubStatusDispFPvi(arg0, i + 1);
+    new_var2 = n > i;
+    if (!new_var2)
+    {
+      *e |= 2;
+    }
+    else
+    {
+      r = TWindowSubStatusDisp__sub_80071A24(i, *((s16 *) (((s8 *) arg0) + 0x20)), type);
+      if (r == 0)
+      {
+        *e |= 2;
+      }
+      else
+      {
+        *e &= ~2;
+        text_builder_reset();
+        append_padded_number(i + 1, 2);
+        text_builder_append(lbl_805DD6E4);
+        append_play_time__20TWindowSubStatusDispFUi(r);
+        set_text_entry_string(e, get_shared_text_buffer(), 0x20);
+      }
+    }
+    i++;
+  }
+  while (i < 9);
+}
 
 void TWindowSubStatusDisp__vt15(void) {  }
 

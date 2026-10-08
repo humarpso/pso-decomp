@@ -4,6 +4,45 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 #define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
 #define M2C_BITWISE(type, expr) ((type)(expr))
 
+typedef struct Key_80142950
+{
+  u32 frame;
+  f32 f4;
+  f32 f8;
+  f32 val;
+} Key_80142950;
+
+typedef struct Joint_80142950
+{
+  Key_80142950 *keys;
+  s32 f4;
+  s32 count;
+} Joint_80142950;
+
+typedef struct Motion_80142950
+{
+  Joint_80142950 *joint;
+} Motion_80142950;
+
+typedef struct Actor_80142950
+{
+  u8 pad0[0x60];
+  s32 angle;
+  u8 pad64[0xC0 - 0x64];
+  f32 time;
+  f32 fC4;
+  f32 step;
+  u8 padCC[0xF8 - 0xCC];
+  Motion_80142950 *motion;
+} Actor_80142950;
+
+extern "C" {
+f32 sin_table_lookup(s32);
+f32 cos_table_lookup(s32);
+extern const f32 lbl_805DB168;
+f32 sample_attack_root_motion(Actor_80142950 *a, f32 *x, f32 *z);
+}
+
 extern "C" {
 
 struct E16_80142b8c_80142B08 { u8 a[4]; s32 f4; u8 b[8]; };
@@ -105,6 +144,70 @@ extern s32 lbl_805D7710;
 extern s32 lbl_805D7810;
 extern const f32 lbl_805DB168;
 extern const f32 lbl_805DB16C;
+
+typedef struct Actor_80142950 Actor_80142950;
+typedef struct Joint_80142950 Joint_80142950;
+typedef struct Key_80142950 Key_80142950;
+typedef struct Motion_80142950 Motion_80142950;
+f32 sample_attack_root_motion(Actor_80142950 *a, f32 *x, f32 *z) {
+  f32 t;
+  f32 dv;
+  f32 t2;
+  f32 span;
+  f32 d;
+  f32 end;
+  f32 start;
+  Joint_80142950 *j;
+  Key_80142950 *k;
+  s32 n;
+  s32 i;
+  j = a->motion->joint;
+  t = a->time;
+  i = 0;
+  k = j->keys;
+  n = j->count - 1;
+  for (; i < n; i++)
+  {
+    if (k[1].frame > ((s32) t))
+    {
+      break;
+    }
+    k++;
+  }
+  if (i >= n)
+  {
+    *x = lbl_805DB168;
+    *z = lbl_805DB168;
+    return lbl_805DB168;
+  }
+  t2 = t + a->step;
+  span = (f32) (k[1].frame - k->frame);
+  dv = k[1].val - k->val;
+  t = a->time;
+  start = k->val + ((dv * (t - ((f32) k->frame))) / span);
+  for (; i < n; i++)
+  {
+    if (k[1].frame >= ((s32) t2))
+    {
+      break;
+    }
+    k++;
+  }
+  if (i >= n)
+  {
+    end = k->val;
+  }
+  else
+  {
+    span = (f32) (k[1].frame - k->frame);
+    dv = k[1].val - k->val;
+    end = k->val + ((dv * (t2 - ((f32) k->frame))) / span);
+  }
+  d = end - start;
+  *x = d * sin_table_lookup(a->angle);
+  *z = d * cos_table_lookup(a->angle);
+  return d;
+}
 
 s32 is_anim_finished__10TObjPlayerFPv(void *arg0) {
     s32 temp_r4;

@@ -5,6 +5,10 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 #define M2C_BITWISE(type, expr) ((type)(expr))
 
 struct Vec_800A9C38 { f32 x, y, z; };
+struct VBase_800AA704 { u8 pad[0xC]; };
+struct VObj_800AA704 : VBase_800AA704 {
+    virtual ~VObj_800AA704();
+};
 
 struct VBase_18_fe09eb { char pad[0x18]; };
 
@@ -108,6 +112,19 @@ extern const f32 lbl_805D9AE0;
 extern const f32 lbl_805D9AE8;
 extern const f32 lbl_805D9AEC;
 void TObjPlayer__sub_800A8FB4(void *arg0_);
+
+void TLobby__sub_8001FE7C(void *, s32);
+void reset_effect_count__10TObjPlayerFv(void);
+void __dt__11TBoss4Type3FPvs(void *, s16);
+void free_if_valid__10TObjPlayerFi(s32);
+extern s32 lbl_80500AF0[];
+extern s32 lbl_80500AF8[];
+struct Res_800AA82C;
+extern Res_800AA82C *lbl_805D5090;
+extern s32 lbl_805D5094;
+extern s32 lbl_805D5098;
+extern void *lbl_805D50A4;
+
 }
 #define CAT2(a, b) a##b
 #define CAT(a, b) CAT2(a, b)
@@ -1193,6 +1210,38 @@ void * create_dubchik__10TObjPlayerFPv(void *arg0) {
         o2 = TObjEneDubchik__ct(o2, o, arg0);
     }
     return o2;
+}
+void TObjPlayer__sub_800AA704(void) {
+    if (lbl_805D50A4 != NULL) {
+        delete (VObj_800AA704 *)lbl_805D50A4;
+        lbl_805D50A4 = NULL;
+    }
+    if (lbl_805D5090 != NULL) {
+        TLobby__sub_8001FE7C(lbl_805D5090, 1);
+        lbl_805D5090 = NULL;
+    }
+    lbl_805D5094 = 0;
+    if ((void *)lbl_805D5098 != NULL) {
+        free_if_valid__10TObjPlayerFi(lbl_805D5098);
+        lbl_805D5098 = 0;
+    }
+    reset_effect_count__10TObjPlayerFv();
+    if ((void *)lbl_80500AF0[0] != NULL) {
+        __dt__11TBoss4Type3FPvs((void *)lbl_80500AF0[0], 1);
+        lbl_80500AF0[0] = 0;
+    }
+    if ((void *)lbl_80500AF8[0] != NULL) {
+        __dt__11TBoss4Type3FPvs((void *)lbl_80500AF8[0], 1);
+        lbl_80500AF8[0] = 0;
+    }
+    if ((void *)lbl_80500AF0[1] != NULL) {
+        __dt__11TBoss4Type3FPvs((void *)lbl_80500AF0[1], 1);
+        lbl_80500AF0[1] = 0;
+    }
+    if ((void *)lbl_80500AF8[1] != NULL) {
+        __dt__11TBoss4Type3FPvs((void *)lbl_80500AF8[1], 1);
+        lbl_80500AF8[1] = 0;
+    }
 }
 
 }

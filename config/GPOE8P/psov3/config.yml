@@ -170,6 +170,7 @@ force_active:
   - TObjSeabedSuisoBrakable__vt12
   - TObjSeabedSuisoBrakable__vt14
   - TObjSeabedSuisoBrakable__vt15
+  - TQuestListVM__sub_802193F0
   - TQuestVmDownLoadServer__sub_8007EC1C
   - TRecvGenerateID__sub_801DFBC4
   - TSaveChCr__sub_8033A010
@@ -388,6 +389,7 @@ force_active:
   - bswap_object_row_fields
   - bswap_pair__14TPlyDispConfigFPv
   - build_box_triangles__10TObjMapCsnFPv
+  - build_download_list__12TQuestListVMFPv
   - build_node_records__11TBreakUpMdlFPvPvi
   - build_sell_list__24TShopEquipmentSellWindowFPv
   - calc_area_parameters__10TTecRaFoieFPv
@@ -572,6 +574,7 @@ force_active:
   - handle_attachment_sample__17TObjEneBm3FlyNestFi
   - handle_buy_confirm__20TShopArmorListWindowFv
   - handle_buy_confirm__24TShopEquipmentListWindowFPv
+  - handle_confirm_window__12TQuestListVMFPv
   - handle_equip_offer__20TShopArmorListWindowFv
   - handle_equip_offer__24TShopEquipmentListWindowFv
   - handle_grid_navigation__22TWindowSubCustomSelectFPv
@@ -584,6 +587,7 @@ force_active:
   - handle_withdraw_list_input__18TShopGetItemWindowFPv
   - has_armor_with_unit_slot
   - has_serial_input__22TAdEnterSerialAccessGCFv
+  - hide_title_layers_and_release
   - hit_object_in_radius__10TObjPlayerFPvPvPv
   - hook__15TItemEffBringerFv
   - howling_state__14TObjEneBm5WolfFPvi
@@ -713,8 +717,10 @@ force_active:
   - lbl_8050C014
   - lbl_80540BBC
   - lerp_follow_anchor
+  - load_downloaded_quest__12TQuestListVMFPv
   - load_item_pmt
   - load_quest_root_script
+  - load_selected_slot__12TQuestListVMFPv
   - lookup_attack_marker
   - macHandleActive
   - macMakeActive
@@ -736,6 +742,7 @@ force_active:
   - open_buy_window__22TShopEquipmentSequenceFPv
   - open_challenge_progress_window__6TLobbyFPvPv
   - open_challenge_window__6TLobbyFii
+  - open_confirm_window__12TQuestListVMFPv
   - open_destination_windows__9TObjLukerFPv
   - open_equip_kind_list__15TWindowSubEquipFPvUi
   - open_greeting__20TShopItemTecSequenceFPv
@@ -754,6 +761,7 @@ force_active:
   - play_footsteps__14TObjEneBm5WolfFPv
   - play_pitched_cue__13TObjEneBm3FlyFi
   - play_sifta_cast_sound
+  - poll_quest_download__12TQuestListVMFPv
   - populate_sub_item_list
   - prepare_heavy_attack_particles
   - queue_deferred_photon_blast_hit
@@ -964,6 +972,7 @@ force_active:
   - salGetStartDelay
   - salInitHRTFBuffer
   - salSynthSendMessage
+  - scan_memcard_quest_files__12TQuestListVMFPv
   - schedule_pack_reaction__14TObjEneBm5WolfFPvis
   - select_death_direction__14TObjEneBm5WolfFPvPv
   - send_partner_attack_stage_request
@@ -971,6 +980,7 @@ force_active:
   - seqFreeKeyOffNote
   - set_code_43_6__10TObjPlayerFPv
   - set_enable_count__13TOHealGeneralFPvi
+  - set_flag_and_clear_download__6TLobbyFPv
   - set_launch_midpoint__10TTecSlicerFPvPvPvPv
   - set_particle_draw_scale
   - set_particle_tint_color

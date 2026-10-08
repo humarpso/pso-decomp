@@ -25,6 +25,15 @@ typedef struct Self_80316488 {
     f32 f28;
 } Self_80316488;
 
+typedef struct {
+    void *obj;
+    s32 frame;
+    u8 pad8[0x20 - 0x08];
+    f32 step;
+    f32 max;
+    f32 cur;
+} Anim_80316364;
+
 extern "C" {
 M2C_UNK TObjFish__sub_8001EDB0(M2C_UNK, int);
 M2C_UNK draw__16TObjEneRe7BeruraFPv(int);
@@ -46,6 +55,9 @@ extern E8_80316488 lbl_804E8760[];
 extern E14_80316488 lbl_804E8780[];
 extern const f32 lbl_805DF2EC;
 void set_motion__15TObjEneDelDepthFPvi(Self_80316488 *self, s32 arg1);
+void advance_animation_playback(void *);
+extern f32 lbl_805D6AD0;
+extern u8 lbl_805D6AD4;
 }
 
 extern "C" {
@@ -101,6 +113,29 @@ void draw_model_part__15TObjEneDelDepthFPv(u8 *arg0) {
     }
 }
 #pragma pop
+
+void TObjEneDelDepth__sub_80316364(Anim_80316364 *a) {
+    if (a->frame == -1) {
+        return;
+    }
+    if (a->frame < 6) {
+        advance_animation_playback(a->obj);
+    } else if (a->frame < 10) {
+        if ((a->cur += a->step) >= a->max) {
+            a->cur -= a->max;
+        }
+    } else {
+        if ((s8)lbl_805D6AD4 == 0) {
+            f32 m = a->max;
+            lbl_805D6AD4 = 1;
+            lbl_805D6AD0 = m - lbl_805DF2E8;
+        }
+        f32 lim = lbl_805D6AD0;
+        if ((a->cur += a->step) >= lim) {
+            a->cur = lim;
+        }
+    }
+}
 
 s32 is_state_complete__15TObjEneDelDepthFPv(void *arg0) {
     s32 temp_r0;

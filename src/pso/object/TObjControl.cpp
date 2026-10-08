@@ -990,15 +990,6 @@ while (M2C_FIELD(var_r6_3, u8 **, 0x348) != NULL) {
 }
 
 }
-s32 TObjEnemy::countChildren() {
-    TObjEnemy* child=children;
-    s32 count=0;
-    if(child) {
-        while(child->next) {child=child->next;++count;}
-        ++count;
-    }
-    return count;
-}
 
 extern "C" {
 
@@ -1096,6 +1087,22 @@ void TObjPlayer__sub_800F7118(Ply_800F7118 *self) {
     }
 }
 
+}
+s32 TObjEnemy::countChildren() {
+    TObjEnemy* child = children;
+    s32 count = 0;
+    if (child) {
+        TObjEnemy* cur = child;
+        while ((child = cur->next) != NULL) {
+            cur = child;
+            ++count;
+        }
+        ++count;
+    }
+    return count;
+}
+
+extern "C" {
 s32 is_action_available__10TObjPlayerFv(TObjEnemy* _w0) {
     return ((s32)_w0->groupRoot()) ? 1 : 0;
 }

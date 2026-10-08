@@ -29,6 +29,12 @@ struct Obj_80336340 { u8 pad[0x40]; void *objs[3]; };
 typedef s32 M2C_UNK;
 struct Tbl_80336750 { const char *s[5]; };
 
+class C_803362A4 {
+public:
+    void f();
+};
+typedef void (C_803362A4::*PMF_803362A4)();
+
 extern "C" {
 int TKeyBoardControl__sub_8000F9CC(void*);
     extern int lbl_805D6D44;
@@ -105,7 +111,7 @@ M2C_UNK set_default_camera__21TAdMultiChgGameModeGCFv();
 M2C_UNK request_scene_change__21TAdMultiChgGameModeGCFv();
 M2C_UNK set_opening_movie_purpose(int);
 s32 start_offline_seq__23TAdSinglePlyChrSelectGCFPv(void *);
-M2C_UNK TLobby__sub_803362A4(void *);
+void TLobby__sub_803362A4(void *);
 extern RecoveredGlobal_80336340_TKeyBoardControl__data_80506270 TKeyBoardControl__data_80506270;
 void update_title_idle_transition(Obj_80336340 *arg0);
 s32 run_load_callback_table(void *, int);
@@ -120,6 +126,9 @@ extern const s32 lbl_805D5544;
 extern u32 lbl_805D6D40;
 extern u8 *lbl_805D6D48;
 void TLobby__sub_80336750(void);
+s32 TAdTrialAgreementGC__sub_80335958(int);
+s32 TLobby__sub_80336030(void *);
+extern PMF_803362A4 lbl_804EE5DC[];
 }
 
 extern "C" {
@@ -180,6 +189,17 @@ void open_keyboard__6TLobbyFv(void) { lbl_805D6D44 = 3; TKeyBoardControl__sub_80
 void request_change_game_mode__6TLobbyFv(void) { lbl_805D6D44 = 2; set_mode_change_state__21TAdMultiChgGameModeGCFv(); }
 void enter_game_mode_change__6TLobbyFv(void) { lbl_805D6D44 = 1; set_game_mode_state__21TAdMultiChgGameModeGCFv(); }
 void enter_chg_game_mode__6TLobbyFv(void) { lbl_805D6D44 = 0; set_mode_0x15__21TAdMultiChgGameModeGCFv(); }
+void TLobby__sub_803362A4(void *arg0_) {
+    u8 *arg0 = (u8 *)arg0_;
+    if (TAdTrialAgreementGC__sub_80335958(*(s32 *)(arg0 + 0x24)) != 0) {
+        TKeyBoardControl__sub_8000F90C(2);
+        if (start_offline_seq__23TAdSinglePlyChrSelectGCFPv(arg0) != 0) {
+            ((void (*)(void *))TLobby__sub_803361FC)(arg0);
+            PMF_803362A4 m = lbl_804EE5DC[TLobby__sub_80336030(arg0)];
+            (((C_803362A4 *)arg0)->*m)();
+        }
+    }
+}
 void TLobby__sub_8033633C(void) {  }
 
 typedef char RecoveredGlobal_80336340_TKeyBoardControl__data_80506270_size[sizeof(RecoveredGlobal_80336340_TKeyBoardControl__data_80506270) == 0xB0 ? 1 : -1];

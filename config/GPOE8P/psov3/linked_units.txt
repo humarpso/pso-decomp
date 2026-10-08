@@ -1227,6 +1227,7 @@ pso/misc/TLobby_8032BD20.cpp
 pso/misc/TLobby_8032C6AC.cpp
 pso/misc/TLobby_8032C6AC_8032C6AC.cpp
 pso/misc/TLobby_80335E08.cpp
+pso/misc/TLobby_803360CC.cpp
 pso/misc/TLobby_80336E00.cpp
 pso/misc/TLobby_803382E4.cpp
 pso/misc/TLobby_80338E9C.cpp
@@ -1629,6 +1630,7 @@ pso/misc/TQuestListOnline_802150E8.cpp
 pso/misc/TQuestListOnline_80217464.cpp
 pso/misc/TQuestListOnline_8021824C.cpp
 pso/misc/TQuestListOnline_80218310.cpp
+pso/misc/TQuestListVM.cpp
 pso/misc/TQuestListVM_8007EAF8.cpp
 pso/misc/TQuestListVM_800F95F4.cpp
 pso/misc/TQuestListVM_801F4398.cpp
