@@ -71,11 +71,9 @@ extern "C" {
 void __ct__7TObjectFP7TObject(void *, void *);
 s32 TAdMultiPlyChrSelectGC__sub_802C6FA8(void);
 extern M2C_UNK __vt__16TAdGuideButtonGC[];
-extern s32 lbl_805D4210;
 extern s32 lbl_805D6D00;
 u8 *TAdGuideButtonGC__ct(u8 *arg0, u8 *arg1);
 M2C_UNK copy_vec2__28TWindowSubSymbolChatPartsSetFPvPv(void *, void *);
-extern UV_8032D600 lbl_80477350[];
 void setup_button__16TAdGuideButtonGCFPvPv(Obj_8032D600 *arg0, Src_8032D600 *arg1);
 void update_trail_quads__16TAdGuideButtonGCFPv(Obj_8032D708 *arg0);
 void update_trail_quads__16TAdGuideButtonGCFPv(Obj_8032D708 *arg0);
@@ -83,6 +81,13 @@ void run_task__16TAdGuideButtonGCFv(Obj_8032D85C *arg0);
 }
 
 extern "C" {
+extern const UV_8032D600 lbl_80477350[4] = {
+    { 212.0f, 78.0f }, { 190.0f, 78.0f }, { 234.0f, 78.0f }, { 190.0f, 100.0f },
+};
+#pragma push
+#pragma readonly_strings on
+const char *lbl_805D4210 = "TAdGuideButtonGC";
+#pragma pop
 
 void *__dt__16TAdGuideButtonGCFv(void *arg0, s16 arg1);
 void render__16TAdGuideButtonGCFv(void* p);

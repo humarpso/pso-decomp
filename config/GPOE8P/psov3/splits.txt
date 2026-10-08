@@ -4507,6 +4507,7 @@ pso/item/TItemEquipVariant_8012B200.cpp:
 
 pso/unk/text_8012B258.cpp:
 	.text       start:0x8012B258 end:0x8012B318
+	.sdata2     start:0x805DAE80 end:0x805DAE84
 
 pso/player/TObjPlayer_8012B318.cpp:
 	.text       start:0x8012B318 end:0x8012B3C4
@@ -11522,6 +11523,7 @@ pso/unk/text_802AEBA8.cpp:
 
 pso/ui/TAdSelectCurGC_802AED98.cpp:
 	.text       start:0x802AED98 end:0x802AF2C8
+	.data       start:0x804DE420 end:0x804DE438
 
 pso/misc/TOCapsuleLabo.cpp:
 	.text       start:0x802AF2C8 end:0x802AF5FC
@@ -11571,7 +11573,7 @@ pso/boss/TBoss6EmptyWarp_802B0E2C_802B0F8C.cpp:
 pso/boss/TBoss6Tube_802B1020.cpp:
 	.text       start:0x802B1020 end:0x802B1564
 	.rodata     start:0x80470A60 end:0x80470A68
-	.sdata2     start:0x805DE250 end:0x805DE254
+	.sdata2     start:0x805DE230 end:0x805DE280
 
 pso/boss/TBoss6Tube.cpp:
 	.text       start:0x802B1564 end:0x802B15F4
@@ -13103,7 +13105,8 @@ pso/ui/TAdWarningBaseGC.cpp:
 
 pso/ui/TAdGuideButtonGC.cpp:
 	.text       start:0x8032D5B0 end:0x8032D9BC
-	.rodata     start:0x80477388 end:0x80477390
+	.rodata     start:0x80477350 end:0x80477390
+	.sdata      start:0x805D4210 end:0x805D4220
 	.sdata2     start:0x805DF7C4 end:0x805DF7D0
 
 pso/unk/text_8032D9BC.cpp:

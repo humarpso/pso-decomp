@@ -88,7 +88,18 @@ void draw_textured_quad_at_depth(Quad_8026D790 *, f32);
 void set_draw_texture_and_color(int, u32);
 void set_constant_material_color(s32);
 
-extern M2C_UNK __vt__17TWindowSetLevelUp[];
+void *__dt__17TWindowSetLevelUpFv(void *arg0, s16 arg1);
+void run_task__17TWindowSetLevelUpFv(u8 *arg0);
+void render_shadows__7TObjectFv(void);
+void __dt__7TObjectFv(void *, int);
+void __dl__7TObjectFPv(void *);
+void *__vt__17TWindowSetLevelUp[6] = {
+    0, 0,
+    (void *)__dt__17TWindowSetLevelUpFv,
+    (void *)run_task__17TWindowSetLevelUpFv,
+    (void *)render__17TWindowSetLevelUpFv,
+    (void *)render_shadows__7TObjectFv,
+};
 extern char lbl_8044F534[];
 extern char lbl_8044F53C[];
 extern char lbl_8044F544[];
@@ -292,7 +303,16 @@ extern int fold_flush_0;
 #pragma inline_depth(1)
 #pragma auto_inline on
 #pragma dont_inline off
-TWindowSetLevelUp::~TWindowSetLevelUp() {}
+void *__dt__17TWindowSetLevelUpFv(void *arg0, s16 arg1) {
+    if (arg0 != NULL) {
+        M2C_FIELD(arg0, M2C_UNK **, 0x18) = (M2C_UNK *)__vt__17TWindowSetLevelUp;
+        __dt__7TObjectFv(arg0, 0);
+        if (arg1 > 0) {
+            __dl__7TObjectFPv(arg0);
+        }
+    }
+    return arg0;
+}
 #pragma pop
 
 #pragma push
@@ -302,7 +322,7 @@ TWindowSetLevelUp::~TWindowSetLevelUp() {}
 void *__ct__17TWindowSetLevelUpFv(void *arg0, void *arg1, void *arg2, void *arg3) {
     struct VOff_8026DD70_arg0_8026DCE0 *self = (struct VOff_8026DD70_arg0_8026DCE0 *)arg0;
     __ct__7TObjectFP7TObject(arg0);
-    M2C_FIELD(arg0, M2C_UNK **, 0x18) = __vt__17TWindowSetLevelUp;
+    M2C_FIELD(arg0, M2C_UNK **, 0x18) = (M2C_UNK *)__vt__17TWindowSetLevelUp;
     reset_sub_status_disp__10TObjPlayerFPv(self->f_24);
     M2C_FIELD(arg0, void **, 0x0) = lbl_805D39C8;
     TWindowSetLevelUp__sub_8026DDE0((s32)((void *)(self->f_24)), (s32)((void *)(arg2)));

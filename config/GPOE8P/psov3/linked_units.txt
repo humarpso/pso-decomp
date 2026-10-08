@@ -207,6 +207,7 @@ pso/boss/TBoss6Rock_80354A30.cpp
 pso/boss/TBoss6Rock_80354A44.cpp
 pso/boss/TBoss6Thanks_8035D1F4.cpp
 pso/boss/TBoss6Tube.cpp
+pso/boss/TBoss6Tube_802B1020.cpp
 pso/boss/TBoss6Tube_802B15F4.cpp
 pso/boss/TBoss6Tube_802B16BC.cpp
 pso/boss/TBoss6Type1_80320AE0.cpp
@@ -1953,6 +1954,7 @@ pso/misc/TWindowPartyStatus.cpp
 pso/misc/TWindowQuantity.cpp
 pso/misc/TWindowReturnCity.cpp
 pso/misc/TWindowRoom.cpp
+pso/misc/TWindowSetLevelUp.cpp
 pso/misc/TWindowShop.cpp
 pso/misc/TWindowShortCut.cpp
 pso/misc/TWindowShortListCtrl.cpp
@@ -3400,6 +3402,7 @@ pso/unk/text_8012AF00.cpp
 pso/unk/text_8012AF80.cpp
 pso/unk/text_8012AFF8.cpp
 pso/unk/text_8012B140.cpp
+pso/unk/text_8012B258.cpp
 pso/unk/text_8012B3C4.cpp
 pso/unk/text_8012B524.cpp
 pso/unk/text_8012B664.cpp

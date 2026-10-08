@@ -1,4 +1,20 @@
-#include "pso/items/TItemWeaponPartisan.h"
+#ifndef PSO_ITEMS_TITEMWEAPONPARTISAN_H
+#define PSO_ITEMS_TITEMWEAPONPARTISAN_H
+#include "pso/items/TItemWeapon.h"
+struct TItemWeaponPartisan : TItemWeapon {
+    virtual ~TItemWeaponPartisan();
+    virtual void emit_marker_effects();
+    s32 rotation;
+    WeaponVector scale;
+    WeaponVector first_translation;
+    WeaponVector second_translation;
+};
+typedef char PartisanRotationOffset[(offsetof(TItemWeaponPartisan,rotation)==0x1F8)?1:-1];
+typedef char PartisanScaleOffset[(offsetof(TItemWeaponPartisan,scale)==0x1FC)?1:-1];
+typedef char PartisanFirstTranslationOffset[(offsetof(TItemWeaponPartisan,first_translation)==0x208)?1:-1];
+typedef char PartisanSecondTranslationOffset[(offsetof(TItemWeaponPartisan,second_translation)==0x214)?1:-1];
+typedef char PartisanSize[(sizeof(TItemWeaponPartisan)==0x220)?1:-1];
+#endif
 extern "C" {
 u8 get_slot_count__14TItemProShieldFPv(TItemWeapon*);
 s32 is_mode_two_and_ready__10TObjPlayerFPv(TItemWeapon*);
@@ -8,7 +24,7 @@ void show_meseta_label(WeaponPlayerPrefix*, WeaponVector*, s32, s32);
 void apply_scale_if_active__10TObjPlayerFPvf(TItemWeapon*, f32);
 void update_active_game_effect__10TObjPlayerFPv(TItemWeapon*);
 void spawn_particle_effect(WeaponVector*, s32);
-extern const f32 lbl_805DAE80;
+extern const f32 lbl_805DAE80 = 3.0f;
 }
 void TItemWeaponPartisan::emit_marker_effects() {
     switch (get_slot_count__14TItemProShieldFPv(this)) {
@@ -16,7 +32,7 @@ void TItemWeaponPartisan::emit_marker_effects() {
         if (is_mode_two_and_ready__10TObjPlayerFPv(this) && obj_getPtr2B0_20(player) >= 10000) {
             try_spend_actor_meseta(player, 10000);
             show_meseta_label(player, (WeaponVector*)((u8*)player + 0x2FC), 0, -10000);
-            apply_scale_if_active__10TObjPlayerFPvf(this, lbl_805DAE80);
+            apply_scale_if_active__10TObjPlayerFPvf(this, *(const volatile f32 *)&lbl_805DAE80);
             spawn_particle_effect((WeaponVector*)((u8*)player + 0x2FC), 0x66);
             spawn_particle_effect((WeaponVector*)((u8*)player + 0x2FC), 0x66);
         } else {
