@@ -54,7 +54,7 @@ u8 * load_resource_from_descriptor(void *, s32, void *, s32, s32, s32);
 int alloc__23TAdSinglePlyChrSelectGCFPv(void *);
 extern RecoveredGlobal_80168F94_lbl_804B26C8 lbl_804B26C8;
 extern u32 TOHangerMachine01__data_805D59E8;
-void TOHangerMachine01__sub_80168F94(void);
+void load_shared_resource__17TOHangerMachine01Fv(void);
 s32 reset_photon_effect__10TObjPlayerFPv(void *);
 s32 refresh_collision_body_centers(void *);
 s32 init_collision_body_parts(void *, void *, int);
@@ -165,7 +165,7 @@ void free_static_model__17TOHangerMachine01Fv(void) {
 
 extern M2C_UNK __vt__17TOHangerMachine01[];
 
-void TOHangerMachine01__sub_80168F94(void) {
+void load_shared_resource__17TOHangerMachine01Fv(void) {
     s32 temp_r3;
     s32 var_r0;
     temp_r3 = alloc__23TAdSinglePlyChrSelectGCFPv((void *)0x440);

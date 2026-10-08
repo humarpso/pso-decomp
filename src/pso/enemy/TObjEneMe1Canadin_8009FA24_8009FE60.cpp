@@ -33,7 +33,7 @@ struct Obj_8009FEB8 {
 extern "C" {
 void init_xyz_limits__10TObjPlayerFv(void);
 M2C_UNK draw_line_list(void *, int, int);
-void TObjEneMe1Canadin__sub_8009FFD8(s32 arg0);
+void draw_debug_line__17TObjEneMe1CanadinFi(s32 arg0);
 void VecCopy__FP3VecPC3Vec(void *, const void *);
 f32 clamp_velocity__15TObjBoss2TunnelFPv(void *);
 void __ct__7TObjectFP7TObject(void *, void *);
@@ -91,7 +91,7 @@ Obj_8009FEB8 *TObjEneMe1Canadin__sub_8009FEB8(Obj_8009FEB8 *self, void *parent, 
     return self;
 }
 
-void TObjEneMe1Canadin__sub_8009FFD8(s32 arg0) {
+void draw_debug_line__17TObjEneMe1CanadinFi(s32 arg0) {
     Stack_8009FFD8 stack;
     stack.sp8 = arg0 + 0x28;
     stack.spC = arg0 + 0x40;

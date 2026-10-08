@@ -32,7 +32,7 @@ struct RecoveredGlobal_80292604_lbl_804DB1F0 {
 extern "C" {
 M2C_UNK encode_name_xor__6TLobbyFPvPvi(void *, void *, int);
 extern s8 lbl_8048C9D8[];
-void TLobby__sub_800714B0(u8 *arg0, s32 arg1);
+void set_player_name_and_color__6TLobbyFPvi(u8 *arg0, s32 arg1);
 }
 
 extern "C" {
@@ -59,7 +59,7 @@ s32 add_entry__6TLobbyFiii(s32 arg0, s32 arg1, s32 arg2) {
 typedef char RecoveredGlobal_80291F9C_lbl_804DB1F0_size[sizeof(RecoveredGlobal_80291F9C_lbl_804DB1F0) == 0x6B0 ? 1 : -1];
 typedef char RecoveredGlobal_80292200_lbl_804DB1F0_size[sizeof(RecoveredGlobal_80292200_lbl_804DB1F0) == 0x6B0 ? 1 : -1];
 typedef char RecoveredGlobal_80292574_lbl_804DB1F0_size[sizeof(RecoveredGlobal_80292574_lbl_804DB1F0) == 0x6B0 ? 1 : -1];
-void TLobby__sub_800714B0(u8 *arg0, s32 arg1) {
+void set_player_name_and_color__6TLobbyFPvi(u8 *arg0, s32 arg1) {
     encode_name_xor__6TLobbyFPvPvi((void *)((u8 *)&(*(RecoveredGlobal_80292574_lbl_804DB1F0 *)&lbl_8048C9D8).value + 0x50), (void *)(arg0), (int)(0xC));
     M2C_FIELD(&(*(RecoveredGlobal_80292574_lbl_804DB1F0 *)&lbl_8048C9D8).value, s32 *, 0x18) = (s32) (arg1 | 0xFF000000);
 }

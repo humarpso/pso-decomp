@@ -45,7 +45,7 @@ extern const f32 lbl_805DCF08;
 void TWindowSubStatusDisp__sub_80258A28(u8 *arg0, s32 arg1, s32 arg2);
 void init_status_entry__20TWindowSubStatusDispFPvcUii(Obj_80258BB8 *o, s32 x);
 extern const f32 lbl_805DCF04;
-void TWindowSubStatusDisp__sub_80258BB8(Obj_80258BB8 *o, s32 x);
+void init_status_entry_by_flag__20TWindowSubStatusDispFPvi(Obj_80258BB8 *o, s32 x);
 void select_item_icon__20TWindowSubStatusDispFPviUcUci(void *arg0, s32 arg1, u8 arg2, u8 arg3, s32 arg4);
 }
 
@@ -353,7 +353,7 @@ void setup_stat_line__20TWindowSubStatusDispFPviii(void *arg0, s32 arg1, s32 arg
     }
     M2C_FIELD(arg0, s32 *, 0x34) = (s32) M2C_FIELD(arg0, s32 *, 0x30);
 }
-void TWindowSubStatusDisp__sub_80258BB8(Obj_80258BB8 *o, s32 x) {
+void init_status_entry_by_flag__20TWindowSubStatusDispFPvi(Obj_80258BB8 *o, s32 x) {
     init_status_entry__20TWindowSubStatusDispFPvcUii(o, x ? 0x14 : 0x15);
     o->f8 = lbl_805DCF04;
 }

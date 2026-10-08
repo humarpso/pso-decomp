@@ -139,7 +139,7 @@ u8 * load_resource_from_descriptor(void *, s32, void *, s32, s32, s32);
 int alloc__23TAdSinglePlyChrSelectGCFPv(void *);
 extern RecoveredGlobal_8029CFEC_lbl_804DC590 lbl_804DC590;
 extern u32 TOKeyJungleMain__data_805D65E0;
-void TOKeyJungleMain__sub_8029CFEC(void);
+void load_static_resource__15TOKeyJungleMainFv(void);
 s32 dispatch_by_phase__15TOKeyJungleMainFiUs(void *, int);
 extern RecoveredGlobal_8029D238_TOKeyJungleMain__data_804653C8 TOKeyJungleMain__data_804653C8;
 extern s32 lbl_805D5550;
@@ -187,7 +187,7 @@ void release_static_resource__15TOKeyJungleMainFv(void) {
     }
 }
 
-void TOKeyJungleMain__sub_8029CFEC(void) {
+void load_static_resource__15TOKeyJungleMainFv(void) {
     s32 temp_r3;
     s32 var_r0;
     temp_r3 = alloc__23TAdSinglePlyChrSelectGCFPv((void *)0x440);

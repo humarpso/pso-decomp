@@ -9,7 +9,7 @@ extern "C" {
 u8 * __ct__5THeapFUli(void *, s32, s32);
 u8 *__nw__5THeapFUl(M2C_UNK);
 extern int lbl_805D6094;
-void TLobby__sub_802090C0(void);
+void create_heap_8000__6TLobbyFv(void);
 void TItemDrop__sub_800FDDF4();
 void TItemDrop__sub_800FDE7C(void *);
 s32 load_all_floor_event_sets__6TLobbyFv();
@@ -51,7 +51,7 @@ void free_heap__6TLobbyFv(void) { __dt__5THeapFv((void*)(lbl_805D6094), (void*)1
 
     extern int lbl_805D6090;
 
-void TLobby__sub_802090C0(void) {
+void create_heap_8000__6TLobbyFv(void) {
     u8 *temp_r3;
     u8 *var_r0;
     temp_r3 = (u8 *)(__nw__5THeapFUl(0x14));

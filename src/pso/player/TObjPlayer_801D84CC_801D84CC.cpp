@@ -14,7 +14,7 @@ s32 advance_item_id_counter(u16);
 M2C_UNK equip_saved_item_if_slot_empty__10TObjPlayerFPvPv(s32, void *);
 s32 TObjPlayer__sub_801D84A8(void* p);
 s32 TObjPlayer__sub_801D8664(s32, s16, s16);
-void *TObjPlayer__sub_801D8E1C();
+void *get_anim_table_entry__10TObjPlayerFPvi();
 int bswap_16__FPUs(void*);
 s32 set_animation_default__10TObjPlayerFPv(s32, s16);
 
@@ -23,7 +23,7 @@ s32 TObjPlayer__sub_801D84F0(void* p) { return *(s32*)((char*)p + 0x4); }
 void set_animation_from_data__10TObjPlayerFii(s32 arg0, s32 arg1) {
     void *temp_r3;
 
-    temp_r3 = TObjPlayer__sub_801D8E1C();
+    temp_r3 = get_anim_table_entry__10TObjPlayerFPvi();
     TObjPlayer__sub_801D8664(arg0, M2C_FIELD(temp_r3, s16 *, 0), M2C_FIELD(temp_r3, s16 *, 2));
     set_animation_default__10TObjPlayerFPv(arg0, arg1);
 }

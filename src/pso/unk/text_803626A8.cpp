@@ -147,7 +147,7 @@ void TObjPlayer__sub_80362C54(u8 *arg0);
 void * TObjPlayer__sub_80362CFC(void *, M2C_UNK, void *);
 u8 *alloc_from_obj_heap__10TObjPlayerFPv(M2C_UNK);
 extern s32 tl_05;
-u8 *TObjPlayer__sub_80362D38(u8 *arg0);
+u8 *create_state_80362d38__10TObjPlayerFPv(u8 *arg0);
 s32 render_anim_model__10TObjPlayerFPvf(void *, f32);
 s32 matrix_mult_vec(int, void *, void *);
 s32 rotate_matrix_y(int, int);
@@ -357,7 +357,7 @@ void *TObjPlayer__sub_80362CFC(void *arg0, M2C_UNK _w1, void * _w2) {
     M2C_FIELD(arg0, M2C_UNK **, 0x18) = lbl_804F26E0;
     return arg0;
 }
-u8 *TObjPlayer__sub_80362D38(u8 *arg0) {
+u8 *create_state_80362d38__10TObjPlayerFPv(u8 *arg0) {
     u8 *temp_r3;
     u8 *var_r0;
     if (arg0 != NULL) {

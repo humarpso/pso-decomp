@@ -33,7 +33,7 @@ u8 * load_resource_from_descriptor(void *, s32, void *, s32, s32, s32);
 int alloc__23TAdSinglePlyChrSelectGCFPv(void *);
 extern RecoveredGlobal_801587D8_lbl_804AFC44 lbl_804AFC44;
 extern u32 TOBind__data_805D58A0;
-void TOBind__sub_801587D8(void);
+void load_static_resource__6TOBindFv(void);
 u8 *get_bml_motion(s32, s32);
 s32 TObjFish__sub_8001EDB0(int, int);
 s32 get_bml_model(int, int);
@@ -124,7 +124,7 @@ void free_static_model__6TOBindFv(void) {
 
 extern M2C_UNK __vt__6TOBind[];
 
-void TOBind__sub_801587D8(void) {
+void load_static_resource__6TOBindFv(void) {
     s32 temp_r3;
     s32 var_r0;
     temp_r3 = alloc__23TAdSinglePlyChrSelectGCFPv((void *)0x440);

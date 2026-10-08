@@ -6,7 +6,7 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 
 extern "C" {
 int strcmp(const char *a, const char *b);
-int TLobby__sub_8013194C(const char *s, const char *ext);
+int compare_file_extension__6TLobbyFPvPv(const char *s, const char *ext);
 char *strcat(char *, const char *);
 char *strncpy(char *, const char *, u32);
 void *memset(void *, int, u32);
@@ -83,7 +83,7 @@ s32 change_file_extension__6TLobbyFPvPvPv(char *arg0, char *arg1, char *arg2) {
     return 0;
 }
 
-int TLobby__sub_8013194C(const char *s, const char *ext) {
+int compare_file_extension__6TLobbyFPvPv(const char *s, const char *ext) {
     while (*s) {
         if (*s == '.') {
             return strcmp(s + 1, ext);

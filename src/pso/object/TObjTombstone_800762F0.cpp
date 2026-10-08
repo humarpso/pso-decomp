@@ -39,7 +39,7 @@ struct T_80076390 {
 
 extern "C" {
 M2C_UNK VecCopy__FP3VecPC3Vec(void *, void *);
-M2C_UNK TObjTombstone__sub_80075D68(void *);
+M2C_UNK reset_entries_and_format_name__13TObjTombstoneFPv(void *);
 void setup__13TObjTombstoneFPvii(u8 *arg0, s32 arg1, s32 arg2);
 M2C_UNK construct_collider_proxy__10TObjPlayerFPv();
 extern RecoveredGlobal_8007643C___vt__13TObjTombstone __vt__13TObjTombstone;
@@ -111,7 +111,7 @@ u8 *TObjTombstone__ct(u8 *arg0, M2C_UNK arg1, s32 arg2, u8 *arg3) {
     stack.spA = M2C_FIELD(arg3, u8 *, 2);
     VecCopy__FP3VecPC3Vec((void *) (&stack.sp18), (void *) (arg3 + 4));
     setup__13TObjTombstoneFPvii((u8 *)((void *) (arg0)), (s32)((void *) (arg2)), (s32)((void *) (&stack.sp8)));
-    TObjTombstone__sub_80075D68((void *) (arg0));
+    reset_entries_and_format_name__13TObjTombstoneFPv((void *) (arg0));
     M2C_FIELD(arg0, s32 *, 0x234) = 0;
     return arg0;
 }

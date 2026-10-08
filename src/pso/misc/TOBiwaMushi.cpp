@@ -12,7 +12,7 @@ u8 * load_resource_from_descriptor(void *, s32, void *, s32, s32, s32);
 int alloc__23TAdSinglePlyChrSelectGCFPv(void *);
 extern RecoveredGlobal_802AA354_lbl_804DE000 lbl_804DE000;
 extern u32 TOBiwaMushi__data_805D66E0;
-void TOBiwaMushi__sub_802AA354(void);
+void load_resource_instance__11TOBiwaMushiFv(void);
 }
 
 extern "C" {
@@ -45,7 +45,7 @@ void free_shared_data__11TOBiwaMushiFv(void) {
 
 extern M2C_UNK __vt__11TOBiwaMushi[];
 
-void TOBiwaMushi__sub_802AA354(void) {
+void load_resource_instance__11TOBiwaMushiFv(void) {
     s32 temp_r3;
     s32 var_r0;
     temp_r3 = alloc__23TAdSinglePlyChrSelectGCFPv((void *)0x440);
@@ -158,7 +158,7 @@ u8 * load_resource_from_descriptor(void *, s32, void *, s32, s32, s32);
 int alloc__23TAdSinglePlyChrSelectGCFPv(void *);
 extern RecoveredGlobal_802AA644_lbl_804DDFE0 lbl_804DDFE0;
 extern u32 TOMekaFish01__data_805D66DC;
-void TOMekaFish01__sub_802AA644(void);
+void load_shared_resource__12TOMekaFish01Fv(void);
 }
 
 extern "C" {
@@ -191,7 +191,7 @@ void free_static_data__12TOMekaFish01Fv(void) {
 
 extern M2C_UNK __vt__12TOMekaFish01[];
 
-void TOMekaFish01__sub_802AA644(void) {
+void load_shared_resource__12TOMekaFish01Fv(void) {
     s32 temp_r3;
     s32 var_r0;
     temp_r3 = alloc__23TAdSinglePlyChrSelectGCFPv((void *)0x440);
@@ -338,7 +338,7 @@ u8 * load_resource_from_descriptor(void *, s32, void *, s32, s32, s32);
 int alloc__23TAdSinglePlyChrSelectGCFPv(void *);
 extern RecoveredGlobal_802AA934_lbl_804DDFC0 lbl_804DDFC0;
 extern u32 TOMekaFish00__data_805D66D8;
-void TOMekaFish00__sub_802AA934(void);
+void load_shared_resource__12TOMekaFish00Fv(void);
 #define get_bml_motion ((s32 (*)(void *, s32))get_bml_motion)
 #define TObjFish__sub_8001EDB0 ((s32 (*)(void *, s32))TObjFish__sub_8001EDB0)
 #define get_bml_model ((s32 (*)(void *, s32))get_bml_model)
@@ -380,7 +380,7 @@ void release_static_instance__12TOMekaFish00Fv(void) {
 
 extern M2C_UNK __vt__12TOMekaFish00[];
 
-void TOMekaFish00__sub_802AA934(void) {
+void load_shared_resource__12TOMekaFish00Fv(void) {
     s32 temp_r3;
     s32 var_r0;
     temp_r3 = alloc__23TAdSinglePlyChrSelectGCFPv((void *)0x440);

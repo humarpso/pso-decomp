@@ -54,7 +54,7 @@ u8 * load_resource_from_descriptor(void *, s32, void *, s32, s32, s32);
 int alloc__23TAdSinglePlyChrSelectGCFPv(void *);
 extern RecoveredGlobal_80082080_lbl_8048E194 enemy_freeze_ice_resource_descriptor;
 extern u32 lbl_805D4ED0;
-void TLobby__sub_80082080(void);
+void load_freeze_ice_resource__6TLobbyFv(void);
 M2C_UNK construct_actor_base__10TObjPlayerFPvPv(void *, void *);
 M2C_UNK VecCopy__FP3VecPC3Vec(void *, void *);
 s16 obj_getField1c(void *);
@@ -97,7 +97,7 @@ void destroy_global_singleton__6TLobbyFv(void) {
 
 extern M2C_UNK lbl_8048E1A4[];
 
-void TLobby__sub_80082080(void) {
+void load_freeze_ice_resource__6TLobbyFv(void) {
     s32 temp_r3;
     s32 var_r0;
     temp_r3 = alloc__23TAdSinglePlyChrSelectGCFPv((void *)0x440);

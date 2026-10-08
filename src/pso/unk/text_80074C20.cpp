@@ -6,12 +6,12 @@ void fn_80074C70(void);
 void fn_80074BD0(void);
 s32 send_lobby_name_request__9TProtocolFv(void *);
 extern Lobby_80074C20 *TLobby__data_805D5580;
-s32 TLobby__sub_80074C20(void);
+s32 start_lobby_name_request__6TLobbyFv(void);
 }
 
 extern "C" {
 
-s32 TLobby__sub_80074C20(void) {
+s32 start_lobby_name_request__6TLobbyFv(void) {
     fn_80074C70();
     if (TLobby__data_805D5580 == 0) {
         return 0;

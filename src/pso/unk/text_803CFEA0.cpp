@@ -31,7 +31,7 @@ extern "C" {
 extern RecoveredGlobal_803CFEA0_lbl_8047DAE4 lbl_8047DAE4;
 extern s32 lbl_805D7608;
 extern RecoveredCallback_4873a87e26d6 lbl_805D760C;
-s32 TLobby__sub_803CFEA0(u8 *arg0);
+s32 get_handle_field_20__6TLobbyFPv(u8 *arg0);
 extern RecoveredGlobal_803CFEA0_lbl_8047DAE4 lbl_8047DB30;
 extern s32 lbl_805D7608;
 extern RecoveredCallback_4873a87e26d6 lbl_805D760C;
@@ -39,11 +39,11 @@ s32 TLobby__sub_803CFFC0(u8 *arg0);
 extern RecoveredGlobal_803CFEA0_lbl_8047DAE4 lbl_8047DAE4;
 extern s32 lbl_805D7608;
 extern RecoveredCallback_4873a87e26d6 lbl_805D760C;
-s32 TLobby__sub_803D0600(u8 *arg0);
+s32 get_handle_field_1c__6TLobbyFPv(u8 *arg0);
 extern RecoveredGlobal_803CFEA0_lbl_8047DAE4 lbl_8047DAE4;
 extern s32 lbl_805D7608;
 extern RecoveredCallback_4873a87e26d6 lbl_805D760C;
-s32 TLobby__sub_803D0014(S_803D0014 *arg0);
+s32 get_handle_value_checked__6TLobbyFPv(S_803D0014 *arg0);
 extern RecoveredGlobal_803CFEA0_lbl_8047DAE4 lbl_8047DAE4;
 extern s32 lbl_805D7608;
 extern RecoveredCallback_4873a87e26d6 lbl_805D760C;
@@ -63,7 +63,7 @@ s32 get_dvd_file_size__6TLobbyFPv(const char *name);
 extern "C" {
 
 typedef char RecoveredGlobal_803CFEA0_lbl_8047DAE4_size[sizeof(RecoveredGlobal_803CFEA0_lbl_8047DAE4) == 0x18 ? 1 : -1];
-s32 TLobby__sub_803CFEA0(u8 *arg0) {
+s32 get_handle_field_20__6TLobbyFPv(u8 *arg0) {
     if (arg0 == NULL) {
         if (((M2C_UNK (*)(s32, M2C_UNK *, M2C_UNK)) lbl_805D760C) != NULL) {
             lbl_805D760C(lbl_805D7608, &lbl_8047DAE4.value, 0);
@@ -82,7 +82,7 @@ s32 TLobby__sub_803CFFC0(u8 *arg0) {
     return M2C_FIELD(arg0, s32 *, 0x10);
 }
 
-s32 TLobby__sub_803D0014(S_803D0014 *arg0) {
+s32 get_handle_value_checked__6TLobbyFPv(S_803D0014 *arg0) {
     if (arg0 == 0) {
         if ((*(RecoveredCallback_803D0014 *)&lbl_805D760C) != 0) {
             (*(RecoveredCallback_803D0014 *)&lbl_805D760C)(lbl_805D7608, &(*(G_803D0014 *)&lbl_8047DAE4).value, 0);
@@ -92,7 +92,7 @@ s32 TLobby__sub_803D0014(S_803D0014 *arg0) {
     return arg0->f;
 }
 
-s32 TLobby__sub_803D0600(u8 *arg0) {
+s32 get_handle_field_1c__6TLobbyFPv(u8 *arg0) {
     if (arg0 == NULL) {
         if (((M2C_UNK (*)(s32, M2C_UNK *, M2C_UNK)) lbl_805D760C) != NULL) {
             lbl_805D760C(lbl_805D7608, &lbl_8047DAE4.value, 0);

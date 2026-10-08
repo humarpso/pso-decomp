@@ -16,7 +16,7 @@ void update_dual_weapon_trails__10TObjPlayerFPv(u8 *arg0);
 u8 * init_vtable_804A3738__10TObjPlayerFPv(void *, M2C_UNK, void *);
 u8 *alloc_from_obj_heap__10TObjPlayerFPv(M2C_UNK);
 extern s32 tl_05;
-u8 *TObjPlayer__sub_80127EE8(u8 *arg0);
+u8 *create_vtable_804A3738__10TObjPlayerFPv(u8 *arg0);
 u8 * TItemTimerEvent__ct(void *, s16, s32);
 extern RecoveredGlobal_80127F40_lbl_804A0588 lbl_804A0588;
 u8 *TObjPlayer__sub_80127F40(u8 *arg0, s16 arg1, s32 arg2, f32 farg0);
@@ -24,7 +24,7 @@ u8 *TObjPlayer__sub_80127F40(u8 *arg0, s16 arg1, s32 arg2, f32 farg0);
 
 extern "C" {
 
-u8 *TObjPlayer__sub_80127EE8(u8 *arg0) {
+u8 *create_vtable_804A3738__10TObjPlayerFPv(u8 *arg0) {
     u8 *temp_r3;
     u8 *var_r0;
     if (arg0 != NULL) {

@@ -99,7 +99,7 @@ s32 spawn_particle_effect(void *, int);
 extern const f32 TBoss7Crawfish__data_805DF0D8;
 void spawn_ground_effects__14TBoss7CrawfishFPv(u8 *arg0);
 s32 exchange_object_state__6TLobbyFPvis(void *, void *, int);
-void TBoss7Crawfish__sub_80308B38(s32 arg0);
+void clear_object_state_exchange__14TBoss7CrawfishFi(s32 arg0);
 s32 get_mode__11TCameraCtrlFPv(void *);
 f32 horizontal_distance_squared(void *, void *);
 extern RecoveredGlobal_80308840_lbl_8047559C lbl_8047559C;
@@ -257,7 +257,7 @@ void render__14TBoss7CrawfishFv(void* p) { if (is_visible__14TBoss7CrawfishFPv((
 extern const f32 TBoss7Crawfish__data_805DF0D8;
 extern const f32 lbl_805DF0EC;
 
-void TBoss7Crawfish__sub_80308B38(s32 arg0) {
+void clear_object_state_exchange__14TBoss7CrawfishFi(s32 arg0) {
     typedef char sp8_offset[(offsetof(Stack_80308B38, sp8) == 0x0) ? 1 : -1];
     typedef char spE_offset[(offsetof(Stack_80308B38, spE) == 0x6) ? 1 : -1];
     Stack_80308B38 stack;

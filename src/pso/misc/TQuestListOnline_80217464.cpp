@@ -20,7 +20,7 @@ s32 prs_decompress_buffer(s32, s32);
 extern s32 TQuestListOnline__data_805D61E4;
 extern u32 lbl_805D61E8;
 extern s32 lbl_805D61F0;
-void TQuestListOnline__sub_80217714(s32 arg0);
+void decompress_quest_buffer__16TQuestListOnlineFi(s32 arg0);
 void TLobby__sub_8001EDF4(s32);
 s32 TLobby__sub_8001EEF4();
 extern M2C_UNK lbl_8044BEB0[];
@@ -153,7 +153,7 @@ void TQuestListOnline__sub_802176DC(s32 arg0) {
     }
 }
 
-void TQuestListOnline__sub_80217714(s32 arg0) {
+void decompress_quest_buffer__16TQuestListOnlineFi(s32 arg0) {
     s32 temp_r3;
     if ((u32) (*(u32 *)&TQuestListOnline__data_805D61E4) != 0U) {
         temp_r3 = prs_decompress_buffer(arg0, (s32) (*(u32 *)&TQuestListOnline__data_805D61E4));

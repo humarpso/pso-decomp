@@ -8,7 +8,7 @@ extern "C" {
 
 s32 handle_msg_type2__6TLobbyFi(s32 arg0);
 M2C_UNK bswap_32__FPUl(s32 *);
-M2C_UNK TLobby__sub_801F3A80(void *, s32);
+M2C_UNK bswap_enemy_set_rows__6TLobbyFPvUi(void *, s32);
 s32 get_player_floor__6TLobbyFi(s32);
 M2C_UNK reserve_enemy_set_actor_ids(void *, u32, s32);
 M2C_UNK init_floor_enemy_count__6TLobbyFiPvUi(s32, void *, s32);
@@ -35,7 +35,7 @@ loop_1:
         bswap_32__FPUl(&sp8);
         if ((sp14 == 2) && (spC == arg0)) {
             temp_r31 = var_r31 + 0x10;
-            TLobby__sub_801F3A80(temp_r31, sp8);
+            bswap_enemy_set_rows__6TLobbyFPvUi(temp_r31, sp8);
             reserve_enemy_set_actor_ids(temp_r31, (u32) sp8 / 72U, get_player_floor__6TLobbyFi(spC));
             init_floor_enemy_count__6TLobbyFiPvUi(spC, temp_r31, sp8);
             return 1;

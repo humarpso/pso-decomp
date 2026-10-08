@@ -24,7 +24,7 @@ u8 * TLobby__sub_8001FE7C(void *, s16);
 extern u8 *lbl_805D5640;
 extern s32 lbl_805D5644;
 extern s32 TLockOnCursor__data_805D5648;
-void TLockOnCursor__sub_8013DBF4(void);
+void free_cursor_resources__13TLockOnCursorFv(void);
 s32 get_bml_model(void *, s32);
 u8 * load_resource_from_descriptor(void *, s32, void *, s32, s32, s32);
 int alloc__23TAdSinglePlyChrSelectGCFPv(void *);
@@ -138,7 +138,7 @@ void reset_and_spawn_cursors__13TLockOnCursorFi(s32 arg0) {
     }
 }
 
-void TLockOnCursor__sub_8013DBF4(void) {
+void free_cursor_resources__13TLockOnCursorFv(void) {
     if ((void *) lbl_805D5640 != NULL) {
         TLobby__sub_8001FE7C(lbl_805D5640, 1);
         lbl_805D5640 = NULL;

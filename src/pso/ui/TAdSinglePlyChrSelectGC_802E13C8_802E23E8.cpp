@@ -37,7 +37,7 @@ void TAdSinglePlyChrSelectGC__sub_802E2520(u8 *arg0);
 s32 poll_load_status__15TAdPlayerLoadGCFi(int, void *);
 s32 change_state__23TAdSinglePlyChrSelectGCFPvi(void *, s32);
 extern RecoveredGlobal_802E2A88_lbl_804C89BC lbl_804C89BC;
-void TAdSinglePlyChrSelectGC__sub_802E2A88(s32 arg0);
+void advance_when_load_done__23TAdSinglePlyChrSelectGCFi(s32 arg0);
 s32 is_visible__17TWindowSubComCardFPv(void *);
 void poll_card_load__15TAdPlayerLoadGCFi(s32);
 void get_selected_menu_value(void *);
@@ -223,7 +223,7 @@ void update_char_timer__23TAdSinglePlyChrSelectGCFPv(void *arg0) {
 }
 void TAdSinglePlyChrSelectGC__sub_802E2A7C(void* p) { *(s32*)((char*)p + 0x64) = 30; }
 typedef char RecoveredGlobal_802E2A88_lbl_804C89BC_size[sizeof(RecoveredGlobal_802E2A88_lbl_804C89BC) == 0x78 ? 1 : -1];
-void TAdSinglePlyChrSelectGC__sub_802E2A88(s32 arg0) {
+void advance_when_load_done__23TAdSinglePlyChrSelectGCFi(s32 arg0) {
     if (poll_load_status__15TAdPlayerLoadGCFi((int) (0), (void *) (&lbl_804C89BC.value)) == 0) {
         change_state__23TAdSinglePlyChrSelectGCFPvi((void *)((void *) (arg0)), (s32)((int) (0xB)));
     }

@@ -1314,7 +1314,7 @@ s32 is_quest_active();
 M2C_UNK reset_battle_camera__11TCameraCtrlFPv();
 void TCameraCtrl__sub_8006B3B8(Vec_801EE220 *, Vec_801EE220 *);
 int reset_to_local_player__11TCameraCtrlFv(void*);
-void TCameraCtrl__sub_8006CD2C(Vec_801E9400 *, int, Vec_801E9400 *, int *);
+void set_override_position_and_angle__11TCameraCtrlFPvs(Vec_801E9400 *, int, Vec_801E9400 *, int *);
 void set_fixed_position_and_target__11TCameraCtrlFPvPv(Vec_801E945C *, Vec_801E945C *, Vec_801E945C *);
 void request_follow_camera_offsets(Vec_801EF134 *, Vec_801EF134 *, u16);
 int TCameraCtrl__sub_8006D460(void*);
@@ -1340,7 +1340,7 @@ M2C_UNK TLobby__sub_80071064(int);
 s32 TLobby__sub_800710D8(Item_801EBF30 *);
 s32 TLobby__sub_8007119C(s32);
 void add_entry__6TLobbyFiii(void *, void *, s32);
-void TLobby__sub_800714B0(void *, s32);
+void set_player_name_and_color__6TLobbyFPvi(void *, s32);
 M2C_UNK set_selected_layout__6TLobbyFi(u32);
 void try_set_value__6TLobbyFf(f32);
 M2C_UNK set_split_screen_flag__6TLobbyFi(s32);
@@ -1517,7 +1517,7 @@ void TLobby__sub_801E83E8(void);
 void TLobby__sub_801E8414(void);
 void clear_flag3__6TLobbyFv(void);
 void free_static__6TLobbyFv(void);
-void TLobby__sub_801E8560(void);
+void update_card_window_slot__6TLobbyFv(void);
 void TLobby__sub_801E85B4(void);
 void TLobby__sub_801E8684(void);
 void TLobby__sub_801E86D0(void);
@@ -1534,7 +1534,7 @@ void TLobby__sub_801E905C(void);
 void TLobby__sub_801E9084(void);
 void clear_flag__6TLobbyFv(void);
 void free_child__6TLobbyFv(void);
-void TLobby__sub_801E9104(u8 a0, u8 a1, void *a2);
+void set_partner_dialogue_for_slot__6TLobbyFUcUcPv(u8 a0, u8 a1, void *a2);
 void compute_path_point__6TLobbyFv(void);
 void calc_path_point__6TLobbyFv(void);
 void TLobby__sub_801E9388(u8 a0, u8 a1);
@@ -1564,7 +1564,7 @@ void TLobby__sub_801E99A0(s32 arg0, s32 arg1);
 void reset_random_enemies_mode__6TLobbyFv(void);
 void create_hunter_guild_seq__6TLobbyFv(void);
 void TLobby__sub_801E9A50(s32 arg0);
-void TLobby__sub_801E9AA8(u8 arg0);
+void create_challenge_4p_results__6TLobbyFUc(u8 arg0);
 void TLobby__sub_801E9AF8(s32 idx);
 void update_and_apply_alloc__6TLobbyFv(void);
 void set_lobby_mode_slot__6TLobbyFi(s32 arg0);
@@ -1627,14 +1627,14 @@ void write_state_s32_to_buffer__6TLobbyFv(void);
 int forward_802272B4__6TLobbyFPv(void* p);
 int TLobby__sub_801EB588(void* p);
 void TLobby__sub_801EB5A8(void);
-void TLobby__sub_801EB5AC(void);
-void TLobby__sub_801EB604(s32 arg0, s32 arg1);
+void decompress_indexed_resource__6TLobbyFv(void);
+void update_client_slot_from_player__6TLobbyFii(s32 arg0, s32 arg1);
 void write_state_s16_to_buffer__6TLobbyFv(void);
 void TLobby__sub_801EB6B8(s32 arg0);
 void store_player_name_by_client__6TLobbyFi(s32 arg0);
 void TLobby__sub_801EB7C8(s32 i);
 void TLobby__sub_801EB85C(s32 arg0, s32 arg1);
-void TLobby__sub_801EB8C0(u8 arg0);
+void acquire_serial_access_for_slot__6TLobbyFUc(u8 arg0);
 void TLobby__sub_801EB914(s32 arg0);
 void TLobby__sub_801EB94C(s32 arg0);
 void TLobby__sub_801EBB88(s32 arg0, s32 arg1);
@@ -1729,7 +1729,7 @@ void TLobby__sub_801EDFE0(u8 reg);
 void TLobby__sub_801EDFF4(u8 reg);
 int forward_801F36E4__6TLobbyFPv(void* p);
 int qst_op_warp_on(void* p);
-void TLobby__sub_801EE048(void);
+void send_packet_67_04__6TLobbyFv(void);
 void TLobby__sub_801EE09C(void* p);
 void check_item_equippable_by_room__6TLobbyFUcUc(u8 arg0, u8 arg1);
 void handle_active_battle__6TLobbyFv(void);
@@ -1838,8 +1838,8 @@ void qst_op_fadeout(void);
 void qst_op_fadein(void);
 void qst_op_list(void);
 void qst_op_message(void);
-void TLobby__sub_801F1C38(s32 arg0, s32 arg1);
-void TLobby__sub_801F1C8C(s32, s32);
+void pop_stack_into_slots__6TLobbyFii(s32 arg0, s32 arg1);
+void push_op_args_from_table__6TLobbyFii(s32, s32);
 void set_slot__6TLobbyFi(int a0);
 void qst_op_nop_42_stack_push(s32 arg0);
 void qst_op_switch_call(s32 arg0, u8 arg1, s32 arg2);
@@ -1919,7 +1919,7 @@ s32 get_field_6CE8__6TLobbyFv();
 s32 get_lobby_count__6TLobbyFv();
 M2C_UNK TLobby__sub_801F3614();
 void copy_position__6TLobbyFPv(void *, Vec_801ECFDC *);
-void TLobby__sub_801F3640(s32);
+void bswap_entry_words__6TLobbyFi(s32);
 M2C_UNK TLobby__sub_801F3694(void *);
 int TLobby__sub_801F36BC(void*);
 s32 set_lobby_id__6TLobbyFi(int);
@@ -2035,7 +2035,7 @@ M2C_UNK TLobby__sub_80292200(int);
 void TLobby__sub_80292268(void *, void *, s32);
 s32 TLobby__sub_80292270(s32, s32);
 s32 TLobby__sub_802924B4(Item_801EBF30 *, u16);
-void TLobby__sub_80292574(void *, s32);
+void set_encoded_name_and_color__6TLobbyFPvi(void *, s32);
 M2C_UNK update_challenge_timer__6TLobbyFi(int);
 void set_camera_height_if_valid__6TLobbyFf(f32);
 M2C_UNK try_set_split_screen__6TLobbyFi(s32);
@@ -2185,10 +2185,10 @@ extern void *tl_04;
 extern s32 tl_05;
 
 void request_1c38_1_7__6TLobbyFv(void) {
-    ((M2C_UNK (*)(M2C_UNK, M2C_UNK))TLobby__sub_801F1C38)(1, 7);
+    ((M2C_UNK (*)(M2C_UNK, M2C_UNK))pop_stack_into_slots__6TLobbyFii)(1, 7);
 }
 
-void reset_and_set_mode__6TLobbyFv(void) { TLobby__data_805D5EA4 = 0; TLobby__sub_801F1C8C(1, 7); }
+void reset_and_set_mode__6TLobbyFv(void) { TLobby__data_805D5EA4 = 0; push_op_args_from_table__6TLobbyFii(1, 7); }
 
 void open_scroll_message_window__6TLobbyFv(void) {
     Vec2_801E717C pos;
@@ -2715,7 +2715,7 @@ void count_player_items_to_global__6TLobbyFii(s32 i, s32 dst) {
 #pragma inline_depth(1)
 #pragma auto_inline off
 #pragma dont_inline off
-void TLobby__sub_801E8560(void) {
+void update_card_window_slot__6TLobbyFv(void) {
     u8 temp_r31;
     temp_r31 = (u8) M2C_FIELD(&(*(RecoveredGlobal_801E8560_TLobby__data_80512220 *)&TLobby__data_80512220).value, s32 *, 4);
     if (((u32 (*)(int))get_player_by_client_id)((int) (M2C_FIELD(&(*(RecoveredGlobal_801E8560_TLobby__data_80512220 *)&TLobby__data_80512220).value, s32 *, 0))) != 0U) {
@@ -3028,7 +3028,7 @@ void free_child__6TLobbyFv(void) {
 #pragma inline_depth(1)
 #pragma auto_inline off
 #pragma dont_inline off
-void TLobby__sub_801E9104(u8 a0, u8 a1, void *a2) {
+void set_partner_dialogue_for_slot__6TLobbyFUcUcPv(u8 a0, u8 a1, void *a2) {
     s32 x = (*(s32 * *)&TLobby__data_805D5E78)[a0];
     s32 v = (*(s32 * *)&TLobby__data_805D5E78)[a1];
     u16 y = x;
@@ -3148,7 +3148,7 @@ void TLobby__sub_801E9400(void) {
     v.x = p->x;
     v.y = p->y;
     v.z = p->z;
-    TCameraCtrl__sub_8006CD2C(&v, (u16)(*(Glob_801E9400 *)&TLobby__data_80512220).f0, p, (*(int * *)&TLobby__data_805D5E78));
+    set_override_position_and_angle__11TCameraCtrlFPvs(&v, (u16)(*(Glob_801E9400 *)&TLobby__data_80512220).f0, p, (*(int * *)&TLobby__data_805D5E78));
 }
 #pragma pop
 
@@ -3417,7 +3417,7 @@ void TLobby__sub_801E9A50(s32 arg0) {
 #pragma inline_depth(1)
 #pragma auto_inline off
 #pragma dont_inline off
-void TLobby__sub_801E9AA8(u8 arg0) {
+void create_challenge_4p_results__6TLobbyFUc(u8 arg0) {
     s32 i;
     TChallenge4PResult__sub_8034B66C();
     i = 0;
@@ -4277,7 +4277,7 @@ void broadcast_entry__6TLobbyFi(s32 arg0) {
     temp_r3 = ((int (*)(int))get_indexed_offset__6TLobbyFi)(arg0);
     if (temp_r3 != 0U) {
         sp8 = *(const M2CCopy_30 *)(temp_r3 - 4 + 4);
-        TLobby__sub_801F3640((s32) &sp8);
+        bswap_entry_words__6TLobbyFi((s32) &sp8);
         broadcast__6TLobbyFPv(&sp8);
     }
 }
@@ -4762,7 +4762,7 @@ void TLobby__sub_801EB5A8(void) {  }
 #pragma inline_depth(1)
 #pragma auto_inline off
 #pragma dont_inline off
-void TLobby__sub_801EB5AC(void) {
+void decompress_indexed_resource__6TLobbyFv(void) {
     s32 temp_r31;
     u32 temp_r3;
     temp_r31 = M2C_FIELD(&(*(RecoveredGlobal_801EB5AC_TLobby__data_80512220 *)&TLobby__data_80512220).value, s32 *, 0);
@@ -4787,7 +4787,7 @@ void TLobby__sub_801EB5AC(void) {
 #pragma inline_depth(1)
 #pragma auto_inline off
 #pragma dont_inline off
-void TLobby__sub_801EB604(s32 arg0, s32 arg1) {
+void update_client_slot_from_player__6TLobbyFii(s32 arg0, s32 arg1) {
     u8 *temp_r3;
     temp_r3 = (u8 *)(((s32)((u32 (*)(int, int))get_player_by_client_id)((int)((int)((u32) (u16) M2C_FIELD((*(s32 *)&TLobby__data_805D5E78), M2C_UNK *, ((arg0 * 4) & 0x3FC)))), (int)((int)(arg1)))));
     if (temp_r3 != NULL) {
@@ -4942,7 +4942,7 @@ void TLobby__sub_801EB85C(s32 arg0, s32 arg1) {
 #pragma inline_depth(1)
 #pragma auto_inline off
 #pragma dont_inline off
-void TLobby__sub_801EB8C0(u8 arg0) {
+void acquire_serial_access_for_slot__6TLobbyFUc(u8 arg0) {
     (*(int * *)&TLobby__data_805D5E78)[arg0] = ((s32 (*)(void))get_serial_access__22TQuestVmDownLoadServerFPv)();
     if ((*(int * *)&TLobby__data_805D5E78)[arg0] == 0) {
         (*(int * *)&TLobby__data_805D5E78)[arg0] = ((s32 (*)(void))poll_serial_access__22TQuestVmDownLoadServerFPv)();
@@ -5503,10 +5503,10 @@ void TLobby__sub_801EC43C(void) {
     temp_r31 = M2C_FIELD(&(*(RecoveredGlobal_801EC43C_TLobby__data_80512220 *)&TLobby__data_80512220).value, s32 *, 0);
     temp_r30 = (u8 *)(M2C_FIELD(&(*(RecoveredGlobal_801EC43C_TLobby__data_80512220 *)&TLobby__data_80512220).value, u8 **, 4));
     if (is_split_screen() == 1) {
-        TLobby__sub_80292574(temp_r30, temp_r31);
+        set_encoded_name_and_color__6TLobbyFPvi(temp_r30, temp_r31);
         return;
     }
-    TLobby__sub_800714B0(temp_r30, temp_r31);
+    set_player_name_and_color__6TLobbyFPvi(temp_r30, temp_r31);
 }
 #pragma pop
 
@@ -6988,7 +6988,7 @@ int forward_801F36E4__6TLobbyFPv(void* p) { return TLobby__sub_801F36E4(p); }
 
 int qst_op_warp_on(void* p) { return set_cleanup_flag__6TLobbyFv(p); }
 
-void TLobby__sub_801EE048(void) {
+void send_packet_67_04__6TLobbyFv(void) {
     Pkt_801EE048 pkt;
     s32 x = ((s32 *)&TLobby__data_80512220)[0];
     s32 y = ((s32 *)&TLobby__data_80512220)[1];
@@ -8260,7 +8260,7 @@ void qst_op_message(void) {
     }
 }
 
-void TLobby__sub_801F1C38(s32 arg0, s32 arg1) {
+void pop_stack_into_slots__6TLobbyFii(s32 arg0, s32 arg1) {
     s32 n = arg1;
     u8 j = arg0 + arg1;
     while (n > 0) {
@@ -8271,7 +8271,7 @@ void TLobby__sub_801F1C38(s32 arg0, s32 arg1) {
     }
 }
 
-void TLobby__sub_801F1C8C(s32 arg0, s32 arg1) {
+void push_op_args_from_table__6TLobbyFii(s32 arg0, s32 arg1) {
     s32 i;
     for (i = 0; i < arg1; i++) {
         push_op_arg__6TLobbyFi(TLobby__data_805D5E78[(u8)arg0++]);

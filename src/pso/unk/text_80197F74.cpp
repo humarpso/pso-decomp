@@ -14,7 +14,7 @@ M2C_UNK safe_free__23TAdSinglePlyChrSelectGCFUi();
 void **TLobby__sub_803DA16C();
 extern RecoveredGlobal_80197F78_lbl_8050DD24 lbl_8050DD24;
 extern int lbl_805D5C58;
-void **TLobby__sub_80197F78(void);
+void **free_global_buffer__6TLobbyFv(void);
 }
 
 extern "C" {
@@ -27,7 +27,7 @@ void TLobby__sub_80197F74(void) {  }
     extern int lbl_805D5C58;
 
 typedef char RecoveredGlobal_80197F78_lbl_8050DD24_size[sizeof(RecoveredGlobal_80197F78_lbl_8050DD24) == 0x2C ? 1 : -1];
-void **TLobby__sub_80197F78(void) {
+void **free_global_buffer__6TLobbyFv(void) {
     void **var_r3;
     var_r3 = (void **)((u8 *)((*(void ** *)&lbl_805D5C58)));
     if (var_r3 != NULL) {

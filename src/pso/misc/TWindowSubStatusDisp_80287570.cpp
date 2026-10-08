@@ -52,7 +52,7 @@ f32 get_card_window_scale__20TWindowSubStatusDispFi(void *);
 u8 *init_heading_entry__20TWindowSubStatusDispFPvPvici(u8 *arg0, u8 *arg1, s32 arg2, s8 arg3, s32 arg4);
 u8 TWindowSubStatusDisp__sub_80287AC4(u8 *arg0);
 void update_entry_color__20TWindowSubStatusDispFPv(void *arg0);
-void TWindowSubStatusDisp__sub_80287860(void *arg0, void *arg1);
+void draw_entry_tab__20TWindowSubStatusDispFPvPv(void *arg0, void *arg1);
 void apply_context_transform_to_rect(void *, Rect_80287580 *);
 void set_global_param__8TObjFishFi(s32);
 void begin_screen_draw(int);
@@ -172,7 +172,7 @@ void set_entry_state__20TWindowSubStatusDispFPvc(void *arg0, s8 arg1) {
 typedef struct Stack_802878B8 Stack_802878B8;
 #pragma fp_contract on
 
-void TWindowSubStatusDisp__sub_80287860(void *arg0, void *arg1) {
+void draw_entry_tab__20TWindowSubStatusDispFPvPv(void *arg0, void *arg1) {
     Entry_80287860 *e = (Entry_80287860 *)arg0;
     f32 pos[2];
     pos[0] = ((f32 *)arg1)[0] + e->x;
@@ -198,7 +198,7 @@ void TWindowSubStatusDisp__sub_802878B8(u8 *arg0, u8 *arg1) {
   }
 }
 
-void update__20TWindowSubStatusDispFPvPv(void* p, void* a1) { TWindowSubStatusDisp__sub_80287860((void *)(p), (void *)(a1)); TWindowSubStatusDisp__sub_802878B8((u8 *)(p), (u8 *)(a1)); }
+void update__20TWindowSubStatusDispFPvPv(void* p, void* a1) { draw_entry_tab__20TWindowSubStatusDispFPvPv((void *)(p), (void *)(a1)); TWindowSubStatusDisp__sub_802878B8((u8 *)(p), (u8 *)(a1)); }
 
 void TWindowSubStatusDisp__sub_802879B0(void *arg0) {
     M2C_FIELD(arg0, f32 *, 0x1C) = (f32) (M2C_FIELD(arg0, f32 *, 0x1C) + M2C_FIELD(arg0, f32 *, 0x20));

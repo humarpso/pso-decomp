@@ -236,7 +236,7 @@ extern RecoveredGlobal_801D8DCC_lbl_804C4998 lbl_804C4998;
 s32 TObjPlayer__sub_801D8DCC(u8 *arg0);
 s32 get_clamped_index__10TObjPlayerFPv(void *);
 extern RecoveredGlobal_801D8E1C_lbl_804C498C lbl_804C498C;
-long TObjPlayer__sub_801D8E1C(u8 *arg0, s32 arg1);
+long get_anim_table_entry__10TObjPlayerFPvi(u8 *arg0, s32 arg1);
 s16 get_handle_value__10TObjPlayerFPv(void *);
 int has_valid_handle__10TObjPlayerFPv(void *);
 extern RecoveredGlobal_801D8FB4_lbl_804C495C lbl_804C495C;
@@ -489,7 +489,7 @@ s32 TObjPlayer__sub_801D8DCC(u8 *arg0) {
 
 typedef struct RecoveredGlobal_801D8E1C_lbl_804C498C RecoveredGlobal_801D8E1C_lbl_804C498C;
 typedef char RecoveredGlobal_801D8E1C_lbl_804C498C_size[((sizeof(RecoveredGlobal_801D8E1C_lbl_804C498C)) == 0xC) ? (1) : (-1)];
-long TObjPlayer__sub_801D8E1C(u8 *arg0, s32 arg1) {
+long get_anim_table_entry__10TObjPlayerFPvi(u8 *arg0, s32 arg1) {
   int new_var;
   new_var = get_clamped_index__10TObjPlayerFPv(arg0) * 4;
   return (*((M2C_UNK *) (((s8 *) (&lbl_804C498C.value)) + new_var))) + (arg1 * 4);

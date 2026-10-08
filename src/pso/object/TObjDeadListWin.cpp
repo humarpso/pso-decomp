@@ -42,7 +42,7 @@ extern char __vt__15TObjDeadListWin[];
 extern const char *lbl_805D2868;
 void *TObjDeadListWin__ct(Obj_80073CEC *self, void *parent);
 s32 obj_testFlags30(M2C_UNK, M2C_UNK);
-s32 TLobby__sub_8006F1EC(s32);
+s32 get_flagged_table_entry__6TLobbyFi(s32);
 void build_dead_list_window__15TObjDeadListWinFPv(u8 *arg0);
 s32 get_player_by_client_id(s32);
 s32 get_global_state__14TOKeyMachine01Fv(void);
@@ -130,7 +130,7 @@ M2C_UNK refresh_names__15TObjDeadListWinFPv(Win_80073B38 *self) {
     u8 *me;
     for (i = 0; i < 4; i++) {
         player = ((u8 *)get_player_by_client_id(i));
-        if (self->names[i].text[0] == 0 && player != NULL && TLobby__sub_8006F1EC(i) != 0) {
+        if (self->names[i].text[0] == 0 && player != NULL && get_flagged_table_entry__6TLobbyFi(i) != 0) {
             strncpy(self->names[i].text, player + 0x85C, 15);
             self->names[i].term = 0;
         }

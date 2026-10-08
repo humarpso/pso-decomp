@@ -39,7 +39,7 @@ u8 * load_resource_from_descriptor(void *, s32, void *, s32, s32, s32);
 int alloc__23TAdSinglePlyChrSelectGCFPv(void *);
 extern RecoveredGlobal_80172758_lbl_804B38E0 lbl_804B38E0;
 extern u32 TOMonumentAncient01__data_805D5A60;
-void TOMonumentAncient01__sub_80172758(void);
+void load_resource_instance__19TOMonumentAncient01Fv(void);
 s32 TObjFish__sub_8001EDB0(int, int);
 s32 get_bml_model(int, int);
 s32 reset_photon_effect__10TObjPlayerFPv(void *);
@@ -93,7 +93,7 @@ void release_static_resource__19TOMonumentAncient01Fv(void) {
 
 extern M2C_UNK __vt__19TOMonumentAncient01[];
 
-void TOMonumentAncient01__sub_80172758(void) {
+void load_resource_instance__19TOMonumentAncient01Fv(void) {
     s32 temp_r3;
     s32 var_r0;
     temp_r3 = alloc__23TAdSinglePlyChrSelectGCFPv((void *)0x440);

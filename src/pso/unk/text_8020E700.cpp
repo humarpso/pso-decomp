@@ -36,7 +36,7 @@ M2C_UNK memset(void *, int, int);
 extern RecoveredGlobal_8020ECA8_lbl_80513D58 lbl_80513D58;
 void clear_shop_armor_flags(void);
 extern RecoveredGlobal_8020ECD8_lbl_80513D78 lbl_80513D78;
-void TLobby__sub_8020EC68(s32 i, s32 j);
+void clear_shop_entry_value__6TLobbyFii(s32 i, s32 j);
 extern RecoveredGlobal_8020ECD8_lbl_80513D78 lbl_80513D78;
 extern s32 lbl_80513D68[];
 extern Tbl_8020E934 **lbl_805D6158;
@@ -142,7 +142,7 @@ void generate_shop_shield_pool(s32 arg0) {
     }
 }
 
-void TLobby__sub_8020EC68(s32 i, s32 j) {
+void clear_shop_entry_value__6TLobbyFii(s32 i, s32 j) {
     Ent_8020EC68 *e = ((Ent_8020EC68 * *)&lbl_80513D78)[j];
     if (i >= 0 && i <= 0x14) {
         if (e[i].v != -1) e[i].v = -1;

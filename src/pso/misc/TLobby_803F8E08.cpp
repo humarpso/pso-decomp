@@ -520,7 +520,7 @@ void TLobby__sub_803F8AB8(void);
 s32 OSGetTick();
 void NetStoreTick(s32 *arg0);
 extern RecoveredGlobal_803F94A0_lbl_805BF770 lbl_805BF770;
-void TLobby__sub_803F94A0(u32 arg0);
+void clear_slot_for_handle__6TLobbyFUi(u32 arg0);
 M2C_UNK OSUnlockMutex();
 M2C_UNK OSLockMutex();
 s32 OSGetCurrentThread();
@@ -574,7 +574,7 @@ s16 TLobby__sub_803FF304(u8 *arg0);
 void TLobby__sub_803FF34C(u8 *arg0);
 void TLobby__sub_803FF468(s32 arg0);
 void TLobby__sub_803FD85C(void *);
-void TLobby__sub_80400B34(u8 *arg0);
+void reset_connection_slot__6TLobbyFPv(u8 *arg0);
 void TLobby__sub_80400B74(void);
 M2C_UNK TLobby__sub_803F79BC(void *);
 extern RecoveredGlobal_80401A68_lbl_805C04A8 lbl_805C04A8;
@@ -691,11 +691,11 @@ s32 TLobby__sub_8041123C(s32 arg0, s32 arg1, s16 arg2);
 extern RecoveredGlobal_8041123C_lbl_805C1BB8 lbl_805C1BB8;
 s16 *TLobby__sub_8041471C(s16 arg0);
 extern RecoveredGlobal_8040EF00_lbl_805C1B60 lbl_805C1B60;
-s16 *TLobby__sub_8040FE9C(s16 arg0);
+s16 *get_active_entry_by_index__6TLobbyFs(s16 arg0);
 extern RecoveredGlobal_8040EF00_lbl_805C1B60 lbl_805C1B60;
 s16 TLobby__sub_8040EF00(s16 arg0);
 extern RecoveredGlobal_8041123C_lbl_805C1BB8 lbl_805C1BB8;
-s16 TLobby__sub_80411ECC(s16 arg0);
+s16 get_entry_field_26__6TLobbyFs(s16 arg0);
 extern RecoveredGlobal_8040EF00_lbl_805C1B60 lbl_805C1B60;
 s32 TLobby__sub_8040FE40(s16 arg0);
 extern RecoveredGlobal_803F8930_lbl_805B4F84 lbl_805B4F84;
@@ -735,7 +735,7 @@ M2C_UNK TLobby__sub_803F8E9C();
 void TUdpSocket__sub_803F9EE4(void * _w0, int _w1, int _w2);
 extern RecoveredGlobal_80419A00_lbl_805C1C50 lbl_805C1C50;
 void TLobby__sub_80419A34(void);
-void TLobby__sub_803F94A0(u32 arg0);
+void clear_slot_for_handle__6TLobbyFUi(u32 arg0);
 void unlock_mutex__10TUdpSocketFi(int);
 void lock_mutex__6TLobbyFi(int);
 M2C_UNK TLobby__sub_803F95E4(int);
@@ -882,7 +882,7 @@ extern u32 lbl_805D7C08;
 u8 *TLobby__sub_803F8BA4(H_803F8BA4 *h, u8 *p, u8 *end);
 s16 TLobby__sub_8040EF00(s16 arg0);
 u8 * TLobby__sub_8040F76C(u32, u32);
-s16 TLobby__sub_80411ECC(s16 arg0);
+s16 get_entry_field_26__6TLobbyFs(s16 arg0);
 u8 * TLobby__sub_80413264(void *, s32);
 s16 TLobby__sub_8040DC8C(u8 *arg0, u8 *arg1);
 void resume_thread__6TLobbyFv(void);
@@ -1098,7 +1098,7 @@ void NetStoreTick(s32 *arg0) {
 }
 
 typedef char RecoveredGlobal_803F94A0_lbl_805BF770_size[sizeof(RecoveredGlobal_803F94A0_lbl_805BF770) == 0x750 ? 1 : -1];
-void TLobby__sub_803F94A0(u32 arg0) {
+void clear_slot_for_handle__6TLobbyFUi(u32 arg0) {
     s32 var_r5;
     var_r5 = 0;
     if (arg0 != (u32) M2C_FIELD(&lbl_805BF770.value, u32 *, 4)) {
@@ -1552,7 +1552,7 @@ void TLobby__sub_8040098C(Self_8040098C *self);
 struct O_80400ACC { u8 b0; u8 b1; u8 b2; u8 pad3[0x108 - 3]; s32 f108; };
 void TLobby__sub_80400ACC(O_80400ACC *o);
 
-void TLobby__sub_80400B34(u8 *arg0);
+void reset_connection_slot__6TLobbyFPv(u8 *arg0);
 
 void TLobby__sub_80400B74(void);
 
@@ -2424,7 +2424,7 @@ s32 TLobby__sub_8040FE40(s16 arg0);
 
 #pragma push
 #pragma opt_common_subs on
-s16 *TLobby__sub_8040FE9C(s16 arg0);
+s16 *get_active_entry_by_index__6TLobbyFs(s16 arg0);
 #pragma pop
 
 s32 TLobby__sub_8040FEE4(s32 arg0, s32 arg1);
@@ -2475,7 +2475,7 @@ struct G_80411BE8 { u8 pad[0x14]; s16 n; u8 pad2[0xE]; Ent_80411BE8 *p; };
 
 void TLobby__sub_80411BE8(void);
 
-s16 TLobby__sub_80411ECC(s16 arg0);
+s16 get_entry_field_26__6TLobbyFs(s16 arg0);
 #pragma pop
 
 s32 TLobby__sub_80413230(u8 *arg0, s32 arg1);

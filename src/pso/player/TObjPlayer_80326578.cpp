@@ -21,24 +21,24 @@ u8 *TObjPlayer__sub_803265C0(u8 *arg0);
 void * init_vtable_variant__10TObjPlayerFPv(void *, M2C_UNK, void *);
 u8 *alloc_from_obj_heap__10TObjPlayerFPv(M2C_UNK);
 extern s32 tl_05;
-u8 *TObjPlayer__sub_803266B8(u8 *arg0);
+u8 *create_vtable_variant__10TObjPlayerFPv(u8 *arg0);
 u8 *alloc_from_obj_heap__10TObjPlayerFPv(M2C_UNK);
 extern s32 tl_05;
-u8 *TObjPlayer__sub_80326924(u8 *arg0);
+u8 *create_obj_80326924__10TObjPlayerFPv(u8 *arg0);
 void * init_state_1536__10TObjPlayerFPv(void *, M2C_UNK, void *);
 u8 *alloc_from_obj_heap__10TObjPlayerFPv(M2C_UNK);
 extern s32 tl_05;
-u8 *TObjPlayer__sub_80326B7C(u8 *arg0);
+u8 *create_state_1536__10TObjPlayerFPv(u8 *arg0);
 void * init_variant_b__10TObjPlayerFPv(void *, M2C_UNK, void *);
 u8 *alloc_from_obj_heap__10TObjPlayerFPv(M2C_UNK);
 extern s32 tl_05;
-u8 *TObjPlayer__sub_80326CA4(u8 *arg0);
+u8 *create_variant_b__10TObjPlayerFPv(u8 *arg0);
 void TItemWeapon__ct(void *, void *);
 extern M2C_UNK lbl_804ECFB0[];
 u8 *TObjPlayer__sub_803268D8(u8 *arg0, u8 *arg1, s32 _w2);
 u8 *TItemTimerEvent__ct(void *, u32, s32, s32);
 extern void *lbl_804A0568[8];
-u8 *TObjPlayer__sub_8032697C(u8 *self, u32 base_arg, s32 tag, s32 timer, f32 value);
+u8 *init_timer_event_value__10TObjPlayerFPvUiiif(u8 *self, u32 base_arg, s32 tag, s32 timer, f32 value);
 void enable_flag20__10TObjPlayerFi(Rec_80326D54 *);
 s32 get_player_list__10TObjPlayerFv();
 void translate_matrix(s32, f32, f32, f32);
@@ -129,7 +129,7 @@ void *init_vtable_variant__10TObjPlayerFPv(void *arg0, M2C_UNK _w1, void * _w2) 
     return arg0;
 }
 
-u8 *TObjPlayer__sub_803266B8(u8 *arg0) {
+u8 *create_vtable_variant__10TObjPlayerFPv(u8 *arg0) {
     u8 *temp_r3;
     u8 *var_r0;
     if (arg0 != NULL) {
@@ -184,7 +184,7 @@ void spawn_armor_effects__10TObjPlayerFPv(void *arg0) {
         }
         temp_r3_3 = alloc__13TItemProArmorFi(0x30);
         if (temp_r3_3 != 0) {
-            TObjPlayer__sub_8032697C((u8 *)(temp_r3_3), (u32)(M2C_FIELD(arg0, u32 *, 0x174)), (s32)(get_id__13TItemProArmorFPv(arg0)), (s32)(0x2328), lbl_805DF658);
+            init_timer_event_value__10TObjPlayerFPvUiiif((u8 *)(temp_r3_3), (u32)(M2C_FIELD(arg0, u32 *, 0x174)), (s32)(get_id__13TItemProArmorFPv(arg0)), (s32)(0x2328), lbl_805DF658);
         }
     }
 }
@@ -211,7 +211,7 @@ u8 *TObjPlayer__sub_803268D8(u8 *arg0, u8 *arg1, s32 _w2) {
     return arg0;
 }
 
-u8 *TObjPlayer__sub_80326924(u8 *arg0) {
+u8 *create_obj_80326924__10TObjPlayerFPv(u8 *arg0) {
     u8 *temp_r3;
     u8 *var_r0;
     if (arg0 != NULL) {
@@ -225,7 +225,7 @@ u8 *TObjPlayer__sub_80326924(u8 *arg0) {
     return NULL;
 }
 
-u8 *TObjPlayer__sub_8032697C(u8 *self, u32 base_arg, s32 tag, s32 timer, f32 value) {
+u8 *init_timer_event_value__10TObjPlayerFPvUiiif(u8 *self, u32 base_arg, s32 tag, s32 timer, f32 value) {
     TItemTimerEvent__ct(self, base_arg, tag, timer);
     M2C_FIELD(self, void ***, 0x18) = lbl_804A0568;
     M2C_FIELD(self, f32 *, 0x2C) = value;
@@ -284,7 +284,7 @@ void *init_state_1536__10TObjPlayerFPv(void *arg0, M2C_UNK _w1, void * _w2) {
     return arg0;
 }
 
-u8 *TObjPlayer__sub_80326B7C(u8 *arg0) {
+u8 *create_state_1536__10TObjPlayerFPv(u8 *arg0) {
     u8 *temp_r3;
     u8 *var_r0;
     if (arg0 != NULL) {
@@ -310,7 +310,7 @@ void *init_variant_b__10TObjPlayerFPv(void *arg0, M2C_UNK _w1, void * _w2) {
     set_status_flags__10TObjPlayerFPvUi(arg0, 1);
     return arg0;
 }
-u8 *TObjPlayer__sub_80326CA4(u8 *arg0) {
+u8 *create_variant_b__10TObjPlayerFPv(u8 *arg0) {
     u8 *temp_r3;
     u8 *var_r0;
     if (arg0 != NULL) {

@@ -385,7 +385,7 @@ void destroy_part_object__11TBoss6Type2Fii(s32 arg0, s32 arg1);
 void ensure_particle_emitter__11TBoss6Type2FPvi(O_8032E7B4 *arg0, s32 arg1);
 void TBoss6Type2__sub_8032E8DC(Obj_8032E8DC *arg0);
 s32 VecCopy__FP3VecPC3Vec(void *, void *);
-s32 TBoss6Type2__sub_802BD2D0(void *, void *, void *);
+s32 get_push_points__11TBoss6Type2Fiii(void *, void *, void *);
 f32 vector_length(void *);
 f32 subtract_vector(void *, int);
 f32 normalize_vector(void *);
@@ -619,7 +619,7 @@ void push_out_from_points__11TBoss6Type2FPv(O_8032EBB4 *arg0) {
     f32 len;
     f32 f;
     if (arg0->p378 != 0) {
-        TBoss6Type2__sub_802BD2D0(arg0->p378, &pts[0], &pts[1]);
+        get_push_points__11TBoss6Type2Fiii(arg0->p378, &pts[0], &pts[1]);
         for (i = 0; i < 2; i++) {
             VecCopy__FP3VecPC3Vec(&v, &pts[i]);
             ((f32 (*)(void *, void *))subtract_vector)(&v, &arg0->pos);

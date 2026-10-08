@@ -461,9 +461,9 @@ M2C_UNK TObjPlayer__sub_800EBE48(f32);
 void push_material_color_override__10TObjPlayerFffff(f32, f32, f32, f32);
 s32 get_attack_target__15TObjEneSlimeOneFPv(s32);
 s32 TObjEneSlimeOne__sub_800EC39C(int);
-s32 TObjEneSlimeOne__sub_800EC3D0(void *, f32);
+s32 find_nearest_enemy_masked__15TObjEneSlimeOneFPvf(void *, f32);
 s32 is_timer_active__15TObjEneSlimeOneFPv(void *);
-s32 TObjEneSlimeOne__sub_800EC428(void *, f32 *, f32);
+s32 find_nearest_enemy_with_flag__15TObjEneSlimeOneFPvif(void *, f32 *, f32);
 s16 check_player_field_7cc__15TObjEneSlimeOneFPv();
 s32 is_reached_target_depth__15TObjEneSlimeOneFPv(s32);
 int TObjEneSlimeOne__sub_800EC7F4(void*, void*);
@@ -838,7 +838,7 @@ s32 water_bomb_hit_nearby(u8 *arg0) {
             hit = 1;
         }
     }
-    id2 = TObjEneSlimeOne__sub_800EC3D0(arg0, lbl_805DA6A8);
+    id2 = find_nearest_enemy_masked__15TObjEneSlimeOneFPvf(arg0, lbl_805DA6A8);
     if (id2 != 0xFFFF) {
         e2 = get_enemy_entity(id2);
         if (e2 != NULL && !(horizontal_distance_squared(arg0 + 0x2FC, (u8 *)e2 + 0x2FC) > lbl_805DA6A8)) {
@@ -1246,7 +1246,7 @@ void TObjPlayer__sub_800E9DC8(Obj_800E9DC8 *arg0) {
     s32 r = 0;
     s32 t;
     arg0->f60 = arg0->f60 + arg0->f3C4;
-    if (TObjEneSlimeOne__sub_800EC428(arg0, sp, lbl_805DA728) != 0xFFFF) {
+    if (find_nearest_enemy_with_flag__15TObjEneSlimeOneFPvif(arg0, sp, lbl_805DA728) != 0xFFFF) {
         t = (s32) (lbl_8043D280[0] * get_ad_end_text_start__10TObjPlayerFv(sp[0], sp[2]));
         if (angle_difference_abs(arg0->f60, t) < 0x444) {
             arg0->f60 = t;

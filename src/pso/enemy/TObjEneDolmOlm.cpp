@@ -487,16 +487,16 @@ extern const f32 lbl_805DE6F4;
 void toggle_effect_render__14TObjEneDolmOlmFv(void);
 s32 copy_target_state__14TObjEnePanarmsFPvPv(void *, int);
 s32 play_sound_effect(void *, void *, int, int);
-void TObjEneDolmOlm__sub_80300EB0(s32 arg0);
+void play_sound_4003a801__14TObjEneDolmOlmFi(s32 arg0);
 s32 copy_target_state__14TObjEnePanarmsFPvPv(void *, int);
 s32 play_sound_effect(void *, void *, int, int);
-void TObjEneDolmOlm__sub_80300EF4(s32 arg0);
+void play_sound_4003a802__14TObjEneDolmOlmFi(s32 arg0);
 s32 copy_target_state__14TObjEnePanarmsFPvPv(void *, int);
 s32 play_sound_effect(void *, void *, int, int);
-void TObjEneDolmOlm__sub_80300F38(s32 arg0);
+void play_sound_4003b203__14TObjEneDolmOlmFi(s32 arg0);
 s32 copy_target_state__14TObjEnePanarmsFPvPv(void *, int);
 s32 play_sound_effect(void *, void *, int, int);
-void TObjEneDolmOlm__sub_80300F7C(s32 arg0);
+void play_sound_4003AD00__14TObjEneDolmOlmFi(s32 arg0);
 s32 spawn_ground_effect__10TObjPlayerFPvi(void *, int);
 s32 TObjPlayer__sub_800D92BC(void *, int);
 f32 vec3_add_to(void *, void *);
@@ -1109,8 +1109,8 @@ void *lbl_804E6928[103] = {
     (void *)&apply_hit_message_flags__10TObjPlayerFPvPv, (void *)&apply_set_data__9TObjEnemyFPvPv, (void *)&fn_800F5D80, (void *)&TObjEneDolmOlm__sub_80302004,
     (void *)&beast_idle_update, (void *)&update_turn_toward_target__10TObjPlayerFPv, (void *)&beast_update_approach, (void *)&beast_update_group_chase,
     (void *)&beast_update_attack, (void *)&TObjPlayer__sub_800C53B4, (void *)&beast_update_hurt, (void *)&beast_update_dead,
-    (void *)&beast_retire_corpse, (void *)&update_effect_joint_pos__14TObjEneDolmOlmFPv, (void *)&spawn_front_ground_effect__14TObjEneDolmOlmFPv, (void *)&TObjEneDolmOlm__sub_80300F7C,
-    (void *)&TObjEneDolmOlm__sub_80300F38, (void *)&TObjEneDolmOlm__sub_80300EF4, (void *)&TObjEneDolmOlm__sub_80300EB0, (void *)&TObjPlayer__sub_800AC9D8,
+    (void *)&beast_retire_corpse, (void *)&update_effect_joint_pos__14TObjEneDolmOlmFPv, (void *)&spawn_front_ground_effect__14TObjEneDolmOlmFPv, (void *)&play_sound_4003AD00__14TObjEneDolmOlmFi,
+    (void *)&play_sound_4003b203__14TObjEneDolmOlmFi, (void *)&play_sound_4003a802__14TObjEneDolmOlmFi, (void *)&play_sound_4003a801__14TObjEneDolmOlmFi, (void *)&TObjPlayer__sub_800AC9D8,
     (void *)&check_scale_trigger__14TObjEneDolmOlmFPv, (void *)&TObjEneDolmOlm__sub_80300CFC, (void *)&TObjEneDolmOlm__sub_803012F8,
 };
 
@@ -1165,19 +1165,19 @@ void init_body_sub__14TObjEneDolmOlmFPv(void *arg0) {
     spawn_ground_effects__14TObjEneDolmOlmFPvPv((u8 *)(arg0), (Vec_80300D00 *)((s8 *)arg0 + 0x38));
 }
 
-void TObjEneDolmOlm__sub_80300EB0(s32 arg0) {
+void play_sound_4003a801__14TObjEneDolmOlmFi(s32 arg0) {
     play_sound_effect((void *) (copy_target_state__14TObjEnePanarmsFPvPv((void *) (arg0), (int) (0x4003A801))), (void *) (arg0 + 0x38), (int) (0), (int) (0));
 }
 
-void TObjEneDolmOlm__sub_80300EF4(s32 arg0) {
+void play_sound_4003a802__14TObjEneDolmOlmFi(s32 arg0) {
     play_sound_effect((void *) (copy_target_state__14TObjEnePanarmsFPvPv((void *) (arg0), (int) (0x4003A802))), (void *) (arg0 + 0x38), (int) (0), (int) (0));
 }
 
-void TObjEneDolmOlm__sub_80300F38(s32 arg0) {
+void play_sound_4003b203__14TObjEneDolmOlmFi(s32 arg0) {
     play_sound_effect((void *) (copy_target_state__14TObjEnePanarmsFPvPv((void *) (arg0), (int) (0x4003B203))), (void *) (arg0 + 0x38), (int) (0), (int) (0));
 }
 
-void TObjEneDolmOlm__sub_80300F7C(s32 arg0) {
+void play_sound_4003AD00__14TObjEneDolmOlmFi(s32 arg0) {
     play_sound_effect((void *) (copy_target_state__14TObjEnePanarmsFPvPv((void *) (arg0), (int) (0x4003AD00))), (void *) (arg0 + 0x38), (int) (0), (int) (0));
 }
 

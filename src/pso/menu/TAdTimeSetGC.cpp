@@ -94,7 +94,7 @@ extern "C" void TAdSinglePlyChrSelectGC__sub_802E2610();
 extern "C" void TAdSinglePlyChrSelectGC__sub_802E2848();
 extern "C" void TAdSinglePlyChrSelectGC__sub_802E289C();
 extern "C" void TAdSinglePlyChrSelectGC__sub_802E2A7C();
-extern "C" void TAdSinglePlyChrSelectGC__sub_802E2A88();
+extern "C" void advance_when_load_done__23TAdSinglePlyChrSelectGCFi();
 extern "C" void TAdSinglePlyChrSelectGC__sub_802E2BC8();
 extern "C" void TAdSinglePlyChrSelectGC__sub_802E2BD4();
 extern "C" void TAdSinglePlyChrSelectGC__sub_802E2D3C();
@@ -151,7 +151,7 @@ void *lbl_804E3050[149] = {
     (void *)&close_scene__23TAdSinglePlyChrSelectGCFi, (void *)0x0, (void *)0xffffffff, (void *)&TAdSinglePlyChrSelectGC__sub_802E2BD4,
     (void *)0x0, (void *)0xffffffff, (void *)&TAdSinglePlyChrSelectGC__sub_802E2BC8, (void *)0x0,
     (void *)0xffffffff, (void *)&update_timer__23TAdSinglePlyChrSelectGCFPv, (void *)0x0, (void *)0xffffffff,
-    (void *)&create_backgrounds__23TAdSinglePlyChrSelectGCFi, (void *)0x0, (void *)0xffffffff, (void *)&TAdSinglePlyChrSelectGC__sub_802E2A88,
+    (void *)&create_backgrounds__23TAdSinglePlyChrSelectGCFi, (void *)0x0, (void *)0xffffffff, (void *)&advance_when_load_done__23TAdSinglePlyChrSelectGCFi,
     (void *)0x0, (void *)0xffffffff, (void *)&TAdSinglePlyChrSelectGC__sub_802E2A7C, (void *)0x0,
     (void *)0xffffffff, (void *)&update_char_timer__23TAdSinglePlyChrSelectGCFPv, (void *)0x0, (void *)0xffffffff,
     (void *)&init_screen__23TAdSinglePlyChrSelectGCFPv, (void *)0x0, (void *)0xffffffff, (void *)&TAdSinglePlyChrSelectGC__sub_802E289C,

@@ -2003,7 +2003,7 @@ void TObjEneDellBiter__sub_80305E1C(u8 *arg0);
 void init_target_offsets__16TObjEneDellBiterFPv(u8 *arg0);
 void update_particle_emitters__16TObjEneDellBiterFPv(u8 *arg0);
 void TObjEneDellBiter__vt86(void);
-void TObjEneDellBiter__sub_80306110(u8 *arg0);
+void set_effect_pos_above_self__16TObjEneDellBiterFPv(u8 *arg0);
 void TObjEneDellBiter__vt59(void);
 void TObjEneDellBiter__vt60(u8 *arg0);
 void TObjEneDellBiter__vt61(void* p);
@@ -3774,7 +3774,7 @@ void update_particle_emitters__16TObjEneDellBiterFPv(u8 *arg0) {
 
 void TObjEneDellBiter__vt86(void) {  }
 
-void TObjEneDellBiter__sub_80306110(u8 *arg0) {
+void set_effect_pos_above_self__16TObjEneDellBiterFPv(u8 *arg0) {
     ((void (*)(void *, void *))VecCopy__FP3VecPC3Vec)(arg0 + 0x2FC, arg0 + 0x38);
     M2C_FIELD(arg0, f32 *, 0x300) = (f32) (M2C_FIELD(arg0, f32 *, 0x300) + lbl_805DF028);
     ((void (*)(void *, void *))VecCopy__FP3VecPC3Vec)(arg0 + 0x74, arg0 + 0x2FC);
@@ -3813,7 +3813,7 @@ void run_task__16TObjEneDellBiterFv(u8 *arg0) {
     if (M2C_FIELD(arg0, s32 *, 0x3C4) & 0x4000) {
         set_active__12TObjEneReconFv();
     }
-    TObjEneDellBiter__sub_80306110((u8 *)((void *) (arg0)));
+    set_effect_pos_above_self__16TObjEneDellBiterFPv((u8 *)((void *) (arg0)));
     set_player_state_default__12TBoss8DragonFPv((void *) (arg0));
     ((VObj_18 *)(arg0))->m98();
 }

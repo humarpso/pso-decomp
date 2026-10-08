@@ -9,7 +9,7 @@ struct G_8006F2CC { u8 pad[0x28]; s32 x28; };
 extern "C" {
 extern M2C_UNK lbl_8048C9D8[];
 s32 is_flag_set__6TLobbyFv();
-void TLobby__sub_8006F2CC(void);
+void advance_state_if_flag_set__6TLobbyFv(void);
 }
 
 extern "C" {
@@ -32,7 +32,7 @@ s32 calc_challenge_time_limit__6TLobbyFv(void) {
     }
     return var_r3;
 }
-void TLobby__sub_8006F2CC(void) {
+void advance_state_if_flag_set__6TLobbyFv(void) {
     if (is_flag_set__6TLobbyFv() != 0) {
         switch ((*(G_8006F2CC *)&lbl_8048C9D8).x28) {
         case 0:

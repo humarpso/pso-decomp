@@ -8,7 +8,7 @@ struct P_802A1544 { u8 pad0[0x408]; s8 v[0x14]; };
 
 extern "C" {
 s8 get_item_count_max__10TObjPlayerFv();
-void TObjPlayer__sub_802A1544(P_802A1544 *arg0);
+void init_item_counts_max__10TObjPlayerFPv(P_802A1544 *arg0);
 }
 
 extern "C" {
@@ -37,9 +37,9 @@ void copy_lobby_header__10TObjPlayerFPvi(s32 *arg0, s32 arg1) {
     export_character_data__10TObjPlayerFPvPv((void *) (arg1), (void *) ((s8 *)arg0 + 0xC));
 }
 
-void initialize_player_data__10TObjPlayerFPv(void* p) { *(unsigned char*)((char*)p + 0x3) = 0; *(unsigned char*)((char*)p + 0x2) = 0; *(unsigned char*)((char*)p + 0x1) = 0; *(unsigned char*)(p) = 0; init_inventory_items__12TPlyCharDataFPv(p); reset_state__14TAdSelectTxtGCFPv((char*)p + 0x34c); fn_802A15BC((char*)p + 0x370); TObjPlayer__sub_802A1588((void*)((char*)p + 0x3c0)); TObjPlayer__sub_802A1544((P_802A1544 *)(p)); }
+void initialize_player_data__10TObjPlayerFPv(void* p) { *(unsigned char*)((char*)p + 0x3) = 0; *(unsigned char*)((char*)p + 0x2) = 0; *(unsigned char*)((char*)p + 0x1) = 0; *(unsigned char*)(p) = 0; init_inventory_items__12TPlyCharDataFPv(p); reset_state__14TAdSelectTxtGCFPv((char*)p + 0x34c); fn_802A15BC((char*)p + 0x370); TObjPlayer__sub_802A1588((void*)((char*)p + 0x3c0)); init_item_counts_max__10TObjPlayerFPv((P_802A1544 *)(p)); }
 
-void TObjPlayer__sub_802A1544(P_802A1544 *arg0) {
+void init_item_counts_max__10TObjPlayerFPv(P_802A1544 *arg0) {
     s32 i;
     for (i = 0; i < 0x14; i++) {
         arg0->v[i] = get_item_count_max__10TObjPlayerFv();

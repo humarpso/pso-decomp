@@ -12,7 +12,7 @@ u8 * load_resource_from_descriptor(void *, s32, void *, s32, s32, s32);
 int alloc__23TAdSinglePlyChrSelectGCFPv(void *);
 extern RecoveredGlobal_80159D24_lbl_804AFD0C lbl_804AFD0C;
 extern u32 lbl_805D58A8;
-void TOBoss4__sub_80159D24(void);
+void load_static_resource__7TOBoss4Fv(void);
 }
 
 extern "C" {
@@ -36,7 +36,7 @@ void free_instance__7TOBoss4Fv(void) {
 
 extern M2C_UNK __vt__7TOBoss4[];
 
-void TOBoss4__sub_80159D24(void) {
+void load_static_resource__7TOBoss4Fv(void) {
     s32 temp_r3;
     s32 var_r0;
     temp_r3 = alloc__23TAdSinglePlyChrSelectGCFPv((void *)0x440);

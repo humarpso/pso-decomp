@@ -62,7 +62,7 @@ void set_flag_80000__10TObjPlayerFPv(void* p);
 extern s32 lbl_805D5544;
 void export_player_record__10TObjPlayerFPvPv(u8 *arg0, u8 *arg1);
 void is_slot_within_limit__10TObjPlayerFiiUc(u8 id, s16 i, u8 v);
-void TObjPlayer__sub_802C457C(S_802C457C *self, s32 i, u8 v);
+void set_action_palette_slot__10TObjPlayerFPviUc(S_802C457C *self, s32 i, u8 v);
 }
 
 extern "C" {
@@ -142,7 +142,7 @@ void TObjPlayer__sub_802C456C(Obj_802C456C *self, s32 i, u8 v) {
     self->recs[i].f6 = v;
 }
 
-void TObjPlayer__sub_802C457C(S_802C457C *self, s32 i, u8 v) {
+void set_action_palette_slot__10TObjPlayerFPviUc(S_802C457C *self, s32 i, u8 v) {
     is_slot_within_limit__10TObjPlayerFiiUc(self->f3A1, i, v);
     self->buf[i] = v;
 }

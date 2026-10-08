@@ -41,7 +41,7 @@ extern const f32 lbl_805DCB88;
 extern const f32 lbl_805DCB8C;
 extern const f32 lbl_805DCB90;
 void setup_part_sprites__28TWindowSubSymbolChatPartsSetFPvPvPvUsiiii(Part_802480EC *arg0, Part_802480EC *arg1, Part_802480EC *arg2, u16 arg3, s32 arg4, s32 arg5, s32 arg6, s32 arg7);
-void TWindowSubSymbolChatPartsSet__sub_80247F10(u8 *arg0, s16 arg1, s16 arg2);
+void set_pos__28TWindowSubSymbolChatPartsSetFPvss(u8 *arg0, s16 arg1, s16 arg2);
 void TWindowSubSymbolChatPartsSet__sub_80247F68(void *, s16, s32, s32);
 void apply_part_to_window__28TWindowSubSymbolChatPartsSetFPvPvi(Obj_80248088 *arg0, Part_80248088 *arg1, s32 arg2);
 }
@@ -93,7 +93,7 @@ extern const f32 lbl_805DCB9C;
 
 int get_parts_entry__28TWindowSubSymbolChatPartsSetFi(int a0) {  return lbl_8044EA74[a0]; }
 
-void TWindowSubSymbolChatPartsSet__sub_80247F10(u8 *arg0, s16 arg1, s16 arg2) {
+void set_pos__28TWindowSubSymbolChatPartsSetFPvss(u8 *arg0, s16 arg1, s16 arg2) {
     M2C_FIELD(arg0, f32 *, 8) = (f32) (lbl_805DCB78 + (f32) arg1);
     M2C_FIELD(arg0, f32 *, 0xC) = (f32) arg2;
 }
@@ -106,7 +106,7 @@ void apply_part_to_window__28TWindowSubSymbolChatPartsSetFPvPvi(Obj_80248088 *ar
     void *w;
     u8 f;
     w = arg0->tbl->win[arg2];
-    TWindowSubSymbolChatPartsSet__sub_80247F10((u8 *)(w), (s16)(arg1->a), (s16)(arg1->b));
+    set_pos__28TWindowSubSymbolChatPartsSetFPvss((u8 *)(w), (s16)(arg1->a), (s16)(arg1->b));
     f = arg1->flags;
     TWindowSubSymbolChatPartsSet__sub_80247F68(w, arg1->id, f & 1, (f >> 1) & 1);
 }

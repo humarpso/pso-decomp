@@ -448,11 +448,11 @@ void TBoss6Type1__sub_802B5CB4(u8 *arg0);
 extern const s32 lbl_805DE2D4;
 void TBoss6Type1__sub_802B4B34(Obj_802B4B34 *self);
 s32 calc_field4b0_delta__11TBoss6Type1FPv(void *arg0);
-int TBoss6Type1__sub_802B5E48(Obj_802B5E48 *self);
+int is_field4b0_delta_reached__11TBoss6Type1FPv(Obj_802B5E48 *self);
 void TBoss6Type1__sub_802B4D38(Obj_802B4D38 *self);
 extern const f32 lbl_805DE2F0;
 extern const f32 lbl_805DE2EC;
-void TBoss6Type1__sub_802B5100(Obj_802B5100 *self, s32 a, s32 b);
+void ease_toward_target__11TBoss6Type1FPvii(Obj_802B5100 *self, s32 a, s32 b);
 Blk_802B8624 *TBoss6Type1__sub_802B8624(Blk_802B8624 *d, Blk_802B8624 *s);
 void TBoss6Type1__sub_802B5DD4(Obj_802B5DD4 *self);
 u32 create_particle_emitter(void *, int);
@@ -770,7 +770,7 @@ void interpolate_pos_to_target__11TBoss6Type1FPvii(Boss_802B4EAC *self, s32 step
 
 #pragma push
 #pragma fp_contract on
-void TBoss6Type1__sub_802B5100(Obj_802B5100 *self, s32 a, s32 b) {
+void ease_toward_target__11TBoss6Type1FPvii(Obj_802B5100 *self, s32 a, s32 b) {
     s32 h = b / 2;
     if (b <= 0 || a <= h) return;
     self->f3c += lbl_805DE2EC * ((lbl_805DE2F0 + self->f424) - self->f3c);
@@ -1134,7 +1134,7 @@ s32 is_field3F8_over_0x20__11TBoss6Type1FPv(void *arg0) {
     return TBoss6PlotFalz__sub_802AAC74(M2C_FIELD(arg0, s32 *, 0x3F8)) > 0x20;
 }
 
-int TBoss6Type1__sub_802B5E48(Obj_802B5E48 *self) {
+int is_field4b0_delta_reached__11TBoss6Type1FPv(Obj_802B5E48 *self) {
     return calc_field4b0_delta__11TBoss6Type1FPv(self) >= self->f498 ? 1 : 0;
 }
 

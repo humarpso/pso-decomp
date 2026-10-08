@@ -84,9 +84,9 @@ struct Obj_800DDC30 {
 
 extern "C" {
 void obj_clearFlags30(void *, u32);
-void TObjEnePanarms__sub_800DD738(u8 *arg0);
+void set_flags_and_field_b8__14TObjEnePanarmsFPv(u8 *arg0);
 void obj_clearFlags30(void *, u32);
-void TObjEnePanarms__sub_800DD954(u8 *arg0);
+void set_state_flags_6__14TObjEnePanarmsFPv(u8 *arg0);
 void obj_clearFlags30(void *, u32);
 void enter_down_state__14TObjEnePanarmsFPv(u8 *arg0);
 void obj_clearFlags30(void *, u32);
@@ -196,7 +196,7 @@ void play_attack_sounds__14TObjEnePanarmsFPv(Obj_800DE2D0 *arg0);
 s32 TObjEnePanarms__sub_800DFB44(s32);
 s32 TObjEnePanarms__sub_800DE390(Obj_800DE390 *arg0);
 f64 get_ad_end_text_start__10TObjPlayerFv(f32, f32);
-s32 TObjEnePanarms__sub_800DFBD0(void *, f32 *, f32);
+s32 find_nearest_enemy_with_flag__14TObjEnePanarmsFPvif(void *, f32 *, f32);
 s32 approach_angle_limited(s32, s32, s32);
 extern const f64 TObjEnePanarms__data_8043CD20;
 extern const f32 lbl_805DA4F0;
@@ -569,7 +569,7 @@ void update_particle_emitters__14TObjEnePanarmsFPv(Obj_800DD690 *arg0) {
     }
 }
 
-void TObjEnePanarms__sub_800DD738(u8 *arg0) {
+void set_flags_and_field_b8__14TObjEnePanarmsFPv(u8 *arg0) {
     u8 *temp_r5;
     temp_r5 = (u8 *)(M2C_FIELD(arg0, u8 **, 0x390));
     M2C_FIELD(temp_r5, s32 *, 0x18) = (s32) (M2C_FIELD(temp_r5, s32 *, 0x18) | 1);
@@ -630,7 +630,7 @@ void update_particle_emitters_set2__14TObjEnePanarmsFPv(Obj_800DD8AC *arg0) {
     }
 }
 
-void TObjEnePanarms__sub_800DD954(u8 *arg0) {
+void set_state_flags_6__14TObjEnePanarmsFPv(u8 *arg0) {
     u8 *temp_r5;
     temp_r5 = (u8 *)(M2C_FIELD(arg0, u8 **, 0x390));
     M2C_FIELD(temp_r5, s32 *, 0x18) = (s32) (M2C_FIELD(temp_r5, s32 *, 0x18) | 1);
@@ -1026,7 +1026,7 @@ M2C_UNK find_combine_position__14TObjEnePanarmsFPv(void *p) {
 
 void turn_toward_target__14TObjEnePanarmsFPvi(Obj_800DE9F0 *arg0, s32 arg1) {
     f32 sp[3];
-    if (TObjEnePanarms__sub_800DFBD0(arg0, sp, lbl_805DA4F0) == 0xFFFF) {
+    if (find_nearest_enemy_with_flag__14TObjEnePanarmsFPvif(arg0, sp, lbl_805DA4F0) == 0xFFFF) {
         if (arg0->f1C & 1) {
             arg1 *= -1;
         }

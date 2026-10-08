@@ -13,7 +13,7 @@ typedef struct Techs_801D9D24 {
 
 extern "C" {
 void TObjPlayer__sub_801D9E2C(void *, s16);
-void TObjPlayer__sub_801D9CE0(void *arg0);
+void reset_all_tech_slots__10TObjPlayerFPv(void *arg0);
 void set_technique_id__10TObjPlayerFPvs(void *, s16);
 u8 get_item_count_max__10TObjPlayerFv(void);
 void set_technique_state__10TObjPlayerFPvi(void *, s32);
@@ -22,7 +22,7 @@ void TObjPlayer__sub_801D2CC4(void *, f32);
 void set_tech_override__10TObjPlayerFPvUc(void *, u8);
 void set_tech_level__10TObjPlayerFPvs(void *, s16);
 void reset_slots__10TObjPlayerFPv(void *);
-void TObjPlayer__sub_801D9CE0(void *arg0);
+void reset_all_tech_slots__10TObjPlayerFPv(void *arg0);
 s32 TObjPlayer__sub_801D9E08(void *);
 void TObjPlayer__sub_801D9E10(void *, s32);
 void set_field_1c__10TObjPlayerFPvf(void *, f32);
@@ -34,7 +34,7 @@ void reset_tech_state__10TObjPlayerFPv(Techs_801D9D24 *self);
 
 extern "C" {
 
-void TObjPlayer__sub_801D9CE0(void *arg0) {
+void reset_all_tech_slots__10TObjPlayerFPv(void *arg0) {
     s32 i = 0;
     do {
         TObjPlayer__sub_801D9E2C(arg0, i);
@@ -60,7 +60,7 @@ void reset_tech_state__10TObjPlayerFPv(Techs_801D9D24 *self) {
     TObjPlayer__sub_801D2CC4(self, lbl_805DC408);
     set_field18__10TObjPlayerFPvf(self, lbl_805DC408);
     set_field_1c__10TObjPlayerFPvf(self, lbl_805DC40C);
-    TObjPlayer__sub_801D9CE0(self);
+    reset_all_tech_slots__10TObjPlayerFPv(self);
     reset_slots__10TObjPlayerFPv(self);
     self->fa = 0;
     self->f3 = 0;

@@ -43,7 +43,7 @@ u8 * load_resource_from_descriptor(void *, s32, void *, s32, s32, s32);
 int alloc__23TAdSinglePlyChrSelectGCFPv(void *);
 extern RecoveredGlobal_80350808_lbl_804F0DF0 lbl_804F0DF0;
 extern u32 TObjRainbowLobby__data_805D6EB0;
-void TObjRainbowLobby__sub_80350808(void);
+void load_shared_resource__16TObjRainbowLobbyFv(void);
 void *__dt__16TObjRainbowLobbyFv(void *arg0, s16 arg1);
 void __dl__7TObjectFPv(void *);
 void destroy_key_base__5TOKeyFPvs(void *, int);
@@ -117,7 +117,7 @@ void free_static_data__16TObjRainbowLobbyFv(void) {
         TObjRainbowLobby__data_805D6EB0 = 0U;
     }
 }
-void TObjRainbowLobby__sub_80350808(void) {
+void load_shared_resource__16TObjRainbowLobbyFv(void) {
     s32 temp_r3;
     s32 var_r0;
     temp_r3 = alloc__23TAdSinglePlyChrSelectGCFPv((void *)0x440);

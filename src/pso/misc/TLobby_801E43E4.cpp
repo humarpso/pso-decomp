@@ -28,7 +28,7 @@ s32 get_resource_file_size__6TLobbyFPv(char *);
 void load_sct_file__8TGStreamFii(char *, void *);
 void debug_print__6TLobbyFii(const char *, ...);
 void change_file_extension__6TLobbyFPvPvPv(s32, char *, char *);
-s32 TLobby__sub_8013194C(char *, char *);
+s32 compare_file_extension__6TLobbyFPvPv(char *, char *);
 char *strncpy(char *, const char *, u32);
 s32 load_gvm_texture_archive(void *, s32);
 extern char lbl_80449798[];
@@ -172,7 +172,7 @@ s32 load_texture_pvm_file__6TLobbyFPvi(const char *name, s32 arg1) {
     s32 ret;
     pump_frames__6TLobbyFv();
     strncpy(path, name, 0x40);
-    if (TLobby__sub_8013194C(path, lbl_805DC448) != 0) {
+    if (compare_file_extension__6TLobbyFPvPv(path, lbl_805DC448) != 0) {
         change_file_extension__6TLobbyFPvPvPv(0, path, lbl_805DC448);
     }
     size = get_resource_file_size__6TLobbyFPv(path);

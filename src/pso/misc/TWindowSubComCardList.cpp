@@ -74,7 +74,7 @@ extern const f32 lbl_805DD540;
 extern const f32 lbl_805DD544;
 extern const f32 lbl_805DD548;
 u8 *TWindowSubComCardList__ct(u8 *arg0, void *arg1);
-s32 TWindowSubComCard__sub_8007AF60(s32, s32);
+s32 count_leading_active__17TWindowSubComCardFPvi(s32, s32);
 void *alloc__23TAdSinglePlyChrSelectGCFPv(u32);
 M2C_UNK set_flag70_bit10__16TObjCityMainWarpFPv(void *);
 M2C_UNK set_selected_index__17TWindowSubComCardFPvs(void *, M2C_UNK);
@@ -201,7 +201,7 @@ u8 *TWindowSubComCardList__sub_802757AC(u8 *arg0, void *arg1, s32 arg2, s32 arg3
     TWindowMenu__ct(arg0, 7, 4, arg1);
     *(M2C_UNK **)(arg0 + 0x18) = __vt__21TWindowSubComCardList;
     *(s32 *)(arg0 + 0) = lbl_805D3A18;
-    n = round_away_from_zero__20TWindowSubStatusDispFf((f32)TWindowSubComCard__sub_8007AF60(arg2, arg3) / lbl_805DD540);
+    n = round_away_from_zero__20TWindowSubStatusDispFf((f32)count_leading_active__17TWindowSubComCardFPvi(arg2, arg3) / lbl_805DD540);
     if (n <= 0) {
         n = 1;
     }

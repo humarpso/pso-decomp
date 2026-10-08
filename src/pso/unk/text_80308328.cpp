@@ -9,7 +9,7 @@ struct T_80308328 { u8 pad0[0x40]; u32 flags; u8 pad44[0xC]; s32 f50; u8 pad54[0
 extern "C" {
 s32 draw_icon__10TObjPlayerFPvii(void *, s32, s32);
 M2C_UNK fire_shot_at_target__11TItemWeaponFv(void *, void *, int, int);
-void TObjPlayer__sub_80308368(u8 *arg0);
+void fire_shot_from_icon__10TObjPlayerFPv(u8 *arg0);
 void fn_80308244();
 s32 apply_config_if_valid__13TAdVIConfigGCFii(s32, s32);
 void TObjPlayer__sub_80308328(void *self, T_80308328 *p);
@@ -26,7 +26,7 @@ void TObjPlayer__sub_80308328(void *self, T_80308328 *p) {
     p->flags |= 0x80;
 }
 
-void TObjPlayer__sub_80308368(u8 *arg0) {
+void fire_shot_from_icon__10TObjPlayerFPv(u8 *arg0) {
     M2C_UNK sp8;
     draw_icon__10TObjPlayerFPvii(arg0, 1, (s32) &sp8);
     fire_shot_at_target__11TItemWeaponFv((void *) (arg0), (void *) (&sp8), (int) (M2C_FIELD(arg0, s32 *, 0x188)), (int) (0));

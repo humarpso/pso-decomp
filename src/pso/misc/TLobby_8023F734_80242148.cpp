@@ -58,7 +58,7 @@ extern u8 lbl_80517EE0[];
 void find_and_load_com_card__6TLobbyFUi(u32 arg0);
 void __copy(void *, void *, int);
 Entry_80242380 *copy_com_card_entry__6TLobbyFPvPv(Entry_80242380 *dst, Entry_80242380 *src);
-char *TLobby__sub_80242458(char *src, char *dst);
+char *parse_csv_token__6TLobbyFPvPv(char *src, char *dst);
 }
 
 extern "C" {
@@ -129,7 +129,7 @@ Entry_80242380 *copy_com_card_entry__6TLobbyFPvPv(Entry_80242380 *dst, Entry_802
 void* get_com_card_entry__6TLobbyFi(int a0) {  return (char*)lbl_80517F9C + a0 * 188; }
 typedef char RecoveredGlobal_8024259C_TLobby__data_8050AAAC_size[sizeof(RecoveredGlobal_8024259C_TLobby__data_8050AAAC) == 0x28 ? 1 : -1];
 
-char *TLobby__sub_80242458(char *src, char *dst) {
+char *parse_csv_token__6TLobbyFPvPv(char *src, char *dst) {
     s32 i;
     for (i = 0x10; i != 0; i--) {
         char c = *src;

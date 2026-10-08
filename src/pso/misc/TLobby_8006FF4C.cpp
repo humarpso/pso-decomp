@@ -78,7 +78,7 @@ extern s32 lbl_805D53A0;
 void TLobby__sub_80070358(void);
 void TLobby__sub_8007032C(void);
 void TLobby__sub_800738F4(void *, s32);
-void TLobby__sub_80070024(void *self, s32 v);
+void set_challenge_record_page__6TLobbyFPvi(void *self, s32 v);
 s32 get_main_phase(void);
 s32 get_global_state__14TOKeyMachine01Fv(void);
 void create_obj_tag_challenge(s32);
@@ -431,7 +431,7 @@ void update_battle_cleanup_flag__6TLobbyFPv(void *arg0) {
 
 typedef char RecoveredGlobal_80070358_lbl_8048C9D8_size[sizeof(RecoveredGlobal_80070358_lbl_8048C9D8) == 0x748 ? 1 : -1];
 
-void TLobby__sub_80070024(void *self, s32 v) {
+void set_challenge_record_page__6TLobbyFPvi(void *self, s32 v) {
     if (v < 0 || v >= 0x11) {
         return;
     }

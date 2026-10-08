@@ -432,8 +432,8 @@ M2C_UNK set_field_378__9TObjEneDDFPvi(void *, M2C_UNK);
 M2C_UNK transition_enemy_state(void *, M2C_UNK);
 M2C_UNK advance_animation_playback(void *);
 void TObjEneEpsilonGuard__sub_8035E578(u8 *arg0, s32 arg1);
-s32 TObjEneEpsilonGuard__sub_8035DDC8(O_8035DDC8 *self);
-s32 TObjEneEpsilonGuard__sub_8035DE08(O_8035DE08 *self);
+s32 is_state_flag_set__19TObjEneEpsilonGuardFPv(O_8035DDC8 *self);
+s32 is_guard_ready__19TObjEneEpsilonGuardFPv(O_8035DE08 *self);
 M2C_UNK set_field_378__9TObjEneDDFPvi(void *, M2C_UNK);
 M2C_UNK transition_enemy_state(void *, M2C_UNK);
 M2C_UNK advance_animation_playback(void *);
@@ -601,7 +601,7 @@ s32 TObjEneEpsilonGuard__sub_8035DD94(u8 *arg0) {
     return ((u32) M2C_FIELD(arg0, u32 *, 0x46C) >> 9U) & 1;
 }
 
-s32 TObjEneEpsilonGuard__sub_8035DDC8(O_8035DDC8 *self) {
+s32 is_state_flag_set__19TObjEneEpsilonGuardFPv(O_8035DDC8 *self) {
     if (self->f30 & 0xa00) {
         return 0;
     }
@@ -614,7 +614,7 @@ s32 TObjEneEpsilonGuard__sub_8035DDC8(O_8035DDC8 *self) {
     return (self->f46c & 4) ? 1 : 0;
 }
 
-s32 TObjEneEpsilonGuard__sub_8035DE08(O_8035DE08 *self) {
+s32 is_guard_ready__19TObjEneEpsilonGuardFPv(O_8035DE08 *self) {
     if (self->f30 & 0xa00) {
         return 0;
     }

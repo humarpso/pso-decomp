@@ -235,13 +235,13 @@ extern s32 lbl_805D5718;
 void blocking_vsync__6TLobbyFPv(void* _w0);
 void __construct_array(void *, void *, int, int, int);
 void TLobby__sub_8013A23C(void);
-s32 TLobby__sub_801A3DF0(s32 arg0);
+s32 construct_entry_array__6TLobbyFi(s32 arg0);
 void bswap_32__FPUl(void *);
-void TLobby__sub_801A3E38(u8 *arg0);
+void bswap_udp_test_header__6TLobbyFPv(u8 *arg0);
 s32 open_udp_socket_for_player__6TLobbyFi(s32);
 s32 handle_game_join__6TLobbyFPv(void *);
-s32 TLobby__sub_801A3DF0(s32 arg0);
-void TLobby__sub_801A3E38(u8 *arg0);
+s32 construct_entry_array__6TLobbyFi(s32 arg0);
+void bswap_udp_test_header__6TLobbyFPv(u8 *arg0);
 M2C_UNK delete_children__7TObjectFv(int);
 char *strcpy(char *, const char *);
 void *memset(void *, int, u32);
@@ -531,9 +531,9 @@ void TLobby__sub_801A3CF8(void) {  }
 
 void start_udp_test_game__6TLobbyFv(void) {
     Msg_801A3CFC msg;
-    TLobby__sub_801A3E38((u8 *)&lobby_udp_test_game_entries[0]);
-    TLobby__sub_801A3E38((u8 *)&lobby_udp_test_game_entries[1]);
-    TLobby__sub_801A3DF0((s32)&msg);
+    bswap_udp_test_header__6TLobbyFPv((u8 *)&lobby_udp_test_game_entries[0]);
+    bswap_udp_test_header__6TLobbyFPv((u8 *)&lobby_udp_test_game_entries[1]);
+    construct_entry_array__6TLobbyFi((s32)&msg);
     memset(&msg, 0, 0x114);
     msg.f104 = lbl_805D53A0;
     msg.f105 = TLobby__data_805D53AC;
@@ -553,12 +553,12 @@ void start_udp_test_game__6TLobbyFv(void) {
     open_udp_socket_for_player__6TLobbyFi(1 - lbl_805D53A0);
 }
 
-s32 TLobby__sub_801A3DF0(s32 arg0) {
+s32 construct_entry_array__6TLobbyFi(s32 arg0) {
     __construct_array((void *)(arg0 + 0x84), (void *)TLobby__sub_8013A23C, 0, 0x20, 4);
     return arg0;
 }
 
-void TLobby__sub_801A3E38(u8 *arg0) {
+void bswap_udp_test_header__6TLobbyFPv(u8 *arg0) {
     *(u32 *)(arg0 + 4) = arg0[0] + (arg0[1] << 8) + (arg0[2] << 16) + (arg0[3] << 24);
     bswap_32__FPUl(arg0 + 4);
 }

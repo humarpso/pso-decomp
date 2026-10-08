@@ -24,7 +24,7 @@ extern "C" {
 M2C_UNK memset(void *, int, int);
 extern RecoveredGlobal_803D259C_lbl_80587400 lbl_80587400;
 extern s32 lbl_805D7640;
-void TLobby__sub_803D259C(void);
+void release_ref_and_clear_buffer__6TLobbyFv(void);
 M2C_UNK memset(void *, int, int);
 void TLobby__sub_803D2434(u8 *arg0);
 void TLobby__sub_803D2624(void);
@@ -72,7 +72,7 @@ Slot_803D2474 *TLobby__sub_803D2474(s32 arg0, s32 arg1) {
 }
 #pragma pop
 
-void TLobby__sub_803D259C(void) {
+void release_ref_and_clear_buffer__6TLobbyFv(void) {
     s32 temp_r0;
     temp_r0 = lbl_805D7640 - 1;
     lbl_805D7640 = temp_r0;

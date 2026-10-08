@@ -99,7 +99,7 @@ u8 * load_resource_from_descriptor(void *, s32, void *, s32, s32, s32);
 int alloc__23TAdSinglePlyChrSelectGCFPv(void *);
 extern RecoveredGlobal_8030946C_lbl_804E7370 lbl_804E7370;
 extern u32 TBoss7Crawfish__data_805D6A60;
-void TBoss7Crawfish__sub_8030946C(void);
+void load_static_resource__14TBoss7CrawfishFv(void);
 M2C_UNK add_flags_2e4__10TObjPlayerFPvUi(void *, int);
 s32 dispatch_shared_handler_a__6TLobbyFPv(int);
 s32 register_object__6TLobbyFPv(int);
@@ -119,7 +119,7 @@ M2C_UNK reset_photon_effect__10TObjPlayerFPv(void *);
 M2C_UNK initialize_linked_object_reference(void *, void *);
 M2C_UNK get_or_assign_actor_id(void *, int);
 s32 TBoss7Crawfish__sub_80308AA8(void *);
-M2C_UNK TBoss7Crawfish__sub_80308B38(void *);
+M2C_UNK clear_object_state_exchange__14TBoss7CrawfishFi(void *);
 M2C_UNK TBoss7Crawfish__sub_80308ED8(void *, void *);
 M2C_UNK change_state__14TBoss7CrawfishFPvi(void *, int);
 void set_anim_timer__14TBoss7CrawfishFPvs(void* p, s16 v);
@@ -254,7 +254,7 @@ u8 *TBoss7Crawfish__ct(u8 *arg0, M2C_UNK arg1, s32 arg2) {
     }
     get_or_assign_actor_id((void *) (arg0), (int) (0));
     reset_photon_effect__10TObjPlayerFPv((void *) (arg0));
-    TBoss7Crawfish__sub_80308B38((void *) (arg0));
+    clear_object_state_exchange__14TBoss7CrawfishFi((void *) (arg0));
     change_state__14TBoss7CrawfishFPvi((void *) (arg0), (int) (0));
     v.z = TBoss7Crawfish__data_805DF0D8;
     v.y = TBoss7Crawfish__data_805DF0D8;
@@ -280,7 +280,7 @@ void destroy_instance__14TBoss7CrawfishFv(void) {
     }
 }
 
-void TBoss7Crawfish__sub_8030946C(void) {
+void load_static_resource__14TBoss7CrawfishFv(void) {
     s32 temp_r3;
     s32 var_r0;
     temp_r3 = alloc__23TAdSinglePlyChrSelectGCFPv((void *)0x440);

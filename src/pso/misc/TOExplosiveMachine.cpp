@@ -60,7 +60,7 @@ u8 * load_resource_from_descriptor(void *, s32, void *, s32, s32, s32);
 int alloc__23TAdSinglePlyChrSelectGCFPv(void *);
 extern RecoveredGlobal_80166614_lbl_804B1AA0 lbl_804B1AA0;
 extern u32 lbl_805D59A8;
-void TOExplosiveMachine__sub_80166614(void);
+void load_shared_resource__18TOExplosiveMachineFv(void);
 void destroy_particle__13TParticleCtrlFPvs(void *, int);
 void __dl__7TObjectFPv(void *);
 extern char __vt__18TOExplosiveMachine[];
@@ -121,7 +121,7 @@ void destroy_static_lobby__18TOExplosiveMachineFv(void) {
 
 extern const f32 lbl_805DB608;
 
-void TOExplosiveMachine__sub_80166614(void) {
+void load_shared_resource__18TOExplosiveMachineFv(void) {
     s32 temp_r3;
     s32 var_r0;
     temp_r3 = alloc__23TAdSinglePlyChrSelectGCFPv((void *)0x440);

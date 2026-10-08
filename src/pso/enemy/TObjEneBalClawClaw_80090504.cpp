@@ -75,7 +75,7 @@ extern "C" {
 void obj_clearFlags30(void *, u32);
 void TObjEneBalClawClaw__sub_80090798(u8 *arg0);
 void obj_setFlags30(void *, u32);
-void TObjEneBalClawClaw__sub_800907DC(u8 *arg0);
+void set_claw_flags__18TObjEneBalClawClawFPv(u8 *arg0);
 int reset_active_state__18TObjEneBalClawClawFPv(void* p);
 void run_active_state__18TObjEneBalClawClawFPv(u8 *arg0);
 void apply_actor_gravity(void *, int, f32);
@@ -187,7 +187,7 @@ void TObjEneBalClawClaw__sub_80090798(u8 *arg0) {
     M2C_FIELD(arg0, s32 *, 0x374) = 0xB;
 }
 
-void TObjEneBalClawClaw__sub_800907DC(u8 *arg0) {
+void set_claw_flags__18TObjEneBalClawClawFPv(u8 *arg0) {
     obj_setFlags30(arg0, 0x04040000U);
     M2C_FIELD(arg0, s32 *, 0x388) = (s32) (M2C_FIELD(arg0, s32 *, 0x388) & 0xDFFFFFFF);
     M2C_FIELD(arg0, s32 *, 0x388) = (s32) (M2C_FIELD(arg0, s32 *, 0x388) | 0x10000000);

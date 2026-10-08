@@ -5,7 +5,7 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 #define M2C_BITWISE(type, expr) ((type)(expr))
 
 extern "C" {
-s32 *TWindowKeyBoardBase__sub_8008116C(s32 *arg0);
+s32 *init_text_buffer_holder__19TWindowKeyBoardBaseFPv(s32 *arg0);
 s32 is_split_screen(void);
 u8 * TEF_LensFlare__ct(void *, M2C_UNK, s32);
 u8 *__nw__7TObjectFUl(M2C_UNK);
@@ -66,7 +66,7 @@ u32 *destroy__19TWindowKeyBoardBaseFPvs(u32 *arg0, s16 arg1) {
 
 extern s32 lbl_805D53A0;
 
-s32 *TWindowKeyBoardBase__sub_8008116C(s32 *arg0) {
+s32 *init_text_buffer_holder__19TWindowKeyBoardBaseFPv(s32 *arg0) {
     *arg0 = 0;
     init_keyboard_text_buffer((u8 *)(arg0), (u32)(0U), (u32)(0U));
     return arg0;

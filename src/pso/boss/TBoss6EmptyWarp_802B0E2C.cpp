@@ -10,7 +10,7 @@ M2C_UNK play_area_music(void *);
 s32 is_flag_set__14TBoss6PlotFalzFv();
 M2C_UNK init_warp__15TBoss6EmptyWarpFv();
 M2C_UNK create__12TBoss6ThanksFv();
-s32 TBoss6Thanks__sub_8035D230();
+s32 is_ship_door_ready__12TBoss6ThanksFPv();
 extern M2C_UNK lbl_804709E0[];
 extern M2C_UNK lbl_804709E8[];
 void run_task__15TBoss6EmptyWarpFv(u8 *arg0);
@@ -37,7 +37,7 @@ void run_task__15TBoss6EmptyWarpFv(u8 *arg0) {
     M2C_FIELD(arg0, s32 *, 0x1C) = (s32) (M2C_FIELD(arg0, s32 *, 0x1C) + 1);
     if ((s32) M2C_FIELD(arg0, s32 *, 0x1C) > 3) {
         init_warp__15TBoss6EmptyWarpFv();
-        if (TBoss6Thanks__sub_8035D230() != 0) {
+        if (is_ship_door_ready__12TBoss6ThanksFPv() != 0) {
             create__12TBoss6ThanksFv();
             play_area_music((void *) (lbl_804709E0));
         } else {

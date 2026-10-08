@@ -1039,7 +1039,7 @@ void pick_random_target__8TObjFishFPv(u8 *self);
 
 s32 TBoss7Tentacle__sub_802F0904(s32);
 void TBoss7Tentacle__sub_802F0AF0(s32);
-void TBoss7Tentacle__sub_802F0B08(s32, Vec_802E85E0 *, s32);
+void start_attack_at_position__14TBoss7TentacleFPvPvi(s32, Vec_802E85E0 *, s32);
 f32 sin_table_lookup(s32);
 f32 cos_table_lookup(s32);
 extern s32 lbl_805D5550;
@@ -1125,7 +1125,7 @@ void pick_random_target__8TObjFishFPv(u8 *self);
 
 s32 TBoss7Tentacle__sub_802F0904(s32);
 void TBoss7Tentacle__sub_802F0AF0(s32);
-void TBoss7Tentacle__sub_802F0B08(s32, Vec_802E85E0 *, s32);
+void start_attack_at_position__14TBoss7TentacleFPvPvi(s32, Vec_802E85E0 *, s32);
 f32 sin_table_lookup(s32);
 f32 cos_table_lookup(s32);
 void handle_tentacle_attack_state__8TObjFishFPvUii(Fish_802E9ADC *o, u32 arg1, s32 arg2);
@@ -1632,7 +1632,7 @@ void TObjFish__sub_802E85E0(u8 *arg0, u32 arg1, s32 arg2) {
                         adjust_to_ground__15TObjBoss2TunnelFiPv(&v, &v);
                     }
                     for (j = 0; j != 4; j++) {
-                        TBoss7Tentacle__sub_802F0B08(self->kids[j], &v, self->f738);
+                        start_attack_at_position__14TBoss7TentacleFPvPvi(self->kids[j], &v, self->f738);
                     }
                     self->fired = 1;
                     self->timer = 0;
@@ -2368,7 +2368,7 @@ void handle_tentacle_attack_state__8TObjFishFPvUii(Fish_802E9ADC *o, u32 arg1, s
                     v.z = r * cos_table_lookup(ang);
                     adjust_to_ground__15TObjBoss2TunnelFiPv(&v, &v);
                 }
-                TBoss7Tentacle__sub_802F0B08((s32)(o->tent[o->idx]), (Vec_802E85E0 *)(&v), (s32)(o->arg));
+                start_attack_at_position__14TBoss7TentacleFPvPvi((s32)(o->tent[o->idx]), (Vec_802E85E0 *)(&v), (s32)(o->arg));
                 o->idx++;
                 if (o->idx >= 4) {
                     o->timer = 0;

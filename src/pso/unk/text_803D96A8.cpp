@@ -60,7 +60,7 @@ void TObjPlayer__sub_803D9C60(u32 *p);
 extern G_803D9DA8 lbl_8058D470;
 u32 *find_gvrt_texture_chunk(void *arg0, u32 *arg1, u32 *arg2);
 s32 find_free_slot__10TObjPlayerFPvPv(void *, int);
-s32 TObjPlayer__sub_803DA688(int, int);
+s32 find_record_index__10TObjPlayerFUiUi(int, int);
 M2C_UNK TObjPlayer__sub_803DAD24(int, int);
 extern s32 lbl_805D7768;
 s32 TObjPlayer__sub_803D9E38(s32 *arg0, u32 arg1, s32 *arg2, u32 *arg3);
@@ -255,7 +255,7 @@ s32 TObjPlayer__sub_803D9E38(s32 *arg0, u32 arg1, s32 *arg2, u32 *arg3) {
         j = arg1 - 1;
         temp_r29 = ((Tbl_803D9E38 *)temp_r6)->arr[j].p;
         M2C_FIELD(arg2, s32 *, 0) = M2C_FIELD(M2C_FIELD(temp_r29, s32 **, 0xC), s32 *, 0);
-        temp_r3_2 = TObjPlayer__sub_803DA688((int) (M2C_FIELD(arg2, s32 *, 0)), (int) (M2C_FIELD(arg3, u32 *, 0)));
+        temp_r3_2 = find_record_index__10TObjPlayerFUiUi((int) (M2C_FIELD(arg2, s32 *, 0)), (int) (M2C_FIELD(arg3, u32 *, 0)));
         if (temp_r3_2 < 0) {
             if (find_free_slot__10TObjPlayerFPvPv((void *) (&sp8), (int) (0)) < 0) {
                 return -1;

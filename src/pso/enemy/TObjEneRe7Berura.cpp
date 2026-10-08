@@ -489,7 +489,7 @@ s32 handle_state__16TObjEneRe7BeruraFPvi(void *, void *);
 s32 TObjEneRe7Berura__sub_80094624(void *, void *);
 s32 TObjEneRe7Berura__sub_8009472C(void *, void *);
 void state_attack__16TObjEneRe7BeruraFPvi(u8 *arg0, s32 arg1);
-void TObjEneRe7Berura__sub_80094A9C(void *self, s32 msg);
+void handle_message_transition__16TObjEneRe7BeruraFPvi(void *self, s32 msg);
 void TObjEneRe7Berura__vt85(s32 arg0, u32 arg1, s32 arg2);
 s32 check_death_trigger__16TObjEneRe7BeruraFPv(void *arg0);
 void play_band_sound__16TObjEneRe7BeruraFPv(u8 *arg0);
@@ -844,7 +844,7 @@ void state_attack__16TObjEneRe7BeruraFPvi(u8 *arg0, s32 arg1) {
     }
 }
 
-void TObjEneRe7Berura__sub_80094A9C(void *self, s32 msg) {
+void handle_message_transition__16TObjEneRe7BeruraFPvi(void *self, s32 msg) {
     switch (msg) {
     case 0:
         return;
@@ -857,7 +857,7 @@ void TObjEneRe7Berura__sub_80094A9C(void *self, s32 msg) {
 void TObjEneRe7Berura__vt85(s32 arg0, u32 arg1, s32 arg2) {
     switch (arg1) {
     case 0:
-        TObjEneRe7Berura__sub_80094A9C((void *)((void *) (arg0)), (s32)((void *) (arg2)));
+        handle_message_transition__16TObjEneRe7BeruraFPvi((void *)((void *) (arg0)), (s32)((void *) (arg2)));
         return;
     case 1:
         state_attack__16TObjEneRe7BeruraFPvi((u8 *)((void *) (arg0)), (s32)((void *) (arg2)));

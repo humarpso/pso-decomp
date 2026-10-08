@@ -96,7 +96,7 @@ void play_symbol_sound__20TWindowSubSymbolChatFi(s32 arg0);
 E_80077480 *get_card_window__17TWindowSubComCardFUi(u32 id);
 u8 *TWindowSubSymbolChat__sub_80077480(s32 i);
 s32 find_free_entry__20TWindowSubSymbolChatFPvi(Obj_80077108 *self, s32 i);
-void TWindowSubSymbolChat__sub_8007728C(Obj_8007728C *self, u16 v, s32 a, s32 idx, s32 b, s32 c);
+void set_entry_bits__20TWindowSubSymbolChatFPvUsiiii(Obj_8007728C *self, u16 v, s32 a, s32 idx, s32 b, s32 c);
 void move_words__6TLobbyFPvPvi(void *, void *, u32);
 void remove_slot_shift_down__20TWindowSubSymbolChatFPvi(Obj_8007714C *self, s32 i);
 s32 TWindowSubSymbolChat__sub_80077464(u32 *arg0);
@@ -265,7 +265,7 @@ void add__20TWindowSubSymbolChatFPviiiii(s32 *arg0, s32 arg1, s32 arg2, s32 arg3
     }
 }
 
-void TWindowSubSymbolChat__sub_8007728C(Obj_8007728C *self, u16 v, s32 a, s32 idx, s32 b, s32 c) {
+void set_entry_bits__20TWindowSubSymbolChatFPvUsiiii(Obj_8007728C *self, u16 v, s32 a, s32 idx, s32 b, s32 c) {
     u16 *p = &self->h[idx];
     *p = v;
     *p |= a << 8;

@@ -105,7 +105,7 @@ extern s32 lbl_805D53A0;
 extern s32 TLobby__data_805D53AC;
 void handle_player_event__6TLobbyFii(s32 arg0, s32 arg1);
 extern void *lbl_8049EE00[];
-void TItemObject__sub_8011646C();
+void create__11TItemObjectFPv();
 void *TLobby__sub_8010440C(In_8010440C *arg0);
 extern void *lbl_8049EB58[];
 void create_common_weapon();
@@ -216,7 +216,7 @@ void *TLobby__sub_8010440C(In_8010440C *arg0) {
     if (i < 0x18) {
         return lbl_8049EE00[i];
     }
-    return (void *)TItemObject__sub_8011646C;
+    return (void *)create__11TItemObjectFPv;
 }
 
 void *get_weapon_factory_for_item(In_80104438 *arg0) {

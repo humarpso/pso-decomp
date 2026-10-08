@@ -20,7 +20,7 @@ int TObjPlayer__sub_801C7098(void* p);
 s32 get_contact_surface_type(s32 arg0);
 void __ct__7TObjectFP7TObject(void *, void *);
 extern RecoveredGlobal_801C6FF8_lbl_804C4008 lbl_804C4008;
-u8 *TObjPlayer__sub_801C6FF8(u8 *arg0, u8 *arg1, s16 arg2, s8 arg3);
+u8 *init_lobby_font_entry__10TObjPlayerFPvPvsc(u8 *arg0, u8 *arg1, s16 arg2, s8 arg3);
 M2C_UNK copy_vec4__13TRaderMapCoreFPvPv(void *, void *);
 M2C_UNK get_cursor_state__11TMainCursorFv();
 s32 test_flag_2000000__10TObjPlayerFPv(s32);
@@ -48,7 +48,7 @@ extern s32 some_id_805c6f74;
 extern const f32 lbl_805DC358;
 void draw_marker_model__10TObjPlayerFPv(void *arg0);
 s32 get_player_by_client_id(u16);
-u8 *TObjPlayer__sub_801C6FF8(u8 *arg0, u8 *arg1, s16 arg2, s8 arg3);
+u8 *init_lobby_font_entry__10TObjPlayerFPvPvsc(u8 *arg0, u8 *arg1, s16 arg2, s8 arg3);
 void *__nw__7TObjectFUl(u32);
 u8 *create_lobby_font_for_player__10TObjPlayerFsc(s16 arg0, s8 arg1);
 s32 TMainCursor__sub_8013E03C(void);
@@ -130,7 +130,7 @@ u8 *create_lobby_font_for_player__10TObjPlayerFsc(s16 arg0, s8 arg1) {
     }
     p = (u8 *)__nw__7TObjectFUl(0x24);
     if (p != NULL) {
-        p = TObjPlayer__sub_801C6FF8(p, e, arg0, arg1);
+        p = init_lobby_font_entry__10TObjPlayerFPvPvsc(p, e, arg0, arg1);
     }
     return p;
 }
@@ -195,7 +195,7 @@ void TObjPlayer__sub_801C6FE0(void* p, f32 a, f32 b, f32 c) { *(f32*)((char*)p +
 u16 get_obj_type__10TObjPlayerFPv(void* p) { return *(u16*)((char*)p + 0x0); }
 
 typedef char RecoveredGlobal_801C6FF8_lbl_804C4008_size[sizeof(RecoveredGlobal_801C6FF8_lbl_804C4008) == 0x18 ? 1 : -1];
-u8 *TObjPlayer__sub_801C6FF8(u8 *arg0, u8 *arg1, s16 arg2, s8 arg3) {
+u8 *init_lobby_font_entry__10TObjPlayerFPvPvsc(u8 *arg0, u8 *arg1, s16 arg2, s8 arg3) {
     __ct__7TObjectFP7TObject(arg0, arg1);
     M2C_FIELD(arg0, M2C_UNK **, 0x18) = &lbl_804C4008.value;
     M2C_FIELD(arg0, s8 *, 0x1C) = arg3;

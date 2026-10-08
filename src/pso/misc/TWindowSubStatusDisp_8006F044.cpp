@@ -28,7 +28,7 @@ extern RecoveredGlobal_8006F23C_lbl_8048C9D8 lbl_8048C9D8;
 s32 TLobby__sub_8006F23C(void);
 s32 is_flag_set__6TLobbyFv();
 extern RecoveredGlobal_8006F23C_lbl_8048C9D8 lbl_8048C9D8;
-s32 TLobby__sub_8006F1EC(s32 arg0);
+s32 get_flagged_table_entry__6TLobbyFi(s32 arg0);
 s32 is_split_screen(void);
 s32 get_instance__6TLobbyFv(void);
 s32 resolve_player_slot__20TWindowSubStatusDispFi(s32 slot);
@@ -92,7 +92,7 @@ s32 resolve_player_slot__20TWindowSubStatusDispFi(s32 slot) {
     return slot;
 }
 
-s32 TLobby__sub_8006F1EC(s32 arg0) {
+s32 get_flagged_table_entry__6TLobbyFi(s32 arg0) {
   u8 *new_var;
   if (is_flag_set__6TLobbyFv() != 0)
   {

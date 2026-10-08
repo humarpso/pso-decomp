@@ -212,7 +212,7 @@ void update_inward_orbit_effect(u8 *arg0);
 void * init_state_34_alt__10TObjPlayerFPv(void *, M2C_UNK, void *);
 u8 *alloc_from_obj_heap__10TObjPlayerFPv(M2C_UNK);
 extern s32 tl_05;
-u8 *TObjPlayer__sub_80357AD4(u8 *arg0);
+u8 *create_state_34_alt__10TObjPlayerFPv(u8 *arg0);
 u16 obj_getField1c(void *);
 s32 get_item_field_6__10TObjPlayerFPv(void *);
 u8 get_field_ec__12TOSwitchItemFPv();
@@ -444,7 +444,7 @@ void *init_state_34_alt__10TObjPlayerFPv(void *arg0, M2C_UNK _w1, void * _w2) {
     return arg0;
 }
 
-u8 *TObjPlayer__sub_80357AD4(u8 *arg0) {
+u8 *create_state_34_alt__10TObjPlayerFPv(u8 *arg0) {
     u8 *temp_r3;
     u8 *var_r0;
     if (arg0 != NULL) {

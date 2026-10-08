@@ -96,7 +96,7 @@ void TObjPlayer__sub_8012FC30(u8 *arg0);
 u8 * initialize_effect_object__10TObjPlayerFPv(void *, M2C_UNK, s32);
 u8 *alloc_from_obj_heap__10TObjPlayerFPv(M2C_UNK);
 extern s32 tl_05;
-u8 *TObjPlayer__sub_8012FAB0(s32 arg0);
+u8 *create_effect_object__10TObjPlayerFi(s32 arg0);
 s32 is_mode_two_and_ready__10TObjPlayerFPv(void *);
 void launch_rare_weapon_special__10TObjPlayerFv(void *, void *, s32, f32);
 void increment_burst_counter(void *);
@@ -109,7 +109,7 @@ void TObjPlayer__sub_8012FB08(Self_8012FB08 *self);
 
 extern "C" {
 
-u8 *TObjPlayer__sub_8012FAB0(s32 arg0) {
+u8 *create_effect_object__10TObjPlayerFi(s32 arg0) {
     u8 *temp_r3;
     u8 *var_r0;
     if (arg0 != 0) {

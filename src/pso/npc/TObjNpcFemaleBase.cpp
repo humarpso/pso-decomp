@@ -105,12 +105,12 @@ u8 * load_resource_from_descriptor(void *, s32, void *, s32, s32, s32);
 int alloc__23TAdSinglePlyChrSelectGCFPv(void *);
 extern RecoveredGlobal_80149DE0_lbl_804A87C0 lbl_804A87C0;
 extern u32 TObjNpcFemaleBase__shared_resource_obj;
-void TObjNpcFemaleBase__sub_80149DE0(void);
+void load_shared_resource__17TObjNpcFemaleBaseFv(void);
 u8 * load_resource_from_descriptor(void *, s32, void *, s32, s32, s32);
 int alloc__23TAdSinglePlyChrSelectGCFPv(void *);
 extern RecoveredGlobal_80149FB8_lbl_804A8950 lbl_804A8950;
 extern u32 TObjNpcFemaleChild__static_instance;
-void TObjNpcFemaleChild__sub_80149FB8(void);
+void load_shared_resource__18TObjNpcFemaleChildFv(void);
 s32 init_position_vectors__10TObjPlayerFi(void *);
 s32 setup_common__11TObjNpcBaseFv(void *);
 s32 construct_female_base__17TObjNpcFemaleBaseFPv(void *);
@@ -161,7 +161,7 @@ void free_static_data__17TObjNpcFemaleBaseFv(void) {
 
 extern M2C_UNK __vt__17TObjNpcFemaleBase[];
 
-void TObjNpcFemaleBase__sub_80149DE0(void) {
+void load_shared_resource__17TObjNpcFemaleBaseFv(void) {
     s32 temp_r3;
     s32 var_r0;
     temp_r3 = alloc__23TAdSinglePlyChrSelectGCFPv((void *)0x440);
@@ -220,7 +220,7 @@ void release_static_instance__18TObjNpcFemaleChildFv(void) {
         TObjNpcFemaleChild__static_instance = 0U;
     }
 }
-void TObjNpcFemaleChild__sub_80149FB8(void) {
+void load_shared_resource__18TObjNpcFemaleChildFv(void) {
     s32 temp_r3;
     s32 var_r0;
     temp_r3 = alloc__23TAdSinglePlyChrSelectGCFPv((void *)0x440);

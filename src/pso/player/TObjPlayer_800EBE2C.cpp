@@ -26,7 +26,7 @@ extern int some_id_805c6f74;
 extern const f32 lbl_805DA6F8;
 void push_material_color_override__10TObjPlayerFffff(f32 farg0, f32 farg1, f32 farg2, f32 farg3);
 s32 find_nearest_hittable_enemy__10TObjPlayerFiPvf(void *, int, f32);
-int TObjPlayer__sub_800EC348(u8 *arg0, f32 farg0);
+int find_nearest_enemy_with_flag__10TObjPlayerFPvf(u8 *arg0, f32 farg0);
 }
 
 extern "C" {
@@ -59,7 +59,7 @@ void push_material_color_override__10TObjPlayerFffff(f32 farg0, f32 farg1, f32 f
     stack.sp14 = farg3;
     set_chunk_material_color((void *) (&stack.sp8));
 }
-int TObjPlayer__sub_800EC348(u8 *arg0, f32 farg0) {
+int find_nearest_enemy_with_flag__10TObjPlayerFPvf(u8 *arg0, f32 farg0) {
     u16 temp_r3;
     M2C_FIELD(arg0, s32 *, 0x30) = (s32) (M2C_FIELD(arg0, s32 *, 0x30) | 0x02000000);
     temp_r3 = find_nearest_hittable_enemy__10TObjPlayerFiPvf((void *) (arg0), (int) (0), (f32) (farg0));

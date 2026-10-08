@@ -45,7 +45,7 @@ u8 * load_resource_from_descriptor(void *, s32, void *, s32, s32, s32);
 int alloc__23TAdSinglePlyChrSelectGCFPv(void *);
 extern RecoveredGlobal_8015A418_lbl_804AFE78 lbl_804AFE78;
 extern u32 TOCapsuleAncient01__data_805D58B8;
-void TOCapsuleAncient01__sub_8015A418(void);
+void load_resource_instance__18TOCapsuleAncient01Fv(void);
 s32 is_split_screen();
 s32 queue_destruction__7TObjectFv(void *);
 s32 set_indexed_flags(void *, int, int);
@@ -136,7 +136,7 @@ void destroy_static_instance__18TOCapsuleAncient01Fv(void) {
 
 extern M2C_UNK __vt__18TOCapsuleAncient01[];
 
-void TOCapsuleAncient01__sub_8015A418(void) {
+void load_resource_instance__18TOCapsuleAncient01Fv(void) {
     s32 temp_r3;
     s32 var_r0;
     temp_r3 = alloc__23TAdSinglePlyChrSelectGCFPv((void *)0x440);

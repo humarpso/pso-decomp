@@ -127,7 +127,7 @@ void TWindowSubComCard__sub_8026556C(u8 *arg0);
 void reset_entries__17TWindowSubComCardFPv(Win_802655E4 *w);
 s32 TWindowSubComCard__sub_80265660(Obj_80265660 *o, s16 i);
 void TWindowSubComCard__sub_80265680(u8 *arg0, s16 arg1);
-void TWindowSubComCard__sub_802656D8(Win_802656D8 *w, s32 idx, s32 val);
+void set_entry_value_clear_flag__17TWindowSubComCardFPvii(Win_802656D8 *w, s32 idx, s32 val);
 s32 get_selected_entry__17TWindowSubComCardFPv(u8 *arg0);
 void set_active_flag__11TWindowMenuFPv(void *arg0);
 void confirm_selection__11TWindowMenuFPv(u8 *arg0);
@@ -164,7 +164,7 @@ void * __dt__11TWindowMenuFv(void *arg0, s16 arg1);
 u8 * TWindowMenu__ct(u8 *arg0, u32 arg1, s32 arg2, s32 arg3);
 void copy_position__11TWindowMenuFPvPv(void* p, void* q);
 s32 TWindowMenu__sub_80266B18(u8 *arg0, s32 arg1);
-u8 TWindowMenu__sub_80266B30(u8 *arg0);
+u8 test_menu_flag__11TWindowMenuFPv(u8 *arg0);
 s32 is_locked__11TWindowMenuFPvi(void *arg0, s32 arg1);
 int TWindowMenu__sub_80266BB8(void* p);
 void reset_selection__17TWindowSubComCardFPv(void* p);
@@ -301,7 +301,7 @@ void TWindowSubComCard__sub_80265680(u8 *arg0, s16 arg1) {
   *new_var = (*new_var) | 0x10;
 }
 
-void TWindowSubComCard__sub_802656D8(Win_802656D8 *w, s32 idx, s32 val) {
+void set_entry_value_clear_flag__17TWindowSubComCardFPvii(Win_802656D8 *w, s32 idx, s32 val) {
     Ent_802656D8 *e = ((Ent_802656D8 *(*)(void *, s16))get_array_entry__20TWindowSubStatusDispFPvi)(w, idx);
     Rec_802656D8 *r = w->f80;
     e->f24 = val;
@@ -805,10 +805,10 @@ void run_task__11TWindowMenuFv(u8 *arg0) {
             }
         }
         temp_r29_3 = (u8 *)lbl_8050E208 + (temp_r30 * 0x50) + 0x20;
-        if ((TWindowShortListCtrl__check_controller_button((int) (temp_r29_3), (int) (4)) != 0) || (((s32 (*)(void *, int))TWindowMenu__sub_80266B30)((void *) (arg0), 4) != 0)) {
+        if ((TWindowShortListCtrl__check_controller_button((int) (temp_r29_3), (int) (4)) != 0) || (((s32 (*)(void *, int))test_menu_flag__11TWindowMenuFPv)((void *) (arg0), 4) != 0)) {
             ((M2C_UNK (*)(void *))confirm_selection__11TWindowMenuFPv)((void *) (arg0));
         }
-        if ((TWindowShortListCtrl__check_controller_button((int) (temp_r29_3), (int) (2)) != 0) || (((s32 (*)(void *, int))TWindowMenu__sub_80266B30)((void *) (arg0), 2) != 0)) {
+        if ((TWindowShortListCtrl__check_controller_button((int) (temp_r29_3), (int) (2)) != 0) || (((s32 (*)(void *, int))test_menu_flag__11TWindowMenuFPv)((void *) (arg0), 2) != 0)) {
             ((M2C_UNK (*)(void *))set_active_flag__11TWindowMenuFPv)((void *) (arg0));
         }
     }
@@ -874,7 +874,7 @@ s32 TWindowMenu__sub_80266B18(u8 *arg0, s32 arg1) {
     return M2C_FIELD(M2C_FIELD((M2C_FIELD(arg0, s32 *, 0x28) + (arg1 * 4)), u16 **, 0), u16 *, 0) & 1;
 }
 
-u8 TWindowMenu__sub_80266B30(u8 *arg0) {
+u8 test_menu_flag__11TWindowMenuFPv(u8 *arg0) {
     if (M2C_FIELD(arg0, u16 *, 0x70) & 0x200) {
         return 0U;
     }

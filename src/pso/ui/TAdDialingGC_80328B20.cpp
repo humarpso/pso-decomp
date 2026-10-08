@@ -14,7 +14,7 @@ void TAdDialingGC__sub_80328C10(T_80328C10 *self);
 void TAdDialingGC__sub_80328B24(void *, void *);
 extern M2C_UNK lbl_804767A8[];
 extern M2C_UNK lbl_804767B0[];
-void TAdDialingGC__sub_80328C4C(u8 *arg0);
+void render_if_flag_set__12TAdDialingGCFPv(u8 *arg0);
 }
 
 extern "C" {
@@ -27,7 +27,7 @@ void TAdDialingGC__sub_80328C10(T_80328C10 *self) {
         TAdDialingGC__sub_80328B24(lbl_804767B8, lbl_804767C0);
     }
 }
-void TAdDialingGC__sub_80328C4C(u8 *arg0) {
+void render_if_flag_set__12TAdDialingGCFPv(u8 *arg0) {
     if ((M2C_FIELD(arg0, s32 *, 0xA4) & 1) && ((s32) M2C_FIELD(arg0, s32 *, 0x1C) == 0)) {
         TAdDialingGC__sub_80328B24((void *) (lbl_804767A8), (void *) (lbl_804767B0));
     }

@@ -110,7 +110,7 @@ u8 * load_resource_from_descriptor(void *, s32, void *, s32, s32, s32);
 int alloc__23TAdSinglePlyChrSelectGCFPv(void *);
 extern RecoveredGlobal_802895D8_lbl_804D3320 lbl_804D3320;
 extern u32 TObjNpcSoutokufu__data_805D64C0;
-void TObjNpcSoutokufu__sub_802895D8(void);
+void load_shared_resource__16TObjNpcSoutokufuFv(void);
 s32 TObjFish__sub_8001EDB0(int, int);
 s32 get_bml_model(int, int);
 s32 init_position_vectors__10TObjPlayerFi(void *);
@@ -152,7 +152,7 @@ void close_dialog_window__16TObjNpcSoutokufuFv(void) {
 
 extern M2C_UNK __vt__16TObjNpcSoutokufu[];
 
-void TObjNpcSoutokufu__sub_802895D8(void) {
+void load_shared_resource__16TObjNpcSoutokufuFv(void) {
     s32 temp_r3;
     s32 var_r0;
     temp_r3 = alloc__23TAdSinglePlyChrSelectGCFPv((void *)0x440);

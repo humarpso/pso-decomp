@@ -91,7 +91,7 @@ extern s32 lbl_805D5F58;
 s32 write_encrypted_save__23TAdSinglePlyChrSelectGCFv(void);
 void __construct_array(void *, void *, void *, int, int);
 void reinit__17TWindowSubComCardFi();
-u8 *TAdSinglePlyChrSelectGC__sub_801FFDFC(u8 *arg0);
+u8 *construct_card_window_array__23TAdSinglePlyChrSelectGCFPv(u8 *arg0);
 s32 get_serial_result__22TAdEnterSerialAccessGCFv();
 M2C_UNK memcpy(void *, s32, M2C_UNK);
 s32 TAdPlayerLoadGC__sub_801FD814();
@@ -252,7 +252,7 @@ extern s32 lbl_805D5F94;
 s32 save_character_file__23TAdSinglePlyChrSelectGCFi(int arg0);
 void __construct_array(void *, void *, void *, int, int);
 void init_guild_card_tag__17TWindowSubComCardFi();
-int TAdSinglePlyChrSelectGC__sub_801FFDB8(s32 arg0);
+int construct_card_window_array__23TAdSinglePlyChrSelectGCFi(s32 arg0);
 s32 TAdSinglePlyChrSelectGC__sub_80201204(s32 *, M2C_UNK);
 M2C_UNK memcpy(void *, s32, M2C_UNK);
 extern s32 *lbl_805D5F70;
@@ -296,19 +296,19 @@ s32 get_game_mode__23TAdSinglePlyChrSelectGCFv();
 M2C_UNK memcpy(void *, s32, M2C_UNK);
 
 s32 init_windows__23TAdSinglePlyChrSelectGCFi(s32 arg0) {
-    TAdSinglePlyChrSelectGC__sub_801FFDFC((u8 *)(arg0 + 4));
-    TAdSinglePlyChrSelectGC__sub_801FFDB8((s32)(arg0 + 0xD2C4));
+    construct_card_window_array__23TAdSinglePlyChrSelectGCFPv((u8 *)(arg0 + 4));
+    construct_card_window_array__23TAdSinglePlyChrSelectGCFi((s32)(arg0 + 0xD2C4));
     return arg0;
 }
 
 extern s32 *lbl_805D5F6C;
 
-int TAdSinglePlyChrSelectGC__sub_801FFDB8(s32 arg0) {
+int construct_card_window_array__23TAdSinglePlyChrSelectGCFi(s32 arg0) {
     __construct_array((void *)arg0, (void *)init_guild_card_tag__17TWindowSubComCardFi, 0, 0x90, 0x1C);
     return arg0;
 }
 
-u8 *TAdSinglePlyChrSelectGC__sub_801FFDFC(u8 *arg0) {
+u8 *construct_card_window_array__23TAdSinglePlyChrSelectGCFPv(u8 *arg0) {
     __construct_array(arg0 + 0xC0, (void *)reinit__17TWindowSubComCardFi, 0, 0x100, 0xD2);
     return arg0;
 }

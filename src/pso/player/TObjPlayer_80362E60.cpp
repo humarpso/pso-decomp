@@ -88,7 +88,7 @@ struct RecoveredGlobal_80362FB4_lbl_80479FC8 {
 extern "C" {
 int test_flags_1b8__10TObjPlayerFPvUi(void *, u32);
 M2C_UNK draw_weapon_model(void *);
-void TObjPlayer__sub_80363060(u8 *arg0);
+void draw_weapon_model_if_not_hidden__10TObjPlayerFPv(u8 *arg0);
 s16 get_validated_attack_stage(void *);
 M2C_UNK fire_shot_at_target__11TItemWeaponFv(void *, void *, int, int);
 void create_cane_if_ready__10TObjPlayerFi(s32 arg0, void *position);
@@ -178,7 +178,7 @@ void TObjPlayer__sub_80362FB4(u8 *arg0) {
     }
 }
 
-void TObjPlayer__sub_80363060(u8 *arg0) {
+void draw_weapon_model_if_not_hidden__10TObjPlayerFPv(u8 *arg0) {
     if (test_flags_1b8__10TObjPlayerFPvUi(arg0, 0x01000000U) == 0U) {
         draw_weapon_model((void *) (arg0));
     }

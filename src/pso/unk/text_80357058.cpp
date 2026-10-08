@@ -46,7 +46,7 @@ extern const f32 lbl_805E0044;
 u8 *TItemEffOrgaFlowShot__ct(u8 *arg0, s32 arg1, u8 *arg2);
 extern const f32 lbl_805E0028;
 extern const f32 lbl_805E002C;
-void TItemEffOrgaFlowShot__sub_80357358(u8 *arg0);
+void update_position_from_velocity__20TItemEffOrgaFlowShotFPv(u8 *arg0);
 s32 TLobby__sub_800C6C10();
 void bswap_6xAD_subordinate_action__20TItemEffOrgaFlowShotFPv(void* p);
 void build_6xAD_olga_flow_subordinate_boss_actions(void* p);
@@ -66,7 +66,7 @@ M2C_UNK approach_value__20TItemEffOrgaFlowShotFPvff(void *, f32, f32);
 s32 has_game_join_id();
 M2C_UNK check_hits__14TItemAttackColFPv(void *);
 void update_segments__20TItemEffOrgaFlowShotFPv(void *arg0);
-void TItemEffOrgaFlowShot__sub_80357358(u8 *arg0);
+void update_position_from_velocity__20TItemEffOrgaFlowShotFPv(u8 *arg0);
 extern const f32 lbl_805E0030;
 extern const f32 lbl_805E0034;
 void run_task__20TItemEffOrgaFlowShotFv(u8 *arg0);
@@ -218,7 +218,7 @@ void update_segments__20TItemEffOrgaFlowShotFPv(void *arg0) {
 
 #pragma push
 #pragma fp_contract on
-void TItemEffOrgaFlowShot__sub_80357358(u8 *arg0) {
+void update_position_from_velocity__20TItemEffOrgaFlowShotFPv(u8 *arg0) {
     f32 temp_f2;
     temp_f2 = lbl_805E0028 * M2C_FIELD(arg0, f32 *, 0x190);
     M2C_FIELD(arg0, f32 *, 0x40) = temp_f2;
@@ -269,7 +269,7 @@ void run_task__20TItemEffOrgaFlowShotFv(u8 *arg0) {
         }
     }
     update_segments__20TItemEffOrgaFlowShotFPv((void *) (arg0));
-    TItemEffOrgaFlowShot__sub_80357358(arg0);
+    update_position_from_velocity__20TItemEffOrgaFlowShotFPv(arg0);
 }
 
 void *__dt__20TItemEffOrgaFlowShotFv(void *arg0, s16 arg1) {
@@ -322,7 +322,7 @@ u8 *TItemEffOrgaFlowShot__ct(u8 *arg0, s32 arg1, u8 *arg2) {
     M2C_FIELD(arg0, s32 *, 0xE0) = 0x408840;
     M2C_FIELD(arg0, s32 *, 0x160) = 0x408840;
     update_segments__20TItemEffOrgaFlowShotFPv((void *)((void *)(arg0)));
-    TItemEffOrgaFlowShot__sub_80357358((u8 *)(arg0));
+    update_position_from_velocity__20TItemEffOrgaFlowShotFPv((u8 *)(arg0));
     return arg0;
 }
 

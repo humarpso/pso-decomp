@@ -83,7 +83,7 @@ void __construct_array(void*, void*, void*, int, int);
 void* init_char_data__23TAdSinglePlyChrSelectGCFPv(void* p);
 s32 TAdSinglePlyChrSelectGC__sub_801FC8B4(s32 arg0, s16 arg1);
 s32 init_char_slots__23TAdSinglePlyChrSelectGCFi(s32 arg0);
-s32 TAdSinglePlyChrSelectGC__sub_801FCB04(Slot_801FCB04* arg0);
+s32 has_valid_slot__23TAdSinglePlyChrSelectGCFPv(Slot_801FCB04* arg0);
 void __construct_array(void*, void*, void*, int, int);
 void* init_guild_card_tag__23TAdSinglePlyChrSelectGCFPv(void* p);
 void TAdSinglePlyChrSelectGC__sub_802115C0();
@@ -583,7 +583,7 @@ s32 poll_memcard_status__23TAdSinglePlyChrSelectGCFPv(void* p) { return verify_s
     extern int lbl_805D5F64;
     extern int lbl_805D5F74;
 
-s32 TAdSinglePlyChrSelectGC__sub_801FCB04(Slot_801FCB04* arg0) {
+s32 has_valid_slot__23TAdSinglePlyChrSelectGCFPv(Slot_801FCB04* arg0) {
     s32 i;
     if (arg0 != NULL) {
         for (i = 0; i < 7; i++) {

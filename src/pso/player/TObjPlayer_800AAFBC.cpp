@@ -162,7 +162,7 @@ extern const f32 lbl_805D9B10;
 s32 TObjPlayer__sub_800AB068(u8 *arg0);
 s32 copy_target_state__14TObjEnePanarmsFPvPv(void *, int);
 s32 play_sound_effect(void *, void *, int, int);
-void TObjPlayer__sub_800ABA0C(s32 arg0);
+void play_sound_4003A60D__10TObjPlayerFi(s32 arg0);
 s32 copy_target_state__14TObjEnePanarmsFPvPv(void *, int);
 s32 play_effect_if_v2__10TObjPlayerFi(int);
 s32 play_sound_effect(void *, void *, int, int);
@@ -556,7 +556,7 @@ void TObjPlayer__sub_800AB9C0(s32 arg0) {
     play_effect_if_v2__10TObjPlayerFi((int) (-0x300));
 }
 
-void TObjPlayer__sub_800ABA0C(s32 arg0) {
+void play_sound_4003A60D__10TObjPlayerFi(s32 arg0) {
     play_sound_effect((void *) (copy_target_state__14TObjEnePanarmsFPvPv((void *) (arg0), (int) (0x4003A60D))), (void *) (arg0 + 0x38), (int) (0), (int) (0));
 }
 

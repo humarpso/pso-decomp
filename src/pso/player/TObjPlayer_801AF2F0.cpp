@@ -2586,10 +2586,10 @@ M2C_UNK set_play_time__10TObjPlayerFPvi(void *, int);
 void set_meseta__10TObjPlayerFPvi(Pl_801B0B88 *, s32);
 void TObjPlayer__sub_801BEE24(Pl_801B0B88 *, s32);
 void TObjPlayer__sub_801BEE2C(Pl_801B0B88 *, s32);
-void TObjPlayer__sub_801BEE68(void *, void *);
+void copy_6x0d_status_effect_packet__10TObjPlayerFPvPv(void *, void *);
 void TObjPlayer__sub_801BEEAC(void *, void *);
 void TObjPlayer__sub_801BEEE0(void *, void *);
-void TObjPlayer__sub_801BEEEC(void *, void *);
+void copy_player_record_header__10TObjPlayerFPvPv(void *, void *);
 void TObjPlayer__sub_801BEF30(void *, void *);
 void TObjPlayer__sub_801BEF44(void *, void *);
 M2C_UNK TObjPlayer__sub_801BF228(s32);
@@ -4719,7 +4719,7 @@ void dispatch_status_effect_msg__10TObjPlayerFUiPv(u32 arg0, Pair_801B2AE8 *msg)
 void handle_6x0D_add_or_remove_status_effect(void *arg0) {
     Eff_801B2C04 e;
     set_code_13_3__10TObjPlayerFPv(&e);
-    TObjPlayer__sub_801BEE68(&e, arg0);
+    copy_6x0d_status_effect_packet__10TObjPlayerFPvPv(&e, arg0);
     bswap_status_effect__10TObjPlayerFPv(&e);
     if (fn_8036B748(&e) != 0) {
         u32 p = ((u32 (*)(s32))get_player_by_client_id)(e.f2);
@@ -5602,7 +5602,7 @@ void fill_player_record__10TObjPlayerFPvPv(Src_801B4CE4 *src, Dst_801B4CE4 *dst)
     }
     copy_header_struct__6TLobbyFPvPv(dst->f68, src->fDAC);
     TObjPlayer__sub_801BEF30(dst->f70, src->f828);
-    TObjPlayer__sub_801BEEEC(dst->f78, src->f830);
+    copy_player_record_header__10TObjPlayerFPvPv(dst->f78, src->f830);
     TObjPlayer__sub_801BEEE0(dst->f94, src->f858);
     TObjPlayer__sub_801BEEAC(dst->f98, src->f730);
     dst->fAC = ((s32 (*)(void *))get_field_3e0__12TBoss3VoloptFPv)(src);
@@ -6910,7 +6910,7 @@ void bswap_body_words__10TObjPlayerFPv(Pkt_801B8908 *);
 s32 validate_6x83_place_trap(Pkt_801B8908 *);
 u32 create_placed_trap__10TOMineTrapFUiss(u8 *, s32, s32);
 void TObjPlayer__sub_801C5728(u8 *, s32, s32);
-void TWindowCtrl__sub_8024A1CC(u16);
+void call_window_method_with_default_vec__11TWindowCtrlFi(u16);
 
 void handle_6x83_place_trap(void *arg0) {
     Pkt_801B8908 pkt;
@@ -6922,7 +6922,7 @@ void handle_6x83_place_trap(void *arg0) {
         if (p != NULL && create_placed_trap__10TOMineTrapFUiss(p, pkt.a, pkt.b) != 0) {
             TObjPlayer__sub_801C5728(p + 0x7C4, 1, pkt.a);
             if (is_locally_controlled__10TObjPlayerFPv(p) != 0) {
-                TWindowCtrl__sub_8024A1CC((u16)obj_getField1c(p));
+                call_window_method_with_default_vec__11TWindowCtrlFi((u16)obj_getField1c(p));
             }
         }
     }

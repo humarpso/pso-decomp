@@ -56,7 +56,7 @@ M2C_UNK set_player_index__23TAdSinglePlyChrSelectGCFi(M2C_UNK);
 void update_select_state__23TAdSinglePlyChrSelectGCFPv(void *arg0);
 void TAdSinglePlyChrSelectGC__sub_8033B9E0(void *);
 u8 * create_check_memory_card__23TAdSinglePlyChrSelectGCFPvPvPv(void *, void *, void *);
-void TAdSinglePlyChrSelectGC__sub_8033B190(u8 *arg0);
+void start_check_memory_card__23TAdSinglePlyChrSelectGCFPv(u8 *arg0);
 s32 TQuestVmDownLoadServer__sub_8006EF6C(s32);
 s32 send_and_handle__6TLobbyFPvii(s32, s32, s32);
 void set_char_slots__23TAdSinglePlyChrSelectGCFPvii(void *arg0, s32 arg1, s32 arg2);
@@ -447,7 +447,7 @@ void TAdSinglePlyChrSelectGC__sub_8033B0AC(void *arg0) {
     }
 }
 
-void TAdSinglePlyChrSelectGC__sub_8033B190(u8 *arg0) {
+void start_check_memory_card__23TAdSinglePlyChrSelectGCFPv(u8 *arg0) {
     u8 *temp_r3;
     M2C_FIELD(arg0, u8 **, 0x40) = create_check_memory_card__23TAdSinglePlyChrSelectGCFPvPvPv(arg0, NULL, NULL);
     temp_r3 = (u8 *)(M2C_FIELD(arg0, u8 **, 0x40));

@@ -530,7 +530,7 @@ u8 test_body_collision__16TObjEneMe3StelthFPvif(Obj_800F4CC8 *arg0, s32 arg1, f3
 f32 get_node_world_y__16TObjEneMe3StelthFPv(Obj_800F4D68 *self);
 void setup_move_bounds__16TObjEneMe3StelthFPv(void *arg0);
 void update_shadow_height__16TObjEneMe3StelthFPv(void *arg0);
-void TObjEneMe3Stelth__sub_800F4EBC(u8 *arg0);
+void copy_pos_with_height_offset__16TObjEneMe3StelthFPv(u8 *arg0);
 void TObjEneMe3Stelth__sub_800F4F14(void);
 void TObjEneMe3Stelth__vt60(u8 *arg0);
 void TObjEneMe3Stelth__vt61(void* p);
@@ -1037,7 +1037,7 @@ void update_shadow_height__16TObjEneMe3StelthFPv(void *arg0) {
     M2C_FIELD(M2C_FIELD(arg0, void **, 0xA4), f32 *, 4) = (f32) (M2C_FIELD(arg0, f32 *, 0x300) - M2C_FIELD(arg0, f32 *, 0x3C));
 }
 
-void TObjEneMe3Stelth__sub_800F4EBC(u8 *arg0) {
+void copy_pos_with_height_offset__16TObjEneMe3StelthFPv(u8 *arg0) {
     VecCopy__FP3VecPC3Vec(arg0 + 0x2FC, arg0 + 0x38);
     M2C_FIELD(arg0, f32 *, 0x300) = (f32) (M2C_FIELD(arg0, f32 *, 0x300) + (lbl_805DA814 + M2C_FIELD(arg0, f32 *, 0x3D4)));
     VecCopy__FP3VecPC3Vec(arg0 + 0x74, arg0 + 0x2FC);
@@ -1069,7 +1069,7 @@ void TObjEneMe3Stelth__sub_800F4FCC(u8 *arg0) {
     if (((VObj_18 *)(arg0))->m81() != 4) {
         ((VObj_18 *)(arg0))->m83();
     }
-    ((M2C_UNK (*)(void *))TObjEneMe3Stelth__sub_800F4EBC)((void *) (arg0));
+    ((M2C_UNK (*)(void *))copy_pos_with_height_offset__16TObjEneMe3StelthFPv)((void *) (arg0));
     ((VObj_18 *)(arg0))->m86();
     temp_r3 = M2C_FIELD(arg0, s32 *, 0x3CC);
     if (temp_r3 & 0x40000) {

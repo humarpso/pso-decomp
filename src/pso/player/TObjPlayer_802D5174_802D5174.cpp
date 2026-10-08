@@ -11,7 +11,7 @@ extern "C" {
 void * init_state_513__10TObjPlayerFPv(void *, M2C_UNK, void *);
 u8 *alloc_from_obj_heap__10TObjPlayerFPv(M2C_UNK);
 extern s32 tl_05;
-u8 *TObjPlayer__sub_802D51BC(u8 *arg0);
+u8 *create_state_513__10TObjPlayerFPv(u8 *arg0);
 void TObjPlayer__sub_802D5B78(void *a, void *b);
 int do_action_447__10TObjPlayerFPv(void* p);
 void TObjPlayer__sub_802D52E8(void *self, void *arg);
@@ -42,7 +42,7 @@ void *init_state_513__10TObjPlayerFPv(void *arg0, M2C_UNK _w1, void * _w2) {
 
 extern M2C_UNK lbl_804E1BB0[];
 
-u8 *TObjPlayer__sub_802D51BC(u8 *arg0) {
+u8 *create_state_513__10TObjPlayerFPv(u8 *arg0) {
     u8 *temp_r3;
     u8 *var_r0;
     if (arg0 != NULL) {

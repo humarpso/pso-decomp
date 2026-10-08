@@ -281,7 +281,7 @@ M2C_UNK toggle_particle_effect__10TObjPlayerFv();
 M2C_UNK spawn_ground_effect__10TObjPlayerFPvi(void *, int);
 M2C_UNK spawn_dead_spot_default__10TObjPlayerFii(void *, int);
 s32 TObjEnePanarms__sub_800DFB44(s32);
-int TObjEnePanarms__sub_800DFBD0(u8 *arg0, s32 arg1, f32 farg0);
+int find_nearest_enemy_with_flag__14TObjEnePanarmsFPvif(u8 *arg0, s32 arg1, f32 farg0);
 void spawn_npc_pair__14TObjEnePanarmsFv(void);
 void update_action_timer__14TObjEnePanarmsFPv(void *arg0);
 void init_attack_state__14TObjEnePanarmsFPv(void *arg0);
@@ -342,7 +342,7 @@ u8 TObjEnePanarms__sub_800E2E54(void *arg0);
 u8 TObjEnePanarms__sub_800E2E68(void *arg0);
 u8 is_below_half_hp__14TObjEnePanarmsFPv(void *arg0);
 void TObjEnePanarms__sub_800E2EF0(void*, s32, s32);
-int TObjEnePanarms__sub_800E2F6C(u8 *arg0, s32 arg1, f32 farg0);
+int find_nearest_enemy_with_flag_alt_target__14TObjEnePanarmsFPvif(u8 *arg0, s32 arg1, f32 farg0);
 s32 TObjEnePanarms__sub_800E2FB4(O_800E2FB4 *self);
 int clear_render_callback__8TObjFishFv(void);
 int set_draw_callback_list__8TObjFishFPv(void*);
@@ -443,7 +443,7 @@ extern const f32 lbl_805DA59C;
 extern s32 some_id_805c6f74;
 extern s32 tl_04;
 
-int TObjEnePanarms__sub_800DFBD0(u8 *arg0, s32 arg1, f32 farg0) {
+int find_nearest_enemy_with_flag__14TObjEnePanarmsFPvif(u8 *arg0, s32 arg1, f32 farg0) {
     u16 temp_r3;
     M2C_FIELD(arg0, s32 *, 0x30) = (s32) (M2C_FIELD(arg0, s32 *, 0x30) | 0x02000000);
     temp_r3 = find_nearest_hittable_enemy__10TObjPlayerFiPvf((void *) (arg0), (void *) (arg1), (f32) (farg0));
@@ -1659,7 +1659,7 @@ u8 is_below_half_hp__14TObjEnePanarmsFPv(void *arg0) {
     return var_r31;
 }
 
-int TObjEnePanarms__sub_800E2F6C(u8 *arg0, s32 arg1, f32 farg0) {
+int find_nearest_enemy_with_flag_alt_target__14TObjEnePanarmsFPvif(u8 *arg0, s32 arg1, f32 farg0) {
     u16 temp_r3;
     M2C_FIELD(arg0, s32 *, 0x30) = (s32) (M2C_FIELD(arg0, s32 *, 0x30) | 0x02000000);
     temp_r3 = find_nearest_hittable_enemy__10TObjPlayerFiPvf((void *) (arg0), (void *) (arg1), (f32) (farg0));

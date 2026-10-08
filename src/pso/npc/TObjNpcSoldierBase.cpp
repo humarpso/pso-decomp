@@ -102,7 +102,7 @@ u8 * load_resource_from_descriptor(void *, s32, void *, s32, s32, s32);
 int alloc__23TAdSinglePlyChrSelectGCFPv(void *);
 extern RecoveredGlobal_8014D7CC_lbl_804AB978 lbl_804AB978;
 extern u32 TObjNpcSoldierBase__data_805D5850;
-void TObjNpcSoldierBase__sub_8014D7CC(void);
+void load_shared_resource__18TObjNpcSoldierBaseFv(void);
 s32 init_position_vectors__10TObjPlayerFi(void *);
 s32 setup_common__11TObjNpcBaseFv(void *);
 s32 construct_male_npc_base(void *);
@@ -135,7 +135,7 @@ void release_static_instance__18TObjNpcSoldierBaseFv(void) {
 
 extern M2C_UNK __vt__18TObjNpcSoldierBase[];
 
-void TObjNpcSoldierBase__sub_8014D7CC(void) {
+void load_shared_resource__18TObjNpcSoldierBaseFv(void) {
     s32 temp_r3;
     s32 var_r0;
     temp_r3 = alloc__23TAdSinglePlyChrSelectGCFPv((void *)0x440);

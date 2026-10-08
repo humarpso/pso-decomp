@@ -22,7 +22,7 @@ u8 * load_resource_from_descriptor(void *, s32, void *, s32, s32, s32);
 int alloc__23TAdSinglePlyChrSelectGCFPv(void *);
 extern RecoveredGlobal_8019153C_lbl_804B7C78 lbl_804B7C78;
 extern u32 TObjHashiVersus1__data_805D5C14;
-void TObjHashiVersus1__sub_8019153C(void);
+void load_shared_resource__16TObjHashiVersus1Fv(void);
 s32 TObjFish__sub_8001EDB0(void *, s32);
 s32 get_bml_model(void *, s32);
 u32 init_collision_body_parts(void *, s32, s32);
@@ -69,7 +69,7 @@ void release_static_instance__16TObjHashiVersus1Fv(void) {
 
 extern M2C_UNK __vt__16TObjHashiVersus1[];
 
-void TObjHashiVersus1__sub_8019153C(void) {
+void load_shared_resource__16TObjHashiVersus1Fv(void) {
     s32 temp_r3;
     s32 var_r0;
     temp_r3 = alloc__23TAdSinglePlyChrSelectGCFPv((void *)0x440);

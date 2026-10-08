@@ -118,7 +118,7 @@ s32 *get_entry__9TWindowDDFii(void *, s32);
 void update__9TWindowDDFPvPv(void *, void *);
 void pop_menu_level__9TWindowDDFPv(TWindowDD_803431C0 *arg0);
 void set_pos_and_data__9TWindowDDFPvf(void *, f32);
-void TWindowDD__sub_80347940(void *, int);
+void set_item_pos__9TWindowDDFPvi(void *, int);
 u8 *init_last_child__9TWindowDDFPv(void *);
 void TWindowDD__sub_80347CC8(void *, void *);
 void setup_entry__9TWindowDDFPvi(void *, s32);
@@ -326,7 +326,7 @@ void apply_entry_layout__9TWindowDDFPv(TWindowDD_8034330C *arg0) {
     child = arg0->child[arg0->depth];
     if (child != NULL) {
         if (*entry & 8) {
-            TWindowDD__sub_80347940(arg0, 0);
+            set_item_pos__9TWindowDDFPvi(arg0, 0);
             TWindowDD__sub_80347FA0(arg0, 1);
         } else if (*entry & 1) {
             set_pos_and_data__9TWindowDDFPvf(child, TWindowDD__data_805DFC10);
@@ -342,7 +342,7 @@ void apply_entry_layout__9TWindowDDFPv(TWindowDD_8034330C *arg0) {
             TWindowDD__sub_80347CC8(arg0, arg0->fC4);
         }
     }
-    TWindowDD__sub_80347940(arg0, 1);
+    set_item_pos__9TWindowDDFPvi(arg0, 1);
     if (!(*entry & 2)) {
         TWindowDD__sub_80347FA0(arg0, 3);
     }

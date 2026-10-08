@@ -77,7 +77,7 @@ extern "C" {
 void TQuestListOnline__sub_8013ACF4(s32);
 M2C_UNK memcpy(int, void *, int);
 extern u32 TQuestListOnline__data_805D6190;
-void TQuestListOnline__sub_80215458(s32 arg0);
+void copy_quest_list_data__16TQuestListOnlineFi(s32 arg0);
 int alloc__22TQuestVmDownLoadServerFPv(void *);
 int memset(void*, void*, void*);
 extern unsigned char TQuestListOnline__data_80513DE8[];
@@ -112,7 +112,7 @@ extern RecoveredGlobal_80215ABC_lbl_804CA0B8 lbl_804CA0B8;
 extern s32 lbl_805D6238;
 bool TLobby__sub_80215ABC(u8 *arg0);
 extern G_802156E0 *lbl_805D61C0;
-u8 TLobby__sub_802156E0(s8 x);
+u8 lookup_key_value__6TLobbyFc(s8 x);
 extern G_802156E0 *lbl_805D61C0;
 u8 TLobby__sub_802156A0(s8 x);
 s32 is_rare_item__9TItemDataFPv(Item_8021587C *);
@@ -134,7 +134,7 @@ s32 pop_byte__6TLobbyFPv(void *);
 void shuffle_shop_pool_n_times(void *, s32);
 void push_shop_pool_entry(void *, u8);
 void reset_counter_64__6TLobbyFPv(void *);
-u8 TLobby__sub_802156E0(s8 x);
+u8 lookup_key_value__6TLobbyFc(s8 x);
 extern s8 lbl_8044BD30[];
 extern G_802156E0 *lbl_805D61C0;
 extern s32 lbl_805D61C4;
@@ -145,7 +145,7 @@ s32 pop_byte__6TLobbyFPv(void *);
 void shuffle_shop_pool_n_times(void *, s32);
 void push_shop_pool_entry(void *, u8);
 void reset_counter_64__6TLobbyFPv(void *);
-u8 TLobby__sub_802156E0(s8 x);
+u8 lookup_key_value__6TLobbyFc(s8 x);
 extern s8 lbl_8044BD30[];
 extern G_802156E0 *lbl_805D61C0;
 extern s32 lbl_805D61C4;
@@ -312,7 +312,7 @@ void receive_quest_info__16TQuestListOnlineFPv(void *arg0) {
     }
 }
 
-void TQuestListOnline__sub_80215458(s32 arg0) {
+void copy_quest_list_data__16TQuestListOnlineFi(s32 arg0) {
     if ((u32) TQuestListOnline__data_805D6190 != 0U) {
         memcpy((int) (TQuestListOnline__data_805D6190), (void *) (arg0), (int) (0x11D4));
         TQuestListOnline__sub_8013ACF4(1);
@@ -389,7 +389,7 @@ u8 TLobby__sub_802156A0(s8 x) {
     return 0;
 }
 
-u8 TLobby__sub_802156E0(s8 x) {
+u8 lookup_key_value__6TLobbyFc(s8 x) {
     Pair_802156E0 *p = lbl_805D61C0->tbl;
     while (p->key != -1) {
         if (p->key == x) {
@@ -443,7 +443,7 @@ void TLobby__sub_80215720(Obj_80215720 *arg0) {
     if (arg0->c > 100) {
         arg0->c = 100;
     }
-    lbl_805D61C8 += ((s8 (*)(s8))TLobby__sub_802156E0)(r);
+    lbl_805D61C8 += ((s8 (*)(s8))lookup_key_value__6TLobbyFc)(r);
 }
 
 void roll_item_grind_bonus__6TLobbyFPv(Item_8021587C *item) {
@@ -518,7 +518,7 @@ void TLobby__sub_8021599C(Obj_8021599C *obj) {
             break;
         }
     }
-    lbl_805D61C8 += (s8)TLobby__sub_802156E0(r);
+    lbl_805D61C8 += (s8)lookup_key_value__6TLobbyFc(r);
 }
 
 bool TLobby__sub_80215ABC(u8 *arg0) {

@@ -71,7 +71,7 @@ s32 send_6x7C_packet__6TLobbyFi(void *);
 void send_6x7c_reset__6TLobbyFv(void);
 s32 is_flag_set__6TLobbyFv();
 s32 byteswap_challenge_packet__6TLobbyFPv(void *);
-void TLobby__sub_80070024(void *, s32);
+void set_challenge_record_page__6TLobbyFPvi(void *, s32);
 extern void *lbl_805D4E28;
 void handle_6x8A_show_challenge_time_records_window(Pkt_80072494 *pkt);
 s32 is_flag_set__6TLobbyFv();
@@ -207,7 +207,7 @@ void handle_6x8A_show_challenge_time_records_window(Pkt_80072494 *pkt) {
     if (pkt->idx < 0 || pkt->idx >= 0x11) {
         return;
     }
-    TLobby__sub_80070024(lbl_805D4E28, pkt->idx);
+    set_challenge_record_page__6TLobbyFPvi(lbl_805D4E28, pkt->idx);
 }
 
 void send_challenge_with_value__6TLobbyFii(M2C_UNK arg0, s32 arg1) {

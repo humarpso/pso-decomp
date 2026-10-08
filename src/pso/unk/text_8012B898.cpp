@@ -30,7 +30,7 @@ void create_technique_by_index__10TObjPlayerFPvi(u8 *arg0, s32 arg1);
 u8 * init_vtable_and_clear_field1f8__10TObjPlayerFPv(void *, M2C_UNK, void *);
 u8 *alloc_from_obj_heap__10TObjPlayerFPv(M2C_UNK);
 extern s32 tl_05;
-u8 *TObjPlayer__sub_8012B898(u8 *arg0);
+u8 *create_vtable_clear_field1f8__10TObjPlayerFPv(u8 *arg0);
 void VecCopy__FP3VecPC3Vec(void *, void *);
 void send_6x61_activate_mag_effect(void *, s32);
 s32 draw_icon__10TObjPlayerFPvii(void *, s32, void *);
@@ -47,7 +47,7 @@ void TObjPlayer__sub_8012B9B4(Self_8012B9B4 *self);
 
 extern "C" {
 
-u8 *TObjPlayer__sub_8012B898(u8 *arg0) {
+u8 *create_vtable_clear_field1f8__10TObjPlayerFPv(u8 *arg0) {
     u8 *temp_r3;
     u8 *var_r0;
     if (arg0 != NULL) {

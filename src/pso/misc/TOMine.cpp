@@ -61,7 +61,7 @@ u8 * load_resource_from_descriptor(void *, s32, void *, s32, s32, s32);
 int alloc__23TAdSinglePlyChrSelectGCFPv(void *);
 extern RecoveredGlobal_801711D0_lbl_804B2F2C lbl_804B2F2C;
 extern u32 lbl_805D5A50;
-void TOMine__sub_801711D0(void);
+void load_static_resource__6TOMineFv(void);
 u16 find_nearest_visible_player(void *, int, f32);
 s32 update_trigger__10TOMineTrapFPv(void *);
 s32 get_player_by_client_id(int);
@@ -207,7 +207,7 @@ void free_instance__6TOMineFv(void) {
 
 extern M2C_UNK __vt__6TOMine[];
 
-void TOMine__sub_801711D0(void) {
+void load_static_resource__6TOMineFv(void) {
     s32 temp_r3;
     s32 var_r0;
     temp_r3 = alloc__23TAdSinglePlyChrSelectGCFPv((void *)0x440);

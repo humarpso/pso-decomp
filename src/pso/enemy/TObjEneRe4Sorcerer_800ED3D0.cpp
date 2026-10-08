@@ -5,7 +5,7 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 #define M2C_BITWISE(type, expr) ((type)(expr))
 
 extern "C" {
-void TObjEneRe4Sorcerer__sub_800ED428(u8 *arg0, s32 arg1);
+void set_state_flag_and_mode__18TObjEneRe4SorcererFPvi(u8 *arg0, s32 arg1);
 int TObjEneRe4Sorcerer__sub_800ED498(u8 *arg0);
 }
 
@@ -28,7 +28,7 @@ void set_flag_and_notify__18TObjEneRe4SorcererFPv(void *arg0) {
 void TObjEneRe4Sorcerer__sub_800ED408(void* p) { *(u32*)((char*)p + 0x3cc) &= 0xfffffeff; }
 void set_attack_flag__18TObjEneRe4SorcererFPv(void* p) { *(u32*)((char*)p + 0x3cc) |= 0x2; }
 
-void TObjEneRe4Sorcerer__sub_800ED428(u8 *arg0, s32 arg1) {
+void set_state_flag_and_mode__18TObjEneRe4SorcererFPvi(u8 *arg0, s32 arg1) {
     M2C_FIELD(arg0, s32 *, 0x3CC) = (s32) (M2C_FIELD(arg0, s32 *, 0x3CC) | 1);
     switch (arg1) {
     case 0:

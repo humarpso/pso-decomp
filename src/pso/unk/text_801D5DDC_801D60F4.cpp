@@ -12,7 +12,7 @@ s32 get_field_3e4__10TObjPlayerFPv(int);
 s32 get_player_by_client_id(int);
 M2C_UNK TObjPlayer__sub_801CBC90(int);
 M2C_UNK bswap_fields__15TFontSmallLobbyFPv(void *);
-M2C_UNK TFontSmallLobby__sub_801D6948(void *, void *);
+M2C_UNK copy_packet_header_6x38__15TFontSmallLobbyFPvPv(void *, void *);
 M2C_UNK TFontSmallLobby__sub_801D698C(void *);
 s32 reset_key_machine_state__10TObjPlayerFv();
 s32 validate_6x38_donate_to_photon_blast(void *);
@@ -47,7 +47,7 @@ void handle_6x38_donate_to_photon_blast(s32 arg0) {
     Cmd_801D61A0 cmd;
     s32 temp_r3;
     TFontSmallLobby__sub_801D698C((void *) (&cmd));
-    TFontSmallLobby__sub_801D6948((void *) (&cmd), (void *) (arg0));
+    copy_packet_header_6x38__15TFontSmallLobbyFPvPv((void *) (&cmd), (void *) (arg0));
     bswap_fields__15TFontSmallLobbyFPv((void *) (&cmd));
     if (validate_6x38_donate_to_photon_blast((void *) (&cmd)) != 0) {
         temp_r3 = get_player_by_client_id(cmd.client);

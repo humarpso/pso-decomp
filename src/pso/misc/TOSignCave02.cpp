@@ -53,7 +53,7 @@ u8 * load_resource_from_descriptor(void *, s32, void *, s32, s32, s32);
 int alloc__23TAdSinglePlyChrSelectGCFPv(void *);
 extern RecoveredGlobal_80176B0C_lbl_804B4350 lbl_804B4350;
 extern u32 TOSignCave02__data_805D5AB0;
-void TOSignCave02__sub_80176B0C(void);
+void load_shared_resource__12TOSignCave02Fv(void);
 s32 init_map_object_base(void *, void *);
 extern M2C_UNK __vt__12TOSignCave02[];
 extern s32 lbl_805D3164;
@@ -166,7 +166,7 @@ void free_static_model__12TOSignCave02Fv(void) {
 
 extern M2C_UNK __vt__12TOSignCave02[];
 
-void TOSignCave02__sub_80176B0C(void) {
+void load_shared_resource__12TOSignCave02Fv(void) {
     s32 temp_r3;
     s32 var_r0;
     temp_r3 = alloc__23TAdSinglePlyChrSelectGCFPv((void *)0x440);

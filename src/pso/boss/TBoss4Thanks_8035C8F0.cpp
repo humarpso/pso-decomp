@@ -7,7 +7,7 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 extern "C" {
 s32 fn_8035C2B4();
 int is_door_0x97_open__12TBoss4ThanksFv(void*);
-s32 TBoss4Thanks__sub_8035C92C(void* self);
+s32 is_door_open_and_ready__12TBoss4ThanksFPv(void* self);
 }
 
 extern "C" {
@@ -34,7 +34,7 @@ void *create__12TBoss4ThanksFv(void) {
     return o;
 }
 
-s32 TBoss4Thanks__sub_8035C92C(void* self) {
+s32 is_door_open_and_ready__12TBoss4ThanksFPv(void* self) {
     if ((is_door_0x97_open__12TBoss4ThanksFv((void*)self) != 0) && (fn_8035C2B4() == 0)) {
         return 1;
     }

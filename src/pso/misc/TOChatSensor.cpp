@@ -26,7 +26,7 @@ extern u32 lbl_805D58D4;
 u32 TOChatSensor__ct(int arg0, void *arg1, void *arg2);
 M2C_UNK handle_chat_message__12TOChatSensorFPvPv(void *, s32);
 extern u32 lbl_805D58D0;
-void TOChatSensor__sub_8015B108(s32 arg0);
+void dispatch_chat_message_to_children__12TOChatSensorFi(s32 arg0);
 }
 
 extern "C" {
@@ -71,7 +71,7 @@ u32 TOChatSensor__ct(int arg0, void *arg1, void *arg2) {
     return arg0;
 }
 
-void TOChatSensor__sub_8015B108(s32 arg0) {
+void dispatch_chat_message_to_children__12TOChatSensorFi(s32 arg0) {
     void *var_r31;
     if (lbl_805D58D0 != 0U) {
         var_r31 = M2C_FIELD(lbl_805D58D0, void **, 0x14);

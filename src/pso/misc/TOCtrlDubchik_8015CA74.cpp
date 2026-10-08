@@ -245,7 +245,7 @@ u8 * load_resource_from_descriptor(void *, s32, void *, s32, s32, s32);
 int alloc__23TAdSinglePlyChrSelectGCFPv(void *);
 extern RecoveredGlobal_8015D314_lbl_804B0A10 lbl_804B0A10;
 extern u32 TOCtrlDubchik__data_805D58F0;
-void TOCtrlDubchik__sub_8015D314(void);
+void load_shared_resource__13TOCtrlDubchikFv(void);
 M2C_UNK apply_actor_gravity(void *, void *, f32);
 void clear_player_status_flag__10TObjPlayerFPviUi(void *, s32, s32);
 void set_indexed_flags(void *, s32, s32);
@@ -283,7 +283,7 @@ void update_bobbing__13TOCtrlDubchikFPv(u8 *arg0);
 void set_indexed_flags(void *, s32, s32);
 extern const f32 TOCtrlDubchik__data_805DB3A8;
 extern const f32 TOCtrlDubchik__data_805DB3B0;
-void TOCtrlDubchik__sub_8015CBDC(u8 *arg0);
+void decay_timer_and_clear_flag__13TOCtrlDubchikFPv(u8 *arg0);
 extern const f32 TOCtrlDubchik__data_805DB3A8;
 extern const f32 TOCtrlDubchik__data_805DB3B0;
 void TOCtrlDubchik__sub_8015CC30(u8 *arg0);
@@ -304,7 +304,7 @@ s32 check_demo_mode__10TObjPlayerFv(void);
 s32 refresh_collision_body_centers(void *);
 void TOCtrlDubchik__sub_8015C9D0(u8 *);
 void complete_and_destroy__13TOCtrlDubchikFPv(u8 *arg0);
-void TOCtrlDubchik__sub_8015CBDC(u8 *arg0);
+void decay_timer_and_clear_flag__13TOCtrlDubchikFPv(u8 *arg0);
 void TOCtrlDubchik__sub_8015CC30(u8 *arg0);
 void update_spin__13TOCtrlDubchikFPv(u8 *arg0);
 void TOCtrlDubchik__sub_8015CCF4(u8 *arg0);
@@ -383,7 +383,7 @@ void complete_and_destroy__13TOCtrlDubchikFPv(u8 *arg0) {
 
 #pragma push
 #pragma opt_common_subs off
-void TOCtrlDubchik__sub_8015CBDC(u8 *arg0) {
+void decay_timer_and_clear_flag__13TOCtrlDubchikFPv(u8 *arg0) {
     M2C_FIELD(arg0, f32 *, 0x384) = (f32) (M2C_FIELD(arg0, f32 *, 0x384) - TOCtrlDubchik__data_805DB3B0);
     if (M2C_FIELD(arg0, f32 *, 0x384) < TOCtrlDubchik__data_805DB3A8) {
         M2C_FIELD(arg0, f32 *, 0x384) = (f32) TOCtrlDubchik__data_805DB3A8;
@@ -506,7 +506,7 @@ void run_task__13TOCtrlDubchikFv(u8 *arg0) {
         TOCtrlDubchik__sub_8015CC30(arg0);
         break;
     case 5:
-        TOCtrlDubchik__sub_8015CBDC(arg0);
+        decay_timer_and_clear_flag__13TOCtrlDubchikFPv(arg0);
         break;
     case 6:
         complete_and_destroy__13TOCtrlDubchikFPv(arg0);
@@ -536,7 +536,7 @@ void destroy_instance__13TOCtrlDubchikFv(void) {
 
 extern M2C_UNK __vt__13TOCtrlDubchik[];
 
-void TOCtrlDubchik__sub_8015D314(void) {
+void load_shared_resource__13TOCtrlDubchikFv(void) {
     s32 temp_r3;
     s32 var_r0;
     temp_r3 = alloc__23TAdSinglePlyChrSelectGCFPv((void *)0x440);

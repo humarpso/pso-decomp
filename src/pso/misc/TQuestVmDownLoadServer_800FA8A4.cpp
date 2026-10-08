@@ -31,10 +31,10 @@ void __ct__7TObjectFP7TObject(void *, void *);
 extern M2C_UNK lbl_8049C700[];
 extern RecoveredGlobal_800FA95C_lbl_80515F48 lbl_80515F48;
 extern s32 lbl_805D2B1C;
-u8 *TQuestVmDownLoadServer__sub_800FA95C(u8 *arg0);
+u8 *init_object__22TQuestVmDownLoadServerFPv(u8 *arg0);
 s32 TFogCtrl__sub_800FAC84(void *p);
 extern M2C_UNK TFogCtrl__data_80501188[];
-s32 TFogCtrl__sub_800FAAE4(void);
+s32 update_first_active_fog__8TFogCtrlFv(void);
 }
 
 extern "C" {
@@ -71,7 +71,7 @@ extern u32 lbl_805D5390;
 
 typedef char RecoveredGlobal_800FA95C_lbl_8049C700_size[sizeof(RecoveredGlobal_800FA95C_lbl_8049C700) == 0x18 ? 1 : -1];
 typedef char RecoveredGlobal_800FA95C_lbl_80515F48_size[sizeof(RecoveredGlobal_800FA95C_lbl_80515F48) == 0x28 ? 1 : -1];
-u8 *TQuestVmDownLoadServer__sub_800FA95C(u8 *arg0) {
+u8 *init_object__22TQuestVmDownLoadServerFPv(u8 *arg0) {
     __ct__7TObjectFP7TObject(arg0, &lbl_80515F48.value);
     M2C_FIELD(arg0, M2C_UNK **, 0x18) = &(*(RecoveredGlobal_800FA95C_lbl_8049C700 *)&lbl_8049C700).value;
     M2C_FIELD(arg0, s32 *, 0) = (s32) lbl_805D2B1C;
@@ -88,7 +88,7 @@ void create_instance__8TFogCtrlFv(void) {
     void *o;
     o = __nw__7TObjectFUl(0x1C);
     if (o != NULL) {
-        o = TQuestVmDownLoadServer__sub_800FA95C((u8 *)(o));
+        o = init_object__22TQuestVmDownLoadServerFPv((u8 *)(o));
     }
     (*(void * *)&lbl_805D5390) = o;
 }
@@ -121,7 +121,7 @@ s32 apply_all__8TFogCtrlFii(s32 arg0, s32 arg1) {
     return 1;
 }
 
-s32 TFogCtrl__sub_800FAAE4(void) {
+s32 update_first_active_fog__8TFogCtrlFv(void) {
     s32 i;
     for (i = 0; i < 4; i++) {
         if ((void *)((s32 *)&TFogCtrl__data_80501188)[i] != NULL) {

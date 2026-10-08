@@ -21,7 +21,7 @@ extern "C" {
 void swap_object_row_endian(void *arg0);
 void convert_quest_object_rows(struct QuestObjRow_801F3AD8 *rows, u32 byte_size);
 void bswap_enemy_set_row(void*);
-void TLobby__sub_801F3A80(u8* arg0, u32 arg1);
+void bswap_enemy_set_rows__6TLobbyFPvUi(u8* arg0, u32 arg1);
 M2C_UNK load_quest_encounter_section(s32);
 s32 handle_msg_type2__6TLobbyFi(s32);
 M2C_UNK init_buffers__6TLobbyFii(s32, s32);
@@ -59,7 +59,7 @@ void refresh_quest_list__6TLobbyFi(s32 arg0) {
     }
 }
 
-void TLobby__sub_801F3A80(u8* arg0, u32 arg1) {
+void bswap_enemy_set_rows__6TLobbyFPvUi(u8* arg0, u32 arg1) {
     Ent_801F3A80* p = (Ent_801F3A80*)arg0;
     u32 n = arg1 / sizeof(Ent_801F3A80);
     u32 i;

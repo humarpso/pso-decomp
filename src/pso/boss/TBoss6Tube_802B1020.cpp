@@ -13,7 +13,7 @@ typedef struct TBoss6Tube_802B1020 {
 extern "C" {
 extern const f32 lbl_805DE258;
 extern const f32 lbl_805DE25C;
-f32 TBoss6Tube__sub_802B11D8(s32 arg0);
+f32 calc_tube_progress__10TBoss6TubeFi(s32 arg0);
 f32 get_random_float__8TObjFishFv(f32);
 s32 rand(void);
 extern const f32 lbl_805DE260;
@@ -22,7 +22,7 @@ extern const f32 lbl_805DE268;
 extern const f32 lbl_805DE26C;
 void TBoss6Tube__sub_802B129C(u8 *arg0);
 f32 scale_by_const__10TBoss6TubeFf(f32 farg0);
-f32 TBoss6Tube__sub_802B11D8(s32 arg0);
+f32 calc_tube_progress__10TBoss6TubeFi(s32 arg0);
 extern s32 TBoss6Tube__data_805D6720;
 extern f32 TBoss6Tube__data_805D6724;
 extern const f32 TBoss6Tube__data_805DE250;
@@ -44,7 +44,7 @@ void set_depth_buffer_settings_id__FUl(u32);
 f32 get_value__14TBoss6PlotFalzFv(void);
 s32 get_phase__8TObjFishFPv(s32);
 f32 scale_by_const__10TBoss6TubeFf(f32 farg0);
-f32 TBoss6Tube__sub_802B11D8(s32 arg0);
+f32 calc_tube_progress__10TBoss6TubeFi(s32 arg0);
 void translate_matrix(s32, f32, f32, f32);
 void push_matrix(void);
 void pop_matrix(void);
@@ -118,7 +118,7 @@ void render__10TBoss6TubeFv(TBoss6Tube_802B1020 *o) {
         hi = lbl_805DE24C;
         break;
     }
-    start = lo - scale_by_const__10TBoss6TubeFf(TBoss6Tube__sub_802B11D8(o->f28));
+    start = lo - scale_by_const__10TBoss6TubeFf(calc_tube_progress__10TBoss6TubeFi(o->f28));
     set_global_param__8TObjFishFi(lbl_805D671C);
     set_depth_buffer_settings_id__FUl(3);
     for (i = 0; i < 3; i++) {
@@ -141,7 +141,7 @@ extern s32 TBoss6Tube__data_805D6720;
 extern f32 TBoss6Tube__data_805D6724;
 extern const f32 TBoss6Tube__data_805DE250;
 
-f32 TBoss6Tube__sub_802B11D8(s32 arg0) {
+f32 calc_tube_progress__10TBoss6TubeFi(s32 arg0) {
     return lbl_805DE258 - ((f32) (arg0 & 0x7FFFF) / lbl_805DE25C);
 }
 
@@ -151,7 +151,7 @@ void TBoss6Tube__sub_802B1218(u8 *arg0) {
         return;
     }
     TBoss6Tube__data_805D6724 = scale_by_const__10TBoss6TubeFf(
-        TBoss6Tube__sub_802B11D8(TBoss6Tube__data_805D6720 - M2C_FIELD(arg0, s32 *, 0x28)));
+        calc_tube_progress__10TBoss6TubeFi(TBoss6Tube__data_805D6720 - M2C_FIELD(arg0, s32 *, 0x28)));
     TBoss6Tube__data_805D6720 = M2C_FIELD(arg0, s32 *, 0x28);
 }
 

@@ -70,7 +70,7 @@ void set_card_window_flags__20TWindowShortListCtrlFii(s32 arg0, s32 arg1);
 extern RecoveredGlobal_8026EA60_lbl_8050E208 lbl_8050E208;
 void cycle_list_page__20TWindowShortListCtrlFPv(u8 *arg0);
 s32 get_card_window__17TWindowSubComCardFUi(int);
-void TWindowShortListCtrl__sub_8026E8EC(u8 *arg0, s32 arg1, s32 arg2);
+void swap_card_entries__20TWindowShortListCtrlFPvii(u8 *arg0, s32 arg1, s32 arg2);
 s32 get_card_window__17TWindowSubComCardFUi(int);
 void reset_entries__17TWindowSubComCardFPv(void *);
 void set_selected_index__17TWindowSubComCardFPvs(void *, s16);
@@ -85,7 +85,7 @@ s32 TWindowShortListCtrl__check_controller_button(void *, int);
 u8 * find_item_by_id(s32);
 void assign_item_to_palette__20TWindowShortListCtrlFUiUi(u32 arg0, u32 arg1);
 void cycle_list_page__20TWindowShortListCtrlFPv(u8 *arg0);
-void TWindowShortListCtrl__sub_8026E8EC(u8 *arg0, s32 arg1, s32 arg2);
+void swap_card_entries__20TWindowShortListCtrlFPvii(u8 *arg0, s32 arg1, s32 arg2);
 void refresh_technique_rows__20TWindowShortListCtrlFPviPv(Wn_8026EBB0 *arg0, s32 arg1, Sc_8026EBB0 *arg2);
 s16 get_cursor_pos__20TWindowShortListCtrlFPv(void* p);
 void TWindowShortListCtrl__sub_8026F66C(u8 *arg0);
@@ -184,7 +184,7 @@ s32 is_technique_usable__20TWindowShortListCtrlFPv(u8 *arg0) {
     return ((u32) M2C_FIELD(temp_r31, u32 *, 0x34) >> 4U) & 1;
 }
 
-void TWindowShortListCtrl__sub_8026E8EC(u8 *arg0, s32 arg1, s32 arg2) {
+void swap_card_entries__20TWindowShortListCtrlFPvii(u8 *arg0, s32 arg1, s32 arg2) {
     s16 *p = (s16 *)(get_card_window__17TWindowSubComCardFUi(*(s32 *)(arg0 + 0x24)) + 0x22C4);
     s16 t = p[arg1];
     p[arg1] = p[arg2];
@@ -493,7 +493,7 @@ void run_task__20TWindowShortListCtrlFv(u8 *arg0) {
             if (get_selected_index__20TWindowShortListCtrlFPv(self->tech_win) == -1) {
                 TWindowShortListCtrl__sub_8026F66C((u8 *) self->tech_win);
             } else {
-                TWindowShortListCtrl__sub_8026E8EC(arg0, get_selected_index__20TWindowShortListCtrlFPv(self->tech_win), get_cursor_pos__20TWindowShortListCtrlFPv(self->tech_win));
+                swap_card_entries__20TWindowShortListCtrlFPvii(arg0, get_selected_index__20TWindowShortListCtrlFPv(self->tech_win), get_cursor_pos__20TWindowShortListCtrlFPv(self->tech_win));
                 reset_selection__17TWindowSubComCardFPv(self->tech_win);
                 refresh_technique_rows__20TWindowShortListCtrlFPviPv((Wn_8026EBB0 *) self, (s32) self->tech_win, (Sc_8026EBB0 *) lbl_8044F5A0);
             }

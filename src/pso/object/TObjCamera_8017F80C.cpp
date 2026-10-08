@@ -83,7 +83,7 @@ int alloc__23TAdSinglePlyChrSelectGCFPv(void *);
 extern RecoveredGlobal_8017FC78_lbl_804B5888 lbl_804B5888;
 extern u32 TObjCamera__data_805D5B18;
 extern s32 TObjCamera__data_805D5B1C;
-void TObjCamera__sub_8017FC78(void);
+void load_shared_resource__10TObjCameraFv(void);
 s32 get_bml_motion(u32, int);
 void TObjFish__sub_8001EDB0(u32, int);
 s32 get_bml_model(u32, int);
@@ -277,7 +277,7 @@ void release_static_resource__10TObjCameraFv(void) {
         TObjCamera__data_805D5B18 = 0U;
     }
 }
-void TObjCamera__sub_8017FC78(void) {
+void load_shared_resource__10TObjCameraFv(void) {
     s32 temp_r3;
     s32 var_r0;
     TObjCamera__data_805D5B1C = 0;

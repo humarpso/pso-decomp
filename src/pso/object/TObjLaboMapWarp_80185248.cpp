@@ -159,7 +159,7 @@ int is_field88_zero__15TObjLaboMapWarpFPv(void* p);
 void clamp_index__15TObjLaboMapWarpFPv(u8 *arg0);
 void TObjLaboMapWarp__vt13(u8 *arg0, s32 arg1);
 void release_static_resource__15TObjLaboMapWarpFv(void);
-void TObjLaboMapWarp__sub_80185514(void);
+void load_static_resource__15TObjLaboMapWarpFv(void);
 void * create__15TObjLaboMapWarpFPv(void *arg0);
 void * __dt__15TObjLaboMapWarpFv(void *arg0, s16 arg1);
 void * TObjLaboMapWarp__ct(void *arg0);
@@ -336,7 +336,7 @@ void release_static_resource__15TObjLaboMapWarpFv(void) {
     }
 }
 
-void TObjLaboMapWarp__sub_80185514(void) {
+void load_static_resource__15TObjLaboMapWarpFv(void) {
     s32 temp_r3;
     s32 var_r0;
     temp_r3 = alloc__23TAdSinglePlyChrSelectGCFPv((void *)0x440);

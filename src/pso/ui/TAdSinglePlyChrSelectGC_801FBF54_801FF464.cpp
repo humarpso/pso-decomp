@@ -34,7 +34,7 @@ void *memset(void *, int, unsigned long);
 extern u32 lbl_805D5F58;
 extern u32 lbl_805D5F60;
 extern u32 lbl_805D5F64;
-void TAdSinglePlyChrSelectGC__sub_801FF58C(void);
+void clear_load_buffers__23TAdSinglePlyChrSelectGCFv(void);
 }
 
 extern "C" {
@@ -114,7 +114,7 @@ s32 setup_player_battle_ctrls__23TAdSinglePlyChrSelectGCFv(void) {
   return 0xFFFF0000;
 }
 
-void TAdSinglePlyChrSelectGC__sub_801FF58C(void) {
+void clear_load_buffers__23TAdSinglePlyChrSelectGCFv(void) {
     if (lbl_805D5F58 != 0) {
         memset((void *)lbl_805D5F58, 0, 0x1156C);
         memset((void *)lbl_805D5F60, 0, 0x41C);

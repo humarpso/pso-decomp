@@ -594,7 +594,7 @@ void update_state__15TObjEneDelDepthFPv(void *arg0);
 void enter_state8__15TObjEneDelDepthFPv(u8 *arg0);
 void start_move_toward_player__15TObjEneDelDepthFPv(u8 *arg0);
 void update_scale_pulse__15TObjEneDelDepthFPv(u8 *arg0);
-void TObjEneDelDepth__sub_80314E78(void* a0);
+void init_draw_mode_and_motion__15TObjEneDelDepthFPv(void* a0);
 void TObjEneDelDepth__sub_80314EC4(u8 *arg0);
 void TObjEneDelDepth__sub_80315064(u8 *arg0);
 void try_relocate_on_timer__15TObjEneDelDepthFPv(u8 *arg0);
@@ -1417,7 +1417,7 @@ void update_scale_pulse__15TObjEneDelDepthFPv(u8 *arg0) {
 extern int fold_flush_3;
 #pragma pop
 
-void TObjEneDelDepth__sub_80314E78(void* a0) { *(float*)((char*)a0 + 0x38c) = TObjEneDelDepth__data_805DF260; *(float*)((char*)a0 + 0x39c) = TObjEneDelDepth__data_805DF258; ((int (*)(void*, void*))set_draw_mode__15TObjEneDelDepthFPvi)((void*)((void*)(a0)), (void*)((int)(0))); set_motion__15TObjEneDelDepthFPvi((void*)((void*)(*(int*)((char*)a0 + 0x37c))), (void*)((void*)0x6)); }
+void init_draw_mode_and_motion__15TObjEneDelDepthFPv(void* a0) { *(float*)((char*)a0 + 0x38c) = TObjEneDelDepth__data_805DF260; *(float*)((char*)a0 + 0x39c) = TObjEneDelDepth__data_805DF258; ((int (*)(void*, void*))set_draw_mode__15TObjEneDelDepthFPvi)((void*)((void*)(a0)), (void*)((int)(0))); set_motion__15TObjEneDelDepthFPvi((void*)((void*)(*(int*)((char*)a0 + 0x37c))), (void*)((void*)0x6)); }
 
 #pragma push
 #pragma fp_contract on

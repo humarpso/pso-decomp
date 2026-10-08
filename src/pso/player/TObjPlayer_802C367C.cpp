@@ -28,7 +28,7 @@ struct Char_802C38B4 {
 extern "C" {
 s8 get_item_count_max__10TObjPlayerFv();
 void clear_30_slots__10TObjPlayerFPv(void* p);
-void TObjPlayer__sub_802C457C(void *, s16, s8);
+void set_action_palette_slot__10TObjPlayerFPviUc(void *, s16, s8);
 s8 *get_action_data__10TObjPlayerFPv(void *);
 void reset_action_palette__10TObjPlayerFPv(S_802C3720 *arg0);
 void apply_class_level_growth(void *, s32, Stats_802C38B4 *);
@@ -73,7 +73,7 @@ void reset_action_palette__10TObjPlayerFPv(S_802C3720 *arg0) {
         p++;
     }
     if (arg0->f3A4 & 0x80) {
-        TObjPlayer__sub_802C457C(arg0, 0, 0);
+        set_action_palette_slot__10TObjPlayerFPviUc(arg0, 0, 0);
     }
     clear_30_slots__10TObjPlayerFPv((void*)(arg0));
 }

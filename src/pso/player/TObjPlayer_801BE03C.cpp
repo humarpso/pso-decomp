@@ -4,7 +4,7 @@ extern "C" {
 
 void finalize_shared__10TObjPlayerFv(void);
 void init_shared__10TObjPlayerFv(void);
-int TLockOnCursor__sub_8013DBF4(void);
+int free_cursor_resources__13TLockOnCursorFv(void);
 int load_target_cursor_models(void);
 int free_shared_data__10TObjPlayerFv(void);
 int alloc_shared_buffers__10TObjPlayerFv(void);
@@ -25,7 +25,7 @@ int TObjPlayer__sub_80354E7C(void);
     extern unsigned char lbl_8050EA40[];
     extern int lbl_805D5D7C;
     extern int lbl_805D5D88;
-void finalize_shared__10TObjPlayerFv(void) { set_player_count__6TLobbyFi((void*)0); set_shared_count__10TObjPlayerFi((void*)0); set_shared_flag__10TObjPlayerFi((void*)0); lbl_805D5D7C = 0; reset_settings_to_default__6TLobbyFPv(lbl_8050EA40); lbl_805D5D88 = 0; TLockOnCursor__sub_8013DBF4(); TLobby__sub_802A7BD8(); free_instance__16TPlayerFootStampFv(); free_shared_data__10TObjPlayerFv(); }
+void finalize_shared__10TObjPlayerFv(void) { set_player_count__6TLobbyFi((void*)0); set_shared_count__10TObjPlayerFi((void*)0); set_shared_flag__10TObjPlayerFi((void*)0); lbl_805D5D7C = 0; reset_settings_to_default__6TLobbyFPv(lbl_8050EA40); lbl_805D5D88 = 0; free_cursor_resources__13TLockOnCursorFv(); TLobby__sub_802A7BD8(); free_instance__16TPlayerFootStampFv(); free_shared_data__10TObjPlayerFv(); }
 
     extern int lbl_805D5D7C;
     extern int lbl_805D5D88;

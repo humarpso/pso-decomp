@@ -8,11 +8,11 @@ struct Boss_802B057C { u8 pad[0x3CC]; s32 f3CC; };
 
 typedef s32 M2C_UNK;
 extern "C" {
-void TBoss6PlotFalz__sub_802AB568(void *, f32, s32);
+void apply_fade_alpha__14TBoss6PlotFalzFPvif(void *, f32, s32);
 int end_cutscene_camera__14TBoss6PlotFalzFPv(void*);
 void update_cutscene_fade__14TBoss6PlotFalzFPv(Boss_802B057C *o);
 int refresh_players_equipment__14TBoss6PlotFalzFPv(void);
-void TBoss6PlotFalz__sub_802AB568(void *, f32, s32);
+void apply_fade_alpha__14TBoss6PlotFalzFPvif(void *, f32, s32);
 s32 set_state__14TBoss6PlotFalzFPvi(void *, s32);
 void TBoss6PlotFalz__sub_802B06D0(void *arg0);
 }
@@ -73,9 +73,9 @@ void stop_adx_audio(void *arg0) {
 void update_cutscene_fade__14TBoss6PlotFalzFPv(Boss_802B057C *o) {
     s32 t = o->f3CC;
     if (t <= 0x2D) {
-        TBoss6PlotFalz__sub_802AB568(o, 1.0f, 0);
+        apply_fade_alpha__14TBoss6PlotFalzFPvif(o, 1.0f, 0);
     } else if (t > 0x2D && t < 0x10E) {
-        TBoss6PlotFalz__sub_802AB568(o, (f32)(0x10E - t) / 225.0f, 0);
+        apply_fade_alpha__14TBoss6PlotFalzFPvif(o, (f32)(0x10E - t) / 225.0f, 0);
     }
     if (o->f3CC == 0x2D) {
         ((void (*)(void)) end_cutscene_camera__14TBoss6PlotFalzFPv)();
@@ -125,7 +125,7 @@ void TBoss6PlotFalz__sub_802B06D0(void *arg0) {
         if (f > 1.0f) {
             f = 1.0f;
         }
-        TBoss6PlotFalz__sub_802AB568(arg0, f, 0);
+        apply_fade_alpha__14TBoss6PlotFalzFPvif(arg0, f, 0);
     }
     if (++M2C_FIELD(arg0, s32 *, 0x3CC) > 0x101) {
         set_state__14TBoss6PlotFalzFPvi(arg0, 4);

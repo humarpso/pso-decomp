@@ -11,9 +11,9 @@ struct Obj_800EC6D0 { s32 f0; s32 state; u8 pad8[0x28 - 8]; f32 f28; f32 f2C; f3
 typedef s32 M2C_UNK;
 extern "C" {
 s32 find_nearest_hittable_enemy__10TObjPlayerFiPvf(void *, void *, f32);
-int TObjEneSlimeOne__sub_800EC428(u8 *arg0, s32 arg1, f32 farg0);
+int find_nearest_enemy_with_flag__15TObjEneSlimeOneFPvif(u8 *arg0, s32 arg1, f32 farg0);
 s32 find_nearest_hittable_enemy__10TObjPlayerFiPvf(void *, void *, f32);
-int TObjEneSlimeOne__sub_800EC3D0(u8 *arg0, f32 farg0);
+int find_nearest_enemy_masked__15TObjEneSlimeOneFPvf(u8 *arg0, f32 farg0);
 s32 TObjEneSlimeOne__sub_800EC39C(O_800EC39C *self);
 void advance_animation_playback(s32);
 extern s8 lbl_805D52C4;
@@ -64,7 +64,7 @@ s32 TObjEneSlimeOne__sub_800EC39C(O_800EC39C *self) {
 
 int get_instance__15TObjEneSlimeOneFv(void) {  return lbl_805D52B0; }
 
-int TObjEneSlimeOne__sub_800EC3D0(u8 *arg0, f32 farg0) {
+int find_nearest_enemy_masked__15TObjEneSlimeOneFPvf(u8 *arg0, f32 farg0) {
     u16 temp_r3;
     M2C_FIELD(arg0, s32 *, 0x30) = (s32) (M2C_FIELD(arg0, s32 *, 0x30) | 0x02000000);
     temp_r3 = find_nearest_hittable_enemy__10TObjPlayerFiPvf((void *)((void *) (arg0)), (void *)((int) (0)), (f32) (farg0));
@@ -74,7 +74,7 @@ int TObjEneSlimeOne__sub_800EC3D0(u8 *arg0, f32 farg0) {
 
 int is_timer_active__15TObjEneSlimeOneFPv(void* p) { return (*(u32*)((char*)p + 0x30) >> 4) & 0x1; }
 
-int TObjEneSlimeOne__sub_800EC428(u8 *arg0, s32 arg1, f32 farg0) {
+int find_nearest_enemy_with_flag__15TObjEneSlimeOneFPvif(u8 *arg0, s32 arg1, f32 farg0) {
     u16 temp_r3;
     M2C_FIELD(arg0, s32 *, 0x30) = (s32) (M2C_FIELD(arg0, s32 *, 0x30) | 0x02000000);
     temp_r3 = find_nearest_hittable_enemy__10TObjPlayerFiPvf((void *) (arg0), (void *) (arg1), (f32) (farg0));

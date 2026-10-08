@@ -297,7 +297,7 @@ s32 get_flag_b4__21TObjEneMe3ShinowaRealFPv(void *);
 M2C_UNK move_to_shot_position__9TObjEneDDFPvfff(void *, f32, f32, f32);
 s32 objInBand__FP7GameObjf(void *, f32);
 M2C_UNK advance_animation_playback();
-M2C_UNK TBoss8Dragon__sub_802F2E30(int);
+M2C_UNK update_colli_parts__12TBoss8DragonFPv(int);
 M2C_UNK fn_802F2E7C(int, void *, int);
 s32 mask_flags__12TBoss8DragonFiii(s32 arg1, s32 arg2, s32 arg3);
 void TBoss8Dragon__sub_802FB484(void);
@@ -5097,7 +5097,7 @@ void TBoss8Dragon__sub_802F8270(u8 *arg0, u32 arg1) {
             if ((s32) M2C_FIELD(arg0, s32 *, 0x84C) >= 0x1C2) {
                 M2C_FIELD(arg0, s16 *, 0xB8) = 0xA;
                 M2C_FIELD(arg0, s32 *, 0x850) = 2;
-                TBoss8Dragon__sub_802F2E30((int) (M2C_FIELD(arg0, s32 *, 0x684)));
+                update_colli_parts__12TBoss8DragonFPv((int) (M2C_FIELD(arg0, s32 *, 0x684)));
                 return;
             }
             break;
@@ -5118,7 +5118,7 @@ void TBoss8Dragon__sub_802F8270(u8 *arg0, u32 arg1) {
         break;
     case 5:
         TBoss8Dragon__sub_802FC850();
-        TBoss8Dragon__sub_802F2E30((int) (M2C_FIELD(arg0, s32 *, 0x684)));
+        update_colli_parts__12TBoss8DragonFPv((int) (M2C_FIELD(arg0, s32 *, 0x684)));
         break;
     }
 }

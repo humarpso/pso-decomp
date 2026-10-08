@@ -12,7 +12,7 @@ u8 * load_resource_from_descriptor(void *, s32, void *, s32, s32, s32);
 int alloc__23TAdSinglePlyChrSelectGCFPv(void *);
 extern RecoveredGlobal_8001BE80_lbl_804809C0 TAdRicoRingCtrl__resource_descriptor;
 extern u32 lbl_805D4A00;
-void TAdRicoRingCtrl__sub_8001BE80(void);
+void load_static_resource__15TAdRicoRingCtrlFv(void);
 }
 
 extern "C" {
@@ -44,7 +44,7 @@ void release_global_805D4A00__15TAdRicoRingCtrlFv(void) {
     }
 }
 
-void TAdRicoRingCtrl__sub_8001BE80(void) {
+void load_static_resource__15TAdRicoRingCtrlFv(void) {
     s32 temp_r3;
     s32 var_r0;
     temp_r3 = alloc__23TAdSinglePlyChrSelectGCFPv((void *)0x440);

@@ -33,7 +33,7 @@ void init_buffer_pointers__22TQuestVmDownLoadServerFv(void);
 s32 TQuestVmDownLoadServer__sub_803F0890(void);
 extern s32 lbl_805D782C;
 extern s32 lbl_805D7834;
-s32 TQuestVmDownLoadServer__sub_803E5EB8(void);
+s32 reset_download_buffers__22TQuestVmDownLoadServerFv(void);
 M2C_UNK TQuestVmDownLoadServer__sub_803E6ACC(int);
 s32 TQuestVmDownLoadServer__sub_803F08E4(void *);
 extern RecoveredGlobal_803E5EFC_lbl_8058DD88 lbl_8058DD88;
@@ -414,7 +414,7 @@ s32 TQuestVmDownLoadServer__sub_803E5D20(s32 *arg0) {
   return 4;
 }
 
-s32 TQuestVmDownLoadServer__sub_803E5EB8(void) {
+s32 reset_download_buffers__22TQuestVmDownLoadServerFv(void) {
     if ((s32) lbl_805D782C == 0) {
         return -1;
     }

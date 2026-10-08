@@ -60,7 +60,7 @@ void disable_entry_by_id__17TWindowSubComCardFPvi(void *, u32);
 void update_next_entry__17TWindowSubComCardFPviii(s32, void *, void *, u32);
 void create_sub_window__20TWindowChoiceSettingFPvi(s32, void *);
 s32 get_window_layout_position(M2C_UNK);
-void *TWindowSubComCard__sub_80272034(void *, void *, s32);
+void *find_entry_rest__17TWindowSubComCardFPvPvi(void *, void *, s32);
 void get_message_10__17TWindowSubComCardFPvPv(void *p, void *a1);
 void set_flag_10__17TWindowSubComCardFPv(s32);
 extern u8 lbl_8044F6BC[];
@@ -242,7 +242,7 @@ s32 create_entry_list_window__17TWindowSubComCardFPv(u8 *arg0) {
         if (e->type == 0) {
             idx++;
             if (e->id >= 500) {
-                update_next_entry__17TWindowSubComCardFPviii(w, e->name, TWindowSubComCard__sub_80272034(arg0, card + 0x22EC, idx), e->id);
+                update_next_entry__17TWindowSubComCardFPviii(w, e->name, find_entry_rest__17TWindowSubComCardFPvPvi(arg0, card + 0x22EC, idx), e->id);
                 if (hard != 0) {
                     disable_entry_by_id__17TWindowSubComCardFPvi((void *)w, e->id);
                 }

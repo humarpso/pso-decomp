@@ -31,7 +31,7 @@ u8 * TLobby__sub_8001FE7C(void *, s16);
 void call_funcs_reverse__6TLobbyFPvUi(s32, u32);
 extern RecoveredGlobal_802EE4E0_lbl_804E3C5C lbl_804E3C5C;
 extern u8 *lbl_805D6918;
-void TBoss7DeRolLeC__sub_802EE4E0(void);
+void run_exit_callbacks__14TBoss7DeRolLeCFv(void);
 u8 *load_resource_from_descriptor(void *, s32, void *, s32, s32, s32);
 u8 *alloc__23TAdSinglePlyChrSelectGCFPv(s32);
 void run_load_callback_table(void *, int);
@@ -64,7 +64,7 @@ void *__nw__7TObjectFUl(int);
 extern void *tl_04;
 
 typedef char RecoveredGlobal_802EE4E0_lbl_804E3C5C_size[sizeof(RecoveredGlobal_802EE4E0_lbl_804E3C5C) == 0x4C ? 1 : -1];
-void TBoss7DeRolLeC__sub_802EE4E0(void) {
+void run_exit_callbacks__14TBoss7DeRolLeCFv(void) {
     call_funcs_reverse__6TLobbyFPvUi((s32) &lbl_804E3C5C.value, 0x30U);
     if ((void *) lbl_805D6918 != NULL) {
         TLobby__sub_8001FE7C(lbl_805D6918, 1);

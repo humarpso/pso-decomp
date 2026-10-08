@@ -27,7 +27,7 @@ u32 TObjPlayer__sub_801C2154(O_801C2154 *self);
 u32 TObjPlayer__sub_801C2180(O_801C2180 *self);
 u8 TObjPlayer__sub_801C21C4(O_801C21C4 *self, s32 i);
 void is_slot_within_limit__10TObjPlayerFiiUc(u8 id, s16 i, u8 v);
-u8 TObjPlayer__sub_801C21D4(O_801C21D4 *self, s32 i);
+u8 get_slot_value_checked__10TObjPlayerFPvi(O_801C21D4 *self, s32 i);
 void __dl__FPv(void *);
 void __destroy_arr(void *, void *, int, int);
 void TObjPlayer__sub_801AA528(void);
@@ -148,7 +148,7 @@ u8 TObjPlayer__sub_801C21C4(O_801C21C4 *self, s32 i) {
     return self->recs[i].v;
 }
 
-u8 TObjPlayer__sub_801C21D4(O_801C21D4 *self, s32 i) {
+u8 get_slot_value_checked__10TObjPlayerFPvi(O_801C21D4 *self, s32 i) {
     u8 v = self->arr[i];
     is_slot_within_limit__10TObjPlayerFiiUc(self->id, i, v);
     return v;

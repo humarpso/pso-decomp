@@ -13,7 +13,7 @@ struct RecoveredGlobal_8033ED24_lbl_804EFA88
 extern "C" {
 void free_indexed_entry__10TObjPlayerFPv(void *, s32);
 extern s32 lbl_805D6DA0;
-void TLobby__sub_8033EDA8(s32 arg0);
+void release_indexed_entry__6TLobbyFi(s32 arg0);
 int alloc_buffer__11TOBoss4RockFPv(void *);
 M2C_UNK __ct__7TObjectFP7TObject();
 M2C_UNK TLobby__sub_8033EE38(int);
@@ -72,7 +72,7 @@ u8 *TLobby__sub_8033ED24(u8 *arg0) {
   return arg0;
 }
 
-void TLobby__sub_8033EDA8(s32 arg0) {
+void release_indexed_entry__6TLobbyFi(s32 arg0) {
     if (((void *) (*(u8 * *)&lbl_805D6DA0) != NULL) && ((s32) M2C_FIELD((*(u8 * *)&lbl_805D6DA0), s32 *, 0x20) < 0x10)) {
         free_indexed_entry__10TObjPlayerFPv((*(u8 * *)&lbl_805D6DA0), arg0);
         M2C_FIELD((*(u8 * *)&lbl_805D6DA0), s32 *, 0x20) = (s32) (M2C_FIELD((*(u8 * *)&lbl_805D6DA0), s32 *, 0x20) + 1);

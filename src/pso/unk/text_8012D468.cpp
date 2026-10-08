@@ -8,12 +8,12 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 extern "C" {
 u16 TObjPlayer__sub_80100474(void *);
 s32 replace_item_with_new_code(void *, void *);
-void TObjPlayer__sub_8012D468(s32 arg0);
+void replace_item_if_value_exceeds__10TObjPlayerFi(s32 arg0);
 }
 
 extern "C" {
 
-void TObjPlayer__sub_8012D468(s32 arg0) {
+void replace_item_if_value_exceeds__10TObjPlayerFi(s32 arg0) {
     TItemData item_data;
     if (TObjPlayer__sub_80100474((void *) (arg0)) >= 0x59D8U) {
         item_data.data1.data_u8[0] = 0;

@@ -154,7 +154,7 @@ void update_particle_if_active__12TObjEneReconFv(void);
 void notify_scene__12TObjEneReconFi(s32);
 void set_indirect_tev__6TSceneFii(u32, s32);
 void draw_field_1c__6TSceneFPviii(void *, s32, s32, s32);
-void TLobby__sub_8033EDA8(Lobby_8020533C *);
+void release_indexed_entry__6TLobbyFi(Lobby_8020533C *);
 void vec3_add_to(void *, void *);
 void draw_ginja_object(void *);
 void set_current_scene__6TSceneFi(u32);
@@ -846,7 +846,7 @@ void render_static_map_section__6TSceneFv(void *arg0, SceneMaterialSection *arg1
                     l.node = node;
                     l.scene = TScene__data_805D5FCC->flags;
                     l.id = m->fF;
-                    TLobby__sub_8033EDA8(&l);
+                    release_indexed_entry__6TLobbyFi(&l);
                 }
             } else {
                 Model_8020533C *m = (Model_8020533C *)e->node;

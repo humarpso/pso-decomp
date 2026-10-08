@@ -52,7 +52,7 @@ u8 * load_resource_from_descriptor(void *, s32, void *, s32, s32, s32);
 int alloc__23TAdSinglePlyChrSelectGCFPv(void *);
 extern RecoveredGlobal_80173330_lbl_804B3A18 lbl_804B3A18;
 extern u32 TORainbowCave01__data_805D5A70;
-void TORainbowCave01__sub_80173330(void);
+void load_resource_instance__15TORainbowCave01Fv(void);
 u8 * init_map_object_base(void *);
 void init_light_params__15TORainbowCave01FPviff(u8 *arg0, int, f32, f32);
 extern M2C_UNK __vt__15TORainbowCave01[];
@@ -182,7 +182,7 @@ void free_static_data__15TORainbowCave01Fv(void) {
 
 extern M2C_UNK __vt__15TORainbowCave01[];
 
-void TORainbowCave01__sub_80173330(void) {
+void load_resource_instance__15TORainbowCave01Fv(void) {
     s32 temp_r3;
     s32 var_r0;
     temp_r3 = alloc__23TAdSinglePlyChrSelectGCFPv((void *)0x440);

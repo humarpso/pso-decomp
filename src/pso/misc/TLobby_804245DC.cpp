@@ -189,7 +189,7 @@ s32 EXILock(s32, u32, u32);
 void TAdSinglePlyChrSelectGC__sub_8042DE20(void);
 extern RecoveredGlobal_8042E768_lbl_805D1D20 lbl_805D1D20;
 extern s32 lbl_805D7C98;
-s32 TAdSinglePlyChrSelectGC__sub_8042E768(u32 arg0);
+s32 copy_default_and_get_state__23TAdSinglePlyChrSelectGCFUi(u32 arg0);
 s32 EXILock(s32, u32, u32);
 s32 EXIUnlock(s32);
 void TAdSinglePlyChrSelectGC__sub_8042D6A4(void *);
@@ -1105,7 +1105,7 @@ s32 send_at_error_correction_cmd__23TAdSinglePlyChrSelectGCFi(s32 arg0);
 
 s32 send_at_compression_cmd__23TAdSinglePlyChrSelectGCFi(s32 arg0);
 
-s32 TAdSinglePlyChrSelectGC__sub_8042E768(u32 arg0);
+s32 copy_default_and_get_state__23TAdSinglePlyChrSelectGCFUi(u32 arg0);
 
 s32 send_atx_command__23TAdSinglePlyChrSelectGCFi(s32 arg0);
 

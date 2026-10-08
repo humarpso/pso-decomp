@@ -1566,7 +1566,7 @@ void TObjEneMorfos__sub_80333E48(u8 *arg0, s32 arg1);
 void TObjEneMorfos__sub_80334030(u8 *arg0, s32 arg1);
 void state_appear__13TObjEneMorfosFPvi(void *arg0, s32 arg1);
 void TObjEneMorfos__sub_803342B8(u8 *arg0, s32 arg1);
-void TObjEneMorfos__sub_803343E8(void *self, s32 ev);
+void handle_event_transition__13TObjEneMorfosFPvi(void *self, s32 ev);
 void TObjEneMorfos__vt85(u8 *arg0, u32 arg1, s32 arg2);
 void play_sound_in_band__13TObjEneMorfosFPv(u8 *arg0);
 s32 select_target_in_view__13TObjEneMorfosFPv(O_80334588 *arg0);
@@ -2763,7 +2763,7 @@ void TObjEneMorfos__sub_803342B8(u8 *arg0, s32 arg1) {
     }
 }
 
-void TObjEneMorfos__sub_803343E8(void *self, s32 ev) {
+void handle_event_transition__13TObjEneMorfosFPvi(void *self, s32 ev) {
     switch (ev) {
     case 0:
         return;
@@ -2775,7 +2775,7 @@ void TObjEneMorfos__sub_803343E8(void *self, s32 ev) {
 
 void TObjEneMorfos__vt85(u8 *arg0, u32 arg1, s32 arg2) {
     switch (arg1) {
-    case 0: TObjEneMorfos__sub_803343E8(arg0, arg2); break;
+    case 0: handle_event_transition__13TObjEneMorfosFPvi(arg0, arg2); break;
     case 1: TObjEneMorfos__sub_803342B8(arg0, arg2); break;
     case 3: state_appear__13TObjEneMorfosFPvi(arg0, arg2); break;
     case 2: TObjEneMorfos__sub_80334030(arg0, arg2); break;

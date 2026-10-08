@@ -75,7 +75,7 @@ extern s32 lbl_805D53A0;
 extern s32 lbl_805D53A0;
 extern s32 TLobby__data_805D53AC;
 u8 is_challenge_lobby__6TLobbyFv(void);
-M2C_UNK TLobby__sub_8006F2CC();
+M2C_UNK advance_state_if_flag_set__6TLobbyFv();
 void TLobby__sub_80072B70(u8 *arg0);
 void close_window_2c__6TLobbyFPv(void* p);
 void send_45_and_close_windows__6TLobbyFv(void *);
@@ -323,7 +323,7 @@ void update_destroy_countdown__6TLobbyFPv(void *arg0) {
     temp_r0 = M2C_FIELD(arg0, s32 *, 0x28) - 1;
     M2C_FIELD(arg0, s32 *, 0x28) = temp_r0;
     if (temp_r0 <= 0) {
-        TLobby__sub_8006F2CC();
+        advance_state_if_flag_set__6TLobbyFv();
         send_45_and_close_windows__6TLobbyFv((void *)(arg0));
         close_window_2c__6TLobbyFPv((void*)(arg0));
         TLobby__sub_80072B70((u8 *)(arg0));

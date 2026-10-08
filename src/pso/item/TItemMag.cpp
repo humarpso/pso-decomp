@@ -167,7 +167,7 @@ void tick_fullness_timer__8TItemMagFPv(O_80110F04 *self);
 u8 has_feed_flag__11TItemMagSubFPv(void *arg0);
 s32 is_mag_active__11TItemMagSubFPv(void *arg0);
 s32 check_action_probability__8TItemMagFPvi(u8 *arg0, s32 arg1);
-void TItemMag__sub_80111140(TItemMag_80111140 *self, void *a, void *b);
+void copy_owner_pair__8TItemMagFPvPvPv(TItemMag_80111140 *self, void *a, void *b);
 void apply_transform_action__8TItemMagFPvUc(u8 *arg0, u8 arg1);
 int TItemMag__sub_801112B0(void);
 void select_action_motion__8TItemMagFPv(TItemMag_801112B8 *self);
@@ -393,7 +393,7 @@ void copy_owner_data__8TItemMagFPv(u8 *arg0) {
     if (temp_r3 != NULL) {
         M2C_FIELD(arg0, s32 *, 0x1B8) = (s32) M2C_FIELD(temp_r3, s16 *, 8);
         M2C_FIELD(arg0, u8 *, 0x1BC) = (u8) M2C_FIELD(temp_r3, u8 *, 0xB);
-        ((M2C_UNK (*)(void *, void *, void *))TItemMag__sub_80111140)(arg0, temp_r3 + 0xC, temp_r3 + 0x10);
+        ((M2C_UNK (*)(void *, void *, void *))copy_owner_pair__8TItemMagFPvPvPv)(arg0, temp_r3 + 0xC, temp_r3 + 0x10);
     }
 }
 
@@ -500,7 +500,7 @@ block_29:
     return 0;
 }
 
-void TItemMag__sub_80111140(TItemMag_80111140 *self, void *a, void *b) {
+void copy_owner_pair__8TItemMagFPvPvPv(TItemMag_80111140 *self, void *a, void *b) {
     memcpy(self->a, a, 4);
     memcpy(self->b, b, 4);
 }

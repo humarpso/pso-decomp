@@ -66,7 +66,7 @@ s32 TLobby__sub_803DA16C(void *, M2C_UNK);
 u64 call_funcs_reverse__6TLobbyFPvUi(void *, int);
 extern RecoveredGlobal_8033670C_lbl_804EE58C lbl_804EE58C;
 extern u8 *lbl_805D6D48;
-void TLobby__sub_8033670C(void);
+void destroy_global_object__6TLobbyFv(void);
 M2C_UNK queue_destruction__7TObjectFv(void*);
 s32 disallow_rendering__7TObjectFv(void *);
 void hide_title_layers_and_release(O_8033612C *arg0);
@@ -320,7 +320,7 @@ u8 *construct_title_scene__6TLobbyFPv(u8 *arg0) {
 }
 
 typedef char RecoveredGlobal_8033670C_lbl_804EE58C_size[sizeof(RecoveredGlobal_8033670C_lbl_804EE58C) == 0x50 ? 1 : -1];
-void TLobby__sub_8033670C(void) {
+void destroy_global_object__6TLobbyFv(void) {
     u32 temp_r4;
     temp_r4 = (u32) call_funcs_reverse__6TLobbyFPvUi((void *) (&lbl_804EE58C.value), (int) (0x20));
     if ((void *) lbl_805D6D48 != NULL) {

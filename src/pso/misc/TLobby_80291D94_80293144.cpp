@@ -156,7 +156,7 @@ void setup_split_screen(void);
 void update_destruction_countdown__6TLobbyFPv(void *arg0);
 s32 TAdPlayerLoadGC__sub_801E1510();
 M2C_UNK create_new_floor_windows__6TLobbyFi(s32);
-M2C_UNK TLobby__sub_802925C4(void *);
+M2C_UNK set_split_screen_name__6TLobbyFi(void *);
 M2C_UNK export_character_data__10TObjPlayerFPvPv(u32, u32);
 u32 get_player_by_client_id(u32);
 M2C_UNK create_ch_time_win(s32);
@@ -415,7 +415,7 @@ void setup_split_screen(void) {
         lbl_805D6580 = create_challenge4p__6TLobbyFv();
         lbl_805D6584 = 1;
         lbl_805D6588 = 0;
-        TLobby__sub_802925C4(lbl_80464E58);
+        set_split_screen_name__6TLobbyFi(lbl_80464E58);
         var_r31 = 0U;
         do {
             temp_r30 = get_player_by_client_id(var_r31);

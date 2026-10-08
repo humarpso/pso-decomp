@@ -8,7 +8,7 @@ extern "C" {
 M2C_UNK stop_audio_streams__6TLobbyFv();
 M2C_UNK queue_instance_destruction__14TBoss6PlotFalzFv(void *);
 M2C_UNK freeze_all_players__14TBoss6PlotFalzFv();
-s32 TBoss6PlotFalz__sub_802ABC14(void *, void *);
+s32 get_target_pos_b__14TBoss6PlotFalzFii(void *, void *);
 s32 create__14TBoss6PlotFalzFPvPv(void *, void *);
 void reset_and_recreate__14TBoss6PlotFalzFPv(u8 *arg0);
 }
@@ -30,7 +30,7 @@ int is_ready__14TBoss6PlotFalzFv(void*);
 void set_state4_if_ready__14TBoss6PlotFalzFPv(void* p) { if (is_ready__14TBoss6PlotFalzFv(p) != 0) { send_6xA3_action__14TBoss6PlotFalzFPvc(p, (void*)4); } }
 void reset_and_recreate__14TBoss6PlotFalzFPv(u8 *arg0) {
     M2C_UNK sp8;
-    TBoss6PlotFalz__sub_802ABC14((void *) (arg0), (void *) (&sp8));
+    get_target_pos_b__14TBoss6PlotFalzFii((void *) (arg0), (void *) (&sp8));
     queue_instance_destruction__14TBoss6PlotFalzFv((void *) (arg0));
     stop_audio_streams__6TLobbyFv();
     freeze_all_players__14TBoss6PlotFalzFv();

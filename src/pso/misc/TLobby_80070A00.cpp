@@ -94,7 +94,7 @@ s32 get_card_window__17TWindowSubComCardFUi(u32);
 extern M2C_UNK lbl_8048C9D8[];
 s32 TLobby__sub_8007119C(s32 arg0);
 M2C_UNK **TWindowSubStatusDisp__sub_8006F134(s32, s32);
-s32 TAdSinglePlyChrSelectGC__sub_801FCE2C(int);
+s32 forward_to_global_instance__23TAdSinglePlyChrSelectGCFi(int);
 s32 get_card_window__17TWindowSubComCardFUi(u32);
 extern M2C_UNK lbl_8048C9D8[];
 s32 TLobby__sub_800710D8(s32 arg0);
@@ -281,7 +281,7 @@ s32 TLobby__sub_800710D8(s32 arg0) {
         return 0;
     }
     var_r3 = var_r30;
-    if (TAdSinglePlyChrSelectGC__sub_801FCE2C((int) (var_r3)) != 0) {
+    if (forward_to_global_instance__23TAdSinglePlyChrSelectGCFi((int) (var_r3)) != 0) {
         var_r4 = (M2C_UNK *)(&(*(RecoveredGlobal_800710D8_lbl_8048C9D8 *)&lbl_8048C9D8).value);
         var_r3 = 0x10000;
         var_r5 = M2C_FIELD(&(*(RecoveredGlobal_800710D8_lbl_8048C9D8 *)&lbl_8048C9D8).value, s32 *, 0x14) * 0x1C;

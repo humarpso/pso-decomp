@@ -44,7 +44,7 @@ extern "C" {
 extern const f32 lbl_805DE548;
 bool TAdPlyChrSelPlateGC__sub_802C4D5C(O_802C4D5C *self, s32 i);
 extern const f32 lbl_805DE54C;
-void TAdPlyChrSelPlateGC__sub_802C4D88(S_802C4D88 *arg0);
+void reset_selection_slots__19TAdPlyChrSelPlateGCFPv(S_802C4D88 *arg0);
 void copy_vec2__28TWindowSubSymbolChatPartsSetFPvPv(void *, void *);
 void TAdPlyChrSelPlateGC__sub_802C4DD0(S_802C4DD0 *arg0);
 extern const f32 lbl_805DE548;
@@ -59,7 +59,7 @@ extern "C" {
 bool TAdPlyChrSelPlateGC__sub_802C4D5C(O_802C4D5C *self, s32 i) {
     return (self->v[i] >= lbl_805DE548) ? true : false;
 }
-void TAdPlyChrSelPlateGC__sub_802C4D88(S_802C4D88 *arg0) {
+void reset_selection_slots__19TAdPlyChrSelPlateGCFPv(S_802C4D88 *arg0) {
     s32 i;
     arg0->f3AC = -1;
     arg0->f224 = 0;

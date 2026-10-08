@@ -306,7 +306,7 @@ void TObjSeabedSuisoBrakable__vt15(void) {  }
 
 extern void *__vt__23TObjSeabedSuisoBrakable[];
 
-void * TObjSeabedSuisoBrakable__sub_802A65B8(void *arg0) {
+void * create_instance__23TObjSeabedSuisoBrakableFPv(void *arg0) {
     void *o;
     o = __nw__7TObjectFUl(0xC0);
     if (o != NULL) {

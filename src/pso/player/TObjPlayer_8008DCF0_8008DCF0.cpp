@@ -173,7 +173,7 @@ struct Self_8008E934 { u8 pad[0x3C4]; s32 ids[4]; };
 extern "C" {
 int get_flag_0x388_b24__10TObjPlayerFPv(void *p);
 int update_if_active__15TObjEneMe1GiGueFPv(void*, int);
-void TObjPlayer__sub_8008E708(void *self);
+void update_me1_gigue_state__10TObjPlayerFPv(void *self);
 void *get_player_data__10TObjPlayerFi(s32);
 u16 obj_getField1c(void *);
 void enter_hit_state__18TObjEneBalClawClawFPvs(u32, u16);
@@ -232,7 +232,7 @@ void enable__13TParticleCtrlFPv(u32);
 int reset_enemy_state__10TObjPlayerFPv(void* p);
 s32 TObjPlayer__sub_8008E098(Obj_8008E098 *self);
 int get_flag_0x388_b24__10TObjPlayerFPv(void *p);
-void TObjEneBalClawClaw__sub_800907DC(void *);
+void set_claw_flags__18TObjEneBalClawClawFPv(void *);
 void clear_flag__18TObjEneBalClawClawFPv(void *);
 M2C_UNK advance_animation_playback(void *);
 u32 find_entity_by_id(u16);
@@ -495,7 +495,7 @@ void TObjPlayer__sub_8008E310(P_8008E310 *arg0) {
             for (s32 i = 0; i < arg0->count; i++) {
                 E_8008E310 *e2 = (E_8008E310 *)find_entity_by_id(arg0->ids[i]);
                 if (e2 != NULL) {
-                    TObjEneBalClawClaw__sub_800907DC(e2);
+                    set_claw_flags__18TObjEneBalClawClawFPv(e2);
                     arg0->f32C += obj_getS16_32C(e2);
                 }
             }
@@ -563,7 +563,7 @@ void TObjPlayer__sub_8008E310(P_8008E310 *arg0) {
     }
 }
 
-void TObjPlayer__sub_8008E708(void *self) {
+void update_me1_gigue_state__10TObjPlayerFPv(void *self) {
     update_if_active__15TObjEneMe1GiGueFPv((void*)(self), (int)(get_flag_0x388_b24__10TObjPlayerFPv(self) ? 9 : 2));
 }
 

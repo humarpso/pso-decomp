@@ -102,7 +102,7 @@ u8 * load_resource_from_descriptor(void *, s32, void *, s32, s32, s32);
 int alloc__23TAdSinglePlyChrSelectGCFPv(void *);
 extern RecoveredGlobal_8014B9A4_lbl_804AA0D0 lbl_804AA0D0;
 extern u32 TObjNpcMaleBase__data_805D57D8;
-void TObjNpcMaleBase__sub_8014B9A4(void);
+void load_shared_resource__15TObjNpcMaleBaseFv(void);
 s32 init_position_vectors__10TObjPlayerFi(void *);
 s32 setup_common__11TObjNpcBaseFv(void *);
 s32 construct_male_npc_base(void *);
@@ -135,7 +135,7 @@ void free_static_data__15TObjNpcMaleBaseFv(void) {
 
 extern M2C_UNK __vt__15TObjNpcMaleBase[];
 
-void TObjNpcMaleBase__sub_8014B9A4(void) {
+void load_shared_resource__15TObjNpcMaleBaseFv(void) {
     s32 temp_r3;
     s32 var_r0;
     temp_r3 = alloc__23TAdSinglePlyChrSelectGCFPv((void *)0x440);

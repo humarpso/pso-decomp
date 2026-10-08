@@ -7,7 +7,7 @@ void TLobby__sub_801F48B0(void);
 s32 clear_story_flag(s32);
 void reset_camera_if_fullscreen__6TLobbyFPv(void* p);
 extern s32 lobby_story_flag_clear_list[];
-void TLobby__sub_801F48FC(void);
+void clear_story_flags_and_reset_camera__6TLobbyFv(void);
 }
 
 extern "C" {
@@ -29,7 +29,7 @@ void TLobby__sub_801F48B0(void) {
     }
 }
 
-void TLobby__sub_801F48FC(void) {
+void clear_story_flags_and_reset_camera__6TLobbyFv(void) {
     s32 i;
     for (i = 0; lobby_story_flag_clear_list[i] != -1; i++) {
         clear_story_flag(lobby_story_flag_clear_list[i]);

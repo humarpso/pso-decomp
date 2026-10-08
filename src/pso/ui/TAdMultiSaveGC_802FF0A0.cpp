@@ -12,7 +12,7 @@ u8 * load_resource_from_descriptor(void *, s32, void *, s32, s32, s32);
 int alloc__23TAdSinglePlyChrSelectGCFPv(void *);
 extern RecoveredGlobal_802FF0D8_lbl_804E6570 lbl_804E6570;
 extern u32 lbl_805D69E0;
-void TAdMultiSaveGC__sub_802FF0D8(void);
+void load_shared_resource__14TAdMultiSaveGCFv(void);
 s32 get_state_flag__9TMainTaskFv(void);
 void render__14TAdMultiSaveGCFv(void *self);
 }
@@ -34,7 +34,7 @@ void free_window__14TAdMultiSaveGCFv(void) {
     }
 }
 
-void TAdMultiSaveGC__sub_802FF0D8(void) {
+void load_shared_resource__14TAdMultiSaveGCFv(void) {
     s32 temp_r3;
     s32 var_r0;
     temp_r3 = alloc__23TAdSinglePlyChrSelectGCFPv((void *)0x440);

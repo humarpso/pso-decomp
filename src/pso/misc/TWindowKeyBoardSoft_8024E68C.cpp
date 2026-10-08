@@ -61,7 +61,7 @@ extern Vec2_8024EC34 lbl_8044EC70[];
 extern Vec2_8024EC34 lbl_8044EC80[];
 extern Vec2_8024EC34 lbl_8044EC98[];
 extern const float lbl_805DCC78;
-void TWindowKeyBoardSoft__sub_8024E68C(Ctx_8024E68C *c, f32 *q);
+void scale_point_about_pivot__19TWindowKeyBoardSoftFPvPv(Ctx_8024E68C *c, f32 *q);
 s32 is_point_in_bounds__19TWindowKeyBoardSoftFPvPv(void *arg0, void *arg1);
 extern const float lbl_805DCC94;
 s32 clip_textured_quad__19TWindowKeyBoardSoftFPvPv(Win_8024E8E8 *w, Box_8024E8E8 *b);
@@ -95,7 +95,7 @@ typedef struct RecoveredFields_8024E754_arg0 RecoveredFields_8024E754_arg0;
 
 #pragma push
 #pragma fp_contract on
-void TWindowKeyBoardSoft__sub_8024E68C(Ctx_8024E68C *c, f32 *q) {
+void scale_point_about_pivot__19TWindowKeyBoardSoftFPvPv(Ctx_8024E68C *c, f32 *q) {
     if ((*(const f32 *)&lbl_805DCC78) != c->scale[0]) {
         q[0] = c->scale[0] * (q[0] - c->pivot[0]) + c->pivot[0];
     }

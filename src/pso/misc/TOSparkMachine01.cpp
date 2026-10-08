@@ -75,7 +75,7 @@ u8 * load_resource_from_descriptor(void *, s32, void *, s32, s32, s32);
 int alloc__23TAdSinglePlyChrSelectGCFPv(void *);
 extern RecoveredGlobal_80177330_lbl_804B43F0 lbl_804B43F0;
 extern u32 TOSparkMachine01__data_805D5AC0;
-void TOSparkMachine01__sub_80177330(void);
+void load_static_resource__16TOSparkMachine01Fv(void);
 void TPhotonMagicSquare__sub_801A2640(void *, s32);
 extern M2C_UNK __vt__16TOSparkMachine01[];
 extern s32 lbl_805D3174;
@@ -194,7 +194,7 @@ void destroy_static_instance__16TOSparkMachine01Fv(void) {
 
 extern M2C_UNK __vt__16TOSparkMachine01[];
 
-void TOSparkMachine01__sub_80177330(void) {
+void load_static_resource__16TOSparkMachine01Fv(void) {
     s32 temp_r3;
     s32 var_r0;
     temp_r3 = alloc__23TAdSinglePlyChrSelectGCFPv((void *)0x440);

@@ -25,10 +25,10 @@ void TObjPlayer__sub_803DA6E0(u8 *arg0);
 void set_texture_name(S_803DA218 *self, s32 a, s32 b, u32 c);
 extern s32 lbl_805D7764;
 extern Rec_803DA688 *lbl_805D7768;
-s32 TObjPlayer__sub_803DA688(u32 arg0, u32 arg1);
+s32 find_record_index__10TObjPlayerFUiUi(u32 arg0, u32 arg1);
 extern s32 lbl_805D7764;
 extern Rec_803DA688 *lbl_805D7768;
-s32 TObjPlayer__sub_803DA55C(u32 arg0);
+s32 find_table_index_by_id__10TObjPlayerFUi(u32 arg0);
 extern s32 lbl_805D7764;
 extern Rec_803DA688 *lbl_805D7768;
 void TObjPlayer__sub_803DA244(Rec_803DA688 *arg0, s32 arg1);
@@ -111,7 +111,7 @@ void TObjPlayer__sub_803DA388(Slot_803DA388 *p, s32 n) {
 }
 #pragma pop
 
-s32 TObjPlayer__sub_803DA55C(u32 arg0) {
+s32 find_table_index_by_id__10TObjPlayerFUi(u32 arg0) {
     E_803DA55C *e;
     u32 *q;
     s32 i;
@@ -162,7 +162,7 @@ s32 find_free_slot__10TObjPlayerFPvPv(Rec_803DA688 **arg0, Slot_803DA5A8 **arg1)
     return idx;
 }
 
-s32 TObjPlayer__sub_803DA688(u32 arg0, u32 arg1) {
+s32 find_record_index__10TObjPlayerFUiUi(u32 arg0, u32 arg1) {
     Sub_803DA688 *d;
     s32 i;
     Rec_803DA688 *p = lbl_805D7768;

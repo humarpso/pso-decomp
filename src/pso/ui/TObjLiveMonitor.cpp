@@ -169,7 +169,7 @@ u8 * load_resource_from_descriptor(void *, s32, void *, s32, s32, s32);
 int alloc__23TAdSinglePlyChrSelectGCFPv(void *);
 extern RecoveredGlobal_8030B658_lbl_804E76C0 lbl_804E76C0;
 extern int lbl_805D6A80;
-void TObjLiveCamera__sub_8030B658(void);
+void load_static_resource__14TObjLiveCameraFv(void);
 s32 TPhotonMagicSquare__sub_801A2640(void *, void *);
 extern M2C_UNK __vt__14TObjLiveCamera[];
 extern s32 lbl_805D40E8;
@@ -191,7 +191,7 @@ void destroy_particle__13TParticleCtrlFPvs(void *, int);
     extern int lbl_805D6A80;
 void TObjLiveCamera__sub_8030B630(void) { TLobby__sub_8001FE7C((void*)(lbl_805D6A80), (void*)1); }
 
-void TObjLiveCamera__sub_8030B658(void) {
+void load_static_resource__14TObjLiveCameraFv(void) {
     s32 temp_r3;
     s32 var_r0;
     temp_r3 = alloc__23TAdSinglePlyChrSelectGCFPv((void *)0x440);
@@ -248,12 +248,12 @@ void fn_8030B7B4(void);
 void fn_8030B7B8(void);
 int call_null__12TBoss8DragonFv(void);
 int update_single_screen__11TCameraCtrlFv(void*);
-int TBoss8Dragon__sub_802F3388(void*);
+int get_global_part_count__12TBoss8DragonFi(void*);
 
 void fn_8030B7B4(void) {  }
 void fn_8030B7B8(void) {  }
 void update_camera__15TObjLiveMonitorFPv(void* p) { void* m = *(void**)((char*)p + 0x50); if (m) update_single_screen__11TCameraCtrlFv(m); }
-int call_null__12TBoss8DragonFv(void) { return TBoss8Dragon__sub_802F3388((void*)(0)); }
+int call_null__12TBoss8DragonFv(void) { return get_global_part_count__12TBoss8DragonFi((void*)(0)); }
 
 }
 

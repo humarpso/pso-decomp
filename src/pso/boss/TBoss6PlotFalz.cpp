@@ -401,7 +401,7 @@ struct Vec_802AB6CC { f32 x, y, z; };
 
 extern "C" {
 void fn_803594B4(void *, s32, f32);
-void TBoss6PlotFalz__sub_802AB568(u8 *arg0, s32 arg1, f32 farg0);
+void apply_fade_alpha__14TBoss6PlotFalzFPvif(u8 *arg0, s32 arg1, f32 farg0);
 M2C_UNK vector_length(void *);
 M2C_UNK subtract_vector(void *, void *);
 void TBoss6PlotFalz__sub_802AB684(s32 arg0);
@@ -568,7 +568,7 @@ void award_exp_and_destroy__14TBoss6PlotFalzFPv(u8 *arg0) {
     queue_destruction__7TObjectFv(arg0);
 }
 
-void TBoss6PlotFalz__sub_802AB568(u8 *arg0, s32 arg1, f32 farg0) {
+void apply_fade_alpha__14TBoss6PlotFalzFPvif(u8 *arg0, s32 arg1, f32 farg0) {
     f32 var_f1;
     u8 *temp_r3;
     var_f1 = farg0;
@@ -797,9 +797,9 @@ u32 create__11TBoss6Type2Fi(void *, int);
 void spawn_type2__14TBoss6PlotFalzFPv(u8 *arg0);
 f32 next_random_float__10TBoss6MineFPv(s32 *arg0);
 extern RecoveredGlobal_802ABBC4_lbl_804705CC lbl_804705CC;
-s32 TBoss6PlotFalz__sub_802ABBC4(M2C_UNK arg0, s32 arg1);
+s32 get_target_pos_a__14TBoss6PlotFalzFii(M2C_UNK arg0, s32 arg1);
 extern RecoveredGlobal_802ABC14_lbl_804705C0 lbl_804705C0;
-s32 TBoss6PlotFalz__sub_802ABC14(M2C_UNK arg0, s32 arg1);
+s32 get_target_pos_b__14TBoss6PlotFalzFii(M2C_UNK arg0, s32 arg1);
 s32 TBoss6Type1__sub_802ABDEC(s32 seed);
 s32 is_locally_controlled__10TObjPlayerFPv(s32);
 s32 get_game_mode__6TLobbyFv(void);
@@ -818,7 +818,7 @@ u32 create__10TBoss6TubeFPv();
 
 void release_object__14TBoss6PlotFalzFPv(void* p) { if (*(unsigned int*)((char*)p + 0x384) != 0) { queue_destruction__7TObjectFv(*(void**)((char*)p + 0x384)); *(int*)((char*)p + 0x384) = 0; } }
 
-s32 TBoss6PlotFalz__sub_802ABBC4(M2C_UNK arg0, s32 arg1) {
+s32 get_target_pos_a__14TBoss6PlotFalzFii(M2C_UNK arg0, s32 arg1) {
     if ((u32) TBoss6PlotFalz__data_805D66F4 == 0U) {
         VecCopy__FP3VecPC3Vec((void *) (arg1), (void *) (&lbl_804705CC.value));
         return 0;
@@ -827,7 +827,7 @@ s32 TBoss6PlotFalz__sub_802ABBC4(M2C_UNK arg0, s32 arg1) {
     return 1;
 }
 
-s32 TBoss6PlotFalz__sub_802ABC14(M2C_UNK arg0, s32 arg1) {
+s32 get_target_pos_b__14TBoss6PlotFalzFii(M2C_UNK arg0, s32 arg1) {
     if ((u32) TBoss6PlotFalz__data_805D66F0 == 0U) {
         VecCopy__FP3VecPC3Vec((void *) (arg1), (void *) (&lbl_804705C0.value));
         return 0;

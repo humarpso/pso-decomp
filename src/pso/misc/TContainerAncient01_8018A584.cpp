@@ -252,7 +252,7 @@ extern s32 lbl_805D586C;
 extern const f32 lbl_805DBD38;
 s32 TContainerAncient01__sub_8018BE90(void);
 int get_table_entry__19TContainerAncient01Fi(int a0);
-void TContainerAncient01R__sub_8018AF80(void);
+void init_table_entries__20TContainerAncient01RFv(void);
 
 void spawn_effect__19TContainerAncient01FPvPvPv(void* p, void* a1, void* a2);
 int spawn_particle_effect(void*, void*);
@@ -744,7 +744,7 @@ void *TContainerAncient01R__create(void *arg0) {
 
 void TContainerAncient01R__sub_8018AF74(void) { TContainerAncient01R__data_805D5B94 = 0; }
 
-void TContainerAncient01R__sub_8018AF80(void) {
+void init_table_entries__20TContainerAncient01RFv(void) {
     TContainerAncient01R__data_805D5B94 = TContainerAncient01__sub_8018BE90();
     lbl_8050DC70[0] = get_table_entry__19TContainerAncient01Fi(0);
     lbl_8050DC70[1] = get_table_entry__19TContainerAncient01Fi(1);

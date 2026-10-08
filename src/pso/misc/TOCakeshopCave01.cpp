@@ -59,7 +59,7 @@ u8 * load_resource_from_descriptor(void *, s32, void *, s32, s32, s32);
 int alloc__23TAdSinglePlyChrSelectGCFPv(void *);
 extern RecoveredGlobal_8015A108_lbl_804AFDF8 lbl_804AFDF8;
 extern u32 TOCakeshopCave01__data_805D58B0;
-void TOCakeshopCave01__sub_8015A108(void);
+void load_resource_instance__16TOCakeshopCave01Fv(void);
 s32 rand(void);
 extern const f32 lbl_805DB358;
 extern const f32 lbl_805DB35C;
@@ -182,7 +182,7 @@ void close_dialog_window__16TOCakeshopCave01Fv(void) {
 
 extern M2C_UNK __vt__16TOCakeshopCave01[];
 
-void TOCakeshopCave01__sub_8015A108(void) {
+void load_resource_instance__16TOCakeshopCave01Fv(void) {
     s32 temp_r3;
     s32 var_r0;
     temp_r3 = alloc__23TAdSinglePlyChrSelectGCFPv((void *)0x440);

@@ -168,7 +168,7 @@ void TBoss7Tentacle__sub_802F0A44(u8 *arg0);
 void TBoss7Tentacle__sub_802F0A5C(Ten_802F0A5C *o);
 void TBoss7Tentacle__sub_802F0AD0(void* a0);
 void TBoss7Tentacle__sub_802F0AF0(u8 *arg0);
-void TBoss7Tentacle__sub_802F0B08(u8 *arg0, u8 *arg1, s32 arg2);
+void start_attack_at_position__14TBoss7TentacleFPvPvi(u8 *arg0, u8 *arg1, s32 arg2);
 void TBoss7Tentacle__sub_802F0B58(u8 *arg0);
 void TBoss7Tentacle__sub_802F0B70(void* p);
 void TBoss7Tentacle__sub_802F0B80(void* p);
@@ -653,7 +653,7 @@ void TBoss7Tentacle__sub_802F0AF0(u8 *arg0) {
     M2C_FIELD(arg0, s32 *, 0x3C) = (s32) (M2C_FIELD(arg0, s32 *, 0x3C) & 0xFFFFFFFD);
 }
 
-void TBoss7Tentacle__sub_802F0B08(u8 *arg0, u8 *arg1, s32 arg2) {
+void start_attack_at_position__14TBoss7TentacleFPvPvi(u8 *arg0, u8 *arg1, s32 arg2) {
     s32 var_r5;
     var_r5 = arg2;
     if ((var_r5 <= 0) || (var_r5 >= 0x258)) {

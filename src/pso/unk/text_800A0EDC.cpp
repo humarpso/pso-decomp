@@ -273,8 +273,8 @@ u8 * TObjEneDarkGunCenter__ct(u8 *arg0, M2C_UNK arg1, s32 arg2);
 void fn_800A0FAC(u8 *arg0);
 void fn_800A0FDC(u8 *arg0);
 void TObjPlayer__sub_800A100C(s32 _w0);
-s32 TObjPlayer__sub_800A1010(s32 arg0);
-s32 TObjPlayer__sub_800A1058(s32 arg0);
+s32 update_movement_and_notify__10TObjPlayerFi(s32 arg0);
+s32 update_action_hold_and_notify__10TObjPlayerFi(s32 arg0);
 void init_scale_global__10TObjPlayerFv(void);
 void update_move_to_destination__10TObjPlayerFPv(Obj_800A12C0 *o);
 s32 update_hide_sequence__10TObjPlayerFPv(u8 *arg0);
@@ -712,7 +712,7 @@ void *lbl_804907EC[83] = {
     (void *)&receive_weapon_special_attack__10TObjPlayerFv, (void *)&apply_knockback_from_attacker, (void *)&try_start_action__10TObjPlayerFPvii, (void *)&roll_physical_accuracy__10TObjPlayerFv,
     (void *)&TObjPlayer__sub_800A31F4, (void *)&TObjPlayer__sub_8000FF3C, (void *)&is_target_in_attack_range__10TObjPlayerFv, (void *)&test_flag_256__10TObjPlayerFPv,
     (void *)&test_flag30_512__10TObjPlayerFPv, (void *)&has_flag_0x800__10TObjPlayerFPv, (void *)&test_flag_1000__10TObjPlayerFPv, (void *)&update_poison_status__10TObjPlayerFv,
-    (void *)&TObjPlayer__sub_800A1058, (void *)&update_action_timer__10TObjPlayerFPv, (void *)&update_flag30_timer__10TObjPlayerFPv, (void *)&TObjPlayer__sub_800A1010,
+    (void *)&update_action_hold_and_notify__10TObjPlayerFi, (void *)&update_action_timer__10TObjPlayerFPv, (void *)&update_flag30_timer__10TObjPlayerFPv, (void *)&update_movement_and_notify__10TObjPlayerFi,
     (void *)&update_shock_clock__10TObjPlayerFPv, (void *)&update_attack_stat_status, (void *)&update_defense_stat_status, (void *)&TObjPlayer__sub_800172CC,
     (void *)&apply_poison_status__10TObjPlayerFv, (void *)&apply_paralysis__10TObjPlayerFv, (void *)&apply_slow_status__10TObjPlayerFPv, (void *)&apply_confusion_status__10TObjPlayerFv,
     (void *)&apply_movement_ailment__10TObjPlayerFv, (void *)&apply_shock_status__10TObjPlayerFv, (void *)&clear_harmful_statuses__10TObjPlayerFv, (void *)&apply_attack_stat_status__10TObjPlayerFv,
@@ -785,7 +785,7 @@ void fn_800A0FDC(u8 *arg0) {
 
 void TObjPlayer__sub_800A100C(s32 _w0) {  }
 
-s32 TObjPlayer__sub_800A1010(s32 arg0) {
+s32 update_movement_and_notify__10TObjPlayerFi(s32 arg0) {
     if (update_movement_status__10TObjPlayerFv() != 0) {
         TObjPlayer__sub_800A100C((s32)(arg0));
         return 1;
@@ -793,7 +793,7 @@ s32 TObjPlayer__sub_800A1010(s32 arg0) {
     return 0;
 }
 
-s32 TObjPlayer__sub_800A1058(s32 arg0) {
+s32 update_action_hold_and_notify__10TObjPlayerFi(s32 arg0) {
     if (update_action_hold_status__10TObjPlayerFv() != 0) {
         TObjPlayer__sub_800A100C(arg0);
         return 1;

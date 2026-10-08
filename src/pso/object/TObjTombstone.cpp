@@ -47,7 +47,7 @@ struct Tomb_80075A00 {
 struct Tomb_80075B5C { u8 pad[0xCC]; s32 rt_index; u8 pad2[0x1A0 - 0xD0]; char text[0x30]; };
 
 extern "C" {
-void TObjTombstone__sub_80075D68(O_80075D68 *self);
+void reset_entries_and_format_name__13TObjTombstoneFPv(O_80075D68 *self);
 void subtract_vector(Vec_8007598C *, Vec_8007598C *);
 f32 vector_length(Vec_8007598C *);
 extern s32 lbl_805D53A0;
@@ -216,7 +216,7 @@ void format_player_name__13TObjTombstoneFPv(Obj_80075CB4 *self) {
     dst[0x2F] = 0;
 }
 
-void TObjTombstone__sub_80075D68(O_80075D68 *self) {
+void reset_entries_and_format_name__13TObjTombstoneFPv(O_80075D68 *self) {
     s32 i;
     for (i = 0; i < 6; i++) {
         self->e[i].f0 = 0;

@@ -40,7 +40,7 @@ u8 * load_resource_from_descriptor(void *, s32, void *, s32, s32, s32);
 int alloc__23TAdSinglePlyChrSelectGCFPv(void *);
 extern RecoveredGlobal_8018D9B0_lbl_804B7158 lbl_804B7158;
 extern u32 TObjContainerJungEx__data_805D5BA8;
-void TObjContainerJungEx__sub_8018D9B0(void);
+void load_resource_instance__19TObjContainerJungExFv(void);
 void clear_player_status_flag__10TObjPlayerFPviUi(void *, s32, s32);
 extern const f32 TObjDoaEx01__data_805DBDA0;
 void TObjDoaEx01__vt16(u8 *arg0);
@@ -89,7 +89,7 @@ void free_data__19TObjContainerJungExFv(void) {
         TObjContainerJungEx__data_805D5BA8 = 0U;
     }
 }
-void TObjContainerJungEx__sub_8018D9B0(void) {
+void load_resource_instance__19TObjContainerJungExFv(void) {
     s32 temp_r3;
     s32 var_r0;
     temp_r3 = alloc__23TAdSinglePlyChrSelectGCFPv((void *)0x440);

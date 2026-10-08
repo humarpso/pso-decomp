@@ -186,7 +186,7 @@ S_80050A68 * __dt__13TObjDFHormingFv(S_80050A68 *o, s16 flag);
 u8 * TObjDFHorming__ct(u8 *arg0, M2C_UNK arg1, s32 arg2, u16 arg3);
 void * create_horming__11TBoss4Type3FPvPvPv(void *arg0, void *arg1, void *arg2);
 void damage_players_near_point(M2C_UNK arg0, Vec_80050D74 *arg1);
-void fn_80050E64(M2C_UNK arg0, s32 arg1);
+void fn_spawn_particle_f3_with_flags(M2C_UNK arg0, s32 arg1);
 u8 * TObjDFJisin__ct(u8 *arg0, u8 *arg1, s32 arg2);
 void * create_jisin__11TBoss4Type2FPvPv(void *arg0, void *arg1);
 void * TObjDFBeamCursor__ct(void *arg0, void *arg1, void *arg2);
@@ -414,7 +414,7 @@ void damage_players_near_point(M2C_UNK arg0, Vec_80050D74 *arg1) {
     }
 }
 
-void fn_80050E64(M2C_UNK arg0, s32 arg1) {
+void fn_spawn_particle_f3_with_flags(M2C_UNK arg0, s32 arg1) {
     Vec position;
     u32 temp_r3;
     ((s32 (*)(void *, void *))VecCopy__FP3VecPC3Vec)((void *) (&position.x), (void *) (arg1));
@@ -443,7 +443,7 @@ void TObjDFJisin::run_task() {
         v.x = ((Obj_80050EB4 *)this)->radius * sin_table_lookup(ang) + ((Obj_80050EB4 *)this)->cx;
         v.z = ((Obj_80050EB4 *)this)->radius * cos_table_lookup(ang) + ((Obj_80050EB4 *)this)->cz;
         if (!(vector_length(&v) > max)) {
-            ((void (*)(void *, Vec_80050EB4 *))fn_80050E64)(((Obj_80050EB4 *)this), &v);
+            ((void (*)(void *, Vec_80050EB4 *))fn_spawn_particle_f3_with_flags)(((Obj_80050EB4 *)this), &v);
             ((void (*)(void *, Vec_80050EB4 *))damage_players_near_point)(((Obj_80050EB4 *)this), &v);
             count++;
         }

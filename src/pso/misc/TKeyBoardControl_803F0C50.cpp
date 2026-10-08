@@ -114,10 +114,10 @@ extern RecoveredGlobal_803F1548_lbl_805A2720 lbl_805A2720;
 void TKeyBoardControl__sub_803F0CF4(s32 arg0, u32 arg1);
 s32 SIDisablePolling(u32);
 extern s32 lbl_805D793C;
-void TKeyBoardControl__sub_803F15C4(s32 arg0);
+void disable_channel_polling__16TKeyBoardControlFi(s32 arg0);
 extern s32 lbl_805D793C;
 extern s32 lbl_805D7930;
-void TKeyBoardControl__sub_803F15C4(s32 arg0);
+void disable_channel_polling__16TKeyBoardControlFi(s32 arg0);
 s32 TKeyBoardControl__sub_803F0F44(void);
 extern RecoveredGlobal_803F1548_lbl_805A2720 lbl_805A2720;
 s32 OSDisableInterrupts(void);
@@ -286,7 +286,7 @@ s32 TKeyBoardControl__sub_803F0E90(s32 arg0, void *arg1) {
 s32 TKeyBoardControl__sub_803F0F44(void) {
     u32 v;
     while ((v = (u32)lbl_805D793C) != 0) {
-        TKeyBoardControl__sub_803F15C4(__cntlzw(v));
+        disable_channel_polling__16TKeyBoardControlFi(__cntlzw(v));
     }
     lbl_805D7930 = 1;
     return 1;
@@ -481,7 +481,7 @@ void enable_keyboard_polling__16TKeyBoardControlFi(s32 arg0) {
     }
 }
 
-void TKeyBoardControl__sub_803F15C4(s32 arg0) {
+void disable_channel_polling__16TKeyBoardControlFi(s32 arg0) {
     u32 temp_r31;
     temp_r31 = 0x80000000U >> arg0;
     SIDisablePolling(temp_r31);

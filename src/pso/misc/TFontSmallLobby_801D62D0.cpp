@@ -38,7 +38,7 @@ void TFontSmallLobby__sub_801D671C(void* a0, int a1);
 int TFontSmallLobby__sub_801D677C(void* p);
 void TFontSmallLobby__sub_801D67C8(void* p);
 void* TFontSmallLobby__sub_801D6804(void* p);
-void* TFontSmallLobby__sub_801D6948(void* p, void* a1);
+void* copy_packet_header_6x38__15TFontSmallLobbyFPvPv(void* p, void* a1);
 void bswap_fields__15TFontSmallLobbyFPv(void* p);
 int check_flag_at_40__15TFontSmallLobbyFPv(void* p);
 void* clear_photon_blast_ready_flag__15TFontSmallLobbyFPv(void* p);
@@ -125,7 +125,7 @@ void init_6x39_packet__15TFontSmallLobbyFPv(void* p) { *(u8*)((char*)p + 0x0) = 
 void update_and_send_60__15TFontSmallLobbyFPv(void* p) { TFontSmallLobby__sub_801C01BC(p); TLobby__send_and_handle_60(p); }
 void bswap_fields__15TFontSmallLobbyFPv(void* p) { read_be16_field2__10TObjPlayerFPv(p); bswap_16__FPUs((char*)p + 0x4); bswap_16__FPUs((char*)p + 0x6); }
 
-void* TFontSmallLobby__sub_801D6948(void* p, void* a1) { TFontSmallLobby__sub_801C0228(p); *(short*)((char*)p + 0x4) = *(unsigned short*)((char*)a1 + 0x4); *(short*)((char*)p + 0x6) = *(short*)((char*)a1 + 0x6); return p; }
+void* copy_packet_header_6x38__15TFontSmallLobbyFPvPv(void* p, void* a1) { TFontSmallLobby__sub_801C0228(p); *(short*)((char*)p + 0x4) = *(unsigned short*)((char*)a1 + 0x4); *(short*)((char*)p + 0x6) = *(short*)((char*)a1 + 0x6); return p; }
 
 void TFontSmallLobby__sub_801D698C(Pkt_801D698C *p) {
     p->a = 0xFFFF;

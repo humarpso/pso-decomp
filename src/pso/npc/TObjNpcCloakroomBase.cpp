@@ -102,7 +102,7 @@ u8 * load_resource_from_descriptor(void *, s32, void *, s32, s32, s32);
 int alloc__23TAdSinglePlyChrSelectGCFPv(void *);
 extern RecoveredGlobal_80149738_lbl_804A8098 lbl_804A8098;
 extern u32 TObjNpcCloakroomBase__static_instance;
-void TObjNpcCloakroomBase__sub_80149738(void);
+void load_shared_resource__20TObjNpcCloakroomBaseFv(void);
 s32 init_position_vectors__10TObjPlayerFi(void *);
 s32 setup_common__11TObjNpcBaseFv(void *);
 s32 construct_female_base__17TObjNpcFemaleBaseFPv(void *);
@@ -164,7 +164,7 @@ void destroy_static_instance__20TObjNpcCloakroomBaseFv(void) {
 
 extern M2C_UNK __vt__20TObjNpcCloakroomBase[];
 
-void TObjNpcCloakroomBase__sub_80149738(void) {
+void load_shared_resource__20TObjNpcCloakroomBaseFv(void) {
     s32 temp_r3;
     s32 var_r0;
     temp_r3 = alloc__23TAdSinglePlyChrSelectGCFPv((void *)0x440);

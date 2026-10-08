@@ -26,7 +26,7 @@ void TWindowSubComCard__sub_80225E80(void *, void *);
 s32 get_id__6TLobbyFPv(void *);
 u8 *TWindowSubComCard__sub_80275228(void);
 void TWindowSubComCard__sub_802721D8(u8 *arg0);
-u8 *TWindowSubComCard__sub_80272034(Win_80272034 *arg0, Key_80272034 *arg1, s32 arg2);
+u8 *find_entry_rest__17TWindowSubComCardFPvPvi(Win_80272034 *arg0, Key_80272034 *arg1, s32 arg2);
 void fn_80077814(void *, u16, s32);
 s32 find_value_by_key__17TWindowSubComCardFPvUs(void *, u16);
 s32 open_hard_keyboard__6TLobbyFPv(void *);
@@ -109,7 +109,7 @@ void TWindowSubComCard__sub_80271F04(u8 *arg0, Ent_80271F04 *arg1, s32 arg2, s32
     }
 }
 
-u8 *TWindowSubComCard__sub_80272034(Win_80272034 *arg0, Key_80272034 *arg1, s32 arg2) {
+u8 *find_entry_rest__17TWindowSubComCardFPvPvi(Win_80272034 *arg0, Key_80272034 *arg1, s32 arg2) {
     Tbl_80272034 *t = arg0->tbl;
     Ent_80272034 *e;
     Key_80272034 *k;

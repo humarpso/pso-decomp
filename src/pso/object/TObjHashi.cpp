@@ -22,7 +22,7 @@ u8 * load_resource_from_descriptor(void *, s32, void *, s32, s32, s32);
 int alloc__23TAdSinglePlyChrSelectGCFPv(void *);
 extern RecoveredGlobal_80191730_lbl_804B7C60 lbl_804B7C60;
 extern u32 TObjHashi__data_805D5C10;
-void TObjHashi__sub_80191730(void);
+void load_shared_resource__9TObjHashiFv(void);
 s32 TObjFish__sub_8001EDB0(void *, s32);
 s32 get_bml_model(void *, s32);
 void reset_photon_effect__10TObjPlayerFPv(s32);
@@ -68,7 +68,7 @@ void unload_static_data__9TObjHashiFv(void) {
 
 extern M2C_UNK __vt__9TObjHashi[];
 
-void TObjHashi__sub_80191730(void) {
+void load_shared_resource__9TObjHashiFv(void) {
     s32 temp_r3;
     s32 var_r0;
     temp_r3 = alloc__23TAdSinglePlyChrSelectGCFPv((void *)0x440);

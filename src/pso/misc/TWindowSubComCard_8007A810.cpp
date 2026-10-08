@@ -32,7 +32,7 @@ M2C_UNK init_guild_card__17TWindowSubComCardFPv(M2C_UNK *);
 void TWindowSubComCard__sub_8007AF10(s32 arg0);
 void TWindowSubComCard__sub_8007B26C(O_8007B26C *self);
 s32 is_active__17TWindowSubComCardFPv(void *);
-s32 TWindowSubComCard__sub_8007AF60(Card_8007AF60 *p, s32 n);
+s32 count_leading_active__17TWindowSubComCardFPvi(Card_8007AF60 *p, s32 n);
 s32 is_active__17TWindowSubComCardFPv(void *);
 s32 TWindowSubComCard__sub_8007B010(Card_8007B010 *p, s32 n);
 Card_8007AFB8 *get_card_entry__17TWindowSubComCardFi(s32);
@@ -69,7 +69,7 @@ void TWindowSubComCard__sub_8007AF10(s32 arg0) {
 }
 #pragma pop
 
-s32 TWindowSubComCard__sub_8007AF60(Card_8007AF60 *p, s32 n) {
+s32 count_leading_active__17TWindowSubComCardFPvi(Card_8007AF60 *p, s32 n) {
     s32 i;
     for (i = 0; i < n; i++, p++) {
         if (is_active__17TWindowSubComCardFPv(p) == 0) {

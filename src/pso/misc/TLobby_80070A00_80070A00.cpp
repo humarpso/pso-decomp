@@ -28,7 +28,7 @@ void TLobby__sub_80070A78(void);
 extern "C" {
 
 void init_on_main_phase__6TLobbyFv(void);
-M2C_UNK TLobby__sub_80074C20();
+M2C_UNK start_lobby_name_request__6TLobbyFv();
 M2C_UNK set_name_string__6TLobbyFi(M2C_UNK *);
 u32 create__10TChallengeFv();
 M2C_UNK load_resources__13TObjTombstoneFv();
@@ -46,7 +46,7 @@ void init_on_main_phase__6TLobbyFv(void) {
             TLobby__data_805D4E30 = 0;
             return;
         }
-        TLobby__sub_80074C20();
+        start_lobby_name_request__6TLobbyFv();
         if ((s32) TLobby__data_805D4E30 != 0) {
             lbl_805D4E28 = create__10TChallengeFv();
             lbl_805D4E2C = 1;

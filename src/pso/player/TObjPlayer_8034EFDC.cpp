@@ -141,10 +141,10 @@ u8 *TObjPlayer__sub_8034F1AC(u8 *arg0);
 void * init_photon_state__10TObjPlayerFPv(void *, M2C_UNK, void *);
 u8 *alloc_from_obj_heap__10TObjPlayerFPv(M2C_UNK);
 extern s32 tl_05;
-u8 *TObjPlayer__sub_8034F418(u8 *arg0);
+u8 *create_photon_state__10TObjPlayerFPv(u8 *arg0);
 u8 *alloc_from_obj_heap__10TObjPlayerFPv(M2C_UNK);
 extern s32 tl_05;
-u8 *TObjPlayer__sub_8034F7B8(s32 arg0);
+u8 *create_obj_8034F7B8__10TObjPlayerFi(s32 arg0);
 void TItemWeapon__ct(void *, void *);
 void set_status_flags__10TObjPlayerFPvUi(void *, int);
 extern M2C_UNK lbl_804F0A00[];
@@ -152,10 +152,10 @@ u8 *TObjPlayer__sub_8034F754(u8 *arg0, u8 *arg1, s32 _w2);
 void TObjPlayer__sub_8034F470(s32 arg0, s32 arg1);
 void TObjPlayer__sub_8034F590(void *a, O_8034F590 *o);
 u32 find_item_by_id(void);
-void TObjPlayer__sub_8034F4AC(s32 arg0, s32 arg1);
+void spawn_fire_explosion_at_item__10TObjPlayerFii(s32 arg0, s32 arg1);
 s32 get_player_list__10TObjPlayerFv();
 M2C_UNK rotate_matrix_z(M2C_UNK, s32);
-void TObjPlayer__sub_8034F020(P_8034F020 *arg0);
+void rotate_by_player_list__10TObjPlayerFPv(P_8034F020 *arg0);
 void init_slicer_launch_state(SlicerLaunchData_8012D9C8 *);
 u16 obj_getField1c(void *);
 u32 get_field_d8__10TObjPlayerFPv(void *);
@@ -221,7 +221,7 @@ void spawn_effect__10TObjPlayerFPv(void *arg0) {
     spawn_particle_effect(sp8, 0x1D0);
 }
 
-void TObjPlayer__sub_8034F020(P_8034F020 *arg0) {
+void rotate_by_player_list__10TObjPlayerFPv(P_8034F020 *arg0) {
     switch (get_player_list__10TObjPlayerFv()) {
     case 1:
         ((s32)rotate_matrix_z((M2C_UNK)(0), (s32)(arg0->f1F8)));
@@ -332,7 +332,7 @@ void *init_photon_state__10TObjPlayerFPv(void *arg0, M2C_UNK _w1, void * _w2) {
     return arg0;
 }
 
-u8 *TObjPlayer__sub_8034F418(u8 *arg0) {
+u8 *create_photon_state__10TObjPlayerFPv(u8 *arg0) {
     u8 *temp_r3;
     u8 *var_r0;
     if (arg0 != NULL) {
@@ -353,7 +353,7 @@ void TObjPlayer__sub_8034F470(s32 arg0, s32 arg1) {
     }
 }
 
-void TObjPlayer__sub_8034F4AC(s32 arg0, s32 arg1) {
+void spawn_fire_explosion_at_item__10TObjPlayerFii(s32 arg0, s32 arg1) {
     Ctx_80125628 *ctx = (Ctx_80125628 *)arg1;
     u32 p = find_item_by_id();
     if (p != 0U) {
@@ -379,7 +379,7 @@ s32 spawn_fire_explosion__10TObjPlayerFUii(u32 a0, s32 a1) {
 }
 
 void TObjPlayer__sub_8034F590(void *a, O_8034F590 *o) {
-    o->f74 = (void *)TObjPlayer__sub_8034F4AC;
+    o->f74 = (void *)spawn_fire_explosion_at_item__10TObjPlayerFii;
     o->f70 = (void *)TObjPlayer__sub_8034F470;
     o->flags |= 0x80;
 }
@@ -432,7 +432,7 @@ u8 *TObjPlayer__sub_8034F754(u8 *arg0, u8 *arg1, s32 _w2) {
     return arg0;
 }
 
-u8 *TObjPlayer__sub_8034F7B8(s32 arg0) {
+u8 *create_obj_8034F7B8__10TObjPlayerFi(s32 arg0) {
     u8 *temp_r3;
     u8 *var_r0;
     if (arg0 != 0) {

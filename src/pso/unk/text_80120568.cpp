@@ -185,7 +185,7 @@ void set_action_provider_variant__10TObjPlayerFPvs(void *, s32);
 s32 reset_key_machine_state__10TObjPlayerFv();
 M2C_UNK update_technique_slot__10TTecRaFoieFi(M2C_UNK, s32, s32);
 M2C_UNK play_sound_effect(s32, s32, s32, s32);
-void TObjPlayer__sub_8011E6A4();
+void set_flag_8_if_check_passes__10TObjPlayerFPv();
 extern void *tl_05;
 void apply_equip__11TItemWeaponFPv(Player_8012065C *arg0);
 }
@@ -219,7 +219,7 @@ void apply_equip__11TItemWeaponFPv(Player_8012065C *arg0) {
         if (get_flag_40__8TItemMagFPv(arg0) != 0 || obj_isState7_324(M2C_FIELD(arg0, s32 *, 0xF0)) != 0) {
             set_status_flags__10TObjPlayerFPvUi(arg0, 8);
         } else {
-            spawn_item_timer__13TItemAttackerFiii(arg0, (void *)&TObjPlayer__sub_8011E6A4, 0x14);
+            spawn_item_timer__13TItemAttackerFiii(arg0, (void *)&set_flag_8_if_check_passes__10TObjPlayerFPv, 0x14);
             create__13TItemEffEquipFPvPvPvPvPv(tl_05, obj_getField1c(M2C_FIELD(arg0, s32 *, 0xF0)), 0x30, 0x9D, 0x9E);
             if (test_flags_1b8__10TObjPlayerFPvUi(arg0, 0x200) != 0U) {
                 create__13TItemEffEquipFPvPvPvPvPv(tl_05, obj_getField1c(M2C_FIELD(arg0, s32 *, 0xF0)), 0x23, 0x9D, 0x9E);

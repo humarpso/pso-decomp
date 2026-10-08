@@ -10,7 +10,7 @@ void finish_and_dispatch_next_phase__14TBoss6PlotFalzFPv(u8 *arg0);
 void update_plot_timer__14TBoss6PlotFalzFPv(void *arg0);
 M2C_UNK set_state__14TBoss6PlotFalzFPvi(void *, M2C_UNK);
 M2C_UNK award_exp_and_destroy__14TBoss6PlotFalzFPv(void *);
-M2C_UNK TBoss6PlotFalz__sub_802ABBC4(void *, void *);
+M2C_UNK get_target_pos_a__14TBoss6PlotFalzFii(void *, void *);
 M2C_UNK refresh_players_equipment__14TBoss6PlotFalzFPv();
 M2C_UNK end_cutscene_camera__14TBoss6PlotFalzFPv();
 M2C_UNK freeze_all_players__14TBoss6PlotFalzFv();
@@ -58,7 +58,7 @@ void finish_and_dispatch_next_phase__14TBoss6PlotFalzFPv(u8 *arg0) {
             var_r29 += 1;
         } while (var_r29 < 4);
     }
-    TBoss6PlotFalz__sub_802ABBC4((void *) (arg0), (void *) (sp10));
+    get_target_pos_a__14TBoss6PlotFalzFii((void *) (arg0), (void *) (sp10));
     destroy_static_instance__14TBoss6PlotFalzFv((void *) (arg0));
     stop_audio_streams__6TLobbyFv();
     freeze_all_players__14TBoss6PlotFalzFv();

@@ -10,7 +10,7 @@ extern "C" {
 void* set_mode_floats__10TObjPlayerFPv(void *, M2C_UNK, void *);
 u8 *alloc_from_obj_heap__10TObjPlayerFPv(M2C_UNK);
 extern s32 tl_05;
-u8 *TObjPlayer__sub_80326F44(u8 *arg0);
+u8 *create_mode_floats_state__10TObjPlayerFPv(u8 *arg0);
 void play_particle_effect_once__10TObjPlayerFv();
 s32 get_player_list__10TObjPlayerFv();
 void scale_matrix(int, f32, f32, f32);
@@ -37,7 +37,7 @@ void* set_mode_floats__10TObjPlayerFPv(void* a0, M2C_UNK _w1, void * _w2) { TIte
 extern const f32 lbl_805DF684;
 extern const f32 lbl_805DF688;
 
-u8 *TObjPlayer__sub_80326F44(u8 *arg0) {
+u8 *create_mode_floats_state__10TObjPlayerFPv(u8 *arg0) {
     u8 *temp_r3;
     u8 *var_r0;
     if (arg0 != NULL) {

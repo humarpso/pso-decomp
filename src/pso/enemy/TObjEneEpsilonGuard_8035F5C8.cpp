@@ -803,7 +803,7 @@ extern u8 *anim_model_matrix_array;
 f32 receive_physical_attack__10TObjPlayerFv(void *, void *, f32);
 void try_apply_damage__19TObjEneEpsilonGuardFPvUii(void *, u32, s32);
 extern const f32 lbl_805E0208;
-f32 TObjEneEpsilonGuard__sub_8035F720(u8 *arg0, u8 *arg1, f32 farg0);
+f32 receive_physical_attack_guarded__19TObjEneEpsilonGuardFPvPvf(u8 *arg0, u8 *arg1, f32 farg0);
 s32 get_bml_model(s32, M2C_UNK);
 M2C_UNK clear_player_status_flag__10TObjPlayerFPviUi(void *, M2C_UNK, M2C_UNK);
 M2C_UNK set_indexed_flags(void *, M2C_UNK, M2C_UNK);
@@ -873,7 +873,7 @@ extern const f32 lbl_805E0220;
 extern const f32 lbl_805E0224;
 void TObjEneEpsilonGuard__sub_803607DC(u8 *arg0);
 u32 find_entity_by_id(s32);
-s32 TObjEneEpsilonGuard__sub_8035DDC8();
+s32 is_state_flag_set__19TObjEneEpsilonGuardFPv();
 void TObjEneEpsilonGuard__sub_8035DE48(s32);
 void TObjEneEpsilonGuard__sub_8035F844(W_8035F844 *arg0, s32 arg1);
 extern T_8035F8A8 lbl_80479E7C[];
@@ -885,12 +885,12 @@ u32 find_entity_by_id(s32);
 s32 TObjEneEpsilonGuard__sub_8035DD94();
 s32 TObjEneEpsilonGuard__sub_8035FBBC(W_8035FBBC *arg0);
 u32 find_entity_by_id(s32);
-s32 TObjEneEpsilonGuard__sub_8035DDC8();
+s32 is_state_flag_set__19TObjEneEpsilonGuardFPv();
 s32 TObjEneEpsilonGuard__sub_8035FC20(W_8035FC20 *arg0);
 u32 find_entity_by_id(s32);
 s32 all_children_gone__19TObjEneEpsilonGuardFPv(W_8035FC8C *arg0);
 u32 find_entity_by_id(s32);
-s32 TObjEneEpsilonGuard__sub_8035DE08();
+s32 is_guard_ready__19TObjEneEpsilonGuardFPv();
 s32 TObjEneEpsilonGuard__sub_8035FCEC(W_8035FCEC *arg0);
 f32 calc_boss4_scale__10TObjPlayerFi(void *);
 u32 find_entity_by_id(s32);
@@ -1101,7 +1101,7 @@ f32 receive_weapon_special_attack__19TObjEneEpsilonGuardFPvPvPv(Self_8035F5C8 *o
     return lbl_805E0208;
 }
 
-f32 TObjEneEpsilonGuard__sub_8035F720(u8 *arg0, u8 *arg1, f32 farg0) {
+f32 receive_physical_attack_guarded__19TObjEneEpsilonGuardFPvPvf(u8 *arg0, u8 *arg1, f32 farg0) {
     s32 temp_r5;
     temp_r5 = M2C_FIELD(arg0, s32 *, 0x438);
     if (!(temp_r5 & 2) && !(temp_r5 & 0x40)) {
@@ -1119,7 +1119,7 @@ void TObjEneEpsilonGuard__sub_8035F844(W_8035F844 *arg0, s32 arg1) {
         return;
     }
     r = find_entity_by_id(arg0->h[arg1]);
-    if (r != 0 && TObjEneEpsilonGuard__sub_8035DDC8() == 1) {
+    if (r != 0 && is_state_flag_set__19TObjEneEpsilonGuardFPv() == 1) {
         TObjEneEpsilonGuard__sub_8035DE48(r);
     }
 }
@@ -1210,7 +1210,7 @@ s32 TObjEneEpsilonGuard__sub_8035FBBC(W_8035FBBC *arg0) {
 s32 TObjEneEpsilonGuard__sub_8035FC20(W_8035FC20 *arg0) {
     s32 i;
     for (i = 0; i < 4; i++) {
-        if (find_entity_by_id(arg0->h[i]) != 0 && TObjEneEpsilonGuard__sub_8035DDC8() == 0) {
+        if (find_entity_by_id(arg0->h[i]) != 0 && is_state_flag_set__19TObjEneEpsilonGuardFPv() == 0) {
             return 0;
         }
     }
@@ -1231,7 +1231,7 @@ s32 TObjEneEpsilonGuard__sub_8035FCEC(W_8035FCEC *arg0) {
     s32 i;
     for (i = 0; i < 4; i++) {
         find_entity_by_id(arg0->h[i]);
-        if (TObjEneEpsilonGuard__sub_8035DE08() == 0) {
+        if (is_guard_ready__19TObjEneEpsilonGuardFPv() == 0) {
             return 0;
         }
     }

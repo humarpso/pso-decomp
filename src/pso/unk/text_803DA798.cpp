@@ -56,7 +56,7 @@ s32 fn_803DB20C(void *);
 extern u8 *lbl_805D774C;
 s32 TObjPlayer__sub_803DAE98(u8 *arg0, s32 _w1);
 s32 TObjPlayer__sub_803DA84C(u8 *arg0, s32 arg1, s32 arg2, s32 arg3);
-s32 TObjPlayer__sub_803DA55C(u32);
+s32 find_table_index_by_id__10TObjPlayerFUi(u32);
 extern u8 *lbl_805D774C;
 extern s32 lbl_805D7768;
 s32 TObjPlayer__sub_803DAD28(u32 arg0);
@@ -80,9 +80,9 @@ s32 TObjPlayer__sub_803DB244(void);
 extern S_803DA7E0 lbl_8058D470;
 s32 TObjPlayer__sub_803DAD84(struct Obj_803DAD84 *arg0, s32 arg1, u32 arg2);
 s32 TObjPlayer__sub_803DA104(int);
-s32 TObjPlayer__sub_803DA55C(u32);
+s32 find_table_index_by_id__10TObjPlayerFUi(u32);
 s32 find_free_slot__10TObjPlayerFPvPv(void *, void *);
-s32 TObjPlayer__sub_803DA688(u32 arg0, u32 arg1);
+s32 find_record_index__10TObjPlayerFUiUi(u32 arg0, u32 arg1);
 void TObjPlayer__sub_803DAD24(void);
 extern s32 lbl_805D7768;
 s32 TObjPlayer__sub_803DA8E4(u32 arg0, u32 arg1, s32 arg2, s32 *arg3);
@@ -189,13 +189,13 @@ s32 TObjPlayer__sub_803DA8E4(u32 arg0, u32 arg1, s32 arg2, s32 *arg3) {
     s32 idx;
     s32 r;
     s32 slot;
-    idx = TObjPlayer__sub_803DA55C(arg0);
+    idx = find_table_index_by_id__10TObjPlayerFUi(arg0);
     if (TObjPlayer__sub_803DA104(arg2) != 0) {
         if (idx < 0) {
             *arg3 = -1;
             return 0;
         }
-        r = TObjPlayer__sub_803DA688(arg0, arg1);
+        r = find_record_index__10TObjPlayerFUiUi(arg0, arg1);
         if (r < 0) {
             slot = find_free_slot__10TObjPlayerFPvPv(&sp8, NULL);
             if (slot < 0) {
@@ -314,7 +314,7 @@ s32 TObjPlayer__sub_803DAD28(u32 arg0) {
     s32 temp_r3;
     u8 *var_r3;
     u8 *var_r4;
-    temp_r3 = TObjPlayer__sub_803DA55C(arg0);
+    temp_r3 = find_table_index_by_id__10TObjPlayerFUi(arg0);
     if (temp_r3 < 0) {
         var_r3 = (u8 *)((void *)-1);
         return -1;

@@ -338,7 +338,7 @@ void render__15TOAttackableColFv(void) {  }
 
 extern M2C_UNK __vt__15TOAttackableCol[];
 
-void * TOAttackableCol__sub_80157A28(void *arg0) {
+void * create__15TOAttackableColFPv(void *arg0) {
     void *o;
     o = __nw__7TObjectFUl(0x350);
     if (o != NULL) {

@@ -333,7 +333,7 @@ void TItemObject__vt16(u8 *arg0, u8 *arg1);
 void *TItemObject__ct(void *arg0, void *arg1, void *arg2);
 u8 *alloc_from_obj_heap__10TObjPlayerFPv(M2C_UNK);
 extern s32 tl_05;
-u8 *TItemObject__sub_8011646C(u8 *arg0);
+u8 *create__11TItemObjectFPv(u8 *arg0);
 }
 
 extern "C" {
@@ -448,7 +448,7 @@ void *TItemObject__ct(void *arg0, void *arg1, void *arg2) {
     }
     return arg0;
 }
-u8 *TItemObject__sub_8011646C(u8 *arg0) {
+u8 *create__11TItemObjectFPv(u8 *arg0) {
     u8 *temp_r3;
     u8 *var_r0;
     if (arg0 != NULL) {

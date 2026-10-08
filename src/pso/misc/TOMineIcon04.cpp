@@ -91,7 +91,7 @@ void TOMineTrap__sub_80170348();
 void TOMineTrap__sub_80170350();
 void TOMineTrap__sub_80170354();
 void spawn_disp_objects__10TOMineTrapFPv();
-void TOMineTrap__sub_80170524();
+void init_object_set_pos__10TOMineTrapFPv();
 void TOMineTrap__sub_80170570();
 void TOMineTrap__sub_80170768();
 void TOMineTrap__sub_80170924();
@@ -176,7 +176,7 @@ void *__vt__12TOMineIcon04[87] = {
     (void *)render__6TOMineFPv,
     (void *)render_shadows__7TObjectFv,
     (void *)TOMineTrap__sub_80170768,
-    (void *)TOMineTrap__sub_80170524,
+    (void *)init_object_set_pos__10TOMineTrapFPv,
     (void *)reset_actor_action_state,
     (void *)get_actor_body_center,
     (void *)update_object_view_visibility,

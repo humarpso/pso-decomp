@@ -198,7 +198,7 @@ struct VObj_18_bcad77 : VBase_18_bcad77 {
 };
 
 extern "C" {
-void TObjEneRe4Sorcerer__sub_800ED268(u8 *arg0);
+void call_vt_90_91__18TObjEneRe4SorcererFPv(u8 *arg0);
 void TObjEneRe4Sorcerer__sub_800ED2B4(u8 *arg0);
 }
 
@@ -217,7 +217,7 @@ void set_state_flags__18TObjEneRe4SorcererFPv(u8 *arg0);
 
 void set_flag3cc_bit2000__18TObjEneRe4SorcererFPv(void* p) { *(u32*)((char*)p + 0x3cc) |= 0x2000; }
 
-void TObjEneRe4Sorcerer__sub_800ED268(u8 *arg0) {
+void call_vt_90_91__18TObjEneRe4SorcererFPv(u8 *arg0) {
     ((VObj_18 *)(arg0))->m90();
     ((VObj_18 *)(arg0))->m91();
 }

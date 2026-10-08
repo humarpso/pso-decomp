@@ -1624,7 +1624,7 @@ f32 TBoss8Dragon__sub_8005EAD0(void *arg0, void *arg1, int arg2);
 void calc_attack_params__12TBoss8DragonFiPvi(s32 arg0, u8 *arg1, s32 arg2);
 void TBoss8Dragon__sub_8005EBDC(u8 *arg0, u8 *arg1, u8 *arg2);
 void calc_params__12TBoss8DragonFiPvi(s32 arg0, void *arg1, s32 arg2);
-void TBoss8Dragon__sub_8005ED6C(s32 arg0, u8 *arg1, s32 arg2);
+void calc_product_and_ratio__12TBoss8DragonFiPvi(s32 arg0, u8 *arg1, s32 arg2);
 void copy_angle_state__12TBoss8DragonFPvPvPv(void *arg0, void *dst, void *src);
 void update_target_from_state__12TBoss8DragonFPv(void *arg0);
 void play_animation_index__12TBoss8DragonFPvi(u8 *arg0, s32 arg1);
@@ -2559,7 +2559,7 @@ void *lbl_804880AC[3] = {
 };
 void *lbl_804880B8[126] = {
     (void *)0x41980000, (void *)0x0, (void *)0x428a0000, (void *)0x0,
-    (void *)0xffffffff, (void *)&TBoss8Dragon__sub_8005ED6C, (void *)0x0, (void *)0xffffffff,
+    (void *)0xffffffff, (void *)&calc_product_and_ratio__12TBoss8DragonFiPvi, (void *)0x0, (void *)0xffffffff,
     (void *)&calc_params__12TBoss8DragonFiPvi, (void *)0x0, (void *)0xffffffff, (void *)&TBoss8Dragon__sub_8005EBDC,
     (void *)0x0, (void *)0xffffffff, (void *)&calc_attack_params__12TBoss8DragonFiPvi, (void *)0x0,
     (void *)0xffffffff, (void *)&TBoss8Dragon__sub_8005EB00, (void *)0x0, (void *)0xffffffff,
@@ -3128,7 +3128,7 @@ void calc_params__12TBoss8DragonFiPvi(s32 arg0, void *arg1, s32 arg2) {
 
 #pragma push
 #pragma fp_contract on
-void TBoss8Dragon__sub_8005ED6C(s32 arg0, u8 *arg1, s32 arg2) {
+void calc_product_and_ratio__12TBoss8DragonFiPvi(s32 arg0, u8 *arg1, s32 arg2) {
     M2C_FIELD(arg1, s32 *, 4) = calc_product__12TBoss8DragonFiiii(arg0, arg2, 0, 1);
     M2C_FIELD(arg1, f32 *, 8) = TBoss8Dragon__sub_8005EAD0((void *) (arg0), (void *) (arg2), (int) (0));
 }

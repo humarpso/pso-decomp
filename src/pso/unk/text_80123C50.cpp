@@ -42,7 +42,7 @@ void update_tp_animation__10TObjPlayerFPv(u8 *arg0);
 u8 * init_state__10TObjPlayerFPv(void *, M2C_UNK, s32);
 u8 *alloc_from_obj_heap__10TObjPlayerFPv(M2C_UNK);
 extern s32 tl_05;
-u8 *TObjPlayer__sub_80123C50(s32 arg0);
+u8 *create_state__10TObjPlayerFi(s32 arg0);
 s32 get_player_list__10TObjPlayerFv(void);
 M2C_UNK play_particle_effect_once__10TObjPlayerFv();
 M2C_UNK scale_current_matrix(void *, int);
@@ -53,7 +53,7 @@ void TObjPlayer__sub_80123CA8(u8 *arg0);
 
 extern "C" {
 
-u8 *TObjPlayer__sub_80123C50(s32 arg0) {
+u8 *create_state__10TObjPlayerFi(s32 arg0) {
     u8 *temp_r3;
     u8 *var_r0;
     if (arg0 != 0) {

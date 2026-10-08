@@ -306,7 +306,7 @@ extern const f32 TObjEneRe4Bit__data_805DA770;
 extern const f32 lbl_805DA778;
 void TObjEneRe4Bit__sub_800ECE04(u8 *arg0, s32 arg1);
 M2C_UNK transition_enemy_state(void *, M2C_UNK);
-void TObjEneRe4Bit__sub_800ED090(void *self, s32 msg);
+void handle_state_message__13TObjEneRe4BitFPvi(void *self, s32 msg);
 int render_with_position_override__10TObjPlayerFPvPvi(void *, void *, int);
 s32 check_demo_mode__10TObjPlayerFv();
 s32 is_main_phase_15__9TObjEneDDFv();
@@ -573,7 +573,7 @@ s32 handle_event__13TObjEneRe4BitFPvi(void *arg0, s32 arg1) {
 
 extern const f32 TObjEneRe4Bit__data_805DA770;
 
-void TObjEneRe4Bit__sub_800ED090(void *self, s32 msg) {
+void handle_state_message__13TObjEneRe4BitFPvi(void *self, s32 msg) {
     switch (msg) {
     case 0:
         return;
@@ -586,7 +586,7 @@ void TObjEneRe4Bit__sub_800ED090(void *self, s32 msg) {
 void TObjEneRe4Bit__vt85(s32 arg0, u32 arg1, s32 arg2) {
     switch (arg1) {
     case 0:
-        TObjEneRe4Bit__sub_800ED090((void *)((void *) (arg0)), (s32)((void *) (arg2)));
+        handle_state_message__13TObjEneRe4BitFPvi((void *)((void *) (arg0)), (s32)((void *) (arg2)));
         return;
     case 1:
         handle_event__13TObjEneRe4BitFPvi((void *)((void *) (arg0)), (s32)((void *) (arg2)));

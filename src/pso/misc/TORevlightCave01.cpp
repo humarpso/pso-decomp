@@ -12,7 +12,7 @@ u8 * load_resource_from_descriptor(void *, s32, void *, s32, s32, s32);
 int alloc__23TAdSinglePlyChrSelectGCFPv(void *);
 extern RecoveredGlobal_80173614_lbl_804B3A70 lbl_804B3A70;
 extern u32 TORevlightCave01__data_805D5A78;
-void TORevlightCave01__sub_80173614(void);
+void load_shared_resource__16TORevlightCave01Fv(void);
 }
 
 extern "C" {
@@ -41,7 +41,7 @@ void release_static_instance__16TORevlightCave01Fv(void) {
         TORevlightCave01__data_805D5A78 = 0U;
     }
 }
-void TORevlightCave01__sub_80173614(void) {
+void load_shared_resource__16TORevlightCave01Fv(void) {
     s32 temp_r3;
     s32 var_r0;
     temp_r3 = alloc__23TAdSinglePlyChrSelectGCFPv((void *)0x440);

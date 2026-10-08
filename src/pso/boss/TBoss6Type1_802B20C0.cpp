@@ -152,7 +152,7 @@ void start_attack__11TBoss6Type1FPv(u8 *arg0);
 void tick_countdown__11TBoss6Type1FPv(void *arg0);
 void init_attack_timers__11TBoss6Type1FPv(void *arg0);
 void TBoss6Type1__sub_802B3B94(void *arg0);
-void TBoss6Type1__sub_802B3BEC(u8 *arg0);
+void init_effect_slot_1__11TBoss6Type1FPv(u8 *arg0);
 void draw_model__11TBoss6Type1FPv(Boss_802B4898 *o);
 void render__11TBoss6Type1Fv(void* p);
 void release_object__11TBoss6Type1FPv(void* p);
@@ -163,7 +163,7 @@ int release_effect_slot__11TBoss6Type1Fii(void*, void*);
 int spawn_effect_slot__11TBoss6Type1FPvi(void*, void*);
 M2C_UNK rotate_around_center__11TBoss6Type1FPvii(void *, int, int);
 M2C_UNK interpolate_pos_to_target__11TBoss6Type1FPvii(void *, s32, s32);
-M2C_UNK TBoss6Type1__sub_802B5100(void *, s32, s32);
+M2C_UNK ease_toward_target__11TBoss6Type1FPvii(void *, s32, s32);
 M2C_UNK TBoss6Type1__sub_802B5140(void *, M2C_UNK, M2C_UNK);
 s32 count_matches__11TBoss6Type1FPvii(void *, M2C_UNK, M2C_UNK);
 int clamp_to_arena_radius__11TBoss6Type1FPvPvf(void*, void*);
@@ -171,7 +171,7 @@ M2C_UNK TBoss6Type1__sub_802B5598(void *, void *);
 M2C_UNK TBoss6Type1__sub_802B5648(void *, void *);
 s32 TBoss6Type1__sub_802B5D9C();
 s32 is_field3F8_over_0x20__11TBoss6Type1FPv(void *);
-s32 TBoss6Type1__sub_802B5E48();
+s32 is_field4b0_delta_reached__11TBoss6Type1FPv();
 s32 is_ready__11TBoss6Type1FPv(void *);
 s32 check_field4b0_threshold__11TBoss6Type1FPv(void *);
 int is_time_up__11TBoss6Type1FPv(void *);
@@ -243,7 +243,7 @@ void update_attack_countdown__11TBoss6Type1FPv(void *arg0) {
     s32 temp_r3b;
 
     interpolate_pos_to_target__11TBoss6Type1FPvii(arg0, M2C_FIELD(arg0, s32 *, 0x410), M2C_FIELD(arg0, s32 *, 0x40C));
-    TBoss6Type1__sub_802B5100(arg0, M2C_FIELD(arg0, s32 *, 0x410), M2C_FIELD(arg0, s32 *, 0x40C));
+    ease_toward_target__11TBoss6Type1FPvii(arg0, M2C_FIELD(arg0, s32 *, 0x410), M2C_FIELD(arg0, s32 *, 0x40C));
     temp_r3 = M2C_FIELD(arg0, s32 *, 0x40C) - 2;
     temp_r0 = M2C_FIELD(arg0, s32 *, 0x410);
     temp_r3b = temp_r3 - 0xA;
@@ -348,7 +348,7 @@ void update_attack_timer__11TBoss6Type1FPv(void *arg0) {
     s32 temp_r3b;
 
     interpolate_pos_to_target__11TBoss6Type1FPvii(arg0, M2C_FIELD(arg0, s32 *, 0x410), M2C_FIELD(arg0, s32 *, 0x40C));
-    TBoss6Type1__sub_802B5100(arg0, M2C_FIELD(arg0, s32 *, 0x410), M2C_FIELD(arg0, s32 *, 0x40C));
+    ease_toward_target__11TBoss6Type1FPvii(arg0, M2C_FIELD(arg0, s32 *, 0x410), M2C_FIELD(arg0, s32 *, 0x40C));
     temp_r3 = M2C_FIELD(arg0, s32 *, 0x40C) - 2;
     temp_r0 = M2C_FIELD(arg0, s32 *, 0x410);
     temp_r3b = temp_r3 - 0xA;
@@ -477,7 +477,7 @@ void update_hit_timer__11TBoss6Type1FPv(u8 *arg0) {
 
 void update_attack_state__11TBoss6Type1FPv(void *arg0) {
     if ((s32) M2C_FIELD(arg0, s32 *, 0x410) == 0) {
-        if (TBoss6Type1__sub_802B5E48() != 0) {
+        if (is_field4b0_delta_reached__11TBoss6Type1FPv() != 0) {
             send_flow_action_if_idle__11TBoss6Type1FPvc((void*)(arg0), (void*)(0x20));
             return;
         }
@@ -961,7 +961,7 @@ void TBoss6Type1__sub_802B3B94(void *arg0) {
     }
 }
 
-void TBoss6Type1__sub_802B3BEC(u8 *arg0) {
+void init_effect_slot_1__11TBoss6Type1FPv(u8 *arg0) {
     VecCopy__FP3VecPC3Vec(arg0 + 0x420, &lbl_80470CE0.value);
     M2C_FIELD(arg0, s32 *, 0x40C) = 0x5A;
     M2C_FIELD(arg0, s32 *, 0x410) = 0x5A;

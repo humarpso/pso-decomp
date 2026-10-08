@@ -91,7 +91,7 @@ extern "C" {
 u8 * init_state_vector__10TObjPlayerFPv(void *, M2C_UNK, s32);
 u8 *alloc_from_obj_heap__10TObjPlayerFPv(M2C_UNK);
 extern s32 tl_05;
-u8 *TObjPlayer__sub_80122148(s32 arg0);
+u8 *create_state_vector_state__10TObjPlayerFi(s32 arg0);
 s32 is_mode_two_and_ready__10TObjPlayerFPv(void *);
 void spawn_weapon_impact_effect();
 void fn_8011B328();
@@ -101,7 +101,7 @@ void TObjPlayer__sub_801221A0(Self_801221A0 *self);
 
 extern "C" {
 
-u8 *TObjPlayer__sub_80122148(s32 arg0) {
+u8 *create_state_vector_state__10TObjPlayerFi(s32 arg0) {
     u8 *temp_r3;
     u8 *var_r0;
     if (arg0 != 0) {

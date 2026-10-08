@@ -7,7 +7,7 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 extern "C" {
 int update_card_display__17TWindowSubComCardFPvPvPvPvPv(void*, int, int, int, int);
 int close_windows__17TWindowSubComCardFPv(void*);
-void TWindowSubComCard__sub_8033C3D0(u8 *arg0);
+void close_and_update_display__17TWindowSubComCardFPv(u8 *arg0);
 }
 
 extern "C" {
@@ -66,7 +66,7 @@ void update_display_state__17TWindowSubComCardFPv(void *arg0) {
     }
 }
 
-void TWindowSubComCard__sub_8033C3D0(u8 *arg0) {
+void close_and_update_display__17TWindowSubComCardFPv(u8 *arg0) {
     close_windows__17TWindowSubComCardFPv((void*)arg0);
     if (M2C_FIELD(arg0, s32 *, 0x28) & 1) {
         update_card_display__17TWindowSubComCardFPvPvPvPvPv((void*)((void *) (arg0)), (int)((int) (0)), (int)((int) (-1)), (int)((int) (-1)), (int)((int) (-1)));

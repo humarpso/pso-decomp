@@ -314,7 +314,7 @@ void VecCopy__FP3VecPC3Vec(void *, void *);
 extern RecoveredGlobal_8006CD78_TCameraCtrl__data_80488DE8 TCameraCtrl__data_80488DE8;
 extern u16 TCameraCtrl__data_805D2840;
 extern u8 TCameraCtrl__data_805D4E20;
-void TCameraCtrl__sub_8006CD2C(u8 *arg0, s16 arg1);
+void set_override_position_and_angle__11TCameraCtrlFPvs(u8 *arg0, s16 arg1);
 extern RecoveredGlobal_8006D494_camera_controller_registry camera_controller_registry;
 extern RecoveredGlobal_8006D494_TCameraCtrl__data_804FF628 TCameraCtrl__data_804FF628;
 void end_conversation_camera(void);
@@ -495,7 +495,7 @@ void reset_to_local_player__11TCameraCtrlFv(void) {
     reset_cameras_to_actor(((void *)get_player_by_client_id((u32)(lbl_805D53A0))), 0);
 }
 
-void TCameraCtrl__sub_8006CD2C(u8 *arg0, s16 arg1) {
+void set_override_position_and_angle__11TCameraCtrlFPvs(u8 *arg0, s16 arg1) {
     TCameraCtrl__data_805D4E20 |= 2;
     VecCopy__FP3VecPC3Vec(&(*(RecoveredGlobal_8006CD2C_TCameraCtrl__data_80488DE8 *)&TCameraCtrl__data_80488DE8).value, arg0);
     (*(s16 *)&TCameraCtrl__data_805D2840) = arg1;

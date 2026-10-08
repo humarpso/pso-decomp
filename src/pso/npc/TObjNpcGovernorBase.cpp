@@ -102,7 +102,7 @@ u8 * load_resource_from_descriptor(void *, s32, void *, s32, s32, s32);
 int alloc__23TAdSinglePlyChrSelectGCFPv(void *);
 extern RecoveredGlobal_8014ABC4_lbl_804A9428 lbl_804A9428;
 extern u32 TObjNpcGovernorBase__shared_resource;
-void TObjNpcGovernorBase__sub_8014ABC4(void);
+void load_shared_resource__19TObjNpcGovernorBaseFv(void);
 s32 init_position_vectors__10TObjPlayerFi(void *);
 s32 setup_common__11TObjNpcBaseFv(void *);
 s32 construct_male_npc_base(void *);
@@ -146,7 +146,7 @@ void free_shared_data__19TObjNpcGovernorBaseFv(void) {
 
 extern M2C_UNK __vt__19TObjNpcGovernorBase[];
 
-void TObjNpcGovernorBase__sub_8014ABC4(void) {
+void load_shared_resource__19TObjNpcGovernorBaseFv(void) {
     s32 temp_r3;
     s32 var_r0;
     temp_r3 = alloc__23TAdSinglePlyChrSelectGCFPv((void *)0x440);

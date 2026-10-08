@@ -1598,7 +1598,7 @@ void update_death_pose__10TObjPlayerFPv(u8 *arg0);
 void enter_death_state__10TObjPlayerFPv(u8 *arg0);
 void handle_6x4D_player_died(void *arg0);
 void prepare_death__10TObjPlayerFPv(u8 *arg0);
-void TObjPlayer__sub_801CA8F0(u8 *arg0);
+void set_death_marker_pos__10TObjPlayerFPv(u8 *arg0);
 void request_revival_if_not_dead__10TObjPlayerFPv(u8 *arg0);
 void check_reopen_return_city_window__10TObjPlayerFPv(u8 *arg0);
 void TObjPlayer__sub_801CAA58(void);
@@ -1834,7 +1834,7 @@ void TObjPlayer__sub_801D11D0(u8 *arg0);
 int TObjPlayer__sub_801D11EC(void* p);
 int TObjPlayer__sub_801D11F8(void* p);
 void swap_bytes__10TObjPlayerFPv(void* p);
-void * TObjPlayer__sub_801D1240(void *arg0, void *arg1);
+void * copy_packet_header_6xAB__10TObjPlayerFPvPv(void *arg0, void *arg1);
 void TObjPlayer__sub_801D1284(u8 *arg0);
 void send_swapped_bytes__10TObjPlayerFPv(void* p);
 void TObjPlayer__sub_801D12D8(void* p);
@@ -1843,7 +1843,7 @@ void send_swapped_packet__10TObjPlayerFPv(void* p);
 void bswap_and_send__10TObjPlayerFPv(void* p);
 int TObjPlayer__sub_801D1360(void* p);
 void bswap_packet__10TObjPlayerFPv(void* p);
-void * TObjPlayer__sub_801D13A8(void *arg0, void *arg1);
+void * copy_packet_header_6x58__10TObjPlayerFPvPv(void *arg0, void *arg1);
 void TObjPlayer__sub_801D13EC(u8 *arg0);
 void handle_recv_packet__10TObjPlayerFPv(void* p);
 void TObjPlayer__sub_801D1440(void* p);
@@ -1878,7 +1878,7 @@ void bswap_head_pair__10TObjPlayerFPv(void* p);
 void init_6x4C_packet__10TObjPlayerFPv(void* a0);
 void send_head_pair_packet__10TObjPlayerFPv(void* p);
 void read_swapped_fields__10TObjPlayerFPv(void* p);
-u8 * TObjPlayer__sub_801D1AC8(u8 *arg0, u8 *arg1);
+u8 * copy_6x4b_hit_by_enemy_packet__10TObjPlayerFPvPv(u8 *arg0, u8 *arg1);
 void reset_action_state__10TObjPlayerFPv(void* a0);
 void handle_recv_state__10TObjPlayerFPv(void* p);
 void swap_endian_field__10TObjPlayerFPv(void* p);
@@ -1907,15 +1907,15 @@ void* TObjPlayer__sub_801D2058(void* p, void* a1);
 void TObjPlayer__sub_801D209C(Pkt_801D209C *p);
 void send_coords__10TObjPlayerFPv(void* p);
 void swap_header__10TObjPlayerFPv(void* p);
-void * TObjPlayer__sub_801D2134(void *arg0, void *arg1);
+void * copy_6x48_cast_technique_complete_packet__10TObjPlayerFPvPv(void *arg0, void *arg1);
 void TObjPlayer__sub_801D2178(u8 *arg0);
 void send_swapped_header__10TObjPlayerFPv(void* p);
 u8 * TObjPlayer__sub_801D21CC(u8 *arg0, u8 *arg1);
 void swap_field6__10TObjPlayerFPv(void* p);
-void * TObjPlayer__sub_801D2260(void *arg0, void *arg1);
+void * copy_6x8d_technique_level_packet__10TObjPlayerFPvPv(void *arg0, void *arg1);
 void TObjPlayer__sub_801D22AC(u8 *arg0);
 void send_swap_field6__10TObjPlayerFPv(void* p);
-void * TObjPlayer__sub_801D2304(void *arg0, void *arg1);
+void * copy_6x45_attack_packet__10TObjPlayerFPvPv(void *arg0, void *arg1);
 void * TObjPlayer__sub_801D2348(void *arg0, void *arg1);
 void bswap_field4_sub__10TObjPlayerFPv(void* p);
 void* build_packet_header__10TObjPlayerFPv(void* p);
@@ -1923,7 +1923,7 @@ void send_6x46_attack_finished(u8 *arg0);
 void TObjPlayer__sub_801D2448(void* p);
 u8 TObjPlayer__sub_801D247C(s32 arg0);
 void * TObjPlayer__sub_801D24B0(void *arg0, void *arg1);
-void * TObjPlayer__sub_801D24F4(void *arg0, void *arg1);
+void * copy_6x40_walk_to_position_packet__10TObjPlayerFPvPv(void *arg0, void *arg1);
 u8 * TObjPlayer__sub_801D2540(u8 *arg0, u8 *arg1);
 u8 * TObjPlayer__sub_801D25AC(u8 *arg0, u8 *arg1);
 void TObjPlayer__sub_801D2618(void* p, f32 v);
@@ -1945,8 +1945,8 @@ s32 TObjPlayer__sub_801D2878(void* p);
 int bswap_field_u32__10TObjPlayerFPv(void* p);
 void* TObjPlayer__sub_801D28A0(void* p, void* a1);
 void TObjPlayer__sub_801D28DC(void* p);
-u8 * TObjPlayer__sub_801D2910(u8 *arg0, u8 *arg1);
-void * TObjPlayer__sub_801D2964(void *arg0, void *arg1);
+u8 * copy_6x4c_hit_by_enemy_packet__10TObjPlayerFPvPv(u8 *arg0, u8 *arg1);
+void * copy_packet_pos_6x42__10TObjPlayerFPvPv(void *arg0, void *arg1);
 int clear_photon_blast_state__10TObjPlayerFPv(void* p);
 int trigger_photon_blast__10TObjPlayerFPv(void* p);
 int check_photon_blast_flag__10TObjPlayerFPv(void* p);
@@ -1979,7 +1979,7 @@ void set_tech_override__10TObjPlayerFPvUc(void* p, u8 v);
 f32 get_attack_controller_rate(void* p);
 void set_attack_target__10TObjPlayerFPvs(void* p, s16 v);
 void* get_anim_field_c__10TObjPlayerFPv(void* p);
-f32 TObjPlayer__sub_801D2CF4(M2C_UNK arg0, s32 arg1);
+f32 calc_attack_stage_multiplier__10TObjPlayerFii(M2C_UNK arg0, s32 arg1);
 int on_attack_finished__10TObjPlayerFPv(void* p);
 int set_flag_1_at_c__10TObjPlayerFPv(void* p);
 void increment_strike_counter__10TObjPlayerFPv(u8 *arg0);
@@ -2235,7 +2235,7 @@ void handle_6xAB(void *arg0) {
     void *p;
 
     TObjPlayer__sub_801D1284((u8 *)&m);
-    TObjPlayer__sub_801D1240(&m, arg0);
+    copy_packet_header_6xAB__10TObjPlayerFPvPv(&m, arg0);
     swap_bytes__10TObjPlayerFPv(&m);
     if (validate_6xAB(&m) != 0) {
         p = ((void * (*)(s32))get_player_by_client_id)(m.id);
@@ -2648,7 +2648,7 @@ void handle_6x58_lobby_animation(void *arg0) {
     Msg_801C851C m;
     Player_801C851C *p;
     ((void (*)(void *))TObjPlayer__sub_801D13EC)(&m);
-    ((void (*)(void *, void *))TObjPlayer__sub_801D13A8)(&m, arg0);
+    ((void (*)(void *, void *))copy_packet_header_6x58__10TObjPlayerFPvPv)(&m, arg0);
     bswap_packet__10TObjPlayerFPv(&m);
     if (validate_6x58_lobby_animation(&m) != 0) {
         p = ((Player_801C851C * (*)(u16))get_player_by_client_id)(m.slot);
@@ -3846,7 +3846,7 @@ void prepare_death__10TObjPlayerFPv(u8 *arg0) {
     }
 }
 
-void TObjPlayer__sub_801CA8F0(u8 *arg0) {
+void set_death_marker_pos__10TObjPlayerFPv(u8 *arg0) {
     M2C_FIELD(M2C_FIELD(arg0, u8 **, 0xA4), f32 *, 0x1C) = (f32) M2C_FIELD(arg0, f32 *, 0x38);
     M2C_FIELD(M2C_FIELD(arg0, u8 **, 0xA4), f32 *, 0x20) = (f32) (lbl_805DC388 + M2C_FIELD(arg0, f32 *, 0x3C));
     M2C_FIELD(M2C_FIELD(arg0, u8 **, 0xA4), f32 *, 0x24) = (f32) M2C_FIELD(arg0, f32 *, 0x40);
@@ -3892,7 +3892,7 @@ void run_death_state_phase__10TObjPlayerFis(s32 arg0, s16 arg1) {
         ((s32 (*)(void *))request_revival_if_not_dead__10TObjPlayerFPv)((void *) arg0);
         return;
       case 8:
-        ((s32 (*)(void *))TObjPlayer__sub_801CA8F0)((void *) arg0);
+        ((s32 (*)(void *))set_death_marker_pos__10TObjPlayerFPv)((void *) arg0);
         return;
       case 5:
         ((s32 (*)(void *))prepare_death__10TObjPlayerFPv)((void *) arg0);
@@ -3972,7 +3972,7 @@ void handle_6x4C_hit_by_enemy(void *arg0) {
     Player_801CACD8 *p;
 
     bswap_head_pair__10TObjPlayerFPv(&m);
-    ((void (*)(void *, void *))TObjPlayer__sub_801D2910)(&m, arg0);
+    ((void (*)(void *, void *))copy_6x4c_hit_by_enemy_packet__10TObjPlayerFPvPv)(&m, arg0);
     init_6x4C_packet__10TObjPlayerFPv(&m);
     if (validate_6x4C_hit_by_enemy(&m) != 0) {
         p = ((Player_801CACD8 * (*)(s32))get_player_by_client_id)(m.id);
@@ -4112,7 +4112,7 @@ void handle_6x4B_hit_by_enemy(void *arg0) {
     Player_801CB1B0 *p;
 
     read_swapped_fields__10TObjPlayerFPv(&m);
-    ((void (*)(void *, void *))TObjPlayer__sub_801D1AC8)(&m, arg0);
+    ((void (*)(void *, void *))copy_6x4b_hit_by_enemy_packet__10TObjPlayerFPvPv)(&m, arg0);
     reset_action_state__10TObjPlayerFPv(&m);
     if (validate_6x4B_hit_by_enemy(&m) != 0) {
         p = ((Player_801CB1B0 * (*)(s32))get_player_by_client_id)(m.id);
@@ -4982,7 +4982,7 @@ void handle_6x48_cast_technique_complete(void *arg) {
     Player_801CCD38 *p;
     s16 tech;
     ((void (*)(void *))TObjPlayer__sub_801D2178)(&pkt);
-    ((void (*)(void *, void *))TObjPlayer__sub_801D2134)(&pkt, arg);
+    ((void (*)(void *, void *))copy_6x48_cast_technique_complete_packet__10TObjPlayerFPvPv)(&pkt, arg);
     swap_header__10TObjPlayerFPv(&pkt);
     if (validate_6x48_cast_technique_complete(&pkt) == 0) {
         return;
@@ -5167,7 +5167,7 @@ void handle_6x8D_set_technique_level_override(void *arg0) {
     Msg_801CD6BC m;
     u8 *p;
     ((void (*)(void *))TObjPlayer__sub_801D22AC)(&m);
-    ((void (*)(void *, void *))TObjPlayer__sub_801D2260)(&m, arg0);
+    ((void (*)(void *, void *))copy_6x8d_technique_level_packet__10TObjPlayerFPvPv)(&m, arg0);
     swap_field6__10TObjPlayerFPv(&m);
     if (validate_6x8D_set_technique_level_override(&m) != 0) {
         p = get_player_by_client_id(m.id);
@@ -5291,7 +5291,7 @@ void handle_6x45_attack(void *src) {
     Pkt_801CDAD8 pkt;
     u8 *player;
     TNpcPlayer__sub_80152B08(&pkt);
-    ((void (*)(Pkt_801CDAD8 *, void *))TObjPlayer__sub_801D2304)(&pkt, src);
+    ((void (*)(Pkt_801CDAD8 *, void *))copy_6x45_attack_packet__10TObjPlayerFPvPv)(&pkt, src);
     bswap_6x45_packet(&pkt);
     if (validate_6x45_attack(&pkt) == 0) return;
     player = get_player_by_client_id(pkt.player);
@@ -5951,7 +5951,7 @@ void handle_6x42_move_to_position(void *pkt) {
     Cmd_801CF780 cmd;
     Player_801CF780 *p;
     reset_move_state__10TNpcPlayerFPv(&cmd);
-    TObjPlayer__sub_801D2964(&cmd, pkt);
+    copy_packet_pos_6x42__10TObjPlayerFPvPv(&cmd, pkt);
     init_model__10TNpcPlayerFPv(&cmd);
     if (validate_6x42_move_to_position(&cmd) != 0) {
         p = (Player_801CF780 *)((void * (*)(s32))get_player_by_client_id)(cmd.id);
@@ -6222,7 +6222,7 @@ void handle_6x40_walk_to_position(void *pkt) {
     Cmd_801D0000 cmd;
     Player_801D0000 *p;
     TNpcPlayer__sub_80152E74(&cmd);
-    TObjPlayer__sub_801D24F4(&cmd, pkt);
+    copy_6x40_walk_to_position_packet__10TObjPlayerFPvPv(&cmd, pkt);
     swap_endian__10TNpcPlayerFPv(&cmd);
     if (validate_6x40_walk_to_position(&cmd) != 0) {
         p = (Player_801D0000 *)((void * (*)(s32))get_player_by_client_id)(cmd.id);
@@ -6768,7 +6768,7 @@ int TObjPlayer__sub_801D11F8(void* p) { return (*(u16*)((char*)p + 0x6) >> 1) & 
 
 void swap_bytes__10TObjPlayerFPv(void* p) { read_be16_field2__10TObjPlayerFPv(p); bswap_16__FPUs((char*)p + 0x4); bswap_16__FPUs((char*)p + 0x6); }
 
-void *TObjPlayer__sub_801D1240(void *arg0, void *arg1) {
+void *copy_packet_header_6xAB__10TObjPlayerFPvPv(void *arg0, void *arg1) {
     TFontSmallLobby__sub_801C0228((void*)(arg0));
     M2C_FIELD(arg0, u16 *, 0x4) = M2C_FIELD(arg1, s16 *, 0x4);
     M2C_FIELD(arg0, u16 *, 0x6) = M2C_FIELD(arg1, u16 *, 0x6);
@@ -6796,7 +6796,7 @@ int TObjPlayer__sub_801D1360(void* p) { return *(u16*)((char*)p + 0x6) & 0x1; }
 
 void bswap_packet__10TObjPlayerFPv(void* p) { read_be16_field2__10TObjPlayerFPv(p); bswap_16__FPUs((char*)p + 0x4); bswap_16__FPUs((char*)p + 0x6); }
 
-void *TObjPlayer__sub_801D13A8(void *arg0, void *arg1) {
+void *copy_packet_header_6x58__10TObjPlayerFPvPv(void *arg0, void *arg1) {
     TFontSmallLobby__sub_801C0228((void*)(arg0));
     M2C_FIELD(arg0, u16 *, 0x4) = M2C_FIELD(arg1, s16 *, 0x4);
     M2C_FIELD(arg0, u16 *, 0x6) = M2C_FIELD(arg1, u16 *, 0x6);
@@ -6909,7 +6909,7 @@ void read_swapped_fields__10TObjPlayerFPv(void* p) { read_be16_field2__10TObjPla
 #pragma inline_depth(1)
 #pragma auto_inline off
 #pragma dont_inline off
-u8 *TObjPlayer__sub_801D1AC8(u8 *arg0, u8 *arg1) {
+u8 *copy_6x4b_hit_by_enemy_packet__10TObjPlayerFPvPv(u8 *arg0, u8 *arg1) {
     ((u8 * (*)(void *))TFontSmallLobby__sub_801C0228)(arg0);
     M2C_FIELD(arg0, s16 *, 4) = (s16) M2C_FIELD(arg1, s16 *, 4);
     M2C_FIELD(arg0, s16 *, 6) = (s16) M2C_FIELD(arg1, s16 *, 6);
@@ -7061,7 +7061,7 @@ void send_coords__10TObjPlayerFPv(void* p) { bswap_coords__10TObjPlayerFPv(p); T
 
 void swap_header__10TObjPlayerFPv(void* p) { read_be16_field2__10TObjPlayerFPv(p); bswap_16__FPUs((char*)p + 0x4); bswap_16__FPUs((char*)p + 0x6); }
 
-void *TObjPlayer__sub_801D2134(void *arg0, void *arg1) {
+void *copy_6x48_cast_technique_complete_packet__10TObjPlayerFPvPv(void *arg0, void *arg1) {
     TFontSmallLobby__sub_801C0228((void*)(arg0));
     M2C_FIELD(arg0, u16 *, 0x4) = M2C_FIELD(arg1, s16 *, 0x4);
     M2C_FIELD(arg0, u16 *, 0x6) = M2C_FIELD(arg1, s16 *, 0x6);
@@ -7092,7 +7092,7 @@ extern int fold_flush_13;
 
 void swap_field6__10TObjPlayerFPv(void* p) { read_be16_field2__10TObjPlayerFPv(p); bswap_16__FPUs((char*)p + 0x6); }
 
-void *TObjPlayer__sub_801D2260(void *arg0, void *arg1) {
+void *copy_6x8d_technique_level_packet__10TObjPlayerFPvPv(void *arg0, void *arg1) {
     TFontSmallLobby__sub_801C0228((void*)(arg0));
     M2C_FIELD(arg0, u8 *, 0x4) = M2C_FIELD(arg1, u8 *, 0x4);
     M2C_FIELD(arg0, u8 *, 0x5) = M2C_FIELD(arg1, u8 *, 0x5);
@@ -7110,7 +7110,7 @@ void TObjPlayer__sub_801D22AC(u8 *arg0) {
 
 void send_swap_field6__10TObjPlayerFPv(void* p) { swap_field6__10TObjPlayerFPv(p); TLobby__send_and_handle_60(p); }
 
-void *TObjPlayer__sub_801D2304(void *arg0, void *arg1) {
+void *copy_6x45_attack_packet__10TObjPlayerFPvPv(void *arg0, void *arg1) {
     TFontSmallLobby__sub_801C0228((void*)(arg0));
     M2C_FIELD(arg0, u16 *, 0x4) = M2C_FIELD(arg1, s16 *, 0x4);
     M2C_FIELD(arg0, u16 *, 0x6) = M2C_FIELD(arg1, s16 *, 0x6);
@@ -7181,7 +7181,7 @@ extern int fold_flush_15;
 #pragma inline_depth(1)
 #pragma auto_inline off
 #pragma dont_inline off
-void *TObjPlayer__sub_801D24F4(void *arg0, void *arg1) {
+void *copy_6x40_walk_to_position_packet__10TObjPlayerFPvPv(void *arg0, void *arg1) {
     TFontSmallLobby__sub_801C0228(arg0);
     ((Pkt_801D24F4 *)arg0)->pos = ((Pkt_801D24F4 *)arg1)->pos;
     return arg0;
@@ -7515,7 +7515,7 @@ void TObjPlayer__sub_801D28DC(void* p) { bswap_32__FPUl(p); bswap_32__FPUl((char
 #pragma inline_depth(1)
 #pragma auto_inline off
 #pragma dont_inline off
-u8 *TObjPlayer__sub_801D2910(u8 *arg0, u8 *arg1) {
+u8 *copy_6x4c_hit_by_enemy_packet__10TObjPlayerFPvPv(u8 *arg0, u8 *arg1) {
     TFontSmallLobby__sub_801C0228((void*)((void*)(arg0)));
     M2C_FIELD(arg0, s16 *, 4) = (s16) M2C_FIELD(arg1, s16 *, 4);
     M2C_FIELD(arg0, s16 *, 6) = (s16) M2C_FIELD(arg1, s16 *, 6);
@@ -7535,7 +7535,7 @@ extern int fold_flush_21;
 #pragma inline_depth(1)
 #pragma auto_inline off
 #pragma dont_inline off
-void *TObjPlayer__sub_801D2964(void *arg0, void *arg1) {
+void *copy_packet_pos_6x42__10TObjPlayerFPvPv(void *arg0, void *arg1) {
     TFontSmallLobby__sub_801C0228(arg0);
     ((Pkt_801D2964 *)arg0)->pos = ((Pkt_801D2964 *)arg1)->pos;
     return arg0;
@@ -7998,7 +7998,7 @@ void* get_anim_field_c__10TObjPlayerFPv(void* p) { return (char*)p + 0xc; }
 #pragma inline_depth(1)
 #pragma auto_inline off
 #pragma dont_inline off
-f32 TObjPlayer__sub_801D2CF4(M2C_UNK arg0, s32 arg1) {
+f32 calc_attack_stage_multiplier__10TObjPlayerFii(M2C_UNK arg0, s32 arg1) {
     return M2C_FIELD(((u8 *)(&lbl_804C43CC.value) + (arg1 * 4)), f32 *, 0) * M2C_FIELD(((u8 *)(&lbl_804C43D8.value) + (get_validated_attack_stage((u8 *)(arg0)) * 4)), f32 *, 0);
 }
 extern int fold_flush_29;

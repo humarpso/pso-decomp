@@ -95,7 +95,7 @@ s32 TLobby__sub_80225B90(O_80225B90 *o);
 extern G_80225550 lbl_80513F60;
 void get_shop_weapon_stock_item(C14_80225550 *dst, s32 idx, s32 tbl);
 extern G_80225550 lbl_80513F60;
-void TLobby__sub_802255CC(s32 a, s32 b);
+void clear_slot_field_f10__6TLobbyFii(s32 a, s32 b);
 int get_short_mail_ctrl__6TLobbyFv(void);
 void *TLobby__sub_8022598C(int a0);
 s32 get_lobby_id__6TLobbyFPv(void* p);
@@ -690,7 +690,7 @@ void clear_shop_weapon_flags(void) {
 
 #pragma push
 #pragma optimization_level 1
-void TLobby__sub_802255CC(s32 a, s32 b) {
+void clear_slot_field_f10__6TLobbyFii(s32 a, s32 b) {
     E_802255CC *arr = ((E_802255CC **)&lbl_80513F60)[b];
     if (a >= 0 && a <= 0xf) {
         if (arr[a].f10 != -1) {

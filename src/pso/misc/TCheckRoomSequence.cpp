@@ -163,7 +163,7 @@ void init_item_entry__18TCheckRoomSequenceFPv(Obj_80211408 *self);
 void init__9TItemDataFv(void *);
 void init_item_entry__23TAdSinglePlyChrSelectGCFPv(Obj_80211584 *self);
 void TWindow__close(TWin_8020F070 *);
-void TCheckRoomSequence__sub_8020F070(TCheckRoomSequence_8020F070 *self);
+void close_window__18TCheckRoomSequenceFPv(TCheckRoomSequence_8020F070 *self);
 int set_field_20__12TQuestListVMFPvi(void*, void*);
 int reset_controller_input_state(void *);
 void *__nw__7TObjectFUl(u32);
@@ -364,7 +364,7 @@ s32 get_item_def__18TCheckRoomSequenceFUi(void *);
 void remove_bank_item_amount__18TCheckRoomSequenceFiii(s32 idx, s32 amount, s32 slot);
 M2C_UNK queue_destruction__7TObjectFv(void *);
 M2C_UNK safe_free__23TAdSinglePlyChrSelectGCFUi(int);
-void TCheckRoomSequence__sub_8020F070(TCheckRoomSequence_8020F070 *self);
+void close_window__18TCheckRoomSequenceFPv(TCheckRoomSequence_8020F070 *self);
 M2C_UNK close_message_window__13TShopSequenceFPv(void *);
 M2C_UNK __dt__13TShopSequenceFv(void *, int);
 int TShopWindowBase__sub_8022397C(void*);
@@ -425,7 +425,7 @@ extern s32 TCheckRoomSequence__data_805D6168;
 
 #pragma push
 #pragma optimization_level 1
-void TCheckRoomSequence__sub_8020F070(TCheckRoomSequence_8020F070 *self) {
+void close_window__18TCheckRoomSequenceFPv(TCheckRoomSequence_8020F070 *self) {
     if (self->win) {
         TWindow__close(self->win);
         self->win = 0;
@@ -962,7 +962,7 @@ u8 *__dt__18TCheckRoomSequenceFv(u8 *arg0, s16 arg1) {
             TWindow__close(M2C_FIELD(arg0, TWin_8020F070 **, 0x3C));
             M2C_FIELD(arg0, TWin_8020F070 **, 0x3C) = NULL;
         }
-        TCheckRoomSequence__sub_8020F070((TCheckRoomSequence_8020F070 *)arg0);
+        close_window__18TCheckRoomSequenceFPv((TCheckRoomSequence_8020F070 *)arg0);
         TCheckRoomSequence__slot_active_flags[TShopWindowBase__sub_8022397C(arg0)] = 0;
         if (M2C_FIELD(arg0, u32 *, 0x30) != 0) {
             safe_free__23TAdSinglePlyChrSelectGCFUi(M2C_FIELD(arg0, s32 *, 0x30));

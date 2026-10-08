@@ -33,11 +33,11 @@ extern "C" {
 M2C_UNK memset(void *, int, int);
 extern RecoveredGlobal_803D2E04_lbl_80587880 lbl_80587880;
 extern s32 lbl_805D7648;
-void TLobby__sub_803D2E04(void);
+void release_ref_and_clear_buffer_3000__6TLobbyFv(void);
 M2C_UNK memset(void *, int, int);
 extern RecoveredGlobal_803D2E94_lbl_8058A880 lbl_8058A880;
 extern s32 lbl_805D7650;
-void TLobby__sub_803D2E94(void);
+void dec_ref_and_clear_buffer__6TLobbyFv(void);
 void TLobby__sub_803D2E90(void);
 void restore_interrupts_nested__6TLobbyFv(void);
 void lock_enter__6TLobbyFv(void);
@@ -50,7 +50,7 @@ M2C_UNK memset(void *, int, int);
 extern RecoveredGlobal_803D2E04_lbl_80587880 lbl_80587880;
 extern s32 lbl_805D7648;
 extern const char *const volatile lbl_805E0DB8;
-void TLobby__sub_803D2E44(void);
+void add_ref_and_clear_buffer_3000__6TLobbyFv(void);
 }
 
 extern "C" {
@@ -87,7 +87,7 @@ Obj_803D2C84 *TLobby__sub_803D2C84(s32 data, s32 bsize, s32 x24) {
     return s;
 }
 
-void TLobby__sub_803D2E04(void) {
+void release_ref_and_clear_buffer_3000__6TLobbyFv(void) {
     s32 temp_r0;
     temp_r0 = lbl_805D7648 - 1;
     lbl_805D7648 = temp_r0;
@@ -97,7 +97,7 @@ void TLobby__sub_803D2E04(void) {
 }
 typedef char RecoveredGlobal_803D2E94_lbl_8058A880_size[sizeof(RecoveredGlobal_803D2E94_lbl_8058A880) == 0xC00 ? 1 : -1];
 
-void TLobby__sub_803D2E44(void) {
+void add_ref_and_clear_buffer_3000__6TLobbyFv(void) {
     const char *ver = lbl_805E0DB8;
     if (lbl_805D7648 == 0) {
         memset(&lbl_80587880, 0, 0x3000);
@@ -110,7 +110,7 @@ void TLobby__sub_803D2E90(void) {
     }
 }
 
-void TLobby__sub_803D2E94(void) {
+void dec_ref_and_clear_buffer__6TLobbyFv(void) {
     s32 temp_r0;
     temp_r0 = lbl_805D7650 - 1;
     lbl_805D7650 = temp_r0;

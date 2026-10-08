@@ -14,7 +14,7 @@ u8 *create_twin_chakram__10TObjPlayerFPv(u8 *arg0);
 void draw_icon__10TObjPlayerFPvii(void *self, s32 kind, Vec_8012327C *out);
 s32 spawn_particle_effect(Vec_8012327C *, s32);
 extern const f32 lbl_805DAD08;
-void TObjPlayer__sub_8012327C(void *self);
+void spawn_particle_at_icon__10TObjPlayerFPv(void *self);
 }
 
 extern "C" {
@@ -32,7 +32,7 @@ u8 *create_twin_chakram__10TObjPlayerFPv(u8 *arg0) {
     }
     return NULL;
 }
-void TObjPlayer__sub_8012327C(void *self) {
+void spawn_particle_at_icon__10TObjPlayerFPv(void *self) {
     Vec_8012327C v;
     draw_icon__10TObjPlayerFPvii(self, 2, &v);
     v.y -= lbl_805DAD08;

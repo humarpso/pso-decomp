@@ -10,7 +10,7 @@ M2C_UNK TObjPlayer__sub_80084694();
 extern u8 *lbl_805D4E8C;
 extern u8 *TObjBoss2Tunnel__data_805D4E90;
 extern s32 TObjBoss2Tunnel__data_805D4E94;
-void TObjBoss2Tunnel__sub_8007CEB4(void);
+void free_buffers__15TObjBoss2TunnelFv(void);
 }
 
 extern "C" {
@@ -51,7 +51,7 @@ block_9:
     TObjBoss2Tunnel__data_805D4E94 = 0;
     return sp8;
 }
-void TObjBoss2Tunnel__sub_8007CEB4(void) {
+void free_buffers__15TObjBoss2TunnelFv(void) {
     TObjBoss2Tunnel__data_805D4E94 = 0;
     if ((void *) lbl_805D4E8C != NULL) {
         xfree__FPv(lbl_805D4E8C);

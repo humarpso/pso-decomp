@@ -1207,11 +1207,11 @@ s32 request_two_effects__10TObjPlayerFPv(void *);
 s32 apply_effect_variant_b__10TObjPlayerFii(void *, int);
 M2C_UNK reset_transform__13TObjEneRe4BitFPv();
 M2C_UNK set_flag3cc_bit2000__18TObjEneRe4SorcererFPv(void *);
-void TObjEneRe4Sorcerer__sub_800ED268(u8 *arg0);
+void call_vt_90_91__18TObjEneRe4SorcererFPv(u8 *arg0);
 void TObjEneRe4Sorcerer__sub_800ED2B4(u8 *arg0);
 M2C_UNK clear_state_flag_0x10__18TObjEneRe4SorcererFPv(u32);
 M2C_UNK set_flag_and_notify__18TObjEneRe4SorcererFPv();
-M2C_UNK TObjEneRe4Sorcerer__sub_800ED428(u32, s32);
+M2C_UNK set_state_flag_and_mode__18TObjEneRe4SorcererFPvi(u32, s32);
 u8 * get_spell_data__18TObjEneRe4SorcererFPv();
 M2C_UNK create_enabled__13TObjEneRe4BitFiiii(void *, void *, int, int);
 M2C_UNK create_disabled__13TObjEneRe4BitFiiii(void *, void *, int, int);
@@ -2385,7 +2385,7 @@ void apply_mylla_effect__18TObjEneRe4SorcererFPv(void *arg0) {
     u32 temp_r3;
     temp_r3 = find_entity_by_id(M2C_FIELD(arg0, u16 *, 0x3E6));
     if (temp_r3 != 0U) {
-        TObjEneRe4Sorcerer__sub_800ED428((u32)(temp_r3), (s32)(2));
+        set_state_flag_and_mode__18TObjEneRe4SorcererFPvi((u32)(temp_r3), (s32)(2));
     }
 }
 
@@ -2394,12 +2394,12 @@ void set_photon_state__18TObjEneRe4SorcererFPv(void *arg0) {
     if ((s32) M2C_FIELD(arg0, s32 *, 0x3E8) == 0) {
         temp_r3 = find_entity_by_id(M2C_FIELD(arg0, u16 *, 0x3E4));
         if (temp_r3 != 0U) {
-            TObjEneRe4Sorcerer__sub_800ED428((u32)(temp_r3), (s32)(0));
+            set_state_flag_and_mode__18TObjEneRe4SorcererFPvi((u32)(temp_r3), (s32)(0));
         }
     } else {
         temp_r3 = find_entity_by_id(M2C_FIELD(arg0, u16 *, 0x3E4));
         if (temp_r3 != 0U) {
-            TObjEneRe4Sorcerer__sub_800ED428((u32)(temp_r3), (s32)(1));
+            set_state_flag_and_mode__18TObjEneRe4SorcererFPvi((u32)(temp_r3), (s32)(1));
         }
     }
 }
@@ -2432,7 +2432,7 @@ void TObjEneRe4Sorcerer__sub_800EF7C8(Obj_800EF7C8 *self) {
     for (i = 0; i < 2; i++) {
         u32 p = find_entity_by_id(self->orbs[i]);
         if (p != 0) {
-            TObjEneRe4Sorcerer__sub_800ED268((u8 *)p);
+            call_vt_90_91__18TObjEneRe4SorcererFPv((u8 *)p);
         }
     }
 }

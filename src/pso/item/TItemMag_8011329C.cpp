@@ -129,7 +129,7 @@ M2C_UNK assign_default_photon_blast_palette_slots(void *);
 void TItemMag__vt43(u8 *arg0);
 u8 *alloc_from_obj_heap__10TObjPlayerFPv(M2C_UNK);
 extern s32 tl_05;
-u8 *TItemMag__sub_80113AD4(s32 arg0);
+u8 *create__8TItemMagFi(s32 arg0);
 void TItemMag__sub_80113CA8(Obj_80113CA8 *self, s32 i, s32 v);
 extern M2C_UNK __vt__8TItemMag[];
 extern s32 lbl_805D2C00;
@@ -491,7 +491,7 @@ u8 *TItemMag__ct(Mag_801139F4 *self, s32 a, s32 src) {
 }
 #pragma pop
 
-u8 *TItemMag__sub_80113AD4(s32 arg0) {
+u8 *create__8TItemMagFi(s32 arg0) {
     u8 *temp_r3;
     u8 *var_r0;
     if (arg0 != 0) {

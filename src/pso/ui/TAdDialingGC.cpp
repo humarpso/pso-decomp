@@ -25,9 +25,9 @@ void render__12TAdDialingGCFv(void* p);
 int update__12TAdDialingGCFPv(void*);
 int TAdDialingGC__sub_80328B20(void*);
 int TAdDialingGC__sub_80328C10(void*);
-int TAdDialingGC__sub_80328C4C(void*);
+int render_if_flag_set__12TAdDialingGCFPv(void*);
 
-void render__12TAdDialingGCFv(void* p) { TAdDialingGC__sub_80328B20(p); TAdDialingGC__sub_80328C4C(p); TAdDialingGC__sub_80328C10(p); update__12TAdDialingGCFPv(p); }
+void render__12TAdDialingGCFv(void* p) { TAdDialingGC__sub_80328B20(p); render_if_flag_set__12TAdDialingGCFPv(p); TAdDialingGC__sub_80328C10(p); update__12TAdDialingGCFPv(p); }
 
 M2C_UNK update_dial_state__12TAdDialingGCFPv();
 M2C_UNK update_state__12TAdDialingGCFPv();

@@ -44,7 +44,7 @@ void activate_body_collision__10TObjPlayerFPv(void *);
 void clear_lobby_flag__10TObjPlayerFPv(void *);
 void *get_player_by_client_id(s32);
 void TQuestListOnline__sub_802176DC(void *, s32);
-void TQuestListOnline__sub_80217714(void *, s32);
+void decompress_quest_buffer__16TQuestListOnlineFi(void *, s32);
 s32 init__16TQuestListOnlineFv();
 void clear_flag3_all_tasks__9TMainTaskFv(TMainTask *);
 s32 TWindow__close(int);
@@ -183,7 +183,7 @@ void handle_quest_ready__16TQuestListOnlineFv(void) {
     s32 m;
     if (init__16TQuestListOnlineFv() != 0) {
         q = TQuestListOnline__data_80513E24;
-        TQuestListOnline__sub_80217714(*(void **)(q + 0x38), *(s32 *)(q + 0x34));
+        decompress_quest_buffer__16TQuestListOnlineFi(*(void **)(q + 0x38), *(s32 *)(q + 0x34));
         q = TQuestListOnline__data_80513DE8;
         TQuestListOnline__sub_802176DC(*(void **)(q + 0x38), *(s32 *)(q + 0x34));
         set_enemy_mode_flag__6TLobbyFv();

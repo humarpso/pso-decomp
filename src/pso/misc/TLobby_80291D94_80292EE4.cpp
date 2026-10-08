@@ -17,7 +17,7 @@ extern RecoveredGlobal_8006F23C_lbl_8048C9D8 lbl_804DB1F0;
 s32 TLobby__sub_80292F7C(void);
 extern RecoveredGlobal_8006F23C_lbl_8048C9D8 lbl_804DB1F0;
 s32 is_challenge_mode_active();
-void TLobby__sub_80292FB8(void);
+void start_challenge_countdown__6TLobbyFv(void);
 }
 
 extern "C" {
@@ -52,7 +52,7 @@ s32 TLobby__sub_80292F7C(void) {
 }
 #pragma pop
 
-void TLobby__sub_80292FB8(void) {
+void start_challenge_countdown__6TLobbyFv(void) {
     if (is_challenge_mode_active() != 0) {
         switch ((*(G_8006F2CC *)&lbl_804DB1F0).x28) {
         case 0:

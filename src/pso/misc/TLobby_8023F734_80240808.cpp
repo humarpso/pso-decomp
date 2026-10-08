@@ -19,7 +19,7 @@ void TLobby__sub_80242148(void *self, s32 x);
 void TLobby__sub_8024218C(void *self, s32 x);
 extern char lbl_805162E0[];
 extern char lbl_805162EC[];
-void TLobby__sub_8024091C(void);
+void construct_global_array_a0__6TLobbyFv(void);
 }
 
 extern "C" {
@@ -73,7 +73,7 @@ u16 TLobby__sub_802408EC(u16 crc, u8 c) {
     return r;
 }
 
-void TLobby__sub_8024091C(void) {
+void construct_global_array_a0__6TLobbyFv(void) {
     __construct_array(lbl_805162EC, (void *)TLobby__sub_8024218C, (void *)TLobby__sub_80242148, 0xA0, 0x28);
     __register_global_object(0, (void *)TLobby__sub_80240974, lbl_805162E0);
 }

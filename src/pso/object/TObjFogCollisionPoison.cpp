@@ -42,7 +42,7 @@ s32 is_any_teammate_in_state__10TObjPlayerFv(void);
 void update_fog_region_arbitration(u8 *arg0);
 void __ct__7TObjectFP7TObject(void *, void *);
 extern M2C_UNK lbl_804AF7B0[];
-u8 *TObjFogCollisionPoison__sub_80153084(u8 *arg0, u8 *arg1, s16 arg2);
+u8 *init_base__22TObjFogCollisionPoisonFPvPvs(u8 *arg0, u8 *arg1, s16 arg2);
 void __ct__7TObjectFP7TObject(void *, void *);
 extern RecoveredGlobal_801532C8_lbl_804AF7C8 lbl_804AF7C8;
 extern RecoveredGlobal_801532C8_TObjFogCollisionPoison__data_8050D430 TObjFogCollisionPoison__data_8050D430;
@@ -104,7 +104,7 @@ void *TObjFogCollisionPoison__sub_8015302C(void *arg0, s16 arg1) {
 }
 
 typedef char RecoveredGlobal_80153084_lbl_804AF7B0_size[sizeof(RecoveredGlobal_80153084_lbl_804AF7B0) == 0x18 ? 1 : -1];
-u8 *TObjFogCollisionPoison__sub_80153084(u8 *arg0, u8 *arg1, s16 arg2) {
+u8 *init_base__22TObjFogCollisionPoisonFPvPvs(u8 *arg0, u8 *arg1, s16 arg2) {
     __ct__7TObjectFP7TObject(arg0, arg1);
     M2C_FIELD(arg0, M2C_UNK **, 0x18) = &(*(RecoveredGlobal_80153084_lbl_804AF7B0 *)&lbl_804AF7B0).value;
     M2C_FIELD(arg0, s16 *, 0x28) = arg2;

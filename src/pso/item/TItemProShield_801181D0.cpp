@@ -80,7 +80,7 @@ extern M2C_UNK __vt__14TItemProShield[];
 void *__dt__14TItemProShieldFv(void *arg0, s16 arg1);
 u8 *alloc_from_obj_heap__10TObjPlayerFPv(M2C_UNK);
 extern s32 tl_05;
-u8 *TItemProShield__sub_801187D0(s32 arg0);
+u8 *create_instance__14TItemProShieldFi(s32 arg0);
 u8 * TItemEquipBase__ct(void *);
 s16 get_bswap16_field8__9TItemDataFPv(void *);
 s16 getS16_06__9TItemDataFPv(void *);
@@ -272,7 +272,7 @@ u8 *TItemProShield__ct(u8 *arg0, M2C_UNK arg1, u8 *arg2) {
     return arg0;
 }
 
-u8 *TItemProShield__sub_801187D0(s32 arg0) {
+u8 *create_instance__14TItemProShieldFi(s32 arg0) {
     u8 *temp_r3;
     u8 *var_r0;
     if (arg0 != 0) {

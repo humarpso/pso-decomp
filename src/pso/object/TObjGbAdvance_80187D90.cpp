@@ -12,7 +12,7 @@ u8 * load_resource_from_descriptor(void *, s32, void *, s32, s32, s32);
 int alloc__23TAdSinglePlyChrSelectGCFPv(void *);
 extern RecoveredGlobal_80187DC8_lbl_804B6228 lbl_804B6228;
 extern u32 TObjGbAdvance__data_805D5B74;
-void TObjGbAdvance__sub_80187DC8(void);
+void load_resource_instance__13TObjGbAdvanceFv(void);
 }
 
 extern "C" {
@@ -28,7 +28,7 @@ void free_shared_data__13TObjGbAdvanceFv(void) {
         TObjGbAdvance__data_805D5B74 = 0U;
     }
 }
-void TObjGbAdvance__sub_80187DC8(void) {
+void load_resource_instance__13TObjGbAdvanceFv(void) {
     s32 temp_r3;
     s32 var_r0;
     temp_r3 = alloc__23TAdSinglePlyChrSelectGCFPv((void *)0x440);

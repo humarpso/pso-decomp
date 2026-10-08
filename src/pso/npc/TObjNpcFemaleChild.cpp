@@ -102,7 +102,7 @@ u8 * load_resource_from_descriptor(void *, s32, void *, s32, s32, s32);
 int alloc__23TAdSinglePlyChrSelectGCFPv(void *);
 extern RecoveredGlobal_8014A190_lbl_804A8AE0 lbl_804A8AE0;
 extern u32 TObjNpcFemaleDwarf__static_data;
-void TObjNpcFemaleDwarf__sub_8014A190(void);
+void load_static_resource__18TObjNpcFemaleDwarfFv(void);
 s32 init_position_vectors__10TObjPlayerFi(void *);
 s32 setup_common__11TObjNpcBaseFv(void *);
 s32 construct_female_base__17TObjNpcFemaleBaseFPv(void *);
@@ -174,7 +174,7 @@ void unload_static_data__18TObjNpcFemaleDwarfFv(void) {
         TObjNpcFemaleDwarf__static_data = 0U;
     }
 }
-void TObjNpcFemaleDwarf__sub_8014A190(void) {
+void load_static_resource__18TObjNpcFemaleDwarfFv(void) {
     s32 temp_r3;
     s32 var_r0;
     temp_r3 = alloc__23TAdSinglePlyChrSelectGCFPv((void *)0x440);

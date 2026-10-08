@@ -99,7 +99,7 @@ extern "C" {
 void * construct__13TItemProArmorFPv(void *arg0, void *arg1, void *arg2);
 u8 *alloc_from_obj_heap__10TObjPlayerFPv(M2C_UNK);
 extern int tl_05;
-u8 *TItemProArmor__sub_801173FC(u8 *arg0);
+u8 *create__13TItemProArmorFPv(u8 *arg0);
 u16 obj_getField1c(void *);
 void TItemTimerEvent__sub_8011E0A4(u16);
 void __ct__7TObjectFP7TObject(void *, void *);
@@ -132,7 +132,7 @@ void *construct__13TItemProArmorFPv(void *arg0, void * _w1, void * _w2) {
     return arg0;
 }
 
-u8 *TItemProArmor__sub_801173FC(u8 *arg0) {
+u8 *create__13TItemProArmorFPv(u8 *arg0) {
     u8 *temp_r3;
     u8 *var_r0;
     if (arg0 != NULL) {

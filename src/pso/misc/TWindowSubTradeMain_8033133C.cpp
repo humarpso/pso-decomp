@@ -106,7 +106,7 @@ void TWindowChat__sub_80247E50(void *);
 s32 is_mode_bit4__11TWindowChatFPv(void *);
 s32 is_player_input_active(s32);
 void TWindowSubComCard__sub_80265680(void *, int);
-void TWindowSubComCard__sub_802656D8(void *, int, int);
+void set_entry_value_clear_flag__17TWindowSubComCardFPvii(void *, int, int);
 u8 get_selected_menu_value(void *);
 void clear_transition_flag__17TWindowSubComCardFPv(void *);
 void open__17TWindowOptionCtrlFPv(void *);
@@ -459,7 +459,7 @@ void run_task__19TWindowSubTradeMainFv(TWindowSubTradeMain_8033162C *o) {
         o->state = 0x15;
     case 21:
         if (TWindowSubTradeMain__sub_802D2808() != 0) {
-            TWindowSubComCard__sub_802656D8(o->confirm, 2, 0xFFEE946E);
+            set_entry_value_clear_flag__17TWindowSubComCardFPvii(o->confirm, 2, 0xFFEE946E);
         } else {
             TWindowSubComCard__sub_80265680(o->confirm, 2);
         }

@@ -397,7 +397,7 @@ void TObjPlayer__sub_8011E5DC(void);
 void weapon_prepare_marker_noop(void);
 void TObjPlayer__sub_8011E610(void* p, s32 v);
 void TObjPlayer__sub_8011E618(u8 *arg0);
-void TObjPlayer__sub_8011E6A4(u8 *arg0);
+void set_flag_8_if_check_passes__10TObjPlayerFPv(u8 *arg0);
 u8 * get_motion_ptr__10TObjPlayerFPv(u8 *arg0);
 void call_callback_1ec__10TObjPlayerFPvii(void *arg0, s32 arg1, s32 arg2);
 void apply_model_params__10TObjPlayerFPv(void *arg0);
@@ -537,7 +537,7 @@ void TObjPlayer__sub_8011E618(u8 *arg0) {
     send_6x61_activate_mag_effect(arg0, (s32) ((f32) M2C_FIELD(arg0, s32 *, 0x1C4) * (lbl_805DAC8C * (f32) rand())));
 }
 
-void TObjPlayer__sub_8011E6A4(u8 *arg0) {
+void set_flag_8_if_check_passes__10TObjPlayerFPv(u8 *arg0) {
     u8 *var_r31;
     u8 *var_r3;
     if (arg0 != NULL) {

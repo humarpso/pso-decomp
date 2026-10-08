@@ -146,7 +146,7 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 extern "C" {
 
 void countdown_and_destroy__6TLobbyFPv(void *arg0);
-M2C_UNK TLobby__sub_80292FB8();
+M2C_UNK start_challenge_countdown__6TLobbyFv();
 
 M2C_UNK queue_destruction__7TObjectFv(void *);
 
@@ -157,7 +157,7 @@ void countdown_and_destroy__6TLobbyFPv(void *arg0) {
     temp_r0 = M2C_FIELD(arg0, s32 *, 0x28) - 1;
     M2C_FIELD(arg0, s32 *, 0x28) = temp_r0;
     if (temp_r0 <= 0) {
-        TLobby__sub_80292FB8();
+        start_challenge_countdown__6TLobbyFv();
         ((M2C_UNK (*)(void *))send_giveup_to_all_players__6TLobbyFv)(arg0);
         close_window__6TLobbyFPv(arg0);
         close_window_field30__6TLobbyFPv(arg0);

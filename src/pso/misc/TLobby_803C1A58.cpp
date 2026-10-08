@@ -163,7 +163,7 @@ void init_once__6TLobbyFv(void);
 void cvfs_stop_tr__6TLobbyFPv(void *);
 void TLobby__sub_803C89C4(u8 *arg0);
 s32 cv_fs_tell__6TLobbyFPv(int);
-s32 TLobby__sub_803C8A98(u8 *arg0);
+s32 get_file_offset_relative__6TLobbyFPv(u8 *arg0);
 void release_ref__6TLobbyFv(void);
 void init_once__6TLobbyFv(void);
 void cvfs_stop_tr__6TLobbyFPv(void *);
@@ -708,7 +708,7 @@ s32 init_stream_position__6TLobbyFPv(S_803C8A14 *arg0) {
 }
 #pragma pop
 
-s32 TLobby__sub_803C8A98(u8 *arg0) {
+s32 get_file_offset_relative__6TLobbyFPv(u8 *arg0) {
     u8 *temp_r3;
     temp_r3 = (u8 *)(M2C_FIELD(arg0, u8 **, 8));
     if (temp_r3 != NULL) {

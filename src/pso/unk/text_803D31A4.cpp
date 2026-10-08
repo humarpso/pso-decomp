@@ -41,7 +41,7 @@ void TLobby__sub_803D33E4(s32 arg0, s32 arg1);
 void TLobby__sub_803D346C(s32 arg0);
 char *strncpy(char *, const char *, unsigned long);
 extern M2C_UNK lbl_805D765C;
-void TLobby__sub_803D3860(char *arg0);
+void set_message_and_notify__6TLobbyFPv(char *arg0);
 extern P_803D33D4 lbl_805D7664;
 extern P_803D33E4 lbl_805D766C;
 void TLobby__sub_803D34B0(s32 arg0, void (*arg1)(s32), s32 arg2);
@@ -236,7 +236,7 @@ s32 svm_set_cb_svr__6TLobbyFiii(s32 arg0, s32 fn, s32 arg) {
     return i;
 }
 
-void TLobby__sub_803D3860(char *arg0) {
+void set_message_and_notify__6TLobbyFPv(char *arg0) {
     strncpy((char *)lbl_8058B4A0, arg0, 0xFF);
     if ((*(P_803D3860 *)&lbl_805D765C).fn != 0) {
         (*(P_803D3860 *)&lbl_805D765C).fn((*(P_803D3860 *)&lbl_805D765C).arg, lbl_8058B4A0);

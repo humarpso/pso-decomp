@@ -82,7 +82,7 @@ s32 get_instance__15TAdPlayerLoadGCFv();
 s32 TAdPlayerLoadGC__sub_801E1B50(void*);
 M2C_UNK TAdSinglePlyChrSelectGC__sub_801FDA4C();
 s32 load_chr_select_slot__23TAdSinglePlyChrSelectGCFv();
-M2C_UNK TAdSinglePlyChrSelectGC__sub_801FF58C();
+M2C_UNK clear_load_buffers__23TAdSinglePlyChrSelectGCFv();
 M2C_UNK prepare_save_data__23TAdSinglePlyChrSelectGCFv();
 s8 get_chr_select_state__23TAdSinglePlyChrSelectGCFv();
 M2C_UNK getDateStamp__FP9DateStamp(M2C_UNK *);
@@ -147,7 +147,7 @@ extern s32 lbl_805D5F7C;
 s32 start_load__23TAdSinglePlyChrSelectGCFv(void) {
     lbl_805D5F7C = (s32) get_chr_select_state__23TAdSinglePlyChrSelectGCFv();
     if (((u32) lbl_805D5F60 != 0U) && ((u32) lbl_805D5F64 != 0U) && ((u32) lbl_805D5F58 != 0U) && (get_instance__15TAdPlayerLoadGCFv() == 0) && ((s32) lbl_805D5F7C >= 0) && ((s32) lbl_805D5F7C <= 7)) {
-        TAdSinglePlyChrSelectGC__sub_801FF58C();
+        clear_load_buffers__23TAdSinglePlyChrSelectGCFv();
         init_buffer();
         prepare_save_data__23TAdSinglePlyChrSelectGCFv();
         TAdSinglePlyChrSelectGC__sub_801FDA4C();

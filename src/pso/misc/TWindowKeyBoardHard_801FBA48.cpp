@@ -31,7 +31,7 @@ void *alloc__23TAdSinglePlyChrSelectGCFPv(u32);
 s32 TAdSinglePlyChrSelectGC__sub_80202A68(void *);
 void destroy_chardata_array__23TAdSinglePlyChrSelectGCFis(void *, s32);
 void copy_save_data__23TAdSinglePlyChrSelectGCFPvPv(void *, void *);
-void *TAdSinglePlyChrSelectGC__sub_8020310C(void *);
+void *construct_chardata_array__23TAdSinglePlyChrSelectGCFPv(void *);
 extern u8 lbl_8051381C[];
 extern s32 lbl_80513910[];
 void TAdSinglePlyChrSelectGC__sub_801FBC3C(void *arg0);
@@ -145,11 +145,11 @@ void TAdSinglePlyChrSelectGC__sub_801FBC3C(void *arg0) {
     void *b;
     a = alloc__23TAdSinglePlyChrSelectGCFPv(0x194B0);
     if (a != 0) {
-        a = TAdSinglePlyChrSelectGC__sub_8020310C(a);
+        a = construct_chardata_array__23TAdSinglePlyChrSelectGCFPv(a);
     }
     b = alloc__23TAdSinglePlyChrSelectGCFPv(0x194B0);
     if (b != 0) {
-        b = TAdSinglePlyChrSelectGC__sub_8020310C(b);
+        b = construct_chardata_array__23TAdSinglePlyChrSelectGCFPv(b);
     }
     copy_save_data__23TAdSinglePlyChrSelectGCFPvPv(a, arg0);
     subtractive_rng_seed(lbl_8051381C, lbl_80513910[1]);

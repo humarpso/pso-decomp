@@ -77,7 +77,7 @@ bool TAdChrSelASlotGC__sub_8030C3C0(M2C_UNK arg0, u32 arg1);
 s32 get_state_flag__9TMainTaskFv();
 void render__16TAdChrSelASlotGCFv(void *self);
 s32 TAdPlyChrSelPlateGC__sub_802C4D5C(void *, int);
-s32 TAdChrSelASlotGC__sub_8030C404(Slot_8030C404 *o, s32 k);
+s32 get_plate_value_for_slot__16TAdChrSelASlotGCFPvi(Slot_8030C404 *o, s32 k);
 void copy_vec2__28TWindowSubSymbolChatPartsSetFPvPv(void *, void *);
 s32 get_localized_text_entry(M2C_UNK, M2C_UNK);
 u8 * TAdSinglePlyChrSelectGC__sub_801FE4BC(u32);
@@ -145,7 +145,7 @@ M2C_UNK TAdChrSelMovePlateGC__sub_8032572C(s32);
 M2C_UNK TAdChrSelSlotGC__sub_802C7498(s32, M2C_UNK);
 u32 create_draw_line_ctrl__13TAdMcSelectGCFiif(void *, M2C_UNK, f32);
 M2C_UNK init_slot__13TAdMcSelectGCFPviPv(s32, M2C_UNK, M2C_UNK *);
-M2C_UNK TAdPlyChrSelPlateGC__sub_802C4D88(s32);
+M2C_UNK reset_selection_slots__19TAdPlyChrSelPlateGCFPv(s32);
 s32 get_localized_text_entry(M2C_UNK, M2C_UNK);
 s32 TAdSinglePlyChrSelectGC__sub_801FDAAC();
 s32 write_encrypted_save__23TAdSinglePlyChrSelectGCFv();
@@ -180,7 +180,7 @@ bool TAdChrSelASlotGC__sub_8030C3C0(M2C_UNK arg0, u32 arg1) {
     return M2C_FIELD(temp_r3, s32 *, 8) == 1;
 }
 
-s32 TAdChrSelASlotGC__sub_8030C404(Slot_8030C404 *o, s32 k) {
+s32 get_plate_value_for_slot__16TAdChrSelASlotGCFPvi(Slot_8030C404 *o, s32 k) {
     switch (k) {
     case 0:
     case 1:
@@ -524,13 +524,13 @@ void TAdChrSelASlotGC__sub_8030D5DC(void *arg0) {
     temp_r0 = M2C_FIELD(arg0, s32 *, 0x20);
     switch (temp_r0) {
     case 0:
-        TAdPlyChrSelPlateGC__sub_802C4D88(M2C_FIELD(arg0, s32 *, 0x34));
+        reset_selection_slots__19TAdPlyChrSelPlateGCFPv(M2C_FIELD(arg0, s32 *, 0x34));
         TAdSubPlyItemGC__sub_802D6D88(M2C_FIELD(arg0, s32 *, 0x3C));
         TAdChrSelMovePlateGC__sub_8032572C(M2C_FIELD(arg0, s32 *, 0x44));
         break;
     case 1:
-        TAdPlyChrSelPlateGC__sub_802C4D88(M2C_FIELD(arg0, s32 *, 0x34));
-        TAdPlyChrSelPlateGC__sub_802C4D88(M2C_FIELD(arg0, s32 *, 0x38));
+        reset_selection_slots__19TAdPlyChrSelPlateGCFPv(M2C_FIELD(arg0, s32 *, 0x34));
+        reset_selection_slots__19TAdPlyChrSelPlateGCFPv(M2C_FIELD(arg0, s32 *, 0x38));
         TAdSubPlyItemGC__sub_802D6D88(M2C_FIELD(arg0, s32 *, 0x3C));
         TAdSubPlyItemGC__sub_802D6D88(M2C_FIELD(arg0, s32 *, 0x40));
         TAdChrSelMovePlateGC__sub_8032572C(M2C_FIELD(arg0, s32 *, 0x44));
@@ -544,7 +544,7 @@ void TAdChrSelASlotGC__sub_8030D5DC(void *arg0) {
         }
         break;
     case 2:
-        TAdPlyChrSelPlateGC__sub_802C4D88(M2C_FIELD(arg0, s32 *, 0x38));
+        reset_selection_slots__19TAdPlyChrSelPlateGCFPv(M2C_FIELD(arg0, s32 *, 0x38));
         TAdSubPlyItemGC__sub_802D6D88(M2C_FIELD(arg0, s32 *, 0x40));
         break;
     }
@@ -632,17 +632,17 @@ void close_windows__16TAdChrSelASlotGCFPv(void *arg0) {
     temp_r0 = M2C_FIELD(arg0, s32 *, 0x20);
     switch (temp_r0) {
     case 0:
-        TAdPlyChrSelPlateGC__sub_802C4D88(M2C_FIELD(arg0, s32 *, 0x34));
+        reset_selection_slots__19TAdPlyChrSelPlateGCFPv(M2C_FIELD(arg0, s32 *, 0x34));
         TAdSubPlyItemGC__sub_802D6D88(M2C_FIELD(arg0, s32 *, 0x3C));
         break;
     case 1:
-        TAdPlyChrSelPlateGC__sub_802C4D88(M2C_FIELD(arg0, s32 *, 0x34));
-        TAdPlyChrSelPlateGC__sub_802C4D88(M2C_FIELD(arg0, s32 *, 0x38));
+        reset_selection_slots__19TAdPlyChrSelPlateGCFPv(M2C_FIELD(arg0, s32 *, 0x34));
+        reset_selection_slots__19TAdPlyChrSelPlateGCFPv(M2C_FIELD(arg0, s32 *, 0x38));
         TAdSubPlyItemGC__sub_802D6D88(M2C_FIELD(arg0, s32 *, 0x3C));
         TAdSubPlyItemGC__sub_802D6D88(M2C_FIELD(arg0, s32 *, 0x40));
         break;
     case 2:
-        TAdPlyChrSelPlateGC__sub_802C4D88(M2C_FIELD(arg0, s32 *, 0x38));
+        reset_selection_slots__19TAdPlyChrSelPlateGCFPv(M2C_FIELD(arg0, s32 *, 0x38));
         TAdSubPlyItemGC__sub_802D6D88(M2C_FIELD(arg0, s32 *, 0x40));
         break;
     }

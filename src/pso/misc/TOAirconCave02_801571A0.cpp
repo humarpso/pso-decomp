@@ -28,7 +28,7 @@ u8 * load_resource_from_descriptor(void *, s32, void *, s32, s32, s32);
 int alloc__23TAdSinglePlyChrSelectGCFPv(void *);
 extern RecoveredGlobal_801571D8_lbl_804AF960 lbl_804AF960;
 extern u32 TOAirconCave02__data_805D5888;
-void TOAirconCave02__sub_801571D8(void);
+void load_shared_resource__14TOAirconCave02Fv(void);
 s32 init_map_object_base(void *, void *);
 extern M2C_UNK __vt__14TOAirconCave02[];
 extern s32 lbl_805D2E94;
@@ -57,7 +57,7 @@ void release_static_resource__14TOAirconCave02Fv(void) {
 
 extern M2C_UNK __vt__14TOAirconCave02[];
 
-void TOAirconCave02__sub_801571D8(void) {
+void load_shared_resource__14TOAirconCave02Fv(void) {
     s32 temp_r3;
     s32 var_r0;
     temp_r3 = alloc__23TAdSinglePlyChrSelectGCFPv((void *)0x440);

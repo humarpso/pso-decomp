@@ -8,7 +8,7 @@ extern "C" {
 void* init_vtable_1f8__10TObjPlayerFPv(void *, M2C_UNK, void *);
 u8 *alloc_from_obj_heap__10TObjPlayerFPv(M2C_UNK);
 extern s32 tl_05;
-u8 *TObjPlayer__sub_803270E8(u8 *arg0);
+u8 *create_vtable_1f8_state__10TObjPlayerFPv(u8 *arg0);
 }
 
 extern "C" {
@@ -29,7 +29,7 @@ void* init_vtable_1f8__10TObjPlayerFPv(void* a0, M2C_UNK _w1, void * _w2) { TIte
 
     extern const float lbl_805DF690;
 
-u8 *TObjPlayer__sub_803270E8(u8 *arg0) {
+u8 *create_vtable_1f8_state__10TObjPlayerFPv(u8 *arg0) {
     u8 *temp_r3;
     u8 *var_r0;
     if (arg0 != NULL) {

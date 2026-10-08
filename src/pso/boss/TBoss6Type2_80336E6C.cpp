@@ -18,7 +18,7 @@ extern const f32 lbl_805DF984;
 void TBoss6Type2__sub_80336F54(u8 *arg0);
 int ensure_particle_emitter__11TBoss6Type2FPvi(void*, void*);
 void spawn_mag_mines__11TBoss6Type2FPv();
-void TBoss6Type2__sub_80337054(O_80337054 *arg0);
+void start_mag_mines_state__11TBoss6Type2FPv(O_80337054 *arg0);
 }
 
 extern "C" {
@@ -93,7 +93,7 @@ void tick_attack_timer__11TBoss6Type2FPv(void *arg0) {
     }
 }
 
-void TBoss6Type2__sub_80337054(O_80337054 *arg0) {
+void start_mag_mines_state__11TBoss6Type2FPv(O_80337054 *arg0) {
     arg0->f3cc = 0x25;
     switch (arg0->f410) {
     case 0:

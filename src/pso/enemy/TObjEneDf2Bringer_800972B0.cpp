@@ -36,7 +36,7 @@ void spawn_offset_particle__17TObjEneDf2BringerFPv(u8 *arg0);
 void update_attack_child__17TObjEneDf2BringerFPv(Bringer_800993E8 *obj);
 void TObjEneDf2Bringer__sub_800994F8(void);
 void TObjEneDf2Bringer__vt86(void);
-void TObjEneDf2Bringer__sub_80099500(u8 *arg0);
+void set_effect_pos_above_self__17TObjEneDf2BringerFPv(u8 *arg0);
 void TObjEneDf2Bringer__vt59(void);
 void TObjEneDf2Bringer__vt60(u8 *arg0);
 void TObjEneDf2Bringer__vt61(void* p);
@@ -3029,7 +3029,7 @@ extern "C" {
 void TObjEneDf2Bringer__vt60(u8 *arg0);
 #define VecCopy__FP3VecPC3Vec ((void (*)(void *, void *))VecCopy__FP3VecPC3Vec)
 extern const f32 lbl_805D9840;
-void TObjEneDf2Bringer__sub_80099500(u8 *arg0);
+void set_effect_pos_above_self__17TObjEneDf2BringerFPv(u8 *arg0);
 }
 
 extern "C" {
@@ -3043,7 +3043,7 @@ void TObjEneDf2Bringer__vt61(void* p);
 void TObjEneDf2Bringer__sub_800994F8(void) {  }
 void TObjEneDf2Bringer__vt86(void) {  }
 
-void TObjEneDf2Bringer__sub_80099500(u8 *arg0) {
+void set_effect_pos_above_self__17TObjEneDf2BringerFPv(u8 *arg0) {
     VecCopy__FP3VecPC3Vec(arg0 + 0x2FC, arg0 + 0x38);
     M2C_FIELD(arg0, f32 *, 0x300) = (f32) (M2C_FIELD(arg0, f32 *, 0x300) + lbl_805D9840);
     VecCopy__FP3VecPC3Vec(arg0 + 0x74, arg0 + 0x2FC);
@@ -3279,7 +3279,7 @@ struct VObj_18_be4a70 : VBase_18_be4a70 {
 
 extern "C" {
 s32 check_demo_mode__10TObjPlayerFv();
-#define TObjEneDf2Bringer__sub_80099500 ((M2C_UNK (*)(void *))TObjEneDf2Bringer__sub_80099500)
+#define set_effect_pos_above_self__17TObjEneDf2BringerFPv ((M2C_UNK (*)(void *))set_effect_pos_above_self__17TObjEneDf2BringerFPv)
 M2C_UNK set_player_state_default__12TBoss8DragonFPv(void *);
 void run_task__17TObjEneDf2BringerFv(u8 *arg0);
 extern const f32 lbl_805D9844;
@@ -3333,7 +3333,7 @@ void run_task__17TObjEneDf2BringerFv(u8 *arg0) {
             M2C_FIELD(arg0, s32 *, 0x488) = 6;
         }
     }
-    TObjEneDf2Bringer__sub_80099500((void *) (arg0));
+    set_effect_pos_above_self__17TObjEneDf2BringerFPv((void *) (arg0));
     set_player_state_default__12TBoss8DragonFPv((void *) (arg0));
     ((VObj_18_p5 *)(arg0))->m98();
 }
@@ -3493,7 +3493,7 @@ void *create__17TObjEneDf2BringerFPv(void *arg0) {
 #undef TObjEneDf2Bringer__data_805D4FCC
 #undef TObjEneDf2Bringer__data_805D4FC8
 #undef TObjEneDf2Bringer__sub_800994F8
-#undef TObjEneDf2Bringer__sub_80099500
+#undef set_effect_pos_above_self__17TObjEneDf2BringerFPv
 #undef VecCopy__FP3VecPC3Vec
 #undef __nw__7TObjectFUl
 #undef transition_enemy_state

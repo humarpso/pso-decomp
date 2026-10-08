@@ -121,7 +121,7 @@ void* get_surface_contact_point(void* p);
 M2C_UNK emit_idle_water_splash(void *, int);
 void emit_idle_water_effect(s32 arg0);
 void TObjPlayer__sub_801BEEAC(u8 *arg0, u8 *arg1);
-void TObjPlayer__sub_801BEEEC(u8 *arg0, u8 *arg1);
+void copy_player_record_header__10TObjPlayerFPvPv(u8 *arg0, u8 *arg1);
 int check_hit_by_id__10TObjPlayerFiii(void*, int, int);
 void emit_photon_blast_feedback_effects(s32 arg0, s32 arg1);
 int emit_zalure_support_effect(void* p, int a1);
@@ -147,7 +147,7 @@ void __ct__7TObjectFP7TObject(void *, void *);
 extern RecoveredGlobal_801BF414_lbl_804C3FA8 lbl_804C3FA8;
 u8 *TObjPlayer__sub_801BF414(u8 *arg0, u8 *arg1, s16 arg2, s32 arg3);
 int TFontSmallLobby__sub_801C0228(void*);
-void *TObjPlayer__sub_801BEE68(void *arg0, void *arg1);
+void *copy_6x0d_status_effect_packet__10TObjPlayerFPvPv(void *arg0, void *arg1);
 }
 
 extern "C" {
@@ -245,7 +245,7 @@ void bswap_status_effect_data__10TObjPlayerFPv(void *arg0) {
 #pragma push
 #pragma opt_common_subs off
 #pragma pop
-void *TObjPlayer__sub_801BEE68(void *arg0, void *arg1) {
+void *copy_6x0d_status_effect_packet__10TObjPlayerFPvPv(void *arg0, void *arg1) {
     TFontSmallLobby__sub_801C0228(arg0);
     ((Pkt_801D2964 *)arg0)->pos = ((Pkt_801D2964 *)arg1)->pos;
     return arg0;
@@ -266,7 +266,7 @@ void TObjPlayer__sub_801BEEAC(u8 *arg0, u8 *arg1) {
 
 void TObjPlayer__sub_801BEEE0(void* p, void* q) { *(u32*)((char*)p + 0x0) = *(u32*)((char*)q + 0x0); }
 
-void TObjPlayer__sub_801BEEEC(u8 *arg0, u8 *arg1) {
+void copy_player_record_header__10TObjPlayerFPvPv(u8 *arg0, u8 *arg1) {
     M2C_FIELD(arg0, u16 *, 0) = (u16) M2C_FIELD(arg1, u16 *, 0);
     M2C_FIELD(arg0, s16 *, 2) = (s16) M2C_FIELD(arg1, s16 *, 2);
     M2C_FIELD(arg0, s32 *, 4) = (s32) M2C_FIELD(arg1, s32 *, 4);

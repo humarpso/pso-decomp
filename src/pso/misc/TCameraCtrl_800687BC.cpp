@@ -492,7 +492,7 @@ u16 get_nth_view_player_id__11TCameraCtrlFi(s32 n);
 extern RecoveredGlobal_800695E8_TCameraCtrl__data_804FF628 TCameraCtrl__data_804FF628;
 void set_view_params__11TCameraCtrlFPv(u8 *arg0);
 s32 TCameraCtrl__sub_800695A0(u8 *arg0);
-void TCameraCtrl__sub_80068FCC(s32 dst, s32 src);
+void copy_view_state__11TCameraCtrlFii(s32 dst, s32 src);
 s32 is_split_screen();
 Cam_80068958 *TCameraCtrl__sub_8006B324(void);
 s32 get_split_screen_view_index__11TCameraCtrlFUs(u16 id);
@@ -746,13 +746,13 @@ extern s32 tl_camera;
 typedef char RecoveredGlobal_80069024_TCameraCtrl__data_804FF634_size[sizeof(RecoveredGlobal_80069024_TCameraCtrl__data_804FF634) == 0x48 ? 1 : -1];
 typedef char RecoveredGlobal_80069024_lbl_804FF67C_size[sizeof(RecoveredGlobal_80069024_lbl_804FF67C) == 0x48 ? 1 : -1];
 
-void TCameraCtrl__sub_80068FCC(s32 dst, s32 src) {
+void copy_view_state__11TCameraCtrlFii(s32 dst, s32 src) {
     *(O_80068FCC *)dst = *(O_80068FCC *)src;
 }
 
 void restore_full_screen_view__11TCameraCtrlFv(void) {
     if (is_split_screen() == 0) {
-        TCameraCtrl__sub_80068FCC((s32)((s32) &lbl_804FF67C.value), (s32)((s32) &TCameraCtrl__data_804FF634.value));
+        copy_view_state__11TCameraCtrlFii((s32)((s32) &lbl_804FF67C.value), (s32)((s32) &TCameraCtrl__data_804FF634.value));
         TCameraCtrl__sub_801E32D8(TCameraCtrl__data_805D8FC0, TCameraCtrl__data_805D8FC4);
         GXSetScissorBoxOffset((int)(0), (int)(0));
         GXSetScissor((int)(0), (int)(0), (int)(0x280), (int)(0x1E0));

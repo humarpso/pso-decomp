@@ -105,12 +105,12 @@ u8 * load_resource_from_descriptor(void *, s32, void *, s32, s32, s32);
 int alloc__23TAdSinglePlyChrSelectGCFPv(void *);
 extern RecoveredGlobal_8014BD54_lbl_804AA3F0 lbl_804AA3F0;
 extern u32 TObjNpcMaleDwarf__data_805D57E8;
-void TObjNpcMaleDwarf__sub_8014BD54(void);
+void load_shared_resource__16TObjNpcMaleDwarfFv(void);
 u8 * load_resource_from_descriptor(void *, s32, void *, s32, s32, s32);
 int alloc__23TAdSinglePlyChrSelectGCFPv(void *);
 extern RecoveredGlobal_8014BF2C_lbl_804AA580 lbl_804AA580;
 extern u32 TObjNpcMaleFat__data_805D57F0;
-void TObjNpcMaleFat__sub_8014BF2C(void);
+void load_static_resource__14TObjNpcMaleFatFv(void);
 s32 init_position_vectors__10TObjPlayerFi(void *);
 s32 setup_common__11TObjNpcBaseFv(void *);
 s32 construct_male_npc_base(void *);
@@ -144,7 +144,7 @@ void unload_static_data__16TObjNpcMaleDwarfFv(void) {
 
 extern M2C_UNK __vt__16TObjNpcMaleDwarf[];
 
-void TObjNpcMaleDwarf__sub_8014BD54(void) {
+void load_shared_resource__16TObjNpcMaleDwarfFv(void) {
     s32 temp_r3;
     s32 var_r0;
     temp_r3 = alloc__23TAdSinglePlyChrSelectGCFPv((void *)0x440);
@@ -203,7 +203,7 @@ void free_static_model__14TObjNpcMaleFatFv(void) {
         TObjNpcMaleFat__data_805D57F0 = 0U;
     }
 }
-void TObjNpcMaleFat__sub_8014BF2C(void) {
+void load_static_resource__14TObjNpcMaleFatFv(void) {
     s32 temp_r3;
     s32 var_r0;
     temp_r3 = alloc__23TAdSinglePlyChrSelectGCFPv((void *)0x440);

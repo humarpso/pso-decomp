@@ -87,7 +87,7 @@ extern RecoveredGlobal_8024A228_lbl_804CEA88 lbl_804CEA88;
 void TWindowCtrl__sub_8024A228(s32 arg0);
 s32 call_window_method__11TWindowCtrlFPvi(void *, void *);
 extern RecoveredGlobal_8024A1CC_lbl_804CEA94 lbl_804CEA94;
-void TWindowCtrl__sub_8024A1CC(s32 arg0);
+void call_window_method_with_default_vec__11TWindowCtrlFi(s32 arg0);
 extern void *TWindowCtrl__data_805D63F8;
 bool TWindowCtrl__sub_8024A1A8(void);
 extern void *TWindowCtrl__data_805D63F8;
@@ -161,7 +161,7 @@ bool TWindowCtrl__sub_8024A1A8(void) {
     return M2C_FIELD((*(u8 * *)&TWindowCtrl__data_805D63F8), s32 *, 0x3C) != 0;
 }
 
-void TWindowCtrl__sub_8024A1CC(s32 arg0) {
+void call_window_method_with_default_vec__11TWindowCtrlFi(s32 arg0) {
     typedef char sp8_offset[(offsetof(Stack_8024A1CC, sp8) == 0x0) ? 1 : -1];
     typedef char spC_offset[(offsetof(Stack_8024A1CC, spC) == 0x4) ? 1 : -1];
     typedef char sp10_offset[(offsetof(Stack_8024A1CC, sp10) == 0x8) ? 1 : -1];

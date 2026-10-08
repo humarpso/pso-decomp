@@ -120,7 +120,7 @@ void TAdSinglePlyChrSelectGC__sub_80202C3C(Obj_80202C3C *self);
 void __construct_array(void *, void *, void *, int, int);
 s32 free_chardata__23TAdSinglePlyChrSelectGCFis(s32 arg0, s16 arg1);
 void* TAdSinglePlyChrSelectGC__sub_80203158(void* p);
-u8 *TAdSinglePlyChrSelectGC__sub_8020310C(u8 *arg0);
+u8 *construct_chardata_array__23TAdSinglePlyChrSelectGCFPv(u8 *arg0);
 void __construct_array(void *, void *, void *, int, int);
 void* init_guild_card_tag__23TAdSinglePlyChrSelectGCFPv(void* p);
 void TAdSinglePlyChrSelectGC__sub_802115C0();
@@ -337,7 +337,7 @@ u8 *copy_character_data__23TAdSinglePlyChrSelectGCFPvPv(u8 *arg0, u8 *arg1) {
 
 void* copy_item_data__23TAdSinglePlyChrSelectGCFPvPv(void* p, void* a1) { copy_item_data__6TLobbyFPvPv(p); *(short*)((char*)p + 0x14) = *(short*)((char*)a1 + 0x14); *(short*)((char*)p + 0x16) = *(short*)((char*)a1 + 0x16); return p; }
 
-u8 *TAdSinglePlyChrSelectGC__sub_8020310C(u8 *arg0) {
+u8 *construct_chardata_array__23TAdSinglePlyChrSelectGCFPv(u8 *arg0) {
     __construct_array(arg0 + 4, (void *)TAdSinglePlyChrSelectGC__sub_80203158, (void *)free_chardata__23TAdSinglePlyChrSelectGCFis, 0x39B4, 7);
     return arg0;
 }

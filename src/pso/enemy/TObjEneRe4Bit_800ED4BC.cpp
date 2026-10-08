@@ -484,7 +484,7 @@ int initialize_enemy_state__9TObjEneDDFPv(void *, int);
 int set_state_8__9TObjEneDDFPv(void *);
 int init_model__9TObjEneDDFPv(void *, void *, int);
 int init_position_vectors__9TObjEneDDFPv(void *);
-int TObjEneRe4Sorcerer__sub_800ED268(void *);
+int call_vt_90_91__18TObjEneRe4SorcererFPv(void *);
 int TObjEneRe4Sorcerer__sub_800ED408(void *);
 extern u8 lbl_80496CD0[];
 extern u8 lbl_80496CEC[];
@@ -523,7 +523,7 @@ void init__13TObjEneRe4BitFPv(Bit_800ED7FC *self) {
     self->x408 = 0;
     self->x40C = 0;
     TObjEneRe4Sorcerer__sub_800ED408(self);
-    TObjEneRe4Sorcerer__sub_800ED268(self);
+    call_vt_90_91__18TObjEneRe4SorcererFPv(self);
     self->state = 0;
     self->m85(self->state, 4);
 }

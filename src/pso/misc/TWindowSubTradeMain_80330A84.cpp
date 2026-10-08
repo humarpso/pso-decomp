@@ -66,7 +66,7 @@ s32 get_window_layout_position(s32);
 extern f32 TWindowSubTradeMain__data_805DF858;
 u8 *open_option_dialog__19TWindowSubTradeMainFPvi(u8 *arg0, s32 arg1);
 M2C_UNK TWindowSubTradeMain__sub_802448E4(void *, void *);
-void TWindowSubTradeMain__sub_80330B84(M2C_UNK arg0, u8 *arg1, u8 *arg2);
+void update_position_if_changed__19TWindowSubTradeMainFiPvPv(M2C_UNK arg0, u8 *arg1, u8 *arg2);
 void set_flag_40__16TAdChrSelASlotGCFPv(void *);
 void set_visible__19TWindowSubTradeMainFPv(void *);
 void set_flag60_bit4__13TWindowSubMagFPv(void *);
@@ -169,7 +169,7 @@ void update_trade_window__19TWindowSubTradeMainFPv(void *arg0) {
     }
 }
 
-void TWindowSubTradeMain__sub_80330B84(M2C_UNK arg0, u8 *arg1, u8 *arg2) {
+void update_position_if_changed__19TWindowSubTradeMainFiPvPv(M2C_UNK arg0, u8 *arg1, u8 *arg2) {
     if ((M2C_FIELD(arg1, f32 *, 0x30) != M2C_FIELD(arg2, f32 *, 0)) || (M2C_FIELD(arg1, f32 *, 0x34) != M2C_FIELD(arg2, f32 *, 4))) {
         TWindowSubTradeMain__sub_802448E4((void *) (arg1), (void *) (arg2));
     }
@@ -270,36 +270,36 @@ void set_child_windows_enabled__19TWindowSubTradeMainFPvi(TradeMain_80330BCC *se
 
 void set_labels__19TWindowSubTradeMainFPvi(void *arg0, s32 arg1) {
     if ((u32) M2C_FIELD(arg0, u32 *, 0x30) != 0U) {
-        TWindowSubTradeMain__sub_80330B84((M2C_UNK)((void *)(arg0)), (u8 *)((u32)(M2C_FIELD(arg0, u32 *, 0x30))), (u8 *)((s32)(get_window_layout_position((s32)(arg1 + 0x5C)))));
+        update_position_if_changed__19TWindowSubTradeMainFiPvPv((M2C_UNK)((void *)(arg0)), (u8 *)((u32)(M2C_FIELD(arg0, u32 *, 0x30))), (u8 *)((s32)(get_window_layout_position((s32)(arg1 + 0x5C)))));
     }
     if ((u32) M2C_FIELD(arg0, u32 *, 0x34) != 0U) {
-        TWindowSubTradeMain__sub_80330B84((M2C_UNK)((void *)(arg0)), (u8 *)((u32)(M2C_FIELD(arg0, u32 *, 0x34))), (u8 *)((s32)(get_window_layout_position((s32)(arg1 + 0x5E)))));
+        update_position_if_changed__19TWindowSubTradeMainFiPvPv((M2C_UNK)((void *)(arg0)), (u8 *)((u32)(M2C_FIELD(arg0, u32 *, 0x34))), (u8 *)((s32)(get_window_layout_position((s32)(arg1 + 0x5E)))));
     }
     if ((u32) M2C_FIELD(arg0, u32 *, 0x38) != 0U) {
         update_label_positions__17TWindowSubComCardFPvPv(M2C_FIELD(arg0, u32 *, 0x38), get_window_layout_position((s32)(arg1 + 0x5F)));
     }
     if ((u32) M2C_FIELD(arg0, u32 *, 0x3C) != 0U) {
         if ((u32) M2C_FIELD(arg0, u32 *, 0x44) != 0U) {
-            TWindowSubTradeMain__sub_80330B84((M2C_UNK)((void *)(arg0)), (u8 *)((u32)(M2C_FIELD(arg0, u32 *, 0x3C))), (u8 *)((s32)(get_window_layout_position((s32)(arg1 + 0x62)))));
+            update_position_if_changed__19TWindowSubTradeMainFiPvPv((M2C_UNK)((void *)(arg0)), (u8 *)((u32)(M2C_FIELD(arg0, u32 *, 0x3C))), (u8 *)((s32)(get_window_layout_position((s32)(arg1 + 0x62)))));
         } else {
-            TWindowSubTradeMain__sub_80330B84((M2C_UNK)((void *)(arg0)), (u8 *)((u32)(M2C_FIELD(arg0, u32 *, 0x3C))), (u8 *)((s32)(get_window_layout_position((s32)(arg1 + 0x60)))));
+            update_position_if_changed__19TWindowSubTradeMainFiPvPv((M2C_UNK)((void *)(arg0)), (u8 *)((u32)(M2C_FIELD(arg0, u32 *, 0x3C))), (u8 *)((s32)(get_window_layout_position((s32)(arg1 + 0x60)))));
         }
     }
     if ((u32) M2C_FIELD(arg0, u32 *, 0x40) != 0U) {
         if ((u32) M2C_FIELD(arg0, u32 *, 0x44) != 0U) {
-            TWindowSubTradeMain__sub_80330B84((M2C_UNK)((void *)(arg0)), (u8 *)((u32)(M2C_FIELD(arg0, u32 *, 0x40))), (u8 *)((s32)(get_window_layout_position((s32)(arg1 + 0x63)))));
+            update_position_if_changed__19TWindowSubTradeMainFiPvPv((M2C_UNK)((void *)(arg0)), (u8 *)((u32)(M2C_FIELD(arg0, u32 *, 0x40))), (u8 *)((s32)(get_window_layout_position((s32)(arg1 + 0x63)))));
         } else {
-            TWindowSubTradeMain__sub_80330B84((M2C_UNK)((void *)(arg0)), (u8 *)((u32)(M2C_FIELD(arg0, u32 *, 0x40))), (u8 *)((s32)(get_window_layout_position((s32)(arg1 + 0x61)))));
+            update_position_if_changed__19TWindowSubTradeMainFiPvPv((M2C_UNK)((void *)(arg0)), (u8 *)((u32)(M2C_FIELD(arg0, u32 *, 0x40))), (u8 *)((s32)(get_window_layout_position((s32)(arg1 + 0x61)))));
         }
     }
     if ((u32) M2C_FIELD(arg0, u32 *, 0x44) != 0U) {
-        TWindowSubTradeMain__sub_80330B84((M2C_UNK)((void *)(arg0)), (u8 *)((u32)(M2C_FIELD(arg0, u32 *, 0x44))), (u8 *)((s32)(get_window_layout_position((s32)(arg1 + 0x64)))));
+        update_position_if_changed__19TWindowSubTradeMainFiPvPv((M2C_UNK)((void *)(arg0)), (u8 *)((u32)(M2C_FIELD(arg0, u32 *, 0x44))), (u8 *)((s32)(get_window_layout_position((s32)(arg1 + 0x64)))));
     }
     if ((u32) M2C_FIELD(arg0, u32 *, 0x48) != 0U) {
-        TWindowSubTradeMain__sub_80330B84((M2C_UNK)((void *)(arg0)), (u8 *)((u32)(M2C_FIELD(arg0, u32 *, 0x48))), (u8 *)((s32)(get_window_layout_position((s32)(arg1 + 0x5D)))));
+        update_position_if_changed__19TWindowSubTradeMainFiPvPv((M2C_UNK)((void *)(arg0)), (u8 *)((u32)(M2C_FIELD(arg0, u32 *, 0x48))), (u8 *)((s32)(get_window_layout_position((s32)(arg1 + 0x5D)))));
     }
     if ((u32) M2C_FIELD(arg0, u32 *, 0x4C) != 0U) {
-        TWindowSubTradeMain__sub_80330B84((M2C_UNK)((void *)(arg0)), (u8 *)((u32)(M2C_FIELD(arg0, u32 *, 0x4C))), (u8 *)((s32)(get_window_layout_position((s32)(arg1 + 0x65)))));
+        update_position_if_changed__19TWindowSubTradeMainFiPvPv((M2C_UNK)((void *)(arg0)), (u8 *)((u32)(M2C_FIELD(arg0, u32 *, 0x4C))), (u8 *)((s32)(get_window_layout_position((s32)(arg1 + 0x65)))));
     }
 }
 

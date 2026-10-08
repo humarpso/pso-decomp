@@ -11,7 +11,7 @@ struct RecoveredGlobal_8025E9E4___vt__19TWindowKeyBoardBase { M2C_UNK value; u8 
 typedef char RecoveredGlobal_8025E9E4___vt__19TWindowKeyBoardBase_size[sizeof(RecoveredGlobal_8025E9E4___vt__19TWindowKeyBoardBase) == 0x18 ? 1 : -1];
 
 extern "C" {
-u8 * TWindowKeyBoardBase__sub_8008116C(void *);
+u8 * init_text_buffer_holder__19TWindowKeyBoardBaseFPv(void *);
 int alloc_buffer__11TOBoss4RockFPv(void *);
 u8 * get_window_layout_position(s32);
 M2C_UNK init_keyboard_text_buffer(void *, int, int);
@@ -83,8 +83,8 @@ u8 *TWindowKeyBoardBase__ct(u8 *arg0) {
     s32 temp_r31;
     construct_base__9TWindowDDFPvPvsPv((void *) (arg0), (void *) (&lbl_804CFA70.value), (int) (4), (int) (get_window_layout_position(0xB7)));
     M2C_FIELD(arg0, M2C_UNK **, 0x18) = &(*(RecoveredGlobal_8025E9E4___vt__19TWindowKeyBoardBase *)&__vt__19TWindowKeyBoardBase).value;
-    TWindowKeyBoardBase__sub_8008116C(arg0 + 0x6C);
-    TWindowKeyBoardBase__sub_8008116C(arg0 + 0x84);
+    init_text_buffer_holder__19TWindowKeyBoardBaseFPv(arg0 + 0x6C);
+    init_text_buffer_holder__19TWindowKeyBoardBaseFPv(arg0 + 0x84);
     M2C_FIELD(arg0, s32 *, 0) = (s32) lbl_805D3920;
     temp_r31 = lbl_805D5544;
     init_keyboard_text_field((void *) (arg0), (int) (0), (int) (0));

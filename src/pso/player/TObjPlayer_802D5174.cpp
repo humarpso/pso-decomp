@@ -134,14 +134,14 @@ int set_radar_marker_params__10TObjPlayerFPvPv(void);
 void init_state_445__10TObjPlayerFPv(void *);
 
 extern M2C_UNK lbl_804E2000[];
-extern M2C_UNK TObjPlayer__sub_802D5558[];
+extern M2C_UNK spawn_hit_particles_at__10TObjPlayerFiii[];
 extern M2C_UNK TObjPlayer__sub_802D551C[];
 
 void *enter_state_341__10TObjPlayerFPv(void *arg0) {
     init_state_445__10TObjPlayerFPv(arg0);
     M2C_FIELD(arg0, M2C_UNK **, 0x18) = lbl_804E2000;
     M2C_FIELD(arg0, u32 *, 0x1FC) = 341;
-    M2C_FIELD(arg0, M2C_UNK **, 0x208) = TObjPlayer__sub_802D5558;
+    M2C_FIELD(arg0, M2C_UNK **, 0x208) = spawn_hit_particles_at__10TObjPlayerFiii;
     M2C_FIELD(arg0, M2C_UNK **, 0x204) = TObjPlayer__sub_802D551C;
     return arg0;
 }

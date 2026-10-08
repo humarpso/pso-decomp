@@ -27,12 +27,12 @@ extern "C" {
 u8 * setup_effect__10TObjPlayerFPv(void *, M2C_UNK, s32);
 u8 *alloc_from_obj_heap__10TObjPlayerFPv(M2C_UNK);
 extern s32 tl_05;
-u8 *TObjPlayer__sub_80126FE4(s32 arg0);
+u8 *create_effect_state__10TObjPlayerFi(s32 arg0);
 }
 
 extern "C" {
 
-u8 *TObjPlayer__sub_80126FE4(s32 arg0) {
+u8 *create_effect_state__10TObjPlayerFi(s32 arg0) {
     u8 *temp_r3;
     u8 *var_r0;
     if (arg0 != 0) {

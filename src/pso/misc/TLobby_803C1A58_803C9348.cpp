@@ -362,7 +362,7 @@ void TLobby__sub_803C0758(void *);
 void start_stream_playback__6TLobbyFPvi(Stream_803CA0C8 *self, s32 arg1);
 M2C_UNK OSResumeThread(void *);
 M2C_UNK OSSetThreadPriority(void *, int);
-M2C_UNK TLobby__sub_803D3860(char *);
+M2C_UNK set_message_and_notify__6TLobbyFPv(char *);
 extern char lbl_8047C7B4[];
 extern Cfg_803CBA58 lbl_804F9D80;
 extern u8 lbl_80575E80[];
@@ -1392,7 +1392,7 @@ void adxm_goto_mwidle_border__6TLobbyFv(void) {
         }
     }
     if (i == 200000000) {
-        TLobby__sub_803D3860(lbl_8047C7B4);
+        set_message_and_notify__6TLobbyFPv(lbl_8047C7B4);
     }
     OSSetThreadPriority(lbl_80575E80, (*(Cfg_803CBBD8 *)&lbl_804F9D80).prio);
 }

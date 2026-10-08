@@ -31,7 +31,7 @@ u8 * load_resource_from_descriptor(void *, s32, void *, s32, s32, s32);
 int alloc__23TAdSinglePlyChrSelectGCFPv(void *);
 extern RecoveredGlobal_80163B8C_lbl_804B1760 lbl_804B1760;
 extern u32 TODoorVoShip__data_805D5980;
-void TODoorVoShip__sub_80163B8C(void);
+void load_shared_resource__12TODoorVoShipFv(void);
 s32 get_main_phase(void);
 s32 get_bml_motion(void *, s32);
 s32 TObjFish__sub_8001EDB0(void *, s32);
@@ -193,7 +193,7 @@ void free_static_data__12TODoorVoShipFv(void) {
 
 extern M2C_UNK __vt__12TODoorVoShip[];
 
-void TODoorVoShip__sub_80163B8C(void) {
+void load_shared_resource__12TODoorVoShipFv(void) {
     s32 temp_r3;
     s32 var_r0;
     temp_r3 = alloc__23TAdSinglePlyChrSelectGCFPv((void *)0x440);

@@ -45,7 +45,7 @@ extern "C" {
 void dispatch_by_index__6TLobbyFUsi(u16 arg0, s32 arg1);
 void send_slot_entity_or_local__6TLobbyFUsi(u16 arg0, s32 arg1);
 M2C_UNK TLobby__sub_8036B1AC(s32);
-void TLobby__sub_8036B2E8(Obj_8036B2E8 *arg0, u16 arg1, s32 arg2);
+void start_entry_timer__6TLobbyFPvUsi(Obj_8036B2E8 *arg0, u16 arg1, s32 arg2);
 void TLobby__sub_8036B340(Obj_8036B340 *arg0);
 
 extern u32 lbl_805D7008;
@@ -62,7 +62,7 @@ extern u32 lbl_805D7008;
 
 void dispatch_by_index__6TLobbyFUsi(u16 arg0, s32 arg1) {
     if (((u32) lbl_805D7008 != 0U) && (arg0 < 4U)) {
-        TLobby__sub_8036B2E8((Obj_8036B2E8 *)lbl_805D7008, arg0, arg1);
+        start_entry_timer__6TLobbyFPvUsi((Obj_8036B2E8 *)lbl_805D7008, arg0, arg1);
     }
 }
 void send_slot_entity__6TLobbyFPvUsi(void *arg0, u16 arg1, s32 arg2) {
@@ -74,7 +74,7 @@ void send_slot_entity__6TLobbyFPvUsi(void *arg0, u16 arg1, s32 arg2) {
     }
     TLobby__sub_8036B1AC(arg2);
 }
-void TLobby__sub_8036B2E8(Obj_8036B2E8 *arg0, u16 arg1, s32 arg2) {
+void start_entry_timer__6TLobbyFPvUsi(Obj_8036B2E8 *arg0, u16 arg1, s32 arg2) {
     if (arg0->base != 0) {
         s32 i = arg1;
         TLobby__sub_80076F48(arg0->base + i * 0x3C, arg2);

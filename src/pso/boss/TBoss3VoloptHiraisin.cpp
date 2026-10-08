@@ -831,7 +831,7 @@ struct Hira_80041D3C {
 extern "C" {
 extern f32 lbl_804FEE68[];
 void obj_setFlags30(void *, u32);
-void TBoss3VoloptHiraisin__sub_80041B64(u8 *arg0);
+void set_hit_flags_and_notify__20TBoss3VoloptHiraisinFPv(u8 *arg0);
 s32 spawn_directional_particle(void *, void *, int);
 s32 spawn_particle_effect(void *, int);
 void spawn_effects__20TBoss3VoloptHiraisinFPv(u8 *arg0);
@@ -852,7 +852,7 @@ void set_param__12TObjEneLappyFPvi(void *, s32);
 void set_animation__10TObjPlayerFPvs(void *, s16);
 void init_collision_body_parts(void *, void *, s32);
 void init_params__20TBoss3VoloptHiraisinFPv(Hira_800418C8 *self);
-void TBoss3VoloptHiraisin__sub_80041B64(u8 *arg0);
+void set_hit_flags_and_notify__20TBoss3VoloptHiraisinFPv(u8 *arg0);
 void spawn_effects__20TBoss3VoloptHiraisinFPv(u8 *arg0);
 void damage_player_if_aligned__20TBoss3VoloptHiraisinFPv(void *arg0);
 u8 *find_entity_by_id(u16);
@@ -995,7 +995,7 @@ void TBoss3VoloptHiraisin__sub_80041B34(O_80041B34 *self, s32 i) {
     self->f24 = (*(G_80041B34 * *)&TBoss3VoloptHiraisin__data_805D4C80)->entries[i].fc;
 }
 
-void TBoss3VoloptHiraisin__sub_80041B64(u8 *arg0) {
+void set_hit_flags_and_notify__20TBoss3VoloptHiraisinFPv(u8 *arg0) {
     M2C_FIELD(arg0, s32 *, 0x388) = (s32) (M2C_FIELD(arg0, s32 *, 0x388) | 0x40000);
     obj_setFlags30(arg0, 0x800U);
     ((VObj_18_8712ff *)(arg0))->m61();
@@ -1075,14 +1075,14 @@ void TBoss3VoloptHiraisin__sub_80041D3C(Hira_80041D3C *self) {
             if (all != 0) {
                 p = find_entity_by_id(lbl_805D4C18 + base);
                 if (p != NULL) {
-                    TBoss3VoloptHiraisin__sub_80041B64(p);
+                    set_hit_flags_and_notify__20TBoss3VoloptHiraisinFPv(p);
                 }
             }
         } else {
             for (j = self->idx + 1; j < self->idx + 4; j++) {
                 p = find_entity_by_id(lbl_805D4C18 + j);
                 if (p != NULL) {
-                    TBoss3VoloptHiraisin__sub_80041B64(p);
+                    set_hit_flags_and_notify__20TBoss3VoloptHiraisinFPv(p);
                 }
             }
         }

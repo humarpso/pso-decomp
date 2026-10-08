@@ -305,7 +305,7 @@ void add_status_entry__20TWindowSubStatusDispFPvcii(void *arg0, s8 arg1, s32 arg
     }
 }
 
-void TWindowSubStatusDisp__sub_80258BB8(void *, s32, s32, s32);
+void init_status_entry_by_flag__20TWindowSubStatusDispFPvi(void *, s32, s32, s32);
 extern const f32 lbl_805DD198;
 void append_entry__20TWindowSubStatusDispFPviiiii(u8 *arg0, s32 arg1, s32 arg2, s32 arg3, s32 arg4, s32 arg5) {
     u16 *e;
@@ -315,7 +315,7 @@ void append_entry__20TWindowSubStatusDispFPviiiii(u8 *arg0, s32 arg1, s32 arg2, 
 
     if (*(s16 *)(arg0 + 0x72) < *(s16 *)(arg0 + 0x76)) {
         e = (u16 *)((void *(*)(void *, s32))get_array_entry__20TWindowSubStatusDispFPvi)(arg0, *(s16 *)(arg0 + 0x72));
-        TWindowSubStatusDisp__sub_80258BB8(e, arg1, arg2, arg3);
+        init_status_entry_by_flag__20TWindowSubStatusDispFPvi(e, arg1, arg2, arg3);
         if (arg4 != 0) {
             *e |= 0x400;
         }

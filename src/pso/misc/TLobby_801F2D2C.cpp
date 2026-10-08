@@ -61,7 +61,7 @@ struct Ctx_801F3124 {
 
 extern "C" {
 int bswap_32__FPUl(void*);
-void TLobby__sub_801F3640(s32 arg0);
+void bswap_entry_words__6TLobbyFi(s32 arg0);
 M2C_UNK memcpy(void *, void *, int);
 extern RecoveredGlobal_801F301C_TLobby__data_80512220 TLobby__data_80512220;
 extern RecoveredGlobal_801F301C_TLobby__data_80512240 TLobby__data_80512240;
@@ -458,7 +458,7 @@ int copy_position__6TLobbyFPv(void* p) { return VecCopy__FP3VecPC3Vec(p); }
 
 #pragma push
 #pragma fp_contract on
-void TLobby__sub_801F3640(s32 arg0) {
+void bswap_entry_words__6TLobbyFi(s32 arg0) {
     s32 var_r31;
     s32 temp_r30;
     s32 var_r29;

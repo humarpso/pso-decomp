@@ -48,7 +48,7 @@ s32 TWindowDD__sub_80348DD8(void *, int);
 void TWindowDD__sub_80347A4C(u8 *arg0, s32 arg1);
 void set_pos_and_data__9TWindowDDFPvf(void *p, f32 v);
 extern const f32 lbl_805DFB94;
-void TWindowDD__sub_80347940(O_80347940 *self, s32 i);
+void set_item_pos__9TWindowDDFPvi(O_80347940 *self, s32 i);
 s32 TWindowDD_is_id_in_range_5AC_5F9(s16 arg0);
 void TWindowDD__sub_80347758(M_80347758 *src, M_80347758 *dst);
 M2C_UNK copy_vec2__28TWindowSubSymbolChatPartsSetFPvPv(void *, void *);
@@ -257,7 +257,7 @@ void destroy_menu_entry__9TWindowDDFPvi(W_803478DC *arg0, s32 arg1) {
     }
 }
 
-void TWindowDD__sub_80347940(O_80347940 *self, s32 i) {
+void set_item_pos__9TWindowDDFPvi(O_80347940 *self, s32 i) {
     void *p = self->items[self->base + i];
     if (p != NULL) {
         set_pos_and_data__9TWindowDDFPvf(p, lbl_805DFB94);

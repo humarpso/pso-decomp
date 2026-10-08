@@ -54,7 +54,7 @@ M2C_UNK Dolphin_PADRead(void *, void *);
 extern M2C_UNK keyboard_pad_status_buffer[];
 extern RecoveredGlobal_803DEB74_lbl_8058D8E0 keyboard_control_pad_slots;
 extern M2C_UNK TKeyBoardControl__pad_status_buffer[];
-void TKeyBoardControl__sub_803DE9C4(void);
+void init_pad_slots_and_read__16TKeyBoardControlFv(void);
 extern Ent_803DEBC8 lbl_804FC6E4[];
 extern u32 lbl_805D46E0;
 s32 TKeyBoardControl__sub_803DEBC8(u16 arg0);
@@ -100,7 +100,7 @@ void set_some_id__FUl(s32 arg0);
 #pragma scheduling off
 typedef char RecoveredGlobal_803DEB74_lbl_8058D8E0_size[sizeof(RecoveredGlobal_803DEB74_lbl_8058D8E0) == 0xD0 ? 1 : -1];
 
-void TKeyBoardControl__sub_803DE9C4(void) {
+void init_pad_slots_and_read__16TKeyBoardControlFv(void) {
     M2C_FIELD(((M2C_UNK *)&keyboard_control_pad_slots), M2C_UNK **, 0x30) = TKeyBoardControl__pad_status_buffer;
     M2C_FIELD(((M2C_UNK *)&keyboard_control_pad_slots), u8 **, 0x64) = (unsigned char *) ((void *) ((u8 *)TKeyBoardControl__pad_status_buffer + 0x78));
     M2C_FIELD(((M2C_UNK *)&keyboard_control_pad_slots), u8 **, 0x98) = (unsigned char *) ((void *) ((u8 *)TKeyBoardControl__pad_status_buffer + 0xF0));
