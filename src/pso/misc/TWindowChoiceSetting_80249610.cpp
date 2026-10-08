@@ -17,7 +17,7 @@ typedef struct Ctrl_8024966C {
 } Ctrl_8024966C;
 
 extern "C" {
-Balloon_8024966C *TWindowFukidasi__sub_80244F00(Balloon_8024966C *, Balloon_8024966C *);
+Balloon_8024966C *find_balloon_overlap_for__15TWindowFukidasiFii(Balloon_8024966C *, Balloon_8024966C *);
 s32 get_visible_flag__15TWindowFukidasiFPv(Balloon_8024966C *);
 void TWindowFukidasi__sub_80249788(void* p);
 void hide__15TWindowFukidasiFPv(void* p);
@@ -58,7 +58,7 @@ void resolve_chat_balloon_overlaps(void) {
         p = ((Ctrl_8024966C *)TWindowCtrlMain__sub_8024CDD0(i))->head;
         if (p != NULL) {
             while (p->next != NULL) {
-                q = TWindowFukidasi__sub_80244F00(p, p->next);
+                q = find_balloon_overlap_for__15TWindowFukidasiFii(p, p->next);
                 while (q != NULL) {
                     if (get_visible_flag__15TWindowFukidasiFPv(p) != 0) {
                         TWindowFukidasi__sub_80249788(q);
@@ -69,7 +69,7 @@ void resolve_chat_balloon_overlaps(void) {
                     } else {
                         TWindowFukidasi__sub_80249788(q);
                     }
-                    q = TWindowFukidasi__sub_80244F00(p, q->next);
+                    q = find_balloon_overlap_for__15TWindowFukidasiFii(p, q->next);
                 }
                 p = p->next;
             }

@@ -76,7 +76,7 @@ extern "C" {
 s32 get_card_window__17TWindowSubComCardFUi(u32);
 extern s32 lbl_805D53A0;
 void TLobby__sub_80070358(void);
-void TLobby__sub_8007032C(void);
+void clear_four_slots__6TLobbyFv(void);
 void TLobby__sub_800738F4(void *, s32);
 void set_challenge_record_page__6TLobbyFPvi(void *self, s32 v);
 s32 get_main_phase(void);
@@ -500,7 +500,7 @@ void TLobby__sub_80070254(L_80070254 *arg0) {
     }
 }
 
-void TLobby__sub_8007032C(void) {
+void clear_four_slots__6TLobbyFv(void) {
     s32 i;
     for (i = 0; i < 4; i++) {
         *(s32 *)&(*(G_8007032C *)&lbl_8048C9D8).e[i] = 0;
@@ -509,7 +509,7 @@ void TLobby__sub_8007032C(void) {
 
 void TLobby__sub_80070358(void) {
     s32 *temp_r31;
-    TLobby__sub_8007032C();
+    clear_four_slots__6TLobbyFv();
     temp_r31 = (s32 *)((u8 *)(((u8 *)(&(*(RecoveredGlobal_80070358_lbl_8048C9D8 *)&lbl_8048C9D8).value) + (lbl_805D53A0 * 0x104))) + 0x270);
     if (get_card_window__17TWindowSubComCardFUi(0xFFFFU) != 0U) {
         M2C_FIELD(temp_r31, s32 *, 0) = 1;
@@ -614,7 +614,7 @@ Obj_80070774 *TLobby__sub_80070774(Obj_80070774 *arg0, s16 arg1) {
     if (arg0 != NULL) {
         arg0->vt = lbl_8048D108;
         destroy__13TObjTombstoneFv();
-        ((void (*)(void *))TLobby__sub_8007032C)(arg0);
+        ((void (*)(void *))clear_four_slots__6TLobbyFv)(arg0);
         copy_challenge_settings__6TLobbyFPvPv((u8 *)lbl_8048C9D8, (u8 *)lbl_8048C348);
         lbl_805D4E28 = 0;
         __dt__7TObjectFv(arg0, 0);

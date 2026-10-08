@@ -94,7 +94,7 @@ s32 load_character_from_card__23TAdSinglePlyChrSelectGCFv(void);
 M2C_UNK queue_destruction__7TObjectFv(void *);
 M2C_UNK remove_list_entry_by_id(int);
 M2C_UNK TItemList__sub_801D5884(void *, int);
-u8 *TItemList__sub_801D58E4(void *);
+u8 *run_item_count_update__9TItemListFPv(void *);
 extern M2C_UNK lbl_804C4468[];
 u8 *TItemList__sub_801D39C8(u8 *arg0, s32 arg1, s32 arg2, u8 *arg3, s32 arg4, s8 arg5);
 u8 *TItemList__sub_801D401C(u8 *arg0, u8 *arg1, u8 *arg2, u8 *arg3, s8 arg4);
@@ -127,7 +127,7 @@ void *get_player_by_client_id(u16);
 void *get_ptr_0x44__9TItemListFPv(void *);
 void lookup_entry_by_count__9TItemListFPvi(void *, int);
 s32 TItemList__sub_801D58DC(void *);
-u8 *TItemList__sub_801D58E4(void *);
+u8 *run_item_count_update__9TItemListFPv(void *);
 void TItemList__sub_801D591C(void *);
 void TItemList__sub_801D59A0(void *, int);
 void run_item_drop_search_task(u8 *arg0);
@@ -174,7 +174,7 @@ void run_item_drop_search_task(u8 *arg0) {
     case 1:
         TItemList__sub_801D59A0(arg0, *(s32 *)(arg0 + 0x54));
         TItemList__sub_801D591C(arg0);
-        r = (Req_801D3780 *)TItemList__sub_801D58E4(arg0);
+        r = (Req_801D3780 *)run_item_count_update__9TItemListFPv(arg0);
         player = get_player_by_client_id(TItemList__sub_801D58DC(arg0));
         if (player != NULL) {
             if (r->id == -1) {
@@ -235,7 +235,7 @@ u8 *TItemList__sub_801D39C8(u8 *arg0, s32 arg1, s32 arg2, u8 *arg3, s32 arg4, s8
     TItemList__sub_801D5884((void *) (arg0), (int) (1));
     reset_placement_search_ring((void *)((void *) (arg0)));
     if (check_player_action_allowed() != 0) {
-        temp_r3 = (u8 *)(TItemList__sub_801D58E4(arg0));
+        temp_r3 = (u8 *)(run_item_count_update__9TItemListFPv(arg0));
         if (fn_801D4270(M2C_FIELD(temp_r3, s32 *, 4)) != 0) {
             remove_list_entry_by_id((int) (M2C_FIELD(temp_r3, s32 *, 4)));
             if (load_character_from_card__23TAdSinglePlyChrSelectGCFv() != 0) {

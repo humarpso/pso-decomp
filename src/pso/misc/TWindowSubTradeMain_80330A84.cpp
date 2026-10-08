@@ -59,7 +59,7 @@ extern s32 lbl_805D62B0;
     extern int lbl_805D49B0;
     extern int anim_model_matrix_array;
     extern int lbl_805D5680;
-u8 * TWindowSubTradeMain__sub_8033131C(void* p, void* _w1);
+u8 * open_option_dialog_thunk__19TWindowSubTradeMainFPvPv(void* p, void* _w1);
 void initialize_option_dialog(void *, s32, s32, f32);
 u8 * create__19TWindowMessageYesNoFPvPvPvPv(void *, void *, void *, void *);
 s32 get_window_layout_position(s32);
@@ -397,6 +397,6 @@ u8 *open_option_dialog__19TWindowSubTradeMainFPvi(u8 *arg0, s32 arg1) {
     return temp_r31;
 }
 
-u8 * TWindowSubTradeMain__sub_8033131C(void* p, void* _w1) { return open_option_dialog__19TWindowSubTradeMainFPvi((u8 *)((void*)(p)), (s32)((void*)(_w1))); }
+u8 * open_option_dialog_thunk__19TWindowSubTradeMainFPvPv(void* p, void* _w1) { return open_option_dialog__19TWindowSubTradeMainFPvi((u8 *)((void*)(p)), (s32)((void*)(_w1))); }
 
 }

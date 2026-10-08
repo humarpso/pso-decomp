@@ -336,14 +336,14 @@ s32 TBoss6Type2__sub_8032F174(u8 *arg0);
 void change_motion__11TBoss6Type2FPvi(u8 *arg0, s32 arg1);
 extern Ent_8033053C lbl_804EF028[];
 void set_action__11TBoss6Type2FPvi(u8 *arg0, s32 arg1);
-s32 TBoss6Type2__sub_8032E748(T_8032E748 *self);
+s32 is_phase_active__11TBoss6Type2FPv(T_8032E748 *self);
 void TBoss6Type2__sub_8032EA10(T_8032EA10 *self);
 int TBoss6Type2__sub_80330178(s32 _w0, s32 _w1);
 extern void *lbl_804EDDE4[];
-void TBoss6Type2__sub_8032F3E0(s32 i, void *pts, s32 n);
+void set_path_points_by_index__11TBoss6Type2FiPvi(s32 i, void *pts, s32 n);
 void TBoss6Type2__sub_8032F2F0(void* p, void* q);
 
-void TBoss6Type2__sub_8032F2C4(T_8032F2C4 *self);
+void init_with_global_table__11TBoss6Type2FPv(T_8032F2C4 *self);
 u32 create_particle_emitter(void *, s32);
 void set_flags__11TBoss4Type2FPvUi(void *, u32);
 
@@ -380,7 +380,7 @@ void init_segment_angle_range__11TBoss6Type2FPv(Obj_8032FCA4 *arg0);
 void spawn_particle_effect_with_flags(void *, s32, s32);
 s32 get_state__11TBoss6Type2FPv(int);
 s32 is_active__11TBoss6Type2FPv(int);
-s32 TBoss6Type2__sub_8032E748(T_8032E748 *self);
+s32 is_phase_active__11TBoss6Type2FPv(T_8032E748 *self);
 void destroy_part_object__11TBoss6Type2Fii(s32 arg0, s32 arg1);
 void ensure_particle_emitter__11TBoss6Type2FPvi(O_8032E7B4 *arg0, s32 arg1);
 void TBoss6Type2__sub_8032E8DC(Obj_8032E8DC *arg0);
@@ -466,7 +466,7 @@ void set_action_field_0x408__11TBoss6Type2FPvs(void* p, s16 v) { *(s16*)((char*)
 void set_target_nodes__11TBoss6Type2FPvPvPv(void* p, void* a1, void* a2) { *(void**)((char*)p + 0x2e4) = a1; *(void**)((char*)p + 0x390) = a2; update_segment_angles__11TBoss6Type2FPv((void *)(p)); }
 void set_anim_frame__11TBoss6Type2FPvi(void* p, s32 v) { *(s32*)((char*)p + 0x37c) = v; }
 
-s32 TBoss6Type2__sub_8032E748(T_8032E748 *self) {
+s32 is_phase_active__11TBoss6Type2FPv(T_8032E748 *self) {
     switch (self->phase) {
     case 4:
     case 5:
@@ -520,7 +520,7 @@ void TBoss6Type2__sub_8032E8DC(Obj_8032E8DC *arg0) {
     case 24:
     case 25:
     case 26:
-        if (TBoss6Type2__sub_8032E748((T_8032E748 *)arg0) != 0) {
+        if (is_phase_active__11TBoss6Type2FPv((T_8032E748 *)arg0) != 0) {
             ensure_particle_emitter__11TBoss6Type2FPvi((O_8032E7B4 *)arg0, 1);
         } else {
             destroy_part_object__11TBoss6Type2Fii((s32)arg0, 1);
@@ -803,7 +803,7 @@ void update_rotation_ramp__11TBoss6Type2FPv(void *arg0) {
     }
 }
 
-void TBoss6Type2__sub_8032F2C4(T_8032F2C4 *self) {
+void init_with_global_table__11TBoss6Type2FPv(T_8032F2C4 *self) {
     TBoss6Type2__sub_8032F2F0((void*)(self->v), (void*)(lbl_80477450));
 }
 
@@ -831,7 +831,7 @@ void set_path_points__11TBoss6Type2FPvPvi(O_8032F360 *arg0, V3_8032F360 *arg1, s
     set_action__11TBoss6Type2FPvi((u8 *)arg0, 3);
 }
 
-void TBoss6Type2__sub_8032F3E0(s32 i, void *pts, s32 n) {
+void set_path_points_by_index__11TBoss6Type2FiPvi(s32 i, void *pts, s32 n) {
     void *p = lbl_804EDDE4[i];
     if (p != 0) {
         set_path_points__11TBoss6Type2FPvPvi((O_8032F360 *)((void *)(p)), (V3_8032F360 *)((void *)(pts)), (s32)((s32)(n)));
@@ -1570,7 +1570,7 @@ u8 *TBoss6Mag__ct(u8 *arg0, s32 arg1, u8 *arg2) {
     if (M2C_FIELD(arg0, f32 *, 0x3C4) <= 0.0f) {
         M2C_FIELD(arg0, f32 *, 0x3C4) = 2.0f;
     }
-    TBoss6Type2__sub_8032F2C4((T_8032F2C4 *)arg0);
+    init_with_global_table__11TBoss6Type2FPv((T_8032F2C4 *)arg0);
     M2C_FIELD(arg0, f32 *, 0x3F8) = 0.0f;
     M2C_FIELD(arg0, f32 *, 0x3FC) = 1.0f;
     M2C_FIELD(arg0, f32 *, 0x400) = 0.0f;

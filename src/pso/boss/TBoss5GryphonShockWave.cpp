@@ -8,7 +8,7 @@ extern "C" {
 s32 TBoss8Dragon__sub_8005D700(void *self);
 extern u8 lbl_80437F40[];
 extern void *lbl_805D4DC8;
-void TBoss8Dragon__sub_80066A50(void *self);
+void set_default_on_state0__12TBoss8DragonFPv(void *self);
 void queue_destruction__7TObjectFv(void *);
 s32 get_bml_motion(s32, M2C_UNK);
 s32 get_bml_model(s32, M2C_UNK);
@@ -137,7 +137,7 @@ u8 *TBoss5GryphonShockWave__ct(u8 *arg0, u8 *arg1_parent, s32 arg2, u8 *arg3, u8
 }
 
 void TBoss8Dragon__sub_80066A4C(void) {  }
-void TBoss8Dragon__sub_80066A50(void *self) {
+void set_default_on_state0__12TBoss8DragonFPv(void *self) {
     switch (TBoss8Dragon__sub_8005D700(self)) {
     case 0:
         lbl_805D4DC8 = lbl_80437F40;

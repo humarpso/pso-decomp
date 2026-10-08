@@ -1324,7 +1324,7 @@ u32 get_layout_id__20TWindowSubStatusDispFv(M2C_UNK);
 M2C_UNK set_name_string__6TLobbyFi(s32);
 M2C_UNK get_unit_list__6TLobbyFv();
 M2C_UNK TLobby__sub_80070ACC();
-M2C_UNK TLobby__sub_80070AFC();
+M2C_UNK set_split_screen_flag__6TLobbyFv();
 M2C_UNK TLobby__sub_80070B34(int);
 s32 get_state__6TLobbyFv();
 M2C_UNK TLobby__sub_80070BE8(M2C_UNK);
@@ -1509,8 +1509,8 @@ void notify_player_battle__6TLobbyFv(void);
 int get_selected_slot__6TLobbyFPv(void* p);
 int destroy__6TLobbyFPv(void* p);
 int init_graph__6TLobbyFPv(void* p);
-void TLobby__sub_801E8288(void);
-void TLobby__sub_801E82C0(void);
+void init_local_pad_if_client_exists__6TLobbyFv(void);
+void stop_force_for_client__6TLobbyFv(void);
 void TLobby__sub_801E8390(void);
 void TLobby__sub_801E83BC(void);
 void TLobby__sub_801E83E8(void);
@@ -1585,7 +1585,7 @@ void TLobby__sub_801E9F74(void);
 void set_unit_list_flag__6TLobbyFi(s32 arg0);
 void set_unit_name_flag__6TLobbyFi(s32 arg0);
 void set_handler__6TLobbyFi(int a0);
-void TLobby__sub_801EA0F0(u8 i);
+void store_card_stats__6TLobbyFUc(u8 i);
 void TLobby__sub_801EA1B4(s32 arg0);
 void TLobby__sub_801EA240(s32 arg0);
 void TLobby__sub_801EA274(void);
@@ -1602,7 +1602,7 @@ void TLobby__sub_801EA7E8(void);
 void draw_or_send__6TLobbyFv(void);
 void TLobby__sub_801EA84C(s32 arg0);
 void TLobby__sub_801EA8E8(void);
-void TLobby__sub_801EA94C(s32 arg0, s32 arg1);
+void roll_random_in_range__6TLobbyFii(s32 arg0, s32 arg1);
 void TLobby__sub_801EA9F4(s32 arg0, s32 arg1);
 void TLobby__sub_801EAA14(s32 arg0, s32 arg1);
 void copy_script_register_from_buffer__6TLobbyFUcUc(u8 a0, u8 a1);
@@ -1638,8 +1638,8 @@ void acquire_serial_access_for_slot__6TLobbyFUc(u8 arg0);
 void TLobby__sub_801EB914(s32 arg0);
 void TLobby__sub_801EB94C(s32 arg0);
 void TLobby__sub_801EBB88(s32 arg0, s32 arg1);
-void TLobby__sub_801EBC28(s32 arg0);
-void TLobby__sub_801EBC64(s32 arg0);
+void apply_to_player_by_client_id_a__6TLobbyFi(s32 arg0);
+void apply_to_player_by_client_id_b__6TLobbyFi(s32 arg0);
 void TLobby__sub_801EBCA0(s32 arg0);
 void TLobby__sub_801EBCF0(s32 arg0);
 void TLobby__sub_801EBD40(void);
@@ -1680,7 +1680,7 @@ void TLobby__sub_801EC9CC(void);
 void TLobby__sub_801EC9F8(void);
 void TLobby__sub_801ECA1C(void);
 void TLobby__sub_801ECF2C(s32 arg0);
-void TLobby__sub_801ECF84(s32 arg0);
+void copy_player_visual_record_by_index__6TLobbyFi(s32 arg0);
 int TLobby__sub_801ECFBC(void* p);
 void TLobby__sub_801ECFDC(u8 arg0);
 void TLobby__sub_801ED0CC(u8 arg0);
@@ -1690,7 +1690,7 @@ void TLobby__sub_801ED25C(s32 arg0);
 void TLobby__sub_801ED2B0(s32 arg0);
 void send_6x05_switch_changed_off__6TLobbyFv(void);
 void send_6x05_switch_changed_on__6TLobbyFv(void);
-void TLobby__sub_801ED3C4(s32 arg0);
+void reset_player_floor_by_slot__6TLobbyFi(s32 arg0);
 void store_player_kill_count__6TLobbyFii(s32 arg0, s32 arg1);
 void warp_player_to_area__6TLobbyFii(s32 a, s32 b);
 void TLobby__sub_801ED50C(void* p);
@@ -1715,8 +1715,8 @@ void TLobby__sub_801EDBDC(void);
 void TLobby__sub_801EDC24(void);
 void TLobby__sub_801EDC68(void);
 void TLobby__sub_801EDC98(void);
-void TLobby__sub_801EDD0C(int _w0, int _w1);
-void TLobby__sub_801EDD44(int _w0, int _w1);
+void send_field1c_if_player_exists__6TLobbyFii(int _w0, int _w1);
+void send_font_state_if_player_exists__6TLobbyFii(int _w0, int _w1);
 void qst_op_map_designate_ex(u32 first);
 int TLobby__sub_801EDDDC(void);
 int TLobby__sub_801EDE00(void);
@@ -2023,7 +2023,7 @@ M2C_UNK fn_80278518(void *, int);
 M2C_UNK save_and_close__20TShopArmorListWindowFPv();
 s32 create_equip_kind_window(s32, M2C_UNK *, s32);
 M2C_UNK update_screen__6TLobbyFPv();
-M2C_UNK TLobby__sub_80291DC0();
+M2C_UNK set_challenge_split_flag__6TLobbyFPv();
 M2C_UNK TLobby__sub_80291DF8(int);
 s32 get_normalized_mode__6TLobbyFv();
 M2C_UNK TLobby__sub_80291EAC(M2C_UNK);
@@ -2061,7 +2061,7 @@ s32 fn_8034D3D0(u8 *, f32, s32, s32, s32, Vec3_801E915C *, s32);
 s32 fn_8034D790(u8 *, f32, s32, s32, s32, Vec3_801E9274 *);
 s32 set_partner_dialogue_override(u32, int, int);
 M2C_UNK TLobby__sub_8034DAA0(int, int, void *);
-void TNpcPlayer__sub_8034DEA0(Npc_801F1450 *, s32);
+void copy_entry_by_index__10TNpcPlayerFii(Npc_801F1450 *, s32);
 int notify_all_battle_players__10TObjPlayerFv(void*);
 int update_4p_battle_ctrls__10TObjPlayerFv(void*);
 M2C_UNK set_partner_common_remark(int, int);
@@ -2630,13 +2630,13 @@ int destroy__6TLobbyFPv(void* p) { return destroy_singleton__6TLobbyFv(p); }
 
 int init_graph__6TLobbyFPv(void* p) { return init_graph__6TLobbyFv(p); }
 
-void TLobby__sub_801E8288(void) {
+void init_local_pad_if_client_exists__6TLobbyFv(void) {
     if (get_player_by_client_id((s32)((int) ((u16) (*(RecoveredGlobal_801E8288_TLobby__data_80512220 *)&TLobby__data_80512220).value))) != 0U) {
         init_local_pad_binding__10TObjPlayerFPv();
     }
 }
 
-void TLobby__sub_801E82C0(void) {
+void stop_force_for_client__6TLobbyFv(void) {
     if (get_player_by_client_id((s32)((int) ((u16) (*(RecoveredGlobal_801E82C0_TLobby__data_80512220 *)&TLobby__data_80512220).value))) != 0U) {
         stop_force_if_alive__10TObjPlayerFPv();
     }
@@ -3544,10 +3544,10 @@ void update_by_screen_mode__6TLobbyFv(void) {
 #pragma dont_inline off
 void update_split_screen__6TLobbyFv(void) {
     if (is_split_screen() == 1) {
-        TLobby__sub_80291DC0();
+        set_challenge_split_flag__6TLobbyFPv();
         return;
     }
-    TLobby__sub_80070AFC();
+    set_split_screen_flag__6TLobbyFv();
 }
 #pragma pop
 
@@ -3715,7 +3715,7 @@ void TLobby__sub_801EA094(s32 arg0) {
 #pragma inline_depth(1)
 #pragma auto_inline off
 #pragma dont_inline off
-void TLobby__sub_801EA0F0(u8 i) {
+void store_card_stats__6TLobbyFUc(u8 i) {
     Card_801EA0F0 *card = (Card_801EA0F0 *)get_card_window__17TWindowSubComCardFUi(0xFFFF);
     if (card != NULL) {
         (*(int * *)&TLobby__data_805D5E78)[i++] = card->stats[0];
@@ -4149,7 +4149,7 @@ void TLobby__sub_801EA8E8(void) {
 #pragma inline_depth(1)
 #pragma auto_inline off
 #pragma dont_inline off
-void TLobby__sub_801EA94C(s32 arg0, s32 arg1) {
+void roll_random_in_range__6TLobbyFii(s32 arg0, s32 arg1) {
   s32 temp_r31;
   s32 var_r4;
   s32 temp_r30;
@@ -5008,7 +5008,7 @@ void qst_op_try_spend_meseta__6TLobbyFii(s32 arg0, s32 arg1) {
     }
 }
 
-void TLobby__sub_801EBA48(s32 arg0, s32 arg1) {
+void fill_player_team_flags__6TLobbyFii(s32 arg0, s32 arg1) {
     u8 *p = ((u8 * (*)(s32))get_player_by_client_id)(TLobby__data_805D5E78[(u8)arg0]);
     if (p != NULL) {
         s32 f = *(s32 *)(p + 0x890);
@@ -5083,7 +5083,7 @@ void TLobby__sub_801EBB88(s32 arg0, s32 arg1) {
 #pragma inline_depth(1)
 #pragma auto_inline off
 #pragma dont_inline off
-void TLobby__sub_801EBC28(s32 arg0) {
+void apply_to_player_by_client_id_a__6TLobbyFi(s32 arg0) {
     u32 temp_r3;
     temp_r3 = ((u32 (*)(int, int))get_player_by_client_id)((int)((int)((int) (M2C_FIELD((*(s32 *)&TLobby__data_805D5E78), M2C_UNK *, ((arg0 * 4) & 0x3FC))))), (int)((int)((int) ((*(s32 *)&TLobby__data_805D5E78)))));
     if (temp_r3 != 0U) {
@@ -5105,7 +5105,7 @@ void TLobby__sub_801EBC28(s32 arg0) {
 #pragma inline_depth(1)
 #pragma auto_inline off
 #pragma dont_inline off
-void TLobby__sub_801EBC64(s32 arg0) {
+void apply_to_player_by_client_id_b__6TLobbyFi(s32 arg0) {
     u32 temp_r3;
     temp_r3 = ((u32 (*)(int, int))get_player_by_client_id)((int)((int)((int) (M2C_FIELD((*(s32 *)&TLobby__data_805D5E78), M2C_UNK *, ((arg0 * 4) & 0x3FC))))), (int)((int)((int) ((*(s32 *)&TLobby__data_805D5E78)))));
     if (temp_r3 != 0U) {
@@ -6211,7 +6211,7 @@ void TLobby__sub_801ECF2C(s32 arg0) {
 #pragma inline_depth(1)
 #pragma auto_inline off
 #pragma dont_inline off
-void TLobby__sub_801ECF84(s32 arg0) {
+void copy_player_visual_record_by_index__6TLobbyFi(s32 arg0) {
     u32 temp_r3;
     temp_r3 = ((u32 (*)(void *))get_indexed_offset__6TLobbyFi)((void *) (arg0));
     if (temp_r3 != 0U) {
@@ -6457,7 +6457,7 @@ void send_6x05_switch_changed_on__6TLobbyFv(void) {
 #pragma inline_depth(1)
 #pragma auto_inline off
 #pragma dont_inline off
-void TLobby__sub_801ED3C4(s32 arg0) {
+void reset_player_floor_by_slot__6TLobbyFi(s32 arg0) {
     u8 *temp_r3;
     temp_r3 = (u8 *)(((u8 *)((u32 (*)(int, int))get_player_by_client_id)((int)((int)((int)(M2C_FIELD((*(s32 *)&TLobby__data_805D5E78), M2C_UNK *, ((arg0 * 4) & 0x3FC))))), (int)((int)((int)((*(s32 *)&TLobby__data_805D5E78)))))));
     if (temp_r3 != NULL) {
@@ -6871,7 +6871,7 @@ void TLobby__sub_801EDC98(void) {
 #pragma inline_depth(1)
 #pragma auto_inline off
 #pragma dont_inline off
-void TLobby__sub_801EDD0C(int _w0, int _w1) {
+void send_field1c_if_player_exists__6TLobbyFii(int _w0, int _w1) {
     if (((u32 (*)(int, int))get_player_by_client_id)((int)((int) ((*(RecoveredGlobal_801EDD0C_TLobby__data_80512220 *)&TLobby__data_80512220).value)), (int)(_w1)) != 0U) {
         send_field1c_packet__6TLobbyFi();
     }
@@ -6882,7 +6882,7 @@ void TLobby__sub_801EDD0C(int _w0, int _w1) {
 #pragma inline_depth(1)
 #pragma auto_inline off
 #pragma dont_inline off
-void TLobby__sub_801EDD44(int _w0, int _w1) {
+void send_font_state_if_player_exists__6TLobbyFii(int _w0, int _w1) {
     if (((u32 (*)(int, int))get_player_by_client_id)((int)((int) ((*(RecoveredGlobal_801EDD44_TLobby__data_80512220 *)&TLobby__data_80512220).value)), (int)(_w1)) != 0U) {
         send_font_state__6TLobbyFi();
     }
@@ -7039,7 +7039,7 @@ void reset_battle_camera__6TLobbyFv(void) {
     }
 }
 
-void TLobby__sub_801EE220(u8 arg0) {
+void set_camera_from_table__6TLobbyFUc(u8 arg0) {
     Vec_801EE220 eye;
     Vec_801EE220 at;
 
@@ -7845,7 +7845,7 @@ void TLobby__sub_801F07D8(u8 arg0) {
     }
 }
 
-void TLobby__sub_801F08AC(u8 arg0) {
+void spawn_stored_particle_emitter__6TLobbyFUc(u8 arg0) {
     Vec_801F08AC v;
     s32 i;
     f32 x;
@@ -8016,7 +8016,7 @@ void qst_op_npc_crtpk(void) {
     clear_quest_vm_flag__6TLobbyFv();
 }
 
-void TLobby__sub_801F1450(void) {
+void handle_spawn_npc_packet__6TLobbyFv(void) {
     Npc_801F1450 s;
     u8 i;
     s32 flags;
@@ -8062,7 +8062,7 @@ void TLobby__sub_801F1450(void) {
     s.b22 = TLobby__data_805D5E78[i++];
     s.b23 = TLobby__data_805D5E78[i++];
     s.f24 = TLobby__data_805D5E78[i];
-    TNpcPlayer__sub_8034DEA0(&s, arg);
+    copy_entry_by_index__10TNpcPlayerFii(&s, arg);
 }
 
 void qst_op_npc_crt(void) {

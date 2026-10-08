@@ -10,7 +10,7 @@ struct P_802D5478 { f32 x; f32 y; f32 z; };
 
 extern "C" {
 M2C_UNK VecCopy__FP3VecPC3Vec(void *);
-void TObjPlayer__sub_802D551C(M2C_UNK arg0, M2C_UNK arg1, s32 arg2);
+void spawn_hit_particles_at_vec__10TObjPlayerFiii(M2C_UNK arg0, M2C_UNK arg1, s32 arg2);
 M2C_UNK TObjPlayer__sub_802D5B78(void *, void *);
 void spawn_hit_particles_at__10TObjPlayerFiii(M2C_UNK arg0, s32 arg1, s32 arg2);
 extern const f64 lbl_804725B8[];
@@ -51,7 +51,7 @@ void spawn_hit_particles__10TObjPlayerFiPv(s32 arg0, const P_802D5478 *arg1) {
     }
 }
 
-void TObjPlayer__sub_802D551C(M2C_UNK arg0, M2C_UNK arg1, s32 arg2) {
+void spawn_hit_particles_at_vec__10TObjPlayerFiii(M2C_UNK arg0, M2C_UNK arg1, s32 arg2) {
     M2C_UNK sp8;
     VecCopy__FP3VecPC3Vec((void *) (&sp8));
     spawn_hit_particles__10TObjPlayerFiPv((s32)((void *) (&sp8)), (const P_802D5478 *)((void *) (arg2)));

@@ -31,7 +31,7 @@ extern "C" {
 s32 copy_vec4__13TRaderMapCoreFPvPv(void *, void *);
 extern RecoveredGlobal_803640C8_lbl_8058D4C0 lbl_8058D4C0;
 extern void *lbl_805D6FB8;
-void TObjPlayer__sub_803640C8(void);
+void copy_gauge_warn_vec__10TObjPlayerFv(void);
 s32 copy_vec4__13TRaderMapCoreFPvPv(void *, void *);
 extern RecoveredGlobal_803640C8_lbl_8058D4C0 lbl_8058D4C0;
 extern void *lbl_805D6FB8;
@@ -82,7 +82,7 @@ extern const f32 lbl_805E0288;
 void warn_if_gauge_low__10TObjPlayerFv(void) {
     if (M2C_FIELD(lbl_805D6FB8, f32 *, 0x2C) < lbl_805E0288) {
         set_chunk_blend(0x2500);
-        TObjPlayer__sub_803640C8();
+        copy_gauge_warn_vec__10TObjPlayerFv();
     }
 }
 typedef char RecoveredGlobal_803640C8_lbl_8058D4C0_size[sizeof(RecoveredGlobal_803640C8_lbl_8058D4C0) == 0x10 ? 1 : -1];
@@ -99,7 +99,7 @@ void set_model_fade_alpha__10TObjPlayerFf(f32 farg0) {
     *(f32 *)((u8 *)lbl_805D6FB8 + 0x2C) = farg0;
 }
 
-void TObjPlayer__sub_803640C8(void) {
+void copy_gauge_warn_vec__10TObjPlayerFv(void) {
     copy_vec4__13TRaderMapCoreFPvPv((void *) (&lbl_8058D4C0.value), (void *) ((*(s32 *)&lbl_805D6FB8) + 0x1C));
 }
 typedef char RecoveredGlobal_8036414C_lbl_8058D4C0_size[sizeof(RecoveredGlobal_8036414C_lbl_8058D4C0) == 0x10 ? 1 : -1];

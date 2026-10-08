@@ -10,7 +10,7 @@ struct G_80071698 { u8 pad[0x270]; E_80071698 e[4]; };
 
 extern "C" {
 u32 TLobby__sub_80071640(u32 c);
-s32 TLobby__sub_80071670(u32 x);
+s32 count_set_bits__6TLobbyFUi(u32 x);
 s32 get_layout_id__20TWindowSubStatusDispFv();
 s32 TLobby__sub_80071B30(s32, s32);
 u32 get_player_by_client_id(s32);
@@ -57,7 +57,7 @@ u32 TLobby__sub_80071640(u32 c) {
 s32 TLobby__sub_80071654(s32 arg0) {
     return ((arg0 * 8) & 0xF8) | (((arg0 << 9) & 0xF80000) | 0xFF000000 | ((arg0 << 6) & 0xF800));
 }
-s32 TLobby__sub_80071670(u32 x) {
+s32 count_set_bits__6TLobbyFUi(u32 x) {
     s32 n = 0;
     while (x != 0) {
         if (x & 1) {

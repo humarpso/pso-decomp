@@ -20,11 +20,11 @@ extern "C" {
 extern Grp_8020C458 TLobby__data_80513AD0[];
 extern Rec_8020C458 *TLobby__data_805D6114;
 extern s32 TLobby__data_805D6118;
-s32 TLobby__sub_8020C458(void);
+s32 clear_record_flags_a__6TLobbyFv(void);
 extern Grp_8020C458 TLobby__data_80513AD0[];
 extern Rec_8020C500 *TLobby__data_805D610C;
 extern s32 TLobby__data_805D6110;
-s32 TLobby__sub_8020C500(void);
+s32 clear_record_flags_b__6TLobbyFv(void);
 }
 
 extern "C" {
@@ -61,7 +61,7 @@ s32 mask_object_set_row_flags(void *arg0, s32 arg1) {
     }
     return 0;
 }
-s32 TLobby__sub_8020C458(void) {
+s32 clear_record_flags_a__6TLobbyFv(void) {
     s32 i;
     s32 j;
     s32 k;
@@ -79,7 +79,7 @@ s32 TLobby__sub_8020C458(void) {
     }
     return 1;
 }
-s32 TLobby__sub_8020C500(void) {
+s32 clear_record_flags_b__6TLobbyFv(void) {
     s32 i;
     s32 j;
     s32 k;

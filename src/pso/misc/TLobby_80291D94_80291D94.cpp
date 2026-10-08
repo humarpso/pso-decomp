@@ -33,7 +33,7 @@ struct G_80070B34 { u8 pad[0x10]; s32 x10; };
 
 extern "C" {
 extern RecoveredGlobal_80291DC0_lbl_804DB1F0 lbl_804DB1F0;
-void TLobby__sub_80291DC0(void* _w0);
+void set_challenge_split_flag__6TLobbyFPv(void* _w0);
 extern RecoveredGlobal_80291DC0_lbl_804DB1F0 lbl_804DB1F0;
 int is_challenge_mode_active(void*);
 s32 mix_seed_checked__6TLobbyFi(s32);
@@ -47,7 +47,7 @@ int is_multi_ready__6TLobbyFv(void);
 
 void update_screen__6TLobbyFPv(void* p) { if (is_challenge_mode_active((void*)(p)) != 0) { is_multi_ready__6TLobbyFv(); } }
 typedef char RecoveredGlobal_80291DC0_lbl_804DB1F0_size[sizeof(RecoveredGlobal_80291DC0_lbl_804DB1F0) == 0x6B0 ? 1 : -1];
-void TLobby__sub_80291DC0(void* _w0) {
+void set_challenge_split_flag__6TLobbyFPv(void* _w0) {
     if (((s32)is_challenge_mode_active((void*)(_w0))) != 0) {
         M2C_FIELD(&lbl_804DB1F0.value, s32 *, 0x34) = 1;
     }

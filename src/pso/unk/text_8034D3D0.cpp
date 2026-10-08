@@ -9,7 +9,7 @@ typedef struct Vec3_8034D500 {
 
 extern "C" {
 f32 TBoss8Dragon__sub_8008072C(f32, f32);
-s32 TBoss8Dragon__sub_803D6214(int, int);
+s32 calc_binomial_coefficient__12TBoss8DragonFii(int, int);
 s32 eval_bezier_curve__12TBoss8DragonFPviiPvf(Vec4_8034D500 *pts, s32 count, s32 closed, Vec3_8034D500 *out, f32 t);
 }
 
@@ -71,7 +71,7 @@ s32 eval_bezier_curve__12TBoss8DragonFPviiPvf(Vec4_8034D500 *pts, s32 count, s32
     out->z = out->y = out->x = (0.0f);
     if (closed == 0) {
         for (i = 0; i <= n; i++) {
-            k = TBoss8Dragon__sub_803D6214(n, i);
+            k = calc_binomial_coefficient__12TBoss8DragonFii(n, i);
             a = TBoss8Dragon__sub_8008072C(t, (f32)i);
             b = TBoss8Dragon__sub_8008072C(u, (f32)(n - i));
             w = ((f32)k * a) * b;
@@ -82,7 +82,7 @@ s32 eval_bezier_curve__12TBoss8DragonFPviiPvf(Vec4_8034D500 *pts, s32 count, s32
     } else {
         m = n + 1;
         for (i = 0; i <= n; i++) {
-            k = TBoss8Dragon__sub_803D6214(m, i);
+            k = calc_binomial_coefficient__12TBoss8DragonFii(m, i);
             a = TBoss8Dragon__sub_8008072C(t, (f32)i);
             b = TBoss8Dragon__sub_8008072C(u, (f32)(m - i));
             w = ((f32)k * a) * b;

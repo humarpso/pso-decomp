@@ -20,7 +20,7 @@ extern s32 lbl_805D5F78;
 s32 TAdSinglePlyChrSelectGC__sub_801FEBBC(void);
 s32 load_pso_system(void);
 extern s32 lbl_805D5FA8;
-void TAdSinglePlyChrSelectGC__sub_801FEB84(void);
+void check_system_load_result__23TAdSinglePlyChrSelectGCFv(void);
 }
 
 extern "C" {
@@ -62,7 +62,7 @@ s32 try_confirm_selection__23TAdSinglePlyChrSelectGCFv(void) {
 }
 typedef char RecoveredGlobal_801FEBBC_lbl_80513904_size[sizeof(RecoveredGlobal_801FEBBC_lbl_80513904) == 0xC ? 1 : -1];
 
-void TAdSinglePlyChrSelectGC__sub_801FEB84(void) {
+void check_system_load_result__23TAdSinglePlyChrSelectGCFv(void) {
     s32 r = load_pso_system();
     lbl_805D5FA8 = 0;
     if (r == 0) lbl_805D5FA8 = 1;

@@ -11,7 +11,7 @@ struct Rect_80275DE8 { f32 x0, y0, x1, y1, u0, v0, u1, v1; };
 
 extern "C" {
 void set_entry_state__20TWindowSubStatusDispFPvc(void *p, char c);
-void TWindowSubCustomEquip__sub_80275DB4(Obj_80275DB4 *o);
+void clear_flag_and_set_entry_state__21TWindowSubCustomEquipFPv(Obj_80275DB4 *o);
 void *get_player_by_client_id(s32);
 s32 can_use_palette_action__10TObjPlayerFPvUcUc(void *, u8, u8);
 u8 *get_array_entry__20TWindowSubStatusDispFPvi(void *, s32);
@@ -52,7 +52,7 @@ int is_active__22TWindowSubCustomSelectFPv(void* p);
 
 int is_selected__21TWindowSubCustomEquipFPv(void* p) { return *(u8*)((char*)p + 0x60) & 0x1; }
 int TWindowSubCustomEquip__sub_80275DA8(void* p) { return *(u8*)((char*)p + 0x60) & 0x2; }
-void TWindowSubCustomEquip__sub_80275DB4(Obj_80275DB4 *o) {
+void clear_flag_and_set_entry_state__21TWindowSubCustomEquipFPv(Obj_80275DB4 *o) {
     o->f60 &= ~1;
     set_entry_state__20TWindowSubStatusDispFPvc(o->f6c, 1);
 }

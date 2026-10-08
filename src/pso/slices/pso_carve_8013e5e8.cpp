@@ -6,7 +6,7 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 #define M2C_BITWISE(type, expr) ((type)(expr))
 extern "C" {
 s32 __dl__FPv(void* a0);
-s32 TMainCursor__sub_8013E5E8(s32 arg0, s16 arg1);
+s32 delete_this__11TMainCursorFis(s32 arg0, s16 arg1);
 }
 
 extern "C" {
@@ -43,7 +43,7 @@ int TMainCursor__sub_8013E6E0(void* p);
 int update_action_palette__11TMainCursorFPv(void* p);
 void TMainCursor__sub_8013E724(void* p, f32 v);
 void set_target_id__11TMainCursorFPvs(void* p, s16 v);
-int TMainCursor__sub_8013E75C(void* p);
+int set_target_index_at_60__11TMainCursorFPvPv(void* p);
 s32 get_body_exclude_mask__11TMainCursorFPv(void* p);
 s32 get_body_include_mask__11TMainCursorFPv(void* p);
 s32 get_actor_exclude_mask__11TMainCursorFPv(void* p);
@@ -85,7 +85,7 @@ int set_mode__20TWindowActionPaletteFPvUc(void*);
 int TMainCursor__sub_8013DFC4(void*);
 int set_target_index__11TMainCursorFPvs(void*, void* a1 = 0);
 
-s32 TMainCursor__sub_8013E5E8(s32 arg0, s16 arg1) {
+s32 delete_this__11TMainCursorFis(s32 arg0, s16 arg1) {
     if ((arg0 != 0) && (arg1 > 0)) {
         ((M2C_UNK)__dl__FPv((void*)(arg0)));
     }

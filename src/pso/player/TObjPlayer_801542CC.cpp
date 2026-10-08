@@ -237,7 +237,7 @@ extern const f32 TObjPlayer__data_805DB270;
 f32 get_collision_body_radius(Obj_801547E0 *self, s32 i);
 extern s32 TObjPlayer__data_8050D460[];
 extern s32 lbl_805D5868;
-void TObjPlayer__sub_801549D0(void);
+void clear_item_table__10TObjPlayerFv(void);
 void *alloc_buffer__11TOBoss4RockFPv(s32);
 void fn_8002B630(Part_80156780 *, Part_80156780 *);
 void init_forward__10TObjPlayerFPv(void *);
@@ -439,7 +439,7 @@ void send_object_state_update(Player_80154954 *self, State_80154954 *src) {
     }
 }
 
-void TObjPlayer__sub_801549D0(void) {
+void clear_item_table__10TObjPlayerFv(void) {
     s32 i;
     for (i = 0; i < 0x18c; i++) {
         TObjPlayer__data_8050D460[i] = 0;
@@ -1245,8 +1245,8 @@ s32 project_actor_to_ground(Obj_80156844 *self, Vec_80156844 *pos, Vec_80156844 
 }
 
 void release_member_90__10TObjPlayerFPv(void* p) { void* m = *(void**)((char*)p + 0x90); if (m) clear_ground_candidates__10TObjPlayerFPv(m); }
-void TObjPlayer__sub_80156934(void) { TObjPlayer__sub_801549D0(); init_all_slots__10TObjPlayerFv(); }
-void reset__10TObjPlayerFv(void) { (*(int *)&lbl_805D5868) = 0; (*(int *)&lbl_805D586C) = 0; (*(int *)&lbl_805D5870) = 0; (*(int *)&TObjPlayer__data_805D5874) = 0; TObjPlayer__sub_801549D0(); init_all_slots__10TObjPlayerFv(); }
+void TObjPlayer__sub_80156934(void) { clear_item_table__10TObjPlayerFv(); init_all_slots__10TObjPlayerFv(); }
+void reset__10TObjPlayerFv(void) { (*(int *)&lbl_805D5868) = 0; (*(int *)&lbl_805D586C) = 0; (*(int *)&lbl_805D5870) = 0; (*(int *)&TObjPlayer__data_805D5874) = 0; clear_item_table__10TObjPlayerFv(); init_all_slots__10TObjPlayerFv(); }
 void *destroy_particle_controller__10TObjPlayerFPvs(void *arg0, s16 arg1) {
     if (arg0 != NULL) {
         M2C_FIELD(arg0, M2C_UNK **, 0x18) = lbl_804AF8A0;

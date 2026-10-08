@@ -31,7 +31,7 @@ M2C_UNK copy_to_item_data__5TItemFPvPv(void *, void *);
 s32 item_identity_matches(void *, void *);
 s32 TObjPlayer__sub_801C1AC8();
 void *get_trade_obj_ptr__6TLobbyFPv(s32);
-Entry_802D20C8 *TLobby__sub_802D230C(void *);
+Entry_802D20C8 *find_free_trade_slot__6TLobbyFPv(void *);
 s32 add_trade_item__6TLobbyFPvUii(Entry_802D20C8 *arg0, u32 arg1, s32 arg2);
 u8 *get_quest_id__12TQuestListVMFPv(void *);
 u32 find_item_by_id();
@@ -145,7 +145,7 @@ s32 add_trade_item__6TLobbyFPvUii(Entry_802D20C8 *arg0, u32 arg1, s32 arg2) {
             }
         }
     }
-    e = TLobby__sub_802D230C(arg0);
+    e = find_free_trade_slot__6TLobbyFPv(arg0);
     if (e == NULL) {
         return 3;
     }

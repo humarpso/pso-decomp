@@ -153,13 +153,13 @@ extern RecoveredGlobal_800B8570_TObjEneBm5Wolf__data_80500B8C TObjEneBm5Wolf__da
 void update_default__14TObjEneBm5WolfFi(s32 arg0);
 void update__14TObjEneBm5WolfFPvPv(s32, s32);
 extern RecoveredGlobal_800B85D0_TObjEneBm5Wolf__data_80500B78 TObjEneBm5Wolf__data_80500B78;
-void TObjEneBm5Wolf__sub_800B85D0(s32 arg0);
+void update_with_default_state__14TObjEneBm5WolfFi(s32 arg0);
 void apply_to_position__14TObjEneBm5WolfFPvPv(s32, s32);
 extern RecoveredGlobal_800B8570_TObjEneBm5Wolf__data_80500B8C TObjEneBm5Wolf__data_80500B8C;
 void apply_global_to_position__14TObjEneBm5WolfFi(s32 arg0);
 void apply_to_position__14TObjEneBm5WolfFPvPv(s32, s32);
 extern RecoveredGlobal_800B85D0_TObjEneBm5Wolf__data_80500B78 TObjEneBm5Wolf__data_80500B78;
-void TObjEneBm5Wolf__sub_800B8600(s32 arg0);
+void apply_position_to_node_list__14TObjEneBm5WolfFi(s32 arg0);
 extern RecoveredGlobal_800B8570_TObjEneBm5Wolf__data_80500B8C TObjEneBm5Wolf__data_80500B8C;
 Wolf_800B850C *play_sound__14TObjEneBm5WolfFPv(Node_800B850C *);
 M2C_UNK destroy__14TObjEneBm5WolfFis(void *, int);
@@ -253,7 +253,7 @@ u8 *TObjEneBm5Wolf__sub_800B8174(u8 *arg0, s16 arg1) {
             delete M2C_FIELD(arg0, D_800B8174 **, 0x410);
             M2C_FIELD(arg0, D_800B8174 **, 0x410) = NULL;
         }
-        TObjEneBm5Wolf__sub_800B85D0((s32) arg0);
+        update_with_default_state__14TObjEneBm5WolfFi((s32) arg0);
         if (M2C_FIELD(arg0, s32 *, 0x3D8) != 0) {
             update_default__14TObjEneBm5WolfFi((s32) arg0);
         }
@@ -291,12 +291,12 @@ void apply_global_to_position__14TObjEneBm5WolfFi(s32 arg0) {
     apply_to_position__14TObjEneBm5WolfFPvPv((s32) &(*(RecoveredGlobal_800B85A0_TObjEneBm5Wolf__data_80500B8C *)&TObjEneBm5Wolf__data_80500B8C).value, arg0 + 0x3CC);
 }
 
-void TObjEneBm5Wolf__sub_800B85D0(s32 arg0) {
+void update_with_default_state__14TObjEneBm5WolfFi(s32 arg0) {
     update__14TObjEneBm5WolfFPvPv((s32) &TObjEneBm5Wolf__data_80500B78.value, arg0 + 0x3C0);
 }
 
 typedef char RecoveredGlobal_800B8600_TObjEneBm5Wolf__data_80500B78_size[sizeof(RecoveredGlobal_800B8600_TObjEneBm5Wolf__data_80500B78) == 0x14 ? 1 : -1];
-void TObjEneBm5Wolf__sub_800B8600(s32 arg0) {
+void apply_position_to_node_list__14TObjEneBm5WolfFi(s32 arg0) {
     apply_to_position__14TObjEneBm5WolfFPvPv((s32) &(*(RecoveredGlobal_800B8600_TObjEneBm5Wolf__data_80500B78 *)&TObjEneBm5Wolf__data_80500B78).value, arg0 + 0x3C0);
 }
 

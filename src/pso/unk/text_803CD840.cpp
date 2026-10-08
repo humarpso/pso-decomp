@@ -83,7 +83,7 @@ struct Obj_803CDB0C {
 };
 
 extern "C" {
-void TLobby__sub_803CE198(Obj_803CE198 *self, s32 i, s32 *a, s32 *b);
+void get_entry_pair__6TLobbyFPviPvPv(Obj_803CE198 *self, s32 i, s32 *a, s32 *b);
 char *strncpy(char *, const char *, u32);
 void *memset(void *, s32, u32);
 void notify_error__6TLobbyFPv(const char *);
@@ -307,7 +307,7 @@ s32 parse_aix_header__6TLobbyFPviPv(u8 *arg0, s32 arg1, Out_803CDEC8 *arg2) {
     return hdr + 8;
 }
 
-void TLobby__sub_803CE198(Obj_803CE198 *self, s32 i, s32 *a, s32 *b) {
+void get_entry_pair__6TLobbyFPviPvPv(Obj_803CE198 *self, s32 i, s32 *a, s32 *b) {
     Sub_803CE198 *s = &self->sub;
     if (a != 0) {
         *a = s->e[i].a;

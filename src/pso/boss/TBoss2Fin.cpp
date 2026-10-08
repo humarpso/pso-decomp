@@ -29,7 +29,7 @@ extern G_800367C4 *lbl_805D4BA4;
 extern const f32 TBoss2Fin__data_805D8450;
 extern const f32 lbl_805D8460;
 void TBoss2Fin__sub_800367C4(void);
-void TBoss2Fin__sub_80036620(void *);
+void init_link_points__9TBoss2FinFPv(void *);
 void fn_800FF8CC(void *, void *, void *, void *);
 void *TObjEZRopeBase__ct(void *);
 extern u8 __vt__9TBoss2Fin[];
@@ -61,7 +61,7 @@ Obj_80036718 *__ct__9TBoss2FinFv(Obj_80036718 *self, s32 arg1, s32 arg2, s32 arg
         p->d = TBoss2Fin__data_805D8450;
     }
     p->a = lbl_805D8454;
-    TBoss2Fin__sub_80036620(self);
+    init_link_points__9TBoss2FinFPv(self);
     fn_800FF8CC(self, ((u8 *)&lbl_804FE590), self->f30, self->recs);
     return self;
 }

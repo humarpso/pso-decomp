@@ -11,9 +11,9 @@ struct S_80348DD8 { s16 count; s16 unk2; s16 items[8]; };
 struct S_80348D0C { u16 a; u16 b; u16 c[8]; u32 d; u32 e; };
 
 extern "C" {
-void TWindowDD__sub_80348DAC(S_80348DAC *self);
+void pop_entry__9TWindowDDFPv(S_80348DAC *self);
 void TWindowDD__sub_80348D90(S_80348D90 *self, s16 v);
-void TWindowDD__sub_80348DFC(S_80348DFC *self);
+void init_item_slots__9TWindowDDFPv(S_80348DFC *self);
 void TWindowDD__sub_80348DD8(S_80348DD8 *self, s16 v);
 void bswap_16__FPUs(void *);
 void bswap_32__FPUl(void *);
@@ -50,7 +50,7 @@ void TWindowDD__sub_80348D90(S_80348D90 *self, s16 v) {
     }
 }
 
-void TWindowDD__sub_80348DAC(S_80348DAC *self) {
+void pop_entry__9TWindowDDFPv(S_80348DAC *self) {
     if (self->count > 0) {
         self->items[--self->count] = -1;
     }
@@ -62,7 +62,7 @@ void TWindowDD__sub_80348DD8(S_80348DD8 *self, s16 v) {
     }
 }
 
-void TWindowDD__sub_80348DFC(S_80348DFC *self) {
+void init_item_slots__9TWindowDDFPv(S_80348DFC *self) {
     s32 i;
     self->unk2 = 0;
     self->count = 0;

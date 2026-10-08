@@ -10,7 +10,7 @@ public:
 };
 
 void reset_proportions__15TChCrCharSelectFv(void);
-void TObjCMIcon__sub_80299488(void);
+void reset_icon_flags__10TObjCMIconFv(void);
 void TObjCMIcon__sub_802994C8(s32 arg0, s32 *arg1);
 extern s32 lbl_80464E90[];
 extern s32 TChCrCharSelect__data_805D6590;
@@ -31,7 +31,7 @@ void run_task__15TChCrCharSelectFv(TChCr_80293AF4 *self) {
         return;
     case 2:
     default:
-        TObjCMIcon__sub_80299488();
+        reset_icon_flags__10TObjCMIconFv();
         return;
     }
 }

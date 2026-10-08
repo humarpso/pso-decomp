@@ -28,7 +28,7 @@ void draw__12TWindowTimerFPvii(void *arg0, s32 arg1, s32 arg2);
 void run_task__12TWindowTimerFv(u8 *arg0);
 M2C_UNK draw_window_tab(void *, void *, int, f32);
 extern const f32 lbl_805DD890;
-void TWindowTimer__sub_80287DD8(M2C_UNK arg0, s32 arg1);
+void draw_tab__12TWindowTimerFii(M2C_UNK arg0, s32 arg1);
 void save_position__17TWindowSubComCardFPv(void *);
 u8 * construct_base__9TWindowDDFPvPvsPv(void *, void *, s16, void *);
 u8 * get_zero_vec2(void);
@@ -127,7 +127,7 @@ void set_time__12TWindowTimerFPvUi(void *self, u32 secs) {
     reset_float_field__15TWindowHelpItemFPv(entry);
 }
 
-void TWindowTimer__sub_80287DD8(M2C_UNK arg0, s32 arg1) {
+void draw_tab__12TWindowTimerFii(M2C_UNK arg0, s32 arg1) {
     draw_window_tab((void *) (arg1), (void *) (arg1 + 0x10), (int) (3), (f32) (lbl_805DD890));
 }
 
@@ -160,7 +160,7 @@ extern "C" {
 void render__12TWindowTimerFv(s32 arg0) {
     s32 temp_r3;
     temp_r3 = draw_default_entry__9TWindowDDFi();
-    TWindowTimer__sub_80287DD8((M2C_UNK)((void *) (arg0)), (s32)((int) (temp_r3)));
+    draw_tab__12TWindowTimerFii((M2C_UNK)((void *) (arg0)), (s32)((int) (temp_r3)));
     draw_visible_window_entries((void *) (arg0), (void *) (arg0 + 0x24), (int) (temp_r3));
 }
 

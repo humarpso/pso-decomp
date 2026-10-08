@@ -26,7 +26,7 @@ extern RecoveredGlobal_8006EF98_lbl_8048C244 lbl_8048C244;
 u8 *TLobby__sub_8006EF98(s32 arg0, s32 arg1);
 s32 is_flag_set__6TLobbyFv(void);
 extern s32 lbl_8048C9D8[];
-s32 TLobby__sub_8006F00C(void);
+s32 get_online_result_value__6TLobbyFv(void);
 }
 
 extern "C" {
@@ -49,7 +49,7 @@ u8 *TLobby__sub_8006EF98(s32 arg0, s32 arg1) {
         return (u8 *)&lbl_8048B0F4.value + (arg1 * 0x10);
     }
 }
-s32 TLobby__sub_8006F00C(void) {
+s32 get_online_result_value__6TLobbyFv(void) {
     s32 f = is_flag_set__6TLobbyFv();
     s32 r = -1;
     if (f) {

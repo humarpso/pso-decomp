@@ -101,7 +101,7 @@ f64 get_ad_end_text_start__10TObjPlayerFv(f32, f32);
 u8 * dispatch_shared_handler_a__6TLobbyFPv(M2C_UNK);
 s32 TBoss4Type2__sub_80057048(void *, int);
 M2C_UNK TBoss4Type2__sub_80057128(void *);
-void TBoss4Type2__sub_800573AC(u8 *arg0, s32 arg1);
+void set_attack_pattern_by_index__11TBoss4Type2FPvi(u8 *arg0, s32 arg1);
 void request_destroy__11TBoss4Type2FUi(void *);
 u32 spawn_particle_effect(void *, int);
 u32 create_particle_emitter(void *, int);
@@ -603,8 +603,8 @@ s32 TBoss4Type2__sub_80057048(void *, int);
 M2C_UNK TBoss4Type2__sub_80057128(void *);
 s32 TBoss4Type2__sub_80057224(Obj_80057224 *self);
 void draw_hanger__11TBoss4Type2FPv(Obj_80057270 *arg0);
-void TBoss4Type2__sub_800573AC(u8 *arg0, s32 arg1);
-void TBoss4Type2__sub_800573D8(u8 *arg0);
+void set_attack_pattern_by_index__11TBoss4Type2FPvi(u8 *arg0, s32 arg1);
+void update_phase_timer__11TBoss4Type2FPv(u8 *arg0);
 void init_hanger__11TBoss4Type2FPv(void* p);
 void advance_afterimage__11TBoss4Type2FPv(u8 *arg0);
 void TBoss4Type2__sub_80057578(void* p);
@@ -673,7 +673,7 @@ void TBoss4Type3__sub_8005A438(Obj_8005A438 *self);
 void copy_pair__11TBoss4Type3FPvPv(void* p, void* q);
 void TBoss4Type3__sub_8005A4F4(void *, void *, f32);
 void set_anim_state__11TBoss4Type3FPvi(u8 *arg0, s32 arg1);
-void TBoss4Type3__sub_8005A6A4(u8 *arg0);
+void update_phase_timer__11TBoss4Type3FPv(u8 *arg0);
 void draw__11TBoss4Type3FPv(void *arg0);
 void advance_afterimage__11TBoss4Type3FPv(u8 *arg0);
 void TBoss4Type3__sub_8005A86C(void* p);
@@ -1349,7 +1349,7 @@ void TBoss4Type2__vt15(u8 *arg0) {
     u32 h;
     f32 t;
     if (M2C_FIELD(arg0, s32 *, 0x398) == 0x4B) {
-        TBoss4Type2__sub_800573AC(arg0, lbl_80486904[idx]);
+        set_attack_pattern_by_index__11TBoss4Type2FPvi(arg0, lbl_80486904[idx]);
     }
     if (M2C_FIELD(arg0, s32 *, 0x3C8) == 6 || M2C_FIELD(arg0, s32 *, 0x3C8) == 7) {
         t = M2C_FIELD(arg0, f32 *, 0x3D0);
@@ -1811,7 +1811,7 @@ void draw_hanger__11TBoss4Type2FPv(Obj_80057270 *arg0) {
     arg0->f3e4 = 0;
 }
 
-void TBoss4Type2__sub_800573AC(u8 *arg0, s32 arg1) {
+void set_attack_pattern_by_index__11TBoss4Type2FPvi(u8 *arg0, s32 arg1) {
     if (arg1 != -1) {
         M2C_FIELD(arg0, s32 *, 0x3c8) = arg1;
         M2C_FIELD(arg0, f32 *, 0x3d0) = (f32) (*(const f32 *)&TBoss4Type2__data_805D8BAC);
@@ -1821,7 +1821,7 @@ void TBoss4Type2__sub_800573AC(u8 *arg0, s32 arg1) {
 
 #pragma push
 #pragma opt_common_subs off
-void TBoss4Type2__sub_800573D8(u8 *arg0) {
+void update_phase_timer__11TBoss4Type2FPv(u8 *arg0) {
     f32 temp_f1;
     f32 temp_f1_2;
     s32 temp_r0;
@@ -1898,7 +1898,7 @@ void update_main__11TBoss4Type2FPv(u8 *arg0) {
     if (m.action != 0) {
         (((TBoss4Type2_80057598 *)arg0)->*(m.action))();
     }
-    TBoss4Type2__sub_800573D8(arg0);
+    update_phase_timer__11TBoss4Type2FPv(arg0);
     advance_afterimage__11TBoss4Type2FPv(arg0);
     if (TBoss4Type2__data_805D8BAC == M2C_FIELD(arg0, f32 *, 0x3E8)) {
         M2C_FIELD(M2C_FIELD(arg0, u8 **, 0x394), u32 *, 0x18) |= 1;

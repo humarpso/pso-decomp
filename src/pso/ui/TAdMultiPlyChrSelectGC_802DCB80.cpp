@@ -29,7 +29,7 @@ M2C_UNK reset_cursor_state__22TAdMultiPlyChrSelectGCFPv(s32);
 s32 get_player_index__22TAdMultiPlyChrSelectGCFPv(s32);
 M2C_UNK set_field_100__22TAdMultiPlyChrSelectGCFPvi(s32, M2C_UNK);
 s32 get_mode__22TAdMultiPlyChrSelectGCFPv(s32);
-s32 TAdMultiPlyChrSelectGC__sub_802E00CC(s32);
+s32 is_state_closing__22TAdMultiPlyChrSelectGCFPv(s32);
 
 extern char lbl_8050E3B8[];
 extern M2C_UNK TAdMultiPlyChrSelectGC__data_805DE898;
@@ -51,7 +51,7 @@ void close_and_reset__22TAdMultiPlyChrSelectGCFPv(void *arg0) {
     set_entry_value__22TAdMultiPlyChrSelectGCFiiUi(M2C_FIELD(arg0, s32 *, 0x64), 0, &TAdMultiPlyChrSelectGC__data_805DE898);
     set_entry_value__22TAdMultiPlyChrSelectGCFiiUi(M2C_FIELD(arg0, s32 *, 0x64), 1, &TAdMultiPlyChrSelectGC__data_805DE898);
     M2C_FIELD(arg0, s32 *, 0x30) = -1;
-    if ((TAdMultiPlyChrSelectGC__sub_802E00CC(M2C_FIELD(arg0, s32 *, 0x6C)) == 0) && (TWindowShortListCtrl__check_controller_button(lbl_8050E3B8 + 0x20, 2) != 0)) {
+    if ((is_state_closing__22TAdMultiPlyChrSelectGCFPv(M2C_FIELD(arg0, s32 *, 0x6C)) == 0) && (TWindowShortListCtrl__check_controller_button(lbl_8050E3B8 + 0x20, 2) != 0)) {
         play_sound_effect(0x52F16, 0, 0, 0);
         M2C_FIELD(arg0, s32 *, 0x28) = 0x1B;
         M2C_FIELD(arg0, s32 *, 0x20) = 0x1A;

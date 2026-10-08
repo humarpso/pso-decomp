@@ -11,13 +11,13 @@ struct Stack_8029A97C {
 struct A_8029A9B8 { u8 pad[0x20]; f32 f20; };
 
 extern "C" {
-M2C_UNK TChCrEffWall__sub_802910C8(M2C_UNK, f32 *, f32);
+M2C_UNK draw_default_sprite__12TChCrEffWallFv(M2C_UNK, f32 *, f32);
 extern const f32 lbl_805DDC70;
 extern const f32 lbl_805DDC74;
 extern const f32 lbl_805DDC78;
 void draw_chcr_tag_heading_frame(void);
 void fn_802910A4(int, void *, void *, f32, f32, f32);
-M2C_UNK TChCrEffWall__sub_802910C8(M2C_UNK, f32 *, f32);
+M2C_UNK draw_default_sprite__12TChCrEffWallFv(M2C_UNK, f32 *, f32);
 extern const f32 lbl_805DDC7C;
 extern const f32 lbl_805DDC80;
 extern const f32 lbl_805DDC84;
@@ -32,7 +32,7 @@ void draw_chcr_tag_heading_frame(void) {
     Stack_8029A97C stack;
     stack.sp8 = lbl_805DDC70;
     stack.spC = lbl_805DDC74;
-    TChCrEffWall__sub_802910C8(0x36, &stack.sp8, lbl_805DDC78);
+    draw_default_sprite__12TChCrEffWallFv(0x36, &stack.sp8, lbl_805DDC78);
 }
 void draw_chcr_tag_frame(A_8029A9B8 *arg0) {
     f32 sp10[2];
@@ -47,7 +47,7 @@ void draw_chcr_tag_frame(A_8029A9B8 *arg0) {
     sp8[0] = b;
     fn_802910A4(0x34, sp10, sp8, lbl_805DDC8C, b, a);
     sp10[0] = arg0->f20;
-    TChCrEffWall__sub_802910C8((M2C_UNK)(0x35), (f32 *)(sp10), lbl_805DDC8C);
+    draw_default_sprite__12TChCrEffWallFv((M2C_UNK)(0x35), (f32 *)(sp10), lbl_805DDC8C);
 }
 
 }

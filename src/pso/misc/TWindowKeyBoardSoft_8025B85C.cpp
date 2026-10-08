@@ -121,7 +121,7 @@ int is_key_state_2__19TWindowKeyBoardSoftFPv(void* p);
 void update_input_state2__19TWindowKeyBoardSoftFPv(void *arg0);
 void update_input_state__19TWindowKeyBoardSoftFPv(void *arg0);
 int reset_input__11TWindowChatFPv(void* a0 = 0);
-int TWindowKeyBoardSoft__sub_8008081C(void*);
+int set_text_from_string__19TWindowKeyBoardSoftFPvPv(void*);
 void flush_if_flagged__11TWindowChatFPv(void* p);
 int get_flag__11TWindowChatFPv(void* a0 = 0);
 int is_flag_4_set__17TWindowSubComCardFPv(void* p);
@@ -606,7 +606,7 @@ void TWindowKeyBoardSoft__sub_8025C51C(u8 *arg0, s32 arg1) {
     }
 }
 
-int get_field_6c__19TWindowKeyBoardSoftFPv(void* p) { return TWindowKeyBoardSoft__sub_8008081C((char*)p + 0x6c); }
+int get_field_6c__19TWindowKeyBoardSoftFPv(void* p) { return set_text_from_string__19TWindowKeyBoardSoftFPvPv((char*)p + 0x6c); }
 
 void TWindowKeyBoardSoft__sub_8025C618(u8 *arg0, u16 arg1) {
     s32 f;

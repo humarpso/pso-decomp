@@ -12,7 +12,7 @@ struct RecoveredGlobal_8006FBAC_lbl_8048C9D8 {
 extern "C" {
 s32 is_flag_set__6TLobbyFv();
 extern RecoveredGlobal_8006FBAC_lbl_8048C9D8 lbl_8048C9D8;
-void TLobby__sub_8006FBAC(void);
+void mark_solo_win_closing__6TLobbyFv(void);
 }
 
 extern "C" {
@@ -29,7 +29,7 @@ s32 mix_seed__6TLobbyFUs(u16 arg0) {
     return (temp_r3 << 0x10) | (temp_r3 ^ arg0);
 }
 
-s32 TLobby__sub_80071670(u16);
+s32 count_set_bits__6TLobbyFUi(u16);
 s32 rand();
 extern const f32 lbl_805D9100;
 extern const f32 lbl_805D9104;
@@ -44,7 +44,7 @@ u16 TLobby__sub_8006FAE4(void) {
     var_r29 = 0;
 loop_1:
     var_r30 = (u16) (s32) (lbl_805D9100 * (lbl_805D9104 * (f32) rand()));
-    temp_r3 = TLobby__sub_80071670(var_r30);
+    temp_r3 = count_set_bits__6TLobbyFUi(var_r30);
     if ((temp_r3 < 4) || (temp_r3 > 0xC)) {
         var_r29 += 1;
         var_r30 = 0x3938;
@@ -55,7 +55,7 @@ loop_1:
     return var_r30;
 }
 typedef char RecoveredGlobal_8006FBAC_lbl_8048C9D8_size[sizeof(RecoveredGlobal_8006FBAC_lbl_8048C9D8) == 0x748 ? 1 : -1];
-void TLobby__sub_8006FBAC(void) {
+void mark_solo_win_closing__6TLobbyFv(void) {
     if (is_flag_set__6TLobbyFv() != 0) {
         M2C_FIELD(&lbl_8048C9D8.value, s32 *, 0x30) = 1;
     }

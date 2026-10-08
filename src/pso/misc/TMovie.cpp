@@ -255,7 +255,7 @@ M2C_UNK close__6TMovieFis(u32, M2C_UNK);
 M2C_UNK render_until_finished__6TMovieFv(void *);
 M2C_UNK __dl__7TObjectFPv(void *);
 M2C_UNK __dt__7TObjectFv(void *, M2C_UNK);
-M2C_UNK TLobby__sub_8022776C();
+M2C_UNK set_pre_retrace_callback__6TLobbyFv();
 M2C_UNK fn_80320358(u32, M2C_UNK);
 M2C_UNK render_tick__Fv();
 
@@ -286,7 +286,7 @@ void *__dt__6TMovieFv(void *arg0, s16 arg1) {
         if (temp_r12 != NULL) {
             temp_r12(arg0);
         }
-        TLobby__sub_8022776C();
+        set_pre_retrace_callback__6TLobbyFv();
         __dt__7TObjectFv(arg0, 0);
         if (arg1 > 0) {
             __dl__7TObjectFPv(arg0);

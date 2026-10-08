@@ -146,24 +146,24 @@ extern s32 lobby_message_thread_handle;
 extern u32 lbl_805D7BC4;
 void TLobby__sub_803F95E4(u32);
 extern u32 lbl_805D7BA8;
-void TLobby__sub_804259F0(void);
+void cancel_alarm_a__6TLobbyFv(void);
 extern s16 lbl_805D4828;
 extern s32 lbl_805D7BB8;
 extern u32 lbl_805D7BBC;
 extern u32 lbl_805D7BC0;
 void TLobby__sub_80425BD0(void);
 void clear_message_entry__6TLobbyFi(s32);
-void TLobby__sub_804264D4(s32 arg0);
+void clear_message_entry_wrapper__6TLobbyFi(s32 arg0);
 s32 str_length__6TLobbyFi(void *);
 s32 TLobby__sub_803F9F04(void *, void *, int);
 s32 write_name_field__6TLobbyFPvPv(s32 *arg0, u8 *arg1);
 M2C_UNK TLobby__sub_803F77E0(void *);
-void TLobby__sub_80428374(void);
+void reset_boot_state__6TLobbyFv(void);
 M2C_UNK __OSBootDol(void *);
-s32 TLobby__sub_8042839C(void);
+s32 boot_dol__6TLobbyFv(void);
 void TLobby__sub_803F95E4(u32);
 extern u32 lbl_805D7C00;
-void TLobby__sub_804294C4(void);
+void cancel_alarm_b__6TLobbyFv(void);
 M2C_UNK OSWakeupThread(void *);
 extern M2C_UNK lbl_805D7C38;
 void TLobby__sub_80429598(void);
@@ -177,10 +177,10 @@ extern s32 lbl_805D7C40;
 extern s32 lbl_805D7C54;
 extern s32 lbl_805D7C7C;
 extern s32 lbl_805D7C80;
-void TLobby__sub_8042B334(s32 arg0, s32 arg1, s32 arg2);
+void start_exi_send__6TLobbyFiii(s32 arg0, s32 arg1, s32 arg2);
 M2C_UNK memcpy(void *, void *, int);
 extern M2C_UNK lbl_805D7C30;
-void TLobby__sub_8042B560(s32 arg0);
+void copy_mac_address__6TLobbyFi(s32 arg0);
 M2C_UNK OSDisableInterrupts();
 M2C_UNK OSRestoreInterrupts(s32);
 M2C_UNK OSSleepThread(void *);
@@ -206,7 +206,7 @@ extern s32 lbl_805D7C98;
 s32 send_modem_hangup__23TAdSinglePlyChrSelectGCFi(s32 arg0);
 extern s16 lbl_805D4828;
 s16 query_link_status__6TLobbyFv(void);
-s16 TLobby__sub_80427D0C(s16 arg0);
+s16 get_slot_id__6TLobbyFs(s16 arg0);
 s32 TLobby__sub_80428360(void);
 s16 TLobby__sub_803F96AC(void *, void *, void *);
 void reset_buffer_pool__6TLobbyFv(void);
@@ -225,7 +225,7 @@ extern s32 lbl_805D7C98;
 s32 TAdSinglePlyChrSelectGC__sub_8042DD70(s32 arg0, s32 arg1, s32 arg2);
 M2C_UNK memcpy(void *, void *, int);
 extern M2C_UNK lbl_805D7C30;
-void TLobby__sub_8042B538(void *dst);
+void copy_6_byte_config__6TLobbyFPv(void *dst);
 void TLobby__sub_80425DC8(void *q, void *a, void *b);
 void TLobby__sub_80426A70(void *a, void *b);
 s32 OSSendMessage(void *mq, void *msg, s32 flags);
@@ -273,7 +273,7 @@ s32 post_message__6TLobbyFPviii(void *arg0, s32 arg1, s32 arg2, s32 arg3);
 s32 OSReceiveMessage(void *, void *, int);
 void clear_message_entry__6TLobbyFi(s32);
 void TLobby__sub_80425D88(u8 v);
-void TLobby__sub_8042B334(s32 arg0, s32 arg1, s32 arg2);
+void start_exi_send__6TLobbyFiii(s32 arg0, s32 arg1, s32 arg2);
 extern u8 lbl_805CF240[];
 extern u8 lbl_805CF380[];
 extern s32 lbl_805D7BCC;
@@ -367,7 +367,7 @@ extern s32 lbl_805D7C84;
 extern s32 lbl_805D7C88;
 M2C_UNK exi_start_send_dma__6TLobbyFii(int, int);
 extern Ent_804253F8 lbl_805C30C0[0x20];
-void TLobby__sub_804253F8(u32 arg0);
+void release_entry_by_id__6TLobbyFUi(u32 arg0);
 extern Ent_804253F8 lbl_805C30C0[0x20];
 u8 *find_entry_by_address__6TLobbyFi(s32 arg0);
 extern G_804249F0 lbl_805C1E00;
@@ -394,7 +394,7 @@ u8 exi_read_status_byte__6TLobbyFv(void);
 M2C_UNK get_time_ms__6TLobbyFPv(void *);
 s32 TLobby__sub_803F9EC4(void *, void *, int);
 s32 TLobby__sub_803F9F04(void *, void *, int);
-void TLobby__sub_804264D4(s32 arg0);
+void clear_message_entry_wrapper__6TLobbyFi(s32 arg0);
 u16 recv_pppoe_message__6TLobbyFPvPv(s32 *arg0, u16 *arg1);
 M2C_UNK TLobby__sub_80427378(Ent_80427D40 *);
 s16 TLobby__sub_804275B0(s32, u16);
@@ -451,12 +451,12 @@ void TLobby__sub_80424CA8(void);
 #pragma dont_inline off
 #pragma inline_depth(4)
 static inline Ent_804253F8 *find_804253F8(u32 arg0);
-void TLobby__sub_804253F8(u32 arg0);
+void release_entry_by_id__6TLobbyFUi(u32 arg0);
 #pragma pop
 
 u8 *find_entry_by_address__6TLobbyFi(s32 arg0);
 
-void TLobby__sub_804259F0(void);
+void cancel_alarm_a__6TLobbyFv(void);
 
 void TLobby__sub_80425BD0(void);
 
@@ -476,7 +476,7 @@ s32 TLobby__sub_80426440(void);
 
 s32 post_send_message__6TLobbyFiUs(s32 arg0, u16 arg1);
 
-void TLobby__sub_804264D4(s32 arg0);
+void clear_message_entry_wrapper__6TLobbyFi(s32 arg0);
 
 u16 recv_pppoe_message__6TLobbyFPvPv(s32 *arg0, u16 *arg1);
 
@@ -488,7 +488,7 @@ s32 TLobby__sub_80426790(s16 arg0, void *arg1);
 
 #pragma push
 #pragma dont_inline on
-s32 TLobby__sub_804267F0(s16 arg0, void *arg1);
+s32 consume_item_count_by_id__6TLobbyFsPv(s16 arg0, void *arg1);
 #pragma pop
 
 s32 add_multicast_address__6TLobbyFsPv(s16 arg0, void *arg1);
@@ -513,7 +513,7 @@ s32 parse_tlv_records__6TLobbyFiPvUs(s32 arg0, u8 *arg1, u16 arg2);
 
 Ent_80427C6C *TLobby__sub_80427C6C(s32 arg0, u16 arg1);
 
-s16 TLobby__sub_80427D0C(s16 arg0);
+s16 get_slot_id__6TLobbyFs(s16 arg0);
 
 #define TBL_80427D40 ((Ent_80427D40 *)&lbl_805CFC20)
 #pragma push
@@ -541,14 +541,14 @@ typedef char RecoveredGlobal_80428374_lbl_805D0A40_size[sizeof(RecoveredGlobal_8
 typedef char RecoveredGlobal_80428360_lbl_805CFC20_size[sizeof(RecoveredGlobal_80428360_lbl_805CFC20) == 0xE20 ? 1 : -1];
 s32 TLobby__sub_80428360(void);
 
-void TLobby__sub_80428374(void);
+void reset_boot_state__6TLobbyFv(void);
 
 typedef char RecoveredGlobal_8042839C_lbl_805D0A40_size[sizeof(RecoveredGlobal_8042839C_lbl_805D0A40) == 0x60 ? 1 : -1];
-s32 TLobby__sub_8042839C(void);
+s32 boot_dol__6TLobbyFv(void);
 
 s32 wait_timeout_loop__6TLobbyFPv(u8 *arg0);
 
-void TLobby__sub_804294C4(void);
+void cancel_alarm_b__6TLobbyFv(void);
 
 s32 init_buffer_pool__6TLobbyFv(void);
 
@@ -609,7 +609,7 @@ void TLobby__sub_80429AC8(void) {
     TLobby__sub_80429648();
 }
 
-void TLobby__sub_8042B334(s32 arg0, s32 arg1, s32 arg2) {
+void start_exi_send__6TLobbyFiii(s32 arg0, s32 arg1, s32 arg2) {
     s32 var_r3;
     s32 var_r4;
     lbl_805D7C7C = arg0;
@@ -639,11 +639,11 @@ M2C_UNK exi_start_send_dma__6TLobbyFii(int, int) {
     }
 }
 
-void TLobby__sub_8042B538(void *dst) {
+void copy_6_byte_config__6TLobbyFPv(void *dst) {
     memcpy(dst, &lbl_805D7C30, 6);
 }
 
-void TLobby__sub_8042B560(s32 arg0) {
+void copy_mac_address__6TLobbyFi(s32 arg0) {
     memcpy((void *) (&lbl_805D7C30), (void *) (arg0), (int) (6));
 }
 

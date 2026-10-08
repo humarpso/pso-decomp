@@ -285,7 +285,7 @@ f32 calc_elapsed_scaled__9TObjEneDDFv(void *);
 s32 clear_attack_receipts(void *);
 M2C_UNK transition_enemy_state(void *, M2C_UNK);
 void TObjEneRe4Bit__sub_800ECD28(u8 *arg0, s32 arg1);
-void TObjEneRe4Bit__sub_800ED150(u8 *arg0);
+void clear_state_flags_when_done__13TObjEneRe4BitFPv(u8 *arg0);
 M2C_UNK set_field_378__9TObjEneDDFPvi(void *, M2C_UNK);
 M2C_UNK transition_enemy_state(void *, M2C_UNK);
 M2C_UNK update_homing_velocity__13TObjEneRe4BitFPv(void *);
@@ -607,7 +607,7 @@ void TObjEneRe4Bit__vt85(s32 arg0, u32 arg1, s32 arg2) {
     }
 }
 
-void TObjEneRe4Bit__sub_800ED150(u8 *arg0) {
+void clear_state_flags_when_done__13TObjEneRe4BitFPv(u8 *arg0) {
     s32 temp_r3;
     temp_r3 = M2C_FIELD(arg0, s32 *, 0x3CC);
     if (temp_r3 & 4) {

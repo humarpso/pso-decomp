@@ -237,7 +237,7 @@ s32 is_bit10_set__15TWindowFukidasiFPv(void *);
 s32 refresh_status_display__9TWindowDDFv(int);
 void TWindowSubSymbolChat__sub_802483F0(void *, f32 *);
 M2C_UNK set_symbol_chat_parts__20TWindowSubSymbolChatFiPv(void *, u32 *);
-M2C_UNK TWindowSubSymbolChat__sub_80248494(void *, s16);
+M2C_UNK init_layout_entries__20TWindowSubSymbolChatFii(void *, s16);
 s32 draw_resolved_window__15TWindowFukidasiFiiii(Fuki_80250F70 *, f32 *, f32 *, s32);
 void hide__15TWindowFukidasiFPv(void *);
 f32 * get_message_by_type__11TWindowCtrlFci(u8, int);
@@ -960,7 +960,7 @@ void open__15TWindowFukidasiFPvPvi(u8 *arg0, u32 *arg1, s32 arg2) {
     if ((u8) M2C_FIELD(arg0, u8 *, 0x72) != 1) {
         M2C_FIELD(arg0, u8 *, 0x72) = 1U;
         destroy_all_items__20TWindowSubStatusDispFPv(arg0 + 0x24);
-        TWindowSubSymbolChat__sub_80248494(arg0 + 0x24, M2C_FIELD(arg0, s16 *, 0x20));
+        init_layout_entries__20TWindowSubSymbolChatFii(arg0 + 0x24, M2C_FIELD(arg0, s16 *, 0x20));
         if ((u8) M2C_FIELD(arg0, u8 *, 0x70) != 0) {
             var_r31 = 1;
         }

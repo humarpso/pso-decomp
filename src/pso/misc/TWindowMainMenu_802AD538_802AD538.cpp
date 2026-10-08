@@ -133,7 +133,7 @@ void init_color__15TWindowMainMenuFPv(void *a0);
 void pop_level__15TWindowMainMenuFPv(MM_802AD90C *arg0);
 void park_selection__15TWindowMainMenuFPv(Menu_802AD980 *arg0);
 void TWindowMainMenu__sub_802ADA48(Col_802ADA48 *arg0, Col_802ADA48 *arg1);
-int TWindowMainMenu__sub_802ADAAC(Obj_802ADAAC *self);
+int get_selected_item_type__15TWindowMainMenuFPv(Obj_802ADAAC *self);
 void TWindowMainMenu__sub_802ADADC(Obj_802ADADC *self, s8 i);
 int TWindowMainMenu__sub_802ADB00(u8 *arg0);
 void clear_menu_flags__15TWindowMainMenuFPv(void* p);
@@ -141,7 +141,7 @@ int is_flag_set__15TWindowMainMenuFPv(void* p);
 int get_menu_flag__15TWindowMainMenuFPv(void* p);
 u8 * find_active_item_by_id__15TWindowMainMenuFii(s32 arg0, s32 arg1);
 s32 find_free_slot__15TWindowMainMenuFi(s32 arg0);
-int TWindowMainMenu__sub_802ADC04(Obj_802ADC04 *self);
+int find_free_item_slot__15TWindowMainMenuFPv(Obj_802ADC04 *self);
 s32 count_active_items__15TWindowMainMenuFi(s32 arg0);
 void get_row_position__15TWindowMainMenuFiPvi(s32 arg0, void *arg1, s32 arg2);
 s32 is_not_split_screen__15TWindowMainMenuFv(void);
@@ -177,7 +177,7 @@ extern const f32 lbl_805DE1A4;
 extern f32 lbl_805DE1A8;
 
 extern "C" {
-int TWindowMainMenu__sub_802ADC04(Obj_802ADC04 *self);
+int find_free_item_slot__15TWindowMainMenuFPv(Obj_802ADC04 *self);
 }
 
 void draw_item_labels__15TWindowMainMenuFv(Item_802AD538 *p, Win_802AD538 *w) {
@@ -371,7 +371,7 @@ extern int fold_flush_4;
 #pragma inline_depth(1)
 #pragma auto_inline off
 #pragma dont_inline off
-int TWindowMainMenu__sub_802ADAAC(Obj_802ADAAC *self) {
+int get_selected_item_type__15TWindowMainMenuFPv(Obj_802ADAAC *self) {
     Item_802ADAAC *p = self->items[self->idx];
     if (p == 0) return 0x1f;
     return p->f11;
@@ -466,7 +466,7 @@ loop_1:
     goto loop_1;
 }
 
-int TWindowMainMenu__sub_802ADC04(Obj_802ADC04 *self) {
+int find_free_item_slot__15TWindowMainMenuFPv(Obj_802ADC04 *self) {
     s32 i;
     for (i = 0; i < 8; i++) {
         if (self->items[i] == 0) return i;
@@ -515,7 +515,7 @@ s32 append_child_rows__15TWindowMainMenuFPvi(Menu_802ADD38 *arg0, s32 arg1) {
     u8 sp8[8];
     s32 n;
     s32 slot;
-    n = ((s32 (*)(void))TWindowMainMenu__sub_802ADC04)();
+    n = ((s32 (*)(void))find_free_item_slot__15TWindowMainMenuFPv)();
     if (n >= 8) {
         return 0;
     }
@@ -621,7 +621,7 @@ void play_cursor_sound__15TWindowMainMenuFv(Menu_802AE4DC *m, int d) {
     int n;
     play_sound_effect(0x54100, 0, 0, 0);
     m->items[m->cur]->sel = 0;
-    n = TWindowMainMenu__sub_802ADC04((Obj_802ADC04 *)m);
+    n = find_free_item_slot__15TWindowMainMenuFPv((Obj_802ADC04 *)m);
     m->cur += d;
     if (m->cur < 0) {
         m->cur = n - 1;

@@ -15,7 +15,7 @@ struct RecoveredGlobal_8027DA14___vt__26TWindowSubQuestBoardSelect {
 
 extern "C" {
 int alloc__23TAdSinglePlyChrSelectGCFPv(void *);
-u8 * TQuestThread__sub_801F5E58(void);
+u8 * get_quest_name__12TQuestThreadFv(void);
 s32 get_array_entry__20TWindowSubStatusDispFPvi(void *, s32);
 s32 get_field_20__17TWindowSubComCardFPv(void *);
 u8 * get_window_layout_position(s32);
@@ -54,7 +54,7 @@ u8 *TWindowSubQuestBoardSelect__ct(u8 *arg0) {
     M2C_FIELD(arg0, s32 *, 0x64) = var_r30;
     M2C_FIELD(arg0, s8 *, 0x60) = 0;
     temp_r30 = get_array_entry__20TWindowSubStatusDispFPvi(arg0, 0);
-    set_text_entry_string((int) (temp_r30), (int) (TQuestThread__sub_801F5E58()), (int) (0));
+    set_text_entry_string((int) (temp_r30), (int) (get_quest_name__12TQuestThreadFv()), (int) (0));
     get_field_20__17TWindowSubComCardFPv((void *) temp_r30);
     temp_f2 = (f32) calc_text_width();
     M2C_FIELD(temp_r30, f32 *, 8) = (f32) -((lbl_805DD6BC * temp_f2) - lbl_805DD6B8);

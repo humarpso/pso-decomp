@@ -43,7 +43,7 @@ s32 TWindowShortListCtrl__check_controller_button(void *, int);
 M2C_UNK play_sound_effect(int, void *, int, int);
 extern Ports_80306DF4 lbl_80475410;
 extern Pad_80306DF4 lbl_8050E3B8[];
-void TAdMultiOkGC__sub_80306DF4(void *arg0, int arg1);
+void handle_player_buttons__12TAdMultiOkGCFPvi(void *arg0, int arg1);
 M2C_UNK set_global_param__8TObjFishFi(s32);
 M2C_UNK begin_screen_draw(int);
 M2C_UNK get_player__20TWindowSubStatusDispFv();
@@ -129,7 +129,7 @@ void TAdMultiOkGC__sub_80306C70(void *arg0, int arg1) {
 }
 #pragma pop
 
-void TAdMultiOkGC__sub_80306DF4(void *arg0, int arg1) {
+void handle_player_buttons__12TAdMultiOkGCFPvi(void *arg0, int arg1) {
     O_80306DF4 *o = (O_80306DF4 *)arg0;
     Ports_80306DF4 ports = lbl_80475410;
     if (TWindowShortListCtrl__check_controller_button(lbl_8050E3B8[ports.v[o->port[arg1]]].btn, 4) != 0) {
@@ -156,7 +156,7 @@ void TAdMultiOkGC__sub_80306DF4(void *arg0, int arg1) {
 void run_task__12TAdMultiOkGCFv(Ok_80306F84 *o) {
     s32 i;
     for (i = 0; i < o->count; i++) {
-        TAdMultiOkGC__sub_80306DF4((void *)(o), (int)(i));
+        handle_player_buttons__12TAdMultiOkGCFPvi((void *)(o), (int)(i));
         TAdMultiOkGC__sub_80306C70((void *)(o), (int)(i));
     }
 }

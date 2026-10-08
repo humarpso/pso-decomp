@@ -403,7 +403,7 @@ extern const f32 lbl_805DE308;
 int rand_range_inclusive__11TBoss6Type1Fiii(M2C_UNK arg0, int arg1, int arg2);
 extern RecoveredGlobal_802B5938_lbl_80470FFC lbl_80470FFC;
 extern RecoveredGlobal_802B5938_lbl_80471008 lbl_80471008;
-void TBoss6Type1__sub_802B5938(s32 arg0);
+void request_default_jittered_camera__11TBoss6Type1Fi(s32 arg0);
 extern RecoveredGlobal_802B5970_lbl_80470FE4 lbl_80470FE4;
 extern RecoveredGlobal_802B5970_lbl_80470FF0 lbl_80470FF0;
 void TBoss6Type1__sub_802B5970(s32 arg0);
@@ -438,7 +438,7 @@ s32 request_destroy__11TBoss4Type2FUi(int);
 void release_effect_slot__11TBoss6Type1Fii(s32 arg0, s32 arg1);
 void release_effect_slot__11TBoss6Type1Fii(s32 arg0, s32 arg1);
 void TBoss6Type1__sub_802B4CF4(s32 arg0);
-void TBoss6Type1__sub_802B5938(s32 arg0);
+void request_default_jittered_camera__11TBoss6Type1Fi(s32 arg0);
 void TBoss6Type1__sub_802B5970(s32 arg0);
 void TBoss6Type1__sub_802B59A8(void);
 void TBoss6Type1__sub_802B59CC(void *);
@@ -974,7 +974,7 @@ s32 request_jittered_camera__11TBoss6Type1FPvPvPvi(void *arg0, void *arg1, void 
 }
 #pragma pop
 
-void TBoss6Type1__sub_802B5938(s32 arg0) {
+void request_default_jittered_camera__11TBoss6Type1Fi(s32 arg0) {
     request_jittered_camera__11TBoss6Type1FPvPvPvi((void *)((void *) (arg0)), (void *)((void *) (&lbl_80470FFC.value)), (void *)((void *) (&lbl_80471008.value)), (int)((int) (0xFFFF)));
 }
 
@@ -1100,11 +1100,11 @@ void TBoss6Type1__sub_802B5CB4(u8 *arg0) {
     case 34:
     case 35:
     case 36:
-        TBoss6Type1__sub_802B5938((s32) arg0);
+        request_default_jittered_camera__11TBoss6Type1Fi((s32) arg0);
         break;
     case 37:
         if ((s32) M2C_FIELD(arg0, s32 *, 0x410) > (s32) ((f32) M2C_FIELD(arg0, s32 *, 0x40C) - lbl_805DE348)) {
-            TBoss6Type1__sub_802B5938((s32) arg0);
+            request_default_jittered_camera__11TBoss6Type1Fi((s32) arg0);
             break;
         }
         break;

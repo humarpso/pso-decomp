@@ -631,7 +631,7 @@ M2C_UNK enable__13TParticleCtrlFPv(void *);
 M2C_UNK enemy_set_target_id(void *, u16);
 s32 transform_relative_position__9TObjEneDDFPvPv(void *, void *);
 M2C_UNK calc_wall_clamped_destination(void *, void *, f32, f32, f32);
-s32 TObjEneDD__sub_800BB45C(void *, f32);
+s32 collect_target_candidates__9TObjEneDDFif(void *, f32);
 M2C_UNK subtract_vector(void *, void *);
 extern Tgt_800E54E8 lbl_80500B98[];
 f64 get_ad_end_text_start__10TObjPlayerFv(f32, f32);
@@ -3205,7 +3205,7 @@ void TObjEneMe3ShinowaMirage__sub_800E54E8(void *arg0_, s32 arg1) {
     case 3: {
         if (F(s32, 0x404) >= 40) {
             TObjEneMe3Shinowa__sub_800E7268(arg0);
-            s32 r = TObjEneDD__sub_800BB45C(arg0, lbl_805DA600);
+            s32 r = collect_target_candidates__9TObjEneDDFif(arg0, lbl_805DA600);
             if (r > 0) {
                 enemy_set_target_id(arg0, lbl_80500B98[r - 1].id);
                 transition_enemy_state(arg0, 4);

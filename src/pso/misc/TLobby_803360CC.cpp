@@ -103,7 +103,7 @@ void TKeyBoardControl__sub_8000F90C(int);
 int TKeyBoardControl__sub_8000F9CC(void*);
 M2C_UNK queue_destruction__7TObjectFv(void*);
 void set_flag_4__9TObjLukerFPv(void *);
-s32 TKeyBoardControl__sub_80132368(void *);
+s32 has_any_key_pressed__16TKeyBoardControlFPv(void *);
 s32 any_pad_input_active__16TKeyBoardControlFv();
 s32 probe_card_slot__15TAdPlayerLoadGCFi(int);
 M2C_UNK TWindowOptionCtrl__sub_802273B4(int);
@@ -217,7 +217,7 @@ void update_title_idle_transition(Obj_80336340 *arg0) {
         return;
     }
     if ((s32) M2C_FIELD(arg0, s32 *, 0x34) < (s32) M2C_FIELD(arg0, s32 *, 0x38)) {
-        if ((TKeyBoardControl__sub_80132368((void *) (&TKeyBoardControl__data_80506270.value)) != 0) || (any_pad_input_active__16TKeyBoardControlFv() != 0)) {
+        if ((has_any_key_pressed__16TKeyBoardControlFPv((void *) (&TKeyBoardControl__data_80506270.value)) != 0) || (any_pad_input_active__16TKeyBoardControlFv() != 0)) {
             M2C_FIELD(arg0, s32 *, 0x34) = 0;
         }
         TLobby__sub_803362A4((void *) (arg0));

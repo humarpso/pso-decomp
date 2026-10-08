@@ -35,7 +35,7 @@ void load_models__22TObjContainerJungEnemyFPv(void *arg0);
 s32 TObjContainerJungEx__sub_8018D900(M2C_UNK);
 s32 get_model__19TObjContainerJungExFi(M2C_UNK);
 s32 TObjContainerJung__sub_8018D3B8(M2C_UNK);
-s32 TObjContainerJung__sub_8018D3C0(M2C_UNK);
+s32 get_model_by_index__17TObjContainerJungFi(M2C_UNK);
 M2C_UNK free_collision_body_parts(void *);
 M2C_UNK unregister_object_by_id(void *);
 M2C_UNK submit_cursor_candidate(void *, M2C_UNK);
@@ -70,10 +70,10 @@ void load_models__22TObjContainerJungEnemyFPv(void *arg0) {
     }
     switch (var_r0) {
     case 0:
-        M2C_FIELD(arg0, s32 *, 0x368) = TObjContainerJung__sub_8018D3C0(0);
-        M2C_FIELD(arg0, s32 *, 0x36C) = TObjContainerJung__sub_8018D3C0(1);
-        M2C_FIELD(arg0, s32 *, 0x370) = TObjContainerJung__sub_8018D3C0(2);
-        M2C_FIELD(arg0, s32 *, 0x374) = TObjContainerJung__sub_8018D3C0(3);
+        M2C_FIELD(arg0, s32 *, 0x368) = get_model_by_index__17TObjContainerJungFi(0);
+        M2C_FIELD(arg0, s32 *, 0x36C) = get_model_by_index__17TObjContainerJungFi(1);
+        M2C_FIELD(arg0, s32 *, 0x370) = get_model_by_index__17TObjContainerJungFi(2);
+        M2C_FIELD(arg0, s32 *, 0x374) = get_model_by_index__17TObjContainerJungFi(3);
         M2C_FIELD(arg0, s32 *, 0x24) = TObjContainerJung__sub_8018D3B8(0);
         return;
     default:

@@ -36,7 +36,7 @@ M2C_UNK close_player_windows__19TPlayerBattleCtrl4PFPv(void *);
 M2C_UNK TWindow__close(void *);
 M2C_UNK __dl__7TObjectFPv(void *);
 M2C_UNK __dt__7TObjectFv(void *, M2C_UNK);
-void TPlayerBattleCtrl4P__sub_80312994(Self_80312994 *self);
+void dispatch_mode_action__19TPlayerBattleCtrl4PFPv(Self_80312994 *self);
 extern s32 TPlayerBattleCtrl4P__data_805D6AA8;
 extern u8 lbl_80475930[];
 extern u8 lbl_8047595C[];
@@ -108,7 +108,7 @@ void TPlayerBattleCtrl4P__vt7(void *arg0) {
 }
 
 #pragma defer_codegen on
-void TPlayerBattleCtrl4P__sub_80312994(Self_80312994 *self) {
+void dispatch_mode_action__19TPlayerBattleCtrl4PFPv(Self_80312994 *self) {
     static Action_80312994 tbl[6] = {
         &Self_80312994::m0, &Self_80312994::m1, &Self_80312994::m2,
         &Self_80312994::m3, &Self_80312994::m4, &Self_80312994::m5,
@@ -170,7 +170,7 @@ void *TPlayerBattleCtrl4P_player_name_formats[4] = {
     (void *)&lbl_805DF230, (void *)&lbl_805DF234, (void *)&lbl_805DF238, (void *)&lbl_805DF23C,
 };
 void *lbl_804E80A8[6] = {
-    (void *)0x0, (void *)0x0, (void *)&__dt__19TPlayerBattleCtrl4PFPvs, (void *)&TPlayerBattleCtrl4P__sub_80312994,
+    (void *)0x0, (void *)0x0, (void *)&__dt__19TPlayerBattleCtrl4PFPvs, (void *)&dispatch_mode_action__19TPlayerBattleCtrl4PFPv,
     (void *)&render__7TObjectFv, (void *)&render_shadows__7TObjectFv,
 };
 #define lbl_804E80A8 ((M2C_UNK *)lbl_804E80A8)

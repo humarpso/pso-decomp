@@ -37,7 +37,7 @@ u8 read_byte__22TQuestVmDownLoadServerFPv(void *arg0);
 void TQuestVmDownLoadServer__sub_80222754(void *arg0, s8 arg1);
 void TQuestVmDownLoadServer__sub_80222768(void *arg0, s32 arg1, s32 arg2);
 s32 parse_message_text__22TQuestVmDownLoadServerFPvii(void *arg0, s32 arg1, s32 arg2);
-s32 TQuestThread__sub_801F5E58(void);
+s32 get_quest_name__12TQuestThreadFv(void);
 void TQuestVmDownLoadServer__sub_80222704(void *arg0, s32 arg1);
 int strcmp(const char *, const char *);
 extern u8 lbl_8044C290[];
@@ -102,7 +102,7 @@ void TQuestVmDownLoadServer__sub_80222480(void *arg0) {
 }
 
 void TQuestVmDownLoadServer__sub_8022250C(void *arg0) {
-    s32 t = TQuestThread__sub_801F5E58();
+    s32 t = get_quest_name__12TQuestThreadFv();
     if (strcmp((const char *)t, (const char *)lbl_8044C290) == 0) {
         TQuestVmDownLoadServer__sub_80222704(arg0, t);
         return;

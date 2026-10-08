@@ -100,7 +100,7 @@ s32 is_active__22TWindowSubCustomSelectFPv(void *);
 s32 fn_80275D90(void *);
 s32 is_selected__21TWindowSubCustomEquipFPv(s32);
 s32 TWindowSubCustomEquip__sub_80275DA8(s32);
-M2C_UNK TWindowSubCustomEquip__sub_80275DB4(s32);
+M2C_UNK clear_flag_and_set_entry_state__21TWindowSubCustomEquipFPv(s32);
 M2C_UNK get_cursor_pos__21TWindowSubCustomEquipFPvPv(s32, Ev_802758C8 *);
 M2C_UNK toggle_action_binding__21TWindowSubCustomEquipFPvPv(s32, Ev_802758C8 *);
 Ev_802758C8 *calc_equip_index__21TWindowSubCustomEquipFPv(void *);
@@ -294,7 +294,7 @@ void update_customize_state__21TWindowSubCustomEquipFPv(Self_80275A8C *self) {
             TWindow__close(self->f2c);
             self->f2c = NULL;
         }
-        TWindowSubCustomEquip__sub_80275DB4(self->f28);
+        clear_flag_and_set_entry_state__21TWindowSubCustomEquipFPv(self->f28);
         self->state = 2;
     case 2:
         get_cursor_pos__21TWindowSubCustomEquipFPvPv(self->f28, &ev);

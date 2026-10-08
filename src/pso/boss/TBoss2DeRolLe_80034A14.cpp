@@ -150,7 +150,7 @@ extern "C" {
 f32 TBoss2DeRolLe__sub_80034CEC(void);
 f32 TBoss2DeRolLe__sub_80034CF8(void);
 extern u8 *TBoss2DeRolLe__instance;
-void TBoss2DeRolLe__sub_80034DCC(s32 arg0);
+void forward_switch_phase_stats__13TBoss2DeRolLeFi(s32 arg0);
 extern f32 TBoss2DeRolLe__data_805D82BC;
 void switch_phase_stats__13TBoss2DeRolLeFPvPv(u8 *arg0, u8 *arg1);
 s32 VecCopy__FP3VecPC3Vec(s32, s32);
@@ -353,7 +353,7 @@ void switch_phase_stats__13TBoss2DeRolLeFPvPv(u8 *arg0, u8 *arg1) {
     }
 }
 
-void TBoss2DeRolLe__sub_80034DCC(s32 arg0) {
+void forward_switch_phase_stats__13TBoss2DeRolLeFi(s32 arg0) {
     if ((void *) TBoss2DeRolLe__instance != NULL) {
         switch_phase_stats__13TBoss2DeRolLeFPvPv((u8 *)(TBoss2DeRolLe__instance), (u8 *)(arg0));
     }

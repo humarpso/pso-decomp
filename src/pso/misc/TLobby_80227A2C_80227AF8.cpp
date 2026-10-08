@@ -206,10 +206,10 @@ extern M2C_UNK lbl_80514F64[];
 void apply_clamped_field_27c__6TLobbyFv(void);
 M2C_UNK get_field_0x280__6TLobbyFPv(M2C_UNK *);
 extern M2C_UNK lbl_80514F64[];
-void TLobby__sub_80227CC0(void);
+void get_menu_field_280__6TLobbyFv(void);
 M2C_UNK set_menu_index__6TLobbyFPvi(void *, int);
 extern M2C_UNK lbl_80514F64[];
-void TLobby__sub_80227CE8(u8 *arg0);
+void set_menu_index_main__6TLobbyFPv(u8 *arg0);
 M2C_UNK is_ready__6TLobbyFPv(M2C_UNK *);
 extern M2C_UNK lbl_80514F64[];
 void is_sound_enabled(void);
@@ -313,14 +313,14 @@ void set_mode__6TLobbyFi(s32 arg0) {
     set_mode__6TLobbyFPvi(lbl_80514F64, arg0);
 }
 
-void TLobby__sub_80227CC0(void) {
+void get_menu_field_280__6TLobbyFv(void) {
     get_field_0x280__6TLobbyFPv((M2C_UNK *)(&(*(RecoveredGlobal_8000F7FC_lbl_80515F48 *)&lbl_80514F64).value));
 }
 
 typedef char RecoveredGlobal_80069094_camera_controller_registry_size[sizeof(RecoveredGlobal_80069094_camera_controller_registry) == 0x68 ? 1 : -1];
 typedef char RecoveredGlobal_800687E4_TCameraCtrl__data_804FF6C4_size[sizeof(RecoveredGlobal_800687E4_TCameraCtrl__data_804FF6C4) == 0xC ? 1 : -1];
 typedef char RecoveredGlobal_800687C8_TCameraCtrl__data_804FF6C4_size[sizeof(RecoveredGlobal_800687C8_TCameraCtrl__data_804FF6C4) == 0xC ? 1 : -1];
-void TLobby__sub_80227CE8(u8 *arg0) {
+void set_menu_index_main__6TLobbyFPv(u8 *arg0) {
     set_menu_index__6TLobbyFPvi((void *)(&(*(RecoveredGlobal_800687E4_TCameraCtrl__data_804FF6C4 *)&lbl_80514F64).value), (int)(arg0));
 }
 typedef char RecoveredGlobal_80069024_TCameraCtrl__data_804FF634_size[sizeof(RecoveredGlobal_80069024_TCameraCtrl__data_804FF634) == 0x48 ? 1 : -1];

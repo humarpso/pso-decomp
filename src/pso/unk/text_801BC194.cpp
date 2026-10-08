@@ -36,7 +36,7 @@ M2C_UNK TForceOperate__ct(void *, s32, u16);
 M2C_UNK copy_offset_position__10TObjPlayerFPvPv(void *, void *);
 M2C_UNK clear_movement_history(void *);
 s32 TObjPlayer__sub_801D8C3C(void *);
-u8 *TObjPlayer__sub_801D8C6C(void *);
+u8 *get_lobby_entry_ptr__10TObjPlayerFv(void *);
 void *__nw__7TObjectFUl(u32);
 void *consume_telepipe_arrival(u16, void *);
 extern Ent_801BC194 TObjPlayer__data_8050E920[];
@@ -54,7 +54,7 @@ void place_on_area_entry__10TObjPlayerFPv(u8 *arg0) {
         is_locally_controlled__10TObjPlayerFPv(arg0) != 0 && has_active_camera_event__10TObjPlayerFv(arg0) == 0 &&
         check_flag__10TObjPlayerFPvi(arg0, 0x100000) == 0 && is_key_machine_ready__10TObjPlayerFv() != 0) {
         set_state_flags__10TObjPlayerFPvUi(arg0, 0x100000);
-        set_position_from__14TBoss4DarkFalzFPvPv(arg0, TObjPlayer__sub_801D8C6C(arg0));
+        set_position_from__14TBoss4DarkFalzFPvPv(arg0, get_lobby_entry_ptr__10TObjPlayerFv(arg0));
         M2C_FIELD(arg0, s32 *, 0x60) = TObjPlayer__sub_801D8C3C(arg0);
         play_effect_default__10TObjPlayerFii(arg0, 0x1E);
         set_camera_mode__10TObjPlayerFi(3);

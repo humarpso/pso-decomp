@@ -14,7 +14,7 @@ s32 find_nearest_hittable_enemy__10TObjPlayerFiPvf(void *, void *, f32);
 int find_nearest_enemy_with_flag__15TObjEneSlimeOneFPvif(u8 *arg0, s32 arg1, f32 farg0);
 s32 find_nearest_hittable_enemy__10TObjPlayerFiPvf(void *, void *, f32);
 int find_nearest_enemy_masked__15TObjEneSlimeOneFPvf(u8 *arg0, f32 farg0);
-s32 TObjEneSlimeOne__sub_800EC39C(O_800EC39C *self);
+s32 is_in_water_bomb_states__15TObjEneSlimeOneFPv(O_800EC39C *self);
 void advance_animation_playback(s32);
 extern s8 lbl_805D52C4;
 extern f32 lbl_805D52C0;
@@ -58,7 +58,7 @@ s32 get_attack_target__15TObjEneSlimeOneFPv(void* p) { return *(s32*)((char*)p +
 
     extern int lbl_805D52B0;
 
-s32 TObjEneSlimeOne__sub_800EC39C(O_800EC39C *self) {
+s32 is_in_water_bomb_states__15TObjEneSlimeOneFPv(O_800EC39C *self) {
     return self->state == 11 || self->state == 12 || self->state == 13;
 }
 

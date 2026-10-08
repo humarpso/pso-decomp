@@ -104,7 +104,7 @@ s32 TQuestVmDownLoadServer__sub_803EDF64(s16 *, s32, u16 *, s32 *);
 extern s16 lbl_80596264[0x200];
 s32 convert_jis_to_sjis_string__22TQuestVmDownLoadServerFPv(s32 *arg0);
 M2C_UNK TQuestVmDownLoadServer__sub_803EE870(void *, int);
-M2C_UNK TQuestVmDownLoadServer__sub_803E9F20(int);
+M2C_UNK latch_slot_value__22TQuestVmDownLoadServerFi(int);
 M2C_UNK TQuestVmDownLoadServer__sub_803EAE84(int, int, int);
 s32 TQuestVmDownLoadServer__sub_803EDB90(void *, void *);
 extern s32 lbl_805D7898;
@@ -255,7 +255,7 @@ s32 TQuestVmDownLoadServer__sub_803E5990(u8 *arg0) {
     if ((s32) lbl_805D78EC <= 1) {
         return 0;
     }
-    TQuestVmDownLoadServer__sub_803E9F20(lbl_805D78F0);
+    latch_slot_value__22TQuestVmDownLoadServerFi(lbl_805D78F0);
     TQuestVmDownLoadServer__sub_803EAE84(lbl_805D78F0, lbl_805D78C0, 1);
     lbl_805D78EC -= 1;
     TQuestVmDownLoadServer__sub_803EA9E8(lbl_805D78F0, lbl_805D78C0, 1, lbl_805D78EC);
@@ -276,7 +276,7 @@ s32 TQuestVmDownLoadServer__sub_803E5A8C(u8 *arg0) {
     if ((s32) (lbl_805D78F0 + lbl_805D78EC) >= (s32) lbl_805D78C0) {
         return 0;
     }
-    TQuestVmDownLoadServer__sub_803E9F20(lbl_805D78F0);
+    latch_slot_value__22TQuestVmDownLoadServerFi(lbl_805D78F0);
     TQuestVmDownLoadServer__sub_803EAE84(lbl_805D78F0, lbl_805D78C0, 1);
     lbl_805D78EC += 1;
     TQuestVmDownLoadServer__sub_803EA9E8(lbl_805D78F0, lbl_805D78C0, 1, lbl_805D78EC);

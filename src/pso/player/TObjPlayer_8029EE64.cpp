@@ -71,7 +71,7 @@ void render_object_layers__9TMainTaskFi(void *, s32);
 s32 fn_8029E7BC(Vec_8029EFFC *, Vec_8029EFFC *);
 s32 fn_8029EC3C(Vec_8029EFFC *, s32);
 void set_scene_flag__10TSceneSoraFi(s32);
-void TSceneSora__sub_8029F584(Vec_8029EFFC *);
+void copy_reflection_vec__10TSceneSoraFPv(Vec_8029EFFC *);
 void TScene__sub_8029F5D8();
 void TScene__sub_8029F5E4(f32);
 void TScene__sub_8029F5EC();
@@ -168,7 +168,7 @@ void render_reflections__10TSceneSoraFPv(Sora_8029EFFC *o) {
     if (TSceneSora__data_805D6050 != 0) {
         TSceneSora__data_805D3620 = 0;
     }
-    TSceneSora__sub_8029F584(&v);
+    copy_reflection_vec__10TSceneSoraFPv(&v);
     lbl_805D65F8 = 1;
     {
         Vec_8029EFFC off = p->pos2FC;
@@ -248,7 +248,7 @@ void render_reflections__10TSceneSoraFPv(Sora_8029EFFC *o) {
         if (k != vec_squared_length(&v)) {
             Vec_8029EFFC tmp;
             normalize_vector(&v);
-            TSceneSora__sub_8029F584(&v);
+            copy_reflection_vec__10TSceneSoraFPv(&v);
             push_matrix();
             push_matrix();
             VecCopy__FP3VecPC3Vec(&tmp, &p->pos2FC);

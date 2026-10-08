@@ -66,7 +66,7 @@ void update__22TAdMultiPlyChrSelectGCFPv(void *arg0);
 void update_card_select__22TAdMultiPlyChrSelectGCFPv(void *arg0);
 void update_state_option__22TAdMultiPlyChrSelectGCFPv(void *arg0);
 void update_card_confirm__22TAdMultiPlyChrSelectGCFPv(void *arg0);
-M2C_UNK TAdGameStartGC__sub_802E6380(s32);
+M2C_UNK destroy_windows__14TAdGameStartGCFPv(s32);
 M2C_UNK set_entry_value__22TAdMultiPlyChrSelectGCFiiUi(s32, M2C_UNK, M2C_UNK *);
 s32 TAdMultiPlyChrSelectGC__sub_802DBCE8(void *);
 s32 is_visible__17TWindowSubComCardFPv(s32);
@@ -77,7 +77,7 @@ s32 get_card_data__17TWindowSubComCardFPv(s32);
 s32 is_child_visible__17TWindowSubComCardFPv(s32);
 M2C_UNK TWindow__close(void *);
 M2C_UNK clear_flag_and_release__17TWindowSubComCardFPv(u32);
-M2C_UNK TAdSinglePlyChrSelectGC__sub_801FE2D0();
+M2C_UNK clear_entry__23TAdSinglePlyChrSelectGCFi();
 M2C_UNK clear_slot_body__23TAdSinglePlyChrSelectGCFi(s32);
 M2C_UNK play_sound_effect(M2C_UNK, M2C_UNK, M2C_UNK, M2C_UNK);
 M2C_UNK clear_transition_flag__17TWindowSubComCardFPv(u32);
@@ -106,7 +106,7 @@ M2C_UNK queue_destruction__7TObjectFv(void *);
 extern M2C_UNK TAdMultiPlyChrSelectGC__data_805DE898;
 
 void open_windows__22TAdMultiPlyChrSelectGCFPv(void *arg0) {
-    TAdGameStartGC__sub_802E6380(M2C_FIELD(arg0, s32 *, 0x78));
+    destroy_windows__14TAdGameStartGCFPv(M2C_FIELD(arg0, s32 *, 0x78));
     set_select_mode__22TAdMultiPlyChrSelectGCFii(M2C_FIELD(arg0, s32 *, 0x5C), 1);
     set_index_and_close_status__22TAdMultiPlyChrSelectGCFPvi(M2C_FIELD(arg0, s32 *, 0x60), 1);
     M2C_FIELD(arg0, s32 *, 0x68) = get_or_create_slot_window__22TAdMultiPlyChrSelectGCFii(arg0, 2);
@@ -182,7 +182,7 @@ void update__22TAdMultiPlyChrSelectGCFPv(void *arg0) {
             return;
         case 0:
             TAdMultiPlyChrSelectGC__sub_802DFFE8((s32)(M2C_FIELD(arg0, s32 *, 0x5C)));
-            TAdSinglePlyChrSelectGC__sub_801FE2D0();
+            clear_entry__23TAdSinglePlyChrSelectGCFi();
             set_cursor_index__22TAdMultiPlyChrSelectGCFPvi(M2C_FIELD(arg0, s32 *, 0x68), 0xF);
             set_state_ready__22TAdMultiPlyChrSelectGCFPv((void*)(M2C_FIELD(arg0, s32 *, 0x5C)));
             M2C_FIELD(arg0, s32 *, 0x20) = 8;

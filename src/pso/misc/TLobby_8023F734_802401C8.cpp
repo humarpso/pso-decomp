@@ -35,7 +35,7 @@ struct Lobby_802401D0 {
 };
 
 extern "C" {
-s32 TLobby__sub_80240310(u8 *arg0);
+s32 reset_sound_state__6TLobbyFPv(u8 *arg0);
 M2C_UNK TLobby__sub_8023FF38();
 M2C_UNK fade_voice_channels__6TLobbyFi(int);
 M2C_UNK sndPopGroup();
@@ -85,7 +85,7 @@ s32 update_sound_frame(Lobby_802401D0 *self) {
     return 0;
 }
 
-s32 TLobby__sub_80240310(u8 *arg0) {
+s32 reset_sound_state__6TLobbyFPv(u8 *arg0) {
     pop_sound_groups__6TLobbyFPvi((void *)(arg0), (s32)(1));
     M2C_FIELD(arg0, s32 *, 0x298) = 4;
     return 0;

@@ -34,7 +34,7 @@ void set_field_13c__13TAdMcSelectGCFPvi(void *, s32);
 void set_field_0x1c__13TAdMcSelectGCFPvi(void *, s32);
 void set_select_index__13TAdMcSelectGCFPvi(void *, s32);
 void TAdMcSelectGC__sub_8032A180(void *, s32);
-void TAdMcSelectGC__sub_8032A188(void *, s32);
+void set_field_134__13TAdMcSelectGCFPvi(void *, s32);
 void set_field_24__13TAdMcSelectGCFPvi(void *, s32);
 void set_field20__13TAdMcSelectGCFPvf(void *, f32);
 void set_field_20__13TAdMcSelectGCFPvi(void *, s32);
@@ -151,7 +151,7 @@ Self_80329EC8 *TAdMcSelectGC__ct(Self_80329EC8 *self, void *parent) {
     if (p != NULL) {
         p = __ct__10TAdTitleGCFv(p, self, 0xD);
     }
-    TAdMcSelectGC__sub_8032A188(p, 0);
+    set_field_134__13TAdMcSelectGCFPvi(p, 0);
     TAdMcSelectGC__sub_8032A180(create_draw_line_ctrl__13TAdMcSelectGCFiif(self, 0x16, lbl_805DF720), 0);
     TAdMcSelectGC__sub_8032A180(create_draw_line_ctrl__13TAdMcSelectGCFiif(self, 0x17, lbl_805DF720), 0);
     p = __nw__7TObjectFUl(0x128);

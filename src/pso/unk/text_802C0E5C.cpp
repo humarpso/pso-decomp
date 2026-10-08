@@ -928,7 +928,7 @@ void draw_demo_lines_and_meshes__10TObjPlayerFPv(u8 *arg0) {
     pop_matrix();
 }
 
-void TObjPlayer__sub_802C1FD0(Pl_802C1FD0 *arg0) {
+void advance_path_step__10TObjPlayerFPv(Pl_802C1FD0 *arg0) {
     u8 *t = (u8 *)lbl_80471890;
     t = t + arg0->idx * 0x14;
     Ent_802C1FD0 *e = (Ent_802C1FD0 *)t;
@@ -1139,7 +1139,7 @@ void draw_demo_trajectory__10TObjPlayerFPv(u8 *arg0) {
     pop_matrix();
 }
 
-void TObjPlayer__sub_802C26E4(Pl_802C26E4 *arg0) {
+void advance_path_follow__10TObjPlayerFPv(Pl_802C26E4 *arg0) {
     Ent_802C26E4 *e = (Ent_802C26E4 *)lbl_80471848;
     e += arg0->idx;
     f32 ox = arg0->x;
@@ -1326,7 +1326,7 @@ void draw_model_parts__10TObjPlayerFPv(u8 *arg0) {
     pop_matrix();
 }
 
-void TObjPlayer__sub_802C2DEC(Pl_802C2DEC *arg0) {
+void advance_path_follow_b__10TObjPlayerFPv(Pl_802C2DEC *arg0) {
     Entry_802C2C48 *e = lbl_804717D4;
     f32 ox;
     e += arg0->idx;

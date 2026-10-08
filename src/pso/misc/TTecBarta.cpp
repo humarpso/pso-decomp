@@ -166,8 +166,8 @@ void queue_destruction__7TObjectFv(TechniqueParticleEmitter*);
 u16 obj_getField1c(void *);
 s32 get_type__10TObjPlayerFPv(void *);
 s32 is_valid_and_active__10TObjPlayerFUi(u32);
-List_8022BD74 *TObjPlayer__sub_80236728(Tec_8022BD74 *, void *);
-List_8022BD74 *TObjPlayer__sub_80236754(Tec_8022BD74 *, void *);
+List_8022BD74 *find_area_contact__10TObjPlayerFPvi(Tec_8022BD74 *, void *);
+List_8022BD74 *collect_body_contacts_for_target__10TObjPlayerFPvi(Tec_8022BD74 *, void *);
 void apply_technique_to_area_targets(Tec_8022BD74 *self);
 }
 
@@ -418,12 +418,12 @@ void apply_technique_to_area_targets(Tec_8022BD74 *self) {
     }
     if (obj_getField1c(self->owner) < 4) {
         if (get_type__10TObjPlayerFPv((u8 *)self->owner + 0x828) != 0) {
-            list = TObjPlayer__sub_80236754(self, self->owner);
+            list = collect_body_contacts_for_target__10TObjPlayerFPvi(self, self->owner);
         } else {
-            list = TObjPlayer__sub_80236728(self, self->owner);
+            list = find_area_contact__10TObjPlayerFPvi(self, self->owner);
         }
     } else {
-        list = TObjPlayer__sub_80236754(self, self->owner);
+        list = collect_body_contacts_for_target__10TObjPlayerFPvi(self, self->owner);
     }
     for (i = 0; i < list->count; i++) {
         if (is_valid_and_active__10TObjPlayerFUi(list->ids[i]) != 0) {

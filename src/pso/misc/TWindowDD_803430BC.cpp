@@ -126,7 +126,7 @@ s32 *get_entry__9TWindowDDFii(void *, s32);
 void TWindowDD__sub_80347F48(void *);
 void init_entry_field_64__9TWindowDDFii(void *, int);
 void TWindowDD__sub_80347FA0(void *, int);
-void TWindowDD__sub_80348DAC(void *);
+void pop_entry__9TWindowDDFPv(void *);
 extern const s32 TWindowDD__data_805DFB50;
 extern const f32 TWindowDD__data_805DFB74;
 extern const f32 lbl_805DFB7C;
@@ -225,7 +225,7 @@ s32 TWindowDD__sub_80340820(int);
 M2C_UNK handle_input__9TWindowDDFPv(int);
 M2C_UNK TWindowDD__sub_80340910(int);
 M2C_UNK TWindowDD__sub_8034091C(int, int);
-M2C_UNK TWindowDD__sub_80340E20(int, int);
+M2C_UNK set_value_f32__9TWindowDDFPvi(int, int);
 M2C_UNK TWindowDD__sub_80341AE0(int);
 M2C_UNK TWindowDD__sub_80341AF8(int);
 s32 TWindowDD__sub_8034217C(int);
@@ -338,7 +338,7 @@ void apply_entry_layout__9TWindowDDFPv(TWindowDD_8034330C *arg0) {
             init_entry_field_64__9TWindowDDFii(arg0, 1);
         }
         if (*prev & 2) {
-            TWindowDD__sub_80348DAC(arg0->fC4);
+            pop_entry__9TWindowDDFPv(arg0->fC4);
             TWindowDD__sub_80347CC8(arg0, arg0->fC4);
         }
     }
@@ -549,7 +549,7 @@ void run_task__9TWindowDDFv(u8 *arg0) {
     }
     cur = w->subs[w->idx];
     if (w->x7C != 0 && cur != NULL) {
-        TWindowDD__sub_80340E20(w->x7C, TWindowDD__sub_8034217C((int)cur));
+        set_value_f32__9TWindowDDFPvi(w->x7C, TWindowDD__sub_8034217C((int)cur));
     }
     switch (w->xA8) {
     case 2:

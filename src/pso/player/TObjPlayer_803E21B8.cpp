@@ -66,7 +66,7 @@ s32 TObjPlayer__sub_803E24E0(void);
 s32 apply_cached_blend_mode(s32 arg0);
 s32 apply_blend_mode_1__10TObjPlayerFv(void);
 s32 GXSetNumTexGens(s32 arg0);
-s32 TObjPlayer__sub_803E2640(void);
+s32 set_num_tex_gens_zero__10TObjPlayerFv(void);
 s32 GXSetNumTexGens(s32 arg0);
 M2C_UNK GXSetTexCoordGen2(int, int, int, int, int, int);
 void setup_tex_gen__10TObjPlayerFv(void);
@@ -174,7 +174,7 @@ void setup_vertex_format__10TObjPlayerFv(void) {
     GXSetVtxAttrFmt((int) (4), (int) (0xB), (int) (1), (int) (5), (int) (0));
     setup_color_channels__10TObjPlayerFi((int)((int) (1)));
     set_tev_passclr__10TObjPlayerFv();
-    TObjPlayer__sub_803E2640();
+    set_num_tex_gens_zero__10TObjPlayerFv();
 }
 void setup_vtx_desc__10TObjPlayerFv(void) {
     GXClearVtxDesc();
@@ -241,7 +241,7 @@ void set_tev_stage_mode(s32 arg0) {
 
 #pragma push
 #pragma scheduling off
-s32 TObjPlayer__sub_803E2640(void) { return GXSetNumTexGens(0x0); }
+s32 set_num_tex_gens_zero__10TObjPlayerFv(void) { return GXSetNumTexGens(0x0); }
 #pragma push
 #pragma scheduling off
 void setup_tex_gen__10TObjPlayerFv(void) {

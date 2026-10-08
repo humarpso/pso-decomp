@@ -45,7 +45,7 @@ u32 strlen(const char *);
 M2C_UNK memset(void *, int, int);
 extern Slot_803F3478 lbl_805A28E0[];
 s32 get_load_state__15TAdPlayerLoadGCFv(void);
-s32 TAdPlayerLoadGC__sub_803F339C(s32 arg0, s32 *arg1);
+s32 finish_load_slot_state4__15TAdPlayerLoadGCFiPv(s32 arg0, s32 *arg1);
 extern Slot_803F3478 lbl_805A28E0[];
 s32 get_load_state__15TAdPlayerLoadGCFv(void);
 s32 TAdPlayerLoadGC__sub_803F3998(s32 chan);
@@ -60,7 +60,7 @@ extern M2C_UNK lbl_805D4700;
 
 extern s32 lbl_805D7940;
 
-s32 TAdPlayerLoadGC__sub_803F339C(s32 arg0, s32 *arg1) {
+s32 finish_load_slot_state4__15TAdPlayerLoadGCFiPv(s32 arg0, s32 *arg1) {
     s32 r;
     s32 t;
     if (get_load_state__15TAdPlayerLoadGCFv() < 1) {
@@ -110,7 +110,7 @@ s32 TAdPlayerLoadGC__sub_803F3478(s32 arg0, s32 arg1, s32 arg2, s32 arg3) {
     lbl_805A28E0[chan].f54 = arg0;
     return 0;
 }
-s32 TAdPlayerLoadGC__sub_803F3568(s32 arg0, s32 *arg1) {
+s32 finish_load_slot_state3__15TAdPlayerLoadGCFiPv(s32 arg0, s32 *arg1) {
     s32 r;
     s32 t;
 
@@ -146,7 +146,7 @@ s32 TAdPlayerLoadGC__sub_803F3568(s32 arg0, s32 *arg1) {
 void TAdPlayerLoadGC__sub_803F389C(s32 chan) {
     CARDUnmount(chan);
 }
-s32 TAdPlayerLoadGC__sub_803F38BC(s32 arg0, s32 *arg1) {
+s32 take_network_info_load_result__15TAdPlayerLoadGCFiPv(s32 arg0, s32 *arg1) {
     s32 r;
     s32 t;
 
@@ -192,7 +192,7 @@ s32 TAdPlayerLoadGC__sub_803F3998(s32 chan) {
     return r;
 }
 
-s32 TAdPlayerLoadGC__sub_803F3A14(s32 arg0, s32 *arg1) {
+s32 take_network_info_poll_result__15TAdPlayerLoadGCFiPv(s32 arg0, s32 *arg1) {
     s32 r;
     s32 t;
 

@@ -83,7 +83,7 @@ s32 TWindowDD__sub_80342158(void *);
 s32 is_state_zero_unless_0x2C8__9TWindowDDFs(s32 arg0);
 void TWindowDD__sub_80347CC8(W_80347CC8 *arg0, void *arg1);
 void TWindowDD__sub_80348D90(void *, int);
-void TWindowDD__sub_80348DAC(void *);
+void pop_entry__9TWindowDDFPv(void *);
 s32 TWindowDD__sub_80348DD8(void *, int);
 void update_selection_state__9TWindowDDFPv(W_80347B70 *arg0);
 void init_and_mark_field8C__9TWindowDDFPv(void* p);
@@ -315,7 +315,7 @@ void update_selection_state__9TWindowDDFPv(W_80347B70 *arg0) {
             if (is_state_zero_unless_0x2C8__9TWindowDDFs(v) != 0) {
                 TWindowDD__sub_80348D90(arg0->sub, v);
             } else {
-                TWindowDD__sub_80348DAC(arg0->sub);
+                pop_entry__9TWindowDDFPv(arg0->sub);
                 arg0->state = 0;
             }
             break;

@@ -28,7 +28,7 @@ typedef struct Glyph_80145804 {
 } Glyph_80145804;
 
 extern "C" {
-void TLobby__sub_800F8E78(void);
+void release_menu_font__6TLobbyFv(void);
 void load_font_texture__6TLobbyFv(void);
 s32 set_stream_and_load_file__6TLobbyFi(void *);
 void *TNECFontEORFunction__ct(void *);
@@ -78,7 +78,7 @@ void load_menu_font(void) {
     u32 v;
     load_font_texture__6TLobbyFv();
     menu_font_glyph_data = set_stream_and_load_file__6TLobbyFi(lbl_8043F3D8);
-    TLobby__sub_800F8E78();
+    release_menu_font__6TLobbyFv();
     for (i = 0; i < 2; i++) {
         set_render_rect__10TObjPlayerFPviiii(lbl_8050C048 + i, 0, 0x208, 0x100, 0x100);
         set_texture_name(lbl_8050C090 + i, lbl_8050C048 + i, i + 0xDCF28, 0x08800000);

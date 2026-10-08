@@ -45,7 +45,7 @@ char *strcpy(char *, const char *);
 u32 strlen(const char *);
 M2C_UNK memset(void *, int, int);
 s32 get_load_state__15TAdPlayerLoadGCFv(void);
-s32 TAdPlayerLoadGC__sub_803F339C(s32 arg0, s32 *arg1);
+s32 finish_load_slot_state4__15TAdPlayerLoadGCFiPv(s32 arg0, s32 *arg1);
 }
 
 extern "C" {

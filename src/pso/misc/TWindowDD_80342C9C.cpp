@@ -17,7 +17,7 @@ M2C_UNK play_se__9TWindowDDFv();
 M2C_UNK play_sound__9TWindowDDFv();
 s32 TWindowDD__sub_803482B0(void *);
 s32 test_input_flag_4__9TWindowDDFPv(void *);
-M2C_UNK TWindowDD__sub_80348DFC(void *);
+M2C_UNK init_item_slots__9TWindowDDFPv(void *);
 extern s32 TWindowDD__data_805D6E08;
 void TWindowDD__sub_80342D14(u8 *arg0);
 }
@@ -79,7 +79,7 @@ void TWindowDD__sub_80342D14(u8 *arg0) {
             switch (TWindowDD__data_805D6E08) {
             case 0:
                 TWindowDD__sub_80342B5C((void *) (arg0));
-                TWindowDD__sub_80348DFC((void *) (arg0 + 0xC4));
+                init_item_slots__9TWindowDDFPv((void *) (arg0 + 0xC4));
                 M2C_FIELD(arg0, s16 *, 0xC6) = 3;
                 break;
             case 1:
@@ -87,7 +87,7 @@ void TWindowDD__sub_80342D14(u8 *arg0) {
             case 3:
             case 4:
             default:
-                TWindowDD__sub_80348DFC((void *) (arg0 + 0xC4));
+                init_item_slots__9TWindowDDFPv((void *) (arg0 + 0xC4));
                 M2C_FIELD(arg0, s16 *, 0xC6) = 4;
                 TWindowDD__sub_803428C4((void *) (arg0));
                 break;

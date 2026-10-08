@@ -19,24 +19,24 @@ extern RecoveredGlobal_803C5850_lbl_80572020 lbl_8058C960;
 extern s32 lbl_805D76A0;
 extern s32 lbl_805D76A4;
 M2C_UNK memset(void *, int, int);
-void TLobby__sub_803D619C(void);
+void clear_net_error_buffer__6TLobbyFv(void);
 M2C_UNK memset(void *, int, int);
 extern RecoveredGlobal_803C5850_lbl_80572020 lbl_8058C960;
 extern s32 lbl_805D76A0;
 extern s32 lbl_805D76A4;
-void TLobby__sub_803D61D8(void);
-s32 TBoss8Dragon__sub_803D6214(s32 n, s32 k);
+void reset_scratch_buffer_100__6TLobbyFv(void);
+s32 calc_binomial_coefficient__12TBoss8DragonFii(s32 n, s32 k);
 }
 
 extern "C" {
 
 typedef char RecoveredGlobal_803C5850_lbl_80572020_size[sizeof(RecoveredGlobal_803C5850_lbl_80572020) == 0x100 ? 1 : -1];
-void TLobby__sub_803D619C(void) {
+void clear_net_error_buffer__6TLobbyFv(void) {
     memset((void *) (&lbl_8058C960.value), (int) (0), (int) (0x100));
     lbl_805D76A0 = 0;
     lbl_805D76A4 = 0;
 }
-void TLobby__sub_803D61D8(void) {
+void reset_scratch_buffer_100__6TLobbyFv(void) {
     memset((void *) (&lbl_8058C960.value), (int) (0), (int) (0x100));
     lbl_805D76A0 = 0;
     lbl_805D76A4 = 0;
@@ -45,7 +45,7 @@ void TLobby__sub_803D61D8(void) {
 #pragma optimize_for_size off
 #pragma scheduling off
 #pragma peephole off
-s32 TBoss8Dragon__sub_803D6214(s32 n, s32 k) {
+s32 calc_binomial_coefficient__12TBoss8DragonFii(s32 n, s32 k) {
     s32 d = 1;
     s32 r = 1;
     s32 i;

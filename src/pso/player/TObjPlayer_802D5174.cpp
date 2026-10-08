@@ -112,7 +112,7 @@ void post_translate_matrix(void *);
 void draw_ginja_object(s32);
 void draw_weapon_parts__10TObjPlayerFPv(u8 *arg0);
 void fire_shot_at_target__11TItemWeaponFv(void *, void *, s32, s32);
-void TObjPlayer__sub_802D564C(Pl_802D564C *arg0);
+void fire_shots_spread__10TObjPlayerFPv(Pl_802D564C *arg0);
 f32 sin_table_lookup(int);
 f32 cos_table_lookup(int);
 M2C_UNK rotate_matrix_about_axis__10TObjPlayerFPvii(int, void *, int);
@@ -135,14 +135,14 @@ void init_state_445__10TObjPlayerFPv(void *);
 
 extern M2C_UNK lbl_804E2000[];
 extern M2C_UNK spawn_hit_particles_at__10TObjPlayerFiii[];
-extern M2C_UNK TObjPlayer__sub_802D551C[];
+extern M2C_UNK spawn_hit_particles_at_vec__10TObjPlayerFiii[];
 
 void *enter_state_341__10TObjPlayerFPv(void *arg0) {
     init_state_445__10TObjPlayerFPv(arg0);
     M2C_FIELD(arg0, M2C_UNK **, 0x18) = lbl_804E2000;
     M2C_FIELD(arg0, u32 *, 0x1FC) = 341;
     M2C_FIELD(arg0, M2C_UNK **, 0x208) = spawn_hit_particles_at__10TObjPlayerFiii;
-    M2C_FIELD(arg0, M2C_UNK **, 0x204) = TObjPlayer__sub_802D551C;
+    M2C_FIELD(arg0, M2C_UNK **, 0x204) = spawn_hit_particles_at_vec__10TObjPlayerFiii;
     return arg0;
 }
 
@@ -153,7 +153,7 @@ void TObjPlayer__sub_802D5628(M2C_UNK arg0, s32 arg1) {
     spawn_item__10TObjPlayerFi((void *) (arg1));
 }
 
-void TObjPlayer__sub_802D564C(Pl_802D564C *arg0) {
+void fire_shots_spread__10TObjPlayerFPv(Pl_802D564C *arg0) {
     Ent_802D564C *p;
     s32 v;
     s32 step;

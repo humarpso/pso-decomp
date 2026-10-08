@@ -49,10 +49,10 @@ extern s32 TLobby__data_805D688C;
 void TLobby__sub_802D36E0(void *arg0);
 s32 close_request_window__19TWindowTradeRequestFv();
 void reset__6TLobbyFv(void);
-void TLobby__sub_802D361C(O_802D361C *self);
+void handle_trade_request_state_a__6TLobbyFPv(O_802D361C *self);
 s32 close_request_window__19TWindowTradeRequestFv();
 void reset__6TLobbyFv(void);
-void TLobby__sub_802D3654(O_802D3654 *self);
+void handle_trade_request_state_b__6TLobbyFPv(O_802D3654 *self);
 void move_trade_item_amount__6TLobbyFPvUii(void *, s32, s32, void *);
 void update_trade_window__19TWindowSubTradeMainFPv(u32);
 extern u8 TLobby__data_80540BD0[];
@@ -166,7 +166,7 @@ void handle_trade_item_move__6TLobbyFPv(S_802D35B0 *arg0) {
     }
 }
 
-void TLobby__sub_802D361C(O_802D361C *self) {
+void handle_trade_request_state_a__6TLobbyFPv(O_802D361C *self) {
     switch (self->state) {
     case 0:
         close_request_window__19TWindowTradeRequestFv();
@@ -178,7 +178,7 @@ void TLobby__sub_802D361C(O_802D361C *self) {
     }
 }
 
-void TLobby__sub_802D3654(O_802D3654 *self) {
+void handle_trade_request_state_b__6TLobbyFPv(O_802D3654 *self) {
     switch (self->state) {
     case 3:
         break;

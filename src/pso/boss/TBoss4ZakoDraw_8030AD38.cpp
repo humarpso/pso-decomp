@@ -3,8 +3,8 @@
 extern "C" {
 
 int TBoss4DarkFalz__sub_8030AD38(void* p);
-int TBoss4DarkFalz__sub_8030AD08(void*);
+int clear_uro_link_state__14TBoss4DarkFalzFv(void*);
 
-int TBoss4DarkFalz__sub_8030AD38(void* p) { return TBoss4DarkFalz__sub_8030AD08(p); }
+int TBoss4DarkFalz__sub_8030AD38(void* p) { return clear_uro_link_state__14TBoss4DarkFalzFv(p); }
 
 }

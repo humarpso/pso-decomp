@@ -29,7 +29,7 @@ extern "C" {
 M2C_UNK render_status_disp__23TAdSinglePlyChrSelectGCFPvff(s32, f32, f32, f32);
 extern const f32 lbl_805DF7B8;
 extern const f32 lbl_805DF7BC;
-void TAdWarningBaseGC__sub_8032D514(void *arg0, s32 arg1, s32 arg2);
+void render_status_disp_offset__16TAdWarningBaseGCFPvii(void *arg0, s32 arg1, s32 arg2);
 s32 get_state_flag__9TMainTaskFv();
 void TAdWarningBaseGC__vt5(void *self);
 void send_and_handle__6TLobbyFPvii(s32, void *, int);
@@ -164,7 +164,7 @@ extern f32 lbl_805DF7C0;
 
 #pragma push
 #pragma fp_contract on
-void TAdWarningBaseGC__sub_8032D514(void *arg0, s32 arg1, s32 arg2) {
+void render_status_disp_offset__16TAdWarningBaseGCFPvii(void *arg0, s32 arg1, s32 arg2) {
     render_status_disp__23TAdSinglePlyChrSelectGCFPvff(arg2, lbl_805DF7B8 + M2C_FIELD(arg0, f32 *, 0x1C), lbl_805DF7BC + M2C_FIELD(arg0, f32 *, 0x20), lbl_805DF7B8);
 }
 #pragma pop

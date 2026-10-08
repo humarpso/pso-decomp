@@ -115,7 +115,7 @@ void *get_item_field_6__10TObjPlayerFPv(void *);
 s32 get_type__10TObjPlayerFPv(s32);
 M2C_UNK fn_80044330(void *);
 Weapon_8013CDE4 *get_weapon_range_record(void *, s32);
-s32 TMainCursor__sub_8013BE98(Cursor_8013CDE4 *, u8, u8);
+s32 check_type_and_enabled__11TMainCursorFPvPvPv(Cursor_8013CDE4 *, u8, u8);
 void set_cursor_color__11TMainCursorFiii(s32 arg0, s32 arg1, s32 arg2);
 void set_display_flags__11TMainCursorFiii(s32 arg0, s32 arg1, s32 arg2);
 void setup_flags__11TMainCursorFiii(s32 arg0, s32 arg1, s32 arg2);
@@ -251,7 +251,7 @@ void setup_action_channel__11TMainCursorFiPviii(s32 self, u8 *player, s32 slot, 
         return;
     }
     cur = &((Main_8013CDE4 *)self)->cursors[slot];
-    if (TMainCursor__sub_8013BE98(cur, kind, id) == 0) {
+    if (check_type_and_enabled__11TMainCursorFPvPvPv(cur, kind, id) == 0) {
         fn_80044330(cur->f40);
         reset_slot__11TMainCursorFPv(cur->f9c);
     }

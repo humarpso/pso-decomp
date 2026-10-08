@@ -9,7 +9,7 @@ struct Ent_801FB798 { s32 a; char *name; };
 extern "C" {
 s32 set_global_param__8TObjFishFi(s32);
 extern u32 TRaderMapCore__data_805D5F4C;
-s32 TRaderMapCore__sub_801FB874(void);
+s32 apply_compass_param__13TRaderMapCoreFv(void);
 s32 get_current_floor();
 s32 free_nodes_with_id__6TLobbyFUi(int);
 s32 save_floor_discovery__13TRaderMapCoreFiPv(int, int);
@@ -112,7 +112,7 @@ void load_map_resources__13TRaderMapCoreFv(void) {
     TRaderMapCore__data_805D5F44 = 1;
 }
 
-s32 TRaderMapCore__sub_801FB874(void) {
+s32 apply_compass_param__13TRaderMapCoreFv(void) {
     if ((u32) TRaderMapCore__data_805D5F4C != 0U) {
         set_global_param__8TObjFishFi((s32) TRaderMapCore__data_805D5F4C);
         return 1;

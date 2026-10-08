@@ -40,7 +40,7 @@ s32 check_reset_button__16TKeyBoardControlFv(void);
 s32 read_input__16TKeyBoardControlFi(s32 arg0);
 void reset__16TKeyBoardControlFv(void);
 s32 OSGetResetButtonState();
-void TKeyBoardControl__sub_801A5A14(void *arg0);
+void update_state_from_input__16TKeyBoardControlFPv(void *arg0);
 s32 TKeyBoardControl__sub_801323C8(void *, void *);
 s32 check_input_ready__16TKeyBoardControlFi(M2C_UNK *);
 
@@ -97,7 +97,7 @@ extern M2C_UNK TKeyBoardControl__data_80506270[];
 
 s32 read_input__16TKeyBoardControlFi(s32 arg0) {
     if (check_input_ready__16TKeyBoardControlFi(TKeyBoardControl__data_80506270) != 0) {
-        return ((s32 (*)(s32))TKeyBoardControl__sub_801A5A14)(arg0);
+        return ((s32 (*)(s32))update_state_from_input__16TKeyBoardControlFPv)(arg0);
     }
     return 0;
 }
@@ -114,7 +114,7 @@ s32 is_key_down__16TKeyBoardControlFi(s32 arg0) {
     return 0;
 }
 
-void TKeyBoardControl__sub_801A5A14(void *arg0) {
+void update_state_from_input__16TKeyBoardControlFPv(void *arg0) {
     TKeyBoardControl__sub_801323C8(TKeyBoardControl__data_80506270, arg0);
 }
 

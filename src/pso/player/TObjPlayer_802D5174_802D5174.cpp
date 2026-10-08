@@ -14,7 +14,7 @@ extern s32 tl_05;
 u8 *create_state_513__10TObjPlayerFPv(u8 *arg0);
 void TObjPlayer__sub_802D5B78(void *a, void *b);
 int do_action_447__10TObjPlayerFPv(void* p);
-void TObjPlayer__sub_802D52E8(void *self, void *arg);
+void do_action_447_from_packet__10TObjPlayerFPvPv(void *self, void *arg);
 }
 
 extern "C" {
@@ -80,7 +80,7 @@ void *item_equip_variant_deleting_dtor_802D526C(void *arg0, s16 arg1) {
 }
 
 int do_action_447__10TObjPlayerFPv(void* p) { return spawn_particle_effect(p, 447); }
-void TObjPlayer__sub_802D52E8(void *self, void *arg) {
+void do_action_447_from_packet__10TObjPlayerFPvPv(void *self, void *arg) {
     Vec_802D52E8 v;
     TObjPlayer__sub_802D5B78(arg, &v);
     do_action_447__10TObjPlayerFPv(&v);

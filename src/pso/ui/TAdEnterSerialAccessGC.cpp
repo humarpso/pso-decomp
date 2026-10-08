@@ -196,7 +196,7 @@ void render__22TAdEnterSerialAccessGCFv(void *self);
 void create_callback__22TAdEnterSerialAccessGCFPvPvPv(void *, void *, void *);
 extern char lbl_804764D8[];
 extern char lbl_804764E0[];
-void TAdEnterSerialAccessGC__sub_80321A90(void);
+void create_draw_callback__22TAdEnterSerialAccessGCFv(void);
 void format_dashed_serial__22TAdEnterSerialAccessGCFPvPvUiPv(u8 *dst, u8 *src, u32 count, u32 *lens);
 s32 get_instance__23TAdSinglePlyChrSelectGCFv();
 void format_dashed_serial__22TAdEnterSerialAccessGCFPvPvUiPv(u8 *dst, u8 *src, u32 count, u32 *lens);
@@ -521,7 +521,7 @@ char *hex_to_decimal_string__22TAdEnterSerialAccessGCFi(int arg0) {
     return lbl_80543010;
 }
 
-void TAdEnterSerialAccessGC__sub_80321A90(void) {
+void create_draw_callback__22TAdEnterSerialAccessGCFv(void) {
     create_callback__22TAdEnterSerialAccessGCFPvPvPv(lbl_804764D8, lbl_804764E0, (void *)draw_screen__22TAdEnterSerialAccessGCFPvPv);
 }
 

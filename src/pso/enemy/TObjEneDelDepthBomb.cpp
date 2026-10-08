@@ -85,7 +85,7 @@ void minimap_render_dot(void *, s32, s32, s32);
 void update_ground_check__15TObjEneDelDepthFPv(u8 *arg0);
 void TObjEneDelDepth__sub_803152A0(u8 *arg0);
 void TObjEneDelDepth__sub_803152C0(u8 *arg0);
-void TObjEneDelDepth__sub_80315888(u8 *arg0);
+void update_target_depth__15TObjEneDelDepthFPv(u8 *arg0);
 void update_animation_frame__15TObjEneDelDepthFPv(s32);
 void run_task__15TObjEneDelDepthFv(Ene_80315720 *o);
 f32 cos_table_lookup(s32);
@@ -613,11 +613,11 @@ void TObjEneDelDepth__sub_80315518(void);
 s32 draw_if_visible__15TObjEneDelDepthFPv(void *arg0);
 void render__15TObjEneDelDepthFv(Dep_803155D4 *o);
 void * __dt__15TObjEneDelDepthFv(void *arg0, s16 arg1);
-void TObjEneDelDepth__sub_80315888(u8 *arg0);
+void update_target_depth__15TObjEneDelDepthFPv(u8 *arg0);
 void init__15TObjEneDelDepthFPv(u8 *arg0);
 u8 * TObjEneDelDepth__ct(u8 *arg0, M2C_UNK arg1, s32 arg2);
 M2C_UNK reset_globals__15TObjEneDelDepthFv();
-M2C_UNK TObjEneDelDepth__sub_80315D34();
+M2C_UNK setup_draw_material_default__15TObjEneDelDepthFf();
 u8 * get_data__15TObjEneDelDepthFv();
 f32 get_depth_radius__19TObjEneDelDepthBombFPv(void *);
 s32 get_flag_bit4__15TObjEneDelDepthFPv(void *);
@@ -1619,7 +1619,7 @@ void render__15TObjEneDelDepthFv(Dep_803155D4 *o) {
         return;
     }
     if (o->f398 < TObjEneDelDepth__data_805DF260) {
-        TObjEneDelDepth__sub_80315D34();
+        setup_draw_material_default__15TObjEneDelDepthFf();
     }
     toggle_particle_effect__10TObjPlayerFv();
     push_matrix();
@@ -1643,7 +1643,7 @@ void render__15TObjEneDelDepthFv(Dep_803155D4 *o) {
 void run_task__15TObjEneDelDepthFv(Ene_80315720 *o) {
     Fn_803154A8 fn;
     if (check_demo_mode__10TObjPlayerFv() != 0) {
-        TObjEneDelDepth__sub_80315888((u8 *)o);
+        update_target_depth__15TObjEneDelDepthFPv((u8 *)o);
         return;
     }
     TObjEneDelDepth__sub_803152C0((u8 *)o);
@@ -1681,7 +1681,7 @@ void *__dt__15TObjEneDelDepthFv(void *arg0, s16 arg1) {
 
 #pragma push
 #pragma opt_common_subs off
-void TObjEneDelDepth__sub_80315888(u8 *arg0) {
+void update_target_depth__15TObjEneDelDepthFPv(u8 *arg0) {
     M2C_FIELD(arg0, f32 *, 0x390) = (f32) (lbl_805DF2DC + M2C_FIELD(arg0, f32 *, 0x354));
     if (M2C_FIELD(arg0, f32 *, 0x390) < TObjEneDelDepth__data_805DF258) {
         M2C_FIELD(arg0, f32 *, 0x390) = (f32) TObjEneDelDepth__data_805DF258;
@@ -1729,7 +1729,7 @@ u8 *TObjEneDelDepth__ct(u8 *arg0, M2C_UNK arg1, s32 arg2) {
     M2C_FIELD(arg0, s32 *, 0) = (s32) lbl_805D4118;
     add_flags_2e4__10TObjPlayerFPvUi((void *) (arg0), (int) (8));
     ((VObj_18_aa4667 *)(arg0))->m79(arg2);
-    TObjEneDelDepth__sub_80315888((u8 *)((void *) (arg0)));
+    update_target_depth__15TObjEneDelDepthFPv((u8 *)((void *) (arg0)));
     init__15TObjEneDelDepthFPv((u8 *)((void *) (arg0)));
     ((s32 (*)(void *, void *, int))project_actor_to_ground)((void *) (arg0), (void *) (arg0 + 0x38), (int) (0));
     set_action_state__15TObjEneDelDepthFPvi((Ene_803154A8 *) (arg0), 0);

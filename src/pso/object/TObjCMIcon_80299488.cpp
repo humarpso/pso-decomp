@@ -50,8 +50,8 @@ extern f32 TObjCMIcon__data_805D65A8;
 extern const f32 lbl_805DDC38;
 void TObjCMIcon__sub_8029951C(void);
 extern RecoveredGlobal_802994B0_TObjCMIcon__data_805409E0 TObjCMIcon__data_805409E0;
-void TObjCMIcon__sub_80299488(void);
-void TObjCMIcon__sub_80299488(void);
+void reset_icon_flags__10TObjCMIconFv(void);
+void reset_icon_flags__10TObjCMIconFv(void);
 void TObjCMIcon__sub_802994B0(s32 arg0);
 void TObjCMIcon__sub_802994C8(s32 arg0, s32 *arg1);
 s32 TObjCMIcon__sub_80299598(M2C_UNK arg0, s32 arg1);
@@ -76,7 +76,7 @@ void TObjCMIcon__sub_8029957C(void* p, void* q);
 
 typedef char RecoveredGlobal_802994B0_TObjCMIcon__data_805409E0_size[sizeof(RecoveredGlobal_802994B0_TObjCMIcon__data_805409E0) == 0x58 ? 1 : -1];
 
-void TObjCMIcon__sub_80299488(void) {
+void reset_icon_flags__10TObjCMIconFv(void) {
     s32 i;
     Ent_80299488 *p = ((Ent_80299488 *)&TObjCMIcon__data_805409E0);
     for (i = 0; i < 7; i++) {
@@ -94,7 +94,7 @@ typedef char RecoveredGlobal_8029951C_TObjCMIcon__data_805409E0_size[sizeof(Reco
 
 void TObjCMIcon__sub_802994C8(s32 arg0, s32 *arg1) {
     s32 i;
-    TObjCMIcon__sub_80299488();
+    reset_icon_flags__10TObjCMIconFv();
     for (i = 0; i < arg0; i++) {
         TObjCMIcon__sub_802994B0((s32)(arg1[i]));
     }

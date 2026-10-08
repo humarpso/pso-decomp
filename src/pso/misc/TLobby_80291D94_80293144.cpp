@@ -142,7 +142,7 @@ M2C_UNK create_ch_time_win(s32);
 void create_time_window2__6TLobbyFv(void * _w0);
 void TLobby__sub_802933FC(void *arg0);
 s32 resolve_player_slot__20TWindowSubStatusDispFi(s32);
-void TLobby__sub_80074E48(void);
+void reset_tombstone_values__6TLobbyFv(void);
 void create_tombstone__6TLobbyFPvPvPv(s32, s32, Tag_802932EC *);
 u32 get_player_by_client_id(u32);
 extern s32 tl_07;
@@ -458,7 +458,7 @@ void spawn_player_tombstones2__6TLobbyFv() {
     s32 i;
     Rec_802932EC *r;
     Tag_802932EC *t;
-    TLobby__sub_80074E48();
+    reset_tombstone_values__6TLobbyFv();
     for (i = 0; i < 4; i++) {
         r = &((G_802932EC *)lbl_804DB1F0)->recs[i];
         if (r->active != 0 && get_player_by_client_id(i) != 0) {

@@ -36,7 +36,7 @@ extern s32 lbl_805D6A74;
 void TCameraCtrl__sub_8030ABF4(void);
 extern RecoveredGlobal_8030ABF4_lbl_80541E58 lbl_80541E58;
 extern s32 lbl_805D6A70;
-void TBoss4DarkFalz__sub_8030AD08(void);
+void clear_uro_link_state__14TBoss4DarkFalzFv(void);
 u8 *get_bml_model(s32, s32);
 s32 get_instance_count__9TBoss4UroFv(void);
 void sync_player_globals__10TObjPlayerFv(void);
@@ -217,7 +217,7 @@ s32 queue_entry__10TBoss4ZakoFPvii(void *v, s32 a, s32 b) {
     return 1;
 }
 
-void TBoss4DarkFalz__sub_8030AD08(void) {
+void clear_uro_link_state__14TBoss4DarkFalzFv(void) {
     s32 i;
     for (i = 0; i < 2; i++) {
         ((E_8030AD08 *)&lbl_80541E58)[i].a = 0;

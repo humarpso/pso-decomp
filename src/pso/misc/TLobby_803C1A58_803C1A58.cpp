@@ -120,7 +120,7 @@ extern "C" {
 void TLobby__sub_803C4020(u8 *arg0, s32 arg1, s32 arg2);
 s8 TLobby__sub_803C3B38(u8 *arg0);
 M2C_UNK memset(void *, int, int);
-void TLobby__sub_803CB71C(void);
+void clear_buffer_340__6TLobbyFv(void);
 extern RecoveredGlobal_803C0B08_lbl_80570AC0 lbl_80571480;
 void TLobby__sub_803C406C(void);
 int memcmp(const void *a, const void *b, unsigned long n);
@@ -155,12 +155,12 @@ M2C_UNK memset(void *, int, int);
 u8 *TLobby__sub_803C2388(u8 *, s32 *, s32 *, s32 *, s32 *);
 s32 parse_stream_header__6TLobbyFPvPvPv(void *arg0, void *arg1, void *arg2);
 M2C_UNK __DVDPrepareResetAsync(void *, void *, void *, void *, void *, void *, void *, void *, void *);
-s32 TLobby__sub_803C47F8(void *, void *, void *, void *);
+s32 parse_header_loop_points__6TLobbyFPviPvPv(void *, void *, void *, void *);
 s32 TLobby__sub_803C48C8(void *, void *, void *);
 s32 ARStartDMA(void *, void *, void *, void *, void *, void *, void *, void *, void *, void *);
 M2C_UNK report_adx_error__6TLobbyFPvi(void *, void *);
 M2C_UNK TLobby__sub_803CB570(int, void *, void *);
-M2C_UNK TLobby__sub_803CB594(int, int, int);
+M2C_UNK calc_adx_coeffs_at_offset__6TLobbyFiPvi(int, int, int);
 M2C_UNK memset(void *, int, int);
 extern M2C_UNK lbl_8047C520[];
 extern M2C_UNK lbl_8047C540[];
@@ -680,10 +680,10 @@ s32 TRK__write_aram(void *arg0p, void *arg1, void *arg2) {
     if (TLobby__sub_803C48C8(arg1, arg2, (void *) (arg0 + 0x1C)) < 0) {
         return 0;
     }
-    if (TLobby__sub_803C47F8((void *) (arg1), (void *) (arg2), (void *) (&sp18), (void *) (&sp14)) < 0) {
+    if (parse_header_loop_points__6TLobbyFPviPvPv((void *) (arg1), (void *) (arg2), (void *) (&sp18), (void *) (&sp14)) < 0) {
         return 0;
     }
-    TLobby__sub_803CB594((int) (M2C_FIELD(arg0, s32 *, 8)), (int) (M2C_FIELD(arg0, s32 *, 0x14)), (int) (M2C_FIELD(arg0, s16 *, 0x1C)));
+    calc_adx_coeffs_at_offset__6TLobbyFiPvi((int) (M2C_FIELD(arg0, s32 *, 8)), (int) (M2C_FIELD(arg0, s32 *, 0x14)), (int) (M2C_FIELD(arg0, s16 *, 0x1C)));
     TLobby__sub_803CB570((int) (M2C_FIELD(arg0, s32 *, 8)), (void *) (&sp18), (void *) (&sp14));
     __DVDPrepareResetAsync((void *) (arg1), (void *) (arg2), (void *) (arg0 + 0x20), (void *) (arg0 + 0x24), (void *) (arg0 + 0x26), (void *) (arg0 + 0x28), (void *) (arg0 + 0x2C), (void *) (arg0 + 0x30), (void *) (arg0 + 0x34));
     M2C_FIELD(arg0, s16 *, 0xA8) = 0;
@@ -767,7 +767,7 @@ s32 get_progress_info__6TLobbyFPvPvPvPv(u8 *arg0, s32 *arg1, s32 *arg2, s32 *arg
 typedef char RecoveredGlobal_803C0B08_lbl_80570AC0_size[sizeof(RecoveredGlobal_803C0B08_lbl_80570AC0) == 0x9C0 ? 1 : -1];
 typedef char RecoveredGlobal_803C0AD8_lbl_80570AC0_size[sizeof(RecoveredGlobal_803C0AD8_lbl_80570AC0) == 0x9C0 ? 1 : -1];
 void TLobby__sub_803C406C(void) {
-    TLobby__sub_803CB71C();
+    clear_buffer_340__6TLobbyFv();
     memset((void *) (&lbl_80571480.value), (int) (0), (int) (0xb80));
 }
 s32 is_spsd_header__6TLobbyFPv(void *p) {

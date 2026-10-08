@@ -213,7 +213,7 @@ void TQuestThread__sub_801F5D88(void* p);
 void clear_all_floor_handlers(void* _w0);
 void clear_buffer__12TQuestThreadFPv(void* p);
 void handle_6x77_sync_quest_register(u8 *arg0);
-char * TQuestThread__sub_801F5E58(void);
+char * get_quest_name__12TQuestThreadFv(void);
 void clear_thread_state__12TQuestThreadFv(void);
 s32 get_register__12TQuestThreadFPvi(u8 *arg0, s32 arg1);
 void TQuestThread__sub_801F5ECC(void);
@@ -852,7 +852,7 @@ void handle_6x77_sync_quest_register(u8 *arg0) {
     }
 }
 
-char *TQuestThread__sub_801F5E58(void) {
+char *get_quest_name__12TQuestThreadFv(void) {
     if ((*(Obj_801F5E58 * *)&lbl_805D5EE8) != 0) {
         return (*(Obj_801F5E58 * *)&lbl_805D5EE8)->inner->name;
     }

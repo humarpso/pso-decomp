@@ -4,7 +4,7 @@ extern "C" {
 extern u8 lbl_805D533C;
 extern u8 lbl_8049C61C[];
 void TLobby__sub_803DA16C(void *p);
-void TLobby__sub_800F8E78(void);
+void release_menu_font__6TLobbyFv(void);
 extern u8 lbl_805D533C;
 extern u8 lbl_8049C61C[];
 extern u8 lbl_80499AA0[];
@@ -55,7 +55,7 @@ void draw_fullscreen_texture_quad__6TLobbyFPv(void *arg0) {
     get_player__20TWindowSubStatusDispFv();
 }
 
-void TLobby__sub_800F8E78(void) {
+void release_menu_font__6TLobbyFv(void) {
     if (lbl_805D533C) {
         TLobby__sub_803DA16C(lbl_8049C61C);
     }

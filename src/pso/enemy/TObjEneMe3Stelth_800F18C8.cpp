@@ -31,7 +31,7 @@ s32 get_target_info__9TObjEneDDFPv(void *);
 s32 TObjEneDD__sub_800BB878(s32, s32);
 M2C_UNK toggle_particle_effect__10TObjPlayerFv();
 s32 TObjEneMe3Stelth__sub_800F47D4(void *);
-s32 TObjEneMe3Stelth__sub_800F4814(void *);
+s32 is_angle_in_range__16TObjEneMe3StelthFPv(void *);
 s32 TObjEneMe3Stelth__sub_800F4850(void *);
 f32 get_node_world_y__16TObjEneMe3StelthFPv(void *);
 M2C_UNK end_effect_render__13TParticleCtrlFv();
@@ -80,7 +80,7 @@ void draw_with_debug_info__16TObjEneMe3StelthFPv(Obj_800F18C8 *arg0) {
         } else {
             debug_printf_at(TObjEneDD__sub_800BB878(0, 2), lbl_8043D69C);
         }
-        if (TObjEneMe3Stelth__sub_800F4814(arg0) != 0) {
+        if (is_angle_in_range__16TObjEneMe3StelthFPv(arg0) != 0) {
             debug_printf_at(TObjEneDD__sub_800BB878(0xF, 2), lbl_8043D6AC);
         } else {
             debug_printf_at(TObjEneDD__sub_800BB878(0xF, 2), lbl_8043D6BC);

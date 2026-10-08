@@ -6,7 +6,7 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 #define M2C_BITWISE(type, expr) ((type)(expr))
 extern "C" {
 extern const f32 TObjPlayer__data_805DC278;
-void TObjPlayer__sub_801C0B24(u8 *arg0);
+void build_6x2C_impose_hold_packet__10TObjPlayerFPv(u8 *arg0);
 }
 
 extern "C" {
@@ -39,7 +39,7 @@ void bswap_font_lobby__10TObjPlayerFPv(void* p) { TFontSmallLobby__sub_801C01BC(
 void set_code_45_1__10TObjPlayerFPv(void* p) { *(u8*)((char*)p + 0x0) = 45; *(u8*)((char*)p + 0x1) = 1; }
 void send_lobby_update_font__10TObjPlayerFPv(void* p) { TFontSmallLobby__sub_801C01BC(p); TLobby__send_and_handle_60(p); }
 void bswap_pkt_u16x2_u32__10TObjPlayerFPv(void* p) { read_be16_field2__10TObjPlayerFPv(p); bswap_16__FPUs((char*)p + 0x4); bswap_16__FPUs((char*)p + 0x6); bswap_32__FPUl((char*)p + 0x10); bswap_pkt_u32x2__10TObjPlayerFPv((char*)p + 0x8); }
-void TObjPlayer__sub_801C0B24(u8 *arg0) {
+void build_6x2C_impose_hold_packet__10TObjPlayerFPv(u8 *arg0) {
     M2C_FIELD(arg0, s16 *, 4) = 0;
     M2C_FIELD(arg0, s16 *, 6) = 0;
     M2C_FIELD(arg0, f32 *, 0xC) = (f32) TObjPlayer__data_805DC278;

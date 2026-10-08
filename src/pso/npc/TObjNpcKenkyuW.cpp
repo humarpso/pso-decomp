@@ -170,7 +170,7 @@ extern s32 lbl_805D3DD4;
 extern u32 TObjNpcKenkyuW__data_805D6658;
 u8 *TObjNpcKenkyuW__ct(u8 *arg0, M2C_UNK arg1, s32 arg2);
 s32 obj_is_hit_receivable(void *);
-bool TObjPlayer__sub_802A3DAC(M2C_UNK arg0, u32 arg1);
+bool is_hit_receivable_target__10TObjPlayerFiUi(M2C_UNK arg0, u32 arg1);
 extern RecoveredGlobal_80236290_lbl_80516150 lbl_80540A38;
 void clear_technique_contacts__10TObjPlayerFv();
 extern RecoveredGlobal_80236290_lbl_80516150 lbl_80540A38;
@@ -278,7 +278,7 @@ void clear_technique_contacts__10TObjPlayerFv() {
     (*(TechniqueContactList *)&lbl_80540A38).count=0;
 }
 
-bool TObjPlayer__sub_802A3DAC(M2C_UNK arg0, u32 arg1) {
+bool is_hit_receivable_target__10TObjPlayerFiUi(M2C_UNK arg0, u32 arg1) {
     if (arg1 == 0U) {
         return 0;
     }

@@ -13,7 +13,7 @@ struct Ent_800BB484 { s16 id; f32 dist; };
 
 extern "C" {
 extern RecoveredGlobal_800BB45C_lbl_80500B98 lbl_80500B98;
-void TObjEneDD__sub_800BB45C(s32 arg0, f32 farg0);
+void collect_target_candidates__9TObjEneDDFif(s32 arg0, f32 farg0);
 typedef struct Ent_800BB388 {
     u8 pad0[0x30];
     s32 flags30;
@@ -75,7 +75,7 @@ u16 enemy_nearest_visible_enemy_sq(Ent_800BB388 *self, f32 range) {
     return best;
 }
 typedef char RecoveredGlobal_800BB45C_lbl_80500B98_size[sizeof(RecoveredGlobal_800BB45C_lbl_80500B98) == 0x20 ? 1 : -1];
-void TObjEneDD__sub_800BB45C(s32 arg0, f32 farg0) {
+void collect_target_candidates__9TObjEneDDFif(s32 arg0, f32 farg0) {
     collect_enemy_target_candidates((s32)(arg0), (Ent_800BB484 *)(&lbl_80500B98.value), farg0);
 }
 s32 collect_enemy_target_candidates(s32 arg0, Ent_800BB484 *out, f32 farg0) {

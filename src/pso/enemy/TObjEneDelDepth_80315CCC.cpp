@@ -13,7 +13,7 @@ struct Stack_80315D60 {
 
 extern "C" {
 extern const f32 TObjEneDelDepth__data_805DF258;
-void TObjEneDelDepth__sub_80315D34(f32 farg0);
+void setup_draw_material_default__15TObjEneDelDepthFf(f32 farg0);
 M2C_UNK set_chunk_material_override_pair(M2C_UNK, M2C_UNK);
 M2C_UNK set_chunk_material_color(void *);
 M2C_UNK set_chunk_blend(M2C_UNK);
@@ -53,7 +53,7 @@ void reset_globals__15TObjEneDelDepthFv(void) {
 
     extern int TObjEneDelDepth__data_805D6AC4;
 
-void TObjEneDelDepth__sub_80315D34(f32 farg0) {
+void setup_draw_material_default__15TObjEneDelDepthFf(f32 farg0) {
     setup_draw_material__15TObjEneDelDepthFffff(farg0, TObjEneDelDepth__data_805DF258, TObjEneDelDepth__data_805DF258, TObjEneDelDepth__data_805DF258);
 }
 

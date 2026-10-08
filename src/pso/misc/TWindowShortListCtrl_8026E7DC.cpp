@@ -47,7 +47,7 @@ struct Ctrl_8026ECBC {
 
 extern "C" {
 s16 get_cursor_pos__20TWindowShortListCtrlFPv(void* p);
-void TWindowShortListCtrl__sub_8026F66C(u8 *arg0);
+void update_cursor_pos__20TWindowShortListCtrlFPv(u8 *arg0);
 u8 * find_item_by_id(s32);
 u8 get_field_ec__12TOSwitchItemFPv(void *);
 s32 canSetMenuCursorAction(M2C_UNK, s32, u8, u8);
@@ -88,7 +88,7 @@ void cycle_list_page__20TWindowShortListCtrlFPv(u8 *arg0);
 void swap_card_entries__20TWindowShortListCtrlFPvii(u8 *arg0, s32 arg1, s32 arg2);
 void refresh_technique_rows__20TWindowShortListCtrlFPviPv(Wn_8026EBB0 *arg0, s32 arg1, Sc_8026EBB0 *arg2);
 s16 get_cursor_pos__20TWindowShortListCtrlFPv(void* p);
-void TWindowShortListCtrl__sub_8026F66C(u8 *arg0);
+void update_cursor_pos__20TWindowShortListCtrlFPv(u8 *arg0);
 s16 get_selected_index__20TWindowShortListCtrlFPv(void* p);
 void set_displayed_item__20TWindowShortListCtrlFPvi(void *arg0, s32 arg1);
 void *create_window__20TWindowShortListCtrlFPvii(void *arg0, s32 arg1, s32 arg2);
@@ -491,7 +491,7 @@ void run_task__20TWindowShortListCtrlFv(u8 *arg0) {
         }
         if (TWindowShortListCtrl__check_controller_button(PAD(idx), 0x400) != 0) {
             if (get_selected_index__20TWindowShortListCtrlFPv(self->tech_win) == -1) {
-                TWindowShortListCtrl__sub_8026F66C((u8 *) self->tech_win);
+                update_cursor_pos__20TWindowShortListCtrlFPv((u8 *) self->tech_win);
             } else {
                 swap_card_entries__20TWindowShortListCtrlFPvii(arg0, get_selected_index__20TWindowShortListCtrlFPv(self->tech_win), get_cursor_pos__20TWindowShortListCtrlFPv(self->tech_win));
                 reset_selection__17TWindowSubComCardFPv(self->tech_win);
@@ -566,7 +566,7 @@ void set_card_window_flags__20TWindowShortListCtrlFii(s32 arg0, s32 arg1) {
 }
 s16 get_cursor_pos__20TWindowShortListCtrlFPv(void* p) { return *(s16*)((char*)p + 0x78); }
 
-void TWindowShortListCtrl__sub_8026F66C(u8 *arg0) {
+void update_cursor_pos__20TWindowShortListCtrlFPv(u8 *arg0) {
     M2C_FIELD(arg0, s16 *, 0x7A) = get_cursor_pos__20TWindowShortListCtrlFPv((void*)arg0);
 }
 

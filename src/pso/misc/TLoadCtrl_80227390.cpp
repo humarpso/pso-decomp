@@ -49,7 +49,7 @@ typedef s32 M2C_UNK;
 extern "C" {
 M2C_UNK VISetPreRetraceCallback(M2C_UNK *);
 extern RecoveredGlobal_8000F7FC_lbl_80515F48 TLobby__sub_80227A6C;
-void TLobby__sub_8022776C(void);
+void set_pre_retrace_callback__6TLobbyFv(void);
 M2C_UNK stop_audio_stream(int);
 extern s32 lbl_804CB850[];
 extern f32 lbl_80514CF8[];
@@ -206,7 +206,7 @@ void update_music_fade(void) {
     }
 }
 
-void TLobby__sub_8022776C(void) {
+void set_pre_retrace_callback__6TLobbyFv(void) {
     VISetPreRetraceCallback((M2C_UNK *)(&TLobby__sub_80227A6C.value));
 }
 void shutdown_buffers__6TLobbyFv(void) {

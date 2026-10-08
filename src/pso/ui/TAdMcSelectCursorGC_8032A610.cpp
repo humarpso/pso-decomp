@@ -7,7 +7,7 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 extern "C" {
 s32 TLobby__sub_803DA16C(void *, M2C_UNK);
 extern int TAdMcSelectCursorGC__data_805D6C90;
-void TAdMcSelectCursorGC__sub_8032A668(void);
+void release_cursor_entry__19TAdMcSelectCursorGCFv(void);
 }
 
 extern "C" {
@@ -39,7 +39,7 @@ u32 get_instance__19TAdMcSelectCursorGCFi(s32 arg0) {
     extern unsigned char lbl_804ED99C[];
     extern int TAdMcSelectCursorGC__data_805D6C90;
 
-void TAdMcSelectCursorGC__sub_8032A668(void) {
+void release_cursor_entry__19TAdMcSelectCursorGCFv(void) {
     u8 *temp_r4;
     if ((void **) (*(void ** *)&TAdMcSelectCursorGC__data_805D6C90) != NULL) {
         temp_r4 = (u8 *)(*(*(void ** *)&TAdMcSelectCursorGC__data_805D6C90));

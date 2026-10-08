@@ -270,7 +270,7 @@ extern const f32 lbl_805DE748;
 void init_size_tier_and_offsets__19TObjEneBm9MericarolFPv(u8 *arg0);
 s32 TObjEneBm9Mericarol__sub_802CEDA0(void *, void *);
 s32 handle_motion_event__19TObjEneBm9MericarolFPvi(void *, void *);
-s32 TObjEneBm9Mericarol__sub_802CF178(void *, void *);
+s32 handle_state_message__19TObjEneBm9MericarolFPvi(void *, void *);
 s32 state_burrow__19TObjEneBm9MericarolFPvi(void *, void *);
 s32 TObjEneBm9Mericarol__sub_802CF368(void *, void *);
 s32 TObjEneBm9Mericarol__sub_802CF4F8(void *, void *);
@@ -742,7 +742,7 @@ void dispatch_state_handler__19TObjEneBm9MericarolFiUii(s32 arg0, u32 arg1, s32 
         TObjEneBm9Mericarol__sub_802CEDA0((void *) (arg0), (void *) (arg2));
         return;
     case 12:
-        TObjEneBm9Mericarol__sub_802CF178((void *) (arg0), (void *) (arg2));
+        handle_state_message__19TObjEneBm9MericarolFPvi((void *) (arg0), (void *) (arg2));
     default:
         return;
     }

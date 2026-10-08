@@ -170,7 +170,7 @@ M2C_UNK memset(void *, int, int);
 void reset_entry__6TLobbyFPv(u8 *arg0);
 M2C_UNK memset(void *, int, int);
 extern RecoveredGlobal_803C0B08_lbl_80570AC0 lbl_80570AC0;
-void TLobby__sub_803C0AD8(void);
+void clear_session_buffer__6TLobbyFv(void);
 M2C_UNK memset(void *, int, int);
 void TLobby__sub_803C406C(void);
 extern RecoveredGlobal_803C0B08_lbl_80570AC0 lbl_80570AC0;
@@ -337,7 +337,7 @@ void reset_entry__6TLobbyFPv(u8 *arg0) {
         release_ref__6TLobbyFv();
     }
 }
-void TLobby__sub_803C0AD8(void) {
+void clear_session_buffer__6TLobbyFv(void) {
     memset((void *) (&(*(RecoveredGlobal_803C0AD8_lbl_80570AC0 *)&lbl_80570AC0).value), (int) (0), (int) (0x9C0));
 }
 void reset_sound_buffers__6TLobbyFv(void) {

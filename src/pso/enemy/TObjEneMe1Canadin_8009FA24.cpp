@@ -43,7 +43,7 @@ extern const f32 lbl_805D993C;
 extern const f32 lbl_805D9944;
 Obj_8009FC44 *TObjEneMe1Canadin__sub_8009FC44(Obj_8009FC44 *self, void *parent, s32 count);
 s32 TObjEneMe1Canadin__sub_8009FB54(Obj_8009FB54 *self, s32 dec, f32 scale);
-void TObjEneMe1Canadin__sub_8009FA24(Obj_8009FA24 *arg0);
+void select_first_valid_record__17TObjEneMe1CanadinFPv(Obj_8009FA24 *arg0);
 }
 
 extern "C" {
@@ -57,7 +57,7 @@ extern M2C_UNK lbl_80490410[];
 
 struct Obj_8009FB54;
 typedef s32 (*Fn_8009FA24)(Rec_8009FA24 *, f32, s32);
-void TObjEneMe1Canadin__sub_8009FA24(Obj_8009FA24 *arg0) {
+void select_first_valid_record__17TObjEneMe1CanadinFPv(Obj_8009FA24 *arg0) {
     s32 i;
     arg0->sel = arg0->n20 - 1;
     for (i = arg0->n20 - 1; i >= 0; i--) {

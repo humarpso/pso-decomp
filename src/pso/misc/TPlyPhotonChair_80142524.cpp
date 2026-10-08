@@ -59,11 +59,11 @@ int TLobby__sub_80142944(void* p);
 s32 copy_vec4__13TRaderMapCoreFPvPv(void *, void *);
 extern RecoveredGlobal_801426DC_lbl_8050BFF0 lbl_8050BFF0;
 extern RecoveredGlobal_801426DC_lbl_8058D4C0 lbl_8058D4C0;
-void TPlyPhotonChair__sub_801426DC(s32 _w0);
+void copy_vec4_forward__15TPlyPhotonChairFi(s32 _w0);
 s32 copy_vec4__13TRaderMapCoreFPvPv(void *, void *);
 extern RecoveredGlobal_801426DC_lbl_8050BFF0 lbl_8050BFF0;
 extern RecoveredGlobal_801426DC_lbl_8058D4C0 lbl_8058D4C0;
-void TPlyPhotonChair__sub_80142734(s32 _w0);
+void copy_vec4_reverse__15TPlyPhotonChairFi(s32 _w0);
 f32 get_float_c__15TPlyPhotonChairFPv(void *);
 s32 TPlyPhotonChair__sub_80143930(void *);
 int get_id__15TPlyPhotonChairFPv(void *);
@@ -90,9 +90,9 @@ void play_sound_with_arg__15TPlyPhotonChairFPvPv(void* p, void* a1) { set_global
 
 void play_sound__15TPlyPhotonChairFPv(void* p) { set_global_draw_flag_bits((s32)(p), (s32)((void*)2064)); set_chunk_material_override_pair((void*)-1, (void*)2048); set_chunk_material_color(p); }
 
-void update_parts__15TPlyPhotonChairFPv(void* p) { TPlyPhotonChair__sub_8014270C((s32)(p)); TPlyPhotonChair__sub_801426DC((s32)(p)); restore_state__15TPlyPhotonChairFv((s32)(p)); }
+void update_parts__15TPlyPhotonChairFPv(void* p) { TPlyPhotonChair__sub_8014270C((s32)(p)); copy_vec4_forward__15TPlyPhotonChairFi((s32)(p)); restore_state__15TPlyPhotonChairFv((s32)(p)); }
 
-void update_parts2__15TPlyPhotonChairFPv(void* p) { save_state__15TPlyPhotonChairFv((s32)(p)); TPlyPhotonChair__sub_80142734((s32)(p)); TPlyPhotonChair__sub_80142720((s32)(p)); }
+void update_parts2__15TPlyPhotonChairFPv(void* p) { save_state__15TPlyPhotonChairFv((s32)(p)); copy_vec4_reverse__15TPlyPhotonChairFi((s32)(p)); TPlyPhotonChair__sub_80142720((s32)(p)); }
 
 #pragma push
 #pragma fp_contract on
@@ -126,7 +126,7 @@ void restore_state__15TPlyPhotonChairFv(s32 _w0) { (*(int *)&some_id_805c6f74) =
 
 typedef char RecoveredGlobal_801426DC_lbl_8050BFF0_size[sizeof(RecoveredGlobal_801426DC_lbl_8050BFF0) == 0x10 ? 1 : -1];
 typedef char RecoveredGlobal_801426DC_lbl_8058D4C0_size[sizeof(RecoveredGlobal_801426DC_lbl_8058D4C0) == 0x10 ? 1 : -1];
-void TPlyPhotonChair__sub_801426DC(s32 _w0) {
+void copy_vec4_forward__15TPlyPhotonChairFi(s32 _w0) {
     copy_vec4__13TRaderMapCoreFPvPv((void *) (&lbl_8058D4C0.value), (void *) (&lbl_8050BFF0.value));
 }
 
@@ -135,7 +135,7 @@ int TPlyPhotonChair__sub_80142720(s32 _w0) { lbl_805D5670 = lbl_805D7784; lbl_80
 
 typedef char RecoveredGlobal_80142734_lbl_8050BFF0_size[sizeof(RecoveredGlobal_80142734_lbl_8050BFF0) == 0x10 ? 1 : -1];
 typedef char RecoveredGlobal_80142734_lbl_8058D4C0_size[sizeof(RecoveredGlobal_80142734_lbl_8058D4C0) == 0x10 ? 1 : -1];
-void TPlyPhotonChair__sub_80142734(s32 _w0) {
+void copy_vec4_reverse__15TPlyPhotonChairFi(s32 _w0) {
     copy_vec4__13TRaderMapCoreFPvPv((void *) (&(*(RecoveredGlobal_80142734_lbl_8050BFF0 *)&lbl_8050BFF0).value), (void *) (&(*(RecoveredGlobal_80142734_lbl_8058D4C0 *)&lbl_8058D4C0).value));
 }
 

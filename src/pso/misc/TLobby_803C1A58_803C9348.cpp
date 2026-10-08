@@ -279,13 +279,13 @@ M2C_UNK dispatch_packet__6TLobbyFv(int, int);
 M2C_UNK DVDReadAbsAsyncPrio(int);
 void stop_audio_stream(u8 *arg0);
 M2C_UNK calc_adx_predictor_coeffs(void *, void *, void *, void *);
-void TLobby__sub_803CB594(s32 arg0, void *arg1, s32 arg2);
+void calc_adx_coeffs_at_offset__6TLobbyFiPvi(s32 arg0, void *arg1, s32 arg2);
 s8 TLobby__sub_803C9CB0(u8 *arg0);
 M2C_UNK notify_error__6TLobbyFPv(void *);
 void TLobby__sub_803CB7F8(M2C_UNK arg0, s32 arg1);
 M2C_UNK memset(void *, int, int);
 extern Ch_803CB5C4 lbl_80575B40[16];
-void TLobby__sub_803CB71C(void);
+void clear_buffer_340__6TLobbyFv(void);
 s32 set_scroll_offset__6TLobbyFPvi(void *, s32);
 s32 send_with_offset4_alt__6TLobbyFPv(int);
 M2C_UNK set_field_3c__6TLobbyFPvi(int, int);
@@ -332,7 +332,7 @@ M2C_UNK release_ref__6TLobbyFv();
 M2C_UNK init_once__6TLobbyFv();
 M2C_UNK notify_error__6TLobbyFPv(void *);
 void stop_audio_stream(u8 *arg0);
-s32 TLobby__sub_803D2474(void *, int);
+s32 alloc_adx_stream_slot__6TLobbyFii(void *, int);
 extern char lbl_8047C6C0[];
 void adxt_start_mem_idx__6TLobbyFPvPvi(u8 *arg0, u8 *arg1, s32 arg2);
 void TLobby__sub_803CE544(void *, int);
@@ -965,7 +965,7 @@ void adxt_start_mem_idx__6TLobbyFPvPvi(u8 *arg0, u8 *arg1, s32 arg2) {
         return;
     }
     init_once__6TLobbyFv();
-    r = TLobby__sub_803D2474(arg1 + *(s32 *)(arg1 + (arg2 + 1) * 8), 0x40000000);
+    r = alloc_adx_stream_slot__6TLobbyFii(arg1 + *(s32 *)(arg1 + (arg2 + 1) * 8), 0x40000000);
     if (r == 0) {
         release_ref__6TLobbyFv();
         notify_error__6TLobbyFPv(lbl_8047C6C0);
@@ -1272,7 +1272,7 @@ void TLobby__sub_803CB570(u8 *arg0, u8 *arg1, s16 *arg2) {
 
 #pragma push
 #pragma fp_contract on
-void TLobby__sub_803CB594(s32 arg0, void *arg1, s32 arg2) {
+void calc_adx_coeffs_at_offset__6TLobbyFiPvi(s32 arg0, void *arg1, s32 arg2) {
     calc_adx_predictor_coeffs((void *) (arg2), arg1, (void *) (arg0 + 0x30), (void *) (arg0 + 0x32));
 }
 #pragma pop
@@ -1301,7 +1301,7 @@ Ch_803CB5C4 *alloc_adx_channel__6TLobbyFv(void) {
 }
 
 typedef char RecoveredGlobal_800F8A78_lbl_80501178_size[sizeof(RecoveredGlobal_800F8A78_lbl_80501178) == 0x10 ? 1 : -1];
-void TLobby__sub_803CB71C(void) {
+void clear_buffer_340__6TLobbyFv(void) {
     memset((void *) (lbl_80575B40), (int) (0), (int) (0x340));
 }
 

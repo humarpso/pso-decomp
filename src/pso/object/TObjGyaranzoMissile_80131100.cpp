@@ -66,7 +66,7 @@ extern const f32 lbl_805DB05C;
 void update_recoil__19TObjGyaranzoMissileFPv(u8 *arg0);
 void draw_status_icon__10TObjPlayerFPvi(void *self, void *buf);
 void spawn_particle_effect(void *buf, s32 n);
-void TObjGyaranzoMissile__sub_80131334(Obj_80131334 *self);
+void enter_explode_state__19TObjGyaranzoMissileFPv(Obj_80131334 *self);
 extern u8 lbl_80506250[];
 void TObjGyaranzoMissile__sub_80131488(Obj_80131488 *self);
 }
@@ -151,7 +151,7 @@ void update_recoil__19TObjGyaranzoMissileFPv(u8 *arg0) {
 }
 #pragma pop
 
-void TObjGyaranzoMissile__sub_80131334(Obj_80131334 *self) {
+void enter_explode_state__19TObjGyaranzoMissileFPv(Obj_80131334 *self) {
     u8 buf[0x18];
     self->state = 2;
     draw_status_icon__10TObjPlayerFPvi(self, buf);

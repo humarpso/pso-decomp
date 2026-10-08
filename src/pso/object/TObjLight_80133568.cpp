@@ -250,7 +250,7 @@ extern Light_801347A4 TObjLight__data_805068FC[];
 extern s32 TObjLight__data_805D556C;
 extern s32 TObjLight__data_805D5570;
 extern const float TObjLight__data_805DB088;
-void TObjLight__sub_801347A4(void);
+void init_light_tables__9TObjLightFv(void);
 extern RecoveredGlobal_80134724_TObjLight__data_8050637C TObjLight__data_8050637C;
 extern Light_801347A4 TObjLight__data_805068FC[];
 extern s32 TObjLight__data_805D556C;
@@ -509,7 +509,7 @@ void init_map_lights(u8 *arg0) {
     M2C_FIELD(&(*(RecoveredGlobal_80133B10_TObjLight__data_80506320 *)&TObjLight__data_80506320).value, f32 *, 0x38) = (f32) M2C_FIELD(arg0, f32 *, 0x38);
     M2C_FIELD(&(*(RecoveredGlobal_80133B10_TObjLight__data_80506320 *)&TObjLight__data_80506320).value, f32 *, 0x3C) = (f32) M2C_FIELD(arg0, f32 *, 0x3C);
     M2C_FIELD(&(*(RecoveredGlobal_80133B10_TObjLight__data_80506320 *)&TObjLight__data_80506320).value, f32 *, 0x40) = (f32) M2C_FIELD(arg0, f32 *, 0x40);
-    TObjLight__sub_801347A4();
+    init_light_tables__9TObjLightFv();
     temp_r3 = __nw__7TObjectFUl((int) (0x1C));
     if (temp_r3 != 0U) {
         TObjLight__sub_80133980((u8 *)((int) (temp_r3)), (int)((int) (tl_02)));
@@ -764,7 +764,7 @@ void register_actor_light(s32 arg0, s32 arg1) {
     }
 }
 
-void TObjLight__sub_801347A4(void) {
+void init_light_tables__9TObjLightFv(void) {
     s32 i;
     s32 j;
     for (i = 0; i < 0x20; i++) {

@@ -30,7 +30,7 @@ void byteswap_record__12TBoss8DragonFPv(O_80065FD4 *p);
 
 extern "C" {
 
-void TBoss8Dragon__sub_80065DB4(u8 *arg0, u8 *arg1, u8 *arg2);
+void fill_follow_camera_params__12TBoss8DragonFPvPvPv(u8 *arg0, u8 *arg1, u8 *arg2);
 void get_follow_camera_offsets__12TBoss8DragonFPvPv(u8 *arg0, u8 *arg1);
 M2C_UNK *TBoss8Dragon__sub_80065F08(void);
 void TBoss8Dragon__sub_80065F1C(void);
@@ -73,7 +73,7 @@ typedef char RecoveredGlobal_80065EA0_lbl_80487CCC_size[sizeof(RecoveredGlobal_8
 typedef char RecoveredGlobal_80065EA0_lbl_80487CD8_size[sizeof(RecoveredGlobal_80065EA0_lbl_80487CD8_80065C90) == 0x354 ? 1 : -1];
 
 typedef char RecoveredGlobal_80065DB4_lbl_804FF5B4_size[sizeof(RecoveredGlobal_80065DB4_lbl_804FF5B4_80065C90) == 0xC ? 1 : -1];
-void TBoss8Dragon__sub_80065DB4(u8 *arg0, u8 *arg1, u8 *arg2) {
+void fill_follow_camera_params__12TBoss8DragonFPvPvPv(u8 *arg0, u8 *arg1, u8 *arg2) {
     s32 temp_r0;
     M2C_FIELD(arg1, f32 *, 0) = (f32) lbl_805D8D5C;
     M2C_FIELD(arg2, f32 *, 0) = (f32) lbl_805D8D5C;
@@ -108,7 +108,7 @@ void get_follow_camera_offsets__12TBoss8DragonFPvPv(u8 *arg0, u8 *arg1) {
         VecCopy__FP3VecPC3Vec(arg1, &lbl_80487CD8.value);
         return;
     }
-    TBoss8Dragon__sub_80065DB4((u8 *)((u8 *)((*(u8 * *)&lbl_805D4DBC))), (u8 *)((u8 *)(arg0)), (u8 *)((u8 *)(arg1)));
+    fill_follow_camera_params__12TBoss8DragonFPvPvPv((u8 *)((u8 *)((*(u8 * *)&lbl_805D4DBC))), (u8 *)((u8 *)(arg0)), (u8 *)((u8 *)(arg1)));
 }
 
 typedef char RecoveredGlobal_80065F08_lbl_80437938_size[sizeof(RecoveredGlobal_80065F08_lbl_80437938_80065C90) == 0xC ? 1 : -1];

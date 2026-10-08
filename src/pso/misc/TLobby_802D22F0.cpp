@@ -12,7 +12,7 @@ struct E_802D2358 { u32 a; u32 b; };
 
 extern "C" {
 E_802D2334 *TLobby__sub_802D2334(E_802D2334 *p, u32 key);
-E_802D230C *TLobby__sub_802D230C(E_802D230C *p);
+E_802D230C *find_free_trade_slot__6TLobbyFPv(E_802D230C *p);
 void TLobby__sub_802D2358(E_802D2358 *p);
 }
 
@@ -26,7 +26,7 @@ int byteswap_trade_packet__6TLobbyFPv(void);
 void TLobby__sub_802D22F0(void* p, void* q) { *(u32*)((char*)p + 0x0) = *(u32*)((char*)q + 0x0); *(u32*)((char*)p + 0x4) = *(u32*)((char*)q + 0x4); }
 void* get_trade_obj_ptr__6TLobbyFPv(void* p) { return (char*)p + 0xf0; }
 
-E_802D230C *TLobby__sub_802D230C(E_802D230C *p) {
+E_802D230C *find_free_trade_slot__6TLobbyFPv(E_802D230C *p) {
     s32 i;
     for (i = 0; i < 30; i++, p++) {
         if (p->a == 0xFFFFFFFF) return p;

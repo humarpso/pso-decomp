@@ -347,7 +347,7 @@ s32 get_target_info__9TObjEneDDFPv(void *);
 s32 TObjEneDD__sub_800BB878(s32, s32);
 M2C_UNK toggle_particle_effect__10TObjPlayerFv();
 s32 TObjEneMe3SinowZoa__sub_8031A454(void *);
-s32 TObjEneMe3SinowZoa__sub_8031A494(void *);
+s32 is_outside_visible_range__18TObjEneMe3SinowZoaFPv(void *);
 s32 TObjEneMe3SinowZoa__sub_8031A4D0(void *);
 f32 get_node_height__18TObjEneMe3SinowZoaFPv(void *);
 M2C_UNK end_effect_render__13TParticleCtrlFv();
@@ -694,7 +694,7 @@ void render_with_stealth_debug__18TObjEneMe3SinowZoaFPv(Obj_803173D0 *arg0) {
         } else {
             debug_printf_at(TObjEneDD__sub_800BB878(0, 2), lbl_80475FE4);
         }
-        if (TObjEneMe3SinowZoa__sub_8031A494(arg0) != 0) {
+        if (is_outside_visible_range__18TObjEneMe3SinowZoaFPv(arg0) != 0) {
             debug_printf_at(TObjEneDD__sub_800BB878(0xF, 2), lbl_80475FF4);
         } else {
             debug_printf_at(TObjEneDD__sub_800BB878(0xF, 2), lbl_80476004);

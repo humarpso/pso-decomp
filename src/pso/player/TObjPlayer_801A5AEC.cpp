@@ -511,7 +511,7 @@ extern s8 pad_recalibration_hold_frames[4];
 void init_pad_state__16TKeyBoardControlFv(void);
 u8 get_key_state_2__16TKeyBoardControlFPv(void *);
 s32 read_input__16TKeyBoardControlFi(u8);
-void TKeyBoardControl__sub_801A67A4(Rec_801A67A4 *arg0, Rec_801A67A4 *arg1);
+void copy_state__16TKeyBoardControlFPvPv(Rec_801A67A4 *arg0, Rec_801A67A4 *arg1);
 void reset__16TKeyBoardControlFv();
 extern const f32 lbl_805DC0C0;
 s32 is_split_screen(void);
@@ -601,7 +601,7 @@ void reset_controller_input_state(void) {
         p->f4C = 0;
         p++;
     }
-    TKeyBoardControl__sub_801A67A4((Rec_801A67A4 *)&lbl_8050E208[0x58], (Rec_801A67A4 *)((u8 *)lbl_8050E208 + 0x20));
+    copy_state__16TKeyBoardControlFPvPv((Rec_801A67A4 *)&lbl_8050E208[0x58], (Rec_801A67A4 *)((u8 *)lbl_8050E208 + 0x20));
     reset__16TKeyBoardControlFv();
 }
 
@@ -610,7 +610,7 @@ typedef struct Sub_801A67A4 Sub_801A67A4;
 #pragma inline_depth(1)
 #pragma auto_inline off
 #pragma dont_inline off
-void TKeyBoardControl__sub_801A67A4(Rec_801A67A4 *arg0, Rec_801A67A4 *arg1) {
+void copy_state__16TKeyBoardControlFPvPv(Rec_801A67A4 *arg0, Rec_801A67A4 *arg1) {
   Rec_801A67A4 *new_var;
   Rec_801A67A4 *new_var2;
   Sub_801A67A4 *s;

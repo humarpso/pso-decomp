@@ -446,7 +446,7 @@ s8 get_attach_joint__14TItemEquipBaseFPv(u8 *arg0);
 M2C_UNK get_id__13TItemProArmorFPv(void *);
 M2C_UNK check_flag_32__14TItemEquipBaseFPv(int);
 M2C_UNK TItemEquipBase__sub_801190B0(M2C_UNK, int);
-M2C_UNK TItemTimerEvent__sub_8011E0A4();
+M2C_UNK start_event_by_index__15TItemTimerEventFUs();
 void TItemEquipBase__sub_8010A948(u8 *arg0);
 M2C_UNK set_mode__5TItemFPvc(void *, int);
 M2C_UNK clear_item_flags__10TObjPlayerFPvUi(void *, int);
@@ -478,7 +478,7 @@ M2C_UNK get_id__13TItemProArmorFPv(void *);
 s32 apply_ad_rico_ring__14TItemEquipBaseFii(s32 arg0, s32 arg1);
 s32 clear_flag_c_bit5__14TItemEquipBaseFPv(void *);
 s32 TItemEquipBase__sub_80119060(void *, int);
-s32 TItemTimerEvent__sub_8011E068(void *);
+s32 clear_timer_slot__15TItemTimerEventFUs(void *);
 void remove_equip_effects__14TItemEquipBaseFPv(u8 *arg0);
 u8 get_field_ec__12TOSwitchItemFPv(void *);
 u8 get_slot_count__14TItemProShieldFPv(void *);
@@ -676,7 +676,7 @@ void TItemEquipBase__vt42(void) {  }
 void TItemEquipBase__sub_8010A948(u8 *arg0) {
     if (((s32)TItemEquipBase__sub_8010AC60((s32)((void *)((void *) (arg0))), (M2C_UNK)((int)((int) (2))), (s32)((int)((int) (4))))) != 0) {
         get_id__13TItemProArmorFPv((void *) (arg0));
-        TItemTimerEvent__sub_8011E0A4();
+        start_event_by_index__15TItemTimerEventFUs();
     }
     if (((s32)TItemEquipBase__sub_8010AC60((s32)((void *)((void *) (arg0))), (M2C_UNK)((int)((int) (8))), (s32)((int)((int) (0x10))))) != 0) {
         TItemEquipBase__sub_801190B0(get_id__13TItemProArmorFPv((void *) (arg0)), (int) (0));
@@ -710,7 +710,7 @@ void remove_equip_effects__14TItemEquipBaseFPv(u8 *arg0) {
         ((VObj_18_24abda *)(arg0))->m45();
     }
     if (apply_ad_rico_ring__14TItemEquipBaseFii((s32)((void *) (arg0)), (s32)((int) (4))) != 0) {
-        TItemTimerEvent__sub_8011E068((void *) (((s32)get_id__13TItemProArmorFPv((void *) (arg0)))));
+        clear_timer_slot__15TItemTimerEventFUs((void *) (((s32)get_id__13TItemProArmorFPv((void *) (arg0)))));
     }
     if (apply_ad_rico_ring__14TItemEquipBaseFii((s32)((void *) (arg0)), (s32)((int) (0x10))) != 0) {
         TItemEquipBase__sub_80119060((void *) (((s32)get_id__13TItemProArmorFPv((void *) (arg0)))), (int) (0));

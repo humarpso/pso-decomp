@@ -57,7 +57,7 @@ void set_mode__15TWindowSnapShotFPvi(void* p, s32 v);
 s32 fn_802A5C3C(u32 *arg0);
 void reset__15TWindowSnapShotFPv(u8 *arg0);
 extern M2C_UNK lbl_804DD098[];
-u8 *TWindowSnapShot__sub_802A5F24(u8 *arg0);
+u8 *init_and_reset__15TWindowSnapShotFPv(u8 *arg0);
 }
 
 extern "C" {
@@ -169,7 +169,7 @@ void *TWindowSnapShot__sub_802A5EDC(void *arg0, s16 arg1) {
 }
 
 typedef char RecoveredGlobal_802A5F24_lbl_804DD098_size[sizeof(RecoveredGlobal_802A5F24_lbl_804DD098) == 0x10 ? 1 : -1];
-u8 *TWindowSnapShot__sub_802A5F24(u8 *arg0) {
+u8 *init_and_reset__15TWindowSnapShotFPv(u8 *arg0) {
     M2C_FIELD(arg0, M2C_UNK **, 0x3C) = &(*(RecoveredGlobal_802A5F24_lbl_804DD098 *)&lbl_804DD098).value;
     reset__15TWindowSnapShotFPv((u8 *)((void *) (arg0)));
     return arg0;

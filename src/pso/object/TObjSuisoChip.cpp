@@ -522,7 +522,7 @@ void draw_model__23TObjSeabedSuisoBrakableFPv(u8 *arg0) {
 extern "C" {
 u8 * get_bml_motion(void *, int);
 extern u8 *TObjSeabedSuisoBrakable__data_805D6670;
-u8 *TObjSeabedSuisoBrakable__sub_802A6EC0(s32 arg0);
+u8 *get_bml_motion_by_index__23TObjSeabedSuisoBrakableFi(s32 arg0);
 u8 * get_bml_model(void *, int);
 extern u8 *TObjSeabedSuisoBrakable__data_805D6670;
 u8 *get_model__23TObjSeabedSuisoBrakableFi(s32 arg0);
@@ -623,7 +623,7 @@ void init_kind_params__23TObjSeabedSuisoBrakableFPv(void *arg0) {
     }
     self->fd4 = get_model__23TObjSeabedSuisoBrakableFi(lbl_804DD278[self->kind].a);
     if (lbl_804DD278[self->kind].b != -1) {
-        self->fbc = (Snd_802A6BD0 *)TObjSeabedSuisoBrakable__sub_802A6EC0(lbl_804DD278[self->kind].b);
+        self->fbc = (Snd_802A6BD0 *)get_bml_motion_by_index__23TObjSeabedSuisoBrakableFi(lbl_804DD278[self->kind].b);
         self->fb8 = lbl_804DD278[self->kind].f8;
     } else {
         self->fbc = 0;
@@ -672,7 +672,7 @@ Obj_802A6DA8 *init__23TObjSeabedSuisoBrakableFPvii(Obj_802A6DA8 *self, s32 arg1,
 
     extern int lbl_805D6674;
 
-u8 *TObjSeabedSuisoBrakable__sub_802A6EC0(s32 arg0) {
+u8 *get_bml_motion_by_index__23TObjSeabedSuisoBrakableFi(s32 arg0) {
     if ((void *) TObjSeabedSuisoBrakable__data_805D6670 != NULL) {
         return get_bml_motion(TObjSeabedSuisoBrakable__data_805D6670, arg0);
     }

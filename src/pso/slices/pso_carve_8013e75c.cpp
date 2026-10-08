@@ -6,7 +6,7 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 
 extern "C" {
 int set_target_index__11TMainCursorFPvs(void*, void* a1);
-int TMainCursor__sub_8013E75C(void* p, void* _w1);
+int set_target_index_at_60__11TMainCursorFPvPv(void* p, void* _w1);
 }
 
 extern "C" {
@@ -94,6 +94,6 @@ int TMainCursor__sub_8013DFC4(void*);
 
 }
 
-int TMainCursor__sub_8013E75C(void* p, void* _w1) { return set_target_index__11TMainCursorFPvs((void*)((char*)p + 0x60), (void*)(_w1)); }
+int set_target_index_at_60__11TMainCursorFPvPv(void* p, void* _w1) { return set_target_index__11TMainCursorFPvs((void*)((char*)p + 0x60), (void*)(_w1)); }
 
 }

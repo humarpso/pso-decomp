@@ -165,7 +165,7 @@ extern const f32 lbl_805DD134;
 void validate_target__13TWindowLockOnFPv(u8 *arg0);
 bool is_lockable_target__13TWindowLockOnFi(s32 arg0);
 void refresh_ground_item__13TWindowLockOnFv(void);
-void TWindowLockOn__sub_80262FDC(u8 *arg0);
+void update_photon_blast_marker__13TWindowLockOnFPv(u8 *arg0);
 void TWindowLockOn__update_for_enemy(s32, s32);
 M2C_UNK TWindowLockOn__update_for_item(s32 a0, s32 a1);
 M2C_UNK TWindowLockOn__update_for_other_player(s32, s32);
@@ -273,7 +273,7 @@ void refresh_enemy_statuses__13TWindowLockOnFv(u8 *self) {
 
 void refresh_ground_item__13TWindowLockOnFv(void) {  }
 
-void TWindowLockOn__sub_80262FDC(u8 *arg0) {
+void update_photon_blast_marker__13TWindowLockOnFPv(u8 *arg0) {
     update_photon_blast_player_marker(get_array_entry__20TWindowSubStatusDispFPvi(arg0, 0), (u32) M2C_FIELD(arg0, u16 *, 0x60));
 }
 

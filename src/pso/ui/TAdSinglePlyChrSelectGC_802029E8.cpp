@@ -114,7 +114,7 @@ void TAdSinglePlyChrSelectGC__sub_80202A40(void);
 s32 *TAdSinglePlyChrSelectGC__sub_80202B38(Obj_80202B38 *self, s32 i);
 Ent_80202B1C *TAdSinglePlyChrSelectGC__sub_80202B1C(Obj_80202B1C *self, s32 i);
 void clear_inventory_slot__23TAdSinglePlyChrSelectGCFPv(u8 *arg0);
-void TAdSinglePlyChrSelectGC__sub_80202B4C(Obj_80202B4C *self, s32 i);
+void clear_inventory_slot_by_index__23TAdSinglePlyChrSelectGCFPvi(Obj_80202B4C *self, s32 i);
 void TAdSinglePlyChrSelectGC__sub_80202C08(Obj_80202C08 *self);
 void TAdSinglePlyChrSelectGC__sub_80202C3C(Obj_80202C3C *self);
 void __construct_array(void *, void *, void *, int, int);
@@ -211,7 +211,7 @@ s32 *TAdSinglePlyChrSelectGC__sub_80202B38(Obj_80202B38 *self, s32 i) {
 
     extern int lbl_805D5F74;
 
-void TAdSinglePlyChrSelectGC__sub_80202B4C(Obj_80202B4C *self, s32 i) {
+void clear_inventory_slot_by_index__23TAdSinglePlyChrSelectGCFPvi(Obj_80202B4C *self, s32 i) {
     clear_inventory_slot__23TAdSinglePlyChrSelectGCFPv((u8 *)(&self->e[i]));
 }
 

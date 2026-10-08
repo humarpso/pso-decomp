@@ -12,7 +12,7 @@ struct Obj_8013E870 { u8 pad[0x5c]; Rec_8013E870 recs[1]; };
 extern "C" {
 void copy_target_record__11TMainCursorFPvPv(u8 *arg0, u8 *arg1);
 int TMainCursor__sub_8013E8A0(void* p);
-void TMainCursor__sub_8013E870(Obj_8013E870 *self, s32 i);
+void init_slot__11TMainCursorFPvi(Obj_8013E870 *self, s32 i);
 }
 
 extern "C" {
@@ -49,7 +49,7 @@ int TMainCursor__sub_8013E6E0(void* p);
 int update_action_palette__11TMainCursorFPv(void* p);
 void TMainCursor__sub_8013E724(void* p, f32 v);
 void set_target_id__11TMainCursorFPvs(void* p, s16 v);
-int TMainCursor__sub_8013E75C(void* p);
+int set_target_index_at_60__11TMainCursorFPvPv(void* p);
 s32 get_body_exclude_mask__11TMainCursorFPv(void* p);
 s32 get_body_include_mask__11TMainCursorFPv(void* p);
 s32 get_actor_exclude_mask__11TMainCursorFPv(void* p);
@@ -96,7 +96,7 @@ void copy_target_record__11TMainCursorFPvPv(u8 *arg0, u8 *arg1) {
     M2C_FIELD(arg0, s16 *, 2) = (s16) M2C_FIELD(arg1, s16 *, 2);
     M2C_FIELD(arg0, f32 *, 4) = (f32) M2C_FIELD(arg1, f32 *, 4);
 }
-void TMainCursor__sub_8013E870(Obj_8013E870 *self, s32 i) {
+void init_slot__11TMainCursorFPvi(Obj_8013E870 *self, s32 i) {
     TMainCursor__sub_8013E8A0((void*)(&self->recs[i]));
 }
 

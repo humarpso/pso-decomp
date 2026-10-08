@@ -189,7 +189,7 @@ extern RecoveredGlobal_803D78A8_lbl_8058CAB8 lbl_8058CAB8;
 extern u8 *lbl_805D76BC;
 void select_motion_context(s32 arg0);
 s32 translate_matrix(s32, f32, f32, f32);
-s32 TCameraCtrl__sub_803D65C8(f32 x, f32 y, f32 z);
+s32 translate_view_negated__11TCameraCtrlFfff(f32 x, f32 y, f32 z);
 extern u8 *lbl_805D76BC;
 void advance_motion_row(void);
 u32 find_motion_key_partition_u32(u8 *base, u32 stride, u32 hi, u32 key);
@@ -249,7 +249,7 @@ s32 TObjPlayer__sub_803D7FD8(void);
 void update_camera_state__11TCameraCtrlFv(f32 _w0, f32 _w1, f32 _w2);
 
 void update_camera_state__11TCameraCtrlFv(f32 _w0, f32 _w1, f32 _w2) {
-    TCameraCtrl__sub_803D65C8(_w0, _w1, _w2);
+    translate_view_negated__11TCameraCtrlFfff(_w0, _w1, _w2);
 }
 
 void look_at_position__11TCameraCtrlFfff(f32 farg0, f32 farg1, f32 farg2) {
@@ -265,7 +265,7 @@ void look_at_position__11TCameraCtrlFfff(f32 farg0, f32 farg1, f32 farg2) {
 
 #pragma push
 #pragma scheduling off
-s32 TCameraCtrl__sub_803D65C8(f32 x, f32 y, f32 z) {
+s32 translate_view_negated__11TCameraCtrlFfff(f32 x, f32 y, f32 z) {
     return translate_matrix(0, -x, -y, -z);
 }
 #pragma pop
@@ -529,7 +529,7 @@ void interpolate_motion_vector_keys_xy(u8 *arg0, s32 arg1, u8 *arg2, f32 farg0) 
 
 #pragma push
 #pragma scheduling off
-void TObjPlayer__sub_803D6F20(u8 *arg0, s32 arg1, s32 *arg2, f32 farg0) {
+void interpolate_motion_key__10TObjPlayerFPviPvf(u8 *arg0, s32 arg1, s32 *arg2, f32 farg0) {
     typedef char sp8_offset[(offsetof(Stack_803D6F20, sp8) == 0x0) ? 1 : -1];
     typedef char spC_offset[(offsetof(Stack_803D6F20, spC) == 0x4) ? 1 : -1];
     typedef char sp10_offset[(offsetof(Stack_803D6F20, sp10) == 0x8) ? 1 : -1];

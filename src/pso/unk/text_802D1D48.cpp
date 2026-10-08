@@ -13,7 +13,7 @@ void remove_trade_entry__6TLobbyFPvUi(void *, u32);
 u8 * TLobby__sub_802D2334(void *, u32);
 void transfer_trade_item_amount__6TLobbyFPvUii(u8 *arg0, u32 arg1, s32 arg2);
 s32 get_trade_obj_ptr__6TLobbyFPv(s32);
-u8 *TLobby__sub_802D230C(void *);
+u8 *find_free_trade_slot__6TLobbyFPv(void *);
 u8 * TLobby__sub_802D2334(void *, u32);
 void move_trade_item_amount__6TLobbyFPvUii(u8 *arg0, u32 arg1, s32 arg2);
 void clear_stale_entries__6TLobbyFPv(void *);
@@ -79,7 +79,7 @@ void move_trade_item_amount__6TLobbyFPvUii(u8 *arg0, u32 arg1, s32 arg2) {
     }
     else
     {
-      var_r3 = (long) TLobby__sub_802D230C(arg0);
+      var_r3 = (long) find_free_trade_slot__6TLobbyFPv(arg0);
     }
     *((u32 *) (((s8 *) var_r3) + 0)) = arg1;
     *((s32 *) (((s8 *) var_r3) + 4)) = arg2;

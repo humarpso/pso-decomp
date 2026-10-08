@@ -21,7 +21,7 @@ M2C_UNK TLobby__sub_8024AC20(int);
 M2C_UNK send_and_handle__6TLobbyFPvii(u32, s32, M2C_UNK);
 u32 set_window_mode_4__6TLobbyFPvii(M2C_UNK, M2C_UNK *, M2C_UNK);
 s32 TLobby__sub_80292F5C();
-s32 TLobby__sub_80292F7C();
+s32 get_challenge_mode_flag__6TLobbyFv();
 M2C_UNK forward_trade_action_default__16TObjCityMainWarpFPviii(u32, s32, M2C_UNK, M2C_UNK);
 s32 get_player_by_client_id(int);
 s32 TQuestVmDownLoadServer__sub_8006EF6C(M2C_UNK);
@@ -37,7 +37,7 @@ M2C_UNK play_effect_default__10TObjPlayerFii(s32, M2C_UNK);
 M2C_UNK send_code_45_1__10TObjPlayerFi(int);
 
 s32 is_multi_ready__6TLobbyFv(void) {
-    if ((TLobby__sub_80292F7C() != 0) || (TLobby__sub_80292F5C() <= 1)) {
+    if ((get_challenge_mode_flag__6TLobbyFv() != 0) || (TLobby__sub_80292F5C() <= 1)) {
         return 0;
     }
     return 1;

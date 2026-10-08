@@ -62,7 +62,7 @@ M2C_UNK set_card_text__17TWindowSubComCardFii(int, int);
 M2C_UNK swap_cards__17TWindowSubComCardFii(int, int);
 M2C_UNK remove_card_at__17TWindowSubComCardFi(int);
 M2C_UNK TWindowSubComCard__sub_8007AF10(int);
-M2C_UNK TWindowSubComCard__sub_8007B230(int, int);
+M2C_UNK set_text__17TWindowSubComCardFPvPv(int, int);
 s32 get_keyboard_mode__17TWindowSubComCardFv();
 M2C_UNK remove_entry__17TWindowSubComCardFi(int);
 M2C_UNK init_and_press_a__17TWindowSubComCardFi(int);
@@ -479,7 +479,7 @@ void run_task__17TWindowSubComCardFv(u8 *arg0) {
             temp_r29 = realloc_buffer__17TWindowSubComCardFPv((int) (M2C_FIELD(arg0, u32 *, 0x80)));
             TWindowSubComCard__sub_80225E80((int) (temp_r29), (int) (get_shared_text_buffer()));
             temp_r30 = get_keyboard_mode__17TWindowSubComCardFv();
-            TWindowSubComCard__sub_8007B230((int) (temp_r30), (int) (get_shared_text_buffer()));
+            set_text__17TWindowSubComCardFPvPv((int) (temp_r30), (int) (get_shared_text_buffer()));
             free__11TOBoss4RockFUi((int) (temp_r29));
             M2C_FIELD(arg0, u8 *, 0x1C) = 1U;
             return;

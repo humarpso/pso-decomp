@@ -8,7 +8,7 @@ struct O_802E00CC { u8 pad[0x1c]; s32 v; };
 
 extern "C" {
 void TAdMultiPlyChrSelectGC__sub_802E006C(u8 *arg0, s32 arg1, s32 arg2);
-s32 TAdMultiPlyChrSelectGC__sub_802E00CC(O_802E00CC *self);
+s32 is_state_closing__22TAdMultiPlyChrSelectGCFPv(O_802E00CC *self);
 }
 
 extern "C" {
@@ -44,7 +44,7 @@ s32 get_mode__22TAdMultiPlyChrSelectGCFPv(void* p) { return *(s32*)((char*)p + 0
 
     extern int lbl_805D6E78;
 
-s32 TAdMultiPlyChrSelectGC__sub_802E00CC(O_802E00CC *self) {
+s32 is_state_closing__22TAdMultiPlyChrSelectGCFPv(O_802E00CC *self) {
     switch (self->v) {
     case 6:
     case 8:

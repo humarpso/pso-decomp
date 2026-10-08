@@ -78,7 +78,7 @@ struct O_801C12C8 { u8 a; u8 b; u8 pad[2]; s32 c; s32 arr[30]; };
 extern "C" {
 u8 *TObjPlayer__sub_801C1268(u8 *arg0, u8 *arg1);
 extern const f32 TObjPlayer__data_805DC278;
-void TObjPlayer__sub_801C15E4(u8 *arg0);
+void build_6xAE_set_animation_state_packet__10TObjPlayerFPv(u8 *arg0);
 u8 *TObjPlayer__sub_801C1664(u8 *arg0, u8 *arg1);
 s32 bswap__9TItemDataFv(s32);
 void bswap_cmd_item_data__10TObjPlayerFi(s32 arg0);
@@ -89,7 +89,7 @@ void* init_pkt_6x2B__10TObjPlayerFPv(void* p);
 void set_code_43_6__10TObjPlayerFPv(void* p);
 void bswap_cmd_item_data__10TObjPlayerFi(s32 arg0);
 int TLobby__send_and_handle_60(void*);
-void TObjPlayer__sub_801C0FDC(void* p);
+void send_cmd_item_data__10TObjPlayerFPv(void* p);
 int bswap_16__FPUs(void*);
 int bswap_32__FPUl(void*);
 int read_be16_field2__10TObjPlayerFPv(void*);
@@ -144,7 +144,7 @@ void* init_pkt_6x2B__10TObjPlayerFPv(void* p) { set_code_43_6__10TObjPlayerFPv((
 
 void set_code_43_6__10TObjPlayerFPv(void* p) { *(u8*)((char*)p + 0x0) = 43; *(u8*)((char*)p + 0x1) = 6; }
 
-void TObjPlayer__sub_801C0FDC(void* p) { bswap_cmd_item_data__10TObjPlayerFi((s32)(p)); TLobby__send_and_handle_60((void*)(p)); }
+void send_cmd_item_data__10TObjPlayerFPv(void* p) { bswap_cmd_item_data__10TObjPlayerFi((s32)(p)); TLobby__send_and_handle_60((void*)(p)); }
 
 void bswap_fields__10TObjPlayerFi(s32 arg0) {
     read_be16_field2__10TObjPlayerFPv((void*)(arg0));
@@ -274,7 +274,7 @@ void *copy_from__10TObjPlayerFPvPv(void *arg0, void *arg1) {
     return arg0;
 }
 
-void TObjPlayer__sub_801C15E4(u8 *arg0) {
+void build_6xAE_set_animation_state_packet__10TObjPlayerFPv(u8 *arg0) {
     M2C_FIELD(arg0, s16 *, 4) = 0;
     M2C_FIELD(arg0, s16 *, 6) = 0;
     M2C_FIELD(arg0, s32 *, 8) = 0;

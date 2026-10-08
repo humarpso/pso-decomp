@@ -15,7 +15,7 @@ struct Obj_801D5854 { u8 pad[0xA8]; Ent_801D5854 arr[1]; };
 extern "C" {
 void TItemList__sub_801D5804(s32 *arg0);
 u8 get_item_count__9TItemListFPv(void* p);
-void TItemList__sub_801D58E4(u8 *arg0);
+void run_item_count_update__9TItemListFPv(u8 *arg0);
 void TItemList__sub_801D58C8(void* p);
 u8 get_item_count__9TItemListFPv(void* p);
 s32 TItemList__sub_801D5868(Arr_801D5868 *, s32);
@@ -87,7 +87,7 @@ void TItemList__sub_801D58C8(void* p) { *(s32*)((char*)p + 0x0) = 3; }
 u8 get_item_count__9TItemListFPv(void* p) { return *(u8*)((char*)p + 0x1c); }
 u16 TItemList__sub_801D58DC(void* p) { return *(u16*)((char*)p + 0x20); }
 
-void TItemList__sub_801D58E4(u8 *arg0) {
+void run_item_count_update__9TItemListFPv(u8 *arg0) {
     ((M2C_UNK)((int)TItemList__sub_801D5854((Obj_801D5854 *)((int)((int) (M2C_FIELD(arg0, s32 *, 0x54)))), (s32)((int)((int) (((s8)get_item_count__9TItemListFPv(arg0))))))));
 }
 

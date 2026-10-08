@@ -42,7 +42,7 @@ M2C_UNK bswap_16__FPUs(s32);
 void TLobby__sub_80072AB8(void *arg0);
 void bswap_32__FPUl(void *);
 void bswap_packet_field__6TLobbyFv(void * _w0);
-s32 TLobby__sub_8006F23C();
+s32 get_flag_value_if_set__6TLobbyFv();
 s32 TLobby__sub_8006FBE4();
 s32 is_ready_to_draw__6TLobbyFv(void);
 int TWindow__close(void*);
@@ -256,7 +256,7 @@ void bswap_packet_field__6TLobbyFv(void * _w0) {
     bswap_32__FPUl((void *)(_w0));
 }
 s32 is_ready_to_draw__6TLobbyFv(void) {
-    if ((TLobby__sub_8006F23C() != 0) || (TLobby__sub_8006FBE4() <= 1)) {
+    if ((get_flag_value_if_set__6TLobbyFv() != 0) || (TLobby__sub_8006FBE4() <= 1)) {
         return 0;
     }
     return 1;

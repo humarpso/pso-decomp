@@ -29,7 +29,7 @@ extern s32 lbl_805D62B0;
 extern u32 lbl_805DC748;
 void TLobby__sub_8022644C(void);
 void set_cue_stream_gain(s32, s32);
-void TLobby__sub_80227CE8(void);
+void set_menu_index_main__6TLobbyFPv(void);
 extern s32 lbl_805D6290;
 extern s32 lbl_805D6294;
 extern s32 lbl_805D6298;
@@ -54,7 +54,7 @@ M2C_UNK set_sound_slot_pitch();
 int get_lobby_data__6TLobbyFv(void) {  return lbl_805D6280; }
 
 void TLobby__sub_8022614C(s32 arg0) {
-    TLobby__sub_80227CE8();
+    set_menu_index_main__6TLobbyFPv();
     lbl_805D6294 = arg0;
     lbl_805D629C = lbl_805D6290 + lbl_805D6294 + lbl_805D6298;
     lbl_805D62A0 = lbl_805D6290 + lbl_805D6298;

@@ -48,7 +48,7 @@ void open_menu__20TWindowSubSymbolChatFii(s32 arg0, s32 arg1);
 s32 TWindowSubSymbolChat__sub_8028233C(s32 arg0);
 M2C_UNK TWindowSubSymbolChat__sub_800771B0(s32, s32);
 s32 TWindowSubSymbolChat__sub_800771C4(s32, s32);
-M2C_UNK TWindowSubSymbolChat__sub_800771E4(s32, s32, s32, s32, s32, s32, s32);
+M2C_UNK set_entry__20TWindowSubSymbolChatFPviiiiii(s32, s32, s32, s32, s32, s32, s32);
 s32 add__20TWindowSubSymbolChatFPviiiii(int, int, int, int, int, int);
 M2C_UNK set_entry_bits__20TWindowSubSymbolChatFPvUsiiii(s32, s32, s32, s32, s32, s32);
 Data_80281B18 *get_data_ptr__20TWindowSubSymbolChatFPv();
@@ -245,7 +245,7 @@ void draw_selected_entry__20TWindowSubSymbolChatFPv(u8 *arg0) {
     data = get_data_ptr__20TWindowSubSymbolChatFPv();
     rem = calc_remaining_slots__20TWindowSubSymbolChatFv();
     if (rem > M2C_FIELD(arg0, s16 *, 0x1E)) {
-        TWindowSubSymbolChat__sub_800771E4(M2C_FIELD(arg0, s32 *, 0x28), M2C_FIELD(arg0, s16 *, 0x1E), data->e[M2C_FIELD(arg0, s16 *, 0x1E)].c, x, y, TWindowSubSymbolChat__data_805D6498, TWindowSubSymbolChat__data_805D649C);
+        set_entry__20TWindowSubSymbolChatFPviiiiii(M2C_FIELD(arg0, s32 *, 0x28), M2C_FIELD(arg0, s16 *, 0x1E), data->e[M2C_FIELD(arg0, s16 *, 0x1E)].c, x, y, TWindowSubSymbolChat__data_805D6498, TWindowSubSymbolChat__data_805D649C);
         if (TWindowSubSymbolChat__data_805D64A0 != 0) {
             add__20TWindowSubSymbolChatFPviiiii(M2C_FIELD(arg0, s32 *, 0x28), data->e[M2C_FIELD(arg0, s16 *, 0x1E)].c, 0x40 - x, y, (u8)(TWindowSubSymbolChat__data_805D6498 == 0), TWindowSubSymbolChat__data_805D649C);
         }

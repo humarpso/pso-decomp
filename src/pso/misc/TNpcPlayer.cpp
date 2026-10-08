@@ -466,7 +466,7 @@ Npc_80152168 * TNpcPlayer__ct(Npc_80152168 *self, s32 a, s32 b, s16 kind, s32 ar
 void copy__10TNpcPlayerFPvPv(void* p, void* q);
 Npc_80152330 * construct_partner__10TNpcPlayerFPviisPv(Npc_80152330 *self, s32 a, s32 b, s16 kind, void *parent);
 void ensure_rock_singleton__10TNpcPlayerFv(void);
-void TNpcPlayer__sub_8015286C(void);
+void register_ply_char_data_global__10TNpcPlayerFv(void);
 void set_technique_seed_level(Obj_801528A8 *self, s16 i, u8 v);
 void reset_partner_counter(s32 arg0, s32 arg1);
 void increment_partner_counter(s32 arg0, s32 arg1);
@@ -479,7 +479,7 @@ int is_partner_counter_reached(s16 *table, s32 idx, s32 value);
 void set_partner_counter(s32 arg0, s32 arg1, s16 arg2);
 s32 TNpcPlayer__sub_80152978(void* p);
 s32 get_condition__10TNpcPlayerFPv(void* p);
-void TNpcPlayer__sub_80152988(void* p, void* a1, void* a2);
+void copy_transform_second__10TNpcPlayerFPvPvPv(void* p, void* a1, void* a2);
 void copy_transform__10TNpcPlayerFPvPv(void* p, void* q);
 s32 get_action_state__10TNpcPlayerFPv(void* p);
 void reset_fields_8c__10TNpcPlayerFPv(void* p);
@@ -521,7 +521,7 @@ u16 get_action_flags__10TNpcPlayerFPv(void* p);
 void update_poison_damage__22TObjFogCollisionPoisonFPv(void *arg0);
 s32 check_switch__22TObjFogCollisionPoisonFPv(s32);
 s32 apply_poison_damage__22TObjFogCollisionPoisonFPvi(s32, u16);
-s32 TObjFogCollisionPoison__sub_801534E8(s32, u16);
+s32 record_poison_hit__22TObjFogCollisionPoisonFPvUs(s32, u16);
 s32 TObjFogCollisionPoison__sub_80153520(s32);
 s32 TObjFogCollisionPoison__sub_801535D0(s32);
 s32 check_collision__16TObjFogCollisionFPvUs(s32, u16);
@@ -2293,13 +2293,13 @@ s32 partition_sort_entries__10TNpcPlayerFiPvii(s32 self, Ent_8014F28C *a, s32 lo
         if (i >= j || i >= 10 || j >= 10) {
             break;
         }
-        ((M2C_UNK (*)(s32, Ent_8014F28C *, Ent_8014F28C *))TNpcPlayer__sub_80152988)(self, &a[i], &tmp);
-        ((M2C_UNK (*)(s32, Ent_8014F28C *, Ent_8014F28C *))TNpcPlayer__sub_80152988)(self, &a[j], &a[i]);
-        ((M2C_UNK (*)(s32, Ent_8014F28C *, Ent_8014F28C *))TNpcPlayer__sub_80152988)(self, &tmp, &a[j]);
+        ((M2C_UNK (*)(s32, Ent_8014F28C *, Ent_8014F28C *))copy_transform_second__10TNpcPlayerFPvPvPv)(self, &a[i], &tmp);
+        ((M2C_UNK (*)(s32, Ent_8014F28C *, Ent_8014F28C *))copy_transform_second__10TNpcPlayerFPvPvPv)(self, &a[j], &a[i]);
+        ((M2C_UNK (*)(s32, Ent_8014F28C *, Ent_8014F28C *))copy_transform_second__10TNpcPlayerFPvPvPv)(self, &tmp, &a[j]);
     }
-    ((M2C_UNK (*)(s32, Ent_8014F28C *, Ent_8014F28C *))TNpcPlayer__sub_80152988)(self, &a[i], &tmp);
-    ((M2C_UNK (*)(s32, Ent_8014F28C *, Ent_8014F28C *))TNpcPlayer__sub_80152988)(self, &a[hi], &a[i]);
-    ((M2C_UNK (*)(s32, Ent_8014F28C *, Ent_8014F28C *))TNpcPlayer__sub_80152988)(self, &tmp, &a[hi]);
+    ((M2C_UNK (*)(s32, Ent_8014F28C *, Ent_8014F28C *))copy_transform_second__10TNpcPlayerFPvPvPv)(self, &a[i], &tmp);
+    ((M2C_UNK (*)(s32, Ent_8014F28C *, Ent_8014F28C *))copy_transform_second__10TNpcPlayerFPvPvPv)(self, &a[hi], &a[i]);
+    ((M2C_UNK (*)(s32, Ent_8014F28C *, Ent_8014F28C *))copy_transform_second__10TNpcPlayerFPvPvPv)(self, &tmp, &a[hi]);
     return i;
 }
 
@@ -3655,7 +3655,7 @@ void ensure_rock_singleton__10TNpcPlayerFv(void) {
     }
 }
 
-void TNpcPlayer__sub_8015286C(void) {
+void register_ply_char_data_global__10TNpcPlayerFv(void) {
     __register_global_object(__ct__12TPlyCharDataFv(lbl_8050CFC4), (void *)__dt__12TPlyCharDataFv, lbl_8050CFB8);
 }
 
@@ -3703,7 +3703,7 @@ s32 TNpcPlayer__sub_80152978(void* p) { return *(s32*)((char*)p + 0x80); }
 
 s32 get_condition__10TNpcPlayerFPv(void* p) { return *(s32*)((char*)p + 0x90); }
 
-void TNpcPlayer__sub_80152988(void* p, void* a1, void* a2) { ((int (*)(void*))copy_transform__10TNpcPlayerFPvPv)(a2); }
+void copy_transform_second__10TNpcPlayerFPvPvPv(void* p, void* a1, void* a2) { ((int (*)(void*))copy_transform__10TNpcPlayerFPvPv)(a2); }
 
 void copy_transform__10TNpcPlayerFPvPv(void* p, void* q) { *(u32*)((char*)p + 0x0) = *(u32*)((char*)q + 0x0); *(u32*)((char*)p + 0x4) = *(u32*)((char*)q + 0x4); *(f32*)((char*)p + 0x8) = *(f32*)((char*)q + 0x8); }
 
@@ -3839,7 +3839,7 @@ void update_poison_damage__22TObjFogCollisionPoisonFPv(void *arg0) {
     temp_r31 = M2C_FIELD(arg0, s32 *, 0x10);
     if (check_switch__22TObjFogCollisionPoisonFPv(temp_r31) != 0) {
         if (check_collision__16TObjFogCollisionFPvUs(temp_r31, M2C_FIELD(arg0, u16 *, 0x28)) != 0) {
-            TObjFogCollisionPoison__sub_801534E8(temp_r31, M2C_FIELD(arg0, u16 *, 0x28));
+            record_poison_hit__22TObjFogCollisionPoisonFPvUs(temp_r31, M2C_FIELD(arg0, u16 *, 0x28));
             M2C_FIELD(arg0, s32 *, 0x20) = (s32) (M2C_FIELD(arg0, s32 *, 0x20) + 1);
             if ((s32) M2C_FIELD(arg0, s32 *, 0x20) >= (s32) M2C_FIELD(arg0, s32 *, 0x1C)) {
                 apply_poison_damage__22TObjFogCollisionPoisonFPvi(temp_r31, M2C_FIELD(arg0, u16 *, 0x28));

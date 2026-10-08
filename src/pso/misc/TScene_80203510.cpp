@@ -79,7 +79,7 @@ f32 xz_distance_squared(void *, void *);
 extern Root_80204024 *lbl_805D4DF0;
 extern SceneMaterialRoot* TScene__data_805D5FCC;
 extern f32 TScene__data_805D5FE4;
-void TScene__sub_8020430C(void);
+void update_records_in_range__6TSceneFv(void);
 SceneMaterialNode* resolve_indirect_node_record(void*,SceneMaterialStatic*);
 SceneMaterialNode* resolve_indirect_object_record(void*,SceneMaterialAnimated*);
 s32 TScene__sub_802040D4(void *arg0, Obj_802040D4 *o, f32 f0, f32 f1);
@@ -514,7 +514,7 @@ void update_room_object_visibility__6TSceneFPvPv(void *task, SceneMaterialSectio
     }
 }
 
-void TScene__sub_8020430C(void) {
+void update_records_in_range__6TSceneFv(void) {
     f32 r;
     f32 r2;
     s32 off;

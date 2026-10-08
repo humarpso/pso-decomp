@@ -192,12 +192,12 @@ extern s32 lbl_805D5550;
 M2C_UNK *get_hurt_protection_ticks__10TObjPlayerFPv(M2C_UNK *arg0);
 s32 get_instance__6TLobbyFv(void);
 extern RecoveredGlobal_801D8C6C_lbl_8044923C lbl_8044923C;
-u8 *TObjPlayer__sub_801D8C6C(void);
+u8 *get_lobby_entry_ptr__10TObjPlayerFv(void);
 s8 TObjPlayer__sub_801AFDBC(s8);
 extern RecoveredGlobal_801D8D8C_lbl_804C49B0 lbl_804C49B0;
 s32 get_class_starting_inventory(s8 arg0);
 extern RecoveredGlobal_801D8E60_lbl_804C4980 lbl_804C4980;
-s32 TObjPlayer__sub_801D8E60(u8 *arg0);
+s32 get_table_entry_by_clamped_index__10TObjPlayerFPv(u8 *arg0);
 s8 get_class_index__10TObjPlayerFPv(s32 _w0);
 extern RecoveredGlobal_801D9328_lbl_80447430 lbl_80447430;
 u8 *get_class_defense_template(u8 *arg0);
@@ -264,7 +264,7 @@ void *get_sub_object__10TObjPlayerFPv(void *);
 s32 get_lock_timer__10TObjPlayerFPv(void *);
 void set_action_flag_40__10TObjPlayerFPv(void *);
 void assign_lobby_slot_if_flagged__10TObjPlayerFiPv(void *, void *);
-s32 TObjPlayer__sub_801D8E60(u8 *arg0);
+s32 get_table_entry_by_clamped_index__10TObjPlayerFPv(u8 *arg0);
 void set_position_vec3__10TObjPlayerFPvPv(s32, void *);
 void rotate_matrix_y(s32, s32);
 void push_matrix(void);
@@ -328,7 +328,7 @@ Player_801D88C8 *create_ending_sequence_player(Player_801D88C8 *self, void *pare
     self->ang = get_lock_timer__10TObjPlayerFPv(src->sub);
     select_class_action_provider__10TObjPlayerFPv(self);
     self->model = TObjPlayer__data_805D5D80 + obj_getField1c(self) * 0xC00;
-    init_npc_animation__10TObjPlayerFPvPvPvPv(self, TObjPlayer__sub_801D8E60((u8 *)self), *(s32 *)lbl_805D5E08, 1);
+    init_npc_animation__10TObjPlayerFPvPvPvPv(self, get_table_entry_by_clamped_index__10TObjPlayerFPv((u8 *)self), *(s32 *)lbl_805D5E08, 1);
     self->frame = src->frame;
     set_action_flag_40__10TObjPlayerFPv(self);
     push_matrix();
@@ -446,7 +446,7 @@ s32 TObjPlayer__sub_801D8C3C(void) {
     return M2C_FIELD(&lbl_80449254.value, M2C_UNK *, (get_instance__6TLobbyFv() * 4));
 }
 
-u8 *TObjPlayer__sub_801D8C6C(void) {
+u8 *get_lobby_entry_ptr__10TObjPlayerFv(void) {
     return (u8 *)&lbl_8044923C.value + (get_instance__6TLobbyFv() * 0xC);
 }
 
@@ -495,7 +495,7 @@ long get_anim_table_entry__10TObjPlayerFPvi(u8 *arg0, s32 arg1) {
   return (*((M2C_UNK *) (((s8 *) (&lbl_804C498C.value)) + new_var))) + (arg1 * 4);
 }
 
-s32 TObjPlayer__sub_801D8E60(u8 *arg0) {
+s32 get_table_entry_by_clamped_index__10TObjPlayerFPv(u8 *arg0) {
     return M2C_FIELD(&lbl_804C4980.value, M2C_UNK *, (get_clamped_index__10TObjPlayerFPv((void *)(arg0)) * 4));
 }
 

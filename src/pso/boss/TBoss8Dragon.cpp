@@ -1816,7 +1816,7 @@ void send_6xA8_action__12TBoss8DragonFPv(u8 *arg0);
 void apply_6xA8_action__12TBoss8DragonFPvPv(u8 *arg0, u8 *arg1);
 M2C_UNK TBoss8Dragon__sub_802FBE3C();
 M2C_UNK TBoss8Dragon__sub_802FBEA4(void *, int);
-void TBoss8Dragon__sub_802FBF0C(s32 arg0);
+void reset_tail_hp__12TBoss8DragonFi(s32 arg0);
 void reload_boss_stats__12TBoss8DragonFPv(void *o);
 void check_hit_result__12TBoss8DragonFPvii(void *arg0, s32 arg1, s32 arg2);
 void reset_action__12TBoss8DragonFPv(void* a0);
@@ -6627,7 +6627,7 @@ void handle_6xA8_gol_dragon_boss_actions(void *arg0) {
     }
 }
 
-void TBoss8Dragon__sub_802FBF0C(s32 arg0) {
+void reset_tail_hp__12TBoss8DragonFi(s32 arg0) {
     reset_hp__9TObjEneDDFPv((void *) (arg0), (int) (0), (int) (M2C_FIELD(&(*(RecoveredGlobal_802FBF0C_TBoss8Dragon__data_80541DC8 *)&TBoss8Dragon__data_80541DC8).value, s32 *, 4)), (int) (0));
 }
 

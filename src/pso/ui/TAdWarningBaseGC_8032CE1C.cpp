@@ -86,7 +86,7 @@ void TAdWarningBaseGC__sub_8032CEA8(void* p) { *(s32*)((char*)p + 0x1c) = 1; }
 
     extern int lbl_805D6CEC;
 
-void TAdWarningBaseGC__sub_8032CEB4(TAdWarningBaseGC_8032CEB4 *self) {
+void dispatch_state_action__16TAdWarningBaseGCFPv(TAdWarningBaseGC_8032CEB4 *self) {
     static Act_8032CEB4 tbl[4] = {
         &TAdWarningBaseGC_8032CEB4::act0,
         &TAdWarningBaseGC_8032CEB4::act1,

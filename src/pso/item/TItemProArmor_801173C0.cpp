@@ -101,7 +101,7 @@ u8 *alloc_from_obj_heap__10TObjPlayerFPv(M2C_UNK);
 extern int tl_05;
 u8 *create__13TItemProArmorFPv(u8 *arg0);
 u16 obj_getField1c(void *);
-void TItemTimerEvent__sub_8011E0A4(u16);
+void start_event_by_index__15TItemTimerEventFUs(u16);
 void __ct__7TObjectFP7TObject(void *, void *);
 extern M2C_UNK lbl_8049FEB8[];
 u8 *TItemProArmor__sub_8011751C(u8 *arg0, u8 *arg1, u8 *arg2);
@@ -115,7 +115,7 @@ void create_armor__13TItemProArmorFPv(void* a0);
 void *dt__13TItemProArmorFPvs(void *arg0, s16 arg1);
 void tick_lifetime__13TItemProArmorFPv(void *arg0);
 void TItemObject__ct(void *);
-M2C_UNK TItemTimerEvent__sub_8011E068(u16);
+M2C_UNK clear_timer_slot__15TItemTimerEventFUs(u16);
 u32 get_player_by_client_id(u16);
 M2C_UNK __dl__7TObjectFPv(void *);
 void __dt__11TItemObjectFv(void *, int);
@@ -166,7 +166,7 @@ extern M2C_UNK lbl_8049FEB8[];
 void *dt__13TItemProArmorFPvs(void *arg0, s16 arg1) {
     if (arg0 != NULL) {
         M2C_FIELD(arg0, M2C_UNK **, 0x18) = lbl_8049FEB8;
-        TItemTimerEvent__sub_8011E068(M2C_FIELD(arg0, u16 *, 0x1C));
+        clear_timer_slot__15TItemTimerEventFUs(M2C_FIELD(arg0, u16 *, 0x1C));
         __dt__7TObjectFv(arg0, 0);
         if (arg1 > 0) {
             __dl__7TObjectFPv(arg0);
@@ -180,7 +180,7 @@ u8 *TItemProArmor__sub_8011751C(u8 *arg0, u8 *arg1, u8 *arg2) {
     __ct__7TObjectFP7TObject(arg0, arg1);
     M2C_FIELD(arg0, M2C_UNK **, 0x18) = &(*(RecoveredGlobal_8011751C_lbl_8049FEB8 *)&lbl_8049FEB8).value;
     M2C_FIELD(arg0, u16 *, 0x1C) = obj_getField1c(arg2);
-    TItemTimerEvent__sub_8011E0A4(M2C_FIELD(arg0, u16 *, 0x1C));
+    start_event_by_index__15TItemTimerEventFUs(M2C_FIELD(arg0, u16 *, 0x1C));
     M2C_FIELD(arg0, s16 *, 0x1E) = 3;
     return arg0;
 }

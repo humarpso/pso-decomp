@@ -21,7 +21,7 @@ extern "C" {
 
 s32 can_start_win_timer__15TObjSoloPlayWinFi(s32 arg0);
 void update_close_timer__15TObjSoloPlayWinFPv(void *arg0);
-M2C_UNK TLobby__sub_8006FBAC();
+M2C_UNK mark_solo_win_closing__6TLobbyFv();
 u32 get_player_by_client_id(s32);
 s32 TWindowCtrlMain__sub_8024CE58();
 M2C_UNK TWindow__close(u32);
@@ -59,7 +59,7 @@ void update_close_timer__15TObjSoloPlayWinFPv(void *arg0) {
             TWindow__close(M2C_FIELD(arg0, u32 *, 0x20));
             M2C_FIELD(arg0, u32 *, 0x20) = 0U;
         }
-        TLobby__sub_8006FBAC();
+        mark_solo_win_closing__6TLobbyFv();
         queue_destruction__7TObjectFv(arg0);
     }
 }

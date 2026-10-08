@@ -99,7 +99,7 @@ void update_challenge_state__16TObjCityMainWarpFPv(u8 *arg0);
 extern "C" {
 
 void update_state__16TObjCityMainWarpFPv(void *arg0);
-s32 TObjCityMainWarp__sub_80186B00();
+s32 get_phase_flag__16TObjCityMainWarpFv();
 s32 find_local_player_in_range__16TObjCityMainWarpFif(void *, f32);
 M2C_UNK notify_player_warp__16TObjCityMainWarpFPvi(void *, s32);
 
@@ -122,7 +122,7 @@ void update_state__16TObjCityMainWarpFPv(void *arg0) {
         M2C_FIELD(arg0, s32 *, 0xD4) = (s32) M2C_FIELD(M2C_FIELD(lbl_805D5B28, void **, 0x430), s32 *, 0x2C);
         return;
     case 1:
-        if (TObjCityMainWarp__sub_80186B00() == 0) {
+        if (get_phase_flag__16TObjCityMainWarpFv() == 0) {
             temp_r3 = find_local_player_in_range__16TObjCityMainWarpFif(arg0, M2C_FIELD(arg0, f32 *, 0xAC));
             if (temp_r3 != 0) {
                 notify_player_warp__16TObjCityMainWarpFPvi(arg0, lbl_805D53A0);

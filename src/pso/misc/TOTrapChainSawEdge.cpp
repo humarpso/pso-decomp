@@ -948,7 +948,7 @@ int check_player_contact__14TOTrapChainSawFPv(void *arg0) {
     }
 }
 
-void TOTrapChainSaw__sub_802C936C(u8 *arg0) {
+void update_extension__14TOTrapChainSawFPv(u8 *arg0) {
     VObj_802C936C *self = (VObj_802C936C *)arg0;
 
     if (M2C_FIELD(arg0, s32 *, 0xF0) == 0) {
@@ -1158,7 +1158,7 @@ M2C_UNK __vt__17TOTrapChainSawKey[31] = {
     (M2C_UNK)&TOTrapChainSaw__sub_802C9174,
     (M2C_UNK)&TOTrapChainSaw__sub_802C9124,
     (M2C_UNK)&clear_field_d8__14TOTrapChainSawFPv,
-    (M2C_UNK)&TOTrapChainSaw__sub_802C936C,
+    (M2C_UNK)&update_extension__14TOTrapChainSawFPv,
     (M2C_UNK)&update_sweep__14TOTrapChainSawFPv,
     (M2C_UNK)&TOTrapChainSawKey__vt22,
     (M2C_UNK)&TOTrapChainSawKey__vt23,
@@ -1191,7 +1191,7 @@ M2C_UNK __vt__20TOTrapChainSawDamage[31] = {
     (M2C_UNK)&TOTrapChainSaw__sub_802C9174,
     (M2C_UNK)&TOTrapChainSaw__sub_802C9124,
     (M2C_UNK)&clear_field_d8__14TOTrapChainSawFPv,
-    (M2C_UNK)&TOTrapChainSaw__sub_802C936C,
+    (M2C_UNK)&update_extension__14TOTrapChainSawFPv,
     (M2C_UNK)&update_sweep__14TOTrapChainSawFPv,
     (M2C_UNK)&TOTrapChainSawDamage__vt22,
     (M2C_UNK)&TOTrapChainSawDamage__vt23,
@@ -1224,7 +1224,7 @@ M2C_UNK __vt__14TOTrapChainSaw[31] = {
     (M2C_UNK)&TOTrapChainSaw__sub_802C9174,
     (M2C_UNK)&TOTrapChainSaw__sub_802C9124,
     (M2C_UNK)&clear_field_d8__14TOTrapChainSawFPv,
-    (M2C_UNK)&TOTrapChainSaw__sub_802C936C,
+    (M2C_UNK)&update_extension__14TOTrapChainSawFPv,
     (M2C_UNK)&update_sweep__14TOTrapChainSawFPv,
     (M2C_UNK)&update_state__14TOTrapChainSawFPv,
     (M2C_UNK)&TOTrapChainSaw__vt23,

@@ -32,7 +32,7 @@ extern const f32 lbl_805E0210;
 extern const f32 lbl_805E0220;
 extern const f32 lbl_805E023C;
 extern const f32 lbl_805E0240;
-void TObjEneEpsilonGuard__sub_80361E78(u8 *arg0);
+void init_params__19TObjEneEpsilonGuardFPv(u8 *arg0);
 }
 
 extern "C" {
@@ -83,7 +83,7 @@ void update_guard_flag__19TObjEneEpsilonGuardFPv(u8 *arg0) {
 }
 #pragma push
 #pragma opt_common_subs off
-void TObjEneEpsilonGuard__sub_80361E78(u8 *arg0) {
+void init_params__19TObjEneEpsilonGuardFPv(u8 *arg0) {
     M2C_FIELD(arg0, f32 *, 0x458) = (f32) (lbl_805E023C + M2C_FIELD(arg0, f32 *, 0x354));
     if (M2C_FIELD(arg0, f32 *, 0x458) < lbl_805E0208) {
         M2C_FIELD(arg0, f32 *, 0x458) = (f32) lbl_805E0208;

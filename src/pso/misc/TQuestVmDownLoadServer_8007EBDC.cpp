@@ -11,7 +11,7 @@ extern u8 lbl_80500598[];
 void *TQuestVmDownLoadServer__sub_8007ECB0(void *arg0);
 void *TQuestVmDownLoadServer__sub_8007EC58(void *arg0, s16 arg1);
 void __register_global_object(void *obj, void *dtor, void *entry);
-void TQuestVmDownLoadServer__sub_8007EC1C(void);
+void register_global_instance_dtor__22TQuestVmDownLoadServerFv(void);
 }
 
 extern "C" {
@@ -33,7 +33,7 @@ int alloc__22TQuestVmDownLoadServerFPv(void* p) { return xmalloc__FUl(p); }
 
 extern M2C_UNK lbl_8048DF58[];
 
-void TQuestVmDownLoadServer__sub_8007EC1C(void) {
+void register_global_instance_dtor__22TQuestVmDownLoadServerFv(void) {
     __register_global_object(TQuestVmDownLoadServer__sub_8007ECB0(lbl_805005A4), (void *)TQuestVmDownLoadServer__sub_8007EC58, lbl_80500598);
 }
 
@@ -58,4 +58,4 @@ void *TQuestVmDownLoadServer__sub_8007ECB0(void *arg0) {
 
 }
 
-__declspec(section ".ctors") static void *const __sinit_TQuestVmDownLoadServer_8007EBDC_cpp_ref = (void *)TQuestVmDownLoadServer__sub_8007EC1C;
+__declspec(section ".ctors") static void *const __sinit_TQuestVmDownLoadServer_8007EBDC_cpp_ref = (void *)register_global_instance_dtor__22TQuestVmDownLoadServerFv;

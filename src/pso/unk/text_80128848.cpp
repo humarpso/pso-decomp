@@ -59,7 +59,7 @@ struct VObj_18 : VBase_18 {
 
 extern "C" {
 M2C_UNK TObjPlayer__sub_80128A70();
-void TObjPlayer__sub_801288A0(u8 *arg0);
+void apply_m49_state_a__10TObjPlayerFPv(u8 *arg0);
 void draw_status_icons__10TObjPlayerFPvPvPv(void *, void *, void *);
 void TObjPlayer__sub_80128944(u8 *arg0);
 u8 * init_shot_state__10TObjPlayerFPv(void *, M2C_UNK, void *);
@@ -84,7 +84,7 @@ u8 *create_shot_state__10TObjPlayerFPv(u8 *arg0) {
     return NULL;
 }
 
-void TObjPlayer__sub_801288A0(u8 *arg0) {
+void apply_m49_state_a__10TObjPlayerFPv(u8 *arg0) {
     TObjPlayer__sub_80128A70();
     if (((VObj_18 *)(arg0))->m49(arg0 + 0x1FC, 0, 0, 1) != 0) {
         ((VObj_18 *)(arg0))->m49(arg0 + 0x208, 0, 0, 0);

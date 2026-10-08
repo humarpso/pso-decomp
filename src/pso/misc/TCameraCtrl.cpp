@@ -701,7 +701,7 @@ extern RecoveredGlobal_8006ABAC_lbl_8058D490 lbl_8058D490;
 void calc_rotated_axes__11TCameraCtrlFPv(u8 *arg0);
 struct V3_8006AD34 { f32 x, y, z; };
 u8 *get_target__11TCameraCtrlFPv(void *);
-M2C_UNK TCameraCtrl__sub_80069F20(void *);
+M2C_UNK reset_view_flags__11TCameraCtrlFv(void *);
 M2C_UNK cycle_spectate_target__11TCameraCtrlFv(void *);
 M2C_UNK render__15TObjBoss2TunnelFPvPv(void *, void *);
 s32 get_camera_no__11TCameraCtrlFv();
@@ -854,7 +854,7 @@ void update_view__11TCameraCtrlFPv(u8 *arg0) {
     update_target_from_state__11TCameraCtrlFPv(arg0);
     cycle_spectate_target__11TCameraCtrlFv(arg0);
     update_active_controller__11TCameraCtrlFPv(arg0);
-    TCameraCtrl__sub_80069F20(arg0);
+    reset_view_flags__11TCameraCtrlFv(arg0);
     if (G != NULL) {
         if (ISNAN(GF(0x178)) == 0 && ISNAN(GF(0x17C)) == 0) {
             ISNAN(GF(0x180));

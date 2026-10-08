@@ -25,7 +25,7 @@ struct O_8006F134 { u8 pad[0xc0]; E_8006F134 e[4]; s32 pad2; E_8006F134 def; };
 extern "C" {
 s32 is_flag_set__6TLobbyFv();
 extern RecoveredGlobal_8006F23C_lbl_8048C9D8 lbl_8048C9D8;
-s32 TLobby__sub_8006F23C(void);
+s32 get_flag_value_if_set__6TLobbyFv(void);
 s32 is_flag_set__6TLobbyFv();
 extern RecoveredGlobal_8006F23C_lbl_8048C9D8 lbl_8048C9D8;
 s32 get_flagged_table_entry__6TLobbyFi(s32 arg0);
@@ -103,7 +103,7 @@ s32 get_flagged_table_entry__6TLobbyFi(s32 arg0) {
   return 0;
 }
 
-s32 TLobby__sub_8006F23C(void) {
+s32 get_flag_value_if_set__6TLobbyFv(void) {
     if (is_flag_set__6TLobbyFv() != 0) {
         return M2C_FIELD(&lbl_8048C9D8.value, s32 *, 0x34);
     }

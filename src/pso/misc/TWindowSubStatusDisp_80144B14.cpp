@@ -64,7 +64,7 @@ extern u8 lbl_805D56C0;
 s32 upload_glyph_if_needed__20TWindowSubStatusDispFUsPvPv(u16 arg0, u8 *arg1, void **arg2);
 M2C_UNK set_global_param__8TObjFishFi(M2C_UNK *);
 extern RecoveredGlobal_8000F7FC_lbl_80515F48 lbl_804A74E8;
-void TWindowSubStatusDisp__sub_801454E0(s32 _w0);
+void set_gauge_param__20TWindowSubStatusDispFi(s32 _w0);
 extern const f32 lbl_805DB190;
 extern const f32 lbl_805DB194;
 extern const f32 lbl_805DB198;
@@ -461,7 +461,7 @@ u8 calc_gauge_scale__20TWindowSubStatusDispFPvPvi(void *arg0, void *arg1, s32 ar
 
 typedef char RecoveredGlobal_8000F764_TKeyBoardControl__data_80506270_size[sizeof(RecoveredGlobal_8000F764_TKeyBoardControl__data_80506270) == 0xB0 ? 1 : -1];
 typedef char RecoveredGlobal_8000F7FC_lbl_80515F48_size[sizeof(RecoveredGlobal_8000F7FC_lbl_80515F48) == 0x28 ? 1 : -1];
-void TWindowSubStatusDisp__sub_801454E0(s32 _w0) {
+void set_gauge_param__20TWindowSubStatusDispFi(s32 _w0) {
     set_global_param__8TObjFishFi((M2C_UNK *)(&lbl_804A74E8.value));
 }
 typedef char RecoveredGlobal_8000F90C_lbl_804FE120_size[sizeof(RecoveredGlobal_8000F90C_lbl_804FE120) == 0x18 ? 1 : -1];
@@ -472,6 +472,6 @@ typedef char RecoveredGlobal_8000F9E4_lbl_804FE120_size[sizeof(RecoveredGlobal_8
 typedef char RecoveredGlobal_8000F9CC_lbl_804FE120_size[sizeof(RecoveredGlobal_8000F9CC_lbl_804FE120) == 0x18 ? 1 : -1];
 
 int end_render_forward__20TWindowSubStatusDispFPv(void* p) { return get_player__20TWindowSubStatusDispFv(p); }
-void reset_gauge__20TWindowSubStatusDispFPv(void* p) { begin_screen_draw((void*)1); TWindowSubStatusDisp__sub_801454E0((s32)(p)); set_draw_texture_and_color((void*)((void*)0), (void*)((void*)-1)); }
+void reset_gauge__20TWindowSubStatusDispFPv(void* p) { begin_screen_draw((void*)1); set_gauge_param__20TWindowSubStatusDispFi((s32)(p)); set_draw_texture_and_color((void*)((void*)0), (void*)((void*)-1)); }
 
 }

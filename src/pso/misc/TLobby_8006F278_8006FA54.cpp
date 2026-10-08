@@ -7,14 +7,14 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 extern "C" {
 
 s32 decode_slot__6TLobbyFUi(u32 arg0);
-s32 TLobby__sub_80071670(u32);
+s32 count_set_bits__6TLobbyFUi(u32);
 
 s32 decode_slot__6TLobbyFUi(u32 arg0) {
     s32 temp_r3;
     u32 temp_r31;
 
     temp_r31 = arg0 >> 0x10U;
-    temp_r3 = TLobby__sub_80071670(temp_r31);
+    temp_r3 = count_set_bits__6TLobbyFUi(temp_r31);
     if ((temp_r3 < 4) || (temp_r3 > 0xC)) {
         return -1;
     }

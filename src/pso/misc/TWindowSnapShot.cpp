@@ -30,7 +30,7 @@ struct RecoveredGlobal_802A80A0___vt__15TWindowSnapShot {
 
 extern "C" {
 int alloc__23TAdSinglePlyChrSelectGCFPv(void *);
-u8 * TWindowSnapShot__sub_802A5F24(void *);
+u8 * init_and_reset__15TWindowSnapShotFPv(void *);
 s32 start_capture__15TWindowSnapShotFPvi(void *, s32);
 extern int lbl_805D3E10;
 extern void *lbl_805D6690;
@@ -98,7 +98,7 @@ s32 load_player_motion_data(void) {
     temp_r3 = alloc__23TAdSinglePlyChrSelectGCFPv((void *)0x40);
     var_r0 = temp_r3;
     if (var_r0 != 0) {
-        var_r0 = (long) (TWindowSnapShot__sub_802A5F24((void *) temp_r3));
+        var_r0 = (long) (init_and_reset__15TWindowSnapShotFPv((void *) temp_r3));
     }
     (*(u8 * *)&lbl_805D6690) = (unsigned char *) ((void *) var_r0);
     if ((u32) var_r0 == 0U) {

@@ -90,7 +90,7 @@ void draw_string__14TObjWarpStringFPviff(const char *, u32, f32, f32);
 s32 validate_character_name__14TObjCMMainMenuFPv(void *);
 s32 is_active__23TAdSinglePlyChrSelectGCFv();
 f32 get_scale__14TObjCMMainMenuFv(void);
-void TObjCMIcon__sub_80299488(void);
+void reset_icon_flags__10TObjCMIconFv(void);
 void TObjCMIcon__sub_802994C8(s32 arg0, s32 *arg1);
 f32 sin_table_lookup(s32);
 extern Pair_80297B18 lbl_80464FC8[];
@@ -1567,13 +1567,13 @@ void TObjCMMainMenu__sub_80297B18(Menu_80297B18 *m) {
                 TObjCMIcon__sub_802994C8(1, &v10);
             }
         } else {
-            TObjCMIcon__sub_80299488();
+            reset_icon_flags__10TObjCMIconFv();
         }
         break;
     case 1:
         switch (m->ids[m->sel]) {
         case 7:
-            TObjCMIcon__sub_80299488();
+            reset_icon_flags__10TObjCMIconFv();
             break;
         case 8:
             break;
@@ -1588,11 +1588,11 @@ void TObjCMMainMenu__sub_80297B18(Menu_80297B18 *m) {
             v8 = lbl_805DDA68;
             TObjCMIcon__sub_802994C8(1, &v8);
         } else {
-            TObjCMIcon__sub_80299488();
+            reset_icon_flags__10TObjCMIconFv();
         }
         break;
     default:
-        TObjCMIcon__sub_80299488();
+        reset_icon_flags__10TObjCMIconFv();
         break;
     }
 }

@@ -46,7 +46,7 @@ extern RecoveredGlobal_80208D28_lbl_805139F8 lbl_805139F8;
 extern u8 *lbl_805D6094;
 u8 *alloc_heap_slot__6TLobbyFii(s32 arg0, s32 arg1);
 extern RecoveredGlobal_80208D28_lbl_805139F8 lbl_805139F8;
-s32 TLobby__sub_80208A04(void);
+s32 count_sync_record_bytes__6TLobbyFv(void);
 extern RecoveredGlobal_80208D28_lbl_805139F8 lbl_805139F8;
 s32 set_floor_event_flags(s32 arg0, s32 arg1, s32 arg2);
 void bswap_16__FPUs(void *);
@@ -54,11 +54,11 @@ void bswap_32__FPUl(void *);
 extern RecoveredGlobal_80208D28_lbl_805139F8 lbl_805139F8;
 void bswap_floor_event_set(s32 idx);
 void bswap_16__FPUs(void *);
-s32 TLobby__sub_80208A04(void);
+s32 count_sync_record_bytes__6TLobbyFv(void);
 extern RecoveredGlobal_80208D28_lbl_805139F8 lbl_805139F8;
 void import_sync_records__6TLobbyFPv(s16 *arg0);
 void bswap_16__FPUs(void *);
-s32 TLobby__sub_80208A04(void);
+s32 count_sync_record_bytes__6TLobbyFv(void);
 extern RecoveredGlobal_80208D28_lbl_805139F8 lbl_805139F8;
 s32 export_sync_records__6TLobbyFPv(s16 *arg0);
 extern RecoveredGlobal_80208D28_lbl_805139F8 lbl_805139F8;
@@ -146,7 +146,7 @@ void clear_floor_event_flags(void) {
     } while (i < 0x12);
 }
 
-s32 TLobby__sub_80208A04(void) {
+s32 count_sync_record_bytes__6TLobbyFv(void) {
     s32 sum = 0;
     s32 i;
     for (i = 0; i < 18; i++) {
@@ -163,7 +163,7 @@ void import_sync_records__6TLobbyFPv(s16 *arg0) {
     Rec_80208A40 *r;
     s32 j;
     s16 tmp;
-    TLobby__sub_80208A04();
+    count_sync_record_bytes__6TLobbyFv();
     src = arg0;
     t = (Grp_80208A40 **)&lbl_805139F8;
     i = 0;
@@ -191,7 +191,7 @@ s32 export_sync_records__6TLobbyFPv(s16 *arg0) {
     Rec_80208AD8 *r;
     s32 j;
     s16 tmp;
-    ret = TLobby__sub_80208A04();
+    ret = count_sync_record_bytes__6TLobbyFv();
     src = arg0;
     t = (Grp_80208AD8 **)&lbl_805139F8;
     i = 0;

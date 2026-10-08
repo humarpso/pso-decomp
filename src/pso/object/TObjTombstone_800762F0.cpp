@@ -46,7 +46,7 @@ extern RecoveredGlobal_8007643C___vt__13TObjTombstone __vt__13TObjTombstone;
 extern s32 lbl_805D289C;
 extern s32 TObjTombstone__data_805D4E48;
 u8 *TObjTombstone__ct(u8 *arg0, M2C_UNK arg1, s32 arg2, u8 *arg3);
-s32 TObjTombstone__sub_80076390(void *arg0, s32 arg1);
+s32 copy_record__13TObjTombstoneFPvi(void *arg0, s32 arg1);
 }
 
 extern "C" {
@@ -64,7 +64,7 @@ void setup__13TObjTombstoneFPvii(u8 *arg0, s32 arg1, s32 arg2) {
     M2C_FIELD(arg0, s32 *, 0x24) = TObjFish__sub_8001EDB0(TObjTombstone__data_805D4E48, 0);
     M2C_FIELD(arg0, s32 *, 0x34) = get_bml_model(TObjTombstone__data_805D4E48, 0);
     M2C_FIELD(arg0, s32 *, 0xAC) = arg1;
-    TObjTombstone__sub_80076390((void *)(arg0 + 0xC0), (s32)(arg2));
+    copy_record__13TObjTombstoneFPvi((void *)(arg0 + 0xC0), (s32)(arg2));
     VecCopy__FP3VecPC3Vec(arg0 + 0x38, arg0 + 0xD0);
     M2C_FIELD(arg0, s32 *, 0x60) = (s32) (M2C_FIELD(arg0, s32 *, 0xAC) << 0xD);
     M2C_FIELD(arg0, f32 *, 0xB0) = (f32) TObjTombstone__data_805D9174;
@@ -77,7 +77,7 @@ void setup__13TObjTombstoneFPvii(u8 *arg0, s32 arg1, s32 arg2) {
 
 #define dst ((T_80076390 *)arg0)
 #define src ((T_80076390 *)arg1)
-s32 TObjTombstone__sub_80076390(void *arg0, s32 arg1) {
+s32 copy_record__13TObjTombstoneFPvi(void *arg0, s32 arg1) {
     dst->b0 = src->b0;
     dst->b1 = src->b1;
     dst->b2 = src->b2;

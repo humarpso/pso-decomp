@@ -40,7 +40,7 @@ extern u8 *lbl_805D61D0;
 u8 *TJudgmentSequence__ct(u8 *arg0, M2C_UNK arg1, s32 arg2);
 s32 TShopGenerator__sub_80222DAC(s32);
 extern RecoveredGlobal_80216084_TMedicalCenterMes__data_80513EA0 TMedicalCenterMes__slot_flags;
-s32 TMedicalCenterMes__sub_80216084(s32 arg0);
+s32 get_slot_flag__17TMedicalCenterMesFi(s32 arg0);
 extern RecoveredGlobal_80216084_TMedicalCenterMes__data_80513EA0 TMedicalCenterMes__slot_flags;
 void TMedicalCenterMes__sub_80216238(void);
 extern RecoveredGlobal_80215FAC_TJudgmentSequence__data_80513E80 TJudgmentSequence__slot_flags;
@@ -72,7 +72,7 @@ s32 get_map_id__13TRaderMapCoreFPv(void *);
 void clear_lobby_flag__10TObjPlayerFPv(void *);
 void init_effect_5f0__10TObjPlayerFPv(void *);
 void *get_player_by_client_id(s32);
-void TShopGenerator__sub_8021E14C(s32);
+void clear_slot_active__14TShopGeneratorFi(s32);
 void THunterGuildSeqOffline__sub_8021E180(s32);
 s32 poll_field_20c__22TQuestVmDownLoadServerFPv(void *);
 void show_message__17TMedicalCenterMesFPvii(void *, s32, s32);
@@ -122,7 +122,7 @@ void TJudgmentSequence__sub_80216058(void) {
 
 void TShopWindowBase__sub_80216080(void) {  }
 typedef char RecoveredGlobal_80216084_TMedicalCenterMes__data_80513EA0_size[sizeof(RecoveredGlobal_80216084_TMedicalCenterMes__data_80513EA0) == 0x10 ? 1 : -1];
-s32 TMedicalCenterMes__sub_80216084(s32 arg0) {
+s32 get_slot_flag__17TMedicalCenterMesFi(s32 arg0) {
     return M2C_FIELD(&TMedicalCenterMes__slot_flags.value, M2C_UNK *, ((TShopGenerator__sub_80222DAC(arg0) * 4) & 0x3FFFC));
 }
 
@@ -159,7 +159,7 @@ void TMedicalCenterMes__vt1(Med_802160B4 *self) {
         if (self->f22c != NULL) {
             unsuppress_slot__11TWindowCtrlFi((u16)(s32)obj_getField1c(self->f22c));
         }
-        TShopGenerator__sub_8021E14C((s32)obj_getField1c(self->f22c));
+        clear_slot_active__14TShopGeneratorFi((s32)obj_getField1c(self->f22c));
         queue_destruction__7TObjectFv(self);
         break;
     }

@@ -2133,7 +2133,7 @@ void calc_follow_camera_offsets__12TBoss1DragonFv(u8 *arg0, u8 *arg1, u8 *arg2);
 void get_dragon_follow_camera_offsets(u8 *arg0, u8 *arg1);
 s32 reset_hp__9TObjEneDDFPv(void *, int, int, int);
 extern RecoveredGlobal_8006435C_lbl_804FF5A0 TBoss1Dragon__data_804FE168;
-void TBoss1Dragon__sub_8002885C(s32 arg0);
+void reset_tail_hp__12TBoss1DragonFi(s32 arg0);
 extern RecoveredGlobal_80027634_TBoss1Dragon__data_804FE17C TBoss1Dragon__data_804FE17C;
 extern const f32 lbl_805D8094;
 f32 TBoss1Dragon__sub_80027634(void);
@@ -6886,7 +6886,7 @@ void reload_stats_for_phase__12TBoss1DragonFPvi(void *arg0, int _w1) {
     reload_stats_keep_hp_tp__9TObjEneDDFPv(arg0, (&TBoss1Dragon__data_805D4B00)[((s32 *)lbl_80480DFC)[2]], ((s32 *)&TBoss1Dragon__data_804FE168)[((s32 *)lbl_80480E10)[2]], (&TBoss1Dragon__data_805D4B04)[((s32 *)lbl_80480E24)[2]]);
 }
 
-void TBoss1Dragon__sub_8002885C(s32 arg0) {
+void reset_tail_hp__12TBoss1DragonFi(s32 arg0) {
     reset_hp__9TObjEneDDFPv((void *) (arg0), (int) (0), (int) (M2C_FIELD(&(*(RecoveredGlobal_8002885C_TBoss1Dragon__data_804FE168 *)&TBoss1Dragon__data_804FE168).value, s32 *, 4)), (int) (0));
 }
 
@@ -7861,7 +7861,7 @@ void TBoss1Dragon__sub_8002AA7C(u8 *arg0, u8 *arg1) {
     TBoss1Dragon__sub_8002AB6C((u8 *)((void *) (arg1)));
 }
 
-void TBoss1Dragon__sub_8002AACC(Src_8002AACC *arg0, VObj_18_5c1903 *self, M2C_UNK arg2, s32 *arg3) {
+void notify_flagged_entry__12TBoss1DragonFPvPviPv(Src_8002AACC *arg0, VObj_18_5c1903 *self, M2C_UNK arg2, s32 *arg3) {
     s32 off;
     s32 i;
     Ent_8002AACC *e;

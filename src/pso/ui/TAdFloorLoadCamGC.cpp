@@ -25,7 +25,7 @@ extern void *lbl_805D4340;
 void set_default_camera__21TAdMultiChgGameModeGCFv(void *);
 void *TAdFloorLoadCamGC__ct(void *arg0, void *arg1, void *arg2);
 void VecCopy__FP3VecPC3Vec(void *, void *);
-void TCameraCtrl__sub_800687E4(void *);
+void copy_vec_to_default__11TCameraCtrlFPv(void *);
 void set_active_camera_pose(void *, void *);
 void activate_camera_mode(int);
 f32 sin_table_lookup(s32);
@@ -119,7 +119,7 @@ void run_task__17TAdFloorLoadCamGCFv(Cam_8034BE5C *s) {
     } else {
         normalize_vector(&up);
     }
-    TCameraCtrl__sub_800687E4(&up);
+    copy_vec_to_default__11TCameraCtrlFPv(&up);
     set_active_camera_pose(&s->pos, &s->target);
 }
 #pragma pop

@@ -761,7 +761,7 @@ M2C_UNK TObjEneBm9Mericarol__sub_802D093C(void *);
 s32 construct__19TObjEneBm9MericarolFPvii(int, void *, int);
 void TObjEneBm9Mericarol__sub_802CF4F8(u8 *arg0, s32 arg1);
 void queue_destruction__7TObjectFv(void *self);
-void TObjEneBm9Mericarol__sub_802CF178(void *self, s32 msg);
+void handle_state_message__19TObjEneBm9MericarolFPvi(void *self, s32 msg);
 extern s32 lbl_805D5550;
 s32 TObjEneBm9Mericarol__sub_802CED50(Obj_800ACA10 *self);
 f64 get_ad_end_text_start__10TObjPlayerFv(f32, f32);
@@ -1070,7 +1070,7 @@ typedef struct VObj_18_9c7b63 VObj_18_9c7b63;
 #define PSO_VCALL_VObj_18_9c7b63_m94(_self) (((VObj_18_9c7b63 *)(_self))->m94())
 #define PSO_VCALL_VObj_18_9c7b63_m100(_self) (((VObj_18_9c7b63 *)(_self))->m100())
 
-void TObjEneBm9Mericarol__sub_802CF178(void *self, s32 msg) {
+void handle_state_message__19TObjEneBm9MericarolFPvi(void *self, s32 msg) {
     switch (msg) {
     case 0:
         return;

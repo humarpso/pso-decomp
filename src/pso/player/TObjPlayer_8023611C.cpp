@@ -96,10 +96,10 @@ struct Proxy_80236A20 { u8 pad[0xA4]; Sub_80236A20 *a4; };
 struct Self_80236A20 { u8 pad[0x128]; Proxy_80236A20 *proxy; f32 f12c; };
 
 extern "C" {
-void TObjPlayer__sub_80236728(u8 *arg0, s32 arg1);
-void TObjPlayer__sub_80236754(u8 *arg0, s32 arg1);
-void TObjPlayer__sub_80236780(u8 *arg0, s32 arg1);
-void TObjPlayer__sub_802367AC(u8 *arg0, s32 arg1);
+void find_area_contact__10TObjPlayerFPvi(u8 *arg0, s32 arg1);
+void collect_body_contacts_for_target__10TObjPlayerFPvi(u8 *arg0, s32 arg1);
+void find_support_technique_contact_for_target__10TObjPlayerFPvi(u8 *arg0, s32 arg1);
+void gather_contacts_for_self__10TObjPlayerFPvi(u8 *arg0, s32 arg1);
 s32 VecCopy__FP3VecPC3Vec(void *, void *);
 u32 find_actor_body_contact(void *, int, f32);
 s32 get_player_by_client_id(int);
@@ -349,19 +349,19 @@ s32 collect_body_contacts__10TObjPlayerFPviPvPv(void *self, int target, void *_w
     return (s32)&lbl_80516150;
 }
 
-void TObjPlayer__sub_80236728(u8 *arg0, s32 arg1) {
+void find_area_contact__10TObjPlayerFPvi(u8 *arg0, s32 arg1) {
     find_area_technique_contact((void *)((void *) (arg0)), (int)((int) (M2C_FIELD(arg0, s32 *, 0xE8))), (void *)((void *) (arg0 + 0xBC)), (void *)((void *) (arg1)));
 }
 
-void TObjPlayer__sub_80236754(u8 *arg0, s32 arg1) {
+void collect_body_contacts_for_target__10TObjPlayerFPvi(u8 *arg0, s32 arg1) {
     collect_body_contacts__10TObjPlayerFPviPvPv((void *)((void *) (arg0)), (int)((int) (M2C_FIELD(arg0, s32 *, 0xE8))), (void *)((void *) (arg0 + 0xBC)), (void *)((void *) (arg1)));
 }
 
-void TObjPlayer__sub_80236780(u8 *arg0, s32 arg1) {
+void find_support_technique_contact_for_target__10TObjPlayerFPvi(u8 *arg0, s32 arg1) {
     find_support_technique_contact((void *)((void *) (arg0)), (int)((int) (M2C_FIELD(arg0, s32 *, 0xdc))), (void *)((void *) (arg0 + 0xb0)), (void *)((void *) (arg1)));
 }
 
-void TObjPlayer__sub_802367AC(u8 *arg0, s32 arg1) {
+void gather_contacts_for_self__10TObjPlayerFPvi(u8 *arg0, s32 arg1) {
     gather_player_contacts__10TObjPlayerFiUiii((s32)((void *) (arg0)), (u32)((int) (M2C_FIELD(arg0, s32 *, 0xdc))), (s32)((void *) (arg0 + 0xb0)), (s32)((void *) (arg1)));
 }
 

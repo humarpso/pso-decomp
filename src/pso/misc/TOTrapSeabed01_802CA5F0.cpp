@@ -165,7 +165,7 @@ extern s32 seabed01_ginja_mesh_index;
 void load_resources__14TOTrapSeabed01Fv(void);
 extern s32 lbl_80472090[];
 extern const f32 lbl_805DE658;
-void TOTrapSeabed01__sub_802CA5F4(void *arg0);
+void clamp_params_and_init__14TOTrapSeabed01FPv(void *arg0);
 }
 
 extern "C" {
@@ -226,7 +226,7 @@ inline s32 clampi_802CA5F4(s32 lo, s32 hi, s32 v) {
 }
 #pragma push
 #pragma opt_common_subs off
-void TOTrapSeabed01__sub_802CA5F4(void *arg0) {
+void clamp_params_and_init__14TOTrapSeabed01FPv(void *arg0) {
     M2C_FIELD(arg0, f32 *, 0x68) = clampf_802CA5F4(lbl_805DE650[0], lbl_805DE654[0], M2C_FIELD(arg0, f32 *, 0x68));
     M2C_FIELD(arg0, s32 *, 0x84) = CLAMPI(M2C_FIELD(arg0, s32 *, 0x84), 1, 0x3C);
     M2C_FIELD(arg0, s32 *, 0x88) = CLAMPI(M2C_FIELD(arg0, s32 *, 0x88), 0, 1);
@@ -329,7 +329,7 @@ u8 *TOTrapSeabed01__ct(u8 *arg0, M2C_UNK arg1, s32 arg2) {
     M2C_FIELD(arg0, s32 *, 0xF8) = get_bml_motion((int) ((*(s32 *)&TOTrapSeabed01__bml_resource)), (int) (0));
     M2C_FIELD(arg0, f32 *, 0xC8) = (f32) lbl_805DE640;
     M2C_FIELD(arg0, f32 *, 0xC0) = (f32) TOTrapSeabed01__data_805DE644[0];
-    TOTrapSeabed01__sub_802CA5F4((void *)((void *) (arg0)));
+    clamp_params_and_init__14TOTrapSeabed01FPv((void *)((void *) (arg0)));
     init_collision_body_parts((void *) (arg0), (void *) (&lbl_804E0FB8.value), (int) (1));
     refresh_collision_body_centers((void *) (arg0));
     reset_photon_effect__10TObjPlayerFPv((void *) (arg0));

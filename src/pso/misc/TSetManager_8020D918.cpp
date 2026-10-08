@@ -29,7 +29,7 @@ struct Rec_8020D9A0 { u8 pad0[2]; s16 f2; s16 f4; u8 pad6[2]; u16 f8; u8 padA[0x
 extern "C" {
 void TLobby__sub_8020D94C(void);
 extern s16 TLobby__data_805D6134;
-void TLobby__sub_8020DB08(void);
+void clear_floor_flags_and_depart__6TLobbyFv(void);
 s32 get_current_floor(void);
 void safe_free__23TAdSinglePlyChrSelectGCFUi(void *p);
 extern Area_8020DEE4 TLobby__data_80513AD0[];
@@ -138,7 +138,7 @@ s32 load_map_decoration_rows(s32 map, s32 grp, s32 room) {
 
 #pragma push
 #pragma scheduling off
-void TLobby__sub_8020DB08(void) {
+void clear_floor_flags_and_depart__6TLobbyFv(void) {
     s32 temp_r3;
     TLobby__sub_8020D94C();
     temp_r3 = TLobby__data_805D6134 & ~8;

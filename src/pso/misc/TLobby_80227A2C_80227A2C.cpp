@@ -10,7 +10,7 @@ struct RecoveredGlobal_80227AA8_lbl_80514F64 {
 };
 
 extern "C" {
-s32 TLobby__sub_80227CC0();
+s32 get_menu_field_280__6TLobbyFv();
 M2C_UNK fn_8023F660(void *, void *, void *, int, int, int);
 extern RecoveredGlobal_80227AA8_lbl_80514F64 lbl_80514F64;
 void TLobby__sub_80227AA8(s32 arg0);
@@ -43,7 +43,7 @@ void TLobby__sub_80227A94(void) { lbl_805D6314 = lbl_805D3710; }
 int get_music_base_gain(void) {  return music_stream_base_gain; }
 typedef char RecoveredGlobal_80227AA8_lbl_80514F64_size[sizeof(RecoveredGlobal_80227AA8_lbl_80514F64) == 0xC3C ? 1 : -1];
 void TLobby__sub_80227AA8(s32 arg0) {
-    fn_8023F660((void *) (&lbl_80514F64.value), (void *) (arg0), (void *) (TLobby__sub_80227CC0() + 0x55), (int) (0x40), (int) (0x40), (int) (0));
+    fn_8023F660((void *) (&lbl_80514F64.value), (void *) (arg0), (void *) (get_menu_field_280__6TLobbyFv() + 0x55), (int) (0x40), (int) (0x40), (int) (0));
 }
 
 }

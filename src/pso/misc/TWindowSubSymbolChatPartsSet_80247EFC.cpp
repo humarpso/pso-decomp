@@ -75,7 +75,7 @@ int fn_80248374(void*);
 void fn_802483C8(void *arg0);
 void TWindowSubSymbolChat__sub_802483F0(int a0, void* a1);
 void set_symbol_chat_parts__20TWindowSubSymbolChatFiPv(s32 arg0, void *arg1);
-void TWindowSubSymbolChat__sub_80248494(s32 arg0, s32 arg1);
+void init_layout_entries__20TWindowSubSymbolChatFii(s32 arg0, s32 arg1);
 void update_visibility__20TWindowSubSymbolChatFPv(u8 *arg0);
 void set_selection__20TWindowSubSymbolChatFPvUi(void *arg0, u32 arg1);
 void set_from_key__20TWindowSubSymbolChatFii(s32 arg0, s32 arg1);
@@ -192,7 +192,7 @@ void set_symbol_chat_parts__20TWindowSubSymbolChatFiPv(s32 arg0, void *arg1) {
     } while (j < 0xC);
 }
 
-void TWindowSubSymbolChat__sub_80248494(s32 arg0, s32 arg1) {
+void init_layout_entries__20TWindowSubSymbolChatFii(s32 arg0, s32 arg1) {
     init_window_layout_entries((void *) (arg0), (void *) (&lbl_804CE2E8.value), (void *) (arg1));
 }
 

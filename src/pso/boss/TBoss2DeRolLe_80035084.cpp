@@ -271,7 +271,7 @@ extern "C" {
 void init_float_block__13TBoss2DeRolLeFPv(u8 *arg0);
 void VecCopy__FP3VecPC3Vec(void *, void *);
 extern const f32 lbl_805D8458;
-void TBoss2Fin__sub_80036620(u8 *arg0);
+void init_link_points__9TBoss2FinFPv(u8 *arg0);
 f32 newton_sqrtf(f32);
 extern const f32 TBoss2DeRolLe__data_805D8288;
 extern const f32 TBoss2DeRolLe__data_805D82A0;
@@ -300,7 +300,7 @@ void *__nw__7TObjectFUl(int);
 s32 run_tasks__7TObjectFv(void *);
 extern const f32 TBoss2DeRolLe__data_805D82A0;
 void run_task__13TBoss2DeRolLeFPv(u8 *arg0);
-void TBoss2Fin__sub_80036620(u8 *arg0);
+void init_link_points__9TBoss2FinFPv(u8 *arg0);
 s32 fn_800FF788(void *, void *);
 extern RecoveredGlobal_800365C8_lbl_80435A44 lbl_80435A44;
 void run_task__9TBoss2FinFv(s32 arg0);
@@ -898,14 +898,14 @@ void run_task__9TBoss2FinFv(s32 arg0) {
     typedef char spC_offset[(offsetof(Stack_800365C8, spC) == 0x4) ? 1 : -1];
     typedef char sp10_offset[(offsetof(Stack_800365C8, sp10) == 0x8) ? 1 : -1];
     Stack_800365C8 stack;
-    TBoss2Fin__sub_80036620((u8 *)((void *) (arg0)));
+    init_link_points__9TBoss2FinFPv((u8 *)((void *) (arg0)));
     stack.sp8 = M2C_FIELD(&lbl_80435A44.value, s32 *, 0);
     stack.spC = M2C_FIELD(&lbl_80435A44.value, s32 *, 4);
     stack.sp10 = M2C_FIELD(&lbl_80435A44.value, s32 *, 8);
     fn_800FF788((void *) (arg0), (void *) (&stack.sp8));
 }
 
-void TBoss2Fin__sub_80036620(u8 *arg0) {
+void init_link_points__9TBoss2FinFPv(u8 *arg0) {
     M2C_FIELD(arg0, s32 *, 0x30) = 0;
     VecCopy__FP3VecPC3Vec(arg0 + 0x34, M2C_FIELD(arg0, u8 **, 0x80));
     VecCopy__FP3VecPC3Vec(arg0 + 0x54, M2C_FIELD(arg0, u8 **, 0x80));

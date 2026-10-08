@@ -7,7 +7,7 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 extern "C" {
 
 void init_uro_link__14TBoss4DarkFalzFv(void);
-M2C_UNK TBoss4DarkFalz__sub_8030AD08();
+M2C_UNK clear_uro_link_state__14TBoss4DarkFalzFv();
 M2C_UNK get_instance_count__9TBoss4UroFv();
 s32 TObjFish__sub_8001EDB0(M2C_UNK, M2C_UNK);
 void *get_bml_model(M2C_UNK, M2C_UNK);
@@ -27,7 +27,7 @@ void init_uro_link__14TBoss4DarkFalzFv(void) {
     if (temp_r3_2 != 0U) {
         lbl_805D6A6C = temp_r3_2;
         lbl_805D6A74 = 0;
-        TBoss4DarkFalz__sub_8030AD08();
+        clear_uro_link_state__14TBoss4DarkFalzFv();
     }
 }
 

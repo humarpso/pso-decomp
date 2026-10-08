@@ -316,7 +316,7 @@ void spawn_periodic_particle__14TObjEnePanarmsFPv(u8 *arg0);
 void attack_target_player__14TObjEnePanarmsFPvi(u8 *arg0, s32 arg1);
 s32 try_move_with_detour__14TObjEnePanarmsFPvPv(u8 *arg0, Vec_800E18B0 *arg1);
 void update_offset_from_parent__14TObjEnePanarmsFPv(u8 *arg0);
-void TObjEnePanarms__sub_800E1B50(u8 *arg0);
+void calc_default_part_position__14TObjEnePanarmsFPv(u8 *arg0);
 void calc_part_position__14TObjEnePanarmsFPvPvPv(u8 *arg0, u8 *arg1, s32 *arg2);
 void TObjEnePanarms__sub_800E1C8C(void *arg0, s32 arg1, s32 arg2);
 M2C_UNK TObjEnePanarms__sub_800E1C98(void *, M2C_UNK);
@@ -1142,7 +1142,7 @@ void start_action__14TObjEnePanarmsFPv(void *arg0) {
 
 void handle_split_flag__14TObjEnePanarmsFPv(void *arg0) {
     if (M2C_FIELD(arg0, s32 *, 0xB0) & 0x10) {
-        ((M2C_UNK (*)(void))TObjEnePanarms__sub_800E1B50)();
+        ((M2C_UNK (*)(void))calc_default_part_position__14TObjEnePanarmsFPv)();
         TObjEnePanarms__sub_800E1C98((void *)(arg0), (s32)(2));
     }
 }
@@ -1319,7 +1319,7 @@ extern int fold_flush_7;
 #pragma inline_depth(1)
 #pragma auto_inline off
 #pragma dont_inline off
-void TObjEnePanarms__sub_800E1B50(u8 *arg0) {
+void calc_default_part_position__14TObjEnePanarmsFPv(u8 *arg0) {
     calc_part_position__14TObjEnePanarmsFPvPvPv(arg0, arg0 + 0x38, (s32 *)(arg0 + 0x60));
 }
 extern int fold_flush_8;

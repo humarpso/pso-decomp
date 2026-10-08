@@ -132,7 +132,7 @@ M2C_UNK VecCopy__FP3VecPC3Vec(void *, void *);
 u8 *get_player_data__10TObjPlayerFi(s32);
 M2C_UNK queue_destruction__7TObjectFv(void *);
 s32 get_game_mode__6TLobbyFv();
-M2C_UNK TBoss2DeRolLe__sub_80034DCC(void *);
+M2C_UNK forward_switch_phase_stats__13TBoss2DeRolLeFi(void *);
 M2C_UNK create_particle__17TObjBoss2CeilJunkFv(void *, int);
 M2C_UNK set_shake_preset__11TCameraCtrlFi(int);
 f32 clamp_velocity__15TObjBoss2TunnelFPv(void *);
@@ -260,7 +260,7 @@ void run_task__17TObjBoss2CeilJunkFv(Junk_8003A314 *o) {
                         subtract_vector(&d, &o->pos);
                         if (clamp_velocity__15TObjBoss2TunnelFPv(&d) < rad) {
                             hit = 1;
-                            TBoss2DeRolLe__sub_80034DCC(pl);
+                            forward_switch_phase_stats__13TBoss2DeRolLeFi(pl);
                         }
                     }
                 }

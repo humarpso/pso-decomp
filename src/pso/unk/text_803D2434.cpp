@@ -31,7 +31,7 @@ void TLobby__sub_803D2624(void);
 extern u8 lbl_8047DEA0[];
 extern u8 lbl_804F9E00[];
 extern RecoveredGlobal_803D259C_lbl_80587400 lbl_80587400;
-Slot_803D2474 *TLobby__sub_803D2474(s32 arg0, s32 arg1);
+Slot_803D2474 *alloc_adx_stream_slot__6TLobbyFii(s32 arg0, s32 arg1);
 }
 
 extern "C" {
@@ -47,7 +47,7 @@ void TLobby__sub_803D2434(u8 *arg0) {
 
 #pragma push
 #pragma optimize_for_size off
-Slot_803D2474 *TLobby__sub_803D2474(s32 arg0, s32 arg1) {
+Slot_803D2474 *alloc_adx_stream_slot__6TLobbyFii(s32 arg0, s32 arg1) {
     s32 i;
     Slot_803D2474 *s;
     for (i = 0; i < 32; i++) {

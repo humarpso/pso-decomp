@@ -129,11 +129,11 @@ struct Info_8034F4FC {
 };
 
 extern "C" {
-void TObjPlayer__sub_8034F470(s32 arg0, s32 arg1);
+void spawn_fire_explosion_for_item__10TObjPlayerFii(s32 arg0, s32 arg1);
 int fn_80308244(void);
 u32 find_item_by_id(void);
 int fn_80308244(void);
-void TObjPlayer__sub_8034F470(s32 arg0, s32 arg1);
+void spawn_fire_explosion_for_item__10TObjPlayerFii(s32 arg0, s32 arg1);
 void * enter_timed_state__10TObjPlayerFPv(void *, M2C_UNK, void *);
 u8 *alloc_from_obj_heap__10TObjPlayerFPv(M2C_UNK);
 extern s32 tl_05;
@@ -149,7 +149,7 @@ void TItemWeapon__ct(void *, void *);
 void set_status_flags__10TObjPlayerFPvUi(void *, int);
 extern M2C_UNK lbl_804F0A00[];
 u8 *TObjPlayer__sub_8034F754(u8 *arg0, u8 *arg1, s32 _w2);
-void TObjPlayer__sub_8034F470(s32 arg0, s32 arg1);
+void spawn_fire_explosion_for_item__10TObjPlayerFii(s32 arg0, s32 arg1);
 void TObjPlayer__sub_8034F590(void *a, O_8034F590 *o);
 u32 find_item_by_id(void);
 void spawn_fire_explosion_at_item__10TObjPlayerFii(s32 arg0, s32 arg1);
@@ -346,7 +346,7 @@ u8 *create_photon_state__10TObjPlayerFPv(u8 *arg0) {
     return NULL;
 }
 
-void TObjPlayer__sub_8034F470(s32 arg0, s32 arg1) {
+void spawn_fire_explosion_for_item__10TObjPlayerFii(s32 arg0, s32 arg1) {
     u32 temp_r3 = find_item_by_id();
     if (temp_r3 != 0U) {
         spawn_fire_explosion__10TObjPlayerFUii((u32)(temp_r3), (s32)(arg1));
@@ -380,7 +380,7 @@ s32 spawn_fire_explosion__10TObjPlayerFUii(u32 a0, s32 a1) {
 
 void TObjPlayer__sub_8034F590(void *a, O_8034F590 *o) {
     o->f74 = (void *)spawn_fire_explosion_at_item__10TObjPlayerFii;
-    o->f70 = (void *)TObjPlayer__sub_8034F470;
+    o->f70 = (void *)spawn_fire_explosion_for_item__10TObjPlayerFii;
     o->flags |= 0x80;
 }
 

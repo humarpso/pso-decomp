@@ -171,7 +171,7 @@ struct En0VObj : En0Base {
 
 extern "C" {
 extern Row_8008ED48 lbl_805006F8[];
-void TObjPlayer__sub_8008ED48(void *arg0, s32 arg1);
+void set_visibility_flags_by_count__10TObjPlayerFPvi(void *arg0, s32 arg1);
 M2C_UNK apply_actor_gravity(void *, M2C_UNK, f32);
 M2C_UNK move_with_wall_slide(void *);
 s32 check_path_obstructed(void *, Vec_8008F910 *);
@@ -343,7 +343,7 @@ void TObjPlayer__sub_8008EC3C(u8 *arg0) {
     }
 }
 
-void TObjPlayer__sub_8008ED48(void *arg0, s32 arg1) {
+void set_visibility_flags_by_count__10TObjPlayerFPvi(void *arg0, s32 arg1) {
     s32 i;
     s32 j;
     u32 *e;

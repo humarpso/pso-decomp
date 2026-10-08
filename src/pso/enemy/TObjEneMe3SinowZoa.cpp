@@ -1003,7 +1003,7 @@ void cast_technique__18TObjEneMe3SinowZoaFPv(u8 *arg0);
 void TObjEneMe3SinowZoa__sub_8031A3D8(u8 *arg0);
 u8 TObjEneMe3SinowZoa__sub_8031A454(u8 *arg0);
 int select_and_apply_target__18TObjEneMe3SinowZoaFPv(void* p);
-u8 TObjEneMe3SinowZoa__sub_8031A494(T_8031A494 *self);
+u8 is_outside_visible_range__18TObjEneMe3SinowZoaFPv(T_8031A494 *self);
 s32 TObjEneMe3SinowZoa__sub_8031A4D0(u8 *arg0);
 void update_collision__18TObjEneMe3SinowZoaFPv(void *arg0);
 void update_distance_state__18TObjEneMe3SinowZoaFPv(void *arg0);
@@ -3737,7 +3737,7 @@ u8 TObjEneMe3SinowZoa__sub_8031A454(u8 *arg0) {
 
 int select_and_apply_target__18TObjEneMe3SinowZoaFPv(void* p) { return select_and_apply_target__14TObjEneEpsilonFPvf(p); }
 
-u8 TObjEneMe3SinowZoa__sub_8031A494(T_8031A494 *self) {
+u8 is_outside_visible_range__18TObjEneMe3SinowZoaFPv(T_8031A494 *self) {
     s32 r = 0;
     if (self->f354 < (*(f32 *)&TObjEneMe3SinowZoa__data_805DF2F4) ||
         (self->f354 >= (*(f32 *)&TObjEneMe3SinowZoa__data_805DF32C) && self->f354 < (*(f32 *)&TObjEneMe3SinowZoa__data_805DF328))) r = 1;
@@ -3913,7 +3913,7 @@ void setup_move_bounds__18TObjEneMe3SinowZoaFPv(void *arg0) {
     } else {
         M2C_FIELD(arg0, s32 *, 0x3C0) = 0;
     }
-    M2C_FIELD(arg0, s32 *, 0x3C4) = ((s32 (*)(void *))TObjEneMe3SinowZoa__sub_8031A494)(arg0);
+    M2C_FIELD(arg0, s32 *, 0x3C4) = ((s32 (*)(void *))is_outside_visible_range__18TObjEneMe3SinowZoaFPv)(arg0);
     if ((s32) M2C_FIELD(arg0, s32 *, 0x3C4) == 1) {
         M2C_FIELD(arg0, s16 *, 0xB8) = 2;
     } else {
@@ -4603,7 +4603,7 @@ int TObjEneDD__vt92(void*);
 int TObjEneDD__vt93(void*);
 int TObjEneMe3Stelth__sub_800F5864(void*, void*);
 int TObjEneMe3Stelth__sub_800F5874(void*, void*);
-s32 TObjEneMe3SinowZoa__sub_8031A494(void *);
+s32 is_outside_visible_range__18TObjEneMe3SinowZoaFPv(void *);
 s32 TObjEneMe3SinowZoa__sub_8031A4D0();
 
 extern const f32 lbl_805DF304;
@@ -4617,7 +4617,7 @@ void setup_move_bounds__18TObjEneMe3SinowZoaFPv(void *arg0) {
     } else {
         M2C_FIELD(arg0, s32 *, 0x3C0) = 0;
     }
-    M2C_FIELD(arg0, s32 *, 0x3C4) = TObjEneMe3SinowZoa__sub_8031A494(arg0);
+    M2C_FIELD(arg0, s32 *, 0x3C4) = is_outside_visible_range__18TObjEneMe3SinowZoaFPv(arg0);
     if ((s32) M2C_FIELD(arg0, s32 *, 0x3C4) == 1) {
         M2C_FIELD(arg0, s16 *, 0xB8) = 2;
     } else {

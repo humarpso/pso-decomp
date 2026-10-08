@@ -8,7 +8,7 @@ struct Obj_801D8474 { s8 a; u8 b; };
 
 extern "C" {
 s32 can_use_palette_action__10TObjPlayerFPvUcUc(u32, u8, u8);
-s32 TObjPlayer__sub_801D8474(Obj_801D8474 *p, u32 obj);
+s32 can_use_palette_action_for_entry__10TObjPlayerFPvUi(Obj_801D8474 *p, u32 obj);
 }
 
 extern "C" {
@@ -21,7 +21,7 @@ int bswap_disp_config_field__10TObjPlayerFPv(void* p);
 s32 TObjPlayer__sub_801D84F0(void* p);
 int bswap_16__FPUs(void*);
 
-s32 TObjPlayer__sub_801D8474(Obj_801D8474 *p, u32 obj) {
+s32 can_use_palette_action_for_entry__10TObjPlayerFPvUi(Obj_801D8474 *p, u32 obj) {
     return can_use_palette_action__10TObjPlayerFPvUcUc(obj, p->a, p->b);
 }
 

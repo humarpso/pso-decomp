@@ -27,12 +27,12 @@ M2C_UNK memset(void *, int, int);
 extern RecoveredGlobal_803C5850_lbl_80572020 lbl_80572020;
 extern s32 lobby_error_callback;
 extern s32 tlobby_error_callback_arg;
-void TLobby__sub_803C5850(void);
+void clear_error_callback__6TLobbyFv(void);
 M2C_UNK memset(void *, int, int);
 extern RecoveredGlobal_803C5850_lbl_80572020 lbl_80572020;
 extern s32 lobby_error_callback;
 extern s32 tlobby_error_callback_arg;
-void TLobby__sub_803C588C(void);
+void clear_error_callback_state__6TLobbyFv(void);
 extern RecoveredGlobal_803C5850_lbl_80572020 lbl_80572020;
 extern s32 lobby_error_callback;
 extern s32 tlobby_error_callback_arg;
@@ -48,14 +48,14 @@ extern RecoveredGlobal_803C5850_lbl_80572020 lbl_80572020;
 extern s32 lobby_error_callback;
 extern s32 tlobby_error_callback_arg;
 void notify_error__6TLobbyFPv(const char *arg0);
-s32 TLobby__sub_803C47F8(u8 *arg0, s32 arg1, u16 *arg2, u16 *arg3);
+s32 parse_header_loop_points__6TLobbyFPviPvPv(u8 *arg0, s32 arg1, u16 *arg2, u16 *arg3);
 s32 ARStartDMA(u8 *arg0, s32 arg1, s16 *arg2, u8 *arg3, s8 *arg4, s8 *arg5, u8 *arg6, s32 *arg7, s32 *arg8, s32 *arg9);
 void reset_sound_buffers__6TLobbyFv(void);
 M2C_UNK release_ref__6TLobbyFv();
 M2C_UNK init_once__6TLobbyFv();
 void TLobby__sub_803C4698(void);
-void TLobby__sub_803C588C(void);
-void TLobby__sub_803C90B0(void);
+void clear_error_callback_state__6TLobbyFv(void);
+void clear_buffer_a00__6TLobbyFv(void);
 void flush_update__6TLobbyFv(void *, int);
 void TLobby__sub_803CC114(void);
 void init_afs_adxf_state__6TLobbyFv(void);
@@ -94,7 +94,7 @@ void dec_ref_and_shutdown__6TLobbyFv(void);
 void dispatch_receive_update__6TLobbyFv(void);
 void set_global_805D7520__6TLobbyFi(s32 arg0);
 void set_params__6TLobbyFii(s32 arg0, s32 arg1);
-M2C_UNK TLobby__sub_803C0AD8();
+M2C_UNK clear_session_buffer__6TLobbyFv();
 M2C_UNK decode_adx_stereo_downmix();
 M2C_UNK decode_adx_stereo();
 M2C_UNK TLobby__sub_803C8610();
@@ -182,7 +182,7 @@ s32 __DVDPrepareResetAsync(u8 *hdr, s32 size, s32 *o1, s16 *o2, s16 *o3, s32 *o4
     return 0;
 }
 
-s32 TLobby__sub_803C47F8(u8 *arg0, s32 arg1, u16 *arg2, u16 *arg3) {
+s32 parse_header_loop_points__6TLobbyFPviPvPv(u8 *arg0, s32 arg1, u16 *arg2, u16 *arg3) {
     s32 var_r0;
     u8 var_r7;
     if (arg1 < 0x14) {
@@ -348,14 +348,14 @@ void set_params__6TLobbyFii(s32 arg0, s32 arg1) {
 extern s32 lbl_805D7530;
 
 typedef char RecoveredGlobal_803C5850_lbl_80572020_size[sizeof(RecoveredGlobal_803C5850_lbl_80572020) == 0x100 ? 1 : -1];
-void TLobby__sub_803C5850(void) {
+void clear_error_callback__6TLobbyFv(void) {
     memset((void *) (&lbl_80572020.value), (int) (0), (int) (0x100));
     lobby_error_callback = 0;
     tlobby_error_callback_arg = 0;
 }
 
 typedef char RecoveredGlobal_803C588C_lbl_80572020_size[sizeof(RecoveredGlobal_803C588C_lbl_80572020) == 0x100 ? 1 : -1];
-void TLobby__sub_803C588C(void) {
+void clear_error_callback_state__6TLobbyFv(void) {
     memset((void *) (&(*(RecoveredGlobal_803C588C_lbl_80572020 *)&lbl_80572020).value), (int) (0), (int) (0x100));
     lobby_error_callback = 0;
     tlobby_error_callback_arg = 0;
@@ -397,8 +397,8 @@ void dec_ref_and_shutdown__6TLobbyFv(void) {
         TLobby__sub_803D3194();
         release_ref__6TLobbyFv();
         init_once__6TLobbyFv();
-        TLobby__sub_803C0AD8();
-        TLobby__sub_803C5850();
+        clear_session_buffer__6TLobbyFv();
+        clear_error_callback__6TLobbyFv();
         release_ref_and_clear_buffer__6TLobbyFv();
         release_ref_and_clear_buffer_3000__6TLobbyFv();
         dec_ref_and_clear_buffer__6TLobbyFv();
@@ -413,8 +413,8 @@ void init_and_add_ref__6TLobbyFv(void) {
         TLobby__sub_803D2ED4();
         add_ref_and_clear_buffer_3000__6TLobbyFv();
         TLobby__sub_803D25DC();
-        TLobby__sub_803C588C();
-        TLobby__sub_803C90B0();
+        clear_error_callback_state__6TLobbyFv();
+        clear_buffer_a00__6TLobbyFv();
         reset_sound_buffers__6TLobbyFv();
         init_afs_adxf_state__6TLobbyFv();
         TLobby__sub_803CC114();

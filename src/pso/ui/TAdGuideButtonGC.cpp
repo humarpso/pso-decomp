@@ -77,8 +77,8 @@ u8 *TAdGuideButtonGC__ct(u8 *arg0, u8 *arg1);
 M2C_UNK copy_vec2__28TWindowSubSymbolChatPartsSetFPvPv(void *, void *);
 extern UV_8032D600 lbl_80477350[];
 void setup_button__16TAdGuideButtonGCFPvPv(Obj_8032D600 *arg0, Src_8032D600 *arg1);
-void TAdGuideButtonGC__sub_8032D708(Obj_8032D708 *arg0);
-void TAdGuideButtonGC__sub_8032D708(Obj_8032D708 *arg0);
+void update_trail_quads__16TAdGuideButtonGCFPv(Obj_8032D708 *arg0);
+void update_trail_quads__16TAdGuideButtonGCFPv(Obj_8032D708 *arg0);
 void run_task__16TAdGuideButtonGCFv(Obj_8032D85C *arg0);
 }
 
@@ -86,13 +86,13 @@ extern "C" {
 
 void *__dt__16TAdGuideButtonGCFv(void *arg0, s16 arg1);
 void render__16TAdGuideButtonGCFv(void* p);
-int TAdWarningBaseGC__sub_8032D514(void*, void*, void*);
+int render_status_disp_offset__16TAdWarningBaseGCFPvii(void*, void*, void*);
 M2C_UNK __dl__7TObjectFPv(void *);
 M2C_UNK __dt__7TObjectFv(void *, M2C_UNK);
 int get_state_flag__9TMainTaskFv(void*);
 int render__16TAdWarningBaseGCFi(void*, void*);
 
-void render__16TAdGuideButtonGCFv(void* p) { if (get_state_flag__9TMainTaskFv(p) != 1) { render__16TAdWarningBaseGCFi(p, (void*)0); TAdWarningBaseGC__sub_8032D514(p, (void*)0, *(void**)((char*)p + 0x1a0)); } }
+void render__16TAdGuideButtonGCFv(void* p) { if (get_state_flag__9TMainTaskFv(p) != 1) { render__16TAdWarningBaseGCFi(p, (void*)0); render_status_disp_offset__16TAdWarningBaseGCFPvii(p, (void*)0, *(void**)((char*)p + 0x1a0)); } }
 
 extern M2C_UNK __vt__16TAdGuideButtonGC[];
 extern u32 lbl_805D6D04;
@@ -115,7 +115,7 @@ void setup_button__16TAdGuideButtonGCFPvPv(Obj_8032D600 *arg0, Src_8032D600 *arg
     }
 }
 
-void TAdGuideButtonGC__sub_8032D708(Obj_8032D708 *arg0) {
+void update_trail_quads__16TAdGuideButtonGCFPv(Obj_8032D708 *arg0) {
     Vec2_8032D708 d[8];
     u32 i;
     if (arg0->x19C == arg0->x13C) {
@@ -156,7 +156,7 @@ void run_task__16TAdGuideButtonGCFv(Obj_8032D85C *arg0) {
             }
             arg0->vals[i] = arg0->vals[i] > 0xFF ? 0xFF : arg0->vals[i];
         }
-        TAdGuideButtonGC__sub_8032D708((Obj_8032D708 *)arg0);
+        update_trail_quads__16TAdGuideButtonGCFPv((Obj_8032D708 *)arg0);
     }
 }
 

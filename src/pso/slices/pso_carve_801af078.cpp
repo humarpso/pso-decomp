@@ -3,19 +3,19 @@
 extern "C" {
 s32 check_flag_800000__10TObjPlayerFPv(s32);
 int test_flag_2000000__10TObjPlayerFPv(void*);
-void TObjPlayer__sub_801BEFEC(void *);
+void emit_zalure_support_effect_at__10TObjPlayerFPv(void *);
 void TObjPlayer__vt70(u8 *arg0);
 s32 check_flag_800000__10TObjPlayerFPv(s32);
 int test_flag_2000000__10TObjPlayerFPv(void*);
-void TObjPlayer__sub_801BF038(void *);
+void emit_deband_support_effect_at__10TObjPlayerFPv(void *);
 void TObjPlayer__vt69(u8 *arg0);
 s32 check_flag_800000__10TObjPlayerFPv(s32);
 int test_flag_2000000__10TObjPlayerFPv(void*);
-void TObjPlayer__sub_801BF084(void *);
+void emit_jellen_support_effect_default__10TObjPlayerFPv(void *);
 void TObjPlayer__vt68(u8 *arg0);
 s32 check_flag_800000__10TObjPlayerFPv(s32);
 int test_flag_2000000__10TObjPlayerFPv(void*);
-void TObjPlayer__sub_801BF110(void *);
+void emit_shifta_support__10TObjPlayerFPv(void *);
 void TObjPlayer__vt67(u8 *arg0);
 }
 
@@ -36,12 +36,12 @@ s32 TObjPlayer__sub_801AF868(s32);
 s32 is_technique_ready__8TTecCtrlFv();
 s32 check_flag_800000__10TObjPlayerFPv(s32);
 s32 emit_idle_water_effect(s32);
-s32 TObjPlayer__sub_801BF1DC(s32);
+s32 emit_movement_effect_at__10TObjPlayerFPv(s32);
 s32 has_water_ground_flag(s32);
 int is_locally_controlled__10TObjPlayerFPv(void*);
 int test_flag_2000000__10TObjPlayerFPv(void*);
 int TObjPlayer__sub_801BEF60(void*, void*);
-int TObjPlayer__sub_801BEF68(void*);
+int prepare_heavy_attack_particles_default__10TObjPlayerFPv(void*);
 void stop_force_if_alive__10TObjPlayerFPv(void* p);
 void update_battle_control_if_unlocked__10TObjPlayerFPv(void* p);
 void TObjPlayer__sub_801AEB80(void);
@@ -51,27 +51,27 @@ void TObjPlayer__vt70(u8 *arg0) {
     if (test_flag_2000000__10TObjPlayerFPv((void*)(arg0)) != 0 || check_flag_800000__10TObjPlayerFPv((s32)arg0) != 0) {
         return;
     }
-    TObjPlayer__sub_801BEFEC(arg0 + 0x384);
+    emit_zalure_support_effect_at__10TObjPlayerFPv(arg0 + 0x384);
 }
 
 void TObjPlayer__vt69(u8 *arg0) {
     if (test_flag_2000000__10TObjPlayerFPv((void*)(arg0)) != 0 || check_flag_800000__10TObjPlayerFPv((s32)arg0) != 0) {
         return;
     }
-    TObjPlayer__sub_801BF038(arg0 + 0x384);
+    emit_deband_support_effect_at__10TObjPlayerFPv(arg0 + 0x384);
 }
 
 void TObjPlayer__vt68(u8 *arg0) {
     if (test_flag_2000000__10TObjPlayerFPv((void*)(arg0)) != 0 || check_flag_800000__10TObjPlayerFPv((s32)arg0) != 0) {
         return;
     }
-    TObjPlayer__sub_801BF084(arg0 + 0x384);
+    emit_jellen_support_effect_default__10TObjPlayerFPv(arg0 + 0x384);
 }
 void TObjPlayer__vt67(u8 *arg0) {
     if (test_flag_2000000__10TObjPlayerFPv((void*)(arg0)) != 0 || check_flag_800000__10TObjPlayerFPv((s32)arg0) != 0) {
         return;
     }
-    TObjPlayer__sub_801BF110(arg0 + 0x384);
+    emit_shifta_support__10TObjPlayerFPv(arg0 + 0x384);
 }
 
 }

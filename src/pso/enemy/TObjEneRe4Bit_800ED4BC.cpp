@@ -356,7 +356,7 @@ M2C_UNK transition_enemy_state(void *, int);
 void TObjEneRe4Bit__vt61(u8 *arg0);
 s32 check_demo_mode__10TObjPlayerFv();
 M2C_UNK set_player_state_default__12TBoss8DragonFPv(void *);
-M2C_UNK TObjEneRe4Bit__sub_800ED150(void *);
+M2C_UNK clear_state_flags_when_done__13TObjEneRe4BitFPv(void *);
 void copy_pos__13TObjEneRe4BitFPv(void* p);
 void run_task__13TObjEneRe4BitFv(u8 *arg0);
 int VecCopy__FP3VecPC3Vec(void*, void*);
@@ -457,7 +457,7 @@ void run_task__13TObjEneRe4BitFv(u8 *arg0) {
     }
     if ((((VObj_18 *)(arg0))->m81() == 1) || (temp_r3 = M2C_FIELD(arg0, s32 *, 0x3CC), (((temp_r3 & 0x2000) == 0) != 0))) {
         ((VObj_18 *)(arg0))->m83();
-        TObjEneRe4Bit__sub_800ED150((void *) (arg0));
+        clear_state_flags_when_done__13TObjEneRe4BitFPv((void *) (arg0));
     } else {
         M2C_FIELD(arg0, s32 *, 0x3CC) = (s32) (temp_r3 & 0xFFFFDFFF);
     }

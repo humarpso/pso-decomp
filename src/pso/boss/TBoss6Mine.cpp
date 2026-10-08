@@ -145,7 +145,7 @@ struct Tmp_80324A00 { s32 a; u8 pad4[2]; s16 b; u8 pad8[8]; };
 extern "C" {
 f32 vector_length(void *);
 extern const f32 lbl_805DF58C;
-s32 TBoss6Mine__sub_803240C4(s32 arg0);
+s32 is_far_from_origin__10TBoss6MineFi(s32 arg0);
 f32 sin_table_lookup(s32);
 f32 cos_table_lookup(s32);
 extern const f32 lbl_805DF5BC;
@@ -331,7 +331,7 @@ void update_facing_angles__10TBoss6MineFPv(u8 *arg0) {
     }
 }
 
-s32 TBoss6Mine__sub_803240C4(s32 arg0) {
+s32 is_far_from_origin__10TBoss6MineFi(s32 arg0) {
     return vector_length((void *) (arg0 + 0x38)) > lbl_805DF58C;
 }
 

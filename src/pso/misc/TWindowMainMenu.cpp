@@ -82,7 +82,7 @@ void create_submenu__15TWindowMainMenuFPvUi(void *, int);
 void update_submenu__15TWindowMainMenuFPv(void *arg0);
 void close_submenu__15TWindowMainMenuFPvPv(void* p, void* a1);
 void refresh_submenu__15TWindowMainMenuFPvPv(void* p, void* a1);
-s32 TWindowMainMenu__sub_802ADAAC(u32);
+s32 get_selected_item_type__15TWindowMainMenuFPv(u32);
 s16 TWindowMainMenu__sub_802ADB00(u32);
 s32 is_flag_set__15TWindowMainMenuFPv(u32);
 s32 get_menu_flag__15TWindowMainMenuFPv(u32);
@@ -90,7 +90,7 @@ void handle_menu_selection__15TWindowMainMenuFPv(Menu_802647CC *arg0);
 s32 filter_menu_entry__15TWindowMainMenuFPvPvPv(void *, s16 *, s32 *);
 void update_description_text__15TWindowMainMenuFPvi(void *, int);
 M2C_UNK get_window_layout_position(int);
-s32 TWindowMainMenu__sub_802ADAAC(u32);
+s32 get_selected_item_type__15TWindowMainMenuFPv(u32);
 M2C_UNK TWindowMainMenu__sub_802ADADC(int, int);
 void update_if_active__15TWindowMainMenuFv(int, int);
 M2C_UNK append_child_rows__15TWindowMainMenuFPvi(int, void *);
@@ -182,7 +182,7 @@ void populate_menu__15TWindowMainMenuFPvPv(u8 *arg0, Ent_802646E4 *arg1) {
     }
     ((int (*)(int))update_scaled_position__15TWindowMainMenuFi)(w);
     TWindowMainMenu__sub_802ADADC(w, *(s16 *)(arg0 + 0x52));
-    d = TWindowMainMenu__sub_802ADAAC(w);
+    d = get_selected_item_type__15TWindowMainMenuFPv(w);
     update_description_text__15TWindowMainMenuFPvi(arg0, d);
 }
 
@@ -192,7 +192,7 @@ void handle_menu_selection__15TWindowMainMenuFPv(Menu_802647CC *arg0) {
     void *e;
     if ((arg0->flags & 1) && !(arg0->flags & 4) && (node = arg0->node) != 0) {
         arg0->sel = TWindowMainMenu__sub_802ADB00(node);
-        id = TWindowMainMenu__sub_802ADAAC(node);
+        id = get_selected_item_type__15TWindowMainMenuFPv(node);
         update_description_text__15TWindowMainMenuFPvi(arg0, id);
         if (get_menu_flag__15TWindowMainMenuFPv(node) != 0) {
             add_menu_entry__15TWindowMainMenuFPvs(arg0, id);

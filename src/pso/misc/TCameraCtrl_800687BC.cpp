@@ -378,7 +378,7 @@ extern RecoveredGlobal_800691C8_main_task main_task;
 void apply_split_screen_view_matrix__11TCameraCtrlFv(void);
 M2C_UNK VecCopy__FP3VecPC3Vec(void *, int);
 extern RecoveredGlobal_800687E4_TCameraCtrl__data_804FF6C4 TCameraCtrl__data_804FF6C4;
-void TCameraCtrl__sub_800687E4(u8 *arg0);
+void copy_vec_to_default__11TCameraCtrlFPv(u8 *arg0);
 s32 is_split_screen();
 s32 get_camera_no__11TCameraCtrlFv();
 s32 matrix_mult_vec(int, void *, void *);
@@ -567,7 +567,7 @@ void TCameraCtrl__sub_800687C8(void) {
     M2C_FIELD(&(*(RecoveredGlobal_800687C8_TCameraCtrl__data_804FF6C4 *)&TCameraCtrl__data_804FF6C4).value, f32 *, 8) = (f32) (*(const f32 *)&TCameraCtrl__data_805D8FA8);
 }
 
-void TCameraCtrl__sub_800687E4(u8 *arg0) {
+void copy_vec_to_default__11TCameraCtrlFPv(u8 *arg0) {
     VecCopy__FP3VecPC3Vec((void *)(&TCameraCtrl__data_804FF6C4.value), (int)(arg0));
 }
 
@@ -1286,7 +1286,7 @@ s32 activate_camera_mode(s32 arg0) {
 #define CAM_80069F20 ((Cam_80069F20 *)&TCameraCtrl__data_804FF628)
 #define OUT_80069F20 ((Out_80069F20 *)lbl_805D4DF0)
 
-void TCameraCtrl__sub_80069F20(void) {
+void reset_view_flags__11TCameraCtrlFv(void) {
     Cam_80069F20 *c = CAM_80069F20;
     f32 v;
 

@@ -250,7 +250,7 @@ Obj_8019E238 *TObjWarpBossMulti__ct(Obj_8019E238 *self, void * _w1, void * _w2);
 void update_warp_boss_visibility(void *arg0);
 s32 TObjWarpBossMulti__sub_8019E418(u8 *arg0);
 s32 is_lobby_active__17TObjWarpBossMultiFv(void);
-s32 TObjWarpBossMulti__sub_8019E4B4(void);
+s32 get_boss_warp_flag__17TObjWarpBossMultiFv(void);
 s32 are_all_players_in_range__17TObjWarpBossMultiFPv(Wb_8019E4E8 *arg0);
 s32 TObjWarpBossMulti__sub_8019E570(s32 arg0, f32 farg0);
 void close_windows__17TObjWarpBossMultiFPv(void *arg0);
@@ -487,7 +487,7 @@ s32 is_lobby_active__17TObjWarpBossMultiFv(void) {
     return get_state__6TLobbyFv() ? 1 : 0;
 }
 
-s32 TObjWarpBossMulti__sub_8019E4B4(void) {
+s32 get_boss_warp_flag__17TObjWarpBossMultiFv(void) {
     return ((get_main_phase() - 0xF) == 0) ? lbl_805D55C0 : 0;
 }
 
@@ -663,7 +663,7 @@ void update_state__17TObjWarpBossMultiFPv(void *arg0) {
         M2C_FIELD(arg0, s32 *, 0xD4) = (s32) lbl_805D5C9C;
         return;
     case 1:
-        if (TObjWarpBossMulti__sub_8019E4B4() == 0) {
+        if (get_boss_warp_flag__17TObjWarpBossMultiFv() == 0) {
             temp_r3 = ((s32 (*)(void *, f32))TObjWarpBossMulti__sub_8019E570)(arg0, M2C_FIELD(arg0, f32 *, 0xAC));
             if (temp_r3 != 0) {
                 ((M2C_UNK (*)(void *, s32))notify_player__17TObjWarpBossMultiFPvi)(arg0, lbl_805D53A0);

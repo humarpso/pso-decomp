@@ -133,7 +133,7 @@ void update__23TAdSinglePlyChrSelectGCFPv(void *arg0);
 void update_card_input__23TAdSinglePlyChrSelectGCFPv(void *arg0);
 s32 get_localized_text_entry(M2C_UNK, M2C_UNK);
 M2C_UNK TAdSinglePlyChrSelectGC__sub_801334DC(s32);
-M2C_UNK TAdSinglePlyChrSelectGC__sub_801FE2D0();
+M2C_UNK clear_entry__23TAdSinglePlyChrSelectGCFi();
 s32 TAdSinglePlyChrSelectGC__sub_802D4D9C();
 M2C_UNK align_menu_entry_positions(s32);
 M2C_UNK calc_window_size__17TWindowSubComCardFPv(s32);
@@ -336,7 +336,7 @@ void update__23TAdSinglePlyChrSelectGCFPv(void *arg0) {
         switch (temp_r3) {
         case 0:
             TAdSinglePlyChrSelectGC__sub_801334DC(M2C_FIELD(arg0, s32 *, 0x2C));
-            TAdSinglePlyChrSelectGC__sub_801FE2D0();
+            clear_entry__23TAdSinglePlyChrSelectGCFi();
             get_player_index__22TAdMultiPlyChrSelectGCFPv(M2C_FIELD(arg0, s32 *, 0x28));
             set_cursor_index__22TAdMultiPlyChrSelectGCFPvi(M2C_FIELD(arg0, s32 *, 0x28), 0xF);
             set_selection_state__21TAdMultiSelGameModeGCFPvi(M2C_FIELD(arg0, s32 *, 0x2C), 1);

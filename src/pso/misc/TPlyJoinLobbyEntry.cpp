@@ -324,7 +324,7 @@ int bswap_packet_header__6TLobbyFPv(void *);
 void TFontSmallTask__sub_800FD5F4(void *, s32);
 void apply_sync_item_state__6TLobbyFPv(void *);
 s32 write_sync_item_state__6TLobbyFPv(void *);
-s32 TKeyBoardControl__sub_80132368(void *);
+s32 has_any_key_pressed__16TKeyBoardControlFPv(void *);
 void send_game_character__6TLobbyFv(void);
 void update_idle_timeout__6TLobbyFPv(u8 *arg0);
 u8 * TLobby__sub_80135198(u8 *arg0, s32 arg1);
@@ -375,7 +375,7 @@ u8 * alloc_buffer__11TOBoss4RockFPv(M2C_UNK);
 void clear_enabled_main_warps();
 void set_flag_and_update__6TLobbyFv();
 s32 TLobby__sub_801A3E8C();
-s32 TLobby__sub_801A51C0(void *);
+s32 get_table_entry_by_index__6TLobbyFv(void *);
 VObj_18_80135208 * TPacket__ct(void*, s32);
 s32 any_pad_input_active__16TKeyBoardControlFv();
 s32 fill_player_record__10TObjPlayerFPvPv(void *, void *);
@@ -562,7 +562,7 @@ void update_idle_timeout__6TLobbyFPv(u8 *arg0) {
     if (TWindowCtrlMain__sub_8024CE58() == 0) {
         (*(Obj_80134F9C * *)&TLobby__data_805D5608) = 0;
     }
-    if (TKeyBoardControl__sub_80132368(TKeyBoardControl__data_80506270) != 0 || any_pad_input_active__16TKeyBoardControlFv() != 0) {
+    if (has_any_key_pressed__16TKeyBoardControlFPv(TKeyBoardControl__data_80506270) != 0 || any_pad_input_active__16TKeyBoardControlFv() != 0) {
         t->start = t->now;
         t->state = 0;
         if ((*(Obj_80134F9C * *)&TLobby__data_805D5608) != 0) {
@@ -570,7 +570,7 @@ void update_idle_timeout__6TLobbyFPv(u8 *arg0) {
             (*(Obj_80134F9C * *)&TLobby__data_805D5608) = 0;
         }
     }
-    t->limit = TLobby__sub_801A51C0((void *)lbl_805D53A0);
+    t->limit = get_table_entry_by_index__6TLobbyFv((void *)lbl_805D53A0);
     elapsed = t->now - t->start;
     switch (t->state) {
     case 0:
@@ -606,7 +606,7 @@ u8 *TLobby__sub_80135198(u8 *arg0, s32 arg1) {
     getDateStamp__FP9DateStamp((void *) (&sp8));
     DateToSeconds__FP9DateStampPi((void *) (&sp8), (void *) (arg0 + 0x1C));
     M2C_FIELD(arg0, s32 *, 0x20) = (s32) M2C_FIELD(arg0, s32 *, 0x1C);
-    M2C_FIELD(arg0, s32 *, 0x24) = TLobby__sub_801A51C0((void *) (lbl_805D53A0));
+    M2C_FIELD(arg0, s32 *, 0x24) = get_table_entry_by_index__6TLobbyFv((void *) (lbl_805D53A0));
     M2C_FIELD(arg0, s8 *, 0x28) = 0;
     TLobby__data_805D5608 = 0;
     return arg0;

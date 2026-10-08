@@ -49,7 +49,7 @@ int TMainCursor__sub_8013E6E0(void* p);
 int update_action_palette__11TMainCursorFPv(void* p);
 void TMainCursor__sub_8013E724(void* p, f32 v);
 void set_target_id__11TMainCursorFPvs(void* p, s16 v);
-int TMainCursor__sub_8013E75C(void* p);
+int set_target_index_at_60__11TMainCursorFPvPv(void* p);
 s32 get_body_exclude_mask__11TMainCursorFPv(void* p);
 s32 get_body_include_mask__11TMainCursorFPv(void* p);
 s32 get_actor_exclude_mask__11TMainCursorFPv(void* p);

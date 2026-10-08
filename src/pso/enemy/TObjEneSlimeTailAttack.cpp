@@ -460,7 +460,7 @@ M2C_UNK init_render_globals__10TObjPlayerFv();
 M2C_UNK TObjPlayer__sub_800EBE48(f32);
 void push_material_color_override__10TObjPlayerFffff(f32, f32, f32, f32);
 s32 get_attack_target__15TObjEneSlimeOneFPv(s32);
-s32 TObjEneSlimeOne__sub_800EC39C(int);
+s32 is_in_water_bomb_states__15TObjEneSlimeOneFPv(int);
 s32 find_nearest_enemy_masked__15TObjEneSlimeOneFPvf(void *, f32);
 s32 is_timer_active__15TObjEneSlimeOneFPv(void *);
 s32 find_nearest_enemy_with_flag__15TObjEneSlimeOneFPvif(void *, f32 *, f32);
@@ -774,7 +774,7 @@ void TObjPlayer__sub_800E87FC(u8 *arg0) {
             queue_destruction__7TObjectFv((void *) (arg0));
             return;
         }
-        if (TObjEneSlimeOne__sub_800EC39C((int) (M2C_FIELD(arg0, s32 *, 0x374))) != 0) {
+        if (is_in_water_bomb_states__15TObjEneSlimeOneFPv((int) (M2C_FIELD(arg0, s32 *, 0x374))) != 0) {
             M2C_FIELD(arg0, s32 *, 0x378) = 0;
         }
     } else {
@@ -905,7 +905,7 @@ void run_task__21TObjEneSlimeWaterBombFv(Bomb_800E8D4C *arg0) {
     if (arg0->link != NULL) {
         copy_pos__11TNowLoadingFPvPv(arg0->link, &arg0->pos);
     }
-    if (((s32 (*)(s32))TObjEneSlimeOne__sub_800EC39C)(arg0->owner) != 0 || ((s32 (*)(void *))water_bomb_hit_nearby)(arg0) != 0) {
+    if (((s32 (*)(s32))is_in_water_bomb_states__15TObjEneSlimeOneFPv)(arg0->owner) != 0 || ((s32 (*)(void *))water_bomb_hit_nearby)(arg0) != 0) {
         die = 1;
     }
     {

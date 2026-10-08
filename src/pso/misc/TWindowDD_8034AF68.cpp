@@ -35,7 +35,7 @@ extern s32 lbl_805DFD84;
 extern s32 lbl_805DFD88;
 extern s32 lbl_805DFD8C;
 extern s32 lbl_805DFD90;
-s32 TWindowDD__sub_8034B050(s32 arg0);
+s32 lookup_item_category__9TWindowDDFi(s32 arg0);
 }
 
 extern "C" {
@@ -70,9 +70,9 @@ void TWindowDD__sub_8034AF68(void) {
 }
 
 s32 TWindowDD__sub_8034B008(s32 arg0, s32 arg1) {
-    return M2C_FIELD(((u8 *)(((u8 *)(&lbl_80478B78.value) + (TWindowDD__sub_8034B050((s32)((void *) (arg1))) * 8))) + (arg0 * 4)), s32 *, 0);
+    return M2C_FIELD(((u8 *)(((u8 *)(&lbl_80478B78.value) + (lookup_item_category__9TWindowDDFi((s32)((void *) (arg1))) * 8))) + (arg0 * 4)), s32 *, 0);
 }
-s32 TWindowDD__sub_8034B050(s32 arg0) {
+s32 lookup_item_category__9TWindowDDFi(s32 arg0) {
     s32 r;
     s32 i;
     s32 j;

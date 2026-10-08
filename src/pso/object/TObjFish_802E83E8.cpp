@@ -1459,7 +1459,7 @@ void handle_6xAA_barba_ray_boss_actions(void *arg0);
 void handle_6xA9_barba_ray_boss_actions(void *arg0);
 void TObjPlayer__sub_802ECAA4(Ply_802ECAA4 *o);
 u8 TObjPlayer__sub_802ECB10(void *arg0);
-void TObjFish__sub_802ECB38(u8 *arg0);
+void set_hooked_effect_target__8TObjFishFPv(u8 *arg0);
 void apply_damage_and_set_effect__8TObjFishFPvi(u8 *arg0, s32 arg1);
 void TObjFish__sub_802ECBDC(Fish_802ECBDC *self);
 void TObjFish__sub_802ECC44(Fish_802ECC44 *self);
@@ -3650,7 +3650,7 @@ u8 TObjPlayer__sub_802ECB10(void *arg0) {
     return (u8)var_r4;
 }
 
-void TObjFish__sub_802ECB38(u8 *arg0) {
+void set_hooked_effect_target__8TObjFishFPv(u8 *arg0) {
     M2C_FIELD(arg0, s32 *, 0x628) = (s32) (M2C_FIELD(arg0, s32 *, 0x628) | 0x88);
     set_effect_target_position__8TObjFishFPvPvPv(arg0, (void *)0x3A312, arg0 + 0x38);
 }
@@ -4280,7 +4280,7 @@ void TObjFish__sub_802ED86C(u8 *arg0) {
         M2C_FIELD(arg0, s32 *, 0x700) = (s32) (M2C_FIELD(arg0, s32 *, 0x700) - temp_r4);
         if ((s32) M2C_FIELD(arg0, s32 *, 0x700) < 0) {
             M2C_FIELD(arg0, s32 *, 0x700) = 0;
-            TObjFish__sub_802ECB38(arg0);
+            set_hooked_effect_target__8TObjFishFPv(arg0);
         }
     }
     M2C_FIELD(arg0, s16 *, 0x32C) = (s16) M2C_FIELD(arg0, s16 *, 0x2B8);

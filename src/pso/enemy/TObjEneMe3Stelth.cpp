@@ -511,7 +511,7 @@ void create_resta_effect__16TObjEneMe3StelthFPv(Obj_800F4700 *self);
 void TObjEneMe3Stelth__sub_800F4758(u8 *arg0);
 u8 TObjEneMe3Stelth__sub_800F47D4(u8 *arg0);
 int select_and_apply_target__16TObjEneMe3StelthFPv(void* p);
-s32 TObjEneMe3Stelth__sub_800F4814(O_800F4814 *self);
+s32 is_angle_in_range__16TObjEneMe3StelthFPv(O_800F4814 *self);
 s32 TObjEneMe3Stelth__sub_800F4850(u8 *arg0);
 void update_collision__16TObjEneMe3StelthFPv(void *arg0);
 void update_distance_state__16TObjEneMe3StelthFPv(void *arg0);
@@ -867,7 +867,7 @@ u8 TObjEneMe3Stelth__sub_800F47D4(u8 *arg0) {
 
 int select_and_apply_target__16TObjEneMe3StelthFPv(void* p) { return select_and_apply_target__14TObjEneEpsilonFPvf(p); }
 
-s32 TObjEneMe3Stelth__sub_800F4814(O_800F4814 *self) {
+s32 is_angle_in_range__16TObjEneMe3StelthFPv(O_800F4814 *self) {
     return self->f354 < TObjEneMe3Stelth__data_805DA80C ||
            (self->f354 >= TObjEneMe3Stelth__data_805DA850 && self->f354 < TObjEneMe3Stelth__data_805DA84C);
 }
@@ -1020,7 +1020,7 @@ void setup_move_bounds__16TObjEneMe3StelthFPv(void *arg0) {
     } else {
         M2C_FIELD(arg0, s32 *, 0x3C0) = 0;
     }
-    M2C_FIELD(arg0, s32 *, 0x3C4) = ((s32 (*)(void *))TObjEneMe3Stelth__sub_800F4814)(arg0);
+    M2C_FIELD(arg0, s32 *, 0x3C4) = ((s32 (*)(void *))is_angle_in_range__16TObjEneMe3StelthFPv)(arg0);
     if ((s32) M2C_FIELD(arg0, s32 *, 0x3C4) == 1) {
         M2C_FIELD(arg0, s16 *, 0xB8) = 2;
     } else {
@@ -1889,7 +1889,7 @@ extern "C" {
 
 void setup_move_bounds__16TObjEneMe3StelthFPv(void *arg0);
 void update_shadow_height__16TObjEneMe3StelthFPv(void *arg0);
-s32 TObjEneMe3Stelth__sub_800F4814(void *);
+s32 is_angle_in_range__16TObjEneMe3StelthFPv(void *);
 s32 TObjEneMe3Stelth__sub_800F4850();
 
 extern const f32 lbl_805DA81C;
@@ -1903,7 +1903,7 @@ void setup_move_bounds__16TObjEneMe3StelthFPv(void *arg0) {
     } else {
         M2C_FIELD(arg0, s32 *, 0x3C0) = 0;
     }
-    M2C_FIELD(arg0, s32 *, 0x3C4) = TObjEneMe3Stelth__sub_800F4814(arg0);
+    M2C_FIELD(arg0, s32 *, 0x3C4) = is_angle_in_range__16TObjEneMe3StelthFPv(arg0);
     if ((s32) M2C_FIELD(arg0, s32 *, 0x3C4) == 1) {
         M2C_FIELD(arg0, s16 *, 0xB8) = 2;
     } else {

@@ -141,7 +141,7 @@ void TKeyBoardControl__sub_803F0E8C(void);
 s32 TKeyBoardControl__sub_803F0E90(s32 arg0, void *arg1);
 extern RecoveredGlobal_803F1548_lbl_805A2720 lbl_805A2720;
 extern s32 lbl_805D7930;
-void TKeyBoardControl__sub_803F0D74(s32 chan);
+void detect_device_type__16TKeyBoardControlFi(s32 chan);
 extern RecoveredGlobal_803F1548_lbl_805A2720 lbl_805A2720;
 extern s32 lbl_805D7930;
 void OSClearContext(OSContext_803F0F84 *);
@@ -215,7 +215,7 @@ void TKeyBoardControl__sub_803F0CF4(s32 arg0, u32 arg1) {
     }
 }
 
-void TKeyBoardControl__sub_803F0D74(s32 chan) {
+void detect_device_type__16TKeyBoardControlFi(s32 chan) {
     Pad_803F0D74 *p = &((Pad_803F0D74 *)&lbl_805A2720)[chan];
     u32 type;
     if (p->x1c != 0) {
@@ -280,7 +280,7 @@ s32 TKeyBoardControl__sub_803F0E90(s32 arg0, void *arg1) {
         return ret;
     }
     p->x3 = 0xFF;
-    return start_get_type_async__16TKeyBoardControlFiiii(arg0, 1, 3, (s32)TKeyBoardControl__sub_803F0D74);
+    return start_get_type_async__16TKeyBoardControlFiiii(arg0, 1, 3, (s32)detect_device_type__16TKeyBoardControlFi);
 }
 
 s32 TKeyBoardControl__sub_803F0F44(void) {

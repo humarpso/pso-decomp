@@ -12,7 +12,7 @@ struct RecoveredGlobal_801A51C0_lbl_80446980 {
 extern "C" {
 s32 fn_801A51F0(void);
 extern RecoveredGlobal_801A51C0_lbl_80446980 lbl_80446980;
-s32 TLobby__sub_801A51C0(void);
+s32 get_table_entry_by_index__6TLobbyFv(void);
 }
 
 extern "C" {
@@ -112,7 +112,7 @@ s32 get_card_status_bits__20TWindowShortListCtrlFv(void) {
 }
 
 typedef char RecoveredGlobal_801A51C0_lbl_80446980_size[sizeof(RecoveredGlobal_801A51C0_lbl_80446980) == 0x18 ? 1 : -1];
-s32 TLobby__sub_801A51C0(void) {
+s32 get_table_entry_by_index__6TLobbyFv(void) {
     return M2C_FIELD(&lbl_80446980.value, M2C_UNK *, (fn_801A51F0() * 4));
 }
 

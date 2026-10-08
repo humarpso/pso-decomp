@@ -687,7 +687,7 @@ s32 TBoss6Type2__sub_802BA9E4(T2_802BA9E4 *arg0);
 void trigger_screen_pos__11TBoss6Type2FPv(void *arg0);
 s32 snap_to_ground__11TBoss6Type2FPv(Obj_802BAB80 *self);
 void TBoss6Type2__sub_802BAD04(s32 arg0);
-void TBoss6Type2__sub_802BB180(void);
+void request_default_follow_camera__11TBoss6Type2Fv(void);
 void init_range__11TBoss6Type2Fv(void);
 M2C_UNK TBoss6Type2__sub_802BB1E0(f32, f32);
 void TBoss6Type2__sub_802BB498(T2_802BB498 *arg0);
@@ -715,8 +715,8 @@ void play_phase_sound__11TBoss6Type2FPv(u8 *arg0);
 void play_sound_if_no_target__11TBoss6Type2FPv(u8 *arg0);
 void update_countdown__11TBoss6Type2FPv(void *arg0);
 u8 is_active__11TBoss6Type2FPv(void *arg0);
-void TBoss6Type2__sub_802BC62C(u8 *arg0);
-void TBoss6Type2__sub_802BC65C(u8 *arg0);
+void set_state_0x34__11TBoss6Type2FPv(u8 *arg0);
+void start_countdown_sound_state__11TBoss6Type2FPv(u8 *arg0);
 void reset_indices__11TBoss6Type2FPv(void *arg0);
 s32 get_hit_count__11TBoss6Type2FPv(void *arg0);
 void add_damage__11TBoss6Type2FPvi(void *arg0, s32 arg1);
@@ -764,7 +764,7 @@ void TBoss6Type2__vt48(void);
 void TBoss6Type2__sub_8032E708(u32, int);
 M2C_UNK set_action_field_0x408__11TBoss6Type2FPvs(s32, u16);
 M2C_UNK set_target_nodes__11TBoss6Type2FPvPvPv(void *, u32, s32);
-s32 TBoss6Type2__sub_8032E748(void *);
+s32 is_phase_active__11TBoss6Type2FPv(void *);
 s32 TBoss6Rock__sub_80353A14(int, Vec_802B9A68 *, f32 *);
 s32 is_rock_state_2__10TBoss6RockFi(s32);
 M2C_UNK TBoss6Type2__sub_80356E50(s32 *, s32, s32);
@@ -1422,11 +1422,11 @@ void TBoss6Type2__sub_802BAD04(s32 arg0) {
     u8 *temp_r3_2;
     create_dpb__11TBoss6Type2Fiif(arg0, arg0 + 0x38, TBoss6Type2__data_805DE45C);
     temp_r3 = (u8 *)(M2C_FIELD(arg0, u8 **, 0x410));
-    if ((temp_r3 != NULL) && (TBoss6Type2__sub_8032E748(temp_r3) != 0)) {
+    if ((temp_r3 != NULL) && (is_phase_active__11TBoss6Type2FPv(temp_r3) != 0)) {
         create_dpb__11TBoss6Type2Fiif(arg0, (s32) (M2C_FIELD(arg0, u8 **, 0x410) + 0x38), TBoss6Type2__data_805DE460);
     }
     temp_r3_2 = (u8 *)(M2C_FIELD(arg0, u8 **, 0x414));
-    if ((temp_r3_2 != NULL) && (TBoss6Type2__sub_8032E748(temp_r3_2) != 0)) {
+    if ((temp_r3_2 != NULL) && (is_phase_active__11TBoss6Type2FPv(temp_r3_2) != 0)) {
         create_dpb__11TBoss6Type2Fiif(arg0, (s32) (M2C_FIELD(arg0, u8 **, 0x414) + 0x38), TBoss6Type2__data_805DE460);
     }
 }
@@ -1527,7 +1527,7 @@ void drop_random_rocks__11TBoss6Type2Fii(M2C_UNK arg0, s32 arg1) {
     ((M2C_UNK (*)(int, void *, int, int))play_sound_effect)(0x4006AB1D, ((u8 *)&TBoss6Type2__data_8047105C), 0, 1);
 }
 
-void TBoss6Type2__sub_802BB180(void) {
+void request_default_follow_camera__11TBoss6Type2Fv(void) {
     request_follow_camera_offsets((s32) &lbl_804DFAC4.value, (s32) &lbl_804DFAD0.value, 0xFFFFU);
 }
 
@@ -1539,7 +1539,7 @@ void TBoss6Type2__sub_802BB498(T2_802BB498 *arg0) {
     switch (arg0->f374) {
     case 0xE:
     case 0x1C:
-        TBoss6Type2__sub_802BB180();
+        request_default_follow_camera__11TBoss6Type2Fv();
         break;
     default:
         init_range__11TBoss6Type2Fv();
@@ -1912,7 +1912,7 @@ void update_countdown__11TBoss6Type2FPv(void *arg0) {
         if (((s32) M2C_FIELD(arg0, s32 *, 0x418) != 0) && ((s32) M2C_FIELD(arg0, s32 *, 0x518) == -0x12C)) {
             temp_r31 = ((void * (*)(u16))get_player_by_client_id)(M2C_FIELD(arg0, u16 *, 0x55C));
             if ((is_active__14TBoss6PlotFalzFPv() != 0) && ((s16) M2C_FIELD(temp_r31, s16 *, 0x326) == 1)) {
-                ((M2C_UNK (*)(void *))TBoss6Type2__sub_802BC65C)(arg0);
+                ((M2C_UNK (*)(void *))start_countdown_sound_state__11TBoss6Type2FPv)(arg0);
             }
         }
     } else {
@@ -1933,13 +1933,13 @@ u8 is_active__11TBoss6Type2FPv(void *arg0) {
     return (u8) var_r4;
 }
 
-void TBoss6Type2__sub_802BC62C(u8 *arg0) {
+void set_state_0x34__11TBoss6Type2FPv(u8 *arg0) {
     M2C_FIELD(arg0, s32 *, 0x518) = 0x34;
     M2C_FIELD(arg0, s32 *, 0x51C) = 1;
     ((void (*)(void *))play_sound_if_no_target__11TBoss6Type2FPv)(arg0);
 }
 
-void TBoss6Type2__sub_802BC65C(u8 *arg0) {
+void start_countdown_sound_state__11TBoss6Type2FPv(u8 *arg0) {
     M2C_FIELD(arg0, s32 *, 0x518) = 0x34;
     M2C_FIELD(arg0, s32 *, 0x51C) = 0;
     ((void (*)(void *))play_sound_if_no_target__11TBoss6Type2FPv)(arg0);
@@ -2559,7 +2559,7 @@ void set_target_state__11TBoss6Type2FPvii(void *arg0, s32 arg1, s32 arg2) {
     M2C_FIELD(arg0, s32 *, 0x42C) = arg2;
     ((M2C_UNK (*)(void *))update_segments__11TBoss6Type2FPv)(arg0);
     if ((temp_r31 != (u32) M2C_FIELD(arg0, u32 *, 0x2E4)) || (temp_r30 != (s32) M2C_FIELD(arg0, s32 *, 0x42C))) {
-        ((M2C_UNK (*)(void *))TBoss6Type2__sub_802BC62C)(arg0);
+        ((M2C_UNK (*)(void *))set_state_0x34__11TBoss6Type2FPv)(arg0);
     }
     if (M2C_FIELD(arg0, void **, 0x410) != 0) {
         set_target_nodes__11TBoss6Type2FPvPvPv(M2C_FIELD(arg0, void **, 0x410), M2C_FIELD(arg0, u32 *, 0x2E4), M2C_FIELD(arg0, s32 *, 0x42C));

@@ -809,9 +809,9 @@ void init_sub_objects__6TLobbyFv(void) { init_sub_state__6TLobbyFPv(); rebuild_e
 extern "C" {
 
 int rebuild_entry__6TLobbyFPv(void* p);
-int TLobby__sub_8020C458(void*);
+int clear_record_flags_a__6TLobbyFv(void*);
 
-int rebuild_entry__6TLobbyFPv(void* p) { return TLobby__sub_8020C458(p); }
+int rebuild_entry__6TLobbyFPv(void* p) { return clear_record_flags_a__6TLobbyFv(p); }
 
 }
 #endif
@@ -821,9 +821,9 @@ int rebuild_entry__6TLobbyFPv(void* p) { return TLobby__sub_8020C458(p); }
 extern "C" {
 
 int init_sub_state__6TLobbyFPv(void* p);
-int TLobby__sub_8020C500(void*);
+int clear_record_flags_b__6TLobbyFv(void*);
 
-int init_sub_state__6TLobbyFPv(void* p) { return TLobby__sub_8020C500(p); }
+int init_sub_state__6TLobbyFPv(void* p) { return clear_record_flags_b__6TLobbyFv(p); }
 
 }
 #endif
@@ -2166,7 +2166,7 @@ void TLobby__sub_803CE544(u32 arg0, s32 arg1);
 M2C_UNK set_scroll_position__6TLobbyFPvi(int, void *);
 M2C_UNK init_stream_position__6TLobbyFPv(int);
 M2C_UNK set_scroll_offset__6TLobbyFPvi(int, int);
-M2C_UNK TLobby__sub_803CE198(int, int, void *, void *);
+M2C_UNK get_entry_pair__6TLobbyFPviPvPv(int, int, void *, void *);
 s32 get_scroll_offset__6TLobbyFPv(int);
 M2C_UNK update_scroll_impl__6TLobbyFv();
 M2C_UNK TLobby__sub_803CE220();
@@ -2181,7 +2181,7 @@ void update_scroll__6TLobbyFPv(u8 *arg0) {
     }
     if (((s32) M2C_FIELD(arg0, u8 *, 0x1A9) == 1) && ((s32) M2C_FIELD(arg0, s32 *, 0x1B0) < get_scroll_offset__6TLobbyFPv((int) (M2C_FIELD(arg0, s32 *, 4))))) {
         TLobby__sub_803CE220();
-        TLobby__sub_803CE198((int) (M2C_FIELD(arg0, s32 *, 4)), (int) (M2C_FIELD(arg0, s32 *, 0x1B0)), (void *) (&spC), (void *) (&sp8));
+        get_entry_pair__6TLobbyFPviPvPv((int) (M2C_FIELD(arg0, s32 *, 4)), (int) (M2C_FIELD(arg0, s32 *, 0x1B0)), (void *) (&spC), (void *) (&sp8));
         set_scroll_offset__6TLobbyFPvi((int) (M2C_FIELD(arg0, s32 *, 8)), (int) (spC / 2048));
         set_scroll_position__6TLobbyFPvi((int) (M2C_FIELD(arg0, s32 *, 8)), (void *) ((s32) (spC + sp8) / 2048));
         init_stream_position__6TLobbyFPv((int) (M2C_FIELD(arg0, s32 *, 8)));

@@ -35,7 +35,7 @@ extern G_80070B34 lbl_8048C9D8;
 u8 is_flag_set__6TLobbyFv(void);
 s32 mix_seed_checked__6TLobbyFi(s32);
 void TLobby__sub_80070B34(s32 v);
-void TLobby__sub_80070AFC(void);
+void set_split_screen_flag__6TLobbyFv(void);
 }
 
 extern "C" {
@@ -60,7 +60,7 @@ u32 TLobby__sub_80070AD8(s32 arg0) {
     }
     return M2C_FIELD(((u8 *)(&lbl_804F5A00.value) + (u8) arg0), u8 *, 0);
 }
-void TLobby__sub_80070AFC(void) {
+void set_split_screen_flag__6TLobbyFv(void) {
     if (((s32 (*)(void))is_flag_set__6TLobbyFv)() != 0) {
         lbl_8048C9D8.x34 = 1;
     }

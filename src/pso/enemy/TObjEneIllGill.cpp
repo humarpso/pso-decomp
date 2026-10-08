@@ -1005,7 +1005,7 @@ void TObjEneIllGill__sub_803660A4(void *arg0_) {
 void transform_vec_by_camera__15TObjBoss2TunnelFiii(void *, Vec_803664C0 *, Vec_803664C0 *);
 extern u8 lbl_804FF5E8[];
 extern s32 TObjEneIllGill__data_805D6FE0;
-void TObjEneIllGill__sub_803664C0(void) {
+void advance_camera_vec_stage__14TObjEneIllGillFv(void) {
     Vec_803664C0 *v;
     switch (TObjEneIllGill__data_805D6FE0) {
     case 50:
@@ -1862,7 +1862,7 @@ void render__14TObjEneIllGillFv(u8 *arg0) {
         ((void (*)(int, s32))rotate_matrix_y)(0, M2C_FIELD(arg0, s32 *, 0x60));
         scale_matrix(0, M2C_FIELD(arg0, f32 *, 0x68), M2C_FIELD(arg0, f32 *, 0x6C), M2C_FIELD(arg0, f32 *, 0x70));
         TObjEneIllGill__data_805D6FE0 = 0;
-        set_global_state__16TObjEneRe7BeruraFi((void *)TObjEneIllGill__sub_803664C0);
+        set_global_state__16TObjEneRe7BeruraFi((void *)advance_camera_vec_stage__14TObjEneIllGillFv);
         if (M2C_FIELD(arg0, s32 *, 0x390) != 0 && check_demo_mode__10TObjPlayerFv() == 0) {
             if (((VObj_14_80368208 *)(arg0 + 0x374))->m8() != 0) {
                 lbl_805D5660 = some_id_805c6f74;

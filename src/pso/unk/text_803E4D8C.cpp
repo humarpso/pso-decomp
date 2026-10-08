@@ -85,7 +85,7 @@ extern RecoveredGlobal_803E5458_lbl_8058DC00 lbl_8058DC00;
 extern u8 *lbl_805D7818;
 void TObjPlayer__sub_803E5458(s32 arg0);
 extern u8 *lbl_805D7818;
-void TObjPlayer__sub_803E53BC(void);
+void advance_render_counters__10TObjPlayerFv(void);
 extern u8 *lbl_805D7818;
 void TObjPlayer__sub_803E5378(s32 n);
 void bind_motion_context(s32);
@@ -97,7 +97,7 @@ void draw_motion_bound__10TObjPlayerFiiPvfi(s32 arg0, s32 arg1, u8 *arg2, f32 fa
 void compose_motion_node_matrix(Node_803E4E20 *);
 void push_matrix(void);
 void pop_matrix(void);
-void TObjPlayer__sub_803E53BC(void);
+void advance_render_counters__10TObjPlayerFv(void);
 void update_render_state__10TObjPlayerFv(s32 *, s32 *);
 extern u8 *lbl_805D4698;
 void draw_motion_node_list__10TObjPlayerFi(s32 arg0);
@@ -152,7 +152,7 @@ void draw_motion_node_list__10TObjPlayerFi(s32 arg0) {
                 ctx->draw(obj);
                 *obj = save;
             } else {
-                TObjPlayer__sub_803E53BC();
+                advance_render_counters__10TObjPlayerFv();
             }
         } else if (n->obj != NULL && !(n->flags & 8)) {
             ctx->draw(n->obj);
@@ -301,7 +301,7 @@ typedef char RecoveredGlobal_803D78A8_lbl_8058CAB8_size[sizeof(RecoveredGlobal_8
 
 #pragma push
 #pragma scheduling off
-void TObjPlayer__sub_803E53BC(void) {
+void advance_render_counters__10TObjPlayerFv(void) {
     s32 v = ((Ctx_803E53BC *)lbl_805D7818)->f0;
     v += ((Ctx_803E53BC *)lbl_805D7818)->f8;
     ((Ctx_803E53BC *)lbl_805D7818)->f0 = v;

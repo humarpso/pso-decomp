@@ -6,7 +6,7 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 
 extern "C" {
 void TWindowSubSymbolChatPartsSet__sub_8028625C(void *);
-void TWindowSubSymbolChat__sub_80285FF4(u8 *arg0, s32 arg1);
+void set_selection_and_refresh__20TWindowSubSymbolChatFPvi(u8 *arg0, s32 arg1);
 s32 find_free_entry__20TWindowSubSymbolChatFPvi(s32, s32);
 s32 get_instance__20TWindowSubSymbolChatFv(void);
 u16 *TWindowSubSymbolChatPartsSet__sub_802482B8(void *, s32);
@@ -19,7 +19,7 @@ void init_symbol_layout__20TWindowSubSymbolChatFPvPv(u8 *arg0, s32 *arg1);
 
 extern "C" {
 
-void TWindowSubSymbolChat__sub_80285FF4(u8 *arg0, s32 arg1) {
+void set_selection_and_refresh__20TWindowSubSymbolChatFPvi(u8 *arg0, s32 arg1) {
     M2C_FIELD(arg0, s32 *, 0x74) = 0;
     M2C_FIELD(arg0, s32 *, 0x70) = arg1;
     M2C_FIELD(arg0, s8 *, 0x69) = 1;

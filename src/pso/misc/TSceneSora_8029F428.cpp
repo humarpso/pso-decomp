@@ -166,7 +166,7 @@ extern s32 lbl_805D65F0;
 void set_scene_flag__10TSceneSoraFi(int a0);
 M2C_UNK VecCopy__FP3VecPC3Vec(void *, int);
 extern RecoveredGlobal_800687E4_TCameraCtrl__data_804FF6C4 lbl_804DC7B8;
-void TSceneSora__sub_8029F584(u8 *arg0);
+void copy_reflection_vec__10TSceneSoraFPv(u8 *arg0);
 }
 
 extern "C" {
@@ -245,7 +245,7 @@ void *create_instance__10TSceneSoraFPv(void *arg0) {
 }
 s32 get_state__10TSceneSoraFPv(void* p) { return *(s32*)((char*)p + 0x20); }
 void set_scene_flag__10TSceneSoraFi(int a0) { (*(int *)&lbl_805D65F0) = a0; }
-void TSceneSora__sub_8029F584(u8 *arg0) {
+void copy_reflection_vec__10TSceneSoraFPv(u8 *arg0) {
     VecCopy__FP3VecPC3Vec((void *)(&lbl_804DC7B8.value), (int)(arg0));
 }
 

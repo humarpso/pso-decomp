@@ -403,7 +403,7 @@ struct Col_801994DC { f32 r, g, b, a; };
 struct Ang_801994DC { s32 x, y, z; };
 
 extern "C" {
-void TWindowTimer__sub_801992EC(u8 *arg0, u8 *arg1);
+void copy_state__12TWindowTimerFPvPv(u8 *arg0, u8 *arg1);
 s32 get_minutes__6TLobbyFv(void);
 void __ct__7TObjectFP7TObject(void *, void *);
 void create_timer__11TWindowCtrlFv(void);
@@ -461,7 +461,7 @@ f32 get_random_float__8TObjFishFv(f32);
 s32 get_minutes__6TLobbyFv(void);
 u8 *TWindowTimer__sub_8019886C(void *, void *, s32, s32, s32, void *);
 u8 *TWindowTimer__sub_801988E8(u8 *arg0, u8 *arg1, s32 arg2, s32 arg3, u8 *arg4);
-void TWindowTimer__sub_801992EC(u8 *arg0, u8 *arg1);
+void copy_state__12TWindowTimerFPvPv(u8 *arg0, u8 *arg1);
 u8 *TWindowTimer__sub_8019A574(u8 *arg0);
 s32 TWindowShortListCtrl__check_controller_button(void *, int);
 s32 is_on_current_screen__11TCameraCtrlFPv(void *, int);
@@ -576,7 +576,7 @@ void TWindowTimer__sub_801990B4(u8 *arg0) {
         } else if (idx < 0) {
             idx = 0;
         }
-        TWindowTimer__sub_801992EC(lbl_8050DD58, ((E54_801990B4 *)lbl_804B8A10)[idx].b);
+        copy_state__12TWindowTimerFPvPv(lbl_8050DD58, ((E54_801990B4 *)lbl_804B8A10)[idx].b);
         if ((o = __nw__7TObjectFUl(0x3A4)) != NULL) {
             ((u8 *(*)(void *, void *))TWindowTimer__sub_8019A574)(o, tl_03);
         }
@@ -599,7 +599,7 @@ void TWindowTimer__sub_801990B4(u8 *arg0) {
 }
 
 extern "C" {
-void TWindowTimer__sub_801992EC(u8 *arg0, u8 *arg1) {
+void copy_state__12TWindowTimerFPvPv(u8 *arg0, u8 *arg1) {
     M2C_FIELD(arg0, f32 *, 0) = (f32) M2C_FIELD(arg1, f32 *, 0);
     M2C_FIELD(arg0, f32 *, 4) = (f32) M2C_FIELD(arg1, f32 *, 4);
     M2C_FIELD(arg0, f32 *, 8) = (f32) M2C_FIELD(arg1, f32 *, 8);

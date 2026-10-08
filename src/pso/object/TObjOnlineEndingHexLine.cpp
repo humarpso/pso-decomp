@@ -112,19 +112,19 @@ void TAdGameStartGC__sub_802E6368(Pkt_802E5EFC *);
 void *__nw__7TObjectFUl(int);
 M2C_UNK __ct__7TObjectFP7TObject(void *, void *);
 
-void TObjOnlineEndingHexLine__sub_802E530C(void *);
+void step_line__23TObjOnlineEndingHexLineFPv(void *);
 void TObjOnlineEndingHexLine__sub_802E55A4(void *arg0, void *arg1);
 void render__23TObjOnlineEndingHexLineFv(u8 *arg0);
 void run_task__23TObjOnlineEndingHexLineFv(u8 *arg0);
 void *create__23TObjOnlineEndingHexLineFPvPv(void *arg0, void *arg1);
 M2C_UNK calc_rotated_hex_point__23TObjOnlineEndingHexLineFPvPv(V2_802E55B8 *, P2_802E55B8 *);
-void TObjOnlineEndingHexLine__sub_802E5CB0(void);
+void update_line_params__23TObjOnlineEndingHexLineFv(void);
 u8 *TObjOnlineEndingHexMove__ct(u8 *arg0, void *arg1);
 void copy_move_params__23TObjOnlineEndingHexMoveFPvPv(void *p, void *q);
 void *fn_802E6218(void *arg0);
 void fn_802E6260(void);
 
-void TObjOnlineEndingHexLine__sub_802E530C(void *arg0_) {
+void step_line__23TObjOnlineEndingHexLineFPv(void *arg0_) {
     Hex_802E530C *h = (Hex_802E530C *)arg0_;
     s16 dx;
     s16 dy;
@@ -243,7 +243,7 @@ void render__23TObjOnlineEndingHexLineFv(u8 *arg0) {
 void run_task__23TObjOnlineEndingHexLineFv(u8 *arg0) {
     M2C_FIELD(arg0, f32 *, 0x9C) = (f32) (M2C_FIELD(arg0, f32 *, 0x9C) + TObjOnlineEndingHexLine__hex_line_params.a);
     if (M2C_FIELD(arg0, f32 *, 0x9C) >= lbl_805DE968) {
-        TObjOnlineEndingHexLine__sub_802E530C(arg0);
+        step_line__23TObjOnlineEndingHexLineFPv(arg0);
     }
 }
 
@@ -381,7 +381,7 @@ M2C_UNK calc_rotated_hex_point__23TObjOnlineEndingHexLineFPvPv(V2_802E55B8 *arg0
 
 #define CUR_802E5CB0 TObjOnlineEndingHexLine__hex_line_params
 
-void TObjOnlineEndingHexLine__sub_802E5CB0(void) {
+void update_line_params__23TObjOnlineEndingHexLineFv(void) {
     f32 d;
     f32 t;
     s32 n;
@@ -512,7 +512,7 @@ void TObjOnlineEndingHexMove::run_task() {
             self->timer = 0x1E;
         }
     }
-    ((void (*)(void *))TObjOnlineEndingHexLine__sub_802E5CB0)(self);
+    ((void (*)(void *))update_line_params__23TObjOnlineEndingHexLineFv)(self);
 }
 
 TObjOnlineEndingHexMove::~TObjOnlineEndingHexMove() {}

@@ -35,7 +35,7 @@ struct RecoveredGlobal_80153258_TObjFogCollisionPoison__data_8050D430 {
 };
 
 extern "C" {
-void TObjFogCollisionPoison__sub_801534E8(u8 *arg0, u16 arg1);
+void record_poison_hit__22TObjFogCollisionPoisonFPvUs(u8 *arg0, u16 arg1);
 s32 select_fog_for_viewport__8TFogCtrlFiii(s32, s32, s32);
 s32 restore_fog_for_player__8TFogCtrlFii(s32, s32);
 s32 is_any_teammate_in_state__10TObjPlayerFv(void);
@@ -264,7 +264,7 @@ void apply_poison_damage__22TObjFogCollisionPoisonFPvi(void *arg0, s32 arg1) {
     }
 }
 
-void TObjFogCollisionPoison__sub_801534E8(u8 *arg0, u16 arg1) {
+void record_poison_hit__22TObjFogCollisionPoisonFPvUs(u8 *arg0, u16 arg1) {
     record_fog_collision_hit((s32)((void *) (arg1)), (s32)((int) (M2C_FIELD(arg0, s32 *, 0x84))), (s32)((int) ((u8) (M2C_FIELD(arg0, s32 *, 0x88) == 0))));
 }
 void TObjFogCollisionPoison__sub_80153520(s32 arg0) {

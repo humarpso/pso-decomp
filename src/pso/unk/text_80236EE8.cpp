@@ -42,8 +42,8 @@ extern "C" {
 u16 obj_getField1c(u32);
 void queue_destruction__7TObjectFv(void *);
 s32 is_valid_and_active__10TObjPlayerFUi(u32);
-List_802370D8 *TObjPlayer__sub_80236780(void *, u32);
-List_802370D8 *TObjPlayer__sub_802367AC(void *, u32);
+List_802370D8 *find_support_technique_contact_for_target__10TObjPlayerFPvi(void *, u32);
+List_802370D8 *gather_contacts_for_self__10TObjPlayerFPvi(void *, u32);
 void deliver_technique_to_party_targets(Obj_802370D8 *arg0);
 void VecCopy__FP3VecPC3Vec(void *, void *);
 u32 spawn_particle_effect(void *, int);
@@ -138,9 +138,9 @@ void deliver_technique_to_party_targets(Obj_802370D8 *arg0) {
         return;
     }
     if (obj_getField1c(M2C_FIELD(arg0, u32 *, 0x1C)) < 4) {
-        list = TObjPlayer__sub_802367AC(arg0, M2C_FIELD(arg0, u32 *, 0x1C));
+        list = gather_contacts_for_self__10TObjPlayerFPvi(arg0, M2C_FIELD(arg0, u32 *, 0x1C));
     } else {
-        list = TObjPlayer__sub_80236780(arg0, M2C_FIELD(arg0, u32 *, 0x1C));
+        list = find_support_technique_contact_for_target__10TObjPlayerFPvi(arg0, M2C_FIELD(arg0, u32 *, 0x1C));
     }
     for (i = 0; i < list->count; i++) {
         if (is_valid_and_active__10TObjPlayerFUi(list->items[i]) != 0) {

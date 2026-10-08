@@ -38,7 +38,7 @@ M2C_UNK set_flag8__6TLobbyFPv(void *);
 void TObjContainerJung__vt4(u8 *arg0, s16 *arg1, s32 arg2);
 u8 * get_bml_model(void *, int);
 extern s32 TObjContainerJung__data_805D5BA0;
-u8 *TObjContainerJung__sub_8018D3C0(s32 arg0);
+u8 *get_model_by_index__17TObjContainerJungFi(s32 arg0);
 s32 TObjFish__sub_8001EDB0(void *, s32);
 u8 * load_resource_from_descriptor(void *, s32, void *, s32, s32, s32);
 int alloc__23TAdSinglePlyChrSelectGCFPv(void *);
@@ -93,7 +93,7 @@ s32 TObjContainerJung__sub_8018D3B8(void) {
 
 extern void *tl_05;
 
-u8 *TObjContainerJung__sub_8018D3C0(s32 arg0) {
+u8 *get_model_by_index__17TObjContainerJungFi(s32 arg0) {
     if ((void *) (*(u8 * *)&TObjContainerJung__data_805D5BA0) != NULL) {
         return get_bml_model((*(u8 * *)&TObjContainerJung__data_805D5BA0), arg0);
     }

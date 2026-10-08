@@ -126,7 +126,7 @@ void TAdSinglePlyChrSelectGC__sub_8033B5F0(void *arg0) {
     }
 }
 
-void TAdSinglePlyChrSelectGC__sub_8033B640(Sel_8033B640 *arg0) {
+void dispatch_state__23TAdSinglePlyChrSelectGCFPv(Sel_8033B640 *arg0) {
     static SelFn_8033B640 table[15] = {
         &Sel_8033B640::s0, &Sel_8033B640::s1, &Sel_8033B640::s2,
         &Sel_8033B640::s3, &Sel_8033B640::s4, &Sel_8033B640::s5,

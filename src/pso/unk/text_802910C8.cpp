@@ -6,14 +6,14 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 extern "C" {
 M2C_UNK draw_ui_sprite(f32, f32);
 extern const f32 lbl_805DD964;
-void TChCrEffWall__sub_802910C8(void);
+void draw_default_sprite__12TChCrEffWallFv(void);
 }
 
 extern "C" {
 
 #pragma push
 #pragma fp_contract on
-void TChCrEffWall__sub_802910C8(void) {
+void draw_default_sprite__12TChCrEffWallFv(void) {
     f32 unused;
     draw_ui_sprite(unused, lbl_805DD964);
 }

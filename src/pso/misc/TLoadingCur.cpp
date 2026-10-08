@@ -55,7 +55,7 @@ extern const f32 lbl_805D7E98;
 extern const f32 TLoadingCur__data_805D7E9C;
 extern const f32 lbl_805D7EA0;
 extern const f32 lbl_805D7EA4;
-s32 TLoadingCur__sub_8001CC28(M2C_UNK arg0, u8 *arg1, u8 *arg2);
+s32 calc_clamp_offset__11TLoadingCurFiPvPv(M2C_UNK arg0, u8 *arg1, u8 *arg2);
 s32 fn_80086FE0(void *, void *, int, int);
 s32 direction_to_rotation_xz(void *, void *, void *);
 s32 __ct__7TObjectFP7TObject(void *, void *);
@@ -78,7 +78,7 @@ extern const f32 lbl_805D7EB4;
 extern const f32 lbl_805D7EB8;
 extern const f32 lbl_805D7EBC;
 void run_task__11TLoadingCurFv(void *arg0);
-s32 TLoadingCur__sub_8001CC28(M2C_UNK arg0, u8 *arg1, u8 *arg2);
+s32 calc_clamp_offset__11TLoadingCurFiPvPv(M2C_UNK arg0, u8 *arg1, u8 *arg2);
 s32 project_world_to_screen(int, void *, void *);
 void push_matrix(void);
 void pop_matrix(void);
@@ -96,7 +96,7 @@ void __dl__7TObjectFPv(void *);
 void __dt__7TObjectFv(void *, int);
 void queue_destruction__7TObjectFv(void *);
 
-s32 TLoadingCur__sub_8001CC28(M2C_UNK arg0, u8 *arg1, u8 *arg2) {
+s32 calc_clamp_offset__11TLoadingCurFiPvPv(M2C_UNK arg0, u8 *arg1, u8 *arg2) {
     f32 temp_f0;
     f32 temp_f1;
     f32 temp_f1_2;
@@ -129,7 +129,7 @@ int TLoadingCur__sub_8001CCD4(void *arg0) {
     push_matrix();
     project_world_to_screen(0, (u8 *)self + 0x2c, sp10);
     pop_matrix();
-    if (TLoadingCur__sub_8001CC28((M2C_UNK)((s32)self), (u8 *)((u8 *)sp10), (u8 *)((u8 *)&v)) != 0) {
+    if (calc_clamp_offset__11TLoadingCurFiPvPv((M2C_UNK)((s32)self), (u8 *)((u8 *)sp10), (u8 *)((u8 *)&v)) != 0) {
         f32 t[3];
         t[0] = v.x;
         t[1] = v.y;

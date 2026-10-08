@@ -18,7 +18,7 @@ void restore_full_screen_view__11TCameraCtrlFv(void);
 void set_depth_buffer_settings_1__Fv(void);
 void restore_saved_depth_alpha_state(void);
 void draw_strip_swap_color__15TWindowCtrlMainFPviif(Args_8029ACF8 *, s32, s32, f32);
-void TChCrEffWall__sub_802910C8(s32, Ent_8029ACF8 *, f32);
+void draw_default_sprite__12TChCrEffWallFv(s32, Ent_8029ACF8 *, f32);
 extern Ent_8029ACF8 lbl_804652F0[6];
 extern Ent_8029ACF8 lbl_80465320[2];
 extern const f32 lbl_805DDCB0;
@@ -53,10 +53,10 @@ void render__12TChCrEffWallFv(void) {
     s32 i;
     set_depth_buffer_settings_1__Fv();
     for (i = 0; i < 6; i++) {
-        TChCrEffWall__sub_802910C8(i + 10, &lbl_804652F0[i], lbl_805DDCB0);
+        draw_default_sprite__12TChCrEffWallFv(i + 10, &lbl_804652F0[i], lbl_805DDCB0);
     }
     for (i = 0; i < 2; i++) {
-        TChCrEffWall__sub_802910C8(i + 10, &lbl_80465320[i], lbl_805DDCB0);
+        draw_default_sprite__12TChCrEffWallFv(i + 10, &lbl_80465320[i], lbl_805DDCB0);
     }
     restore_full_screen_view__11TCameraCtrlFv();
     args.b = lbl_804DBF58;

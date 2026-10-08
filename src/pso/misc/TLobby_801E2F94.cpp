@@ -414,7 +414,7 @@ void draw_tri_fan_3d__10TObjPlayerFPviUi(Tris_801E3784 *t, s32 n, u32 flags) {
 void DCFlushRange(void *, u32);
 void *alloc__22TQuestVmDownLoadServerFPv(u32);
 void TLobby__sub_801E3CF0(u32 *);
-s32 TLobby__sub_803DE2F8(s32);
+s32 bswap32__6TLobbyFUi(s32);
 void move_data__6TLobbyFv(void *, void *, int);
 
 s32 *TLobby__sub_801E38A0(s32 arg0, s32 *arg1, s32 *arg2, s32 *arg3, s32 *arg4) {
@@ -436,7 +436,7 @@ s32 *TLobby__sub_801E38A0(s32 arg0, s32 *arg1, s32 *arg2, s32 *arg3, s32 *arg4) 
     TLobby__sub_801E3CF0(&size);
     p += 8;
     *arg1 += 8;
-    tag = TLobby__sub_803DE2F8(tag);
+    tag = bswap32__6TLobbyFUi(tag);
     switch (tag) {
     case 0x4E4A494E:
         *arg2 = 0x4E4A494E;
@@ -494,7 +494,7 @@ next:
     move_data__6TLobbyFv(&tag, p, 4);
     TLobby__sub_801E3CF0((u32 *)&tag);
     *arg1 += 4;
-    tag = TLobby__sub_803DE2F8(tag);
+    tag = bswap32__6TLobbyFUi(tag);
     if (tag == 0x504F4630) {
         move_data__6TLobbyFv(&size, p + 4, 4);
         TLobby__sub_801E3CF0(&size);

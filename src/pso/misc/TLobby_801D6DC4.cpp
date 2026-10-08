@@ -24,21 +24,21 @@ struct Obj_801D7100 { u8 pad[0x7]; u8 v; };
 
 extern "C" {
 u8 ret_801D78EC(Obj_801D6F60 *p);
-s16 TLobby__sub_801D6F60(Obj_801D6F60 *p);
+s16 clamp_value_below_200__6TLobbyFPv(Obj_801D6F60 *p);
 u8 ret_801D790C(Obj_801D7030 *p);
-u8 TLobby__sub_801D7030(Obj_801D7030 *p);
+u8 normalize_battle_rule_value__6TLobbyFPv(Obj_801D7030 *p);
 u8 ret_801D78F4(Obj_801D6F94 *p);
 u8 TLobby__sub_801D6F94(Obj_801D6F94 *p);
 u8 ret_801D78FC(Obj_801D6FC8 *p);
-u8 TLobby__sub_801D6FC8(Obj_801D6FC8 *p);
+u8 clamp_value_below_2__6TLobbyFPv(Obj_801D6FC8 *p);
 u8 ret_801D7904(Obj_801D6FFC *p);
 u8 TLobby__sub_801D6FFC(Obj_801D6FFC *p);
 u8 ret_801D7914(Obj_801D7064 *p);
 u8 get_rule_field_a__6TLobbyFPv(Obj_801D7064 *p);
 u8 ret_801D7924(Obj_801D70CC *p);
-u8 TLobby__sub_801D70CC(Obj_801D70CC *p);
+u8 clamp_rule_value_2__6TLobbyFPv(Obj_801D70CC *p);
 u8 ret_801D791C(Obj_801D7098 *p);
-u8 TLobby__sub_801D7098(Obj_801D7098 *p);
+u8 normalize_battle_rule_value_b__6TLobbyFPv(Obj_801D7098 *p);
 u8 ret_801D792C(Obj_801D7100 *p);
 u8 TLobby__sub_801D7100(Obj_801D7100 *p);
 s32 is_invalid_slot__10TObjPlayerFUc(u8);
@@ -127,7 +127,7 @@ u8 get_clamped_level__6TLobbyFPv(void *arg0) {
     }
     return (u8) temp_r0;
 }
-s16 TLobby__sub_801D6F60(Obj_801D6F60 *p) {
+s16 clamp_value_below_200__6TLobbyFPv(Obj_801D6F60 *p) {
     if (p->v >= 200) {
         return ret_801D78EC(p);
     }
@@ -141,7 +141,7 @@ u8 TLobby__sub_801D6F94(Obj_801D6F94 *p) {
     return p->v;
 }
 
-u8 TLobby__sub_801D6FC8(Obj_801D6FC8 *p) {
+u8 clamp_value_below_2__6TLobbyFPv(Obj_801D6FC8 *p) {
     if (p->v >= 2) {
         return ret_801D78FC(p);
     }
@@ -155,7 +155,7 @@ u8 TLobby__sub_801D6FFC(Obj_801D6FFC *p) {
     return p->v;
 }
 
-u8 TLobby__sub_801D7030(Obj_801D7030 *p) {
+u8 normalize_battle_rule_value__6TLobbyFPv(Obj_801D7030 *p) {
     if (p->v >= 2) {
         return ret_801D790C(p);
     }
@@ -168,14 +168,14 @@ u8 get_rule_field_a__6TLobbyFPv(Obj_801D7064 *p) {
     return p->v;
 }
 
-u8 TLobby__sub_801D7098(Obj_801D7098 *p) {
+u8 normalize_battle_rule_value_b__6TLobbyFPv(Obj_801D7098 *p) {
     if (p->v >= 2) {
         return ret_801D791C(p);
     }
     return p->v;
 }
 
-u8 TLobby__sub_801D70CC(Obj_801D70CC *p) {
+u8 clamp_rule_value_2__6TLobbyFPv(Obj_801D70CC *p) {
     if (p->v >= 2) {
         return ret_801D7924(p);
     }

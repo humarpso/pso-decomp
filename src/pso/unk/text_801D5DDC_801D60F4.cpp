@@ -10,7 +10,7 @@ extern "C" {
 s32 get_current_floor();
 s32 get_field_3e4__10TObjPlayerFPv(int);
 s32 get_player_by_client_id(int);
-M2C_UNK TObjPlayer__sub_801CBC90(int);
+M2C_UNK create_photon_blast_party_effects__10TObjPlayerFi(int);
 M2C_UNK bswap_fields__15TFontSmallLobbyFPv(void *);
 M2C_UNK copy_packet_header_6x38__15TFontSmallLobbyFPvPv(void *, void *);
 M2C_UNK TFontSmallLobby__sub_801D698C(void *);
@@ -53,7 +53,7 @@ void handle_6x38_donate_to_photon_blast(s32 arg0) {
         temp_r3 = get_player_by_client_id(cmd.client);
         if ((temp_r3 != 0) && (reset_key_machine_state__10TObjPlayerFv() != 0)) {
             if (get_current_floor() == get_field_3e4__10TObjPlayerFPv((int) (temp_r3))) {
-                TObjPlayer__sub_801CBC90(cmd.client);
+                create_photon_blast_party_effects__10TObjPlayerFi(cmd.client);
             }
         }
     }

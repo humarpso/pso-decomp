@@ -283,7 +283,7 @@ M2C_UNK render_scaled__14TObjEneBalClawFPvi(void *, M2C_UNK);
 M2C_UNK draw_chunk_object(s32);
 M2C_UNK restore_scene_lighting();
 M2C_UNK select_actor_lighting(void *);
-M2C_UNK TObjPlayer__sub_8008ED48(void *, s16);
+M2C_UNK set_visibility_flags_by_count__10TObjPlayerFPvi(void *, s16);
 M2C_UNK rotate_matrix_y(M2C_UNK, s32);
 M2C_UNK translate_matrix(M2C_UNK, f32, f32, f32);
 M2C_UNK push_matrix();
@@ -583,13 +583,13 @@ void draw_main__10TObjPlayerFPv(u8 *arg0) {
             push_matrix();
             some_id_805c6f74 &= 0xFFFFFBFF;
             if (check_demo_mode__10TObjPlayerFv() == 1) {
-                TObjPlayer__sub_8008ED48(arg0, 4);
+                set_visibility_flags_by_count__10TObjPlayerFPvi(arg0, 4);
                 post_translate_matrix(arg0 + 0x38);
                 rotate_matrix_x(0, M2C_FIELD(arg0, s32 *, 0x5C));
                 rotate_matrix_y(0, M2C_FIELD(arg0, s32 *, 0x60));
                 draw_chunk_object(M2C_FIELD(arg0, s32 *, 0x34));
             } else {
-                TObjPlayer__sub_8008ED48(arg0, M2C_FIELD(arg0, s16 *, 0x3D8));
+                set_visibility_flags_by_count__10TObjPlayerFPvi(arg0, M2C_FIELD(arg0, s16 *, 0x3D8));
                 translate_matrix(0, lbl_805D9620, M2C_FIELD(arg0, f32 *, 0x3B4) + M2C_FIELD(arg0, f32 *, 0x3BC), lbl_805D9620);
                 post_translate_matrix(arg0 + 0x38);
                 rotate_matrix_x(0, M2C_FIELD(arg0, s32 *, 0x5C));

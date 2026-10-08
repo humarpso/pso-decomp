@@ -24,7 +24,7 @@ extern "C" {
 void TWindowDD__sub_803407F0(u8 *arg0, s32 arg1);
 M2C_UNK spawn_window__9TWindowDDFv();
 void TWindowDD__sub_8034091C(u8 *arg0, s32 arg1);
-void TWindowDD__sub_80340E20(u8 *arg0, s32 arg1);
+void set_value_f32__9TWindowDDFPvi(u8 *arg0, s32 arg1);
 extern const f32 lbl_805DFC34;
 extern const f32 lbl_805DFC38;
 extern const f32 lbl_805DFC3C;
@@ -262,7 +262,7 @@ void init__9TWindowDDFPv(void* p) { initialize_subwindow__9TWindowDDFPv(p); upda
 extern M2C_UNK lbl_804785D8;
 extern const f32 lbl_805DFC6C;
 
-void TWindowDD__sub_80340E20(u8 *arg0, s32 arg1) {
+void set_value_f32__9TWindowDDFPvi(u8 *arg0, s32 arg1) {
     M2C_FIELD(arg0, f32 *, 0x6C) = (f32) arg1;
 }
 

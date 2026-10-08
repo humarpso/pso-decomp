@@ -48,7 +48,7 @@ struct Unit_8006FC7C { u8 pad[0x370]; s32 f370; };
 
 extern "C" {
 s32 resolve_player_slot__20TWindowSubStatusDispFi(int);
-void TLobby__sub_80074E48(void);
+void reset_tombstone_values__6TLobbyFv(void);
 void create__13TObjTombstoneFPvPvPv(void *, void *, void *);
 void *get_player_by_client_id(s32);
 extern Table_8006FE7C lbl_8048C9D8;
@@ -172,7 +172,7 @@ void spawn_player_tombstones__6TLobbyFv(void) {
     s32 i;
     Rec_8006FE7C *rec;
     Info_8006FE7C *info;
-    TLobby__sub_80074E48();
+    reset_tombstone_values__6TLobbyFv();
     for (i = 0; i < 4; i++) {
         rec = &lbl_8048C9D8.recs[i];
         if (rec->active != 0 && get_player_by_client_id(i) != NULL) {

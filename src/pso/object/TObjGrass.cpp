@@ -877,7 +877,7 @@ Vec_800BF66C lbl_80500BD0;
 
 M2C_UNK transform_vec_by_camera__15TObjBoss2TunnelFiii(void *, void *, void *);
 extern u8 lbl_804FF5E8[];
-void TObjGrass__sub_800BCCD0(void) {
+void update_camera_vec_by_stage__9TObjGrassFv(void) {
     Vec_800BF66C *v;
 
     switch (TObjGrass__data_805D5150) {
@@ -1881,7 +1881,7 @@ void render__9TObjGrassFv(Grass_800BF19C *self) {
     } else {
         toggle_particle_effect__10TObjPlayerFv();
         TObjGrass__data_805D5150 = 0;
-        set_global_state__16TObjEneRe7BeruraFi((void *)TObjGrass__sub_800BCCD0);
+        set_global_state__16TObjEneRe7BeruraFi((void *)update_camera_vec_by_stage__9TObjGrassFv);
         if (M2C_FIELD(arg0, s32 *, 0x3AC) == 1) {
             if ((&self->sub)->m8() != 0) {
                 lbl_805D5660 = some_id_805c6f74;

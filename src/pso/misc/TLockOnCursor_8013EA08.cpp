@@ -38,7 +38,7 @@ s16 TMainCursor__sub_8013E570(void* p);
 void TMainCursor__sub_8013E694(void* p, s16 v);
 int TMainCursor__sub_8013E6E0(void* p);
 void TMainCursor__sub_8013E724(void* p, f32 v);
-int TMainCursor__sub_8013E75C(void* p);
+int set_target_index_at_60__11TMainCursorFPvPv(void* p);
 s32 get_body_exclude_mask__11TMainCursorFPv(void* p);
 s32 get_body_include_mask__11TMainCursorFPv(void* p);
 s32 get_actor_exclude_mask__11TMainCursorFPv(void* p);

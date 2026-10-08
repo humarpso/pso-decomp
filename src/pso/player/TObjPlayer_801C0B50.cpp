@@ -8,7 +8,7 @@ extern "C" {
 
 void TObjPlayer__sub_801C0C04(u8 *arg0);
 void send_swapped_packet_6x30__10TObjPlayerFPv(void* p);
-void TObjPlayer__sub_801C0CC4(u8 *arg0);
+void build_6x30_change_level_packet__10TObjPlayerFPv(u8 *arg0);
 void TObjPlayer__sub_801C0D7C(u8 *arg0);
 void bswap_and_send_body_dwords2__10TObjPlayerFPv(void* p);
 void TObjPlayer__sub_801C0E40(u8 *arg0);
@@ -70,7 +70,7 @@ void swap_endian__10TObjPlayerFi(s32 arg0) {
     bswap_16__FPUs(arg0 + 0x12);
 }
 
-void TObjPlayer__sub_801C0CC4(u8 *arg0) {
+void build_6x30_change_level_packet__10TObjPlayerFPv(u8 *arg0) {
     M2C_FIELD(arg0, s16 *, 4) = 0;
     M2C_FIELD(arg0, s16 *, 6) = 0;
     M2C_FIELD(arg0, s16 *, 8) = 0;
