@@ -96,7 +96,7 @@ s32 TLobby__sub_801C2614();
 s32 get_global_state__14TOKeyMachine01Fv();
 u8 *call_area_set_factory(void *, void *);
 s32 is_within_camera_distance(void *arg0, void *arg1, f32 farg0);
-extern Ent_8020D5AC *TLobby__data_804C1ED8[];
+extern Ent_8020D5AC *TLobby__floor_object_factory_tables[];
 extern s32 TLobby__data_805D611C;
 extern s32 TLobby__data_805D6120;
 void spawn_decorations_in_range(void *arg0);
@@ -196,7 +196,7 @@ void spawn_decorations_in_range(void *arg0) {
     Rec_8020D5AC *p;
     s32 i;
     u8 *obj;
-    tbl = TLobby__data_804C1ED8[get_global_state__14TOKeyMachine01Fv()];
+    tbl = TLobby__floor_object_factory_tables[get_global_state__14TOKeyMachine01Fv()];
     if (tbl == NULL) {
         return;
     }

@@ -96,7 +96,7 @@ M2C_UNK set_global_param__8TObjFishFi(s32);
 M2C_UNK set_chunk_material_override_pair(u32, u32);
 M2C_UNK set_chunk_material_color(void *);
 M2C_UNK draw_chunk_object(s32);
-extern u8 lbl_804A7418[];
+extern u8 chunk_material_color_half_alpha_f32[];
 extern u8 lbl_8050BEC0[];
 extern u8 lbl_8058D4C0[];
 extern int lbl_805D5030;
@@ -121,7 +121,7 @@ void init_xyz_limits__10TObjPlayerFv(void);
 M2C_UNK draw_transformed_primitive__9TWindowDDFPvPvPvPv(void *, int, s32, int);
 s32 matrix_mult_vec(int, void *, void *);
 M2C_UNK set_chunk_material_color(void *);
-extern u8 lbl_804A7418[];
+extern u8 chunk_material_color_half_alpha_f32[];
 extern Cam_800A3D1C lbl_8058D4F8;
 extern s32 lbl_805D5038;
 extern s32 lbl_805D5660;
@@ -161,7 +161,7 @@ void render__12TEneEffHamonFv(Hamon_800A36A8 *o) {
     scale_matrix(0, s, s, s);
     draw_chunk_object(lbl_805D5030);
     pop_matrix();
-    set_chunk_material_color(lbl_804A7418);
+    set_chunk_material_color(chunk_material_color_half_alpha_f32);
     lbl_805D7784 = lbl_805D5664;
     lbl_805D7780 = lbl_805D5668;
     copy_vec4__13TRaderMapCoreFPvPv(lbl_8058D4C0, lbl_8050BEC0);
@@ -327,7 +327,7 @@ void draw_ribbon_strip__10TObjPlayerFPv(Obj_800A3D1C *o) {
     p[1].color = color;
     init_xyz_limits__10TObjPlayerFv();
     draw_transformed_primitive__9TWindowDDFPvPvPvPv(verts, o->count * 2, lbl_805D5038, 1);
-    set_chunk_material_color(lbl_804A7418);
+    set_chunk_material_color(chunk_material_color_half_alpha_f32);
     some_id_805c6f74 = lbl_805D5660;
 }
 #pragma pop

@@ -35,12 +35,12 @@ M2C_UNK draw_ginja_object(s32);
 M2C_UNK draw_ginja_model_with_motion(s32, s32, f32);
 extern s32 lbl_8050DDC8[];
 extern s32 lbl_805D53A4;
-extern s32 lbl_805D5CA8;
-extern void *lbl_805D5CAC;
-extern int lbl_805D5CB0;
+extern s32 TObjWarpJung__beam_bml_resource;
+extern void *warp_jung_beam_motion;
+extern int warp_jung_model_handle;
 extern s32 lbl_805D5CB4;
-extern s32 lbl_805D5CB8;
-extern s32 lbl_805D5CBC;
+extern s32 warp_jung_beam_mesh_node;
+extern s32 warp_jung_beam_entry_index;
 extern s32 lbl_805D5CC0;
 extern s32 lbl_805D5CC4;
 extern const f32 lbl_805DC040;
@@ -173,9 +173,9 @@ extern M2C_UNK __vt__16TObjWarpJungMain[];
 extern RecoveredGlobal_8019FCFC_lbl_804B9658 lbl_804B9658;
 extern s32 lbl_805D3498;
 extern s32 lbl_805D349C;
-extern s32 lbl_805D5CA8;
-extern void *lbl_805D5CAC;
-extern int lbl_805D5CB0;
+extern s32 TObjWarpJung__beam_bml_resource;
+extern void *warp_jung_beam_motion;
+extern int warp_jung_model_handle;
 extern const f32 lbl_805DC040;
 extern const f32 lbl_805DC044;
 extern const f32 lbl_805DC048;
@@ -190,15 +190,15 @@ void render__16TObjWarpJungMainFv(VObj_18_8019FB8C *arg0) {
         if (lbl_805D53A4 != lbl_805D5CB4) {
             lbl_805D5CB4 = lbl_805D53A4;
             if (lbl_805D5CC4 >= 0) {
-                scroll_ginja_mesh_uvs(lbl_805D5CB8, 0, 5, lbl_805D5CC4, 1);
+                scroll_ginja_mesh_uvs(warp_jung_beam_mesh_node, 0, 5, lbl_805D5CC4, 1);
             }
             PPCSync();
         }
         switch (M2C_FIELD(arg0, s32 *, 0x8C)) {
         case 0:
-            if (lbl_805D5CBC >= 0) {
+            if (warp_jung_beam_entry_index >= 0) {
                 for (i = 0; i < 6; i++) {
-                    free_children__12TObjDoorJungFPvPv(lbl_8050DDC8[i], lbl_805D5CBC);
+                    free_children__12TObjDoorJungFPvPv(lbl_8050DDC8[i], warp_jung_beam_entry_index);
                 }
             }
             break;
@@ -210,13 +210,13 @@ void render__16TObjWarpJungMainFv(VObj_18_8019FB8C *arg0) {
             }
             break;
         }
-        set_global_param__8TObjFishFi((void *)lbl_805D5CB0);
+        set_global_param__8TObjFishFi((void *)warp_jung_model_handle);
         push_matrix();
         post_translate_matrix((u8 *)arg0 + 0x38);
         rotate_matrix_y(0, M2C_FIELD(arg0, s32 *, 0x60));
-        draw_ginja_object(get_bml_model(lbl_805D5CA8, 0));
+        draw_ginja_object(get_bml_model(TObjWarpJung__beam_bml_resource, 0));
         begin_effect_render__13TParticleCtrlFv();
-        draw_ginja_model_with_motion(get_bml_model(lbl_805D5CA8, 1), *(s32 *)&lbl_805D5CAC, M2C_FIELD(arg0, f32 *, 0xC4));
+        draw_ginja_model_with_motion(get_bml_model(TObjWarpJung__beam_bml_resource, 1), *(s32 *)&warp_jung_beam_motion, M2C_FIELD(arg0, f32 *, 0xC4));
         end_effect_render__13TParticleCtrlFv();
         pop_matrix();
     }
@@ -254,7 +254,7 @@ void TObjWarpJungMain__vt13(void *arg0, s16 arg1) {
 
 void run_task__16TObjWarpJungMainFv(u8 *arg0) {
   *((f32 *) (((s8 *) arg0) + 0xC4)) = (f32) ((*((f32 *) (((s8 *) arg0) + 0xC4))) + lbl_805DC048);
-  if ((*((f32 *) (((s8 *) arg0) + 0xC4))) > ((f32) (((*((s32 *) (((s8 *) (*(u8 * *)&lbl_805D5CAC)) + 4))) - 1) & 0xFFFFFFFF)))
+  if ((*((f32 *) (((s8 *) arg0) + 0xC4))) > ((f32) (((*((s32 *) (((s8 *) (*(u8 * *)&warp_jung_beam_motion)) + 4))) - 1) & 0xFFFFFFFF)))
   {
     *((f32 *) (((s8 *) arg0) + 0xC4)) = (f32) lbl_805DC04C;
   }
@@ -335,7 +335,7 @@ int TObjWarpJung__vt17(void* p) { return confirm_area_transfer__12TObjAreaWarpFP
 
 void run_task__12TObjWarpJungFv(u8 *arg0) {
   *((f32 *) (((s8 *) arg0) + 0xC4)) = (f32) ((*((f32 *) (((s8 *) arg0) + 0xC4))) + lbl_805DC048);
-  if ((*((f32 *) (((s8 *) arg0) + 0xC4))) > ((f32) (((*((s32 *) (((s8 *) (*(u8 * *)&lbl_805D5CAC)) + 4))) - 1) & 0xFFFFFFFF)))
+  if ((*((f32 *) (((s8 *) arg0) + 0xC4))) > ((f32) (((*((s32 *) (((s8 *) (*(u8 * *)&warp_jung_beam_motion)) + 4))) - 1) & 0xFFFFFFFF)))
   {
     *((f32 *) (((s8 *) arg0) + 0xC4)) = (f32) lbl_805DC04C;
   }
@@ -377,16 +377,16 @@ Obj_801A0224 *TObjWarpJung__ct(Obj_801A0224 *self) {
 }
 
 f32 get_static_field4_as_float__12TObjWarpJungFv(void) {
-    return (f32) M2C_FIELD(lbl_805D5CAC, u32 *, 4);
+    return (f32) M2C_FIELD(warp_jung_beam_motion, u32 *, 4);
 }
 
-void set_global_render_param__12TObjWarpJungFv(void) { set_global_param__8TObjFishFi((void*)(lbl_805D5CB0)); }
+void set_global_render_param__12TObjWarpJungFv(void) { set_global_param__8TObjFishFi((void*)(warp_jung_model_handle)); }
 
 void render_warp_effect__12TObjWarpJungFii(s32 arg0, s32 arg1) {
     s32 temp_r3;
 
-    temp_r3 = get_bml_model(lbl_805D5CA8, arg0);
-    draw_ginja_model_with_motion(temp_r3, (*(s32 *)&lbl_805D5CAC), (f32) arg1);
+    temp_r3 = get_bml_model(TObjWarpJung__beam_bml_resource, arg0);
+    draw_ginja_model_with_motion(temp_r3, (*(s32 *)&warp_jung_beam_motion), (f32) arg1);
 }
 
 }

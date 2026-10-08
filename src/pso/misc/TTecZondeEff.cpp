@@ -131,7 +131,7 @@ s32 all_parents_unqueued_for_destruction__7TObjectFv(void *);
 s32 build_lightning_strip(void *, void *, void *, void *, void *);
 s32 project_lightning_points(void *, void *, void *, void *);
 void set_chunk_material_color(f32 *argb);
-extern f32 lbl_804A7418[];
+extern f32 chunk_material_color_half_alpha_f32[];
 extern u32 lbl_805D5660;
 extern s32 TTecZondeEff__data_805D63B8;
 extern u32 some_id_805c6f74;
@@ -293,7 +293,7 @@ void render__12TTecZondeEffFv(Zonde_8023D6B0 *self) {
         reset_transform_state__10TObjPlayerFv();
     }
     end_effect_render__13TParticleCtrlFv();
-    set_chunk_material_color(lbl_804A7418);
+    set_chunk_material_color(chunk_material_color_half_alpha_f32);
     some_id_805c6f74 = lbl_805D5660;
     restore_saved_depth_alpha_state();
 }

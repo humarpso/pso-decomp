@@ -88,7 +88,7 @@ extern "C" {
         { lbl_80465430, 0, 0 }, { lbl_80465440, 0, 0 }, { lbl_80465450, 0, 0 },
         { lbl_80465460, 0, 0 }, { lbl_80465470, 0, 0 },
     };
-    __declspec(section ".data") TexList_804DC0D4 lbl_804DC0D4 = { lbl_804DC098, 5 };
+    __declspec(section ".data") TexList_804DC0D4 TAdBackTxtGC_backtext_tex_list = { lbl_804DC098, 5 };
 extern u32 lbl_805D65C0;
 void register_texture_f256_backtext(void);
 }
@@ -106,7 +106,7 @@ void free_singleton_805D65C0__23TAdSinglePlyChrSelectGCFv(void) {
         lbl_805D65C0 = 0U;
     }
 }
-void register_texture_f256_backtext(void) { (*(int *)&lbl_805D65C0) = (int)&lbl_804DC0D4; TLobby__sub_8023E4B4(lbl_80465490, &lbl_804DC0D4); }
+void register_texture_f256_backtext(void) { (*(int *)&lbl_805D65C0) = (int)&TAdBackTxtGC_backtext_tex_list; TLobby__sub_8023E4B4(lbl_80465490, &TAdBackTxtGC_backtext_tex_list); }
 
 }
 

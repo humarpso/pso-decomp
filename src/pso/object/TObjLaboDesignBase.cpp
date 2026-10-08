@@ -73,7 +73,7 @@ s32 create__10TObjMapCsnFi(void *, f32, f32);
 void* fn_80365320(int a0);
 int fn_80365334(int a0);
 extern M2C_UNK __vt__18TObjLaboDesignBase[];
-extern s32 lbl_805D44A0;
+extern s32 TObjLaboDesignBase_class_name;
 extern const f32 lbl_805E02A0;
 extern const f32 lbl_805E02A4;
 extern const f32 lbl_805E02A8;
@@ -184,7 +184,7 @@ void *lbl_804F2C08[14] = {
     (void *)0x4, (void *)&lbl_804F2BE0, (void *)0x5, (void *)&lbl_804F2BF8,
     (void *)0xffffffff, (void *)0x0,
 };
-void *lbl_804F2C40[66] = {
+void *labo_design_entry_table[66] = {
     (void *)0x0, (void *)0x41a00000, (void *)0x0, (void *)0x40a00000,
     (void *)0x41200000, (void *)0x1, (void *)0x10003, (void *)0x0,
     (void *)0x0, (void *)0x0, (void *)0x0, (void *)0x0,
@@ -203,7 +203,7 @@ void *lbl_804F2C40[66] = {
     (void *)0x1, (void *)0x10003, (void *)0x0, (void *)0x0,
     (void *)0x0, (void *)0x0,
 };
-#define lbl_804F2C40 ((unsigned char *)lbl_804F2C40)
+#define labo_design_entry_table ((unsigned char *)labo_design_entry_table)
 
 void *create_instance__18TObjLaboDesignBaseFPv(void *arg0) {
     void *o = __nw__7TObjectFUl(0xC0);
@@ -366,7 +366,7 @@ u8 *TObjLaboDesignBase__ct(u8 *arg0, M2C_UNK arg1, s32 arg2, s32 arg3) {
     s32 temp_r4;
     construct_collider_proxy__10TObjPlayerFPv();
     M2C_FIELD(arg0, M2C_UNK **, 0x18) = &(*(RecoveredGlobal_80365210___vt__18TObjLaboDesignBase *)&__vt__18TObjLaboDesignBase).value;
-    M2C_FIELD(arg0, s32 *, 0) = (s32) lbl_805D44A0;
+    M2C_FIELD(arg0, s32 *, 0) = (s32) TObjLaboDesignBase_class_name;
     ((VObj_18_1a504b *)(arg0))->m5(arg2);
     M2C_FIELD(arg0, s32 *, 0xB0) = arg3;
     M2C_FIELD(arg0, s32 *, 0xAC) = ((s32)fn_80365334((int) (M2C_FIELD(arg0, s32 *, 0xB0))));
@@ -387,7 +387,7 @@ u8 *TObjLaboDesignBase__ct(u8 *arg0, M2C_UNK arg1, s32 arg2, s32 arg3) {
     return arg0;
 }
 
-void* fn_80365320(int a0) {  return (char*)lbl_804F2C40 + a0 * 44; }
+void* fn_80365320(int a0) {  return (char*)labo_design_entry_table + a0 * 44; }
 
     extern int lbl_80543A48[];
 int fn_80365334(int a0) {  return lbl_80543A48[a0]; }

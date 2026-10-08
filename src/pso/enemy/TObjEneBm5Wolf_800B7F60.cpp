@@ -205,7 +205,7 @@ void set_state__14TObjEneBm5WolfFPv(void *arg0) {
 }
 void TObjEneBm5Wolf__sub_800B8020(void) {  }
 
-extern u32 TObjEneBm5Wolf__data_805D5120;
+extern u32 TObjEneBm5Wolf__bml_resource;
 
 void run_task__14TObjEneBm5WolfFPv(u8 *arg0) {
     s16 temp_r0;
@@ -301,9 +301,9 @@ void TObjEneBm5Wolf__sub_800B8600(s32 arg0) {
 }
 
 void release_global_805D5120__14TObjEneBm5WolfFv(void) {
-    if ((u32) TObjEneBm5Wolf__data_805D5120 != 0U) {
-        TLobby__sub_8001FE7C((void*)TObjEneBm5Wolf__data_805D5120, 1);
-        TObjEneBm5Wolf__data_805D5120 = 0U;
+    if ((u32) TObjEneBm5Wolf__bml_resource != 0U) {
+        TLobby__sub_8001FE7C((void*)TObjEneBm5Wolf__bml_resource, 1);
+        TObjEneBm5Wolf__bml_resource = 0U;
     }
 }
 

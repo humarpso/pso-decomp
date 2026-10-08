@@ -24,14 +24,14 @@ s32 fire_zonde_at_players__10TObjPlayerFPv(u8*);
 void TBoss3VoloptP01__sub_80043758(u8*);
 void reset_look_state__11TCameraCtrlFPv(void*);
 M2C_UNK advance_animation_playback(void*);
-extern const char* lbl_805D2748;
+extern const char* TBoss3VoloptP01_class_name;
 }
 #include "types.h"
 struct S_80042B34 { s32 a; f32 b; };
 struct V_80042ED0 { s32 a, b, c; };
 #pragma readonly_strings on
 extern "C" {
-const char *lbl_805D2748 = "TBoss3VoloptP01";
+const char *TBoss3VoloptP01_class_name = "TBoss3VoloptP01";
 __declspec(section ".rodata") V_80042ED0 lbl_80436630 = { 0, 0, 0 };
 __declspec(section ".rodata") S_80042B34 lbl_8043663C[1] = { { 3, 0.0f } };
 }
@@ -271,7 +271,7 @@ void push_matrix_from(void *);
 void pop_matrix();
 extern V_80042ED0 lbl_80436630;
 extern u8 lbl_8058D490[];
-extern E_80042ED0 *lbl_805D5678;
+extern E_80042ED0 *anim_model_matrix_array;
 void TObjPlayer__sub_80042ED0(P_80042ED0 *o, s32 idx, s32 arg2);
 void scale_velocity__19TObjGyaranzoMissileFPvf(Vec_80042DE8 *, f32);
 void vec3_add_to(Vec_80042DE8 *, Vec_80042DE8 *);
@@ -326,7 +326,7 @@ void TObjPlayer__sub_80042ED0(P_80042ED0 *o, s32 idx, s32 arg2) {
     render_anim_model__10TObjPlayerFPvf(o, o->fc0);
     pop_matrix();
     V_80042ED0 v = lbl_80436630;
-    push_matrix_from(&lbl_805D5678[idx]);
+    push_matrix_from(&anim_model_matrix_array[idx]);
     matrix_mult_vec(0, &v, arg2);
     pop_matrix();
 }
@@ -349,7 +349,7 @@ void TObjPlayer__sub_80042ED0(P_80042ED0 *o, s32 idx, s32 arg2) {
 #define TBoss3VoloptP01__sub_8004301C ((s32 (*)(void*))TBoss3VoloptP01__sub_8004301C)
 #define fire_zonde_at_players__10TObjPlayerFPv ((M2C_UNK (*)(void*))fire_zonde_at_players__10TObjPlayerFPv)
 #define TBoss3VoloptP01__sub_80043758 ((void (*)(void*))TBoss3VoloptP01__sub_80043758)
-#define lbl_805D2748 (*(s32 *)&lbl_805D2748)
+#define TBoss3VoloptP01_class_name (*(s32 *)&TBoss3VoloptP01_class_name)
 
 typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
 typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
@@ -851,7 +851,7 @@ M2C_UNK draw_chunk_model(s32);
 M2C_UNK draw_chunk_object(void *);
 
 extern RecoveredGlobal_80044174_lbl_804FEE68 lbl_804FEE68;
-extern void *lbl_805D4C10;
+extern void *boss3_volopt_resources;
 extern s32 lbl_805D4C28;
 extern s32 lbl_805D4CB0;
 extern s32 lbl_805D4CB4;
@@ -1024,7 +1024,7 @@ extern int fold_flush_0;
 #undef TBoss3VoloptP01__sub_8004301C
 #undef fire_zonde_at_players__10TObjPlayerFPv
 #undef TBoss3VoloptP01__sub_80043758
-#undef lbl_805D2748
+#undef TBoss3VoloptP01_class_name
 extern "C" {
 struct S_8004301C { u8 pad0[0x38c]; f32 f38c; s8 f390; };
 
@@ -1066,7 +1066,7 @@ s32 TBoss3VoloptP01__sub_8004301C(S_8004301C *o) {
 #define TBoss3VoloptP01__sub_8004301C ((s32 (*)(void*))TBoss3VoloptP01__sub_8004301C)
 #define fire_zonde_at_players__10TObjPlayerFPv ((M2C_UNK (*)(void*))fire_zonde_at_players__10TObjPlayerFPv)
 #define TBoss3VoloptP01__sub_80043758 ((void (*)(void*))TBoss3VoloptP01__sub_80043758)
-#define lbl_805D2748 (*(s32 *)&lbl_805D2748)
+#define TBoss3VoloptP01_class_name (*(s32 *)&TBoss3VoloptP01_class_name)
 void reset_state__15TBoss3VoloptP01FPv(void *arg0) {
     void *temp_r3;
 
@@ -1330,7 +1330,7 @@ extern int fold_flush_1;
 #undef TBoss3VoloptP01__sub_8004301C
 #undef fire_zonde_at_players__10TObjPlayerFPv
 #undef TBoss3VoloptP01__sub_80043758
-#undef lbl_805D2748
+#undef TBoss3VoloptP01_class_name
 #define reset_look_state__11TCameraCtrlFPv ((M2C_UNK (*)(int))reset_look_state__11TCameraCtrlFPv)
 #define advance_animation_playback ((M2C_UNK (*)(int))advance_animation_playback)
 typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
@@ -1377,7 +1377,7 @@ void TBoss3VoloptP01__sub_80043758(u8 *arg0) {
 #define TBoss3VoloptP01__sub_8004301C ((s32 (*)(void*))TBoss3VoloptP01__sub_8004301C)
 #define fire_zonde_at_players__10TObjPlayerFPv ((M2C_UNK (*)(void*))fire_zonde_at_players__10TObjPlayerFPv)
 #define TBoss3VoloptP01__sub_80043758 ((void (*)(void*))TBoss3VoloptP01__sub_80043758)
-#define lbl_805D2748 (*(s32 *)&lbl_805D2748)
+#define TBoss3VoloptP01_class_name (*(s32 *)&TBoss3VoloptP01_class_name)
 void update_breakup__15TBoss3VoloptP01FPv(u8 *arg0) {
     u8 *p;
     switch (M2C_FIELD(arg0, s32 *, 0x37C)) {
@@ -1580,7 +1580,7 @@ void destroy__15TBoss3VoloptP01Fv(void) {
 void init_breakup_effect__15TBoss3VoloptP01Fv(void) {
     s32 temp_r3;
 
-    lbl_805D4CC0 = lbl_805D4C10;
+    lbl_805D4CC0 = boss3_volopt_resources;
     temp_r3 = alloc__23TAdSinglePlyChrSelectGCFPv(0x10);
     if (temp_r3 != 0) {
         temp_r3 = init_from_model__11TBreakUpMdlFPvi(temp_r3, M2C_FIELD(M2C_FIELD(lbl_805D4CC0, void **, 0x42C), s32 *, 0x118));
@@ -1652,7 +1652,7 @@ u8 *TBoss3VoloptP01__ct(u8 *arg0, u8 *arg1, s32 arg2, s16 arg3, s16 arg4) {
     TObjEnemyCustom__ct((void *) (arg0));
     M2C_FIELD(arg0, M2C_UNK **, 0x18) = &(*(RecoveredGlobal_80044174___vt__15TBoss3VoloptP01 *)&*__vt__15TBoss3VoloptP01).value;
     construct_target_cursor_records__10TObjPlayerFi((s32)((s32)((void *) (arg0 + 0x3BC))));
-    M2C_FIELD(arg0, s32 *, 0) = (s32) lbl_805D2748;
+    M2C_FIELD(arg0, s32 *, 0) = (s32) TBoss3VoloptP01_class_name;
     M2C_FIELD(arg0, s16 *, 0x1C) = arg3;
     M2C_FIELD(arg0, s16 *, 0x2C) = arg4;
     M2C_FIELD(arg0, s32 *, 0x80) = 0;
@@ -1681,7 +1681,7 @@ u8 *TBoss3VoloptP01__sub_800442A0(u8 *arg0, M2C_UNK arg1, s32 arg2) {
     TObjEnemyCustom__ct(arg0);
     M2C_FIELD(arg0, M2C_UNK **, 0x18) = &(*(RecoveredGlobal_800442A0___vt__15TBoss3VoloptP01 *)&*__vt__15TBoss3VoloptP01).value;
     construct_target_cursor_records__10TObjPlayerFi((s32)((s32)((s32) (arg0 + 0x3BC))));
-    M2C_FIELD(arg0, s32 *, 0) = (s32) lbl_805D2748;
+    M2C_FIELD(arg0, s32 *, 0) = (s32) TBoss3VoloptP01_class_name;
     ((VObj_18_aa4667 *)(arg0))->m79(arg2);
     ((M2C_UNK (*)(void *))init_params__15TBoss3VoloptP01FPv)((void *) (arg0));
     temp_r3 = (u8 *)(((u8 *)__nw__7TObjectFUl((int)(0x34))));
@@ -1724,4 +1724,4 @@ void init_cursor_record__15TBoss3VoloptP01FPv(O_800443BC *self) {
 #undef TBoss3VoloptP01__sub_8004301C
 #undef fire_zonde_at_players__10TObjPlayerFPv
 #undef TBoss3VoloptP01__sub_80043758
-#undef lbl_805D2748
+#undef TBoss3VoloptP01_class_name

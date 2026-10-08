@@ -21,7 +21,7 @@ void *load_encrypted_archive_data(M2C_UNK *);
 
 extern s32 TWindowDD__data_805D6E08;
 extern s32 TWindowDD__data_805D6E1C;
-extern s32 TWindowDD__data_805D6E2C;
+extern s32 TWindowDD__ws_data_base;
 extern s32 window_dd_element_count;
 
 s32 get_element_ptr__9TWindowDDFi(s32 arg0) {
@@ -31,19 +31,19 @@ s32 get_element_ptr__9TWindowDDFi(s32 arg0) {
     if (arg0 == -0x32) {
         switch ((s32) TWindowDD__data_805D6E08) {
         case 0:
-            return TWindowDD__data_805D6E2C + 0x8C0;
+            return TWindowDD__ws_data_base + 0x8C0;
         default:
-            return TWindowDD__data_805D6E2C + 0x920;
+            return TWindowDD__ws_data_base + 0x920;
         case 4:
-            return TWindowDD__data_805D6E2C + 0x920;
+            return TWindowDD__ws_data_base + 0x920;
         case 2:
-            return TWindowDD__data_805D6E2C + 0x920;
+            return TWindowDD__ws_data_base + 0x920;
         case 3:
-            return TWindowDD__data_805D6E2C + 0x928;
+            return TWindowDD__ws_data_base + 0x928;
         }
     } else {
         if ((arg0 >= 0) && (arg0 < (s32) window_dd_element_count)) {
-            return TWindowDD__data_805D6E2C + (arg0 * 8);
+            return TWindowDD__ws_data_base + (arg0 * 8);
         }
         switch (arg0) {
         default:
@@ -71,8 +71,8 @@ extern M2C_UNK lbl_80478680[];
 extern M2C_UNK lbl_80478690[];
 extern s32 TWindowDD__data_805D6E08;
 extern s32 TWindowDD__data_805D6E28;
-extern s32 TWindowDD__data_805D6E2C;
-extern s32 TWindowDD__data_805D6E30;
+extern s32 TWindowDD__ws_data_base;
+extern s32 TWindowDD__ws_data_table;
 extern s32 lbl_805D6E34;
 extern s32 window_dd_element_count;
 extern s32 twindowdd_entry_count;
@@ -84,7 +84,7 @@ extern void *lbl_805D6E50;
 extern void *lbl_805D6E54;
 extern void *lbl_805D6E58;
 extern void *lbl_805D6E5C;
-extern void *lbl_805D6E60;
+extern void *TWindowDD__ws_data_buffer;
 
 void ws_data_load(void) {
     void *temp_r3;
@@ -98,8 +98,8 @@ void ws_data_load(void) {
         temp_r3 = load_encrypted_archive_data(lbl_80478650);
         lbl_805D6E50 = temp_r3;
         TWindowDD__data_805D6E28 = M2C_FIELD(temp_r3, s32 *, 0);
-        TWindowDD__data_805D6E2C = M2C_FIELD(temp_r3, s32 *, 4);
-        TWindowDD__data_805D6E30 = M2C_FIELD(temp_r3, s32 *, 8);
+        TWindowDD__ws_data_base = M2C_FIELD(temp_r3, s32 *, 4);
+        TWindowDD__ws_data_table = M2C_FIELD(temp_r3, s32 *, 8);
         lbl_805D6E34 = M2C_FIELD(temp_r3, s32 *, 0xC);
         window_dd_element_count = 0x11A;
         twindowdd_entry_count = 0x12;
@@ -108,8 +108,8 @@ void ws_data_load(void) {
         temp_r3_2 = load_encrypted_archive_data(lbl_80478660);
         lbl_805D6E54 = temp_r3_2;
         TWindowDD__data_805D6E28 = M2C_FIELD(temp_r3_2, s32 *, 0);
-        TWindowDD__data_805D6E2C = M2C_FIELD(temp_r3_2, s32 *, 4);
-        TWindowDD__data_805D6E30 = M2C_FIELD(temp_r3_2, s32 *, 8);
+        TWindowDD__ws_data_base = M2C_FIELD(temp_r3_2, s32 *, 4);
+        TWindowDD__ws_data_table = M2C_FIELD(temp_r3_2, s32 *, 8);
         lbl_805D6E34 = M2C_FIELD(temp_r3_2, s32 *, 0xC);
         TWindowDD__data_805D6E40 = M2C_FIELD(temp_r3_2, s32 *, 0x10);
         TWindowDD__data_805D6E48 = M2C_FIELD(temp_r3_2, s32 *, 0x14);
@@ -121,8 +121,8 @@ void ws_data_load(void) {
         temp_r3_3 = load_encrypted_archive_data(lbl_80478670);
         lbl_805D6E58 = temp_r3_3;
         TWindowDD__data_805D6E28 = M2C_FIELD(temp_r3_3, s32 *, 0);
-        TWindowDD__data_805D6E2C = M2C_FIELD(temp_r3_3, s32 *, 4);
-        TWindowDD__data_805D6E30 = M2C_FIELD(temp_r3_3, s32 *, 8);
+        TWindowDD__ws_data_base = M2C_FIELD(temp_r3_3, s32 *, 4);
+        TWindowDD__ws_data_table = M2C_FIELD(temp_r3_3, s32 *, 8);
         lbl_805D6E34 = M2C_FIELD(temp_r3_3, s32 *, 0xC);
         TWindowDD__data_805D6E40 = M2C_FIELD(temp_r3_3, s32 *, 0x10);
         TWindowDD__data_805D6E48 = M2C_FIELD(temp_r3_3, s32 *, 0x18);
@@ -135,8 +135,8 @@ void ws_data_load(void) {
         temp_r3_4 = load_encrypted_archive_data(lbl_80478680);
         lbl_805D6E5C = temp_r3_4;
         TWindowDD__data_805D6E28 = M2C_FIELD(temp_r3_4, s32 *, 0);
-        TWindowDD__data_805D6E2C = M2C_FIELD(temp_r3_4, s32 *, 4);
-        TWindowDD__data_805D6E30 = M2C_FIELD(temp_r3_4, s32 *, 8);
+        TWindowDD__ws_data_base = M2C_FIELD(temp_r3_4, s32 *, 4);
+        TWindowDD__ws_data_table = M2C_FIELD(temp_r3_4, s32 *, 8);
         lbl_805D6E34 = M2C_FIELD(temp_r3_4, s32 *, 0xC);
         TWindowDD__data_805D6E40 = M2C_FIELD(temp_r3_4, s32 *, 0x10);
         TWindowDD__data_805D6E44 = M2C_FIELD(temp_r3_4, s32 *, 0x14);
@@ -146,10 +146,10 @@ void ws_data_load(void) {
         return;
     case 3:
         temp_r3_5 = load_encrypted_archive_data(lbl_80478690);
-        lbl_805D6E60 = temp_r3_5;
+        TWindowDD__ws_data_buffer = temp_r3_5;
         TWindowDD__data_805D6E28 = M2C_FIELD(temp_r3_5, s32 *, 0);
-        TWindowDD__data_805D6E2C = M2C_FIELD(temp_r3_5, s32 *, 4);
-        TWindowDD__data_805D6E30 = M2C_FIELD(temp_r3_5, s32 *, 8);
+        TWindowDD__ws_data_base = M2C_FIELD(temp_r3_5, s32 *, 4);
+        TWindowDD__ws_data_table = M2C_FIELD(temp_r3_5, s32 *, 8);
         lbl_805D6E34 = M2C_FIELD(temp_r3_5, s32 *, 0xC);
         TWindowDD__data_805D6E40 = M2C_FIELD(temp_r3_5, s32 *, 0x10);
         TWindowDD__data_805D6E48 = M2C_FIELD(temp_r3_5, s32 *, 0x18);

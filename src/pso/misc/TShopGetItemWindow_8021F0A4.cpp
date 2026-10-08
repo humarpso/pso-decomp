@@ -15,7 +15,7 @@ M2C_UNK clear_shop_tool_flags();
 extern M2C_UNK TLobby__data_805011D8[];
 extern s32 lbl_805D5550;
 extern s32 lbl_805D6238;
-extern s32 lbl_805D6240;
+extern s32 shop_difficulty_tier;
 extern s32 lbl_805D6244;
 
 void reset_shop_stock_and_params(void) {
@@ -33,12 +33,12 @@ void reset_shop_stock_and_params(void) {
     if ((s32) lbl_805D6238 > 9) {
         lbl_805D6238 = 9;
     }
-    lbl_805D6240 = lbl_805D5550;
+    shop_difficulty_tier = lbl_805D5550;
     if ((s32) lbl_805D5550 < 0) {
-        lbl_805D6240 = 0;
+        shop_difficulty_tier = 0;
     }
-    if ((s32) lbl_805D6240 > 3) {
-        lbl_805D6240 = 3;
+    if ((s32) shop_difficulty_tier > 3) {
+        shop_difficulty_tier = 3;
     }
 }
 

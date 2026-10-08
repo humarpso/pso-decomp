@@ -2448,7 +2448,7 @@ void *TBoss1Dragon__data_80480CE0[8] = {
     (void *)0x2, (void *)0x3, (void *)0x4, (void *)0x5,
     (void *)0x6, (void *)0x7, (void *)0x8, (void *)0x20,
 };
-void *lbl_80480D00[18] = {
+void *boss1_dragon_sequence_remap_table[18] = {
     (void *)0x0, (void *)0x0, (void *)0x2, (void *)0x3,
     (void *)0x3, (void *)0x3, (void *)0x0, (void *)0x0,
     (void *)0x2, (void *)0x3, (void *)0x2, (void *)0x3,
@@ -2549,7 +2549,7 @@ void *lbl_80481010[108] = {
     (void *)0x30000, (void *)0x0, (void *)0x3f000000, (void *)0x80000000,
     (void *)0x20008, (void *)0x2, (void *)0x3f19999a, (void *)0x0,
 };
-void *lbl_804811C0[3] = {
+void *boss1_dragon_follow_camera_offsets[3] = {
     (void *)0x0, (void *)0x419e6666, (void *)0xc0a00000,
 };
 void *lbl_804811CC[45] = {
@@ -6745,7 +6745,7 @@ void remap_sequence_after_recovery__12TBoss1DragonFPv(u8 *arg0) {
         temp_r3 = isV2Mode__12TBoss1DragonFv();
         switch (temp_r3) {
         case 0:
-            ((RecoveredFields_8002826C_arg0 *)arg0)->field_67C = (s32) M2C_FIELD(((M2C_UNK *)lbl_80480D00), M2C_UNK *, (((RecoveredFields_8002826C_arg0 *)arg0)->field_67C * 4));
+            ((RecoveredFields_8002826C_arg0 *)arg0)->field_67C = (s32) M2C_FIELD(((M2C_UNK *)boss1_dragon_sequence_remap_table), M2C_UNK *, (((RecoveredFields_8002826C_arg0 *)arg0)->field_67C * 4));
             break;
         case 1:
             ((RecoveredFields_8002826C_arg0 *)arg0)->field_67C = (s32) M2C_FIELD(((M2C_UNK *)lbl_80480D48), M2C_UNK *, (((RecoveredFields_8002826C_arg0 *)arg0)->field_67C * 4));
@@ -7844,7 +7844,7 @@ typedef char RecoveredGlobal_80065EA0_lbl_80487CD8_size[sizeof(RecoveredGlobal_8
 typedef char RecoveredGlobal_80065DB4_lbl_804FF5B4_size[sizeof(RecoveredGlobal_80065DB4_lbl_804FF5B4) == 0xC ? 1 : -1];
 void get_dragon_follow_camera_offsets(u8 *arg0, u8 *arg1) {
     if ((void *) (*(u8 * *)&TBoss1Dragon__data_805D4B2C) == NULL) {
-        VecCopy__FP3VecPC3Vec((s32)(arg0), (s32)(((M2C_UNK *)lbl_804811C0)));
+        VecCopy__FP3VecPC3Vec((s32)(arg0), (s32)(((M2C_UNK *)boss1_dragon_follow_camera_offsets)));
         VecCopy__FP3VecPC3Vec((s32)(arg1), (s32)(((M2C_UNK *)lbl_804811CC)));
         return;
     }

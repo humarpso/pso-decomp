@@ -142,7 +142,7 @@ void TAdEnterSerialAccessGC__sub_8032190C(s32 arg0);
 M2C_UNK memset(void *, int, int);
 s32 get_instance__23TAdSinglePlyChrSelectGCFv();
 extern RecoveredGlobal_803216C0_lbl_8047653C lbl_8047653C;
-extern RecoveredGlobal_803216C0_lbl_805430D0 lbl_805430D0;
+extern RecoveredGlobal_803216C0_lbl_805430D0 enter_serial_formatted_buffer;
 M2C_UNK *get_formatted_serial__22TAdEnterSerialAccessGCFv(void);
 M2C_UNK memset(void *, int, int);
 extern RecoveredGlobal_803217B8_lbl_80476524 lbl_80476524;
@@ -152,7 +152,7 @@ M2C_UNK *TAdEnterSerialAccessGC__sub_803217B8(void);
 M2C_UNK memset(void *, int, int);
 extern RecoveredGlobal_80321874_lbl_80476518 lbl_80476518;
 extern RecoveredGlobal_80321874_TAdEnterSerialAccessGC__data_804EC9B8 TAdEnterSerialAccessGC__data_804EC9B8;
-extern RecoveredGlobal_80321874_lbl_80543090 lbl_80543090;
+extern RecoveredGlobal_80321874_lbl_80543090 TAdEnterSerialAccessGC_serial_buffer;
 M2C_UNK *TAdEnterSerialAccessGC__sub_80321874(void);
 extern RecoveredGlobal_80322418_lbl_804ED9F8 lbl_804ED9F8;
 void TAdEnterSerialAccessGC__sub_80322418(s32 arg0, s32 arg1);
@@ -414,12 +414,12 @@ M2C_UNK *get_formatted_serial__22TAdEnterSerialAccessGCFv(void) {
     typedef char spC_offset[(offsetof(Stack_803216C0, spC) == 0x4) ? 1 : -1];
     typedef char sp10_offset[(offsetof(Stack_803216C0, sp10) == 0x8) ? 1 : -1];
     Stack_803216C0 stack;
-    memset((void *) (&lbl_805430D0.value), (int) (0), (int) (0x18));
+    memset((void *) (&enter_serial_formatted_buffer.value), (int) (0), (int) (0x18));
     stack.sp8 = M2C_FIELD(&lbl_8047653C.value, s32 *, 0);
     stack.spC = M2C_FIELD(&lbl_8047653C.value, s32 *, 4);
     stack.sp10 = M2C_FIELD(&lbl_8047653C.value, s32 *, 8);
-    format_dashed_serial__22TAdEnterSerialAccessGCFPvPvUiPv((u8 *)((void *) (&lbl_805430D0.value)), (u8 *)((void *) (get_instance__23TAdSinglePlyChrSelectGCFv() + 0x1153C)), (u32)((int) (3)), (u32 *)((void *) (&stack.sp8)));
-    return &lbl_805430D0.value;
+    format_dashed_serial__22TAdEnterSerialAccessGCFPvPvUiPv((u8 *)((void *) (&enter_serial_formatted_buffer.value)), (u8 *)((void *) (get_instance__23TAdSinglePlyChrSelectGCFv() + 0x1153C)), (u32)((int) (3)), (u32 *)((void *) (&stack.sp8)));
+    return &enter_serial_formatted_buffer.value;
 }
 
 typedef char RecoveredGlobal_803217B8_lbl_80476524_size[sizeof(RecoveredGlobal_803217B8_lbl_80476524) == 0xC ? 1 : -1];
@@ -462,12 +462,12 @@ M2C_UNK *TAdEnterSerialAccessGC__sub_80321874(void) {
     typedef char spC_offset[(offsetof(Stack_80321874, spC) == 0x4) ? 1 : -1];
     typedef char sp10_offset[(offsetof(Stack_80321874, sp10) == 0x8) ? 1 : -1];
     Stack_80321874 stack;
-    memset((void *) (&lbl_80543090.value), (int) (0), (int) (0x14));
+    memset((void *) (&TAdEnterSerialAccessGC_serial_buffer.value), (int) (0), (int) (0x14));
     stack.sp8 = M2C_FIELD(&lbl_80476518.value, s32 *, 0);
     stack.spC = M2C_FIELD(&lbl_80476518.value, s32 *, 4);
     stack.sp10 = M2C_FIELD(&lbl_80476518.value, s32 *, 8);
-    format_dashed_serial__22TAdEnterSerialAccessGCFPvPvUiPv((u8 *)((void *) (&lbl_80543090.value)), (u8 *)((void *) (&TAdEnterSerialAccessGC__data_804EC9B8.value)), (u32)((int) (3)), (u32 *)((void *) (&stack.sp8)));
-    return &lbl_80543090.value;
+    format_dashed_serial__22TAdEnterSerialAccessGCFPvPvUiPv((u8 *)((void *) (&TAdEnterSerialAccessGC_serial_buffer.value)), (u8 *)((void *) (&TAdEnterSerialAccessGC__data_804EC9B8.value)), (u32)((int) (3)), (u32 *)((void *) (&stack.sp8)));
+    return &TAdEnterSerialAccessGC_serial_buffer.value;
 }
 
 typedef char RecoveredGlobal_8032B904_lbl_80477278_size[sizeof(RecoveredGlobal_8032B904_lbl_80477278) == 0x10 ? 1 : -1];

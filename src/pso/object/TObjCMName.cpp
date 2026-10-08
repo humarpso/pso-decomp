@@ -471,7 +471,7 @@ extern u8 lbl_804DBCC8[];
 extern M2C_UNK lbl_804DBDA8[];
 extern RecoveredGlobal_80298F08_lbl_8050E3B8 lbl_8050E3B8;
 extern RecoveredGlobal_80298DD4_lbl_8051C07C lbl_8051C07C;
-extern f32 lbl_805D3C98;
+extern f32 ui_sprite_scale;
 extern f32 lbl_805D3CA0;
 extern const char *lbl_805D3CD0;
 extern const char *lbl_805D3CDC;
@@ -1958,7 +1958,7 @@ void *TObjCMMainMenu__ct(void *arg0, void *parent) {
 void clear_task_state__14TObjCMMainMenuFv(void) { (*(int *)&TObjCMMainMenu__data_805D659C) = 0; }
 
 f32 get_scale__14TObjCMMainMenuFv(void) {
-    return lbl_805D3C98;
+    return ui_sprite_scale;
 }
 
 f32 get_proportion__14TObjCMMainMenuFv(void) {

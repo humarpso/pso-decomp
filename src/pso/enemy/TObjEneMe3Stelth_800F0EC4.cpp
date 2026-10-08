@@ -375,7 +375,7 @@ extern IVec_800F1098 lbl_8043D680;
 extern Tbl_800F1098 *TObjEneMe3Stelth__data_80501104[];
 extern u8 lbl_8058D490[];
 extern s32 lbl_805D5550;
-extern u8 *lbl_805D5678;
+extern u8 *anim_model_matrix_array;
 extern const f32 TObjEneMe3Stelth__data_805DA820;
 extern const f32 TObjEneMe3Stelth__data_805DA824;
 void TObjEneMe3Stelth__sub_800F1098(u8 *arg0, s32 arg1);
@@ -506,7 +506,7 @@ void TObjEneMe3Stelth__sub_800F1098(u8 *arg0, s32 arg1) {
                 render_anim_model__10TObjPlayerFPvf(arg0, TObjEneMe3Stelth__data_805DA824);
                 clear_global_state__10TObjPlayerFv();
                 pop_matrix();
-                push_matrix_from(lbl_805D5678 + 0x90);
+                push_matrix_from(anim_model_matrix_array + 0x90);
                 c.a = lbl_8043D680.a;
                 c.b = lbl_8043D680.b;
                 c.c = lbl_8043D680.c;

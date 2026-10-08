@@ -66,7 +66,7 @@ void post_translate_matrix(void *);
 void set_global_param__8TObjFishFi(s32);
 s32 set_chunk_material_color(void *);
 void TObjEneSlimeOne__sub_803E4B54(s32, s32, s32, f32);
-extern u8 lbl_804A7418[];
+extern u8 chunk_material_color_half_alpha_f32[];
 extern s32 lbl_805D5660;
 extern s32 some_id_805c6f74;
 M2C_UNK VecCopy__FP3VecPC3Vec(void *, void *);
@@ -390,7 +390,7 @@ void render__8TOKurageFv(u8 *arg0) {
         }
         set_chunk_material_color(arg0 + 0x104);
         TObjEneSlimeOne__sub_803E4B54(*(s32 *)(arg0 + 0x34), *(s32 *)(arg0 + 0xBC), *(s32 *)(arg0 + 0xC8), *(f32 *)(arg0 + 0xB0));
-        set_chunk_material_color(lbl_804A7418);
+        set_chunk_material_color(chunk_material_color_half_alpha_f32);
         some_id_805c6f74 = lbl_805D5660;
         pop_matrix();
     }

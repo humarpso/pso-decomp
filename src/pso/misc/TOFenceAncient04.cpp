@@ -326,8 +326,8 @@ extern M2C_UNK __vt__22TOHangceilingCave01Key[];
 extern M2C_UNK __vt__25TOHangceilingCave01Normal[];
 extern M2C_UNK __vt__27TOHangceilingCave01KeyQuick[];
 extern Q_801681D0 lbl_804417EC;
-extern u8 lbl_804B1F70[];
-extern RecoveredGlobal_80167878_lbl_804B1F80 lbl_804B1F80;
+extern u8 TOFenceAncient04_resource_descriptor[];
+extern RecoveredGlobal_80167878_lbl_804B1F80 ofence_ancient04_collision_parts;
 extern s32 lbl_805D2FE0;
 extern void *lbl_805D2FE8;
 extern void *lbl_805D2FEC;
@@ -400,7 +400,7 @@ void destroy__16TOFenceAncient04Fv(void) {
 void load_resources__16TOFenceAncient04Fv(void) {
     Big_8016775C *v = (Big_8016775C *)alloc__23TAdSinglePlyChrSelectGCFPv(0x440);
     if (v != NULL) {
-        v = load_resource_from_descriptor(v, 1, lbl_804B1F70, 0, 0, 0);
+        v = load_resource_from_descriptor(v, 1, TOFenceAncient04_resource_descriptor, 0, 0, 0);
     }
     (*(Big_8016775C * *)&lbl_805D59C8) = v;
     (*(Buf_8016775C * *)&lbl_805D59CC) = alloc_buffer__11TOBoss4RockFPv(0x10);
@@ -442,7 +442,7 @@ u8 *TOFenceAncient04__ct(u8 *arg0, M2C_UNK arg1, s32 arg2) {
     temp_r6 = (u8 *)(M2C_FIELD(arg0, u8 **, 0xBC));
     temp_f1 = (f32) M2C_FIELD(temp_r6, u32 *, 4);
     M2C_FIELD(arg0, f32 *, 0xB4) = (f32) (temp_f1 - lbl_805DB640);
-    init_collision_body_parts((void *) (arg0), (void *) (&lbl_804B1F80.value), (int) (8), (int) (temp_r6), (f32) (temp_f1));
+    init_collision_body_parts((void *) (arg0), (void *) (&ofence_ancient04_collision_parts.value), (int) (8), (int) (temp_r6), (f32) (temp_f1));
     refresh_collision_body_centers((void *) (arg0));
     reset_photon_effect__10TObjPlayerFPv((void *) (arg0));
     fn_80166E64((void *) (arg0));

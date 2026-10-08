@@ -111,7 +111,7 @@ M2C_UNK run_area_scene_cleanup(void *);
 M2C_UNK clear_flag3_all_tasks__9TMainTaskFv(void *);
 M2C_UNK delete_all_task_children__9TMainTaskFv(void *);
 M2C_UNK delete_children__7TObjectFv(int);
-extern RecoveredGlobal_801A3540_lbl_804C1F68 lbl_804C1F68;
+extern RecoveredGlobal_801A3540_lbl_804C1F68 offline_game_scene_callbacks;
 extern RecoveredGlobal_801A3540_lbl_80515BA0 lbl_80515BA0;
 extern RecoveredGlobal_801A3540_main_task main_task;
 extern s32 tl_su;
@@ -363,7 +363,7 @@ M2C_UNK render_screen_overlay__9TMainTaskFv(void *);
 M2C_UNK some_empty_func__9TMainTaskFv(void *);
 M2C_UNK run_task__9TMainTaskFv(void *);
 void *__nw__7TObjectFUl(u32);
-extern RecoveredGlobal_801A3540_lbl_804C1F68 lbl_804C1F68;
+extern RecoveredGlobal_801A3540_lbl_804C1F68 offline_game_scene_callbacks;
 extern u8 TLobby__data_805011D8[];
 extern RecoveredGlobal_801A3540_lbl_80515BA0 lbl_80515BA0;
 extern RecoveredGlobal_801A3540_main_task main_task;
@@ -590,7 +590,7 @@ void teardown_scene__6TLobbyFv(void) {
     clear_flag3_all_tasks__9TMainTaskFv((void *) (&main_task.value));
     delete_children__7TObjectFv((int) (tl_su));
     run_area_scene_cleanup((void *) (&lbl_80515BA0.value));
-    call_funcs_reverse__6TLobbyFPvUi((void *) (&lbl_804C1F68.value), (int) (0x180));
+    call_funcs_reverse__6TLobbyFPvUi((void *) (&offline_game_scene_callbacks.value), (int) (0x180));
     clear_resource_load_tasks();
     update__16TKeyBoardControlFv();
     render_tick__Fv();
@@ -749,7 +749,7 @@ void init_offline_game_scene(void) {
     init_range__6TLobbyFPvi(&lbl_80515BA0, 0);
     reset_keyboard_state__6TLobbyFv();
     apply_phase_keyboard_mode();
-    run_load_callback_table(&lbl_804C1F68, 0x180);
+    run_load_callback_table(&offline_game_scene_callbacks, 0x180);
     if (is_area_transfer_pending() != 0) {
         reset_keyboard_state__6TLobbyFv();
         invoke_callback__6TLobbyFv();

@@ -123,7 +123,7 @@ void draw_ginja_object(int);
 void set_color_blend_mode(int, int, int, int, s32, s32);
 void set_chunk_material_color(void *);
 extern Color_8017FCD0 lbl_80443AFC;
-extern u8 lbl_804A7418[];
+extern u8 chunk_material_color_half_alpha_f32[];
 extern s32 lbl_805D5660;
 extern s32 lbl_805D5664;
 extern s32 lbl_805D5668;
@@ -308,7 +308,7 @@ void TObjChip__vt10(u8 *arg0) {
             scale_matrix(0, *(f32 *)(arg0 + 0x60), *(f32 *)(arg0 + 0x60), *(f32 *)(arg0 + 0x60));
             draw_ginja_object(*(s32 *)(arg0 + 0x64));
             pop_matrix();
-            set_chunk_material_color(lbl_804A7418);
+            set_chunk_material_color(chunk_material_color_half_alpha_f32);
         }
         some_id_805c6f74 = lbl_805D5660;
         lbl_805D7784 = lbl_805D5664;

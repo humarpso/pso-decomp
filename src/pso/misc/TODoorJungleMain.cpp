@@ -227,7 +227,7 @@ void refresh_collision_body_centers(void *);
 u32 init_collision_body_parts(void *, s32, s32);
 u8 * init_door_base(void *);
 s32 create__10TObjMapCsnFi(s32);
-extern RecoveredGlobal_8029B924_lbl_804DC014 lbl_804DC014;
+extern RecoveredGlobal_8029B924_lbl_804DC014 TODoorJungleMain_collision_body_parts;
 extern M2C_UNK __vt__16TODoorJungleMain[];
 extern s32 lbl_805D3D20;
 extern u32 TODoorJungleMain__data_805D65B8;
@@ -471,7 +471,7 @@ u8 *TODoorJungleMain__ct(u8 *arg0, M2C_UNK arg1, s32 arg2) {
     M2C_FIELD(arg0, s32 *, 0xBC) = get_bml_motion((*(u8 * *)&TODoorJungleMain__data_805D65B8), 0);
     M2C_FIELD(arg0, f32 *, 0xB8) = (f32) lbl_805DDCD8;
     M2C_FIELD(arg0, f32 *, 0xB4) = (f32) lbl_805DDCDC;
-    init_collision_body_parts(arg0, (s32) &lbl_804DC014.value, 1);
+    init_collision_body_parts(arg0, (s32) &TODoorJungleMain_collision_body_parts.value, 1);
     refresh_collision_body_centers(arg0);
     reset_photon_effect__10TObjPlayerFPv(arg0);
     M2C_FIELD(arg0, f32 *, 0xC0) = (f32) lbl_805DDCE0;

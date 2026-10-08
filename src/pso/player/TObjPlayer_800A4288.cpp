@@ -1394,7 +1394,7 @@ extern s32 lbl_805D5060;
 extern s32 lbl_805D5660;
 extern s32 lbl_805D5664;
 extern s32 lbl_805D5668;
-extern u8 *lbl_805D5678;
+extern u8 *anim_model_matrix_array;
 extern s32 lbl_805D7780;
 extern s32 lbl_805D7784;
 extern s32 some_id_805c6f74;
@@ -1880,7 +1880,7 @@ void TObjPlayer__sub_800A6C54(u8 *arg0) {
         render_anim_model__10TObjPlayerFPvf(arg0, M2C_FIELD(arg0, f32 *, 0xC0));
         clear_global_state__10TObjPlayerFv();
         pop_matrix();
-        push_matrix_from(lbl_805D5678 + 0x4E0);
+        push_matrix_from(anim_model_matrix_array + 0x4E0);
         {
             Vec_800A6C54 t = lbl_8043A8A4;
             matrix_mult_vec(0, &t, arg0 + 0x390);

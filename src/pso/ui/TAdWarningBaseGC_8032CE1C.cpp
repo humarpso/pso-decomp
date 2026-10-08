@@ -25,7 +25,7 @@ void DCInvalidateRange(void *, u32);
 void run_frame__6TLobbyFv(void);
 void ARQPostRequest(void *, u32, u32, u32, u32, u32, u32, void (*)(u32));
 void TAdWarningBaseGC__sub_8032D1E4(u32);
-extern u8 lbl_805434B0[];
+extern u8 ad_warning_arq_request[];
 extern u32 lbl_805D6CE0;
 extern s32 lbl_805D6CE8;
 extern int lbl_805D6CEC;
@@ -34,7 +34,7 @@ s32 load_from_aram_sync__16TAdWarningBaseGCFi(s32 arg0);
 void DCFlushRange(void *, u32);
 void ARQPostRequest(void *, u32, u32, u32, u32, u32, u32, void (*)(u32));
 void TAdWarningBaseGC__sub_8032D1E4(u32);
-extern u8 lbl_805434B0[];
+extern u8 ad_warning_arq_request[];
 extern u32 lbl_805D6CE0;
 extern u32 lbl_805D6CE4;
 extern int lbl_805D6CEC;
@@ -104,7 +104,7 @@ s32 load_from_aram_sync__16TAdWarningBaseGCFi(s32 arg0) {
     size = ((*(s32 *)&lbl_805D6CEC) + 0x1F) & ~0x1F;
     DCInvalidateRange((void *)arg0, size);
     lbl_805D6CF4 = 1;
-    ARQPostRequest(lbl_805434B0, 4, 1, 1, lbl_805D6CE0, arg0, size, TAdWarningBaseGC__sub_8032D1E4);
+    ARQPostRequest(ad_warning_arq_request, 4, 1, 1, lbl_805D6CE0, arg0, size, TAdWarningBaseGC__sub_8032D1E4);
 loop:
     if (lbl_805D6CF4 != 0) {
         run_frame__6TLobbyFv();
@@ -130,7 +130,7 @@ s32 post_aram_request__16TAdWarningBaseGCFii(s32 arg0, s32 arg1) {
     }
     DCFlushRange((void *)arg0, size);
     lbl_805D6CF4 = 1;
-    ARQPostRequest(lbl_805434B0, 4, 0, 1, arg0, lbl_805D6CE0, size, TAdWarningBaseGC__sub_8032D1E4);
+    ARQPostRequest(ad_warning_arq_request, 4, 0, 1, arg0, lbl_805D6CE0, size, TAdWarningBaseGC__sub_8032D1E4);
     return 1;
 }
 

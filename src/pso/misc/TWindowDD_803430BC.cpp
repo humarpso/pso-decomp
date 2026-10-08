@@ -141,28 +141,28 @@ s32 TWindowDD_read_indexed_value(s32, s32);
 s16 TWindowDD_read_resolved_value(s32, s32);
 u8 TWindowDD__sub_80347858(s16 arg0);
 s32 TWindowDD__sub_80348398(u8 *arg0);
-extern u8 *TWindowDD__data_805D6E30;
+extern u8 *TWindowDD__ws_data_table;
 s16 TWindowDD__sub_8034435C(u8 *arg0, u32 arg1, s32 arg2, s32 arg3);
 s32 TWindowDD__sub_80346DB8(s32 arg0);
 s32 TWindowDD_read_indexed_value(s32, s32);
 s16 TWindowDD_read_resolved_value(s32, s32);
 u8 TWindowDD__sub_80347858(s16 arg0);
 s32 TWindowDD__sub_80348398(u8 *arg0);
-extern u8 *TWindowDD__data_805D6E30;
+extern u8 *TWindowDD__ws_data_table;
 s16 TWindowDD__sub_80344568(u8 *arg0, u32 arg1, s32 arg2, s32 arg3);
 s32 TWindowDD__sub_80346DB8(s32 arg0);
 s32 TWindowDD_read_indexed_value(s32, s32);
 s16 TWindowDD_read_resolved_value(s32, s32);
 u8 TWindowDD__sub_80347858(s16 arg0);
 s32 TWindowDD__sub_80348398(u8 *arg0);
-extern u8 *TWindowDD__data_805D6E30;
+extern u8 *TWindowDD__ws_data_table;
 s16 TWindowDD__sub_80344774(u8 *arg0, u32 arg1, s32 arg2, s32 arg3);
 s32 TWindowDD__sub_80346DB8(s32 arg0);
 s32 TWindowDD_read_indexed_value(s32, s32);
 s16 TWindowDD_read_resolved_value(s32, s32);
 u8 TWindowDD__sub_80347858(s16 arg0);
 s32 TWindowDD__sub_80348398(u8 *arg0);
-extern u8 *TWindowDD__data_805D6E30;
+extern u8 *TWindowDD__ws_data_table;
 s16 TWindowDD__sub_80346434(u8 *arg0, u32 arg1, s32 arg2, s32 arg3);
 void set_pos_and_data__9TWindowDDFPvf(void *, f32);
 M2C_UNK build_player_word_lists__9TWindowDDFv();
@@ -650,7 +650,7 @@ extern u32 lbl_805D6E50;
 extern u32 lbl_805D6E54;
 extern u32 lbl_805D6E58;
 extern u32 lbl_805D6E5C;
-extern u32 lbl_805D6E60;
+extern u32 TWindowDD__ws_data_buffer;
 
 void free_buffers__9TWindowDDFv(void) {
     fn_8034AF18();
@@ -678,9 +678,9 @@ void free_buffers__9TWindowDDFv(void) {
         free__11TOBoss4RockFUi((void*)TWindowDD__data_805D6E0C);
         TWindowDD__data_805D6E0C = 0U;
     }
-    if ((u32) lbl_805D6E60 != 0U) {
-        free_nodes_with_id__6TLobbyFUi((void*)lbl_805D6E60);
-        lbl_805D6E60 = 0U;
+    if ((u32) TWindowDD__ws_data_buffer != 0U) {
+        free_nodes_with_id__6TLobbyFUi((void*)TWindowDD__ws_data_buffer);
+        TWindowDD__ws_data_buffer = 0U;
     }
     if ((u32) lbl_805D6E5C != 0U) {
         free_nodes_with_id__6TLobbyFUi((void*)lbl_805D6E5C);
@@ -763,9 +763,9 @@ s16 TWindowDD__sub_8034435C(u8 *arg0, u32 arg1, s32 arg2, s32 arg3) {
         break;
     case 13:
         if (TWindowDD_read_resolved_value(-0x50, arg3) == 0x2C8) {
-            v = (*(s16 **)(TWindowDD__data_805D6E30 + 0x78))[*(s16 *)(arg0 + 0xFC) - 0x37];
+            v = (*(s16 **)(TWindowDD__ws_data_table + 0x78))[*(s16 *)(arg0 + 0xFC) - 0x37];
         } else {
-            v = (*(s16 **)(TWindowDD__data_805D6E30 + 0x80))[*(s16 *)(arg0 + 0xFC) - 0x37];
+            v = (*(s16 **)(TWindowDD__ws_data_table + 0x80))[*(s16 *)(arg0 + 0xFC) - 0x37];
         }
         break;
     case 14:
@@ -850,9 +850,9 @@ s16 TWindowDD__sub_80344568(u8 *arg0, u32 arg1, s32 arg2, s32 arg3) {
         break;
     case 13:
         if (TWindowDD_read_resolved_value(-0x50, arg3) == 0x2C8) {
-            v = (*(s16 **)(TWindowDD__data_805D6E30 + 0x78))[*(s16 *)(arg0 + 0xFC) - 0x37];
+            v = (*(s16 **)(TWindowDD__ws_data_table + 0x78))[*(s16 *)(arg0 + 0xFC) - 0x37];
         } else {
-            v = (*(s16 **)(TWindowDD__data_805D6E30 + 0x80))[*(s16 *)(arg0 + 0xFC) - 0x37];
+            v = (*(s16 **)(TWindowDD__ws_data_table + 0x80))[*(s16 *)(arg0 + 0xFC) - 0x37];
         }
         break;
     case 14:
@@ -937,9 +937,9 @@ s16 TWindowDD__sub_80344774(u8 *arg0, u32 arg1, s32 arg2, s32 arg3) {
         break;
     case 13:
         if (TWindowDD_read_resolved_value(-0x50, arg3) == 0x2C8) {
-            v = (*(s16 **)(TWindowDD__data_805D6E30 + 0x78))[*(s16 *)(arg0 + 0xFC) - 0x37];
+            v = (*(s16 **)(TWindowDD__ws_data_table + 0x78))[*(s16 *)(arg0 + 0xFC) - 0x37];
         } else {
-            v = (*(s16 **)(TWindowDD__data_805D6E30 + 0x80))[*(s16 *)(arg0 + 0xFC) - 0x37];
+            v = (*(s16 **)(TWindowDD__ws_data_table + 0x80))[*(s16 *)(arg0 + 0xFC) - 0x37];
         }
         break;
     case 14:
@@ -1292,9 +1292,9 @@ s16 TWindowDD__sub_80346434(u8 *arg0, u32 arg1, s32 arg2, s32 arg3) {
         break;
     case 13:
         if (TWindowDD_read_resolved_value(-0x50, arg3) == 0x2C8) {
-            v = (*(s16 **)(TWindowDD__data_805D6E30 + 0x78))[*(s16 *)(arg0 + 0xFC) - 0x37];
+            v = (*(s16 **)(TWindowDD__ws_data_table + 0x78))[*(s16 *)(arg0 + 0xFC) - 0x37];
         } else {
-            v = (*(s16 **)(TWindowDD__data_805D6E30 + 0x80))[*(s16 *)(arg0 + 0xFC) - 0x37];
+            v = (*(s16 **)(TWindowDD__ws_data_table + 0x80))[*(s16 *)(arg0 + 0xFC) - 0x37];
         }
         break;
     case 14:

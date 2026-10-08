@@ -111,7 +111,7 @@ M2C_UNK set_global_param__8TObjFishFi(int);
 M2C_UNK draw_ginja_model(int);
 M2C_UNK draw_ginja_model_with_motion(void *, int, f32);
 M2C_UNK set_chunk_material_color(void *);
-extern char lbl_804A7418[];
+extern char chunk_material_color_half_alpha_f32[];
 extern s32 lbl_805D5660;
 extern s32 *lbl_805D597C;
 extern s32 some_id_805c6f74;
@@ -214,7 +214,7 @@ void render__15TODoorMachine02Fv(Door_80163408 *arg0) {
             draw_ginja_model(n->f4);
             pop_matrix();
             if (flag != 1) {
-                set_chunk_material_color(lbl_804A7418);
+                set_chunk_material_color(chunk_material_color_half_alpha_f32);
                 some_id_805c6f74 = lbl_805D5660;
             }
             n = arg0->model->root->next30;

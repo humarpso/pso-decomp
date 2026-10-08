@@ -54,11 +54,11 @@ struct Shot_802CDB1C {
 };
 
 extern "C" {
-extern s32 TObjEneMe1GiGue__data_805D6834;
+extern s32 TObjEneMe1GiGue__param_table;
 f32 TObjEneMe1GiGue__sub_802CDAD8(M2C_UNK arg0, s32 arg1);
 extern G_802CDAEC *TObjEneMe1GiGue__data_805D6838;
 void TObjEneMe1GiGue__sub_802CDAEC(O_802CDAEC *self, s32 i);
-extern s32 TObjEneMe1GiGue__data_805D6834;
+extern s32 TObjEneMe1GiGue__param_table;
 s32 TObjEneMe1GiGue__sub_802CDAC4(void *self, s32 i);
 f64 get_ad_end_text_start__10TObjPlayerFv(f32, f32);
 s32 spawn_particle_effect_with_rotation(Vec_802CDEB4 *, Ang_802CDEB4 *, int, int);

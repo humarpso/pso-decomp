@@ -57,7 +57,7 @@ extern s32 lbl_805D62B0;
     extern int lbl_805D49A4;
     extern int lbl_805D49A8;
     extern int lbl_805D49B0;
-    extern int lbl_805D5678;
+    extern int anim_model_matrix_array;
     extern int lbl_805D5680;
 u8 * TWindowSubTradeMain__sub_8033131C(void* p, void* _w1);
 void initialize_option_dialog(void *, s32, s32, f32);

@@ -104,7 +104,7 @@ s32 set_global_flag__10TObjPlayerFv();
 s32 clear_global_state__10TObjPlayerFv();
 extern RecoveredGlobal_802CE68C_lbl_804724A8 lbl_804724A8;
 extern RecoveredGlobal_802CE68C_lbl_8058D490 lbl_8058D490;
-extern s32 lbl_805D5678;
+extern s32 anim_model_matrix_array;
 void TObjPlayer__sub_802CE68C(u8 *arg0, s32 arg1, s32 arg2);
 M2C_UNK clear_global_flag_400__9TObjEneDDFv();
 M2C_UNK update_player_state__9TObjEneDDFPv(void *, Vec_802CE740 *, int);
@@ -178,7 +178,7 @@ void TObjPlayer__sub_802CE68C(u8 *arg0, s32 arg1, s32 arg2) {
     render_anim_model__10TObjPlayerFPvf((void *) (arg0), (f32) (M2C_FIELD(arg0, f32 *, 0xC0)));
     clear_global_state__10TObjPlayerFv();
     pop_matrix();
-    push_matrix_from((void *) (lbl_805D5678 + (arg2 * 0x30)));
+    push_matrix_from((void *) (anim_model_matrix_array + (arg2 * 0x30)));
     stack.sp8 = M2C_FIELD(&lbl_804724A8.value, s32 *, 0);
     stack.spC = M2C_FIELD(&lbl_804724A8.value, s32 *, 4);
     stack.sp10 = M2C_FIELD(&lbl_804724A8.value, s32 *, 8);

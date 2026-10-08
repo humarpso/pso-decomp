@@ -62,7 +62,7 @@ M2C_UNK pop_matrix();
 M2C_UNK set_global_param__8TObjFishFi(void *);
 M2C_UNK draw_chunk_object();
 extern u8 lbl_8048E5A0[];
-extern RecoveredGlobal_8013D7E0_lbl_804A7164 lbl_804A7164;
+extern RecoveredGlobal_8013D7E0_lbl_804A7164 target_cursor_color_table;
 extern u8 *lbl_805D4DF0;
 extern const f32 TMainCursor__data_805DB0C0;
 s32 test_action_mask__10TObjPlayerFPvi(s32, s32);
@@ -72,7 +72,7 @@ s32 TObjPlayer__sub_801B5AF8(s32, s32);
 s32 try_camera_action__10TObjPlayerFii(s32, u16);
 s32 check_mode_action__10TObjPlayerFii(s32, u16);
 s32 reset_key_machine_state__10TObjPlayerFv();
-extern u8 lbl_804A7150[];
+extern u8 cursor_action_priority_table[];
 s32 get_action_cursor_priority__11TMainCursorFPvii(void *arg0, s32 arg1, s32 arg2);
 void *TObjPlayer__sub_80116620(void *, s32);
 void refresh_target_marker__11TMainCursorFPv(void *);
@@ -184,7 +184,7 @@ s32 get_action_cursor_priority__11TMainCursorFPvii(void *arg0, s32 arg1, s32 arg
         break;
     case 3:
         if (try_camera_action__10TObjPlayerFii(arg1, sub) != 0) {
-            return lbl_804A7150[sub];
+            return cursor_action_priority_table[sub];
         }
         break;
     case 4:
@@ -531,10 +531,10 @@ void TLockOnCursor::renderSecondaryCursor(u8 *arg1, s32 arg2, s32 arg3) {
                 push_matrix();
                 translate_matrix((int) (0), (f32) (TMainCursor__data_805DB0C0), (f32) (temp_f31), (f32) (TMainCursor__data_805DB0C0));
                 update_parts2__15TPlyPhotonChairFPv((void *) (arg0 + 0x48));
-                play_sound_with_arg__15TPlyPhotonChairFPvPv((void *) (arg0 + 0x48), (void *) ((u8 *)&lbl_804A7164.value + 0x50));
+                play_sound_with_arg__15TPlyPhotonChairFPvPv((void *) (arg0 + 0x48), (void *) ((u8 *)&target_cursor_color_table.value + 0x50));
                 get_cursor_state__11TMainCursorFv();
                 draw_chunk_object();
-                play_sound_with_arg__15TPlyPhotonChairFPvPv((void *) (arg0 + 0x48), (void *) ((u8 *)&lbl_804A7164.value + (temp_r3_2 * 0x10)));
+                play_sound_with_arg__15TPlyPhotonChairFPvPv((void *) (arg0 + 0x48), (void *) ((u8 *)&target_cursor_color_table.value + (temp_r3_2 * 0x10)));
                 TLockOnCursor__sub_8013EB34();
                 draw_chunk_object();
                 update_parts__15TPlyPhotonChairFPv((void *) (arg0 + 0x48));

@@ -127,7 +127,7 @@ s32 TLobby__sub_8042AAA0(void *);
 extern u8 lbl_805CF240[0xA0];
 extern u8 lbl_805CF2E0[0xA0];
 extern u8 lbl_805CF380[0x48];
-extern s32 lbl_805D7BB4;
+extern s32 lobby_message_thread_handle;
 extern u32 lbl_805D7BC4;
 void TLobby__sub_803F95E4(u32);
 extern u32 lbl_805D7BA8;

@@ -56,7 +56,7 @@ extern s32 lbl_805D53A0;
 extern s32 lbl_805D5550;
 extern s32 lbl_805D6238;
 extern s32 shop_world_player_level;
-extern s32 lbl_805D6240;
+extern s32 shop_difficulty_tier;
 extern s32 lbl_805D6244;
 void init_shop_world_context(void);
 }
@@ -120,12 +120,12 @@ void init_shop_world_context(void) {
     if ((s32) lbl_805D6238 > 9) {
         lbl_805D6238 = 9;
     }
-    lbl_805D6240 = lbl_805D5550;
+    shop_difficulty_tier = lbl_805D5550;
     if ((s32) lbl_805D5550 < 0) {
-        lbl_805D6240 = 0;
+        shop_difficulty_tier = 0;
     }
-    if ((s32) lbl_805D6240 > 3) {
-        lbl_805D6240 = 3;
+    if ((s32) shop_difficulty_tier > 3) {
+        shop_difficulty_tier = 3;
     }
     clear_shop_weapon_flags();
     clear_shop_armor_flags();

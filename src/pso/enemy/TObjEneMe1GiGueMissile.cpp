@@ -24,7 +24,7 @@ s32 set_global_param__8TObjFishFi(void *);
 s32 draw_model_motion(void *, int, f32);
 s32 set_global_flag__10TObjPlayerFv();
 s32 clear_global_state__10TObjPlayerFv();
-extern int lbl_805D6858;
+extern int TObjEneMe1GiGue_barrier_count;
 void render__22TObjEneMe1GiGueMissileFv(u8 *arg0);
 u16 obj_getField1c(void *);
 s32 play_sound_effect(s32, u32, s16, s32);
@@ -138,7 +138,7 @@ void *__dt__22TObjEneMe1GiGueMissileFv(void *arg0, s16 arg1) {
 
 void render__22TObjEneMe1GiGueMissileFv(u8 *arg0) {
   s32 temp_r31;
-  if (((void *) (*(u8 * *)&lbl_805D6858)) == 0)
+  if (((void *) (*(u8 * *)&TObjEneMe1GiGue_barrier_count)) == 0)
   {
     queue_destruction__7TObjectFv((void*)((void *) arg0));
     return;
@@ -149,10 +149,10 @@ void render__22TObjEneMe1GiGueMissileFv(u8 *arg0) {
   temp_r31 = (int) (*((s32 *) (((s8 *) arg0) + 0xA4)));
   rotate_matrix_y((int) 0, temp_r31);
   rotate_matrix_x((int) 0, (int) (*((s32 *) (((s8 *) arg0) + 0xA0))));
-  set_global_param__8TObjFishFi((void *) (*((s32 *) (((s8 *) (*((u8 **) (((s8 *) (*(u8 * *)&lbl_805D6858)) + 0x42C)))) + 0x1C))));
+  set_global_param__8TObjFishFi((void *) (*((s32 *) (((s8 *) (*((u8 **) (((s8 *) (*(u8 * *)&TObjEneMe1GiGue_barrier_count)) + 0x42C)))) + 0x1C))));
   set_global_flag__10TObjPlayerFv();
-  temp_r31 = get_bml_motion((void *) (*(u8 * *)&lbl_805D6858), (int) 5);
-  draw_model_motion((void *) get_bml_model((void *) (*(u8 * *)&lbl_805D6858), (int) 1), (int) temp_r31, (f32) (*((f32 *) (((s8 *) arg0) + 0xBC))));
+  temp_r31 = get_bml_motion((void *) (*(u8 * *)&TObjEneMe1GiGue_barrier_count), (int) 5);
+  draw_model_motion((void *) get_bml_model((void *) (*(u8 * *)&TObjEneMe1GiGue_barrier_count), (int) 1), (int) temp_r31, (f32) (*((f32 *) (((s8 *) arg0) + 0xBC))));
   clear_global_state__10TObjPlayerFv();
   end_effect_render__13TParticleCtrlFv();
   pop_matrix();
@@ -203,7 +203,7 @@ u8 *TObjEneMe1GiGueMissile__ct(u8 *arg0, s32 arg1, u8 *arg2, u8 *arg3, f32 farg0
 
 void TObjEneMe1GiGue__sub_802CE4E8(void) {  }
 
-    extern int lbl_805D6858;
-void TObjEneMe1GiGue__sub_802CE4EC(void) { lbl_805D6858 = get_barrier_count__15TObjEneMe1GiGueFv(); }
+    extern int TObjEneMe1GiGue_barrier_count;
+void TObjEneMe1GiGue__sub_802CE4EC(void) { TObjEneMe1GiGue_barrier_count = get_barrier_count__15TObjEneMe1GiGueFv(); }
 
 }

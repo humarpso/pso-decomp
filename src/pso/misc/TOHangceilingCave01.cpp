@@ -328,8 +328,8 @@ extern M2C_UNK __vt__27TOHangceilingCave01KeyQuick[];
 extern u8 lbl_804416A8[];
 extern u8 lbl_804416C0[];
 extern u8 lbl_804416D8[];
-extern u8 lbl_804B1F70[];
-extern RecoveredGlobal_80167878_lbl_804B1F80 lbl_804B1F80;
+extern u8 TOFenceAncient04_resource_descriptor[];
+extern RecoveredGlobal_80167878_lbl_804B1F80 ofence_ancient04_collision_parts;
 extern s32 lbl_805D2FE0;
 extern void *lbl_805D2FE8;
 extern void *lbl_805D2FEC;
@@ -1065,7 +1065,7 @@ struct Buf_80168AA8 { s32 a; s32 b; s32 c; };
 s32 TObjFish__sub_8001EDB0(void *, int);
 s32 get_bml_model(void *, int);
 extern u8 lbl_804B2144[];
-extern u8 lbl_804B2164[];
+extern u8 turiten_singo_resource_descriptor[];
 extern s32 lbl_805D59D8;
 extern s32 lbl_805D59E0;
 
@@ -1082,7 +1082,7 @@ void load_turiten_singo_resources(void) {
     case 20:
         p = alloc__23TAdSinglePlyChrSelectGCFPv(0x440);
         if (p != 0) {
-            p = ((void *(*)(void *, int, void *, int, int, int))load_resource_from_descriptor)(p, 5, lbl_804B2164, 0, 0, 0);
+            p = ((void *(*)(void *, int, void *, int, int, int))load_resource_from_descriptor)(p, 5, turiten_singo_resource_descriptor, 0, 0, 0);
         }
         (*(void **)&lbl_805D59D0) = p;
         (*(Buf_80168AA8 **)&lbl_805D59D4) = ((Buf_80168AA8 *(*)(u32))alloc_buffer__11TOBoss4RockFPv)(0xC);

@@ -34,7 +34,7 @@ f32 rotate_current_matrix_x_ps(int);
 s32 load_current_pos_matrix(int);
 s32 load_current_tex_matrix(int);
 s32 push_identity_matrix_ps();
-extern RecoveredGlobal_80083914_lbl_8048E5D0 lbl_8048E5D0;
+extern RecoveredGlobal_80083914_lbl_8048E5D0 shadow_light_position;
 extern s32 lbl_805D7774;
 extern s32 some_id_805c6f74;
 extern const f32 lbl_805D93D0;
@@ -84,7 +84,7 @@ void render_projected_shadow_receiver(u8 *arg0, s32 arg1) {
         push_identity_matrix_ps();
         translate_current_matrix_ps(lbl_805D93D0, lbl_805D93D0, lbl_805D9418);
         rotate_current_matrix_x_ps((int) (0x3800));
-        translate_current_matrix_ps(-M2C_FIELD(&lbl_8048E5D0.value, f32 *, 0), -M2C_FIELD(&lbl_8048E5D0.value, f32 *, 4), -M2C_FIELD(&lbl_8048E5D0.value, f32 *, 8));
+        translate_current_matrix_ps(-M2C_FIELD(&shadow_light_position.value, f32 *, 0), -M2C_FIELD(&shadow_light_position.value, f32 *, 4), -M2C_FIELD(&shadow_light_position.value, f32 *, 8));
         translate_current_matrix_ps(M2C_FIELD(arg0, f32 *, 0), M2C_FIELD(arg0, f32 *, 4), M2C_FIELD(arg0, f32 *, 8));
         rotate_matrix_by_node_angles((void *) (arg1), (int) (1));
         stack.sp8 = lbl_805D93DC;

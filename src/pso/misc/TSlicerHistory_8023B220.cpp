@@ -23,7 +23,7 @@ M2C_UNK post_translate_matrix(void *);
 M2C_UNK draw_ginja_object(int);
 M2C_UNK set_chunk_material_color(void *);
 typedef struct { f32 r, g, b, a; } Col_8023B220;
-extern Col_8023B220 lbl_804A7418;
+extern Col_8023B220 chunk_material_color_half_alpha_f32;
 extern s32 lbl_805D5660;
 extern s32 some_id_805c6f74;
 extern const f32 lbl_805DC948;
@@ -57,7 +57,7 @@ void render__14TSlicerHistoryFv(u8 *arg0) {
             scale_current_matrix((void *) ((u8 *)(arg0) + 0x4C));
             set_chunk_material_color((void *) (&col));
             draw_ginja_object((int) (M2C_FIELD(arg0, u32 *, 0x34)));
-            set_chunk_material_color((void *) (&lbl_804A7418));
+            set_chunk_material_color((void *) (&chunk_material_color_half_alpha_f32));
             end_effect_render__13TParticleCtrlFv();
         }
         pop_matrix();

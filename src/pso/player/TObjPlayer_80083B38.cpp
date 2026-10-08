@@ -79,13 +79,13 @@ void **TLobby__sub_803DA16C();
 extern M2C_UNK lbl_8048E5C8[];
 void **TObjPlayer__sub_80083F04(void);
 f32 horizontal_distance_squared(void *, void *);
-extern RecoveredGlobal_80083CEC_lbl_8048E5D0 lbl_8048E5D0;
+extern RecoveredGlobal_80083CEC_lbl_8048E5D0 shadow_light_position;
 extern u32 lbl_805D4DF0;
 extern const f32 lbl_805D9434;
 s32 is_in_shadow_range(u8 *arg0, f32 farg0);
-extern G_800845F8 lbl_8048E5B4;
+extern G_800845F8 shared_capture_texture_list;
 s32 TObjPlayer__sub_800845F8(void);
-extern G_800845F8 lbl_8048E5B4;
+extern G_800845F8 shared_capture_texture_list;
 M2C_UNK set_global_param__8TObjFishFi(M2C_UNK *);
 M2C_UNK load_list_texture(M2C_UNK, M2C_UNK, M2C_UNK, M2C_UNK);
 void TObjPlayer__sub_80084500(void);
@@ -95,13 +95,13 @@ void set_render_rect__10TObjPlayerFPviiii(void *, int, int, int, int);
 void set_texture_name(void *, void *, int, int);
 s32 load_texture_list(void *);
 void TObjPlayer__sub_80083F38(void);
-extern G_800845F8 lbl_8048E5B4;
+extern G_800845F8 shared_capture_texture_list;
 void set_render_rect__10TObjPlayerFPviiii(void *, int, int, int, int);
 void set_texture_name(void *, void *, int, int);
 s32 load_texture_list(void *);
 void init_capture_texture(s32 wide);
 void **TLobby__sub_803DA16C();
-extern G_800845F8 lbl_8048E5B4;
+extern G_800845F8 shared_capture_texture_list;
 void **TObjPlayer__sub_80084694(void);
 s32 is_split_screen();
 M2C_UNK TCameraCtrl__sub_80068EF0();
@@ -151,7 +151,7 @@ M2C_UNK load_gx_light_slot(int);
 void translate_current_matrix_ps(f32, f32, f32);
 void rotate_current_matrix_x_ps(s32);
 void push_identity_matrix_ps();
-extern RecoveredGlobal_80083CEC_lbl_8048E5D0 lbl_8048E5D0;
+extern RecoveredGlobal_80083CEC_lbl_8048E5D0 shadow_light_position;
 extern u32 lbl_805D4DF0;
 extern const f32 lbl_805D93C8;
 extern const f32 lbl_805D93D0;
@@ -168,7 +168,7 @@ M2C_UNK GXSetTexCopySrc(int, int, int, int);
 M2C_UNK GXSetTexCopyDst(int, int, int, int);
 void GXSetCopyClear(GXColor_80083B8C, u32);
 M2C_UNK GXCopyTex(void *, int);
-extern G_800845F8 lbl_8048E5B4;
+extern G_800845F8 shared_capture_texture_list;
 extern unsigned char lbl_805D4EE4;
 extern GXColor_80083B8C lbl_805E1208;
 void capture_viewport_texture(void);
@@ -190,7 +190,7 @@ M2C_UNK set_global_param__8TObjFishFi(M2C_UNK *);
 M2C_UNK load_list_texture(M2C_UNK, M2C_UNK, M2C_UNK, M2C_UNK);
 M2C_UNK load_screen_space_matrix__10TObjPlayerFv();
 M2C_UNK setup_blended_textured_draw();
-extern G_800845F8 lbl_8048E5B4;
+extern G_800845F8 shared_capture_texture_list;
 extern const f32 lbl_805D93D0;
 extern const f32 lbl_805D93D8;
 extern const f32 lbl_805D9404;
@@ -215,7 +215,7 @@ M2C_UNK set_global_param__8TObjFishFi(M2C_UNK *);
 M2C_UNK load_list_texture(M2C_UNK, M2C_UNK, M2C_UNK, M2C_UNK);
 M2C_UNK load_screen_space_matrix__10TObjPlayerFv();
 M2C_UNK setup_blended_textured_draw();
-extern G_800845F8 lbl_8048E5B4;
+extern G_800845F8 shared_capture_texture_list;
 extern const f32 lbl_805D93D0;
 extern const f32 lbl_805D93D8;
 extern const f32 lbl_805D9444;
@@ -273,7 +273,7 @@ void func_80083a00__Fv(void) {
 }
 
 s32 is_in_shadow_range(u8 *arg0, f32 farg0) {
-    if (((u32) lbl_805D4DF0 != 0U) && (((farg0 * farg0) + horizontal_distance_squared(arg0, &lbl_8048E5D0.value)) <= lbl_805D9434)) {
+    if (((u32) lbl_805D4DF0 != 0U) && (((farg0 * farg0) + horizontal_distance_squared(arg0, &shadow_light_position.value)) <= lbl_805D9434)) {
         return 1;
     }
     return 0;
@@ -283,7 +283,7 @@ s32 is_in_shadow_range(u8 *arg0, f32 farg0) {
 #pragma push
 #pragma fp_contract on
 #define VIEW ((View_80083D54 *)lbl_805D4DF0)
-#define LIGHT (*(Vec_80083D54 *)&lbl_8048E5D0)
+#define LIGHT (*(Vec_80083D54 *)&shadow_light_position)
 void camera_stuff__Fv(void) {
     Mtx44_80083D54 proj;
     Vec_80083D54 d;
@@ -388,9 +388,9 @@ void draw_screen_quad__10TObjPlayerFUiif(u32 arg0, s32 arg1, f32 farg0) {
     u32 temp_r31;
     void *temp_r4;
     void *temp_r4_2;
-    set_global_param__8TObjFishFi((M2C_UNK *)&lbl_8048E5B4);
+    set_global_param__8TObjFishFi((M2C_UNK *)&shared_capture_texture_list);
     if (arg1 != 0) {
-        temp_r4 = lbl_8048E5B4.a->b->c;
+        temp_r4 = shared_capture_texture_list.a->b->c;
         M2C_FIELD(temp_r4, s32 *, 0x10) = 0x100;
         M2C_FIELD(temp_r4, s32 *, 0x14) = 0xC0;
     }
@@ -432,7 +432,7 @@ void draw_screen_quad__10TObjPlayerFUiif(u32 arg0, s32 arg1, f32 farg0) {
     TObjPlayer__sub_800847FC();
     reset_transform_state__10TObjPlayerFv();
     if (arg1 != 0) {
-        temp_r4_2 = lbl_8048E5B4.a->b->c;
+        temp_r4_2 = shared_capture_texture_list.a->b->c;
         M2C_FIELD(temp_r4_2, s32 *, 0x10) = 0x280;
         M2C_FIELD(temp_r4_2, s32 *, 0x14) = 0x1E0;
     }
@@ -442,9 +442,9 @@ void draw_textured_screen_quad__10TObjPlayerFUiPvPvi(u32 arg0, f32 *arg1, f32 *a
     u32 temp_r31;
     void *temp_r4;
     void *temp_r4_2;
-    set_global_param__8TObjFishFi((M2C_UNK *)&lbl_8048E5B4);
+    set_global_param__8TObjFishFi((M2C_UNK *)&shared_capture_texture_list);
     if (arg3 != 0) {
-        temp_r4 = (*(G_800842A4 *)&lbl_8048E5B4).a->b->c;
+        temp_r4 = (*(G_800842A4 *)&shared_capture_texture_list).a->b->c;
         M2C_FIELD(temp_r4, s32 *, 0x10) = 0x100;
         M2C_FIELD(temp_r4, s32 *, 0x14) = 0xC0;
     }
@@ -481,14 +481,14 @@ void draw_textured_screen_quad__10TObjPlayerFUiPvPvi(u32 arg0, f32 *arg1, f32 *a
     TObjPlayer__sub_800847FC();
     reset_transform_state__10TObjPlayerFv();
     if (arg3 != 0) {
-        temp_r4_2 = (*(G_800842A4 *)&lbl_8048E5B4).a->b->c;
+        temp_r4_2 = (*(G_800842A4 *)&shared_capture_texture_list).a->b->c;
         M2C_FIELD(temp_r4_2, s32 *, 0x10) = 0x280;
         M2C_FIELD(temp_r4_2, s32 *, 0x14) = 0x1E0;
     }
 }
 
 void TObjPlayer__sub_80084500(void) {
-    set_global_param__8TObjFishFi((M2C_UNK *)(((u8 *)&lbl_8048E5B4)));
+    set_global_param__8TObjFishFi((M2C_UNK *)(((u8 *)&shared_capture_texture_list)));
     load_list_texture((M2C_UNK)(0), (M2C_UNK)(0), (M2C_UNK)(0), (M2C_UNK)(0));
 }
 
@@ -499,16 +499,16 @@ void capture_viewport_texture(void) {
         GXSetTexCopySrc(0, 0, 0x280, 0x1E0);
         GXSetTexCopyDst(0x280, 0x1E0, 4, 0);
         if (lbl_805D4EE4 & 8) {
-            GXCopyTex((void *)lbl_8048E5B4.a->b->c->x20, 1);
+            GXCopyTex((void *)shared_capture_texture_list.a->b->c->x20, 1);
         } else {
-            GXCopyTex((void *)lbl_8048E5B4.a->b->c->x20, 0);
+            GXCopyTex((void *)shared_capture_texture_list.a->b->c->x20, 0);
         }
         GXPixModeSync();
     }
 }
 
 s32 TObjPlayer__sub_800845F8(void) {
-    return lbl_8048E5B4.a->b->c->x20;
+    return shared_capture_texture_list.a->b->c->x20;
 }
 
 void TObjPlayer__sub_80084614(void) { lbl_805D4EE4 = 0; TObjPlayer__sub_80084694(); }
@@ -517,8 +517,8 @@ void reset_movie_state__10TObjPlayerFv(void) { lbl_805D4EE4 = 0; init_capture_te
 
 void **TObjPlayer__sub_80084694(void) {
     void **var_r3;
-    var_r3 = (void **)&lbl_8048E5B4;
-    if ((*(G_80084694 *)&lbl_8048E5B4).a->f8 != 0) {
+    var_r3 = (void **)&shared_capture_texture_list;
+    if ((*(G_80084694 *)&shared_capture_texture_list).a->f8 != 0) {
         var_r3 = TLobby__sub_803DA16C();
     }
     return var_r3;
@@ -539,8 +539,8 @@ void init_capture_texture(s32 wide) {
         h = 480;
     }
     set_render_rect__10TObjPlayerFPviiii(&r, 0, mode, w, h);
-    set_texture_name((*(G_800846C8 *)&lbl_8048E5B4).a, &r, 0x2EE0, 0x08800000);
-    load_texture_list(&lbl_8048E5B4);
+    set_texture_name((*(G_800846C8 *)&shared_capture_texture_list).a, &r, 0x2EE0, 0x08800000);
+    load_texture_list(&shared_capture_texture_list);
 }
 
 void TObjPlayer__sub_80084744(void) { (*(u8 *)&lbl_805D4EE4) = ((*(u8 *)&lbl_805D4EE4) & 0xfffffffb); }

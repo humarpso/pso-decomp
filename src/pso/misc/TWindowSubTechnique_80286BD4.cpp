@@ -23,7 +23,7 @@ extern s32 lbl_805D62B0;
     extern int lbl_805D49A4;
     extern int lbl_805D49A8;
     extern int lbl_805D49B0;
-    extern int lbl_805D5678;
+    extern int anim_model_matrix_array;
     extern int lbl_805D5680;
 int get_current_selection__19TWindowSubTechniqueFPvPv(void* p, void* _w1);
 u32 get_player_by_client_id(s32);

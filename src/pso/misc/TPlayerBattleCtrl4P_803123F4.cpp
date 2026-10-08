@@ -166,7 +166,7 @@ void *lbl_804E7FF0[42] = {
     (void *)0x0, (void *)0x0, (void *)0x0, (void *)0x0,
     (void *)0x0, (void *)0x0,
 };
-void *lbl_804E8098[4] = {
+void *TPlayerBattleCtrl4P_player_name_formats[4] = {
     (void *)&lbl_805DF230, (void *)&lbl_805DF234, (void *)&lbl_805DF238, (void *)&lbl_805DF23C,
 };
 void *lbl_804E80A8[6] = {

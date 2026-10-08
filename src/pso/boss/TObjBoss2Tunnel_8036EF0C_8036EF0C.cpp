@@ -9,11 +9,11 @@ extern "C" {
 void set_display_copy_filter(int arg0);
 M2C_UNK Dolphin_GXSetCopyFilter(int, void *, void *, void *, void *);
 
-extern s32 lbl_805D44F8;
+extern s32 display_copy_filter_enabled;
 extern u8 *lbl_805D7734;
 
 void set_display_copy_filter(int arg0) {
-    lbl_805D44F8 = (s32) arg0;
+    display_copy_filter_enabled = (s32) arg0;
     Dolphin_GXSetCopyFilter((int) (M2C_FIELD(lbl_805D7734, u8 *, 0x19)), (void *) (lbl_805D7734 + 0x1A), (void *) ((u8) arg0), (void *) (lbl_805D7734 + 0x32), (void *) (lbl_805D7734));
 }
 

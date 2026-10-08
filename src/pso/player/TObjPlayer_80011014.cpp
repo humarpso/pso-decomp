@@ -1148,7 +1148,7 @@ extern SceneState_8000FD54 main_phase_state;
 extern Vec_800182A0 lbl_8050BEE0;
 extern RecoveredGlobal_80010E44_lbl_8050EA40 lbl_8050EA40;
 extern RecoveredGlobal_8001806C_lbl_8058D490 lbl_8058D490;
-extern s32 lbl_805D34B8;
+extern s32 camera_split_screen_selector;
 extern s32 lbl_805D53A4;
 extern s32 lbl_805D5550;
 extern s32 lbl_805D586C;
@@ -5067,7 +5067,7 @@ void TObjPlayer__sub_80019664(O_80019664 *self) {
 }
 
 bool is_split_screen(void) {
-    return lbl_805D34B8 != 1;
+    return camera_split_screen_selector != 1;
 }
 
 f32 calc_random_ratio__10TObjPlayerFv(void) {

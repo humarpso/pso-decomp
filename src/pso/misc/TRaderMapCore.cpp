@@ -384,7 +384,7 @@ void set_global_param__8TObjFishFi(s32);
 void draw_ginja_model(s32);
 void set_chunk_material_override_pair(s32, s32);
 void set_chunk_material_color(void *);
-extern u8 lbl_804A7418[];
+extern u8 chunk_material_color_half_alpha_f32[];
 extern Color_801FAAEC lbl_804C8738;
 extern u8 lbl_8050BEC0[];
 extern u8 lbl_8058D4C0[];
@@ -407,7 +407,7 @@ void pop_matrix(void);
 void draw_ginja_object(s32);
 void set_chunk_material_override_pair(s32, s32);
 void set_chunk_material_color(void *);
-extern u8 lbl_804A7418[];
+extern u8 chunk_material_color_half_alpha_f32[];
 extern u8 lbl_8050BEC0[];
 extern RecoveredGlobal_801F9B8C_TRaderMapCore__data_80512D08 TRaderMapCore__data_80512D08;
 extern u8 lbl_8058D4C0[];
@@ -432,7 +432,7 @@ void pop_matrix(void);
 void draw_ginja_object(s32);
 void set_chunk_material_override_pair(s32, s32);
 void set_chunk_material_color(void *);
-extern u8 lbl_804A7418[];
+extern u8 chunk_material_color_half_alpha_f32[];
 extern u8 lbl_8050BEC0[];
 extern u8 lbl_8058D4C0[];
 extern s32 lbl_805D5660;
@@ -968,7 +968,7 @@ void draw_enemy_gate_markers__13TRaderMapCoreFv(u8 *arg0) {
         }
         pop_matrix();
     }
-    set_chunk_material_color(lbl_804A7418);
+    set_chunk_material_color(chunk_material_color_half_alpha_f32);
     lbl_805D7784 = lbl_805D5664;
     lbl_805D7780 = lbl_805D5668;
     copy_vec4__13TRaderMapCoreFPvPv(&(*(RecoveredGlobal_801FA1E0_lbl_8058D4C0 *)&lbl_8058D4C0).value, &(*(RecoveredGlobal_801FA1E0_lbl_8050BEC0 *)&lbl_8050BEC0).value);
@@ -997,7 +997,7 @@ void draw_player_markers__13TRaderMapCoreFv(u8 *arg0) {
             scale_matrix(0, M2C_FIELD(var_r31, f32 *, 0x10), M2C_FIELD(var_r31, f32 *, 0x10), M2C_FIELD(var_r31, f32 *, 0x10));
             draw_ginja_object(M2C_FIELD(arg0, s32 *, 0x178));
             pop_matrix();
-            set_chunk_material_color(lbl_804A7418);
+            set_chunk_material_color(chunk_material_color_half_alpha_f32);
         }
         var_r30 += 1;
         var_r31 = (u8 *)((void *)((u8 *)(var_r31) + 0x28));
@@ -1099,7 +1099,7 @@ void render_region_records__13TRaderMapCoreFv(Self_801FAAEC *arg0, void * _w1) {
             rotate_matrix_zyx(0, r->rx, r->ry, r->rz);
             draw_ginja_model(r->model->obj);
             pop_matrix();
-            set_chunk_material_color(lbl_804A7418);
+            set_chunk_material_color(chunk_material_color_half_alpha_f32);
         }
     }
     }

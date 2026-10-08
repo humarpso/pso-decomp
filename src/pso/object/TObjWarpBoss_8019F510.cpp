@@ -69,7 +69,7 @@ extern int lbl_805D5C90;
 extern int lbl_805D5C94;
 extern int lbl_805D5C98;
 extern int lbl_805D5C9C;
-extern int lbl_805D5CA0;
+extern int warp_boss_model_handle;
 extern int lbl_805D5CA4;
 extern "C" u8 lbl_80446480[];
 extern "C" u8 lbl_80446494[];
@@ -239,7 +239,7 @@ void load_models__8TObjFishFv(void) {
         (*(s32 *)&lbl_805D5C94) = get_bml_model((*(s32 *)&lbl_805D5C88), 1);
         (*(s32 *)&lbl_805D5C98) = get_bml_motion((*(s32 *)&lbl_805D5C88), 1);
         (*(s32 *)&lbl_805D5C9C) = get_bml_motion((*(s32 *)&lbl_805D5C88), 0);
-        (*(s32 *)&lbl_805D5CA0) = TObjFish__sub_8001EDB0((*(s32 *)&lbl_805D5C88), 2);
+        (*(s32 *)&warp_boss_model_handle) = TObjFish__sub_8001EDB0((*(s32 *)&lbl_805D5C88), 2);
         (*(s32 *)&lbl_805D5CA4) = TObjFish__sub_8001EDB0((*(s32 *)&lbl_805D5C88), 2);
         return;
     }
@@ -254,7 +254,7 @@ void load_models__8TObjFishFv(void) {
         (*(s32 *)&lbl_805D5C94) = get_bml_model((*(s32 *)&lbl_805D5C88), 1);
         (*(s32 *)&lbl_805D5C98) = get_bml_motion((*(s32 *)&lbl_805D5C88), 0);
         (*(s32 *)&lbl_805D5C9C) = get_bml_motion((*(s32 *)&lbl_805D5C88), 0);
-        (*(s32 *)&lbl_805D5CA0) = TObjFish__sub_8001EDB0((*(s32 *)&lbl_805D5C88), 0);
+        (*(s32 *)&warp_boss_model_handle) = TObjFish__sub_8001EDB0((*(s32 *)&lbl_805D5C88), 0);
         (*(s32 *)&lbl_805D5CA4) = TObjFish__sub_8001EDB0((*(s32 *)&lbl_805D5C88), 0);
         return;
     }
@@ -268,14 +268,14 @@ void load_models__8TObjFishFv(void) {
     (*(s32 *)&lbl_805D5C94) = get_bml_model((*(s32 *)&lbl_805D5C88), 1);
     (*(s32 *)&lbl_805D5C98) = get_bml_motion((*(s32 *)&lbl_805D5C88), 1);
     (*(s32 *)&lbl_805D5C9C) = get_bml_motion((*(s32 *)&lbl_805D5C88), 0);
-    (*(s32 *)&lbl_805D5CA0) = TObjFish__sub_8001EDB0((*(s32 *)&lbl_805D5C88), 2);
+    (*(s32 *)&warp_boss_model_handle) = TObjFish__sub_8001EDB0((*(s32 *)&lbl_805D5C88), 2);
     (*(s32 *)&lbl_805D5CA4) = TObjFish__sub_8001EDB0((*(s32 *)&lbl_805D5C88), 2);
 }
 
 int fn_8019F9AC(void) {  return lbl_805D5CA4; }
 
-    extern int lbl_805D5CA0;
-int fn_8019F9B4(void) {  return lbl_805D5CA0; }
+    extern int warp_boss_model_handle;
+int fn_8019F9B4(void) {  return warp_boss_model_handle; }
 
     extern int lbl_805D5C9C;
 int fn_8019F9BC(void) {  return lbl_805D5C9C; }

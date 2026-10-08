@@ -558,7 +558,7 @@ f32 post_translate_matrix(void *);
 extern Vec_800D57C8 lbl_8043C6D0;
 extern RecoveredGlobal_800D5060_lbl_8058D490 lbl_8058D490;
 extern u32 TObjEneMerillLia__data_805D521C;
-extern s32 lbl_805D5678;
+extern s32 anim_model_matrix_array;
 extern const f32 lbl_805DA30C;
 extern const f32 lbl_805DA310;
 M2C_UNK update_kafun_attack__16TObjEneMerillLiaFPv(void *p);
@@ -1222,7 +1222,7 @@ M2C_UNK update_kafun_attack__16TObjEneMerillLiaFPv(void *p) {
             rotate_matrix_y(0, M2C_FIELD(arg0, s32 *, 0x60));
             render_anim_model__10TObjPlayerFPvf((void *) (arg0), lbl_805DA30C);
             pop_matrix();
-            push_matrix_from((void *) (lbl_805D5678 + 0x450));
+            push_matrix_from((void *) (anim_model_matrix_array + 0x450));
             {
                 Vec_800D57C8 sp8 = lbl_8043C6D0;
                 matrix_mult_vec(0, &sp8, &sp14);

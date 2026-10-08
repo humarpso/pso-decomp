@@ -42,15 +42,15 @@ M2C_UNK DCStoreRangeNoSync(s32, s32);
 M2C_UNK VIFlush();
 u32 VIGetNextField();
 
-extern s32 lbl_805D5688;
+extern s32 movie_current_frame_buffer;
 extern s32 lbl_805D5694;
-extern s32 lbl_805D569C;
+extern s32 movie_flip_counter;
 
 void flush_cache__6TMovieFv(void) {
     if (VIGetNextField() == 0U) {
-        DCStoreRangeNoSync(lbl_805D5688, lbl_805D5694);
+        DCStoreRangeNoSync(movie_current_frame_buffer, lbl_805D5694);
         VIFlush();
-        lbl_805D569C += 1;
+        movie_flip_counter += 1;
     }
 }
 
@@ -108,12 +108,12 @@ extern "C" {
 void calc_frame_buffer_size__6TMovieFii(s32 arg0, s32 arg1);
 
 extern void *lbl_805D2CE8;
-extern s32 lbl_805D568C;
+extern s32 movie_frame_buffer_size;
 extern s32 lbl_805D5690;
 extern s32 lbl_805D5694;
 
 void calc_frame_buffer_size__6TMovieFii(s32 arg0, s32 arg1) {
-    lbl_805D568C = arg0;
+    movie_frame_buffer_size = arg0;
     lbl_805D5690 = arg1;
     lbl_805D5694 = ((M2C_FIELD(lbl_805D2CE8, u16 *, 4) + 0xF) & 0xFFF0) * M2C_FIELD(lbl_805D2CE8, u16 *, 8) * 2;
 }

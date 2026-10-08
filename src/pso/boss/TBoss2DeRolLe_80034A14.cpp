@@ -149,7 +149,7 @@ struct Fld_80034E90 { u8 pad0[0x1C]; u16 f1C; u8 pad1[0x38C - 0x1E]; u16 f38C; u
 extern "C" {
 f32 TBoss2DeRolLe__sub_80034CEC(void);
 f32 TBoss2DeRolLe__sub_80034CF8(void);
-extern u8 *TBoss2DeRolLe__data_805D4BC4;
+extern u8 *TBoss2DeRolLe__instance;
 void TBoss2DeRolLe__sub_80034DCC(s32 arg0);
 extern f32 TBoss2DeRolLe__data_805D82BC;
 void TBoss2DeRolLe__sub_80034D58(u8 *arg0, u8 *arg1);
@@ -354,8 +354,8 @@ void TBoss2DeRolLe__sub_80034D58(u8 *arg0, u8 *arg1) {
 }
 
 void TBoss2DeRolLe__sub_80034DCC(s32 arg0) {
-    if ((void *) TBoss2DeRolLe__data_805D4BC4 != NULL) {
-        TBoss2DeRolLe__sub_80034D58((u8 *)(TBoss2DeRolLe__data_805D4BC4), (u8 *)(arg0));
+    if ((void *) TBoss2DeRolLe__instance != NULL) {
+        TBoss2DeRolLe__sub_80034D58((u8 *)(TBoss2DeRolLe__instance), (u8 *)(arg0));
     }
 }
 

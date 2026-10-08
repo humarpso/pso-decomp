@@ -411,10 +411,10 @@ void create__11TTecRaBartaFPvPvPvPv(void *, void *, void *, s32);
 void create_ex__11TTecGiBartaFPvPvPvPv(void *, void *, s32, s32);
 s32 update_collisions__10TObjPlayerFPv(void *);
 extern Vec_80316C3C lbl_80475FC8[];
-extern Def_80316C3C *TObjEneMe3SinowZoa__data_80542FD4[];
+extern Def_80316C3C *TObjEneMe3SinowZoa__kind_param_tbls[];
 extern u8 lbl_8058D490[];
 extern s32 lbl_805D5550;
-extern u8 *lbl_805D5678;
+extern u8 *anim_model_matrix_array;
 extern const f32 TObjEneMe3SinowZoa__data_805DF308;
 extern const f32 TObjEneMe3SinowZoa__data_805DF30C;
 extern const f32 TObjEneMe3SinowZoa__data_805DF310;
@@ -430,7 +430,7 @@ M2C_UNK fn_8002B630(int, void *);
 u32 get_valid_target_player__10TNpcPlayerFv(int);
 M2C_UNK init_all_slots__10TObjPlayerFv();
 M2C_UNK update_enemy_collision_flags__10TObjPlayerFPv(void *);
-extern u8 lbl_804E87C4[];
+extern u8 sinow_zoa_collision_parts[];
 u32 TObjEneMe3SinowZoa__sub_80316B20(u8 *arg0, void *arg1);
 }
 
@@ -498,7 +498,7 @@ u32 TObjEneMe3SinowZoa__sub_80316B20(u8 *arg0, void *arg1) {
     r = (M2C_FIELD(o, u32 *, 0x18) & 0x200000) != 0;
     VecCopy__FP3VecPC3Vec(arg0 + 0x38, &sp8);
     init_all_slots__10TObjPlayerFv();
-    fn_8002B630((int)o, lbl_804E87C4);
+    fn_8002B630((int)o, sinow_zoa_collision_parts);
     M2C_FIELD(o, u32 *, 0x18) = saved;
     return r;
 }
@@ -569,7 +569,7 @@ void TObjEneMe3SinowZoa__sub_80316C3C(Obj_80316C3C *arg0, s32 arg1) {
                 render_anim_model__10TObjPlayerFPvf(arg0, TObjEneMe3SinowZoa__data_805DF314);
                 clear_global_state__10TObjPlayerFv();
                 pop_matrix();
-                push_matrix_from(lbl_805D5678 + 0x90);
+                push_matrix_from(anim_model_matrix_array + 0x90);
                 matrix_mult_vec(0, lbl_80475FC8[0], &out);
                 pop_matrix();
                 if (arg0->hasDest != 0) {
@@ -582,10 +582,10 @@ void TObjEneMe3SinowZoa__sub_80316C3C(Obj_80316C3C *arg0, s32 arg1) {
                 if (angle < arg0->stat->range / 2 && arg0->hasDest != 0) {
                     if (lbl_805D5550 == 3) {
                         create__11TTecRaBartaFPvPvPvPv(arg0, &out, &arg0->pos,
-                            clamp_frame_index__9TObjEneDDFi(TObjEneMe3SinowZoa__data_80542FD4[arg0->kind]->frame));
+                            clamp_frame_index__9TObjEneDDFi(TObjEneMe3SinowZoa__kind_param_tbls[arg0->kind]->frame));
                     } else {
                         create_ex__11TTecGiBartaFPvPvPvPv(arg0, &out, arg0->rotY,
-                            clamp_frame_index__9TObjEneDDFi(TObjEneMe3SinowZoa__data_80542FD4[arg0->kind]->frame));
+                            clamp_frame_index__9TObjEneDDFi(TObjEneMe3SinowZoa__kind_param_tbls[arg0->kind]->frame));
                     }
                 } else if (arg0->flags & 0x100000) {
                     arg0->state = 4;

@@ -43,7 +43,7 @@ u8 * TItemWeapon__ct(void *, void *);
 M2C_UNK set_status_flags__10TObjPlayerFPvUi(void *, M2C_UNK);
 extern M2C_UNK lbl_804E70A8[];
 u8 *TObjPlayer__sub_80307784(u8 *arg0, u8 *arg1, s32 _w2);
-extern char lbl_8048E5B4[];
+extern char shared_capture_texture_list[];
 char *TObjPlayer__sub_803078B0(void);
 }
 
@@ -151,7 +151,7 @@ void *item_equip_variant_deleting_dtor_80307858(void *arg0, s16 arg1) {
     return arg0;
 }
 char *TObjPlayer__sub_803078B0(void) {
-    return lbl_8048E5B4;
+    return shared_capture_texture_list;
 }
 
 void TObjPlayer__sub_803078BC(void) {  }

@@ -69,7 +69,7 @@ M2C_UNK set_global_param__8TObjFishFi(int);
 M2C_UNK set_chunk_material_color(void *);
 M2C_UNK draw_chunk_model(int);
 M2C_UNK TObjEneSlimeOne__sub_803E4B54(int, int, int, f32);
-extern u8 lbl_804A7418[];
+extern u8 chunk_material_color_half_alpha_f32[];
 extern s32 lbl_805D5660;
 extern s32 some_id_805c6f74;
 void render__12TODoorVoShipFv(u8 *arg0);
@@ -168,7 +168,7 @@ void render__12TODoorVoShipFv(u8 *arg0) {
         }
         pop_matrix();
         end_effect_render__13TParticleCtrlFv();
-        set_chunk_material_color(lbl_804A7418);
+        set_chunk_material_color(chunk_material_color_half_alpha_f32);
         some_id_805c6f74 = lbl_805D5660;
         pop_matrix();
     }

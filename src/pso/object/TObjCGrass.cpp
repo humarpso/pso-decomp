@@ -94,7 +94,7 @@ extern M2C_UNK lbl_80492510[];
 extern M2C_UNK __vt__10TObjCGrass[];
 extern u8 lbl_8058D490[];
 extern s32 lbl_805D2A28;
-extern u32 lbl_805D5130;
+extern u32 TObjCGrass_bml_resource;
 extern s32 tl_06;
 extern const f32 TObjCGrass__data_805D9E64;
 extern const f32 lbl_805D9E6C;
@@ -150,7 +150,7 @@ void load_resources__10TObjCGrassFv(void);
 
 void* fn_800B8B00(void* p) { return (char*)p + 0x3e8; }
 
-extern u32 lbl_805D5130;
+extern u32 TObjCGrass_bml_resource;
 
 void render__10TObjCGrassFv(Obj_800B8B08 *arg0) {
     s32 i;
@@ -212,9 +212,9 @@ void run_task__10TObjCGrassFv(u8 *arg0) {
 }
 
 void release_global_805D5130__10TObjCGrassFv(void) {
-    if ((u32) lbl_805D5130 != 0U) {
-        TLobby__sub_8001FE7C((void*)lbl_805D5130, 1);
-        lbl_805D5130 = 0U;
+    if ((u32) TObjCGrass_bml_resource != 0U) {
+        TLobby__sub_8001FE7C((void*)TObjCGrass_bml_resource, 1);
+        TObjCGrass_bml_resource = 0U;
     }
 }
 
@@ -226,21 +226,21 @@ void load_resources__10TObjCGrassFv(void) {
     u8 *var_r0;
 
     if (check_v2_mode__9TObjEneDDFv() != 0) {
-        lbl_805D5130 = (u32) load_enemy_bml_resource_named(&lbl_80492500.value, &lbl_8043B638.value);
+        TObjCGrass_bml_resource = (u32) load_enemy_bml_resource_named(&lbl_80492500.value, &lbl_8043B638.value);
     } else {
         temp_r3 = (u8 *)(alloc__23TAdSinglePlyChrSelectGCFPv(0x440));
         var_r0 = (u8 *)(temp_r3);
         if (var_r0 != NULL) {
             var_r0 = (u8 *)(load_resource_from_descriptor(temp_r3, 1, &lbl_80492500.value, 0, 0, 0));
         }
-        lbl_805D5130 = (u32) var_r0;
+        TObjCGrass_bml_resource = (u32) var_r0;
     }
     stack.sp8 = M2C_FIELD(&lbl_8043B628.value, s32 *, 0);
     stack.spC = M2C_FIELD(&lbl_8043B628.value, s32 *, 4);
     stack.sp10 = M2C_FIELD(&lbl_8043B628.value, s32 *, 8);
     stack.sp14 = M2C_FIELD(&lbl_8043B628.value, s32 *, 0xC);
-    stack.sp8 = M2C_FIELD(lbl_805D5130, s32 *, 0x430);
-    temp_r5 = (u8 *)(M2C_FIELD(lbl_805D5130, u8 **, 0x42C));
+    stack.sp8 = M2C_FIELD(TObjCGrass_bml_resource, s32 *, 0x430);
+    temp_r5 = (u8 *)(M2C_FIELD(TObjCGrass_bml_resource, u8 **, 0x42C));
     spawn_npc_enemy__6TLobbyFsiiiff((int) (0x36), (int) (M2C_FIELD(temp_r5, s32 *, 8)), (int) (M2C_FIELD(temp_r5, s32 *, 0xC)), (void *) (&stack.sp8), (f32) (lbl_805D9E68), (f32) (TObjCGrass__data_805D9E64));
 }
 
@@ -271,9 +271,9 @@ u8 *TObjCGrass__ct(Grass_800B8EFC *self, u8 *arg1, s32 arg2, s32 arg3) {
     } else {
         VecCopy__FP3VecPC3Vec(&self->f38, arg1);
     }
-    self->f34 = (*(Mgr_800B8EFC * *)&lbl_805D5130)->src->f8;
-    self->f24 = (*(Mgr_800B8EFC * *)&lbl_805D5130)->src->fC;
-    self->fDC = (*(Mgr_800B8EFC * *)&lbl_805D5130)->f430;
+    self->f34 = (*(Mgr_800B8EFC * *)&TObjCGrass_bml_resource)->src->f8;
+    self->f24 = (*(Mgr_800B8EFC * *)&TObjCGrass_bml_resource)->src->fC;
+    self->fDC = (*(Mgr_800B8EFC * *)&TObjCGrass_bml_resource)->f430;
     self->fD8 = lbl_80492510;
     set_field_d8__10TObjPlayerFPvi(self, self->fD8);
     set_animation__10TObjPlayerFPvs(self, 0);

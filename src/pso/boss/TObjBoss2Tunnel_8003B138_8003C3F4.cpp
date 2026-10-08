@@ -46,9 +46,9 @@ extern s32 *lbl_805D4C08;
 extern f32 TObjBoss2Tunnel__data_805D8614;
 extern const f32 lbl_805D8654;
 void TObjBoss2Tunnel__sub_8003C6D0(u8 *arg0);
-extern s32 TObjBoss2Tunnel__data_805D4C00;
+extern s32 TObjBoss2Tunnel__global_flags;
 void TObjBoss2Tunnel__sub_8003C5F8(void);
-extern s32 TObjBoss2Tunnel__data_805D4C00;
+extern s32 TObjBoss2Tunnel__global_flags;
 void TObjBoss2Tunnel__sub_8003C610(void);
 u8 *TObjBoss2RaftSplash__ct(u8 *arg0, u8 *arg1, u8 *arg2, u8 *arg3, f32 *arg4);
 void TObjBoss2Tunnel__sub_8003C374(Tunnel_8003C45C *self);
@@ -60,7 +60,7 @@ extern u8 lbl_80435E90[];
 extern u8 lbl_80483578[];
 extern M2C_UNK __vt__15TObjBoss2Tunnel[];
 extern s32 lbl_805D2708;
-extern s32 TObjBoss2Tunnel__data_805D4C00;
+extern s32 TObjBoss2Tunnel__global_flags;
 extern const f32 TObjBoss2Tunnel__data_805D85E0;
 extern f32 TObjBoss2Tunnel__data_805D8614;
 void *TObjBoss2Tunnel__ct(void *arg0, void *arg1);
@@ -100,7 +100,7 @@ void *__dt__15TObjBoss2TunnelFv(void *arg0, s16 arg1) {
     return arg0;
 }
 
-extern s32 TObjBoss2Tunnel__data_805D4C00;
+extern s32 TObjBoss2Tunnel__global_flags;
 
 void *TObjBoss2Tunnel__ct(void *arg0, void *arg1) {
     Tunnel_8003C45C *self = (Tunnel_8003C45C *)arg0;
@@ -111,7 +111,7 @@ void *TObjBoss2Tunnel__ct(void *arg0, void *arg1) {
     reset_floats__15TObjBoss2TunnelFi((s32)self->sub68);
     self->name = lbl_805D2708;
     self->i24 = 0;
-    TObjBoss2Tunnel__data_805D4C00 = 0;
+    TObjBoss2Tunnel__global_flags = 0;
     self->f1C = TObjBoss2Tunnel__data_805D85E0;
     self->f20 = TObjBoss2Tunnel__data_805D85E0;
     self->i28 = 0;
@@ -151,47 +151,47 @@ void *TObjBoss2Tunnel__ct(void *arg0, void *arg1) {
 }
 
 void set_global_flag_200__15TObjBoss2TunnelFv(void) {
-    TObjBoss2Tunnel__data_805D4C00 |= 0x200;
+    TObjBoss2Tunnel__global_flags |= 0x200;
 }
 
-extern s32 TObjBoss2Tunnel__data_805D4C00;
+extern s32 TObjBoss2Tunnel__global_flags;
 
 void set_global_flag_100__15TObjBoss2TunnelFv(void) {
-    TObjBoss2Tunnel__data_805D4C00 |= 0x100;
+    TObjBoss2Tunnel__global_flags |= 0x100;
 }
 
-extern s32 TObjBoss2Tunnel__data_805D4C00;
+extern s32 TObjBoss2Tunnel__global_flags;
 
 s32 is_active__15TObjBoss2TunnelFv(void) {
-    return TObjBoss2Tunnel__data_805D4C00 & 1;
+    return TObjBoss2Tunnel__global_flags & 1;
 }
 
-extern s32 TObjBoss2Tunnel__data_805D4C00;
+extern s32 TObjBoss2Tunnel__global_flags;
 
 void clear_global_flag_3000__15TObjBoss2TunnelFv(void) {
-    TObjBoss2Tunnel__data_805D4C00 &= 0xFFFFCFFF;
+    TObjBoss2Tunnel__global_flags &= 0xFFFFCFFF;
 }
 
-extern s32 TObjBoss2Tunnel__data_805D4C00;
+extern s32 TObjBoss2Tunnel__global_flags;
 
 void TObjBoss2Tunnel__sub_8003C5F8(void) {
-    (*(u32 *)&TObjBoss2Tunnel__data_805D4C00) |= 0x2000;
-    (*(u32 *)&TObjBoss2Tunnel__data_805D4C00) &= ~0x1000;
+    (*(u32 *)&TObjBoss2Tunnel__global_flags) |= 0x2000;
+    (*(u32 *)&TObjBoss2Tunnel__global_flags) &= ~0x1000;
 }
 
 void TObjBoss2Tunnel__sub_8003C610(void) {
-    (*(u32 *)&TObjBoss2Tunnel__data_805D4C00) |= 0x1000;
-    (*(u32 *)&TObjBoss2Tunnel__data_805D4C00) &= ~0x2000;
+    (*(u32 *)&TObjBoss2Tunnel__global_flags) |= 0x1000;
+    (*(u32 *)&TObjBoss2Tunnel__global_flags) &= ~0x2000;
 }
 
 void set_global_flag_800__15TObjBoss2TunnelFv(void) {
-    TObjBoss2Tunnel__data_805D4C00 |= 0x800;
+    TObjBoss2Tunnel__global_flags |= 0x800;
 }
 
-extern s32 TObjBoss2Tunnel__data_805D4C00;
+extern s32 TObjBoss2Tunnel__global_flags;
 
 void set_global_flag_400__15TObjBoss2TunnelFv(void) {
-    TObjBoss2Tunnel__data_805D4C00 |= 0x400;
+    TObjBoss2Tunnel__global_flags |= 0x400;
 }
 
 void TObjBoss2Tunnel__sub_8003C648(void) {  }
@@ -206,8 +206,8 @@ void *create__15TObjBoss2TunnelFv(void) {
     return o;
 }
 
-extern void *lbl_805D4BE8;
-extern s32 TObjBoss2Tunnel__data_805D4C00;
+extern void *boss2_tunnel_instance;
+extern s32 TObjBoss2Tunnel__global_flags;
 extern s32 *lbl_805D4C04;
 extern s32 *lbl_805D4C08;
 
@@ -215,8 +215,8 @@ void clear_target_flags__15TObjBoss2TunnelFv(void) {
     s32 *temp_r3;
     s32 *temp_r3_2;
 
-    TObjBoss2Tunnel__data_805D4C00 = 0;
-    temp_r3 = M2C_FIELD(M2C_FIELD(M2C_FIELD(M2C_FIELD(lbl_805D4BE8, void **, 0x42C), void **, 0xA8), void **, 0x2C), s32 **, 0x30);
+    TObjBoss2Tunnel__global_flags = 0;
+    temp_r3 = M2C_FIELD(M2C_FIELD(M2C_FIELD(M2C_FIELD(boss2_tunnel_instance, void **, 0x42C), void **, 0xA8), void **, 0x2C), s32 **, 0x30);
     lbl_805D4C08 = temp_r3;
     temp_r3_2 = M2C_FIELD(temp_r3, s32 **, 0x30);
     lbl_805D4C04 = temp_r3_2;

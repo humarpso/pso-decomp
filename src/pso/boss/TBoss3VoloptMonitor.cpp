@@ -233,7 +233,7 @@ void load_texture_pvm_file__6TLobbyFPvi(void *, void *);
 extern u8 lbl_80436608[];
 extern s32 lbl_80483EB4[];
 extern s32 lbl_804FEEC0[];
-extern s32 lbl_805D4C10;
+extern s32 boss3_volopt_resources;
 extern s32 lbl_805D4C90;
 extern s32 lbl_805D4C94;
 extern s32 lbl_805D4C98;
@@ -594,7 +594,7 @@ extern void *tl_04;
 void load_resources__19TBoss3VoloptMonitorFv(void) {
     s32 i;
     (*(u8 * *)&lbl_805D4CA4) = (u8 *)lbl_80484018;
-    (*(s32 *)&lbl_805D4CA0) = lbl_805D4C10;
+    (*(s32 *)&lbl_805D4CA0) = boss3_volopt_resources;
     TObjGyaranzoMissile__sub_80131488(lbl_80484018);
     load_texture_pvm_file__6TLobbyFPvi(lbl_80436608, (*(u8 * *)&lbl_805D4CA4));
     for (i = 0; i < 4; i++) {

@@ -67,7 +67,7 @@ M2C_UNK register_entity_by_id(void *);
 int refresh_collision_body_centers(void*);
 M2C_UNK construct_collider_proxy__10TObjPlayerFPv(void *, void *);
 s16 alloc_actor_ids__6TLobbyFi(int);
-extern u8 lbl_80481B90[];
+extern u8 TBoss1DragonColli_sphere_chain_desc[];
 extern M2C_UNK lbl_80481BD4[];
 extern s32 lbl_805D2658;
 extern const f32 lbl_805D8108;
@@ -223,7 +223,7 @@ s32 create_sphere_chain__17TBoss1DragonColliFiPviPvf(int arg0, void *arg1, int a
     zero = lbl_805D8108;
     z = scale * (f32)(self->count - 1);
     for (i = 0; i < self->count; i++) {
-        fn_8002B630((u8 *)e, lbl_80481B90);
+        fn_8002B630((u8 *)e, TBoss1DragonColli_sphere_chain_desc);
         e->x = zero;
         e->y = zero;
         e->z = z;
@@ -261,7 +261,7 @@ void update_object_view_visibility();
 void classify_actor_view_detail();
 void TObjRoomId__sub_801A1E2C();
 void TObjPlayer__sub_80019568();
-u8 lbl_80481B90[0x2C] = {
+u8 TBoss1DragonColli_sphere_chain_desc[0x2C] = {
     0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0x41, 0xC8, 0, 0,
     0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0x80, 0x03,
 };

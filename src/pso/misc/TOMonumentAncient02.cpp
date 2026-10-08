@@ -103,7 +103,7 @@ int end_effect_render__13TParticleCtrlFv();
 void set_chunk_material_color(void *);
 extern s32 lbl_805D5660;
 extern s32 some_id_805c6f74;
-extern u8 lbl_804A7418[];
+extern u8 chunk_material_color_half_alpha_f32[];
 extern const f32 lbl_805DB920;
 extern const f32 lbl_805DB924;
 extern const f32 lbl_805DB928;
@@ -200,7 +200,7 @@ void render__19TOMonumentAncient02Fv(Mon_80172AE0 *self) {
             some_id_805c6f74 = some_id_805c6f74 | 0x20;
             set_chunk_material_color(&self->fD8);
             draw_ginja_model(n->f4);
-            set_chunk_material_color(lbl_804A7418);
+            set_chunk_material_color(chunk_material_color_half_alpha_f32);
             some_id_805c6f74 = lbl_805D5660;
             end_effect_render__13TParticleCtrlFv();
             pop_matrix();

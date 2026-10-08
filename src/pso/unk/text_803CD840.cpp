@@ -93,9 +93,9 @@ void *adxf_open__6TLobbyFUii(const char *, s32);
 extern char lbl_8047C818[];
 extern Ent_803CD840 *lbl_8057C7D0[256];
 extern u8 lbl_8057DF50[];
-extern s32 lbl_805D75D4;
-extern void *lbl_805D75D8;
-extern s32 lbl_805D75DC;
+extern s32 lobby_adxf_current_file_id;
+extern void *lobby_adxf_open_file_handle;
+extern s32 lobby_afs_toc_entry_index;
 extern s32 lbl_805D75EC;
 extern s32 lbl_805D75F0;
 s32 adxf_open_file__6TLobbyFiPviPv(s32 id, const char *name, s32 arg2, Ent_803CD840 *e);
@@ -133,17 +133,17 @@ s32 adxf_open_file__6TLobbyFiPviPv(s32 id, const char *name, s32 arg2, Ent_803CD
     if (r < 0) {
         return r;
     }
-    if (lbl_805D75D4 >= 0) {
+    if (lobby_adxf_current_file_id >= 0) {
         notify_error__6TLobbyFPv(msg + 0x56C);
         return -1;
     }
-    lbl_805D75D8 = adxf_open__6TLobbyFUii(name, arg2);
-    if (lbl_805D75D8 == NULL) {
+    lobby_adxf_open_file_handle = adxf_open__6TLobbyFUii(name, arg2);
+    if (lobby_adxf_open_file_handle == NULL) {
         notify_error__6TLobbyFPv(msg + 0x5A4);
         return -1;
     }
-    lbl_805D75D4 = id;
-    lbl_805D75DC = 0;
+    lobby_adxf_current_file_id = id;
+    lobby_afs_toc_entry_index = 0;
     memset(e, 0, 0x118);
     lbl_8057C7D0[id] = e;
     e->f0 = 0;
@@ -153,9 +153,9 @@ s32 adxf_open_file__6TLobbyFiPviPv(s32 id, const char *name, s32 arg2, Ent_803CD
     aligned = (s32)(lbl_8057DF50 + 0x20) & ~0x1F;
     lbl_805D75F0 = aligned;
     lbl_805D75EC = aligned;
-    r = TLobby__sub_803CCB98(lbl_805D75D8, 1, aligned);
+    r = TLobby__sub_803CCB98(lobby_adxf_open_file_handle, 1, aligned);
     if (r < 0) {
-        TLobby__sub_803CCE9C(lbl_805D75D8);
+        TLobby__sub_803CCE9C(lobby_adxf_open_file_handle);
         return r;
     }
     e->f8 = 0;

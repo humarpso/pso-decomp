@@ -142,7 +142,7 @@ extern RecoveredGlobal_80428374_lbl_805D0A40 lbl_805D0A40;
 extern u8 lbl_805D0AA0[0x80];
 extern u8 lbl_805D0B20[0x600];
 extern u8 lbl_805D1120[0xC00];
-extern s32 lbl_805D7BB4;
+extern s32 lobby_message_thread_handle;
 extern u32 lbl_805D7BC4;
 void TLobby__sub_803F95E4(u32);
 extern u32 lbl_805D7BA8;

@@ -828,8 +828,8 @@ __declspec(section ".data") u32 lbl_80500E88[2];
 __declspec(section ".data") u32 lbl_80500E90[2];
 __declspec(section ".data") f32 lbl_80500E98[3];
 __declspec(section ".data") u32 lbl_80500EA4[3];
-__declspec(section ".data") u32 TObjEneBm5GibonU__data_80500EB0[5];
-__declspec(section ".data") u32 TObjEneBm5GibonU__data_80500EC4[3];
+__declspec(section ".data") u32 TObjEneBm5GibonU__node_list[5];
+__declspec(section ".data") u32 TObjEneBm5GibonU__enemy_list[3];
 }
 
 #undef TObjEneBm5GibonU__sub_800CD204
@@ -849,11 +849,11 @@ __declspec(section ".data") u32 TObjEneBm5GibonU__data_80500EC4[3];
 #define update_target__16TObjEneBm5GibonUFPv ((s32 (*)(void *))update_target__16TObjEneBm5GibonUFPv)
 #define update_photon_mylla__16TObjEneBm5GibonUFPv ((void * (*)(void *))update_photon_mylla__16TObjEneBm5GibonUFPv)
 #define TObjEneBm5GibonU__sub_800D1D70 ((s32 (*)())TObjEneBm5GibonU__sub_800D1D70)
-#define TObjEneBm5GibonU__data_80500EC4 (*(List_800CFE34 *)&TObjEneBm5GibonU__data_80500EC4)
+#define TObjEneBm5GibonU__enemy_list (*(List_800CFE34 *)&TObjEneBm5GibonU__enemy_list)
 #define TObjEneBm5GibonU__sub_800D0AE8 ((M2C_UNK (*)(void *, void *))TObjEneBm5GibonU__sub_800D0AE8)
 #define turn_toward_angle__16TObjEneBm5GibonUFPvi ((M2C_UNK (*)(void *, s32))turn_toward_angle__16TObjEneBm5GibonUFPvi)
 #define TObjEneBm5GibonU__sub_800D0A94 ((f32 (*)(void *, void *, f32))TObjEneBm5GibonU__sub_800D0A94)
-#define TObjEneBm5GibonU__data_80500EB0 ((Node_800CE060 * *)&TObjEneBm5GibonU__data_80500EB0)
+#define TObjEneBm5GibonU__node_list ((Node_800CE060 * *)&TObjEneBm5GibonU__node_list)
 #define calc_rotated_vector__16TObjEneBm5GibonUFPviPvPv ((M2C_UNK (*)(void *, s32, Vec_800CF4BC *, s32 *))calc_rotated_vector__16TObjEneBm5GibonUFPviPvPv)
 #define TObjEneBm5GibonU__sub_800D10A0 ((M2C_UNK (*)(void *))TObjEneBm5GibonU__sub_800D10A0)
 #define TObjEneBm5GibonU__sub_800D184C ((M2C_UNK (*)(void *))TObjEneBm5GibonU__sub_800D184C)
@@ -2920,7 +2920,7 @@ void TObjEneBm5GibonU__sub_800CE060(u8 *arg0, s32 arg1) {
         M2C_FIELD(arg0, f32 *, 0x37C) = 0.0f;
         if (M2C_FIELD(arg0, s32 *, 0x464) != 0) {
             k = 50.0f;
-            for (n = TObjEneBm5GibonU__data_80500EB0[0]; n != NULL; n = n->next) {
+            for (n = TObjEneBm5GibonU__node_list[0]; n != NULL; n = n->next) {
                 o = (u8 *)update_photon_mylla__16TObjEneBm5GibonUFPv(n);
                 if (o != NULL && M2C_FIELD(o, s32 *, 0x46C) == M2C_FIELD(arg0, s32 *, 0x46C)) {
                     ((void (*)(void *, s32, u16))TObjEneBm5GibonU__sub_800D095C)(o, (s32)(k * calc_boss4_scale__10TObjPlayerFi((s32)arg0)) + 0x14, M2C_FIELD(arg0, u16 *, 0x2D4));
@@ -3652,7 +3652,7 @@ void TObjEneBm5GibonU__sub_800CFE34(u8 *arg0, s32 arg1) {
             play_sound_effect((void *)copy_target_state__14TObjEnePanarmsFPvPv(arg0, 0x3A523), arg0 + 0x38, 0, 0);
         }
         if (M2C_FIELD(arg0, s32 *, 0x518) == 0x3C) {
-            for (n = TObjEneBm5GibonU__data_80500EC4.head; n != NULL; n = n->next) {
+            for (n = TObjEneBm5GibonU__enemy_list.head; n != NULL; n = n->next) {
                 o = update_photon_mylla__16TObjEneBm5GibonUFPv(n);
                 if (M2C_FIELD(arg0, s32 *, 0x46C) == TObjEneBm5GibonU__sub_800D1D70()) {
                     set_flag__16TObjEneBm5GibonUFPv(o);
@@ -4049,11 +4049,11 @@ s32 TObjEneBm5GibonU__sub_800D0968(u8 *arg0, int _w1) {
 #undef update_target__16TObjEneBm5GibonUFPv
 #undef update_photon_mylla__16TObjEneBm5GibonUFPv
 #undef TObjEneBm5GibonU__sub_800D1D70
-#undef TObjEneBm5GibonU__data_80500EC4
+#undef TObjEneBm5GibonU__enemy_list
 #undef TObjEneBm5GibonU__sub_800D0AE8
 #undef turn_toward_angle__16TObjEneBm5GibonUFPvi
 #undef TObjEneBm5GibonU__sub_800D0A94
-#undef TObjEneBm5GibonU__data_80500EB0
+#undef TObjEneBm5GibonU__node_list
 #undef calc_rotated_vector__16TObjEneBm5GibonUFPviPvPv
 #undef TObjEneBm5GibonU__sub_800D10A0
 #undef TObjEneBm5GibonU__sub_800D184C
@@ -4385,8 +4385,8 @@ void TObjEneBm5GibonU__sub_800D10A0(u8 *arg0) {
 #undef clamp_velocity__15TObjBoss2TunnelFPv
 #pragma pop
 #pragma push
-#define TObjEneBm5GibonU__data_80500EC4 (*(RecoveredGlobal_800D184C_TObjEneBm5GibonU__data_80500EC4 *)&TObjEneBm5GibonU__data_80500EC4)
-#define TObjEneBm5GibonU__data_80500EB0 (*(RecoveredGlobal_800D18AC_TObjEneBm5GibonU__data_80500EB0 *)&TObjEneBm5GibonU__data_80500EB0)
+#define TObjEneBm5GibonU__enemy_list (*(RecoveredGlobal_800D184C_TObjEneBm5GibonU__data_80500EC4 *)&TObjEneBm5GibonU__enemy_list)
+#define TObjEneBm5GibonU__node_list (*(RecoveredGlobal_800D18AC_TObjEneBm5GibonU__data_80500EB0 *)&TObjEneBm5GibonU__node_list)
 #define TObjEneBm5GibonU__sub_800D10A0 ((void (*)(void *))TObjEneBm5GibonU__sub_800D10A0)
 #define transition_enemy_state ((int (*)(void*, void*))transition_enemy_state)
 #define find_entity_by_id ((s32 (*)(int))find_entity_by_id)
@@ -4988,7 +4988,7 @@ u8 *TObjEneBm5GibonU__ct(u8 *arg0, s32 arg1, s32 arg2) {
 
 Ene_800D17E8 *find_enemy_by_id__16TObjEneBm5GibonUFi(s32 id) {
     Node_800D17E8 *n;
-    for (n = (*(List_800D17E8 *)&TObjEneBm5GibonU__data_80500EC4).head; n != 0; n = n->next) {
+    for (n = (*(List_800D17E8 *)&TObjEneBm5GibonU__enemy_list).head; n != 0; n = n->next) {
         Ene_800D17E8 *e = ((Ene_800D17E8 *(*)(void *))update_photon_mylla__16TObjEneBm5GibonUFPv)(n);
         if (e != 0 && e->id == id) {
             return e;
@@ -4998,22 +4998,22 @@ Ene_800D17E8 *find_enemy_by_id__16TObjEneBm5GibonUFi(s32 id) {
 }
 
 void TObjEneBm5GibonU__sub_800D184C(s32 arg0) {
-    forward_hit__16TObjEneBm5GibonUFPvPv((void*)((s32) &TObjEneBm5GibonU__data_80500EC4.value), (void*)(arg0 + 0x3CC));
+    forward_hit__16TObjEneBm5GibonUFPvPv((void*)((s32) &TObjEneBm5GibonU__enemy_list.value), (void*)(arg0 + 0x3CC));
 }
 
 typedef char RecoveredGlobal_800D187C_TObjEneBm5GibonU__data_80500EC4_size[sizeof(RecoveredGlobal_800D187C_TObjEneBm5GibonU__data_80500EC4) == 0xC ? 1 : -1];
 void TObjEneBm5GibonU__sub_800D187C(s32 arg0) {
-    init_child__16TObjEneBm5GibonUFPvPv((void*)((s32) &(*(RecoveredGlobal_800D187C_TObjEneBm5GibonU__data_80500EC4 *)&TObjEneBm5GibonU__data_80500EC4).value), (void*)(arg0 + 0x3CC));
+    init_child__16TObjEneBm5GibonUFPvPv((void*)((s32) &(*(RecoveredGlobal_800D187C_TObjEneBm5GibonU__data_80500EC4 *)&TObjEneBm5GibonU__enemy_list).value), (void*)(arg0 + 0x3CC));
 }
 
 typedef char RecoveredGlobal_800D18AC_TObjEneBm5GibonU__data_80500EB0_size[sizeof(RecoveredGlobal_800D18AC_TObjEneBm5GibonU__data_80500EB0) == 0x14 ? 1 : -1];
 void TObjEneBm5GibonU__sub_800D18AC(s32 arg0) {
-    forward_hit__16TObjEneBm5GibonUFPvPv((void*)((s32) &TObjEneBm5GibonU__data_80500EB0.value), (void*)(arg0 + 0x3C0));
+    forward_hit__16TObjEneBm5GibonUFPvPv((void*)((s32) &TObjEneBm5GibonU__node_list.value), (void*)(arg0 + 0x3C0));
 }
 
 typedef char RecoveredGlobal_800D18DC_TObjEneBm5GibonU__data_80500EB0_size[sizeof(RecoveredGlobal_800D18DC_TObjEneBm5GibonU__data_80500EB0) == 0x14 ? 1 : -1];
 void TObjEneBm5GibonU__sub_800D18DC(s32 arg0) {
-    init_child__16TObjEneBm5GibonUFPvPv((void*)((s32) &(*(RecoveredGlobal_800D18DC_TObjEneBm5GibonU__data_80500EB0 *)&TObjEneBm5GibonU__data_80500EB0).value), (void*)(arg0 + 0x3C0));
+    init_child__16TObjEneBm5GibonUFPvPv((void*)((s32) &(*(RecoveredGlobal_800D18DC_TObjEneBm5GibonU__data_80500EB0 *)&TObjEneBm5GibonU__node_list).value), (void*)(arg0 + 0x3C0));
 }
 
 void release_static_resource__16TObjEneBm5GibonUFv(void) {
@@ -5044,8 +5044,8 @@ void load_resources__16TObjEneBm5GibonUFv(void) {
         m = load_enemy_bml_resource(lbl_80493DA0);
     }
     TObjEneBm5GibonU__data_805D51D0 = (u32)m;
-    reset_fields__16TObjEneBm5GibonUFPv(&TObjEneBm5GibonU__data_80500EB0);
-    reset_fields__16TObjEneBm5GibonUFPv(&TObjEneBm5GibonU__data_80500EC4);
+    reset_fields__16TObjEneBm5GibonUFPv(&TObjEneBm5GibonU__node_list);
+    reset_fields__16TObjEneBm5GibonUFPv(&TObjEneBm5GibonU__enemy_list);
     TObjEneBm5GibonU__data_805D51D4 = 0;
     TObjEneBm5GibonU__data_805D51D8 = 0;
     v = lbl_80500E98;
@@ -5189,8 +5189,8 @@ void update_walk_to_target__10TObjPlayerFPv(Ene_800D1E4C *arg0) {
 
 }
 
-#undef TObjEneBm5GibonU__data_80500EC4
-#undef TObjEneBm5GibonU__data_80500EB0
+#undef TObjEneBm5GibonU__enemy_list
+#undef TObjEneBm5GibonU__node_list
 #undef TObjEneBm5GibonU__sub_800D10A0
 #undef transition_enemy_state
 #undef find_entity_by_id

@@ -61,7 +61,7 @@ M2C_UNK begin_effect_render__13TParticleCtrlFv();
 M2C_UNK end_effect_render__13TParticleCtrlFv();
 M2C_UNK set_global_param__8TObjFishFi(s32);
 
-extern u8 *TObjWarpLobby__data_805D5CC8;
+extern u8 *TObjWarpLobby__instance;
 extern s32 lbl_805D5CCC;
 extern const f32 lbl_805DC060;
 extern const f32 lbl_805DC064;
@@ -88,7 +88,7 @@ void render__13TObjWarpLobbyFv(u8 *arg0) {
         post_translate_matrix(arg0 + 0x38);
         rotate_matrix_y(0, M2C_FIELD(arg0, s32 *, 0x60));
         begin_effect_render__13TParticleCtrlFv();
-        draw_ginja_model_with_motion(M2C_FIELD(M2C_FIELD(TObjWarpLobby__data_805D5CC8, void **, 0x42C), s32 *, 8), M2C_FIELD(M2C_FIELD(TObjWarpLobby__data_805D5CC8, void **, 0x430), s32 *, 4), M2C_FIELD(arg0, f32 *, 0xC8));
+        draw_ginja_model_with_motion(M2C_FIELD(M2C_FIELD(TObjWarpLobby__instance, void **, 0x42C), s32 *, 8), M2C_FIELD(M2C_FIELD(TObjWarpLobby__instance, void **, 0x430), s32 *, 4), M2C_FIELD(arg0, f32 *, 0xC8));
         end_effect_render__13TParticleCtrlFv();
         pop_matrix();
     }

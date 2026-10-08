@@ -149,7 +149,7 @@ s32 refresh_collision_body_centers(void *);
 s32 init_collision_body_parts(void *, void *, int);
 s32 init_switch_id__5TOKeyFPv(void *);
 s32 TOKey__ct(void *);
-extern RecoveredGlobal_8029D438_lbl_804DC5A0 lbl_804DC5A0;
+extern RecoveredGlobal_8029D438_lbl_804DC5A0 TOKeyJungleMain_collision_body_parts;
 extern M2C_UNK __vt__15TOKeyJungleMain[];
 extern s32 lbl_805D3D50;
 extern const f32 lbl_805DDD3C;
@@ -307,7 +307,7 @@ u8 *TOKeyJungleMain__ct(u8 *arg0, M2C_UNK arg1, s32 arg2) {
     M2C_FIELD(arg0, s32 *, 0) = (s32) lbl_805D3D50;
     ((VObj_18_1a504b *)(arg0))->m5(arg2);
     init_switch_id__5TOKeyFPv((void *) (arg0));
-    init_collision_body_parts((void *) (arg0), (void *) (&lbl_804DC5A0.value), (int) (1));
+    init_collision_body_parts((void *) (arg0), (void *) (&TOKeyJungleMain_collision_body_parts.value), (int) (1));
     refresh_collision_body_centers((void *) (arg0));
     reset_photon_effect__10TObjPlayerFPv((void *) (arg0));
     M2C_FIELD(arg0, s32 *, 0xD0) = 0;

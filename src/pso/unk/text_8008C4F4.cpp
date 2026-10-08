@@ -40,7 +40,7 @@ M2C_UNK call_funcs_reverse__6TLobbyFPvUi(void *, int);
 M2C_UNK render_tick__Fv();
 M2C_UNK stop_audio_streams__6TLobbyFv();
 M2C_UNK delete_all_task_children__9TMainTaskFv(void *);
-extern RecoveredGlobal_8008C4F4_lbl_8048E7C0 lbl_8048E7C0;
+extern RecoveredGlobal_8008C4F4_lbl_8048E7C0 ending_scene_callbacks;
 extern RecoveredGlobal_8008C534_main_task main_task;
 void fn_8008C4F4(void);
 }
@@ -58,10 +58,10 @@ void fn_8008C4F4(void) {
     var_r3 = (M2C_UNK *)(&(*(RecoveredGlobal_8008C4F4_main_task *)&main_task).value);
     var_r3 = (M2C_UNK *)(&(*(RecoveredGlobal_8008C4F4_main_task *)&main_task).value);
     delete_all_task_children__9TMainTaskFv((void *) (&(*(RecoveredGlobal_8008C4F4_main_task *)&main_task).value));
-    var_r3 = (M2C_UNK *)(&lbl_8048E7C0.value);
+    var_r3 = (M2C_UNK *)(&ending_scene_callbacks.value);
     var_r4 = 0x68;
-    var_r3 = (M2C_UNK *)(&lbl_8048E7C0.value);
-    call_funcs_reverse__6TLobbyFPvUi((void *) (&lbl_8048E7C0.value), (int) (0x68));
+    var_r3 = (M2C_UNK *)(&ending_scene_callbacks.value);
+    call_funcs_reverse__6TLobbyFPvUi((void *) (&ending_scene_callbacks.value), (int) (0x68));
     render_tick__Fv();
 }
 

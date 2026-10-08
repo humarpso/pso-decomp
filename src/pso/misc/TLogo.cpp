@@ -99,7 +99,7 @@ void register_texture_f256_backtext(); void free_singleton_805D65C0__23TAdSingle
 void register_texture_logo_e(); void free_held_object__5TLogoFv(); void TLogo__sub_8001C364(); void TLogo__sub_8001C360();
 void TWindowCtrlMain__sub_8024D838(); void free_all_windows__15TWindowCtrlMainFv(); void TLogo__sub_80019A2C(); void TLogo__sub_80019A28();
 void __dt__5TLogoFv(); void render_shadows__7TObjectFv();
-void *lbl_804A72D8[18] = {
+void *logo_load_callback_table[18] = {
     (void *)reset_view_state__11TCameraCtrlFv, (void *)reset__11TCameraCtrlFv,
     (void *)init_default_view__11TCameraCtrlFv, (void *)reset_default_view__11TCameraCtrlFv,
     (void *)update_keyboard_menu__6TLobbyFv, (void *)free_keyboard_soft_resources__6TLobbyFv,
@@ -242,7 +242,7 @@ void *__ct__5TLogoFv(void *arg0) {
 
 void TLogo__sub_8013F5AC() {
     delete_all_task_children__9TMainTaskFv(&main_task);
-    call_funcs_reverse__6TLobbyFPvUi(lbl_804A72D8, sizeof(lbl_804A72D8));
+    call_funcs_reverse__6TLobbyFPvUi(logo_load_callback_table, sizeof(logo_load_callback_table));
     render_tick__Fv();
 }
 
@@ -288,7 +288,7 @@ void init_logo_scene__5TLogoFv(void) {
     set_active_camera_pose(&a, &b);
     TKeyBoardControl__sub_8000F90C(1);
     apply_phase_keyboard_mode();
-    run_load_callback_table(lbl_804A72D8, sizeof(lbl_804A72D8));
+    run_load_callback_table(logo_load_callback_table, sizeof(logo_load_callback_table));
     if (is_area_transfer_pending() != 0) {
         invoke_callback__6TLobbyFv();
         clear_callback_and_reset_keyboard__6TLobbyFv();

@@ -41,10 +41,10 @@ void set_entry_index__9TLanguageFii(u32, int);
 void load_texture_list(void *);
 extern u8 lbl_8043F3D8[];
 extern TexList_80145804 lbl_804A74E8[];
-extern s32 lbl_805D56B0;
+extern s32 menu_font_glyph_data;
 extern s16 *lbl_805D56B4;
-extern s32 lbl_805D56B8;
-extern Glyph_80145804 *lbl_805D56BC;
+extern s32 menu_font_upload_flags;
+extern Glyph_80145804 *menu_font_glyph_table;
 extern u8 lbl_805D56C0;
 extern void *lbl_805D56C4;
 void load_menu_font(void);
@@ -77,7 +77,7 @@ void load_menu_font(void) {
     u32 u;
     u32 v;
     load_font_texture__6TLobbyFv();
-    lbl_805D56B0 = set_stream_and_load_file__6TLobbyFi(lbl_8043F3D8);
+    menu_font_glyph_data = set_stream_and_load_file__6TLobbyFi(lbl_8043F3D8);
     TLobby__sub_800F8E78();
     for (i = 0; i < 2; i++) {
         set_render_rect__10TObjPlayerFPviiii(lbl_8050C048 + i, 0, 0x208, 0x100, 0x100);
@@ -99,7 +99,7 @@ void load_menu_font(void) {
         set_entry_index__9TLanguageFii(i, 0);
     }
     g = (Glyph_80145804 *)alloc_buffer__11TOBoss4RockFPv(0xB40);
-    lbl_805D56BC = g;
+    menu_font_glyph_table = g;
     for (i = 0; i < 2; i++) {
         v = 0;
         for (j = 0; j < 12; j++) {
@@ -118,7 +118,7 @@ void load_menu_font(void) {
         }
     }
     lbl_805D56C0 = 0;
-    lbl_805D56B8 = 3;
+    menu_font_upload_flags = 3;
     f = __nw__7TObjectFUl(0x1C);
     if (f != NULL) {
         f = TNECFontEORFunction__ct(f);

@@ -132,7 +132,7 @@ s32 get_draw_count__9TWindowDDFPv(void **arg0) {
     return *M2C_FIELD(M2C_FIELD(*arg0, void **, 0x20), s32 **, 0xC);
 }
 
-extern s32 TWindowDD__data_805D6E30;
+extern s32 TWindowDD__ws_data_table;
 extern s32 twindowdd_entry_count;
 
 #pragma push
@@ -180,7 +180,7 @@ s32 get_entry__9TWindowDDFi(s32 arg0) {
     if ((arg0 < 0) || (arg0 >= (s32) twindowdd_entry_count)) {
         return 0;
     }
-    return TWindowDD__data_805D6E30 + (arg0 * 8);
+    return TWindowDD__ws_data_table + (arg0 * 8);
 }
 
 }

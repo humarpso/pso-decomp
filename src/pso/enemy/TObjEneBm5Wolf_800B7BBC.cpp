@@ -21,7 +21,7 @@ typedef struct Wolf_800B7DDC {
 
 extern "C" {
 f32 get_random_float__21TObjEneMe3ShinowaRealFv(f32);
-extern u8 *TObjEneBm5Wolf__data_805D5120;
+extern u8 *TObjEneBm5Wolf__bml_resource;
 extern const f32 TObjEneBm5Wolf__data_805D9D8C;
 void select_subtype__14TObjEneBm5WolfFPv(u8 *arg0);
 f32 calc_boss4_scale__10TObjPlayerFi(void *actor);
@@ -127,13 +127,13 @@ void select_subtype__14TObjEneBm5WolfFPv(u8 *arg0) {
     M2C_FIELD(arg0, s32 *, 0x3DC) = (s32) get_random_float__21TObjEneMe3ShinowaRealFv((f32) (M2C_FIELD(arg0, f32 *, 0x354)));
     if (M2C_FIELD(arg0, f32 *, 0x358) >= TObjEneBm5Wolf__data_805D9D8C) {
         M2C_FIELD(arg0, s32 *, 0x3D8) = 1;
-        M2C_FIELD(arg0, s32 *, 0x34) = (s32) M2C_FIELD(M2C_FIELD(TObjEneBm5Wolf__data_805D5120, u8 **, 0x42C), s32 *, 0x18);
-        M2C_FIELD(arg0, s32 *, 0x24) = (s32) M2C_FIELD(M2C_FIELD(TObjEneBm5Wolf__data_805D5120, u8 **, 0x42C), s32 *, 0xC);
+        M2C_FIELD(arg0, s32 *, 0x34) = (s32) M2C_FIELD(M2C_FIELD(TObjEneBm5Wolf__bml_resource, u8 **, 0x42C), s32 *, 0x18);
+        M2C_FIELD(arg0, s32 *, 0x24) = (s32) M2C_FIELD(M2C_FIELD(TObjEneBm5Wolf__bml_resource, u8 **, 0x42C), s32 *, 0xC);
         return;
     }
     M2C_FIELD(arg0, s32 *, 0x3D8) = 0;
-    M2C_FIELD(arg0, s32 *, 0x34) = (s32) M2C_FIELD(M2C_FIELD(TObjEneBm5Wolf__data_805D5120, u8 **, 0x42C), s32 *, 8);
-    M2C_FIELD(arg0, s32 *, 0x24) = (s32) M2C_FIELD(M2C_FIELD(TObjEneBm5Wolf__data_805D5120, u8 **, 0x42C), s32 *, 0xC);
+    M2C_FIELD(arg0, s32 *, 0x34) = (s32) M2C_FIELD(M2C_FIELD(TObjEneBm5Wolf__bml_resource, u8 **, 0x42C), s32 *, 8);
+    M2C_FIELD(arg0, s32 *, 0x24) = (s32) M2C_FIELD(M2C_FIELD(TObjEneBm5Wolf__bml_resource, u8 **, 0x42C), s32 *, 0xC);
 }
 
 void update_colliders__14TObjEneBm5WolfFPv(void *arg0) {

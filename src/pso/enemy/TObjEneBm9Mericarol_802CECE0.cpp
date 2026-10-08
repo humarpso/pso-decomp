@@ -818,7 +818,7 @@ M2C_UNK pop_matrix();
 M2C_UNK post_translate_matrix(void *);
 extern const f64 lbl_804724B8;
 extern u8 *lbl_80540B7C[];
-extern s32 lbl_805D6860;
+extern s32 TBoss4Type3_shared_instance;
 extern s32 lbl_805D6864;
 extern const f32 lbl_805DE6F4;
 extern const f32 lbl_805DE70C;
@@ -1455,7 +1455,7 @@ void TObjPlayer__sub_802CFB64(u8 *arg0, s32 arg1) {
                 } else if (OBJINBAND(arg0, lbl_805DE730) != 0) {
                     play_sound_effect(copy_target_state__14TObjEnePanarmsFPvPv(arg0, 0x3A40D), arg0 + 0x38, 0, 0);
                 }
-                e0 = lookup_entry_by_value__10TObjPlayerFPvf((void *)lbl_805D6860, M2C_FIELD(arg0, f32 *, 0xC0));
+                e0 = lookup_entry_by_value__10TObjPlayerFPvf((void *)TBoss4Type3_shared_instance, M2C_FIELD(arg0, f32 *, 0xC0));
                 e1 = lookup_entry_by_value__10TObjPlayerFPvf((void *)lbl_805D6864, M2C_FIELD(arg0, f32 *, 0xC0));
                 push_matrix();
                 set_matrix_identity__10TObjPlayerFPv(0);

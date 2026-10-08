@@ -70,7 +70,7 @@ void post_translate_matrix(void *);
 void set_global_param__8TObjFishFi(s32);
 void draw_ginja_object(s32);
 void set_chunk_material_color(void *);
-extern Color_8017310C lbl_804A7418[];
+extern Color_8017310C chunk_material_color_half_alpha_f32[];
 extern s32 lbl_805D5660;
 extern s32 some_id_805c6f74;
 void render__15TORainbowCave01Fv(Cave_8017310C *self);
@@ -138,7 +138,7 @@ void render__15TORainbowCave01Fv(Cave_8017310C *self) {
         scale_current_matrix(self->fD4);
         draw_ginja_object(self->f34);
         pop_matrix();
-        set_chunk_material_color(lbl_804A7418);
+        set_chunk_material_color(chunk_material_color_half_alpha_f32);
         some_id_805c6f74 = lbl_805D5660;
         end_effect_render__13TParticleCtrlFv();
     }

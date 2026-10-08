@@ -23,7 +23,7 @@ void set_screen_size(f32 farg0, f32 farg1);
 extern Vec_8008C5E8 lbl_80439570;
 extern Vec_8008C5E8 lbl_8043957C;
 extern u8 lbl_80439588[];
-extern u8 lbl_8048E7C0[];
+extern u8 ending_scene_callbacks[];
 extern u8 lbl_804A6F34[];
 extern void *tl_camera;
 extern const f32 lbl_805D9570;
@@ -54,7 +54,7 @@ int start_ending_scene__7TEndingFv() {
     select_active_controller__11TCameraCtrlFc(9);
     set_active_camera_pose(&a, &b);
     clear_resource_load_tasks();
-    run_load_callback_table(lbl_8048E7C0, 0x68);
+    run_load_callback_table(ending_scene_callbacks, 0x68);
     TKeyBoardControl__sub_8000F90C(2);
     TKeyBoardControl__sub_8000F91C(2);
     play_area_music(lbl_80439588);

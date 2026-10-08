@@ -461,8 +461,8 @@ M2C_UNK draw_chunk_object(int);
 extern Pos_800D3C04 lbl_8043C25C;
 extern Vec_800D35D8 lbl_8043C26C;
 extern M2C_UNK lbl_8043C428[];
-extern u32 *lbl_80500ED0[];
-extern u8 *lbl_80500F28[];
+extern u32 *gyaranzo_model_resources[];
+extern u8 *gyaranzo_resource_ptrs[];
 extern s32 lbl_805D2A78;
 extern s32 lbl_805D51E0;
 extern s32 lbl_805D51E4;
@@ -896,10 +896,10 @@ void update_aim_and_fire__10TObjPlayerFPv(u8 *arg0) {
 void TObjPlayer__sub_800D2E8C(Ene_800D2E8C *arg0) {
     s32 i;
     for (i = 0; i < arg0->count; i++) {
-        *lbl_80500ED0[lbl_80494250[i]] |= 8;
+        *gyaranzo_model_resources[lbl_80494250[i]] |= 8;
     }
     for (; i < 13; i++) {
-        *lbl_80500ED0[lbl_80494250[i]] &= ~8;
+        *gyaranzo_model_resources[lbl_80494250[i]] &= ~8;
     }
     if (arg0->f3A8 >= 1) {
         *lbl_805D5200 |= 8;
@@ -1303,13 +1303,13 @@ void load_gyaranzo_resources__6TLobbyFv(void) {
         lbl_805D51FC = (u32)p;
     }
     for (i = 0; i < 0x16; i++) {
-        ((s32 *)lbl_80500ED0)[i] = collect_and_count__12TBoss3VoloptFUii(AREA->res->r38, lbl_80494224[i]);
+        ((s32 *)gyaranzo_model_resources)[i] = collect_and_count__12TBoss3VoloptFUii(AREA->res->r38, lbl_80494224[i]);
     }
     for (i = 0; i < 0xD; i++) {
-        lbl_80500F28[i] = (u8 *)collect_and_count__12TBoss3VoloptFUii(AREA->res->r48, lbl_80494224[i]);
+        gyaranzo_resource_ptrs[i] = (u8 *)collect_and_count__12TBoss3VoloptFUii(AREA->res->r48, lbl_80494224[i]);
     }
     for (i = 0; i < 0xD; i++) {
-        M2C_FIELD(lbl_80500F28[i], s32 *, 0x30) = 0;
+        M2C_FIELD(gyaranzo_resource_ptrs[i], s32 *, 0x30) = 0;
     }
     (*(s32 *)&lbl_805D5200) = collect_and_count__12TBoss3VoloptFUii(AREA->res->r38, 0x19);
     (*(s32 *)&lbl_805D5204) = collect_and_count__12TBoss3VoloptFUii(AREA->res->r38, 0xD);

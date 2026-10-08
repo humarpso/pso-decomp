@@ -25,8 +25,8 @@ extern "C" {
 extern RecoveredGlobal_8034B008_lbl_80478B78 lbl_80478B78;
 s32 TWindowDD__sub_8034B008(s32 arg0, s32 arg1);
 extern G_8034AF68 lbl_804F0070;
-extern H_8034AF68 *TWindowDD__data_805D6E2C;
-extern H_8034AF68 *TWindowDD__data_805D6E30;
+extern H_8034AF68 *TWindowDD__ws_data_base;
+extern H_8034AF68 *TWindowDD__ws_data_table;
 void TWindowDD__sub_8034AF68(void);
 extern Ent_8034B050 lbl_804F0040[4];
 extern s32 TWindowDD__data_805D6E08;
@@ -43,12 +43,12 @@ extern "C" {
 typedef char RecoveredGlobal_8034B008_lbl_80478B78_size[sizeof(RecoveredGlobal_8034B008_lbl_80478B78) == 0x30 ? 1 : -1];
 
 void TWindowDD__sub_8034AF68(void) {
-    H_8034AF68 *a = TWindowDD__data_805D6E2C;
+    H_8034AF68 *a = TWindowDD__ws_data_base;
     H_8034AF68 *b;
     s32 i;
     s32 x;
     s32 y;
-    if (a == NULL || (b = TWindowDD__data_805D6E30) == NULL) {
+    if (a == NULL || (b = TWindowDD__ws_data_table) == NULL) {
         return;
     }
     for (i = 0; i < 16; i++) {

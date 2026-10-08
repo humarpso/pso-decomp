@@ -90,9 +90,9 @@ s32 TLobby__sub_803CCB98();
 M2C_UNK TLobby__sub_803CD804();
 extern M2C_UNK lbl_8047C818[];
 extern Ent_803CC294 *lbl_8057C7D0[];
-extern s32 lbl_805D75D4;
-extern Strm_803CD5C4 *lbl_805D75D8;
-extern s32 lbl_805D75DC;
+extern s32 lobby_adxf_current_file_id;
+extern Strm_803CD5C4 *lobby_adxf_open_file_handle;
+extern s32 lobby_afs_toc_entry_index;
 extern u8 *lbl_805D75EC;
 extern M2C_UNK lbl_805E0D88;
 s32 read_afs_toc__6TLobbyFi(s32 arg0);
@@ -340,11 +340,11 @@ inline s32 rd32_803CD5C4(u8 *p) {
     return p[0] | (p[1] << 8) | (p[2] << 16) | (p[3] << 24);
 }
 inline s32 state_803CD5C4(s32 base) {
-    if (lbl_805D75D8 == NULL) {
+    if (lobby_adxf_open_file_handle == NULL) {
         notify_error__6TLobbyFPv((void *)(base + 0x74));
         return -3;
     }
-    return lbl_805D75D8->f1;
+    return lobby_adxf_open_file_handle->f1;
 }
 
 #pragma push
@@ -547,7 +547,7 @@ s32 read_afs_toc__6TLobbyFi(s32 arg0) {
     s32 st;
     s32 i;
     s32 base = (s32)lbl_8047C818;
-    if (arg0 != lbl_805D75D4) {
+    if (arg0 != lobby_adxf_current_file_id) {
         notify_error__6TLobbyFPv((void *)(base + 0x4D0));
         return -3;
     }
@@ -580,19 +580,19 @@ s32 read_afs_toc__6TLobbyFi(s32 arg0) {
     }
     for (; i < 0x200; i += 2) {
         u8 *q = lbl_805D75EC + i * 4;
-        arr[lbl_805D75DC++] = (LE32_803CD5C4(q) + 0x7FF) / 2048;
-        if (lbl_805D75DC >= e->f8) {
+        arr[lobby_afs_toc_entry_index++] = (LE32_803CD5C4(q) + 0x7FF) / 2048;
+        if (lobby_afs_toc_entry_index >= e->f8) {
             st = 3;
             TLobby__sub_803CD804();
             break;
         }
     }
     if (i >= 0x200) {
-        if (((s32 (*)(void *, int, void *))TLobby__sub_803CCB98)(lbl_805D75D8, 1, lbl_805D75EC) < 0) {
+        if (((s32 (*)(void *, int, void *))TLobby__sub_803CCB98)(lobby_adxf_open_file_handle, 1, lbl_805D75EC) < 0) {
             st = 4;
             TLobby__sub_803CD804();
         } else {
-            st = lbl_805D75D8->f1;
+            st = lobby_adxf_open_file_handle->f1;
         }
     }
     return st;

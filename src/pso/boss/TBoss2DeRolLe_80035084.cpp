@@ -313,7 +313,7 @@ M2C_UNK free__11TOBoss4RockFUi(int);
 M2C_UNK free_collision_body_parts(void *);
 M2C_UNK __dl__7TObjectFPv(void *);
 extern u8 lbl_804824D0[];
-extern s32 TBoss2DeRolLe__data_805D4BC4;
+extern s32 TBoss2DeRolLe__instance;
 u8 *__dt__13TBoss2DeRolLeFPvs(u8 *arg0, s16 arg1);
 void VecCopy__FP3VecPC3Vec(void *, void *);
 f32 get_random_float__8TObjFishFv(f32);
@@ -371,7 +371,7 @@ extern s32 lbl_805D4BB4;
 extern s32 lbl_805D4BB8;
 extern s32 lbl_805D4BBC;
 extern s32 lbl_805D4BC0;
-extern s32 TBoss2DeRolLe__data_805D4BC4;
+extern s32 TBoss2DeRolLe__instance;
 extern u8 *lbl_805D4BC8;
 extern s32 lbl_805D4BCC;
 extern const f32 TBoss2DeRolLe__data_805D827C;
@@ -616,8 +616,8 @@ u8 *__dt__13TBoss2DeRolLeFPvs(u8 *arg0, s16 arg1) {
         }
         free__11TOBoss4RockFUi(self->x61C);
         free_collision_body_parts(self);
-        if ((u32)TBoss2DeRolLe__data_805D4BC4 == (u32)arg0) {
-            TBoss2DeRolLe__data_805D4BC4 = 0;
+        if ((u32)TBoss2DeRolLe__instance == (u32)arg0) {
+            TBoss2DeRolLe__instance = 0;
         }
         free_if_positive__13TBoss2DeRolLeFis((s32)(arg0 + 0x684), -1);
         free_if_positive__13TBoss2DeRolLeFis((s32)(arg0 + 0x664), -1);
@@ -704,7 +704,7 @@ void load_resources__13TBoss2DeRolLeFv(void) {
     for (i = 0; i < 1; i++) {
         TBoss2DeRolLe__data_805D4BA0[i] = dispatch_shared_handler_a__6TLobbyFPv(lbl_805D26B0[i]);
     }
-    TBoss2DeRolLe__data_805D4BC4 = 0;
+    TBoss2DeRolLe__instance = 0;
     TBoss2Tentacle__sub_8003A0AC();
     TBoss2Mine__sub_80038D88();
     for (k = 0; k < 5; k++) {
@@ -823,10 +823,10 @@ s32 init_resources__13TBoss2DeRolLeFi(s32 arg0) {
     return arg0;
 }
 
-extern s32 TBoss2DeRolLe__data_805D4BC4;
+extern s32 TBoss2DeRolLe__instance;
 
 s32 get_instance__13TBoss2DeRolLeFv(void) {
-    return TBoss2DeRolLe__data_805D4BC4;
+    return TBoss2DeRolLe__instance;
 }
 
 void TBoss2DeRolLe__sub_80036288(void) {  }

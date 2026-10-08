@@ -17,16 +17,16 @@ u8 *TObjBoss2Tunnel__sub_8003C21C(O_8003C21C *self);
 
 extern "C" {
 
-extern u32 TObjBoss2Tunnel__data_805D4C00;
+extern u32 TObjBoss2Tunnel__global_flags;
 
 s32 TObjBoss2Tunnel__sub_8003C1C8(void) {
-    return ((u32) TObjBoss2Tunnel__data_805D4C00 >> 0xDU) & 1;
+    return ((u32) TObjBoss2Tunnel__global_flags >> 0xDU) & 1;
 }
 
-extern u32 TObjBoss2Tunnel__data_805D4C00;
+extern u32 TObjBoss2Tunnel__global_flags;
 
 s32 is_flag_set__15TObjBoss2TunnelFv(s32 _w0) {
-    return ((u32) TObjBoss2Tunnel__data_805D4C00 >> 0xCU) & 1;
+    return ((u32) TObjBoss2Tunnel__global_flags >> 0xCU) & 1;
 }
 s32 TObjBoss2Tunnel__sub_8003C1E0(s32 arg0) {
     s32 temp_r31;

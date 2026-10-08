@@ -89,7 +89,7 @@ void handle_event__22TAdMultiPlyChrSelectGCFPvi(void *arg0, s32 arg1) {
     }
 }
 
-    extern int TAdMultiPlyChrSelectGC__data_805D67E0;
+    extern int TAdMultiPlyChrSelectGC__selected_slot;
 
 typedef char RecoveredGlobal_802DFF0C___vt__22TAdMultiPlyChrSelectGC_size[sizeof(RecoveredGlobal_802DFF0C___vt__22TAdMultiPlyChrSelectGC) == 0x18 ? 1 : -1];
 
@@ -197,7 +197,7 @@ u8 *get_or_create__22TAdMultiPlyChrSelectGCFii(s32 arg0, s32 arg1) {
     return var_r0;
 }
 
-int get_instance__22TAdMultiPlyChrSelectGCFv(void) {  return TAdMultiPlyChrSelectGC__data_805D67E0; }
+int get_instance__22TAdMultiPlyChrSelectGCFv(void) {  return TAdMultiPlyChrSelectGC__selected_slot; }
 
 s32 TAdMultiPlyChrSelectGC__sub_802DFFE8(O_802DFFE8 *self) {
     return self->tbl[TAdMultiPlyChrSelectGC__data_805D67D8][self->idx];
@@ -218,7 +218,7 @@ int get_card_instance__22TAdMultiPlyChrSelectGCFv(void) {  return ad_chr_sel_ply
 
 s32 get_selection__22TAdMultiPlyChrSelectGCFPv(void* p) { return *(s32*)((char*)p + 0x4f8); }
 
-    extern int TAdMultiPlyChrSelectGC__data_805D67DC;
-void set_select_mode__22TAdMultiPlyChrSelectGCFii(int a0, int a1) { TAdMultiPlyChrSelectGC__data_805D67DC = a1; }
+    extern int TAdMultiPlyChrSelectGC__select_mode;
+void set_select_mode__22TAdMultiPlyChrSelectGCFii(int a0, int a1) { TAdMultiPlyChrSelectGC__select_mode = a1; }
 
 }

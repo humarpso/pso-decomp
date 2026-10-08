@@ -774,7 +774,7 @@ void reset_split_flag__11TCameraCtrlFPv(void *arg0) {
     }
 }
 
-    extern int lbl_805D34B8;
+    extern int camera_split_screen_selector;
 
 #pragma push
 #pragma opt_common_subs off
@@ -1009,7 +1009,7 @@ M2C_UNK *TCameraCtrl__sub_8006B324(void) {
     return &lbl_805137F8.value;
 }
 
-int get_instance__11TCameraCtrlFv(void) {  return lbl_805D34B8; }
+int get_instance__11TCameraCtrlFv(void) {  return camera_split_screen_selector; }
 
     extern int lbl_805D4E04;
 int get_camera_id__11TCameraCtrlFv(void) {  return lbl_805D4E04; }

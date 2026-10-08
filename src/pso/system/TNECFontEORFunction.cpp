@@ -9,12 +9,12 @@ extern "C" {
 M2C_UNK DCFlushRange(void *, int);
 M2C_UNK init_and_load_tlut(int, int, int, void *);
 extern s32 lbl_805D56B4;
-extern s32 lbl_805D56B8;
+extern s32 menu_font_upload_flags;
 extern u8 lbl_805D56C0;
 M2C_UNK DCFlushRange(void *, int);
 M2C_UNK init_and_load_tlut(int, int, int, void *);
 extern s32 lbl_805D56B4;
-extern s32 lbl_805D56B8;
+extern s32 menu_font_upload_flags;
 extern u8 lbl_805D56C0;
 }
 
@@ -39,13 +39,13 @@ s32 lbl_804A74F0[191] = {
     11, 12, 12, 12, 12, 12, 11, 12, 11, 11, 11, 11, 11, 11, 11,
 };
 void run_task__19TNECFontEORFunctionFv(void) {
-    if (lbl_805D56B8 & 2) {
+    if (menu_font_upload_flags & 2) {
         DCFlushRange((void *) (lbl_805D56B4), (int) (0x80));
         init_and_load_tlut((int) (0), (int) (2), (int) (0x80), (void *) (lbl_805D56B4));
-        lbl_805D56B8 &= 0xFFFFFFFD;
+        menu_font_upload_flags &= 0xFFFFFFFD;
     }
-    if (lbl_805D56B8 & 1) {
-        lbl_805D56B8 &= 0xFFFFFFFE;
+    if (menu_font_upload_flags & 1) {
+        menu_font_upload_flags &= 0xFFFFFFFE;
         lbl_805D56C0 += 1;
     }
 }

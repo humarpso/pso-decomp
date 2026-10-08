@@ -15,9 +15,9 @@ M2C_UNK TLobby__sub_803DA16C(M2C_UNK *);
 M2C_UNK free__11TOBoss4RockFUi(s32);
 M2C_UNK safe_free__23TAdSinglePlyChrSelectGCFUi(s32);
 extern M2C_UNK lbl_804A74E8[];
-extern s32 lbl_805D56B0;
+extern s32 menu_font_glyph_data;
 extern s32 lbl_805D56B4;
-extern s32 lbl_805D56BC;
+extern s32 menu_font_glyph_table;
 extern struct VObj_801457A4 *lbl_805D56C4;
 void free_resources__23TAdSinglePlyChrSelectGCFv(void);
 }
@@ -39,9 +39,9 @@ void free_resources__23TAdSinglePlyChrSelectGCFv(void) {
         lbl_805D56C4->m0(1);
     }
     TLobby__sub_803DA16C(lbl_804A74E8);
-    free__11TOBoss4RockFUi(lbl_805D56BC);
+    free__11TOBoss4RockFUi(menu_font_glyph_table);
     free__11TOBoss4RockFUi(lbl_805D56B4);
-    safe_free__23TAdSinglePlyChrSelectGCFUi(lbl_805D56B0);
+    safe_free__23TAdSinglePlyChrSelectGCFUi(menu_font_glyph_data);
 }
 #pragma pop
 

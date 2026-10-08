@@ -15,7 +15,7 @@ int get_enemy_count__9TObjEneDDFv(void);
 void *__nw__7TObjectFUl(int);
 void *construct_collision_body(void *, int, int);
 
-extern void *lbl_805D5138;
+extern void *obj_ene_dd_instance;
 
 void create_instance__9TObjEneDDFv(void) {
     void *o;
@@ -23,7 +23,7 @@ void create_instance__9TObjEneDDFv(void) {
     if (o != NULL) {
         o = construct_collision_body(o, 0, 0);
     }
-    lbl_805D5138 = o;
+    obj_ene_dd_instance = o;
 }
 
     extern int lbl_805D5870;

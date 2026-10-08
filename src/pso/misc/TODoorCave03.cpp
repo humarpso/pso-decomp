@@ -112,7 +112,7 @@ void post_translate_matrix(void *);
 void set_global_param__8TObjFishFi(s32);
 void draw_ginja_model(s32);
 s32 set_chunk_material_color(void *);
-extern u8 lbl_804A7418[];
+extern u8 chunk_material_color_half_alpha_f32[];
 extern s32 lbl_805D5660;
 extern s32 some_id_805c6f74;
 extern const f32 lbl_805DB4E8;
@@ -225,7 +225,7 @@ void render__12TODoorCave03Fv(u8 *arg0) {
         m = m->child;
         post_translate_matrix(m->m8);
         draw_ginja_model(m->m4);
-        set_chunk_material_color(lbl_804A7418);
+        set_chunk_material_color(chunk_material_color_half_alpha_f32);
         some_id_805c6f74 = lbl_805D5660;
         end_effect_render__13TParticleCtrlFv();
         pop_matrix();

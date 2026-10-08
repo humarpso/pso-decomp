@@ -149,7 +149,7 @@ extern s32 lbl_805D55C0;
 extern s32 lbl_805D5C8C;
 extern s32 lbl_805D5C94;
 extern s32 lbl_805D5C9C;
-extern s32 lbl_805D5CA0;
+extern s32 warp_boss_model_handle;
 extern s32 lbl_805D5CA4;
 extern M2C_UNK __vt__17TObjWarpBossMulti[];
 extern void *tl_05;
@@ -913,7 +913,7 @@ block_4:
         push_matrix();
         post_translate_matrix(arg0 + 0x38);
         rotate_matrix_y(0, M2C_FIELD(arg0, s32 *, 0x60));
-        set_global_param__8TObjFishFi(lbl_805D5CA0);
+        set_global_param__8TObjFishFi(warp_boss_model_handle);
         draw_ginja_object(lbl_805D5C8C);
         if (M2C_FIELD(arg0, void **, 0xD0) != 0) {
             begin_effect_render__13TParticleCtrlFv();

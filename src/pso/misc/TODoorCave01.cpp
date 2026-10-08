@@ -25,7 +25,7 @@ M2C_UNK pop_matrix();
 M2C_UNK set_global_param__8TObjFishFi(int);
 M2C_UNK draw_ginja_model(int);
 M2C_UNK set_chunk_material_color(void *, int);
-extern u8 lbl_804A7418[];
+extern u8 chunk_material_color_half_alpha_f32[];
 extern s32 lbl_805D5660;
 extern u8 *TODoorCave01__data_805D595C;
 extern s32 some_id_805c6f74;
@@ -76,7 +76,7 @@ M2C_UNK draw_door_model__12TODoorCave01FPvii(void *p0, int p1, int arg2) {
     pop_matrix();
     end_effect_render__13TParticleCtrlFv();
     if (arg2 != 1) {
-        ((void (*)(void *)) set_chunk_material_color)(lbl_804A7418);
+        ((void (*)(void *)) set_chunk_material_color)(chunk_material_color_half_alpha_f32);
         some_id_805c6f74 = lbl_805D5660;
     }
     pop_matrix();

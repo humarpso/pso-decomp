@@ -47,7 +47,7 @@ extern const f32 lbl_805D85BC;
 extern const f32 lbl_805D85C0;
 extern const f32 lbl_805D85C4;
 extern const f32 lbl_805D85C8;
-extern s32 lbl_805D4BF0;
+extern s32 TObjBoss2DustCtrl_dust_counter;
 
 void TObjBoss2DustCtrl__sub_8003AB5C(void);
 void *TObjBoss2DustCtrl__ct(void *arg0);
@@ -104,10 +104,10 @@ extern "C" {
 void TObjBoss2DustCtrl__sub_8003AB5C(void) {
     s32 temp_r0;
 
-    temp_r0 = lbl_805D4BF0 + 1;
-    lbl_805D4BF0 = temp_r0;
+    temp_r0 = TObjBoss2DustCtrl_dust_counter + 1;
+    TObjBoss2DustCtrl_dust_counter = temp_r0;
     if (temp_r0 >= 0xA) {
-        lbl_805D4BF0 = 0;
+        TObjBoss2DustCtrl_dust_counter = 0;
     }
 }
 
@@ -157,7 +157,7 @@ void fn_8003AD54(void) {
     for (j = 0; j < 10; j++) {
         lbl_804FEE40[j] = calc_random_scaled__10TObjPlayerFv();
     }
-    lbl_805D4BF0 = 0;
+    TObjBoss2DustCtrl_dust_counter = 0;
 }
 
 }

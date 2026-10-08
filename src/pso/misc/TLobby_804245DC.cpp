@@ -133,7 +133,7 @@ s32 TLobby__sub_8042AAA0(void *);
 u8 lbl_805CF240[0xA0];
 u8 lbl_805CF2E0[0xA0];
 u8 lbl_805CF380[0x48];
-extern s32 lbl_805D7BB4;
+extern s32 lobby_message_thread_handle;
 extern u32 lbl_805D7BC4;
 void TLobby__sub_803F95E4(u32);
 extern u32 lbl_805D7BA8;
@@ -406,7 +406,7 @@ void TLobby__sub_80419DDC(void *);
 void TLobby__sub_80425BD0(void);
 extern s16 lbl_805D4828;
 extern s32 lbl_805D7BB0;
-extern s32 lbl_805D7BB4;
+extern s32 lobby_message_thread_handle;
 extern s32 lbl_805D7BB8;
 extern u32 lbl_805D7BBC;
 void TLobby__sub_80425B70(void);
@@ -644,10 +644,10 @@ void TLobby__sub_804259F0(void) {
 }
 
 void TLobby__sub_80425B70(void) {
-    if ((u32)lbl_805D7BB4 != 0) {
-        cancel_thread_if_running__6TLobbyFi((void *)lbl_805D7BB4);
-        deactivate_entry_by_key__6TLobbyFUi((void *)lbl_805D7BB4);
-        lbl_805D7BB4 = 0;
+    if ((u32)lobby_message_thread_handle != 0) {
+        cancel_thread_if_running__6TLobbyFi((void *)lobby_message_thread_handle);
+        deactivate_entry_by_key__6TLobbyFUi((void *)lobby_message_thread_handle);
+        lobby_message_thread_handle = 0;
     }
     TLobby__sub_80419DDC((void *)TLobby__sub_80425BD0);
     lbl_805D4828 = -1;
@@ -777,10 +777,10 @@ s16 TLobby__sub_804262CC(void *argp) {
     OSInitMessageQueue(lbl_805CF240, lbl_805CF240 + 0x20, 0x20);
     OSInitMessageQueue(lbl_805CF2E0, lbl_805CF2E0 + 0x20, 0x20);
     OSInitMessageQueue(lbl_805CF380, lbl_805CF380 + 0x20, 0xA);
-    if (TLobby__sub_803F9B94((void *) (&message_thread_loop__6TLobbyFv), (void *) (&lbl_805D7BB4)) < 0) {
+    if (TLobby__sub_803F9B94((void *) (&message_thread_loop__6TLobbyFv), (void *) (&lobby_message_thread_handle)) < 0) {
         return -1;
     }
-    TLobby__sub_803F9B28((void *) (lbl_805D7BB4));
+    TLobby__sub_803F9B28((void *) (lobby_message_thread_handle));
     lbl_805D7BB0 = 1;
     lbl_805D4828 = -1;
     lbl_805D7BB8 = 0;

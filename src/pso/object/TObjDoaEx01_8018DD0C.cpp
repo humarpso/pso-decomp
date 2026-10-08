@@ -39,7 +39,7 @@ M2C_UNK scale_current_matrix(void *);
 M2C_UNK post_translate_matrix(void *);
 M2C_UNK draw_ginja_model(int);
 M2C_UNK set_chunk_material_color(void *);
-extern u8 lbl_804A7418[];
+extern u8 chunk_material_color_half_alpha_f32[];
 extern s32 lbl_805D5660;
 extern u8 *TObjDoaEx01__data_805D5BB4;
 extern u8 *TObjDoaEx01__data_805D5BB8;
@@ -115,7 +115,7 @@ M2C_UNK draw_object_tree__11TObjDoaEx01FPvi(void *arg0, s32 arg1) {
             some_id_805c6f74 = some_id_805c6f74 | 0x10;
             set_chunk_material_color((u8 *)arg0 + 0xD4);
             draw_ginja_model(obj->model);
-            set_chunk_material_color(lbl_804A7418);
+            set_chunk_material_color(chunk_material_color_half_alpha_f32);
             some_id_805c6f74 = lbl_805D5660;
             end_effect_render__13TParticleCtrlFv();
         } else {

@@ -257,7 +257,7 @@ extern char lbl_80439494[];
 extern char lbl_804394A4[];
 extern char lbl_804394BC[];
 extern char lbl_804394D4[];
-extern u8 lbl_8048E768[];
+extern u8 particle_regular_bml_descriptor[];
 extern s32 lbl_805D4EFC;
 extern u32 TParticleCtrl__data_805D4F00;
 extern u32 TParticleCtrl__data_805D4F04;

@@ -59,7 +59,7 @@ s32 reset_photon_effect__10TObjPlayerFPv(void *);
 s32 refresh_collision_body_centers(void *);
 s32 init_collision_body_parts(void *, void *, int);
 s32 init_map_object_base(void *, int);
-extern RecoveredGlobal_8016904C_lbl_804B26D8 lbl_804B26D8;
+extern RecoveredGlobal_8016904C_lbl_804B26D8 hanger_machine01_collision_body_parts;
 extern M2C_UNK __vt__17TOHangerMachine01[];
 extern s32 lbl_805D2FFC;
 extern u32 TOHangerMachine01__data_805D59E8;
@@ -203,7 +203,7 @@ u8 *TOHangerMachine01__ct(u8 *arg0, s32 arg1) {
     M2C_FIELD(arg0, f32 *, 0xC0) = (f32) lbl_805DB6AC;
     M2C_FIELD(arg0, f32 *, 0xC4) = (f32) lbl_805DB6B0;
     M2C_FIELD(arg0, s32 *, 0x30) = (s32) (M2C_FIELD(arg0, s32 *, 0x30) | 0x40000000);
-    init_collision_body_parts((void *) (arg0), (void *) (&lbl_804B26D8.value), (int) (1));
+    init_collision_body_parts((void *) (arg0), (void *) (&hanger_machine01_collision_body_parts.value), (int) (1));
     refresh_collision_body_centers((void *) (arg0));
     reset_photon_effect__10TObjPlayerFPv((void *) (arg0));
     M2C_FIELD(arg0, s32 *, 0xC8) = 0;

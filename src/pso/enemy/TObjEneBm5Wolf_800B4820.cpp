@@ -1028,7 +1028,7 @@ M2C_UNK post_translate_matrix(void *);
 M2C_UNK set_global_param__8TObjFishFi(s32);
 M2C_UNK set_global_state__16TObjEneRe7BeruraFi(void *);
 void advance_spawn_timer__14TObjEneBm5WolfFv(void);
-extern s32 TObjEneBm5Wolf__data_805D5124;
+extern s32 TObjEneBm5Wolf__spawn_timer;
 extern s32 TObjEneBm5Wolf__data_805D5128;
 extern const f32 lbl_805D9D70;
 extern const f32 TObjEneBm5Wolf__data_805D9D74;
@@ -1310,7 +1310,7 @@ void update_state__14TObjEneBm5WolfFPv(void *arg0) {
     }
 }
 
-extern s32 TObjEneBm5Wolf__data_805D5124;
+extern s32 TObjEneBm5Wolf__spawn_timer;
 extern s32 TObjEneBm5Wolf__data_805D5128;
 
 void render__14TObjEneBm5WolfFPv(u8 *arg0) {
@@ -1352,7 +1352,7 @@ void render__14TObjEneBm5WolfFPv(u8 *arg0) {
             if (M2C_FIELD(arg0, s32 *, 0x408) & 4) {
                 translate_matrix(0, TObjEneBm5Wolf__data_805D9D78, M2C_FIELD(arg0, f32 *, 0x40C), TObjEneBm5Wolf__data_805D9D78);
             }
-            TObjEneBm5Wolf__data_805D5124 = 0;
+            TObjEneBm5Wolf__spawn_timer = 0;
             TObjEneBm5Wolf__data_805D5128 = -((s32) M2C_FIELD(arg0, s32 *, 0x3E4) / 2);
             set_global_state__16TObjEneRe7BeruraFi((void *)advance_spawn_timer__14TObjEneBm5WolfFv);
             clear_global_flag_400__9TObjEneDDFv();
@@ -1371,10 +1371,10 @@ void render__14TObjEneBm5WolfFPv(u8 *arg0) {
 }
 
 void advance_spawn_timer__14TObjEneBm5WolfFv(void) {
-    if (((s32) TObjEneBm5Wolf__data_805D5124 >= 0x16) && ((s32) TObjEneBm5Wolf__data_805D5124 < 0x18)) {
+    if (((s32) TObjEneBm5Wolf__spawn_timer >= 0x16) && ((s32) TObjEneBm5Wolf__spawn_timer < 0x18)) {
         rotate_matrix_y(0, TObjEneBm5Wolf__data_805D5128);
     }
-    TObjEneBm5Wolf__data_805D5124 += 1;
+    TObjEneBm5Wolf__spawn_timer += 1;
 }
 
 extern const f32 TObjEneBm5Wolf__data_805D9DB4;

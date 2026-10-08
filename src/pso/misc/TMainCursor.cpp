@@ -29,7 +29,7 @@ extern s32 lbl_805D62B0;
     extern int lbl_805D49A4;
     extern int lbl_805D49A8;
     extern int lbl_805D49B0;
-    extern int lbl_805D5678;
+    extern int anim_model_matrix_array;
     extern int lbl_805D5680;
 int TMainCursor__sub_8013BE98(void* p, void* _w1, void* _w2);
 s32 init_forward__10TObjPlayerFPv(void *);
@@ -56,7 +56,7 @@ M2C_UNK check_flag_4__11TMainCursorFPv(void *);
 int forward_13E338_at_60__11TMainCursorFPv(void *);
 u8 update_sub_60__11TMainCursorFPv(void *);
 M2C_UNK get_rader_map__11TMainCursorFPv(void *, void *);
-extern RecoveredGlobal_8013BC2C_lbl_804A7164 lbl_804A7164;
+extern RecoveredGlobal_8013BC2C_lbl_804A7164 target_cursor_color_table;
 extern const f32 TMainCursor__data_805DB0CC;
 extern const f32 lbl_805DB0D4;
 extern const f32 lbl_805DB0D8;
@@ -119,10 +119,10 @@ void refresh_target_marker__11TMainCursorFPv(u8 *arg0) {
         check_flag_4__11TMainCursorFPv((void *) (arg0));
     }
     if (update__11TMainCursorFPv((void *) (arg0)) != 0) {
-        get_rader_map__11TMainCursorFPv((void *) (arg0 + 0x4C), (void *) ((u8 *)&lbl_804A7164.value + 0x40));
+        get_rader_map__11TMainCursorFPv((void *) (arg0 + 0x4C), (void *) ((u8 *)&target_cursor_color_table.value + 0x40));
         return;
     }
-    get_rader_map__11TMainCursorFPv((void *) (arg0 + 0x4C), (void *) ((u8 *)&lbl_804A7164.value + (temp_r3_2 * 0x10)));
+    get_rader_map__11TMainCursorFPv((void *) (arg0 + 0x4C), (void *) ((u8 *)&target_cursor_color_table.value + (temp_r3_2 * 0x10)));
 }
 
 void *__dt__11TMainCursorFv(void *arg0, s16 arg1) {

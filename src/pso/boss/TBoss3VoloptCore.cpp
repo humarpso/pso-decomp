@@ -717,7 +717,7 @@ M2C_UNK draw_chunk_object(s32);
 extern Slot_8003F730 lbl_804FEED0[];
 extern u16 lbl_805D271C;
 extern s32 lbl_805D2728;
-extern int lbl_805D4C10;
+extern int boss3_volopt_resources;
 extern s32 lbl_805D4C14;
 extern u16 lbl_805D4C18;
 extern int lbl_805D4C50;
@@ -1608,7 +1608,7 @@ void TObjPlayer__sub_800405D8(u8 *arg0) {
 
 void TBoss3VoloptCore__sub_80040788(void) {  }
 
-void cache_volopt_resource_ptrs(void) { lbl_805D4C60 = lbl_805D4C10; lbl_805D4C50 = register_boss__6TLobbyFPv((void*)33); lbl_805D4C54 = dispatch_shared_handler_b__6TLobbyFPv((void*)33); lbl_805D4C58 = register_object__6TLobbyFPv((void*)33); lbl_805D4C5C = dispatch_shared_handler_a__6TLobbyFPv((void*)33); }
+void cache_volopt_resource_ptrs(void) { lbl_805D4C60 = boss3_volopt_resources; lbl_805D4C50 = register_boss__6TLobbyFPv((void*)33); lbl_805D4C54 = dispatch_shared_handler_b__6TLobbyFPv((void*)33); lbl_805D4C58 = register_object__6TLobbyFPv((void*)33); lbl_805D4C5C = dispatch_shared_handler_a__6TLobbyFPv((void*)33); }
 
 void *TBoss3VoloptCore__sub_800407E0(void *arg0) {
     void *o = __nw__7TObjectFUl(0x3D4);

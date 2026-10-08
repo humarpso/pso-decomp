@@ -2407,7 +2407,7 @@ M2C_UNK set_global_param__8TObjFishFi(int);
 M2C_UNK set_global_state__16TObjEneRe7BeruraFi(void *);
 
 extern RecoveredGlobal_800E4D7C_TObjEneMe3ShinowaMirage__data_80500FC0 TObjEneMe3ShinowaMirage__data_80500FC0;
-extern Info_800E6F0C *TObjEneMe3ShinowaMirage__data_80500FE4[];
+extern Info_800E6F0C *TObjEneMe3ShinowaMirage__mirage_info_table[];
 extern u8 *TObjEneMe3ShinowaMirage__data_805D5298;
 extern s32 TObjEneMe3ShinowaMirage__data_805D52A0;
 extern s32 TObjEneMe3ShinowaMirage__data_805D52A4;
@@ -2875,7 +2875,7 @@ u8 check_body_collision_at__23TObjEneMe3ShinowaMirageFPvif(Obj_800E750C *arg0, s
 }
 
 extern "C" {
-extern Info_800E6F0C *TObjEneMe3ShinowaMirage__data_80500FE4[];
+extern Info_800E6F0C *TObjEneMe3ShinowaMirage__mirage_info_table[];
 }
 
 void update_mirage__23TObjEneMe3ShinowaMirageFPv(void* p) { if (get_target_info__9TObjEneDDFPv(p) != 0) { ((int (*)(void*))fn_800E762C)(p); TObjEneMe3ShinowaMirage__sub_800E6F64((u8 *)(p)); } }
@@ -3132,7 +3132,7 @@ void state_cast_support__23TObjEneMe3ShinowaMirageFPvi(void *arg0_, s32 arg1) {
         M2C_FIELD(arg0, s32 *, 0x408) = 0;
         break;
     case 3:
-        if (M2C_FIELD(arg0, s32 *, 0x408) > TObjEneMe3ShinowaMirage__data_80500FE4[M2C_FIELD(arg0, s32 *, 0x3C0)]->frame_1C) {
+        if (M2C_FIELD(arg0, s32 *, 0x408) > TObjEneMe3ShinowaMirage__mirage_info_table[M2C_FIELD(arg0, s32 *, 0x3C0)]->frame_1C) {
             transition_enemy_state(arg0, 4);
         }
         break;
@@ -3158,9 +3158,9 @@ void state_cast_support__23TObjEneMe3ShinowaMirageFPvi(void *arg0_, s32 arg1) {
         case 2:
             M2C_FIELD(arg0, s32 *, 0x408)++;
             if (M2C_FIELD(arg0, s32 *, 0x408) == 5) {
-                create__9TTecSiftaFPvPvPv(arg0, arg0 + 0x38, clamp_frame_index__9TObjEneDDFi(TObjEneMe3ShinowaMirage__data_80500FE4[M2C_FIELD(arg0, s32 *, 0x3C0)]->frame));
+                create__9TTecSiftaFPvPvPv(arg0, arg0 + 0x38, clamp_frame_index__9TObjEneDDFi(TObjEneMe3ShinowaMirage__mirage_info_table[M2C_FIELD(arg0, s32 *, 0x3C0)]->frame));
             } else if (M2C_FIELD(arg0, s32 *, 0x408) == 0xA) {
-                create__10TTecDebandFiii(arg0, arg0 + 0x38, clamp_frame_index__9TObjEneDDFi(TObjEneMe3ShinowaMirage__data_80500FE4[M2C_FIELD(arg0, s32 *, 0x3C0)]->frame));
+                create__10TTecDebandFiii(arg0, arg0 + 0x38, clamp_frame_index__9TObjEneDDFi(TObjEneMe3ShinowaMirage__mirage_info_table[M2C_FIELD(arg0, s32 *, 0x3C0)]->frame));
                 M2C_FIELD(arg0, s32 *, 0x404) = 1;
                 M2C_FIELD(arg0, s32 *, 0x408) = 0;
             }
@@ -3431,7 +3431,7 @@ void TObjEneMe3ShinowaMirage__sub_800E5CE4(u8 *arg0, s32 arg1) {
             }
             ((VObj_18_4f5f2e *)(arg0))->m110();
             if (M2C_FIELD(arg0, f32 *, 0xC0) >= TObjEneMe3ShinowaMirage__data_805DA5B8 && M2C_FIELD(arg0, f32 *, 0xC0) <= lbl_805DA5D4) {
-                info = ((Info_800E5CE4 * *)&TObjEneMe3ShinowaMirage__data_80500FE4)[M2C_FIELD(arg0, s32 *, 0x3C0)];
+                info = ((Info_800E5CE4 * *)&TObjEneMe3ShinowaMirage__mirage_info_table)[M2C_FIELD(arg0, s32 *, 0x3C0)];
                 move_to_shot_position__9TObjEneDDFPvfff(arg0, info, M2C_FIELD(arg0, f32 *, 0x3A0), M2C_FIELD(arg0, f32 *, 0x3A8), info->f8);
             } else {
                 ((VObj_18_4f5f2e *)(arg0))->m100();
@@ -3443,7 +3443,7 @@ void TObjEneMe3ShinowaMirage__sub_800E5CE4(u8 *arg0, s32 arg1) {
             break;
         case 1:
             M2C_FIELD(arg0, s32 *, 0x408)++;
-            if (M2C_FIELD(arg0, s32 *, 0x408) <= ((Info_800E5CE4 * *)&TObjEneMe3ShinowaMirage__data_80500FE4)[M2C_FIELD(arg0, s32 *, 0x3C0)]->f20) {
+            if (M2C_FIELD(arg0, s32 *, 0x408) <= ((Info_800E5CE4 * *)&TObjEneMe3ShinowaMirage__mirage_info_table)[M2C_FIELD(arg0, s32 *, 0x3C0)]->f20) {
                 M2C_FIELD(arg0, f32 *, 0xC0) = TObjEneMe3ShinowaMirage__data_805DA5E4;
             }
             ((VObj_18_4f5f2e *)(arg0))->m100();
@@ -3649,9 +3649,9 @@ void state_chase_target__23TObjEneMe3ShinowaMirageFPvi(u8 *arg0, s32 arg1) {
         M2C_FIELD(arg0, s32 *, 0x3C4) = (s32) (M2C_FIELD(arg0, s32 *, 0x3C4) & 0xFFFFFFFC);
         M2C_FIELD(arg0, f32 *, 0x3AC) = (f32) lbl_805DA624;
         if (M2C_FIELD(arg0, s32 *, 0x3C4) & 0x10) {
-            M2C_FIELD(arg0, f32 *, 0x410) = (f32) M2C_FIELD(TObjEneMe3ShinowaMirage__data_80500FE4[M2C_FIELD(arg0, s32 *, 0x3C0)], f32 *, 4);
+            M2C_FIELD(arg0, f32 *, 0x410) = (f32) M2C_FIELD(TObjEneMe3ShinowaMirage__mirage_info_table[M2C_FIELD(arg0, s32 *, 0x3C0)], f32 *, 4);
         } else {
-            M2C_FIELD(arg0, f32 *, 0x410) = (f32) M2C_FIELD(TObjEneMe3ShinowaMirage__data_80500FE4[M2C_FIELD(arg0, s32 *, 0x3C0)], f32 *, 0);
+            M2C_FIELD(arg0, f32 *, 0x410) = (f32) M2C_FIELD(TObjEneMe3ShinowaMirage__mirage_info_table[M2C_FIELD(arg0, s32 *, 0x3C0)], f32 *, 0);
         }
         M2C_FIELD(arg0, f32 *, 0x414) = (f32) TObjEneMe3ShinowaMirage__data_805DA5B8;
         return;
@@ -3950,7 +3950,7 @@ void dispatch_action__23TObjEneMe3ShinowaMirageFPvUii(Obj_800E6DD8 *arg0, u32 ar
 }
 
 void TObjEneMe3ShinowaMirage__sub_800E6F0C(Obj_800E6F0C *self) {
-    s32 f = clamp_frame_index__9TObjEneDDFi(TObjEneMe3ShinowaMirage__data_80500FE4[self->kind]->frame);
+    s32 f = clamp_frame_index__9TObjEneDDFi(TObjEneMe3ShinowaMirage__mirage_info_table[self->kind]->frame);
     create__9TTecRestaFPvPvPv(self, self->pos, f);
 }
 

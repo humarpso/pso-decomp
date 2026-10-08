@@ -79,34 +79,34 @@ extern "C" void update_attack_cast__15TObjEneDelDepthFPv();
 extern "C" void update_state__15TObjEneDelDepthFPv();
 extern "C" void update_state_flag__15TObjEneDelDepthFPv();
 extern void *lbl_804E80C0[4];
-extern void *lbl_804E80D0[13];
+extern void *TObjEneDelDepth_motion_file_list[13];
 extern void *lbl_804E8114[4];
-extern void *lbl_804E8124[13];
+extern void *TObjEneDelDepth_motion_names[13];
 void *lbl_804E80C0[4] = {
     (void *)&lbl_80475BD8, (void *)&lbl_80475BE8, (void *)&lbl_80475BF8, (void *)0x0,
 };
-void *lbl_804E80D0[13] = {
+void *TObjEneDelDepth_motion_file_list[13] = {
     (void *)&lbl_80475C08, (void *)&lbl_80475C20, (void *)&lbl_80475C38, (void *)&lbl_80475C50,
     (void *)&lbl_80475C64, (void *)&lbl_80475C78, (void *)&lbl_80475C90, (void *)&lbl_80475CA8,
     (void *)&lbl_80475CC0, (void *)&lbl_80475CD8, (void *)&lbl_80475CF0, (void *)&lbl_80475D04,
     (void *)0x0,
 };
 void *lbl_804E8104[4] = {
-    (void *)&lbl_80475D18, (void *)&lbl_804E80C0, (void *)&lbl_804E80D0, (void *)0x3000c,
+    (void *)&lbl_80475D18, (void *)&lbl_804E80C0, (void *)&TObjEneDelDepth_motion_file_list, (void *)0x3000c,
 };
 void *lbl_804E8114[4] = {
     (void *)&lbl_80475D30, (void *)&lbl_80475BE8, (void *)&lbl_80475BF8, (void *)0x0,
 };
-void *lbl_804E8124[13] = {
+void *TObjEneDelDepth_motion_names[13] = {
     (void *)&lbl_80475C08, (void *)&lbl_80475C20, (void *)&lbl_80475C38, (void *)&lbl_80475C50,
     (void *)&lbl_80475C64, (void *)&lbl_80475C78, (void *)&lbl_80475C90, (void *)&lbl_80475CA8,
     (void *)&lbl_80475CC0, (void *)&lbl_80475CD8, (void *)&lbl_80475CF0, (void *)&lbl_80475D04,
     (void *)0x0,
 };
 void *lbl_804E8158[4] = {
-    (void *)&lbl_80475D40, (void *)&lbl_804E8114, (void *)&lbl_804E8124, (void *)0x3000c,
+    (void *)&lbl_80475D40, (void *)&lbl_804E8114, (void *)&TObjEneDelDepth_motion_names, (void *)0x3000c,
 };
-void *lbl_804E8168[11] = {
+void *TObjEneDelDepth_collision_body_parts[11] = {
     (void *)0x0, (void *)0x41700000, (void *)0x0, (void *)0x41200000,
     (void *)0x0, (void *)0x0, (void *)0x8003, (void *)0x0,
     (void *)0x0, (void *)0x0, (void *)0x0,
@@ -196,7 +196,7 @@ void load_assets__15TObjEneDelDepthFv(void) {
         }
         TObjEneDelDepth__data_805D6AC4 = p;
     }
-    g = (Sub_80315B10 *)lbl_804E8168;
+    g = (Sub_80315B10 *)TObjEneDelDepth_collision_body_parts;
     {
         Info_80315B10 info = lbl_80475D84;
         info.a = TObjEneDelDepth__data_805D6AC4->f430;

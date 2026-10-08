@@ -424,7 +424,7 @@ M2C_UNK pop_matrix();
 M2C_UNK scale_current_matrix(void *);
 M2C_UNK post_translate_matrix(void *);
 M2C_UNK set_chunk_material_color(void *);
-extern const f32 lbl_804A7418[];
+extern const f32 chunk_material_color_half_alpha_f32[];
 extern u32 lbl_805D52F8;
 void TObjPlayer__sub_801994DC(M2C_UNK arg0, void *arg1, void *arg2, s32 arg3, void *arg4, f32 farg0);
 }
@@ -694,7 +694,7 @@ void TObjPlayer__sub_801994DC(M2C_UNK arg0, void *arg1, void *arg2, s32 arg3, vo
     fx.b = -5.0f;
     draw_shadow_quad__10TObjPlayerFPvii(&fx, 0, 0x2E);
     end_effect_render__13TParticleCtrlFv();
-    set_chunk_material_color((void *)lbl_804A7418);
+    set_chunk_material_color((void *)chunk_material_color_half_alpha_f32);
     pop_matrix();
 }
 
@@ -902,7 +902,7 @@ void set_chunk_material_override_pair(s32, s32);
 M2C_UNK set_chunk_material_color(void *);
 M2C_UNK draw_chunk_object(s32);
 extern Color_80199A44 lbl_80446060[];
-extern const f32 lbl_804A7418[];
+extern const f32 chunk_material_color_half_alpha_f32[];
 extern s32 lobby_gvm_texture_handles[];
 extern u8 lbl_8050BEC0[];
 extern u8 lbl_8058D490[];
@@ -1009,7 +1009,7 @@ void draw_model__8TObjFishFPv(u8 *arg0) {
             break;
         }
     }
-    set_chunk_material_color((void *)lbl_804A7418);
+    set_chunk_material_color((void *)chunk_material_color_half_alpha_f32);
     pop_matrices(1);
     lbl_805D7784 = lbl_805D5664;
     lbl_805D7780 = lbl_805D5668;

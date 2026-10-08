@@ -221,7 +221,7 @@ void reset_photon_effect__10TObjPlayerFPv(void *);
 M2C_UNK init_collision_body_parts(void *, void *, int);
 void TObjEneIllGill__sub_80367DA4(s32 arg0);
 extern M2C_UNK __vt__14TObjEneIllGill[];
-extern s32 lbl_805D44A8;
+extern s32 TObjEneIllGill_class_name;
 extern int lbl_805D6FD0;
 extern s32 lbl_805D6FD4;
 extern s32 lbl_805D6FD8;
@@ -643,8 +643,8 @@ void run_task__15TObjIllGillKageFv();
 extern "C" {
 void update_object_view_visibility();
 }
-extern void *lbl_804F2E40[2];
-extern void *lbl_804F2E48[11];
+extern void *TObjEneIllGill_model_file_list[2];
+extern void *TObjEneIllGill_motion_name_table[11];
 struct Vec_803664C0 { f32 x, y, z; };
 typedef Vec_803664C0 V_80368208;
 typedef Vec_803664C0 Vec_80368818;
@@ -653,16 +653,16 @@ Vec_803664C0 lbl_80543A6C;
 Vec_803664C0 lbl_80543A78;
 Vec_803664C0 lbl_80543A84;
 u32 lbl_80543A90[4];
-__declspec(section ".data") void *lbl_804F2E40[2] = {
+__declspec(section ".data") void *TObjEneIllGill_model_file_list[2] = {
     (void *)&lbl_8047A1E8, (void *)0x0,
 };
-void *lbl_804F2E48[11] = {
+void *TObjEneIllGill_motion_name_table[11] = {
     (void *)&lbl_8047A1F8, (void *)&lbl_8047A210, (void *)&lbl_8047A228, (void *)&lbl_8047A240,
     (void *)&lbl_8047A258, (void *)&lbl_8047A274, (void *)&lbl_8047A290, (void *)&lbl_8047A2A8,
     (void *)&lbl_8047A2C4, (void *)&lbl_8047A2DC, (void *)0x0,
 };
 void *lbl_804F2E74[4] = {
-    (void *)&lbl_8047A2F4, (void *)&lbl_804F2E40, (void *)&lbl_804F2E48, (void *)0x1000a,
+    (void *)&lbl_8047A2F4, (void *)&TObjEneIllGill_model_file_list, (void *)&TObjEneIllGill_motion_name_table, (void *)0x1000a,
 };
 void *lbl_804F2E84[40] = {
     (void *)0x10000, (void *)0x0, (void *)0x3f19999a, (void *)0x1,
@@ -1968,7 +1968,7 @@ u8 *TObjEneIllGill__ct(u8 *self, s32 arg1, u8 *arg2) {
     initialize__9TObjEnemyFPv(self, arg1, arg2);
     FIG_8036858C(void *, 0x18) = __vt__14TObjEneIllGill;
     init_common__18TObjEneMe3SinowZoaFPv(self + 0x374);
-    FIG_8036858C(s32, 0) = lbl_805D44A8;
+    FIG_8036858C(s32, 0) = TObjEneIllGill_class_name;
     set_param__12TObjEneLappyFPvi(self, 0x52);
     ((VObj_18_8036858C *)self)->m79(arg2);
     ((VObj_18_8036858C *)self)->m80();

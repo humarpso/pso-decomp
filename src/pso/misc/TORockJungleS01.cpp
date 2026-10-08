@@ -49,8 +49,8 @@ s32 init_collision_body_parts(void *, void *, int);
 s32 TORockCaveBrakable__ct(void *);
 s32 create__10TObjMapCsnFi(void *);
 u8 *get_model__15TORockJungleS01Fi(s32 arg0);
-extern RecoveredGlobal_8029C9C8_lbl_804DC3A0 lbl_804DC3A0;
-extern RecoveredGlobal_8029C9C8_lbl_804DC424 lbl_804DC424;
+extern RecoveredGlobal_8029C9C8_lbl_804DC3A0 rock_jungle_collision_body_parts;
+extern RecoveredGlobal_8029C9C8_lbl_804DC424 rock_jungle_vec3_table;
 extern M2C_UNK __vt__15TORockJungleS01[];
 extern s32 lbl_805D3D3C;
 extern const f32 lbl_805DDD1C;
@@ -67,7 +67,7 @@ M2C_UNK add_entry__11TMotorcycleFsiiff(M2C_UNK, void *, s32, f32, f32);
 extern u8 lbl_804658EC[];
 extern u8 lbl_80465904[];
 extern u8 lbl_8046591C[];
-extern u8 lbl_804DC390[];
+extern u8 TORockJungleS01_resource_descriptor[];
 extern u32 lbl_805D65D0;
 extern u32 lbl_805D65D4;
 extern const f32 lbl_805DDD20;
@@ -138,7 +138,7 @@ u8 *TORockJungleS01__ct(u8 *arg0, s32 arg1) {
     M2C_FIELD(arg0, u8 **, 0x34) = get_model__15TORockJungleS01Fi(0);
     M2C_FIELD(arg0, s32 *, 0x24) = TORockJungleS01__sub_8029CAE8((s32)((int) (0)));
     M2C_FIELD(arg0, f32 *, 0xB0) = (f32) (lbl_805DDD1C + M2C_FIELD(M2C_FIELD(M2C_FIELD(arg0, u8 **, 0x34), void **, 4), f32 *, 0x14));
-    init_collision_body_parts((void *) (arg0), (void *) (&lbl_804DC3A0.value), (int) (1));
+    init_collision_body_parts((void *) (arg0), (void *) (&rock_jungle_collision_body_parts.value), (int) (1));
     refresh_collision_body_centers((void *) (arg0));
     reset_photon_effect__10TObjPlayerFPv((void *) (arg0));
     M2C_FIELD(arg0, s32 *, 0xB8) = (s32) M2C_FIELD(arg0, s32 *, 0x84);
@@ -148,7 +148,7 @@ u8 *TORockJungleS01__ct(u8 *arg0, s32 arg1) {
     }
     temp_r4 = arg1 - 4;
     *(M2CCopy_3C *)(copy_storage_8029C9C8.bytes) = *(const M2CCopy_3C *)(temp_r4 + 4);
-    VecCopy__FP3VecPC3Vec((void *) ((copy_storage_8029C9C8.bytes + 0x24)), (void *) (&lbl_804DC424.value));
+    VecCopy__FP3VecPC3Vec((void *) ((copy_storage_8029C9C8.bytes + 0x24)), (void *) (&rock_jungle_vec3_table.value));
     M2C_FIELD(arg0, s32 *, 0xBC) = create__10TObjMapCsnFi((void *) ((copy_storage_8029C9C8.bytes)));
     return arg0;
 }
@@ -180,7 +180,7 @@ void load_resources__15TORockJungleS01Fv(void) {
     void *o;
     o = alloc__23TAdSinglePlyChrSelectGCFPv(0x440);
     if (o != NULL) {
-        o = load_resource_from_descriptor(o, 1, lbl_804DC390, 0, 0, 0);
+        o = load_resource_from_descriptor(o, 1, TORockJungleS01_resource_descriptor, 0, 0, 0);
     }
     lbl_805D65D0 = (u32)o;
     switch (get_global_state__14TOKeyMachine01Fv()) {

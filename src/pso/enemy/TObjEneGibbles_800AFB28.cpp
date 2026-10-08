@@ -423,7 +423,7 @@ void handle_message__13TObjEneBm3FlyFPvi(void *arg0, s32 arg1) {
 }
 
 extern M2C_UNK lbl_8043B0D0[];
-extern s32 TObjEneBm3Fly__data_805D50F4;
+extern s32 TObjEneBm3Fly__breakup_model;
 extern const f32 TObjEneBm3Fly__data_805D9C88;
 
 void state_death_fall__13TObjEneBm3FlyFPvi(u8 *arg0, s32 arg1) {
@@ -513,7 +513,7 @@ void action__13TObjEneBm3FlyFPvi(u8 *arg0, s32 arg1) {
         TBoss8Dragon__sub_800BB7DC(arg0);
         TBoss8Dragon__sub_800BB7D8(arg0, 0xF1, TObjEneBm3Fly__data_805D9C88);
         play_sound_effect(copy_target_state__14TObjEnePanarmsFPvPv(arg0, 0x4003E425), arg0 + 0x38, 0, 0);
-        create_breakup_mdl__12TBoss3VoloptFiiiii(TObjEneBm3Fly__data_805D50F4, lbl_8043B0D0, M2C_FIELD(arg0, s32 *, 0x24), arg0 + 0x2FC, M2C_FIELD(arg0, s32 *, 0x60));
+        create_breakup_mdl__12TBoss3VoloptFiiiii(TObjEneBm3Fly__breakup_model, lbl_8043B0D0, M2C_FIELD(arg0, s32 *, 0x24), arg0 + 0x2FC, M2C_FIELD(arg0, s32 *, 0x60));
         M2C_FIELD(arg0, s32 *, 0x3C0) = 0;
         return;
     case 3:

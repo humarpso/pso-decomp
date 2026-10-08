@@ -1716,7 +1716,7 @@ extern char lbl_8043B264[];
 extern char lbl_8043B27C[];
 extern char lbl_8043B290[];
 extern s32 TObjEneBm3Fly__data_805D50E4;
-extern void *TObjEneBm3Fly__data_805D50F4;
+extern void *TObjEneBm3Fly__breakup_model;
 extern const f32 TObjEneBm3Fly__data_805D9C6C;
 extern RecoveredGlobal_800B22C8_lbl_8043B0FC lbl_8043B0FC;
 extern RecoveredGlobal_800B2948_lbl_8043B2A4 lbl_8043B2A4;
@@ -1745,16 +1745,16 @@ extern s32 lbl_805D2A1C;
 extern s32 lbl_805D50E0;
 extern s32 lbl_805D50E8;
 extern f32 *lbl_805D50EC;
-extern u8 *lbl_805D50F0;
+extern u8 *bm3_fly_nest_resources;
 extern s32 lbl_805D50F8;
 extern s32 lbl_805D50FC;
 extern s32 lbl_805D5100;
 extern s32 lbl_805D5104;
 extern u32 lbl_805D5108;
 extern s32 lbl_805D510C;
-extern NestAttachmentPoint *lbl_805D5110;
+extern NestAttachmentPoint *TObjEneBm3FlyNest_attachment_point_ptr;
 extern s32 lbl_805D5114;
-extern s32 lbl_805D5118;
+extern s32 bm3_fly_nest_attachment_index;
 extern s32 lbl_805D5660;
 extern s32 lbl_805D5664;
 extern s32 lbl_805D5668;
@@ -2106,7 +2106,7 @@ struct Data_800B1F80 { Sub_800B1F80 a; u8 b[0x2C]; u8 c[4]; };
 extern s32 lbl_805D50E0;
 extern s32 TObjEneBm3Fly__data_805D50E4;
 extern s32 lbl_805D50E8;
-extern u8 *lbl_805D50F0;
+extern u8 *bm3_fly_nest_resources;
 extern const f32 TObjEneBm3Fly__data_805D9C6C;
 extern const f32 TObjEneBm3Fly__data_805D9C70;
 extern const f32 TObjEneBm3Fly__data_805D9C94;
@@ -2115,11 +2115,11 @@ extern const f32 lbl_805D9CD8;
 
 M2C_UNK init_child_params__13TObjEneBm3FlyFv(void *arg0) {
     init_position_vectors__9TObjEneDDFPv(arg0);
-    M2C_FIELD(arg0, s32 *, 0x34) = M2C_FIELD(M2C_FIELD(lbl_805D50F0, u8 **, 0x42C), s32 *, 8);
-    M2C_FIELD(arg0, s32 *, 0x24) = M2C_FIELD(M2C_FIELD(lbl_805D50F0, u8 **, 0x42C), s32 *, 0xC);
+    M2C_FIELD(arg0, s32 *, 0x34) = M2C_FIELD(M2C_FIELD(bm3_fly_nest_resources, u8 **, 0x42C), s32 *, 8);
+    M2C_FIELD(arg0, s32 *, 0x24) = M2C_FIELD(M2C_FIELD(bm3_fly_nest_resources, u8 **, 0x42C), s32 *, 0xC);
     init_model__9TObjEneDDFPv(arg0, &lbl_80491B4C, 1);
     set_field_d8__10TObjPlayerFPvi(arg0, lbl_80491B78);
-    set_field_dc__10TObjPlayerFPvi(arg0, M2C_FIELD(lbl_805D50F0, s32 *, 0x430));
+    set_field_dc__10TObjPlayerFPvi(arg0, M2C_FIELD(bm3_fly_nest_resources, s32 *, 0x430));
     M2C_FIELD(arg0, s16 *, 0xB8) = 0;
     set_animation__10TObjPlayerFPvs(arg0, M2C_FIELD(arg0, s16 *, 0xB8));
     set_field_b8__14TObjEnePanarmsFPvs(arg0, M2C_FIELD(arg0, s16 *, 0xB8));
@@ -2187,12 +2187,12 @@ u8 *TObjEneBm3Fly__ct(u8 *arg0, M2C_UNK arg1, u8 *arg2, s32 arg3, s32 arg4, u8 *
 }
 
 void release_shared_data__13TObjEneBm3FlyFv(void) {
-    void *obj = TObjEneBm3Fly__data_805D50F4;
+    void *obj = TObjEneBm3Fly__breakup_model;
     if (obj != NULL) {
         if (obj != NULL) {
             ((VObj_800B2214_800B1978 *)obj)->m2(1);
         }
-        TObjEneBm3Fly__data_805D50F4 = NULL;
+        TObjEneBm3Fly__breakup_model = NULL;
     }
 }
 
@@ -2214,13 +2214,13 @@ void load_resources__13TObjEneBm3FlyFv(void) {
     s32 temp_r3;
     s32 var_r0;
     u8 *temp_r5;
-    lbl_805D50F0 = ((u8 * (*)(void))TObjEneBm3FlyNest__sub_800B4158)();
+    bm3_fly_nest_resources = ((u8 * (*)(void))TObjEneBm3FlyNest__sub_800B4158)();
     temp_r3 = alloc__23TAdSinglePlyChrSelectGCFPv((int) (0x10));
     var_r0 = temp_r3;
     if (var_r0 != 0) {
-        var_r0 = init_from_model__11TBreakUpMdlFPvi((int) (temp_r3), (void *) (M2C_FIELD(M2C_FIELD(lbl_805D50F0, u8 **, 0x42C), s32 *, 8)));
+        var_r0 = init_from_model__11TBreakUpMdlFPvi((int) (temp_r3), (void *) (M2C_FIELD(M2C_FIELD(bm3_fly_nest_resources, u8 **, 0x42C), s32 *, 8)));
     }
-    (*(s32 *)&TObjEneBm3Fly__data_805D50F4) = var_r0;
+    (*(s32 *)&TObjEneBm3Fly__breakup_model) = var_r0;
     lbl_805D50E0 = register_boss__6TLobbyFPv((int) (0));
     TObjEneBm3Fly__data_805D50E4 = dispatch_shared_handler_b__6TLobbyFPv((int) (0));
     lbl_805D50E8 = register_object__6TLobbyFPv((int) (0));
@@ -2229,8 +2229,8 @@ void load_resources__13TObjEneBm3FlyFv(void) {
     stack.spC = M2C_FIELD(&lbl_8043B0FC.value, s32 *, 4);
     stack.sp10 = M2C_FIELD(&lbl_8043B0FC.value, s32 *, 8);
     stack.sp14 = M2C_FIELD(&lbl_8043B0FC.value, s32 *, 0xC);
-    stack.sp8 = M2C_FIELD(lbl_805D50F0, s32 *, 0x430);
-    temp_r5 = (u8 *)(M2C_FIELD(lbl_805D50F0, u8 **, 0x42C));
+    stack.sp8 = M2C_FIELD(bm3_fly_nest_resources, s32 *, 0x430);
+    temp_r5 = (u8 *)(M2C_FIELD(bm3_fly_nest_resources, u8 **, 0x42C));
     spawn_npc_enemy__6TLobbyFsiiiff((int) (7), (int) (M2C_FIELD(temp_r5, s32 *, 8)), (int) (M2C_FIELD(temp_r5, s32 *, 0xC)), (void *) (&stack.sp8), (f32) (M2C_FIELD(&lbl_80491B4C.value, f32 *, 0xC)), (f32) (TObjEneBm3Fly__data_805D9C6C));
 }
 

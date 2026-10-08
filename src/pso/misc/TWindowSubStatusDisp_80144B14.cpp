@@ -79,8 +79,8 @@ u32 get_font_char_advance(u16 arg0);
 void pack_status_flags__20TWindowSubStatusDispFPvUi(void *arg0, u32 arg1);
 void DCStoreRange(void *, u32);
 extern u8 *lbl_8050C040[];
-extern u8 *lbl_805D56B0;
-extern u32 lbl_805D56B8;
+extern u8 *menu_font_glyph_data;
+extern u32 menu_font_upload_flags;
 void upload_font_glyph(u16 c, void *arg1);
 s32 calc_ci4_tile_offset(u32 arg0, u32 arg1);
 u32 get_font_char_advance(u16 arg0);
@@ -369,7 +369,7 @@ void upload_font_glyph(u16 c, void *arg1) {
     tex = lbl_8050C040[g->page];
     y = g->y;
     x = g->x;
-    src = lbl_805D56B0 + (u16)(c - 0x20) * 0x5A;
+    src = menu_font_glyph_data + (u16)(c - 0x20) * 0x5A;
     for (j = 0; j < 0x12; j++) {
         for (i = 0; i < 5; i++) {
             u8 b = *src;
@@ -379,7 +379,7 @@ void upload_font_glyph(u16 c, void *arg1) {
         }
     }
     DCStoreRange(tex, 0x8000);
-    lbl_805D56B8 |= 1;
+    menu_font_upload_flags |= 1;
 }
 #undef g
 
@@ -400,7 +400,7 @@ s32 TWindowSubStatusDisp__sub_80145278(u16 arg0, u8 *arg1, void **arg2) {
 }
 
 typedef struct Glyph_801452DC { u16 code; u16 data[4]; } Glyph_801452DC;
-extern Glyph_801452DC *lbl_805D56BC;
+extern Glyph_801452DC *menu_font_glyph_table;
 void *find_cached_glyph__20TWindowSubStatusDispFUs(u16 code) {
     void *free_slot;
     Glyph_801452DC *g;
@@ -410,7 +410,7 @@ void *find_cached_glyph__20TWindowSubStatusDispFUs(u16 code) {
     u32 j;
 
     free_slot = NULL;
-    g = &lbl_805D56BC[code & 0x7F];
+    g = &menu_font_glyph_table[code & 0x7F];
     if (g->code == code) {
         return g;
     }
@@ -423,7 +423,7 @@ void *find_cached_glyph__20TWindowSubStatusDispFUs(u16 code) {
     if (TWindowSubStatusDisp__sub_80145278(code, (u8 *)&g[0x80], &free_slot) != 0) {
         return &g[0x80];
     }
-    p = &lbl_805D56BC[0x100];
+    p = &menu_font_glyph_table[0x100];
     for (i = 0; i < 0x1F; i++, p++) {
         if (p->code == code) {
             return p;
@@ -432,7 +432,7 @@ void *find_cached_glyph__20TWindowSubStatusDispFUs(u16 code) {
             return p;
         }
     }
-    q = lbl_805D56BC;
+    q = menu_font_glyph_table;
     for (j = 0; j < 0x100; j++, q++) {
         if (q->code == code) {
             return q;
@@ -442,7 +442,7 @@ void *find_cached_glyph__20TWindowSubStatusDispFUs(u16 code) {
         }
     }
     if (free_slot == NULL) {
-        return &lbl_805D56BC[0x11F];
+        return &menu_font_glyph_table[0x11F];
     }
     upload_font_glyph(code, free_slot);
     return free_slot;

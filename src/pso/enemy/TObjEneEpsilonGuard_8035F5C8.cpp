@@ -799,7 +799,7 @@ extern Tbl_803606A0 lbl_80479D00;
 extern Vec_803606A0 lbl_80479D10;
 extern const f64 lbl_80479E90[];
 extern u8 lbl_8058D490[];
-extern u8 *lbl_805D5678;
+extern u8 *anim_model_matrix_array;
 f32 receive_physical_attack__10TObjPlayerFv(void *, void *, f32);
 void try_apply_damage__19TObjEneEpsilonGuardFPvUii(void *, u32, s32);
 extern const f32 lbl_805E0208;
@@ -1438,7 +1438,7 @@ void TObjEneEpsilonGuard__sub_803606A0(Obj_803606A0 *g6, s32 i) {
     render_anim_model__10TObjPlayerFPvf(g6, g6->xC0);
     clear_global_state__10TObjPlayerFv();
     pop_matrix();
-    push_matrix_from(lbl_805D5678 + t.v[i] * 0x30);
+    push_matrix_from(anim_model_matrix_array + t.v[i] * 0x30);
     {
         Vec_803606A0 v = lbl_80479D10;
         matrix_mult_vec(0, &v, &g6->pts[i]);

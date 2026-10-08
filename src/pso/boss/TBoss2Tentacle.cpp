@@ -32,7 +32,7 @@ void VecCopy__FP3VecPC3Vec(void *, void *);
 extern V3_80039DE0 TBoss2Tentacle__data_804FE8E8[];
 extern s32 lbl_804FE990[];
 void TBoss2Tentacle__sub_80039DE0(Obj_80039DE0 *self);
-extern G_80039C44 *TBoss2Tentacle__data_805D4BD4;
+extern G_80039C44 *TBoss2Tentacle__motion_data;
 void TBoss2Tentacle__sub_80039C44(Obj_80039C44 *self);
 M2C_UNK scale_matrix(int, f32, f32, f32);
 M2C_UNK rotate_matrix_y(int, int);
@@ -49,7 +49,7 @@ M2C_UNK set_global_flag__10TObjPlayerFv();
 M2C_UNK clear_global_state__10TObjPlayerFv();
 extern Node_8003933C lbl_804FE5D8[];
 extern M2C_UNK *lbl_805D4BD0;
-extern G_80039C44 *TBoss2Tentacle__data_805D4BD4;
+extern G_80039C44 *TBoss2Tentacle__motion_data;
 extern s32 lbl_805D4BD8;
 extern const f32 lbl_805D8528;
 void render__14TBoss2TentacleFv(u8 *arg0);
@@ -131,7 +131,7 @@ void render__14TBoss2TentacleFv(u8 *arg0) {
     case 0:
         concat_matrix__10TObjPlayerFUiUi((int) (0), (int) (M2C_FIELD(arg0, s32 *, 0x110)));
         rotate_matrix_y((int) (0), (int) (M2C_FIELD(arg0, s32 *, 0x11C)));
-        draw_model_motion((void *) (lbl_805D4BD0), (int) (TBoss2Tentacle__data_805D4BD4), (f32) (M2C_FIELD(arg0, f32 *, 0x114)));
+        draw_model_motion((void *) (lbl_805D4BD0), (int) (TBoss2Tentacle__motion_data), (f32) (M2C_FIELD(arg0, f32 *, 0x114)));
         break;
     case 1:
     case 4:
@@ -139,7 +139,7 @@ void render__14TBoss2TentacleFv(u8 *arg0) {
         concat_matrix__10TObjPlayerFUiUi((int) (0), (int) (M2C_FIELD(arg0, s32 *, 0x110)));
         rotate_matrix_x((int) (0), (int) (M2C_FIELD(arg0, s32 *, 0x120)));
         rotate_matrix_y((int) (0), (int) (M2C_FIELD(arg0, s32 *, 0x11C)));
-        draw_model_motion((void *) (lbl_805D4BD0), (int) (TBoss2Tentacle__data_805D4BD4), (f32) (M2C_FIELD(arg0, f32 *, 0x114)));
+        draw_model_motion((void *) (lbl_805D4BD0), (int) (TBoss2Tentacle__motion_data), (f32) (M2C_FIELD(arg0, f32 *, 0x114)));
         break;
     case 2:
         concat_matrix__10TObjPlayerFUiUi((int) (0), (int) (M2C_FIELD(arg0, s32 *, 0x110)));
@@ -307,7 +307,7 @@ void TBoss2Tentacle__sub_8003998C(void) {  }
 void TBoss2Tentacle__sub_80039990(void) {  }
 
 void TBoss2Tentacle__sub_80039C44(Obj_80039C44 *self) {
-    f32 n = (f32)(TBoss2Tentacle__data_805D4BD4->count - 1);
+    f32 n = (f32)(TBoss2Tentacle__motion_data->count - 1);
     self->pos += self->speed;
     if (self->pos >= n) {
         self->pos -= n;

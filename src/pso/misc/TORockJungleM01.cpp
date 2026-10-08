@@ -81,8 +81,8 @@ s32 TORockCaveBrakable__ct(void *);
 s32 create__10TObjMapCsnFi(void *);
 s32 TORockJungleS01__sub_8029CAE8(int);
 u8 *get_model__15TORockJungleS01Fi(s32);
-extern RecoveredGlobal_8029C588_lbl_804DC3A0 lbl_804DC3A0;
-extern RecoveredGlobal_8029C588_lbl_804DC424 lbl_804DC424;
+extern RecoveredGlobal_8029C588_lbl_804DC3A0 rock_jungle_collision_body_parts;
+extern RecoveredGlobal_8029C588_lbl_804DC424 rock_jungle_vec3_table;
 extern M2C_UNK __vt__15TORockJungleM01[];
 extern s32 lbl_805D3D40;
 extern const f32 lbl_805DDD1C;
@@ -163,7 +163,7 @@ u8 *TORockJungleM01__ct(u8 *arg0, s32 arg1) {
     M2C_FIELD(arg0, u8 **, 0x34) = get_model__15TORockJungleS01Fi(2);
     M2C_FIELD(arg0, s32 *, 0x24) = TORockJungleS01__sub_8029CAE8((int) (2));
     M2C_FIELD(arg0, f32 *, 0xB0) = (f32) (lbl_805DDD1C + M2C_FIELD(M2C_FIELD(M2C_FIELD(arg0, u8 **, 0x34), void **, 4), f32 *, 0x14));
-    init_collision_body_parts((void *) (arg0), (void *) ((u8 *)&lbl_804DC3A0.value + 0x2C), (int) (1));
+    init_collision_body_parts((void *) (arg0), (void *) ((u8 *)&rock_jungle_collision_body_parts.value + 0x2C), (int) (1));
     refresh_collision_body_centers((void *) (arg0));
     reset_photon_effect__10TObjPlayerFPv((void *) (arg0));
     M2C_FIELD(arg0, s32 *, 0xB8) = (s32) M2C_FIELD(arg0, s32 *, 0x84);
@@ -173,7 +173,7 @@ u8 *TORockJungleM01__ct(u8 *arg0, s32 arg1) {
     }
     temp_r4 = arg1 - 4;
     *(M2CCopy_3C *)(copy_storage_8029C588.bytes) = *(const M2CCopy_3C *)(temp_r4 + 4);
-    VecCopy__FP3VecPC3Vec((void *) ((copy_storage_8029C588.bytes + 0x24)), (void *) (&lbl_804DC424.value));
+    VecCopy__FP3VecPC3Vec((void *) ((copy_storage_8029C588.bytes + 0x24)), (void *) (&rock_jungle_vec3_table.value));
     M2C_FIELD(arg0, s32 *, 0xDC) = create__10TObjMapCsnFi((void *) ((copy_storage_8029C588.bytes)));
     activate_and_dispatch__10TObjPlayerFPv((void *) (arg0 + 0xBC));
     return arg0;

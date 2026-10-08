@@ -2074,16 +2074,16 @@ extern "C" {
 void TLobby__sub_803CD804(void);
 M2C_UNK TLobby__sub_803CCE9C(void *);
 
-extern s32 lbl_805D75D4;
-extern s32 lbl_805D75D8;
-extern s32 lbl_805D75DC;
+extern s32 lobby_adxf_current_file_id;
+extern s32 lobby_adxf_open_file_handle;
+extern s32 lobby_afs_toc_entry_index;
 extern s32 lbl_805D75E8;
 
 void TLobby__sub_803CD804(void) {
-    TLobby__sub_803CCE9C((void *) (lbl_805D75D8));
-    lbl_805D75D8 = 0;
-    lbl_805D75D4 = -1;
-    lbl_805D75DC = 0;
+    TLobby__sub_803CCE9C((void *) (lobby_adxf_open_file_handle));
+    lobby_adxf_open_file_handle = 0;
+    lobby_adxf_current_file_id = -1;
+    lobby_afs_toc_entry_index = 0;
     lbl_805D75E8 = 0;
 }
 

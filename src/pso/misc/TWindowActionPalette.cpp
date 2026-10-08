@@ -81,7 +81,7 @@ s32 get_window_layout_position(s32);
 void *__construct_array(void *, void *, void *, u32, u32);
 void free_if_valid__14TPlyDispConfigFis(void *, s16);
 s32 init_gc_tag(void *);
-extern u8 lbl_804CDF9C[];
+extern u8 twindow_action_palette_layout[];
 extern u32 __vt__20TWindowActionPalette[6];
 extern s32 lbl_805D3870;
 extern const f32 lbl_805DCA2C;
@@ -349,7 +349,7 @@ extern "C" u8 *__dt__20TWindowActionPaletteFv(u8 *self, s16 delete_flag) {
 }
 Pal_80244108 *TWindowActionPalette__ct(Pal_80244108 *self, s16 slot) {
     u32 i;
-    construct_base__9TWindowDDFPvPvsPv(self, lbl_804CDF9C, slot, get_window_layout_position(0x1F));
+    construct_base__9TWindowDDFPvPvsPv(self, twindow_action_palette_layout, slot, get_window_layout_position(0x1F));
     self->vt = __vt__20TWindowActionPalette;
     __construct_array(self->arr, (void *)init_gc_tag, (void *)free_if_valid__14TPlyDispConfigFis, 4, 3);
     self->f0 = lbl_805D3870;

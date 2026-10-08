@@ -32,7 +32,7 @@ s32 dispatch_shared_handler_a__6TLobbyFPv(M2C_UNK);
 s32 register_boss__6TLobbyFPv(M2C_UNK);
 M2C_UNK set_global_param__8TObjFishFi(s32);
 
-extern void *lbl_805D4C10;
+extern void *boss3_volopt_resources;
 extern s32 lbl_805D4D18;
 extern s32 lbl_805D4D1C;
 extern s32 volopt_cage_breakup_model;
@@ -42,7 +42,7 @@ void init_break_model__14TObjVoloptCageFv(void) {
     s32 var_r0;
     void *temp_r4;
 
-    temp_r4 = M2C_FIELD(lbl_805D4C10, void **, 0x42C);
+    temp_r4 = M2C_FIELD(boss3_volopt_resources, void **, 0x42C);
     lbl_805D4D24 = M2C_FIELD(temp_r4, s32 *, 0x128);
     var_r0 = alloc__23TAdSinglePlyChrSelectGCFPv(0x10, temp_r4);
     if (var_r0 != 0) {

@@ -70,7 +70,7 @@ M2C_UNK scale_current_matrix(void *);
 M2C_UNK post_translate_matrix(void *);
 M2C_UNK draw_ginja_model(s32);
 M2C_UNK set_chunk_material_color(void *);
-extern u8 lbl_804A7418[];
+extern u8 chunk_material_color_half_alpha_f32[];
 extern s32 lbl_805D5660;
 extern s32 some_id_805c6f74;
 void render__16TODummyKeyCave01Fv(u8 *arg0);
@@ -126,7 +126,7 @@ void render__16TODummyKeyCave01Fv(u8 *arg0) {
         post_translate_matrix(node + 8);
         draw_ginja_model(*(s32 *)(node + 4));
         if (*(u16 *)(arg0 + 0x9A) == 0) {
-            set_chunk_material_color(lbl_804A7418);
+            set_chunk_material_color(chunk_material_color_half_alpha_f32);
             some_id_805c6f74 = lbl_805D5660;
         }
         end_effect_render__13TParticleCtrlFv();

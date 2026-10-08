@@ -23,7 +23,7 @@ extern u8 lbl_8043988C[];
 extern u8 lbl_804398A4[];
 extern u8 lbl_804398B8[];
 extern u8 lbl_804398CC[];
-extern u8 lbl_8048E840[];
+extern u8 ending_wall_texture_table[];
 extern u32 lbl_805D4F14;
 extern s32 lbl_805D5550;
 void bind_ending_wall_textures__6TSceneFv(void);
@@ -71,7 +71,7 @@ void destroy_instance__9TEndingABFv(void) {
     }
 }
 void bind_ending_wall_textures__6TSceneFv(void) {
-    u8 *base = lbl_8048E840;
+    u8 *base = ending_wall_texture_table;
     u8 *t;
     if (fn_8001A988() != 0) {
         t = base + 0x2B8;

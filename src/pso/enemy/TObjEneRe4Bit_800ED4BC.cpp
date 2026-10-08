@@ -338,7 +338,7 @@ struct Bit_800ED7FC : VBase_800ED7FC {
 };
 
 extern "C" {
-__declspec(section ".data") s32 lbl_80501050[2];
+__declspec(section ".data") s32 TObjEneRe4Bit_boss_handles[2];
 __declspec(section ".data") s32 lbl_80501058[2];
 __declspec(section ".data") s32 lbl_80501060[2];
 __declspec(section ".data") s32 lbl_80501068[2];
@@ -502,7 +502,7 @@ void init__13TObjEneRe4BitFPv(Bit_800ED7FC *self) {
     self->x24 = lbl_805D52CC;
     init_model__9TObjEneDDFPv(self, lbl_80496CEC, 1);
     i = self->kind == 1 ? 0 : 1;
-    reset_hp__9TObjEneDDFPv(self, lbl_80501050[i], lbl_80501058[i], lbl_80501060[i]);
+    reset_hp__9TObjEneDDFPv(self, TObjEneRe4Bit_boss_handles[i], lbl_80501058[i], lbl_80501060[i]);
     set_state_8__9TObjEneDDFPv(self);
     self->x350 = lbl_80496CD0;
     if (self->kind == 1) {
@@ -602,7 +602,7 @@ void TObjEneRe4Bit__sub_800EDAB4(void) {
     lbl_805D52C8 = lbl_805D52E0->f42C->f18;
     lbl_805D52CC = lbl_805D52E0->f42C->fC;
     for (i = 0; i < 2; i++) {
-        lbl_80501050[i] = register_boss__6TLobbyFPv(lbl_8043D2B0[i]);
+        TObjEneRe4Bit_boss_handles[i] = register_boss__6TLobbyFPv(lbl_8043D2B0[i]);
         lbl_80501058[i] = dispatch_shared_handler_b__6TLobbyFPv(lbl_8043D2B8[i]);
         lbl_80501060[i] = register_object__6TLobbyFPv(lbl_8043D2C0[i]);
         lbl_80501068[i] = dispatch_shared_handler_a__6TLobbyFPv(lbl_8043D2C8[i]);

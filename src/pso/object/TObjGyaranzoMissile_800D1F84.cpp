@@ -114,7 +114,7 @@ u16 obj_getField1c(void *);
 void copy_from__19TObjGyaranzoMissileFPvPv(void* p, void* q);
 s32 is_valid_and_active__10TObjPlayerFUi(void *);
 M2C_UNK subtract_vector(void *, void *);
-extern Entry_800D20BC lbl_80500F5C[];
+extern Entry_800D20BC TObjGyaranzoMissile_target_slots[];
 extern s32 lbl_805D586C;
 extern s32 lbl_805D5870;
 extern const f32 lbl_805DA258;
@@ -187,8 +187,8 @@ void select_targets__19TObjGyaranzoMissileFPv(u8 *arg0) {
     s32 k;
     f32 dist;
     Vec_800D20BC d;
-    lbl_80500F5C[0].id = 0xFFFF;
-    lbl_80500F5C[0].dist = lbl_805DA258;
+    TObjGyaranzoMissile_target_slots[0].id = 0xFFFF;
+    TObjGyaranzoMissile_target_slots[0].dist = lbl_805DA258;
     n = 0;
     best = 0;
     k = obj_testFlags30(arg0, 0x10);
@@ -206,9 +206,9 @@ void select_targets__19TObjGyaranzoMissileFPv(u8 *arg0) {
         dist = d.x * d.x + d.z * d.z;
         if (!(dist < lbl_805DA260)) continue;
         if (check_path_obstructed(arg0, p + 0x2FC) == 1) continue;
-        lbl_80500F5C[n].dist = dist;
-        lbl_80500F5C[n].id = obj_getField1c(p);
-        if (n > 0 && lbl_80500F5C[n].dist > lbl_80500F5C[best].dist) {
+        TObjGyaranzoMissile_target_slots[n].dist = dist;
+        TObjGyaranzoMissile_target_slots[n].id = obj_getField1c(p);
+        if (n > 0 && TObjGyaranzoMissile_target_slots[n].dist > TObjGyaranzoMissile_target_slots[best].dist) {
             best = n;
         }
         n++;
@@ -219,17 +219,17 @@ void select_targets__19TObjGyaranzoMissileFPv(u8 *arg0) {
         switch (n) {
         case 0:
             for (i = 0; i < 4; i++) {
-                copy_from__19TObjGyaranzoMissileFPvPv(&lbl_80500F5C[i], &def);
+                copy_from__19TObjGyaranzoMissileFPvPv(&TObjGyaranzoMissile_target_slots[i], &def);
             }
             break;
         case 2:
             for (i = n; i < 4; i++) {
-                copy_from__19TObjGyaranzoMissileFPvPv(&lbl_80500F5C[i], &lbl_80500F5C[i % n]);
+                copy_from__19TObjGyaranzoMissileFPvPv(&TObjGyaranzoMissile_target_slots[i], &TObjGyaranzoMissile_target_slots[i % n]);
             }
             break;
         default:
             for (i = n; i < 4; i++) {
-                copy_from__19TObjGyaranzoMissileFPvPv(&lbl_80500F5C[i], &lbl_80500F5C[best]);
+                copy_from__19TObjGyaranzoMissileFPvPv(&TObjGyaranzoMissile_target_slots[i], &TObjGyaranzoMissile_target_slots[best]);
             }
             break;
         }
@@ -237,16 +237,16 @@ void select_targets__19TObjGyaranzoMissileFPv(u8 *arg0) {
     M2C_FIELD(arg0, s32 *, 0x3CC) = n;
     for (i = 0; i < 3; i++) {
         for (j = i + 1; j < 4; j++) {
-            if (lbl_80500F5C[i].dist > lbl_80500F5C[j].dist) {
+            if (TObjGyaranzoMissile_target_slots[i].dist > TObjGyaranzoMissile_target_slots[j].dist) {
                 Entry_800D20BC tmp;
-                copy_from__19TObjGyaranzoMissileFPvPv(&tmp, &lbl_80500F5C[i]);
-                copy_from__19TObjGyaranzoMissileFPvPv(&lbl_80500F5C[i], &lbl_80500F5C[j]);
-                copy_from__19TObjGyaranzoMissileFPvPv(&lbl_80500F5C[j], &tmp);
+                copy_from__19TObjGyaranzoMissileFPvPv(&tmp, &TObjGyaranzoMissile_target_slots[i]);
+                copy_from__19TObjGyaranzoMissileFPvPv(&TObjGyaranzoMissile_target_slots[i], &TObjGyaranzoMissile_target_slots[j]);
+                copy_from__19TObjGyaranzoMissileFPvPv(&TObjGyaranzoMissile_target_slots[j], &tmp);
             }
         }
     }
     for (i = 0; i < 4; i++) {
-        *(u32 *)(arg0 + i * 4 + 0x3BC) = lbl_80500F5C[i].id;
+        *(u32 *)(arg0 + i * 4 + 0x3BC) = TObjGyaranzoMissile_target_slots[i].id;
     }
 }
 

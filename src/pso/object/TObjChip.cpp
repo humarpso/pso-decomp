@@ -262,7 +262,7 @@ M2C_UNK set_chunk_material_color(void *);
 M2C_UNK draw_chunk_object(int, void *);
 extern Color_8017FE58 lbl_80443ADC[];
 extern Color_8017FE58 lbl_80443AEC[];
-extern u8 lbl_804A7418[];
+extern u8 chunk_material_color_half_alpha_f32[];
 extern s32 lbl_805D5660;
 extern s32 lbl_805D5664;
 extern s32 lbl_805D5668;
@@ -307,7 +307,7 @@ void draw_chips__8TObjChipFPv(Obj_8017FE58 *o) {
                 scale_matrix(0, o->scale, o->scale, o->scale);
                 ((M2C_UNK (*)(int))draw_chunk_object)(o->model);
                 pop_matrix();
-                set_chunk_material_color(lbl_804A7418);
+                set_chunk_material_color(chunk_material_color_half_alpha_f32);
             }
             some_id_805c6f74 = lbl_805D5660;
             lbl_805D7784 = lbl_805D5664;
@@ -338,7 +338,7 @@ void draw_chips__8TObjChipFPv(Obj_8017FE58 *o) {
             scale_matrix(0, o->scale, o->scale, o->scale);
             ((M2C_UNK (*)(int))draw_chunk_object)(o->model);
             pop_matrix();
-            set_chunk_material_color(lbl_804A7418);
+            set_chunk_material_color(chunk_material_color_half_alpha_f32);
         }
         some_id_805c6f74 = lbl_805D5660;
         lbl_805D7784 = lbl_805D5664;

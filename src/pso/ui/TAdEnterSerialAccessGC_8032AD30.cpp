@@ -25,7 +25,7 @@ void sscanf(int, const char *, ...);
 M2C_UNK memset(s32, M2C_UNK, M2C_UNK);
 extern char lbl_80477260[];
 extern char lbl_80477268[];
-extern char lbl_80543468[];
+extern char serial_access_hex_string_buf[];
 char *serial_to_hex_string__22TAdEnterSerialAccessGCFi(int arg0);
 u8 *TAdEnterSerialAccessGC__sub_8013AD80();
 u8 *TAdEnterSerialAccessGC__sub_8013ADB0();
@@ -168,11 +168,11 @@ void store_serial_access_key__22TAdEnterSerialAccessGCFiii(s32 arg0, s32 arg1, s
 char *serial_to_hex_string__22TAdEnterSerialAccessGCFi(int arg0) {
     u32 v = 0;
     sscanf(arg0, lbl_80477260, &v);
-    memset((s32)((s32)lbl_80543468), (M2C_UNK)(0), (M2C_UNK)(0x40));
+    memset((s32)((s32)serial_access_hex_string_buf), (M2C_UNK)(0), (M2C_UNK)(0x40));
     if (v != 0) {
-        sprintf(lbl_80543468, lbl_80477268, v);
+        sprintf(serial_access_hex_string_buf, lbl_80477268, v);
     }
-    return lbl_80543468;
+    return serial_access_hex_string_buf;
 }
 
 int validate_input__22TAdEnterSerialAccessGCFPviPv(void *arg0, s32 arg1, char *arg2) {

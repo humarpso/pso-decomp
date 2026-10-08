@@ -324,7 +324,7 @@ f32 horizontal_distance_squared(void *, void *);
 u8 *get_player_by_client_id(s32);
 f32 sin_table_lookup(s32);
 f32 get_random_float__8TObjFishFv(f32);
-extern GenEntry_8008767C lbl_8048E710[];
+extern GenEntry_8008767C particle_ctrl_generator_table[];
 extern u8 *lbl_805D4DF0;
 extern void *tl_07;
 extern void *tl_particlemodel;
@@ -454,7 +454,7 @@ void run_task__13TParticleCtrlFv(Ctrl_8008767C *self) {
                 }
             }
         } else if (kind < 3) {
-            p = lbl_8048E710[kind].fn(self->def, &self->pos, self->tex);
+            p = particle_ctrl_generator_table[kind].fn(self->def, &self->pos, self->tex);
             if (p != NULL) {
                 set_particle_draw_scale(p, self->sx, self->sy);
                 ((int (*)(void *, void *))TParticleCtrl__sub_800884F0)(p, &self->dir);
@@ -491,7 +491,7 @@ void run_task__13TParticleCtrlFv(Ctrl_8008767C *self) {
 extern "C" {
 extern u32 lbl_805D2940[1];
 extern const char *lbl_8048E758[4];
-extern void *lbl_8048E768[4];
+extern void *particle_regular_bml_descriptor[4];
 extern const char *lbl_805D2944;
 }
 
@@ -525,7 +525,7 @@ void *__dt__13TParticleCtrlFv(void *self, s16 flag) {
 extern "C" {
 u32 lbl_805D2940[1] = {0};
 const char *lbl_8048E758[4] = {"eff_f_foie.gj", "eff_sinowahamon.gj", "jungle_hamon.gj", 0};
-void *lbl_8048E768[4] = {(void *)"bm_tec_regurar.bml", lbl_8048E758, lbl_805D2940, (void *)0x30000};
+void *particle_regular_bml_descriptor[4] = {(void *)"bm_tec_regurar.bml", lbl_8048E758, lbl_805D2940, (void *)0x30000};
 const char *lbl_805D2944 = "particleentry.dat";
 }
 
@@ -830,7 +830,7 @@ void load_particle_entry_resources(void) {
     read_disc_file((s32)name, lbl_805D4EFC = alloc_buffer__11TOBoss4RockFPv((M2C_UNK)(0x2600)));
     p = alloc__23TAdSinglePlyChrSelectGCFPv(0x440);
     if (p != 0) {
-        p = load_resource_from_descriptor(p, 1, lbl_8048E768, 0, 0, 0);
+        p = load_resource_from_descriptor(p, 1, particle_regular_bml_descriptor, 0, 0, 0);
     }
     TParticleCtrl__data_805D4F00 = (u32)p;
     TParticleCtrl__data_805D4F04 = load_gvm_texture_file(lbl_804394D4);

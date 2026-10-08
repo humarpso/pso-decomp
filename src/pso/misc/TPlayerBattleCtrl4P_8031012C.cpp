@@ -115,7 +115,7 @@ int sprintf(char *, const char *, ...);
 extern char lbl_80475B90[];
 extern char lbl_80475B98[];
 extern char lbl_80475BA0[];
-extern char *lbl_804E8098[];
+extern char *TPlayerBattleCtrl4P_player_name_formats[];
 extern RecoveredGlobal_80310300_TPlayerBattleCtrl4P__data_80542E90 TPlayerBattleCtrl4P__data_80542E90;
 void start_match__19TPlayerBattleCtrl4PFPv(void *arg0);
 s32 set_state__19TPlayerBattleCtrl4PFPv(void *arg0);
@@ -466,7 +466,7 @@ void start_match__19TPlayerBattleCtrl4PFPv(void *arg0) {
         e = &((Ent_80310830 *)&TPlayerBattleCtrl4P__data_80542E90)[i];
         p = (VObj_80310830 *)get_player_by_client_id(e->id);
         if (p != 0) {
-            sprintf(buf, lbl_80475B98, lbl_804E8098[e->idx], p->v10());
+            sprintf(buf, lbl_80475B98, TPlayerBattleCtrl4P_player_name_formats[e->idx], p->v10());
             init_all__11TWindowCtrlFPvPv(buf, 0x200);
         }
     }

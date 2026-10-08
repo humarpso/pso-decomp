@@ -354,7 +354,7 @@ extern Cb_803CBA58 lbl_805D4680;
 extern s32 lbl_805D7598;
 extern s32 lbl_805D75A4;
 extern s32 lbl_805D75BC;
-extern s32 lbl_805D75C0;
+extern s32 lobby_worker_thread_run_flag;
 void worker_thread_loop__6TLobbyFv(void);
 extern s32 lbl_805D7540;
 void set_param_and_notify__6TLobbyFPvi(void *, int);
@@ -1341,7 +1341,7 @@ void TLobby__sub_803CBA38(void) {
 }
 
 void worker_thread_loop__6TLobbyFv(void) {
-    while (lbl_805D75C0 == 1) {
+    while (lobby_worker_thread_run_flag == 1) {
         if (TLobby__sub_803D3224(lbl_805D75A4++) == 0 || lbl_805D7598 == 1) {
             if (lbl_805D7598 == 1) {
                 lbl_805D7598 = 0;

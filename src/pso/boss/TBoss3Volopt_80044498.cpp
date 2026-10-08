@@ -620,7 +620,7 @@ typedef struct Msg_80044CE4 {
 extern "C" {
 u32 find_entity_by_id(u16);
 M2C_UNK fn_80048C04();
-extern u16 TBoss3Volopt__data_805D2710;
+extern u16 TBoss3Volopt__cage_entity_id;
 void check_and_notify__12TBoss3VoloptFv(s32 _w0);
 f32 sin_table_lookup(s32);
 extern const f32 TBoss3Volopt__data_805D87E4;
@@ -1148,7 +1148,7 @@ void push_players_out_of_radius__12TBoss3VoloptFPv(Obj_8004512C *self) {
 
 void TBoss3Volopt__sub_80045234(void) {  }
 
-extern u16 TBoss3Volopt__data_805D2710;
+extern u16 TBoss3Volopt__cage_entity_id;
 extern s32 lbl_805D2714;
 
 typedef char RecoveredGlobal_80045628_TBoss3Volopt__data_804845E8_size[sizeof(RecoveredGlobal_80045628_TBoss3Volopt__data_804845E8) == 0x28 ? 1 : -1];
@@ -1326,7 +1326,7 @@ void create_cage__12TBoss3VoloptFPvUs(void *arg0, u16 arg1) {
     if ((u32) M2C_FIELD(arg0, u32 *, 0x2A8) != 0U) {
         temp_r3 = __nw__7TObjectFUl(0x394);
         if (temp_r3 != 0) {
-            TObjVoloptCage__ct(temp_r3, arg0, arg1, TBoss3Volopt__data_805D2710, lbl_805D2714);
+            TObjVoloptCage__ct(temp_r3, arg0, arg1, TBoss3Volopt__cage_entity_id, lbl_805D2714);
         }
         M2C_FIELD(arg0, s32 *, 0x388) = (s32) (M2C_FIELD(arg0, s32 *, 0x388) | 0x200000);
     }
@@ -1671,7 +1671,7 @@ void TBoss3Volopt__sub_80046260(void *arg0_) {
 #undef VO
 
 void check_and_notify__12TBoss3VoloptFv(s32 _w0) {
-    if (find_entity_by_id(TBoss3Volopt__data_805D2710) != 0U) {
+    if (find_entity_by_id(TBoss3Volopt__cage_entity_id) != 0U) {
         fn_80048C04();
     }
 }

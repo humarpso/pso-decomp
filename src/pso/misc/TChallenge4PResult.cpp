@@ -36,7 +36,7 @@ s32 get_map_id__13TRaderMapCoreFPv();
 u32 get_player_by_client_id(int);
 extern u8 lbl_8050E208[];
 void update_wait_input__18TChallenge4PResultFPv(TChallenge4PResult *arg0);
-extern M2C_UNK TChallenge4PResult__data_805436A8[];
+extern M2C_UNK TChallenge4PResult__slot_entries[];
 void TChallenge4PResult__sub_8034B66C(void);
 s32 TLobby__sub_80292270(int, int);
 void init_timer__18TChallenge4PResultFPv(void *arg0);
@@ -80,11 +80,11 @@ void TChallenge4PResult__sub_8034B420(void *arg0) {
     }
 }
 
-extern M2C_UNK TChallenge4PResult__data_805436A8[];
+extern M2C_UNK TChallenge4PResult__slot_entries[];
 
 void update_entries__18TChallenge4PResultFii(s32 arg0, s32 arg1) {
     s32 var_r29 = 0;
-    M2C_UNK *var_r30 = TChallenge4PResult__data_805436A8;
+    M2C_UNK *var_r30 = TChallenge4PResult__slot_entries;
     s32 var_r31 = 0;
     do {
         u32 v = (u32)var_r30[var_r31];
@@ -112,7 +112,7 @@ void create__18TChallenge4PResultFii(int arg0, s32 arg1) {
 void TChallenge4PResult__sub_8034B66C(void) {
     s32 i;
     for (i = 0; i < 4; i++) {
-        ((s32 *)&TChallenge4PResult__data_805436A8)[i] = 0;
+        ((s32 *)&TChallenge4PResult__slot_entries)[i] = 0;
     }
 }
 
@@ -268,7 +268,7 @@ void TChallenge4PResult::run_task() {
 
 TChallenge4PResult::~TChallenge4PResult() {
     close_window__18TChallenge4PResultFPv(this);
-    TChallenge4PResult__data_805436A8[slot_index] = 0;
+    TChallenge4PResult__slot_entries[slot_index] = 0;
 }
 
 extern "C" {

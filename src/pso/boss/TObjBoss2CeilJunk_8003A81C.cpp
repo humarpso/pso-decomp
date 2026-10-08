@@ -5,7 +5,7 @@ typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
 extern "C" {
 extern void *lbl_804FE9C8[];
 extern void *lbl_805D4BEC;
-extern void *lbl_805D4BE8;
+extern void *boss2_tunnel_instance;
 void TLobby__sub_803DA16C(void *);
 void TLobby__sub_8001FE7C(void *, int);
 void TLobby__sub_8003A874(void);
@@ -37,8 +37,8 @@ void TLobby__sub_8003A874(void) {
         lbl_804FE9C8[i] = 0;
     }
     TLobby__sub_803DA16C(lbl_805D4BEC);
-    TLobby__sub_8001FE7C(lbl_805D4BE8, 1);
-    lbl_805D4BE8 = 0;
+    TLobby__sub_8001FE7C(boss2_tunnel_instance, 1);
+    boss2_tunnel_instance = 0;
 }
 
 }

@@ -75,7 +75,7 @@ void push_matrix();
 void pop_matrix();
 void post_translate_matrix(void *);
 void set_chunk_material_color(void *);
-extern u8 lbl_804A7418[];
+extern u8 chunk_material_color_half_alpha_f32[];
 extern s32 lbl_805D5660;
 extern s32 some_id_805c6f74;
 extern const f32 lbl_805DB854;
@@ -191,7 +191,7 @@ void render__6TOMineFPv(VObj_801710E4 *arg0) {
         some_id_805c6f74 = t | 0x20;
         ((void (*)(void *, s32)) set_chunk_material_color)((u8 *) arg0 + 0x360, t);
         free_sub_objects__6TOMineFPv((void*)(arg0));
-        set_chunk_material_color(lbl_804A7418);
+        set_chunk_material_color(chunk_material_color_half_alpha_f32);
         some_id_805c6f74 = lbl_805D5660;
         end_effect_render__13TParticleCtrlFv();
         pop_matrix();

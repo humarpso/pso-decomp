@@ -699,7 +699,7 @@ void change_state__19TObjEneBm9MericarolFPv(void *arg0) {
 }
 void TObjEneBm9Mericarol__sub_802D0A2C(void) {  }
 
-extern u32 lbl_805D6860;
+extern u32 TBoss4Type3_shared_instance;
 extern u32 lbl_805D6864;
 extern u32 lbl_805D6868;
 
@@ -902,9 +902,9 @@ void free_shared_instances__19TObjEneBm9MericarolFv(void) {
         __dt__11TBoss4Type3FPvs((void*)lbl_805D6864, 1);
         lbl_805D6864 = 0U;
     }
-    if ((u32) lbl_805D6860 != 0U) {
-        __dt__11TBoss4Type3FPvs((void*)lbl_805D6860, 1);
-        lbl_805D6860 = 0U;
+    if ((u32) TBoss4Type3_shared_instance != 0U) {
+        __dt__11TBoss4Type3FPvs((void*)TBoss4Type3_shared_instance, 1);
+        TBoss4Type3_shared_instance = 0U;
     }
     fn_802D1C84();
     if ((u32) lbl_805D6868 != 0U) {

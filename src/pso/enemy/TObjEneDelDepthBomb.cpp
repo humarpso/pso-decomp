@@ -108,7 +108,7 @@ Hit_80314758 *csnVector(void *, void *, s32);
 void clamp_velocity__15TObjBoss2TunnelFPv(void *);
 extern const f64 TObjEneDelDepth__data_80475DD0;
 extern u8 *TObjEneDelDepth__data_805D6AC0;
-extern M2C_UNK lbl_804E8168[];
+extern M2C_UNK TObjEneDelDepth_collision_body_parts[];
 extern s32 lbl_805D53A4;
 extern const float TObjEneDelDepth__data_805DF258;
 extern const f32 TObjEneDelDepth__data_805DF260;
@@ -665,7 +665,7 @@ extern const RecoveredGlobal_80314D1C_lbl_80475D6C lbl_80475D6C;
 extern const RecoveredGlobal_80314D1C_lbl_80475D78 lbl_80475D78;
 extern Vec_803155D4 lbl_80475DA4[];
 extern V3_80313E34 lbl_80475DB0;
-extern M2C_UNK lbl_804E8168[];
+extern M2C_UNK TObjEneDelDepth_collision_body_parts[];
 extern M2C_UNK lbl_804E8194[];
 extern Ent_803154A8 lbl_804E836C[];
 extern M2C_UNK lbl_8058D490[];
@@ -673,7 +673,7 @@ extern s32 lbl_805D4118;
 extern s32 lbl_805D411C;
 extern s32 lbl_805D53A4;
 extern s32 lbl_805D5550;
-extern s32 lbl_805D5678;
+extern s32 anim_model_matrix_array;
 extern const f32 lbl_805DF250;
 extern const f32 lbl_805DF264;
 extern const f32 lbl_805DF274;
@@ -1071,7 +1071,7 @@ void update_bomb_drop__15TObjEneDelDepthFPv(u8 *arg0) {
         ((M2C_UNK (*)(int, int))rotate_matrix_y)((int) (0), (int) (M2C_FIELD(arg0, s32 *, 0x60)));
         render_anim_model__10TObjPlayerFPvf((void *) (arg0), (f32) (lbl_805DF284));
         pop_matrix();
-        push_matrix_from((void *) (lbl_805D5678 + 0x450));
+        push_matrix_from((void *) (anim_model_matrix_array + 0x450));
         {
         V3_80313E34 v = lbl_80475DB0;
         matrix_mult_vec(0, &v, &out);
@@ -1289,7 +1289,7 @@ void update_movement__15TObjEneDelDepthFPv(Obj_80314758 *arg0) {
         VecCopy__FP3VecPC3Vec(&p, &arg0->pos);
         VecCopy__FP3VecPC3Vec(&n, &arg0->dir);
         normalize_vector(&n);
-        d = lbl_805DF2A4 * ((f32 *)lbl_804E8168)[3];
+        d = lbl_805DF2A4 * ((f32 *)TObjEneDelDepth_collision_body_parts)[3];
         p.x += d * n.x;
         p.z += d * n.z;
         if (TObjEneDelDepth__sub_80315380((Obj_80315380 *)arg0) != 0) {
@@ -1309,7 +1309,7 @@ void update_movement__15TObjEneDelDepthFPv(Obj_80314758 *arg0) {
                     n.x = -w.x;
                     n.z = -w.z;
                 }
-                d = lbl_805DF2A8 * ((f32 *)lbl_804E8168)[3];
+                d = lbl_805DF2A8 * ((f32 *)TObjEneDelDepth_collision_body_parts)[3];
                 p.x += d * n.x;
                 p.z += d * n.z;
                 arg0->f394 = (s32)(TObjEneDelDepth__data_80475DD0 * get_ad_end_text_start__10TObjPlayerFv(n.x, n.z));
@@ -1697,7 +1697,7 @@ void init__15TObjEneDelDepthFPv(u8 *arg0) {
     M2C_FIELD(arg0, s32 *, 0x24) = TObjFish__sub_8001EDB0(TObjEneDelDepth__data_805D6AC4 = get_data__15TObjEneDelDepthFv(), 0);
     M2C_FIELD(arg0, s32 *, 0x34) = get_bml_model((int) (TObjEneDelDepth__data_805D6AC4), (int) (0));
     ((u8 * (*)(void *, void *))VecCopy__FP3VecPC3Vec)(arg0 + 0x44, ((u8 * (*)(void *, void *))VecCopy__FP3VecPC3Vec)(arg0 + 0x50, ((u8 * (*)(void *, void *))VecCopy__FP3VecPC3Vec)(arg0 + 0x74, arg0 + 0x38)));
-    M2C_FIELD(arg0, s32 *, 0x380) = init_collision_body_parts((void *) (arg0), (void *) (lbl_804E8168), (int) (1));
+    M2C_FIELD(arg0, s32 *, 0x380) = init_collision_body_parts((void *) (arg0), (void *) (TObjEneDelDepth_collision_body_parts), (int) (1));
     set_field_d8__10TObjPlayerFPvi((void *) (arg0), (void *) (lbl_804E8194));
     set_field_dc__10TObjPlayerFPvi((void *) (arg0), (int) (M2C_FIELD(TObjEneDelDepth__data_805D6AC4, s32 *, 0x430)));
     set_animation__10TObjPlayerFPvs((void *) (arg0), (int) (0));

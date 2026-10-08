@@ -417,7 +417,7 @@ s32 *alloc_buffer__11TOBoss4RockFPv(int);
 M2C_UNK spawn_npc_enemy__6TLobbyFsiiiff(int, s32, s32, Quad_800BF66C *, f32, f32);
 extern Quad_800BF66C lbl_8043B780;
 extern s32 lbl_805D5140;
-extern u32 TObjGrass__data_805D5144;
+extern u32 TObjGrass__bml_resource;
 extern s32 lbl_805D5148;
 extern s32 lbl_805D514C;
 extern s32 TObjGrass__data_805D5150;
@@ -526,7 +526,7 @@ M2C_UNK play_persistent_sound(M2C_UNK, void *, void *, M2C_UNK, M2C_UNK);
 void *__nw__7TObjectFUl(int);
 M2C_UNK subtract_vector(void *, void *);
 extern s32 enable_v2_features;
-extern u32 TObjGrass__data_805D5144;
+extern u32 TObjGrass__bml_resource;
 extern s32 lbl_805D5550;
 extern s32 tl_05;
 M2C_UNK update_web_attack__9TObjGrassFPv(void *arg0_);
@@ -637,7 +637,7 @@ extern "C" u8 lbl_8043B760[];
 extern u8 __vt__9TObjGrass[];
 extern s32 lbl_805D2A38;
 extern s32 lbl_805D5140;
-extern u32 TObjGrass__data_805D5144;
+extern u32 TObjGrass__bml_resource;
 extern s32 lbl_805D5148;
 extern u32 TObjGrass__data_805D5154;
 u8 *TObjGrass__ct(u8 *arg0, M2C_UNK arg1, s32 arg2);
@@ -1030,7 +1030,7 @@ M2C_UNK update_web_attack__9TObjGrassFPv(void *arg0_) {
             subtract_vector(&v, &arg0->p2fc);
             d = update_angle__10TObjPlayerFPviPv(arg0, (void *)arg0->f350[2], &v);
             apply_actor_gravity(arg0, 0, (0.0f));
-            if (d < get_field_0c__10TObjPlayerFPv(((u32 *)TObjGrass__data_805D5144)[1])) {
+            if (d < get_field_0c__10TObjPlayerFPv(((u32 *)TObjGrass__bml_resource)[1])) {
                 arg0->state = 1;
                 arg0->fb8 = 4;
                 arg0->timer = 0;
@@ -1045,7 +1045,7 @@ M2C_UNK update_web_attack__9TObjGrassFPv(void *arg0_) {
             VecCopy__FP3VecPC3Vec(&v2, &arg0->target->p2fc);
             subtract_vector(&v2, &arg0->p2fc);
             d = angle_difference_abs(arg0->rotY, (s32)((10430.38043493439) * get_ad_end_text_start__10TObjPlayerFv(v2.x, v2.z)));
-            if (d < get_field_0c__10TObjPlayerFPv(((u32 *)TObjGrass__data_805D5144)[1])) {
+            if (d < get_field_0c__10TObjPlayerFPv(((u32 *)TObjGrass__bml_resource)[1])) {
                 VecCopy__FP3VecPC3Vec(&v2, &arg0->target->pos);
                 subtract_vector(&v2, &arg0->p380);
                 ang[0] = (s32)((10430.38043493439) * get_ad_end_text_start__10TObjPlayerFv(v2.z, newton_sqrtf(v2.x * v2.x + v2.y * v2.y)));
@@ -1407,7 +1407,7 @@ f32 calc_xz_distance_sq__10TObjPlayerFiUiPv(void *, void *, Vec_800BE1CC *);
 f32 get_pos_x__10TObjPlayerFPv(int);
 s32 check_player_flag1__6TLobbyFPv(void *);
 M2C_UNK bind_enemy_combat_stats(void *, int, int, int);
-#define TBL ((u32 *)TObjGrass__data_805D5144)
+#define TBL ((u32 *)TObjGrass__bml_resource)
 #define T318 M2C_FIELD(arg0, u32 *, 0x318)
 #define IN_RANGE() (dist <= (r + get_pos_x__10TObjPlayerFPv(T318)) * (r + get_pos_x__10TObjPlayerFPv(T318)) && ang <= get_field_0c__10TObjPlayerFPv(T318))
 #define BIND(n) M2C_FIELD(arg0, s16 *, 0x39E) = (n); bind_enemy_combat_stats(arg0, 0, TBL[M2C_FIELD(arg0, s16 *, 0x39E)], 0); return 1;
@@ -2017,15 +2017,15 @@ void * create__9TObjGrassFPv(void *arg0) {
     return o2;
 }
 
-extern u32 TObjGrass__data_805D5144;
+extern u32 TObjGrass__bml_resource;
 extern u32 TObjGrass__data_805D5154;
 extern u32 lbl_805D5158;
 extern u32 lbl_805D515C;
 
 void destroy_all__9TObjGrassFv(void) {
-    if ((u32) TObjGrass__data_805D5144 != 0U) {
-        free__11TOBoss4RockFUi((void*)TObjGrass__data_805D5144);
-        TObjGrass__data_805D5144 = 0U;
+    if ((u32) TObjGrass__bml_resource != 0U) {
+        free__11TOBoss4RockFUi((void*)TObjGrass__bml_resource);
+        TObjGrass__bml_resource = 0U;
     }
     if ((u32) lbl_805D515C != 0U) {
         __dt__11TBoss4Type3FPvs((void*)lbl_805D515C, 1);
@@ -2066,11 +2066,11 @@ void load_resources__9TObjGrassFv(void) {
     lbl_805D515C = (u32) p;
     draw_trail_with_colors((void *) lbl_805D5158, ((Data_800BF66C *)TObjGrass__data_805D5154)->f42c->f8, ((Data_800BF66C *)TObjGrass__data_805D5154)->f430[lbl_80492964[9]].f4, 0x46, 0x48);
     draw_trail_with_colors((void *) lbl_805D515C, ((Data_800BF66C *)TObjGrass__data_805D5154)->f42c->f8, ((Data_800BF66C *)TObjGrass__data_805D5154)->f430[lbl_80492964[13]].f4, 0x3C, 0x3E);
-    TObjGrass__data_805D5144 = (u32) alloc_buffer__11TOBoss4RockFPv(0xC);
+    TObjGrass__bml_resource = (u32) alloc_buffer__11TOBoss4RockFPv(0xC);
     lbl_805D5140 = register_boss__6TLobbyFPv(0x4E);
-    ((s32 *) TObjGrass__data_805D5144)[0] = dispatch_shared_handler_b__6TLobbyFPv(0x51);
-    ((s32 *) TObjGrass__data_805D5144)[2] = dispatch_shared_handler_b__6TLobbyFPv(0x52);
-    ((s32 *) TObjGrass__data_805D5144)[1] = dispatch_shared_handler_b__6TLobbyFPv(0x53);
+    ((s32 *) TObjGrass__bml_resource)[0] = dispatch_shared_handler_b__6TLobbyFPv(0x51);
+    ((s32 *) TObjGrass__bml_resource)[2] = dispatch_shared_handler_b__6TLobbyFPv(0x52);
+    ((s32 *) TObjGrass__bml_resource)[1] = dispatch_shared_handler_b__6TLobbyFPv(0x53);
     lbl_805D5148 = register_object__6TLobbyFPv(0x4D);
     lbl_805D514C = dispatch_shared_handler_a__6TLobbyFPv(0x4D);
     {
@@ -2132,7 +2132,7 @@ u8 *TObjGrass__ct(u8 *arg0, M2C_UNK arg1, s32 arg2) {
     set_field_b8__14TObjEnePanarmsFPvs(arg0, M2C_FIELD(arg0, s16 *, 0xB8));
     init_collision_body_parts(arg0, &((E2C_800BF924 *)lbl_80492A00)[M2C_FIELD(arg0, s32 *, 0x368)], 1);
     M2C_FIELD(arg0, s16 *, 0x39E) = 0;
-    bind_enemy_combat_stats(arg0, lbl_805D5140, ((u32 *)TObjGrass__data_805D5144)[M2C_FIELD(arg0, s16 *, 0x39E)], lbl_805D5148);
+    bind_enemy_combat_stats(arg0, lbl_805D5140, ((u32 *)TObjGrass__bml_resource)[M2C_FIELD(arg0, s16 *, 0x39E)], lbl_805D5148);
     M2C_FIELD(arg0, u8 **, 0x350) = (u8 *)&((E1C_800BF924 *)lbl_804929E4)[M2C_FIELD(arg0, s32 *, 0x368)];
     M2C_FIELD(arg0, s16 *, 0x33E) = M2C_FIELD(arg0, s16 *, 0x32C);
     update_prev_position__10TObjPlayerFPv(arg0);

@@ -1753,7 +1753,7 @@ void *lbl_80491EE4[106] = {
     (void *)init__17TObjEneBm3FlyNestFPv, (void *)render_with_state_debug__10TObjPlayerFPv,
 };
 extern s32 TObjEneBm3Fly__data_805D50E4;
-extern void *TObjEneBm3Fly__data_805D50F4;
+extern void *TObjEneBm3Fly__breakup_model;
 extern const f32 TObjEneBm3Fly__data_805D9C6C;
 extern M2C_UNK __vt__13TObjEneBm3Fly[];
 extern RecoveredGlobal_800B22C8_lbl_8043B0FC lbl_8043B0FC;
@@ -1788,16 +1788,16 @@ extern s32 lbl_805D2A1C;
 extern s32 lbl_805D50E0;
 extern s32 lbl_805D50E8;
 extern f32 *lbl_805D50EC;
-extern u8 *lbl_805D50F0;
+extern u8 *bm3_fly_nest_resources;
 extern s32 lbl_805D50F8;
 extern s32 lbl_805D50FC;
 extern s32 lbl_805D5100;
 extern s32 lbl_805D5104;
 extern u32 lbl_805D5108;
 extern s32 lbl_805D510C;
-extern NestAttachmentPoint *lbl_805D5110;
+extern NestAttachmentPoint *TObjEneBm3FlyNest_attachment_point_ptr;
 extern s32 lbl_805D5114;
-extern s32 lbl_805D5118;
+extern s32 bm3_fly_nest_attachment_index;
 extern s32 lbl_805D5660;
 extern s32 lbl_805D5664;
 extern s32 lbl_805D5668;
@@ -1952,11 +1952,11 @@ void render__17TObjEneBm3FlyNestFPv(u8 *arg0) {
                 ((M2C_UNK (*)(int))set_global_param__8TObjFishFi)(self->f24);
                 push_matrix();
                 lbl_805D510C = 0;
-                lbl_805D5110 = (NestAttachmentPoint *)&self->f3C8;
+                TObjEneBm3FlyNest_attachment_point_ptr = (NestAttachmentPoint *)&self->f3C8;
                 post_translate_matrix(self->f38);
                 ((M2C_UNK (*)(int, f32, f32, f32))translate_matrix)(0, 0.0f, self->f4B0, 0.0f);
                 if (self->f326 == 0) {
-                    lbl_805D5118 = 0;
+                    bm3_fly_nest_attachment_index = 0;
                     lbl_805D5114 = (s32)self->f3E0;
                     set_global_state__16TObjEneRe7BeruraFi((void *)handle_attachment_sample__17TObjEneBm3FlyNestFi);
                 } else {
@@ -1988,9 +1988,9 @@ void render__17TObjEneBm3FlyNestFPv(u8 *arg0) {
 
 void handle_attachment_sample__17TObjEneBm3FlyNestFi(s32 arg0) {
     s32 temp_r4;
-    if ((s32) lbl_805D510C == (s32) M2C_FIELD(&lbl_8043B2A4.value, M2C_UNK *, (lbl_805D5118 * 4))) {
+    if ((s32) lbl_805D510C == (s32) M2C_FIELD(&lbl_8043B2A4.value, M2C_UNK *, (bm3_fly_nest_attachment_index * 4))) {
         temp_r4 = lbl_805D5114;
-        lbl_805D5118 += 1;
+        bm3_fly_nest_attachment_index += 1;
         lbl_805D5114 = temp_r4 + 0xC;
         get_camera_ctrl__9TObjEneDDFPv((s32) &lbl_80500B00.value, temp_r4);
     }
@@ -2000,7 +2000,7 @@ void handle_attachment_sample__17TObjEneBm3FlyNestFi(s32 arg0) {
 void capture_attachment__17TObjEneBm3FlyNestFv(void * _w0) {
     switch (lbl_805D510C) {
     case 36: case 45:
-        get_camera_ctrl__9TObjEneDDFPv((s32)(&lbl_80500B00), (s32)(lbl_805D5110++));
+        get_camera_ctrl__9TObjEneDDFPv((s32)(&lbl_80500B00), (s32)(TObjEneBm3FlyNest_attachment_point_ptr++));
         break;
     }
     ++lbl_805D510C;
@@ -2799,9 +2799,9 @@ void load_resources__17TObjEneBm3FlyNestFv(void) {
     (*(Vec_800B41E8 *)&lbl_80500B00).y = 0.0f;
     (*(Vec_800B41E8 *)&lbl_80500B00).z = 0.0f;
     lbl_805D510C = 0;
-    (*(s32 *)&lbl_805D5110) = 0;
+    (*(s32 *)&TObjEneBm3FlyNest_attachment_point_ptr) = 0;
     lbl_805D5114 = 0;
-    lbl_805D5118 = 0;
+    bm3_fly_nest_attachment_index = 0;
     if (check_v2_mode__9TObjEneDDFv() != 0) {
         lbl_805D5108 = load_enemy_bml_resource_named(&lbl_80491E34, (void *)lbl_8043B380);
     } else {

@@ -97,7 +97,7 @@ extern s32 lbl_805D62B0;
     extern int lbl_805D49A4;
     extern int lbl_805D49A8;
     extern int lbl_805D49B0;
-    extern int lbl_805D5678;
+    extern int anim_model_matrix_array;
     extern int lbl_805D5680;
 extern s32 lbl_805D49C0;
 extern s32 lbl_805D49B8;

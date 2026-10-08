@@ -1434,7 +1434,7 @@ M2C_UNK clear_global_state__10TObjPlayerFv();
 extern const u8 TObjEneMe1Gee__data_8043BDC0[];
 extern Vec_800CA454 lbl_8043BE7C[];
 extern u8 lbl_8058D490[];
-extern u8 *lbl_805D5678;
+extern u8 *anim_model_matrix_array;
 extern const f32 TObjEneMe1Gee__data_805DA0A8;
 extern const f32 TObjEneMe1Gee__data_805DA0D4;
 extern const f32 lbl_805DA124;
@@ -4527,7 +4527,7 @@ void TObjEneMe1Gee__sub_800CA454(void *arg0, s32 arg1) {
                 clear_global_state__10TObjPlayerFv();
                 pop_matrix();
                 o->timer = 0;
-                push_matrix_from(lbl_805D5678 + 0x150);
+                push_matrix_from(anim_model_matrix_array + 0x150);
                 {
                     Vec_800CA454 out;
                     Vec_800CA454 in = lbl_8043BE7C[0];

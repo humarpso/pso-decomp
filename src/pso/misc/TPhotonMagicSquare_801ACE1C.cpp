@@ -38,7 +38,7 @@ s32 set_chunk_material_color(void *);
 s32 draw_model_motion(int, int, f32);
 s32 set_global_flag__10TObjPlayerFv();
 s32 clear_global_state__10TObjPlayerFv();
-extern Color_801ACE1C lbl_804A7418;
+extern Color_801ACE1C chunk_material_color_half_alpha_f32;
 extern s32 lbl_805D5660;
 extern s32 some_id_805c6f74;
 void render__18TPhotonMagicSquareFv(Self_801ACE1C *self);
@@ -68,7 +68,7 @@ void render__18TPhotonMagicSquareFv(Self_801ACE1C *self) {
     set_global_flag__10TObjPlayerFv();
     draw_model_motion(self->f34, self->f90, self->f9C);
     clear_global_state__10TObjPlayerFv();
-    set_chunk_material_color(&lbl_804A7418);
+    set_chunk_material_color(&chunk_material_color_half_alpha_f32);
     some_id_805c6f74 = lbl_805D5660;
     copy_vec4__13TRaderMapCoreFPvPv(&self->color, &saved);
     pop_matrix();

@@ -588,7 +588,7 @@ extern const f32 TObjEneGibbles__data_805DE830;
 extern RecoveredGlobal_802D7ED4_lbl_80472780 lbl_80472780;
 extern RecoveredGlobal_802D7ED4_lbl_8058D490 lbl_8058D490;
 extern s32 lbl_805D53A0;
-extern s32 lbl_805D5678;
+extern s32 anim_model_matrix_array;
 extern s32 lbl_805D5868;
 extern s32 lbl_805D586C;
 extern const f32 lbl_805DE7E0;
@@ -1160,7 +1160,7 @@ void render_and_get_joint_pos__14TObjEneGibblesFPvii(u8 *arg0, s32 arg1, s32 arg
     render_anim_model__10TObjPlayerFPvf((void *) (arg0), (f32) (M2C_FIELD(arg0, f32 *, 0xC0)));
     clear_global_state__10TObjPlayerFv();
     pop_matrix();
-    push_matrix_from((void *) (lbl_805D5678 + (arg2 * 0x30)));
+    push_matrix_from((void *) (anim_model_matrix_array + (arg2 * 0x30)));
     stack.sp8 = M2C_FIELD(&lbl_80472780.value, s32 *, 0);
     stack.spC = M2C_FIELD(&lbl_80472780.value, s32 *, 4);
     stack.sp10 = M2C_FIELD(&lbl_80472780.value, s32 *, 8);

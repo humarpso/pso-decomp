@@ -127,9 +127,9 @@ struct Def_804C2308 { u32 w[13]; };
 extern "C" {
 s32 poll_key_state__16TKeyBoardControlFPv(Kb_801A6910 *self);
 void fn_801A69E4(s32 arg0, s32 *arg1);
-Def_804C2308 lbl_804C2308 = { 0, 0, 0, 0xFFFFFFFF, 0, 0, 0, 0, 0, 0, 0, 0, 0 };
-u32 lbl_804C233C[6] = { 16, 32, 64, 128, 4, 2 };
-u32 lbl_804C2354[6] = { 94, 93, 92, 95, 97, 76 };
+Def_804C2308 controller_default_pad_state = { 0, 0, 0, 0xFFFFFFFF, 0, 0, 0, 0, 0, 0, 0, 0, 0 };
+u32 TKeyBoardControl_key_bit_table[6] = { 16, 32, 64, 128, 4, 2 };
+u32 keyboard_poll_key_codes[6] = { 94, 93, 92, 95, 97, 76 };
 s32 lbl_804C236C[4] = { 0, 6, 12, 18 };
 }
 
@@ -403,16 +403,16 @@ void controller_stuff__Fv(void) {
                     pad->ang1 = (u16)b;
                     update_button_hold_counters((int)pad);
                 } else {
-                    pad->hold = (*(Src_801A5F1C *)&lbl_804C2308).b0;
-                    pad->rel = (*(Src_801A5F1C *)&lbl_804C2308).b1;
-                    pad->press = (*(Src_801A5F1C *)&lbl_804C2308).b2;
-                    pad->up = (*(Src_801A5F1C *)&lbl_804C2308).b3;
-                    pad->trig_r = (*(Src_801A5F1C *)&lbl_804C2308).trig_r;
-                    pad->trig_l = (*(Src_801A5F1C *)&lbl_804C2308).trig_l;
-                    pad->sx = (*(Src_801A5F1C *)&lbl_804C2308).sx;
-                    pad->sy = (*(Src_801A5F1C *)&lbl_804C2308).sy;
-                    pad->cx = (*(Src_801A5F1C *)&lbl_804C2308).cx;
-                    pad->cy = (*(Src_801A5F1C *)&lbl_804C2308).cy;
+                    pad->hold = (*(Src_801A5F1C *)&controller_default_pad_state).b0;
+                    pad->rel = (*(Src_801A5F1C *)&controller_default_pad_state).b1;
+                    pad->press = (*(Src_801A5F1C *)&controller_default_pad_state).b2;
+                    pad->up = (*(Src_801A5F1C *)&controller_default_pad_state).b3;
+                    pad->trig_r = (*(Src_801A5F1C *)&controller_default_pad_state).trig_r;
+                    pad->trig_l = (*(Src_801A5F1C *)&controller_default_pad_state).trig_l;
+                    pad->sx = (*(Src_801A5F1C *)&controller_default_pad_state).sx;
+                    pad->sy = (*(Src_801A5F1C *)&controller_default_pad_state).sy;
+                    pad->cx = (*(Src_801A5F1C *)&controller_default_pad_state).cx;
+                    pad->cy = (*(Src_801A5F1C *)&controller_default_pad_state).cy;
                     pad->ang0 = 0;
                     pad->mag0 = lbl_805DC0C0;
                     for (j = 0; j < 14; j++) {
@@ -541,7 +541,7 @@ void bind_controller_devices(void) {
             *pa++ = p;
             *fa++ = 1;
         } else {
-            *pa++ = (void *)&lbl_804C2308;
+            *pa++ = (void *)&controller_default_pad_state;
             *fa++ = 0;
         }
     }
@@ -553,7 +553,7 @@ void bind_controller_devices(void) {
                 *pb++ = p;
                 *fb++ = 1;
             } else {
-                *pb++ = (void *)&lbl_804C2308;
+                *pb++ = (void *)&controller_default_pad_state;
                 *fb++ = 0;
             }
         }
@@ -569,7 +569,7 @@ void bind_controller_devices(void) {
             }
         }
         for (; n < 4; n++) {
-            *pb++ = (void *)&lbl_804C2308;
+            *pb++ = (void *)&controller_default_pad_state;
             *fb++ = 0;
         }
     }
@@ -582,16 +582,16 @@ void reset_controller_input_state(void) {
 
     p = (Pad_801A66B8 *)((u8 *)lbl_8050E208 + 0x20);
     for (i = 0; i < 4; i++) {
-        p->f0 = ((Src_801A66B8 *)&lbl_804C2308)[0].f8;
-        p->f4 = ((Src_801A66B8 *)&lbl_804C2308)[0].fC;
-        p->f8 = ((Src_801A66B8 *)&lbl_804C2308)[0].f10;
-        p->fC = ((Src_801A66B8 *)&lbl_804C2308)[0].f14;
-        p->f12 = ((Src_801A66B8 *)&lbl_804C2308)[0].f1A;
-        p->f10 = ((Src_801A66B8 *)&lbl_804C2308)[0].f18;
-        p->f14 = ((Src_801A66B8 *)&lbl_804C2308)[0].f1C;
-        p->f16 = ((Src_801A66B8 *)&lbl_804C2308)[0].f1E;
-        p->f18 = ((Src_801A66B8 *)&lbl_804C2308)[0].f20;
-        p->f1A = ((Src_801A66B8 *)&lbl_804C2308)[0].f22;
+        p->f0 = ((Src_801A66B8 *)&controller_default_pad_state)[0].f8;
+        p->f4 = ((Src_801A66B8 *)&controller_default_pad_state)[0].fC;
+        p->f8 = ((Src_801A66B8 *)&controller_default_pad_state)[0].f10;
+        p->fC = ((Src_801A66B8 *)&controller_default_pad_state)[0].f14;
+        p->f12 = ((Src_801A66B8 *)&controller_default_pad_state)[0].f1A;
+        p->f10 = ((Src_801A66B8 *)&controller_default_pad_state)[0].f18;
+        p->f14 = ((Src_801A66B8 *)&controller_default_pad_state)[0].f1C;
+        p->f16 = ((Src_801A66B8 *)&controller_default_pad_state)[0].f1E;
+        p->f18 = ((Src_801A66B8 *)&controller_default_pad_state)[0].f20;
+        p->f1A = ((Src_801A66B8 *)&controller_default_pad_state)[0].f22;
         p->f1C = 0;
         p->f24 = lbl_805DC0C0;
         for (j = 0; j < 14; j++) {
@@ -661,8 +661,8 @@ s32 poll_key_state__16TKeyBoardControlFPv(Kb_801A6910 *self) {
     self->f0 = 0;
     self->f8 = 0;
     for (i = 0; i < 6; i++) {
-        if (read_input__16TKeyBoardControlFi(lbl_804C2354[i]) != 0) {
-            self->f0 |= lbl_804C233C[i];
+        if (read_input__16TKeyBoardControlFi(keyboard_poll_key_codes[i]) != 0) {
+            self->f0 |= TKeyBoardControl_key_bit_table[i];
         }
     }
     n = get_key_state_2__16TKeyBoardControlFPv(TKeyBoardControl__data_80506270);
@@ -691,8 +691,8 @@ extern "C" {
 void fn_801A69E4(s32 arg0, s32 *arg1) {
     s32 i;
     for (i = 0; i < 6; i++) {
-        if (arg0 == ((s32 *)lbl_804C2354)[i]) {
-            *arg1 |= ((s32 *)lbl_804C233C)[i];
+        if (arg0 == ((s32 *)keyboard_poll_key_codes)[i]) {
+            *arg1 |= ((s32 *)TKeyBoardControl_key_bit_table)[i];
         }
     }
 }

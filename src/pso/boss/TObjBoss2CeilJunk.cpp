@@ -123,7 +123,7 @@ M2C_UNK set_chunk_blend(int);
 extern s32 lbl_80435BC0[];
 extern f32 lbl_80435BF0[];
 extern Color_8003A1B4 lbl_80435C1C;
-extern Holder_8003A1B4 *lbl_805D4BE8;
+extern Holder_8003A1B4 *boss2_tunnel_instance;
 extern s32 lbl_805D4BEC;
 extern s32 lbl_805D5660;
 extern s32 some_id_805c6f74;
@@ -189,7 +189,7 @@ void render__17TObjBoss2CeilJunkFv(Obj_8003A1B4 *self) {
   post_translate_matrix(self->pos);
   rotate_matrix_y(0, self->f60);
   rotate_matrix_x(0, self->f5C);
-  draw_ginja_object(lbl_805D4BE8->mdls[lbl_80435BC0[self->fAC]].f8);
+  draw_ginja_object(boss2_tunnel_instance->mdls[lbl_80435BC0[self->fAC]].f8);
   pop_matrix();
   some_id_805c6f74 = lbl_805D5660;
   set_chunk_material_override_pair(0xFF00, 0);

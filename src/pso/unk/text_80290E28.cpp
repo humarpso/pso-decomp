@@ -29,7 +29,7 @@ M2C_UNK set_chunk_material_color(void *);
 extern M2C_UNK lbl_804D9668[];
 extern M2C_UNK lbl_8050BEC0[];
 extern M2C_UNK lbl_8058D4C0[];
-extern const f32 lbl_805D3C98;
+extern const f32 ui_sprite_scale;
 extern const f32 lbl_805DD960;
 void draw_ui_sprite_tinted(s32 arg0, f32 *arg1, f32 *arg2, f32 *arg3, f32 farg0);
 }
@@ -59,9 +59,9 @@ void draw_ui_sprite_tinted(s32 arg0, f32 *arg1, f32 *arg2, f32 *arg3, f32 farg0)
     Stack_80290F10 st;
     if (!(arg3[0] <= lbl_805DD960)) {
         st.q.x = arg1[0];
-        st.q.y = lbl_805D3C98 * arg1[1];
+        st.q.y = ui_sprite_scale * arg1[1];
         st.q.w = arg2[0];
-        st.q.h = lbl_805D3C98 * arg2[1];
+        st.q.h = ui_sprite_scale * arg2[1];
         st.q.tbl = lbl_804D9668;
         TCharaMaking__resolve_creation_sprite_table(&st.table, &arg0);
         copy_vec4__13TRaderMapCoreFPvPv(lbl_8050BEC0, lbl_8058D4C0);

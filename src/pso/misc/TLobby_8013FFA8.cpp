@@ -65,7 +65,7 @@ int stop_audio_streams__6TLobbyFv(void);
 int refresh_render_state__6TLobbyFv(void);
 int reset_keyboard_control__6TLobbyFv(void);
 int update_current_floor__6TLobbyFv(void);
-extern M2C_UNK lbl_804A7358[];
+extern M2C_UNK dragon_area_scene_callbacks[];
 void cleanup_dragon_area_scene(void);
 int clear_session_buffers__6TLobbyFv(void);
 M2C_UNK call_funcs_reverse__6TLobbyFPvUi(M2C_UNK *, M2C_UNK);
@@ -114,7 +114,7 @@ int stop_audio_streams__6TLobbyFv(void);
 int refresh_render_state__6TLobbyFv(void);
 int free_heap__13TParticleCtrlFv(void);
 int reset_keyboard_control__6TLobbyFv(void);
-extern M2C_UNK lbl_804A7368[];
+extern M2C_UNK gryphon_area_cleanup_callbacks[];
 void cleanup_floor_state__6TLobbyFv(void);
 int clear_session_buffers__6TLobbyFv(void);
 int stop_audio_streams__6TLobbyFv(void);
@@ -177,7 +177,7 @@ M2C_UNK TTecRaFoie__sub_80226254();
 int refresh_render_state__6TLobbyFv(void);
 int reset_keyboard_control__6TLobbyFv(void);
 int update_current_floor__6TLobbyFv(void);
-extern M2C_UNK lbl_804A7370[];
+extern M2C_UNK TLobby_scene_load_callback_table[];
 void cleanup_boss3_scene__6TLobbyFv(void);
 M2C_UNK run_load_callback_table(M2C_UNK *, M2C_UNK);
 M2C_UNK TLobby__sub_80207E44();
@@ -193,7 +193,7 @@ M2C_UNK fn_8006EBC4(s32);
 M2C_UNK construct_traffic_manager(void *, s32);
 M2C_UNK get_global_state__14TOKeyMachine01Fv();
 M2C_UNK reset_settings_to_default__6TLobbyFPv(M2C_UNK *);
-extern M2C_UNK lbl_804A7370[];
+extern M2C_UNK TLobby_scene_load_callback_table[];
 extern M2C_UNK lbl_8050EA40[];
 extern s32 tl_05;
 extern s32 tl_07;
@@ -233,7 +233,7 @@ M2C_UNK create__12TObjRainCtrlFv();
 s32 is_split_screen();
 extern M2C_UNK lbl_8043F228[];
 s32 init_forest_b(void);
-extern M2C_UNK lbl_804A73D0[];
+extern M2C_UNK lobby_floor_scene_callbacks[];
 int clear_session_buffers__6TLobbyFv(void);
 M2C_UNK call_funcs_reverse__6TLobbyFPvUi(M2C_UNK *, M2C_UNK);
 int stop_audio_streams__6TLobbyFv(void);
@@ -252,7 +252,7 @@ M2C_UNK reset_settings_to_default__6TLobbyFPv(M2C_UNK *);
 M2C_UNK TQuestVmDownLoadServer__sub_801F8F14();
 M2C_UNK get_global_state__14TOKeyMachine01Fv();
 M2C_UNK load_floor_sound_bank();
-extern M2C_UNK lbl_804A73D0[];
+extern M2C_UNK lobby_floor_scene_callbacks[];
 extern M2C_UNK lbl_8050EA40[];
 s32 init_lobby_floor_scene__6TLobbyFv(void);
 int clear_session_buffers__6TLobbyFv(void);
@@ -326,7 +326,7 @@ M2C_UNK get_global_state__14TOKeyMachine01Fv();
 M2C_UNK play_area_music(M2C_UNK *);
 M2C_UNK load_floor_sound_bank();
 extern M2C_UNK lbl_8043F1B8[];
-extern M2C_UNK lbl_804A7358[];
+extern M2C_UNK dragon_area_scene_callbacks[];
 s32 init_dragon_area_scene(void);
 M2C_UNK create__13TObjBoss5CtrlFv();
 M2C_UNK create_tasks__6TLobbyFv();
@@ -339,7 +339,7 @@ M2C_UNK get_global_state__14TOKeyMachine01Fv();
 M2C_UNK play_area_music(M2C_UNK *);
 M2C_UNK load_floor_sound_bank();
 extern M2C_UNK lbl_8043F1D8[];
-extern M2C_UNK lbl_804A7368[];
+extern M2C_UNK gryphon_area_cleanup_callbacks[];
 s32 init_gryphon_area__6TLobbyFv(void);
 }
 
@@ -422,7 +422,7 @@ void cleanup_dragon_area_scene(void) {
     refresh_render_state__6TLobbyFv();
     stop_audio_streams__6TLobbyFv();
     stop_cue_stream();
-    call_funcs_reverse__6TLobbyFPvUi(lbl_804A7358, 8);
+    call_funcs_reverse__6TLobbyFPvUi(dragon_area_scene_callbacks, 8);
     update_current_floor__6TLobbyFv();
     reset_keyboard_control__6TLobbyFv();
     clear_session_buffers__6TLobbyFv();
@@ -435,7 +435,7 @@ s32 init_dragon_area_scene(void) {
     if (check_disconnect_conditions__6TLobbyFv() != 0) {
         return 0;
     }
-    run_load_callback_table(lbl_804A7358, 8);
+    run_load_callback_table(dragon_area_scene_callbacks, 8);
     if (check_v2_mode__9TObjEneDDFv() == 0) {
         l.dir[0] = -1.45f;
         l.dir[1] = 2.8f;
@@ -530,7 +530,7 @@ void cleanup_floor_state__6TLobbyFv(void) {
     refresh_render_state__6TLobbyFv();
     stop_audio_streams__6TLobbyFv();
     stop_cue_stream();
-    call_funcs_reverse__6TLobbyFPvUi(lbl_804A7368, 8);
+    call_funcs_reverse__6TLobbyFPvUi(gryphon_area_cleanup_callbacks, 8);
     free_heap__13TParticleCtrlFv();
     update_current_floor__6TLobbyFv();
     reset_keyboard_control__6TLobbyFv();
@@ -545,7 +545,7 @@ s32 init_gryphon_area__6TLobbyFv(void) {
         return 0;
     }
     init_heap__13TParticleCtrlFPv(0x100000);
-    run_load_callback_table(lbl_804A7368, 8);
+    run_load_callback_table(gryphon_area_cleanup_callbacks, 8);
     l.dir[0] = -0.46f;
     l.dir[1] = 0.88f;
     l.dir[2] = -0.13f;
@@ -626,7 +626,7 @@ void cleanup_boss3_scene__6TLobbyFv(void) {
     refresh_render_state__6TLobbyFv();
     stop_audio_streams__6TLobbyFv();
     TTecRaFoie__sub_80226254();
-    call_funcs_reverse__6TLobbyFPvUi(lbl_804A7370, 0x60);
+    call_funcs_reverse__6TLobbyFPvUi(TLobby_scene_load_callback_table, 0x60);
     reset_keyboard_control__6TLobbyFv();
     update_current_floor__6TLobbyFv();
     clear_session_buffers__6TLobbyFv();
@@ -641,7 +641,7 @@ s32 setup_scene__6TLobbyFv(void) {
     }
     init_area_lights();
     init_shop_world_context();
-    run_load_callback_table(lbl_804A7370, 0x60);
+    run_load_callback_table(TLobby_scene_load_callback_table, 0x60);
     reset_settings_to_default__6TLobbyFPv(lbl_8050EA40);
     create_tasks__6TLobbyFv();
     create_controller__14TObjBgmColCtrlFv();
@@ -697,7 +697,7 @@ void update_floor_download__6TLobbyFv(void) {
     free_download_buffers__22TQuestVmDownLoadServerFv();
     reset_keyboard_control__6TLobbyFv();
     update_current_floor__6TLobbyFv();
-    call_funcs_reverse__6TLobbyFPvUi(lbl_804A73D0, 0x30);
+    call_funcs_reverse__6TLobbyFPvUi(lobby_floor_scene_callbacks, 0x30);
     stop_audio_streams__6TLobbyFv();
     refresh_render_state__6TLobbyFv();
     stop_audio_streams__6TLobbyFv();
@@ -706,7 +706,7 @@ void update_floor_download__6TLobbyFv(void) {
 s32 init_lobby_floor_scene__6TLobbyFv(void) {
     get_global_state__14TOKeyMachine01Fv();
     load_floor_sound_bank();
-    if (((s32)run_load_callback_table((M2C_UNK *)((void *) (&(*(RecoveredGlobal_80140A6C_lbl_804A73D0 *)&lbl_804A73D0).value)), (M2C_UNK)((int) (0x30)))) == 0) {
+    if (((s32)run_load_callback_table((M2C_UNK *)((void *) (&(*(RecoveredGlobal_80140A6C_lbl_804A73D0 *)&lobby_floor_scene_callbacks).value)), (M2C_UNK)((int) (0x30)))) == 0) {
         return 0;
     }
     if (check_disconnect_conditions__6TLobbyFv() != 0) {

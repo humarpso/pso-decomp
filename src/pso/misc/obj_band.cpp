@@ -137,8 +137,8 @@ M2C_UNK set_global_flag__10TObjPlayerFv();
 M2C_UNK clear_global_state__10TObjPlayerFv();
 M2C_UNK set_global_state__16TObjEneRe7BeruraFi(M2C_UNK *);
 
-extern s32 lbl_805D5678;
-extern s32 lbl_805D567C;
+extern s32 anim_model_matrix_array;
+extern s32 player_joint_matrix_write_ptr;
 extern u8 *lbl_805D5684;
 extern s32 lbl_805D7710;
 extern s32 lbl_805D7810;
@@ -286,7 +286,7 @@ s32 draw_model_with_callback__10TObjPlayerFPviif(void *arg0, s32 arg1, s32 arg2,
         return 0;
     }
     set_global_flag__10TObjPlayerFv();
-    lbl_805D567C = arg2;
+    player_joint_matrix_write_ptr = arg2;
     set_global_state__16TObjEneRe7BeruraFi((M2C_UNK *)save_joint_matrix_callback);
     render_model_tree__12TBoss8DragonFPvPv(M2C_FIELD(arg0, u32 *, 0x34), arg1, farg0);
     set_global_state__16TObjEneRe7BeruraFi(NULL);
@@ -299,7 +299,7 @@ s32 render_anim_model__10TObjPlayerFPvf(void *arg0, f32 farg0) {
         return 0;
     }
     set_global_flag__10TObjPlayerFv();
-    lbl_805D567C = lbl_805D5678;
+    player_joint_matrix_write_ptr = anim_model_matrix_array;
     set_global_state__16TObjEneRe7BeruraFi((M2C_UNK *)save_joint_matrix_callback);
     ((M2C_UNK (*)(u32, u32, f32))render_model_tree__12TBoss8DragonFPvPv)(M2C_FIELD(arg0, u32 *, 0x34), M2C_FIELD(arg0, u32 *, 0xF8), farg0);
     set_global_state__16TObjEneRe7BeruraFi(NULL);
@@ -326,11 +326,11 @@ int objInBand(GameObj* obj, f32 v) {
 }
 
 extern "C" {
-void save_joint_matrix_callback(void) { get_current_matrix((void*)((*(int *)&lbl_805D567C))); (*(int *)&lbl_805D567C) = ((*(int *)&lbl_805D567C) + 0x30); }
+void save_joint_matrix_callback(void) { get_current_matrix((void*)((*(int *)&player_joint_matrix_write_ptr))); (*(int *)&player_joint_matrix_write_ptr) = ((*(int *)&player_joint_matrix_write_ptr) + 0x30); }
 
 void draw_motion_model_saving_joints(u8 *arg0) {
     s32 temp_r3;
-    (*(int *)&lbl_805D567C) = M2C_FIELD(arg0, s32 *, 0xE0);
+    (*(int *)&player_joint_matrix_write_ptr) = M2C_FIELD(arg0, s32 *, 0xE0);
     ((M2C_UNK (*)(void *))set_global_state__16TObjEneRe7BeruraFi)((void *) save_joint_matrix_callback);
     temp_r3 = M2C_FIELD(arg0, s32 *, 0xB0);
     if ((temp_r3 & 4) && !(temp_r3 & 0x400)) {
@@ -348,7 +348,7 @@ void draw_model_with_callback__10TObjPlayerFPv(u8 *arg0) {
 
     temp_r0 = M2C_FIELD(arg0, u32 *, 0xE0);
     if (temp_r0 != 0U) {
-        (*(u32 *)&lbl_805D567C) = temp_r0;
+        (*(u32 *)&player_joint_matrix_write_ptr) = temp_r0;
         set_global_state__16TObjEneRe7BeruraFi((M2C_UNK *)(save_joint_matrix_callback));
         temp_r3 = M2C_FIELD(arg0, s32 *, 0xB0);
         if ((temp_r3 & 4) && !(temp_r3 & 0x400)) {

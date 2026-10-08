@@ -237,38 +237,38 @@ void emit_effect_at_position__9TObjEneDDFPvPv(void* p, void* a1) { emit_enemy_ef
 
 void emit_effect__9TObjEneDDFPvii(void* p, int a1, int a2) { emit_enemy_effect__9TObjEneDDFiiPvi((s32)(p), (s32)(a1), (u8 *)(a2), (s32)(0)); }
 
-extern u8 *lbl_805D5138;
+extern u8 *obj_ene_dd_instance;
 extern const f32 lbl_805D9EA0;
 
 void emit_enemy_effect__9TObjEneDDFiiPvi(s32 arg0, s32 arg1, u8 *arg2, s32 arg3) {
-    fn_800BC3E8(lbl_805D5138, arg0);
-    get_position__12TBoss1DragonFPv(lbl_805D5138, arg1);
-    M2C_FIELD(M2C_FIELD(lbl_805D5138, void **, 0xA4), f32 *, 0xC) = (f32) M2C_FIELD(arg2, f32 *, 8);
-    M2C_FIELD(M2C_FIELD(lbl_805D5138, void **, 0xA4), s32 *, 0x18) = 0x9D03;
+    fn_800BC3E8(obj_ene_dd_instance, arg0);
+    get_position__12TBoss1DragonFPv(obj_ene_dd_instance, arg1);
+    M2C_FIELD(M2C_FIELD(obj_ene_dd_instance, void **, 0xA4), f32 *, 0xC) = (f32) M2C_FIELD(arg2, f32 *, 8);
+    M2C_FIELD(M2C_FIELD(obj_ene_dd_instance, void **, 0xA4), s32 *, 0x18) = 0x9D03;
     if (M2C_FIELD(arg2, f32 *, 8) > lbl_805D9EA0) {
-        ((EneDDObj2_800BA138*)lbl_805D5138)->m16((void*)(arg2 + 0xC), (void*)arg3);
+        ((EneDDObj2_800BA138*)obj_ene_dd_instance)->m16((void*)(arg2 + 0xC), (void*)arg3);
         return;
     }
-    ((EneDDObj2_800BA138*)lbl_805D5138)->m15((void*)(arg2 + 0xC), (void*)arg3);
+    ((EneDDObj2_800BA138*)obj_ene_dd_instance)->m15((void*)(arg2 + 0xC), (void*)arg3);
 }
 
 void TObjEneDD__sub_800BA5A4(void* p, void* a1) { setup_instance__9TObjEneDDFiiPvi((s32)(p), (s32)((char*)p + 0x38), (u8 *)(a1), (s32)((void*)0)); }
 
 void setup__9TObjEneDDFPvii(void* p, int a1, int a2) { setup_instance__9TObjEneDDFiiPvi((s32)(p), (s32)(a1), (u8 *)(a2), (s32)(0)); }
 
-extern u8 *lbl_805D5138;
+extern u8 *obj_ene_dd_instance;
 extern const f32 lbl_805D9EA0;
 
 void setup_instance__9TObjEneDDFiiPvi(s32 arg0, s32 arg1, u8 *arg2, s32 arg3) {
-    fn_800BC3E8(lbl_805D5138, arg0);
-    get_position__12TBoss1DragonFPv(lbl_805D5138, arg1);
-    M2C_FIELD(M2C_FIELD(lbl_805D5138, void **, 0xA4), f32 *, 0xC) = (f32) M2C_FIELD(arg2, f32 *, 8);
-    M2C_FIELD(M2C_FIELD(lbl_805D5138, void **, 0xA4), s32 *, 0x18) = 0x9D03;
+    fn_800BC3E8(obj_ene_dd_instance, arg0);
+    get_position__12TBoss1DragonFPv(obj_ene_dd_instance, arg1);
+    M2C_FIELD(M2C_FIELD(obj_ene_dd_instance, void **, 0xA4), f32 *, 0xC) = (f32) M2C_FIELD(arg2, f32 *, 8);
+    M2C_FIELD(M2C_FIELD(obj_ene_dd_instance, void **, 0xA4), s32 *, 0x18) = 0x9D03;
     if (M2C_FIELD(arg2, f32 *, 8) > lbl_805D9EA0) {
-        ((EneDDObj_800BA138*)lbl_805D5138)->m13((void*)(arg2 + 0xC), (void*)arg2, (void*)arg3);
+        ((EneDDObj_800BA138*)obj_ene_dd_instance)->m13((void*)(arg2 + 0xC), (void*)arg2, (void*)arg3);
         return;
     }
-    ((EneDDObj_800BA138*)lbl_805D5138)->m12((void*)(arg2 + 0xC), (void*)arg2, (void*)arg3);
+    ((EneDDObj_800BA138*)obj_ene_dd_instance)->m12((void*)(arg2 + 0xC), (void*)arg2, (void*)arg3);
 }
 
 int TObjEneDD__sub_800BA6B8(void* p) { return (*(u32*)((char*)p + 0x890) >> 4) & 0x1; }

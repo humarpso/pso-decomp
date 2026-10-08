@@ -24,11 +24,11 @@ extern "C" {
 int alloc__23TAdSinglePlyChrSelectGCFPv(void *);
 u8 * fn_800E31C4(void *, void *, s32);
 s32 TObjFish__sub_800E3124(u8 *arg0, s32 arg1);
-extern State_800E2FFC lbl_80500FB0;
+extern State_800E2FFC TObjFish_draw_callback_state;
 int transform_to_view__11TCameraCtrlFii(void *, void *);
 void TObjFish__sub_800E2FFC(void);
 s32 TObjFish__sub_800E30BC(Entry_800E30BC *p);
-extern State_800E2FFC lbl_80500FB0;
+extern State_800E2FFC TObjFish_draw_callback_state;
 void TObjFish__sub_800E2FFC(void);
 int set_global_state__16TObjEneRe7BeruraFi(void*);
 void set_draw_callback_list__8TObjFishFPv(Arg_800E3074 *arg);
@@ -41,23 +41,23 @@ void init_state_1__8TObjFishFPv(void *arg0);
 M2C_UNK __dl__FPv();
 
 void TObjFish__sub_800E2FFC(void) {
-    Entry_800E2FFC *p = lbl_80500FB0.list;
-    Param_800E2FFC *q = lbl_80500FB0.params;
+    Entry_800E2FFC *p = TObjFish_draw_callback_state.list;
+    Param_800E2FFC *q = TObjFish_draw_callback_state.params;
     s32 id;
     while ((id = p->id) != -1) {
-        if (id == lbl_80500FB0.counter) {
+        if (id == TObjFish_draw_callback_state.counter) {
             transform_to_view__11TCameraCtrlFii(p->data, q);
         }
         p++;
         q++;
     }
-    lbl_80500FB0.counter++;
+    TObjFish_draw_callback_state.counter++;
 }
 
 void set_draw_callback_list__8TObjFishFPv(Arg_800E3074 *arg) {
-    (*(State_800E3074 *)&lbl_80500FB0).counter = 0;
-    (*(State_800E3074 *)&lbl_80500FB0).list = arg->list;
-    (*(State_800E3074 *)&lbl_80500FB0).params = arg->params;
+    (*(State_800E3074 *)&TObjFish_draw_callback_state).counter = 0;
+    (*(State_800E3074 *)&TObjFish_draw_callback_state).list = arg->list;
+    (*(State_800E3074 *)&TObjFish_draw_callback_state).params = arg->params;
     set_global_state__16TObjEneRe7BeruraFi((void *)TObjFish__sub_800E2FFC);
 }
 

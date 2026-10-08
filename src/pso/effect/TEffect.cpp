@@ -54,7 +54,7 @@ void GXSetTexCopySrc(u16, u16, u16, u16);
 void GXSetTexCopyDst(u16, u16, s32, u8);
 void GXSetCopyClear(Color_80082CDC, u32);
 void GXCopyTex(void *, u8);
-extern A_80082CDC *lbl_8048E5B4[];
+extern A_80082CDC *shared_capture_texture_list[];
 extern u8 lbl_8050E3B8[];
 extern const f32 lbl_805D93C0;
 extern const f32 lbl_805D93C8;
@@ -156,7 +156,7 @@ void copy_screen_to_texture__10TObjPlayerFiPv(s32 mode, void *src) {
         }
         GXSetTexCopySrc(v.x, v.y, 0x100, 0xC0);
         GXSetTexCopyDst(0x100, 0xC0, 4, 0);
-        GXCopyTex(lbl_8048E5B4[0]->b->c->tex, 1);
+        GXCopyTex(shared_capture_texture_list[0]->b->c->tex, 1);
         GXPixModeSync();
         cam = lbl_8050E3B8 + 0x110;
         a.x = lbl_805D93C0;
@@ -173,14 +173,14 @@ void copy_screen_to_texture__10TObjPlayerFiPv(s32 mode, void *src) {
         TObjPlayer__sub_80082C30();
         GXSetTexCopySrc(0xC0, 0x90, 0x100, 0xC0);
         GXSetTexCopyDst(0x100, 0xC0, 4, 0);
-        GXCopyTex(lbl_8048E5B4[0]->b->c->tex, 1);
+        GXCopyTex(shared_capture_texture_list[0]->b->c->tex, 1);
         GXPixModeSync();
         break;
     case 1:
         GXSetCopyClear(lbl_805E1218, 0xFFFFFF);
         GXSetTexCopySrc(0, 0, 0x280, 0x1E0);
         GXSetTexCopyDst(0x280, 0x1E0, 4, 0);
-        GXCopyTex(lbl_8048E5B4[0]->b->c->tex, 1);
+        GXCopyTex(shared_capture_texture_list[0]->b->c->tex, 1);
         GXPixModeSync();
         cam = lbl_8050E3B8 + 0x110;
         a.x = lbl_805D93C0;
@@ -197,7 +197,7 @@ void copy_screen_to_texture__10TObjPlayerFiPv(s32 mode, void *src) {
         TObjPlayer__sub_80082C30();
         GXSetTexCopySrc(0xC0, 0x90, 0x100, 0xC0);
         GXSetTexCopyDst(0x100, 0xC0, 4, 0);
-        GXCopyTex(lbl_8048E5B4[0]->b->c->tex, 1);
+        GXCopyTex(shared_capture_texture_list[0]->b->c->tex, 1);
         GXPixModeSync();
         break;
     }

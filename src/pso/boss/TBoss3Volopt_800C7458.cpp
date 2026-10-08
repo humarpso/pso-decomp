@@ -33,7 +33,7 @@ s32 matrix_mult_vec(int, void *, void *);
 s32 push_matrix_from(void *);
 s32 pop_matrix();
 extern RecoveredGlobal_800C762C_lbl_8043BCA0 lbl_8043BCA0;
-extern s32 lbl_805D5678;
+extern s32 anim_model_matrix_array;
 void TBoss3Volopt__sub_800C762C(M2C_UNK arg0, s32 arg1, s32 arg2);
 }
 
@@ -76,7 +76,7 @@ void TBoss3Volopt__sub_800C762C(M2C_UNK arg0, s32 arg1, s32 arg2) {
     stack.sp8 = M2C_FIELD(&lbl_8043BCA0.value, s32 *, 0);
     stack.spC = M2C_FIELD(&lbl_8043BCA0.value, s32 *, 4);
     stack.sp10 = M2C_FIELD(&lbl_8043BCA0.value, s32 *, 8);
-    push_matrix_from((void *) (lbl_805D5678 + (arg1 * 0x30)));
+    push_matrix_from((void *) (anim_model_matrix_array + (arg1 * 0x30)));
     matrix_mult_vec((int) (0), (void *) (&stack.sp8), (void *) (arg2));
     pop_matrix();
 }

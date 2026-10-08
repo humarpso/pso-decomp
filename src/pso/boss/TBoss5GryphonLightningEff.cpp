@@ -75,7 +75,7 @@ M2C_UNK set_depth_buffer_settings_1__Fv();
 
 void TBoss5GryphonLightningEff__sub_80325064(void* p) { *(u8*)((char*)p + 0x260) = 1; }
 
-extern u8 lbl_804A7418[];
+extern u8 chunk_material_color_half_alpha_f32[];
 extern s32 lbl_805D5660;
 extern s32 some_id_805c6f74;
 
@@ -131,7 +131,7 @@ void render__25TBoss5GryphonLightningEffFv(void *arg0) {
     }
     reset_transform_state__10TObjPlayerFv();
     end_effect_render__13TParticleCtrlFv();
-    set_chunk_material_color(lbl_804A7418);
+    set_chunk_material_color(chunk_material_color_half_alpha_f32);
     some_id_805c6f74 = lbl_805D5660;
     restore_saved_depth_alpha_state();
 }

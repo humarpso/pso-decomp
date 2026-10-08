@@ -39,7 +39,7 @@ void TObjCMIcon__sub_8029951C();
 s32 create__10TObjCMIconFPv(int);
 extern RecoveredGlobal_80291138_lbl_804D9668 lbl_804D9668;
 extern s32 lbl_804DA944[];
-extern f32 lbl_805D3C98;
+extern f32 ui_sprite_scale;
 extern s32 lbl_805D5544;
 extern s32 tl_06;
 extern u32 lbl_805D6568;
@@ -82,7 +82,7 @@ typedef char RecoveredGlobal_802911E8_lbl_804DAA78_size[sizeof(RecoveredGlobal_8
 
 void fn_80291178(void) {
     lbl_805D656C = 0;
-    lbl_805D3C98 = lbl_805DD964;
+    ui_sprite_scale = lbl_805DD964;
     if (lbl_805D5544 != 0) {
         lbl_805D656C = 1;
     }

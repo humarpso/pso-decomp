@@ -883,14 +883,14 @@ M2C_UNK link_photon__10TObjPlayerFUs(u16, M2C_UNK);
 s32 register_boss__6TLobbyFPv(M2C_UNK);
 s32 register_object__6TLobbyFPv(M2C_UNK);
 
-extern s32 lbl_805D4C10;
+extern s32 boss3_volopt_resources;
 
 void init_models__20TBoss3VoloptHiraisinFv(void) {
     s32 *temp_r3;
     s32 var_r31;
 
-    TBoss3VoloptHiraisin__data_805D4C80 = lbl_805D4C10;
-    temp_r3 = collect_and_count__12TBoss3VoloptFUii(get_bml_model(lbl_805D4C10, 0x10), 0xB);
+    TBoss3VoloptHiraisin__data_805D4C80 = boss3_volopt_resources;
+    temp_r3 = collect_and_count__12TBoss3VoloptFUii(get_bml_model(boss3_volopt_resources, 0x10), 0xB);
     lbl_805D4C84 = temp_r3;
     *temp_r3 &= 0xFFFFFFFD;
     var_r31 = alloc__23TAdSinglePlyChrSelectGCFPv(0x10);

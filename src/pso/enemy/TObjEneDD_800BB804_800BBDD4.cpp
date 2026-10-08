@@ -13,14 +13,14 @@ struct VObj_800BBDD4 : Base_800BBDD4 {
 
 void release_resource__9TObjEneDDFv(void);
 
-extern struct VObj_800BBDD4 *lbl_805D5138;
+extern struct VObj_800BBDD4 *obj_ene_dd_instance;
 
 void release_resource__9TObjEneDDFv(void) {
-    if (lbl_805D5138 != NULL) {
-        if (lbl_805D5138 != NULL) {
-            lbl_805D5138->m0(1);
+    if (obj_ene_dd_instance != NULL) {
+        if (obj_ene_dd_instance != NULL) {
+            obj_ene_dd_instance->m0(1);
         }
-        lbl_805D5138 = NULL;
+        obj_ene_dd_instance = NULL;
     }
 }
 

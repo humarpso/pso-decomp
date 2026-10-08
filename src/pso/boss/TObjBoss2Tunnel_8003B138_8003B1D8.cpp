@@ -11,7 +11,7 @@ struct Obj_8003B1FC { u8 pad[0x14]; Obj_8003B1FC *child; u8 pad2[0x3c - 0x18]; u
 extern "C" {
 s32 vec3_add_to(void *, void *);
 s32 set_parent__7TObjectFP7TObject(void *, void *);
-extern void *lbl_805D4BF8;
+extern void *TObjBoss2Tunnel_parent_object;
 void detach_children__15TObjBoss2TunnelFPvPv(Obj_8003B1FC *self, void *arg);
 }
 
@@ -29,14 +29,14 @@ void detach_children__15TObjBoss2TunnelFPvPv(Obj_8003B1FC *self, void *arg) {
     Obj_8003B1FC *c;
     while ((c = self->child) != 0) {
         vec3_add_to(c->xf, arg);
-        set_parent__7TObjectFP7TObject(c, lbl_805D4BF8);
+        set_parent__7TObjectFP7TObject(c, TObjBoss2Tunnel_parent_object);
     }
 }
 void release_children__15TObjBoss2TunnelFPvf(Obj_8003B250 *arg0, f32 farg0) {
     Child_8003B250 *c;
     while ((c = arg0->child) != NULL) {
         c->f44 = c->f44 + farg0;
-        set_parent__7TObjectFP7TObject(c, lbl_805D4BF8);
+        set_parent__7TObjectFP7TObject(c, TObjBoss2Tunnel_parent_object);
     }
 }
 

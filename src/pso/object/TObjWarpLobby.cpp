@@ -12,7 +12,7 @@ extern "C" {
 int alloc__23TAdSinglePlyChrSelectGCFPv(void *);
 u8 *load_resource_from_descriptor(void *, s32, void *, s32, s32, s32);
 extern u8 lbl_804B975C[];
-extern s32 TObjWarpLobby__data_805D5CC8;
+extern s32 TObjWarpLobby__instance;
 extern s32 lbl_805D5CCC;
 void TObjWarpLobby__sub_801A0B38(void);
 }
@@ -22,19 +22,19 @@ extern "C" {
 void release_static__13TObjWarpLobbyFv(void);
 M2C_UNK TLobby__sub_8001FE7C(s32, M2C_UNK);
 
-extern s32 TObjWarpLobby__data_805D5CC8;
+extern s32 TObjWarpLobby__instance;
 
 void release_static__13TObjWarpLobbyFv(void) {
-    TLobby__sub_8001FE7C(TObjWarpLobby__data_805D5CC8, 1);
-    TObjWarpLobby__data_805D5CC8 = 0;
+    TLobby__sub_8001FE7C(TObjWarpLobby__instance, 1);
+    TObjWarpLobby__instance = 0;
 }
 void TObjWarpLobby__sub_801A0B38(void) {
     u8 *p = (u8 *)alloc__23TAdSinglePlyChrSelectGCFPv((void *)0x440);
     if (p != 0) {
         p = load_resource_from_descriptor(p, 1, lbl_804B975C, 0, 0, 0);
     }
-    TObjWarpLobby__data_805D5CC8 = (s32)p;
-    lbl_805D5CCC = ((Obj_801A0B38 *)TObjWarpLobby__data_805D5CC8)->sub->value;
+    TObjWarpLobby__instance = (s32)p;
+    lbl_805D5CCC = ((Obj_801A0B38 *)TObjWarpLobby__instance)->sub->value;
 }
 
 }

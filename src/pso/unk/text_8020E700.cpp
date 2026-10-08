@@ -41,7 +41,7 @@ extern RecoveredGlobal_8020ECD8_lbl_80513D78 lbl_80513D78;
 extern s32 lbl_80513D68[];
 extern Tbl_8020E934 **lbl_805D6158;
 extern s32 lbl_805D615C;
-extern s32 lbl_805D6240;
+extern s32 shop_difficulty_tier;
 void reset_counter_64__6TLobbyFPv(Ctr_8020E934 *);
 s32 TLobby__sub_8020E5E0(s32);
 s32 get_lobby_group__6TLobbyFi(s32);
@@ -124,7 +124,7 @@ void generate_shop_shield_pool(s32 arg0) {
         init__9TItemDataFv(&item);
         item.b[0] = 1;
         item.b[1] = 2;
-        if (lbl_805D6240 != 3) {
+        if (shop_difficulty_tier != 3) {
             item.b[2] = b;
         } else if (lbl_805D615C >= 1 && lbl_805D615C <= 99) {
             item.b[2] = b;
