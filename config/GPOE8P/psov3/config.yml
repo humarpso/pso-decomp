@@ -187,9 +187,15 @@ force_active:
   - TTecRaZonde_class_name
   - TWindowActionPalette__sub_801C1C20
   - TWindowCtrl__sub_8024A7CC
+  - TWindowHelpItem__sub_8025A900
+  - TWindowHelpItem__sub_8025A904
   - TWindowKeyBoardSoft__sub_80080B34
   - TWindowSetLevelUp__sub_8026DDE0
   - TWindowSubComCard__sub_80077958
+  - TWindowSubStatusDisp__sub_8025AF0C
+  - TWindowSubStatusDisp__sub_8025B0D0
+  - TWindowSubStatusDisp__sub_8025B2DC
+  - TWindowSubStatusDisp__sub_8025B760
   - TWindowSubStatusDisp__sub_80271A6C
   - TWindowSubStatusDisp__sub_8036D994
   - TWindowTimer__sub_8019A098
@@ -370,6 +376,7 @@ force_active:
   - advance_camera_ctrl_step__19TObjEneEpsilonGuardFv
   - advance_motion_frame__13TObjLobbyMainFPv
   - advance_position__10TTecSlicerFPv
+  - advance_text_entry_reveal
   - advance_to_preparation_phase__20TShopArmorListWindowFPv
   - alerted_state__14TObjEneBm5WolfFPvi
   - alloc_boss_target_slot__10TObjPlayerFPvi
@@ -551,8 +558,10 @@ force_active:
   - deliver_chain_hits__11TTecGiZondeFPv
   - deliver_target_hit__10TTecSlicerFPv
   - despawn_state__14TObjEneBm5WolfFPvi
+  - destroy__15TWindowHelpItemFPvs
   - destroy__16TBoss3VoloptCoreFPvs
   - destroy_arrays__14TPlyDispConfigFii
+  - destroy_free_buffers__20TWindowSubStatusDispFPvs
   - destroy_subobjects_recursive__10TObjPlayerFPv
   - dispatch_action_state__10TObjPlayerFPv
   - dispatch_by_index__19TWindowKeyBoardSoftFPv
@@ -589,6 +598,7 @@ force_active:
   - draw_help_entry__24TWindowSubSymbolChatHelpFPvPvii
   - draw_help_icon__24TWindowSubSymbolChatHelpFiPvii
   - draw_inactive_badge__11TObjDoorKeyFPv
+  - draw_label_value__20TWindowSubStatusDispFPvPv
   - draw_lights__20TODoorFourLightSpaceFPv
   - draw_model__15TODoorAncient09FPv
   - draw_model__15TObjEneMe1GiGueFPv
@@ -599,6 +609,7 @@ force_active:
   - draw_motion_tree__10TObjPlayerFPvPvi
   - draw_node_tree__18TObjLaboDesignBaseFiPv
   - draw_node_tree__19TODoorFourLightBaseFPvPv
+  - draw_number_value__15TWindowHelpItemFv
   - draw_object_tree__11TObjDoaEx01FPvi
   - draw_object_tree__14TOTrapSeabed01FPvPv
   - draw_object_tree_recursive
@@ -1157,10 +1168,13 @@ force_active:
   - render_effects__9TMainTaskFv
   - render_enemy_with_fade__10TObjPlayerFPv
   - render_geometry__9TMainTaskFv
+  - render_item_rarity_stars
   - render_lights__19TODoorFourLightBaseFPv
   - render_objects__9TMainTaskFv
   - render_particle_effects__9TMainTaskFv
   - render_status__18TAdMultiPlayerNoGCFi
+  - render_summary_row__15TWindowHelpItemFv
+  - render_text_entry
   - render_ui__9TMainTaskFv
   - render_with_fade__19TObjEneEpsilonGuardFPvi
   - render_with_state_debug__10TObjPlayerFPv
@@ -1402,6 +1416,7 @@ force_active:
   - texture_f512_multiplay_descriptor
   - throw_gogo_ball__12TWindowTimerFPvii
   - tick_battle_music_timer
+  - tick_display_timer__15TWindowHelpItemFPv
   - tick_fade_counter__6TLobbyFPv
   - tick_persistent_sound__15TObjIllGillKageFPv
   - to_le_uint16_t__FUs
@@ -1466,6 +1481,7 @@ force_active:
   - update_movement__15TObjEneMe1GiGueFPv
   - update_node_oscillation__11TItemMagSubFPv
   - update_pad_recalibration
+  - update_palette_sprite__20TWindowSubStatusDispFv
   - update_particles__15TObjBoss2TunnelFPv
   - update_path_follow_rotation__10TObjPlayerFPvPvf
   - update_path_steering__10TObjPlayerFPv

@@ -9790,32 +9790,34 @@ pso/misc/TWindowSubStatusDisp_802598E4.cpp:
 	.rodata     start:0x8044F000 end:0x8044F018
 
 pso/misc/TWindowHelpItem_8025A12C.cpp:
-	.text       start:0x8025A12C end:0x8025AD38
-	.rodata     start:0x8044F018 end:0x8044F058
+	.text       start:0x8025A12C end:0x8025A60C
+	.rodata     start:0x8044F018 end:0x8044F025
+	.data       start:0x804CF9F8 end:0x804CFA10
+	.sdata2     start:0x805DCF68 end:0x805DCF8C
+
+pso/misc/TWindowHelpItem_8025A60C.cpp:
+	.text       start:0x8025A60C end:0x8025A9B4
+	.rodata     start:0x8044F028 end:0x8044F050
+	.data       start:0x804CFA10 end:0x804CFA28
 	.sdata2     start:0x805DCF90 end:0x805DCFA8
 
-pso/misc/TWindowDuelResult_8025AD38.cpp:
-	.text       start:0x8025AD38 end:0x8025AD5C
+pso/misc/TWindowSubStatusDisp_8025A9B4.cpp:
+	.text       start:0x8025A9B4 end:0x8025B050
+	.rodata     start:0x8044F050 end:0x8044F060
+	.data       start:0x804CFA28 end:0x804CFA40
+	.sdata2     start:0x805DCFA8 end:0x805DCFDC
 
-pso/misc/TWindowSubStatusDisp_8025AD5C.cpp:
-	.text       start:0x8025AD5C end:0x8025B334
-	.rodata     start:0x8044F058 end:0x8044F068
+pso/misc/TWindowSubStatusDisp_8025B050.cpp:
+	.text       start:0x8025B050 end:0x8025B4A0
+	.rodata     start:0x8044F060 end:0x8044F068
+	.data       start:0x804CFA40 end:0x804CFA58
+	.sdata2     start:0x805DCFE0 end:0x805DD004
 
-pso/misc/TWindowSubStatusDisp_8025AD5C_8025B334.cpp:
-	.text       start:0x8025B334 end:0x8025B514
-
-pso/misc/TWindowSubStatusDisp_8025AD5C_8025B514.cpp:
-	.text       start:0x8025B514 end:0x8025B5AC
-
-pso/misc/TWindowSubStatusDisp_8025AD5C_8025B5AC.cpp:
-	.text       start:0x8025B5AC end:0x8025B784
+pso/misc/TWindowSubStatusDisp_8025B4A0.cpp:
+	.text       start:0x8025B4A0 end:0x8025B85C
 	.rodata     start:0x8044F068 end:0x8044F070
-
-pso/misc/TWindowSubStatusDisp_8025AD5C_8025B784.cpp:
-	.text       start:0x8025B784 end:0x8025B7F0
-
-pso/misc/TWindowSubComCard_8025B7F0.cpp:
-	.text       start:0x8025B7F0 end:0x8025B85C
+	.data       start:0x804CFA58 end:0x804CFA70
+	.sdata2     start:0x805DD008 end:0x805DD030
 
 pso/misc/TWindowKeyBoardSoft_8025B85C.cpp:
 	.text       start:0x8025B85C end:0x8025CB10

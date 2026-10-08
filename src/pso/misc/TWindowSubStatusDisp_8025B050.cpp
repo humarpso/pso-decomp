@@ -1,0 +1,191 @@
+#include "types.h"
+typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
+typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
+#define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
+#define M2C_BITWISE(type, expr) ((type)(expr))
+
+struct Win_8025B0D0 {
+    u16 flags; u8 pad2[6];
+    f32 f8; f32 fC; f32 f10; f32 f14; f32 f18;
+    f32 f1C; f32 f20; f32 f24; f32 f28;
+    s32 i2C; s32 *p30; s32 i34;
+};
+
+struct Ref_8025B0D0 { u8 pad0[0x10]; f32 f10; f32 f14; f32 f18; u8 pad1c[0x30 - 0x1C]; s32 i30; u8 pad34[4]; f32 f38; };
+
+struct Quad_8025B0D0 { f32 v[8]; };
+
+extern "C" {
+void TWindowSubSymbolChatPartsSet__sub_8025B050(u8 *arg0);
+void TWindowSubSymbolChatPartsSet__sub_8025B064(u8 *arg0);
+void set_sprite_uv_from_pixels(u8 *arg0, f32 farg0, f32 farg1);
+void reset_transform_state__10TObjPlayerFv(void);
+void init_xyz_limits__10TObjPlayerFv(void);
+void apply_context_transform_to_rect(void *, void *);
+s32 try_open__19TWindowKeyBoardSoftFii(void *, void *);
+void set_global_param__8TObjFishFi(s32);
+void begin_screen_draw(s32);
+void get_player__20TWindowSubStatusDispFv(void);
+void draw_textured_quad_at_depth(void *, f32);
+void set_draw_texture_and_color(s32, s32);
+void TWindowSubStatusDisp__sub_8025B0D0(Win_8025B0D0 *arg0, Ref_8025B0D0 *arg1);
+void update_palette_sprite__20TWindowSubStatusDispFv(void);
+void *TWindowSubStatusDisp__sub_8025B2DC(void *arg0, s16 arg1);
+void TWindowSubSymbolChatPartsSet__sub_8025B0C4(void* p, f32 a, f32 b);
+void fn_8025B078(void* p, f32 a, f32 b, f32 c, f32 d);
+M2C_UNK __dl__FPv(void *);
+M2C_UNK destroy__20TWindowSubStatusDispFPvs(void *, s16);
+u8 *init_part_direct__20TWindowSubStatusDispFPvPvi(u8 *arg0, u8 *arg1, s32 arg2);
+u8 *init_part_scaled__20TWindowSubStatusDispFPvPvi(u8 *arg0, u8 *arg1, s32 arg2);
+M2C_UNK TWindowSubStatusDisp__sub_80256BDC(void *, void *);
+M2C_UNK copy_vec2__28TWindowSubSymbolChatPartsSetFPvPv(void *, void *);
+
+void *lbl_804CFA40[6] = {
+    0, 0,
+    (void *)TWindowSubStatusDisp__sub_8025B2DC,
+    (void *)update_palette_sprite__20TWindowSubStatusDispFv,
+    (void *)TWindowSubStatusDisp__sub_8025B0D0,
+    0,
+};
+
+void TWindowSubSymbolChatPartsSet__sub_8025B050(u8 *arg0) {
+    f32 temp_f1;
+    temp_f1 = M2C_FIELD(arg0, f32 *, 0x20);
+    M2C_FIELD(arg0, f32 *, 0x20) = (f32) M2C_FIELD(arg0, f32 *, 0x28);
+    M2C_FIELD(arg0, f32 *, 0x28) = temp_f1;
+}
+
+void TWindowSubSymbolChatPartsSet__sub_8025B064(u8 *arg0) {
+    f32 temp_f1;
+    temp_f1 = M2C_FIELD(arg0, f32 *, 0x1C);
+    M2C_FIELD(arg0, f32 *, 0x1C) = (f32) M2C_FIELD(arg0, f32 *, 0x24);
+    M2C_FIELD(arg0, f32 *, 0x24) = temp_f1;
+}
+
+void fn_8025B078(void* p, f32 a, f32 b, f32 c, f32 d) { *(f32*)((char*)p + 0x1c) = a; *(f32*)((char*)p + 0x20) = b; *(f32*)((char*)p + 0x24) = c; *(f32*)((char*)p + 0x28) = d; }
+
+void set_sprite_uv_from_pixels(u8 *arg0, f32 farg0, f32 farg1) {
+    f32 x, y;
+    M2C_FIELD(arg0, f32 *, 0x1C) = (f32) (farg0 / 256.0f);
+    M2C_FIELD(arg0, f32 *, 0x20) = (f32) (farg1 / 256.0f);
+    x = farg0 + M2C_FIELD(arg0, f32 *, 0x10);
+    M2C_FIELD(arg0, f32 *, 0x24) = (f32) (x / 256.0f);
+    y = farg1 + M2C_FIELD(arg0, f32 *, 0x14);
+    M2C_FIELD(arg0, f32 *, 0x28) = (f32) (y / 256.0f);
+}
+
+void TWindowSubSymbolChatPartsSet__sub_8025B0C4(void* p, f32 a, f32 b) { *(f32*)((char*)p + 0x10) = a; *(f32*)((char*)p + 0x14) = b; }
+
+#pragma push
+#pragma fp_contract on
+void TWindowSubStatusDisp__sub_8025B0D0(Win_8025B0D0 *arg0, Ref_8025B0D0 *arg1) {
+    Quad_8025B0D0 q;
+    f32 x;
+    f32 y;
+    f32 scale;
+    f32 len;
+    f32 a;
+    f32 t;
+    f32 lo;
+    f32 hi;
+    f32 w;
+    x = arg1->f10 + arg0->f8;
+    y = arg1->f14 + arg0->fC;
+    scale = (-1.0f) / ((0.299f) * arg0->f18 + arg1->f38);
+    a = arg0->fC / (21.0f);
+    t = a + arg0->f8 / arg1->f18;
+    t *= (7.5f);
+    len = (17.0f) * ((f32)arg1->i30 - t);
+    len /= (3.5f) * arg0->f10;
+    if (len <= (0.0f)) {
+        return;
+    }
+    if (len > (0.5f)) {
+        len = (0.5f);
+    }
+    if (arg0->flags & 8) {
+        init_xyz_limits__10TObjPlayerFv();
+    }
+    if (arg0->flags & 0xC) {
+        begin_screen_draw(1);
+    } else {
+        begin_screen_draw(0);
+    }
+    set_global_param__8TObjFishFi(*arg0->p30);
+    set_draw_texture_and_color(arg0->i34, arg0->i2C);
+    w = arg0->f10;
+    lo = (0.5f) - len;
+    hi = (0.5f) + len;
+    q.v[0] = w * lo + x;
+    q.v[1] = arg0->f14 * lo + y;
+    q.v[2] = w * hi + x;
+    q.v[3] = arg0->f14 * hi + y;
+    q.v[4] = arg0->f1C;
+    q.v[5] = arg0->f20;
+    q.v[6] = arg0->f24;
+    q.v[7] = arg0->f28;
+    if (arg0->flags & 0x10) {
+        apply_context_transform_to_rect(arg1, &q);
+        draw_textured_quad_at_depth(&q, scale);
+    } else if (try_open__19TWindowKeyBoardSoftFii(arg1, &q) != 0) {
+        draw_textured_quad_at_depth(&q, scale);
+    }
+    get_player__20TWindowSubStatusDispFv();
+    reset_transform_state__10TObjPlayerFv();
+}
+#pragma pop
+
+void update_palette_sprite__20TWindowSubStatusDispFv(void) {  }
+
+void *TWindowSubStatusDisp__sub_8025B2DC(void *arg0, s16 arg1) {
+    if (arg0 != NULL) {
+        M2C_FIELD(arg0, void ***, 4) = lbl_804CFA40;
+        destroy__20TWindowSubStatusDispFPvs(arg0, 0);
+        if (arg1 > 0) {
+            __dl__FPv(arg0);
+        }
+    }
+    return arg0;
+}
+
+u8 *init_part_direct__20TWindowSubStatusDispFPvPvi(u8 *arg0, u8 *arg1, s32 arg2) {
+    TWindowSubStatusDisp__sub_80256BDC((void *)((void *) (arg0)), (void *)((int) (arg2)));
+    M2C_FIELD(arg0, void ***, 4) = lbl_804CFA40;
+    copy_vec2__28TWindowSubSymbolChatPartsSetFPvPv((void *) (arg0 + 8), (void *) (arg1 + 4));
+    copy_vec2__28TWindowSubSymbolChatPartsSetFPvPv((void *) (arg0 + 0x10), (void *) (arg1 + 0xC));
+    M2C_FIELD(arg0, f32 *, 0x1C) = (f32) M2C_FIELD(arg1, f32 *, 0x14);
+    M2C_FIELD(arg0, f32 *, 0x20) = (f32) M2C_FIELD(arg1, f32 *, 0x18);
+    M2C_FIELD(arg0, f32 *, 0x24) = (f32) M2C_FIELD(arg1, f32 *, 0x1C);
+    M2C_FIELD(arg0, f32 *, 0x28) = (f32) M2C_FIELD(arg1, f32 *, 0x20);
+    M2C_FIELD(arg0, f32 *, 0x18) = (f32) M2C_FIELD(arg1, f32 *, 0x24);
+    M2C_FIELD(arg0, s32 *, 0x2C) = (s32) M2C_FIELD(arg1, s32 *, 0x28);
+    M2C_FIELD(arg0, s32 *, 0x30) = (s32) M2C_FIELD(arg1, s32 *, 0x2C);
+    M2C_FIELD(arg0, s32 *, 0x34) = (s32) M2C_FIELD(arg1, s32 *, 0x30);
+    M2C_FIELD(arg0, s16 *, 0) = (s16) M2C_FIELD(arg1, s32 *, 0x34);
+    return arg0;
+}
+
+u8 *init_part_scaled__20TWindowSubStatusDispFPvPvi(u8 *arg0, u8 *arg1, s32 arg2) {
+    TWindowSubStatusDisp__sub_80256BDC((void *)(arg0), (void *)((void *) (arg2)));
+    M2C_FIELD(arg0, void ***, 4) = lbl_804CFA40;
+    copy_vec2__28TWindowSubSymbolChatPartsSetFPvPv((void *) (arg0 + 8), (void *) (arg1 + 4));
+    copy_vec2__28TWindowSubSymbolChatPartsSetFPvPv((void *) (arg0 + 0x10), (void *) (arg1 + 0xC));
+    M2C_FIELD(arg0, f32 *, 0x1C) = (f32) (M2C_FIELD(arg1, f32 *, 0x14) / 256.0f);
+    M2C_FIELD(arg0, f32 *, 0x20) = (f32) (M2C_FIELD(arg1, f32 *, 0x18) / 256.0f);
+    {
+        f32 t0 = M2C_FIELD(arg1, f32 *, 0x14) + M2C_FIELD(arg0, f32 *, 0x10);
+        M2C_FIELD(arg0, f32 *, 0x24) = (f32) (t0 / 256.0f);
+    }
+    {
+        f32 t1 = M2C_FIELD(arg1, f32 *, 0x18) + M2C_FIELD(arg0, f32 *, 0x14);
+        M2C_FIELD(arg0, f32 *, 0x28) = (f32) (t1 / 256.0f);
+    }
+    M2C_FIELD(arg0, f32 *, 0x18) = (f32) M2C_FIELD(arg1, f32 *, 0x1C);
+    M2C_FIELD(arg0, s32 *, 0x2C) = (s32) M2C_FIELD(arg1, s32 *, 0x20);
+    M2C_FIELD(arg0, s32 *, 0x30) = (s32) M2C_FIELD(arg1, s32 *, 0x24);
+    M2C_FIELD(arg0, s32 *, 0x34) = (s32) M2C_FIELD(arg1, s32 *, 0x28);
+    M2C_FIELD(arg0, s16 *, 0) = (s16) M2C_FIELD(arg1, s32 *, 0x2C);
+    return arg0;
+}
+
+}

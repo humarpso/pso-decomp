@@ -1825,7 +1825,6 @@ pso/misc/TWindowDD_80348D0C.cpp
 pso/misc/TWindowDD_8034AF68.cpp
 pso/misc/TWindowDeposit.cpp
 pso/misc/TWindowDuelResult_801C2528.cpp
-pso/misc/TWindowDuelResult_8025AD38.cpp
 pso/misc/TWindowEffectParty.cpp
 pso/misc/TWindowEffectParty_8024F690.cpp
 pso/misc/TWindowFukidasi_80252AE4.cpp
@@ -1836,6 +1835,8 @@ pso/misc/TWindowGetComCard_8007B54C.cpp
 pso/misc/TWindowHelpItem.cpp
 pso/misc/TWindowHelpItem_802531A0.cpp
 pso/misc/TWindowHelpItem_80255AB4.cpp
+pso/misc/TWindowHelpItem_8025A12C.cpp
+pso/misc/TWindowHelpItem_8025A60C.cpp
 pso/misc/TWindowInputNumber.cpp
 pso/misc/TWindowInputNumber_80211608.cpp
 pso/misc/TWindowKeyBoardBase.cpp
@@ -1957,7 +1958,6 @@ pso/misc/TWindowSubComCard_80131BC4.cpp
 pso/misc/TWindowSubComCard_80202990.cpp
 pso/misc/TWindowSubComCard_80249120.cpp
 pso/misc/TWindowSubComCard_802495FC.cpp
-pso/misc/TWindowSubComCard_8025B7F0.cpp
 pso/misc/TWindowSubComCard_80266BC4.cpp
 pso/misc/TWindowSubComCard_80268494.cpp
 pso/misc/TWindowSubComCard_80269064.cpp
@@ -2048,10 +2048,9 @@ pso/misc/TWindowSubStatusDisp_80257784_80258BF8.cpp
 pso/misc/TWindowSubStatusDisp_80257784_80258D38.cpp
 pso/misc/TWindowSubStatusDisp_80257784_8025903C.cpp
 pso/misc/TWindowSubStatusDisp_80257784_80259838.cpp
-pso/misc/TWindowSubStatusDisp_8025AD5C_8025B334.cpp
-pso/misc/TWindowSubStatusDisp_8025AD5C_8025B514.cpp
-pso/misc/TWindowSubStatusDisp_8025AD5C_8025B5AC.cpp
-pso/misc/TWindowSubStatusDisp_8025AD5C_8025B784.cpp
+pso/misc/TWindowSubStatusDisp_8025A9B4.cpp
+pso/misc/TWindowSubStatusDisp_8025B050.cpp
+pso/misc/TWindowSubStatusDisp_8025B4A0.cpp
 pso/misc/TWindowSubStatusDisp_80268488.cpp
 pso/misc/TWindowSubStatusDisp_80268738.cpp
 pso/misc/TWindowSubStatusDisp_8026CE3C.cpp
