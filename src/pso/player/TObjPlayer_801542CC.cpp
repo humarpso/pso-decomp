@@ -273,7 +273,7 @@ extern M2C_UNK lbl_804AF8A0[];
 u8 *construct_collider_proxy__10TObjPlayerFPv(u8 *arg0);
 extern unsigned char lbl_8050DAD0[];
 extern int lbl_805D5878;
-void TObjPlayer__sub_801546D0(u32 arg0, s32 arg1);
+void add_unique_pair_entry__10TObjPlayerFUii(u32 arg0, s32 arg1);
 void free__11TOBoss4RockFUi(s32);
 void free_collision_body_parts(G_80156720 *arg0);
 u16 obj_getField1c(int);
@@ -349,7 +349,7 @@ void TObjPlayer__sub_8015431C(u8 *arg0) {
     TObjPlayer__sub_8015434C((s32)(arg0), (s32)(lbl_805D586C + lbl_805D5870), (s32)(TObjPlayer__data_805D5874));
 }
 
-void TObjPlayer__sub_801546D0(u32 arg0, s32 arg1) {
+void add_unique_pair_entry__10TObjPlayerFUii(u32 arg0, s32 arg1) {
     E_801546D0 *p;
     s32 i;
     if ((u32)lbl_805D5878 < 0x10) {

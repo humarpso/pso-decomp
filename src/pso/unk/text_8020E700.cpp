@@ -31,7 +31,7 @@ struct Rec_8020E700 { u8 a, b, c, d, e, f; u8 pad[0x14 - 6]; };
 
 extern "C" {
 extern RecoveredGlobal_8020ECD8_lbl_80513D78 lbl_80513D78;
-void TLobby__sub_8020ECD8(s32 arg0, s32 arg1, s32 arg2);
+void copy_armor_shop_entry__6TLobbyFiii(s32 arg0, s32 arg1, s32 arg2);
 M2C_UNK memset(void *, int, int);
 extern RecoveredGlobal_8020ECA8_lbl_80513D58 lbl_80513D58;
 void clear_shop_armor_flags(void);
@@ -43,7 +43,7 @@ extern Tbl_8020E934 **lbl_805D6158;
 extern s32 lbl_805D615C;
 extern s32 shop_difficulty_tier;
 void reset_counter_64__6TLobbyFPv(Ctr_8020E934 *);
-s32 TLobby__sub_8020E5E0(s32);
+s32 get_shield_shop_tier_for_level__6TLobbyFi(s32);
 s32 get_lobby_group__6TLobbyFi(s32);
 void push_shop_pool_entry(Ctr_8020E934 *, u8);
 void shuffle_shop_pool_n_times(Ctr_8020E934 *, s32);
@@ -101,7 +101,7 @@ void generate_shop_shield_pool(s32 arg0) {
     s32 grp;
     reset_counter_64__6TLobbyFPv(&ctr);
     dst = ((Item_8020E934 **)&lbl_80513D78)[arg0];
-    n = TLobby__sub_8020E5E0(lbl_805D615C);
+    n = get_shield_shop_tier_for_level__6TLobbyFi(lbl_805D615C);
     tbl = *lbl_805D6158;
     grp = get_lobby_group__6TLobbyFi(lbl_805D615C);
     cnt = tbl->count;
@@ -153,7 +153,7 @@ void clear_shop_armor_flags(void) {
     memset((void *) (&lbl_80513D58.value), (int) (0), (int) (0x10));
 }
 
-void TLobby__sub_8020ECD8(s32 arg0, s32 arg1, s32 arg2) {
+void copy_armor_shop_entry__6TLobbyFiii(s32 arg0, s32 arg1, s32 arg2) {
     *(M2CCopy_14 *)(arg0) = *(const M2CCopy_14 *)(M2C_FIELD(&lbl_80513D78.value, M2C_UNK *, (arg2 * 4)) + (arg1 * 0x14));
 }
 

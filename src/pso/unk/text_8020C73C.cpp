@@ -43,7 +43,7 @@ struct Obj_8020C73C : ObjBase_8020C73C {
 
 extern "C" {
 s32 get_current_floor();
-s32 TLobby__sub_8020B1E4(s32, s32, s32, s32);
+s32 set_flags_on_matching_entries__6TLobbyFissi(s32, s32, s32, s32);
 Set_8020C73C *resolve_matching_object__6TLobbyFPv(s32);
 s32 get_object_type__6TLobbyFi(s32);
 Obj_8020C73C *construct_enemy_from_set_row(Set_8020C73C *);
@@ -66,7 +66,7 @@ s32 unhide_enemies_at__6TLobbyFiii(s32 arg0, s32 arg1, s32 arg2) {
         local = 1;
     }
     if (local == 0) {
-        return TLobby__sub_8020B1E4(arg0, arg1, arg2, 1);
+        return set_flags_on_matching_entries__6TLobbyFissi(arg0, arg1, arg2, 1);
     }
     set = resolve_matching_object__6TLobbyFPv(arg0);
     n = get_object_type__6TLobbyFi(arg0);

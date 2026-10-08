@@ -232,7 +232,7 @@ Gibon_800D13B8 * TObjEneBm5GibonU__sub_800D13B8(Gibon_800D13B8 *arg0, s16 arg1);
 M2C_UNK rotate_xz_pair_by_angle(f32 *, f32 *, s32);
 M2C_UNK transition_enemy_state(void *, M2C_UNK);
 M2C_UNK update_collisions__10TObjPlayerFPv(void *);
-f32 TObjEneBm5GibonU__sub_800D0A94(Obj_800D0A94 *arg0, f32 farg0);
+f32 calc_anim_speed__16TObjEneBm5GibonUFPvf(Obj_800D0A94 *arg0, f32 farg0);
 f32 calc_boss4_scale__10TObjPlayerFi(s32);
 f32 clamp_velocity__15TObjBoss2TunnelFPv(void *);
 f32 cos_table_lookup(int);
@@ -852,7 +852,7 @@ __declspec(section ".data") u32 TObjEneBm5GibonU__enemy_list[3];
 #define TObjEneBm5GibonU__enemy_list (*(List_800CFE34 *)&TObjEneBm5GibonU__enemy_list)
 #define TObjEneBm5GibonU__sub_800D0AE8 ((M2C_UNK (*)(void *, void *))TObjEneBm5GibonU__sub_800D0AE8)
 #define turn_toward_angle__16TObjEneBm5GibonUFPvi ((M2C_UNK (*)(void *, s32))turn_toward_angle__16TObjEneBm5GibonUFPvi)
-#define TObjEneBm5GibonU__sub_800D0A94 ((f32 (*)(void *, void *, f32))TObjEneBm5GibonU__sub_800D0A94)
+#define calc_anim_speed__16TObjEneBm5GibonUFPvf ((f32 (*)(void *, void *, f32))calc_anim_speed__16TObjEneBm5GibonUFPvf)
 #define TObjEneBm5GibonU__node_list ((Node_800CE060 * *)&TObjEneBm5GibonU__node_list)
 #define calc_rotated_vector__16TObjEneBm5GibonUFPviPvPv ((M2C_UNK (*)(void *, s32, Vec_800CF4BC *, s32 *))calc_rotated_vector__16TObjEneBm5GibonUFPviPvPv)
 #define TObjEneBm5GibonU__sub_800D10A0 ((M2C_UNK (*)(void *))TObjEneBm5GibonU__sub_800D10A0)
@@ -2100,7 +2100,7 @@ extern const f64 TObjEneBm5GibonU__data_8043C0F8;
 void queue_destruction__7TObjectFv(void *self);
 void handle_message__16TObjEneBm5GibonUFPvi(void *self, s32 msg);
 extern s32 lbl_805D5550;
-s32 TObjEneBm5GibonU__sub_800CCB24(Obj_800CCB24 *self);
+s32 get_clamped_level__16TObjEneBm5GibonUFPv(Obj_800CCB24 *self);
 void damage_linked_entity__16TObjEneBm5GibonUFPv(Obj_800D086C *self);
 void damage_linked_entity_type10__16TObjEneBm5GibonUFPv(Obj_800D08E4 *self);
 s32 fn_8002B630(Col_800CCB74 *, void *);
@@ -2275,7 +2275,7 @@ void spawn_directional_particle(void *, void *, s32);
 void *spawn_particle_effect(void *, s32);
 void enemy_copy_target_destination(void *);
 M2C_UNK set_field_378__9TObjEneDDFPvi(void *, M2C_UNK);
-s32 TObjEneBm5GibonU__sub_800CCB24(Obj_800CCB24 *self);
+s32 get_clamped_level__16TObjEneBm5GibonUFPv(Obj_800CCB24 *self);
 void update_prev_position__10TObjPlayerFPv(void *);
 s32 objInBand__FP7GameObjf(void *, f32);
 M2C_UNK advance_animation_playback(void *);
@@ -2327,7 +2327,7 @@ s32 objInBand__FP7GameObjf(void *, f32);
 M2C_UNK set_field_378__9TObjEneDDFPvi(void *, M2C_UNK);
 M2C_UNK update_enemy_collision_flags__10TObjPlayerFPv(void *);
 
-s32 TObjEneBm5GibonU__sub_800CCB24(Obj_800CCB24 *self) {
+s32 get_clamped_level__16TObjEneBm5GibonUFPv(Obj_800CCB24 *self) {
     Sub_800CCB24 *p = self->f2b0;
     s32 v = 0;
     if (p != 0) {
@@ -2654,7 +2654,7 @@ struct Obj_800CCB24;
 #define F(t, o) M2C_FIELD(arg0, t *, o)
 #define VO ((VObj_18_444bc5 *)(arg0))
 #define V(o) (*(Vec_800CD5F4 *)(arg0 + (o)))
-#define CB24(a) TObjEneBm5GibonU__sub_800CCB24((Obj_800CCB24 *)(a))
+#define CB24(a) get_clamped_level__16TObjEneBm5GibonUFPv((Obj_800CCB24 *)(a))
 void state_cast_technique__16TObjEneBm5GibonUFPvi(u8 *arg0, s32 arg1) {
     Vec_800CD5F4 v;
     Vec_800CD5F4 p;
@@ -2915,7 +2915,7 @@ void TObjEneBm5GibonU__sub_800CE060(u8 *arg0, s32 arg1) {
         M2C_FIELD(arg0, s16 *, 0xB8) = 0xB;
         TBoss8Dragon__sub_800BB7D4(arg0, 0xF1);
         M2C_FIELD(arg0, s32 *, 0x518) = 0;
-        M2C_FIELD(arg0, f32 *, 0x530) = TObjEneBm5GibonU__sub_800D0A94(arg0, M2C_FIELD(arg0, u8 **, 0xD8), M2C_FIELD(M2C_FIELD(arg0, u8 **, 0xD8), f32 *, 0x78));
+        M2C_FIELD(arg0, f32 *, 0x530) = calc_anim_speed__16TObjEneBm5GibonUFPvf(arg0, M2C_FIELD(arg0, u8 **, 0xD8), M2C_FIELD(M2C_FIELD(arg0, u8 **, 0xD8), f32 *, 0x78));
         M2C_FIELD(arg0, f32 *, 0x538) = 0.0f;
         M2C_FIELD(arg0, f32 *, 0x37C) = 0.0f;
         if (M2C_FIELD(arg0, s32 *, 0x464) != 0) {
@@ -4052,7 +4052,7 @@ s32 TObjEneBm5GibonU__sub_800D0968(u8 *arg0, int _w1) {
 #undef TObjEneBm5GibonU__enemy_list
 #undef TObjEneBm5GibonU__sub_800D0AE8
 #undef turn_toward_angle__16TObjEneBm5GibonUFPvi
-#undef TObjEneBm5GibonU__sub_800D0A94
+#undef calc_anim_speed__16TObjEneBm5GibonUFPvf
 #undef TObjEneBm5GibonU__node_list
 #undef calc_rotated_vector__16TObjEneBm5GibonUFPviPvPv
 #undef TObjEneBm5GibonU__sub_800D10A0
@@ -4101,7 +4101,7 @@ M2C_UNK update_linked_position__14TObjEneEpsilonFPv(f32);
 
 int is_active__16TObjEneBm5GibonUFPv(void* p) { return *(u16*)((char*)p + 0x1c) & 0x1; }
 
-f32 TObjEneBm5GibonU__sub_800D0A94(Obj_800D0A94 *arg0, f32 farg0) {
+f32 calc_anim_speed__16TObjEneBm5GibonUFPvf(Obj_800D0A94 *arg0, f32 farg0) {
     return TObjEneBm5GibonU__data_805DA174 / ((f32)(arg0->ents[arg0->cur->idx].seq->count - 1) / farg0);
 }
 
@@ -4714,8 +4714,8 @@ struct Sub_800D14AC { u8 b[0x1C]; };
 struct Self_800D14AC { u8 pad[0x3F4]; Sub_800D14AC subs[4]; };
 
 extern "C" {
-void TObjEneBm5GibonU__sub_800D1C40(u8 *arg0, void **arg1, void **arg2);
-void TObjEneBm5GibonU__sub_800D1C78(u8 *arg0, void ***arg1, void **arg2);
+void push_list_node__16TObjEneBm5GibonUFPvPvPv(u8 *arg0, void **arg1, void **arg2);
+void unlink_list_node__16TObjEneBm5GibonUFPvPvPv(u8 *arg0, void ***arg1, void **arg2);
 s32 check_demo_mode__10TObjPlayerFv();
 M2C_UNK set_player_state_default__12TBoss8DragonFPv(void *);
 M2C_UNK all_parents_unqueued_for_destruction__7TObjectFv();
@@ -5068,8 +5068,8 @@ void load_resources__16TObjEneBm5GibonUFv(void) {
     spawn_npc_enemy__6TLobbyFsiiiff(0xF, M2C_FIELD(M2C_FIELD(TObjEneBm5GibonU__data_805D51D0, u8 **, 0x42C), s32 *, 0x18), M2C_FIELD(M2C_FIELD(TObjEneBm5GibonU__data_805D51D0, u8 **, 0x42C), s32 *, 0x1C), &sp, M2C_FIELD(lbl_80493CBC, f32 *, 0x38), 0.0f);
 }
 
-void forward_hit__16TObjEneBm5GibonUFPvPv(void* p, void* a1) { TObjEneBm5GibonU__sub_800D1C78((u8 *)((void*)(a1)), (void ***)((void*)(p)), (void **)((void*)((char*)p + 0x4))); }
-void init_child__16TObjEneBm5GibonUFPvPv(void* p, void* a1) { TObjEneBm5GibonU__sub_800D1C40((u8 *)((void*)(a1)), (void **)((void*)(p)), (void **)((void*)((char*)p + 0x4))); }
+void forward_hit__16TObjEneBm5GibonUFPvPv(void* p, void* a1) { unlink_list_node__16TObjEneBm5GibonUFPvPvPv((u8 *)((void*)(a1)), (void ***)((void*)(p)), (void **)((void*)((char*)p + 0x4))); }
+void init_child__16TObjEneBm5GibonUFPvPv(void* p, void* a1) { push_list_node__16TObjEneBm5GibonUFPvPvPv((u8 *)((void*)(a1)), (void **)((void*)(p)), (void **)((void*)((char*)p + 0x4))); }
 void reset_fields__16TObjEneBm5GibonUFPv(void* p) { *(s32*)((char*)p + 0x0) = 0; *(s32*)((char*)p + 0x4) = 0; }
 s32 __dt__16TObjEneBm5GibonUFis(s32 arg0, s16 arg1) {
     if ((arg0 != 0) && (arg1 > 0)) {
@@ -5085,7 +5085,7 @@ void set_field8_from_obj__16TObjEneBm5GibonUFPvi(void *arg0, s32 arg1) {
     M2C_FIELD(arg0, s16 *, 8) = obj_getField1c(arg1);
 }
 
-void TObjEneBm5GibonU__sub_800D1C40(u8 *arg0, void **arg1, void **arg2) {
+void push_list_node__16TObjEneBm5GibonUFPvPvPv(u8 *arg0, void **arg1, void **arg2) {
     u8 *temp_r0;
     temp_r0 = (u8 *)(*arg2);
     if (temp_r0 != NULL) {
@@ -5099,7 +5099,7 @@ void TObjEneBm5GibonU__sub_800D1C40(u8 *arg0, void **arg1, void **arg2) {
     M2C_FIELD(arg0, s32 *, 4) = 0;
 }
 
-void TObjEneBm5GibonU__sub_800D1C78(u8 *arg0, void ***arg1, void **arg2) {
+void unlink_list_node__16TObjEneBm5GibonUFPvPvPv(u8 *arg0, void ***arg1, void **arg2) {
     void **temp_r4;
     u8 *temp_r6;
     temp_r6 = M2C_FIELD(arg0, u8 **, 0);

@@ -4,7 +4,7 @@ typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
 
 extern "C" {
 
-void TObjPlayer__sub_801BC688(void *);
+void release_child_object__10TObjPlayerFPv(void *);
 void free_chara_making__10TObjPlayerFPv(void *);
 void destroy_child__10TObjPlayerFPv(void *);
 void TObjPlayer__sub_801BCD54(void *);
@@ -36,7 +36,7 @@ extern M2C_UNK __vt__10TObjPlayer[];
 void *__dt__10TObjPlayerFv(void *arg0, s16 arg1) {
     if (arg0 != NULL) {
         M2C_FIELD(arg0, M2C_UNK **, 0x18) = __vt__10TObjPlayer;
-        TObjPlayer__sub_801BC688(arg0);
+        release_child_object__10TObjPlayerFPv(arg0);
         free_chara_making__10TObjPlayerFPv(arg0);
         destroy_child__10TObjPlayerFPv(arg0);
         TObjPlayer__sub_801BCD54(arg0);

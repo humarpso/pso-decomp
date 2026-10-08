@@ -42,7 +42,7 @@ u8 * TLobby__sub_8001FE7C(void *, s16);
 extern u8 *TOCapsuleMachine01__data_805D58C0;
 extern s32 lbl_805D58C4;
 extern s32 TOCapsuleMachine01__data_805D58C8;
-void TOCapsuleMachine01__sub_8015A6F0(void);
+void reset_static_state__18TOCapsuleMachine01Fv(void);
 s32 reset_photon_effect__10TObjPlayerFPv(void *);
 s32 refresh_collision_body_centers(void *);
 s32 init_collision_body_parts(void *, void *, int);
@@ -130,7 +130,7 @@ void *create__18TOCapsuleMachine01FPv(void *arg0) {
 
 extern M2C_UNK __vt__18TOCapsuleMachine01[];
 
-void TOCapsuleMachine01__sub_8015A6F0(void) {
+void reset_static_state__18TOCapsuleMachine01Fv(void) {
     TOCapsuleMachine01__data_805D58C8 = 0;
     lbl_805D58C4 = 0;
     if ((void *) TOCapsuleMachine01__data_805D58C0 != NULL) {

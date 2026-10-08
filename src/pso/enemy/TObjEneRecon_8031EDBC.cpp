@@ -27,13 +27,13 @@ void set_active__12TObjEneReconFv(void);
 extern s32 lbl_805D53A4;
 extern const f32 lbl_805DF448;
 void update_floor_probe__12TObjEneReconFPv(u8 *arg0);
-void TObjEneRecon__sub_8031EDBC(T_8031EDBC *self, s32 id);
-u16 TObjEneRecon__sub_8031EDF8(Rec_8031EDF8 *o);
+void remove_tracked_id__12TObjEneReconFPvi(T_8031EDBC *self, s32 id);
+u16 alloc_child_id__12TObjEneReconFPv(Rec_8031EDF8 *o);
 }
 
 extern "C" {
 
-void TObjEneRecon__sub_8031EDBC(T_8031EDBC *self, s32 id) {
+void remove_tracked_id__12TObjEneReconFPvi(T_8031EDBC *self, s32 id) {
     s32 i;
     for (i = 0; i < 30; i++) {
         if (self->ids[i] == id) {
@@ -46,7 +46,7 @@ void TObjEneRecon__sub_8031EDBC(T_8031EDBC *self, s32 id) {
 #pragma push
 #pragma opt_propagation off
 typedef struct Rec_8031EDF8 Rec_8031EDF8;
-u16 TObjEneRecon__sub_8031EDF8(Rec_8031EDF8 *o) {
+u16 alloc_child_id__12TObjEneReconFPv(Rec_8031EDF8 *o) {
   s32 new_var;
   s32 i;
   s32 v;

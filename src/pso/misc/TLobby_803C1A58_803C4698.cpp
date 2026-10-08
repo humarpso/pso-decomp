@@ -41,7 +41,7 @@ void strncat(char *buf, s32 arg, s32 n);
 void TLobby__sub_803D38B4(const char *fmt, ...);
 void report_adx_error__6TLobbyFPvi(const char *msg, s32 arg);
 s32 TLobby__sub_803C46A4(Hdr_803C46A4 *p, s32 size, s16 *out);
-s32 TLobby__sub_803C4A00(s16 *arg0, s32 arg1, s16 *arg2);
+s32 find_terminator_index__6TLobbyFPviPv(s16 *arg0, s32 arg1, s16 *arg2);
 char *strncpy(char *dst, const char *src, u32 n);
 void TLobby__sub_803D38B4(const char *fmt, ...);
 extern RecoveredGlobal_803C5850_lbl_80572020 lbl_80572020;
@@ -254,7 +254,7 @@ s32 ARStartDMA(u8 *arg0, s32 arg1, s16 *arg2, u8 *arg3, s8 *arg4, s8 *arg5, u8 *
     return 0;
 }
 
-s32 TLobby__sub_803C4A00(s16 *arg0, s32 arg1, s16 *arg2) {
+s32 find_terminator_index__6TLobbyFPviPv(s16 *arg0, s32 arg1, s16 *arg2) {
     s16 *p = arg0;
     s32 i;
     s32 best = 0x7FFFFFFF;

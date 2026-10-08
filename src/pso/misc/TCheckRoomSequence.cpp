@@ -168,7 +168,7 @@ int set_field_20__12TQuestListVMFPvi(void*, void*);
 int reset_controller_input_state(void *);
 void *__nw__7TObjectFUl(u32);
 void *TShopDeleteItemWindow__ct(void *, s32, void *, s32);
-void TCheckRoomSequence__sub_8020F188(u8 *arg0);
+void notify_quest_list_vm__18TCheckRoomSequenceFPv(u8 *arg0);
 void init_check__18TCheckRoomSequenceFUi(u32 arg0);
 extern void *tl_05;
 void open_delete_item_window__18TCheckRoomSequenceFPv(Seq_8020F268 *self);
@@ -176,7 +176,7 @@ int set_field_20__12TQuestListVMFPvi(void*, void*);
 int reset_controller_input_state(void *);
 void *__nw__7TObjectFUl(u32);
 void *TShopGetItemWindow__ct(void *, s32, void *, s32);
-void TCheckRoomSequence__sub_8020F188(u8 *arg0);
+void notify_quest_list_vm__18TCheckRoomSequenceFPv(u8 *arg0);
 void init_check__18TCheckRoomSequenceFUi(u32 arg0);
 extern void *tl_05;
 void open_get_item_window__18TCheckRoomSequenceFPv(Seq_8020F2D8 *self);
@@ -192,7 +192,7 @@ extern s32 TCheckRoomSequence__data_805D616C;
 void TCheckRoomSequence__sub_80210860(void);
 s32 bank_debit_meseta(s32 v, s32 i);
 int set_field_20__12TQuestListVMFPvi(void*, void*);
-void TCheckRoomSequence__sub_8020F0F0(u8 *arg0);
+void finish_room_check__18TCheckRoomSequenceFPv(u8 *arg0);
 int set_field_20__12TQuestListVMFPvi(void*, void*);
 s32 TShopWindowBase__sub_802239EC(void *);
 s32 TShopWindowBase__sub_80223A48(void *);
@@ -300,7 +300,7 @@ Win_8020F8C0 *TShopKeepItemWindow__ct(void *, void *, u8 *, s32);
 int TShopWindowBase__sub_8022397C(void*);
 void *__nw__7TObjectFUl(u32);
 void init_check_params__18TCheckRoomSequenceFUi(u32 arg0);
-void TCheckRoomSequence__sub_8020F0F0(u8 *arg0);
+void finish_room_check__18TCheckRoomSequenceFPv(u8 *arg0);
 extern s32 TCheckRoomSequence__data_805D6164;
 extern s32 TCheckRoomSequence__data_805D6168;
 extern void *tl_05;
@@ -446,7 +446,7 @@ extern s32 TCheckRoomSequence__data_805D6168;
 
 #pragma push
 #pragma optimization_level 1
-void TCheckRoomSequence__sub_8020F0F0(u8 *arg0) {
+void finish_room_check__18TCheckRoomSequenceFPv(u8 *arg0) {
     if (arg0 != NULL) {
         ((VObj_18_a93f07 *)(arg0))->m4(0x46, 1);
     }
@@ -464,7 +464,7 @@ void init_check__18TCheckRoomSequenceFUi(u32 arg0) {
     }
 }
 
-void TCheckRoomSequence__sub_8020F188(u8 *arg0) {
+void notify_quest_list_vm__18TCheckRoomSequenceFPv(u8 *arg0) {
     if (arg0 != NULL) {
         ((VObj_18_a93f07 *)(arg0))->m4(0x1A, 1);
         set_field_20__12TQuestListVMFPvi((void *) (arg0), (void *) (2));
@@ -490,7 +490,7 @@ void open_delete_item_window__18TCheckRoomSequenceFPv(Seq_8020F268 *self) {
     if (o != 0) {
         o = TShopDeleteItemWindow__ct(o, (s32)tl_05, self, self->f24);
     }
-    ((Obj_8020F268 *)o)->cb0 = TCheckRoomSequence__sub_8020F188;
+    ((Obj_8020F268 *)o)->cb0 = notify_quest_list_vm__18TCheckRoomSequenceFPv;
     ((Obj_8020F268 *)o)->cb1 = init_check__18TCheckRoomSequenceFUi;
     reset_controller_input_state(o);
     set_field_20__12TQuestListVMFPvi(self, (void*)0x11);
@@ -504,7 +504,7 @@ void open_get_item_window__18TCheckRoomSequenceFPv(Seq_8020F2D8 *self) {
     if (o != 0) {
         o = TShopGetItemWindow__ct(o, (s32)tl_05, self, self->f24);
     }
-    ((Obj_8020F2D8 *)o)->cb0 = TCheckRoomSequence__sub_8020F188;
+    ((Obj_8020F2D8 *)o)->cb0 = notify_quest_list_vm__18TCheckRoomSequenceFPv;
     ((Obj_8020F2D8 *)o)->cb1 = init_check__18TCheckRoomSequenceFUi;
     reset_controller_input_state(o);
     set_field_20__12TQuestListVMFPvi(self, (void*)0x11);
@@ -669,7 +669,7 @@ void open_deposit_item_window__18TCheckRoomSequenceFv(u8 *arg0) {
     if (mem != NULL) {
         w = TShopKeepItemWindow__ct(mem, tl_05, arg0, M2C_FIELD(arg0, s32 *, 0x24));
     }
-    w->cb0 = (void *)TCheckRoomSequence__sub_8020F0F0;
+    w->cb0 = (void *)finish_room_check__18TCheckRoomSequenceFPv;
     w->cb1 = (void *)init_check_params__18TCheckRoomSequenceFUi;
     reset_controller_input_state(w);
     set_field_20__12TQuestListVMFPvi((void *) (arg0), (void *) (0x11));

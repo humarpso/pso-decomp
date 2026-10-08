@@ -50,8 +50,8 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 extern "C" {
 
 s32 get_shop_unit_count(s32 arg0);
-s32 TLobby__sub_8020E5E0(s32 arg0);
-s32 TLobby__sub_8020E670(s32 arg0);
+s32 get_shield_shop_tier_for_level__6TLobbyFi(s32 arg0);
+s32 get_armor_shop_tier_for_level__6TLobbyFi(s32 arg0);
 s32 get_lobby_group__6TLobbyFi(s32 arg0);
 int TLobby__send_and_handle_60(void*);
 int bswap_16__FPUs(void*);
@@ -102,7 +102,7 @@ s32 get_shop_unit_count(s32 arg0) {
     return -1;
 }
 
-s32 TLobby__sub_8020E5E0(s32 arg0) {
+s32 get_shield_shop_tier_for_level__6TLobbyFi(s32 arg0) {
     if ((arg0 >= 1) && (arg0 <= 0xA)) {
         return 4;
     }
@@ -124,7 +124,7 @@ s32 TLobby__sub_8020E5E0(s32 arg0) {
     return -1;
 }
 
-s32 TLobby__sub_8020E670(s32 arg0) {
+s32 get_armor_shop_tier_for_level__6TLobbyFi(s32 arg0) {
     if ((arg0 >= 1) && (arg0 <= 0xA)) {
         return 4;
     }

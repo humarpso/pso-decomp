@@ -42,7 +42,7 @@ f32 receive_attack__15TObjEneMe1GiGueFPviii(S_802CAAF0 *arg0, s32 arg1, V_802CAA
 f32 get_target_range__15TObjEneMe1GiGueFPv(u8 *arg0);
 void clear_flag388_bit80000__22TObjEneMe1GiGueBarrierFPv(void* p);
 void TObjEneMe1GiGueBarrier__sub_802CABF4(void* p);
-u8 TObjEneMe1GiGueBarrier__sub_802CAC04(O_802CAC04 *self);
+u8 is_active_state__22TObjEneMe1GiGueBarrierFPv(O_802CAC04 *self);
 s32 get_field_44c__22TObjEneMe1GiGueBarrierFPv(void* p);
 s32 get_timer__22TObjEneMe1GiGueBarrierFPv(void* p);
 void* update_and_get_pos__22TObjEneMe1GiGueBarrierFPv(void* p);
@@ -70,8 +70,8 @@ void TObjEneMe1GiGue__sub_802CC45C(u8 *arg0);
 void TObjEneMe1GiGue__sub_802CC614(u8 *arg0);
 void TObjEneMe1GiGue__sub_802CC900(u8 *arg0);
 void TObjEneMe1GiGue__sub_802CCBAC(Obj_802CCBAC *o);
-void TObjEneMe1GiGue__sub_802CCE50(u8 *arg0);
-void TObjEneMe1GiGue__sub_802CCE9C(u8 *arg0);
+void enter_state_5_save_prev__15TObjEneMe1GiGueFPv(u8 *arg0);
+void enter_hit_reaction_state__15TObjEneMe1GiGueFPv(u8 *arg0);
 void TObjEneMe1GiGue__sub_802CCF2C(u8 *arg0);
 void TObjEneMe1GiGue__sub_802CD054(void);
 void draw_model__15TObjEneMe1GiGueFPv(Obj_802CD058 *self);
@@ -86,8 +86,8 @@ extern "C" {
 f32 calc_attack_range__15TObjEneMe1GiGueFPv(u8 *arg0);
 f32 get_target_range__15TObjEneMe1GiGueFPv(u8 *arg0);
 s32 check_and_trigger__15TObjEneMe1GiGueFi(s32 arg0);
-void TObjEneMe1GiGue__sub_802CCE50(u8 *arg0);
-void TObjEneMe1GiGue__sub_802CCE9C(u8 *arg0);
+void enter_state_5_save_prev__15TObjEneMe1GiGueFPv(u8 *arg0);
+void enter_hit_reaction_state__15TObjEneMe1GiGueFPv(u8 *arg0);
 void update_movement__15TObjEneMe1GiGueFPv(u8 *arg0);
 f32 receive_attack__15TObjEneMe1GiGueFPviii(S_802CAAF0 *arg0, s32 arg1, V_802CAAF0 arg2, s32 arg3);
 void draw_model__15TObjEneMe1GiGueFPv(Obj_802CD058 *self);
@@ -436,7 +436,7 @@ void *lbl_804E135C[83] = {
     (void *)&apply_movement_ailment__10TObjPlayerFv, (void *)&apply_shock_status__10TObjPlayerFv, (void *)&clear_harmful_statuses__10TObjPlayerFv, (void *)&apply_attack_stat_status__10TObjPlayerFv,
     (void *)&apply_defense_stat_status__10TObjPlayerFv, (void *)&cure_poison_ailment, (void *)&cure_paralysis__10TObjPlayerFv, (void *)&clear_all_status_effects,
     (void *)&apply_action_hold_status, (void *)&apply_anti_technique__10TObjPlayerFv, (void *)&TObjEneMe1GiGue__sub_802CDAB4, (void *)&TObjEneMe1GiGue__sub_802CDABC,
-    (void *)&TObjEneMe1GiGue__sub_802CDAB8, (void *)&TObjEneMe1GiGue__sub_802CDAC0, (void *)&TObjEneMe1GiGue__sub_802CCE9C, (void *)&TObjEneMe1GiGue__sub_802CCE50,
+    (void *)&TObjEneMe1GiGue__sub_802CDAB8, (void *)&TObjEneMe1GiGue__sub_802CDAC0, (void *)&enter_hit_reaction_state__15TObjEneMe1GiGueFPv, (void *)&enter_state_5_save_prev__15TObjEneMe1GiGueFPv,
     (void *)&reset_pose__10TObjPlayerFPv, (void *)&TBoss3Volopt__sub_800C762C, (void *)&TObjPlayer__sub_80014838, (void *)&TObjPlayer__sub_80014830,
     (void *)&get_pos__10TObjPlayerFii, (void *)&apply_switch_attack__10TObjPlayerFi, (void *)&enemy_spawn_jellen_effect, (void *)&trigger_switch_attack__10TObjPlayerFi,
     (void *)&enemy_spawn_zalure_effect, (void *)&TObjPlayer__sub_80010A80, (void *)&TObjPlayer__sub_800F65D0, (void *)&fn_80010EC8,
@@ -512,7 +512,7 @@ f32 get_target_range__15TObjEneMe1GiGueFPv(u8 *arg0) {
 struct O_802CAC04 { u8 pad[0x326]; s16 v; };
 
 extern "C" {
-u8 TObjEneMe1GiGueBarrier__sub_802CAC04(O_802CAC04 *self);
+u8 is_active_state__22TObjEneMe1GiGueBarrierFPv(O_802CAC04 *self);
 }
 
 extern "C" {
@@ -527,7 +527,7 @@ void* update_and_get_pos__22TObjEneMe1GiGueBarrierFPv(void* p);
 void clear_flag388_bit80000__22TObjEneMe1GiGueBarrierFPv(void* p) { *(u32*)((char*)p + 0x388) &= 0xfff7ffff; }
 void TObjEneMe1GiGueBarrier__sub_802CABF4(void* p) { *(u32*)((char*)p + 0x388) |= 0x80000; }
 
-u8 TObjEneMe1GiGueBarrier__sub_802CAC04(O_802CAC04 *self) {
+u8 is_active_state__22TObjEneMe1GiGueBarrierFPv(O_802CAC04 *self) {
     s32 r = 0;
     s16 v = self->v;
     if (v == 9) goto yes;
@@ -1053,9 +1053,9 @@ struct Obj_802CCBAC {
 };
 
 extern "C" {
-void TObjEneMe1GiGue__sub_802CCE50(u8 *arg0);
+void enter_state_5_save_prev__15TObjEneMe1GiGueFPv(u8 *arg0);
 M2C_UNK set_state__15TObjEneMe1GiGueFPvi(void *, s32);
-void TObjEneMe1GiGue__sub_802CCE9C(u8 *arg0);
+void enter_hit_reaction_state__15TObjEneMe1GiGueFPv(u8 *arg0);
 M2C_UNK VecCopy__FP3VecPC3Vec(void *, void *);
 s32 queue_destruction__7TObjectFv(void *);
 s32 spawn_particle_effect(void *, int);
@@ -1985,13 +1985,13 @@ void TObjEneMe1GiGue__sub_802CCBAC(Obj_802CCBAC *o) {
     }
 }
 
-void TObjEneMe1GiGue__sub_802CCE50(u8 *arg0) {
+void enter_state_5_save_prev__15TObjEneMe1GiGueFPv(u8 *arg0) {
     set_state__15TObjEneMe1GiGueFPvi(arg0, 5);
     M2C_FIELD(arg0, s32 *, 0x380) = (s32) M2C_FIELD(arg0, s32 *, 0x378);
     M2C_FIELD(arg0, s32 *, 0x378) = 5;
     M2C_FIELD(arg0, s32 *, 0x388) = (s32) (M2C_FIELD(arg0, s32 *, 0x388) | 1);
 }
-void TObjEneMe1GiGue__sub_802CCE9C(u8 *arg0) {
+void enter_hit_reaction_state__15TObjEneMe1GiGueFPv(u8 *arg0) {
   s16 temp_r0;
   temp_r0 = *((s16 *) (((s8 *) arg0) + 0x326));
   if (temp_r0 != 0xC)

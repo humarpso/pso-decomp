@@ -132,7 +132,7 @@ void init_row_entry__15TWindowMainMenuFPvicc(u8 *arg0, s32 arg1, s8 arg2, s8 arg
 void init_color__15TWindowMainMenuFPv(void *a0);
 void pop_level__15TWindowMainMenuFPv(MM_802AD90C *arg0);
 void park_selection__15TWindowMainMenuFPv(Menu_802AD980 *arg0);
-void TWindowMainMenu__sub_802ADA48(Col_802ADA48 *arg0, Col_802ADA48 *arg1);
+void copy_color_entry__15TWindowMainMenuFPvPv(Col_802ADA48 *arg0, Col_802ADA48 *arg1);
 int get_selected_item_type__15TWindowMainMenuFPv(Obj_802ADAAC *self);
 void TWindowMainMenu__sub_802ADADC(Obj_802ADADC *self, s8 i);
 int TWindowMainMenu__sub_802ADB00(u8 *arg0);
@@ -331,7 +331,7 @@ void park_selection__15TWindowMainMenuFPv(Menu_802AD980 *arg0) {
     u8 sp8[8];
     s32 i;
     Col_802ADA48 *slot;
-    TWindowMainMenu__sub_802ADA48(&buf, arg0->slots[arg0->cur]);
+    copy_color_entry__15TWindowMainMenuFPvPv(&buf, arg0->slots[arg0->cur]);
     for (i = 0; i < 8; i++) {
         if (arg0->slots[i] != NULL) {
             init_color__15TWindowMainMenuFPv(arg0->slots[i]);
@@ -340,7 +340,7 @@ void park_selection__15TWindowMainMenuFPv(Menu_802AD980 *arg0) {
     }
     ((M2C_UNK (*)(void *, void *, s32))get_row_position__15TWindowMainMenuFiPvi)(arg0, sp8, arg0->count);
     slot = (Col_802ADA48 *)((u8 * (*)(void *))find_free_slot__15TWindowMainMenuFi)(arg0);
-    TWindowMainMenu__sub_802ADA48(slot, &buf);
+    copy_color_entry__15TWindowMainMenuFPvPv(slot, &buf);
     set_symbol_chat_parts__15TWindowMainMenuFPv(slot, sp8);
     ((u8 *)slot)[0x12] = 2;
     arg0->flags |= 4;
@@ -353,7 +353,7 @@ extern int fold_flush_3;
 #pragma inline_depth(1)
 #pragma auto_inline off
 #pragma dont_inline off
-void TWindowMainMenu__sub_802ADA48(Col_802ADA48 *arg0, Col_802ADA48 *arg1) {
+void copy_color_entry__15TWindowMainMenuFPvPv(Col_802ADA48 *arg0, Col_802ADA48 *arg1) {
     arg0->h = arg1->h;
     arg0->b0 = arg1->b0;
     arg0->b1 = arg1->b1;

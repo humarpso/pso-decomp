@@ -993,7 +993,7 @@ M2C_UNK fn_8035A8E0(int, void *);
 M2C_UNK calc_world_position__15TBoss7LaserPtclFPvPv(int, int);
 s32 is_state_2__15TBoss7LaserPtclFPv(void *);
 M2C_UNK init_laser__15TBoss7LaserPtclFPv(void *);
-M2C_UNK TBoss7LaserPtcl__sub_8035AA58(void *, void *, void *);
+M2C_UNK calc_position__15TBoss7LaserPtclFPvPvPv(void *, void *, void *);
 M2C_UNK destroy_particles__15TBoss7LaserPtclFi(void *);
 u32 TBoss7LaserPtcl__ct(u32, void *, void *, int);
 extern M2C_UNK lbl_80472D90[];
@@ -2008,7 +2008,7 @@ void TBoss7LaserPtcl__sub_802E8FCC(u8 *arg0, u32 arg1) {
             break;
         case 1:
             if ((u32) M2C_FIELD(arg0, u32 *, 0x7A8) != 0U) {
-                TBoss7LaserPtcl__sub_8035AA58(M2C_FIELD(arg0, void **, 0x7A8), (void *) ((u8 *)(arg0) + 0x4DC), (void *) ((u8 *)(arg0) + 0x4E8));
+                calc_position__15TBoss7LaserPtclFPvPvPv(M2C_FIELD(arg0, void **, 0x7A8), (void *) ((u8 *)(arg0) + 0x4DC), (void *) ((u8 *)(arg0) + 0x4E8));
             }
             if ((lbl_805DEA38 < M2C_FIELD(arg0, f32 *, 0xC0)) && ((u32) M2C_FIELD(arg0, u32 *, 0x7A8) != 0U)) {
                 destroy_particles__15TBoss7LaserPtclFi(M2C_FIELD(arg0, void **, 0x7A8));
@@ -2028,7 +2028,7 @@ void TBoss7LaserPtcl__sub_802E8FCC(u8 *arg0, u32 arg1) {
             temp_r30_2 = (u8 *)((void *)((u8 *)(arg0) + 0x778));
             M2C_FIELD(arg0, f32 *, 0xC0) = (f32) lbl_805DEA4C;
             if ((u32) M2C_FIELD(arg0, u32 *, 0x7A8) != 0U) {
-                TBoss7LaserPtcl__sub_8035AA58(M2C_FIELD(arg0, void **, 0x7A8), (void *) ((u8 *)(arg0) + 0x4DC), (void *) ((u8 *)(arg0) + 0x4E8));
+                calc_position__15TBoss7LaserPtclFPvPvPv(M2C_FIELD(arg0, void **, 0x7A8), (void *) ((u8 *)(arg0) + 0x4DC), (void *) ((u8 *)(arg0) + 0x4E8));
                 calc_world_position__15TBoss7LaserPtclFPvPv((int) (M2C_FIELD(arg0, u32 *, 0x7A8)), (int) (temp_r30_2));
                 fn_8035A8E0((int) (M2C_FIELD(arg0, u32 *, 0x7A8)), (void *) (&sp8));
             }

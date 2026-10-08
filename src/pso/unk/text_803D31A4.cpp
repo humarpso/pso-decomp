@@ -115,10 +115,10 @@ static inline s32 run_callbacks_803D3224(s32 idx) {
     return r;
 }
 
-s32 TLobby__sub_803D3224(void) {
+s32 run_worker_callbacks_slot5__6TLobbyFv(void) {
     return run_callbacks_803D3224(5);
 }
-s32 TLobby__sub_803D32B4(void) {
+s32 run_worker_callbacks_slot4__6TLobbyFv(void) {
     return run_callbacks_803D3224(4);
 }
 s32 run_callbacks_group2__6TLobbyFv(void) {

@@ -98,7 +98,7 @@ extern RecoveredGlobal_80196C60_lbl_804A7438 lbl_804A7438;
 extern const f32 lbl_805DBEF8;
 extern const f32 lbl_805DBEFC;
 extern const f32 lbl_805DBF00;
-void TObjQuestColBase__sub_80196C60(u8 *arg0);
+void update_room_id_check__16TObjQuestColBaseFPv(u8 *arg0);
 u16 alloc_actor_ids__6TLobbyFi(u16);
 s32 construct_collider_proxy__10TObjPlayerFPv(void *);
 extern RecoveredGlobal_80196D50___vt__16TObjQuestColBase __vt__16TObjQuestColBase;
@@ -128,7 +128,7 @@ s32 is_within_range__16TObjQuestColBaseFif(s32 arg0, f32 farg0) {
 }
 
 typedef char RecoveredGlobal_80196C60_lbl_804A7438_size[sizeof(RecoveredGlobal_80196C60_lbl_804A7438) == 0x10 ? 1 : -1];
-void TObjQuestColBase__sub_80196C60(u8 *arg0) {
+void update_room_id_check__16TObjQuestColBaseFPv(u8 *arg0) {
     if (((VObj_18_26a62c *)(arg0))->m8(lbl_805DBEF8, lbl_805DBEFC) != 0) {
         TObjRoomId__sub_80141CF4((void *) (arg0 + 0x38), (void *) (&lbl_804A7438.value), (f32) (lbl_805DBF00 * M2C_FIELD(arg0, f32 *, 0xAC)));
     }

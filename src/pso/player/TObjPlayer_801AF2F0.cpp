@@ -2728,7 +2728,7 @@ void init_6x2A__10TObjPlayerFPv(void *);
 void bswap_fields_and_send__10TObjPlayerFPv(Cmd_801B8870 *);
 void byteswap_data__10TObjPlayerFPv(void *);
 void TObjPlayer__sub_801C1268(void *, void *);
-void TObjPlayer__sub_801C12C8(void *);
+void init_6xAC_packet__10TObjPlayerFPv(void *);
 void bswap_body_dwords3__10TObjPlayerFPv(void *);
 void copy_pair_fields3__10TObjPlayerFPvPv(void *, void *);
 void init_cmd_6x29__10TObjPlayerFPv(void *cmd);
@@ -7030,7 +7030,7 @@ void dispatch_input__10TObjPlayerFPvii(void *arg0, s32 arg1, s32 arg2) {
 
 void handle_6xAC(void *arg0) {
     L_801B8CB0 sp8;
-    TObjPlayer__sub_801C12C8(&sp8);
+    init_6xAC_packet__10TObjPlayerFPv(&sp8);
     TObjPlayer__sub_801C1268(&sp8, arg0);
     byteswap_data__10TObjPlayerFPv(&sp8);
     if (validate_6xAC(&sp8) != 0) {

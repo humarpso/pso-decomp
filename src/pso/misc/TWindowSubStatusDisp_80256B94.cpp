@@ -37,7 +37,7 @@ struct Quad_80256E0C { f32 x0, y0, x1, y1, u0, v0, u1, v1; };
 extern "C" {
 extern M2C_UNK lbl_804CF918[];
 void TWindowSubStatusDisp__sub_80256BDC(u8 *arg0, s16 arg1);
-void TWindowSubStatusDisp__sub_80256C00(struct Bar_80256C00 *bar);
+void calc_bar_width__20TWindowSubStatusDispFPv(struct Bar_80256C00 *bar);
 f32 get_random_float__8TObjFishFv(f32);
 extern const f32 lbl_805DCE58;
 extern const f32 lbl_805DCECC;
@@ -75,7 +75,7 @@ void TWindowSubStatusDisp__sub_80256BDC(u8 *arg0, s16 arg1) {
 
 void TWindowSubStatusDisp__sub_80256BF8(void) {  }
 void TWindowSubStatusDisp__sub_80256BFC(void) {  }
-void TWindowSubStatusDisp__sub_80256C00(struct Bar_80256C00 *bar) {
+void calc_bar_width__20TWindowSubStatusDispFPv(struct Bar_80256C00 *bar) {
     f32 target;
     f32 max = bar->max;
     f32 v;

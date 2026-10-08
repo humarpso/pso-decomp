@@ -6,7 +6,7 @@ struct Tbl_80205AA8 { s32 x; s32 count; Ent_80205AA8 e[1]; };
 
 extern "C" {
 extern Tbl_80205AA8 *TScene__data_805D6028;
-Ent_80205AA8 *TScene__sub_80205AA8(void *self, u16 id);
+Ent_80205AA8 *find_material_entry_by_id__6TSceneFPvUs(void *self, u16 id);
 }
 
 extern "C" {
@@ -17,7 +17,7 @@ int set_field4__6TSceneFv(void*);
 int dispatch_material_animation__6TSceneFv(void*);
 
 void run_task__6TSceneFv(void* p) { set_field4__6TSceneFv(p); advance_scene_object_animations(p); dispatch_material_animation__6TSceneFv(p); }
-Ent_80205AA8 *TScene__sub_80205AA8(void *self, u16 id) {
+Ent_80205AA8 *find_material_entry_by_id__6TSceneFPvUs(void *self, u16 id) {
     Tbl_80205AA8 *t = TScene__data_805D6028;
     if (t != 0) {
         Ent_80205AA8 *p = t->e;

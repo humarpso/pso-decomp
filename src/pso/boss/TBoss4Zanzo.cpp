@@ -677,7 +677,7 @@ void update_phase_timer__11TBoss4Type3FPv(u8 *arg0);
 void draw__11TBoss4Type3FPv(void *arg0);
 void advance_afterimage__11TBoss4Type3FPv(u8 *arg0);
 void TBoss4Type3__sub_8005A86C(void* p);
-void TBoss4Type3__sub_8005ACBC(Obj_8005ACBC *self);
+void reset_action_to_3__11TBoss4Type3FPv(Obj_8005ACBC *self);
 void init_effect__11TBoss4Type3FPv(u8 *arg0);
 S_8005AD50 * destroy__11TBoss4Type3FPvs(S_8005AD50 *o, s16 flag);
 s32 TBoss4Type3__ct(s32, s32, s32);
@@ -1748,7 +1748,7 @@ void set_grid_pos__11TBoss4Type2FPvPv(void *arg0, void *arg1) {
 
 #pragma push
 #pragma fp_contract on
-void TBoss4Type2__sub_80056DF0(Obj_80056DF0 *arg0) {
+void calc_grid_target_position__11TBoss4Type2FPv(Obj_80056DF0 *arg0) {
     arg0->f3B4 = lbl_805D8BF8 * (lbl_805D8BFC + (f32)arg0->i3AC) - lbl_805D8BF4;
     arg0->f3B8 = TBoss4Type2__data_805D8BAC;
     arg0->f3BC = lbl_805D8BF8 * (lbl_805D8BFC + (f32)arg0->i3B0) - lbl_805D8BF4;

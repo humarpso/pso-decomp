@@ -29,7 +29,7 @@ extern const f32 lbl_805DA35C;
 extern const f32 lbl_805DA34C;
 extern const f32 lbl_805DA354;
 extern const f32 lbl_805DA348;
-void TObjEneMe3SinowZoa__sub_800D7524(V_800D7524 *self);
+void init_death_params__18TObjEneMe3SinowZoaFPv(V_800D7524 *self);
 }
 
 extern "C" {
@@ -45,7 +45,7 @@ void set_speed_scale__18TObjEneMe3SinowZoaFPvi(void *arg0, s32 arg1) {
 
 #pragma push
 #pragma fp_contract on
-void TObjEneMe3SinowZoa__sub_800D7524(V_800D7524 *self) {
+void init_death_params__18TObjEneMe3SinowZoaFPv(V_800D7524 *self) {
     self->m1(10);
     self->f18 = lbl_805DA35C * self->f10 + lbl_805DA34C;
     self->f0 = lbl_805DA354;

@@ -45,7 +45,7 @@ extern s32 *lbl_805D4C04;
 extern s32 *lbl_805D4C08;
 extern f32 TObjBoss2Tunnel__data_805D8614;
 extern const f32 lbl_805D8654;
-void TObjBoss2Tunnel__sub_8003C6D0(u8 *arg0);
+void update_fade_out_and_destroy__15TObjBoss2TunnelFPv(u8 *arg0);
 extern s32 TObjBoss2Tunnel__global_flags;
 void TObjBoss2Tunnel__sub_8003C5F8(void);
 extern s32 TObjBoss2Tunnel__global_flags;
@@ -228,7 +228,7 @@ extern M2C_UNK lbl_804835D8[];
 
 #pragma push
 #pragma opt_common_subs off
-void TObjBoss2Tunnel__sub_8003C6D0(u8 *arg0) {
+void update_fade_out_and_destroy__15TObjBoss2TunnelFPv(u8 *arg0) {
     f32 temp_f1;
     M2C_FIELD(arg0, s32 *, 0x1C) = (s32) (M2C_FIELD(arg0, s32 *, 0x1C) + 1);
     if ((s32) M2C_FIELD(arg0, s32 *, 0x1C) > 0x1E) {

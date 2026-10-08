@@ -55,7 +55,7 @@ void update_segments__20TItemEffOrgaFlowShotFPv(void *arg0);
 void grid_to_world_pos__11TBoss6Type2FccPv(u8, u8, Vec_803570E4 *);
 void set_path_points_by_index__11TBoss6Type2FiPvi(s32, Vec_803570E4 *, s32);
 void clear_rock_state__10TBoss6RockFi(s32 i, s32 a, s32 b);
-void TBoss6Rock__sub_80353EDC(s32 i, s32 a, s32 b);
+void set_rock_target__10TBoss6RockFiii(s32 i, s32 a, s32 b);
 int read_be16_field2_forward(void* p);
 extern int lbl_805D6F20;
 void handle_6xAD_olga_flow_subordinate_boss_actions(Pkt_803570E4 *pkt);
@@ -162,7 +162,7 @@ void handle_6xAD_olga_flow_subordinate_boss_actions(Pkt_803570E4 *pkt) {
             }
             switch (type) {
             case 0:
-                TBoss6Rock__sub_80353EDC(idx, a, f);
+                set_rock_target__10TBoss6RockFiii(idx, a, f);
                 break;
             case 1:
                 clear_rock_state__10TBoss6RockFi(idx, a, f);

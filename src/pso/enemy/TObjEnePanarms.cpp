@@ -286,16 +286,16 @@ void spawn_npc_pair__14TObjEnePanarmsFv(void);
 void update_action_timer__14TObjEnePanarmsFPv(void *arg0);
 void init_attack_state__14TObjEnePanarmsFPv(void *arg0);
 void TObjEnePanarms__sub_800DFE08(u8 *arg0);
-void TObjEnePanarms__sub_800DFEDC(u8 *arg0);
+void init_open_state__14TObjEnePanarmsFPv(u8 *arg0);
 void update_move_timer__14TObjEnePanarmsFPv(u8 *arg0);
-void TObjEnePanarms__sub_800DFFE0(u8 *arg0);
+void start_phase3_timer12__14TObjEnePanarmsFPv(u8 *arg0);
 void TObjEnePanarms__sub_800E0048(u8 *arg0);
-void TObjEnePanarms__sub_800E01AC(u8 *arg0);
+void start_phase2_timer150__14TObjEnePanarmsFPv(u8 *arg0);
 void TObjEnePanarms__sub_800E0344(u8 *arg0);
 void update_attack__14TObjEnePanarmsFPv(u8 *arg0);
 void init_attack_state2__14TObjEnePanarmsFPv(void* a0);
 void init_action__14TObjEnePanarmsFPv(void* a0);
-void TObjEnePanarms__sub_800E08D8(u8 *arg0);
+void init_state_2__14TObjEnePanarmsFPv(u8 *arg0);
 void TObjEnePanarms__sub_800E092C(void);
 void TObjEnePanarms__sub_800E0930(u8 *arg0);
 void TObjEnePanarms__sub_800E0950(u8 *arg0);
@@ -304,13 +304,13 @@ void apply_effect_if_flagged__14TObjEnePanarmsFPv(void *arg0);
 void TObjEnePanarms__sub_800E0B9C(Obj_800E0B9C *arg0);
 void update_hit_state__14TObjEnePanarmsFPv(void *arg0);
 void restore_from_linked_object__14TObjEnePanarmsFPv(u8 *arg0);
-void TObjEnePanarms__sub_800E0E88(u8 *arg0);
+void init_state_16__14TObjEnePanarmsFPv(u8 *arg0);
 void update_move_to_target__14TObjEnePanarmsFPv(u8 *arg0);
-void TObjEnePanarms__sub_800E1090(u8 *arg0);
+void init_state_1__14TObjEnePanarmsFPv(u8 *arg0);
 void start_action__14TObjEnePanarmsFPv(void *arg0);
 void handle_split_flag__14TObjEnePanarmsFPv(void *arg0);
 void init_split__14TObjEnePanarmsFPv(void *arg0);
-void TObjEnePanarms__sub_800E152C(u8 *arg0);
+void snap_to_parent_position__14TObjEnePanarmsFPv(u8 *arg0);
 void reset_state__14TObjEnePanarmsFPv(void* a0);
 void spawn_periodic_particle__14TObjEnePanarmsFPv(u8 *arg0);
 void attack_target_player__14TObjEnePanarmsFPvi(u8 *arg0, s32 arg1);
@@ -327,7 +327,7 @@ int do_action_2__14TObjEnePanarmsFPv(void* p);
 void init_state__14TObjEnePanarmsFi(s32 arg0);
 void TObjEnePanarms__sub_800E1E14(u8 *arg0);
 void TObjEnePanarms__sub_800E1E64(void* p);
-void TObjEnePanarms__sub_800E1E74(Obj_800E1E74 *self);
+void exit_to_state_6__14TObjEnePanarmsFPv(Obj_800E1E74 *self);
 void TObjEnePanarms__sub_800E1ED0(u8 *arg0);
 void update_linked_effect__14TObjEnePanarmsFPv(u8 *arg0);
 void draw__14TObjEnePanarmsFPv(void* p);
@@ -539,7 +539,7 @@ void TObjEnePanarms__sub_800DFE08(u8 *arg0) {
     }
 }
 
-void TObjEnePanarms__sub_800DFEDC(u8 *arg0) {
+void init_open_state__14TObjEnePanarmsFPv(u8 *arg0) {
     u8 *temp_r7;
     if ((s32) M2C_FIELD(arg0, s32 *, 0x380) != 1) {
         temp_r7 = (u8 *)(M2C_FIELD(arg0, u8 **, 0x37C));
@@ -568,7 +568,7 @@ void update_move_timer__14TObjEnePanarmsFPv(u8 *arg0) {
     M2C_FIELD(arg0, s32 *, 0x60) = approach_angle_limited(M2C_FIELD(arg0, s32 *, 0x60), M2C_FIELD(arg0, s32 *, 0x3D4) - 0x800, 0x200);
 }
 
-void TObjEnePanarms__sub_800DFFE0(u8 *arg0) {
+void start_phase3_timer12__14TObjEnePanarmsFPv(u8 *arg0) {
     u8 *temp_r7;
     if ((s32) M2C_FIELD(arg0, s32 *, 0x380) != 0) {
         temp_r7 = (u8 *)(M2C_FIELD(arg0, u8 **, 0x37C));
@@ -617,7 +617,7 @@ void TObjEnePanarms__sub_800E0048(u8 *arg0) {
     ((M2C_UNK (*)(void *))spawn_periodic_particle__14TObjEnePanarmsFPv)(arg0);
 }
 
-void TObjEnePanarms__sub_800E01AC(u8 *arg0) {
+void start_phase2_timer150__14TObjEnePanarmsFPv(u8 *arg0) {
     u8 *temp_r7;
     if ((s32) M2C_FIELD(arg0, s32 *, 0x380) != 0) {
         temp_r7 = (u8 *)(M2C_FIELD(arg0, u8 **, 0x37C));
@@ -809,7 +809,7 @@ void update_chase_target__14TObjEnePanarmsFPv(u8 *arg0) {
     ((M2C_UNK (*)(void *))spawn_periodic_particle__14TObjEnePanarmsFPv)(arg0);
 }
 
-void TObjEnePanarms__sub_800E08D8(u8 *arg0) {
+void init_state_2__14TObjEnePanarmsFPv(u8 *arg0) {
     u8 *temp_r7;
     temp_r7 = (u8 *)(M2C_FIELD(arg0, u8 **, 0x37C));
     M2C_FIELD(temp_r7, s32 *, 0x18) = (s32) (M2C_FIELD(temp_r7, s32 *, 0x18) | 1);
@@ -965,7 +965,7 @@ void TObjEnePanarms__sub_800E0D1C(u8 *arg0) {
 }
 #pragma pop
 
-void TObjEnePanarms__sub_800E0E88(u8 *arg0) {
+void init_state_16__14TObjEnePanarmsFPv(u8 *arg0) {
     u8 *temp_r6;
     temp_r6 = (u8 *)(M2C_FIELD(arg0, u8 **, 0x37C));
     M2C_FIELD(temp_r6, s32 *, 0x18) = (s32) (M2C_FIELD(temp_r6, s32 *, 0x18) | 1);
@@ -1021,7 +1021,7 @@ void update_move_to_target__14TObjEnePanarmsFPv(u8 *arg0) {
     }
 }
 
-void TObjEnePanarms__sub_800E1090(u8 *arg0) {
+void init_state_1__14TObjEnePanarmsFPv(u8 *arg0) {
     u8 *temp_r5;
     temp_r5 = (u8 *)(M2C_FIELD(arg0, u8 **, 0x37C));
     M2C_FIELD(temp_r5, s32 *, 0x18) = (s32) (M2C_FIELD(temp_r5, s32 *, 0x18) | 1);
@@ -1167,7 +1167,7 @@ void init_split__14TObjEnePanarmsFPv(void *arg0) {
 #pragma push
 #pragma opt_common_subs off
 #pragma opt_propagation off
-void TObjEnePanarms__sub_800E152C(u8 *arg0) {
+void snap_to_parent_position__14TObjEnePanarmsFPv(u8 *arg0) {
     VecCopy__FP3VecPC3Vec((void *) (arg0 + 0x38), (void *) (M2C_FIELD(arg0, s32 *, 0x39C) + 0x38));
     M2C_FIELD(arg0, f32 *, 0x38) = (f32) (M2C_FIELD(arg0, f32 *, 0x38) + lbl_805DA580);
     M2C_FIELD(arg0, f32 *, 0x3C) = (f32) (M2C_FIELD(arg0, f32 *, 0x3C) + lbl_805DA580);
@@ -1419,7 +1419,7 @@ void TObjEnePanarms__sub_800E1E14(u8 *arg0) {
 
 void TObjEnePanarms__sub_800E1E64(void* p) { *(u32*)((char*)p + 0x30) &= 0xfffffeff; }
 
-void TObjEnePanarms__sub_800E1E74(Obj_800E1E74 *self) {
+void exit_to_state_6__14TObjEnePanarmsFPv(Obj_800E1E74 *self) {
     switch (self->state) {
     case 0:
     case 1:

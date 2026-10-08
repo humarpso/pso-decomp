@@ -31,7 +31,7 @@ void play_container_break_sound(s32 arg0);
 
 extern "C" {
 void __dt__21TObjContainerAbeEnemyFv();
-void TObjPlayer__sub_80189FEC();
+void step_laser_fence__10TObjPlayerFPv();
 void render__17TObjContainerBaseFPv();
 void render_shadows__7TObjectFv();
 void TObjContainerAbeEnemy__vt4();
@@ -48,7 +48,7 @@ void get_actor_level_index();
 void update_actor_ground_y();
 void TObjPlayer__sub_80018E6C();
 void is_actor_cadence_frame();
-void TObjPlayer__sub_8018A10C();
+void is_within_range__10TObjPlayerFPvi();
 void TObjPlayer__sub_8015C884();
 void TObjContainerAbeEnemy__vt20();
 void receive_technique_hit__17TObjContainerBaseFPviPv();
@@ -115,7 +115,7 @@ void *__vt__21TObjContainerAbeEnemy[83] = {
     0,
     0,
     (void *)__dt__21TObjContainerAbeEnemyFv,
-    (void *)TObjPlayer__sub_80189FEC,
+    (void *)step_laser_fence__10TObjPlayerFPv,
     (void *)render__17TObjContainerBaseFPv,
     (void *)render_shadows__7TObjectFv,
     (void *)TObjContainerAbeEnemy__vt4,
@@ -132,7 +132,7 @@ void *__vt__21TObjContainerAbeEnemy[83] = {
     (void *)update_actor_ground_y,
     (void *)TObjPlayer__sub_80018E6C,
     (void *)is_actor_cadence_frame,
-    (void *)TObjPlayer__sub_8018A10C,
+    (void *)is_within_range__10TObjPlayerFPvi,
     (void *)TObjPlayer__sub_8015C884,
     (void *)TObjContainerAbeEnemy__vt20,
     (void *)receive_technique_hit__17TObjContainerBaseFPviPv,

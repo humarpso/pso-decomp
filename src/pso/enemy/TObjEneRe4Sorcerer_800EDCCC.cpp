@@ -1208,7 +1208,7 @@ s32 apply_effect_variant_b__10TObjPlayerFii(void *, int);
 M2C_UNK reset_transform__13TObjEneRe4BitFPv();
 M2C_UNK set_flag3cc_bit2000__18TObjEneRe4SorcererFPv(void *);
 void call_vt_90_91__18TObjEneRe4SorcererFPv(u8 *arg0);
-void TObjEneRe4Sorcerer__sub_800ED2B4(u8 *arg0);
+void invoke_state_callbacks__18TObjEneRe4SorcererFPv(u8 *arg0);
 M2C_UNK clear_state_flag_0x10__18TObjEneRe4SorcererFPv(u32);
 M2C_UNK set_flag_and_notify__18TObjEneRe4SorcererFPv();
 M2C_UNK set_state_flag_and_mode__18TObjEneRe4SorcererFPvi(u32, s32);
@@ -2444,7 +2444,7 @@ void TObjEneRe4Sorcerer__sub_800EF844(Obj_800EF844 *self) {
     for (i = 0; i < 2; i++) {
         u32 p = find_entity_by_id(self->orbs[i]);
         if (p != 0) {
-            TObjEneRe4Sorcerer__sub_800ED2B4((u8 *)p);
+            invoke_state_callbacks__18TObjEneRe4SorcererFPv((u8 *)p);
         }
     }
 }

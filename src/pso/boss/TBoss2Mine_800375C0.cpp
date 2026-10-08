@@ -14,7 +14,7 @@ void update_move_flag__10TBoss2MineFPv(void *arg0);
 void init_params__10TBoss2MineFPvif(u8 *arg0, s32 arg1, f32 farg0);
 void set_state_by_distance__10TBoss2MineFPvi(void *arg0, s32 arg1);
 void update_pulse_state__10TBoss2MineFPv(Mine_80038760 *self);
-void TBoss2Mine__sub_80038908(O_80038908 *self);
+void set_node_offsets__10TBoss2MineFPv(O_80038908 *self);
 void save_position__10TBoss2MineFPv(void* p);
 void *__dt__10TBoss2MineFv(void *arg0, s16 arg1);
 void* TBoss2Mine__ct(void* a0, int a1, int a2, int a3, int a4);
@@ -530,7 +530,7 @@ void set_launch_position_velocity__10TBoss2MineFPvPvPv(u8 *arg0, u8 *arg1, u8 *a
 #undef update_pulse_state__10TBoss2MineFPv
 #define play_sound_effect ((s32 (*)(s32, u32, s16, s32))play_sound_effect)
 #define TBoss2Mine__ct ((void *(*)(void *, s32, s16, s16, s32))TBoss2Mine__ct)
-#define TBoss2Mine__sub_80038908 ((void (*)(void *))TBoss2Mine__sub_80038908)
+#define set_node_offsets__10TBoss2MineFPv ((void (*)(void *))set_node_offsets__10TBoss2MineFPv)
 
 struct Base_8003843C_80038140 { char pad[0x18]; };
 struct VObj_8003843C_80038140 : Base_8003843C_80038140 {
@@ -801,7 +801,7 @@ void render__10TBoss2MineFv(Mine_80038200 *self) {
     lbl_805D5660 = some_id_805c6f74;
     clear_global_flag_400__9TObjEneDDFv();
     toggle_particle_effect__10TObjPlayerFv();
-    TBoss2Mine__sub_80038908(self);
+    set_node_offsets__10TBoss2MineFPv(self);
     push_matrix();
     post_translate_matrix(&self->pos);
     translate_matrix(0, (0.0f), self->f300 - self->pos.y, (0.0f));
@@ -910,7 +910,7 @@ void TBoss2Mine__vt103(void) {  }
 
 #undef play_sound_effect
 #undef TBoss2Mine__ct
-#undef TBoss2Mine__sub_80038908
+#undef set_node_offsets__10TBoss2MineFPv
 #define transition_enemy_state ((int (*)(void *, void *))transition_enemy_state)
 
 struct Base_80038610 { char pad[0x18]; };
@@ -1203,7 +1203,7 @@ void init_params__10TBoss2MineFPvif(u8 *arg0, s32 arg1, f32 farg0) {
     M2C_FIELD(arg0, s32 *, 0x3BC) = 0;
 }
 
-void TBoss2Mine__sub_80038908(O_80038908 *self) {
+void set_node_offsets__10TBoss2MineFPv(O_80038908 *self) {
     N_80038908 *n = self->m->first;
     s32 i;
     s32 v = -self->f3a8;

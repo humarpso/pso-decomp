@@ -35,7 +35,7 @@ struct Pair_802A4AEC { s32 a; f32 b; };
 
 extern "C" {
 int queue_destruction__7TObjectFv(void*);
-void TNeedleShoot__sub_802A4AEC(u8 *arg0, VObj_18_174c10 *arg1);
+void emit_effect_and_destroy__12TNeedleShootFPvPv(u8 *arg0, VObj_18_174c10 *arg1);
 }
 
 extern "C" {
@@ -86,7 +86,7 @@ void init_velocity__12TNeedleShootFPv(u8 *arg0) {
 
 extern M2C_UNK lbl_804DCFF8[];
 
-void TNeedleShoot__sub_802A4AEC(u8 *arg0, VObj_18_174c10 *arg1) {
+void emit_effect_and_destroy__12TNeedleShootFPvPv(u8 *arg0, VObj_18_174c10 *arg1) {
     Pair_802A4AEC t;
     t.a = 0;
     t.b = *(f32 *)(arg0 + 0xBC);

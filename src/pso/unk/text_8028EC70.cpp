@@ -30,9 +30,9 @@ struct B_8028ECCC { u8 pad0[0x30]; s8 e; u8 pad31[7]; s16 v[5]; };
 extern "C" {
 s32 evict_char_entries__23TAdSinglePlyChrSelectGCFi(int);
 M2C_UNK TAdSinglePlyChrSelectGC__sub_8028F084(u32, void *);
-u32 TAdSinglePlyChrSelectGC__sub_8028F150();
+u32 find_free_slot__23TAdSinglePlyChrSelectGCFv();
 s32 has_matching_entry__23TAdSinglePlyChrSelectGCFPv(void *);
-s32 TAdSinglePlyChrSelectGC__sub_8028F210();
+s32 count_remaining_slots__23TAdSinglePlyChrSelectGCFv();
 extern s32 lbl_805D6520;
 void TAdSinglePlyChrSelectGC__sub_8028ED54(s32 arg0);
 void TAdSinglePlyChrSelectGC__sub_8028ED24(Dst_8028ED24 *d, Src_8028ED24 *s);
@@ -42,7 +42,7 @@ s32 has_matching_entry__23TAdSinglePlyChrSelectGCFPv(void *);
 extern Row_8028EE20 lbl_804D8E20[];
 s32 TAdSinglePlyChrSelectGC__sub_8028EE20(void *arg0, void *arg1_);
 s32 is_entry_equal__23TAdSinglePlyChrSelectGCFPvPv(A_8028EC70 *a, B_8028EC70 *b);
-s32 TAdSinglePlyChrSelectGC__sub_8028ECCC(A_8028ECCC *a, B_8028ECCC *b);
+s32 count_char_diffs__23TAdSinglePlyChrSelectGCFPvPv(A_8028ECCC *a, B_8028ECCC *b);
 }
 
 extern "C" {
@@ -60,7 +60,7 @@ s32 is_entry_equal__23TAdSinglePlyChrSelectGCFPvPv(A_8028EC70 *a, B_8028EC70 *b)
     return 1;
 }
 
-s32 TAdSinglePlyChrSelectGC__sub_8028ECCC(A_8028ECCC *a, B_8028ECCC *b) {
+s32 count_char_diffs__23TAdSinglePlyChrSelectGCFPvPv(A_8028ECCC *a, B_8028ECCC *b) {
     s32 n = 0;
     s32 i;
     for (i = 0; i < 5; i++) {
@@ -85,7 +85,7 @@ void TAdSinglePlyChrSelectGC__sub_8028ED24(Dst_8028ED24 *d, Src_8028ED24 *s) {
 void TAdSinglePlyChrSelectGC__sub_8028ED54(s32 arg0) {
     M2CCopy_50 buf;
     u32 h;
-    if (TAdSinglePlyChrSelectGC__sub_8028F210() > 0) {
+    if (count_remaining_slots__23TAdSinglePlyChrSelectGCFv() > 0) {
         buf = *(const M2CCopy_50 *)lbl_805D6520;
         if ((arg0 < 0) || (arg0 >= 5)) {
             if (has_matching_entry__23TAdSinglePlyChrSelectGCFPv((void *) (&buf)) != 0) {
@@ -95,12 +95,12 @@ void TAdSinglePlyChrSelectGC__sub_8028ED54(s32 arg0) {
         }
         if ((has_matching_entry__23TAdSinglePlyChrSelectGCFPv((void *) (&buf)) == 0) || (TAdSinglePlyChrSelectGC__sub_8028EE20((void *)((void *) (&buf)), (void *)((void *) (arg0))) != 0)) {
 block_7:
-            h = TAdSinglePlyChrSelectGC__sub_8028F150();
+            h = find_free_slot__23TAdSinglePlyChrSelectGCFv();
             if (h == 0U) {
                 if (evict_char_entries__23TAdSinglePlyChrSelectGCFi((int) (1)) == 0) {
                     return;
                 }
-                h = TAdSinglePlyChrSelectGC__sub_8028F150();
+                h = find_free_slot__23TAdSinglePlyChrSelectGCFv();
             }
             TAdSinglePlyChrSelectGC__sub_8028F084(h, (void *) (&buf));
         }

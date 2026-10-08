@@ -10,7 +10,7 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 #define M2C_BITWISE(type, expr) ((type)(expr))
 extern "C" {
 void run_task__14TWindowCtrlSubFv(void);
-M2C_UNK TWindowCtrlMain__sub_8024CCDC();
+M2C_UNK update_fade_alphas__15TWindowCtrlMainFv();
 M2C_UNK resolve_chat_balloon_overlaps();
 M2C_UNK run_tasks__7TObjectFv(s32);
 extern s32 TWindowCtrlMain__data_805D6408;
@@ -27,7 +27,7 @@ extern void *lbl_805D38D8;
 
 void run_task__14TWindowCtrlSubFv(void) {
     resolve_chat_balloon_overlaps();
-    TWindowCtrlMain__sub_8024CCDC();
+    update_fade_alphas__15TWindowCtrlMainFv();
     run_tasks__7TObjectFv(TWindowCtrlMain__data_805D6408);
 }
 

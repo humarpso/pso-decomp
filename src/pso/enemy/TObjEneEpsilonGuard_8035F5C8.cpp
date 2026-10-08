@@ -874,7 +874,7 @@ extern const f32 lbl_805E0224;
 void TObjEneEpsilonGuard__sub_803607DC(u8 *arg0);
 u32 find_entity_by_id(s32);
 s32 is_state_flag_set__19TObjEneEpsilonGuardFPv();
-void TObjEneEpsilonGuard__sub_8035DE48(s32);
+void clear_and_flag_state__19TObjEneEpsilonGuardFPv(s32);
 void TObjEneEpsilonGuard__sub_8035F844(W_8035F844 *arg0, s32 arg1);
 extern T_8035F8A8 lbl_80479E7C[];
 s16 TObjEneEpsilonGuard__sub_8035F8A8(W_8035F8A8 *arg0);
@@ -1120,7 +1120,7 @@ void TObjEneEpsilonGuard__sub_8035F844(W_8035F844 *arg0, s32 arg1) {
     }
     r = find_entity_by_id(arg0->h[arg1]);
     if (r != 0 && is_state_flag_set__19TObjEneEpsilonGuardFPv() == 1) {
-        TObjEneEpsilonGuard__sub_8035DE48(r);
+        clear_and_flag_state__19TObjEneEpsilonGuardFPv(r);
     }
 }
 

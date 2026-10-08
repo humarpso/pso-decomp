@@ -208,7 +208,7 @@ void TLobby__sub_8001FE7C(void *, int);
 extern u8 *lbl_805D6FA0;
 extern u8 *lbl_805D6FA4;
 extern u8 *lbl_805D6FA8;
-void TObjEneEpsilonGuard__sub_8036274C(void);
+void free_shared_resources__19TObjEneEpsilonGuardFv(void);
 }
 
 extern "C" {
@@ -250,7 +250,7 @@ void TObjPlayer__sub_803626A8(u8 *arg0, s32 arg1, s32 arg2) {
 
 typedef char RecoveredGlobal_80362B48___vt__14TObjEneEpsilon_size[sizeof(RecoveredGlobal_80362B48___vt__14TObjEneEpsilon) == 0x1A4 ? 1 : -1];
 
-void TObjEneEpsilonGuard__sub_8036274C(void) {
+void free_shared_resources__19TObjEneEpsilonGuardFv(void) {
     if ((*(V_8036274C * *)&lbl_805D6FA4) != NULL) {
         delete (*(V_8036274C * *)&lbl_805D6FA4);
         (*(V_8036274C * *)&lbl_805D6FA4) = NULL;

@@ -40,7 +40,7 @@ extern s32 lbl_805D60A0;
 extern u8 *lbl_805D60B0;
 void pick_weighted_entry__6TLobbyFPvPv(s32 *arg0, s32 *arg1);
 void TLobby__sub_8020A48C(void *p);
-void TLobby__sub_8020A508(void *, void *);
+void copy_record_entry__6TLobbyFii(void *, void *);
 Rec_802099FC *bsearch_record__6TLobbyFPvii(void *arg0, s32 n, s32 key);
 }
 
@@ -69,7 +69,7 @@ Rec_802099FC *bsearch_record__6TLobbyFPvii(void *arg0, s32 n, s32 key) {
     lo = 0;
     while (lo < hi) {
         mid = (lo + hi) / 2;
-        TLobby__sub_8020A508(&t, arr + mid * 32);
+        copy_record_entry__6TLobbyFii(&t, arr + mid * 32);
         TLobby__sub_8020A48C(&t);
         if (t.v < key) {
             lo = mid + 1;
@@ -78,7 +78,7 @@ Rec_802099FC *bsearch_record__6TLobbyFPvii(void *arg0, s32 n, s32 key) {
         }
     }
     e = arr + lo * 32;
-    TLobby__sub_8020A508(&t, e);
+    copy_record_entry__6TLobbyFii(&t, e);
     TLobby__sub_8020A48C(&t);
     if (t.v == key) {
         return (Rec_802099FC *)e;

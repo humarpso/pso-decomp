@@ -166,7 +166,7 @@ s32 get_enemy_factory_child_count(s32, SpawnRecord_8020A9C4 *);
 extern s32 TLobby__data_805D60E4;
 extern s32 TLobby__data_805D60EC;
 void reserve_enemy_set_actor_ids(SpawnRecord_8020A9C4 *arg0, s32 arg1, s32 arg2);
-s32 TLobby__sub_8020C030(void *, Rec_8020AA94 *);
+s32 find_floor_object_factory__6TLobbyFiPv(void *, Rec_8020AA94 *);
 extern s32 TLobby__data_805D60E0;
 extern s32 TLobby__data_805D60E8;
 void assign_object_ids__6TLobbyFPviPv(Rec_8020AA94 *arg0, s32 arg1, void *arg2);
@@ -201,7 +201,7 @@ void assign_object_ids__6TLobbyFPviPv(Rec_8020AA94 *arg0, s32 arg1, void *arg2) 
     for (i = 0; i < arg1; i++) {
         arg0[i].f8 = TLobby__data_805D60E8++ + 0x4000;
         arg0[i].f4 = TLobby__data_805D60E0++;
-        r = TLobby__sub_8020C030(arg2, &arg0[i]);
+        r = find_floor_object_factory__6TLobbyFiPv(arg2, &arg0[i]);
         if (r >= 0) {
             TLobby__data_805D60E0 += r;
             TLobby__data_805D60E8 += r;

@@ -7,7 +7,7 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 extern "C" {
 extern const f32 lbl_805E00F8;
 extern const f32 lbl_805E00FC;
-void TBoss7LaserPtcl__sub_8035AA58(u8 *arg0, u8 *arg1, u8 *arg2);
+void calc_position__15TBoss7LaserPtclFPvPvPv(u8 *arg0, u8 *arg1, u8 *arg2);
 }
 
 extern "C" {
@@ -35,7 +35,7 @@ void init_laser__15TBoss7LaserPtclFPv(u8 *arg0) {
 }
 #pragma push
 #pragma fp_contract on
-void TBoss7LaserPtcl__sub_8035AA58(u8 *arg0, u8 *arg1, u8 *arg2) {
+void calc_position__15TBoss7LaserPtclFPvPvPv(u8 *arg0, u8 *arg1, u8 *arg2) {
     M2C_FIELD(arg0, f32 *, 0x20) = (f32) ((lbl_805E00F8 * (lbl_805E00FC * M2C_FIELD(arg2, f32 *, 0))) + M2C_FIELD(arg1, f32 *, 0));
     M2C_FIELD(arg0, f32 *, 0x24) = (f32) ((lbl_805E00FC * M2C_FIELD(arg2, f32 *, 4)) + M2C_FIELD(arg1, f32 *, 4));
     M2C_FIELD(arg0, f32 *, 0x28) = (f32) ((lbl_805E00FC * M2C_FIELD(arg2, f32 *, 8)) + M2C_FIELD(arg1, f32 *, 8));

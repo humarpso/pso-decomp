@@ -30,7 +30,7 @@ extern M2C_UNK lbl_8049F40C[];
 s32 TItemLoad__sub_8010F838(int arg0, void *a1, int a2, int a3);
 s32 begin_load__9TItemLoadFPvi(void *, s32);
 void TItemLoad__sub_8010F61C(Load_8010F61C *self, s32 id, s32 arg2);
-M2C_UNK TItemLoad__sub_8010FD80();
+M2C_UNK decompress_buffer__9TItemLoadFUi();
 M2C_UNK tmp_buf_release__6TLobbyFi(s32);
 s32 TLobby__sub_8001EEF4();
 s32 tmp_buf_use_req__6TLobbyFPv(s32);
@@ -54,7 +54,7 @@ void *dt__9TItemLoadFPvs(void *arg0, s16 arg1);
 void free_all_models__9TItemLoadFv(void);
 void reload_item__9TItemLoadFPv(void *arg0);
 M2C_UNK TItemLoad__sub_8010FCB4(void *, M2C_UNK);
-M2C_UNK TItemLoad__sub_8010FD80();
+M2C_UNK decompress_buffer__9TItemLoadFUi();
 M2C_UNK tmp_buf_release__6TLobbyFi(s32);
 s32 TLobby__sub_8001EEF4();
 s32 tmp_buf_use_req__6TLobbyFPv(s32);
@@ -129,7 +129,7 @@ void parse_nj_chunks__9TItemLoadFPv(Load_8010F68C *self) {
     if (TLobby__sub_8001EEF4() == 1) {
         h = tmp_buf_use_req__6TLobbyFPv(lbl_805D2BF0);
         off = self->id;
-        total = TItemLoad__sub_8010FD80();
+        total = decompress_buffer__9TItemLoadFUi();
         pos = 0;
         n = 0;
         while (pos < total) {
@@ -199,7 +199,7 @@ void reload_item__9TItemLoadFPv(void *arg0) {
 
     if (TLobby__sub_8001EEF4() == 1) {
         temp_r31 = tmp_buf_use_req__6TLobbyFPv(lbl_805D2BF0);
-        TItemLoad__sub_8010FD80();
+        decompress_buffer__9TItemLoadFUi();
         load_gvm_texture_archive(temp_r31, M2C_FIELD(arg0, s32 *, 0x24));
         tmp_buf_release__6TLobbyFi(lbl_805D2BF0);
         M2C_FIELD(arg0, s32 *, 0x24) = 0;

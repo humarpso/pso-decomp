@@ -28,7 +28,7 @@ extern RecoveredGlobal_8008DC18_lbl_80439B5C lbl_80439B5C;
 extern RecoveredGlobal_8008DC18_lbl_8048EEE0 lbl_8048EEE0;
 extern u8 *lbl_805D4F20;
 extern const f32 lbl_805D9618;
-void TObjEneBalClawClaw__sub_8008DC18(void);
+void spawn_child_enemy__18TObjEneBalClawClawFv(void);
 }
 
 extern "C" {
@@ -40,7 +40,7 @@ f32 xz_distance_squared(s32, s32);
 
 typedef char RecoveredGlobal_8008DC18_lbl_80439B5C_size[sizeof(RecoveredGlobal_8008DC18_lbl_80439B5C) == 0x14 ? 1 : -1];
 typedef char RecoveredGlobal_8008DC18_lbl_8048EEE0_size[sizeof(RecoveredGlobal_8008DC18_lbl_8048EEE0) == 0x2C ? 1 : -1];
-void TObjEneBalClawClaw__sub_8008DC18(void) {
+void spawn_child_enemy__18TObjEneBalClawClawFv(void) {
     typedef char sp8_offset[(offsetof(Stack_8008DC18, sp8) == 0x0) ? 1 : -1];
     typedef char spC_offset[(offsetof(Stack_8008DC18, spC) == 0x4) ? 1 : -1];
     typedef char sp10_offset[(offsetof(Stack_8008DC18, sp10) == 0x8) ? 1 : -1];

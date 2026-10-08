@@ -79,7 +79,7 @@ void TAdChrSelSlotGC__sub_802C754C(O_802C754C *self, s32 i);
 extern const f32 lbl_805DE5CC;
 extern const f32 TAdChrSelSlotGC__data_805DE5D0;
 void copy_vec2__28TWindowSubSymbolChatPartsSetFPvPv(void *, void *);
-void TAdChrSelSlotGC__sub_802C74AC(S_802C74AC *arg0, s32 arg1, void *arg2);
+void init_slot_entry__15TAdChrSelSlotGCFPviPv(S_802C74AC *arg0, s32 arg1, void *arg2);
 extern const f32 lbl_805DE5CC;
 extern const f32 lbl_805DE5D4;
 void copy_vec2__28TWindowSubSymbolChatPartsSetFPvPv(void *, void *);
@@ -190,7 +190,7 @@ void TAdChrSelSlotGC__sub_802C7498(struct S802C7498_802C70AC *arg0, s32 arg1) {
 
 extern u32 lbl_805D67F0;
 
-void TAdChrSelSlotGC__sub_802C74AC(S_802C74AC *arg0, s32 arg1, void *arg2) {
+void init_slot_entry__15TAdChrSelSlotGCFPviPv(S_802C74AC *arg0, s32 arg1, void *arg2) {
     arg0->a[arg1] = 1;
     copy_vec2__28TWindowSubSymbolChatPartsSetFPvPv(&arg0->v[arg1 + 2], arg2);
     arg0->e[arg1].x = arg0->v[arg1 + 2].x;

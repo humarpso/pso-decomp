@@ -106,7 +106,7 @@ s32 convert_jis_to_sjis_string__22TQuestVmDownLoadServerFPv(s32 *arg0);
 M2C_UNK TQuestVmDownLoadServer__sub_803EE870(void *, int);
 M2C_UNK latch_slot_value__22TQuestVmDownLoadServerFi(int);
 M2C_UNK TQuestVmDownLoadServer__sub_803EAE84(int, int, int);
-s32 TQuestVmDownLoadServer__sub_803EDB90(void *, void *);
+s32 sum_entry_sizes__22TQuestVmDownLoadServerFii(void *, void *);
 extern s32 lbl_805D7898;
 extern s32 lbl_805D789C;
 M2C_UNK strcpy(int, int);
@@ -457,7 +457,7 @@ s32 TQuestVmDownLoadServer__sub_803E5F5C(s32 *arg0) {
     lbl_805D7898 = n - 1;
     strcpy(b, TQuestVmDownLoadServer__sub_803EE718((void *)lbl_805D78F0, (void *)lbl_805D78EC));
     TQuestVmDownLoadServer__sub_803EE870((void *)lbl_805D78F0, 1);
-    ret = TQuestVmDownLoadServer__sub_803EDB90((void *)lbl_805D78F0, (void *)lbl_805D78EC);
+    ret = sum_entry_sizes__22TQuestVmDownLoadServerFii((void *)lbl_805D78F0, (void *)lbl_805D78EC);
     lbl_805D78F0 += lbl_805D78EC;
     if (lbl_805D78F0 >= lbl_805D78C0) {
         *a = 0;

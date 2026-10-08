@@ -338,10 +338,10 @@ s32 get_area_table_value__17TOTrapChainSawKeyFii(s32 arg0, s32 arg1);
 f32 TOTrapChainSaw__sub_802C8FF8(f32 farg0);
 void update_demo__14TOTrapChainSawFPv(void *arg0);
 void TOTrapChainSaw__sub_802C9090(void);
-void TOTrapChainSaw__sub_802C9094(u8 *arg0);
+void update_demo_if_in_range__14TOTrapChainSawFPv(u8 *arg0);
 int clear_field_d8__14TOTrapChainSawFPv(void* p);
-void TOTrapChainSaw__sub_802C9124(S_802C9124 *arg0, void *arg1);
-s32 TOTrapChainSaw__sub_802C9174(S_802C9174 *arg0, void *arg1);
+void set_hit_cooldown_for_player__14TOTrapChainSawFPvPv(S_802C9124 *arg0, void *arg1);
+s32 consume_counter__14TOTrapChainSawFPvPv(S_802C9174 *arg0, void *arg1);
 int check_player_contact__14TOTrapChainSawFPv(void *arg0);
 void update_sweep__14TOTrapChainSawFPv(void *arg0);
 void update_state__14TOTrapChainSawFPv(u8 *arg0);
@@ -884,7 +884,7 @@ void update_demo__14TOTrapChainSawFPv(void *arg0) {
 
 void TOTrapChainSaw__sub_802C9090(void) {  }
 
-void TOTrapChainSaw__sub_802C9094(u8 *arg0) {
+void update_demo_if_in_range__14TOTrapChainSawFPv(u8 *arg0) {
     if (((VObj_18_52534d *)(arg0))->m8((4e+02f), (5e+01f)) == 1) {
         ((VObj_18_52534d *)(arg0))->m23();
         update_demo__14TOTrapChainSawFPv(arg0);
@@ -893,14 +893,14 @@ void TOTrapChainSaw__sub_802C9094(u8 *arg0) {
 
 int clear_field_d8__14TOTrapChainSawFPv(void* p) { return memset((char*)p + 0xd8, 0, 16); }
 
-void TOTrapChainSaw__sub_802C9124(S_802C9124 *arg0, void *arg1) {
+void set_hit_cooldown_for_player__14TOTrapChainSawFPvPv(S_802C9124 *arg0, void *arg1) {
     s32 i = obj_getField1c(arg1);
     if (i >= 0 && i < 4) {
         arg0->f[i] = 0x96;
     }
 }
 
-s32 TOTrapChainSaw__sub_802C9174(S_802C9174 *arg0, void *arg1) {
+s32 consume_counter__14TOTrapChainSawFPvPv(S_802C9174 *arg0, void *arg1) {
     s32 i = obj_getField1c(arg1);
     if (i >= 0 && i < 4) {
         if (arg0->f[i] > 0) {
@@ -1107,7 +1107,7 @@ M2C_UNK __vt__18TOTrapChainSawEdge[31] = {
     0,
     (M2C_UNK)&__dt__18TOTrapChainSawEdgeFv,
     (M2C_UNK)&update_active_flag__14TOTrapChainSawFPv,
-    (M2C_UNK)&TOTrapChainSaw__sub_802C9094,
+    (M2C_UNK)&update_demo_if_in_range__14TOTrapChainSawFPv,
     (M2C_UNK)&render_shadows__7TObjectFv,
     (M2C_UNK)&TLobby__sub_801A1FD8,
     (M2C_UNK)&apply_object_set_data,
@@ -1122,8 +1122,8 @@ M2C_UNK __vt__18TOTrapChainSawEdge[31] = {
     (M2C_UNK)&TOTrapChainSawEdge__vt14,
     (M2C_UNK)&TOTrapChainSawEdge__vt15,
     (M2C_UNK)&TOTrapChainSaw__sub_802C9BE4,
-    (M2C_UNK)&TOTrapChainSaw__sub_802C9174,
-    (M2C_UNK)&TOTrapChainSaw__sub_802C9124,
+    (M2C_UNK)&consume_counter__14TOTrapChainSawFPvPv,
+    (M2C_UNK)&set_hit_cooldown_for_player__14TOTrapChainSawFPvPv,
     (M2C_UNK)&clear_field_d8__14TOTrapChainSawFPv,
     (M2C_UNK)&TOTrapChainSawEdge__vt20,
     (M2C_UNK)&TOTrapChainSawEdge__vt21,
@@ -1140,7 +1140,7 @@ M2C_UNK __vt__17TOTrapChainSawKey[31] = {
     0,
     (M2C_UNK)&__dt__17TOTrapChainSawKeyFv,
     (M2C_UNK)&update_active_flag__14TOTrapChainSawFPv,
-    (M2C_UNK)&TOTrapChainSaw__sub_802C9094,
+    (M2C_UNK)&update_demo_if_in_range__14TOTrapChainSawFPv,
     (M2C_UNK)&render_shadows__7TObjectFv,
     (M2C_UNK)&TLobby__sub_801A1FD8,
     (M2C_UNK)&apply_object_set_data,
@@ -1155,8 +1155,8 @@ M2C_UNK __vt__17TOTrapChainSawKey[31] = {
     (M2C_UNK)&TOTrapChainSawKey__vt14,
     (M2C_UNK)&TOTrapChainSawKey__vt15,
     (M2C_UNK)&TOTrapChainSawKey__vt16,
-    (M2C_UNK)&TOTrapChainSaw__sub_802C9174,
-    (M2C_UNK)&TOTrapChainSaw__sub_802C9124,
+    (M2C_UNK)&consume_counter__14TOTrapChainSawFPvPv,
+    (M2C_UNK)&set_hit_cooldown_for_player__14TOTrapChainSawFPvPv,
     (M2C_UNK)&clear_field_d8__14TOTrapChainSawFPv,
     (M2C_UNK)&update_extension__14TOTrapChainSawFPv,
     (M2C_UNK)&update_sweep__14TOTrapChainSawFPv,
@@ -1173,7 +1173,7 @@ M2C_UNK __vt__20TOTrapChainSawDamage[31] = {
     0,
     (M2C_UNK)&__dt__20TOTrapChainSawDamageFv,
     (M2C_UNK)&update_active_flag__14TOTrapChainSawFPv,
-    (M2C_UNK)&TOTrapChainSaw__sub_802C9094,
+    (M2C_UNK)&update_demo_if_in_range__14TOTrapChainSawFPv,
     (M2C_UNK)&render_shadows__7TObjectFv,
     (M2C_UNK)&TLobby__sub_801A1FD8,
     (M2C_UNK)&apply_object_set_data,
@@ -1188,8 +1188,8 @@ M2C_UNK __vt__20TOTrapChainSawDamage[31] = {
     (M2C_UNK)&TOTrapChainSawDamage__vt14,
     (M2C_UNK)&check_player_contact__14TOTrapChainSawFPv,
     (M2C_UNK)&TOTrapChainSawDamage__vt16,
-    (M2C_UNK)&TOTrapChainSaw__sub_802C9174,
-    (M2C_UNK)&TOTrapChainSaw__sub_802C9124,
+    (M2C_UNK)&consume_counter__14TOTrapChainSawFPvPv,
+    (M2C_UNK)&set_hit_cooldown_for_player__14TOTrapChainSawFPvPv,
     (M2C_UNK)&clear_field_d8__14TOTrapChainSawFPv,
     (M2C_UNK)&update_extension__14TOTrapChainSawFPv,
     (M2C_UNK)&update_sweep__14TOTrapChainSawFPv,
@@ -1206,7 +1206,7 @@ M2C_UNK __vt__14TOTrapChainSaw[31] = {
     0,
     (M2C_UNK)&__dt__14TOTrapChainSawFv,
     (M2C_UNK)&update_active_flag__14TOTrapChainSawFPv,
-    (M2C_UNK)&TOTrapChainSaw__sub_802C9094,
+    (M2C_UNK)&update_demo_if_in_range__14TOTrapChainSawFPv,
     (M2C_UNK)&render_shadows__7TObjectFv,
     (M2C_UNK)&TLobby__sub_801A1FD8,
     (M2C_UNK)&apply_object_set_data,
@@ -1221,8 +1221,8 @@ M2C_UNK __vt__14TOTrapChainSaw[31] = {
     (M2C_UNK)&TOTrapChainSaw__vt14,
     (M2C_UNK)&check_player_contact__14TOTrapChainSawFPv,
     (M2C_UNK)&TOTrapChainSaw__sub_802C9BE4,
-    (M2C_UNK)&TOTrapChainSaw__sub_802C9174,
-    (M2C_UNK)&TOTrapChainSaw__sub_802C9124,
+    (M2C_UNK)&consume_counter__14TOTrapChainSawFPvPv,
+    (M2C_UNK)&set_hit_cooldown_for_player__14TOTrapChainSawFPvPv,
     (M2C_UNK)&clear_field_d8__14TOTrapChainSawFPv,
     (M2C_UNK)&update_extension__14TOTrapChainSawFPv,
     (M2C_UNK)&update_sweep__14TOTrapChainSawFPv,

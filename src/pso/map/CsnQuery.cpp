@@ -128,7 +128,7 @@ struct Wall_8007A138 {
 };
 
 extern "C" {
-void TObjPlayer__sub_8007A0E4(u8 *arg0, u8 *arg1);
+void copy_wall_polygon__10TObjPlayerFPvPv(u8 *arg0, u8 *arg1);
 extern RecoveredGlobal_800790F0_lbl_804F5800 lbl_804F5800;
 s32 get_csn_group_flags(u8 arg0);
 void TObjPlayer__sub_80079108(void);
@@ -212,7 +212,7 @@ CsnGroup *select_ground_query_groups(CsnVector *arg0, u32 arg1);
 void get_map_count__10TObjMapCsnFv();
 CsnGroup **get_data_ptr__10TObjMapCsnFPv();
 M_80079C64 *refill_csn_candidate_cache(P_80079C64 *arg0, M_80079C64 **arg1, u32 arg2);
-void TObjPlayer__sub_8007A0E4(u8 *arg0, u8 *arg1);
+void copy_wall_polygon__10TObjPlayerFPvPv(u8 *arg0, u8 *arg1);
 CsnGroup **get_data_ptr__10TObjMapCsnFPv();
 void get_map_count__10TObjMapCsnFv();
 extern u32 lbl_804FFD40[];
@@ -586,7 +586,7 @@ s32 prepare_wall_query_polygons(void *arg0, f32 r, s32 mask) {
                 if (++cnt >= 0x200) {
                     break;
                 }
-                TObjPlayer__sub_8007A0E4((u8 *)out, (u8 *)poly);
+                copy_wall_polygon__10TObjPlayerFPvPv((u8 *)out, (u8 *)poly);
                 out->id = mesh->id;
                 out++;
             }
@@ -597,7 +597,7 @@ s32 prepare_wall_query_polygons(void *arg0, f32 r, s32 mask) {
 }
 #pragma pop
 
-void TObjPlayer__sub_8007A0E4(u8 *arg0, u8 *arg1) {
+void copy_wall_polygon__10TObjPlayerFPvPv(u8 *arg0, u8 *arg1) {
     M2C_FIELD(arg0, s32 *, 0) = (s32) M2C_FIELD(arg1, s32 *, 0);
     M2C_FIELD(arg0, u16 *, 4) = (u16) M2C_FIELD(arg1, u16 *, 4);
     M2C_FIELD(arg0, u16 *, 6) = (u16) M2C_FIELD(arg1, u16 *, 6);

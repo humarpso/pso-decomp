@@ -39,7 +39,7 @@ M2C_UNK memset(void *, int, int);
 void TAdPlayerLoadGC__sub_803F32A4(s32 arg0);
 s32 CARDClose(void *);
 M2C_UNK memset(void *, int, int);
-s32 TAdPlayerLoadGC__sub_803F3328(s32 arg0);
+s32 close_card_slot__15TAdPlayerLoadGCFi(s32 arg0);
 s32 CARDProbe(s32 chan);
 char *strcpy(char *, const char *);
 u32 strlen(const char *);
@@ -252,7 +252,7 @@ void TAdPlayerLoadGC__sub_803F32A4(s32 arg0) {
     M2C_FIELD(temp_r30, s32 *, 0x5C) = 0;
 }
 
-s32 TAdPlayerLoadGC__sub_803F3328(s32 arg0) {
+s32 close_card_slot__15TAdPlayerLoadGCFi(s32 arg0) {
     S_803F3328 *s;
     s32 ret;
     if (arg0 >= 0 && arg0 < 0x64) {

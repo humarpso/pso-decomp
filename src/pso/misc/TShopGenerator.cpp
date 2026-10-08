@@ -75,7 +75,7 @@ void THunterGuildSeqOffline__sub_8021E180(s32 arg0);
 extern Tbl_8021E1FC TShopGenerator__data_804C9FA8;
 extern RecoveredGlobal_8021E110_TShopGenerator__data_80513ED0 TShopGenerator__slot_active_table;
 void TMedicalCenterMes__sub_80216238(void);
-void TShopGenerator__sub_8021E1FC(void);
+void run_fn_table_reverse__14TShopGeneratorFv(void);
 s32 obj_getField1c(s32);
 s32 TShopGenerator__sub_80222DAC(s32);
 extern Tbl_8021E1FC TShopGenerator__data_804C9FA8;
@@ -104,7 +104,7 @@ void run_task__14TShopGeneratorFv(u8 *self);
 void TMedicalCenterMes__sub_80216260(void);
 extern Tbl_8021E1FC TShopGenerator__data_804C9FA8;
 extern RecoveredGlobal_8021E110_TShopGenerator__data_80513ED0 TShopGenerator__slot_active_table;
-void TShopGenerator__sub_8021E270(void);
+void run_fn_table_forward__14TShopGeneratorFv(void);
 }
 
 extern "C" {
@@ -273,7 +273,7 @@ void *TShopGenerator__create(void *arg0) {
     }
     return o;
 }
-void TShopGenerator__sub_8021E1FC(void) {
+void run_fn_table_reverse__14TShopGeneratorFv(void) {
     E_8021E1FC *p;
     s32 n;
     s32 i;
@@ -289,7 +289,7 @@ void TShopGenerator__sub_8021E1FC(void) {
         ((s32 *)&TShopGenerator__slot_active_table)[i] = 0;
     }
 }
-void TShopGenerator__sub_8021E270(void) {
+void run_fn_table_forward__14TShopGeneratorFv(void) {
     E_8021E1FC *p;
     s32 n;
     s32 i;

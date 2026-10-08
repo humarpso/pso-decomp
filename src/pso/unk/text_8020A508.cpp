@@ -9,12 +9,12 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 struct M2CCopy_14 { u8 bytes[0x14]; };
 
 extern "C" {
-void TLobby__sub_8020A508(s32 arg0, s32 arg1);
+void copy_record_entry__6TLobbyFii(s32 arg0, s32 arg1);
 }
 
 extern "C" {
 
-void TLobby__sub_8020A508(s32 arg0, s32 arg1) {
+void copy_record_entry__6TLobbyFii(s32 arg0, s32 arg1) {
     *(M2CCopy_14 *)(arg0) = *(const M2CCopy_14 *)(arg1);
     M2C_FIELD(arg0, s16 *, 0x14) = (s16) M2C_FIELD(arg1, s16 *, 0x14);
     M2C_FIELD(arg0, s16 *, 0x16) = (s16) M2C_FIELD(arg1, s16 *, 0x16);

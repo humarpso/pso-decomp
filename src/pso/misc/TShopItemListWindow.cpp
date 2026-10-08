@@ -141,7 +141,7 @@ s32 TShopItemTecSequence__sub_8021FE6C();
 s32 get_shop_text(int);
 s32 TShopWindowBase__sub_8022397C(void *);
 s32 get_child_field1c__15TShopWindowBaseFPv(void *);
-M2C_UNK TLobby__sub_80224404(void *, int, s32);
+M2C_UNK copy_shop_item_entry__6TLobbyFiii(void *, int, s32);
 void *__nw__7TObjectFUl(u32);
 M2C_UNK set_displayed_item_colored__15TWindowHelpItemFPvUi(void *, void *);
 void *TWindowHelpItem__ct(void *, s32, u16);
@@ -289,7 +289,7 @@ void build_item_list__19TShopItemListWindowFv(void *p) {
     TShopWindowBase__sub_8022397C(W);
     W->count = TShopItemTecSequence__sub_8021FE6C();
     for (i = 0; i < W->count; i++) {
-        TLobby__sub_80224404(&tmp, i, TShopWindowBase__sub_8022397C(W));
+        copy_shop_item_entry__6TLobbyFiii(&tmp, i, TShopWindowBase__sub_8022397C(W));
         copy_item_data__6TLobbyFPvPv(&W->recs[i], &tmp);
     }
     r = W->recs;

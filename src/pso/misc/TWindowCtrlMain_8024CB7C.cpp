@@ -24,7 +24,7 @@ s32 is_split_screen(void);
 extern s32 TWindowCtrlMain__data_805D6400;
 extern s32 TWindowCtrlMain__data_805D6408;
 extern WindowControlState TWindowCtrlMain__data_80518730[6];
-void TWindowCtrlMain__sub_8024CCDC(void);
+void update_fade_alphas__15TWindowCtrlMainFv(void);
 s32 TWindowCtrlMain__sub_8024CD5C(s32 viewport_index);
 void set_value__15TWindowCtrlMainFii(s32 arg0, s32 arg1);
 s32 TWindowCtrlMain__sub_8024CDB0(void* p);
@@ -103,7 +103,7 @@ WindowControlState* get_window_control_state(s32 viewport_index) {
     }
     return TWindowCtrlMain__data_80518730;
 }
-void TWindowCtrlMain__sub_8024CCDC(void) {
+void update_fade_alphas__15TWindowCtrlMainFv(void) {
     s32 i;
     for (i = 0; i < 4; i++) {
         Ent_8024CCDC *e = &((Ent_8024CCDC *)&TWindowCtrlMain__data_80518730)[i];

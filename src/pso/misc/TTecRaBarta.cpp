@@ -155,7 +155,7 @@ void TTecPlayerInfluence__sub_80237258(void* p);
 void run_task__19TTecPlayerInfluenceFv(void *arg0);
 M2C_UNK queue_destruction__7TObjectFv(void *);
 #define queue_destruction__7TObjectFv ((void (*)(void *))queue_destruction__7TObjectFv)
-void TTecPlayerInfluence__sub_802371FC(u8 *arg0);
+void tick_lifetime__19TTecPlayerInfluenceFPv(u8 *arg0);
 s32 approach_vector_in_place(void *, void *, f32);
 s32 TObjRoomId__sub_80141CF4(void *, void *, f32);
 extern RecoveredGlobal_80237194_lbl_8044D8EC lbl_8044D8EC;
@@ -215,7 +215,7 @@ M2C_UNK update_technique_slot__10TTecRaFoieFi(s32, M2C_UNK, M2C_UNK);
 typedef char RecoveredGlobal_80237194_lbl_8044D8EC_size[sizeof(RecoveredGlobal_80237194_lbl_8044D8EC) == 0xC ? 1 : -1];
 void render__19TTecPlayerInfluenceFv(u8 *arg0);
 
-void TTecPlayerInfluence__sub_802371FC(u8 *arg0);
+void tick_lifetime__19TTecPlayerInfluenceFPv(u8 *arg0);
 
 void TTecPlayerInfluence__sub_80237258(void* p);
 

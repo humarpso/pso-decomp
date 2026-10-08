@@ -31,7 +31,7 @@ s32 TItemLoad__sub_801100F0(s32 id);
 s32 TItemLoad__sub_801107E4(void *p);
 void *TItemLoad__sub_801107EC(void *p);
 extern u32 TItemLoad__data_805D5488;
-void *TItemLoad__sub_8011038C(s32 id);
+void *find_node_by_id__9TItemLoadFi(s32 id);
 Parm_8011029C *lookup_item_pmt_record(void *);
 void init__9TItemLoadFPvPvPvPvPv(void *, void *, s32, s32, s32);
 void *__nw__7TObjectFUl(u32);
@@ -48,7 +48,7 @@ void TItemLoad__sub_801103F4(s32 id);
 void *alloc_buffer__11TOBoss4RockFPv(u32);
 void TLobby__sub_801E3E9C(s32, s32, void *, s32);
 extern M2C_UNK lbl_8049F43C[];
-Load_8011006C *TItemLoad__sub_8011006C(Load_8011006C *self, s32 arg1, s32 arg2, s32 count);
+Load_8011006C *init_buffer__9TItemLoadFPviii(Load_8011006C *self, s32 arg1, s32 arg2, s32 count);
 }
 
 extern "C" {
@@ -85,7 +85,7 @@ void *TItemLoad__sub_80110010(void *arg0, s16 arg1) {
 
 extern s32 TItemLoad__data_805D5480;
 
-Load_8011006C *TItemLoad__sub_8011006C(Load_8011006C *self, s32 arg1, s32 arg2, s32 count) {
+Load_8011006C *init_buffer__9TItemLoadFPviii(Load_8011006C *self, s32 arg1, s32 arg2, s32 count) {
     s32 n = (count + 1) * 2;
     self->f14 = lbl_8049F43C;
     self->buf = alloc_buffer__11TOBoss4RockFPv((n + 0x116) & ~3);
@@ -177,7 +177,7 @@ s32 request_item_model_load(u8 *item) {
     return -1;
 }
 
-void *TItemLoad__sub_8011038C(s32 id) {
+void *find_node_by_id__9TItemLoadFi(s32 id) {
     Node_8011038C *n;
     if (TItemLoad__data_805D5488 != 0) {
         for (n = ((Node_8011038C *)TItemLoad__data_805D5488)->child; n != NULL; n = n->next) {

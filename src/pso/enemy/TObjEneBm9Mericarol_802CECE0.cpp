@@ -763,7 +763,7 @@ void TObjEneBm9Mericarol__sub_802CF4F8(u8 *arg0, s32 arg1);
 void queue_destruction__7TObjectFv(void *self);
 void handle_state_message__19TObjEneBm9MericarolFPvi(void *self, s32 msg);
 extern s32 lbl_805D5550;
-s32 TObjEneBm9Mericarol__sub_802CED50(Obj_800ACA10 *self);
+s32 get_clamped_level__19TObjEneBm9MericarolFPv(Obj_800ACA10 *self);
 f64 get_ad_end_text_start__10TObjPlayerFv(f32, f32);
 M2C_UNK fill_value_array(int, int, int, f32);
 s32 enemy_validate_retained_target(void *);
@@ -838,7 +838,7 @@ s32 objInBand__FP7GameObjf(f32);
 M2C_UNK advance_animation_playback(void *);
 M2C_UNK play_sound_effect(M2C_UNK, void *, M2C_UNK, M2C_UNK);
 void create__9TTecKafunFiiiiiiff(s32 arg0, s32 arg1, s32 arg2, s32 arg3, s32 arg4, s32 arg5, f32 farg0, f32 farg1);
-s32 TObjEneBm9Mericarol__sub_802CED50(Obj_800ACA10 *self);
+s32 get_clamped_level__19TObjEneBm9MericarolFPv(Obj_800ACA10 *self);
 s32 get_phase__19TObjEneBm9MericarolFPv(void *, int);
 extern u8 *lbl_80540B7C[];
 extern const f32 lbl_805DE704;
@@ -943,7 +943,7 @@ void TObjEneBm9Mericarol__sub_802CED40(void* p) { *(u32*)((char*)p + 0x438) |= 0
 
 extern const f32 lbl_805DE6F4;
 
-s32 TObjEneBm9Mericarol__sub_802CED50(Obj_800ACA10 *self) {
+s32 get_clamped_level__19TObjEneBm9MericarolFPv(Obj_800ACA10 *self) {
     Sub_800ACA10 *p = self->sub;
     s32 v = 0;
     if (p != 0) {
@@ -1015,7 +1015,7 @@ void TObjEneBm9Mericarol__sub_802CEDA0(u8 *arg0, s32 arg1) {
                 VecCopy__FP3VecPC3Vec(&sp8, arg0 + 0x38);
                 sp8.y += lbl_805DE704;
                 ((void (*)(void *, void *, s32, s32, s32, f32, s32, f32))create__9TTecKafunFiiiiiiff)(arg0, &sp8, 5, 0x20B, 0x20C,
-                    M2C_FIELD(lbl_80540B7C[PHASE(arg0)], f32 *, 0x4), TObjEneBm9Mericarol__sub_802CED50((Obj_800ACA10 *)arg0),
+                    M2C_FIELD(lbl_80540B7C[PHASE(arg0)], f32 *, 0x4), get_clamped_level__19TObjEneBm9MericarolFPv((Obj_800ACA10 *)arg0),
                     M2C_FIELD(lbl_80540B7C[PHASE(arg0)], f32 *, 0x10));
                 play_sound_effect(copy_target_state__14TObjEnePanarmsFPvPv(arg0, 0x3A80A), arg0 + 0x38, 0, 0);
             }

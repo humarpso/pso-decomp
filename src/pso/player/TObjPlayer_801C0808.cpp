@@ -98,7 +98,7 @@ M2C_UNK TFontSmallLobby__sub_801C0228(void *, void *);
 u8 *TObjPlayer__sub_801C106C(u8 *arg0, u8 *arg1);
 extern const f32 TObjPlayer__data_805DC278;
 void init_6x2A__10TObjPlayerFPv(u8 *arg0);
-void TObjPlayer__sub_801C12C8(O_801C12C8 *p);
+void init_6xAC_packet__10TObjPlayerFPv(O_801C12C8 *p);
 }
 
 extern "C" {
@@ -206,7 +206,7 @@ u8 *TObjPlayer__sub_801C1268(u8 *arg0, u8 *arg1) {
     return arg0;
 }
 
-void TObjPlayer__sub_801C12C8(O_801C12C8 *p) {
+void init_6xAC_packet__10TObjPlayerFPv(O_801C12C8 *p) {
     s32 i;
     p->c = 0;
     for (i = 0; i < 30; i++) {

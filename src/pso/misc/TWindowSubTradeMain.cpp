@@ -64,7 +64,7 @@ extern const f32 TObjEneMorfos__data_805DF86C;
 extern const f32 TObjEneMorfos__data_805DF870;
 extern const f32 TObjEneMorfos__data_805DF874;
 void TObjEneMorfos__vt104(O_803323D8 *arg0);
-u8 TObjEneMorfos__sub_8033263C(void *arg0, u16 arg1, u16 arg2, u16 arg3);
+u8 check_value_in_range__13TObjEneMorfosFPvUsUsUs(void *arg0, u16 arg1, u16 arg2, u16 arg3);
 }
 
 extern "C" {
@@ -139,7 +139,7 @@ void update_ground_probe__13TObjEneMorfosFPv(u8 *arg0) {
     }
 }
 
-u8 TObjEneMorfos__sub_8033263C(void *arg0, u16 arg1, u16 arg2, u16 arg3) {
+u8 check_value_in_range__13TObjEneMorfosFPvUsUsUs(void *arg0, u16 arg1, u16 arg2, u16 arg3) {
     s32 r;
     s32 d;
     s32 c;

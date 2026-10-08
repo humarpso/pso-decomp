@@ -27,7 +27,7 @@ extern "C" {
 u8 TBoss2Tentacle__sub_80039CA0(u8 *arg0);
 void VecCopy__FP3VecPC3Vec(void *, void *);
 void TBoss2Tentacle__sub_80039DB0(void* p);
-void TBoss2Tentacle__sub_80039E88(u8 *arg0, u8 *arg1, s32 arg2);
+void start_attack_at_target__14TBoss2TentacleFPvPvi(u8 *arg0, u8 *arg1, s32 arg2);
 void VecCopy__FP3VecPC3Vec(void *, void *);
 extern V3_80039DE0 TBoss2Tentacle__data_804FE8E8[];
 extern s32 lbl_804FE990[];
@@ -355,7 +355,7 @@ void TBoss2Tentacle__sub_80039E54(void* a0) { *(float*)((char*)a0 + 0x118) = lbl
 
 void TBoss2Tentacle__sub_80039E68(void* p) { TBoss2Tentacle__sub_80039D98((void*)(p)); }
 
-void TBoss2Tentacle__sub_80039E88(u8 *arg0, u8 *arg1, s32 arg2) {
+void start_attack_at_target__14TBoss2TentacleFPvPvi(u8 *arg0, u8 *arg1, s32 arg2) {
     s32 var_r5;
     var_r5 = arg2;
     if ((var_r5 <= 0) || (var_r5 >= 0x258)) {

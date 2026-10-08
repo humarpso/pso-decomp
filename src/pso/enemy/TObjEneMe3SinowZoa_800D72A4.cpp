@@ -12,9 +12,9 @@ extern const float lbl_805DA348;
 s32 TObjEneMe3SinowZoa__sub_800D72D0(u8 *arg0);
 s32 advance_timer__18TObjEneMe3SinowZoaFPvf(u8 *arg0, f32 farg0);
 extern const f32 lbl_805DA34C;
-s32 TObjEneMe3SinowZoa__sub_800D7374(u8 *arg0);
+s32 advance_progress_check_done__18TObjEneMe3SinowZoaFPv(u8 *arg0);
 extern const float lbl_805DA348;
-s32 TObjEneMe3SinowZoa__sub_800D73C8(u8 *arg0);
+s32 update_timer_check_done__18TObjEneMe3SinowZoaFPv(u8 *arg0);
 extern const float lbl_805DA348;
 extern const f32 lbl_805DA34C;
 extern const float lbl_805DA350;
@@ -50,7 +50,7 @@ s32 advance_timer__18TObjEneMe3SinowZoaFPvf(u8 *arg0, f32 farg0) {
     return M2C_FIELD(arg0, f32 *, 0x18) >= farg0;
 }
 
-s32 TObjEneMe3SinowZoa__sub_800D7374(u8 *arg0) {
+s32 advance_progress_check_done__18TObjEneMe3SinowZoaFPv(u8 *arg0) {
     f32 temp_f1;
     temp_f1 = M2C_FIELD(arg0, f32 *, 0x18);
     M2C_FIELD(arg0, f32 *, 0x18) = (f32) (temp_f1 + M2C_FIELD(arg0, f32 *, 0x10));
@@ -58,7 +58,7 @@ s32 TObjEneMe3SinowZoa__sub_800D7374(u8 *arg0) {
     return M2C_FIELD(arg0, f32 *, 0x18) >= lbl_805DA34C;
 }
 
-s32 TObjEneMe3SinowZoa__sub_800D73C8(u8 *arg0) {
+s32 update_timer_check_done__18TObjEneMe3SinowZoaFPv(u8 *arg0) {
     f32 temp_f1;
     temp_f1 = M2C_FIELD(arg0, f32 *, 0x18);
     M2C_FIELD(arg0, f32 *, 0x18) = (f32) (temp_f1 - M2C_FIELD(arg0, f32 *, 0x10));

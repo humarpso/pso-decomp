@@ -39,12 +39,12 @@ extern "C" {
 u16 map_char_to_font_code(u16);
 u8 get_font_char_advance(u16);
 s32 measure_char_overflow__19TWindowKeyBoardSoftFPvUsPvPvPv(Field_80080D1C *f, u16 code, u32 *x, u32 *y, u32 *count);
-void TWindowKeyBoardSoft__sub_80080C64(Field_80080C64 *f, s32 pos, s32 n);
+void make_room_in_buffer__19TWindowKeyBoardSoftFPvii(Field_80080C64 *f, s32 pos, s32 n);
 extern u16 lbl_8048E020[];
-s32 TWindowKeyBoardSoft__sub_80080ABC(Field_80080ABC *f);
+s32 is_buffer_blank_checked__19TWindowKeyBoardSoftFPv(Field_80080ABC *f);
 void insert_char_slot__19TWindowKeyBoardSoftFPv(Field_80080CC0 *f);
-s32 TWindowKeyBoardSoft__sub_800809C0(Field_800809C0 *f);
-s32 TWindowKeyBoardSoft__sub_80080ABC(Field_80080ABC *f);
+s32 is_buffer_blank__19TWindowKeyBoardSoftFPv(Field_800809C0 *f);
+s32 is_buffer_blank_checked__19TWindowKeyBoardSoftFPv(Field_80080ABC *f);
 void insert_char_slot__19TWindowKeyBoardSoftFPv(Field_80080CC0 *f);
 s32 TWindowKeyBoardSoft__sub_80080F68(F_80080F68 *arg0, u16 arg1);
 void TWindowKeyBoardSoft__sub_800808FC(Kb_800808FC *kb, u16 ch);
@@ -132,7 +132,7 @@ void TWindowKeyBoardSoft__sub_800808FC(Kb_800808FC *kb, u16 ch) {
         }
         break;
     case 0x814B:
-        if (TWindowKeyBoardSoft__sub_80080ABC((Field_80080ABC *)kb) != 0) {
+        if (is_buffer_blank_checked__19TWindowKeyBoardSoftFPv((Field_80080ABC *)kb) != 0) {
             return;
         }
         break;
@@ -147,7 +147,7 @@ void TWindowKeyBoardSoft__sub_800808FC(Kb_800808FC *kb, u16 ch) {
     }
 }
 
-s32 TWindowKeyBoardSoft__sub_800809C0(Field_800809C0 *f) {
+s32 is_buffer_blank__19TWindowKeyBoardSoftFPv(Field_800809C0 *f) {
     u16 *p;
     if (f->buffer == NULL) {
         return 1;
@@ -190,7 +190,7 @@ s32 apply_dakuten_to_last_char__19TWindowKeyBoardSoftFPv(F_80080A08 *arg0) {
     return 0;
 }
 
-s32 TWindowKeyBoardSoft__sub_80080ABC(Field_80080ABC *f) {
+s32 is_buffer_blank_checked__19TWindowKeyBoardSoftFPv(Field_80080ABC *f) {
     u16 *last;
     u16 c;
     s32 i;
@@ -272,7 +272,7 @@ void delete_char__19TWindowKeyBoardSoftFPv(u8 *arg0) {
     }
 }
 
-void TWindowKeyBoardSoft__sub_80080C64(Field_80080C64 *f, s32 pos, s32 n) {
+void make_room_in_buffer__19TWindowKeyBoardSoftFPvii(Field_80080C64 *f, s32 pos, s32 n) {
     u32 len;
     u16 *p;
     u16 *q;

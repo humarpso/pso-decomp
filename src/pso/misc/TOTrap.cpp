@@ -219,7 +219,7 @@ s32 get_player_by_client_id(u32);
 extern const f32 TOTrap__data_805DBA3C;
 f32 set_triggered_state__6TOTrapFPvUi(u8 *arg0, u32 arg1);
 M2C_UNK submit_cursor_candidate(void *, M2C_UNK);
-void TOTrap__sub_80178DCC(u8 *arg0);
+void submit_cursor_and_notify__6TOTrapFPv(u8 *arg0);
 extern u32 lbl_80442CD0[];
 extern s32 lbl_805D5550;
 f32 TOTrap__sub_80178B78(f32 farg0);
@@ -346,7 +346,7 @@ void TOTrap__vt79(Obj_80178CF8 *self) {
     }
 }
 
-void TOTrap__sub_80178DCC(u8 *arg0) {
+void submit_cursor_and_notify__6TOTrapFPv(u8 *arg0) {
     submit_cursor_candidate((void *)((void *) (arg0)), (M2C_UNK)((int) (-1)));
     ((VObj_18_f90cfc *)(arg0))->m77();
 }

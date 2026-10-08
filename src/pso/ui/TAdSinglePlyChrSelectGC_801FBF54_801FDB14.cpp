@@ -137,8 +137,8 @@ s32 copy_character_to_slot__23TAdSinglePlyChrSelectGCFUiiUii(u32 arg0, s32 arg1,
 void* copy_item_data__23TAdSinglePlyChrSelectGCFPvPv(void* p, void* a1);
 void *TAdSinglePlyChrSelectGC__sub_80076D9C(void *, void *);
 S_801FE010 *assign_char_data__23TAdSinglePlyChrSelectGCFPvPv(S_801FE010 *arg0, S_801FE010 *arg1);
-s32 TAdSinglePlyChrSelectGC__sub_801FDDAC(E_801FDDAC *arg0, s32 arg1, E_801FDDAC *arg2, s32 arg3);
-s32 TAdSinglePlyChrSelectGC__sub_801FDE14(E_801FDE14 *arg0, s32 arg1, E_801FDE14 *arg2, s32 arg3);
+s32 check_slot_swap_allowed__23TAdSinglePlyChrSelectGCFPviPvi(E_801FDDAC *arg0, s32 arg1, E_801FDDAC *arg2, s32 arg3);
+s32 is_same_slot_entry__23TAdSinglePlyChrSelectGCFPviPvi(E_801FDE14 *arg0, s32 arg1, E_801FDE14 *arg2, s32 arg3);
 void copy_player_data__9TProtocolFPvPv();
 S_801FE010 *assign_char_data__23TAdSinglePlyChrSelectGCFPvPv(S_801FE010 *arg0, S_801FE010 *arg1);
 void *copy_char_slot_data__23TAdSinglePlyChrSelectGCFPvPv(void *a0, void *a1);
@@ -237,7 +237,7 @@ s32 try_move_char__23TAdSinglePlyChrSelectGCFii(s32 arg0, s32 arg1) {
     return 0;
 }
 
-s32 TAdSinglePlyChrSelectGC__sub_801FDDAC(E_801FDDAC *arg0, s32 arg1, E_801FDDAC *arg2, s32 arg3) {
+s32 check_slot_swap_allowed__23TAdSinglePlyChrSelectGCFPviPvi(E_801FDDAC *arg0, s32 arg1, E_801FDDAC *arg2, s32 arg3) {
     E_801FDDAC *e;
     if (arg1 < 4) {
         return 0;
@@ -255,7 +255,7 @@ s32 TAdSinglePlyChrSelectGC__sub_801FDDAC(E_801FDDAC *arg0, s32 arg1, E_801FDDAC
     return (u32)__cntlzw(e->f2790) >> 5;
 }
 
-s32 TAdSinglePlyChrSelectGC__sub_801FDE14(E_801FDE14 *arg0, s32 arg1, E_801FDE14 *arg2, s32 arg3) {
+s32 is_same_slot_entry__23TAdSinglePlyChrSelectGCFPviPvi(E_801FDE14 *arg0, s32 arg1, E_801FDE14 *arg2, s32 arg3) {
     E_801FDE14 *b;
     E_801FDE14 *a;
     u32 vb;
@@ -286,10 +286,10 @@ s32 TAdSinglePlyChrSelectGC__sub_801FDE14(E_801FDE14 *arg0, s32 arg1, E_801FDE14
 
 s32 check_page_cross__23TAdSinglePlyChrSelectGCFiiii(s32 arg1, s32 arg2, s32 arg3, s32 arg4) {
     if ((arg2 >= 4) && (arg4 <= 3)) {
-        return TAdSinglePlyChrSelectGC__sub_801FDDAC((E_801FDDAC *)(arg1), (s32)(arg2), (E_801FDDAC *)(arg3), (s32)(arg4));
+        return check_slot_swap_allowed__23TAdSinglePlyChrSelectGCFPviPvi((E_801FDDAC *)(arg1), (s32)(arg2), (E_801FDDAC *)(arg3), (s32)(arg4));
     }
     if ((arg2 <= 3) && (arg4 >= 4)) {
-        return TAdSinglePlyChrSelectGC__sub_801FDE14((E_801FDE14 *)(arg1), (s32)(arg2), (E_801FDE14 *)(arg3), (s32)(arg4));
+        return is_same_slot_entry__23TAdSinglePlyChrSelectGCFPviPvi((E_801FDE14 *)(arg1), (s32)(arg2), (E_801FDE14 *)(arg3), (s32)(arg4));
     }
     return 0;
 }

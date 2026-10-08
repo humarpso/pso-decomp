@@ -1,12 +1,12 @@
 #include "types.h"
 extern "C" {
 u32 create_shoot_model__10TObjPlayerFUiiif();
-long TObjPlayer__sub_80121E94(u8 *arg0);
+long init_shoot_model_flags__10TObjPlayerFPv(u8 *arg0);
 }
 
 extern "C" {
 
-long TObjPlayer__sub_80121E94(u8 *arg0) {
+long init_shoot_model_flags__10TObjPlayerFPv(u8 *arg0) {
   s32 temp_r4;
   u8 *temp_r6;
   if (create_shoot_model__10TObjPlayerFUiiif() != 0U)

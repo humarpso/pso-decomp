@@ -47,7 +47,7 @@ M2C_UNK init_window_layout_entries(void *, void *, int);
 extern RecoveredGlobal_80341F9C_TWindowDD__data_804EFC50 TWindowDD__data_804EFC50;
 void init_layout_entries__9TWindowDDFPv(u8 *arg0);
 extern const f32 TWindowDD__data_805DFB20;
-void TWindowDD__sub_803421D0(u8 *arg0, u8 *arg1);
+void get_cursor_pos__9TWindowDDFPvPv(u8 *arg0, u8 *arg1);
 s16 *alloc_buffer__11TOBoss4RockFPv(int);
 s32 get_array_entry__20TWindowSubStatusDispFPvi(void * a0, s32 a1);
 int refresh_status_display__9TWindowDDFv(void *);
@@ -266,7 +266,7 @@ s32 update_if_field28_set__9TWindowDDFPv(void *arg0) {
 
 #pragma push
 #pragma fp_contract on
-void TWindowDD__sub_803421D0(u8 *arg0, u8 *arg1) {
+void get_cursor_pos__9TWindowDDFPvPv(u8 *arg0, u8 *arg1) {
     M2C_FIELD(arg1, f32 *, 0) = (f32) M2C_FIELD(arg0, f32 *, 0x40);
     M2C_FIELD(arg1, f32 *, 4) = (f32) (((f32) M2C_FIELD(arg0, s32 *, 0x6C) * TWindowDD__data_805DFB20) + M2C_FIELD(arg0, f32 *, 0x44));
 }

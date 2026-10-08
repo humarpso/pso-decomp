@@ -13,7 +13,7 @@ extern const f32 lbl_805D995C;
 s32 TObjPlayer__sub_800A0360(u8 *arg0);
 M2C_UNK calc_recoil_offsets__10TObjPlayerFPv(f32);
 extern const f32 lbl_805D9958;
-s32 TObjPlayer__sub_800A03B4(u8 *arg0);
+s32 update_recoil_offset__10TObjPlayerFPv(u8 *arg0);
 }
 
 extern "C" {
@@ -34,7 +34,7 @@ s32 TObjPlayer__sub_800A0360(u8 *arg0) {
     calc_recoil_offsets__10TObjPlayerFPv((f32) (temp_f1));
     return M2C_FIELD(arg0, f32 *, 0x18) >= lbl_805D995C;
 }
-s32 TObjPlayer__sub_800A03B4(u8 *arg0) {
+s32 update_recoil_offset__10TObjPlayerFPv(u8 *arg0) {
     f32 temp_f1;
     temp_f1 = M2C_FIELD(arg0, f32 *, 0x18);
     M2C_FIELD(arg0, f32 *, 0x18) = (f32) (temp_f1 - M2C_FIELD(arg0, f32 *, 0x10));

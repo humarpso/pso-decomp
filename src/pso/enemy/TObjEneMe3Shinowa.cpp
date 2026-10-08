@@ -2326,7 +2326,7 @@ M2C_UNK trigger_dell_biter_events__10TObjPlayerFPv(void *);
 u32 lookup_entry_by_value__10TObjPlayerFPvf(void *, f32);
 void update_mirage__23TObjEneMe3ShinowaMirageFPv(void* p);
 void draw_model__23TObjEneMe3ShinowaMirageFPv(u8 *arg0);
-void TObjEneMe3ShinowaMirage__sub_800E4D7C(void);
+void advance_camera_ctrl_step__23TObjEneMe3ShinowaMirageFv(void);
 void TObjEneMe3ShinowaMirage__sub_800E4DC4(void);
 void TObjEneMe3ShinowaMirage__sub_800E4DC8(void);
 void TObjEneMe3ShinowaMirage__sub_800E4DCC(void);
@@ -2358,7 +2358,7 @@ void TObjEneMe3Shinowa__sub_800E7250(u8 *arg0);
 void TObjEneMe3Shinowa__sub_800E7268(u8 *arg0);
 void TObjEneMe3Shinowa__vt105(void);
 u8 can_hit_same_target__23TObjEneMe3ShinowaMirageFPv(E_800E728C *arg0);
-void TObjEneMe3ShinowaMirage__sub_800E7324(u8 *arg0);
+void update_player_state_default__23TObjEneMe3ShinowaMirageFPv(u8 *arg0);
 void TObjEneMe3ShinowaMirage__sub_800E7378(u8 *arg0);
 s32 check_in_range__23TObjEneMe3ShinowaMirageFPv(void *arg0);
 u8 check_body_collision_at__23TObjEneMe3ShinowaMirageFPvif(Obj_800E750C *arg0, s32 arg1, f32 farg0);
@@ -2920,7 +2920,7 @@ void draw_model__23TObjEneMe3ShinowaMirageFPv(u8 *arg0) {
             translate_matrix((int) (0), (f32) (TObjEneMe3ShinowaMirage__data_805DA5B8), (f32) (M2C_FIELD(arg0, f32 *, 0x3CC)), (f32) (TObjEneMe3ShinowaMirage__data_805DA5B8));
             rotate_matrix_y((int) (0), (int) (M2C_FIELD(arg0, s32 *, 0x60)));
             lbl_805D529C = 0;
-            set_global_state__16TObjEneRe7BeruraFi((void *) (TObjEneMe3ShinowaMirage__sub_800E4D7C));
+            set_global_state__16TObjEneRe7BeruraFi((void *) (advance_camera_ctrl_step__23TObjEneMe3ShinowaMirageFv));
             if (var_r31 == 1) {
                 draw__16TObjEneRe7BeruraFPv((void *) (arg0));
             } else {
@@ -2939,7 +2939,7 @@ void draw_model__23TObjEneMe3ShinowaMirageFPv(u8 *arg0) {
     end_effect_render__13TParticleCtrlFv();
 }
 
-void TObjEneMe3ShinowaMirage__sub_800E4D7C(void) {
+void advance_camera_ctrl_step__23TObjEneMe3ShinowaMirageFv(void) {
     if ((s32) lbl_805D529C == 1) {
         get_camera_ctrl__9TObjEneDDFPv((s32) &TObjEneMe3ShinowaMirage__data_80500FC0.value, (s32) &lbl_80500FF4.value);
     }
@@ -4078,7 +4078,7 @@ extern int fold_flush_2;
 
 #pragma push
 #pragma fp_contract on
-void TObjEneMe3ShinowaMirage__sub_800E7324(u8 *arg0) {
+void update_player_state_default__23TObjEneMe3ShinowaMirageFPv(u8 *arg0) {
     typedef char sp8_offset[(offsetof(Stack_800E7324, sp8) == 0x0) ? 1 : -1];
     typedef char spC_offset[(offsetof(Stack_800E7324, spC) == 0x4) ? 1 : -1];
     typedef char sp10_offset[(offsetof(Stack_800E7324, sp10) == 0x8) ? 1 : -1];

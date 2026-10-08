@@ -69,7 +69,7 @@ s32 is_mode_two_and_ready__10TObjPlayerFPv(void *);
 void launch_rare_weapon_special__10TObjPlayerFv(void *, s32, s32, f32);
 void draw_icon__10TObjPlayerFPvii(void *, s32, void *);
 void fire_shoot_particle__10TObjPlayerFPviif();
-void TObjPlayer__sub_80121E94();
+void init_shoot_model_flags__10TObjPlayerFPv();
 void TObjPlayer__sub_80122014();
 extern const f32 lbl_805DACD0;
 void TObjPlayer__sub_80121CB8(Self_80121CB8 *self);
@@ -85,7 +85,7 @@ void TObjPlayer__sub_80121CB8(Self_80121CB8 *self) {
         spawn_item_timer__13TItemAttackerFiii(self, (void *)TObjPlayer__sub_80122014, 0x1E);
         launch_rare_weapon_special__10TObjPlayerFv(self, 0, 1, lbl_805DACD0);
     } else {
-        self->fn1f0 = (void *)TObjPlayer__sub_80121E94;
+        self->fn1f0 = (void *)init_shoot_model_flags__10TObjPlayerFPv;
         self->f1f8 = 0;
         spawn_item_timer__13TItemAttackerFiii(self, (void *)TObjPlayer__sub_80122014, 0x1E);
         draw_icon__10TObjPlayerFPvii(self, 1, &v);

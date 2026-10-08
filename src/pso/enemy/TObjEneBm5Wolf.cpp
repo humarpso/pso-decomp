@@ -24,8 +24,8 @@ struct Globals_800B8A40 {
 };
 
 extern "C" {
-void TObjEneBm5Wolf__sub_800B896C(u8 *arg0, void **arg1, void **arg2);
-void TObjEneBm5Wolf__sub_800B89A4(u8 *arg0, void ***arg1, void **arg2);
+void push_list_node__14TObjEneBm5WolfFPvPvPv(u8 *arg0, void **arg1, void **arg2);
+void unlink_list_node__14TObjEneBm5WolfFPvPvPv(u8 *arg0, void ***arg1, void **arg2);
 f32 calc_boss4_scale__10TObjPlayerFi(s32);
 s32 actor_rand_int(s32 arg0, s32 arg1);
 void TObjEneBm5Wolf__sub_800B8A24(O_800B8A24 *self);
@@ -121,8 +121,8 @@ void load_resources__14TObjEneBm5WolfFv(void) {
     }
 }
 
-void update__14TObjEneBm5WolfFPvPv(void* p, void* a1) { TObjEneBm5Wolf__sub_800B89A4((u8 *)((void*)(a1)), (void ***)((void*)(p)), (void **)((void*)((char*)p + 0x4))); }
-void apply_to_position__14TObjEneBm5WolfFPvPv(void* p, void* a1) { TObjEneBm5Wolf__sub_800B896C((u8 *)((void*)(a1)), (void **)((void*)(p)), (void **)((void*)((char*)p + 0x4))); }
+void update__14TObjEneBm5WolfFPvPv(void* p, void* a1) { unlink_list_node__14TObjEneBm5WolfFPvPvPv((u8 *)((void*)(a1)), (void ***)((void*)(p)), (void **)((void*)((char*)p + 0x4))); }
+void apply_to_position__14TObjEneBm5WolfFPvPv(void* p, void* a1) { push_list_node__14TObjEneBm5WolfFPvPvPv((u8 *)((void*)(a1)), (void **)((void*)(p)), (void **)((void*)((char*)p + 0x4))); }
 void reset_fields__14TObjEneBm5WolfFPv(void* p) { *(s32*)((char*)p + 0x0) = 0; *(s32*)((char*)p + 0x4) = 0; }
 s32 __dt__14TObjEneBm5WolfFis(s32 arg0, s16 arg1) {
     if ((arg0 != 0) && (arg1 > 0)) {
@@ -138,7 +138,7 @@ void set_field8_from_obj__14TObjEneBm5WolfFPvi(void *arg0, s32 arg1) {
     M2C_FIELD(arg0, s16 *, 8) = obj_getField1c(arg1);
 }
 
-void TObjEneBm5Wolf__sub_800B896C(u8 *arg0, void **arg1, void **arg2) {
+void push_list_node__14TObjEneBm5WolfFPvPvPv(u8 *arg0, void **arg1, void **arg2) {
     u8 *temp_r0;
     temp_r0 = (u8 *)(*arg2);
     if (temp_r0 != NULL) {
@@ -152,7 +152,7 @@ void TObjEneBm5Wolf__sub_800B896C(u8 *arg0, void **arg1, void **arg2) {
     M2C_FIELD(arg0, s32 *, 4) = 0;
 }
 
-void TObjEneBm5Wolf__sub_800B89A4(u8 *arg0, void ***arg1, void **arg2) {
+void unlink_list_node__14TObjEneBm5WolfFPvPvPv(u8 *arg0, void ***arg1, void **arg2) {
     void **temp_r4;
     u8 *temp_r6;
     temp_r6 = M2C_FIELD(arg0, u8 **, 0);

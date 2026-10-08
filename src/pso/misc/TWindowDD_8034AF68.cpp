@@ -27,7 +27,7 @@ s32 TWindowDD__sub_8034B008(s32 arg0, s32 arg1);
 extern G_8034AF68 lbl_804F0070;
 extern H_8034AF68 *TWindowDD__ws_data_base;
 extern H_8034AF68 *TWindowDD__ws_data_table;
-void TWindowDD__sub_8034AF68(void);
+void init_ws_data_tables__9TWindowDDFv(void);
 extern Ent_8034B050 lbl_804F0040[4];
 extern s32 TWindowDD__data_805D6E08;
 extern s8 lbl_805D6E90;
@@ -42,7 +42,7 @@ extern "C" {
 
 typedef char RecoveredGlobal_8034B008_lbl_80478B78_size[sizeof(RecoveredGlobal_8034B008_lbl_80478B78) == 0x30 ? 1 : -1];
 
-void TWindowDD__sub_8034AF68(void) {
+void init_ws_data_tables__9TWindowDDFv(void) {
     H_8034AF68 *a = TWindowDD__ws_data_base;
     H_8034AF68 *b;
     s32 i;

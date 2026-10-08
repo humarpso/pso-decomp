@@ -21,13 +21,13 @@ extern "C" {
 extern const f32 lbl_805DCA04;
 extern const f32 lbl_805DCA08;
 extern f32 lbl_805DCA0C;
-f32 TAdSinglePlyChrSelectGC__sub_80242AC0(s16 *arg0);
+f32 calc_rumble_intensity__23TAdSinglePlyChrSelectGCFPv(s16 *arg0);
 extern const f32 lbl_805DCA04;
 extern const f32 lbl_805DCA08;
 extern f32 lbl_805DCA0C;
-f32 TAdSinglePlyChrSelectGC__sub_80242A60(s16 *arg0);
-f32 TAdSinglePlyChrSelectGC__sub_80242A60(s16 *arg0);
-f32 TAdSinglePlyChrSelectGC__sub_80242AC0(s16 *arg0);
+f32 calc_rumble_strength__23TAdSinglePlyChrSelectGCFPv(s16 *arg0);
+f32 calc_rumble_strength__23TAdSinglePlyChrSelectGCFPv(s16 *arg0);
+f32 calc_rumble_intensity__23TAdSinglePlyChrSelectGCFPv(s16 *arg0);
 extern const f32 lbl_805DCA04;
 extern const f32 lbl_805DCA08;
 s32 update_rumble_pattern__23TAdSinglePlyChrSelectGCFPvPv(Anim_80242B30 *o, s16 *arg1);
@@ -101,7 +101,7 @@ void accumulate_rumble_strength__23TAdSinglePlyChrSelectGCFPvi(s16 *arg0, s32 ar
 }
 #pragma pop
 
-f32 TAdSinglePlyChrSelectGC__sub_80242A60(s16 *arg0) {
+f32 calc_rumble_strength__23TAdSinglePlyChrSelectGCFPv(s16 *arg0) {
   float new_var;
   s16 temp_r3;
   temp_r3 = *arg0;
@@ -117,7 +117,7 @@ f32 TAdSinglePlyChrSelectGC__sub_80242A60(s16 *arg0) {
   return new_var * (*(const f32 *)&lbl_805DCA0C);
 }
 
-f32 TAdSinglePlyChrSelectGC__sub_80242AC0(s16 *arg0) {
+f32 calc_rumble_intensity__23TAdSinglePlyChrSelectGCFPv(s16 *arg0) {
   s16 temp_r0;
   float new_var;
   temp_r0 = *arg0;
@@ -143,7 +143,7 @@ s32 update_rumble_pattern__23TAdSinglePlyChrSelectGCFPvPv(Anim_80242B30 *o, s16 
     }
     switch (o->state) {
     case 1:
-        o->a += TAdSinglePlyChrSelectGC__sub_80242AC0(arg1);
+        o->a += calc_rumble_intensity__23TAdSinglePlyChrSelectGCFPv(arg1);
         if (o->a >= lbl_805DCA08) {
             o->state = 2;
             o->a -= lbl_805DCA08;
@@ -153,7 +153,7 @@ s32 update_rumble_pattern__23TAdSinglePlyChrSelectGCFPvPv(Anim_80242B30 *o, s16 
     case 0:
     case 2:
     case 3:
-        o->b += TAdSinglePlyChrSelectGC__sub_80242A60(arg1);
+        o->b += calc_rumble_strength__23TAdSinglePlyChrSelectGCFPv(arg1);
         if (o->b >= lbl_805DCA08) {
             o->state = 1;
             o->b -= lbl_805DCA08;

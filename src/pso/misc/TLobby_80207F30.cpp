@@ -25,7 +25,7 @@ typedef void (*Fn_80208020)();
 struct E_80208020 { Fn_80208020 fn; u32 b; };
 s32 is_area_transfer_pending();
 extern E_80208020 *lbl_804BB118[];
-void TLobby__sub_80207F80(s32 arg0);
+void run_floor_cleanup_callbacks__6TLobbyFi(s32 arg0);
 s32 TLobby__sub_80208020(s32 arg0);
 s32 bswap_16__FPUs(s32);
 s32 bswap_32__FPUl(s32);
@@ -43,7 +43,7 @@ int TLobby__sub_80207F30(R_80207F30 *arg0) {
     return r;
 }
 
-void TLobby__sub_80207F80(s32 arg0) {
+void run_floor_cleanup_callbacks__6TLobbyFi(s32 arg0) {
     E_80207F80 *p = (E_80207F80 *)lbl_804BB118[arg0];
     s32 n;
     s32 i;
@@ -59,7 +59,7 @@ void TLobby__sub_80207F80(s32 arg0) {
     }
 }
 
-void update_current_floor__6TLobbyFv(void) { get_global_state__14TOKeyMachine01Fv(); ((void (*)(void))TLobby__sub_80207F80)(); }
+void update_current_floor__6TLobbyFv(void) { get_global_state__14TOKeyMachine01Fv(); ((void (*)(void))run_floor_cleanup_callbacks__6TLobbyFi)(); }
 s32 TLobby__sub_80208020(s32 arg0) {
     E_80208020 *p = lbl_804BB118[arg0];
     Fn_80208020 f;

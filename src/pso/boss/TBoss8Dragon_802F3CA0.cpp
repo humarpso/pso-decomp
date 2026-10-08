@@ -65,7 +65,7 @@ extern const f32 TBoss8Dragon__data_805DED60;
 void draw_motion_model__12TBoss8DragonFPv(u8 *arg0);
 f32 receive_direct_attack__10TObjPlayerFv(void *, void *, Pair_802F3D18 *, s32, s32, s32);
 extern const f32 TBoss8Dragon__data_805DED50;
-f32 TBoss8Dragon__sub_802F3D18(void *a, void *b, Pair_802F3D18 *p, s32 x, s32 y, s32 z);
+f32 calc_direct_attack_damage__12TBoss8DragonFPvPvPviii(void *a, void *b, Pair_802F3D18 *p, s32 x, s32 y, s32 z);
 }
 
 extern "C" {
@@ -93,7 +93,7 @@ void set_mode_params__12TBoss8DragonFPvc(u8 *arg0, s8 arg1) {
     }
 }
 
-f32 TBoss8Dragon__sub_802F3D18(void *a, void *b, Pair_802F3D18 *p, s32 x, s32 y, s32 z) {
+f32 calc_direct_attack_damage__12TBoss8DragonFPvPvPviii(void *a, void *b, Pair_802F3D18 *p, s32 x, s32 y, s32 z) {
     switch (p->a) {
     case 0xB:
     case 0xC:

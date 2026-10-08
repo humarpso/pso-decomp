@@ -9,7 +9,7 @@ M2C_UNK queue_destruction__7TObjectFv();
 extern u32 TBoss3Volopt__fade_active_flag;
 extern const f32 lbl_805D8850;
 extern const f32 lbl_805D8858;
-void TBoss3Volopt__sub_80048AA0(u8 *arg0);
+void update_fade_out__12TBoss3VoloptFPv(u8 *arg0);
 }
 
 extern "C" {
@@ -71,7 +71,7 @@ extern M2C_UNK lbl_804848B8[];
 
 #pragma push
 #pragma opt_common_subs off
-void TBoss3Volopt__sub_80048AA0(u8 *arg0) {
+void update_fade_out__12TBoss3VoloptFPv(u8 *arg0) {
     M2C_UNK (*temp_r12)();
     M2C_FIELD(arg0, f32 *, 0x1C) = (f32) (M2C_FIELD(arg0, f32 *, 0x1C) + lbl_805D8850);
     if (M2C_FIELD(arg0, f32 *, 0x1C) >= lbl_805D8858) {

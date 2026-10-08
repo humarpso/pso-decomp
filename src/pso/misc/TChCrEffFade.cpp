@@ -14,7 +14,7 @@ void run_task__12TChCrEffFadeFv(void *arg0);
 void update_fade__12TChCrEffFadeFPv(u8 *arg0);
 M2C_UNK TCameraCtrl__sub_80068EF0();
 M2C_UNK restore_full_screen_view__11TCameraCtrlFv();
-M2C_UNK TChCrEffFade__sub_80293F98(void *, f32);
+M2C_UNK draw_fade_strip__12TChCrEffFadeFf(void *, f32);
 M2C_UNK __ct__7TObjectFP7TObject(s32, s32);
 M2C_UNK fn_80293E58(void *, f32);
 M2C_UNK queue_destruction__7TObjectFv(void *);
@@ -27,12 +27,12 @@ void render__12TChCrEffFadeFv(void *arg0) {
     temp_r0 = M2C_FIELD(arg0, s32 *, 0x2C);
     switch (temp_r0) {
     case 0:
-        TChCrEffFade__sub_80293F98(arg0, M2C_FIELD(arg0, f32 *, 0x28));
+        draw_fade_strip__12TChCrEffFadeFf(arg0, M2C_FIELD(arg0, f32 *, 0x28));
         break;
     case 1:
         fn_80293E58(arg0, M2C_FIELD(arg0, f32 *, 0x28));
         temp_f0 = M2C_FIELD(arg0, f32 *, 0x28);
-        TChCrEffFade__sub_80293F98(arg0, temp_f0 * temp_f0);
+        draw_fade_strip__12TChCrEffFadeFf(arg0, temp_f0 * temp_f0);
         break;
     }
     TCameraCtrl__sub_80068EF0();

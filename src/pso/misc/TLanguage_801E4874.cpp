@@ -20,7 +20,7 @@ extern "C" {
 extern s32 lbl_805D5E58;
 s32 TLanguage__sub_801E4B40(void);
 extern s32 lbl_805D5E58;
-s32 TLanguage__sub_801E4AF0(void);
+s32 read_u32_le__9TLanguageFv(void);
 void tmp_buf_release__6TLobbyFi(void *);
 u32 tmp_buf_use_req__6TLobbyFPv(void *);
 void safe_free__23TAdSinglePlyChrSelectGCFUi(u32);
@@ -127,7 +127,7 @@ u8 *load_gvm_texture_file(s32 arg0) {
 u16 read_file_header__9TLanguageFiPv(s32 arg0, u8 *arg1) {
     lbl_805D5E58 = arg0;
     read_into_buffer__9TLanguageFii((s32)((s32)(arg1)), (s32)((s32)(4)));
-    M2C_FIELD(arg1, s32 *, 4) = TLanguage__sub_801E4AF0();
+    M2C_FIELD(arg1, s32 *, 4) = read_u32_le__9TLanguageFv();
     M2C_FIELD(arg1, u16 *, 8) = TLanguage__sub_801E4B40();
     M2C_FIELD(arg1, u16 *, 0xA) = TLanguage__sub_801E4B40();
     bswap_32__FPUl(arg1 + 4);
@@ -143,7 +143,7 @@ void read_into_buffer__9TLanguageFii(s32 arg0, s32 arg1) {
     lbl_805D5E58 += arg1;
 }
 
-s32 TLanguage__sub_801E4AF0(void) {
+s32 read_u32_le__9TLanguageFv(void) {
     s32 v = *(u8 *)lbl_805D5E58++;
     v |= *(u8 *)lbl_805D5E58++ << 8;
     v |= *(u8 *)lbl_805D5E58++ << 16;

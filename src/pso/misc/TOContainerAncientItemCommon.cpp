@@ -130,7 +130,7 @@ s32 get_game_play_mode();
 extern s32 enable_v2_features;
 s32 create__28TOContainerAncientItemCommonFi(s32 arg0);
 void submit_cursor_candidate(Obj_8015C48C *self, s32 x);
-void TObjPlayer__sub_8015C48C(Obj_8015C48C *self);
+void submit_cursor_candidate_if_idle__10TObjPlayerFPv(Obj_8015C48C *self);
 s32 TObjFish__sub_8001EDB0(void *, s32);
 s32 get_bml_model(void *, s32);
 s32 check_value_equals__13TQuestColCtrlFPvi(void *, s32);
@@ -309,7 +309,7 @@ void TObjPlayer__sub_8015C3C8(u8 *arg0) {
         }
     }
 }
-void TObjPlayer__sub_8015C48C(Obj_8015C48C *self) {
+void submit_cursor_candidate_if_idle__10TObjPlayerFPv(Obj_8015C48C *self) {
     switch (self->a326) {
     case 0:
         if (self->a364 != 0) {

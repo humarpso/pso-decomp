@@ -410,14 +410,14 @@ struct VObj_8035EA90 : VBase_8035EA90 {
 extern "C" {
 s32 TObjEneEpsilonGuard__sub_8035DD74(u8 *arg0);
 s32 TObjEneEpsilonGuard__sub_8035DD94(u8 *arg0);
-void TObjEneEpsilonGuard__sub_8035DE48(u8 *arg0);
+void clear_and_flag_state__19TObjEneEpsilonGuardFPv(u8 *arg0);
 void TObjEneEpsilonGuard__sub_8035DE88(u8 *arg0);
 void TObjEneEpsilonGuard__sub_8035DEC0(u8 *arg0);
 void get_camera_ctrl__9TObjEneDDFPv(s32, s32);
 extern RecoveredGlobal_8035E374_lbl_805439E0 lbl_805439E0;
 extern s32 lbl_805D6F78;
 extern s32 lbl_805D6F7C;
-void TObjEneEpsilonGuard__sub_8035E374(void);
+void advance_camera_ctrl_step__19TObjEneEpsilonGuardFv(void);
 s32 check_demo_mode__10TObjPlayerFv();
 s32 is_main_phase_15__9TObjEneDDFv();
 M2C_UNK update_player_state__9TObjEneDDFPv(void *, int, int);
@@ -463,7 +463,7 @@ M2C_UNK pop_matrix();
 M2C_UNK post_translate_matrix(void *);
 M2C_UNK set_global_param__8TObjFishFi(int);
 M2C_UNK set_global_state__16TObjEneRe7BeruraFi(void *);
-void TObjEneEpsilonGuard__sub_8035E374(void);
+void advance_camera_ctrl_step__19TObjEneEpsilonGuardFv(void);
 extern M2C_UNK main_task[];
 extern s32 lbl_805D5660;
 extern s32 lbl_805D5664;
@@ -627,7 +627,7 @@ s32 is_guard_ready__19TObjEneEpsilonGuardFPv(O_8035DE08 *self) {
     return (self->f46c & 4) ? 1 : 0;
 }
 
-void TObjEneEpsilonGuard__sub_8035DE48(u8 *arg0) {
+void clear_and_flag_state__19TObjEneEpsilonGuardFPv(u8 *arg0) {
     M2C_FIELD(arg0, s32 *, 0x44C) = 0;
     M2C_FIELD(arg0, s32 *, 0x46C) = (s32) (M2C_FIELD(arg0, s32 *, 0x46C) | 0x20);
     ((VObj_18 *)(arg0))->m53();
@@ -723,7 +723,7 @@ void render_with_fade__19TObjEneEpsilonGuardFPvi(u8 *arg0, s32 arg1) {
     M2C_FIELD(arg0, f32 *, 0x460) = TObjEneEpsilonGuard__data_805E01D8;
     M2C_FIELD(arg0, f32 *, 0x464) = TObjEneEpsilonGuard__data_805E01D8;
     M2C_FIELD(arg0, f32 *, 0x468) = TObjEneEpsilonGuard__data_805E01D8;
-    set_global_state__16TObjEneRe7BeruraFi((void *)TObjEneEpsilonGuard__sub_8035E374);
+    set_global_state__16TObjEneRe7BeruraFi((void *)advance_camera_ctrl_step__19TObjEneEpsilonGuardFv);
     toggle_particle_effect__10TObjPlayerFv();
     if (arg1 == 1) {
         draw__16TObjEneRe7BeruraFPv(arg0);
@@ -774,7 +774,7 @@ void render__19TObjEneEpsilonGuardFv(u8 *arg0) {
 }
 #pragma pop
 
-void TObjEneEpsilonGuard__sub_8035E374(void) {
+void advance_camera_ctrl_step__19TObjEneEpsilonGuardFv(void) {
     if ((s32) lbl_805D6F78 == 0) {
         get_camera_ctrl__9TObjEneDDFPv((s32) &lbl_805439E0.value, lbl_805D6F7C);
     }

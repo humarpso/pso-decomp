@@ -59,7 +59,7 @@ extern s8 TLobby__data_805D688B;
 void send_modify_trade_proposal__6TLobbyFi(s32 arg0);
 void send_cancel_trade__9TProtocolFv(void *self);
 extern void *TLobby__data_805D5580;
-void TLobby__sub_802D33C0(O_802D33C0 *self);
+void handle_trade_state_cancel__6TLobbyFPv(O_802D33C0 *self);
 s32 update_sub_status_disp__6TLobbyFi(s32 arg0);
 void reset__6TLobbyFi(s32 arg0);
 void TLobby__sub_802D3384(O_802D3384 *self);
@@ -244,7 +244,7 @@ void TLobby__sub_802D3384(O_802D3384 *self) {
     }
 }
 
-void TLobby__sub_802D33C0(O_802D33C0 *self) {
+void handle_trade_state_cancel__6TLobbyFPv(O_802D33C0 *self) {
     switch (self->state) {
     case 3:
         break;

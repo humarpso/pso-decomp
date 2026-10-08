@@ -176,7 +176,7 @@ void bind_motion_blend_channels(u8 *arg0, f32 farg0);
 extern RecoveredGlobal_803D662C_lbl_8058D4D0 lbl_8058D4D0;
 extern const f32 lbl_805E0E00;
 extern const f32 lbl_805E0E04;
-void TCameraCtrl__sub_803D662C(f32 farg0, f32 farg1);
+void set_clamped_offsets__11TCameraCtrlFff(f32 farg0, f32 farg1);
 extern RecoveredGlobal_803D77C0_lbl_8047E3C8 lbl_8047E3C8;
 extern RecoveredGlobal_803D77C0_lbl_804FA500 lbl_804FA500;
 extern RecoveredGlobal_803D77C0_lbl_804FA50C lbl_804FA50C;
@@ -285,7 +285,7 @@ void set_camera_look_at(u8* eye, u8* target, u8* up) {
 #pragma opt_common_subs off
 #pragma scheduling off
 typedef char RecoveredGlobal_803D662C_lbl_8058D4D0_size[sizeof(RecoveredGlobal_803D662C_lbl_8058D4D0) == 0x28 ? 1 : -1];
-void TCameraCtrl__sub_803D662C(f32 farg0, f32 farg1) {
+void set_clamped_offsets__11TCameraCtrlFff(f32 farg0, f32 farg1) {
     f32 var_f1;
     f32 var_f2;
     var_f1 = farg0;

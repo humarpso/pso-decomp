@@ -146,7 +146,7 @@ struct Pl_801261BC : PlB_801261BC {
 
 extern "C" {
 s32 obj_is_hit_receivable(void *);
-void TObjPlayer__sub_80126104(int arg0, u8 *arg1);
+void apply_hit_to_target__10TObjPlayerFiPv(int arg0, u8 *arg1);
 extern const f32 lbl_805DAD70;
 void TObjPlayer__sub_80126180(Obj_80126180 *self, Out_80126180 *o);
 u8 get_slot_count__14TItemProShieldFPv(void *);
@@ -160,7 +160,7 @@ extern "C" {
 
 #pragma push
 #pragma fp_contract on
-void TObjPlayer__sub_80126104(int arg0, u8 *arg1) {
+void apply_hit_to_target__10TObjPlayerFiPv(int arg0, u8 *arg1) {
     u8 *temp_r31;
     if ((arg1 != NULL) && (obj_is_hit_receivable((void *) (M2C_FIELD(arg1, u8 **, 0))) != 0)) {
         temp_r31 = (u8 *)(M2C_FIELD(arg1, u8 **, 0));
@@ -172,7 +172,7 @@ void TObjPlayer__sub_80126104(int arg0, u8 *arg1) {
 
 void TObjPlayer__sub_80126180(Obj_80126180 *self, Out_80126180 *o) {
     if (self->b == 0) {
-        o->f74 = (void *)TObjPlayer__sub_80126104;
+        o->f74 = (void *)apply_hit_to_target__10TObjPlayerFiPv;
     }
     o->f10 = self->a;
     o->f50 = 0x4000;

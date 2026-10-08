@@ -121,7 +121,7 @@ s32 __dt__12TPlyCharDataFv(s32, s32);
 s32 __dl__FPv(s32);
 void free_char_data_slots__23TAdSinglePlyChrSelectGCFPv(Obj_801FCBA0* arg0);
 extern Ent_801FD668 *lbl_805D5F58;
-s32 TAdSinglePlyChrSelectGC__sub_801FD668(void);
+s32 all_players_loaded__23TAdSinglePlyChrSelectGCFv(void);
 void init_new_character_data(void *);
 void init_char_slot_record__23TAdSinglePlyChrSelectGCFPv(void *);
 extern Ent_801FD668 *lbl_805D5F58;
@@ -613,7 +613,7 @@ s32 load_character_from_card__23TAdSinglePlyChrSelectGCFv(void) {
     return ret;
 }
 
-s32 TAdSinglePlyChrSelectGC__sub_801FD668(void) {
+s32 all_players_loaded__23TAdSinglePlyChrSelectGCFv(void) {
     s32 i;
     u32 v;
     if (lbl_805D5F58 != 0) {

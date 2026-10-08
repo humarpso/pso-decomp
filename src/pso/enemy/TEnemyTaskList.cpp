@@ -36,7 +36,7 @@ void run_task__14TEnemyTaskListFv(void);
 extern "C" {
 
 void handle_disconnect_cleanup(void);
-int TLobby__sub_800F7A8C(void);
+int run_handler_list_reverse__6TLobbyFi(void);
 int run_cleanup_callbacks__6TLobbyFi(void);
 int get_global_state__14TOKeyMachine01Fv(void);
 void reset_keyboard_control__6TLobbyFv(void);

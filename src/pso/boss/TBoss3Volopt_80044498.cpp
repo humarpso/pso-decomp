@@ -741,16 +741,16 @@ extern RecoveredGlobal_8004585C_lbl_804FF04C lbl_804FF04C;
 void spawn_breakup_models__12TBoss3VoloptFPv(u8 *arg0);
 extern s16 lbl_804FF030[];
 void TBoss3Volopt__sub_80044CB8(O_80044CB8 *self);
-void TBoss3Volopt__sub_80047408(V_80047408 *self);
+void dispatch_state__12TBoss3VoloptFPv(V_80047408 *self);
 f32 receive_physical_attack__10TObjPlayerFv(void *, void *, f32);
-f32 TBoss3Volopt__sub_80044E4C(Obj_80044E4C *self, void *a1, f32 x);
+f32 receive_physical_attack_with_part_mask__12TBoss3VoloptFPvPvf(Obj_80044E4C *self, void *a1, f32 x);
 void *__nw__7TObjectFUl(M2C_UNK);
 void *ct__12TBoss3VoloptFPvPvPv(void *arg0, void *arg1, void *arg2);
 void spawn_sub_objects__12TBoss3VoloptFPv(void *arg0);
 void queue_destruction__7TObjectFv(void *);
 void destroy_sub_objects__12TBoss3VoloptFPv(void *arg0);
 void receive_direct_attack__10TObjPlayerFv(void *, void *, V2_80044DD4, void *, s32, s32);
-void TBoss3Volopt__sub_80044DD4(Obj_80044DD4 *self, void *a1, V2_80044DD4 v, void *a3);
+void receive_direct_attack_with_part_mask__12TBoss3VoloptFPvPviPv(Obj_80044DD4 *self, void *a1, V2_80044DD4 v, void *a3);
 void queue_destruction__7TObjectFv(void *);
 void destroy_children__12TBoss3VoloptFPv(void *arg0);
 extern s32 lbl_804845C4[];
@@ -777,7 +777,7 @@ void TBoss3Volopt__sub_80046260(void *);
 void TBoss3Volopt__sub_800465B0(void *);
 void TBoss3Volopt__sub_800472D4(Obj_800472D4 *self);
 void update_state__12TBoss3VoloptFPv(void *arg0);
-void TBoss3Volopt__sub_80047408(V_80047408 *self);
+void dispatch_state__12TBoss3VoloptFPv(V_80047408 *self);
 void run_state__12TBoss3VoloptFPv(S_80047714 *o);
 void broadcast_values__12TBoss3VoloptFPv(Obj_80045328 *self);
 void distribute_part_damage__12TBoss3VoloptFPv(Volopt_80044498 *self);
@@ -1015,7 +1015,7 @@ void send_random_params__12TBoss3VoloptFv(void) {
     update_and_send_60__12TBoss3VoloptFPv(&msg);
 }
 
-void TBoss3Volopt__sub_80044DD4(Obj_80044DD4 *self, void *a1, V2_80044DD4 v, void *a3) {
+void receive_direct_attack_with_part_mask__12TBoss3VoloptFPvPviPv(Obj_80044DD4 *self, void *a1, V2_80044DD4 v, void *a3) {
     u32 m = 0x800000;
     s32 i;
     for (i = 0; i < 4; i++) {
@@ -1027,7 +1027,7 @@ void TBoss3Volopt__sub_80044DD4(Obj_80044DD4 *self, void *a1, V2_80044DD4 v, voi
     receive_direct_attack__10TObjPlayerFv(self, a1, v, a3, -1, -1);
 }
 
-f32 TBoss3Volopt__sub_80044E4C(Obj_80044E4C *self, void *a1, f32 x) {
+f32 receive_physical_attack_with_part_mask__12TBoss3VoloptFPvPvf(Obj_80044E4C *self, void *a1, f32 x) {
     u32 m = 0x800000;
     s32 i;
     for (i = 0; i < 4; i++) {
@@ -1883,7 +1883,7 @@ void update_state__12TBoss3VoloptFPv(void *arg0) {
     }
 }
 
-void TBoss3Volopt__sub_80047408(V_80047408 *self) {
+void dispatch_state__12TBoss3VoloptFPv(V_80047408 *self) {
     switch (self->state) {
     case 0:
         self->m56();
@@ -1952,7 +1952,7 @@ void render__12TBoss3VoloptFPv(u8 *arg0) {
 void run_state__12TBoss3VoloptFPv(S_80047714 *o) {
     switch (o->st) {
     case 0: TBoss3Volopt__sub_800472D4((Obj_800472D4 *)(o)); return;
-    case 1: TBoss3Volopt__sub_80047408((V_80047408 *)(o)); return;
+    case 1: dispatch_state__12TBoss3VoloptFPv((V_80047408 *)(o)); return;
     case 2: TBoss3Volopt__sub_80046CB8((void *)(o)); return;
     case 4: update_state__12TBoss3VoloptFPv(o); return;
     case 5: update_death_sequence__12TBoss3VoloptFPv((void *)(o)); return;

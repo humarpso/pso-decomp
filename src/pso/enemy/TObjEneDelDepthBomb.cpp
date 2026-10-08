@@ -596,7 +596,7 @@ void start_move_toward_player__15TObjEneDelDepthFPv(u8 *arg0);
 void update_scale_pulse__15TObjEneDelDepthFPv(u8 *arg0);
 void init_draw_mode_and_motion__15TObjEneDelDepthFPv(void* a0);
 void TObjEneDelDepth__sub_80314EC4(u8 *arg0);
-void TObjEneDelDepth__sub_80315064(u8 *arg0);
+void init_draw_params__15TObjEneDelDepthFPv(u8 *arg0);
 void try_relocate_on_timer__15TObjEneDelDepthFPv(u8 *arg0);
 void init_params__15TObjEneDelDepthFPv(void* a0);
 int set_default_depth_offset__15TObjEneDelDepthFPv(void* p);
@@ -1460,7 +1460,7 @@ void TObjEneDelDepth__sub_80314EC4(u8 *arg0) {
 extern int fold_flush_4;
 #pragma pop
 
-void TObjEneDelDepth__sub_80315064(u8 *arg0) {
+void init_draw_params__15TObjEneDelDepthFPv(u8 *arg0) {
     ((int (*)(void*, void*))set_draw_mode__15TObjEneDelDepthFPvi)((void*)(arg0), (void*)(0));
     M2C_FIELD(arg0, s32 *, 0x30) = (s32) (M2C_FIELD(arg0, s32 *, 0x30) & 0xFBFBFFFF);
     M2C_FIELD(arg0, f32 *, 0x38C) = (f32) (*(const f32 *)&TObjEneDelDepth__data_805DF258);

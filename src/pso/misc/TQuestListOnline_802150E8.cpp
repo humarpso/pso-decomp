@@ -114,14 +114,14 @@ bool TLobby__sub_80215ABC(u8 *arg0);
 extern G_802156E0 *lbl_805D61C0;
 u8 lookup_key_value__6TLobbyFc(s8 x);
 extern G_802156E0 *lbl_805D61C0;
-u8 TLobby__sub_802156A0(s8 x);
+u8 lookup_table_value__6TLobbyFc(s8 x);
 s32 is_rare_item__9TItemDataFPv(Item_8021587C *);
 u8 get_entry_field16__9TItemDataFv(Item_8021587C *);
 s32 pop_byte__6TLobbyFPv(void *);
 void shuffle_shop_pool_n_times(void *, s32);
 void push_shop_pool_entry(void *, u8);
 void reset_counter_64__6TLobbyFPv(void *);
-u8 TLobby__sub_802156A0(s8 x);
+u8 lookup_table_value__6TLobbyFc(s8 x);
 extern s8 lbl_8044BD30[];
 extern G_802156E0 *lbl_805D61C0;
 extern s32 lbl_805D61C4;
@@ -378,7 +378,7 @@ void init_download_buffers__16TQuestListOnlineFv(void) {
 void reset_globals(void) { TQuestListOnline__data_805D61A0 = 0; TQuestListOnline__data_805D61A4 = 0; TQuestListOnline__data_805D61A8 = 0; lbl_805D61AC = 0; memset(TQuestListOnline__data_80513DE8, (void*)0, (void*)60); memset(TQuestListOnline__data_80513E24, (void*)0, (void*)60); TQuestListOnline__data_805D6198 = 0; TQuestListOnline__data_805D619C = 0; lbl_805D61B0 = 0; lbl_805D61B4 = 0; }
 typedef char RecoveredGlobal_80215ABC_lbl_804CA0B8_size[sizeof(RecoveredGlobal_80215ABC_lbl_804CA0B8) == 0x28 ? 1 : -1];
 
-u8 TLobby__sub_802156A0(s8 x) {
+u8 lookup_table_value__6TLobbyFc(s8 x) {
     Pair_802156A0 *p = (*(G_802156A0 * *)&lbl_805D61C0)->tbl;
     while (p->key != -1) {
         if (p->key == x) {
@@ -481,7 +481,7 @@ void roll_item_grind_bonus__6TLobbyFPv(Item_8021587C *item) {
         if (item->f3 > m) {
             item->f3 = m;
         }
-        lbl_805D61C8 += (s8)TLobby__sub_802156A0(r);
+        lbl_805D61C8 += (s8)lookup_table_value__6TLobbyFc(r);
     }
 }
 

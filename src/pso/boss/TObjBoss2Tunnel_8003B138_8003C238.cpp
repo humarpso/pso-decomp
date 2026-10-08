@@ -19,9 +19,9 @@ extern s32 lbl_804834BC[];
 extern s32 lbl_804834D4[];
 void init_queue_from_start__15TObjBoss2TunnelFPv(Obj_8003C374 *self);
 extern s32 lbl_80483550[];
-void TObjBoss2Tunnel__sub_8003C2A0(Obj_8003C2A0 *self);
+void shift_queue_push_next__15TObjBoss2TunnelFPv(Obj_8003C2A0 *self);
 extern s32 lbl_804834D4[];
-void TObjBoss2Tunnel__sub_8003C2E4(S_8003C2E4 *o);
+void copy_ring_buffer_window__15TObjBoss2TunnelFPv(S_8003C2E4 *o);
 }
 
 extern "C" {
@@ -44,7 +44,7 @@ void enable_fog__15TObjBoss2TunnelFv(void) {
     TObjBoss2Tunnel__global_flags |= 2;
 }
 
-void TObjBoss2Tunnel__sub_8003C2A0(Obj_8003C2A0 *self) {
+void shift_queue_push_next__15TObjBoss2TunnelFPv(Obj_8003C2A0 *self) {
     s32 i;
     for (i = 0; i < 5; i++) {
         self->q[i] = self->q[i + 1];
@@ -52,7 +52,7 @@ void TObjBoss2Tunnel__sub_8003C2A0(Obj_8003C2A0 *self) {
     self->q[5] = lbl_80483550[self->idx++];
 }
 
-void TObjBoss2Tunnel__sub_8003C2E4(S_8003C2E4 *o) {
+void copy_ring_buffer_window__15TObjBoss2TunnelFPv(S_8003C2E4 *o) {
     s32 idx = o->f28;
     s32 n = 6;
     s32 i;

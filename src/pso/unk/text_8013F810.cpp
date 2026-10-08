@@ -29,7 +29,7 @@ void TLobby__sub_8013FDC4(Lz_8013FDC4 *lz, s32 r);
 void TLobby__sub_8013FF64(u8 *arg0, s8 arg1);
 u8 TLobby__sub_8013FF94(u8 *arg0);
 u8 TLobby__sub_8013FF78(u8 *arg0);
-void TLobby__sub_8013FF20(L_8013FF20 *arg0);
+void init_lookup_tables__6TLobbyFPv(L_8013FF20 *arg0);
 void TLobby__sub_8013FCB0(Lz_8013FCB0 *t, s32 p);
 }
 
@@ -128,7 +128,7 @@ void TLobby__sub_8013FDC4(Lz_8013FDC4 *lz, s32 r) {
     lz->dad[p] = 0x1000;
 }
 
-void TLobby__sub_8013FF20(L_8013FF20 *arg0) {
+void init_lookup_tables__6TLobbyFPv(L_8013FF20 *arg0) {
     s32 i;
     for (i = 0x1001; i < 0x1101; i++) {
         arg0->b[i] = 0x1000;

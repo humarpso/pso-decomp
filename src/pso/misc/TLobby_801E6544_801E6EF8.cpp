@@ -39,7 +39,7 @@ extern s32 TLobby__data_805D5E74;
 extern u8 *TLobby__data_805D5E78;
 extern s32 TLobby__data_805D5E90;
 extern int TLobby__data_805D5EA4;
-void TLobby__sub_801E7084(s32 arg0);
+void load_op_arg_window__6TLobbyFi(s32 arg0);
 extern int TLobby__data_80512220[];
 extern int TLobby__data_805D5EA4;
 void TLobby__sub_801E6FF0(u16 a0);
@@ -122,7 +122,7 @@ void TLobby__sub_801E7058(u8 a0) {
     TLobby__data_80512220[old] = v;
 }
 
-void TLobby__sub_801E7084(s32 arg0) {
+void load_op_arg_window__6TLobbyFi(s32 arg0) {
   int new_var;
   (*(s32 *)&TLobby__data_805D5EA4) = 0;
   *((s32 *) (((s8 *) TLobby__data_805D5E78) + 4)) = (s32) (*((s32 *) (((s8 *) (&(*(RecoveredGlobal_801E7084_TLobby__data_80512220 *)&TLobby__data_80512220).value)) + 0)));

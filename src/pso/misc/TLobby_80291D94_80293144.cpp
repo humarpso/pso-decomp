@@ -115,7 +115,7 @@ struct G_802932EC {
 };
 
 extern "C" {
-void TLobby__sub_802932B0(u8 *arg0, u8 *arg1);
+void copy_struct__6TLobbyFPvPv(u8 *arg0, u8 *arg1);
 void TLobby__sub_8029379C(void);
 void TLobby__sub_802934E0(void);
 s32 get_main_phase();
@@ -126,7 +126,7 @@ void VecCopy__FP3VecPC3Vec(void *, void *);
 s32 resolve_player_slot__20TWindowSubStatusDispFi(s32);
 u32 get_player_by_client_id(u32);
 u8 *get_card_window__17TWindowSubComCardFUi(s32);
-void TLobby__sub_802932B0(u8 *arg0, u8 *arg1);
+void copy_struct__6TLobbyFPvPv(u8 *arg0, u8 *arg1);
 void TLobby__sub_80293218(s32 arg0);
 u32 get_player_by_client_id(u32);
 u8 *get_card_window__17TWindowSubComCardFUi(s32);
@@ -441,12 +441,12 @@ void TLobby__sub_80293218(s32 arg0) {
             o[2] = (*(G_80293218 *)&lbl_804DB1F0).f8;
             VecCopy__FP3VecPC3Vec(o + 4, p + 0x38);
             u8 *w = get_card_window__17TWindowSubComCardFUi(arg0) + 0x2274;
-            TLobby__sub_802932B0(w, o);
+            copy_struct__6TLobbyFPvPv(w, o);
         }
     }
 }
 
-void TLobby__sub_802932B0(u8 *arg0, u8 *arg1) {
+void copy_struct__6TLobbyFPvPv(u8 *arg0, u8 *arg1) {
     M2C_FIELD(arg0, u8 *, 0) = (u8) M2C_FIELD(arg1, u8 *, 0);
     M2C_FIELD(arg0, u8 *, 1) = (u8) M2C_FIELD(arg1, u8 *, 1);
     M2C_FIELD(arg0, u8 *, 2) = (u8) M2C_FIELD(arg1, u8 *, 2);

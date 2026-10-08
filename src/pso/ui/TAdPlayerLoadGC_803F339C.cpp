@@ -38,7 +38,7 @@ void TAdPlayerLoadGC__sub_803F32A4(s32 arg0);
 extern S_803F3328 lbl_805A29B0[];
 s32 CARDClose(void *);
 M2C_UNK memset(void *, int, int);
-s32 TAdPlayerLoadGC__sub_803F3328(s32 arg0);
+s32 close_card_slot__15TAdPlayerLoadGCFi(s32 arg0);
 s32 CARDProbe(s32 chan);
 char *strcpy(char *, const char *);
 u32 strlen(const char *);

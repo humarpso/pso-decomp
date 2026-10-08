@@ -3424,7 +3424,7 @@ s32 get_target_info__9TObjEneDDFPv();
 s32 TObjEneDD__sub_800BB878(s32, s32);
 M2C_UNK set_field_378__9TObjEneDDFPvi(void *, M2C_UNK);
 M2C_UNK transition_enemy_state(void *, M2C_UNK);
-void TObjEneMe1Gee__sub_800C913C(void);
+void advance_camera_ctrl_step__13TObjEneMe1GeeFv(void);
 void state_orbit__13TObjEneMe1GeeFPvi(void *arg0, s32 arg1);
 void handle_event__13TObjEneMe1GeeFPvi(void *arg0, s32 arg1);
 void TObjEneMe1Gee__vt110(u8 *arg0, s32 arg1);
@@ -3470,7 +3470,7 @@ void TObjEneMe1Gee__sub_800CBDBC(u8 *arg0);
 void update_animation_frame__13TObjEneMe1GeeFPv(void *arg0);
 void update_hover_height__13TObjEneMe1GeeFPv(void *arg0);
 void set_move_speed_x__13TObjEneMe1GeeFPv(void *arg0);
-void TObjEneMe1Gee__sub_800CBEF0(Obj_800CBEF0 *self, f32 target);
+void approach_target_value__13TObjEneMe1GeeFPvf(Obj_800CBEF0 *self, f32 target);
 void TObjEneMe1Gee__sub_800CBF58(u8 *arg0, f32 farg0);
 void calc_position__13TObjEneMe1GeeFiPv(s32 arg0, void *arg1);
 void TObjEneMe1Gee__vt104(void *arg0);
@@ -3750,7 +3750,7 @@ void render__13TObjEneMe1GeeFv(u8 *arg0) {
             if ((s16) M2C_FIELD(arg0, s16 *, 0x326) != 0xB) {
                 TObjEneMe1Gee__data_805D51B8 = 0;
                 lbl_805D51BC = (s32)(arg0 + 0x414);
-                set_global_state__16TObjEneRe7BeruraFi((void *)TObjEneMe1Gee__sub_800C913C);
+                set_global_state__16TObjEneRe7BeruraFi((void *)advance_camera_ctrl_step__13TObjEneMe1GeeFv);
                 if (var_r30 == 1) {
                     set_global_flag__10TObjPlayerFv();
                     draw__16TObjEneRe7BeruraFPv((void *) (arg0));
@@ -3765,7 +3765,7 @@ void render__13TObjEneMe1GeeFv(u8 *arg0) {
                 rotate_matrix_z((int) (0), (int) (M2C_FIELD(arg0, s32 *, 0x64)));
                 TObjEneMe1Gee__data_805D51B8 = -1;
                 lbl_805D51BC = (s32)(arg0 + 0x414);
-                set_global_state__16TObjEneRe7BeruraFi((void *)TObjEneMe1Gee__sub_800C913C);
+                set_global_state__16TObjEneRe7BeruraFi((void *)advance_camera_ctrl_step__13TObjEneMe1GeeFv);
                 draw_with_alt_model__10TObjPlayerFPvi((void *) (arg0), (int) (M2C_FIELD(arg0, s32 *, 0x410)));
                 set_global_state__16TObjEneRe7BeruraFi(NULL);
             }
@@ -3784,7 +3784,7 @@ void render__13TObjEneMe1GeeFv(u8 *arg0) {
     VecCopy__FP3VecPC3Vec((void *) (arg0 + 0x420), (void *) (arg0 + 0x2FC));
 }
 
-void TObjEneMe1Gee__sub_800C913C(void) {
+void advance_camera_ctrl_step__13TObjEneMe1GeeFv(void) {
     s32 temp_r4;
     s32 temp_r4_2;
     switch ((s32) TObjEneMe1Gee__data_805D51B8) {
@@ -5232,7 +5232,7 @@ void update_from_float_sum__13TObjEneMe1GeeFPv(void *arg0) {
 
 void TObjEneMe1Gee__sub_800CBDBC(u8 *arg0) {
     Stack_800CBDBC stack;
-    ((M2C_UNK (*)(void))TObjEneMe1Gee__sub_800CBEF0)();
+    ((M2C_UNK (*)(void))approach_target_value__13TObjEneMe1GeeFPvf)();
     VecCopy__FP3VecPC3Vec((void *) (&stack.sp8), (void *) (arg0 + 0x38));
     stack.spC = M2C_FIELD(arg0, f32 *, 0x3F8);
     ((VObj_18_p40 *)(arg0))->m99(&stack.sp8);
@@ -5258,7 +5258,7 @@ void set_move_speed_x__13TObjEneMe1GeeFPv(void *arg0) {
     ((M2C_UNK (*)(f32))TObjEneMe1Gee__sub_800CBF58)(M2C_FIELD(arg0, f32 *, 0x3C) + M2C_FIELD(arg0, f32 *, 0x3E8));
 }
 
-void TObjEneMe1Gee__sub_800CBEF0(Obj_800CBEF0 *self, f32 target) {
+void approach_target_value__13TObjEneMe1GeeFPvf(Obj_800CBEF0 *self, f32 target) {
     f32 d = target - self->f3f8;
     self->f3c8 &= ~0x80000;
     if (d >= self->f400) {

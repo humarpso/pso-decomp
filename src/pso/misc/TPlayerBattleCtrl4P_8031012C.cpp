@@ -88,7 +88,7 @@ extern RecoveredGlobal_80310300_TPlayerBattleCtrl4P__data_80542E90 TPlayerBattle
 M2C_UNK *TPlayerBattleCtrl4P__sub_80310300(void);
 void TPlayerBattleCtrl4P__sub_803102A4(T_803102A4 *self);
 extern void *TPlayerBattleCtrl4P__data_805D6AA8;
-u8 TPlayerBattleCtrl4P__sub_803102C8(void);
+u8 is_battle_mode_active__19TPlayerBattleCtrl4PFv(void);
 void TWindow__close(void *);
 void close_player_windows__19TPlayerBattleCtrl4PFPv(Ctl_803101D4 *o);
 void *get_player_by_client_id(s32);
@@ -286,7 +286,7 @@ void TPlayerBattleCtrl4P__sub_803102A4(T_803102A4 *self) {
     }
 }
 
-u8 TPlayerBattleCtrl4P__sub_803102C8(void) {
+u8 is_battle_mode_active__19TPlayerBattleCtrl4PFv(void) {
     T_803102C8 *p = (*(T_803102C8 * *)&TPlayerBattleCtrl4P__data_805D6AA8);
     if (p != 0) {
         return p->mode == 1 || p->mode == 2;

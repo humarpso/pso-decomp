@@ -77,7 +77,7 @@ M2C_UNK TLobby__sub_802D3AA8();
 extern s8 TLobby__data_805D688A;
 extern s8 TLobby__data_805D688B;
 extern s32 TLobby__data_805D688C;
-void TLobby__sub_802D377C(O_802D377C *self);
+void handle_state_init__6TLobbyFPv(O_802D377C *self);
 }
 
 extern "C" {
@@ -228,7 +228,7 @@ void TLobby__sub_802D36E0(void *arg0) {
         return;
     }
 }
-void TLobby__sub_802D377C(O_802D377C *self) {
+void handle_state_init__6TLobbyFPv(O_802D377C *self) {
     switch (self->state) {
     case 0:
         TLobby__data_805D688A = self->f2;

@@ -53,9 +53,9 @@ s32 TKeyBoardControl__sub_801323C8(void *, int);
 u8 get_key_state__16TKeyBoardControlFPv(M2C_UNK *);
 extern M2C_UNK TKeyBoardControl__data_80506270[];
 void update_modifier_flags__16TKeyBoardControlFPv(struct RecoveredFields_8025FC60_arg0 *arg0);
-bool TKeyBoardControl__sub_8025EC1C(M2C_UNK arg0, u8 arg1);
+bool is_printable_key__16TKeyBoardControlFiUc(M2C_UNK arg0, u8 arg1);
 extern s32 lbl_805D5544;
-s32 TKeyBoardControl__sub_8025F21C(Ctl_8025F21C *c);
+s32 get_input_mode__16TKeyBoardControlFPv(Ctl_8025F21C *c);
 u8 TKeyBoardControl__sub_8013239C(void *, u8);
 u8 get_key_state_2__16TKeyBoardControlFPv(void *);
 s32 TKeyBoardControl__sub_801323C8(void *, int);
@@ -116,7 +116,7 @@ extern M2C_UNK TKeyBoardControl__data_80506270[];
 typedef char RecoveredGlobal_8025ED80_lbl_8049E178_size[sizeof(RecoveredGlobal_8025ED80_lbl_8049E178) == 0x100 ? 1 : -1];
 typedef char RecoveredGlobal_8025ED80_lbl_8049E278_size[sizeof(RecoveredGlobal_8025ED80_lbl_8049E278) == 0x100 ? 1 : -1];
 
-bool TKeyBoardControl__sub_8025EC1C(M2C_UNK arg0, u8 arg1) {
+bool is_printable_key__16TKeyBoardControlFiUc(M2C_UNK arg0, u8 arg1) {
     if (arg1 == 0x52) {
         return 1;
     }
@@ -168,7 +168,7 @@ s32 translate_key_char__16TKeyBoardControlFPviPv(void *arg0_, s32 arg1, u16 *arg
     f = arg0->flags;
     if (f & 1) {
         shift = f & 0x20;
-    } else if (((s32 (*)(void *, s32))TKeyBoardControl__sub_8025EC1C)(arg0, arg1) != 0) {
+    } else if (((s32 (*)(void *, s32))is_printable_key__16TKeyBoardControlFiUc)(arg0, arg1) != 0) {
         shift = arg0->flags & 0x20;
     } else {
         shift = arg0->flags & 0x80;
@@ -235,7 +235,7 @@ s32 translate_key_char__16TKeyBoardControlFPviPv(void *arg0_, s32 arg1, u16 *arg
         return 1;
     }
     if (arg0->sub->flags & 4) {
-        if (((s32 (*)(void *, s32))TKeyBoardControl__sub_8025EC1C)(arg0, arg1) != 0) {
+        if (((s32 (*)(void *, s32))is_printable_key__16TKeyBoardControlFiUc)(arg0, arg1) != 0) {
             if (arg0->flags & 4) {
                 *arg2 = lbl_8049E078[(u8)arg1];
             } else if (shift != 0) {
@@ -273,7 +273,7 @@ s32 translate_key_char__16TKeyBoardControlFPviPv(void *arg0_, s32 arg1, u16 *arg
 }
 #undef arg0
 
-s32 TKeyBoardControl__sub_8025F21C(Ctl_8025F21C *c) {
+s32 get_input_mode__16TKeyBoardControlFPv(Ctl_8025F21C *c) {
     if (c->f60 & 0x40) {
         return 3;
     }

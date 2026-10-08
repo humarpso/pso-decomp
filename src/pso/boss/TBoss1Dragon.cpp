@@ -7357,7 +7357,7 @@ void TBoss1Dragon__sub_800274A4(s32 arg0);
 extern const f32 lbl_805D800C;
 void TBoss1Dragon__sub_80028AFC(u8 *arg0);
 extern const f32 TBoss1Dragon__data_805D7F40;
-void TBoss1Dragon__sub_8002AA7C(u8 *arg0, u8 *arg1);
+void set_child_motion__12TBoss1DragonFPvPv(u8 *arg0, u8 *arg1);
 s32 obj_isState2_324();
 void TBoss1Dragon__sub_8002AB6C(u8 *arg0);
 void copy_model_node(u8 *arg0, u8 *arg1);
@@ -7856,7 +7856,7 @@ s32 get_instance__12TBoss1DragonFv(void) {
     return TBoss1Dragon__data_805D4B2C;
 }
 
-void TBoss1Dragon__sub_8002AA7C(u8 *arg0, u8 *arg1) {
+void set_child_motion__12TBoss1DragonFPvPv(u8 *arg0, u8 *arg1) {
     ((VObj_18 *)(arg1))->m20(M2C_FIELD(arg0, s32 *, 0xAC), TBoss1Dragon__data_805D7F40);
     TBoss1Dragon__sub_8002AB6C((u8 *)((void *) (arg1)));
 }

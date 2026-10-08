@@ -95,7 +95,7 @@ void post_translate_matrix(void *);
 void set_global_param__8TObjFishFi();
 void set_npc_enemy_param(void *);
 void draw_ginja_model_with_motion(s32, s32, f32);
-void TObjCamera__sub_8017F624(void);
+void update_camera_slots__10TObjCameraFv(void);
 extern Vec_8017F80C lbl_8050DB80[];
 extern u32 TObjCamera__data_805D5B18;
 extern s32 TObjCamera__data_805D5B1C;
@@ -167,7 +167,7 @@ void render__10TObjCameraFv(Obj_8017F80C *self) {
         post_translate_matrix(&self->pos);
         rotate_matrix_y(0, self->x60);
         TObjCamera__data_805D5B1C = 0;
-        set_npc_enemy_param((void *)TObjCamera__sub_8017F624);
+        set_npc_enemy_param((void *)update_camera_slots__10TObjCameraFv);
         draw_ginja_model_with_motion(get_bml_model(TObjCamera__data_805D5B18, 0),
                                get_bml_motion(TObjCamera__data_805D5B18, 0), self->xb0);
         set_npc_enemy_param(NULL);

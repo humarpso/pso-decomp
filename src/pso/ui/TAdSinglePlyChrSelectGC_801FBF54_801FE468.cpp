@@ -44,7 +44,7 @@ extern int lbl_805137D8[];
 extern u8 lbl_805137F8[];
 extern u32 lbl_805D5F58;
 void copy_chr_slots_from_request__23TAdSinglePlyChrSelectGCFv(void);
-void TAdSinglePlyChrSelectGC__sub_801FE710(void *arg0, void *arg1);
+void copy_request__23TAdSinglePlyChrSelectGCFPvPv(void *arg0, void *arg1);
 }
 
 extern "C" {
@@ -122,7 +122,7 @@ void copy_chr_slots_from_request__23TAdSinglePlyChrSelectGCFv(void) {
 void copy_selected_characters__23TAdSinglePlyChrSelectGCFPv(Req_801FE5F8 *arg0) {
     s32 i;
     if (arg0->count <= 4) {
-        TAdSinglePlyChrSelectGC__sub_801FE710((void *)(lbl_805137F8), (void *)(arg0));
+        copy_request__23TAdSinglePlyChrSelectGCFPvPv((void *)(lbl_805137F8), (void *)(arg0));
         for (i = 0; i < 4; i++) {
             memset((void *)lbl_805137D8[i], 0, 0x41C);
             memset((void *)lbl_805137D8[i + 4], 0, 0x2370);
@@ -136,7 +136,7 @@ void copy_selected_characters__23TAdSinglePlyChrSelectGCFPv(Req_801FE5F8 *arg0) 
     }
 }
 
-void TAdSinglePlyChrSelectGC__sub_801FE710(void *arg0, void *arg1) {
+void copy_request__23TAdSinglePlyChrSelectGCFPvPv(void *arg0, void *arg1) {
     *(Req_801FE5F8 *)arg0 = *(Req_801FE5F8 *)arg1;
 }
 

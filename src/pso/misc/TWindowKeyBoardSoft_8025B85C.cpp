@@ -35,7 +35,7 @@ void TWindowKeyBoardSoft__vt20(u8 *arg0);
 M2C_UNK TWindowKeyBoardSoft__sub_800808FC(int, int);
 s32 select_next__19TWindowKeyBoardSoftFPv();
 void TWindowKeyBoardSoft__vt19(u8 *arg0);
-s32 TWindowKeyBoardSoft__sub_800809C0(void *);
+s32 is_buffer_blank__19TWindowKeyBoardSoftFPv(void *);
 void TWindowKeyBoardSoft__vt0(u8 *arg0);
 M2C_UNK reset_state__19TWindowKeyBoardSoftFPv(void *);
 void init__19TWindowKeyBoardSoftFPv(u8 *arg0);
@@ -564,7 +564,7 @@ void TWindowKeyBoardSoft__vt19(u8 *arg0) {
 
 void TWindowKeyBoardSoft__vt0(u8 *arg0) {
     if (!(M2C_FIELD(arg0, u16 *, 0x60) & 2)) {
-        if (!(M2C_FIELD(arg0, u16 *, 0x62) & 4) || (TWindowKeyBoardSoft__sub_800809C0((void *) (arg0 + 0x6C)) == 0)) {
+        if (!(M2C_FIELD(arg0, u16 *, 0x62) & 4) || (is_buffer_blank__19TWindowKeyBoardSoftFPv((void *) (arg0 + 0x6C)) == 0)) {
             M2C_FIELD(arg0, u16 *, 0x60) = (u16) (M2C_FIELD(arg0, u16 *, 0x60) | 1);
         }
     } else {

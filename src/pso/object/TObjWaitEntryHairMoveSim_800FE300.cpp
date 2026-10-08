@@ -18,7 +18,7 @@ void TObjWaitEntryHairMoveSim__sub_800FE3C0(u8 *arg0);
 s32 create__19TObjEZBoneRotPlayerFPvPvPv(s32, s32, s32);
 void TObjWaitEntryHairMoveSim__sub_800FE3BC(int);
 extern RecoveredGlobal_800FE364_lbl_8049DC78 lbl_8049DC78;
-void TObjWaitEntryHairMoveSim__sub_800FE364(u8 *arg0);
+void start_bone_rot_player__24TObjWaitEntryHairMoveSimFPv(u8 *arg0);
 }
 
 extern "C" {
@@ -44,7 +44,7 @@ s32 TObjWaitEntryHairMoveSim__sub_800FE32C(H_800FE32C *h) {
 }
 
 typedef char RecoveredGlobal_800FE364_lbl_8049DC78_size[sizeof(RecoveredGlobal_800FE364_lbl_8049DC78) == 0x14 ? 1 : -1];
-void TObjWaitEntryHairMoveSim__sub_800FE364(u8 *arg0) {
+void start_bone_rot_player__24TObjWaitEntryHairMoveSimFPv(u8 *arg0) {
     s32 temp_r31;
     temp_r31 = M2C_FIELD(M2C_FIELD(arg0, u8 **, 0x20), s32 *, 0x8AC);
     TObjWaitEntryHairMoveSim__sub_800FE3BC((int)((int) (temp_r31)));
@@ -57,7 +57,7 @@ extern M2C_UNK lbl_8049DC8C[];
 
 void TObjWaitEntryHairMoveSim__sub_800FE3C0(u8 *arg0) {
     if ((s32) M2C_FIELD(M2C_FIELD(arg0, u8 **, 0x20), s32 *, 0xCFC) == 0) {
-        TObjWaitEntryHairMoveSim__sub_800FE364((u8 *)((void *)(arg0)));
+        start_bone_rot_player__24TObjWaitEntryHairMoveSimFPv((u8 *)((void *)(arg0)));
         queue_destruction__7TObjectFv((void *) (arg0));
     }
 }

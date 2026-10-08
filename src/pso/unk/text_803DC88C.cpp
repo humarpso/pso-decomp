@@ -65,7 +65,7 @@ extern struct MotionCtx_803DC894 * const lbl_805D4698;
 extern RecoveredCallback_2be3cacebb2e lbl_805D76E4;
 void draw_ginja_model_with_motion(void *arg0, void *arg1);
 extern s32 lbl_805D7774;
-void TObjPlayer__sub_803DC994(struct Mtx_803DC994 *src);
+void copy_matrix3x3_to_global__10TObjPlayerFPv(struct Mtx_803DC994 *src);
 void GXSetBlendMode(int, int, int, int);
 extern u32 lbl_8047E408[];
 extern u8 *lbl_805D774C;
@@ -87,7 +87,7 @@ s32 push_matrix();
 s32 pop_matrix();
 M2C_UNK scale_current_matrix(void *);
 M2C_UNK post_translate_matrix(void *);
-void TObjPlayer__sub_803DC994(struct Mtx_803DC994 *src);
+void copy_matrix3x3_to_global__10TObjPlayerFPv(struct Mtx_803DC994 *src);
 extern M2C_UNK lbl_8058CE10[];
 void traverse_node_tree__10TObjPlayerFv(struct N_803DC9E4 *p, M2C_UNK (*cb)(s32));
 }
@@ -141,7 +141,7 @@ void draw_ginja_motion_node_tree(u8 *arg0) {
 }
 #pragma pop
 
-void TObjPlayer__sub_803DC994(struct Mtx_803DC994 *src) {
+void copy_matrix3x3_to_global__10TObjPlayerFPv(struct Mtx_803DC994 *src) {
     struct Mtx_803DC994 *dst = (struct Mtx_803DC994 *)lbl_805D7774;
     dst->m[0][0] = src->m[0][0];
     dst->m[0][1] = src->m[0][1];
@@ -175,7 +175,7 @@ void traverse_node_tree__10TObjPlayerFv(struct N_803DC9E4 *p, M2C_UNK (*cb)(s32)
             }
             if (!(f & 2)) {
                 if (f & 0x1000) {
-                    TObjPlayer__sub_803DC994((struct Mtx_803DC994 *) (lbl_8058CE10));
+                    copy_matrix3x3_to_global__10TObjPlayerFPv((struct Mtx_803DC994 *) (lbl_8058CE10));
                 } else if (f & 0x400) {
                     ((M2C_UNK (*)(f32, void *))apply_quat_rotation__10TObjPlayerFPvf)(p->f34, p->m14);
                 } else {

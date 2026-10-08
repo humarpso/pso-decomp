@@ -74,7 +74,7 @@ struct Vec_800DAB98 { f32 x, y, z; };
 
 extern "C" {
 void set_state__15TObjEneMe1GiGueFPvi(void *, s32);
-void TObjPlayer__sub_800DB8D4(u8 *arg0);
+void enter_state_5__10TObjPlayerFPv(u8 *arg0);
 void *spawn_directional_particle(void *pos, void *dir, s32 id);
 void spawn_directional_particle_at_slot__10TObjPlayerFPvi(Obj_800DA4B4 *self, s32 i);
 void TObjPlayer__sub_800DCD04(void *, void *, int, void *, s32, int);
@@ -662,7 +662,7 @@ void TObjPlayer__sub_800DB390(u8 *arg0) {
     }
 }
 
-void TObjPlayer__sub_800DB8D4(u8 *arg0) {
+void enter_state_5__10TObjPlayerFPv(u8 *arg0) {
     set_state__15TObjEneMe1GiGueFPvi(arg0, 5);
     M2C_FIELD(arg0, s32 *, 0x380) = (s32) M2C_FIELD(arg0, s32 *, 0x378);
     M2C_FIELD(arg0, s32 *, 0x378) = 5;

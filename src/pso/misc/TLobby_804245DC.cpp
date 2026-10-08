@@ -142,7 +142,7 @@ extern s16 lbl_805D4828;
 extern s32 lbl_805D7BB8;
 extern u32 lbl_805D7BBC;
 extern u32 lbl_805D7BC0;
-void TLobby__sub_80425BD0(void);
+void update_exi_status__6TLobbyFv(void);
 void clear_message_entry_wrapper__6TLobbyFi(s32 arg0);
 s32 str_length__6TLobbyFi(void *);
 s32 TLobby__sub_803F9F04(void *, void *, int);
@@ -222,7 +222,7 @@ extern M2C_UNK lbl_805D7C30;
 void copy_6_byte_config__6TLobbyFPv(void *dst);
 void TLobby__sub_80425DC8(void *q, void *a, void *b);
 extern u8 lbl_805CF3C8[];
-void TLobby__sub_80426A70(void *a, void *b);
+void forward_to_channel__6TLobbyFPvPv(void *a, void *b);
 s32 OSSendMessage(void *mq, void *msg, s32 flags);
 extern u8 lbl_805CF380[];
 extern s32 lbl_805D7BCC;
@@ -246,12 +246,12 @@ typedef struct Tbl_804267F0 {
 s32 TLobby__sub_803F9EC4(void *, void *, int);
 extern u8 lbl_805CF3C8[];
 extern s32 lbl_805D7BB0;
-s32 TLobby__sub_80426790(s16 arg0, void *arg1);
+s32 get_local_address__6TLobbyFsPv(s16 arg0, void *arg1);
 s16 TLobby__sub_804262CC(void *);
 extern u8 lbl_805CF3C8[];
 s32 TLobby__sub_80426B88(s16 arg0);
 extern s32 lbl_805D7BC8;
-s32 TLobby__sub_80426C34(s32 arg0);
+s32 set_connect_mode__6TLobbyFi(s32 arg0);
 s32 TLobby__sub_803F9F04(void *, void *, int);
 s32 TLobby__sub_80427240(u8 **arg0);
 s32 TLobby__sub_803F9F04(void *, void *, int);
@@ -403,7 +403,7 @@ void clear_message_entry__6TLobbyFi(s32 a);
 void cancel_thread_if_running__6TLobbyFi(void *);
 void deactivate_entry_by_key__6TLobbyFUi(void *);
 void TLobby__sub_80419DDC(void *);
-void TLobby__sub_80425BD0(void);
+void update_exi_status__6TLobbyFv(void);
 extern s16 lbl_805D4828;
 extern s32 lbl_805D7BB0;
 extern s32 lobby_message_thread_handle;
@@ -649,14 +649,14 @@ void reset_message_thread__6TLobbyFv(void) {
         deactivate_entry_by_key__6TLobbyFUi((void *)lobby_message_thread_handle);
         lobby_message_thread_handle = 0;
     }
-    TLobby__sub_80419DDC((void *)TLobby__sub_80425BD0);
+    TLobby__sub_80419DDC((void *)update_exi_status__6TLobbyFv);
     lbl_805D4828 = -1;
     lbl_805D7BB8 = 0;
     lbl_805D7BBC = 0;
     lbl_805D7BB0 = 0;
 }
 
-void TLobby__sub_80425BD0(void) {
+void update_exi_status__6TLobbyFv(void) {
     s32 sp8;
     if (poll_exi_status__6TLobbyFPv((void *)(&sp8)) == 1) {
         if (sp8 != (s32) lbl_805D7BB8) {
@@ -786,7 +786,7 @@ s16 TLobby__sub_804262CC(void *argp) {
     lbl_805D7BB8 = 0;
     lbl_805D7BBC = 1;
     lbl_805D7BC0 = 1;
-    TUdpSocket__sub_80419E64(0x64, 0, TLobby__sub_80425BD0);
+    TUdpSocket__sub_80419E64(0x64, 0, update_exi_status__6TLobbyFv);
     return 0;
 }
 #undef arg0
@@ -861,7 +861,7 @@ s32 queue_timeout_message__6TLobbyFsis(s16 arg0, s32 arg1, s16 arg2) {
     return 0;
 }
 
-s32 TLobby__sub_80426790(s16 arg0, void *arg1) {
+s32 get_local_address__6TLobbyFsPv(s16 arg0, void *arg1) {
     if (arg0 != 0) {
         return -0x113;
     }
@@ -954,7 +954,7 @@ s32 TLobby__sub_80426998(s16 arg0, u16 arg1) {
 }
 #pragma pop
 
-s32 TLobby__sub_80426A18(s16 arg0, u16 arg1) {
+s32 open_channel_checked__6TLobbyFsUs(s16 arg0, u16 arg1) {
     if (arg0 != 0) {
         return -0x113;
     }
@@ -965,7 +965,7 @@ s32 TLobby__sub_80426A18(s16 arg0, u16 arg1) {
     return 0;
 }
 
-void TLobby__sub_80426A70(void *a, void *b) {
+void forward_to_channel__6TLobbyFPvPv(void *a, void *b) {
     if (a != NULL) {
         void *q = lbl_805CF3C8;
         TLobby__sub_80425DC8(q, a, b);
@@ -997,7 +997,7 @@ s16 query_link_status__6TLobbyFv(void) {
     return -1;
 }
 
-s32 TLobby__sub_80426C34(s32 arg0) {
+s32 set_connect_mode__6TLobbyFi(s32 arg0) {
     switch (arg0) {
     case 1:
         lbl_805D7BC8 = 1;

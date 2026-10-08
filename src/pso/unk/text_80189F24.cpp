@@ -220,9 +220,9 @@ struct Obj_80189F24 : VBase_80189F24 {
 
 extern "C" {
 M2C_UNK step_laser_fence_fade(void *);
-void TObjPlayer__sub_80189FEC(u8 *arg0);
+void step_laser_fence__10TObjPlayerFPv(u8 *arg0);
 f32 xyz_distance_squared(void *, void *);
-s32 TObjPlayer__sub_8018A10C(u8 *arg0, s32 arg1);
+s32 is_within_range__10TObjPlayerFPvi(u8 *arg0, s32 arg1);
 M2C_UNK send_object_state_update(void *, void *);
 s32 access_object_saved_state(void *, void *, int);
 extern f32 lbl_805DBCF4;
@@ -256,7 +256,7 @@ void render__17TObjContainerBaseFPv(Obj_80189F24 *self) {
     }
 }
 
-void TObjPlayer__sub_80189FEC(u8 *arg0) {
+void step_laser_fence__10TObjPlayerFPv(u8 *arg0) {
     step_laser_fence_fade((void *) (arg0 + 0x340));
     ((VObj_18 *)(arg0))->m78();
     M2C_FIELD(arg0, s32 *, 0x364) = 0;
@@ -282,7 +282,7 @@ f32 receive_technique_hit__17TObjContainerBaseFPviPv(void *arg0, s32 arg1, s32 *
     }
     return lbl_805DBCF4;
 }
-s32 TObjPlayer__sub_8018A10C(u8 *arg0, s32 arg1) {
+s32 is_within_range__10TObjPlayerFPvi(u8 *arg0, s32 arg1) {
     return xyz_distance_squared((void *) (arg1 + 0x38), (void *) (arg0 + 0x38)) < M2C_FIELD(arg0, f32 *, 0x33C);
 }
 

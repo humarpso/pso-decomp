@@ -15,7 +15,7 @@ void update_recover_timer__11TBoss6Type2FPv(u8 *arg0);
 s32 set_action__11TBoss6Type2FPvi(void * a0, s32 a1);
 extern const f32 lbl_805DF980;
 extern const f32 lbl_805DF984;
-void TBoss6Type2__sub_80336F54(u8 *arg0);
+void update_ramp_timer__11TBoss6Type2FPv(u8 *arg0);
 int ensure_particle_emitter__11TBoss6Type2FPvi(void*, void*);
 void spawn_mag_mines__11TBoss6Type2FPv();
 void start_mag_mines_state__11TBoss6Type2FPv(O_80337054 *arg0);
@@ -68,7 +68,7 @@ void TBoss6Type2__sub_80336F00(void* p) { *(int*)((char*)p + 0x3cc) = 0; play_so
 #pragma push
 #pragma opt_common_subs off
 #pragma opt_propagation off
-void TBoss6Type2__sub_80336F54(u8 *arg0) {
+void update_ramp_timer__11TBoss6Type2FPv(u8 *arg0) {
     M2C_FIELD(arg0, f32 *, 0x400) = (f32) (M2C_FIELD(arg0, f32 *, 0x400) + lbl_805DF980);
     if (M2C_FIELD(arg0, f32 *, 0x400) > lbl_805DF984) {
         M2C_FIELD(arg0, f32 *, 0x400) = (f32) lbl_805DF984;

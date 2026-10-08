@@ -13,12 +13,12 @@ extern s32 TQuestBgmCtrl__data_805D5E60;
 extern s32 TQuestBgmCtrl__data_805D5E64;
 extern s32 TQuestBgmCtrl__data_805D5E68;
 extern u8 *TQuestBgmCtrl__data_805D5E6C;
-void TQuestBgmCtrl__sub_801E63A4(s32 arg0);
+void force_bgm__13TQuestBgmCtrlFi(s32 arg0);
 }
 
 extern "C" {
 
-void TQuestBgmCtrl__sub_801E63A4(s32 arg0) {
+void force_bgm__13TQuestBgmCtrlFi(s32 arg0) {
     TQuestBgmCtrl__data_805D5E68 = arg0;
     TQuestBgmCtrl__data_805D5E60 = 0;
     TQuestBgmCtrl__data_805D5E64 = 1;

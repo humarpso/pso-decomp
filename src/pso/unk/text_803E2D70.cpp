@@ -144,7 +144,7 @@ void transform_chunk_object_tree(void *, void (*)(void *));
 void end_chunk_draw__10TObjPlayerFv(void);
 void draw_chunk_object(void *arg0);
 extern s32 lbl_805D7774;
-void TObjPlayer__sub_803E2F28(struct Mtx_803DC994 *src);
+void copy_matrix3x3_for_chunk_tree__10TObjPlayerFPv(struct Mtx_803DC994 *src);
 s32 __cvt_fp2unsigned(f32);
 void get_current_matrix(void *m);
 void apply_quat_rotation__10TObjPlayerFPvf(f32 *arg0, f32 farg0);
@@ -284,7 +284,7 @@ void TLobby__sub_803E2EE4(s32 arg0) {
 #pragma peephole off
 #pragma scheduling off
 typedef char RecoveredGlobal_803DCBD8_lbl_8058D380_size[sizeof(RecoveredGlobal_803DCBD8_lbl_8058D380) == 0xF0 ? 1 : -1];
-void TObjPlayer__sub_803E2F28(struct Mtx_803DC994 *src) {
+void copy_matrix3x3_for_chunk_tree__10TObjPlayerFPv(struct Mtx_803DC994 *src) {
     struct Mtx_803DC994 *dst = (struct Mtx_803DC994 *)lbl_805D7774;
     dst->m[0][0] = src->m[0][0];
     dst->m[0][1] = src->m[0][1];
@@ -323,7 +323,7 @@ void transform_chunk_object_tree(void *arg0, void (*cb)(void *)) {
             }
             if (!(flags & 2)) {
                 if (flags & 0x1000) {
-                    TObjPlayer__sub_803E2F28((struct Mtx_803DC994 *)chunk_object_current_matrix);
+                    copy_matrix3x3_for_chunk_tree__10TObjPlayerFPv((struct Mtx_803DC994 *)chunk_object_current_matrix);
                 } else if (flags & 0x400) {
                     ((void (*)(f32, f32 *))apply_quat_rotation__10TObjPlayerFPvf)(node->f34, (f32 *)node->ang);
                 } else {

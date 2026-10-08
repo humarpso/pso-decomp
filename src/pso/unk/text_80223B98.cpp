@@ -50,7 +50,7 @@ struct Ctr_80224190 { u8 buf[0x74]; };
 
 extern "C" {
 extern RecoveredGlobal_80224404_lbl_80513F20 lbl_80513F20;
-void TLobby__sub_80224404(s32 arg0, s32 arg1, s32 arg2);
+void copy_shop_item_entry__6TLobbyFiii(s32 arg0, s32 arg1, s32 arg2);
 M2C_UNK memset(void *, int, int);
 extern RecoveredGlobal_802243D4_lbl_80513F10 shop_tool_flags;
 void clear_shop_tool_flags(void);
@@ -369,7 +369,7 @@ void clear_shop_tool_flags(void) {
     memset((void *) (&shop_tool_flags.value), (int) (0), (int) (0x10));
 }
 
-void TLobby__sub_80224404(s32 arg0, s32 arg1, s32 arg2) {
+void copy_shop_item_entry__6TLobbyFiii(s32 arg0, s32 arg1, s32 arg2) {
     *(M2CCopy_14 *)(arg0) = *(const M2CCopy_14 *)(M2C_FIELD(&lbl_80513F20.value, M2C_UNK *, (arg2 * 4)) + (arg1 * 0x14));
 }
 void mark_shop_tool_sold_out(s32 a, s32 b) {

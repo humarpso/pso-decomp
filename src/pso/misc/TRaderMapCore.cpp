@@ -328,7 +328,7 @@ extern s16 *TRaderMapCore__data_80513780[];
 extern int TRaderMapCore__data_805D5F50;
 void TRaderMapCore__sub_801F95CC(void);
 extern u32 TRaderMapCore__data_805D5F28;
-void TRaderMapCore__sub_801F9630(s32 arg0);
+void set_piece_flags__13TRaderMapCoreFi(s32 arg0);
 void GXSetScissor(u32, u32, u32, u32);
 extern const f32 TRaderMapCore__data_805DC538;
 extern const f32 TRaderMapCore__data_805DC53C;
@@ -646,7 +646,7 @@ void TRaderMapCore__sub_801F95CC(void) {
     }
 }
 
-void TRaderMapCore__sub_801F9630(s32 arg0) {
+void set_piece_flags__13TRaderMapCoreFi(s32 arg0) {
     if (TRaderMapCore__data_805D5F28 != 0) {
         Map_801F9630* m = (Map_801F9630*)TRaderMapCore__data_805D5F28;
         if (m->pieces != 0) {

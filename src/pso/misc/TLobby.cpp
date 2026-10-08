@@ -73,7 +73,7 @@ struct E_80134B58 { u8 d[0x11C]; };
 struct In_80134B58 { u32 type; u8 rest[0x118]; };
 extern E_80134B58 lbl_80509D5C[];
 void copy_player_record__6TLobbyFPvPv(u8 *, u8 *);
-void TLobby__sub_80134B58(In_80134B58 *arg0, s32 arg1) {
+void copy_player_records__6TLobbyFPvi(In_80134B58 *arg0, s32 arg1) {
     s32 i;
     for (i = 0; i < arg1; i++) {
         if (arg0[i].type > 0xC) {
@@ -905,7 +905,7 @@ extern "C" {
 void init_scene_objects__6TLobbyFv(void);
 int get_current_floor(void);
 int create_floor_quest_thread(void);
-int TRaderMapCore__sub_801F9630(int);
+int set_piece_flags__13TRaderMapCoreFi(int);
 int clear_floor_event_flags(void);
 int init_sub_objects__6TLobbyFv(void);
 int create_objects__6TLobbyFi(void);
@@ -913,7 +913,7 @@ int attach_objects_by_id__6TLobbyFi(void);
 int reset_id_tables__6TLobbyFv(void);
 int init_switch_table(void);
 
-void init_scene_objects__6TLobbyFv(void) { init_sub_objects__6TLobbyFv(); reset_id_tables__6TLobbyFv(); clear_floor_event_flags(); init_switch_table(); TRaderMapCore__sub_801F9630(1); get_current_floor(); attach_objects_by_id__6TLobbyFi(); get_current_floor(); create_objects__6TLobbyFi(); create_floor_quest_thread(); }
+void init_scene_objects__6TLobbyFv(void) { init_sub_objects__6TLobbyFv(); reset_id_tables__6TLobbyFv(); clear_floor_event_flags(); init_switch_table(); set_piece_flags__13TRaderMapCoreFi(1); get_current_floor(); attach_objects_by_id__6TLobbyFi(); get_current_floor(); create_objects__6TLobbyFi(); create_floor_quest_thread(); }
 
 }
 #endif

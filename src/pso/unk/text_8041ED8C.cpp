@@ -112,7 +112,7 @@ M2C_UNK TLobby__sub_803F87C4(void *);
 extern RecoveredGlobal_80420C5C_lbl_805C1DF0 lbl_805C1DF0;
 s32 reset_stack_module__6TLobbyFv(void);
 void TLobby__sub_8041FDA0(O_8041FDA0 *o, s16 idx, s32 a, s32 b);
-void TLobby__sub_8041FE44(O_8041FE44 *o);
+void expire_timeout_entries__6TLobbyFPv(O_8041FE44 *o);
 s32 TLobby__sub_803F9F04(void *, void *, int);
 s32 TLobby__sub_80420BD0(void *arg0, S_80420BD0 *s, s32 arg2);
 void TLobby__sub_80422E30(s16, s32, s32, s16);
@@ -127,7 +127,7 @@ s16 is_addr_unspecified__6TLobbyFPv(void *);
 void TLobby__sub_80422E30(s16, s32, s32, s16);
 extern RecoveredGlobal_80420C5C_lbl_805C1DF0 lbl_805C1DF0;
 s16 udp_sendto__6TLobbyFsPvPvPvUsi(s16 id, Pkt_80420FC8 *pkt, Addr_80420FC8 *src, Addr_80420FC8 *dst, u16 port, s32 arg5);
-void TLobby__sub_8041FE44(O_8041FE44 *o);
+void expire_timeout_entries__6TLobbyFPv(O_8041FE44 *o);
 void TLobby__sub_8041F66C(O_8041F66C *o);
 s32 TLobby__sub_803F9F04(void *, void *, int);
 void TLobby__sub_80422E30(s16, s32, s32, s16);
@@ -295,7 +295,7 @@ void TLobby__sub_8041F66C(O_8041F66C *o) {
     } else {
         cnt = i;
     }
-    TLobby__sub_8041FE44((O_8041FE44 *)o);
+    expire_timeout_entries__6TLobbyFPv((O_8041FE44 *)o);
     if (cnt <= 0) {
         return;
     }
@@ -336,7 +336,7 @@ void TLobby__sub_8041FDA0(O_8041FDA0 *o, s16 idx, s32 a, s32 b) {
     o->total += b - a;
 }
 
-void TLobby__sub_8041FE44(O_8041FE44 *o) {
+void expire_timeout_entries__6TLobbyFPv(O_8041FE44 *o) {
     s16 i;
     s16 j;
     i = 0;

@@ -42,13 +42,13 @@ struct VObj_8035663C : VBase_8035663C {
 
 extern "C" {
 u8 *__nw__7TObjectFUl(M2C_UNK);
-u8 *TBoss6SwordWave__sub_80356C10(s32 arg0, s32 arg1, s32 arg2, s32 arg3, f32 farg0);
+u8 *create__15TBoss6SwordWaveFiiiif(s32 arg0, s32 arg1, s32 arg2, s32 arg3, f32 farg0);
 u8 test_rock_bit__15TBoss6SwordWaveFiUc(s32 arg0, u8 arg1);
 void TBoss6SwordWave__sub_80356DDC(s32 arg0, u8 arg1);
 s32 VecCopy__FP3VecPC3Vec(void *, void *);
 f32 *dispatch_shared_handler_a__6TLobbyFPv(s32);
 s32 __ct__7TObjectFP7TObject(void *, void *);
-void TBoss6SwordWave__sub_80356D64(void *, void *, void *);
+void fill_range__15TBoss6SwordWaveFPvPvPv(void *, void *, void *);
 void fn_80356E30(void *);
 extern RecoveredGlobal_80356B18___vt__15TBoss6SwordWave __vt__15TBoss6SwordWave;
 extern s32 lbl_805D43A8;
@@ -82,7 +82,7 @@ s32 spawn_wave_ring_particles__15TBoss6SwordWaveFPv(void *arg0);
 s32 VecCopy__FP3VecPC3Vec(void *, void *);
 f64 get_ad_end_text_start__10TObjPlayerFv(f32, f32);
 s32 get_point__10TBoss6RockFiPvPv(s32, void *, void *);
-M2C_UNK TBoss6Rock__sub_80353E5C(s32);
+M2C_UNK reset_rock_state__10TBoss6RockFi(s32);
 u8 test_rock_bit__15TBoss6SwordWaveFiUc(s32 arg0, u8 arg1);
 u8 TBoss6SwordWave__sub_80356D08(u32 arg1, u32 arg2);
 void TBoss6SwordWave__sub_80356D10(W_80356D10 *arg0, u8 arg1);
@@ -395,7 +395,7 @@ M2C_UNK break_rocks_in_wave__15TBoss6SwordWaveFPv(void *a) {
             continue;
         }
         ((void (*)(void *, u8))TBoss6SwordWave__sub_80356D10)(arg0 + 0x30, t);
-        TBoss6Rock__sub_80353E5C(i);
+        reset_rock_state__10TBoss6RockFi(i);
         if (dist <= lbl_805E0004) {
             continue;
         }
@@ -459,7 +459,7 @@ u8 *__ct__15TBoss6SwordWaveFv(u8 *arg0, s32 arg1, s32 arg2, s32 arg3, s32 arg4, 
     VecCopy__FP3VecPC3Vec((void *) (arg0 + 0x20), (void *) (arg2));
     M2C_FIELD(arg0, f32 *, 0x24) = (f32) lbl_805DFFE8;
     M2C_FIELD(arg0, f32 *, 0x2C) = farg0;
-    TBoss6SwordWave__sub_80356D64((void *) (arg0 + 0x30), (void *) (arg3), (void *) (arg4));
+    fill_range__15TBoss6SwordWaveFPvPvPv((void *) (arg0 + 0x30), (void *) (arg3), (void *) (arg4));
     M2C_FIELD(arg0, f32 *, 0x50) = (f32) lbl_805DFFE8;
     M2C_FIELD(arg0, f32 *, 0x54) = (f32) lbl_805DFFE8;
     M2C_FIELD(arg0, f32 *, 0x58) = (f32) lbl_805DFFE8;
@@ -478,7 +478,7 @@ u8 *__ct__15TBoss6SwordWaveFv(u8 *arg0, s32 arg1, s32 arg2, s32 arg3, s32 arg4, 
 
 #pragma push
 #pragma fp_contract on
-u8 *TBoss6SwordWave__sub_80356C10(s32 arg0, s32 arg1, s32 arg2, s32 arg3, f32 farg0) {
+u8 *create__15TBoss6SwordWaveFiiiif(s32 arg0, s32 arg1, s32 arg2, s32 arg3, f32 farg0) {
     u8 *temp_r3;
     u8 *var_r0;
     temp_r3 = (u8 *)(__nw__7TObjectFUl(0x64));
@@ -515,7 +515,7 @@ void TBoss6SwordWave__sub_80356D10(W_80356D10 *arg0, u8 arg1) {
     arg0->w[idx] &= ~(1 << bit);
 }
 
-void TBoss6SwordWave__sub_80356D64(void *arg0, void *arg1, void *arg2) {
+void fill_range__15TBoss6SwordWaveFPvPvPv(void *arg0, void *arg1, void *arg2) {
     s32 a = ((s32 (*)(void *, void *))TBoss6SwordWave__sub_80356D08)(arg0, arg1);
     s32 b = ((s32 (*)(void *, void *))TBoss6SwordWave__sub_80356D08)(arg0, arg2);
     if (a > b) {

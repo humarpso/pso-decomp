@@ -31,7 +31,7 @@ M2C_UNK VecCopy__FP3VecPC3Vec(void *, int);
 M2C_UNK advance_animation_playback(void *);
 s32 get_global_state__14TOKeyMachine01Fv();
 M2C_UNK play_sound_effect(int, void *, int, int);
-s32 TObjEneMe1GiGueBarrier__sub_802CAC04(int);
+s32 is_active_state__22TObjEneMe1GiGueBarrierFPv(int);
 s32 get_timer__22TObjEneMe1GiGueBarrierFPv(int);
 s32 update_and_get_pos__22TObjEneMe1GiGueBarrierFPv(int);
 void run_task__22TObjEneMe1GiGueBarrierFv(u8 *arg0);
@@ -141,7 +141,7 @@ void run_task__22TObjEneMe1GiGueBarrierFv(u8 *arg0) {
         break;
     default:
     case 1:
-        if (((s32) M2C_FIELD(arg0, s32 *, 0x108) <= 0) || (TObjEneMe1GiGueBarrier__sub_802CAC04((int) (M2C_FIELD(arg0, u32 *, 0xFC))) != 0)) {
+        if (((s32) M2C_FIELD(arg0, s32 *, 0x108) <= 0) || (is_active_state__22TObjEneMe1GiGueBarrierFPv((int) (M2C_FIELD(arg0, u32 *, 0xFC))) != 0)) {
             M2C_FIELD(arg0, s32 *, 0x104) = 2;
             M2C_FIELD(arg0, s16 *, 0xB8) = 2;
         }

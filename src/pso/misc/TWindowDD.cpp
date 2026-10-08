@@ -28,7 +28,7 @@ void set_value_f32__9TWindowDDFPvi(u8 *arg0, s32 arg1);
 extern const f32 lbl_805DFC34;
 extern const f32 lbl_805DFC38;
 extern const f32 lbl_805DFC3C;
-void TWindowDD__sub_8034042C(u8 *arg0, f32 farg0, f32 farg1, f32 farg2);
+void set_quad_corners_scaled__9TWindowDDFPvfff(u8 *arg0, f32 farg0, f32 farg1, f32 farg2);
 s32 test_flag_4c__23TAdSinglePlyChrSelectGCFPv(void *, void *);
 s32 TWindowShortListCtrl__check_controller_button(void *, void *);
 extern RecoveredGlobal_80340508_lbl_8050E208 lbl_8050E208;
@@ -77,7 +77,7 @@ void reset_entries__9TWindowDDFPvf(E_803403F8 *p, f32 v) {
     }
 }
 
-void TWindowDD__sub_8034042C(u8 *arg0, f32 farg0, f32 farg1, f32 farg2) {
+void set_quad_corners_scaled__9TWindowDDFPvfff(u8 *arg0, f32 farg0, f32 farg1, f32 farg2) {
   f32 temp_f0;
   f32 temp_f1;
   f32 temp_f1_2;

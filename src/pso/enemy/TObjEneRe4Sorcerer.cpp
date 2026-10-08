@@ -199,7 +199,7 @@ struct VObj_18_bcad77 : VBase_18_bcad77 {
 
 extern "C" {
 void call_vt_90_91__18TObjEneRe4SorcererFPv(u8 *arg0);
-void TObjEneRe4Sorcerer__sub_800ED2B4(u8 *arg0);
+void invoke_state_callbacks__18TObjEneRe4SorcererFPv(u8 *arg0);
 }
 
 extern "C" {
@@ -222,7 +222,7 @@ void call_vt_90_91__18TObjEneRe4SorcererFPv(u8 *arg0) {
     ((VObj_18 *)(arg0))->m91();
 }
 
-void TObjEneRe4Sorcerer__sub_800ED2B4(u8 *arg0) {
+void invoke_state_callbacks__18TObjEneRe4SorcererFPv(u8 *arg0) {
     ((VObj_18_bcad77 *)(arg0))->m89();
     ((VObj_18_bcad77 *)(arg0))->m92();
 }

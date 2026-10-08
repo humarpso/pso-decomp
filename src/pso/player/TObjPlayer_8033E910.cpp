@@ -49,7 +49,7 @@ extern const f32 lbl_805DFAC8;
 extern const f32 lbl_805DFACC;
 extern const f32 lbl_805DFAD0;
 void setup_projection_tex_matrix__10TObjPlayerFv(void);
-void TObjPlayer__sub_8033EAF0(s32 arg0, s32 arg1);
+void copy_node_record__10TObjPlayerFii(s32 arg0, s32 arg1);
 void queue_destruction__7TObjectFv(void *);
 void TLobby__sub_8033EE38(void *);
 void clear_item_list__6TLobbyFPv(O_8033EC40 *arg0);
@@ -121,10 +121,10 @@ void free_indexed_entry__10TObjPlayerFPv(void *arg0, s32 _w1) {
 
     temp_r0 = M2C_FIELD(arg0, s32 *, 0x20);
     if (temp_r0 < 0x10) {
-        TObjPlayer__sub_8033EAF0((s32)(M2C_FIELD(arg0, s32 *, 0x1C) + (temp_r0 * 0x24)), (s32)(_w1));
+        copy_node_record__10TObjPlayerFii((s32)(M2C_FIELD(arg0, s32 *, 0x1C) + (temp_r0 * 0x24)), (s32)(_w1));
     }
 }
-void TObjPlayer__sub_8033EAF0(s32 arg0, s32 arg1) {
+void copy_node_record__10TObjPlayerFii(s32 arg0, s32 arg1) {
     *(M2CCopy_C *)(arg0) = *(const M2CCopy_C *)(arg1);
     *(M2CCopy_C *)(arg0 + 0xC) = *(const M2CCopy_C *)(arg1 + 0xC);
     M2C_FIELD(arg0, s32 *, 0x18) = (s32) M2C_FIELD(arg1, s32 *, 0x18);

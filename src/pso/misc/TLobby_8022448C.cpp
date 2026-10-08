@@ -91,7 +91,7 @@ int is_flag_set__6TLobbyFPv(void* p);
 void TLobby__sub_80225C8C(void* p);
 extern unsigned char lbl_80513F70[];
 void TLobby__sub_802258C8(void);
-s32 TLobby__sub_80225B90(O_80225B90 *o);
+s32 is_name_too_long__6TLobbyFPv(O_80225B90 *o);
 extern G_80225550 lbl_80513F60;
 void get_shop_weapon_stock_item(C14_80225550 *dst, s32 idx, s32 tbl);
 extern G_80225550 lbl_80513F60;
@@ -753,7 +753,7 @@ void load_weapon_random_tables(void) {
 }
 #pragma pop
 
-void try_close__6TLobbyFPv(void* p) { if (TLobby__sub_80225B90((O_80225B90 *)(p)) == 0) { TLobby__sub_80225A08(p); } }
+void try_close__6TLobbyFPv(void* p) { if (is_name_too_long__6TLobbyFPv((O_80225B90 *)(p)) == 0) { TLobby__sub_80225A08(p); } }
 
 typedef struct RecoveredGlobal_802258C8_lbl_80513F70 RecoveredGlobal_802258C8_lbl_80513F70;
 typedef char RecoveredGlobal_802258C8_lbl_80513F70_size[((sizeof(RecoveredGlobal_802258C8_lbl_80513F70)) == 0x680) ? (1) : (-1)];
@@ -856,7 +856,7 @@ void clear_all_entries__6TLobbyFPv(void* _w0) {
     }
 }
 
-s32 TLobby__sub_80225B90(O_80225B90 *o) {
+s32 is_name_too_long__6TLobbyFPv(O_80225B90 *o) {
     s32 i = 0;
     char *p = o->name;
     while (*p++ != 0) {

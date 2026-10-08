@@ -169,7 +169,7 @@ M2C_UNK TLobby__sub_803F9F04(void *, void *, int);
 M2C_UNK TLobby__sub_80421FB8(void *, void *, void *);
 s32 TLobby__sub_80421F10(O_80421F10 *o, void *src, void *dst, s16 port, void *cb, s32 flags);
 extern S_804220A0 *lbl_805C1D48[];
-s32 TLobby__sub_804220A0(s32 idx_, void (*cb)(s16, s16, s32), s16 arg2, s32 *arg3);
+s32 complete_request_callback__6TLobbyFv(s32 idx_, void (*cb)(s16, s16, s32), s16 arg2, s32 *arg3);
 void OSReport(const char *, ...);
 s32 shutdown_network_handle__6TLobbyFv(void);
 s16 TLobby__sub_80406B14();
@@ -521,7 +521,7 @@ s32 TLobby__sub_80421F10(O_80421F10 *o, void *src, void *dst, s16 port, void *cb
     return 0;
 }
 
-s32 TLobby__sub_804220A0(s32 idx_, void (*cb)(s16, s16, s32), s16 arg2, s32 *arg3) {
+s32 complete_request_callback__6TLobbyFv(s32 idx_, void (*cb)(s16, s16, s32), s16 arg2, s32 *arg3) {
     s16 idx = idx_;
     S_804220A0 *s = lbl_805C1D48[0];
     s += idx;

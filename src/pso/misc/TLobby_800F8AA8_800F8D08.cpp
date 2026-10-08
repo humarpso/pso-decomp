@@ -1,7 +1,7 @@
 #include "types.h"
 
 extern "C" {
-void TLobby__sub_800F8D1C(s32 n);
+void clear_player_slot_tables__6TLobbyFi(s32 n);
 }
 
 extern "C" {
@@ -16,7 +16,7 @@ s32 lbl_80499A00[4] = { 0, 0, 0, 0 };
 s32 lbl_80499A10[4] = { 0, 0, 0, 0 };
 s32 lbl_80499A20[4] = { 0, 0, 0, 0 };
 s32 lbl_80499A30[4] = { 0, 0, 0, 0 };
-void TLobby__sub_800F8D1C(s32 n) {
+void clear_player_slot_tables__6TLobbyFi(s32 n) {
     s32 i;
     if (n == -1) {
         for (i = 0; i < 4; i++) {

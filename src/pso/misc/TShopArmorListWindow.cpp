@@ -257,7 +257,7 @@ s32 obj_getField1c(s32);
 M2C_UNK copy_item_data__6TLobbyFPvPv(void *, void *);
 s32 get_item_price_if_valid__24TShopEquipmentSellWindowFUi(void *);
 M2C_UNK clear_selected_and_update_entry__14TWindowSubItemFPv(s32);
-M2C_UNK TLobby__sub_8020ECD8(void *, int, s32);
+M2C_UNK copy_armor_shop_entry__6TLobbyFiii(void *, int, s32);
 M2C_UNK set_position__6TLobbyFPvff(void *, f32, f32);
 s32 TLobby__sub_8021B274();
 s32 get_shop_text(s32);
@@ -560,7 +560,7 @@ void refresh_item_list__20TShopArmorListWindowFPv(void *p) {
     base = TShopWindowBase__sub_8022397C(W);
     W->count = TLobby__sub_8021B274();
     for (i = 0; i < W->count; i++) {
-        TLobby__sub_8020ECD8(&tmp, i, base);
+        copy_armor_shop_entry__6TLobbyFiii(&tmp, i, base);
         copy_item_data__6TLobbyFPvPv(&W->recs[i], &tmp);
     }
     r = W->recs;

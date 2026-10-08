@@ -51,7 +51,7 @@ struct B_803DAE1C { u32 a; u32 b; Obj_803DAD84 *c; };
 extern "C" {
 extern s32 lbl_805D7768;
 void TObjPlayer__sub_803DAC1C(s32 arg0);
-void TObjPlayer__sub_803DA6E0(void *);
+void release_empty_ref_entry__10TObjPlayerFPv(void *);
 s32 fn_803DB20C(void *);
 extern u8 *lbl_805D774C;
 s32 TObjPlayer__sub_803DAE98(u8 *arg0, s32 _w1);
@@ -387,7 +387,7 @@ s32 TObjPlayer__sub_803DAE98(u8 *arg0, s32 _w1) {
             M2C_FIELD(lbl_805D774C, s32 *, 0x14) = -1;
         }
     }
-    TObjPlayer__sub_803DA6E0(arg0);
+    release_empty_ref_entry__10TObjPlayerFPv(arg0);
     return 1;
 }
 #pragma pop

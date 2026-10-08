@@ -701,7 +701,7 @@ void TBoss6Type2__sub_802BB7C0(T2_802BB7C0 *arg0);
 s32 push_players_away__11TBoss6Type2FPvPvf(void *self, void *target, f32 range);
 void set_owner_flag_bit0__11TBoss6Type2FPv(void *arg0);
 void set_child_flags__11TBoss6Type2FPv(void *arg0);
-void TBoss6Type2__sub_802BBD88(T1_802BBD88 *arg0);
+void clear_part_flags__11TBoss6Type2FPv(T1_802BBD88 *arg0);
 void update_parts_flags__11TBoss6Type2FPv(void *arg0);
 void advance_position__11TBoss6Type2FPv(u8 *arg0);
 void copy_vec_array__11TBoss6Type2FPv(u8 *arg0);
@@ -727,7 +727,7 @@ void set_screen_pos__11TBoss6Type2FPv(void *arg0);
 void load_battle_params__11TBoss6Type2FPv(u8 *arg0);
 void TBoss6Type2__sub_802BCC54(void *, int);
 void copy_transform__11TBoss6Type2FPvPv(void* p, void* q);
-Blk_802BCFD4 * TBoss6Type2__sub_802BCFD4(Blk_802BCFD4 *d, Blk_802BCFD4 *s);
+Blk_802BCFD4 * copy_block__11TBoss6Type2FPvPv(Blk_802BCFD4 *d, Blk_802BCFD4 *s);
 void set_action_state__11TBoss6Type2FPvPv(void *ov, void *vv);
 void copy_pos_620__11TBoss6Type2Fii(s32 arg0, s32 arg1);
 void get_push_points__11TBoss6Type2Fiii(s32 arg0, s32 arg1, s32 arg2);
@@ -740,7 +740,7 @@ void get_phase_values__11TBoss6Type2FPvPvPvPv(Obj_8004D8C8 *self, u16 *a, u16 *b
 f32 TBoss6Type2__vt20(void *arg0, u32 arg1, f32 farg0);
 void TBoss6Type2__vt61(void* p);
 void TBoss6Type2__vt60(u8 *arg0);
-s32 TBoss6Type2__sub_802BD68C(T1_802BD68C *arg0, s32 arg1, s32 arg2);
+s32 count_matching_values__11TBoss6Type2FPvii(T1_802BD68C *arg0, s32 arg1, s32 arg2);
 void set_target_state__11TBoss6Type2FPvii(void *arg0, s32 arg1, s32 arg2);
 s32 choose_next_index__11TBoss6Type2FPv(T2_802BD76C *arg0);
 s32 find_index_in_table__11TBoss6Type2FUi(u32 v);
@@ -839,7 +839,7 @@ extern Tb_802BD014 lbl_804E00DC[];
 }
 
 extern "C" {
-Blk_802BCFD4 *TBoss6Type2__sub_802BCFD4(Blk_802BCFD4 *d, Blk_802BCFD4 *s);
+Blk_802BCFD4 *copy_block__11TBoss6Type2FPvPv(Blk_802BCFD4 *d, Blk_802BCFD4 *s);
 }
 
 extern "C" {
@@ -1355,12 +1355,12 @@ s32 is_phase_complete__11TBoss6Type2FPv(void *arg0) {
 
 s32 TBoss6Type2__sub_802BA944(Boss_802BA944 *o) {
     s32 i;
-    if (((s32 (*)(void *, int, int))TBoss6Type2__sub_802BD68C)(o, 0xE, 3) != 0) {
+    if (((s32 (*)(void *, int, int))count_matching_values__11TBoss6Type2FPvii)(o, 0xE, 3) != 0) {
         return 0;
     }
     i = 0;
     do {
-        if (((s32 (*)(void *, int, int))TBoss6Type2__sub_802BD68C)(o, lbl_80471350[i], 2) != 0) {
+        if (((s32 (*)(void *, int, int))count_matching_values__11TBoss6Type2FPvii)(o, lbl_80471350[i], 2) != 0) {
             return 0;
         }
         i++;
@@ -1701,7 +1701,7 @@ void set_child_flags__11TBoss6Type2FPv(void *arg0) {
     }
 }
 
-void TBoss6Type2__sub_802BBD88(T1_802BBD88 *arg0) {
+void clear_part_flags__11TBoss6Type2FPv(T1_802BBD88 *arg0) {
     Ent_802BBD88 *p = arg0->p;
     if (p != NULL) {
         Ent_802BBD88 *end = (Ent_802BBD88 *)((u8 *)p + 0x84);
@@ -1712,7 +1712,7 @@ void TBoss6Type2__sub_802BBD88(T1_802BBD88 *arg0) {
 }
 
 void update_parts_flags__11TBoss6Type2FPv(void *arg0) {
-    TBoss6Type2__sub_802BBD88((T1_802BBD88 *)(arg0));
+    clear_part_flags__11TBoss6Type2FPv((T1_802BBD88 *)(arg0));
     if (M2C_FIELD(arg0, s32 *, 0x474) & 1) {
         set_child_flags__11TBoss6Type2FPv((void *)(arg0));
     }
@@ -2225,7 +2225,7 @@ struct Blk_802BCFD4;
 typedef s32 M2C_UNK;
 void init_motion_entries__11TBoss6Type2FPv(O_802BCEF4 *o) {
     s32 i;
-    TBoss6Type2__sub_802BCFD4((Blk_802BCFD4 *)((u8 *)o + 0x490), (Blk_802BCFD4 *)lbl_804712BC);
+    copy_block__11TBoss6Type2FPvPv((Blk_802BCFD4 *)((u8 *)o + 0x490), (Blk_802BCFD4 *)lbl_804712BC);
     for (i = 0; i < TBoss6Type2__data_805DE4B8; i++) {
         Ent_802BCEF4 *e = &o->ents[i];
         s32 r;
@@ -2247,7 +2247,7 @@ void copy_transform__11TBoss6Type2FPvPv(void* p, void* q) { *(u32*)((char*)p + 0
 #pragma inline_depth(1)
 #pragma auto_inline off
 #pragma dont_inline off
-Blk_802BCFD4 *TBoss6Type2__sub_802BCFD4(Blk_802BCFD4 *d, Blk_802BCFD4 *s) {
+Blk_802BCFD4 *copy_block__11TBoss6Type2FPvPv(Blk_802BCFD4 *d, Blk_802BCFD4 *s) {
     *d = *s;
     return d;
 }
@@ -2525,7 +2525,7 @@ extern int fold_flush_23;
 #pragma inline_depth(1)
 #pragma auto_inline off
 #pragma dont_inline off
-s32 TBoss6Type2__sub_802BD68C(T1_802BD68C *arg0, s32 arg1, s32 arg2) {
+s32 count_matching_values__11TBoss6Type2FPvii(T1_802BD68C *arg0, s32 arg1, s32 arg2) {
     s32 i;
     s32 cnt;
     if (arg2 > 0x20) {

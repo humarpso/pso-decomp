@@ -8,7 +8,7 @@ struct Base_801BC688 { char pad[8]; };
 struct VObj_801BC688 : Base_801BC688 { virtual void m0(); virtual void m1(int); };
 
 extern "C" {
-void TObjPlayer__sub_801BC688(void *arg0);
+void release_child_object__10TObjPlayerFPv(void *arg0);
 s32 get_player_count__10TObjPlayerFv(void);
 s32 get_hold_effect_count__10TObjPlayerFv(void);
 u8 * ct_variant__6TLobbyFPv(void *);
@@ -32,7 +32,7 @@ extern "C" {
 
 #pragma push
 #pragma fp_contract on
-void TObjPlayer__sub_801BC688(void *arg0) {
+void release_child_object__10TObjPlayerFPv(void *arg0) {
     void *temp_r3;
     temp_r3 = M2C_FIELD(arg0, void **, 0x380);
     if (temp_r3 != NULL) {

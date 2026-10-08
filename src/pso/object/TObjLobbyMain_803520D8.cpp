@@ -39,7 +39,7 @@ void update_fade__13TObjLobbyMainFPv(u8 *arg0);
 void update_fade_in__13TObjLobbyMainFPv(u8 *arg0);
 s32 get_theme_lobby_type();
 void resolve_theme_index__13TObjLobbyMainFPv(u8 *arg0);
-void TObjLobbyMain__sub_803521A4(u8 *arg0);
+void set_mode_index_from_state__13TObjLobbyMainFPv(u8 *arg0);
 void set_param_ptr__11TBoss4Type2FPvi(void *, int);
 void copy_pos__11TNowLoadingFPvPv(void *, void *);
 void matrix_mult_vec(int, Vec3_80352240 *, Vec3_80352240 *);
@@ -119,7 +119,7 @@ void resolve_theme_index__13TObjLobbyMainFPv(u8 *arg0) {
     }
 }
 
-void TObjLobbyMain__sub_803521A4(u8 *arg0) {
+void set_mode_index_from_state__13TObjLobbyMainFPv(u8 *arg0) {
     u32 temp_r0;
     temp_r0 = M2C_FIELD(arg0, u32 *, 0x84);
     switch (temp_r0) {
@@ -295,7 +295,7 @@ void reset_state__13TObjLobbyMainFPv(void *arg0) {
 }
 
 #define resolve_theme_index__13TObjLobbyMainFPv ((M2C_UNK (*)(void *))resolve_theme_index__13TObjLobbyMainFPv)
-#define TObjLobbyMain__sub_803521A4 ((M2C_UNK (*)(void *))TObjLobbyMain__sub_803521A4)
+#define set_mode_index_from_state__13TObjLobbyMainFPv ((M2C_UNK (*)(void *))set_mode_index_from_state__13TObjLobbyMainFPv)
 #define update_emitter_positions__13TObjLobbyMainFPv ((s32 (*)(void *))update_emitter_positions__13TObjLobbyMainFPv)
 #define TObjLobbyMain__sub_803520D8 ((M2C_UNK (*)(void *))TObjLobbyMain__sub_803520D8)
 #define advance_motion_frame__13TObjLobbyMainFPv ((M2C_UNK (*)(void *))advance_motion_frame__13TObjLobbyMainFPv)
@@ -460,7 +460,7 @@ u8 *TObjLobbyMain__ct(u8 *arg0, M2C_UNK arg1, s32 arg2) {
         set_flags__11TBoss4Type2FPvUi((int) (temp_r3_2), (int) (0x40));
         enable__13TParticleCtrlFPv((int) (M2C_FIELD(arg0, u32 *, 0xDC)));
     }
-    TObjLobbyMain__sub_803521A4((void *) (arg0));
+    set_mode_index_from_state__13TObjLobbyMainFPv((void *) (arg0));
     resolve_theme_index__13TObjLobbyMainFPv((void *) (arg0));
     update_emitter_positions__13TObjLobbyMainFPv((void *) (arg0));
     M2C_FIELD(arg0, f32 *, 0xD4) = (f32) (1.0f);
@@ -476,7 +476,7 @@ u8 *TObjLobbyMain__ct(u8 *arg0, M2C_UNK arg1, s32 arg2) {
 }
 
 #undef resolve_theme_index__13TObjLobbyMainFPv
-#undef TObjLobbyMain__sub_803521A4
+#undef set_mode_index_from_state__13TObjLobbyMainFPv
 #undef update_emitter_positions__13TObjLobbyMainFPv
 #undef TObjLobbyMain__sub_803520D8
 #undef advance_motion_frame__13TObjLobbyMainFPv

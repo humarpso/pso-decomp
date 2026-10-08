@@ -88,7 +88,7 @@ extern s32 TAdPlyStatusGC__data_805D6DB0;
 extern s32 TAdPlyStatusGC__data_805D6DB8;
 void TAdPlyStatusGC__sub_8033F9DC(struct RecoveredFields_8033F9DC_arg0 *arg0);
 extern s32 TAdPlyStatusGC__data_805D6DB8;
-void TAdPlyStatusGC__sub_8033F900(u8 *arg0, s32 arg1);
+void set_load_state__14TAdPlyStatusGCFPvi(u8 *arg0, s32 arg1);
 void set_field_1c__6TLobbyFPvf(f32);
 s32 create_callback__22TAdEnterSerialAccessGCFPvPvPv(void *, void *, void *);
 void TAdPlyStatusGC__sub_8033F3D8(void *arg0, void *arg1);
@@ -305,7 +305,7 @@ s32 TAdPlyStatusGC__sub_8033F8B0(void *arg0, void *arg1) {
     return r;
 }
 
-void TAdPlyStatusGC__sub_8033F900(u8 *arg0, s32 arg1) {
+void set_load_state__14TAdPlyStatusGCFPvi(u8 *arg0, s32 arg1) {
     s32 var_r4;
     if (arg1 > 0) {
         if ((s32) M2C_FIELD(arg0, s32 *, 0x1C) == 0) {

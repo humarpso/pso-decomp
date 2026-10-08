@@ -4,7 +4,7 @@ struct LobbyAnimationState { G_ClientIDHeader header; s16 animation_number; u16 
 
 extern "C" {
 s32 is_matching_id__6TLobbyFiUs(void *, u16);
-f32 TObjPlayer__sub_80142B3C(s32, s16);
+f32 get_table_value_f32__10TObjPlayerFPvs(s32, s16);
 s32 get_player_by_client_id(u16);
 s32 is_action_id_none(s16);
 s32 get_hold_effect_size_by_type__6TLobbyFv();
@@ -26,7 +26,7 @@ s32 validate_6xAE_set_animation_state(LobbyAnimationState *arg0) {
     if (((is_action_id_none(arg0->animation_number) == 0) && (arg0->animation_number < 0)) || (arg0->animation_number >= get_hold_effect_size_by_type__6TLobbyFv())) {
         return 0;
     }
-    if ((arg0->animation_timer < lbl_805E03A8) || (arg0->animation_timer >= TObjPlayer__sub_80142B3C(temp_r3, arg0->animation_number))) {
+    if ((arg0->animation_timer < lbl_805E03A8) || (arg0->animation_timer >= get_table_value_f32__10TObjPlayerFPvs(temp_r3, arg0->animation_number))) {
         return 0;
     }
     return 1;

@@ -34,7 +34,7 @@ void TObjEneRecon__sub_8031F800(u8 *arg0);
 void VecCopy__FP3VecPC3Vec(Vec_8031F8C4 *, Vec_8031F8C4 *);
 void play_sound_effect(s32, void *, s32, s32);
 u32 create__12TObjEneReconFPvPvPvPvPv(void *, u16, s32, Vec_8031F8C4 *, Vec_8031F8C4 *);
-s32 TObjEneRecon__sub_8031EDF8(void *);
+s32 alloc_child_id__12TObjEneReconFPv(void *);
 s32 remap_area_sound_id__14TObjEneRecoboxFUi(s32, s32, s32);
 Vec_8031F8C4 *get_field_38_ptr__12TObjEneReconFPv(void *, s32);
 f32 sin_table_lookup(s32);
@@ -104,7 +104,7 @@ void update_child_spawn__12TObjEneReconFPv(Recon_8031F8C4 *o) {
         dir.z = lbl_805DF458 * cos_table_lookup(o->f60);
         break;
     }
-    id = TObjEneRecon__sub_8031EDF8(o);
+    id = alloc_child_id__12TObjEneReconFPv(o);
     arg = o->f2C + (id - o->f1C);
     VecCopy__FP3VecPC3Vec(&pos, get_field_38_ptr__12TObjEneReconFPv(o, o->f2C));
     if (id == 0xFFFF) {

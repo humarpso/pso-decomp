@@ -212,7 +212,7 @@ s32 is_level_maxed__11TItemMagSubFPv(Feed_80114AB4 *);
 void clear_flag2__11TItemMagSubFPv(void *arg0);
 void reset_stats__11TItemMagSubFPv(u8 *arg0);
 void apply_node_oscillation__11TItemMagSubFPvPv(TItemMagSub_80114AB4 *self, void * _w1);
-void TItemMagSub__sub_80114C40(void *arg);
+void update_node_oscillation__11TItemMagSubFPv(void *arg);
 void accumulate_stat__11TItemMagSubFPvPvPv(f32 *arg0, s32 *arg1, void *arg2);
 void lerp_follow_anchor(Vec_80114CD8 *target, Vec_80114CD8 *cur, f32 *t);
 void mag_accumulate_drift(f32 *out, s32 *phase, f32 *amplitude, s32 *velocity, s8 *offset);
@@ -337,7 +337,7 @@ void apply_node_oscillation__11TItemMagSubFPvPv(TItemMagSub_80114AB4 *self, void
     }
 }
 
-void TItemMagSub__sub_80114C40(void *arg) {
+void update_node_oscillation__11TItemMagSubFPv(void *arg) {
     if (TItemMagSub__data_805D54B8 != 0) {
         apply_node_oscillation__11TItemMagSubFPvPv((TItemMagSub_80114AB4 *)(TItemMagSub__data_805D54B8), (void *)(arg));
         TItemMagSub__data_805D54BC++;
@@ -432,7 +432,7 @@ void TItemMagSub__vt3(TItemMagSub_80114F0C *self) {
         TItemMagSub__data_805D54BC = 0;
         self->selected_node = 0;
         if (self->animation) {
-            set_global_state__16TObjEneRe7BeruraFi(TItemMagSub__sub_80114C40);
+            set_global_state__16TObjEneRe7BeruraFi(update_node_oscillation__11TItemMagSubFPv);
             set_global_flag__10TObjPlayerFv();
             draw_model_motion(self->model, self->animation, self->animation_frame);
             clear_global_state__10TObjPlayerFv();
@@ -470,13 +470,13 @@ void render_mag_child(TItemMagSub *self) {
         (*(u32 *)&TItemMagSub__data_805D54BC) = 0;
         self->selected_node = 0;
         if (self->animation) {
-            set_global_state__16TObjEneRe7BeruraFi(TItemMagSub__sub_80114C40);
+            set_global_state__16TObjEneRe7BeruraFi(update_node_oscillation__11TItemMagSubFPv);
             set_global_flag__10TObjPlayerFv();
             draw_model_motion(self->model, self->animation, self->animation_frame);
             clear_global_state__10TObjPlayerFv();
             set_global_state__16TObjEneRe7BeruraFi(0);
         } else {
-            run_with_transform_context__10TObjPlayerFiii(self->model, TItemMagSub__sub_80114C40);
+            run_with_transform_context__10TObjPlayerFiii(self->model, update_node_oscillation__11TItemMagSubFPv);
         }
         (*(u32 *)&TItemMagSub__data_805D54BC) = 0;
         pop_matrix();

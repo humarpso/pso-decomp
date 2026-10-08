@@ -56,7 +56,7 @@ void TItemProShield__vt16(void *arg0, void *arg1);
 int TItemEquipBase__sub_8010A82C(void*);
 int TItemProShield__vt43(void* p);
 M2C_UNK play_sound_effect(int, int, int, int);
-M2C_UNK TItemEffShield__sub_8010A404(int, int, void *);
+M2C_UNK ct_init__14TItemEffShieldFPvPvs(int, int, void *);
 M2C_UNK TObjPlayer__sub_8010A1D0(int, int, void *, int);
 s32 __nw__7TObjectFUl(int);
 s32 alloc__13TItemProArmorFi(int);
@@ -215,7 +215,7 @@ void TItemProShield__vt42(u8 *arg0) {
             if ((u32) M2C_FIELD(arg0, u32 *, 0x174) != 0U) {
                 temp_r3_4 = __nw__7TObjectFUl((int) (0x2C));
                 if (temp_r3_4 != 0) {
-                    TItemEffShield__sub_8010A404((int) (temp_r3_4), (int) (M2C_FIELD(arg0, u32 *, 0x174)), (void *) (get_id__13TItemProArmorFPv((void *) (arg0))));
+                    ct_init__14TItemEffShieldFPvPvs((int) (temp_r3_4), (int) (M2C_FIELD(arg0, u32 *, 0x174)), (void *) (get_id__13TItemProArmorFPv((void *) (arg0))));
                 }
             }
             break;

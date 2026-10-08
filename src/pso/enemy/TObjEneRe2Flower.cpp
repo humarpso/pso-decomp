@@ -9,7 +9,7 @@ void VecCopy__FP3VecPC3Vec(void *, void *);
 extern const f32 lbl_805D9FF8;
 void TObjEneRe2Flower__sub_800C3DC4(u8 *arg0);
 s32 set_part_local_pos__9TObjEneDDFPvPvi(void *, void *, int);
-void TObjEneRe2Flower__sub_800C3D88(u8 *arg0);
+void update_part_position__16TObjEneRe2FlowerFPv(u8 *arg0);
 }
 
 extern "C" {
@@ -58,7 +58,7 @@ void set_child_flags__16TObjEneRe2FlowerFPv(void *arg0) {
     M2C_FIELD(temp_r3_2, s32 *, 0x44) = (s32) (M2C_FIELD(temp_r3_2, s32 *, 0x44) | 1);
 }
 
-void TObjEneRe2Flower__sub_800C3D88(u8 *arg0) {
+void update_part_position__16TObjEneRe2FlowerFPv(u8 *arg0) {
     M2C_FIELD(M2C_FIELD(arg0, u8 **, 0xA4), f32 *, 0x30) = (f32) (M2C_FIELD(arg0, f32 *, 0x300) - M2C_FIELD(arg0, f32 *, 0x3C));
     set_part_local_pos__9TObjEneDDFPvPvi((void *) (arg0), (void *) (arg0 + 0x3DC), (int) (0));
 }

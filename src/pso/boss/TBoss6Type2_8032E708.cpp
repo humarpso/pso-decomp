@@ -327,18 +327,18 @@ void copy_state__11TBoss6Type2FPvPv(void* p, void* q);
 s32 get_bml_motion(int, int);
 extern Ent_8032FFC0 lbl_804EDD94[];
 void change_motion__11TBoss6Type2FPvi(u8 *arg0, s32 arg1);
-void TBoss6Type2__sub_8032FD78(void *arg0);
+void decay_glow_and_calc_hp_ratio__11TBoss6Type2FPv(void *arg0);
 s32 request_destroy__11TBoss4Type2FUi(int);
 void destroy_part_object__11TBoss6Type2Fii(s32 arg0, s32 arg1);
 void destroy_part_object__11TBoss6Type2Fii(s32 arg0, s32 arg1);
 void update_all_parts__11TBoss6Type2FPv(s32 arg0);
-s32 TBoss6Type2__sub_8032F174(u8 *arg0);
+s32 is_action_ready__11TBoss6Type2FPv(u8 *arg0);
 void change_motion__11TBoss6Type2FPvi(u8 *arg0, s32 arg1);
 extern Ent_8033053C lbl_804EF028[];
 void set_action__11TBoss6Type2FPvi(u8 *arg0, s32 arg1);
 s32 is_phase_active__11TBoss6Type2FPv(T_8032E748 *self);
 void TBoss6Type2__sub_8032EA10(T_8032EA10 *self);
-int TBoss6Type2__sub_80330178(s32 _w0, s32 _w1);
+int copy_vec3__11TBoss6Type2Fii(s32 _w0, s32 _w1);
 extern void *lbl_804EDDE4[];
 void set_path_points_by_index__11TBoss6Type2FiPvi(s32 i, void *pts, s32 n);
 void TBoss6Type2__sub_8032F2F0(void* p, void* q);
@@ -762,7 +762,7 @@ s32 is_target_in_front_range__11TBoss6Type2FPv(O_8032F034 *arg0) {
 }
 #pragma pop
 
-s32 TBoss6Type2__sub_8032F174(u8 *arg0) {
+s32 is_action_ready__11TBoss6Type2FPv(u8 *arg0) {
   if (((((RecoveredFields_8032F174_arg0 *) arg0)->field_380 == 2) && (((RecoveredFields_8032F174_arg0 *) arg0)->field_408 != ((-1) & 0xFFFF))) && (((RecoveredFields_8032F174_arg0 *) arg0)->field_3C <= (75.0f)))
   {
     return 1;
@@ -771,7 +771,7 @@ s32 TBoss6Type2__sub_8032F174(u8 *arg0) {
 }
 
 void update_rotation_ramp__11TBoss6Type2FPv(void *arg0) {
-    if ((TBoss6Type2__sub_8032F174((u8 *)(arg0)) == 0) || (is_target_in_front_range__11TBoss6Type2FPv((O_8032F034 *)(arg0)) == 0)) {
+    if ((is_action_ready__11TBoss6Type2FPv((u8 *)(arg0)) == 0) || (is_target_in_front_range__11TBoss6Type2FPv((O_8032F034 *)(arg0)) == 0)) {
         M2C_FIELD(arg0, f32 *, 0x3BC) = (f32) (0.0f);
         M2C_FIELD(arg0, f32 *, 0x3B8) += (-0.06666667f);
         if (M2C_FIELD(arg0, f32 *, 0x3B8) < (0.0f)) {
@@ -1094,7 +1094,7 @@ void init_segment_angle_range__11TBoss6Type2FPv(Obj_8032FCA4 *arg0) {
 
 #pragma push
 #pragma opt_common_subs off
-void TBoss6Type2__sub_8032FD78(void *arg0) {
+void decay_glow_and_calc_hp_ratio__11TBoss6Type2FPv(void *arg0) {
     M2C_FIELD(arg0, f32 *, 0x3F8) += (-0.06666667f);
     if (M2C_FIELD(arg0, f32 *, 0x3F8) < (0.0f)) {
         M2C_FIELD(arg0, f32 *, 0x3F8) = (f32) (0.0f);
@@ -1195,7 +1195,7 @@ void update_motion_playback__11TBoss6Type2FPv(O_8032FFC0 *arg0) {
 
 void TBoss6Type2__sub_803300C8(u8 *arg0) {
     s32 temp_r3;
-    TBoss6Type2__sub_80330178((s32)((s32)((void *) (arg0 + 0x3D4))), (s32)((s32)((void *) (&lbl_80477404.value))));
+    copy_vec3__11TBoss6Type2Fii((s32)((s32)((void *) (arg0 + 0x3D4))), (s32)((s32)((void *) (&lbl_80477404.value))));
     copy_state__11TBoss6Type2FPvPv((void*)((void *) (arg0 + 0x3DC)), (void*)((void *) (&lbl_80477428.value)));
     temp_r3 = get_bml_motion((int) (M2C_FIELD(arg0, s32 *, 0x374)), (int) (M2C_FIELD(&(*(RecoveredGlobal_803300C8_lbl_804EDD94 *)lbl_804EDD94).value, s32 *, 8)));
     M2C_FIELD(arg0, s32 *, 0x3F0) = temp_r3;
@@ -1207,7 +1207,7 @@ void copy_state__11TBoss6Type2FPvPv(void* p, void* q) { *(u32*)((char*)p + 0x0) 
 typedef char MemberActionStorage_803301B8_size[sizeof(MemberActionStorage_803301B8) == 12 ? 1 : -1];
 typedef char RecoveredGlobal_803301B8_lbl_804EF028_size[sizeof(RecoveredGlobal_803301B8_lbl_804EF028) == 0xD8 ? 1 : -1];
 
-int TBoss6Type2__sub_80330178(s32 _w0, s32 _w1) {
+int copy_vec3__11TBoss6Type2Fii(s32 _w0, s32 _w1) {
     S_80330178 *d = (S_80330178 *)_w0;
     S_80330178 *s = (S_80330178 *)_w1;
     d->a = s->a;
@@ -1388,7 +1388,7 @@ void update_main__11TBoss6Type2FPv(u8 *arg0) {
             var_r4 = -0x5DB4;
         }
         add_radar_scaled_marker((void *) (arg0 + 0x38), (int) (var_r4), (int) (1), (int) (1), (f32) (2.0f));
-        TBoss6Type2__sub_8032FD78((void *) (arg0));
+        decay_glow_and_calc_hp_ratio__11TBoss6Type2FPv((void *) (arg0));
         sync_hp_apply_damage__11TBoss6Type2FPv((void *) (arg0));
         spawn_trap_by_stat__10TObjPlayerFPv(arg0);
         TBoss6Type2__sub_8032E8DC((Obj_8032E8DC *) (arg0));

@@ -158,11 +158,11 @@ extern "C" {
 s32 is_split_screen(void);
 u8 *__nw__7TObjectFUl(M2C_UNK);
 extern s32 tl_particle;
-u8 *TParticleCtrl__sub_8008592C(s32 arg0);
+u8 *create_particle_obj_90__13TParticleCtrlFi(s32 arg0);
 s32 is_split_screen(void);
 u8 *__nw__7TObjectFUl(M2C_UNK);
 extern s32 tl_particle;
-u8 *TParticleCtrl__sub_8008598C(s32 arg0);
+u8 *create_particle_obj_ac__13TParticleCtrlFi(s32 arg0);
 extern RecoveredGlobal_800861F4_TParticleCtrl__data_80511F70 TParticleCtrl__data_80511F70;
 s32 is_particle_sprite_additive(u8 *arg0);
 u8 * __dt__7TObjectFv(void *, s16);
@@ -312,7 +312,7 @@ u8 *TParticleCtrl__sub_800858D0(u8 *arg0, s32 arg1, s32 arg2) {
     return arg0;
 }
 
-u8 *TParticleCtrl__sub_8008592C(s32 arg0) {
+u8 *create_particle_obj_90__13TParticleCtrlFi(s32 arg0) {
     u8 *temp_r3;
     u8 *var_r0;
     if (is_split_screen() != 0) {
@@ -326,7 +326,7 @@ u8 *TParticleCtrl__sub_8008592C(s32 arg0) {
     return var_r0;
 }
 
-u8 *TParticleCtrl__sub_8008598C(s32 arg0) {
+u8 *create_particle_obj_ac__13TParticleCtrlFi(s32 arg0) {
     u8 *temp_r3;
     u8 *var_r0;
     if (is_split_screen() != 0) {

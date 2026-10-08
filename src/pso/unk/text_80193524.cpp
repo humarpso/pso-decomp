@@ -162,7 +162,7 @@ void *create__15TObjLazerFence4FPv(void *arg0);
 void run_task__13TLazerFenceSwFv(u8 *arg0);
 M2C_UNK TLobby__sub_8001FE7C(void *, s32);
 void trigger_activate_sound__5TOKeyFPv(void *);
-M2C_UNK TOKey__sub_8016AAE0(void *);
+M2C_UNK reset_and_notify__5TOKeyFPv(void *);
 void free_collision_body_parts(void *);
 void unregister_object_by_id(void *);
 void __dl__7TObjectFPv(void *);
@@ -389,7 +389,7 @@ void TLazerFenceSw__vt15(u8 *arg0) {
 
 void run_task__13TLazerFenceSwFv(u8 *arg0) {
     step_laser_fence_fade(arg0 + 0xF0);
-    TOKey__sub_8016AAE0(arg0);
+    reset_and_notify__5TOKeyFPv(arg0);
     M2C_FIELD(arg0, f32 *, 0x110) = (f32) (M2C_FIELD(arg0, f32 *, 0x110) + lbl_805DBE88);
 }
 

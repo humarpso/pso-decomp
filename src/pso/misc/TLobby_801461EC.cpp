@@ -90,7 +90,7 @@ void TLobby__sub_804073B8(void);
 s16 run_connect_step__6TLobbyFv(void);
 s16 TLobby__sub_804150EC(void);
 s16 TLobby__sub_8042315C(s16, void *);
-void TLobby__sub_80426C34(s32);
+void set_connect_mode__6TLobbyFi(s32);
 extern s32 lbl_805D2D00;
 extern s32 lbl_805D56D8;
 extern s32 lbl_805D56E4;
@@ -421,7 +421,7 @@ s32 run_connect_sequence__6TLobbyFv(void) {
             return 0x11;
         }
         lbl_805D56F8 |= 1;
-        TLobby__sub_80426C34(4);
+        set_connect_mode__6TLobbyFi(4);
         ok = TLobby__sub_804150EC();
         lbl_805D56F8 |= 0x20;
         lbl_805D5710 = 0;

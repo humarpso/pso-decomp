@@ -154,7 +154,7 @@ s32 transition_enemy_state(void *, int);
 s32 fn_800C3A60(void *, int);
 s32 get_flag_11__16TObjEneRe2FlowerFPv(void *);
 s32 clear_child_flags__16TObjEneRe2FlowerFPv(void *);
-s32 TObjEneMe3SinowZoa__sub_800D7524(void *);
+s32 init_death_params__18TObjEneMe3SinowZoaFPv(void *);
 s32 request_two_effects__10TObjPlayerFPv(void *);
 s32 spawn_ground_effect__10TObjPlayerFPvi(void *, int);
 s32 apply_effect_variant_a__10TObjPlayerFii(void *, int);
@@ -240,7 +240,7 @@ void fn_800C2AC4(u8 *arg0, int arg1) {
         {
           apply_effect_variant_a__10TObjPlayerFii((void *) (&stack.sp8), (int) 0x32);
           request_two_effects__10TObjPlayerFPv((void *) (&stack.sp8));
-          TObjEneMe3SinowZoa__sub_800D7524((void *) (arg0 + 0x3F4));
+          init_death_params__18TObjEneMe3SinowZoaFPv((void *) (arg0 + 0x3F4));
         }
         else
         {

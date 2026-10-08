@@ -27,7 +27,7 @@ extern s32 lbl_805D6750;
 extern u8 lbl_805D6754;
 extern const f32 lbl_805DE3F4;
 extern const f32 lbl_805DE4DC;
-void TBoss6Type2__sub_802BF9A8(u8 *arg0);
+void init_timer_and_play_sound__11TBoss6Type2FPv(u8 *arg0);
 s32 spawn_particle_slot__11TBoss6Type2FPvi(void *, s32);
 s32 TBoss6Type2__sub_802BB7C0(void *);
 void reset_timers_and_spawn_particle__11TBoss6Type2FPv(S_802BF6CC *arg0);
@@ -228,7 +228,7 @@ void pick_next_zako__11TBoss6Type2FPv(void *arg0) {
 #include "types.h"
 extern "C" {
 
-void TBoss6Type2__sub_802BF9A8(u8 *arg0) {
+void init_timer_and_play_sound__11TBoss6Type2FPv(u8 *arg0) {
   if (((s8) lbl_805D6754) == 0)
   {
     lbl_805D6754 = 1;

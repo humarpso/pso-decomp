@@ -139,7 +139,7 @@ void update_technique_slot__10TTecRaFoieFi(s32, s32, s32);
 s32 play_sound_effect(u32, s32, s32, s32);
 M2C_UNK destroy__20TWindowSubStatusDispFPvs(M2C_UNK, M2C_UNK *);
 int TWindowSubStatusDisp__sub_80256BDC(void*, int);
-s32 TWindowSubStatusDisp__sub_80256C00();
+s32 calc_bar_width__20TWindowSubStatusDispFPv();
 void step_gauge_bar_width(void *);
 M2C_UNK TWindowSubStatusDisp__sub_80257298(void *, s16);
 void* init_from__20TWindowSubStatusDispFPvPvi(void* a0, void* a1, int a2);
@@ -202,7 +202,7 @@ void start_text_color_transition(Fade_802575C0 *arg0, u32 rgb, f32 time) {
 void copy4__18TAdChrMoveEffectGCFPvPv(void* p, void* q) { *(u8*)((char*)p + 0x0) = *(u8*)((char*)q + 0x0); *(u8*)((char*)p + 0x1) = *(u8*)((char*)q + 0x1); *(u8*)((char*)p + 0x2) = *(u8*)((char*)q + 0x2); *(u8*)((char*)p + 0x3) = *(u8*)((char*)q + 0x3); }
 
 void update_disp_value__20TWindowSubStatusDispFPv(void *arg0) {
-    TWindowSubStatusDisp__sub_80256C00();
+    calc_bar_width__20TWindowSubStatusDispFPv();
     M2C_FIELD(arg0, s16 *, 0x28) = (s16) M2C_FIELD(arg0, f32 *, 0x24);
 }
 

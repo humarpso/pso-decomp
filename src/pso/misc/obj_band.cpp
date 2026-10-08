@@ -219,7 +219,7 @@ s32 is_anim_finished__10TObjPlayerFPv(void *arg0) {
     return 0;
 }
 
-f32 TObjPlayer__sub_80142B3C(O_80142B3C *arg0, s16 arg1) {
+f32 get_table_value_f32__10TObjPlayerFPvs(O_80142B3C *arg0, s16 arg1) {
     return (f32)arg0->tab2[arg0->tab[arg1].idx].r->val;
 }
 

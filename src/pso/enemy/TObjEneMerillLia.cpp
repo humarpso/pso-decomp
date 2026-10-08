@@ -464,7 +464,7 @@ extern const f32 lbl_805DA2EC;
 extern const f32 TObjEneMerillLia__data_805DA300;
 extern const f32 lbl_805DA334;
 extern const f32 lbl_805DA338;
-void TObjEneMerillLia__sub_800D69B4(u8 *arg0);
+void init_params_from_position__16TObjEneMerillLiaFPv(u8 *arg0);
 M2C_UNK copy_position__20TBoss3VoloptHiraisinFi(void *);
 s32 check_demo_mode__10TObjPlayerFv();
 void search_target__16TObjEneMerillLiaFPv(void *);
@@ -508,7 +508,7 @@ void render__16TObjEneMerillLiaFPv(u8 *arg0);
 extern u32 TObjEneMerillLia__data_805D5220;
 void TObjEneMerillLia__sub_800D7274(O_800D7274 *self, s32 i);
 extern s32 lbl_805D5550;
-s32 TObjEneMerillLia__sub_800D5100(Obj_800D5100 *self);
+s32 get_clamped_level__16TObjEneMerillLiaFPv(Obj_800D5100 *self);
 void set_param__12TObjEneLappyFPvi(void *p, s32 v);
 void clamp_and_apply_mode_param__16TObjEneMerillLiaFPv(Obj_800D5150 *self);
 s32 TObjEneMe3SinowZoa__sub_800D758C(void *);
@@ -539,7 +539,7 @@ f32 calc_boss4_scale__10TObjPlayerFi(void *);
 M2C_UNK obj_clearFlags30(void *, M2C_UNK);
 M2C_UNK obj_setFlags30(void *, M2C_UNK);
 void TObjEneMerillLia__sub_800D4EC8(s32 arg0);
-s32 TObjEneMerillLia__sub_800D5100(Obj_800D5100 *self);
+s32 get_clamped_level__16TObjEneMerillLiaFPv(Obj_800D5100 *self);
 void init_attack_state__16TObjEneMerillLiaFPv(void *arg0);
 M2C_UNK render_anim_model__10TObjPlayerFPvf(void *, f32);
 s32 objInBand__FP7GameObjf(void *, f32);
@@ -935,7 +935,7 @@ void spawn_front_ground_effect__16TObjEneMerillLiaFPv(u8 *arg0) {
 
 void TObjEneMerillLia__sub_800D50FC(void) {  }
 
-s32 TObjEneMerillLia__sub_800D5100(Obj_800D5100 *self) {
+s32 get_clamped_level__16TObjEneMerillLiaFPv(Obj_800D5100 *self) {
     Sub_800D5100 *p = self->f2b0;
     s32 v = 0;
     if (p != 0) {
@@ -1228,7 +1228,7 @@ M2C_UNK update_kafun_attack__16TObjEneMerillLiaFPv(void *p) {
                 matrix_mult_vec(0, &sp8, &sp14);
             }
             pop_matrix();
-            create__9TTecKafunFiiiiiff((void *) (arg0), &sp14, 0xF, 0xD3, TObjEneMerillLia__sub_800D5100((Obj_800D5100 *) (arg0)), M2C_FIELD(((void **) TObjEneMerillLia__data_805D521C)[M2C_FIELD(arg0, s32 *, 0x334)], f32 *, 0x10), lbl_805DA310);
+            create__9TTecKafunFiiiiiff((void *) (arg0), &sp14, 0xF, 0xD3, get_clamped_level__16TObjEneMerillLiaFPv((Obj_800D5100 *) (arg0)), M2C_FIELD(((void **) TObjEneMerillLia__data_805D521C)[M2C_FIELD(arg0, s32 *, 0x334)], f32 *, 0x10), lbl_805DA310);
             TObjEneMerillLia__sub_800D4EC8((s32) (arg0));
         }
         if ((u32) M2C_FIELD(arg0, u32 *, 0xB4) != 4U) {
@@ -1630,7 +1630,7 @@ void render__16TObjEneMerillLiaFPv(u8 *arg0) {
 
 #pragma push
 #pragma opt_common_subs off
-void TObjEneMerillLia__sub_800D69B4(u8 *arg0) {
+void init_params_from_position__16TObjEneMerillLiaFPv(u8 *arg0) {
     M2C_FIELD(arg0, s16 *, 0x3D8) = (s16) ((s32) M2C_FIELD(arg0, f32 *, 0x360) + 0x12C);
     M2C_FIELD(arg0, f32 *, 0x3C4) = (f32) (M2C_FIELD(arg0, f32 *, 0x354) - lbl_805DA334);
     if (M2C_FIELD(arg0, f32 *, 0x3C4) < TObjEneMerillLia__data_805DA300) {
@@ -1798,7 +1798,7 @@ M2C_UNK copy_position__20TBoss3VoloptHiraisinFi(void *);
 M2C_UNK init_position_vectors__10TObjPlayerFi(void *);
 M2C_UNK init_enemy_base__10TObjPlayerFPv(void *, M2C_UNK);
 void clamp_and_apply_mode_param__16TObjEneMerillLiaFPv(Obj_800D5150 *self);
-void TObjEneMerillLia__sub_800D69B4(u8 *arg0);
+void init_params_from_position__16TObjEneMerillLiaFPv(u8 *arg0);
 void TObjEneMerillLia__sub_800D7274(O_800D7274 *self, s32 i);
 M2C_UNK init_common__18TObjEneMe3SinowZoaFPv(void *);
 M2C_UNK update_prev_position__10TObjPlayerFPv(void *);
@@ -1827,7 +1827,7 @@ void *TObjEneMerillLia__ct(void *arg0v, void *arg1, void *arg2) {
     init_common__18TObjEneMe3SinowZoaFPv(arg0 + 0x3A8);
     M2C_FIELD(arg0, s32 *, 0) = lbl_805D2A88;
     ((VObj_18_4c2345 *) arg0)->m79((s32)arg2);
-    TObjEneMerillLia__sub_800D69B4(arg0);
+    init_params_from_position__16TObjEneMerillLiaFPv(arg0);
     init_position_vectors__10TObjPlayerFi(arg0);
     M2C_FIELD(arg0, s32 *, 0x334) = M2C_FIELD(arg0, s32 *, 0x368);
     clamp_and_apply_mode_param__16TObjEneMerillLiaFPv((Obj_800D5150 *) arg0);

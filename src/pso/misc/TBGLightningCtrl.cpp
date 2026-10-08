@@ -95,7 +95,7 @@ void fn_802A9DF4(Obj_802A9DF4 *self, Vec_802A9DF4 *dir);
 void fn_802A9F48(Obj_802A9F48 *self, Vec_802A9F48 *dir);
 void render__12TBGLightningFv(s32 arg0);
 void run_task__12TBGLightningFv(void *arg0);
-u8 * TBGLightning__sub_802AA164(s32 arg0, s32 arg1, f32 farg0);
+u8 * create__12TBGLightningFiif(s32 arg0, s32 arg1, f32 farg0);
 u8 * __ct__12TBGLightningFv(u8 *arg0, void *arg1, s32 arg2, f32 farg0);
 u32 __cvt_fp2unsigned(f32);
 s32 rand();
@@ -133,7 +133,7 @@ void spawn_lightning_at_angle__16TBGLightningCtrlFPvi(u8 *arg0, s32 arg1) {
     stack.sp8 = M2C_FIELD(arg0, f32 *, 0x68) * sin_table_lookup(arg1);
     stack.spC = M2C_FIELD(arg0, f32 *, 0x6C);
     stack.sp10 = M2C_FIELD(arg0, f32 *, 0x68) * cos_table_lookup(arg1);
-    ((s32 (*)(s32, s32, f32))TBGLightning__sub_802AA164)((s32) arg0, (s32) &stack.sp8, M2C_FIELD(arg0, f32 *, 0x70) * (((0.3f) * ((3.0517578e-05f) * (f32) rand())) + (1.0f)));
+    ((s32 (*)(s32, s32, f32))create__12TBGLightningFiif)((s32) arg0, (s32) &stack.sp8, M2C_FIELD(arg0, f32 *, 0x70) * (((0.3f) * ((3.0517578e-05f) * (f32) rand())) + (1.0f)));
 }
 extern int fold_flush_0;
 #pragma pop
@@ -317,7 +317,7 @@ void run_task__12TBGLightningFv(void *arg0) {
     }
 }
 
-u8 *TBGLightning__sub_802AA164(s32 arg0, s32 arg1, f32 farg0) {
+u8 *create__12TBGLightningFiif(s32 arg0, s32 arg1, f32 farg0) {
     u8 *temp_r3;
     u8 *var_r0;
     temp_r3 = (u8 *)(((u8 * (*)(M2C_UNK))__nw__7TObjectFUl)(0x30));

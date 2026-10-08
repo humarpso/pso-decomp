@@ -79,7 +79,7 @@ M2C_UNK send_and_handle__6TLobbyFPvii(u32, s32, M2C_UNK);
 void TAdMultiChgGameModeGC__sub_8036E51C(u8 *arg0);
 s32 get_instance__15TAdPlayerLoadGCFv();
 s32 get_instance__15TAdPlayerLoadGCFv();
-void TAdMultiChgGameModeGC__sub_8036E5A8(s32 arg0);
+void update_mode_selection__21TAdMultiChgGameModeGCFi(s32 arg0);
 int load_system_file(void* a0 = 0);
 void load_system_on_mode_default__21TAdMultiChgGameModeGCFPv(void* p);
 s32 handle_mode_selection__21TAdMultiChgGameModeGCFPv(void *arg0);
@@ -147,7 +147,7 @@ extern u8 lbl_804F3A18[];
 extern const f32 lbl_805D7020;
 M2C_UNK setup_mode_menu__21TAdMultiChgGameModeGCFPvi(void *arg0, M2C_UNK arg1);
 s32 get_instance__15TAdPlayerLoadGCFv();
-s32 TAdSinglePlyChrSelectGC__sub_801FD668();
+s32 all_players_loaded__23TAdSinglePlyChrSelectGCFv();
 s32 TAdPlayerLoadGC__sub_801FD770();
 s32 handle_mode_selection__21TAdMultiChgGameModeGCFPv(void *arg0);
 void set_state__21TAdMultiChgGameModeGCFPvi(u8 *arg0, s32 arg1);
@@ -401,7 +401,7 @@ void TAdMultiChgGameModeGC__sub_8036E51C(u8 *arg0) {
     }
     create_back_objects__21TAdMultiChgGameModeGCFPv((void *) (arg0));
 }
-void TAdMultiChgGameModeGC__sub_8036E5A8(s32 arg0) {
+void update_mode_selection__21TAdMultiChgGameModeGCFi(s32 arg0) {
     if ((handle_mode_selection__21TAdMultiChgGameModeGCFPv((void *)((void *)(arg0))) == 0) && (get_instance__15TAdPlayerLoadGCFv() == 0)) {
         set_state__21TAdMultiChgGameModeGCFPvi((u8 *)((void *)((void *)((void *) (arg0)))), (s32)((M2C_UNK)((s32)((int) (2)))));
     }
@@ -454,7 +454,7 @@ void check_player_load_result__21TAdMultiChgGameModeGCFPv(void *arg0) {
     }
     switch (TAdPlayerLoadGC__sub_801FD770()) {
     case 5:
-        if (TAdSinglePlyChrSelectGC__sub_801FD668() != 0) {
+        if (all_players_loaded__23TAdSinglePlyChrSelectGCFv() != 0) {
             set_state__21TAdMultiChgGameModeGCFPvi((u8 *)arg0, 3);
         } else {
             set_state__21TAdMultiChgGameModeGCFPvi((u8 *)arg0, 8);

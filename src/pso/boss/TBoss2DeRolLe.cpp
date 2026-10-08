@@ -449,7 +449,7 @@ s32 get_random_scaled__9TObjEneDDFv(void *);
 f32 sin_table_lookup(s32);
 f32 cos_table_lookup(s32);
 s32 adjust_to_ground__15TObjBoss2TunnelFiPv(s32 arg0, void *arg1);
-void TBoss2Tentacle__sub_80039E88(void *, void *, s32);
+void start_attack_at_target__14TBoss2TentacleFPvPvi(void *, void *, s32);
 s32 TBoss2Tentacle__sub_80039CA0(void *);
 void TBoss2Tentacle__sub_80039E68(void *);
 extern u8 *TBoss2DeRolLe__data_805D4BA0;
@@ -1784,7 +1784,7 @@ void TBoss2DeRolLe__sub_800310F8(void *arg0, void *arg1, int arg2) {
                 }
                 {
                     Self_800310F8 *o = (Self_800310F8 *)arg0;
-                    TBoss2Tentacle__sub_80039E88(o->parts[o->idx], &v, o->life);
+                    start_attack_at_target__14TBoss2TentacleFPvPvi(o->parts[o->idx], &v, o->life);
                 }
                 self->idx++;
                 if (self->idx >= 4) {

@@ -141,7 +141,7 @@ void dispatch_by_state__6TLobbyFPv(u8 *arg0);
 void TLobby__sub_803C3570(void *);
 void TLobby__sub_803C40D0(void *);
 void TLobby__sub_803C34F4(Obj_803C34F4 *arg0);
-s32 TLobby__sub_803C3ACC(Obj_803C3ACC *arg0);
+s32 get_packet_flag_for_state__6TLobbyFPv(Obj_803C3ACC *arg0);
 s32 is_riff_wave__6TLobbyFPv(void *);
 s32 DVDReadPrio(void *, void *, void *);
 s32 is_aiff_header__6TLobbyFPv(u8 *arg0);
@@ -584,7 +584,7 @@ s32 TLobby__sub_803C3AC4(u8 *arg0) {
     return M2C_FIELD(arg0, s32 *, 0x10);
 }
 
-s32 TLobby__sub_803C3ACC(Obj_803C3ACC *arg0) {
+s32 get_packet_flag_for_state__6TLobbyFPv(Obj_803C3ACC *arg0) {
     s16 s = arg0->state;
     if (s == 0) {
         return 0x10;

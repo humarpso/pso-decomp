@@ -55,7 +55,7 @@ void TLobby__sub_8001FE7C(void *, s32);
 extern s32 TOMonitorMachine01__data_8050DB68[];
 extern s32 TOMonitorMachine01__data_805D5A5C;
 extern void *TOMonitorMachine01__data_805D5A58;
-void TOMonitorMachine01__sub_8017240C(void);
+void reset_static_state__18TOMonitorMachine01Fv(void);
 void scroll_ginja_mesh_uvs(s32, s32, s32, s32, s32);
 extern s32 TOMonitorMachine01__data_8050DB68[];
 extern s32 TOMonitorMachine01__data_805D5A5C;
@@ -208,7 +208,7 @@ void *create__18TOMonitorMachine01FPv(void *arg0) {
 
 extern M2C_UNK __vt__18TOMonitorMachine01[];
 
-void TOMonitorMachine01__sub_8017240C(void) {
+void reset_static_state__18TOMonitorMachine01Fv(void) {
     s32 i;
     TOMonitorMachine01__data_805D5A5C = 0;
     for (i = 0; i < 2; i++) {

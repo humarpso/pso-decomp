@@ -115,9 +115,9 @@ s32 sum_floor_enemy_counts__6TLobbyFv(void);
 extern s32 TLobby__data_80513C80[];
 s32 TLobby__sub_8020B308(void);
 extern struct Floor_8020B260 TLobby__data_80513AD0[];
-s32 TLobby__sub_8020B260(s32 floor, s16 room, s16 group, s32 bits);
+s32 set_room_group_flags__6TLobbyFissi(s32 floor, s16 room, s16 group, s32 bits);
 extern struct Floor_8020B260 TLobby__data_80513AD0[];
-s32 TLobby__sub_8020B1E4(s32 arg0, s16 arg1, s16 arg2, s32 arg3);
+s32 set_flags_on_matching_entries__6TLobbyFissi(s32 arg0, s16 arg1, s16 arg2, s32 arg3);
 }
 
 extern "C" {
@@ -153,7 +153,7 @@ void load_set_gsl_files__6TLobbyFv(void) {
     }
 }
 
-s32 TLobby__sub_8020B1E4(s32 arg0, s16 arg1, s16 arg2, s32 arg3) {
+s32 set_flags_on_matching_entries__6TLobbyFissi(s32 arg0, s16 arg1, s16 arg2, s32 arg3) {
     Grp_8020B1E4 *g = &((Grp_8020B1E4 *)&TLobby__data_80513AD0)[arg0];
     Ent_8020B1E4 *e;
     s32 n = 0;
@@ -172,7 +172,7 @@ s32 TLobby__sub_8020B1E4(s32 arg0, s16 arg1, s16 arg2, s32 arg3) {
     return n;
 }
 
-s32 TLobby__sub_8020B260(s32 floor, s16 room, s16 group, s32 bits) {
+s32 set_room_group_flags__6TLobbyFissi(s32 floor, s16 room, s16 group, s32 bits) {
     struct Floor_8020B260 *t = &TLobby__data_80513AD0[floor];
     s32 n = 0;
     struct Entry_8020B260 *e;

@@ -4,12 +4,12 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 #define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
 #define M2C_BITWISE(type, expr) ((type)(expr))
 extern "C" {
-bool TMovie__sub_80143EFC(u8 *arg0);
+bool is_playback_finished__6TMovieFPv(u8 *arg0);
 }
 
 extern "C" {
 
-bool TMovie__sub_80143EFC(u8 *arg0) {
+bool is_playback_finished__6TMovieFPv(u8 *arg0) {
     void **temp_r3;
     u8 *temp_r4;
     temp_r3 = (void **)(M2C_FIELD(arg0, void ***, 4));

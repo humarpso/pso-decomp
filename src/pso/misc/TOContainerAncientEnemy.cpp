@@ -250,7 +250,7 @@ extern s32 lbl_805D2F08;
 extern s32 tl_05;
 u8 *TOContainerAncientEnemy__ct(u8 *arg0, s32 arg1);
 void submit_cursor_candidate(Obj_8015BCC0 *self, s32 x);
-void TOContainerAncientEnemy__sub_8015BCC0(Obj_8015BCC0 *self);
+void submit_cursor_candidate_if_idle__23TOContainerAncientEnemyFPv(Obj_8015BCC0 *self);
 void set_global_count__12TObjNpcEnemyFi(s32 arg0);
 void debug_printf_at(s32 id, const char *fmt, ...);
 void TObjRoomId__sub_80141CF4(void *dst, void *src, f32 t);
@@ -398,7 +398,7 @@ void draw_model__23TOContainerAncientEnemyFPv(u8 *arg0) {
     }
 }
 
-void TOContainerAncientEnemy__sub_8015BCC0(Obj_8015BCC0 *self) {
+void submit_cursor_candidate_if_idle__23TOContainerAncientEnemyFPv(Obj_8015BCC0 *self) {
     switch (self->a326) {
     case 0:
         if (self->a364 != 0) {

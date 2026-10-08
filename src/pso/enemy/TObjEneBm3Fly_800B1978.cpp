@@ -101,7 +101,7 @@ struct VObj_800B3EB8 : VBase_800B3EB8 {
 extern "C" {
 extern const f32 lbl_805D9CF8;
 extern const f32 lbl_805D9D6C;
-void TObjEneBm3FlyNest__sub_800B47C4(void);
+void init_vertex_table__17TObjEneBm3FlyNestFv(void);
 }
 
 extern "C" {

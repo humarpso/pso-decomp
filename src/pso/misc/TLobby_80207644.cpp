@@ -74,7 +74,7 @@ extern Tbl_8020765C lbl_8044B9B8;
 s32 get_boss_warp_destination(void);
 extern RecoveredGlobal_80207798_lbl_80513920 lbl_80513920;
 extern int lbl_805D6060;
-void TLobby__sub_8020780C(s32 *src, u32 size);
+void copy_table_entries__6TLobbyFPvUi(s32 *src, u32 size);
 extern RecoveredGlobal_80207798_lbl_80513920 lbl_80513920;
 s32 get_floor_map_terrain(s32 arg0);
 }
@@ -178,7 +178,7 @@ typedef char RecoveredGlobal_802078A4_lbl_8044B658_size[((sizeof(RecoveredGlobal
 typedef char RecoveredGlobal_802078A4_lbl_8044B778_size[((sizeof(RecoveredGlobal_802078A4_lbl_8044B778)) == 0x120) ? (1) : (-1)];
 typedef char RecoveredGlobal_802078A4_lbl_80513920_size[((sizeof(RecoveredGlobal_802078A4_lbl_80513920)) == 0xD8) ? (1) : (-1)];
 
-void TLobby__sub_8020780C(s32 *src, u32 size) {
+void copy_table_entries__6TLobbyFPvUi(s32 *src, u32 size) {
     s32 n = size >> 3;
     s32 i;
     if (n <= 0x12) {

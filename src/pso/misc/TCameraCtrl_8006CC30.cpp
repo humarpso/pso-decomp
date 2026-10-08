@@ -338,7 +338,7 @@ void reset_to_local_player__11TCameraCtrlFv(void);
 extern O_8006CC7C *lbl_805005D0[];
 extern const V_8006CC7C lbl_804384E8;
 extern s16 lbl_805D4EC8;
-V_8006CC7C TCameraCtrl__sub_8006CC7C(void);
+V_8006CC7C get_target_position__11TCameraCtrlFv(void);
 s32 is_split_screen();
 s32 get_player_by_client_id(u32);
 extern void *lbl_805D53A0;
@@ -396,7 +396,7 @@ void push_matrix_from(void *);
 void pop_matrices(s32);
 s32 get_player_by_client_id(u32);
 void VecCopy__FP3VecPC3Vec(void *, void *);
-void TCameraCtrl__sub_803D662C(f32, f32);
+void set_clamped_offsets__11TCameraCtrlFff(f32, f32);
 void camera_renderer_setup_nop(void *, s32);
 void update_camera_state__11TCameraCtrlFv(f32, f32, f32);
 extern u8 lbl_8058D490[];
@@ -1030,19 +1030,19 @@ void follow_camera_init_pose(Cam_8006DEF8 *self) {
             VecCopy__FP3VecPC3Vec(&self->pos, &lbl_80488A18[0][0].pos);
             VecCopy__FP3VecPC3Vec(&self->target, &lbl_80488A18[0][0].target);
             self->id = lbl_80488A18[0][0].id;
-            TCameraCtrl__sub_803D662C(lbl_80488A18[0][0].a, lbl_80488A18[0][0].b);
+            set_clamped_offsets__11TCameraCtrlFff(lbl_80488A18[0][0].a, lbl_80488A18[0][0].b);
             break;
         case 15:
             VecCopy__FP3VecPC3Vec(&self->pos, &lbl_80488A18[0][1].pos);
             VecCopy__FP3VecPC3Vec(&self->target, &lbl_80488A18[0][1].target);
             self->id = lbl_80488A18[0][1].id;
-            TCameraCtrl__sub_803D662C(lbl_80488A18[0][1].a, lbl_80488A18[0][1].b);
+            set_clamped_offsets__11TCameraCtrlFff(lbl_80488A18[0][1].a, lbl_80488A18[0][1].b);
             break;
         case 18:
             VecCopy__FP3VecPC3Vec(&self->pos, &lbl_80488A18[0][2].pos);
             VecCopy__FP3VecPC3Vec(&self->target, &lbl_80488A18[0][2].target);
             self->id = lbl_80488A18[0][2].id;
-            TCameraCtrl__sub_803D662C(lbl_80488A18[0][2].a, lbl_80488A18[0][2].b);
+            set_clamped_offsets__11TCameraCtrlFff(lbl_80488A18[0][2].a, lbl_80488A18[0][2].b);
             break;
         }
     }

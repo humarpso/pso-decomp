@@ -84,7 +84,7 @@ void TLobby__sub_8001FE7C(void *, s32);
 extern RecoveredGlobal_8015B350_TOComputerMachine01__data_8050DB50 TOComputerMachine01__data_8050DB50;
 extern s32 TOComputerMachine01__data_805D58E4;
 extern u8 *TOComputerMachine01__data_805D58E0;
-void TOComputerMachine01__sub_8015B4E4(void);
+void reset_state__19TOComputerMachine01Fv(void);
 u8 * load_resource_from_descriptor(void *, s32, void *, s32, s32, s32);
 int alloc__23TAdSinglePlyChrSelectGCFPv(void *);
 extern M2C_UNK lbl_804AFFE8[];
@@ -148,7 +148,7 @@ void *create__19TOComputerMachine01FPv(void *arg0) {
 
 extern M2C_UNK __vt__19TOComputerMachine01[];
 
-void TOComputerMachine01__sub_8015B4E4(void) {
+void reset_state__19TOComputerMachine01Fv(void) {
     s32 i;
     TOComputerMachine01__data_805D58E4 = 0;
     for (i = 0; i < 0x4; i++) {

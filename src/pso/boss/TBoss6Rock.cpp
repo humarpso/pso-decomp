@@ -64,7 +64,7 @@ extern const f32 TBoss6Rock__data_805DFF48;
 extern const f32 TBoss6Rock__data_805DFF4C;
 extern const f32 lbl_805DFF98;
 extern const f32 lbl_805DFFA4;
-void TBoss6Rock__sub_8035461C(void *arg0);
+void init_spin_params__10TBoss6RockFPv(void *arg0);
 extern RecoveredGlobal_80353E10_TBoss6Rock__data_80543778 TBoss6Rock__data_80543778;
 s32 is_rock_valid__10TBoss6RockFi(s32 arg0);
 extern RecoveredGlobal_80353E10_TBoss6Rock__data_80543778 TBoss6Rock__data_80543778;
@@ -98,11 +98,11 @@ void VecCopy__FP3VecPC3Vec(void *, const void *);
 extern u8 TBoss6Rock__data_805437F8[];
 s32 get_point__10TBoss6RockFiPvPv(s32 arg0, s32 arg1, f32 *arg2);
 extern RecoveredGlobal_80353E10_TBoss6Rock__data_80543778 TBoss6Rock__data_80543778;
-void TBoss6Rock__sub_80353EDC(s32 i, s32 a, s32 b);
+void set_rock_target__10TBoss6RockFiii(s32 i, s32 a, s32 b);
 extern RecoveredGlobal_80353E10_TBoss6Rock__data_80543778 TBoss6Rock__data_80543778;
 void clear_rock_state__10TBoss6RockFi(s32 i);
 extern RecoveredGlobal_80353E10_TBoss6Rock__data_80543778 TBoss6Rock__data_80543778;
-void TBoss6Rock__sub_80353E5C(s32 arg0);
+void reset_rock_state__10TBoss6RockFi(s32 arg0);
 u8 is_rock_state_2__10TBoss6RockFi(s32 arg0);
 void clear_rock_state__10TBoss6RockFi(s32 i);
 u8 *get_rock_entry__10TBoss6RockFi(s32 arg0);
@@ -382,7 +382,7 @@ s32 is_rock_valid__10TBoss6RockFi(s32 arg0) {
     return (u8) (M2C_FIELD(temp_r3, s32 *, 0xC4) == 2);
 }
 
-void TBoss6Rock__sub_80353E5C(s32 arg0) {
+void reset_rock_state__10TBoss6RockFi(s32 arg0) {
     R_80353E5C *r;
     if (arg0 < 0 || arg0 >= 0x20) {
         return;
@@ -405,7 +405,7 @@ void clear_rock_state__10TBoss6RockFi(s32 i) {
     }
 }
 
-void TBoss6Rock__sub_80353EDC(s32 i, s32 a, s32 b) {
+void set_rock_target__10TBoss6RockFiii(s32 i, s32 a, s32 b) {
     Rock_80353EDC *p;
     if (i < 0 || i >= 0x20) {
         return;
@@ -491,7 +491,7 @@ void update_fall__10TBoss6RockFPv(u8 *arg0) {
 }
 #pragma pop
 
-void TBoss6Rock__sub_8035461C(void *arg0) {
+void init_spin_params__10TBoss6RockFPv(void *arg0) {
   s32 temp_r4;
   if (((s32) (*((s32 *) (((s8 *) arg0) + 0xC8)))) != 0)
   {

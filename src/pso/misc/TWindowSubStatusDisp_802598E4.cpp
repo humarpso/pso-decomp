@@ -44,7 +44,7 @@ extern "C" {
 
 void TWindowSubStatusDisp__sub_80259CE0(void);
 void *TWindowSubStatusDisp__sub_80259CE4(void *arg0, s16 arg1);
-void TWindowSubStatusDisp__sub_80259DB0(u8 *arg0, s32 arg1);
+void set_all_values__20TWindowSubStatusDispFPvi(u8 *arg0, s32 arg1);
 void *TWindowSubStatusDisp__sub_8025A04C(void *arg0, s16 arg1);
 void* reset_entry__20TWindowSubStatusDispFPvii(void* a0, int a1, int a2);
 void set_animated_target__20TWindowSubStatusDispFPvif(void *arg0, s32 arg1, f32 farg0);
@@ -120,7 +120,7 @@ u8 *TWindowSubStatusDisp__sub_80259D3C(u8 *arg0, u8 *arg1, s32 arg2) {
     return arg0;
 }
 
-void TWindowSubStatusDisp__sub_80259DB0(u8 *arg0, s32 arg1) {
+void set_all_values__20TWindowSubStatusDispFPvi(u8 *arg0, s32 arg1) {
     M2C_FIELD(arg0, f32 *, 0x28) = (f32) arg1;
     M2C_FIELD(arg0, f32 *, 0x24) = (f32) arg1;
     M2C_FIELD(arg0, s32 *, 0x20) = arg1;

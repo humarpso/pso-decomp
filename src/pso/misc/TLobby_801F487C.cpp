@@ -3,7 +3,7 @@
 extern "C" {
 s32 clear_story_flag(s32);
 extern s32 lobby_story_flag_clear_list[];
-void TLobby__sub_801F48B0(void);
+void clear_story_flag_list__6TLobbyFv(void);
 s32 clear_story_flag(s32);
 void reset_camera_if_fullscreen__6TLobbyFPv(void* p);
 extern s32 lobby_story_flag_clear_list[];
@@ -22,7 +22,7 @@ int is_not_split_screen__13TRaderMapCoreFv(void*);
 
 void reset_camera_if_fullscreen__6TLobbyFPv(void* p) { if (is_not_split_screen__13TRaderMapCoreFv(p) == 1) { get_nth_view_player_id__11TCameraCtrlFi((void*)0); ((int (*)(void))TLobby__sub_801F494C)(); } }
 
-void TLobby__sub_801F48B0(void) {
+void clear_story_flag_list__6TLobbyFv(void) {
     s32 i;
     for (i = 0; lobby_story_flag_clear_list[i] != -1; i++) {
         clear_story_flag(lobby_story_flag_clear_list[i]);

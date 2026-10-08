@@ -31,9 +31,9 @@ M2C_UNK TWindowSubComCard__sub_80225E80(void *, int);
 M2C_UNK strncpy(int, int, int);
 extern s32 TLobby__data_805D4A98;
 void set_short_mail_text__6TLobbyFi(s32 arg0);
-Ent_8001D768 *TLobby__sub_8001D768(Obj_8001D768 *self);
+Ent_8001D768 *find_free_pool_entry__6TLobbyFPv(Obj_8001D768 *self);
 void archive_pool_free(Pool_8001D7AC *pool, Node_8001D7AC *node);
-Ent_8001D768 *TLobby__sub_8001D768(Obj_8001D768 *self);
+Ent_8001D768 *find_free_pool_entry__6TLobbyFPv(Obj_8001D768 *self);
 Node_8001D808 *archive_pool_alloc(Pool_8001D808 *pool, u32 size);
 void TLobby__sub_8001D9E8(void* p);
 void merge_adjacent_free_blocks__6TLobbyFPv(Pool_8001D6E0 *pool);
@@ -86,7 +86,7 @@ void merge_adjacent_free_blocks__6TLobbyFPv(Pool_8001D6E0 *pool) {
     }
 }
 
-Ent_8001D768 *TLobby__sub_8001D768(Obj_8001D768 *self) {
+Ent_8001D768 *find_free_pool_entry__6TLobbyFPv(Obj_8001D768 *self) {
     u32 i;
     if (self->ents != 0) {
         for (i = 1; i < self->count; i++) {
@@ -132,7 +132,7 @@ Node_8001D808 *archive_pool_alloc(Pool_8001D808 *pool, u32 size) {
                 return cur;
             }
             if (cur->size > sz) {
-                n = (Node_8001D808 *)TLobby__sub_8001D768((Obj_8001D768 *)pool);
+                n = (Node_8001D808 *)find_free_pool_entry__6TLobbyFPv((Obj_8001D768 *)pool);
                 if (n != 0) {
                     n->next = 0;
                     n->prev = 0;

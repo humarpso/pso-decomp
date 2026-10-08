@@ -1526,7 +1526,7 @@ int set_player_state_default__12TBoss8DragonFPv(void *);
 void invoke_initialization_hook__9TObjEneDDFPv(void *, void *);
 M2C_UNK set_field_378__9TObjEneDDFPvi(void *, M2C_UNK);
 M2C_UNK transition_enemy_state(void *, M2C_UNK);
-M2C_UNK TObjEneMe3SinowZoa__sub_800D7524(void *);
+M2C_UNK init_death_params__18TObjEneMe3SinowZoaFPv(void *);
 void TObjEneMe3SinowZoa__sub_800D758C(void *);
 M2C_UNK __dt__18TObjEneMe3SinowZoaFPvs(void *, int);
 void init_common__18TObjEneMe3SinowZoaFPv(void *);
@@ -1557,7 +1557,7 @@ int get_instance__13TObjEneMorfosFv(void);
 void draw_body__13TObjEneMorfosFPv(u8 *arg0);
 s32 render_model_if_visible__13TObjEneMorfosFPv(u8 *arg0);
 void render_part__13TObjEneMorfosFPvii(Self_803329E4 *self, s32 idx, s32 mode);
-void TObjEneMorfos__sub_80332B7C(void);
+void record_camera_path_point__13TObjEneMorfosFv(void);
 void state_death__13TObjEneMorfosFPvi(u8 *arg0, s32 arg1);
 void TObjEneMorfos__sub_80332DBC(u8 *arg0, s32 arg1);
 void state_patrol__13TObjEneMorfosFPvi(void *arg0, s32 arg1);
@@ -2136,7 +2136,7 @@ void render_part__13TObjEneMorfosFPvii(Self_803329E4 *self, s32 idx, s32 mode) {
     rotate_matrix_y(0, self->f60);
     TObjEneMorfos__data_805D6D18 = 0;
     TObjEneMorfos__data_805D6D1C = (s32)self->f498;
-    ((void (*)(void *))set_global_state__16TObjEneRe7BeruraFi)((void *)TObjEneMorfos__sub_80332B7C);
+    ((void (*)(void *))set_global_state__16TObjEneRe7BeruraFi)((void *)record_camera_path_point__13TObjEneMorfosFv);
     if (self->f3C0 & 2) {
         if (self->body.m8() != 0) {
             self->body.m6();
@@ -2164,7 +2164,7 @@ void render_part__13TObjEneMorfosFPvii(Self_803329E4 *self, s32 idx, s32 mode) {
     end_effect_render__13TParticleCtrlFv();
 }
 
-void TObjEneMorfos__sub_80332B7C(void) {
+void record_camera_path_point__13TObjEneMorfosFv(void) {
   int new_var;
   Stack_80332B7C stack;
   if (((s32) TObjEneMorfos__data_805D6D18) != 0xA)
@@ -2210,7 +2210,7 @@ void state_death__13TObjEneMorfosFPvi(u8 *arg0, s32 arg1) {
         M2C_FIELD(arg0, f32 *, 0x4C4) = (f32) M2C_FIELD(arg0, s32 *, 0x3D4);
         M2C_FIELD(arg0, s32 *, 0x4B4) = 0;
         M2C_FIELD(arg0, s32 *, 0x4B0) = 0;
-        TObjEneMe3SinowZoa__sub_800D7524((void *) (arg0 + 0x408));
+        init_death_params__18TObjEneMe3SinowZoaFPv((void *) (arg0 + 0x408));
         play_sound_effect((int) (0x4003A626), (u32) (arg0 + 0x38), 0, 0);
         return;
     case 3:

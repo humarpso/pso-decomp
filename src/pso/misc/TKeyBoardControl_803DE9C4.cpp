@@ -57,7 +57,7 @@ extern M2C_UNK TKeyBoardControl__pad_status_buffer[];
 void init_pad_slots_and_read__16TKeyBoardControlFv(void);
 extern Ent_803DEBC8 lbl_804FC6E4[];
 extern u32 lbl_805D46E0;
-s32 TKeyBoardControl__sub_803DEBC8(u16 arg0);
+s32 map_pad_buttons__16TKeyBoardControlFUs(u16 arg0);
 extern V4_803DECFC lbl_8058D4C0;
 extern u8 TObjLight__data_8058D528[];
 extern s32 lbl_805D7780;
@@ -84,7 +84,7 @@ s16 TKeyBoardControl__sub_803DEC10(s16 x);
 M2C_UNK Dolphin_PADRead(void *, void *);
 extern M2C_UNK keyboard_pad_status_buffer[];
 extern Pad_803DEA18 TKeyBoardControl_prev_pad_state[4];
-s32 TKeyBoardControl__sub_803DEBC8(u16 arg0);
+s32 map_pad_buttons__16TKeyBoardControlFUs(u16 arg0);
 void clamp_axes__16TKeyBoardControlFPv(u8 *arg0);
 void *memmove(void *, const void *, u32);
 M2C_UNK PADReset(u32);
@@ -136,10 +136,10 @@ void read_pads__16TKeyBoardControlFv(void) {
       diff = old->button ^ (new_var = pad->button);
       cur = new_var;
       released = old->button & diff;
-      out->held = TKeyBoardControl__sub_803DEBC8(cur);
+      out->held = map_pad_buttons__16TKeyBoardControlFUs(cur);
       out->notHeld = ~out->held;
-      out->pressed = TKeyBoardControl__sub_803DEBC8(cur & diff);
-      out->released = TKeyBoardControl__sub_803DEBC8(released);
+      out->pressed = map_pad_buttons__16TKeyBoardControlFUs(cur & diff);
+      out->released = map_pad_buttons__16TKeyBoardControlFUs(released);
       out->stickX = TKeyBoardControl__sub_803DEC10(pad->stickX);
       out->stickY = -TKeyBoardControl__sub_803DEC10(pad->stickY);
       out->substickX = pad->substickX;
@@ -194,7 +194,7 @@ u8 *TKeyBoardControl__sub_803DEB74(u32 arg0) {
 }
 #pragma pop
 
-s32 TKeyBoardControl__sub_803DEBC8(u16 arg0) {
+s32 map_pad_buttons__16TKeyBoardControlFUs(u16 arg0) {
     s32 r = 0;
     u32 i;
     for (i = 0; i < lbl_805D46E0; i++) {

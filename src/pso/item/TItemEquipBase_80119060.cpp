@@ -17,10 +17,10 @@ struct RecoveredGlobal_801190B0_lbl_80506228 {
 extern "C" {
 s32 fn_8011085C(int, void *);
 extern RecoveredGlobal_80119060_lbl_80506228 lbl_80506228;
-void TItemEquipBase__sub_80119060(u16 arg0, u32 arg1);
+void apply_equip_effect_slot__14TItemEquipBaseFUsUi(u16 arg0, u32 arg1);
 s32 fn_801108C8(int, void *);
 extern RecoveredGlobal_80119060_lbl_80506228 lbl_80506228;
-void TItemEquipBase__sub_801190B0(u16 arg0, u32 arg1);
+void apply_equip_slot_effect__14TItemEquipBaseFUsUi(u16 arg0, u32 arg1);
 }
 
 extern "C" {
@@ -35,7 +35,7 @@ M2C_UNK TObjEneMe3Stelth__sub_800F5864(u32, M2C_UNK);
 u32 get_player_by_client_id(u16);
 
 typedef char RecoveredGlobal_80119060_lbl_80506228_size[sizeof(RecoveredGlobal_80119060_lbl_80506228) == 0x20 ? 1 : -1];
-void TItemEquipBase__sub_80119060(u16 arg0, u32 arg1) {
+void apply_equip_effect_slot__14TItemEquipBaseFUsUi(u16 arg0, u32 arg1) {
     u32 temp_r3;
     if ((arg0 < 0xCU) && (arg1 < 7U)) {
         temp_r3 = M2C_FIELD(&lbl_80506228.value, M2C_UNK *, (arg1 * 4));
@@ -46,7 +46,7 @@ void TItemEquipBase__sub_80119060(u16 arg0, u32 arg1) {
 }
 
 typedef char RecoveredGlobal_801190B0_lbl_80506228_size[sizeof(RecoveredGlobal_801190B0_lbl_80506228) == 0x20 ? 1 : -1];
-void TItemEquipBase__sub_801190B0(u16 arg0, u32 arg1) {
+void apply_equip_slot_effect__14TItemEquipBaseFUsUi(u16 arg0, u32 arg1) {
     u32 temp_r3;
     if ((arg0 < 0xCU) && (arg1 < 7U)) {
         temp_r3 = M2C_FIELD(&(*(RecoveredGlobal_801190B0_lbl_80506228 *)&lbl_80506228).value, M2C_UNK *, (arg1 * 4));

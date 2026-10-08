@@ -28,7 +28,7 @@ s32 get_camera_id__11TCameraCtrlFv();
 M2C_UNK get_array_entry__20TWindowSubStatusDispFPvi(void *, M2C_UNK);
 void save_position__17TWindowSubComCardFPv(void *);
 void construct_base__9TWindowDDFPvPvsPv(void *, M2C_UNK *, s16, s32);
-void TWindowSubStatusDisp__sub_80259DB0(void *, s32);
+void set_all_values__20TWindowSubStatusDispFPvi(void *, s32);
 void set_text_entry_string(void *, s32, s32);
 s32 get_meseta_value__13TWindowMesetaFPv();
 f32 TWindowSubStatusDisp__sub_802877A4(f32);
@@ -92,7 +92,7 @@ void *TWindowMeseta__ct(void *arg0, s32 arg1, s32 arg2, s32 arg3) {
     a = (Sub_80269244 *)get_array_entry__20TWindowSubStatusDispFPvi(arg0, 0);
     b = (Sub_80269244 *)get_array_entry__20TWindowSubStatusDispFPvi(arg0, 1);
     set_text_entry_string(a, arg3, 0);
-    TWindowSubStatusDisp__sub_80259DB0(b, self->meseta);
+    set_all_values__20TWindowSubStatusDispFPvi(b, self->meseta);
     self->x38 = lbl_805DD204 + b->x8;
     save_position__17TWindowSubComCardFPv(arg0);
     self->x60 = TWindowSubStatusDisp__sub_802877A4(self->x48 - lbl_805DD208);

@@ -25,7 +25,7 @@ struct Obj_8020C9C8 : ObjBase_8020C9C8 {
 
 extern "C" {
 s32 get_current_floor();
-s32 TLobby__sub_8020B260(s32, s32, s32, s32);
+s32 set_room_group_flags__6TLobbyFissi(s32, s32, s32, s32);
 Set_8020C9C8 *get_object_count__6TLobbyFPv(s32);
 s32 get_obj_table_entry__6TLobbyFi(s32);
 Obj_8020C9C8 *create_set_object_from_row(Set_8020C9C8 *);
@@ -48,7 +48,7 @@ s32 unhide_room_set_objects(s32 arg0, s32 arg1, s32 arg2) {
         local = 1;
     }
     if (local == 0) {
-        return TLobby__sub_8020B260(arg0, arg1, arg2, 1);
+        return set_room_group_flags__6TLobbyFissi(arg0, arg1, arg2, 1);
     }
     set = get_object_count__6TLobbyFPv(arg0);
     n = get_obj_table_entry__6TLobbyFi(arg0);

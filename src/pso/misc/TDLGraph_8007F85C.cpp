@@ -5,7 +5,7 @@ typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
 extern "C" {
 extern void *lbl_8048DF94[];
 void fn_8007F970(void *p);
-void TAdDialingGC__sub_8007F898(void *self, s32 x);
+void select_dial_image__12TAdDialingGCFPvi(void *self, s32 x);
 }
 
 extern "C" {
@@ -23,7 +23,7 @@ void *create__8TDLGraphFv(void) {
     }
     return o;
 }
-void TAdDialingGC__sub_8007F898(void *self, s32 x) {
+void select_dial_image__12TAdDialingGCFPvi(void *self, s32 x) {
     fn_8007F970(lbl_8048DF94[x ? 1 : 0]);
 }
 

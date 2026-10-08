@@ -141,7 +141,7 @@ M2C_UNK TLobby__sub_803C3ABC(int);
 void send_packet_by_id__6TLobbyFPv(u8 *arg0);
 M2C_UNK TLobby__sub_803C3AC4(int);
 void notify_field_4_alt__6TLobbyFPv(u8 *arg0);
-M2C_UNK TLobby__sub_803C3ACC(int);
+M2C_UNK get_packet_flag_for_state__6TLobbyFPv(int);
 void send_packet_by_id_2__6TLobbyFPv(u8 *arg0);
 M2C_UNK TLobby__sub_803C3B38(int);
 void send_with_offset4__6TLobbyFPv(u8 *arg0);
@@ -229,7 +229,7 @@ void notify_field_4_alt__6TLobbyFPv(u8 *arg0) {
     TLobby__sub_803C3AC4((int) (M2C_FIELD(arg0, s32 *, 4)));
 }
 void send_packet_by_id_2__6TLobbyFPv(u8 *arg0) {
-    TLobby__sub_803C3ACC((int) (M2C_FIELD(arg0, s32 *, 4)));
+    get_packet_flag_for_state__6TLobbyFPv((int) (M2C_FIELD(arg0, s32 *, 4)));
 }
 void send_with_offset4__6TLobbyFPv(u8 *arg0) {
     TLobby__sub_803C3B38((int) (M2C_FIELD(arg0, s32 *, 4)));

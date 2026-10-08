@@ -57,7 +57,7 @@ M2C_UNK init_and_set_field50__9TWindowDDFPvPv(u32, s32);
 M2C_UNK TWindowDD__sub_803412A0(u32);
 u8 *TWindowDD__sub_8034146C(void *, void *, u32, int, f32);
 u32 update_if_field28_set__9TWindowDDFPv(void *);
-M2C_UNK TWindowDD__sub_803421D0(void *, void *);
+M2C_UNK get_cursor_pos__9TWindowDDFPvPv(void *, void *);
 extern s32 TWindowDD__data_805DFB50;
 extern const f32 lbl_805DFB60;
 extern const f32 lbl_805DFBDC;
@@ -377,7 +377,7 @@ void TWindowDD__sub_80347E04(W_80347E04 *arg0, s32 arg1) {
     V2_80347E04 b;
     u32 r;
     u8 *o;
-    TWindowDD__sub_803421D0(arg0->pages[arg0->cur], &v);
+    get_cursor_pos__9TWindowDDFPvPv(arg0->pages[arg0->cur], &v);
     r = update_if_field28_set__9TWindowDDFPv(arg0->pages[arg0->cur]);
     if (r != 0) {
         if (arg1 == 0) {

@@ -168,8 +168,8 @@ M2C_UNK TBoss6Type1__sub_802B5140(void *, M2C_UNK, M2C_UNK);
 s32 count_matches__11TBoss6Type1FPvii(void *, M2C_UNK, M2C_UNK);
 int clamp_to_arena_radius__11TBoss6Type1FPvPvf(void*, void*);
 M2C_UNK TBoss6Type1__sub_802B5598(void *, void *);
-M2C_UNK TBoss6Type1__sub_802B5648(void *, void *);
-s32 TBoss6Type1__sub_802B5D9C();
+M2C_UNK calc_grid_cell_position__11TBoss6Type1FPvPv(void *, void *);
+s32 is_timer_expired__11TBoss6Type1FPv();
 s32 is_field3F8_over_0x20__11TBoss6Type1FPv(void *);
 s32 is_field4b0_delta_reached__11TBoss6Type1FPv();
 s32 is_ready__11TBoss6Type1FPv(void *);
@@ -282,7 +282,7 @@ void update_countdown_state__11TBoss6Type1FPv(u8 *arg0) {
 }
 
 void update_if_ready__11TBoss6Type1FPv(void *arg0) {
-    if (((s32) M2C_FIELD(arg0, s32 *, 0x410) == 0) || (TBoss6Type1__sub_802B5D9C() != 0)) {
+    if (((s32) M2C_FIELD(arg0, s32 *, 0x410) == 0) || (is_timer_expired__11TBoss6Type1FPv() != 0)) {
         TBoss6Type1__sub_802B8E1C((void*)(arg0));
     }
 }
@@ -759,7 +759,7 @@ void init_action_timer__11TBoss6Type1FPv(u8 *arg0) {
         M2C_FIELD(arg0, s32 *, 0x40C) = (s32) (M2C_FIELD(arg0, s32 *, 0x40C) + 0x1E);
     }
     M2C_FIELD(arg0, s32 *, 0x410) = (s32) M2C_FIELD(arg0, s32 *, 0x40C);
-    TBoss6Type1__sub_802B5648(arg0, arg0 + 0x420);
+    calc_grid_cell_position__11TBoss6Type1FPvPv(arg0, arg0 + 0x420);
     ((int (*)(void*, void*, void*, void*))play_sound_effect)((void*)(0x40039C21), (void*)(arg0 + 0x5E4), (void*)(0), (void*)(0));
     release_effect_slot__11TBoss6Type1Fii((void*)(arg0), (void*)(0));
     release_effect_slot__11TBoss6Type1Fii((void*)(arg0), (void*)(1));

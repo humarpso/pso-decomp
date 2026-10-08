@@ -124,9 +124,9 @@ f32 get_random_float__8TObjFishFv(f32);
 f32 update_position__15TObjBoss2TunnelFPv(void *);
 s32 advance_phase__15TObjBoss2TunnelFPv(void *, f32 *);
 void set_global_flag_100__15TObjBoss2TunnelFv(void);
-void TObjBoss2Tunnel__sub_8003C2E4(void *);
+void copy_ring_buffer_window__15TObjBoss2TunnelFPv(void *);
 void init_queue_from_start__15TObjBoss2TunnelFPv(void *);
-void TObjBoss2Tunnel__sub_8003C2A0(void *);
+void shift_queue_push_next__15TObjBoss2TunnelFPv(void *);
 s32 update_first_active_fog__8TFogCtrlFv(void);
 void *__nw__7TObjectFUl(int);
 void init__15TObjBoss2TunnelFPv(void *, void *);
@@ -389,7 +389,7 @@ void run_task__15TObjBoss2TunnelFv(Tunnel_8003B6E8 *o) {
             o->f28++;
             if (o->f28 >= 6) {
                 o->f28 = 0;
-                TObjBoss2Tunnel__sub_8003C2E4(o);
+                copy_ring_buffer_window__15TObjBoss2TunnelFPv(o);
                 o->f24 = 2;
                 o->fb0 = update_first_active_fog__8TFogCtrlFv();
             } else {
@@ -409,7 +409,7 @@ void run_task__15TObjBoss2TunnelFv(Tunnel_8003B6E8 *o) {
             if (o->f28 >= 31) {
                 o->f28 = 0;
             }
-            TObjBoss2Tunnel__sub_8003C2E4(o);
+            copy_ring_buffer_window__15TObjBoss2TunnelFPv(o);
         }
         if (TObjBoss2Tunnel__global_flags & 0x200) {
             void *p;
@@ -475,7 +475,7 @@ void run_task__15TObjBoss2TunnelFv(Tunnel_8003B6E8 *o) {
             flag = 1;
         }
         if (flag) {
-            TObjBoss2Tunnel__sub_8003C2A0(o);
+            shift_queue_push_next__15TObjBoss2TunnelFPv(o);
         }
         break;
     case 4:

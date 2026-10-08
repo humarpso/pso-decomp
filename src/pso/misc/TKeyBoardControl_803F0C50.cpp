@@ -111,14 +111,14 @@ extern "C" {
 extern RecoveredGlobal_803F1548_lbl_805A2720 lbl_805A2720;
 u8 TKeyBoardControl__sub_803F1548(s32 arg0);
 extern RecoveredGlobal_803F1548_lbl_805A2720 lbl_805A2720;
-void TKeyBoardControl__sub_803F0CF4(s32 arg0, u32 arg1);
+void parse_pad_event__16TKeyBoardControlFiUi(s32 arg0, u32 arg1);
 s32 SIDisablePolling(u32);
 extern s32 lbl_805D793C;
 void disable_channel_polling__16TKeyBoardControlFi(s32 arg0);
 extern s32 lbl_805D793C;
 extern s32 lbl_805D7930;
 void disable_channel_polling__16TKeyBoardControlFi(s32 arg0);
-s32 TKeyBoardControl__sub_803F0F44(void);
+s32 disable_all_channels__16TKeyBoardControlFv(void);
 extern RecoveredGlobal_803F1548_lbl_805A2720 lbl_805A2720;
 s32 OSDisableInterrupts(void);
 void OSRestoreInterrupts(s32);
@@ -187,7 +187,7 @@ void init_pad_states__16TKeyBoardControlFv(void) {
     OSRegisterResetFunction(lbl_804FCD38);
 }
 
-void TKeyBoardControl__sub_803F0CF4(s32 arg0, u32 arg1) {
+void parse_pad_event__16TKeyBoardControlFiUi(s32 arg0, u32 arg1) {
     struct Fields_temp_r4 { s8 field_0; s8 field_1; u8 pad_2[38]; s32 field_28; s32 field_2C; };
     s32 temp_r0;
     u32 temp_r6;
@@ -283,7 +283,7 @@ s32 TKeyBoardControl__sub_803F0E90(s32 arg0, void *arg1) {
     return start_get_type_async__16TKeyBoardControlFiiii(arg0, 1, 3, (s32)detect_device_type__16TKeyBoardControlFi);
 }
 
-s32 TKeyBoardControl__sub_803F0F44(void) {
+s32 disable_all_channels__16TKeyBoardControlFv(void) {
     u32 v;
     while ((v = (u32)lbl_805D793C) != 0) {
         disable_channel_polling__16TKeyBoardControlFi(__cntlzw(v));
@@ -335,7 +335,7 @@ void TKeyBoardControl__sub_803F107C(s32 chan, u32 type) {
     if (lbl_805D7930 != 0) {
         return;
     }
-    TKeyBoardControl__sub_803F0CF4(chan, type);
+    parse_pad_event__16TKeyBoardControlFiUi(chan, type);
     if (p->a != 0) {
         if (SITransfer(chan, p->out, p->outBytes, p->in, p->inBytes, handle_pad_transfer_done__16TKeyBoardControlFiUiPv, p->delay) != 0) {
             return;

@@ -347,7 +347,7 @@ extern const char lbl_805E0D74[4];
 void TLobby__sub_803CB74C(s32 *arg0);
 M2C_UNK OSSuspendThread(void *);
 M2C_UNK OSSetThreadPriority(void *, int);
-s32 TLobby__sub_803D3224(int);
+s32 run_worker_callbacks_slot5__6TLobbyFv(int);
 extern Cfg_803CBA58 lbl_804F9D80;
 extern u8 lbl_80575E80[];
 extern Cb_803CBA58 lbl_805D4680;
@@ -1342,7 +1342,7 @@ void TLobby__sub_803CBA38(void) {
 
 void worker_thread_loop__6TLobbyFv(void) {
     while (lobby_worker_thread_run_flag == 1) {
-        if (TLobby__sub_803D3224(lbl_805D75A4++) == 0 || lbl_805D7598 == 1) {
+        if (run_worker_callbacks_slot5__6TLobbyFv(lbl_805D75A4++) == 0 || lbl_805D7598 == 1) {
             if (lbl_805D7598 == 1) {
                 lbl_805D7598 = 0;
                 OSSetThreadPriority(lbl_80575E80, lbl_804F9D80.prio);

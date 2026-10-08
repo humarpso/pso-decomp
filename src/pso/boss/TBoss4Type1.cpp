@@ -291,8 +291,8 @@ void update_scale_state__11TBoss4Type2FPv(void *arg0);
 void init_child_and_set_timer__11TBoss4Type2FPv(void *arg0);
 void update_attack_countdown__11TBoss4Type2FPv(u8 *arg0);
 void update_state__11TBoss4Type2FPv(void *arg0);
-void TBoss4Type2__sub_80052C58(u8 *arg0);
-void TBoss4Type2__sub_80052CA0(u8 *arg0);
+void set_motion_for_state__11TBoss4Type2FPv(u8 *arg0);
+void tick_countdown_set_state7__11TBoss4Type2FPv(u8 *arg0);
 void update_spawn_uro__14TBoss4DarkFalzFPv(Obj_80052CDC *arg0);
 void copy_vec2__28TWindowSubSymbolChatPartsSetFPvPv(void* p, void* q);
 void tick_state_398_timer__11TBoss4Type2FPv(void *arg0);
@@ -310,7 +310,7 @@ void TBoss4Type2__sub_800535A8(Boss_800535A8 *arg0);
 void TRaderMapCore__sub_80053670(u8 *arg0);
 void pick_target_position__13TRaderMapCoreFPvPv(O_80053914 *self, Vec_80053914 *out);
 void set_map_position__13TRaderMapCoreFPvPv(void *arg0, void *arg1);
-void TBoss4Type2__sub_80053AD4(Obj_80053AD4 *arg0);
+void calc_target_position__11TBoss4Type2FPv(Obj_80053AD4 *arg0);
 void calc_scale_slot_indices__11TBoss4Type2FPvPvPv(S_80053B48 *o, s32 *a, s32 *b);
 void apply_packed_state__11TBoss4Type2FPvUi(void *arg0, u32 arg1);
 void send_darkfalz_code__11TBoss4Type2FPviii(u8 *arg0, s32 arg1, s32 arg2, s32 arg3);
@@ -475,8 +475,8 @@ void *lbl_80485B08[80] = {
     (void *)&TBoss4Type2__sub_80052EE8, (void *)0x0, (void *)0xffffffff, (void *)&tick_state_398_timer__11TBoss4Type2FPv,
     (void *)0x0, (void *)0xffffffff, (void *)&start_motion_for_index__11TBoss4Type2FPv, (void *)0x0,
     (void *)0xffffffff, (void *)&update_spawn_uro__14TBoss4DarkFalzFPv, (void *)0x0, (void *)0xffffffff,
-    (void *)&start_motion_for_index__11TBoss4Type2FPv, (void *)0x0, (void *)0xffffffff, (void *)&TBoss4Type2__sub_80052CA0,
-    (void *)0x0, (void *)0xffffffff, (void *)&TBoss4Type2__sub_80052C58, (void *)0x0,
+    (void *)&start_motion_for_index__11TBoss4Type2FPv, (void *)0x0, (void *)0xffffffff, (void *)&tick_countdown_set_state7__11TBoss4Type2FPv,
+    (void *)0x0, (void *)0xffffffff, (void *)&set_motion_for_state__11TBoss4Type2FPv, (void *)0x0,
     (void *)0xffffffff, (void *)&update_state__11TBoss4Type2FPv, (void *)0x0, (void *)0xffffffff,
     (void *)&update_attack_countdown__11TBoss4Type2FPv, (void *)0x0, (void *)0xffffffff, (void *)&init_child_and_set_timer__11TBoss4Type2FPv,
     (void *)0x0, (void *)0xffffffff, (void *)&update_scale_state__11TBoss4Type2FPv, (void *)0x0,
@@ -953,12 +953,12 @@ void update_state__11TBoss4Type2FPv(void *arg0) {
     }
 }
 
-void TBoss4Type2__sub_80052C58(u8 *arg0) {
+void set_motion_for_state__11TBoss4Type2FPv(u8 *arg0) {
     ((void (*)(void *, s32))set_motion_index__11TBoss4Type2FPvi)(arg0, M2C_FIELD(&lbl_80486218.value, M2C_UNK *, (M2C_FIELD(arg0, s32 *, 0x3A8) * 4)));
     M2C_FIELD(arg0, s32 *, 0x398) = 0x3C;
 }
 
-void TBoss4Type2__sub_80052CA0(u8 *arg0) {
+void tick_countdown_set_state7__11TBoss4Type2FPv(u8 *arg0) {
     s32 temp_r0;
     temp_r0 = M2C_FIELD(arg0, s32 *, 0x398) - 1;
     M2C_FIELD(arg0, s32 *, 0x398) = temp_r0;
@@ -1297,7 +1297,7 @@ void set_map_position__13TRaderMapCoreFPvPv(void *arg0, void *arg1) {
 
 #pragma push
 #pragma fp_contract on
-void TBoss4Type2__sub_80053AD4(Obj_80053AD4 *arg0) {
+void calc_target_position__11TBoss4Type2FPv(Obj_80053AD4 *arg0) {
     arg0->f3B8 = lbl_805D8B5C * (lbl_805D8B60 + (f32)arg0->i3B0) - lbl_805D8B58;
     arg0->f3BC = lbl_805D8B20;
     arg0->f3C0 = lbl_805D8B5C * (lbl_805D8B60 + (f32)arg0->i3B4) - lbl_805D8B58;
@@ -1335,7 +1335,7 @@ void apply_packed_state__11TBoss4Type2FPvUi(void *arg0, u32 arg1) {
     }
     M2C_FIELD(arg0, s32 *, 0x3B0) = (s32) ((arg1 >> 0xCU) & 0xF);
     M2C_FIELD(arg0, s32 *, 0x3B4) = (s32) ((arg1 >> 0x10U) & 0xF);
-    ((void (*)(void *))TBoss4Type2__sub_80053AD4)(arg0);
+    ((void (*)(void *))calc_target_position__11TBoss4Type2FPv)(arg0);
     n = arg1 & 0xF;
     if (n < 0 || n >= 0xB) {
         return;

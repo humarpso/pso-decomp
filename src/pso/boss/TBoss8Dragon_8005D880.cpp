@@ -1645,7 +1645,7 @@ void advance_motion_entry__12TBoss8DragonFPv(void *arg0);
 void advance_motion_timer__12TBoss8DragonFPv(void *arg0);
 void TBoss8Dragon__sub_8005FB90(u8 *arg0);
 void apply_velocity__12TBoss8DragonFPv(Obj_8005FBC4 *arg0);
-void TBoss8Dragon__sub_8005FCE4(O_8005FCE4 *self, s32 msg);
+void handle_message__12TBoss8DragonFPvi(O_8005FCE4 *self, s32 msg);
 void state_move__12TBoss8DragonFPvi(Obj_80060F4C *arg0, s32 arg1);
 void TBoss8Dragon__sub_80062550(Obj_80062550 *arg0, s32 arg1);
 void update_active_player_count__19TPlayerBattleCtrl4PFPvi(void *arg0, s32 arg1);
@@ -2390,7 +2390,7 @@ extern void *lbl_80487858[14];
 extern void *lbl_80487A88[5];
 extern void *lbl_80487A9C[140];
 extern "C" {
-void TBoss8Dragon__sub_8005EB00(u8 *arg0, u8 *arg1);
+void set_random_param__12TBoss8DragonFPvPv(u8 *arg0, u8 *arg1);
 }
 void *lbl_80487848[4] = {
     (void *)&lbl_804378C8, (void *)&lbl_804378D8, (void *)&lbl_804378F0, (void *)0x0,
@@ -2513,7 +2513,7 @@ void *lbl_80487CD8[213] = {
     (void *)&TBoss8Dragon__sub_800605E8, (void *)0x0, (void *)0xffffffff, (void *)&TBoss8Dragon__sub_80060020,
     (void *)0x0, (void *)0xffffffff, (void *)&TBoss8Dragon__sub_8005FEF8, (void *)0x0,
     (void *)0xffffffff, (void *)&TBoss8Dragon__sub_8005FE18, (void *)0x0, (void *)0xffffffff,
-    (void *)&TBoss8Dragon__sub_8005FD34, (void *)0x0, (void *)0xffffffff, (void *)&TBoss8Dragon__sub_8005FCE4,
+    (void *)&TBoss8Dragon__sub_8005FD34, (void *)0x0, (void *)0xffffffff, (void *)&handle_message__12TBoss8DragonFPvi,
     (void *)0x0, (void *)0x0, (void *)0x0, (void *)0x0,
     (void *)0x0, (void *)0x0, (void *)0x0, (void *)0x0,
     (void *)0x0, (void *)0x0, (void *)0x0, (void *)0x0,
@@ -2562,8 +2562,8 @@ void *lbl_804880B8[126] = {
     (void *)0xffffffff, (void *)&calc_product_and_ratio__12TBoss8DragonFiPvi, (void *)0x0, (void *)0xffffffff,
     (void *)&calc_params__12TBoss8DragonFiPvi, (void *)0x0, (void *)0xffffffff, (void *)&TBoss8Dragon__sub_8005EBDC,
     (void *)0x0, (void *)0xffffffff, (void *)&calc_attack_params__12TBoss8DragonFiPvi, (void *)0x0,
-    (void *)0xffffffff, (void *)&TBoss8Dragon__sub_8005EB00, (void *)0x0, (void *)0xffffffff,
-    (void *)&TBoss8Dragon__sub_8005EB00, (void *)0x0, (void *)0x0, (void *)0x0,
+    (void *)0xffffffff, (void *)&set_random_param__12TBoss8DragonFPvPv, (void *)0x0, (void *)0xffffffff,
+    (void *)&set_random_param__12TBoss8DragonFPvPv, (void *)0x0, (void *)0x0, (void *)0x0,
     (void *)0x0, (void *)0x0, (void *)0x0, (void *)0x0,
     (void *)0x0, (void *)0x0, (void *)0x0, (void *)0x0,
     (void *)0x0, (void *)0x0, (void *)0x0, (void *)0x0,
@@ -3086,7 +3086,7 @@ f32 TBoss8Dragon__sub_8005EAD0(void *arg0, void *arg1, int arg2) {
 extern int fold_flush_6;
 #pragma pop
 
-void TBoss8Dragon__sub_8005EB00(u8 *arg0, u8 *arg1) {
+void set_random_param__12TBoss8DragonFPvPv(u8 *arg0, u8 *arg1) {
     M2C_FIELD(arg1, s32 *, 4) = (s32) (lbl_805D8D9C * (lbl_805D8D98 * (f32) rand()));
 }
 
@@ -3426,7 +3426,7 @@ void apply_velocity__12TBoss8DragonFPv(Obj_8005FBC4 *arg0) {
     }
 }
 
-void TBoss8Dragon__sub_8005FCE4(O_8005FCE4 *self, s32 msg) {
+void handle_message__12TBoss8DragonFPvi(O_8005FCE4 *self, s32 msg) {
     switch (msg) {
     case 4:
         self->flags |= 0x80;

@@ -19,7 +19,7 @@ void queue_destruction__7TObjectFv(void *);
 extern s32 lbl_805D4D14;
 extern const f32 lbl_805D8850;
 extern const f32 lbl_805D8854;
-void TBoss3Volopt__sub_80048920(u8 *arg0);
+void fade_out_and_finish__12TBoss3VoloptFPv(u8 *arg0);
 void VecCopy__FP3VecPC3Vec(void *, void *);
 void copy_xyz__10TObjPlayerFPvPv(void *, void *);
 void __ct__7TObjectFP7TObject(void *, void *);
@@ -130,7 +130,7 @@ u8 *TBoss3Volopt__sub_8004885C(u8 *arg0, u8 *arg1, s32 arg2, s32 arg3, u8 *arg4,
     return arg0;
 }
 
-void TBoss3Volopt__sub_80048920(u8 *arg0) {
+void fade_out_and_finish__12TBoss3VoloptFPv(u8 *arg0) {
   M2C_UNK (*temp_r12)();
   const f32 *new_var;
   if (!arg0)

@@ -61,7 +61,7 @@ void restore_full_screen_view__11TCameraCtrlFv(void);
 u32 alloc__23TAdSinglePlyChrSelectGCFPv(int);
 u32 prs_decompress_buffer(s32 arg0, s32 arg1);
 void dispatch_state__6TLobbyFPv(void *arg0);
-void TLobby__sub_800F7FB8(u8 *arg0);
+void tick_fade_counter__6TLobbyFPv(u8 *arg0);
 void step_fade_opacity_increase(u8 *arg0);
 void init_fadeout_state__6TLobbyFi(s32 arg0);
 void step_fade_opacity_decrease(u8 *arg0);
@@ -191,7 +191,7 @@ void dispatch_state__6TLobbyFPv(void *arg0) {
         step_fade_opacity_increase((u8 *)(arg0));
         return;
     case 3:
-        TLobby__sub_800F7FB8((u8 *)(arg0));
+        tick_fade_counter__6TLobbyFPv((u8 *)(arg0));
     case 0:
         return;
     }
@@ -199,7 +199,7 @@ void dispatch_state__6TLobbyFPv(void *arg0) {
 
 #pragma push
 #pragma opt_common_subs off
-void TLobby__sub_800F7FB8(u8 *arg0) {
+void tick_fade_counter__6TLobbyFPv(u8 *arg0) {
     M2C_UNK (*temp_r12)();
     M2C_FIELD(arg0, f32 *, 0x1C) += 1.0f;
     if (M2C_FIELD(arg0, f32 *, 0x1C) >= (128.0f)) {

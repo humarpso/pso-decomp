@@ -15,7 +15,7 @@ extern s16 TObjBoss2Tunnel__data_805D4E8A;
 extern u32 TObjBoss2Tunnel__data_805D4E90;
 extern s32 TObjBoss2Tunnel__data_805D4E94;
 void reset__12TQuestListVMFv(void);
-void TObjBoss2Tunnel__sub_8007DD28(void);
+void reset_state__15TObjBoss2TunnelFv(void);
 }
 
 extern "C" {
@@ -149,7 +149,7 @@ s32 memcard_check_snapshot(s32 arg0, s32 *arg1) {
 }
 
 void TObjBoss2Tunnel__sub_8007DD24(void) {  }
-void TObjBoss2Tunnel__sub_8007DD28(void) {
+void reset_state__15TObjBoss2TunnelFv(void) {
     TObjBoss2Tunnel__data_8048DF2C.x = lbl_805D9280;
     lbl_805D4E88 = 0;
     TObjBoss2Tunnel__data_8048DF2C.y = lbl_805D9284;

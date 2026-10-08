@@ -99,7 +99,7 @@ struct VObj_800B3EB8 : VBase_800B3EB8 {
 
 extern "C" {
 extern const f32 lbl_805D9D6C;
-void TObjEneBm3FlyNest__sub_800B47C4(void);
+void init_vertex_table__17TObjEneBm3FlyNestFv(void);
 }
 
 extern "C" {
@@ -2812,7 +2812,7 @@ void load_resources__17TObjEneBm3FlyNestFv(void) {
     lbl_805D5100 = register_object__6TLobbyFPv(1);
     lbl_805D5104 = dispatch_shared_handler_a__6TLobbyFPv(1);
     ((s32 (*)(void))load_resources__13TObjEneBm3FlyFv)();
-    TObjEneBm3FlyNest__sub_800B47C4();
+    init_vertex_table__17TObjEneBm3FlyNestFv();
     {
         Anim_800B41E8 anim = lbl_8043B2F4;
         anim.motions = ((Res_800B41E8 *)lbl_805D5108)->motions;
@@ -2945,7 +2945,7 @@ u8 *construct_carrier__17TObjEneBm3FlyNestFPvPviiiii(u8 *self, void *parent, s32
     M2C_FIELD(self, s32 *, 0x2C) = 0;
     return self;
 }
-void TObjEneBm3FlyNest__sub_800B47C4(void) {
+void init_vertex_table__17TObjEneBm3FlyNestFv(void) {
     f32 *v = lbl_80500B0C;
     v[3] = v[2] = v[1] = v[0] = 0.0f;
     v[5] = v[4] = lbl_805D9D6C;

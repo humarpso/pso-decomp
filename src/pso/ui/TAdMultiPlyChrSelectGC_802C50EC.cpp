@@ -142,14 +142,14 @@ extern RecoveredGlobal_802C6848_lbl_804E0B00 lbl_804E0B00;
 s32 TAdMultiPlyChrSelectGC__sub_802C6848(s32 arg0);
 s32 TAdMultiPlyChrSelectGC__sub_802C6558(void);
 extern const f32 TAdMultiPlyChrSelectGC__data_805DE56C;
-void TAdMultiPlyChrSelectGC__sub_802C59EC(S_802C59EC *arg0, s32 arg1);
+void clear_slot_entries__22TAdMultiPlyChrSelectGCFPvi(S_802C59EC *arg0, s32 arg1);
 extern s32 lbl_80471A88[][5];
 extern s32 TAdMultiPlyChrSelectGC__data_804E0A68[][5];
 void reset_slot_selection_table__22TAdMultiPlyChrSelectGCFv(void);
 extern s32 TAdMultiPlyChrSelectGC__data_804E0A68[][5];
 void find_first_open_cell__22TAdMultiPlyChrSelectGCFiPv(s32 arg0, u32 *arg1);
 extern int TAdMultiPlyChrSelectGC__data_805D67D8;
-void TAdMultiPlyChrSelectGC__sub_802C6988(void);
+void add_selected_slot__22TAdMultiPlyChrSelectGCFv(void);
 extern int TAdMultiPlyChrSelectGC__data_805D67D8;
 void reset_slot_selection_table__22TAdMultiPlyChrSelectGCFv(void);
 void reset_slot_selections__22TAdMultiPlyChrSelectGCFv(void);
@@ -158,7 +158,7 @@ extern const f32 TAdMultiPlyChrSelectGC__data_805DE56C;
 void reset_cursor_state__22TAdMultiPlyChrSelectGCFPv(S_802C5594 *arg0);
 void copy_vec2__28TWindowSubSymbolChatPartsSetFPvPv(void *);
 void init_slot_position__22TAdMultiPlyChrSelectGCFPviii(S_802C5944 *arg0, s32 arg1, s32 arg2, s32 arg3);
-void TAdMultiPlyChrSelectGC__sub_802C689C(s32 arg0);
+void remove_selected_slot__22TAdMultiPlyChrSelectGCFi(s32 arg0);
 s32 count_ready__22TAdMultiPlyChrSelectGCFv(void);
 s32 TAdMultiPlyChrSelectGC__sub_802C6558(void);
 s32 get_field_20__22TAdMultiPlyChrSelectGCFPv();
@@ -333,7 +333,7 @@ void init_slot_position__22TAdMultiPlyChrSelectGCFPviii(S_802C5944 *arg0, s32 ar
     arg0->a[arg2][arg3] = 0;
 }
 
-void TAdMultiPlyChrSelectGC__sub_802C59EC(S_802C59EC *arg0, s32 arg1) {
+void clear_slot_entries__22TAdMultiPlyChrSelectGCFPvi(S_802C59EC *arg0, s32 arg1) {
     s32 i;
     for (i = 0; i < 4; i++) {
         arg0->a[i][arg1] = 0;
@@ -589,7 +589,7 @@ void TAdMultiPlyChrSelectGC__sub_802C65C0(s32 arg0) {
     s32 ci = c + 1;
     TAdMultiPlyChrSelectGC__data_804E0A68[ri][ci] = lbl_80471A88[ri][ci];
     ((s32 *)&TAdMultiPlyChrSelectGC__data_804E0A48)[arg0] = -1;
-    TAdMultiPlyChrSelectGC__sub_802C689C(arg0);
+    remove_selected_slot__22TAdMultiPlyChrSelectGCFi(arg0);
 }
 
 typedef char RecoveredGlobal_802C6848_lbl_804E0B00_size[sizeof(RecoveredGlobal_802C6848_lbl_804E0B00) == 0x10 ? 1 : -1];
@@ -600,7 +600,7 @@ s32 TAdMultiPlyChrSelectGC__sub_802C6848(s32 arg0) {
     return M2C_FIELD(M2C_FIELD(TKeyBoardControl__sub_803DEB74(M2C_FIELD(((u8 *)(&lbl_804E0B00.value) + (arg0 * 4)), u32 *, 0)), s32 **, 0x30), s32 *, 0) & 1;
 }
 
-void TAdMultiPlyChrSelectGC__sub_802C689C(s32 arg0) {
+void remove_selected_slot__22TAdMultiPlyChrSelectGCFi(s32 arg0) {
     u32 i;
     u32 j;
     for (i = 0; i < 4; i++) {
@@ -616,7 +616,7 @@ void TAdMultiPlyChrSelectGC__sub_802C689C(s32 arg0) {
     }
 }
 
-void TAdMultiPlyChrSelectGC__sub_802C6988(void) {
+void add_selected_slot__22TAdMultiPlyChrSelectGCFv(void) {
     s32 i;
     if ((*(s32 *)&TAdMultiPlyChrSelectGC__data_805D67D8) < 0 || (u32)(*(s32 *)&TAdMultiPlyChrSelectGC__data_805D67D8) >= 4) {
         (*(s32 *)&TAdMultiPlyChrSelectGC__data_805D67D8) = 0;

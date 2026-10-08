@@ -56,7 +56,7 @@ s32 TWindowShortListCtrl__check_controller_button(void *, M2C_UNK, s32);
 M2C_UNK play_sound_effect(M2C_UNK, M2C_UNK, M2C_UNK, M2C_UNK);
 M2C_UNK close__17TWindowSubComCardFPv(void *);
 M2C_UNK init_slot_position__22TAdMultiPlyChrSelectGCFPviii(int, void *, int, int);
-M2C_UNK TAdMultiPlyChrSelectGC__sub_802C59EC(int, int);
+M2C_UNK clear_slot_entries__22TAdMultiPlyChrSelectGCFPvi(int, int);
 M2C_UNK reset_slot_selections__22TAdMultiPlyChrSelectGCFv();
 s32 get_player_index__22TAdMultiPlyChrSelectGCFPv(u32);
 M2C_UNK set_field_100__22TAdMultiPlyChrSelectGCFPvi(s32, M2C_UNK);
@@ -259,7 +259,7 @@ void TAdMultiPlyChrSelectGC__sub_802DDD08(u8 *arg0) {
             return;
         }
     }
-    TAdMultiPlyChrSelectGC__sub_802C59EC((int) (M2C_FIELD(arg0, s32 *, 0x5C)), (int) (2));
+    clear_slot_entries__22TAdMultiPlyChrSelectGCFPvi((int) (M2C_FIELD(arg0, s32 *, 0x5C)), (int) (2));
     if (get_player_index__22TAdMultiPlyChrSelectGCFPv((u32)((int) (M2C_FIELD(arg0, u32 *, 0x68)))) >= 0xE) {
         init_slot_position__22TAdMultiPlyChrSelectGCFPviii((int) (M2C_FIELD(arg0, s32 *, 0x5C)), (void *) (&TAdMultiPlyChrSelectGC__data_804727B0.value), (int) (0), (int) (1));
         init_slot_position__22TAdMultiPlyChrSelectGCFPviii((int) (M2C_FIELD(arg0, s32 *, 0x5C)), (void *) ((u8 *)&TAdMultiPlyChrSelectGC__data_804727B0.value + 8), (int) (1), (int) (1));

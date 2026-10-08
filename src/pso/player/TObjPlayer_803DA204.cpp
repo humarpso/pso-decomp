@@ -21,7 +21,7 @@ struct Slot_803DA388 { s32 id; s32 a; s32 b; s32 c; s32 d; s32 e; s32 f; s32 g; 
 
 extern "C" {
 extern s32 lbl_805D7758;
-void TObjPlayer__sub_803DA6E0(u8 *arg0);
+void release_empty_ref_entry__10TObjPlayerFPv(u8 *arg0);
 void set_texture_name(S_803DA218 *self, s32 a, s32 b, u32 c);
 extern s32 lbl_805D7764;
 extern Rec_803DA688 *lbl_805D7768;
@@ -175,7 +175,7 @@ s32 find_record_index__10TObjPlayerFUiUi(u32 arg0, u32 arg1) {
     return -1;
 }
 
-void TObjPlayer__sub_803DA6E0(u8 *arg0) {
+void release_empty_ref_entry__10TObjPlayerFPv(u8 *arg0) {
     u8 *temp_r4;
     temp_r4 = (u8 *)(M2C_FIELD(arg0, u8 **, 0xC));
     if ((s32) M2C_FIELD(temp_r4, s32 *, 0x24) <= 0) {

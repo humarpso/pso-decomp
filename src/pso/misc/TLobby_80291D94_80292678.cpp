@@ -32,7 +32,7 @@ extern "C" {
 void VecCopy__FP3VecPC3Vec(void *, void *);
 void save_position__14TBoss4DarkFalzFi(void *);
 void set_position_from__14TBoss4DarkFalzFPvPv(void *, void *);
-Tbl_80292730 *TLobby__sub_8006EF98(s32, s32);
+Tbl_80292730 *get_stage_table_entry__6TLobbyFii(s32, s32);
 void __dt__12TPlyCharDataFv(void *, int);
 void copy_header_struct__6TLobbyFPvPv(void *, void *);
 void copy_player_visual_record(void *, void *);
@@ -104,16 +104,16 @@ void rebuild_players_for_stage__6TLobbyFi(s32 arg0) {
             }
             switch (info.flags & 0xE0) {
             case 0x20:
-                tbl = TLobby__sub_8006EF98(0, arg0);
+                tbl = get_stage_table_entry__6TLobbyFii(0, arg0);
                 break;
             case 0x40:
-                tbl = TLobby__sub_8006EF98(1, arg0);
+                tbl = get_stage_table_entry__6TLobbyFii(1, arg0);
                 break;
             case 0x80:
-                tbl = TLobby__sub_8006EF98(2, arg0);
+                tbl = get_stage_table_entry__6TLobbyFii(2, arg0);
                 break;
             default:
-                tbl = TLobby__sub_8006EF98(0, arg0);
+                tbl = get_stage_table_entry__6TLobbyFii(0, arg0);
                 break;
             }
             __ct__12TPlyCharDataFv(&cd);

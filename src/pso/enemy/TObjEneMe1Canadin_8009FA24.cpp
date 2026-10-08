@@ -34,7 +34,7 @@ void VecCopy__FP3VecPC3Vec(Vec_8009FADC *dst, const Vec_8009FADC *src);
 void push_history_entry__17TObjEneMe1CanadinFPvfPvi(Obj_8009FADC *self, f32 f, const Vec_8009FADC *pos, s32 val);
 extern const f32 lbl_805D993C;
 extern const f32 lbl_805D9940;
-s32 TObjEneMe1Canadin__sub_8009FB54(Obj_8009FB54 *self, s32 dec, f32 scale);
+s32 fade_alpha_step__17TObjEneMe1CanadinFPvif(Obj_8009FB54 *self, s32 dec, f32 scale);
 void *alloc_buffer__11TOBoss4RockFPv(s32);
 void __ct__7TObjectFP7TObject(void *, void *);
 extern M2C_UNK lbl_80490410[];
@@ -42,7 +42,7 @@ extern s32 lbl_805D29C4;
 extern const f32 lbl_805D993C;
 extern const f32 lbl_805D9944;
 Obj_8009FC44 *TObjEneMe1Canadin__sub_8009FC44(Obj_8009FC44 *self, void *parent, s32 count);
-s32 TObjEneMe1Canadin__sub_8009FB54(Obj_8009FB54 *self, s32 dec, f32 scale);
+s32 fade_alpha_step__17TObjEneMe1CanadinFPvif(Obj_8009FB54 *self, s32 dec, f32 scale);
 void select_first_valid_record__17TObjEneMe1CanadinFPv(Obj_8009FA24 *arg0);
 }
 
@@ -61,12 +61,12 @@ void select_first_valid_record__17TObjEneMe1CanadinFPv(Obj_8009FA24 *arg0) {
     s32 i;
     arg0->sel = arg0->n20 - 1;
     for (i = arg0->n20 - 1; i >= 0; i--) {
-        if (((Fn_8009FA24)TObjEneMe1Canadin__sub_8009FB54)(&arg0->recs[i], arg0->f34, arg0->a30) == 0) {
+        if (((Fn_8009FA24)fade_alpha_step__17TObjEneMe1CanadinFPvif)(&arg0->recs[i], arg0->f34, arg0->a30) == 0) {
             arg0->sel = i;
         }
     }
     for (i = arg0->n1c - 1; i >= arg0->n20; i--) {
-        if (((Fn_8009FA24)TObjEneMe1Canadin__sub_8009FB54)(&arg0->recs[i], arg0->f34, arg0->a30) == 0) {
+        if (((Fn_8009FA24)fade_alpha_step__17TObjEneMe1CanadinFPvif)(&arg0->recs[i], arg0->f34, arg0->a30) == 0) {
             arg0->sel = i;
         }
     }
@@ -83,7 +83,7 @@ void push_history_entry__17TObjEneMe1CanadinFPvfPvi(Obj_8009FADC *self, f32 f, c
     }
 }
 
-s32 TObjEneMe1Canadin__sub_8009FB54(Obj_8009FB54 *self, s32 dec, f32 scale) {
+s32 fade_alpha_step__17TObjEneMe1CanadinFPvif(Obj_8009FB54 *self, s32 dec, f32 scale) {
     s32 a;
     if (lbl_805D993C == self->alpha) {
         return 1;

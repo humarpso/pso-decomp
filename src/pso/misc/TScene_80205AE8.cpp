@@ -33,7 +33,7 @@ s32 find_uv_animation__6TSceneFPvPv(void *task, Uv_80205DE4 *uv);
 void initialize_fmt1_materials__6TSceneFPv(void *task);
 u8 *__nw__7TObjectFUl(M2C_UNK);
 extern SceneMaterialRoot* TScene__data_805D5FCC;
-Info_80205AEC *TScene__sub_80205AA8(void *, u16);
+Info_80205AEC *find_material_entry_by_id__6TSceneFPvUs(void *, u16);
 void *fn_802A8210(void *, u8, void *);
 extern u32 lbl_8044A800[];
 extern u8 lbl_8044A80C[];
@@ -75,7 +75,7 @@ void init_material_nodes__6TSceneFPv(void *scene) {
                 if (st->flags & 0x200) {
                     node = (Node_80205AEC *)st->node;
                     if (node->obj == NULL) {
-                        info = TScene__sub_80205AA8(scene, node->id);
+                        info = find_material_entry_by_id__6TSceneFPvUs(scene, node->id);
                         if (info != NULL) {
                             o = __nw__7TObjectFUl(0x20);
                             if (o != NULL) {
@@ -98,7 +98,7 @@ void init_material_nodes__6TSceneFPv(void *scene) {
                 if (an->flags & 0x200) {
                     node2 = (Node_80205AEC *)an->node;
                     if (node2->obj == NULL) {
-                        info2 = TScene__sub_80205AA8(scene, node2->id);
+                        info2 = find_material_entry_by_id__6TSceneFPvUs(scene, node2->id);
                         if (info2 != NULL) {
                             o2 = __nw__7TObjectFUl(0x20);
                             if (o2 != NULL) {

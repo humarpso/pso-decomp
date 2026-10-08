@@ -11,7 +11,7 @@ int spawn_objects_at_pos__6TLobbyFPv(void* p);
 void TLobby__sub_8020863C(void);
 void TLobby__sub_80208648(void);
 void TLobby__sub_8020864C(s32 arg0);
-void TLobby__sub_80208694(u8 arg0);
+void dispatch_opcode_two_u16__6TLobbyFUc(u8 arg0);
 int link_matching_objects__6TLobbyFss(void*);
 int spawn_objects_at_pos__6TLobbyFss(void*);
 
@@ -42,7 +42,7 @@ void TLobby__sub_8020864C(s32 arg0) {
 }
 
 s32 read_stream_u16();
-void TLobby__sub_80208694(u8 arg0) {
+void dispatch_opcode_two_u16__6TLobbyFUc(u8 arg0) {
     void (*f)(s32, s32) = (void (*)(s32, s32))lbl_804C93A8[arg0].fn;
     s32 a = read_stream_u16();
     f(a, read_stream_u16());

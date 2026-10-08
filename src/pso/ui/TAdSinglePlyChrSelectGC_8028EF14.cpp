@@ -48,7 +48,7 @@ CreationHeadModelStates lbl_8051C110[7];
 CreationBodyModelStates lbl_8051C228;
 CreationBodyModelStates lbl_8051C430[7];
 extern Slot_8028F150 lbl_8051D288[];
-Slot_8028F150 *TAdSinglePlyChrSelectGC__sub_8028F150(void);
+Slot_8028F150 *find_free_slot__23TAdSinglePlyChrSelectGCFv(void);
 extern Slot_8028F150 lbl_8051D288[];
 s32 is_entry_equal__23TAdSinglePlyChrSelectGCFPvPv(void *, void *);
 s32 has_matching_entry__23TAdSinglePlyChrSelectGCFPv(void *arg0);
@@ -64,7 +64,7 @@ extern s32 chara_select_creation_shape_rel_files[];
 extern u32 lbl_805D6520;
 void load_creation_shape_rel(W_80290250 *arg0);
 extern Slot_8028F150 lbl_8051D288[];
-s32 TAdSinglePlyChrSelectGC__sub_8028F210();
+s32 count_remaining_slots__23TAdSinglePlyChrSelectGCFv();
 void TCharaMaking__sub_8028E3A0();
 s32 find_shape_triangle_region(u8 *arg0);
 void get_sorted_region_samples__23TAdSinglePlyChrSelectGCFPvPv(void *arg0, s32 *arg1);
@@ -74,7 +74,7 @@ extern Pair_802907E4 lbl_80540888[];
 extern Pair_802907E4 lbl_805408D8[];
 extern Pair_802907E4 lbl_80540928[];
 void init_entry_tables__23TAdSinglePlyChrSelectGCFPv(void* _w0);
-s32 TAdSinglePlyChrSelectGC__sub_8028ECCC(void *, u32);
+s32 count_char_diffs__23TAdSinglePlyChrSelectGCFPvPv(void *, u32);
 void update_char_panels__23TAdSinglePlyChrSelectGCFPv(u8 *arg0);
 extern Slot_8028F150 lbl_8051D288[];
 extern u32 lbl_805D6520;
@@ -1177,7 +1177,7 @@ s32 evict_char_entries__23TAdSinglePlyChrSelectGCFi(s32 arg0) {
     for (k = 4; k >= 1; k--) {
         for (p = (E_8028F210 *)&lbl_8051D288[127]; p >= (E_8028F210 *)lbl_8051D288; p--) {
             if (p != lbl_805D6540 && p->f0 != 0 && (p->f14 == 0 || p->f10 != 0) && (p->f188 == 0 || p->f184 != 0) && p->f2f8 != 0 &&
-                TAdSinglePlyChrSelectGC__sub_8028ECCC(p, lbl_805D6520) >= k) {
+                count_char_diffs__23TAdSinglePlyChrSelectGCFPvPv(p, lbl_805D6520) >= k) {
                 p->f0 = 0;
                 update_char_panels__23TAdSinglePlyChrSelectGCFPv((u8 *)p);
                 if (++n == arg0) {
@@ -1189,7 +1189,7 @@ s32 evict_char_entries__23TAdSinglePlyChrSelectGCFi(s32 arg0) {
     return n;
 }
 
-Slot_8028F150 *TAdSinglePlyChrSelectGC__sub_8028F150(void) {
+Slot_8028F150 *find_free_slot__23TAdSinglePlyChrSelectGCFv(void) {
     Slot_8028F150 *p;
     for (p = lbl_8051D288; p < (Slot_8028F150 *)((u8 *)lbl_8051D288 + 0x23600); p++) {
         if (p->f0 == 0) return p;
@@ -1207,7 +1207,7 @@ s32 has_matching_entry__23TAdSinglePlyChrSelectGCFPv(void *arg0) {
     return 0;
 }
 
-s32 TAdSinglePlyChrSelectGC__sub_8028F210() {
+s32 count_remaining_slots__23TAdSinglePlyChrSelectGCFv() {
     E_8028F210 *p;
     s32 n;
     n = 2;

@@ -153,7 +153,7 @@ extern "C" {
 s32 is_valid_state__6TLobbyFPvi(void *unused, s32 arg1);
 extern RecoveredGlobal_80329088_lbl_805430E8 lbl_805430E8;
 extern RecoveredGlobal_80329088_lbl_805432A8 lbl_805432A8;
-M2C_UNK *TLobby__sub_80329088(s32 arg0, s32 _w1);
+M2C_UNK *get_state_table__6TLobbyFii(s32 arg0, s32 _w1);
 int is_valid_player_motion_variant(void* a0);
 int TLobby__sub_802A7278(void* a0);
 extern RecoveredGlobal_802A7444_lbl_804DDBD8 lbl_804ED7C8;
@@ -203,7 +203,7 @@ void set_player_handle_valid__6TLobbyFPv(void *arg0) {
 }
 typedef char RecoveredGlobal_80329088_lbl_805430E8_size[sizeof(RecoveredGlobal_80329088_lbl_805430E8) == 0x1C0 ? 1 : -1];
 typedef char RecoveredGlobal_80329088_lbl_805432A8_size[sizeof(RecoveredGlobal_80329088_lbl_805432A8) == 0x1C0 ? 1 : -1];
-M2C_UNK *TLobby__sub_80329088(s32 arg0, s32 _w1) {
+M2C_UNK *get_state_table__6TLobbyFii(s32 arg0, s32 _w1) {
     M2C_UNK *var_r3;
     s32 temp_r3;
     temp_r3 = is_valid_state__6TLobbyFPvi((void *)(arg0), (s32)(_w1));

@@ -56,7 +56,7 @@ extern RecoveredGlobal_80078378_lbl_8048D3B8 lbl_8048D3B8;
 s16 open_socket__10TUdpSocketFPv(Sock_800782B8 *arg0);
 void TLobby__sub_80421B3C(s32);
 extern RecoveredGlobal_80078378_lbl_8048D3B8 lbl_8048D3B8;
-void TUdpSocket__sub_80078264(Sock_80078264 *arg0);
+void free_socket_slot__10TUdpSocketFPv(Sock_80078264 *arg0);
 }
 
 extern "C" {
@@ -138,7 +138,7 @@ void TUdpSocket__sub_800781B8(Sock_800781B8 *arg0, s32 arg1) {
     TUdpSocket__sub_80421BAC(arg0->fd, &q2, &q1, port, &c, 1, &r);
 }
 
-void TUdpSocket__sub_80078264(Sock_80078264 *arg0) {
+void free_socket_slot__10TUdpSocketFPv(Sock_80078264 *arg0) {
     if (arg0->x28 >= 0x400) {
         TLobby__sub_80421B3C(arg0->x28);
         (&lbl_8048D3B8.value)[arg0->x28 - 0x400] = 0;

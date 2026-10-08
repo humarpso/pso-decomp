@@ -35,7 +35,7 @@ void bswap_enemy_state__6TLobbyFPv(void* p);
 void bswap_field__6TLobbyFPv(void* p);
 void reset_keyboard_control__6TLobbyFv(void);
 int TLobby__send_and_handle_60(void*);
-void TLobby__sub_800F7A8C(s32 arg0);
+void run_handler_list_reverse__6TLobbyFi(s32 arg0);
 s32 run_cleanup_callbacks__6TLobbyFi(s32 arg0);
 extern Ent_800F7A8C *lbl_804998C8[];
 s32 is_area_transfer_pending();
@@ -69,7 +69,7 @@ f32 TLobby__sub_800F7A7C(void) {
     return M2C_FIELD(&lbl_8048C9D8.value, f32 *, 4);
 }
 
-void TLobby__sub_800F7A8C(s32 arg0) {
+void run_handler_list_reverse__6TLobbyFi(s32 arg0) {
     Ent_800F7A8C *p = lbl_804998C8[arg0];
     s32 n;
     s32 i;
@@ -98,6 +98,6 @@ s32 run_cleanup_callbacks__6TLobbyFi(s32 arg0) {
     }
     return 1;
 }
-void reset_keyboard_control__6TLobbyFv(void) { get_global_state__14TOKeyMachine01Fv(); ((void (*)(void))TLobby__sub_800F7A8C)(); }
+void reset_keyboard_control__6TLobbyFv(void) { get_global_state__14TOKeyMachine01Fv(); ((void (*)(void))run_handler_list_reverse__6TLobbyFi)(); }
 
 }

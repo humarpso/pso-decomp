@@ -153,7 +153,7 @@ extern "C" {
 void TTecPlayerInfluence__sub_80237258(void* p);
 void run_task__19TTecPlayerInfluenceFv(void *arg0);
 void queue_destruction__7TObjectFv(void *);
-void TTecPlayerInfluence__sub_802371FC(u8 *arg0);
+void tick_lifetime__19TTecPlayerInfluenceFPv(u8 *arg0);
 s32 approach_vector_in_place(void *, void *, f32);
 s32 TObjRoomId__sub_80141CF4(void *, void *, f32);
 extern RecoveredGlobal_80237194_lbl_8044D8EC lbl_8044D8EC;
@@ -217,7 +217,7 @@ void render__19TTecPlayerInfluenceFv(u8 *arg0) {
     TObjRoomId__sub_80141CF4((void *) (arg0 + 0x20), (void *) (arg0 + 0x2C), (f32) (M2C_FIELD(arg0, f32 *, 0x3C)));
 }
 
-void TTecPlayerInfluence__sub_802371FC(u8 *arg0) {
+void tick_lifetime__19TTecPlayerInfluenceFPv(u8 *arg0) {
     M2C_FIELD(arg0, s32 *, 0x68) = (s32) (M2C_FIELD(arg0, s32 *, 0x68) + 1);
     if ((f32) M2C_FIELD(arg0, s32 *, 0x68) > M2C_FIELD(arg0, f32 *, 0x70)) {
         queue_destruction__7TObjectFv(arg0);

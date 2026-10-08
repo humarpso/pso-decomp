@@ -12,7 +12,7 @@ struct Blk_8001DF0C { s32 w[6]; };
 struct Obj_8001DF0C { Blk_8001DF0C a; Blk_8001DF0C b; };
 
 extern "C" {
-Obj_8001DF0C *TLobby__sub_8001DF0C(Obj_8001DF0C *d, Obj_8001DF0C *s);
+Obj_8001DF0C *copy_pair__6TLobbyFPvPv(Obj_8001DF0C *d, Obj_8001DF0C *s);
 }
 
 extern "C" {
@@ -34,12 +34,12 @@ void broadcast_to_players__6TLobbyFii(s32 arg0, s32 arg1) {
     if (is_valid_player_index__6TLobbyFi() != 0) {
         var_r31 = 0;
         do {
-            TLobby__sub_8001DF0C((Obj_8001DF0C *)(get_player_entry__6TLobbyFii(var_r31, arg0)), (Obj_8001DF0C *)(arg1));
+            copy_pair__6TLobbyFPvPv((Obj_8001DF0C *)(get_player_entry__6TLobbyFii(var_r31, arg0)), (Obj_8001DF0C *)(arg1));
             var_r31 += 1;
         } while (var_r31 < 4);
     }
 }
-Obj_8001DF0C *TLobby__sub_8001DF0C(Obj_8001DF0C *d, Obj_8001DF0C *s) {
+Obj_8001DF0C *copy_pair__6TLobbyFPvPv(Obj_8001DF0C *d, Obj_8001DF0C *s) {
     d->a = s->a;
     d->b = s->b;
     return d;

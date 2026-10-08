@@ -667,7 +667,7 @@ void set_boss_target_pos__10TObjPlayerFPviii(void *arg0, s32 arg1, s32 arg2, s32
 s32 calc_hit_zone_index__10TObjPlayerFPv(Obj_8003FBC8 *self);
 s32 calc_spin_value__10TObjPlayerFPv(void *arg0);
 void update_state_spin__10TObjPlayerFPv(void *arg0);
-void TObjPlayer__sub_8003FFE4(void *arg0);
+void run_freeze_state__10TObjPlayerFPv(void *arg0);
 void update_reaction_animation__10TObjPlayerFPv(void *arg0);
 void update_grabbed_state__10TObjPlayerFPv(void *arg0);
 void teardown_render_state__10TObjPlayerFPv(u8 *arg0);
@@ -1358,7 +1358,7 @@ s32 check_target_collision__10TObjPlayerFPv(u8 *arg0) {
     return found;
 }
 
-void TObjPlayer__sub_8003FFE4(void *arg0) {
+void run_freeze_state__10TObjPlayerFPv(void *arg0) {
     Obj_8003FFE4 *self = (Obj_8003FFE4 *)arg0;
     switch (self->state) {
     case 0:
@@ -1525,7 +1525,7 @@ void TObjPlayer__sub_80040558(void * _w0) {  }
 
 void dispatch_reaction_state__10TObjPlayerFPv(Obj_8004055C *arg0) {
     switch (arg0->state) {
-    case 0: TObjPlayer__sub_8003FFE4(arg0); return;
+    case 0: run_freeze_state__10TObjPlayerFPv(arg0); return;
     case 1: TObjPlayer__sub_8003F9D4((void *)(arg0)); return;
     case 2: TObjPlayer__sub_800401CC((u8 *)(arg0)); return;
     case 4: update_grabbed_state__10TObjPlayerFPv(arg0); return;

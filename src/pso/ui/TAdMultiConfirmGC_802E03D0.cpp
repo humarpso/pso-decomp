@@ -126,7 +126,7 @@ u8 *get_char_table_entry__23TAdSinglePlyChrSelectGCFi(int);
 u8 *get_char_index__23TAdSinglePlyChrSelectGCFUi(int);
 void *init_appearance_load_request__10TNpcPlayerFPvPvii(void *, void *, void *, int);
 s32 is_unloaded__12TChCrLoadAfsFPv(void *);
-void TAdPlyStatusGC__sub_8033F900(void *, int);
+void set_load_state__14TAdPlyStatusGCFPvi(void *, int);
 void update_model_load__10TNpcPlayerFPv(u8 *arg0);
 }
 
@@ -412,7 +412,7 @@ void update_model_load__10TNpcPlayerFPv(u8 *arg0) {
     }
     idx = get_index__14TAdPlyStatusGCFv();
     if (idx != NULL) {
-        TAdPlyStatusGC__sub_8033F900(idx, F(0xFC, s32));
+        set_load_state__14TAdPlyStatusGCFPvi(idx, F(0xFC, s32));
         set_status_param__14TAdPlyStatusGCFii(idx, F(0x170, void *));
     }
 }
