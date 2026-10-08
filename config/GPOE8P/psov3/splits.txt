@@ -2481,7 +2481,7 @@ pso/misc/TLobby_800F8AA8_800F8D08.cpp:
 pso/misc/TLobby_800F8AA8.cpp:
 	.text       start:0x800F8DC8 end:0x800F93B4
 	.data       start:0x8049C624 end:0x8049C658
-	.sdata2     start:0x805DA918 end:0x805DA930
+	.sdata2     start:0x805DA918 end:0x805DA948
 
 pso/unk/text_800F93B4.cpp:
 	.text       start:0x800F93B4 end:0x800F93F0
@@ -11397,7 +11397,7 @@ pso/object/LobbyPigeonTheme.cpp:
 pso/object/LobbyPigeonPath.cpp:
 	.text       start:0x802C0A74 end:0x802C3284
 	.rodata     start:0x80471968 end:0x80471978
-	.sdata2     start:0x805DE4F8 end:0x805DE514
+	.sdata2     start:0x805DE4F8 end:0x805DE528
 
 pso/ui/TAdStorySelectGC_802C3284.cpp:
 	.text       start:0x802C3284 end:0x802C367C
@@ -11506,7 +11506,7 @@ pso/unk/text_802C9C18.cpp:
 pso/misc/TOTrapSeabed01.cpp:
 	.text       start:0x802C9DF0 end:0x802CAA84
 	.rodata     start:0x804720D8 end:0x804720E8
-	.sdata2     start:0x805DE644 end:0x805DE658
+	.sdata2     start:0x805DE640 end:0x805DE660
 
 pso/enemy/TObjEneMe1GiGue.cpp:
 	.text       start:0x802CAA84 end:0x802CDB1C

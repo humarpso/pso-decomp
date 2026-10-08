@@ -1472,6 +1472,7 @@ pso/misc/TOTrapAncient02R.cpp
 pso/misc/TOTrapChainSawDamage_802C9BF8.cpp
 pso/misc/TOTrapChainSawEdge.cpp
 pso/misc/TOTrapChainSaw_802C9BE4.cpp
+pso/misc/TOTrapSeabed01.cpp
 pso/misc/TOTrap_80179140.cpp
 pso/misc/TOTrap_801791EC.cpp
 pso/misc/TOTrap_801792AC.cpp
@@ -2171,6 +2172,7 @@ pso/npc/TObjNpcSecretaryBase.cpp
 pso/npc/TObjNpcSoldierBase.cpp
 pso/npc/TObjNpcSoldierMacho.cpp
 pso/npc/TObjNpcSoutokufu.cpp
+pso/object/LobbyPigeonPath.cpp
 pso/object/LobbyPigeonTheme.cpp
 pso/object/TObjAreaWarpQuest.cpp
 pso/object/TObjAreaWarp_80307B70.cpp
@@ -2331,6 +2333,7 @@ pso/object/TObjVoloptCage_80048CDC.cpp
 pso/object/TObjVoloptCage_8004912C.cpp
 pso/object/TObjVoloptPillar.cpp
 pso/object/TObjVoloptShutter.cpp
+pso/object/TObjWaitEntryHairMoveSim.cpp
 pso/object/TObjWarpBase.cpp
 pso/object/TObjWarpBoss03.cpp
 pso/object/TObjWarpBoss03_801A2AEC.cpp

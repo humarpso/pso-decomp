@@ -22,7 +22,6 @@ void get_player__20TWindowSubStatusDispFv();
 void draw_textured_quad_at_depth(void *, f32);
 void set_draw_texture_and_color(void *, int);
 extern u8 lbl_8049C61C[];
-extern const f32 lbl_805DA930;
 void draw_fullscreen_texture_quad__6TLobbyFPv(void *arg0);
 }
 
@@ -53,7 +52,7 @@ void draw_fullscreen_texture_quad__6TLobbyFPv(void *arg0) {
     set_global_param__8TObjFishFi(lbl_8049C61C);
     begin_screen_draw(0);
     set_draw_texture_and_color(arg0, -1);
-    draw_textured_quad_at_depth(v, lbl_805DA930);
+    draw_textured_quad_at_depth(v, (0.5f));
     get_player__20TWindowSubStatusDispFv();
 }
 
@@ -179,13 +178,6 @@ extern Msg_800F8FB8 lbl_80499A54[];
 extern Msg_800F8FB8 lbl_80499A90[];
 extern u8 lbl_805D533C;
 #define lbl_805D534C (*(s32 *)&lbl_805D534C)
-extern const f32 lbl_805DA928;
-extern const f32 lbl_805DA92C;
-extern const f32 lbl_805DA934;
-extern const f32 lbl_805DA938;
-extern const f32 lbl_805DA93C;
-extern const f32 lbl_805DA940;
-extern const f32 lbl_805DA944;
 
 #define show_msg_800F8FB8(arr, i) ((void (*)(f32, f32, u8 *, s32))draw_string__14TObjWarpStringFPviff)(arr[i].x, arr[i].y, arr[i].str, 0x8FFFFFFF)
 
@@ -205,20 +197,20 @@ s32 TLobby__sub_800F8FB8(void) {
     d.ids = ids;
     d.a = 0;
     d.n = 4;
-    pd->pos[0] = lbl_805DA928;
-    pd->pos[1] = lbl_805DA928;
+    pd->pos[0] = (0.0f);
+    pd->pos[1] = (0.0f);
     pd->ids[0] = -1;
-    pd->pos[2] = lbl_805DA934;
-    pd->pos[3] = lbl_805DA928;
+    pd->pos[2] = (6.4e+02f);
+    pd->pos[3] = (0.0f);
     pd->ids[1] = -1;
-    pd->pos[4] = lbl_805DA934;
-    pd->pos[5] = lbl_805DA938;
+    pd->pos[4] = (6.4e+02f);
+    pd->pos[5] = (4.8e+02f);
     pd->ids[2] = -1;
-    pd->pos[6] = lbl_805DA928;
-    pd->pos[7] = lbl_805DA938;
+    pd->pos[6] = (0.0f);
+    pd->pos[7] = (4.8e+02f);
     pd->ids[3] = -1;
     set_depth_buffer_settings_1__Fv();
-    draw_tri_fan_2d__14TObjCMHairMenuFPviif(&d, 4, 0x12, lbl_805DA93C);
+    draw_tri_fan_2d__14TObjCMHairMenuFPviif(&d, 4, 0x12, (-0.9f));
     status = DVDGetDriveStatus();
     restore_full_screen_view__11TCameraCtrlFv();
     if (DVDCheckDisk() == 0 && (check_reset_button__16TKeyBoardControlFv() != 0 || func_801A5E54__Fv() != 0)) {
@@ -227,7 +219,7 @@ s32 TLobby__sub_800F8FB8(void) {
     switch (status) {
     case -1:
         func_803DCDFC__Fv();
-        set_perspective_projection_from_fov(0x3555, lbl_805DA940, lbl_805DA92C, lbl_805DA944);
+        set_perspective_projection_from_fov(0x3555, (1.1333334f), (1.0f), (2.1e+04f));
         if (lbl_805D533C != 0) {
             ((void (*)(s32))draw_fullscreen_texture_quad__6TLobbyFPv)(0);
         } else {
@@ -242,7 +234,7 @@ s32 TLobby__sub_800F8FB8(void) {
         break;
     case 4:
         func_803DCDFC__Fv();
-        set_perspective_projection_from_fov(0x3555, lbl_805DA940, lbl_805DA92C, lbl_805DA944);
+        set_perspective_projection_from_fov(0x3555, (1.1333334f), (1.0f), (2.1e+04f));
         controller_stuff__Fv();
         if (lbl_805D533C != 0) {
             ((void (*)(s32))draw_fullscreen_texture_quad__6TLobbyFPv)(1);
@@ -255,7 +247,7 @@ s32 TLobby__sub_800F8FB8(void) {
         break;
     case 5:
         func_803DCDFC__Fv();
-        set_perspective_projection_from_fov(0x3555, lbl_805DA940, lbl_805DA92C, lbl_805DA944);
+        set_perspective_projection_from_fov(0x3555, (1.1333334f), (1.0f), (2.1e+04f));
         controller_stuff__Fv();
         if (lbl_805D533C != 0) {
             ((void (*)(s32))draw_fullscreen_texture_quad__6TLobbyFPv)(2);
@@ -270,7 +262,7 @@ s32 TLobby__sub_800F8FB8(void) {
         break;
     case 6:
         func_803DCDFC__Fv();
-        set_perspective_projection_from_fov(0x3555, lbl_805DA940, lbl_805DA92C, lbl_805DA944);
+        set_perspective_projection_from_fov(0x3555, (1.1333334f), (1.0f), (2.1e+04f));
         controller_stuff__Fv();
         if (lbl_805D533C != 0) {
             ((void (*)(s32))draw_fullscreen_texture_quad__6TLobbyFPv)(3);
@@ -285,7 +277,7 @@ s32 TLobby__sub_800F8FB8(void) {
         break;
     case 11:
         func_803DCDFC__Fv();
-        set_perspective_projection_from_fov(0x3555, lbl_805DA940, lbl_805DA92C, lbl_805DA944);
+        set_perspective_projection_from_fov(0x3555, (1.1333334f), (1.0f), (2.1e+04f));
         if (lbl_805D533C != 0) {
             ((void (*)(s32))draw_fullscreen_texture_quad__6TLobbyFPv)(4);
         } else {

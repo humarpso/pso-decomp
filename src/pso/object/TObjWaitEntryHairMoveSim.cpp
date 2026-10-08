@@ -120,7 +120,12 @@ void * create__24TObjWaitEntryHairMoveSimFPv(void *arg0) {
 #undef lbl_8049DC8C
 #pragma push
 
-#include "pso/TObjWaitEntryHairMoveSim.h"
+#include "pso/TObject.h"
+class TObjWaitEntryHairMoveSim : public TObject {
+public:
+    virtual ~TObjWaitEntryHairMoveSim();
+    virtual void run_task();
+};
 
 #include "types.h"
 typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
@@ -176,7 +181,6 @@ void create_hair_effects__24TObjWaitEntryHairMoveSimFPv(void *arg0);
 extern "C" {
 
 void *__ct__24TObjWaitEntryHairMoveSimFv(void *arg0, void *arg1);
-void run_task__24TObjWaitEntryHairMoveSimFv(void *arg0);
 
 M2C_UNK queue_destruction__7TObjectFv(void *);
 
@@ -736,12 +740,15 @@ void *lbl_8049DC8C[6] = {
 };
 #define lbl_8049D998 ((Ent_800FE698 *)lbl_8049D998)
 
-void run_task__24TObjWaitEntryHairMoveSimFv(void *arg0) {
+}
+void TObjWaitEntryHairMoveSim::run_task() {
+    void *arg0 = this;
     if ((s32) M2C_FIELD(M2C_FIELD(arg0, void **, 0x1C), s32 *, 0xCFC) == 0) {
         create_hair_effects__24TObjWaitEntryHairMoveSimFPv((void *)(arg0));
         queue_destruction__7TObjectFv(arg0);
     }
 }
+extern "C" {
 
 extern M2C_UNK __vt__24TObjWaitEntryHairMoveSim[];
 extern void *lbl_805D2B40;

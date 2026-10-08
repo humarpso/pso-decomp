@@ -444,6 +444,7 @@ force_active:
   - check_attack_hits__19TObjEneBm9MericarolFPv
   - check_floor_contact__18TObjEneMe3SinowZoaFPvPv
   - check_hit_by_id_276__10TObjPlayerFPvi
+  - check_hold_player__14TOTrapSeabed01FPv
   - check_local_player_in_range__12TObjRaderColFPv
   - check_open_trigger__19TContainerAncient01FPv
   - check_player_contact__14TOTrapChainSawFPv
@@ -455,6 +456,7 @@ force_active:
   - check_target_collision__10TObjPlayerFPv
   - circling_state__14TObjEneBm5WolfFv
   - clamp_hp_value__10TObjPlayerFPvPv
+  - clamp_params_and_init__14TOTrapSeabed01FPv
   - clear_flag_in_state7__14TObjEneBalClawFPv
   - clear_photon_blast_slots__10TObjPlayerFv
   - clear_segment_flags__17TBoss1DragonColliFPv
@@ -519,6 +521,7 @@ force_active:
   - create_back_objects__21TAdMultiChgGameModeGCFPv
   - create_backgrounds__9TSaveChCrFPv
   - create_buy_list_windows__24TShopEquipmentListWindowFPv
+  - create_hair_effects__24TObjWaitEntryHairMoveSimFPv
   - create_icon__10TObjPlayerFiii
   - create_inward_orbit_effect
   - create_learned_blast_toast__13TWindowSubMagFPv
@@ -591,6 +594,7 @@ force_active:
   - draw_node_tree__18TObjLaboDesignBaseFiPv
   - draw_node_tree__19TODoorFourLightBaseFPvPv
   - draw_object_tree__11TObjDoaEx01FPvi
+  - draw_object_tree__14TOTrapSeabed01FPvPv
   - draw_object_tree_recursive
   - draw_palette_cells__22TWindowSubCustomSelectFv
   - draw_part_models__15TODoorMachine01FiPvi
@@ -842,6 +846,87 @@ force_active:
   - lbl_80497718
   - lbl_80497758
   - lbl_80497760
+  - lbl_8049CBA8
+  - lbl_8049CBE8
+  - lbl_8049CC38
+  - lbl_8049CC78
+  - lbl_8049CD08
+  - lbl_8049CD68
+  - lbl_8049CD88
+  - lbl_8049CDC8
+  - lbl_8049CDE8
+  - lbl_8049CE28
+  - lbl_8049CE78
+  - lbl_8049CEE8
+  - lbl_8049CF38
+  - lbl_8049CF78
+  - lbl_8049CFD8
+  - lbl_8049D008
+  - lbl_8049D038
+  - lbl_8049D088
+  - lbl_8049D0C8
+  - lbl_8049D0F8
+  - lbl_8049D148
+  - lbl_8049D1C8
+  - lbl_8049D258
+  - lbl_8049D288
+  - lbl_8049D2B8
+  - lbl_8049D308
+  - lbl_8049D358
+  - lbl_8049D378
+  - lbl_8049D398
+  - lbl_8049D3C8
+  - lbl_8049D418
+  - lbl_8049D458
+  - lbl_8049D478
+  - lbl_8049D4B8
+  - lbl_8049D518
+  - lbl_8049D558
+  - lbl_8049D588
+  - lbl_8049D5A8
+  - lbl_8049D5E8
+  - lbl_8049D638
+  - lbl_8049D678
+  - lbl_8049D68C
+  - lbl_8049D6A0
+  - lbl_8049D6B4
+  - lbl_8049D6C8
+  - lbl_8049D6DC
+  - lbl_8049D6F0
+  - lbl_8049D704
+  - lbl_8049D718
+  - lbl_8049D72C
+  - lbl_8049D740
+  - lbl_8049D754
+  - lbl_8049D768
+  - lbl_8049D77C
+  - lbl_8049D790
+  - lbl_8049D7A4
+  - lbl_8049D7B8
+  - lbl_8049D7CC
+  - lbl_8049D7E0
+  - lbl_8049D7F4
+  - lbl_8049D808
+  - lbl_8049D81C
+  - lbl_8049D830
+  - lbl_8049D844
+  - lbl_8049D858
+  - lbl_8049D86C
+  - lbl_8049D880
+  - lbl_8049D894
+  - lbl_8049D8A8
+  - lbl_8049D8BC
+  - lbl_8049D8D0
+  - lbl_8049D8E4
+  - lbl_8049D8F8
+  - lbl_8049D90C
+  - lbl_8049D920
+  - lbl_8049D934
+  - lbl_8049D948
+  - lbl_8049D95C
+  - lbl_8049D970
+  - lbl_8049D984
+  - lbl_8049DC28
   - lbl_804B6D7C
   - lbl_804B6D98
   - lbl_804B6DA4
@@ -1201,6 +1286,7 @@ force_active:
   - salGetStartDelay
   - salInitHRTFBuffer
   - salSynthSendMessage
+  - sample_clamped_path_position
   - save_and_send_state__19TContainerAncient01FPv
   - save_quest_state_to_record__6TLobbyFPv
   - scan_memcard_quest_files__12TQuestListVMFPv
@@ -1276,6 +1362,7 @@ force_active:
   - spawn_slow_effect__10TObjPlayerFii
   - spawn_wave_ring_particles__15TBoss6SwordWaveFPv
   - standing_state__14TObjEneBm5WolfFPvi
+  - start_bone_rot_player__24TObjWaitEntryHairMoveSimFPv
   - start_entry_timer__6TLobbyFPvUsi
   - start_quest_mission
   - start_udp_test_game__6TLobbyFv
@@ -1355,12 +1442,15 @@ force_active:
   - update_line_params__23TObjOnlineEndingHexLineFv
   - update_list_scroll__22TWindowSubCustomSelectFPv
   - update_load_state__9TItemLoadFPv
+  - update_lobby_pigeon_visibility
   - update_lobby_selection__12TQuestListVMFPv
   - update_lunge__14TObjEneBm5WolfFv
   - update_main_menu_request__11TWindowCtrlFPv
   - update_movement__15TObjEneMe1GiGueFPv
   - update_node_oscillation__11TItemMagSubFPv
   - update_pad_recalibration
+  - update_path_follow_rotation__10TObjPlayerFPvPvf
+  - update_path_steering__10TObjPlayerFPv
   - update_player_battle_ctrl_state
   - update_player_hp_ratios
   - update_position_from_velocity__20TItemEffOrgaFlowShotFPv

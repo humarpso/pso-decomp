@@ -163,10 +163,10 @@ extern s32 lbl_805D328C;
 u8 *TObjEneBm5GibonU__sub_8018343C(u8 *arg0, u8 *arg1, u8 *arg2, f32 farg0);
 void set_global_count__12TObjNpcEnemyFi(int);
 void debug_printf_at(int, void *, ...);
-extern u8 lbl_80444218[];
-extern u8 lbl_80444228[];
-extern u8 lbl_80444238[];
-extern u8 lbl_80444248[];
+extern const char lbl_80444218[];
+extern const char lbl_80444228[];
+extern const char lbl_80444238[];
+extern const char lbl_80444248[];
 void draw_debug_info__16TObjEneBm5GibonUFv(void);
 }
 
@@ -207,12 +207,16 @@ u8 *TObjEneBm5GibonU__sub_8018343C(u8 *arg0, u8 *arg1, u8 *arg2, f32 farg0) {
 void draw_debug_info__16TObjEneBm5GibonUFv(void) {
     ((void (*)(void))fn_8018355C)();
     set_global_count__12TObjNpcEnemyFi(0xFF00FF);
-    debug_printf_at(0x13001C, lbl_80444218);
-    debug_printf_at(0x13001D, lbl_80444228);
-    debug_printf_at(0x13001E, lbl_80444238);
-    debug_printf_at(0x130020, lbl_80444248);
+    debug_printf_at(0x13001C, (void *)lbl_80444218);
+    debug_printf_at(0x13001D, (void *)lbl_80444228);
+    debug_printf_at(0x13001E, (void *)lbl_80444238);
+    debug_printf_at(0x130020, (void *)lbl_80444248);
     set_global_count__12TObjNpcEnemyFi(0xF0F0F0FF);
 }
+__declspec(section ".rodata") extern const char lbl_80444218[] = "<- AREA WIDTH";
+__declspec(section ".rodata") extern const char lbl_80444228[] = "<- RISE HEIGHT";
+__declspec(section ".rodata") extern const char lbl_80444238[] = "<- AREA DEPTH";
+__declspec(section ".rodata") extern const char lbl_80444248[] = "<- FREQ";
 
 }
 
@@ -656,6 +660,7 @@ void debug_draw_model_index(void *self) {
     ((void (*)(s32 id, const char *fmt, ...))debug_printf_at)(0x130020, lbl_80444250);
     ((void (*)(s32 arg0))set_global_count__12TObjNpcEnemyFi)(0xF0F0F0FF);
 }
+__declspec(section ".rodata") extern const char lbl_80444250[] = "<- MDL IDX";
 #pragma push
 #pragma opt_common_subs off
 void fn_80183AF0(Obj_80183AF0 *self) {
