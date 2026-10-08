@@ -15,13 +15,13 @@ M2C_UNK pop_matrix();
 M2C_UNK post_translate_matrix(int);
 M2C_UNK draw_trail_strip__10TObjPlayerFPvPvi(int, int, int);
 extern RecoveredGlobal_802F1200_lbl_805419E0 lbl_805419E0;
-void fn_802F1200(M2C_UNK *arg0, s32 arg1);
+void boss7_dust_draw_at(M2C_UNK *arg0, s32 arg1);
 }
 
 extern "C" {
 
 typedef char RecoveredGlobal_802F1200_lbl_805419E0_size[sizeof(RecoveredGlobal_802F1200_lbl_805419E0) == 0x3E8 ? 1 : -1];
-void fn_802F1200(M2C_UNK *arg0, s32 arg1) {
+void boss7_dust_draw_at(M2C_UNK *arg0, s32 arg1) {
     M2C_UNK *var_r30;
     M2C_UNK *var_r3;
     s32 var_r31;

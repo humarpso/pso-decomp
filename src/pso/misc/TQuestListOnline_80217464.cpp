@@ -42,7 +42,7 @@ void invoke_callback_2c_and_queue_destruction__16TQuestListOnlineFPv(void *arg0)
 void invoke_callback_34_and_queue_destruction__16TQuestListOnlineFPv(void *arg0);
 s32 TLobby__sub_8001EEF4();
 s32 tmp_buf_use_req__6TLobbyFPv(M2C_UNK *);
-s32 TLobby__sub_80071698(M2C_UNK);
+s32 get_party_min_tier__6TLobbyFi(M2C_UNK);
 s32 get_story_flag(M2C_UNK);
 M2C_UNK TWindow__close(void *);
 s32 is_flag_set__6TLobbyFv();
@@ -104,9 +104,9 @@ u8 get_unlocked_tier__16TQuestListOnlineFv(void) {
     if (is_flag_set__6TLobbyFv() != 0) {
         switch ((s32) lbl_805D61F8) {
         case 0:
-            return (u8) TLobby__sub_80071698(0);
+            return (u8) get_party_min_tier__6TLobbyFi(0);
         case 1:
-            return (u8) TLobby__sub_80071698(1);
+            return (u8) get_party_min_tier__6TLobbyFi(1);
         default:
             return 0U;
         }

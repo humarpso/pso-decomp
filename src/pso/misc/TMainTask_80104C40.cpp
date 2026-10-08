@@ -11,7 +11,7 @@ M2C_UNK TEnding__sub_8008C9F8();
 M2C_UNK TItemDisconnectCtrl__ct();
 M2C_UNK refresh_drop_table_if_changed__9TItemDropFv();
 M2C_UNK create__9TItemLoadFv();
-M2C_UNK TLobby__sub_80103B70(s32);
+M2C_UNK respawn_missing_floor_items__6TLobbyFi(s32);
 M2C_UNK clear_object_count__6TLobbyFv();
 s32 get_global_state__14TOKeyMachine01Fv();
 s32 get_current_floor();
@@ -41,7 +41,7 @@ void cleanup_game_objects__9TMainTaskFv(void) {
     temp_r29 = get_current_floor();
     lbl_805D543C = 0;
     clear_object_count__6TLobbyFv();
-    TLobby__sub_80103B70(temp_r29);
+    respawn_missing_floor_items__6TLobbyFi(temp_r29);
     if ((temp_r31 == 0) || (temp_r31 == 0x12)) {
         set_flags__10TObjPlayerFPvUi(&lbl_805D5440, 1);
         if ((temp_r30 != 0xE) && (temp_r30 == 0xF)) {

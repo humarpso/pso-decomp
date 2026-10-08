@@ -133,7 +133,7 @@ M2C_UNK TWindowHelpItem__set_displayed_item_by_id(u32);
 s32 TWindowInputNumber__ct(s32, s32, M2C_UNK, s32, M2C_UNK, s16);
 s32 create_equip_kind_window(M2C_UNK, M2C_UNK *, s32);
 s32 get_window_layout_position(s32);
-M2C_UNK TWindowSubComCard__sub_802A5628(u32, s32);
+M2C_UNK update_label_positions__17TWindowSubComCardFPvPv(u32, s32);
 M2C_UNK TWindowSubEquip__sub_80263AF8(s32, M2C_UNK);
 s32 __nw__7TObjectFUl(M2C_UNK);
 M2C_UNK create__18TWindowInputNumberFPvi(s32, s32);
@@ -276,7 +276,7 @@ void set_labels__19TWindowSubTradeMainFPvi(void *arg0, s32 arg1) {
         TWindowSubTradeMain__sub_80330B84((M2C_UNK)((void *)(arg0)), (u8 *)((u32)(M2C_FIELD(arg0, u32 *, 0x34))), (u8 *)((s32)(get_window_layout_position((s32)(arg1 + 0x5E)))));
     }
     if ((u32) M2C_FIELD(arg0, u32 *, 0x38) != 0U) {
-        TWindowSubComCard__sub_802A5628(M2C_FIELD(arg0, u32 *, 0x38), get_window_layout_position((s32)(arg1 + 0x5F)));
+        update_label_positions__17TWindowSubComCardFPvPv(M2C_FIELD(arg0, u32 *, 0x38), get_window_layout_position((s32)(arg1 + 0x5F)));
     }
     if ((u32) M2C_FIELD(arg0, u32 *, 0x3C) != 0U) {
         if ((u32) M2C_FIELD(arg0, u32 *, 0x44) != 0U) {

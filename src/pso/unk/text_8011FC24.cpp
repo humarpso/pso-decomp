@@ -150,7 +150,7 @@ void update_trails__11TItemWeaponFPv(u8 *arg0);
 u32 test_flags_1b8__10TObjPlayerFPvUi(void *, u32);
 M2C_UNK draw_weapon_model(void *);
 M2C_UNK draw_weapon_at_joint(void *, int);
-void TObjPlayer__sub_8011FD38(u8 *arg0);
+void draw_equipped_weapon__10TObjPlayerFPv(u8 *arg0);
 M2C_UNK get_field_d8__10TObjPlayerFPv(void *);
 u32 test_flags_1b8__10TObjPlayerFPvUi(void *, u32);
 void update_trails__11TItemWeaponFPv(u8 *arg0);
@@ -182,7 +182,7 @@ void TObjPlayer__sub_8011FCC4(u8 *arg0) {
         update_trails__11TItemWeaponFPv((u8 *)((void *) (arg0)));
     }
 }
-void TObjPlayer__sub_8011FD38(u8 *arg0) {
+void draw_equipped_weapon__10TObjPlayerFPv(u8 *arg0) {
     if (((u32) M2C_FIELD(arg0, u32 *, 0xF0) != 0U) && (test_flags_1b8__10TObjPlayerFPvUi(arg0, 0xCU) == 0xCU) && (test_flags_1b8__10TObjPlayerFPvUi(arg0, 0x80U) == 0U) && (test_flags_1b8__10TObjPlayerFPvUi(arg0, 0x1000U) == 0U)) {
         ((VObj_18_4841bb *)(arg0))->m53();
         if (test_flags_1b8__10TObjPlayerFPvUi(arg0, 0x400U) != 0U) {

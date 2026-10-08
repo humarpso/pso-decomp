@@ -632,7 +632,7 @@ void create_horming__11TBoss4Type3FPvPvPv(void *, void *, u16);
 M2C_UNK create_jisin__11TBoss4Type2FPvPv(void *, int);
 s32 create__13TObjDFRecoverFP7TObjectUsPCf(void *, int, void *);
 void draw_player_model_by_id__10TObjPlayerFif(int, f32);
-s32 TBoss4Type2__sub_800522CC(s32 n, f32 *w, s32 *t);
+s32 pick_weighted_random__11TBoss4Type2FiPvPv(s32 n, f32 *w, s32 *t);
 s32 sync_player_globals__10TObjPlayerFv();
 s32 TObjPlayer__sub_80052390(f32);
 M2C_UNK drain_player_hp(u16, s32);
@@ -746,12 +746,12 @@ s32 get_random_scaled__11TBoss4Type3Fv(void);
 void interp_position_between_nodes__11TBoss4Type3FPv(u8 *arg0);
 void spawn_random_effect__11TBoss4Type3Fi(s32 arg0);
 void TBoss4Type3__sub_80059EA8(Obj_80059EA8 *self, s32 arg1, s32 arg2);
-void TBoss4Type3__sub_80059F04(Obj_80059F04 *self, s32 arg1, s32 arg2, s32 arg3);
+void send_packed_action__11TBoss4Type3FPviii(Obj_80059F04 *self, s32 arg1, s32 arg2, s32 arg3);
 void TBoss4Type3__sub_80059F64(Obj_80059F64 *self, s32 arg1);
 void TBoss4Type3__sub_80059FC4(u8 *arg0);
 void TBoss4Type3__sub_8005A150(void);
 void TBoss4Type3__sub_8005A2A4(Obj_8005A2A4 *self);
-void TBoss4Type3__sub_8005A300(Obj_8005A300 *self);
+void create_particle_emitters__11TBoss4Type3FPv(Obj_8005A300 *self);
 void set_action_from_table__11TBoss4Type3FPvi(TBoss4Type3_8005A398 *self, s32 arg1);
 void TBoss4Type3__sub_8005A438(Obj_8005A438 *self);
 void copy_pair__11TBoss4Type3FPvPv(void* p, void* q);
@@ -799,7 +799,7 @@ void * __nw__7TObjectFUl(int);
 void __ct__7TObjectFP7TObject(void *);
 M2C_UNK create__10TTecGrantsFPvPvPvPv(void *, void *, void *, s32);
 M2C_UNK create__9TTecMegidFiiii(void *, Vec_80058848 *, u8 *, s32);
-f32 TTecResta__sub_802394B0(s32);
+f32 calc_heal_amount__9TTecRestaFi(s32);
 s32 create__9TTecRestaFPvPvPv(void *, void *, int);
 M2C_UNK queue_event_1D__12TBoss3VoloptFss(s32, s32);
 void spawn_effect__11TBoss4Type3Fsss(s32, s32, s32);
@@ -1699,7 +1699,7 @@ void TBoss4Type3__vt8(u8 *arg0) {
             return;
         }
         temp_r3 = get_random_scaled__11TBoss4Type3Fv();
-        ((void (*)(void *, s32, s32, s32))TBoss4Type3__sub_80059F04)(arg0, M2C_FIELD(arg0, s32 *, 0x374) - 1, temp_r3, temp_r3);
+        ((void (*)(void *, s32, s32, s32))send_packed_action__11TBoss4Type3FPviii)(arg0, M2C_FIELD(arg0, s32 *, 0x374) - 1, temp_r3, temp_r3);
     }
 }
 
@@ -1984,7 +1984,7 @@ void spawn_random_effect__11TBoss4Type3Fi(s32 arg0) {
     s32 temp_r5;
 
     temp_r5 = (s32) (lbl_805D8C8C * ((f32 (*)(void))calc_boss4_scale__10TObjPlayerFi)());
-    TBoss4Type3__sub_80059F04((Obj_80059F04 *)(arg0), (s32)(0xF), (s32)(temp_r5), (s32)(temp_r5));
+    send_packed_action__11TBoss4Type3FPviii((Obj_80059F04 *)(arg0), (s32)(0xF), (s32)(temp_r5), (s32)(temp_r5));
 }
 
 void TBoss4Type3__sub_80059EA8(Obj_80059EA8 *self, s32 arg1, s32 arg2) {
@@ -1993,7 +1993,7 @@ void TBoss4Type3__sub_80059EA8(Obj_80059EA8 *self, s32 arg1, s32 arg2) {
     }
 }
 
-void TBoss4Type3__sub_80059F04(Obj_80059F04 *self, s32 arg1, s32 arg2, s32 arg3) {
+void send_packed_action__11TBoss4Type3FPviii(Obj_80059F04 *self, s32 arg1, s32 arg2, s32 arg3) {
     if (self->target != 0) {
         send_code_25_4__14TBoss4DarkFalzFPvi(self->target, (arg1 & 0x1F) | ((self->f3a0 & 0x1F) << 5) | ((arg2 & 0x1F) << 10) | ((self->f3a8 & 0xF) << 15) | ((arg3 & 0xF) << 19) | ((self->f3b8 & 0xF) << 23) | ((self->f3ba & 0xF) << 27));
     }
@@ -2102,7 +2102,7 @@ void TBoss4Type3__sub_8005A2A4(Obj_8005A2A4 *self) {
     }
 }
 
-void TBoss4Type3__sub_8005A300(Obj_8005A300 *self) {
+void create_particle_emitters__11TBoss4Type3FPv(Obj_8005A300 *self) {
     s32 i;
     for (i = 0; i < 8; i++) {
         self->f404[i] = ((u32 (*)(void *, s32))create_particle_emitter)(self->f38, lbl_80437814[i]);
@@ -2328,7 +2328,7 @@ Self_8005AE60 *TBoss4Type3__ct(Self_8005AE60 *self, s32 arg1, s32 *arg2) {
     draw_trail_with_colors(*(s32 *)((u8 *)self + 0x520), model, get_bml_motion(self->f390, ((s32 *)&TBoss4Type3__data_80486FC8)[0x58 / 4]), 9, 10);
     *(s32 *)((u8 *)self + 0x528) = create__12TObjEneSaverFPvPv(0xA0303030, 0xFFFF0088);
     clear_global_state__10TObjPlayerFv();
-    TBoss4Type3__sub_8005A300((Obj_8005A300 *)self);
+    create_particle_emitters__11TBoss4Type3FPv((Obj_8005A300 *)self);
     init_model_node_tables(self->f378, lbl_804377FC, 2);
     self->f3D4 = self->f32C;
     self->f3CC = 0;

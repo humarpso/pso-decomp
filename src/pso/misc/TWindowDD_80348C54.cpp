@@ -7,7 +7,7 @@ extern s32 lbl_805D53A0;
 void init_header__9TWindowDDFPv(void* p);
 void TWindowDD__sub_80343BC0(void *, void *);
 void update_and_send_lobby__9TWindowDDFPv(void* p);
-void TWindowDD__sub_80348C78(void *data);
+void send_chat_packet__9TWindowDDFPv(void *data);
 }
 
 extern "C" {
@@ -23,7 +23,7 @@ void set_field14__9TWindowDDFPvi(void* p, s32 v);
 
 int handle_word_select__9TWindowDDFPv(void* p) { return TWindowDD__sub_80348D0C((char*)p + 0x4); }
 
-void TWindowDD__sub_80348C78(void *data) {
+void send_chat_packet__9TWindowDDFPv(void *data) {
     Pkt_80348C78 pkt;
     init_header__9TWindowDDFPv((void*)(&pkt));
     pkt.player = lbl_805D53A0;

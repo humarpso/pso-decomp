@@ -513,7 +513,7 @@ M2C_UNK init_all_slots__11TWindowCtrlFv();
 M2C_UNK init_all_slots2__11TWindowCtrlFv();
 M2C_UNK get_target_state_a__9TObjEneDDFPv(void *);
 M2C_UNK get_target_state_b__9TObjEneDDFPv(void *);
-M2C_UNK TBoss2DeRolLe__sub_80034C2C(void *, s32);
+M2C_UNK set_move_target_point__13TBoss2DeRolLeFPvi(void *, s32);
 M2C_UNK get_node_world_pos__13TBoss2DeRolLeFPvPv(void *, void *);
 M2C_UNK vec3_add_to(int, void *);
 void advance_animation_playback(void *);
@@ -744,7 +744,7 @@ int spawn_trap__13TBoss2DeRolLeFPvii(void* p, int a1, int a2);
 int play_sound(void* p, int a1);
 void TBoss2DeRolLe__sub_800338BC(void);
 void update_projectile_spawns__13TBoss2DeRolLeFPv(u8 *arg0);
-void TBoss2DeRolLe__sub_800339BC(s32 arg0, f32 farg0, f32 farg1);
+void spawn_offset_particle__13TBoss2DeRolLeFiff(s32 arg0, f32 farg0, f32 farg1);
 void spawn_ceil_junk__13TBoss2DeRolLeFii(s32 arg1, s32 arg2);
 void TBoss2DeRolLe__sub_80033A80(M2C_UNK arg0, s32 arg1);
 void advance_action_sequence__13TBoss2DeRolLeFPv(Obj_80034034 *self);
@@ -2786,7 +2786,7 @@ void TBoss2DeRolLe__sub_80032E38(void *arg0, void *arg1) {
         if (o->f6E0 == 2) {
             o->fB8 = 1;
             ((void (*)(void *, void *))vec3_add_to)(&o->pos, p);
-            TBoss2DeRolLe__sub_80034C2C(o, 0);
+            set_move_target_point__13TBoss2DeRolLeFPvi(o, 0);
             o->f6E0 = 3;
         }
         advance_animation_playback(o);
@@ -3091,7 +3091,7 @@ void update_projectile_spawns__13TBoss2DeRolLeFPv(u8 *arg0) {
 
 #pragma push
 #pragma fp_contract on
-void TBoss2DeRolLe__sub_800339BC(s32 arg0, f32 farg0, f32 farg1) {
+void spawn_offset_particle__13TBoss2DeRolLeFiff(s32 arg0, f32 farg0, f32 farg1) {
     typedef char sp8_offset[(offsetof(Stack_800339BC, sp8) == 0x0) ? 1 : -1];
     typedef char spC_offset[(offsetof(Stack_800339BC, spC) == 0x4) ? 1 : -1];
     typedef char sp10_offset[(offsetof(Stack_800339BC, sp10) == 0x8) ? 1 : -1];

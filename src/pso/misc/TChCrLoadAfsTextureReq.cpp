@@ -57,7 +57,7 @@ M2C_UNK TLobby__sub_8001FE7C(int, int);
 u32 TLobby__sub_8002058C(int, int, void *, void *, int, int, int);
 u32 alloc__23TAdSinglePlyChrSelectGCFPv(int);
 M2C_UNK fn_8028C8A8(void *);
-M2C_UNK TLobby__sub_8028D628(int, int);
+M2C_UNK alloc_load_buffer__6TLobbyFii(int, int);
 s32 start_load_default__6TLobbyFPv(int);
 void update_model_load__6TLobbyFPv(u8 *arg0);
 void __ct__7TObjectFP7TObject(void *, void *);
@@ -269,7 +269,7 @@ void update_model_load__6TLobbyFPv(u8 *arg0) {
         temp_r3 = get_bml_model((int) (M2C_FIELD(arg0, u32 *, 0x68)), (int) (0));
         *M2C_FIELD(arg0, u32 **, 0x1C) = temp_r3;
         if (temp_r3 != 0U) {
-            TLobby__sub_8028D628((int) (M2C_FIELD(arg0, s32 *, 0x24)), (int) (TLobby__sub_8001ED88((int) (M2C_FIELD(arg0, u32 *, 0x68)))));
+            alloc_load_buffer__6TLobbyFii((int) (M2C_FIELD(arg0, s32 *, 0x24)), (int) (TLobby__sub_8001ED88((int) (M2C_FIELD(arg0, u32 *, 0x68)))));
             TLobby__sub_8001FE7C((int) (M2C_FIELD(arg0, u32 *, 0x68)), (int) (1));
             M2C_FIELD(arg0, u32 *, 0x68) = 0U;
             fn_8028C8A8((void *) (arg0));

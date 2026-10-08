@@ -77,7 +77,7 @@ extern "C" {
 u8 fn_8010319C(u8 *arg0);
 void init__9TItemDataFv(void *);
 extern const f32 lbl_805DAA88;
-void TLobby__sub_8010314C(u8 *arg0);
+void init_floor_item_entry__6TLobbyFPv(u8 *arg0);
 s32 __ct__13TItemAttackerFv(void *, void *, void *, s32, void *);
 M2C_UNK spawn_item_timer__13TItemAttackerFiii(int, void *, void *);
 s32 __nw__7TObjectFUl(int);
@@ -120,11 +120,11 @@ void TLobby__sub_801030EC(u8 *arg0) {
 
 void set_item_count__6TLobbyFPvs(void* p, s16 v) { *(s16*)((char*)p + 0x1c) = v; }
 s32 drop_stacked_item_passthrough__6TLobbyFi(s32 arg0) {
-    TLobby__sub_8010314C((u8 *)(arg0));
+    init_floor_item_entry__6TLobbyFPv((u8 *)(arg0));
     return arg0;
 }
 
-void TLobby__sub_8010314C(u8 *arg0) {
+void init_floor_item_entry__6TLobbyFPv(u8 *arg0) {
     M2C_FIELD(arg0, s8 *, 1) = 0;
     M2C_FIELD(arg0, s8 *, 0) = -1;
     M2C_FIELD(arg0, s16 *, 2) = -1;

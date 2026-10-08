@@ -47,7 +47,7 @@ extern "C" {
 void fn_800FF788(void *, void *);
 void *get_item_ptr__10TObjPlayerFPvi(void *, s32);
 void matrix_mult_vec(s32, void *, void *);
-void TObjPlayer__sub_803D89E8(s32);
+void invert_matrix_in_place__10TObjPlayerFUi(s32);
 void concat_matrix__10TObjPlayerFUiUi(s32, void *);
 void push_matrix(void);
 void pop_matrix(void);
@@ -68,7 +68,7 @@ void update_bone_attach_points__10TObjPlayerFPv(Self_800FEEA4 *self) {
     PosDst_800FEEA4 *pd;
     if (self->rot_dst != NULL) {
         push_matrix();
-        TObjPlayer__sub_803D89E8(0);
+        invert_matrix_in_place__10TObjPlayerFUi(0);
         rs = self->rot_src;
         rd = self->rot_dst;
         while (rs->bone >= 0) {
@@ -83,7 +83,7 @@ void update_bone_attach_points__10TObjPlayerFPv(Self_800FEEA4 *self) {
         pop_matrix();
     }
     push_matrix();
-    TObjPlayer__sub_803D89E8(0);
+    invert_matrix_in_place__10TObjPlayerFUi(0);
     ps = self->pos_src;
     pd = self->pos_dst;
     while (ps->bone >= 0) {

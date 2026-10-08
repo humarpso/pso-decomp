@@ -752,7 +752,7 @@ void TBoss3Volopt__sub_800445A4(void *arg0);
 void receive_direct_attack__10TObjPlayerFv(void *, void *, V2_80044DD4, void *, s32, s32);
 void TBoss3Volopt__sub_80044DD4(Obj_80044DD4 *self, void *a1, V2_80044DD4 v, void *a3);
 void queue_destruction__7TObjectFv(void *);
-void TBoss3Volopt__sub_800450D0(void *arg0);
+void destroy_children__12TBoss3VoloptFPv(void *arg0);
 extern s32 lbl_804845C4[];
 extern V3_80045928 lbl_804845AC;
 extern u32 *TBoss3Volopt__data_805D4CFC;
@@ -769,7 +769,7 @@ void TBoss3Volopt__sub_800472D4(Obj_800472D4 *self);
 void queue_destruction__7TObjectFv(void *);
 void *ct__12TBoss3VoloptFPvPvPv(void *arg0, void *arg1, void *arg2);
 void *__nw__7TObjectFUl(M2C_UNK);
-void TBoss3Volopt__sub_80045010(S_80045010 *o);
+void rebuild_parts__12TBoss3VoloptFPv(S_80045010 *o);
 void TBoss3Volopt__sub_80044680(void *);
 void TBoss3Volopt__sub_80045DC4(u8 *arg0);
 void TBoss3Volopt__sub_80045EEC(void *);
@@ -780,7 +780,7 @@ void update_state__12TBoss3VoloptFPv(void *arg0);
 void TBoss3Volopt__sub_80047408(V_80047408 *self);
 void run_state__12TBoss3VoloptFPv(S_80047714 *o);
 void TBoss3Volopt__sub_80045328(Obj_80045328 *self);
-void TBoss3Volopt__sub_80044498(Volopt_80044498 *self);
+void distribute_part_damage__12TBoss3VoloptFPv(Volopt_80044498 *self);
 void VecCopy__FP3VecPC3Vec(void *, void *);
 void *get_player_data__10TObjPlayerFi(s32);
 u16 obj_getField1c(void *);
@@ -828,7 +828,7 @@ M2C_UNK update_phase__12TBoss3VoloptFv();
 M2C_UNK TBoss3Volopt__sub_8003CB48();
 M2C_UNK alloc_idle_event__12TBoss3VoloptFv();
 s32 TBoss3Volopt__sub_8003CB94();
-void TBoss3Volopt__sub_800450D0(void *arg0);
+void destroy_children__12TBoss3VoloptFPv(void *arg0);
 void spawn_ambient_particles__12TBoss3VoloptFPv(u8 *arg0);
 M2C_UNK restore_player_cameras();
 M2C_UNK activate_camera_mode(int, int, f32);
@@ -869,8 +869,8 @@ void update_death_sequence__12TBoss3VoloptFPv(void *arg0_);
 void queue_destruction__7TObjectFv(void *);
 s32 TBoss3Volopt__sub_8003F398(void);
 void collect_targets_in_arc__12TBoss3VoloptFPv(Volopt_80044EDC *self);
-void TBoss3Volopt__sub_80045010(S_80045010 *o);
-void TBoss3Volopt__sub_800450D0(void *arg0);
+void rebuild_parts__12TBoss3VoloptFPv(S_80045010 *o);
+void destroy_children__12TBoss3VoloptFPv(void *arg0);
 void push_players_out_of_radius__12TBoss3VoloptFPv(Obj_8004512C *self);
 s16 TObjVoloptPillar__sub_80048118(int);
 M2C_UNK TObjVoloptPillar__ct(void *, void *, void *);
@@ -918,7 +918,7 @@ M2C_UNK update_if_active__15TObjEneMe1GiGueFPv(void *, M2C_UNK);
 extern f32 lbl_805D87B8;
 
 struct Obj_80045328;
-void TBoss3Volopt__sub_80044498(Volopt_80044498 *self) {
+void distribute_part_damage__12TBoss3VoloptFPv(Volopt_80044498 *self) {
     s32 v;
     u32 flags;
     s32 n;
@@ -1088,7 +1088,7 @@ void collect_targets_in_arc__12TBoss3VoloptFPv(Volopt_80044EDC *self) {
     }
 }
 
-void TBoss3Volopt__sub_80045010(S_80045010 *o) {
+void rebuild_parts__12TBoss3VoloptFPv(S_80045010 *o) {
     s32 i;
     void *p;
     for (i = 0; i < o->cnt; i++) {
@@ -1109,7 +1109,7 @@ void TBoss3Volopt__sub_80045010(S_80045010 *o) {
     }
 }
 
-void TBoss3Volopt__sub_800450D0(void *arg0) {
+void destroy_children__12TBoss3VoloptFPv(void *arg0) {
     Obj_800450D0 *self = (Obj_800450D0 *)arg0;
     s32 i;
     for (i = 0; i < 4; i++) {
@@ -1355,7 +1355,7 @@ void update_death_sequence__12TBoss3VoloptFPv(void *arg0_) {
     Cam_80045B54 cam;
     switch (M2C_FIELD(arg0, s32 *, 0x37C)) {
     case 0:
-        TBoss3Volopt__sub_800450D0(arg0);
+        destroy_children__12TBoss3VoloptFPv(arg0);
         M2C_FIELD(arg0, s16 *, 0xB8) = 0;
         advance_animation_playback(arg0);
         M2C_FIELD(arg0, s16 *, 0x33C) = 0x3C;
@@ -1717,7 +1717,7 @@ void TBoss3Volopt__sub_80046CB8(void *arg0_) {
             M2C_FIELD(arg0, s32 *, 0x37C) = 3;
         }
         collect_targets_in_arc__12TBoss3VoloptFPv((Volopt_80044EDC *)arg0);
-        TBoss3Volopt__sub_80045010((S_80045010 *)arg0);
+        rebuild_parts__12TBoss3VoloptFPv((S_80045010 *)arg0);
         break;
     case 3:
         if (M2C_FIELD(arg0, u32 *, 0x2A8) == 0) {
@@ -1738,7 +1738,7 @@ void TBoss3Volopt__sub_80046CB8(void *arg0_) {
             M2C_FIELD(arg0, s32 *, 0x37C) = 4;
         }
         collect_targets_in_arc__12TBoss3VoloptFPv((Volopt_80044EDC *)arg0);
-        TBoss3Volopt__sub_80045010((S_80045010 *)arg0);
+        rebuild_parts__12TBoss3VoloptFPv((S_80045010 *)arg0);
         if (objInBand__FP7GameObjf(arg0, TBoss3Volopt__data_805D87A8) != 0) {
             play_sound_effect(0x4003A818, (u32)(arg0 + 0x38), 0, 0);
         }
@@ -1773,7 +1773,7 @@ void TBoss3Volopt__sub_80046CB8(void *arg0_) {
             M2C_FIELD(arg0, s32 *, 0x37C) = 5;
         }
         collect_targets_in_arc__12TBoss3VoloptFPv((Volopt_80044EDC *)arg0);
-        TBoss3Volopt__sub_80045010((S_80045010 *)arg0);
+        rebuild_parts__12TBoss3VoloptFPv((S_80045010 *)arg0);
         break;
     case 5:
         if (M2C_FIELD(arg0, u32 *, 0x2A8) == 0) {
@@ -1794,7 +1794,7 @@ void TBoss3Volopt__sub_80046CB8(void *arg0_) {
     case 6:
         play_persistent_sound(0x4003C616, (s32)arg0, (u32)(arg0 + 0x38), 0, 0);
         if (--M2C_FIELD(arg0, s16 *, 0x33C) <= 0) {
-            TBoss3Volopt__sub_800450D0(arg0);
+            destroy_children__12TBoss3VoloptFPv(arg0);
             if (TBoss3Volopt__sub_8003F398() != 0) {
                 M2C_FIELD(arg0, s16 *, 0x33C) = lbl_804FF030[M2C_FIELD(arg0, s16 *, 0x39A)];
             } else {
@@ -1828,7 +1828,7 @@ void TBoss3Volopt__sub_80046CB8(void *arg0_) {
         }
         break;
     case -1:
-        TBoss3Volopt__sub_800450D0(arg0);
+        destroy_children__12TBoss3VoloptFPv(arg0);
         if (M2C_FIELD(arg0, void **, 0x478) != NULL) {
             queue_destruction__7TObjectFv(M2C_FIELD(arg0, void **, 0x478));
             M2C_FIELD(arg0, void **, 0x478) = NULL;
@@ -1862,7 +1862,7 @@ void update_state__12TBoss3VoloptFPv(void *arg0) {
     switch (temp_r0) {
     case 0:
         M2C_FIELD(arg0, s32 *, 0x46C) = 6;
-        TBoss3Volopt__sub_80044498((Volopt_80044498 *)((void *)(arg0)));
+        distribute_part_damage__12TBoss3VoloptFPv((Volopt_80044498 *)((void *)(arg0)));
         M2C_FIELD(arg0, s32 *, 0x37C) = 1;
     case 1:
         M2C_FIELD(arg0, f32 *, 0x3C) = (f32) (lbl_805D8818 * sin_table_lookup(M2C_FIELD(arg0, s32 *, 0x46C) * 0x3000));
@@ -1982,7 +1982,7 @@ void TBoss3Volopt__sub_800477A0(u8 *arg0) {
             ((VObj_18_b8f5cb *)(arg0))->m61();
         } else if (((VObj_18_b8f5cb *)(arg0))->m30() != 0) {
             if (TBoss3Volopt__sub_8003F398() != 0) {
-                TBoss3Volopt__sub_80044498((Volopt_80044498 *)((void *)((void *) (arg0))));
+                distribute_part_damage__12TBoss3VoloptFPv((Volopt_80044498 *)((void *)((void *) (arg0))));
                 M2C_FIELD(arg0, s32 *, 0x30) = (s32) (M2C_FIELD(arg0, s32 *, 0x30) & 0xFFFFFDFF);
                 M2C_FIELD(arg0, f32 *, 0x3C) = (f32) TBoss3Volopt__data_805D87E4;
             } else {
@@ -2031,7 +2031,7 @@ void *destroy__12TBoss3VoloptFPvs(void *arg0, s16 arg1) {
         free_collision_body_parts(arg0);
         if (M2C_FIELD(arg0, void **, 0x474) != NULL) { queue_destruction__7TObjectFv(M2C_FIELD(arg0, void **, 0x474)); }
         if (M2C_FIELD(arg0, void **, 0x478) != NULL) { queue_destruction__7TObjectFv(M2C_FIELD(arg0, void **, 0x478)); }
-        TBoss3Volopt__sub_800450D0((void *)(arg0));
+        destroy_children__12TBoss3VoloptFPv((void *)(arg0));
         TBoss3Volopt__sub_800445A4((void *)(arg0));
         TObjPlayer__sub_800D7C58((s8 *)arg0 + 0x490, -1);
         __dt__15TObjEnemyCustomFv(arg0, 0);

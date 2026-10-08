@@ -77,7 +77,7 @@ extern "C" {
 s32 TObjPlayer__sub_800DC478(u8 *arg0, s32 arg1, f32 farg0);
 M2C_UNK VecCopy__FP3VecPC3Vec(void *, int);
 u8 *csnVecterUnder(s32, M2C_UNK);
-s32 TObjPlayer__sub_800DC5F4(M2C_UNK arg0, s32 arg1);
+s32 snap_to_ground__10TObjPlayerFii(M2C_UNK arg0, s32 arg1);
 extern s32 lbl_805D5254;
 f32 TObjPlayer__sub_800DC434(M2C_UNK arg0, s32 arg1);
 extern s32 lbl_805D5254;
@@ -100,7 +100,7 @@ void queue_destruction__7TObjectFv(void *);
 u32 csnVector(void *, void *, int);
 M2C_UNK copy_pos__11TNowLoadingFPvPv(void *, void *);
 void hit_object_in_radius__10TObjPlayerFPvPvPv(Src_800DC4B4 *arg0, Obj_800DC4B4 *obj, void *attacker);
-s32 TObjPlayer__sub_800DC5F4(M2C_UNK arg0, s32 arg1);
+s32 snap_to_ground__10TObjPlayerFii(M2C_UNK arg0, s32 arg1);
 void *find_entity_by_id(u16);
 s32 is_valid_and_active__10TObjPlayerFUi();
 M2C_UNK vec3_add_to(void *, void *);
@@ -114,7 +114,7 @@ u16 obj_getField1c(void *);
 f32 get_ad_end_text_start__10TObjPlayerFv(f32, f32);
 s32 spawn_particle_effect_with_rotation(void *, void *, int, int);
 s32 spawn_continuous_particle_effect_with_flags(void *, int, int);
-s32 TObjPlayer__sub_800DC5F4(M2C_UNK arg0, s32 arg1);
+s32 snap_to_ground__10TObjPlayerFii(M2C_UNK arg0, s32 arg1);
 f32 horizontal_distance__10TObjPlayerFPvPv(void *, void *);
 M2C_UNK construct_collider_proxy__10TObjPlayerFPv(void *, int);
 f32 vector_length(void *);
@@ -210,7 +210,7 @@ void hit_object_in_radius__10TObjPlayerFPvPvPv(Src_800DC4B4 *arg0, Obj_800DC4B4 
     spawn_particle_effect(obj->pos, 0xFC);
 }
 
-s32 TObjPlayer__sub_800DC5F4(M2C_UNK arg0, s32 arg1) {
+s32 snap_to_ground__10TObjPlayerFii(M2C_UNK arg0, s32 arg1) {
     u8 *temp_r3;
     temp_r3 = (u8 *)(csnVecterUnder(arg1, 0x16EF));
     if (temp_r3 == NULL) {
@@ -235,7 +235,7 @@ void update_projectile__10TObjPlayerFPv(Me_800DC648 *arg0) {
         arg0->cnt++;
         if (arg0->cnt > 4) {
             arg0->cnt = 0;
-            TObjPlayer__sub_800DC5F4((M2C_UNK)arg0, (s32)&arg0->prev);
+            snap_to_ground__10TObjPlayerFii((M2C_UNK)arg0, (s32)&arg0->prev);
         }
         if (arg0->link1 != NULL) {
             copy_pos__11TNowLoadingFPvPv(arg0->link1, &arg0->prev);
@@ -293,7 +293,7 @@ u8 *construct_beam_effect__10TObjPlayerFPvPvPviPv(u8 *arg0, Vec_800DC83C *arg1, 
     M2C_FIELD(arg0, s32 *, 0xE0) = spawn_particle_effect_with_rotation(arg1, &ang, 0xF5, 2);
     if (M2C_FIELD(arg0, s32 *, 0xF4) != 0) {
         VecCopy__FP3VecPC3Vec(arg0 + 0xE8, (int)(arg0 + 0xAC));
-        TObjPlayer__sub_800DC5F4((M2C_UNK)arg0, (s32)(arg0 + 0xE8));
+        snap_to_ground__10TObjPlayerFii((M2C_UNK)arg0, (s32)(arg0 + 0xE8));
         M2C_FIELD(arg0, s32 *, 0xE4) = spawn_continuous_particle_effect_with_flags(arg0 + 0xE8, 0xF9, 2);
         M2C_FIELD(arg0, s32 *, 0xF8) = 0;
     } else {

@@ -25,7 +25,7 @@ int TFontSmallLobby__sub_801D6614(s16 arg0);
 void TFontSmallLobby__sub_801D698C(Pkt_801D698C *p);
 void fn_801D6A18(Obj_801D6A18 *p);
 M2C_UNK init_forward__10TObjPlayerFPv(void *);
-M2C_UNK TFontSmallLobby__sub_801D650C(void *);
+M2C_UNK reset_state__15TFontSmallLobbyFPv(void *);
 void* init_reset_fields__15TFontSmallLobbyFPv(void* p);
 M2C_UNK __construct_array(void *, void *, int, int, int);
 extern M2C_UNK fn_80152EF8[];
@@ -81,7 +81,7 @@ s32 construct_pb_controller__15TFontSmallLobbyFi(s32 arg0) {
     __construct_array((void *) (arg0 + 0x14), (void *) (fn_80152EF8), (int) (0), (int) (4), (int) (0xA));
     init_forward__10TObjPlayerFPv((void *) (arg0 + 0x40));
     init_reset_fields__15TFontSmallLobbyFPv((void*)((void *) (arg0 + 0x4C)));
-    TFontSmallLobby__sub_801D650C((void *) (arg0));
+    reset_state__15TFontSmallLobbyFPv((void *) (arg0));
     return arg0;
 }
 

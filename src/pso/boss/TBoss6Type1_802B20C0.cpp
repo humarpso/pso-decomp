@@ -165,8 +165,8 @@ M2C_UNK rotate_around_center__11TBoss6Type1FPvii(void *, int, int);
 M2C_UNK interpolate_pos_to_target__11TBoss6Type1FPvii(void *, s32, s32);
 M2C_UNK TBoss6Type1__sub_802B5100(void *, s32, s32);
 M2C_UNK TBoss6Type1__sub_802B5140(void *, M2C_UNK, M2C_UNK);
-s32 TBoss6Type1__sub_802B529C(void *, M2C_UNK, M2C_UNK);
-int TBoss6Type1__sub_802B54F0(void*, void*);
+s32 count_matches__11TBoss6Type1FPvii(void *, M2C_UNK, M2C_UNK);
+int clamp_to_arena_radius__11TBoss6Type1FPvPvf(void*, void*);
 M2C_UNK TBoss6Type1__sub_802B5598(void *, void *);
 M2C_UNK TBoss6Type1__sub_802B5648(void *, void *);
 s32 TBoss6Type1__sub_802B5D9C();
@@ -438,7 +438,7 @@ void enter_release_state__11TBoss6Type1FPv(u8 *arg0) {
     release_effect_slot__11TBoss6Type1Fii((void*)(arg0), (void*)(1));
     activate_warp__14TBoss6PlotFalzFPv(M2C_FIELD(arg0, s32 *, 0x3F8));
     reset_state__14TBoss6PlotFalzFPv(M2C_FIELD(arg0, s32 *, 0x3F8));
-    if (TBoss6Type1__sub_802B529C(arg0, 0x1F, 4) == 0) {
+    if (count_matches__11TBoss6Type1FPvii(arg0, 0x1F, 4) == 0) {
         ((int (*)(void*, void*, void*, void*))play_sound_effect)((void*)(0x68A24), (void*)(arg0 + 0x38), (void*)(0), (void*)(1));
     }
 }
@@ -661,7 +661,7 @@ void update_timer__11TBoss6Type1FPv(void *arg0) {
     }
 }
 
-void TBoss6Type1__sub_802B3178(void* p) { *(int*)((char*)p + 0x40c) = 123; *(int*)((char*)p + 0x410) = 123; TBoss6Type1__sub_802B54F0(p, (char*)p + 0x420); ((int (*)(void*, void*, void*, void*))play_sound_effect)((void*)((void*)231170), (void*)((void*)0), (void*)((void*)0), (void*)((void*)0)); spawn_effect_slot__11TBoss6Type1FPvi((void*)(p), (void*)((void*)0)); release_effect_slot__11TBoss6Type1Fii((void*)(p), (void*)((void*)1)); }
+void TBoss6Type1__sub_802B3178(void* p) { *(int*)((char*)p + 0x40c) = 123; *(int*)((char*)p + 0x410) = 123; clamp_to_arena_radius__11TBoss6Type1FPvPvf(p, (char*)p + 0x420); ((int (*)(void*, void*, void*, void*))play_sound_effect)((void*)((void*)231170), (void*)((void*)0), (void*)((void*)0), (void*)((void*)0)); spawn_effect_slot__11TBoss6Type1FPvi((void*)(p), (void*)((void*)0)); release_effect_slot__11TBoss6Type1Fii((void*)(p), (void*)((void*)1)); }
 
 void TBoss6Type1__sub_802B31E4(u8 *arg0) {
     M2C_UNK var_r3;
@@ -884,7 +884,7 @@ void start_attack__11TBoss6Type1FPv(u8 *arg0) {
     play_sound_effect(0x40039706, arg0 + 0x38, 0, 0);
     release_effect_slot__11TBoss6Type1Fii((void*)(arg0), (void*)(0));
     spawn_effect_slot__11TBoss6Type1FPvi((void*)(arg0), (void*)(1));
-    if (TBoss6Type1__sub_802B529C(arg0, 0x19, 4) > 0) {
+    if (count_matches__11TBoss6Type1FPvii(arg0, 0x19, 4) > 0) {
         ((M2C_UNK (*)(void *))latch_phase_counter__11TBoss6Type1FPv)(arg0);
         play_sound_effect(0x68A24, arg0 + 0x38, 0, 1);
     }
@@ -909,11 +909,11 @@ void choose_next_action__11TBoss6Type1FPv(u8 *arg0) {
                 ((M2C_UNK (*)(void *, int))send_flow_action_if_idle__11TBoss6Type1FPvc)((void *) (arg0), (int) (0x17));
                 return;
             }
-            if (((s32 (*)(void *, int, int))TBoss6Type1__sub_802B529C)((void *) (arg0), (int) (2), (int) (0x10)) == 0) {
+            if (((s32 (*)(void *, int, int))count_matches__11TBoss6Type1FPvii)((void *) (arg0), (int) (2), (int) (0x10)) == 0) {
                 do_attack__11TBoss6Type1FPv(arg0);
                 return;
             }
-            if (((((s32 (*)(void *, int, int))TBoss6Type1__sub_802B529C)((void *) (arg0), (int) (3), (int) (0xA)) + ((s32 (*)(void *, int, int))TBoss6Type1__sub_802B529C)((void *) (arg0), (int) (5), (int) (0xA))) == 0) || ((lbl_805DE2C0 * (f32) rand()) < lbl_805DE2C4)) {
+            if (((((s32 (*)(void *, int, int))count_matches__11TBoss6Type1FPvii)((void *) (arg0), (int) (3), (int) (0xA)) + ((s32 (*)(void *, int, int))count_matches__11TBoss6Type1FPvii)((void *) (arg0), (int) (5), (int) (0xA))) == 0) || ((lbl_805DE2C0 * (f32) rand()) < lbl_805DE2C4)) {
                 TBoss6Type1__sub_802B8BB4((void *) (arg0));
                 return;
             }

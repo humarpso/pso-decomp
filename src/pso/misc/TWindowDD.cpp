@@ -34,10 +34,10 @@ s32 TWindowShortListCtrl__check_controller_button(void *, void *);
 extern RecoveredGlobal_80340508_lbl_8050E208 lbl_8050E208;
 s32 apply_choice__20TWindowChoiceSettingFiiii(void *, void *, int, int);
 extern RecoveredGlobal_80340508_lbl_8050E208 lbl_8050E208;
-s32 TWindowDD__sub_803404A4(M2C_UNK arg0, s32 arg1);
-s32 TWindowDD__sub_803404A4(M2C_UNK arg0, s32 arg1);
+s32 apply_both_choices__9TWindowDDFii(M2C_UNK arg0, s32 arg1);
+s32 apply_both_choices__9TWindowDDFii(M2C_UNK arg0, s32 arg1);
 M2C_UNK spawn_window__9TWindowDDFv();
-void TWindowDD__sub_80340828(u8 *arg0);
+void handle_input__9TWindowDDFPv(u8 *arg0);
 extern const f32 TWindowDD__data_805DFBFC;
 extern const f32 lbl_805DFC00;
 extern const f32 lbl_805DFC04;
@@ -45,7 +45,7 @@ extern const f32 lbl_805DFC08;
 extern const f32 lbl_805DFC2C;
 void TWindowDD__sub_80340A44(void);
 extern const f32 lbl_805DFC30;
-void TWindowDD__sub_803403F8(E_803403F8 *p, f32 v);
+void reset_entries__9TWindowDDFPvf(E_803403F8 *p, f32 v);
 }
 
 extern "C" {
@@ -64,7 +64,7 @@ void destroy_window_base__9TWindowDDFPvs(void *, int);
 int initialize_subwindow__9TWindowDDFPv(void*);
 int update_fade__17TWindowSubComCardFPv(void*);
 
-void TWindowDD__sub_803403F8(E_803403F8 *p, f32 v) {
+void reset_entries__9TWindowDDFPvf(E_803403F8 *p, f32 v) {
     s32 i;
     for (i = 0; i < 8; i++) {
         p->a = lbl_805DFC30;
@@ -128,7 +128,7 @@ typedef char RecoveredGlobal_80340508_lbl_8050E208_size[((sizeof(RecoveredGlobal
 #pragma opt_dead_assignments off
 typedef struct RecoveredGlobal_803404A4_lbl_8050E208 RecoveredGlobal_803404A4_lbl_8050E208;
 typedef char RecoveredGlobal_803404A4_lbl_8050E208_size[((sizeof(RecoveredGlobal_803404A4_lbl_8050E208)) == 0x1B0) ? (1) : (-1)];
-s32 TWindowDD__sub_803404A4(M2C_UNK arg0, s32 arg1) {
+s32 apply_both_choices__9TWindowDDFii(M2C_UNK arg0, s32 arg1) {
   return apply_choice__20TWindowChoiceSettingFiiii((void *) (((u8 *) (&(*(RecoveredGlobal_803404A4_lbl_8050E208 *)&lbl_8050E208).value)) + 0x20), (void *) arg1, (int) 6, (int) 1) | apply_choice__20TWindowChoiceSettingFiiii((void *) (((u8 *) (&(*(RecoveredGlobal_803404A4_lbl_8050E208 *)&lbl_8050E208).value)) + 0x160), (void *) arg1, (int) 6, (int) 1);
 }
 #pragma pop
@@ -155,18 +155,18 @@ s32 TWindowDD__sub_80340820(void* p) { return *(s32*)((char*)p + 0x68); }
 
 #pragma push
 #pragma opt_common_subs off
-void TWindowDD__sub_80340828(u8 *arg0) {
+void handle_input__9TWindowDDFPv(u8 *arg0) {
     s32 temp_r0;
     s32 temp_r31;
     s32 temp_r3;
     temp_r31 = M2C_FIELD(arg0, s32 *, 0x68);
-    if (TWindowDD__sub_803404A4((s32) ((u8 *)(arg0) + 0x60), 0x10) != 0) {
+    if (apply_both_choices__9TWindowDDFii((s32) ((u8 *)(arg0) + 0x60), 0x10) != 0) {
         M2C_FIELD(arg0, s32 *, 0x68) = (s32) (M2C_FIELD(arg0, s32 *, 0x68) - 1);
-    } else if (TWindowDD__sub_803404A4((s32) ((u8 *)(arg0) + 0x60), 0x20) != 0) {
+    } else if (apply_both_choices__9TWindowDDFii((s32) ((u8 *)(arg0) + 0x60), 0x20) != 0) {
         M2C_FIELD(arg0, s32 *, 0x68) = (s32) (M2C_FIELD(arg0, s32 *, 0x68) + 1);
-    } else if (TWindowDD__sub_803404A4((s32) ((u8 *)(arg0) + 0x60), 0x20000) != 0) {
+    } else if (apply_both_choices__9TWindowDDFii((s32) ((u8 *)(arg0) + 0x60), 0x20000) != 0) {
         M2C_FIELD(arg0, s32 *, 0x68) = 0;
-    } else if (TWindowDD__sub_803404A4((s32) ((u8 *)(arg0) + 0x60), 0x10000) != 0) {
+    } else if (apply_both_choices__9TWindowDDFii((s32) ((u8 *)(arg0) + 0x60), 0x10000) != 0) {
         M2C_FIELD(arg0, s32 *, 0x68) = 2;
     }
     temp_r0 = M2C_FIELD(arg0, s32 *, 0x68);

@@ -37,7 +37,7 @@ s32 can_scroll__9TWindowDDFPvi(void *, s32);
 s32 TWindowDD__sub_80341AC0(void *);
 void add_scroll_offset__9TWindowDDFPvi(void* a0, int a1);
 M2C_UNK update_window_entry_list(void *, void *);
-s32 TWindowDD__sub_803404A4(void *, int);
+s32 apply_both_choices__9TWindowDDFii(void *, int);
 s32 TWindowDD__sub_80342268();
 extern const f32 TWindowDD__data_805DFB20;
 extern const float TWindowDD__data_805DFCA8;
@@ -94,7 +94,7 @@ void handle_scroll_input__9TWindowDDFPv(u8 *arg0) {
     s32 var_r30;
     s32 var_r30_2;
     if (TWindowDD__sub_80342268() != 0) {
-        if (TWindowDD__sub_803404A4((void *) (arg0 + 0x60), (int) (0x20)) != 0) {
+        if (apply_both_choices__9TWindowDDFii((void *) (arg0 + 0x60), (int) (0x20)) != 0) {
             temp_r4 = M2C_FIELD(arg0, s32 *, 0x68);
             if (temp_r4 < (s32) (M2C_FIELD(arg0, s32 *, 0x74) - 1)) {
                 temp_r3 = can_scroll__9TWindowDDFPvi(arg0, 1);
@@ -112,7 +112,7 @@ void handle_scroll_input__9TWindowDDFPv(u8 *arg0) {
                 M2C_FIELD(arg0, s32 *, 0x6C) = 0;
                 M2C_FIELD(arg0, f32 *, 0x88) = (f32) (*(const f32 *)&TWindowDD__data_805DFCA8);
             }
-        } else if (TWindowDD__sub_803404A4((void *) (arg0 + 0x60), (int) (0x10)) != 0) {
+        } else if (apply_both_choices__9TWindowDDFii((void *) (arg0 + 0x60), (int) (0x10)) != 0) {
             if ((s32) M2C_FIELD(arg0, s32 *, 0x68) > 0) {
                 temp_r3_2 = can_scroll__9TWindowDDFPvi(arg0, -1);
                 switch (temp_r3_2) {
@@ -129,7 +129,7 @@ void handle_scroll_input__9TWindowDDFPv(u8 *arg0) {
                 add_scroll_offset__9TWindowDDFPvi((void*)(arg0), (int)((M2C_FIELD(arg0, s32 *, 0x74) - M2C_FIELD(arg0, s32 *, 0x68)) - 1));
                 M2C_FIELD(arg0, f32 *, 0x88) = (f32) (TWindowDD__data_805DFB20 * (f32) -(M2C_FIELD(arg0, s32 *, 0x68) - M2C_FIELD(arg0, s32 *, 0x6C)));
             }
-        } else if ((TWindowDD__sub_803404A4((void *) (arg0 + 0x60), (int) (0x10000)) != 0) && ((s32) M2C_FIELD(arg0, s32 *, 0x68) < (s32) (M2C_FIELD(arg0, s32 *, 0x74) - 1))) {
+        } else if ((apply_both_choices__9TWindowDDFii((void *) (arg0 + 0x60), (int) (0x10000)) != 0) && ((s32) M2C_FIELD(arg0, s32 *, 0x68) < (s32) (M2C_FIELD(arg0, s32 *, 0x74) - 1))) {
             if (TWindowDD__sub_80341AC0(arg0) != 0) {
                 temp_r4_2 = M2C_FIELD(arg0, s32 *, 0x78);
                 temp_r4_3 = temp_r4_2 - 1;
@@ -150,7 +150,7 @@ void handle_scroll_input__9TWindowDDFPv(u8 *arg0) {
                 M2C_FIELD(arg0, s32 *, 0x6C) = (s32) (M2C_FIELD(arg0, s32 *, 0x74) - 1);
                 add_scroll_offset__9TWindowDDFPvi((void*)(arg0), (int)((M2C_FIELD(arg0, s32 *, 0x74) - 1) - M2C_FIELD(arg0, s32 *, 0x68)));
             }
-        } else if ((TWindowDD__sub_803404A4((void *) (arg0 + 0x60), (int) (0x20000)) != 0) && ((s32) M2C_FIELD(arg0, s32 *, 0x68) > 0)) {
+        } else if ((apply_both_choices__9TWindowDDFii((void *) (arg0 + 0x60), (int) (0x20000)) != 0) && ((s32) M2C_FIELD(arg0, s32 *, 0x68) > 0)) {
             if (TWindowDD__sub_80341AC0(arg0) != 0) {
                 var_r30_2 = M2C_FIELD(arg0, s32 *, 0x78) - 1;
                 temp_r3_4 = M2C_FIELD(arg0, s32 *, 0x68) - M2C_FIELD(arg0, s32 *, 0x6C);

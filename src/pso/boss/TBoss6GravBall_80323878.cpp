@@ -45,7 +45,7 @@ M2C_UNK TBoss6GravBall__sub_80323214(void *, int);
 M2C_UNK create_emitter__14TBoss6GravBallFii(void *, int);
 M2C_UNK TBoss6GravBall__sub_80323544(void *);
 M2C_UNK TBoss6GravBall__sub_803236F8(void *);
-s32 TBoss6GravBall__sub_803237A0();
+s32 clamp_to_ground__14TBoss6GravBallFPv();
 extern const f32 lbl_805DF568;
 extern const f32 lbl_805DF578;
 void update_state__14TBoss6GravBallFPv(u8 *arg0);
@@ -139,7 +139,7 @@ void update_state__14TBoss6GravBallFPv(u8 *arg0) {
     f32 temp_f2;
     s32 temp_r3;
     s32 temp_r3_2;
-    temp_r3 = TBoss6GravBall__sub_803237A0();
+    temp_r3 = clamp_to_ground__14TBoss6GravBallFPv();
     if (temp_r3 != 0) {
         TBoss6GravBall__sub_803236F8((void *) (arg0));
     }

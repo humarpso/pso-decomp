@@ -45,8 +45,8 @@ s32 read_disc_file(void *, Rec_8020AD40 *);
 void debug_print__6TLobbyFii(void *, ...);
 void replace_file_extension__6TLobbyFPvPvPv(void *, s32, void *);
 void swap_object_row_endian(Rec_8020AD40 *);
-void TLobby__sub_8020AA94(Rec_8020AD40 *, s32, s32);
-void TLobby__sub_8020B3E4(s32, Rec_8020AD40 *, s32);
+void assign_object_ids__6TLobbyFPviPv(Rec_8020AD40 *, s32, s32);
+void load_object_set_entries__6TLobbyFiPvUi(s32, Rec_8020AD40 *, s32);
 s32 get_game_play_mode();
 extern u8 lbl_8044BBB0[];
 extern u8 lbl_8044BBB8[];
@@ -108,8 +108,8 @@ s32 load_area_object_set(s32 arg0, s32 arg1, s32 arg2, s32 arg3) {
         swap_object_row_endian(r);
         r->f2 = 0;
     }
-    TLobby__sub_8020AA94(TLobby__data_805D60F0, n, arg1);
-    TLobby__sub_8020B3E4(arg0, TLobby__data_805D60F0, len);
+    assign_object_ids__6TLobbyFPviPv(TLobby__data_805D60F0, n, arg1);
+    load_object_set_entries__6TLobbyFiPvUi(arg0, TLobby__data_805D60F0, len);
     return 1;
 }
 

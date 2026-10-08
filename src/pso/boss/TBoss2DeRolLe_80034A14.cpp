@@ -157,12 +157,12 @@ s32 VecCopy__FP3VecPC3Vec(s32, s32);
 M2C_UNK update_local_colliders_from_world(s32, Vec *);
 void TBoss2DeRolLe__sub_80034F40(s32 arg0);
 int play_sound(void *, int);
-void TBoss2DeRolLe__sub_800339BC(s32, f32, f32);
+void spawn_offset_particle__13TBoss2DeRolLeFiff(s32, f32, f32);
 void set_flags_play_sound__13TBoss2DeRolLeFPv(void *);
 void clear_attack_receipts(void *);
 extern const f32 TBoss2DeRolLe__data_805D82A0;
 extern const f32 lbl_805D8448;
-void TBoss2DeRolLe__sub_80034FDC(u8 *arg0);
+void apply_damage_taken__13TBoss2DeRolLeFPv(u8 *arg0);
 s32 VecCopy__FP3VecPC3Vec(s32, s32);
 extern RecoveredGlobal_80034C90_lbl_8043567C lbl_8043567C;
 extern const f32 TBoss2DeRolLe__data_805D827C;
@@ -171,7 +171,7 @@ s32 VecCopy__FP3VecPC3Vec(s32, s32);
 f32 clamp_velocity__15TObjBoss2TunnelFPv(void *);
 f32 subtract_vector(void *, void *);
 extern RecoveredGlobal_80034C90_lbl_8043567C lbl_8043567C;
-void TBoss2DeRolLe__sub_80034C2C(u8 *arg0, s32 arg1);
+void set_move_target_point__13TBoss2DeRolLeFPvi(u8 *arg0, s32 arg1);
 s32 bind_motion_context(int, f32);
 s32 compose_motion_node_matrix(int);
 s32 matrix_mult_vec(int, void *, void *);
@@ -196,7 +196,7 @@ s32 reload_stats_keep_hp_tp__9TObjEneDDFPv(void *, s32, s32, s32);
 extern s32 lbl_804FE300[];
 extern s32 TBoss2DeRolLe__data_805D4B98[2];
 extern s32 TBoss2DeRolLe__data_805D4B9C[2];
-void TBoss2DeRolLe__sub_80034E00(void *self, s32 kind);
+void reload_stats_for_phase__13TBoss2DeRolLeFPvi(void *self, s32 kind);
 s32 send_6x13__13TBoss2DeRolLeFPv(void *);
 s32 TBoss2DeRolLe__sub_80036358(void *);
 s32 update_and_send__13TBoss2DeRolLeFPv(void *);
@@ -308,7 +308,7 @@ typedef char RecoveredGlobal_80034C90_lbl_8043567C_size[sizeof(RecoveredGlobal_8
 #pragma opt_common_subs off
 typedef char RecoveredGlobal_80034C2C_lbl_8043567C_size[sizeof(RecoveredGlobal_80034C2C_lbl_8043567C) == 0x30 ? 1 : -1];
 typedef char RecoveredFields_80034C2C_arg0_3AC_offset[offsetof(RecoveredFields_80034C2C_arg0, field_3AC) == 0x3AC ? 1 : -1];
-void TBoss2DeRolLe__sub_80034C2C(u8 *arg0, s32 arg1) {
+void set_move_target_point__13TBoss2DeRolLeFPvi(u8 *arg0, s32 arg1) {
     VecCopy__FP3VecPC3Vec((s32)((void *) (arg0 + 0x394)), (s32)((void *) ((u8 *)&(*(RecoveredGlobal_80034C2C_lbl_8043567C *)&lbl_8043567C).value + (arg1 * 0xC))));
     VecCopy__FP3VecPC3Vec((s32)((void *) (arg0 + 0x3A0)), (s32)((void *) (arg0 + 0x394)));
     subtract_vector((void *) (arg0 + 0x3A0), (void *) (arg0 + 0x38));
@@ -337,9 +337,9 @@ f32 TBoss2DeRolLe__sub_80034CF8(void) {
 }
 
 void emit_effect_and_step__13TBoss2DeRolLeFPvPv(void *arg0, void *arg1) {
-    TBoss2DeRolLe__sub_80034E00((void *)(arg0), (s32)(2));
+    reload_stats_for_phase__13TBoss2DeRolLeFPvi((void *)(arg0), (s32)(2));
     emit_effect__9TObjEneDDFPvii(arg0, arg1, lbl_804356AC);
-    ((void (*)(void *, void *))TBoss2DeRolLe__sub_80034E00)(arg0, M2C_FIELD(arg0, void **, 0x3C4));
+    ((void (*)(void *, void *))reload_stats_for_phase__13TBoss2DeRolLeFPvi)(arg0, M2C_FIELD(arg0, void **, 0x3C4));
 }
 
 void TBoss2DeRolLe__sub_80034D58(u8 *arg0, u8 *arg1) {
@@ -347,9 +347,9 @@ void TBoss2DeRolLe__sub_80034D58(u8 *arg0, u8 *arg1) {
     temp_r5 = M2C_FIELD(arg1, u8 **, 0xA4);
     if (temp_r5 != NULL) {
         M2C_FIELD(temp_r5, s32 *, 0x18) = (s32) (M2C_FIELD(temp_r5, s32 *, 0x18) | 0x04000000);
-        TBoss2DeRolLe__sub_80034E00((void *)((void *)arg0), (s32)(1));
+        reload_stats_for_phase__13TBoss2DeRolLeFPvi((void *)((void *)arg0), (s32)(1));
         ((VObj18 *)arg1)->m20(arg0, TBoss2DeRolLe__data_805D82BC);
-        TBoss2DeRolLe__sub_80034E00((void *)((void *) (arg0)), (s32)((int) (M2C_FIELD(arg0, s32 *, 0x3C4))));
+        reload_stats_for_phase__13TBoss2DeRolLeFPvi((void *)((void *) (arg0)), (s32)((int) (M2C_FIELD(arg0, s32 *, 0x3C4))));
     }
 }
 
@@ -359,7 +359,7 @@ void TBoss2DeRolLe__sub_80034DCC(s32 arg0) {
     }
 }
 
-void TBoss2DeRolLe__sub_80034E00(void *self, s32 kind) {
+void reload_stats_for_phase__13TBoss2DeRolLeFPvi(void *self, s32 kind) {
     s32 a;
     s32 i;
     s32 b;
@@ -423,12 +423,12 @@ void backup_pos__13TBoss2DeRolLeFi(s32 arg0) {
     VecCopy__FP3VecPC3Vec(arg0 + 0x74, arg0 + 0x2FC);
 }
 void TBoss2DeRolLe__sub_80034FD8(void) {  }
-void TBoss2DeRolLe__sub_80034FDC(u8 *arg0) {
+void apply_damage_taken__13TBoss2DeRolLeFPv(u8 *arg0) {
     s32 temp_r4;
     temp_r4 = M2C_FIELD(arg0, s16 *, 0x2B8) - M2C_FIELD(arg0, s16 *, 0x32C);
     if (M2C_FIELD(arg0, s32 *, 0x3C0) & 8) {
         M2C_FIELD(arg0, s32 *, 0x6AC) = (s32) (M2C_FIELD(arg0, s32 *, 0x6AC) - temp_r4);
-        TBoss2DeRolLe__sub_800339BC(M2C_FIELD(arg0, s32 *, 0xA4) + 0x1C, TBoss2DeRolLe__data_805D82A0, lbl_805D8448);
+        spawn_offset_particle__13TBoss2DeRolLeFiff(M2C_FIELD(arg0, s32 *, 0xA4) + 0x1C, TBoss2DeRolLe__data_805D82A0, lbl_805D8448);
         play_sound((void *)0x4003A80F, (s32) (arg0 + 0x518));
     } else {
         M2C_FIELD(arg0, s32 *, 0x6B0) = (s32) (M2C_FIELD(arg0, s32 *, 0x6B0) - temp_r4);

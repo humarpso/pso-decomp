@@ -35,7 +35,7 @@ extern RecoveredGlobal_8016EB3C_lbl_804B2EC4 lbl_804B2EC4;
 extern u32 TOLightMachine01__data_805D5A40;
 extern s32 lbl_805D5A44;
 extern s32 lbl_805D5A48;
-void TOLightMachine01__sub_8016EB3C(void);
+void load_assets__16TOLightMachine01Fv(void);
 s32 TObjFish__sub_8001EDB0(void *, s32);
 s32 get_bml_model(void *, s32);
 s32 TPhotonMagicSquare__sub_801A2640(void *, int);
@@ -128,7 +128,7 @@ void destroy_instance__16TOLightMachine01Fv(void) {
 
 extern M2C_UNK __vt__16TOLightMachine01[];
 
-void TOLightMachine01__sub_8016EB3C(void) {
+void load_assets__16TOLightMachine01Fv(void) {
     s32 temp_r3;
     s32 var_r0;
     temp_r3 = alloc__23TAdSinglePlyChrSelectGCFPv((void *)0x440);

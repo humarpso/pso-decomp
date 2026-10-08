@@ -147,7 +147,7 @@ extern s32 lbl_805D7774;
 void TObjPlayer__sub_803E2F28(struct Mtx_803DC994 *src);
 s32 __cvt_fp2unsigned(f32);
 void get_current_matrix(void *m);
-void TObjPlayer__sub_803D993C(f32 *arg0, f32 farg0);
+void apply_quat_rotation__10TObjPlayerFPvf(f32 *arg0, f32 farg0);
 void rotate_matrix_by_node_angles(void *, int);
 void push_matrix(void);
 void scale_current_matrix(void *);
@@ -155,7 +155,7 @@ void post_translate_matrix(void *);
 extern u8 lbl_8058DBD0[];
 void transform_point_by_current_matrix(u8 *, u8 *);
 void rotate_vector_by_current_matrix(u8 *, u8 *);
-void TObjPlayer__sub_803E34B0(Hdr_803E34B0 *arg0);
+void transform_vertex_list__10TObjPlayerFPv(Hdr_803E34B0 *arg0);
 void GXBegin(int, int, u16);
 extern const f32 lbl_805E1088;
 void draw_projected_textured_strip(Vtx_803E2D70 *v, s32 n);
@@ -325,7 +325,7 @@ void transform_chunk_object_tree(void *arg0, void (*cb)(void *)) {
                 if (flags & 0x1000) {
                     TObjPlayer__sub_803E2F28((struct Mtx_803DC994 *)lbl_8058DBD0);
                 } else if (flags & 0x400) {
-                    ((void (*)(f32, f32 *))TObjPlayer__sub_803D993C)(node->f34, (f32 *)node->ang);
+                    ((void (*)(f32, f32 *))apply_quat_rotation__10TObjPlayerFPvf)(node->f34, (f32 *)node->ang);
                 } else {
                     rotate_matrix_by_node_angles(node->ang, flags & 0x20);
                 }
@@ -346,7 +346,7 @@ void transform_chunk_object_tree(void *arg0, void (*cb)(void *)) {
 }
 #undef node
 
-void TObjPlayer__sub_803E34B0(Hdr_803E34B0 *arg0) {
+void transform_vertex_list__10TObjPlayerFPv(Hdr_803E34B0 *arg0) {
     s32 n = arg0->count;
     u8 *src = arg0->src;
     u8 *dst = arg0->dst;

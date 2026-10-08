@@ -27,7 +27,7 @@ extern VO_800E7A98 *TObjEneMe3ShinowaMirage__data_805D52A0;
 extern void *TObjEneMe3ShinowaMirage__data_805D52A4;
 extern void *TObjEneMe3ShinowaMirage__data_805D52A8;
 extern void *TObjEneMe3ShinowaMirage__data_805D52AC;
-void TObjEneMe3ShinowaMirage__sub_800E7A98(void);
+void free_shared_resources__23TObjEneMe3ShinowaMirageFv(void);
 }
 
 extern "C" {
@@ -50,7 +50,7 @@ void TObjEneMe3ShinowaMirage__sub_800E7A70(s32 arg0, f32 farg0) {
   *((f32 *) (((s8 *) new_var) + 8)) = var_f1;
 }
 
-void TObjEneMe3ShinowaMirage__sub_800E7A98(void) {
+void free_shared_resources__23TObjEneMe3ShinowaMirageFv(void) {
     if (TObjEneMe3ShinowaMirage__data_805D52A8 != 0) {
         __dt__11TBoss4Type3FPvs(TObjEneMe3ShinowaMirage__data_805D52A8, 1);
         TObjEneMe3ShinowaMirage__data_805D52A8 = 0;

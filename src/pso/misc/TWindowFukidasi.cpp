@@ -218,7 +218,7 @@ f32 get_fov__11TCameraCtrlFv();
 f32 get_view_scale__11TCameraCtrlFv();
 s32 get_screen_width__11TCameraCtrlFv();
 s32 get_screen_height__11TCameraCtrlFv();
-M2C_UNK TWindowSubSymbolChat__sub_800773BC(s32);
+M2C_UNK play_symbol_sound__20TWindowSubSymbolChatFi(s32);
 s32 alloc_buffer__11TOBoss4RockFPv(s32);
 Ent_802511E4 * find_entity_by_id(u16);
 f32 get_card_window_scale__20TWindowSubStatusDispFi(s16);
@@ -978,7 +978,7 @@ void open__15TWindowFukidasiFPvPvi(u8 *arg0, u32 *arg1, s32 arg2) {
         }
     }
     set_symbol_chat_parts__20TWindowSubSymbolChatFiPv(arg0 + 0x24, arg1);
-    TWindowSubSymbolChat__sub_800773BC(((u32) *arg1 >> 5U) & 0xF);
+    play_symbol_sound__20TWindowSubSymbolChatFi(((u32) *arg1 >> 5U) & 0xF);
     M2C_FIELD(arg0, s16 *, 0x74) = 0x5A;
 }
 

@@ -27,7 +27,7 @@ M2C_UNK set_cleanup_flag__6TLobbyFv();
 M2C_UNK reset_door_state__6TLobbyFv();
 M2C_UNK clear_enabled_main_warps();
 M2C_UNK reset_instance__8TObjDoorFv();
-M2C_UNK TRaderMapCore__sub_801F9540();
+M2C_UNK free_map_data__13TRaderMapCoreFv();
 M2C_UNK clear_switch_table();
 M2C_UNK apply_all_players__9TTecLukerFv();
 void enable_all_battle_ctrl__10TNpcPlayerFv();
@@ -102,7 +102,7 @@ void apply_char_to_players__6TLobbyFv(void) {
     }
 }
 void reset_quest_state__6TLobbyFv(void) {
-    TRaderMapCore__sub_801F9540();
+    free_map_data__13TRaderMapCoreFv();
     clear_switch_table();
     apply_all_players__9TTecLukerFv();
     reset_item_id_counters__6TLobbyFv();

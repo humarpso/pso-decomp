@@ -183,7 +183,7 @@ void TObjPlayer__sub_802E451C(S_802E451C *arg0);
 Hit_802E3D8C *csnVector(void *, void *, s32);
 void set_flags__10TObjPlayerFPvUi(void *, u32);
 M2C_UNK VecCopy__FP3VecPC3Vec(M2C_UNK *, s32);
-void TItemAttackCol__sub_802E3D8C(u8 *arg0, void *arg1);
+void move_with_collision__14TItemAttackColFPvPv(u8 *arg0, void *arg1);
 extern const f32 lbl_805DE910;
 u32 query_game_join_id__10TObjPlayerFv(int);
 M2C_UNK run_with_transform_context__10TObjPlayerFiii(int, void *);
@@ -257,13 +257,13 @@ void TItemAttackCol__vt5(s32 arg0) {
 
     VecCopy__FP3VecPC3Vec(&sp8, arg0 + 0xD0);
     vec3_add_to(&sp8, arg0 + 0x24);
-    TItemAttackCol__sub_802E3D8C((u8 *)(arg0), (void *)(&sp8));
+    move_with_collision__14TItemAttackColFPvPv((u8 *)(arg0), (void *)(&sp8));
 }
 
 extern M2C_UNK __vt__14TItemAttackCol[];
 
 typedef void (*Cb_802E3D8C)(s32, void *, void *);
-void TItemAttackCol__sub_802E3D8C(u8 *arg0, void *arg1) {
+void move_with_collision__14TItemAttackColFPvPv(u8 *arg0, void *arg1) {
     Hit_802E3D8C *hit;
     Cb_802E3D8C cb;
     hit = csnVector(arg0 + 0x24, arg1, 0x8100);

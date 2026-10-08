@@ -60,7 +60,7 @@ void *find_by_section_id__10TObjPlayerFPvi(void *list, s32 section);
 
 extern "C" {
 
-void TObjPlayer__sub_80312F0C(void* p);
+void process_all_elements__10TObjPlayerFPv(void* p);
 int test_flags_any(void*, int);
 int TObjPlayer__sub_801AA64C(void* a0 = 0);
 int TObjPlayer__sub_803131AC(void* a0 = 0);
@@ -150,7 +150,7 @@ void TObjPlayer__sub_80312E98(void *o, u16 id) {
     }
 }
 
-void TObjPlayer__sub_80312F0C(void* p) { { int n = TObjPlayer__sub_803131AC(p); int i; for (i = 0; i < n; i++) { process_indexed_element__10TObjPlayerFii(p, (void*)i); } } }
+void process_all_elements__10TObjPlayerFPv(void* p) { { int n = TObjPlayer__sub_803131AC(p); int i; for (i = 0; i < n; i++) { process_indexed_element__10TObjPlayerFii(p, (void*)i); } } }
 
 void append_photon_blast_request(s32 arg0, s16 arg1, s16 arg2) {
     s32 temp_r3;

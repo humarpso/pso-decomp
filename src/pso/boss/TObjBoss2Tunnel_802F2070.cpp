@@ -66,7 +66,7 @@ void init_effect__15TObjBoss2TunnelFPv(void *arg0);
 extern const f32 lbl_805DEC9C;
 void spawn__15TObjBoss2TunnelFPvii(void *arg0, s32 arg1, s32 arg2);
 extern const f32 lbl_805DECB4;
-void TObjBoss2Tunnel__sub_802F2664(u8 *arg0, s32 arg1, s32 arg2, s32 arg3);
+void update_spawn_timer__15TObjBoss2TunnelFPviii(u8 *arg0, s32 arg1, s32 arg2, s32 arg3);
 extern const f32 lbl_805DEC68;
 extern const f32 lbl_805DECFC;
 void advance_effect_timer__15TObjBoss2TunnelFPv(void *arg0);
@@ -205,7 +205,7 @@ void TObjBoss2Tunnel__sub_802F23FC(void) {  }
 void TObjBoss2Tunnel__sub_802F2400(u8 *arg0) {
     f32 temp_f1;
     u32 temp_r3;
-    TObjBoss2Tunnel__sub_802F2664((u8 *)((u8 *)((void *)((void *) (arg0)))), (s32)((s32)((M2C_UNK *)((void *) (&lbl_804E4A1C.value)))), (s32)((s32)((M2C_UNK)((int) (0xA)))), (s32)((s32)((M2C_UNK)((int) (1)))));
+    update_spawn_timer__15TObjBoss2TunnelFPviii((u8 *)((u8 *)((void *)((void *) (arg0)))), (s32)((s32)((M2C_UNK *)((void *) (&lbl_804E4A1C.value)))), (s32)((s32)((M2C_UNK)((int) (0xA)))), (s32)((s32)((M2C_UNK)((int) (1)))));
     if ((*(s32 *)&lbl_805D6968) & 8) {
         temp_f1 = M2C_FIELD(arg0, f32 *, 0x80);
         if (temp_f1 < lbl_805DEC98) {
@@ -238,7 +238,7 @@ void TObjBoss2Tunnel__sub_802F2400(u8 *arg0) {
 }
 void init_effect__15TObjBoss2TunnelFPv(void *arg0) {
     advance_effect_timer__15TObjBoss2TunnelFPv((void *)(arg0));
-    TObjBoss2Tunnel__sub_802F2664((u8 *)((u8 *)(arg0)), (s32)((s32)(lbl_804E49A0)), (s32)((s32)(0x1F)), (s32)((s32)(0)));
+    update_spawn_timer__15TObjBoss2TunnelFPviii((u8 *)((u8 *)(arg0)), (s32)((s32)(lbl_804E49A0)), (s32)((s32)(0x1F)), (s32)((s32)(0)));
     if ((*(s32 *)&lbl_805D6968) & 0x200) {
         (*(s32 *)&lbl_805D6968) &= 0xFFFFFDFF;
         M2C_FIELD(arg0, s32 *, 0x1C) = 1;
@@ -268,7 +268,7 @@ void update_dust_spawn__15TObjBoss2TunnelFPv(u8 *arg0) {
 
 #pragma push
 #pragma opt_common_subs off
-void TObjBoss2Tunnel__sub_802F2664(u8 *arg0, s32 arg1, s32 arg2, s32 arg3) {
+void update_spawn_timer__15TObjBoss2TunnelFPviii(u8 *arg0, s32 arg1, s32 arg2, s32 arg3) {
     typedef char sp8_offset[(offsetof(Stack_802F2664, sp8) == 0x0) ? 1 : -1];
     typedef char spC_offset[(offsetof(Stack_802F2664, spC) == 0x4) ? 1 : -1];
     typedef char sp10_offset[(offsetof(Stack_802F2664, sp10) == 0x8) ? 1 : -1];

@@ -18,7 +18,7 @@ extern s32 lbl_805D33F8;
 extern s32 lbl_805D33FC;
 extern s32 lbl_805D3400;
 extern u32 lbl_805D5C50;
-Obj_80195CF0 *TQuestColCtrl__sub_80195CF0(u16 arg0);
+Obj_80195CF0 *find_by_id__13TQuestColCtrlFUs(u16 arg0);
 void queue_destruction__7TObjectFv(void *);
 s32 check_value_equals__13TQuestColCtrlFPvi(void *, s32);
 extern s32 lbl_805D33EC;
@@ -28,7 +28,7 @@ extern s32 lbl_805D33F8;
 extern s32 lbl_805D33FC;
 extern s32 lbl_805D3400;
 extern u32 lbl_805D5C50;
-void TQuestColCtrl__sub_80195DE0(s32 arg0);
+void delete_by_param__13TQuestColCtrlFi(s32 arg0);
 }
 
 extern "C" {
@@ -41,7 +41,7 @@ u32 __nw__7TObjectFUl(M2C_UNK);
 extern u32 lbl_805D5C50;
 extern s32 tl_05;
 
-Obj_80195CF0 *TQuestColCtrl__sub_80195CF0(u16 arg0) {
+Obj_80195CF0 *find_by_id__13TQuestColCtrlFUs(u16 arg0) {
     Obj_80195CF0 *next;
     Obj_80195CF0 *cur;
     next = (*(Obj_80195CF0 * *)&lbl_805D5C50)->child;
@@ -61,7 +61,7 @@ Obj_80195CF0 *TQuestColCtrl__sub_80195CF0(u16 arg0) {
     return 0;
 }
 
-void TQuestColCtrl__sub_80195DE0(s32 arg0) {
+void delete_by_param__13TQuestColCtrlFi(s32 arg0) {
     Obj_80195DE0 *next;
     Obj_80195DE0 *cur;
     if (arg0 < 0) {

@@ -41,10 +41,10 @@ Obj_803258C4 *__ct__20TAdChrSelMovePlateGCFv(Obj_803258C4 *arg0);
 extern "C" {
 
 void render__20TAdChrSelMovePlateGCFv(void* p);
-int fn_80325660(void*);
+int draw_move_plate_quads(void*);
 int get_state_flag__9TMainTaskFv(void*);
 
-void render__20TAdChrSelMovePlateGCFv(void* p) { if (get_state_flag__9TMainTaskFv(p) != 1) { fn_80325660(p); } }
+void render__20TAdChrSelMovePlateGCFv(void* p) { if (get_state_flag__9TMainTaskFv(p) != 1) { draw_move_plate_quads(p); } }
 void TAdChrSelMovePlateGC__sub_8032572C(T_8032572C *self) {
     u32 i;
     for (i = 0; i < self->count; i++) {

@@ -53,7 +53,7 @@ f32 vector_length(Vec_8007598C *);
 extern s32 lbl_805D53A0;
 extern const f32 lbl_805D91A8;
 extern const f32 TObjTombstone__data_805D9174;
-f32 TObjTombstone__sub_8007598C(Obj_8007598C *self, void * _w1);
+f32 get_distance_to_local_player_xz__13TObjTombstoneFPvPv(Obj_8007598C *self, void * _w1);
 s32 submit_card_password__17TWindowSubComCardFi(char *);
 int sprintf(char *, const char *, ...);
 extern char lbl_804387F8[];
@@ -113,7 +113,7 @@ void render__13TObjTombstoneFv(s32 arg0) {
     }
 }
 
-f32 TObjTombstone__sub_8007598C(Obj_8007598C *self, void * _w1) {
+f32 get_distance_to_local_player_xz__13TObjTombstoneFPvPv(Obj_8007598C *self, void * _w1) {
     Ply_8007598C *p = get_player_by_client_id((s32)(lbl_805D53A0), (void *)(_w1));
     if (p == 0) {
         return lbl_805D91A8;

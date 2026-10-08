@@ -9,7 +9,7 @@ extern const f32 lbl_805DF7D0;
 extern M2C_UNK lbl_805DF7D4;
 void fn_8032DA28(u8 *arg0);
 u32 __nw__7TObjectFUl(int);
-s32 TAdGuideButtonGC__sub_8032D600(int, void *);
+s32 setup_button__16TAdGuideButtonGCFPvPv(int, void *);
 u32 TAdGuideButtonGC__ct(int, void *);
 extern u32 lbl_805D6D04;
 void fn_8032D9BC(s32 arg0, s32 arg1);
@@ -28,7 +28,7 @@ void fn_8032D9BC(s32 arg0, s32 arg1) {
         }
         lbl_805D6D04 = var_r0;
         if (var_r0 != 0U) {
-            TAdGuideButtonGC__sub_8032D600((int) (var_r0), (void *) (arg1));
+            setup_button__16TAdGuideButtonGCFPvPv((int) (var_r0), (void *) (arg1));
         }
     }
 }

@@ -84,7 +84,7 @@ s32 is_split_screen();
 s32 is_any_player_in_range__5TOKeyFPv(void *);
 s32 is_local_player_in_range__5TOKeyFPv(void *);
 s32 TOKeyCave01__vt13(u8 *arg0);
-M2C_UNK TOKeyAncient03__sub_8016B84C(void *, int);
+M2C_UNK send_switch_changed__14TOKeyAncient03FPvi(void *, int);
 void run_task__14TOKeyAncient03Fv(u8 *arg0);
 extern const f32 lbl_805DB718;
 extern const f32 lbl_805DB71C;
@@ -135,7 +135,7 @@ void init_6x05_switch_changed__6TLobbyFPv(void *);
 void finalize_and_send_60__6TLobbyFPv(void *);
 s32 get_current_floor();
 extern s32 lbl_805D53A0;
-void TOKeyCave01__sub_8016BF08(Self_8016BF08 *self, s32 flags);
+void send_switch_changed__11TOKeyCave01FPvi(Self_8016BF08 *self, s32 flags);
 M2C_UNK begin_effect_render__13TParticleCtrlFv();
 M2C_UNK end_effect_render__13TParticleCtrlFv();
 M2C_UNK rotate_matrix_y(int, int);
@@ -208,14 +208,14 @@ void run_task__14TOKeyAncient03Fv(u8 *arg0) {
     if ((s32) M2C_FIELD(arg0, s32 *, 0xD4) != 1) {
         ((VObj_18 *)(arg0))->m15();
         if (((VObj_18 *)(arg0))->m13() == 1) {
-            TOKeyAncient03__sub_8016B84C((void *) (arg0), (int) (1));
+            send_switch_changed__14TOKeyAncient03FPvi((void *) (arg0), (int) (1));
             ((VObj_18 *)(arg0))->m16();
             M2C_FIELD(arg0, s32 *, 0xD4) = 1;
         }
     } else {
         ((VObj_18 *)(arg0))->m14();
         if (((VObj_18 *)(arg0))->m13() != 1) {
-            TOKeyAncient03__sub_8016B84C((void *) (arg0), (int) (0));
+            send_switch_changed__14TOKeyAncient03FPvi((void *) (arg0), (int) (0));
             ((VObj_18 *)(arg0))->m17();
             M2C_FIELD(arg0, s32 *, 0xD4) = 0;
         }
@@ -384,7 +384,7 @@ s32 TOKeyCave01__vt13(u8 *arg0) {
 
 typedef char RecoveredGlobal_8016BF68_lbl_80441B4C_size[sizeof(RecoveredGlobal_8016BF68_lbl_80441B4C) == 0x90 ? 1 : -1];
 
-void TOKeyCave01__sub_8016BF08(Self_8016BF08 *self, s32 flags) {
+void send_switch_changed__11TOKeyCave01FPvi(Self_8016BF08 *self, s32 flags) {
     Pkt_8016BF08 pkt;
     init_6x05_switch_changed__6TLobbyFPv(&pkt);
     pkt.object = self->id;

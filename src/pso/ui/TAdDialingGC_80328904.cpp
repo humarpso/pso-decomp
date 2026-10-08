@@ -9,7 +9,7 @@ struct Obj_80328990 { u8 pad[0x9C]; u32 state; };
 extern "C" {
 M2C_UNK update_dialing_display__12TAdDialingGCFv(M2C_UNK);
 M2C_UNK refresh_display__12TAdDialingGCFv(void *);
-void TAdDialingGC__sub_80328990(Obj_80328990 *arg0);
+void update_status_display__12TAdDialingGCFPv(Obj_80328990 *arg0);
 }
 
 extern "C" {
@@ -42,7 +42,7 @@ void handle_state__12TAdDialingGCFPv(void *arg0) {
         return;
     }
 }
-void TAdDialingGC__sub_80328990(Obj_80328990 *arg0) {
+void update_status_display__12TAdDialingGCFPv(Obj_80328990 *arg0) {
     switch (arg0->state) {
     case 1:
         refresh_display__12TAdDialingGCFv((void *)(arg0));

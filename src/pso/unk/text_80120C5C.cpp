@@ -55,12 +55,12 @@ u8 get_field_ed__10TObjPlayerFPv();
 void request_model_load__14TItemEquipBaseFPvi(void *, u8);
 void create_weapon_trail_effects(void *);
 extern T_80120C5C lbl_8043E828[];
-void TObjPlayer__sub_80120C5C(Pl_80120C5C *arg0);
+void load_weapon_model__10TObjPlayerFPv(Pl_80120C5C *arg0);
 }
 
 extern "C" {
 
-void TObjPlayer__sub_80120C5C(Pl_80120C5C *arg0) {
+void load_weapon_model__10TObjPlayerFPv(Pl_80120C5C *arg0) {
     u8 v = get_field_ed__10TObjPlayerFPv();
     if (v >= 0xAA) {
         T_80120C5C t;

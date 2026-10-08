@@ -429,7 +429,7 @@ void TObjEneMerillLia__sub_800D5480(u8 *arg0);
 f32 calc_boss4_scale__10TObjPlayerFi(void *);
 void init_attack_state__16TObjEneMerillLiaFPv(void *arg0);
 void reset_action_state__16TObjEneMerillLiaFPv(void *arg0);
-void TObjEneMerillLia__sub_800D6A44(u8 *arg0);
+void select_action_by_distance__16TObjEneMerillLiaFPv(u8 *arg0);
 s32 copy_target_state__14TObjEnePanarmsFPvPv(void *, int);
 s32 play_sound_effect(void *, void *, int, int);
 void TObjEneMerillLia__sub_800D4EC8(s32 arg0);
@@ -1647,7 +1647,7 @@ void TObjEneMerillLia__sub_800D69B4(u8 *arg0) {
 }
 #pragma pop
 
-void TObjEneMerillLia__sub_800D6A44(u8 *arg0) {
+void select_action_by_distance__16TObjEneMerillLiaFPv(u8 *arg0) {
     if (calc_boss4_scale__10TObjPlayerFi((void *) (arg0)) <= M2C_FIELD(arg0, f32 *, 0x3C4)) {
         init_attack_state__16TObjEneMerillLiaFPv((void *) (arg0));
         return;

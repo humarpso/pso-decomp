@@ -7,14 +7,14 @@ void fn_803E1FFC(f32 farg0, f32 farg1);
 void TParticleCtrl__sub_803E2008(s32 x);
 void set_effect_active__10TObjPlayerFv(void);
 void apply_scene_fog(void);
-void fn_803E2070(void);
+void reset_scene_fog(void);
 }
 
 extern "C" {
 
 #pragma push
 #pragma scheduling off
-void fn_803E2070(void) {
+void reset_scene_fog(void) {
     fn_803E1FC8(0xFFFFFFFF);
     fn_803E1FFC(lbl_805E1050, lbl_805E1054);
     TParticleCtrl__sub_803E2008(2);

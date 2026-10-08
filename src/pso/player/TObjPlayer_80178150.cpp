@@ -24,7 +24,7 @@ s32 send_state__12TOChatSensorFPv(void *);
 s32 init_packet_type__12TOChatSensorFPv(void *);
 s32 clear_floor_switch_flag(int, int);
 void send_switch_states__12TOChatSensorFPv(u8 *arg0);
-void TOChatSensor__sub_8015B274(void *);
+void swap_state_endian__12TOChatSensorFPv(void *);
 s32 clear_floor_switch_flag(int, int);
 s32 set_floor_switch_flag(int, int);
 s32 get_current_floor();
@@ -46,7 +46,7 @@ u8 is_state_ec1_ed3__10TObjPlayerFPv(void *arg0) {
 }
 
 void handle_6x93_set_switch_flag_from_timer(Pkt_80178178 *p) {
-    TOChatSensor__sub_8015B274(p);
+    swap_state_endian__12TOChatSensorFPv(p);
     if (p->mode == 1) {
         set_floor_switch_flag(p->id, p->area);
     } else if (p->area != get_current_floor()) {

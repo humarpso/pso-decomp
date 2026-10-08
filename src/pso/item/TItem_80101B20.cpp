@@ -13,7 +13,7 @@ extern "C" {
 void *memcpy(void *, const void *, u32);
 extern s32 lbl_805D53F0;
 extern TItem_80101B20 **lbl_805D53F4;
-s32 TItem__sub_80101B20(TItem_80101B20 *item);
+s32 unregister_item__5TItemFPv(TItem_80101B20 *item);
 void *memcpy(void *, const void *, u32);
 extern s32 lbl_805D53F0;
 extern TItem_80101B20 **lbl_805D53F4;
@@ -23,7 +23,7 @@ s32 TItem__sub_80101BE4(TItem_80101BE4 *item);
 
 extern "C" {
 
-s32 TItem__sub_80101B20(TItem_80101B20 *item) {
+s32 unregister_item__5TItemFPv(TItem_80101B20 *item) {
     s32 lo;
     s32 id;
     s32 mid;

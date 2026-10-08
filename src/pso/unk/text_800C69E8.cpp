@@ -11,7 +11,7 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 struct Vec_800C6A48 { f32 x, y, z; };
 
 extern "C" {
-void TObjPlayer__sub_800C6A18(O_800C6A18 *self);
+void release_destroyed_target__10TObjPlayerFPv(O_800C6A18 *self);
 M2C_UNK VecCopy__FP3VecPC3Vec(void *, void *);
 f64 get_ad_end_text_start__10TObjPlayerFv(f32, f32);
 void *csnVector(void *, void *, s32);
@@ -51,7 +51,7 @@ void TObjPlayer__sub_800C6A04(void) {  }
 void TObjPlayer__sub_800C6A08(void) {  }
 void TObjPlayer__sub_800C6A0C(void) {  }
 u16 TObjPlayer__sub_800C6A10(void* p) { return *(u16*)((char*)p + 0x338); }
-void TObjPlayer__sub_800C6A18(O_800C6A18 *self) {
+void release_destroyed_target__10TObjPlayerFPv(O_800C6A18 *self) {
     if (self->p != 0 && (self->p->flags & 0x800)) {
         self->p = 0;
         self->f338 = 0xFFFF;

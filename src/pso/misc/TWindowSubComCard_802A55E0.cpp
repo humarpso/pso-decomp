@@ -13,7 +13,7 @@ struct V_802A5628 { f32 x, y; };
 extern "C" {
 void TWindowSubTradeMain__sub_802448E4(void *, void *);
 void get_position_offset__14TChCrTagPlBackFPvPv(void *, void *);
-void TWindowSubComCard__sub_802A5628(O_802A5628 *arg0, V_802A5628 *arg1);
+void update_label_positions__17TWindowSubComCardFPvPv(O_802A5628 *arg0, V_802A5628 *arg1);
 }
 
 extern "C" {
@@ -51,7 +51,7 @@ void free_windows__17TWindowSubComCardFPv(void *arg0) {
     }
 }
 
-void TWindowSubComCard__sub_802A5628(O_802A5628 *arg0, V_802A5628 *arg1) {
+void update_label_positions__17TWindowSubComCardFPvPv(O_802A5628 *arg0, V_802A5628 *arg1) {
     V_802A5628 v;
     P_802A5628 *p = arg0->a;
     if (p != NULL && (p->x != arg1->x || p->y != arg1->y)) {

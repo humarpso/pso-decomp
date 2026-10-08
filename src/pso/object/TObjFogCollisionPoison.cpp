@@ -36,8 +36,8 @@ struct RecoveredGlobal_80153258_TObjFogCollisionPoison__data_8050D430 {
 
 extern "C" {
 void TObjFogCollisionPoison__sub_801534E8(u8 *arg0, u16 arg1);
-s32 TFogCtrl__sub_800FAB94(s32, s32, s32);
-s32 TFogCtrl__sub_800FAC10(s32, s32);
+s32 select_fog_for_viewport__8TFogCtrlFiii(s32, s32, s32);
+s32 restore_fog_for_player__8TFogCtrlFii(s32, s32);
 s32 is_any_teammate_in_state__10TObjPlayerFv(void);
 void update_fog_region_arbitration(u8 *arg0);
 void __ct__7TObjectFP7TObject(void *, void *);
@@ -132,17 +132,17 @@ void update_fog_region_arbitration(u8 *arg0) {
                     var_r4 = 0x7F;
                 }
                 if ((s32) M2C_FIELD(arg0, s32 *, 0x24) != 0) {
-                    TFogCtrl__sub_800FAB94(M2C_FIELD(arg0, s32 *, 0x28), var_r4, 0);
+                    select_fog_for_viewport__8TFogCtrlFiii(M2C_FIELD(arg0, s32 *, 0x28), var_r4, 0);
                 } else {
-                    TFogCtrl__sub_800FAB94(M2C_FIELD(arg0, s32 *, 0x28), var_r4, 1);
+                    select_fog_for_viewport__8TFogCtrlFiii(M2C_FIELD(arg0, s32 *, 0x28), var_r4, 1);
                 }
                 M2C_FIELD(arg0, s32 *, 0x1C) = 0;
             } else {
                 M2C_FIELD(arg0, s32 *, 0x2C) = 1;
                 if ((s32) M2C_FIELD(arg0, s32 *, 0x24) != 0) {
-                    TFogCtrl__sub_800FAC10(M2C_FIELD(arg0, s32 *, 0x28), 0);
+                    restore_fog_for_player__8TFogCtrlFii(M2C_FIELD(arg0, s32 *, 0x28), 0);
                 } else {
-                    TFogCtrl__sub_800FAC10(M2C_FIELD(arg0, s32 *, 0x28), 1);
+                    restore_fog_for_player__8TFogCtrlFii(M2C_FIELD(arg0, s32 *, 0x28), 1);
                 }
             }
             break;

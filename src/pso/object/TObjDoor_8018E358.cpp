@@ -89,7 +89,7 @@ void update_anim__8TObjDoorFPv(void *arg0);
 f32 xyz_distance_squared(void *, void *);
 M2C_UNK project_world_to_screen(int, void *, void *);
 extern s32 lbl_805D4DF0;
-s32 TObjDoor__sub_8018EA2C(s32 arg0, f32 farg0, f32 farg1);
+s32 is_visible__8TObjDoorFiff(s32 arg0, f32 farg0, f32 farg1);
 M2C_UNK free_collision_body_parts(void *);
 M2C_UNK unregister_object_by_id(void *);
 M2C_UNK __dl__7TObjectFPv(void *);
@@ -466,7 +466,7 @@ void update_locked_pulse__8TObjDoorFPv(TObjDoor* door) {
 
 #pragma push
 #pragma fp_contract on
-s32 TObjDoor__sub_8018EA2C(s32 arg0, f32 farg0, f32 farg1) {
+s32 is_visible__8TObjDoorFiff(s32 arg0, f32 farg0, f32 farg1) {
     f32 sp8;
     f32 temp_f1;
     temp_f1 = xyz_distance_squared((void *) (arg0 + 0x38), (void *) (lbl_805D4DF0 + 0x178));
@@ -520,7 +520,7 @@ void render__8TObjDoorFv(VObj_8018EAF8 *self) {
         *(s32 *)((u8 *)self + 0xAC) = 0;
     }
     if (*(s32 *)((u8 *)self + 0xAC) == 0 || *(s32 *)((u8 *)self + 0xAC) == 2) {
-        if (TObjDoor__sub_8018EA2C((s32) self, (7e+02f), (2.5e+02f)) != 0) {
+        if (is_visible__8TObjDoorFiff((s32) self, (7e+02f), (2.5e+02f)) != 0) {
             (self->*((Pmf_8018EAF8 *)lbl_804B77F0)[*(s32 *)((u8 *)self + 0xAC)])();
         }
     } else if (self->m8((7e+02f), (2.5e+02f)) != 0) {

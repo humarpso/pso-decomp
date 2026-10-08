@@ -22,7 +22,7 @@ struct Obj_80186DA0 {
 extern "C" {
 void init_pkt_cmd_6A__19TWindowSubTradeMainFPv(void *p);
 void send_60_update__19TWindowSubTradeMainFPv(void *p);
-void TObjCityMainWarp__sub_80186CC8(Obj_80186CC8 *self, u16 value);
+void send_6x6A_set_boss_warp_flags__16TObjCityMainWarpFPvUs(Obj_80186CC8 *self, u16 value);
 u8 is_current_floor_switch_set(int);
 void TObjCityMainWarp__sub_80186DA0(Obj_80186DA0 *arg0);
 }
@@ -63,7 +63,7 @@ void close_windows__16TObjCityMainWarpFPv(void *arg0) {
     unsuppress_slot__11TWindowCtrlFi(lbl_805D53A0);
 }
 
-void TObjCityMainWarp__sub_80186CC8(Obj_80186CC8 *self, u16 value) {
+void send_6x6A_set_boss_warp_flags__16TObjCityMainWarpFPvUs(Obj_80186CC8 *self, u16 value) {
     Pkt_80186CC8 pkt;
     init_pkt_cmd_6A__19TWindowSubTradeMainFPv(&pkt);
     pkt.id = self->id;

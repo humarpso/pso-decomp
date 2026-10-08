@@ -26,7 +26,7 @@ u8 * csnVectorUnder(s32, void *, s32);
 void set_active__12TObjEneReconFv(void);
 extern s32 lbl_805D53A4;
 extern const f32 lbl_805DF448;
-void TObjEneRecon__sub_8031EE54(u8 *arg0);
+void update_floor_probe__12TObjEneReconFPv(u8 *arg0);
 void TObjEneRecon__sub_8031EDBC(T_8031EDBC *self, s32 id);
 u16 TObjEneRecon__sub_8031EDF8(Rec_8031EDF8 *o);
 }
@@ -64,7 +64,7 @@ u16 TObjEneRecon__sub_8031EDF8(Rec_8031EDF8 *o) {
 }
 #pragma pop
 
-void TObjEneRecon__sub_8031EE54(u8 *arg0) {
+void update_floor_probe__12TObjEneReconFPv(u8 *arg0) {
     Stack_8031EE54 stack;
     u8 *temp_r3;
     if ((lbl_805D53A4 % 5) == 0) {

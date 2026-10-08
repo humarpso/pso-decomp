@@ -24,7 +24,7 @@ extern s32 lbl_805D7780;
 extern s32 lbl_805D7784;
 extern s32 some_id_805c6f74;
 extern const f32 lbl_805DF2E0;
-void TObjEneDelDepth__sub_80315D60(f32 farg0, f32 farg1, f32 farg2, f32 farg3);
+void setup_draw_material__15TObjEneDelDepthFffff(f32 farg0, f32 farg1, f32 farg2, f32 farg3);
 }
 
 extern "C" {
@@ -54,10 +54,10 @@ void reset_globals__15TObjEneDelDepthFv(void) {
     extern int TObjEneDelDepth__data_805D6AC4;
 
 void TObjEneDelDepth__sub_80315D34(f32 farg0) {
-    TObjEneDelDepth__sub_80315D60(farg0, TObjEneDelDepth__data_805DF258, TObjEneDelDepth__data_805DF258, TObjEneDelDepth__data_805DF258);
+    setup_draw_material__15TObjEneDelDepthFffff(farg0, TObjEneDelDepth__data_805DF258, TObjEneDelDepth__data_805DF258, TObjEneDelDepth__data_805DF258);
 }
 
-void TObjEneDelDepth__sub_80315D60(f32 farg0, f32 farg1, f32 farg2, f32 farg3) {
+void setup_draw_material__15TObjEneDelDepthFffff(f32 farg0, f32 farg1, f32 farg2, f32 farg3) {
     Stack_80315D60 stack;
     lbl_805D5660 = some_id_805c6f74;
     lbl_805D5664 = lbl_805D7784;

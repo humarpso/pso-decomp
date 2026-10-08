@@ -44,7 +44,7 @@ s32 setup_window_draw_context(void *, void *);
 M2C_UNK draw_window_frame(void *, int);
 M2C_UNK draw_visible_window_entries(void *, void *, int);
 M2C_UNK draw_list_page_indicator(int, int);
-void TWindowDuelResult__sub_8024F478(u8 *arg0);
+void draw_window__17TWindowDuelResultFPv(u8 *arg0);
 s32 get_camera_id__11TCameraCtrlFv();
 u8 *alloc__23TAdSinglePlyChrSelectGCFPv(void *);
 s32 construct_base__9TWindowDDFPvPvsPv(void *, void *, void *, int);
@@ -286,7 +286,7 @@ s32 TWindowDuelResult__sub_8024F330(void *arg0_) {
 }
 #pragma defer_codegen off
 
-void TWindowDuelResult__sub_8024F478(u8 *arg0) {
+void draw_window__17TWindowDuelResultFPv(u8 *arg0) {
     s32 temp_r3;
     temp_r3 = setup_window_draw_context(arg0, (void *) (arg0 + 0x60));
     draw_window_frame((void *) (arg0), (int) (temp_r3));
@@ -309,7 +309,7 @@ void update__17TWindowDuelResultFPv(u8 *arg0) {
 extern "C" void render_shadows__7TObjectFv();
 void *lbl_804CF020[6] = {
     (void *)0x0, (void *)0x0, (void *)&destroy__17TWindowDuelResultFPvs, (void *)&update__17TWindowDuelResultFPv,
-    (void *)&TWindowDuelResult__sub_8024F478, (void *)&render_shadows__7TObjectFv,
+    (void *)&draw_window__17TWindowDuelResultFPv, (void *)&render_shadows__7TObjectFv,
 };
 #define lbl_804CF020 ((M2C_UNK *)lbl_804CF020)
 

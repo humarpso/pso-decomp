@@ -15,7 +15,7 @@ u8 *get_player_by_client_id(s32);
 s32 is_state_1f__14TBoss6PlotFalzFUi(void *);
 M2C_UNK copy_vec2__11TBoss6Type2FPvPv(void *, void *);
 extern s8 lbl_804F36F8[];
-void TBoss6Type2__sub_8036DD30(void);
+void capture_player_snapshots__11TBoss6Type2Fv(void);
 }
 
 extern "C" {
@@ -49,7 +49,7 @@ void apply_pending_effect__11TBoss6Type2FPv(u8 *arg0) {
     }
 }
 
-void TBoss6Type2__sub_8036DD30(void) {
+void capture_player_snapshots__11TBoss6Type2Fv(void) {
     s32 i;
     u8 *p;
     Ent_8036DD30 *e;

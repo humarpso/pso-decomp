@@ -42,19 +42,19 @@ struct O_80337644 {
 extern "C" {
 M2C_UNK VecCopy__FP3VecPC3Vec(void *, int);
 u8 *csnVecterUnder(s32, M2C_UNK);
-s32 TObjEneMorfos__sub_803375F0(M2C_UNK arg0, s32 arg1);
+s32 snap_to_ground__13TObjEneMorfosFii(M2C_UNK arg0, s32 arg1);
 f32 xz_distance_squared(void *, void *);
 void subtract_vector(void *, void *);
 extern P_80337500 lbl_80477B70[];
 extern const f32 lbl_805D6D30;
 extern const f32 lbl_805D6D34;
 extern const f32 lbl_805DF988;
-void TObjEneMorfos__sub_80337500(O_80337500 *arg0, V_80337500 *arg1, V_80337500 *arg2);
+void hit_target_in_range__13TObjEneMorfosFPvPvPv(O_80337500 *arg0, V_80337500 *arg1, V_80337500 *arg2);
 M2C_UNK VecCopy__FP3VecPC3Vec(void *, int);
 s16 obj_getField1c(void *);
 s32 spawn_particle_effect_with_rotation(void *, void *, s32, s32);
 void construct_collider_proxy__10TObjPlayerFPv(void *, s32);
-s32 TObjEneMorfos__sub_803375F0(M2C_UNK arg0, s32 arg1);
+s32 snap_to_ground__13TObjEneMorfosFii(M2C_UNK arg0, s32 arg1);
 f32 sin_table_lookup(s32);
 f32 cos_table_lookup(s32);
 extern M2C_UNK lbl_804EF130[];
@@ -70,8 +70,8 @@ u32 csnVector(void *, void *, int);
 void copy_pos__11TNowLoadingFPvPv(void *, void *);
 s32 find_entity_by_id(u16);
 s32 is_valid_and_active__10TObjPlayerFUi(void *);
-void TObjEneMorfos__sub_80337500(O_80337500 *arg0, V_80337500 *arg1, V_80337500 *arg2);
-s32 TObjEneMorfos__sub_803375F0(M2C_UNK arg0, s32 arg1);
+void hit_target_in_range__13TObjEneMorfosFPvPvPv(O_80337500 *arg0, V_80337500 *arg1, V_80337500 *arg2);
+s32 snap_to_ground__13TObjEneMorfosFii(M2C_UNK arg0, s32 arg1);
 void vec3_add_to(void *, void *);
 extern s32 lbl_805D586C;
 extern const f32 lbl_805D6D30;
@@ -89,7 +89,7 @@ void queue_destruction__7TObjectFv(void *);
 
 extern M2C_UNK lbl_804EF130[];
 
-void TObjEneMorfos__sub_80337500(O_80337500 *arg0, V_80337500 *arg1, V_80337500 *arg2) {
+void hit_target_in_range__13TObjEneMorfosFPvPvPv(O_80337500 *arg0, V_80337500 *arg1, V_80337500 *arg2) {
     Vec_80337500 v = arg0->pos;
     subtract_vector(&v, arg0->b8);
     if (arg1 != 0 && arg1 != arg2 && !(*(s32 *)((u8 *)arg1 + 0x30) & 0x04000A00)) {
@@ -102,7 +102,7 @@ void TObjEneMorfos__sub_80337500(O_80337500 *arg0, V_80337500 *arg1, V_80337500 
     }
 }
 
-s32 TObjEneMorfos__sub_803375F0(M2C_UNK arg0, s32 arg1) {
+s32 snap_to_ground__13TObjEneMorfosFii(M2C_UNK arg0, s32 arg1) {
     u8 *temp_r3;
     temp_r3 = (u8 *)(csnVecterUnder(arg1, 0x16EF));
     if (temp_r3 == NULL) {
@@ -129,7 +129,7 @@ void update_projectile__13TObjEneMorfosFPv(O_80337644 *arg0) {
         arg0->fF4++;
         if (arg0->fF4 > 4) {
             arg0->fF4 = 0;
-            TObjEneMorfos__sub_803375F0((M2C_UNK)arg0, (s32)&arg0->pos2);
+            snap_to_ground__13TObjEneMorfosFii((M2C_UNK)arg0, (s32)&arg0->pos2);
         }
     }
     if (arg0->fDC >= lbl_805DF98C) {
@@ -145,7 +145,7 @@ void update_projectile__13TObjEneMorfosFPv(O_80337644 *arg0) {
         for (i = 0; i < lbl_805D586C; i++) {
             p = get_player_data__10TObjPlayerFi(i);
             if (is_valid_and_active__10TObjPlayerFUi(p) != 0 && get_random_float__8TObjFishFv(arg0->pos.y - *(f32 *)(p + 0x300)) < lbl_805DF990) {
-                TObjEneMorfos__sub_80337500((O_80337500 *)arg0, (V_80337500 *)p, (V_80337500 *)k);
+                hit_target_in_range__13TObjEneMorfosFPvPvPv((O_80337500 *)arg0, (V_80337500 *)p, (V_80337500 *)k);
             }
         }
     }
@@ -177,7 +177,7 @@ O_80337824 *TObjEneMorfos__sub_80337824(O_80337824 *arg0, Vec_80337824 *arg1, s3
     arg0->vel.z = lbl_805D6D30 * cos_table_lookup(arg2);
     arg0->fE0 = spawn_particle_effect_with_rotation(arg1, &a, 0x213, 2);
     VecCopy__FP3VecPC3Vec((void *)(&arg0->pos2), (int)(&arg0->pos));
-    TObjEneMorfos__sub_803375F0((M2C_UNK)(arg0), (s32)(&arg0->pos2));
+    snap_to_ground__13TObjEneMorfosFii((M2C_UNK)(arg0), (s32)(&arg0->pos2));
     arg0->fF4 = 0;
     return arg0;
 }

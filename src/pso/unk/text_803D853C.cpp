@@ -11,7 +11,7 @@ extern s32 lbl_805D7774;
 void mult_vec_array__10TObjPlayerFUii(u32 arg0, s32 arg1);
 s32 PSMTXInverse(int, int);
 extern s32 lbl_805D7774;
-void TObjPlayer__sub_803D89E8(u32 arg0);
+void invert_matrix_in_place__10TObjPlayerFUi(u32 arg0);
 M2C_UNK PSMTXMultVec(int);
 extern s32 lbl_805D7774;
 void matrix_mult_vec(u32 arg0);
@@ -87,7 +87,7 @@ void get_current_matrix(void *m) {
 
 #pragma push
 #pragma scheduling off
-void TObjPlayer__sub_803D89E8(u32 arg0) {
+void invert_matrix_in_place__10TObjPlayerFUi(u32 arg0) {
     u32 var_r3;
     var_r3 = arg0;
     if (var_r3 == 0U) {

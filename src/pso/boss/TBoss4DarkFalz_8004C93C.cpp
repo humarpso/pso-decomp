@@ -98,7 +98,7 @@ s32 is_ending_or_split_screen__14TBoss4DarkFalzFv();
 void change_state__14TBoss4DarkFalzFPvi(void *, s32);
 void handle_defeat__14TBoss4DarkFalzFPv(void *);
 s32 TBoss4DarkFalz__sub_8004B730(void *, f32, int);
-void TBoss4DarkFalz__sub_8004C3B4(void *arg0);
+void update_fade_countdown__14TBoss4DarkFalzFPv(void *arg0);
 s32 is_ending_or_split_screen__14TBoss4DarkFalzFv();
 void change_state__14TBoss4DarkFalzFPvi(void *, s32);
 void handle_defeat__14TBoss4DarkFalzFPv(void *);
@@ -186,7 +186,7 @@ void TBoss4DarkFalz__sub_8004C2D8(void *arg0) {
 
 void set_state__14TBoss4DarkFalzFPv(void* p) { freeze_all_players__14TBoss4DarkFalzFPv((void*)(p)); create__16TObjOnlineEndingFPv(p); *(int*)((char*)p + 0x380) = 454; }
 
-void TBoss4DarkFalz__sub_8004C3B4(void *arg0) {
+void update_fade_countdown__14TBoss4DarkFalzFPv(void *arg0) {
     f32 v;
     s32 t;
     if (is_ending_or_split_screen__14TBoss4DarkFalzFv() != 0) {
@@ -379,14 +379,14 @@ typedef struct Obj_8004C940 {
 extern "C" {
 u8 * create_demo1__14TBoss4DarkFalzFPvPvPv(void *, void *, void *);
 extern RecoveredGlobal_8004CBC0_lbl_80485448 lbl_80485448;
-void TBoss4DarkFalz__sub_8004CBC0(u8 *arg0);
+void start_demo1__14TBoss4DarkFalzFPv(u8 *arg0);
 s32 create__11TBoss4Type1Fi(void *params);
 int refresh_player_equipment__14TBoss4DarkFalzFPv(void*);
 int end_player_camera_pans__14TBoss4DarkFalzFPv(void*);
-void TBoss4DarkFalz__sub_8004CD08(Obj_8004CD08 *self);
+void spawn_type1__14TBoss4DarkFalzFPv(Obj_8004CD08 *self);
 void change_state__14TBoss4DarkFalzFPvi(void *, s32);
 void *create__11TBoss4Type2Fi(void *);
-void TBoss4DarkFalz__sub_8004CB28(S_8004CB28 *o);
+void update_spawn_type2_countdown__14TBoss4DarkFalzFPv(S_8004CB28 *o);
 void create_demo2__14TBoss4DarkFalzFPvPvPvPv(void *, Vec_8004C940 *, s32, s32);
 s32 stop_audio_streams__6TLobbyFv();
 void normalize_vector(Vec_8004C940 *);
@@ -469,7 +469,7 @@ void request_action_9__14TBoss4DarkFalzFi(s32 arg0) {
 
 void update_parts__14TBoss4DarkFalzFPv(void* p) { end_player_camera_pans__14TBoss4DarkFalzFPv((void*)(p)); refresh_player_equipment__14TBoss4DarkFalzFPv((void*)(p)); }
 
-void TBoss4DarkFalz__sub_8004CB28(S_8004CB28 *o) {
+void update_spawn_type2_countdown__14TBoss4DarkFalzFPv(S_8004CB28 *o) {
     Arg_8004CB28 a;
     o->f380 = o->f380 - 1;
     if (o->f380 < 0) {
@@ -487,7 +487,7 @@ void TBoss4DarkFalz__sub_8004CB28(S_8004CB28 *o) {
 void TBoss4DarkFalz__sub_8004CBBC(void) {  }
 
 typedef char RecoveredGlobal_8004CBC0_lbl_80485448_size[sizeof(RecoveredGlobal_8004CBC0_lbl_80485448) == 0xC ? 1 : -1];
-void TBoss4DarkFalz__sub_8004CBC0(u8 *arg0) {
+void start_demo1__14TBoss4DarkFalzFPv(u8 *arg0) {
     ((s32 (*)(void))freeze_all_players__14TBoss4DarkFalzFPv)();
     if ((void *) (*(u8 * *)&TBoss4DarkFalz__data_805D4D5C) != NULL) {
         create_demo1__14TBoss4DarkFalzFPvPvPv(arg0, (u8 *)((*(u8 * *)&TBoss4DarkFalz__data_805D4D5C)) + 0x38, M2C_FIELD((*(u8 * *)&TBoss4DarkFalz__data_805D4D5C), u8 **, 0x60));
@@ -514,7 +514,7 @@ void request_action_7__14TBoss4DarkFalzFi(s32 arg0) {
     }
 }
 
-void TBoss4DarkFalz__sub_8004CD08(Obj_8004CD08 *self) {
+void spawn_type1__14TBoss4DarkFalzFPv(Obj_8004CD08 *self) {
     Params_8004CD08 params;
     params.owner = self;
     TBoss4DarkFalz__sub_8004B4F0(&params.sub, (u8 *)&TBoss4DarkFalz__data_804FF1E8);
@@ -621,7 +621,7 @@ extern s32 lbl_805D586C;
 extern const f32 lbl_805D895C;
 extern const f32 lbl_805D8960;
 extern const f32 lbl_805D8964;
-void TBoss4DarkFalz__sub_8004D1E4(void *self);
+void check_players_near_center__14TBoss4DarkFalzFPv(void *self);
 }
 
 extern "C" {
@@ -669,7 +669,7 @@ void TBoss4DarkFalz__sub_8004D098(u8 *arg0) {
 
 void start_demo__14TBoss4DarkFalzFPv(void* p) { TBoss4DarkFalz__sub_8004B8F8(p); push_players_out_of_zone__14TBoss4DarkFalzFii(p, (void*)1); freeze_all_players__14TBoss4DarkFalzFPv(p); create__11TObjDFDemoFFPv(p); set_dark_falz_music_request((void*)1); fn_8036A514((void*)23); *(int*)((char*)p + 0x380) = 120; }
 
-void TBoss4DarkFalz__sub_8004D1E4(void *self) {
+void check_players_near_center__14TBoss4DarkFalzFPv(void *self) {
     V_8004D1E4 v;
     void *p;
     s32 i;

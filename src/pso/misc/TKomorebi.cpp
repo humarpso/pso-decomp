@@ -44,7 +44,7 @@ void load_resources__9TKomorebiFv(void);
 s32 get_bml_motion(s32, s32);
 s32 get_bml_model(void *, int);
 extern s32 lbl_805D5C2C;
-void TObjFish__sub_80192434(Fish_80192434 *arg0);
+void init_models__8TObjFishFPv(Fish_80192434 *arg0);
 }
 
 extern "C" {
@@ -154,7 +154,7 @@ void load_resources__9TKomorebiFv(void) {
     lbl_805D5C20 = (u32)p;
     lbl_805D5C24 = 0;
 }
-void TObjFish__sub_80192434(Fish_80192434 *arg0) {
+void init_models__8TObjFishFPv(Fish_80192434 *arg0) {
     s32 i;
     Node_80192434 *node;
     s32 j;

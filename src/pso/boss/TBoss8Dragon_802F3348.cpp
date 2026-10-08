@@ -20,7 +20,7 @@ f32 calc_random_ratio__10TObjPlayerFv(void *);
 void subtractive_rng_seed(void *, s32);
 void init_single_player_chr_select__6TLobbyFPv(void *);
 s32 get_enemy_entity();
-void TBoss8Dragon__sub_802F3A48(void *, Vec_802F33C8 *, u16, s32, s32);
+void spawn_attack_object__12TBoss8DragonFiiiii(void *, Vec_802F33C8 *, u16, s32, s32);
 u16 get_part_count_plus__12TBoss8DragonFPvi(void *, s32);
 f32 sin_table_lookup(s32);
 f32 cos_table_lookup(s32);
@@ -67,7 +67,7 @@ void place_parts_in_ring__12TBoss8DragonFiii(s32 n, s32 arg1, s32 arg2) {
             v.x = lbl_805DED44 * sin_table_lookup(ang);
             v.y = e->y;
             v.z = lbl_805DED44 * cos_table_lookup(ang);
-            TBoss8Dragon__sub_802F3A48(lbl_805D6978, &v, ang + 0x8000, arg1, i + 1);
+            spawn_attack_object__12TBoss8DragonFiiiii(lbl_805D6978, &v, ang + 0x8000, arg1, i + 1);
         }
     }
 }

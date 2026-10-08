@@ -15,7 +15,7 @@ struct VObj_802A4668 : Base_802A4668 {
 #define M2C_BITWISE(type, expr) ((type)(expr))
 extern "C" {
 M2C_UNK VecCopy__FP3VecPC3Vec(void *, void *);
-M2C_UNK TNeedleShoot__sub_802A4544(void *, f32, f32);
+M2C_UNK check_wall_hit__12TNeedleShootFPv(void *, f32, f32);
 void update_position__12TNeedleShootFPv(u8 *arg0);
 }
 
@@ -38,7 +38,7 @@ void update_position__12TNeedleShootFPv(u8 *arg0) {
     temp_f2 = M2C_FIELD(arg0, f32 *, 0x9C);
     temp_f1 = M2C_FIELD(arg0, f32 *, 0xAC);
     M2C_FIELD(arg0, f32 *, 0x74) = (f32) ((temp_f2 * temp_f1) + M2C_FIELD(arg0, f32 *, 0x74));
-    TNeedleShoot__sub_802A4544((void *) (arg0), (f32) (temp_f1), (f32) (temp_f2));
+    check_wall_hit__12TNeedleShootFPv((void *) (arg0), (f32) (temp_f1), (f32) (temp_f2));
 }
 #pragma pop
 

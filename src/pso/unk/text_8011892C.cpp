@@ -256,7 +256,7 @@ void equip__14TItemEquipBaseFPv();
 void unequip__14TItemEquipBaseFPv();
 void add_equip_stats__14TItemEquipBaseFPvi();
 void remove_equip_stats__14TItemEquipBaseFPvi();
-void TItemEquipBase__sub_8010AEFC();
+void subtract_item_stat_bonus__14TItemEquipBaseFPviiPv();
 void subtract_equip_stats__14TItemEquipBaseFPviPvPv();
 void TItem__sub_80100690();
 void TItem__sub_8010068C();
@@ -306,7 +306,7 @@ void *__vt__12TItemProUnit[51] = {
     (void *)unequip__14TItemEquipBaseFPv,
     (void *)add_equip_stats__14TItemEquipBaseFPvi,
     (void *)remove_equip_stats__14TItemEquipBaseFPvi,
-    (void *)TItemEquipBase__sub_8010AEFC,
+    (void *)subtract_item_stat_bonus__14TItemEquipBaseFPviiPv,
     (void *)subtract_equip_stats__14TItemEquipBaseFPviPvPv,
     (void *)TItem__sub_80100690,
     (void *)TItem__sub_8010068C,

@@ -13,7 +13,7 @@ extern "C" {
 u32 calc_gx_tile_index(u32 x, u32 y, s16 w);
 s32 is_in_range__10TObjPlayerFf(f32);
 f64 TPlyPhotonChair__sub_80142624(f32);
-s32 TObjPlayer__sub_801412D0(V3_801412D0 *v, V3_801412D0 *out);
+s32 calc_triangle_normal__10TObjPlayerFPvPv(V3_801412D0 *v, V3_801412D0 *out);
 }
 
 void xfree(void *ptr);
@@ -138,7 +138,7 @@ void __nw__5THeapFUl(void) {
 
 #pragma push
 #pragma fp_contract on
-s32 TObjPlayer__sub_801412D0(V3_801412D0 *v, V3_801412D0 *out) {
+s32 calc_triangle_normal__10TObjPlayerFPvPv(V3_801412D0 *v, V3_801412D0 *out) {
     V3_801412D0 a;
     V3_801412D0 b;
     V3_801412D0 n;

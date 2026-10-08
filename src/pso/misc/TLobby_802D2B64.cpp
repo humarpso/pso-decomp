@@ -44,7 +44,7 @@ void send_trade_proposal_result__6TLobbyFcc(s8 arg0, s8 arg1);
 M2C_UNK prepare_and_send_trade_packet__6TLobbyFPvPv(void *, void *);
 M2C_UNK build_6xA6_modify_trade_proposal(void *);
 extern s8 TLobby__data_805D688A;
-char TLobby__sub_802D3228(s8 arg0, s32 arg1, s32 arg2);
+char send_modify_trade_proposal__6TLobbyFcii(s8 arg0, s32 arg1, s32 arg2);
 u8 *get_quest_id__12TQuestListVMFPv(u32);
 u32 get_player_by_client_id(void *);
 s32 close_request_window__19TWindowTradeRequestFv();
@@ -179,7 +179,7 @@ void TLobby__sub_802D3134(Trade_802D3134 *arg0) {
     }
 }
 
-char TLobby__sub_802D3228(s8 arg0, s32 arg1, s32 arg2) {
+char send_modify_trade_proposal__6TLobbyFcii(s8 arg0, s32 arg1, s32 arg2) {
   Stack_802D3228 stack;
   build_6xA6_modify_trade_proposal(&stack.sp8);
   stack.spC = arg0;

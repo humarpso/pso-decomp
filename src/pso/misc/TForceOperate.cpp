@@ -128,7 +128,7 @@ struct VOff_801C5870_arg0_801C57D0 { char pad_0[0x1C]; char f_1C[1]; };
 void *TForceOperate__ct(void *arg0, void *arg1, void *arg2);
 void calc_death_sink_offset(void *arg0);
 void run_task__13TForceOperateFv(s32 arg0);
-s32 TObjPlayer__sub_801B58DC(void *);
+s32 has_action_palette_entry__10TObjPlayerFPv(void *);
 s32 TObjPlayer__sub_801C6DAC(s32);
 void *find_entity_by_id();
 void __ct__7TObjectFP7TObject(void *);
@@ -146,7 +146,7 @@ void run_task__13TForceOperateFv(s32 arg0) {
 
     if (TObjPlayer__sub_801C6DAC(arg0 + 0x1C) != 0) {
         temp_r31 = get_state__11TMainCursorFPv(arg0 + 0x1C);
-        if ((is_target_valid__10TObjPlayerFPv() != 0) && (TObjPlayer__sub_801B58DC(temp_r31) != 0)) {
+        if ((is_target_valid__10TObjPlayerFPv() != 0) && (has_action_palette_entry__10TObjPlayerFPv(temp_r31) != 0)) {
             get_id__11TMainCursorFPv(M2C_FIELD(temp_r31, s32 *, 0x424) + 0x4F8);
             temp_r3 = find_entity_by_id();
             if (temp_r3 != NULL) {

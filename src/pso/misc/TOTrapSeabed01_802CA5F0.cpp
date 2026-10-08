@@ -153,7 +153,7 @@ void *load_resource_from_descriptor(void *, s32, void *, s32, s32, s32);
 void *alloc__23TAdSinglePlyChrSelectGCFPv(u32);
 s32 count_linked_switches__23TObjSeabedSuisoBrakableFUii(u32, s32);
 u32 load_gvm_texture_file(void *);
-s32 TObjDoorJung__sub_8023DBEC(u32, void *);
+s32 find_entry_by_name__12TObjDoorJungFPvPv(u32, void *);
 extern u8 lbl_804720E8[];
 extern u8 lbl_80472100[];
 extern u8 lbl_804E0FA8[];
@@ -285,7 +285,7 @@ void load_resources__14TOTrapSeabed01Fv(void) {
     lbl_805D681C = 0;
     lbl_805D6820 = -1;
     if (t != 0U) {
-        lbl_805D6820 = TObjDoorJung__sub_8023DBEC(t, lbl_80472100);
+        lbl_805D6820 = find_entry_by_name__12TObjDoorJungFPvPv(t, lbl_80472100);
     }
 }
 

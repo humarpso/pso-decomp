@@ -251,11 +251,11 @@ struct VObj18_802D0D3C : VBase18_802D0D3C {
 extern "C" {
 void VecCopy__FP3VecPC3Vec(void *, void *);
 extern const f32 lbl_805DE704;
-void TObjEneBm9Mericarol__sub_802D095C(u8 *arg0);
+void sync_center_position__19TObjEneBm9MericarolFPv(u8 *arg0);
 s32 check_demo_mode__10TObjPlayerFv();
 M2C_UNK set_player_state_default__12TBoss8DragonFPv(void *);
 s32 transition_enemy_state(void * a0, s32 a1);
-void TObjEneBm9Mericarol__sub_802D095C(u8 *arg0);
+void sync_center_position__19TObjEneBm9MericarolFPv(u8 *arg0);
 void TObjEneBm9Mericarol__sub_802D0B04(u8 *arg0);
 s32 copy_target_state__14TObjEnePanarmsFPvPv(void *, int);
 s32 play_persistent_sound(void *, void *, void *, int, int);
@@ -673,7 +673,7 @@ void update_shadow_height__19TObjEneBm9MericarolFPv(void *arg0) {
     M2C_FIELD(M2C_FIELD(arg0, void **, 0xA4), f32 *, 4) = (f32) (M2C_FIELD(arg0, f32 *, 0x300) - M2C_FIELD(arg0, f32 *, 0x3C));
 }
 
-void TObjEneBm9Mericarol__sub_802D095C(u8 *arg0) {
+void sync_center_position__19TObjEneBm9MericarolFPv(u8 *arg0) {
     VecCopy__FP3VecPC3Vec(arg0 + 0x2FC, arg0 + 0x38);
     M2C_FIELD(arg0, f32 *, 0x300) = (f32) (M2C_FIELD(arg0, f32 *, 0x300) + lbl_805DE704);
     VecCopy__FP3VecPC3Vec(arg0 + 0x74, arg0 + 0x2FC);
@@ -774,7 +774,7 @@ void TObjEneBm9Mericarol__sub_802D0B04(u8 *arg0) {
             transition_enemy_state((void *)((void *) (arg0)), (s32)((int) (2)));
         }
     }
-    TObjEneBm9Mericarol__sub_802D095C((u8 *)((void *) (arg0)));
+    sync_center_position__19TObjEneBm9MericarolFPv((u8 *)((void *) (arg0)));
     set_player_state_default__12TBoss8DragonFPv((void *) (arg0));
     ((VObj_18 *)(arg0))->m98();
 }
@@ -849,7 +849,7 @@ Obj_802D0D3C *TObjEneBm9Mericarol__ct(Obj_802D0D3C *self, void *parent, s32 arg2
     self->f4A0 = 0;
     self->f4A4 = lbl_805DE70C;
     self->f4AC = 0;
-    TObjEneBm9Mericarol__sub_802D095C((u8 *)self);
+    sync_center_position__19TObjEneBm9MericarolFPv((u8 *)self);
     ((VObj18_802D0D3C *)self)->m86();
     transform_part_positions__9TObjEneDDFPv(self);
     self->f326 = 0;

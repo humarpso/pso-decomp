@@ -17,7 +17,7 @@ s32 get_current_floor(void);
 s32 get_field_3e4__10TObjPlayerFPv(void *);
 s32 get_player_by_client_id(u32);
 f32 xz_distance_squared(void *, void *);
-bool fn_802C7ECC(u8 *arg0, u32 arg1);
+bool is_player_outside_trade_radius(u8 *arg0, u32 arg1);
 extern const f32 TAdFadeGC__data_805DE5E8;
 extern const f32 lbl_805DE604;
 extern const f32 lbl_805DE60C;
@@ -189,7 +189,7 @@ void *__ct__9TAdFadeGCFv(void *arg0, void *arg1, void *arg2) {
 #pragma opt_common_subs off
 #pragma opt_propagation off
 #pragma opt_dead_assignments off
-bool fn_802C7ECC(u8 *arg0, u32 arg1) {
+bool is_player_outside_trade_radius(u8 *arg0, u32 arg1) {
     f32 temp_f0;
     f32 temp_f31;
     s32 temp_r31;

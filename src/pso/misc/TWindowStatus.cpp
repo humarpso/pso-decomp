@@ -27,7 +27,7 @@ M2C_UNK update_window_entry_list(s32, s32);
 M2C_UNK update_hp_tp_values__20TWindowSubStatusDispFPv();
 void __dl__7TObjectFPv(void *);
 void __dt__19TWindowSimpleStatusFv(void *, int);
-M2C_UNK fn_80270014(s32);
+M2C_UNK update_lockon_window(s32);
 M2C_UNK initialize_subwindow__9TWindowDDFPv(s32);
 M2C_UNK update_fade__17TWindowSubComCardFPv(s32);
 M2C_UNK update_status_help_item(s32);
@@ -52,7 +52,7 @@ void render__13TWindowStatusFv(u8 *arg0) {
 
 void run_task__13TWindowStatusFv(s32 arg0) {
     update_hp_tp_values__20TWindowSubStatusDispFPv();
-    fn_80270014(arg0);
+    update_lockon_window(arg0);
     update_status_help_item(arg0);
     update_status_icons__14TWindowComCardFPvPv(arg0, get_window_layout_position(0x1D));
     initialize_subwindow__9TWindowDDFPv(arg0);

@@ -100,7 +100,7 @@ extern "C" {
 void TObjEneSlimeOne__sub_800EC470(void* p);
 void TObjEneSlime__sub_800EB910(Obj_800EB910 *self);
 void TObjEneSlime__sub_800EB9F0(void* p, void* q);
-void fn_800EB7BC(void *, s32, s32, s32);
+void spawn_slime_in_slot(void *, s32, s32, s32);
 extern const Slot_800EB984 lbl_8043D218;
 void TObjEneSlime__sub_800EB984(Obj_800EB984 *self);
 M2C_UNK TObjFish__sub_8001EDB0(void *, int);
@@ -159,7 +159,7 @@ void TObjEneSlime__sub_800EB984(Obj_800EB984 *self) {
     for (i = 0; i < 4; i++) {
         TObjEneSlime__sub_800EB9F0(&self->slots[i], (void *)&lbl_8043D218);
     }
-    fn_800EB7BC(self, 0, 0, 0);
+    spawn_slime_in_slot(self, 0, 0, 0);
 }
 
 void TObjEneSlime__sub_800EB9F0(void* p, void* q) { *(u32*)((char*)p + 0x0) = *(u32*)((char*)q + 0x0); *(u32*)((char*)p + 0x4) = *(u32*)((char*)q + 0x4); }

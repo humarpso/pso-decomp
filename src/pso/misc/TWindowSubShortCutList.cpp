@@ -10,11 +10,11 @@ extern "C" {
 void TShopJudgmentItemWindow__sub_80267F9C(void *, int);
 void *__nw__7TObjectFUl(int);
 extern s32 lbl_8044FAA8[];
-void *TWindowSubShortCutList__sub_8027E3B4(void *arg0, void *arg1);
+void *create__22TWindowSubShortCutListFPvPv(void *arg0, void *arg1);
 void *get_message_10__20TWindowSubStatusDispFPv(s32);
 void *alloc__23TAdSinglePlyChrSelectGCFPv(s32);
 void set_flag70_bit10__20TWindowShortListCtrlFPv(void *);
-void TWindowSubStatusDisp__sub_80267AA8(void *, s16);
+void set_cursor_index__20TWindowSubStatusDispFPvs(void *, s16);
 void ensure_status_display__20TWindowSubStatusDispFPvi(void *, void *);
 void fn_802683F4(void *, void *, s32, s16);
 void *init__21TWindowSubComCardListFPviii(void *, s8, s32, s32);
@@ -93,7 +93,7 @@ void refresh_entries__22TWindowSubShortCutListFPv(void *arg0) {
     clamp_selection_to_valid_entry__20TShopArmorListWindowFPv(arg0);
 }
 
-void *TWindowSubShortCutList__sub_8027E3B4(void *arg0, void *arg1) {
+void *create__22TWindowSubShortCutListFPvPv(void *arg0, void *arg1) {
     void *p;
     TShopJudgmentItemWindow__sub_80267F9C(lbl_8044FAA8, 4);
     p = __nw__7TObjectFUl(0x8C);
@@ -155,7 +155,7 @@ void *TWindowSubShortCutList__ct(void *arg0, void *arg1, void *arg2) {
     ((Obj_8027E558 *)arg0)->list = p;
     set_flag70_bit10__20TWindowShortListCtrlFPv(arg0);
     refresh_entries__22TWindowSubShortCutListFPv((void *)(arg0));
-    TWindowSubStatusDisp__sub_80267AA8(arg0, col);
+    set_cursor_index__20TWindowSubStatusDispFPvs(arg0, col);
     return arg0;
 }
 

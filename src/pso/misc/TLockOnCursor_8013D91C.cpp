@@ -52,7 +52,7 @@ void clear_id__10TObjPlayerFPv(void *);
 s32 init_lockon__11TMainCursorFPv(s32, s32, s32);
 s32 init_vtable__11TMainCursorFPv(s32, s32, s32);
 s32 init__11TMainCursorFPv(s32, s32, s32);
-M2C_UNK TMainCursor__sub_8013B3AC(s32);
+M2C_UNK reset_state__11TMainCursorFPv(s32);
 M2C_UNK destroy_lock_on__11TMainCursorFPvi(s32, s32);
 M2C_UNK set_target__11TMainCursorFPvi(s32, s32);
 M2C_UNK reset_nearest_target_record(s32);
@@ -62,7 +62,7 @@ Obj_8013DCCC *release_target__13TLockOnCursorFPv(void *);
 Obj_8013DCCC *cleanup_field__13TLockOnCursorFPv(void *);
 Obj_8013DCCC *cleanup_field_3c__13TLockOnCursorFPv(void *);
 M2C_UNK TLockOnCursor__sub_8013EC1C(s32);
-M2C_UNK TLockOnCursor__sub_8013EC38(s32);
+M2C_UNK reset_state__13TLockOnCursorFPv(s32);
 s32 __nw__7TObjectFUl(M2C_UNK);
 extern s32 tl_loc_start;
 extern s32 tl_loc_end;
@@ -110,9 +110,9 @@ void reset_and_spawn_cursors__13TLockOnCursorFi(s32 arg0) {
     s32 var_r30;
     clear_id__10TObjPlayerFPv((void *)(arg0 + 0x1C));
     for (var_r30 = 0; var_r30 < 4; var_r30++) {
-        TMainCursor__sub_8013B3AC((s32)&((Cur_8013DAB0 *)arg0)->arr[var_r30]);
+        reset_state__11TMainCursorFPv((s32)&((Cur_8013DAB0 *)arg0)->arr[var_r30]);
     }
-    TLockOnCursor__sub_8013EC38(arg0 + 0x4EC);
+    reset_state__13TLockOnCursorFPv(arg0 + 0x4EC);
     TLockOnCursor__sub_8013EC1C(arg0 + 0x508);
     reset_nearest_target_record(arg0 + 0x510);
     if (cleanup_field_3c__13TLockOnCursorFPv((void *)arg0) == NULL) {

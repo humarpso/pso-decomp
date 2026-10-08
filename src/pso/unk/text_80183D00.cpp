@@ -27,7 +27,7 @@ struct RecoveredGlobal_80183D00_lbl_804B5CC4 {
 };
 
 extern "C" {
-s32 TObjCity_Season_EasterEgg__sub_80184A08(void *, s32, f32);
+s32 advance_anim_time__25TObjCity_Season_EasterEggFPvif(void *, s32, f32);
 extern const f32 lbl_805DBC5C;
 void fn_80183E08(u8 *arg0);
 M2C_UNK scroll_strip_uvs(void *, int, int);
@@ -80,7 +80,7 @@ void fn_80183D4C(u8 *arg0) {
 
 void fn_80183E08(u8 *arg0) {
     s32 temp_r3;
-    if (TObjCity_Season_EasterEgg__sub_80184A08(arg0, 0, lbl_805DBC5C) != 0) {
+    if (advance_anim_time__25TObjCity_Season_EasterEggFPvif(arg0, 0, lbl_805DBC5C) != 0) {
         M2C_FIELD(arg0, s32 *, 0xB4) = (s32) (M2C_FIELD(arg0, s32 *, 0xB4) + 2);
         temp_r3 = M2C_FIELD(arg0, s32 *, 0xB4);
         if (temp_r3 >= 0xFF) {

@@ -27,7 +27,7 @@ extern const f32 TWindowDD__data_805DFB58;
 extern const f32 lbl_805DFB5C;
 extern const f32 lbl_805DFCD4;
 extern const f32 TWindowDD__data_805DFCD8;
-void TWindowDD__sub_80348AFC(u8 *arg0, u8 *arg1);
+void calc_inner_rect__9TWindowDDFPvPv(u8 *arg0, u8 *arg1);
 }
 
 extern "C" {
@@ -38,7 +38,7 @@ void append_string__9TWindowDDFiiPv(s32 arg0, s32 arg1, s32 *arg2);
 void draw__9TWindowDDFPviif(void *arg0, s32 arg1, s32 arg2, f32 farg0);
 s32 get_draw_count__9TWindowDDFPv(void **arg0);
 s32 get_entry__9TWindowDDFi(s32 arg0);
-M2C_UNK TWindowDD__sub_803403F8(Buf *, M2C_UNK);
+M2C_UNK reset_entries__9TWindowDDFPvf(Buf *, M2C_UNK);
 s32 can_append_chars__9TWindowDDFiPv(s32, s32 *);
 M2C_UNK TWindowDD__sub_803489B8(s32, Buf *, M2C_UNK);
 M2C_UNK draw_transformed_primitive__9TWindowDDFPvPvPvPv(Buf *, M2C_UNK, s32, M2C_UNK);
@@ -65,7 +65,7 @@ void draw__9TWindowDDFPviif(void *arg0, s32 arg1, s32 arg2, f32 farg0) {
 
     temp_r31 = get_draw_count__9TWindowDDFPv((void **)(lbl_805D63F0));
     TWindowDD__sub_80348AD4(M2C_FIELD(arg0, f32 *, 0x54), farg0);
-    TWindowDD__sub_803403F8(&sp8, -1);
+    reset_entries__9TWindowDDFPvf(&sp8, -1);
     TWindowDD__sub_80348A9C((Dst_80348A9C *)(&sp8), (s32)(arg2));
     TWindowDD__sub_80348A2C((void *)(arg1), (void *)(&sp8));
     TWindowDD__sub_803489B8(arg1, &sp8, 0);
@@ -137,7 +137,7 @@ extern s32 lbl_805D6E3C;
 
 #pragma push
 #pragma fp_contract on
-void TWindowDD__sub_80348AFC(u8 *arg0, u8 *arg1) {
+void calc_inner_rect__9TWindowDDFPvPv(u8 *arg0, u8 *arg1) {
     f32 y0;
     f32 ky;
     f32 x0;

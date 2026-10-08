@@ -28,7 +28,7 @@ extern s32 lbl_805D5544;
 extern const f32 lbl_805DD068;
 extern const f32 lbl_805DD06C;
 extern const f32 lbl_805DD070;
-void TWindowKeyBoardHard__sub_80260020(Win_80260020 *self, Ctx_80260020 *ctx);
+void draw_status_text__19TWindowKeyBoardHardFPvPv(Win_80260020 *self, Ctx_80260020 *ctx);
 }
 
 extern "C" {
@@ -41,7 +41,7 @@ s32 is_key_active__19TWindowKeyBoardHardFPv();
 
 void release_keyboard__19TWindowKeyBoardHardFPv(void* p) { void* m = *(void**)((char*)p + 0x70); if (m) TWindowKeyBoardHard__sub_8025CC48(m); }
 
-void TWindowKeyBoardHard__sub_80260020(Win_80260020 *self, Ctx_80260020 *ctx) {
+void draw_status_text__19TWindowKeyBoardHardFPvPv(Win_80260020 *self, Ctx_80260020 *ctx) {
     s32 flags;
     if (self->state != NULL && lbl_805D5544 == 0) {
         f32 inv = lbl_805DD068 / ctx->scale;
@@ -72,7 +72,7 @@ void render__19TWindowKeyBoardHardFv(void *arg0) {
     s32 temp;
     if (((s32) M2C_FIELD(arg0, s32 *, 0x68) > 0) && (is_key_active__19TWindowKeyBoardHardFPv() == 0)) {
         temp = draw_default_entry__9TWindowDDFi(arg0);
-        TWindowKeyBoardHard__sub_80260020((Win_80260020 *)(arg0), (Ctx_80260020 *)(temp));
+        draw_status_text__19TWindowKeyBoardHardFPvPv((Win_80260020 *)(arg0), (Ctx_80260020 *)(temp));
     }
 }
 

@@ -36,10 +36,10 @@ struct Butterfly_80350BC4 {
 extern "C" {
 s32 is_connected__6TLobbyFv();
 s32 is_lobby_obj_active__6TLobbyFv();
-void TObjButterflyLobby__sub_80350AE4(Obj_80350AE4 *arg0);
+void update_fade__18TObjButterflyLobbyFPv(Obj_80350AE4 *arg0);
 M2C_UNK VecCopy__FP3VecPC3Vec(void *, void *);
 u32 csnVector(void *, void *, int);
-void TObjButterflyLobby__sub_80350AE4(Obj_80350AE4 *arg0);
+void update_fade__18TObjButterflyLobbyFPv(Obj_80350AE4 *arg0);
 s32 rand();
 f32 sin_table_lookup(int);
 void rotate_vector_by_matrix(int, void *, void *);
@@ -103,7 +103,7 @@ void render__18TObjButterflyLobbyFv(void *arg0) {
         render__18TObjButterflyLobbyFPv((u8 *)(arg0));
     }
 }
-void TObjButterflyLobby__sub_80350AE4(Obj_80350AE4 *arg0) {
+void update_fade__18TObjButterflyLobbyFPv(Obj_80350AE4 *arg0) {
     switch (arg0->state) {
     case 0:
         if (is_connected__6TLobbyFv() != 0) {
@@ -139,7 +139,7 @@ struct Obj_80350AE4;
 #define FRND() (3.0517578125e-05f * (f32)rand())
 void run_task__18TObjButterflyLobbyFv(Butterfly_80350BC4 *o) {
     f32 base;
-    TObjButterflyLobby__sub_80350AE4((Obj_80350AE4 *)o);
+    update_fade__18TObjButterflyLobbyFPv((Obj_80350AE4 *)o);
     base = 3.2f * sin_table_lookup(o->phase) + o->baseY;
     if (o->rising == 0) {
         o->tilt = 5.0f * (base - o->pos.y);

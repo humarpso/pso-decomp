@@ -20,7 +20,7 @@ s32 TObjFish__sub_8001EDB0(void *, s32);
 Node_801A0578 *get_bml_model(void *, s32);
 void *load_resource_from_descriptor(void *, s32, void *, s32, s32, s32);
 void *alloc__23TAdSinglePlyChrSelectGCFPv(s32);
-s32 TObjDoorJung__sub_8023DBEC(s32, void *);
+s32 find_entry_by_name__12TObjDoorJungFPvPv(s32, void *);
 extern char lbl_80446718[];
 extern char lbl_80446728[];
 extern char lbl_80446738[];
@@ -68,9 +68,9 @@ void load_warp_beam_resources(void) {
     lbl_8050DDC8[5] = root->sibling->f4;
     lbl_805D5CB8 = root->sibling->sibling->sibling->f4;
     lbl_805D5CB4 = 0;
-    lbl_805D5CBC = TObjDoorJung__sub_8023DBEC(lbl_805D5CB0, lbl_80446718);
-    lbl_805D5CC0 = TObjDoorJung__sub_8023DBEC(lbl_805D5CB0, lbl_80446728);
-    lbl_805D5CC4 = TObjDoorJung__sub_8023DBEC(lbl_805D5CB0, lbl_80446738);
+    lbl_805D5CBC = find_entry_by_name__12TObjDoorJungFPvPv(lbl_805D5CB0, lbl_80446718);
+    lbl_805D5CC0 = find_entry_by_name__12TObjDoorJungFPvPv(lbl_805D5CB0, lbl_80446728);
+    lbl_805D5CC4 = find_entry_by_name__12TObjDoorJungFPvPv(lbl_805D5CB0, lbl_80446738);
 }
 
 }

@@ -23,7 +23,7 @@ u8 *load_resource_from_descriptor(void *, s32, void *, s32, s32, s32);
 extern void *lbl_804DC640[];
 extern u32 TObjFish__data_805D65E8;
 extern s32 TObjFish__data_805D65EC;
-void TObjFish__sub_8029E5E8(void);
+void load_area_resource__8TObjFishFv(void);
 }
 
 extern "C" {
@@ -232,7 +232,7 @@ void *__vt__8TObjFish[13] = {
     (void *)TObjRoomId__sub_801A1E2C,
 };
 
-void TObjFish__sub_8029E5E8(void) {
+void load_area_resource__8TObjFishFv(void) {
     u8 *base = (u8 *)lbl_804DC640;
     u8 *p;
     switch (get_global_state__14TOKeyMachine01Fv()) {

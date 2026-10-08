@@ -12,7 +12,7 @@ extern int lbl_805D6094;
 void TLobby__sub_802090C0(void);
 void TItemDrop__sub_800FDDF4();
 void TItemDrop__sub_800FDE7C(void *);
-s32 TLobby__sub_80208F7C();
+s32 load_all_floor_event_sets__6TLobbyFv();
 extern u8 lbl_8044BAD0[];
 extern s32 lbl_805139F8[];
 extern int lbl_805D6090;
@@ -40,7 +40,7 @@ void load_set_event_gsl__6TLobbyFv(void) {
     (*(s32 *)&lbl_805D6090) = -1;
     lbl_805D6098 = 0;
     TItemDrop__sub_800FDE7C(lbl_8044BAD0);
-    if (TLobby__sub_80208F7C() == 0) {
+    if (load_all_floor_event_sets__6TLobbyFv() == 0) {
         TItemDrop__sub_800FDDF4();
         return;
     }

@@ -141,7 +141,7 @@ s32 reset_photon_effect__10TObjPlayerFPv(void *);
 void refresh_collision_body_centers(void *);
 s32 init_collision_body_parts(void *, void *, int);
 void construct_collider_proxy__10TObjPlayerFPv(void *);
-void TObjLazerFence4__sub_80193188(void *);
+void init_models__15TObjLazerFence4FPv(void *);
 extern u16 lbl_80445BE0[];
 extern u8 lbl_804B8128[];
 extern M2C_UNK __vt__15TObjLazerFence4[];
@@ -223,7 +223,7 @@ void *TObjLazerFence4__ct(void *arg0, void *arg1, void *arg2) {
         i = 3;
     }
     self->fB8 = lbl_80445BE0[i];
-    TObjLazerFence4__sub_80193188(self);
+    init_models__15TObjLazerFence4FPv(self);
     init_collision_body_parts(self, lbl_804B8128 + (self->f8C % 2) * 0xDC, 5);
     self->flags |= 0x40000000;
     reset_photon_effect__10TObjPlayerFPv(self);

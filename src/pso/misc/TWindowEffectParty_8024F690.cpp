@@ -11,7 +11,7 @@ f32 cos_table_lookup(s32);
 extern const f64 lbl_8044ECF0;
 extern const f32 lbl_805DCCB8;
 extern const f32 lbl_805DCCBC;
-s32 TWindowEffectParty__sub_8024F690(u8 *arg0, f32 farg0, f32 farg1);
+s32 step_toward_target__18TWindowEffectPartyFPvff(u8 *arg0, f32 farg0, f32 farg1);
 void *__nw__7TObjectFUl(u32);
 void *TWindowEffectParty__ct(void *, void *, u16, u16, s32);
 extern s32 lbl_805D53A0;
@@ -31,7 +31,7 @@ extern s32 lbl_805D53A0;
 extern f32 lbl_805DCCC0;
 
 #pragma fp_contract on
-s32 TWindowEffectParty__sub_8024F690(u8 *arg0, f32 farg0, f32 farg1) {
+s32 step_toward_target__18TWindowEffectPartyFPvff(u8 *arg0, f32 farg0, f32 farg1) {
   f32 temp_f4;
   f32 temp_f5;
   s32 temp_r31;

@@ -154,7 +154,7 @@ void update_prev_position__10TObjPlayerFPv(void *);
 void update_collisions__10TObjPlayerFPv(void *);
 void submit_cursor_candidate(void *, s32);
 void minimap_render_dot(void *, s32, s32, s32);
-void TBoss4Zako__sub_8030AC7C(void *, s32, s32);
+void queue_entry__10TBoss4ZakoFPvii(void *, s32, s32);
 extern const f32 lbl_805D8CD0;
 extern const f32 TBoss4Zako__data_805D8CD4;
 extern const f32 lbl_805D8CD8;
@@ -315,7 +315,7 @@ void update_prev_position__10TObjPlayerFPv(void *);
 void update_collisions__10TObjPlayerFPv(void *);
 void submit_cursor_candidate(void *, s32);
 void minimap_render_dot(void *, s32, s32, s32);
-void TBoss4Zako__sub_8030AC7C(void *, s32, s32);
+void queue_entry__10TBoss4ZakoFPvii(void *, s32, s32);
 f32 sin_table_lookup(s32);
 extern const f32 lbl_805D8CD0;
 extern const f32 TBoss4Zako__data_805D8CD4;
@@ -440,7 +440,7 @@ void run_task__9TBoss4UroFv(TBoss4Uro_8005C49C *self) {
         if (TBoss4Uro__sub_8005D698(self) != 0) {
             self->f60 += 0x1111;
         }
-        TBoss4Zako__sub_8030AC7C(&self->pos, self->f5C, self->f60);
+        queue_entry__10TBoss4ZakoFPvii(&self->pos, self->f5C, self->f60);
         TBoss4Zako__sub_8005C9BC(self);
         update_prev_position__10TObjPlayerFPv(self);
         if (TBoss4Uro__sub_8005D698(self) != 0) {
@@ -652,7 +652,7 @@ void TBoss4Zako__sub_8005BC4C(TBoss4Bishi_8005BC4C *self) {
         if (TBoss4Uro__sub_8005D698(self) != 0) {
             self->f60 += 0x1111;
         }
-        TBoss4Zako__sub_8030AC7C(&self->pos, self->f5C, self->f60);
+        queue_entry__10TBoss4ZakoFPvii(&self->pos, self->f5C, self->f60);
         TBoss4Zako__sub_8005C9BC(self);
         update_prev_position__10TObjPlayerFPv(self);
         if (TBoss4Uro__sub_8005D698(self) != 0) {

@@ -279,7 +279,7 @@ void draw_main__10TObjPlayerFPv(u8 *arg0);
 int reset_enemy_state__10TObjPlayerFPv(void* p);
 M2C_UNK post_translate_matrix(void *);
 M2C_UNK rotate_matrix_x(M2C_UNK, s32);
-M2C_UNK TObjEneBalClaw__sub_8008D700(void *, M2C_UNK);
+M2C_UNK render_scaled__14TObjEneBalClawFPvi(void *, M2C_UNK);
 M2C_UNK draw_chunk_object(s32);
 M2C_UNK restore_scene_lighting();
 M2C_UNK select_actor_lighting(void *);
@@ -622,7 +622,7 @@ void draw_main__10TObjPlayerFPv(u8 *arg0) {
             restore_scene_lighting();
             end_effect_render__13TParticleCtrlFv();
             some_id_805c6f74 = lbl_805D5660;
-            TObjEneBalClaw__sub_8008D700(arg0, var_r30);
+            render_scaled__14TObjEneBalClawFPvi(arg0, var_r30);
         }
     }
 }

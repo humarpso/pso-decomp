@@ -35,7 +35,7 @@ void end_effect_render__13TParticleCtrlFv(void);
 void set_global_param__8TObjFishFi(s32);
 void set_texture_num(s32);
 void reset_player_state__15TObjBoss2TunnelFv(void);
-void TObjBoss2Tunnel__sub_803E2BCC(void *, s32);
+void draw_projected_quads__15TObjBoss2TunnelFPvi(void *, s32);
 void TObjBoss2Tunnel__sub_803E2D10(s32);
 void reset_player_state__6TLobbyFv(void);
 void draw_projected_textured_strip(void *, s32);
@@ -231,7 +231,7 @@ void TLobby__sub_80338534(void) {
     reset_transform_state__10TObjPlayerFv();
     begin_effect_render__13TParticleCtrlFv();
     TObjBoss2Tunnel__sub_803E2D10(1);
-    TObjBoss2Tunnel__sub_803E2BCC(t->a, 4);
+    draw_projected_quads__15TObjBoss2TunnelFPvi(t->a, 4);
     reset_player_state__15TObjBoss2TunnelFv();
     if ((u32)lbl_805D6D5C != 0) {
         set_global_param__8TObjFishFi(lbl_805D6D5C);

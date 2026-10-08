@@ -52,7 +52,7 @@ M2C_UNK update_window_entry_list(void *, void *);
 void play_open_sound__15TWindowSnapShotFPv(void *arg0);
 extern RecoveredGlobal_802A7FB0_lbl_8050E208 lbl_8050E208;
 void run_task__15TWindowSnapShotFv(u8 *arg0);
-s32 TObjBoss2Tunnel__sub_8007CB50(void);
+s32 verify_snapshot_checksum__15TObjBoss2TunnelFv(void);
 s32 get_localized_text_entry(M2C_UNK, M2C_UNK);
 s32 get_array_entry__20TWindowSubStatusDispFPvi(void *, s32);
 u8 * construct_base__9TWindowDDFPvPvsPv(void *, s32, s16, s32);
@@ -170,7 +170,7 @@ u8 *TWindowSnapShot__ct(u8 *arg0, s32 arg1) {
     M2C_FIELD(arg0, M2C_UNK **, 0x18) = &(*(RecoveredGlobal_802A80A0___vt__15TWindowSnapShot *)&__vt__15TWindowSnapShot).value;
     M2C_FIELD(arg0, s32 *, 0) = (s32) lbl_805D3E18;
     M2C_FIELD(arg0, u8 *, 0x60) = 0U;
-    if (TObjBoss2Tunnel__sub_8007CB50() == 0) {
+    if (verify_snapshot_checksum__15TObjBoss2TunnelFv() == 0) {
         M2C_FIELD(arg0, u8 *, 0x60) = (u8) (M2C_FIELD(arg0, u8 *, 0x60) | 2);
     }
     temp_r31 = get_array_entry__20TWindowSubStatusDispFPvi(arg0, 1);

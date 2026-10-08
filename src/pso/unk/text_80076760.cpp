@@ -16,7 +16,7 @@ s16 get_field_2b8__14TItemProShieldFPv(void *);
 u32 find_revival_item__10TObjPlayerFv(void *);
 void *get_player_by_client_id(s32);
 
-void fn_800767D8(Obj_800767D8 *self);
+void update_player_hp_ratios(Obj_800767D8 *self);
 }
 
 extern "C" {
@@ -30,7 +30,7 @@ void fn_80076760(Obj_80076760 *self) {
     }
     self->count--;
 }
-void fn_800767D8(Obj_800767D8 *self) {
+void update_player_hp_ratios(Obj_800767D8 *self) {
     s32 changed;
     s32 i;
     void *p;
@@ -117,7 +117,7 @@ void update_when_camera_active__13TObjWarnChimeFPv(void *arg0) {
         M2C_FIELD(arg0, s32 *, 0x1C) = 0;
         return;
     }
-    ((M2C_UNK (*)(void *))fn_800767D8)(arg0);
+    ((M2C_UNK (*)(void *))update_player_hp_ratios)(arg0);
     ((M2C_UNK (*)(void *))fn_80076760)(arg0);
 }
 

@@ -366,7 +366,7 @@ M2C_UNK TObjEneBalClawClaw__sub_80090824(void *);
 M2C_UNK TObjEneBalClawClaw__sub_800914A4(void *);
 void update_attack_distance_state__18TObjEneBalClawClawFPv(u8 *arg0);
 void update_state__18TObjEneBalClawClawFPv(u8 *arg0);
-M2C_UNK TObjPlayer__sub_800C6A18(void *);
+M2C_UNK release_destroyed_target__10TObjPlayerFPv(void *);
 s32 find_active_entity_by_id(int);
 s32 find_entity_by_id(int);
 M2C_UNK submit_cursor_candidate(void *, int, int, f32, f32);
@@ -693,7 +693,7 @@ void TObjEneBalClawClaw__sub_8009173C(u8 *arg0) {
         M2C_FIELD(arg0, s32 *, 0x37C) = 0;
     }
     M2C_FIELD(arg0, s32 *, 0x2A8) = find_active_entity_by_id((int) (M2C_FIELD(arg0, u16 *, 0x338)));
-    TObjPlayer__sub_800C6A18((void *) (arg0));
+    release_destroyed_target__10TObjPlayerFPv((void *) (arg0));
     update_state__18TObjEneBalClawClawFPv(arg0);
     temp_r3_2 = M2C_FIELD(arg0, s32 *, 0x388);
     if (!(temp_r3_2 & 0x10000000)) {

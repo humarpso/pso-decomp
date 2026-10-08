@@ -25,7 +25,7 @@ f64 get_ad_end_text_start__10TObjPlayerFv(f32, f32);
 void disallow_rendering__7TObjectFv(void *);
 void *__ct__10TItemShootFPvPC3VecPC3Vecf(void *, u32, s32, s32, f32);
 f32 sin_table_lookup(s32);
-void TObjPlayer__sub_803D89E8(s32);
+void invert_matrix_in_place__10TObjPlayerFUi(s32);
 void subtract_vector(Vec*, Vec*);
 void transform_point_by_current_matrix(void *, void *);
 void push_matrix(void);
@@ -91,7 +91,7 @@ void *__ct__15TItemEffBringerFv(Bringer_8010834C *self, u32 arg1, Vec_8010834C *
     self->f0 = lbl_805D2B90;
     push_matrix();
     z.x = z.y = z.z = lbl_805DAB10;
-    TObjPlayer__sub_803D89E8(0);
+    invert_matrix_in_place__10TObjPlayerFUi(0);
     transform_point_by_current_matrix(&z, &out);
     VecCopy__FP3VecPC3Vec(&w, src);
     subtract_vector((Vec*)((Vec *)&w), (Vec*)((Vec *)&out));

@@ -92,7 +92,7 @@ s32 TLobby__sub_80406AE4(void);
 s32 TLobby__sub_80409AA8(void);
 s32 TLobby__sub_8040DD68(void);
 s32 TLobby__sub_8040ED28(void);
-s32 TLobby__sub_8040FF0C(void);
+s32 shutdown_ipv6__6TLobbyFv(void);
 s32 TLobby__sub_8041112C(void);
 s32 TLobby__sub_80415650(void);
 void TLobby__sub_80415AEC(void);
@@ -151,14 +151,14 @@ extern s32 lbl_805D7BA0;
 s32 TLobby__sub_8042455C(void *a);
 M2C_UNK unlock_mutex__10TUdpSocketFi(void *);
 M2C_UNK lock_mutex__6TLobbyFi(void *);
-s32 TLobby__sub_8041E068(int, void *, void *, void *, void *);
+s32 get_tcp_stat__6TLobbyFsPvPvPvPv(int, void *, void *, void *, void *);
 s16 validate_tcp_handle__6TLobbyFs(int);
 extern RecoveredGlobal_804217E4_lbl_805C1C50 lbl_805C1C50;
 s32 tcp_stat__FsPsPsPUlPUl(s32 a, s16 *b, s16 *c, u32 *d, u32 *e);
 M2C_UNK unlock_mutex__10TUdpSocketFi(void *);
 M2C_UNK lock_mutex__6TLobbyFi(void *);
 s16 tcp_get_socket_handle__6TLobbyFs(int);
-s32 TLobby__sub_8041E224(int);
+s32 abort_tcp_connection__6TLobbyFs(int);
 s16 validate_tcp_handle__6TLobbyFs(int);
 extern RecoveredGlobal_804217E4_lbl_805C1C50 lbl_805C1C50;
 s32 tcp_abort__Fs(s32 a);
@@ -176,11 +176,11 @@ s16 TLobby__sub_80406B14();
 s32 TLobby__sub_80409AA8(void);
 s16 TLobby__sub_80409AD8();
 s32 TLobby__sub_8040DD68(void);
-s16 TLobby__sub_8040DDB0();
+s16 init_ipv4_interfaces__6TLobbyFv();
 s32 TLobby__sub_8040ED28(void);
 s16 TLobby__sub_8040ED70();
-s32 TLobby__sub_8040FF0C(void);
-s16 TLobby__sub_8040FF58();
+s32 shutdown_ipv6__6TLobbyFv(void);
+s16 init_ipv6_interfaces__6TLobbyFv();
 s32 TLobby__sub_8041112C(void);
 s16 TUdpSocket__sub_8041118C();
 s32 TLobby__sub_80415650(void);
@@ -301,7 +301,7 @@ s32 cleanup_subsystems__6TLobbyFv(void) {
     TLobby__sub_80415AEC();
     TLobby__sub_8041112C();
     TLobby__sub_8040ED28();
-    TLobby__sub_8040FF0C();
+    shutdown_ipv6__6TLobbyFv();
     TLobby__sub_8040DD68();
     TLobby__sub_80418A7C();
     TLobby__sub_80420C5C();
@@ -336,9 +336,9 @@ s16 init_network_stack__6TLobbyFv(void) {
                     if (var_r31 >= 0) {
                         var_r31 = init_packet_fragment_pools__6TLobbyFv();
                         if (var_r31 >= 0) {
-                            var_r31 = TLobby__sub_8040DDB0();
+                            var_r31 = init_ipv4_interfaces__6TLobbyFv();
                             if (var_r31 >= 0) {
-                                var_r31 = TLobby__sub_8040FF58();
+                                var_r31 = init_ipv6_interfaces__6TLobbyFv();
                                 if (var_r31 >= 0) {
                                     var_r31 = TLobby__sub_8040ED70();
                                     if (var_r31 >= 0) {
@@ -368,7 +368,7 @@ block_21:
                                         goto block_22;
                                     }
 block_22:
-                                    TLobby__sub_8040FF0C();
+                                    shutdown_ipv6__6TLobbyFv();
                                     goto block_23;
                                 }
 block_23:
@@ -608,7 +608,7 @@ s32 tcp_stat__FsPsPsPUlPUl(s32 a, s16 *b, s16 *c, u32 *d, u32 *e) {
         unlock_mutex__10TUdpSocketFi((void *)g->f0);
         return -4;
     }
-    r = TLobby__sub_8041E068(a, b, c, d, e);
+    r = get_tcp_stat__6TLobbyFsPvPvPvPv(a, b, c, d, e);
     unlock_mutex__10TUdpSocketFi((void *)g->f0);
     return r;
 }
@@ -644,7 +644,7 @@ s32 tcp_abort__Fs(s32 a) {
         unlock_mutex__10TUdpSocketFi((void *)lbl_805C1C50.value);
         return -9;
     }
-    r = TLobby__sub_8041E224(m);
+    r = abort_tcp_connection__6TLobbyFs(m);
     unlock_mutex__10TUdpSocketFi((void *)g->f0);
     return r;
 }

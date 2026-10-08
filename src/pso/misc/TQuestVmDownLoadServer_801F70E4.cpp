@@ -160,7 +160,7 @@ M2C_UNK move_data__6TLobbyFv(void *, s32, s32);
 u32 subtractive_rng_next(RecoveredGlobal_801F8FA4_TQuestVmDownLoadServer__data_80512C18 *);
 void subtractive_rng_seed(RecoveredGlobal_801F8FA4_TQuestVmDownLoadServer__data_80512C18 *, u32);
 void subtractive_rng_make_shuffle(RecoveredGlobal_801F8FA4_TQuestVmDownLoadServer__data_80512C18 *);
-void TAdSinglePlyChrSelectGC__sub_8007C1CC(RecoveredGlobal_801F8FA4_TQuestVmDownLoadServer__data_80512C18 *, void *, void *, s32);
+void permute_save_blocks__23TAdSinglePlyChrSelectGCFPvPvPvUi(RecoveredGlobal_801F8FA4_TQuestVmDownLoadServer__data_80512C18 *, void *, void *, s32);
 void apply_rng_cipher__23TAdSinglePlyChrSelectGCFPvPvi(RecoveredGlobal_801F8FA4_TQuestVmDownLoadServer__data_80512C18 *, u32 *, u32);
 void subtractive_rng_xor_buffer(RecoveredGlobal_801F8FA4_TQuestVmDownLoadServer__data_80512C18 *, u32 *, u32);
 void encrypt_download_data__22TQuestVmDownLoadServerFPvi(u32 *data, s32 size);
@@ -1034,7 +1034,7 @@ void encrypt_download_data__22TQuestVmDownLoadServerFPvi(u32 *data, s32 size) {
     move_data__6TLobbyFv(src, (s32)data, size);
     subtractive_rng_seed(&TQuestVmDownLoadServer__data_80512C18, lbl_80512D00[1]);
     subtractive_rng_make_shuffle(&TQuestVmDownLoadServer__data_80512C18);
-    TAdSinglePlyChrSelectGC__sub_8007C1CC(&TQuestVmDownLoadServer__data_80512C18, src, dst, size);
+    permute_save_blocks__23TAdSinglePlyChrSelectGCFPvPvPvUi(&TQuestVmDownLoadServer__data_80512C18, src, dst, size);
     move_data__6TLobbyFv(data, (s32)dst, size);
     safe_free__23TAdSinglePlyChrSelectGCFUi(dst);
     safe_free__23TAdSinglePlyChrSelectGCFUi(src);

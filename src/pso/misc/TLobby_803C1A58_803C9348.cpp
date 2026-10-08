@@ -319,7 +319,7 @@ void TLobby__sub_803CB81C(void);
 M2C_UNK TLobby__sub_803CBF50(void *);
 M2C_UNK notify_error__6TLobbyFPv(void *);
 extern u8 lbl_8047C690[];
-void TLobby__sub_803C96F0(S_803C96F0 *arg0, s32 arg1, s16 arg2);
+void adxt_set_out_pan__6TLobbyFPvis(S_803C96F0 *arg0, s32 arg1, s16 arg2);
 M2C_UNK GXFlush();
 M2C_UNK release_ref__6TLobbyFv();
 M2C_UNK init_once__6TLobbyFv();
@@ -355,7 +355,7 @@ extern s32 lbl_805D7598;
 extern s32 lbl_805D75A4;
 extern s32 lbl_805D75BC;
 extern s32 lbl_805D75C0;
-void TLobby__sub_803CBA58(void);
+void worker_thread_loop__6TLobbyFv(void);
 extern s32 lbl_805D7540;
 void set_param_and_notify__6TLobbyFPvi(void *, int);
 void TLobby__sub_803C0758(void *);
@@ -413,7 +413,7 @@ M2C_UNK DVDReadAbsAsyncPrio(int);
 M2C_UNK memset(void *, int, int);
 M2C_UNK reset_entry__6TLobbyFPv(void *);
 M2C_UNK clear_entry__6TLobbyFi(void *);
-M2C_UNK TLobby__sub_803CC070(void *);
+M2C_UNK unregister_si_polling__6TLobbyFPv(void *);
 M2C_UNK TLobby__sub_803D198C(void *);
 extern RecoveredCallback_2be3cacebb2e lbl_805D7574;
 void TLobby__sub_803CA194(Obj_803CA194 *arg0);
@@ -590,7 +590,7 @@ s16 TLobby__sub_803C96E0(Obj_803C96E0 *self, s32 i) {
     return self->vals[i];
 }
 
-void TLobby__sub_803C96F0(S_803C96F0 *arg0, s32 arg1, s16 arg2) {
+void adxt_set_out_pan__6TLobbyFPvis(S_803C96F0 *arg0, s32 arg1, s16 arg2) {
     arg0->vals[arg1] = arg2;
     if (arg1 < arg0->count) {
         TLobby__sub_803CBF50(arg0->p);
@@ -839,7 +839,7 @@ void TLobby__sub_803CA194(Obj_803CA194 *arg0) {
         release_ref__6TLobbyFv();
     }
     if (arg0->fc != NULL) {
-        TLobby__sub_803CC070(arg0->fc);
+        unregister_si_polling__6TLobbyFPv(arg0->fc);
     }
     if (arg0->f4 != NULL) {
         reset_entry__6TLobbyFPv(arg0->f4);
@@ -1277,7 +1277,7 @@ void TLobby__sub_803CB594(s32 arg0, void *arg1, s32 arg2) {
 }
 #pragma pop
 
-Ch_803CB5C4 *TLobby__sub_803CB5C4(void) {
+Ch_803CB5C4 *alloc_adx_channel__6TLobbyFv(void) {
     s32 i;
     Ch_803CB5C4 *c;
 
@@ -1340,7 +1340,7 @@ void TLobby__sub_803CBA38(void) {
     TLobby__sub_803D3344();
 }
 
-void TLobby__sub_803CBA58(void) {
+void worker_thread_loop__6TLobbyFv(void) {
     while (lbl_805D75C0 == 1) {
         if (TLobby__sub_803D3224(lbl_805D75A4++) == 0 || lbl_805D7598 == 1) {
             if (lbl_805D7598 == 1) {

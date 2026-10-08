@@ -44,7 +44,7 @@ void fn_800EB778(Obj_800EB778 *self, s32 id);
 s32 VecCopy__FP3VecPC3Vec(void *, void *);
 u32 create__15TObjEneSlimeOneFiii(void *, void *, u32);
 s32 create__15TObjEneSlimeOneFii(s32 arg0, s32 arg1);
-s32 fn_800EB7BC(Obj_800EB7BC *arg0, s32 arg1, Vec_800EB7BC *arg2, u32 arg3);
+s32 spawn_slime_in_slot(Obj_800EB7BC *arg0, s32 arg1, Vec_800EB7BC *arg2, u32 arg3);
 }
 
 extern "C" {
@@ -58,7 +58,7 @@ void fn_800EB778(Obj_800EB778 *self, s32 id) {
     self->slots[i].state = 2;
 }
 
-s32 fn_800EB7BC(Obj_800EB7BC *arg0, s32 arg1, Vec_800EB7BC *arg2, u32 arg3) {
+s32 spawn_slime_in_slot(Obj_800EB7BC *arg0, s32 arg1, Vec_800EB7BC *arg2, u32 arg3) {
     Tmpl_800EB7BC t;
     Slot_800EB7BC *slot;
     s32 n;

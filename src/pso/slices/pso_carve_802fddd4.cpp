@@ -11,7 +11,7 @@ struct Node_802FDDD4 {
 
 extern "C" {
 void copy_model_node(u8 *, u8 *);
-Node_802FDDD4 *TBoss8Dragon__sub_802FDDD4(Node_802FDDD4 *src, Node_802FDDD4 *dst, s32 v);
+Node_802FDDD4 *clone_node_tree__12TBoss8DragonFPvPvi(Node_802FDDD4 *src, Node_802FDDD4 *dst, s32 v);
 }
 
 extern "C" {
@@ -31,18 +31,18 @@ void TBoss8Dragon__sub_802FDE7C(void);
 void TBoss8Dragon__sub_802FDE80(void);
 void build_6xA8_gol_dragon_boss_actions(void* p);
 
-Node_802FDDD4 *TBoss8Dragon__sub_802FDDD4(Node_802FDDD4 *src, Node_802FDDD4 *dst, s32 v) {
+Node_802FDDD4 *clone_node_tree__12TBoss8DragonFPvPvi(Node_802FDDD4 *src, Node_802FDDD4 *dst, s32 v) {
     Node_802FDDD4 *cur = dst;
     dst = dst + 1;
     copy_model_node((u8 *)cur, (u8 *)src);
     cur->v = v;
     if (src->c0 != NULL) {
         cur->c0 = dst;
-        dst = TBoss8Dragon__sub_802FDDD4(src->c0, dst, v);
+        dst = clone_node_tree__12TBoss8DragonFPvPvi(src->c0, dst, v);
     }
     if (src->c1 != NULL) {
         cur->c1 = dst;
-        dst = TBoss8Dragon__sub_802FDDD4(src->c1, dst, v);
+        dst = clone_node_tree__12TBoss8DragonFPvPvi(src->c1, dst, v);
     }
     return dst;
 }

@@ -218,11 +218,11 @@ extern Pair_80344980 *TWindowDD__data_805D6E40;
 extern Pair_80344980 *TWindowDD__data_805D6E44;
 extern u8 *TWindowDD__data_805D6E48;
 s32 TWindowDD__sub_80344980(DD_803461CC *arg0, char *arg1, u16 arg2);
-s32 TWindowDD__sub_803404A4(void *, int);
+s32 apply_both_choices__9TWindowDDFii(void *, int);
 s32 TWindowDD_check_input_mask(void *, int);
 M2C_UNK TWindowDD__sub_803407F0(int, int);
 s32 TWindowDD__sub_80340820(int);
-M2C_UNK TWindowDD__sub_80340828(int);
+M2C_UNK handle_input__9TWindowDDFPv(int);
 M2C_UNK TWindowDD__sub_80340910(int);
 M2C_UNK TWindowDD__sub_8034091C(int, int);
 M2C_UNK TWindowDD__sub_80340E20(int, int);
@@ -555,7 +555,7 @@ void run_task__9TWindowDDFv(u8 *arg0) {
     case 2:
         break;
     case 1:
-        TWindowDD__sub_80340828(w->x80);
+        handle_input__9TWindowDDFPv(w->x80);
         done = 0;
         if (test_input_flag_4__9TWindowDDFPv(w) != 0) {
             if (w->x80 != 0) {
@@ -580,7 +580,7 @@ void run_task__9TWindowDDFv(u8 *arg0) {
             play_se__9TWindowDDFv();
             done = 1;
             w->x94 |= 2;
-        } else if (TWindowDD__sub_803404A4(w->input, 0x40) != 0) {
+        } else if (apply_both_choices__9TWindowDDFii(w->input, 0x40) != 0) {
             spawn_window__9TWindowDDFv();
             done = 1;
         }

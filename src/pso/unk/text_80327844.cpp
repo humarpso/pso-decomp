@@ -1,6 +1,6 @@
 #include "types.h"
 extern "C" {
-s32 TOComputerMachine01__sub_803278B0(void *, int, void *);
+s32 collect_scroll_uv_entries__19TOComputerMachine01FiPvi(void *, int, void *);
 void visit_matching_models(s32 arg0, u8 *arg1, s32 arg2);
 }
 
@@ -18,7 +18,7 @@ void visit_matching_models(s32 arg0, u8 *arg1, s32 arg2) {
     new_var = arg2;
     if (temp_r4 != 0U)
     {
-      TOComputerMachine01__sub_803278B0((void *) arg0, (int) temp_r4, (void *) new_var);
+      collect_scroll_uv_entries__19TOComputerMachine01FiPvi((void *) arg0, (int) temp_r4, (void *) new_var);
     }
     temp_r4_2 = (u8 *) (*((u8 **) (((s8 *) var_r30) + 0x2C)));
     if (temp_r4_2 != 0)

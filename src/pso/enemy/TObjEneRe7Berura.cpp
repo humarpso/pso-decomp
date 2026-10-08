@@ -576,7 +576,7 @@ void bind_motion_context(void *, f32);
 s32 compose_motion_node_matrix(int);
 s32 matrix_mult_vec(int, void *, void *);
 void get_current_matrix(void *);
-void TObjPlayer__sub_803D9324(int, void *);
+void copy_matrix__10TObjPlayerFUiUi(int, void *);
 M2C_UNK subtract_vector(void *, void *);
 void translate_matrix(s32, f32, f32, f32);
 M2C_UNK concat_matrix__10TObjPlayerFUiUi(M2C_UNK, s32);
@@ -1073,7 +1073,7 @@ M2C_UNK collect_node_matrices__16TObjEneRe7BeruraFPvi(void *arg0, int idx) {
             ((M2C_UNK (*)(M2C_UNK, void *))concat_matrix__10TObjPlayerFUiUi)(0, &m);
             get_current_matrix(&m);
             pop_matrix();
-            TObjPlayer__sub_803D9324(0, &m);
+            copy_matrix__10TObjPlayerFUiUi(0, &m);
         }
         if (idx >= lbl_805D4F90 && idx <= lbl_805D4F94) {
             s32 p = TObjEneRe7Berura__data_805D4F98;

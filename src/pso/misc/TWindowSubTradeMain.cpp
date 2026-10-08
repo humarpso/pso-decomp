@@ -46,7 +46,7 @@ u8 * csnVectorUnder(s32, void *, s32);
 void set_active__12TObjEneReconFv(void);
 extern s32 lbl_805D53A4;
 extern const f32 TObjEneMorfos__data_805DF870;
-void TObjEneMorfos__sub_80332594(u8 *arg0);
+void update_ground_probe__13TObjEneMorfosFPv(u8 *arg0);
 int get_target_info__9TObjEneDDFPv(void*);
 void update_player_state__9TObjEneDDFPv(void *, V3_803323D8 *, int);
 void toggle_particle_effect__10TObjPlayerFv(void);
@@ -120,7 +120,7 @@ void TObjEneMorfos__vt104(O_803323D8 *arg0) {
 
 void TObjEneMorfos__vt103(void* p) { if (get_target_info__9TObjEneDDFPv(p) != 0) { TObjEneMorfos__sub_8033471C(p); } }
 
-void TObjEneMorfos__sub_80332594(u8 *arg0) {
+void update_ground_probe__13TObjEneMorfosFPv(u8 *arg0) {
     Stack_80332594 stack;
     u8 *temp_r3;
     if ((lbl_805D53A4 % 5) == 0) {

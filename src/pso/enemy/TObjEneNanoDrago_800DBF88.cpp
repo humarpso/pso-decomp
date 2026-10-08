@@ -200,7 +200,7 @@ void set_field_d8__10TObjPlayerFPvi(void *, void *);
 void set_flags_30__19TBoss3VoloptMonitorFPv(void *);
 u8 * alloc__23TAdSinglePlyChrSelectGCFPv(M2C_UNK);
 s32 check_demo_mode__10TObjPlayerFv();
-M2C_UNK TObjPlayer__sub_800C6A18(void *);
+M2C_UNK release_destroyed_target__10TObjPlayerFPv(void *);
 void TObjEnemyCustom__sub_800C7860(void *);
 void update_state_machine__15TObjEnemyCustomFPv(void *);
 void __dt__15TObjEnemyCustomFv(void *, int);
@@ -740,7 +740,7 @@ void update__10TObjPlayerFPv(u8 *arg0) {
         return;
     }
     M2C_FIELD(arg0, s32 *, 0x2A8) = find_active_entity_by_id((int) (M2C_FIELD(arg0, u16 *, 0x338)));
-    TObjPlayer__sub_800C6A18((void *) (arg0));
+    release_destroyed_target__10TObjPlayerFPv((void *) (arg0));
     TObjPlayer__sub_800DA2A0((void *) (arg0));
     if ((s16) M2C_FIELD(arg0, s16 *, 0x326) != (s32) M2C_FIELD(arg0, s32 *, 0x374)) {
         if ((s32) M2C_FIELD(arg0, s32 *, 0x37C) != -1) {

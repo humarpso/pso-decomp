@@ -35,7 +35,7 @@ s32 TWindowShortListCtrl__check_controller_button(void *, M2C_UNK, s32);
 s32 get_map_id__13TRaderMapCoreFPv();
 u32 get_player_by_client_id(int);
 extern u8 lbl_8050E208[];
-void TChallenge4PResult__sub_8034BA68(TChallenge4PResult *arg0);
+void update_wait_input__18TChallenge4PResultFPv(TChallenge4PResult *arg0);
 extern M2C_UNK TChallenge4PResult__data_805436A8[];
 void TChallenge4PResult__sub_8034B66C(void);
 s32 TLobby__sub_80292270(int, int);
@@ -170,7 +170,7 @@ int queue_destruction__18TChallenge4PResultFPv(void* p) { return queue_destructi
 extern u8 lbl_8050E208[];
 
 typedef char RecoveredGlobal_8034BA68_lbl_8050E208_size[sizeof(RecoveredGlobal_8034BA68_lbl_8050E208) == 0x1B0 ? 1 : -1];
-void TChallenge4PResult__sub_8034BA68(TChallenge4PResult *arg0) {
+void update_wait_input__18TChallenge4PResultFPv(TChallenge4PResult *arg0) {
     s32 temp_r5;
     if (get_player_by_client_id((int) (arg0->slot_index)) != 0U) {
         temp_r5 = get_map_id__13TRaderMapCoreFPv() * 0x50;
@@ -254,7 +254,7 @@ void TChallenge4PResult::run_task() {
             handle_result_code__18TChallenge4PResultFPv((u8 *)((void *) (this)));
             return;
         case 2:
-            TChallenge4PResult__sub_8034BA68((TChallenge4PResult *)((void *) (this)));
+            update_wait_input__18TChallenge4PResultFPv((TChallenge4PResult *)((void *) (this)));
             return;
         case 3:
             queue_destruction__18TChallenge4PResultFPv((void*)((void *) (this)));

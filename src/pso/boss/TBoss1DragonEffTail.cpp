@@ -87,7 +87,7 @@ extern const f32 lbl_805D8154;
 EffTail_8002C06C *TBoss1DragonEffTail__ct(EffTail_8002C06C *arg0, s32 arg1, s32 arg2);
 M2C_UNK VecCopy__FP3VecPC3Vec(void *, void *);
 M2C_UNK TBoss1Dragon__sub_8002885C(void *);
-M2C_UNK TBoss1Dragon__sub_80028890(void *);
+M2C_UNK reload_difficulty_stats__12TBoss1DragonFi(void *);
 M2C_UNK update_collider_contact_by_height(void *, f32);
 f32 sin_table_lookup(s32);
 f32 cos_table_lookup(s32);
@@ -159,7 +159,7 @@ void run_task__19TBoss1DragonEffTailFv(u8 *arg0) {
         TBoss1Dragon__sub_8002885C(M2C_FIELD(arg0, void **, 0xB0));
         ((VObj_18_8002BD38 *) arg0)->m15(&sp8, M2C_FIELD(arg0, void **, 0xB8));
     }
-    TBoss1Dragon__sub_80028890(M2C_FIELD(arg0, void **, 0xB0));
+    reload_difficulty_stats__12TBoss1DragonFi(M2C_FIELD(arg0, void **, 0xB0));
 }
 
 void TBoss1DragonEffTail__vt18(s32 arg0, s32 arg1) {

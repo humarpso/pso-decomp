@@ -128,7 +128,7 @@ void * TOContainerAncientItemCommon__ct(void *, void *);
 s32 __nw__7TObjectFUl(int);
 s32 get_game_play_mode();
 extern s32 enable_v2_features;
-s32 TOContainerAncientItemCommon__sub_8015C108(s32 arg0);
+s32 create__28TOContainerAncientItemCommonFi(s32 arg0);
 void submit_cursor_candidate(Obj_8015C48C *self, s32 x);
 void TObjPlayer__sub_8015C48C(Obj_8015C48C *self);
 s32 TObjFish__sub_8001EDB0(void *, s32);
@@ -194,7 +194,7 @@ void TOContainerAncientItemCommon__vt4(void *arg0, s16 *arg1, s32 arg2) {
 
 extern M2C_UNK __vt__28TOContainerAncientItemCommon[];
 
-s32 TOContainerAncientItemCommon__sub_8015C108(s32 arg0) {
+s32 create__28TOContainerAncientItemCommonFi(s32 arg0) {
     s32 temp_r3;
     s32 temp_r3_2;
     s32 var_r0;

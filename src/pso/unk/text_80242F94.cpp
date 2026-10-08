@@ -31,7 +31,7 @@ extern RecoveredGlobal_802430E8_lbl_80518580 lbl_80518580;
 M2C_UNK *TAdSinglePlyChrSelectGC__sub_802430E8(void);
 s32 is_active__12TBoss3VoloptFPv(int);
 extern RecoveredGlobal_802430E8_lbl_80518580 lbl_80518580;
-M2C_UNK *TBoss3Volopt__sub_80242F94(u32 arg0);
+M2C_UNK *find_active_node_by_id__12TBoss3VoloptFUi(u32 arg0);
 s32 is_active__12TBoss3VoloptFPv(int);
 extern RecoveredGlobal_802430E8_lbl_80518580 lbl_80518580;
 M2C_UNK *find_free_effect_slot__12TBoss3VoloptFv(void);
@@ -42,7 +42,7 @@ extern const f32 lbl_805DCA04;
 void TAdSinglePlyChrSelectGC__sub_80243070(s16 arg0);
 void accumulate_rumble_strength__23TAdSinglePlyChrSelectGCFPvi(Sp_802430F4 *, u32, s32);
 void TAdSinglePlyChrSelectGC__sub_80242B24(Sp_802430F4 *);
-s32 TAdSinglePlyChrSelectGC__sub_80242B30(Pt_80243070 *, Sp_802430F4 *);
+s32 update_rumble_pattern__23TAdSinglePlyChrSelectGCFPvPv(Pt_80243070 *, Sp_802430F4 *);
 void fn_80242C54(Ent_802430F4 *);
 s32 fn_80242F0C(s32);
 void PADControlMotor(s32, u32);
@@ -56,7 +56,7 @@ extern "C" {
 typedef char RecoveredGlobal_802430E8_lbl_80518580_size[sizeof(RecoveredGlobal_802430E8_lbl_80518580) == 0x180 ? 1 : -1];
 
 typedef char RecoveredGlobal_80242F94_lbl_80518580_size[sizeof(RecoveredGlobal_80242F94_lbl_80518580) == 0x180 ? 1 : -1];
-M2C_UNK *TBoss3Volopt__sub_80242F94(u32 arg0) {
+M2C_UNK *find_active_node_by_id__12TBoss3VoloptFUi(u32 arg0) {
     M2C_UNK *var_r31;
     s32 var_r30;
     var_r30 = 0;
@@ -124,7 +124,7 @@ void update_pad_rumble(void) {
         } else {
             TAdSinglePlyChrSelectGC__sub_80242B24(&sp);
             accumulate_rumble_strength__23TAdSinglePlyChrSelectGCFPvi(&sp, t, i);
-            if (TAdSinglePlyChrSelectGC__sub_80242B30(q, &sp) != 0) {
+            if (update_rumble_pattern__23TAdSinglePlyChrSelectGCFPvPv(q, &sp) != 0) {
                 PADControlMotor(i, 1);
             } else {
                 PADControlMotor(i, 0);

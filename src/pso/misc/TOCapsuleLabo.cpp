@@ -48,7 +48,7 @@ s32 count_linked_switches__23TObjSeabedSuisoBrakableFUii(u32, s32);
 extern RecoveredGlobal_802AF300_lbl_804DE440 lbl_804DE440;
 extern u32 TOCapsuleLabo__data_805D6708;
 extern s32 *lbl_805D670C;
-void TOCapsuleLabo__sub_802AF300(void);
+void load_resources__13TOCapsuleLaboFv(void);
 s32 is_split_screen();
 s32 queue_destruction__7TObjectFv(void *);
 s32 TObjFish__sub_8001EDB0(int, int);
@@ -102,7 +102,7 @@ void unload_static_data__13TOCapsuleLaboFv(void) {
 
 extern s32 *lbl_805D670C;
 
-void TOCapsuleLabo__sub_802AF300(void) {
+void load_resources__13TOCapsuleLaboFv(void) {
     s32 temp_r3;
     s32 var_r0;
     u32 temp_r3_2;

@@ -71,7 +71,7 @@ void TAdChrSelSlotGC__sub_802C74AC(S_802C74AC *arg0, s32 arg1, void *arg2);
 extern const f32 lbl_805DE5CC;
 extern const f32 lbl_805DE5D4;
 void copy_vec2__28TWindowSubSymbolChatPartsSetFPvPv(void *, void *);
-void TAdMcSelectGC__sub_802C7560(S_802C7560 *arg0, s32 arg1, void *arg2);
+void init_slot__13TAdMcSelectGCFPviPv(S_802C7560 *arg0, s32 arg1, void *arg2);
 void update_menu_cursor__6TLobbyFv();
 void TLobby__sub_8023E4B4(s32, s32);
 extern const s32 lbl_80471D3C[];
@@ -172,7 +172,7 @@ void TAdChrSelSlotGC__sub_802C754C(O_802C754C *self, s32 i) {
     self->v[i] = 0;
 }
 
-void TAdMcSelectGC__sub_802C7560(S_802C7560 *arg0, s32 arg1, void *arg2) {
+void init_slot__13TAdMcSelectGCFPviPv(S_802C7560 *arg0, s32 arg1, void *arg2) {
     arg0->a[arg1] = 1;
     copy_vec2__28TWindowSubSymbolChatPartsSetFPvPv(&arg0->v[arg1], arg2);
     arg0->e[arg1].x = arg0->v[arg1].x;

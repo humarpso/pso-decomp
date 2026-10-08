@@ -85,13 +85,13 @@ typedef struct Vec_8003B6E8 {
 } Vec_8003B6E8;
 
 extern "C" {
-void TObjBoss2Tunnel__sub_8003B250(u32, f32);
+void release_children__15TObjBoss2TunnelFPvf(u32, f32);
 s32 create_particle__20TAdLoadQuestPrtTxtGCFPvii(void *, s32, s32);
 void enable__13TParticleCtrlFPv(void *);
 extern Rec_8003C108 lbl_80483590[];
 extern const f32 lbl_805D85B0;
 extern const f32 lbl_805D8650;
-void TObjBoss2Tunnel__sub_8003C108(S_8003C108 *o);
+void update_particles__15TObjBoss2TunnelFPv(S_8003C108 *o);
 s32 get_state_flag__9TMainTaskFv();
 s32 TObjBoss2Tunnel__sub_8003C21C(void *, void *);
 s32 is_any_teammate_in_state__10TObjPlayerFv();
@@ -135,7 +135,7 @@ int rand(void);
 void *__ct__13TObjBoss2DustFv(void *, void *, Vec_8003B6E8 *);
 void play_sound_effect(int, void *, int, int);
 void play_persistent_sound(int, void *, int, int, int);
-void TObjBoss2Tunnel__sub_8003C108(S_8003C108 *o);
+void update_particles__15TObjBoss2TunnelFPv(S_8003C108 *o);
 void enable_fog__15TObjBoss2TunnelFv(void *);
 void enable_fog__15TObjBoss2TunnelFPv(void *);
 s32 is_active__15TObjBoss2TunnelFv(void);
@@ -484,7 +484,7 @@ void run_task__15TObjBoss2TunnelFv(Tunnel_8003B6E8 *o) {
     if (o->f24 == 1 || o->f24 == 2) {
         play_persistent_sound(0x4003B20C, o, 0, 0, 0);
     }
-    TObjBoss2Tunnel__sub_8003C108((S_8003C108 *)o);
+    update_particles__15TObjBoss2TunnelFPv((S_8003C108 *)o);
     if (TObjBoss2Tunnel__data_805D4C00 & 2) {
         TObjBoss2Tunnel__data_805D4C00 &= ~2;
         TObjBoss2Tunnel__data_805D4C00 |= 1;
@@ -565,7 +565,7 @@ void run_task__15TObjBoss2TunnelFv(Tunnel_8003B6E8 *o) {
 }
 #pragma pop
 
-void TObjBoss2Tunnel__sub_8003C108(S_8003C108 *o) {
+void update_particles__15TObjBoss2TunnelFPv(S_8003C108 *o) {
     f32 t;
     s32 i;
     u32 r;
@@ -584,7 +584,7 @@ void TObjBoss2Tunnel__sub_8003C108(S_8003C108 *o) {
                 o->ptr[i] = r;
             }
         } else {
-            TObjBoss2Tunnel__sub_8003B250(p, t);
+            release_children__15TObjBoss2TunnelFPvf(p, t);
         }
     }
 }

@@ -29,7 +29,7 @@ void reserve_enemy_set_actor_ids(SpawnRecord_8020A9C4 *arg0, s32 arg1, s32 arg2)
 s32 TLobby__sub_8020C030(void *, Rec_8020AA94 *);
 extern s32 TLobby__data_805D60E0;
 extern s32 TLobby__data_805D60E8;
-void TLobby__sub_8020AA94(Rec_8020AA94 *arg0, s32 arg1, void *arg2);
+void assign_object_ids__6TLobbyFPviPv(Rec_8020AA94 *arg0, s32 arg1, void *arg2);
 }
 
 extern "C" {
@@ -55,7 +55,7 @@ void reserve_enemy_set_actor_ids(SpawnRecord_8020A9C4 *arg0, s32 arg1, s32 arg2)
         }
     }
 }
-void TLobby__sub_8020AA94(Rec_8020AA94 *arg0, s32 arg1, void *arg2) {
+void assign_object_ids__6TLobbyFPviPv(Rec_8020AA94 *arg0, s32 arg1, void *arg2) {
     s32 i;
     s32 r;
     for (i = 0; i < arg1; i++) {

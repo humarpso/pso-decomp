@@ -227,7 +227,7 @@ void *alloc__23TAdSinglePlyChrSelectGCFPv(u32);
 void* init_light__9TObjLightFPvi(void* a0, int a1);
 extern void *TObjLight__data_80506370[3];
 extern s32 TObjLight__data_805D5568;
-u32 TObjLight__sub_80133650(void);
+u32 alloc_light_slot__9TObjLightFv(void);
 void set_scene_light_diffuse(void * _w0);
 void submit_scene_light_direction(void * _w0);
 void TObjLight__sub_8013397C(void * _w0);
@@ -329,7 +329,7 @@ void TObjLight__sub_801335F0(void *p) {
     __dl__FPv(p);
 }
 
-u32 TObjLight__sub_80133650(void) {
+u32 alloc_light_slot__9TObjLightFv(void) {
     s32 i;
     u32 *p;
     void *r;

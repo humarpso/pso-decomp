@@ -205,8 +205,8 @@ void read_disc_file(void *, void *);
 M2C_UNK destroy_instance__22TQuestVmDownLoadServerFv();
 void create_instance__8TFogCtrlFv(void);
 s32 update_all__8TFogCtrlFii(int, int);
-s32 TFogCtrl__sub_800FAB94(s32 arg0, s32 arg1, s32 arg2);
-s32 TFogCtrl__sub_800FAC10(s32 arg1, s32 arg0);
+s32 select_fog_for_viewport__8TFogCtrlFiii(s32 arg0, s32 arg1, s32 arg2);
+s32 restore_fog_for_player__8TFogCtrlFii(s32 arg1, s32 arg0);
 s32 TFogCtrl__sub_800FAC84(void* p);
 void copy_fog_entry(u8 *arg0, u8 *arg1);
 void* get_entry__8TFogCtrlFi(int a0);
@@ -216,7 +216,7 @@ void clear_active_flag__8TFogCtrlFPv(void *arg0);
 s32 apply_fog_entry(void *arg0);
 s32 restore_fog__8TFogCtrlFPvi(u8 *arg0, s32 arg1);
 s32 select_fog__8TFogCtrlFPvii(u8 *arg0, s32 arg1, s32 arg2);
-s32 TFogCtrl__sub_800FB06C(u8 *arg0, s32 arg1, s32 arg2);
+s32 request_fog__8TFogCtrlFPvii(u8 *arg0, s32 arg1, s32 arg2);
 void request_transition__8TFogCtrlFPvii(u8 *arg0, s32 arg1, s32 arg2);
 s32 get_param__8TFogCtrlFPv(void* p);
 void apply_slot_params__8TFogCtrlFPvi(FogCtrl_800FB134 *self, s32 idx);
@@ -266,7 +266,7 @@ s32 set_draw_texture_and_color(int, void *);
 void fn_803E1FC8(u32);
 void fn_803E1FFC(f32, f32);
 void TParticleCtrl__sub_803E2008(s32);
-void fn_803E2070(void);
+void reset_scene_fog(void);
 
 extern M2C_UNK TFogCtrl__data_80501188[];
 extern RecoveredGlobal_800FB8A0___vt__8TFogCtrl __vt__8TFogCtrl;
@@ -291,7 +291,7 @@ extern const f32 TFogCtrl__data_805DA94C = 640.0f;
 #pragma inline_depth(1)
 #pragma auto_inline off
 #pragma dont_inline off
-s32 TFogCtrl__sub_800FAB94(s32 arg0, s32 arg1, s32 arg2) {
+s32 select_fog_for_viewport__8TFogCtrlFiii(s32 arg0, s32 arg1, s32 arg2) {
     if (is_split_screen() == 0) {
         arg0 = 0;
     }
@@ -307,7 +307,7 @@ extern int fold_flush_0;
 #pragma inline_depth(1)
 #pragma auto_inline off
 #pragma dont_inline off
-s32 TFogCtrl__sub_800FAC10(s32 arg1, s32 arg0) {
+s32 restore_fog_for_player__8TFogCtrlFii(s32 arg1, s32 arg0) {
     if (is_split_screen() == 0) {
         arg1 = 0;
     }
@@ -509,7 +509,7 @@ extern int fold_flush_8;
 #pragma inline_depth(1)
 #pragma auto_inline off
 #pragma dont_inline off
-s32 TFogCtrl__sub_800FB06C(u8 *arg0, s32 arg1, s32 arg2) {
+s32 request_fog__8TFogCtrlFPvii(u8 *arg0, s32 arg1, s32 arg2) {
   s32 var_r30;
   s32 var_r31;
   s32 var_r4;
@@ -741,7 +741,7 @@ u8 *__dt__8TFogCtrlFv(u8 *arg0, s16 arg1) {
     s32 temp_r0;
     if (arg0 != NULL) {
         M2C_FIELD(arg0, M2C_UNK **, 0x18) = &__vt__8TFogCtrl.value;
-        fn_803E2070();
+        reset_scene_fog();
         end_effect_render__13TParticleCtrlFv();
         temp_r0 = M2C_FIELD(arg0, s32 *, 0x1C4);
         if ((temp_r0 >= 0) && (temp_r0 < 4)) {
@@ -886,7 +886,7 @@ void reset__8TFogCtrlFv(void) {
     lbl_805D5388 = 0U;
     ((M2C_UNK (*)(M2C_UNK))fn_803E1FC8)(-1);
     ((M2C_UNK (*)(f32, f32))fn_803E1FFC)((1e+03f), (1e+04f));
-    ((M2C_UNK (*)(void))fn_803E2070)();
+    ((M2C_UNK (*)(void))reset_scene_fog)();
     begin_effect_render__13TParticleCtrlFv();
 }
 

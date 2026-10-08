@@ -76,12 +76,12 @@ O_801666E8 *TOExplosiveMachine__ct(O_801666E8 *arg0);
 s32 is_any_player_within_radius_xz(f32);
 u8 is_current_floor_switch_set(u16);
 extern const f32 lbl_805DB600;
-M2C_UNK TOExplosiveMachine__sub_80166778(void *arg0);
+M2C_UNK check_trigger__18TOExplosiveMachineFPv(void *arg0);
 s32 is_any_player_within_radius_xz(f32);
 M2C_UNK play_persistent_sound(int, void *, void *, int, int);
 u8 is_current_floor_switch_set(u16);
 extern const f32 lbl_805DB604;
-M2C_UNK TOExplosiveMachine__sub_80166814(void *arg0);
+M2C_UNK update_trigger__18TOExplosiveMachineFPv(void *arg0);
 }
 
 extern "C" {
@@ -163,7 +163,7 @@ O_801666E8 *TOExplosiveMachine__ct(O_801666E8 *arg0) {
     return arg0;
 }
 
-M2C_UNK TOExplosiveMachine__sub_80166778(void *arg0) {
+M2C_UNK check_trigger__18TOExplosiveMachineFPv(void *arg0) {
     switch (M2C_FIELD(arg0, s32 *, 0xC8)) {
     case 0:
         break;
@@ -180,7 +180,7 @@ M2C_UNK TOExplosiveMachine__sub_80166778(void *arg0) {
     }
 }
 
-M2C_UNK TOExplosiveMachine__sub_80166814(void *arg0) {
+M2C_UNK update_trigger__18TOExplosiveMachineFPv(void *arg0) {
     s32 temp_r0;
     temp_r0 = M2C_FIELD(arg0, s32 *, 0xC8);
     switch (temp_r0) {
@@ -212,10 +212,10 @@ void update__18TOExplosiveMachineFPv(void *arg0) {
     temp_r0 = M2C_FIELD(arg0, s32 *, 0xAC);
     switch (temp_r0) {
     case 0:
-        TOExplosiveMachine__sub_80166778((void *)(arg0));
+        check_trigger__18TOExplosiveMachineFPv((void *)(arg0));
         break;
     case 1:
-        TOExplosiveMachine__sub_80166814((void *)(arg0));
+        update_trigger__18TOExplosiveMachineFPv((void *)(arg0));
         break;
     }
     M2C_FIELD(arg0, f32 *, 0xB0) = (f32) (M2C_FIELD(arg0, f32 *, 0xB0) + lbl_805DB608);

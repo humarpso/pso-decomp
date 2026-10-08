@@ -208,13 +208,13 @@ extern "C" {
 
 void destroy__5TItemFPv(void* p);
 void copy_item_data_and_process__5TItemFPv(void *arg0);
-int TItem__sub_80101B20(void*);
+int unregister_item__5TItemFPv(void*);
 void copy_to_item_data__5TItemFPvPv(void *, void *);
 int disallow_rendering__7TObjectFv(void*);
 void get_item_price_if_valid__24TShopEquipmentSellWindowFUi(void *);
 int queue_destruction__7TObjectFv(void*);
 
-void destroy__5TItemFPv(void* p) { TItem__sub_80101B20(p); disallow_rendering__7TObjectFv(p); queue_destruction__7TObjectFv(p); }
+void destroy__5TItemFPv(void* p) { unregister_item__5TItemFPv(p); disallow_rendering__7TObjectFv(p); queue_destruction__7TObjectFv(p); }
 
 void copy_item_data_and_process__5TItemFPv(void *arg0) {
     M2C_UNK sp8[4];
@@ -507,7 +507,7 @@ extern "C" {
 
 void *__dt__5TItemFv(void *arg0, s16 arg1);
 M2C_UNK set_mode__5TItemFPvc(void *, M2C_UNK);
-M2C_UNK TItem__sub_80101B20(void *);
+M2C_UNK unregister_item__5TItemFPv(void *);
 M2C_UNK free_obj_heap__10TObjPlayerFPv(void *);
 M2C_UNK clear_obj_links(void *);
 M2C_UNK destroy_particle_controller__10TObjPlayerFPvs(void *, M2C_UNK);
@@ -519,7 +519,7 @@ void *__dt__5TItemFv(void *arg0, s16 arg1) {
         M2C_FIELD(arg0, void **, 0x18) = (void *) __vt__5TItem;
         set_mode__5TItemFPvc(arg0, 3);
         clear_obj_links(arg0);
-        TItem__sub_80101B20(arg0);
+        unregister_item__5TItemFPv(arg0);
         destroy_particle_controller__10TObjPlayerFPvs(arg0, 0);
         if (arg1 > 0) {
             free_obj_heap__10TObjPlayerFPv(arg0);

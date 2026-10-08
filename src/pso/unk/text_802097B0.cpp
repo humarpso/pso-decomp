@@ -28,7 +28,7 @@ s32 TLobby__sub_80209410(s32);
 void swap_header_endian__6TLobbyFPv(void *);
 extern s32 lbl_805D60A4;
 extern Ent_802098AC *lbl_805D60B8;
-void TLobby__sub_802098AC(Out_802098AC *out);
+void pick_random_entry__6TLobbyFPv(Out_802098AC *out);
 s16 clamp_min_drop__6TLobbyFUi(s32, s32);
 void TLobby__sub_8020A48C(void *p);
 void TLobby__sub_8020A568(void *p);
@@ -38,15 +38,15 @@ u32 item_drop_rng_below(s32, u32);
 void TLobby__sub_8020A568(void *p);
 extern s32 lbl_805D60A0;
 extern u8 *lbl_805D60B0;
-void TLobby__sub_80209AEC(s32 *arg0, s32 *arg1);
+void pick_weighted_entry__6TLobbyFPvPv(s32 *arg0, s32 *arg1);
 void TLobby__sub_8020A48C(void *p);
 void TLobby__sub_8020A508(void *, void *);
-Rec_802099FC *TLobby__sub_8020994C(void *arg0, s32 n, s32 key);
+Rec_802099FC *bsearch_record__6TLobbyFPvii(void *arg0, s32 n, s32 key);
 }
 
 extern "C" {
 
-void TLobby__sub_802098AC(Out_802098AC *out) {
+void pick_random_entry__6TLobbyFPv(Out_802098AC *out) {
     s32 i = TLobby__sub_80209410(lbl_805D60A4);
     Ent_802098AC e = lbl_805D60B8[i];
     swap_header_endian__6TLobbyFPv(&e);
@@ -58,7 +58,7 @@ void TLobby__sub_802098AC(Out_802098AC *out) {
     out->f = e.f;
 }
 
-Rec_802099FC *TLobby__sub_8020994C(void *arg0, s32 n, s32 key) {
+Rec_802099FC *bsearch_record__6TLobbyFPvii(void *arg0, s32 n, s32 key) {
     u8 *arr = (u8 *)arg0;
     u8 *e;
     Tmp_8020994C t;
@@ -90,7 +90,7 @@ void TLobby__sub_802099FC(Out_802099FC *arg0, s32 arg1) {
     Hdr_802099FC hdr = *(Hdr_802099FC *)lbl_805D60B0;
     Rec_802099FC *p;
     TLobby__sub_8020A568(&hdr);
-    p = TLobby__sub_8020994C((void *)(lbl_805D60B0 + hdr.table), (s32)(hdr.count), (s32)(arg1));
+    p = bsearch_record__6TLobbyFPvii((void *)(lbl_805D60B0 + hdr.table), (s32)(hdr.count), (s32)(arg1));
     if (p != NULL) {
         Rec_802099FC r = *p;
         TLobby__sub_8020A48C(&r);
@@ -104,7 +104,7 @@ void TLobby__sub_802099FC(Out_802099FC *arg0, s32 arg1) {
         arg0->f6 = clamp_min_drop__6TLobbyFUi(r.h[4], r.h[5] + 1);
     }
 }
-void TLobby__sub_80209AEC(s32 *arg0, s32 *arg1) {
+void pick_weighted_entry__6TLobbyFPvPv(s32 *arg0, s32 *arg1) {
     Hdr_80209AEC hdr = *(Hdr_80209AEC *)lbl_805D60B0;
     Ent_80209AEC *tbl;
     u32 total;

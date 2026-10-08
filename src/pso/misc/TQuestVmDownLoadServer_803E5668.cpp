@@ -99,7 +99,7 @@ extern s32 lbl_805D78C0;
 extern s32 lbl_805D78EC;
 extern s32 lbl_805D78F0;
 s32 OSFillFPUContext(s32 *arg0);
-u16 TQuestVmDownLoadServer__sub_803EC5F8(u16 arg0);
+u16 jis_to_sjis__22TQuestVmDownLoadServerFUs(u16 arg0);
 s32 TQuestVmDownLoadServer__sub_803EDF64(s16 *, s32, u16 *, s32 *);
 extern s16 lbl_80596264[0x200];
 s32 TQuestVmDownLoadServer__sub_803E64C8(s32 *arg0);
@@ -619,7 +619,7 @@ s32 TQuestVmDownLoadServer__sub_803E64C8(s32 *arg0) {
         n -= r;
         q = buf;
         while (cnt-- != 0) {
-            c = TQuestVmDownLoadServer__sub_803EC5F8(*q++);
+            c = jis_to_sjis__22TQuestVmDownLoadServerFUs(*q++);
             if (c == 0x82F2) {
                 c = 0x8394;
             }

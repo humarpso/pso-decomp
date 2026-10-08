@@ -50,7 +50,7 @@ void reset_transform_state__10TObjPlayerFv(void);
 void init_xyz_limits__10TObjPlayerFv(void);
 s32 begin_effect_render__13TParticleCtrlFv(void);
 s32 end_effect_render__13TParticleCtrlFv(void);
-void fn_801E4EB0(void *);
+void quad_sprite_reset_entries(void *);
 void transform_point_by_current_matrix(void *, void *);
 s32 set_global_param__8TObjFishFi(void *);
 s32 begin_screen_draw(int);
@@ -164,7 +164,7 @@ void render__17TQuadSpriteSclColFv(Self_801E5C24 *self) {
         get_player__20TWindowSubStatusDispFv();
     }
     end_effect_render__13TParticleCtrlFv();
-    fn_801E4EB0(self);
+    quad_sprite_reset_entries(self);
     reset_transform_state__10TObjPlayerFv();
 }
 #pragma pop

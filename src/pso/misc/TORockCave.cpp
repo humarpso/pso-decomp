@@ -37,7 +37,7 @@ s32 get_global_state__14TOKeyMachine01Fv(void);
 extern u8 lbl_804B3AB8[];
 extern u32 lbl_805D5A80;
 extern u32 lbl_805D5A84;
-void TORockCave__sub_80175224(void);
+void load_resources__10TORockCaveFv(void);
 }
 
 extern "C" {
@@ -91,7 +91,7 @@ extern M2C_UNK __vt__10TORockCave[];
         }                                                                       \
         dst = r;                                                                \
     }
-void TORockCave__sub_80175224(void) {
+void load_resources__10TORockCaveFv(void) {
     u8 *tbl = lbl_804B3AB8;
     switch (get_global_state__14TOKeyMachine01Fv()) {
     case 3:

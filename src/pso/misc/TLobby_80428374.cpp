@@ -141,7 +141,7 @@ void TLobby__sub_804253A0(s32);
 void TLobby__sub_804264D4(s32 arg0);
 s32 str_length__6TLobbyFi(void *);
 s32 TLobby__sub_803F9F04(void *, void *, int);
-s32 TLobby__sub_804272B8(s32 *arg0, u8 *arg1);
+s32 write_name_field__6TLobbyFPvPv(s32 *arg0, u8 *arg1);
 M2C_UNK TLobby__sub_803F77E0(void *);
 extern RecoveredGlobal_80428374_lbl_805D0A40 lbl_805D0A40;
 void TLobby__sub_80428374(void);
@@ -261,7 +261,7 @@ extern s16 lbl_805D7B18;
 void TLobby__sub_80424CA8(void);
 s32 OSSendMessage(void *mq, void *msg, s32 flags);
 u8 *TLobby__sub_804256B8(s32);
-s32 TLobby__sub_80425C70(void *arg0, s32 arg1, s32 arg2, s32 arg3);
+s32 post_message__6TLobbyFPviii(void *arg0, s32 arg1, s32 arg2, s32 arg3);
 s32 OSReceiveMessage(void *, void *, int);
 void TLobby__sub_804253A0(s32);
 void TLobby__sub_80425D88(u8 v);
@@ -269,7 +269,7 @@ void TLobby__sub_8042B334(s32 arg0, s32 arg1, s32 arg2);
 extern u8 lbl_805CF240[];
 extern u8 lbl_805CF380[];
 extern s32 lbl_805D7BCC;
-void TLobby__sub_80425CFC(void);
+void message_thread_loop__6TLobbyFv(void);
 s32 OSSendMessage(void *mq, void *msg, s32 flags);
 s32 TLobby__sub_803F9F04(void *, void *, int);
 s32 TLobby__sub_8042558C(void *);
@@ -344,7 +344,7 @@ s32 TLobby__sub_803F9EC4(void *, void *, int);
 s32 TLobby__sub_803F9F04(void *, void *, int);
 s32 TLobby__sub_8042BC00(void *);
 extern u8 lbl_805CF3C8[];
-s32 TLobby__sub_80426894(s16 arg0, void *arg1);
+s32 add_multicast_address__6TLobbyFsPv(s16 arg0, void *arg1);
 M2C_UNK get_time_ms__6TLobbyFPv(void *);
 M2C_UNK unlock_mutex__10TUdpSocketFi(void *);
 M2C_UNK lock_mutex__6TLobbyFi(void *);
@@ -440,9 +440,9 @@ void TLobby__sub_804259F0(void);
 
 void TLobby__sub_80425BD0(void);
 
-s32 TLobby__sub_80425C70(void *arg0, s32 arg1, s32 arg2, s32 arg3);
+s32 post_message__6TLobbyFPviii(void *arg0, s32 arg1, s32 arg2, s32 arg3);
 
-void TLobby__sub_80425CFC(void);
+void message_thread_loop__6TLobbyFv(void);
 
 void TLobby__sub_80425D88(u8 v);
 
@@ -471,7 +471,7 @@ s32 TLobby__sub_80426790(s16 arg0, void *arg1);
 s32 TLobby__sub_804267F0(s16 arg0, void *arg1);
 #pragma pop
 
-s32 TLobby__sub_80426894(s16 arg0, void *arg1);
+s32 add_multicast_address__6TLobbyFsPv(s16 arg0, void *arg1);
 
 s32 TLobby__sub_80426A18(s16 arg0, u16 arg1);
 
@@ -485,7 +485,7 @@ s32 TLobby__sub_80426C34(s32 arg0);
 
 s32 TLobby__sub_80427240(u8 **arg0);
 
-s32 TLobby__sub_804272B8(s32 *arg0, u8 *arg1);
+s32 write_name_field__6TLobbyFPvPv(s32 *arg0, u8 *arg1);
 
 typedef char RecoveredGlobal_80427D0C_lbl_805CFC20_size[sizeof(RecoveredGlobal_80427D0C_lbl_805CFC20) == 0xE20 ? 1 : -1];
 

@@ -27,20 +27,20 @@ TimerChild_80287B60 *get_array_entry__20TWindowSubStatusDispFPvi(void *, s32);
 extern char lbl_8044FCD8[];
 extern const f32 lbl_805DD878;
 extern const f32 lbl_805DD87C;
-void fn_80287B60(TWindowTimer_80287B60 *self);
+void init_timer_window_layout_alt(TWindowTimer_80287B60 *self);
 u32 calc_text_width(char *);
 TimerChild_80287B60 *get_array_entry__20TWindowSubStatusDispFPvi(void *, s32);
 extern u8 lbl_8044FCC8[];
 extern const f32 lbl_805DD878;
 extern const f32 lbl_805DD87C;
-void fn_80287AD8(Wn_80287AD8 *arg0);
+void init_timer_window_layout(Wn_80287AD8 *arg0);
 }
 
 extern "C" {
 
 #pragma push
 #pragma fp_contract on
-void fn_80287AD8(Wn_80287AD8 *arg0) {
+void init_timer_window_layout(Wn_80287AD8 *arg0) {
     f32 temp_f31;
     En_80287AD8 *e;
     arg0->f60 |= 1;
@@ -52,7 +52,7 @@ void fn_80287AD8(Wn_80287AD8 *arg0) {
 
 #pragma push
 #pragma fp_contract on
-void fn_80287B60(TWindowTimer_80287B60 *self) {
+void init_timer_window_layout_alt(TWindowTimer_80287B60 *self) {
     f32 width;
     TimerChild_80287B60 *child;
     self->flags &= ~1;

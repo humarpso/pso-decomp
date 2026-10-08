@@ -275,7 +275,7 @@ M2C_UNK draw_textured_quad_at_depth(void *, int, f32);
 M2C_UNK set_draw_texture_and_color(int, int);
 extern s32 lbl_805D6908;
 
-void TAdGameStartSubGC__sub_802E6864(u8 *arg0) {
+void draw_background__17TAdGameStartSubGCFPv(u8 *arg0) {
     s32 temp_r4;
 
     begin_screen_draw((int) (1));
@@ -301,11 +301,11 @@ u8 *__ct__17TAdGameStartSubGCFv(u8 *arg0, void *arg1, u8 *arg2);
 extern "C" {
 
 void render__17TAdGameStartSubGCFv(void* p);
-#define TAdGameStartSubGC__sub_802E6864 ((int (*)(void*))TAdGameStartSubGC__sub_802E6864)
+#define draw_background__17TAdGameStartSubGCFPv ((int (*)(void*))draw_background__17TAdGameStartSubGCFPv)
 int abs__4cXyzCFv(void*, void*);
 int get_state_flag__9TMainTaskFv(void*);
 
-void render__17TAdGameStartSubGCFv(void* p) { if (get_state_flag__9TMainTaskFv(p) != 1) { abs__4cXyzCFv((void*)0, (void*)8); abs__4cXyzCFv((void*)1, (void*)10); TAdGameStartSubGC__sub_802E6864(p); abs__4cXyzCFv((void*)0, (void*)8); abs__4cXyzCFv((void*)1, (void*)6); } }
+void render__17TAdGameStartSubGCFv(void* p) { if (get_state_flag__9TMainTaskFv(p) != 1) { abs__4cXyzCFv((void*)0, (void*)8); abs__4cXyzCFv((void*)1, (void*)10); draw_background__17TAdGameStartSubGCFPv(p); abs__4cXyzCFv((void*)0, (void*)8); abs__4cXyzCFv((void*)1, (void*)6); } }
 #pragma push
 #pragma fp_contract on
 void run_task__17TAdGameStartSubGCFv(u8 *arg0) {
@@ -380,7 +380,7 @@ u8 *__ct__17TAdGameStartSubGCFv(u8 *arg0, void *arg1, u8 *arg2) {
 
 }
 
-#undef TAdGameStartSubGC__sub_802E6864
+#undef draw_background__17TAdGameStartSubGCFPv
 extern "C" {
 void __dt__14TAdGameStartGCFv();
 void __dt__17TAdGameStartSubGCFv();

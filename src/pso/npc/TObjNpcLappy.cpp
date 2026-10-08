@@ -118,7 +118,7 @@ extern "C" void draw_debug_info__12TObjNpcEnemyFPv();
 extern "C" void TObjNpcFemaleBase__sub_80147CD4();
 extern "C" void TObjNpcFemaleBase__sub_801480F4();
 extern "C" void TObjNpcFemaleBase__sub_801480F8();
-extern "C" void TObjNpcFemaleBase__sub_801483C0();
+extern "C" void debug_draw_talk__17TObjNpcFemaleBaseFPv();
 extern "C" void TObjNpcLappy__sub_8014B620();
 extern "C" void TObjPlayer__sub_8000FF3C();
 extern "C" void TObjPlayer__sub_80010A80();
@@ -244,7 +244,7 @@ void *lbl_804A9DD4[95] = {
     (void *)&fn_80010EC4, (void *)&fn_80010EC0, (void *)&fn_80010EBC, (void *)&call_vt78__10TObjPlayerFPv,
     (void *)&TObjPlayer__sub_800F673C, (void *)&apply_set_data__9TObjEnemyFPvPv, (void *)&fn_800F5D80, (void *)&TObjPlayer__sub_80148D80,
     (void *)&update_standing__11TObjNpcBaseFPv, (void *)&update_wandering__11TObjNpcBaseFPv, (void *)&update_conversation__11TObjNpcBaseFPv, (void *)&apply_set_params__11TObjNpcBaseFv,
-    (void *)&TObjNpcLappy__sub_8014B620, (void *)&TObjNpcFemaleBase__sub_801483C0, (void *)&play_voice__11TObjNpcBaseFi, (void *)&TObjNpcFemaleBase__sub_801480F8,
+    (void *)&TObjNpcLappy__sub_8014B620, (void *)&debug_draw_talk__17TObjNpcFemaleBaseFPv, (void *)&play_voice__11TObjNpcBaseFi, (void *)&TObjNpcFemaleBase__sub_801480F8,
     (void *)&TObjNpcFemaleBase__sub_801480F4, (void *)&draw_debug_info__12TObjNpcEnemyFPv, (void *)0x0,
 };
 extern s32 lbl_805D2DD8;

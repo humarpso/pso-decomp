@@ -72,7 +72,7 @@ M2C_UNK TWindowSubSymbolChat__sub_800772D8(int, int, int);
 s32 refresh_parts__20TWindowSubSymbolChatFPv();
 M2C_UNK update_symbol_chat_result__20TWindowSubSymbolChatFv(int);
 M2C_UNK update_selected_symbol__20TWindowSubSymbolChatFPv(int);
-M2C_UNK TWindowSubSymbolChat__sub_800773BC();
+M2C_UNK play_symbol_sound__20TWindowSubSymbolChatFi();
 s32 TWindowSubSymbolChat__sub_80077480(s32);
 M2C_UNK TWindowSubSymbolChat__sub_800774E4(int);
 u32 get_instance__20TWindowSubSymbolChatFv();
@@ -727,7 +727,7 @@ void run_task__20TWindowSubSymbolChatFv(u8 *arg0) {
         }
         if (is_visible__17TWindowSubComCardFPv((int) (M2C_FIELD(arg0, u32 *, 0x38))) != 0) {
             get_selected_menu_value((int) (M2C_FIELD(arg0, u32 *, 0x38)));
-            TWindowSubSymbolChat__sub_800773BC();
+            play_symbol_sound__20TWindowSubSymbolChatFi();
             M2C_FIELD(arg0, u8 *, 0x1C) = 0x24U;
             return;
         }

@@ -94,7 +94,7 @@ void close_player_windows__19TPlayerBattleCtrl4PFPv(Ctl_803101D4 *o);
 void *get_player_by_client_id(s32);
 void *__nw__7TObjectFUl(u32);
 void *TWindowDuelResult__ct(void *, int);
-void TPlayerBattleCtrl4P__sub_80310230(Ctl_80310230 *o);
+void create_result_windows__19TPlayerBattleCtrl4PFPv(Ctl_80310230 *o);
 s32 TWindowShortListCtrl__check_controller_button(void *, int);
 s32 get_map_id__13TRaderMapCoreFPv();
 void *get_player_by_client_id(s32);
@@ -265,7 +265,7 @@ void close_player_windows__19TPlayerBattleCtrl4PFPv(Ctl_803101D4 *o) {
     }
 }
 
-void TPlayerBattleCtrl4P__sub_80310230(Ctl_80310230 *o) {
+void create_result_windows__19TPlayerBattleCtrl4PFPv(Ctl_80310230 *o) {
     s32 i;
     void *w;
     for (i = 0; i < 4; i++) {

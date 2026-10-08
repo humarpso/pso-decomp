@@ -69,7 +69,7 @@ s32 TLobby__sub_800C6C10(s32);
 s32 are_all_players_in_range__16TObjCityMainWarpFPv(void *);
 s32 find_local_player_in_range__16TObjCityMainWarpFif(void *, f32);
 M2C_UNK close_windows__16TObjCityMainWarpFPv();
-M2C_UNK TObjCityMainWarp__sub_80186CC8(void *, M2C_UNK);
+M2C_UNK send_6x6A_set_boss_warp_flags__16TObjCityMainWarpFPvUs(void *, M2C_UNK);
 M2C_UNK trigger_warp_effect__16TObjCityMainWarpFPvi(void *, s32);
 M2C_UNK TObjCityMainWarp__sub_801875F8(void *);
 s32 get_warp_state__19TWindowSubTradeMainFv();
@@ -82,7 +82,7 @@ s32 TLobby__sub_800C6C10(s32);
 s32 are_all_players_in_range__16TObjCityMainWarpFPv(void *);
 s32 find_local_player_in_range__16TObjCityMainWarpFif(void *, f32);
 M2C_UNK close_windows__16TObjCityMainWarpFPv();
-M2C_UNK TObjCityMainWarp__sub_80186CC8(void *, M2C_UNK);
+M2C_UNK send_6x6A_set_boss_warp_flags__16TObjCityMainWarpFPvUs(void *, M2C_UNK);
 M2C_UNK notify_player_warp__16TObjCityMainWarpFPvi(void *, s32);
 M2C_UNK trigger_warp_effect__16TObjCityMainWarpFPvi(void *, s32);
 M2C_UNK TObjCityMainWarp__sub_801875F8(void *);
@@ -171,7 +171,7 @@ void update_warp_sequence__16TObjCityMainWarpFPv(u8 *arg0) {
                     r = are_all_players_in_range__16TObjCityMainWarpFPv(arg0);
                 }
                 if (r != 0) {
-                    TObjCityMainWarp__sub_80186CC8(arg0, 2);
+                    send_6x6A_set_boss_warp_flags__16TObjCityMainWarpFPvUs(arg0, 2);
                     M2C_FIELD(arg0, s16 *, 0xE0) = 2;
                 }
             }
@@ -225,7 +225,7 @@ void update_challenge_state__16TObjCityMainWarpFPv(u8 *arg0) {
                 if (r == 0) {
                     trigger_warp_effect__16TObjCityMainWarpFPvi(arg0, lbl_805D53A0);
                     M2C_FIELD(arg0, s32 *, 0x170) = 1;
-                    TObjCityMainWarp__sub_80186CC8(arg0, 1);
+                    send_6x6A_set_boss_warp_flags__16TObjCityMainWarpFPvUs(arg0, 1);
                     M2C_FIELD(arg0, s16 *, 0xE0) = 5;
                 } else if (r == 1) {
                     M2C_FIELD(arg0, s16 *, 0xE0) = 3;
@@ -234,7 +234,7 @@ void update_challenge_state__16TObjCityMainWarpFPv(u8 *arg0) {
         }
         if (get_warp_state__19TWindowSubTradeMainFv() != 0 && get_main_phase() == 0xF &&
             ((s32 (*)())TLobby__sub_800C6C10)() != 0 && are_all_players_in_range__16TObjCityMainWarpFPv(arg0) != 0) {
-            TObjCityMainWarp__sub_80186CC8(arg0, 2);
+            send_6x6A_set_boss_warp_flags__16TObjCityMainWarpFPvUs(arg0, 2);
             M2C_FIELD(arg0, s16 *, 0xE0) = 5;
         }
         if (M2C_FIELD(arg0, s16 *, 0xE0) != 2) {
@@ -252,7 +252,7 @@ void update_challenge_state__16TObjCityMainWarpFPv(u8 *arg0) {
         }
         if (get_warp_state__19TWindowSubTradeMainFv() != 0 && get_main_phase() == 0xF &&
             ((s32 (*)())TLobby__sub_800C6C10)() != 0 && are_all_players_in_range__16TObjCityMainWarpFPv(arg0) != 0) {
-            TObjCityMainWarp__sub_80186CC8(arg0, 2);
+            send_6x6A_set_boss_warp_flags__16TObjCityMainWarpFPvUs(arg0, 2);
             M2C_FIELD(arg0, s16 *, 0xE0) = 5;
         }
         break;

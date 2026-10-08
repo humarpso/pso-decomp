@@ -37,7 +37,7 @@ void free__11TOBoss4RockFUi(u32);
 void free_if_valid__10TObjPlayerFi(s32);
 extern u8 *TOFenceAncient02__data_805D59B8;
 extern u32 TOFenceAncient02__data_805D59BC;
-void TOFenceAncient02__sub_80166F98(void);
+void free_resources__16TOFenceAncient02Fv(void);
 M2C_UNK reset_photon_effect__10TObjPlayerFPv(void *);
 M2C_UNK refresh_collision_body_centers(void *);
 M2C_UNK init_collision_body_parts(void *, void *, int, int, f32);
@@ -88,7 +88,7 @@ void *create__16TOFenceAncient02FPv(void *arg0) {
 
 extern M2C_UNK __vt__16TOFenceAncient02[];
 
-void TOFenceAncient02__sub_80166F98(void) {
+void free_resources__16TOFenceAncient02Fv(void) {
   s32 var_r31;
   s32 var_r30;
   int new_var;

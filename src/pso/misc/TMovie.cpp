@@ -154,11 +154,11 @@ extern "C" {
 
 s32 check_finished__6TMovieFPv(void *arg0);
 
-M2C_UNK TMovie__sub_80143C00();
+M2C_UNK flip_frame_buffer__6TMovieFv();
 
 s32 check_finished__6TMovieFPv(void *arg0) {
     if ((s32) M2C_FIELD(arg0, s32 *, 0x58) >= 2) {
-        TMovie__sub_80143C00();
+        flip_frame_buffer__6TMovieFv();
     }
     return 1;
 }

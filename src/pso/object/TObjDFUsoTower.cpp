@@ -27,7 +27,7 @@ extern const f32 lbl_805D8A30;
 u8 *TObjDFUsoTower__ct(u8 *arg0, s32 _w1);
 s32 rand();
 extern const f32 lbl_805D8AD8;
-s32 TBoss4Type2__sub_800522CC(s32 n, f32 *w, s32 *t);
+s32 pick_weighted_random__11TBoss4Type2FiPvPv(s32 n, f32 *w, s32 *t);
 }
 
 extern "C" {
@@ -72,7 +72,7 @@ void *create__14TObjDFUsoTowerFPv(void *arg0) {
     }
     return o;
 }
-s32 TBoss4Type2__sub_800522CC(s32 n, f32 *w, s32 *t) {
+s32 pick_weighted_random__11TBoss4Type2FiPvPv(s32 n, f32 *w, s32 *t) {
     s32 i;
     f32 acc;
     f32 r;

@@ -91,7 +91,7 @@ extern RecoveredGlobal_80162740_lbl_804B1518 lbl_804B1518;
 extern RecoveredGlobal_80162740_lbl_804B1538 lbl_804B1538;
 extern s32 enable_v2_features;
 extern u32 TODoorCave03__data_805D5968;
-void TODoorCave03__sub_80162740(void);
+void load_resources__12TODoorCave03Fv(void);
 s32 reset_photon_effect__10TObjPlayerFPv(void *);
 s32 refresh_collision_body_centers(void *);
 s32 init_collision_body_parts(void *, void *, int);
@@ -251,7 +251,7 @@ void free_shared_data__12TODoorCave03Fv(void) {
 
 extern M2C_UNK __vt__12TODoorCave03[];
 
-void TODoorCave03__sub_80162740(void) {
+void load_resources__12TODoorCave03Fv(void) {
     s32 temp_r3;
     s32 temp_r3_2;
     s32 var_r0;

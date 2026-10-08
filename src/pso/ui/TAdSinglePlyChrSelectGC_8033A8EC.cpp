@@ -102,7 +102,7 @@ void set_char_slots__23TAdSinglePlyChrSelectGCFPvii(void *arg0, s32 arg1, s32 ar
 void init_warps__23TAdSinglePlyChrSelectGCFPv(void* a0);
 extern u8 lbl_804C89BC[];
 extern s32 lbl_805D6D90;
-void TAdSinglePlyChrSelectGC__sub_8033AC44(O_8033AC44 *arg0);
+void check_memcard_space__23TAdSinglePlyChrSelectGCFPv(O_8033AC44 *arg0);
 s32 get_instance__15TAdPlayerLoadGCFv(void);
 s32 init__22THunterGuildSeqOfflineFPvPvPv(u32, int, void *);
 s32 get_load_result__15TAdPlayerLoadGCFv(s32);
@@ -310,7 +310,7 @@ void update_setup__23TAdSinglePlyChrSelectGCFPv(void *arg0) {
     TAdSinglePlyChrSelectGC__sub_8033B5F0(arg0);
 }
 
-void TAdSinglePlyChrSelectGC__sub_8033AC44(O_8033AC44 *arg0) {
+void check_memcard_space__23TAdSinglePlyChrSelectGCFPv(O_8033AC44 *arg0) {
     switch (get_card_file_info__15TAdPlayerLoadGCFiPvPv(arg0->f24, lbl_804C89BC, 0)) {
     case 0:
         arg0->f2c = 7;

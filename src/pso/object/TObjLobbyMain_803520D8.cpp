@@ -340,7 +340,7 @@ extern RecoveredGlobal_803527F0_lbl_804F0F24 lbl_804F0F24;
 extern s32 lbl_805D6ED0;
 extern s32 lbl_805D6ED4;
 extern s32 lbl_805D6ED8;
-void TObjLobbyMain__sub_803527F0(void);
+void load_resources__13TObjLobbyMainFv(void);
 u32 create_particle_emitter(void *, int);
 s32 set_flags__11TBoss4Type2FPvUi(int, int);
 s32 reset_photon_effect__10TObjPlayerFPv(void *);
@@ -410,7 +410,7 @@ void release_static_instance__13TObjLobbyMainFv(void) {
 
 extern M2C_UNK __vt__13TObjLobbyMain[];
 
-void TObjLobbyMain__sub_803527F0(void) {
+void load_resources__13TObjLobbyMainFv(void) {
     s32 temp_r3;
     s32 var_r0;
     temp_r3 = alloc__23TAdSinglePlyChrSelectGCFPv((void *)0x440);

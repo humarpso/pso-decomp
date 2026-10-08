@@ -146,7 +146,7 @@ s32 TLobby__sub_803F8564(u8 *arg0);
 extern s32 lbl_805D7A2C;
 s32 TLobby__sub_803F7D6C(void);
 extern E_803F7684 lbl_804FD350[];
-s32 TLobby__sub_803F9E44(void *, u32);
+s32 compare_str__6TLobbyFUc(void *, u32);
 s32 TLobby__sub_803F7684(void *arg0);
 extern RecoveredGlobal_803F7A30_lbl_805C18A0 lbl_805C18A0;
 extern u8 run_net_thread_loop__6TLobbyFv[];
@@ -180,7 +180,7 @@ extern s32 lbl_805D7A1C;
 extern s32 lbl_805D7A20;
 extern Q_803F7AF4 lbl_805D7A24;
 extern s32 lbl_805D7A38;
-Q_803F7AF4 *TLobby__sub_803F7B74(void);
+Q_803F7AF4 *get_next_send_chunk__6TLobbyFv(void);
 s32 OSIsThreadSuspended(s32);
 M2C_UNK unlock_mutex__10TUdpSocketFi(int);
 M2C_UNK lock_mutex__6TLobbyFi(int);
@@ -291,7 +291,7 @@ s32 TLobby__sub_803F767C(void) {
 s32 TLobby__sub_803F7684(void *arg0) {
     E_803F7684 *p;
     for (p = lbl_804FD350; p->key != 0; p++) {
-        if (TLobby__sub_803F9E44(arg0, p->key) == 0) {
+        if (compare_str__6TLobbyFUc(arg0, p->key) == 0) {
             return p->val;
         }
     }
@@ -464,7 +464,7 @@ void TLobby__sub_803F7A90(void) {
 void queue_thread_main__6TLobbyFv(void) {
     Q_803F7AF4 *p;
     for (;;) {
-        p = TLobby__sub_803F7B74();
+        p = get_next_send_chunk__6TLobbyFv();
         if (p == NULL) {
             NetSuspendCurrentThread();
             continue;
@@ -488,7 +488,7 @@ void queue_thread_main__6TLobbyFv(void) {
     }
 }
 
-Q_803F7AF4 *TLobby__sub_803F7B74(void) {
+Q_803F7AF4 *get_next_send_chunk__6TLobbyFv(void) {
     s32 pos;
     lock_mutex__6TLobbyFi(lbl_805D7A0C);
     lbl_805D7A20 -= lbl_805D7A38;

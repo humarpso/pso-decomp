@@ -422,7 +422,7 @@ M2C_UNK create_timed_particle_emitter(void *, int, int, int);
 M2C_UNK transform_part_positions__9TObjEneDDFPv(void *);
 M2C_UNK transition_enemy_state(void *, int);
 M2C_UNK clamp_min_height__12TObjEneReconFPv(void *);
-M2C_UNK TObjEneRecon__sub_8031EFAC(int, void *);
+M2C_UNK remove_tracked_target__12TObjEneReconFPvPv(int, void *);
 s32 find_entity_by_id(int);
 s32 is_anim_6__12TObjEneReconFPv();
 M2C_UNK queue_destruction__7TObjectFv(void *);
@@ -454,7 +454,7 @@ void run_task__12TObjEneReconFPvi(u8 *arg0, s32 arg1) {
         }
         if (((WObj_8031c7bc *) (arg0 + 0x480))->w4() != 0) {
             M2C_FIELD(arg0, s32 *, 0x444) = (s32) (M2C_FIELD(arg0, s32 *, 0x444) | 1);
-            TObjEneRecon__sub_8031EFAC((int) (temp_r3), (void *) (arg0));
+            remove_tracked_target__12TObjEneReconFPvPv((int) (temp_r3), (void *) (arg0));
             queue_destruction__7TObjectFv((void *) (arg0));
         }
     case 5:
@@ -1568,12 +1568,12 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 extern "C" {
 
 u8 is_out_of_range__12TObjEneReconFPv(void *arg0);
-s32 TObjEneRecon__sub_8031F070();
+s32 has_child_in_anim_5__12TObjEneReconFPv();
 
 u8 is_out_of_range__12TObjEneReconFPv(void *arg0) {
     int var_r4;
 
-    if (TObjEneRecon__sub_8031F070() == 1) {
+    if (has_child_in_anim_5__12TObjEneReconFPv() == 1) {
         return 1;
     }
     var_r4 = 0;

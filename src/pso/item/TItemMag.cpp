@@ -220,7 +220,7 @@ M2C_UNK add_clamped_stat__8TItemMagFPvi(void *, int);
 M2C_UNK add_stat_clamped__8TItemMagFPvi(void *, int);
 M2C_UNK mag_feed_add_mind(void *, int);
 M2C_UNK TItemMag__sub_80114198(void *, int);
-M2C_UNK TItemMag__sub_8011423C(void *, int);
+M2C_UNK add_stat_level_capped__8TItemMagFPvs(void *, int);
 M2C_UNK mag_feed_add_def(void *, int);
 s32 TItemMag__sub_801143E8(void *, s32);
 s16 get_total_level__11TItemMagSubFPv(void *);
@@ -1227,7 +1227,7 @@ void cast_support_technique__8TItemMagFPvi(u8 *self, s32 technique) {
 s32 apply_feed_stats__8TItemMagFPvPv(u8 *arg0, u8 *arg1) {
     if (arg1 != NULL) {
         mag_feed_add_def((void *) (arg0 + 0x198), (int) (M2C_FIELD(arg1, s16 *, 4)));
-        TItemMag__sub_8011423C((void *) (arg0 + 0x198), (int) (M2C_FIELD(arg1, s16 *, 6)));
+        add_stat_level_capped__8TItemMagFPvs((void *) (arg0 + 0x198), (int) (M2C_FIELD(arg1, s16 *, 6)));
         mag_feed_add_mind((void *) (arg0 + 0x198), (int) (M2C_FIELD(arg1, s16 *, 0xA)));
         TItemMag__sub_80114198((void *) (arg0 + 0x198), (int) (M2C_FIELD(arg1, s16 *, 8)));
         add_stat_clamped__8TItemMagFPvi((void *) (arg0 + 0x198), (int) (M2C_FIELD(arg1, s16 *, 0)));

@@ -34,7 +34,7 @@ s32 advance_item_id_counter(u16);
 extern s32 lbl_805D53A0;
 extern s32 lbl_805D5450;
 extern s32 *TLobby__data_805D6140;
-void TLobby__sub_800FFF68(Obj_800FFF68 *o);
+void assign_item_id__6TLobbyFPv(Obj_800FFF68 *o);
 }
 
 extern "C" {
@@ -79,7 +79,7 @@ void use_combination_recipe__5TItemFPv(void *arg0) {
         consume_item_by_id();
     }
 }
-void TLobby__sub_800FFF68(Obj_800FFF68 *o) {
+void assign_item_id__6TLobbyFPv(Obj_800FFF68 *o) {
     Pk_800FFF68 p;
     if (get_main_phase() == 15) {
         if (o->handle == -1) {

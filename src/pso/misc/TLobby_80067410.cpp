@@ -5,7 +5,7 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 #define M2C_BITWISE(type, expr) ((type)(expr))
 
 extern "C" {
-int fn_80066F10(void);
+int load_boss5_common_assets(void);
 int fn_802898EC(void);
 int update_active_pillar__19TObjBoss5PillarDemoFv(void);
 int TObjBoss5PillarDemo__sub_8028ACE4(void);
@@ -37,6 +37,6 @@ void cleanup_pillar_demo__6TLobbyFv(void) {
     TObjBoss5PillarDemo__sub_8028AB38();
     TLobby__sub_80066EC0();
 }
-void cleanup_boss5_pillars__6TLobbyFv(void) { fn_80066F10(); update_active_pillar__19TObjBoss5PillarDemoFv(); fn_802898EC(); forward_pillar_2B710__19TObjBoss5PillarCtrlFPv(); TObjBoss5PillarDemo__sub_8028ACE4(); (*(int *)&lbl_805D4DE0) = 0; }
+void cleanup_boss5_pillars__6TLobbyFv(void) { load_boss5_common_assets(); update_active_pillar__19TObjBoss5PillarDemoFv(); fn_802898EC(); forward_pillar_2B710__19TObjBoss5PillarCtrlFPv(); TObjBoss5PillarDemo__sub_8028ACE4(); (*(int *)&lbl_805D4DE0) = 0; }
 
 }

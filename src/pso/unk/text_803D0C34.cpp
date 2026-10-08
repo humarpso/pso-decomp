@@ -41,12 +41,12 @@ s32 DVDGetTransferredSize(void *);
 s32 DVDGetCommandBlockStatus(void *);
 extern Stat_803D0C34 lbl_80581EA8;
 extern Req_803D0C34 lbl_80581EB4[40];
-void TLobby__sub_803D0C34(void);
+void poll_dvd_requests__6TLobbyFv(void);
 }
 
 extern "C" {
 
-void TLobby__sub_803D0C34(void) {
+void poll_dvd_requests__6TLobbyFv(void) {
     Req_803D0C34 *r;
     s32 i;
     s32 n;

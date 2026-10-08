@@ -15,7 +15,7 @@ s32 get_layout_id__20TWindowSubStatusDispFv();
 s32 TLobby__sub_80071B30(s32, s32);
 u32 get_player_by_client_id(s32);
 extern M2C_UNK lbl_8048C9D8[];
-s32 TLobby__sub_80071698(s32 arg0);
+s32 get_party_min_tier__6TLobbyFi(s32 arg0);
 }
 
 extern "C" {
@@ -67,7 +67,7 @@ s32 TLobby__sub_80071670(u32 x) {
     }
     return n;
 }
-s32 TLobby__sub_80071698(s32 arg0) {
+s32 get_party_min_tier__6TLobbyFi(s32 arg0) {
     s32 best;
     s32 i;
     s32 t;

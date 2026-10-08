@@ -12,7 +12,7 @@ u32 adxf_open_afs__6TLobbyFii(int, int);
 s32 load_texture__12TItemTexLoadFPvi(u8 *arg0, s32 arg1);
 s32 *lookup_item_pmt_record(void *);
 s32 load_texture__12TItemTexLoadFPvi(u8 *arg0, s32 arg1);
-s32 TItemTexLoad__sub_8011D098(u8 *arg0, u8 *arg1);
+s32 load_item_icon__12TItemTexLoadFPvPv(u8 *arg0, u8 *arg1);
 }
 
 extern "C" {
@@ -42,7 +42,7 @@ s32 load_texture__12TItemTexLoadFPvi(u8 *arg0, s32 arg1) {
     }
     return 0;
 }
-s32 TItemTexLoad__sub_8011D098(u8 *arg0, u8 *arg1) {
+s32 load_item_icon__12TItemTexLoadFPvPv(u8 *arg0, u8 *arg1) {
     s32 *rec;
     s32 id;
     if (arg1 != NULL) {

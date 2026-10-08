@@ -83,7 +83,7 @@ extern void *TODoorAncient09__data_805D5954;
 void load_resources__15TODoorAncient09Fv(void);
 s32 get_global_state__14TOKeyMachine01Fv(void);
 s32 play_sound_effect(s32, void *, s32, s32);
-void TODoorAncient09__sub_80160968(void *arg0_);
+void play_door_sound__15TODoorAncient09FPv(void *arg0_);
 s32 clear_player_status_flag__10TObjPlayerFPviUi(void *, s32, s32);
 s32 is_any_player_within_radius_xz(void *, f32);
 s32 get_global_state__14TOKeyMachine01Fv(void);
@@ -174,7 +174,7 @@ extern const f32 lbl_805DB484;
 
 #define VCALL_m8(obj) (((TODoor9VObj_801608B4*)(obj))->m8(M2C_FIELD(obj, f32 *, 0xC0), M2C_FIELD(obj, f32 *, 0xC4)))
 
-void TODoorAncient09__sub_80160968(void *arg0_) {
+void play_door_sound__15TODoorAncient09FPv(void *arg0_) {
     u8 *arg0 = (u8 *)arg0_;
     if (!(*(s32 *)(arg0 + 0xD0) & 1)) {
         switch ((u32)get_global_state__14TOKeyMachine01Fv()) {
@@ -213,12 +213,12 @@ void TODoorAncient09__vt12(u8 *arg0) {
     temp_r0 = M2C_FIELD(arg0, s32 *, 0xCC);
     switch (temp_r0) {
     case 1:
-        TODoorAncient09__sub_80160968((void *)((void *) (arg0)));
+        play_door_sound__15TODoorAncient09FPv((void *)((void *) (arg0)));
         M2C_FIELD(arg0, s32 *, 0xD0) = (s32) (M2C_FIELD(arg0, s32 *, 0xD0) | 1);
         return;
     case 2:
         if ((is_current_floor_switch_set((int) ((u16) M2C_FIELD(arg0, s32 *, 0xC8))) == 1) && (is_current_floor_switch_set((int) (M2C_FIELD(arg0, u16 *, 0xD4))) == 1)) {
-            TODoorAncient09__sub_80160968((void *)((void *) (arg0)));
+            play_door_sound__15TODoorAncient09FPv((void *)((void *) (arg0)));
             M2C_FIELD(arg0, s32 *, 0xD0) = (s32) (M2C_FIELD(arg0, s32 *, 0xD0) | 1);
             M2C_FIELD(arg0, s32 *, 0xD8) = 1;
             return;
@@ -228,7 +228,7 @@ void TODoorAncient09__vt12(u8 *arg0) {
         return;
     case 3:
         if ((is_current_floor_switch_set((int) ((u16) M2C_FIELD(arg0, s32 *, 0xC8))) == 1) && (is_current_floor_switch_set((int) (M2C_FIELD(arg0, u16 *, 0xD4))) == 1)) {
-            TODoorAncient09__sub_80160968((void *)((void *) (arg0)));
+            play_door_sound__15TODoorAncient09FPv((void *)((void *) (arg0)));
             M2C_FIELD(arg0, s32 *, 0xD0) = (s32) (M2C_FIELD(arg0, s32 *, 0xD0) | 1);
             if (((u32) M2C_FIELD(arg0, u32 *, 0x80) != 0U) && (access_object_saved_state((void *) (arg0), (void *) (&sp8), (int) (1)) != 0)) {
                 sp8 = 1;

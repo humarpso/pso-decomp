@@ -105,10 +105,10 @@ struct S_801C1BA8 { u8 a; u8 b; u8 c; u8 d; s32 e; C_801C1BA8 f; };
 
 extern "C" {
 int TObjPlayer__sub_80019664(void);
-void TObjPlayer__sub_801C1820(void* p);
+void bswap_warp_packet__10TObjPlayerFPv(void* p);
 void TObjPlayer__sub_801C18AC(void* p);
 s32 TLobby__send_and_handle_60(s32);
-void TObjPlayer__sub_801C1820(void* p);
+void bswap_warp_packet__10TObjPlayerFPv(void* p);
 int TObjPlayer__sub_80019664(void);
 extern M2C_UNK lbl_80434088;
 extern const f32 lbl_805D7D3C;
@@ -379,7 +379,7 @@ void TObjPlayer__sub_801C1890(u8 *arg0) {
     M2C_FIELD(arg0, s8 *, 1) = 2;
 }
 
-void TObjPlayer__sub_801C18AC(void* p) { TObjPlayer__sub_801C1820((void*)(p)); TLobby__send_and_handle_60((s32)(p)); }
+void TObjPlayer__sub_801C18AC(void* p) { bswap_warp_packet__10TObjPlayerFPv((void*)(p)); TLobby__send_and_handle_60((s32)(p)); }
 
 void TObjPlayer__sub_801C18E0(void* p) { byteswap_set_position_cmd__10TObjPlayerFi((s32)((void*)(p))); TLobby__send_and_handle_60((s32)(p)); }
 

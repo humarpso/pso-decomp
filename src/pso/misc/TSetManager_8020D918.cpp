@@ -51,7 +51,7 @@ void setup_floor_decorations__6TLobbyFv(void);
 void *memset(void *, int, unsigned long);
 extern A_8020DBCC *TLobby__data_805D6140;
 extern B_8020DBCC *TLobby__data_805D6144;
-void TLobby__sub_8020DBCC(void);
+void reset_id_tables__6TLobbyFv(void);
 s32 update_lobby_scene__6TSceneFPv(char *);
 void read_disc_file(char *, void *);
 void replace_file_extension__6TLobbyFPvPvPv(char *, s32, char *);
@@ -169,7 +169,7 @@ void setup_floor_decorations__6TLobbyFv(void) {
     lbl_805D60F8 = -1;
 }
 
-void TLobby__sub_8020DBCC(void) {
+void reset_id_tables__6TLobbyFv(void) {
     s32 i;
     s32 n = 0;
     if (TLobby__data_805D6140 != 0) {

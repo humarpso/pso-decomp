@@ -136,11 +136,11 @@ void init_item_entry__23TAdSinglePlyChrSelectGCFPv(void *);
 s32 copy_character_to_slot__23TAdSinglePlyChrSelectGCFUiiUii(u32 arg0, s32 arg1, u32 arg2, s32 arg3);
 void* copy_item_data__23TAdSinglePlyChrSelectGCFPvPv(void* p, void* a1);
 void *TAdSinglePlyChrSelectGC__sub_80076D9C(void *, void *);
-S_801FE010 *TAdSinglePlyChrSelectGC__sub_801FE010(S_801FE010 *arg0, S_801FE010 *arg1);
+S_801FE010 *assign_char_data__23TAdSinglePlyChrSelectGCFPvPv(S_801FE010 *arg0, S_801FE010 *arg1);
 s32 TAdSinglePlyChrSelectGC__sub_801FDDAC(E_801FDDAC *arg0, s32 arg1, E_801FDDAC *arg2, s32 arg3);
 s32 TAdSinglePlyChrSelectGC__sub_801FDE14(E_801FDE14 *arg0, s32 arg1, E_801FDE14 *arg2, s32 arg3);
 void copy_player_data__9TProtocolFPvPv();
-S_801FE010 *TAdSinglePlyChrSelectGC__sub_801FE010(S_801FE010 *arg0, S_801FE010 *arg1);
+S_801FE010 *assign_char_data__23TAdSinglePlyChrSelectGCFPvPv(S_801FE010 *arg0, S_801FE010 *arg1);
 void *TAdSinglePlyChrSelectGC__sub_801FDFB8(void *a0, void *a1);
 void *memset(void *, int, unsigned long);
 extern u32 lbl_805D5F58;
@@ -325,7 +325,7 @@ s32 copy_character_to_slot__23TAdSinglePlyChrSelectGCFUiiUii(u32 arg0, s32 arg1,
 #define arg1 ((P_801FDFB8 *)a1)
 void *TAdSinglePlyChrSelectGC__sub_801FDFB8(void *a0, void *a1) {
     copy_player_data__9TProtocolFPvPv();
-    TAdSinglePlyChrSelectGC__sub_801FE010((S_801FE010 *)arg0->a, (S_801FE010 *)arg1->a);
+    assign_char_data__23TAdSinglePlyChrSelectGCFPvPv((S_801FE010 *)arg0->a, (S_801FE010 *)arg1->a);
     arg0->f278C = arg1->f278C;
     arg0->f2794 = arg1->f2794;
     return a0;
@@ -333,7 +333,7 @@ void *TAdSinglePlyChrSelectGC__sub_801FDFB8(void *a0, void *a1) {
 #undef arg0
 #undef arg1
 
-S_801FE010 *TAdSinglePlyChrSelectGC__sub_801FE010(S_801FE010 *arg0, S_801FE010 *arg1) {
+S_801FE010 *assign_char_data__23TAdSinglePlyChrSelectGCFPvPv(S_801FE010 *arg0, S_801FE010 *arg1) {
     I18_801FE010 *p;
     I18_801FE010 *q;
     I54_801FE010 *s;

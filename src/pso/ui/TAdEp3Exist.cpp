@@ -47,7 +47,7 @@ s32 draw_window_frame(void *, void *);
 extern const f32 lbl_805E0440;
 extern const f32 lbl_805E0444;
 extern const f32 lbl_805E0448;
-void TAdEp3Exist__sub_8036EFBC(s32 arg0, s32 arg1);
+void draw_message_window__11TAdEp3ExistFii(s32 arg0, s32 arg1);
 s32 get_state_flag__9TMainTaskFv();
 void render__11TAdEp3ExistFv(void);
 u8 TAdEp3Exist__sub_8036F590(u8 *arg0);
@@ -105,7 +105,7 @@ int request_scene_change__21TAdMultiChgGameModeGCFv(void*);
 int request_transition__21TAdMultiChgGameModeGCFv(void*);
 int reset_and_set_mode__21TAdMultiChgGameModeGCFv(void*);
 
-void TAdEp3Exist__sub_8036EFBC(s32 arg0, s32 arg1) {
+void draw_message_window__11TAdEp3ExistFii(s32 arg0, s32 arg1) {
     f32 temp_f31;
     draw_window_frame((void *) (arg0), (void *) (arg1));
     temp_f31 = lbl_805E0440 - (f32) (calc_text_width((int) (get_localized_text_entry((int) (0x2C), (int) (0xA)))) >> 1U);

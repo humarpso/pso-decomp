@@ -383,7 +383,7 @@ f32 calc_boss4_scale__10TObjPlayerFi(void *);
 s32 receive_direct_attack__10TObjPlayerFv(void *, void *, void *, void *, s32, s32);
 u16 obj_getField1c(void *);
 M2C_UNK transition_enemy_state(void *, int);
-void TObjEneMe3Stelth__sub_800F0EC4(Obj_800F0EC4 *arg0, void *arg1, Pair_800F0EC4 arg2, void *arg3);
+void handle_direct_attack__16TObjEneMe3StelthFPvPviPv(Obj_800F0EC4 *arg0, void *arg1, Pair_800F0EC4 arg2, void *arg3);
 M2C_UNK VecCopy__FP3VecPC3Vec(void *, void *);
 u16 obj_getField1c(void *);
 M2C_UNK fn_8002B630(void *, void *);
@@ -400,7 +400,7 @@ extern "C" {
 
 #define F(T, o) (*(T *)(arg0 + (o)))
 
-void TObjEneMe3Stelth__sub_800F0EC4(Obj_800F0EC4 *arg0, void *arg1, Pair_800F0EC4 arg2, void *arg3) {
+void handle_direct_attack__16TObjEneMe3StelthFPvPviPv(Obj_800F0EC4 *arg0, void *arg1, Pair_800F0EC4 arg2, void *arg3) {
     if (arg0->f3C0 == 1 && obj_getField1c(arg1) < 0x1000 && calc_boss4_scale__10TObjPlayerFi(arg0) <= arg0->f3E0) {
         transition_enemy_state(arg0, 0x12);
     } else if (arg0->f326 == 2) {

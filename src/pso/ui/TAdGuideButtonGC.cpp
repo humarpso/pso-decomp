@@ -76,7 +76,7 @@ extern s32 lbl_805D6D00;
 u8 *TAdGuideButtonGC__ct(u8 *arg0, u8 *arg1);
 M2C_UNK copy_vec2__28TWindowSubSymbolChatPartsSetFPvPv(void *, void *);
 extern UV_8032D600 lbl_80477350[];
-void TAdGuideButtonGC__sub_8032D600(Obj_8032D600 *arg0, Src_8032D600 *arg1);
+void setup_button__16TAdGuideButtonGCFPvPv(Obj_8032D600 *arg0, Src_8032D600 *arg1);
 void TAdGuideButtonGC__sub_8032D708(Obj_8032D708 *arg0);
 void TAdGuideButtonGC__sub_8032D708(Obj_8032D708 *arg0);
 void run_task__16TAdGuideButtonGCFv(Obj_8032D85C *arg0);
@@ -97,7 +97,7 @@ void render__16TAdGuideButtonGCFv(void* p) { if (get_state_flag__9TMainTaskFv(p)
 extern M2C_UNK __vt__16TAdGuideButtonGC[];
 extern u32 lbl_805D6D04;
 
-void TAdGuideButtonGC__sub_8032D600(Obj_8032D600 *arg0, Src_8032D600 *arg1) {
+void setup_button__16TAdGuideButtonGCFPvPv(Obj_8032D600 *arg0, Src_8032D600 *arg1) {
     s32 i;
     arg0->kind = arg1->kind;
     copy_vec2__28TWindowSubSymbolChatPartsSetFPvPv(arg0->a, arg1->a);

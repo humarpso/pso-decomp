@@ -5,12 +5,12 @@ void draw_selection_bar(void *, void *, s32);
 volatile char get_type__20TWindowSubStatusDispFPv(void *);
 s16 get_selected_index__20TWindowShortListCtrlFPv(void *);
 extern s32 lbl_805D53A4;
-void fn_802752D8(u8 *arg0, u8 *arg1);
+void draw_card_list_selection(u8 *arg0, u8 *arg1);
 }
 
 extern "C" {
 
-void fn_802752D8(u8 *arg0, u8 *arg1) {
+void draw_card_list_selection(u8 *arg0, u8 *arg1) {
   s16 temp_r0;
   s16 temp_r31;
   u16 *temp_r3;

@@ -73,7 +73,7 @@ extern "C" {
 void allow_rendering__7TObjectFv(void *);
 void clear_flag4_bit4__22TQuestVmDownLoadServerFPv(void *);
 s32 play_sound_effect(s32, u32, s16, s32);
-void TObjLuker__sub_801A0C7C(s32 arg0, s32 arg1);
+void show_part__9TObjLukerFii(s32 arg0, s32 arg1);
 s32 play_sound_effect(s32, u32, s16, s32);
 void set_flag_4__9TObjLukerFPv(void *w);
 void disallow_rendering__7TObjectFv(void *w);
@@ -150,7 +150,7 @@ s32 obj_getField1c(int);
 s32 is_split_screen(void);
 f32 horizontal_distance_squared(void *, void *);
 void TObjLuker__sub_801A0C38(Obj_801A0C38 *self, u16 i);
-void TObjLuker__sub_801A0C7C(s32 arg0, s32 arg1);
+void show_part__9TObjLukerFii(s32 arg0, s32 arg1);
 void close_windows__9TObjLukerFPv(Obj_801A0DB4 *self);
 s32 check_flag_100__10TObjPlayerFPv(void *);
 Ctrl_801A0E38 *get_player_by_client_id(u16 id);
@@ -190,7 +190,7 @@ void TObjLuker__sub_801A0C38(Obj_801A0C38 *self, u16 i) {
 
 #pragma push
 #pragma opt_common_subs off
-void TObjLuker__sub_801A0C7C(s32 arg0, s32 arg1) {
+void show_part__9TObjLukerFii(s32 arg0, s32 arg1) {
     u8 *temp_r31;
     u8 *temp_r3;
     temp_r31 = (u8 *)(arg0 + ((arg1 * 4) & 0x3FFFC));
@@ -331,7 +331,7 @@ s32 is_player_in_range__9TObjLukerFv(s32 arg0, f32 farg0) {
                 if (horizontal_distance_squared((void *) (arg0 + 0x38), (void *) (p + 0x38)) < (farg0 * farg0)) {
                     found = 1;
                     if ((p != 0U) && (check_flag_100__10TObjPlayerFPv((void *) (p)) == 0)) {
-                        TObjLuker__sub_801A0C7C(arg0, (int) (obj_getField1c((int) (p))));
+                        show_part__9TObjLukerFii(arg0, (int) (obj_getField1c((int) (p))));
                     }
                 } else {
                     C38_801A10A0((void *) (arg0), (int) (obj_getField1c((int) (p))));
@@ -352,7 +352,7 @@ s32 is_player_in_range__9TObjLukerFv(s32 arg0, f32 farg0) {
         if (found != 0) {
             if (p != 0U) {
                 if (check_flag_100__10TObjPlayerFPv((void *) (p)) == 0) {
-                    TObjLuker__sub_801A0C7C(arg0, (int) (obj_getField1c((int) (p))));
+                    show_part__9TObjLukerFii(arg0, (int) (obj_getField1c((int) (p))));
                 } else {
                     C38_801A10A0((void *) (arg0), (int) (obj_getField1c((int) (p))));
                 }

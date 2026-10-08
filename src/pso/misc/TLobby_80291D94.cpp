@@ -126,7 +126,7 @@ f32 get_random_float__8TObjFishFv(f32);
 void TObjCHTimeWin__sub_80071DF4(int);
 s32 is_challenge_mode_active();
 extern A_80291FC0 lbl_804DB1F0[];
-void TLobby__sub_80292604(s32 arg0);
+void update_challenge_timer__6TLobbyFi(s32 arg0);
 s32 TWindowSubStatusDisp__sub_8006F134(s32, s32);
 s32 resolve_player_slot__20TWindowSubStatusDispFi(s32);
 s32 register_in_free_room_slot__23TAdSinglePlyChrSelectGCFPvi(s32, s32);
@@ -400,7 +400,7 @@ void TLobby__sub_802925C4(s32 arg0) {
     M2C_FIELD(&lbl_80540968.value, s8 *, 0x1F) = 0;
 }
 typedef char RecoveredGlobal_80292604_lbl_804DB1F0_size[sizeof(RecoveredGlobal_80292604_lbl_804DB1F0) == 0x6B0 ? 1 : -1];
-void TLobby__sub_80292604(s32 arg0) {
+void update_challenge_timer__6TLobbyFi(s32 arg0) {
     if (is_challenge_mode_active() != 0) {
         get_random_float__8TObjFishFv((f32) (arg0 - M2C_FIELD(&(*(RecoveredGlobal_80292604_lbl_804DB1F0 *)&lbl_804DB1F0).value, s32 *, 0xC)));
         M2C_FIELD(&(*(RecoveredGlobal_80292604_lbl_804DB1F0 *)&lbl_804DB1F0).value, s32 *, 0xC) = arg0;

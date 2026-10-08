@@ -42,7 +42,7 @@ extern "C" {
 void *__dt__13TObjTombstoneFv(void *arg0, s16 arg1);
 void init_parts__13TObjTombstoneFPv(void* p);
 void run_task__13TObjTombstoneFv(void *arg0);
-f32 TObjTombstone__sub_8007598C(void *);
+f32 get_distance_to_local_player_xz__13TObjTombstoneFPvPv(void *);
 int format_date_text__13TObjTombstoneFPv(void*);
 int format_quoted_name__13TObjTombstoneFPv(void*);
 int format_enemy_text__13TObjTombstoneFPv(void*);
@@ -117,7 +117,7 @@ void run_task__13TObjTombstoneFv(void *arg0) {
         queue_destruction__7TObjectFv(arg0);
         return;
     }
-    M2C_FIELD(arg0, f32 *, 0xB0) = TObjTombstone__sub_8007598C(arg0);
+    M2C_FIELD(arg0, f32 *, 0xB0) = get_distance_to_local_player_xz__13TObjTombstoneFPvPv(arg0);
     TObjTombstone__sub_80076190((u8 *)(arg0));
     if (is_player_nearby__13TObjTombstoneFPv((void *)(arg0)) != 0) {
         TObjTombstone__sub_80075DFC(arg0);

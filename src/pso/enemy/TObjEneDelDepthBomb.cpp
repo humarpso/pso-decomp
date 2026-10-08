@@ -82,7 +82,7 @@ void update_prev_position__10TObjPlayerFPv(void *);
 void update_collisions__10TObjPlayerFPv(void *);
 void submit_cursor_candidate(void *, s32);
 void minimap_render_dot(void *, s32, s32, s32);
-void TObjEneDelDepth__sub_80313694(u8 *arg0);
+void update_ground_check__15TObjEneDelDepthFPv(u8 *arg0);
 void TObjEneDelDepth__sub_803152A0(u8 *arg0);
 void TObjEneDelDepth__sub_803152C0(u8 *arg0);
 void TObjEneDelDepth__sub_80315888(u8 *arg0);
@@ -573,7 +573,7 @@ void run_task__19TObjEneDelDepthBombFv(Bomb_803133BC *o);
 void * create__19TObjEneDelDepthBombFPvPvPvPv(void *arg0, void *arg1, void *arg2, void *arg3);
 void * __dt__19TObjEneDelDepthBombFv(void *arg0, s16 arg1);
 u8 * TObjEneDelDepthBomb__ct(u8 *arg0, M2C_UNK arg1, s32 arg2, s32 arg3, s32 arg4);
-void TObjEneDelDepth__sub_80313694(u8 *arg0);
+void update_ground_check__15TObjEneDelDepthFPv(u8 *arg0);
 void TObjEneDelDepth__sub_803138F8(void* a0);
 void TObjEneDelDepth__sub_80313954(u8 *arg0);
 void init_move__15TObjEneDelDepthFPv(void *arg0);
@@ -838,7 +838,7 @@ u8 *TObjEneDelDepthBomb__ct(u8 *arg0, M2C_UNK arg1, s32 arg2, s32 arg3, s32 arg4
     return arg0;
 }
 
-void TObjEneDelDepth__sub_80313694(u8 *arg0) {
+void update_ground_check__15TObjEneDelDepthFPv(u8 *arg0) {
     Stack_80313694 stack;
     u8 *temp_r3;
     if ((lbl_805D53A4 % 5) == 0) {
@@ -1661,7 +1661,7 @@ void run_task__15TObjEneDelDepthFv(Ene_80315720 *o) {
     if (o->idx != 0xD) {
         minimap_render_dot(o->pos, -0x5DB4, 1, 0);
     }
-    TObjEneDelDepth__sub_80313694((u8 *)o);
+    update_ground_check__15TObjEneDelDepthFPv((u8 *)o);
 }
 
 void *__dt__15TObjEneDelDepthFv(void *arg0, s16 arg1) {

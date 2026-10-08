@@ -43,7 +43,7 @@ extern const f32 lbl_805DDF68;
 void render__12TNeedleShootFv(s32 arg0);
 s32 VecCopy__FP3VecPC3Vec(void *, int);
 u8 *csnVector(f32 *, f32 *, s32);
-void TNeedleShoot__sub_802A4544(u8 *arg0);
+void check_wall_hit__12TNeedleShootFPv(u8 *arg0);
 }
 
 extern "C" {
@@ -55,7 +55,7 @@ typedef char RecoveredGlobal_802A45D4_lbl_80466678_size[sizeof(RecoveredGlobal_8
 
 #pragma push
 #pragma opt_common_subs off
-void TNeedleShoot__sub_802A4544(u8 *arg0) {
+void check_wall_hit__12TNeedleShootFPv(u8 *arg0) {
     typedef char sp8_offset[(offsetof(Stack_802A4544, sp8) == 0x0) ? 1 : -1];
     typedef char spC_offset[(offsetof(Stack_802A4544, spC) == 0x4) ? 1 : -1];
     typedef char sp10_offset[(offsetof(Stack_802A4544, sp10) == 0x8) ? 1 : -1];

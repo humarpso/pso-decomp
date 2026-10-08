@@ -14,12 +14,12 @@ u8 * csnVectorUnder(s32, void *, s32);
 void set_active__12TObjEneReconFv(void);
 extern s32 lbl_805D53A4;
 extern const f32 TObjEneRecon__data_805DF3C0;
-void TObjEneRecon__sub_8031C190(u8 *arg0);
+void update_ground_probe__12TObjEneReconFPv(u8 *arg0);
 }
 
 extern "C" {
 
-void TObjEneRecon__sub_8031C190(u8 *arg0) {
+void update_ground_probe__12TObjEneReconFPv(u8 *arg0) {
     Stack_8031C190 stack;
     u8 *temp_r3;
     if ((lbl_805D53A4 % 5) == 0) {

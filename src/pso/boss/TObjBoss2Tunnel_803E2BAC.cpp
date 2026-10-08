@@ -18,7 +18,7 @@ M2C_UNK TObjPlayer__sub_803E21DC();
 void TObjBoss2Tunnel__sub_803E2D10(s32 arg0);
 M2C_UNK GXBegin(int, int, u16);
 extern const f32 lbl_805E1080;
-void TObjBoss2Tunnel__sub_803E2BCC(Vtx_803E2BCC *p, s32 n);
+void draw_projected_quads__15TObjBoss2TunnelFPvi(Vtx_803E2BCC *p, s32 n);
 }
 
 extern "C" {
@@ -40,7 +40,7 @@ typedef union {
     f32 f32;
 } WGPipe_803E2BCC;
 #define GXWGFifo_803E2BCC (*(volatile WGPipe_803E2BCC *)0xCC008000)
-void TObjBoss2Tunnel__sub_803E2BCC(Vtx_803E2BCC *p, s32 n) {
+void draw_projected_quads__15TObjBoss2TunnelFPvi(Vtx_803E2BCC *p, s32 n) {
     s32 i;
     f32 one;
     GXBegin(0x98, 4, n);

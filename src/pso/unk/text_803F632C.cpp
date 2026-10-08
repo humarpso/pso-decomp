@@ -5,7 +5,7 @@ u32 strlen(const char *);
 void parse_config_line__22TQuestVmDownLoadServerFPvUiPv(char *, int, void *);
 extern char lbl_804FD338[];
 extern s32 lbl_805D79EC;
-s32 fn_803F632C(char *buf, u32 len, void *arg2);
+s32 parse_netinfo(char *buf, u32 len, void *arg2);
 }
 
 extern "C" {
@@ -15,7 +15,7 @@ extern "C" {
 #pragma optimization_level 2
 #pragma scheduling off
 #pragma peephole off
-s32 fn_803F632C(char *buf, u32 len, void *arg2) {
+s32 parse_netinfo(char *buf, u32 len, void *arg2) {
     u32 i;
     u32 start;
     start = 0;

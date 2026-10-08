@@ -59,7 +59,7 @@ struct Vec2_802615B8 {
 s32 TWindowShortListCtrl__check_controller_button(void *, int, int);
 M2C_UNK play_sound_effect(int, int, int, int);
 s32 draw_default_entry__9TWindowDDFi();
-M2C_UNK TWindowKeyBoardSoft__sub_8025C24C(int);
+M2C_UNK handle_backspace__19TWindowKeyBoardSoftFPv(int);
 M2C_UNK TKeyBoardControl__sub_8025CBC0(void *);
 M2C_UNK TKeyBoardControl__sub_8025CBCC(void *);
 M2C_UNK TKeyBoardControl__sub_8025CC04(void *);
@@ -217,7 +217,7 @@ void TWindowKeyBoardSoft__sub_80260808(u8 *arg0, s32 arg1) {
     if ((TWindowShortListCtrl__check_controller_button((void *) ((u8 *)&lbl_8050E208.value + temp_r5 + 0x20), (int) (2), (int) (temp_r5)) != 0) && ((u32) M2C_FIELD(arg0, u32 *, 0x6C) != 0U)) {
         M2C_FIELD(arg0, s32 *, 0x60) = (s32) (M2C_FIELD(arg0, s32 *, 0x60) & 0xFFFFFFEF);
         play_sound_effect((int) (0x52F16), (int) (0), (int) (0), (int) (0));
-        TWindowKeyBoardSoft__sub_8025C24C((int) (M2C_FIELD(arg0, u32 *, 0x6C)));
+        handle_backspace__19TWindowKeyBoardSoftFPv((int) (M2C_FIELD(arg0, u32 *, 0x6C)));
     }
 }
 extern int fold_flush_5;

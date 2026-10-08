@@ -20,10 +20,10 @@ u16 TObjEneRecon__sub_8031D878();
 s32 is_below_child_limit__12TObjEneReconFPvUs(Obj_8031F0F0 *arg0, u16 arg1);
 u8 *find_entity_by_id(u16);
 void TObjEneRecon__sub_8031EDBC(void *, u16);
-void TObjEneRecon__sub_8031EFAC(Obj_8031EFAC *o, u8 *target);
+void remove_tracked_target__12TObjEneReconFPvPv(Obj_8031EFAC *o, u8 *target);
 u8 *find_entity_by_id(u16);
 s32 is_anim_5__12TObjEneReconFPv();
-s32 TObjEneRecon__sub_8031F070(Obj_8031F070 *arg0);
+s32 has_child_in_anim_5__12TObjEneReconFPv(Obj_8031F070 *arg0);
 }
 
 extern "C" {
@@ -40,7 +40,7 @@ void TObjEneRecon__sub_8031EF14(Obj_8031EF14 *arg0, u8 *arg1) {
     }
 }
 
-void TObjEneRecon__sub_8031EFAC(Obj_8031EFAC *o, u8 *target) {
+void remove_tracked_target__12TObjEneReconFPvPv(Obj_8031EFAC *o, u8 *target) {
     s32 i;
     for (i = 0; i < 6; i++) {
         if (find_entity_by_id(o->ids[i]) == target) {
@@ -57,7 +57,7 @@ void TObjEneRecon__sub_8031EFAC(Obj_8031EFAC *o, u8 *target) {
     }
 }
 
-s32 TObjEneRecon__sub_8031F070(Obj_8031F070 *arg0) {
+s32 has_child_in_anim_5__12TObjEneReconFPv(Obj_8031F070 *arg0) {
     s32 i;
     if (arg0->count <= 0) {
         return 0;

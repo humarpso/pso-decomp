@@ -12,12 +12,12 @@ struct Obj_801E4EB0 {
 };
 
 extern "C" {
-void fn_801E4EB0(Obj_801E4EB0 *o);
+void quad_sprite_reset_entries(Obj_801E4EB0 *o);
 }
 
 extern "C" {
 
-void fn_801E4EB0(Obj_801E4EB0 *o) {
+void quad_sprite_reset_entries(Obj_801E4EB0 *o) {
     s32 i;
     for (i = 0; i < o->info->count; i++) {
         o->ents[i].first = 0;

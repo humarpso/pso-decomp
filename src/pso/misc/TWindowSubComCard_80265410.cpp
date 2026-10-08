@@ -144,7 +144,7 @@ void calc_layout_height__17TWindowSubComCardFPvf(u8 *arg0, f32 farg0);
 void set_scroll_target__17TWindowSubComCardFPvff(void *arg0, f32 farg0, f32 farg1);
 void update_layout_height__17TWindowSubComCardFPvf(Win_80265E60 *self, f32 x);
 void calc_window_size__17TWindowSubComCardFPv(Win_80265F60 *self);
-void TWindowSubComCard__sub_80266078(u8 *arg0);
+void layout_entries__17TWindowSubComCardFPv(u8 *arg0);
 void clear_transition_flag__17TWindowSubComCardFPv(void *arg0);
 void open__17TWindowOptionCtrlFPv(void *arg0);
 void draw_text_gray__17TWindowSubComCardFiiii(s32 arg0, s32 arg1, s32 arg2, s32 arg3);
@@ -560,7 +560,7 @@ void calc_window_size__17TWindowSubComCardFPv(Win_80265F60 *self) {
     save_position__17TWindowSubComCardFPv(self);
 }
 
-void TWindowSubComCard__sub_80266078(u8 *arg0) {
+void layout_entries__17TWindowSubComCardFPv(u8 *arg0) {
     f32 gap;
     f64 zero;
     f32 y;
@@ -781,7 +781,7 @@ void run_task__11TWindowMenuFv(u8 *arg0) {
     u8 *temp_r29_2;
     u8 *temp_r29_3;
 
-    ((M2C_UNK (*)(void))TWindowSubComCard__sub_80266078)();
+    ((M2C_UNK (*)(void))layout_entries__17TWindowSubComCardFPv)();
     if (!(M2C_FIELD(arg0, s32 *, 0x2C) & 2)) {
         M2C_FIELD(arg0, s32 *, 0x5C) = 0x01000000;
     }

@@ -69,8 +69,8 @@ M2C_UNK copy_vec2__28TWindowSubSymbolChatPartsSetFPvPv(void *, s32);
 void destroy_window_base__9TWindowDDFPvs(void *, int);
 s32 is_com_card_active();
 s32 is_guild_card_receive_active();
-M2C_UNK fn_80287AD8(s32);
-M2C_UNK fn_80287B60(s32);
+M2C_UNK init_timer_window_layout(s32);
+M2C_UNK init_timer_window_layout_alt(s32);
 s32 get_array_entry__20TWindowSubStatusDispFPvi(void *, M2C_UNK);
 s32 is_active__19TWindowSubShortMailFv();
 M2C_UNK reset_float_field__15TWindowHelpItemFPv(s32);
@@ -138,7 +138,7 @@ s32 create__12TWindowTimerFv(void) {
     if (var_r31 != 0) {
         var_r31 = ((s32)TWindowTimer__ct((u8 *)((void *)var_r31)));
     }
-    fn_80287AD8(var_r31);
+    init_timer_window_layout(var_r31);
     return var_r31;
 }
 
@@ -149,7 +149,7 @@ s32 create_alt__12TWindowTimerFv(void) {
     if (var_r31 != 0) {
         var_r31 = ((s32)TWindowTimer__ct((u8 *)((void *)var_r31)));
     }
-    fn_80287B60(var_r31);
+    init_timer_window_layout_alt(var_r31);
     return var_r31;
 }
 

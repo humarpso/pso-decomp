@@ -14,7 +14,7 @@ extern "C" {
 
 void send_pick_up_item__6TLobbyFi(s32 arg0);
 M2C_UNK TLobby__send_and_handle_60(void *);
-s32 TLobby__sub_8010314C();
+s32 init_floor_item_entry__6TLobbyFPv();
 s32 bswap_16__FPUs(s32);
 s32 bswap_32__FPUl(s32);
 M2C_UNK bswap_pick_up_item_packet__6TLobbyFi();

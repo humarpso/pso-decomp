@@ -50,7 +50,7 @@ struct VBase_8016D540 { char pad[0x18]; };
 struct VObj_8016D540 : VBase_8016D540 { virtual void m0(); virtual void m1(); virtual void m2(); virtual void m3(); virtual void m4(); virtual void m5(); virtual void m6(); virtual void m7(); virtual s32 m8(f32, f32); };
 
 extern "C" {
-M2C_UNK TOKeyMachine01__sub_8016D148(void *, int);
+M2C_UNK send_switch_changed__14TOKeyMachine01FPvi(void *, int);
 void run_task__14TOKeyMachine01Fv(u8 *arg0);
 u8 * load_resource_from_descriptor(void *, s32, void *, s32, s32, s32);
 int alloc__23TAdSinglePlyChrSelectGCFPv(void *);
@@ -109,14 +109,14 @@ void run_task__14TOKeyMachine01Fv(u8 *arg0) {
     if ((s32) M2C_FIELD(arg0, s32 *, 0xD4) != 1) {
         ((VObj_18 *)(arg0))->m15();
         if (((VObj_18 *)(arg0))->m13() == 1) {
-            TOKeyMachine01__sub_8016D148((void *) (arg0), (int) (1));
+            send_switch_changed__14TOKeyMachine01FPvi((void *) (arg0), (int) (1));
             ((VObj_18 *)(arg0))->m16();
             M2C_FIELD(arg0, s32 *, 0xD4) = 1;
         }
     } else {
         ((VObj_18 *)(arg0))->m14();
         if (((VObj_18 *)(arg0))->m13() != 1) {
-            TOKeyMachine01__sub_8016D148((void *) (arg0), (int) (0));
+            send_switch_changed__14TOKeyMachine01FPvi((void *) (arg0), (int) (0));
             ((VObj_18 *)(arg0))->m17();
             M2C_FIELD(arg0, s32 *, 0xD4) = 0;
         }

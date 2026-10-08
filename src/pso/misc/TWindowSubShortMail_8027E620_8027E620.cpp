@@ -37,7 +37,7 @@ M2C_UNK reset_list__20TShopArmorListWindowFPv(void *);
 int select_cursor_entry__6TLobbyFPv(void*);
 M2C_UNK advance_line__19TWindowSubShortMailFPvi(void *, s32);
 M2C_UNK add_status_entry__20TWindowSubStatusDispFPvcii(void *, s32, s32, u32);
-M2C_UNK TWindowSubStatusDisp__sub_80267AA8(void *, s16);
+M2C_UNK set_cursor_index__20TWindowSubStatusDispFPvs(void *, s16);
 void *set_window_mode_4__6TLobbyFPvii(s32, void *, s32);
 s32 get_window_layout_position(M2C_UNK);
 s32 get_field_cc__19TWindowSubShortMailFPv(s32);
@@ -331,7 +331,7 @@ s32 refresh_mail_list__19TWindowSubShortMailFPvPv(u8 *arg0, void *arg1) {
         clamp_selection_to_valid_entry__20TShopArmorListWindowFPv(arg1);
         return 0;
     }
-    TWindowSubStatusDisp__sub_80267AA8(arg1, sel);
+    set_cursor_index__20TWindowSubStatusDispFPvs(arg1, sel);
     return 1;
 }
 

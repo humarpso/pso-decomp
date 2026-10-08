@@ -139,7 +139,7 @@ M2C_UNK init_keyboard_buffer__6TLobbyFv();
 M2C_UNK init_account_entries__6TLobbyFv();
 M2C_UNK TKeyBoardControl__sub_801A6854();
 M2C_UNK load_ply_level_tbl();
-M2C_UNK TAdPlayerLoadGC__sub_801E13C4();
+M2C_UNK load_banner_files__15TAdPlayerLoadGCFv();
 M2C_UNK init_particle_sprite_atlas();
 M2C_UNK TAdSinglePlyChrSelectGC__sub_802019F8();
 M2C_UNK reset_story_select__6TLobbyFv();
@@ -458,7 +458,7 @@ void init_game_systems(void) {
     GXSetPixelFmt((int) (1), (int) (0));
     fn_8007F8D0();
     init_keyboard_buffer__6TLobbyFv();
-    TAdPlayerLoadGC__sub_801E13C4();
+    load_banner_files__15TAdPlayerLoadGCFv();
     load_player_data__6TLobbyFv();
     init_account_entries__6TLobbyFv();
     load_ha_u032_kage();

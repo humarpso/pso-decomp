@@ -40,7 +40,7 @@ M2C_UNK queue_destruction__7TObjectFv(void *);
 s32 project_actor_to_ground(void *, void *, int);
 extern const f32 TBoss6GravBall__data_805DF558;
 extern const f32 lbl_805DF574;
-s32 TBoss6GravBall__sub_803237A0(Obj_803237A0 *arg0);
+s32 clamp_to_ground__14TBoss6GravBallFPv(Obj_803237A0 *arg0);
 P_80323348 *get_player_data__10TObjPlayerFi(s32);
 s32 get_game_mode__6TLobbyFv();
 void VecCopy__FP3VecPC3Vec(void *, void *);
@@ -219,10 +219,10 @@ void TBoss6GravBall__sub_803236F8(Obj_803236F8 *arg0) {
     } else {
         VecCopy__FP3VecPC3Vec(&arg0->pos, lbl_80476684);
     }
-    TBoss6GravBall__sub_803237A0((Obj_803237A0 *)(arg0));
+    clamp_to_ground__14TBoss6GravBallFPv((Obj_803237A0 *)(arg0));
 }
 
-s32 TBoss6GravBall__sub_803237A0(Obj_803237A0 *arg0) {
+s32 clamp_to_ground__14TBoss6GravBallFPv(Obj_803237A0 *arg0) {
     Vec_803237A0 v = arg0->pos;
     if (project_actor_to_ground(arg0, &v, 0) == 0) {
         queue_destruction__7TObjectFv((void *)(arg0));

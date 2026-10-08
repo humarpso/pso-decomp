@@ -74,7 +74,7 @@ s32 is_split_screen();
 s32 is_any_player_in_range__5TOKeyFPv(void *);
 s32 is_local_player_in_range__5TOKeyFPv(void *);
 s32 TOKeyCol__vt13(u8 *arg0);
-M2C_UNK TOKeyCave01__sub_8016BF08(void *, int);
+M2C_UNK send_switch_changed__11TOKeyCave01FPvi(void *, int);
 void run_task__11TOKeyCave01Fv(u8 *arg0);
 u8 *load_resource_from_descriptor(void *, s32, M2C_UNK *, s32, s32, s32);
 u8 *alloc__23TAdSinglePlyChrSelectGCFPv(s32);
@@ -108,7 +108,7 @@ void init_6x05_switch_changed__6TLobbyFPv(void *);
 void finalize_and_send_60__6TLobbyFPv(void *);
 s32 get_current_floor();
 extern s32 lbl_805D53A0;
-void TOKeyCol__sub_8016C79C(Self_8016C79C *self, s32 flags);
+void send_switch_changed__8TOKeyColFPvi(Self_8016C79C *self, s32 flags);
 M2C_UNK begin_effect_render__13TParticleCtrlFv();
 M2C_UNK end_effect_render__13TParticleCtrlFv();
 M2C_UNK rotate_matrix_y(int, int);
@@ -162,14 +162,14 @@ void run_task__11TOKeyCave01Fv(u8 *arg0) {
     if ((s32) M2C_FIELD(arg0, s32 *, 0xD4) != 1) {
         ((VObj_18 *)(arg0))->m15();
         if (((VObj_18 *)(arg0))->m13() == 1) {
-            TOKeyCave01__sub_8016BF08((void *) (arg0), (int) (1));
+            send_switch_changed__11TOKeyCave01FPvi((void *) (arg0), (int) (1));
             ((VObj_18 *)(arg0))->m16();
             M2C_FIELD(arg0, s32 *, 0xD4) = 1;
         }
     } else {
         ((VObj_18 *)(arg0))->m14();
         if (((VObj_18 *)(arg0))->m13() != 1) {
-            TOKeyCave01__sub_8016BF08((void *) (arg0), (int) (0));
+            send_switch_changed__11TOKeyCave01FPvi((void *) (arg0), (int) (0));
             ((VObj_18 *)(arg0))->m17();
             M2C_FIELD(arg0, s32 *, 0xD4) = 0;
         }
@@ -357,7 +357,7 @@ s32 TOKeyCol__vt13(u8 *arg0) {
     }
     return var_r31;
 }
-void TOKeyCol__sub_8016C79C(Self_8016C79C *self, s32 flags) {
+void send_switch_changed__8TOKeyColFPvi(Self_8016C79C *self, s32 flags) {
     Pkt_8016C79C pkt;
     init_6x05_switch_changed__6TLobbyFPv(&pkt);
     pkt.object = self->id;

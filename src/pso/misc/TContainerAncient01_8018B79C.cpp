@@ -41,7 +41,7 @@ u32 get_bml_motion(int, int);
 s32 get_bml_model(int, int);
 M2C_UNK TContainerAncient01__sub_8018B284(void *);
 M2C_UNK TContainerAncient01__sub_8018B48C(void *);
-M2C_UNK TContainerAncient01__sub_8018B510(void *);
+M2C_UNK update_wait_for_player__19TContainerAncient01FPv(void *);
 M2C_UNK submit_cursor_candidate(void *, int, f32);
 M2C_UNK run_task__7TObjectFv(void *);
 extern s32 TContainerAncient01__data_805D5B90;
@@ -140,7 +140,7 @@ void run_task__19TContainerAncient01Fv(u8 *arg0) {
             temp_r0 = M2C_FIELD(arg0, s16 *, 0x326);
             switch (temp_r0) {
             case 0:
-                TContainerAncient01__sub_8018B510((void *) (arg0));
+                update_wait_for_player__19TContainerAncient01FPv((void *) (arg0));
                 break;
             case 1:
                 TContainerAncient01__sub_8018B48C((void *) (arg0));
@@ -152,7 +152,7 @@ void run_task__19TContainerAncient01Fv(u8 *arg0) {
                 M2C_FIELD(arg0, s16 *, 0x326) = 0;
                 M2C_FIELD(arg0, s16 *, 0xB8) = (s16) M2C_FIELD(arg0, s16 *, 0x326);
                 M2C_FIELD(arg0, f32 *, 0x2B4) = (f32) TContainerAncient01__data_805DBD1C;
-                TContainerAncient01__sub_8018B510((void *) (arg0));
+                update_wait_for_player__19TContainerAncient01FPv((void *) (arg0));
                 break;
             }
             temp_f1 = M2C_FIELD(arg0, f32 *, 0x2B4);

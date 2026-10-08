@@ -13,12 +13,12 @@ extern u32 lbl_805D56A0;
 extern s32 lbl_805D56A4;
 extern s32 lbl_805D56A8;
 extern RecoveredCallback_6d14191ba232 lbl_805D6BF4;
-void TMovie__sub_80143C00(void);
+void flip_frame_buffer__6TMovieFv(void);
 }
 
 extern "C" {
 
-void TMovie__sub_80143C00(void) {
+void flip_frame_buffer__6TMovieFv(void) {
     u32 sp8[4];
     if (lbl_805D56A0 != 0U) {
         if (lbl_805D569C & 1) {

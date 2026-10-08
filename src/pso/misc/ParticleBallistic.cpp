@@ -180,7 +180,7 @@ s32 get_particle_by_index__13TParticleCtrlFi(s32 arg0);
 void *alloc_particle_memory(int);
 u8 *create_ballistic_particle(u8 *arg0, u8 *arg1, u8 *arg2, s32 arg3, u16 arg4, s16 arg5);
 void *alloc_particle_memory(int);
-void *TParticleCtrl__sub_80089B50(void *, void *, void *, void *);
+void *init_particle_random_spread__13TParticleCtrlFPvPvPvPv(void *, void *, void *, void *);
 void * TParticleCtrl__sub_800887EC(void *arg0, void *arg1, void *arg2);
 int queue_destruction__7TObjectFv(void *);
 f32 vec_squared_length(void *);
@@ -513,7 +513,7 @@ void * TParticleCtrl__sub_800887EC(void *arg0, void *arg1, void *arg2) {
     void *o;
     o = alloc_particle_memory(0xd0);
     if (o != NULL) {
-        o = TParticleCtrl__sub_80089B50(o, arg0, arg1, arg2);
+        o = init_particle_random_spread__13TParticleCtrlFPvPvPvPv(o, arg0, arg1, arg2);
     }
     return o;
 }
@@ -790,11 +790,11 @@ extern const f32 TParticleCtrl__data_805D9500;
 extern const f32 TParticleCtrl__data_805D9504;
 extern const f32 TParticleCtrl__data_805D950C;
 extern const f32 lbl_805D9520;
-void *TParticleCtrl__sub_80089B50(void *, void *, void *, void *);
+void *init_particle_random_spread__13TParticleCtrlFPvPvPvPv(void *, void *, void *, void *);
 
 #pragma push
 #pragma fp_contract on
-void *TParticleCtrl__sub_80089B50(void *a0, void *a1, void *a2, void *a3) {
+void *init_particle_random_spread__13TParticleCtrlFPvPvPvPv(void *a0, void *a1, void *a2, void *a3) {
     BF0_80089B50 *p = (BF0_80089B50 *)a0;
     BF1_80089B50 *d = (BF1_80089B50 *)a1;
     BF2_80089B50 *pos = (BF2_80089B50 *)a2;

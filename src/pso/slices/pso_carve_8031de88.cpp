@@ -8,7 +8,7 @@ extern "C" {
 void enemy_copy_target_destination(void *);
 f32 sin_table_lookup(s32);
 f32 cos_table_lookup(s32);
-void TObjEneRecon__sub_8031DE88(u8 *arg0, s32 arg1);
+void set_orbit_destination__12TObjEneReconFPvi(u8 *arg0, s32 arg1);
 }
 
 extern "C" {
@@ -20,7 +20,7 @@ void TObjEneRecon__vt26(void);
 
 #pragma push
 #pragma fp_contract on
-void TObjEneRecon__sub_8031DE88(u8 *arg0, s32 arg1) {
+void set_orbit_destination__12TObjEneReconFPvi(u8 *arg0, s32 arg1) {
     enemy_copy_target_destination(arg0);
     M2C_FIELD(arg0, f32 *, 0x394) = (f32) ((M2C_FIELD(arg0, f32 *, 0x468) * sin_table_lookup(arg1)) + M2C_FIELD(arg0, f32 *, 0x394));
     M2C_FIELD(arg0, f32 *, 0x398) = (f32) M2C_FIELD(arg0, f32 *, 0x460);

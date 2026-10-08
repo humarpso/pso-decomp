@@ -70,7 +70,7 @@ s32 VecCopy__FP3VecPC3Vec(void *, void *);
 s32 project_actor_to_ground(void *, void *, int);
 extern const f32 lbl_805DA2A0;
 extern const f32 lbl_805DA2A4;
-void TObjGyaranzoMissile__sub_800D4110(u8 *arg0, M2C_UNK *arg1, f32 farg0);
+void update_ground_fall__19TObjGyaranzoMissileFPvPvf(u8 *arg0, M2C_UNK *arg1, f32 farg0);
 extern s32 lbl_805D51EC;
 f32 TObjGyaranzoMissile__sub_800D40EC(s32 arg0);
 extern s32 lbl_805D51EC;
@@ -90,7 +90,7 @@ extern Hit_800D4200 lbl_8043C440[];
 extern const f32 lbl_805DA2A8;
 void TObjGyaranzoMissile__sub_800D4200(u8 *arg0);
 s32 VecCopy__FP3VecPC3Vec(void *, void *);
-void TObjGyaranzoMissile__sub_800D4110(u8 *arg0, M2C_UNK *arg1, f32 farg0);
+void update_ground_fall__19TObjGyaranzoMissileFPvPvf(u8 *arg0, M2C_UNK *arg1, f32 farg0);
 void TObjGyaranzoMissile__sub_800D4200(u8 *arg0);
 M2C_UNK spawn_particle_effect(void *, int);
 M2C_UNK rotate_matrix_y(M2C_UNK, s32);
@@ -137,7 +137,7 @@ s32 TObjGyaranzoMissile__sub_800D40FC(s32 i) {
     return (*(D_800D40FC * *)&lbl_805D51EC)->arr[i];
 }
 
-void TObjGyaranzoMissile__sub_800D4110(u8 *arg0, M2C_UNK *arg1, f32 farg0) {
+void update_ground_fall__19TObjGyaranzoMissileFPvPvf(u8 *arg0, M2C_UNK *arg1, f32 farg0) {
     Vec position;
     f32 temp_f1;
     s32 temp_r31;
@@ -213,7 +213,7 @@ void update_flight__19TObjGyaranzoMissileFPv(Missile_800D43B4 *self) {
         }
         self->pos.x += self->vel.x;
         self->pos.z += self->vel.z;
-        TObjGyaranzoMissile__sub_800D4110((u8 *)self, NULL, lbl_805DA2A4);
+        update_ground_fall__19TObjGyaranzoMissileFPvPvf((u8 *)self, NULL, lbl_805DA2A4);
         if (self->flags & 0x800000) {
             push_matrix_from(lbl_8058D490);
             self->vel.x = lbl_805DA2A4;
@@ -238,7 +238,7 @@ void update_flight__19TObjGyaranzoMissileFPv(Missile_800D43B4 *self) {
         } else {
             self->state = 2;
         }
-        TObjGyaranzoMissile__sub_800D4110((u8 *)self, NULL, lbl_805DA2A4);
+        update_ground_fall__19TObjGyaranzoMissileFPvPvf((u8 *)self, NULL, lbl_805DA2A4);
         if (self->fEC > 0) {
             self->fEC--;
         } else {
@@ -255,7 +255,7 @@ void update_flight__19TObjGyaranzoMissileFPv(Missile_800D43B4 *self) {
         break;
     }
     case 2:
-        TObjGyaranzoMissile__sub_800D4110((u8 *)self, NULL, lbl_805DA2A4);
+        update_ground_fall__19TObjGyaranzoMissileFPvPvf((u8 *)self, NULL, lbl_805DA2A4);
         break;
     }
     VecCopy__FP3VecPC3Vec(&self->fE0, &self->pos);

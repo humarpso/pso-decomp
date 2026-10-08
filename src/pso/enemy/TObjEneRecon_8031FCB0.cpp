@@ -237,7 +237,7 @@ void init_and_activate__10TObjPlayerFPv();
 void set_animation__10TObjPlayerFPvs(void *, s16);
 void free_collision_body_parts(void *);
 void __dl__7TObjectFPv(void *);
-M2C_UNK TObjEneRecon__sub_8031EE54(void *);
+M2C_UNK update_floor_probe__12TObjEneReconFPv(void *);
 s32 handle_death_state__12TObjEneReconFPvi(void *, void *);
 s32 TObjEneRecon__sub_8031F408(void *, void *);
 s32 handle_action_state__12TObjEneReconFPvi(void *, void *);
@@ -502,7 +502,7 @@ void fn_8031FD3C(u8 *arg0) {
     restore_position__12TObjEneReconFPv((void *) (arg0));
     set_player_state_default__12TBoss8DragonFPv((void *) (arg0));
     ((VObj_18 *)(arg0))->m98();
-    TObjEneRecon__sub_8031EE54((void *) (arg0));
+    update_floor_probe__12TObjEneReconFPv((void *) (arg0));
 }
 
 Obj_8031FE14 *fn_8031FE14(Obj_8031FE14 *arg0, s16 arg1) {

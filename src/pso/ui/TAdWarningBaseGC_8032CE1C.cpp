@@ -30,7 +30,7 @@ extern u32 lbl_805D6CE0;
 extern s32 lbl_805D6CE8;
 extern int lbl_805D6CEC;
 extern s32 lbl_805D6CF4;
-s32 TAdWarningBaseGC__sub_8032CF70(s32 arg0);
+s32 load_from_aram_sync__16TAdWarningBaseGCFi(s32 arg0);
 void DCFlushRange(void *, u32);
 void ARQPostRequest(void *, u32, u32, u32, u32, u32, u32, void (*)(u32));
 void TAdWarningBaseGC__sub_8032D1E4(u32);
@@ -96,7 +96,7 @@ void TAdWarningBaseGC__sub_8032CEB4(TAdWarningBaseGC_8032CEB4 *self) {
     (self->*tbl[self->state])();
 }
 
-s32 TAdWarningBaseGC__sub_8032CF70(s32 arg0) {
+s32 load_from_aram_sync__16TAdWarningBaseGCFi(s32 arg0) {
     u32 size;
     if (lbl_805D6CE8 == 0) {
         return 0;

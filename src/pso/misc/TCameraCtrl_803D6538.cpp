@@ -211,7 +211,7 @@ void TCameraCtrl__sub_803D65F8(u8 *);
 void set_camera_look_at(u8* eye, u8* target, u8* up);
 void set_matrix_identity__10TObjPlayerFPv(s32);
 extern u8 lbl_804FA4F0[];
-void TCameraCtrl__sub_803D6558(f32 farg0, f32 farg1, f32 farg2);
+void look_at_position__11TCameraCtrlFfff(f32 farg0, f32 farg1, f32 farg2);
 extern G_803D6688 lbl_8058D4F8;
 extern const f32 lbl_805E0E08;
 void set_screen_size(f32 farg0, f32 farg1);
@@ -252,7 +252,7 @@ void update_camera_state__11TCameraCtrlFv(f32 _w0, f32 _w1, f32 _w2) {
     TCameraCtrl__sub_803D65C8(_w0, _w1, _w2);
 }
 
-void TCameraCtrl__sub_803D6558(f32 farg0, f32 farg1, f32 farg2) {
+void look_at_position__11TCameraCtrlFfff(f32 farg0, f32 farg1, f32 farg2) {
     u8 sp14[0x14];
     V_803D6558 v;
     TCameraCtrl__sub_803D65F8((u8 *)(sp14));

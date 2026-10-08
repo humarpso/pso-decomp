@@ -498,7 +498,7 @@ void update_lobby__10TNpcPlayerFPv(void* p);
 void bswap_6x43_packet(void* p);
 void TNpcPlayer__sub_80152C28(u8 *arg0);
 void finalize_and_send_packet__10TNpcPlayerFPv(u8 *arg0);
-void TNpcPlayer__sub_80152C8C(N_80152C8C *arg0);
+void byteswap_positions__10TNpcPlayerFPv(N_80152C8C *arg0);
 u8 TNpcPlayer__sub_80152CE8(u8 *arg0);
 void * init_cast_technique_cmd__10TNpcPlayerFPv(void *arg0);
 void TNpcPlayer__sub_80152D64(void* p);
@@ -3771,11 +3771,11 @@ void TNpcPlayer__sub_80152C28(u8 *arg0) {
 
 void finalize_and_send_packet__10TNpcPlayerFPv(u8 *arg0) {
     M2C_FIELD(arg0, s8 *, 1) = (s8) ((((u32)TNpcPlayer__sub_80152CE8((u8 *)(arg0))) >> 2U) & 0x3F);
-    TNpcPlayer__sub_80152C8C((N_80152C8C *)((void*)((void*)((void *) (arg0)))));
+    byteswap_positions__10TNpcPlayerFPv((N_80152C8C *)((void*)((void*)((void *) (arg0)))));
     TLobby__send_and_handle_60((void*)((void *) (arg0)));
 }
 
-void TNpcPlayer__sub_80152C8C(N_80152C8C *arg0) {
+void byteswap_positions__10TNpcPlayerFPv(N_80152C8C *arg0) {
     s32 i;
     read_be16_field2__10TObjPlayerFPv((void*)(arg0));
     for (i = 0; i < arg0->count; i++) {

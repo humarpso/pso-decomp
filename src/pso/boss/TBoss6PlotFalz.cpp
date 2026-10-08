@@ -138,7 +138,7 @@ extern "C" {
 #pragma push
 #pragma fp_contract on
 #pragma opt_common_subs off
-void TBoss6PlotFalz__sub_802AACF4(TBoss6PlotFalz_802AACF4 *o) {
+void update_random_shake__14TBoss6PlotFalzFPv(TBoss6PlotFalz_802AACF4 *o) {
     if (o->f3D0 != 0) {
         s32 n = o->f3D4 - 1;
         o->f3D4 = n;
@@ -248,7 +248,7 @@ s32 is_active__14TBoss6PlotFalzFPv(void *arg0) {
 #undef get_player_data__10TObjPlayerFi
 #undef is_state_1f__14TBoss6PlotFalzFUi
 
-#define TBoss6PlotFalz__sub_802AACF4 ((s32 (*)(void *))TBoss6PlotFalz__sub_802AACF4)
+#define update_random_shake__14TBoss6PlotFalzFPv ((s32 (*)(void *))update_random_shake__14TBoss6PlotFalzFPv)
 #define get_field_3e0__12TBoss3VoloptFPv ((s32 (*)())get_field_3e0__12TBoss3VoloptFPv)
 
 struct Stack_802AB1C8 {
@@ -282,7 +282,7 @@ union MemberActionStorage_802AB2B8 { s32 words[3]; void (TBoss6PlotFalz::*action
 extern "C" {
 extern RecoveredGlobal_802AB1C8_TBoss6PlotFalz__data_804DE66C TBoss6PlotFalz__data_804DE66C;
 void TBoss6PlotFalz__sub_802AB1C8(u8 *arg0);
-void TBoss6PlotFalz__sub_802AB14C(u8 *arg0);
+void run_phase_action__14TBoss6PlotFalzFPv(u8 *arg0);
 void set_state__14TBoss6PlotFalzFPvi(u8 *arg0, s32 arg1);
 }
 
@@ -307,7 +307,7 @@ typedef char RecoveredGlobal_802AB1C8_TBoss6PlotFalz__data_804DE66C_size[sizeof(
 
 typedef char MemberActionStorage_802AB14C_size[sizeof(MemberActionStorage_802AB14C) == 12 ? 1 : -1];
 typedef char RecoveredGlobal_802AB14C_TBoss6PlotFalz__data_804DE66C_size[sizeof(RecoveredGlobal_802AB14C_TBoss6PlotFalz__data_804DE66C) == 0x1D4 ? 1 : -1];
-void TBoss6PlotFalz__sub_802AB14C(u8 *arg0) {
+void run_phase_action__14TBoss6PlotFalzFPv(u8 *arg0) {
   MemberActionStorage_802AB14C member_action;
   Stack_802AB14C stack;
   u8 *temp_r6;
@@ -320,7 +320,7 @@ void TBoss6PlotFalz__sub_802AB14C(u8 *arg0) {
   {
     (((TBoss6PlotFalz *)((void *) arg0))->*( member_action.action))();
   }
-  TBoss6PlotFalz__sub_802AACF4((void *) arg0);
+  update_random_shake__14TBoss6PlotFalzFPv((void *) arg0);
 }
 
 void TBoss6PlotFalz__sub_802AB1C8(u8 *arg0) {
@@ -376,7 +376,7 @@ void set_state__14TBoss6PlotFalzFPvi(u8 *arg0, s32 arg1) {
 }
 
 }
-#undef TBoss6PlotFalz__sub_802AACF4
+#undef update_random_shake__14TBoss6PlotFalzFPv
 #undef get_field_3e0__12TBoss3VoloptFPv
 
 #define get_player_data__10TObjPlayerFi ((Player_802AB3E0 *(*)(int))get_player_data__10TObjPlayerFi)
@@ -710,7 +710,7 @@ f32 TBoss6PlotFalz__sub_802AB9F0(f32 t) {
 
 extern "C" {
 s32 get_state__11TBoss6Type2FPv(void *);
-s32 TBoss6PlotFalz__sub_802ABA9C(void);
+s32 is_boss_active__14TBoss6PlotFalzFv(void);
 s32 get_state__14TBoss6GravBallFPv(void *);
 s32 TBoss6PlotFalz__sub_802ABADC(void);
 }
@@ -725,7 +725,7 @@ f32 get_value__14TBoss6PlotFalzFv(void) {
     }
     return M2C_FIELD(TBoss6PlotFalz__data_805D66F0, f32 *, 0x3C);
 }
-s32 TBoss6PlotFalz__sub_802ABA9C(void) {
+s32 is_boss_active__14TBoss6PlotFalzFv(void) {
     if (((void *) TBoss6PlotFalz__data_805D66F4 == NULL) || (get_state__11TBoss6Type2FPv(TBoss6PlotFalz__data_805D66F4) == 0x23)) {
         return 0;
     }
@@ -1090,7 +1090,7 @@ void free_buffer_pairs__14TBoss6PlotFalzFPv(Obj_8004AA04 *self);
 void refresh_equipment_slot__10TObjPlayerFv(void *p);
 void refresh_players_equipment__14TBoss6PlotFalzFPv(void *self);
 void scroll_strip_uvs(u32, s16, s16);
-void TBoss6PlotFalz__sub_802AC1D8(Obj_802AC1D8 *o, s32 dx, s32 dy);
+void scroll_strips_uv__14TBoss6PlotFalzFPvii(Obj_802AC1D8 *o, s32 dx, s32 dy);
 s32 get_bml_model(s32, s32);
 int get_fish_count__8TObjFishFv(void);
 s32 alloc_tables__6TLobbyFPvii(s32, s32, s32);
@@ -1117,7 +1117,7 @@ void update_active_flag__14TBoss6PlotFalzFv(void) {
     }
 }
 
-void TBoss6PlotFalz__sub_802AC1D8(Obj_802AC1D8 *o, s32 dx, s32 dy) {
+void scroll_strips_uv__14TBoss6PlotFalzFPvii(Obj_802AC1D8 *o, s32 dx, s32 dy) {
     s32 j;
     s32 i;
     i = 0;
@@ -1317,7 +1317,7 @@ void TBoss6PlotFalz__sub_802AC724(u8 *arg0, u32 arg1) {
 
 }
 
-#define TBoss6PlotFalz__sub_802AB14C ((M2C_UNK (*)(void *))TBoss6PlotFalz__sub_802AB14C)
+#define run_phase_action__14TBoss6PlotFalzFPv ((M2C_UNK (*)(void *))run_phase_action__14TBoss6PlotFalzFPv)
 #define TBoss6PlotFalz__sub_802AB1C8 ((M2C_UNK (*)(void *))TBoss6PlotFalz__sub_802AB1C8)
 #define set_visible_flag__14TBoss6PlotFalzFPv ((M2C_UNK (*)(void *))set_visible_flag__14TBoss6PlotFalzFPv)
 #define alloc__23TAdSinglePlyChrSelectGCFPv ((int (*)(void *))alloc__23TAdSinglePlyChrSelectGCFPv)
@@ -1514,7 +1514,7 @@ void run_task__14TBoss6PlotFalzFv(u8 *arg0) {
         if ((s32) M2C_FIELD(arg0, s32 *, 0x374) == 0) {
             TBoss6PlotFalz__sub_802AB1C8((void *) (arg0));
         }
-        TBoss6PlotFalz__sub_802AB14C((void *) (arg0));
+        run_phase_action__14TBoss6PlotFalzFPv((void *) (arg0));
     }
 }
 

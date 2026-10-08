@@ -66,7 +66,7 @@ void free__11TOBoss4RockFUi(void *);
 void free_if_valid__10TObjPlayerFi(s32);
 extern s32 *TOKeyGenericSw__data_805D5A28;
 extern Map_8016CA64 *TOKeyGenericSw__data_8050DB60[];
-void TOKeyGenericSw__sub_8016CC8C(void);
+void free_shared_resources__14TOKeyGenericSwFv(void);
 void *load_resource_from_descriptor(void *, s32, void *, s32, s32, s32);
 void *alloc__23TAdSinglePlyChrSelectGCFPv(u32);
 void *alloc_buffer__11TOBoss4RockFPv(u32);
@@ -157,7 +157,7 @@ void *create__14TOKeyGenericSwFPv(void *arg0) {
 
 extern M2C_UNK __vt__14TOKeyGenericSw[];
 
-void TOKeyGenericSw__sub_8016CC8C(void) {
+void free_shared_resources__14TOKeyGenericSwFv(void) {
     if (TOKeyGenericSw__data_805D5A28 != NULL) {
         free_if_valid__10TObjPlayerFi(TOKeyGenericSw__data_805D5A28[2]);
         if (TOKeyGenericSw__data_805D5A28 != NULL) {

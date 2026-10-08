@@ -26,12 +26,12 @@ M2C_UNK queue_destruction__7TObjectFv(void *);
 s32 TWindowShortListCtrl__check_controller_button(void *, M2C_UNK);
 s32 is_message_window_ready();
 extern s8 lbl_8050E208[];
-void TMCFormatSequence__sub_801F65C4(void *arg0);
+void wait_confirm_and_finish__17TMCFormatSequenceFPv(void *arg0);
 M2C_UNK queue_destruction__7TObjectFv(void *);
 s32 TWindowShortListCtrl__check_controller_button(void *, M2C_UNK);
 s32 is_message_window_ready();
 extern s8 lbl_8050E208[];
-void TMCFormatSequence__sub_801F6640(void *arg0);
+void update_wait_confirm__17TMCFormatSequenceFPv(void *arg0);
 extern RecoveredGlobal_801F6548_lbl_80512790 lbl_80512790;
 M2C_UNK *TQuestThread__sub_801F6548(void);
 s32 get_localized_text_entry(M2C_UNK, M2C_UNK);
@@ -75,7 +75,7 @@ void show_message__17TMCFormatSequenceFPvii(void *arg0, s32 arg1, s32 arg2) {
     }
 }
 
-void TMCFormatSequence__sub_801F65C4(void *arg0) {
+void wait_confirm_and_finish__17TMCFormatSequenceFPv(void *arg0) {
     M2C_UNK (*temp_r12)(void *);
     void *self = arg0;
     arg0 = M2C_FIELD(arg0, void **, 0x34);
@@ -88,7 +88,7 @@ void TMCFormatSequence__sub_801F65C4(void *arg0) {
     }
 }
 
-void TMCFormatSequence__sub_801F6640(void *arg0) {
+void update_wait_confirm__17TMCFormatSequenceFPv(void *arg0) {
     M2C_UNK (*temp_r12)(void *);
     void *self = arg0;
     arg0 = M2C_FIELD(arg0, void **, 0x34);

@@ -124,7 +124,7 @@ s32 OSDisableInterrupts(void);
 void OSRestoreInterrupts(s32);
 void Dolphin_SIGetTypeAsync(s32, void *);
 void TKeyBoardControl__sub_803F107C(s32 chan, u32 type);
-s32 TKeyBoardControl__sub_803F119C(s32 arg0, s32 arg1, s32 arg2, s32 arg3);
+s32 start_get_type_async__16TKeyBoardControlFiiii(s32 arg0, s32 arg1, s32 arg2, s32 arg3);
 void OSInitThreadQueue(void *);
 s32 OSRegisterResetFunction(void *);
 s32 SIRefreshSamplingRate(void);
@@ -136,7 +136,7 @@ void init_pad_states__16TKeyBoardControlFv(void);
 extern RecoveredGlobal_803F1548_lbl_805A2720 lbl_805A2720;
 s32 OSDisableInterrupts(void);
 void OSRestoreInterrupts(s32);
-s32 TKeyBoardControl__sub_803F119C(s32 arg0, s32 arg1, s32 arg2, s32 arg3);
+s32 start_get_type_async__16TKeyBoardControlFiiii(s32 arg0, s32 arg1, s32 arg2, s32 arg3);
 void TKeyBoardControl__sub_803F0E8C(void);
 s32 TKeyBoardControl__sub_803F0E90(s32 arg0, void *arg1);
 extern RecoveredGlobal_803F1548_lbl_805A2720 lbl_805A2720;
@@ -156,11 +156,11 @@ void SISetCommand(s32, u32);
 void SIEnablePolling(u32);
 s32 SIGetResponse(s32, void *);
 extern s32 lbl_805D793C;
-void TKeyBoardControl__sub_803F1560(s32 arg0);
+void enable_keyboard_polling__16TKeyBoardControlFi(s32 arg0);
 extern RecoveredGlobal_803F1548_lbl_805A2720 lbl_805A2720;
 void *memset(void *, int, u32);
 void TKeyBoardControl__sub_803F1210(Kbd_803F1210 *p);
-void TKeyBoardControl__sub_803F132C(s32 chan);
+void update_key_events__16TKeyBoardControlFi(s32 chan);
 }
 
 extern "C" {
@@ -253,7 +253,7 @@ void TKeyBoardControl__sub_803F0D74(s32 chan) {
         return;
     }
     if (p->x3 == 0xFF && lbl_805D7930 == 0) {
-        TKeyBoardControl__sub_803F1560((s32)(chan));
+        enable_keyboard_polling__16TKeyBoardControlFi((s32)(chan));
     }
 }
 
@@ -280,7 +280,7 @@ s32 TKeyBoardControl__sub_803F0E90(s32 arg0, void *arg1) {
         return ret;
     }
     p->x3 = 0xFF;
-    return TKeyBoardControl__sub_803F119C(arg0, 1, 3, (s32)TKeyBoardControl__sub_803F0D74);
+    return start_get_type_async__16TKeyBoardControlFiiii(arg0, 1, 3, (s32)TKeyBoardControl__sub_803F0D74);
 }
 
 s32 TKeyBoardControl__sub_803F0F44(void) {
@@ -360,7 +360,7 @@ void TKeyBoardControl__sub_803F107C(s32 chan, u32 type) {
         __OSReschedule();
     }
 }
-s32 TKeyBoardControl__sub_803F119C(s32 arg0, s32 arg1, s32 arg2, s32 arg3) {
+s32 start_get_type_async__16TKeyBoardControlFiiii(s32 arg0, s32 arg1, s32 arg2, s32 arg3) {
     s32 en;
     K_803F119C *k = &((K_803F119C *)&lbl_805A2720)[arg0];
     en = OSDisableInterrupts();
@@ -405,7 +405,7 @@ inline s32 kb_push_803F132C(Kb_803F132C *k, u8 c) {
     }
     return 0;
 }
-void TKeyBoardControl__sub_803F132C(s32 chan) {
+void update_key_events__16TKeyBoardControlFi(s32 chan) {
     Kb_803F132C *k;
     u8 c;
     s32 j;
@@ -468,7 +468,7 @@ u8 TKeyBoardControl__sub_803F1548(s32 arg0) {
     return M2C_FIELD(((u8 *)&lbl_805A2720.value + (arg0 * 0x68)), u8 *, 1);
 }
 
-void TKeyBoardControl__sub_803F1560(s32 arg0) {
+void enable_keyboard_polling__16TKeyBoardControlFi(s32 arg0) {
     u32 cmd;
     u32 buf[2];
     u32 bit = 0x80000000U >> arg0;

@@ -67,7 +67,7 @@ void TObjPlayer__sub_802C457C(S_802C457C *self, s32 i, u8 v);
 
 extern "C" {
 
-void TObjPlayer__sub_802C4600(s32 arg0);
+void set_current_time__10TObjPlayerFi(s32 arg0);
 int TObjPlayer__sub_802C46BC(void* p);
 int TObjPlayer__sub_802C46E0(void* p);
 void clear_item_slots__10TObjPlayerFPv(void* p);
@@ -156,7 +156,7 @@ void set_flag_e7__10TObjPlayerFPvUc(void* p, u8 v) { *(u8*)((char*)p + 0xe7) = v
 void set_field_1ab__10TObjPlayerFPvUc(void* p, u8 v) { *(u8*)((char*)p + 0x1ab) = v; }
 void set_field_18f__10TObjPlayerFPvUc(void* p, u8 v) { *(u8*)((char*)p + 0x18f) = v; }
 
-void TObjPlayer__sub_802C4600(s32 arg0) {
+void set_current_time__10TObjPlayerFi(s32 arg0) {
     M2C_UNK spC;
     s32 sp8;
     getDateStamp__FP9DateStamp((s32 *)((void *) (&spC)));

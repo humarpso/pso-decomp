@@ -21,7 +21,7 @@ extern RecoveredGlobal_8028EBCC_TObjCMMainMenu__data_804DB9C8 TObjCMMainMenu__da
 s32 TObjCMMainMenu__sub_8028EBCC(u8 *arg0);
 void *load_resource_from_descriptor(void *, M2C_UNK, M2C_UNK *, M2C_UNK, M2C_UNK, M2C_UNK);
 M2C_UNK init_default_view__11TCameraCtrlFv();
-M2C_UNK TCameraCtrl__sub_8006A35C();
+M2C_UNK reset_view_state__11TCameraCtrlFv();
 M2C_UNK select_active_controller__11TCameraCtrlFc(M2C_UNK);
 M2C_UNK TCameraCtrl__ct(void *, s32);
 void *alloc__23TAdSinglePlyChrSelectGCFPv(M2C_UNK);
@@ -72,7 +72,7 @@ typedef char RecoveredGlobal_8028EBCC_TObjCMMainMenu__data_804DB9C8_size[sizeof(
 void init_creation_menu_scene(void) {
     void *p;
     init_menu_scene_lights(lbl_804A6F34, 4);
-    TCameraCtrl__sub_8006A35C();
+    reset_view_state__11TCameraCtrlFv();
     init_default_view__11TCameraCtrlFv();
     p = __nw__7TObjectFUl(0x1D4);
     if (p != NULL) {

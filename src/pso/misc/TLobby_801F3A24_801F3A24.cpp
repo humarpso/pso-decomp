@@ -27,7 +27,7 @@ s32 handle_msg_type2__6TLobbyFi(s32);
 M2C_UNK init_buffers__6TLobbyFii(s32, s32);
 extern s16 TLobby__data_805127D0[];
 extern s32 TLobby__data_805D5EE0;
-void TLobby__sub_801F3B30(void);
+void init_floor_encounter_sections__6TLobbyFv(void);
 void handle_msg_type1__6TLobbyFi(s32);
 extern s16 TLobby__data_805127D0[];
 void TLobby__sub_801F3BC4(void);
@@ -78,7 +78,7 @@ void convert_quest_object_rows(struct QuestObjRow_801F3AD8 *rows, u32 byte_size)
         p->flags = 0;
     }
 }
-void TLobby__sub_801F3B30(void) {
+void init_floor_encounter_sections__6TLobbyFv(void) {
     s32 i;
     s32 ok;
     for (i = 0; i < 0x12; i++) {

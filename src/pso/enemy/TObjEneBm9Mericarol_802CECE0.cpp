@@ -782,7 +782,7 @@ M2C_UNK advance_animation_playback(void *);
 M2C_UNK update_enemy_collision_flags__10TObjPlayerFPv(void *);
 M2C_UNK play_sound_effect(M2C_UNK, void *, M2C_UNK, M2C_UNK);
 M2C_UNK fn_802CE510(void *);
-M2C_UNK TObjEneBm9Mericarol__sub_802D095C(void *);
+M2C_UNK sync_center_position__19TObjEneBm9MericarolFPv(void *);
 extern const f64 lbl_804724B8;
 extern const f32 lbl_805DE70C;
 extern const f32 lbl_805DE718;
@@ -1292,7 +1292,7 @@ void TObjEneDD__sub_802CF7B4(u8 *arg0, s32 arg1) {
     u8 *temp_r5_2;
     switch (arg1) {
     case 4:
-        TObjEneBm9Mericarol__sub_802D095C((void *) (arg0));
+        sync_center_position__19TObjEneBm9MericarolFPv((void *) (arg0));
         if (enemy_probe_wall_ahead((void *) (arg0), (f32) (M2C_FIELD(arg0, f32 *, 0x3A0)), (f32) (M2C_FIELD(arg0, f32 *, 0x3A8)), (f32) (lbl_805DE720)) != 0U) {
             M2C_FIELD(arg0, s16 *, 0xB8) = 3;
             M2C_FIELD(arg0, s32 *, 0x490) = 3;
@@ -1322,7 +1322,7 @@ void TObjEneDD__sub_802CF7B4(u8 *arg0, s32 arg1) {
         temp_r0 = M2C_FIELD(arg0, s32 *, 0x490);
         switch (temp_r0) {
         case 0:
-            TObjEneBm9Mericarol__sub_802D095C((void *) (arg0));
+            sync_center_position__19TObjEneBm9MericarolFPv((void *) (arg0));
             if (enemy_probe_wall_ahead((void *) (arg0), (f32) (M2C_FIELD(arg0, f32 *, 0x3A0)), (f32) (M2C_FIELD(arg0, f32 *, 0x3A8)), (f32) (lbl_805DE720)) != 0U) {
                 M2C_FIELD(arg0, s16 *, 0xB8) = 3;
                 M2C_FIELD(arg0, s32 *, 0x490) = 3;
@@ -1349,7 +1349,7 @@ void TObjEneDD__sub_802CF7B4(u8 *arg0, s32 arg1) {
         case 1:
             fn_802CE510((void *) (arg0));
             var_r30 = 0;
-            TObjEneBm9Mericarol__sub_802D095C((void *) (arg0));
+            sync_center_position__19TObjEneBm9MericarolFPv((void *) (arg0));
             if (enemy_probe_wall_ahead((void *) (arg0), (f32) (M2C_FIELD(arg0, f32 *, 0x3A0)), (f32) (M2C_FIELD(arg0, f32 *, 0x3A8)), (f32) (lbl_805DE718 * M2C_FIELD(arg0, f32 *, 0x444))) != 0U) {
                 var_r30 = 1;
             }

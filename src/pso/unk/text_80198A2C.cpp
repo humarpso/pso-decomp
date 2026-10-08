@@ -35,7 +35,7 @@ f32 xyz_distance(Vec_80199674*,void*);
 f32 vector_length(Vec_8019978C*);
 void normalize_vector(Vec_8019978C*);
 s32 reflect_velocity_off_collision(Obj_8019978C*,Vec_8019978C*,Vec_8019978C*);
-void fn_80199674(u8*);
+void draw_shadow_on_ground(u8*);
 extern void* lbl_804B8D94[];
 extern void* lbl_804B8DA0[];
 }
@@ -725,7 +725,7 @@ extern u8 lbl_8058D4C0[];
 
 #pragma push
 #pragma fp_contract on
-void fn_80199674(u8 *arg0) {
+void draw_shadow_on_ground(u8 *arg0) {
     Hit_80199674 *hit;
     f32 t;
     f32 k;
@@ -871,7 +871,7 @@ s32 reflect_velocity_off_collision(Obj_8019978C *o, Vec_8019978C *p, Vec_8019978
 #define rotate_matrix_y ((M2C_UNK (*)(int,int))rotate_matrix_y)
 #define vector_length ((f32 (*)(void*))vector_length)
 #define normalize_vector ((M2C_UNK (*)(void*))normalize_vector)
-#define fn_80199674 ((M2C_UNK (*)(void*))fn_80199674)
+#define draw_shadow_on_ground ((M2C_UNK (*)(void*))draw_shadow_on_ground)
 typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
 typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 #define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
@@ -1015,7 +1015,7 @@ void draw_model__8TObjFishFPv(u8 *arg0) {
     lbl_805D7780 = lbl_805D5668;
     copy_vec4__13TRaderMapCoreFPvPv(lbl_8058D4C0, lbl_8050BEC0);
     some_id_805c6f74 = lbl_805D5660;
-    fn_80199674(arg0);
+    draw_shadow_on_ground(arg0);
 }
 
 }
@@ -1026,7 +1026,7 @@ void draw_model__8TObjFishFPv(u8 *arg0) {
 #undef rotate_matrix_y
 #undef vector_length
 #undef normalize_vector
-#undef fn_80199674
+#undef draw_shadow_on_ground
 #define VecCopy__FP3VecPC3Vec ((void (*)(void*,void*))VecCopy__FP3VecPC3Vec)
 #define queue_destruction__7TObjectFv ((void (*)(void*))queue_destruction__7TObjectFv)
 #define spawn_particle_effect_with_flags ((void (*)(void*,int,int))spawn_particle_effect_with_flags)

@@ -24,7 +24,7 @@ extern void *lbl_8050110C[];
 extern void *TObjEneMe3Stelth__data_805D5300;
 extern VO_800F5324 *TObjEneMe3Stelth__data_805D5308;
 extern void *TObjEneMe3Stelth__data_805D530C;
-void TObjEneMe3Stelth__sub_800F5324(void);
+void free_shared_resources__16TObjEneMe3StelthFv(void);
 }
 
 extern "C" {
@@ -43,7 +43,7 @@ void TObjEneMe3Stelth__sub_800F52FC(s32 arg0, f32 farg0) {
   new_var = new_var + (arg0 * 0x10);
   *((f32 *) (((s8 *) new_var) + 8)) = var_f1;
 }
-void TObjEneMe3Stelth__sub_800F5324(void) {
+void free_shared_resources__16TObjEneMe3StelthFv(void) {
     if (TObjEneMe3Stelth__data_805D530C != 0) {
         __dt__11TBoss4Type3FPvs(TObjEneMe3Stelth__data_805D530C, 1);
         TObjEneMe3Stelth__data_805D530C = 0;

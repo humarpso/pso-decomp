@@ -294,7 +294,7 @@ s32 find_active_entity_by_id(u16);
 s32 check_demo_mode__10TObjPlayerFv();
 void TObjPlayer__sub_800AA330(void *);
 M2C_UNK TObjPlayer__sub_800AB068(void *);
-M2C_UNK TObjPlayer__sub_800C6A18(void *);
+M2C_UNK release_destroyed_target__10TObjPlayerFPv(void *);
 M2C_UNK update_prev_position__10TObjPlayerFPv(void *);
 M2C_UNK submit_cursor_candidate(void *, M2C_UNK);
 M2C_UNK VecCopy__FP3VecPC3Vec(void *, void *);
@@ -1179,7 +1179,7 @@ void update_synced_state__10TObjPlayerFPv(u8 *arg0) {
     }
     TObjPlayer__sub_800A8B8C((u8 *)(arg0));
     M2C_FIELD(arg0, s32 *, 0x2A8) = find_active_entity_by_id(M2C_FIELD(arg0, u16 *, 0x338));
-    TObjPlayer__sub_800C6A18(arg0);
+    release_destroyed_target__10TObjPlayerFPv(arg0);
     TObjPlayer__sub_800AA10C((u8 *)(arg0));
     if ((s16) M2C_FIELD(arg0, s16 *, 0x326) != (s32) M2C_FIELD(arg0, s32 *, 0x374)) {
         if ((s32) M2C_FIELD(arg0, s32 *, 0x37C) != -1) {

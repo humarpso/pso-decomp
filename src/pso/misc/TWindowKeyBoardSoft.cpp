@@ -12,7 +12,7 @@ struct Desc_8025DECC { f32 *pos; u32 *col; s32 a; s32 b; };
 extern "C" {
 s32 strnlen__19TWindowKeyBoardSoftFPvUi(void *, u32);
 M2C_UNK strncpy(M2C_UNK *, u8 *, M2C_UNK);
-void TWindowKeyBoardSoft__sub_8025D3CC(u8 *arg0, u8 *arg1);
+void append_text_entry__19TWindowKeyBoardSoftFPvPv(u8 *arg0, u8 *arg1);
 void set_glyph_quad_extents(u8, void *);
 s32 map_char_to_font_code(u16);
 u8 get_font_char_advance(s32);
@@ -225,7 +225,7 @@ void TWindowKeyBoardSoft__sub_8025CFA8(void *arg0, M2C_UNK *arg1) {
 void update_input__19TWindowKeyBoardSoftFPvPv(void* p, void* a1) { TWindowKeyBoardSoft__sub_8025D1C8(p, *(void**)((char*)p + 0xa0)); TWindowKeyBoardSoft__sub_8025D264(p, a1); }
 
 typedef s32 M2C_UNK;
-void TWindowKeyBoardSoft__sub_8025D3CC(u8 *arg0, u8 *arg1) {
+void append_text_entry__19TWindowKeyBoardSoftFPvPv(u8 *arg0, u8 *arg1) {
     Rec_8025D3CC *rec;
     s32 idx;
     s32 n;
@@ -329,7 +329,7 @@ void TWindowKeyBoardSoft__sub_8025D7FC(KbSoft_8025D7FC *self) {
         if (i > n) {
             TWindowKeyBoardSoft__sub_803E67D4(name, text);
             ((M2C_UNK (*)(void *, int))TWindowKeyBoardSoft__sub_8025CF50)(self, self->sel);
-            TWindowKeyBoardSoft__sub_8025D3CC((u8 *)(self), (u8 *)(text));
+            append_text_entry__19TWindowKeyBoardSoftFPvPv((u8 *)(self), (u8 *)(text));
             return;
         }
     }
@@ -358,7 +358,7 @@ void TWindowKeyBoardSoft__sub_8025D8C8(KbSoft_8025D8C8 *self) {
         if (i > n) {
             TWindowKeyBoardSoft__sub_803E67A0(name, text);
             ((M2C_UNK (*)(void *, int))TWindowKeyBoardSoft__sub_8025CF50)(self, self->sel);
-            TWindowKeyBoardSoft__sub_8025D3CC((u8 *)(self), (u8 *)(text));
+            append_text_entry__19TWindowKeyBoardSoftFPvPv((u8 *)(self), (u8 *)(text));
             return;
         }
     }

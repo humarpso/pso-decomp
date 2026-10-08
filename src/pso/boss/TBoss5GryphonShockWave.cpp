@@ -21,7 +21,7 @@ u32 spawn_continuous_particle_effect_with_flags(void *, s32, M2C_UNK);
 M2C_UNK copy_pos__11TNowLoadingFPvPv(u32, void *);
 M2C_UNK play_sound_effect(M2C_UNK, void *, M2C_UNK, M2C_UNK);
 M2C_UNK eval_bezier_curve__12TBoss8DragonFPviiPvf(void *, M2C_UNK, M2C_UNK, void *, f32);
-M2C_UNK fn_80355970(s32, s32, void *, u16);
+M2C_UNK spawn_gryphon_tornado(s32, s32, void *, u16);
 extern s32 lbl_805D4DA4;
 extern s32 lbl_805D4DA8;
 extern void *lbl_805D4DC8;
@@ -84,7 +84,7 @@ void run_task__22TBoss5GryphonShockWaveFv(u8 *arg0) {
         spawn_particle_effect_with_flags(arg0 + 0x2C, M2C_FIELD((*(u8 * *)&lbl_805D4DC8), s32 *, 8), 0x40);
         play_sound_effect(0x40033C13, arg0 + 0x2C, 0, 0);
         TBoss8Dragon__sub_80064114(get_instance_count__12TBoss8DragonFv(), arg0 + 0x2C);
-        fn_80355970(M2C_FIELD(arg0, s32 *, 0x10), M2C_FIELD(arg0, s32 *, 0x38), arg0 + 0x2C, M2C_FIELD(arg0, u16 *, 0x28));
+        spawn_gryphon_tornado(M2C_FIELD(arg0, s32 *, 0x10), M2C_FIELD(arg0, s32 *, 0x38), arg0 + 0x2C, M2C_FIELD(arg0, u16 *, 0x28));
         M2C_FIELD(arg0, s32 *, 0x1C) = 3;
         queue_destruction__7TObjectFv(arg0);
         break;

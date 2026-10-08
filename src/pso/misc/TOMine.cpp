@@ -65,7 +65,7 @@ void TOMine__sub_801711D0(void);
 u16 find_nearest_visible_player(void *, int, f32);
 s32 update_trigger__10TOMineTrapFPv(void *);
 s32 get_player_by_client_id(int);
-int TOMine__sub_80170F0C(u8 *arg0);
+int find_target_player__6TOMineFPv(u8 *arg0);
 void free_sub_objects__6TOMineFPv(void* p);
 void free_parts__6TOMineFPv(void* p);
 void begin_effect_render__13TParticleCtrlFv();
@@ -101,7 +101,7 @@ void TLobby__sub_8001FE7C(void*, int);
 M2C_UNK follow_target__10TOMineTrapFPv(void *);
 M2C_UNK TOMineTrap__sub_80170BEC(void *);
 M2C_UNK TOMineTrap__sub_80170CD4(void *);
-M2C_UNK TOMineTrap__sub_80170CF4(void *);
+M2C_UNK update_float_height__10TOMineTrapFPv(void *);
 M2C_UNK detonate__10TOMineTrapFPv(void *);
 int draw_ginja_object(void*);
 M2C_UNK submit_cursor_candidate(void *, int);
@@ -115,7 +115,7 @@ int set_global_param__8TObjFishFi(void*);
 int get_player_state__6TOMineFPv(void* p) { return submit_target_to_player_cursor(p); }
 
 typedef struct RecoveredFields_80170F0C_arg0 RecoveredFields_80170F0C_arg0;
-int TOMine__sub_80170F0C(u8 *arg0) {
+int find_target_player__6TOMineFPv(u8 *arg0) {
   u16 temp_r3;
   unsigned short new_var;
   ((RecoveredFields_80170F0C_arg0 *) arg0)->field_35C = find_nearest_visible_player((void *) arg0, (int) 0, (f32) ((RecoveredFields_80170F0C_arg0 *) arg0)->field_34C);
@@ -136,12 +136,12 @@ void run_task__6TOMineFPv(u8 *arg0) {
 
     if (check_demo_mode__10TObjPlayerFv() != 1) {
         ((VObj_80170f64_80170EEC *) arg0)->m77();
-        TOMineTrap__sub_80170CF4((void *) (arg0));
+        update_float_height__10TOMineTrapFPv((void *) (arg0));
         temp_r0 = M2C_FIELD(arg0, s16 *, 0x326);
         switch (temp_r0) {
         case 2:
         case 0:
-            TOMine__sub_80170F0C((u8 *)((void *)((void *) (arg0))));
+            find_target_player__6TOMineFPv((u8 *)((void *)((void *) (arg0))));
             VecCopy__FP3VecPC3Vec((void *) (arg0 + 0x2FC), (void *) (arg0 + 0x334));
             VecCopy__FP3VecPC3Vec((void *) (M2C_FIELD(arg0, s32 *, 0xA4) + 0x1C), (void *) (arg0 + 0x334));
             return;

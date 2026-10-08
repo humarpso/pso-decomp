@@ -33,7 +33,7 @@ void render_with_position_override__10TObjPlayerFPvPvi(void *, void *, int);
 extern V_8008D700 lbl_80439B34;
 extern f32 lbl_805D9600;
 extern const f32 lbl_805D9604;
-void TObjEneBalClaw__sub_8008D700(O_8008D700 *arg0, s32 arg1);
+void render_scaled__14TObjEneBalClawFPvi(O_8008D700 *arg0, s32 arg1);
 }
 
 extern "C" {
@@ -64,7 +64,7 @@ void TObjEneBalClaw__sub_8008D68C(void) {
     }
 }
 
-void TObjEneBalClaw__sub_8008D700(O_8008D700 *arg0, s32 arg1) {
+void render_scaled__14TObjEneBalClawFPvi(O_8008D700 *arg0, s32 arg1) {
     f32 a;
     f32 t;
     if (!(arg0->flags & 0x800) && arg1 != 0) {

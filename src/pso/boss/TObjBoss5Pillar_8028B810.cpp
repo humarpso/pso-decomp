@@ -20,14 +20,14 @@ extern "C" {
 u8 * create_ch_cr_load_req(void *, void *);
 M2C_UNK copy_player_visual_record(void *, void *);
 M2C_UNK TCharaMaking__bind_appearance_texture_lists(void *, void *, void *, void *);
-u8 *TNpcPlayer__sub_8028B810(u8 *arg0, u8 *arg1, s32 arg2, s32 arg3);
+u8 *init_appearance_load_request__10TNpcPlayerFPvPvii(u8 *arg0, u8 *arg1, s32 arg2, s32 arg3);
 }
 
 extern "C" {
 
 int is_unloaded__12TChCrLoadAfsFPv(void* p);
 
-u8 *TNpcPlayer__sub_8028B810(u8 *arg0, u8 *arg1, s32 arg2, s32 arg3) {
+u8 *init_appearance_load_request__10TNpcPlayerFPvPvii(u8 *arg0, u8 *arg1, s32 arg2, s32 arg3) {
     typedef char sp8_offset[(offsetof(Stack_8028B810, sp8) == 0x0) ? 1 : -1];
     typedef char spC_offset[(offsetof(Stack_8028B810, spC) == 0x4) ? 1 : -1];
     typedef char sp10_offset[(offsetof(Stack_8028B810, sp10) == 0x8) ? 1 : -1];

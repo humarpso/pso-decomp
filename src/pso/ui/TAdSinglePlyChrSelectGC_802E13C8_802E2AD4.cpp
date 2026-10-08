@@ -21,7 +21,7 @@ void TAdSinglePlyChrSelectGC__sub_802E2DD8(u8 *arg0);
 int close_and_next__23TAdSinglePlyChrSelectGCFPvPvPvPvPv(void*, int, int, int, int);
 s32 check_capacity__23TAdSinglePlyChrSelectGCFi(void *);
 s32 change_state__23TAdSinglePlyChrSelectGCFPvi(void *, s32);
-void TAdSinglePlyChrSelectGC__sub_802E3058(u8 *arg0);
+void report_card_status__23TAdSinglePlyChrSelectGCFPv(u8 *arg0);
 }
 
 extern "C" {
@@ -186,7 +186,7 @@ void ensure_system_file_loaded__23TAdSinglePlyChrSelectGCFPv(void *arg0) {
 }
 int TAdSinglePlyChrSelectGC__sub_802E3038(void* p) { return close_windows__23TAdSinglePlyChrSelectGCFPv((void*)(p)); }
 
-void TAdSinglePlyChrSelectGC__sub_802E3058(u8 *arg0) {
+void report_card_status__23TAdSinglePlyChrSelectGCFPv(u8 *arg0) {
     s32 f;
     f = M2C_FIELD(arg0, s32 *, 0x44);
     if (f & 2) {

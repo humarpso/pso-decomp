@@ -62,7 +62,7 @@ struct Pl_80130974 : PlB_80130974 {
 struct Pl2_80130974 : Pl_80130974 { u8 pad[0x1F8-0x1C]; s32 f1f8; u8 pad2[0xC]; u8 f208[12]; u8 f214[12]; };
 
 extern "C" {
-M2C_UNK TObjPlayer__sub_8012E1E8(int, void *, void *, void *, void *, int);
+M2C_UNK spawn_weapon_casing__10TObjPlayerFiUiUiUiUi(int, void *, void *, void *, void *, int);
 f32 sin_table_lookup(int);
 f32 cos_table_lookup(int);
 extern s32 tl_05;
@@ -137,7 +137,7 @@ void eject_casing_at_angle__10TObjPlayerFPvii(u8 *arg0, s32 arg1, s32 arg2) {
         temp_r8 = M2C_FIELD(M2C_FIELD(arg0, u8 **, 0xF0), s32 *, 0x60);
         buffer_8[1] = temp_r8;
         buffer_8[2] = 0;
-        TObjPlayer__sub_8012E1E8((int) (tl_05), (void *) (arg0), (void *) (arg1), (void *) (&buffer_14[0]), (void *) (&buffer_8[0]), (int) (temp_r8));
+        spawn_weapon_casing__10TObjPlayerFiUiUiUiUi((int) (tl_05), (void *) (arg0), (void *) (arg1), (void *) (&buffer_14[0]), (void *) (&buffer_8[0]), (int) (temp_r8));
     }
 }
 

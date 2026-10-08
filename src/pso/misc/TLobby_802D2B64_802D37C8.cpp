@@ -24,7 +24,7 @@ extern s32 lbl_805D6890;
 extern s32 TLobby__data_805D6894;
 extern s32 TLobby__data_805D6898;
 extern s32 TLobby__data_805D689C;
-void TLobby__sub_802D38B4(void);
+void reset_trade_state__6TLobbyFv(void);
 }
 
 extern "C" {
@@ -71,7 +71,7 @@ void update_trade_partner__6TLobbyFv(void) {
 }
 
 void close_trade_request__6TLobbyFv(void) { lbl_805D6888 = 0; close_request_window__19TWindowTradeRequestFv(); }
-void TLobby__sub_802D38B4(void) {
+void reset_trade_state__6TLobbyFv(void) {
     s32 i;
     TLobby__data_805D688A = 4;
     TLobby__data_805D688B = 0;

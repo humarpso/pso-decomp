@@ -15,7 +15,7 @@ M2C_UNK read_disc_file(void *, void *);
 u8 *fn_803204B0(void *);
 M2C_UNK OSLink(void *, void *);
 u8 *xmalloc__FUl(u32);
-u8 *fn_803203EC(u8 *arg0, s32 arg1);
+u8 *load_rel_module(u8 *arg0, s32 arg1);
 void __dl__FPv(void *);
 u8 *fn_803204B0(void *);
 void OSUnlink(void *);
@@ -50,7 +50,7 @@ S_80320358 *fn_80320358(S_80320358 *arg0, s16 arg1) {
 
 #pragma push
 #pragma fp_contract on
-u8 *fn_803203EC(u8 *arg0, s32 arg1) {
+u8 *load_rel_module(u8 *arg0, s32 arg1) {
     u8 *temp_r3;
     s32 size;
     u32 size2;

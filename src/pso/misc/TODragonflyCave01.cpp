@@ -70,7 +70,7 @@ s32 get_global_state__14TOKeyMachine01Fv();
 extern u8 lbl_804B1880[];
 extern u8 lbl_804B18A0[];
 
-void TODragonflyCave01__sub_80164494(void) {
+void load_resources__17TODragonflyCave01Fv(void) {
     void *o;
 
     switch (get_global_state__14TOKeyMachine01Fv()) {
@@ -213,7 +213,7 @@ u8 *TODragonfly__ct(u8 *arg0);
 f32 horizontal_distance_squared(void *, void *);
 f32 vec3_add_to(void *, void *);
 extern const f32 lbl_805DB584;
-void TODragonfly__sub_8016492C(Self_8016492C *self);
+void move_toward_target__11TODragonflyFPv(Self_8016492C *self);
 f32 horizontal_distance_squared(void *, void *);
 s32 is_any_player_within_radius_xz(s32, f32);
 s32 pick_random_destination__11TODragonflyFPvf(u8 *arg0, f32 farg0);
@@ -311,7 +311,7 @@ s32 pick_random_destination__11TODragonflyFPvf(u8 *arg0, f32 farg0) {
     return 0;
 }
 
-void TODragonfly__sub_8016492C(Self_8016492C *self) {
+void move_toward_target__11TODragonflyFPv(Self_8016492C *self) {
     f32 d = horizontal_distance_squared(self->target, self->pos);
     if (d < (lbl_805DB584 + self->radius) * (lbl_805DB584 + self->radius)) {
         self->state = 2;
@@ -413,7 +413,7 @@ void update__11TODragonflyFPv(void *arg0) {
         TODragonfly__sub_80164990((u8 *)(arg0));
         return;
     case 3:
-        TODragonfly__sub_8016492C((Self_8016492C *)(arg0));
+        move_toward_target__11TODragonflyFPv((Self_8016492C *)(arg0));
         return;
     }
 }

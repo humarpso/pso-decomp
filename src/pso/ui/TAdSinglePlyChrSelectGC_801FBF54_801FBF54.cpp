@@ -58,7 +58,7 @@ extern RecoveredGlobal_801FC564_lbl_804C89BC lbl_804C89BC;
 extern s32 lbl_805D49B4;
 extern s32 lbl_805D5F80;
 extern s32 lbl_805D5F98;
-s32 TAdSinglePlyChrSelectGC__sub_801FC564(s32 arg0);
+s32 load_player_by_slot__23TAdSinglePlyChrSelectGCFi(s32 arg0);
 u32 CARDGetDiskID();
 M2C_UNK strncpy(M2C_UNK *, M2C_UNK *, M2C_UNK);
 extern s32 lbl_8044A7E0[];
@@ -172,7 +172,7 @@ s32 register_in_free_room_slot__23TAdSinglePlyChrSelectGCFPvi(u8 *arg0, s32 arg1
 u32 CARDGetDiskID();
 int TAdSinglePlyChrSelectGC__sub_801FCD04(void*);
 int TAdSinglePlyChrSelectGC__sub_801FCD3C(void*);
-M2C_UNK TCheckRoomSequence__sub_802114D4(int, void *);
+M2C_UNK copy_item_to_bank_entry__18TCheckRoomSequenceFPvPv(int, void *);
 s32 is_item_record_empty(int);
 s32 TLobby__sub_8030A770();
 s32 get_game_play_mode();
@@ -300,7 +300,7 @@ s32 register_in_free_room_slot__23TAdSinglePlyChrSelectGCFPvi(u8 *arg0, s32 arg1
     var_r31 = (long) (arg0 + 0x250);
 loop_1:
     if (is_item_record_empty((int)((int) (var_r31))) != 0) {
-        TCheckRoomSequence__sub_802114D4((int) (var_r31), (void *) (arg1));
+        copy_item_to_bank_entry__18TCheckRoomSequenceFPvPv((int) (var_r31), (void *) (arg1));
         M2C_FIELD(arg0, s32 *, 0x248) = (s32) (M2C_FIELD(arg0, s32 *, 0x248) + 1);
         return 1;
     }
@@ -413,7 +413,7 @@ u16 get_card_field_21a8__23TAdSinglePlyChrSelectGCFi(int arg0) {
 }
 
 typedef char RecoveredGlobal_801FC564_lbl_804C89BC_size[sizeof(RecoveredGlobal_801FC564_lbl_804C89BC) == 0x78 ? 1 : -1];
-s32 TAdSinglePlyChrSelectGC__sub_801FC564(s32 arg0) {
+s32 load_player_by_slot__23TAdSinglePlyChrSelectGCFi(s32 arg0) {
     s32 var_r0;
     var_r0 = -1;
     lbl_805D5F80 = arg0;

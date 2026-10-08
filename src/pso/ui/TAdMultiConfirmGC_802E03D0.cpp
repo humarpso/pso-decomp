@@ -124,7 +124,7 @@ M2C_UNK advance_animation_playback(void *);
 u8 *get_entry__23TAdSinglePlyChrSelectGCFi(int);
 u8 *get_char_table_entry__23TAdSinglePlyChrSelectGCFi(int);
 u8 *get_char_index__23TAdSinglePlyChrSelectGCFUi(int);
-void *TNpcPlayer__sub_8028B810(void *, void *, void *, int);
+void *init_appearance_load_request__10TNpcPlayerFPvPvii(void *, void *, void *, int);
 s32 is_unloaded__12TChCrLoadAfsFPv(void *);
 void TAdPlyStatusGC__sub_8033F900(void *, int);
 void update_model_load__10TNpcPlayerFPv(u8 *arg0);
@@ -333,7 +333,7 @@ void update_model_load__10TNpcPlayerFPv(u8 *arg0) {
             copy_player_visual_record(arg0 + 0x120, get_char_index__23TAdSinglePlyChrSelectGCFUi(0xFFFF) + 0x370);
             p = alloc__23TAdSinglePlyChrSelectGCFPv(0x4AC);
             if (p != NULL) {
-                p = TNpcPlayer__sub_8028B810(p, arg0, arg0 + 0x120, 0);
+                p = init_appearance_load_request__10TNpcPlayerFPvPvii(p, arg0, arg0 + 0x120, 0);
             }
             F(0x170, void *) = p;
             F(0x60, s32) = 0xF3D5;
@@ -342,7 +342,7 @@ void update_model_load__10TNpcPlayerFPv(u8 *arg0) {
             copy_player_visual_record(arg0 + 0x120, get_entry__23TAdSinglePlyChrSelectGCFi(F(0x110, s32)) + 0x370);
             p = alloc__23TAdSinglePlyChrSelectGCFPv(0x4AC);
             if (p != NULL) {
-                p = TNpcPlayer__sub_8028B810(p, arg0, arg0 + 0x120, 0);
+                p = init_appearance_load_request__10TNpcPlayerFPvPvii(p, arg0, arg0 + 0x120, 0);
             }
             F(0x170, void *) = p;
             F(0x60, s32) = 0xF3D5;
@@ -351,7 +351,7 @@ void update_model_load__10TNpcPlayerFPv(u8 *arg0) {
             copy_player_visual_record(arg0 + 0x120, get_char_index__23TAdSinglePlyChrSelectGCFUi(0xFFFF) + 0x370);
             p = alloc__23TAdSinglePlyChrSelectGCFPv(0x4AC);
             if (p != NULL) {
-                p = TNpcPlayer__sub_8028B810(p, arg0, arg0 + 0x120, 0);
+                p = init_appearance_load_request__10TNpcPlayerFPvPvii(p, arg0, arg0 + 0x120, 0);
             }
             F(0x170, void *) = p;
             F(0x60, s32) = 0xF3D5;
@@ -362,7 +362,7 @@ void update_model_load__10TNpcPlayerFPv(u8 *arg0) {
             copy_player_visual_record(arg0 + 0x120, get_char_table_entry__23TAdSinglePlyChrSelectGCFi(F(0x10C, s32)) + 0x370);
             p = alloc__23TAdSinglePlyChrSelectGCFPv(0x4AC);
             if (p != NULL) {
-                p = TNpcPlayer__sub_8028B810(p, arg0, arg0 + 0x120, F(0x10C, s32));
+                p = init_appearance_load_request__10TNpcPlayerFPvPvii(p, arg0, arg0 + 0x120, F(0x10C, s32));
             }
             F(0x170, void *) = p;
             break;

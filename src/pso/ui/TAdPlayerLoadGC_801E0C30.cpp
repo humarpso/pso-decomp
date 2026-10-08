@@ -97,7 +97,7 @@ extern Names_801E13C4 lbl_80449690;
 extern char lbl_804496A8[];
 extern RecoveredGlobal_801E14E8_TAdPlayerLoadGC__data_80511ED0 TAdPlayerLoadGC__data_80511ED0;
 extern s32 TAdPlayerLoadGC__data_805D5E38;
-void TAdPlayerLoadGC__sub_801E13C4(void);
+void load_banner_files__15TAdPlayerLoadGCFv(void);
 void __dl__FPv(void *);
 void *alloc__23TAdSinglePlyChrSelectGCFPv(u32);
 void getDateStamp__FP9DateStamp(DateStamp_801E17F4 *);
@@ -299,7 +299,7 @@ void TAdPlayerLoadGC__sub_801E1350(void) {
     }
 }
 
-void TAdPlayerLoadGC__sub_801E13C4(void) {
+void load_banner_files__15TAdPlayerLoadGCFv(void) {
     Names_801E13C4 names = lbl_80449690;
     const char* path = lbl_804496A8;
     s32 i;

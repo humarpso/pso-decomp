@@ -60,7 +60,7 @@ s32 mix_seed_checked__6TLobbyFi(void *);
 s32 send_state__6TLobbyFPv(void *);
 s32 TLobby__sub_80072880(void *);
 extern s32 lbl_805D53A0;
-void TLobby__sub_80072448(s32 arg0);
+void send_seed_state__6TLobbyFi(s32 arg0);
 s32 is_flag_set__6TLobbyFv();
 s32 send_and_handle_60_wrapper__6TLobbyFPv(void *);
 s32 TLobby__sub_800727EC(void *);
@@ -188,7 +188,7 @@ void handle_6x95_set_challenge_time(Pkt_80072230 *pkt) {
     lbl_8048C9D8[idx + 0x680 / 4] = t;
 }
 
-void TLobby__sub_80072448(s32 arg0) {
+void send_seed_state__6TLobbyFi(s32 arg0) {
     typedef char sp8_offset[(offsetof(Stack_80072448, sp8) == 0x0) ? 1 : -1];
     typedef char spC_offset[(offsetof(Stack_80072448, spC) == 0x4) ? 1 : -1];
     typedef char sp10_offset[(offsetof(Stack_80072448, sp10) == 0x8) ? 1 : -1];

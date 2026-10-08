@@ -26,7 +26,7 @@ u32 get_player_by_client_id(s32);
 s32 check_player_flag1__6TLobbyFPv();
 M2C_UNK release_attached_resource__10TObjPlayerFPv(int);
 int close_player_windows__19TPlayerBattleCtrl4PFPv(void*);
-M2C_UNK TPlayerBattleCtrl4P__sub_80310230(void *);
+M2C_UNK create_result_windows__19TPlayerBattleCtrl4PFPv(void *);
 M2C_UNK remove_player__19TPlayerBattleCtrl4PFPvUsi(void *, int, int);
 int set_score__19TPlayerBattleCtrl4PFPvi(void*, void*);
 void TPlayerBattleCtrl4P__vt20(s32 arg0);
@@ -286,7 +286,7 @@ void TPlayerBattleCtrl4P__vt20(s32 arg0) {
   {
   }
   close_player_windows__19TPlayerBattleCtrl4PFPv((void*)(arg0));
-  TPlayerBattleCtrl4P__sub_80310230((void *) arg0);
+  create_result_windows__19TPlayerBattleCtrl4PFPv((void *) arg0);
   var_r31 = 0;
   do
   {

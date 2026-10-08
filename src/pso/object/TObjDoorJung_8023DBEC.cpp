@@ -8,7 +8,7 @@ struct List_8023DBEC { Ent_8023DBEC *ents; u32 count; };
 
 extern "C" {
 s32 strcmp(const char *, const char *);
-s32 TObjDoorJung__sub_8023DBEC(List_8023DBEC *list, const char *name);
+s32 find_entry_by_name__12TObjDoorJungFPvPv(List_8023DBEC *list, const char *name);
 }
 
 extern "C" {
@@ -16,7 +16,7 @@ extern "C" {
 void free_children__12TObjDoorJungFPvPv(void *arg0, void *arg1);
 void set_material_texture_slot(void *);
 
-s32 TObjDoorJung__sub_8023DBEC(List_8023DBEC *list, const char *name) {
+s32 find_entry_by_name__12TObjDoorJungFPvPv(List_8023DBEC *list, const char *name) {
     Ent_8023DBEC *ents;
     u32 i;
     if (list != NULL) {

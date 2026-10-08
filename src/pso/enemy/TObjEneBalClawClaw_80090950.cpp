@@ -116,7 +116,7 @@ void clear_flag__18TObjEneBalClawClawFPv(void *arg0);
 void render__18TObjEneBalClawClawFPv(u8 *arg0);
 M2C_UNK post_translate_matrix(void *);
 M2C_UNK rotate_matrix_x(M2C_UNK, s32);
-M2C_UNK TObjEneBalClaw__sub_8008D700(void *, M2C_UNK);
+M2C_UNK render_scaled__14TObjEneBalClawFPvi(void *, M2C_UNK);
 M2C_UNK draw_chunk_object(s32);
 M2C_UNK restore_scene_lighting();
 M2C_UNK select_actor_lighting(void *);
@@ -248,7 +248,7 @@ void render__18TObjEneBalClawClawFPv(u8 *arg0) {
             pop_matrix();
             restore_scene_lighting();
             end_effect_render__13TParticleCtrlFv();
-            TObjEneBalClaw__sub_8008D700(arg0, var_r30);
+            render_scaled__14TObjEneBalClawFPvi(arg0, var_r30);
         }
     }
 }

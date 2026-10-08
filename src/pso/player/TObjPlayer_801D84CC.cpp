@@ -304,18 +304,18 @@ void* init_inventory__10TObjPlayerFPv(void* p);
 s32 init_inventory_items__10TObjPlayerFi(s32 arg0);
 void load_ply_level_tbl(void);
 int free_nodes_with_id__6TLobbyFUi(void*);
-int TObjPlayer__sub_801BDFC4(void);
+int alloc_shared_buffers__10TObjPlayerFv(void);
 int TObjPlayer__sub_801BFF80(void*);
 int get_contact_surface_type(void*);
 void __dl__7TObjectFPv(void *);
 void __dt__10TObjPlayerFv(void *, int);
 int create_named_object(void*);
-int fn_800F9990(void*);
+int load_encrypted_archive_data(void*);
 M2C_UNK init__17TPlyInventoryItemFv(s32);
 
     extern unsigned char lbl_80447190[];
     extern int lbl_805D5E08;
-void create_player_ending_motion(void) { TObjPlayer__sub_801BDFC4(); lbl_805D5E08 = create_named_object(lbl_80447190); }
+void create_player_ending_motion(void) { alloc_shared_buffers__10TObjPlayerFv(); lbl_805D5E08 = create_named_object(lbl_80447190); }
 
 extern M2C_UNK lbl_804C4540[];
 
@@ -596,7 +596,7 @@ void TObjPlayer__sub_801D92A4(void) { free_nodes_with_id__6TLobbyFUi((void*)(lbl
 
     extern unsigned char lbl_804492E8[];
     extern int lbl_805D5E10;
-void load_ply_level_tbl(void) { lbl_805D5E10 = fn_800F9990(lbl_804492E8); }
+void load_ply_level_tbl(void) { lbl_805D5E10 = load_encrypted_archive_data(lbl_804492E8); }
 
 typedef char RecoveredGlobal_801D9328_lbl_80447430_size[sizeof(RecoveredGlobal_801D9328_lbl_80447430) == 0x180 ? 1 : -1];
 

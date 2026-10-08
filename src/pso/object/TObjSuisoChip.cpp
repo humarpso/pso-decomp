@@ -81,7 +81,7 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 #define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
 #define M2C_BITWISE(type, expr) ((type)(expr))
 extern "C" int get_instance__23TObjSeabedSuisoBrakableFv(void);
-extern "C" u8 * TObjSeabedSuisoBrakable__sub_802A6F04(s32 arg0);
+extern "C" u8 * get_model__23TObjSeabedSuisoBrakableFi(s32 arg0);
 struct Base_802A63F8_802A62E8 { char pad[0x18]; };
 struct VObj_802A63F8_802A62E8 : Base_802A63F8_802A62E8 {
     virtual void m0();  virtual void m1();  virtual void m2();  virtual void m3();
@@ -258,7 +258,7 @@ void TObjSeabedSuisoBrakable__sub_802A6438(u8 *arg0) {
     var_r3 = (M2C_UNK *)(&lbl_804DD388.value);
     var_r3 = (M2C_UNK *)(&lbl_804DD388.value);
     var_r3 = (M2C_UNK *)(M2C_FIELD(&lbl_804DD388.value, M2C_UNK *, (M2C_FIELD(var_r31, s32 *, 0xBC) * 0x120)));
-    M2C_FIELD(var_r31, s32 *, 0x34) = ((s32 (*)(int))TObjSeabedSuisoBrakable__sub_802A6F04)((int) (var_r3));
+    M2C_FIELD(var_r31, s32 *, 0x34) = ((s32 (*)(int))get_model__23TObjSeabedSuisoBrakableFi)((int) (var_r3));
     var_r3 = (M2C_UNK *)((u8 *)(NULL));
     M2C_FIELD(var_r31, s32 *, 0x24) = ((s32 (*)(int))get_instance__23TObjSeabedSuisoBrakableFv)((int) (0));
     var_f0 = lbl_805DDFFC;
@@ -290,7 +290,7 @@ void TObjSeabedSuisoBrakable__vt14(Obj_802A6490 *self) {
     rec = ((Set_802A6490 *)&lbl_804DD388)[self->kind].recs;
     for (i = 0; i < 17; i++, rec++) {
         if (rec->id >= 0) {
-            p.i48 = ((s32 (*)(int))TObjSeabedSuisoBrakable__sub_802A6F04)(rec->id);
+            p.i48 = ((s32 (*)(int))get_model__23TObjSeabedSuisoBrakableFi)(rec->id);
             p.pos.x = rec->pos.x;
             p.pos.y = rec->pos.y;
             p.pos.z = rec->pos.z;
@@ -525,7 +525,7 @@ extern u8 *TObjSeabedSuisoBrakable__data_805D6670;
 u8 *TObjSeabedSuisoBrakable__sub_802A6EC0(s32 arg0);
 u8 * get_bml_model(void *, int);
 extern u8 *TObjSeabedSuisoBrakable__data_805D6670;
-u8 *TObjSeabedSuisoBrakable__sub_802A6F04(s32 arg0);
+u8 *get_model__23TObjSeabedSuisoBrakableFi(s32 arg0);
 }
 
 extern "C" {
@@ -621,7 +621,7 @@ void init_kind_params__23TObjSeabedSuisoBrakableFPv(void *arg0) {
     if (self->kind > 3) {
         self->kind = 3;
     }
-    self->fd4 = TObjSeabedSuisoBrakable__sub_802A6F04(lbl_804DD278[self->kind].a);
+    self->fd4 = get_model__23TObjSeabedSuisoBrakableFi(lbl_804DD278[self->kind].a);
     if (lbl_804DD278[self->kind].b != -1) {
         self->fbc = (Snd_802A6BD0 *)TObjSeabedSuisoBrakable__sub_802A6EC0(lbl_804DD278[self->kind].b);
         self->fb8 = lbl_804DD278[self->kind].f8;
@@ -680,7 +680,7 @@ u8 *TObjSeabedSuisoBrakable__sub_802A6EC0(s32 arg0) {
 }
 
 int get_instance__23TObjSeabedSuisoBrakableFv(void) {  return lbl_805D6674; }
-u8 *TObjSeabedSuisoBrakable__sub_802A6F04(s32 arg0) {
+u8 *get_model__23TObjSeabedSuisoBrakableFi(s32 arg0) {
     if ((void *) TObjSeabedSuisoBrakable__data_805D6670 != NULL) {
         return get_bml_model(TObjSeabedSuisoBrakable__data_805D6670, arg0);
     }

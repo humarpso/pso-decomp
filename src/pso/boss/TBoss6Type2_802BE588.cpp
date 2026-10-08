@@ -65,7 +65,7 @@ M2C_UNK play_sound_effect(int, void *, int, int);
 s32 spawn_particle_slot__11TBoss6Type2FPvi(void *, s32);
 M2C_UNK TBoss6Type2__sub_802BB768(void *);
 s32 is_target_valid__11TBoss6Type2FPv(void *);
-M2C_UNK TBoss6Type2__sub_8036A92C(void *, void *, int, f32);
+M2C_UNK spawn_flow_soul__11TBoss6Type2Fiii(void *, void *, int, f32);
 M2C_UNK create__14TBoss6EffHyouiFPvPvPv(int, int, int);
 extern const f32 lbl_805DE404;
 extern const f32 lbl_805DE4E8;
@@ -302,7 +302,7 @@ void TBoss6Type2__sub_802BE9AC(Obj_802BE9AC *arg0) {
         if (pl != 0) {
             VecCopy__FP3VecPC3Vec(&v, (void *)(pl + 0x38));
             v.y += lbl_805DE4EC;
-            ((M2C_UNK (*)(void *, void *, int))TBoss6Type2__sub_8036A92C)(arg0, &v, arg0->t45C);
+            ((M2C_UNK (*)(void *, void *, int))spawn_flow_soul__11TBoss6Type2Fiii)(arg0, &v, arg0->t45C);
             spawn_particle_effect((void *)(pl + 0x38), 0x36);
         }
         create__14TBoss6EffHyouiFPvPvPv(arg0->client, 1, arg0->t45C);

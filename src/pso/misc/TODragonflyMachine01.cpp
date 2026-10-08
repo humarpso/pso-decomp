@@ -73,7 +73,7 @@ M2C_UNK play_sound_effect(M2C_UNK, M2C_UNK, M2C_UNK, M2C_UNK);
 f32 sin_table_lookup(s32);
 void TLobby__sub_8001FE7C(void*, int);
 M2C_UNK TODragonflyMachine01__sub_80164F50(void *);
-M2C_UNK TODragonfly__sub_8016492C(void *);
+M2C_UNK move_toward_target__11TODragonflyFPv(void *);
 M2C_UNK TODragonfly__sub_80164990(void *);
 M2C_UNK TODragonfly__sub_80164A90(void *);
 M2C_UNK update_idle__11TODragonflyFi(void *);
@@ -119,7 +119,7 @@ void run_task__20TODragonflyMachine01Fv(void *arg0) {
         TODragonfly__sub_80164990(arg0);
         return;
     case 3:
-        TODragonfly__sub_8016492C(arg0);
+        move_toward_target__11TODragonflyFPv(arg0);
         return;
     }
 }

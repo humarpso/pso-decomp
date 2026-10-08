@@ -173,7 +173,7 @@ int alloc__23TAdSinglePlyChrSelectGCFPv(void *);
 s32 get_global_state__14TOKeyMachine01Fv();
 extern Rec_803592B8 lbl_804F1688[];
 extern RecoveredGlobal_803591D0_TObjNpcNgcBase__data_805439A8 TObjNpcNgcBase__data_805439A8;
-void TObjNpcNgcBase__sub_803592B8(void);
+void load_resources__14TObjNpcNgcBaseFv(void);
 }
 
 extern "C" {
@@ -553,7 +553,7 @@ void TObjNpcNgcBase__sub_8035925C(void) {
         }
     }
 }
-void TObjNpcNgcBase__sub_803592B8(void) {
+void load_resources__14TObjNpcNgcBaseFv(void) {
     Rec_803592B8 *p;
     s32 i;
     void *obj;

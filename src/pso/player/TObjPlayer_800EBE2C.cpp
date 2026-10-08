@@ -24,7 +24,7 @@ extern int lbl_805D7780;
 extern int lbl_805D7784;
 extern int some_id_805c6f74;
 extern const f32 lbl_805DA6F8;
-void TObjPlayer__sub_800EBE74(f32 farg0, f32 farg1, f32 farg2, f32 farg3);
+void push_material_color_override__10TObjPlayerFffff(f32 farg0, f32 farg1, f32 farg2, f32 farg3);
 s32 find_nearest_hittable_enemy__10TObjPlayerFiPvf(void *, int, f32);
 int TObjPlayer__sub_800EC348(u8 *arg0, f32 farg0);
 }
@@ -43,10 +43,10 @@ s32 get_attack_target__15TObjEneSlimeOneFPv(void* p);
 void init_render_globals__10TObjPlayerFv(void) { lbl_805D7784 = lbl_805D5664; lbl_805D7780 = lbl_805D5668; some_id_805c6f74 = lbl_805D5660; }
 
 void TObjPlayer__sub_800EBE48(f32 farg0) {
-    TObjPlayer__sub_800EBE74(farg0, lbl_805DA6B4, lbl_805DA6B4, lbl_805DA6B4);
+    push_material_color_override__10TObjPlayerFffff(farg0, lbl_805DA6B4, lbl_805DA6B4, lbl_805DA6B4);
 }
 
-void TObjPlayer__sub_800EBE74(f32 farg0, f32 farg1, f32 farg2, f32 farg3) {
+void push_material_color_override__10TObjPlayerFffff(f32 farg0, f32 farg1, f32 farg2, f32 farg3) {
     Stack_800EBE74 stack;
     (*(s32 *)&lbl_805D5660) = (*(s32 *)&some_id_805c6f74);
     (*(s32 *)&lbl_805D5664) = (*(s32 *)&lbl_805D7784);

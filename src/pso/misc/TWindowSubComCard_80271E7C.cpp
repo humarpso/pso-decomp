@@ -60,7 +60,7 @@ u32 get_chr_select__17TWindowSubComCardFv();
 M2C_UNK TWindowSubComCard__sub_800778B4(void *, int);
 M2C_UNK set_card_text__17TWindowSubComCardFii(int, int);
 M2C_UNK swap_cards__17TWindowSubComCardFii(int, int);
-M2C_UNK TWindowSubComCard__sub_8007AC10(int);
+M2C_UNK remove_card_at__17TWindowSubComCardFi(int);
 M2C_UNK TWindowSubComCard__sub_8007AF10(int);
 M2C_UNK TWindowSubComCard__sub_8007B230(int, int);
 s32 get_keyboard_mode__17TWindowSubComCardFv();
@@ -622,7 +622,7 @@ void run_task__17TWindowSubComCardFv(u8 *arg0) {
         }
         if (is_child_visible__17TWindowSubComCardFPv((int) (M2C_FIELD(arg0, u32 *, 0x70))) != 0) {
             if (get_slot_or_neg1__17TWindowSubComCardFPv((int) (M2C_FIELD(arg0, u32 *, 0x70))) == 0) {
-                TWindowSubComCard__sub_8007AC10(get_selected_menu_value((int) (M2C_FIELD(arg0, u32 *, 0x84))));
+                remove_card_at__17TWindowSubComCardFi(get_selected_menu_value((int) (M2C_FIELD(arg0, u32 *, 0x84))));
                 M2C_FIELD(arg0, u8 *, 0x1C) = 1U;
                 return;
             }

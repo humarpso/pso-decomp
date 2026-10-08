@@ -17,7 +17,7 @@ int clear_floor_event_flags(void);
 int init_sub_objects__6TLobbyFv(void);
 int create_objects__6TLobbyFi(void);
 int attach_objects_by_id__6TLobbyFi(void);
-int TLobby__sub_8020DBCC(void);
+int reset_id_tables__6TLobbyFv(void);
 int init_switch_table(void);
 
 void destroy_child_recursive__6TLobbyFPvPv(Obj_8020BBA0 *arg0, Obj_8020BBA0 *arg1) {

@@ -59,7 +59,7 @@ void init_6x05_switch_changed__6TLobbyFPv(void *);
 void finalize_and_send_60__6TLobbyFPv(void *);
 s32 get_current_floor();
 extern s32 lbl_805D53A0;
-void TOKeyMachine01__sub_8016D148(Self_8016D148 *self, s32 flags);
+void send_switch_changed__14TOKeyMachine01FPvi(Self_8016D148 *self, s32 flags);
 void reset_photon_effect__10TObjPlayerFPv(void *);
 M2C_UNK refresh_collision_body_centers(void *);
 M2C_UNK init_collision_body_parts(void *, void *, s32);
@@ -139,7 +139,7 @@ s32 TOKeyMachine01__vt13(u8 *arg0) {
 
 typedef char RecoveredGlobal_8016D1A8_lbl_80441D84_size[sizeof(RecoveredGlobal_8016D1A8_lbl_80441D84) == 0x90 ? 1 : -1];
 
-void TOKeyMachine01__sub_8016D148(Self_8016D148 *self, s32 flags) {
+void send_switch_changed__14TOKeyMachine01FPvi(Self_8016D148 *self, s32 flags) {
     Pkt_8016D148 pkt;
     init_6x05_switch_changed__6TLobbyFPv(&pkt);
     pkt.object = self->id;

@@ -21,7 +21,7 @@ M2C_UNK TLobby__send_and_handle_60(void *);
 s32 read_be16_field2__10TObjPlayerFPv();
 s32 bswap_16__FPUs(s32);
 s32 bswap_32__FPUl(s32);
-s32 TLobby__sub_8010314C();
+s32 init_floor_item_entry__6TLobbyFPv();
 void set_item_count__6TLobbyFPvs(void* p, s16 v);
 
 }

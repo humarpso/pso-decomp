@@ -101,15 +101,15 @@ void TKeyBoardControl__sub_8013206C(Obj_8013206C *arg0);
 s32 TKeyBoardControl__sub_80132368(K_80132368 *arg0);
 u8 TKeyBoardControl__sub_8013239C(K_8013239C *arg0, u8 arg1);
 s32 TKeyBoardControl__sub_801323C8(K_801323C8 *arg0, u8 arg1);
-void TKeyBoardControl__sub_8013276C(K_8013276C *arg0);
+void clear_key_state__16TKeyBoardControlFPv(K_8013276C *arg0);
 s8 TKeyBoardControl__sub_803F1548(s32);
 s32 TKeyBoardControl__sub_803F1604(s32, M2C_UNK *);
-s32 TKeyBoardControl__sub_80131FC8(Kb_80131FC8 *arg0, s8 arg1);
+s32 append_char__16TKeyBoardControlFPvc(Kb_80131FC8 *arg0, s8 arg1);
 void TKeyBoardControl__sub_801324F8(Kb_801324F8 *arg0, u8 arg1);
 void reset_inactive_keys__16TKeyBoardControlFi(s32 arg0);
 void TKeyBoardControl__sub_80132598(Kb_80132650 *, u8, u32 *);
 void reset_keys__16TKeyBoardControlFPv(void *arg0);
-void TKeyBoardControl__sub_8013276C(K_8013276C *arg0);
+void clear_key_state__16TKeyBoardControlFPv(K_8013276C *arg0);
 void TKeyBoardControl__sub_80132650(Kb_80132650 *kb);
 u8 get_key_state__16TKeyBoardControlFPv(void* p);
 extern RecoveredGlobal_801320CC_TKeyBoardControl__data_80506270 TKeyBoardControl__data_80506270;
@@ -191,7 +191,7 @@ void set_flag62_bit8__16TKeyBoardControlFPv(void* p) { *(u16*)((char*)p + 0x62) 
 
 typedef char RecoveredGlobal_801320CC_TKeyBoardControl__data_80506270_size[sizeof(RecoveredGlobal_801320CC_TKeyBoardControl__data_80506270) == 0xB0 ? 1 : -1];
 
-s32 TKeyBoardControl__sub_80131FC8(Kb_80131FC8 *arg0, s8 arg1) {
+s32 append_char__16TKeyBoardControlFPvc(Kb_80131FC8 *arg0, s8 arg1) {
     s32 r;
     u8 *p;
     if (arg0->f3 >= 0x7C) {
@@ -217,7 +217,7 @@ void TKeyBoardControl__sub_8013206C(Obj_8013206C *arg0) {
     s32 i = 0;
     arg0->f4 = arg0->f4 + 1;
     do {
-        if (((s32)TKeyBoardControl__sub_80131FC8((Kb_80131FC8 *)((void *)(arg0)), (s8)((s8)(i)))) != 0) {
+        if (((s32)append_char__16TKeyBoardControlFPvc((Kb_80131FC8 *)((void *)(arg0)), (s8)((s8)(i)))) != 0) {
             return;
         }
         i++;
@@ -370,7 +370,7 @@ void TKeyBoardControl__sub_80132650(Kb_80132650 *kb) {
     }
     kb->f4 = 0;
     if (kb->f0 >= 4) {
-        TKeyBoardControl__sub_8013276C((K_8013276C *)kb);
+        clear_key_state__16TKeyBoardControlFPv((K_8013276C *)kb);
         reset_keys__16TKeyBoardControlFPv(kb);
         return;
     }
@@ -398,7 +398,7 @@ void reset_keys__16TKeyBoardControlFPv(void *arg0) {
     }
 }
 
-void TKeyBoardControl__sub_8013276C(K_8013276C *arg0) {
+void clear_key_state__16TKeyBoardControlFPv(K_8013276C *arg0) {
     s32 i;
     arg0->f2 = 0;
     for (i = 0; i < 8; i++) {
@@ -427,12 +427,12 @@ void reset_input__16TKeyBoardControlFi(s32 arg0) {
 }
 typedef char RecoveredGlobal_801328C4_TKeyBoardControl__data_80506270_size[sizeof(RecoveredGlobal_801328C4_TKeyBoardControl__data_80506270) == 0xB0 ? 1 : -1];
 void TKeyBoardControl__sub_801328C4(void) {
-    TKeyBoardControl__sub_8013276C((K_8013276C *)((void *) (&(*(RecoveredGlobal_801328C4_TKeyBoardControl__data_80506270 *)&TKeyBoardControl__data_80506270).value)));
+    clear_key_state__16TKeyBoardControlFPv((K_8013276C *)((void *) (&(*(RecoveredGlobal_801328C4_TKeyBoardControl__data_80506270 *)&TKeyBoardControl__data_80506270).value)));
     reset_keys__16TKeyBoardControlFPv((void *) (&(*(RecoveredGlobal_801328C4_TKeyBoardControl__data_80506270 *)&TKeyBoardControl__data_80506270).value));
 }
 typedef char RecoveredGlobal_801328F8_TKeyBoardControl__data_80506270_size[sizeof(RecoveredGlobal_801328F8_TKeyBoardControl__data_80506270) == 0xB0 ? 1 : -1];
 void TKeyBoardControl__sub_801328F8(void) {
-    TKeyBoardControl__sub_8013276C((K_8013276C *)((void *) (&(*(RecoveredGlobal_801328F8_TKeyBoardControl__data_80506270 *)&TKeyBoardControl__data_80506270).value)));
+    clear_key_state__16TKeyBoardControlFPv((K_8013276C *)((void *) (&(*(RecoveredGlobal_801328F8_TKeyBoardControl__data_80506270 *)&TKeyBoardControl__data_80506270).value)));
     reset_keys__16TKeyBoardControlFPv((void *) (&(*(RecoveredGlobal_801328F8_TKeyBoardControl__data_80506270 *)&TKeyBoardControl__data_80506270).value));
 }
 

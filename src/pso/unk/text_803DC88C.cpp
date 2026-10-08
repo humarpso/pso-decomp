@@ -81,7 +81,7 @@ extern const Tbl_803DCC34 lbl_8047E3D8;
 extern u8 *lbl_805D774C;
 void abs__4cXyzCFv(s32 arg0, s32 arg1);
 M2C_UNK get_current_matrix(void *);
-M2C_UNK TObjPlayer__sub_803D993C(void *, f32);
+M2C_UNK apply_quat_rotation__10TObjPlayerFPvf(void *, f32);
 M2C_UNK rotate_matrix_by_node_angles(void *, void *);
 s32 push_matrix();
 s32 pop_matrix();
@@ -177,7 +177,7 @@ void traverse_node_tree__10TObjPlayerFv(struct N_803DC9E4 *p, M2C_UNK (*cb)(s32)
                 if (f & 0x1000) {
                     TObjPlayer__sub_803DC994((struct Mtx_803DC994 *) (lbl_8058CE10));
                 } else if (f & 0x400) {
-                    ((M2C_UNK (*)(f32, void *))TObjPlayer__sub_803D993C)(p->f34, p->m14);
+                    ((M2C_UNK (*)(f32, void *))apply_quat_rotation__10TObjPlayerFPvf)(p->f34, p->m14);
                 } else {
                     rotate_matrix_by_node_angles(p->m14, (void *) (f & 0x20));
                 }

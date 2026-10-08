@@ -11,7 +11,7 @@ extern "C" void*    alloc__23TAdSinglePlyChrSelectGCFPv(int size);
 extern "C" void*    load_buffer__9TItemLoadFPvUii(void* obj, const char* file, int flags);
 extern "C" void     __dt__9TItemLoadFPvs(void* obj, int flag);
 extern "C" void*    get_type__8TItemMagFPv(void* pmt);
-extern "C" TObject* TItemDrop__sub_80107A68(int arg);
+extern "C" TObject* create_drop__9TItemDropFi(int arg);
 
 extern "C" {
 
@@ -40,7 +40,7 @@ void load_item_pmt() {
 
 void load_items() {
     load_item_pmt();
-    item_mgr = TItemDrop__sub_80107A68(0);
+    item_mgr = create_drop__9TItemDropFi(0);
 }
 
 }

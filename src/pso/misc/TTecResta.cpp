@@ -128,7 +128,7 @@ u8 *TTecResta__sub_80239C48(u8 *arg0, s32 arg1, s32 arg2, s32 arg3);
 f32 *calc_technique_parameters(M2C_UNK, s32, M2C_UNK);
 s32 is_technique_ready__8TTecCtrlFv(int);
 extern RecoveredGlobal_802394B0_lbl_804CC55C lbl_804CC55C;
-f32 TTecResta__sub_802394B0(s32 arg0);
+f32 calc_heal_amount__9TTecRestaFi(s32 arg0);
 extern M2C_UNK lbl_804CCBC0[];
 extern Row_8023967C lbl_804CCB90[];
 extern const f32 TTecResta__data_805DC908;
@@ -191,7 +191,7 @@ int init_cast__9TTecRestaFPv(void* p) { return spawn_support_tec_range_effect(p)
 
 typedef struct RecoveredGlobal_802394B0_lbl_804CC55C RecoveredGlobal_802394B0_lbl_804CC55C;
 typedef char RecoveredGlobal_802394B0_lbl_804CC55C_size[((sizeof(RecoveredGlobal_802394B0_lbl_804CC55C)) == 0x98) ? (1) : (-1)];
-f32 TTecResta__sub_802394B0(s32 arg0) {
+f32 calc_heal_amount__9TTecRestaFi(s32 arg0) {
   f32 *temp_r3;
   f32 var_f31;
   temp_r3 = (f32 *) calc_technique_parameters(0xF, arg0, 0xFFFF);

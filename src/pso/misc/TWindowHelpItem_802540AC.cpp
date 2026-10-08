@@ -206,7 +206,7 @@ s32 copy_to_item_data__5TItemFPvPv(void *, void *);
 void TWindowHelpItem__set_displayed_item_by_id(u8 *arg0, s32 arg1);
 u8 * find_item_by_id(s32);
 s32 copy_to_item_data__5TItemFPvPv(void *, void *);
-void TWindowHelpItem__sub_802558D0(u8 *arg0, s32 arg1);
+void show_item_by_id__15TWindowHelpItemFPvi(u8 *arg0, s32 arg1);
 void set_displayed_item_colored__15TWindowHelpItemFPvUi(void *arg0, u32 arg1);
 int dispatch_item_help__15TWindowHelpItemFv(void*);
 int update_cursor_selection__15TWindowHelpItemFPv(void*);
@@ -749,7 +749,7 @@ void TWindowHelpItem__set_displayed_item_by_id(u8 *arg0, s32 arg1) {
     copy_to_item_data__5TItemFPvPv(temp_r3, arg0 + 0x88);
     set_displayed_item_data__15TWindowHelpItemFPvPvPv((void*)((void*)(arg0)), (void*)((void*)(arg0 + 0x88)), (void*)((void*)((void *) arg1)));
 }
-void TWindowHelpItem__sub_802558D0(u8 *arg0, s32 arg1) {
+void show_item_by_id__15TWindowHelpItemFPvi(u8 *arg0, s32 arg1) {
     u8 *temp_r3;
     if (arg1 == -1) {
         set_items_and_refresh__15TWindowHelpItemFPvPvPv((void*)((void*)(arg0)), (void*)((void*)(NULL)), (void*)((void*)((void *)-1)));

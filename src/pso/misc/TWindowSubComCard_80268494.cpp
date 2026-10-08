@@ -10,7 +10,7 @@ void set_entry_string_by_id__15TWindowMakeTeamFPvPvi(u8 *arg0, void *arg1, s32 a
 void set_string__20TWindowSubStatusDispFPvUi(u8 *, void *);
 struct Ent_802684BC { u8 p0[0x1C]; s32 f1C; };
 struct Win_802684BC { u8 p0[0x76]; s16 f76; };
-s32 TWindowSubComCard__sub_802684BC(Win_802684BC *w, s32 arg1);
+s32 find_entry_value_by_id__17TWindowSubComCardFPvi(Win_802684BC *w, s32 arg1);
 s32 is_flag_4_set__17TWindowSubComCardFPv(void *);
 void mark_entry_by_id__17TWindowSubComCardFPvi(u8 *arg0, s32 arg1);
 void disable_entry_by_id__17TWindowSubComCardFPvi(u8 *arg0, s32 arg1);
@@ -39,7 +39,7 @@ void update_selected_entry__17TWindowSubComCardFPv(void *arg0) {
     get_entry_id__17TWindowSubComCardFPv();
 }
 
-s32 TWindowSubComCard__sub_802684BC(Win_802684BC *w, s32 arg1) {
+s32 find_entry_value_by_id__17TWindowSubComCardFPvi(Win_802684BC *w, s32 arg1) {
     s32 i;
     Ent_802684BC *e;
     for (i = 0; i < w->f76; i++) {

@@ -510,7 +510,7 @@ void set_attach_slot__14TItemEquipBaseFPvc(u8 *arg0, s8 arg1);
 void copy_to_item_data__5TItemFPvPv(void *, void *);
 void apply_equip_effects__9TItemDataFPviiiii(void *, s32, s32, s32, void *, void *);
 int memset(void*, void*, void*);
-void TItemEquipBase__sub_8010AEFC(Equip_8010AEFC *self, s32 arg1, s32 arg2, s16 *out);
+void subtract_item_stat_bonus__14TItemEquipBaseFPviiPv(Equip_8010AEFC *self, s32 arg1, s32 arg2, s16 *out);
 s32 add_actor_tp_bonus(void *, int);
 s32 add_actor_hp_bonus(void *, int);
 s32 get_id__10TObjPlayerFPv(void *);
@@ -796,7 +796,7 @@ void subtract_equip_stats__14TItemEquipBaseFPviPvPv(u8 *arg0, s32 arg1, u8 *arg2
     }
 }
 
-void TItemEquipBase__sub_8010AEFC(Equip_8010AEFC *self, s32 arg1, s32 arg2, s16 *out) {
+void subtract_item_stat_bonus__14TItemEquipBaseFPviiPv(Equip_8010AEFC *self, s32 arg1, s32 arg2, s16 *out) {
     u32 extra;
     ItemData_8010AEFC item;
     Stats_8010AEFC st;

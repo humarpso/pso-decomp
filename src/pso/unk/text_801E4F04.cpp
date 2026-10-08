@@ -12,7 +12,7 @@ M2C_UNK __ct__7TObjectFP7TObject();
 void __dl__7TObjectFPv(void *);
 void __dt__7TObjectFv(void *, int);
 s32 alloc_buffer__11TOBoss4RockFPv(s32);
-M2C_UNK fn_801E4EB0(void *);
+M2C_UNK quad_sprite_reset_entries(void *);
 void free__11TOBoss4RockFUi(void *);
 
 extern M2C_UNK lbl_804C57F0[];
@@ -43,7 +43,7 @@ void *quad_sprite_base_ct(void *arg0, void *arg_r4, void *arg2) {
     temp_r31 = M2C_FIELD(M2C_FIELD(arg0, void **, 0x28), s32 *, 0xC);
     M2C_FIELD(arg0, s32 *, 0x1C) = alloc_buffer__11TOBoss4RockFPv(temp_r31 * 0x2C);
     M2C_FIELD(arg0, s32 *, 0x20) = alloc_buffer__11TOBoss4RockFPv(temp_r31 * 4);
-    fn_801E4EB0(arg0);
+    quad_sprite_reset_entries(arg0);
     return arg0;
 }
 

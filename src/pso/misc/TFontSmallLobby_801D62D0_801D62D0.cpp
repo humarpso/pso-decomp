@@ -53,7 +53,7 @@ void TFontSmallLobby__sub_80152F28(void *);
 void reset_fields__15TFontSmallLobbyFPv(void *);
 extern const f32 lbl_805DC3E0;
 extern const f32 lbl_805DC3E8;
-void TFontSmallLobby__sub_801D650C(Obj_801D650C *arg0);
+void reset_state__15TFontSmallLobbyFPv(Obj_801D650C *arg0);
 }
 
 extern "C" {
@@ -143,7 +143,7 @@ void reset_photon_blast_gauge(struct Lobby_801D6498 *s) {
     clear_photon_blast_state__10TObjPlayerFPv(s);
     reset_fields__15TFontSmallLobbyFPv(s->fields);
 }
-void TFontSmallLobby__sub_801D650C(Obj_801D650C *arg0) {
+void reset_state__15TFontSmallLobbyFPv(Obj_801D650C *arg0) {
     s32 i;
     s32 k;
     u8 *fp;

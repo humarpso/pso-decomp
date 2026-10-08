@@ -34,7 +34,7 @@ M2C_UNK set_flags__11TBoss4Type2FPvUi(int, int);
 M2C_UNK copy_pos__11TNowLoadingFPvPv(int, int);
 M2C_UNK play_sound_effect(int, int, int, int);
 M2C_UNK queue_event_1D__12TBoss3VoloptFss(int, int);
-M2C_UNK TBoss6PlotFalz__sub_802AC1D8(void *, int, int);
+M2C_UNK scroll_strips_uv__14TBoss6PlotFalzFPvii(void *, int, int);
 s32 get_phase__8TObjFishFPv(int);
 extern const f32 lbl_805DFA48;
 extern const f32 lbl_805DFA4C;
@@ -119,7 +119,7 @@ void update_effect_sequence__11TBoss4Type2FPv(u8 *arg0) {
     if (temp_f1 > lbl_805DFA4C) {
         M2C_FIELD(arg0, f32 *, 0x34) = (f32) lbl_805DFA4C;
     }
-    TBoss6PlotFalz__sub_802AC1D8((void *) (arg0 + 0x40), (int) (8), (int) (0));
+    scroll_strips_uv__14TBoss6PlotFalzFPvii((void *) (arg0 + 0x40), (int) (8), (int) (0));
     if ((s32) M2C_FIELD(arg0, s32 *, 0x38) == 0x78) {
         play_sound_effect((int) (0x4003A105), (int) (0), (int) (0), (int) (0));
     }

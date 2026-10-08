@@ -34,9 +34,9 @@ M2C_UNK update_status_icons__14TWindowComCardFPvPv(s32, s32);
 s32 get_window_layout_position(M2C_UNK);
 M2C_UNK update_window_entry_list(s32, s32);
 void *__nw__7TObjectFUl(int);
-M2C_UNK fn_8026FDC0(s32);
+M2C_UNK apply_random_shake(s32);
 M2C_UNK update_hp_tp_level__20TWindowSubStatusDispFPv();
-M2C_UNK fn_80270014(s32);
+M2C_UNK update_lockon_window(s32);
 M2C_UNK initialize_subwindow__9TWindowDDFPv(s32);
 M2C_UNK update_fade__17TWindowSubComCardFPv(s32);
 M2C_UNK update_status_help_item(s32);
@@ -52,13 +52,13 @@ void render__19TWindowSimpleStatusFv(s32 arg0) {
 
 void run_task__19TWindowSimpleStatusFv(s32 arg0) {
     update_hp_tp_level__20TWindowSubStatusDispFPv();
-    fn_80270014(arg0);
+    update_lockon_window(arg0);
     update_status_help_item(arg0);
     update_status_icons__14TWindowComCardFPvPv(arg0, get_window_layout_position(0x1D));
     initialize_subwindow__9TWindowDDFPv(arg0);
     update_fade__17TWindowSubComCardFPv(arg0);
     update_window_entry_list(arg0, arg0 + 0x24);
-    fn_8026FDC0(arg0);
+    apply_random_shake(arg0);
 }
 
 extern unsigned char lbl_804D0CB0[];

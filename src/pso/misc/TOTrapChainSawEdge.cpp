@@ -7,8 +7,8 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 
 extern "C" {
 s32 fn_802C9924(s32);
-s32 TOTrapChainSawKey__sub_802C9960(s32);
-s32 TOTrapChainSawKey__sub_802C999C(int, f32);
+s32 get_motion__17TOTrapChainSawKeyFi(s32);
+s32 get_model__17TOTrapChainSawKeyFi(int, f32);
 void TOTrapChainSawKey__vt14(u8 *arg0);
 }
 
@@ -334,7 +334,7 @@ void TOTrapChainSawDamage__vt13(void *arg0);
 void * create__20TOTrapChainSawDamageFPv(void *arg0);
 void * __dt__20TOTrapChainSawDamageFv(void *arg0, s16 arg1);
 void * TOTrapChainSawDamage__ct(void *arg0, void *arg1, void *arg2);
-s32 TOTrapChainSawKey__sub_802C8F68(s32 arg0, s32 arg1);
+s32 get_area_table_value__17TOTrapChainSawKeyFii(s32 arg0, s32 arg1);
 f32 TOTrapChainSaw__sub_802C8FF8(f32 farg0);
 void update_demo__14TOTrapChainSawFPv(void *arg0);
 void TOTrapChainSaw__sub_802C9090(void);
@@ -344,13 +344,13 @@ void TOTrapChainSaw__sub_802C9124(S_802C9124 *arg0, void *arg1);
 s32 TOTrapChainSaw__sub_802C9174(S_802C9174 *arg0, void *arg1);
 int check_player_contact__14TOTrapChainSawFPv(void *arg0);
 void update_sweep__14TOTrapChainSawFPv(void *arg0);
-void TOTrapChainSaw__sub_802C9600(u8 *arg0);
+void update_state__14TOTrapChainSawFPv(u8 *arg0);
 void update_active_flag__14TOTrapChainSawFPv(void *arg0);
 void decode_params__14TOTrapChainSawFPv(void *arg0);
 void * __dt__14TOTrapChainSawFv(void *arg0, s16 arg1);
 u8 * TOTrapChainSaw__ct(u8 *arg0, s32 arg1, s32 arg2);
 s32 fn_802C9924(s32);
-s32 TOTrapChainSawKey__sub_802C9960(s32);
+s32 get_motion__17TOTrapChainSawKeyFi(s32);
 void set_damage__20TOTrapChainSawDamageFPvi(void *, void *);
 M2C_UNK TOTrapChainSawDamage__sub_802C9C00(void *, int);
 s32 is_not_split_screen__13TRaderMapCoreFv();
@@ -430,8 +430,8 @@ void TOTrapChainSawEdge__vt14(void *arg0) {
     M2C_FIELD(arg0, s32 *, 0xFC) = (s32) M2C_FIELD(arg0, f32 *, 0x70);
     x = M2C_FIELD(arg0, s32 *, 0xFC);
     M2C_FIELD(arg0, s32 *, 0xFC) = x < 0 ? 0 : (x > 1 ? 1 : x);
-    M2C_FIELD(arg0, s32 *, 0xC8) = ((s32 (*)(s32))TOTrapChainSawKey__sub_802C999C)(a.v[M2C_FIELD(arg0, s32 *, 0xFC)]);
-    M2C_FIELD(arg0, s32 *, 0xBC) = TOTrapChainSawKey__sub_802C9960(b.v[M2C_FIELD(arg0, s32 *, 0xFC)]);
+    M2C_FIELD(arg0, s32 *, 0xC8) = ((s32 (*)(s32))get_model__17TOTrapChainSawKeyFi)(a.v[M2C_FIELD(arg0, s32 *, 0xFC)]);
+    M2C_FIELD(arg0, s32 *, 0xBC) = get_motion__17TOTrapChainSawKeyFi(b.v[M2C_FIELD(arg0, s32 *, 0xFC)]);
     M2C_FIELD(arg0, s32 *, 0x24) = fn_802C9924(0);
     M2C_FIELD(arg0, f32 *, 0xB4) = (0.0f);
     M2C_FIELD(arg0, f32 *, 0xB8) = (1.0f);
@@ -571,14 +571,14 @@ void TOTrapChainSawKey__vt12(void) {
 }
 
 void TOTrapChainSawKey__vt22(u8 *arg0) {
-    ((M2C_UNK (*)())TOTrapChainSaw__sub_802C9600)();
+    ((M2C_UNK (*)())update_state__14TOTrapChainSawFPv)();
     M2C_FIELD(arg0, f32 *, 0x104) = (f32) (M2C_FIELD(arg0, f32 *, 0x104) + M2C_FIELD(arg0, f32 *, 0x108));
     if (M2C_FIELD(arg0, f32 *, 0x104) > (f32) (u32) (M2C_FIELD(M2C_FIELD(arg0, u8 **, 0x100), s32 *, 4) - 1)) {
         M2C_FIELD(arg0, f32 *, 0x104) = (f32) (0.0f);
     }
-    play_persistent_sound((void *) (((s32 (*)(void *, int))TOTrapChainSawKey__sub_802C8F68)((void *) (arg0), (int) (2))), (void *) (arg0), (void *) (arg0 + 0x38), (int) (0), (int) (0));
+    play_persistent_sound((void *) (((s32 (*)(void *, int))get_area_table_value__17TOTrapChainSawKeyFii)((void *) (arg0), (int) (2))), (void *) (arg0), (void *) (arg0 + 0x38), (int) (0), (int) (0));
     if ((s32) M2C_FIELD(arg0, s32 *, 0xF0) == 1) {
-        play_persistent_sound((void *) (((s32 (*)(void *, int))TOTrapChainSawKey__sub_802C8F68)((void *) (arg0), (int) (1))), (void *) (arg0), (void *) (arg0 + 0x38), (int) (0), (int) (0));
+        play_persistent_sound((void *) (((s32 (*)(void *, int))get_area_table_value__17TOTrapChainSawKeyFii)((void *) (arg0), (int) (1))), (void *) (arg0), (void *) (arg0 + 0x38), (int) (0), (int) (0));
     }
 }
 
@@ -600,13 +600,13 @@ void TOTrapChainSawKey__vt14(u8 *arg0) {
     M2C_FIELD(arg0, s32 *, 0xF8) = (s32) M2C_FIELD(arg0, f32 *, 0x70);
     x = M2C_FIELD(arg0, s32 *, 0xF8);
     M2C_FIELD(arg0, s32 *, 0xF8) = (x < 0) ? 0 : ((x > 1) ? 1 : x);
-    M2C_FIELD(arg0, s32 *, 0xC8) = ((s32 (*)(int))TOTrapChainSawKey__sub_802C999C)(a.v[M2C_FIELD(arg0, s32 *, 0xF8)]);
-    M2C_FIELD(arg0, s32 *, 0xBC) = TOTrapChainSawKey__sub_802C9960((s32)(b.v[M2C_FIELD(arg0, s32 *, 0xF8)]));
+    M2C_FIELD(arg0, s32 *, 0xC8) = ((s32 (*)(int))get_model__17TOTrapChainSawKeyFi)(a.v[M2C_FIELD(arg0, s32 *, 0xF8)]);
+    M2C_FIELD(arg0, s32 *, 0xBC) = get_motion__17TOTrapChainSawKeyFi((s32)(b.v[M2C_FIELD(arg0, s32 *, 0xF8)]));
     M2C_FIELD(arg0, s32 *, 0x24) = fn_802C9924((s32)(3));
     M2C_FIELD(arg0, f32 *, 0xB4) = (0.0f);
     M2C_FIELD(arg0, f32 *, 0xB8) = (1.0f);
-    M2C_FIELD(arg0, s32 *, 0xFC) = TOTrapChainSawKey__sub_802C999C((int)(2), (0.0f));
-    M2C_FIELD(arg0, s32 *, 0x100) = TOTrapChainSawKey__sub_802C9960((s32)(2));
+    M2C_FIELD(arg0, s32 *, 0xFC) = get_model__17TOTrapChainSawKeyFi((int)(2), (0.0f));
+    M2C_FIELD(arg0, s32 *, 0x100) = get_motion__17TOTrapChainSawKeyFi((s32)(2));
     M2C_FIELD(arg0, f32 *, 0x104) = (0.0f);
     M2C_FIELD(arg0, f32 *, 0x108) = (1.0f);
 }
@@ -666,7 +666,7 @@ void TOTrapChainSawDamage__vt25(u8 *arg0) {
     if (((s32) M2C_FIELD(arg0, s32 *, 0x100) == 0xA) && ((p = M2C_FIELD(arg0, void **, 0x108)) != NULL)) {
         TOTrapChainSawDamage__sub_802C9C00(p, (int) (1));
     }
-    ((M2C_UNK (*)(M2C_UNK, void *, void *, int, int))play_persistent_sound)(((M2C_UNK (*)(void *, int))TOTrapChainSawKey__sub_802C8F68)((void *) (arg0), (int) (0)), (void *) (arg0), (void *) (arg0 + 0x38), (int) (0), (int) (0));
+    ((M2C_UNK (*)(M2C_UNK, void *, void *, int, int))play_persistent_sound)(((M2C_UNK (*)(void *, int))get_area_table_value__17TOTrapChainSawKeyFii)((void *) (arg0), (int) (0)), (void *) (arg0), (void *) (arg0 + 0x38), (int) (0), (int) (0));
 }
 extern int fold_flush_0;
 #pragma pop
@@ -701,7 +701,7 @@ void TOTrapChainSawDamage__vt23(void *arg0) {
 #pragma dont_inline off
 #pragma inline_depth(1)
 void TOTrapChainSawDamage__vt22(void *arg0) {
-    ((M2C_UNK (*)())TOTrapChainSaw__sub_802C9600)();
+    ((M2C_UNK (*)())update_state__14TOTrapChainSawFPv)();
     if ((s32) M2C_FIELD(arg0, s32 *, 0xF0) == 1) {
         clear_player_status_flag__10TObjPlayerFPviUi(arg0, 1, 0x100);
         return;
@@ -743,8 +743,8 @@ void TOTrapChainSawDamage__vt14(Obj_802C8C60 *arg0, f32 _w1) {
     arg0->fF8 = (s32)arg0->f70;
     v = arg0->fF8;
     arg0->fF8 = v < 0 ? 0 : (v > 1 ? 1 : v);
-    arg0->fC8 = TOTrapChainSawKey__sub_802C999C((int)(a.v[arg0->fF8]), _w1);
-    arg0->fBC = TOTrapChainSawKey__sub_802C9960(b.v[arg0->fF8]);
+    arg0->fC8 = get_model__17TOTrapChainSawKeyFi((int)(a.v[arg0->fF8]), _w1);
+    arg0->fBC = get_motion__17TOTrapChainSawKeyFi(b.v[arg0->fF8]);
     arg0->f24 = fn_802C9924(0);
     arg0->fB4 = (0.0f);
     arg0->fB8 = (1.0f);
@@ -850,7 +850,7 @@ extern int fold_flush_7;
 #pragma auto_inline off
 #pragma dont_inline off
 #pragma inline_depth(1)
-s32 TOTrapChainSawKey__sub_802C8F68(s32 arg0, s32 arg1) {
+s32 get_area_table_value__17TOTrapChainSawKeyFii(s32 arg0, s32 arg1) {
     T_802C8F68 t = lbl_80471EEC;
     s32 *p = t.r[0];
     switch (get_global_state__14TOKeyMachine01Fv()) {
@@ -999,7 +999,7 @@ extern "C" { u8 *lbl_805D6808; }
 
 #pragma push
 #pragma opt_propagation off
-void TOTrapChainSaw__sub_802C9600(u8 *arg0) {
+void update_state__14TOTrapChainSawFPv(u8 *arg0) {
     static Act_802C9600 tbl[2] = { &VObj_802C9600::m20, &VObj_802C9600::m21 };
     (((VObj_802C9600 *)arg0)->*tbl[M2C_FIELD(arg0, s32 *, 0xF4)])();
     if (M2C_FIELD(arg0, u8 **, 0xBC) != NULL) {
@@ -1127,7 +1127,7 @@ M2C_UNK __vt__18TOTrapChainSawEdge[31] = {
     (M2C_UNK)&clear_field_d8__14TOTrapChainSawFPv,
     (M2C_UNK)&TOTrapChainSawEdge__vt20,
     (M2C_UNK)&TOTrapChainSawEdge__vt21,
-    (M2C_UNK)&TOTrapChainSaw__sub_802C9600,
+    (M2C_UNK)&update_state__14TOTrapChainSawFPv,
     (M2C_UNK)&TOTrapChainSawEdge__vt23,
     (M2C_UNK)&TOTrapChainSaw__sub_802C9BE8,
     (M2C_UNK)&TOTrapChainSaw__sub_802C9BEC,
@@ -1226,7 +1226,7 @@ M2C_UNK __vt__14TOTrapChainSaw[31] = {
     (M2C_UNK)&clear_field_d8__14TOTrapChainSawFPv,
     (M2C_UNK)&TOTrapChainSaw__sub_802C936C,
     (M2C_UNK)&update_sweep__14TOTrapChainSawFPv,
-    (M2C_UNK)&TOTrapChainSaw__sub_802C9600,
+    (M2C_UNK)&update_state__14TOTrapChainSawFPv,
     (M2C_UNK)&TOTrapChainSaw__vt23,
     (M2C_UNK)&TOTrapChainSaw__sub_802C9BE8,
     (M2C_UNK)&TOTrapChainSaw__sub_802C9BEC,

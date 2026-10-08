@@ -13,7 +13,7 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 #define M2C_BITWISE(type, expr) ((type)(expr))
 extern "C" {
 M2C_UNK init_forward__10TObjPlayerFPv(void *);
-M2C_UNK TObjPlayer__sub_80313138(void *);
+M2C_UNK reset_id_entry__10TObjPlayerFPv(void *);
 M2C_UNK __construct_array(void *, void *, void *, int, int);
 s32 __destroy_arr(s32, s32 *, s32, s32);
 s32 TObjPlayer__sub_801AA584(s32 arg0, s16 arg1);
@@ -31,7 +31,7 @@ u16 get_entity_type__10TObjPlayerFPv(void* p);
 s32 init_arrays__10TObjPlayerFi(s32 arg0) {
     init_forward__10TObjPlayerFPv((void *) (arg0 + 4));
     __construct_array((void *) (arg0 + 8), (void *) (&TObjPlayer__sub_801AA61C), (void *) (&TObjPlayer__sub_801AA584), (int) (4), (int) (4));
-    TObjPlayer__sub_80313138((void *) (arg0));
+    reset_id_entry__10TObjPlayerFPv((void *) (arg0));
     return arg0;
 }
 

@@ -15,12 +15,12 @@ M2C_UNK spawn_item_timer__13TItemAttackerFiii(void *, void (*)(void), s32);
 void *construct_weapon_casing__10TObjPlayerFPvPvPvPvPvPv(void *, s32, u32, void *, u32, u32);
 void *__nw__7TObjectFUl(u32);
 void TObjPlayer__sub_8012E7B8(void);
-void TObjPlayer__sub_8012E1E8(s32 arg0, u32 arg1, u32 arg2, u32 arg3, u32 arg4);
+void spawn_weapon_casing__10TObjPlayerFiUiUiUiUi(s32 arg0, u32 arg1, u32 arg2, u32 arg3, u32 arg4);
 }
 
 extern "C" {
 
-void TObjPlayer__sub_8012E1E8(s32 arg0, u32 arg1, u32 arg2, u32 arg3, u32 arg4) {
+void spawn_weapon_casing__10TObjPlayerFiUiUiUiUi(s32 arg0, u32 arg1, u32 arg2, u32 arg3, u32 arg4) {
     void *p;
     if ((arg0 != 0) && (arg1 != 0U) && (arg2 != 0U) && (arg3 != 0U) && (arg4 != 0U)) {
         p = __nw__7TObjectFUl(0x44);

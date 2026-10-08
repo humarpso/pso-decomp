@@ -83,7 +83,7 @@ M2C_UNK fn_802A6078(s32, s32);
 extern u32 lbl_805D6694;
 extern s32 lbl_805D669C;
 void set_slot_position__6TLobbyFii(s32 arg0, s32 arg1);
-M2C_UNK TLobby__sub_8001D4D8(M2C_UNK, s32, s32, s32, s32);
+M2C_UNK aram_dma_blocking__6TLobbyFiiii(M2C_UNK, s32, s32, s32, s32);
 void send_type2_event__6TLobbyFiii(s32 arg0, s32 arg1, s32 arg2);
 s32 alloc_buffer__11TOBoss4RockFPv(s32);
 int get_width__15TWindowSnapShotFv(void);
@@ -257,7 +257,7 @@ void set_slot_position__6TLobbyFii(s32 arg0, s32 arg1) {
     fn_802A6070(arg1, fn_802A5B2C(temp_r31));
 }
 void send_type2_event__6TLobbyFiii(s32 arg0, s32 arg1, s32 arg2) {
-    TLobby__sub_8001D4D8(2, arg0, arg1, arg2, arg0);
+    aram_dma_blocking__6TLobbyFiiii(2, arg0, arg1, arg2, arg0);
 }
 
 }

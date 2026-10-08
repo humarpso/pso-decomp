@@ -283,7 +283,7 @@ void TObjPlayer__sub_800A1520(u8 *arg0);
 void TObjPlayer__sub_800A159C(Obj_800A159C *o);
 void TObjPlayer__sub_800A17B4(u8 *arg0);
 int TObjPlayer__sub_800A1808(void* p);
-void TObjPlayer__sub_800A1814(Obj_800A1814 *o, s32 arg1, s32 arg2, f32 farg0);
+void spawn_hamon_effects__10TObjPlayerFPviif(Obj_800A1814 *o, s32 arg1, s32 arg2, f32 farg0);
 void render_shadow__10TObjPlayerFi(s32 arg0);
 void TObjPlayer__sub_800A1974(void);
 s32 TObjPlayer__sub_800A1C84(void *);
@@ -1031,7 +1031,7 @@ int TObjPlayer__sub_800A1808(void* p) { return (*(u32*)((char*)p + 0x30) >> 23) 
 
 #pragma push
 #pragma opt_loop_invariants off
-void TObjPlayer__sub_800A1814(Obj_800A1814 *o, s32 arg1, s32 arg2, f32 farg0) {
+void spawn_hamon_effects__10TObjPlayerFPviif(Obj_800A1814 *o, s32 arg1, s32 arg2, f32 farg0) {
     Vec_800A1814 p;
     Ofs_800A1814 ofs = lbl_8043A684;
     s32 i;

@@ -165,7 +165,7 @@ s32 VecCopy__FP3VecPC3Vec(void *, void *);
 M2C_UNK update_player_state__9TObjEneDDFPv(void *, s32, s32);
 s32 get_target_info__9TObjEneDDFPv();
 s32 TObjEneDD__sub_800BB878(s32, s32);
-Ene_800D17E8 *TObjEneBm5GibonU__sub_800D17E8(s32 id);
+Ene_800D17E8 *find_enemy_by_id__16TObjEneBm5GibonUFi(s32 id);
 M2C_UNK toggle_particle_effect__10TObjPlayerFv();
 M2C_UNK TObjMapWarp__sub_80141CB0(void *, void *, u32, u32);
 M2C_UNK end_effect_render__13TParticleCtrlFv();
@@ -227,7 +227,7 @@ void load_resources__16TObjEneBm5GibonUFv(void);
 }
 
 extern "C" {
-Ene_800D17E8 * TObjEneBm5GibonU__sub_800D17E8(s32 id);
+Ene_800D17E8 * find_enemy_by_id__16TObjEneBm5GibonUFi(s32 id);
 Gibon_800D13B8 * TObjEneBm5GibonU__sub_800D13B8(Gibon_800D13B8 *arg0, s16 arg1);
 M2C_UNK rotate_xz_pair_by_angle(f32 *, f32 *, s32);
 M2C_UNK transition_enemy_state(void *, M2C_UNK);
@@ -842,7 +842,7 @@ __declspec(section ".data") u32 TObjEneBm5GibonU__data_80500EC4[3];
 #undef update_state__16TObjEneBm5GibonUFPv
 #pragma pop
 #pragma push
-#define TObjEneBm5GibonU__sub_800D17E8 ((M2C_UNK (*)(s32))TObjEneBm5GibonU__sub_800D17E8)
+#define find_enemy_by_id__16TObjEneBm5GibonUFi ((M2C_UNK (*)(s32))find_enemy_by_id__16TObjEneBm5GibonUFi)
 #define TObjEneBm5GibonU__sub_800D1D78 ((u8 * (*)(u32))TObjEneBm5GibonU__sub_800D1D78)
 #define is_active__16TObjEneBm5GibonUFPv ((s32 (*)(void *))is_active__16TObjEneBm5GibonUFPv)
 #define lbl_80493CBC ((u8 *)&lbl_80493CBC)
@@ -2515,7 +2515,7 @@ void render_debug__16TObjEneBm5GibonUFPv(u8 *arg0) {
         end_effect_render__13TParticleCtrlFv();
         pop_matrix();
     }
-    other = ((M2C_UNK)TObjEneBm5GibonU__sub_800D17E8(self->f46C));
+    other = ((M2C_UNK)find_enemy_by_id__16TObjEneBm5GibonUFi(self->f46C));
     if (other != 0) {
         TObjMapWarp__sub_80141CB0(&self->center, (void *)(other + 0x2FC), 0xFFC0C0C0, 0xFF6060FF);
         return;
@@ -3054,7 +3054,7 @@ void action__16TObjEneBm5GibonUFPvi(u8 *arg0, s32 arg1) {
         set_field_378__9TObjEneDDFPvi(arg0, 8);
         M2C_FIELD(arg0, s16 *, 0xB8) = 9;
         M2C_FIELD(arg0, s32 *, 0x518) = 0;
-        TObjEneBm5GibonU__sub_800D17E8(M2C_FIELD(arg0, s32 *, 0x46C));
+        find_enemy_by_id__16TObjEneBm5GibonUFi(M2C_FIELD(arg0, s32 *, 0x46C));
         return;
     case 3:
         if (get_flag_b4__21TObjEneMe3ShinowaRealFPv((void *)(arg0)) != 0) {
@@ -3898,7 +3898,7 @@ void handle_state__16TObjEneBm5GibonUFPvi(u8 *arg0, s32 arg1) {
       return;
     case 0:
       new_var = 0x51C;
-      temp_r3 = ((u32)TObjEneBm5GibonU__sub_800D17E8((s32)((int) (*((s32 *) (((s8 *) arg0) + 0x46C))))));
+      temp_r3 = ((u32)find_enemy_by_id__16TObjEneBm5GibonUFi((s32)((int) (*((s32 *) (((s8 *) arg0) + 0x46C))))));
       if (temp_r3)
     {
       *((s16 *) (((s8 *) arg0) + 0x474)) = obj_getField1c((int) temp_r3);
@@ -4042,7 +4042,7 @@ s32 TObjEneBm5GibonU__sub_800D0968(u8 *arg0, int _w1) {
 
 }
 
-#undef TObjEneBm5GibonU__sub_800D17E8
+#undef find_enemy_by_id__16TObjEneBm5GibonUFi
 #undef TObjEneBm5GibonU__sub_800D1D78
 #undef is_active__16TObjEneBm5GibonUFPv
 #undef lbl_80493CBC
@@ -4986,7 +4986,7 @@ u8 *TObjEneBm5GibonU__ct(u8 *arg0, s32 arg1, s32 arg2) {
     return arg0;
 }
 
-Ene_800D17E8 *TObjEneBm5GibonU__sub_800D17E8(s32 id) {
+Ene_800D17E8 *find_enemy_by_id__16TObjEneBm5GibonUFi(s32 id) {
     Node_800D17E8 *n;
     for (n = (*(List_800D17E8 *)&TObjEneBm5GibonU__data_80500EC4).head; n != 0; n = n->next) {
         Ene_800D17E8 *e = ((Ene_800D17E8 *(*)(void *))update_photon_mylla__16TObjEneBm5GibonUFPv)(n);

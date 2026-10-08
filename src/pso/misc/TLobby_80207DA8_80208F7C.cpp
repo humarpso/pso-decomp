@@ -14,7 +14,7 @@ extern "C" {
 s32 is_area_transfer_pending();
 s32 get_floor_map_selection(int, void *);
 M2C_UNK load_area_event_set(int, int, int, int);
-s32 TLobby__sub_80208F7C(void);
+s32 load_all_floor_event_sets__6TLobbyFv(void);
 }
 
 extern "C" {
@@ -22,7 +22,7 @@ extern "C" {
 int get_team_state__6TLobbyFPv(void* p);
 int TLobby__sub_80208E30(void*);
 
-s32 TLobby__sub_80208F7C(void) {
+s32 load_all_floor_event_sets__6TLobbyFv(void) {
     Stack_80208F7C stack;
     s32 var_r31;
     var_r31 = 0;

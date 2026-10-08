@@ -98,7 +98,7 @@ M2C_UNK TLobby__sub_803C0AD8();
 M2C_UNK decode_adx_stereo_downmix();
 M2C_UNK decode_adx_stereo();
 M2C_UNK TLobby__sub_803C8610();
-M2C_UNK TLobby__sub_803CC134();
+M2C_UNK dec_ref_and_reset_tables__6TLobbyFv();
 M2C_UNK TLobby__sub_803CC884();
 M2C_UNK TLobby__sub_803CEF60();
 M2C_UNK release_and_close_all_slots__6TLobbyFv();
@@ -387,7 +387,7 @@ void dec_ref_and_shutdown__6TLobbyFv(void) {
     lbl_805D7538 = temp_r0;
     if (temp_r0 == 0) {
         shutdown_cleanup__6TLobbyFv();
-        TLobby__sub_803CC134();
+        dec_ref_and_reset_tables__6TLobbyFv();
         si_get_type_async__6TLobbyFv();
         release_and_close_all_slots__6TLobbyFv();
         init_once__6TLobbyFv();

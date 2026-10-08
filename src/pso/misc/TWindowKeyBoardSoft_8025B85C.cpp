@@ -94,7 +94,7 @@ void TWindowKeyBoardSoft__vt16(u8 *arg0);
 M2C_UNK delete_char__19TWindowKeyBoardSoftFPv(void *);
 void init__19TWindowKeyBoardSoftFPv(u8 *arg0);
 s32 update__19TWindowKeyBoardSoftFPv(void *);
-void TWindowKeyBoardSoft__sub_8025C24C(u8 *arg0);
+void handle_backspace__19TWindowKeyBoardSoftFPv(u8 *arg0);
 bool TWindowKeyBoardSoft__sub_8025B85C(u16 arg0);
 extern s32 lbl_805D5544;
 u16 map_char_to_font_code(u16);
@@ -449,7 +449,7 @@ void TWindowKeyBoardSoft__vt20(u8 *arg0) {
     }
 }
 
-void TWindowKeyBoardSoft__sub_8025C24C(u8 *arg0) {
+void handle_backspace__19TWindowKeyBoardSoftFPv(u8 *arg0) {
   s8 *new_var;
   u16 temp_r5;
   u32 temp_r3;

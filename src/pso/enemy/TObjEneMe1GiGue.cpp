@@ -38,7 +38,7 @@ void TObjEneMe1GiGue__sub_802CB824(void *obj, s32 arg1);
 
 extern "C" {
 f32 calc_attack_range__15TObjEneMe1GiGueFPv(u8 *arg0);
-f32 TObjEneMe1GiGue__sub_802CAAF0(S_802CAAF0 *arg0, s32 arg1, V_802CAAF0 arg2, s32 arg3);
+f32 receive_attack__15TObjEneMe1GiGueFPviii(S_802CAAF0 *arg0, s32 arg1, V_802CAAF0 arg2, s32 arg3);
 f32 get_target_range__15TObjEneMe1GiGueFPv(u8 *arg0);
 void clear_flag388_bit80000__22TObjEneMe1GiGueBarrierFPv(void* p);
 void TObjEneMe1GiGueBarrier__sub_802CABF4(void* p);
@@ -89,7 +89,7 @@ s32 check_and_trigger__15TObjEneMe1GiGueFi(s32 arg0);
 void TObjEneMe1GiGue__sub_802CCE50(u8 *arg0);
 void TObjEneMe1GiGue__sub_802CCE9C(u8 *arg0);
 void update_movement__15TObjEneMe1GiGueFPv(u8 *arg0);
-f32 TObjEneMe1GiGue__sub_802CAAF0(S_802CAAF0 *arg0, s32 arg1, V_802CAAF0 arg2, s32 arg3);
+f32 receive_attack__15TObjEneMe1GiGueFPviii(S_802CAAF0 *arg0, s32 arg1, V_802CAAF0 arg2, s32 arg3);
 void draw_model__15TObjEneMe1GiGueFPv(Obj_802CD058 *self);
 void *deleting_dtor__15TObjEneMe1GiGueFPvs(void *, s16);
 
@@ -426,7 +426,7 @@ void *lbl_804E135C[83] = {
     (void *)&reset_actor_action_state, (void *)&get_actor_body_center, (void *)&update_object_view_visibility, (void *)&classify_actor_view_detail,
     (void *)&get_enemy_name__14TObjEnePanarmsFPv, (void *)&TObjPlayer__sub_80019568, (void *)&add_actor_exp, (void *)&TObjPlayer__sub_800111D8,
     (void *)&get_actor_level_index, (void *)&update_actor_ground_y, (void *)&TObjPlayer__sub_80018E6C, (void *)&is_actor_cadence_frame,
-    (void *)&select_melee_contact_body__10TObjPlayerFv, (void *)&calc_distance_accuracy_penalty__10TObjPlayerFv, (void *)&get_target_range__15TObjEneMe1GiGueFPv, (void *)&TObjEneMe1GiGue__sub_802CAAF0,
+    (void *)&select_melee_contact_body__10TObjPlayerFv, (void *)&calc_distance_accuracy_penalty__10TObjPlayerFv, (void *)&get_target_range__15TObjEneMe1GiGueFPv, (void *)&receive_attack__15TObjEneMe1GiGueFPviii,
     (void *)&calc_attack_range__15TObjEneMe1GiGueFPv, (void *)&apply_knockback_from_attacker, (void *)&try_start_action__10TObjPlayerFPvii, (void *)&roll_physical_accuracy__10TObjPlayerFv,
     (void *)&TObjEnemyCustom__sub_800C7DF4, (void *)&TObjPlayer__sub_8000FF3C, (void *)&is_target_in_attack_range__10TObjPlayerFv, (void *)&test_flag_256__10TObjPlayerFPv,
     (void *)&test_flag30_512__10TObjPlayerFPv, (void *)&has_flag_0x800__10TObjPlayerFPv, (void *)&test_flag_1000__10TObjPlayerFPv, (void *)&update_poison_status__10TObjPlayerFv,
@@ -456,7 +456,7 @@ extern "C" {
 f32 receive_direct_attack__10TObjPlayerFv(void *, s32, V_802CAAF0, s32, s32, s32);
 M2C_UNK show_miss_popup(void *, void *);
 M2C_UNK set_state__15TObjEneMe1GiGueFPvi(void *, M2C_UNK);
-f32 TObjEneMe1GiGue__sub_802CAAF0(S_802CAAF0 *arg0, s32 arg1, V_802CAAF0 arg2, s32 arg3);
+f32 receive_attack__15TObjEneMe1GiGueFPviii(S_802CAAF0 *arg0, s32 arg1, V_802CAAF0 arg2, s32 arg3);
 }
 
 extern "C" {
@@ -481,7 +481,7 @@ f32 calc_attack_range__15TObjEneMe1GiGueFPv(u8 *arg0) {
     return var_f31;
 }
 
-f32 TObjEneMe1GiGue__sub_802CAAF0(S_802CAAF0 *arg0, s32 arg1, V_802CAAF0 arg2, s32 arg3) {
+f32 receive_attack__15TObjEneMe1GiGueFPviii(S_802CAAF0 *arg0, s32 arg1, V_802CAAF0 arg2, s32 arg3) {
     f32 r = 0.0f;
     if (arg0->f388 & 0x80000) {
         show_miss_popup(arg0, arg0->f2FC);
@@ -2083,7 +2083,7 @@ u8 * load_resource_from_descriptor(void *, s32, void *, s32, s32, s32);
 int alloc__23TAdSinglePlyChrSelectGCFPv(void *);
 s32 check_demo_mode__10TObjPlayerFv();
 s32 init_from_model__11TBreakUpMdlFPvi(s32, s32);
-M2C_UNK TObjPlayer__sub_800C6A18(void *);
+M2C_UNK release_destroyed_target__10TObjPlayerFPv(void *);
 s32 update_state_machine__15TObjEnemyCustomFPv(void *);
 M2C_UNK update_obstruction_fade(void *);
 s32 find_active_entity_by_id(int);
@@ -2375,7 +2375,7 @@ void update_movement__15TObjEneMe1GiGueFPv(u8 *arg0) {
         return;
     }
     M2C_FIELD(arg0, s32 *, 0x2A8) = find_active_entity_by_id((int) (M2C_FIELD(arg0, u16 *, 0x338)));
-    TObjPlayer__sub_800C6A18((void *) (arg0));
+    release_destroyed_target__10TObjPlayerFPv((void *) (arg0));
     TObjEneMe1GiGue__sub_802CB6D4((void *) (arg0));
     if ((s16) M2C_FIELD(arg0, s16 *, 0x326) != (s32) M2C_FIELD(arg0, s32 *, 0x374)) {
         if ((s32) M2C_FIELD(arg0, s32 *, 0x37C) != -1) {

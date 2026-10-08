@@ -202,7 +202,7 @@ extern s32 lbl_8044F3B8[];
 
 extern "C" {
 
-s32 fn_80268BE4(s32 arg0) {
+s32 create_information_counter_window(s32 arg0) {
     s32 var_r31;
 
     ((s32 (*)(s32 *, s32))fn_80268C5C)(lbl_8044F3A0, arg0);

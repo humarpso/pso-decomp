@@ -21,7 +21,7 @@ extern "C" {
 void apply_pending_action__10TObjPlayerFii(s32 arg0, s32 arg1);
 void begin_action_from_char_select__10TObjPlayerFv(void);
 s32 TObjPlayer__sub_801BFFA0(s32);
-M2C_UNK TObjPlayer__sub_802C4600(s32);
+M2C_UNK set_current_time__10TObjPlayerFi(s32);
 M2C_UNK TObjPlayer__sub_802C4668(s32, s32);
 int begin_action_state__10TObjPlayerFPv(void);
 int get_char_index__23TAdSinglePlyChrSelectGCFUi(void*);
@@ -44,7 +44,7 @@ void apply_pending_action__10TObjPlayerFii(s32 arg0, s32 arg1) {
     s32 temp = TObjPlayer__sub_801BFFA0(arg0 + 0x41C);
     if (temp != 0) {
         TObjPlayer__sub_802C4668(arg1, temp);
-        TObjPlayer__sub_802C4600(arg1);
+        set_current_time__10TObjPlayerFi(arg1);
     }
 }
 

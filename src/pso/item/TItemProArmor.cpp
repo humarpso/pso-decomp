@@ -158,7 +158,7 @@ s32 lookup_item_pmt_record(void *);
 u8 *TItemProArmor__ct(u8 *arg0, M2C_UNK arg1, u8 *arg2);
 s32 TItemProArmorParticle__ct(int, int, void *);
 extern s32 tl_05;
-s32 TItemProArmor__sub_80117C60(s32 arg0);
+s32 create_armor_object__13TItemProArmorFi(s32 arg0);
 void set_flags__10TObjPlayerFPvUi(void *, u32);
 u8 get_slot_count__14TItemProShieldFPv(void *);
 void init_effect_flags__13TItemProArmorFPv(TItemProArmor_8011781C *self);
@@ -365,7 +365,7 @@ void equip__14TItemEquipBaseFPv();
 void unequip__14TItemEquipBaseFPv();
 void add_equip_stats__14TItemEquipBaseFPvi();
 void remove_equip_stats__14TItemEquipBaseFPvi();
-void TItemEquipBase__sub_8010AEFC();
+void subtract_item_stat_bonus__14TItemEquipBaseFPviiPv();
 void subtract_equip_stats__14TItemEquipBaseFPviPvPv();
 void update_equip__14TItemEquipBaseFPv();
 void update_pickup_flag__5TItemFi();
@@ -454,7 +454,7 @@ void *__vt__13TItemProArmor[51] = {
     (void *)unequip__14TItemEquipBaseFPv,
     (void *)add_equip_stats__14TItemEquipBaseFPvi,
     (void *)remove_equip_stats__14TItemEquipBaseFPvi,
-    (void *)TItemEquipBase__sub_8010AEFC,
+    (void *)subtract_item_stat_bonus__14TItemEquipBaseFPviiPv,
     (void *)subtract_equip_stats__14TItemEquipBaseFPviPvPv,
     (void *)TItem__sub_80100690,
     (void *)TItem__sub_8010068C,
@@ -573,7 +573,7 @@ u8 *TItemProArmor__ct(u8 *arg0, M2C_UNK arg1, u8 *arg2) {
 #pragma opt_propagation off
 #pragma opt_dead_assignments off
 #pragma optimize_for_size off
-s32 TItemProArmor__sub_80117C60(s32 arg0) {
+s32 create_armor_object__13TItemProArmorFi(s32 arg0) {
   s32 temp_r3;
   s32 temp_r3_2;
   s32 var_r0;

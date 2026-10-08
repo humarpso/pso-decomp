@@ -70,7 +70,7 @@ extern const f32 lbl_805E0FB4;
 extern const f32 lbl_805E0FB8;
 extern const f32 lbl_805E0FBC;
 void GXInitLightAttnK(void *, f32, f32, f32);
-void fn_803E2070(void);
+void reset_scene_fog(void);
 void init_light_globals(void);
 extern u8 lbl_8058D490[];
 extern u32 lbl_805D776C;
@@ -252,7 +252,7 @@ void init_light_globals(void) {
     lbl_805D7794 = 0;
     lbl_805D7790 = lbl_805E0FB8;
     GXInitLightAttnK(TObjLight__data_8058D528, lbl_805E0FBC, lbl_805E0FB4, lbl_805E0FB4);
-    fn_803E2070();
+    reset_scene_fog();
 }
 
 void set_some_id__FUl(s32 arg0) {

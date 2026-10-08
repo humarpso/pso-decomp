@@ -1406,7 +1406,7 @@ M2C_UNK spawn_effect__10TObjPlayerFi(void *);
 M2C_UNK draw__10TObjPlayerFPvf(void *, f32);
 u32 find_revival_item__10TObjPlayerFv(void *);
 s32 reset_volopt_state__10TObjPlayerFv(void *obj);
-M2C_UNK TObjPlayer__sub_801B1A84(M2C_UNK *);
+M2C_UNK for_each_player_slot__10TObjPlayerFv(M2C_UNK *);
 M2C_UNK send_field_state_if_active__10TObjPlayerFii(void *, M2C_UNK);
 s32 is_in_tl03_state__10TObjPlayerFPv(void *);
 s32 send_6x2F_change_player_hp(s32 a0 = 0, s32 a1 = 0, s32 a2 = 0);
@@ -1871,7 +1871,7 @@ void TObjPlayer__sub_801D1888(Pkt_801D1888 *p);
 void init_revive_packet__10TObjPlayerFPv(void* p);
 void bswap_font_lobby2__10TObjPlayerFPv(void* p);
 void init_field_4__10TObjPlayerFPv(void* p);
-void * TObjPlayer__sub_801D192C(void *arg0);
+void * init_6x4D_packet__10TObjPlayerFPv(void *arg0);
 void init_and_send__10TObjPlayerFPv(void* p);
 void update_and_send3__10TObjPlayerFPv(void* p);
 void bswap_head_pair__10TObjPlayerFPv(void* p);
@@ -1894,13 +1894,13 @@ void swap_endian16__10TObjPlayerFPv(void* p);
 void * TObjPlayer__sub_801D1D44(void *arg0, void *arg1);
 void TObjPlayer__sub_801D1D88(u8 *arg0);
 void update_and_send4__10TObjPlayerFPv(void* p);
-void TObjPlayer__sub_801D1DDC(struct Packet_801D1DDC *pkt);
+void byteswap_6x49_packet__10TObjPlayerFPv(struct Packet_801D1DDC *pkt);
 void swap_endian_shorts__10TObjPlayerFPv(void* p);
 s32 TObjPlayer__sub_801D1E7C(s32 arg0, u8 *arg1);
-void * TObjPlayer__sub_801D1EE4(void *arg0);
+void * init_6x49_packet__10TObjPlayerFPv(void *arg0);
 void TObjPlayer__sub_801D1F44(void* p);
 void send_photon_blast_targets_packet(u8 *arg0);
-int TObjPlayer__sub_801D1FA4(void *_w0);
+int byteswap_pb_targets_packet__10TObjPlayerFPv(void *_w0);
 u8 TObjPlayer__sub_801D2004(u8 *arg0);
 void bswap_coords__10TObjPlayerFPv(void* p);
 void* TObjPlayer__sub_801D2058(void* p, void* a1);
@@ -1987,7 +1987,7 @@ void set_action_type__10TObjPlayerFPvi(void* p, s32 v);
 s32 get_field_1c__10TObjPlayerFPv(void* p);
 void request_heavy_attack_particles__10TObjPlayerFPv(u16 *arg0);
 void emit_heavy_attack_particles(s32 arg0, s32 arg1);
-void TObjPlayer__sub_801D2E20(s32 *arg0, void * _w1, f32 _w2, f32 _w3);
+void clear_lockon_list__10TObjPlayerFPvPvff(s32 *arg0, void * _w1, f32 _w2, f32 _w3);
 void advance_and_clamp_state__10TObjPlayerFPv(void *arg0);
 s16 get_validated_attack_stage(u8 *arg0);
 s32 TObjPlayer__sub_801D2EE8(s16 arg0);
@@ -2064,7 +2064,7 @@ u8 * find_by_section_id__10TObjPlayerFPvi(void *, int);
 void create_party_effects__10TObjPlayerFPvi(void *, s32);
 s32 find_first_valid_target_id__10TObjPlayerFPv(void*);
 void TObjPlayer__sub_80312E98(void *, s32);
-M2C_UNK TObjPlayer__sub_80312F0C(void*);
+M2C_UNK process_all_elements__10TObjPlayerFPv(void*);
 M2C_UNK append_photon_blast_request(u32, s32, s32);
 M2C_UNK TNpcPlayer__sub_8034E64C(void *, int);
 s32 get_target_field_1c__10TObjPlayerFPv(void *);
@@ -2086,7 +2086,7 @@ s32 validate_6x89_set_killer_entity_id(void *);
 s32 validate_6x4D_player_died(void *);
 s32 validate_6x4C_hit_by_enemy(void *);
 s32 validate_6x4B_hit_by_enemy(void *);
-s32 TObjEneHoldEffect__sub_8036BBF4(void *);
+s32 validate_6x49_packet__17TObjEneHoldEffectFPv(void *);
 s32 validate_6x48_cast_technique_complete(void *);
 s32 validate_6x8D_set_technique_level_override(void *);
 s32 validate_6x46_attack_finished(void *);
@@ -3798,7 +3798,7 @@ void enter_death_state__10TObjPlayerFPv(u8 *arg0) {
 void handle_6x4D_player_died(void *arg0) {
     Cmd_801CA724 cmd;
     u8 *p;
-    ((M2C_UNK (*)(void *))TObjPlayer__sub_801D192C)(&cmd);
+    ((M2C_UNK (*)(void *))init_6x4D_packet__10TObjPlayerFPv)(&cmd);
     ((M2C_UNK (*)(void *, void *))TObjPlayer__sub_801D28A0)(&cmd, arg0);
     ((M2C_UNK (*)(void *))init_field_4__10TObjPlayerFPv)(&cmd);
     if (validate_6x4D_player_died(&cmd) != 0) {
@@ -3839,7 +3839,7 @@ void prepare_death__10TObjPlayerFPv(u8 *arg0) {
         c1.client = ((s32 (*)(void *))obj_getField1c)(arg0);
         c1.val = get_field_2d4__10TObjPlayerFPv(arg0);
         ((M2C_UNK (*)(void *))update_and_send3__10TObjPlayerFPv)(&c1);
-        ((M2C_UNK (*)(void *))TObjPlayer__sub_801D192C)(&c2);
+        ((M2C_UNK (*)(void *))init_6x4D_packet__10TObjPlayerFPv)(&c2);
         c2.client = ((s32 (*)(void *))obj_getField1c)(arg0);
         TObjPlayer__sub_801BEEE0(c2.data, arg0 + 0x858);
         ((M2C_UNK (*)(void *))init_and_send__10TObjPlayerFPv)(&c2);
@@ -4508,7 +4508,7 @@ void remove_photon_blast_participant(s32 arg0) {
 
 void update_photon_blast_state__10TObjPlayerFv(void) {
     if ((u32) (*(u32 *)&lbl_805D5D68) != 0U) {
-        TObjPlayer__sub_80312F0C((void*)(*(u32 *)&lbl_805D5D68));
+        process_all_elements__10TObjPlayerFPv((void*)(*(u32 *)&lbl_805D5D68));
     }
 }
 
@@ -4528,7 +4528,7 @@ void apply_photon_blast__10TObjPlayerFii(s32 arg0, s32 arg1) {
 void update_active_instance__10TObjPlayerFi(s32 arg0) {
     if ((u32) (*(u32 *)&lbl_805D5D68) != 0U) {
         if (((s32 (*)(void))reset_volopt_state__10TObjPlayerFv)() == 0) {
-            ((M2C_UNK (*)(u32))TObjPlayer__sub_80312F0C)((*(u32 *)&lbl_805D5D68));
+            ((M2C_UNK (*)(u32))process_all_elements__10TObjPlayerFPv)((*(u32 *)&lbl_805D5D68));
             return;
         }
         release_photon_blast_requests((*(u32 *)&lbl_805D5D68));
@@ -4550,7 +4550,7 @@ f32 calc_photon_blast_charge__10TObjPlayerFv(void *arg0, s32 arg1) {
 }
 
 void release_all_players_control_lock(void) {
-    TObjPlayer__sub_801B1A84((M2C_UNK *)release_control_lock__10TObjPlayerFPv);
+    for_each_player_slot__10TObjPlayerFv((M2C_UNK *)release_control_lock__10TObjPlayerFPv);
 }
 
 void release_photon_blast_player_holds(u16 *p) {
@@ -4755,10 +4755,10 @@ void handle_6x49_execute_photon_blast(void *arg0) {
     s32 i;
     Player_801CC6B8 *p;
     Msg_801CC6B8 m;
-    ((void (*)(void *))TObjPlayer__sub_801D1EE4)(&m);
+    ((void (*)(void *))init_6x49_packet__10TObjPlayerFPv)(&m);
     ((void (*)(void *, void *))TObjPlayer__sub_801D1E7C)(&m, arg0);
-    ((void (*)(void *))TObjPlayer__sub_801D1DDC)(&m);
-    if (TObjEneHoldEffect__sub_8036BBF4(&m) != 0) {
+    ((void (*)(void *))byteswap_6x49_packet__10TObjPlayerFPv)(&m);
+    if (validate_6x49_packet__17TObjEneHoldEffectFPv(&m) != 0) {
         p = ((Player_801CC6B8 * (*)(s32))get_player_by_client_id)(m.id);
         if (p != NULL && test_action_mask__10TObjPlayerFPvi(p, 0x8000) == 0 && reset_key_machine_state__10TObjPlayerFv() != 0) {
             if (get_current_floor() == ((s32 (*)(void *))get_field_3e4__10TObjPlayerFPv)(p)) {
@@ -4801,7 +4801,7 @@ void prepare_photon_blast_action__10TObjPlayerFPv(u8 *arg0) {
             set_cursor_pos__11TMainCursorFiUsi(M2C_FIELD(arg0, u32 *, 0x424), M2C_FIELD(e, u16 *, 0), M2C_FIELD(e, s16 *, 2));
         }
         if (arg0 == NULL || obj_isState2_324(arg0) == 0) {
-            ((M2C_UNK (*)(void *))TObjPlayer__sub_801D1EE4)(&pkt);
+            ((M2C_UNK (*)(void *))init_6x49_packet__10TObjPlayerFPv)(&pkt);
             pkt.client = obj_getField1c(arg0);
             pkt.index = get_valid_index__15TFontSmallLobbyFPv(arg0 + 0x4AC);
             pkt.count = n = ((s32 (*)(void *))TAdSinglePlyChrSelectGC__sub_801D5DDC)(arg0 + 0x4AC);
@@ -6884,7 +6884,7 @@ void bswap_font_lobby2__10TObjPlayerFPv(void* p) { TFontSmallLobby__sub_801C01BC
 
 void init_field_4__10TObjPlayerFPv(void* p) { read_be16_field2__10TObjPlayerFPv(p); bswap_field_u32__10TObjPlayerFPv((char*)p + 0x4); }
 
-void *TObjPlayer__sub_801D192C(void *arg0) {
+void *init_6x4D_packet__10TObjPlayerFPv(void *arg0) {
     struct VOff_801D192C_arg0_801D18B0 *self = (struct VOff_801D192C_arg0_801D18B0 *)arg0;
     init_forward__10TObjPlayerFPv(self->f_4);
     clear_id__10TObjPlayerFPv(self->f_4);
@@ -6967,7 +6967,7 @@ void TObjPlayer__sub_801D1D88(u8 *arg0) {
 
 void update_and_send4__10TObjPlayerFPv(void* p) { swap_endian16__10TObjPlayerFPv((void*)(p)); TLobby__send_and_handle_60(p); }
 
-void TObjPlayer__sub_801D1DDC(struct Packet_801D1DDC *pkt) {
+void byteswap_6x49_packet__10TObjPlayerFPv(struct Packet_801D1DDC *pkt) {
     s32 i;
     read_be16_field2__10TObjPlayerFPv((void*)(pkt));
     swap_endian_shorts__10TObjPlayerFPv(&pkt->kind);
@@ -7014,7 +7014,7 @@ extern int fold_flush_11;
 #pragma inline_depth(1)
 #pragma auto_inline off
 #pragma dont_inline off
-void *TObjPlayer__sub_801D1EE4(void *arg0) {
+void *init_6x49_packet__10TObjPlayerFPv(void *arg0) {
     TObjPlayer__sub_801D1F44((void*)((void *)((char *)arg0 + 4)));
     __construct_array((void *)((char *)arg0 + 12), fn_80152EF8, 0, 4, 10);
     M2C_FIELD(arg0, u8 *, 0x0) = 73;
@@ -7028,11 +7028,11 @@ void TObjPlayer__sub_801D1F44(void* p) { *(s16*)((char*)p + 0x6) = 0; *(s16*)((c
 
 void send_photon_blast_targets_packet(u8 *arg0) {
     M2C_FIELD(arg0, s8 *, 1) = (s8) ((((u32)TObjPlayer__sub_801D2004((u8 *)(arg0))) >> 2U) & 0x3F);
-    ((M2C_UNK)TObjPlayer__sub_801D1FA4((void *)((void *) (arg0))));
+    ((M2C_UNK)byteswap_pb_targets_packet__10TObjPlayerFPv((void *)((void *) (arg0))));
     ((M2C_UNK)TLobby__send_and_handle_60((void*)((void *) (arg0))));
 }
 
-int TObjPlayer__sub_801D1FA4(void *_w0) {
+int byteswap_pb_targets_packet__10TObjPlayerFPv(void *_w0) {
     Obj_801D1FA4 *arg0 = (Obj_801D1FA4 *)_w0;
     s32 i;
     read_be16_field2__10TObjPlayerFPv(arg0);
@@ -8115,7 +8115,7 @@ extern int fold_flush_32;
 #pragma inline_depth(1)
 #pragma auto_inline off
 #pragma dont_inline off
-void TObjPlayer__sub_801D2E20(s32 *arg0, void * _w1, f32 _w2, f32 _w3) {
+void clear_lockon_list__10TObjPlayerFPvPvff(s32 *arg0, void * _w1, f32 _w2, f32 _w3) {
     s32 var_r31;
     u8 *var_r30;
     var_r30 = (u8 *)((void *)((u8 *)(arg0) + 4));
@@ -8414,7 +8414,7 @@ void *capture_lockon_targets(Self_801D32A0 *self, Pl_801D32A0 *player) {
     s32 i;
     void *obj;
     if (player->cursor == 0) return 0;
-    ((void (*)(void *))TObjPlayer__sub_801D2E20)(&self->count);
+    ((void (*)(void *))clear_lockon_list__10TObjPlayerFPvPvff)(&self->count);
     cur = TObjPlayer__sub_801B57E8(player);
     if (cur == 0) return 0;
     if (TMainCursor__sub_8013E900(cur) != 2) return 0;
@@ -8460,7 +8460,7 @@ void reset_movement_state__10TObjPlayerFPv(u8 *arg0) {
     M2C_FIELD(arg0, f32 *, 0x24) = (f32) lbl_805DC3BC;
     M2C_FIELD(arg0, f32 *, 0x28) = (f32) lbl_805DC3BC;
     M2C_FIELD(arg0, f32 *, 0x2C) = (f32) lbl_805DC3C4;
-    TObjPlayer__sub_801D2E20((s32 *)((void *)(arg0 + 0x30)), (void *)((void *)(arg0)), lbl_805DC3C0, lbl_805DC3BC);
+    clear_lockon_list__10TObjPlayerFPvPvff((s32 *)((void *)(arg0 + 0x30)), (void *)((void *)(arg0)), lbl_805DC3C0, lbl_805DC3BC);
 }
 extern int fold_flush_47;
 #pragma pop

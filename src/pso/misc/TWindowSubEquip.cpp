@@ -12,7 +12,7 @@ s32 get_player_by_client_id(s32);
 s32 get_field_d8__10TObjPlayerFPv();
 u32 get_slot_value__10TObjPlayerFPvi(s32, s32);
 M2C_UNK TWindowHelpItem__set_displayed_item_by_id(s32, s32);
-M2C_UNK TWindowHelpItem__sub_802558D0(s32, s32);
+M2C_UNK show_item_by_id__15TWindowHelpItemFPvi(s32, s32);
 s32 select_cursor_entry__6TLobbyFPv(s32);
 
 void update_displayed_item__15TWindowSubEquipFPv(void *arg0) {
@@ -40,7 +40,7 @@ void update__15TWindowSubEquipFPv(void *arg0) {
         }
         if (var_r3 != (s32) M2C_FIELD(arg0, s32 *, 0x20)) {
             M2C_FIELD(arg0, s32 *, 0x20) = var_r3;
-            TWindowHelpItem__sub_802558D0(M2C_FIELD(arg0, s32 *, 0x30), var_r3);
+            show_item_by_id__15TWindowHelpItemFPvi(M2C_FIELD(arg0, s32 *, 0x30), var_r3);
         }
     }
 }

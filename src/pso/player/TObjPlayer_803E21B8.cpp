@@ -73,7 +73,7 @@ void TObjPlayer__sub_803E2664(void);
 M2C_UNK GXSetTevOp(int, int);
 M2C_UNK GXSetTevOrder(int, int, int, int);
 M2C_UNK GXSetNumTevStages(void *);
-void TObjPlayer__sub_803E2528(void);
+void set_tev_passclr__10TObjPlayerFv(void);
 void Dolphin_GXInitTexObj(TexObj_803E224C *, void *, u16, u16, s32, s32, s32, u8);
 void GXInitTexObjCI(TexObj_803E224C *, void *, u16, u16, s32, s32, s32, u8, u32);
 void GXLoadTexObj(TexObj_803E224C *, s32);
@@ -89,7 +89,7 @@ extern const f32 lbl_805E1070;
 void draw_projected_line_strip__10TObjPlayerFPvii(Vtx_803E26A4 *v, s32 n, s32 mode);
 void GXSetNumChans(u8);
 void GXSetChanCtrl(int, int, int, int, int, int, int);
-M2C_UNK TObjPlayer__sub_803E2468(int arg0);
+M2C_UNK setup_color_channels__10TObjPlayerFi(int arg0);
 void GXBegin(int, int, u16);
 M2C_UNK load_screen_space_matrix__10TObjPlayerFv();
 void setup_render__10TObjPlayerFv(void);
@@ -172,8 +172,8 @@ void setup_vertex_format__10TObjPlayerFv(void) {
     Dolphin_GXSetVtxDesc((int) (0xB), (int) (1));
     GXSetVtxAttrFmt((int) (4), (int) (9), (int) (1), (int) (4), (int) (0));
     GXSetVtxAttrFmt((int) (4), (int) (0xB), (int) (1), (int) (5), (int) (0));
-    TObjPlayer__sub_803E2468((int)((int) (1)));
-    TObjPlayer__sub_803E2528();
+    setup_color_channels__10TObjPlayerFi((int)((int) (1)));
+    set_tev_passclr__10TObjPlayerFv();
     TObjPlayer__sub_803E2640();
 }
 void setup_vtx_desc__10TObjPlayerFv(void) {
@@ -184,7 +184,7 @@ void setup_vtx_desc__10TObjPlayerFv(void) {
     GXSetVtxAttrFmt((int) (4), (int) (9), (int) (1), (int) (4), (int) (0));
     GXSetVtxAttrFmt((int) (4), (int) (0xB), (int) (1), (int) (5), (int) (0));
     GXSetVtxAttrFmt((int) (4), (int) (0xD), (int) (1), (int) (4), (int) (0));
-    TObjPlayer__sub_803E2468((int)((int) (1)));
+    setup_color_channels__10TObjPlayerFi((int)((int) (1)));
     set_tev_stage_mode((s32)((int) (1)));
     TObjPlayer__sub_803E2664();
 }
@@ -192,7 +192,7 @@ void setup_vtx_desc__10TObjPlayerFv(void) {
 #pragma push
 #pragma scheduling off
 
-M2C_UNK TObjPlayer__sub_803E2468(int arg0) {
+M2C_UNK setup_color_channels__10TObjPlayerFi(int arg0) {
     GXSetNumChans(arg0);
     GXSetChanCtrl(4, 0, 0, 1, 0, 0, 2);
     if (arg0 == 2) {
@@ -210,7 +210,7 @@ s32 TObjPlayer__sub_803E2504(void) { return apply_cached_blend_mode(0x1); }
 
 #pragma push
 #pragma scheduling off
-void TObjPlayer__sub_803E2528(void) {
+void set_tev_passclr__10TObjPlayerFv(void) {
     GXSetNumTevStages((void *)((int) (1)));
     GXSetTevOrder((int) (0), (int) (0xFF), (int) (0xFF), (int) (4));
     GXSetTevOp((int) (0), (int) (4));

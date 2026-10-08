@@ -118,7 +118,7 @@ M2C_UNK set_part_local_pos__9TObjEneDDFPvPvi(void *, void *, int);
 extern const f32 lbl_805DF450;
 extern const f32 lbl_805DF460;
 void TObjEneRecon__sub_8031FB6C(u8 *arg0);
-s32 TObjEneRecon__sub_8031F070();
+s32 has_child_in_anim_5__12TObjEneReconFPv();
 f32 trunc_float__17TWindowSubComCardFf(f32);
 extern const f32 lbl_805DF45C;
 u8 TObjEneRecon__sub_8031FACC(Obj_8031FACC *arg0);
@@ -129,7 +129,7 @@ extern "C" {
 u8 TObjEneRecon__sub_8031FACC(Obj_8031FACC *arg0) {
     s32 r;
     s32 t;
-    if (TObjEneRecon__sub_8031F070() == 1) {
+    if (has_child_in_anim_5__12TObjEneReconFPv() == 1) {
         return 0;
     }
     t = (s32)trunc_float__17TWindowSubComCardFf((f32)arg0->f3F8 * lbl_805DF45C);

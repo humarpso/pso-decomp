@@ -35,7 +35,7 @@ struct VObj_18 : VBase_18 {
     virtual M2C_UNK m17();
 };
 extern "C" {
-M2C_UNK TOKeyCol__sub_8016C79C(void *, int);
+M2C_UNK send_switch_changed__8TOKeyColFPvi(void *, int);
 void run_task__8TOKeyColFv(u8 *arg0);
 }
 
@@ -65,14 +65,14 @@ void run_task__8TOKeyColFv(u8 *arg0) {
     if ((s32) M2C_FIELD(arg0, s32 *, 0xD4) != 1) {
         ((VObj_18 *)(arg0))->m15();
         if (((VObj_18 *)(arg0))->m13() == 1) {
-            TOKeyCol__sub_8016C79C((void *) (arg0), (int) (1));
+            send_switch_changed__8TOKeyColFPvi((void *) (arg0), (int) (1));
             ((VObj_18 *)(arg0))->m16();
             M2C_FIELD(arg0, s32 *, 0xD4) = 1;
         }
     } else {
         ((VObj_18 *)(arg0))->m14();
         if (((VObj_18 *)(arg0))->m13() != 1) {
-            TOKeyCol__sub_8016C79C((void *) (arg0), (int) (0));
+            send_switch_changed__8TOKeyColFPvi((void *) (arg0), (int) (0));
             ((VObj_18 *)(arg0))->m17();
             M2C_FIELD(arg0, s32 *, 0xD4) = 0;
         }

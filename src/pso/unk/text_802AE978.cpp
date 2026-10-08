@@ -18,12 +18,12 @@ void get_player__20TWindowSubStatusDispFv();
 void draw_textured_quad_at_depth(void *, f32);
 void set_draw_texture_and_color(int, int);
 extern s32 lbl_805D6700;
-void fn_802AE978(Obj_802AE978 *o);
+void draw_select_cursor_quads(Obj_802AE978 *o);
 }
 
 extern "C" {
 
-void fn_802AE978(Obj_802AE978 *o) {
+void draw_select_cursor_quads(Obj_802AE978 *o) {
     u32 i;
     for (i = 0; i < o->count; i++) {
         begin_screen_draw(1);

@@ -17,7 +17,7 @@ struct TItem_801028D8 : VBase_18_801028D8 {
 extern "C" {
 void obj_setFlags30(void *, u32);
 void fn_8002B630(void *, void *);
-void TLobby__sub_800FFF68(void *);
+void assign_item_id__6TLobbyFPv(void *);
 void apply_item_flags__10TObjPlayerFPvi(void *, void *);
 void TObjPlayer__sub_8010043C(void *, s32);
 void set_mode__5TItemFPvc(void *, s32);
@@ -73,7 +73,7 @@ u8 *TItem__ct(u8 *self, void *parent, u8 *item) {
     } else {
         set_mode__5TItemFPvc(self, 3);
     }
-    TLobby__sub_800FFF68(self);
+    assign_item_id__6TLobbyFPv(self);
     TItem__sub_80101BE4(self);
     return self;
 }

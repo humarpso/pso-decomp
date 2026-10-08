@@ -25,7 +25,7 @@ extern "C" {
 void *__dt__18TWindowEffectPartyFv(void *arg0, s16 arg1);
 void render__18TWindowEffectPartyFv(void);
 void run_task__18TWindowEffectPartyFv(void *arg0);
-s32 TWindowEffectParty__sub_8024F690(void *, f32, f32);
+s32 step_toward_target__18TWindowEffectPartyFPvff(void *, f32, f32);
 void __dl__7TObjectFPv(void *);
 void __dt__7TObjectFv(void *, int);
 M2C_UNK calc_effect_position__18TWindowEffectPartyFPvPv(void *, M2C_UNK *);
@@ -53,17 +53,17 @@ void run_task__18TWindowEffectPartyFv(void *arg0) {
     case 0:
         M2C_FIELD(arg0, u8 *, 0x1C) = 1U;
     case 1:
-        if (TWindowEffectParty__sub_8024F690(arg0, lbl_805DCCD4, M2C_FIELD(arg0, f32 *, 0x24)) != 0) {
+        if (step_toward_target__18TWindowEffectPartyFPvff(arg0, lbl_805DCCD4, M2C_FIELD(arg0, f32 *, 0x24)) != 0) {
             M2C_FIELD(arg0, u8 *, 0x1C) = 2U;
         }
         break;
     case 2:
-        if (TWindowEffectParty__sub_8024F690(arg0, lbl_805DCCD4, M2C_FIELD(arg0, f32 *, 0x2C)) != 0) {
+        if (step_toward_target__18TWindowEffectPartyFPvff(arg0, lbl_805DCCD4, M2C_FIELD(arg0, f32 *, 0x2C)) != 0) {
             M2C_FIELD(arg0, u8 *, 0x1C) = 3U;
         }
         break;
     case 3:
-        if (TWindowEffectParty__sub_8024F690(arg0, M2C_FIELD(arg0, f32 *, 0x28), M2C_FIELD(arg0, f32 *, 0x2C)) != 0) {
+        if (step_toward_target__18TWindowEffectPartyFPvff(arg0, M2C_FIELD(arg0, f32 *, 0x28), M2C_FIELD(arg0, f32 *, 0x2C)) != 0) {
             M2C_FIELD(arg0, u8 *, 0x1C) = 4U;
         }
         break;

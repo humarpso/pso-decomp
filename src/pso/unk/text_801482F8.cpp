@@ -352,7 +352,7 @@ s32 fn_8010319C();
 u32 get_player_by_client_id();
 s32 debug_printf_at(s32, const char *, ...);
 extern char lbl_8043F544[];
-void TObjNpcFemaleBase__sub_801483C0(void *arg0);
+void debug_draw_talk__17TObjNpcFemaleBaseFPv(void *arg0);
 }
 
 extern "C" {
@@ -391,7 +391,7 @@ void handle_message_event__17TObjNpcFemaleBaseFPvUs(void *arg0, u16 arg1) {
 
 #define F(T, o) M2C_FIELD(arg0, T *, o)
 
-void TObjNpcFemaleBase__sub_801483C0(void *arg0) {
+void debug_draw_talk__17TObjNpcFemaleBaseFPv(void *arg0) {
     if ((fn_8010319C() != 0) && (((u32 (*)(u16))get_player_by_client_id)(*(u16 *)((u8 *)arg0 + 0x94)) != 0)) {
         debug_printf_at(0x1A0020, lbl_8043F544);
     }

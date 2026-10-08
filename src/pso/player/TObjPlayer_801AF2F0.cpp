@@ -2238,7 +2238,7 @@ void unequip_by_field326__10TObjPlayerFPv(void *arg0);
 void play_phase_transition_sound__10TObjPlayerFi(s32 arg0);
 void reset_volopt_state__10TObjPlayerFv(void);
 void foreach_player__10TObjPlayerFv(M2C_UNK (*arg0)(u32));
-void TObjPlayer__sub_801B1A84(void (*arg0)(void *));
+void for_each_player_slot__10TObjPlayerFv(void (*arg0)(void *));
 void check_flag_40000__10TObjPlayerFPv(void *arg0);
 s32 handle_set_visible__10TObjPlayerFi(s32 arg0);
 void TObjPlayer__sub_801B1BA4(void);
@@ -2358,7 +2358,7 @@ void release_attached_resource__10TObjPlayerFPv(void* p);
 void action_enable_if_present__10TObjPlayerFPv(void* p);
 int TObjPlayer__sub_801B57E8(void);
 s32 is_quest_interaction_blocked__10TObjPlayerFPv(u8 *arg0);
-s32 TObjPlayer__sub_801B58DC(u8 *arg0);
+s32 has_action_palette_entry__10TObjPlayerFPv(u8 *arg0);
 s32 is_action_channel_available__10TObjPlayerFii(s32 arg0, s32 arg1);
 void TObjPlayer__sub_801B5990(s32 arg0, s32 arg1);
 void TObjPlayer__sub_801B59C4(s32 arg0);
@@ -2655,7 +2655,7 @@ void TFontSmallLobby__sub_801C01DC(void *, void *);
 M2C_UNK TFontSmallLobby__sub_801C0228();
 void TFontSmallLobby__sub_801C0274(void *);
 void TFontSmallLobby__sub_801C029C(void *);
-void TFontSmallLobby__sub_801C02D0(Pkt_801B01AC *);
+void bswap_battle_damage_packet__15TFontSmallLobbyFPv(Pkt_801B01AC *);
 void TFontSmallLobby__sub_801C030C(Pkt_801B01AC *, s32);
 void TFontSmallLobby__sub_801C0350(Pkt_801B01AC *);
 M2C_UNK TFontSmallLobby__sub_801C0378(Pkt_801B0300 *);
@@ -2682,7 +2682,7 @@ void bswap_change_hp_packet__10TObjPlayerFPv(Pkt_801B1D8C *);
 void TObjPlayer__sub_801C06BC(Pkt_801B1D8C *, s32);
 void TObjPlayer__sub_801C0708(void *);
 void TObjPlayer__sub_801C0734(void *);
-void TObjPlayer__sub_801C0768(Pkt_801B1EE0 *);
+void byteswap_packet_body__10TObjPlayerFPv(Pkt_801B1EE0 *);
 void TObjPlayer__sub_801C07B4(Pkt_801B1EE0 *, s32);
 void init_cmd_6x24__10TObjPlayerFPv(void *);
 void send_lobby_update__10TObjPlayerFPv(void *);
@@ -2748,11 +2748,11 @@ void TObjPlayer__sub_801C1664(void *, void *);
 void init_cmd_6x20__10TObjPlayerFPv(void *);
 void TObjPlayer__sub_801C16F0(void *, s32);
 void TObjPlayer__sub_801C172C(void *);
-void TObjPlayer__sub_801C1760(void *);
+void bswap_set_floor_packet__10TObjPlayerFPv(void *);
 void handle_6x1F_set_floor__10TObjPlayerFPvPv(void *, void *);
 void TObjPlayer__sub_801C17D0(void *);
 M2C_UNK TObjPlayer__sub_801C17EC(M2C_UNK *);
-void TObjPlayer__sub_801C1820(void *);
+void bswap_warp_packet__10TObjPlayerFPv(void *);
 void copy_warp_target__10TObjPlayerFPvPv(void *, void *);
 void TObjPlayer__sub_801C1890(void *m);
 void TObjPlayer__sub_801C18AC(Msg_801BAB1C *m);
@@ -2836,7 +2836,7 @@ void new_child_object__10TObjPlayerFi(s32);
 u8 * get_slot_value__10TObjPlayerFPvi(void *, s32);
 M2C_UNK update_player_scale_camera(s32);
 s32 request_player_size_restore(void *);
-u32 TObjPlayer__sub_801C6D40(s32 a0 = 0, s32 a1 = 0);
+u32 create_lobby_font_for_player__10TObjPlayerFsc(s32 a0 = 0, s32 a1 = 0);
 s32 get_contact_surface_type(void *);
 M2C_UNK update_lobby_font__10TObjPlayerFi(void *);
 s32 can_guard__10TObjPlayerFPv(s32);
@@ -3018,7 +3018,7 @@ int vector_length(void*);
 M2C_UNK set_position_vec3__10TObjPlayerFPvPv(M2C_UNK, s32);
 M2C_UNK rotate_matrix_y(M2C_UNK, s32);
 void rotate_matrix_z(int, s32);
-M2C_UNK TObjPlayer__sub_803D9324(int, void *);
+M2C_UNK copy_matrix__10TObjPlayerFUiUi(int, void *);
 void translate_matrix(int, f32, f32, f32);
 void rotate_matrix_x(int, s32);
 M2C_UNK concat_matrix__11TCameraCtrlFUiUi(int, int);
@@ -3158,7 +3158,7 @@ u32 get_or_create_lobby_font__10TObjPlayerFPvi(void *arg0, s32 arg1) {
     }
     temp = M2C_FIELD(arg0, u32 *, 0x3B8);
     if (temp == 0U) {
-        M2C_FIELD(arg0, u32 *, 0x3B8) = TObjPlayer__sub_801C6D40(obj_getField1c(arg0), arg1);
+        M2C_FIELD(arg0, u32 *, 0x3B8) = create_lobby_font_for_player__10TObjPlayerFsc(obj_getField1c(arg0), arg1);
     } else {
         TObjPlayer__sub_801BF40C(temp, arg1);
     }
@@ -3524,7 +3524,7 @@ void handle_6x8F_add_battle_damage_scores(s32 arg0) {
     u8 *other;
     TFontSmallLobby__sub_801C0350(&pkt);
     TFontSmallLobby__sub_801C030C(&pkt, arg0);
-    TFontSmallLobby__sub_801C02D0(&pkt);
+    bswap_battle_damage_packet__15TFontSmallLobbyFPv(&pkt);
     if (validate_6x8F_add_battle_damage_scores(&pkt) == 0) {
         return;
     }
@@ -4252,7 +4252,7 @@ void foreach_player__10TObjPlayerFv(M2C_UNK (*arg0)(u32)) {
     } while (var_r29 < 0xC);
 }
 
-void TObjPlayer__sub_801B1A84(void (*arg0)(void *)) {
+void for_each_player_slot__10TObjPlayerFv(void (*arg0)(void *)) {
     s32 i;
     void **p;
     p = (void **)((M2C_UNK *)&lbl_8050EA10);
@@ -4393,7 +4393,7 @@ void handle_6x24_teleport_player(s32 arg0) {
     u32 player;
     init_cmd_6x24__10TObjPlayerFPv(&pkt);
     TObjPlayer__sub_801C07B4(&pkt, arg0);
-    TObjPlayer__sub_801C0768(&pkt);
+    byteswap_packet_body__10TObjPlayerFPv(&pkt);
     if (validate_6x24_teleport_player(&pkt) == 0) {
         return;
     }
@@ -5150,7 +5150,7 @@ s32 handle_palette_button_input__10TObjPlayerFPv(u8 *arg0) {
     if (check_action_usable__10TObjPlayerFPvi(arg0 + 0x550, 4) != 0 && ((int (*)(void *, s32))get_result_entry__18TChallenge4PResultFPv)(arg0, 1) != 0) {
         s32 mode;
         void *target;
-        if (((s32 (*)(void *))TObjPlayer__sub_801B58DC)(arg0) != 0) {
+        if (((s32 (*)(void *))has_action_palette_entry__10TObjPlayerFPv)(arg0) != 0) {
             target = find_entity_by_id(get_id__11TMainCursorFPv(*(u8 **)(arg0 + 0x424) + 0x4F8));
             mode = 0;
         } else {
@@ -5893,7 +5893,7 @@ s32 is_quest_interaction_blocked__10TObjPlayerFPv(u8 *arg0) {
     }
 }
 
-s32 TObjPlayer__sub_801B58DC(u8 *arg0) {
+s32 has_action_palette_entry__10TObjPlayerFPv(u8 *arg0) {
     if (((u32) M2C_FIELD(arg0, u32 *, 0x424) != 0U) && (((u16)get_action_palette_entry__10TObjPlayerFii((s32)((void *)((void *)(arg0))), (s32)((int)((int) (0))))) != 0)) {
         return 1;
     }
@@ -5907,7 +5907,7 @@ s32 is_action_channel_available__10TObjPlayerFii(s32 arg0, s32 arg1) {
         if (((s32 (*)(void))is_flag_400_set__10TObjPlayerFPv)() != 0) {
             return 1;
         }
-        if (TObjPlayer__sub_801B58DC((u8 *)(arg0)) != 0) {
+        if (has_action_palette_entry__10TObjPlayerFPv((u8 *)(arg0)) != 0) {
             return 1;
         }
         goto block_5;
@@ -7274,7 +7274,7 @@ void TObjPlayer__vt63(s32 arg0, s32 arg1, s32 arg2) {
     stack.spC = TObjPlayer__data_805DC278;
     stack.sp8 = TObjPlayer__data_805DC278;
     push_matrix_from((int) (0));
-    TObjPlayer__sub_803D9324((int) (0), (void *) (get_item_ptr__10TObjPlayerFPvi((void *) (arg0), (void *) (arg1))));
+    copy_matrix__10TObjPlayerFUiUi((int) (0), (void *) (get_item_ptr__10TObjPlayerFPvi((void *) (arg0), (void *) (arg1))));
     concat_matrix__11TCameraCtrlFUiUi((int) (0), (int) (get_view_matrix__11TCameraCtrlFv()));
     matrix_mult_vec((int) (0), (void *) (&stack.sp8), (void *) (arg2));
     pop_matrix();
@@ -7619,7 +7619,7 @@ void handle_6x1F_set_player_floor(void *arg0) {
     Player_801BA8D4 *pl;
     TObjPlayer__sub_801C17D0(&m);
     handle_6x1F_set_floor__10TObjPlayerFPvPv(&m, arg0);
-    TObjPlayer__sub_801C1760(&m);
+    bswap_set_floor_packet__10TObjPlayerFPv(&m);
     if (validate_6x1F_set_player_floor(&m) != 0) {
         p = get_player_by_client_id(m.slot);
         if (p != NULL) {
@@ -7664,7 +7664,7 @@ void handle_6x21_inter_level_warp(void *arg0) {
 
     TObjPlayer__sub_801C1890(&m);
     copy_warp_target__10TObjPlayerFPvPv(&m, arg0);
-    TObjPlayer__sub_801C1820(&m);
+    bswap_warp_packet__10TObjPlayerFPv(&m);
     if (validate_6x21_inter_level_warp(&m) != 0) {
         p = ((void * (*)(u16))get_player_by_client_id)(m.slot);
         if (p != NULL) {

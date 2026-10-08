@@ -147,7 +147,7 @@ s32 get_shop_text(M2C_UNK);
 void *create_item_list_window(s32, s32, u16);
 void add_item__24TShopEquipmentSellWindowFPviii(void *arg0, s32 arg1, s32 arg2, s32 arg3);
 void calc_list_content_extent(void *);
-void TWindowSubStatusDisp__sub_80267AA8(void *, s16);
+void set_cursor_index__20TWindowSubStatusDispFPvs(void *, s16);
 M2C_UNK clear_selected_and_update_entry__14TWindowSubItemFPv(void *);
 void *__nw__7TObjectFUl(u32);
 s32 obj_getField1c(s32);
@@ -430,7 +430,7 @@ void build_sell_list__24TShopEquipmentSellWindowFPv(Win_8021CF04 *self) {
             self->cursor = self->count - 1;
         }
         calc_list_content_extent(self->list_win);
-        TWindowSubStatusDisp__sub_80267AA8(self->list_win, self->cursor);
+        set_cursor_index__20TWindowSubStatusDispFPvs(self->list_win, self->cursor);
         clear_selected_and_update_entry__14TWindowSubItemFPv(self->list_win);
     }
     if (self->help_win == NULL) {

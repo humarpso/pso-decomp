@@ -17,7 +17,7 @@ int get_flag_bit5__13TWindowSubMagFPv(void* p);
 int get_flag_bit6__13TWindowSubMagFPv(void* p);
 int is_cursor_locked__13TWindowSubMagFPv(void* p);
 void set_mag_slot_state__13TWindowSubMagFPvi(void *arg0, s32 arg1);
-s32 TItemTexLoad__sub_8011D098(s32 a0 = 0, s32 a1 = 0);
+s32 load_item_icon__12TItemTexLoadFPvPv(s32 a0 = 0, s32 a1 = 0);
 u16 * get_array_entry__20TWindowSubStatusDispFPvi(void * a0 = 0, s32 a1 = 0);
 
 int TWindowSubMag__sub_802627D8(void* p) { return *(u32*)((char*)p + 0x60) & 0x1; }
@@ -31,7 +31,7 @@ void set_mag_slot_state__13TWindowSubMagFPvi(void *arg0, s32 arg1) {
 
     temp_r3 = get_array_entry__20TWindowSubStatusDispFPvi(arg0, 0);
     *temp_r3 |= 2;
-    if (TItemTexLoad__sub_8011D098(M2C_FIELD(arg0, s32 *, 0x6C), arg1) != 0) {
+    if (load_item_icon__12TItemTexLoadFPvPv(M2C_FIELD(arg0, s32 *, 0x6C), arg1) != 0) {
         M2C_FIELD(arg0, s8 *, 0x60) = 1;
         return;
     }

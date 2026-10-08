@@ -77,7 +77,7 @@ s32 create__19TWindowMessageYesNoFPvPvPvPv(void *, s32, M2C_UNK, M2C_UNK);
 M2C_UNK align_menu_entry_positions(s32);
 M2C_UNK update_layout_height__17TWindowSubComCardFPvf(s32, f32);
 s32 get_window_layout_position(s32 a0 = 0);
-s32 TWindowSubShortCutList__sub_8027E3B4(s32 a0 = 0, s32 a1 = 0);
+s32 create__22TWindowSubShortCutListFPvPv(s32 a0 = 0, s32 a1 = 0);
 M2C_UNK open_yes_no_prompt(s32, s32, s32, s32, f32);
 void TWindow__close(void *);
 void __ct__7TObjectFP7TObject(void *);
@@ -139,7 +139,7 @@ s32 open_menu__18TWindowSubShortCutFPv(void *arg0) {
 
 void open_com_card_list__18TWindowSubShortCutFPv(void *arg0) {
     s32 tmp = get_window_layout_position((s32)(0x72));
-    TWindowSubShortCutList__sub_8027E3B4(tmp, M2C_FIELD(arg0, s32 *, 0x24));
+    create__22TWindowSubShortCutListFPvPv(tmp, M2C_FIELD(arg0, s32 *, 0x24));
 }
 void render__18TWindowSubShortCutFv(void) {  }
 

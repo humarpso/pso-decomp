@@ -103,7 +103,7 @@ extern "C" void TAdSinglePlyChrSelectGC__sub_802E2F20();
 extern "C" void TAdSinglePlyChrSelectGC__sub_802E2F68();
 extern "C" void TAdSinglePlyChrSelectGC__sub_802E2FEC();
 extern "C" void TAdSinglePlyChrSelectGC__sub_802E3038();
-extern "C" void TAdSinglePlyChrSelectGC__sub_802E3058();
+extern "C" void report_card_status__23TAdSinglePlyChrSelectGCFPv();
 extern "C" void build_selection_summary__23TAdSinglePlyChrSelectGCFPv();
 extern "C" void close_and_next_cancel__23TAdSinglePlyChrSelectGCFPv();
 extern "C" void close_scene__23TAdSinglePlyChrSelectGCFi();
@@ -136,7 +136,7 @@ __declspec(section ".data") void *lbl_804E3048[2] = {
 };
 void *lbl_804E3050[149] = {
     (void *)0x0, (void *)0x0, (void *)0x0, (void *)0xffffffff,
-    (void *)&rebuild_and_maybe_close__23TAdSinglePlyChrSelectGCFPv, (void *)0x0, (void *)0xffffffff, (void *)&TAdSinglePlyChrSelectGC__sub_802E3058,
+    (void *)&rebuild_and_maybe_close__23TAdSinglePlyChrSelectGCFPv, (void *)0x0, (void *)0xffffffff, (void *)&report_card_status__23TAdSinglePlyChrSelectGCFPv,
     (void *)0x0, (void *)0xffffffff, (void *)&TAdSinglePlyChrSelectGC__sub_802E3038, (void *)0x0,
     (void *)0xffffffff, (void *)&ensure_system_file_loaded__23TAdSinglePlyChrSelectGCFPv, (void *)0x0, (void *)0xffffffff,
     (void *)&TAdSinglePlyChrSelectGC__sub_802E2FEC, (void *)0x0, (void *)0xffffffff, (void *)&update_load_state__23TAdSinglePlyChrSelectGCFPv,

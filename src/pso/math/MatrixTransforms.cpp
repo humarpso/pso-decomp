@@ -13,7 +13,7 @@ M2C_UNK matrix_apply_translation(int, f32, f32, f32);
 extern u32 lbl_805D7774;
 void translate_matrix(u32 arg0, f32 x, f32 y, f32 z);
 extern u32 lbl_805D7774;
-void TObjPlayer__sub_803D9324(u32 arg0, u32 arg1);
+void copy_matrix__10TObjPlayerFUiUi(u32 arg0, u32 arg1);
 f32 sin_table_lookup(int);
 f32 cos_table_lookup(int);
 void euler_zyx_to_quaternion(u8 *arg0, u8 *arg1);
@@ -52,7 +52,7 @@ void rotate_matrix_z(Matrix34* matrix, s32 angle) {
 
 #pragma push
 #pragma peephole off
-void TObjPlayer__sub_803D9324(u32 arg0, u32 arg1) {
+void copy_matrix__10TObjPlayerFUiUi(u32 arg0, u32 arg1) {
     u32 var_r0;
     u32 var_r3;
     if (arg0 == 0U) {

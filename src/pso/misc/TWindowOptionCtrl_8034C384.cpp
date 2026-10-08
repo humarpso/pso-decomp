@@ -5,7 +5,7 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 #define M2C_BITWISE(type, expr) ((type)(expr))
 
 extern "C" {
-M2C_UNK TObjBoss2Tunnel__sub_8007C880();
+M2C_UNK poll_pso_screen_load__15TObjBoss2TunnelFv();
 s32 load_snapshot__15TObjBoss2TunnelFv();
 M2C_UNK save_snapshot_to_card__15TObjBoss2TunnelFv();
 s32 save_snapshot__15TObjBoss2TunnelFv();
@@ -231,7 +231,7 @@ void handle_save_result__17TWindowOptionCtrlFPv(u8 *arg0) {
             if (is_child_visible__17TWindowSubComCardFPv((int) (M2C_FIELD(arg0, s32 *, 0x2C))) != 0) {
                 M2C_FIELD(arg0, s32 *, 0x20) = (s32) (M2C_FIELD(arg0, s32 *, 0x20) & 0xFFFFFFFD);
                 if (get_slot_or_neg1__17TWindowSubComCardFPv((int) (M2C_FIELD(arg0, s32 *, 0x2C))) == 0) {
-                    TObjBoss2Tunnel__sub_8007C880();
+                    poll_pso_screen_load__15TObjBoss2TunnelFv();
                     M2C_FIELD(arg0, s32 *, 0x24) = 2;
                     M2C_FIELD(arg0, s32 *, 0x1C) = 0x10;
                     return;

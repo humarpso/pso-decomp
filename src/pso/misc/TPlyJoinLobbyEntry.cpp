@@ -394,7 +394,7 @@ u8 * get_card_window__17TWindowSubComCardFUi(u32);
 void * get_char_index__23TAdSinglePlyChrSelectGCFUi(u32);
 void TLobby__sub_80207750(void *, s32);
 void TAdStorySelectGC__sub_80207D44(s32);
-u16 TLobby__sub_80208AD8(void *);
+u16 export_sync_records__6TLobbyFPv(void *);
 u16 TLobby__sub_8020BFC4(void *);
 void set_area__6TLobbyFPvi(void *, s32, s32);
 u16 copy_switch_table(void *);
@@ -809,7 +809,7 @@ void send_6x6E_sync_game_state__6TLobbyFi(s32 arg0) {
             memset(hdr, 0, 0x4008);
             hdr->f2 = TLobby__sub_8020BFC4(hdr->data);
             n = hdr->f2;
-            hdr->f4 = TLobby__sub_80208AD8(&hdr->data[n]);
+            hdr->f4 = export_sync_records__6TLobbyFPv(&hdr->data[n]);
             n += hdr->f4;
             hdr->f6 = copy_switch_table(&hdr->data[n]);
             n += hdr->f6;

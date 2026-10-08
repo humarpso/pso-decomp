@@ -262,7 +262,7 @@ M2C_UNK enemy_copy_target_destination(void *);
 f32 sin_table_lookup(s32);
 f32 cos_table_lookup(s32);
 extern f32 *TObjEneEpsilonGuard__data_805D6F74;
-void TObjEneEpsilonGuard__sub_8035EFD8(u8 *arg0, s32 arg1);
+void set_orbit_destination__19TObjEneEpsilonGuardFPvi(u8 *arg0, s32 arg1);
 M2C_UNK VecCopy__FP3VecPC3Vec(void *, void *);
 s16 obj_getField1c(void *);
 M2C_UNK init_common_from__9TObjEneDDFPvPv(void *, void *);
@@ -465,7 +465,7 @@ s32 calc_angle_to_target__19TObjEneEpsilonGuardFPv(u8 *arg0) {
 
 #pragma push
 #pragma fp_contract on
-void TObjEneEpsilonGuard__sub_8035EFD8(u8 *arg0, s32 arg1) {
+void set_orbit_destination__19TObjEneEpsilonGuardFPvi(u8 *arg0, s32 arg1) {
     enemy_copy_target_destination((void *)(arg0));
     M2C_FIELD(arg0, f32 *, 0x394) = (f32) ((M2C_FIELD(TObjEneEpsilonGuard__data_805D6F74, f32 *, 0) * sin_table_lookup(arg1)) + M2C_FIELD(arg0, f32 *, 0x394));
     M2C_FIELD(arg0, f32 *, 0x39C) = (f32) ((M2C_FIELD(TObjEneEpsilonGuard__data_805D6F74, f32 *, 0) * cos_table_lookup(arg1)) + M2C_FIELD(arg0, f32 *, 0x39C));

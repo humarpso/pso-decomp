@@ -2361,7 +2361,7 @@ u8 TObjEneMe3ShinowaMirage__sub_800E728C(E_800E728C *arg0);
 void TObjEneMe3ShinowaMirage__sub_800E7324(u8 *arg0);
 void TObjEneMe3ShinowaMirage__sub_800E7378(u8 *arg0);
 s32 check_in_range__23TObjEneMe3ShinowaMirageFPv(void *arg0);
-u8 TObjEneMe3ShinowaMirage__sub_800E750C(Obj_800E750C *arg0, s32 arg1, f32 farg0);
+u8 check_body_collision_at__23TObjEneMe3ShinowaMirageFPvif(Obj_800E750C *arg0, s32 arg1, f32 farg0);
 f32 get_node_world_y__23TObjEneMe3ShinowaMirageFPv(Obj_800E75AC *self);
 void fn_800E762C(void);
 void TObjEneMe3Shinowa__sub_800E7630(u8 *arg0);
@@ -2867,11 +2867,11 @@ void *__vt__23TObjEneMe3ShinowaMirage[119] = {
 #define lbl_80495BFC ((u8 *)lbl_80495BFC)
 
 extern "C" {
-u8 TObjEneMe3ShinowaMirage__sub_800E750C(Obj_800E750C *arg0, s32 arg1, f32 farg0);
+u8 check_body_collision_at__23TObjEneMe3ShinowaMirageFPvif(Obj_800E750C *arg0, s32 arg1, f32 farg0);
 }
 
 extern "C" {
-u8 TObjEneMe3ShinowaMirage__sub_800E750C(Obj_800E750C *arg0, s32 arg1, f32 farg0);
+u8 check_body_collision_at__23TObjEneMe3ShinowaMirageFPvif(Obj_800E750C *arg0, s32 arg1, f32 farg0);
 }
 
 extern "C" {
@@ -3324,7 +3324,7 @@ void TObjEneMe3ShinowaReal__sub_800E5950(u8 *arg0, s32 arg1) {
             enemy_copy_target_destination((void *) (arg0));
             update_velocity__9TObjEneDDFPv((void *) (arg0));
             M2C_FIELD(arg0, s32 *, 0x40C) = (s32) (TObjEneMe3ShinowaMirage__data_8043CFE0 * get_ad_end_text_start__10TObjPlayerFv((f32) (M2C_FIELD(arg0, f32 *, 0x3A0)), (f32) (M2C_FIELD(arg0, f32 *, 0x3A8))));
-            if (((s32 (*)(void *, s32, f32))TObjEneMe3ShinowaMirage__sub_800E750C)((void *) (arg0), (int) (M2C_FIELD(arg0, s32 *, 0x40C) + 0x8000), (f32) (lbl_805DA604)) == 0) {
+            if (((s32 (*)(void *, s32, f32))check_body_collision_at__23TObjEneMe3ShinowaMirageFPvif)((void *) (arg0), (int) (M2C_FIELD(arg0, s32 *, 0x40C) + 0x8000), (f32) (lbl_805DA604)) == 0) {
                 M2C_FIELD(arg0, f32 *, 0x3A0) = (f32) (M2C_FIELD(arg0, f32 *, 0x3A0) * lbl_805DA5BC);
                 M2C_FIELD(arg0, f32 *, 0x3A8) = (f32) (M2C_FIELD(arg0, f32 *, 0x3A8) * lbl_805DA5BC);
                 M2C_FIELD(arg0, s32 *, 0x404) = 0;
@@ -3566,7 +3566,7 @@ void TObjEneMe3ShinowaMirage__sub_800E5F64(u8 *arg0, s32 arg1) {
                 update_velocity__9TObjEneDDFPv(arg0);
             }
             if (M2C_FIELD(arg0, f32 *, 0xC0) + M2C_FIELD(arg0, f32 *, 0xC8) >= lbl_805DA614) {
-                if (((s32 (*)(void *, s32, f32))TObjEneMe3ShinowaMirage__sub_800E750C)(arg0, M2C_FIELD(arg0, s32 *, 0x60), M2C_FIELD(arg0, f32 *, 0x3AC) - TObjEneMe3ShinowaMirage__data_805DA5EC) != 0) {
+                if (((s32 (*)(void *, s32, f32))check_body_collision_at__23TObjEneMe3ShinowaMirageFPvif)(arg0, M2C_FIELD(arg0, s32 *, 0x60), M2C_FIELD(arg0, f32 *, 0x3AC) - TObjEneMe3ShinowaMirage__data_805DA5EC) != 0) {
                     M2C_FIELD(arg0, s32 *, 0x404) = 5;
                 } else {
                     d = M2C_FIELD(arg0, f32 *, 0x3AC) - TObjEneMe3ShinowaMirage__data_805DA5EC;
@@ -4066,7 +4066,7 @@ u8 TObjEneMe3ShinowaMirage__sub_800E728C(E_800E728C *arg0) {
         if (arg0->f3ac > lbl_805DA638 && arg0->f3ac < lbl_805DA63C) {
             mine = get_stat_by_key_state__10TObjPlayerFPv((int)arg0);
             theirs = get_stat_by_key_state__10TObjPlayerFPv(arg0->f390);
-            if (theirs == mine && ((s32 (*)(void *, s32, f32))TObjEneMe3ShinowaMirage__sub_800E750C)(arg0, arg0->f60, arg0->f3ac - (*(f32 *)&TObjEneMe3ShinowaMirage__data_805DA5EC)) == 0) {
+            if (theirs == mine && ((s32 (*)(void *, s32, f32))check_body_collision_at__23TObjEneMe3ShinowaMirageFPvif)(arg0, arg0->f60, arg0->f3ac - (*(f32 *)&TObjEneMe3ShinowaMirage__data_805DA5EC)) == 0) {
                 ret = 1;
             }
         }
@@ -4138,7 +4138,7 @@ extern int fold_flush_5;
 
 #pragma push
 #pragma fp_contract on
-u8 TObjEneMe3ShinowaMirage__sub_800E750C(Obj_800E750C *arg0, s32 arg1, f32 farg0) {
+u8 check_body_collision_at__23TObjEneMe3ShinowaMirageFPvif(Obj_800E750C *arg0, s32 arg1, f32 farg0) {
     f32 f2 = farg0 * lbl_805DA64C;
     Sub_800E750C *s = arg0->fA4;
     u8 res;

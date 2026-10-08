@@ -563,7 +563,7 @@ M2C_UNK post_translate_matrix(void *);
 M2C_UNK scale_matrix(int, f32, f32, f32);
 M2C_UNK move_with_wall_slide_commit__9TObjEneDDFPvfff(void *, void *, f32, f32, f32);
 M2C_UNK transition_enemy_state(void *, M2C_UNK);
-M2C_UNK TObjEneEpsilonGuard__sub_8035EFD8(void *, s32);
+M2C_UNK set_orbit_destination__19TObjEneEpsilonGuardFPvi(void *, s32);
 s32 TObjEneEpsilonGuard__sub_8035F95C(u32);
 s32 TObjEneEpsilonGuard__sub_8035F968();
 M2C_UNK draw_model_motion(int, int, f32);
@@ -915,7 +915,7 @@ void state_orbit__19TObjEneEpsilonGuardFPvi(void *arg0, s32 arg1) {
             } else {
 block_23:
                 M2C_FIELD(arg0, s32 *, 0x438) = (s32) (M2C_FIELD(arg0, s32 *, 0x438) + M2C_FIELD(arg0, s32 *, 0x43C));
-                TObjEneEpsilonGuard__sub_8035EFD8(arg0, M2C_FIELD(arg0, s32 *, 0x438));
+                set_orbit_destination__19TObjEneEpsilonGuardFPvi(arg0, M2C_FIELD(arg0, s32 *, 0x438));
                 update_velocity__9TObjEneDDFPv(arg0);
                 move_with_wall_slide_commit__9TObjEneDDFPvfff(arg0, TObjEneEpsilonGuard__data_805D6F74, M2C_FIELD(arg0, f32 *, 0x3A0), M2C_FIELD(arg0, f32 *, 0x3A8), M2C_FIELD(TObjEneEpsilonGuard__data_805D6F74, f32 *, 8));
             }

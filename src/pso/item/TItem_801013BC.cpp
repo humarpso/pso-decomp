@@ -44,7 +44,7 @@ s32 TItemAttacker__sub_80103548(M2C_UNK);
 void is_custom_name_srank__9TItemDataFPv(void *);
 void is_rare_item__9TItemDataFPv(void *);
 M2C_UNK format_item_name__9TItemDataFv(M2C_UNK *, s32);
-int TItem__sub_80101B20(void*);
+int unregister_item__5TItemFPv(void*);
 s32 TLobby__sub_80103AD4();
 void calc_display_grade__9TItemDataFPv(void *);
 M2C_UNK clear_player_status_flag__10TObjPlayerFPviUi(s32, M2C_UNK, M2C_UNK);
@@ -69,7 +69,7 @@ void TItem__sub_801013E8(void *arg0) {
     is_rare_item__9TItemDataFPv(&sp8);
 }
 
-void destroy__5TItemFPv(void* p) { TItem__sub_80101B20(p); disallow_rendering__7TObjectFv(p); queue_destruction__7TObjectFv(p); }
+void destroy__5TItemFPv(void* p) { unregister_item__5TItemFPv(p); disallow_rendering__7TObjectFv(p); queue_destruction__7TObjectFv(p); }
 
 void copy_item_data_and_process__5TItemFPv(void *arg0) {
     M2C_UNK sp8[4];

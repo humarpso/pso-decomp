@@ -35,7 +35,7 @@ s32 TAdDialingGC__sub_803284F8(s32 _w0);
 struct Obj_80328730 { u8 pad[0x1C]; s32 state; s32 f20; u8 pad2[0x9C - 0x24]; s32 f9C; };
 extern Obj_80328730 *TAdDialingGC__data_805D6C78;
 void update_dialing_display__12TAdDialingGCFv(s32);
-void TAdDialingGC__sub_80328990(void *);
+void update_status_display__12TAdDialingGCFPv(void *);
 void init_dialog__12TAdDialingGCFv(void *);
 void draw_dialing_status__12TAdDialingGCFv(void *);
 void update_state_display__12TAdDialingGCFPv(Obj_803285C0 *arg0);
@@ -49,7 +49,7 @@ void update_dial_state__12TAdDialingGCFPv(void *arg0);
 void update_dial_state__12TAdDialingGCFPvi(void *arg0, s32 arg1);
 void update_selection__12TAdDialingGCFPv(u8 *arg0);
 void update_state__12TAdDialingGCFPv(void *arg0);
-M2C_UNK TAdDialingGC__sub_80328874();
+M2C_UNK update_status_message__12TAdDialingGCFPv();
 M2C_UNK create_draw_line_ctrl__13TAdMcSelectGCFiif(void *, M2C_UNK, f32);
 M2C_UNK TLobby__sub_803FB184(void *);
 M2C_UNK __ct__10TAdTitleGCFv(u32, void *, M2C_UNK);
@@ -213,7 +213,7 @@ void update_state_display__12TAdDialingGCFPv(Obj_803285C0 *arg0) {
     if (arg0->mode == 2) {
         switch (arg0->state) {
         case 0:
-            TAdDialingGC__sub_80328990(arg0);
+            update_status_display__12TAdDialingGCFPv(arg0);
             break;
         case 4:
             update_dialing_display__12TAdDialingGCFv(0x14);
@@ -222,7 +222,7 @@ void update_state_display__12TAdDialingGCFPv(Obj_803285C0 *arg0) {
             update_dialing_display__12TAdDialingGCFv(3);
             break;
         case 8:
-            TAdDialingGC__sub_80328990(arg0);
+            update_status_display__12TAdDialingGCFPv(arg0);
             break;
         case 1: case 2: case 3: case 5: case 7:
             break;
@@ -304,7 +304,7 @@ void update__12TAdDialingGCFPv(void *arg0) {
         break;
     case 1:
         if ((s32) M2C_FIELD(arg0, s32 *, 0x20) == 2) {
-            TAdDialingGC__sub_80328874();
+            update_status_message__12TAdDialingGCFPv();
             return;
         }
         break;

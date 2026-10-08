@@ -12,7 +12,7 @@ struct VObj_8003B138 : Base_8003B138 {
 extern "C" {
 
 void create_particle_effect__15TObjBoss2TunnelFiif(s32 arg0, s32 arg1, f32 farg0);
-M2C_UNK TObjBoss2Tunnel__sub_8003B250(void *, f32);
+M2C_UNK release_children__15TObjBoss2TunnelFPvf(void *, f32);
 void *initialize_with_flags__13TParticleCtrlFPvPviiiiiUs(void *, s32, s32, M2C_UNK, M2C_UNK, M2C_UNK, M2C_UNK, M2C_UNK);
 void *__nw__7TObjectFUl(M2C_UNK);
 s32 get_particle_by_index__13TParticleCtrlFi(s32);
@@ -26,7 +26,7 @@ void create_particle_effect__15TObjBoss2TunnelFiif(s32 arg0, s32 arg1, f32 farg0
     }
     if (var_r31 != NULL) {
         ((VObj_8003B138 *)var_r31)->m1();
-        TObjBoss2Tunnel__sub_8003B250(var_r31, farg0);
+        release_children__15TObjBoss2TunnelFPvf(var_r31, farg0);
     }
 }
 

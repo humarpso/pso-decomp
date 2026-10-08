@@ -26,7 +26,7 @@ extern "C" {
 void render__19TObjLazerFenceExtraFv(void *arg0);
 void render_lazer_fence_model(void *arg0);
 void reset_by_door__19TObjLazerFenceExtraFPv(void *arg0);
-void TObjLazerFenceExtra__sub_801926D0(TObjLazerFenceExtra_801926D0 *self);
+void update_wait_switch__19TObjLazerFenceExtraFPv(TObjLazerFenceExtra_801926D0 *self);
 u8 is_current_floor_switch_set(u16);
 void post_translate_matrix(void *);
 void draw_ginja_object(void *);
@@ -71,7 +71,7 @@ extern "C" void clear_player_status_flag__10TObjPlayerFPviUi(void *, s32, u32);
 extern const f32 lbl_805DBE58;
 extern const f32 lbl_805DBE64;
 
-void TObjLazerFenceExtra__sub_801926D0(TObjLazerFenceExtra_801926D0 *self) {
+void update_wait_switch__19TObjLazerFenceExtraFPv(TObjLazerFenceExtra_801926D0 *self) {
     self->frame += lbl_805DBE64;
     if ((f32)(self->motion->frames - 1) < self->frame) {
         self->frame = lbl_805DBE58;
@@ -131,7 +131,7 @@ void reset_photon_effect__10TObjPlayerFPv(void *);
 void refresh_collision_body_centers(void *);
 void init_collision_body_parts(void *, void *, s32);
 void construct_collider_proxy__10TObjPlayerFPv(void *, void *);
-void TObjFish__sub_80192434(void *);
+void init_models__8TObjFishFPv(void *);
 extern Ent_80192874 lbl_804B7FB0[];
 extern M2C_UNK __vt__19TObjLazerFenceExtra[];
 extern s32 lbl_805D33A4;
@@ -156,7 +156,7 @@ void run_task__19TObjLazerFenceExtraFv(void *arg0) {
     temp_r0 = M2C_FIELD(arg0, s32 *, 0xB4);
     switch (temp_r0) {
     case 0:
-        ((M2C_UNK (*)())TObjLazerFenceExtra__sub_801926D0)();
+        ((M2C_UNK (*)())update_wait_switch__19TObjLazerFenceExtraFPv)();
         return;
     case 1:
         ((M2C_UNK (*)())reset_by_door__19TObjLazerFenceExtraFPv)();
@@ -204,7 +204,7 @@ void *TObjLazerFenceExtra__ct(void *arg0, void *arg1, void *arg2) {
     } else {
         M2C_FIELD(self, s32 *, 0xD8) = 1;
     }
-    TObjFish__sub_80192434(self);
+    init_models__8TObjFishFPv(self);
     init_collision_body_parts(self, &lbl_804B7FB0[M2C_FIELD(self, s32 *, 0x8C) % 2], 3);
     M2C_FIELD(self, u32 *, 0x30) |= 0x40000000;
     M2C_FIELD(M2C_FIELD(self, u8 **, 0xA4), f32 *, 0x10) = M2C_FIELD(self, f32 *, 0x6C);

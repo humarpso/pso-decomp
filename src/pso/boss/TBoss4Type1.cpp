@@ -281,7 +281,7 @@ void set_position_from__14TBoss4DarkFalzFPvPv(void *, void *);
 void TBoss4DarkFalz__sub_8004D990(s32);
 void create__16TObjDFBeamCursorFPvPv(void *, void *);
 s32 create__16TObjDFTenchuFuruFPvPv(s32, s32);
-s32 TBoss4Type2__sub_800522CC(s32, void *, void *);
+s32 pick_weighted_random__11TBoss4Type2FiPvPv(s32, void *, void *);
 s32 TBoss4Type3__sub_8005254C(u16);
 void TBoss4Type2__sub_800525AC(u8 *arg0);
 void TBoss4Type2__sub_800528B8(void *arg0);
@@ -312,7 +312,7 @@ void pick_target_position__13TRaderMapCoreFPvPv(O_80053914 *self, Vec_80053914 *
 void set_map_position__13TRaderMapCoreFPvPv(void *arg0, void *arg1);
 void TBoss4Type2__sub_80053AD4(Obj_80053AD4 *arg0);
 void TBoss4Type2__sub_80053B48(S_80053B48 *o, s32 *a, s32 *b);
-void TBoss4Type2__sub_80053BF4(void *arg0, u32 arg1);
+void apply_packed_state__11TBoss4Type2FPvUi(void *arg0, u32 arg1);
 void TBoss4Type2__sub_80053C8C(u8 *arg0, s32 arg1, s32 arg2, s32 arg3);
 void send_state_to_target__11TBoss4Type2FPvi(Obj_80053CEC *self, s32 arg1);
 void fn_80053D4C(Obj_80053D4C *arg0);
@@ -1063,9 +1063,9 @@ void TBoss4Type2__sub_800535A8(Boss_800535A8 *arg0) {
     u8 *tbl = lbl_80485AE0;
     if (arg0->x3a8 == 1) {
         if (arg0->hp <= arg0->x3d8) {
-            r = TBoss4Type2__sub_800522CC(3, tbl + 0x68C, tbl + 0x698);
+            r = pick_weighted_random__11TBoss4Type2FiPvPv(3, tbl + 0x68C, tbl + 0x698);
         } else {
-            r = TBoss4Type2__sub_800522CC(2, tbl + 0x6A4, tbl + 0x6AC);
+            r = pick_weighted_random__11TBoss4Type2FiPvPv(2, tbl + 0x6A4, tbl + 0x6AC);
         }
         switch (r) {
         case 8:
@@ -1216,7 +1216,7 @@ void TBoss4Type2__sub_80053B48(S_80053B48 *o, s32 *a, s32 *b) {
     }
 }
 
-void TBoss4Type2__sub_80053BF4(void *arg0, u32 arg1) {
+void apply_packed_state__11TBoss4Type2FPvUi(void *arg0, u32 arg1) {
     s32 n;
     M2C_FIELD(arg0, s32 *, 0x3A4) = (s32) ((arg1 >> 4U) & 3);
     M2C_FIELD(arg0, s32 *, 0x3A0) = (s32) ((arg1 >> 6U) & 3);

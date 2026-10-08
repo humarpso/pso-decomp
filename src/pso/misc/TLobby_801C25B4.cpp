@@ -165,7 +165,7 @@ extern s32 tl_00;
 void init_battle_ctrl__6TLobbyFii(s32 arg0, s32 arg1);
 M2C_UNK send_set_battle_mode_data__6TLobbyFPv(void *);
 M2C_UNK build_6x7D_set_battle_mode_data(void *);
-void TLobby__sub_801C3CFC(s8 arg0, s32 arg1, s32 arg2);
+void send_battle_mode_params__6TLobbyFcii(s8 arg0, s32 arg1, s32 arg2);
 u32 get_player_by_client_id(u16);
 M2C_UNK clear_flag__11TWindowCtrlFv();
 M2C_UNK unsuppress_slot__11TWindowCtrlFi(s32);
@@ -222,7 +222,7 @@ extern s32 lbl_805D5DB0;
 extern u8 lbl_805D5DBC[4];
 void handle_6x7D_set_battle_mode_data(Pkt_801C374C *pkt);
 void start_duel_battle__6TLobbyFPv(Lobby_801C484C *);
-void TLobby__sub_801C3CFC(s8 arg0, s32 arg1, s32 arg2);
+void send_battle_mode_params__6TLobbyFcii(s8 arg0, s32 arg1, s32 arg2);
 s64 OSGetTime();
 void set_timer_window_time__11TWindowCtrlFi(s32);
 s32 check_battle_end__6TLobbyFv(Lobby_801C484C *);
@@ -291,7 +291,7 @@ M2C_UNK send_6x7D_set_battle_mode_data(void *);
 M2C_UNK init__6TLobbyFPv();
 void send_neg50__6TLobbyFPvPv(void* p, void* a1);
 M2C_UNK TLobby__sub_801C32B4(void *);
-void TLobby__sub_801C3CFC(s8 arg0, s32 arg1, s32 arg2);
+void send_battle_mode_params__6TLobbyFcii(s8 arg0, s32 arg1, s32 arg2);
 void handle_battle_result__6TLobbyFii(int arg0, s32 arg1);
 void close_and_play_effect__6TLobbyFii(int arg0, s32 arg1);
 u32 __nw__7TObjectFUl(M2C_UNK);
@@ -715,7 +715,7 @@ s32 TLobby__sub_801C3C1C(Lobby_801C484C *self, s32 arg1) {
     return 0;
 }
 
-void TLobby__sub_801C3CFC(s8 arg0, s32 arg1, s32 arg2) {
+void send_battle_mode_params__6TLobbyFcii(s8 arg0, s32 arg1, s32 arg2) {
     Stack_801C3CFC stack;
     build_6x7D_set_battle_mode_data(&stack.sp8);
     stack.spD = arg0;
@@ -933,7 +933,7 @@ void update_duel_result__6TLobbyFPv(u8 *arg0) {
         break;
     case 6:
         if (TLobby__sub_801C3C1C((Lobby_801C484C *)((Lobby_801C484C *)arg0), (s32)(0)) != 0) {
-            TLobby__sub_801C3CFC(5, 1, 0);
+            send_battle_mode_params__6TLobbyFcii(5, 1, 0);
         } else {
             q = (void *)update_battle_controller__10TObjPlayerFv();
             if (lbl_805D53A0 == TLobby__data_805D53AC && has_player_active_menu__11TWindowCtrlFi(lbl_805D53A0) == 0) {
@@ -963,7 +963,7 @@ void update_duel_result__6TLobbyFPv(u8 *arg0) {
                             M2C_FIELD(arg0, s32 *, 0x20) = 7;
                             break;
                         case 3:
-                            TLobby__sub_801C3CFC(4, 0, 0);
+                            send_battle_mode_params__6TLobbyFcii(4, 0, 0);
                             M2C_FIELD(arg0, s32 *, 0x20) = 9;
                             break;
                         }
@@ -995,7 +995,7 @@ void update_duel_result__6TLobbyFPv(u8 *arg0) {
         M2C_FIELD(arg0, s32 *, 0x20) = 8;
     case 8:
         if (TLobby__sub_801C3C1C((Lobby_801C484C *)((Lobby_801C484C *)arg0), (s32)(0)) != 0) {
-            TLobby__sub_801C3CFC(5, 1, 0);
+            send_battle_mode_params__6TLobbyFcii(5, 1, 0);
         } else {
             p = (void *)((u32 (*)(s32))get_player_by_client_id)(lbl_805D53A0);
             if (p != NULL && check_flag_100__10TObjPlayerFPv(p) == 0 && (G28 & 6)) {
@@ -1051,7 +1051,7 @@ void update_timed_wait__6TLobbyFPv(Lobby_801C484C *self) {
         self->state = 1;
     case 1:
         if (TLobby__sub_801C3C1C((Lobby_801C484C *)(self), (s32)(1)) != 0) {
-            TLobby__sub_801C3CFC(5, 0, 0);
+            send_battle_mode_params__6TLobbyFcii(5, 0, 0);
             return;
         }
         secs = (OSGetTime() - self->start) / (*(u32 *)0x800000F8 / 4);
@@ -1060,13 +1060,13 @@ void update_timed_wait__6TLobbyFPv(Lobby_801C484C *self) {
         set_timer_window_time__11TWindowCtrlFi(self->remain);
         if (self->remain == 0) {
             self->result = 3;
-            TLobby__sub_801C3CFC(3, 0, 0);
+            send_battle_mode_params__6TLobbyFcii(3, 0, 0);
             return;
         }
         if (check_battle_end__6TLobbyFv(self) != 0) {
             if (--self->timer48 <= 0) {
                 self->result = 3;
-                TLobby__sub_801C3CFC(3, 0, 0);
+                send_battle_mode_params__6TLobbyFcii(3, 0, 0);
             }
         } else {
             self->timer48 = 300;

@@ -9,9 +9,9 @@ struct E_802D1D48 { s32 id; s32 cnt; };
 struct S_802D1D48 { E_802D1D48 e[31]; u8 tail[1]; };
 
 extern "C" {
-void TLobby__sub_802D2240(void *, u32);
+void remove_trade_entry__6TLobbyFPvUi(void *, u32);
 u8 * TLobby__sub_802D2334(void *, u32);
-void TLobby__sub_802D1DE4(u8 *arg0, u32 arg1, s32 arg2);
+void transfer_trade_item_amount__6TLobbyFPvUii(u8 *arg0, u32 arg1, s32 arg2);
 s32 get_trade_obj_ptr__6TLobbyFPv(s32);
 u8 *TLobby__sub_802D230C(void *);
 u8 * TLobby__sub_802D2334(void *, u32);
@@ -44,14 +44,14 @@ s32 TLobby__sub_802D1D48(S_802D1D48 *arg0, s32 *arg1) {
     return empty ? 4 : 0;
 }
 
-void TLobby__sub_802D1DE4(u8 *arg0, u32 arg1, s32 arg2) {
+void transfer_trade_item_amount__6TLobbyFPvUii(u8 *arg0, u32 arg1, s32 arg2) {
     u8 *temp_r3;
     u8 *temp_r3_2;
     temp_r3 = (u8 *)(TLobby__sub_802D2334(arg0, arg1));
     if (temp_r3 != NULL) {
         M2C_FIELD(temp_r3, s32 *, 4) = (s32) (M2C_FIELD(temp_r3, s32 *, 4) - arg2);
         if ((s32) M2C_FIELD(temp_r3, s32 *, 4) <= 0) {
-            TLobby__sub_802D2240(arg0, arg1);
+            remove_trade_entry__6TLobbyFPvUi(arg0, arg1);
         }
         temp_r3_2 = (u8 *)(TLobby__sub_802D2334(arg0 + 0xF8, arg1));
         if (temp_r3_2 != NULL) {

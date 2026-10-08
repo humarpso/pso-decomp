@@ -73,7 +73,7 @@ extern void *TItemDrop__data_805D5460;
 void generate_tool_drop__9TItemDropFiiPv(s32 arg0, s32 arg1, void *arg2);
 s32 get_char_index__23TAdSinglePlyChrSelectGCFUi(u32);
 u8 *__nw__7TObjectFUl(M2C_UNK);
-u8 *TItemDrop__sub_80107A68(s32 arg0);
+u8 *create_drop__9TItemDropFi(s32 arg0);
 u32 subtractive_rng_next(void *);
 s32 __cvt_fp2unsigned(f32);
 extern const f32 lbl_805DAAD8;
@@ -834,7 +834,7 @@ TItemDrop_80107900 *TItemDrop__ct(TItemDrop_80107900 *self, void *parent, s8 arg
     return self;
 }
 
-u8 *TItemDrop__sub_80107A68(s32 arg0) {
+u8 *create_drop__9TItemDropFi(s32 arg0) {
     u8 temp_r0;
     u8 *temp_r3;
     u8 *temp_r3_2;

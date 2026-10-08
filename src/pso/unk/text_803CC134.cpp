@@ -17,7 +17,7 @@ u8 lbl_8057B7D0[0x1000];
 u8 lbl_8057C7D0[0x400];
 u8 lbl_8057CBD0[0x1380];
 
-void TLobby__sub_803CC134(void) {
+void dec_ref_and_reset_tables__6TLobbyFv(void) {
     if (--lbl_805D75D0 == 0) {
         TLobby__sub_803CCE40();
         lbl_805D75D4 = -1;

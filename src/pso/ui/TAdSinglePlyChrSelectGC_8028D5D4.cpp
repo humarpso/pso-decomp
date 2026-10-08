@@ -10,7 +10,7 @@ extern u32 lbl_80518850[4];
 extern u32 lbl_80518860[4];
 extern u32 lbl_805D6518;
 extern u32 lbl_805D651C;
-u32 TLobby__sub_8028D628(s32 arg0, s32 arg1);
+u32 alloc_load_buffer__6TLobbyFii(s32 arg0, s32 arg1);
 }
 
 extern "C" {
@@ -24,7 +24,7 @@ s32 get_result__23TAdSinglePlyChrSelectGCFPv(void *arg0) {
     }
     return 0;
 }
-u32 TLobby__sub_8028D628(s32 arg0, s32 arg1) {
+u32 alloc_load_buffer__6TLobbyFii(s32 arg0, s32 arg1) {
     u32 p;
     if (lbl_805D6518 == 0U) {
         return 0U;

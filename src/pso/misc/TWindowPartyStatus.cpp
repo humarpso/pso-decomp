@@ -64,8 +64,8 @@ M2C_UNK update_window_entry_list(void *, void *);
 void __dl__7TObjectFPv(void *);
 void __dt__19TWindowSimpleStatusFv(void *, int);
 int update_hp_entry__20TWindowSubStatusDispFPv(void*);
-M2C_UNK fn_8026FDC0(void *);
-M2C_UNK fn_80270014();
+M2C_UNK apply_random_shake(void *);
+M2C_UNK update_lockon_window();
 M2C_UNK initialize_subwindow__9TWindowDDFPv(void *);
 M2C_UNK update_fade__17TWindowSubComCardFPv(void *);
 int update_status_entry__20TWindowSubStatusDispFi(void*);
@@ -121,14 +121,14 @@ void render__18TWindowPartyStatusFv(s32 arg0) {
 }
 
 void run_task__18TWindowPartyStatusFv(s32 arg0) {
-    fn_80270014();
+    update_lockon_window();
     draw__18TWindowPartyStatusFPv((void*)((void *) (arg0)));
     update_status_help_item((void *) (arg0));
     update_status_icons__14TWindowComCardFPvPv((void *) (arg0), (int) (get_window_layout_position((int) (0xAC))));
     initialize_subwindow__9TWindowDDFPv((void *) (arg0));
     update_fade__17TWindowSubComCardFPv((void *) (arg0));
     update_window_entry_list((void *) (arg0), (void *) (arg0 + 0x24));
-    fn_8026FDC0((void *) (arg0));
+    apply_random_shake((void *) (arg0));
 }
 
 extern M2C_UNK __vt__18TWindowPartyStatus[];

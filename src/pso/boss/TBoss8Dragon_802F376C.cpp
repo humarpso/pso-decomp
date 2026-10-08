@@ -25,7 +25,7 @@ s32 __nw__7TObjectFUl(int);
 s32 setup_attack_slot__12TBoss8DragonFiUiiiPv(void *, void *, void *, void *, void *);
 s32 TBoss8Dragon__sub_80359DC4(int, int, void *, void *);
 extern s32 tl_04;
-s32 TBoss8Dragon__sub_802F3A48(s32 arg0, s32 arg1, s32 arg2, s32 arg3, s32 arg4);
+s32 spawn_attack_object__12TBoss8DragonFiiiii(s32 arg0, s32 arg1, s32 arg2, s32 arg3, s32 arg4);
 u16 obj_getField1c(void *);
 f32 clamp_velocity__15TObjBoss2TunnelFPv(void *);
 Ent_802F376C *get_enemy_entity(u16);
@@ -134,7 +134,7 @@ s32 TBoss8Dragon__sub_802F3974(Ent_802F3974 *arg0) {
     return 0;
 }
 
-s32 TBoss8Dragon__sub_802F3A48(s32 arg0, s32 arg1, s32 arg2, s32 arg3, s32 arg4) {
+s32 spawn_attack_object__12TBoss8DragonFiiiii(s32 arg0, s32 arg1, s32 arg2, s32 arg3, s32 arg4) {
     Stack_802F3A48 stack;
     s32 temp_r3;
     s32 var_r0;

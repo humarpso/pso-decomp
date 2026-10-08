@@ -10,7 +10,7 @@ int TLobby__sub_8032C91C(void* p);
 u8 get_selected_slot__6TLobbyFv(void);
 void send_data__6TLobbyFi(s32 arg0);
 void update_alloc_size__6TLobbyFv(void);
-M2C_UNK TAdWarningBaseGC__sub_8032CF70(void*);
+M2C_UNK load_from_aram_sync__16TAdWarningBaseGCFi(void*);
 u32 TAdWarningBaseGC__sub_8032D020();
 M2C_UNK update_graph__8TDLGraphFii(s32, M2C_UNK);
 M2C_UNK read_disc_file(s32, u32);
@@ -52,7 +52,7 @@ void update_alloc_size__6TLobbyFv(void) {
         return;
     }
     if ((u32) TLobby__data_805D6CC0 != 0U) {
-        TAdWarningBaseGC__sub_8032CF70((void*)TLobby__data_805D6CC0);
+        load_from_aram_sync__16TAdWarningBaseGCFi((void*)TLobby__data_805D6CC0);
         TLobby__data_805D6CC8 = get_alloc_size__16TAdWarningBaseGCFv();
         return;
     }

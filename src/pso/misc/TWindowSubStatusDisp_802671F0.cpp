@@ -135,7 +135,7 @@ void set_flag4__20TWindowSubStatusDispFPv(void *arg0);
 void handle_open__20TWindowSubStatusDispFPv(void *arg0);
 void move_cursor_next__20TWindowSubStatusDispFPv(void *arg0);
 void move_cursor__20TWindowSubStatusDispFPv(void *arg0);
-void TWindowSubStatusDisp__sub_80267AA8(Win_80267AA8 *w, s16 v);
+void set_cursor_index__20TWindowSubStatusDispFPvs(Win_80267AA8 *w, s16 v);
 void create_menu_scroll_bar(u8 *arg0);
 void ensure_status_display__20TWindowSubStatusDispFPvi(void *arg0, s32 arg1);
 void start_scroll__13TWindowSubMagFPvf(void *arg0, f32 farg0);
@@ -470,7 +470,7 @@ block_4:
     }
 }
 
-void TWindowSubStatusDisp__sub_80267AA8(Win_80267AA8 *w, s16 v) {
+void set_cursor_index__20TWindowSubStatusDispFPvs(Win_80267AA8 *w, s16 v) {
     if (v >= 0) {
         if (v >= w->f76) {
             return;

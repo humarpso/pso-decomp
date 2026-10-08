@@ -50,7 +50,7 @@ void draw_marker_model__10TObjPlayerFPv(void *arg0);
 s32 get_player_by_client_id(u16);
 u8 *TObjPlayer__sub_801C6FF8(u8 *arg0, u8 *arg1, s16 arg2, s8 arg3);
 void *__nw__7TObjectFUl(u32);
-u8 *TObjPlayer__sub_801C6D40(s16 arg0, s8 arg1);
+u8 *create_lobby_font_for_player__10TObjPlayerFsc(s16 arg0, s8 arg1);
 s32 TMainCursor__sub_8013E03C(void);
 s32 get_player_by_client_id(u16);
 s32 TObjPlayer__sub_801C6DAC(u8 *arg0);
@@ -121,7 +121,7 @@ void TObjPlayer__sub_801C6D30(void *arg0) {
 
     extern int obj_heap;
 
-u8 *TObjPlayer__sub_801C6D40(s16 arg0, s8 arg1) {
+u8 *create_lobby_font_for_player__10TObjPlayerFsc(s16 arg0, s8 arg1) {
     u8 *e;
     u8 *p;
     e = ((u8 *)get_player_by_client_id(arg0));

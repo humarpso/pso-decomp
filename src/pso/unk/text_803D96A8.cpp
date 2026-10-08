@@ -47,7 +47,7 @@ void concat_quaternion_rotation__10TObjPlayerFPv(f32 *arg0);
 f32 PSMTXConcat(int, int, int);
 void PSMTXQuat(void *, void *);
 extern u32 lbl_805D7774;
-void TObjPlayer__sub_803D993C(f32 *arg0, f32 farg0);
+void apply_quat_rotation__10TObjPlayerFPvf(f32 *arg0, f32 farg0);
 s32 fn_803DA12C(u8 *, s32, s32, s32);
 extern G_803D9DA8 lbl_8058D470;
 s32 TObjPlayer__sub_803D9DA8(A_803D9DA8 *arg0, B_803D9DA8 *arg1);
@@ -153,7 +153,7 @@ void concat_quaternion_rotation__10TObjPlayerFPv(f32 *arg0) {
     PSMTXConcat(lbl_805D7774, (int)sp18, lbl_805D7774);
 }
 
-void TObjPlayer__sub_803D993C(f32 *arg0, f32 farg0) {
+void apply_quat_rotation__10TObjPlayerFPvf(f32 *arg0, f32 farg0) {
     u8 sp18[0x30];
     Q_803D993C q;
     q.w = farg0;

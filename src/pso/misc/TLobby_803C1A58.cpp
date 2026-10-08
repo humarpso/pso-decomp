@@ -119,14 +119,14 @@ struct Obj_803C7C10 {
 extern "C" {
 void release_ref__6TLobbyFv(void);
 void init_once__6TLobbyFv(void);
-void TLobby__sub_803CEFC8(void *);
+void cvfs_stop_tr__6TLobbyFPv(void *);
 void TLobby__sub_803C89C4(u8 *arg0);
 s32 cv_fs_tell__6TLobbyFPv(int);
 s32 TLobby__sub_803C8A98(u8 *arg0);
 void release_ref__6TLobbyFv(void);
 void init_once__6TLobbyFv(void);
-void TLobby__sub_803CEFC8(void *);
-void TLobby__sub_803CF250(void *);
+void cvfs_stop_tr__6TLobbyFPv(void *);
+void cv_fs_close__6TLobbyFPv(void *);
 M2C_UNK memset(void *, int, int);
 void TLobby__sub_803C8B38(u8 *arg0);
 short TLobby__sub_803C8B2C(u8 *arg0);
@@ -637,7 +637,7 @@ void TLobby__sub_803C89C4(u8 *arg0) {
     init_once__6TLobbyFv();
     temp_r3 = (u8 *)(M2C_FIELD(arg0, u8 **, 8));
     if (temp_r3 != NULL) {
-        TLobby__sub_803CEFC8(temp_r3);
+        cvfs_stop_tr__6TLobbyFPv(temp_r3);
         M2C_FIELD(arg0, s8 *, 2) = 0;
     }
     release_ref__6TLobbyFv();
@@ -673,13 +673,13 @@ void TLobby__sub_803C8B38(u8 *arg0) {
         init_once__6TLobbyFv();
         temp_r3 = (u8 *)(M2C_FIELD(arg0, u8 **, 8));
         if (temp_r3 != NULL) {
-            TLobby__sub_803CEFC8(temp_r3);
+            cvfs_stop_tr__6TLobbyFPv(temp_r3);
             M2C_FIELD(arg0, s8 *, 2) = 0;
         }
         release_ref__6TLobbyFv();
         temp_r3_2 = (u8 *)(M2C_FIELD(arg0, u8 **, 8));
         if (temp_r3_2 != NULL) {
-            TLobby__sub_803CF250(temp_r3_2);
+            cv_fs_close__6TLobbyFPv(temp_r3_2);
         }
         memset((void *) (arg0), (int) (0), (int) (0x40));
     }

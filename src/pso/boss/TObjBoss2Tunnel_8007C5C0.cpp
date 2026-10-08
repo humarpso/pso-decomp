@@ -69,11 +69,11 @@ extern const f32 lbl_805D9230;
 void TObjBoss2Tunnel__sub_8007CAE8(u32 arg0);
 extern M2C_UNK TObjBoss2Tunnel__data_80438A08[];
 void poll_load_status__15TAdPlayerLoadGCFi(s32 a, void *b);
-void TObjBoss2Tunnel__sub_8007C880(void);
+void poll_pso_screen_load__15TObjBoss2TunnelFv(void);
 s32 TAdPlayerLoadGC__sub_801E1538(void *, int);
 s32 TAdSinglePlyChrSelectGC__sub_80201204(s32 *, s32);
 extern s32 TObjBoss2Tunnel__data_805D4E90;
-bool TObjBoss2Tunnel__sub_8007CB50(void);
+bool verify_snapshot_checksum__15TObjBoss2TunnelFv(void);
 s32 memcard_check_snapshot(M2C_UNK, M2C_UNK);
 void TAdPlayerLoadGC__sub_801E14E4(void *);
 void TAdPlayerLoadGC__sub_801E14E8(void *, s32);
@@ -243,7 +243,7 @@ s32 run_confirm_message_loop__15TObjBoss2TunnelFv(void) {
     return result;
 }
 
-void TObjBoss2Tunnel__sub_8007C880(void) {
+void poll_pso_screen_load__15TObjBoss2TunnelFv(void) {
     poll_load_status__15TAdPlayerLoadGCFi(1, ((u8 *)&TObjBoss2Tunnel__data_80438A08));
 }
 
@@ -318,7 +318,7 @@ void TObjBoss2Tunnel__sub_8007CAE8(u32 arg0) {
     draw_textured_screen_quad__10TObjPlayerFUiPvPvi((int) (-1), (void *) (&stack.sp10), (void *) (&stack.sp8), (int) (1), (f32) (lbl_805D922C));
 }
 
-bool TObjBoss2Tunnel__sub_8007CB50(void) {
+bool verify_snapshot_checksum__15TObjBoss2TunnelFv(void) {
     Load_8007CB50 ld;
     s32 *p;
     s32 saved;

@@ -11,7 +11,7 @@ void TMainCursor__sub_8013F104(void* p, s32 v);
 void *fn_8013F0A0(void *arg0);
 int init_gc_tag(void*);
 void construct_target_cursor_records__10TObjPlayerFi(void *);
-void TMainCursor__sub_8013B3AC(void *);
+void reset_state__11TMainCursorFPv(void *);
 void * TLockOnCursor__sub_8013EFB8(void *arg0);
 void __construct_array(void *, void *, int, int, int);
 void* init_sub__13TLockOnCursorFPv(void* p);
@@ -29,7 +29,7 @@ void* init_sub__13TLockOnCursorFPv(void* p);
 void *init_vtable__13TLockOnCursorFPv(void *arg0);
 void reset_fields__13TLockOnCursorFPv(void* p);
 int TLockOnCursor__sub_8013EC1C(void*);
-int TLockOnCursor__sub_8013EC38(void*);
+int reset_state__13TLockOnCursorFPv(void*);
 int reset_nearest_target_record(void*);
 void TMainCursor__sub_8013F104(void* p, s32 v);
 void TMainCursor__sub_8013F10C(void* p, s32 v);
@@ -60,13 +60,13 @@ void *init_vtable__13TLockOnCursorFPv(void *arg0) {
 
 void* init_cursor__13TLockOnCursorFPv(void* p) { reset_nearest_target_record(p); return p; }
 void* init_forward__13TLockOnCursorFPv(void* p) { TLockOnCursor__sub_8013EC1C(p); return p; }
-void* cleanup__13TLockOnCursorFPv(void* p) { init_gc_tag((void*)((char*)p + 0x8)); reset__11TMainCursorFi((char*)p + 0xc); reset__11TMainCursorFi((char*)p + 0x14); TLockOnCursor__sub_8013EC38(p); return p; }
+void* cleanup__13TLockOnCursorFPv(void* p) { init_gc_tag((void*)((char*)p + 0x8)); reset__11TMainCursorFi((char*)p + 0xc); reset__11TMainCursorFi((char*)p + 0x14); reset_state__13TLockOnCursorFPv(p); return p; }
 
 void *TLockOnCursor__sub_8013EFB8(void *arg0) {
     init_gc_tag((void*)(arg0));
     construct_target_cursor_records__10TObjPlayerFi((void *)((char *)arg0 + 64));
     TLockOnCursor__sub_8013F000((void *)((void *)((void *)((char *)arg0 + 156))));
-    TMainCursor__sub_8013B3AC(arg0);
+    reset_state__11TMainCursorFPv(arg0);
     return arg0;
 }
 

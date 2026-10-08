@@ -103,7 +103,7 @@ int end_render_forward__20TWindowSubStatusDispFPv(void* p);
 s32 is_alpha_char__20TWindowSubStatusDispFUs(u16 arg0);
 void pack_status_flags__20TWindowSubStatusDispFPvUi(void *arg0, u32 arg1);
 void reset_gauge__20TWindowSubStatusDispFPv(void* p);
-void *TWindowSubStatusDisp__sub_801452DC(u16 code);
+void *find_cached_glyph__20TWindowSubStatusDispFUs(u16 code);
 int begin_screen_draw(void*);
 int set_draw_texture_and_color(void*, void*);
 int get_player__20TWindowSubStatusDispFv(void*);
@@ -401,7 +401,7 @@ s32 TWindowSubStatusDisp__sub_80145278(u16 arg0, u8 *arg1, void **arg2) {
 
 typedef struct Glyph_801452DC { u16 code; u16 data[4]; } Glyph_801452DC;
 extern Glyph_801452DC *lbl_805D56BC;
-void *TWindowSubStatusDisp__sub_801452DC(u16 code) {
+void *find_cached_glyph__20TWindowSubStatusDispFUs(u16 code) {
     void *free_slot;
     Glyph_801452DC *g;
     Glyph_801452DC *p;
@@ -451,7 +451,7 @@ void *TWindowSubStatusDisp__sub_801452DC(u16 code) {
 u8 calc_gauge_scale__20TWindowSubStatusDispFPvPvi(void *arg0, void *arg1, s32 arg2) {
     void *temp_r3;
 
-    temp_r3 = ((void *(*)(void))TWindowSubStatusDisp__sub_801452DC)();
+    temp_r3 = ((void *(*)(void))find_cached_glyph__20TWindowSubStatusDispFUs)();
     M2C_FIELD(temp_r3, u8 *, 3) = (u8) lbl_805D56C0;
     set_draw_texture_and_color((void*)(M2C_FIELD(temp_r3, u8 *, 4)), (void*)(arg2));
     M2C_FIELD(arg1, f32 *, 0x10) = (f32) ((f32) M2C_FIELD(temp_r3, u8 *, 5) * lbl_805DB194);

@@ -125,7 +125,7 @@ extern RecoveredGlobal_803C0B08_lbl_80570AC0 lbl_80571480;
 void TLobby__sub_803C406C(void);
 int memcmp(const void *a, const void *b, unsigned long n);
 extern const char lbl_805E0CE0[4];
-s32 TLobby__sub_803C40A0(void *p);
+s32 is_spsd_header__6TLobbyFPv(void *p);
 int memcmp(const void *a, const void *b, unsigned long n);
 extern s32 lbl_805E0CC0;
 extern s32 lbl_805E0CC8;
@@ -146,14 +146,14 @@ s32 is_riff_wave__6TLobbyFPv(void *);
 s32 DVDReadPrio(void *, void *, void *);
 s32 is_aiff_header__6TLobbyFPv(u8 *arg0);
 s32 is_snd_header__6TLobbyFPv(u8 *arg0);
-s32 TLobby__sub_803C40A0(void *p);
+s32 is_spsd_header__6TLobbyFPv(void *p);
 s32 TLobby__sub_803C3B68(s32 arg0, u16 *arg1, s32 arg2);
 M2C_UNK memset(void *, int, int);
 s32 TLobby__sub_803C43A8(void *arg0, void *arg1, void *arg2);
 s32 TLobby__sub_803C44C0(Hdr_803C44C0 *hdr, s32 arg1, s16 *arg2, s8 *arg3, s8 *arg4, s8 *arg5, s8 *arg6, s32 *arg7, s32 *arg8, s32 *arg9, s16 *arg10);
 M2C_UNK memset(void *, int, int);
 u8 *TLobby__sub_803C2388(u8 *, s32 *, s32 *, s32 *, s32 *);
-s32 TLobby__sub_803C2174(void *arg0, void *arg1, void *arg2);
+s32 parse_stream_header__6TLobbyFPvPvPv(void *arg0, void *arg1, void *arg2);
 M2C_UNK __DVDPrepareResetAsync(void *, void *, void *, void *, void *, void *, void *, void *, void *);
 s32 TLobby__sub_803C47F8(void *, void *, void *, void *);
 s32 TLobby__sub_803C48C8(void *, void *, void *);
@@ -166,7 +166,7 @@ extern M2C_UNK lbl_8047C520[];
 extern M2C_UNK lbl_8047C540[];
 s32 TRK__write_aram(void *arg0p, void *arg1, void *arg2);
 M2C_UNK clear_record_data__6TLobbyFPv(int);
-u32 TLobby__sub_803CB5C4();
+u32 alloc_adx_channel__6TLobbyFv();
 M2C_UNK memset(void *, int, int);
 void TLobby__sub_803C4020(u8 *arg0, s32 arg1, s32 arg2);
 s32 get_progress_info__6TLobbyFPvPvPvPv(u8 *arg0, s32 *arg1, s32 *arg2, s32 *arg3);
@@ -259,7 +259,7 @@ void TLobby__sub_803C1A8C(Strm_803C1A8C *o) {
 
 #define o ((Obj_803C2174 *)arg0)
 #define p ((u8 *)arg1)
-s32 TLobby__sub_803C2174(void *arg0, void *arg1, void *arg2) {
+s32 parse_stream_header__6TLobbyFPvPvPv(void *arg0, void *arg1, void *arg2) {
     s32 d;
     s32 c;
     s32 b;
@@ -640,14 +640,14 @@ s32 TLobby__sub_803C3B68(s32 arg0, u16 *arg1, s32 arg2) {
     if ((u16) M2C_FIELD(arg1, u16 *, 0) == 0x8000) {
         return TRK__write_aram((void *)((void *)arg0), (void *)(arg1), (void *)((void *)arg2));
     }
-    if (TLobby__sub_803C40A0((void *) (arg1)) != 0) {
+    if (is_spsd_header__6TLobbyFPv((void *) (arg1)) != 0) {
         return TLobby__sub_803C43A8((void *)((void *) (arg0)), (void *)((void *) (arg1)), (void *)((void *) (arg2)));
     }
     if (is_riff_wave__6TLobbyFPv((void *) (arg1)) != 0) {
         return DVDReadPrio((void *) (arg0), (void *) (arg1), (void *) (arg2));
     }
     if (is_aiff_header__6TLobbyFPv((u8 *) (arg1)) != 0) {
-        return TLobby__sub_803C2174((void *)((void *) (arg0)), (void *)((void *) (arg1)), (void *)((void *) (arg2)));
+        return parse_stream_header__6TLobbyFPvPvPv((void *)((void *) (arg0)), (void *)((void *) (arg1)), (void *)((void *) (arg2)));
     }
     if (is_snd_header__6TLobbyFPv((u8 *) (arg1)) != 0) {
         return TLobby__sub_803C30E8((u8 *)((u8 *) (arg0)), (s32)((s32) (arg1)), (s32)((s32) (arg2)));
@@ -736,7 +736,7 @@ Rec_803C3E88 *alloc_record__6TLobbyFiiii(s32 arg0, s32 arg1, s32 arg2, s32 arg3)
     r = &TBL_803C3E88[i];
     memset(r, 0, 0xB8);
     r->used = 1;
-    r->f8 = TLobby__sub_803CB5C4();
+    r->f8 = alloc_adx_channel__6TLobbyFv();
     if (r->f8 == 0) {
         free_803C3E88(r);
         return NULL;
@@ -770,7 +770,7 @@ void TLobby__sub_803C406C(void) {
     TLobby__sub_803CB71C();
     memset((void *) (&lbl_80571480.value), (int) (0), (int) (0xb80));
 }
-s32 TLobby__sub_803C40A0(void *p) {
+s32 is_spsd_header__6TLobbyFPv(void *p) {
     if (memcmp(p, lbl_805E0CE0, 4) == 0) {
         return 1;
     }

@@ -560,7 +560,7 @@ extern "C" {
 void run_task__12TObjEneReconFPvi(u8 *arg0, s32 arg1);
 M2C_UNK create_timed_particle_emitter(void *, int, int, int);
 M2C_UNK transform_part_positions__9TObjEneDDFPv(void *);
-M2C_UNK TObjEneRecon__sub_8031EFAC(int, void *);
+M2C_UNK remove_tracked_target__12TObjEneReconFPvPv(int, void *);
 s32 find_entity_by_id(int);
 s32 is_anim_6__12TObjEneReconFPv();
 M2C_UNK queue_destruction__7TObjectFv(void *);
@@ -590,7 +590,7 @@ void run_task__12TObjEneReconFPvi(u8 *arg0, s32 arg1) {
         }
         if (((WObj_8031c7bc *) (arg0 + 0x480))->w4() != 0) {
             M2C_FIELD(arg0, s32 *, 0x444) = (s32) (M2C_FIELD(arg0, s32 *, 0x444) | 1);
-            TObjEneRecon__sub_8031EFAC((int) (temp_r3), (void *) (arg0));
+            remove_tracked_target__12TObjEneReconFPvPv((int) (temp_r3), (void *) (arg0));
             queue_destruction__7TObjectFv((void *) (arg0));
         }
     case 5:
@@ -1008,7 +1008,7 @@ void spawn_trap_b__12TObjEneReconFi(s32);
 void retarget__12TObjEneReconFPv(void *);
 f32 approach_value__12TObjEneReconFff(void *, f32, f32);
 void set_flag2__12TObjEneReconFPv(void *, f32, f32, f32);
-void TObjEneRecon__sub_8031DE88(void *, s32);
+void set_orbit_destination__12TObjEneReconFPvi(void *, s32);
 f32 sin_table_lookup(s32);
 extern const f64 TObjEneRecon__data_80476110;
 extern const f32 TObjEneRecon__data_805DF3C4;
@@ -1069,7 +1069,7 @@ void TObjEneRecon__sub_8031C920(u8 *arg0, s32 arg1) {
         if (update_death_check__14TObjEneEpsilonFPv(arg0) != 0 || ((VObj_18_2afebf *)(arg0))->m102(TObjEneRecon__data_805DF3E4) != 0) {
             switch (F(s32, 0x3C0)) {
             case 0:
-                TObjEneRecon__sub_8031DE88(arg0, F(s32, 0x3D0));
+                set_orbit_destination__12TObjEneReconFPvi(arg0, F(s32, 0x3D0));
                 update_velocity__9TObjEneDDFPv(arg0);
                 k = lbl_805DF3E8 * F(f32, 0x468);
                 r = F(Prm_8031C920 *, 0x350)->f4;
@@ -1087,7 +1087,7 @@ void TObjEneRecon__sub_8031C920(u8 *arg0, s32 arg1) {
                 F(s32, 0x3D0) += F(s32, 0x3D4) / 2;
                 F(s32, 0x46C) += F(s32, 0x3D4) / 2;
                 F(s32, 0x470) += F(s32, 0x3D4) / 2;
-                TObjEneRecon__sub_8031DE88(arg0, F(s32, 0x3D0));
+                set_orbit_destination__12TObjEneReconFPvi(arg0, F(s32, 0x3D0));
                 update_velocity__9TObjEneDDFPv(arg0);
                 r = F(Prm_8031C920 *, 0x350)->f4;
                 h = TObjEneRecon__data_805DF3C4;
@@ -1099,7 +1099,7 @@ void TObjEneRecon__sub_8031C920(u8 *arg0, s32 arg1) {
                 F(s32, 0x3D0) += F(s32, 0x3D4);
                 F(s32, 0x46C) += F(s32, 0x3D4);
                 F(s32, 0x470) += F(s32, 0x3D4);
-                TObjEneRecon__sub_8031DE88(arg0, F(s32, 0x3D0));
+                set_orbit_destination__12TObjEneReconFPvi(arg0, F(s32, 0x3D0));
                 update_velocity__9TObjEneDDFPv(arg0);
                 r = F(Prm_8031C920 *, 0x350)->f4;
                 h = lbl_805DF3F8 * sin_table_lookup(F(s32, 0x3D8));

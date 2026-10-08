@@ -30,7 +30,7 @@ void draw_model_motion(void *arg0, void *arg1, f32 farg0);
 M2C_UNK TObjPlayer__sub_803E4354();
 M2C_UNK end_chunk_draw__10TObjPlayerFv();
 void draw_chunk_vertices_cached__10TObjPlayerFPv();
-void TObjPlayer__sub_803E496C(s32 arg0, s32 arg1, s32 arg2);
+void draw_blend_motion_tree__10TObjPlayerFiii(s32 arg0, s32 arg1, s32 arg2);
 M2C_UNK bind_motion_blend_channels(void *);
 M2C_UNK select_motion_context(int);
 void draw_model_blend_motion(void *arg0, void *arg1, f32 farg0);
@@ -74,7 +74,7 @@ void set_global_state__10TObjPlayerFi(s32 arg0) {
 
 extern s32 lbl_805D7808;
 
-void TObjPlayer__sub_803E496C(s32 arg0, s32 arg1, s32 arg2) {
+void draw_blend_motion_tree__10TObjPlayerFiii(s32 arg0, s32 arg1, s32 arg2) {
     bind_motion_blend_channels((void *) (arg1));
     if ((s32) lbl_805D7808 != 0) {
         select_motion_context((int) (1));
@@ -109,7 +109,7 @@ s32 draw_object_tree_recursive(void *arg) {
 
 void draw_model_blend_motion(void *arg0, void *arg1, f32 farg0) {
     TObjPlayer__sub_803E4354();
-    ((M2C_UNK (*)(void *, void *, f32, void (*)()))TObjPlayer__sub_803E496C)(arg0, arg1, farg0, draw_chunk_vertices_cached__10TObjPlayerFPv);
+    ((M2C_UNK (*)(void *, void *, f32, void (*)()))draw_blend_motion_tree__10TObjPlayerFiii)(arg0, arg1, farg0, draw_chunk_vertices_cached__10TObjPlayerFPv);
     end_chunk_draw__10TObjPlayerFv();
 }
 

@@ -9,7 +9,7 @@ void TLockOnCursor__sub_8013EC1C(Obj_8013EC1C *self);
 extern const f32 TMainCursor__data_805DB0C0;
 void reset_target__11TMainCursorFi(void *p);
 void init__6gc_tagFv(void *p);
-void TLockOnCursor__sub_8013EC38(Obj_8013EC38 *self);
+void reset_state__13TLockOnCursorFPv(Obj_8013EC38 *self);
 }
 
 extern "C" {
@@ -39,7 +39,7 @@ void TLockOnCursor__sub_8013EC1C(Obj_8013EC1C *self) {
     self->b = 0;
     self->c = 0;
 }
-void TLockOnCursor__sub_8013EC38(Obj_8013EC38 *self) {
+void reset_state__13TLockOnCursorFPv(Obj_8013EC38 *self) {
     reset_target__11TMainCursorFi(self->fc);
     reset_target__11TMainCursorFi(self->f14);
     init__6gc_tagFv(self->f8);

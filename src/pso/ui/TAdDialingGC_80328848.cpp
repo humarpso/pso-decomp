@@ -9,7 +9,7 @@ struct Obj_80328874 { u8 pad[0x9C]; s32 state; };
 extern "C" {
 void update_dialing_display__12TAdDialingGCFv(int);
 void refresh_display__12TAdDialingGCFv(void *);
-void TAdDialingGC__sub_80328874(Obj_80328874 *arg0);
+void update_status_message__12TAdDialingGCFPv(Obj_80328874 *arg0);
 }
 
 extern "C" {
@@ -24,7 +24,7 @@ void update_dialing_display__12TAdDialingGCFv(int _w0) {
     TAdDialingGC__sub_8013ADBC();
     render_status_disp__23TAdSinglePlyChrSelectGCFPvff(TAdDialingGC__data_805DF6EC, lbl_805DF6F0);
 }
-void TAdDialingGC__sub_80328874(Obj_80328874 *arg0) {
+void update_status_message__12TAdDialingGCFPv(Obj_80328874 *arg0) {
     switch (arg0->state) {
     case 11:
         update_dialing_display__12TAdDialingGCFv((int)(0x11));

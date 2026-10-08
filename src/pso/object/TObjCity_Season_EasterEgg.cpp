@@ -33,7 +33,7 @@ extern const f32 lbl_805DBC78;
 extern const f32 lbl_805DBC7C;
 u8 *TObjCity_Season_EasterEgg__ct(u8 *arg0, s32 arg1, s32 arg2);
 u32 get_anim_frame__25TObjCity_Season_EasterEggFPv(void *);
-s32 TObjCity_Season_EasterEgg__sub_80184A08(Obj_80184A08 *arg0, s32 arg1, f32 farg0);
+s32 advance_anim_time__25TObjCity_Season_EasterEggFPvif(Obj_80184A08 *arg0, s32 arg1, f32 farg0);
 }
 
 extern "C" {
@@ -103,7 +103,7 @@ u8 *TObjCity_Season_EasterEgg__ct(u8 *arg0, s32 arg1, s32 arg2) {
     }
     return arg0;
 }
-s32 TObjCity_Season_EasterEgg__sub_80184A08(Obj_80184A08 *arg0, s32 arg1, f32 farg0) {
+s32 advance_anim_time__25TObjCity_Season_EasterEggFPvif(Obj_80184A08 *arg0, s32 arg1, f32 farg0) {
     Anim_80184A08 *a;
     f32 lim;
     a = (Anim_80184A08 *)get_anim_frame__25TObjCity_Season_EasterEggFPv(arg0);

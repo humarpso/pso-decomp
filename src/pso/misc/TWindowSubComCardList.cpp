@@ -57,7 +57,7 @@ void send_and_handle__6TLobbyFPvii(s32, s32, s32);
 extern s32 lbl_805D5544;
 void update_customize_help_text(Win_802758C8 *self, Ev_802758C8 *ev);
 s32 get_card_entry__17TWindowSubComCardFi(M2C_UNK);
-s32 TWindowSubComCard__sub_8007AFB8(void);
+s32 count_active_cards__17TWindowSubComCardFv(void);
 void *alloc__23TAdSinglePlyChrSelectGCFPv(u32);
 M2C_UNK set_flag70_bit10__16TObjCityMainWarpFPv(void *);
 M2C_UNK set_selected_index__17TWindowSubComCardFPvs(void *, M2C_UNK);
@@ -123,7 +123,7 @@ M2C_UNK draw_list_page_indicator(s32, s32);
 void __dl__7TObjectFPv(void *);
 void __dt__11TWindowMenuFv(void *, int);
 void delete_if_allocated(void *, int);
-M2C_UNK fn_802752D8(void *, s32);
+M2C_UNK draw_card_list_selection(void *, s32);
 M2C_UNK forward_render__20TWindowSubStatusDispFPv(s32, s32);
 s32 is_visible__17TWindowSubComCardFPv(void *);
 M2C_UNK render_selected_entry__17TWindowSubComCardFPvi(void *, s32);
@@ -137,7 +137,7 @@ void render__21TWindowSubComCardListFv(u8 *arg0) {
     draw_window_frame(arg0, temp_r3);
     draw_visible_window_entries(arg0, arg0 + 0x24, temp_r3);
     render_selected_entry__17TWindowSubComCardFPvi(arg0, temp_r3);
-    fn_802752D8(arg0, temp_r3);
+    draw_card_list_selection(arg0, temp_r3);
     if ((u32) M2C_FIELD(arg0, u32 *, 0x88) != 0U) {
         forward_render__20TWindowSubStatusDispFPv(M2C_FIELD(arg0, s32 *, 0x88), temp_r3);
     }
@@ -174,7 +174,7 @@ u8 *TWindowSubComCardList__ct(u8 *arg0, void *arg1) {
     TWindowMenu__ct(arg0, 7, 4, arg1);
     *(M2C_UNK **)(arg0 + 0x18) = __vt__21TWindowSubComCardList;
     *(s32 *)(arg0 + 0) = lbl_805D3A18;
-    n = round_away_from_zero__20TWindowSubStatusDispFf((f32)TWindowSubComCard__sub_8007AFB8() / lbl_805DD540);
+    n = round_away_from_zero__20TWindowSubStatusDispFf((f32)count_active_cards__17TWindowSubComCardFv() / lbl_805DD540);
     if (n <= 0) {
         n = 1;
     }

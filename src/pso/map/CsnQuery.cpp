@@ -191,7 +191,7 @@ void vsub(void *, void *, void *);
 extern M2C_UNK lbl_80500140[];
 extern M2C_UNK *lbl_805D4E78;
 extern s32 lbl_805D4E7C;
-s32 TObjPlayer__sub_800797DC(void *arg0, void *arg1, int arg2, Node_800797DC **list);
+s32 check_line_hits_walls__10TObjPlayerFPvPviPv(void *arg0, void *arg1, int arg2, Node_800797DC **list);
 void VecCopy__FP3VecPC3Vec(void *, void *);
 f32 vec3_dot(void *, void *);
 void vec3_cross(void *, void *, void *);
@@ -332,7 +332,7 @@ s32 query_segment_wall_meshes(void *arg0, void *arg1, u32 arg2, Node_8007970C **
     return lbl_805D4E78[0];
 }
 
-s32 TObjPlayer__sub_800797DC(void *arg0, void *arg1, int arg2, Node_800797DC **list) {
+s32 check_line_hits_walls__10TObjPlayerFPvPviPv(void *arg0, void *arg1, int arg2, Node_800797DC **list) {
     u8 dir[12];
     Mesh_800797DC *mesh;
     s32 i;
@@ -682,7 +682,7 @@ M2C_UNK *csnLookAt(s32 arg0, s32 arg1) {
     TObjPlayer__sub_80079124((void *)((void *) (arg0)), (void *)((void *) (arg1)));
     if (TObjPlayer__sub_80079DE0((void *) (arg0), (void *) (arg1)) == 0U) {
         var_r31 = (M2C_UNK *)((u8 *)(NULL));
-    } else if (TObjPlayer__sub_800797DC((void *)((void *) (arg0)), (void *)((void *) (arg1)), (int)((int) (0x8000)), (Node_800797DC **)((void *) (((M2C_UNK *)&lbl_804FFD40)))) == 0) {
+    } else if (check_line_hits_walls__10TObjPlayerFPvPviPv((void *)((void *) (arg0)), (void *)((void *) (arg1)), (int)((int) (0x8000)), (Node_800797DC **)((void *) (((M2C_UNK *)&lbl_804FFD40)))) == 0) {
         var_r31 = (M2C_UNK *)((u8 *)(NULL));
     }
     TObjPlayer__sub_80079118((M2C_UNK *)((void *) (lbl_804389C0)));

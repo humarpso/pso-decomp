@@ -110,7 +110,7 @@ void *TLobby__sub_8010440C(In_8010440C *arg0);
 extern void *lbl_8049EB58[];
 void create_common_weapon();
 void *get_weapon_factory_for_item(In_80104438 *arg0);
-void TLobby__sub_8010314C(Ent_80103F68 *);
+void init_floor_item_entry__6TLobbyFPv(Ent_80103F68 *);
 void clear_object_count__6TLobbyFv(void);
 extern u32 lbl_805D5418;
 extern s32 lbl_805D541C;
@@ -137,7 +137,7 @@ void reset_floor_items__6TLobbyFv(void) {
     s32 k;
     for (i = 0; i != 0xD80; i++) {
         if (*(Ent_80103F68 **)&lbl_805D5418 != NULL) {
-            TLobby__sub_8010314C(&(*(Ent_80103F68 **)&lbl_805D5418)[i]);
+            init_floor_item_entry__6TLobbyFPv(&(*(Ent_80103F68 **)&lbl_805D5418)[i]);
         }
     }
     for (j = 0; j < 0x12; j++) {

@@ -12,7 +12,7 @@ extern "C" {
 u8 *get_global_state__23TAdSinglePlyChrSelectGCFv();
 M2C_UNK set_mode__6TLobbyFi(int);
 M2C_UNK OSSetSoundMode(int);
-void TLobby__sub_802263A8(s32 arg0);
+void set_sound_output_mode__6TLobbyFi(s32 arg0);
 extern Ent_80226294 lbl_805145F0[];
 extern u32 lbl_805DC748;
 extern s32 lbl_805D62B0;
@@ -101,7 +101,7 @@ int TLobby__sub_80226328(void *) {
     return lbl_805D3708;
 }
 
-void TLobby__sub_802263A8(s32 arg0) {
+void set_sound_output_mode__6TLobbyFi(s32 arg0) {
     M2C_UNK var_r30;
     u8 *temp_r3;
     temp_r3 = get_global_state__23TAdSinglePlyChrSelectGCFv();

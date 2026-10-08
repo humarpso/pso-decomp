@@ -35,7 +35,7 @@ Vec_800D9ABC *alloc_buffer__11TOBoss4RockFPv(int);
 extern const f32 lbl_805DA3EC;
 extern const f32 lbl_805DA3F0;
 Trail_800D9ABC *init_trail_buffer__11TBoss4Type3FPvifff(Trail_800D9ABC *arg0, s32 segs, f32 start, f32 end, f32 step);
-void fn_800D97E8(void *, s32, M2C_UNK);
+void transform_motion_node_points(void *, s32, M2C_UNK);
 void bind_motion_context(s32, f32);
 void set_matrix_identity__10TObjPlayerFPv(M2C_UNK);
 void push_matrix(Vec_800D9994 *);
@@ -82,7 +82,7 @@ void draw_motion_trail__11TBoss4Type3FPviiii(Arg_800D9994 *arg0, s32 arg1, s32 a
         lbl_805D5238 = 0;
         set_matrix_identity__10TObjPlayerFPv(0);
         bind_motion_context(arg2, f);
-        fn_800D97E8(arg0, arg1, 0);
+        transform_motion_node_points(arg0, arg1, 0);
         f += arg0->step;
     }
     pop_matrix();

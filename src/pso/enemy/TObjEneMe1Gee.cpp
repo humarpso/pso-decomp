@@ -3451,7 +3451,7 @@ void TObjEneMe1Gee__sub_800CB60C(u8 *arg0);
 void update_photon_target__13TObjEneMe1GeeFPv(void *arg0);
 int TObjEneMe1Gee__vt107(void);
 void TObjEneMe1Gee__vt111(void *arg0);
-void TObjEneMe1Gee__sub_800CB69C(void*);
+void update_packed_color__13TObjEneMe1GeeFPv(void*);
 void destroy_subobj__13TObjEneMe1GeeFPv(void* p, void * _w1);
 void update_fade_sequence__13TObjEneMe1GeeFPv(u8 *arg0);
 void TObjEneMe1Gee__sub_800CB968(s32 arg0);
@@ -4681,7 +4681,7 @@ void TObjEneMe1Gee__vt108(u8 *arg0, s32 arg1) {
         M2C_FIELD(arg0, f32 *, 0x46C) = ((const f32 *)TObjEneMe1Gee__data_8043BDB0)[1];
         M2C_FIELD(arg0, f32 *, 0x470) = ((const f32 *)TObjEneMe1Gee__data_8043BDB0)[2];
         M2C_FIELD(arg0, f32 *, 0x474) = ((const f32 *)TObjEneMe1Gee__data_8043BDB0)[3];
-        TObjEneMe1Gee__sub_800CB69C(arg0);
+        update_packed_color__13TObjEneMe1GeeFPv(arg0);
         M2C_FIELD(arg0, s32 *, 0x434) = 0;
         return;
     case 3:
@@ -5036,7 +5036,7 @@ struct C_800CB69C { u8 pad[0x468]; f32 b, g, r, a; u32 rgba; };
 extern const f32 lbl_805DA12C;
 #pragma push
 #pragma opt_common_subs off
-void TObjEneMe1Gee__sub_800CB69C(void *p) {
+void update_packed_color__13TObjEneMe1GeeFPv(void *p) {
     C_800CB69C *o = (C_800CB69C *)p;
     u8 r = (u32)(lbl_805DA12C * o->r);
     u8 a = (u32)(lbl_805DA0D0 * (lbl_805DA12C * o->a));
@@ -5047,7 +5047,7 @@ void TObjEneMe1Gee__sub_800CB69C(void *p) {
 #pragma pop
 }
 
-void destroy_subobj__13TObjEneMe1GeeFPv(void* p, void * _w1) { copy_vec4__13TRaderMapCoreFPvPv((void *)((char*)p + 0x468), (void *)(_w1)); TObjEneMe1Gee__sub_800CB69C(p); }
+void destroy_subobj__13TObjEneMe1GeeFPv(void* p, void * _w1) { copy_vec4__13TRaderMapCoreFPvPv((void *)((char*)p + 0x468), (void *)(_w1)); update_packed_color__13TObjEneMe1GeeFPv(p); }
 
 void TObjEneMe1Gee__sub_800CB764(u8 *arg0, s32 arg1) {
     ((s32 (*)(void *, void *))destroy_subobj__13TObjEneMe1GeeFPv)((void *) (arg0), (void *) (&lbl_8043BDD0.value));
@@ -5068,7 +5068,7 @@ void update_fade_sequence__13TObjEneMe1GeeFPv(u8 *arg0) {
             M2C_FIELD(arg0, f32 *, 0x468) = TObjEneMe1Gee__data_805DA0B4;
             M2C_FIELD(arg0, s32 *, 0x47C) = 0;
         }
-        ((void (*)(void *))TObjEneMe1Gee__sub_800CB69C)(arg0);
+        ((void (*)(void *))update_packed_color__13TObjEneMe1GeeFPv)(arg0);
         break;
     case 2:
         if (M2C_FIELD(arg0, f32 *, 0x468) < TObjEneMe1Gee__data_805DA0EC) {
@@ -5077,7 +5077,7 @@ void update_fade_sequence__13TObjEneMe1GeeFPv(u8 *arg0) {
             M2C_FIELD(arg0, f32 *, 0x468) = TObjEneMe1Gee__data_805DA0EC;
             M2C_FIELD(arg0, s32 *, 0x47C) = 0;
         }
-        ((void (*)(void *))TObjEneMe1Gee__sub_800CB69C)(arg0);
+        ((void (*)(void *))update_packed_color__13TObjEneMe1GeeFPv)(arg0);
         break;
     case 3:
         M2C_FIELD(arg0, s32 *, 0x484)++;
@@ -5095,7 +5095,7 @@ void update_fade_sequence__13TObjEneMe1GeeFPv(u8 *arg0) {
                 M2C_FIELD(arg0, f32 *, 0x468) = TObjEneMe1Gee__data_805DA0EC;
                 break;
             }
-            ((void (*)(void *))TObjEneMe1Gee__sub_800CB69C)(arg0);
+            ((void (*)(void *))update_packed_color__13TObjEneMe1GeeFPv)(arg0);
         }
         break;
     }

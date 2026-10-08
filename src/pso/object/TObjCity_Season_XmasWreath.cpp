@@ -36,7 +36,7 @@ void *TObjCity_Season_XmasWreath__create(void *arg0);
 void *dt__26TObjCity_Season_XmasWreathFPvs(void *arg0, s16 arg1);
 void render_debug__26TObjCity_Season_XmasWreathFPv(u8 *arg0);
 M2C_UNK post_translate_matrix(void *);
-M2C_UNK TObjCity_Season_EasterEgg__sub_80184A08(M2C_UNK, M2C_UNK, f32);
+M2C_UNK advance_anim_time__25TObjCity_Season_EasterEggFPvif(M2C_UNK, M2C_UNK, f32);
 M2C_UNK draw_model_motion(s32, s32, f32);
 M2C_UNK draw_chunk_object(s32);
 M2C_UNK rotate_matrix_y(M2C_UNK, s32);
@@ -104,7 +104,7 @@ void render_debug__26TObjCity_Season_XmasWreathFPv(u8 *arg0) {
 extern const f32 lbl_805DBC70;
 
 void TObjCity_Season_XmasTree__sub_801843E0(M2C_UNK arg0) {
-    TObjCity_Season_EasterEgg__sub_80184A08(arg0, 1, lbl_805DBC70);
+    advance_anim_time__25TObjCity_Season_EasterEggFPvif(arg0, 1, lbl_805DBC70);
 }
 
 }

@@ -116,9 +116,9 @@ void TJudgmentSequence__sub_80215BCC(void *arg0);
 void TJudgmentSequence__sub_80215BA0(void *arg0);
 void TJudgmentSequence__sub_80215BF8(void *arg0);
 extern void *tl_05;
-void TJudgmentSequence__sub_80215CB8(Seq_80215CB8 *self);
+void open_judgment_window__17TJudgmentSequenceFPv(Seq_80215CB8 *self);
 void setup_counter_camera__17TJudgmentSequenceFPv(u8 *arg0);
-void TJudgmentSequence__sub_80215CB8(Seq_80215CB8 *self);
+void open_judgment_window__17TJudgmentSequenceFPv(Seq_80215CB8 *self);
 void handle_close_input__17TJudgmentSequenceFPv(void *arg0);
 void handle_confirm__17TJudgmentSequenceFPv(void *arg0);
 void TJudgmentSequence__vt9(void *arg0);
@@ -164,7 +164,7 @@ void handle_close_input__17TJudgmentSequenceFPv(void *arg0) {
     }
 }
 
-void TJudgmentSequence__sub_80215CB8(Seq_80215CB8 *self) {
+void open_judgment_window__17TJudgmentSequenceFPv(Seq_80215CB8 *self) {
     Win_80215CB8 *o = (Win_80215CB8 *)__nw__7TObjectFUl(0x178);
     if (o != 0) {
         o = (Win_80215CB8 *)TShopJudgmentItemWindow__ct(o, (s32)tl_05, self, self->f24);
@@ -215,7 +215,7 @@ void TJudgmentSequence__vt9(void *arg0) {
         handle_confirm__17TJudgmentSequenceFPv(arg0);
         break;
     case 3:
-        TJudgmentSequence__sub_80215CB8((Seq_80215CB8 *)arg0);
+        open_judgment_window__17TJudgmentSequenceFPv((Seq_80215CB8 *)arg0);
         break;
     case 4:
         handle_close_input__17TJudgmentSequenceFPv(arg0);

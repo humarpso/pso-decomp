@@ -21,12 +21,12 @@ extern s32 lbl_805D5234;
 extern s32 lbl_805D5238;
 extern s32 *lbl_805D523C;
 extern Vec_800D97E8 *lbl_805D5240;
-s32 fn_800D97E8(s32 arg0, Node_800D97E8 *node, s32 idx);
+s32 transform_motion_node_points(s32 arg0, Node_800D97E8 *node, s32 idx);
 }
 
 extern "C" {
 
-s32 fn_800D97E8(s32 arg0, Node_800D97E8 *node, s32 idx) {
+s32 transform_motion_node_points(s32 arg0, Node_800D97E8 *node, s32 idx) {
     u32 flags;
     do {
         push_matrix();
@@ -43,7 +43,7 @@ s32 fn_800D97E8(s32 arg0, Node_800D97E8 *node, s32 idx) {
         }
         idx++;
         if (!(flags & 0x10)) {
-            idx = fn_800D97E8(arg0, node->child, idx);
+            idx = transform_motion_node_points(arg0, node->child, idx);
         }
         pop_matrix();
         node = node->next;

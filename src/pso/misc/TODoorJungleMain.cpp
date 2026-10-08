@@ -46,12 +46,12 @@ s32 get_current_floor(void);
 s32 get_field_3e4__10TObjPlayerFPv(void *);
 u8 *get_player_by_client_id(s32);
 extern const f32 lbl_805DDCD0;
-s32 fn_8029B214(s32 arg0);
+s32 is_any_player_near(s32 arg0);
 }
 
 extern "C" {
 
-s32 fn_8029B214(s32 arg0) {
+s32 is_any_player_near(s32 arg0) {
   f32 temp_f31;
   s32 temp_r31;
   s32 var_r29;
@@ -387,7 +387,7 @@ void TODoorJungleMain__vt12(Door_8029B524 *self) {
         if (self->count > 0 && self->count != prev) {
             play_sound_effect(0x4C123, self->xf, 0, 0);
         }
-        if (self->count == 3 && fn_8029B214((s32)self) != 0) {
+        if (self->count == 3 && is_any_player_near((s32)self) != 0) {
             self->flags |= 1;
         } else {
             self->flags &= ~1;

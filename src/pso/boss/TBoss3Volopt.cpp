@@ -300,7 +300,7 @@ void send_position_message__12TBoss3VoloptFPvPvi(void *obj, V3_8003CC18 *pos, s3
 void handle_6x16_vol_opt_boss_actions(void *arg0);
 void fn_8003CFEC(int a0);
 int TCameraCtrl__sub_8003CFF4(void);
-void TCameraCtrl__sub_8003CFFC(s32 n);
+void set_player_targets__11TCameraCtrlFi(s32 n);
 int TCameraCtrl__sub_8003D1E8(void * _w0);
 s32 is_photon_blast_active__11TCameraCtrlFv(void);
 s32 is_photon_ready__11TCameraCtrlFv(void);
@@ -495,7 +495,7 @@ void handle_6x84_vol_opt_boss_actions(void *arg0) {
     bswap_actions__12TBoss3VoloptFPv(arg0);
     move_data__6TLobbyFv(lbl_804FEE74, (void *)((char *)arg0 + 4), 6);
     lbl_805D4C44 = M2C_FIELD(arg0, s16 *, 0xC);
-    ((void (*)(int))TCameraCtrl__sub_8003CFFC)(M2C_FIELD(arg0, s16 *, 0xA));
+    ((void (*)(int))set_player_targets__11TCameraCtrlFi)(M2C_FIELD(arg0, s16 *, 0xA));
 }
 
 void update_phase__12TBoss3VoloptFv(void) {
@@ -552,7 +552,7 @@ void send_position_message__12TBoss3VoloptFPvPvi(void *obj, V3_8003CC18 *pos, s3
 void handle_6x16_vol_opt_boss_actions(void *arg0) {
     swap_6x16_fields__12TBoss3VoloptFPv(arg0);
     move_data__6TLobbyFv(lbl_804FEE74, (void *)((char *)arg0 + 4), 6);
-    ((void (*)(int))TCameraCtrl__sub_8003CFFC)(M2C_FIELD(arg0, s16 *, 0xA));
+    ((void (*)(int))set_player_targets__11TCameraCtrlFi)(M2C_FIELD(arg0, s16 *, 0xA));
     lbl_805D4C44 = -1;
 }
 
@@ -652,7 +652,7 @@ void fn_8003CFEC(int a0) { lbl_805D4C20 = a0; }
 
 int TCameraCtrl__sub_8003CFF4(void) {  return lbl_805D4C20; }
 
-void TCameraCtrl__sub_8003CFFC(s32 n) {
+void set_player_targets__11TCameraCtrlFi(s32 n) {
   s32 i;
   void *p;
   if (n == 0)

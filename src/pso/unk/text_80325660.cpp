@@ -11,12 +11,12 @@ void draw_textured_quad_at_depth(void *, f32);
 void set_draw_texture_and_color(int, u32);
 extern s32 lbl_805D6C58;
 extern const f32 lbl_805DF600;
-void fn_80325660(Obj_80325660 *arg0);
+void draw_move_plate_quads(Obj_80325660 *arg0);
 }
 
 extern "C" {
 
-void fn_80325660(Obj_80325660 *arg0) {
+void draw_move_plate_quads(Obj_80325660 *arg0) {
     u32 i;
     for (i = 0; i < arg0->count; i++) {
         begin_screen_draw(1);

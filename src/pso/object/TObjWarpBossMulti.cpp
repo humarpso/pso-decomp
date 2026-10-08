@@ -213,7 +213,7 @@ void *find_entity_by_id(u16);
 M2C_UNK end_player_keyboard_hold(s32);
 M2C_UNK unsuppress_slot__11TWindowCtrlFi(s32);
 M2C_UNK suppress_slot__11TWindowCtrlFi(s32);
-M2C_UNK TWindowSubTradeMain__sub_80187CCC();
+M2C_UNK bswap_6x6A_packet__19TWindowSubTradeMainFPv();
 M2C_UNK TWindow__close(void *);
 M2C_UNK clear_flag__11TWindowCtrlFv();
 M2C_UNK close__17TWindowSubComCardFPv(void *);
@@ -255,7 +255,7 @@ s32 are_all_players_in_range__17TObjWarpBossMultiFPv(Wb_8019E4E8 *arg0);
 s32 TObjWarpBossMulti__sub_8019E570(s32 arg0, f32 farg0);
 void close_windows__17TObjWarpBossMultiFPv(void *arg0);
 void handle_6x6A_set_boss_warp_flags(void *arg0);
-void TObjWarpBossMulti__sub_8019E6C0(Obj_8019E6C0 *self, u16 value);
+void send_cmd_6A__17TObjWarpBossMultiFPvUs(Obj_8019E6C0 *self, u16 value);
 void notify_player__17TObjWarpBossMultiFPvi(void *arg0, s32 arg1);
 void warp_player__17TObjWarpBossMultiFPvi(void *arg0, s32 arg1);
 s32 TLobby__sub_800C6C10();
@@ -544,14 +544,14 @@ void close_windows__17TObjWarpBossMultiFPv(void *arg0) {
 void handle_6x6A_set_boss_warp_flags(void *arg0) {
     void *temp_r3;
 
-    TWindowSubTradeMain__sub_80187CCC();
+    bswap_6x6A_packet__19TWindowSubTradeMainFPv();
     temp_r3 = find_entity_by_id(M2C_FIELD(arg0, u16 *, 2));
     if (temp_r3 != NULL) {
         M2C_FIELD(temp_r3, s16 *, 0xDC) = (s16) M2C_FIELD(arg0, s16 *, 4);
     }
 }
 
-void TObjWarpBossMulti__sub_8019E6C0(Obj_8019E6C0 *self, u16 value) {
+void send_cmd_6A__17TObjWarpBossMultiFPvUs(Obj_8019E6C0 *self, u16 value) {
     Pkt_8019E6C0 pkt;
     init_pkt_cmd_6A__19TWindowSubTradeMainFPv(&pkt);
     pkt.id = self->id;
@@ -717,7 +717,7 @@ void update_warp_state__17TObjWarpBossMultiFPv(u8 *arg0) {
                 var_r3 = ((s32 (*)(void *))are_all_players_in_range__17TObjWarpBossMultiFPv)(arg0);
             }
             if (var_r3 != 0) {
-                ((M2C_UNK (*)(void *, M2C_UNK))TObjWarpBossMulti__sub_8019E6C0)(arg0, 2);
+                ((M2C_UNK (*)(void *, M2C_UNK))send_cmd_6A__17TObjWarpBossMultiFPvUs)(arg0, 2);
                 M2C_FIELD(arg0, s16 *, 0xE0) = 2;
             }
         }
@@ -770,7 +770,7 @@ void TObjWarpBossMulti__sub_8019EB94(void *arg0_) {
                 if (r == 0) {
                     warp_player__17TObjWarpBossMultiFPvi(arg0, lbl_805D53A0);
                     M2C_FIELD(arg0, s32 *, 0x170) = 1;
-                    TObjWarpBossMulti__sub_8019E6C0((Obj_8019E6C0 *) arg0, 1);
+                    send_cmd_6A__17TObjWarpBossMultiFPvUs((Obj_8019E6C0 *) arg0, 1);
                     M2C_FIELD(arg0, s16 *, 0xE0) = 5;
                 } else if (r == 1) {
                     M2C_FIELD(arg0, s16 *, 0xE0) = 3;
@@ -781,7 +781,7 @@ void TObjWarpBossMulti__sub_8019EB94(void *arg0_) {
             M2C_FIELD(arg0, s16 *, 0xE0) = 3;
         }
         if (get_warp_state__19TWindowSubTradeMainFv() != 0 && get_main_phase() == 0xF && TLobby__sub_800C6C10() != 0 && are_all_players_in_range__17TObjWarpBossMultiFPv((Wb_8019E4E8 *) arg0) != 0) {
-            TObjWarpBossMulti__sub_8019E6C0((Obj_8019E6C0 *) arg0, 2);
+            send_cmd_6A__17TObjWarpBossMultiFPvUs((Obj_8019E6C0 *) arg0, 2);
             M2C_FIELD(arg0, s16 *, 0xE0) = 5;
         }
         if (M2C_FIELD(arg0, s16 *, 0xE0) != 2) {
@@ -798,7 +798,7 @@ void TObjWarpBossMulti__sub_8019EB94(void *arg0_) {
             break;
         }
         if (get_warp_state__19TWindowSubTradeMainFv() != 0 && get_main_phase() == 0xF && TLobby__sub_800C6C10() != 0 && are_all_players_in_range__17TObjWarpBossMultiFPv((Wb_8019E4E8 *) arg0) != 0) {
-            TObjWarpBossMulti__sub_8019E6C0((Obj_8019E6C0 *) arg0, 2);
+            send_cmd_6A__17TObjWarpBossMultiFPvUs((Obj_8019E6C0 *) arg0, 2);
             M2C_FIELD(arg0, s16 *, 0xE0) = 5;
         }
         break;

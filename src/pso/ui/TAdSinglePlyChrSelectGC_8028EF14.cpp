@@ -67,7 +67,7 @@ extern Slot_8028F150 lbl_8051D288[];
 s32 TAdSinglePlyChrSelectGC__sub_8028F210();
 void TCharaMaking__sub_8028E3A0();
 s32 find_shape_triangle_region(u8 *arg0);
-void TAdSinglePlyChrSelectGC__sub_8028FAEC(void *arg0, s32 *arg1);
+void get_sorted_region_samples__23TAdSinglePlyChrSelectGCFPvPv(void *arg0, s32 *arg1);
 void TAdSinglePlyChrSelectGC__sub_80290884(void* p, void* q);
 extern u8 lbl_80451CD0[];
 extern Pair_802907E4 lbl_80540888[];
@@ -1253,7 +1253,7 @@ s32 clear_creation_shape_eval_masks(f32 *dst, const f32 *a, const f32 *b, const 
 }
 #pragma pop
 
-void TAdSinglePlyChrSelectGC__sub_8028FAEC(void *arg0, s32 *arg1) {
+void get_sorted_region_samples__23TAdSinglePlyChrSelectGCFPvPv(void *arg0, s32 *arg1) {
     s32 j;
     s32 y;
     s32 x;
@@ -1490,7 +1490,7 @@ struct Sel_802902CC {
     s32 e[3];
 };
 
-void TAdSinglePlyChrSelectGC__sub_802902CC(Sel_802902CC *arg0) {
+void reset_creation_parts__23TAdSinglePlyChrSelectGCFPv(Sel_802902CC *arg0) {
     s32 i;
     reset_creation_head_shapes();
     reset_creation_body_shapes();

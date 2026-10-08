@@ -18,7 +18,7 @@ int read_be16_field2__10TObjPlayerFPv(void*);
 int bswap_pkt_u32x2__10TObjPlayerFPv(void*);
 int TObjPlayer__sub_801BEE34(void*);
 int TFontSmallLobby__sub_801C01BC(void*);
-int TObjPlayer__sub_801C0768(void*);
+int byteswap_packet_body__10TObjPlayerFPv(void*);
 int TLobby__send_and_handle_60(void*);
 void set_code_13_3__10TObjPlayerFPv(void* p);
 void set_code_14_1__10TObjPlayerFPv(void* p);

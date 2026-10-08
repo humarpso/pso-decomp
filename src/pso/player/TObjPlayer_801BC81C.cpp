@@ -12,7 +12,7 @@ void init_battle__10TObjPlayerFi(s32 arg0);
 s32 is_locally_controlled__10TObjPlayerFPv(void *);
 int sync_current_floor__10TObjPlayerFPv(void*);
 int sync_current_area__10TObjPlayerFPv(void*);
-void TObjPlayer__sub_801B1A84(void *);
+void for_each_player_slot__10TObjPlayerFv(void *);
 M2C_UNK TObjPlayer__sub_801BC8F0();
 void TObjPlayer__sub_801BCA0C(void);
 void TObjPlayer__sub_801BCA10(void);
@@ -67,7 +67,7 @@ void reset_area_entry_state__10TObjPlayerFPv(void *arg0) {
     enter_battle_state__10TObjPlayerFPv((void *)((char *)arg0 + 1588));
     x = is_locally_controlled__10TObjPlayerFPv(arg0);
     if (x != 0) {
-        TObjPlayer__sub_801B1A84(update_photon_chair__10TObjPlayerFi);
+        for_each_player_slot__10TObjPlayerFv(update_photon_chair__10TObjPlayerFi);
     }
 }
 

@@ -657,7 +657,7 @@ s32 set_field_378__9TObjEneDDFPvi(void *, int);
 s32 transition_enemy_state(void *, int);
 s32 lookup_entry_by_value__10TObjPlayerFPvf(int, f32);
 M2C_UNK play_hit_effect__16TObjEneMe3StelthFi(void *);
-s32 TObjEneMe3Stelth__sub_800F4CC8(void *, int, f32);
+s32 test_body_collision__16TObjEneMe3StelthFPvif(void *, int, f32);
 s32 approach_angle_limited(int, int, int);
 s32 objInBand__FP7GameObjf(void *, f32);
 s32 advance_animation_playback(void *);
@@ -895,7 +895,7 @@ void TObjEneMe3Stelth__sub_800F348C(u8 *arg0, s32 arg1) {
                 update_velocity__9TObjEneDDFPv(arg0);
             }
             if (F(f32, 0xC0) + F(f32, 0xC8) >= lbl_805DA86C) {
-                if (TObjEneMe3Stelth__sub_800F4CC8(arg0, F(s32, 0x60), F(f32, 0x3AC) - TObjEneMe3Stelth__data_805DA844) != 0) {
+                if (test_body_collision__16TObjEneMe3StelthFPvif(arg0, F(s32, 0x60), F(f32, 0x3AC) - TObjEneMe3Stelth__data_805DA844) != 0) {
                     F(s32, 0x424) = 5;
                 } else {
                     t = F(f32, 0x3AC) - TObjEneMe3Stelth__data_805DA844;

@@ -17,7 +17,7 @@ extern "C" {
 
 s32 save_snapshot__15TObjBoss2TunnelFv(void);
 s32 probe_card_slot__15TAdPlayerLoadGCFi(M2C_UNK);
-s32 TObjBoss2Tunnel__sub_8007CB50();
+s32 verify_snapshot_checksum__15TObjBoss2TunnelFv();
 s32 load_snapshot__15TObjBoss2TunnelFv();
 
 M2C_UNK save_screen_snapshot();
@@ -39,7 +39,7 @@ loop_4:
             return -5;
         }
         if (load_snapshot__15TObjBoss2TunnelFv() != 0) {
-            if (TObjBoss2Tunnel__sub_8007CB50() == 0) {
+            if (verify_snapshot_checksum__15TObjBoss2TunnelFv() == 0) {
                 TObjBoss2Tunnel__data_805D4E94 = 1;
                 return -9;
             }

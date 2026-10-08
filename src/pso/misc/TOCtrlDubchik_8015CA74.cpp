@@ -279,7 +279,7 @@ extern const f32 TOCtrlDubchik__data_805DB3AC;
 extern const f32 TOCtrlDubchik__data_805DB3B0;
 extern const f32 TOCtrlDubchik__data_805DB3B4;
 extern const f32 TOCtrlDubchik__data_805DB3B8;
-void TOCtrlDubchik__sub_8015CDCC(u8 *arg0);
+void update_bobbing__13TOCtrlDubchikFPv(u8 *arg0);
 void set_indexed_flags(void *, s32, s32);
 extern const f32 TOCtrlDubchik__data_805DB3A8;
 extern const f32 TOCtrlDubchik__data_805DB3B0;
@@ -308,7 +308,7 @@ void TOCtrlDubchik__sub_8015CBDC(u8 *arg0);
 void TOCtrlDubchik__sub_8015CC30(u8 *arg0);
 void update_spin__13TOCtrlDubchikFPv(u8 *arg0);
 void TOCtrlDubchik__sub_8015CCF4(u8 *arg0);
-void TOCtrlDubchik__sub_8015CDCC(u8 *arg0);
+void update_bobbing__13TOCtrlDubchikFPv(u8 *arg0);
 void TOCtrlDubchik__sub_8015CE80(u8 *arg0);
 void submit_cursor_candidate(void *, s32);
 void run_task__13TOCtrlDubchikFv(u8 *arg0);
@@ -445,7 +445,7 @@ void TOCtrlDubchik__sub_8015CCF4(u8 *arg0) {
 
 #pragma push
 #pragma opt_common_subs off
-void TOCtrlDubchik__sub_8015CDCC(u8 *arg0) {
+void update_bobbing__13TOCtrlDubchikFPv(u8 *arg0) {
     f32 temp_f1;
     s32 temp_r4;
     temp_r4 = M2C_FIELD(arg0, s32 *, 0x380);
@@ -494,7 +494,7 @@ void run_task__13TOCtrlDubchikFv(u8 *arg0) {
         TOCtrlDubchik__sub_8015CE80(arg0);
         break;
     case 1:
-        TOCtrlDubchik__sub_8015CDCC(arg0);
+        update_bobbing__13TOCtrlDubchikFPv(arg0);
         break;
     case 2:
         TOCtrlDubchik__sub_8015CCF4(arg0);

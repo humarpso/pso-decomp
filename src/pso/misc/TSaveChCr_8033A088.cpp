@@ -44,7 +44,7 @@ void *__ct__9TAdBackGCFv(void *, void *);
 void *__ct__12TAdBackTxtGCFv(void *, void *);
 void __ct__7TObjectFP7TObject(void *, void *);
 s32 poll_memcard_status(void *);
-void TSaveChCr__sub_8033A0D0(void *arg0);
+void create_backgrounds__9TSaveChCrFPv(void *arg0);
 extern RecoveredGlobal_8033A34C___vt__9TSaveChCr __vt__9TSaveChCr;
 extern s32 lbl_805D4280;
 u8 *TSaveChCr__ct(u8 *arg0, u8 *arg1, s32 arg2);
@@ -69,7 +69,7 @@ void close_window__9TSaveChCrFPv(void *arg0) {
     }
 }
 
-void TSaveChCr__sub_8033A0D0(void *arg0) {
+void create_backgrounds__9TSaveChCrFPv(void *arg0) {
     void *o;
     void *o2;
     o = __nw__7TObjectFUl(0x24);
@@ -156,7 +156,7 @@ u8 *TSaveChCr__ct(u8 *arg0, u8 *arg1, s32 arg2) {
     M2C_FIELD(arg0, s32 *, 0x2C) = poll_memcard_status(arg0);
     M2C_FIELD(arg0, s32 *, 0x3C) = 0;
     M2C_FIELD(arg0, s32 *, 0x38) = 0;
-    TSaveChCr__sub_8033A0D0(arg0);
+    create_backgrounds__9TSaveChCrFPv(arg0);
     set_state__9TSaveChCrFPvi((u8 *)(arg0), (s32)(0));
     return arg0;
 }

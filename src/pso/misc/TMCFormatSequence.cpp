@@ -10,8 +10,8 @@ typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
 typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 #define M2C_BITWISE(type, expr) ((type)(expr))
 extern "C" {
-M2C_UNK TMCFormatSequence__sub_801F65C4();
-M2C_UNK TMCFormatSequence__sub_801F6640();
+M2C_UNK wait_confirm_and_finish__17TMCFormatSequenceFPv();
+M2C_UNK update_wait_confirm__17TMCFormatSequenceFPv();
 M2C_UNK check_memcard_load_result__17TMCFormatSequenceFPv();
 M2C_UNK process_format_result__17TMCFormatSequenceFPv();
 M2C_UNK open_windows__17TMCFormatSequenceFPv();
@@ -42,10 +42,10 @@ void run_task__17TMCFormatSequenceFv(u8 *arg0) {
         check_memcard_load_result__17TMCFormatSequenceFPv();
         return;
     case 3:
-        TMCFormatSequence__sub_801F65C4();
+        wait_confirm_and_finish__17TMCFormatSequenceFPv();
         return;
     case 4:
-        TMCFormatSequence__sub_801F6640();
+        update_wait_confirm__17TMCFormatSequenceFPv();
         return;
     }
 }

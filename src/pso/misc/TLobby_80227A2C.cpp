@@ -112,7 +112,7 @@ extern M2C_UNK lbl_8044C960[];
 void load_floor_sound_bank(s32 arg0);
 void TLobby__sub_80228A74(O_80228A74 *self, const char *src);
 void clear_work_buffer(u8 *arg0);
-void TLobby__sub_80228990(O_80228A74 *self, char *s);
+void parse_csv_line__6TLobbyFPvPv(O_80228A74 *self, char *s);
 }
 
 extern "C" {
@@ -386,7 +386,7 @@ void tokenize_args__6TLobbyFPvPv(O_80228A74 *self, char *s) {
     }
 }
 
-void TLobby__sub_80228990(O_80228A74 *self, char *s) {
+void parse_csv_line__6TLobbyFPvPv(O_80228A74 *self, char *s) {
     char *start;
     s32 quoted;
     clear_work_buffer((u8 *)self);

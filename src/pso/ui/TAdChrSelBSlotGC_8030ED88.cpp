@@ -45,7 +45,7 @@ u32 TAdChrSelASlotGC__sub_8030CB08(M2C_UNK, M2C_UNK, M2C_UNK);
 M2C_UNK TAdChrSelMovePlateGC__sub_8032572C(s32);
 M2C_UNK TAdChrSelSlotGC__sub_802C7498(s32, M2C_UNK);
 u32 create_draw_line_ctrl__13TAdMcSelectGCFiif(void *, M2C_UNK, f32);
-M2C_UNK TAdMcSelectGC__sub_802C7560(s32, M2C_UNK, M2C_UNK *);
+M2C_UNK init_slot__13TAdMcSelectGCFPviPv(s32, M2C_UNK, M2C_UNK *);
 s32 TAdPlayerLoadGC__sub_801E0CE0(M2C_UNK);
 s32 TAdPlayerLoadGC__sub_801E1B50(M2C_UNK);
 s32 TAdPlayerLoadGC__sub_801E24F8(M2C_UNK, M2C_UNK, M2C_UNK, M2C_UNK, M2C_UNK);
@@ -431,7 +431,7 @@ void reset_windows__16TAdChrSelBSlotGCFPv(void *arg0) {
     }
     TAdPlyChrSelPlateGC__sub_802C4D88(M2C_FIELD(arg0, s32 *, 0x2C));
     TAdSubPlyItemGC__sub_802D6D88(M2C_FIELD(arg0, s32 *, 0x30));
-    TAdMcSelectGC__sub_802C7560(M2C_FIELD(arg0, s32 *, 0x28), 1, lbl_80475910);
+    init_slot__13TAdMcSelectGCFPviPv(M2C_FIELD(arg0, s32 *, 0x28), 1, lbl_80475910);
     M2C_FIELD(arg0, u32 *, 0x38) = create_draw_line_ctrl__13TAdMcSelectGCFiif(arg0, 0xE, lbl_805DF220);
     M2C_FIELD(arg0, u32 *, 0x3C) = create_draw_line_ctrl__13TAdMcSelectGCFiif(arg0, 0x15, lbl_805DF220);
     M2C_FIELD(arg0, s32 *, 0x24) = -1;

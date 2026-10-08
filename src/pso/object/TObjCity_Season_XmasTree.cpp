@@ -39,7 +39,7 @@ void *TObjCity_Season_XmasTree__create(void *arg0);
 void *dt__24TObjCity_Season_XmasTreeFPvs(void *arg0, s16 arg1);
 void render_tree__24TObjCity_Season_XmasTreeFPv(u8 *arg0);
 M2C_UNK post_translate_matrix(void *);
-M2C_UNK TObjCity_Season_EasterEgg__sub_80184A08(M2C_UNK, M2C_UNK, f32);
+M2C_UNK advance_anim_time__25TObjCity_Season_EasterEggFPvif(M2C_UNK, M2C_UNK, f32);
 M2C_UNK draw_model_motion(s32, s32, f32);
 M2C_UNK rotate_matrix_y(M2C_UNK, s32);
 M2C_UNK push_matrix();
@@ -112,7 +112,7 @@ void render_tree__24TObjCity_Season_XmasTreeFPv(u8 *arg0) {
 extern const f32 lbl_805DBC70;
 
 void TObjCity_Season_ValentineHeart__sub_801845F8(M2C_UNK arg0) {
-    TObjCity_Season_EasterEgg__sub_80184A08(arg0, 1, lbl_805DBC70);
+    advance_anim_time__25TObjCity_Season_EasterEggFPvif(arg0, 1, lbl_805DBC70);
 }
 
 }

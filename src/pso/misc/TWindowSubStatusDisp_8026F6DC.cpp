@@ -113,7 +113,7 @@ s32 update_hp_gauge__20TWindowSubStatusDispFi(s32 arg0);
 s32 update_hp_entry__20TWindowSubStatusDispFPv(u8 *arg0);
 void update_hp_tp_level__20TWindowSubStatusDispFPv(u8 *arg0);
 void update_for_player_index__13TWindowLockOnFPvi(u8 *arg0, s32 arg1);
-void fn_80270014(u8 *arg0);
+void update_lockon_window(u8 *arg0);
 M2C_UNK update_photon_blast_player_marker(s32 arg0, s32 arg1);
 M2C_UNK draw_photon_blast_gauge_ring(u8 *, u8 *, void *, f32, f32);
 s32 rand(void);
@@ -319,7 +319,7 @@ void update_status_icons__14TWindowComCardFPvPv(Disp_8026F9F4 *arg0, void *arg1)
 
 #pragma push
 #pragma fp_contract on
-void fn_8026FDC0(u8 *arg0) {
+void apply_random_shake(u8 *arg0) {
     s32 ang;
     f32 dist;
 
@@ -379,7 +379,7 @@ void update_for_player_index__13TWindowLockOnFPvi(u8 *arg0, s32 arg1) {
     M2C_FIELD(arg0, s32 *, 0x24) = (s32) M2C_FIELD(temp_r29, s32 *, 0x18);
 }
 
-void fn_80270014(u8 *arg0) {
+void update_lockon_window(u8 *arg0) {
     s32 temp_r31;
     temp_r31 = ((s32 (*)(void *, int))get_array_entry__20TWindowSubStatusDispFPvi)(arg0, 1);
     ((void (*)(void *, s32))update_for_player_index__13TWindowLockOnFPvi)((void *) temp_r31, ((s32 (*)(void *))get_width__11TWindowCtrlFPv)((void *) (arg0)));

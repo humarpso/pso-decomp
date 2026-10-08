@@ -6,12 +6,12 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 extern "C" {
 u8 * load_encrypted_text_archive(s32, void *);
 M2C_UNK TLobby__sub_800F9A60(void *, void *, int);
-void fn_800F9990(s32 arg0);
+void load_encrypted_archive_data(s32 arg0);
 }
 
 extern "C" {
 
-void fn_800F9990(s32 arg0) {
+void load_encrypted_archive_data(s32 arg0) {
     s32 sp8;
     TLobby__sub_800F9A60((void *) (arg0), (void *) (load_encrypted_text_archive(arg0, &sp8)), (int) (sp8));
 }

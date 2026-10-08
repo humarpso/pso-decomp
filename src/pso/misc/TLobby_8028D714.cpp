@@ -31,11 +31,11 @@ void alloc_download_server__6TLobbyFv(void);
 void free_chr_select_singleton__6TLobbyFv(void);
 void free_single_player_chr_select__6TLobbyFv(void);
 int start_load_default__6TLobbyFPv(void* p);
-int TLobby__sub_8028D628(void*, int);
+int alloc_load_buffer__6TLobbyFii(void*, int);
 u32 alloc__22TQuestVmDownLoadServerFPv(M2C_UNK);
 void safe_free__23TAdSinglePlyChrSelectGCFUi(void*);
 
-int start_load_default__6TLobbyFPv(void* p) { return TLobby__sub_8028D628(p, 0); }
+int start_load_default__6TLobbyFPv(void* p) { return alloc_load_buffer__6TLobbyFii(p, 0); }
 
 extern u32 lbl_805D6518;
 extern u32 lbl_805D651C;

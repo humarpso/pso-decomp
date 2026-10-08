@@ -7,12 +7,12 @@ extern "C" {
 void TLobby__sub_803D4CA0(void *, s32);
 void TLobby__sub_803D504C(void *, s32);
 void SIUnregisterPollingHandler(void *);
-void TLobby__sub_803CC070(u8 *arg0);
+void unregister_si_polling__6TLobbyFPv(u8 *arg0);
 }
 
 extern "C" {
 
-void TLobby__sub_803CC070(u8 *arg0) {
+void unregister_si_polling__6TLobbyFPv(u8 *arg0) {
     TLobby__sub_803D4CA0(arg0, 0);
     TLobby__sub_803D504C(arg0, 0);
     SIUnregisterPollingHandler(arg0);

@@ -33,7 +33,7 @@ extern u32 TScene__data_805D6028;
 extern M2C_UNK lbl_805DC604;
 void free_scene_resources__6TSceneFv(void);
 s32 get_global_state__14TOKeyMachine01Fv();
-s32 TScene__sub_80205AEC(void *);
+s32 init_material_nodes__6TSceneFPv(void *);
 s32 create_texture_wave_tasks__6TSceneFi(void *);
 s32 TScene__sub_80206410(void *);
 s32 __ct__7TObjectFP7TObject(void *, void *);
@@ -249,7 +249,7 @@ u8 *TScene__ct(u8 *arg0, s32 arg1) {
     if ((get_global_state__14TOKeyMachine01Fv() == 1) && ((u32) TScene__data_805D5FD0 != 0U) && ((void *) (*(u8 * *)&TScene__data_805D5FCC) != NULL) && ((u32) M2C_FIELD((*(u8 * *)&TScene__data_805D5FCC), u32 *, 0x14) != 0U)) {
         create_texture_wave_tasks__6TSceneFi((void *) (arg0));
     }
-    TScene__sub_80205AEC((void *) (arg0));
+    init_material_nodes__6TSceneFPv((void *) (arg0));
     return arg0;
 }
 

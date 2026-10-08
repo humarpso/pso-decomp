@@ -17,7 +17,7 @@ u8 *fn_8026D504(s32);
 M2C_UNK set_entry_display_value__20TWindowSubStatusDispFPvi(int, void *);
 extern const f32 lbl_805DCABC;
 extern const f32 lbl_805DCAC0;
-s32 fn_80244554(s32 arg0);
+s32 create_area_window(s32 arg0);
 u32 calc_text_width(void *);
 s32 __nw__7TObjectFUl(int);
 void fn_8024450C(s32 arg0);
@@ -27,7 +27,7 @@ M2C_UNK fn_802449E0(int);
 u8 *fn_8026D504(s32);
 extern const f32 lbl_805DCABC;
 extern const f32 lbl_805DCAC0;
-s32 fn_802445EC(void);
+s32 create_window_area(void);
 }
 
 extern "C" {
@@ -47,7 +47,7 @@ void fn_8024450C(s32 arg0) {
 }
 #pragma push
 #pragma fp_contract on
-s32 fn_80244554(s32 arg0) {
+s32 create_area_window(s32 arg0) {
     s32 var_r30;
     u8 *temp_r31;
     var_r30 = __nw__7TObjectFUl((int) (0x64));
@@ -64,7 +64,7 @@ s32 fn_80244554(s32 arg0) {
 
 #pragma push
 #pragma fp_contract on
-s32 fn_802445EC(void) {
+s32 create_window_area(void) {
     s32 var_r30;
     u8 *temp_r31;
     var_r30 = __nw__7TObjectFUl(0x64);

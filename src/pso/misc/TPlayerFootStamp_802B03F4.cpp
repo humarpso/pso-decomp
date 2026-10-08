@@ -26,7 +26,7 @@ void advance_timer__14TBoss6PlotFalzFPv(void *arg0);
 void check_action_7__14TBoss6PlotFalzFi(s32 arg0);
 void stop_adx_audio(void *arg0);
 s32 set_state__14TBoss6PlotFalzFPvi(void *, s32);
-s32 TBoss6PlotFalz__sub_802ABA9C();
+s32 is_boss_active__14TBoss6PlotFalzFv();
 int TBoss6PlotFalz__sub_802ABC64(void*);
 int refresh_players_equipment__14TBoss6PlotFalzFPv(void);
 int end_cutscene_camera__14TBoss6PlotFalzFPv(void*);
@@ -40,7 +40,7 @@ M2C_UNK queue_destruction__7TObjectFv(void *);
 
 void TBoss6PlotFalz__sub_802B03F4(void) {  }
 void check_action_7__14TBoss6PlotFalzFi(s32 arg0) {
-    if ((TBoss6PlotFalz__sub_802ABA9C() == 0) || (is_ready__14TBoss6PlotFalzFv((void*)(arg0)) != 0)) {
+    if ((is_boss_active__14TBoss6PlotFalzFv() == 0) || (is_ready__14TBoss6PlotFalzFv((void*)(arg0)) != 0)) {
         send_6xA3_action__14TBoss6PlotFalzFPvc((void*)(arg0), (void*)(7));
     }
 }

@@ -16,7 +16,7 @@ s32 get_model_joint_matrix(void *, s32);
 M2C_UNK transform_point_by_current_matrix(f32 *, s32);
 M2C_UNK push_matrix();
 M2C_UNK pop_matrix();
-M2C_UNK TObjPlayer__sub_803D9324(M2C_UNK, s32);
+M2C_UNK copy_matrix__10TObjPlayerFUiUi(M2C_UNK, s32);
 
 extern const f32 lbl_805DAC98;
 
@@ -39,7 +39,7 @@ s32 draw_icon__10TObjPlayerFPvii(void *arg0, s32 arg1, s32 arg2) {
         floats.spC = lbl_805DAC98;
         floats.sp8 = lbl_805DAC98;
         push_matrix();
-        TObjPlayer__sub_803D9324(0, get_model_joint_matrix(M2C_FIELD(arg0, void **, 0xF0), arg1));
+        copy_matrix__10TObjPlayerFUiUi(0, get_model_joint_matrix(M2C_FIELD(arg0, void **, 0xF0), arg1));
         concat_matrix__11TCameraCtrlFUiUi(0, get_view_matrix__11TCameraCtrlFv());
         transform_point_by_current_matrix(&floats.sp8, arg2);
         pop_matrix();

@@ -53,7 +53,7 @@ u32 *free_and_delete__6TLobbyFPvs(u32 *arg0, s16 arg1);
 s32 get_card_window_area__6TLobbyFv(void);
 u8 *init_memory_pool__6TLobbyFPviii(u8 *arg0, s32 arg1, s32 arg2, s32 arg3);
 void send_or_handle_packet__6TLobbyFPvPvPvPvUi(void *arg0, void *arg1, void *arg2, void *arg3, u32 arg4);
-M2C_UNK TLobby__sub_8001D568(M2C_UNK, s32);
+M2C_UNK aram_read_sync__6TLobbyFiiii(M2C_UNK, s32);
 M2C_UNK aram_transfer_sync__6TLobbyFiUiii(M2C_UNK, void *, s32);
 M2C_UNK __dl__FPv(u32 *);
 u8 *fn_803DE864(s32, M2C_UNK);
@@ -65,7 +65,7 @@ void send_or_handle_packet__6TLobbyFPvPvPvPvUi(void *arg0, void *arg1, void *arg
         aram_transfer_sync__6TLobbyFiUiii(0, arg1, M2C_FIELD(arg2, s32 *, 8));
         return;
     }
-    TLobby__sub_8001D568(0, M2C_FIELD(arg1, s32 *, 8));
+    aram_read_sync__6TLobbyFiiii(0, M2C_FIELD(arg1, s32 *, 8));
 }
 
 void TLobby__sub_8001D6E0(Pool_8001D6E0 *pool) {

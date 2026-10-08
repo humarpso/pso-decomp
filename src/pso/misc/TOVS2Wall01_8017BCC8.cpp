@@ -9,7 +9,7 @@ extern "C" {
 void init__11TOVS2Wall01Fi(s32 arg0);
 f32 take_hit__11TOVS2Wall01FPvUi(u8 *arg0, u32 arg1);
 M2C_UNK play_sound_effect(M2C_UNK, s32, M2C_UNK, M2C_UNK);
-M2C_UNK TOVS2Wall01__sub_8017BAFC(void *, M2C_UNK);
+M2C_UNK save_and_send_state__11TOVS2Wall01FPvUs(void *, M2C_UNK);
 M2C_UNK spawn_debris__11TOVS2Wall01FPvi(s32, s32);
 M2C_UNK spawn_particle_effect(void *, M2C_UNK);
 s32 is_locally_controlled__10TObjPlayerFPv(u32);
@@ -44,9 +44,9 @@ f32 take_hit__11TOVS2Wall01FPvUi(u8 *arg0, u32 arg1) {
         M2C_FIELD(arg0, s32 *, 0x33C) = (s32) (M2C_FIELD(arg0, s32 *, 0x33C) - 1);
         if ((s32) M2C_FIELD(arg0, s32 *, 0x33C) <= 0) {
             M2C_FIELD(arg0, s32 *, 0x33C) = 0;
-            TOVS2Wall01__sub_8017BAFC(arg0, 1);
+            save_and_send_state__11TOVS2Wall01FPvUs(arg0, 1);
         } else {
-            TOVS2Wall01__sub_8017BAFC(arg0, 0);
+            save_and_send_state__11TOVS2Wall01FPvUs(arg0, 0);
         }
         spawn_particle_effect((void *)(arg0 + 0x38), (M2C_UNK)(0x1D0));
         spawn_particle_effect((void *)(arg0 + 0x38), (M2C_UNK)(1));

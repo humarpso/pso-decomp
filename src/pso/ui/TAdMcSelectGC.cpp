@@ -28,7 +28,7 @@ void __ct__7TObjectFP7TObject(void *, void *);
 void *__ct__9TAdBackGCFv(void *, void *);
 void *__ct__12TAdBackTxtGCFv(void *, void *);
 void *__ct__10TAdTitleGCFv(void *, void *, s32);
-void TAdMcSelectGC__sub_802C7560(void *, s32, void *);
+void init_slot__13TAdMcSelectGCFPviPv(void *, s32, void *);
 void *__ct__15TAdChrSelSlotGCFv(void *, void *);
 void set_field_13c__13TAdMcSelectGCFPvi(void *, s32);
 void set_field_0x1c__13TAdMcSelectGCFPvi(void *, s32);
@@ -160,8 +160,8 @@ Self_80329EC8 *TAdMcSelectGC__ct(Self_80329EC8 *self, void *parent) {
     }
     self->f30 = p;
     set_select_index__13TAdMcSelectGCFPvi(self->f30, 0);
-    TAdMcSelectGC__sub_802C7560(self->f30, 0, lbl_804770F8);
-    TAdMcSelectGC__sub_802C7560(self->f30, 1, lbl_80477100);
+    init_slot__13TAdMcSelectGCFPviPv(self->f30, 0, lbl_804770F8);
+    init_slot__13TAdMcSelectGCFPviPv(self->f30, 1, lbl_80477100);
     for (i = 0; i < 2; i++) {
         p = __nw__7TObjectFUl(0x134);
         if (p != NULL) {

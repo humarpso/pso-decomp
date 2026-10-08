@@ -11,10 +11,10 @@ void setup_quest_list__6TLobbyFv(void);
 M2C_UNK advance_enemy_id_counter(u16);
 M2C_UNK advance_object_id_counter(u16);
 M2C_UNK convert_quest_object_rows(void *, s32);
-M2C_UNK TLobby__sub_8020AA94(void *, u32, s32);
+M2C_UNK assign_object_ids__6TLobbyFPviPv(void *, u32, s32);
 M2C_UNK TLobby__sub_8020B2DC();
 M2C_UNK TLobby__sub_8020B308(s32);
-M2C_UNK TLobby__sub_8020B3E4(s32, void *, s32);
+M2C_UNK load_object_set_entries__6TLobbyFiPvUi(s32, void *, s32);
 M2C_UNK bswap_32__FPUl(s32 *);
 M2C_UNK fn_801F43A8();
 M2C_UNK get_data__12TQuestListVMFv();
@@ -48,8 +48,8 @@ loop_1:
         if ((sp14 == 1) && (spC == arg0)) {
             temp_r31 = var_r31 + 0x10;
             convert_quest_object_rows(temp_r31, sp8);
-            TLobby__sub_8020AA94(temp_r31, (u32) sp8 / 68U, get_player_floor__6TLobbyFi(spC));
-            TLobby__sub_8020B3E4(spC, temp_r31, sp8);
+            assign_object_ids__6TLobbyFPviPv(temp_r31, (u32) sp8 / 68U, get_player_floor__6TLobbyFi(spC));
+            load_object_set_entries__6TLobbyFiPvUi(spC, temp_r31, sp8);
             return 1;
         }
         if (sp14 != 0) {

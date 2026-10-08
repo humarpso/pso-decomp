@@ -7,12 +7,12 @@ extern char lbl_80488768[];
 extern char lbl_8043810C[];
 extern void *lbl_805D4DD8;
 extern void *lbl_805D4DDC;
-void fn_80066F10(void);
+void load_boss5_common_assets(void);
 }
 
 extern "C" {
 
-void fn_80066F10(void) {
+void load_boss5_common_assets(void) {
     switch (TBoss8Dragon__sub_8005D700()) {
     case 0:
         lbl_805D4DD8 = load_enemy_bml_resource(lbl_80488768);

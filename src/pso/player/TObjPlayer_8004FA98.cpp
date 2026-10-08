@@ -111,7 +111,7 @@ void queue_destruction__7TObjectFv(void *);
 void update_particle_emitters__11TBoss4Type2FPv(void *);
 void play_cue_stream_file(s32);
 void queue_event_1D__12TBoss3VoloptFss(s16, s16);
-void fn_8004FCC4(u8 *arg0);
+void darkfalz_death_update(u8 *arg0);
 s32 is_ending_or_split_screen__14TBoss4DarkFalzFv();
 void restore_player_cameras();
 void request_destroy__11TBoss4Type2FUi(void *);
@@ -127,7 +127,7 @@ extern "C" {
 #pragma push
 #pragma opt_common_subs off
 #pragma readonly_strings on
-void fn_8004FCC4(u8 *arg0) {
+void darkfalz_death_update(u8 *arg0) {
     f32 temp_f1;
     s32 temp_r0;
     update_particle_emitters__11TBoss4Type2FPv(arg0);

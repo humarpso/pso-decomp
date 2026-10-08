@@ -35,7 +35,7 @@ extern u32 TObjContainerJungEx__data_805D5BA8;
 u8 *TObjContainerJungEx__sub_8018D900(s32 arg0);
 u8 * get_bml_model(void *, int);
 extern u32 TObjContainerJungEx__data_805D5BA8;
-u8 *TObjContainerJungEx__sub_8018D93C(s32 arg0);
+u8 *get_model__19TObjContainerJungExFi(s32 arg0);
 u8 * load_resource_from_descriptor(void *, s32, void *, s32, s32, s32);
 int alloc__23TAdSinglePlyChrSelectGCFPv(void *);
 extern RecoveredGlobal_8018D9B0_lbl_804B7158 lbl_804B7158;
@@ -76,7 +76,7 @@ u8 *TObjContainerJungEx__sub_8018D900(s32 arg0) {
     return NULL;
 }
 
-u8 *TObjContainerJungEx__sub_8018D93C(s32 arg0) {
+u8 *get_model__19TObjContainerJungExFi(s32 arg0) {
     if ((void *) (*(u8 * *)&TObjContainerJungEx__data_805D5BA8) != NULL) {
         return get_bml_model((*(u8 * *)&TObjContainerJungEx__data_805D5BA8), arg0);
     }

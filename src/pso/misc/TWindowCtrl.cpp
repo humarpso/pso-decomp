@@ -234,14 +234,14 @@ extern "C" {
 void open_status_111__11TWindowCtrlFv(void);
 void open_status_112__11TWindowCtrlFv(void);
 M2C_UNK get_message_10__20TWindowSubStatusDispFPv(M2C_UNK);
-u32 fn_80244554();
+u32 create_area_window();
 
 extern void *TWindowCtrl__data_805D63F8;
 
 void open_status_111__11TWindowCtrlFv(void) {
     if (((void *) TWindowCtrl__data_805D63F8 != NULL) && ((u32) M2C_FIELD(TWindowCtrl__data_805D63F8, u32 *, 0x34) == 0U)) {
         get_message_10__20TWindowSubStatusDispFPv(0x111);
-        M2C_FIELD(TWindowCtrl__data_805D63F8, u32 *, 0x34) = fn_80244554();
+        M2C_FIELD(TWindowCtrl__data_805D63F8, u32 *, 0x34) = create_area_window();
     }
 }
 
@@ -250,7 +250,7 @@ extern void *TWindowCtrl__data_805D63F8;
 void open_status_112__11TWindowCtrlFv(void) {
     if (((void *) TWindowCtrl__data_805D63F8 != NULL) && ((u32) M2C_FIELD(TWindowCtrl__data_805D63F8, u32 *, 0x34) == 0U)) {
         get_message_10__20TWindowSubStatusDispFPv(0x112);
-        M2C_FIELD(TWindowCtrl__data_805D63F8, u32 *, 0x34) = fn_80244554();
+        M2C_FIELD(TWindowCtrl__data_805D63F8, u32 *, 0x34) = create_area_window();
     }
 }
 

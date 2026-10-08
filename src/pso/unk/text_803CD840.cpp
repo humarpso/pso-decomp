@@ -102,7 +102,7 @@ s32 adxf_open_file__6TLobbyFiPviPv(s32 id, const char *name, s32 arg2, Ent_803CD
 int memcmp(const void *, const void *, unsigned long);
 unsigned long strlen(const char *);
 extern char *lbl_805D4688;
-s32 TLobby__sub_803CDEC8(u8 *arg0, s32 arg1, Out_803CDEC8 *arg2);
+s32 parse_aix_header__6TLobbyFPviPv(u8 *arg0, s32 arg1, Out_803CDEC8 *arg2);
 void restore_interrupts_nested__6TLobbyFv(void);
 void lock_enter__6TLobbyFv(void);
 void TLobby__sub_803D3130(Chunk_803CDB0C *, s32, Chunk_803CDB0C *, Chunk_803CDB0C *);
@@ -259,7 +259,7 @@ s32 demux_stream_chunks__6TLobbyFPv(Obj_803CDB0C *o) {
 }
 #pragma pop
 
-s32 TLobby__sub_803CDEC8(u8 *arg0, s32 arg1, Out_803CDEC8 *arg2) {
+s32 parse_aix_header__6TLobbyFPviPv(u8 *arg0, s32 arg1, Out_803CDEC8 *arg2) {
     s32 len;
     s32 hdr;
     u8 *p;

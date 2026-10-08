@@ -143,7 +143,7 @@ void add_list_entry__20TWindowSubStatusDispFPvi(void *, s32);
 void push_status_disp_entry(void *, s32, s32);
 void add_battle_stat_entry(void *, s32, s32, s32);
 void add_list_entry__23TShopJudgmentItemWindowFPvii(void *, void *, s32);
-void TWindowSubItem__sub_8027AA80(Wn_8027AA80 *arg0);
+void gray_out_unusable_entries__14TWindowSubItemFPv(Wn_8027AA80 *arg0);
 void TWindowSubItem__sub_8027AB10(Wn_8027AB10 *arg0);
 void populate_sub_item_list(Win_8027ABFC *arg0);
 u8 get_field_ed__10TObjPlayerFPv(void *);
@@ -259,7 +259,7 @@ M2C_UNK set_value__18TWindowInputNumberFPvf(s32, f32);
 
 extern "C" {
 Quest_8027ABFC *get_quest_id__12TQuestListVMFPv(void *);
-void TWindowSubItem__sub_8027AA80(Wn_8027AA80 *arg0);
+void gray_out_unusable_entries__14TWindowSubItemFPv(Wn_8027AA80 *arg0);
 void TWindowSubItem__sub_8027AB10(Wn_8027AB10 *arg0);
 }
 
@@ -628,7 +628,7 @@ void run_task__14TWindowSubItemFv(u8 *arg0) {
             s16 cur = get_cursor_index__18TShopGetItemWindowFPv(LIST);
             refresh__14TWindowSubItemFPv((void *) LIST);
             TWindowSubItem__sub_8027AB10((Wn_8027AB10 *) LIST);
-            TWindowSubItem__sub_8027AA80((Wn_8027AA80 *) LIST);
+            gray_out_unusable_entries__14TWindowSubItemFPv((Wn_8027AA80 *) LIST);
             set_field_74__14TWindowSubItemFPvs((void *) LIST, cur);
             clear_selected_and_update_entry__14TWindowSubItemFPv(LIST);
             reset_selected__14TWindowSubItemFPv((void *) LIST);
@@ -648,7 +648,7 @@ void run_task__14TWindowSubItemFv(u8 *arg0) {
             break;
         case 10:
             TWindowSubItem__sub_8027AB10((Wn_8027AB10 *) LIST);
-            TWindowSubItem__sub_8027AA80((Wn_8027AA80 *) LIST);
+            gray_out_unusable_entries__14TWindowSubItemFPv((Wn_8027AA80 *) LIST);
             TWindowSubItem__sub_8027AA30((u8 *) LIST);
             clear_selected_and_update_entry__14TWindowSubItemFPv(LIST);
             F(u8, 0x1C) = 0xB;
@@ -846,7 +846,7 @@ s32 TWindowSubItem__sub_8027AA78(s32 arg0) {
     return arg0 - 0x10;
 }
 
-void TWindowSubItem__sub_8027AA80(Wn_8027AA80 *arg0) {
+void gray_out_unusable_entries__14TWindowSubItemFPv(Wn_8027AA80 *arg0) {
     s32 i;
     En_8027AA80 *e;
 

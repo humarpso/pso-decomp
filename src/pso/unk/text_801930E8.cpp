@@ -39,7 +39,7 @@ void TObjLazerFence4__sub_801933C8(Obj_801933C8 *arg0);
 s32 get_bml_motion(s32, s32);
 Node_80193188 *get_bml_model(s32, s32);
 extern s32 lbl_805D5C2C;
-void TObjLazerFence4__sub_80193188(Fence_80193188 *arg0);
+void init_models__15TObjLazerFence4FPv(Fence_80193188 *arg0);
 }
 
 extern "C" {
@@ -74,7 +74,7 @@ s16 TObjLazerFence4__vt8(u8 *arg0, f32 farg0, f32 farg1) {
 
 extern void *lbl_805D5C28;
 
-void TObjLazerFence4__sub_80193188(Fence_80193188 *arg0) {
+void init_models__15TObjLazerFence4FPv(Fence_80193188 *arg0) {
     Node_80193188 *node;
     s32 i;
     s32 j;

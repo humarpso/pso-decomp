@@ -305,7 +305,7 @@ struct Pair_80170DD8 { s32 a; s32 b; };
 
 extern "C" {
 void set_indexed_flags(void *, s32, s32);
-void TOMineTrap__sub_8016F87C(u8 *arg0);
+void set_triggered__10TOMineTrapFPv(u8 *arg0);
 void set_indexed_flags(void *, s32, s32);
 void TOMineTrap__vt84(u8 *arg0);
 int TOMineTrap__sub_80170340(void);
@@ -367,7 +367,7 @@ f32 sin_table_lookup(s32);
 extern const f32 TOMineTrap__data_805DB868;
 extern const f32 lbl_805DB884;
 extern const f32 lbl_805DB888;
-void TOMineTrap__sub_80170CF4(u8 *arg0);
+void update_float_height__10TOMineTrapFPv(u8 *arg0);
 f32 get_ad_end_text_start__10TObjPlayerFv(f64, f64);
 void calc_attach_pos__10TObjPlayerFPv(void *);
 M2C_UNK VecCopy__FP3VecPC3Vec(void *, void *);
@@ -482,7 +482,7 @@ s32 find_target_in_range__10TOMineTrapFPv(Trap_8016F704 *self) {
     return 0;
 }
 
-void TOMineTrap__sub_8016F87C(u8 *arg0) {
+void set_triggered__10TOMineTrapFPv(u8 *arg0) {
     M2C_FIELD(arg0, s16 *, 0x326) = 3;
     set_indexed_flags(arg0, 0, 1);
     M2C_FIELD(arg0, s32 *, 0x30) = (s32) (M2C_FIELD(arg0, s32 *, 0x30) & 0xFFFBFFFF);
@@ -826,7 +826,7 @@ void TOMineTrap__sub_80170CD4(void* p) { sync_position__10TOMineTrapFPv((void*)(
 
 #pragma push
 #pragma fp_contract on
-void TOMineTrap__sub_80170CF4(u8 *arg0) {
+void update_float_height__10TOMineTrapFPv(u8 *arg0) {
     f32 temp_f1;
     f32 temp_f4;
     if (!(M2C_FIELD(arg0, s32 *, 0x340) & 2)) {

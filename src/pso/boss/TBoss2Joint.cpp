@@ -345,7 +345,7 @@ void TBoss2DeRolLe__sub_80037178(Obj_80037178 *self, V3_80037178 *src);
 void *spawn_continuous_particle_effect_with_flags(Vec_80037074 *, s32, s32);
 void copy_pos__11TNowLoadingFPvPv(void *, Vec_80037074 *);
 void enable__13TParticleCtrlFPv(void *);
-void TBoss2LaserLight__sub_80037074(Laser_80037074 *self);
+void update_particle_trail__16TBoss2LaserLightFPv(Laser_80037074 *self);
 s32 register_object__6TLobbyFPv(s32);
 s32 dispatch_shared_handler_b__6TLobbyFPv(s32);
 s32 register_boss__6TLobbyFPv(s32);
@@ -379,7 +379,7 @@ void TBoss2Joint__vt91(void *arg0);
 void *__dt__11TBoss2JointFv(void *arg0, s16 arg1);
 void call_36A90_with_1__11TBoss2JointFPv(void* p);
 void update_position_history__11TBoss2JointFi(s32 arg0);
-M2C_UNK TBoss2DeRolLe__sub_800339BC(void *, f32, f32);
+M2C_UNK spawn_offset_particle__13TBoss2DeRolLeFiff(void *, f32, f32);
 M2C_UNK TBoss2DeRolLe__sub_80034134(s32, s32, u16);
 M2C_UNK clear_attack_receipts(void *);
 void TObjEneDD__vt0(void *, int);
@@ -514,7 +514,7 @@ void TBoss2Joint__vt60(u8 *arg0) {
             ((VTbj_8003688C *)self)->m102();
         }
     } else {
-        TBoss2DeRolLe__sub_800339BC(arg0 + 0x38, lbl_805D8484, lbl_805D8488);
+        spawn_offset_particle__13TBoss2DeRolLeFiff(arg0 + 0x38, lbl_805D8484, lbl_805D8488);
         TBoss2DeRolLe__sub_80034134(M2C_FIELD(self, s32 *, 0x10), temp_r31, M2C_FIELD(self, u16 *, 0x2D4));
     }
     M2C_FIELD(self, s16 *, 0x32C) = (s16) M2C_FIELD(self, s16 *, 0x2B8);
@@ -611,7 +611,7 @@ void TBoss2Joint__vt46(void) {  }
 void TBoss2Joint__vt47(void) {  }
 void TBoss2Joint__vt48(void) {  }
 
-void TBoss2LaserLight__sub_80037074(Laser_80037074 *self) {
+void update_particle_trail__16TBoss2LaserLightFPv(Laser_80037074 *self) {
     if (self->ptcl == NULL) {
         self->ptcl = spawn_continuous_particle_effect_with_flags(self->pts, self->unk118, 0x40);
         if (self->ptcl != NULL) {

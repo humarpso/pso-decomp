@@ -47,7 +47,7 @@ void *TCameraCtrl__sub_80068018(void *);
 M2C_UNK set_target_pos__11TCameraCtrlFPvPv(void *, void *, f32);
 u8 *get_player_by_client_id(M2C_UNK);
 extern const f32 lbl_805D8F78;
-void TCameraCtrl__sub_80067EE0(s32 arg0);
+void target_player0__11TCameraCtrlFi(s32 arg0);
 u8 *get_player_by_client_id(M2C_UNK);
 s32 matrix_mult_vec(int, void *, void *);
 s32 rotate_matrix_y(int, int);
@@ -58,7 +58,7 @@ extern const f32 lbl_805D8F74;
 void reset_behind_player__11TCameraCtrlFPv(u8 *arg0);
 f32 sin_table_lookup(s32);
 f32 cos_table_lookup(s32);
-void TCameraCtrl__sub_80067D20(Obj_80067D20 *arg0);
+void update_orbit_camera__11TCameraCtrlFPv(Obj_80067D20 *arg0);
 }
 
 extern "C" {
@@ -76,7 +76,7 @@ void * TCameraCtrl__vt7(void) {
 
 #pragma push
 #pragma fp_contract on
-void TCameraCtrl__sub_80067D20(Obj_80067D20 *arg0) {
+void update_orbit_camera__11TCameraCtrlFPv(Obj_80067D20 *arg0) {
     Pad_80067D20 *pad = arg0->pad;
     f32 d = arg0->dist;
     u32 btn = pad->buttons;
@@ -129,7 +129,7 @@ void reset_behind_player__11TCameraCtrlFPv(u8 *arg0) {
     }
 }
 
-void TCameraCtrl__sub_80067EE0(s32 arg0) {
+void target_player0__11TCameraCtrlFi(s32 arg0) {
     Stack_80067EE0 stack;
     u8 *temp_r3;
     temp_r3 = (u8 *)(get_player_by_client_id(0));

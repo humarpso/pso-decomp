@@ -10,12 +10,12 @@ s32 fn_801C2360(s32);
 extern u32 lbl_805D5D68;
 extern u32 TObjPlayer__data_805D5D80;
 extern u32 lbl_805D5D84;
-void TObjPlayer__sub_801BDFC4(void);
+void alloc_shared_buffers__10TObjPlayerFv(void);
 }
 
 extern "C" {
 
-void TObjPlayer__sub_801BDFC4(void) {
+void alloc_shared_buffers__10TObjPlayerFv(void) {
     s32 temp_r3;
     s32 var_r0;
     if ((u32) TObjPlayer__data_805D5D80 == 0U) {

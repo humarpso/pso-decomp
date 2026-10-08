@@ -11,12 +11,12 @@ extern "C" {
 s32 validate_subcommand_client(void *);
 s32 validate_photon_blast_parameters(void *);
 s32 validate_cast_target_entry(void *);
-s32 TObjEneHoldEffect__sub_8036BBF4(struct Pkt_8036BBF4 *packet);
+s32 validate_6x49_packet__17TObjEneHoldEffectFPv(struct Pkt_8036BBF4 *packet);
 }
 
 extern "C" {
 
-s32 TObjEneHoldEffect__sub_8036BBF4(struct Pkt_8036BBF4 *packet) {
+s32 validate_6x49_packet__17TObjEneHoldEffectFPv(struct Pkt_8036BBF4 *packet) {
     s32 i;
     if (validate_subcommand_client(packet->header) == 0) {
         return 0;

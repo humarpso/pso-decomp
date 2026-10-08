@@ -12,7 +12,7 @@ void fn_80044330(void *);
 void reset_slot__11TMainCursorFPv(void *);
 void set_type__11TMainCursorFPvi(void *, s32);
 extern const f32 TMainCursor__data_805DB0C0;
-void TMainCursor__sub_8013B3AC(u8 *arg0);
+void reset_state__11TMainCursorFPv(u8 *arg0);
 s32 is_channel_active__11TMainCursorFPv(PaletteCursorOverride*);
 s32 can_start_technique__10TObjPlayerFPvi(TObjPlayer*, s32);
 s32 canSetMenuCursorAction(PaletteCursorOverride* cursor, TObjPlayer* player, u8 kind, u8 parameter);
@@ -71,7 +71,7 @@ void TMainCursor__sub_8013B398(void *arg0, void *arg1) {
     M2C_FIELD(arg0, s16 *, 0) = (s16) M2C_FIELD(arg1, s16 *, 0);
     M2C_FIELD(arg0, s16 *, 2) = (s16) M2C_FIELD(arg1, s16 *, 2);
 }
-void TMainCursor__sub_8013B3AC(u8 *arg0) {
+void reset_state__11TMainCursorFPv(u8 *arg0) {
     M2C_FIELD(arg0, f32 *, 0x24) = (f32) TMainCursor__data_805DB0C0;
     M2C_FIELD(arg0, f32 *, 0x20) = (f32) TMainCursor__data_805DB0C0;
     M2C_FIELD(arg0, f32 *, 0x1C) = (f32) TMainCursor__data_805DB0C0;

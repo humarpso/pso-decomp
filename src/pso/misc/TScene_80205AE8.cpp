@@ -37,7 +37,7 @@ Info_80205AEC *TScene__sub_80205AA8(void *, u16);
 void *fn_802A8210(void *, u8, void *);
 extern u32 lbl_8044A800[];
 extern u8 lbl_8044A80C[];
-void TScene__sub_80205AEC(void *scene);
+void init_material_nodes__6TSceneFPv(void *scene);
 extern SceneMaterialRoot* TScene__data_805D5FCC;
 extern void* TScene__data_805D6004;
 s32 load_texture_sequence_frame(void *task, Cyc_80205D24 *c);
@@ -56,7 +56,7 @@ void copy_header_and_vec__6TSceneFPvPv(void* p, void* q);
 
 void TScene__sub_80205AE8(void) {  }
 
-void TScene__sub_80205AEC(void *scene) {
+void init_material_nodes__6TSceneFPv(void *scene) {
     SceneMaterialSection *sec;
     s32 i;
     SceneMaterialStatic *st;

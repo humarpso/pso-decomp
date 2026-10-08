@@ -15,7 +15,7 @@ extern "C" {
 
 s32 submit_chat_text(void *);
 s32 send_selected_symbol_chat__20TWindowSubSymbolChatFPv(void *);
-s32 TWindowDD__sub_80348C78(void *);
+s32 send_chat_packet__9TWindowDDFPv(void *);
 void TWindowShortListCtrl__sub_80076D1C(void);
 int TWindowKeyBoardSoft__sub_80076E2C(void);
 void TAdSinglePlyChrSelectGC__sub_80076DF4(void* p, void* q);
@@ -29,7 +29,7 @@ void chat_dispatch_accepted_result(s32 *arg0) {
         submit_chat_text((s8 *)arg0 + 4);
         return;
     case 2:
-        TWindowDD__sub_80348C78((s8 *)arg0 + 4);
+        send_chat_packet__9TWindowDDFPv((s8 *)arg0 + 4);
         return;
     case 3:
         send_selected_symbol_chat__20TWindowSubSymbolChatFPv((s8 *)arg0 + 4);

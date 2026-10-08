@@ -32,7 +32,7 @@ extern M2C_UNK lbl_8047D7E4[];
 extern M2C_UNK lbl_8047D800[];
 extern RecoveredCallback_4873a87e26d6 lbl_805D75F8;
 extern s32 lbl_805D75FC;
-void TLobby__sub_803CEFC8(u8 *arg0);
+void cvfs_stop_tr__6TLobbyFPv(u8 *arg0);
 extern M2C_UNK lbl_8047D8B8[];
 extern M2C_UNK lbl_8047D8D4[];
 extern RecoveredCallback_4873a87e26d6 lbl_805D75F8;
@@ -42,7 +42,7 @@ extern M2C_UNK lbl_8047D8EC[];
 extern M2C_UNK lbl_8047D908[];
 extern RecoveredCallback_4873a87e26d6 lbl_805D75F8;
 extern s32 lbl_805D75FC;
-void TLobby__sub_803CF250(u8 *arg0);
+void cv_fs_close__6TLobbyFPv(u8 *arg0);
 extern M2C_UNK lbl_8047D850[];
 extern M2C_UNK lbl_8047D86C[];
 extern RecoveredCallback_4873a87e26d6 lbl_805D75F8;
@@ -102,7 +102,7 @@ void TLobby__sub_803CEF60(void) {
     }
 }
 
-void TLobby__sub_803CEFC8(u8 *arg0) {
+void cvfs_stop_tr__6TLobbyFPv(u8 *arg0) {
     M2C_UNK (*temp_r12)(s32);
     if (arg0 == NULL) {
         if (((M2C_UNK (*)(s32, M2C_UNK *, M2C_UNK)) lbl_805D75F8) != NULL) {
@@ -182,7 +182,7 @@ s32 cv_fs_tell__6TLobbyFPv(u8 *arg0) {
     }
     return var_r31;
 }
-void TLobby__sub_803CF250(u8 *arg0) {
+void cv_fs_close__6TLobbyFPv(u8 *arg0) {
     M2C_UNK (*temp_r12)(s32);
     if (arg0 == NULL) {
         if (((M2C_UNK (*)(s32, M2C_UNK *, M2C_UNK)) lbl_805D75F8) != NULL) {

@@ -44,11 +44,11 @@ struct Pkt_8016F418 { u8 pad[4]; u16 id; u16 kind; };
 extern "C" {
 void TOMineTrap__sub_8017141C(void *);
 void send_and_handle_60__10TOMineTrapFPv(void *);
-void TOMineTrap__sub_8016F558(Self_8016F558 *self, u16 idx);
+void send_state_packet__10TOMineTrapFPvUs(Self_8016F558 *self, u16 idx);
 s32 check_value_equals__13TQuestColCtrlFPvi(u32, int);
-void TOMineTrap__sub_8016F558(Self_8016F558 *self, u16 idx);
+void send_state_packet__10TOMineTrapFPvUs(Self_8016F558 *self, u16 idx);
 void set_state__10TOMineTrapFPv(void *);
-void TOMineTrap__sub_8016F87C(void *);
+void set_triggered__10TOMineTrapFPv(void *);
 extern s32 TOMineTrap__data_805D3080;
 extern const f32 lbl_805DB85C;
 f32 TOMineTrap__vt20(Obj_8016F5B4 *arg0, u32 arg1);
@@ -59,7 +59,7 @@ void TOMineTrap__vt80(Obj_8016F64C *arg0);
 VObj_8016F418 *get_player_data__10TObjPlayerFi(s32);
 s32 check_value_equals__13TQuestColCtrlFPvi(u32, int);
 void set_state__10TOMineTrapFPv(void *);
-void TOMineTrap__sub_8016F87C(void *);
+void set_triggered__10TOMineTrapFPv(void *);
 s16 TOMineTrap__sub_80171340(void *);
 u16 TOMineTrap__sub_80171358(void *);
 void bswap_6x80_trigger_trap__10TOMineTrapFPv(void *);
@@ -123,7 +123,7 @@ void handle_6x80_trigger_trap(Pkt_8016F418 *arg0) {
             case 0:
             case 1:
             case 2:
-                TOMineTrap__sub_8016F87C(p);
+                set_triggered__10TOMineTrapFPv(p);
                 break;
             }
             break;
@@ -142,7 +142,7 @@ void handle_6x80_trigger_trap(Pkt_8016F418 *arg0) {
     }
 }
 
-void TOMineTrap__sub_8016F558(Self_8016F558 *self, u16 idx) {
+void send_state_packet__10TOMineTrapFPvUs(Self_8016F558 *self, u16 idx) {
     if (idx < 3) {
         Pkt_8016F558 pkt;
         TOMineTrap__sub_8017141C(&pkt);
@@ -158,7 +158,7 @@ f32 TOMineTrap__vt20(Obj_8016F5B4 *arg0, u32 arg1) {
     case 1:
     case 2:
         if ((arg1 != 0U) && (check_value_equals__13TQuestColCtrlFPvi(arg1, TOMineTrap__data_805D3080) != 0)) {
-            TOMineTrap__sub_8016F87C(arg0);
+            set_triggered__10TOMineTrapFPv(arg0);
             if (arg0->cnt > 0xF) {
                 arg0->cnt = 0xF;
             }
@@ -166,7 +166,7 @@ f32 TOMineTrap__vt20(Obj_8016F5B4 *arg0, u32 arg1) {
         }
     case 3:
         set_state__10TOMineTrapFPv(arg0);
-        TOMineTrap__sub_8016F558((Self_8016F558 *)(arg0), (u16)(2));
+        send_state_packet__10TOMineTrapFPvUs((Self_8016F558 *)(arg0), (u16)(2));
         break;
     }
     return lbl_805DB85C;

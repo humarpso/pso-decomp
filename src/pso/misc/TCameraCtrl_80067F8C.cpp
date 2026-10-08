@@ -3,9 +3,9 @@
 extern "C" {
 
 void TCameraCtrl__sub_80067F8C(void* p);
-int TCameraCtrl__sub_80067D20(void*);
-int TCameraCtrl__sub_80067EE0(void*);
+int update_orbit_camera__11TCameraCtrlFPv(void*);
+int target_player0__11TCameraCtrlFi(void*);
 
-void TCameraCtrl__sub_80067F8C(void* p) { TCameraCtrl__sub_80067EE0(p); TCameraCtrl__sub_80067D20(p); }
+void TCameraCtrl__sub_80067F8C(void* p) { target_player0__11TCameraCtrlFi(p); update_orbit_camera__11TCameraCtrlFPv(p); }
 
 }

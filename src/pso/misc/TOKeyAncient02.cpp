@@ -105,7 +105,7 @@ void init_6x05_switch_changed__6TLobbyFPv(void *);
 void finalize_and_send_60__6TLobbyFPv(void *);
 s32 get_current_floor();
 extern s32 lbl_805D53A0;
-void TOKeyAncient03__sub_8016B84C(Self_8016B84C *self, s32 flags);
+void send_switch_changed__14TOKeyAncient03FPvi(Self_8016B84C *self, s32 flags);
 extern const f32 lbl_805DB700;
 extern const f32 lbl_805DB704;
 extern const f32 lbl_805DB708;
@@ -334,7 +334,7 @@ s32 TOKeyAncient03__vt13(u8 *arg0) {
     }
     return var_r31;
 }
-void TOKeyAncient03__sub_8016B84C(Self_8016B84C *self, s32 flags) {
+void send_switch_changed__14TOKeyAncient03FPvi(Self_8016B84C *self, s32 flags) {
     Pkt_8016B84C pkt;
     init_6x05_switch_changed__6TLobbyFPv(&pkt);
     pkt.object = self->id;

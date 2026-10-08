@@ -200,7 +200,7 @@ void *alloc_particle_memory(int);
 u8 * construct_ballistic_particle(void *, void *, void *, void *, s32, u16, s16);
 u8 *create_ballistic_particle(u8 *arg0, u8 *arg1, u8 *arg2, s32 arg3, u16 arg4, s16 arg5);
 void *alloc_particle_memory(int);
-void *TParticleCtrl__sub_80089B50(void *, void *, void *, void *);
+void *init_particle_random_spread__13TParticleCtrlFPvPvPvPv(void *, void *, void *, void *);
 void * TParticleCtrl__sub_800887EC(void *arg0, void *arg1, void *arg2);
 int queue_destruction__7TObjectFv(void *);
 f32 vec_squared_length(void *);

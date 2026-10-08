@@ -321,7 +321,7 @@ extern const f32 lbl_805DE330;
 extern const f32 lbl_805DE334;
 extern const f32 lbl_805DE33C;
 extern const f32 lbl_805DE340;
-s32 TBoss6Type1__sub_802B529C(T1_802B529C *arg0, s32 arg1, s32 arg2);
+s32 count_matches__11TBoss6Type1FPvii(T1_802B529C *arg0, s32 arg1, s32 arg2);
 s32 TBoss6Type1__sub_802B52E0(M2C_UNK arg0, s32 arg1, s32 arg2);
 int TBoss6Type1__sub_802B5378(M2C_UNK arg0, int arg1, int arg2);
 s32 TBoss6Type1__sub_802B5434(Boss_802B5434 *o, s32 a, s32 b, s32 n);
@@ -393,7 +393,7 @@ extern const f32 TBoss6Type1__data_805DE304;
 s32 TBoss6Type1__sub_802B52E0(M2C_UNK arg0, s32 arg1, s32 arg2);
 f32 sin_table_lookup(s32);
 f32 cos_table_lookup(s32);
-void TBoss6Type1__sub_802B570C(u8 *arg0, u8 *arg1);
+void decode_polar_position__11TBoss6Type1FPvPv(u8 *arg0, u8 *arg1);
 s32 calc_field4b0_delta__11TBoss6Type1FPv(void *arg0);
 extern const f32 lbl_805DE34C;
 s32 TBoss6Type1__sub_802B5ED8(u8 *arg0);
@@ -465,7 +465,7 @@ s32 get_bml_motion(s32, s32);
 extern Tbl_802B82B8 TBoss6Type1__data_804DF61C[];
 extern s32 TBoss6Type1__data_805DE3C4;
 void spawn_effect_slot__11TBoss6Type1FPvi(u8 *arg0, s32 arg1);
-s32 TBoss6Type1__sub_802B529C(T1_802B529C *arg0, s32 arg1, s32 arg2);
+s32 count_matches__11TBoss6Type1FPvii(T1_802B529C *arg0, s32 arg1, s32 arg2);
 extern const f32 TBoss6Type1__data_805DE2D0;
 extern const f32 lbl_805DE35C;
 s32 TBoss6Type1__sub_802B600C(T1_802B600C *arg0, f32 _w1);
@@ -484,7 +484,7 @@ extern const f32 TBoss6Type1__data_805DE2D0;
 extern const f32 TBoss6Type1__data_805DE310;
 extern const f32 lbl_805DE314;
 extern const f32 TBoss6Type1__data_805DE318;
-void TBoss6Type1__sub_802B54F0(Boss_802B54F0 *o, Vec_802B54F0 *out, f32 _w2);
+void clamp_to_arena_radius__11TBoss6Type1FPvPvf(Boss_802B54F0 *o, Vec_802B54F0 *out, f32 _w2);
 extern const f32 lbl_805DE320;
 extern const f32 lbl_805DE324;
 void TBoss6Type1__sub_802B5648(Boss_802B5648 *o, Vec_802B5648 *out);
@@ -808,7 +808,7 @@ void TBoss6Type1__sub_802B5140(s32 arg0, s32 arg1, s32 arg2) {
 }
 #pragma pop
 
-s32 TBoss6Type1__sub_802B529C(T1_802B529C *arg0, s32 arg1, s32 arg2) {
+s32 count_matches__11TBoss6Type1FPvii(T1_802B529C *arg0, s32 arg1, s32 arg2) {
     s32 i;
     s32 cnt;
     if (arg2 > 0x20) {
@@ -862,7 +862,7 @@ s32 TBoss6Type1__sub_802B5434(Boss_802B5434 *o, s32 a, s32 b, s32 n) {
     return b;
 }
 
-void TBoss6Type1__sub_802B54F0(Boss_802B54F0 *o, Vec_802B54F0 *out, f32 _w2) {
+void clamp_to_arena_radius__11TBoss6Type1FPvPvf(Boss_802B54F0 *o, Vec_802B54F0 *out, f32 _w2) {
     Vec_802B54F0 v = o->pos;
     f32 len;
     f32 s;
@@ -929,11 +929,11 @@ void TBoss6Type1__sub_802B5648(Boss_802B5648 *o, Vec_802B5648 *out) {
 }
 #pragma pop
 
-void handle_6xa4_action__11TBoss6Type1FPv(void* p, u8 * _w1) { TBoss6Type1__sub_802B570C((u8 *)((char*)p + 0x1), (u8 *)(_w1)); }
+void handle_6xa4_action__11TBoss6Type1FPv(void* p, u8 * _w1) { decode_polar_position__11TBoss6Type1FPvPv((u8 *)((char*)p + 0x1), (u8 *)(_w1)); }
 
 extern const f32 TBoss6Type1__data_805DE2D0;
 
-void TBoss6Type1__sub_802B570C(u8 *arg0, u8 *arg1) {
+void decode_polar_position__11TBoss6Type1FPvPv(u8 *arg0, u8 *arg1) {
   f32 temp_f31;
   f32 temp_f30;
   s32 temp_r31;
@@ -2088,7 +2088,7 @@ void TBoss6Type1__sub_802B8BB4(u8 *arg0) {
         randomize_attack__11TBoss6Type1FPvPv((Boss_802B8EE0 *)arg0, &s);
         if (TBoss6Type1__sub_802B5FDC(arg0) != 0) {
             id = 0x15;
-            n = TBoss6Type1__sub_802B529C((T1_802B529C *)arg0, 0x15, 8);
+            n = count_matches__11TBoss6Type1FPvii((T1_802B529C *)arg0, 0x15, 8);
             if (n == 0 || TBoss6Type1__data_805DE304 * (f32)rand() < lbl_805DE3D8 / (f32)n) {
                 s.b2 = -2;
             } else {

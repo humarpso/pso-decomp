@@ -611,9 +611,9 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 extern "C" {
 
 s32 pick_random_slot__6TLobbyFPv(s16 *arg0);
-M2C_UNK TLobby__sub_802098AC(s16 *);
+M2C_UNK pick_random_entry__6TLobbyFPv(s16 *);
 M2C_UNK TLobby__sub_802099FC(s16 *, s32);
-M2C_UNK TLobby__sub_80209AEC(s32 *, s32 *);
+M2C_UNK pick_weighted_entry__6TLobbyFPvPv(s32 *, s32 *);
 
 extern s32 lbl_8044BAF8[];
 
@@ -621,11 +621,11 @@ s32 pick_random_slot__6TLobbyFPv(s16 *arg0) {
     s32 spC;
     s32 sp8;
 
-    TLobby__sub_80209AEC(&spC, &sp8);
+    pick_weighted_entry__6TLobbyFPvPv(&spC, &sp8);
     if ((spC != -1) && (sp8 != -1)) {
         *arg0 = (s16) lbl_8044BAF8[sp8];
         TLobby__sub_802099FC(arg0, spC);
-        TLobby__sub_802098AC(arg0);
+        pick_random_entry__6TLobbyFPv(arg0);
         return 0;
     }
     return 1;
@@ -910,10 +910,10 @@ int clear_floor_event_flags(void);
 int init_sub_objects__6TLobbyFv(void);
 int create_objects__6TLobbyFi(void);
 int attach_objects_by_id__6TLobbyFi(void);
-int TLobby__sub_8020DBCC(void);
+int reset_id_tables__6TLobbyFv(void);
 int init_switch_table(void);
 
-void init_scene_objects__6TLobbyFv(void) { init_sub_objects__6TLobbyFv(); TLobby__sub_8020DBCC(); clear_floor_event_flags(); init_switch_table(); TRaderMapCore__sub_801F9630(1); get_current_floor(); attach_objects_by_id__6TLobbyFi(); get_current_floor(); create_objects__6TLobbyFi(); create_floor_quest_thread(); }
+void init_scene_objects__6TLobbyFv(void) { init_sub_objects__6TLobbyFv(); reset_id_tables__6TLobbyFv(); clear_floor_event_flags(); init_switch_table(); TRaderMapCore__sub_801F9630(1); get_current_floor(); attach_objects_by_id__6TLobbyFi(); get_current_floor(); create_objects__6TLobbyFi(); create_floor_quest_thread(); }
 
 }
 #endif

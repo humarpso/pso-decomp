@@ -85,7 +85,7 @@ __declspec(section ".rodata") extern const char lbl_804663F8[] = "TChCrTagName";
 const char *lbl_805D3DA0 = lbl_804663F8;
 u8 *__ct__12TChCrTagNameFv(u8 *arg0, s32 arg1, s32 _w2);
 f32 cos_table_lookup(s32);
-void TChCrTagName__sub_802A26E0(u8 *arg0);
+void update_slide_in__12TChCrTagNameFPv(u8 *arg0);
 s32 get_selected_index__15TChCrCharSelectFv();
 s32 get_selected_char__15TChCrCharSelectFv();
 s32 get_instance__15TChCrCharSelectFv();
@@ -287,7 +287,7 @@ f32 calc_highlight_scale__12TChCrTagNameFPv(Tag_802A265C *arg0) {
 }
 #pragma fp_contract reset
 
-void TChCrTagName__sub_802A26E0(u8 *arg0) {
+void update_slide_in__12TChCrTagNameFPv(u8 *arg0) {
   f32 temp_f1;
   f32 temp_f2;
   f32 var_f4;
@@ -311,7 +311,7 @@ void TChCrTagName__sub_802A26E0(u8 *arg0) {
 
 void run_task__12TChCrTagNameFv(void *arg0) {
     update_fade__8TChCrTagFPv();
-    TChCrTagName__sub_802A26E0((u8 *)(arg0));
+    update_slide_in__12TChCrTagNameFPv((u8 *)(arg0));
     M2C_FIELD(arg0, s32 *, 0x44) = (s32) (M2C_FIELD(arg0, s32 *, 0x44) + 1);
 }
 
@@ -349,7 +349,7 @@ u8 *__ct__12TChCrTagNameFv(u8 *arg0, s32 arg1, s32 _w2) {
     M2C_FIELD(arg0, f32 *, 0x38) = (f32) (-0.06666667f);
     M2C_FIELD(arg0, f32 *, 0x3C) = (f32) (0.0f);
     M2C_FIELD(arg0, f32 *, 0x40) = 0.8f - 0.053333335f * (f32) (0xC - M2C_FIELD(arg0, s32 *, 0x20));
-    TChCrTagName__sub_802A26E0((u8 *)(arg0));
+    update_slide_in__12TChCrTagNameFPv((u8 *)(arg0));
     M2C_FIELD(arg0, s32 *, 0x44) = 0;
     return arg0;
 }

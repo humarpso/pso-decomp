@@ -64,7 +64,7 @@ void memcpy(void *, void *, s32);
 void remove_list_entry_by_id(s32 arg0);
 void TObjPlayer__sub_801D4730(void* p);
 void TObjPlayer__sub_801D47D8(void* p, void* q);
-void TObjPlayer__sub_801D4744(List_801D4744 *arg0);
+void sort_by_key__10TObjPlayerFPv(List_801D4744 *arg0);
 }
 
 extern "C" {
@@ -201,7 +201,7 @@ u8 *TObjPlayer__sub_801D46D4(u8 *arg0, s32 arg1) {
 
 void TObjPlayer__sub_801D4730(void* p) { *(s32*)((char*)p + 0x0) = -1; *(s32*)((char*)p + 0x4) = 0; }
 
-void TObjPlayer__sub_801D4744(List_801D4744 *arg0) {
+void sort_by_key__10TObjPlayerFPv(List_801D4744 *arg0) {
     Ent_801D4744 t;
     s32 n;
     s32 j;

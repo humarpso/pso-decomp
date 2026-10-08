@@ -93,7 +93,7 @@ extern "C" {
 M2C_UNK THunterGuildSeqOffline__sub_80213430();
 M2C_UNK reset_floor_items__6TLobbyFv();
 M2C_UNK clear_enabled_main_warps();
-M2C_UNK TRaderMapCore__sub_801F9540();
+M2C_UNK free_map_data__13TRaderMapCoreFv();
 M2C_UNK clear_switch_table();
 M2C_UNK apply_all_players__9TTecLukerFv();
 int clear_counter__6TLobbyFv(void);
@@ -692,7 +692,7 @@ void reload_floor_scene__6TLobbyFv(void) {
 }
 
 void free_objects__6TLobbyFv(void) {
-    TRaderMapCore__sub_801F9540();
+    free_map_data__13TRaderMapCoreFv();
     clear_switch_table();
     apply_all_players__9TTecLukerFv();
     reset_floor_items__6TLobbyFv();

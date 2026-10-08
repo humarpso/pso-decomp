@@ -82,7 +82,7 @@ extern M2C_UNK lbl_8048C9D8[];
 void TLobby__sub_80071064(s32 arg0);
 f32 get_random_float__8TObjFishFv(f32);
 s32 check_challenge_time_range__6TLobbyFi(s32);
-M2C_UNK TLobby__sub_80072448(void *);
+M2C_UNK send_seed_state__6TLobbyFi(void *);
 extern M2C_UNK lbl_8048C9D8[];
 void TLobby__sub_80070EE4(s32 arg0);
 f32 get_random_float__8TObjFishFv(f32);
@@ -204,7 +204,7 @@ s32 get_max_challenge_time__6TLobbyFv(void) {
 void TLobby__sub_80070EE4(s32 arg0) {
     check_challenge_time_range__6TLobbyFi(arg0);
     get_random_float__8TObjFishFv((f32) (arg0 - M2C_FIELD(&(*(RecoveredGlobal_80070EE4_lbl_8048C9D8 *)&lbl_8048C9D8).value, s32 *, 0xC)));
-    TLobby__sub_80072448((void *) (arg0));
+    send_seed_state__6TLobbyFi((void *) (arg0));
 }
 
 s32 TLobby__sub_80070F4C(void) {

@@ -197,7 +197,7 @@ void reset__11TCameraCtrlFv(void) {
     M2C_FIELD(TCameraCtrl__data_804FF628, s32 *, 4) = 0;
     M2C_FIELD(TCameraCtrl__data_804FF628, s32 *, 8) = 0;
 }
-void TCameraCtrl__sub_8006A35C(void) {
+void reset_view_state__11TCameraCtrlFv(void) {
     A_8006A35C *pa = (A_8006A35C *)TCameraCtrl__data_804FF628;
     B_8006A35C *pb = (B_8006A35C *)TCameraCtrl__data_804FF634;
     C_8006A35C *pc;

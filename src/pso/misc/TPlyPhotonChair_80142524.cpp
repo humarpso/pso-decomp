@@ -68,7 +68,7 @@ f32 get_float_c__15TPlyPhotonChairFPv(void *);
 s32 TPlyPhotonChair__sub_80143930(void *);
 int get_id__15TPlyPhotonChairFPv(void *);
 void draw_model_motion(s32, s32, f32);
-void TPlyPhotonChair__sub_80142778(void *arg0);
+void draw_model__15TPlyPhotonChairFPv(void *arg0);
 extern const f64 lbl_8043F298;
 extern const f64 lbl_8043F2A0;
 extern const f64 lbl_8043F2A8;
@@ -143,7 +143,7 @@ void save_state__15TPlyPhotonChairFv(s32 _w0) { lbl_805D566C = (*(int *)&some_id
 void restore_actor_draw_lighting(void) {  }
 void setup_actor_draw_lighting(void) {  }
 
-void TPlyPhotonChair__sub_80142778(void *arg0) {
+void draw_model__15TPlyPhotonChairFPv(void *arg0) {
     draw_model_motion(((s32)get_id__15TPlyPhotonChairFPv((void *)(arg0))), TPlyPhotonChair__sub_80143930(arg0), get_float_c__15TPlyPhotonChairFPv(arg0));
 }
 

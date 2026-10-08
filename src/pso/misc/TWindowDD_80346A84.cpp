@@ -17,7 +17,7 @@ extern "C" {
 
 void render__9TWindowDDFv(void);
 void ws_data_load(void);
-void *fn_800F9990(M2C_UNK *);
+void *load_encrypted_archive_data(M2C_UNK *);
 
 extern s32 TWindowDD__data_805D6E08;
 extern s32 TWindowDD__data_805D6E1C;
@@ -95,7 +95,7 @@ void ws_data_load(void) {
 
     switch ((s32) TWindowDD__data_805D6E08) {
     case 0:
-        temp_r3 = fn_800F9990(lbl_80478650);
+        temp_r3 = load_encrypted_archive_data(lbl_80478650);
         lbl_805D6E50 = temp_r3;
         TWindowDD__data_805D6E28 = M2C_FIELD(temp_r3, s32 *, 0);
         TWindowDD__data_805D6E2C = M2C_FIELD(temp_r3, s32 *, 4);
@@ -105,7 +105,7 @@ void ws_data_load(void) {
         lbl_805D6E3C = 0x12;
         return;
     default:
-        temp_r3_2 = fn_800F9990(lbl_80478660);
+        temp_r3_2 = load_encrypted_archive_data(lbl_80478660);
         lbl_805D6E54 = temp_r3_2;
         TWindowDD__data_805D6E28 = M2C_FIELD(temp_r3_2, s32 *, 0);
         TWindowDD__data_805D6E2C = M2C_FIELD(temp_r3_2, s32 *, 4);
@@ -118,7 +118,7 @@ void ws_data_load(void) {
         lbl_805D6E3C = 0x13;
         return;
     case 4:
-        temp_r3_3 = fn_800F9990(lbl_80478670);
+        temp_r3_3 = load_encrypted_archive_data(lbl_80478670);
         lbl_805D6E58 = temp_r3_3;
         TWindowDD__data_805D6E28 = M2C_FIELD(temp_r3_3, s32 *, 0);
         TWindowDD__data_805D6E2C = M2C_FIELD(temp_r3_3, s32 *, 4);
@@ -132,7 +132,7 @@ void ws_data_load(void) {
         lbl_805D6E3C = 0x13;
         return;
     case 2:
-        temp_r3_4 = fn_800F9990(lbl_80478680);
+        temp_r3_4 = load_encrypted_archive_data(lbl_80478680);
         lbl_805D6E5C = temp_r3_4;
         TWindowDD__data_805D6E28 = M2C_FIELD(temp_r3_4, s32 *, 0);
         TWindowDD__data_805D6E2C = M2C_FIELD(temp_r3_4, s32 *, 4);
@@ -145,7 +145,7 @@ void ws_data_load(void) {
         lbl_805D6E3C = 0x13;
         return;
     case 3:
-        temp_r3_5 = fn_800F9990(lbl_80478690);
+        temp_r3_5 = load_encrypted_archive_data(lbl_80478690);
         lbl_805D6E60 = temp_r3_5;
         TWindowDD__data_805D6E28 = M2C_FIELD(temp_r3_5, s32 *, 0);
         TWindowDD__data_805D6E2C = M2C_FIELD(temp_r3_5, s32 *, 4);

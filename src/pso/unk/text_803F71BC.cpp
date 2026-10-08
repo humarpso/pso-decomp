@@ -15,7 +15,7 @@ void fn_803F7424(void);
 extern u32 *lbl_805D79F0;
 void fn_803F7404(u32 *p, s32 n);
 s32 fn_803F71BC(char *s);
-s32 fn_803F632C(u8 *, u32, s32);
+s32 parse_netinfo(u8 *, u32, s32);
 void fn_803F7404(u32 *p, s32 n);
 void fn_803F7424(void);
 void fn_803F7660(u32 *mask);
@@ -74,7 +74,7 @@ s32 fn_803F7254(s32 arg0, u8 *arg1, u32 arg2, s32 arg3) {
             return -1;
         }
     }
-    r = fn_803F632C(arg1, arg2, arg3);
+    r = parse_netinfo(arg1, arg2, arg3);
     fn_803F7660(key);
     fn_803F7424();
     return r;

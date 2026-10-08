@@ -9,7 +9,7 @@ extern "C" {
 int is_locally_controlled__10TObjPlayerFPv(void*);
 s32 obj_getField1c(void *);
 M2C_UNK init_pad_binding(void *, void *, int);
-void TObjPlayer__sub_801AEFAC(u8 *arg0);
+void init_local_pad_binding__10TObjPlayerFPv(u8 *arg0);
 s32 obj_getField1c(void *);
 s32 get_card_window__17TWindowSubComCardFUi(u32);
 s32 TObjPlayer__sub_801AEF80(u8 *arg0);
@@ -46,7 +46,7 @@ s32 TObjPlayer__sub_801AEF80(u8 *arg0) {
     return M2C_FIELD(get_card_window__17TWindowSubComCardFUi((u32) ((u16)obj_getField1c(arg0))), s32 *, 0x244);
 }
 
-void TObjPlayer__sub_801AEFAC(u8 *arg0) {
+void init_local_pad_binding__10TObjPlayerFPv(u8 *arg0) {
     if (((s32)is_locally_controlled__10TObjPlayerFPv((void*)(arg0))) != 0) {
         init_pad_binding((void *) (arg0 + 0x550), (void *) (obj_getField1c((void *) (arg0))), (int) ((s16) M2C_FIELD(arg0, s32 *, 0x3D0)));
     }

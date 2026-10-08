@@ -23,7 +23,7 @@ M2C_UNK send_and_handle__6TLobbyFPvii(u32, u32, M2C_UNK);
 u32 update_window_mode_from_progress__6TLobbyFiPv(M2C_UNK *, M2C_UNK *);
 extern M2C_UNK lbl_80477CAC[];
 extern M2C_UNK lbl_80477CB4[];
-void TSaveChCr__sub_8033A010(void *arg0, u32 arg1);
+void open_message_window__9TSaveChCrFPvUi(void *arg0, u32 arg1);
 }
 
 extern "C" {
@@ -86,9 +86,9 @@ void TSaveChCr__sub_80339F98(s32 arg0, s32 arg1) {
     u8 *temp_r4;
     sp8 = *(const M2CCopy_20 *)((s32) ((u8 *)(&lbl_80477CBC.value) + -4) + 4);
     temp_r4 = (u8 *)(&sp8) + (arg1 * 8);
-    TSaveChCr__sub_8033A010((void *)((void *) (arg0)), (u32)((int) (get_localized_text_entry(M2C_FIELD(temp_r4, s32 *, 0), M2C_FIELD(temp_r4, s32 *, 4)))));
+    open_message_window__9TSaveChCrFPvUi((void *)((void *) (arg0)), (u32)((int) (get_localized_text_entry(M2C_FIELD(temp_r4, s32 *, 0), M2C_FIELD(temp_r4, s32 *, 4)))));
 }
-void TSaveChCr__sub_8033A010(void *arg0, u32 arg1) {
+void open_message_window__9TSaveChCrFPvUi(void *arg0, u32 arg1) {
     if ((u32) M2C_FIELD(arg0, u32 *, 0x3C) == 0U) {
         M2C_FIELD(arg0, u32 *, 0x3C) = update_window_mode_from_progress__6TLobbyFiPv(lbl_80477CAC, lbl_80477CB4);
         if ((u32) M2C_FIELD(arg0, u32 *, 0x3C) != 0U) {

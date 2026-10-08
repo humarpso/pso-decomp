@@ -14,12 +14,12 @@ s32 has_texture_scroll_entry(void *, u16);
 void set_ginja_texture_wrap_repeat(void *);
 extern Ref_803278B0 *lbl_805D6C70;
 extern s16 *lbl_805D6C74;
-void TOComputerMachine01__sub_803278B0(s32 arg0, Hdr_803278B0 *arg1, s32 arg2);
+void collect_scroll_uv_entries__19TOComputerMachine01FiPvi(s32 arg0, Hdr_803278B0 *arg1, s32 arg2);
 }
 
 extern "C" {
 
-void TOComputerMachine01__sub_803278B0(s32 arg0, Hdr_803278B0 *arg1, s32 arg2) {
+void collect_scroll_uv_entries__19TOComputerMachine01FiPvi(s32 arg0, Hdr_803278B0 *arg1, s32 arg2) {
     s32 hit;
     Ent_803278B0 *e;
     s16 *q;

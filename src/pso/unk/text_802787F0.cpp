@@ -23,12 +23,12 @@ void calc_list_content_extent(void *);
 void add_list_entry__20TWindowSubStatusDispFPvi(void *, int);
 void push_status_disp_entry(void *, s32, s32);
 void add_inventory_item__20TWindowSubStatusDispFPviii(void *, u8 *, s32, u32);
-void fn_802787F0(Wn_802787F0 *arg0, Ent_802787F0 *arg1);
+void fill_trade_item_list(Wn_802787F0 *arg0, Ent_802787F0 *arg1);
 }
 
 extern "C" {
 
-void fn_802787F0(Wn_802787F0 *arg0, Ent_802787F0 *arg1) {
+void fill_trade_item_list(Wn_802787F0 *arg0, Ent_802787F0 *arg1) {
     s32 sid;
     u32 i;
     s32 count;

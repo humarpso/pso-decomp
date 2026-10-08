@@ -56,7 +56,7 @@ void draw_area_chunk_objects__10TObjPlayerFv(void);
 void VecCopy__FP3VecPC3Vec(void *, void *);
 extern RecoveredGlobal_8030ABF4_lbl_80541E58 lbl_80541E58;
 extern s32 lbl_805D6A70;
-s32 TBoss4Zako__sub_8030AC7C(void *v, s32 a, s32 b);
+s32 queue_entry__10TBoss4ZakoFPvii(void *v, s32 a, s32 b);
 struct Raw_8030A9B0 { u8 b[12]; };
 struct Ent_8030A9B0 { f32 x; f32 y; f32 z; s32 f0c; s32 f10; };
 struct Tbl_8030A9B0 { s32 count; Ent_8030A9B0 ents[1]; };
@@ -203,7 +203,7 @@ void TCameraCtrl__sub_8030ABF4(void) {
     }
 }
 
-s32 TBoss4Zako__sub_8030AC7C(void *v, s32 a, s32 b) {
+s32 queue_entry__10TBoss4ZakoFPvii(void *v, s32 a, s32 b) {
     Tbl_8030AC7C *t = &((Tbl_8030AC7C *)&lbl_80541E58)[lbl_805D6A70 ^ 1];
     s32 n = t->count;
     Ent_8030AC7C *e = &t->ents[n];

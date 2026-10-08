@@ -129,7 +129,7 @@ void TAdSinglePlyChrSelectGC__sub_80202D7C(void *, void *);
 Save_80202C68 *TAdSinglePlyChrSelectGC__sub_80202C68(Save_80202C68 *arg0, Save_80202C68 *arg1);
 void TAdSinglePlyChrSelectGC__sub_80076D9C(void *, void *);
 void* copy_item_data__23TAdSinglePlyChrSelectGCFPvPv(void* p, void* a1);
-u8 *TAdSinglePlyChrSelectGC__sub_80202DD4(u8 *arg0, u8 *arg1);
+u8 *copy_character_data__23TAdSinglePlyChrSelectGCFPvPv(u8 *arg0, u8 *arg1);
 }
 
 extern "C" {
@@ -293,7 +293,7 @@ Save_80202C68 *TAdSinglePlyChrSelectGC__sub_80202C68(Save_80202C68 *arg0, Save_8
     return arg0;
 }
 
-u8 *TAdSinglePlyChrSelectGC__sub_80202DD4(u8 *arg0, u8 *arg1) {
+u8 *copy_character_data__23TAdSinglePlyChrSelectGCFPvPv(u8 *arg0, u8 *arg1) {
     S_80202DD4 *d = (S_80202DD4 *)arg0;
     S_80202DD4 *s = (S_80202DD4 *)arg1;
     Elem_80202DD4 *p;

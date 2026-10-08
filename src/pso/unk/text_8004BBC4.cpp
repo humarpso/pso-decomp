@@ -36,7 +36,7 @@ void TBoss4DarkFalz__sub_8004C0D4(void);
 M2C_UNK change_state__14TBoss4DarkFalzFPvi(void *, int);
 s32 get_phase__9TBoss4UroFPv(void *);
 void swap_bytes__14TBoss4DarkFalzFPv(void *);
-void TBoss4Type2__sub_80053BF4(void *, s32);
+void apply_packed_state__11TBoss4Type2FPvUi(void *, s32);
 void TBoss4Type2__sub_80056EA8(void *, s32);
 void TBoss4Type3__sub_80059DCC(void *, s32);
 void *get_enemy_entity(u16);
@@ -156,7 +156,7 @@ void handle_6x19_dark_falz_actions(Msg_8004BFA4 *arg0) {
     case 5:
     case 6:
         if (TBoss4DarkFalz__data_805D4D5C != NULL) {
-            TBoss4Type2__sub_80053BF4(TBoss4DarkFalz__data_805D4D5C, arg);
+            apply_packed_state__11TBoss4Type2FPvUi(TBoss4DarkFalz__data_805D4D5C, arg);
         }
         break;
     case 7:

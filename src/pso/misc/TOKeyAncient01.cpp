@@ -91,7 +91,7 @@ void free__11TOBoss4RockFUi(u32);
 void free_if_valid__10TObjPlayerFi(s32);
 extern u8 *TOKeyAncient01__data_805D59F8;
 extern u32 TOKeyAncient01__data_805D59FC;
-void TOKeyAncient01__sub_8016AEFC(void);
+void free_shared_resources__14TOKeyAncient01Fv(void);
 u32 init_collision_body_parts(void *, s32, s32);
 u8 * TOKey__ct(void *);
 M2C_UNK reset_photon_effect__10TObjPlayerFPv(void *);
@@ -189,7 +189,7 @@ void *create__14TOKeyAncient01FPv(void *arg0) {
 
 extern M2C_UNK __vt__14TOKeyAncient01[];
 
-void TOKeyAncient01__sub_8016AEFC(void) {
+void free_shared_resources__14TOKeyAncient01Fv(void) {
   s32 var_r31;
   s32 var_r30;
   if (((u32) TOKeyAncient01__data_805D59FC) != 0)

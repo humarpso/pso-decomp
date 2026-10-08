@@ -321,7 +321,7 @@ s32 save_floor_discovery__13TRaderMapCoreFiPv(s32 arg0, Map_801F9418* arg1);
 void heap_free__5THeapFPv(int, void*);
 extern s16 *TRaderMapCore__data_80513780[];
 extern int TRaderMapCore__data_805D5F50;
-void TRaderMapCore__sub_801F9540(void);
+void free_map_data__13TRaderMapCoreFv(void);
 void* __ct__5THeapFUli(void*, u32, s32);
 void* __nw__5THeapFUl(u32);
 extern s16 *TRaderMapCore__data_80513780[];
@@ -620,7 +620,7 @@ s32 init_radar_floor_flags(s32 floor, RadarInitMap_801F9474 *map) {
     return 1;
 }
 
-void TRaderMapCore__sub_801F9540(void) {
+void free_map_data__13TRaderMapCoreFv(void) {
     s32 i;
     for (i = 0x11; i >= 0; i--) {
         if (((s16* *)&TRaderMapCore__data_80513780)[i] != NULL) {

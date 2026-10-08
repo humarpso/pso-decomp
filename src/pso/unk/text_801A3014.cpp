@@ -175,7 +175,7 @@ M2C_UNK init_limits__6TLobbyFv();
 M2C_UNK TLobby__sub_801A2E00();
 M2C_UNK reset_quest_state__6TLobbyFv();
 void reset_controller_input_state();
-M2C_UNK TObjPlayer__sub_801B1A84(void *);
+M2C_UNK for_each_player_slot__10TObjPlayerFv(void *);
 M2C_UNK rebuild_player_inventory(void *);
 M2C_UNK render_tick__Fv();
 void create_quad_sprites__13TParticleCtrlFv();
@@ -228,7 +228,7 @@ M2C_UNK setup_split_screen();
 extern u32 lbl_805D5EE8;
 M2C_UNK reset_quest_state__6TLobbyFv();
 void reset_controller_input_state();
-M2C_UNK TObjPlayer__sub_801B1A84(void *);
+M2C_UNK for_each_player_slot__10TObjPlayerFv(void *);
 M2C_UNK rebuild_player_inventory(void *);
 M2C_UNK render_tick__Fv();
 void create_quad_sprites__13TParticleCtrlFv();
@@ -446,7 +446,7 @@ void reload_offline_area__6TLobbyFv(void) {
             set_parent__7TObjectFP7TObject(p, tl_03);
             ((VObj_801A3014 *)p)->m6();
             rebuild_player_inventory(p);
-            TObjPlayer__sub_801B1A84(fn_801B309C);
+            for_each_player_slot__10TObjPlayerFv(fn_801B309C);
         }
     }
     load_battle_param_entry();
@@ -524,7 +524,7 @@ void rebuild_area_keep_players__6TLobbyFv(void) {
             set_parent__7TObjectFP7TObject(p, tl_03);
             ((VObj_801A31D8 *)p)->m6();
             rebuild_player_inventory(p);
-            TObjPlayer__sub_801B1A84(fn_801B309C);
+            for_each_player_slot__10TObjPlayerFv(fn_801B309C);
         }
     }
     create_floor_quest_thread();

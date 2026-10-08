@@ -30,7 +30,7 @@ f32 TAdSinglePlyChrSelectGC__sub_80242A60(s16 *arg0);
 f32 TAdSinglePlyChrSelectGC__sub_80242AC0(s16 *arg0);
 extern const f32 lbl_805DCA04;
 extern const f32 lbl_805DCA08;
-s32 TAdSinglePlyChrSelectGC__sub_80242B30(Anim_80242B30 *o, s16 *arg1);
+s32 update_rumble_pattern__23TAdSinglePlyChrSelectGCFPvPv(Anim_80242B30 *o, s16 *arg1);
 f32 update_scale__15TObjBoss2TunnelFPv(void *, f32);
 u8 *get_player_by_client_id(s32);
 s32 is_active__12TBoss3VoloptFPv(int);
@@ -134,7 +134,7 @@ f32 TAdSinglePlyChrSelectGC__sub_80242AC0(s16 *arg0) {
 }
 
 void TAdSinglePlyChrSelectGC__sub_80242B24(void* p) { *(s16*)((char*)p + 0x0) = 0; }
-s32 TAdSinglePlyChrSelectGC__sub_80242B30(Anim_80242B30 *o, s16 *arg1) {
+s32 update_rumble_pattern__23TAdSinglePlyChrSelectGCFPvPv(Anim_80242B30 *o, s16 *arg1) {
     if (*arg1 <= 0) {
         o->a = lbl_805DCA04;
         o->b = lbl_805DCA08;

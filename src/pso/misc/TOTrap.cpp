@@ -238,7 +238,7 @@ M2C_UNK calc_attach_pos__10TObjPlayerFPv();
 u16 find_nearest_visible_player(void *, int, f32);
 f32 horizontal_distance_squared(void *, void *);
 s32 get_player_by_client_id(u32);
-void TOTrap__sub_80178E10(Obj_80178E10 *arg0);
+void find_target_player__6TOTrapFPv(Obj_80178E10 *arg0);
 }
 
 extern "C" {
@@ -351,7 +351,7 @@ void TOTrap__sub_80178DCC(u8 *arg0) {
     ((VObj_18_f90cfc *)(arg0))->m77();
 }
 
-void TOTrap__sub_80178E10(Obj_80178E10 *arg0) {
+void find_target_player__6TOTrapFPv(Obj_80178E10 *arg0) {
     calc_attach_pos__10TObjPlayerFPv();
     arg0->idx = find_nearest_visible_player(arg0, 0, arg0->range);
     if (arg0->idx != (u16)0xFFFF) {

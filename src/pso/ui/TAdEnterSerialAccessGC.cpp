@@ -143,7 +143,7 @@ M2C_UNK memset(void *, int, int);
 s32 get_instance__23TAdSinglePlyChrSelectGCFv();
 extern RecoveredGlobal_803216C0_lbl_8047653C lbl_8047653C;
 extern RecoveredGlobal_803216C0_lbl_805430D0 lbl_805430D0;
-M2C_UNK *TAdEnterSerialAccessGC__sub_803216C0(void);
+M2C_UNK *get_formatted_serial__22TAdEnterSerialAccessGCFv(void);
 M2C_UNK memset(void *, int, int);
 extern RecoveredGlobal_803217B8_lbl_80476524 lbl_80476524;
 extern RecoveredGlobal_8032BA8C_TAdEnterPasswordGC__data_804EDA20 TAdEnterSerialAccessGC__data_804EC9C4;
@@ -197,9 +197,9 @@ void create_callback__22TAdEnterSerialAccessGCFPvPvPv(void *, void *, void *);
 extern char lbl_804764D8[];
 extern char lbl_804764E0[];
 void TAdEnterSerialAccessGC__sub_80321A90(void);
-void TAdEnterSerialAccessGC__sub_80321668(u8 *dst, u8 *src, u32 count, u32 *lens);
+void format_dashed_serial__22TAdEnterSerialAccessGCFPvPvUiPv(u8 *dst, u8 *src, u32 count, u32 *lens);
 s32 get_instance__23TAdSinglePlyChrSelectGCFv();
-void TAdEnterSerialAccessGC__sub_80321668(u8 *dst, u8 *src, u32 count, u32 *lens);
+void format_dashed_serial__22TAdEnterSerialAccessGCFPvPvUiPv(u8 *dst, u8 *src, u32 count, u32 *lens);
 M2C_UNK memset(void *, int, int);
 extern T_80321738 lbl_80476530;
 extern u8 lbl_805430BC[];
@@ -219,7 +219,7 @@ void send_and_handle__6TLobbyFPvii(s32, s32, int);
 s32 update_window_mode_from_progress__6TLobbyFiPv(void *, void *);
 extern u8 lbl_804764C8[];
 extern u8 lbl_804764D0[];
-s32 TAdEnterSerialAccessGC__sub_80321AC8(void *arg0, void *arg1);
+s32 open_message_window__22TAdEnterSerialAccessGCFPvPv(void *arg0, void *arg1);
 void queue_destruction__7TObjectFv(void *);
 s32 load_and_verify_character_save__23TAdSinglePlyChrSelectGCFPvPv(void *, void *);
 s32 get_field_118__22TAdEnterSerialAccessGCFv();
@@ -397,7 +397,7 @@ void draw_serial_plates__22TAdEnterSerialAccessGCFv(void) {
 }
 #pragma pop
 
-void TAdEnterSerialAccessGC__sub_80321668(u8 *dst, u8 *src, u32 count, u32 *lens) {
+void format_dashed_serial__22TAdEnterSerialAccessGCFPvPvUiPv(u8 *dst, u8 *src, u32 count, u32 *lens) {
     u32 i;
     u32 j;
     for (i = 0; i < count; i++) {
@@ -409,7 +409,7 @@ void TAdEnterSerialAccessGC__sub_80321668(u8 *dst, u8 *src, u32 count, u32 *lens
     dst[-1] = 0;
 }
 
-M2C_UNK *TAdEnterSerialAccessGC__sub_803216C0(void) {
+M2C_UNK *get_formatted_serial__22TAdEnterSerialAccessGCFv(void) {
     typedef char sp8_offset[(offsetof(Stack_803216C0, sp8) == 0x0) ? 1 : -1];
     typedef char spC_offset[(offsetof(Stack_803216C0, spC) == 0x4) ? 1 : -1];
     typedef char sp10_offset[(offsetof(Stack_803216C0, sp10) == 0x8) ? 1 : -1];
@@ -418,7 +418,7 @@ M2C_UNK *TAdEnterSerialAccessGC__sub_803216C0(void) {
     stack.sp8 = M2C_FIELD(&lbl_8047653C.value, s32 *, 0);
     stack.spC = M2C_FIELD(&lbl_8047653C.value, s32 *, 4);
     stack.sp10 = M2C_FIELD(&lbl_8047653C.value, s32 *, 8);
-    TAdEnterSerialAccessGC__sub_80321668((u8 *)((void *) (&lbl_805430D0.value)), (u8 *)((void *) (get_instance__23TAdSinglePlyChrSelectGCFv() + 0x1153C)), (u32)((int) (3)), (u32 *)((void *) (&stack.sp8)));
+    format_dashed_serial__22TAdEnterSerialAccessGCFPvPvUiPv((u8 *)((void *) (&lbl_805430D0.value)), (u8 *)((void *) (get_instance__23TAdSinglePlyChrSelectGCFv() + 0x1153C)), (u32)((int) (3)), (u32 *)((void *) (&stack.sp8)));
     return &lbl_805430D0.value;
 }
 
@@ -429,7 +429,7 @@ typedef char RecoveredGlobal_803217B8_lbl_805430A4_size[sizeof(RecoveredGlobal_8
 u8 *TAdEnterSerialAccessGC__sub_80321738(void) {
     memset(lbl_805430BC, 0, 0x14);
     T_80321738 t = lbl_80476530;
-    TAdEnterSerialAccessGC__sub_80321668((u8 *)(lbl_805430BC), (u8 *)((void *)((u32)convert_serial_hex_to_decimal__22TAdEnterSerialAccessGCFi((int)(get_instance__23TAdSinglePlyChrSelectGCFv() + 0x1152C)))), (u32)(3), (u32 *)(&t));
+    format_dashed_serial__22TAdEnterSerialAccessGCFPvPvUiPv((u8 *)(lbl_805430BC), (u8 *)((void *)((u32)convert_serial_hex_to_decimal__22TAdEnterSerialAccessGCFi((int)(get_instance__23TAdSinglePlyChrSelectGCFv() + 0x1152C)))), (u32)(3), (u32 *)(&t));
     return lbl_805430BC;
 }
 
@@ -442,7 +442,7 @@ M2C_UNK *TAdEnterSerialAccessGC__sub_803217B8(void) {
     stack.sp8 = M2C_FIELD(&lbl_80476524.value, s32 *, 0);
     stack.spC = M2C_FIELD(&lbl_80476524.value, s32 *, 4);
     stack.sp10 = M2C_FIELD(&lbl_80476524.value, s32 *, 8);
-    TAdEnterSerialAccessGC__sub_80321668((u8 *)((void *) (&lbl_805430A4.value)), (u8 *)((void *) (&(*(RecoveredGlobal_803217B8_TAdEnterSerialAccessGC__data_804EC9C4 *)&TAdEnterSerialAccessGC__data_804EC9C4).value)), (u32)((int) (3)), (u32 *)((void *) (&stack.sp8)));
+    format_dashed_serial__22TAdEnterSerialAccessGCFPvPvUiPv((u8 *)((void *) (&lbl_805430A4.value)), (u8 *)((void *) (&(*(RecoveredGlobal_803217B8_TAdEnterSerialAccessGC__data_804EC9C4 *)&TAdEnterSerialAccessGC__data_804EC9C4).value)), (u32)((int) (3)), (u32 *)((void *) (&stack.sp8)));
     return &lbl_805430A4.value;
 }
 
@@ -466,7 +466,7 @@ M2C_UNK *TAdEnterSerialAccessGC__sub_80321874(void) {
     stack.sp8 = M2C_FIELD(&lbl_80476518.value, s32 *, 0);
     stack.spC = M2C_FIELD(&lbl_80476518.value, s32 *, 4);
     stack.sp10 = M2C_FIELD(&lbl_80476518.value, s32 *, 8);
-    TAdEnterSerialAccessGC__sub_80321668((u8 *)((void *) (&lbl_80543090.value)), (u8 *)((void *) (&TAdEnterSerialAccessGC__data_804EC9B8.value)), (u32)((int) (3)), (u32 *)((void *) (&stack.sp8)));
+    format_dashed_serial__22TAdEnterSerialAccessGCFPvPvUiPv((u8 *)((void *) (&lbl_80543090.value)), (u8 *)((void *) (&TAdEnterSerialAccessGC__data_804EC9B8.value)), (u32)((int) (3)), (u32 *)((void *) (&stack.sp8)));
     return &lbl_80543090.value;
 }
 
@@ -525,7 +525,7 @@ void TAdEnterSerialAccessGC__sub_80321A90(void) {
     create_callback__22TAdEnterSerialAccessGCFPvPvPv(lbl_804764D8, lbl_804764E0, (void *)TAdEnterSerialAccessGC__sub_803212F8);
 }
 
-s32 TAdEnterSerialAccessGC__sub_80321AC8(void *arg0, void *arg1) {
+s32 open_message_window__22TAdEnterSerialAccessGCFPvPv(void *arg0, void *arg1) {
     s32 r = update_window_mode_from_progress__6TLobbyFiPv(lbl_804764C8, lbl_804764D0);
     send_and_handle__6TLobbyFPvii(r, get_localized_text_entry(0x17, arg1), 1);
     return r;

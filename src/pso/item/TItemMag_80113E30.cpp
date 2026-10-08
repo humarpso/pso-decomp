@@ -19,7 +19,7 @@ s16 TItemData__sub_801146C0(void *);
 void TItemMag__sub_80114198(u8 *arg0, s16 arg1);
 s16 get_total_level__11TItemMagSubFPv(void *);
 s16 TItemData__sub_801146DC(void *);
-void TItemMag__sub_8011423C(u8 *arg0, s16 arg1);
+void add_stat_level_capped__8TItemMagFPvs(u8 *arg0, s16 arg1);
 s16 get_total_level__11TItemMagSubFPv(void *);
 s16 TItemData__sub_801146F8(void *);
 void mag_feed_add_def(u8 *arg0, s16 arg1);
@@ -212,7 +212,7 @@ void TItemMag__sub_80114198(u8 *arg0, s16 arg1) {
 
 #pragma push
 #pragma opt_propagation off
-void TItemMag__sub_8011423C(u8 *arg0, s16 arg1) {
+void add_stat_level_capped__8TItemMagFPvs(u8 *arg0, s16 arg1) {
     s16 temp_r31;
     s16 temp_r3;
     s16 temp_r3_2;

@@ -549,7 +549,7 @@ void create_horming__11TBoss4Type3FPvPvPv(void *, void *, u16);
 M2C_UNK create_jisin__11TBoss4Type2FPvPv(void *, int);
 s32 create__13TObjDFRecoverFP7TObjectUsPCf(void *, int, void *);
 void draw_player_model_by_id__10TObjPlayerFif(int, f32);
-s32 TBoss4Type2__sub_800522CC(s32 n, f32 *w, s32 *t);
+s32 pick_weighted_random__11TBoss4Type2FiPvPv(s32 n, f32 *w, s32 *t);
 s32 sync_player_globals__10TObjPlayerFv();
 s32 TObjPlayer__sub_80052390(f32);
 M2C_UNK drain_player_hp(u16, s32);
@@ -662,12 +662,12 @@ s32 get_random_scaled__11TBoss4Type3Fv(void);
 void interp_position_between_nodes__11TBoss4Type3FPv(u8 *arg0);
 void spawn_random_effect__11TBoss4Type3Fi(s32 arg0);
 void TBoss4Type3__sub_80059EA8(Obj_80059EA8 *self, s32 arg1, s32 arg2);
-void TBoss4Type3__sub_80059F04(Obj_80059F04 *self, s32 arg1, s32 arg2, s32 arg3);
+void send_packed_action__11TBoss4Type3FPviii(Obj_80059F04 *self, s32 arg1, s32 arg2, s32 arg3);
 void TBoss4Type3__sub_80059F64(Obj_80059F64 *self, s32 arg1);
 void TBoss4Type3__sub_80059FC4(u8 *arg0);
 void TBoss4Type3__sub_8005A150(void);
 void TBoss4Type3__sub_8005A2A4(Obj_8005A2A4 *self);
-void TBoss4Type3__sub_8005A300(Obj_8005A300 *self);
+void create_particle_emitters__11TBoss4Type3FPv(Obj_8005A300 *self);
 void set_action_from_table__11TBoss4Type3FPvi(TBoss4Type3_8005A398 *self, s32 arg1);
 void TBoss4Type3__sub_8005A438(Obj_8005A438 *self);
 void copy_pair__11TBoss4Type3FPvPv(void* p, void* q);
@@ -716,7 +716,7 @@ void * __nw__7TObjectFUl(int);
 void __ct__7TObjectFP7TObject(void *);
 M2C_UNK create__10TTecGrantsFPvPvPvPv(void *, void *, void *, s32);
 M2C_UNK create__9TTecMegidFiiii(void *, Vec_80058848 *, u8 *, s32);
-f32 TTecResta__sub_802394B0(s32);
+f32 calc_heal_amount__9TTecRestaFi(s32);
 s32 create__9TTecRestaFPvPvPv(void *, void *, int);
 M2C_UNK queue_event_1D__12TBoss3VoloptFss(s32, s32);
 void spawn_effect__11TBoss4Type3Fsss(s32, s32, s32);
@@ -1606,7 +1606,7 @@ void apply_resta_heal__11TBoss4Type2FPv(void *arg0) {
 
     temp_r4 = M2C_FIELD(arg0, void **, 0x2B0);
     temp_r31 = M2C_FIELD(temp_r4, s16 *, 2);
-    drain_player_hp(M2C_FIELD(arg0, u16 *, 0x3C4), (temp_r31 / 5) + (s32) TTecResta__sub_802394B0(M2C_FIELD(((void * (*)(M2C_UNK, void *))dispatch_shared_handler_a__6TLobbyFPv)(0x37, temp_r4), s32 *, 0x1C)));
+    drain_player_hp(M2C_FIELD(arg0, u16 *, 0x3C4), (temp_r31 / 5) + (s32) calc_heal_amount__9TTecRestaFi(M2C_FIELD(((void * (*)(M2C_UNK, void *))dispatch_shared_handler_a__6TLobbyFPv)(0x37, temp_r4), s32 *, 0x1C)));
 }
 
 void TBoss4Type2__sub_80056998(u8 *arg0) {
@@ -1644,9 +1644,9 @@ void choose_next_action__11TBoss4Type2FPv(Obj_80056A54 *arg0) {
     s32 id;
     id = ((s32 (*)(void *))pick_random_target_player__11TBoss4Type3Fv)(arg0);
     if (arg0->f32c <= arg0->f3ec && (u16)id != 0xFFFF) {
-        r = TBoss4Type2__sub_800522CC(4, (f32 *)(tbl + 0x544), (s32 *)(tbl + 0x554));
+        r = pick_weighted_random__11TBoss4Type2FiPvPv(4, (f32 *)(tbl + 0x544), (s32 *)(tbl + 0x554));
     } else {
-        r = TBoss4Type2__sub_800522CC(3, (f32 *)(tbl + 0x564), (s32 *)(tbl + 0x570));
+        r = pick_weighted_random__11TBoss4Type2FiPvPv(3, (f32 *)(tbl + 0x564), (s32 *)(tbl + 0x570));
     }
     switch (r) {
     case 6:

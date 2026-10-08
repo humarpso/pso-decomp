@@ -243,7 +243,7 @@ void free_collision_body_parts(void *);
 void send_entity_set_flags__6TLobbyFPv(void *);
 void __dl__7TObjectFPv(void *);
 s32 all_parents_unqueued_for_destruction__7TObjectFv();
-M2C_UNK TObjEneRecon__sub_8031C190(void *);
+M2C_UNK update_ground_probe__12TObjEneReconFPv(void *);
 s32 handle_message__12TObjEneReconFPvi(void *, void *);
 s32 TObjEneRecon__sub_8031C364(void *, void *);
 s32 TObjEneRecon__sub_8031C624(void *, void *);
@@ -524,7 +524,7 @@ void run_task__12TObjEneReconFv(u8 *arg0) {
     update_position_from_offsets__12TObjEneReconFPv((void *) (arg0));
     set_player_state_default__12TBoss8DragonFPv(arg0);
     ((VObj_18_825e13 *)(arg0))->m98();
-    TObjEneRecon__sub_8031C190((void *) (arg0));
+    update_ground_probe__12TObjEneReconFPv((void *) (arg0));
 }
 
 void *__dt__12TObjEneReconFv(void *arg0, s16 arg1) {

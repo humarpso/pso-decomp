@@ -72,7 +72,7 @@ extern s32 lbl_805D49B4;
 extern s32 lbl_805D5F7C;
 extern s32 lbl_805D5F94;
 s32 load_chr_select_slot__23TAdSinglePlyChrSelectGCFv(void);
-s32 TAdSinglePlyChrSelectGC__sub_801FC564(s32);
+s32 load_player_by_slot__23TAdSinglePlyChrSelectGCFi(s32);
 s32 is_entry_valid__23TAdSinglePlyChrSelectGCFPvi(s32, s32);
 s32 check_ready__23TAdSinglePlyChrSelectGCFv();
 s8 get_chr_select_state__23TAdSinglePlyChrSelectGCFv();
@@ -226,7 +226,7 @@ s32 load_player__23TAdSinglePlyChrSelectGCFv(void) {
         if (var_r31 == 0) {
             var_r31 = find_card_file__15TAdPlayerLoadGCFiPv(lbl_805D5F80, lbl_804C89BC);
             if (var_r31 == 0) {
-                var_r3 = TAdSinglePlyChrSelectGC__sub_801FC564(lbl_805D5F80);
+                var_r3 = load_player_by_slot__23TAdSinglePlyChrSelectGCFi(lbl_805D5F80);
                 if (var_r3 == 0) {
                     lbl_805D5F78 = 0xD;
                 }

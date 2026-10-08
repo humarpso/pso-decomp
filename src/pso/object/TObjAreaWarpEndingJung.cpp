@@ -351,7 +351,7 @@ void TObjWarpString__sub_8019B744(u8 *arg0);
 void TObjWarpString__sub_8019B77C(void *arg0);
 void run_task__14TObjWarpStringFv(void *arg0);
 u8 * __ct__14TObjWarpStringFv(u8 *arg0, u8 *arg1, s32 arg2, s16 arg3);
-void fn_8019B8D8(Obj_8019B8D8 *self, void *arg);
+void create_warp_id_string(Obj_8019B8D8 *self, void *arg);
 s32 TObjMapForceWarp__vt16(void *arg0, u16 arg1);
 void TObjMapForceWarp__vt17(Obj_8019B978 *arg0);
 void render__16TObjMapForceWarpFv(void);
@@ -710,7 +710,7 @@ u8 *__ct__14TObjWarpStringFv(u8 *arg0, u8 *arg1, s32 arg2, s16 arg3) {
     return arg0;
 }
 
-void fn_8019B8D8(Obj_8019B8D8 *self, void *arg) {
+void create_warp_id_string(Obj_8019B8D8 *self, void *arg) {
     char buf[32];
     char *p;
     sprintf(buf, lbl_805DBFF4, self->id);
@@ -722,7 +722,7 @@ void fn_8019B8D8(Obj_8019B8D8 *self, void *arg) {
 
 s32 TObjMapForceWarp__vt16(void *arg0, u16 arg1) {
     if ((s32) M2C_FIELD(arg0, s32 *, 0xFC) != 0) {
-        ((M2C_UNK (*)(void *, int))fn_8019B8D8)(arg0, arg1);
+        ((M2C_UNK (*)(void *, int))create_warp_id_string)(arg0, arg1);
     }
     return 1;
 }

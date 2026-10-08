@@ -38,7 +38,7 @@ int ensure_particle_emitter__11TBoss6Type2FPvi(void*, void*);
 s32 enforce_min_distance__11TBoss6Type2FPv(void *);
 s32 push_out_from_points__11TBoss6Type2FPv(void *);
 s32 push_out_from_target__11TBoss6Type2FPv(void *);
-s32 TBoss6Type2__sub_8032F5FC(void *);
+s32 apply_random_drift__11TBoss6Type2FPv(void *);
 s32 turn_toward_target__11TBoss6Type2FPv();
 s32 fly_toward_target__11TBoss6Type2FPv();
 s32 TBoss6Type2__sub_8032FB84();
@@ -107,7 +107,7 @@ void TBoss6Type2__sub_80337054(O_80337054 *arg0) {
 
 void update_effect_subsystems__11TBoss6Type2FPv(void *arg0) {
     turn_toward_target__11TBoss6Type2FPv();
-    TBoss6Type2__sub_8032F5FC(arg0);
+    apply_random_drift__11TBoss6Type2FPv(arg0);
     push_out_from_target__11TBoss6Type2FPv(arg0);
     push_out_from_points__11TBoss6Type2FPv(arg0);
     enforce_min_distance__11TBoss6Type2FPv(arg0);

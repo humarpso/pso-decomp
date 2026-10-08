@@ -159,7 +159,7 @@ u8 bank_has_free_row(s32 i);
 s32 get_bank_meseta_capacity(s32 i);
 s32 bank_credit_meseta(s32 v, s32 i);
 void init__9TItemDataFv(void *);
-void TCheckRoomSequence__sub_80211408(Obj_80211408 *self);
+void init_item_entry__18TCheckRoomSequenceFPv(Obj_80211408 *self);
 void init__9TItemDataFv(void *);
 void init_item_entry__23TAdSinglePlyChrSelectGCFPv(Obj_80211584 *self);
 void TWindow__close(TWin_8020F070 *);
@@ -171,7 +171,7 @@ void *TShopDeleteItemWindow__ct(void *, s32, void *, s32);
 void TCheckRoomSequence__sub_8020F188(u8 *arg0);
 void init_check__18TCheckRoomSequenceFUi(u32 arg0);
 extern void *tl_05;
-void TCheckRoomSequence__sub_8020F268(Seq_8020F268 *self);
+void open_delete_item_window__18TCheckRoomSequenceFPv(Seq_8020F268 *self);
 int set_field_20__12TQuestListVMFPvi(void*, void*);
 int reset_controller_input_state(void *);
 void *__nw__7TObjectFUl(u32);
@@ -179,7 +179,7 @@ void *TShopGetItemWindow__ct(void *, s32, void *, s32);
 void TCheckRoomSequence__sub_8020F188(u8 *arg0);
 void init_check__18TCheckRoomSequenceFUi(u32 arg0);
 extern void *tl_05;
-void TCheckRoomSequence__sub_8020F2D8(Seq_8020F2D8 *self);
+void open_get_item_window__18TCheckRoomSequenceFPv(Seq_8020F2D8 *self);
 extern s32 lbl_805D6160;
 extern s32 TCheckRoomSequence__data_805D6164;
 extern s32 TCheckRoomSequence__data_805D6168;
@@ -222,9 +222,9 @@ void TWindow__close(TWin_8020F070 *);
 M2C_UNK set_entry_field_20__15TWindowMainMenuFii(int, int);
 void accept_meseta_deposit__18TCheckRoomSequenceFPv(u8 *arg0);
 int copy_entry_bytes__10TObjPlayerFPvPv(void*, void*);
-void TCheckRoomSequence__sub_802114D4(u8 *arg0, u8 *arg1);
+void copy_item_to_bank_entry__18TCheckRoomSequenceFPvPv(u8 *arg0, u8 *arg1);
 u8 is_item_record_empty(u8 *arg0);
-void TCheckRoomSequence__sub_80211408(Obj_80211408 *self);
+void init_item_entry__18TCheckRoomSequenceFPv(Obj_80211408 *self);
 void copy_item_data__23TAdSinglePlyChrSelectGCFPvPv(void *, void *);
 void compact_items__18TCheckRoomSequenceFi(s32 slot);
 M2C_UNK queue_destruction__7TObjectFv(void *);
@@ -274,7 +274,7 @@ s32 get_bank_deposit_capacity_for_item(Item_80210A04 *item, s32 slot);
 u8 is_item_record_empty(u8 *arg0);
 u8 bank_has_free_row(s32 i);
 s32 TCheckRoomSequence__sub_80210B34(u8 *, s32, s32);
-void TCheckRoomSequence__sub_802114D4(u8 *arg0, u8 *arg1);
+void copy_item_to_bank_entry__18TCheckRoomSequenceFPvPv(u8 *arg0, u8 *arg1);
 s32 store_item_in_bank(u8 *item, s32 arg1, s32 slot);
 s32 obj_getField1c(int);
 s32 is_visible__17TWindowSubComCardFPv(int);
@@ -358,7 +358,7 @@ extern u8 __vt__18TCheckRoomSequence[];
 extern s32 lbl_805D3640;
 extern s32 TCheckRoomSequence__data_805D616C;
 void *TCheckRoomSequence__ct(void *arg0, s32 arg1, s32 arg2_);
-void TCheckRoomSequence__sub_80211408(Obj_80211408 *self);
+void init_item_entry__18TCheckRoomSequenceFPv(Obj_80211408 *self);
 u8 is_item_record_empty(u8 *arg0);
 s32 get_item_def__18TCheckRoomSequenceFUi(void *);
 void remove_bank_item_amount__18TCheckRoomSequenceFiii(s32 idx, s32 amount, s32 slot);
@@ -485,7 +485,7 @@ void handle_error_ack__18TCheckRoomSequenceFPv(u8 *arg0) {
 
 #pragma push
 #pragma optimization_level 1
-void TCheckRoomSequence__sub_8020F268(Seq_8020F268 *self) {
+void open_delete_item_window__18TCheckRoomSequenceFPv(Seq_8020F268 *self) {
     void *o = __nw__7TObjectFUl(0x68);
     if (o != 0) {
         o = TShopDeleteItemWindow__ct(o, (s32)tl_05, self, self->f24);
@@ -499,7 +499,7 @@ void TCheckRoomSequence__sub_8020F268(Seq_8020F268 *self) {
 
 #pragma push
 #pragma optimization_level 1
-void TCheckRoomSequence__sub_8020F2D8(Seq_8020F2D8 *self) {
+void open_get_item_window__18TCheckRoomSequenceFPv(Seq_8020F2D8 *self) {
     void *o = __nw__7TObjectFUl(0x68);
     if (o != 0) {
         o = TShopGetItemWindow__ct(o, (s32)tl_05, self, self->f24);
@@ -1050,7 +1050,7 @@ void compact_items__18TCheckRoomSequenceFi(s32 slot) {
             for (b = a + 0x18; b < base + 0x12C0; b += 0x18) {
                 if (((s32 (*)(u8 *))is_item_record_empty)(b) == 0) {
                     copy_item_data__23TAdSinglePlyChrSelectGCFPvPv(a, b);
-                    TCheckRoomSequence__sub_80211408((Obj_80211408 *)(b));
+                    init_item_entry__18TCheckRoomSequenceFPv((Obj_80211408 *)(b));
                     break;
                 }
             }
@@ -1110,11 +1110,11 @@ void remove_bank_item_amount__18TCheckRoomSequenceFiii(s32 idx, s32 amount, s32 
     s32 n;
     if (idx <= 199) {
         if (recs[idx].b0 != 3) {
-            TCheckRoomSequence__sub_80211408((Obj_80211408 *)&recs[idx]);
+            init_item_entry__18TCheckRoomSequenceFPv((Obj_80211408 *)&recs[idx]);
             lbl_80513D98[slot]--;
             copy_bank_to_card_window((s32)(slot));
         } else if (get_item_def__18TCheckRoomSequenceFUi(&recs[idx]) == 0) {
-            TCheckRoomSequence__sub_80211408((Obj_80211408 *)&recs[idx]);
+            init_item_entry__18TCheckRoomSequenceFPv((Obj_80211408 *)&recs[idx]);
             lbl_80513D98[slot]--;
             copy_bank_to_card_window((s32)(slot));
         } else if (((s32 (*)(u8 *))is_item_record_empty)((u8 *)&recs[idx]) == 0) {
@@ -1122,7 +1122,7 @@ void remove_bank_item_amount__18TCheckRoomSequenceFiii(s32 idx, s32 amount, s32 
             n -= amount;
             if (n >= 0) {
                 if (n == 0) {
-                    TCheckRoomSequence__sub_80211408((Obj_80211408 *)&recs[idx]);
+                    init_item_entry__18TCheckRoomSequenceFPv((Obj_80211408 *)&recs[idx]);
                     lbl_80513D98[slot]--;
                     copy_bank_to_card_window((s32)(slot));
                 } else {
@@ -1163,7 +1163,7 @@ s32 store_item_in_bank(u8 *item, s32 arg1, s32 slot) {
     }
     for (i = 0; i < 200; i++) {
         if (((s32 (*)(u8 *))is_item_record_empty)((u8 *)&recs[i]) != 0) {
-            TCheckRoomSequence__sub_802114D4((u8 *)&recs[i], item);
+            copy_item_to_bank_entry__18TCheckRoomSequenceFPvPv((u8 *)&recs[i], item);
             lbl_80513D98[slot]++;
             copy_bank_to_card_window((s32)(slot));
             return 1;
@@ -1203,7 +1203,7 @@ void copy_bank_from_card_window(s32 slot) {
 s32 is_split_screen();
 void *alloc_buffer__11TOBoss4RockFPv(int);
 u32 __construct_new_array(void *, void *, void *, int, int);
-void TCheckRoomSequence__sub_80211324(void) {
+void alloc_item_buffers__18TCheckRoomSequenceFv(void) {
     s32 i;
     s32 j;
 
@@ -1225,7 +1225,7 @@ void TCheckRoomSequence__sub_80211324(void) {
 
 #pragma push
 #pragma optimization_level 1
-void TCheckRoomSequence__sub_80211408(Obj_80211408 *self) {
+void init_item_entry__18TCheckRoomSequenceFPv(Obj_80211408 *self) {
     init__9TItemDataFv(self);
     self->a = 0;
     self->b = 0;
@@ -1236,7 +1236,7 @@ void copy_data__18TCheckRoomSequenceFPvPv(void* p, void* a1) { *(unsigned char*)
 
 #pragma push
 #pragma optimization_level 1
-void TCheckRoomSequence__sub_802114D4(u8 *arg0, u8 *arg1) {
+void copy_item_to_bank_entry__18TCheckRoomSequenceFPvPv(u8 *arg0, u8 *arg1) {
     M2C_FIELD(arg0, u8 *, 0) = (u8) M2C_FIELD(arg1, u8 *, 0);
     M2C_FIELD(arg0, u8 *, 1) = (u8) M2C_FIELD(arg1, u8 *, 1);
     M2C_FIELD(arg0, u8 *, 2) = (u8) M2C_FIELD(arg1, u8 *, 2);

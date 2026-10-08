@@ -145,7 +145,7 @@ extern const f32 lbl_805D7D3C;
 extern s32 lbl_805D5FC0;
 extern s32 lbl_805D5D6C;
 void TFontSmallLobby__sub_801C029C(void* p);
-void TFontSmallLobby__sub_801C02D0(void* p);
+void bswap_battle_damage_packet__15TFontSmallLobbyFPv(void* p);
 int bswap_16__FPUs(void*);
 int read_be16_field2__10TObjPlayerFPv(void*);
 extern u32 lbl_805D4BA4;
@@ -153,13 +153,13 @@ extern void *tl_04;
 extern const f32 TBoss2DeRolLe__data_805D827C;
 extern const f32 TBoss2DeRolLe__data_805D827C;
 extern s32 TBoss2DeRolLe__data_805D4BC4;
-void TFontSmallLobby__sub_801C02D0(void* p);
+void bswap_battle_damage_packet__15TFontSmallLobbyFPv(void* p);
 void* TFontSmallLobby__sub_801C030C(void* p, void* a1);
 void* TFontSmallLobby__sub_801C030C(void* p, void* a1);
-void TFontSmallLobby__sub_801C02D0(void* p);
+void bswap_battle_damage_packet__15TFontSmallLobbyFPv(void* p);
 void TFontSmallLobby__sub_801C0378(void* p);
 int send_60_sized__6TLobbyFPv(void*);
-void TFontSmallLobby__sub_801C02D0(void* p);
+void bswap_battle_damage_packet__15TFontSmallLobbyFPv(void* p);
 extern M2C_UNK lbl_80434088;
 extern const f32 lbl_805D7D3C;
 extern s32 lbl_805D5FC0;
@@ -215,10 +215,10 @@ extern const f32 lbl_805D7D3C;
 extern s32 lbl_805D5FC0;
 extern s32 lbl_805D5D6C;
 void TObjPlayer__sub_801C0734(void* p);
-void TObjPlayer__sub_801C0768(void *arg0);
+void byteswap_packet_body__10TObjPlayerFPv(void *arg0);
 int bswap_32__FPUl(void*);
 int read_be16_field2__10TObjPlayerFPv(void*);
-void TObjPlayer__sub_801C0768(void *arg0);
+void byteswap_packet_body__10TObjPlayerFPv(void *arg0);
 void *TFontSmallLobby__sub_801C03E0(void *arg0, void *arg1);
 int read_be16_field2__10TObjPlayerFPv(void*);
 int bswap_32__FPUl(void*);
@@ -330,7 +330,7 @@ void TFontSmallLobby__sub_801C0274(u8 *arg0) {
 
 void TFontSmallLobby__sub_801C029C(void* p) { TFontSmallLobby__sub_801C01BC((void*)(p)); TLobby__send_and_handle_60(p); }
 
-void TFontSmallLobby__sub_801C02D0(void* p) { read_be16_field2__10TObjPlayerFPv(p); bswap_16__FPUs((char*)p + 0x4); bswap_16__FPUs((char*)p + 0x6); }
+void bswap_battle_damage_packet__15TFontSmallLobbyFPv(void* p) { read_be16_field2__10TObjPlayerFPv(p); bswap_16__FPUs((char*)p + 0x4); bswap_16__FPUs((char*)p + 0x6); }
 
 void* TFontSmallLobby__sub_801C030C(void* p, void* a1) { TFontSmallLobby__sub_801C0228(p, a1); *(short*)((char*)p + 0x4) = *(unsigned short*)((char*)a1 + 0x4); *(short*)((char*)p + 0x6) = *(short*)((char*)a1 + 0x6); return p; }
 
@@ -341,7 +341,7 @@ void TFontSmallLobby__sub_801C0350(O_801C0350 *p) {
     p->b = 2;
 }
 
-void TFontSmallLobby__sub_801C0378(void* p) { TFontSmallLobby__sub_801C02D0((void*)(p)); send_60_sized__6TLobbyFPv(p); }
+void TFontSmallLobby__sub_801C0378(void* p) { bswap_battle_damage_packet__15TFontSmallLobbyFPv((void*)(p)); send_60_sized__6TLobbyFPv(p); }
 
 void TFontSmallLobby__sub_801C03AC(void* p) { read_be16_field2__10TObjPlayerFPv((void*)(p)); bswap_32__FPUl((char*)p + 0x4); }
 
@@ -414,7 +414,7 @@ void TObjPlayer__sub_801C0708(O_801C0708 *p) {
 
 void TObjPlayer__sub_801C0734(void* p) { bswap_change_hp_packet__10TObjPlayerFPv((void *)((void*)(p))); TLobby__send_and_handle_60(p); }
 
-void TObjPlayer__sub_801C0768(void *arg0) {
+void byteswap_packet_body__10TObjPlayerFPv(void *arg0) {
     read_be16_field2__10TObjPlayerFPv((void*)(arg0));
     bswap_32__FPUl((void*)((void *)((char *)arg0 + 4)));
     bswap_32__FPUl((void*)((void *)((char *)arg0 + 8)));

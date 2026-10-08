@@ -11,7 +11,7 @@ struct T_802D2240 { s32 a; s32 b; };
 extern "C" {
 void* get_trade_obj_ptr__6TLobbyFPv(void* p);
 void TLobby__sub_802D22F0(void* p, void* q);
-void TLobby__sub_802D2240(E_802D2240 *arg0, u32 arg1);
+void remove_trade_entry__6TLobbyFPvUi(E_802D2240 *arg0, u32 arg1);
 }
 
 extern "C" {
@@ -30,7 +30,7 @@ s32 get_state__19TWindowSubTradeMainFv(void) {
     }
     return 0;
 }
-void TLobby__sub_802D2240(E_802D2240 *arg0, u32 arg1) {
+void remove_trade_entry__6TLobbyFPvUi(E_802D2240 *arg0, u32 arg1) {
     E_802D2240 *p;
     s32 i;
     if ((u32)(arg1 + 0x10000) == 0xFF01) {

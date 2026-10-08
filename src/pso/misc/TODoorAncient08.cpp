@@ -130,7 +130,7 @@ extern const f32 lbl_805DB474;
 u8 *TODoorAncient08__ct(u8 *arg0, M2C_UNK arg1, s32 arg2);
 s32 get_global_state__14TOKeyMachine01Fv(void);
 s32 play_sound_effect(s32, void *, s32, s32);
-void TODoorAncient08__sub_8015FD70(void *arg0_);
+void play_open_sound__15TODoorAncient08FPv(void *arg0_);
 s32 clear_player_status_flag__10TObjPlayerFPviUi(void *, s32, s32);
 s32 is_any_player_within_radius_xz(void *, f32);
 s32 get_global_state__14TOKeyMachine01Fv(void);
@@ -220,7 +220,7 @@ extern const f32 lbl_805DB474;
 
 #define VCALL_m8(obj) (((TODoorVObj_8015FCBC*)(obj))->m8(M2C_FIELD(obj, f32 *, 0xC0), M2C_FIELD(obj, f32 *, 0xC4)))
 
-void TODoorAncient08__sub_8015FD70(void *arg0_) {
+void play_open_sound__15TODoorAncient08FPv(void *arg0_) {
     u8 *arg0 = (u8 *)arg0_;
     if (!(*(s32 *)(arg0 + 0xD0) & 1)) {
         switch ((u32)get_global_state__14TOKeyMachine01Fv()) {
@@ -257,12 +257,12 @@ void TODoorAncient08__vt12(u8 *arg0) {
     temp_r0 = M2C_FIELD(arg0, s32 *, 0xCC);
     switch (temp_r0) {
     case 1:
-        TODoorAncient08__sub_8015FD70((void *)((void *) (arg0)));
+        play_open_sound__15TODoorAncient08FPv((void *)((void *) (arg0)));
         M2C_FIELD(arg0, s32 *, 0xD0) = (s32) (M2C_FIELD(arg0, s32 *, 0xD0) | 1);
         return;
     case 2:
         if ((is_current_floor_switch_set((int) ((u16) M2C_FIELD(arg0, s32 *, 0xC8))) == 1) && (is_current_floor_switch_set((int) (M2C_FIELD(arg0, u16 *, 0xD4))) == 1) && (is_current_floor_switch_set((int) (M2C_FIELD(arg0, u16 *, 0xD6))) == 1) && (is_current_floor_switch_set((int) (M2C_FIELD(arg0, u16 *, 0xD8))) == 1)) {
-            TODoorAncient08__sub_8015FD70((void *)((void *) (arg0)));
+            play_open_sound__15TODoorAncient08FPv((void *)((void *) (arg0)));
             M2C_FIELD(arg0, s32 *, 0xD0) = (s32) (M2C_FIELD(arg0, s32 *, 0xD0) | 1);
             M2C_FIELD(arg0, s32 *, 0xDC) = 1;
             return;
@@ -272,7 +272,7 @@ void TODoorAncient08__vt12(u8 *arg0) {
         return;
     case 3:
         if ((is_current_floor_switch_set((int) ((u16) M2C_FIELD(arg0, s32 *, 0xC8))) == 1) && (is_current_floor_switch_set((int) (M2C_FIELD(arg0, u16 *, 0xD4))) == 1) && (is_current_floor_switch_set((int) (M2C_FIELD(arg0, u16 *, 0xD6))) == 1) && (is_current_floor_switch_set((int) (M2C_FIELD(arg0, u16 *, 0xD8))) == 1)) {
-            TODoorAncient08__sub_8015FD70((void *)((void *) (arg0)));
+            play_open_sound__15TODoorAncient08FPv((void *)((void *) (arg0)));
             M2C_FIELD(arg0, s32 *, 0xD0) = (s32) (M2C_FIELD(arg0, s32 *, 0xD0) | 1);
             if (((u32) M2C_FIELD(arg0, u32 *, 0x80) != 0U) && (access_object_saved_state((void *) (arg0), (void *) (&sp8), (int) (1)) != 0)) {
                 sp8 = 1;

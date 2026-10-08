@@ -526,7 +526,7 @@ u8 check_target_in_range__16TObjEneMe3StelthFPv(void *arg0);
 void TObjEneMe3Stelth__sub_800F4A8C(void);
 void attack_and_unequip__16TObjEneMe3StelthFPv(Stelth_800F4A90 *self);
 bool TObjEneMe3Stelth__sub_800F4C10(u8 *arg0);
-u8 TObjEneMe3Stelth__sub_800F4CC8(Obj_800F4CC8 *arg0, s32 arg1, f32 farg0);
+u8 test_body_collision__16TObjEneMe3StelthFPvif(Obj_800F4CC8 *arg0, s32 arg1, f32 farg0);
 f32 get_node_world_y__16TObjEneMe3StelthFPv(Obj_800F4D68 *self);
 void setup_move_bounds__16TObjEneMe3StelthFPv(void *arg0);
 void update_shadow_height__16TObjEneMe3StelthFPv(void *arg0);
@@ -608,7 +608,7 @@ extern "C" void TObjEneMe3StelthReal__vt105();
 extern "C" void TObjEneMe3StelthReal__vt109();
 extern "C" void TObjEneMe3StelthReal__vt60();
 extern "C" void TObjEneMe3StelthReal__vt61();
-extern "C" void TObjEneMe3Stelth__sub_800F0EC4();
+extern "C" void handle_direct_attack__16TObjEneMe3StelthFPvPviPv();
 extern "C" void draw_with_debug_info__16TObjEneMe3StelthFPv();
 extern "C" void render__16TObjEneMe3StelthFPv();
 extern "C" void TObjEneMe3Stelth__sub_800F4424();
@@ -752,7 +752,7 @@ void *__vt__20TObjEneMe3StelthReal[116] = {
     (void *)&reset_actor_action_state, (void *)&get_actor_body_center, (void *)&update_object_view_visibility, (void *)&classify_actor_view_detail,
     (void *)&get_enemy_name__14TObjEnePanarmsFPv, (void *)&TObjPlayer__sub_80019568, (void *)&add_actor_exp, (void *)&TObjPlayer__sub_800111D8,
     (void *)&get_actor_level_index, (void *)&update_actor_ground_y, (void *)&TObjPlayer__sub_80018E6C, (void *)&is_actor_cadence_frame,
-    (void *)&select_melee_contact_body__10TObjPlayerFv, (void *)&calc_distance_accuracy_penalty__10TObjPlayerFv, (void *)&receive_physical_attack__10TObjPlayerFv, (void *)&TObjEneMe3Stelth__sub_800F0EC4,
+    (void *)&select_melee_contact_body__10TObjPlayerFv, (void *)&calc_distance_accuracy_penalty__10TObjPlayerFv, (void *)&receive_physical_attack__10TObjPlayerFv, (void *)&handle_direct_attack__16TObjEneMe3StelthFPvPviPv,
     (void *)&receive_weapon_special_attack__10TObjPlayerFv, (void *)&apply_knockback_from_attacker, (void *)&try_start_action__10TObjPlayerFPvii, (void *)&roll_physical_accuracy__10TObjPlayerFv,
     (void *)&TObjEneMe3Stelth__sub_800F4FC8, (void *)&TObjPlayer__sub_8000FF3C, (void *)&is_target_in_attack_range__10TObjPlayerFv, (void *)&test_flag_256__10TObjPlayerFPv,
     (void *)&test_flag30_512__10TObjPlayerFPv, (void *)&has_flag_0x800__10TObjPlayerFPv, (void *)&test_flag_1000__10TObjPlayerFPv, (void *)&update_poison_status__10TObjPlayerFv,
@@ -926,7 +926,7 @@ u8 check_target_in_range__16TObjEneMe3StelthFPv(void *arg0) {
     var_r31 = 0;
     if (!(M2C_FIELD(arg0, s32 *, 0x3CC) & 0x10000)) {
         temp_f1 = M2C_FIELD(arg0, f32 *, 0x3AC);
-        if ((temp_f1 > lbl_805DA898) && (temp_f1 < lbl_805DA89C) && (((s32 (*)(void *, s32, f32))TObjEneMe3Stelth__sub_800F4CC8)(arg0, M2C_FIELD(arg0, s32 *, 0x60), temp_f1 - (*(f32 *)&TObjEneMe3Stelth__data_805DA844)) == 0)) {
+        if ((temp_f1 > lbl_805DA898) && (temp_f1 < lbl_805DA89C) && (((s32 (*)(void *, s32, f32))test_body_collision__16TObjEneMe3StelthFPvif)(arg0, M2C_FIELD(arg0, s32 *, 0x60), temp_f1 - (*(f32 *)&TObjEneMe3Stelth__data_805DA844)) == 0)) {
             var_r31 = 1;
         }
     }
@@ -977,7 +977,7 @@ bool TObjEneMe3Stelth__sub_800F4C10(u8 *arg0) {
 extern int fold_flush_0;
 #pragma pop
 
-u8 TObjEneMe3Stelth__sub_800F4CC8(Obj_800F4CC8 *arg0, s32 arg1, f32 farg0) {
+u8 test_body_collision__16TObjEneMe3StelthFPvif(Obj_800F4CC8 *arg0, s32 arg1, f32 farg0) {
     f32 f2 = farg0 * lbl_805DA81C;
     Sub_800F4CC8 *s = arg0->fA4;
     u8 res;
@@ -1854,7 +1854,7 @@ extern "C" {
 
 u8 check_target_in_range__16TObjEneMe3StelthFPv(void *arg0);
 void TObjEneMe3Stelth__sub_800F4A8C(void);
-s32 TObjEneMe3Stelth__sub_800F4CC8(void *, s32, f32);
+s32 test_body_collision__16TObjEneMe3StelthFPvif(void *, s32, f32);
 
 extern f32 TObjEneMe3Stelth__data_805DA844;
 extern f32 lbl_805DA898;
@@ -1867,7 +1867,7 @@ u8 check_target_in_range__16TObjEneMe3StelthFPv(void *arg0) {
     var_r31 = 0;
     if (!(M2C_FIELD(arg0, s32 *, 0x3CC) & 0x10000)) {
         temp_f1 = M2C_FIELD(arg0, f32 *, 0x3AC);
-        if ((temp_f1 > lbl_805DA898) && (temp_f1 < lbl_805DA89C) && (TObjEneMe3Stelth__sub_800F4CC8(arg0, M2C_FIELD(arg0, s32 *, 0x60), temp_f1 - TObjEneMe3Stelth__data_805DA844) == 0)) {
+        if ((temp_f1 > lbl_805DA898) && (temp_f1 < lbl_805DA89C) && (test_body_collision__16TObjEneMe3StelthFPvif(arg0, M2C_FIELD(arg0, s32 *, 0x60), temp_f1 - TObjEneMe3Stelth__data_805DA844) == 0)) {
             var_r31 = 1;
         }
     }
