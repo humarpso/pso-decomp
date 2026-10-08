@@ -37,12 +37,12 @@ extern u32 lbl_805D6580;
 s32 TLobby__sub_80292A34(void);
 s32 get_layout_id__20TWindowSubStatusDispFv(M2C_UNK);
 s32 *TWindowSubStatusDisp__sub_8006F0D8(void *, s32);
-s32 TWindowSubStatusDisp__sub_8006F190(s32);
+s32 resolve_player_slot__20TWindowSubStatusDispFi(s32);
 u8 *get_card_window__17TWindowSubComCardFUi();
 s32 TLobby__sub_80292CA4(void);
 s32 get_layout_id__20TWindowSubStatusDispFv(M2C_UNK);
 s32 *TWindowSubStatusDisp__sub_8006F0D8(void *, s32);
-s32 TLobby__sub_8006F994(s32);
+s32 get_valid_slot__6TLobbyFi(s32);
 s32 mix_seed_checked__6TLobbyFi(s32);
 u8 *get_card_window__17TWindowSubComCardFUi();
 s32 TLobby__sub_80292F34(s32 arg0);
@@ -171,7 +171,7 @@ s32 TLobby__sub_80292BB8(s32 seed, u16 card, s32 id) {
     if (*(s32 *)((u8 *)arr + idx) == 0) {
         ok = 1;
     } else {
-        limit = TLobby__sub_8006F994(*(s32 *)((u8 *)arr + idx));
+        limit = get_valid_slot__6TLobbyFi(*(s32 *)((u8 *)arr + idx));
         if (TLobby__sub_80292F34(limit) != 0) {
             *(s32 *)((u8 *)arr + idx) = 0;
             return 0;
@@ -197,7 +197,7 @@ s32 TLobby__sub_80292CA4(void) {
     if (win == NULL) {
         return 0;
     }
-    id = TWindowSubStatusDisp__sub_8006F190(-1);
+    id = resolve_player_slot__20TWindowSubStatusDispFi(-1);
     arr = TWindowSubStatusDisp__sub_8006F0D8(win + 0x21C4, id);
     layout = get_layout_id__20TWindowSubStatusDispFv((M2C_UNK)(id));
     n = 0;

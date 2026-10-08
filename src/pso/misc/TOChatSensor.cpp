@@ -24,7 +24,7 @@ extern M2C_UNK __vt__12TOChatSensor[];
 extern s32 lbl_805D2ED8;
 extern u32 lbl_805D58D4;
 u32 TOChatSensor__ct(int arg0, void *arg1, void *arg2);
-M2C_UNK TOChatSensor__sub_8015AD54(void *, s32);
+M2C_UNK handle_chat_message__12TOChatSensorFPvPv(void *, s32);
 extern u32 lbl_805D58D0;
 void TOChatSensor__sub_8015B108(s32 arg0);
 }
@@ -33,7 +33,7 @@ extern "C" {
 
 void *__dt__12TOChatSensorFv(void *arg0, s16 arg1);
 void destroy_global__12TOChatSensorFv(void);
-void TLobby__sub_800F957C(void*);
+void free_nodes_with_id__6TLobbyFUi(void*);
 void __dl__7TObjectFPv(void *);
 void destroy_particle__13TParticleCtrlFPvs(void *, int);
 
@@ -76,7 +76,7 @@ void TOChatSensor__sub_8015B108(s32 arg0) {
     if (lbl_805D58D0 != 0U) {
         var_r31 = M2C_FIELD(lbl_805D58D0, void **, 0x14);
         while (var_r31 != NULL) {
-            TOChatSensor__sub_8015AD54(var_r31, arg0);
+            handle_chat_message__12TOChatSensorFPvPv(var_r31, arg0);
             var_r31 = M2C_FIELD(var_r31, void **, 0xC);
         }
     }
@@ -105,7 +105,7 @@ u32 TOChatSensor__create(s32 arg0) {
 
 void destroy_global__12TOChatSensorFv(void) {
     if ((u32) lbl_805D58D4 != 0U) {
-        TLobby__sub_800F957C((void*)lbl_805D58D4);
+        free_nodes_with_id__6TLobbyFUi((void*)lbl_805D58D4);
         lbl_805D58D4 = 0U;
     }
 }

@@ -14,12 +14,12 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 extern "C" {
 s32 get_instance__15TAdPlayerLoadGCFv();
 void set_state__15TAdPlayerLoadGCFi(int);
-s32 TAdPlayerLoadGC__sub_801E0D8C(int);
+s32 probe_and_check_card__15TAdPlayerLoadGCFi(int);
 s32 get_load_result__15TAdPlayerLoadGCFv(int);
 s32 TAdPlayerLoadGC__sub_801E1B50(int);
-s32 TAdPlayerLoadGC__sub_801E1E38(int);
+s32 probe_card_slot__15TAdPlayerLoadGCFi(int);
 s32 check_memcard_status__15TAdPlayerLoadGCFi(int);
-s32 TAdPlayerLoadGC__sub_801E2048(int, void *);
+s32 find_card_file__15TAdPlayerLoadGCFiPv(int, void *);
 s32 TAdPlayerLoadGC__sub_801FD770();
 s32 TAdPlayerLoadGC__sub_801FD814();
 s32 TAdSinglePlyChrSelectGC__sub_801FEB84();
@@ -69,31 +69,31 @@ extern void *lbl_805D3F48;
 void run_task__15TAdPlayerLoadGCFv(u8 *arg0) {
     u32 temp_r0;
     fn_802D6BE4((int) (M2C_FIELD(arg0, u32 *, 0x1C)));
-    if (TAdPlayerLoadGC__sub_801E1E38((int) (0)) == 0) {
+    if (probe_card_slot__15TAdPlayerLoadGCFi((int) (0)) == 0) {
         M2C_FIELD(arg0, u32 *, 0x1C) = 0U;
     }
     temp_r0 = M2C_FIELD(arg0, u32 *, 0x1C);
     switch (temp_r0) {
     case 0:
         if ((s32) M2C_FIELD(arg0, s32 *, 0x20) == 2) {
-            if ((TAdPlayerLoadGC__sub_801E1B50((int) (1)) == 0) && (TAdPlayerLoadGC__sub_801E1E38((int) (0)) != 0)) {
+            if ((TAdPlayerLoadGC__sub_801E1B50((int) (1)) == 0) && (probe_card_slot__15TAdPlayerLoadGCFi((int) (0)) != 0)) {
                 M2C_FIELD(arg0, u32 *, 0x1C) = 1U;
             }
-        } else if (TAdPlayerLoadGC__sub_801E1E38((int) (0)) != 0) {
+        } else if (probe_card_slot__15TAdPlayerLoadGCFi((int) (0)) != 0) {
             M2C_FIELD(arg0, u32 *, 0x1C) = 1U;
         }
         break;
     case 1:
-        if ((TAdPlayerLoadGC__sub_801E0D8C((int) (0)) != 0) || ((u32)get_load_result__15TAdPlayerLoadGCFv((int) (0)) != 0xFFFFFF83U)) {
+        if ((probe_and_check_card__15TAdPlayerLoadGCFi((int) (0)) != 0) || ((u32)get_load_result__15TAdPlayerLoadGCFv((int) (0)) != 0xFFFFFF83U)) {
             M2C_FIELD(arg0, u32 *, 0x1C) = 2U;
         }
         break;
     case 2:
-        if ((TAdPlayerLoadGC__sub_801E0D8C((int) (0)) != 0) || ((u32)get_load_result__15TAdPlayerLoadGCFv((int) (0)) != 0xFFFFFF21U)) {
+        if ((probe_and_check_card__15TAdPlayerLoadGCFi((int) (0)) != 0) || ((u32)get_load_result__15TAdPlayerLoadGCFv((int) (0)) != 0xFFFFFF21U)) {
             M2C_FIELD(arg0, u32 *, 0x1C) = 3U;
         }
     case 3:
-        if (TAdPlayerLoadGC__sub_801E0D8C((int) (0)) != 0) {
+        if (probe_and_check_card__15TAdPlayerLoadGCFi((int) (0)) != 0) {
             M2C_FIELD(arg0, u32 *, 0x1C) = 4U;
         }
         break;
@@ -103,17 +103,17 @@ void run_task__15TAdPlayerLoadGCFv(u8 *arg0) {
         }
         break;
     case 5:
-        if ((u32)TAdPlayerLoadGC__sub_801E2048((int) (0), (void *) (lbl_804C88C0)) != 0xFFFFFF41U) {
+        if ((u32)find_card_file__15TAdPlayerLoadGCFiPv((int) (0), (void *) (lbl_804C88C0)) != 0xFFFFFF41U) {
             M2C_FIELD(arg0, u32 *, 0x1C) = 6U;
         }
         break;
     case 6:
-        if ((TAdPlayerLoadGC__sub_801E2048((int) (0), (void *) (lbl_804C88C0)) == 0) && (get_instance__15TAdPlayerLoadGCFv() == 0)) {
+        if ((find_card_file__15TAdPlayerLoadGCFiPv((int) (0), (void *) (lbl_804C88C0)) == 0) && (get_instance__15TAdPlayerLoadGCFv() == 0)) {
             M2C_FIELD(arg0, u32 *, 0x1C) = 7U;
         }
         break;
     case 7:
-        if ((u32)TAdPlayerLoadGC__sub_801E2048((int) (0), (void *) (lbl_804C8914)) != 0xFFFFFF41U) {
+        if ((u32)find_card_file__15TAdPlayerLoadGCFiPv((int) (0), (void *) (lbl_804C8914)) != 0xFFFFFF41U) {
             M2C_FIELD(arg0, u32 *, 0x1C) = 8U;
         }
         break;
@@ -143,90 +143,90 @@ void run_task__15TAdPlayerLoadGCFv(u8 *arg0) {
         }
         break;
     case 13:
-        if (TAdPlayerLoadGC__sub_801E1E38((int) (1)) == 0) {
+        if (probe_card_slot__15TAdPlayerLoadGCFi((int) (1)) == 0) {
             M2C_FIELD(arg0, u32 *, 0x1C) = 0xDU;
         } else {
             M2C_FIELD(arg0, u32 *, 0x1C) = 0xEU;
         }
         break;
     case 14:
-        if (TAdPlayerLoadGC__sub_801E1E38((int) (1)) == 0) {
+        if (probe_card_slot__15TAdPlayerLoadGCFi((int) (1)) == 0) {
             M2C_FIELD(arg0, u32 *, 0x1C) = 0xDU;
-        } else if ((TAdPlayerLoadGC__sub_801E0D8C((int) (1)) != 0) || ((u32)get_load_result__15TAdPlayerLoadGCFv((int) (1)) != 0xFFFFFF83U)) {
+        } else if ((probe_and_check_card__15TAdPlayerLoadGCFi((int) (1)) != 0) || ((u32)get_load_result__15TAdPlayerLoadGCFv((int) (1)) != 0xFFFFFF83U)) {
             M2C_FIELD(arg0, u32 *, 0x1C) = 0xFU;
         }
         break;
     case 15:
-        if (TAdPlayerLoadGC__sub_801E1E38((int) (1)) == 0) {
+        if (probe_card_slot__15TAdPlayerLoadGCFi((int) (1)) == 0) {
             M2C_FIELD(arg0, u32 *, 0x1C) = 0xDU;
-        } else if ((TAdPlayerLoadGC__sub_801E0D8C((int) (1)) != 0) || ((u32)get_load_result__15TAdPlayerLoadGCFv((int) (1)) != 0xFFFFFF21U)) {
+        } else if ((probe_and_check_card__15TAdPlayerLoadGCFi((int) (1)) != 0) || ((u32)get_load_result__15TAdPlayerLoadGCFv((int) (1)) != 0xFFFFFF21U)) {
             M2C_FIELD(arg0, u32 *, 0x1C) = 0x10U;
         }
     case 16:
-        if (TAdPlayerLoadGC__sub_801E1E38((int) (1)) == 0) {
+        if (probe_card_slot__15TAdPlayerLoadGCFi((int) (1)) == 0) {
             M2C_FIELD(arg0, u32 *, 0x1C) = 0xDU;
-        } else if (TAdPlayerLoadGC__sub_801E0D8C((int) (1)) != 0) {
+        } else if (probe_and_check_card__15TAdPlayerLoadGCFi((int) (1)) != 0) {
             M2C_FIELD(arg0, u32 *, 0x1C) = 0x11U;
         }
         break;
     case 17:
-        if (TAdPlayerLoadGC__sub_801E1E38((int) (1)) == 0) {
+        if (probe_card_slot__15TAdPlayerLoadGCFi((int) (1)) == 0) {
             M2C_FIELD(arg0, u32 *, 0x1C) = 0xDU;
         } else if (check_memcard_status__15TAdPlayerLoadGCFi((int) (1)) == 0) {
             M2C_FIELD(arg0, u32 *, 0x1C) = 0x12U;
         }
         break;
     case 18:
-        if (TAdPlayerLoadGC__sub_801E1E38((int) (1)) == 0) {
+        if (probe_card_slot__15TAdPlayerLoadGCFi((int) (1)) == 0) {
             M2C_FIELD(arg0, u32 *, 0x1C) = 0xDU;
-        } else if ((u32)TAdPlayerLoadGC__sub_801E2048((int) (1), (void *) (lbl_804C88C0)) != 0xFFFFFF41U) {
+        } else if ((u32)find_card_file__15TAdPlayerLoadGCFiPv((int) (1), (void *) (lbl_804C88C0)) != 0xFFFFFF41U) {
             M2C_FIELD(arg0, u32 *, 0x1C) = 0x13U;
         }
         break;
     case 19:
-        if (TAdPlayerLoadGC__sub_801E1E38((int) (1)) == 0) {
+        if (probe_card_slot__15TAdPlayerLoadGCFi((int) (1)) == 0) {
             M2C_FIELD(arg0, u32 *, 0x1C) = 0xDU;
-        } else if ((TAdPlayerLoadGC__sub_801E2048((int) (1), (void *) (lbl_804C88C0)) == 0) && (get_instance__15TAdPlayerLoadGCFv() == 0)) {
+        } else if ((find_card_file__15TAdPlayerLoadGCFiPv((int) (1), (void *) (lbl_804C88C0)) == 0) && (get_instance__15TAdPlayerLoadGCFv() == 0)) {
             M2C_FIELD(arg0, u32 *, 0x1C) = 0x14U;
         }
         break;
     case 20:
-        if (TAdPlayerLoadGC__sub_801E1E38((int) (1)) == 0) {
+        if (probe_card_slot__15TAdPlayerLoadGCFi((int) (1)) == 0) {
             M2C_FIELD(arg0, u32 *, 0x1C) = 0xDU;
-        } else if ((u32)TAdPlayerLoadGC__sub_801E2048((int) (1), (void *) (lbl_804C8914)) != 0xFFFFFF41U) {
+        } else if ((u32)find_card_file__15TAdPlayerLoadGCFiPv((int) (1), (void *) (lbl_804C8914)) != 0xFFFFFF41U) {
             M2C_FIELD(arg0, u32 *, 0x1C) = 0x15U;
         }
         break;
     case 21:
-        if (TAdPlayerLoadGC__sub_801E1E38((int) (1)) == 0) {
+        if (probe_card_slot__15TAdPlayerLoadGCFi((int) (1)) == 0) {
             M2C_FIELD(arg0, u32 *, 0x1C) = 0xDU;
-        } else if ((TAdPlayerLoadGC__sub_801E2048((int) (1), (void *) (lbl_804C88C0)) == 0) && ((u32)TAdSinglePlyChrSelectGC__sub_801FEB84() != 0xFFFFFF05U)) {
+        } else if ((find_card_file__15TAdPlayerLoadGCFiPv((int) (1), (void *) (lbl_804C88C0)) == 0) && ((u32)TAdSinglePlyChrSelectGC__sub_801FEB84() != 0xFFFFFF05U)) {
             M2C_FIELD(arg0, u32 *, 0x1C) = 0x16U;
         }
         break;
     case 22:
-        if (TAdPlayerLoadGC__sub_801E1E38((int) (1)) == 0) {
+        if (probe_card_slot__15TAdPlayerLoadGCFi((int) (1)) == 0) {
             M2C_FIELD(arg0, u32 *, 0x1C) = 0xDU;
         } else if (get_instance__15TAdPlayerLoadGCFv() == 0) {
             M2C_FIELD(arg0, u32 *, 0x1C) = 0x17U;
         }
         break;
     case 23:
-        if (TAdPlayerLoadGC__sub_801E1E38((int) (1)) == 0) {
+        if (probe_card_slot__15TAdPlayerLoadGCFi((int) (1)) == 0) {
             M2C_FIELD(arg0, u32 *, 0x1C) = 0xDU;
         } else if (TAdPlayerLoadGC__sub_801FD814() != 1) {
             M2C_FIELD(arg0, u32 *, 0x1C) = 0x18U;
         }
         break;
     case 24:
-        if (TAdPlayerLoadGC__sub_801E1E38((int) (1)) == 0) {
+        if (probe_card_slot__15TAdPlayerLoadGCFi((int) (1)) == 0) {
             M2C_FIELD(arg0, u32 *, 0x1C) = 0xDU;
         } else if (TAdPlayerLoadGC__sub_801FD814() != 5) {
             M2C_FIELD(arg0, u32 *, 0x1C) = 0x19U;
         }
         break;
     case 25:
-        if (TAdPlayerLoadGC__sub_801E1E38((int) (1)) == 0) {
+        if (probe_card_slot__15TAdPlayerLoadGCFi((int) (1)) == 0) {
             M2C_FIELD(arg0, u32 *, 0x1C) = 0xDU;
         }
         break;

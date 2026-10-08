@@ -6,7 +6,7 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 
 extern "C" {
 M2C_UNK memmove(void *dst, const void *src, u32 n);
-void TLobby__sub_803DE7BC(u32 *dst, u32 *src, s32 n);
+void move_words__6TLobbyFPvPvi(u32 *dst, u32 *src, s32 n);
 M2C_UNK memmove(void *dst, const void *src, u32 n);
 void TLobby__sub_803DE798(u16 *dst, u16 *src, s32 n);
 }
@@ -30,7 +30,7 @@ void TLobby__sub_803DE798(u16 *dst, u16 *src, s32 n) {
 #pragma push
 #pragma scheduling off
 #pragma peephole off
-void TLobby__sub_803DE7BC(u32 *dst, u32 *src, s32 n) {
+void move_words__6TLobbyFPvPvi(u32 *dst, u32 *src, s32 n) {
     memmove((void *)(dst), (const void *)(src), (u32)(n * sizeof(u32)));
 }
 #pragma pop

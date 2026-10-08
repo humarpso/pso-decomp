@@ -140,7 +140,7 @@ struct VObj_802D06E0_802D05BC : Base_802D06E0_802D05BC {
 void TObjEneBm9Mericarol__sub_802D05BC(u8 *arg0, s32 arg1);
 void handle_action__19TObjEneBm9MericarolFPvi(void *arg0, s32 arg1);
 M2C_UNK advance_animation_playback();
-M2C_UNK TBoss3Volopt__sub_800D8E80(void *);
+M2C_UNK play_area_sound_effect__12TBoss3VoloptFi(void *);
 M2C_UNK TObjEneBm9Mericarol__sub_802D093C(void *);
 M2C_UNK transition_enemy_state(void *, s32);
 M2C_UNK TObjEneMe3SinowZoa__sub_800D758C(void *);
@@ -158,7 +158,7 @@ void TObjEneBm9Mericarol__sub_802D05BC(u8 *arg0, s32 arg1) {
         set_field_378__9TObjEneDDFPvi(arg0, 2);
         enemy_clear_target(arg0);
         TObjEneMe3SinowZoa__sub_800D758C(arg0 + 0x46C);
-        TBoss3Volopt__sub_800D8E80(arg0 + 0x38);
+        play_area_sound_effect__12TBoss3VoloptFi(arg0 + 0x38);
         return;
     case 3:
         if (((SubObj_802d05bc *)(arg0 + 0x46C))->v5() != 0) {

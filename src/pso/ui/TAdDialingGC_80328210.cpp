@@ -50,7 +50,7 @@ void update_dial_state__12TAdDialingGCFPvi(void *arg0, s32 arg1);
 void update_selection__12TAdDialingGCFPv(u8 *arg0);
 void update_state__12TAdDialingGCFPv(void *arg0);
 M2C_UNK TAdDialingGC__sub_80328874();
-M2C_UNK TAdMcSelectGC__sub_80019DA8(void *, M2C_UNK, f32);
+M2C_UNK create_draw_line_ctrl__13TAdMcSelectGCFiif(void *, M2C_UNK, f32);
 M2C_UNK TLobby__sub_803FB184(void *);
 M2C_UNK __ct__10TAdTitleGCFv(u32, void *, M2C_UNK);
 u32 __nw__7TObjectFUl(M2C_UNK);
@@ -182,7 +182,7 @@ void spawn_title_screen__12TAdDialingGCFPvi(void *arg0, s32) {
         if (((s32) M2C_FIELD(arg0, s32 *, 0x1C) == 0) && ((temp_nw = __nw__7TObjectFUl(0x138)) != 0U)) {
             __ct__10TAdTitleGCFv(temp_nw, arg0, 5);
         }
-        TAdMcSelectGC__sub_80019DA8(arg0, 0x11, lbl_805DF6E0);
+        create_draw_line_ctrl__13TAdMcSelectGCFiif(arg0, 0x11, lbl_805DF6E0);
         M2C_FIELD(arg0, s32 *, 0xA4) = (s32) (M2C_FIELD(arg0, s32 *, 0xA4) | 1);
     }
 }

@@ -40,7 +40,7 @@ struct RecoveredGlobal_80146D50_lbl_8050C784 {
 };
 
 extern "C" {
-void TLobby__sub_801469D8(void);
+void flush_pending_flags__6TLobbyFv(void);
 M2C_UNK TLobby__sub_803FAFDC();
 M2C_UNK TLobby__sub_803FB184(void *);
 M2C_UNK TLobby__sub_803FB1A4(void *);
@@ -84,7 +84,7 @@ void set_battle_flag__6TLobbyFi(s32 arg0);
 s32 TLobby__sub_80146314(s32 *);
 s32 TLobby__sub_80146588(s32 *arg0);
 s32 TLobby__sub_801465C0(s32 *);
-s32 TLobby__sub_801471A0(void);
+s32 set_dns_servers__6TLobbyFv(void);
 void fn_80147A68(void);
 void TLobby__sub_804073B8(void);
 s16 TLobby__sub_8040876C(void);
@@ -96,7 +96,7 @@ extern s32 lbl_805D56D8;
 extern s32 lbl_805D56E4;
 extern s32 lbl_805D56F8;
 extern s32 lbl_805D5710;
-s32 TLobby__sub_80146B08(void);
+s32 run_connect_sequence__6TLobbyFv(void);
 }
 
 struct Sub_801465C0 {
@@ -195,7 +195,7 @@ int TLobby__sub_80145A94(void);
 int TLobby__sub_80145DB4(void*);
 M2C_UNK TLobby__sub_80147284();
 int TLobby__sub_803F4B68(void*);
-M2C_UNK TLobby__sub_80421620();
+M2C_UNK cleanup_subsystems__6TLobbyFv();
 M2C_UNK TLobby__sub_804219D0(M2C_UNK, M2C_UNK, s32);
 M2C_UNK TLobby__sub_80421A50(M2C_UNK, M2C_UNK, s32);
 s16 TLobby__sub_80426BD8();
@@ -350,7 +350,7 @@ void cleanup__6TLobbyFv(void* _w0) {
         TLobby__sub_80147284();
     }
     if (lbl_805D56F8 & 8) {
-        TLobby__sub_80421620();
+        cleanup_subsystems__6TLobbyFv();
         lbl_805D56F8 &= 0xFFFFFFF7;
     }
     if ((u32) lbl_805D5700 != 0U) {
@@ -358,8 +358,8 @@ void cleanup__6TLobbyFv(void* _w0) {
         lbl_805D5700 = 0U;
     }
 }
-void TLobby__sub_801469B8(void* p) { TLobby__sub_801469D8(); }
-void TLobby__sub_801469D8(void) {
+void TLobby__sub_801469B8(void* p) { flush_pending_flags__6TLobbyFv(); }
+void flush_pending_flags__6TLobbyFv(void) {
     struct { u8 pad0[4]; s16 f4; u8 pad6[0x3E]; } spC;
     s16 sp8;
 
@@ -401,7 +401,7 @@ void TLobby__sub_801469D8(void) {
     }
 }
 
-s32 TLobby__sub_80146B08(void) {
+s32 run_connect_sequence__6TLobbyFv(void) {
     s32 sp8;
     s32 id;
     s32 r;
@@ -448,7 +448,7 @@ s32 TLobby__sub_80146B08(void) {
             } else {
                 return 0xD;
             }
-            return TLobby__sub_801471A0();
+            return set_dns_servers__6TLobbyFv();
         }
         return r;
     }
@@ -611,7 +611,7 @@ s16 TLobby__sub_8040ADE8(Req_801471A0 *);
 extern char lbl_8043F3F0[];
 extern char lbl_8043F404[];
 extern s32 lbl_805D570C;
-s32 TLobby__sub_801471A0(void);
+s32 set_dns_servers__6TLobbyFv(void);
 }
 
 extern "C" {
@@ -628,7 +628,7 @@ M2C_UNK TLobby__sub_803FAFDC();
 extern s32 lbl_805D2D00;
 extern s32 lbl_805D56F8;
 
-s32 TLobby__sub_801471A0(void) {
+s32 set_dns_servers__6TLobbyFv(void) {
     Req_801471A0 req;
     s16 r1;
     s16 r2;
@@ -700,7 +700,7 @@ struct Acct_8014797C {
 #define lbl_8050C784 (*(Acct_8014797C (*)[3])lbl_8050C784)
 #define memset ((void *(*)(void *, s32, u32))memset)
 #define strncpy ((char *(*)(char *, const char *, u32))strncpy)
-void TLobby__sub_8014797C(void) {
+void init_account_entries__6TLobbyFv(void) {
     memset(&lbl_8050C784[0], 0, sizeof(Acct_8014797C));
     memset(&lbl_8050C784[1], 0, sizeof(Acct_8014797C));
     memset(&lbl_8050C784[2], 0, sizeof(Acct_8014797C));

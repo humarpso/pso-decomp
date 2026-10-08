@@ -130,7 +130,7 @@ M2C_UNK TObjLight__sub_801337F8(s32);
 M2C_UNK rotate_matrix_z(int, int);
 M2C_UNK translate_matrix(int, f32, f32, f32);
 M2C_UNK rotate_matrix_x(int, int);
-M2C_UNK TObjPlayer__sub_803D9730(int, int);
+M2C_UNK concat_matrix__10TObjPlayerFUiUi(int, int);
 M2C_UNK push_matrix();
 M2C_UNK pop_matrix();
 M2C_UNK post_translate_matrix(void *);
@@ -144,14 +144,14 @@ extern Holder_8002E3D4 *lbl_805D4BA4;
 extern s32 lbl_805D5560;
 extern s32 lbl_805D5660;
 extern s32 some_id_805c6f74;
-void TObjPlayer__sub_8002E3D4(Obj_8002E3D4 *self);
+void draw_part_models__10TObjPlayerFPv(Obj_8002E3D4 *self);
 f32 lerp__9TDeadSpotFff(f32, f32);
 f32 rand_signed_unit();
 M2C_UNK init_base__10TObjPlayerFPv(void *);
 M2C_UNK matrix_mult_vec(int, void *, void *);
-M2C_UNK TObjPlayer__sub_803D8CD4(int);
+M2C_UNK set_matrix_identity__10TObjPlayerFPv(int);
 M2C_UNK rotate_vector_by_matrix(int, void *, void *);
-M2C_UNK TObjPlayer__sub_803D9730(int, int);
+M2C_UNK concat_matrix__10TObjPlayerFUiUi(int, int);
 M2C_UNK push_matrix();
 M2C_UNK pop_matrix();
 extern M2C_UNK lbl_80482090[];
@@ -208,7 +208,7 @@ extern M2C_UNK lbl_80482090[];
 struct Ctr;
 typedef struct Ctr Ctr;
 
-void TObjPlayer__sub_8002E3D4(Obj_8002E3D4 *self) {
+void draw_part_models__10TObjPlayerFPv(Obj_8002E3D4 *self) {
     Node_8002E3D4 *n;
     Part_8002E3D4 *p;
     s32 i;
@@ -228,7 +228,7 @@ void TObjPlayer__sub_8002E3D4(Obj_8002E3D4 *self) {
             rotate_matrix_z(0, p->f20);
             rotate_matrix_x(0, p->f18);
             translate_matrix(0, -self->f4F4.x, -self->f4F4.y, -self->f4F4.z);
-            TObjPlayer__sub_803D9730(0, self->f4F0);
+            concat_matrix__10TObjPlayerFUiUi(0, self->f4F0);
             switch (p->f28) {
             case 0:
             case 1:
@@ -297,8 +297,8 @@ Obj_8002E62C *construct_piece_controller__10TObjPlayerFPvii(Obj_8002E62C *self, 
     self->vt = lbl_80482090;
     self->f4F0 = arg2;
     push_matrix();
-    TObjPlayer__sub_803D8CD4(0);
-    TObjPlayer__sub_803D9730(0, self->f4F0);
+    set_matrix_identity__10TObjPlayerFPv(0);
+    concat_matrix__10TObjPlayerFUiUi(0, self->f4F0);
     v = &self->f4F4;
     v->x = lbl_805D822C;
     v->y = lbl_805D822C;

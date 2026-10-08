@@ -167,7 +167,7 @@ void copy_vec4__13TRaderMapCoreFPvPv(f32 *, f32 *);
 void draw_icon__10TObjPlayerFPvii(void *, int, f32 *);
 u8 *create__10TTecSlicerFPUs(SlicerLaunchData_8012D9C8 *);
 extern const f32 lbl_805DFDF8;
-void TObjPlayer__sub_8034F268(u8 *weapon);
+void spawn_slicer_shot__10TObjPlayerFPv(u8 *weapon);
 M2C_UNK spawn_particle_effect(void *, M2C_UNK);
 void *find_entity_by_id(s32);
 void TObjPlayer__sub_8034F204(s32 arg0, s32 arg1, s32 arg2, s32 arg3);
@@ -180,7 +180,7 @@ M2C_UNK TObjPlayer__sub_802E449C(void *);
 extern s32 tl_05;
 extern s32 tl_particle;
 extern const f32 lbl_805DFE00;
-s32 TObjPlayer__sub_8034F4FC(u32 a0, s32 a1);
+s32 spawn_fire_explosion__10TObjPlayerFUii(u32 a0, s32 a1);
 }
 
 extern "C" {
@@ -283,7 +283,7 @@ void TObjPlayer__sub_8034F204(s32 arg0, s32 arg1, s32 arg2, s32 arg3) {
     }
 }
 
-void TObjPlayer__sub_8034F268(u8 *weapon) {
+void spawn_slicer_shot__10TObjPlayerFPv(u8 *weapon) {
     f32 tmp[4];
     SlicerLaunchData_8012D9C8 launch;
     u8 *t;
@@ -349,7 +349,7 @@ u8 *TObjPlayer__sub_8034F418(u8 *arg0) {
 void TObjPlayer__sub_8034F470(s32 arg0, s32 arg1) {
     u32 temp_r3 = find_item_by_id();
     if (temp_r3 != 0U) {
-        TObjPlayer__sub_8034F4FC((u32)(temp_r3), (s32)(arg1));
+        spawn_fire_explosion__10TObjPlayerFUii((u32)(temp_r3), (s32)(arg1));
     }
 }
 
@@ -357,11 +357,11 @@ void TObjPlayer__sub_8034F4AC(s32 arg0, s32 arg1) {
     Ctx_80125628 *ctx = (Ctx_80125628 *)arg1;
     u32 p = find_item_by_id();
     if (p != 0U) {
-        TObjPlayer__sub_8034F4FC((u32)(p), (s32)((s32)ctx->obj->elems[ctx->idx].f1c));
+        spawn_fire_explosion__10TObjPlayerFUii((u32)(p), (s32)((s32)ctx->obj->elems[ctx->idx].f1c));
     }
 }
 
-s32 TObjPlayer__sub_8034F4FC(u32 a0, s32 a1) {
+s32 spawn_fire_explosion__10TObjPlayerFUii(u32 a0, s32 a1) {
     Info_8034F4FC info;
     void *o;
     TObjPlayer__sub_802E449C(&info);

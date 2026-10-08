@@ -87,7 +87,7 @@ s32 get_load_state__15TAdPlayerLoadGCFv(void) {
 }
 #pragma push
 #pragma opt_propagation off
-void TAdPlayerLoadGC__sub_803F1CC4(s32 arg0) {
+void step_set_attributes__15TAdPlayerLoadGCFi(s32 arg0) {
     s32 *st;
     st = (s32 *)(lbl_805A28C0 + arg0 * 0x68);
     st += 0x1A;
@@ -135,7 +135,7 @@ void TAdPlayerLoadGC__sub_803F1CC4(s32 arg0) {
 #pragma pop
 #pragma push
 #pragma opt_propagation off
-void TAdPlayerLoadGC__sub_803F1E90(s32 arg0) {
+void update_card_delete__15TAdPlayerLoadGCFi(s32 arg0) {
     s32 *st;
     Slot_803F1E90 *s;
     st = (s32 *)(lbl_805A28C0 + arg0 * 0x68);
@@ -183,7 +183,7 @@ void TAdPlayerLoadGC__sub_803F1E90(s32 arg0) {
 #pragma pop
 #pragma push
 #pragma opt_propagation off
-void TAdPlayerLoadGC__sub_803F2058(s32 arg0) {
+void update_card_rename__15TAdPlayerLoadGCFi(s32 arg0) {
     s32 *st;
     s32 off;
     off = arg0 * 0x68;

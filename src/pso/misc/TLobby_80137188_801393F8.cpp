@@ -53,7 +53,7 @@ u32 update_window_mode_from_progress__6TLobbyFiPv(s32 arg0, void *arg1);
 int send_and_handle__6TLobbyFPvii(u32 p, int a1, int a2);
 s32 get_seq_phase__6TLobbyFPv(s32);
 void set_field_1c__6TLobbyFPvf(u32 p, f32 f);
-void TLobby__sub_8013990C(s32 arg0);
+void show_seq_phase_message__6TLobbyFi(s32 arg0);
 M2C_UNK close_and_set_state_12__6TLobbyFv();
 s32 get_status_flag__6TLobbyFPv(u32);
 void send_info__9TProtocolFR16TPlyGuildCardTag(void *, void *);
@@ -65,7 +65,7 @@ extern s8 lbl_8050E208[];
 extern struct Root_80139538_80137188 *TLobby__data_805D5580;
 extern u32 TLobby__data_805D55D0;
 extern M2C_UNK TLobby__data_805DB0B0;
-void TLobby__sub_801395D8(void);
+void handle_team_select__6TLobbyFv(void);
 void func_80019A68__Fv(void);
 s8 get_chr_select_state__23TAdSinglePlyChrSelectGCFv(void);
 void update_com_card_window__6TLobbyFv(void);
@@ -74,24 +74,24 @@ void TLobby__sub_801384E4(void);
 void update_scroll_close__6TLobbyFv(void);
 void handle_short_list_input__6TLobbyFv(void);
 void update_short_list__6TLobbyFv(void);
-void TLobby__sub_80138B7C(void);
+void update_card_list_window__6TLobbyFv(void);
 void handle_comcard_window__6TLobbyFv(void);
-void TLobby__sub_80138DFC(void);
+void update_make_team_menu__6TLobbyFv(void);
 void handle_create_game_window__6TLobbyFv(void);
 void update__6TLobbyFv(void);
 void TLobby__sub_80139094(void);
-void TLobby__sub_80139104(void);
-void TLobby__sub_801391BC(void);
+void update_block_jump_list__6TLobbyFv(void);
+void update_ship_select_window__6TLobbyFv(void);
 void handle_com_card__6TLobbyFv(void);
 void update_game_list_menu__6TLobbyFv(void);
 void update_menu_window__6TLobbyFv(void);
 void handle_warp_menu_input__6TLobbyFv(void);
 void handle_game_list_select__6TLobbyFv(void);
-void TLobby__sub_801395D8(void);
+void handle_team_select__6TLobbyFv(void);
 s32 query_task_active__6TLobbyFv(void);
 s32 get_link_status__Fv(void);
 s32 TAdPlayerLoadGC__sub_801E1B50(s32);
-void TQuestListOnline__sub_80214D18(void *);
+void close_windows_and_reset__16TQuestListOnlineFv(void *);
 extern struct Root_80139538_80137188 *TLobby__data_805D5580;
 extern u32 TLobby__data_805D5594;
 extern s32 lbl_805D61AC;
@@ -205,7 +205,7 @@ void handle_game_list_select__6TLobbyFv(void) {
 
 extern u32 TLobby__data_805D55D8;
 
-void TLobby__sub_801395D8(void) {
+void handle_team_select__6TLobbyFv(void) {
     s32 idx;
     if (TLobby__data_805D55D0 != 0U) {
         if (get_status_flag__6TLobbyFPv(TLobby__data_805D55D0) != 0) {
@@ -229,10 +229,10 @@ void run_task__6TLobbyFv(void *self) {
     s32 r;
     switch (TLobby__data_805D5594) {
     case 1:
-        CALL_80139690(TLobby__sub_801395D8);
+        CALL_80139690(handle_team_select__6TLobbyFv);
         break;
     case 2:
-        CALL_80139690(TLobby__sub_801395D8);
+        CALL_80139690(handle_team_select__6TLobbyFv);
         break;
     case 3:
         CALL_80139690(handle_warp_menu_input__6TLobbyFv);
@@ -253,10 +253,10 @@ void run_task__6TLobbyFv(void *self) {
         CALL_80139690(handle_com_card__6TLobbyFv);
         break;
     case 7:
-        CALL_80139690(TLobby__sub_801391BC);
+        CALL_80139690(update_ship_select_window__6TLobbyFv);
         break;
     case 8:
-        CALL_80139690(TLobby__sub_80139104);
+        CALL_80139690(update_block_jump_list__6TLobbyFv);
         break;
     case 12:
         CALL_80139690(TLobby__sub_80139094);
@@ -265,7 +265,7 @@ void run_task__6TLobbyFv(void *self) {
         CALL_80139690(update__6TLobbyFv);
         break;
     case 17:
-        CALL_80139690(TLobby__sub_80138B7C);
+        CALL_80139690(update_card_list_window__6TLobbyFv);
         break;
     case 20:
         CALL_80139690(update_short_list__6TLobbyFv);
@@ -277,7 +277,7 @@ void run_task__6TLobbyFv(void *self) {
         CALL_80139690(handle_game_list_select__6TLobbyFv);
         break;
     case 24:
-        CALL_80139690(TLobby__sub_80138DFC);
+        CALL_80139690(update_make_team_menu__6TLobbyFv);
         break;
     case 26:
         CALL_80139690(update_scroll_close__6TLobbyFv);
@@ -295,7 +295,7 @@ void run_task__6TLobbyFv(void *self) {
     if (((Flag_80139690 *)TLobby__data_805D5580)->flag != 0 || get_link_status__Fv() == 0 || r < 0) {
         Flag_80139690 *d = (Flag_80139690 *)TLobby__data_805D5580;
         d->flag = 0;
-        TQuestListOnline__sub_80214D18(d);
+        close_windows_and_reset__16TQuestListOnlineFv(d);
         if (r < 0) {
             update_state__6TLobbyFv();
             return;
@@ -328,7 +328,7 @@ void TLobby__sub_80139894(s32 arg0) {
     }
     send_and_handle__6TLobbyFPvii(TLobby__data_805D55D8, arg0, 1);
 }
-void TLobby__sub_8013990C(s32 arg0) {
+void show_seq_phase_message__6TLobbyFi(s32 arg0) {
     if (TLobby__data_805D55D8 == 0) {
         Pair_8013990C tmp = lbl_8043EDE8[0];
         TLobby__data_805D55D8 = update_window_mode_from_progress__6TLobbyFiPv(get_window_layout_position(0xc1), &tmp);

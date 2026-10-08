@@ -479,7 +479,7 @@ s32 apply_ad_rico_ring__14TItemEquipBaseFii(s32 arg0, s32 arg1);
 s32 clear_flag_c_bit5__14TItemEquipBaseFPv(void *);
 s32 TItemEquipBase__sub_80119060(void *, int);
 s32 TItemTimerEvent__sub_8011E068(void *);
-void TItemEquipBase__sub_8010AAD0(u8 *arg0);
+void remove_equip_effects__14TItemEquipBaseFPv(u8 *arg0);
 u8 get_field_ec__12TOSwitchItemFPv(void *);
 u8 get_slot_count__14TItemProShieldFPv(void *);
 s32 init__9TItemDataFv(void *);
@@ -704,7 +704,7 @@ void TItemEquipBase__sub_8010A948(u8 *arg0) {
     }
 }
 
-void TItemEquipBase__sub_8010AAD0(u8 *arg0) {
+void remove_equip_effects__14TItemEquipBaseFPv(u8 *arg0) {
     u32 temp_r3;
     if (apply_ad_rico_ring__14TItemEquipBaseFii((s32)((void *) (arg0)), (s32)((int) (1))) != 0) {
         ((VObj_18_24abda *)(arg0))->m45();
@@ -862,7 +862,7 @@ void unequip__14TItemEquipBaseFPv(u8 *arg0) {
         set_mode__5TItemFPvc((void *)(arg0), (int) (1));
         clear_item_flags__10TObjPlayerFPvUi((void *) (arg0), (int) (0x28));
         ((VObj_18_546d8d *)(arg0))->m21(1);
-        TItemEquipBase__sub_8010AAD0((u8 *)((void *) (arg0)));
+        remove_equip_effects__14TItemEquipBaseFPv((u8 *)((void *) (arg0)));
         ((VObj_18_546d8d *)(arg0))->m43();
         if ((u32) M2C_FIELD(arg0, u32 *, 0x174) != 0U) {
             delete_children__7TObjectFv(M2C_FIELD(arg0, void **, 0x174));
@@ -961,7 +961,7 @@ extern M2C_UNK __vt__14TItemEquipBase[];
 void *__dt__14TItemEquipBaseFv(void *arg0, s16 arg1) {
     if (arg0 != NULL) {
         M2C_FIELD(arg0, M2C_UNK **, 0x18) = __vt__14TItemEquipBase;
-        TItemEquipBase__sub_8010AAD0((u8 *)(arg0));
+        remove_equip_effects__14TItemEquipBaseFPv((u8 *)(arg0));
         __dt__5TItemFv(arg0, 0);
         if (arg1 > 0) {
             free_obj_heap__10TObjPlayerFPv(arg0);

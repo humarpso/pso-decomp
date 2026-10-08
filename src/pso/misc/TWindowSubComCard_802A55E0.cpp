@@ -23,10 +23,10 @@ void notify_trade_main__17TWindowSubComCardFPv(void* p);
 void update_card_slot__17TWindowSubComCardFPv(void* p);
 s32 create_window_menu(s32, s32, s32);
 int confirm_selection__11TWindowMenuFPv(void*);
-s32 TWindowSubComCard__sub_80244888(void *);
+s32 reparent_to_main_ctrl__17TWindowSubComCardFi(void *);
 s32 get_selected_menu_value(s32);
-s32 TWindowSubComCard__sub_80265CFC(s32, f32);
-int TWindowSubComCard__sub_802A57FC(void* a0 = 0);
+s32 calc_layout_height__17TWindowSubComCardFPvf(s32, f32);
+int is_child_visible__17TWindowSubComCardFPv(void* a0 = 0);
 int open_yes_no_prompt(void* a0 = 0, void* a1 = 0, void* a2 = 0, void* a3 = 0);
 int clear_trade_flag__19TWindowSubTradeMainFPv(void*);
 int close__17TWindowSubComCardFPv(void* p);
@@ -44,10 +44,10 @@ s32 set_status_flag_80__12TQuestThreadFPv(s32);
 
 void free_windows__17TWindowSubComCardFPv(void *arg0) {
     if ((u32) M2C_FIELD(arg0, u32 *, 0x28) != 0U) {
-        TWindowSubComCard__sub_80244888(M2C_FIELD(arg0, void **, 0x28));
+        reparent_to_main_ctrl__17TWindowSubComCardFi(M2C_FIELD(arg0, void **, 0x28));
     }
     if ((u32) M2C_FIELD(arg0, u32 *, 0x2C) != 0U) {
-        TWindowSubComCard__sub_80244888(M2C_FIELD(arg0, void **, 0x2C));
+        reparent_to_main_ctrl__17TWindowSubComCardFi(M2C_FIELD(arg0, void **, 0x2C));
     }
 }
 

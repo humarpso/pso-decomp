@@ -22,7 +22,7 @@ void render__21TBoss1DragonEffBreathFv(void);
 void run_task__21TBoss1DragonEffBreathFv(u8 *arg0);
 M2C_UNK deliver_breath_attack__12TBoss1DragonFPvii(int, void *, int);
 M2C_UNK vec3_add_to(void *, void *);
-void TBoss8Dragon__sub_800BC5A0(void *, int);
+void delete_buffer__12TBoss8DragonFis(void *, int);
 void __dl__7TObjectFPv(void *);
 void __dt__7TObjectFv(void *, int);
 M2C_UNK get_instance__12TBoss1DragonFv();
@@ -52,7 +52,7 @@ extern M2C_UNK __vt__21TBoss1DragonEffBreath[];
 void *__dt__21TBoss1DragonEffBreathFv(void *arg0, s16 arg1) {
     if (arg0 != NULL) {
         M2C_FIELD(arg0, M2C_UNK **, 0x18) = __vt__21TBoss1DragonEffBreath;
-        TBoss8Dragon__sub_800BC5A0(M2C_FIELD(arg0, void **, 0x34), 1);
+        delete_buffer__12TBoss8DragonFis(M2C_FIELD(arg0, void **, 0x34), 1);
         M2C_FIELD(arg0, M2C_UNK *, 0x34) = 0;
         __dt__7TObjectFv(arg0, 0);
         if (arg1 > 0) {

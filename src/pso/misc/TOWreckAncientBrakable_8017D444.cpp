@@ -36,7 +36,7 @@ extern Param_8017D448 lbl_804435C8;
 extern u8 lbl_8058D490[];
 extern void *lbl_805D5AFC;
 extern s32 tl_05;
-void TOWreckAncientBrakable__sub_8017D448(u8 *arg0);
+void spawn_debris__22TOWreckAncientBrakableFPv(u8 *arg0);
 }
 
 extern "C" {
@@ -44,7 +44,7 @@ extern "C" {
 void TOWreckAncientBrakable__sub_8017D444(void);
 
 void TOWreckAncientBrakable__sub_8017D444(void) {  }
-void TOWreckAncientBrakable__sub_8017D448(u8 *arg0) {
+void spawn_debris__22TOWreckAncientBrakableFPv(u8 *arg0) {
     Vec_8017D448 tmp;
     Arr_8017D448 arr = lbl_8044355C;
     Param_8017D448 p = lbl_804435C8;

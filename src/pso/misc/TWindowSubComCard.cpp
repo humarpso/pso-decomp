@@ -127,15 +127,15 @@ extern "C" {
 void init_card__17TWindowSubComCardFv(void);
 void remove_entry__17TWindowSubComCardFi(s32 arg0);
 M2C_UNK TWindowSubComCard__sub_8007B010(M2C_UNK, M2C_UNK);
-s32 TWindowSubComCard__sub_8007BC04(M2C_UNK);
+s32 get_card_slot__17TWindowSubComCardFi(M2C_UNK);
 M2C_UNK remove_entry__17TWindowGetComCardFiii(s32, s32, M2C_UNK);
 
 void init_card__17TWindowSubComCardFv(void) {
-    TWindowSubComCard__sub_8007B010(TWindowSubComCard__sub_8007BC04((M2C_UNK)(0)), 0x1C);
+    TWindowSubComCard__sub_8007B010(get_card_slot__17TWindowSubComCardFi((M2C_UNK)(0)), 0x1C);
 }
 
 void remove_entry__17TWindowSubComCardFi(s32 arg0) {
-    s32 tmp = TWindowSubComCard__sub_8007BC04((M2C_UNK)(0));
+    s32 tmp = get_card_slot__17TWindowSubComCardFi((M2C_UNK)(0));
     remove_entry__17TWindowGetComCardFiii(arg0, tmp, 0x1C);
 }
 
@@ -152,10 +152,10 @@ extern "C" {
 
 void scroll_list__17TWindowSubComCardFi(s32 arg0);
 M2C_UNK TWindowSubComCard__sub_8007B0D0(s32, s32, M2C_UNK);
-s32 TWindowSubComCard__sub_8007BC04(M2C_UNK);
+s32 get_card_slot__17TWindowSubComCardFi(M2C_UNK);
 
 void scroll_list__17TWindowSubComCardFi(s32 arg0) {
-    s32 tmp = TWindowSubComCard__sub_8007BC04(0);
+    s32 tmp = get_card_slot__17TWindowSubComCardFi(0);
     TWindowSubComCard__sub_8007B0D0(arg0, tmp, 0x1C);
 }
 
@@ -263,14 +263,14 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 extern "C" {
 
 void update_press__17TWindowSubComCardFv(void);
-s32 TWindowSubComCard__sub_8007A8F8();
+s32 get_card_entry__17TWindowSubComCardFi();
 s32 scroll_list__17TWindowSubComCardFi();
 M2C_UNK select_card_entry__17TWindowSubComCardFi(s32);
 
 void update_press__17TWindowSubComCardFv(void) {
     s32 temp_r31;
 
-    temp_r31 = TWindowSubComCard__sub_8007A8F8();
+    temp_r31 = get_card_entry__17TWindowSubComCardFi();
     if (scroll_list__17TWindowSubComCardFi() == 0) {
         select_card_entry__17TWindowSubComCardFi(temp_r31);
     }
@@ -289,10 +289,10 @@ extern "C" {
 
 void select_card_entry__17TWindowSubComCardFi(s32 arg0);
 M2C_UNK TWindowSubComCard__sub_8007B1AC(s32, s32, M2C_UNK);
-s32 TWindowSubComCard__sub_8007BC04(M2C_UNK);
+s32 get_card_slot__17TWindowSubComCardFi(M2C_UNK);
 
 void select_card_entry__17TWindowSubComCardFi(s32 arg0) {
-    s32 tmp = TWindowSubComCard__sub_8007BC04(0);
+    s32 tmp = get_card_slot__17TWindowSubComCardFi(0);
     TWindowSubComCard__sub_8007B1AC(arg0, tmp, 0x1C);
 }
 

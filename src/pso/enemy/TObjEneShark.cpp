@@ -74,7 +74,7 @@ extern const f32 lbl_805D9BAC;
 extern const f32 lbl_805D9BC0;
 extern const f32 lbl_805D9BC8;
 extern const f32 lbl_805D9BCC;
-void TLobby__sub_800AC318(void);
+void load_shark_resources__6TLobbyFv(void);
 }
 
 extern "C" {
@@ -153,7 +153,7 @@ void free_resources__12TObjEneSharkFv(void) {
 #define G_BC (*(void **)&lbl_805D50BC)
 #define G_C0 (*(void **)&lbl_805D50C0)
 #define RES ((Res_800AC318 *)G_B8)
-void TLobby__sub_800AC318(void) {
+void load_shark_resources__6TLobbyFv(void) {
     void *p;
     s32 i;
     if (check_v2_mode__9TObjEneDDFv() != 0) {

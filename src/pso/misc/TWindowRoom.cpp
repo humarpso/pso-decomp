@@ -20,7 +20,7 @@ extern "C" {
 f32 TWindowSubStatusDisp__sub_802877A4(f32);
 int get_array_entry__20TWindowSubStatusDispFPvi(void*, int);
 s32 save_position__17TWindowSubComCardFPv(void *);
-s32 TWindowDD__sub_802466E0(void *, void *, int, int);
+s32 construct_base__9TWindowDDFPvPvsPv(void *, void *, int, int);
 s32 refresh_status_display__9TWindowDDFv(int);
 s32 set_text_entry_string(s32, s32, s32);
 s32 get_window_layout_position(int);
@@ -84,7 +84,7 @@ typedef char RecoveredGlobal_8026D674_lbl_804D08DC_size[sizeof(RecoveredGlobal_8
 typedef char RecoveredGlobal_8026D674___vt__11TWindowRoom_size[sizeof(RecoveredGlobal_8026D674___vt__11TWindowRoom) == 0x18 ? 1 : -1];
 u8 *TWindowRoom__ct(u8 *arg0, s32 arg1) {
     u8 *temp_r3;
-    TWindowDD__sub_802466E0((void *) (arg0), (void *) (&lbl_804D08DC.value), (int) (4), (int) (get_window_layout_position((int) (0xAF))));
+    construct_base__9TWindowDDFPvPvsPv((void *) (arg0), (void *) (&lbl_804D08DC.value), (int) (4), (int) (get_window_layout_position((int) (0xAF))));
     M2C_FIELD(arg0, M2C_UNK **, 0x18) = &(*(RecoveredGlobal_8026D674___vt__11TWindowRoom *)&__vt__11TWindowRoom).value;
     M2C_FIELD(arg0, s32 *, 0) = (s32) lbl_805D39C0;
     temp_r3 = (u8 *)(((u8 *)get_array_entry__20TWindowSubStatusDispFPvi((void*)(arg0), (int)(0))));

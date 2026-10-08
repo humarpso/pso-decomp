@@ -9,13 +9,13 @@ extern "C" {
 void run_task__13TObjCHTimeWinFv(void *arg0);
 M2C_UNK init_timer__13TObjCHTimeWinFv(void *);
 s32 TWindowCtrlMain__sub_8024CE58();
-M2C_UNK TWindowCtrl__sub_8024A4B0(s32);
+M2C_UNK set_timer_window_time__11TWindowCtrlFi(s32);
 
 extern s32 lbl_805D4E40;
 
 void run_task__13TObjCHTimeWinFv(void *arg0) {
     if ((s32) M2C_FIELD(arg0, s32 *, 0x1C) != 0) {
-        TWindowCtrl__sub_8024A4B0(lbl_805D4E40);
+        set_timer_window_time__11TWindowCtrlFi(lbl_805D4E40);
         return;
     }
     if (TWindowCtrlMain__sub_8024CE58() == 1) {

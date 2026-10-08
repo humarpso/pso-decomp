@@ -75,7 +75,7 @@ M2C_UNK update_anim_phase__17TOBarrierEnergy01FPv(void *);
 M2C_UNK fn_8016D8F8(void *);
 void check_player_distance__8TOKurageFPv(u8 *arg0);
 void update_state__8TOKurageFPv(void *arg0);
-void TOKurage__sub_8016DA34(void *self);
+void debug_print_ranges__8TOKurageFPv(void *self);
 s32 rand(void);
 f32 sin_table_lookup(s32);
 M2C_UNK vec3_add_to(void *, void *);
@@ -112,7 +112,7 @@ void debug_printf_at(s32 id, const char *fmt, ...);
 extern const char lbl_80441EA0[];
 extern const char lbl_80441EB0[];
 extern const char lbl_80441EBC[];
-void TOKurage__sub_8016DA34(void *self);
+void debug_print_ranges__8TOKurageFPv(void *self);
 }
 
 extern "C" {
@@ -146,7 +146,7 @@ void update_state__8TOKurageFPv(void *arg0) {
     }
 }
 
-void TOKurage__sub_8016DA34(void *self) {
+void debug_print_ranges__8TOKurageFPv(void *self) {
     if (fn_800FD8B4(self) == 1) {
         debug_printf_at(0x13001C, lbl_80441EA0);
         debug_printf_at(0x13001D, lbl_80441EB0);
@@ -177,7 +177,7 @@ void run_task__8TOKurageFv(TOKurage_8016DB24 *o) {
     f32 y;
     VecCopy__FP3VecPC3Vec(&o->prev, &o->pos);
     if (check_demo_mode__10TObjPlayerFv() == 1) {
-        TOKurage__sub_8016DA34(o);
+        debug_print_ranges__8TOKurageFPv(o);
         return;
     }
     if (o->anim != 0) {

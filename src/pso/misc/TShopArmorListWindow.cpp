@@ -265,9 +265,9 @@ s32 TShopWindowBase__sub_8022397C(void *);
 void *__nw__7TObjectFUl(u32);
 M2C_UNK set_displayed_item_colored__15TWindowHelpItemFPvUi(int, void *);
 void *TWindowHelpItem__ct(void *, s32, u16);
-M2C_UNK TShopArmorListWindow__sub_80266CF8(void *);
+M2C_UNK clamp_selection_to_valid_entry__20TShopArmorListWindowFPv(void *);
 M2C_UNK save_cursor_selection__20TShopArmorListWindowFPv(void *);
-M2C_UNK TShopArmorListWindow__sub_80266DB0(void *);
+M2C_UNK reset_list__20TShopArmorListWindowFPv(void *);
 M2C_UNK calc_list_content_extent(void *);
 M2C_UNK add_ground_item__20TWindowSubStatusDispFPvii(void *, void *, s32);
 s32 get_window_layout_position(s32);
@@ -276,7 +276,7 @@ M2C_UNK get_item_count__24TShopEquipmentSellWindowFPv(void *a, s32 b);
 void *create_cost_window(u16);
 s32 is_camera_ctrl_active__6TLobbyFv();
 extern const f32 lbl_805DC6C0;
-void TShopArmorListWindow__sub_8021AE18(void *p);
+void refresh_item_list__20TShopArmorListWindowFPv(void *p);
 }
 
 extern "C" {
@@ -290,7 +290,7 @@ s32 get_shop_text(s32);
 s32 TShopWindowBase__sub_802239EC(void *);
 s32 TShopWindowBase__sub_80223A48(void *);
 s32 align_menu_entry_positions(u32);
-s32 TWindowSubComCard__sub_80265F60(u32);
+s32 calc_window_size__17TWindowSubComCardFPv(u32);
 s32 get_window_layout_position(s32);
 void TWindow__close(void *);
 void __dl__7TObjectFPv(void *);
@@ -444,7 +444,7 @@ s32 open_menu_window__20TShopArmorListWindowFPv(void *arg0) {
         M2C_FIELD(arg0, u32 *, 0x30) = create_window_menu(get_window_layout_position(0x2B), 2, temp_r31);
         forward_trade_action_default__16TObjCityMainWarpFPviii(M2C_FIELD(arg0, u32 *, 0x30), get_shop_text(4), 6, 0);
         forward_trade_action_default__16TObjCityMainWarpFPviii(M2C_FIELD(arg0, u32 *, 0x30), get_shop_text(5), 6, 1);
-        TWindowSubComCard__sub_80265F60(M2C_FIELD(arg0, u32 *, 0x30));
+        calc_window_size__17TWindowSubComCardFPv(M2C_FIELD(arg0, u32 *, 0x30));
         align_menu_entry_positions(M2C_FIELD(arg0, u32 *, 0x30));
         set_ready_flag__18TCheckRoomSequenceFPv(M2C_FIELD(arg0, u32 *, 0x30));
         temp_f31 = get_scale__15TShopWindowBaseFv(arg0);
@@ -546,7 +546,7 @@ s32 check_purchase_eligibility__20TShopArmorListWindowFPv(Win_8021AD24 *w) {
 #pragma push
 #pragma opt_common_subs off
 #define W ((Win_8021AE18 *)p)
-void TShopArmorListWindow__sub_8021AE18(void *p) {
+void refresh_item_list__20TShopArmorListWindowFPv(void *p) {
     Rec_8021AE18 tmp;
     void *o;
     u16 id;
@@ -573,7 +573,7 @@ void TShopArmorListWindow__sub_8021AE18(void *p) {
         W->list = create_item_list_window(get_shop_text(0x2A), W->count, (u16)obj_getField1c(W->player));
     } else {
         save_cursor_selection__20TShopArmorListWindowFPv(W->list);
-        TShopArmorListWindow__sub_80266DB0(W->list);
+        reset_list__20TShopArmorListWindowFPv(W->list);
     }
     if (W->list != NULL) {
         for (k = 0; k < W->count; k++) {
@@ -584,7 +584,7 @@ void TShopArmorListWindow__sub_8021AE18(void *p) {
         }
         calc_list_content_extent(W->list);
         clear_selected_and_update_entry__14TWindowSubItemFPv((s32)W->list);
-        TShopArmorListWindow__sub_80266CF8(W->list);
+        clamp_selection_to_valid_entry__20TShopArmorListWindowFPv(W->list);
     }
     if (W->help == NULL) {
         o = __nw__7TObjectFUl(0xBC);
@@ -614,7 +614,7 @@ void TShopArmorListWindow__vt9(u8 *arg0) {
     temp_r0 = M2C_FIELD(arg0, u32 *, 0x20);
     switch (temp_r0) {
     case 0:
-        TShopArmorListWindow__sub_8021AE18((void *)((void *) (arg0)));
+        refresh_item_list__20TShopArmorListWindowFPv((void *)((void *) (arg0)));
         set_field_20__12TQuestListVMFPvi((void*)((void *) (arg0)), (int)((int) (1)));
         return;
     case 1:

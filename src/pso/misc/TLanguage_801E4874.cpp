@@ -21,14 +21,14 @@ extern s32 lbl_805D5E58;
 s32 TLanguage__sub_801E4B40(void);
 extern s32 lbl_805D5E58;
 s32 TLanguage__sub_801E4AF0(void);
-void TLobby__sub_8001EE48(void *);
-u32 TLobby__sub_8001EEFC(void *);
+void tmp_buf_release__6TLobbyFi(void *);
+u32 tmp_buf_use_req__6TLobbyFPv(void *);
 void safe_free__23TAdSinglePlyChrSelectGCFUi(u32);
 u8 *TQuestVmDownLoadServer__sub_8007EBDC(s32, s32);
 u32 alloc__22TQuestVmDownLoadServerFPv();
 void pump_frames__6TLobbyFv();
-s32 TLobby__sub_800FD944(s32);
-void TGStream__sub_800FDBA8(s32, u32);
+s32 get_resource_file_size__6TLobbyFPv(s32);
+void load_sct_file__8TGStreamFii(s32, u32);
 void debug_print__6TLobbyFii(void *, ...);
 u16 read_file_header__9TLanguageFiPv(s32 arg0, u8 *arg1);
 void read_into_buffer__9TLanguageFii(s32 arg0, s32 arg1);
@@ -71,7 +71,7 @@ u8 *load_gvm_texture_file(s32 arg0) {
     Hdr_801E4874 hdr;
     big = 0;
     pump_frames__6TLobbyFv();
-    size = TLobby__sub_800FD944(arg0);
+    size = get_resource_file_size__6TLobbyFPv(arg0);
     if (size <= 0) {
         debug_print__6TLobbyFii(lbl_8044981C, arg0);
         return NULL;
@@ -80,15 +80,15 @@ u8 *load_gvm_texture_file(s32 arg0) {
         big = alloc__22TQuestVmDownLoadServerFPv();
         buf = big;
     } else {
-        buf = TLobby__sub_8001EEFC(lbl_8044983C);
+        buf = tmp_buf_use_req__6TLobbyFPv(lbl_8044983C);
     }
-    TGStream__sub_800FDBA8(arg0, buf);
+    load_sct_file__8TGStreamFii(arg0, buf);
     count = ((s32 (*)(s32, u8 *))read_file_header__9TLanguageFiPv)(buf, (u8 *)&hdr);
     if (count == 0) {
         if (big != 0) {
             safe_free__23TAdSinglePlyChrSelectGCFUi(big);
         } else {
-            TLobby__sub_8001EE48(lbl_8044983C);
+            tmp_buf_release__6TLobbyFi(lbl_8044983C);
         }
         return NULL;
     }
@@ -119,7 +119,7 @@ u8 *load_gvm_texture_file(s32 arg0) {
     if (big != 0) {
         safe_free__23TAdSinglePlyChrSelectGCFUi(big);
     } else {
-        TLobby__sub_8001EE48(lbl_8044983C);
+        tmp_buf_release__6TLobbyFi(lbl_8044983C);
     }
     return res;
 }

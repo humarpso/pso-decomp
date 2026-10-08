@@ -43,7 +43,7 @@ s32 append_text_space();
 s32 append_padded_number(int, int);
 s32 text_builder_append(int);
 s32 text_builder_reset();
-s32 TWindowDD__sub_802466E0(void *, void *, void *, int);
+s32 construct_base__9TWindowDDFPvPvsPv(void *, void *, void *, int);
 s32 get_window_layout_position(int);
 s32 fn_80271E40();
 s32 construct_type1_heading__20TWindowSubStatusDispFPvii(int, int, int);
@@ -251,7 +251,7 @@ u8 *TWindowSubAreaMapDisp__ct(u8 *arg0) {
     s32 temp_r3_2;
     s32 var_r0;
     u8 *var_r30;
-    TWindowDD__sub_802466E0((void *) (arg0), (void *) (&lbl_804D0FC0.value), (void *) ((s16) lbl_805D53A0), (int) (get_window_layout_position((int) (0x59))));
+    construct_base__9TWindowDDFPvPvsPv((void *) (arg0), (void *) (&lbl_804D0FC0.value), (void *) ((s16) lbl_805D53A0), (int) (get_window_layout_position((int) (0x59))));
     M2C_FIELD(arg0, M2C_UNK **, 0x18) = &(*(RecoveredGlobal_80271D00___vt__21TWindowSubAreaMapDisp *)&__vt__21TWindowSubAreaMapDisp).value;
     M2C_FIELD(arg0, s32 *, 0) = (s32) lbl_805D3A08;
     if (get_game_play_mode() == 1) {

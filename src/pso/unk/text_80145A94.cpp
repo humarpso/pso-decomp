@@ -25,7 +25,7 @@ s32 fn_803F3EA0(s32 *, s32 *);
 s32 TAdPlayerLoadGC__sub_803F4554(s32);
 s32 TAdPlayerLoadGC__sub_803F45E0(s32 *, s32 *);
 u32 TAdPlayerLoadGC__sub_803F4B80();
-M2C_UNK TLobby__sub_803F4D84(void *, int);
+M2C_UNK copy_current_entry_name__6TLobbyFPvi(void *, int);
 M2C_UNK TLobby__sub_803F53A0(int, void *, int);
 M2C_UNK TLobby__sub_8042EE4C(u32 *);
 M2C_UNK memset(void *, int, int);
@@ -180,7 +180,7 @@ s32 TLobby__sub_80145A94(void) {
             return 1;
         }
         memset(&buf, 0, 0x270);
-        TLobby__sub_803F4D84(buf.name, 0x80);
+        copy_current_entry_name__6TLobbyFPvi(buf.name, 0x80);
         TLobby__sub_803F53A0(0, buf.x, 0x40);
         if (buf.name[0] == 0 || buf.x[0] == 0) {
             return 0;

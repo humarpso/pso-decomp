@@ -17,7 +17,7 @@ extern "C" {
 s32 obj_getField1c(u32);
 u32 create_message_window__17TMedicalCenterMesFPviii(void *, s32, s32, s32);
 u32 create_window__17TMedicalCenterMesFPvii(void *, s32, s32);
-u32 TShopSequence__sub_80223600(u8 *arg0, s32 arg1, s32 arg2);
+u32 create_message_window__13TShopSequenceFPvii(u8 *arg0, s32 arg1, s32 arg2);
 int alloc__23TAdSinglePlyChrSelectGCFPv(void *);
 u8 * fn_80222BCC(void *);
 u8 * __ct__15TShopWindowBaseFv(void *);
@@ -79,7 +79,7 @@ void close_message_window__13TShopSequenceFPv(void *arg0) {
     }
 }
 
-u32 TShopSequence__sub_80223600(u8 *arg0, s32 arg1, s32 arg2) {
+u32 create_message_window__13TShopSequenceFPvii(u8 *arg0, s32 arg1, s32 arg2) {
     u8 *temp_r0;
     u8 *temp_r3;
     temp_r0 = (u8 *)(M2C_FIELD(arg0, u8 **, 0x28));

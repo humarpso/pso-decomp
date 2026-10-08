@@ -237,13 +237,13 @@ M2C_UNK pop_matrix();
 M2C_UNK post_translate_matrix(void *);
 M2C_UNK set_global_param__8TObjFishFi(int);
 M2C_UNK draw_ginja_model(int);
-void TOContainerAncientEnemy__sub_8015BBFC(u8 *arg0);
+void draw_model__23TOContainerAncientEnemyFPv(u8 *arg0);
 s32 VecCopy__FP3VecPC3Vec(void *, void *);
 s32 TObjFish__sub_8001EDB0(void *, int);
 s32 get_bml_model(void *, int);
 s32 reset_photon_effect__10TObjPlayerFPv(void *);
 s32 init_collision_body_parts(void *, void *, int);
-s32 fn_8018A150(void *, int, void *);
+s32 init_container_base(void *, int, void *);
 extern RecoveredGlobal_8015BD68_lbl_804B00C8 lbl_804B00C8;
 extern M2C_UNK __vt__23TOContainerAncientEnemy[];
 extern s32 lbl_805D2F08;
@@ -301,7 +301,7 @@ void check_and_destroy__23TOContainerAncientEnemyFPvPvi(void *arg0, s16 *arg1, s
 
 extern M2C_UNK __vt__23TOContainerAncientEnemy[];
 
-void TOContainerAncientEnemy__sub_8015B94C(Obj_8015B94C *self) {
+void spawn_break_debris__23TOContainerAncientEnemyFPv(Obj_8015B94C *self) {
     extern const u32 lbl_805D58E8;
     void *o;
     if (self->f326 != 1) {
@@ -363,7 +363,7 @@ void TOContainerAncientEnemy__sub_8015BB8C(Obj_80188814 *self) {
     TObjRoomId__sub_80141CF4(self->pos, lbl_804A7448, lbl_805DB3A0);
 }
 
-void TOContainerAncientEnemy__sub_8015BBFC(u8 *arg0) {
+void draw_model__23TOContainerAncientEnemyFPv(u8 *arg0) {
     extern u32 lbl_805D58E8;
     u8 *temp_r31;
     u8 *temp_r31_2;
@@ -424,7 +424,7 @@ typedef char RecoveredGlobal_8015BD68_lbl_804B00C8_size[sizeof(RecoveredGlobal_8
 typedef char RecoveredGlobal_8015BD68___vt__23TOContainerAncientEnemy_size[sizeof(RecoveredGlobal_8015BD68___vt__23TOContainerAncientEnemy) == 0x14C ? 1 : -1];
 u8 *TOContainerAncientEnemy__ct(u8 *arg0, s32 arg1) {
     extern u32 lbl_805D58E8;
-    fn_8018A150((void *) (arg0), (int) (tl_05), (void *) (arg1));
+    init_container_base((void *) (arg0), (int) (tl_05), (void *) (arg1));
     M2C_FIELD(arg0, M2C_UNK **, 0x18) = &(*(RecoveredGlobal_8015BD68___vt__23TOContainerAncientEnemy *)&__vt__23TOContainerAncientEnemy).value;
     M2C_FIELD(arg0, s32 *, 0) = (s32) lbl_805D2F08;
     M2C_FIELD(arg0, s16 *, 0x326) = 0;

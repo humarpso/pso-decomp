@@ -106,7 +106,7 @@ Ent_80090A70 *get_enemy_entity(u16);
 void advance_animation_playback(void *);
 void check_object_collisions__10TObjPlayerFPv(void *);
 extern const f32 TObjEneBalClawClaw__data_805D968C;
-void TObjEneBalClawClaw__sub_80090A70(Obj_80090A70 *arg0);
+void update_follow_parent__18TObjEneBalClawClawFPv(Obj_80090A70 *arg0);
 }
 
 extern "C" {
@@ -170,7 +170,7 @@ void TObjEneBalClawClaw__sub_80090A10(u8 *arg0, u8 *arg1, s32 arg2, s16 arg3) {
     ((VObj_18_4841bb *)(arg0))->m53();
 }
 
-void TObjEneBalClawClaw__sub_80090A70(Obj_80090A70 *arg0) {
+void update_follow_parent__18TObjEneBalClawClawFPv(Obj_80090A70 *arg0) {
     Ent_80090A70 *e = get_enemy_entity(arg0->f3C6);
     if (e == NULL || (e->flags & 0x800)) {
         clear_flag__18TObjEneBalClawClawFPv(arg0);

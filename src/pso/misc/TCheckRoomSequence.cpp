@@ -288,7 +288,7 @@ M2C_UNK set_position_xy(int, f32, f32);
 void TWindow__close(TWin_8020F070 *);
 s32 get_selected_menu_value(int);
 M2C_UNK align_menu_entry_positions(int);
-M2C_UNK TWindowSubComCard__sub_80265F60(int);
+M2C_UNK calc_window_size__17TWindowSubComCardFPv(int);
 M2C_UNK forward_trade_action_default__16TObjCityMainWarpFPviii(int, int, int, int);
 u32 create_window_menu(s32, int, u16);
 s32 get_window_layout_position(s32);
@@ -316,7 +316,7 @@ M2C_UNK set_position_xy(int, f32, f32);
 void TWindow__close(TWin_8020F070 *);
 s32 get_selected_menu_value(int);
 M2C_UNK align_menu_entry_positions(int);
-M2C_UNK TWindowSubComCard__sub_80265F60(int);
+M2C_UNK calc_window_size__17TWindowSubComCardFPv(int);
 M2C_UNK forward_trade_action_default__16TObjCityMainWarpFPviii(int, int, int, int);
 u32 create_window_menu(s32, int, u16);
 s32 get_window_layout_position(s32);
@@ -332,7 +332,7 @@ M2C_UNK set_position_xy(int, f32, f32);
 void TWindow__close(TWin_8020F070 *);
 s32 get_selected_menu_value(int);
 M2C_UNK align_menu_entry_positions(int);
-M2C_UNK TWindowSubComCard__sub_80265F60(int);
+M2C_UNK calc_window_size__17TWindowSubComCardFPv(int);
 M2C_UNK forward_trade_action_default__16TObjCityMainWarpFPviii(int, int, int, int);
 u32 create_window_menu(s32, int, u16);
 s32 get_window_layout_position(s32);
@@ -340,13 +340,13 @@ void handle_deposit_choice__18TCheckRoomSequenceFv(u8 *arg0);
 int set_field_20__12TQuestListVMFPvi(void*, void*);
 s32 get_room_data__18TCheckRoomSequenceFi(int);
 s32 set_service_counter_camera(void *, int);
-M2C_UNK TShopSequence__sub_80223600(void *, s32, Vec2_80210198 *);
+M2C_UNK create_message_window__13TShopSequenceFPvii(void *, s32, Vec2_80210198 *);
 int TShopWindowBase__sub_8022397C(void*);
 s16 get_child_field1c__15TShopWindowBaseFPv(void *);
 void *__nw__7TObjectFUl(u32);
 M2C_UNK set_entry_field_20__15TWindowMainMenuFii(int, int);
 void *TWindowDeposit__ct(void *, s32);
-s32 fn_8026934C(u16);
+s32 create_meseta_window(u16);
 s32 get_window_layout_position(s32);
 extern const f32 lbl_805DC634;
 extern const f32 lbl_805DC638;
@@ -690,7 +690,7 @@ void handle_withdraw_choice__18TCheckRoomSequenceFv(u8 *arg0) {
             M2C_FIELD(arg0, u32 *, 0x3C) = create_window_menu(((M2C_UNK)get_window_layout_position((s32)(0x2B))), 2, temp_r30);
             forward_trade_action_default__16TObjCityMainWarpFPviii((int) (M2C_FIELD(arg0, u32 *, 0x3C)), (int) (get_shop_text((int) (2))), (int) (6), (int) (0));
             forward_trade_action_default__16TObjCityMainWarpFPviii((int) (M2C_FIELD(arg0, u32 *, 0x3C)), (int) (get_shop_text((int) (3))), (int) (6), (int) (1));
-            TWindowSubComCard__sub_80265F60((int) (M2C_FIELD(arg0, u32 *, 0x3C)));
+            calc_window_size__17TWindowSubComCardFPv((int) (M2C_FIELD(arg0, u32 *, 0x3C)));
             align_menu_entry_positions((int) (M2C_FIELD(arg0, u32 *, 0x3C)));
             set_ready_flag__18TCheckRoomSequenceFPv((int) (M2C_FIELD(arg0, u32 *, 0x3C)));
             set_position_xy((int) (M2C_FIELD(arg0, u32 *, 0x3C)), get_scale__15TShopWindowBaseFv((void *) (arg0)), get_scale__15TShopWindowBaseFv((void *) (arg0)));
@@ -737,7 +737,7 @@ void handle_deposit_choice__18TCheckRoomSequenceFv(u8 *arg0) {
             M2C_FIELD(arg0, u32 *, 0x3C) = create_window_menu(((M2C_UNK)get_window_layout_position((s32)(0x2B))), 2, temp_r30);
             forward_trade_action_default__16TObjCityMainWarpFPviii((int) (M2C_FIELD(arg0, u32 *, 0x3C)), (int) (get_shop_text((int) (2))), (int) (6), (int) (0));
             forward_trade_action_default__16TObjCityMainWarpFPviii((int) (M2C_FIELD(arg0, u32 *, 0x3C)), (int) (get_shop_text((int) (3))), (int) (6), (int) (1));
-            TWindowSubComCard__sub_80265F60((int) (M2C_FIELD(arg0, u32 *, 0x3C)));
+            calc_window_size__17TWindowSubComCardFPv((int) (M2C_FIELD(arg0, u32 *, 0x3C)));
             align_menu_entry_positions((int) (M2C_FIELD(arg0, u32 *, 0x3C)));
             set_ready_flag__18TCheckRoomSequenceFPv((int) (M2C_FIELD(arg0, u32 *, 0x3C)));
             set_position_xy((int) (M2C_FIELD(arg0, u32 *, 0x3C)), get_scale__15TShopWindowBaseFv((void *) (arg0)), get_scale__15TShopWindowBaseFv((void *) (arg0)));
@@ -792,7 +792,7 @@ void handle_root_choice__18TCheckRoomSequenceFv(u8 *arg0) {
                 M2C_FIELD(arg0, u32 *, 0x3C) = create_window_menu(((M2C_UNK)get_window_layout_position((s32)(0x2B))), 2, temp_r30);
                 forward_trade_action_default__16TObjCityMainWarpFPviii((int) (M2C_FIELD(arg0, u32 *, 0x3C)), (int) (get_shop_text((int) (8))), (int) (6), (int) (0));
                 forward_trade_action_default__16TObjCityMainWarpFPviii((int) (M2C_FIELD(arg0, u32 *, 0x3C)), (int) (get_shop_text((int) (9))), (int) (6), (int) (1));
-                TWindowSubComCard__sub_80265F60((int) (M2C_FIELD(arg0, u32 *, 0x3C)));
+                calc_window_size__17TWindowSubComCardFPv((int) (M2C_FIELD(arg0, u32 *, 0x3C)));
                 align_menu_entry_positions((int) (M2C_FIELD(arg0, u32 *, 0x3C)));
                 set_ready_flag__18TCheckRoomSequenceFPv((int) (M2C_FIELD(arg0, u32 *, 0x3C)));
                 set_position_xy((int) (M2C_FIELD(arg0, u32 *, 0x3C)), get_scale__15TShopWindowBaseFv((void *) (arg0)), get_scale__15TShopWindowBaseFv((void *) (arg0)));
@@ -832,7 +832,7 @@ void handle_root_choice__18TCheckRoomSequenceFv(u8 *arg0) {
                 temp_r30_2 = obj_getField1c((int) (M2C_FIELD(arg0, s32 *, 0x24)));
                 M2C_FIELD(arg0, u32 *, 0x3C) = create_window_menu(((M2C_UNK)get_window_layout_position((s32)(0x2B))), 2, temp_r30_2);
                 forward_trade_action_default__16TObjCityMainWarpFPviii((int) (M2C_FIELD(arg0, u32 *, 0x3C)), (int) (get_shop_text((int) (0xA))), (int) (6), (int) (1));
-                TWindowSubComCard__sub_80265F60((int) (M2C_FIELD(arg0, u32 *, 0x3C)));
+                calc_window_size__17TWindowSubComCardFPv((int) (M2C_FIELD(arg0, u32 *, 0x3C)));
                 align_menu_entry_positions((int) (M2C_FIELD(arg0, u32 *, 0x3C)));
                 set_ready_flag__18TCheckRoomSequenceFPv((int) (M2C_FIELD(arg0, u32 *, 0x3C)));
                 set_position_xy((int) (M2C_FIELD(arg0, u32 *, 0x3C)), get_scale__15TShopWindowBaseFv((void *) (arg0)), get_scale__15TShopWindowBaseFv((void *) (arg0)));
@@ -889,9 +889,9 @@ void open_bank__18TCheckRoomSequenceFv(u8 *arg0) {
     Vec2_80210198 v;
     v.x = lbl_805DC634;
     v.y = lbl_805DC638;
-    TShopSequence__sub_80223600(arg0, get_window_layout_position(0x2C), &v);
+    create_message_window__13TShopSequenceFPvii(arg0, get_window_layout_position(0x2C), &v);
     ((VObj_18_a93f07 *)(arg0))->m4(0x31, 1);
-    M2C_FIELD(arg0, s32 *, 0x38) = fn_8026934C(get_child_field1c__15TShopWindowBaseFPv(arg0));
+    M2C_FIELD(arg0, s32 *, 0x38) = create_meseta_window(get_child_field1c__15TShopWindowBaseFPv(arg0));
     w = __nw__7TObjectFUl(0x6C);
     if (w != NULL) {
         w = TWindowDeposit__ct(w, get_child_field1c__15TShopWindowBaseFPv(arg0));
@@ -1137,7 +1137,7 @@ void TCheckRoomSequence__sub_80210E28(s32 idx, s32 amount, s32 slot) {
 
 #pragma push
 #pragma optimization_level 1
-s32 TCheckRoomSequence__sub_80211034(s32 idx, void *data, s32 slot) {
+s32 copy_item_record__18TCheckRoomSequenceFiPvi(s32 idx, void *data, s32 slot) {
     Rec_80211034 *recs = lbl_80513D88[slot];
     if (idx > 199) {
         return 0;

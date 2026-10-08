@@ -77,7 +77,7 @@ extern s32 lbl_805D586C;
 extern const f32 lbl_805D6D30;
 extern const f32 lbl_805DF98C;
 extern const f32 lbl_805DF990;
-void TObjEneMorfos__sub_80337644(O_80337644 *arg0);
+void update_projectile__13TObjEneMorfosFPv(O_80337644 *arg0);
 }
 
 extern "C" {
@@ -114,7 +114,7 @@ s32 TObjEneMorfos__sub_803375F0(M2C_UNK arg0, s32 arg1) {
 
 struct O_80337500;
 struct V_80337500;
-void TObjEneMorfos__sub_80337644(O_80337644 *arg0) {
+void update_projectile__13TObjEneMorfosFPv(O_80337644 *arg0) {
     s32 k;
     s32 i;
     u8 *p;

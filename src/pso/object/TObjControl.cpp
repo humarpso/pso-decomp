@@ -438,7 +438,7 @@ s32 get_current_floor();
 s32 get_field_3e4__10TObjPlayerFPv(void *);
 M2C_UNK queue_destruction__7TObjectFv(void *);
 void copy_xyz__10TObjPlayerFPvPv(void *, void *);
-s32 TLobby__sub_8002AFD4(void *, void *, int);
+s32 exchange_object_state__6TLobbyFPvis(void *, void *, int);
 void copy_header__6TLobbyFPvPv(void *, void *);
 M2C_UNK set_flag_3__7TObjectFv(int);
 s32 is_quest_active();
@@ -676,7 +676,7 @@ s32 TObjPlayer__sub_800F65D0(u8 *self, s32 kind) {
     s32 ret;
     ret = 0;
     if (*(u16 *)(self + 0x1C) >= 0x1000 && *(u16 *)(self + 0x1C) < 0x4000) {
-        TLobby__sub_8002AFD4(self, &pkt, 1);
+        exchange_object_state__6TLobbyFPvis(self, &pkt, 1);
         pkt.diff = *(s16 *)(self + 0x2B8) - *(s16 *)(self + 0x32C);
         pkt.id = *(s32 *)(self + 0x30);
         switch (kind) {
@@ -691,7 +691,7 @@ s32 TObjPlayer__sub_800F65D0(u8 *self, s32 kind) {
             pkt.bv = lbl_805DA8C0 * ((f32)TObjPlayer__sub_8001943C(self, 3) / lbl_805DA8C4 - lbl_805DA8C8);
             break;
         }
-        ret = TLobby__sub_8002AFD4(self, &pkt, 0);
+        ret = exchange_object_state__6TLobbyFPvis(self, &pkt, 0);
         if (ret != 0) {
             TLobby__sub_800F6510(self, &pkt);
         }

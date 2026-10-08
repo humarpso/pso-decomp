@@ -56,13 +56,13 @@ extern const f32 lbl_805DBAC4;
 u8 *TObjGoalWarpAncient__ct(u8 *arg0, s32 arg1, s32 arg2);
 s32 register_warp_object__19TObjGoalWarpAncientFPv(int);
 s32 get_instance__19TObjGoalWarpAncientFv();
-M2C_UNK TObjAreaWarp__sub_8019C924();
+M2C_UNK debug_print_area_num__12TObjAreaWarpFPv();
 void set_global_count__12TObjNpcEnemyFi(s32 arg0);
 void debug_printf_at(s32 id, const char *fmt, ...);
 extern char lbl_80443288[];
 extern char lbl_804432A4[];
 void TObjGoalWarpAncient__vt18(void *arg0);
-M2C_UNK TObjMapWarp__sub_8019D0A8();
+M2C_UNK draw_debug_destinations__11TObjMapWarpFPv();
 void set_global_count__12TObjNpcEnemyFi(s32 arg0);
 void debug_printf_at(s32 id, const char *fmt, ...);
 extern char lbl_804432C8[];
@@ -114,7 +114,7 @@ typedef char RecoveredFields_8017CCA4_arg0_E4_offset[offsetof(RecoveredFields_80
 typedef char RecoveredFields_8017CCA4_arg0_E8_offset[offsetof(RecoveredFields_8017CCA4_arg0, field_E8) == 0xE8 ? 1 : -1];
 
 void TObjGoalWarpAncient__vt18(void *arg0) {
-    TObjAreaWarp__sub_8019C924();
+    debug_print_area_num__12TObjAreaWarpFPv();
     set_global_count__12TObjNpcEnemyFi(0xFF00FF);
     if ((s32) M2C_FIELD(arg0, s32 *, 0x8C) < 0) {
         M2C_FIELD(arg0, s32 *, 0xD8) = get_instance__19TObjGoalWarpAncientFv();
@@ -272,7 +272,7 @@ void TObjMapWarpAncient__vt17(void *arg0) {
         set_global_count__12TObjNpcEnemyFi(0xF0F0F0FF);
         return;
     }
-    TObjMapWarp__sub_8019D0A8();
+    draw_debug_destinations__11TObjMapWarpFPv();
     set_global_count__12TObjNpcEnemyFi(0xFF00FF);
     debug_printf_at(0x130021, lbl_804432E8);
     set_global_count__12TObjNpcEnemyFi(0xF0F0F0FF);

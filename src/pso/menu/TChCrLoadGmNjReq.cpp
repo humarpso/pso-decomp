@@ -11,7 +11,7 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 #define M2C_BITWISE(type, expr) ((type)(expr))
 extern "C" {
 M2C_UNK queue_destruction__7TObjectFv();
-M2C_UNK TLobby__sub_8028C530();
+M2C_UNK update_model_load__6TLobbyFPv();
 M2C_UNK start_character_load_task__23TAdSinglePlyChrSelectGCFPv();
 }
 
@@ -43,7 +43,7 @@ void run_task__16TChCrLoadGmNjReqFv(u8 *arg0) {
         start_character_load_task__23TAdSinglePlyChrSelectGCFPv();
         return;
     case 1:
-        TLobby__sub_8028C530();
+        update_model_load__6TLobbyFPv();
         return;
     }
 }

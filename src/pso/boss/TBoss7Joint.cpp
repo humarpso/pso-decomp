@@ -223,14 +223,14 @@ s32 register_boss__6TLobbyFPv(int);
 M2C_UNK fn_8002B630(void *, void *);
 M2C_UNK reset_hp__9TObjEneDDFPv(void *, int, int, int);
 M2C_UNK check_state_flag_2__9TObjEneDDFPv(void *);
-M2C_UNK TObjEneDD__sub_800BA934(void *);
+M2C_UNK transform_part_positions__9TObjEneDDFPv(void *);
 M2C_UNK init_position_vectors__9TObjEneDDFPv();
 M2C_UNK initialize_linked_object_reference(void *, void *);
 s32 TBoss7Joint_get_shell_max_hp();
 extern M2C_UNK lbl_80473FB8[];
 extern M2C_UNK lbl_804E45C8[];
 extern const f32 lbl_805DEBBC;
-M2C_UNK TBoss7Joint__sub_802EEB88(void *arg0);
+M2C_UNK init_params__11TBoss7JointFPv(void *arg0);
 }
 
 extern "C" {
@@ -250,7 +250,7 @@ void TBoss7Joint__vt60(u8 *arg0);
 void TBoss7Joint__vt85(void);
 void *__dt__11TBoss7JointFv(void *arg0, s16 arg1);
 void store_position__11TBoss7JointFPv(void *arg0);
-M2C_UNK TBoss7Joint__sub_802EE820(void *);
+M2C_UNK init_boss_stats__11TBoss7JointFPv(void *);
 M2C_UNK clear_attack_receipts(void *);
 void TObjEneDD__vt0(void *, int);
 M2C_UNK TObjFish__sub_802EC468(void *, f32, f32);
@@ -283,7 +283,7 @@ void TBoss7Joint__vt60(u8 *arg0) {
         M2C_FIELD(arg0, s32 *, 0x3C4) = (s32) (M2C_FIELD(arg0, s32 *, 0x3C4) - temp_r31);
         if ((s32) M2C_FIELD(arg0, s32 *, 0x3C4) <= 0) {
             M2C_FIELD(arg0, s32 *, 0x3C4) = 0;
-            TBoss7Joint__sub_802EE820((void *) (arg0));
+            init_boss_stats__11TBoss7JointFPv((void *) (arg0));
         }
     }
     M2C_FIELD(arg0, s16 *, 0x32C) = (s16) M2C_FIELD(arg0, s16 *, 0x2B8);
@@ -321,11 +321,11 @@ void *__dt__11TBoss7JointFv(void *arg0, s16 arg1) {
 typedef char RecoveredGlobal_802EEC60___vt__11TBoss7Joint_size[sizeof(RecoveredGlobal_802EEC60___vt__11TBoss7Joint) == 0x1A4 ? 1 : -1];
 
 #pragma opt_common_subs off
-M2C_UNK TBoss7Joint__sub_802EEB88(void *arg0) {
+M2C_UNK init_params__11TBoss7JointFPv(void *arg0) {
     ((M2C_UNK (*)(void *))init_position_vectors__9TObjEneDDFPv)(arg0);
     fn_8002B630(&((J_802EEB88 *)arg0)->sub, lbl_80473FB8);
     initialize_linked_object_reference(arg0, &((J_802EEB88 *)arg0)->sub);
-    TObjEneDD__sub_800BA934(arg0);
+    transform_part_positions__9TObjEneDDFPv(arg0);
     reset_hp__9TObjEneDDFPv(arg0, register_boss__6TLobbyFPv(0x10), dispatch_shared_handler_b__6TLobbyFPv(0xF), register_object__6TLobbyFPv(0x10));
     M2C_FIELD(arg0, s16 *, 0x32C) = 0x4E20;
     M2C_FIELD(arg0, s16 *, 0x2B8) = 0x4E20;
@@ -348,7 +348,7 @@ u8 *TBoss7Joint__ct(u8 *arg0, u8 *arg1, s16 arg2, s16 arg3, s32 arg4, s32 arg5) 
     M2C_FIELD(arg0, s32 *, 0x3C0) = arg4;
     M2C_FIELD(arg0, s32 *, 0x3B8) = arg5;
     initialize_enemy_state__9TObjEneDDFPv(arg0, 0x49);
-    TBoss7Joint__sub_802EEB88((void *)((void *) (arg0)));
+    init_params__11TBoss7JointFPv((void *)((void *) (arg0)));
     return arg0;
 }
 

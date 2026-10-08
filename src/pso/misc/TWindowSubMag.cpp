@@ -126,7 +126,7 @@ M2C_UNK feed_mag__13TWindowSubMagFPvPvPv(void *, s32, s32);
 M2C_UNK window_request_refresh(void *);
 void set_flag60_bit8__13TWindowSubMagFPv(void* p);
 M2C_UNK refresh_copied_items__15TWindowHelpItemFPv(void *);
-s32 TItemData__sub_80253974(void *);
+s32 update_mag_status_gauges__9TItemDataFPv(void *);
 s32 TWindowSubMag__sub_80253698(void *);
 s32 fn_8025373C(void *);
 void *create_learned_blast_toast__13TWindowSubMagFPv(u8 *arg0);
@@ -481,7 +481,7 @@ void run_task__13TWindowSubMagFv(void *arg0) {
         refresh_copied_items__15TWindowHelpItemFPv(self->help);
         init_and_setup__13TWindowSubMagFPvPv((s32)self->list, 2);
         set_mag_slot_state__13TWindowSubMagFPvi(self->slotwin, get_mag_state__13TWindowSubMagFPv((void*)(self->help)));
-        if (TItemData__sub_80253974(self->help) != 0) {
+        if (update_mag_status_gauges__9TItemDataFPv(self->help) != 0) {
             self->state = 9;
         } else {
             self->state = 3;

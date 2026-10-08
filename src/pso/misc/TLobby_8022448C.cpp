@@ -102,7 +102,7 @@ s32 get_lobby_id__6TLobbyFPv(void* p);
 void *TLobby__sub_80225924(u32 id);
 extern unsigned char lbl_80513F70[];
 extern int lbl_805D6274;
-s32 TLobby__sub_803DE7BC(int, void *, void *);
+s32 move_words__6TLobbyFPvPvi(int, void *, void *);
 void TLobby__sub_80225AD8(s32 idx);
 extern unsigned char lbl_80513F70[];
 extern s32 lbl_805D6270;
@@ -117,7 +117,7 @@ extern M2C_UNK lbl_80513F20[];
 extern u32 lbl_805D6260;
 extern int lbl_805D6264;
 void load_tool_random_rel(void);
-M2C_UNK TLobby__sub_800F957C(u32);
+M2C_UNK free_nodes_with_id__6TLobbyFUi(u32);
 M2C_UNK free__11TOBoss4RockFUi(u32);
 extern G_80225550 lbl_80513F60;
 extern u32 lbl_805D6268;
@@ -213,7 +213,7 @@ int is_flag_set__6TLobbyFPv(void* p);
 s32 level_to_reward__6TLobbyFi(s32 arg0);
 void set_6264_and_call_2244B0__6TLobbyFii(int a0, int a1);
 void try_close__6TLobbyFPv(void* p);
-M2C_UNK TLobby__sub_800F957C(u32);
+M2C_UNK free_nodes_with_id__6TLobbyFUi(u32);
 int generate_shop_weapon_stock(void);
 int TLobby__sub_80225A08(void*);
 M2C_UNK free__11TOBoss4RockFUi(u32);
@@ -257,7 +257,7 @@ void free_all_rocks__6TLobbyFv(void) {
         var_r31 -= 1;
     } while (var_r28 >= 0);
     if ((u32) lbl_805D6260 != 0U) {
-        TLobby__sub_800F957C(lbl_805D6260);
+        free_nodes_with_id__6TLobbyFUi(lbl_805D6260);
         lbl_805D6260 = var_r30;
     }
 }
@@ -711,7 +711,7 @@ void TLobby__sub_80225618(void) {
         }
     }
     if (lbl_805D6268 != 0) {
-        TLobby__sub_800F957C((u32)((void *)lbl_805D6268));
+        free_nodes_with_id__6TLobbyFUi((u32)((void *)lbl_805D6268));
         lbl_805D6268 = 0;
     }
 }
@@ -837,7 +837,7 @@ s32 TLobby__sub_802259A0(void) {
 void TLobby__sub_80225AD8(s32 idx) {
     if (idx < 7) {
         L_80225AD8 *p = &((L_80225AD8 *)&lbl_80513F70)[idx];
-        TLobby__sub_803DE7BC((int)p, p + 1, (void *)(((7 - idx) * sizeof(L_80225AD8)) >> 2));
+        move_words__6TLobbyFPvPvi((int)p, p + 1, (void *)(((7 - idx) * sizeof(L_80225AD8)) >> 2));
     }
     ((L_80225AD8 *)&lbl_80513F70)[7].flags &= ~1;
     (*(s32 *)&lbl_805D6274) = (*(s32 *)&lbl_805D6274) - 1;

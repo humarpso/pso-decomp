@@ -10,7 +10,7 @@ typedef struct Vec3_8034D500 {
 extern "C" {
 f32 TBoss8Dragon__sub_8008072C(f32, f32);
 s32 TBoss8Dragon__sub_803D6214(int, int);
-s32 TBoss8Dragon__sub_8034D500(Vec4_8034D500 *pts, s32 count, s32 closed, Vec3_8034D500 *out, f32 t);
+s32 eval_bezier_curve__12TBoss8DragonFPviiPvf(Vec4_8034D500 *pts, s32 count, s32 closed, Vec3_8034D500 *out, f32 t);
 }
 
 extern "C" {
@@ -45,7 +45,7 @@ s32 fn_8034D3D0(Entry_8034D3D0 *e, s32 n, s32 arg2, s32 arg3, s32 arg4, f32 scal
     if (ratio >= 1.0f) {
         return 1;
     }
-    return TBoss8Dragon__sub_8034D500((Vec4_8034D500 *)e, n, arg3, (Vec3_8034D500 *)arg4, ratio);
+    return eval_bezier_curve__12TBoss8DragonFPviiPvf((Vec4_8034D500 *)e, n, arg3, (Vec3_8034D500 *)arg4, ratio);
 }
 
 }
@@ -54,7 +54,7 @@ extern "C" {
 
 #pragma push
 #pragma fp_contract on
-s32 TBoss8Dragon__sub_8034D500(Vec4_8034D500 *pts, s32 count, s32 closed, Vec3_8034D500 *out, f32 t) {
+s32 eval_bezier_curve__12TBoss8DragonFPviiPvf(Vec4_8034D500 *pts, s32 count, s32 closed, Vec3_8034D500 *out, f32 t) {
     s32 n;
     s32 i;
     s32 m;

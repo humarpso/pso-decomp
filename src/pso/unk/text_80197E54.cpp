@@ -18,13 +18,13 @@ bool fn_80197E54(void);
 void fn_80197FD0(s32, s32);
 s32 TAdPlayerLoadGC__sub_801E1538(Hdr_80197E64 *, void *);
 s32 TAdPlayerLoadGC__sub_801E1B50(s32);
-s32 TAdPlayerLoadGC__sub_801E21A8(s32, s32, Stat_80197E64 *);
+s32 get_card_file_info__15TAdPlayerLoadGCFiPvPv(s32, s32, Stat_80197E64 *);
 s32 get_global_state__14TOKeyMachine01Fv(void);
 void load_player_slot__23TAdSinglePlyChrSelectGCFPvii(s32, s32, void *);
 s32 fn_802432F0(s32);
 void memset(void *, int, int);
 extern s32 lbl_805D3434;
-void fn_80197E64(void);
+void load_memcard_file(void);
 }
 
 extern "C" {
@@ -32,7 +32,7 @@ extern "C" {
 bool fn_80197E54(void) {
     return lbl_805D5C58 == 0;
 }
-void fn_80197E64(void) {
+void load_memcard_file(void) {
     Stat_80197E64 stat;
     Hdr_80197E64 hdr;
     s32 slot;
@@ -55,7 +55,7 @@ void fn_80197E64(void) {
         return;
     }
     do {
-        r = TAdPlayerLoadGC__sub_801E21A8(slot, lbl_805D3434, &stat);
+        r = get_card_file_info__15TAdPlayerLoadGCFiPvPv(slot, lbl_805D3434, &stat);
     } while ((u32)r == 0xFFFFFFFF);
     if (r != 0) {
         return;

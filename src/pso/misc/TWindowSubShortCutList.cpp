@@ -28,13 +28,13 @@ s32 *TWindowKeyBoardSoft__sub_80076E2C(s32);
 s32 get_symbol_chat_data__20TWindowSubSymbolChatFPv();
 M2C_UNK open_symbol_chat__11TWindowChatFPv(s32 *);
 s8 get_type__20TWindowSubStatusDispFPv(s32);
-M2C_UNK TShopArmorListWindow__sub_80266CF8(void *);
+M2C_UNK clamp_selection_to_valid_entry__20TShopArmorListWindowFPv(void *);
 M2C_UNK save_cursor_selection__20TShopArmorListWindowFPv();
-M2C_UNK TShopArmorListWindow__sub_80266DB0(void *);
+M2C_UNK reset_list__20TShopArmorListWindowFPv(void *);
 void draw_entry__22TWindowSubShortCutListFPviUcii(void *, s32, u8, s32, s32);
 M2C_UNK update_state__9TWindowDDFv(s32 *, s32, u16);
 extern s32 lbl_805D53A0;
-void TWindowSubShortCutList__sub_8027E278(void *arg0);
+void refresh_entries__22TWindowSubShortCutListFPv(void *arg0);
 }
 
 extern "C" {
@@ -55,13 +55,13 @@ M2C_UNK draw_selected_list_entry(void *, s32);
 M2C_UNK forward_render__20TWindowSubStatusDispFPv(s32, s32);
 s32 get_status_flag__6TLobbyFPv(void *);
 
-void TWindowSubShortCutList__sub_8027E278(void *arg0) {
+void refresh_entries__22TWindowSubShortCutListFPv(void *arg0) {
     s32 *temp_r3;
     s32 temp_r0;
     s32 var_r30;
     s32 var_r29;
     save_cursor_selection__20TShopArmorListWindowFPv();
-    TShopArmorListWindow__sub_80266DB0(arg0);
+    reset_list__20TShopArmorListWindowFPv(arg0);
     var_r29 = get_type__20TWindowSubStatusDispFPv(M2C_FIELD(arg0, s32 *, 0x88));
     var_r30 = 0;
     var_r29 *= 4;
@@ -90,7 +90,7 @@ void TWindowSubShortCutList__sub_8027E278(void *arg0) {
         var_r30 += 1;
         var_r29 += 1;
     } while (var_r30 < 4);
-    TShopArmorListWindow__sub_80266CF8(arg0);
+    clamp_selection_to_valid_entry__20TShopArmorListWindowFPv(arg0);
 }
 
 void *TWindowSubShortCutList__sub_8027E3B4(void *arg0, void *arg1) {
@@ -121,7 +121,7 @@ void render__22TWindowSubShortCutListFv(u8 *arg0) {
 void run_task__22TWindowSubShortCutListFv(void *arg0) {
     update_item_list_window();
     if ((get_status_flag__6TLobbyFPv(arg0) == 0) && (handle_list_page_flip_input(M2C_FIELD(arg0, s32 *, 0x88)) != 0)) {
-        TWindowSubShortCutList__sub_8027E278((void *)(arg0));
+        refresh_entries__22TWindowSubShortCutListFPv((void *)(arg0));
     }
 }
 
@@ -154,7 +154,7 @@ void *TWindowSubShortCutList__ct(void *arg0, void *arg1, void *arg2) {
     }
     ((Obj_8027E558 *)arg0)->list = p;
     set_flag70_bit10__20TWindowShortListCtrlFPv(arg0);
-    TWindowSubShortCutList__sub_8027E278((void *)(arg0));
+    refresh_entries__22TWindowSubShortCutListFPv((void *)(arg0));
     TWindowSubStatusDisp__sub_80267AA8(arg0, col);
     return arg0;
 }

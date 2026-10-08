@@ -21,7 +21,7 @@ void run_tl_camera_tasks__9TMainTaskFv(void *);
 void render__9TMainTaskFv(void *);
 int atoi(const char *);
 void func_803DCDFC__Fv();
-s8 TLobby__sub_803F9E84(char *);
+s8 str_length__6TLobbyFi(char *);
 void TLobby__sub_8040A630(s16);
 s16 TLobby__sub_8040A698(s16, void *, void *, int, void *, int);
 s16 TLobby__sub_8040A8B0(char *, s32, int);
@@ -74,7 +74,7 @@ int TSocket::resolve_domain(char *domain) {
     memset(start, 0, 0x20);
     strncpy(start, domain, 0x1F);
     if (get_csn_group_flags(buf[0]) != 0) {
-        handle = TLobby__sub_8040A8B0(start, TLobby__sub_803F9E84(start), 4);
+        handle = TLobby__sub_8040A8B0(start, str_length__6TLobbyFi(start), 4);
         if (handle >= 0) {
             spC = 4;
             count = 0;

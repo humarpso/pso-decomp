@@ -17,7 +17,7 @@ s32 get_option_state__6TLobbyFv(void);
 void send_login2__9TProtocolFi(void *proto, s32 opt);
 void dispatch_by_index__6TLobbyFi(s32 arg0);
 void reset_state__6TLobbyFv(s32);
-void TLobby__sub_801376A0(s32 ok);
+void handle_register_name_result__6TLobbyFi(s32 ok);
 extern void *TLobby__data_805D5580;
 extern char lbl_8043F05C[];
 void TLobby__sub_8013A170(const char *fmt, ...);
@@ -82,7 +82,7 @@ extern s32 lbl_805D53A0;
 extern void *TLobby__data_805D5580;
 void handle_register_result__6TLobbyFi(s32 arg0);
 M2C_UNK TLobby__sub_801366AC(Rec_801378AC *, s16, s16, s32);
-M2C_UNK TLobby__sub_80136A8C();
+M2C_UNK make_players__6TLobbyFv();
 M2C_UNK TLobby__sub_801384E4();
 M2C_UNK drain_deferred_packets__6TLobbyFv();
 extern Rec_801378AC TLobby__data_80506A6C[];
@@ -216,7 +216,7 @@ void handle_register_result__6TLobbyFi(s32 arg0) {
     reset_state__6TLobbyFv(0x50);
 }
 
-void TLobby__sub_801376A0(s32 ok) {
+void handle_register_name_result__6TLobbyFi(s32 ok) {
     if (ok) {
         TLobby__sub_8013A170(lbl_8043F038);
         send_login2__9TProtocolFi(TLobby__data_805D5580, get_option_state__6TLobbyFv());
@@ -320,7 +320,7 @@ void process_deferred_player_setup__6TLobbyFv(void) {
         break;
     case 3:
     case 4:
-        TLobby__sub_80136A8C();
+        make_players__6TLobbyFv();
         break;
     case 5:
         TLobby__sub_801384E4();

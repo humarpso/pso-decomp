@@ -68,7 +68,7 @@ extern const f32 lbl_805DA41C;
 extern const f32 lbl_805DA45C;
 extern const f32 lbl_805DA468;
 extern const f32 lbl_805DA46C;
-void TObjPlayer__sub_800DBABC(u8 *arg0);
+void render_enemy_with_fade__10TObjPlayerFPv(u8 *arg0);
 }
 
 extern "C" {
@@ -214,7 +214,7 @@ s32 find_active_entity_by_id(int);
 M2C_UNK TObjPlayer__sub_800D9E08(void *);
 void update_death_state__10TObjPlayerFPv(void *);
 M2C_UNK TObjPlayer__sub_800DA2A0(void *);
-M2C_UNK TObjPlayer__sub_800DA5FC();
+M2C_UNK update_death_sequence__10TObjPlayerFPv();
 M2C_UNK TObjPlayer__sub_800DA7E4();
 M2C_UNK TObjPlayer__sub_800DAA24();
 M2C_UNK TObjPlayer__sub_800DAB98();
@@ -223,7 +223,7 @@ M2C_UNK TObjPlayer__sub_800DB390();
 M2C_UNK TObjPlayer__sub_800DB5A8();
 M2C_UNK TObjPlayer__sub_800DB970();
 void TObjPlayer__sub_800DBAB8(void);
-void TObjPlayer__sub_800DBD38(u8 *arg0);
+void dispatch_action_state__10TObjPlayerFPv(u8 *arg0);
 void update__10TObjPlayerFPv(u8 *arg0);
 void * create__16TObjEneNanoDragoFPv(void *arg0);
 void free_global_window__6TLobbyFv(void);
@@ -585,7 +585,7 @@ void *lbl_80494C38[22] = {
 };
 void *lbl_80494C90[83] = {
     (void *)0x0, (void *)0x0, (void *)&fn_800DC0FC, (void *)&update__10TObjPlayerFPv,
-    (void *)&TObjPlayer__sub_800DBABC, (void *)&render_actor_shadows_default, (void *)&TLobby__sub_801A1FD8, (void *)&apply_object_set_data,
+    (void *)&render_enemy_with_fade__10TObjPlayerFPv, (void *)&render_actor_shadows_default, (void *)&TLobby__sub_801A1FD8, (void *)&apply_object_set_data,
     (void *)&reset_actor_action_state, (void *)&get_actor_body_center, (void *)&update_object_view_visibility, (void *)&classify_actor_view_detail,
     (void *)&get_enemy_name__14TObjEnePanarmsFPv, (void *)&TObjPlayer__sub_80019568, (void *)&add_actor_exp, (void *)&TObjPlayer__sub_800111D8,
     (void *)&get_actor_level_index, (void *)&update_actor_ground_y, (void *)&TObjPlayer__sub_80018E6C, (void *)&is_actor_cadence_frame,
@@ -616,7 +616,7 @@ void TObjPlayer__sub_800DBAB8(void) {  }
 
 #pragma push
 #pragma fp_contract on
-void TObjPlayer__sub_800DBABC(u8 *arg0) {
+void render_enemy_with_fade__10TObjPlayerFPv(u8 *arg0) {
     Vec_800DBABC v;
     f32 temp_f0;
     f32 temp_f1;
@@ -685,7 +685,7 @@ void TObjPlayer__sub_800DBABC(u8 *arg0) {
 }
 #pragma pop
 
-void TObjPlayer__sub_800DBD38(u8 *arg0) {
+void dispatch_action_state__10TObjPlayerFPv(u8 *arg0) {
   s16 temp_r0;
   temp_r0 = *((s16 *) (((s8 *) arg0) + 0x326));
   {
@@ -707,7 +707,7 @@ void TObjPlayer__sub_800DBD38(u8 *arg0) {
         TObjPlayer__sub_800DA7E4();
         return;
       case 5:
-        TObjPlayer__sub_800DA5FC();
+        update_death_sequence__10TObjPlayerFPv();
         return;
       case 9:
         TObjPlayer__sub_800DB0F8();
@@ -745,15 +745,15 @@ void update__10TObjPlayerFPv(u8 *arg0) {
     if ((s16) M2C_FIELD(arg0, s16 *, 0x326) != (s32) M2C_FIELD(arg0, s32 *, 0x374)) {
         if ((s32) M2C_FIELD(arg0, s32 *, 0x37C) != -1) {
             M2C_FIELD(arg0, s32 *, 0x37C) = -1;
-            ((M2C_UNK (*)(void *))TObjPlayer__sub_800DBD38)((void *) (arg0));
+            ((M2C_UNK (*)(void *))dispatch_action_state__10TObjPlayerFPv)((void *) (arg0));
         }
         M2C_FIELD(arg0, s16 *, 0x326) = (s16) M2C_FIELD(arg0, s32 *, 0x374);
         M2C_FIELD(arg0, s32 *, 0x37C) = 0;
     }
-    ((M2C_UNK (*)(void *))TObjPlayer__sub_800DBD38)((void *) (arg0));
+    ((M2C_UNK (*)(void *))dispatch_action_state__10TObjPlayerFPv)((void *) (arg0));
     if ((s32) M2C_FIELD(arg0, s32 *, 0x37C) == -1) {
         M2C_FIELD(arg0, s32 *, 0x37C) = -1;
-        ((M2C_UNK (*)(void *))TObjPlayer__sub_800DBD38)((void *) (arg0));
+        ((M2C_UNK (*)(void *))dispatch_action_state__10TObjPlayerFPv)((void *) (arg0));
         M2C_FIELD(arg0, s16 *, 0x326) = (s16) M2C_FIELD(arg0, s32 *, 0x374);
         M2C_FIELD(arg0, s32 *, 0x37C) = 0;
     }

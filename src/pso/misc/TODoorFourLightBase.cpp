@@ -94,25 +94,25 @@ s32 scale_current_matrix(void *);
 f32 post_translate_matrix(void *);
 s32 set_global_param__8TObjFishFi(void *);
 s32 draw_ginja_model(int);
-void TODoorFourLightBase__sub_802A0578(u8 *arg0, u8 *arg1);
+void draw_node_tree__19TODoorFourLightBaseFPvPv(u8 *arg0, u8 *arg1);
 void init_door_base(void *, void *);
 extern M2C_UNK __vt__19TODoorFourLightBase[];
 extern s32 lbl_805D3D60;
 Door_802A0994 *TODoorFourLightBase__ct(Door_802A0994 *arg0, void *arg1, s32 arg2);
 s32 end_effect_render__13TParticleCtrlFv();
 u8 is_current_floor_switch_set(int);
-void TODoorFourLightBase__sub_802A0578(u8 *arg0, u8 *arg1);
+void draw_node_tree__19TODoorFourLightBaseFPvPv(u8 *arg0, u8 *arg1);
 s32 rotate_matrix_y(int, int);
 s32 push_matrix();
 s32 pop_matrix();
 f32 post_translate_matrix(void *);
-void TODoorFourLightBase__sub_802A0670(Door_802A0670 *self);
+void render_lights__19TODoorFourLightBaseFPv(Door_802A0670 *self);
 M2C_UNK send_object_state_update(void *, void *);
 s32 access_object_saved_state(void *, void *, int);
 M2C_UNK fn_8015D5D4(void *);
 u8 is_current_floor_switch_set(int);
 void TODoorFourLightBase__vt12(u8 *arg0);
-void TODoorFourLightBase__sub_802A0670(Door_802A0670 *self);
+void render_lights__19TODoorFourLightBaseFPv(Door_802A0670 *self);
 s32 rotate_matrix_y(int, int);
 s32 push_matrix();
 s32 pop_matrix();
@@ -216,7 +216,7 @@ void TODoorFourLightBase__vt12(u8 *arg0) {
     }
 }
 
-void TODoorFourLightBase__sub_802A0578(u8 *arg0, u8 *arg1) {
+void draw_node_tree__19TODoorFourLightBaseFPvPv(u8 *arg0, u8 *arg1) {
     s32 temp_r31;
     u8 *temp_r4;
     u8 *var_r30;
@@ -249,7 +249,7 @@ void TODoorFourLightBase__sub_802A0578(u8 *arg0, u8 *arg1) {
         if (!(temp_r31 & 0x10)) {
             temp_r4 = (u8 *)(M2C_FIELD(var_r30, u8 **, 0x2C));
             if (temp_r4 != NULL) {
-                TODoorFourLightBase__sub_802A0578(arg0, temp_r4);
+                draw_node_tree__19TODoorFourLightBaseFPvPv(arg0, temp_r4);
             }
         }
         pop_matrix();
@@ -257,7 +257,7 @@ void TODoorFourLightBase__sub_802A0578(u8 *arg0, u8 *arg1) {
     } while (var_r30 != NULL);
 }
 
-void TODoorFourLightBase__sub_802A0670(Door_802A0670 *self) {
+void render_lights__19TODoorFourLightBaseFPv(Door_802A0670 *self) {
     s32 i;
     for (i = 0; i < 4; i++) {
         if (self->a[i] != NULL) {
@@ -291,7 +291,7 @@ void TODoorFourLightBase__sub_802A0670(Door_802A0670 *self) {
     push_matrix();
     post_translate_matrix(self->f38);
     rotate_matrix_y(0, self->f60);
-    TODoorFourLightBase__sub_802A0578((u8 *)self, self->fD4);
+    draw_node_tree__19TODoorFourLightBaseFPvPv((u8 *)self, self->fD4);
     pop_matrix();
     end_effect_render__13TParticleCtrlFv();
 }
@@ -322,7 +322,7 @@ void render__19TODoorFourLightBaseFv(u8 *arg0) {
         break;
     case 0:
         if (M2C_FIELD(arg0, s32 *, 0xCC) == 2 || M2C_FIELD(arg0, s32 *, 0xCC) == 3) {
-            TODoorFourLightBase__sub_802A0670((Door_802A0670 *)arg0);
+            render_lights__19TODoorFourLightBaseFPv((Door_802A0670 *)arg0);
             break;
         }
         push_matrix();

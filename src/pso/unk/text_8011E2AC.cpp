@@ -105,7 +105,7 @@ void create__10TItemEffPGFPvPvPv(s32, Params_8011EAB8 *, s32);
 void create__10TItemEffPGFPvPv(s32, Params_8011EAB8 *);
 void init_params__10TItemEffPGFPv(Params_8011EAB8 *);
 extern s32 tl_05;
-void TObjPlayer__sub_8011EAB8(u8 *arg0, Vec_8011EAB8 *arg1, s32 arg2, f32 farg0);
+void spawn_pg_effect__10TObjPlayerFPvPvif(u8 *arg0, Vec_8011EAB8 *arg1, s32 arg2, f32 farg0);
 }
 
 extern "C" {
@@ -408,7 +408,7 @@ void create_weapon_trail_effects(Pl_8011E950 *arg0);
 u32 pack_weapon_trail_color(void *arg0);
 void fill_status_info__10TObjPlayerFPvPv(void *arg0, void *arg1);
 s32 launch_shot__11TItemWeaponFPvPviii(u8 *arg0, u8 *arg1, s32 arg2, s32 arg3, s32 arg4);
-void TObjPlayer__sub_8011F474(PlSelf_8011F474 *self, f32 range);
+void for_each_target_in_range__10TObjPlayerFPvf(PlSelf_8011F474 *self, f32 range);
 s32 is_active_in_game__10TObjPlayerFPv(void *);
 V4_8011EA10 get_weapon_color__11TItemWeaponFPv(void *);
 void draw_icon__10TObjPlayerFPvii(void *, s32, Vec_8011E87C *);
@@ -635,7 +635,7 @@ u32 pack_weapon_trail_color(void *arg0) {
     return (__cvt_fp2unsigned(lbl_805DAC90 * w.a) << 24 | __cvt_fp2unsigned(lbl_805DAC90 * w.b) << 16 | __cvt_fp2unsigned(lbl_805DAC90 * w.c) << 8) | __cvt_fp2unsigned(lbl_805DAC90 * w.d);
 }
 
-void TObjPlayer__sub_8011EAB8(u8 *arg0, Vec_8011EAB8 *arg1, s32 arg2, f32 farg0) {
+void spawn_pg_effect__10TObjPlayerFPvPvif(u8 *arg0, Vec_8011EAB8 *arg1, s32 arg2, f32 farg0) {
     Params_8011EAB8 prm;
     if (arg2 < 0 || arg2 >= 200) {
         return;
@@ -884,7 +884,7 @@ s32 launch_shot__11TItemWeaponFPvPviii(u8 *arg0, u8 *arg1, s32 arg2, s32 arg3, s
     return var_r31;
 }
 
-void TObjPlayer__sub_8011F474(PlSelf_8011F474 *self, f32 range) {
+void for_each_target_in_range__10TObjPlayerFPvf(PlSelf_8011F474 *self, f32 range) {
     Obj_8011F474 *obj;
     u16 uid;
     void *state;

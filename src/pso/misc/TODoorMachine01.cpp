@@ -112,7 +112,7 @@ u8 *TODoorMachine01__ct(u8 *arg0, M2C_UNK arg1, s32 arg2);
 void fn_8015D5D4(void *);
 u8 is_current_floor_switch_set(u16);
 void TODoorMachine01__vt12(Door_80162A70 *self);
-s32 fn_801582C4(void *, f32);
+s32 is_in_view_depth(void *, f32);
 int rotate_matrix_y(int, int);
 int push_matrix();
 int pop_matrix();
@@ -134,7 +134,7 @@ M2C_UNK set_chunk_material_color(void *, int);
 extern u8 lbl_804A7418[];
 extern s32 lbl_805D5660;
 extern s32 some_id_805c6f74;
-void TODoorMachine01__sub_80162CC0(s32 arg0, u8 *arg1, s32 arg2);
+void draw_part_models__15TODoorMachine01FiPvi(s32 arg0, u8 *arg1, s32 arg2);
 u32 load_resource_from_descriptor(void *, int, void *, int, int, int);
 void *alloc__23TAdSinglePlyChrSelectGCFPv(M2C_UNK);
 void *alloc_buffer__11TOBoss4RockFPv(M2C_UNK);
@@ -147,7 +147,7 @@ extern u8 lbl_804B15F8[];
 extern s32 enable_v2_features;
 extern u32 lbl_805D5970;
 extern s32 *lbl_805D5974;
-void TODoorMachine01__sub_80163008(void);
+void load_resources__15TODoorMachine01Fv(void);
 }
 
 extern "C" {
@@ -267,7 +267,7 @@ void TODoorMachine01__vt12(Door_80162A70 *self) {
     }
 }
 
-void TODoorMachine01__sub_80162CC0(s32 arg0, u8 *arg1, s32 arg2) {
+void draw_part_models__15TODoorMachine01FiPvi(s32 arg0, u8 *arg1, s32 arg2) {
     u8 *p = arg1;
     s32 temp_r4;
     if (arg2 != 1) {
@@ -297,7 +297,7 @@ void render__15TODoorMachine01Fv(Door_80162D7C *self) {
     u32 bit;
     Node_80162D7C *n;
     u32 fl;
-    if (self->m8(self->fC0, self->fC4) != 0 && fn_801582C4(self, lbl_805DB504) != 0) {
+    if (self->m8(self->fC0, self->fC4) != 0 && is_in_view_depth(self, lbl_805DB504) != 0) {
         push_matrix();
         post_translate_matrix((u8 *)self + 0x38);
         rotate_matrix_y(0, self->f60);
@@ -309,7 +309,7 @@ void render__15TODoorMachine01Fv(Door_80162D7C *self) {
             push_matrix();
             translate_matrix(0, n->x, n->y, n->z);
             draw_ginja_model(n->f4);
-            TODoorMachine01__sub_80162CC0((s32)(self), (u8 *)(n->child), (s32)(fl));
+            draw_part_models__15TODoorMachine01FiPvi((s32)(self), (u8 *)(n->child), (s32)(fl));
             pop_matrix();
             n = self->model->root->next;
             fl = (self->fD0 >> 17) & 1;
@@ -318,11 +318,11 @@ void render__15TODoorMachine01Fv(Door_80162D7C *self) {
             translate_matrix(0, n->x, n->y, n->z);
             draw_ginja_model(n->f4);
             n = n->child;
-            TODoorMachine01__sub_80162CC0((s32)(self), (u8 *)(n), (s32)(fl));
+            draw_part_models__15TODoorMachine01FiPvi((s32)(self), (u8 *)(n), (s32)(fl));
             n = n->next;
             fl = (self->fD0 >> 18) & 1;
             set_global_param__8TObjFishFi(lbl_805D5974[fl]);
-            TODoorMachine01__sub_80162CC0((s32)(self), (u8 *)(n), (s32)(fl));
+            draw_part_models__15TODoorMachine01FiPvi((s32)(self), (u8 *)(n), (s32)(fl));
             pop_matrix();
             n = self->model->root->next->next;
             fl = (self->fD0 >> 19) & 1;
@@ -330,7 +330,7 @@ void render__15TODoorMachine01Fv(Door_80162D7C *self) {
             push_matrix();
             translate_matrix(0, n->x, n->y, n->z);
             draw_ginja_model(n->f4);
-            TODoorMachine01__sub_80162CC0((s32)(self), (u8 *)(n->child), (s32)(fl));
+            draw_part_models__15TODoorMachine01FiPvi((s32)(self), (u8 *)(n->child), (s32)(fl));
             pop_matrix();
         } else {
             set_global_param__8TObjFishFi(lbl_805D5974[1]);
@@ -367,7 +367,7 @@ void free_resources__15TODoorMachine01Fv(void) {
 
 extern M2C_UNK __vt__15TODoorMachine01[];
 
-void TODoorMachine01__sub_80163008(void) {
+void load_resources__15TODoorMachine01Fv(void) {
     void *p;
     lbl_805D5974 = (s32 *)alloc_buffer__11TOBoss4RockFPv(8);
     if (enable_v2_features == 1 && is_online_ready__6TLobbyFv() != 0) {

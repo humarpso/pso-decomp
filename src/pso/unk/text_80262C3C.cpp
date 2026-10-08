@@ -148,14 +148,14 @@ f32 get_target_distance__13TWindowLockOnFv(s32);
 s32 setup_window_draw_context(void *, void *);
 M2C_UNK draw_window_frame(void *, int);
 M2C_UNK draw_visible_window_entries(void *, void *, int);
-M2C_UNK TWindowSubStatusDisp__sub_80257CB8(s32);
+M2C_UNK destroy_all_items__20TWindowSubStatusDispFPv(s32);
 void __dl__7TObjectFPv(void *);
 void destroy_window_base__9TWindowDDFPvs(void *, int);
 void queue_destruction__7TObjectFv(void *);
 void *__nw__7TObjectFUl(u32);
 u8 *TWindowLockOn__ct(u8 *, s16, s32);
 s32 get_camera_id__11TCameraCtrlFv(void);
-M2C_UNK TWindowDD__sub_802466E0(void *, void *, void *, int);
+M2C_UNK construct_base__9TWindowDDFPvPvsPv(void *, void *, void *, int);
 s32 get_window_layout_position(int);
 extern u8 lbl_804D0268[];
 extern s32 lbl_805D3948;
@@ -426,7 +426,7 @@ M2C_UNK TWindowLockOn__update_for_item(s32 a0, s32 a1) {
 #pragma pop
 
 void update_for_target__13TWindowLockOnFii(s32 arg0, s32 arg1) {
-    TWindowSubStatusDisp__sub_80257CB8(arg0 + 0x24);
+    destroy_all_items__20TWindowSubStatusDispFPv(arg0 + 0x24);
     if (obj_testFlags30(arg1, 0x10000000) != 0) {
         TWindowLockOn__update_for_other_player(arg0, arg1);
         return;
@@ -520,7 +520,7 @@ void *__dt__13TWindowLockOnFv(void *arg0, s16 arg1) {
 }
 
 u8 *TWindowLockOn__ct(u8 *arg0, s16 arg1, s32 arg2) {
-    TWindowDD__sub_802466E0((void *) (arg0), (void *) (lbl_804D0268), (void *) (arg1), (int) (get_window_layout_position((int) (0x1E))));
+    construct_base__9TWindowDDFPvPvsPv((void *) (arg0), (void *) (lbl_804D0268), (void *) (arg1), (int) (get_window_layout_position((int) (0x1E))));
     M2C_FIELD(arg0, M2C_UNK **, 0x18) = __vt__13TWindowLockOn;
     M2C_FIELD(arg0, s32 *, 0) = (s32) lbl_805D3948;
     if (get_camera_id__11TCameraCtrlFv() > 2) {

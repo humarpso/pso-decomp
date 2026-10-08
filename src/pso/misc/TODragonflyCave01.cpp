@@ -193,7 +193,7 @@ extern const f32 lbl_805DB570;
 extern const f32 lbl_805DB574;
 extern const f32 lbl_805DB57C;
 extern const f32 lbl_805DB580;
-s32 TODragonfly__sub_80164764(u8 *arg0, f32 farg0);
+s32 pick_random_destination__11TODragonflyFPvf(u8 *arg0, f32 farg0);
 s32 VecCopy__FP3VecPC3Vec(void *, void *);
 s32 init_map_object_base(void *, int);
 s32 rand(void);
@@ -216,7 +216,7 @@ extern const f32 lbl_805DB584;
 void TODragonfly__sub_8016492C(Self_8016492C *self);
 f32 horizontal_distance_squared(void *, void *);
 s32 is_any_player_within_radius_xz(s32, f32);
-s32 TODragonfly__sub_80164764(u8 *arg0, f32 farg0);
+s32 pick_random_destination__11TODragonflyFPvf(u8 *arg0, f32 farg0);
 f32 vec3_add_to(void *, void *);
 extern const f32 lbl_805DB578;
 extern const f32 lbl_805DB584;
@@ -287,7 +287,7 @@ extern const f32 lbl_805DB580;
 typedef char RecoveredGlobal_80164764_lbl_8050BEE0_size[sizeof(RecoveredGlobal_80164764_lbl_8050BEE0) == 0x20 ? 1 : -1];
 typedef char RecoveredGlobal_80164764_lbl_8050BFA0_size[sizeof(RecoveredGlobal_80164764_lbl_8050BFA0) == 0x40 ? 1 : -1];
 typedef char RecoveredGlobal_80164764_lbl_8058D490_size[sizeof(RecoveredGlobal_80164764_lbl_8058D490) == 0x30 ? 1 : -1];
-s32 TODragonfly__sub_80164764(u8 *arg0, f32 farg0) {
+s32 pick_random_destination__11TODragonflyFPvf(u8 *arg0, f32 farg0) {
     M2C_FIELD(&lbl_8050BEE0.value, f32 *, 0) = (f32) lbl_805DB580;
     M2C_FIELD(&lbl_8050BEE0.value, f32 *, 4) = farg0;
     M2C_FIELD(&lbl_8050BEE0.value, f32 *, 8) = (f32) (M2C_FIELD(arg0, f32 *, 0xD0) * (lbl_805DB57C * (f32) rand()));
@@ -328,11 +328,11 @@ void TODragonfly__sub_80164990(u8 *arg0) {
     M2C_FIELD(arg0, s32 *, 0xCC) = (s32) (temp_r5 + 1);
     if (lbl_805DB578 < (f32) temp_r5) {
         if (is_any_player_within_radius_xz((s32) arg0, lbl_805DB588) == 1) {
-            if (TODragonfly__sub_80164764((u8 *)(arg0), lbl_805DB578 + M2C_FIELD(arg0, f32 *, 0x6C)) == 1) {
+            if (pick_random_destination__11TODragonflyFPvf((u8 *)(arg0), lbl_805DB578 + M2C_FIELD(arg0, f32 *, 0x6C)) == 1) {
                 M2C_FIELD(arg0, s32 *, 0xAC) = 3;
                 M2C_FIELD(arg0, s32 *, 0xCC) = 0;
             }
-        } else if (TODragonfly__sub_80164764((u8 *)(arg0), M2C_FIELD(arg0, f32 *, 0x6C) * ((lbl_805DB58C * (lbl_805DB57C * (f32) rand())) - lbl_805DB560)) == 1) {
+        } else if (pick_random_destination__11TODragonflyFPvf((u8 *)(arg0), M2C_FIELD(arg0, f32 *, 0x6C) * ((lbl_805DB58C * (lbl_805DB57C * (f32) rand())) - lbl_805DB560)) == 1) {
             M2C_FIELD(arg0, s32 *, 0xAC) = 1;
             M2C_FIELD(arg0, s32 *, 0xCC) = 0;
         }
@@ -344,7 +344,7 @@ void TODragonfly__sub_80164A90(O_80164A90 *arg0) {
     f32 t;
     f32 d;
     if (is_any_player_within_radius_xz((s32)arg0, lbl_805DB590) == 1) {
-        if (TODragonfly__sub_80164764((u8 *)arg0, lbl_805DB578 + arg0->f6c) == 1) {
+        if (pick_random_destination__11TODragonflyFPvf((u8 *)arg0, lbl_805DB578 + arg0->f6c) == 1) {
             arg0->st = 3;
             arg0->cc = 0;
         }
@@ -364,14 +364,14 @@ void TODragonfly__sub_80164A90(O_80164A90 *arg0) {
 void TODragonfly__sub_80164B34(s32 arg0) {
     s32 temp_r4;
     if (is_any_player_within_radius_xz(arg0, lbl_805DB590) == 1) {
-        if (TODragonfly__sub_80164764((u8 *)((void *) arg0), lbl_805DB578 + M2C_FIELD(arg0, f32 *, 0x6C)) == 1) {
+        if (pick_random_destination__11TODragonflyFPvf((u8 *)((void *) arg0), lbl_805DB578 + M2C_FIELD(arg0, f32 *, 0x6C)) == 1) {
             M2C_FIELD(arg0, s32 *, 0xAC) = 3;
             M2C_FIELD(arg0, s32 *, 0xCC) = 0;
         }
     } else {
         temp_r4 = M2C_FIELD(arg0, s32 *, 0xCC);
         M2C_FIELD(arg0, s32 *, 0xCC) = (s32) (temp_r4 + 1);
-        if ((lbl_805DB578 < (f32) temp_r4) && (TODragonfly__sub_80164764((u8 *)((void *) arg0), M2C_FIELD(arg0, f32 *, 0x6C) * ((lbl_805DB58C * (lbl_805DB57C * (f32) rand())) - lbl_805DB560)) == 1)) {
+        if ((lbl_805DB578 < (f32) temp_r4) && (pick_random_destination__11TODragonflyFPvf((u8 *)((void *) arg0), M2C_FIELD(arg0, f32 *, 0x6C) * ((lbl_805DB58C * (lbl_805DB57C * (f32) rand())) - lbl_805DB560)) == 1)) {
             M2C_FIELD(arg0, s32 *, 0xAC) = 1;
             M2C_FIELD(arg0, s32 *, 0xCC) = 0;
         }

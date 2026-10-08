@@ -12,7 +12,7 @@ struct Stack_800F5D80 {
 };
 
 extern "C" {
-s32 TLobby__sub_8002AFD4(void *, void *, int);
+s32 exchange_object_state__6TLobbyFPvis(void *, void *, int);
 void fn_800F5D80(s32 arg0);
 }
 
@@ -51,10 +51,10 @@ void fn_800F5D80(s32 arg0) {
     typedef char sp8_offset[(offsetof(Stack_800F5D80, sp8) == 0x0) ? 1 : -1];
     typedef char spE_offset[(offsetof(Stack_800F5D80, spE) == 0x6) ? 1 : -1];
     Stack_800F5D80 stack;
-    if (TLobby__sub_8002AFD4((void *) (arg0), (void *) (&stack.sp8), (int) (1)) != 0) {
+    if (exchange_object_state__6TLobbyFPvis((void *) (arg0), (void *) (&stack.sp8), (int) (1)) != 0) {
         stack.sp8 = 0;
         stack.spE = 0;
-        TLobby__sub_8002AFD4((void *) (arg0), (void *) (&stack.sp8), (int) (0));
+        exchange_object_state__6TLobbyFPvis((void *) (arg0), (void *) (&stack.sp8), (int) (0));
     }
 }
 

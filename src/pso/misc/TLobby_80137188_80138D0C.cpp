@@ -12,7 +12,7 @@ int get_status_flag__17TWindowSubComCardFPv(void *);
 void open_make_team_window__6TLobbyFi(s32);
 M2C_UNK close_all_windows__6TLobbyFv();
 void close_com_card_window__6TLobbyFv(void);
-void TLobby__sub_8013990C(s32);
+void show_seq_phase_message__6TLobbyFi(s32);
 M2C_UNK TWindow__close(s32);
 s32 get_selected_menu_value(void *);
 extern u8 *lbl_805D55E0;
@@ -20,7 +20,7 @@ extern u8 *lbl_805D55E4;
 extern u8 *lbl_805D55E8;
 extern s32 lbl_805D560C;
 extern u8 lbl_805D5610;
-void TLobby__sub_80138DFC(void);
+void update_make_team_menu__6TLobbyFv(void);
 }
 
 extern "C" {
@@ -71,7 +71,7 @@ void handle_comcard_window__6TLobbyFv(void) {
         }
     }
 }
-void TLobby__sub_80138DFC(void) {
+void update_make_team_menu__6TLobbyFv(void) {
     s32 temp_r3;
     if ((s8) lbl_805D5610 == 0) {
         lbl_805D560C = 0;
@@ -83,10 +83,10 @@ void TLobby__sub_80138DFC(void) {
             lbl_805D560C = temp_r3;
             switch (temp_r3) {
             case 0:
-                TLobby__sub_8013990C(0x11);
+                show_seq_phase_message__6TLobbyFi(0x11);
                 break;
             case 1:
-                TLobby__sub_8013990C(0x12);
+                show_seq_phase_message__6TLobbyFi(0x12);
                 break;
             }
         }

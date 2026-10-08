@@ -55,10 +55,10 @@ extern RecoveredGlobal_80349DC8_lbl_804788B8 lbl_804788B8;
 extern RecoveredGlobal_80349DC8_lbl_804788D8 lbl_804788D8;
 extern RecoveredGlobal_80349DC8_lbl_8047896C lbl_8047896C;
 void fn_80349DC8(s32 arg0);
-void TObjCMHairMenu__sub_801E35C4(Desc_80349C54 *, s32, s32, f32);
+void draw_tri_fan_2d__14TObjCMHairMenuFPviif(Desc_80349C54 *, s32, s32, f32);
 extern const f32 lbl_805DFD18;
 void fn_80349C54(void *arg0, void *arg1, int arg2);
-void TObjCMHairMenu__sub_801E35C4(Desc_80349C54 *, s32, s32, f32);
+void draw_tri_fan_2d__14TObjCMHairMenuFPviif(Desc_80349C54 *, s32, s32, f32);
 extern const f32 lbl_805DFD18;
 M2C_UNK fn_80349B8C(void *arg0, void *arg1p, int arg2);
 }
@@ -97,7 +97,7 @@ M2C_UNK fn_80349B8C(void *arg0, void *arg1p, int arg2) {
     d.pos[6] = arg1[6];
     d.pos[7] = arg1[7];
     d.col[3] = arg2;
-    TObjCMHairMenu__sub_801E35C4(pd, 4, 3, lbl_805DFD18);
+    draw_tri_fan_2d__14TObjCMHairMenuFPviif(pd, 4, 3, lbl_805DFD18);
 }
 
 void fn_80349C54(void *arg0, void *arg1, int arg2) {
@@ -128,7 +128,7 @@ void fn_80349C54(void *arg0, void *arg1, int arg2) {
             d.pos[6] = item->pos[j * 2] + item->size[j * 2];
             d.pos[7] = item->pos[j * 2 + 1];
             d.col[3] = c;
-            TObjCMHairMenu__sub_801E35C4(&d, 4, 3, lbl_805DFD18);
+            draw_tri_fan_2d__14TObjCMHairMenuFPviif(&d, 4, 3, lbl_805DFD18);
         }
     }
 }

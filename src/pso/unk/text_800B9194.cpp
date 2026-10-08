@@ -7,7 +7,7 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 extern "C" {
 M2C_UNK enemy_clear_target(void *);
 s32 is_valid_target__9TObjEneDDFPv(s32);
-s32 fn_800B91F4(void *arg0);
+s32 enemy_check_target_valid(void *arg0);
 M2C_UNK enemy_clear_target(void *);
 s32 is_alive__9TObjEneDDFPv(s32);
 u32 find_entity_by_id(u32);
@@ -31,7 +31,7 @@ s32 enemy_has_live_target(void *arg0) {
 }
 #pragma pop
 
-s32 fn_800B91F4(void *arg0) {
+s32 enemy_check_target_valid(void *arg0) {
     u16 id = M2C_FIELD(arg0, u16 *, 0x38C);
     if (id == 0xFFFF) {
         return 0;

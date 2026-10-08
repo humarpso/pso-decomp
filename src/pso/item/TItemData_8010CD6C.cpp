@@ -72,7 +72,7 @@ void *get_pmt_record_by_type_id__10TObjPlayerFii(int type, int id);
 void *lookup_item_pmt_record(u8 *item);
 void copy_item_data__6TLobbyFPvPv(void *, void *);
 void bswap_fields__9TItemDataFPv(void* p);
-u8 TItemMagSub__sub_8011455C(const void *);
+u8 get_total_level__11TItemMagSubFPv(const void *);
 void serialize_mag__9TItemDataFPvPv(Item_8010D510 *item, const Mag_8010D510 *mag);
 void *lookup_item_pmt_record(u8 *item);
 s32 get_item_star_count(s32);
@@ -263,7 +263,7 @@ void serialize_mag__9TItemDataFPvPv(Item_8010D510 *item, const Mag_8010D510 *mag
     Item_8010D510 copy;
     copy.b0 = item->b0;
     copy.b1 = item->b1;
-    copy.level = TItemMagSub__sub_8011455C(mag);
+    copy.level = get_total_level__11TItemMagSubFPv(mag);
     copy.b3 = mag->b0d;
     copy.stat[0] = mag->stat[0] & 0x7FFE;
     copy.stat[1] = mag->stat[1] & 0x7FFE;

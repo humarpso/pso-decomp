@@ -34,7 +34,7 @@ int get_flag_bit2__6TLobbyFPv(void* p);
 u8 get_mode__6TLobbyFPv(void* p);
 int get_status_flag__6TLobbyFPv(void* p);
 void init_serial_access__6TLobbyFv(void);
-int TAdEnterSerialAccessGC__sub_80321A24(void);
+int hex_to_decimal_string__22TAdEnterSerialAccessGCFi(void);
 void set_ready_flag__18TCheckRoomSequenceFPv(void* p);
 
 int get_status_flag__6TLobbyFPv(void* p) { return (*(u16*)((char*)p + 0x70) >> 1) & 0x1; }
@@ -50,7 +50,7 @@ M2C_UNK *TAdEnterSerialAccessGC__sub_8013AD80(void) {
     return &TAdEnterSerialAccessGC__data_804EC9C4.value;
 }
 
-void init_serial_access__6TLobbyFv(void) { TAdEnterSerialAccessGC__sub_8013ADB0(); TAdEnterSerialAccessGC__sub_80321A24(); }
+void init_serial_access__6TLobbyFv(void) { TAdEnterSerialAccessGC__sub_8013ADB0(); hex_to_decimal_string__22TAdEnterSerialAccessGCFi(); }
 
 typedef char RecoveredGlobal_8013ADB0_TAdEnterSerialAccessGC__data_804EC9B8_size[sizeof(RecoveredGlobal_8013ADB0_TAdEnterSerialAccessGC__data_804EC9B8) == 0xC ? 1 : -1];
 M2C_UNK *TAdEnterSerialAccessGC__sub_8013ADB0(void) {

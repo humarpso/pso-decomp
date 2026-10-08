@@ -23,7 +23,7 @@ extern s32 TLobby__data_805D5DC0;
 s32 TLobby__sub_801C2678(void);
 void send_battle_mode_data__6TLobbyFv(void *);
 u8 check_timeout__6TLobbyFPv(void *arg0);
-void TLobby__sub_801C2B04(void *);
+void show_score_results__6TLobbyFPv(void *);
 extern s16 lbl_80511CB0[];
 extern s32 lbl_805D53A0;
 extern s32 TLobby__data_805D53AC;
@@ -170,7 +170,7 @@ void TLobby__sub_801C2898(Lobby_801C2898 *self, s32 t) {
         check_timeout__6TLobbyFPv(self);
         break;
     case 2:
-        TLobby__sub_801C2B04(self);
+        show_score_results__6TLobbyFPv(self);
         break;
     }
 }

@@ -34,7 +34,7 @@ void queue_destruction__7TObjectFv(s32);
 void fn_8007ECF0(s32, s32, s32);
 void create__8TDLGraphFv(void);
 extern s32 TDLGraph__data_805D4EB0;
-void TDLGraph__sub_8007F6F8(s32 arg0, s32 arg1);
+void update_graph__8TDLGraphFii(s32 arg0, s32 arg1);
 }
 
 extern "C" {
@@ -64,7 +64,7 @@ void set_graph_param__8TDLGraphFPvi(void* p, s32 v) { *(s32*)((char*)p + 0x20) =
 typedef char RecoveredGlobal_8007F77C___vt__8TDLGraph_size[sizeof(RecoveredGlobal_8007F77C___vt__8TDLGraph) == 0x18 ? 1 : -1];
 
 #define G ((u32) TDLGraph__data_805D4EB0)
-void TDLGraph__sub_8007F6F8(s32 arg0, s32 arg1) {
+void update_graph__8TDLGraphFii(s32 arg0, s32 arg1) {
     if (arg0 < 0 || arg1 <= 0) {
         return;
     }

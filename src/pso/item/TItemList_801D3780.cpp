@@ -90,7 +90,7 @@ u8 *TItemList__sub_801D401C(u8 *arg0, u8 *arg1, u8 *arg2, u8 *arg3, s8 arg4);
 u8 *TItemList__sub_801D401C(u8 *arg0, u8 *arg1, u8 *arg2, u8 *arg3, s8 arg4);
 s32 check_player_action_allowed(void);
 s32 fn_801D4270(s32);
-s32 TAdSinglePlyChrSelectGC__sub_801FD21C(void);
+s32 load_character_from_card__23TAdSinglePlyChrSelectGCFv(void);
 M2C_UNK queue_destruction__7TObjectFv(void *);
 M2C_UNK fn_801D41B4(int);
 M2C_UNK TItemList__sub_801D5884(void *, int);
@@ -140,7 +140,7 @@ void *find_placement_obstruction(void *self, Body_801D3E20 *s);
 s32 reset_placement_search_ring(void *arg0);
 s32 check_player_action_allowed(void);
 s32 TAdPlayerLoadGC__sub_801E1B50(s32);
-s32 TAdPlayerLoadGC__sub_801E1E38(s32);
+s32 probe_card_slot__15TAdPlayerLoadGCFi(s32);
 f32 sin_table_lookup(s32);
 f32 cos_table_lookup(s32);
 extern Shape_801D3C38 lbl_804C43E8;
@@ -238,7 +238,7 @@ u8 *TItemList__sub_801D39C8(u8 *arg0, s32 arg1, s32 arg2, u8 *arg3, s32 arg4, s8
         temp_r3 = (u8 *)(TItemList__sub_801D58E4(arg0));
         if (fn_801D4270(M2C_FIELD(temp_r3, s32 *, 4)) != 0) {
             fn_801D41B4((int) (M2C_FIELD(temp_r3, s32 *, 4)));
-            if (TAdSinglePlyChrSelectGC__sub_801FD21C() != 0) {
+            if (load_character_from_card__23TAdSinglePlyChrSelectGCFv() != 0) {
                 queue_destruction__7TObjectFv((void *) (arg0));
                 return arg0;
             }
@@ -306,7 +306,7 @@ u8 *TItemList__sub_801D3BD4(u8 *arg0, u8 *arg1, s32 arg2, u8 *arg3, u8 *arg4, s8
 s32 step_placement_search(Search_801D3C38 *s) {
     Ground_801D3C38 *g;
     if (check_player_action_allowed() != 0 && s->online != 0 &&
-        TAdPlayerLoadGC__sub_801E1E38(get_chr_select_state__23TAdSinglePlyChrSelectGCFv()) != 1) {
+        probe_card_slot__15TAdPlayerLoadGCFi(get_chr_select_state__23TAdSinglePlyChrSelectGCFv()) != 1) {
         disconnect_protocol__6TLobbyFv();
         queue_destruction__7TObjectFv(s);
         return 2;

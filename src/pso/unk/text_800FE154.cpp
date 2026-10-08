@@ -8,7 +8,7 @@ extern "C" {
 
 void *TGStream__ct(void *arg0, s16 arg1);
 M2C_UNK __dl__FPv(void *);
-M2C_UNK TLobby__sub_8001EE48(M2C_UNK *);
+M2C_UNK tmp_buf_release__6TLobbyFi(M2C_UNK *);
 M2C_UNK TLobby__sub_803CCE9C(s32);
 
 extern M2C_UNK lbl_8043DAF8[];
@@ -19,7 +19,7 @@ void *TGStream__ct(void *arg0, s16 arg1) {
             TLobby__sub_803CCE9C(M2C_FIELD(arg0, s32 *, 0x20));
         }
         if ((s32) M2C_FIELD(arg0, s32 *, 0x24) == 0) {
-            TLobby__sub_8001EE48(lbl_8043DAF8);
+            tmp_buf_release__6TLobbyFi(lbl_8043DAF8);
         }
         if (arg1 > 0) {
             __dl__FPv(arg0);

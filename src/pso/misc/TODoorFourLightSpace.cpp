@@ -84,7 +84,7 @@ M2C_UNK begin_effect_render__13TParticleCtrlFv();
 M2C_UNK end_effect_render__13TParticleCtrlFv();
 u8 is_current_floor_switch_set(u16);
 void draw_ginja_model(s32);
-M2C_UNK TODoorFourLightSpace__sub_80289B4C(void *arg0);
+M2C_UNK draw_lights__20TODoorFourLightSpaceFPv(void *arg0);
 M2C_UNK begin_effect_render__13TParticleCtrlFv();
 M2C_UNK end_effect_render__13TParticleCtrlFv();
 u8 is_current_floor_switch_set(u16);
@@ -95,7 +95,7 @@ M2C_UNK pop_matrix();
 M2C_UNK post_translate_matrix(void *);
 M2C_UNK set_global_param__8TObjFishFi();
 void draw_ginja_model(s32);
-M2C_UNK TODoorFourLightRuins__sub_8028A28C(void *arg0);
+M2C_UNK draw_model_and_lights__20TODoorFourLightRuinsFPv(void *arg0);
 }
 
 extern "C" {
@@ -129,7 +129,7 @@ M2C_UNK push_matrix();
 M2C_UNK pop_matrix();
 void __dl__7TObjectFPv(void *);
 void destroy_ancient_door_base__15TODoorAncient01FPvs(void *, int);
-s32 fn_801582C4(void *, f32);
+s32 is_in_view_depth(void *, f32);
 M2C_UNK get_instance__12TBoss8DragonFv();
 s32 get_main_phase();
 s32 is_not_split_screen__13TRaderMapCoreFv();
@@ -218,7 +218,7 @@ void TODoorFourLightSpace__vt12(u8 *arg0) {
     }
 }
 
-M2C_UNK TODoorFourLightSpace__sub_80289B4C(void *arg0) {
+M2C_UNK draw_lights__20TODoorFourLightSpaceFPv(void *arg0) {
     u8 *self = (u8 *)arg0;
     s32 flags[4];
     s32 i;
@@ -287,7 +287,7 @@ void render__20TODoorFourLightSpaceFv(u8 *arg0) {
     s32 temp_r0;
     s32 temp_r0_2;
 
-    if ((((VObj_802898E8 *)arg0)->m8(M2C_FIELD(arg0, f32 *, 0xC0), M2C_FIELD(arg0, f32 *, 0xC4)) == 1) && (fn_801582C4(arg0, lbl_805DD8F0) == 1)) {
+    if ((((VObj_802898E8 *)arg0)->m8(M2C_FIELD(arg0, f32 *, 0xC0), M2C_FIELD(arg0, f32 *, 0xC4)) == 1) && (is_in_view_depth(arg0, lbl_805DD8F0) == 1)) {
         temp_r0 = M2C_FIELD(arg0, s32 *, 0xAC);
         switch (temp_r0) {
         case 1:
@@ -312,7 +312,7 @@ void render__20TODoorFourLightSpaceFv(u8 *arg0) {
         case 0:
             temp_r0_2 = M2C_FIELD(arg0, s32 *, 0xCC);
             if ((temp_r0_2 == 2) || (temp_r0_2 == 3)) {
-                TODoorFourLightSpace__sub_80289B4C((void *)(arg0));
+                draw_lights__20TODoorFourLightSpaceFPv((void *)(arg0));
                 return;
             }
             push_matrix();
@@ -401,7 +401,7 @@ M2C_UNK push_matrix();
 M2C_UNK pop_matrix();
 void __dl__7TObjectFPv(void *);
 void destroy_ancient_door_base__15TODoorAncient01FPvs(void *, int);
-s32 fn_801582C4(void *, f32);
+s32 is_in_view_depth(void *, f32);
 M2C_UNK get_instance__12TBoss8DragonFv();
 s32 get_main_phase();
 s32 is_not_split_screen__13TRaderMapCoreFv();
@@ -491,7 +491,7 @@ void TODoorFourLightRuins__vt12(u8 *arg0) {
 
 typedef M2C_UNK (*SetParam_8028A28C)(s32);
 #define self ((Door_8028A28C *)arg0)
-M2C_UNK TODoorFourLightRuins__sub_8028A28C(void *arg0) {
+M2C_UNK draw_model_and_lights__20TODoorFourLightRuinsFPv(void *arg0) {
     s32 lit[4];
     u8 **a;
     u8 **b;
@@ -550,7 +550,7 @@ void render__20TODoorFourLightRuinsFv(u8 *arg0) {
     s32 temp_r0;
     s32 temp_r0_2;
 
-    if ((((VObj_8028A030 *)arg0)->m8(M2C_FIELD(arg0, f32 *, 0xC0), M2C_FIELD(arg0, f32 *, 0xC4)) == 1) && (fn_801582C4(arg0, lbl_805DD8F0) == 1)) {
+    if ((((VObj_8028A030 *)arg0)->m8(M2C_FIELD(arg0, f32 *, 0xC0), M2C_FIELD(arg0, f32 *, 0xC4)) == 1) && (is_in_view_depth(arg0, lbl_805DD8F0) == 1)) {
         temp_r0 = M2C_FIELD(arg0, s32 *, 0xAC);
         switch (temp_r0) {
         case 1:
@@ -575,7 +575,7 @@ void render__20TODoorFourLightRuinsFv(u8 *arg0) {
         case 0:
             temp_r0_2 = M2C_FIELD(arg0, s32 *, 0xCC);
             if ((temp_r0_2 == 2) || (temp_r0_2 == 3)) {
-                TODoorFourLightRuins__sub_8028A28C((void *)(arg0));
+                draw_model_and_lights__20TODoorFourLightRuinsFPv((void *)(arg0));
                 return;
             }
             push_matrix();

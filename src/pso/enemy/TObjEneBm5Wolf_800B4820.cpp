@@ -1234,7 +1234,7 @@ extern const f32 TObjEneBm5Wolf__data_805D9D80;
 
 #pragma push
 #pragma opt_common_subs off
-void TObjEneBm5Wolf__sub_800B4824(u8 *arg0) {
+void render_debug__14TObjEneBm5WolfFPv(u8 *arg0) {
     f32 var_f31;
     s32 idx;
     u32 n;
@@ -2772,7 +2772,7 @@ void *lbl_804922F8[107] = {
     (void *)TObjEneDD__vt100,
     (void *)TObjEneEpsilon__vt101,
     (void *)update_state__14TObjEneBm5WolfFPv,
-    (void *)TObjEneBm5Wolf__sub_800B4824,
+    (void *)render_debug__14TObjEneBm5WolfFPv,
 };
 }
 typedef void (*State_800B73A8)(u8 *, s32);

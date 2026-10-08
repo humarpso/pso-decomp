@@ -9,7 +9,7 @@ extern "C" {
 void advance_wrapped_cursor__23TAdSinglePlyChrSelectGCFPv(void *arg0);
 void *destroy_and_free__23TAdSinglePlyChrSelectGCFPvs(void *arg0, s16 arg1);
 void init_image_buffer__23TAdSinglePlyChrSelectGCFPvPvi(u8 *arg0, u8 *arg1, s32 arg2);
-M2C_UNK TLobby__sub_801E47C4(void *);
+M2C_UNK pso_load_texture__6TLobbyFPv(void *);
 M2C_UNK TLobby__sub_803DA16C(s32);
 M2C_UNK set_texture_name(void *, void *, int, int);
 M2C_UNK __dl__FPv(void *);
@@ -58,7 +58,7 @@ void init_image_buffer__23TAdSinglePlyChrSelectGCFPvPvi(u8 *arg0, u8 *arg1, s32 
     M2C_FIELD(M2C_FIELD(arg0, void **, 0x3C), s32 *, 4) = 1;
     set_render_rect__10TObjPlayerFPviiii((void *) (arg0 + 0x18), (int) (M2C_FIELD(arg0, s32 *, 0x44) + 0x20), (int) (5), (int) (M2C_FIELD(arg0, s32 *, 4)), (int) (M2C_FIELD(arg0, s32 *, 0)));
     set_texture_name((void *) (arg0 + 0xC), (void *) (arg0 + 0x18), (int) (M2C_FIELD(arg0, s32 *, 8)), (int) (0x40800000));
-    TLobby__sub_801E47C4((void *) (M2C_FIELD(arg0, void **, 0x3C)));
+    pso_load_texture__6TLobbyFPv((void *) (M2C_FIELD(arg0, void **, 0x3C)));
 }
 
 }

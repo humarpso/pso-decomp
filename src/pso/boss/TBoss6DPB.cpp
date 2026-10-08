@@ -96,7 +96,7 @@ s32 VecCopy__FP3VecPC3Vec(void *, void *);
 Pl_8035D924 *get_player_data__10TObjPlayerFi(s32);
 s32 get_game_mode__6TLobbyFv(void);
 s32 is_active__14TBoss6PlotFalzFPv(void *);
-s32 TBoss6PlotFalz__sub_802AB5B4(s32, f32);
+s32 rand_vary_count__14TBoss6PlotFalzFif(s32, f32);
 s32 get_rotation_timer__11TBoss6Type2FPv(s32);
 void create_TDPBShower(int, void *);
 f32 vector_length(void *);
@@ -104,7 +104,7 @@ void subtract_vector(void *, void *);
 extern s32 tl_02;
 extern const f32 lbl_805E01CC;
 extern const f32 lbl_805E01D0;
-void fn_8035D924(Shower_8035D924 *arg0);
+void apply_shower_damage_to_players(Shower_8035D924 *arg0);
 }
 
 extern "C" {
@@ -121,7 +121,7 @@ void fn_8035D8B0(W_8035D8B0 *arg0) {
 
 #pragma push
 #pragma opt_common_subs off
-void fn_8035D924(Shower_8035D924 *arg0) {
+void apply_shower_damage_to_players(Shower_8035D924 *arg0) {
     Vec_8035D924 v;
     Dmg_8035D924 dmg;
     s32 n;
@@ -140,7 +140,7 @@ void fn_8035D924(Shower_8035D924 *arg0) {
                 if (get_rotation_timer__11TBoss6Type2FPv(arg0->owner) != 0) {
                     power = (f32)power * arg0->scale;
                 }
-                s32 r = TBoss6PlotFalz__sub_802AB5B4(power, lbl_805E01D0);
+                s32 r = rand_vary_count__14TBoss6PlotFalzFif(power, lbl_805E01D0);
                 dmg.a = 0;
                 dmg.c = 0;
                 dmg.d = r;
@@ -158,7 +158,7 @@ void run_task__9TBoss6DPBFv(u8 *arg0) {
     if (query_teammate_state__9TObjEneDDFPv(arg0) == 0) {
         M2C_FIELD(arg0, s32 *, 0x30) = (s32) (M2C_FIELD(arg0, s32 *, 0x30) + 1);
         if ((f32) M2C_FIELD(arg0, s32 *, 0x30) > lbl_805E01C8) {
-            fn_8035D924((Shower_8035D924 *)(arg0));
+            apply_shower_damage_to_players((Shower_8035D924 *)(arg0));
             play_sound_effect(0x40069411, (u32) (arg0 + 0x20), 0, 0);
             fn_8035D8B0((W_8035D8B0 *)arg0);
             queue_destruction__7TObjectFv(arg0);

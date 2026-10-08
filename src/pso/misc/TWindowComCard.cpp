@@ -30,8 +30,8 @@ extern s32 lbl_805D53A0;
 s32 TWindowSubComCard__sub_80249A48(s32 arg0);
 void *__nw__7TObjectFUl(int);
 u8 *TWindowComCard__sub_80249980(s32 arg0, s32 arg1, s32 arg2);
-u8 * TWindowDD__sub_802466E0(void *, s32, s16, s32);
-M2C_UNK fn_802497A8(s32, s32);
+u8 * construct_base__9TWindowDDFPvPvsPv(void *, s32, s16, s32);
+M2C_UNK update_com_card_display(s32, s32);
 extern RecoveredGlobal_80249BA8_lbl_804CE8D0 lbl_804CE8D0;
 extern M2C_UNK __vt__14TWindowComCard[];
 extern s32 lbl_805D38C0;
@@ -48,26 +48,26 @@ void * create__14TWindowComCardFPvPv(void *arg0, void *arg1);
 void* get_kbd_ptr__14TWindowComCardFPv(void* p);
 void run_task__14TWindowComCardFv(void* p);
 void set_display_value__14TWindowComCardFiii(s32 arg0, s32 arg1, s32 arg2);
-void *TWindowSubComCard__sub_8007A8F8(void *);
+void *get_card_entry__17TWindowSubComCardFi(void *);
 int update_window_entry_list(void*, void*);
 void __dl__7TObjectFPv(void *);
 void *__nw__7TObjectFUl(int);
 void destroy_window_base__9TWindowDDFPvs(void *, int);
-M2C_UNK fn_802497A8(s32, s32);
+M2C_UNK update_com_card_display(s32, s32);
 int initialize_subwindow__9TWindowDDFPv(void*);
 int update_fade__17TWindowSubComCardFPv(void*);
 
 void TWindowComCard__sub_80249920(s32 arg0, s32 arg1, s32 arg2) {
     s32 temp = arg2 + (arg1 * 0x90);
     if (temp != 0) {
-        fn_802497A8(arg0 + 0x24, temp);
+        update_com_card_display(arg0 + 0x24, temp);
     }
 }
 
 void set_display_value__14TWindowComCardFiii(s32 arg0, s32 arg1, s32 arg2) {
     s32 temp = arg2 + (arg1 << 8);
     if (temp != 0) {
-        fn_802497A8(arg0 + 0x24, temp);
+        update_com_card_display(arg0 + 0x24, temp);
     }
 }
 
@@ -100,7 +100,7 @@ u8 *TWindowComCard__sub_80249980(s32 arg0, s32 arg1, s32 arg2) {
 void * create__14TWindowComCardFPvPv(void *arg0, void *arg1) {
     void *x0;
     void *o;
-    x0 = TWindowSubComCard__sub_8007A8F8(arg1);
+    x0 = get_card_entry__17TWindowSubComCardFi(arg1);
     if (x0 == NULL) {
         return NULL;
     }
@@ -158,10 +158,10 @@ void *__dt__14TWindowComCardFv(void *arg0, s16 arg1) {
 typedef char RecoveredGlobal_80249BA8_lbl_804CE8D0_size[sizeof(RecoveredGlobal_80249BA8_lbl_804CE8D0) == 0x14 ? 1 : -1];
 typedef char RecoveredGlobal_80249BA8___vt__14TWindowComCard_size[sizeof(RecoveredGlobal_80249BA8___vt__14TWindowComCard) == 0x1C ? 1 : -1];
 u8 *TWindowComCard__ct(u8 *arg0, s32 arg1, s32 arg2) {
-    TWindowDD__sub_802466E0(arg0, (s32) &lbl_804CE8D0.value, 4, arg1);
+    construct_base__9TWindowDDFPvPvsPv(arg0, (s32) &lbl_804CE8D0.value, 4, arg1);
     M2C_FIELD(arg0, M2C_UNK **, 0x18) = &(*(RecoveredGlobal_80249BA8___vt__14TWindowComCard *)&__vt__14TWindowComCard).value;
     M2C_FIELD(arg0, s32 *, 0) = (s32) lbl_805D38C0;
-    fn_802497A8((s32)(arg0 + 0x24), (s32)(arg2));
+    update_com_card_display((s32)(arg0 + 0x24), (s32)(arg2));
     return arg0;
 }
 

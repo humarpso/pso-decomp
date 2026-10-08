@@ -16,7 +16,7 @@ struct S_802CA550 {
 extern "C" {
 s32 disable_if_single_screen__13TParticleCtrlFv();
 s32 setup_particle_tev(int);
-s32 TOTrapAncient02__sub_800837D4(int);
+s32 load_projection_tex_matrix__15TOTrapAncient02Fi(int);
 f32 rotate_matrix_by_node_angles(void *, void *);
 M2C_UNK push_matrix();
 M2C_UNK pop_matrix();
@@ -25,7 +25,7 @@ M2C_UNK post_translate_matrix(void *);
 M2C_UNK set_global_param__8TObjFishFi(void *);
 s32 draw_ginja_model(int);
 extern s32 TOTrapSeabed01__data_805D6814;
-void TOTrapSeabed01__sub_802CA3EC(u8 *arg0, u8 *arg1);
+void draw_object_tree__14TOTrapSeabed01FPvPv(u8 *arg0, u8 *arg1);
 s32 is_split_screen();
 s32 get_state_flag__9TMainTaskFv();
 void render_effect_layers__14TOTrapSeabed01FPv(u8 *arg0);
@@ -95,7 +95,7 @@ void render_effect_layers__14TOTrapSeabed01FPv(u8 *arg0) {
 
 extern s32 TOTrapSeabed01__data_805D6814;
 
-void TOTrapSeabed01__sub_802CA3EC(u8 *arg0, u8 *arg1) {
+void draw_object_tree__14TOTrapSeabed01FPvPv(u8 *arg0, u8 *arg1) {
     s32 temp_r31;
     u8 *temp_r4;
     u8 *var_r30;
@@ -116,7 +116,7 @@ void TOTrapSeabed01__sub_802CA3EC(u8 *arg0, u8 *arg1) {
             if ((s32) M2C_FIELD(arg0, s32 *, 0x34C) != 0) {
                 setup_particle_tev((int) (0));
                 set_global_param__8TObjFishFi((void *)((int) (TOTrapSeabed01__data_805D6814)));
-                TOTrapAncient02__sub_800837D4((int) (0x38E));
+                load_projection_tex_matrix__15TOTrapAncient02Fi((int) (0x38E));
                 draw_ginja_model((int) (M2C_FIELD(var_r30, s32 *, 4)));
                 disable_if_single_screen__13TParticleCtrlFv();
             } else {
@@ -126,7 +126,7 @@ void TOTrapSeabed01__sub_802CA3EC(u8 *arg0, u8 *arg1) {
         if (!(temp_r31 & 0x10)) {
             temp_r4 = (u8 *)(M2C_FIELD(var_r30, u8 **, 0x2C));
             if (temp_r4 != NULL) {
-                TOTrapSeabed01__sub_802CA3EC(arg0, temp_r4);
+                draw_object_tree__14TOTrapSeabed01FPvPv(arg0, temp_r4);
             }
         }
         pop_matrix();
@@ -143,7 +143,7 @@ void draw__14TOTrapSeabed01FPv(u8 *arg0) {
         push_matrix();
         post_translate_matrix(arg0 + 0x38);
         rotate_matrix_y((int)(0), (int)(M2C_FIELD(arg0, s32 *, 0x60)));
-        TOTrapSeabed01__sub_802CA3EC((u8 *)(arg0), (u8 *)(M2C_FIELD(arg0, s32 *, 0x34)));
+        draw_object_tree__14TOTrapSeabed01FPvPv((u8 *)(arg0), (u8 *)(M2C_FIELD(arg0, s32 *, 0x34)));
         pop_matrix();
         end_effect_render__13TParticleCtrlFv();
         func_80141618__Fv();

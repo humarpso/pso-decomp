@@ -61,7 +61,7 @@ extern RecoveredGlobal_80051AD0_lbl_804858B4 lbl_804858B4;
 extern RecoveredGlobal_80051AD0_lbl_804FF228 lbl_804FF228;
 extern RecoveredGlobal_80051AD0_lbl_804FF234 lbl_804FF234;
 extern int lbl_805D4D78;
-void TObjDFTenchuFuru__sub_80051AD0(u8 *arg0);
+void transform_node_tree__16TObjDFTenchuFuruFPv(u8 *arg0);
 }
 
 extern "C" {
@@ -159,7 +159,7 @@ typedef char RecoveredGlobal_80051AD0_lbl_804FF234_size[sizeof(RecoveredGlobal_8
 typedef char RecoveredFields_80051AD0_var_r31_0_offset[offsetof(RecoveredFields_80051AD0_var_r31, field_0) == 0x0 ? 1 : -1];
 typedef char RecoveredFields_80051AD0_var_r31_2C_offset[offsetof(RecoveredFields_80051AD0_var_r31, field_2C) == 0x2C ? 1 : -1];
 typedef char RecoveredFields_80051AD0_var_r31_30_offset[offsetof(RecoveredFields_80051AD0_var_r31, field_30) == 0x30 ? 1 : -1];
-void TObjDFTenchuFuru__sub_80051AD0(u8 *arg0) {
+void transform_node_tree__16TObjDFTenchuFuruFPv(u8 *arg0) {
     u8 *temp_r3;
     u8 *var_r31;
     var_r31 = (u8 *)(arg0);
@@ -179,7 +179,7 @@ void TObjDFTenchuFuru__sub_80051AD0(u8 *arg0) {
         (*(s32 *)&lbl_805D4D78) += 1;
         temp_r3 = (u8 *)(((RecoveredFields_80051AD0_var_r31 *)var_r31)->field_2C);
         if (temp_r3 != NULL) {
-            TObjDFTenchuFuru__sub_80051AD0(temp_r3);
+            transform_node_tree__16TObjDFTenchuFuruFPv(temp_r3);
         }
         pop_matrix();
         var_r31 = (u8 *)(((RecoveredFields_80051AD0_var_r31 *)var_r31)->field_30);

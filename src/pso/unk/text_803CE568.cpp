@@ -35,7 +35,7 @@ extern M2C_UNK lbl_8047D8B8[];
 extern M2C_UNK lbl_8047D8D4[];
 extern RecoveredCallback_4873a87e26d6 lbl_805D75F8;
 extern s32 lbl_805D75FC;
-s32 TLobby__sub_803CF1A8(u8 *arg0);
+s32 cv_fs_tell__6TLobbyFPv(u8 *arg0);
 extern M2C_UNK lbl_8047D8EC[];
 extern M2C_UNK lbl_8047D908[];
 extern RecoveredCallback_4873a87e26d6 lbl_805D75F8;
@@ -50,7 +50,7 @@ extern M2C_UNK lbl_8047D884[];
 extern M2C_UNK lbl_8047D8A0[];
 extern RecoveredCallback_4873a87e26d6 lbl_805D75F8;
 extern s32 lbl_805D75FC;
-s32 TLobby__sub_803CF100(u8 *arg0, s32 arg1, s32 arg2);
+s32 cv_fs_seek__6TLobbyFPvii(u8 *arg0, s32 arg1, s32 arg2);
 s32 strncmp(void *, void *, int);
 void *memcpy(void *, void *, u32);
 u32 strlen(void *);
@@ -125,7 +125,7 @@ s32 TLobby__sub_803CF058(u8 *arg0, s32 arg1, s32 arg2) {
     return var_r31;
 }
 
-s32 TLobby__sub_803CF100(u8 *arg0, s32 arg1, s32 arg2) {
+s32 cv_fs_seek__6TLobbyFPvii(u8 *arg0, s32 arg1, s32 arg2) {
     s32 (*temp_r12)(s32, s32, s32);
     s32 var_r31;
     if (arg0 == NULL) {
@@ -146,7 +146,7 @@ s32 TLobby__sub_803CF100(u8 *arg0, s32 arg1, s32 arg2) {
     return var_r31;
 }
 
-s32 TLobby__sub_803CF1A8(u8 *arg0) {
+s32 cv_fs_tell__6TLobbyFPv(u8 *arg0) {
     s32 (*temp_r12)(s32);
     s32 var_r31;
     if (arg0 == NULL) {

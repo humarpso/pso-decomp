@@ -111,7 +111,7 @@ struct Obj_80213980 : V_80213980 { char pad1c[0x14]; s32 state; s32 f34; s32 thr
 
 extern "C" {
 M2C_UNK set_field_20__12TQuestListVMFPvi(void *, M2C_UNK);
-u32 TShopSequence__sub_80223600(void *, s32, s32);
+u32 create_message_window__13TShopSequenceFPvii(void *, s32, s32);
 s32 get_window_layout_position(int, f32);
 extern const f32 lbl_805DC658;
 extern const f32 lbl_805DC65C;
@@ -142,7 +142,7 @@ void handle_close__22THunterGuildSeqOfflineFPv(void *arg0);
 void update_close_shop__22THunterGuildSeqOfflineFPv(void *arg0);
 void update_shop_close__22THunterGuildSeqOfflineFPv(void *arg0);
 void open_judgment_item_window__22THunterGuildSeqOfflineFPv(void *);
-void THunterGuildSeqOffline__sub_8021354C(void *);
+void handle_confirm_window__22THunterGuildSeqOfflineFPv(void *);
 void THunterGuildSeqOffline__sub_80213BE0(Seq_80213BE0 *arg0);
 s32 is_quest_active();
 M2C_UNK set_field_20__12TQuestListVMFPvi(void *, M2C_UNK);
@@ -252,7 +252,7 @@ void THunterGuildSeqOffline__sub_80213B18(u8 *arg0) {
     Stack_80213B18 stack;
     stack.sp8 = lbl_805DC658;
     stack.spC = lbl_805DC65C;
-    TShopSequence__sub_80223600(arg0, get_window_layout_position((int) (0x2C), (f32) (lbl_805DC658)), (s32) &stack.sp8);
+    create_message_window__13TShopSequenceFPvii(arg0, get_window_layout_position((int) (0x2C), (f32) (lbl_805DC658)), (s32) &stack.sp8);
     ((VObj_18_97738d *)(arg0))->m7(1, 1);
     M2C_FIELD(arg0, s32 *, 0x30) = 0;
     set_field_20__12TQuestListVMFPvi((void *)(arg0), (M2C_UNK)(2));
@@ -275,7 +275,7 @@ void THunterGuildSeqOffline__sub_80213BE0(Seq_80213BE0 *arg0) {
     case 4: update_close_shop__22THunterGuildSeqOfflineFPv(arg0); break;
     case 5: update_shop_close__22THunterGuildSeqOfflineFPv(arg0); break;
     case 6: open_judgment_item_window__22THunterGuildSeqOfflineFPv(arg0); break;
-    case 7: THunterGuildSeqOffline__sub_8021354C(arg0); break;
+    case 7: handle_confirm_window__22THunterGuildSeqOfflineFPv(arg0); break;
     case 12: arg0->m11(); break;
     case 14: return;
     }

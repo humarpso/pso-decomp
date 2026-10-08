@@ -13,11 +13,11 @@ int TGStream__sub_800FDADC(void);
 u32 TLoadCtrl__sub_800F9F00();
 M2C_UNK TLobby__sub_800F8AD0();
 M2C_UNK TLobby__sub_800F8F34();
-int TLobby__sub_800FD944(void*);
+int get_resource_file_size__6TLobbyFPv(void*);
 M2C_UNK TLobby__sub_803382E4();
 s32 TLobby__sub_803CC500();
 s32 TLobby__sub_803CCE9C(s32);
-s32 TLobby__sub_803CD3A8(s32, s32);
+s32 adxf_open__6TLobbyFUii(s32, s32);
 s32 all_parents_unqueued_for_destruction__7TObjectFv();
 M2C_UNK empty_func2__7TObjectFv(s32);
 M2C_UNK empty_func__7TObjectFv(s32);
@@ -38,7 +38,7 @@ s32 get_file_size__6TLobbyFv(void) {
     s32 temp_r3;
     s32 uninit;
 
-    temp_r3 = TLobby__sub_803CD3A8(uninit, 0);
+    temp_r3 = adxf_open__6TLobbyFUii(uninit, 0);
     if (temp_r3 == 0) {
         return -1;
     }

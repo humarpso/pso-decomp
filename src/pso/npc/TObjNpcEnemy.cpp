@@ -142,7 +142,7 @@ extern M2C_UNK __vt__12TObjNpcEnemy[];
 extern s32 lbl_805D3F58;
 u8 *TObjNpcEnemy__ct(u8 *arg0, M2C_UNK arg1, s32 arg2);
 M2C_UNK advance_animation_playback(void *);
-M2C_UNK TObjNpcEnemy__sub_801480FC();
+M2C_UNK draw_debug_info__12TObjNpcEnemyFPv();
 s16 *TObjNpcEnemy__sub_802D72E4(s16 arg0);
 void set_npc_data__12TObjNpcEnemyFPvPv(void *arg0, void *arg1);
 M2C_UNK set_global_count__12TObjNpcEnemyFi(u32);
@@ -301,7 +301,7 @@ void set_npc_data__12TObjNpcEnemyFPvPv(void *arg0, void *arg1) {
 
 void TObjNpcEnemy__vt91(u8 *arg0) {
     s16 *p;
-    TObjNpcEnemy__sub_801480FC();
+    draw_debug_info__12TObjNpcEnemyFPv();
     set_global_count__12TObjNpcEnemyFi(0xFF00FF);
     debug_printf_at(0x130018, lbl_80472600);
     debug_printf_at(0x13001A, lbl_80472610);

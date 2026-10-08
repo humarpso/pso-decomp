@@ -323,7 +323,7 @@ extern const f32 lbl_805D848C;
 void run_task__11TBoss2JointFv(u8 *arg0);
 M2C_UNK TObjEneDD__vt91(void *);
 M2C_UNK TObjEneDD__vt90(void *);
-M2C_UNK TObjEneDD__sub_800BA934(void *);
+M2C_UNK transform_part_positions__9TObjEneDDFPv(void *);
 extern const f32 lbl_805D8258;
 extern const f32 lbl_805D847C;
 extern const f32 lbl_805D8480;
@@ -359,7 +359,7 @@ extern RecoveredGlobal_80036A90_lbl_80435A68 lbl_80435A68;
 extern const f32 lbl_805D846C;
 extern const f32 TBoss2Joint__data_805D8474;
 extern const f32 lbl_805D8490;
-M2C_UNK TBoss2Joint__sub_80036EA8(void *arg0);
+M2C_UNK init_params__11TBoss2JointFPv(void *arg0);
 }
 
 extern "C" {
@@ -489,7 +489,7 @@ void TBoss2Joint__vt86(u8 *arg0) {
             ((VObj_18_67c185 *)(arg0))->m96();
         }
     }
-    TObjEneDD__sub_800BA934((void *) (arg0));
+    transform_part_positions__9TObjEneDDFPv((void *) (arg0));
 }
 
 void update_position_history__11TBoss2JointFi(s32 arg0) {
@@ -561,7 +561,7 @@ typedef char RecoveredGlobal_80036FC8___vt__11TBoss2Joint_size[sizeof(RecoveredG
 #pragma opt_propagation off
 struct RecoveredGlobal_80036A90_lbl_80435A68;
 typedef s32 M2C_UNK;
-M2C_UNK TBoss2Joint__sub_80036EA8(void *arg0) {
+M2C_UNK init_params__11TBoss2JointFPv(void *arg0) {
     Param_80036EA8 *prm;
     Joint_80036EA8 *self = (Joint_80036EA8 *)arg0;
     prm = &lbl_80482A50;
@@ -599,7 +599,7 @@ u8 *TBoss2Joint__ct(u8 *arg0, u8 *arg1, s16 arg2, s16 arg3, s32 arg4, s32 arg5, 
     M2C_FIELD(arg0, s32 *, 0x398) = arg5;
     M2C_FIELD(arg0, s32 *, 0x39C) = arg6;
     initialize_enemy_state__9TObjEneDDFPv(arg0, 0x2D);
-    TBoss2Joint__sub_80036EA8((void *)((void *) (arg0)));
+    init_params__11TBoss2JointFPv((void *)((void *) (arg0)));
     return arg0;
 }
 

@@ -5,7 +5,7 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 #define M2C_BITWISE(type, expr) ((type)(expr))
 extern "C" {
 M2C_UNK clear_render_callback__8TObjFishFv(int);
-M2C_UNK TObjFish__sub_800E3074(int);
+M2C_UNK set_draw_callback_list__8TObjFishFPv(int);
 M2C_UNK rotate_matrix_y(int, int);
 M2C_UNK push_matrix();
 M2C_UNK pop_matrix();
@@ -34,7 +34,7 @@ void fn_8004F1FC(u8 *arg0) {
             temp_r30 = arg0 + var_r31;
             set_global_param__8TObjFishFi((int) (M2C_FIELD(temp_r30, s32 *, 0xC8)));
             if (var_r29 == 0) {
-                TObjFish__sub_800E3074((int) (M2C_FIELD(arg0, s32 *, 0x100)));
+                set_draw_callback_list__8TObjFishFPv((int) (M2C_FIELD(arg0, s32 *, 0x100)));
             }
             draw_model_motion((int) (M2C_FIELD(temp_r30, s32 *, 0xC4)), (int) (M2C_FIELD(temp_r30, s32 *, 0xCC)), (f32) (M2C_FIELD(arg0, f32 *, 0xFC)));
             if (var_r29 == 0) {

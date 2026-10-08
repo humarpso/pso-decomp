@@ -78,7 +78,7 @@ extern "C" {
 struct Quad_800FCD40 { f32 x, y, right, bottom, u, v, u2, v2; };
 
 s32 get_camera_no__11TCameraCtrlFv(void);
-s32 TCameraCtrl__sub_80068958(s32);
+s32 get_nth_view_player_id__11TCameraCtrlFi(s32);
 void push_matrix_from(void *);
 void rotate_matrix_y(int, s32);
 void rotate_matrix_x(int, s32);
@@ -136,7 +136,7 @@ void TFontSmallTask::render() {
         return;
     }
     if (view != 0xFFFF) {
-        s32 cam = (u16)TCameraCtrl__sub_80068958(get_camera_no__11TCameraCtrlFv());
+        s32 cam = (u16)get_nth_view_player_id__11TCameraCtrlFi(get_camera_no__11TCameraCtrlFv());
         if (cam != view) {
             return;
         }
@@ -393,7 +393,7 @@ extern "C" {
 void reset_leader_selection(void* p);
 extern RecoveredGlobal_8000F7FC_lbl_80515F48 TLobby__data_805011D8;
 void TLobby__sub_800FD764(void);
-void TLobby__sub_800FD6A0(Ent_800FD6A0 *arr, u32 size);
+void call_funcs_reverse__6TLobbyFPvUi(Ent_800FD6A0 *arr, u32 size);
 s32 is_area_transfer_pending(void);
 s32 run_load_callback_table(Ent_800FD6F8 *p, u32 size);
 void *get_player_data__10TObjPlayerFi(s32);
@@ -465,7 +465,7 @@ void find_leader_section_id(struct Out_800FD614 *out, s32 arg1) {
     }
 }
 
-void TLobby__sub_800FD6A0(Ent_800FD6A0 *arr, u32 size) {
+void call_funcs_reverse__6TLobbyFPvUi(Ent_800FD6A0 *arr, u32 size) {
     s32 n = size / sizeof(Ent_800FD6A0);
     Ent_800FD6A0 *p = arr + n;
     while (n > 0) {

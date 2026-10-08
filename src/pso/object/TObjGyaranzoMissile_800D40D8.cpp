@@ -104,7 +104,7 @@ extern const f32 lbl_805DA2A4;
 extern const f32 lbl_805DA2A8;
 extern const f32 lbl_805DA2AC;
 extern const f32 lbl_805DA2B0;
-void TObjGyaranzoMissile__sub_800D43B4(Missile_800D43B4 *self);
+void update_flight__19TObjGyaranzoMissileFPv(Missile_800D43B4 *self);
 }
 
 extern "C" {
@@ -203,7 +203,7 @@ void draw__19TObjGyaranzoMissileFPv(u8 *arg0) {
     draw_chunk_object(M2C_FIELD(arg0, s32 *, 0xC4));
     pop_matrix();
 }
-void TObjGyaranzoMissile__sub_800D43B4(Missile_800D43B4 *self) {
+void update_flight__19TObjGyaranzoMissileFPv(Missile_800D43B4 *self) {
     self->timer++;
     switch (self->state) {
     case 0:

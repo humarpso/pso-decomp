@@ -25,7 +25,7 @@ M2C_UNK play_cue_stream_file(void *);
 extern u8 lbl_80438D40[];
 extern u8 lbl_80438D58[];
 f32 lbl_8048DFA0[3] = { 320.0f, 221.0f, 0.5f };
-void fn_8007FB14(Obj_8007FB14 *self);
+void update_duel_start_countdown(Obj_8007FB14 *self);
 }
 
 extern "C" {
@@ -45,7 +45,7 @@ void fn_8007FA94(Obj_8007FA94 *self) {
         break;
     }
 }
-void fn_8007FB14(Obj_8007FB14 *self) {
+void update_duel_start_countdown(Obj_8007FB14 *self) {
     void *p;
     switch (self->state) {
     case 0x0:
@@ -113,7 +113,7 @@ void TDuelEffectCtrl::render() {}
 void TDuelEffectCtrl::run_task() {
     switch (m_state) {
     case 0:
-        fn_8007FB14((Obj_8007FB14 *)this);
+        update_duel_start_countdown((Obj_8007FB14 *)this);
         break;
     case 1:
         fn_8007FA94((Obj_8007FA94 *)this);

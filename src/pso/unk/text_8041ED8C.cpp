@@ -118,12 +118,12 @@ s32 TLobby__sub_80420D38(u16 arg0, u8 arg1);
 void set_value_and_enable__6TLobbyFPvi(u8 *, s32);
 s16 TLobby__sub_8040D86C(void *, void *, void *, s32, s32, int);
 s16 TLobby__sub_8040D8F0(void *, void *, int, void *, int);
-s16 TLobby__sub_8040D95C(void *, void *);
+s16 select_source_address__6TLobbyFPvPv(void *, void *);
 s16 TLobby__sub_8040DA54(void *, void *);
-s16 TLobby__sub_8040DB94(void *);
+s16 is_addr_unspecified__6TLobbyFPv(void *);
 void TLobby__sub_80422E30(s16, s32, s32, s16);
 extern RecoveredGlobal_80420C5C_lbl_805C1DF0 lbl_805C1DF0;
-s16 TLobby__sub_80420FC8(s16 id, Pkt_80420FC8 *pkt, Addr_80420FC8 *src, Addr_80420FC8 *dst, u16 port, s32 arg5);
+s16 udp_sendto__6TLobbyFsPvPvPvUsi(s16 id, Pkt_80420FC8 *pkt, Addr_80420FC8 *src, Addr_80420FC8 *dst, u16 port, s32 arg5);
 void TLobby__sub_8041FE44(O_8041FE44 *o);
 void TLobby__sub_8041F66C(O_8041F66C *o);
 s32 TLobby__sub_803F9F04(void *, void *, int);
@@ -141,13 +141,13 @@ s32 TLobby__sub_8041F11C(Obj_8041F11C *self);
 extern RecoveredGlobal_80420C5C_lbl_805C1DF0 lbl_805C1DF0;
 void set_value_and_enable__6TLobbyFPvi(u8 *, s32);
 s16 TLobby__sub_8040D8F0(void *, void *, int, void *, int);
-s16 TLobby__sub_8040DB94(void *);
+s16 is_addr_unspecified__6TLobbyFPv(void *);
 s16 TLobby__sub_8040DBFC(void *, void *);
 s16 TLobby__sub_8040DB34(void *, s32);
 s16 TLobby__sub_80421F10(void *, void *, void *, u16, s32, s16);
 void TLobby__sub_80406EB8(void *, u32);
 void TLobby__sub_80406FD8(void *, void *, u32);
-s32 TLobby__sub_80420DE4(O_80420DE4 *arg0, Addr_80420DE4 *src, Addr_80420DE4 *dst, s32 arg3);
+s32 udp_input__6TLobbyFPvPvPvi(O_80420DE4 *arg0, Addr_80420DE4 *src, Addr_80420DE4 *dst, s32 arg3);
 }
 
 extern "C" {
@@ -407,7 +407,7 @@ inline void add_item_80420FC8(Pkt_80420FC8 *pkt, void *data, s32 len) {
     pkt->count++;
 }
 
-s32 TLobby__sub_80420DE4(O_80420DE4 *arg0, Addr_80420DE4 *src, Addr_80420DE4 *dst, s32 arg3) {
+s32 udp_input__6TLobbyFPvPvPvi(O_80420DE4 *arg0, Addr_80420DE4 *src, Addr_80420DE4 *dst, s32 arg3) {
     u8 sp20[8];
     Hdr_80420DE4 hdr;
     G_80420DE4 *g;
@@ -427,14 +427,14 @@ s32 TLobby__sub_80420DE4(O_80420DE4 *arg0, Addr_80420DE4 *src, Addr_80420DE4 *ds
         if (e->f4 == 0) {
             goto next;
         }
-        if (TLobby__sub_8040DB94(&e->f28) != 0) {
+        if (is_addr_unspecified__6TLobbyFPv(&e->f28) != 0) {
             if (e->f28.family != 0 && e->f28.family != src->family) {
                 goto next;
             }
         } else if (TLobby__sub_8040DBFC(&e->f28, src) != 0) {
             goto next;
         }
-        if (TLobby__sub_8040DB94(&e->f14) != 0) {
+        if (is_addr_unspecified__6TLobbyFPv(&e->f14) != 0) {
             if (e->f14.family != 0 && e->f14.family != dst->family) {
                 goto next;
             }
@@ -464,7 +464,7 @@ s32 TLobby__sub_80420DE4(O_80420DE4 *arg0, Addr_80420DE4 *src, Addr_80420DE4 *ds
     return -2;
 }
 
-s16 TLobby__sub_80420FC8(s16 id, Pkt_80420FC8 *pkt, Addr_80420FC8 *src, Addr_80420FC8 *dst, u16 port, s32 arg5) {
+s16 udp_sendto__6TLobbyFsPvPvPvUsi(s16 id, Pkt_80420FC8 *pkt, Addr_80420FC8 *src, Addr_80420FC8 *dst, u16 port, s32 arg5) {
     s16 r;
     E_80420FC8 *e;
     if (id < 0 || id >= ((G_80420FC8 *)&lbl_805C1DF0)->count) {
@@ -475,7 +475,7 @@ s16 TLobby__sub_80420FC8(s16 id, Pkt_80420FC8 *pkt, Addr_80420FC8 *src, Addr_804
     if (e->f4 == 0) {
         return -4;
     }
-    if (TLobby__sub_8040DB94(&e->f28) == 0) {
+    if (is_addr_unspecified__6TLobbyFPv(&e->f28) == 0) {
         dst = &e->f28;
     }
     if (e->f14.family != 0) {
@@ -493,7 +493,7 @@ s16 TLobby__sub_80420FC8(s16 id, Pkt_80420FC8 *pkt, Addr_80420FC8 *src, Addr_804
         TLobby__sub_80422E30(id, e->f40, 2, 0x80);
         return -6;
     }
-    r = TLobby__sub_8040D95C(src, dst);
+    r = select_source_address__6TLobbyFPvPv(src, dst);
     if (r < 0) {
         return r;
     }

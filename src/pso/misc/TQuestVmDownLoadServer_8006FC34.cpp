@@ -47,7 +47,7 @@ struct Card_8006FC7C {
 struct Unit_8006FC7C { u8 pad[0x370]; s32 f370; };
 
 extern "C" {
-s32 TWindowSubStatusDisp__sub_8006F190(int);
+s32 resolve_player_slot__20TWindowSubStatusDispFi(int);
 void TLobby__sub_80074E48(void);
 void create__13TObjTombstoneFPvPvPv(void *, void *, void *);
 void *get_player_by_client_id(s32);
@@ -57,7 +57,7 @@ void TLobby__sub_8006FE7C(void);
 s32 get_field_2d4__10TObjPlayerFPv(Ply_8006FC7C *);
 void VecCopy__FP3VecPC3Vec(void *, void *);
 s32 get_current_floor();
-s32 TWindowSubStatusDisp__sub_8006F190(int);
+s32 resolve_player_slot__20TWindowSubStatusDispFi(int);
 char *get_unit_list__6TLobbyFv(void);
 char *TLobby__sub_80070ACC(u8, u8, s32);
 Unit_8006FC7C *find_entity_by_id(void);
@@ -71,7 +71,7 @@ u32 strlen(const char *);
 extern char lbl_8043857C[];
 extern Table_8006FE7C lbl_8048C9D8;
 extern s32 lbl_805D53A0;
-void TLobby__sub_8006FC7C(void);
+void update_card_save_info__6TLobbyFv(void);
 }
 
 extern "C" {
@@ -87,7 +87,7 @@ void split_time_hms__22TQuestVmDownLoadServerFiPvPvPv(s32 arg0, s32 *arg1, s32 *
     *arg3 = arg0 % 60;
 }
 
-void TLobby__sub_8006FC7C(void) {
+void update_card_save_info__6TLobbyFv(void) {
     char buf[0x60];
     char name[0x20];
     Date_8006FC7C date;
@@ -109,7 +109,7 @@ void TLobby__sub_8006FC7C(void) {
     if (ply == NULL) {
         return;
     }
-    card->f2224 = TWindowSubStatusDisp__sub_8006F190(-1);
+    card->f2224 = resolve_player_slot__20TWindowSubStatusDispFi(-1);
     card->f2225 = lbl_8048C9D8.v0;
     card->f2226 = get_current_floor();
     if (card->f2228 < 0) {
@@ -177,7 +177,7 @@ void TLobby__sub_8006FE7C(void) {
         rec = &lbl_8048C9D8.recs[i];
         if (rec->active != 0 && get_player_by_client_id(i) != NULL) {
             info = &rec->info;
-            if (info->d > 0 && info->a == TWindowSubStatusDisp__sub_8006F190(-1)
+            if (info->d > 0 && info->a == resolve_player_slot__20TWindowSubStatusDispFi(-1)
                 && info->b == lbl_8048C9D8.v0 && info->c == lbl_8048C9D8.v8) {
                 create__13TObjTombstoneFPvPvPv(tl_07, (void *)i, info);
             }

@@ -10,12 +10,12 @@ s32 forward_trade_action_default__16TObjCityMainWarpFPviii(int, int, int, int);
 s32 draw_card_icon__17TWindowSubComCardFiii(int, int, int);
 s32 get_window_layout_position(int);
 extern const f32 lbl_805DFDE0;
-s32 fn_8034CEDC(void);
+s32 create_info_board_menu(void);
 }
 
 extern "C" {
 
-s32 fn_8034CEDC(void) {
+s32 create_info_board_menu(void) {
   s32 temp_r31;
   s32 temp_r31_2;
   temp_r31_2 = (0, get_message_10__20TWindowSubStatusDispFPv((int) 0x1D));

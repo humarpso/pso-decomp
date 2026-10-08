@@ -470,7 +470,7 @@ void fn_8002B630(void *, void *, s32);
 s32 check_demo_mode__10TObjPlayerFv();
 void spawn_particle_effect(void *, s32);
 s32 get_field_d8__10TObjPlayerFPv(void);
-s32 fn_800B91F4(void *);
+s32 enemy_check_target_valid(void *);
 M2C_UNK enemy_init_validate_period(void *, int);
 int select_and_apply_target__14TObjEneEpsilonFPvf(void*);
 M2C_UNK enemy_init_acquire_period(void *, int);
@@ -492,7 +492,7 @@ void TObjEneMe3Stelth__sub_800F1098(void *, s32);
 void TObjEneMe3Stelth__sub_800F1440(void *, s32);
 void exec__16TObjEneMe3StelthFPvi(void *, s32);
 void TObjEneMe3Stelth__sub_800F2270(void *, s32);
-void TObjEneMe3Stelth__sub_800F26A4(void *, s32);
+void handle_breakup_state__16TObjEneMe3StelthFPvi(void *, s32);
 void TObjEneMe3Stelth__sub_800F290C(void *, s32);
 void action__16TObjEneMe3StelthFPvi(void *, s32);
 void handle_message__16TObjEneMe3StelthFPvi(void *, s32);
@@ -500,13 +500,13 @@ void TObjEneMe3Stelth__sub_800F2C8C(void *, s32);
 void TObjEneMe3Stelth__sub_800F2E74(void *, s32);
 void TObjEneMe3Stelth__sub_800F3214(void *, s32);
 void TObjEneMe3Stelth__sub_800F348C(void *, s32);
-void TObjEneMe3Stelth__sub_800F39E4(void *, s32);
+void state_chase_target__16TObjEneMe3StelthFPvi(void *, s32);
 void TObjEneMe3Stelth__sub_800F3BC8(void *, s32);
 void TObjEneMe3Stelth__sub_800F3E40(void *, s32);
 void TObjEneMe3Stelth__sub_800F3FE4(void *, s32);
-void TObjEneMe3Stelth__sub_800F40C8(void *, s32);
+void state_chase__16TObjEneMe3StelthFPvi(void *, s32);
 void TObjEneMe3Stelth__sub_800F42B8(void *, s32);
-void TObjEneMe3Stelth__sub_800F4598(Obj_800F4598 *self, s32 arg1, s32 arg2);
+void dispatch_state__16TObjEneMe3StelthFPvii(Obj_800F4598 *self, s32 arg1, s32 arg2);
 void TObjEneMe3Stelth__sub_800F4700(Obj_800F4700 *self);
 void TObjEneMe3Stelth__sub_800F4758(u8 *arg0);
 u8 TObjEneMe3Stelth__sub_800F47D4(u8 *arg0);
@@ -524,7 +524,7 @@ s32 check_active_flag__16TObjEneMe3StelthFPv(u8 *arg0);
 void TObjEneMe3Stelth__vt105(void);
 u8 check_target_in_range__16TObjEneMe3StelthFPv(void *arg0);
 void TObjEneMe3Stelth__sub_800F4A8C(void);
-void TObjEneMe3Stelth__sub_800F4A90(Stelth_800F4A90 *self);
+void attack_and_unequip__16TObjEneMe3StelthFPv(Stelth_800F4A90 *self);
 bool TObjEneMe3Stelth__sub_800F4C10(u8 *arg0);
 u8 TObjEneMe3Stelth__sub_800F4CC8(Obj_800F4CC8 *arg0, s32 arg1, f32 farg0);
 f32 TObjEneMe3Stelth__sub_800F4D68(Obj_800F4D68 *self);
@@ -609,8 +609,8 @@ extern "C" void TObjEneMe3StelthReal__vt109();
 extern "C" void TObjEneMe3StelthReal__vt60();
 extern "C" void TObjEneMe3StelthReal__vt61();
 extern "C" void TObjEneMe3Stelth__sub_800F0EC4();
-extern "C" void TObjEneMe3Stelth__sub_800F18C8();
-extern "C" void TObjEneMe3Stelth__sub_800F1CD4();
+extern "C" void draw_with_debug_info__16TObjEneMe3StelthFPv();
+extern "C" void render__16TObjEneMe3StelthFPv();
 extern "C" void TObjEneMe3Stelth__sub_800F4424();
 extern "C" void TObjPlayer__sub_8000FF3C();
 extern "C" void TObjPlayer__sub_80010A80();
@@ -748,7 +748,7 @@ void *lbl_804977A0[52] = {
 };
 void *__vt__20TObjEneMe3StelthReal[116] = {
     (void *)0x0, (void *)0x0, (void *)&__dt__20TObjEneMe3StelthRealFv, (void *)&TObjEneMe3Stelth__sub_800F4FCC,
-    (void *)&TObjEneMe3Stelth__sub_800F1CD4, (void *)&render_actor_shadows_default, (void *)&TLobby__sub_801A1FD8, (void *)&apply_object_set_data,
+    (void *)&render__16TObjEneMe3StelthFPv, (void *)&render_actor_shadows_default, (void *)&TLobby__sub_801A1FD8, (void *)&apply_object_set_data,
     (void *)&reset_actor_action_state, (void *)&get_actor_body_center, (void *)&update_object_view_visibility, (void *)&classify_actor_view_detail,
     (void *)&get_enemy_name__14TObjEnePanarmsFPv, (void *)&TObjPlayer__sub_80019568, (void *)&add_actor_exp, (void *)&TObjPlayer__sub_800111D8,
     (void *)&get_actor_level_index, (void *)&update_actor_ground_y, (void *)&TObjPlayer__sub_80018E6C, (void *)&is_actor_cadence_frame,
@@ -768,18 +768,18 @@ void *__vt__20TObjEneMe3StelthReal[116] = {
     (void *)&enemy_spawn_zalure_effect, (void *)&TObjPlayer__sub_80010A80, (void *)&TObjPlayer__sub_800F65D0, (void *)&fn_80010EC8,
     (void *)&fn_80010EC4, (void *)&fn_80010EC0, (void *)&fn_80010EBC, (void *)&TObjEneDD__vt77,
     (void *)&TObjPlayer__sub_800F673C, (void *)&apply_set_data__9TObjEnemyFPvPv, (void *)&fn_800F5D80, (void *)&TObjEneEpsilon__vt81,
-    (void *)&TObjEneDD__vt82, (void *)&TObjEneDD__vt83, (void *)&TObjEneDD__vt84, (void *)&TObjEneMe3Stelth__sub_800F4598,
+    (void *)&TObjEneDD__vt82, (void *)&TObjEneDD__vt83, (void *)&TObjEneDD__vt84, (void *)&dispatch_state__16TObjEneMe3StelthFPvii,
     (void *)&update_shadow_height__16TObjEneMe3StelthFPv, (void *)&update_collision__16TObjEneMe3StelthFPv, (void *)&TObjEneDD__vt87, (void *)&TObjEneDD__vt88,
     (void *)&TObjEneDD__vt89, (void *)&TObjEneDD__vt90, (void *)&TObjEneDD__vt91, (void *)&init_anim__16TObjEneMe3StelthFPv,
     (void *)&TObjEneMe3Stelth__sub_800F4914, (void *)&TObjEneDD__vt94, (void *)&TObjEneDD__vt95, (void *)&TObjEneDD__vt96,
     (void *)&TObjEneDD__vt97, (void *)&TObjEneDD__vt98, (void *)&TObjEneDD__vt99, (void *)&TObjEneDD__vt100,
-    (void *)&select_and_apply_target__16TObjEneMe3StelthFPv, (void *)&TObjEneMe3Stelth__sub_800F4A90, (void *)&check_target_in_range__16TObjEneMe3StelthFPv, (void *)&TObjEneMe3StelthReal__vt105,
+    (void *)&select_and_apply_target__16TObjEneMe3StelthFPv, (void *)&attack_and_unequip__16TObjEneMe3StelthFPv, (void *)&check_target_in_range__16TObjEneMe3StelthFPv, (void *)&TObjEneMe3StelthReal__vt105,
     (void *)&TObjEneMe3Stelth__sub_800F4A8C, (void *)&check_active_flag__16TObjEneMe3StelthFPv, (void *)&check_flag__16TObjEneMe3StelthFPv, (void *)&TObjEneMe3StelthReal__vt109,
-    (void *)&TObjEneMe3Stelth__sub_800F4910, (void *)&TObjEneMe3Stelth__sub_800F4424, (void *)&setup_move__16TObjEneMe3StelthFPv, (void *)&TObjEneMe3Stelth__sub_800F18C8,
+    (void *)&TObjEneMe3Stelth__sub_800F4910, (void *)&TObjEneMe3Stelth__sub_800F4424, (void *)&setup_move__16TObjEneMe3StelthFPv, (void *)&draw_with_debug_info__16TObjEneMe3StelthFPv,
 };
 #define lbl_804976E4 ((u8 *)lbl_804976E4)
 
-void TObjEneMe3Stelth__sub_800F4598(Obj_800F4598 *self, s32 arg1, s32 arg2) {
+void dispatch_state__16TObjEneMe3StelthFPvii(Obj_800F4598 *self, s32 arg1, s32 arg2) {
     switch (arg1) {
     case 0:
         self->v111(arg2);
@@ -791,7 +791,7 @@ void TObjEneMe3Stelth__sub_800F4598(Obj_800F4598 *self, s32 arg1, s32 arg2) {
         TObjEneMe3Stelth__sub_800F3FE4(self, arg2);
         break;
     case 2:
-        TObjEneMe3Stelth__sub_800F40C8(self, arg2);
+        state_chase__16TObjEneMe3StelthFPvi(self, arg2);
         break;
     case 4:
         TObjEneMe3Stelth__sub_800F3E40(self, arg2);
@@ -800,7 +800,7 @@ void TObjEneMe3Stelth__sub_800F4598(Obj_800F4598 *self, s32 arg1, s32 arg2) {
         TObjEneMe3Stelth__sub_800F3BC8(self, arg2);
         break;
     case 6:
-        TObjEneMe3Stelth__sub_800F39E4(self, arg2);
+        state_chase_target__16TObjEneMe3StelthFPvi(self, arg2);
         break;
     case 7:
         TObjEneMe3Stelth__sub_800F348C(self, arg2);
@@ -824,7 +824,7 @@ void TObjEneMe3Stelth__sub_800F4598(Obj_800F4598 *self, s32 arg1, s32 arg2) {
         TObjEneMe3Stelth__sub_800F290C(self, arg2);
         break;
     case 15:
-        TObjEneMe3Stelth__sub_800F26A4(self, arg2);
+        handle_breakup_state__16TObjEneMe3StelthFPvi(self, arg2);
         break;
     case 12:
         TObjEneMe3Stelth__sub_800F2270(self, arg2);
@@ -935,12 +935,12 @@ u8 check_target_in_range__16TObjEneMe3StelthFPv(void *arg0) {
 
 void TObjEneMe3Stelth__sub_800F4A8C(void) {  }
 
-void TObjEneMe3Stelth__sub_800F4A90(Stelth_800F4A90 *self) {
+void attack_and_unequip__16TObjEneMe3StelthFPv(Stelth_800F4A90 *self) {
     s32 near = objInBand__FP7GameObjf(self, lbl_805DA810);
     if (objInBand__FP7GameObjf(self, TObjEneMe3Stelth__data_805DA808) == 0 && near == 0) {
         return;
     }
-    if (fn_800B91F4(self) != 0 && self->target->m18(self, TObjEneMe3Stelth__data_805DA80C) != 0) {
+    if (enemy_check_target_valid(self) != 0 && self->target->m18(self, TObjEneMe3Stelth__data_805DA80C) != 0) {
         f32 d = self->target->m20(self, TObjEneMe3Stelth__data_805DA80C);
         self->target->m23(self, TObjEneMe3Stelth__data_805DA84C);
         if (d > TObjEneMe3Stelth__data_805DA840) {
@@ -1096,7 +1096,7 @@ void *__dt__16TObjEneMe3StelthFv(void *arg0, s16 arg1) {
 
 #pragma push
 #pragma opt_propagation off
-void TObjEneMe3Stelth__sub_800F5124(u8 *arg0) {
+void init_common__16TObjEneMe3StelthFPv(u8 *arg0) {
     f32 temp_f1;
     s32 temp_r0;
     u8 *temp_r6;
@@ -1190,10 +1190,10 @@ extern "C" {
 void play_hit_effect__16TObjEneMe3StelthFi(s32 arg0);
 M2C_UNK play_sound_effect(M2C_UNK, s32, M2C_UNK, M2C_UNK);
 M2C_UNK spawn_particle_effect(s32, M2C_UNK);
-s32 TObjEneMe3Stelth__sub_800F0B4C(s32, s32);
+s32 try_spawn_ground_effect__16TObjEneMe3StelthFii(s32, s32);
 
 void play_hit_effect__16TObjEneMe3StelthFi(s32 arg0) {
-    if (TObjEneMe3Stelth__sub_800F0B4C(arg0, arg0 + 0x38) != 0) {
+    if (try_spawn_ground_effect__16TObjEneMe3StelthFii(arg0, arg0 + 0x38) != 0) {
         play_sound_effect(0x3A836, arg0 + 0x38, 0, 0);
         return;
     }
@@ -1339,11 +1339,11 @@ void setup_move__16TObjEneMe3StelthFPv(void* p) { if (get_target_info__9TObjEneD
 extern "C" {
 
 void add_instance__16TObjEneMe3StelthFv(void);
-int TOTrapAncient02__sub_800837D4(void*);
+int load_projection_tex_matrix__15TOTrapAncient02Fi(void*);
 
     extern int TObjEneMe3Stelth__data_805D5304;
     extern int lbl_805D5310;
-void add_instance__16TObjEneMe3StelthFv(void) { TOTrapAncient02__sub_800837D4((void*)(lbl_805D5310)); TObjEneMe3Stelth__data_805D5304 = (TObjEneMe3Stelth__data_805D5304 + 0x1); }
+void add_instance__16TObjEneMe3StelthFv(void) { load_projection_tex_matrix__15TOTrapAncient02Fi((void*)(lbl_805D5310)); TObjEneMe3Stelth__data_805D5304 = (TObjEneMe3Stelth__data_805D5304 + 0x1); }
 
 }
 #endif

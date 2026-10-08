@@ -45,7 +45,7 @@ void init_xyz_limits__10TObjPlayerFv(void);
 void draw_line_list(void *, s32, s32);
 void vec3_add_to(void *, void *);
 void matrix_mult_vec(s32, void *, void *);
-void TObjPlayer__sub_803D8CD4(s32);
+void set_matrix_identity__10TObjPlayerFPv(s32);
 void rotate_matrix_y(s32, s32);
 void rotate_matrix_x(s32, s32);
 void push_matrix(void);
@@ -54,7 +54,7 @@ extern Vec_80048260 lbl_804366B8;
 extern Color_80048260 lbl_80484828[];
 extern u8 lbl_80484830[];
 extern Vec_80048260 lbl_804FF1B8[];
-void TObjPlayer__sub_80048260(Obj_80048260 *self);
+void draw_direction_line__10TObjPlayerFPv(Obj_80048260 *self);
 }
 
 extern "C" {
@@ -87,7 +87,7 @@ void TBoss3Volopt__sub_800481B4(void* p) { *(u8*)((char*)p + 0x0) = 133; *(u8*)(
 void swap_6x18_fields__12TBoss3VoloptFPv(void* p) { read_be16_field2__10TObjPlayerFPv(p); { int i; for (i = 0; i < 4; i++) { bswap_16__FPUs((char*)p + 0x4 + i * 2); } } }
 void broadcast_state__12TBoss3VoloptFPv(void* p) { swap_6x18_fields__12TBoss3VoloptFPv((void*)(p)); TLobby__send_and_handle_60(p); }
 void TBoss3Volopt__sub_8004824C(void* p) { *(u8*)((char*)p + 0x0) = 24; *(u8*)((char*)p + 0x1) = 3; }
-void TObjPlayer__sub_80048260(Obj_80048260 *self) {
+void draw_direction_line__10TObjPlayerFPv(Obj_80048260 *self) {
     Vec_80048260 *dst;
     s32 a;
     if (self->timer < 10) {
@@ -99,7 +99,7 @@ void TObjPlayer__sub_80048260(Obj_80048260 *self) {
     dst = &lbl_804FF1B8[1];
     VecCopy__FP3VecPC3Vec(dst, self->dir);
     push_matrix();
-    TObjPlayer__sub_803D8CD4(0);
+    set_matrix_identity__10TObjPlayerFPv(0);
     {
         Vec_80048260 v = lbl_804366B8;
         v.z = self->unk40;

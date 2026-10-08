@@ -18,7 +18,7 @@ M2C_UNK close_option_window__6TLobbyFv();
 M2C_UNK init_layout_positions__6TLobbyFv();
 s16 TLobby__sub_80226328();
 M2C_UNK TLobby__sub_802263A8(s16);
-M2C_UNK TLobby__sub_8022743C();
+M2C_UNK stop_audio_streams__6TLobbyFv();
 M2C_UNK play_area_music();
 M2C_UNK fn_8023F160();
 M2C_UNK fn_8023F18C();
@@ -39,7 +39,7 @@ void set_params__17TWindowOptionCtrlFPvsc(void *arg0, s16 arg1, s8 arg2) {
 
 void apply_selection_change__17TWindowOptionCtrlFPv(void *arg0) {
     if ((s16) M2C_FIELD(arg0, s16 *, 0x1E) != (s16) M2C_FIELD(arg0, s16 *, 0x20)) {
-        TLobby__sub_8022743C();
+        stop_audio_streams__6TLobbyFv();
         TLobby__sub_802263A8(M2C_FIELD(arg0, s16 *, 0x20));
         init_layout_positions__6TLobbyFv();
     }
@@ -54,8 +54,8 @@ void init_selection_indices__17TWindowOptionCtrlFPv(void *arg0) {
 }
 
 void apply_and_close__17TWindowOptionCtrlFPvi(void *arg0, s32 arg1) {
-    TLobby__sub_8022743C();
-    TLobby__sub_8022743C();
+    stop_audio_streams__6TLobbyFv();
+    stop_audio_streams__6TLobbyFv();
     close_option_window__6TLobbyFv();
     fn_8036A648(arg1);
     play_area_music();
@@ -593,7 +593,7 @@ extern "C" {
 
 void open_confirm_dialog__17TWindowOptionCtrlFPvii(void *arg0, s32 arg1, s32 arg2);
 M2C_UNK forward_slot_selection__16TAdChrSelASlotGCFPvPvPv(u32, s32, s32, f32);
-u32 TWindowMessageYesNo__sub_802A59D8(s32, s32, M2C_UNK, M2C_UNK);
+u32 create__19TWindowMessageYesNoFPvPvPvPv(s32, s32, M2C_UNK, M2C_UNK);
 s32 get_option_entry__17TWindowOptionCtrlFi(M2C_UNK);
 M2C_UNK close__17TWindowSubComCardFPv(void *);
 M2C_UNK initialize_option_dialog(u32, s32, s32, f32);
@@ -607,7 +607,7 @@ void open_confirm_dialog__17TWindowOptionCtrlFPvii(void *arg0, s32 arg1, s32 arg
         close__17TWindowSubComCardFPv(M2C_FIELD(arg0, void **, 0x2C));
         M2C_FIELD(arg0, u32 *, 0x2C) = 0U;
     }
-    M2C_FIELD(arg0, u32 *, 0x2C) = TWindowMessageYesNo__sub_802A59D8(tl_01, lbl_805D53A0, 0, 0);
+    M2C_FIELD(arg0, u32 *, 0x2C) = create__19TWindowMessageYesNoFPvPvPvPv(tl_01, lbl_805D53A0, 0, 0);
     if (arg2 != 0) {
         forward_slot_selection__16TAdChrSelASlotGCFPvPvPv(M2C_FIELD(arg0, u32 *, 0x2C), arg1, get_option_entry__17TWindowOptionCtrlFi(0xCF), lbl_805DFDD0);
         return;

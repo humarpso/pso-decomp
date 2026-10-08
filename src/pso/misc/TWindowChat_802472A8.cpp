@@ -24,7 +24,7 @@ void update__11TWindowChatFPv(void *arg0);
 void open_input__11TWindowChatFPv(void *arg0);
 s32 get_player_by_client_id(s32);
 M2C_UNK close_all_children__11TWindowChatFPv(void *);
-M2C_UNK TWindowChat__sub_8024792C(void *);
+M2C_UNK open_next_input_window__11TWindowChatFPv(void *);
 s32 is_mode_bit6__11TWindowChatFPv(void *);
 M2C_UNK TWindowChat__sub_80247DFC(void *);
 M2C_UNK TWindowChat__sub_80247E50(void *);
@@ -65,7 +65,7 @@ void open_input__11TWindowChatFPv(void *arg0) {
         M2C_FIELD(arg0, u16 *, 0x1E) = (u16) (M2C_FIELD(arg0, u16 *, 0x1E) & 0xFFFE);
         M2C_FIELD(arg0, u16 *, 0x1E) = (u16) (M2C_FIELD(arg0, u16 *, 0x1E) | 2);
         clear_flag60_bit200__16TKeyBoardControlFPv(M2C_FIELD(arg0, s32 *, 0x28));
-        TWindowChat__sub_8024792C(arg0);
+        open_next_input_window__11TWindowChatFPv(arg0);
     }
 }
 void handle_dpad_shortcuts__11TWindowChatFPv(Win_802473C8 *arg0) {

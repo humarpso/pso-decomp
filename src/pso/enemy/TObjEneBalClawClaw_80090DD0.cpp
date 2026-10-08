@@ -148,7 +148,7 @@ M2C_UNK update_collisions__10TObjPlayerFPv(void *);
 M2C_UNK play_persistent_sound(int, void *, void *, int, int);
 extern const f32 TObjEneBalClawClaw__data_805D968C;
 extern const f32 lbl_805D96B8;
-void TObjEneBalClawClaw__sub_80091354(Claw_80091354 *self);
+void update_chase__18TObjEneBalClawClawFPv(Claw_80091354 *self);
 M2C_UNK apply_actor_gravity(void *, M2C_UNK, f32);
 M2C_UNK update_enemy_wander_move(void *, void *, int, void *, f32);
 M2C_UNK update_angle__10TObjPlayerFPviPv(void *, s32, void *);
@@ -183,7 +183,7 @@ struct En0VObj_80090DD0 : En0Base_80090DD0 {
 void TObjEneBalClawClaw__sub_800914A4(void);
 void action__18TObjEneBalClawClawFPv(u8 *arg0);
 M2C_UNK advance_animation_playback(void *);
-M2C_UNK TBoss3Volopt__sub_800D8C48(void *, s32);
+M2C_UNK play_area_se_with_particle__12TBoss3VoloptFi(void *, s32);
 M2C_UNK apply_actor_gravity(void *, M2C_UNK, f32);
 M2C_UNK TObjPlayer__sub_800A0554(void *);
 M2C_UNK reset_active_state__18TObjEneBalClawClawFPv(void *, s32, s32);
@@ -203,7 +203,7 @@ void action__18TObjEneBalClawClawFPv(u8 *arg0) {
         temp_r4 = M2C_FIELD(arg0, s32 *, 0x30) | 0x04000000;
         M2C_FIELD(arg0, s32 *, 0x30) = temp_r4;
         M2C_FIELD(arg0, s16 *, 0xB8) = 0;
-        TBoss3Volopt__sub_800D8C48(arg0 + 0x38, temp_r4);
+        play_area_se_with_particle__12TBoss3VoloptFi(arg0 + 0x38, temp_r4);
         TObjPlayer__sub_800A0554(arg0 + 0x390);
         M2C_FIELD(arg0, s32 *, 0x37C) = 1;
     case 1:
@@ -343,7 +343,7 @@ void TObjEneBalClawClaw__sub_80091200(Claw_80091200 *self) {
 }
 
 #define RESET(p) ((M2C_UNK (*)(void *))reset_active_state__18TObjEneBalClawClawFPv)(p)
-void TObjEneBalClawClaw__sub_80091354(Claw_80091354 *self) {
+void update_chase__18TObjEneBalClawClawFPv(Claw_80091354 *self) {
     switch (self->state) {
     case 0:
         find_target_in_range__10TObjPlayerFPvf(self, lbl_805D96B8);

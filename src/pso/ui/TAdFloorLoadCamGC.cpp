@@ -22,7 +22,7 @@ extern "C" {
 void __ct__7TObjectFP7TObject(void *);
 extern M2C_UNK __vt__17TAdFloorLoadCamGC[];
 extern void *lbl_805D4340;
-void TAdMultiChgGameModeGC__sub_8023E834(void *);
+void set_default_camera__21TAdMultiChgGameModeGCFv(void *);
 void *TAdFloorLoadCamGC__ct(void *arg0, void *arg1, void *arg2);
 void VecCopy__FP3VecPC3Vec(void *, void *);
 void TCameraCtrl__sub_800687E4(void *);
@@ -147,7 +147,7 @@ void *TAdFloorLoadCamGC__ct(void *arg0, void *arg1, void *arg2) {
   *((f32 *) (((s8 *) arg0) + 0x44)) = lbl_805DFDB8;
   *((f32 *) (((s8 *) arg0) + 0x48)) = lbl_805DFDB8;
   *((void **) (((s8 *) arg0) + 0x1C)) = arg2;
-  TAdMultiChgGameModeGC__sub_8023E834(new_var);
+  set_default_camera__21TAdMultiChgGameModeGCFv(new_var);
   return arg0;
 }
 

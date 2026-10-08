@@ -34,7 +34,7 @@ extern "C" {
 void *__ct__13TObjResultWinFv(void *arg0, void *arg1, void *arg2);
 void *create__13TObjResultWinFPv(void *arg0);
 void create_window__13TObjResultWinFPv(u8 *arg0);
-void TQuestVmDownLoadServer__sub_80074114(void *);
+void build_result_text__22TQuestVmDownLoadServerFPv(void *);
 M2C_UNK get_window_layout_position(M2C_UNK);
 void __ct__7TObjectFP7TObject(void *);
 void *__nw__7TObjectFUl(int);
@@ -94,7 +94,7 @@ void *__ct__13TObjResultWinFv(void *arg0, void *arg1, void *arg2) {
     TObjResultWin__sub_80074664((Rec_80074664 *)((void *)((char *)arg0 + 296)), (Rec_80074664 *)(arg2));
     M2C_FIELD(arg0, u32 *, 0x24) = 60;
     M2C_FIELD(arg0, u32 *, 0x20) = 0;
-    TQuestVmDownLoadServer__sub_80074114(arg0);
+    build_result_text__22TQuestVmDownLoadServerFPv(arg0);
     return arg0;
 }
 

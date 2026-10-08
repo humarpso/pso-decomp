@@ -67,7 +67,7 @@ extern s32 some_id_805c6f74;
 extern const f32 lbl_805DB258;
 extern const f32 lbl_805DB260;
 extern const f32 lbl_805DB264;
-void TObjFogCollision__sub_80153B64(u8 *arg0);
+void draw_volume__16TObjFogCollisionFPv(u8 *arg0);
 void debug_printf_at(int, void *, ...);
 extern char lbl_804400C8[];
 extern char lbl_804400D4[];
@@ -104,7 +104,7 @@ void *TObjFogCollisionSwitch__create(void *arg0) {
 
 extern const f32 lbl_805DB26C;
 
-void TObjFogCollision__sub_80153B64(u8 *arg0) {
+void draw_volume__16TObjFogCollisionFPv(u8 *arg0) {
     f32 s;
     if (((VObj_18_26a62c *)(arg0))->m8(lbl_805DB260, M2C_FIELD(arg0, f32 *, 0x68)) != 0) {
         Color_80153B64 c0 = lbl_8044002C;

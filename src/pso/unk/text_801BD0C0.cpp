@@ -151,12 +151,12 @@ Anim_801BD0C0 *get_anim_entry__10TObjPlayerFPvi(void *, s32);
 s32 get_handle_value__10TObjPlayerFPv(void *);
 s32 has_valid_handle__10TObjPlayerFPv(void *);
 extern const f32 TObjPlayer__data_805DC278;
-void TObjPlayer__sub_801BD0C0(Player_801BD0C0 *self);
+void apply_motion_entry__10TObjPlayerFPv(Player_801BD0C0 *self);
 }
 
 extern "C" {
 
-void TObjPlayer__sub_801BD0C0(Player_801BD0C0 *self) {
+void apply_motion_entry__10TObjPlayerFPv(Player_801BD0C0 *self) {
     Anim_801BD0C0 *a;
     set_field_d8__10TObjPlayerFPvi(self, self->ctrl->m5(has_valid_handle__10TObjPlayerFPv(self), get_handle_value__10TObjPlayerFPv(self)));
     update_animation_frame__10TObjPlayerFPvi(self, self->anim);

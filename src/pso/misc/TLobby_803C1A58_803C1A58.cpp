@@ -158,7 +158,7 @@ M2C_UNK __DVDPrepareResetAsync(void *, void *, void *, void *, void *, void *, v
 s32 TLobby__sub_803C47F8(void *, void *, void *, void *);
 s32 TLobby__sub_803C48C8(void *, void *, void *);
 s32 ARStartDMA(void *, void *, void *, void *, void *, void *, void *, void *, void *, void *);
-M2C_UNK TLobby__sub_803C5744(void *, void *);
+M2C_UNK report_adx_error__6TLobbyFPvi(void *, void *);
 M2C_UNK TLobby__sub_803CB570(int, void *, void *);
 M2C_UNK TLobby__sub_803CB594(int, int, int);
 M2C_UNK memset(void *, int, int);
@@ -668,7 +668,7 @@ s32 TRK__write_aram(void *arg0p, void *arg1, void *arg2) {
     }
     if ((s8) M2C_FIELD(arg0, u8 *, 0xC) > 4) {
         if ((u32) M2C_FIELD(arg0, u32 *, 0xAC) == 0U) {
-            TLobby__sub_803C5744((void *) (lbl_8047C520), (void *) (lbl_8047C540));
+            report_adx_error__6TLobbyFPvi((void *) (lbl_8047C520), (void *) (lbl_8047C540));
             return 0;
         }
         M2C_FIELD(arg0, s8 *, 0xD) = 8;

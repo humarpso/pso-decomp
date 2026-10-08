@@ -53,7 +53,7 @@ extern RecoveredGlobal_80335BD4_lbl_8058D4C0 lbl_8058D4C0;
 extern s32 lbl_805D5660;
 extern s32 some_id_805c6f74;
 extern const f32 lbl_805DF8B0;
-void TAdTrialAgreementGC__sub_80335BD4(u8 *arg0);
+void render_screen__19TAdTrialAgreementGCFPv(u8 *arg0);
 s32 test_flag_4c__23TAdSinglePlyChrSelectGCFPv(void *, int);
 s32 TWindowShortListCtrl__check_controller_button(int, int);
 s32 dispatch_draw_command__22TAdMultiPlyChrSelectGCFiiii(int, int, int, int);
@@ -129,7 +129,7 @@ void TAdTrialAgreementGC__sub_80335A58(u8 *arg0) {
     }
 }
 
-void TAdTrialAgreementGC__sub_80335BD4(u8 *arg0) {
+void render_screen__19TAdTrialAgreementGCFPv(u8 *arg0) {
     s32 temp_r0;
     s32 temp_r31;
     s32 var_r31;

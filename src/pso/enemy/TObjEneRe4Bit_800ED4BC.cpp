@@ -494,7 +494,7 @@ extern s32 lbl_805D52CC;
 extern const f32 TObjEneRe4Bit__data_805DA770;
 extern const f32 lbl_805DA784;
 
-void TObjEneRe4Bit__sub_800ED7FC(Bit_800ED7FC *self) {
+void init__13TObjEneRe4BitFPv(Bit_800ED7FC *self) {
     s32 i;
 
     init_position_vectors__9TObjEneDDFPv(self);
@@ -543,7 +543,7 @@ u8 *TObjEneRe4Bit__ct(u8 *arg0, s32 arg1, s32 arg2, s32 arg3, s32 arg4, s16 arg5
     M2C_FIELD(arg0, s32 *, 0x3C0) = arg3;
     M2C_FIELD(arg0, s32 *, 0x3C8) = arg4;
     VecCopy__FP3VecPC3Vec((void*)((void *) (arg0 + 0x38)), (void*)((void *) (arg3)));
-    TObjEneRe4Bit__sub_800ED7FC((Bit_800ED7FC *) (arg0));
+    init__13TObjEneRe4BitFPv((Bit_800ED7FC *) (arg0));
     return arg0;
 }
 

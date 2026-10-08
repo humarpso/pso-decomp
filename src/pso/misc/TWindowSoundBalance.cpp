@@ -38,7 +38,7 @@ State_80270DCC *get_global_state__23TAdSinglePlyChrSelectGCFv();
 u32 calc_text_width();
 u8 *get_array_entry__20TWindowSubStatusDispFPvi(void *, s32);
 M2C_UNK get_field_20__17TWindowSubComCardFPv();
-M2C_UNK TWindowDD__sub_802466E0(void *, void *, s32, s32);
+M2C_UNK construct_base__9TWindowDDFPvPvsPv(void *, void *, s32, s32);
 M2C_UNK refresh_status_display__9TWindowDDFv(u8 *);
 M2C_UNK TWindowSoundBalance__sub_80270748(void *, s32);
 M2C_UNK TWindowSoundBalance__sub_802707D4(void *, s32);
@@ -156,7 +156,7 @@ void *__dt__19TWindowSoundBalanceFv(void *arg0, s16 arg1) {
 u8 *TWindowSoundBalance__ct(u8 *arg0, s32 arg1) {
     u8 *e;
     State_80270DCC *st;
-    TWindowDD__sub_802466E0(arg0, lbl_804D0D68, 4, arg1);
+    construct_base__9TWindowDDFPvPvsPv(arg0, lbl_804D0D68, 4, arg1);
     M2C_FIELD(arg0, M2C_UNK **, 0x18) = __vt__19TWindowSoundBalance;
     M2C_FIELD(arg0, s32 *, 0) = lbl_805D39F0;
     M2C_FIELD(arg0, s8 *, 0x60) = 0;

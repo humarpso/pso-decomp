@@ -124,7 +124,7 @@ void clear_flag_and_release2__17TWindowSubComCardFPv(void *arg0);
 void TWindowSubComCard__sub_80265484(u8 *arg0);
 void TWindowSubComCard__sub_80265500(u8 *arg0);
 void TWindowSubComCard__sub_8026556C(u8 *arg0);
-void TWindowSubComCard__sub_802655E4(Win_802655E4 *w);
+void reset_entries__17TWindowSubComCardFPv(Win_802655E4 *w);
 s32 TWindowSubComCard__sub_80265660(Obj_80265660 *o, s16 i);
 void TWindowSubComCard__sub_80265680(u8 *arg0, s16 arg1);
 void TWindowSubComCard__sub_802656D8(Win_802656D8 *w, s32 idx, s32 val);
@@ -140,10 +140,10 @@ M2C_UNK TWindowSubComCard__sub_80265B5C(void *);
 u32 get_selected_menu_value(Obj_80265BF8 *o);
 void set_selected_index__17TWindowSubComCardFPvs(void *arg0, s16 arg1);
 void align_menu_entry_positions(Win_80265C30 *self);
-void TWindowSubComCard__sub_80265CFC(u8 *arg0, f32 farg0);
+void calc_layout_height__17TWindowSubComCardFPvf(u8 *arg0, f32 farg0);
 void set_scroll_target__17TWindowSubComCardFPvff(void *arg0, f32 farg0, f32 farg1);
 void update_layout_height__17TWindowSubComCardFPvf(Win_80265E60 *self, f32 x);
-void TWindowSubComCard__sub_80265F60(Win_80265F60 *self);
+void calc_window_size__17TWindowSubComCardFPv(Win_80265F60 *self);
 void TWindowSubComCard__sub_80266078(u8 *arg0);
 void clear_transition_flag__17TWindowSubComCardFPv(void *arg0);
 void open__17TWindowOptionCtrlFPv(void *arg0);
@@ -259,7 +259,7 @@ void TWindowSubComCard__sub_8026556C(u8 *arg0) {
     }
 }
 
-void TWindowSubComCard__sub_802655E4(Win_802655E4 *w) {
+void reset_entries__17TWindowSubComCardFPv(Win_802655E4 *w) {
     s32 i;
     Rec_802655E4 *r;
     void *e;
@@ -481,7 +481,7 @@ void align_menu_entry_positions(Win_80265C30 *self) {
 }
 #pragma pop
 
-void TWindowSubComCard__sub_80265CFC(u8 *arg0, f32 farg0) {
+void calc_layout_height__17TWindowSubComCardFPvf(u8 *arg0, f32 farg0) {
     f32 h;
     u32 i;
     Ent_80265C30 *e;
@@ -535,7 +535,7 @@ void update_layout_height__17TWindowSubComCardFPvf(Win_80265E60 *self, f32 x) {
     save_position__17TWindowSubComCardFPv(self);
 }
 
-void TWindowSubComCard__sub_80265F60(Win_80265F60 *self) {
+void calc_window_size__17TWindowSubComCardFPv(Win_80265F60 *self) {
     f32 width = lbl_805DD150;
     f32 sum = width;
     u32 i;
@@ -686,7 +686,7 @@ u8 *create_yes_no_window(s32 arg0, s32 arg1, u32 arg2, u32 arg3) {
   {
     ((s32 (*)(int, void *, int, int))forward_trade_action_default__16TObjCityMainWarpFPviii)((int) ((u8 *) temp_r3), (void *) arg3, (int) 6, (int) 1);
   }
-  ((s32 (*)(int))TWindowSubComCard__sub_80265F60)((int) ((u8 *) temp_r3));
+  ((s32 (*)(int))calc_window_size__17TWindowSubComCardFPv)((int) ((u8 *) temp_r3));
   if ((*((f32 *) (((s8 *) ((u8 *) temp_r3)) + 0x48))) < lbl_805DD170)
   {
     ((s32 (*)(int, f32))update_layout_height__17TWindowSubComCardFPvf)((int) ((u8 *) temp_r3), (f32) lbl_805DD170);

@@ -15,7 +15,7 @@ M2C_UNK TKeyBoardControl__sub_8000F9CC(int);
 s32 is_ready__22TQuestVmDownLoadServerFv();
 M2C_UNK TLobby__sub_800FA464();
 s8 func_801A5E54__Fv();
-M2C_UNK TKeyBoardControl__sub_801A5EC4();
+M2C_UNK update_input_frame__16TKeyBoardControlFv();
 M2C_UNK controller_stuff__Fv();
 int render_tick__Fv(void);
 M2C_UNK render_screen_overlay__9TMainTaskFv(void *);
@@ -24,7 +24,7 @@ M2C_UNK render__9TMainTaskFv(void *);
 M2C_UNK run_task__9TMainTaskFv(void *);
 M2C_UNK func_803DCDFC__Fv();
 extern unsigned char main_task[];
-void TKeyBoardControl__sub_80307A74(void);
+void run_main_frame__16TKeyBoardControlFv(void);
 M2C_UNK TKeyBoardControl__sub_8000F90C(M2C_UNK);
 M2C_UNK TKeyBoardControl__sub_8000F91C(M2C_UNK);
 M2C_UNK TAdEndText__sub_8001B370();
@@ -55,11 +55,11 @@ int render_tick__Fv(void);
     extern int lbl_805D6A58;
 void cleanup__10TAdEndTextFv(void) { lbl_805D6A58 = 0; delete_all_task_children__9TMainTaskFv(main_task); TLobby__sub_800FC3CC(); free_keyboard_soft_resources__6TLobbyFv(); free_resources__10TAdEndTextFv(); render_tick__Fv(); }
 typedef char RecoveredGlobal_80307A74_main_task_size[sizeof(RecoveredGlobal_80307A74_main_task) == 0x34 ? 1 : -1];
-void TKeyBoardControl__sub_80307A74(void) {
+void run_main_frame__16TKeyBoardControlFv(void) {
     M2C_UNK *var_r3;
     func_803DCDFC__Fv();
     controller_stuff__Fv();
-    TKeyBoardControl__sub_801A5EC4();
+    update_input_frame__16TKeyBoardControlFv();
     var_r3 = (M2C_UNK *)(&(*(RecoveredGlobal_80307A74_main_task *)&main_task).value);
     var_r3 = (M2C_UNK *)(&(*(RecoveredGlobal_80307A74_main_task *)&main_task).value);
     some_empty_func__9TMainTaskFv((void *) (&(*(RecoveredGlobal_80307A74_main_task *)&main_task).value));

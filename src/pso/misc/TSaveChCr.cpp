@@ -31,9 +31,9 @@ extern "C" {
 s32 TSaveChCr__sub_80339F30(void);
 void close_and_advance__9TSaveChCrFPvPv(void* p, void* a1);
 s32 poll_memcard_status(void *arg0);
-s32 TAdPlayerLoadGC__sub_801E0D8C(M2C_UNK);
+s32 probe_and_check_card__15TAdPlayerLoadGCFi(M2C_UNK);
 s32 TAdPlayerLoadGC__sub_801E1B50(M2C_UNK);
-s32 TAdPlayerLoadGC__sub_801E1E38(M2C_UNK);
+s32 probe_card_slot__15TAdPlayerLoadGCFi(M2C_UNK);
 s32 TAdSinglePlyChrSelectGC__sub_80339DBC(void *);
 s32 TObjCMProportion__sub_8029916C(M2C_UNK);
 s32 check_memcard_status__15TAdPlayerLoadGCFi(M2C_UNK);
@@ -43,11 +43,11 @@ s32 poll_memcard_status__23TAdSinglePlyChrSelectGCFPv();
 s32 poll_memcard_status(void *arg0) {
     s32 var_r31;
 
-    if (TAdPlayerLoadGC__sub_801E1E38(0) == 0) {
+    if (probe_card_slot__15TAdPlayerLoadGCFi(0) == 0) {
         M2C_FIELD(arg0, s32 *, 0x28) = 0;
         return 1;
     }
-    if (TAdPlayerLoadGC__sub_801E0D8C(0) == 0) {
+    if (probe_and_check_card__15TAdPlayerLoadGCFi(0) == 0) {
         M2C_FIELD(arg0, s32 *, 0x28) = 0;
         return 4;
     }

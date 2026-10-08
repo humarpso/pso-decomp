@@ -25,13 +25,13 @@ int alloc__23TAdSinglePlyChrSelectGCFPv(void *);
 u8 * fn_800E31C4(void *, void *, s32);
 s32 TObjFish__sub_800E3124(u8 *arg0, s32 arg1);
 extern State_800E2FFC lbl_80500FB0;
-int TCameraCtrl__sub_80069148(void *, void *);
+int transform_to_view__11TCameraCtrlFii(void *, void *);
 void TObjFish__sub_800E2FFC(void);
 s32 TObjFish__sub_800E30BC(Entry_800E30BC *p);
 extern State_800E2FFC lbl_80500FB0;
 void TObjFish__sub_800E2FFC(void);
 int set_global_state__16TObjEneRe7BeruraFi(void*);
-void TObjFish__sub_800E3074(Arg_800E3074 *arg);
+void set_draw_callback_list__8TObjFishFPv(Arg_800E3074 *arg);
 }
 
 extern "C" {
@@ -46,7 +46,7 @@ void TObjFish__sub_800E2FFC(void) {
     s32 id;
     while ((id = p->id) != -1) {
         if (id == lbl_80500FB0.counter) {
-            TCameraCtrl__sub_80069148(p->data, q);
+            transform_to_view__11TCameraCtrlFii(p->data, q);
         }
         p++;
         q++;
@@ -54,7 +54,7 @@ void TObjFish__sub_800E2FFC(void) {
     lbl_80500FB0.counter++;
 }
 
-void TObjFish__sub_800E3074(Arg_800E3074 *arg) {
+void set_draw_callback_list__8TObjFishFPv(Arg_800E3074 *arg) {
     (*(State_800E3074 *)&lbl_80500FB0).counter = 0;
     (*(State_800E3074 *)&lbl_80500FB0).list = arg->list;
     (*(State_800E3074 *)&lbl_80500FB0).params = arg->params;

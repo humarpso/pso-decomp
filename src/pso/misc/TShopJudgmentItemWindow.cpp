@@ -158,16 +158,16 @@ void TWindow__close(void *);
 s32 get_selected_menu_value(int);
 s32 select_cursor_entry__6TLobbyFPv(int);
 extern M2C_UNK lbl_8044C1D4[];
-void TShopJudgmentItemWindow__sub_80221134(u8 *arg0);
+void handle_judge_confirm__23TShopJudgmentItemWindowFPv(u8 *arg0);
 void invoke_callback_174_and_destroy__23TShopJudgmentItemWindowFPv(void *arg0);
 void invoke_callback_16C_and_destroy__23TShopJudgmentItemWindowFPv(void *arg0);
 void invoke_callback_170_and_destroy__23TShopJudgmentItemWindowFPv(void *arg0);
 void update__23TShopJudgmentItemWindowFPv(void *arg0);
-void TShopJudgmentItemWindow__sub_80221134(u8 *arg0);
+void handle_judge_confirm__23TShopJudgmentItemWindowFPv(u8 *arg0);
 void handle_input__23TShopJudgmentItemWindowFPv(void *arg0);
 void close__23TShopJudgmentItemWindowFPv(void* p);
-void TShopJudgmentItemWindow__sub_8022072C(u8 *arg0);
-void TShopJudgmentItemWindow__sub_802209D8(u8 *arg0);
+void handle_pay_confirm__23TShopJudgmentItemWindowFPv(u8 *arg0);
+void handle_equip_prompt__23TShopJudgmentItemWindowFPv(u8 *arg0);
 M2C_UNK TShopJudgmentItemWindow__sub_80220F68();
 void TShopJudgmentItemWindow__vt9(u8 *arg0);
 u16 obj_getField1c(s32);
@@ -176,12 +176,12 @@ s32 apply_shop_judgment__10TObjPlayerFPvi(s32, void *);
 M2C_UNK clear_selected_and_update_entry__14TWindowSubItemFPv(int);
 M2C_UNK fn_80221838(void *, void *, s32);
 M2C_UNK TLobby__sub_80222CBC(int);
-M2C_UNK TShopArmorListWindow__sub_80266DB0(void *);
+M2C_UNK reset_list__20TShopArmorListWindowFPv(void *);
 M2C_UNK calc_list_content_extent(void *);
 M2C_UNK add_list_entry__23TShopJudgmentItemWindowFPvii(void *, s32, s32);
 void *create_item_list_window(int, int, u16);
 void *memset(void *, int, unsigned long);
-M2C_UNK TShopJudgmentItemWindow__sub_80221440(void *arg0);
+M2C_UNK build_item_list__23TShopJudgmentItemWindowFPv(void *arg0);
 M2C_UNK try_spend_actor_meseta(int, int);
 u16 obj_getField1c(s32);
 s32 is_visible__17TWindowSubComCardFPv(void *);
@@ -200,7 +200,7 @@ s32 get_selected_menu_value(int);
 s32 create_yes_no_window(M2C_UNK, u16, M2C_UNK, M2C_UNK);
 s32 get_window_layout_position(M2C_UNK);
 extern u8 lbl_8044C1B0[];
-void TShopJudgmentItemWindow__sub_80220CE4(u8 *arg0);
+void update_judge_confirm__23TShopJudgmentItemWindowFPv(u8 *arg0);
 VObj_802209D8 *find_item_by_id(s32);
 u32 get_equip_field_d04__10TObjPlayerFPv(int, s32);
 s32 get_field_d8__10TObjPlayerFPv(u32);
@@ -284,7 +284,7 @@ void invoke_callback_170_and_destroy__23TShopJudgmentItemWindowFPv(void *arg0) {
     }
 }
 
-void TShopJudgmentItemWindow__sub_8022072C(u8 *arg0) {
+void handle_pay_confirm__23TShopJudgmentItemWindowFPv(u8 *arg0) {
     f32 temp_f31;
     s32 temp_r3;
     s32 temp_r31;
@@ -355,7 +355,7 @@ void update__23TShopJudgmentItemWindowFPv(void *arg0) {
 
 #define F(o, t) M2C_FIELD(arg0, t *, o)
 
-void TShopJudgmentItemWindow__sub_802209D8(u8 *arg0) {
+void handle_equip_prompt__23TShopJudgmentItemWindowFPv(u8 *arg0) {
     f32 y;
     s32 sel;
     s32 id;
@@ -433,7 +433,7 @@ void TShopJudgmentItemWindow__sub_802209D8(u8 *arg0) {
 }
 #undef F
 
-void TShopJudgmentItemWindow__sub_80220CE4(u8 *arg0) {
+void update_judge_confirm__23TShopJudgmentItemWindowFPv(u8 *arg0) {
     f32 temp_f31;
     s32 temp_r3;
     s32 temp_r31;
@@ -501,7 +501,7 @@ block_19:
 
 #pragma push
 #pragma fp_contract on
-void TShopJudgmentItemWindow__sub_80221134(u8 *arg0) {
+void handle_judge_confirm__23TShopJudgmentItemWindowFPv(u8 *arg0) {
     s32 temp_r3;
     u8 *temp_r31;
     if (((VObj_18 *) arg0)->m8() != 0) {
@@ -576,7 +576,7 @@ void handle_input__23TShopJudgmentItemWindowFPv(void *arg0) {
 }
 
 #define W ((Win_80221440 *)arg0)
-M2C_UNK TShopJudgmentItemWindow__sub_80221440(void *arg0) {
+M2C_UNK build_item_list__23TShopJudgmentItemWindowFPv(void *arg0) {
     VObj_18_2e9c25 *items[32];
     s32 n;
     s32 i;
@@ -607,7 +607,7 @@ M2C_UNK TShopJudgmentItemWindow__sub_80221440(void *arg0) {
         calc_list_content_extent(W->list);
         return;
     }
-    TShopArmorListWindow__sub_80266DB0(W->list);
+    reset_list__20TShopArmorListWindowFPv(W->list);
     for (k = 0; k < W->count; k++) {
         add_list_entry__23TShopJudgmentItemWindowFPvii(W->list, W->ents[k].item, k);
     }
@@ -626,28 +626,28 @@ void TShopJudgmentItemWindow__vt9(u8 *arg0) {
     switch (temp_r0) {
     case 0:
         close__23TShopJudgmentItemWindowFPv((void*)(arg0));
-        TShopJudgmentItemWindow__sub_80221440((void *)((void *) (arg0)));
+        build_item_list__23TShopJudgmentItemWindowFPv((void *)((void *) (arg0)));
         return;
     case 1:
         handle_input__23TShopJudgmentItemWindowFPv(arg0);
         return;
     case 2:
-        TShopJudgmentItemWindow__sub_80221134((u8 *)(arg0));
+        handle_judge_confirm__23TShopJudgmentItemWindowFPv((u8 *)(arg0));
         return;
     case 3:
         TShopJudgmentItemWindow__sub_80220F68();
         return;
     case 4:
-        TShopJudgmentItemWindow__sub_80220CE4((u8 *)(arg0));
+        update_judge_confirm__23TShopJudgmentItemWindowFPv((u8 *)(arg0));
         return;
     case 5:
         update__23TShopJudgmentItemWindowFPv(arg0);
         return;
     case 6:
-        TShopJudgmentItemWindow__sub_8022072C((u8 *)(arg0));
+        handle_pay_confirm__23TShopJudgmentItemWindowFPv((u8 *)(arg0));
         return;
     case 7:
-        TShopJudgmentItemWindow__sub_802209D8((u8 *)(arg0));
+        handle_equip_prompt__23TShopJudgmentItemWindowFPv((u8 *)(arg0));
         return;
     case 10:
         invoke_callback_170_and_destroy__23TShopJudgmentItemWindowFPv(arg0);

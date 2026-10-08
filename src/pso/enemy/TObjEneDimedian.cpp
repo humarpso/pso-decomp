@@ -136,9 +136,9 @@ extern "C" void TObjPlayer__sub_800A78B8();
 extern "C" void TObjPlayer__sub_800A7988();
 extern "C" void TObjPlayer__sub_800A7A14();
 extern "C" void TObjPlayer__sub_800A7BEC();
-extern "C" void TObjPlayer__sub_800A7CA4();
+extern "C" void draw_actor_model__10TObjPlayerFPv();
 extern "C" void TObjPlayer__sub_800C53B4();
-extern "C" void TObjPlayer__sub_800C5B10();
+extern "C" void update_turn_toward_target__10TObjPlayerFPv();
 extern "C" void TObjPlayer__sub_800F65D0();
 extern "C" void TObjPlayer__sub_800F673C();
 extern "C" void add_actor_exp();
@@ -279,7 +279,7 @@ void *lbl_80490E68[33] = {
 };
 void *lbl_80490EEC[103] = {
     (void *)0x0, (void *)0x0, (void *)&TObjPlayer__sub_800A846C, (void *)&run_task__12TObjEneBeastFPv,
-    (void *)&TObjPlayer__sub_800A7CA4, (void *)&render_actor_shadows_default, (void *)&TLobby__sub_801A1FD8, (void *)&apply_object_set_data,
+    (void *)&draw_actor_model__10TObjPlayerFPv, (void *)&render_actor_shadows_default, (void *)&TLobby__sub_801A1FD8, (void *)&apply_object_set_data,
     (void *)&reset_actor_action_state, (void *)&get_actor_body_center, (void *)&update_object_view_visibility, (void *)&classify_actor_view_detail,
     (void *)&get_enemy_name__14TObjEnePanarmsFPv, (void *)&TObjPlayer__sub_80019568, (void *)&add_actor_exp, (void *)&TObjPlayer__sub_800111D8,
     (void *)&get_actor_level_index, (void *)&update_actor_ground_y, (void *)&TObjPlayer__sub_80018E6C, (void *)&is_actor_cadence_frame,
@@ -299,7 +299,7 @@ void *lbl_80490EEC[103] = {
     (void *)&enemy_spawn_zalure_effect, (void *)&TObjPlayer__sub_80010A80, (void *)&TObjPlayer__sub_800F65D0, (void *)&fn_80010EC8,
     (void *)&fn_80010EC4, (void *)&fn_80010EC0, (void *)&fn_80010EBC, (void *)&call_vt78__10TObjPlayerFPv,
     (void *)&TObjPlayer__sub_800F673C, (void *)&apply_set_data__9TObjEnemyFPvPv, (void *)&fn_800F5D80, (void *)&TObjPlayer__sub_800A7BEC,
-    (void *)&beast_idle_update, (void *)&TObjPlayer__sub_800C5B10, (void *)&beast_update_approach, (void *)&beast_update_group_chase,
+    (void *)&beast_idle_update, (void *)&update_turn_toward_target__10TObjPlayerFPv, (void *)&beast_update_approach, (void *)&beast_update_group_chase,
     (void *)&beast_update_attack, (void *)&TObjPlayer__sub_800C53B4, (void *)&beast_update_hurt, (void *)&beast_update_dead,
     (void *)&set_dead_and_check_destroy__10TObjPlayerFPv, (void *)&TObjPlayer__sub_800A7A14, (void *)&TObjPlayer__sub_800A7988, (void *)&play_hit_sound__10TObjPlayerFi,
     (void *)&TObjPlayer__sub_800A78B8, (void *)&TObjPlayer__sub_800A786C, (void *)&TObjPlayer__sub_800A7820, (void *)&TObjPlayer__sub_800A77D4,
@@ -376,7 +376,7 @@ void free_boss_objects__15TObjEneDimedianFv(void) {
 #define lbl_80490E68 ((Part_800A8118 *)lbl_80490E68)
 #define CHAIN_800A8118(p) M2C_FIELD(M2C_FIELD(M2C_FIELD(M2C_FIELD(M2C_FIELD(p, u8 *, 0x2C), u8 *, 0x30), u8 *, 0x30), u8 *, 4), s32, 4)
 
-void TLobby__sub_800A8118(void) {
+void load_dimedian_resources__6TLobbyFv(void) {
     u8 *r;
     void *p;
     s32 i;

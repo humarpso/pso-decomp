@@ -55,7 +55,7 @@ struct Table_8006F38C {
 extern "C" {
 s32 get_layout_id__20TWindowSubStatusDispFv(int);
 s32 TWindowSubStatusDisp__sub_8006F0D8(void *, int);
-s32 TWindowSubStatusDisp__sub_8006F190(int);
+s32 resolve_player_slot__20TWindowSubStatusDispFi(int);
 s32 is_id_out_of_range__6TLobbyFi(s32 arg0);
 s32 mix_seed_checked__6TLobbyFi(void *);
 u32 get_card_window__17TWindowSubComCardFUi(int);
@@ -66,9 +66,9 @@ extern RecoveredGlobal_8006F848_lbl_804FF800 lbl_804FF800;
 void TLobby__sub_8006F848(s32 arg0);
 s32 decode_slot__6TLobbyFUi(u32 id);
 s32 is_id_out_of_range__6TLobbyFi(s32 arg0);
-s32 TLobby__sub_8006F994(int id);
+s32 get_valid_slot__6TLobbyFi(int id);
 void TLobby__sub_8006F910(u8 *dst, u8 *src, s32 n);
-s32 TWindowSubStatusDisp__sub_8006F190(int);
+s32 resolve_player_slot__20TWindowSubStatusDispFi(int);
 s16 TLobby__sub_80071640(int);
 u32 get_card_window__17TWindowSubComCardFUi(int);
 s32 strncmp(void *, void *, int);
@@ -147,7 +147,7 @@ void TLobby__sub_8006F48C(void) {
     s32 i;
     Entry_8006F48C *e;
     win = (Win_8006F48C *)get_card_window__17TWindowSubComCardFUi(0xFFFF);
-    if (TWindowSubStatusDisp__sub_8006F190(-1) != 0) {
+    if (resolve_player_slot__20TWindowSubStatusDispFi(-1) != 0) {
         return;
     }
     if (TBL_8006F48C.defaultName[0] == 0) {
@@ -189,13 +189,13 @@ s32 TLobby__sub_8006F5B0(s32 arg0) {
     temp_r30 = lbl_8048C9D8.value * 4;
     temp_r3_3 = M2C_FIELD(temp_r3_2, M2C_UNK *, temp_r30);
     if (temp_r3_3 == 0) {
-        if (TWindowSubStatusDisp__sub_8006F190((int) (-1)) == 0) {
+        if (resolve_player_slot__20TWindowSubStatusDispFi((int) (-1)) == 0) {
             TLobby__sub_8006F48C();
         }
         var_r28 = 1;
         goto block_12;
     }
-    temp_r3_4 = TLobby__sub_8006F994((int)((int) (temp_r3_3)));
+    temp_r3_4 = get_valid_slot__6TLobbyFi((int)((int) (temp_r3_3)));
     if (is_id_out_of_range__6TLobbyFi((s32)((int) (temp_r3_4))) != 0) {
         M2C_FIELD(temp_r3_2, M2C_UNK *, temp_r30) = 0;
         return 0;
@@ -265,7 +265,7 @@ void TLobby__sub_8006F910(u8 *dst, u8 *src, s32 n) {
     *dst = 0;
 }
 
-s32 TLobby__sub_8006F994(int id) {
+s32 get_valid_slot__6TLobbyFi(int id) {
     s32 slot;
     if (id == 0) {
         return 0;

@@ -71,7 +71,7 @@ void *load_resource_from_descriptor(void *, s32, void *, s32, s32, s32);
 void *alloc__23TAdSinglePlyChrSelectGCFPv(u32);
 void *alloc_buffer__11TOBoss4RockFPv(u32);
 s32 load_gvm_texture_file(void *);
-s32 TContainerAncient01__sub_8020335C(void);
+s32 is_global_state_in_table__19TContainerAncient01Fv(void);
 s32 get_global_state__14TOKeyMachine01Fv(void);
 extern char lbl_80441D04[];
 extern char lbl_80441D24[];
@@ -179,7 +179,7 @@ void load_resources__14TOKeyGenericSwFv(void) {
     u8 *base = lbl_804B2CC0;
     s32 st = get_global_state__14TOKeyMachine01Fv();
     void *p;
-    if (TContainerAncient01__sub_8020335C() == 1 || st == 0x1C || st == 0x1D) {
+    if (is_global_state_in_table__19TContainerAncient01Fv() == 1 || st == 0x1C || st == 0x1D) {
         p = alloc__23TAdSinglePlyChrSelectGCFPv(0x440);
         if (p != NULL) {
             p = load_resource_from_descriptor(p, 1, base + 0x40, 0, 0, 0);

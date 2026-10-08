@@ -166,7 +166,7 @@ void TBoss2DeRolLe__sub_80034FDC(u8 *arg0);
 s32 VecCopy__FP3VecPC3Vec(s32, s32);
 extern RecoveredGlobal_80034C90_lbl_8043567C lbl_8043567C;
 extern const f32 TBoss2DeRolLe__data_805D827C;
-void TBoss2DeRolLe__sub_80034C90(u8 *arg0, s32 arg1);
+void set_position_index__13TBoss2DeRolLeFPvi(u8 *arg0, s32 arg1);
 s32 VecCopy__FP3VecPC3Vec(s32, s32);
 f32 clamp_velocity__15TObjBoss2TunnelFPv(void *);
 f32 subtract_vector(void *, void *);
@@ -175,13 +175,13 @@ void TBoss2DeRolLe__sub_80034C2C(u8 *arg0, s32 arg1);
 s32 bind_motion_context(int, f32);
 s32 compose_motion_node_matrix(int);
 s32 matrix_mult_vec(int, void *, void *);
-s32 TObjPlayer__sub_803D8CD4(int);
+s32 set_matrix_identity__10TObjPlayerFPv(int);
 s32 push_matrix();
 s32 pop_matrix();
 s32 scale_current_matrix(void *);
 extern const RecoveredGlobal_80034AC8_lbl_804359CC lbl_804359CC;
 extern const f32 TBoss2DeRolLe__data_805D827C;
-void TBoss2DeRolLe__sub_80034AC8(u8 *arg0, u8 *arg1);
+void get_node_world_pos__13TBoss2DeRolLeFPvPv(u8 *arg0, u8 *arg1);
 s32 bind_motion_context(int, f32);
 s32 compose_motion_node_matrix(int);
 s32 matrix_mult_vec(int, void *, void *);
@@ -191,7 +191,7 @@ s32 pop_matrix();
 extern u8 lbl_8058D490[];
 extern const f32 TBoss2DeRolLe__data_805D827C;
 extern const f32 TBoss2DeRolLe__data_805D82A0;
-f32 TBoss2DeRolLe__sub_80034B60(Obj_80034B60 *self);
+f32 calc_node_height__13TBoss2DeRolLeFPv(Obj_80034B60 *self);
 s32 reload_stats_keep_hp_tp__9TObjEneDDFPv(void *, s32, s32, s32);
 extern s32 lbl_804FE300[];
 extern s32 TBoss2DeRolLe__data_805D4B98[2];
@@ -201,7 +201,7 @@ s32 send_6x13__13TBoss2DeRolLeFPv(void *);
 s32 TBoss2DeRolLe__sub_80036358(void *);
 s32 update_and_send__13TBoss2DeRolLeFPv(void *);
 s32 TBoss2DeRolLe__sub_800363A0(void *);
-void TBoss2DeRolLe__sub_80034E90(Obj_80034E90 *self, s32 kind);
+void set_state_and_send__13TBoss2DeRolLeFPvi(Obj_80034E90 *self, s32 kind);
 }
 
 extern "C" {
@@ -254,7 +254,7 @@ extern const f32 TBoss2DeRolLe__data_805D82E4;
 extern const f32 TBoss2DeRolLe__data_805D82FC;
 
 typedef char RecoveredGlobal_80034AC8_lbl_804359CC_size[sizeof(RecoveredGlobal_80034AC8_lbl_804359CC) == 0xC ? 1 : -1];
-void TBoss2DeRolLe__sub_80034AC8(u8 *arg0, u8 *arg1) {
+void get_node_world_pos__13TBoss2DeRolLeFPvPv(u8 *arg0, u8 *arg1) {
     typedef char sp8_offset[(offsetof(Stack_80034AC8, sp8) == 0x0) ? 1 : -1];
     typedef char spC_offset[(offsetof(Stack_80034AC8, spC) == 0x4) ? 1 : -1];
     typedef char sp10_offset[(offsetof(Stack_80034AC8, sp10) == 0x8) ? 1 : -1];
@@ -263,7 +263,7 @@ void TBoss2DeRolLe__sub_80034AC8(u8 *arg0, u8 *arg1) {
     M2C_FIELD(arg1, f32 *, 4) = (f32) (*(const f32 *)&TBoss2DeRolLe__data_805D827C);
     M2C_FIELD(arg1, f32 *, 8) = (f32) (*(const f32 *)&TBoss2DeRolLe__data_805D827C);
     push_matrix();
-    TObjPlayer__sub_803D8CD4((int) (0));
+    set_matrix_identity__10TObjPlayerFPv((int) (0));
     stack.sp8 = M2C_FIELD(&lbl_804359CC.value, s32 *, 0);
     stack.spC = M2C_FIELD(&lbl_804359CC.value, s32 *, 4);
     stack.sp10 = M2C_FIELD(&lbl_804359CC.value, s32 *, 8);
@@ -274,7 +274,7 @@ void TBoss2DeRolLe__sub_80034AC8(u8 *arg0, u8 *arg1) {
     pop_matrix();
 }
 
-f32 TBoss2DeRolLe__sub_80034B60(Obj_80034B60 *self) {
+f32 calc_node_height__13TBoss2DeRolLeFPv(Obj_80034B60 *self) {
     Vec3_80034B60 v;
     v.x = TBoss2DeRolLe__data_805D827C;
     v.y = TBoss2DeRolLe__data_805D827C;
@@ -316,7 +316,7 @@ void TBoss2DeRolLe__sub_80034C2C(u8 *arg0, s32 arg1) {
 }
 #pragma pop
 
-void TBoss2DeRolLe__sub_80034C90(u8 *arg0, s32 arg1) {
+void set_position_index__13TBoss2DeRolLeFPvi(u8 *arg0, s32 arg1) {
     VecCopy__FP3VecPC3Vec((s32)(arg0 + 0x38), (s32)((u8 *)&lbl_8043567C.value + (arg1 * 0xC)));
     M2C_FIELD(arg0, f32 *, 0x6A4) = (f32) (*(const f32 *)&TBoss2DeRolLe__data_805D827C);
     M2C_FIELD(arg0, s32 *, 0x64) = 0;
@@ -384,7 +384,7 @@ void TBoss2DeRolLe__sub_80034E00(void *self, s32 kind) {
     reload_stats_keep_hp_tp__9TObjEneDDFPv(self, TBoss2DeRolLe__data_805D4B98[a], lbl_804FE300[i], TBoss2DeRolLe__data_805D4B9C[b]);
 }
 
-void TBoss2DeRolLe__sub_80034E90(Obj_80034E90 *self, s32 kind) {
+void set_state_and_send__13TBoss2DeRolLeFPvi(Obj_80034E90 *self, s32 kind) {
     Pkt16_80034E90 p16;
     Pkt8_80034E90 p8;
     Fld_80034E90 *f = (Fld_80034E90 *)self;

@@ -15,7 +15,7 @@ void TLobby__sub_8006F2CC(void);
 extern "C" {
 
 s32 calc_challenge_time_limit__6TLobbyFv(void);
-s32 TLobby__sub_8006F994(s32);
+s32 get_valid_slot__6TLobbyFi(s32);
 s32 is_flag_set__6TLobbyFv();
 
 extern M2C_UNK lbl_8048C9D8[];
@@ -26,7 +26,7 @@ s32 calc_challenge_time_limit__6TLobbyFv(void) {
     if (is_flag_set__6TLobbyFv() == 0) {
         return 0x12C;
     }
-    var_r3 = TLobby__sub_8006F994(M2C_FIELD(lbl_8048C9D8, s32 *, 0x10));
+    var_r3 = get_valid_slot__6TLobbyFi(M2C_FIELD(lbl_8048C9D8, s32 *, 0x10));
     if ((var_r3 < 0x3C) || (var_r3 > 0xE10)) {
         var_r3 = 0x12C;
     }

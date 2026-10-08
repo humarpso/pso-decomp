@@ -54,7 +54,7 @@ f32 get_split_offset__11TCameraCtrlFi(s32);
 f32 get_fov__11TCameraCtrlFv();
 f32 get_view_scale__11TCameraCtrlFv();
 Vec2_8024EC34 *TWindowKeyBoardSoft__sub_8024ECDC(s32);
-void TWindowKeyBoardSoft__sub_8024EC34(Vec2_8024EC34 *arg0, s32 arg1);
+void adjust_pos_for_split_screen__19TWindowKeyBoardSoftFPvi(Vec2_8024EC34 *arg0, s32 arg1);
 s32 get_camera_id__11TCameraCtrlFv();
 Vec2_8024EC34 *get_zero_vec2();
 extern Vec2_8024EC34 lbl_8044EC70[];
@@ -69,7 +69,7 @@ s32 is_split_screen();
 f32 get_fov__11TCameraCtrlFv();
 f32 get_view_scale__11TCameraCtrlFv();
 s32 get_camera_no__11TCameraCtrlFv();
-void TWindowKeyBoardSoft__sub_8024EC34(Vec2_8024EC34 *arg0, s32 arg1);
+void adjust_pos_for_split_screen__19TWindowKeyBoardSoftFPvi(Vec2_8024EC34 *arg0, s32 arg1);
 extern u32 lbl_805D6420;
 extern const float lbl_805DCC94;
 extern const f32 lbl_805DCC98;
@@ -246,7 +246,7 @@ u32 init_text_window_layout(Win_8024EA50 *win, f32 *pos, f32 *size, f32 *scale, 
     if (!(flags & 0x1000) && is_split_screen() != 0) {
         cam = get_camera_no__11TCameraCtrlFv();
         if (cam != 100) {
-            TWindowKeyBoardSoft__sub_8024EC34(&win->c, cam);
+            adjust_pos_for_split_screen__19TWindowKeyBoardSoftFPvi(&win->c, cam);
             win->sx = win->sx / get_view_scale__11TCameraCtrlFv();
             win->sy = win->sy / get_fov__11TCameraCtrlFv();
         }
@@ -265,7 +265,7 @@ u32 init_text_window_layout(Win_8024EA50 *win, f32 *pos, f32 *size, f32 *scale, 
 }
 #pragma pop
 
-void TWindowKeyBoardSoft__sub_8024EC34(Vec2_8024EC34 *arg0, s32 arg1) {
+void adjust_pos_for_split_screen__19TWindowKeyBoardSoftFPvi(Vec2_8024EC34 *arg0, s32 arg1) {
     Vec2_8024EC34 *p;
     if (is_split_screen() == 0 || arg1 == 0x64) {
         return;

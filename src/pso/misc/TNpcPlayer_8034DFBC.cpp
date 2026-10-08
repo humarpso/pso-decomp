@@ -171,7 +171,7 @@ char *strcpy(char *, const char *);
 u32 strlen(const char *);
 extern const char lbl_805DFDF0[4];
 void set_partner_common_remark(s32 kind, const char *text);
-void TNpcPlayer__sub_8034E7A0(s32 arg0);
+void send_inter_level_warp_all__10TNpcPlayerFi(s32 arg0);
 void VecCopy__FP3VecPC3Vec(void *, void *);
 s32 obj_isState3_324();
 s32 obj_testFlags30(void *, int);
@@ -413,7 +413,7 @@ void apply_to_players__10TNpcPlayerFiPvi(s32 arg0, void *arg1, s32 arg2) {
         var_r31 += 1;
     } while (var_r31 < 4);
 }
-void TNpcPlayer__sub_8034E7A0(s32 arg0) {
+void send_inter_level_warp_all__10TNpcPlayerFi(s32 arg0) {
     s32 i;
     s32 player;
 

@@ -15,7 +15,7 @@ extern u8 lbl_804B636C[];
 extern u8 lbl_804B63AC[];
 extern u32 lbl_805D5B88;
 extern u32 lbl_805D5B8C;
-void TLobby__sub_8018A28C(void);
+void load_console_resources__6TLobbyFv(void);
 }
 
 extern "C" {
@@ -39,7 +39,7 @@ void free_chr_select_slot__6TLobbyFv(void) {
         lbl_805D5B88 = 0U;
     }
 }
-void TLobby__sub_8018A28C(void) {
+void load_console_resources__6TLobbyFv(void) {
     void *p;
     lbl_805D5B88 = 0;
     switch (get_global_state__14TOKeyMachine01Fv()) {

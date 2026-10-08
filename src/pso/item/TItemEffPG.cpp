@@ -49,7 +49,7 @@ extern s32 lbl_805D5668;
 extern s32 lbl_805D7780;
 extern s32 lbl_805D7784;
 extern s32 some_id_805c6f74;
-void TItemEffPG__sub_8034FA5C(u8 *arg0);
+void draw_effect_models__10TItemEffPGFPv(u8 *arg0);
 }
 
 extern "C" {
@@ -94,7 +94,7 @@ void TItemEffPG__sub_8034FA50(void* p) { *(s32*)((char*)p + 0x58) = 1; }
 
 extern M2C_UNK lbl_804F0BF0[];
 
-void TItemEffPG__sub_8034FA5C(u8 *arg0) {
+void draw_effect_models__10TItemEffPGFPv(u8 *arg0) {
     if (all_parents_unqueued_for_destruction__7TObjectFv() == 0 || query_game_join_id__10TObjPlayerFv((int) (M2C_FIELD(arg0, s32 *, 0x1C))) == 0U) {
         return;
     }

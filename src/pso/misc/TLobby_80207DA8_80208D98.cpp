@@ -18,7 +18,7 @@ extern Area_80208E8C *TLobby__data_805D6068;
 extern u8 lbl_8044BAC8[];
 extern s32 lbl_805D6094;
 extern M2C_UNK lbl_805139F8[];
-void TLobby__sub_801317E4(Buf_80208E8C *, void *, void *);
+void replace_file_extension__6TLobbyFPvPvPv(Buf_80208E8C *, void *, void *);
 s32 update_lobby_scene__6TSceneFPv(Buf_80208E8C *);
 s32 heap_alloc__5THeapFUl(s32, s32);
 void read_disc_file(Buf_80208E8C *, void *);
@@ -81,7 +81,7 @@ s32 load_area_event_set(s32 floor, s32 area, s32 terrain, s32 entities) {
     if (TLobby__data_805D6068[area].terrs[terrain].ents == 0 || TLobby__data_805D6068[area].terrs[terrain].count - 1 < entities) {
         return 0;
     }
-    TLobby__sub_801317E4(&buf, TLobby__data_805D6068[area].terrs[terrain].ents[entities].data, lbl_8044BAC8);
+    replace_file_extension__6TLobbyFPvPvPv(&buf, TLobby__data_805D6068[area].terrs[terrain].ents[entities].data, lbl_8044BAC8);
     n = update_lobby_scene__6TSceneFPv(&buf);
     if (n > 0) {
         p = ((void *)heap_alloc__5THeapFUl((s32)((*(void * *)&lbl_805D6094)), (s32)(n)));

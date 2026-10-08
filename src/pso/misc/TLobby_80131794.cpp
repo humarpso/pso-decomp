@@ -10,11 +10,11 @@ int TLobby__sub_8013194C(const char *s, const char *ext);
 char *strcat(char *, const char *);
 char *strncpy(char *, const char *, u32);
 void *memset(void *, int, u32);
-s32 TLobby__sub_801317E4(char *arg0, char *arg1, char *arg2);
+s32 replace_file_extension__6TLobbyFPvPvPv(char *arg0, char *arg1, char *arg2);
 char *strcat(char *, const char *);
 char *strncpy(char *, const char *, u32);
 extern char lbl_805DB070;
-s32 TLobby__sub_8013189C(char *arg0, char *arg1, char *arg2);
+s32 change_file_extension__6TLobbyFPvPvPv(char *arg0, char *arg1, char *arg2);
 }
 
 extern "C" {
@@ -31,7 +31,7 @@ s32 window_request_show(void * a0 = 0);
 
 void debug_print__6TLobbyFii(s32 arg0, ...) {}
 
-s32 TLobby__sub_801317E4(char *arg0, char *arg1, char *arg2) {
+s32 replace_file_extension__6TLobbyFPvPvPv(char *arg0, char *arg1, char *arg2) {
     char buf[0x20];
     char *p;
     s32 n;
@@ -57,7 +57,7 @@ s32 TLobby__sub_801317E4(char *arg0, char *arg1, char *arg2) {
     return 0;
 }
 
-s32 TLobby__sub_8013189C(char *arg0, char *arg1, char *arg2) {
+s32 change_file_extension__6TLobbyFPvPvPv(char *arg0, char *arg1, char *arg2) {
     char buf[0x20];
     char *p;
     s32 n;

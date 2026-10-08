@@ -544,7 +544,7 @@ void *__dt__12TObjEneReconFv(void *arg0, s16 arg1) {
 
 #pragma push
 #pragma fp_contract on
-void TObjEneRecon__sub_8031E33C(u8 *arg0) {
+void init_state__12TObjEneReconFPv(u8 *arg0) {
     f32 temp_f1;
     s32 temp_r5;
     u8 *temp_r6;

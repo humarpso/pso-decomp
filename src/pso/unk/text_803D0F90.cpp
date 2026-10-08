@@ -46,24 +46,24 @@ struct SJIf_803D1A98 {
 struct SJ_803D1A98 { SJIf_803D1A98 *vt; };
 
 extern "C" {
-void TLobby__sub_803D0DEC(const char *fmt, ...);
+void log_printf__6TLobbyFPvi(const char *fmt, ...);
 extern char lbl_8047DCF0[];
 s32 TLobby__sub_803D0F90(Obj_803D0F90 *p);
-void TLobby__sub_803D0DEC(const char *fmt, ...);
+void log_printf__6TLobbyFPvi(const char *fmt, ...);
 extern char lbl_8047DCF0[];
 s32 TLobby__sub_803D13C0(Obj_803D13C0 *p);
 s32 OSRestoreInterrupts(s32 level);
 extern volatile s32 lbl_805D7638;
 extern s32 lbl_805D763C;
-void TLobby__sub_803D1FD4(void);
-void TLobby__sub_803D0DEC(const char *fmt, ...);
+void restore_interrupts_nested__6TLobbyFv(void);
+void log_printf__6TLobbyFPvi(const char *fmt, ...);
 extern char lbl_8047DCF0[];
 extern char lbl_8047DD14[];
 void TLobby__sub_803D0FD0(S_803D0FD0 *arg0, s32 arg1);
-void TLobby__sub_803D0DEC(const char *fmt, ...);
+void log_printf__6TLobbyFPvi(const char *fmt, ...);
 extern char lbl_8047DCF0[];
 s32 TLobby__sub_803D1400(S_803D1400 *arg0);
-void TLobby__sub_803D0DEC(const char *fmt, ...);
+void log_printf__6TLobbyFPvi(const char *fmt, ...);
 extern char lbl_8047DCF0[];
 extern char lbl_8047DD58[];
 s32 TLobby__sub_803D1330(Obj_803D1330 *arg0, s32 arg1);
@@ -75,39 +75,39 @@ void *memset(void *dst, int val, unsigned long n);
 extern Ent_803D1C24 lbl_80583058[];
 extern s32 lbl_805D7630;
 void TLobby__sub_803D1C24(void);
-void TLobby__sub_803D0DEC(const char *fmt, ...);
+void log_printf__6TLobbyFPvi(const char *fmt, ...);
 extern char lbl_8047DCF0[];
 extern char lbl_8047DD34[];
 s32 TLobby__sub_803D1134(Obj_803D1134 *arg0, s32 arg1);
-void TLobby__sub_803D0DEC(const char *fmt, ...);
+void log_printf__6TLobbyFPvi(const char *fmt, ...);
 extern char lbl_8047DCF0[];
 extern char lbl_8047DD34[];
 u8 *TLobby__sub_803D1234(Obj_803D1234 *arg0, s32 arg1);
-void TLobby__sub_803D0DEC(const char *fmt, ...);
+void log_printf__6TLobbyFPvi(const char *fmt, ...);
 extern char lbl_8047DCF0[];
 extern char lbl_8047DD34[];
 s32 TLobby__sub_803D1034(Obj_803D1034 *arg0, s32 arg1);
 void TLobby__sub_803C89C4(void *);
 void TLobby__sub_803C8B38(void *);
-void TLobby__sub_803D0DEC(const char *fmt, ...);
+void log_printf__6TLobbyFPvi(const char *fmt, ...);
 void notify_dvd_read__6TLobbyFv(void);
 void enter_lock__6TLobbyFv(void);
 extern char lbl_8047DCF0[];
-void TLobby__sub_803D158C(Obj_803D158C *o);
-void TLobby__sub_803D0DEC(const char *fmt, ...);
+void reset_lsc_state__6TLobbyFPv(Obj_803D158C *o);
+void log_printf__6TLobbyFPvi(const char *fmt, ...);
 void notify_dvd_read__6TLobbyFv(void);
 void enter_lock__6TLobbyFv(void);
 extern Ent_803D1C24 lbl_80583058[];
 extern char lbl_8047DDB8[];
 extern char lbl_8047DDE4[];
-Obj_803D1A98 *TLobby__sub_803D1A98(SJ_803D1A98 *sj);
+Obj_803D1A98 *lsc_create__6TLobbyFPv(SJ_803D1A98 *sj);
 }
 
 extern "C" {
 
 s32 TLobby__sub_803D0F90(Obj_803D0F90 *p) {
     if (p == 0) {
-        TLobby__sub_803D0DEC(lbl_8047DCF0);
+        log_printf__6TLobbyFPvi(lbl_8047DCF0);
         return -1;
     }
     return p->val;
@@ -115,11 +115,11 @@ s32 TLobby__sub_803D0F90(Obj_803D0F90 *p) {
 
 void TLobby__sub_803D0FD0(S_803D0FD0 *arg0, s32 arg1) {
     if (arg0 == 0) {
-        TLobby__sub_803D0DEC(lbl_8047DCF0);
+        log_printf__6TLobbyFPvi(lbl_8047DCF0);
         return;
     }
     if (arg1 < 0 || arg1 > arg0->b) {
-        TLobby__sub_803D0DEC(lbl_8047DD14);
+        log_printf__6TLobbyFPvi(lbl_8047DD14);
         return;
     }
     arg0->a = arg1;
@@ -128,7 +128,7 @@ void TLobby__sub_803D0FD0(S_803D0FD0 *arg0, s32 arg1) {
 s32 TLobby__sub_803D1034(Obj_803D1034 *arg0, s32 arg1) {
     s32 i;
     if (arg0 == 0) {
-        TLobby__sub_803D0DEC(lbl_8047DCF0);
+        log_printf__6TLobbyFPvi(lbl_8047DCF0);
         return 0;
     }
     for (i = 0; i < 16; i++) {
@@ -137,7 +137,7 @@ s32 TLobby__sub_803D1034(Obj_803D1034 *arg0, s32 arg1) {
         }
     }
     if (i == 16) {
-        TLobby__sub_803D0DEC(lbl_8047DD34);
+        log_printf__6TLobbyFPvi(lbl_8047DD34);
         return 0;
     }
     return arg0->recs[i].val;
@@ -146,7 +146,7 @@ s32 TLobby__sub_803D1034(Obj_803D1034 *arg0, s32 arg1) {
 s32 TLobby__sub_803D1134(Obj_803D1134 *arg0, s32 arg1) {
     s32 i;
     if (arg0 == 0) {
-        TLobby__sub_803D0DEC(lbl_8047DCF0);
+        log_printf__6TLobbyFPvi(lbl_8047DCF0);
         return -1;
     }
     for (i = 0; i < 16; i++) {
@@ -155,7 +155,7 @@ s32 TLobby__sub_803D1134(Obj_803D1134 *arg0, s32 arg1) {
         }
     }
     if (i == 16) {
-        TLobby__sub_803D0DEC(lbl_8047DD34);
+        log_printf__6TLobbyFPvi(lbl_8047DD34);
         return -1;
     }
     return arg0->recs[i].val;
@@ -164,7 +164,7 @@ s32 TLobby__sub_803D1134(Obj_803D1134 *arg0, s32 arg1) {
 u8 *TLobby__sub_803D1234(Obj_803D1234 *arg0, s32 arg1) {
     s32 i;
     if (arg0 == 0) {
-        TLobby__sub_803D0DEC(lbl_8047DCF0);
+        log_printf__6TLobbyFPvi(lbl_8047DCF0);
         return 0;
     }
     for (i = 0; i < 16; i++) {
@@ -173,7 +173,7 @@ u8 *TLobby__sub_803D1234(Obj_803D1234 *arg0, s32 arg1) {
         }
     }
     if (i == 16) {
-        TLobby__sub_803D0DEC(lbl_8047DD34);
+        log_printf__6TLobbyFPvi(lbl_8047DD34);
         return 0;
     }
     return arg0->recs[i].body;
@@ -181,11 +181,11 @@ u8 *TLobby__sub_803D1234(Obj_803D1234 *arg0, s32 arg1) {
 
 s32 TLobby__sub_803D1330(Obj_803D1330 *arg0, s32 arg1) {
     if (arg0 == 0) {
-        TLobby__sub_803D0DEC(lbl_8047DCF0);
+        log_printf__6TLobbyFPvi(lbl_8047DCF0);
         return -1;
     }
     if (arg1 < 0 || arg1 >= arg0->count) {
-        TLobby__sub_803D0DEC(lbl_8047DD58);
+        log_printf__6TLobbyFPvi(lbl_8047DD58);
         return -1;
     }
     return arg0->recs[(arg0->head + arg1) % 16].key;
@@ -193,7 +193,7 @@ s32 TLobby__sub_803D1330(Obj_803D1330 *arg0, s32 arg1) {
 
 s32 TLobby__sub_803D13C0(Obj_803D13C0 *p) {
     if (p == 0) {
-        TLobby__sub_803D0DEC(lbl_8047DCF0);
+        log_printf__6TLobbyFPvi(lbl_8047DCF0);
         return -1;
     }
     return p->val;
@@ -201,23 +201,23 @@ s32 TLobby__sub_803D13C0(Obj_803D13C0 *p) {
 
 s32 TLobby__sub_803D1400(S_803D1400 *arg0) {
     if (arg0 == 0) {
-        TLobby__sub_803D0DEC(lbl_8047DCF0);
+        log_printf__6TLobbyFPvi(lbl_8047DCF0);
         return -1;
     }
     return arg0->f;
 }
 
-void TLobby__sub_803D158C(Obj_803D158C *o) {
+void reset_lsc_state__6TLobbyFPv(Obj_803D158C *o) {
     u8 lk0[4];
     u8 lk1[4];
     if (o == 0) {
-        TLobby__sub_803D0DEC(lbl_8047DCF0);
+        log_printf__6TLobbyFPvi(lbl_8047DCF0);
         return;
     }
     ((void (*)(void *))enter_lock__6TLobbyFv)(lk0);
     if (o->state != 0) {
         if (o == 0) {
-            TLobby__sub_803D0DEC(lbl_8047DCF0);
+            log_printf__6TLobbyFPvi(lbl_8047DCF0);
         } else if (o->state != 0) {
             ((void (*)(void *))enter_lock__6TLobbyFv)(lk1);
             o->state = 0;
@@ -231,7 +231,7 @@ void TLobby__sub_803D158C(Obj_803D158C *o) {
             }
             o->x2c = 0;
             if (o == 0) {
-                TLobby__sub_803D0DEC(lbl_8047DCF0);
+                log_printf__6TLobbyFPvi(lbl_8047DCF0);
             } else if (o->state == 0) {
                 o->x1c = 0;
                 o->x20 = 0;
@@ -263,18 +263,18 @@ inline Obj_803D1A98 *find_free_803D1A98(void) {
     }
     return o;
 }
-Obj_803D1A98 *TLobby__sub_803D1A98(SJ_803D1A98 *sj) {
+Obj_803D1A98 *lsc_create__6TLobbyFPv(SJ_803D1A98 *sj) {
     u8 lk[4];
     s32 i;
     Obj_803D1A98 *o;
     if (sj == 0) {
-        TLobby__sub_803D0DEC(lbl_8047DDB8);
+        log_printf__6TLobbyFPvi(lbl_8047DDB8);
         return 0;
     }
     ((void (*)(void *))enter_lock__6TLobbyFv)(lk);
     o = find_free_803D1A98();
     if (o == 0) {
-        TLobby__sub_803D0DEC(lbl_8047DDE4);
+        log_printf__6TLobbyFPvi(lbl_8047DDE4);
     } else {
         o->sj = sj;
         o->state = 0;
@@ -306,7 +306,7 @@ void TLobby__sub_803D1C24(void) {
     ((void (*)(void *))notify_dvd_read__6TLobbyFv)(lock);
 }
 
-void TLobby__sub_803D1FD4(void) {
+void restore_interrupts_nested__6TLobbyFv(void) {
     lbl_805D7638--;
     if (lbl_805D7638 == 0) {
         OSRestoreInterrupts(lbl_805D763C);

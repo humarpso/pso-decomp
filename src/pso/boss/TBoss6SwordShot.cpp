@@ -78,7 +78,7 @@ extern const f32 lbl_805DFFFC;
 extern const f32 lbl_805E0000;
 extern const f32 lbl_805E0004;
 extern const f32 lbl_805E0008;
-s32 TBoss6SwordWave__sub_803564F4(void *arg0);
+s32 spawn_wave_ring_particles__15TBoss6SwordWaveFPv(void *arg0);
 s32 VecCopy__FP3VecPC3Vec(void *, void *);
 f64 get_ad_end_text_start__10TObjPlayerFv(f32, f32);
 s32 get_point__10TBoss6RockFiPvPv(s32, void *, void *);
@@ -94,13 +94,13 @@ extern const f64 lbl_804793B0;
 extern const f32 lbl_805DFFE8;
 extern const f32 lbl_805E0004;
 extern s32 lbl_805E000C;
-M2C_UNK TBoss6SwordWave__sub_803567D0(void *a);
+M2C_UNK break_rocks_in_wave__15TBoss6SwordWaveFPv(void *a);
 s32 VecCopy__FP3VecPC3Vec(void *, void *);
 VObj_8035663C *get_player_data__10TObjPlayerFi(s32);
 f64 get_ad_end_text_start__10TObjPlayerFv(f32, f32);
 s32 get_game_mode__6TLobbyFv();
 s32 is_active__14TBoss6PlotFalzFPv();
-s32 TBoss6PlotFalz__sub_802AB5B4(s32, f32);
+s32 rand_vary_count__14TBoss6PlotFalzFif(s32, f32);
 s32 get_rotation_timer__11TBoss6Type2FPv(int);
 u8 TBoss6SwordWave__sub_80356C80(s32 arg0, u8 arg1);
 u8 TBoss6SwordWave__sub_80356D08(u32 arg1, u32 arg2);
@@ -109,7 +109,7 @@ M2C_UNK subtract_vector(void *, void *);
 extern const f64 lbl_804793B0;
 extern const f32 lbl_805DFFE8;
 extern const f32 lbl_805DFFEC;
-M2C_UNK TBoss6SwordWave__sub_8035663C(void *a);
+M2C_UNK check_player_hits__15TBoss6SwordWaveFPv(void *a);
 }
 struct Pair_803561C4 { s32 a; f32 b; };
 struct VBase_18_ec708a { char pad[0x18]; };
@@ -161,7 +161,7 @@ void fn_803561C4(u8 *arg0) {
             subtract_vector(&v, arg0 + 0x20);
             v.y = lbl_805DFFE8;
             if (!(vector_length(&v) > M2C_FIELD(arg0, f32 *, 0x2C))) {
-                s32 r = TBoss6PlotFalz__sub_802AB5B4(M2C_FIELD(arg0, s32 *, 0x34), lbl_805DFFEC);
+                s32 r = rand_vary_count__14TBoss6PlotFalzFif(M2C_FIELD(arg0, s32 *, 0x34), lbl_805DFFEC);
                 Pair_803561C4 pr;
                 pr.a = 0;
                 pr.b = (f32)r;
@@ -291,7 +291,7 @@ void render__15TBoss6SwordWaveFv(void);
 
 #pragma push
 #pragma fp_contract on
-s32 TBoss6SwordWave__sub_803564F4(void *arg0) {
+s32 spawn_wave_ring_particles__15TBoss6SwordWaveFPv(void *arg0) {
     Wave_803564F4 *o = (Wave_803564F4 *)arg0;
     f32 d;
     f32 f;
@@ -325,7 +325,7 @@ s32 TBoss6SwordWave__sub_803564F4(void *arg0) {
 
 struct W_80356D10;
 
-M2C_UNK TBoss6SwordWave__sub_8035663C(void *a) {
+M2C_UNK check_player_hits__15TBoss6SwordWaveFPv(void *a) {
     s32 n;
     s32 i;
     VObj_8035663C *pl;
@@ -355,7 +355,7 @@ M2C_UNK TBoss6SwordWave__sub_8035663C(void *a) {
                 v = (s32)((f32)v * M2C_FIELD(arg0, f32 *, 0x60));
             }
             Pair_8035663C pr;
-            s32 r = TBoss6PlotFalz__sub_802AB5B4(v, lbl_805DFFEC);
+            s32 r = rand_vary_count__14TBoss6PlotFalzFif(v, lbl_805DFFEC);
             pr.a = 0;
             pr.b = (f32)r;
             pl->m21(M2C_FIELD(arg0, s32 *, 0x1C), pr, 0, -1, -1);
@@ -363,7 +363,7 @@ M2C_UNK TBoss6SwordWave__sub_8035663C(void *a) {
     }
 }
 
-M2C_UNK TBoss6SwordWave__sub_803567D0(void *a) {
+M2C_UNK break_rocks_in_wave__15TBoss6SwordWaveFPv(void *a) {
     Vec_803567D0 pt;
     Vec_803567D0 d;
     Vec_803567D0 va;
@@ -429,10 +429,10 @@ void render__15TBoss6SwordWaveFv(void) {  }
 void run_task__15TBoss6SwordWaveFv(u8 *arg0) {
     f32 temp_f1;
     if (query_teammate_state__9TObjEneDDFPv() == 0) {
-        TBoss6SwordWave__sub_803567D0((void *)((void *) (arg0)));
-        TBoss6SwordWave__sub_8035663C((void *)((void *) (arg0)));
+        break_rocks_in_wave__15TBoss6SwordWaveFPv((void *)((void *) (arg0)));
+        check_player_hits__15TBoss6SwordWaveFPv((void *)((void *) (arg0)));
         if (M2C_FIELD(arg0, f32 *, 0x58) < lbl_805E0010) {
-            TBoss6SwordWave__sub_803564F4((void *)((void *) (arg0)));
+            spawn_wave_ring_particles__15TBoss6SwordWaveFPv((void *)((void *) (arg0)));
         }
         M2C_FIELD(arg0, f32 *, 0x58) = (f32) (M2C_FIELD(arg0, f32 *, 0x58) + lbl_805E0010);
         temp_f1 = M2C_FIELD(arg0, f32 *, 0x58);

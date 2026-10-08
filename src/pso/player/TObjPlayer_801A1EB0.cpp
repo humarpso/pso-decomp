@@ -24,7 +24,7 @@ extern "C" {
 void TLobby__sub_801A1FD8(void);
 u16 get_or_assign_actor_id(void *arg0, s32 arg1);
 s16 get_stat_by_key_state__10TObjPlayerFPv(void *arg0);
-s32 TContainerAncient01__sub_8020335C(void);
+s32 is_global_state_in_table__19TContainerAncient01Fv(void);
 u16 TLobby__sub_801A20C8(s32);
 int TObjRoomId__sub_801A1E2C(void);
 u16 fn_801A210C(s32);
@@ -38,7 +38,7 @@ s16 get_stat_by_key_state__10TObjPlayerFPv(void *arg0) {
     }
     if ((u16) M2C_FIELD(arg0, u16 *, 0x1C) < 0x1000U) {
         temp_r3 = get_global_state__14TOKeyMachine01Fv();
-        if (((u32) (temp_r3 - 1) <= 1U) || (TContainerAncient01__sub_8020335C() != 0) || (temp_r3 == 0xC) || (temp_r3 == 0x20)) {
+        if (((u32) (temp_r3 - 1) <= 1U) || (is_global_state_in_table__19TContainerAncient01Fv() != 0) || (temp_r3 == 0xC) || (temp_r3 == 0x20)) {
             return M2C_FIELD(arg0, s16 *, 0x2E);
         }
         return M2C_FIELD(arg0, s16 *, 0x28);

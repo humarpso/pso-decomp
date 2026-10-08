@@ -753,11 +753,11 @@ int update_trade_window__11TWindowCtrlFPv(void*);
 int handle_controller__11TWindowCtrlFi(void*);
 int TWindowCtrl__sub_8024BB30(void*);
 int update_trade_request_window__11TWindowCtrlFPv(void*);
-int TWindowCtrl__sub_8024BC7C(void*);
+int update_com_card_window__11TWindowCtrlFPv(void*);
 int update_window_visibility__11TWindowCtrlFPv(void*);
 int update_party_status_rows__11TWindowCtrlFPv(void*);
 
-void update__11TWindowCtrlFPv(void* p) { update_party_status_rows__11TWindowCtrlFPv(p); update_window_visibility__11TWindowCtrlFPv(p); TWindowCtrl__sub_8024BC7C(p); update_trade_request_window__11TWindowCtrlFPv(p); TWindowCtrl__sub_8024BB30(p); handle_controller__11TWindowCtrlFi(p); update_trade_window__11TWindowCtrlFPv(p); TWindowCtrl__sub_8024B9C0(p); TWindowCtrl__sub_8024B8A0(p); }
+void update__11TWindowCtrlFPv(void* p) { update_party_status_rows__11TWindowCtrlFPv(p); update_window_visibility__11TWindowCtrlFPv(p); update_com_card_window__11TWindowCtrlFPv(p); update_trade_request_window__11TWindowCtrlFPv(p); TWindowCtrl__sub_8024BB30(p); handle_controller__11TWindowCtrlFi(p); update_trade_window__11TWindowCtrlFPv(p); TWindowCtrl__sub_8024B9C0(p); TWindowCtrl__sub_8024B8A0(p); }
 
 }
 #endif
@@ -1133,14 +1133,14 @@ int update_short_list_request__11TWindowCtrlFPv(void*);
 int show_active_window__11TWindowCtrlFPv(void*);
 int update_main_menu_request__11TWindowCtrlFPv(void*);
 int update_target_info_window__11TWindowCtrlFPv(void* a0 = 0);
-int TWindowCtrl__sub_8024DF5C(void* a0 = 0);
-int TWindowCtrl__sub_8024DFF4(void* a0 = 0);
+int update_child_window_visibility__11TWindowCtrlFPv(void* a0 = 0);
+int update_trade_window_visibility__11TWindowCtrlFPv(void* a0 = 0);
 int fn_8024E0F0(void* a0 = 0);
 void run_all_updates__11TWindowCtrlFPv(void* p);
 void run_task__17TWindowCtrlPlayerFv(void* p);
 void render__17TWindowCtrlPlayerFv(void);
 
-void run_all_updates__11TWindowCtrlFPv(void* p) { TWindowCtrl__sub_8024DFF4(p); TWindowCtrl__sub_8024DF5C(p); update_target_info_window__11TWindowCtrlFPv(p); update_main_menu_request__11TWindowCtrlFPv(p); show_active_window__11TWindowCtrlFPv(p); update_short_list_request__11TWindowCtrlFPv(p); TWindowCtrl__sub_8024DAAC(p); }
+void run_all_updates__11TWindowCtrlFPv(void* p) { update_trade_window_visibility__11TWindowCtrlFPv(p); update_child_window_visibility__11TWindowCtrlFPv(p); update_target_info_window__11TWindowCtrlFPv(p); update_main_menu_request__11TWindowCtrlFPv(p); show_active_window__11TWindowCtrlFPv(p); update_short_list_request__11TWindowCtrlFPv(p); TWindowCtrl__sub_8024DAAC(p); }
 
 }
 #endif

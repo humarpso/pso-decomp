@@ -13,7 +13,7 @@ void run_task__15TAdDrawLineCtrlFv(u8 *arg0);
 void *TAdDrawLineCtrl__ct(void *arg0, void *arg1, void *arg2, f32 farg0);
 void *__nw__7TObjectFUl(int);
 extern u32 lbl_805D49D8;
-u8 *TAdMcSelectGC__sub_80019DA8(s32 arg0, s32 arg1, f32 farg0);
+u8 *create_draw_line_ctrl__13TAdMcSelectGCFiif(s32 arg0, s32 arg1, f32 farg0);
 }
 
 extern "C" {
@@ -86,7 +86,7 @@ void *TAdDrawLineCtrl__ct(void *arg0, void *arg1, void *arg2, f32 farg0) {
     fn_80019B08(arg0, -1);
     return arg0;
 }
-u8 *TAdMcSelectGC__sub_80019DA8(s32 arg0, s32 arg1, f32 farg0) {
+u8 *create_draw_line_ctrl__13TAdMcSelectGCFiif(s32 arg0, s32 arg1, f32 farg0) {
     u8 *temp_r3;
     u8 *var_r0;
     if ((u32) lbl_805D49D8 != 0U) {

@@ -94,7 +94,7 @@ extern Dmg_80049A1C lbl_80436710[];
 extern const f32 lbl_805D8898;
 extern const f32 lbl_805D889C;
 extern const f32 lbl_805D88A0;
-void TBoss3Volopt__sub_80049A1C(u8 *arg0);
+void explode_and_destroy__12TBoss3VoloptFPv(u8 *arg0);
 s32 obj_is_hit_receivable(void *);
 s16 obj_getField1c(void *);
 VObj_80049A1C *get_battle_param__10TObjPlayerFi(s32);
@@ -258,7 +258,7 @@ void TObjPlayer__sub_80049A0C(void* p) { *(u32*)((char*)p + 0x388) &= 0xffefffff
 
 extern s32 some_id_805c6f74;
 
-void TBoss3Volopt__sub_80049A1C(u8 *arg0) {
+void explode_and_destroy__12TBoss3VoloptFPv(u8 *arg0) {
     Dmg_80049A1C d = lbl_80436710[0];
     s32 i;
     VObj_80049A1C *p;

@@ -39,7 +39,7 @@ void debug_printf_at(int, void *, ...);
 extern Pair_80194AEC lbl_80445D94[];
 extern u8 lbl_80445D9C[];
 extern u8 lbl_80445DAC[];
-void TObjMesBase__sub_80194AEC(Mes_80194AEC *arg0);
+void debug_draw_label__11TObjMesBaseFPv(Mes_80194AEC *arg0);
 }
 
 extern "C" {
@@ -79,7 +79,7 @@ s32 update_object_view_visibility(s32, f32, f32);
 
 extern "C" {
 
-void TObjMesBase__sub_80194AEC(Mes_80194AEC *arg0) {
+void debug_draw_label__11TObjMesBaseFPv(Mes_80194AEC *arg0) {
     arg0->fB4 = arg0->f84;
     arg0->fB8 = arg0->f8C;
     if (arg0->fB8 < 0) {
@@ -183,7 +183,7 @@ s32 TMotorcycle__vt8(s32 arg0, f32 farg0, f32 farg1) {
     return update_object_view_visibility(arg0, farg0, farg1);
 }
 void TMotorcycle__vt14(Mc_80194EC4 *arg0) {
-    TObjMesBase__sub_80194AEC((Mes_80194AEC *)(arg0));
+    debug_draw_label__11TObjMesBaseFPv((Mes_80194AEC *)(arg0));
     arg0->fBC = (s32)get_random_float__8TObjFishFv(arg0->f68);
     arg0->fBC = arg0->fBC % 2;
     arg0->fBC = lbl_80445DF4[arg0->fBC];

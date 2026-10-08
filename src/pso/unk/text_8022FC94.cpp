@@ -91,7 +91,7 @@ struct Foie_8022FC94
 extern "C" {
 s32 calc_technique_parameters(int, int, int);
 s32 is_technique_ready__8TTecCtrlFv();
-s32 TTecAnti__sub_8022B35C(void *, int);
+s32 copy_params__8TTecAntiFPvPv(void *, int);
 s32 clamp_nonnegative_int(int);
 extern RecoveredGlobal_8022FE84_lbl_804CC510 lbl_804CC510;
 extern RecoveredGlobal_8022FE84_lbl_804CC55C lbl_804CC55C;
@@ -108,7 +108,7 @@ extern void *__vt__8TTecFoie[];
 TTecFoie_80230144 *__dt__8TTecFoieFv(TTecFoie_80230144 *self, s16 deleting);
 s32 attach_particle_model(int, int, int, int, int, f32);
 void set_position_xy__10TObjPlayerFPvff(void *, f32, f32);
-s32 TParticleCtrl__sub_80086884(int);
+s32 get_particle_model__13TParticleCtrlFi(int);
 void *spawn_directional_particle(void *pos, void *dir, s32 id);
 void *spawn_particle_effect_with_rotation(void *pos, void *dir, s32 id, u16 e);
 void *spawn_continuous_particle_effect_with_flags(void *, s32, u16);
@@ -173,7 +173,7 @@ void create_particle_emitters__8TTecFoieFPv(Foie_8022FC94 *self) {
     {
       if ((*((Binding_8022FC94 **) (&TTecFoie__data_8044D13C[self->band])))[i].flags & 0x20)
       {
-        attach_particle_model((int) self->emitters[i], TParticleCtrl__sub_80086884(0), lbl_805D63B0, 0, 1, lbl_805DC7F8);
+        attach_particle_model((int) self->emitters[i], get_particle_model__13TParticleCtrlFi(0), lbl_805D63B0, 0, 1, lbl_805DC7F8);
       }
       set_position_xy__10TObjPlayerFPvff(self->emitters[i], (*((Binding_8022FC94 **) (&TTecFoie__data_8044D13C[self->band])))[i].scale, (*((Binding_8022FC94 **) (&TTecFoie__data_8044D13C[self->band])))[i].scale);
     }
@@ -183,7 +183,7 @@ void create_particle_emitters__8TTecFoieFPv(Foie_8022FC94 *self) {
 void init_projectile_params__8TTecFoieFPv(u8 *arg0) {
   s32 new_var;
   new_var = calc_technique_parameters((int) 0, (int) ((RecoveredFields_8022FE84_arg0 *) arg0)->field_C4, (int) 0xFFFF);
-  TTecAnti__sub_8022B35C((void *) (arg0 + 0xCC), (int) new_var);
+  copy_params__8TTecAntiFPvPv((void *) (arg0 + 0xCC), (int) new_var);
   if ((((s16) ((RecoveredFields_8022FE84_arg0 *) arg0)->field_C4) >= 0xF) && (is_technique_ready__8TTecCtrlFv() == 0))
   {
     ((RecoveredFields_8022FE84_arg0 *) arg0)->field_CC = (f32) ((*((s16 *) (((s8 *) (&lbl_804CC510.value)) + 0))) + ((*((s16 *) (((s8 *) (&lbl_804CC510.value)) + 2))) * ((RecoveredFields_8022FE84_arg0 *) arg0)->field_C4));

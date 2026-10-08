@@ -118,7 +118,7 @@ extern u8 lbl_804419E8[];
 extern u8 lbl_804B29C0[];
 extern u8 *TOKeyAncient01__data_805D59F8;
 extern u32 TOKeyAncient01__data_805D59FC;
-void TOKeyAncient01__sub_8016AF84(void);
+void load_resources__14TOKeyAncient01Fv(void);
 }
 
 extern "C" {
@@ -216,7 +216,7 @@ void TOKeyAncient01__sub_8016AEFC(void) {
   }
 }
 
-void TOKeyAncient01__sub_8016AF84(void) {
+void load_resources__14TOKeyAncient01Fv(void) {
     Big_8016AF84 *v = (Big_8016AF84 *)alloc__23TAdSinglePlyChrSelectGCFPv(0x440);
     if (v != NULL) {
         v = load_resource_from_descriptor(v, 1, lbl_804B29C0, 0, 0, 0);

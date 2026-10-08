@@ -13,7 +13,7 @@ int pop_matrix(void);
 M2C_UNK scale_current_matrix(void *);
 M2C_UNK post_translate_matrix(void *);
 M2C_UNK draw_ginja_model(int);
-void TObjPlayer__sub_80066F5C(u8 *arg0);
+void draw_shadowed_node_tree__10TObjPlayerFPv(u8 *arg0);
 }
 
 extern "C" {
@@ -24,7 +24,7 @@ int push_matrix(void);
 int pop_matrix(void);
 int set_global_param__8TObjFishFi(void*);
 
-void TObjPlayer__sub_80066F5C(u8 *arg0) {
+void draw_shadowed_node_tree__10TObjPlayerFPv(u8 *arg0) {
     if (arg0 != NULL) {
         push_matrix();
         post_translate_matrix((void *) (arg0 + 8));
@@ -35,12 +35,12 @@ void TObjPlayer__sub_80066F5C(u8 *arg0) {
             draw_ginja_model((int) (M2C_FIELD(arg0, u32 *, 4)));
             apply_single_screen_state__6TSceneFv();
         }
-        TObjPlayer__sub_80066F5C(M2C_FIELD(arg0, u8 **, 0x2C));
+        draw_shadowed_node_tree__10TObjPlayerFPv(M2C_FIELD(arg0, u8 **, 0x2C));
         pop_matrix();
-        TObjPlayer__sub_80066F5C(M2C_FIELD(arg0, u8 **, 0x30));
+        draw_shadowed_node_tree__10TObjPlayerFPv(M2C_FIELD(arg0, u8 **, 0x30));
     }
 }
 
-void render_impl__19TObjBoss5FloorStoneFPvPv(void* p, void* a1) { draw_if_all_ready__10TObjPlayerFv(p); set_global_param__8TObjFishFi(p); push_matrix(); TObjPlayer__sub_80066F5C((u8 *)(a1)); pop_matrix(); }
+void render_impl__19TObjBoss5FloorStoneFPvPv(void* p, void* a1) { draw_if_all_ready__10TObjPlayerFv(p); set_global_param__8TObjFishFi(p); push_matrix(); draw_shadowed_node_tree__10TObjPlayerFPv((u8 *)(a1)); pop_matrix(); }
 
 }

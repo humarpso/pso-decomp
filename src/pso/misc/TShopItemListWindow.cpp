@@ -145,8 +145,8 @@ M2C_UNK TLobby__sub_80224404(void *, int, s32);
 void *__nw__7TObjectFUl(u32);
 M2C_UNK set_displayed_item_colored__15TWindowHelpItemFPvUi(void *, void *);
 void *TWindowHelpItem__ct(void *, s32, u16);
-M2C_UNK TShopArmorListWindow__sub_80266CF8(void *);
-M2C_UNK TShopArmorListWindow__sub_80266DB0(void *);
+M2C_UNK clamp_selection_to_valid_entry__20TShopArmorListWindowFPv(void *);
+M2C_UNK reset_list__20TShopArmorListWindowFPv(void *);
 M2C_UNK calc_list_content_extent(void *);
 M2C_UNK add_ground_item__20TWindowSubStatusDispFPvii(void *, void *, s32);
 s32 get_window_layout_position(int);
@@ -301,7 +301,7 @@ void build_item_list__19TShopItemListWindowFv(void *p) {
     if (W->list == NULL) {
         W->list = create_item_list_window(get_shop_text(0x2D), W->count, obj_getField1c(W->player));
     } else {
-        TShopArmorListWindow__sub_80266DB0(W->list);
+        reset_list__20TShopArmorListWindowFPv(W->list);
     }
     if (W->list != NULL) {
         for (i = 0; i < W->count; i++) {
@@ -312,7 +312,7 @@ void build_item_list__19TShopItemListWindowFv(void *p) {
         }
         calc_list_content_extent(W->list);
         clear_selected_and_update_entry__14TWindowSubItemFPv((s32)W->list);
-        TShopArmorListWindow__sub_80266CF8(W->list);
+        clamp_selection_to_valid_entry__20TShopArmorListWindowFPv(W->list);
     }
     if (W->help == NULL) {
         o = __nw__7TObjectFUl(0xBC);

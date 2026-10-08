@@ -14,12 +14,12 @@ u32 get_player_by_client_id(int);
 s32 __ct__7TObjectFP7TObject(void *, void *);
 extern RecoveredGlobal_802E4A4C_lbl_804E355C lbl_804E355C;
 extern const f32 lbl_805DE914;
-u8 *fn_802E4A4C(u8 *arg0, s32 arg1, u8 *arg2);
+u8 *construct_attack_collision(u8 *arg0, s32 arg1, u8 *arg2);
 }
 
 extern "C" {
 
-u8 *fn_802E4A4C(u8 *arg0, s32 arg1, u8 *arg2) {
+u8 *construct_attack_collision(u8 *arg0, s32 arg1, u8 *arg2) {
     u32 temp_r3;
     __ct__7TObjectFP7TObject((void *) (arg0), (void *) (arg1));
     M2C_FIELD(arg0, M2C_UNK **, 0x18) = &lbl_804E355C.value;

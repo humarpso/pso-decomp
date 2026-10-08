@@ -301,7 +301,7 @@ void TObjEneBm9Mericarol__sub_802D1AB8(Obj_800C4B78 *o);
 M2C_UNK VecCopy__FP3VecPC3Vec(void *, void *);
 s16 obj_getField1c(void *);
 s32 check_v2_mode__9TObjEneDDFv();
-M2C_UNK fn_800BC4C8(void *, void *, void *);
+M2C_UNK construct_collision_body(void *, void *, void *);
 s32 get_phase__19TObjEneBm9MericarolFPv(void *);
 f32 vector_length(Vec_802D1880 *);
 M2C_UNK normalize_vector(Vec_802D1880 *);
@@ -350,7 +350,7 @@ extern M2C_UNK lbl_804E1908[];
 u8 *TObjEneBm9Mericarol__sub_802D1880(u8 *arg0, u8 *arg1, Vec_802D1880 *arg2, Vec_802D1880 *arg3, s32 arg4, f32 farg0, f32 farg1) {
     Vec_802D1880 d;
     f32 k;
-    fn_800BC4C8(arg0, arg1, arg1);
+    construct_collision_body(arg0, arg1, arg1);
     M2C_FIELD(arg0, M2C_UNK **, 0x18) = lbl_804E18A8;
     M2C_FIELD(arg0, s32 *, 0) = lbl_805D3F30;
     if (check_v2_mode__9TObjEneDDFv() != 0) {

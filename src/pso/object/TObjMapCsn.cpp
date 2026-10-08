@@ -69,7 +69,7 @@ M2C_UNK pop_matrix();
 extern s8 lbl_804B8448[];
 extern Vec_801946D0 lbl_804B8460[];
 extern M2C_UNK lbl_8058D490[];
-s32 TObjMapCsn__sub_801946D0(void *self);
+s32 build_box_triangles__10TObjMapCsnFPv(void *self);
 }
 
 extern "C" {
@@ -101,7 +101,7 @@ void update_state__10TObjMapCsnFPv(void *arg0) {
     M2C_FIELD(arg0, s32 *, 0x88) = (s32) (M2C_FIELD(arg0, s32 *, 0x88) | 0x40000000);
 }
 
-s32 TObjMapCsn__sub_801946D0(void *self) {
+s32 build_box_triangles__10TObjMapCsnFPv(void *self) {
     Vec_801946D0 corners[8];
     Vec_801946D0 v2;
     Vec_801946D0 v1;
@@ -206,7 +206,7 @@ u8 *TObjMapCsn__ct(u8 *arg0, M2C_UNK arg1, s32 arg2) {
     ((VObj_18_1a504b *)(arg0))->m5(arg2);
     M2C_FIELD(arg0, s32 *, 0x30) = (s32) (M2C_FIELD(arg0, s32 *, 0x30) | 0x40000000);
     update_state__10TObjMapCsnFPv((void *) (arg0));
-    TObjMapCsn__sub_801946D0((void *)((void *) (arg0)));
+    build_box_triangles__10TObjMapCsnFPv((void *)((void *) (arg0)));
     M2C_FIELD(arg0, s32 *, 0xC4) = 8;
     M2C_FIELD(arg0, u8 **, 0xC8) = (unsigned char *) ((void *) (arg0 + 0x1F4));
     M2C_FIELD(arg0, s32 *, 0xCC) = 8;

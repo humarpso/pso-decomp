@@ -27,7 +27,7 @@ s32 try_assign_battle_ctrl__10TObjPlayerFiUs(s32, u16);
 s32 TLobby__sub_8030A770(void);
 M2C_UNK TCameraCtrl__sub_8006B324();
 u32 get_player_by_client_id(s32);
-s32 TAdSinglePlyChrSelectGC__sub_801FF4F0(void);
+s32 setup_player_battle_ctrls__23TAdSinglePlyChrSelectGCFv(void);
 M2C_UNK TWindowSubComCard__sub_8007A9C0(int, int);
 s32 TAdSinglePlyChrSelectGC__sub_801FFCFC(s32 arg0, s32 arg1);
 void *memset(void *, int, unsigned long);
@@ -42,7 +42,7 @@ extern "C" {
 s32 init__23TAdSinglePlyChrSelectGCFv(void);
 s32 load_and_verify_data(s32 arg0);
 M2C_UNK TAdSinglePlyChrSelectGC__sub_801FFF98(s32);
-M2C_UNK TAdSinglePlyChrSelectGC__sub_80200470();
+M2C_UNK prepare_save_data__23TAdSinglePlyChrSelectGCFv();
 M2C_UNK TAdSinglePlyChrSelectGC__sub_802010E8();
 u32 TAdSinglePlyChrSelectGC__sub_80201204(u32 *, M2C_UNK);
 M2C_UNK TAdSinglePlyChrSelectGC__sub_8028DC14();
@@ -76,7 +76,7 @@ s32 init__23TAdSinglePlyChrSelectGCFv(void) {
         clear_flags__23TAdSinglePlyChrSelectGCFi(3);
         TAdSinglePlyChrSelectGC__sub_802010E8();
         copy_card_window_data();
-        TAdSinglePlyChrSelectGC__sub_80200470();
+        prepare_save_data__23TAdSinglePlyChrSelectGCFv();
     }
     return 0xFFFF0000;
 }
@@ -85,7 +85,7 @@ extern s32 lbl_80513910[];
 extern s32 lbl_805D5F68;
 extern s32 lbl_805D5F98;
 
-s32 TAdSinglePlyChrSelectGC__sub_801FF4F0(void) {
+s32 setup_player_battle_ctrls__23TAdSinglePlyChrSelectGCFv(void) {
   u32 temp_r3;
   u32 var_r31;
   u8 *temp_r3_2;

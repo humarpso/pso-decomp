@@ -22,7 +22,7 @@ void TBoss3Volopt__sub_800D8F78(s32 arg0);
 s32 remap_area_sound_id(int, int);
 s32 get_global_state__14TOKeyMachine01Fv();
 s32 play_sound_effect(int, void *, int, int);
-void TBoss3Volopt__sub_800D8B30(s32 arg0);
+void play_area_variant_sound__12TBoss3VoloptFi(s32 arg0);
 void TBoss3Volopt__sub_800D8F78(s32 arg0);
 s32 TBoss3Volopt__sub_800F05A0(int);
 s32 get_global_state__14TOKeyMachine01Fv();
@@ -32,14 +32,14 @@ void TBoss3Volopt__sub_800D8F78(s32 arg0);
 s32 TBoss3Volopt__sub_800F05A0(int);
 s32 get_global_state__14TOKeyMachine01Fv();
 s32 play_sound_effect(int, void *, int, int);
-void TBoss3Volopt__sub_800D8E80(s32 arg0);
+void play_area_sound_effect__12TBoss3VoloptFi(s32 arg0);
 M2C_UNK VecCopy__FP3VecPC3Vec(void *, void *);
 M2C_UNK spawn_particle_effect(void *, int, f32);
 s32 remap_area_sound_id(int, int);
 s32 get_global_state__14TOKeyMachine01Fv();
 s32 play_sound_effect(int, void *, int, int);
 extern const f32 lbl_805DA3C0;
-void TBoss3Volopt__sub_800D8C48(s32 arg0);
+void play_area_se_with_particle__12TBoss3VoloptFi(s32 arg0);
 }
 
 extern "C" {
@@ -57,7 +57,7 @@ void create_breakup_mdl__12TBoss3VoloptFiiiii(s32 arg0, s32 arg1, s32 arg2, s32 
     }
 }
 
-void TBoss3Volopt__sub_800D8B30(s32 arg0) {
+void play_area_variant_sound__12TBoss3VoloptFi(s32 arg0) {
     s32 temp_r3;
     temp_r3 = get_global_state__14TOKeyMachine01Fv();
     switch (temp_r3) {
@@ -92,7 +92,7 @@ void TBoss3Volopt__sub_800D8B30(s32 arg0) {
     }
 }
 
-void TBoss3Volopt__sub_800D8C48(s32 arg0) {
+void play_area_se_with_particle__12TBoss3VoloptFi(s32 arg0) {
     Vec_800D8C48 v;
     f32 y;
     switch (get_global_state__14TOKeyMachine01Fv()) {
@@ -157,7 +157,7 @@ void TBoss3Volopt__sub_800D8D88(s32 arg0) {
     TBoss3Volopt__sub_800D8F78(arg0);
 }
 
-void TBoss3Volopt__sub_800D8E80(s32 arg0) {
+void play_area_sound_effect__12TBoss3VoloptFi(s32 arg0) {
     switch (get_global_state__14TOKeyMachine01Fv()) {
     case 23:
     case 24:

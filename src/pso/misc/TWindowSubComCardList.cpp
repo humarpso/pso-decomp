@@ -56,7 +56,7 @@ void toggle_help_window_on_button(s32, s32);
 void send_and_handle__6TLobbyFPvii(s32, s32, s32);
 extern s32 lbl_805D5544;
 void update_customize_help_text(Win_802758C8 *self, Ev_802758C8 *ev);
-s32 TWindowSubComCard__sub_8007A8F8(M2C_UNK);
+s32 get_card_entry__17TWindowSubComCardFi(M2C_UNK);
 s32 TWindowSubComCard__sub_8007AFB8(void);
 void *alloc__23TAdSinglePlyChrSelectGCFPv(u32);
 M2C_UNK set_flag70_bit10__16TObjCityMainWarpFPv(void *);
@@ -184,7 +184,7 @@ u8 *TWindowSubComCardList__ct(u8 *arg0, void *arg1) {
     }
     *(void **)(arg0 + 0x8C) = list;
     *(s32 *)(arg0 + 0x90) = 0;
-    *(s32 *)(arg0 + 0x94) = TWindowSubComCard__sub_8007A8F8(0);
+    *(s32 *)(arg0 + 0x94) = get_card_entry__17TWindowSubComCardFi(0);
     *(s32 *)(arg0 + 0x98) = 0xD2;
     *(s8 *)(arg0 + 0x9C) = 0;
     set_flag70_bit100__17TWindowOptionCtrlFPv(arg0);

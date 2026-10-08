@@ -851,7 +851,7 @@ void TBoss3VoloptHiraisin__sub_80041B34(O_80041B34 *self, s32 i);
 void set_param__12TObjEneLappyFPvi(void *, s32);
 void set_animation__10TObjPlayerFPvs(void *, s16);
 void init_collision_body_parts(void *, void *, s32);
-void TBoss3VoloptHiraisin__sub_800418C8(Hira_800418C8 *self);
+void init_params__20TBoss3VoloptHiraisinFPv(Hira_800418C8 *self);
 void TBoss3VoloptHiraisin__sub_80041B64(u8 *arg0);
 void TBoss3VoloptHiraisin__sub_80041BB4(u8 *arg0);
 void damage_player_if_aligned__20TBoss3VoloptHiraisinFPv(void *arg0);
@@ -928,7 +928,7 @@ void *__dt__20TBoss3VoloptHiraisinFv(void *arg0, s16 arg1) {
 
 struct O_80041B34;
 #pragma opt_propagation off
-void TBoss3VoloptHiraisin__sub_800418C8(Hira_800418C8 *self) {
+void init_params__20TBoss3VoloptHiraisinFPv(Hira_800418C8 *self) {
     Param_800418C8 *prm;
     prm = &lbl_80483BB8;
     VecCopy__FP3VecPC3Vec((s32)self->home, (s32)self->pos);
@@ -970,7 +970,7 @@ S_80041A08 *TBoss3VoloptHiraisin__ct(S_80041A08 *o, S_80041A08 *src, s16 a, s16 
     o->f3c = (8e+01f);
     o->f38 = lbl_804FEE68[0];
     o->f40 = lbl_804FEE68[2];
-    ((s32 (*)(void *, void *, s32))TBoss3VoloptHiraisin__sub_800418C8)(o, lbl_804FEE68, g);
+    ((s32 (*)(void *, void *, s32))init_params__20TBoss3VoloptHiraisinFPv)(o, lbl_804FEE68, g);
     return o;
 }
 
@@ -980,7 +980,7 @@ u8 *TBoss3VoloptHiraisin__sub_80041AA0(u8 *arg0, M2C_UNK arg1, s32 arg2) {
     M2C_FIELD(arg0, M2C_UNK **, 0x18) = __vt__20TBoss3VoloptHiraisin;
     M2C_FIELD(arg0, s32 *, 0) = (s32) lbl_805D2738;
     ((VObj_18_aa4667 *)(arg0))->m79(arg2);
-    TBoss3VoloptHiraisin__sub_800418C8((Hira_800418C8 *)((void *) (arg0)));
+    init_params__20TBoss3VoloptHiraisinFPv((Hira_800418C8 *)((void *) (arg0)));
     return arg0;
 }
 

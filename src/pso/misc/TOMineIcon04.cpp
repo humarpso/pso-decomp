@@ -96,7 +96,7 @@ void TOMineTrap__sub_80170570();
 void TOMineTrap__sub_80170768();
 void TOMineTrap__sub_80170924();
 void TOMineTrap__sub_80170A5C();
-void TOMine__sub_801710E4();
+void render__6TOMineFPv();
 void TObjPlayer__sub_8000FF3C();
 void TObjPlayer__sub_80010A78();
 void TObjPlayer__sub_80010A80();
@@ -173,7 +173,7 @@ void *__vt__12TOMineIcon04[87] = {
     0,
     (void *)__dt__12TOMineIcon04Fv,
     (void *)run_task__6TOMineFPv,
-    (void *)TOMine__sub_801710E4,
+    (void *)render__6TOMineFPv,
     (void *)render_shadows__7TObjectFv,
     (void *)TOMineTrap__sub_80170768,
     (void *)TOMineTrap__sub_80170524,

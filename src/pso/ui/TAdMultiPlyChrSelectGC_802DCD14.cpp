@@ -17,7 +17,7 @@ void TAdMultiPlyChrSelectGC__sub_802DCD90(u8 *arg0);
 M2C_UNK queue_destruction__7TObjectFv(void *);
 s32 TWindowShortListCtrl__check_controller_button(void *, M2C_UNK, s32);
 M2C_UNK play_sound_effect(M2C_UNK, M2C_UNK, M2C_UNK, M2C_UNK);
-M2C_UNK TAdMultiPlyChrSelectGC__sub_802C6A10();
+M2C_UNK reset_slot_selections__22TAdMultiPlyChrSelectGCFv();
 s32 get_player_index__22TAdMultiPlyChrSelectGCFPv(u32);
 s32 get_instance__22TAdMultiPlyChrSelectGCFv(s32);
 M2C_UNK set_state_ready__22TAdMultiPlyChrSelectGCFPv(s32);
@@ -27,7 +27,7 @@ void TAdMultiPlyChrSelectGC__sub_802DD400(u8 *arg0);
 M2C_UNK queue_destruction__7TObjectFv(void *);
 s32 TWindowShortListCtrl__check_controller_button(void *, M2C_UNK, s32);
 M2C_UNK play_sound_effect(M2C_UNK, M2C_UNK, M2C_UNK, M2C_UNK);
-M2C_UNK TAdMultiPlyChrSelectGC__sub_802C6A10();
+M2C_UNK reset_slot_selections__22TAdMultiPlyChrSelectGCFv();
 s32 get_instance__22TAdMultiPlyChrSelectGCFv(s32);
 M2C_UNK set_state_ready__22TAdMultiPlyChrSelectGCFPv(s32);
 s32 get_mode__22TAdMultiPlyChrSelectGCFPv(s32);
@@ -49,7 +49,7 @@ M2C_UNK TAdChrMoveEffectGC__sub_803490D8(u32, s32, u32);
 M2C_UNK TAdGameStartGC__sub_802E644C(s32);
 s32 TAdMultiPlyChrSelectGC__sub_802C64D0(M2C_UNK);
 s32 TAdMultiPlyChrSelectGC__sub_802C6558();
-M2C_UNK TAdMultiPlyChrSelectGC__sub_802C6A10();
+M2C_UNK reset_slot_selections__22TAdMultiPlyChrSelectGCFv();
 u32 TAdMultiPlyChrSelectGC__sub_802DBE4C(void *, M2C_UNK *);
 s32 TAdMultiPlyChrSelectGC__sub_802DBEC4(void *, M2C_UNK *);
 s32 TAdMultiPlyChrSelectGC__sub_802DC294(void *, s32);
@@ -83,7 +83,7 @@ s32 swap_characters__23TAdSinglePlyChrSelectGCFii(u32, s32);
 void TAdMultiPlyChrSelectGC__sub_802DCD14(void *arg0) {
     s32 temp_r0;
 
-    TAdMultiPlyChrSelectGC__sub_802C6A10();
+    reset_slot_selections__22TAdMultiPlyChrSelectGCFv();
     temp_r0 = M2C_FIELD(arg0, s32 *, 0x48);
     switch (temp_r0) {
     case 0:
@@ -129,7 +129,7 @@ void update_confirm_start__22TAdMultiPlyChrSelectGCFPv(void *arg0) {
 void handle_cancel_state__22TAdMultiPlyChrSelectGCFPv(void *arg0) {
     if (get_mode__22TAdMultiPlyChrSelectGCFPv(M2C_FIELD(arg0, s32 *, 0x6C)) <= 1) {
         if (get_player_index__22TAdMultiPlyChrSelectGCFPv(M2C_FIELD(arg0, u32 *, 0x68)) == 1) {
-            TAdMultiPlyChrSelectGC__sub_802C6A10();
+            reset_slot_selections__22TAdMultiPlyChrSelectGCFv();
         }
         set_state_ready__22TAdMultiPlyChrSelectGCFPv(M2C_FIELD(arg0, s32 *, 0x5C));
         play_sound_effect(0x52F16, 0, 0, 0);
@@ -161,7 +161,7 @@ void TAdMultiPlyChrSelectGC__sub_802DCF68(void *arg0) {
         }
     }
     {
-        TAdMultiPlyChrSelectGC__sub_802C6A10();
+        reset_slot_selections__22TAdMultiPlyChrSelectGCFv();
         set_state_ready__22TAdMultiPlyChrSelectGCFPv(M2C_FIELD(arg0, s32 *, 0x5C));
         play_sound_effect(0x52F16, 0, 0, 0);
         if ((u32) M2C_FIELD(arg0, u32 *, 0x68) != 0U) {
@@ -174,7 +174,7 @@ void TAdMultiPlyChrSelectGC__sub_802DCF68(void *arg0) {
 
 void TAdMultiPlyChrSelectGC__sub_802DD010(void *arg0) {
     if (get_mode__22TAdMultiPlyChrSelectGCFPv(M2C_FIELD(arg0, s32 *, 0x6C)) <= 1) {
-        TAdMultiPlyChrSelectGC__sub_802C6A10();
+        reset_slot_selections__22TAdMultiPlyChrSelectGCFv();
         set_state_ready__22TAdMultiPlyChrSelectGCFPv(M2C_FIELD(arg0, s32 *, 0x5C));
         play_sound_effect(0x52F16, 0, 0, 0);
         if ((u32) M2C_FIELD(arg0, u32 *, 0x68) != 0U) {
@@ -282,7 +282,7 @@ void TAdMultiPlyChrSelectGC__sub_802DD2B0(void *arg0) {
 void handle_confirm_state__22TAdMultiPlyChrSelectGCFPv(void *arg0) {
     if (get_mode__22TAdMultiPlyChrSelectGCFPv(M2C_FIELD(arg0, s32 *, 0x6C)) <= 1) {
         if (get_player_index__22TAdMultiPlyChrSelectGCFPv(M2C_FIELD(arg0, u32 *, 0x68)) == 1) {
-            TAdMultiPlyChrSelectGC__sub_802C6A10();
+            reset_slot_selections__22TAdMultiPlyChrSelectGCFv();
         }
         set_state_ready__22TAdMultiPlyChrSelectGCFPv(M2C_FIELD(arg0, s32 *, 0x5C));
         play_sound_effect(0x52F16, 0, 0, 0);
@@ -315,7 +315,7 @@ void TAdMultiPlyChrSelectGC__sub_802DD400(u8 *arg0) {
     } else {
 block_2:
         if (get_player_index__22TAdMultiPlyChrSelectGCFPv((u32)((int) (M2C_FIELD(arg0, u32 *, 0x68)))) == 1) {
-            TAdMultiPlyChrSelectGC__sub_802C6A10();
+            reset_slot_selections__22TAdMultiPlyChrSelectGCFv();
         }
         set_state_ready__22TAdMultiPlyChrSelectGCFPv((s32)((int) (M2C_FIELD(arg0, s32 *, 0x5C))));
         play_sound_effect((M2C_UNK)((int) (0x52F16)), (M2C_UNK)((int) (0)), (M2C_UNK)((int) (0)), (M2C_UNK)((int) (0)));

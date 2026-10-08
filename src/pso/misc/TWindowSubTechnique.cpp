@@ -72,7 +72,7 @@ s32 update_selection__19TWindowSubTechniqueFPvPv(void *, void *, s32);
 void get_current_selection__19TWindowSubTechniqueFPvPv(void *, void *, s32);
 s32 TWindowSubTechnique__sub_80286BF4(s32, s32);
 void rebuildTechniqueList__19TWindowSubTechniqueFll(void *, void *, s16);
-void *TWindowSubTechnique__sub_80286E0C(void *, s16);
+void *create_title_window__19TWindowSubTechniqueFPv(void *, s16);
 void update_selected_help__19TWindowSubTechniqueFPvi(u8 *arg0, s32 arg1);
 void clear_flag70_bit80__19TWindowSubTechniqueFPv(void* p);
 void clear_trade_flag__19TWindowSubTradeMainFPv(void* p);
@@ -178,7 +178,7 @@ void run_task__19TWindowSubTechniqueFv(Tech_802870C4 *self) {
             self->f1E = 0x13;
         }
         if (self->sel == 0) {
-            self->sel = TWindowSubTechnique__sub_80286E0C(self, get_selected_menu_value(self->list));
+            self->sel = create_title_window__19TWindowSubTechniqueFPv(self, get_selected_menu_value(self->list));
         }
         set_flag_40__16TAdChrSelASlotGCFPv(self->sel);
         set_status_flag_80__12TQuestThreadFPv(self->sel);

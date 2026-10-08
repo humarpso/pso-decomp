@@ -76,13 +76,13 @@ void TObjEneRe7BeruraPunch__sub_800962F4(void* p);
 void *__dt__21TObjEneRe7BeruraPunchFv(void *arg0, s16 arg1);
 void init__21TObjEneRe7BeruraPunchFPv(u8 *arg0);
 void reset__21TObjEneRe7BeruraPunchFPv(u8 *arg0);
-void TBoss8Dragon__sub_800BC5A0(void *, int);
+void delete_buffer__12TBoss8DragonFis(void *, int);
 s32 TBoss8Dragon__sub_800BC5EC(s32, s32);
 void TObjPlayer__sub_800A05B8(void *, int);
 void __dl__7TObjectFPv(void *);
 s32 alloc__23TAdSinglePlyChrSelectGCFPv(M2C_UNK);
 void destroy_enemy_object__10TObjPlayerFPvs(void *, int);
-M2C_UNK fn_8002B094(s32);
+M2C_UNK fill_value_array(s32);
 void queue_destruction__7TObjectFv(void *);
 
 void TObjEneRe7BeruraPunch__sub_800962F4(void* p) { *(s32*)((char*)p + 0xb4) = 0; }
@@ -121,7 +121,7 @@ void TObjEneRe7BeruraPunch__sub_80096300(u8 *arg0) {
 }
 
 void reset__21TObjEneRe7BeruraPunchFPv(u8 *arg0) {
-    fn_8002B094(M2C_FIELD(arg0, s32 *, 0xD8));
+    fill_value_array(M2C_FIELD(arg0, s32 *, 0xD8));
     M2C_FIELD(arg0, f32 *, 0xF4) = (f32) lbl_805D9798;
     ((BeruraObj_800962F4*)(arg0 + 0xF8))->m2();
     M2C_FIELD(arg0, s32 *, 0x118) = 0;
@@ -198,7 +198,7 @@ void *__dt__21TObjEneRe7BeruraPunchFv(void *arg0, s16 arg1) {
         M2C_FIELD(arg0, M2C_UNK **, 0x18) = __vt__21TObjEneRe7BeruraPunch;
         if (M2C_FIELD(arg0, void **, 0xD0) != NULL) { queue_destruction__7TObjectFv(M2C_FIELD(arg0, void **, 0xD0)); M2C_FIELD(arg0, M2C_UNK *, 0xD0) = 0; }
         if (M2C_FIELD(arg0, void **, 0xD4) != NULL) { queue_destruction__7TObjectFv(M2C_FIELD(arg0, void **, 0xD4)); M2C_FIELD(arg0, M2C_UNK *, 0xD4) = 0; }
-        if (M2C_FIELD(arg0, void **, 0xD8) != NULL) { TBoss8Dragon__sub_800BC5A0(M2C_FIELD(arg0, void **, 0xD8), 1); M2C_FIELD(arg0, M2C_UNK *, 0xD8) = 0; }
+        if (M2C_FIELD(arg0, void **, 0xD8) != NULL) { delete_buffer__12TBoss8DragonFis(M2C_FIELD(arg0, void **, 0xD8), 1); M2C_FIELD(arg0, M2C_UNK *, 0xD8) = 0; }
         TObjPlayer__sub_800A05B8((s8 *)arg0 + 0xF8, -1);
         destroy_enemy_object__10TObjPlayerFPvs(arg0, 0);
         if (arg1 > 0) {

@@ -124,7 +124,7 @@ void run_task__12TPhotonMyllaFv(u8 *arg0);
 s32 copy_vec4__13TRaderMapCoreFPvPv(void *, void *);
 s32 draw__16TObjEneRe7BeruraFPv(void *);
 s32 clear_render_context__10TObjPlayerFv(void *);
-s32 TObjPlayer__sub_801A7638(void *);
+s32 set_photon_blast_joint_callback__10TObjPlayerFPv(void *);
 s32 begin_effect_render__13TParticleCtrlFv();
 s32 end_effect_render__13TParticleCtrlFv();
 s32 rotate_matrix_y(int, int);
@@ -222,7 +222,7 @@ void render__12TPhotonMyllaFv(Self_801AD4C0 *self) {
         set_current_scene__6TSceneFi(0);
         set_chunk_material_override_pair(-1, 0x800);
         set_chunk_material_color(&self->color);
-        TObjPlayer__sub_801A7638(self);
+        set_photon_blast_joint_callback__10TObjPlayerFPv(self);
         draw__16TObjEneRe7BeruraFPv(self);
         clear_global_state__10TObjPlayerFv();
         set_current_scene__6TSceneFi(0xBF);

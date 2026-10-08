@@ -49,9 +49,9 @@ void check_memcard_load_result__17TMCFormatSequenceFPv(void *arg0);
 void close_window__17TMCFormatSequenceFPv(void* p);
 void process_format_result__17TMCFormatSequenceFPv(void *arg0);
 void show_message__17TMCFormatSequenceFPvii(void *arg0, s32 arg1, s32 arg2);
-s32 TAdPlayerLoadGC__sub_801E0D8C(s32);
+s32 probe_and_check_card__15TAdPlayerLoadGCFi(s32);
 s32 TAdPlayerLoadGC__sub_801E1B50(s32);
-s32 TAdPlayerLoadGC__sub_801E1E38(s32);
+s32 probe_card_slot__15TAdPlayerLoadGCFi(s32);
 s32 TAdPlayerLoadGC__sub_801E24F8(s32, M2C_UNK, M2C_UNK, M2C_UNK, M2C_UNK);
 s32 get_localized_text_entry(M2C_UNK, M2C_UNK);
 s32 get_selected_menu_value(u32);
@@ -102,7 +102,7 @@ void TMCFormatSequence__sub_801F6640(void *arg0) {
 }
 
 void check_memcard_load_result__17TMCFormatSequenceFPv(void *arg0) {
-    if (TAdPlayerLoadGC__sub_801E1E38(M2C_FIELD(arg0, s32 *, 0x28)) == 0) {
+    if (probe_card_slot__15TAdPlayerLoadGCFi(M2C_FIELD(arg0, s32 *, 0x28)) == 0) {
         show_message__17TMCFormatSequenceFPvii((void *)(arg0), (s32)(get_localized_text_entry(0xB, 0x6C)), (s32)(0));
         M2C_FIELD(arg0, s32 *, 0x24) = 3;
         return;
@@ -116,12 +116,12 @@ void check_memcard_load_result__17TMCFormatSequenceFPv(void *arg0) {
 void process_format_result__17TMCFormatSequenceFPv(void *arg0) {
     s32 temp_r3;
 
-    if (TAdPlayerLoadGC__sub_801E1E38(M2C_FIELD(arg0, s32 *, 0x28)) == 0) {
+    if (probe_card_slot__15TAdPlayerLoadGCFi(M2C_FIELD(arg0, s32 *, 0x28)) == 0) {
         show_message__17TMCFormatSequenceFPvii((void *)(arg0), (s32)(get_localized_text_entry(0xB, 0x6C)), (s32)(0));
         M2C_FIELD(arg0, s32 *, 0x24) = 3;
         return;
     }
-    if (TAdPlayerLoadGC__sub_801E0D8C(M2C_FIELD(arg0, s32 *, 0x28)) == 0) {
+    if (probe_and_check_card__15TAdPlayerLoadGCFi(M2C_FIELD(arg0, s32 *, 0x28)) == 0) {
         show_message__17TMCFormatSequenceFPvii((void *)(arg0), (s32)(get_localized_text_entry(0xB, 0x6C)), (s32)(0));
         M2C_FIELD(arg0, s32 *, 0x24) = 3;
         return;

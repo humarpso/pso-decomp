@@ -5,7 +5,7 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 #define M2C_BITWISE(type, expr) ((type)(expr))
 
 extern "C" {
-u32 TLobby__sub_8042BE64();
+u32 exi_read_status_byte__6TLobbyFv();
 s32 fn_80430A10(int, int, void *);
 extern u32 lbl_805D7CC8;
 s32 TLobby__sub_8042EE4C(s32 *arg0);
@@ -48,7 +48,7 @@ s32 TLobby__sub_8042EE4C(s32 *arg0) {
             lbl_805D7CC8 = 2U;
             break;
         case 67240448:
-            if (TLobby__sub_8042BE64() == 0U) {
+            if (exi_read_status_byte__6TLobbyFv() == 0U) {
                 *arg0 = 5;
                 lbl_805D7CC8 = 5U;
             } else {

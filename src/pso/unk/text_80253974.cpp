@@ -32,7 +32,7 @@ void set_flag0_bit2__15TWindowHelpItemFPv(void *);
 void set_compare_color__15TWindowHelpItemFPvi(void *, s32);
 M2C_UNK deserialize_mag__9TItemDataFPvPv(int, void *);
 extern const f32 lbl_805DCDF0;
-s32 TItemData__sub_80253974(u8 *arg0);
+s32 update_mag_status_gauges__9TItemDataFPv(u8 *arg0);
 u8 * initialize_mag_data__9TItemDataFPv(void *);
 s16 get_mag_mind_level__9TItemDataFPv(void *);
 s16 get_stat_percent__9TItemDataFPv(void *);
@@ -47,7 +47,7 @@ s16 TItemData__sub_801146F8(void *);
 s32 get_array_entry__20TWindowSubStatusDispFPvi(void *, int);
 void set_flag0_bit2__15TWindowHelpItemFPv(void *);
 M2C_UNK deserialize_mag__9TItemDataFPvPv(int, void *);
-s16 TItemMagSub__sub_8011455C(void *);
+s16 get_total_level__11TItemMagSubFPv(void *);
 M2C_UNK init_window_layout_entries(void *, void *, s16);
 s32 get_message_10__20TWindowSubStatusDispFPv(s32);
 M2C_UNK set_help_text__15TWindowHelpItemFPvUi(void *, s32);
@@ -64,7 +64,7 @@ void TWindowHelpItem__vt10(u8 *arg0);
 
 extern "C" {
 
-s32 TItemData__sub_80253974(u8 *arg0) {
+s32 update_mag_status_gauges__9TItemDataFPv(u8 *arg0) {
     s32 sp8[4];
     s32 a;
     s32 b;
@@ -151,7 +151,7 @@ void TWindowHelpItem__vt10(u8 *arg0) {
     set_help_text__15TWindowHelpItemFPvUi((void *) sy, get_message_10__20TWindowSubStatusDispFPv(0xA3));
     set_help_text__15TWindowHelpItemFPvUi((void *) iq, get_message_10__20TWindowSubStatusDispFPv(0xA4));
     set_flag0_bit20__15TWindowHelpItemFPv((void *) sy);
-    set_flag4_and_field1c__15TWindowHelpItemFPvi((void *) lv, TItemMagSub__sub_8011455C(sp8));
+    set_flag4_and_field1c__15TWindowHelpItemFPvi((void *) lv, get_total_level__11TItemMagSubFPv(sp8));
     set_flag4_and_field1c__15TWindowHelpItemFPvi((void *) sy, get_sync__8TItemMagFPv(sp8));
     set_flag4_and_field1c__15TWindowHelpItemFPvi((void *) iq, get_item_type__8TItemMagFPv(sp8));
     refresh_status_display__9TWindowDDFv((void *) up);

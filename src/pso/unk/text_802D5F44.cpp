@@ -14,7 +14,7 @@ void *init_type_447__10TObjPlayerFPv(void *, s32, void *);
 void *init_vtable_and_handlers_341__10TObjPlayerFPv(void *, s32, void *);
 void *init_vtable_and_field200__10TObjPlayerFPv(void *, s32, void *);
 extern s32 tl_05;
-void *TObjPlayer__sub_802D5F44(u8 *arg0);
+void *create_object_by_type__10TObjPlayerFPv(u8 *arg0);
 }
 
 extern "C" {
@@ -31,7 +31,7 @@ void free_obj_heap__10TObjPlayerFPv(void *);
 
 extern M2C_UNK lbl_804E1E08[];
 
-void *TObjPlayer__sub_802D5F44(u8 *arg0) {
+void *create_object_by_type__10TObjPlayerFPv(u8 *arg0) {
     void *p;
     if (arg0 != NULL) {
     switch (arg0[1]) {

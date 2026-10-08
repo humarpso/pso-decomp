@@ -87,7 +87,7 @@ void restore_full_screen_view__11TCameraCtrlFv(void);
 const char *TQuestVmDownLoadServer__sub_8006EF6C(s32);
 u32 calc_text_width(void *);
 void TObjWarpString__sub_80145750(const char *, u32, f32, f32);
-s32 TObjCMMainMenu__sub_8028DA7C(void *);
+s32 validate_character_name__14TObjCMMainMenuFPv(void *);
 s32 is_active__23TAdSinglePlyChrSelectGCFv();
 f32 get_scale__14TObjCMMainMenuFv(void);
 void TObjCMIcon__sub_80299488(void);
@@ -356,7 +356,7 @@ f32 get_random_float__8TObjFishFv(f32);
 M2C_UNK queue_destruction__7TObjectFv(void *);
 M2C_UNK copy_vec2__28TWindowSubSymbolChatPartsSetFPvPv(void *, int);
 void copy_player_visual_record(void *, void *);
-void TWindowCtrlMain__sub_801E352C(void *, int, int, f32);
+void draw_strip_swap_color__15TWindowCtrlMainFPviif(void *, int, int, f32);
 void * get_char_index__23TAdSinglePlyChrSelectGCFUi(s32);
 s32 play_sound_effect(s32, s32, s32, s32);
 M2C_UNK __dl__7TObjectFPv(void *);
@@ -365,7 +365,7 @@ M2C_UNK __dt__7TObjectFv(void *, M2C_UNK);
 void __ct__7TObjectFP7TObject(void *);
 Chara_80298B70 * TObjCMMainMenu__sub_8028D9A8(void);
 M2C_UNK TObjCMMainMenu__sub_8028D9B4(void *);
-s32 TObjCMMainMenu__sub_8028DA7C(void *);
+s32 validate_character_name__14TObjCMMainMenuFPv(void *);
 u8 calc_section_id_from_name();
 s32 get_display_index__12TCharaMakingFPv(s32);
 s32 is_active__23TAdSinglePlyChrSelectGCFv();
@@ -1356,7 +1356,7 @@ s32 try_pay_fee__14TObjCMMainMenuFv(void) {
 }
 
 void confirm_selection__14TObjCMMainMenuFPv(void *arg0) {
-    if (TObjCMMainMenu__sub_8028DA7C(M2C_FIELD(arg0, void **, 0x1C)) == 0) {
+    if (validate_character_name__14TObjCMMainMenuFPv(M2C_FIELD(arg0, void **, 0x1C)) == 0) {
         play_sound_effect((s32)(0x53F06), (s32)(0), (s32)(0), (s32)(0));
         return;
     }
@@ -1488,7 +1488,7 @@ void draw_root_menu__14TObjCMMainMenuFv(u8 *arg0) {
         base = 0.6f * sq;
         for (q = 0; q < m->count; q++) {
             flag = 0;
-            if (m->ids[q] == 9 && TObjCMMainMenu__sub_8028DA7C(m->f1C) == 0) {
+            if (m->ids[q] == 9 && validate_character_name__14TObjCMMainMenuFPv(m->f1C) == 0) {
                 flag = 1;
             }
             r = flag;
@@ -1529,7 +1529,7 @@ void TObjCMMainMenu__sub_80297B18(Menu_80297B18 *m) {
     f32 s;
     f32 step;
     f32 y;
-    if (m->ids[m->sel] == 9 && TObjCMMainMenu__sub_8028DA7C(m->f1C) == 0) {
+    if (m->ids[m->sel] == 9 && validate_character_name__14TObjCMMainMenuFPv(m->f1C) == 0) {
         color = ((u32)(TObjCMMainMenu__data_805DDB44 * (lbl_805DDA70 - lbl_805DDBA8 * get_random_float__8TObjFishFv(sin_table_lookup(m->pulse << 10)))) << 24) | 0xFFFFFF;
         s = get_scale__14TObjCMMainMenuFv();
         step = lbl_805DDBAC * s;
@@ -1546,7 +1546,7 @@ void TObjCMMainMenu__sub_80297B18(Menu_80297B18 *m) {
     switch (TObjCMMainMenu__data_805D659C) {
     case 0:
         if (is_active__23TAdSinglePlyChrSelectGCFv() != 0) {
-            if (m->ids[m->sel] == 9 && TObjCMMainMenu__sub_8028DA7C(m->f1C) == 0) {
+            if (m->ids[m->sel] == 9 && validate_character_name__14TObjCMMainMenuFPv(m->f1C) == 0) {
                 v14 = lbl_805DDA5C;
                 TObjCMIcon__sub_802994C8(1, &v14);
             } else if (((s8 *)m->f1C)[0x30] == -1) {
@@ -1613,7 +1613,7 @@ void draw_footer_divider__14TObjCMMainMenuFPv(Menu_80297DB8 *self) {
         }
         prim.colors = cols;
         prim.pts = q->p;
-        TWindowCtrlMain__sub_801E352C(&prim, 4, 6, lbl_805DDB90);
+        draw_strip_swap_color__15TWindowCtrlMainFPviif(&prim, 4, 6, lbl_805DDB90);
     }
 }
 

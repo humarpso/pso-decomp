@@ -13,7 +13,7 @@ extern const f32 lbl_805DD230;
 extern const f32 lbl_805DD234;
 
 #pragma readonly_strings on
-s32 TWindowOptionCtrl__sub_80269908(u8 *arg0, const char *arg1, const char *arg2, u32 arg3) {
+s32 add_label_value_line__17TWindowOptionCtrlFPvPvPvUi(u8 *arg0, const char *arg1, const char *arg2, u32 arg3) {
     const char *sep;
     f32 x;
     s32 r;

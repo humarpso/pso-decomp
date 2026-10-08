@@ -242,7 +242,7 @@ struct Trap_801797D4 : VObj_801797D4 {
 };
 
 extern "C" {
-void TOTrap__sub_80178F54(void *, void *, f32);
+void set_triggered_state__6TOTrapFPvUi(void *, void *, f32);
 void TOTrapAncient01__vt20(void *arg0, void *arg1, f32 farg0);
 u16 obj_getField1c(void *);
 M2C_UNK obj_clear_flag30_20000(int);
@@ -251,7 +251,7 @@ M2C_UNK send_code_45_1__10TObjPlayerFi(int);
 s32 get_player_by_client_id(void *);
 s32 is_not_split_screen__13TRaderMapCoreFv();
 extern s32 lbl_805D53A0;
-void TOTrapAncient01__sub_8017940C(u8 *arg0);
+void release_trapped_player__15TOTrapAncient01FPv(u8 *arg0);
 s32 TObjFish__sub_8001EDB0(void *, s32);
 s32 get_bml_model(void *, s32);
 u8 *load_resource_from_descriptor(void *, s32, void *, s32, s32, s32);
@@ -337,13 +337,13 @@ void TOTrapAncient01__vt4(void *arg0, s16 *arg1, s32 arg2) {
         if (arg2 == 1) {
             ((VObj_801793A8_8017939C *)arg0)->m83();
         }
-        TOTrapAncient01__sub_8017940C((u8 *)(arg0));
+        release_trapped_player__15TOTrapAncient01FPv((u8 *)(arg0));
         set_flag8__6TLobbyFPv(arg0);
         queue_destruction__7TObjectFv(arg0);
     }
 }
 
-void TOTrapAncient01__sub_8017940C(u8 *arg0) {
+void release_trapped_player__15TOTrapAncient01FPv(u8 *arg0) {
     s32 temp_r3;
     s32 temp_r3_2;
     if (is_not_split_screen__13TRaderMapCoreFv() == 1) {
@@ -368,8 +368,8 @@ void TOTrapAncient01__sub_8017940C(u8 *arg0) {
 }
 
 void TOTrapAncient01__vt20(void *arg0, void *arg1, f32 farg0) {
-    TOTrapAncient01__sub_8017940C((u8 *)(arg0));
-    TOTrap__sub_80178F54(arg0, arg1, farg0);
+    release_trapped_player__15TOTrapAncient01FPv((u8 *)(arg0));
+    set_triggered_state__6TOTrapFPvUi(arg0, arg1, farg0);
 }
 
 void TOTrapAncient01__vt82(void) {  }

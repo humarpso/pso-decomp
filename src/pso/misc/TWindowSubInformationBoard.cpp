@@ -43,7 +43,7 @@ u32 open_keyboard__26TWindowSubInformationBoardFi(void *);
 u32 show_card_a7__26TWindowSubInformationBoardFPv(void *);
 u32 open_card_info_window__17TWindowSubComCardFPv(void *);
 u32 TWindowSubComCard__sub_8034CDE0(void *);
-u32 fn_8034CEDC(void *);
+u32 create_info_board_menu(void *);
 extern M2C_UNK lbl_8050E208[];
 void run_task__26TWindowSubInformationBoardFv(u8 *arg0);
 }
@@ -73,7 +73,7 @@ void run_task__26TWindowSubInformationBoardFv(u8 *arg0) {
     case 0:
     case 1:
         if ((u32) M2C_FIELD(arg0, u32 *, 0x2C) == 0U) {
-            M2C_FIELD(arg0, u32 *, 0x2C) = fn_8034CEDC((void *) (arg0));
+            M2C_FIELD(arg0, u32 *, 0x2C) = create_info_board_menu((void *) (arg0));
         }
         if ((u32) M2C_FIELD(arg0, u32 *, 0x34) == 0U) {
             M2C_FIELD(arg0, u32 *, 0x34) = open_card_info_window__17TWindowSubComCardFPv((void *) (arg0));

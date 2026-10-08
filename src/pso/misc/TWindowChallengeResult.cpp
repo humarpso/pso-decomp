@@ -28,7 +28,7 @@ Entry_80246DCC *get_array_entry__20TWindowSubStatusDispFPvi(void *, s32);
 void append_padded_number(s32, s32);
 void text_builder_append(const char *);
 void text_builder_reset(void);
-void TWindowDD__sub_802466E0(void *, void *, s32, s32);
+void construct_base__9TWindowDDFPvPvsPv(void *, void *, s32, s32);
 void refresh_status_display__9TWindowDDFv(Entry_80246DCC *);
 void draw_right_aligned_number(void);
 void set_text_entry_string(void *, s32, s32);
@@ -97,7 +97,7 @@ Win_80246DCC *TWindowChallengeResult__ct(Win_80246DCC *self, s32 arg1, s32 arg2,
     Entry_80246DCC *e;
     s32 m;
 
-    TWindowDD__sub_802466E0(self, lbl_804CE298, 4, get_window_layout_position(0x3F));
+    construct_base__9TWindowDDFPvPvsPv(self, lbl_804CE298, 4, get_window_layout_position(0x3F));
     self->vt = lbl_804CE2B8;
     self->f0 = lbl_805D3898;
     for (i = 0; i < 3; i++) {

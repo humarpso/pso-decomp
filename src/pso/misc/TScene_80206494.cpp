@@ -31,7 +31,7 @@ extern u32 TScene__data_805D6008;
 extern u32 TScene__data_805D6020;
 extern u32 TScene__data_805D6028;
 extern M2C_UNK lbl_805DC604;
-void TScene__sub_80206984(void);
+void free_scene_resources__6TSceneFv(void);
 s32 get_global_state__14TOKeyMachine01Fv();
 s32 TScene__sub_80205AEC(void *);
 s32 create_texture_wave_tasks__6TSceneFi(void *);
@@ -42,7 +42,7 @@ extern s32 lbl_805D3618;
 extern void *TScene__data_805D5FCC;
 extern u32 TScene__data_805D5FD0;
 u8 *TScene__ct(u8 *arg0, s32 arg1);
-M2C_UNK TLobby__sub_801317E4(M2C_UNK *, s32, M2C_UNK *);
+M2C_UNK replace_file_extension__6TLobbyFPvPvPv(M2C_UNK *, s32, M2C_UNK *);
 s32 update_lobby_scene__6TSceneFPv(char *);
 s32 *load_relocatable_file(M2C_UNK *, u32);
 s32 strncmp(M2C_UNK, s32, M2C_UNK);
@@ -55,7 +55,7 @@ extern s32 TScene__data_805D6010;
 void load_scene_map_file(s32 arg0);
 M2C_UNK copy_name(M2C_UNK *);
 s32 update_lobby_scene__6TSceneFPv(char *);
-M2C_UNK TLobby__sub_801317E4(M2C_UNK *, s32, M2C_UNK *);
+M2C_UNK replace_file_extension__6TLobbyFPvPvPv(M2C_UNK *, s32, M2C_UNK *);
 void TScene__sub_802065E8(void);
 void TScene__sub_802065EC(void);
 void TScene__sub_802065F0(s32);
@@ -83,7 +83,7 @@ extern M2C_UNK lbl_805DC604;
 void load_floor_scene(void);
 M2C_UNK copy_name(M2C_UNK *);
 s32 update_lobby_scene__6TSceneFPv(char *);
-M2C_UNK TLobby__sub_801317E4(M2C_UNK *, s32, M2C_UNK *);
+M2C_UNK replace_file_extension__6TLobbyFPvPvPv(M2C_UNK *, s32, M2C_UNK *);
 void load_file_to_buffer__6TSceneFi(s32 arg0);
 void load_map_texture_archive__6TSceneFi(s32 arg0);
 void load_scene_data__6TSceneFi(s32 arg0);
@@ -121,9 +121,9 @@ extern s32 lbl_805D6024;
 extern u32 TScene__data_805D6028;
 extern s32 lbl_805D602C;
 extern const f32 TScene__data_805DC5D8;
-void TScene__sub_80207038(void);
+void load_current_floor__6TSceneFv(void);
 s32 *load_relocatable_file(M2C_UNK *, u32);
-M2C_UNK TLobby__sub_801317E4(M2C_UNK *, s32, M2C_UNK *);
+M2C_UNK replace_file_extension__6TLobbyFPvPvPv(M2C_UNK *, s32, M2C_UNK *);
 M2C_UNK debug_print__6TLobbyFii(M2C_UNK *, ...);
 M2C_UNK collect_collision_groups(u32, s32);
 u32 get_map_count__10TObjMapCsnFv();
@@ -137,7 +137,7 @@ void load_scene_collision_file(s32 arg0);
 u32 alloc__22TQuestVmDownLoadServerFPv(s32);
 s32 *load_relocatable_file(M2C_UNK *, u32);
 s32 update_lobby_scene__6TSceneFPv(char *);
-M2C_UNK TLobby__sub_801317E4(M2C_UNK *, s32, M2C_UNK *);
+M2C_UNK replace_file_extension__6TLobbyFPvPvPv(M2C_UNK *, s32, M2C_UNK *);
 extern u8 lbl_8044A938[];
 extern u32 TScene__data_805D5FD0;
 extern u32 TScene__data_805D6008;
@@ -161,7 +161,7 @@ void load_map_texture_archive__6TSceneFi(s32 arg0);
 void load_scene_data__6TSceneFi(s32 arg0);
 s32 *load_relocatable_file(M2C_UNK *, u32);
 M2C_UNK read_disc_file(char *, u32);
-M2C_UNK TLobby__sub_801317E4(M2C_UNK *, s32, M2C_UNK *);
+M2C_UNK replace_file_extension__6TLobbyFPvPvPv(M2C_UNK *, s32, M2C_UNK *);
 M2C_UNK TScene__sub_80205AE8(M2C_UNK *);
 M2C_UNK TScene__sub_80205FD4(void *);
 M2C_UNK __dl__7TObjectFPv(void *);
@@ -236,7 +236,7 @@ void load_scene_map_file(s32 arg0) {
     Ent_802066BC *e;
     TScene__data_805D5FCC = NULL;
     TScene__data_805D5FE8 = -1;
-    TLobby__sub_801317E4((M2C_UNK *)sp8, arg0, (M2C_UNK *)lbl_8044A948);
+    replace_file_extension__6TLobbyFPvPvPv((M2C_UNK *)sp8, arg0, (M2C_UNK *)lbl_8044A948);
     if (update_lobby_scene__6TSceneFPv((char *)sp8) <= TScene__data_805D6010 && TScene__data_805D5FFC != 0) {
         TScene__data_805D5FCC = load_relocatable_file((M2C_UNK *)sp8, TScene__data_805D5FFC);
     }
@@ -252,7 +252,7 @@ void load_scene_map_file(s32 arg0) {
 
 void load_scene_collision_file(s32 arg0) {
     struct Sp8Buf20_80206494 sp8;
-    TLobby__sub_801317E4((M2C_UNK *)&sp8, arg0, lbl_8044A950);
+    replace_file_extension__6TLobbyFPvPvPv((M2C_UNK *)&sp8, arg0, lbl_8044A950);
     if (update_lobby_scene__6TSceneFPv((char *)&sp8) <= lbl_805D6014) {
         if (TScene__data_805D6000 != 0U) {
             lbl_805D4E68 = load_relocatable_file((M2C_UNK *)&sp8, TScene__data_805D6000);
@@ -289,11 +289,11 @@ void load_floor_scene(void) {
     if (TScene__data_805D5FCC != NULL && M2C_FIELD(TScene__data_805D5FCC, u32 *, 0x14) != 0) {
         found = 0;
         if (is_not_split_screen__13TRaderMapCoreFv() == 1) {
-            TLobby__sub_801317E4(path, (s32)tbl[lbl_805D5FC8].name, lbl_8044A97C);
+            replace_file_extension__6TLobbyFPvPvPv(path, (s32)tbl[lbl_805D5FC8].name, lbl_8044A97C);
             found = update_lobby_scene__6TSceneFPv((char *)path);
         }
         if (found <= 0) {
-            TLobby__sub_801317E4(path, (s32)tbl[lbl_805D5FC8].name, lbl_8044A984);
+            replace_file_extension__6TLobbyFPvPvPv(path, (s32)tbl[lbl_805D5FC8].name, lbl_8044A984);
         }
         bind_gvm_texture_list(path, M2C_FIELD(TScene__data_805D5FCC, u32 *, 0x14));
     }
@@ -312,7 +312,7 @@ void load_floor_scene(void) {
 
 #pragma push
 #pragma fp_contract on
-void TScene__sub_80206984(void) {
+void free_scene_resources__6TSceneFv(void) {
     u32 temp_r3;
     temp_r3 = TScene__data_805D6028;
     if (temp_r3 != 0U) {
@@ -368,7 +368,7 @@ void load_file_to_buffer__6TSceneFi(s32 arg0) {
 
     TScene__data_805D6028 = 0U;
     lbl_805D602C = 0;
-    TLobby__sub_801317E4((M2C_UNK *)(sp8), (s32)(arg0), (M2C_UNK *)(lbl_8044A98C));
+    replace_file_extension__6TLobbyFPvPvPv((M2C_UNK *)(sp8), (s32)(arg0), (M2C_UNK *)(lbl_8044A98C));
     temp_r31 = update_lobby_scene__6TSceneFPv((char *)(sp8));
     if (get_global_state__14TOKeyMachine01Fv() == 0xF) {
         if ((temp_r31 > 0) && ((u32) temp_r31 <= 0x100U)) {
@@ -406,11 +406,11 @@ void load_map_texture_archive__6TSceneFi(s32 arg0) {
     var_r30 = 0;
     lbl_805D6018 = 0;
     if (is_not_split_screen__13TRaderMapCoreFv() == 1) {
-        TLobby__sub_801317E4((M2C_UNK *)(sp8), (s32)(arg0), (M2C_UNK *)(lbl_8044A9A4));
+        replace_file_extension__6TLobbyFPvPvPv((M2C_UNK *)(sp8), (s32)(arg0), (M2C_UNK *)(lbl_8044A9A4));
         var_r30 = update_lobby_scene__6TSceneFPv((char *)(sp8));
     }
     if (var_r30 <= 0) {
-        TLobby__sub_801317E4((M2C_UNK *)(sp8), (s32)(arg0), (M2C_UNK *)(lbl_8044A940));
+        replace_file_extension__6TLobbyFPvPvPv((M2C_UNK *)(sp8), (s32)(arg0), (M2C_UNK *)(lbl_8044A940));
         var_r30 = update_lobby_scene__6TSceneFPv((char *)(sp8));
     }
     if (temp_r31 == 0xF) {
@@ -444,7 +444,7 @@ void load_supplementary_t_rel__6TSceneFv(s32 arg0) {
     TScene__data_805D5FD0 = 0;
     TScene__data_805D6008 = 0U;
     TScene__data_805D601C = 0;
-    TLobby__sub_801317E4((M2C_UNK *)sp8, arg0, (M2C_UNK *)lbl_8044A938);
+    replace_file_extension__6TLobbyFPvPvPv((M2C_UNK *)sp8, arg0, (M2C_UNK *)lbl_8044A938);
     n = update_lobby_scene__6TSceneFPv((char *)sp8);
     if (n > 0) {
         TScene__data_805D6008 = alloc__22TQuestVmDownLoadServerFPv(n);
@@ -465,7 +465,7 @@ void load_scene_data__6TSceneFi(s32 arg0) {
     lbl_805D4E68 = NULL;
     TScene__data_805D6000 = 0U;
     lbl_805D6014 = 0;
-    TLobby__sub_801317E4((M2C_UNK *)((M2C_UNK *)&sp8), (s32)(arg0), (M2C_UNK *)(lbl_8044A950));
+    replace_file_extension__6TLobbyFPvPvPv((M2C_UNK *)((M2C_UNK *)&sp8), (s32)(arg0), (M2C_UNK *)(lbl_8044A950));
     temp_r31 = update_lobby_scene__6TSceneFPv((char *)((M2C_UNK *)&sp8));
     if (get_global_state__14TOKeyMachine01Fv() == 0xF) {
         if ((temp_r31 > 0) && ((u32) temp_r31 <= 0x10000U)) {
@@ -491,7 +491,7 @@ void load_scene_data__6TSceneFi(s32 arg0) {
     }
     debug_print__6TLobbyFii(lbl_8044A958);
 }
-void TScene__sub_80207038(void) {
+void load_current_floor__6TSceneFv(void) {
     Ent_802066BC *tbl;
     s32 ent;
     s32 found;
@@ -522,11 +522,11 @@ void TScene__sub_80207038(void) {
     if (TScene__data_805D5FCC != NULL && M2C_FIELD(TScene__data_805D5FCC, u32 *, 0x14) != 0) {
         found = 0;
         if (is_not_split_screen__13TRaderMapCoreFv() == 1) {
-            TLobby__sub_801317E4(path, (s32)tbl[lbl_805D5FC8].name, lbl_8044A97C);
+            replace_file_extension__6TLobbyFPvPvPv(path, (s32)tbl[lbl_805D5FC8].name, lbl_8044A97C);
             found = update_lobby_scene__6TSceneFPv((char *)path);
         }
         if (found <= 0) {
-            TLobby__sub_801317E4(path, (s32)tbl[lbl_805D5FC8].name, lbl_8044A984);
+            replace_file_extension__6TLobbyFPvPvPv(path, (s32)tbl[lbl_805D5FC8].name, lbl_8044A984);
         }
         bind_gvm_texture_list(path, M2C_FIELD(TScene__data_805D5FCC, u32 *, 0x14));
     }

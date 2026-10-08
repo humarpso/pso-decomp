@@ -127,7 +127,7 @@ u8 *get_char_index__23TAdSinglePlyChrSelectGCFUi(int);
 void *TNpcPlayer__sub_8028B810(void *, void *, void *, int);
 s32 is_unloaded__12TChCrLoadAfsFPv(void *);
 void TAdPlyStatusGC__sub_8033F900(void *, int);
-void TNpcPlayer__sub_802E07E0(u8 *arg0);
+void update_model_load__10TNpcPlayerFPv(u8 *arg0);
 }
 
 extern "C" {
@@ -303,7 +303,7 @@ u8 *fn_802E0B60(u8 *arg0, s16 arg1) {
     return arg0;
 }
 
-void TNpcPlayer__sub_802E07E0(u8 *arg0) {
+void update_model_load__10TNpcPlayerFPv(u8 *arg0) {
     void *p;
     void *idx;
     s32 t;

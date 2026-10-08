@@ -610,7 +610,7 @@ void *memset(void *, int, u32);
 char *strncpy(char *, const char *, u32);
 u32 strlen(const char *);
 extern Big_803F4D84 *lbl_805D79C0;
-s32 TLobby__sub_803F4D84(char *dst, s32 len);
+s32 copy_current_entry_name__6TLobbyFPvi(char *dst, s32 len);
 s32 TLobby__sub_803F4AB4();
 s32 TLobby__sub_803F4AEC();
 void *memset(void *, int, u32);
@@ -732,7 +732,7 @@ extern "C" {
 #pragma push
 #pragma scheduling off
 #pragma peephole off
-s32 TLobby__sub_803F4D84(char *dst, s32 len) {
+s32 copy_current_entry_name__6TLobbyFPvi(char *dst, s32 len) {
     s16 i;
     if (TLobby__sub_803F4AB4() == 0) {
         return -1;

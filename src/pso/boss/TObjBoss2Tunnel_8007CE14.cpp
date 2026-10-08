@@ -16,9 +16,9 @@ void TObjBoss2Tunnel__sub_8007CEB4(void);
 extern "C" {
 
 s32 save_snapshot__15TObjBoss2TunnelFv(void);
-s32 TAdPlayerLoadGC__sub_801E1E38(M2C_UNK);
+s32 probe_card_slot__15TAdPlayerLoadGCFi(M2C_UNK);
 s32 TObjBoss2Tunnel__sub_8007CB50();
-s32 TObjBoss2Tunnel__sub_8007CBC4();
+s32 load_snapshot__15TObjBoss2TunnelFv();
 
 M2C_UNK save_screen_snapshot();
 M2C_UNK memcard_check_snapshot(M2C_UNK, s32 *);
@@ -34,11 +34,11 @@ s32 save_snapshot__15TObjBoss2TunnelFv(void) {
         }
         save_screen_snapshot();
 loop_4:
-        if (TAdPlayerLoadGC__sub_801E1E38(1) == 0) {
+        if (probe_card_slot__15TAdPlayerLoadGCFi(1) == 0) {
             TObjBoss2Tunnel__data_805D4E94 = 0;
             return -5;
         }
-        if (TObjBoss2Tunnel__sub_8007CBC4() != 0) {
+        if (load_snapshot__15TObjBoss2TunnelFv() != 0) {
             if (TObjBoss2Tunnel__sub_8007CB50() == 0) {
                 TObjBoss2Tunnel__data_805D4E94 = 1;
                 return -9;

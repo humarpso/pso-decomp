@@ -40,10 +40,10 @@ s32 TAdMultiSaveGC__sub_802FF314(void);
 s32 is_visible__17TWindowSubComCardFPv(int);
 s32 get_instance__15TAdPlayerLoadGCFv();
 M2C_UNK init__22THunterGuildSeqOfflineFPvPvPv(void *, void *, void *);
-s32 TAdPlayerLoadGC__sub_801E1E38(int);
+s32 probe_card_slot__15TAdPlayerLoadGCFi(int);
 s32 check_memcard_status__15TAdPlayerLoadGCFi(int);
-s32 TAdSinglePlyChrSelectGC__sub_801FC5D8();
-s32 TAdSinglePlyChrSelectGC__sub_801FC6A4();
+s32 verify_system_file__23TAdSinglePlyChrSelectGCFPv();
+s32 load_save_from_card__23TAdSinglePlyChrSelectGCFv();
 M2C_UNK TAdSinglePlyChrSelectGC__sub_801FDAAC();
 M2C_UNK TAdSinglePlyChrSelectGC__sub_8020051C();
 void *__nw__7TObjectFUl(u32);
@@ -98,7 +98,7 @@ void run_task__14TAdMultiSaveGCFv(u8 *arg0) {
     s32 temp_r3;
     s32 var_r30;
     u32 temp_r0;
-    if (TAdPlayerLoadGC__sub_801E1E38((int) (0)) == 0) {
+    if (probe_card_slot__15TAdPlayerLoadGCFi((int) (0)) == 0) {
         M2C_FIELD(arg0, u32 *, 0x1C) = 0U;
     }
     temp_r0 = M2C_FIELD(arg0, u32 *, 0x1C);
@@ -120,7 +120,7 @@ void run_task__14TAdMultiSaveGCFv(u8 *arg0) {
             TWindow__close(M2C_FIELD(arg0, void **, 0x30));
             M2C_FIELD(arg0, u32 *, 0x30) = 0U;
         }
-        if (TAdPlayerLoadGC__sub_801E1E38((int) (0)) != 0) {
+        if (probe_card_slot__15TAdPlayerLoadGCFi((int) (0)) != 0) {
             M2C_FIELD(arg0, u32 *, 0x1C) = 1U;
             return;
         }
@@ -144,10 +144,10 @@ void run_task__14TAdMultiSaveGCFv(u8 *arg0) {
         break;
     case 2:
         var_r30 = 1;
-        if (TAdSinglePlyChrSelectGC__sub_801FC5D8() == 0) {
+        if (verify_system_file__23TAdSinglePlyChrSelectGCFPv() == 0) {
             var_r30 = 0;
         }
-        if (TAdSinglePlyChrSelectGC__sub_801FC6A4() == 0) {
+        if (load_save_from_card__23TAdSinglePlyChrSelectGCFv() == 0) {
             var_r30 = 0;
         }
         if (var_r30 != 0) {

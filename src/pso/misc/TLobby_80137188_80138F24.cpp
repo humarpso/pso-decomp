@@ -44,7 +44,7 @@ extern s8 lbl_8050E208[];
 extern s32 TLobby__data_805D5580;
 extern u32 TLobby__data_805D55D0;
 extern char TLobby__data_805DB0B0;
-void TLobby__sub_80139104(void);
+void update_block_jump_list__6TLobbyFv(void);
 void close_and_set_state_12__6TLobbyFv();
 s32 get_status_flag__6TLobbyFPv(u32);
 void send_info__9TProtocolFR16TPlyGuildCardTag(void *, void *);
@@ -56,7 +56,7 @@ extern s8 lbl_8050E208[];
 extern s32 TLobby__data_805D5580;
 extern u32 TLobby__data_805D55D0;
 extern char TLobby__data_805DB0B0;
-void TLobby__sub_801391BC(void);
+void update_ship_select_window__6TLobbyFv(void);
 M2C_UNK open_keyboard_window__6TLobbyFv();
 M2C_UNK destroy_lobby_ui__6TLobbyFv();
 M2C_UNK close_all_windows__6TLobbyFv();
@@ -169,7 +169,7 @@ void TLobby__sub_80139094(void *self) {
     }
 }
 
-void TLobby__sub_80139104(void) {
+void update_block_jump_list__6TLobbyFv(void) {
     s32 idx;
     if (TLobby__data_805D55D0 != 0U) {
         if (get_status_flag__6TLobbyFPv(TLobby__data_805D55D0) != 0) {
@@ -187,7 +187,7 @@ void TLobby__sub_80139104(void) {
     }
 }
 
-void TLobby__sub_801391BC(void) {
+void update_ship_select_window__6TLobbyFv(void) {
     s32 idx;
     if (TLobby__data_805D55D0 != 0U) {
         if (get_status_flag__6TLobbyFPv(TLobby__data_805D55D0) != 0) {

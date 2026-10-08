@@ -27,7 +27,7 @@ f32 cos_table_lookup(s32);
 extern u8 *lbl_805D6978;
 extern const f32 lbl_805DED40;
 extern const f32 lbl_805DED44;
-void TBoss8Dragon__sub_802F33C8(s32 n, s32 arg1, s32 arg2);
+void place_parts_in_ring__12TBoss8DragonFiii(s32 n, s32 arg1, s32 arg2);
 }
 
 extern "C" {
@@ -45,7 +45,7 @@ u16 TBoss8Dragon__sub_802F3388(s32 arg0) {
     }
     return get_part_count_plus__12TBoss8DragonFPvi(lbl_805D6978, arg0);
 }
-void TBoss8Dragon__sub_802F33C8(s32 n, s32 arg1, s32 arg2) {
+void place_parts_in_ring__12TBoss8DragonFiii(s32 n, s32 arg1, s32 arg2) {
     Vec_802F33C8 v;
     u8 buf[0xEC];
     s32 ang;

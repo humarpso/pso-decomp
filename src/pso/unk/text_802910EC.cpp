@@ -34,7 +34,7 @@ void set_creation_projection_center(f32 farg0);
 extern u8 lbl_804D9578[];
 extern s32 lbl_805D656C;
 void TCharaMaking__resolve_creation_sprite_table(u8 **table, s32 *id);
-void TLobby__sub_801E468C(int, void *);
+void load_texture_pvm_file__6TLobbyFPvi(int, void *);
 void TObjCMIcon__sub_8029951C();
 s32 create__10TObjCMIconFPv(int);
 extern RecoveredGlobal_80291138_lbl_804D9668 lbl_804D9668;
@@ -88,7 +88,7 @@ void fn_80291178(void) {
     }
     TObjCMIcon__sub_8029951C();
     (*(s32 *)&lbl_805D6568) = create__10TObjCMIconFPv(tl_06);
-    TLobby__sub_801E468C(lbl_804DA944[lbl_805D656C], ((s32 *)&lbl_804D9668));
+    load_texture_pvm_file__6TLobbyFPvi(lbl_804DA944[lbl_805D656C], ((s32 *)&lbl_804D9668));
 }
 
 void set_creation_projection_center(f32 farg0) {

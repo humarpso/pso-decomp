@@ -15,7 +15,7 @@ struct RecoveredGlobal_802841FC___vt__28TWindowSubSymbolChatFaceType {
 
 extern "C" {
 int alloc__23TAdSinglePlyChrSelectGCFPv(void *);
-u8 * TWindowDD__sub_802466E0(void *, s32, s16, s32);
+u8 * construct_base__9TWindowDDFPvPvsPv(void *, s32, s16, s32);
 s32 construct_type1_heading__20TWindowSubStatusDispFPvii(s32, s32, s32);
 s32 get_message_10__20TWindowSubStatusDispFPv(int);
 extern RecoveredGlobal_802841FC_lbl_804D2CE0 lbl_804D2CE0;
@@ -30,7 +30,7 @@ typedef char RecoveredGlobal_802841FC_lbl_804D2CE0_size[sizeof(RecoveredGlobal_8
 typedef char RecoveredGlobal_802841FC___vt__28TWindowSubSymbolChatFaceType_size[sizeof(RecoveredGlobal_802841FC___vt__28TWindowSubSymbolChatFaceType) == 0x1C ? 1 : -1];
 u8 *TWindowSubSymbolChatFaceType__ct(u8 *arg0, s32 arg1, s32 arg2) {
     s32 var_r31;
-    TWindowDD__sub_802466E0(arg0, (s32) &lbl_804D2CE0.value, 4, arg1);
+    construct_base__9TWindowDDFPvPvsPv(arg0, (s32) &lbl_804D2CE0.value, 4, arg1);
     M2C_FIELD(arg0, M2C_UNK **, 0x18) = &__vt__28TWindowSubSymbolChatFaceType.value;
     M2C_FIELD(arg0, s32 *, 0) = (s32) lbl_805D3AB0;
     M2C_FIELD(arg0, s8 *, 0x60) = 0;

@@ -38,7 +38,7 @@ s32 check_equip_requirements(void *, void *, int);
 void initialize_mag_data__9TItemDataFPv(void *);
 void deserialize_mag__9TItemDataFPvPv(void *, void *);
 void init__9TItemDataFv(void *);
-s16 TItemMagSub__sub_8011455C(void *);
+s16 get_total_level__11TItemMagSubFPv(void *);
 Rec_80104DAC *find_item_combination_recipe(u8 *, void *);
 s32 find_eligible_combination_recipe(s32 arg0, u8 *arg1);
 }
@@ -87,7 +87,7 @@ s32 find_eligible_combination_recipe(s32 arg0, u8 *arg1) {
             initialize_mag_data__9TItemDataFPv(&mag);
             deserialize_mag__9TItemDataFPvPv(&d, &mag);
             m = rec->b9;
-            if (TItemMagSub__sub_8011455C(&mag) < m) {
+            if (get_total_level__11TItemMagSubFPv(&mag) < m) {
                 return 0;
             }
         }

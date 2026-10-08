@@ -87,6 +87,13 @@ u32 get_font_char_advance(u16 arg0);
 u16 map_char_to_font_code(u16 c);
 extern const f32 lbl_805DB19C;
 u32 calc_text_width(char *s);
+u32 get_font_char_advance(u16 arg0);
+u16 map_char_to_font_code(u16 c);
+extern const f32 lbl_805DB19C;
+u32 TWindowSubStatusDisp__sub_80144C6C(char *s);
+u32 get_font_char_advance(u16 arg0);
+extern const f32 lbl_805DB19C;
+u32 TWindowSubStatusDisp__sub_80144E9C(char *s);
 }
 
 extern "C" {
@@ -140,6 +147,41 @@ void set_glyph_quad_extents(u8 arg0, u8 *arg1) {
 typedef struct RecoveredGlobal_80144FCC_lbl_804A74F0 RecoveredGlobal_80144FCC_lbl_804A74F0;
 typedef char RecoveredGlobal_80144FCC_lbl_804A74F0_size[((sizeof(RecoveredGlobal_80144FCC_lbl_804A74F0)) == 0x2FC) ? (1) : (-1)];
 
+u32 TWindowSubStatusDisp__sub_80144C6C(char *s) {
+    f32 max = lbl_805DB19C;
+    u32 w = 0;
+    u8 c;
+    s32 hi;
+    int new_var;
+    u8 lo;
+    if (s == NULL) {
+        return 0;
+    }
+    while (*s != 0) {
+        c = *s++;
+        hi = c;
+        if (c == '\n') {
+        } else if (c == ' ') {
+            w += 9;
+        } else {
+            if ((c & 0xE0) == 0x80) {
+                lo = *s++;
+            } else {
+                lo = c;
+                hi = 0;
+            }
+            new_var = (hi << 8) & 0xFF00;
+            new_var = new_var | lo;
+            ((u16 (*)(u32))map_char_to_font_code)(new_var);
+            w += (u8)((u32 (*)(void))get_font_char_advance)();
+        }
+    }
+    if (lbl_805DB19C < (f32)w) {
+        max = (f32)w;
+    }
+    return max;
+}
+
 u32 calc_text_width(char *s) {
   f32 max = lbl_805DB19C;
   u32 w = 0;
@@ -189,6 +231,44 @@ u32 calc_text_width(char *s) {
     max = (f32) w;
   }
   return max;
+}
+
+u32 TWindowSubStatusDisp__sub_80144E9C(char *s) {
+    f32 max = lbl_805DB19C;
+    u32 w = 0;
+    u8 c;
+    s32 hi;
+    int new_var;
+    u8 lo;
+    if (s == NULL) {
+        return 0;
+    }
+    while (*s != 0) {
+        c = *s++;
+        hi = c;
+        if (c == '\n') {
+            if (max < (f32)w) {
+                max = (f32)w;
+            }
+            w = 0;
+        } else if (c == ' ') {
+            w += 0x12;
+        } else {
+            if ((c & 0xE0) == 0xE0) {
+                lo = *s++;
+            } else {
+                lo = c;
+                hi = 0;
+            }
+            new_var = (hi << 8) & 0xFF00;
+            new_var = new_var | lo;
+            w += (u8)((u32 (*)(u32))get_font_char_advance)(new_var);
+        }
+    }
+    if (max < (f32)w) {
+        max = (f32)w;
+    }
+    return max;
 }
 
 u32 get_font_char_advance(u16 arg0) {

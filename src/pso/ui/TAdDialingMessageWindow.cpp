@@ -23,7 +23,7 @@ void *TAdDialingMessageWindow__ct(void *arg0, void *arg1, void *arg2);
 void *__dt__23TAdDialingMessageWindowFv(void *arg0, s16 arg1);
 void run_child_tasks__23TAdDialingMessageWindowFPv(void* p);
 void set_flag_and_notify__23TAdDialingMessageWindowFPv(void* a0);
-int TAdMcSelectGC__sub_80019DA8(void*, int, float);
+int create_draw_line_ctrl__13TAdMcSelectGCFiif(void*, int, float);
 void __ct__7TObjectFP7TObject(void *, void *);
 M2C_UNK __dl__7TObjectFPv(void *);
 M2C_UNK __dt__7TObjectFv(void *, M2C_UNK);
@@ -33,7 +33,7 @@ M2C_UNK queue_destruction__7TObjectFv(void *);
 int run_tasks__7TObjectFv(void*);
 
     extern const float lbl_805E0360;
-void set_flag_and_notify__23TAdDialingMessageWindowFPv(void* a0) { *(int*)((char*)a0 + 0x1c) = (*(int*)((char*)a0 + 0x1c) | 0x1); TAdMcSelectGC__sub_80019DA8((void*)(*(int*)((char*)a0 + 0x28)), 17, lbl_805E0360); }
+void set_flag_and_notify__23TAdDialingMessageWindowFPv(void* a0) { *(int*)((char*)a0 + 0x1c) = (*(int*)((char*)a0 + 0x1c) | 0x1); create_draw_line_ctrl__13TAdMcSelectGCFiif((void*)(*(int*)((char*)a0 + 0x28)), 17, lbl_805E0360); }
 
 void run_child_tasks__23TAdDialingMessageWindowFPv(void* p) { void* m = *(void**)((char*)p + 0x28); if (m) run_tasks__7TObjectFv(m); }
 

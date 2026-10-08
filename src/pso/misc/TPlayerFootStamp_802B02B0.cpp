@@ -8,14 +8,14 @@ extern "C" {
 
 void finish_and_dispatch_next_phase__14TBoss6PlotFalzFPv(u8 *arg0);
 void update_plot_timer__14TBoss6PlotFalzFPv(void *arg0);
-M2C_UNK TBoss6PlotFalz__sub_802AB2B8(void *, M2C_UNK);
-M2C_UNK TBoss6PlotFalz__sub_802AB490(void *);
+M2C_UNK set_state__14TBoss6PlotFalzFPvi(void *, M2C_UNK);
+M2C_UNK award_exp_and_destroy__14TBoss6PlotFalzFPv(void *);
 M2C_UNK TBoss6PlotFalz__sub_802ABBC4(void *, void *);
-M2C_UNK TBoss6PlotFalz__sub_802AC4D8();
-M2C_UNK TBoss6PlotFalz__sub_802AC678();
-M2C_UNK TBoss6PlotFalz__sub_802AC6D0();
+M2C_UNK refresh_players_equipment__14TBoss6PlotFalzFPv();
+M2C_UNK end_cutscene_camera__14TBoss6PlotFalzFPv();
+M2C_UNK freeze_all_players__14TBoss6PlotFalzFv();
 M2C_UNK TBoss6Type2__sub_802BD3CC(void *, void *, void *, void *);
-M2C_UNK TLobby__sub_8022743C();
+M2C_UNK stop_audio_streams__6TLobbyFv();
 M2C_UNK destroy_static_instance__14TBoss6PlotFalzFv(void *);
 M2C_UNK dispatch_by_main_phase__14TBoss4DarkFalzFUs(int);
 M2C_UNK fn_8033E8C0(void *, void *);
@@ -27,7 +27,7 @@ M2C_UNK try_dispatch_darkfalz_phase__12TBoss6ThanksFv();
 void update_plot_timer__14TBoss6PlotFalzFPv(void *arg0) {
     s32 temp_r0;
 
-    TBoss6PlotFalz__sub_802AC4D8();
+    refresh_players_equipment__14TBoss6PlotFalzFPv();
     if (((s32) M2C_FIELD(arg0, s32 *, 0x3CC) > 1) && (is_ready__14TBoss6PlotFalzFv(arg0) != 0)) {
         M2C_FIELD(arg0, s32 *, 0x3CC) = 0x2CA;
     }
@@ -35,11 +35,11 @@ void update_plot_timer__14TBoss6PlotFalzFPv(void *arg0) {
     M2C_FIELD(arg0, s32 *, 0x3CC) = temp_r0;
     if (temp_r0 > 0x2CA) {
         if (is_ending_or_split_screen__14TBoss6PlotFalzFv(arg0) != 0) {
-            TBoss6PlotFalz__sub_802AB2B8(arg0, 8);
+            set_state__14TBoss6PlotFalzFPvi(arg0, 8);
             return;
         }
-        TBoss6PlotFalz__sub_802AC678();
-        TBoss6PlotFalz__sub_802AB490(arg0);
+        end_cutscene_camera__14TBoss6PlotFalzFPv();
+        award_exp_and_destroy__14TBoss6PlotFalzFPv(arg0);
     }
 }
 
@@ -60,8 +60,8 @@ void finish_and_dispatch_next_phase__14TBoss6PlotFalzFPv(u8 *arg0) {
     }
     TBoss6PlotFalz__sub_802ABBC4((void *) (arg0), (void *) (sp10));
     destroy_static_instance__14TBoss6PlotFalzFv((void *) (arg0));
-    TLobby__sub_8022743C();
-    TBoss6PlotFalz__sub_802AC6D0();
+    stop_audio_streams__6TLobbyFv();
+    freeze_all_players__14TBoss6PlotFalzFv();
     M2C_FIELD(arg0, s32 *, 0x3D0) = 0;
     M2C_FIELD(arg0, s32 *, 0x3CC) = 0;
     dispatch_by_main_phase__14TBoss4DarkFalzFUs((int) (0x57));

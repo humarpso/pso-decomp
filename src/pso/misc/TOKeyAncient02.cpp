@@ -60,7 +60,7 @@ struct VObj_8016B414 : VBase_8016B414 {
 extern "C" {
 s32 is_split_screen();
 s32 is_any_player_in_range__5TOKeyFPv(void *);
-s32 TOKey__sub_8016A310(void *);
+s32 is_local_player_in_range__5TOKeyFPv(void *);
 s32 TOKeyAncient03__vt13(u8 *arg0);
 M2C_UNK begin_effect_render__13TParticleCtrlFv();
 M2C_UNK end_effect_render__13TParticleCtrlFv();
@@ -85,7 +85,7 @@ extern RecoveredGlobal_8016B5A4_lbl_804B2A7C lbl_804B2A7C;
 extern u32 lbl_805D5A00;
 extern s32 lbl_805D5A04;
 extern void *lbl_805D5A08;
-void TOKeyAncient02__sub_8016B5A4(void);
+void load_resources__14TOKeyAncient02Fv(void);
 s32 TObjFish__sub_8001EDB0(void *, s32);
 s32 get_bml_model(void *, s32);
 s32 reset_photon_effect__10TObjPlayerFPv(void *);
@@ -256,7 +256,7 @@ extern M2C_UNK __vt__14TOKeyAncient02[];
 
 typedef char RecoveredGlobal_8016B5A4_lbl_80441A74_size[sizeof(RecoveredGlobal_8016B5A4_lbl_80441A74) == 0x14 ? 1 : -1];
 typedef char RecoveredGlobal_8016B5A4_lbl_804B2A7C_size[sizeof(RecoveredGlobal_8016B5A4_lbl_804B2A7C) == 0x10 ? 1 : -1];
-void TOKeyAncient02__sub_8016B5A4(void) {
+void load_resources__14TOKeyAncient02Fv(void) {
     s32 temp_r3;
     s32 var_r0;
     temp_r3 = alloc__23TAdSinglePlyChrSelectGCFPv((void *)0x440);
@@ -322,7 +322,7 @@ s32 TOKeyAncient03__vt13(u8 *arg0) {
         if (is_split_screen() == 1) {
             var_r3 = is_any_player_in_range__5TOKeyFPv((void *) (arg0));
         } else {
-            var_r3 = TOKey__sub_8016A310((void *) (arg0));
+            var_r3 = is_local_player_in_range__5TOKeyFPv((void *) (arg0));
         }
         if (((s32) M2C_FIELD(arg0, s32 *, 0xD4) == 1) || (var_r3 == 1)) {
             var_r31 = 1;

@@ -31,14 +31,14 @@ s32 read_disc_file(void *, s32);
 s32 sprintf(char *, const char *, ...);
 s32 TLobby__sub_803CC53C();
 void TLobby__sub_803CCE9C(s32);
-s32 TLobby__sub_803CD3A8(void *, s32);
+s32 adxf_open__6TLobbyFUii(void *, s32);
 void load_gvm_texture_archive(s32, s32);
 s32 xmalloc__FUl(M2C_UNK);
 void xfree__FPv(s32);
 extern char lbl_8044DCE0[];
 extern char lbl_805161E0[];
 s32 TLobby__sub_8023E554(s32 arg0, s32 arg1);
-s32 TLobby__sub_801E468C(s32, void *);
+s32 load_texture_pvm_file__6TLobbyFPvi(s32, void *);
 void TObjPlayer__sub_803DD5E8(void *, s32, s32, s32);
 M2C_UNK memset(M2C_UNK, M2C_UNK, M2C_UNK);
 extern s32 lbl_805D63C0;
@@ -89,7 +89,7 @@ s32 TLobby__sub_8023E554(s32 arg0, s32 arg1) {
     s32 c;
     sprintf(lbl_805161E0, lbl_8044DCE0, arg0);
     if (update_lobby_scene__6TSceneFPv(lbl_805161E0) != -1) {
-        a = TLobby__sub_803CD3A8(lbl_805161E0, 0);
+        a = adxf_open__6TLobbyFUii(lbl_805161E0, 0);
         b = TLobby__sub_803CC53C();
         TLobby__sub_803CCE9C(a);
         b = xmalloc__FUl((M2C_UNK)(b << 11));
@@ -115,7 +115,7 @@ s32 bind_gvm_texture_list(s32 arg0, List_8023E638 *arg1) {
     }
     memset((M2C_UNK)(lbl_805D63C0), (M2C_UNK)(0), (M2C_UNK)(0x1800));
     TObjPlayer__sub_803DD5E8(sp8, lbl_805D63C0, lbl_805D63C4, 0x200);
-    if (TLobby__sub_801E468C(arg0, sp8) == -1) {
+    if (load_texture_pvm_file__6TLobbyFPvi(arg0, sp8) == -1) {
         return 0;
     }
     n = arg1->count;

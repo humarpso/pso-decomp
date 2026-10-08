@@ -41,7 +41,7 @@ f32 xz_distance_squared(void *, void *);
 extern s32 lbl_805D586C;
 extern s32 lbl_805D5870;
 void TObjPlayer__sub_800C6E34(Plr_800C6E34 *arg0, f32 radius);
-f32 TObjPlayer__sub_800186E8(void *, void *, Vec_800C6EF8 *);
+f32 calc_xz_distance_sq__10TObjPlayerFiUiPv(void *, void *, Vec_800C6EF8 *);
 void VecCopy__FP3VecPC3Vec(Vec_800C6EF8 *, Vec_800C6EF8 *);
 u8 *get_player_data__10TObjPlayerFi(int);
 u16 obj_getField1c(void *);
@@ -60,7 +60,7 @@ u16 TObjPlayer__sub_800C6EF8(Obj_800C6EF8 *arg0, Vec_800C6EF8 *out, f32 radius);
 u8 *find_active_entity_by_id(int);
 f32 xz_distance_squared(void *, void *);
 Obj_800C6FFC *find_entity_by_id(int);
-BOOL TObjPlayer__sub_800C6FFC(Obj_800C6FFC *arg0, f32 radius);
+BOOL select_nearest_target__10TObjPlayerFPvf(Obj_800C6FFC *arg0, f32 radius);
 }
 
 extern "C" {
@@ -163,7 +163,7 @@ u16 TObjPlayer__sub_800C6EF8(Obj_800C6EF8 *arg0, Vec_800C6EF8 *out, f32 radius) 
         if (p->flags & 0x2000800) {
             continue;
         }
-        d = TObjPlayer__sub_800186E8(arg0, p, &v);
+        d = calc_xz_distance_sq__10TObjPlayerFiUiPv(arg0, p, &v);
         if (d < bestDist) {
             best = obj_getField1c(p);
             bestDist = d;
@@ -176,7 +176,7 @@ u16 TObjPlayer__sub_800C6EF8(Obj_800C6EF8 *arg0, Vec_800C6EF8 *out, f32 radius) 
 }
 struct Obj_800C6EF8;
 struct Vec_800C6EF8;
-BOOL TObjPlayer__sub_800C6FFC(Obj_800C6FFC *arg0, f32 radius) {
+BOOL select_nearest_target__10TObjPlayerFPvf(Obj_800C6FFC *arg0, f32 radius) {
     s32 a;
     s32 b;
     f32 da;
@@ -279,7 +279,7 @@ s32 get_player_by_client_id(u16);
 
 u8 find_target_in_range__10TObjPlayerFPvf(void *arg0, f32 farg0) {
     if (obj_testFlags30(arg0, 0x10) != 0) {
-        return ((u8 (*)(void *, f32))TObjPlayer__sub_800C6FFC)(arg0, farg0);
+        return ((u8 (*)(void *, f32))select_nearest_target__10TObjPlayerFPvf)(arg0, farg0);
     }
     M2C_FIELD(arg0, u16 *, 0x338) = ((u16 (*)(void *, M2C_UNK, f32))find_nearest_visible_player)(arg0, 0, farg0);
     M2C_FIELD(arg0, s32 *, 0x2A8) = get_player_by_client_id(M2C_FIELD(arg0, u16 *, 0x338));

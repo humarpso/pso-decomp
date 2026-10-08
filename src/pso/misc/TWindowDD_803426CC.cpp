@@ -9,7 +9,7 @@ struct W_803429B0 { u8 pad[0x20]; s32 idx; s32 ids[1]; };
 
 extern "C" {
 s16 TWindowDD__sub_80342158(int);
-M2C_UNK TWindowDD__sub_8034330C(void *);
+M2C_UNK apply_entry_layout__9TWindowDDFPv(void *);
 M2C_UNK TWindowDD__sub_803435A0(void *);
 M2C_UNK TWindowDD__sub_80347B70(void *);
 M2C_UNK TWindowDD__sub_80347C50();
@@ -23,7 +23,7 @@ void TWindowDD__sub_803428C4(u8 *arg0);
 s16 TWindowDD__sub_80342158(int);
 s32 TWindowDD__sub_80342F84();
 s32 update_close_flag__9TWindowDDFPv(void *);
-M2C_UNK TWindowDD__sub_8034330C(void *);
+M2C_UNK apply_entry_layout__9TWindowDDFPv(void *);
 M2C_UNK TWindowDD__sub_803435A0(void *);
 s32 TWindowDD_is_id_in_range_5AC_5F9();
 M2C_UNK TWindowDD__sub_80347B70(void *);
@@ -40,7 +40,7 @@ void enter_state_16__9TWindowDDFPv(void *arg0);
 void update__9TWindowDDFi(s32 arg0);
 void update_state__9TWindowDDFPv(void *arg0);
 s32 TWindowDD__sub_80342F84();
-M2C_UNK TWindowDD__sub_8034330C(void *);
+M2C_UNK apply_entry_layout__9TWindowDDFPv(void *);
 M2C_UNK TWindowDD__sub_803435A0(void *);
 M2C_UNK TWindowDD__sub_80347B70(void *);
 M2C_UNK TWindowDD__sub_80347C50();
@@ -65,7 +65,7 @@ void enter_state_16__9TWindowDDFPv(void *arg0) {
             var_r31 = update_close_flag__9TWindowDDFPv(arg0) == 0;
         } else if (TWindowDD__sub_803482B0((void *)(arg0)) != 0) {
             play_se__9TWindowDDFv();
-            TWindowDD__sub_8034330C((void *)(arg0));
+            apply_entry_layout__9TWindowDDFPv((void *)(arg0));
         }
         break;
     case 1:
@@ -89,7 +89,7 @@ void update_state__9TWindowDDFPv(void *arg0) {
     }
     if (TWindowDD__sub_803482B0((void *)(arg0)) != 0) {
         play_se__9TWindowDDFv();
-        TWindowDD__sub_8034330C((void *)(arg0));
+        apply_entry_layout__9TWindowDDFPv((void *)(arg0));
     }
 }
 
@@ -124,7 +124,7 @@ void TWindowDD__sub_80342800(u8 *arg0) {
     if (TWindowDD__sub_803482B0((void *)((int) (var_r3))) != 0) {
         play_se__9TWindowDDFv();
         var_r3 = (u8 *)(var_r31);
-        TWindowDD__sub_8034330C((void *)((int) (var_r3)));
+        apply_entry_layout__9TWindowDDFPv((void *)((int) (var_r3)));
     }
 }
 
@@ -157,7 +157,7 @@ void update__9TWindowDDFi(s32 arg0) {
     }
     if (TWindowDD__sub_803482B0((void *)(arg0)) != 0) {
         play_se__9TWindowDDFv();
-        TWindowDD__sub_8034330C((void *)(arg0));
+        apply_entry_layout__9TWindowDDFPv((void *)(arg0));
     }
 }
 void TWindowDD__sub_803429B0(u8 *arg0) {
@@ -172,7 +172,7 @@ void TWindowDD__sub_803429B0(u8 *arg0) {
             var_r31 = update_close_flag__9TWindowDDFPv(arg0) == 0;
         } else if (TWindowDD__sub_803482B0(arg0) != 0) {
             play_se__9TWindowDDFv();
-            TWindowDD__sub_8034330C(arg0);
+            apply_entry_layout__9TWindowDDFPv(arg0);
         }
         break;
     case 1:

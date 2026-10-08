@@ -466,7 +466,7 @@ extern "C" {
 int transition_enemy_state(void*, int);
 void clear_attack_receipts(void *);
 void TObjEneMe3ShinowaMirage__vt60(void *arg0);
-M2C_UNK TObjEneMe3ShinowaMirage__sub_800E4B40();
+M2C_UNK draw_model__23TObjEneMe3ShinowaMirageFPv();
 void render__23TObjEneMe3ShinowaMirageFv(u8 *arg0);
 M2C_UNK queue_destruction__7TObjectFv(void *);
 M2C_UNK TObjEneMe3Shinowa__sub_800E7724(void *);
@@ -483,7 +483,7 @@ void copy_pos__11TNowLoadingFPvPv(void *, void *);
 void enable__13TParticleCtrlFPv(void *);
 void set_field_378__9TObjEneDDFPvi(void *, s32);
 int transition_enemy_state(void*, int);
-void TObjEneMe3ShinowaReal__sub_800E45D4(void *);
+void try_spawn_mirages__21TObjEneMe3ShinowaRealFPv(void *);
 M2C_UNK advance_animation_playback(void *, int);
 f32 sin_table_lookup(s32);
 f32 cos_table_lookup(s32);
@@ -506,7 +506,7 @@ void set_field_378__9TObjEneDDFPvi(void *, s32);
 int transition_enemy_state(void*, int);
 void activate_mirage__23TObjEneMe3ShinowaMirageFPvi(u8 *arg0, s32 arg1);
 u8 *TObjEneMe3ShinowaReal__sub_800E4554(void *, s32);
-void TObjEneMe3ShinowaReal__sub_800E45D4(void *);
+void try_spawn_mirages__21TObjEneMe3ShinowaRealFPv(void *);
 s32 copy_target_state__14TObjEnePanarmsFPvPv(void *, s32);
 M2C_UNK advance_animation_playback(void *, int);
 M2C_UNK play_sound_effect(s32, void *, int, int);
@@ -540,7 +540,7 @@ u8 *TObjEneMe3ShinowaMirage__ct(u8 *, void *, u8 *, void *, void *);
 s16 obj_getField1c(void *);
 M2C_UNK init_common_from__9TObjEneDDFPvPv(void *, void *);
 M2C_UNK fn_800E762C(void *);
-M2C_UNK TObjEneMe3ShinowaMirage__sub_800E7884(void *);
+M2C_UNK init_enemy__23TObjEneMe3ShinowaMirageFPv(void *);
 M2C_UNK TObjEneMe3Shinowa__ct(void *, void *);
 extern s32 lbl_805D2AD0;
 extern const f32 lbl_805DA5C0;
@@ -556,7 +556,7 @@ M2C_UNK set_chunk_material_override_pair(M2C_UNK, M2C_UNK);
 
 void render__23TObjEneMe3ShinowaMirageFv(u8 *arg0) {
     if (!(M2C_FIELD(arg0, s32 *, 0x3C4) & 0x100)) {
-        TObjEneMe3ShinowaMirage__sub_800E4B40();
+        draw_model__23TObjEneMe3ShinowaMirageFPv();
     }
 }
 
@@ -677,7 +677,7 @@ u8 *TObjEneMe3ShinowaMirage__ct(u8 *arg0, void *arg1, u8 *arg2, void *a3, void *
     fn_800E762C((void *) (arg0));
     M2C_FIELD(arg0, s16 *, 0x1C) = arg3;
     M2C_FIELD(arg0, s16 *, 0x2C) = arg4;
-    TObjEneMe3ShinowaMirage__sub_800E7884((void *) (arg0));
+    init_enemy__23TObjEneMe3ShinowaMirageFPv((void *) (arg0));
     M2C_FIELD(arg0, s32 *, 0x3D4) = 0;
     M2C_FIELD(arg0, s32 *, 0x3C4) = (s32) (M2C_FIELD(arg0, s32 *, 0x3C4) | 0x1000);
     set_flag_0x100__23TObjEneMe3ShinowaMirageFPv((void *) (arg0));
@@ -733,7 +733,7 @@ void TObjEneMe3ShinowaReal__vt114(u8 *arg0, s32 arg1) {
         return;
     case 3:
         if ((s32) M2C_FIELD(arg0, s32 *, 0x404) == 3) {
-            TObjEneMe3ShinowaReal__sub_800E45D4(arg0);
+            try_spawn_mirages__21TObjEneMe3ShinowaRealFPv(arg0);
             transition_enemy_state((void*)(arg0), (int)(4));
         }
         return;
@@ -837,7 +837,7 @@ void TObjEneMe3ShinowaReal__vt112(u8 *arg0, s32 arg1) {
                 transition_enemy_state(arg0, 8);
                 play_sound_effect(copy_target_state__14TObjEnePanarmsFPvPv(arg0, 0x4003AD15), arg0 + 0x38, 0, 0);
             } else {
-                TObjEneMe3ShinowaReal__sub_800E45D4(arg0);
+                try_spawn_mirages__21TObjEneMe3ShinowaRealFPv(arg0);
                 transition_enemy_state(arg0, 4);
             }
         }

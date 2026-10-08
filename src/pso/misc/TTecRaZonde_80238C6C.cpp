@@ -104,7 +104,7 @@ extern const f32 lbl_805DC8E0;
 void update_rafoie_explosion(u8 *arg0);
 s32 calc_technique_parameters(int, int, int);
 s32 is_technique_ready__8TTecCtrlFv();
-s32 TTecAnti__sub_8022B35C(void *, int);
+s32 copy_params__8TTecAntiFPvPv(void *, int);
 extern RecoveredGlobal_80230D9C_lbl_804CC510 lbl_804CC510;
 extern RecoveredGlobal_80230D9C_lbl_804CC55C lbl_804CC55C;
 void calc_area_parameters__10TTecRaFoieFPv(u8 *arg0);
@@ -387,7 +387,7 @@ extern const f32 lbl_805DC8EC;
 u8 *create_fire_explosion_effect(u8 *arg0, M2C_UNK *arg1, s16 arg2, s32 arg3, f32 farg0);
 s32 calc_technique_parameters(int, int, int);
 s32 is_technique_ready__8TTecCtrlFv();
-s32 TTecAnti__sub_8022B35C(void *, int);
+s32 copy_params__8TTecAntiFPvPv(void *, int);
 void TTecRaZonde__sub_80238D10(u8 *arg0);
 void TTecRaFoie__vt4(u8 *self, u8 *target);
 u16 obj_getField1c(void *);
@@ -462,7 +462,7 @@ void TTecRaZonde__vt6(struct Self_80238C6C *self) {
 void TTecRaZonde__sub_80238D10(u8 *arg0) {
   s32 new_var;
   new_var = calc_technique_parameters((int) 8, (int) ((RecoveredFields_80238D10_arg0 *) arg0)->field_78, (int) 0xFFFF);
-  TTecAnti__sub_8022B35C((void *) (arg0 + 0x88), (int) new_var);
+  copy_params__8TTecAntiFPvPv((void *) (arg0 + 0x88), (int) new_var);
   if ((((s16) ((RecoveredFields_80238D10_arg0 *) arg0)->field_78) >= 0xF) && (is_technique_ready__8TTecCtrlFv() == 0))
   {
     ((RecoveredFields_80238D10_arg0 *) arg0)->field_88 = (f32) ((*((s16 *) (((s8 *) (&lbl_804CC510.value)) + 0x20))) + ((*((s16 *) (((s8 *) (&lbl_804CC510.value)) + 0x22))) * ((RecoveredFields_80238D10_arg0 *) arg0)->field_78));

@@ -286,7 +286,7 @@ typedef struct Data_8004DEE0 {
 s32 get_bml_motion(s32, s32);
 s32 TObjFish__sub_8001EDB0(s32, s32);
 s32 get_bml_model(s32, s32);
-void fn_8004AA80(void *, void *, s32);
+void init_model_node_tables(void *, void *, s32);
 int get_instance_count__9TBoss4UroFv(void);
 void activate_camera_mode(s32);
 void set_scripted_camera_pose(void *, void *, void *);
@@ -339,7 +339,7 @@ Obj_8004DEE0 *TObjDFDemo0__ct(void *arg0, void *arg1) {
     for (j = 0; j < 5; j++) {
         self->fa8[j] = 0;
     }
-    fn_8004AA80(self->f94, lbl_804372BC, 7);
+    init_model_node_tables(self->f94, lbl_804372BC, 7);
     activate_camera_mode(5);
     set_scripted_camera_pose(lbl_804854F0, lbl_804854F0, lbl_804854FC);
     cache_target_and_forward__11TCameraCtrlFii(lbl_80485508, 0x416C);

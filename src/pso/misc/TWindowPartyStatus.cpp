@@ -58,7 +58,7 @@ extern "C" {
 void *__dt__18TWindowPartyStatusFv(void *arg0, s16 arg1);
 void draw__18TWindowPartyStatusFPv(void* p);
 void run_task__18TWindowPartyStatusFv(s32 arg0);
-M2C_UNK TWindowComCard__sub_8026F9F4(void *, int);
+M2C_UNK update_status_icons__14TWindowComCardFPvPv(void *, int);
 s32 get_window_layout_position(int);
 M2C_UNK update_window_entry_list(void *, void *);
 void __dl__7TObjectFPv(void *);
@@ -124,7 +124,7 @@ void run_task__18TWindowPartyStatusFv(s32 arg0) {
     fn_80270014();
     draw__18TWindowPartyStatusFPv((void*)((void *) (arg0)));
     update_status_help_item((void *) (arg0));
-    TWindowComCard__sub_8026F9F4((void *) (arg0), (int) (get_window_layout_position((int) (0xAC))));
+    update_status_icons__14TWindowComCardFPvPv((void *) (arg0), (int) (get_window_layout_position((int) (0xAC))));
     initialize_subwindow__9TWindowDDFPv((void *) (arg0));
     update_fade__17TWindowSubComCardFPv((void *) (arg0));
     update_window_entry_list((void *) (arg0), (void *) (arg0 + 0x24));

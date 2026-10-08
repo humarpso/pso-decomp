@@ -51,7 +51,7 @@ s32 get_localized_text_entry(M2C_UNK, s32);
 M2C_UNK set_flag70_bit10__16TObjCityMainWarpFPv(u32);
 M2C_UNK request_active_window_close();
 M2C_UNK align_menu_entry_positions(u32);
-M2C_UNK TWindowSubComCard__sub_80265F60(u32);
+M2C_UNK calc_window_size__17TWindowSubComCardFPv(u32);
 M2C_UNK forward_trade_action_default__16TObjCityMainWarpFPviii(u32, s32, M2C_UNK, s32);
 u32 create_window_menu(M2C_UNK, M2C_UNK, s16);
 M2C_UNK get_window_layout_position(M2C_UNK);
@@ -243,7 +243,7 @@ void TObjWarpJungMain__vt13(void *arg0, s16 arg1) {
         for (var_r29 = 0; var_r29 < 3; var_r29++) {
             forward_trade_action_default__16TObjCityMainWarpFPviii(M2C_FIELD(arg0, u32 *, 0xB0), get_localized_text_entry(9, lbl_804B964C[var_r29]), 0xE, var_r29);
         }
-        TWindowSubComCard__sub_80265F60(M2C_FIELD(arg0, u32 *, 0xB0));
+        calc_window_size__17TWindowSubComCardFPv(M2C_FIELD(arg0, u32 *, 0xB0));
         align_menu_entry_positions(M2C_FIELD(arg0, u32 *, 0xB0));
         set_flag70_bit10__16TObjCityMainWarpFPv(M2C_FIELD(arg0, u32 *, 0xB0));
         set_loss_flag__6TLobbyFPv(M2C_FIELD(arg0, u32 *, 0xB0));

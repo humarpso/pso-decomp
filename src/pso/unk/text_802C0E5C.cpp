@@ -375,7 +375,7 @@ void *destroy_lobby_pigeon(void *arg0, s16 arg1);
 void * create_child_object__10TObjPlayerFPv(void *arg0);
 void destroy_instance__10TObjPlayerFv(void);
 void TObjPlayer__sub_802C13C8(void);
-s32 TObjPlayer__sub_802C1428(Obj_802C1428 *self);
+s32 update_path_steering__10TObjPlayerFPv(Obj_802C1428 *self);
 s32 TObjPlayer__sub_802C1660(Obj_802C1660 *self);
 void draw_debug_lines__10TObjPlayerFPv(u8 *arg0);
 void * dt_path_obj__10TObjPlayerFPvs(void *arg0, s16 arg1);
@@ -413,7 +413,7 @@ f32 bind_motion_context(void *, f32);
 M2C_UNK sample_motion_node_transform(s32, s32, M2C_UNK *, M2C_UNK *, M2C_UNK *);
 void matrix_mult_vec(void *, void *, void *);
 void set_position_vec3__10TObjPlayerFPvPv(void *, void *);
-void TObjPlayer__sub_803D8CD4(void *);
+void set_matrix_identity__10TObjPlayerFPv(void *);
 M2C_UNK rotate_matrix_y(M2C_UNK, s32);
 M2C_UNK rotate_matrix_z(M2C_UNK, s32);
 f32 subtract_vector(Vec_802C1660 *, Vec_802C1660 *);
@@ -474,7 +474,7 @@ void VecCopy__FP3VecPC3Vec(Vec_802C1660 *, Vec_802C1660 *);
 void direction_to_rotation_xz(Vec_802C1660 *, s32 *, s32 *);
 f32 subtract_vector(Vec_802C1660 *, Vec_802C1660 *);
 extern Entry_802C2548 lbl_80471848[];
-s32 TObjPlayer__sub_802C22A4(Pl_802C26E4 *arg0_, Ent_802C26E4 *, f32);
+s32 update_path_follow_rotation__10TObjPlayerFPvPvf(Pl_802C26E4 *arg0_, Ent_802C26E4 *, f32);
 }
 
 extern "C" {
@@ -515,7 +515,7 @@ void update_lobby_pigeon(Obj_802C0F3C *self) {
   if (--self->dc < 0) {
     Mtx_802C0F3C m;
     Vec_802C0F3C v = lbl_80471950;
-    TObjPlayer__sub_803D8CD4(&m);
+    set_matrix_identity__10TObjPlayerFPv(&m);
     set_position_vec3__10TObjPlayerFPvPv(&m, &self->pos);
     ((void (*)(void *, s32))rotate_matrix_y)(&m, self->f60);
     set_position_vec3__10TObjPlayerFPvPv(&m, &self->bc);
@@ -631,7 +631,7 @@ void TObjPlayer__sub_802C13C8(void) {
     (*(u8 * *)&lbl_805D67B4) = load_gvm_texture_file((s32) &lbl_80471978.value);
 }
 
-s32 TObjPlayer__sub_802C1428(Obj_802C1428 *self) {
+s32 update_path_steering__10TObjPlayerFPv(Obj_802C1428 *self) {
     Vec_802C1660 a;
     Vec_802C1660 b;
     Vec_802C1660 d;
@@ -733,12 +733,12 @@ void draw_debug_lines__10TObjPlayerFPv(u8 *arg0) {
 
 #pragma push
 #pragma fp_contract on
-void TObjPlayer__sub_802C17FC(u8 *arg0) {
+void update_path_motion__10TObjPlayerFPv(u8 *arg0) {
     Mtx_802C17FC m;
     s32 temp_r0;
 
     M2C_FIELD(arg0, f32 *, 0xA4) += lbl_804718CC[M2C_FIELD(arg0, s32 *, 0xC8)].b;
-    if (((s32 (*)(void *))TObjPlayer__sub_802C1428)(arg0) == 0) {
+    if (((s32 (*)(void *))update_path_steering__10TObjPlayerFPv)(arg0) == 0) {
         M2C_FIELD(arg0, f32 *, 0xA4) = lbl_805DE4F8;
     }
     M2C_FIELD(arg0, f32 *, 0xA8) += lbl_804718CC[M2C_FIELD(arg0, s32 *, 0xC8)].c;
@@ -749,7 +749,7 @@ void TObjPlayer__sub_802C17FC(u8 *arg0) {
     M2C_FIELD(arg0, s32 *, 0xCC) = temp_r0;
     if (temp_r0 < 0) {
         Vec_802C17FC v = lbl_80471908;
-        ((M2C_UNK (*)(void *))TObjPlayer__sub_803D8CD4)(&m);
+        ((M2C_UNK (*)(void *))set_matrix_identity__10TObjPlayerFPv)(&m);
         ((M2C_UNK (*)(void *, void *))set_position_vec3__10TObjPlayerFPvPv)(&m, arg0 + 0x38);
         ((M2C_UNK (*)(void *, int))rotate_matrix_y)(&m, M2C_FIELD(arg0, s32 *, 0x60));
         ((M2C_UNK (*)(void *, void *))set_position_vec3__10TObjPlayerFPvPv)(&m, arg0 + 0xAC);
@@ -1017,7 +1017,7 @@ void TObjPlayer__sub_802C2244(void) {
 struct Pl_802C26E4;
 struct Ent_802C26E4;
 struct Vec_802C1660;
-s32 TObjPlayer__sub_802C22A4(Pl_802C26E4 *arg0_, Ent_802C26E4 *, f32) {
+s32 update_path_follow_rotation__10TObjPlayerFPvPvf(Pl_802C26E4 *arg0_, Ent_802C26E4 *, f32) {
     s32 r;
     Obj_802C22A4 *self = (Obj_802C22A4 *)arg0_;
     Entry_802C2548 *e;
@@ -1144,7 +1144,7 @@ void TObjPlayer__sub_802C26E4(Pl_802C26E4 *arg0) {
     e += arg0->idx;
     f32 ox = arg0->x;
     arg0->x = ox + e->b;
-    if (TObjPlayer__sub_802C22A4((Pl_802C26E4 *)(arg0), (Ent_802C26E4 *)(e), ox) == 0) {
+    if (update_path_follow_rotation__10TObjPlayerFPvPvf((Pl_802C26E4 *)(arg0), (Ent_802C26E4 *)(e), ox) == 0) {
         arg0->x = lbl_805DE4F8;
     }
     arg0->y = arg0->y + lbl_80471848[arg0->idx].c;

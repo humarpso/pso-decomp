@@ -38,7 +38,7 @@ void update_letterbox_hide__9TCineCtrlFPv(u8 *arg0);
 void run_task__9TCineCtrlFv(Obj_80077F58 *self);
 void TCameraCtrl__sub_80068EF0(void);
 void restore_full_screen_view__11TCameraCtrlFv(void);
-void TObjCMHairMenu__sub_801E35C4(void *, u16, s32, f32);
+void draw_tri_fan_2d__14TObjCMHairMenuFPviif(void *, u16, s32, f32);
 void abs__4cXyzCFv(s32, s32);
 extern const f32 TCineCtrl__data_805D91D0;
 extern const f32 lbl_805D91D4;
@@ -83,7 +83,7 @@ void render__9TCineCtrlFv(u8 *arg0) {
         vl.pos[6] = TCineCtrl__data_805D91D0;
         vl.pos[7] = M2C_FIELD(arg0, f32 *, 0x20);
         vl.col[3] = M2C_FIELD(arg0, u32 *, 0x24);
-        TObjCMHairMenu__sub_801E35C4(&vl, 4U, 0x16, lbl_805D91D8);
+        draw_tri_fan_2d__14TObjCMHairMenuFPviif(&vl, 4U, 0x16, lbl_805D91D8);
         vl.pos[0] = TCineCtrl__data_805D91D0;
         vl.pos[1] = lbl_805D91DC - M2C_FIELD(arg0, f32 *, 0x20);
         vl.col[0] = M2C_FIELD(arg0, u32 *, 0x24);
@@ -96,7 +96,7 @@ void render__9TCineCtrlFv(u8 *arg0) {
         vl.pos[6] = TCineCtrl__data_805D91D0;
         vl.pos[7] = lbl_805D91DC;
         vl.col[3] = M2C_FIELD(arg0, u32 *, 0x24);
-        TObjCMHairMenu__sub_801E35C4(&vl, 4U, 0x16, lbl_805D91D8);
+        draw_tri_fan_2d__14TObjCMHairMenuFPviif(&vl, 4U, 0x16, lbl_805D91D8);
         TCameraCtrl__sub_80068EF0();
     }
 }

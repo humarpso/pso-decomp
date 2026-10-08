@@ -12,8 +12,8 @@ struct E_80292DA0 {
 extern "C" {
 s32 *TWindowSubStatusDisp__sub_8006F0D8(void *, s32);
 E_80292DA0 *TWindowSubStatusDisp__sub_8006F134(void *, s32);
-M2C_UNK TWindowSubStatusDisp__sub_8006F190(M2C_UNK);
-s32 TLobby__sub_8006F994(s32);
+M2C_UNK resolve_player_slot__20TWindowSubStatusDispFi(M2C_UNK);
+s32 get_valid_slot__6TLobbyFi(s32);
 s32 get_slot_clamped__6TLobbyFv(s32);
 s32 mix_seed__6TLobbyFUs(s32);
 s32 TWindowSubStatusDisp__sub_80071988(u16, s32);
@@ -30,14 +30,14 @@ s32 calc_min_challenge_progress__6TLobbyFv(void);
 s32 TLobby__sub_80292CA4(s32);
 u32 get_player_by_client_id(s32);
 s32 get_layout_id__20TWindowSubStatusDispFv();
-M2C_UNK TWindowSubStatusDisp__sub_8006F190(M2C_UNK);
+M2C_UNK resolve_player_slot__20TWindowSubStatusDispFi(M2C_UNK);
 
 s32 calc_min_challenge_progress__6TLobbyFv(void) {
     s32 temp_r3;
     s32 var_r31;
     s32 var_r30;
 
-    TWindowSubStatusDisp__sub_8006F190(-1);
+    resolve_player_slot__20TWindowSubStatusDispFi(-1);
     var_r31 = get_layout_id__20TWindowSubStatusDispFv();
     var_r30 = 0;
     do {
@@ -58,13 +58,13 @@ s32 TLobby__sub_80292DA0(s32 seed, u16 card) {
     u8 *base;
     s32 next;
     E_80292DA0 *e;
-    id = ((s32)TWindowSubStatusDisp__sub_8006F190((M2C_UNK)(-1)));
+    id = ((s32)resolve_player_slot__20TWindowSubStatusDispFi((M2C_UNK)(-1)));
     result = -4;
     TLobby__sub_80292BB8(seed, card, id);
     total = TWindowSubStatusDisp__sub_80071988(card, id);
     if (total != 0) {
         base = get_card_window__17TWindowSubComCardFUi(card) + 0x21C4;
-        total -= TLobby__sub_8006F994(TWindowSubStatusDisp__sub_8006F0D8(base, id)[lbl_804DB1F0[0]]);
+        total -= get_valid_slot__6TLobbyFi(TWindowSubStatusDisp__sub_8006F0D8(base, id)[lbl_804DB1F0[0]]);
         total += seed;
         result = TLobby__sub_80292AB4(total, card, id);
         next = result + 1;

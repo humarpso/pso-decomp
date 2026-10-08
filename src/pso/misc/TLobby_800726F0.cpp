@@ -50,7 +50,7 @@ void TLobby__sub_80072B70(u8 *arg0);
 int TWindow__close(void*);
 void close_window_2c__6TLobbyFPv(void* p);
 s32 TQuestVmDownLoadServer__sub_8006EF6C(M2C_UNK);
-M2C_UNK TWindowSubComCard__sub_80265F60(u32);
+M2C_UNK calc_window_size__17TWindowSubComCardFPv(u32);
 M2C_UNK get_window_layout_position(M2C_UNK);
 int TWindow__close(void*);
 u32 check_room_seq_4__16TAdChrSelASlotGCFii(M2C_UNK, M2C_UNK);
@@ -291,7 +291,7 @@ void open_loss_menu__6TLobbyFPv(void *arg0) {
         forward_trade_action_default__16TObjCityMainWarpFPviii(M2C_FIELD(arg0, u32 *, 0x2C), TQuestVmDownLoadServer__sub_8006EF6C(0x5B), 5, 0);
         forward_trade_action_default__16TObjCityMainWarpFPviii(M2C_FIELD(arg0, u32 *, 0x2C), TQuestVmDownLoadServer__sub_8006EF6C(0x5C), 5, 1);
         forward_trade_action_default__16TObjCityMainWarpFPviii(M2C_FIELD(arg0, u32 *, 0x2C), TQuestVmDownLoadServer__sub_8006EF6C(0x5D), 5, 2);
-        TWindowSubComCard__sub_80265F60(M2C_FIELD(arg0, u32 *, 0x2C));
+        calc_window_size__17TWindowSubComCardFPv(M2C_FIELD(arg0, u32 *, 0x2C));
         set_loss_flag__6TLobbyFPv(M2C_FIELD(arg0, u32 *, 0x2C));
         set_selected_index__17TWindowSubComCardFPvs(M2C_FIELD(arg0, u32 *, 0x2C), 2);
     }

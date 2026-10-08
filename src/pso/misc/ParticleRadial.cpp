@@ -159,7 +159,7 @@ int queue_destruction__7TObjectFv(void *);
 int TKeyBoardControl__sub_8000F91C(int);
 int TKeyBoardControl__sub_8000F9CC(int);
 int stop_cue_stream(void);
-int TLobby__sub_8022743C(void);
+int stop_audio_streams__6TLobbyFv(void);
 void destroy_keyboard_objects(void * _w0);
 u8 * init_particle_base(void *, void *, s32);
 int get_object__13TParticleCtrlFPv(void *);
@@ -598,6 +598,6 @@ u8 *TParticleCtrl__sub_8008C21C(u8 *arg0, u8 *arg1, u8 *arg2, s32 arg3) {
 }
 #pragma pop
 
-void destroy_keyboard_objects(void * _w0) { queue_destruction__7TObjectFv((void *)(_w0)); TKeyBoardControl__sub_8000F91C(2); TKeyBoardControl__sub_8000F9CC(18); TLobby__sub_8022743C(); stop_cue_stream(); }
+void destroy_keyboard_objects(void * _w0) { queue_destruction__7TObjectFv((void *)(_w0)); TKeyBoardControl__sub_8000F91C(2); TKeyBoardControl__sub_8000F9CC(18); stop_audio_streams__6TLobbyFv(); stop_cue_stream(); }
 
 }

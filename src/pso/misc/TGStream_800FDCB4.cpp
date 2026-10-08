@@ -11,12 +11,12 @@ M2C_UNK reset_read_state__6TLobbyFv();
 M2C_UNK set_read_params__6TLobbyFiii(void *, s32, s32);
 M2C_UNK run_frame__6TLobbyFv();
 s32 TLobby__sub_803CC4C0(s32);
-M2C_UNK TLobby__sub_803CCB5C(s32);
+M2C_UNK read_checked_align__6TLobbyFiii(s32);
 
 extern s32 lbl_805D53D4;
 
 void read_sectors_sync__8TGStreamFPvii(u8 *arg0, s32 arg1, s32 arg2) {
-    TLobby__sub_803CCB5C(M2C_FIELD(arg0, s32 *, 0x20));
+    read_checked_align__6TLobbyFiii(M2C_FIELD(arg0, s32 *, 0x20));
     set_read_params__6TLobbyFiii(arg0 + 0x20, arg1, arg2);
 loop_1:
     if (TLobby__sub_803CC4C0(M2C_FIELD(arg0, s32 *, 0x20)) != 3) {

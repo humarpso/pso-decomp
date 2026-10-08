@@ -33,7 +33,7 @@ M2C_UNK set_global_param__8TObjFishFi(int);
 M2C_UNK draw_model_motion(int, int, f32);
 M2C_UNK set_global_flag__10TObjPlayerFv();
 M2C_UNK clear_global_state__10TObjPlayerFv();
-void TObjEneDelDepth__sub_803162A8(u8 *arg0);
+void draw_model_part__15TObjEneDelDepthFPv(u8 *arg0);
 s32 find_nearest_hittable_enemy__10TObjPlayerFiPvf(void *, void *, f32);
 int TObjEneDelDepth__sub_80316258(u8 *arg0, s32 arg1, f32 farg0);
 s32 get_bml_model(M2C_UNK, s32);
@@ -45,7 +45,7 @@ M2C_UNK get_data__15TObjEneDelDepthFv();
 extern E8_80316488 lbl_804E8760[];
 extern E14_80316488 lbl_804E8780[];
 extern const f32 lbl_805DF2EC;
-void TObjEneDelDepth__sub_80316488(Self_80316488 *self, s32 arg1);
+void set_motion__15TObjEneDelDepthFPvi(Self_80316488 *self, s32 arg1);
 }
 
 extern "C" {
@@ -76,7 +76,7 @@ extern f32 lbl_805DF2E8;
 
 #pragma push
 #pragma fp_contract on
-void TObjEneDelDepth__sub_803162A8(u8 *arg0) {
+void draw_model_part__15TObjEneDelDepthFPv(u8 *arg0) {
     s32 temp_r0;
     temp_r0 = M2C_FIELD(arg0, s32 *, 4);
     if (temp_r0 != -1) {
@@ -123,7 +123,7 @@ s32 is_state_complete__15TObjEneDelDepthFPv(void *arg0) {
     return 0;
 }
 
-void TObjEneDelDepth__sub_80316488(Self_80316488 *self, s32 arg1) {
+void set_motion__15TObjEneDelDepthFPvi(Self_80316488 *self, s32 arg1) {
     s32 flag;
     s32 id;
     flag = self->id;

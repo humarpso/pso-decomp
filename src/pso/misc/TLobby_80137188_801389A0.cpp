@@ -30,7 +30,7 @@ extern u32 TLobby__data_805D55C8;
 extern u32 TLobby__data_805D55CC;
 extern u32 TLobby__data_805D55D0;
 extern char TLobby__data_805DB0B0[4];
-void TLobby__sub_80138B7C(void);
+void update_card_list_window__6TLobbyFv(void);
 }
 
 extern "C" {
@@ -119,7 +119,7 @@ void update_short_list__6TLobbyFv(void) {
     }
     reset_controller_input_state();
 }
-void TLobby__sub_80138B7C(void) {
+void update_card_list_window__6TLobbyFv(void) {
     s32 sel;
     u32 btn;
     if (TLobby__data_805D55D0 == 0) {

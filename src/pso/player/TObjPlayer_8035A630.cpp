@@ -10,7 +10,7 @@ void process_callback_list__10TObjPlayerFi(s32 arg0);
 void draw_node_tree__10TObjPlayerFPvPv(void *arg0, void *arg1);
 extern M2C_UNK (*lbl_805D6F3C)(s32);
 M2C_UNK get_current_matrix(s32);
-M2C_UNK TObjPlayer__sub_803D9730(M2C_UNK, s32);
+M2C_UNK concat_matrix__10TObjPlayerFUiUi(M2C_UNK, s32);
 M2C_UNK push_matrix();
 M2C_UNK pop_matrix();
 M2C_UNK draw_chunk_model(s32);
@@ -40,7 +40,7 @@ void draw_node_tree__10TObjPlayerFPvPv(void *arg0, void *arg1) {
     do {
         temp_r31 = M2C_FIELD(var_r30, s32 *, 0);
         push_matrix();
-        TObjPlayer__sub_803D9730(0, lbl_805D6F38 + (M2C_FIELD(arg0, s32 *, 0x30) * 0x30));
+        concat_matrix__10TObjPlayerFUiUi(0, lbl_805D6F38 + (M2C_FIELD(arg0, s32 *, 0x30) * 0x30));
         M2C_FIELD(arg0, s32 *, 0x30) = (s32) (M2C_FIELD(arg0, s32 *, 0x30) + 1);
         temp_r12 = M2C_FIELD(arg0, M2C_UNK (**)(void *), 0x34);
         if (temp_r12 != NULL) {

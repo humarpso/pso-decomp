@@ -10,11 +10,11 @@ void update_card_select_state__22TAdMultiPlyChrSelectGCFPv(void *arg0);
 void update_state__22TAdMultiPlyChrSelectGCFPv(void *arg0);
 M2C_UNK TAdChrMoveEffectGC__sub_803490AC();
 s32 TAdMultiPlyChrSelectGC__sub_802C6848();
-M2C_UNK TAdMultiPlyChrSelectGC__sub_802C6A10();
+M2C_UNK reset_slot_selections__22TAdMultiPlyChrSelectGCFv();
 M2C_UNK TAdMultiPlyChrSelectGC__sub_802DFFE8(s32);
 M2C_UNK TAdSinglePlyChrSelectGC__sub_801FE304();
 M2C_UNK play_sound_effect(M2C_UNK, M2C_UNK, M2C_UNK, M2C_UNK);
-s32 TWindowSubComCard__sub_802A57FC(s32);
+s32 is_child_visible__17TWindowSubComCardFPv(s32);
 s32 get_card_data__17TWindowSubComCardFPv(s32);
 M2C_UNK get_card_instance__22TAdMultiPlyChrSelectGCFv();
 u32 get_global_state__22TAdMultiPlyChrSelectGCFv();
@@ -34,7 +34,7 @@ void update_state__22TAdMultiPlyChrSelectGCFPv(void *arg0) {
     }
     if (get_mode__22TAdMultiPlyChrSelectGCFPv(M2C_FIELD(arg0, s32 *, 0x6C)) <= 1) {
         if (get_player_index__22TAdMultiPlyChrSelectGCFPv(M2C_FIELD(arg0, u32 *, 0x68)) == 1) {
-            TAdMultiPlyChrSelectGC__sub_802C6A10();
+            reset_slot_selections__22TAdMultiPlyChrSelectGCFv();
         }
         set_state_ready__22TAdMultiPlyChrSelectGCFPv(M2C_FIELD(arg0, s32 *, 0x5C));
         play_sound_effect(0x52F16, 0, 0, 0);
@@ -69,7 +69,7 @@ void update_card_select_state__22TAdMultiPlyChrSelectGCFPv(void *arg0) {
         set_state_ready__22TAdMultiPlyChrSelectGCFPv(M2C_FIELD(arg0, s32 *, 0x5C));
         play_sound_effect(0x52F16, 0, 0, 0);
         if (get_player_index__22TAdMultiPlyChrSelectGCFPv(M2C_FIELD(arg0, u32 *, 0x68)) == 1) {
-            TAdMultiPlyChrSelectGC__sub_802C6A10();
+            reset_slot_selections__22TAdMultiPlyChrSelectGCFv();
             if ((u32) M2C_FIELD(arg0, u32 *, 0x68) != 0U) {
                 queue_destruction__7TObjectFv(M2C_FIELD(arg0, void **, 0x68));
                 M2C_FIELD(arg0, u32 *, 0x68) = 0U;
@@ -92,7 +92,7 @@ void update_card_select_state__22TAdMultiPlyChrSelectGCFPv(void *arg0) {
         M2C_FIELD(arg0, s32 *, 0x20) = 0xE;
         return;
     }
-    if (TWindowSubComCard__sub_802A57FC(M2C_FIELD(arg0, s32 *, 0x8C)) != 0) {
+    if (is_child_visible__17TWindowSubComCardFPv(M2C_FIELD(arg0, s32 *, 0x8C)) != 0) {
         temp_r3 = get_slot_or_neg1__17TWindowSubComCardFPv(M2C_FIELD(arg0, s32 *, 0x8C));
         switch (temp_r3) {
         case 1:

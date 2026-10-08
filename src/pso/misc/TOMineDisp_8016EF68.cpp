@@ -38,7 +38,7 @@ u8 *get_player_by_client_id(u16);
 extern const f32 lbl_805DB850;
 void run_task__10TOMineDispFv(u8 *arg0);
 M2C_UNK get_camera_mode__11TCameraCtrlFv();
-u16 TCameraCtrl__sub_80068958();
+u16 get_nth_view_player_id__11TCameraCtrlFi();
 M2C_UNK free_sub_objects__6TOMineFPv(int);
 M2C_UNK free_parts__6TOMineFPv(int);
 M2C_UNK begin_effect_render__13TParticleCtrlFv();
@@ -53,7 +53,7 @@ extern s32 lbl_805D5660;
 extern s32 some_id_805c6f74;
 extern const f32 lbl_805DB854;
 extern const f32 lbl_805DB858;
-void TOMineDisp__sub_8016EFB4(u8 *arg0);
+void draw__10TOMineDispFPv(u8 *arg0);
 }
 
 extern "C" {
@@ -67,10 +67,10 @@ u8 *TOMineTrapDisp__ct(u8 *arg0, s32 arg1, s32 arg2, s16 arg3) {
     return arg0;
 }
 
-void TOMineDisp__sub_8016EFB4(u8 *arg0) {
+void draw__10TOMineDispFPv(u8 *arg0) {
     s32 temp_r31;
     s32 temp_r4;
-    u16 id = ((u16 (*)(s32))TCameraCtrl__sub_80068958)(get_camera_mode__11TCameraCtrlFv());
+    u16 id = ((u16 (*)(s32))get_nth_view_player_id__11TCameraCtrlFi)(get_camera_mode__11TCameraCtrlFv());
     if (id != M2C_FIELD(arg0, u16 *, 0xA8)) {
         return;
     }

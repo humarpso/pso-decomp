@@ -25,7 +25,7 @@ s32 create_particle_emitter(void *, s32);
 M2C_UNK spawn_effect__14TBoss7CrawfishFii(void *, M2C_UNK);
 void free_child__14TBoss7CrawfishFPv(void *);
 void set_anim_timer__14TBoss7CrawfishFPvs(void *, s16);
-void TBoss7Crawfish__sub_80308F8C(Craw_80308F8C *o, s32 state);
+void change_state__14TBoss7CrawfishFPvi(Craw_80308F8C *o, s32 state);
 }
 
 extern "C" {
@@ -33,7 +33,7 @@ extern "C" {
 void update_attack_state__14TBoss7CrawfishFPv(void *arg0);
 s32 TBoss7Crawfish__sub_80308AA8(void *);
 s16 get_floor__10TObjPlayerFPv(void *);
-M2C_UNK TBoss7Crawfish__sub_803086A8(void *);
+M2C_UNK register_attack_hits__14TBoss7CrawfishFPv(void *);
 M2C_UNK spawn_effect__14TBoss7CrawfishFii(void *, M2C_UNK);
 s32 objInBand__FP7GameObjf(void *, f32);
 
@@ -47,7 +47,7 @@ void update_attack_state__14TBoss7CrawfishFPv(void *arg0) {
     temp_r0 = M2C_FIELD(arg0, s32 *, 0x3C8) - 1;
     M2C_FIELD(arg0, s32 *, 0x3C8) = temp_r0;
     if (temp_r0 < 0) {
-        TBoss7Crawfish__sub_80308F8C((Craw_80308F8C *)(arg0), (s32)(1));
+        change_state__14TBoss7CrawfishFPvi((Craw_80308F8C *)(arg0), (s32)(1));
     }
     if ((get_floor__10TObjPlayerFPv(arg0) == 2) && (objInBand__FP7GameObjf(arg0, lbl_805DF0F8) != 0)) {
         temp_r4 = M2C_FIELD(arg0, void **, 0xA4);
@@ -61,10 +61,10 @@ void update_attack_state__14TBoss7CrawfishFPv(void *arg0) {
         }
     }
     if (M2C_FIELD(M2C_FIELD(arg0, void **, 0xA4), s32 *, 0x18) & 0x02000000) {
-        TBoss7Crawfish__sub_803086A8(arg0);
+        register_attack_hits__14TBoss7CrawfishFPv(arg0);
     }
 }
-void TBoss7Crawfish__sub_80308F8C(Craw_80308F8C *o, s32 state) {
+void change_state__14TBoss7CrawfishFPvi(Craw_80308F8C *o, s32 state) {
     s32 i;
     o->state = state;
     o->fA4[6] |= 0x02000000;

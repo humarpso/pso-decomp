@@ -28,7 +28,7 @@ extern u8 lbl_804A6F34[];
 extern void *tl_camera;
 extern const f32 lbl_805D9570;
 extern const f32 lbl_805D9574;
-int TEnding__sub_8008C5E8();
+int start_ending_scene__7TEndingFv();
 }
 
 extern "C" {
@@ -36,10 +36,10 @@ extern s32 lbl_805D4F0C;
 
 void set_flag_and_advance__7TEndingFv() {
     lbl_805D4F0C = 1;
-    TEnding__sub_8008C5E8();
+    start_ending_scene__7TEndingFv();
 }
 
-int TEnding__sub_8008C5E8() {
+int start_ending_scene__7TEndingFv() {
     void *p;
     set_screen_size(lbl_805D9570, lbl_805D9574);
     set_copy_clear_color_argb(0, 0, 0);

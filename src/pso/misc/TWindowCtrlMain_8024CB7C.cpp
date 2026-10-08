@@ -42,8 +42,8 @@ struct Poly_8024CE68 {
 };
 struct Quad_8024CE68 { f32 x0, y0, x1, y1, u0, v0, u1, v1; };
 
-void TWindowCtrlMain__sub_801E352C(void *, int, int, f32);
-void fn_801E3330(void *, int, int, f32);
+void draw_strip_swap_color__15TWindowCtrlMainFPviif(void *, int, int, f32);
+void draw_color_lines(void *, int, int, f32);
 void set_global_param__8TObjFishFi(void *);
 void begin_screen_draw(int);
 void get_player__20TWindowSubStatusDispFv();
@@ -193,7 +193,7 @@ void draw_menu_backdrop_gradients(s32 viewport_index) {
     verts[2].y = 480.0f;
     verts[3].x = 0.0f;
     verts[3].y = 480.0f;
-    TWindowCtrlMain__sub_801E352C(&poly, 4, 22, -10.0f);
+    draw_strip_swap_color__15TWindowCtrlMainFPviif(&poly, 4, 22, -10.0f);
 
     verts[0].x = 0.5f * s->field0C;
     verts[0].y = 480.0f - 0.5f * (480.0f - s->field18);
@@ -203,7 +203,7 @@ void draw_menu_backdrop_gradients(s32 viewport_index) {
     verts[2].y = 480.0f;
     verts[3].x = 0.5f * s->field0C;
     verts[3].y = 480.0f;
-    TWindowCtrlMain__sub_801E352C(&poly, 4, 22, -10.0f);
+    draw_strip_swap_color__15TWindowCtrlMainFPviif(&poly, 4, 22, -10.0f);
 
     colors[2] = 0;
     colors[3] = 0;
@@ -215,7 +215,7 @@ void draw_menu_backdrop_gradients(s32 viewport_index) {
     verts[2].y = 480.0f - 0.5f * (480.0f - s->field18);
     verts[3].x = s->field0C;
     verts[3].y = 0.0f;
-    TWindowCtrlMain__sub_801E352C(&poly, 4, 22, -10.0f);
+    draw_strip_swap_color__15TWindowCtrlMainFPviif(&poly, 4, 22, -10.0f);
 
     verts[0].x = 0.5f * s->field0C;
     verts[0].y = 480.0f - 0.5f * (480.0f - s->field18);
@@ -225,7 +225,7 @@ void draw_menu_backdrop_gradients(s32 viewport_index) {
     verts[2].y = s->field18;
     verts[3].x = 0.5f * s->field0C;
     verts[3].y = s->field18;
-    TWindowCtrlMain__sub_801E352C(&poly, 4, 22, -10.0f);
+    draw_strip_swap_color__15TWindowCtrlMainFPviif(&poly, 4, 22, -10.0f);
 
     begin_screen_draw(1);
     set_global_param__8TObjFishFi(lbl_805D63F0);
@@ -274,12 +274,12 @@ void draw_menu_backdrop_gradients(s32 viewport_index) {
     lverts[0].y = s->field10;
     lverts[1].x = s->field0C;
     lverts[1].y = s->field18 - 16.0f;
-    fn_801E3330(&line, 2, 4, -10.0f);
+    draw_color_lines(&line, 2, 4, -10.0f);
     lverts[0].x = 16.0f + s->field0C;
     lverts[0].y = s->field18;
     lverts[1].x = s->field14;
     lverts[1].y = s->field18;
-    fn_801E3330(&line, 2, 4, -10.0f);
+    draw_color_lines(&line, 2, 4, -10.0f);
 }
 #pragma pop
 

@@ -28,7 +28,7 @@ s32 get_global_state__14TOKeyMachine01Fv();
 extern Sel_8006A13C TCameraCtrl__data_804FF628;
 extern Big_8006A13C lbl_8050E208;
 extern s32 lbl_805D53A0;
-void TCameraCtrl__sub_8006A13C(void);
+void cycle_spectate_target__11TCameraCtrlFv(void);
 }
 
 extern "C" {
@@ -80,7 +80,7 @@ void set_shake_preset__11TCameraCtrlFi(s32 arg0) {
         }
     }
 }
-void TCameraCtrl__sub_8006A13C(void) {
+void cycle_spectate_target__11TCameraCtrlFv(void) {
     void *pad;
     u32 q;
     u32 pl;

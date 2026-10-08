@@ -170,7 +170,7 @@ void __dl__7TObjectFPv(void *);
 void * __nw__7TObjectFUl(int);
 void __dt__7TObjectFv(void *, int);
 void __ct__7TObjectFP7TObject(void *, void *);
-s32 TTecAnti__sub_8022B35C(void *, int);
+s32 copy_params__8TTecAntiFPvPv(void *, int);
 void apply_technique_to_area_targets(void *);
 u8 * destroy_technique_base__9TTecLukerFPvs(void *, s16);
 void construct_area_technique_base(void *, void *, void *, void *, void *);
@@ -208,7 +208,7 @@ extern s32 tl_07;
 
 void calc_params__10TTecGiFoieFPv(u8 *arg0) {
   int new_var;
- new_var = (int) calc_technique_parameters((int) 1, (int) ((RecoveredFields_80230D9C_arg0 *) arg0)->field_78, (int) 0xFFFF); do { TTecAnti__sub_8022B35C((void *) (arg0 + ((0, 0x88))), new_var); if ((((s16) ((RecoveredFields_80230D9C_arg0 *) arg0)->field_78) >= 0xF) && (is_technique_ready__8TTecCtrlFv() == 0)) { ((RecoveredFields_80230D9C_arg0 *) arg0)->field_88 = (f32) ((*((s16 *) (((s8 *) (&lbl_804CC510.value)) + 4))) + ((*((s16 *) (((s8 *) (&lbl_804CC510.value)) + 6))) * ((RecoveredFields_80230D9C_arg0 *) arg0)->field_78)); return; } } while (0);
+ new_var = (int) calc_technique_parameters((int) 1, (int) ((RecoveredFields_80230D9C_arg0 *) arg0)->field_78, (int) 0xFFFF); do { copy_params__8TTecAntiFPvPv((void *) (arg0 + ((0, 0x88))), new_var); if ((((s16) ((RecoveredFields_80230D9C_arg0 *) arg0)->field_78) >= 0xF) && (is_technique_ready__8TTecCtrlFv() == 0)) { ((RecoveredFields_80230D9C_arg0 *) arg0)->field_88 = (f32) ((*((s16 *) (((s8 *) (&lbl_804CC510.value)) + 4))) + ((*((s16 *) (((s8 *) (&lbl_804CC510.value)) + 6))) * ((RecoveredFields_80230D9C_arg0 *) arg0)->field_78)); return; } } while (0);
   ((RecoveredFields_80230D9C_arg0 *) arg0)->field_88 = (f32) (((RecoveredFields_80230D9C_arg0 *) arg0)->field_88 + ((f32) (((RecoveredFields_80230D9C_arg0 *) arg0)->field_AC * ((RecoveredFields_80230D9C_arg0 *) arg0)->field_78)));
   if (is_technique_ready__8TTecCtrlFv())
   {

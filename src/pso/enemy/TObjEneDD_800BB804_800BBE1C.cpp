@@ -13,7 +13,7 @@ extern "C" {
 void create_instance__9TObjEneDDFv(void);
 int get_enemy_count__9TObjEneDDFv(void);
 void *__nw__7TObjectFUl(int);
-void *fn_800BC4C8(void *, int, int);
+void *construct_collision_body(void *, int, int);
 
 extern void *lbl_805D5138;
 
@@ -21,7 +21,7 @@ void create_instance__9TObjEneDDFv(void) {
     void *o;
     o = __nw__7TObjectFUl(0xB0);
     if (o != NULL) {
-        o = fn_800BC4C8(o, 0, 0);
+        o = construct_collision_body(o, 0, 0);
     }
     lbl_805D5138 = o;
 }

@@ -62,7 +62,7 @@ extern const f32 lbl_805DED54;
 extern const f32 TBoss8Dragon__data_805DED58;
 extern const f32 lbl_805DED5C;
 extern const f32 TBoss8Dragon__data_805DED60;
-void TBoss8Dragon__sub_802F3D6C(u8 *arg0);
+void draw_motion_model__12TBoss8DragonFPv(u8 *arg0);
 f32 receive_direct_attack__10TObjPlayerFv(void *, void *, Pair_802F3D18 *, s32, s32, s32);
 extern const f32 TBoss8Dragon__data_805DED50;
 f32 TBoss8Dragon__sub_802F3D18(void *a, void *b, Pair_802F3D18 *p, s32 x, s32 y, s32 z);
@@ -103,7 +103,7 @@ f32 TBoss8Dragon__sub_802F3D18(void *a, void *b, Pair_802F3D18 *p, s32 x, s32 y,
     return receive_direct_attack__10TObjPlayerFv(a, b, &t, x, y, z);
 }
 
-void TBoss8Dragon__sub_802F3D6C(u8 *arg0) {
+void draw_motion_model__12TBoss8DragonFPv(u8 *arg0) {
     f32 f;
     s32 idx;
     Anim_802F3D6C *anim;

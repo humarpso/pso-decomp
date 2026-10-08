@@ -24,7 +24,7 @@ M2C_UNK __dt__7TObjectFv(void *, int);
 M2C_UNK queue_destruction__7TObjectFv(void *);
 M2C_UNK free_if_positive__13TBoss2DeRolLeFis(void *, int);
 M2C_UNK __dt__9TObjEneDDFv(void *, int);
-M2C_UNK TBoss8Dragon__sub_800BC5A0(void *, int);
+M2C_UNK delete_buffer__12TBoss8DragonFis(void *, int);
 M2C_UNK free__11TOBoss4RockFUi(s32);
 M2C_UNK clear_obj_links(void *);
 M2C_UNK __dl__7TObjectFPv(void *);
@@ -62,7 +62,7 @@ u8 *fn_802EDCF0(u8 *arg0, s16 arg1) {
             o->f720 = 0;
         }
         if (o->f718 != 0) {
-            TBoss8Dragon__sub_800BC5A0(o->f718, 1);
+            delete_buffer__12TBoss8DragonFis(o->f718, 1);
             o->f718 = 0;
         }
         if (o->f708 != 0) {

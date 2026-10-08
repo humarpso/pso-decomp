@@ -71,7 +71,7 @@ s32 get_field_20__17TWindowSubComCardFPv(void* p);
 f32 TWindowSubComCard__sub_80244784(void *arg0);
 f32 calc_offset__17TWindowSubComCardFPv(void *arg0);
 f32 TWindowSubComCard__sub_80244818(u8 *arg0);
-void TWindowSubComCard__sub_80244888(s32 arg0);
+void reparent_to_main_ctrl__17TWindowSubComCardFi(s32 arg0);
 void save_position__17TWindowSubComCardFPv(void* p);
 void TWindowSubTradeMain__sub_802448E4(void *arg0);
 void fn_8024491C(void *arg0);
@@ -173,7 +173,7 @@ f32 TWindowSubComCard__sub_80244818(u8 *arg0) {
 }
 #pragma pop
 
-void TWindowSubComCard__sub_80244888(s32 arg0) {
+void reparent_to_main_ctrl__17TWindowSubComCardFi(s32 arg0) {
     set_parent__7TObjectFP7TObject((s32)((void*)((void*)(arg0))), (s32)((void*)((void*)(TWindowCtrlMain__sub_8024CE24()))));
 }
 

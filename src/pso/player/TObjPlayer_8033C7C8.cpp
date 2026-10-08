@@ -38,7 +38,7 @@ M2C_UNK TBoss6PlotFalz__sub_802AC1D8(void *, int, int);
 s32 get_phase__8TObjFishFPv(int);
 extern const f32 lbl_805DFA48;
 extern const f32 lbl_805DFA4C;
-void TBoss4Type2__sub_8033C86C(u8 *arg0);
+void update_effect_sequence__11TBoss4Type2FPv(u8 *arg0);
 s32 get_bml_motion(s32, s32);
 s32 TObjFish__sub_8001EDB0(s32, s32);
 s32 get_bml_model(s32, s32);
@@ -47,7 +47,7 @@ int set_scripted_camera_pose(void *, void *, void *);
 int cache_target_and_forward__11TCameraCtrlFii(void *, int);
 s32 TObjFish__sub_800E3124(void *, void *);
 int __ct__7TObjectFP7TObject(void *, void *);
-int TBoss6PlotFalz__sub_802AC2D8(void *, void *, int);
+int build_tables__14TBoss6PlotFalzFPvPvi(void *, void *, int);
 s32 get_fish_count__8TObjFishFv();
 extern M2C_UNK lbl_80477DEC[];
 extern M2C_UNK lbl_80477DF8[];
@@ -69,11 +69,11 @@ void TObjPlayer__sub_8033C84C(void* p);
 void clear_render_effect_state__10TObjPlayerFPv(void *arg0);
 void *create_instance__8TObjFishFPv(void *arg0);
 M2C_UNK TBoss6PlotFalz__sub_802AC25C(void *);
-M2C_UNK TBoss6PlotFalz__sub_802AC4D8();
+M2C_UNK refresh_players_equipment__14TBoss6PlotFalzFPv();
 M2C_UNK restore_player_cameras();
 M2C_UNK post_translate_matrix(M2C_UNK *);
 M2C_UNK draw_model_motion(s32, s32, f32);
-M2C_UNK TObjFish__sub_800E3074(s32);
+M2C_UNK set_draw_callback_list__8TObjFishFPv(s32);
 M2C_UNK push_matrix();
 M2C_UNK pop_matrix();
 M2C_UNK __dl__7TObjectFPv(void *);
@@ -95,7 +95,7 @@ void clear_render_effect_state__10TObjPlayerFPv(void *arg0) {
     set_global_param__8TObjFishFi(M2C_FIELD(arg0, s32 *, 0x20));
     draw_model_motion(M2C_FIELD(arg0, s32 *, 0x1C), M2C_FIELD(arg0, s32 *, 0x24), M2C_FIELD(arg0, f32 *, 0x34));
     set_global_param__8TObjFishFi(M2C_FIELD(arg0, s32 *, 0x2C));
-    TObjFish__sub_800E3074(M2C_FIELD(arg0, s32 *, 0x60));
+    set_draw_callback_list__8TObjFishFPv(M2C_FIELD(arg0, s32 *, 0x60));
     draw_model_motion(M2C_FIELD(arg0, s32 *, 0x28), M2C_FIELD(arg0, s32 *, 0x30), M2C_FIELD(arg0, f32 *, 0x34));
     clear_render_callback__8TObjFishFv(M2C_FIELD(arg0, s32 *, 0x60));
     clear_global_state__10TObjPlayerFv();
@@ -108,7 +108,7 @@ extern const M2C_UNK lbl_804EF9C0[];
 
 #pragma push
 #pragma opt_common_subs off
-void TBoss4Type2__sub_8033C86C(u8 *arg0) {
+void update_effect_sequence__11TBoss4Type2FPv(u8 *arg0) {
     f32 temp_f1;
     s32 temp_r0;
     s32 temp_r0_2;
@@ -188,7 +188,7 @@ u8 *TObjFish__sub_8033CAB0(u8 *arg0, s16 arg1) {
     if (arg0 != NULL) {
         M2C_FIELD(arg0, M2C_UNK **, 0x18) = (M2C_UNK*)&lbl_804EF9C0;
         restore_player_cameras();
-        TBoss6PlotFalz__sub_802AC4D8();
+        refresh_players_equipment__14TBoss6PlotFalzFPv();
         TBoss6PlotFalz__sub_802AC25C(arg0 + 0x40);
         if ((u32) M2C_FIELD(arg0, u32 *, 0x60) != 0U) {
             init_state_1__8TObjFishFPv(M2C_FIELD(arg0, void **, 0x60));
@@ -229,7 +229,7 @@ Fish_8033CB4C *TObjFish__sub_8033CB4C(Fish_8033CB4C *self, void *parent) {
   }
   self->x60 = TObjFish__sub_800E3124(lbl_80477DF8, self->x54);
   self->x64 = 0;
-  TBoss6PlotFalz__sub_802AC2D8(self->x40, lbl_80477E18, 2);
+  build_tables__14TBoss6PlotFalzFPvPvi(self->x40, lbl_80477E18, 2);
   activate_camera_mode(5);
   set_scripted_camera_pose(lbl_80477DEC, lbl_80477DEC, lbl_80477E30);
   cache_target_and_forward__11TCameraCtrlFii(lbl_80477E3C, 0x416C);

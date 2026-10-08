@@ -39,7 +39,7 @@ extern M2C_UNK lbl_804CF8B0[];
 extern u32 lbl_805D3910;
 extern V3_80255CCC __ptmf_null;
 extern const f32 lbl_805DCE10;
-void TWindowDD__sub_802466E0(void *self, void *vt, s16 idx, void *pos);
+void construct_base__9TWindowDDFPvPvsPv(void *self, void *vt, s16 idx, void *pos);
 void copy_vec2__28TWindowSubSymbolChatPartsSetFPvPv(void *dst, void *src);
 void save_position__17TWindowSubComCardFPv(void *self);
 void *alloc__23TAdSinglePlyChrSelectGCFPv(u32 size);
@@ -150,7 +150,7 @@ void *dt__15TWindowHelpItemFPvs(void *arg0, s16 arg1) {
 
 THelp_80255CCC *TWindowHelpItem__ct(THelp_80255CCC *self, void *pos, s32 idx) {
     void *p;
-    TWindowDD__sub_802466E0(self, __vt__15TWindowHelpItem, idx, pos);
+    construct_base__9TWindowDDFPvPvsPv(self, __vt__15TWindowHelpItem, idx, pos);
     self->vt18 = ((s32 *)&lbl_804CF8B0);
     self->w0 = lbl_805D3910;
     copy_vec2__28TWindowSubSymbolChatPartsSetFPvPv((u8 *)self + 0x30, pos);

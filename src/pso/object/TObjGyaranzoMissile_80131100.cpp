@@ -54,7 +54,7 @@ f32 newton_sqrtf();
 extern f32 lbl_805DB068;
 extern f32 lbl_805DB06C;
 f32 scale_velocity__19TObjGyaranzoMissileFPvf(void *arg0, f32 farg0);
-void TObjPlayer__sub_8013153C(u8 *arg0, u8 *arg1);
+void horizontal_distance__10TObjPlayerFPvPv(u8 *arg0, u8 *arg1);
 void launch_weapon_casing__10TObjPlayerFiUiiUiUi(s32, u32, s32, u32, u32);
 f32 sin_table_lookup(s32);
 f32 cos_table_lookup(s32);
@@ -206,7 +206,7 @@ f32 scale_velocity__19TObjGyaranzoMissileFPvf(void *arg0, f32 farg0) {
 
 #pragma push
 #pragma fp_contract on
-void TObjPlayer__sub_8013153C(u8 *arg0, u8 *arg1) {
+void horizontal_distance__10TObjPlayerFPvPv(u8 *arg0, u8 *arg1) {
     f32 temp_f1;
     f32 temp_f2;
     f32 temp_f3;

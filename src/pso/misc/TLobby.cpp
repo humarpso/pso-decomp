@@ -286,8 +286,8 @@ u8 *alloc_from_heap__6TLobbyFPv(M2C_UNK);
 s32 TLobby__sub_803CC500();
 s32 TLobby__sub_803CC53C(s32);
 M2C_UNK TLobby__sub_803CCE9C(s32);
-s32 TLobby__sub_803CD3A8(s32, M2C_UNK);
-M2C_UNK TLobby__sub_803DE7BC(void *, s32, M2C_UNK);
+s32 adxf_open__6TLobbyFUii(s32, M2C_UNK);
+M2C_UNK move_words__6TLobbyFPvPvi(void *, s32, M2C_UNK);
 u8 *link_into_list__6TLobbyFPv();
 M2C_UNK strncpy(void *, s32, M2C_UNK);
 
@@ -300,7 +300,7 @@ s32 create_file_load_entry__6TLobbyFiiUiiPv(s32 arg0, s32 arg1, u32 arg2, s32 ar
     if (arg4 != NULL) {
         *arg4 = NULL;
     }
-    temp_r3 = TLobby__sub_803CD3A8(arg0, 0);
+    temp_r3 = adxf_open__6TLobbyFUii(arg0, 0);
     if (temp_r3 == 0) {
         return -2;
     }
@@ -320,7 +320,7 @@ s32 create_file_load_entry__6TLobbyFiiUiiPv(s32 arg0, s32 arg1, u32 arg2, s32 ar
     M2C_FIELD(var_r31, s32 *, 0x34) = 0;
     M2C_FIELD(var_r31, u32 *, 0x40) = arg2;
     if (arg2 != 0U) {
-        TLobby__sub_803DE7BC((u8 *)var_r31 + 0x44, arg3, 8);
+        move_words__6TLobbyFPvPvi((u8 *)var_r31 + 0x44, arg3, 8);
     }
     if (arg4 != NULL) {
         *arg4 = var_r31;
@@ -343,8 +343,8 @@ s32 create_named_entry__6TLobbyFiiUiiPv(s32 arg0, s32 arg1, u32 arg2, s32 arg3, 
 s32 TLobby__sub_803CC500(int);
 s32 TLobby__sub_803CC53C(int);
 M2C_UNK TLobby__sub_803CCE9C(int);
-s32 TLobby__sub_803CD3A8(void *, int);
-M2C_UNK TLobby__sub_803DE7BC(void *, void *, int);
+s32 adxf_open__6TLobbyFUii(void *, int);
+M2C_UNK move_words__6TLobbyFPvPvi(void *, void *, int);
 u8 *alloc_from_heap__6TLobbyFPv(M2C_UNK);
 u8 *link_into_list__6TLobbyFPv();
 M2C_UNK strncpy(void *, void *, int);
@@ -356,7 +356,7 @@ s32 create_named_entry__6TLobbyFiiUiiPv(s32 arg0, s32 arg1, u32 arg2, s32 arg3, 
     if (arg4 != NULL) {
         *arg4 = NULL;
     }
-    temp_r3 = TLobby__sub_803CD3A8((void *) (arg0), (int) (0));
+    temp_r3 = adxf_open__6TLobbyFUii((void *) (arg0), (int) (0));
     if (temp_r3 == 0) {
         return -2;
     }
@@ -373,7 +373,7 @@ s32 create_named_entry__6TLobbyFiiUiiPv(s32 arg0, s32 arg1, u32 arg2, s32 arg3, 
     M2C_FIELD(var_r31, s32 *, 0x34) = 0;
     M2C_FIELD(var_r31, u32 *, 0x40) = arg2;
     if (arg2 != 0U) {
-        TLobby__sub_803DE7BC((void *) (var_r31 + 0x44), (void *) (arg3), (int) (8));
+        move_words__6TLobbyFPvPvi((void *) (var_r31 + 0x44), (void *) (arg3), (int) (8));
     }
     if (arg4 != NULL) {
         *arg4 = var_r31;
@@ -397,7 +397,7 @@ u8 *alloc_from_heap__6TLobbyFPv(M2C_UNK);
 s32 TLobby__sub_803CC500(s32);
 s32 TLobby__sub_803CC53C(s32);
 M2C_UNK TLobby__sub_803CCE9C(s32);
-s32 TLobby__sub_803CD3A8(s32, M2C_UNK);
+s32 adxf_open__6TLobbyFUii(s32, M2C_UNK);
 u8 *link_into_list__6TLobbyFPv();
 M2C_UNK strncpy(void *, s32, M2C_UNK);
 
@@ -410,7 +410,7 @@ s32 request_file_read__6TLobbyFiiPvPv(s32 arg0, s32 arg1, s32 *arg2, void **arg3
     if (arg3 != NULL) {
         *arg3 = NULL;
     }
-    temp_r3 = TLobby__sub_803CD3A8(arg0, 0);
+    temp_r3 = adxf_open__6TLobbyFUii(arg0, 0);
     if (temp_r3 == 0) {
         return -2;
     }
@@ -1662,7 +1662,7 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 extern "C" {
 
 void free_rocks__6TLobbyFv(void);
-M2C_UNK TLobby__sub_800F957C(u32);
+M2C_UNK free_nodes_with_id__6TLobbyFUi(u32);
 M2C_UNK free__11TOBoss4RockFUi(u32);
 
 extern u32 lbl_80513D78[];
@@ -1683,7 +1683,7 @@ void free_rocks__6TLobbyFv(void) {
         var_r31 -= 1;
     } while (var_r28 >= 0);
     if ((u32) lbl_805D6158 != 0U) {
-        TLobby__sub_800F957C(lbl_805D6158);
+        free_nodes_with_id__6TLobbyFUi(lbl_805D6158);
         lbl_805D6158 = var_r30;
     }
 }
@@ -2139,11 +2139,11 @@ extern "C" {
 
 void update_scroll_impl__6TLobbyFv(void);
 void TLobby__sub_803CE220(void);
-M2C_UNK TLobby__sub_803D1FD4();
+M2C_UNK restore_interrupts_nested__6TLobbyFv();
 M2C_UNK lock_enter__6TLobbyFv();
 
 void update_scroll_impl__6TLobbyFv(void) {
-    TLobby__sub_803D1FD4();
+    restore_interrupts_nested__6TLobbyFv();
 }
 
 void TLobby__sub_803CE220(void) {
@@ -2264,7 +2264,7 @@ extern "C" {
 void set_callback__6TLobbyFUii(u32 arg0, s32 arg1);
 void notify_dvd_read__6TLobbyFv(void);
 void enter_lock__6TLobbyFv(void);
-M2C_UNK TLobby__sub_803D1FD4();
+M2C_UNK restore_interrupts_nested__6TLobbyFv();
 M2C_UNK lock_enter__6TLobbyFv();
 
 extern u32 lbl_805D7618;
@@ -2281,7 +2281,7 @@ void set_callback__6TLobbyFUii(u32 arg0, s32 arg1) {
 }
 
 void notify_dvd_read__6TLobbyFv(void) {
-    TLobby__sub_803D1FD4();
+    restore_interrupts_nested__6TLobbyFv();
 }
 
 void enter_lock__6TLobbyFv(void) {
@@ -2448,7 +2448,7 @@ void TLobby__sub_803D2C04(u8 *arg0);
 void TLobby__sub_803D2C20(u8 *arg0, s32 arg1, s32 arg2);
 s32 TLobby__sub_803D2C2C(u8 *arg0);
 void clear_entry__6TLobbyFPv(u8 *arg0);
-M2C_UNK TLobby__sub_803D1FD4();
+M2C_UNK restore_interrupts_nested__6TLobbyFv();
 M2C_UNK lock_enter__6TLobbyFv();
 M2C_UNK memset(void *, int, int);
 
@@ -2490,7 +2490,7 @@ void clear_entry__6TLobbyFPv(u8 *arg0) {
         memset((void *) (arg0), (int) (0), (int) (0x30));
         M2C_FIELD(arg0, s32 *, 4) = 0;
     }
-    TLobby__sub_803D1FD4();
+    restore_interrupts_nested__6TLobbyFv();
 }
 
 }
@@ -2632,11 +2632,11 @@ extern "C" {
 void process_pending_request__6TLobbyFv(void);
 void acquire_lock__6TLobbyFv(void);
 void TLobby__sub_803D4408(u8 *arg0, s32 arg1);
-M2C_UNK TLobby__sub_803D1FD4();
+M2C_UNK restore_interrupts_nested__6TLobbyFv();
 M2C_UNK lock_enter__6TLobbyFv();
 
 void process_pending_request__6TLobbyFv(void) {
-    TLobby__sub_803D1FD4();
+    restore_interrupts_nested__6TLobbyFv();
 }
 
 void acquire_lock__6TLobbyFv(void) {

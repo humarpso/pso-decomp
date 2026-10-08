@@ -186,6 +186,7 @@ pso/object/TObjFish_8001ED90.cpp:
 
 pso/misc/TLobby_8001EF5C.cpp:
 	.text       start:0x8001EF5C end:0x80020898
+	.data       start:0x80480CB0 end:0x80480CE0
 
 pso/player/TObjPlayer_80020898.cpp:
 	.text       start:0x80020898 end:0x800208B4
@@ -11789,6 +11790,7 @@ pso/boss/TBoss6EmptyWarp_802B0E2C_802B0F8C.cpp:
 pso/boss/TBoss6Tube_802B1020.cpp:
 	.text       start:0x802B1020 end:0x802B1564
 	.rodata     start:0x80470A60 end:0x80470A68
+	.sdata2     start:0x805DE250 end:0x805DE254
 
 pso/boss/TBoss6Tube.cpp:
 	.text       start:0x802B1564 end:0x802B15F4
@@ -11916,6 +11918,7 @@ pso/ui/TAdSelectGameModeGC_802C4748.cpp:
 
 pso/menu/TAdPlyChrSelPlateGC_802C4CA0.cpp:
 	.text       start:0x802C4CA0 end:0x802C4FE8
+	.rodata     start:0x80471A80 end:0x80471A88
 
 pso/menu/TAdPlyChrSelPlateGC.cpp:
 	.text       start:0x802C4FE8 end:0x802C50EC
@@ -14464,7 +14467,7 @@ pso/boss/TObjBoss2Tunnel_8036EF0C.cpp:
 
 pso/ui/TAdEp3Exist.cpp:
 	.text       start:0x8036EFBC end:0x8036F764
-	.rodata     start:0x8047B8D8 end:0x8047B8E0
+	.rodata     start:0x8047B8D8 end:0x8047B8E8
 
 pso/unk/text_8036F764.cpp:
 	.text       start:0x8036F764 end:0x8036F81C
@@ -15548,6 +15551,7 @@ pso/unk/text_803D853C.cpp:
 
 pso/player/TObjPlayer_803D8BAC.cpp:
 	.text       start:0x803D8BAC end:0x803D8DE0
+	.sdata2     start:0x805E0EE0 end:0x805E0EE8
 
 pso/unk/text_803D8DE0.cpp:
 	.text       start:0x803D8DE0 end:0x803D8F74

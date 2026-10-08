@@ -702,7 +702,7 @@ void TCameraCtrl__sub_8006AC70(u8 *arg0);
 struct V3_8006AD34 { f32 x, y, z; };
 u8 *get_target__11TCameraCtrlFPv(void *);
 M2C_UNK TCameraCtrl__sub_80069F20(void *);
-M2C_UNK TCameraCtrl__sub_8006A13C(void *);
+M2C_UNK cycle_spectate_target__11TCameraCtrlFv(void *);
 M2C_UNK render__15TObjBoss2TunnelFPvPv(void *, void *);
 s32 get_camera_no__11TCameraCtrlFv();
 void vector_length(void *);
@@ -747,7 +747,7 @@ extern "C" void render_shadows__7TObjectFv();
 void __ct__7TObjectFP7TObject(void *, void *);
 extern s32 lbl_805D283C;
 extern const f32 lbl_805D8FE4;
-void TCameraCtrl__sub_8006AD34(u8 *arg0);
+void update_view__11TCameraCtrlFPv(u8 *arg0);
 void *camera_controller_registry[13] = {
     (void *)0x0, (void *)0x0, (void *)0x0, (void *)0x0,
     (void *)0x0, (void *)0x0, (void *)0x0, (void *)0x0,
@@ -761,7 +761,7 @@ void *lbl_80488A8C[13] = {
     (void *)&TCameraCtrl__vt12,
 };
 void *lbl_80488AC0[6] = {
-    (void *)0x0, (void *)0x0, (void *)&TCameraCtrl__sub_8006AA90, (void *)&TCameraCtrl__sub_8006AD34,
+    (void *)0x0, (void *)0x0, (void *)&TCameraCtrl__sub_8006AA90, (void *)&update_view__11TCameraCtrlFPv,
     (void *)&reset_split_flag__11TCameraCtrlFPv, (void *)&render_shadows__7TObjectFv,
 };
 
@@ -844,7 +844,7 @@ void TCameraCtrl__sub_8006AC70(u8 *arg0) {
 #define ISNAN(x) (((int (*)(f32))TCameraCtrl__sub_8006B370)(x))
 #define G (lbl_805D4DF0)
 #define GF(o) (*(f32 *)(G + (o)))
-void TCameraCtrl__sub_8006AD34(u8 *arg0) {
+void update_view__11TCameraCtrlFPv(u8 *arg0) {
     V3_8006AD34 v;
     u8 *t;
     s32 i;
@@ -852,7 +852,7 @@ void TCameraCtrl__sub_8006AD34(u8 *arg0) {
 
     arg0[0x1C] = 1;
     update_target_from_state__11TCameraCtrlFPv(arg0);
-    TCameraCtrl__sub_8006A13C(arg0);
+    cycle_spectate_target__11TCameraCtrlFv(arg0);
     update_active_controller__11TCameraCtrlFPv(arg0);
     TCameraCtrl__sub_80069F20(arg0);
     if (G != NULL) {

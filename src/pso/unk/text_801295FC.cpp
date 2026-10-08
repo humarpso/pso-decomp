@@ -58,7 +58,7 @@ extern const f32 lbl_805DAE30;
 extern const f32 lbl_805DAE34;
 extern const f32 lbl_805DAE38;
 extern const f32 lbl_805DAE3C;
-void TObjPlayer__sub_80129648(Self_80129648 *self);
+void fire_slicer__10TObjPlayerFPv(Self_80129648 *self);
 }
 
 extern "C" {
@@ -77,7 +77,7 @@ void init_slicer_launch_state(struct SlicerState_801295FC *s) {
     s->angle = -0x2AAA;
 }
 struct SlicerState_801295FC;
-void TObjPlayer__sub_80129648(Self_80129648 *self) {
+void fire_slicer__10TObjPlayerFPv(Self_80129648 *self) {
     Tec_80129648 tec;
     TObjPlayer__sub_80128A70();
     init_slicer_launch_state((struct SlicerState_801295FC *)((SlicerState_801295FC *)&tec));

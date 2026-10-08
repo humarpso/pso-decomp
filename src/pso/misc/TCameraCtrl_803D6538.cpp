@@ -209,7 +209,7 @@ void post_translate_matrix(void *);
 void TObjPlayer__sub_803D76B4(void *arg0);
 void TCameraCtrl__sub_803D65F8(u8 *);
 void set_camera_look_at(u8* eye, u8* target, u8* up);
-void TObjPlayer__sub_803D8CD4(s32);
+void set_matrix_identity__10TObjPlayerFPv(s32);
 extern u8 lbl_804FA4F0[];
 void TCameraCtrl__sub_803D6558(f32 farg0, f32 farg1, f32 farg2);
 extern G_803D6688 lbl_8058D4F8;
@@ -259,7 +259,7 @@ void TCameraCtrl__sub_803D6558(f32 farg0, f32 farg1, f32 farg2) {
     v.x = farg0;
     v.y = farg1;
     v.z = farg2;
-    TObjPlayer__sub_803D8CD4(0);
+    set_matrix_identity__10TObjPlayerFPv(0);
     set_camera_look_at((u8*)(sp14), (u8*)((u8 *)&v), (u8*)(lbl_804FA4F0));
 }
 

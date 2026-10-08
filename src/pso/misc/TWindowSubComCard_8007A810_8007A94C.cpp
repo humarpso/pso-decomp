@@ -20,7 +20,7 @@ extern "C" {
 
 void swap_cards__17TWindowSubComCardFii(s32 arg0, s32 arg1);
 M2C_UNK reinit__17TWindowSubComCardFi(M2C_UNK *);
-M2C_UNK *TWindowSubComCard__sub_8007A8F8(s32);
+M2C_UNK *get_card_entry__17TWindowSubComCardFi(s32);
 
 void swap_cards__17TWindowSubComCardFii(s32 arg0, s32 arg1) {
     M2C_UNK sp8[64];
@@ -28,8 +28,8 @@ void swap_cards__17TWindowSubComCardFii(s32 arg0, s32 arg1) {
     M2C_UNK *second_ptr;
 
     reinit__17TWindowSubComCardFi(sp8);
-    first_ptr = TWindowSubComCard__sub_8007A8F8(arg0);
-    second_ptr = TWindowSubComCard__sub_8007A8F8(arg1);
+    first_ptr = get_card_entry__17TWindowSubComCardFi(arg0);
+    second_ptr = get_card_entry__17TWindowSubComCardFi(arg1);
     TWindowSubComCard__sub_8007A9C0((s32)(sp8), (u8 *)(first_ptr));
     TWindowSubComCard__sub_8007A9C0((s32)(first_ptr), (u8 *)(second_ptr));
     TWindowSubComCard__sub_8007A9C0((s32)(second_ptr), (u8 *)(sp8));

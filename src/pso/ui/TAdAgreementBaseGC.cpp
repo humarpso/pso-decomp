@@ -52,7 +52,7 @@ void *__nw__7TObjectFUl(u32);
 void __ct__7TObjectFP7TObject(void *, void *);
 void __ct__9TAdBackGCFv(void *, void *);
 void __ct__12TAdBackTxtGCFv(void *, void *);
-void TLevelSelect__sub_802AEBE4(void *, void *);
+void add_item_rect__12TLevelSelectFPvPv(void *, void *);
 void *__ct__14TAdSelectCurGCFv(void *, s32, void *, void *);
 void set_ad_field__6TLobbyFPvi(void *, s32);
 void fn_80329BAC(void* p);
@@ -208,8 +208,8 @@ Obj_80329AA8 *TAdAgreementBaseGC__ct(Obj_80329AA8 *arg0, void *arg1) {
         p = __ct__14TAdSelectCurGCFv(p, tl_clipout, lbl_80477090, lbl_804770A0);
     }
     arg0->cur = p;
-    TLevelSelect__sub_802AEBE4(arg0->cur, lbl_80477090);
-    TLevelSelect__sub_802AEBE4(arg0->cur, lbl_80477090 + 8);
+    add_item_rect__12TLevelSelectFPvPv(arg0->cur, lbl_80477090);
+    add_item_rect__12TLevelSelectFPvPv(arg0->cur, lbl_80477090 + 8);
     fn_80329BAC((void*)(arg0->cur));
     set_ad_field__6TLobbyFPvi(arg0->cur, 1);
     return arg0;

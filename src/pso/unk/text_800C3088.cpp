@@ -268,7 +268,7 @@ extern u8 *lbl_805D5170;
 extern const f32 lbl_805D9FD8;
 extern const f32 lbl_805D9FDC;
 void fn_800C32DC(u8 *arg0, s32 arg1);
-s32 fn_800B91F4(void *);
+s32 enemy_check_target_valid(void *);
 s32 enemy_validate_retained_target(void *);
 s32 set_field_378__9TObjEneDDFPvi(void *, int);
 s32 transition_enemy_state(void *, int);
@@ -341,7 +341,7 @@ void fn_800C3088(u8 *arg0, int arg1) {
       else
         if (objInBand__FP7GameObjf((void *) arg0, (f32) lbl_805D9FC4) != 0)
       {
-        if (fn_800B91F4((void *) arg0) != 0)
+        if (enemy_check_target_valid((void *) arg0) != 0)
         {
           temp_r3 = (u8 *) ((RecoveredFields_800C3088_arg0 *) arg0)->field_390;
           if (PSO_VCALL_VObj_18_880cfd_m18(temp_r3, arg0, lbl_805D9FC0) != 0)
@@ -627,7 +627,7 @@ extern const f32 lbl_805D9FE4;
 extern const f32 lbl_805D9FE8;
 extern const f32 lbl_805D9FEC;
 
-void TObjEneDD__sub_800C34FC(u8 *arg0, s32 arg1) {
+void state_chase_target__9TObjEneDDFPvi(u8 *arg0, s32 arg1) {
     f32 d;
     s32 t;
     u16 idx;

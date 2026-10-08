@@ -38,7 +38,7 @@ extern M2C_UNK lbl_804B2578[];
 extern s32 lbl_805D59D0;
 extern s32 lbl_805D59E0;
 extern s32 lbl_805D59E4;
-u8 *TOHangceilingCave01KeyQuick__sub_80168C6C(u8 *arg0, M2C_UNK arg1, s32 arg2);
+u8 *init_base__27TOHangceilingCave01KeyQuickFPvii(u8 *arg0, M2C_UNK arg1, s32 arg2);
 }
 
 extern "C" {
@@ -70,7 +70,7 @@ void *destroy_hanging_object__27TOHangceilingCave01KeyQuickFPvs(void *arg0, s16 
 
 typedef char RecoveredGlobal_80168C6C_lbl_804B2174_size[sizeof(RecoveredGlobal_80168C6C_lbl_804B2174) == 0x2C ? 1 : -1];
 typedef char RecoveredGlobal_80168C6C_lbl_804B2578_size[sizeof(RecoveredGlobal_80168C6C_lbl_804B2578) == 0x148 ? 1 : -1];
-u8 *TOHangceilingCave01KeyQuick__sub_80168C6C(u8 *arg0, M2C_UNK arg1, s32 arg2) {
+u8 *init_base__27TOHangceilingCave01KeyQuickFPvii(u8 *arg0, M2C_UNK arg1, s32 arg2) {
     u8 *temp_r4;
     construct_actor_base__10TObjPlayerFPvPv((void *) (arg0));
     M2C_FIELD(arg0, M2C_UNK **, 0x18) = &(*(RecoveredGlobal_80168C6C_lbl_804B2578 *)&lbl_804B2578).value;

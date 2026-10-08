@@ -119,16 +119,16 @@ extern s32 lbl_805D586C;
 extern s32 lbl_805D5870;
 extern const f32 lbl_805DA258;
 extern const f32 lbl_805DA260;
-void TObjGyaranzoMissile__sub_800D20BC(u8 *arg0);
+void select_targets__19TObjGyaranzoMissileFPv(u8 *arg0);
 M2C_UNK spawn_particle_effect(void *, int);
-M2C_UNK TBoss3Volopt__sub_800C7698(void *);
+M2C_UNK render_anim_model_at_pos__12TBoss3VoloptFPv(void *);
 s32 TObjGyaranzoMissile__sub_800D40FC(int);
 M2C_UNK TObjGyaranzoMissile__ct(void *, void *, void *, u16);
 s32 copy_target_state__14TObjEnePanarmsFPvPv(void *, s32);
 M2C_UNK play_sound_effect(int, void *, int, int);
 void *__nw__7TObjectFUl(int);
 extern s32 lbl_805D520C;
-void TObjGyaranzoMissile__sub_800D23D4(u8 *arg0);
+void spawn_missile_volley__19TObjGyaranzoMissileFPv(u8 *arg0);
 }
 
 extern "C" {
@@ -177,7 +177,7 @@ void update__19TObjGyaranzoMissileFPv(u8 *arg0) {
     }
 }
 
-void TObjGyaranzoMissile__sub_800D20BC(u8 *arg0) {
+void select_targets__19TObjGyaranzoMissileFPv(u8 *arg0) {
     s32 count;
     s32 n;
     s32 best;
@@ -254,11 +254,11 @@ void copy_from__19TObjGyaranzoMissileFPvPv(void* p, void* q) { *(u32*)((char*)p 
 #define V ((VObj_18_f1aa6a *)(arg0))
 #define NEW(d, id) { void *o = __nw__7TObjectFUl(0xDC); if (o != NULL) { TObjGyaranzoMissile__ct(o, arg0, &d, id); } }
 #pragma pool_data off
-void TObjGyaranzoMissile__sub_800D23D4(u8 *arg0) {
+void spawn_missile_volley__19TObjGyaranzoMissileFPv(u8 *arg0) {
     Vec_800D23D4 pos;
     s32 i;
     lbl_805D520C = TObjGyaranzoMissile__sub_800D40FC(1) + 0x96;
-    TBoss3Volopt__sub_800C7698(arg0);
+    render_anim_model_at_pos__12TBoss3VoloptFPv(arg0);
     {
         Desc_800D23D4 d1 = { &pos, -0x1000, M2C_FIELD(arg0, s32 *, 0x60) + 0x800, 1024.0f, 3.0f, 0.0f };
         Desc_800D23D4 d2 = { &pos, -0x2000, M2C_FIELD(arg0, s32 *, 0x60) + 0x800, 2048.0f, 10.0f, 0.4f };

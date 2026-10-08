@@ -128,7 +128,7 @@ s32 is_challenge_mode_active();
 extern A_80291FC0 lbl_804DB1F0[];
 void TLobby__sub_80292604(s32 arg0);
 s32 TWindowSubStatusDisp__sub_8006F134(s32, s32);
-s32 TWindowSubStatusDisp__sub_8006F190(s32);
+s32 resolve_player_slot__20TWindowSubStatusDispFi(s32);
 s32 register_in_free_room_slot__23TAdSinglePlyChrSelectGCFPvi(s32, s32);
 s32 get_card_window__17TWindowSubComCardFUi(s32);
 extern A_80291FC0 lbl_804DB1F0[];
@@ -151,7 +151,7 @@ s32 is_value_out_of_range__6TLobbyFi(s32);
 s32 is_challenge_mode_active();
 extern A_80291FC0 lbl_804DB1F0[];
 s32 TLobby__sub_80292270(s32 arg0, s32 arg1);
-s32 TLobby__sub_8006F994(s32);
+s32 get_valid_slot__6TLobbyFi(s32);
 u32 get_player_by_client_id(s32);
 s32 get_clamped_time_limit__6TLobbyFv();
 s32 is_value_out_of_range__6TLobbyFi(s32);
@@ -243,7 +243,7 @@ s32 TLobby__sub_8029204C(void) {
             if (v == 0) {
                 return -1;
             }
-            v = TLobby__sub_8006F994(v);
+            v = get_valid_slot__6TLobbyFi(v);
             if (is_value_out_of_range__6TLobbyFi(v) != 0) {
                 return -2;
             }
@@ -381,7 +381,7 @@ s32 TLobby__sub_802924B4(s32 arg0, u16 arg1) {
   if (register_in_free_room_slot__23TAdSinglePlyChrSelectGCFPvi(temp_r3 & 0xFFFFFFFFFFFFFFFFu, arg0) != 0)
   {
     temp_r30 = (((u8 *) (&(*(RecoveredGlobal_802924B4_lbl_804DB1F0 *)&lbl_804DB1F0).value)) + ((*((s32 *) (((s8 *) (&(*(RecoveredGlobal_802924B4_lbl_804DB1F0 *)&lbl_804DB1F0).value)) + 0x14))) * 0x1C)) + 0x21C;
-    new_var2 = TWindowSubStatusDisp__sub_8006F190(-1);
+    new_var2 = resolve_player_slot__20TWindowSubStatusDispFi(-1);
     temp_r3_2 = (s32 *) TWindowSubStatusDisp__sub_8006F134(temp_r3 + 0x21C4, new_var2);
     *temp_r3_2 |= *((s32 *) (((s8 *) temp_r30) + 4));
     return 1;

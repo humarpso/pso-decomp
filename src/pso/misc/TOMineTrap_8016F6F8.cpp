@@ -14,7 +14,7 @@ u16 get_trap_type__10TOMineTrapFPv(void *);
 s32 get_trap_count__10TOMineTrapFv(void);
 u8 get_rule_field_0__6TLobbyFPv(void *);
 extern u8 lbl_8050EA40[];
-s32 TOMineTrap__sub_8016F704(Trap_8016F704 *self);
+s32 find_target_in_range__10TOMineTrapFPv(Trap_8016F704 *self);
 }
 
 struct VBase_18 { char pad[0x18]; };
@@ -364,7 +364,7 @@ extern const f64 lbl_80442200;
 extern const f32 lbl_805DB870;
 extern const f32 lbl_805DB884;
 extern const f32 lbl_805DB888;
-void TOMineTrap__sub_80170AC8(u8 *arg0);
+void follow_target__10TOMineTrapFPv(u8 *arg0);
 void calc_attach_pos__10TObjPlayerFPv(void *);
 s32 queue_destruction__7TObjectFv(void *);
 void set_indexed_flags(void *, s32, s32);
@@ -405,7 +405,7 @@ void check_object_collisions__10TObjPlayerFPv(void *);
 s32 is_valid_and_active__10TObjPlayerFUi(void *);
 extern const f32 TOMineTrap__data_805DB868;
 extern const f32 lbl_805DB874;
-void TOMineTrap__sub_80170DD8(u8 *arg0);
+void detonate__10TOMineTrapFPv(u8 *arg0);
 }
 
 extern "C" {
@@ -421,7 +421,7 @@ M2C_UNK __dt__6TOMineFv(void *, M2C_UNK);
 
 void set_state__10TOMineTrapFPv(void* p) { *(s16*)((char*)p + 0x326) = 4; }
 
-s32 TOMineTrap__sub_8016F704(Trap_8016F704 *self) {
+s32 find_target_in_range__10TOMineTrapFPv(Trap_8016F704 *self) {
     u8 *p;
     s32 i;
     u16 id;
@@ -708,7 +708,7 @@ void TOMineTrap__sub_80170A5C(u8 *arg0) {
 
 typedef struct Stack_80170AC8 Stack_80170AC8;
 #pragma fp_contract on
-void TOMineTrap__sub_80170AC8(u8 *arg0) {
+void follow_target__10TOMineTrapFPv(u8 *arg0) {
   unsigned short new_var;
   Stack_80170AC8 stack;
   f32 temp_f2;
@@ -782,7 +782,7 @@ void TOMineTrap__sub_80170CF4(u8 *arg0) {
 #pragma pop
 
 void sync_position__10TOMineTrapFPv(void* p) { VecCopy__FP3VecPC3Vec((void *)((char*)p + 0x38), (void *)((char*)p + 0x334)); refresh_collision_body_centers(p); }
-void TOMineTrap__sub_80170DD8(u8 *arg0) {
+void detonate__10TOMineTrapFPv(u8 *arg0) {
     s32 i;
     u8 *obj;
     set_indexed_flags(arg0, 0, 2);

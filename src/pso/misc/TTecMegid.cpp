@@ -241,7 +241,7 @@ struct Obj_802351B4
 extern "C" {
 s32 calc_technique_parameters(int, int, int);
 s32 is_technique_ready__8TTecCtrlFv();
-s32 TTecAnti__sub_8022B35C(void *, int);
+s32 copy_params__8TTecAntiFPvPv(void *, int);
 extern RecoveredGlobal_80235348_lbl_804CC510 lbl_804CC510;
 extern RecoveredGlobal_80235348_lbl_804CC55C lbl_804CC55C;
 void init_parameters__9TTecMegidFPv(u8 *arg0);
@@ -298,7 +298,7 @@ extern TTecGiBartaData_80230B48 TTecMegid__data_8044D874[];
 extern s32 lbl_805D63AC;
 extern s32 lbl_805D63B0;
 extern const f32 lbl_805DC880;
-void TTecMegid__sub_802351B4(void *arg0);
+void spawn_particle_emitters__9TTecMegidFPv(void *arg0);
 }
 
 extern "C" {
@@ -361,7 +361,7 @@ typedef struct Obj_802351B4 Obj_802351B4;
 typedef struct Row_802351B4 Row_802351B4;
 typedef struct TTecGiBartaData_80230B48 TTecGiBartaData_80230B48;
 typedef struct Vec_802351B4 Vec_802351B4;
-void TTecMegid__sub_802351B4(void *arg0) {
+void spawn_particle_emitters__9TTecMegidFPv(void *arg0) {
   Obj_802351B4 *self = (Obj_802351B4 *) arg0;
   u32 fl;
   u32 flags;
@@ -410,7 +410,7 @@ void TTecMegid__sub_802351B4(void *arg0) {
 void init_parameters__9TTecMegidFPv(u8 *arg0) {
   s32 new_var;
   new_var = calc_technique_parameters((int) 0x12, (int) ((RecoveredFields_80235348_arg0 *) arg0)->field_C4, (int) 0xFFFF);
-  TTecAnti__sub_8022B35C((void *) (arg0 + 0xCC), (int) new_var);
+  copy_params__8TTecAntiFPvPv((void *) (arg0 + 0xCC), (int) new_var);
   if ((((s16) ((RecoveredFields_80235348_arg0 *) arg0)->field_C4) >= 0xF) && (is_technique_ready__8TTecCtrlFv() == 0))
   {
     ((RecoveredFields_80235348_arg0 *) arg0)->field_CC = (f32) ((*((s16 *) (((s8 *) (&lbl_804CC510.value)) + 0x48))) + ((*((s16 *) (((s8 *) (&lbl_804CC510.value)) + 0x4A))) * ((RecoveredFields_80235348_arg0 *) arg0)->field_C4));
@@ -534,7 +534,7 @@ u8 *TTecMegid__ct(u8 *arg0, s32 _w1, s32 _w2, s32 _w3, s32 _w4) {
         ((Obj_8023589C *)arg0)->ids[i] = 0xFFFF;
     }
     M2C_FIELD(arg0, s32 *, 0x174) = 0;
-    TTecMegid__sub_802351B4((void *)(arg0));
+    spawn_particle_emitters__9TTecMegidFPv((void *)(arg0));
     update_by_state__9TTecMegidFPv(arg0);
     if (M2C_FIELD(arg0, void **, 0x1C) != 0) {
         M2C_FIELD(arg0, s16 *, 0xC8) = obj_getField1c(M2C_FIELD(arg0, void **, 0x1C));
@@ -553,7 +553,7 @@ u8 *construct_facing__9TTecMegidFPviiii(u8 *arg0, s32 _w1, s32 _w2, s32 _w3, s32
         ((Obj_80235940 *)arg0)->ids[i] = 0xFFFF;
     }
     M2C_FIELD(arg0, s32 *, 0x174) = 0;
-    TTecMegid__sub_802351B4((void *)(arg0));
+    spawn_particle_emitters__9TTecMegidFPv((void *)(arg0));
     update_by_state__9TTecMegidFPv(arg0);
     if (M2C_FIELD(arg0, void **, 0x1C) != 0) {
         M2C_FIELD(arg0, s16 *, 0xC8) = obj_getField1c(M2C_FIELD(arg0, void **, 0x1C));

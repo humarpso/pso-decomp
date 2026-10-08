@@ -19,15 +19,15 @@ extern u32 lbl_805D53A0;
 extern u32 TLobby__data_805D5580;
 extern s32 lbl_805D5E50;
 void TLobby__sub_801E44D8(void *arg0, u32 arg1);
-void TLobby__sub_8001EE48(char *);
-void *TLobby__sub_8001EEFC(char *);
+void tmp_buf_release__6TLobbyFi(char *);
+void *tmp_buf_use_req__6TLobbyFPv(char *);
 void safe_free__23TAdSinglePlyChrSelectGCFUi(void *);
 void *alloc__22TQuestVmDownLoadServerFPv(void);
 void pump_frames__6TLobbyFv(void);
-s32 TLobby__sub_800FD944(char *);
-void TGStream__sub_800FDBA8(char *, void *);
+s32 get_resource_file_size__6TLobbyFPv(char *);
+void load_sct_file__8TGStreamFii(char *, void *);
 void debug_print__6TLobbyFii(const char *, ...);
-void TLobby__sub_8013189C(s32, char *, char *);
+void change_file_extension__6TLobbyFPvPvPv(s32, char *, char *);
 s32 TLobby__sub_8013194C(char *, char *);
 char *strncpy(char *, const char *, u32);
 s32 load_gvm_texture_archive(void *, s32);
@@ -35,13 +35,13 @@ extern char lbl_80449798[];
 extern char lbl_804497C4[];
 extern char lbl_804497D4[];
 extern char lbl_805DC448[4];
-s32 TLobby__sub_801E468C(const char *name, s32 arg1);
+s32 load_texture_pvm_file__6TLobbyFPvi(const char *name, s32 arg1);
 void run_frame__6TLobbyFv(void);
 void pump_frames__6TLobbyFv(void);
 void debug_print__6TLobbyFii(const char *, ...);
 s32 load_texture_list(s32 **);
 extern char lbl_804497FC[];
-s32 TLobby__sub_801E47C4(s32 **arg0);
+s32 pso_load_texture__6TLobbyFPv(s32 **arg0);
 }
 
 extern "C" {
@@ -164,7 +164,7 @@ void update_players__6TLobbyFi(s32 arg0) {
 }
 
 void bswap_switch_activate_token__6TLobbyFPv(void* p) { read_be16_field2__10TObjPlayerFPv(p); bswap_16__FPUs((char*)p + 0x4); bswap_16__FPUs((char*)p + 0x6); }
-s32 TLobby__sub_801E468C(const char *name, s32 arg1) {
+s32 load_texture_pvm_file__6TLobbyFPvi(const char *name, s32 arg1) {
     char path[0x40];
     void *buf;
     s32 allocated;
@@ -173,9 +173,9 @@ s32 TLobby__sub_801E468C(const char *name, s32 arg1) {
     pump_frames__6TLobbyFv();
     strncpy(path, name, 0x40);
     if (TLobby__sub_8013194C(path, lbl_805DC448) != 0) {
-        TLobby__sub_8013189C(0, path, lbl_805DC448);
+        change_file_extension__6TLobbyFPvPvPv(0, path, lbl_805DC448);
     }
-    size = TLobby__sub_800FD944(path);
+    size = get_resource_file_size__6TLobbyFPv(path);
     if (size <= 0) {
         debug_print__6TLobbyFii(lbl_80449798, name);
         return -1;
@@ -188,21 +188,21 @@ s32 TLobby__sub_801E468C(const char *name, s32 arg1) {
         }
         allocated = 1;
     } else {
-        buf = TLobby__sub_8001EEFC(lbl_804497C4);
+        buf = tmp_buf_use_req__6TLobbyFPv(lbl_804497C4);
     }
-    TGStream__sub_800FDBA8(path, buf);
+    load_sct_file__8TGStreamFii(path, buf);
     ret = load_gvm_texture_archive(buf, arg1);
     if (allocated != 0) {
         safe_free__23TAdSinglePlyChrSelectGCFUi(buf);
     } else {
-        TLobby__sub_8001EE48(lbl_804497C4);
+        tmp_buf_release__6TLobbyFi(lbl_804497C4);
     }
     if (ret < 0) {
         debug_print__6TLobbyFii(lbl_804497D4, name);
     }
     return ret;
 }
-s32 TLobby__sub_801E47C4(s32 **arg0) {
+s32 pso_load_texture__6TLobbyFPv(s32 **arg0) {
     s32 r;
     s32 ret;
     pump_frames__6TLobbyFv();

@@ -53,7 +53,7 @@ M2C_UNK set_draw_texture_and_color(s32, s32);
 extern s32 lbl_805D6630;
 M2C_UNK TAdTitleGC__sub_802A0A60(void *arg0, s32 arg1, M2C_UNK arg2);
 void __ct__7TObjectFP7TObject(void *, void *);
-u32 TAdMcSelectGC__sub_80019DA8(void *, s32, f32);
+u32 create_draw_line_ctrl__13TAdMcSelectGCFiif(void *, s32, f32);
 extern u8 __vt__10TAdTitleGC[];
 extern s32 lbl_805D3D78;
 TAdTitleGC_802A0E08 *__ct__10TAdTitleGCFv(TAdTitleGC_802A0E08 *self, void *parent, s32 idx);
@@ -161,7 +161,7 @@ TAdTitleGC_802A0E08 *__ct__10TAdTitleGCFv(TAdTitleGC_802A0E08 *self, void *paren
         self->recs[i].c = 1.0f;
         self->recs[i].d = (4e+01f) * (f32)(self->idx + off + 1) / 512.0f;
     }
-    self->f130 = TAdMcSelectGC__sub_80019DA8(self, 8, (0.0f));
+    self->f130 = create_draw_line_ctrl__13TAdMcSelectGCFiif(self, 8, (0.0f));
     return self;
 }
 #pragma pop

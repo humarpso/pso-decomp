@@ -57,7 +57,7 @@ s32 get_global_state__14TOKeyMachine01Fv();
 extern s32 lbl_805D54E8;
 extern s32 lbl_805D54EC;
 u32 advance_item_id_counter(s32 arg0);
-M2C_UNK TLobby__sub_80103BFC(s32, s32);
+M2C_UNK remove_item_condition__6TLobbyFii(s32, s32);
 void TLobby__sub_8011AA44(s16 arg0, s32 _w1);
 M2C_UNK bswap_6xa2_fields__6TLobbyFPv();
 M2C_UNK handle_box_drop_directive(void *);
@@ -92,7 +92,7 @@ void normalize__9TItemDataFv(void *p);
 void init_header_packet__6TLobbyFPv(void *);
 void send_item_packet__6TLobbyFPv(void *);
 extern Source_8011AA68 *TLobby__data_805D6140;
-void TLobby__sub_8011AA68(s16 source, int client, s16 room, int slot, f32 x, f32 z);
+void drop_item_from_source__6TLobbyFsisiff(s16 source, int client, s16 room, int slot, f32 x, f32 z);
 u32 build_item_id(u16 arg0);
 s32 copy_item_data__6TLobbyFPvPv(void *, void *);
 void apply_by_index__9TObjEnemyFs(s16, void *);
@@ -114,7 +114,7 @@ extern Source_8011AB64 *TLobby__data_805D6144;
 extern Source_8011AA68 *TLobby__data_805D6140;
 void handle_6x5F_drop_item(Pkt_8011ADF4 *pkt);
 void TLobby__sub_80105A60(void *);
-void TLobby__sub_8011AA68(s16 source, int client, s16 room, int slot, f32 x, f32 z);
+void drop_item_from_source__6TLobbyFsisiff(s16 source, int client, s16 room, int slot, f32 x, f32 z);
 void process_enemy_drop_request(s8 area, s16 source, int client, s16 room, int slot, f32 x, f32 z);
 s32 get_player_floor__6TLobbyFi(s32);
 void handle_6x60_standard_drop_item_request(void *arg0);
@@ -156,7 +156,7 @@ void observe_item_id__6TLobbyFi(int id) {
 
 void handle_6x5C_destroy_floor_item(void *arg0) {
     bswap_packet__6TLobbyFPv();
-    TLobby__sub_80103BFC(M2C_FIELD(arg0, s32 *, 8), M2C_FIELD(arg0, s32 *, 4));
+    remove_item_condition__6TLobbyFii(M2C_FIELD(arg0, s32 *, 8), M2C_FIELD(arg0, s32 *, 4));
 }
 
 void handle_6x5A_pick_up_item_request(Msg_8011A9D8 *msg) {
@@ -173,10 +173,10 @@ void handle_6x5A_pick_up_item_request(Msg_8011A9D8 *msg) {
 }
 
 void TLobby__sub_8011AA44(s16 arg0, s32 _w1) {
-    TLobby__sub_80103BFC((s32)((void *) (arg0)), (s32)(_w1));
+    remove_item_condition__6TLobbyFii((s32)((void *) (arg0)), (s32)(_w1));
 }
 
-void TLobby__sub_8011AA68(s16 source, int client, s16 room, int slot, f32 x, f32 z) {
+void drop_item_from_source__6TLobbyFsisiff(s16 source, int client, s16 room, int slot, f32 x, f32 z) {
     Delivery_8011AA68 delivery;
     Item_8011AA68 item;
     u32 id;
@@ -242,7 +242,7 @@ void handle_6xA2_specializable_item_drop_request(void *arg0) {
     temp_b = M2C_FIELD(arg0, u8 *, 5);
     if (temp_b == 0x30) {
         if (M2C_FIELD(arg0, s16 *, 0x12) != 0) {
-            TLobby__sub_8011AA68((s16)(M2C_FIELD(arg0, s16 *, 6)), (int)(M2C_FIELD(arg0, s8 *, 4)), (s16)(M2C_FIELD(arg0, s16 *, 0x10)), (int)(M2C_FIELD(arg0, s8 *, 0x14)), M2C_FIELD(arg0, f32 *, 8), M2C_FIELD(arg0, f32 *, 0xC));
+            drop_item_from_source__6TLobbyFsisiff((s16)(M2C_FIELD(arg0, s16 *, 6)), (int)(M2C_FIELD(arg0, s8 *, 4)), (s16)(M2C_FIELD(arg0, s16 *, 0x10)), (int)(M2C_FIELD(arg0, s8 *, 0x14)), M2C_FIELD(arg0, f32 *, 8), M2C_FIELD(arg0, f32 *, 0xC));
             return;
         }
         handle_box_drop_directive(arg0);
@@ -268,10 +268,10 @@ void handle_6x60_standard_drop_item_request(void *arg0) {
     area = (s8)req->area;
     if (area == 0x30) {
         if (req->x12 != 0) {
-            TLobby__sub_8011AA68(req->source, client, req->room, slot, req->x, req->z);
+            drop_item_from_source__6TLobbyFsisiff(req->source, client, req->room, slot, req->x, req->z);
             return;
         }
-        TLobby__sub_8011AA68(req->source, client, req->room, slot, req->x, req->z);
+        drop_item_from_source__6TLobbyFsisiff(req->source, client, req->room, slot, req->x, req->z);
         return;
     }
     process_enemy_drop_request(area, req->source, client, req->room, slot, req->x, req->z);

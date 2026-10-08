@@ -39,7 +39,7 @@ extern s32 lbl_805D752C;
 char *strncpy(char *dst, const char *src, u32 n);
 void strncat(char *buf, s32 arg, s32 n);
 void TLobby__sub_803D38B4(const char *fmt, ...);
-void TLobby__sub_803C5744(const char *msg, s32 arg);
+void report_adx_error__6TLobbyFPvi(const char *msg, s32 arg);
 s32 TLobby__sub_803C46A4(Hdr_803C46A4 *p, s32 size, s16 *out);
 s32 TLobby__sub_803C4A00(s16 *arg0, s32 arg1, s16 *arg2);
 char *strncpy(char *dst, const char *src, u32 n);
@@ -47,7 +47,7 @@ void TLobby__sub_803D38B4(const char *fmt, ...);
 extern RecoveredGlobal_803C5850_lbl_80572020 lbl_80572020;
 extern s32 lbl_805D7528;
 extern s32 lbl_805D752C;
-void TLobby__sub_803C57C8(const char *arg0);
+void notify_error__6TLobbyFPv(const char *arg0);
 s32 TLobby__sub_803C47F8(u8 *arg0, s32 arg1, u16 *arg2, u16 *arg3);
 s32 ARStartDMA(u8 *arg0, s32 arg1, s16 *arg2, u8 *arg3, s8 *arg4, s8 *arg5, u8 *arg6, s32 *arg7, s32 *arg8, s32 *arg9);
 void TLobby__sub_803C0B08(void);
@@ -76,7 +76,7 @@ extern s32 lbl_805D7538;
 extern s32 lbl_805D753C;
 extern s32 lbl_805D7540;
 extern const s32 lbl_805E0D30;
-void TLobby__sub_803C59B8(void);
+void init_and_add_ref__6TLobbyFv(void);
 s32 __DVDPrepareResetAsync(u8 *hdr, s32 size, s32 *o1, s16 *o2, s16 *o3, s32 *o4, s32 *o5, s32 *o6, s32 *o7);
 void strncat(char *buf, s32 arg, s32 n);
 s32 strlen(const char *);
@@ -307,7 +307,7 @@ void TLobby__sub_803C526C(s32 arg0, s32 arg1, char *arg2, s32 arg3) {
 }
 #pragma pop
 
-void TLobby__sub_803C5744(const char *msg, s32 arg) {
+void report_adx_error__6TLobbyFPvi(const char *msg, s32 arg) {
     strncpy(((char *)&lbl_80572020), msg, 0xFF);
     strncat(((char *)&lbl_80572020), arg, 0xFF);
     if ((*(Callback_803C5744 *)&lbl_805D7528) != 0) {
@@ -316,7 +316,7 @@ void TLobby__sub_803C5744(const char *msg, s32 arg) {
     TLobby__sub_803D38B4(((char *)&lbl_80572020));
 }
 
-void TLobby__sub_803C57C8(const char *arg0) {
+void notify_error__6TLobbyFPv(const char *arg0) {
     strncpy(((char *)&lbl_80572020), arg0, 0xFF);
     if ((*(RecoveredCallback_e2efd47cbcab *)&lbl_805D7528) != NULL) {
         (*(RecoveredCallback_e2efd47cbcab *)&lbl_805D7528)(lbl_805D752C, ((char *)&lbl_80572020));
@@ -390,7 +390,7 @@ void dec_ref_and_shutdown__6TLobbyFv(void) {
         release_ref__6TLobbyFv();
     }
 }
-void TLobby__sub_803C59B8(void) {
+void init_and_add_ref__6TLobbyFv(void) {
     s32 v = lbl_805E0D30;
     if (lbl_805D7538 == 0) {
         ((void (*)(s32))TLobby__sub_803C4698)(v);

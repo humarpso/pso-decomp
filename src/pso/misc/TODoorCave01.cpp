@@ -29,7 +29,7 @@ extern u8 lbl_804A7418[];
 extern s32 lbl_805D5660;
 extern u8 *TODoorCave01__data_805D595C;
 extern s32 some_id_805c6f74;
-M2C_UNK TODoorCave01__sub_80161804(void *p0, int p1, int arg2);
+M2C_UNK draw_door_model__12TODoorCave01FPvii(void *p0, int p1, int arg2);
 }
 
 extern "C" {
@@ -43,13 +43,13 @@ M2C_UNK rotate_matrix_y(int, int);
 M2C_UNK push_matrix();
 M2C_UNK pop_matrix();
 void *__nw__7TObjectFUl(int);
-s32 fn_801582C4(void *, f32);
+s32 is_in_view_depth(void *, f32);
 M2C_UNK set_global_param__8TObjFishFi(int);
 
 extern u8 *TODoorCave01__data_805D595C;
 extern const f32 lbl_805DB4A4;
 
-M2C_UNK TODoorCave01__sub_80161804(void *p0, int p1, int arg2) {
+M2C_UNK draw_door_model__12TODoorCave01FPvii(void *p0, int p1, int arg2) {
     s32 temp_r4;
     u8 *temp_r31;
     u8 *temp_r31_2;
@@ -86,7 +86,7 @@ void render__12TODoorCave01Fv(u8 *arg0) {
     u8 *var_r30;
     s32 var_r29;
 
-    if ((((VObj_801618fc *) arg0)->m8(M2C_FIELD(arg0, f32 *, 0xC0), M2C_FIELD(arg0, f32 *, 0xC4)) != 0) && (fn_801582C4((void *) (arg0), (f32) (lbl_805DB4A4)) != 0)) {
+    if ((((VObj_801618fc *) arg0)->m8(M2C_FIELD(arg0, f32 *, 0xC0), M2C_FIELD(arg0, f32 *, 0xC4)) != 0) && (is_in_view_depth((void *) (arg0), (f32) (lbl_805DB4A4)) != 0)) {
         push_matrix();
         post_translate_matrix((void *) (arg0 + 0x38));
         rotate_matrix_y((int) (0), (int) (M2C_FIELD(arg0, s32 *, 0x60)));
@@ -94,7 +94,7 @@ void render__12TODoorCave01Fv(u8 *arg0) {
             var_r29 = 0;
             var_r30 = (unsigned char *) (M2C_FIELD(M2C_FIELD(arg0, void **, 0x34), void **, 0x2C));
             do {
-                TODoorCave01__sub_80161804((void *)((void *) (arg0)), (int)((int) (var_r30)), (int)(M2C_FIELD(arg0, s32 *, 0xD0) & (1 << (var_r29 + 0x10)) ? 1 : 0));
+                draw_door_model__12TODoorCave01FPvii((void *)((void *) (arg0)), (int)((int) (var_r30)), (int)(M2C_FIELD(arg0, s32 *, 0xD0) & (1 << (var_r29 + 0x10)) ? 1 : 0));
                 var_r29 += 1;
                 var_r30 = (unsigned char *) (M2C_FIELD(var_r30, void **, 0x30));
             } while (var_r29 < 4);

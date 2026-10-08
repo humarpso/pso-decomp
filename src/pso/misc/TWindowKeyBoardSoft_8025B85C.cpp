@@ -58,7 +58,7 @@ void init__19TWindowKeyBoardSoftFPv(u8 *arg0);
 s32 update__19TWindowKeyBoardSoftFPv(void *);
 void TWindowKeyBoardSoft__vt1(u8 *arg0);
 void TWindowKeyBoardSoft__sub_8025CFA8(void *, void *);
-M2C_UNK TWindowKeyBoardSoft__sub_8025D47C(void *, void *, void *);
+M2C_UNK write_name_and_text__19TWindowKeyBoardSoftFPvPvPv(void *, void *, void *);
 M2C_UNK set_kanji_mode__19TWindowKeyBoardSoftFPv(void *);
 M2C_UNK set_kana_mode__19TWindowKeyBoardSoftFPv(void *);
 s32 convert_input_text__19TWindowKeyBoardSoftFPv(void *);
@@ -66,14 +66,14 @@ s32 TWindowKeyBoardSoft__sub_803E67D4(void *, void *);
 void TWindowKeyBoardSoft__sub_8025B92C(u8 *arg0);
 s32 TWindowKeyBoardSoft__sub_80076E00(int);
 void TWindowKeyBoardSoft__sub_8025CFA8(void *, void *);
-M2C_UNK TWindowKeyBoardSoft__sub_8025D47C(void *, void *, void *);
+M2C_UNK write_name_and_text__19TWindowKeyBoardSoftFPvPvPv(void *, void *, void *);
 M2C_UNK set_kana_mode__19TWindowKeyBoardSoftFPv(void *);
 s32 convert_input_text__19TWindowKeyBoardSoftFPv(void *);
 s32 TWindowKeyBoardSoft__sub_803E67D4(void *, void *);
 void TWindowKeyBoardSoft__vt9(u8 *arg0);
 s32 TWindowKeyBoardSoft__sub_80076E00(int);
 void TWindowKeyBoardSoft__sub_8025CFA8(void *, void *);
-M2C_UNK TWindowKeyBoardSoft__sub_8025D47C(void *, void *, void *);
+M2C_UNK write_name_and_text__19TWindowKeyBoardSoftFPvPvPv(void *, void *, void *);
 M2C_UNK set_kanji_mode__19TWindowKeyBoardSoftFPv(void *);
 s32 convert_input_text__19TWindowKeyBoardSoftFPv(void *);
 s32 TWindowKeyBoardSoft__sub_803E67D4(void *, void *);
@@ -178,7 +178,7 @@ void TWindowKeyBoardSoft__sub_8025B92C(u8 *arg0) {
                 } while (var_r3 != 0);
                 TWindowKeyBoardSoft__sub_8025CFA8((void *) (arg0), (void *) (sp8));
                 sp8[0] = 0;
-                TWindowKeyBoardSoft__sub_8025D47C((void *) (arg0), (void *) (sp8), (void *) (sp8));
+                write_name_and_text__19TWindowKeyBoardSoftFPvPvPv((void *) (arg0), (void *) (sp8), (void *) (sp8));
                 goto block_5;
             }
         } else {
@@ -276,7 +276,7 @@ void TWindowKeyBoardSoft__vt9(u8 *arg0) {
                     } while (var_r3 != 0);
                     TWindowKeyBoardSoft__sub_8025CFA8((void *) (arg0), (void *) (sp8));
                     sp8[0] = 0;
-                    TWindowKeyBoardSoft__sub_8025D47C((void *) (arg0), (void *) (sp8), (void *) (sp8));
+                    write_name_and_text__19TWindowKeyBoardSoftFPvPvPv((void *) (arg0), (void *) (sp8), (void *) (sp8));
                     goto block_6;
                 }
             } else {
@@ -308,7 +308,7 @@ void TWindowKeyBoardSoft__vt8(u8 *arg0) {
                     } while (var_r3 != 0);
                     TWindowKeyBoardSoft__sub_8025CFA8((void *) (arg0), (void *) (sp8));
                     sp8[0] = 0;
-                    TWindowKeyBoardSoft__sub_8025D47C((void *) (arg0), (void *) (sp8), (void *) (sp8));
+                    write_name_and_text__19TWindowKeyBoardSoftFPvPvPv((void *) (arg0), (void *) (sp8), (void *) (sp8));
                     goto block_6;
                 }
             } else {

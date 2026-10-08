@@ -21,7 +21,7 @@ M2C_UNK safe_free__23TAdSinglePlyChrSelectGCFUi(s32);
 s32 set_stream_and_load_file__6TLobbyFi(char *);
 M2C_UNK move_data__6TLobbyFv(void *, s32, M2C_UNK);
 extern char lbl_80438854[];
-void TWindowSubSymbolChat__sub_80077544(struct Win_80077544 *w);
+void load_symbol_chat_data__20TWindowSubSymbolChatFPv(struct Win_80077544 *w);
 }
 
 extern "C" {
@@ -51,7 +51,7 @@ void TWindowSubSymbolChat__sub_800774E4(Obj_800774E4 *self) {
     }
 }
 
-void TWindowSubSymbolChat__sub_80077544(struct Win_80077544 *w) {
+void load_symbol_chat_data__20TWindowSubSymbolChatFPv(struct Win_80077544 *w) {
     s32 i;
     s32 t;
     s32 data;

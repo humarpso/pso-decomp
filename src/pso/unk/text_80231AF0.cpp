@@ -26,7 +26,7 @@ struct RecoveredFields_8023C558_arg0
 extern "C" {
 s32 calc_technique_parameters(int, int, int);
 s32 is_technique_ready__8TTecCtrlFv();
-s32 TTecAnti__sub_8022B35C(void *, int);
+s32 copy_params__8TTecAntiFPvPv(void *, int);
 extern RecoveredGlobal_8023C558_lbl_804CC510 lbl_804CC510;
 extern RecoveredGlobal_8023C558_lbl_804CC55C lbl_804CC55C;
 void init_parameters__11TTecGiZondeFPv(u8 *arg0);
@@ -42,7 +42,7 @@ typedef char RecoveredGlobal_8023C558_lbl_804CC55C_size[((sizeof(RecoveredGlobal
 void init_parameters__11TTecGiZondeFPv(u8 *arg0) {
   s32 new_var;
   new_var = calc_technique_parameters((int) 0x7, (int) ((RecoveredFields_8023C558_arg0 *) arg0)->field_C4, (int) 0xFFFF);
-  TTecAnti__sub_8022B35C((void *) (arg0 + 0xCC), (int) new_var);
+  copy_params__8TTecAntiFPvPv((void *) (arg0 + 0xCC), (int) new_var);
   if ((((s16) ((RecoveredFields_8023C558_arg0 *) arg0)->field_C4) >= 0xF) && (is_technique_ready__8TTecCtrlFv() == 0))
   {
     ((RecoveredFields_8023C558_arg0 *) arg0)->field_CC = (f32) ((*((s16 *) (((s8 *) (&lbl_804CC510.value)) + 0x1c))) + ((*((s16 *) (((s8 *) (&lbl_804CC510.value)) + 0x1e))) * ((RecoveredFields_8023C558_arg0 *) arg0)->field_C4));

@@ -9,7 +9,7 @@ u8* get_player_data__10TObjPlayerFi(s32);
 u16 obj_getField1c(void*);
 void TObjPlayer__sub_80042ED0(P_80042ED0*,s32,s32);
 void fn_80044330(void*);
-void TObjPlayer__sub_80042974(u8*);
+void cast_tech_on_players__10TObjPlayerFPv(u8*);
 M2C_UNK play_sound_effect(M2C_UNK,M2C_UNK,M2C_UNK,M2C_UNK);
 void* __nw__7TObjectFUl(u32);
 M2C_UNK subtract_vector(void*,void*);
@@ -20,7 +20,7 @@ void TObjPlayer__sub_80042DE8(Obj_80042DE8*);
 s32 obj_testFlags30(void*,M2C_UNK);
 M2C_UNK update_if_active__15TObjEneMe1GiGueFPv(void*,M2C_UNK);
 s32 TBoss3VoloptP01__sub_8004301C(S_8004301C*);
-s32 TObjPlayer__sub_80042B34(u8*);
+s32 fire_zonde_at_players__10TObjPlayerFPv(u8*);
 void TBoss3VoloptP01__sub_80043758(u8*);
 void reset_look_state__11TCameraCtrlFPv(void*);
 M2C_UNK advance_animation_playback(void*);
@@ -54,12 +54,12 @@ M2C_UNK create__11TTecGiBartaFPvPvPvPv(void *, void *, void *, int);
 M2C_UNK create__11TTecGiZondeFPvPvPvPv(void *, void *, void *, int);
 extern s32 lbl_805D4C44;
 extern s32 lbl_805D586C;
-void TObjPlayer__sub_80042974(u8 *arg0);
+void cast_tech_on_players__10TObjPlayerFPv(u8 *arg0);
 }
 
 extern "C" {
 
-void TObjPlayer__sub_80042974(u8 *arg0) {
+void cast_tech_on_players__10TObjPlayerFPv(u8 *arg0) {
     M2C_UNK sp8;
     s32 n;
     s32 i;
@@ -161,7 +161,7 @@ extern u16 lbl_805D271A;
 extern s32 lbl_805D586C;
 extern s32 tl_07;
 
-s32 TObjPlayer__sub_80042B34(u8 *arg0) {
+s32 fire_zonde_at_players__10TObjPlayerFPv(u8 *arg0) {
     u8 *list[4];
     Vec_80042B34 pos;
     Vec_80042B34 d;
@@ -337,7 +337,7 @@ void TObjPlayer__sub_80042ED0(P_80042ED0 *o, s32 idx, s32 arg2) {
 #undef obj_getField1c
 #undef subtract_vector
 #define TObjPlayer__sub_80042ED0 ((M2C_UNK (*)(void*,int,void*))TObjPlayer__sub_80042ED0)
-#define TObjPlayer__sub_80042974 ((M2C_UNK (*)(void*))TObjPlayer__sub_80042974)
+#define cast_tech_on_players__10TObjPlayerFPv ((M2C_UNK (*)(void*))cast_tech_on_players__10TObjPlayerFPv)
 #define play_sound_effect ((M2C_UNK (*)(M2C_UNK,void*,M2C_UNK,M2C_UNK))play_sound_effect)
 #define __nw__7TObjectFUl ((void* (*)(int))__nw__7TObjectFUl)
 #define rotate_matrix_y ((M2C_UNK (*)(M2C_UNK,s32))rotate_matrix_y)
@@ -347,7 +347,7 @@ void TObjPlayer__sub_80042ED0(P_80042ED0 *o, s32 idx, s32 arg2) {
 #define obj_testFlags30 ((s32 (*)(void*,int))obj_testFlags30)
 #define update_if_active__15TObjEneMe1GiGueFPv ((M2C_UNK (*)(void*,int))update_if_active__15TObjEneMe1GiGueFPv)
 #define TBoss3VoloptP01__sub_8004301C ((s32 (*)(void*))TBoss3VoloptP01__sub_8004301C)
-#define TObjPlayer__sub_80042B34 ((M2C_UNK (*)(void*))TObjPlayer__sub_80042B34)
+#define fire_zonde_at_players__10TObjPlayerFPv ((M2C_UNK (*)(void*))fire_zonde_at_players__10TObjPlayerFPv)
 #define TBoss3VoloptP01__sub_80043758 ((void (*)(void*))TBoss3VoloptP01__sub_80043758)
 #define lbl_805D2748 (*(s32 *)&lbl_805D2748)
 
@@ -792,8 +792,8 @@ void reset_state__15TBoss3VoloptP01FPv(void *arg0);
 void TBoss3VoloptP01__sub_800430D0(void *);
 typedef struct { f32 x, y, z; } Vec_800430D0;
 M2C_UNK play_persistent_sound(int, void *, void *, int, int);
-void TBoss3VoloptP01__sub_8004354C(u8 *arg0);
-void TBoss3VoloptP01__sub_800437F4(u8 *arg0);
+void run_state_machine__15TBoss3VoloptP01FPv(u8 *arg0);
+void update_breakup__15TBoss3VoloptP01FPv(u8 *arg0);
 void update_state__15TBoss3VoloptP01FPv(u8 *arg0);
 void render__15TBoss3VoloptP01Fv(u8 *arg0);
 void TBoss3VoloptP01__sub_80043CA8(void * _w0);
@@ -803,7 +803,7 @@ void destroy__15TBoss3VoloptP01Fv(void);
 void init_breakup_effect__15TBoss3VoloptP01Fv(void);
 void * create__15TBoss3VoloptP01FPv(void *arg0);
 void * __dt__15TBoss3VoloptP01Fv(void *arg0, s16 arg1);
-void TBoss3VoloptP01__sub_80044038(VObj_80044038 *arg0);
+void init_params__15TBoss3VoloptP01FPv(VObj_80044038 *arg0);
 u8 * TBoss3VoloptP01__ct(u8 *arg0, u8 *arg1, s32 arg2, s16 arg3, s16 arg4);
 u8 * TBoss3VoloptP01__sub_800442A0(u8 *arg0, M2C_UNK arg1, s32 arg2);
 void fn_80044330(void* p);
@@ -1012,7 +1012,7 @@ extern int fold_flush_0;
 #pragma pop
 
 #undef TObjPlayer__sub_80042ED0
-#undef TObjPlayer__sub_80042974
+#undef cast_tech_on_players__10TObjPlayerFPv
 #undef play_sound_effect
 #undef __nw__7TObjectFUl
 #undef rotate_matrix_y
@@ -1022,7 +1022,7 @@ extern int fold_flush_0;
 #undef obj_testFlags30
 #undef update_if_active__15TObjEneMe1GiGueFPv
 #undef TBoss3VoloptP01__sub_8004301C
-#undef TObjPlayer__sub_80042B34
+#undef fire_zonde_at_players__10TObjPlayerFPv
 #undef TBoss3VoloptP01__sub_80043758
 #undef lbl_805D2748
 extern "C" {
@@ -1054,7 +1054,7 @@ s32 TBoss3VoloptP01__sub_8004301C(S_8004301C *o) {
 }
 
 #define TObjPlayer__sub_80042ED0 ((M2C_UNK (*)(void*,int,void*))TObjPlayer__sub_80042ED0)
-#define TObjPlayer__sub_80042974 ((M2C_UNK (*)(void*))TObjPlayer__sub_80042974)
+#define cast_tech_on_players__10TObjPlayerFPv ((M2C_UNK (*)(void*))cast_tech_on_players__10TObjPlayerFPv)
 #define play_sound_effect ((M2C_UNK (*)(M2C_UNK,void*,M2C_UNK,M2C_UNK))play_sound_effect)
 #define __nw__7TObjectFUl ((void* (*)(int))__nw__7TObjectFUl)
 #define rotate_matrix_y ((M2C_UNK (*)(M2C_UNK,s32))rotate_matrix_y)
@@ -1064,7 +1064,7 @@ s32 TBoss3VoloptP01__sub_8004301C(S_8004301C *o) {
 #define obj_testFlags30 ((s32 (*)(void*,int))obj_testFlags30)
 #define update_if_active__15TObjEneMe1GiGueFPv ((M2C_UNK (*)(void*,int))update_if_active__15TObjEneMe1GiGueFPv)
 #define TBoss3VoloptP01__sub_8004301C ((s32 (*)(void*))TBoss3VoloptP01__sub_8004301C)
-#define TObjPlayer__sub_80042B34 ((M2C_UNK (*)(void*))TObjPlayer__sub_80042B34)
+#define fire_zonde_at_players__10TObjPlayerFPv ((M2C_UNK (*)(void*))fire_zonde_at_players__10TObjPlayerFPv)
 #define TBoss3VoloptP01__sub_80043758 ((void (*)(void*))TBoss3VoloptP01__sub_80043758)
 #define lbl_805D2748 (*(s32 *)&lbl_805D2748)
 void reset_state__15TBoss3VoloptP01FPv(void *arg0) {
@@ -1183,9 +1183,9 @@ void TBoss3VoloptP01__sub_800430D0(void *arg0_) {
     case 7:
         if (F430D0(s32, 0x3A8) != 0) {
             if (TBoss3Volopt__sub_8003F398() != 0) {
-                TObjPlayer__sub_80042974(arg0);
+                cast_tech_on_players__10TObjPlayerFPv(arg0);
             } else {
-                TObjPlayer__sub_80042B34(arg0);
+                fire_zonde_at_players__10TObjPlayerFPv(arg0);
             }
             F430D0(s16, 0x39C)++;
         }
@@ -1242,7 +1242,7 @@ void TBoss3VoloptP01__sub_800430D0(void *arg0_) {
 
 #pragma push
 #pragma fp_contract on
-void TBoss3VoloptP01__sub_8004354C(u8 *arg0) {
+void run_state_machine__15TBoss3VoloptP01FPv(u8 *arg0) {
     s32 temp_r0;
     u8 *temp_r3;
     u8 *temp_r3_2;
@@ -1318,7 +1318,7 @@ extern int fold_flush_1;
 #pragma pop
 
 #undef TObjPlayer__sub_80042ED0
-#undef TObjPlayer__sub_80042974
+#undef cast_tech_on_players__10TObjPlayerFPv
 #undef play_sound_effect
 #undef __nw__7TObjectFUl
 #undef rotate_matrix_y
@@ -1328,7 +1328,7 @@ extern int fold_flush_1;
 #undef obj_testFlags30
 #undef update_if_active__15TObjEneMe1GiGueFPv
 #undef TBoss3VoloptP01__sub_8004301C
-#undef TObjPlayer__sub_80042B34
+#undef fire_zonde_at_players__10TObjPlayerFPv
 #undef TBoss3VoloptP01__sub_80043758
 #undef lbl_805D2748
 #define reset_look_state__11TCameraCtrlFPv ((M2C_UNK (*)(int))reset_look_state__11TCameraCtrlFPv)
@@ -1365,7 +1365,7 @@ void TBoss3VoloptP01__sub_80043758(u8 *arg0) {
 #undef reset_look_state__11TCameraCtrlFPv
 #undef advance_animation_playback
 #define TObjPlayer__sub_80042ED0 ((M2C_UNK (*)(void*,int,void*))TObjPlayer__sub_80042ED0)
-#define TObjPlayer__sub_80042974 ((M2C_UNK (*)(void*))TObjPlayer__sub_80042974)
+#define cast_tech_on_players__10TObjPlayerFPv ((M2C_UNK (*)(void*))cast_tech_on_players__10TObjPlayerFPv)
 #define play_sound_effect ((M2C_UNK (*)(M2C_UNK,void*,M2C_UNK,M2C_UNK))play_sound_effect)
 #define __nw__7TObjectFUl ((void* (*)(int))__nw__7TObjectFUl)
 #define rotate_matrix_y ((M2C_UNK (*)(M2C_UNK,s32))rotate_matrix_y)
@@ -1375,10 +1375,10 @@ void TBoss3VoloptP01__sub_80043758(u8 *arg0) {
 #define obj_testFlags30 ((s32 (*)(void*,int))obj_testFlags30)
 #define update_if_active__15TObjEneMe1GiGueFPv ((M2C_UNK (*)(void*,int))update_if_active__15TObjEneMe1GiGueFPv)
 #define TBoss3VoloptP01__sub_8004301C ((s32 (*)(void*))TBoss3VoloptP01__sub_8004301C)
-#define TObjPlayer__sub_80042B34 ((M2C_UNK (*)(void*))TObjPlayer__sub_80042B34)
+#define fire_zonde_at_players__10TObjPlayerFPv ((M2C_UNK (*)(void*))fire_zonde_at_players__10TObjPlayerFPv)
 #define TBoss3VoloptP01__sub_80043758 ((void (*)(void*))TBoss3VoloptP01__sub_80043758)
 #define lbl_805D2748 (*(s32 *)&lbl_805D2748)
-void TBoss3VoloptP01__sub_800437F4(u8 *arg0) {
+void update_breakup__15TBoss3VoloptP01FPv(u8 *arg0) {
     u8 *p;
     switch (M2C_FIELD(arg0, s32 *, 0x37C)) {
     case 0:
@@ -1525,8 +1525,8 @@ void TBoss3VoloptP01__sub_80043CAC(Obj_80043CAC *arg0) {
     case 0: TBoss3VoloptP01__sub_80043758(arg0); return;
     case 2: TBoss3VoloptP01__sub_800430D0(arg0); return;
     case 4: update_state__15TBoss3VoloptP01FPv((u8 *)(arg0)); return;
-    case 9: TBoss3VoloptP01__sub_8004354C((u8 *)(arg0)); return;
-    case 5: TBoss3VoloptP01__sub_800437F4((u8 *)(arg0)); break;
+    case 9: run_state_machine__15TBoss3VoloptP01FPv((u8 *)(arg0)); return;
+    case 5: update_breakup__15TBoss3VoloptP01FPv((u8 *)(arg0)); break;
     }
 }
 
@@ -1614,7 +1614,7 @@ void *__dt__15TBoss3VoloptP01Fv(void *arg0, s16 arg1) {
     return arg0;
 }
 
-void TBoss3VoloptP01__sub_80044038(VObj_80044038 *arg0) {
+void init_params__15TBoss3VoloptP01FPv(VObj_80044038 *arg0) {
     void *p;
     F(arg0, s32, 0xDC) = F(lbl_805D4CC0, s32, 0x430);
     F(arg0, s32, 0xD8) = (s32) lbl_80484170;
@@ -1658,7 +1658,7 @@ u8 *TBoss3VoloptP01__ct(u8 *arg0, u8 *arg1, s32 arg2, s16 arg3, s16 arg4) {
     M2C_FIELD(arg0, s32 *, 0x80) = 0;
     M2C_FIELD(arg0, s16 *, 0x28) = (s16) M2C_FIELD(arg1, s16 *, 0x28);
     M2C_FIELD(arg0, s16 *, 0x2A) = (s16) M2C_FIELD(arg1, s16 *, 0x2A);
-    ((M2C_UNK (*)(void *))TBoss3VoloptP01__sub_80044038)((void *) (arg0));
+    ((M2C_UNK (*)(void *))init_params__15TBoss3VoloptP01FPv)((void *) (arg0));
     temp_r29 = (s32) ((182.04445f) * (f32) (arg2 * 0x3C));
     M2C_FIELD(arg0, f32 *, 0x38) = (f32) (((76.0f) * cos_table_lookup((int) (temp_r29))) + M2C_FIELD(&lbl_804FEE68.value, f32 *, 0));
     M2C_FIELD(arg0, f32 *, 0x40) = (f32) (((76.0f) * ((f32 (*)(int))sin_table_lookup)((int) (temp_r29))) + M2C_FIELD(&lbl_804FEE68.value, f32 *, 8));
@@ -1683,7 +1683,7 @@ u8 *TBoss3VoloptP01__sub_800442A0(u8 *arg0, M2C_UNK arg1, s32 arg2) {
     construct_target_cursor_records__10TObjPlayerFi((s32)((s32)((s32) (arg0 + 0x3BC))));
     M2C_FIELD(arg0, s32 *, 0) = (s32) lbl_805D2748;
     ((VObj_18_aa4667 *)(arg0))->m79(arg2);
-    ((M2C_UNK (*)(void *))TBoss3VoloptP01__sub_80044038)((void *) (arg0));
+    ((M2C_UNK (*)(void *))init_params__15TBoss3VoloptP01FPv)((void *) (arg0));
     temp_r3 = (u8 *)(((u8 *)__nw__7TObjectFUl((int)(0x34))));
     var_r0 = (u8 *)(temp_r3);
     if (var_r0 != NULL) {
@@ -1712,7 +1712,7 @@ void init_cursor_record__15TBoss3VoloptP01FPv(O_800443BC *self) {
 }
 
 #undef TObjPlayer__sub_80042ED0
-#undef TObjPlayer__sub_80042974
+#undef cast_tech_on_players__10TObjPlayerFPv
 #undef play_sound_effect
 #undef __nw__7TObjectFUl
 #undef rotate_matrix_y
@@ -1722,6 +1722,6 @@ void init_cursor_record__15TBoss3VoloptP01FPv(O_800443BC *self) {
 #undef obj_testFlags30
 #undef update_if_active__15TObjEneMe1GiGueFPv
 #undef TBoss3VoloptP01__sub_8004301C
-#undef TObjPlayer__sub_80042B34
+#undef fire_zonde_at_players__10TObjPlayerFPv
 #undef TBoss3VoloptP01__sub_80043758
 #undef lbl_805D2748

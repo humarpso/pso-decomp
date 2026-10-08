@@ -72,7 +72,7 @@ struct VObj_8016C280 : VBase_8016C280 {
 extern "C" {
 s32 is_split_screen();
 s32 is_any_player_in_range__5TOKeyFPv(void *);
-s32 TOKey__sub_8016A310(void *);
+s32 is_local_player_in_range__5TOKeyFPv(void *);
 s32 TOKeyCol__vt13(u8 *arg0);
 M2C_UNK TOKeyCave01__sub_8016BF08(void *, int);
 void run_task__11TOKeyCave01Fv(u8 *arg0);
@@ -80,7 +80,7 @@ u8 *load_resource_from_descriptor(void *, s32, M2C_UNK *, s32, s32, s32);
 u8 *alloc__23TAdSinglePlyChrSelectGCFPv(s32);
 u8 *alloc_buffer__11TOBoss4RockFPv(s32);
 s32 load_gvm_texture_file(void *);
-s32 TContainerAncient01__sub_8020335C();
+s32 is_global_state_in_table__19TContainerAncient01Fv();
 s32 get_global_state__14TOKeyMachine01Fv();
 extern RecoveredGlobal_8016C474_lbl_80441BE8 lbl_80441BE8;
 extern RecoveredGlobal_8016C474_lbl_80441C04 lbl_80441C04;
@@ -89,7 +89,7 @@ extern RecoveredGlobal_8016C474_lbl_804B2BD0 lbl_804B2BD0;
 extern u32 lbl_805D5A18;
 extern s32 *TOKeyCave01__data_805D5A1C;
 extern s32 lbl_805D5A20;
-void TOKeyCave01__sub_8016C474(void);
+void load_resources__11TOKeyCave01Fv(void);
 s32 get_main_phase(void);
 u8 * TOKey__ct(void *);
 s32 is_not_split_screen__13TRaderMapCoreFv(void);
@@ -250,14 +250,14 @@ void free_objects__11TOKeyCave01Fv(void) {
 
 extern M2C_UNK __vt__11TOKeyCave01[];
 
-void TOKeyCave01__sub_8016C474(void) {
+void load_resources__11TOKeyCave01Fv(void) {
     s32 temp_r31;
     u8 *temp_r3;
     u8 *temp_r3_2;
     u8 *var_r0;
     u8 *var_r0_2;
     temp_r31 = get_global_state__14TOKeyMachine01Fv();
-    if ((TContainerAncient01__sub_8020335C() == 1) || (temp_r31 == 0x1C) || (temp_r31 == 0x1D)) {
+    if ((is_global_state_in_table__19TContainerAncient01Fv() == 1) || (temp_r31 == 0x1C) || (temp_r31 == 0x1D)) {
         temp_r3 = (u8 *)(alloc__23TAdSinglePlyChrSelectGCFPv(0x440));
         var_r0 = (u8 *)(temp_r3);
         if (var_r0 != NULL) {
@@ -345,7 +345,7 @@ s32 TOKeyCol__vt13(u8 *arg0) {
         if (is_split_screen() == 1) {
             var_r3 = is_any_player_in_range__5TOKeyFPv((void *) (arg0));
         } else {
-            var_r3 = TOKey__sub_8016A310((void *) (arg0));
+            var_r3 = is_local_player_in_range__5TOKeyFPv((void *) (arg0));
         }
         if (((s32) M2C_FIELD(arg0, s32 *, 0xD4) == 1) || (var_r3 == 1)) {
             var_r31 = 1;

@@ -38,7 +38,7 @@ f32 sin_table_lookup(s32);
 f32 cos_table_lookup(s32);
 void debug_printf_at(s32, const char *, ...);
 extern Ctl_8006C964 lbl_8050E208;
-void TCameraCtrl__sub_8006C964(Cam_8006C964 *self);
+void update_debug_camera__11TCameraCtrlFPv(Cam_8006C964 *self);
 }
 
 extern "C" {
@@ -78,7 +78,7 @@ extern const f64 lbl_80438510;
 extern const f64 lbl_80438518;
 #pragma push
 #pragma fp_contract on
-void TCameraCtrl__sub_8006C964(Cam_8006C964 *self) {
+void update_debug_camera__11TCameraCtrlFPv(Cam_8006C964 *self) {
     Vec_8006C964 target = lbl_804384F4;
     Vec_8006C964 v;
     Pad_8006C964 *pad = &lbl_8050E208.pad;

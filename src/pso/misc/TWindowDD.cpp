@@ -227,11 +227,11 @@ void *TWindowDD__sub_8034094C(void *arg0, s16 arg1) {
 }
 
 struct W_803409A4 { u8 pad0[0x18]; void *p18; u8 pad1c[0x5C - 0x1C]; s32 f5c; s32 f60; s32 f64; s32 f68; };
-void *TWindowDD__sub_802466E0(void *, void *, int, void *);
+void *construct_base__9TWindowDDFPvPvsPv(void *, void *, int, void *);
 
 #define arg0 ((W_803409A4 *)arg0v)
 void *TWindowDD__sub_803409A4(void *arg0v) {
-    TWindowDD__sub_802466E0(arg0, lbl_804EFB98, 4, lbl_804EFB90);
+    construct_base__9TWindowDDFPvPvsPv(arg0, lbl_804EFB98, 4, lbl_804EFB90);
     arg0->p18 = lbl_804EFBAC;
     arg0->f60 = 1;
     arg0->f64 = 2;

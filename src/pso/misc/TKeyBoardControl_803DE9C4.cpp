@@ -88,7 +88,7 @@ s32 TKeyBoardControl__sub_803DEBC8(u16 arg0);
 void clamp_axes__16TKeyBoardControlFPv(u8 *arg0);
 void *memmove(void *, const void *, u32);
 M2C_UNK PADReset(u32);
-void TKeyBoardControl__sub_803DEA18(void);
+void read_pads__16TKeyBoardControlFv(void);
 }
 
 extern "C" {
@@ -113,7 +113,7 @@ typedef struct Pad_803DEA18 Pad_803DEA18;
 typedef struct RecoveredGlobal_803DEB74_lbl_8058D8E0 RecoveredGlobal_803DEB74_lbl_8058D8E0;
 #pragma push
 #pragma use_lmw_stmw off
-void TKeyBoardControl__sub_803DEA18(void) {
+void read_pads__16TKeyBoardControlFv(void) {
   u32 diff;
   unsigned short new_var;
   Pad_803DEA18 *pad;

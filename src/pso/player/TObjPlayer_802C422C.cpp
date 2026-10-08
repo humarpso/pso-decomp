@@ -42,7 +42,7 @@ u8 get_field_374__10TObjPlayerFPv(void *);
 s32 TObjPlayer__sub_801C0124(void *, s16);
 s32 get_ptr_4__10TObjPlayerFPv(void *);
 M2C_UNK set_flag_and_update__10TObjPlayerFPvi(int, void *);
-s32 TObjPlayer__sub_801D93C4(void *);
+s32 get_class_stat_entry__10TObjPlayerFPv(void *);
 void split_capped_value__10TObjPlayerFUcPvPv(s32, u8 *, E_802C4698 *);
 s32 TObjPlayer__sub_802A1018();
 M2C_UNK TObjPlayer__sub_802C3BE0(void *, void *);
@@ -110,7 +110,7 @@ void export_player_record__10TObjPlayerFPvPv(u8 *arg0, u8 *arg1) {
     copy_player_visual_record((void *) (arg0 + 0x370), (void *) (arg1 + 0x85C));
     M2C_FIELD(arg0, s8 *, 0) = query_state_if_present__10TObjPlayerFPv((void *) (arg1), (void *) (get_ptr_4__10TObjPlayerFPv((void *) (arg0))));
     set_flag_and_update__10TObjPlayerFPvi((int) (M2C_FIELD(arg1, s32 *, 0xD00)), (void *) (arg1));
-    clamp_stats__10TObjPlayerFiPv((void *) (arg1), (void *) (arg0 + 0x34C), (void *) (TObjPlayer__sub_801D93C4((void *) (arg1))));
+    clamp_stats__10TObjPlayerFiPv((void *) (arg1), (void *) (arg0 + 0x34C), (void *) (get_class_stat_entry__10TObjPlayerFPv((void *) (arg1))));
     M2C_FIELD(arg0, s8 *, 1) = get_hp_material_points__10TObjPlayerFPv((void *) (arg1));
     M2C_FIELD(arg0, s8 *, 2) = get_tp_materials_clamped__10TObjPlayerFPv((void *) (arg1));
     set_flag_e7__10TObjPlayerFPvUc((void *) (arg0), get_field_374__10TObjPlayerFPv((void *) (arg1)));

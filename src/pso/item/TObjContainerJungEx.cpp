@@ -104,7 +104,7 @@ void TObjContainerJungEx__vt4(u8 *arg0, s16 *arg1, s32 arg2);
 void VecCopy__FP3VecPC3Vec(void *, void *);
 void reset_photon_effect__10TObjPlayerFPv(s32);
 u32 init_collision_body_parts(void *, s32, s32);
-u8 * fn_8018A150(void *, s32);
+u8 * init_container_base(void *, s32);
 extern RecoveredGlobal_8018D314_lbl_804B7168 lbl_804B7168;
 extern M2C_UNK __vt__19TObjContainerJungEx[];
 extern s32 lbl_805D331C;
@@ -218,7 +218,7 @@ void *__dt__19TObjContainerJungExFv(void *arg0, s16 arg1) {
 typedef char RecoveredGlobal_8018D314_lbl_804B7168_size[sizeof(RecoveredGlobal_8018D314_lbl_804B7168) == 0x2C ? 1 : -1];
 typedef char RecoveredGlobal_8018D314___vt__19TObjContainerJungEx_size[sizeof(RecoveredGlobal_8018D314___vt__19TObjContainerJungEx) == 0x14C ? 1 : -1];
 u8 *TObjContainerJungEx__ct(u8 *arg0, s32 arg1, s32 _w2) {
-    fn_8018A150(arg0, arg1);
+    init_container_base(arg0, arg1);
     M2C_FIELD(arg0, M2C_UNK **, 0x18) = &(*(RecoveredGlobal_8018D314___vt__19TObjContainerJungEx *)&__vt__19TObjContainerJungEx).value;
     M2C_FIELD(arg0, s32 *, 0) = (s32) lbl_805D331C;
     M2C_FIELD(arg0, s16 *, 0x326) = 0;

@@ -199,7 +199,7 @@ s32 get_lobby_flag__6TLobbyFv(void);
 Pl_802A41CC *find_entity_by_id(u16);
 extern const f32 lbl_805DDF60;
 extern const f32 lbl_805DDF64;
-TechniqueContactList *TObjPlayer__sub_802A41CC(Obj_802A41CC *self, void *src);
+TechniqueContactList *collect_technique_contacts__10TObjPlayerFPvPv(Obj_802A41CC *self, void *src);
 extern RecoveredGlobal_80236290_lbl_80516150 lbl_80540A38;
 void TObjPlayer__sub_802A3D68();
 void VecCopy__FP3VecPC3Vec(void *, const void *);
@@ -372,7 +372,7 @@ TechniqueContactList *TObjPlayer__sub_802A3FDC(Obj_802A3FDC *self, void *src) {
     return &L_802A3FDC;
 }
 
-TechniqueContactList *TObjPlayer__sub_802A41CC(Obj_802A41CC *self, void *src) {
+TechniqueContactList *collect_technique_contacts__10TObjPlayerFPvPv(Obj_802A41CC *self, void *src) {
     Vec_802A41CC a;
     Vec_802A41CC d;
     Vec_802A41CC *sd;

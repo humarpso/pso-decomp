@@ -72,7 +72,7 @@ extern "C" {
 s32 is_quest_active();
 s32 set_field_20__12TQuestListVMFPvi(void *, s32);
 s32 __ct__12TMemberCheckFP7TObject(int, void *);
-s32 TShopSequence__sub_80223600(void *, int, void *);
+s32 create_message_window__13TShopSequenceFPvii(void *, int, void *);
 u32 __nw__7TObjectFUl(int);
 s32 get_window_layout_position(s32);
 extern const f32 lbl_805DC658;
@@ -82,7 +82,7 @@ s32 is_quest_active();
 s32 set_field_20__12TQuestListVMFPvi(void *, s32);
 s32 create_quest_thread(s32);
 s32 get_register__12TQuestThreadFPvi(void *, int);
-s32 THunterGuildSeqOffline__sub_80212120();
+s32 check_party_gathered__22THunterGuildSeqOfflineFv();
 s32 TShopWindowBase__sub_802239EC(void *);
 s32 TShopWindowBase__sub_80223A48(void *);
 extern s32 THunterGuildSeqOffline__data_80513DC8[];
@@ -176,7 +176,7 @@ void THunterGuildSeqOffline__sub_802145F8(u8 *arg0) {
                     M2C_FIELD(arg0, s32 *, 0x30) = 2;
                     return;
                 }
-                temp_r3 = THunterGuildSeqOffline__sub_80212120();
+                temp_r3 = check_party_gathered__22THunterGuildSeqOfflineFv();
                 switch (temp_r3) {
                 case 1:
                     M2C_FIELD(arg0, s32 *, 0x30) = 2;
@@ -192,7 +192,7 @@ void THunterGuildSeqOffline__sub_802145F8(u8 *arg0) {
                 }
                 break;
             case 1:
-                if (THunterGuildSeqOffline__sub_80212120() == 1) {
+                if (check_party_gathered__22THunterGuildSeqOfflineFv() == 1) {
                     M2C_FIELD(arg0, s32 *, 0x30) = 2;
                 }
                 if (TShopWindowBase__sub_802239EC((void *) (arg0)) != 0) {
@@ -239,7 +239,7 @@ void THunterGuildSeqOffline__sub_8021488C(u8 *arg0) {
     u32 temp_r3;
     stack.sp8 = lbl_805DC658;
     stack.spC = lbl_805DC65C;
-    TShopSequence__sub_80223600((void *) (arg0), (int) (get_window_layout_position((s32)((int) (0x2C)))), (void *) (&stack.sp8));
+    create_message_window__13TShopSequenceFPvii((void *) (arg0), (int) (get_window_layout_position((s32)((int) (0x2C)))), (void *) (&stack.sp8));
     if (is_quest_active() == 0) {
         temp_r3 = __nw__7TObjectFUl((int) (0x80));
         if (temp_r3 != 0U) {

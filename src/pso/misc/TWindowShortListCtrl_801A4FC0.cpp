@@ -25,7 +25,7 @@ s32 fn_801A51F0(void);
 s32 get_card_status_bits__20TWindowShortListCtrlFv(void);
 s32 get_card_window_flags__20TWindowShortListCtrlFv(void);
 void TKeyBoardControl__sub_8000F90C(int);
-void TLobby__sub_8022743C();
+void stop_audio_streams__6TLobbyFv();
 void *TWindowOptionCtrl__ct(void *, void *);
 void *__ct__10TAdTitleGCFv(void *, void *, int);
 void *__ct__12TAdBackTxtGCFv(void *, void *);
@@ -42,7 +42,7 @@ extern M2C_UNK lbl_804C2298[];
 void *destroy__20TWindowShortListCtrlFPvs(void *arg0, s16 arg1) {
     if (arg0 != NULL) {
         M2C_FIELD(arg0, M2C_UNK **, 0x18) = lbl_804C2298;
-        TLobby__sub_8022743C();
+        stop_audio_streams__6TLobbyFv();
         if (M2C_FIELD(arg0, void **, 0x2C) != NULL) { queue_destruction__7TObjectFv(M2C_FIELD(arg0, void **, 0x2C)); M2C_FIELD(arg0, M2C_UNK *, 0x2C) = 0; }
         if (M2C_FIELD(arg0, void **, 0x28) != NULL) { queue_destruction__7TObjectFv(M2C_FIELD(arg0, void **, 0x28)); M2C_FIELD(arg0, M2C_UNK *, 0x28) = 0; }
         if (M2C_FIELD(arg0, void **, 0x24) != NULL) { queue_destruction__7TObjectFv(M2C_FIELD(arg0, void **, 0x24)); M2C_FIELD(arg0, M2C_UNK *, 0x24) = 0; }

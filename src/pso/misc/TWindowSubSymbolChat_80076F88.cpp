@@ -97,7 +97,7 @@ E_80077480 *get_card_window__17TWindowSubComCardFUi(u32 id);
 u8 *TWindowSubSymbolChat__sub_80077480(s32 i);
 s32 TWindowSubSymbolChat__sub_80077108(Obj_80077108 *self, s32 i);
 void TWindowSubSymbolChat__sub_8007728C(Obj_8007728C *self, u16 v, s32 a, s32 idx, s32 b, s32 c);
-void TLobby__sub_803DE7BC(void *, void *, u32);
+void move_words__6TLobbyFPvPvi(void *, void *, u32);
 void TWindowSubSymbolChat__sub_8007714C(Obj_8007714C *self, s32 i);
 s32 TWindowSubSymbolChat__sub_80077464(u32 *arg0);
 }
@@ -231,7 +231,7 @@ s32 TWindowSubSymbolChat__sub_80077108(Obj_80077108 *self, s32 i) {
 void TWindowSubSymbolChat__sub_8007714C(Obj_8007714C *self, s32 i) {
     if (i < 11) {
         Ent_8007714C *p = &self->e[i];
-        TLobby__sub_803DE7BC(p, p + 1, ((11 - i) * sizeof(Ent_8007714C)) / 4);
+        move_words__6TLobbyFPvPvi(p, p + 1, ((11 - i) * sizeof(Ent_8007714C)) / 4);
     }
     self->e[11].id = -1;
     self->e[11].a = 0;

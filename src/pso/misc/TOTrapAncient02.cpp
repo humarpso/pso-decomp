@@ -430,7 +430,7 @@ s32 check_player_flag1__6TLobbyFPv();
 void * alloc__23TAdSinglePlyChrSelectGCFPv(u32);
 M2C_UNK disable_if_single_screen__13TParticleCtrlFv();
 M2C_UNK setup_particle_tev(int);
-M2C_UNK TOTrapAncient02__sub_800837D4(int);
+M2C_UNK load_projection_tex_matrix__15TOTrapAncient02Fi(int);
 s32 spawn_particle_effect(void *, int);
 M2C_UNK init_position_vectors__10TObjPlayerFi(void *);
 void TObjPlayer__sub_800A7798(void *, f32);
@@ -933,7 +933,7 @@ void render_particle_chain__15TOTrapAncient02FPv(u8 *arg0) {
     translate_matrix((int) (0), (f32) (M2C_FIELD(temp_r31, f32 *, 8)), (f32) (M2C_FIELD(temp_r31, f32 *, 0xC) + M2C_FIELD(arg0, f32 *, 0x344)), (f32) (M2C_FIELD(temp_r31, f32 *, 0x10)));
     setup_particle_tev((int) (0));
     set_global_param__8TObjFishFi((int) (M2C_FIELD(arg0, s32 *, 0x24)));
-    TOTrapAncient02__sub_800837D4((int) (0x38E));
+    load_projection_tex_matrix__15TOTrapAncient02Fi((int) (0x38E));
     draw_ginja_model((int) (M2C_FIELD(temp_r31, s32 *, 4)));
     disable_if_single_screen__13TParticleCtrlFv();
     push_matrix();
@@ -941,7 +941,7 @@ void render_particle_chain__15TOTrapAncient02FPv(u8 *arg0) {
     translate_matrix((int) (0), (f32) (M2C_FIELD(temp_r31_2, f32 *, 8)), (f32) (M2C_FIELD(temp_r31_2, f32 *, 0xC) + M2C_FIELD(arg0, f32 *, 0x348)), (f32) (M2C_FIELD(temp_r31_2, f32 *, 0x10)));
     setup_particle_tev((int) (0));
     set_global_param__8TObjFishFi((int) (M2C_FIELD(arg0, s32 *, 0x24)));
-    TOTrapAncient02__sub_800837D4((int) (0x38E));
+    load_projection_tex_matrix__15TOTrapAncient02Fi((int) (0x38E));
     draw_ginja_model((int) (M2C_FIELD(temp_r31_2, s32 *, 4)));
     disable_if_single_screen__13TParticleCtrlFv();
     begin_effect_render__13TParticleCtrlFv();
@@ -950,7 +950,7 @@ void render_particle_chain__15TOTrapAncient02FPv(u8 *arg0) {
     post_translate_matrix((void *) (temp_r31_3 + 8));
     setup_particle_tev((int) (1));
     set_global_param__8TObjFishFi((int) (M2C_FIELD(arg0, s32 *, 0x24)));
-    TOTrapAncient02__sub_800837D4((int) (0x38E));
+    load_projection_tex_matrix__15TOTrapAncient02Fi((int) (0x38E));
     draw_ginja_model((int) (M2C_FIELD(temp_r31_3, s32 *, 4)));
     disable_if_single_screen__13TParticleCtrlFv();
     pop_matrix();
@@ -960,7 +960,7 @@ void render_particle_chain__15TOTrapAncient02FPv(u8 *arg0) {
     rotate_matrix_y((int) (0), (int) (M2C_FIELD(arg0, s32 *, 0x34C)));
     setup_particle_tev((int) (0));
     set_global_param__8TObjFishFi((int) (M2C_FIELD(arg0, s32 *, 0x24)));
-    TOTrapAncient02__sub_800837D4((int) (0x38E));
+    load_projection_tex_matrix__15TOTrapAncient02Fi((int) (0x38E));
     draw_ginja_model((int) (M2C_FIELD(temp_r31_4, s32 *, 4)));
     disable_if_single_screen__13TParticleCtrlFv();
     pop_matrix();

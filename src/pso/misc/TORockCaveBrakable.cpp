@@ -46,7 +46,7 @@ extern Init_80174CFC lbl_80442924;
 extern u8 lbl_8058D490[];
 extern void *lbl_805D5A84;
 extern s32 tl_05;
-void TORockCaveBrakable__sub_80174CFC(u8 *arg0);
+void spawn_debris__18TORockCaveBrakableFPv(u8 *arg0);
 }
 
 extern "C" {
@@ -91,7 +91,7 @@ M2C_UNK set_flag8__6TLobbyFPv(void *);
 void TORockCaveBrakable__sub_80174CC0(void) {  }
 void TORockCaveBrakable__sub_80174CC4(void* p) { play_sound_effect((void*)277521, (char*)p + 0x38, (void*)0, (void*)0); }
 
-void TORockCaveBrakable__sub_80174CFC(u8 *arg0) {
+void spawn_debris__18TORockCaveBrakableFPv(u8 *arg0) {
     Vec_80174CFC v;
     Offs_80174CFC offs;
     Init_80174CFC init;

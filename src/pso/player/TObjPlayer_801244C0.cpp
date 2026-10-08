@@ -17,7 +17,7 @@ M2C_UNK TObjPlayer__sub_8011E618(void *);
 s32 draw_icon__10TObjPlayerFPvii(void *, M2C_UNK, M2C_UNK *);
 M2C_UNK draw_weapon_at_joint(void *, M2C_UNK, void *);
 M2C_UNK warn_if_gauge_low__10TObjPlayerFv(s32);
-M2C_UNK TObjPlayer__sub_80364028();
+M2C_UNK set_model_fade_alpha__10TObjPlayerFf();
 M2C_UNK TObjPlayer__sub_80364198();
 M2C_UNK rotate_matrix_y(M2C_UNK, s32);
 M2C_UNK push_matrix();
@@ -46,7 +46,7 @@ void draw_held_item__10TObjPlayerFPv(void *arg0) {
             TObjPlayer__sub_80364198();
             some_id_805c6f74 &= 0xFFFFFFEF;
             get_mag_scale__10TObjPlayerFPv(arg0);
-            TObjPlayer__sub_80364028();
+            set_model_fade_alpha__10TObjPlayerFf();
             post_translate_matrix(&sp8);
             rotate_matrix_y(0, M2C_FIELD(M2C_FIELD(arg0, void **, 0xF0), s32 *, 0x60));
             M2C_FIELD(temp_r31, s32 *, 0) = (s32) (M2C_FIELD(temp_r31, s32 *, 0) | 0x11);

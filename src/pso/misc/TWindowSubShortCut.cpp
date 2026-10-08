@@ -24,7 +24,7 @@ s32 get_message_10__20TWindowSubStatusDispFPv(M2C_UNK);
 s32 get_window_layout_position(s32 a0);
 M2C_UNK notify_warp_flag70__19TWindowSubShortMailFPv(s32);
 M2C_UNK open_yes_no_prompt(s32, s32, s32, s32, f32);
-s32 TWindowMessageYesNo__sub_802A59D8(void *, s32, M2C_UNK, M2C_UNK);
+s32 create__19TWindowMessageYesNoFPvPvPvPv(void *, s32, M2C_UNK, M2C_UNK);
 extern const f32 lbl_805DD6C0;
 s32 TWindowSubShortCut__sub_8027DBB8(Win_8027DBB8 *arg0);
 void queue_destruction__7TObjectFv(void *);
@@ -54,11 +54,11 @@ s32 TWindowSubShortCut__sub_8027DBB8(Win_8027DBB8 *arg0);
 s32 open_menu__18TWindowSubShortCutFPv(void *arg0);
 void open_com_card_list__18TWindowSubShortCutFPv(void *arg0);
 void set_flag1e_bit80__18TWindowSubShortCutFPv(void* p);
-M2C_UNK TWindowSubShortCutList__sub_8027E278(int);
+M2C_UNK refresh_entries__22TWindowSubShortCutListFPv(int);
 void close__17TWindowSubComCardFPv(void *);
 s32 get_slot_or_neg1__17TWindowSubComCardFPv(int);
 s32 get_card_data__17TWindowSubComCardFPv(int);
-s32 TWindowSubComCard__sub_802A57FC(int);
+s32 is_child_visible__17TWindowSubComCardFPv(int);
 void run_task__18TWindowSubShortCutFv(u8 *arg0);
 }
 
@@ -73,7 +73,7 @@ s32 open_menu__18TWindowSubShortCutFPv(void *arg0);
 void render__18TWindowSubShortCutFv(void);
 void set_flag1e_bit80__18TWindowSubShortCutFPv(void* p);
 u32 *TWindowKeyBoardSoft__sub_80076E2C();
-s32 TWindowMessageYesNo__sub_802A59D8(void *, s32, M2C_UNK, M2C_UNK);
+s32 create__19TWindowMessageYesNoFPvPvPvPv(void *, s32, M2C_UNK, M2C_UNK);
 M2C_UNK align_menu_entry_positions(s32);
 M2C_UNK update_layout_height__17TWindowSubComCardFPvf(s32, f32);
 s32 get_window_layout_position(s32 a0 = 0);
@@ -101,7 +101,7 @@ extern const f32 lbl_805DD6C0;
 s32 open_confirm_message__18TWindowSubShortCutFPv(void *arg0) {
     s32 temp_r29;
 
-    temp_r29 = TWindowMessageYesNo__sub_802A59D8(arg0, M2C_FIELD(arg0, s32 *, 0x20), 0, 0);
+    temp_r29 = create__19TWindowMessageYesNoFPvPvPvPv(arg0, M2C_FIELD(arg0, s32 *, 0x20), 0, 0);
     open_yes_no_prompt(temp_r29, get_message_10__20TWindowSubStatusDispFPv(0x20), get_message_10__20TWindowSubStatusDispFPv(0x3e), get_window_layout_position((s32)(0x76)), lbl_805DD6C0);
     free_member__17TWindowSubComCardFPv(temp_r29, 1);
     notify_warp_flag70__19TWindowSubShortMailFPv(temp_r29);
@@ -112,7 +112,7 @@ extern const f32 lbl_805DD6C0;
 
 typedef s32 M2C_UNK;
 s32 TWindowSubShortCut__sub_8027DBB8(Win_8027DBB8 *arg0) {
-    s32 r = TWindowMessageYesNo__sub_802A59D8(arg0, arg0->f20, 0, 0);
+    s32 r = create__19TWindowMessageYesNoFPvPvPvPv(arg0, arg0->f20, 0, 0);
     open_yes_no_prompt((s32)(r), (s32)(get_message_10__20TWindowSubStatusDispFPv((M2C_UNK)(0x20))), (s32)(get_message_10__20TWindowSubStatusDispFPv((M2C_UNK)(0x3D))), (s32)(get_window_layout_position(0x75)), lbl_805DD6C0);
     notify_warp_flag70__19TWindowSubShortMailFPv((s32)(r));
     return r;
@@ -173,7 +173,7 @@ void run_task__18TWindowSubShortCutFv(u8 *arg0) {
         if ((u32) M2C_FIELD(arg0, u32 *, 0x2C) == 0U) {
             M2C_FIELD(arg0, u32 *, 0x2C) = ((s32 (*)(void *))open_com_card_list__18TWindowSubShortCutFPv)((void *) (arg0));
         }
-        TWindowSubShortCutList__sub_8027E278((int) (M2C_FIELD(arg0, u32 *, 0x2C)));
+        refresh_entries__22TWindowSubShortCutListFPv((int) (M2C_FIELD(arg0, u32 *, 0x2C)));
         clear_selected_and_update_entry__14TWindowSubItemFPv((int) (M2C_FIELD(arg0, u32 *, 0x2C)));
         M2C_FIELD(arg0, u8 *, 0x1C) = 2U;
     case 2:
@@ -260,7 +260,7 @@ void run_task__18TWindowSubShortCutFv(u8 *arg0) {
             M2C_FIELD(arg0, u8 *, 0x1C) = 1U;
             return;
         }
-        if (TWindowSubComCard__sub_802A57FC((int) (M2C_FIELD(arg0, u32 *, 0x34))) != 0) {
+        if (is_child_visible__17TWindowSubComCardFPv((int) (M2C_FIELD(arg0, u32 *, 0x34))) != 0) {
             if (get_slot_or_neg1__17TWindowSubComCardFPv((int) (M2C_FIELD(arg0, u32 *, 0x34))) == 0) {
                 fn_80076D68((int) (M2C_FIELD(arg0, s32 *, 0x24)), (void *) ((u8 *)(arg0) + 0x40));
                 M2C_FIELD(arg0, u8 *, 0x1C) = 1U;
@@ -281,7 +281,7 @@ void run_task__18TWindowSubShortCutFv(u8 *arg0) {
             M2C_FIELD(arg0, u8 *, 0x1C) = 3U;
             return;
         }
-        if (TWindowSubComCard__sub_802A57FC((int) (M2C_FIELD(arg0, u32 *, 0x34))) != 0) {
+        if (is_child_visible__17TWindowSubComCardFPv((int) (M2C_FIELD(arg0, u32 *, 0x34))) != 0) {
             if (get_slot_or_neg1__17TWindowSubComCardFPv((int) (M2C_FIELD(arg0, u32 *, 0x34))) == 0) {
                 select_cursor_entry__6TLobbyFPv((int) (M2C_FIELD(arg0, u32 *, 0x2C)));
                 fn_80076D40();

@@ -83,14 +83,14 @@ s32 update_transition__9TWindowDDFPv(void *);
 s32 TWindowDD__sub_80342D14(void *);
 s32 update__9TWindowDDFPv(void *);
 s32 TWindowDD__sub_80342ED0(void *);
-void TWindowDD__sub_80343808(u8 *arg0);
+void run_state__9TWindowDDFPv(u8 *arg0);
 void queue_destruction__7TObjectFv(void *);
 s16 TWindowDD__sub_8034214C(int);
 void TWindowDD__sub_803478DC(void *, int);
 void TWindowDD__sub_80347980(void *);
 s32 *get_entry__9TWindowDDFii(void *, s32);
 void update__9TWindowDDFPvPv(void *, void *);
-void TWindowDD__sub_803431C0(TWindowDD_803431C0 *arg0);
+void pop_menu_level__9TWindowDDFPv(TWindowDD_803431C0 *arg0);
 void set_pos_and_data__9TWindowDDFPvf(void *, f32);
 void TWindowDD__sub_80347940(void *, int);
 u8 *TWindowDD__sub_803479E4(void *);
@@ -109,7 +109,7 @@ extern const f32 lbl_805DFB88;
 extern const f32 TWindowDD__data_805DFBFC;
 extern const f32 lbl_805DFC0C;
 extern const f32 TWindowDD__data_805DFC10;
-void TWindowDD__sub_8034330C(TWindowDD_8034330C *arg0);
+void apply_entry_layout__9TWindowDDFPv(TWindowDD_8034330C *arg0);
 s32 TWindowDD__sub_80346DB8(s32 arg0);
 s32 TWindowDD_read_indexed_value(s32, s32);
 s16 TWindowDD_read_resolved_value(s32, s32);
@@ -163,11 +163,11 @@ void TWindowDD__sub_803435A0(u8 *arg0);
 M2C_UNK TWindowDD__sub_8034734C(DD_803461CC *, char *, s32 *);
 M2C_UNK TWindowDD__sub_8034740C(DD_803461CC *, char *, s32 *);
 M2C_UNK TWindowDD__sub_80347474(DD_803461CC *, s32, char *, s32 *);
-M2C_UNK TWindowDD__sub_80348688(char *, s32 *);
+M2C_UNK append_prompt_newline__9TWindowDDFPvPv(char *, s32 *);
 M2C_UNK maybe_scroll__9TWindowDDFPvPv(char *, s32 *);
-M2C_UNK TWindowDD__sub_80348818(s32, char *, s32 *);
+M2C_UNK append_char__9TWindowDDFciPv(s32, char *, s32 *);
 M2C_UNK TWindowDD__sub_8034886C(s32, char *, s32 *);
-s32 TWindowDD__sub_803461CC(DD_803461CC *arg0, char *arg1);
+s32 format_entry_text__9TWindowDDFPvPv(DD_803461CC *arg0, char *arg1);
 List_803467CC *get_element_ptr__9TWindowDDFi(s16);
 List_803467CC *get_entry__9TWindowDDFi(s32, s16);
 extern s32 TWindowDD__data_805D6E08;
@@ -180,7 +180,7 @@ extern "C" {
 void *__dt__9TWindowDDFv(void *arg0, s16 arg1);
 void free_buffers__9TWindowDDFv(void);
 s32 update_close_flag__9TWindowDDFPv(void *arg0);
-void TLobby__sub_800F957C(void*);
+void free_nodes_with_id__6TLobbyFUi(void*);
 M2C_UNK TWindowDD__sub_80347EF4();
 void TWindowDD__sub_80348520(void *);
 void __dl__7TObjectFPv(void *);
@@ -200,7 +200,7 @@ s32 update_close_flag__9TWindowDDFPv(void *arg0) {
 
 extern M2C_UNK __vt__9TWindowDD[];
 
-void TWindowDD__sub_803431C0(TWindowDD_803431C0 *arg0) {
+void pop_menu_level__9TWindowDDFPv(TWindowDD_803431C0 *arg0) {
     s32 *entry;
     void *child;
     get_entry__9TWindowDDFii(arg0, arg0->fB0);
@@ -229,7 +229,7 @@ void TWindowDD__sub_803431C0(TWindowDD_803431C0 *arg0) {
     }
 }
 
-void TWindowDD__sub_8034330C(TWindowDD_8034330C *arg0) {
+void apply_entry_layout__9TWindowDDFPv(TWindowDD_8034330C *arg0) {
     s32 *prev;
     s32 *entry;
     u8 *w;
@@ -404,7 +404,7 @@ void TWindowDD__sub_803435A0(u8 *arg0) {
     M2C_FIELD(arg0, s32 *, 0xAC) = 1;
 }
 
-void TWindowDD__sub_80343808(u8 *arg0) {
+void run_state__9TWindowDDFPv(u8 *arg0) {
     u32 temp_r0;
     temp_r0 = M2C_FIELD(arg0, u32 *, 0xB0);
     switch (temp_r0) {
@@ -515,23 +515,23 @@ void free_buffers__9TWindowDDFv(void) {
         TWindowDD__data_805D6E0C = 0U;
     }
     if ((u32) lbl_805D6E60 != 0U) {
-        TLobby__sub_800F957C((void*)lbl_805D6E60);
+        free_nodes_with_id__6TLobbyFUi((void*)lbl_805D6E60);
         lbl_805D6E60 = 0U;
     }
     if ((u32) lbl_805D6E5C != 0U) {
-        TLobby__sub_800F957C((void*)lbl_805D6E5C);
+        free_nodes_with_id__6TLobbyFUi((void*)lbl_805D6E5C);
         lbl_805D6E5C = 0U;
     }
     if ((u32) lbl_805D6E58 != 0U) {
-        TLobby__sub_800F957C((void*)lbl_805D6E58);
+        free_nodes_with_id__6TLobbyFUi((void*)lbl_805D6E58);
         lbl_805D6E58 = 0U;
     }
     if ((u32) lbl_805D6E54 != 0U) {
-        TLobby__sub_800F957C((void*)lbl_805D6E54);
+        free_nodes_with_id__6TLobbyFUi((void*)lbl_805D6E54);
         lbl_805D6E54 = 0U;
     }
     if ((u32) lbl_805D6E50 != 0U) {
-        TLobby__sub_800F957C((void*)lbl_805D6E50);
+        free_nodes_with_id__6TLobbyFUi((void*)lbl_805D6E50);
         lbl_805D6E50 = 0U;
     }
 }
@@ -797,7 +797,7 @@ s16 TWindowDD__sub_80344774(u8 *arg0, u32 arg1, s32 arg2, s32 arg3) {
     return v;
 }
 
-s32 TWindowDD__sub_803461CC(DD_803461CC *arg0, char *arg1) {
+s32 format_entry_text__9TWindowDDFPvPv(DD_803461CC *arg0, char *arg1) {
     s32 pos;
     s32 n;
     pos = 0;
@@ -820,9 +820,9 @@ s32 TWindowDD__sub_803461CC(DD_803461CC *arg0, char *arg1) {
             TWindowDD__sub_8034886C(arg0->ids[i], arg1, &pos);
         }
         }
-        TWindowDD__sub_80348818(0x3F, arg1, &pos);
+        append_char__9TWindowDDFciPv(0x3F, arg1, &pos);
         if (arg0->count > 2) {
-            TWindowDD__sub_80348688(arg1, &pos);
+            append_prompt_newline__9TWindowDDFPvPv(arg1, &pos);
             TWindowDD__sub_8034886C(arg0->ids[2], arg1, &pos);
         }
         break;
@@ -840,7 +840,7 @@ s32 TWindowDD__sub_803461CC(DD_803461CC *arg0, char *arg1) {
         }
         }
         if (arg0->count > 3) {
-            TWindowDD__sub_80348688(arg1, &pos);
+            append_prompt_newline__9TWindowDDFPvPv(arg1, &pos);
             TWindowDD__sub_8034886C(arg0->ids[3], arg1, &pos);
         }
         break;
@@ -855,7 +855,7 @@ s32 TWindowDD__sub_803461CC(DD_803461CC *arg0, char *arg1) {
         if (n > 3) {
             TWindowDD__sub_8034886C(arg0->ids[3], arg1, &pos);
         }
-        TWindowDD__sub_80348688(arg1, &pos);
+        append_prompt_newline__9TWindowDDFPvPv(arg1, &pos);
         TWindowDD__sub_8034886C(arg0->ids[0], arg1, &pos);
         break;
     case 5:

@@ -9,7 +9,7 @@ extern "C" {
 void enter_state_18__9TWindowDDFPv(void *arg0);
 void enter_state_19__9TWindowDDFPv(void *arg0);
 s32 TWindowDD__sub_80342F84();
-M2C_UNK TWindowDD__sub_8034330C(void *);
+M2C_UNK apply_entry_layout__9TWindowDDFPv(void *);
 M2C_UNK TWindowDD__sub_803435A0(void *);
 M2C_UNK TWindowDD__sub_80347B70(void *);
 M2C_UNK TWindowDD__sub_80347C50();
@@ -34,7 +34,7 @@ void enter_state_19__9TWindowDDFPv(void *arg0) {
             var_r31 = update_close_flag__9TWindowDDFPv(arg0) == 0;
         } else if (TWindowDD__sub_803482B0(arg0) != 0) {
             play_se__9TWindowDDFv();
-            TWindowDD__sub_8034330C(arg0);
+            apply_entry_layout__9TWindowDDFPv(arg0);
         }
         break;
     case 1:
@@ -62,7 +62,7 @@ void enter_state_18__9TWindowDDFPv(void *arg0) {
             var_r31 = update_close_flag__9TWindowDDFPv(arg0) == 0;
         } else if (TWindowDD__sub_803482B0(arg0) != 0) {
             play_se__9TWindowDDFv();
-            TWindowDD__sub_8034330C(arg0);
+            apply_entry_layout__9TWindowDDFPv(arg0);
         }
         break;
     case 1:

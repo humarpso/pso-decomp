@@ -26,7 +26,7 @@ s32 is_flag_2_set__11TWindowCtrlFPv(void *);
 s32 is_enabled__11TWindowCtrlFPv(void *);
 s32 is_visible__11TWindowCtrlFPv(void *);
 s32 get_active_menu__11TWindowCtrlFPv(void *arg0);
-void TWindowCtrl__sub_8024DF5C(u8 *arg0);
+void update_child_window_visibility__11TWindowCtrlFPv(u8 *arg0);
 s32 is_split_screen();
 u32 get_player_by_client_id(int);
 M2C_UNK request_close__19TWindowSubTradeMainFPv(u32);
@@ -35,7 +35,7 @@ s32 is_flag_2_set__11TWindowCtrlFPv(void *);
 s32 TWindowCtrl__sub_8024C7F8(void *);
 s32 is_visible__11TWindowCtrlFPv(void *);
 s32 get_active_menu__11TWindowCtrlFPv(void *arg0);
-void TWindowCtrl__sub_8024DFF4(u8 *arg0);
+void update_trade_window_visibility__11TWindowCtrlFPv(u8 *arg0);
 s32 get_battle_ctrl_id__10TObjPlayerFUs(int);
 s32 all_parents_unqueued_for_destruction__7TObjectFv(void *);
 s32 fn_80244994(int);
@@ -295,7 +295,7 @@ void update_target_info_window__11TWindowCtrlFPv(u8 *arg0) {
 }
 #pragma pop
 
-void TWindowCtrl__sub_8024DF5C(u8 *arg0) {
+void update_child_window_visibility__11TWindowCtrlFPv(u8 *arg0) {
     u32 temp_r31;
     if (((u32) M2C_FIELD(arg0, u32 *, 0x34) != 0U) && (is_flag_2_set__11TWindowCtrlFPv((void *) M2C_FIELD(arg0, u32 *, 0x34)) == 0)) {
         temp_r31 = get_player_by_client_id((int) (M2C_FIELD(arg0, s32 *, 0x24)));
@@ -307,7 +307,7 @@ void TWindowCtrl__sub_8024DF5C(u8 *arg0) {
     }
 }
 
-void TWindowCtrl__sub_8024DFF4(u8 *arg0) {
+void update_trade_window_visibility__11TWindowCtrlFPv(u8 *arg0) {
     if (((u32) M2C_FIELD(arg0, u32 *, 0x30) != 0U) && (is_flag_2_set__11TWindowCtrlFPv((void *) M2C_FIELD(arg0, u32 *, 0x30)) == 0)) {
         if ((get_player_by_client_id((int) (M2C_FIELD(arg0, s32 *, 0x24))) == 0U) || (is_visible__11TWindowCtrlFPv((void *) (arg0)) != 0) || (TWindowCtrl__sub_8024C7F8((void *) (arg0)) != 0) || ((is_split_screen() != 0) && (get_active_menu__11TWindowCtrlFPv((void *) (arg0)) != 0))) {
             request_close__19TWindowSubTradeMainFPv((u32)((int) (M2C_FIELD(arg0, u32 *, 0x30))));
@@ -317,7 +317,7 @@ void TWindowCtrl__sub_8024DFF4(u8 *arg0) {
     }
 }
 
-void run_all_updates__11TWindowCtrlFPv(void* p) { TWindowCtrl__sub_8024DFF4((u8 *)((void*)(p))); TWindowCtrl__sub_8024DF5C((u8 *)((void*)(p))); update_target_info_window__11TWindowCtrlFPv((u8 *)((void*)(p))); update_main_menu_request__11TWindowCtrlFPv((void *)(p)); show_active_window__11TWindowCtrlFPv((void *)(p)); update_short_list_request__11TWindowCtrlFPv((void *)(p)); TWindowCtrl__sub_8024DAAC((void *)(p)); }
+void run_all_updates__11TWindowCtrlFPv(void* p) { update_trade_window_visibility__11TWindowCtrlFPv((u8 *)((void*)(p))); update_child_window_visibility__11TWindowCtrlFPv((u8 *)((void*)(p))); update_target_info_window__11TWindowCtrlFPv((u8 *)((void*)(p))); update_main_menu_request__11TWindowCtrlFPv((void *)(p)); show_active_window__11TWindowCtrlFPv((void *)(p)); update_short_list_request__11TWindowCtrlFPv((void *)(p)); TWindowCtrl__sub_8024DAAC((void *)(p)); }
 #pragma push
 #pragma scheduling off
 void fn_8024E0F0(u8 *arg0) {

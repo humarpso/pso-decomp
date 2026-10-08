@@ -13,7 +13,7 @@ extern char *lbl_805D76C0;
 extern Rec_803D8098 *lbl_805D76C4;
 extern f32 lbl_805D76D8;
 extern s32 lbl_805D76DC;
-void TObjEneMe1Gee__sub_803D8098(s32 arg0, char *arg1);
+void queue_debug_text__13TObjEneMe1GeeFiPv(s32 arg0, char *arg1);
 int sprintf(char *, const char *, ...);
 extern char lbl_805D46A0[6];
 extern const f32 lbl_805E0EB8;
@@ -30,7 +30,7 @@ extern s32 lbl_805D76DC;
 void set_global_count__12TObjNpcEnemyFi(s32 arg0) {
     lbl_805D76DC = arg0;
 }
-void TObjEneMe1Gee__sub_803D8098(s32 arg0, char *arg1) {
+void queue_debug_text__13TObjEneMe1GeeFiPv(s32 arg0, char *arg1) {
     s16 len;
     s16 x;
     f32 scale;

@@ -25,7 +25,7 @@ M2C_UNK set_stream_state__6TLobbyFi(void *, int);
 M2C_UNK load_gvm_texture_archive(int, void *);
 extern M2C_UNK lbl_80477BC4[];
 extern s32 lbl_805D6D58;
-void TLobby__sub_8033843C(void);
+void load_now_loading_texture__6TLobbyFv(void);
 void TCameraCtrl__sub_80068EF0(void);
 void restore_full_screen_view__11TCameraCtrlFv(void);
 void reset_transform_state__10TObjPlayerFv(void);
@@ -55,7 +55,7 @@ extern const f32 lbl_805DF9B8;
 void TLobby__sub_80338608(s32 arg0);
 void set_depth_buffer_settings_2__Fv(void);
 void restore_saved_depth_alpha_state(void);
-void TObjPlayer__sub_8023E0FC(void *, s32, u32, s32, f32);
+void draw_compass_sprite__10TObjPlayerFPviiif(void *, s32, u32, s32, f32);
 u32 __cvt_fp2unsigned(f32);
 void set_perspective_projection_from_fov(s32, f32, f32, f32, f32, f32);
 extern const f32 lbl_805DF9AC;
@@ -167,7 +167,7 @@ void TLobby__sub_803382E4(void) {
         draw_projected_textured_strip((void *)(lbl_804EF344), 4);
         reset_player_state__6TLobbyFv();
         init_xyz_limits__10TObjPlayerFv();
-        TObjPlayer__sub_8023E0FC((void *)(lbl_804EF3E0), 2, (__cvt_fp2unsigned(lbl_805DF9B4 * alpha) << 24) | 0xFFFFFF, 0x21, lbl_805DF9A0);
+        draw_compass_sprite__10TObjPlayerFPviiif((void *)(lbl_804EF3E0), 2, (__cvt_fp2unsigned(lbl_805DF9B4 * alpha) << 24) | 0xFFFFFF, 0x21, lbl_805DF9A0);
         reset_transform_state__10TObjPlayerFv();
         TCameraCtrl__sub_80068EF0();
         end_effect_render__13TParticleCtrlFv();
@@ -187,7 +187,7 @@ void handle_flag2_request__6TLobbyFv(void) {
 
     extern int lbl_805D6D5C;
 
-void TLobby__sub_8033843C(void) {
+void load_now_loading_texture__6TLobbyFv(void) {
     s32 temp_r31;
     s32 temp_r3;
     if (!(lbl_805D6D58 & 2)) {

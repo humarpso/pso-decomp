@@ -239,7 +239,7 @@ int queue_destruction__7TObjectFv(void *);
 int TKeyBoardControl__sub_8000F91C(int);
 int TKeyBoardControl__sub_8000F9CC(int);
 int stop_cue_stream(void);
-int TLobby__sub_8022743C(void);
+int stop_audio_streams__6TLobbyFv(void);
 void destroy_keyboard_objects(void * _w0);
 u8 * init_particle_base(void *, void *, s32);
 int get_object__13TParticleCtrlFPv(void *);

@@ -22,7 +22,7 @@ extern s32 lbl_805D3B28;
 extern void *lbl_805D4DD8;
 extern const f32 lbl_805DD908;
 u8 *TObjBoss5PillarDemo__ct(u8 *arg0, s32 arg1, s32 arg2);
-void TCameraCtrl__sub_80069148(void *, void *);
+void transform_to_view__11TCameraCtrlFii(void *, void *);
 void copy_pos__11TNowLoadingFPvPv(void *, void *);
 extern u8 lbl_80450CDC[];
 extern s32 lbl_805D64D0;
@@ -116,7 +116,7 @@ void TObjBoss5PillarDemo__sub_8028ACE8(Pd_8028ACE8 *arg0, void* _w1) {
     idx = lbl_805D64D0 - 1;
     lbl_805D64D0 += 1;
     if (idx >= 0 && idx < arg0->count) {
-        TCameraCtrl__sub_80069148(lbl_80450CDC, sp);
+        transform_to_view__11TCameraCtrlFii(lbl_80450CDC, sp);
         if (arg0->a != NULL && arg0->a[idx] != NULL) {
             copy_pos__11TNowLoadingFPvPv(arg0->a[idx], sp);
         }

@@ -62,7 +62,7 @@ void free_static_resources__23TObjSeabedSuisoBrakableFv(void) {
 #pragma inline_depth(1)
 #pragma auto_inline off
 #pragma dont_inline off
-void TObjSeabedSuisoBrakable__sub_802A6F98(void) {
+void load_resources__23TObjSeabedSuisoBrakableFv(void) {
     s32 i;
     void *p;
     void *item;

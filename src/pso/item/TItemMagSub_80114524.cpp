@@ -9,7 +9,7 @@ s32 get_percent__9TItemDataFPv(void *);
 s32 get_stat_percent__9TItemDataFPv(void *);
 s32 get_mag_mind_level__9TItemDataFPv(void *);
 s32 get_level__9TItemDataFPv(void *);
-s16 TItemMagSub__sub_8011455C(void *mag);
+s16 get_total_level__11TItemMagSubFPv(void *mag);
 }
 
 extern "C" {
@@ -30,7 +30,7 @@ void reset_initial_stats__11TItemMagSubFPv(void *arg0) {
     M2C_FIELD(arg0, s8 *, 0xE) = 0x12;
 }
 
-s16 TItemMagSub__sub_8011455C(void *mag) {
+s16 get_total_level__11TItemMagSubFPv(void *mag) {
     return get_stat_percent__9TItemDataFPv(mag) + get_percent__9TItemDataFPv(mag) + get_mag_mind_level__9TItemDataFPv(mag) + get_level__9TItemDataFPv(mag);
 }
 

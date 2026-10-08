@@ -48,7 +48,7 @@ void fn_800FF788(void *, void *);
 void *get_item_ptr__10TObjPlayerFPvi(void *, s32);
 void matrix_mult_vec(s32, void *, void *);
 void TObjPlayer__sub_803D89E8(s32);
-void TObjPlayer__sub_803D9730(s32, void *);
+void concat_matrix__10TObjPlayerFUiUi(s32, void *);
 void push_matrix(void);
 void pop_matrix(void);
 extern u8 lbl_8049DD20[];
@@ -74,7 +74,7 @@ void TObjPlayer__sub_800FEEA4(Self_800FEEA4 *self) {
         while (rs->bone >= 0) {
             rd->angle = rs->angle;
             push_matrix();
-            TObjPlayer__sub_803D9730(0, get_item_ptr__10TObjPlayerFPvi(self->model, rs->bone));
+            concat_matrix__10TObjPlayerFUiUi(0, get_item_ptr__10TObjPlayerFPvi(self->model, rs->bone));
             matrix_mult_vec(0, rs->data, rd->data);
             pop_matrix();
             rs++;
@@ -89,7 +89,7 @@ void TObjPlayer__sub_800FEEA4(Self_800FEEA4 *self) {
     while (ps->bone >= 0) {
         pd->val = self->model->base + ps->ofs;
         push_matrix();
-        TObjPlayer__sub_803D9730(0, get_item_ptr__10TObjPlayerFPvi(self->model, ps->bone));
+        concat_matrix__10TObjPlayerFUiUi(0, get_item_ptr__10TObjPlayerFPvi(self->model, ps->bone));
         matrix_mult_vec(0, ps->data, pd->data);
         pop_matrix();
         ps++;

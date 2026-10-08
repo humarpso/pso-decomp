@@ -47,8 +47,8 @@ M2C_UNK end_effect_render__13TParticleCtrlFv();
 void TWindowSubStatusDisp__sub_8036DA94(void);
 extern s32 lbl_805D7018;
 extern s32 lbl_805D701C;
-void TWindowSubStatusDisp__sub_8036DB54(void);
-void TWindowCtrlMain__sub_801E352C(Desc_8036D774 *, int, int, f32);
+void draw_split_screen_hud__20TWindowSubStatusDispFv(void);
+void draw_strip_swap_color__15TWindowCtrlMainFPviif(Desc_8036D774 *, int, int, f32);
 void TWindowSubStatusDisp__sub_8036D774(void);
 M2C_UNK set_global_param__8TObjFishFi(void *);
 M2C_UNK begin_screen_draw(int);
@@ -91,7 +91,7 @@ void TWindowSubStatusDisp__sub_8036D774(void) {
     d.pos[6] = (1.6e+02f);
     d.pos[7] = (4.8e+02f);
     d.col[3] = 0xFF000000;
-    TWindowCtrlMain__sub_801E352C(&d, 4, 0x16, (-2.0f));
+    draw_strip_swap_color__15TWindowCtrlMainFPviif(&d, 4, 0x16, (-2.0f));
     d.pos[0] = (0.0f);
     d.pos[1] = (0.0f);
     d.pos[2] = (6.4e+02f);
@@ -100,7 +100,7 @@ void TWindowSubStatusDisp__sub_8036D774(void) {
     d.pos[5] = (2.4e+02f);
     d.pos[6] = (0.0f);
     d.pos[7] = (2.4e+02f);
-    TWindowCtrlMain__sub_801E352C(&d, 4, 0x16, (-2.0f));
+    draw_strip_swap_color__15TWindowCtrlMainFPviif(&d, 4, 0x16, (-2.0f));
 }
 
 void TWindowSubStatusDisp__sub_8036D88C(void) {
@@ -192,7 +192,7 @@ void TWindowSubStatusDisp__sub_8036DA94(void) {
   while (var_r31 < 0xA);
   get_player__20TWindowSubStatusDispFv();
 }
-void TWindowSubStatusDisp__sub_8036DB54(void) {
+void draw_split_screen_hud__20TWindowSubStatusDispFv(void) {
     s32 var_r3;
     if ((u32) (*(u32 *)&lbl_805D7018) != 0U) {
         set_depth_buffer_settings_2__Fv();

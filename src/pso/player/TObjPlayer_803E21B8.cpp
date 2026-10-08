@@ -81,7 +81,7 @@ extern TexObj_803E224C lbl_8058DBB0;
 extern Ctx_803E224C *lbl_805D774C;
 void load_context_texture_obj(void);
 void GXBegin(int, int, u16);
-M2C_UNK TObjPlayer__sub_803E20B0();
+M2C_UNK load_screen_space_matrix__10TObjPlayerFv();
 void setup_opaque_color_draw(void);
 void TObjPlayer__sub_803E21DC(void);
 void TObjPlayer__sub_803E2248(void);
@@ -91,13 +91,13 @@ void GXSetNumChans(u8);
 void GXSetChanCtrl(int, int, int, int, int, int, int);
 M2C_UNK TObjPlayer__sub_803E2468(int arg0);
 void GXBegin(int, int, u16);
-M2C_UNK TObjPlayer__sub_803E20B0();
+M2C_UNK load_screen_space_matrix__10TObjPlayerFv();
 void setup_render__10TObjPlayerFv(void);
 void setup_blended_textured_draw(void);
 void TObjPlayer__sub_803E2248(void);
 void load_context_texture_obj(void);
 extern const f32 lbl_805E1078;
-void TObjPlayer__sub_803E2810(Vtx_803E2810 *v, s32 n, s32 mode);
+void draw_textured_vertices__10TObjPlayerFPvii(Vtx_803E2810 *v, s32 n, s32 mode);
 }
 
 extern "C" {
@@ -264,7 +264,7 @@ static inline void GXColor1u32_803E26A4(u32 c) {
 void TObjPlayer__sub_803E26A4(Vtx_803E26A4 *v, s32 n, s32 mode) {
     f32 inv;
     u32 c;
-    TObjPlayer__sub_803E20B0();
+    load_screen_space_matrix__10TObjPlayerFv();
     if (mode != 0) {
         TObjPlayer__sub_803E21DC();
     } else {
@@ -297,10 +297,10 @@ static inline void GXTexCoord2f32_803E2810(f32 s, f32 t) {
     (*(volatile WGPipe_803E2810 *)0xCC008000).f32 = s;
     (*(volatile WGPipe_803E2810 *)0xCC008000).f32 = t;
 }
-void TObjPlayer__sub_803E2810(Vtx_803E2810 *v, s32 n, s32 mode) {
+void draw_textured_vertices__10TObjPlayerFPvii(Vtx_803E2810 *v, s32 n, s32 mode) {
     f32 inv;
     u32 c;
-    TObjPlayer__sub_803E20B0();
+    load_screen_space_matrix__10TObjPlayerFv();
     if (mode != 0) {
         setup_blended_textured_draw();
     } else {

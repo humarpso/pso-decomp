@@ -48,7 +48,7 @@ M2C_UNK TBoss6GravBall__sub_803236F8(void *);
 s32 TBoss6GravBall__sub_803237A0();
 extern const f32 lbl_805DF568;
 extern const f32 lbl_805DF578;
-void TBoss6GravBall__sub_80323A78(u8 *arg0);
+void update_state__14TBoss6GravBallFPv(u8 *arg0);
 }
 
 extern "C" {
@@ -135,7 +135,7 @@ void update_charge_effects__14TBoss6GravBallFPv(u8 *arg0) {
 
 extern M2C_UNK __vt__14TBoss6GravBall[];
 
-void TBoss6GravBall__sub_80323A78(u8 *arg0) {
+void update_state__14TBoss6GravBallFPv(u8 *arg0) {
     f32 temp_f2;
     s32 temp_r3;
     s32 temp_r3_2;

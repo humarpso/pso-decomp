@@ -26,7 +26,7 @@ typedef struct Dust_802F127C {
 
 f32 sin_table_lookup(s32);
 void matrix_mult_vec(s32, Vec_802F127C *, Out_802F127C *);
-void TObjPlayer__sub_803D8CD4(s32);
+void set_matrix_identity__10TObjPlayerFPv(s32);
 void translate_matrix(s32, f32, f32, f32);
 void rotate_matrix_x(s32, s32);
 void push_matrix(void);
@@ -54,7 +54,7 @@ void TObjBoss7DustCtrl::run_task() {
     scale = lbl_805DEC74;
     ang = lbl_80541DA0;
     for (i = 0; i < 10; i++) {
-        TObjPlayer__sub_803D8CD4(0);
+        set_matrix_identity__10TObjPlayerFPv(0);
         translate_matrix(0, lbl_805DEC70, scale * sin_table_lookup(ang[i]), lbl_805DEC70);
         {
             s32 a = ang[i];

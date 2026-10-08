@@ -9,7 +9,7 @@ struct Name_8020A834 { char s[0x20]; };
 
 extern "C" {
 s32 read_disc_file(Name_8020A768 *, void *);
-void TLobby__sub_801317E4(Name_8020A768 *, s32, const void *);
+void replace_file_extension__6TLobbyFPvPvPv(Name_8020A768 *, s32, const void *);
 s32 get_player_floor__6TLobbyFi(s32);
 void bswap_enemy_set_row(Ent_8020A768 *);
 void reserve_enemy_set_actor_ids(Ent_8020A768 *, s32, s32);
@@ -19,7 +19,7 @@ extern Ent_8020A768 *TLobby__data_805D60F0;
 extern s32 TLobby__data_805D60F4;
 s32 load_enemy_set_file(s32 arg0, s32 arg1);
 s32 read_disc_file(Name_8020A768 *, void *);
-void TLobby__sub_801317E4(Name_8020A768 *, s32, const void *);
+void replace_file_extension__6TLobbyFPvPvPv(Name_8020A768 *, s32, const void *);
 s32 get_player_floor__6TLobbyFi(s32);
 void swap_object_row_endian(Ent_8020A834 *);
 void TLobby__sub_8020AA94(Ent_8020A834 *, s32, s32);
@@ -39,7 +39,7 @@ s32 load_enemy_set_file(s32 arg0, s32 arg1) {
     s32 n;
     s32 i;
     s32 floor;
-    TLobby__sub_801317E4(&name, arg1, lbl_8044BBA8);
+    replace_file_extension__6TLobbyFPvPvPv(&name, arg1, lbl_8044BBA8);
     size = read_disc_file(&name, TLobby__data_805D60F0);
     if (size < 0) {
         return 0;
@@ -65,7 +65,7 @@ s32 load_object_set_file(s32 arg0, s32 arg1) {
     s32 n;
     s32 i;
     s32 floor;
-    TLobby__sub_801317E4((Name_8020A768 *)(&name), (s32)(arg1), (const void *)(lbl_8044BBB0));
+    replace_file_extension__6TLobbyFPvPvPv((Name_8020A768 *)(&name), (s32)(arg1), (const void *)(lbl_8044BBB0));
     size = read_disc_file((Name_8020A768 *)(&name), (void *)((*(Ent_8020A834 * *)&TLobby__data_805D60F0)));
     if (size < 0) {
         return 0;

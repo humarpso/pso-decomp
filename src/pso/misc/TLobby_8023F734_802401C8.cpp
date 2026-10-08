@@ -40,7 +40,7 @@ M2C_UNK TLobby__sub_8023FF38();
 M2C_UNK TLobby__sub_8023FF64(int);
 M2C_UNK sndPopGroup();
 void xfree__FPv(void *);
-s32 TLobby__sub_802405B0(void *p, s32 arg1);
+s32 pop_sound_groups__6TLobbyFPvi(void *p, s32 arg1);
 s32 OSGetTick();
 M2C_UNK advance_rng__6TLobbyFPv(void *);
 M2C_UNK TLobby__sub_8023FCC0(void *);
@@ -86,12 +86,12 @@ s32 update_sound_frame(Lobby_802401D0 *self) {
 }
 
 s32 TLobby__sub_80240310(u8 *arg0) {
-    TLobby__sub_802405B0((void *)(arg0), (s32)(1));
+    pop_sound_groups__6TLobbyFPvi((void *)(arg0), (s32)(1));
     M2C_FIELD(arg0, s32 *, 0x298) = 4;
     return 0;
 }
 #define M ((Mgr_802405B0 *)p)
-s32 TLobby__sub_802405B0(void *p, s32 arg1) {
+s32 pop_sound_groups__6TLobbyFPvi(void *p, s32 arg1) {
     s32 idx;
     s32 n;
     TLobby__sub_8023FF64(0);

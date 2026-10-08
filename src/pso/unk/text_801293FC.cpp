@@ -40,12 +40,12 @@ extern const f32 lbl_805DAE18;
 extern const f32 lbl_805DAE1C;
 extern const f32 lbl_805DAE20;
 extern const f32 lbl_805DAE24;
-void TObjPlayer__sub_801293FC(Self_801293FC *self);
+void spawn_slicer_with_timer__10TObjPlayerFPv(Self_801293FC *self);
 }
 
 extern "C" {
 
-void TObjPlayer__sub_801293FC(Self_801293FC *self) {
+void spawn_slicer_with_timer__10TObjPlayerFPv(Self_801293FC *self) {
     Tec_801293FC tec;
     TObjPlayer__sub_80128A70();
     init_slicer_launch_state(&tec);

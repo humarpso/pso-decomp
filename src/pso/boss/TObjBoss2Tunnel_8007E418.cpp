@@ -13,7 +13,7 @@ M2C_UNK matrix_mult_vec(M2C_UNK, s32, s32);
 M2C_UNK TCameraCtrl__sub_803D976C(M2C_UNK, s32);
 M2C_UNK push_matrix();
 M2C_UNK pop_matrix();
-void TObjBoss2Tunnel__sub_8007E884(s32 arg0, s32 arg1, s32 arg2);
+void transform_vec_by_camera__15TObjBoss2TunnelFiii(s32 arg0, s32 arg1, s32 arg2);
 f32 sin_table_lookup(s32);
 f32 cos_table_lookup(s32);
 void rotate_xz_pair_by_angle(f32 *arg0, f32 *arg1, s32 arg2);
@@ -22,7 +22,7 @@ extern const f32 TObjBoss2Tunnel__data_805D9234;
 bool is_vec_xz_cross_negative(u8 *arg0, u8 *arg1);
 s32 angle_diff_s16(s32, s32);
 s32 approach_angle_limited(s32, s32, s32);
-s16 TObjBoss2Tunnel__sub_8007E5A0(s32 arg0, s32 cur, s32 target, s32 step, s32 limit);
+s16 turn_toward_angle_limited__15TObjBoss2TunnelFiiiii(s32 arg0, s32 cur, s32 target, s32 step, s32 limit);
 }
 
 extern "C" {
@@ -89,7 +89,7 @@ s32 adjust_to_ground__15TObjBoss2TunnelFiPv(s32 arg0, void *arg1) {
 
 void init_zako__15TObjBoss2TunnelFPvPv(void* p, void* a1, s32 _w2) { rotate_xz_pair_by_angle((f32 *)(p), (f32 *)((char*)p + 0x8), (s32)(_w2)); vec3_add_to(p, a1); }
 
-s16 TObjBoss2Tunnel__sub_8007E5A0(s32 arg0, s32 cur, s32 target, s32 step, s32 limit) {
+s16 turn_toward_angle_limited__15TObjBoss2TunnelFiiiii(s32 arg0, s32 cur, s32 target, s32 step, s32 limit) {
     target = angle_diff_s16(arg0, target);
     if (target > limit) {
         target = limit;
@@ -190,7 +190,7 @@ bool is_vec_xz_cross_negative(u8 *arg0, u8 *arg1) {
 
 #pragma push
 #pragma fp_contract on
-void TObjBoss2Tunnel__sub_8007E884(s32 arg0, s32 arg1, s32 arg2) {
+void transform_vec_by_camera__15TObjBoss2TunnelFiii(s32 arg0, s32 arg1, s32 arg2) {
     push_matrix();
     TCameraCtrl__sub_803D976C(0, TCameraCtrl__sub_80069258());
     matrix_mult_vec(0, arg1, arg2);

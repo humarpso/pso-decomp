@@ -11,7 +11,7 @@ void display_message__22TQuestVmDownLoadServerFPvii(void*, s32, s32);
 s32 create_window__17TMedicalCenterMesFPvii(void*, s32, void*);
 s32 get_window_layout_position(s32, s32, void*);
 extern s32 lbl_8044A668[];
-void TQuestVmDownLoadServer__sub_801F6E08(u8* arg0, s32 arg1, s32 arg2);
+void show_status_message__22TQuestVmDownLoadServerFPvii(u8* arg0, s32 arg1, s32 arg2);
 }
 
 extern "C" {
@@ -22,7 +22,7 @@ void close_download__22TQuestVmDownLoadServerFPv(void *arg0);
 void close_message__22TQuestVmDownLoadServerFPv(void* p);
 void destroy__22TQuestVmDownLoadServerFPv(void *arg0);
 s32 TAdPlayerLoadGC__sub_801E1B50(s32);
-s32 TAdPlayerLoadGC__sub_801E1E38(s32);
+s32 probe_card_slot__15TAdPlayerLoadGCFi(s32);
 s32 get_localized_text_entry(M2C_UNK, M2C_UNK);
 s32 TQuestVmDownLoadServer__sub_8006EF6C(M2C_UNK);
 void TQuestVmDownLoadServer__sub_801F8D30(void);
@@ -42,7 +42,7 @@ void close_message__22TQuestVmDownLoadServerFPv(void* p) { if (*(unsigned int*)(
 extern s32 lbl_805D55C0;
 extern s32 TQuestVmDownLoadServer__data_805D5F18;
 
-void TQuestVmDownLoadServer__sub_801F6E08(u8* arg0, s32 arg1, s32 arg2) {
+void show_status_message__22TQuestVmDownLoadServerFPvii(u8* arg0, s32 arg1, s32 arg2) {
     Pair_801F6E08 sp;
     if (*(u32*)(arg0 + 0x294) == 0) {
         sp.a = lbl_8044A668[0];
@@ -73,7 +73,7 @@ void check_client_connections__22TQuestVmDownLoadServerFPv(void *arg0) {
             var_r30 = 0;
             M2C_FIELD(arg0, s32 *, 0x234) = 0;
             do {
-                if (TAdPlayerLoadGC__sub_801E1E38(var_r30) != 0) {
+                if (probe_card_slot__15TAdPlayerLoadGCFi(var_r30) != 0) {
                     M2C_FIELD(arg0, s32 *, 0x234) = (s32) (M2C_FIELD(arg0, s32 *, 0x234) | (1 << var_r30));
                 }
                 var_r30 += 1;
@@ -83,7 +83,7 @@ void check_client_connections__22TQuestVmDownLoadServerFPv(void *arg0) {
                 M2C_FIELD(arg0, s32 *, 0x238) = temp_r3;
                 if ((s32) TQuestVmDownLoadServer__data_805D5F18 != 0) {
                     TQuestVmDownLoadServer__data_805D5F18 = 0;
-                    TQuestVmDownLoadServer__sub_801F6E08((u8*)(arg0), (s32)(TQuestVmDownLoadServer__sub_8006EF6C(0xB)), (s32)(1));
+                    show_status_message__22TQuestVmDownLoadServerFPvii((u8*)(arg0), (s32)(TQuestVmDownLoadServer__sub_8006EF6C(0xB)), (s32)(1));
                     M2C_FIELD(arg0, s32 *, 0x2A0) = 0x12;
                 } else {
                     M2C_FIELD(arg0, s32 *, 0x2A0) = 1;
@@ -104,7 +104,7 @@ void close__22TQuestVmDownLoadServerFPv(void *arg0) {
         clear_selected_and_update_entry__14TWindowSubItemFPv(M2C_FIELD(arg0, void **, 0x28C));
     }
     update_state__13TAdMcSelectGCFv();
-    TQuestVmDownLoadServer__sub_801F6E08((u8*)(arg0), (s32)(get_localized_text_entry(0x29, 1)), (s32)(1));
+    show_status_message__22TQuestVmDownLoadServerFPvii((u8*)(arg0), (s32)(get_localized_text_entry(0x29, 1)), (s32)(1));
     M2C_FIELD(arg0, s32 *, 0x2A0) = 4;
     TQuestVmDownLoadServer__data_805D5F18 = 0;
 }
@@ -132,7 +132,7 @@ void close_download__22TQuestVmDownLoadServerFPv(void *arg0) {
         if ((u32) M2C_FIELD(arg0, u32 *, 0x28C) != 0U) {
             clear_selected_and_update_entry__14TWindowSubItemFPv(M2C_FIELD(arg0, void **, 0x28C));
         }
-        TQuestVmDownLoadServer__sub_801F6E08((u8*)(arg0), (s32)(TQuestVmDownLoadServer__sub_8006EF6C(0x41)), (s32)(1));
+        show_status_message__22TQuestVmDownLoadServerFPvii((u8*)(arg0), (s32)(TQuestVmDownLoadServer__sub_8006EF6C(0x41)), (s32)(1));
         M2C_FIELD(arg0, s32 *, 0x2A0) = 0x13;
         lbl_805D49B4 = 0;
     }

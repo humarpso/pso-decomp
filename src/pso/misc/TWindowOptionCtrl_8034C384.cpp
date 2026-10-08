@@ -6,8 +6,8 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 
 extern "C" {
 M2C_UNK TObjBoss2Tunnel__sub_8007C880();
-s32 TObjBoss2Tunnel__sub_8007CBC4();
-M2C_UNK TObjBoss2Tunnel__sub_8007CCD0();
+s32 load_snapshot__15TObjBoss2TunnelFv();
+M2C_UNK save_snapshot_to_card__15TObjBoss2TunnelFv();
 s32 save_snapshot__15TObjBoss2TunnelFv();
 s32 get_localized_text_entry(M2C_UNK);
 s32 test_flag_4c__23TAdSinglePlyChrSelectGCFPv(void *, int);
@@ -18,11 +18,11 @@ s32 TAdPlayerLoadGC__sub_801E24F8(int, int, int, int, int);
 M2C_UNK play_sound_effect(int, int, int, int);
 s32 get_slot_or_neg1__17TWindowSubComCardFPv(int);
 s32 get_card_data__17TWindowSubComCardFPv(int);
-s32 TWindowSubComCard__sub_802A57FC(int);
+s32 is_child_visible__17TWindowSubComCardFPv(int);
 void open_confirm_dialog__17TWindowOptionCtrlFPvii(void *arg0, s32 arg1, s32 arg2);
 void set_option_and_confirm__17TWindowOptionCtrlFPvii(void *arg0, s32 arg1, s32 arg2);
 extern M2C_UNK lbl_8050E208[];
-void TWindowOptionCtrl__sub_8034C4F8(u8 *arg0);
+void handle_save_result__17TWindowOptionCtrlFPv(u8 *arg0);
 }
 
 extern "C" {
@@ -38,7 +38,7 @@ void set_option_and_confirm__17TWindowOptionCtrlFPvii(void *arg0, s32 arg1, s32 
 s32 get_localized_text_entry(M2C_UNK);
 int TLobby__sub_80338534(void);
 int TLobby__sub_80338608(void*);
-u32 TWindowMessageYesNo__sub_802A59D8(s32, s32, M2C_UNK, M2C_UNK);
+u32 create__19TWindowMessageYesNoFPvPvPvPv(s32, s32, M2C_UNK, M2C_UNK);
 void __ct__7TObjectFP7TObject(void *);
 void __dl__7TObjectFPv(void *);
 void __dt__7TObjectFv(void *, int);
@@ -61,7 +61,7 @@ void open_confirm_dialog__17TWindowOptionCtrlFPvii(void *arg0, s32 arg1, s32 arg
         close__17TWindowSubComCardFPv((void *)(M2C_FIELD(arg0, void **, 0x2C)));
         M2C_FIELD(arg0, u32 *, 0x2C) = 0U;
     }
-    M2C_FIELD(arg0, u32 *, 0x2C) = TWindowMessageYesNo__sub_802A59D8(tl_01, lbl_805D53A0, 0, 0);
+    M2C_FIELD(arg0, u32 *, 0x2C) = create__19TWindowMessageYesNoFPvPvPvPv(tl_01, lbl_805D53A0, 0, 0);
     if (arg2 != 0) {
         forward_slot_selection__16TAdChrSelASlotGCFPvPvPv(M2C_FIELD(arg0, u32 *, 0x2C), arg1, get_option_entry__17TWindowOptionCtrlFi(0xCF), lbl_805DFDD0);
         return;
@@ -80,7 +80,7 @@ void TWindowOptionCtrl__sub_8034C4C4(void* p) { if (*(int*)((char*)p + 0x1c) == 
 
 extern M2C_UNK lbl_804F01A8[];
 
-void TWindowOptionCtrl__sub_8034C4F8(u8 *arg0) {
+void handle_save_result__17TWindowOptionCtrlFPv(u8 *arg0) {
     s32 temp_r0;
     s32 temp_r0_2;
     s32 temp_r3;
@@ -163,7 +163,7 @@ void TWindowOptionCtrl__sub_8034C4F8(u8 *arg0) {
                 M2C_FIELD(arg0, s32 *, 0x1C) = 0x10;
                 return;
             }
-            if (TWindowSubComCard__sub_802A57FC((int) (M2C_FIELD(arg0, s32 *, 0x2C))) != 0) {
+            if (is_child_visible__17TWindowSubComCardFPv((int) (M2C_FIELD(arg0, s32 *, 0x2C))) != 0) {
                 if (get_slot_or_neg1__17TWindowSubComCardFPv((int) (M2C_FIELD(arg0, s32 *, 0x2C))) == 0) {
                     M2C_FIELD(arg0, s32 *, 0x1C) = 3;
                     return;
@@ -187,10 +187,10 @@ void TWindowOptionCtrl__sub_8034C4F8(u8 *arg0) {
             break;
         case 5:
             M2C_FIELD(arg0, s32 *, 0x20) = (s32) (M2C_FIELD(arg0, s32 *, 0x20) | 1);
-            TObjBoss2Tunnel__sub_8007CCD0();
+            save_snapshot_to_card__15TObjBoss2TunnelFv();
             M2C_FIELD(arg0, s32 *, 0x1C) = 6;
         case 6:
-            if (TObjBoss2Tunnel__sub_8007CBC4() != 0) {
+            if (load_snapshot__15TObjBoss2TunnelFv() != 0) {
                 M2C_FIELD(arg0, s32 *, 0x20) = (s32) (M2C_FIELD(arg0, s32 *, 0x20) & 0xFFFFFFFE);
                 M2C_FIELD(arg0, s32 *, 0x1C) = 3;
                 return;
@@ -206,7 +206,7 @@ void TWindowOptionCtrl__sub_8034C4F8(u8 *arg0) {
                 M2C_FIELD(arg0, s32 *, 0x1C) = 0x10;
                 return;
             }
-            if (TWindowSubComCard__sub_802A57FC((int) (M2C_FIELD(arg0, s32 *, 0x2C))) != 0) {
+            if (is_child_visible__17TWindowSubComCardFPv((int) (M2C_FIELD(arg0, s32 *, 0x2C))) != 0) {
                 M2C_FIELD(arg0, s32 *, 0x20) = (s32) (M2C_FIELD(arg0, s32 *, 0x20) & 0xFFFFFFFD);
                 if (get_slot_or_neg1__17TWindowSubComCardFPv((int) (M2C_FIELD(arg0, s32 *, 0x2C))) == 0) {
                     M2C_FIELD(arg0, s32 *, 0x24) = 3;
@@ -228,7 +228,7 @@ void TWindowOptionCtrl__sub_8034C4F8(u8 *arg0) {
                 M2C_FIELD(arg0, s32 *, 0x1C) = 0x10;
                 return;
             }
-            if (TWindowSubComCard__sub_802A57FC((int) (M2C_FIELD(arg0, s32 *, 0x2C))) != 0) {
+            if (is_child_visible__17TWindowSubComCardFPv((int) (M2C_FIELD(arg0, s32 *, 0x2C))) != 0) {
                 M2C_FIELD(arg0, s32 *, 0x20) = (s32) (M2C_FIELD(arg0, s32 *, 0x20) & 0xFFFFFFFD);
                 if (get_slot_or_neg1__17TWindowSubComCardFPv((int) (M2C_FIELD(arg0, s32 *, 0x2C))) == 0) {
                     TObjBoss2Tunnel__sub_8007C880();
@@ -251,7 +251,7 @@ void TWindowOptionCtrl__sub_8034C4F8(u8 *arg0) {
                 M2C_FIELD(arg0, s32 *, 0x1C) = 0x10;
                 return;
             }
-            if (TWindowSubComCard__sub_802A57FC((int) (M2C_FIELD(arg0, s32 *, 0x2C))) != 0) {
+            if (is_child_visible__17TWindowSubComCardFPv((int) (M2C_FIELD(arg0, s32 *, 0x2C))) != 0) {
                 M2C_FIELD(arg0, s32 *, 0x20) = (s32) (M2C_FIELD(arg0, s32 *, 0x20) & 0xFFFFFFFD);
                 if (get_slot_or_neg1__17TWindowSubComCardFPv((int) (M2C_FIELD(arg0, s32 *, 0x2C))) == 0) {
                     M2C_FIELD(arg0, s32 *, 0x1C) = 0xD;

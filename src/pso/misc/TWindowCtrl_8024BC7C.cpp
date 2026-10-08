@@ -14,12 +14,12 @@ s32 is_slot_visible__11TWindowCtrlFi(void *);
 s32 get_flag_bit5__11TWindowCtrlFv();
 u32 TWindowGetComCard__ct(int, void *);
 extern s32 lbl_805D53A0;
-void TWindowCtrl__sub_8024BC7C(u8 *arg0);
+void update_com_card_window__11TWindowCtrlFPv(u8 *arg0);
 }
 
 extern "C" {
 
-void TWindowCtrl__sub_8024BC7C(u8 *arg0) {
+void update_com_card_window__11TWindowCtrlFPv(u8 *arg0) {
     u32 temp_r3;
     u32 temp_r3_2;
     u32 temp_r3_3;

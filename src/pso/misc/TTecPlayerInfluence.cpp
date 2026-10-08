@@ -186,7 +186,7 @@ extern const f32 lbl_805DC8C0;
 extern const f32 lbl_805DC8C4;
 void TTecRaBarta__vt6(Rabarta_80237494 *self, void *pos);
 s32 is_technique_ready__8TTecCtrlFv();
-void TTecAnti__sub_8022B35C(void *, s32);
+void copy_params__8TTecAntiFPvPv(void *, s32);
 s32 calc_technique_parameters(s32, s32, s32);
 extern Params_802377FC lbl_804CC510;
 extern Scale_802377FC lbl_804CC55C;

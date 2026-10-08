@@ -7,13 +7,13 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 extern "C" {
 
 void free_static__11TObjNpcBaseFv(void);
-void TLobby__sub_800F957C(void*);
+void free_nodes_with_id__6TLobbyFUi(void*);
 
 extern u32 lbl_805D5738;
 
 void free_static__11TObjNpcBaseFv(void) {
     if ((u32) lbl_805D5738 != 0U) {
-        TLobby__sub_800F957C((void*)lbl_805D5738);
+        free_nodes_with_id__6TLobbyFUi((void*)lbl_805D5738);
         lbl_805D5738 = 0U;
     }
 }

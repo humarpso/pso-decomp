@@ -105,13 +105,13 @@ struct Anti_8022AEF8 {
 };
 
 extern "C" {
-void TTecAnti__sub_8022B35C(u8 *arg0, u8 *arg1);
+void copy_params__8TTecAntiFPvPv(u8 *arg0, u8 *arg1);
 s32 obj_getField1c(int);
 s32 construct_target_cursor_records__10TObjPlayerFi(void *);
 s32 play_anti_cast_sound(void *);
 int TTecAnti__sub_8022AD74(void* p);
 void TTecAnti__sub_8022AD94(void *);
-void TTecAnti__sub_8022B35C(u8 *arg0, u8 *arg1);
+void copy_params__8TTecAntiFPvPv(u8 *arg0, u8 *arg1);
 s32 TTecPlayerInfluence__ct(void *, void *, void *, void *);
 extern M2C_UNK __vt__8TTecAnti[];
 extern RecoveredGlobal_8022B288_lbl_804CC1CC lbl_804CC1CC;
@@ -298,7 +298,7 @@ u8 *TTecAnti__ct(u8 *arg0, s32 arg1, s32 arg2, s32 arg3, s32 arg4) {
     M2C_FIELD(arg0, s32 *, 0) = (s32) lbl_805D3790;
     M2C_FIELD(arg0, s32 *, 0x13C) = 1;
     copy_technique_target_list((S_8022B3E8 *)((void *)((void *) (arg0 + 0xE0))), (S_8022B3E8 *)((void *)((void *) (arg3))));
-    TTecAnti__sub_8022B35C((u8 *)((void *) (arg0 + 0x74)), (u8 *)((void *) ((u8 *)&lbl_804CC1CC.value + 0x2C0)));
+    copy_params__8TTecAntiFPvPv((u8 *)((void *) (arg0 + 0x74)), (u8 *)((void *) ((u8 *)&lbl_804CC1CC.value + 0x2C0)));
     TTecAnti__sub_8022AD94((void *)((void *) (arg0)));
     temp_r3 = (u8 *)(M2C_FIELD(arg0, u8 **, 0xDC));
     if (temp_r3 != NULL) {
@@ -315,7 +315,7 @@ u8 *TTecAnti__ct(u8 *arg0, s32 arg1, s32 arg2, s32 arg3, s32 arg4) {
     return arg0;
 }
 
-void TTecAnti__sub_8022B35C(u8 *arg0, u8 *arg1) {
+void copy_params__8TTecAntiFPvPv(u8 *arg0, u8 *arg1) {
     M2C_FIELD(arg0, f32 *, 0) = (f32) M2C_FIELD(arg1, f32 *, 0);
     M2C_FIELD(arg0, f32 *, 4) = (f32) M2C_FIELD(arg1, f32 *, 4);
     M2C_FIELD(arg0, f32 *, 8) = (f32) M2C_FIELD(arg1, f32 *, 8);

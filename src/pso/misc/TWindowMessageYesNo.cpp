@@ -17,10 +17,10 @@ void *__dt__19TWindowMessageYesNoFv(void *arg0, s16 arg1);
 void run_task__19TWindowMessageYesNoFv(void* p);
 s32 create_window_menu(s32, s32, s32);
 int confirm_selection__11TWindowMenuFPv(void*);
-s32 TWindowSubComCard__sub_80244888(void *);
+s32 reparent_to_main_ctrl__17TWindowSubComCardFi(void *);
 s32 get_selected_menu_value(s32);
-s32 TWindowSubComCard__sub_80265CFC(s32, f32);
-int TWindowSubComCard__sub_802A57FC(void* a0 = 0);
+s32 calc_layout_height__17TWindowSubComCardFPvf(s32, f32);
+int is_child_visible__17TWindowSubComCardFPv(void* a0 = 0);
 int open_yes_no_prompt(void* a0 = 0, void* a1 = 0, void* a2 = 0, void* a3 = 0);
 void TWindow__close(void *);
 void __ct__7TObjectFP7TObject(void *);
@@ -43,11 +43,11 @@ void update_card_slot__17TWindowSubComCardFPv(void* p);
 
 void render__19TWindowMessageYesNoFv(void) {  }
 
-void run_task__19TWindowMessageYesNoFv(void* p) { if (TWindowSubComCard__sub_802A57FC(p) != 0) { confirm_selection__11TWindowMenuFPv(*(void**)((char*)p + 0x28)); } }
+void run_task__19TWindowMessageYesNoFv(void* p) { if (is_child_visible__17TWindowSubComCardFPv(p) != 0) { confirm_selection__11TWindowMenuFPv(*(void**)((char*)p + 0x28)); } }
 
 extern M2C_UNK __vt__19TWindowMessageYesNo[];
 
-void * TWindowMessageYesNo__sub_802A59D8(void *arg0, void *arg1, void *arg2, void *arg3) {
+void * create__19TWindowMessageYesNoFPvPvPvPv(void *arg0, void *arg1, void *arg2, void *arg3) {
     void *o;
     o = __nw__7TObjectFUl(0x30);
     if (o != NULL) {

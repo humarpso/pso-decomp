@@ -31,9 +31,9 @@ s32 TItemLoad__sub_8010F838(int arg0, void *a1, int a2, int a3);
 s32 begin_load__9TItemLoadFPvi(void *, s32);
 void TItemLoad__sub_8010F61C(Load_8010F61C *self, s32 id, s32 arg2);
 M2C_UNK TItemLoad__sub_8010FD80();
-M2C_UNK TLobby__sub_8001EE48(s32);
+M2C_UNK tmp_buf_release__6TLobbyFi(s32);
 s32 TLobby__sub_8001EEF4();
-s32 TLobby__sub_8001EEFC(s32);
+s32 tmp_buf_use_req__6TLobbyFPv(s32);
 M2C_UNK reset_state__9TItemLoadFPv(void *);
 void *TLobby__sub_801E38A0(s32, u32 *, s32 *, s32, s32 *);
 extern u8 lbl_80506208[];
@@ -55,9 +55,9 @@ void free_all_models__9TItemLoadFv(void);
 void reload_item__9TItemLoadFPv(void *arg0);
 M2C_UNK TItemLoad__sub_8010FCB4(void *, M2C_UNK);
 M2C_UNK TItemLoad__sub_8010FD80();
-M2C_UNK TLobby__sub_8001EE48(s32);
+M2C_UNK tmp_buf_release__6TLobbyFi(s32);
 s32 TLobby__sub_8001EEF4();
-s32 TLobby__sub_8001EEFC(s32);
+s32 tmp_buf_use_req__6TLobbyFPv(s32);
 M2C_UNK load_gvm_texture_archive(s32, s32);
 M2C_UNK __dl__FPv(void *);
 s32 begin_load__9TItemLoadFPvi(void *, s32);
@@ -127,7 +127,7 @@ void TItemLoad__sub_8010F68C(Load_8010F68C *self) {
     void *p;
     u32 i;
     if (TLobby__sub_8001EEF4() == 1) {
-        h = TLobby__sub_8001EEFC(lbl_805D2BF0);
+        h = tmp_buf_use_req__6TLobbyFPv(lbl_805D2BF0);
         off = self->id;
         total = TItemLoad__sub_8010FD80();
         pos = 0;
@@ -155,7 +155,7 @@ void TItemLoad__sub_8010F68C(Load_8010F68C *self) {
                 break;
             }
         }
-        TLobby__sub_8001EE48(lbl_805D2BF0);
+        tmp_buf_release__6TLobbyFi(lbl_805D2BF0);
         self->id = 0;
         reset_state__9TItemLoadFPv(self);
     }
@@ -198,10 +198,10 @@ void reload_item__9TItemLoadFPv(void *arg0) {
     s32 temp_r31;
 
     if (TLobby__sub_8001EEF4() == 1) {
-        temp_r31 = TLobby__sub_8001EEFC(lbl_805D2BF0);
+        temp_r31 = tmp_buf_use_req__6TLobbyFPv(lbl_805D2BF0);
         TItemLoad__sub_8010FD80();
         load_gvm_texture_archive(temp_r31, M2C_FIELD(arg0, s32 *, 0x24));
-        TLobby__sub_8001EE48(lbl_805D2BF0);
+        tmp_buf_release__6TLobbyFi(lbl_805D2BF0);
         M2C_FIELD(arg0, s32 *, 0x24) = 0;
         reset_state__9TItemLoadFPv(arg0);
     }

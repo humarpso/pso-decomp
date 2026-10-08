@@ -23,7 +23,7 @@ s32 forward_trade_action_default__16TObjCityMainWarpFPviii(int, int, int, int);
 s32 create_titled_window_menu(int, int, int, int);
 s32 get_window_layout_position(int);
 extern const f32 TWindowSubTradeMain__data_805DF858;
-s32 TWindowSubTradeMain__sub_80331434(u8 *arg0);
+s32 create_trade_menu__19TWindowSubTradeMainFPv(u8 *arg0);
 s32 get_message_10__20TWindowSubStatusDispFPv(s32);
 M2C_UNK align_menu_entry_positions(int);
 M2C_UNK update_layout_height__17TWindowSubComCardFPvf(int, f32);
@@ -32,7 +32,7 @@ s32 forward_trade_action_default__16TObjCityMainWarpFPviii(int, int, int, int);
 s32 create_titled_window_menu(int, int, int, int);
 s32 get_window_layout_position(int);
 extern const f32 TWindowSubTradeMain__data_805DF858;
-s32 TWindowSubTradeMain__sub_80331520(u8 *arg0);
+s32 build_trade_menu__19TWindowSubTradeMainFPv(u8 *arg0);
 }
 
 extern "C" {
@@ -54,7 +54,7 @@ void update_from_lobby__19TWindowSubTradeMainFi(s32 arg0) {
 
 typedef struct RecoveredFields_80331434_arg0 RecoveredFields_80331434_arg0;
 #pragma fp_contract on
-s32 TWindowSubTradeMain__sub_80331434(u8 *arg0) {
+s32 create_trade_menu__19TWindowSubTradeMainFPv(u8 *arg0) {
   s32 temp_r31;
   s32 temp_r31_2;
   temp_r31_2 = (0, get_message_10__20TWindowSubStatusDispFPv((s32)((int) 0xDD)));
@@ -70,7 +70,7 @@ s32 TWindowSubTradeMain__sub_80331434(u8 *arg0) {
 
 typedef struct RecoveredFields_80331520_arg0 RecoveredFields_80331520_arg0;
 #pragma fp_contract on
-s32 TWindowSubTradeMain__sub_80331520(u8 *arg0) {
+s32 build_trade_menu__19TWindowSubTradeMainFPv(u8 *arg0) {
   s32 temp_r31;
   s32 temp_r31_2;
   temp_r31_2 = (0, get_message_10__20TWindowSubStatusDispFPv((s32)((int) 0x26)));

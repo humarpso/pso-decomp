@@ -235,7 +235,7 @@ void *TOContainerAncientItemCommon__ct(void *arg0, void * _w1) {
     M2C_FIELD(arg0, void **, 0x0) = lbl_805D2EFC;
     return arg0;
 }
-void TObjFish__sub_8015C234(Obj_8015C234 *self) {
+void spawn_break_debris__8TObjFishFPv(Obj_8015C234 *self) {
     extern const u32 lbl_805D58E8;
     if (self->f326 == 1) {
         return;

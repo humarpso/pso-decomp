@@ -34,13 +34,13 @@ extern "C" void TObjEneDelDepth__sub_80313740();
 extern "C" void TObjEneDelDepth__sub_803138F8();
 extern "C" void TObjEneDelDepth__sub_80313954();
 extern "C" void TObjEneDelDepth__sub_80313DE4();
-extern "C" void TObjEneDelDepth__sub_80313E34();
-extern "C" void TObjEneDelDepth__sub_80313FAC();
+extern "C" void update_bomb_drop__15TObjEneDelDepthFPv();
+extern "C" void move_toward_target__15TObjEneDelDepthFPv();
 extern "C" void TObjEneDelDepth__sub_803141A8();
 extern "C" void TObjEneDelDepth__sub_803142DC();
 extern "C" void TObjEneDelDepth__sub_80314500();
-extern "C" void TObjEneDelDepth__sub_80314758();
-extern "C" void TObjEneDelDepth__sub_80314C10();
+extern "C" void update_movement__15TObjEneDelDepthFPv();
+extern "C" void start_move_toward_player__15TObjEneDelDepthFPv();
 extern "C" void TObjEneDelDepth__sub_80314D1C();
 extern "C" void TObjEneDelDepth__sub_80314E78();
 extern "C" void TObjEneDelDepth__sub_80314EC4();
@@ -126,7 +126,7 @@ void *lbl_804E81F4[94] = {
     (void *)&TObjEneDelDepth__sub_80315064, (void *)0x0, (void *)0xffffffff, (void *)&TObjEneDelDepth__sub_80314EC4,
     (void *)0x0, (void *)0xffffffff, (void *)&TObjEneDelDepth__sub_80314E78, (void *)0x0,
     (void *)0xffffffff, (void *)&TObjEneDelDepth__sub_80314D1C, (void *)0x0, (void *)0xffffffff,
-    (void *)&TObjEneDelDepth__sub_80314C10, (void *)0x0, (void *)0xffffffff, (void *)&TObjEneDelDepth__sub_80314758,
+    (void *)&start_move_toward_player__15TObjEneDelDepthFPv, (void *)0x0, (void *)0xffffffff, (void *)&update_movement__15TObjEneDelDepthFPv,
     (void *)0x0, (void *)0xffffffff, (void *)&enter_state8__15TObjEneDelDepthFPv, (void *)0x0,
     (void *)0xffffffff, (void *)&update_state__15TObjEneDelDepthFPv, (void *)0x0, (void *)0xffffffff,
     (void *)&enter_appear_state__15TObjEneDelDepthFPv, (void *)0x0, (void *)0xffffffff, (void *)&try_enter_appear__15TObjEneDelDepthFPv,
@@ -134,10 +134,10 @@ void *lbl_804E81F4[94] = {
     (void *)0xffffffff, (void *)&TObjEneDelDepth__sub_803142DC, (void *)0x0, (void *)0xffffffff,
     (void *)&init_depth__15TObjEneDelDepthFPv, (void *)0x0, (void *)0xffffffff, (void *)&TObjEneDelDepth__sub_803141A8,
     (void *)0x0, (void *)0xffffffff, (void *)&setup_depth_draw__15TObjEneDelDepthFPv, (void *)0x0,
-    (void *)0xffffffff, (void *)&TObjEneDelDepth__sub_80313FAC, (void *)0x0, (void *)0xffffffff,
+    (void *)0xffffffff, (void *)&move_toward_target__15TObjEneDelDepthFPv, (void *)0x0, (void *)0xffffffff,
     (void *)&TObjEneDelDepth__sub_80313DE4, (void *)0x0, (void *)0xffffffff, (void *)&update_attack_cast__15TObjEneDelDepthFPv,
     (void *)0x0, (void *)0xffffffff, (void *)&init_draw_state__15TObjEneDelDepthFPv, (void *)0x0,
-    (void *)0xffffffff, (void *)&TObjEneDelDepth__sub_80313E34, (void *)0x0, (void *)0xffffffff,
+    (void *)0xffffffff, (void *)&update_bomb_drop__15TObjEneDelDepthFPv, (void *)0x0, (void *)0xffffffff,
     (void *)&init_state__15TObjEneDelDepthFPv, (void *)0x0, (void *)0xffffffff, (void *)&update_state_flag__15TObjEneDelDepthFPv,
     (void *)0x0, (void *)0xffffffff, (void *)&start_attack_motion__15TObjEneDelDepthFPv, (void *)0x0,
     (void *)0xffffffff, (void *)&update_ai_state__15TObjEneDelDepthFPv, (void *)0x0, (void *)0xffffffff,

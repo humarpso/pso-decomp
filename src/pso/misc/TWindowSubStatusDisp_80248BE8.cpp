@@ -34,7 +34,7 @@ s32 increment_counter__20TWindowSubStatusDispFPv(int);
 s32 update_subwindow__20TWindowSubStatusDispFPv(int);
 extern RecoveredGlobal_80248CF4_lbl_8050E208 lbl_8050E208;
 extern const f32 lbl_805DCBA8;
-void TWindowSubStatusDisp__sub_80248CF4(u8 *arg0);
+void handle_input__20TWindowSubStatusDispFPv(u8 *arg0);
 }
 
 extern "C" {
@@ -87,7 +87,7 @@ void render_status_and_children__20TWindowSubStatusDispFPv(u8 *arg0) {
 extern M2C_UNK lbl_804CE7E8[];
 
 typedef char RecoveredGlobal_80248CF4_lbl_8050E208_size[sizeof(RecoveredGlobal_80248CF4_lbl_8050E208) == 0x1B0 ? 1 : -1];
-void TWindowSubStatusDisp__sub_80248CF4(u8 *arg0) {
+void handle_input__20TWindowSubStatusDispFPv(u8 *arg0) {
     s32 temp_r31;
     u32 temp_r3;
     u32 temp_r3_2;

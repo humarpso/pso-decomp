@@ -159,7 +159,7 @@ void TObjContainerEnemy__vt4(u8 *arg0, s16 *arg1, s32 arg2);
 s32 VecCopy__FP3VecPC3Vec(void *, void *);
 s32 reset_photon_effect__10TObjPlayerFPv(void *);
 s32 init_collision_body_parts(void *, void *, int);
-s32 fn_8018A150(void *, void *, void *);
+s32 init_container_base(void *, void *, void *);
 s32 get_container_param(int);
 extern RecoveredGlobal_8018925C_lbl_804B63BC lbl_804B63BC;
 extern M2C_UNK __vt__19TObjContainerNoItem[];
@@ -258,7 +258,7 @@ void *__dt__19TObjContainerNoItemFv(void *arg0, s16 arg1) {
 typedef char RecoveredGlobal_8018925C_lbl_804B63BC_size[sizeof(RecoveredGlobal_8018925C_lbl_804B63BC) == 0x15C ? 1 : -1];
 typedef char RecoveredGlobal_8018925C___vt__19TObjContainerNoItem_size[sizeof(RecoveredGlobal_8018925C___vt__19TObjContainerNoItem) == 0x14C ? 1 : -1];
 u8 *TObjContainerNoItem__ct(u8 *arg0, s32 arg1, s32 arg2) {
-    fn_8018A150((void *) (arg0), (void *) (arg1), (void *) (arg2));
+    init_container_base((void *) (arg0), (void *) (arg1), (void *) (arg2));
     M2C_FIELD(arg0, M2C_UNK **, 0x18) = &(*(RecoveredGlobal_8018925C___vt__19TObjContainerNoItem *)&__vt__19TObjContainerNoItem).value;
     M2C_FIELD(arg0, s32 *, 0) = (s32) lbl_805D32F4;
     M2C_FIELD(arg0, s32 *, 0x34) = get_container_param((int) (1));

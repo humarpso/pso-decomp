@@ -139,7 +139,7 @@ extern u32 lbl_805D7BC0;
 void TLobby__sub_80425BD0(void);
 void TLobby__sub_804253A0(s32);
 void TLobby__sub_804264D4(s32 arg0);
-s32 TLobby__sub_803F9E84(void *);
+s32 str_length__6TLobbyFi(void *);
 s32 TLobby__sub_803F9F04(void *, void *, int);
 s32 TLobby__sub_804272B8(s32 *arg0, u8 *arg1);
 M2C_UNK TLobby__sub_803F77E0(void *);
@@ -275,7 +275,7 @@ s32 TLobby__sub_803F9F04(void *, void *, int);
 s32 TLobby__sub_8042558C(void *);
 u8 *TLobby__sub_804256B8(s32);
 extern u8 lbl_805CF240[];
-s32 TLobby__sub_80426448(s32 arg0, u16 arg1);
+s32 post_send_message__6TLobbyFiUs(s32 arg0, u16 arg1);
 s32 TLobby__sub_803F9F04(void *, void *, int);
 s16 TLobby__sub_80426110(Obj_80426110 *o, u16 arg1, u16 arg2);
 s16 TLobby__sub_804262CC(void *);
@@ -314,28 +314,28 @@ void TAdSinglePlyChrSelectGC__sub_8042D49C(char *);
 extern Names_8042E57C lbl_804801F8;
 extern char lbl_805D48AC[2];
 extern char lbl_805D495C[7];
-s32 TAdSinglePlyChrSelectGC__sub_8042E57C(s32 arg0);
+s32 send_at_ms_command__23TAdSinglePlyChrSelectGCFi(s32 arg0);
 char *strcat(char *, const char *);
 char *strcpy(char *, const char *);
 void TAdSinglePlyChrSelectGC__sub_8042D49C(char *);
 extern Names_8042E628 lbl_80480210;
 extern char lbl_805D48AC[2];
 extern char lbl_805D4970[7];
-s32 TAdSinglePlyChrSelectGC__sub_8042E628(s32 arg0);
+s32 send_at_error_correction_cmd__23TAdSinglePlyChrSelectGCFi(s32 arg0);
 char *strcat(char *, const char *);
 char *strcpy(char *, const char *);
 void TAdSinglePlyChrSelectGC__sub_8042D49C(char *);
 extern Names_8042E6C4 lbl_80480220;
 extern char lbl_805D48AC[2];
 extern char lbl_805D4980[5];
-s32 TAdSinglePlyChrSelectGC__sub_8042E6C4(s32 arg0);
+s32 send_at_compression_cmd__23TAdSinglePlyChrSelectGCFi(s32 arg0);
 char *strcat(char *, const char *);
 char *strcpy(char *, const char *);
 void TAdSinglePlyChrSelectGC__sub_8042D49C(char *);
 extern Names_8042E7B8 lbl_80480234;
 extern char lbl_805D48AC[2];
 extern char lbl_805D4988[4];
-s32 TAdSinglePlyChrSelectGC__sub_8042E7B8(s32 arg0);
+s32 send_atx_command__23TAdSinglePlyChrSelectGCFi(s32 arg0);
 s32 TLobby__sub_804251C0(s32, void *);
 extern s32 lbl_805D4820;
 extern volatile s32 lbl_805D7BA0;
@@ -345,9 +345,9 @@ s32 TLobby__sub_803F9F04(void *, void *, int);
 s32 TLobby__sub_8042BC00(void *);
 extern u8 lbl_805CF3C8[];
 s32 TLobby__sub_80426894(s16 arg0, void *arg1);
-M2C_UNK TLobby__sub_803F9214(void *);
-M2C_UNK TUdpSocket__sub_803F95A4(void *);
-M2C_UNK TLobby__sub_803F95C4(void *);
+M2C_UNK get_time_ms__6TLobbyFPv(void *);
+M2C_UNK unlock_mutex__10TUdpSocketFi(void *);
+M2C_UNK lock_mutex__6TLobbyFi(void *);
 M2C_UNK TLobby__sub_803F97E8(int);
 extern void *lbl_805C18A0[];
 extern RecoveredGlobal_80428374_lbl_805D0A40 lbl_805D0A40;
@@ -390,7 +390,7 @@ M2C_UNK OSRestoreInterrupts(s32);
 M2C_UNK OSSleepThread(void *);
 void TLobby__sub_80429598(void);
 extern M2C_UNK lbl_805D7C38;
-u8 TLobby__sub_8042BE64(void);
+u8 exi_read_status_byte__6TLobbyFv(void);
 }
 
 extern "C" {
@@ -454,7 +454,7 @@ s16 TLobby__sub_804262CC(void *argp);
 
 s32 TLobby__sub_80426440(void);
 
-s32 TLobby__sub_80426448(s32 arg0, u16 arg1);
+s32 post_send_message__6TLobbyFiUs(s32 arg0, u16 arg1);
 
 void TLobby__sub_804264D4(s32 arg0);
 
@@ -530,7 +530,7 @@ s32 TLobby__sub_80428768(u8 *arg0) {
     u32 limit;
     s32 ret;
     ret = 0;
-    TLobby__sub_803F9214(&start);
+    get_time_ms__6TLobbyFPv(&start);
     p = *M2C_FIELD(&lbl_805D0A40.value, s16 ***, 0x10);
     if (p == NULL) {
         limit = *(s16 *)(arg0 + 4) * 1000;
@@ -542,13 +542,13 @@ s32 TLobby__sub_80428768(u8 *arg0) {
             ret = 4;
             break;
         }
-        TLobby__sub_803F9214(&now);
+        get_time_ms__6TLobbyFPv(&now);
         if ((u32)(now - start) > limit) {
             break;
         }
-        TUdpSocket__sub_803F95A4(lbl_805C18A0[0]);
+        unlock_mutex__10TUdpSocketFi(lbl_805C18A0[0]);
         TLobby__sub_803F97E8(100);
-        TLobby__sub_803F95C4(lbl_805C18A0[0]);
+        lock_mutex__6TLobbyFi(lbl_805C18A0[0]);
     }
     return ret;
 }
@@ -611,7 +611,7 @@ s32 TLobby__sub_8042B9C0(void *p);
 
 void TLobby__sub_8042BA48(s32 arg0, s32 arg1);
 
-u8 TLobby__sub_8042BE64(void);
+u8 exi_read_status_byte__6TLobbyFv(void);
 
 void TAdSinglePlyChrSelectGC__sub_8042BF48(void);
 
@@ -625,15 +625,15 @@ void TAdSinglePlyChrSelectGC__sub_8042DDE4(int _w0, int _w1);
 
 typedef char RecoveredGlobal_8042E768_lbl_805D1D20_size[sizeof(RecoveredGlobal_8042E768_lbl_805D1D20) == 0x1C ? 1 : -1];
 
-s32 TAdSinglePlyChrSelectGC__sub_8042E57C(s32 arg0);
+s32 send_at_ms_command__23TAdSinglePlyChrSelectGCFi(s32 arg0);
 
-s32 TAdSinglePlyChrSelectGC__sub_8042E628(s32 arg0);
+s32 send_at_error_correction_cmd__23TAdSinglePlyChrSelectGCFi(s32 arg0);
 
-s32 TAdSinglePlyChrSelectGC__sub_8042E6C4(s32 arg0);
+s32 send_at_compression_cmd__23TAdSinglePlyChrSelectGCFi(s32 arg0);
 
 s32 TAdSinglePlyChrSelectGC__sub_8042E768(u32 arg0);
 
-s32 TAdSinglePlyChrSelectGC__sub_8042E7B8(s32 arg0);
+s32 send_atx_command__23TAdSinglePlyChrSelectGCFi(s32 arg0);
 
 s32 TAdSinglePlyChrSelectGC__sub_8042E84C(s32 arg0);
 

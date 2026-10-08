@@ -14,7 +14,7 @@ typedef char RecoveredGlobal_8035007C___vt__10TItemEffPG_size[sizeof(RecoveredGl
 
 extern "C" {
 void *__nw__7TObjectFUl(int);
-s32 fn_802E4A4C(void *, void *, void *);
+s32 construct_attack_collision(void *, void *, void *);
 s32 TItemEffPG__sub_8034FCF0(int, void *, void *);
 extern M2C_UNK __vt__10TItemEffPG[];
 extern s32 lbl_805D4350;
@@ -29,7 +29,7 @@ void *__dt__10TItemEffPGFv(void *arg0, s16 arg1);
 void create__10TItemEffPGFPvPv(void *arg0, void *arg1);
 void* init_params__10TItemEffPGFPv(void* a0);
 void run_task__10TItemEffPGFv(void *arg0);
-M2C_UNK TItemAttackCol__sub_802E4918(void *);
+M2C_UNK check_hits__14TItemAttackColFPv(void *);
 M2C_UNK TItemEffPG__sub_8034FA50(void *);
 int TObjPlayer__sub_802E451C(void);
 void __dl__7TObjectFPv(void *);
@@ -60,7 +60,7 @@ void run_task__10TItemEffPGFv(void *arg0) {
                 M2C_FIELD(arg0, f32 *, 0x40) = temp_f1_2;
             }
         }
-        TItemAttackCol__sub_802E4918(arg0);
+        check_hits__14TItemAttackColFPv(arg0);
         return;
     }
     if ((u32) M2C_FIELD(arg0, u32 *, 0x14) == 0U) {
@@ -90,7 +90,7 @@ void *__dt__10TItemEffPGFv(void *arg0, s16 arg1) {
 u8 *TItemEffPG__ct(u8 *arg0, s32 arg1, u8 *arg2) {
     s32 temp_r3;
     s32 var_r0;
-    fn_802E4A4C((void *) (arg0), (void *) (arg1), (void *) (arg2));
+    construct_attack_collision((void *) (arg0), (void *) (arg1), (void *) (arg2));
     M2C_FIELD(arg0, M2C_UNK **, 0x18) = &(*(RecoveredGlobal_8035007C___vt__10TItemEffPG *)&__vt__10TItemEffPG).value;
     M2C_FIELD(arg0, s32 *, 0) = (s32) lbl_805D4350;
     M2C_FIELD(arg0, f32 *, 0xC4) = (f32) M2C_FIELD(arg2, f32 *, 0x28);

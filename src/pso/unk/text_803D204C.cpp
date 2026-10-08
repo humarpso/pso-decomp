@@ -37,13 +37,13 @@ struct Buf_803D2104
 };
 
 extern "C" {
-void TLobby__sub_803D1FD4(void);
+void restore_interrupts_nested__6TLobbyFv(void);
 void lock_enter__6TLobbyFv(void);
 void TLobby__sub_803D2234(Obj_803D2234 *arg0, u32 arg1, Buf_803D2234 *arg2);
-void TLobby__sub_803D1FD4(void);
+void restore_interrupts_nested__6TLobbyFv(void);
 void lock_enter__6TLobbyFv(void);
 void TLobby__sub_803D22C8(Obj_803D22C8 *arg0, s32 arg1, s32 arg2, Buf_803D22C8 *arg3);
-void TLobby__sub_803D1FD4(void);
+void restore_interrupts_nested__6TLobbyFv(void);
 void lock_enter__6TLobbyFv(void);
 void TLobby__sub_803D2104(Obj_803D2104 *arg0, s32 arg1, Buf_803D2104 *arg2);
 }
@@ -106,7 +106,7 @@ void TLobby__sub_803D2104(Obj_803D2104 *arg0, s32 arg1, Buf_803D2104 *arg2) {
       arg0->cb(arg0->cbArg, -3);
     }
   }
-  TLobby__sub_803D1FD4();
+  restore_interrupts_nested__6TLobbyFv();
 }
 
 void TLobby__sub_803D2234(Obj_803D2234 *arg0, u32 arg1, Buf_803D2234 *arg2) {
@@ -121,7 +121,7 @@ void TLobby__sub_803D2234(Obj_803D2234 *arg0, u32 arg1, Buf_803D2234 *arg2) {
             arg0->cb(arg0->cbArg, -3);
         }
     }
-    TLobby__sub_803D1FD4();
+    restore_interrupts_nested__6TLobbyFv();
 }
 void TLobby__sub_803D22C8(Obj_803D22C8 *arg0, s32 arg1, s32 arg2, Buf_803D22C8 *arg3) {
     lock_enter__6TLobbyFv();
@@ -140,7 +140,7 @@ void TLobby__sub_803D22C8(Obj_803D22C8 *arg0, s32 arg1, s32 arg2, Buf_803D22C8 *
             arg0->cb(arg0->cbArg, -3);
         }
     }
-    TLobby__sub_803D1FD4();
+    restore_interrupts_nested__6TLobbyFv();
 }
 
 }

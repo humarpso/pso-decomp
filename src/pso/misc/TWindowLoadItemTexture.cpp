@@ -10,7 +10,7 @@ s32 get_camera_id__11TCameraCtrlFv(void);
 s32 create__12TItemTexLoadFPv(s32);
 void get_array_entry__20TWindowSubStatusDispFPvi(void *, int);
 M2C_UNK save_position__17TWindowSubComCardFPv(void *);
-M2C_UNK TWindowDD__sub_802466E0(void *, M2C_UNK *, s16, void *);
+M2C_UNK construct_base__9TWindowDDFPvPvsPv(void *, M2C_UNK *, s16, void *);
 extern M2C_UNK lbl_804D0058[];
 extern M2C_UNK __vt__22TWindowLoadItemTexture[];
 extern s32 lbl_805D3940;
@@ -94,7 +94,7 @@ void *__dt__22TWindowLoadItemTextureFv(void *arg0, s16 arg1) {
 
 void *TWindowLoadItemTexture__ct(void *arg0, void *arg1, void *arg2, void *arg3) {
     void *e;
-    TWindowDD__sub_802466E0(arg0, lbl_804D0058, (s16)(s32)arg3, arg1);
+    construct_base__9TWindowDDFPvPvsPv(arg0, lbl_804D0058, (s16)(s32)arg3, arg1);
     M2C_FIELD(arg0, M2C_UNK **, 0x18) = __vt__22TWindowLoadItemTexture;
     M2C_FIELD(arg0, s32 *, 0) = lbl_805D3940;
     switch (get_camera_id__11TCameraCtrlFv()) {

@@ -15,12 +15,12 @@ s32 is_rand_below_threshold__10TObjPlayerFv(void *);
 void TObjPlayer__sub_8012B1F0(void *p, s16 v);
 s16 TObjPlayer__sub_8012B1F8(void *p);
 extern u8 lbl_805D53EC;
-void TObjPlayer__sub_8012AFF8(Obj_8012AFF8 *arg0);
+void draw_dual_weapons__10TObjPlayerFPv(Obj_8012AFF8 *arg0);
 }
 
 extern "C" {
 
-void TObjPlayer__sub_8012AFF8(Obj_8012AFF8 *arg0) {
+void draw_dual_weapons__10TObjPlayerFPv(Obj_8012AFF8 *arg0) {
     s32 saved;
     s32 savedF4;
     saved = TObjPlayer__sub_8012B1F8(arg0);

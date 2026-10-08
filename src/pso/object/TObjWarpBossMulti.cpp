@@ -219,7 +219,7 @@ M2C_UNK clear_flag__11TWindowCtrlFv();
 M2C_UNK close__17TWindowSubComCardFPv(void *);
 s32 get_state__6TLobbyFv();
 M2C_UNK align_menu_entry_positions(u32);
-M2C_UNK TWindowSubComCard__sub_80265F60(u32);
+M2C_UNK calc_window_size__17TWindowSubComCardFPv(u32);
 M2C_UNK get_window_layout_position(M2C_UNK);
 M2C_UNK add_text_entry__19TWindowSubTradeMainFPviiii(u32, s32, M2C_UNK, M2C_UNK, M2C_UNK);
 u32 check_room_seq_4__16TAdChrSelASlotGCFii(M2C_UNK, M2C_UNK);
@@ -261,14 +261,14 @@ void warp_player__17TObjWarpBossMultiFPvi(void *arg0, s32 arg1);
 s32 TLobby__sub_800C6C10();
 s32 get_slot_or_neg1__17TWindowSubComCardFPv(void *);
 s32 get_card_data__17TWindowSubComCardFPv(void *);
-s32 TWindowSubComCard__sub_802A57FC(void *);
+s32 is_child_visible__17TWindowSubComCardFPv(void *);
 extern s32 lbl_805D5C90;
 extern s32 lbl_805D5C98;
 void TObjWarpBossMulti__sub_8019E798(u8 *arg0);
 void warp_boss_handle_window(void *arg0);
 void update_state__17TObjWarpBossMultiFPv(void *arg0);
 void update_warp_state__17TObjWarpBossMultiFPv(u8 *arg0);
-void TObjPlayer__sub_8019EE14(u8 *arg0);
+void update_warp_occupants__10TObjPlayerFPv(u8 *arg0);
 void update__12TObjWarpBossFPv(void *arg0);
 void TObjWarpBoss__vt18(Wb_8019F2C0 *arg0);
 void render__12TObjWarpBossFv(u8 *arg0);
@@ -616,7 +616,7 @@ void warp_boss_handle_window(void *arg0) {
                 if ((u32) M2C_FIELD(arg0, u32 *, 0xB0) != 0U) {
                     add_text_entry__19TWindowSubTradeMainFPviiii(M2C_FIELD(arg0, u32 *, 0xB0), get_message_10__20TWindowSubStatusDispFPv(0x40), 0, 0, -1);
                     set_flag_40__16TAdChrSelASlotGCFPv(M2C_FIELD(arg0, u32 *, 0xB0));
-                    TWindowSubComCard__sub_80265F60(M2C_FIELD(arg0, u32 *, 0xB0));
+                    calc_window_size__17TWindowSubComCardFPv(M2C_FIELD(arg0, u32 *, 0xB0));
                     align_menu_entry_positions(M2C_FIELD(arg0, u32 *, 0xB0));
                 }
                 begin_player_keyboard_hold(lbl_805D53A0);
@@ -765,7 +765,7 @@ void TObjWarpBossMulti__sub_8019EB94(void *arg0_) {
         if (M2C_FIELD(arg0, void **, 0x168) != NULL) {
             if (get_card_data__17TWindowSubComCardFPv(M2C_FIELD(arg0, void **, 0x168)) != 0) {
                 M2C_FIELD(arg0, s16 *, 0xE0) = 3;
-            } else if (TWindowSubComCard__sub_802A57FC(M2C_FIELD(arg0, void **, 0x168)) != 0) {
+            } else if (is_child_visible__17TWindowSubComCardFPv(M2C_FIELD(arg0, void **, 0x168)) != 0) {
                 r = get_slot_or_neg1__17TWindowSubComCardFPv(M2C_FIELD(arg0, void **, 0x168));
                 if (r == 0) {
                     warp_player__17TObjWarpBossMultiFPvi(arg0, lbl_805D53A0);
@@ -811,7 +811,7 @@ void TObjWarpBossMulti__sub_8019EB94(void *arg0_) {
 }
 #undef arg0
 
-void TObjPlayer__sub_8019EE14(u8 *arg0) {
+void update_warp_occupants__10TObjPlayerFPv(u8 *arg0) {
     Warp_8019EE14 *self = (Warp_8019EE14 *)arg0;
     s32 i;
     s32 inside;
@@ -935,7 +935,7 @@ void run_task__12TObjWarpBossFv(u8 *arg0) {
             M2C_FIELD(arg0, s16 *, 0xDE) = (s16) M2C_FIELD(arg0, s16 *, 0xDC);
             M2C_FIELD(arg0, s16 *, 0xE0) = 0;
         }
-        ((M2C_UNK (*)(void *))TObjPlayer__sub_8019EE14)((void *) (arg0));
+        ((M2C_UNK (*)(void *))update_warp_occupants__10TObjPlayerFPv)((void *) (arg0));
         update__12TObjWarpBossFPv((void *) (arg0));
         if ((void *) M2C_FIELD(arg0, u8 **, 0xD4) != NULL) {
             M2C_FIELD(arg0, f32 *, 0xC4) = (f32) (M2C_FIELD(arg0, f32 *, 0xC4) + lbl_805DC004);

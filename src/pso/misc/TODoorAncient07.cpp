@@ -13,7 +13,7 @@ struct VObj1 : Base1 {
 };
 
 extern "C" {
-s32 fn_801582C4(void *, f32);
+s32 is_in_view_depth(void *, f32);
 M2C_UNK begin_effect_render__13TParticleCtrlFv();
 M2C_UNK end_effect_render__13TParticleCtrlFv();
 M2C_UNK rotate_matrix_y(M2C_UNK, s32);
@@ -52,7 +52,7 @@ extern const f32 lbl_805DB460;
 
 void render__15TODoorAncient07Fv(u8 *arg0) {
     VObj1 *self = (VObj1 *)arg0;
-    if ((self->m8(lbl_805DB450, lbl_805DB454) != 0) && (fn_801582C4(arg0, lbl_805DB458) != 0)) {
+    if ((self->m8(lbl_805DB450, lbl_805DB454) != 0) && (is_in_view_depth(arg0, lbl_805DB458) != 0)) {
         push_matrix();
         post_translate_matrix(arg0 + 0x38);
         rotate_matrix_y(0, M2C_FIELD(arg0, s32 *, 0x60));

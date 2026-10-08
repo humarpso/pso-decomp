@@ -21,20 +21,20 @@ M2C_UNK draw_model_motion(int, void *, f32);
 extern M2C_UNK lbl_804FF240[];
 extern const f32 lbl_805D8A30;
 extern const f32 lbl_805D8A34;
-void TObjPlayer__sub_80051BE0(u16 arg0, s32 arg1, f32 farg0, f32 farg1);
+void draw_player_model_by_client__10TObjPlayerFUsiff(u16 arg0, s32 arg1, f32 farg0, f32 farg1);
 }
 
 extern "C" {
 
 void render__16TObjDFTenchuFuruFPv(void* a0);
-int TObjDFTenchuFuru__sub_80051AD0(void*);
-int TObjPlayer__sub_803D8CD4(void*);
+int transform_node_tree__16TObjDFTenchuFuruFPv(void*);
+int set_matrix_identity__10TObjPlayerFPv(void*);
 int push_matrix(void);
 int pop_matrix(void);
 
     extern int lbl_805D4D78;
-void render__16TObjDFTenchuFuruFPv(void* a0) { lbl_805D4D78 = 0; push_matrix(); TObjPlayer__sub_803D8CD4((void*)0); TObjDFTenchuFuru__sub_80051AD0(a0); pop_matrix(); }
-void TObjPlayer__sub_80051BE0(u16 arg0, s32 arg1, f32 farg0, f32 farg1) {
+void render__16TObjDFTenchuFuruFPv(void* a0) { lbl_805D4D78 = 0; push_matrix(); set_matrix_identity__10TObjPlayerFPv((void*)0); transform_node_tree__16TObjDFTenchuFuruFPv(a0); pop_matrix(); }
+void draw_player_model_by_client__10TObjPlayerFUsiff(u16 arg0, s32 arg1, f32 farg0, f32 farg1) {
     u8 *p;
     u32 a;
     u32 b;

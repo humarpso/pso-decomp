@@ -94,16 +94,16 @@ extern const f32 lbl_805DA410;
 extern const f32 lbl_805DA414;
 extern const f32 lbl_805DA418;
 extern const f32 lbl_805DA41C;
-void TObjPlayer__sub_800DA508(Ene_800DA508 *arg0, Vec_800DA508 *center, f32 radius);
+void update_circle_move__10TObjPlayerFPvPvf(Ene_800DA508 *arg0, Vec_800DA508 *center, f32 radius);
 M2C_UNK apply_actor_gravity(void *, int, f32);
 M2C_UNK enemy_turn_half_toward_dest(void *);
 s32 VecCopy__FP3VecPC3Vec(void *, void *);
 M2C_UNK update_if_active__15TObjEneMe1GiGueFPv(void *, M2C_UNK);
 M2C_UNK TBoss3VoloptMonitor__sub_8004292C();
 M2C_UNK spawn_particle_effect(void *, int);
-M2C_UNK TObjPlayer__sub_800D9E8C(void *);
+M2C_UNK render_model_transformed__10TObjPlayerFPv(void *);
 void TObjPlayer__sub_800DA4B4(Obj_800DA4B4 *self, s32 i);
-M2C_UNK TObjPlayer__sub_800DC83C(u32, void *, void *, u8, void *);
+M2C_UNK construct_beam_effect__10TObjPlayerFPvPvPviPv(u32, void *, void *, u8, void *);
 M2C_UNK advance_animation_playback(void *);
 M2C_UNK update_collisions__10TObjPlayerFPv(void *);
 M2C_UNK play_persistent_sound(int, void *, void *, int, int);
@@ -133,7 +133,7 @@ M2C_UNK enemy_wander_home(void *, int, f32, f32, f32);
 M2C_UNK update_if_active__15TObjEneMe1GiGueFPv(void *, M2C_UNK);
 M2C_UNK TBoss3VoloptMonitor__sub_8004292C();
 M2C_UNK spawn_particle_effect(void *, int);
-M2C_UNK TObjPlayer__sub_800D9E8C(void *);
+M2C_UNK render_model_transformed__10TObjPlayerFPv(void *);
 s32 TObjPlayer__sub_800D9F4C(void *);
 void TObjPlayer__sub_800DA414(Obj_800DA414 *arg0, s32 arg1);
 s32 objInBand__FP7GameObjf(void *, f32);
@@ -156,7 +156,7 @@ M2C_UNK update_if_active__15TObjEneMe1GiGueFPv(void *, M2C_UNK);
 M2C_UNK TBoss3VoloptMonitor__sub_8004292C();
 M2C_UNK spawn_particle_effect(void *, int);
 void find_target_in_range__10TObjPlayerFPvf(void *, f32);
-void TObjPlayer__sub_800D9C7C(void *, void *);
+void find_open_direction__10TObjPlayerFPvPv(void *, void *);
 f32 TObjPlayer__sub_800DC434(void *, s32);
 s32 TObjPlayer__sub_800DC478(void *, s32, f32);
 f32 xz_distance_squared(void *, void *);
@@ -194,7 +194,7 @@ extern const f32 lbl_805DA420;
 extern const f32 lbl_805DA424;
 extern const f32 lbl_805DA428;
 extern const f32 lbl_805DA42C;
-void TObjPlayer__sub_800DA5FC(u8 *arg0);
+void update_death_sequence__10TObjPlayerFPv(u8 *arg0);
 }
 
 extern "C" {
@@ -240,7 +240,7 @@ void TObjPlayer__sub_800DA4B4(Obj_800DA4B4 *self, s32 i) {
 
 #pragma push
 #pragma fp_contract on
-void TObjPlayer__sub_800DA508(Ene_800DA508 *arg0, Vec_800DA508 *center, f32 radius) {
+void update_circle_move__10TObjPlayerFPvPvf(Ene_800DA508 *arg0, Vec_800DA508 *center, f32 radius) {
     s32 ang;
     f32 r;
     if (xz_distance_squared(&arg0->pos, &arg0->dest) < lbl_805DA40C) {
@@ -267,7 +267,7 @@ inline f32 fmax_800DA5FC(f32 a, f32 b) {
     }
     return b;
 }
-void TObjPlayer__sub_800DA5FC(u8 *arg0) {
+void update_death_sequence__10TObjPlayerFPv(u8 *arg0) {
     f32 var_f1;
     s32 temp_r0;
     temp_r0 = M2C_FIELD(arg0, s32 *, 0x37C);
@@ -432,7 +432,7 @@ void TObjPlayer__sub_800DAB98(u8 *arg0) {
             if (F(u32, 0x2A8) != 0) {
                 VecCopy__FP3VecPC3Vec(&v, arg0 + 0x38);
                 subtract_vector(&v, F(u8 *, 0x2A8) + 0x38);
-                TObjPlayer__sub_800D9C7C(arg0, &v);
+                find_open_direction__10TObjPlayerFPvPv(arg0, &v);
                 calc_velocity_toward_destination(arg0, POS, DEST, F(f32, 0x3D8));
             } else {
                 VecCopy__FP3VecPC3Vec(arg0 + 0x390, arg0 + 0x50);
@@ -541,7 +541,7 @@ void TObjPlayer__sub_800DB0F8(Obj_800DB0F8 *o) {
         switch (o->state) {
         case 1:
             if (o->frame >= lbl_805DA45C) {
-                TObjPlayer__sub_800D9E8C(o);
+                render_model_transformed__10TObjPlayerFPv(o);
                 spawn_particle_effect(o->fx39C, 0xF7);
                 spawn_particle_effect(o->fx3A8, 0xF7);
                 o->state = 2;
@@ -550,7 +550,7 @@ void TObjPlayer__sub_800DB0F8(Obj_800DB0F8 *o) {
         case 2:
             play_persistent_sound(0x4003AD1E, o, o->pos, 0, 0);
             if (o->frame >= lbl_805DA3FC) {
-                TObjPlayer__sub_800D9E8C(o);
+                render_model_transformed__10TObjPlayerFPv(o);
                 for (i = 0; i < o->count; i++) {
                     TObjPlayer__sub_800DA414((Obj_800DA414 *)o, i);
                 }
@@ -619,7 +619,7 @@ void TObjPlayer__sub_800DB390(u8 *arg0) {
         switch (temp_r4) {
         case 1:
             if (M2C_FIELD(arg0, f32 *, 0xC0) >= lbl_805DA45C) {
-                TObjPlayer__sub_800D9E8C((void *) (arg0));
+                render_model_transformed__10TObjPlayerFPv((void *) (arg0));
                 spawn_particle_effect((void *) (arg0 + 0x39C), (int) (0xF7));
                 M2C_FIELD(arg0, s32 *, 0x37C) = 2;
             }
@@ -627,10 +627,10 @@ void TObjPlayer__sub_800DB390(u8 *arg0) {
         case 2:
             play_persistent_sound((int) (0x4003AD1E), (void *) (arg0), (void *) (arg0 + 0x38), (int) (0), (int) (0));
             if (M2C_FIELD(arg0, f32 *, 0xC0) >= lbl_805DA3FC) {
-                TObjPlayer__sub_800D9E8C((void *) (arg0));
+                render_model_transformed__10TObjPlayerFPv((void *) (arg0));
                 u32 obj = __nw__7TObjectFUl(0x100);
                 if (obj != 0U) {
-                    TObjPlayer__sub_800DC83C(obj, arg0 + 0x39C, (void *) (M2C_FIELD(arg0, u32 *, 0x2A8) + 0x2FC), (u8) !(M2C_FIELD(arg0, s32 *, 0x30) & 0x01000000), arg0);
+                    construct_beam_effect__10TObjPlayerFPvPvPviPv(obj, arg0 + 0x39C, (void *) (M2C_FIELD(arg0, u32 *, 0x2A8) + 0x2FC), (u8) !(M2C_FIELD(arg0, s32 *, 0x30) & 0x01000000), arg0);
                 }
                 TObjPlayer__sub_800DA4B4((Obj_800DA4B4 *) (arg0), 0);
                 play_sound_effect((int) (0x4003A527), (void *) (arg0 + 0x38), (int) (0), (int) (0));

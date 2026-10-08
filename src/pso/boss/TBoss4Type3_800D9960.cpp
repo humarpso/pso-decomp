@@ -37,7 +37,7 @@ extern const f32 lbl_805DA3F0;
 Trail_800D9ABC *init_trail_buffer__11TBoss4Type3FPvifff(Trail_800D9ABC *arg0, s32 segs, f32 start, f32 end, f32 step);
 void fn_800D97E8(void *, s32, M2C_UNK);
 void bind_motion_context(s32, f32);
-void TObjPlayer__sub_803D8CD4(M2C_UNK);
+void set_matrix_identity__10TObjPlayerFPv(M2C_UNK);
 void push_matrix(Vec_800D9994 *);
 void pop_matrix();
 void set_global_flag__10TObjPlayerFv();
@@ -49,7 +49,7 @@ extern s32 lbl_805D5238;
 extern s32 lbl_805D523C;
 extern s32 lbl_805D5240;
 extern const f32 lbl_805DA3EC;
-void TBoss4Type3__sub_800D9994(Arg_800D9994 *arg0, s32 arg1, s32 arg2, s32 arg3, s32 arg4);
+void draw_motion_trail__11TBoss4Type3FPviiii(Arg_800D9994 *arg0, s32 arg1, s32 arg2, s32 arg3, s32 arg4);
 }
 
 extern "C" {
@@ -62,10 +62,10 @@ typedef char RecoveredGlobal_800D9960_lbl_80500FA4_size[sizeof(RecoveredGlobal_8
 void draw_trail_with_colors(u8 *arg0, s32 arg1, s32 arg2, s32 arg3, s32 arg4) {
     M2C_FIELD(&lbl_80500FA4.value, s32 *, 0) = arg3;
     M2C_FIELD(&lbl_80500FA4.value, s32 *, 4) = arg4;
-    TBoss4Type3__sub_800D9994((Arg_800D9994 *)(arg0), (s32)(arg1), (s32)(arg2), (s32)((s32) &lbl_80500FA4.value), (s32)(0));
+    draw_motion_trail__11TBoss4Type3FPviiii((Arg_800D9994 *)(arg0), (s32)(arg1), (s32)(arg2), (s32)((s32) &lbl_80500FA4.value), (s32)(0));
 }
 
-void TBoss4Type3__sub_800D9994(Arg_800D9994 *arg0, s32 arg1, s32 arg2, s32 arg3, s32 arg4) {
+void draw_motion_trail__11TBoss4Type3FPviiii(Arg_800D9994 *arg0, s32 arg1, s32 arg2, s32 arg3, s32 arg4) {
     f32 f;
     s32 i;
     set_global_flag__10TObjPlayerFv();
@@ -80,7 +80,7 @@ void TBoss4Type3__sub_800D9994(Arg_800D9994 *arg0, s32 arg1, s32 arg2, s32 arg3,
     f = arg0->start;
     for (i = 0; i < arg0->count; i++) {
         lbl_805D5238 = 0;
-        TObjPlayer__sub_803D8CD4(0);
+        set_matrix_identity__10TObjPlayerFPv(0);
         bind_motion_context(arg2, f);
         fn_800D97E8(arg0, arg1, 0);
         f += arg0->step;

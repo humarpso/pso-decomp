@@ -28,7 +28,7 @@ s32 TQuestVmDownLoadServer__sub_8006EF6C(M2C_UNK);
 int suppress_slot__11TWindowCtrlFi(void*);
 M2C_UNK unsuppress_slot__11TWindowCtrlFi(int);
 M2C_UNK set_selected_index__17TWindowSubComCardFPvs(u32, M2C_UNK);
-M2C_UNK TWindowSubComCard__sub_80265F60(u32);
+M2C_UNK calc_window_size__17TWindowSubComCardFPv(u32);
 M2C_UNK get_window_layout_position(M2C_UNK);
 int TWindow__close(void*);
 M2C_UNK set_loss_flag__6TLobbyFPv(u32);
@@ -73,7 +73,7 @@ void open_giveup_window__6TLobbyFPv(void *arg0) {
     if ((u32) M2C_FIELD(arg0, u32 *, 0x2C) != 0U) {
         forward_trade_action_default__16TObjCityMainWarpFPviii(M2C_FIELD(arg0, u32 *, 0x2C), TQuestVmDownLoadServer__sub_8006EF6C(0x5B), 5, 0);
         forward_trade_action_default__16TObjCityMainWarpFPviii(M2C_FIELD(arg0, u32 *, 0x2C), TQuestVmDownLoadServer__sub_8006EF6C(0x5C), 5, 1);
-        TWindowSubComCard__sub_80265F60(M2C_FIELD(arg0, u32 *, 0x2C));
+        calc_window_size__17TWindowSubComCardFPv(M2C_FIELD(arg0, u32 *, 0x2C));
         set_loss_flag__6TLobbyFPv(M2C_FIELD(arg0, u32 *, 0x2C));
         set_selected_index__17TWindowSubComCardFPvs(M2C_FIELD(arg0, u32 *, 0x2C), 0);
     }
@@ -276,7 +276,7 @@ s32 obj_testFlags30(s32, M2C_UNK);
 s32 get_global_state__14TOKeyMachine01Fv();
 s32 TWindowCtrlMain__sub_8024CE58();
 
-void TLobby__sub_8029A414(void *arg0);
+void update_giveup__6TLobbyFPv(void *arg0);
 }
 
 extern "C" {
@@ -296,7 +296,7 @@ void update_challenge_4p_retry__6TLobbyFPv(void *arg0) {
         M2C_FIELD(arg0, s32 *, 0x1C) = 2;
     }
 }
-void TLobby__sub_8029A414(void *arg0) {
+void update_giveup__6TLobbyFPv(void *arg0) {
     s32 flag;
     s32 i;
     switch (get_global_state__14TOKeyMachine01Fv()) {
@@ -363,7 +363,7 @@ void run_task__20TObjChallenge4PRetryFv(u8 *arg0) {
     temp_r0 = M2C_FIELD(arg0, s32 *, 0x1C);
     switch (temp_r0) {
     case 0:
-        TLobby__sub_8029A414((void *) (arg0));
+        update_giveup__6TLobbyFPv((void *) (arg0));
         break;
     case 1:
         update_challenge_4p_retry__6TLobbyFPv((void *) (arg0));

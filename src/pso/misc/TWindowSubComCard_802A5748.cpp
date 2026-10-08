@@ -6,14 +6,14 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 
 extern "C" {
 s32 is_visible__17TWindowSubComCardFPv(s32);
-s32 TWindowSubComCard__sub_802A57FC(void *arg0);
+s32 is_child_visible__17TWindowSubComCardFPv(void *arg0);
 s32 forward_trade_action_default__16TObjCityMainWarpFPviii(s32, s32, s32, s32);
 u8 * create_yes_no_window(M2C_UNK, s32, void *, u32);
 s32 create_window_menu(s32, s32, s32);
 u8 * create_titled_window_menu(M2C_UNK, M2C_UNK, s32, s32);
 int set_flag_40__16TAdChrSelASlotGCFPv(void*);
 s32 set_status_flag_80__12TQuestThreadFPv(s32);
-s32 TWindowSubComCard__sub_80265CFC(s32, f32);
+s32 calc_layout_height__17TWindowSubComCardFPvf(s32, f32);
 M2C_UNK get_position_offset__14TChCrTagPlBackFPvPv(void *, void *);
 void open_yes_no_prompt(u8 *arg0, u32 arg1, s32 arg2, s32 arg3, f32 farg0);
 }
@@ -27,9 +27,9 @@ s32 get_slot_or_neg1__17TWindowSubComCardFPv(void *arg0);
 void initialize_option_dialog(void *arg0, s32 arg1, s32 arg2, f32 farg0);
 s32 create_window_menu(s32, s32, s32);
 int confirm_selection__11TWindowMenuFPv(void*);
-s32 TWindowSubComCard__sub_80244888(void *);
+s32 reparent_to_main_ctrl__17TWindowSubComCardFi(void *);
 s32 get_selected_menu_value(s32);
-s32 TWindowSubComCard__sub_80265CFC(s32, f32);
+s32 calc_layout_height__17TWindowSubComCardFPvf(s32, f32);
 int clear_trade_flag__19TWindowSubTradeMainFPv(void*);
 void forward_slot_selection__16TAdChrSelASlotGCFPvPvPv(void* p, void* a1, void* a2);
 s32 forward_trade_action_default__16TObjCityMainWarpFPviii(s32, s32, s32, s32);
@@ -61,7 +61,7 @@ s32 get_card_data__17TWindowSubComCardFPv(void *arg0) {
     return get_status_flag__17TWindowSubComCardFPv(v);
 }
 
-s32 TWindowSubComCard__sub_802A57FC(void *arg0) {
+s32 is_child_visible__17TWindowSubComCardFPv(void *arg0) {
     if ((u32) M2C_FIELD(arg0, u32 *, 0x2C) == 0U) {
         return 0;
     }
@@ -73,7 +73,7 @@ void initialize_option_dialog(void *arg0, s32 arg1, s32 arg2, f32 farg0) {
     forward_trade_action_default__16TObjCityMainWarpFPviii(M2C_FIELD(arg0, s32 *, 0x28), arg1, 0x21, 0);
     set_flag_40__16TAdChrSelASlotGCFPv((void*)(M2C_FIELD(arg0, s32 *, 0x28)));
     set_status_flag_80__12TQuestThreadFPv(M2C_FIELD(arg0, s32 *, 0x28));
-    TWindowSubComCard__sub_80265CFC(M2C_FIELD(arg0, s32 *, 0x28), farg0);
+    calc_layout_height__17TWindowSubComCardFPvf(M2C_FIELD(arg0, s32 *, 0x28), farg0);
 }
 void open_yes_no_prompt(u8 *arg0, u32 arg1, s32 arg2, s32 arg3, f32 farg0) {
     M2C_UNK sp8;
@@ -85,7 +85,7 @@ void open_yes_no_prompt(u8 *arg0, u32 arg1, s32 arg2, s32 arg3, f32 farg0) {
     forward_trade_action_default__16TObjCityMainWarpFPviii((s32)((void *) M2C_FIELD(arg0, s32 *, 0x28)), (s32)(arg2), (s32)(0x21), (s32)(0));
     set_flag_40__16TAdChrSelASlotGCFPv((void*)((int) (M2C_FIELD(arg0, s32 *, 0x28))));
     set_status_flag_80__12TQuestThreadFPv((s32)((int) (M2C_FIELD(arg0, s32 *, 0x28))));
-    TWindowSubComCard__sub_80265CFC((s32)((int) (M2C_FIELD(arg0, s32 *, 0x28))), (f32) (farg0));
+    calc_layout_height__17TWindowSubComCardFPvf((s32)((int) (M2C_FIELD(arg0, s32 *, 0x28))), (f32) (farg0));
     get_position_offset__14TChCrTagPlBackFPvPv((void *) (arg0), (void *) (&sp8));
     M2C_FIELD(arg0, u8 **, 0x2C) = create_yes_no_window((s32) &sp8, M2C_FIELD(arg0, s32 *, 0x24), M2C_FIELD(arg0, u8 **, 0x20), M2C_FIELD(arg0, u32 *, 0x1C));
 }

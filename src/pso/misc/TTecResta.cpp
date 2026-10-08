@@ -120,7 +120,7 @@ s32 TTecPlayerInfluence__ct(void *, void *, void *, void *);
 s32 play_launch_sound__9TTecRestaFPv(void *);
 int init_cast__9TTecRestaFPv(void* p);
 void init_parameters__9TTecRestaFPv(u8 *arg0);
-s32 TTecAnti__sub_8022B35C(void *, int);
+s32 copy_params__8TTecAntiFPvPv(void *, int);
 extern M2C_UNK __vt__9TTecResta[];
 extern s32 lbl_805D3810;
 extern const f32 TTecResta__data_805DC908;
@@ -207,7 +207,7 @@ f32 TTecResta__sub_802394B0(s32 arg0) {
 void init_parameters__9TTecRestaFPv(u8 *arg0) {
   int new_var;
   new_var = (int) calc_technique_parameters((int) 0xF, (int) (*((s16 *) (((s8 *) arg0) + 0xA4))), (int) 0xFFFF);
-  TTecAnti__sub_8022B35C((void *) (arg0 + 0x74), new_var);
+  copy_params__8TTecAntiFPvPv((void *) (arg0 + 0x74), new_var);
   *((f32 *) (((s8 *) arg0) + 0x74)) = (f32) ((*((f32 *) (((s8 *) arg0) + 0x74))) + ((f32) ((*((s16 *) (((s8 *) arg0) + 0x98))) * (*((s16 *) (((s8 *) arg0) + 0xA4))))));
   if (((s32 (*)(void))is_technique_ready__8TTecCtrlFv)() != 0)
   {

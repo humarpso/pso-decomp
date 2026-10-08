@@ -76,7 +76,7 @@ s32 TObjPlayer__sub_80130368(s32 arg0, s32 arg1, s32 arg2, f32 farg0);
 M2C_UNK send_6x61_activate_mag_effect(void *, int);
 M2C_UNK spawn_item_timer__13TItemAttackerFiii(void *, void *, int);
 s32 is_mode_two_and_ready__10TObjPlayerFPv();
-M2C_UNK TObjPlayer__sub_8011F474(void *, f32);
+M2C_UNK for_each_target_in_range__10TObjPlayerFPvf(void *, f32);
 M2C_UNK update_active_game_effect__10TObjPlayerFPv(void *);
 M2C_UNK draw_status_icon__10TObjPlayerFPvi(void *, void *);
 void TObjPlayer__sub_801307D0(void);
@@ -130,7 +130,7 @@ void TObjPlayer__sub_80130490(u8 *arg0) {
             M2C_FIELD(arg0, s32 *, 0x204) = 0;
             return;
         }
-        TObjPlayer__sub_8011F474((void *) (arg0), (f32) (lbl_805DB000));
+        for_each_target_in_range__10TObjPlayerFPvf((void *) (arg0), (f32) (lbl_805DB000));
         return;
     }
     update_active_game_effect__10TObjPlayerFPv((void *) (arg0));

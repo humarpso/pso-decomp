@@ -43,8 +43,8 @@ M2C_UNK load_tables(s32);
 s32 is_slot_active__23TAdSinglePlyChrSelectGCFUi(s32);
 M2C_UNK play_sound_effect(M2C_UNK, M2C_UNK, M2C_UNK, M2C_UNK);
 M2C_UNK TWindow__close(void *);
-M2C_UNK TAdEnterSerialAccessGC__sub_802AEBA8(u32);
-M2C_UNK TLevelSelect__sub_802AEBE4(u32, void *);
+M2C_UNK reset_input_state__22TAdEnterSerialAccessGCFPv(u32);
+M2C_UNK add_item_rect__12TLevelSelectFPvPv(u32, void *);
 s32 get_player_index__22TAdMultiPlyChrSelectGCFPv(s32);
 M2C_UNK set_field_100__22TAdMultiPlyChrSelectGCFPvi(s32, M2C_UNK);
 s32 TAdMultiPlyChrSelectGC__sub_802DBD64(void *);
@@ -61,7 +61,7 @@ extern "C" {
 void update_input_state__22TAdMultiPlyChrSelectGCFPv(void *arg0);
 s32 TWindowShortListCtrl__check_controller_button(void *, M2C_UNK);
 M2C_UNK close__17TWindowSubComCardFPv(void *);
-s32 TWindowSubComCard__sub_802A57FC(u32);
+s32 is_child_visible__17TWindowSubComCardFPv(u32);
 M2C_UNK play_sound_effect(M2C_UNK, M2C_UNK, M2C_UNK, M2C_UNK);
 s32 get_player_index__22TAdMultiPlyChrSelectGCFPv(s32);
 s32 get_mode__22TAdMultiPlyChrSelectGCFPv(s32);
@@ -93,7 +93,7 @@ void update_input_state__22TAdMultiPlyChrSelectGCFPv(void *arg0) {
         M2C_FIELD(arg0, s32 *, 0x20) = 0x1D;
         return;
     }
-    if (TWindowSubComCard__sub_802A57FC(M2C_FIELD(arg0, u32 *, 0x94)) != 0) {
+    if (is_child_visible__17TWindowSubComCardFPv(M2C_FIELD(arg0, u32 *, 0x94)) != 0) {
         temp_r3 = get_slot_or_neg1__17TWindowSubComCardFPv(M2C_FIELD(arg0, u32 *, 0x94));
         switch (temp_r3) {
         case 0:
@@ -147,8 +147,8 @@ void TAdMultiPlyChrSelectGC__sub_802DC8A0(void *arg0) {
             if (M2C_FIELD(arg0, u32 *, 0x70) != 0U) {
                 allow_rendering__7TObjectFv(M2C_FIELD(arg0, void **, 0x70));
             }
-            TAdEnterSerialAccessGC__sub_802AEBA8(M2C_FIELD(arg0, u32 *, 0x70));
-            TLevelSelect__sub_802AEBE4(M2C_FIELD(arg0, u32 *, 0x70), &((Pair_802DC8A0 *)&TAdMultiPlyChrSelectGC__data_804727B0)[i]);
+            reset_input_state__22TAdEnterSerialAccessGCFPv(M2C_FIELD(arg0, u32 *, 0x70));
+            add_item_rect__12TLevelSelectFPvPv(M2C_FIELD(arg0, u32 *, 0x70), &((Pair_802DC8A0 *)&TAdMultiPlyChrSelectGC__data_804727B0)[i]);
             set_active__22TAdEnterSerialAccessGCFPv(M2C_FIELD(arg0, u32 *, 0x70));
             M2C_FIELD(arg0, u32 *, 0x58) = i;
             M2C_FIELD(arg0, s32 *, 0x94) = TAdMultiPlyChrSelectGC__sub_802DBD64(arg0);

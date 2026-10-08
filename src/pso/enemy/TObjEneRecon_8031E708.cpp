@@ -56,7 +56,7 @@ extern s32 lbl_805D6B04;
 extern s32 lbl_805D6B08;
 extern s32 lbl_805D6B0C;
 extern const f32 TObjEneRecon__data_805DF3C0;
-void TObjEneRecon__sub_8031E708(void);
+void load_resources__12TObjEneReconFv(void);
 }
 
 extern "C" {
@@ -68,7 +68,7 @@ typedef struct RecoveredGlobal_8031E708_lbl_804EC40C RecoveredGlobal_8031E708_lb
 typedef struct Stack_8031E708 Stack_8031E708;
 typedef char RecoveredGlobal_8031E708_lbl_804760EC_size[((sizeof(RecoveredGlobal_8031E708_lbl_804760EC)) == 0x10) ? (1) : (-1)];
 typedef char RecoveredGlobal_8031E708_lbl_804EC40C_size[((sizeof(RecoveredGlobal_8031E708_lbl_804EC40C)) == 0x2C) ? (1) : (-1)];
-void TObjEneRecon__sub_8031E708(void) {
+void load_resources__12TObjEneReconFv(void) {
   Stack_8031E708 stack;
   s32 temp_r3;
   s32 var_r4;

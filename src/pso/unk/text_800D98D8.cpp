@@ -15,7 +15,7 @@ struct RecoveredGlobal_800D98D8_lbl_80500FA4 {
 
 extern "C" {
 void VecCopy__FP3VecPC3Vec(void *, void *);
-void TBoss4Type3__sub_800D9994(void *, s32, s32, s32, s32);
+void draw_motion_trail__11TBoss4Type3FPviiii(void *, s32, s32, s32, s32);
 extern RecoveredGlobal_800D98D8_lbl_80500F8C lbl_80500F8C;
 extern RecoveredGlobal_800D98D8_lbl_80500FA4 lbl_80500FA4;
 void TObjEneMe3ShinowaMirage__sub_800D98D8(u8 *arg0, s32 arg1, s32 arg2, s32 arg3, u8 *arg4, u8 *arg5);
@@ -30,7 +30,7 @@ void TObjEneMe3ShinowaMirage__sub_800D98D8(u8 *arg0, s32 arg1, s32 arg2, s32 arg
     M2C_FIELD(&lbl_80500FA4.value, s32 *, 4) = arg3;
     VecCopy__FP3VecPC3Vec(&lbl_80500F8C.value, arg4);
     VecCopy__FP3VecPC3Vec((u8 *)&lbl_80500F8C.value + 0xC, arg5);
-    TBoss4Type3__sub_800D9994(arg0, arg1, arg2, (s32) &lbl_80500FA4.value, (s32) &lbl_80500F8C.value);
+    draw_motion_trail__11TBoss4Type3FPviiii(arg0, arg1, arg2, (s32) &lbl_80500FA4.value, (s32) &lbl_80500F8C.value);
 }
 
 }

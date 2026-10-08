@@ -32,7 +32,7 @@ extern u8 lbl_804B0068[];
 extern s32 enable_v2_features;
 extern void *lbl_805D58E8;
 extern u32 *lbl_805D58EC;
-void TLanguage__sub_8015C680(void);
+void load_container_fragment_textures__9TLanguageFv(void);
 }
 
 extern "C" {
@@ -42,7 +42,7 @@ int TLobby__sub_8015C8C8(void);
 int check_accuracy_hit__17TObjContainerBaseFv(void);
 int TObjPlayer__sub_8015C884(void);
 
-void TLanguage__sub_8015C680(void) {
+void load_container_fragment_textures__9TLanguageFv(void) {
     u8 *tbl = lbl_804B0068;
     s32 state = get_global_state__14TOKeyMachine01Fv();
     void *p;

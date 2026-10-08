@@ -79,11 +79,11 @@ extern RecoveredGlobal_80217EC4_lbl_8044BEDC lbl_8044BEDC;
 extern u32 TQuestListOnline__data_805D6194;
 extern const f32 lbl_805DC6A4;
 extern const f32 lbl_805DC6A8;
-void TQuestListOnline__sub_80217EC4(u8 *arg0);
+void show_info_window__16TQuestListOnlineFPv(u8 *arg0);
 s32 obj_getField1c(int);
 int set_field_20__12TQuestListVMFPvi(void*, int);
 s32 get_guild_text(int);
-M2C_UNK TShopArmorListWindow__sub_80266DB0(u32);
+M2C_UNK reset_list__20TShopArmorListWindowFPv(u32);
 M2C_UNK calc_list_content_extent(u32);
 s32 send_and_handle__6TLobbyFPvii(int, void *, int);
 u32 set_window_mode_4__6TLobbyFPvii(s32, void *, int);
@@ -92,21 +92,21 @@ void add_list_entry__6TLobbyFPviii(u32, int, void *, int);
 u32 create_item_list_window(s32, int, u16);
 extern Stack_80217EC4 lbl_8044BED4[];
 extern u8 *TQuestListOnline__data_805D6190;
-void TQuestListOnline__sub_80217F88(u8 *arg0);
+void build_list_window__16TQuestListOnlineFPv(u8 *arg0);
 M2C_UNK queue_destruction__7TObjectFv(void *);
 s32 is_visible__17TWindowSubComCardFPv(void *);
 s32 get_status_flag__17TWindowSubComCardFPv(void *);
 int set_field_20__12TQuestListVMFPvi(void*, int);
 M2C_UNK send_action__9TProtocolFR13GameListEntryUcPcPc(void *, void *, int, void *, void *);
 M2C_UNK clear_selected_and_update_entry__14TWindowSubItemFPv(void *);
-s32 THunterGuildSeqOffline__sub_80212120();
+s32 check_party_gathered__22THunterGuildSeqOfflineFv();
 M2C_UNK close_windows__16TQuestListOnlineFPv(void *, int);
 M2C_UNK clear_flag_and_release__17TWindowSubComCardFPv(void *);
 M2C_UNK TWindow__close(void *);
 s32 get_selected_menu_value(void *);
 extern void *TLobby__data_805D5580;
 extern u8 lbl_805DC6A0;
-void TQuestListOnline__sub_802178E4(u8 *arg0);
+void handle_quest_confirm__16TQuestListOnlineFPv(u8 *arg0);
 s32 obj_getField1c(int);
 int set_field_20__12TQuestListVMFPvi(void*, int);
 s32 set_position_xy(int, f32, f32);
@@ -135,7 +135,7 @@ void invoke_callback_30_and_queue_destruction__16TQuestListOnlineFPv(void *arg0)
 void request_quest_list__16TQuestListOnlineFi(s32 arg0);
 int run_task__16TQuestListOnlineFPv(void* p);
 s32 TLobby__sub_8001EEF4();
-s32 TLobby__sub_8001EEFC(M2C_UNK *);
+s32 tmp_buf_use_req__6TLobbyFPv(M2C_UNK *);
 M2C_UNK queue_destruction__7TObjectFv(void *);
 int set_field_20__12TQuestListVMFPvi(void*, int);
 
@@ -152,13 +152,13 @@ void invoke_callback_30_and_queue_destruction__16TQuestListOnlineFPv(void *arg0)
 extern M2C_UNK lbl_8044BEB0[];
 extern s32 TQuestListOnline__data_805D61E4;
 
-void TQuestListOnline__sub_802178E4(u8 *arg0) {
+void handle_quest_confirm__16TQuestListOnlineFPv(u8 *arg0) {
     s32 v;
     s32 n;
     if (M2C_FIELD(arg0, void **, 0x44) != NULL && is_visible__17TWindowSubComCardFPv(M2C_FIELD(arg0, void **, 0x44)) != 0) {
         v = get_selected_menu_value(M2C_FIELD(arg0, void **, 0x44));
         if (v == 0) {
-            if (THunterGuildSeqOffline__sub_80212120() == 1) {
+            if (check_party_gathered__22THunterGuildSeqOfflineFv() == 1) {
                 if (M2C_FIELD(arg0, VObj_18_802178E4 **, 0x6C) != NULL) {
                     M2C_FIELD(arg0, VObj_18_802178E4 **, 0x6C)->m7(0x14, 1);
                 }
@@ -228,7 +228,7 @@ void TQuestListOnline__sub_802178E4(u8 *arg0) {
 
 void request_quest_list__16TQuestListOnlineFi(s32 arg0) {
     if (TLobby__sub_8001EEF4() != 0) {
-        TQuestListOnline__data_805D61E4 = TLobby__sub_8001EEFC(lbl_8044BEB0);
+        TQuestListOnline__data_805D61E4 = tmp_buf_use_req__6TLobbyFPv(lbl_8044BEB0);
         set_field_20__12TQuestListVMFPvi((void*)(arg0), (int)(6));
     }
 }
@@ -299,7 +299,7 @@ void TQuestListOnline__sub_80217C1C(Obj_80217C1C *arg0) {
     }
 }
 
-void TQuestListOnline__sub_80217EC4(u8 *arg0) {
+void show_info_window__16TQuestListOnlineFPv(u8 *arg0) {
     typedef char sp8_offset[(offsetof(Stack_80217EC4, sp8) == 0x0) ? 1 : -1];
     typedef char spC_offset[(offsetof(Stack_80217EC4, spC) == 0x4) ? 1 : -1];
     Stack_80217EC4 stack;
@@ -319,7 +319,7 @@ void TQuestListOnline__sub_80217EC4(u8 *arg0) {
     }
     set_field_20__12TQuestListVMFPvi((void*)((void *) (arg0)), (int)((int) (3)));
 }
-void TQuestListOnline__sub_80217F88(u8 *arg0) {
+void build_list_window__16TQuestListOnlineFPv(u8 *arg0) {
     u16 id;
     s32 off;
     s32 i;
@@ -329,7 +329,7 @@ void TQuestListOnline__sub_80217F88(u8 *arg0) {
             id = obj_getField1c(M2C_FIELD(arg0, s32 *, 0x24));
             M2C_FIELD(arg0, u32 *, 0x38) = create_item_list_window(get_guild_text(0), 0x40, id);
         } else {
-            TShopArmorListWindow__sub_80266DB0(M2C_FIELD(arg0, u32 *, 0x38));
+            reset_list__20TShopArmorListWindowFPv(M2C_FIELD(arg0, u32 *, 0x38));
         }
         if (TQuestListOnline__data_805D6190 != NULL && TQuestListOnline__data_805D6190[1] == 0) {
             set_field_20__12TQuestListVMFPvi(arg0, 0xB);

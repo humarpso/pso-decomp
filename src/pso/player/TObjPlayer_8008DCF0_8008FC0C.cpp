@@ -30,13 +30,13 @@ struct VObj_18 : VBase_18 {
 extern "C" {
 void update_dragon_boss_state__10TObjPlayerFPv(void *);
 M2C_UNK TObjPlayer__sub_8008DD14();
-M2C_UNK TObjPlayer__sub_8008DE9C();
+M2C_UNK update_move_to_target__10TObjPlayerFPv();
 M2C_UNK TObjPlayer__sub_8008E254();
 M2C_UNK TObjPlayer__sub_8008E310();
 M2C_UNK TObjPlayer__sub_8008EC3C();
 M2C_UNK TObjPlayer__sub_8008EDE8();
 M2C_UNK TObjPlayer__sub_8008F1DC();
-M2C_UNK TObjPlayer__sub_8008F730();
+M2C_UNK run_death_sequence__10TObjPlayerFPv();
 M2C_UNK TObjPlayer__sub_8008F910();
 M2C_UNK TObjPlayer__sub_8008FAD0();
 void TObjPlayer__sub_8008FF50(u8 *arg0);
@@ -192,7 +192,7 @@ void TObjPlayer__sub_8008FF50(u8 *arg0) {
         TObjPlayer__sub_8008F910();
         return;
       case 5:
-        TObjPlayer__sub_8008F730();
+        run_death_sequence__10TObjPlayerFPv();
         return;
       case 7:
         TObjPlayer__sub_8008EC3C();
@@ -204,7 +204,7 @@ void TObjPlayer__sub_8008FF50(u8 *arg0) {
         TObjPlayer__sub_8008E254();
         return;
       case 12:
-        TObjPlayer__sub_8008DE9C();
+        update_move_to_target__10TObjPlayerFPv();
         return;
       case 8:
         TObjPlayer__sub_8008DD14();

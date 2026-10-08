@@ -36,10 +36,10 @@ void TLobby__sub_8013FCB0(Lz_8013FCB0 *t, s32 p);
 extern "C" {
 
 void update_floor__6TLobbyFv(void);
-int TLobby__sub_8007BA20(void);
+int clear_session_buffers__6TLobbyFv(void);
 int reset_keyboard_control__6TLobbyFv(void);
 int update_current_floor__6TLobbyFv(void);
-int TLobby__sub_8022743C(void);
+int stop_audio_streams__6TLobbyFv(void);
 int refresh_render_state__6TLobbyFv(void);
 
 void TLobby__sub_8013FCB0(Lz_8013FCB0 *t, s32 p) {

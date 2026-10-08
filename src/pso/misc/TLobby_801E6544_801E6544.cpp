@@ -80,7 +80,7 @@ s32 TLobby__sub_801E6BB8();
 s8 read_byte_advance__6TLobbyFv();
 int strcmp(const char *, const char *);
 extern CmdTable_801E6604 lbl_80449C04;
-void TLobby__sub_801E6604();
+void parse_message_tag__6TLobbyFv();
 char *get_unit_list__6TLobbyFv();
 M2C_UNK append_string(void *);
 int strcmp(const char *, const char *);
@@ -124,7 +124,7 @@ s32 expand_message_substitutions(s32 arg0, s32 arg1) {
         s8 c = read_byte_advance__6TLobbyFv();
         switch (c) {
         case 0x3C:
-            TLobby__sub_801E6604();
+            parse_message_tag__6TLobbyFv();
             break;
         case 0x3E:
             while (1) {
@@ -139,7 +139,7 @@ s32 expand_message_substitutions(s32 arg0, s32 arg1) {
     return arg1;
 }
 
-void TLobby__sub_801E6604() {
+void parse_message_tag__6TLobbyFv() {
     char buf[64];
     CmdTable_801E6604 tbl = lbl_80449C04;
     u32 i;

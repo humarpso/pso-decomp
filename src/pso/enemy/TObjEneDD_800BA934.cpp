@@ -24,14 +24,14 @@ struct Obj_800BAA2C { u8 pad0[0x38]; f32 x; f32 y; f32 z; u8 pad44[0x60 - 0x44];
 
 extern "C" {
 int push_matrix(void);
-int TObjPlayer__sub_803D8CD4(void *);
+int set_matrix_identity__10TObjPlayerFPv(void *);
 f32 post_translate_matrix(void *);
 int rotate_matrix_y(void *, void *);
 int set_global_flag__10TObjPlayerFv(void);
 int matrix_mult_vec(void *, void *, void *);
 void clear_global_state__10TObjPlayerFv(void);
 int pop_matrix(void);
-void TObjEneDD__sub_800BA934(Obj_800BA934 *self);
+void transform_part_positions__9TObjEneDDFPv(Obj_800BA934 *self);
 void VecCopy__FP3VecPC3Vec(Vec_800BAAE4 *dst, const Vec_800BAAE4 *src);
 void rotate_xz_pair_by_angle(f32 *x, f32 *z, s32 angle);
 void subtract_vector(Vec_800BAAE4 *a, Vec_800BAAE4 *b);
@@ -42,7 +42,7 @@ void vec3_add_to(Vec_800BA9BC *a, Vec_800BA9BC *b);
 void TObjEneDD__sub_800BA9BC(Obj_800BA9BC *self, Vec_800BA9BC *v, s32 i);
 void VecCopy__FP3VecPC3Vec(Vec_800BAAE4 *dst, const Vec_800BAAE4 *src);
 int matrix_mult_vec(void *, void *, void *);
-int TObjPlayer__sub_803D8CD4(void *);
+int set_matrix_identity__10TObjPlayerFPv(void *);
 int rotate_matrix_y(void *, void *);
 void translate_matrix(int, f32, f32, f32);
 int push_matrix(void);
@@ -58,10 +58,10 @@ void set_active__9TObjEneDDFPv(void* p);
 void TObjEneDD__vt85(void);
 int init_collision_body_parts(void*);
 
-void TObjEneDD__sub_800BA934(Obj_800BA934 *self) {
+void transform_part_positions__9TObjEneDDFPv(Obj_800BA934 *self) {
     s32 i;
     push_matrix();
-    TObjPlayer__sub_803D8CD4(0);
+    set_matrix_identity__10TObjPlayerFPv(0);
     post_translate_matrix(self->f38);
     rotate_matrix_y(0, self->f60);
     set_global_flag__10TObjPlayerFv();
@@ -84,7 +84,7 @@ void TObjEneDD__sub_800BA9BC(Obj_800BA9BC *self, Vec_800BA9BC *v, s32 i) {
 void update_local_colliders_from_world(Obj_800BAA2C *arg0, V3_800BAA2C *arg1) {
     s32 i;
     push_matrix();
-    TObjPlayer__sub_803D8CD4((void *)(0));
+    set_matrix_identity__10TObjPlayerFPv((void *)(0));
     rotate_matrix_y((void *)(0), (void *)(-arg0->rot));
     translate_matrix(0, -arg0->x, -arg0->y, -arg0->z);
     for (i = 0; i < arg0->count; i++) {
@@ -104,7 +104,7 @@ void TObjEneDD__sub_800BAAE4(Obj_800BAAE4 *self, Vec_800BAAE4 *v, s32 i) {
     rotate_xz_pair_by_angle(&p->x, &p->z, -self->angle);
 }
 
-void init_model__9TObjEneDDFPv(void* p) { init_collision_body_parts(p); TObjEneDD__sub_800BA934((Obj_800BA934 *)((void*)(p))); }
+void init_model__9TObjEneDDFPv(void* p) { init_collision_body_parts(p); transform_part_positions__9TObjEneDDFPv((Obj_800BA934 *)((void*)(p))); }
 void clear_field_388__9TObjEneDDFPv(void* p) { *(s32*)((char*)p + 0x388) = 0; }
 void set_active__9TObjEneDDFPv(void* p) { *(s32*)((char*)p + 0x388) = 1; }
 

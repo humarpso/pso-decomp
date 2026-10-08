@@ -47,7 +47,7 @@ struct Bullet_802EF2AC {
 extern "C" {
 s32 VecCopy__FP3VecPC3Vec(void *, void *);
 s32 spawn_continuous_particle_effect_with_flags(void *, int, int);
-s32 fn_800BC4C8(void *, void *, void *);
+s32 construct_collision_body(void *, void *, void *);
 extern void *__vt__18TBoss7PhotonBullet[];
 extern s32 lbl_805D3FD4;
 u8 *TBoss7PhotonBullet__ct(u8 *arg0, s32 arg1, s32 arg2, s32 arg3, s32 arg4, f32 farg0);
@@ -66,14 +66,14 @@ extern "C" {
 
 void *__dt__18TBoss7PhotonBulletFv(void *arg0, s16 arg1);
 void render__18TBoss7PhotonBulletFv(u8 *arg0);
-M2C_UNK TObjEneDD__sub_800B9D94(void *, void *, int, void *);
+M2C_UNK draw_oriented_shadow__9TObjEneDDFiiiUi(void *, void *, int, void *);
 void __dl__7TObjectFPv(void *);
 void destroy_enemy_object__10TObjPlayerFPvs(void *, int);
 void queue_destruction__7TObjectFv(void *);
 
 void render__18TBoss7PhotonBulletFv(u8 *arg0) {
     if (M2C_FIELD(arg0, s32 *, 0xE8) & 1) {
-        TObjEneDD__sub_800B9D94(arg0 + 0x38, arg0 + 0xCC, 0, arg0 + 0xD8);
+        draw_oriented_shadow__9TObjEneDDFiiiUi(arg0 + 0x38, arg0 + 0xCC, 0, arg0 + 0xD8);
     }
 }
 
@@ -138,7 +138,7 @@ void *__dt__18TBoss7PhotonBulletFv(void *arg0, s16 arg1) {
     return arg0;
 }
 u8 *TBoss7PhotonBullet__ct(u8 *arg0, s32 arg1, s32 arg2, s32 arg3, s32 arg4, f32 farg0) {
-    fn_800BC4C8((void *) (arg0), (void *) (arg1), (void *) (arg2));
+    construct_collision_body((void *) (arg0), (void *) (arg1), (void *) (arg2));
     M2C_FIELD(arg0, M2C_UNK **, 0x18) = &(*(RecoveredGlobal_802EF514___vt__18TBoss7PhotonBullet *)&__vt__18TBoss7PhotonBullet).value;
     M2C_FIELD(arg0, s32 *, 0) = (s32) lbl_805D3FD4;
     VecCopy__FP3VecPC3Vec((void *) (arg0 + 0x38), (void *) (VecCopy__FP3VecPC3Vec((void *) (arg0 + 0xC0), (void *) (arg3))));

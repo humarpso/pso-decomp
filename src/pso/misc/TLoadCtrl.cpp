@@ -58,7 +58,7 @@ void start_loading__9TLoadCtrlFUi(u32 arg0);
 M2C_UNK TNowLoading__ct(s32, void *, void *);
 M2C_UNK set_active_camera_pose(void *, void *);
 M2C_UNK activate_camera_mode(int);
-M2C_UNK TKeyBoardControl__sub_801A5EC4();
+M2C_UNK update_input_frame__16TKeyBoardControlFv();
 M2C_UNK controller_stuff__Fv();
 M2C_UNK update_sound_request_slots();
 s32 __nw__7TObjectFUl(int);
@@ -80,7 +80,7 @@ void cleanup_scene__9TLoadCtrlFv(void);
 void poll_default__9TLoadCtrlFv(void);
 void render__9TLoadCtrlFv(void);
 M2C_UNK TAdLoadQuestGC__sub_8030984C();
-M2C_UNK TCameraCtrl__sub_80069318();
+M2C_UNK reset_default_view__11TCameraCtrlFv();
 M2C_UNK TCameraCtrl__sub_800693F4();
 M2C_UNK TCameraCtrl__sub_8006A35C();
 M2C_UNK TNowLoading__sub_8001D4D0();
@@ -140,7 +140,7 @@ void run_task__9TLoadCtrlFv(Obj_8001C620 *self) {
         }
         if (self->f1c != 0) {
             controller_stuff__Fv();
-            TKeyBoardControl__sub_801A5EC4();
+            update_input_frame__16TKeyBoardControlFv();
         }
         update_sound_request_slots();
         Vec_8001C620 a = lbl_804349D8;
@@ -211,7 +211,7 @@ void cleanup_scene__9TLoadCtrlFv(void) {
         fn_8034AD28();
         break;
     }
-    TCameraCtrl__sub_80069318();
+    reset_default_view__11TCameraCtrlFv();
     reset__11TCameraCtrlFv();
     if (lbl_805D4DF0 != NULL) {
         if (lbl_805D4DF0 != NULL) {

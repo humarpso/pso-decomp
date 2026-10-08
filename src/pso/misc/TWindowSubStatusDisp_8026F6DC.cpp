@@ -21,7 +21,7 @@ void *TWindowComCard__sub_80249ED8(void *, void *, void *, s32, s32, s32);
 f32 get_scale__20TWindowSubStatusDispFPv(void *p);
 extern const f32 lbl_805DD38C;
 extern const f32 lbl_805DD398;
-void TWindowComCard__sub_8026F9F4(Disp_8026F9F4 *arg0, void *arg1);
+void update_status_icons__14TWindowComCardFPvPv(Disp_8026F9F4 *arg0, void *arg1);
 }
 
 extern "C" {
@@ -244,7 +244,7 @@ s32 update_hp_entry__20TWindowSubStatusDispFPv(u8 *arg0) {
     return var_r30;
 }
 
-void TWindowComCard__sub_8026F9F4(Disp_8026F9F4 *arg0, void *arg1) {
+void update_status_icons__14TWindowComCardFPvPv(Disp_8026F9F4 *arg0, void *arg1) {
     Slots_80270060 buf;
     s32 k;
     s32 count;

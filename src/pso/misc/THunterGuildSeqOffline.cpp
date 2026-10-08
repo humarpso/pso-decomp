@@ -138,7 +138,7 @@ extern "C" {
 s32 get_window_layout_position(s32);
 int set_field_20__12TQuestListVMFPvi(void*, void*);
 s32 set_service_counter_camera(void *, int);
-M2C_UNK TShopSequence__sub_80223600(void *, int, void *);
+M2C_UNK create_message_window__13TShopSequenceFPvii(void *, int, void *);
 extern const f32 lbl_805DC650;
 extern const f32 lbl_805DC654;
 void open_greeting__22THunterGuildSeqOfflineFPv(u8 *arg0);
@@ -175,7 +175,7 @@ s32 create_quest_thread(s32);
 s32 TWindow__close(int);
 s32 get_selected_menu_value(void *);
 extern s32 THunterGuildSeqOffline__data_80513DC8[];
-void THunterGuildSeqOffline__sub_8021354C(u8 *arg0);
+void handle_confirm_window__22THunterGuildSeqOfflineFPv(u8 *arg0);
 extern RecoveredGlobal_80213220_THunterGuildSeqOffline__data_80513DD8 THunterGuildSeqOffline__data_80513DD8;
 void clear_instance_table__22THunterGuildSeqOfflineFv(void);
 extern RecoveredGlobal_80213220_THunterGuildSeqOffline__data_80513DD8 THunterGuildSeqOffline__data_80513DD8;
@@ -296,7 +296,7 @@ void open_greeting__22THunterGuildSeqOfflineFPv(u8 *arg0) {
     Stack_802130AC stack;
     stack.sp8 = lbl_805DC650;
     stack.spC = lbl_805DC654;
-    TShopSequence__sub_80223600((void *) (arg0), (int) (((u8 *)get_window_layout_position(0x2C))), (void *) (&stack.sp8));
+    create_message_window__13TShopSequenceFPvii((void *) (arg0), (int) (((u8 *)get_window_layout_position(0x2C))), (void *) (&stack.sp8));
     ((VObj_18_97738d *)(arg0))->m7(1, 1);
     M2C_FIELD(arg0, s32 *, 0x30) = set_service_counter_camera((void *) (arg0), (int) (1));
     set_field_20__12TQuestListVMFPvi((void*)((void *) (arg0)), (void*)((int) (2)));
@@ -438,7 +438,7 @@ void THunterGuildSeqOffline__sub_80213474(void *arg0) {
     }
 }
 
-void THunterGuildSeqOffline__sub_8021354C(u8 *arg0) {
+void handle_confirm_window__22THunterGuildSeqOfflineFPv(u8 *arg0) {
     s32 temp_r3_2;
     u8 *temp_r3;
     u8 *temp_r3_3;

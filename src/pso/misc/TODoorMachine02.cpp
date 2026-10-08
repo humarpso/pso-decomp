@@ -102,7 +102,7 @@ extern u32 lbl_805D5978;
 extern const f32 lbl_805DB51C;
 extern const f32 lbl_805DB528;
 u8 *TODoorMachine02__ct(u8 *arg0, M2C_UNK arg1, s32 arg2);
-s32 fn_801582C4(void *, f32);
+s32 is_in_view_depth(void *, f32);
 M2C_UNK rotate_matrix_y(int, int);
 M2C_UNK push_matrix();
 M2C_UNK pop_matrix();
@@ -129,7 +129,7 @@ extern u8 lbl_804B16B8[];
 extern s32 enable_v2_features;
 extern u32 lbl_805D5978;
 extern s32 *lbl_805D597C;
-void TODoorMachine02__sub_80163610(void);
+void load_resources__15TODoorMachine02Fv(void);
 }
 
 extern "C" {
@@ -187,7 +187,7 @@ void TODoorMachine02__vt13(u8 *arg0) {
 void render__15TODoorMachine02Fv(Door_80163408 *arg0) {
     s32 flag;
     Node_80163408 *n;
-    if (((VObj_80163408 *)arg0)->m8(arg0->fC0, arg0->fC4) != 0 && fn_801582C4(arg0, lbl_805DB524) != 0) {
+    if (((VObj_80163408 *)arg0)->m8(arg0->fC0, arg0->fC4) != 0 && is_in_view_depth(arg0, lbl_805DB524) != 0) {
         push_matrix();
         post_translate_matrix(arg0->f38);
         rotate_matrix_y(0, arg0->f60);
@@ -254,7 +254,7 @@ void free_statics__15TODoorMachine02Fv(void) {
 
 extern M2C_UNK __vt__15TODoorMachine02[];
 
-void TODoorMachine02__sub_80163610(void) {
+void load_resources__15TODoorMachine02Fv(void) {
     void *o;
     lbl_805D597C = (s32 *)alloc_buffer__11TOBoss4RockFPv(8);
     if (enable_v2_features == 1 && is_online_ready__6TLobbyFv() != 0) {

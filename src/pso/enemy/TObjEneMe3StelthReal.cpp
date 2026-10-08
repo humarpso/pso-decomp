@@ -103,7 +103,7 @@ struct RecoveredGlobal_800F0DF0___vt__20TObjEneMe3StelthReal {
 extern "C" {
 M2C_UNK invoke_initialization_hook__9TObjEneDDFPv(void *, void *);
 M2C_UNK setup_move_bounds__16TObjEneMe3StelthFPv(void *);
-M2C_UNK TObjEneMe3Stelth__sub_800F5124(void *);
+M2C_UNK init_common__16TObjEneMe3StelthFPv(void *);
 M2C_UNK TObjEneMe3Stelth__ct();
 extern M2C_UNK __vt__20TObjEneMe3StelthReal[];
 extern s32 lbl_805D2AFC;
@@ -167,7 +167,7 @@ u8 *TObjEneMe3StelthReal__ct(u8 *arg0, M2C_UNK arg1, s32 arg2) {
     M2C_FIELD(arg0, s32 *, 0) = (s32) lbl_805D2AFC;
     invoke_initialization_hook__9TObjEneDDFPv((void *) (arg0), (void *) (arg2));
     setup_move_bounds__16TObjEneMe3StelthFPv((void *) (arg0));
-    TObjEneMe3Stelth__sub_800F5124((void *) (arg0));
+    init_common__16TObjEneMe3StelthFPv((void *) (arg0));
     M2C_FIELD(arg0, s16 *, 0x326) = 0;
     ((VObj_18_be4a70 *)(arg0))->m85(M2C_FIELD(arg0, s16 *, 0x326), 4);
     return arg0;

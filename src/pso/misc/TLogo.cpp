@@ -37,7 +37,7 @@ extern u8 lbl_804A6F34[];
 }
 
 extern "C" {
-s32 TLobby__sub_800FD6A0(void *, int);
+s32 call_funcs_reverse__6TLobbyFPvUi(void *, int);
 s32 render_tick__Fv();
 s32 delete_all_task_children__9TMainTaskFv(void *);
 void TLogo__sub_8013F5AC();
@@ -64,14 +64,14 @@ M2C_UNK activate_camera_mode(int);
 s32 is_ready__22TQuestVmDownLoadServerFv();
 M2C_UNK TLobby__sub_800FA464();
 s8 func_801A5E54__Fv();
-M2C_UNK TKeyBoardControl__sub_801A5EC4();
+M2C_UNK update_input_frame__16TKeyBoardControlFv();
 M2C_UNK controller_stuff__Fv();
 s32 render_tick__Fv();
 M2C_UNK update_sound_request_slots();
 M2C_UNK func_803DCDFC__Fv();
 extern V3_8013F5E8 lbl_8043F150;
 extern V3_8013F5E8 lbl_8043F15C;
-void TLogo__sub_8013F5E8(void);
+void run_frame__5TLogoFv(void);
 }
 
 extern "C" {
@@ -92,7 +92,7 @@ extern void *__vt__5TLogo[];
 extern void *lbl_805D2CC8;
 
 extern "C" {
-void TCameraCtrl__sub_8006A35C(); void reset__11TCameraCtrlFv(); void TCameraCtrl__sub_800693F4(); void TCameraCtrl__sub_80069318();
+void TCameraCtrl__sub_8006A35C(); void reset__11TCameraCtrlFv(); void TCameraCtrl__sub_800693F4(); void reset_default_view__11TCameraCtrlFv();
 void update_keyboard_menu__6TLobbyFv(); void free_keyboard_soft_resources__6TLobbyFv();
 void register_texture_f256_ad_pic_2(); void free_global__23TAdSinglePlyChrSelectGCFv();
 void register_texture_f256_backtext(); void free_singleton_805D65C0__23TAdSinglePlyChrSelectGCFv();
@@ -101,7 +101,7 @@ void TWindowCtrlMain__sub_8024D838(); void TWindowCtrlMain__sub_8024D690(); void
 void __dt__5TLogoFv(); void render_shadows__7TObjectFv();
 void *lbl_804A72D8[18] = {
     (void *)TCameraCtrl__sub_8006A35C, (void *)reset__11TCameraCtrlFv,
-    (void *)TCameraCtrl__sub_800693F4, (void *)TCameraCtrl__sub_80069318,
+    (void *)TCameraCtrl__sub_800693F4, (void *)reset_default_view__11TCameraCtrlFv,
     (void *)update_keyboard_menu__6TLobbyFv, (void *)free_keyboard_soft_resources__6TLobbyFv,
     (void *)register_texture_f256_ad_pic_2, (void *)free_global__23TAdSinglePlyChrSelectGCFv,
     (void *)register_texture_f256_backtext, (void *)free_singleton_805D65C0__23TAdSinglePlyChrSelectGCFv,
@@ -242,18 +242,18 @@ void *__ct__5TLogoFv(void *arg0) {
 
 void TLogo__sub_8013F5AC() {
     delete_all_task_children__9TMainTaskFv(&main_task);
-    TLobby__sub_800FD6A0(lbl_804A72D8, sizeof(lbl_804A72D8));
+    call_funcs_reverse__6TLobbyFPvUi(lbl_804A72D8, sizeof(lbl_804A72D8));
     render_tick__Fv();
 }
 
-void TLogo__sub_8013F5E8(void) {
+void run_frame__5TLogoFv(void) {
     func_803DCDFC__Fv();
     V3_8013F5E8 a = lbl_8043F150;
     V3_8013F5E8 b = lbl_8043F15C;
     activate_camera_mode(9);
     set_active_camera_pose(&a, &b);
     controller_stuff__Fv();
-    TKeyBoardControl__sub_801A5EC4();
+    update_input_frame__16TKeyBoardControlFv();
     main_task.some_empty_func();
     main_task.run_task();
     main_task.render();
@@ -269,7 +269,7 @@ void TLogo__sub_8013F5E8(void) {
     render_tick__Fv();
 }
 
-void TLogo__sub_8013F6C4(void) {
+void init_logo_scene__5TLogoFv(void) {
     s32 i;
     u32 p;
 

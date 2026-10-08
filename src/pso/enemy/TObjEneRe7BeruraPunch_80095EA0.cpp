@@ -78,7 +78,7 @@ f32 sin_table_lookup(s32);
 f32 cos_table_lookup(s32);
 M2C_UNK post_translate_matrix(void *);
 M2C_UNK scale_matrix(M2C_UNK, f32, f32, f32);
-M2C_UNK TObjEneDD__sub_800B9D94(void *, void *, M2C_UNK, M2C_UNK);
+M2C_UNK draw_oriented_shadow__9TObjEneDDFiiiUi(void *, void *, M2C_UNK, M2C_UNK);
 M2C_UNK TObjEneRe7BeruraPunch__sub_80096300(void *);
 M2C_UNK rotate_matrix_y(M2C_UNK, s32);
 M2C_UNK translate_matrix(M2C_UNK, f32, f32, f32);
@@ -111,7 +111,7 @@ void render__21TObjEneRe7BeruraPunchFv(u8 *arg0) {
                 return;
             }
         }
-        TObjEneDD__sub_800B9D94(arg0 + 0x38, arg0 + 0xE8, 0, 0);
+        draw_oriented_shadow__9TObjEneDDFiiiUi(arg0 + 0x38, arg0 + 0xE8, 0, 0);
         toggle_particle_effect__10TObjPlayerFv();
         push_matrix();
         post_translate_matrix(arg0 + 0x38);

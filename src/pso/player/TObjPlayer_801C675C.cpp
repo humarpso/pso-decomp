@@ -46,7 +46,7 @@ extern void *lbl_805D4DF0;
 extern s32 lbl_805D5660;
 extern s32 some_id_805c6f74;
 extern const f32 lbl_805DC358;
-void TObjPlayer__sub_801C6C08(void *arg0);
+void draw_marker_model__10TObjPlayerFPv(void *arg0);
 s32 get_player_by_client_id(u16);
 u8 *TObjPlayer__sub_801C6FF8(u8 *arg0, u8 *arg1, s16 arg2, s8 arg3);
 void *__nw__7TObjectFUl(u32);
@@ -92,7 +92,7 @@ u8 TObjPlayer__sub_801C6BEC(void *arg0) {
     return M2C_FIELD(arg0, u8 *, 0x1C);
 }
 
-void TObjPlayer__sub_801C6C08(void *arg0) {
+void draw_marker_model__10TObjPlayerFPv(void *arg0) {
     s32 temp_r3;
     temp_r3 = get_player_by_client_id(M2C_FIELD(arg0, u16 *, 0x1E));
     if ((temp_r3 != 0) && (all_parents_unqueued_for_destruction__7TObjectFv() != 0) && (TObjPlayer__sub_801C6BEC(arg0) != 0) && (test_flag_2000000__10TObjPlayerFPv(temp_r3) == 0)) {

@@ -31,7 +31,7 @@ struct Tbl_80292730 { s32 f0; s32 f4; s32 f8; Entry_80292730 *entries; };
 extern "C" {
 void VecCopy__FP3VecPC3Vec(void *, void *);
 void save_position__14TBoss4DarkFalzFi(void *);
-void TBoss4DarkFalz__sub_8004C220(void *, void *);
+void set_position_from__14TBoss4DarkFalzFPvPv(void *, void *);
 Tbl_80292730 *TLobby__sub_8006EF98(s32, s32);
 void __dt__12TPlyCharDataFv(void *, int);
 void copy_header_struct__6TLobbyFPvPv(void *, void *);
@@ -45,7 +45,7 @@ void clamp_and_set_unit_value__10TObjPlayerFiUci(void *, u8, s16);
 void TObjPlayer__sub_801D9B38(void *, int);
 void begin_action_state__10TObjPlayerFPv(void *);
 void send_command__10TNpcPlayerFiciiPv(u8, s32, s32, s32, void *);
-void TLobby__sub_80292730(s32 arg0);
+void rebuild_players_for_stage__6TLobbyFi(s32 arg0);
 }
 
 extern "C" {
@@ -78,7 +78,7 @@ s32 try_set_split_screen__6TLobbyFi(s32 arg0) {
     lbl_805D5550 = arg0;
     return 1;
 }
-void TLobby__sub_80292730(s32 arg0) {
+void rebuild_players_for_stage__6TLobbyFi(s32 arg0) {
     CharData_80292730 cd;
     Info_80292730 info;
     Vec_80292730 pos;
@@ -127,7 +127,7 @@ void TLobby__sub_80292730(s32 arg0) {
             }
             __dt__12TPlyCharDataFv(&cd, -1);
             copy_header_struct__6TLobbyFPvPv((u8 *)p + 0xDAC, &hdr);
-            TBoss4DarkFalz__sub_8004C220(p, &pos);
+            set_position_from__14TBoss4DarkFalzFPvPv(p, &pos);
             save_position__14TBoss4DarkFalzFi(p);
             p->v6();
             TObjPlayer__sub_801D9B38((u8 *)p + 0x428, 0xFF);

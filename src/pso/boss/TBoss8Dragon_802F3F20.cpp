@@ -80,7 +80,7 @@ extern s32 lbl_805D5660;
 extern u8 *TBoss8Dragon__data_805D6988;
 extern s32 some_id_805c6f74;
 extern const f32 lbl_805DED70;
-void TBoss8Dragon__sub_802F4114(u8 *arg0, s32 arg1, s32 arg2);
+void draw_with_fade__12TBoss8DragonFPvii(u8 *arg0, s32 arg1, s32 arg2);
 }
 
 extern "C" {
@@ -137,7 +137,7 @@ void TBoss8Dragon__sub_802F4098(u8 *arg0, u8 *arg1) {
         M2C_FIELD(arg1, f32 *, 8) = (f32) (M2C_FIELD(arg1, f32 *, 8) + lbl_805DED6C);
     }
 }
-void TBoss8Dragon__sub_802F4114(u8 *arg0, s32 arg1, s32 arg2) {
+void draw_with_fade__12TBoss8DragonFPvii(u8 *arg0, s32 arg1, s32 arg2) {
     u8 *temp_r31;
     if (!(M2C_FIELD(arg0, f32 *, 0x3C) <= lbl_805DED70)) {
         set_global_param__8TObjFishFi((int) (M2C_FIELD(arg0, s32 *, 0x24)));

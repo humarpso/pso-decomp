@@ -116,7 +116,7 @@ s32 TObjPlayer__sub_8003FEEC(u8 *arg0);
 f32 cos_table_lookup(s32);
 M2C_UNK push_matrix();
 M2C_UNK pop_matrix();
-M2C_UNK TObjPlayer__sub_803D8CD4(int, f32);
+M2C_UNK set_matrix_identity__10TObjPlayerFPv(int, f32);
 M2C_UNK rotate_vector_by_matrix(int, int, int);
 M2C_UNK rotate_matrix_y(M2C_UNK, s32);
 extern const f32 lbl_805D86C0;
@@ -672,7 +672,7 @@ void TObjPlayer__sub_80040038(void *arg0);
 void update_grabbed_state__10TObjPlayerFPv(void *arg0);
 void teardown_render_state__10TObjPlayerFPv(u8 *arg0);
 void TObjPlayer__sub_80040558(void * _w0);
-void TObjPlayer__sub_8004055C(Obj_8004055C *arg0);
+void dispatch_reaction_state__10TObjPlayerFPv(Obj_8004055C *arg0);
 void TObjPlayer__sub_800405D8(u8 *arg0);
 void TBoss3VoloptCore__sub_80040788(void);
 void cache_volopt_resource_ptrs(void);
@@ -1282,7 +1282,7 @@ void TObjPlayer__sub_8003FCD0(u8 *arg0) {
     temp_f1 = M2C_FIELD(arg0, f32 *, 0x38C);
     M2C_FIELD(arg0, f32 *, 0x38) = temp_f1;
     M2C_FIELD(arg0, f32 *, 0x40) = (f32) lbl_805D86D0;
-    TObjPlayer__sub_803D8CD4((int) (0), (f32) (temp_f1));
+    set_matrix_identity__10TObjPlayerFPv((int) (0), (f32) (temp_f1));
     rotate_matrix_y((M2C_UNK)((int) (0)), (s32)((int) (M2C_FIELD(arg0, s32 *, 0x390))));
     temp_r4 = (u8 *)(arg0 + 0x38);
     rotate_vector_by_matrix((int) (0), (int) (temp_r4), (int) (temp_r4));
@@ -1523,7 +1523,7 @@ void teardown_render_state__10TObjPlayerFPv(u8 *arg0) {
 
 void TObjPlayer__sub_80040558(void * _w0) {  }
 
-void TObjPlayer__sub_8004055C(Obj_8004055C *arg0) {
+void dispatch_reaction_state__10TObjPlayerFPv(Obj_8004055C *arg0) {
     switch (arg0->state) {
     case 0: TObjPlayer__sub_8003FFE4(arg0); return;
     case 1: TObjPlayer__sub_8003F9D4((void *)(arg0)); return;
@@ -1582,12 +1582,12 @@ void TObjPlayer__sub_800405D8(u8 *arg0) {
       if (((s32) (*((s32 *) (((s8 *) arg0) + 0x37C)))) != (-1))
       {
         *((s32 *) (((s8 *) arg0) + 0x37C)) = -1;
-        TObjPlayer__sub_8004055C((Obj_8004055C *)((void *) arg0));
+        dispatch_reaction_state__10TObjPlayerFPv((Obj_8004055C *)((void *) arg0));
       }
       *((s16 *) (((s8 *) arg0) + 0x326)) = (s16) (*((s32 *) (((s8 *) arg0) + 0x374)));
       *((s32 *) (((s8 *) arg0) + 0x37C)) = 0;
     }
-    TObjPlayer__sub_8004055C((Obj_8004055C *)((void *) arg0));
+    dispatch_reaction_state__10TObjPlayerFPv((Obj_8004055C *)((void *) arg0));
     var_f1 = *((f32 *) (((s8 *) arg0) + 0x3C));
     if (var_f1 > lbl_805D86F4)
     {

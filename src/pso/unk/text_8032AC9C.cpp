@@ -5,7 +5,7 @@ extern "C" {
 void draw_window_frame();
 void *get_localized_text_entry(int, int);
 void render_status_line__15TAdSubPlyItemGCFPvi(void *, int, f32, f32, f32);
-void fn_8032AACC(void *);
+void draw_masked_password_field(void *);
 void fn_8032AC24();
 void fn_8032AC94();
 extern P2_8032AC9C lbl_804ED9F0[];
@@ -28,7 +28,7 @@ void fn_8032AC9C(void *arg0, void *arg1) {
         fn_8032AC24();
         return;
     case 3:
-        fn_8032AACC(arg1);
+        draw_masked_password_field(arg1);
         return;
     }
 }

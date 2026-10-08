@@ -28,7 +28,7 @@ extern const f32 lbl_805DE8E8;
 extern const f32 lbl_805DE8EC;
 extern const f32 lbl_805DE8F0;
 extern const f32 lbl_805DE8F4;
-void TAdSinglePlyChrSelectGC__sub_802E11D4(Clock_802E11D4 *self);
+void draw_date_time__23TAdSinglePlyChrSelectGCFPv(Clock_802E11D4 *self);
 }
 
 extern "C" {
@@ -79,7 +79,7 @@ void TAdPlyStatusGC__sub_802E11BC(void* p) { *(s32*)((char*)p + 0x1c) = 0; }
 void TAdPlyStatusGC__sub_802E11C8(void* p) { *(s32*)((char*)p + 0x1c) = 1; }
 #pragma push
 #pragma fp_contract on
-void TAdSinglePlyChrSelectGC__sub_802E11D4(Clock_802E11D4 *self) {
+void draw_date_time__23TAdSinglePlyChrSelectGCFPv(Clock_802E11D4 *self) {
     char buf[0x24];
     Date_802E11D4 date;
     char *s;

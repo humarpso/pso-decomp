@@ -1,7 +1,7 @@
 #include "types.h"
 extern "C" {
 s32 get_main_phase();
-s32 TCameraCtrl__sub_80068958(s32);
+s32 get_nth_view_player_id__11TCameraCtrlFi(s32);
 s32 TWindowShortListCtrl__check_controller_button(void *, s32);
 s32 get_map_id__13TRaderMapCoreFPv();
 u32 get_player_by_client_id(s32);
@@ -28,7 +28,7 @@ s32 TLobby__sub_80211D58(s32 arg0) {
             if (get_game_play_mode() == 0) {
                 return 1;
             }
-            player = TCameraCtrl__sub_80068958(0);
+            player = get_nth_view_player_id__11TCameraCtrlFi(0);
             if ((u16)player != arg0) {
                 return 1;
             }

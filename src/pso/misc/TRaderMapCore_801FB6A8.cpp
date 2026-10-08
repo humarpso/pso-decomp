@@ -11,7 +11,7 @@ s32 set_global_param__8TObjFishFi(s32);
 extern u32 TRaderMapCore__data_805D5F4C;
 s32 TRaderMapCore__sub_801FB874(void);
 s32 get_current_floor();
-s32 TLobby__sub_800F957C(int);
+s32 free_nodes_with_id__6TLobbyFUi(int);
 s32 save_floor_discovery__13TRaderMapCoreFiPv(int, int);
 s32 free_statics__13TRaderMapCoreFv();
 s32 TLobby__sub_803DA16C(int);
@@ -21,7 +21,7 @@ void unload_floor_map__13TRaderMapCoreFv(void);
 s32 get_current_floor();
 void copy_name(const char *);
 u8 *create_named_object(char *);
-void TLobby__sub_801317E4(char *, char *, const char *);
+void replace_file_extension__6TLobbyFPvPvPv(char *, char *, const char *);
 void init_radar_floor_flags(s32, u8 *);
 void TRaderMapCore__sub_801FB904(void);
 int get_status__6TSceneFv(void);
@@ -79,7 +79,7 @@ void unload_floor_map__13TRaderMapCoreFv(void) {
         }
     }
     if ((void *) TRaderMapCore__data_805D5F28 != NULL) {
-        TLobby__sub_800F957C((int) (TRaderMapCore__data_805D5F28));
+        free_nodes_with_id__6TLobbyFUi((int) (TRaderMapCore__data_805D5F28));
         TRaderMapCore__data_805D5F28 = NULL;
     }
     TRaderMapCore__data_805D5F44 = 0;
@@ -93,10 +93,10 @@ void load_map_resources__13TRaderMapCoreFv(void) {
     state = get_global_state__14TOKeyMachine01Fv();
     status = get_status__6TSceneFv();
     e = get_floor_scene_table(state);
-    TLobby__sub_801317E4(buf, e[status].name, lbl_8044A7B0);
+    replace_file_extension__6TLobbyFPvPvPv(buf, e[status].name, lbl_8044A7B0);
     TRaderMapCore__data_805D5F28 = create_named_object(buf);
     if (TRaderMapCore__data_805D5F28 != NULL && *(u32 *)(TRaderMapCore__data_805D5F28 + 4) != 0) {
-        TLobby__sub_801317E4(buf, e[status].name, lbl_805DC5AC);
+        replace_file_extension__6TLobbyFPvPvPv(buf, e[status].name, lbl_805DC5AC);
         bind_gvm_texture_list(buf, *(u8 **)(TRaderMapCore__data_805D5F28 + 4));
     }
     copy_name(lbl_805DC5B0);

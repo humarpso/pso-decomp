@@ -12,7 +12,7 @@ void send_data__6TLobbyFi(s32 arg0);
 void update_alloc_size__6TLobbyFv(void);
 M2C_UNK TAdWarningBaseGC__sub_8032CF70(void*);
 u32 TAdWarningBaseGC__sub_8032D020();
-M2C_UNK TDLGraph__sub_8007F6F8(s32, M2C_UNK);
+M2C_UNK update_graph__8TDLGraphFii(s32, M2C_UNK);
 M2C_UNK read_disc_file(s32, u32);
 s32 TLobby__sub_801F34F8();
 int GBAInit(void*);
@@ -71,7 +71,7 @@ u8 get_selected_slot__6TLobbyFv(void) {
             return 0U;
         }
         if ((u32) TLobby__data_805D6CC4 != 0U) {
-            TDLGraph__sub_8007F6F8(sp8 + 1, 0x65);
+            update_graph__8TDLGraphFii(sp8 + 1, 0x65);
         }
         return sp8;
     }

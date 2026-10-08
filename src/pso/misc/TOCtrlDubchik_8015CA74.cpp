@@ -238,7 +238,7 @@ struct Obj_8015D518 {
 extern "C" {
 M2C_UNK queue_destruction__7TObjectFv(void *);
 M2C_UNK TLobby__sub_800F6510(void *, void *);
-s32 TLobby__sub_8002AFD4(void *, void *, int);
+s32 exchange_object_state__6TLobbyFPvis(void *, void *, int);
 s32 set_flag8__6TLobbyFPv(void *);
 void TOCtrlDubchik__sub_8015CB4C(u8 *arg0);
 u8 * load_resource_from_descriptor(void *, s32, void *, s32, s32, s32);
@@ -370,10 +370,10 @@ void TOCtrlDubchik__sub_8015CA74(void *arg0_) {
 
 void TOCtrlDubchik__sub_8015CB4C(u8 *arg0) {
     s32 sp8;
-    if (TLobby__sub_8002AFD4((void *) (arg0), (void *) (&sp8), (int) (1)) != 0) {
+    if (exchange_object_state__6TLobbyFPvis((void *) (arg0), (void *) (&sp8), (int) (1)) != 0) {
         sp8 = 1;
         TLobby__sub_800F6510((void *) (arg0), (void *) (&sp8));
-        TLobby__sub_8002AFD4((void *) (arg0), (void *) (&sp8), (int) (0));
+        exchange_object_state__6TLobbyFPvis((void *) (arg0), (void *) (&sp8), (int) (0));
         ((VObj_18_65b835 *)(arg0))->m77(&sp8);
         TOCtrlDubchik__sub_8015CA74((void *)((void *) (arg0)));
         set_flag8__6TLobbyFPv((void *) (arg0));

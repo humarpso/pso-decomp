@@ -50,7 +50,7 @@ s32 set_active_camera_pose(void *, void *);
 s32 activate_camera_mode(int);
 extern V3_8023E834 lbl_8044DD00;
 extern V3_8023E834 lbl_8044DD0C;
-void TAdMultiChgGameModeGC__sub_8023E834(void);
+void set_default_camera__21TAdMultiChgGameModeGCFv(void);
 }
 
 extern "C" {
@@ -96,7 +96,7 @@ s32 TAdMultiChgGameModeGC__sub_8023E7A8() {
     return r;
 }
 
-void TAdMultiChgGameModeGC__sub_8023E834(void) {
+void set_default_camera__21TAdMultiChgGameModeGCFv(void) {
     V3_8023E834 a = lbl_8044DD00;
     V3_8023E834 b = lbl_8044DD0C;
     activate_camera_mode(9);

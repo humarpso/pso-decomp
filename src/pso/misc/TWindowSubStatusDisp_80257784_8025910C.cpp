@@ -44,7 +44,7 @@ void free__11TOBoss4RockFUi(s32);
 s32 alloc_buffer__11TOBoss4RockFPv(s32);
 s32 measure_string_len__20TWindowSubStatusDispFPv(s32);
 char *strncpy(char *, const char *, unsigned long);
-s32 TWindowSubStatusDisp__sub_80259268(void *arg0, s32 src, s32 buf, s32 mask, s32 copy);
+s32 replace_owned_string__20TWindowSubStatusDispFPviiii(void *arg0, s32 src, s32 buf, s32 mask, s32 copy);
 }
 
 extern "C" {
@@ -72,11 +72,11 @@ void set_ground_item__20TWindowSubStatusDispFPvPvi(void *arg0, void *arg1, s32 a
     temp_r31 = get_item_data__6TLobbyFUi(arg1);
     select_item_icon__20TWindowSubStatusDispFPviUcUci(arg0, temp_r31, M2C_FIELD(arg1, u8 *, 0), M2C_FIELD(arg1, u8 *, 1), is_wrapped__9TItemDataFPv(arg1));
     forward_message__6TLobbyFiUi(get_shared_text_buffer(), arg1);
-    M2C_FIELD(arg0, s32 *, 0x20) = TWindowSubStatusDisp__sub_80259268((void *)(arg0), (s32)(get_shared_text_buffer()), (s32)(M2C_FIELD(arg0, s32 *, 0x20)), (s32)(8), (s32)(1));
+    M2C_FIELD(arg0, s32 *, 0x20) = replace_owned_string__20TWindowSubStatusDispFPviiii((void *)(arg0), (s32)(get_shared_text_buffer()), (s32)(M2C_FIELD(arg0, s32 *, 0x20)), (s32)(8), (s32)(1));
     if (get_camera_id__11TCameraCtrlFv() <= 2) {
         text_builder_reset();
         TWindowSubStatusDisp__sub_80228F5C(M2C_FIELD(arg1, s32 *, 0x10));
-        M2C_FIELD(arg0, s32 *, 0x24) = TWindowSubStatusDisp__sub_80259268((void *)(arg0), (s32)(get_shared_text_buffer()), (s32)(M2C_FIELD(arg0, s32 *, 0x24)), (s32)(0x10), (s32)(1));
+        M2C_FIELD(arg0, s32 *, 0x24) = replace_owned_string__20TWindowSubStatusDispFPviiii((void *)(arg0), (s32)(get_shared_text_buffer()), (s32)(M2C_FIELD(arg0, s32 *, 0x24)), (s32)(0x10), (s32)(1));
     }
     update_item_colors__20TWindowSubStatusDispFPvi(arg0, arg1);
     M2C_FIELD(arg0, s32 *, 0x18) = arg2;
@@ -89,7 +89,7 @@ void init_display__20TWindowSubStatusDispFPvii(void *arg0, s32 arg1, s32 arg2) {
     M2C_FIELD(arg0, f32 *, 8) = (f32) lbl_805DCF0C;
     M2C_FIELD(arg0, s8 *, 0x1C) = 0x33;
     M2C_FIELD(arg0, s8 *, 0x1D) = 0x33;
-    M2C_FIELD(arg0, s32 *, 0x20) = TWindowSubStatusDisp__sub_80259268((void *)(arg0), (s32)(arg1), (s32)(M2C_FIELD(arg0, s32 *, 0x20)), (s32)(8), (s32)(1));
+    M2C_FIELD(arg0, s32 *, 0x20) = replace_owned_string__20TWindowSubStatusDispFPviiii((void *)(arg0), (s32)(arg1), (s32)(M2C_FIELD(arg0, s32 *, 0x20)), (s32)(8), (s32)(1));
     M2C_FIELD(arg0, s32 *, 0x30) = -1;
     M2C_FIELD(arg0, s32 *, 0x18) = arg2;
     M2C_FIELD(arg0, u16 *, 0) = (u16) (M2C_FIELD(arg0, u16 *, 0) | 0x45);
@@ -97,7 +97,7 @@ void init_display__20TWindowSubStatusDispFPvii(void *arg0, s32 arg1, s32 arg2) {
 
     extern unsigned char lbl_8044EE60[];
 
-s32 TWindowSubStatusDisp__sub_80259268(void *arg0, s32 src, s32 buf, s32 mask, s32 copy) {
+s32 replace_owned_string__20TWindowSubStatusDispFPviiii(void *arg0, s32 src, s32 buf, s32 mask, s32 copy) {
     u16 *flags = (u16 *)arg0;
     s32 n;
     if (buf != 0 && (*flags & mask)) {

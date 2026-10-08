@@ -41,20 +41,20 @@ void TAdWarningBaseGC__ct(void *);
 void TAdWarningBaseGC__vt0(void *, int);
 int TKeyBoardControl__sub_8000F9CC(void*);
 s32 TLobby__sub_80145A94();
-s32 TLobby__sub_8014797C();
-int TLobby__sub_8022743C(void*);
+s32 init_account_entries__6TLobbyFv();
+int stop_audio_streams__6TLobbyFv(void*);
 void __dl__7TObjectFPv(void *);
 
 void TAdTrialModemChkGC__sub_803354A4(void) {  }
 void check_modem_result__18TAdTrialModemChkGCFv(void) {
     if (TLobby__sub_80145A94() != 0) {
-        TLobby__sub_8014797C();
+        init_account_entries__6TLobbyFv();
         TAdTrialModemChkGC__sub_8007FA24(0);
         return;
     }
     TAdTrialModemChkGC__sub_8007FA24(1);
 }
-int TAdTrialModemChkGC__sub_803354E8(void* p) { return TLobby__sub_8022743C(p); }
+int TAdTrialModemChkGC__sub_803354E8(void* p) { return stop_audio_streams__6TLobbyFv(p); }
 
 void render__18TAdTrialModemChkGCFv(void *arg0) {
     struct VObj_80335508_803354A4 *o = (struct VObj_80335508_803354A4 *)arg0;

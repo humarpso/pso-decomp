@@ -49,7 +49,7 @@ void VecCopy__FP3VecPC3Vec(void *, void *);
 f32 update_scale__15TObjBoss2TunnelFPv(void *);
 void randomize_bolt_jitter__12TTecZondeEffFPv(void *);
 void __ct__12TTecZondeEffFv(void *, void *, s32, s32, f32);
-void TBoss8Dragon__sub_8034D500(void *, void *, s32, void *, f32);
+void eval_bezier_curve__12TBoss8DragonFPviiPvf(void *, void *, s32, void *, f32);
 void subtract_vector(void *, void *);
 extern M2C_UNK __vt__25TBoss5GryphonLightningEff[];
 extern s32 lbl_805D4188;
@@ -156,8 +156,8 @@ Self_8032537C *__ct__25TBoss5GryphonLightningEffFv(Self_8032537C *self, void *pa
     self->f0 = lbl_805D4188;
     self->f260 = 0;
     self->f25c = 0;
-    TBoss8Dragon__sub_8034D500(a, b, 0, &self->v1c, x0);
-    TBoss8Dragon__sub_8034D500(a, b, 0, &self->v28, x1);
+    eval_bezier_curve__12TBoss8DragonFPviiPvf(a, b, 0, &self->v1c, x0);
+    eval_bezier_curve__12TBoss8DragonFPviiPvf(a, b, 0, &self->v28, x1);
     subtract_vector(&self->v28, &self->v1c);
     self->f34 = update_scale__15TObjBoss2TunnelFPv(&self->v28);
     self->n = self->f34 * *(const volatile f32 *)&lbl_805DF5FC;
@@ -171,7 +171,7 @@ Self_8032537C *__ct__25TBoss5GryphonLightningEffFv(Self_8032537C *self, void *pa
     denom = (f32)(self->n - 1);
     x1 -= x0;
     for (i = 0; i < self->n; i++) {
-        TBoss8Dragon__sub_8034D500(a, b, 0, &self->pts[i], x0 + x1 * ((f32)i / denom));
+        eval_bezier_curve__12TBoss8DragonFPviiPvf(a, b, 0, &self->pts[i], x0 + x1 * ((f32)i / denom));
     }
     self->f34 = (0.0f);
     for (i = 0; (f32)i < denom; i++) {

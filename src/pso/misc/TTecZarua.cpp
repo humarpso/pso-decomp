@@ -162,7 +162,7 @@ void VecCopy__FP3VecPC3Vec(Vec_8023C420 *, Vec_8023C420 *);
 s32 play_sound_effect(int, void *, int, int);
 s32 update_technique_slot__10TTecRaFoieFi(s32, s32, s32);
 s32 obj_getField1c(void *);
-Zarua_8023C420 *TTecZarua__sub_8023C420(Zarua_8023C420 *self, s32 _w1, s32 _w2, s32 _w3, s32 _w4);
+Zarua_8023C420 *init_instance__9TTecZaruaFPviiii(Zarua_8023C420 *self, s32 _w1, s32 _w2, s32 _w3, s32 _w4);
 void VecCopy__FP3VecPC3Vec(Vec_8023C420 *, Vec_8023C420 *);
 s32 obj_getField1c(void *);
 s32 construct_target_cursor_records__10TObjPlayerFi(void *);
@@ -182,7 +182,7 @@ void *__dt__9TTecZaruaFv(void *arg0, s16 arg1);
 void calc_range__9TTecZaruaFPv(u8 *arg0);
 void create_instance__9TTecZaruaFiiii(s32 arg0, s32 arg1, s32 arg2, s32 arg3);
 void render__9TTecZaruaFv(void);
-M2C_UNK TTecAnti__sub_8022B35C(void *, s32);
+M2C_UNK copy_params__8TTecAntiFPvPv(void *, s32);
 s32 calc_technique_parameters(M2C_UNK, s16, M2C_UNK);
 void __dl__7TObjectFPv(void *);
 u32 __nw__7TObjectFUl(s32 a0 = 0);
@@ -196,7 +196,7 @@ void calc_range__9TTecZaruaFPv(u8 *arg0) {
 
     ret = calc_technique_parameters(0xC, M2C_FIELD(arg0, s16 *, 0x78), 0xFFFF);
     tmp.v = ret;
-    TTecAnti__sub_8022B35C(arg0 + 0x88, tmp.v);
+    copy_params__8TTecAntiFPvPv(arg0 + 0x88, tmp.v);
     M2C_FIELD(arg0, f32 *, 0x88) = (f32) (M2C_FIELD(arg0, s16 *, 0xAC) * M2C_FIELD(arg0, s16 *, 0x78));
 }
 
@@ -218,7 +218,7 @@ void create_instance__9TTecZaruaFiiii(s32 arg0, s32 arg1, s32 arg2, s32 arg3) {
     u32 obj;
     obj = __nw__7TObjectFUl(0x14C);
     if (obj != 0U) {
-        TTecZarua__sub_8023C420((Zarua_8023C420 *)(obj), (s32)(arg0), (s32)(arg1), (s32)(arg2), (s32)(arg3));
+        init_instance__9TTecZaruaFPviiii((Zarua_8023C420 *)(obj), (s32)(arg0), (s32)(arg1), (s32)(arg2), (s32)(arg3));
     }
 }
 void render__9TTecZaruaFv(void) {  }
@@ -296,7 +296,7 @@ Zarua_8023C2D0 *TTecZarua__ct(Zarua_8023C2D0 *self, void *_w1, void *_w2, void *
     return self;
 }
 
-Zarua_8023C420 *TTecZarua__sub_8023C420(Zarua_8023C420 *self, s32 _w1, s32 _w2, s32 _w3, s32 _w4) {
+Zarua_8023C420 *init_instance__9TTecZaruaFPviiii(Zarua_8023C420 *self, s32 _w1, s32 _w2, s32 _w3, s32 _w4) {
     s32 r;
     construct_area_technique_base(self);
     self->vt = ((s32 *)&__vt__9TTecZarua);

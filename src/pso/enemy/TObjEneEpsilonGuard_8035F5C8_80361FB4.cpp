@@ -5,17 +5,17 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 #define M2C_BITWISE(type, expr) ((type)(expr))
 
 extern "C" {
-s32 TObjEneEpsilonGuard__sub_80360948(void *, void *);
+s32 action_destroy__19TObjEneEpsilonGuardFPvi(void *, void *);
 s32 update_fade__19TObjEneEpsilonGuardFPvi(void *, void *);
 s32 TObjEneEpsilonGuard__sub_80360BF8(void *, void *);
-s32 TObjEneEpsilonGuard__sub_80360D9C(void *, void *);
+s32 handle_warp_state__19TObjEneEpsilonGuardFPvi(void *, void *);
 s32 TObjEneEpsilonGuard__sub_803610D0(void *, void *);
 s32 action__19TObjEneEpsilonGuardFPvi(void *, void *);
-s32 TObjEneEpsilonGuard__sub_80361508(void *, void *);
+s32 handle_guard_action_state__19TObjEneEpsilonGuardFPvi(void *, void *);
 s32 TObjEneEpsilonGuard__sub_803616E4(void *, void *);
 s32 TObjEneEpsilonGuard__sub_80361C70(void *, void *);
 s32 TObjEneEpsilonGuard__sub_80361D4C(void *, void *);
-void TObjEneEpsilonGuard__sub_803620B4(s32 arg0, u32 arg1, s32 arg2);
+void dispatch_state__19TObjEneEpsilonGuardFiUii(s32 arg0, u32 arg1, s32 arg2);
 }
 
 extern "C" {
@@ -56,7 +56,7 @@ void request_state8__19TObjEneEpsilonGuardFPv(void *arg0) {
 }
 void set_action_9__19TObjEneEpsilonGuardFPv(void* p) { if (*(short*)((char*)p + 0x326) != 9) { transition_enemy_state(p, (void*)9); } }
 void TObjEneEpsilonGuard__sub_803620B0(void) {  }
-void TObjEneEpsilonGuard__sub_803620B4(s32 arg0, u32 arg1, s32 arg2) {
+void dispatch_state__19TObjEneEpsilonGuardFiUii(s32 arg0, u32 arg1, s32 arg2) {
     switch (arg1) {
     case 0:
         TObjEneEpsilonGuard__sub_80361D4C((void *) (arg0), (void *) (arg2));
@@ -68,7 +68,7 @@ void TObjEneEpsilonGuard__sub_803620B4(s32 arg0, u32 arg1, s32 arg2) {
         TObjEneEpsilonGuard__sub_803616E4((void *) (arg0), (void *) (arg2));
         return;
     case 3:
-        TObjEneEpsilonGuard__sub_80361508((void *) (arg0), (void *) (arg2));
+        handle_guard_action_state__19TObjEneEpsilonGuardFPvi((void *) (arg0), (void *) (arg2));
         return;
     case 4:
         action__19TObjEneEpsilonGuardFPvi((void *) (arg0), (void *) (arg2));
@@ -77,7 +77,7 @@ void TObjEneEpsilonGuard__sub_803620B4(s32 arg0, u32 arg1, s32 arg2) {
         TObjEneEpsilonGuard__sub_803610D0((void *) (arg0), (void *) (arg2));
         return;
     case 6:
-        TObjEneEpsilonGuard__sub_80360D9C((void *) (arg0), (void *) (arg2));
+        handle_warp_state__19TObjEneEpsilonGuardFPvi((void *) (arg0), (void *) (arg2));
         return;
     case 7:
         TObjEneEpsilonGuard__sub_80360BF8((void *) (arg0), (void *) (arg2));
@@ -86,7 +86,7 @@ void TObjEneEpsilonGuard__sub_803620B4(s32 arg0, u32 arg1, s32 arg2) {
         update_fade__19TObjEneEpsilonGuardFPvi((void *) (arg0), (void *) (arg2));
         return;
     case 9:
-        TObjEneEpsilonGuard__sub_80360948((void *) (arg0), (void *) (arg2));
+        action_destroy__19TObjEneEpsilonGuardFPvi((void *) (arg0), (void *) (arg2));
     default:
         return;
     }

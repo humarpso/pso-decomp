@@ -99,14 +99,14 @@ s32 copy_vec3__11TBoss4Type2FPvPv(int, void *);
 s32 copy_pos__11TNowLoadingFPvPv(int, void *);
 f32 subtract_vector(Vec_802E7888 *, Vec_802E7888 *);
 extern const f64 lbl_80473FA8[];
-void TObjFish__sub_802E7888(Obj_802E7888 *o);
+void update_attached_orientation__8TObjFishFPv(Obj_802E7888 *o);
 M2C_UNK TObjLight__sub_801337F8(s32);
 u8 *queue_boss_effect__10TObjPlayerFPv(s32);
 M2C_UNK draw_effect__10TObjPlayerFv();
 M2C_UNK rotate_matrix_z(int, s32);
 M2C_UNK translate_matrix(int, f32, f32, f32);
 M2C_UNK rotate_matrix_x(int, s32);
-M2C_UNK TObjPlayer__sub_803D9730(int, s32);
+M2C_UNK concat_matrix__10TObjPlayerFUiUi(int, s32);
 M2C_UNK push_matrix();
 M2C_UNK pop_matrix();
 M2C_UNK post_translate_matrix(void *);
@@ -125,9 +125,9 @@ void alloc_breakup_model__10TObjPlayerFPvi(void *arg0, s32 arg1);
 void *init_zeroed_object__10TObjPlayerFPv(void *arg0);
 u8 *queue_boss_effect__10TObjPlayerFPv(s32);
 M2C_UNK matrix_mult_vec(int, void *, void *);
-M2C_UNK TObjPlayer__sub_803D8CD4(int);
+M2C_UNK set_matrix_identity__10TObjPlayerFPv(int);
 M2C_UNK rotate_vector_by_matrix(int, void *, void *);
-M2C_UNK TObjPlayer__sub_803D9730(int, s32);
+M2C_UNK concat_matrix__10TObjPlayerFUiUi(int, s32);
 M2C_UNK push_matrix();
 M2C_UNK pop_matrix();
 extern M2C_UNK lbl_804E3BA8[];
@@ -137,7 +137,7 @@ extern const f32 lbl_805DE9D4;
 extern const f32 lbl_805DE9D8;
 extern const f32 lbl_805DE9DC;
 extern const f32 lbl_805DE9E0;
-u8 *TObjPlayer__sub_802E6F10(u8 *arg0, void *arg1, s32 arg2);
+u8 *init_breakup_pieces__10TObjPlayerFPvPvi(u8 *arg0, void *arg1, s32 arg2);
 M2C_UNK TObjLight__sub_801337F8(s32);
 u8 *queue_boss_effect__10TObjPlayerFPv(s32);
 M2C_UNK draw_effect__10TObjPlayerFv();
@@ -156,7 +156,7 @@ extern s32 lbl_805D5560;
 extern s32 lbl_805D5660;
 extern s32 some_id_805c6f74;
 extern const f32 lbl_805DE9F8;
-void TObjPlayer__sub_802E708C(u8 *arg0);
+void draw_boss_effect_parts__10TObjPlayerFPv(u8 *arg0);
 void VecCopy__FP3VecPC3Vec(void *, void *);
 int queue_destruction__7TObjectFv(void*);
 f32 lerp__9TDeadSpotFff(f32, f32);
@@ -220,7 +220,7 @@ void TObjPlayer__sub_802E6CB0(u8 *arg0) {
         rotate_matrix_z(0, part->f20);
         rotate_matrix_x(0, part->f18);
         translate_matrix(0, -M2C_FIELD(arg0, f32 *, 0x30), -M2C_FIELD(arg0, f32 *, 0x34), -M2C_FIELD(arg0, f32 *, 0x38));
-        TObjPlayer__sub_803D9730(0, M2C_FIELD(arg0, s32 *, 0x2C));
+        concat_matrix__10TObjPlayerFUiUi(0, M2C_FIELD(arg0, s32 *, 0x2C));
         switch (part->type) {
         case 0:
         case 1:
@@ -257,7 +257,7 @@ void *TObjPlayer__sub_802E6EB8(void *arg0, s16 arg1) {
     return arg0;
 }
 
-u8 *TObjPlayer__sub_802E6F10(u8 *arg0, void *arg1, s32 arg2) {
+u8 *init_breakup_pieces__10TObjPlayerFPvPvi(u8 *arg0, void *arg1, s32 arg2) {
     Part_802E6F10 *part;
     s32 i;
     init_zeroed_object__10TObjPlayerFPv(arg0);
@@ -266,8 +266,8 @@ u8 *TObjPlayer__sub_802E6F10(u8 *arg0, void *arg1, s32 arg2) {
     M2C_FIELD(arg0, s32 *, 0x2C) = arg2;
     part = M2C_FIELD(arg0, Part_802E6F10 **, 0x28);
     push_matrix();
-    TObjPlayer__sub_803D8CD4(0);
-    TObjPlayer__sub_803D9730(0, M2C_FIELD(arg0, s32 *, 0x2C));
+    set_matrix_identity__10TObjPlayerFPv(0);
+    concat_matrix__10TObjPlayerFUiUi(0, M2C_FIELD(arg0, s32 *, 0x2C));
     M2C_FIELD(arg0, Vec_802E6F10 *, 0x30).z = M2C_FIELD(arg0, Vec_802E6F10 *, 0x30).y = M2C_FIELD(arg0, Vec_802E6F10 *, 0x30).x = lbl_805DE9CC;
     matrix_mult_vec(0, arg0 + 0x30, arg0 + 0x30);
     for (i = 0; i < M2C_FIELD(arg0, s32 *, 0x24); i++) {
@@ -291,7 +291,7 @@ void TObjPlayer__sub_802E7088(void) {  }
 
 extern M2C_UNK lbl_804E3BC0[];
 
-void TObjPlayer__sub_802E708C(u8 *arg0) {
+void draw_boss_effect_parts__10TObjPlayerFPv(u8 *arg0) {
     Node_802E708C *node;
     Part_802E708C *part;
     u8 *fx = queue_boss_effect__10TObjPlayerFPv(3);
@@ -483,7 +483,7 @@ s32 TObjPlayer__sub_802E76C8(u8 *arg0) {
 
 void TObjFish__sub_802E787C(void) { lbl_805D6910 = lbl_805DE9F0; }
 
-void TObjFish__sub_802E7888(Obj_802E7888 *o) {
+void update_attached_orientation__8TObjFishFPv(Obj_802E7888 *o) {
     if (o->f7B0 != 0) {
         Vec_802E7888 d = o->pos;
         Ang_802E7888 ang;

@@ -103,7 +103,7 @@ struct SinowZoaRealVTableStorage {
 extern "C" {
 M2C_UNK invoke_initialization_hook__9TObjEneDDFPv(void *, void *);
 M2C_UNK setup_move_bounds__18TObjEneMe3SinowZoaFPv(void *);
-M2C_UNK TObjEneMe3SinowZoa__sub_8031AF88(void *);
+M2C_UNK init_enemy__18TObjEneMe3SinowZoaFPv(void *);
 void *TObjEneMe3SinowZoa__ct(void *, void *, void *);
 extern M2C_UNK __vt__22TObjEneMe3SinowZoaReal[];
 extern s32 lbl_805D4124;
@@ -167,7 +167,7 @@ u8 *TObjEneMe3SinowZoaReal__ct(u8 *arg0, M2C_UNK arg1, s32 arg2) {
     M2C_FIELD(arg0, s32 *, 0) = (s32) lbl_805D4124;
     invoke_initialization_hook__9TObjEneDDFPv((void *) (arg0), (void *) (arg2));
     setup_move_bounds__18TObjEneMe3SinowZoaFPv((void *) (arg0));
-    TObjEneMe3SinowZoa__sub_8031AF88((void *) (arg0));
+    init_enemy__18TObjEneMe3SinowZoaFPv((void *) (arg0));
     M2C_FIELD(arg0, s16 *, 0x326) = 0;
     ((VObj_18_be4a70 *)(arg0))->m85(M2C_FIELD(arg0, s16 *, 0x326), 4);
     return arg0;

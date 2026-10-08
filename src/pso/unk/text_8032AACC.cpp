@@ -36,7 +36,7 @@ extern s32 tl_clipout;
 extern void *lbl_805D6CA0;
 extern Word_8032AACC lbl_805DF76C;
 extern char lbl_805DF774[4];
-void fn_8032AACC(s32 arg0);
+void draw_masked_password_field(s32 arg0);
 void *__ct__19TAdPlyChrSelPlateGCFv(void *, s32, void *);
 void __dt__19TAdPlyChrSelPlateGCFv(void *, int);
 void TAdEnterSerialAccessGC__sub_802C4B64(void *, void *, void *, int);
@@ -49,7 +49,7 @@ void fn_8032AC24(void);
 
 extern "C" {
 
-void fn_8032AACC(s32 arg0) {
+void draw_masked_password_field(s32 arg0) {
     char buf[0x80];
     Plate_8032AACC plate;
     char *str;

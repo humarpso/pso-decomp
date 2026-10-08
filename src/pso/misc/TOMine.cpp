@@ -80,7 +80,7 @@ extern s32 lbl_805D5660;
 extern s32 some_id_805c6f74;
 extern const f32 lbl_805DB854;
 extern const f32 lbl_805DB858;
-void TOMine__sub_801710E4(VObj_801710E4 *arg0);
+void render__6TOMineFPv(VObj_801710E4 *arg0);
 void construct_actor_base__10TObjPlayerFPvPv(void *);
 void obj_setFlags30(void *, u32);
 extern M2C_UNK __vt__6TOMine[];
@@ -98,11 +98,11 @@ void free_sub_objects__6TOMineFPv(void* p);
 int get_player_state__6TOMineFPv(void* p);
 void run_task__6TOMineFPv(u8 *arg0);
 void TLobby__sub_8001FE7C(void*, int);
-M2C_UNK TOMineTrap__sub_80170AC8(void *);
+M2C_UNK follow_target__10TOMineTrapFPv(void *);
 M2C_UNK TOMineTrap__sub_80170BEC(void *);
 M2C_UNK TOMineTrap__sub_80170CD4(void *);
 M2C_UNK TOMineTrap__sub_80170CF4(void *);
-M2C_UNK TOMineTrap__sub_80170DD8(void *);
+M2C_UNK detonate__10TOMineTrapFPv(void *);
 int draw_ginja_object(void*);
 M2C_UNK submit_cursor_candidate(void *, int);
 int submit_target_to_player_cursor(void*);
@@ -160,13 +160,13 @@ void run_task__6TOMineFPv(u8 *arg0) {
                 TOMineTrap__sub_80170BEC((void *) (arg0));
                 break;
             case 2:
-                TOMineTrap__sub_80170AC8((void *) (arg0));
+                follow_target__10TOMineTrapFPv((void *) (arg0));
                 break;
             }
             submit_cursor_candidate((void *) (arg0), (int) (-1));
             return;
         case 4:
-            TOMineTrap__sub_80170DD8((void *) (arg0));
+            detonate__10TOMineTrapFPv((void *) (arg0));
             break;
         }
     }
@@ -178,7 +178,7 @@ void free_parts__6TOMineFPv(void* p) { set_global_param__8TObjFishFi(*(void**)((
 
 extern u32 lbl_805D5A50;
 
-void TOMine__sub_801710E4(VObj_801710E4 *arg0) {
+void render__6TOMineFPv(VObj_801710E4 *arg0) {
     s32 t;
     if (M2C_FIELD(arg0, s16 *, 0x326) == 3 && arg0->m8(lbl_805DB854, lbl_805DB858) != 0) {
         push_matrix();

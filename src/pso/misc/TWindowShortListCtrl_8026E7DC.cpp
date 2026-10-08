@@ -56,7 +56,7 @@ u32 TItemObject__sub_80115DE8(int);
 M2C_UNK set_slot__20TWindowActionPaletteFPvUc(int, int);
 M2C_UNK set_mode__20TWindowActionPaletteFPvUc(int, int);
 M2C_UNK TMainCursor__sub_8013DFC4(int);
-void TWindowShortListCtrl__sub_8026E93C(u32 arg0, u32 arg1);
+void assign_item_to_palette__20TWindowShortListCtrlFUiUi(u32 arg0, u32 arg1);
 extern M2C_UNK lbl_805DD380;
 void TWindowShortListCtrl__sub_8026EA48(u8 *arg0);
 s32 fn_8002AE08(int);
@@ -68,25 +68,25 @@ void destroy_children__20TWindowShortListCtrlFPv(void *arg0);
 void TWindowShortListCtrl__sub_8026EA48(u8 *arg0);
 void set_card_window_flags__20TWindowShortListCtrlFii(s32 arg0, s32 arg1);
 extern RecoveredGlobal_8026EA60_lbl_8050E208 lbl_8050E208;
-void TWindowShortListCtrl__sub_8026EA60(u8 *arg0);
+void cycle_list_page__20TWindowShortListCtrlFPv(u8 *arg0);
 s32 get_card_window__17TWindowSubComCardFUi(int);
 void TWindowShortListCtrl__sub_8026E8EC(u8 *arg0, s32 arg1, s32 arg2);
 s32 get_card_window__17TWindowSubComCardFUi(int);
-void TWindowSubComCard__sub_802655E4(void *);
+void reset_entries__17TWindowSubComCardFPv(void *);
 void set_selected_index__17TWindowSubComCardFPvs(void *, s16);
 void align_menu_entry_positions(void *);
 void set_scroll_target__17TWindowSubComCardFPvff(void *, f32, f32);
 s16 get_cursor_pos__20TWindowShortListCtrlFPv(void* p);
 void draw_technique_row__19TWindowSubTechniqueFiii(int, int, void *);
-void TWindowShortListCtrl__sub_8026EBB0(Wn_8026EBB0 *arg0, s32 arg1, Sc_8026EBB0 *arg2);
+void refresh_technique_rows__20TWindowShortListCtrlFPviPv(Wn_8026EBB0 *arg0, s32 arg1, Sc_8026EBB0 *arg2);
 s32 get_player_by_client_id(s32);
 s32 is_player_input_active(int);
 s32 TWindowShortListCtrl__check_controller_button(void *, int);
 u8 * find_item_by_id(s32);
-void TWindowShortListCtrl__sub_8026E93C(u32 arg0, u32 arg1);
-void TWindowShortListCtrl__sub_8026EA60(u8 *arg0);
+void assign_item_to_palette__20TWindowShortListCtrlFUiUi(u32 arg0, u32 arg1);
+void cycle_list_page__20TWindowShortListCtrlFPv(u8 *arg0);
 void TWindowShortListCtrl__sub_8026E8EC(u8 *arg0, s32 arg1, s32 arg2);
-void TWindowShortListCtrl__sub_8026EBB0(Wn_8026EBB0 *arg0, s32 arg1, Sc_8026EBB0 *arg2);
+void refresh_technique_rows__20TWindowShortListCtrlFPviPv(Wn_8026EBB0 *arg0, s32 arg1, Sc_8026EBB0 *arg2);
 s16 get_cursor_pos__20TWindowShortListCtrlFPv(void* p);
 void TWindowShortListCtrl__sub_8026F66C(u8 *arg0);
 s16 get_selected_index__20TWindowShortListCtrlFPv(void* p);
@@ -103,7 +103,7 @@ s32 get_flag_bit2__6TLobbyFPv(void *);
 s32 test_flag_4c__23TAdSinglePlyChrSelectGCFPv(void *, int);
 s32 is_usable__14TWindowSubItemFi(u8 *);
 void try_send_6x27_use_item(u8 *, s32);
-void TObjPlayer__sub_801B89B0(u8 *, s32);
+void send_trap_packet__10TObjPlayerFPvi(u8 *, s32);
 s32 create_if_key_pressed__23TAdSinglePlyChrSelectGCFv();
 void decrement_clamped(void *, int);
 void update_cursor__10TObjPlayerFPvi(u8 *, s32);
@@ -191,7 +191,7 @@ void TWindowShortListCtrl__sub_8026E8EC(u8 *arg0, s32 arg1, s32 arg2) {
     p[arg2] = t;
 }
 
-void TWindowShortListCtrl__sub_8026E93C(u32 arg0, u32 arg1) {
+void assign_item_to_palette__20TWindowShortListCtrlFUiUi(u32 arg0, u32 arg1) {
     s32 var_r30;
     s32 var_r4;
     s32 var_r5;
@@ -251,7 +251,7 @@ void TWindowShortListCtrl__sub_8026EA48(u8 *arg0) {
 typedef struct RecoveredFields_8026EA60_arg0 RecoveredFields_8026EA60_arg0;
 typedef struct RecoveredFields_8026EA60_temp_r29 RecoveredFields_8026EA60_temp_r29;
 typedef struct RecoveredGlobal_8026EA60_lbl_8050E208 RecoveredGlobal_8026EA60_lbl_8050E208;
-void TWindowShortListCtrl__sub_8026EA60(u8 *arg0) {
+void cycle_list_page__20TWindowShortListCtrlFPv(u8 *arg0) {
   s32 temp_r31;
   u32 temp_r3;
   u8 temp_r31_2;
@@ -311,13 +311,13 @@ void TWindowShortListCtrl__sub_8026EA60(u8 *arg0) {
   }
 }
 
-void TWindowShortListCtrl__sub_8026EBB0(Wn_8026EBB0 *arg0, s32 arg1, Sc_8026EBB0 *arg2) {
+void refresh_technique_rows__20TWindowShortListCtrlFPviPv(Wn_8026EBB0 *arg0, s32 arg1, Sc_8026EBB0 *arg2) {
     s32 i;
     s16 cur;
     Tb_8026EBB0 *tbl;
     tbl = (Tb_8026EBB0 *)(get_card_window__17TWindowSubComCardFUi(arg0->card) + 0x22C4);
     cur = get_cursor_pos__20TWindowShortListCtrlFPv((void*)((void *)arg1));
-    TWindowSubComCard__sub_802655E4((void *)arg1);
+    reset_entries__17TWindowSubComCardFPv((void *)arg1);
     for (i = 0; i < 0x13; i++) {
         draw_technique_row__19TWindowSubTechniqueFiii(tbl->e[i], arg0->card, (void *)arg1);
     }
@@ -333,7 +333,7 @@ void *create_window__20TWindowShortListCtrlFPvii(void *arg0, s32 arg1, s32 arg2)
     set_flag70_bit10__16TObjCityMainWarpFPv();
     M2C_FIELD(temp_r31, s32 *, 0x5C) = 0x01000000;
     set_flag70_bit100__17TWindowOptionCtrlFPv(temp_r31);
-    TWindowShortListCtrl__sub_8026EBB0((Wn_8026EBB0 *)((void*)((void*)(arg0))), (s32)((void*)((void*)(temp_r31))), (Sc_8026EBB0 *)((void*)((void*)(arg2))));
+    refresh_technique_rows__20TWindowShortListCtrlFPviPv((Wn_8026EBB0 *)((void*)((void*)(arg0))), (s32)((void*)((void*)(temp_r31))), (Sc_8026EBB0 *)((void*)((void*)(arg2))));
     return temp_r31;
 }
 void render__20TWindowShortListCtrlFv(void) {  }
@@ -353,7 +353,7 @@ void run_task__20TWindowShortListCtrlFv(u8 *arg0) {
         queue_destruction__7TObjectFv(self);
         return;
     }
-    TWindowShortListCtrl__sub_8026EA60(arg0);
+    cycle_list_page__20TWindowShortListCtrlFPv(arg0);
     switch (self->state) {
     case 0:
         if (self->list_win == NULL) {
@@ -409,7 +409,7 @@ void run_task__20TWindowShortListCtrlFv(u8 *arg0) {
         }
         self->state = 4;
     case 4:
-        TWindowShortListCtrl__sub_8026E93C(select_cursor_entry__6TLobbyFPv(self->list_win), self->player_id);
+        assign_item_to_palette__20TWindowShortListCtrlFUiUi(select_cursor_entry__6TLobbyFPv(self->list_win), self->player_id);
         if (get_flag_bit2__6TLobbyFPv(self->list_win) != 0) {
             queue_destruction__7TObjectFv(self);
             return;
@@ -419,7 +419,7 @@ void run_task__20TWindowShortListCtrlFv(u8 *arg0) {
         }
         break;
     case 5:
-        TWindowShortListCtrl__sub_8026E93C(select_cursor_entry__6TLobbyFPv(self->list_win), self->player_id);
+        assign_item_to_palette__20TWindowShortListCtrlFUiUi(select_cursor_entry__6TLobbyFPv(self->list_win), self->player_id);
         if (BACK_PRESSED(idx)) {
             play_sound_effect(0x52F16, 0, 0, 0);
             queue_destruction__7TObjectFv(self);
@@ -444,7 +444,7 @@ void run_task__20TWindowShortListCtrlFv(u8 *arg0) {
         }
         self->state = 7;
     case 7:
-        TWindowShortListCtrl__sub_8026E93C(select_cursor_entry__6TLobbyFPv(self->list_win), self->player_id);
+        assign_item_to_palette__20TWindowShortListCtrlFUiUi(select_cursor_entry__6TLobbyFPv(self->list_win), self->player_id);
         if (get_flag_bit2__6TLobbyFPv(self->list_win) != 0) {
             queue_destruction__7TObjectFv(self);
             return;
@@ -474,7 +474,7 @@ void run_task__20TWindowShortListCtrlFv(u8 *arg0) {
         if (TWindowCtrl__sub_8024A228(self->player_id) == 0) {
             return;
         }
-        TObjPlayer__sub_801B89B0(player, sel & 0xF);
+        send_trap_packet__10TObjPlayerFPvi(player, sel & 0xF);
         queue_destruction__7TObjectFv(self);
         return;
     case 9:
@@ -487,7 +487,7 @@ void run_task__20TWindowShortListCtrlFv(u8 *arg0) {
     case 10:
         update_cursor__10TObjPlayerFPvi(player, get_selected_menu_value(self->tech_win));
         if (update_selection__19TWindowSubTechniqueFPvPv(self->sub20, self->sub28, self->player_id) != 0) {
-            TWindowShortListCtrl__sub_8026EBB0((Wn_8026EBB0 *) self, (s32) self->tech_win, (Sc_8026EBB0 *) lbl_8044F5A0);
+            refresh_technique_rows__20TWindowShortListCtrlFPviPv((Wn_8026EBB0 *) self, (s32) self->tech_win, (Sc_8026EBB0 *) lbl_8044F5A0);
         }
         if (TWindowShortListCtrl__check_controller_button(PAD(idx), 0x400) != 0) {
             if (get_selected_index__20TWindowShortListCtrlFPv(self->tech_win) == -1) {
@@ -495,7 +495,7 @@ void run_task__20TWindowShortListCtrlFv(u8 *arg0) {
             } else {
                 TWindowShortListCtrl__sub_8026E8EC(arg0, get_selected_index__20TWindowShortListCtrlFPv(self->tech_win), get_cursor_pos__20TWindowShortListCtrlFPv(self->tech_win));
                 reset_selection__17TWindowSubComCardFPv(self->tech_win);
-                TWindowShortListCtrl__sub_8026EBB0((Wn_8026EBB0 *) self, (s32) self->tech_win, (Sc_8026EBB0 *) lbl_8044F5A0);
+                refresh_technique_rows__20TWindowShortListCtrlFPviPv((Wn_8026EBB0 *) self, (s32) self->tech_win, (Sc_8026EBB0 *) lbl_8044F5A0);
             }
         }
         if (get_status_flag__17TWindowSubComCardFPv(self->tech_win) != 0) {
@@ -518,7 +518,7 @@ void run_task__20TWindowShortListCtrlFv(u8 *arg0) {
             return;
         }
         if (TWindowSubTechnique__sub_80286BF4(get_selected_menu_value(self->tech_win), self->player_id) == 0) {
-            TWindowShortListCtrl__sub_8026EBB0((Wn_8026EBB0 *) self, (s32) self->tech_win, (Sc_8026EBB0 *) lbl_8044F5A0);
+            refresh_technique_rows__20TWindowShortListCtrlFPviPv((Wn_8026EBB0 *) self, (s32) self->tech_win, (Sc_8026EBB0 *) lbl_8044F5A0);
             self->state = 9;
             return;
         }

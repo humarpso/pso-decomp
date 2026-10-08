@@ -1344,7 +1344,7 @@ void TLobby__sub_800714B0(void *, s32);
 M2C_UNK set_selected_layout__6TLobbyFi(u32);
 void try_set_value__6TLobbyFf(f32);
 M2C_UNK set_split_screen_flag__6TLobbyFi(s32);
-M2C_UNK TObjPlayer__sub_80071BC0(s32);
+M2C_UNK rebuild_players_for_stage__10TObjPlayerFi(s32);
 s32 copy_player_visual_record(void *, int);
 s16 get_field_2b8__14TItemProShieldFPv(u8 *);
 s32 fn_80077788(void);
@@ -1421,7 +1421,7 @@ void * fn_801963A8(Spawn_801E8D44 *, s32 *);
 void * create_quest_col_alock(Spawn_801E8AE8 *, s32 *);
 void * fn_80196814(Spawn_801E8E4C *, s32 *);
 void * create_quest_col(Spawn_801E8F54 *, s32 *);
-int fn_80197E64(void);
+int load_memcard_file(void);
 int TLobby__sub_80197F74(void);
 M2C_UNK fn_80197FD0(void *, int);
 s32 get_dest_area__17TObjAreaWarpQuestFPv(void *);
@@ -1618,7 +1618,7 @@ void TLobby__sub_801EB0A0(s32 arg0);
 void TLobby__sub_801EB0F8(s32 arg0);
 void TLobby__sub_801EB10C(void);
 s32 init_guild_card_tag__6TLobbyFi(s32 arg0);
-void TLobby__sub_801EB25C(s32 arg0, s32 arg1);
+void update_player_status__6TLobbyFii(s32 arg0, s32 arg1);
 void TLobby__sub_801EB46C(void);
 void TLobby__sub_801EB478(void);
 void TLobby__sub_801EB484(u8 src, u8 dst);
@@ -1993,7 +1993,7 @@ M2C_UNK TWindow__close(void*);
 void set_field_1c__6TLobbyFPvf(s32 win, f32 v);
 s32 request_active_window_close();
 void clear_flag__11TWindowCtrlFv(void);
-M2C_UNK TWindowCtrl__sub_8024A4B0(int, void *);
+M2C_UNK set_timer_window_time__11TWindowCtrlFi(int, void *);
 int TWindowCtrl__sub_8024A4EC(void*);
 int create_alt_timer__11TWindowCtrlFv(void*);
 s32 close_window_if_active(void *);
@@ -2009,7 +2009,7 @@ void open__11TWindowCtrlFiii(s32, s32, s32);
 void open_default__11TWindowCtrlFPvi(u16, s32);
 s32 TWindowHelpItem__ct(s32, s32, s32);
 void align_menu_entry_positions(s32 win);
-void TWindowSubComCard__sub_80265F60(s32 win);
+void calc_window_size__17TWindowSubComCardFPv(s32 win);
 void forward_trade_action_default__16TObjCityMainWarpFPviii(s32 win, char *name, s32 kind, s32 i);
 s32 check_room_seq_4__16TAdChrSelASlotGCFii(s32 a, s32 b);
 void send_and_handle__6TLobbyFPvii(void*, s32, s32);
@@ -2039,7 +2039,7 @@ void TLobby__sub_80292574(void *, s32);
 M2C_UNK TLobby__sub_80292604(int);
 void set_camera_height_if_valid__6TLobbyFf(f32);
 M2C_UNK try_set_split_screen__6TLobbyFi(s32);
-M2C_UNK TLobby__sub_80292730(s32);
+M2C_UNK rebuild_players_for_stage__6TLobbyFi(s32);
 M2C_UNK clamp_and_store_layout_index__6TLobbyFi(u32);
 s32 TLobby__sub_8029299C();
 s32 TLobby__sub_80292A34();
@@ -2074,7 +2074,7 @@ void send_stop_at_position__10TNpcPlayerFUsPvs(u16, Vec_801F0458 *, s32);
 int enable_partner_chatter__10TNpcPlayerFv(void*);
 int disable_partner_chatter__10TNpcPlayerFv(void*);
 s32 quest_remove_npc_player(int);
-void TNpcPlayer__sub_8034E7A0();
+void send_inter_level_warp_all__10TNpcPlayerFi();
 s32 TNpcPlayer__sub_8034EA80(int);
 s32 TNpcPlayer__sub_8034EAC4(int);
 void TNpcPlayer__sub_8034EB08(u16, u16, s32, Vec_801F12F0 *, s32);
@@ -2288,7 +2288,7 @@ void TLobby__sub_801E7408(void) {
     }
 }
 
-void TLobby__sub_801E74D0(void) {
+void open_quest_message_window__6TLobbyFv(void) {
     Vec2_801E74D0 pos;
     Vec2_801E74D0 size;
     s32 x = (*(Glob_801E75F0 *)&TLobby__data_80512220).f0;
@@ -3171,7 +3171,7 @@ void TLobby__sub_801E945C(void) {
 #pragma pop
 
 struct Vec3_801E94CC { f32 x, y, z; };
-void TBoss4DarkFalz__sub_8004C220(u32, Vec3_801E94CC *);
+void set_position_from__14TBoss4DarkFalzFPvPv(u32, Vec3_801E94CC *);
 u32 TQuestColCtrl__sub_80195CF0(u16);
 void TLobby__sub_801E94CC(s32 i, s32 k) {
     Vec3_801E94CC v;
@@ -3180,7 +3180,7 @@ void TLobby__sub_801E94CC(s32 i, s32 k) {
     v.z = TLobby__data_805D5E78[(u8)k];
     u32 r = TQuestColCtrl__sub_80195CF0((u16)TLobby__data_805D5E78[(u8)i]);
     if (r != 0) {
-        TBoss4DarkFalz__sub_8004C220(r, &v);
+        set_position_from__14TBoss4DarkFalzFPvPv(r, &v);
     }
 }
 
@@ -4549,7 +4549,7 @@ s32 init_guild_card_tag__6TLobbyFi(s32 arg0) {
 #pragma inline_depth(1)
 #pragma auto_inline off
 #pragma dont_inline off
-void TLobby__sub_801EB25C(s32 arg0, s32 arg1) {
+void update_player_status__6TLobbyFii(s32 arg0, s32 arg1) {
     s32 temp_r3;
     temp_r3 = ((s32 (*)(int, void *))get_player_by_client_id)((int)((int) (M2C_FIELD((*(s32 *)&TLobby__data_805D5E78), M2C_UNK *, ((arg0 * 4) & 0x3FC)))), (void *)(arg1));
     if (temp_r3 != 0) {
@@ -6509,7 +6509,7 @@ void TLobby__sub_801ED468(s32 a, s32 b) {
         set_area__6TLobbyFPvi(lbl_80515BA0, (*(s32 * *)&TLobby__data_805D5E78)[(u8)b], get_floor_map_terrain((*(s32 * *)&TLobby__data_805D5E78)[(u8)b]));
         mark_area_change_pending();
         get_dest_area__17TObjAreaWarpQuestFPv(lbl_80515BA0);
-        TNpcPlayer__sub_8034E7A0();
+        send_inter_level_warp_all__10TNpcPlayerFi();
         send_6x21_inter_level_warp(r, (void *)get_dest_area__17TObjAreaWarpQuestFPv(lbl_80515BA0));
     }
 }
@@ -6634,10 +6634,10 @@ void update_split_screen_camera__6TLobbyFv(void) {
 
     temp_r31 = (*(struct Glob_80512220 *)&TLobby__data_80512220).field0;
     if (is_split_screen() == 1) {
-        TLobby__sub_80292730(temp_r31);
+        rebuild_players_for_stage__6TLobbyFi(temp_r31);
         return;
     }
-    TObjPlayer__sub_80071BC0(temp_r31);
+    rebuild_players_for_stage__10TObjPlayerFi(temp_r31);
 }
 
 void TLobby__sub_801ED764(s32 arg0) {
@@ -7153,7 +7153,7 @@ void qst_op_set_quest_board_handler(void) {
 void set_table_entry__6TLobbyFi(int a0) { TLobby__data_805D5E78[(unsigned char)(a0)] = TLobby__sub_803DF1CC(); }
 
 void qst_op_winset_time(s32 arg0) {
-    TWindowCtrl__sub_8024A4B0((int) (M2C_FIELD((*(s32 *)&TLobby__data_805D5E78), M2C_UNK *, ((arg0 * 4) & 0x3FC))), (void *) ((*(s32 *)&TLobby__data_805D5E78)));
+    set_timer_window_time__11TWindowCtrlFi((int) (M2C_FIELD((*(s32 *)&TLobby__data_805D5E78), M2C_UNK *, ((arg0 * 4) & 0x3FC))), (void *) ((*(s32 *)&TLobby__data_805D5E78)));
 }
 
 int qst_op_winend_time(void* p) { return TWindowCtrl__sub_8024A4EC(p); }
@@ -7492,7 +7492,7 @@ int forward_npc_player__6TLobbyFPv(void* p) { return clear_partner_dialogue_flag
 
 void cleanup_luker_and_quest_flag__6TLobbyFv(void) { ((int (*)(void))free_luker_object__6TLobbyFv)(); TLobby__sub_80197F74(); ((int (*)(void))clear_quest_vm_flag__6TLobbyFv)(); }
 
-void clear_quest_vm__6TLobbyFv(void) { ((int (*)(void))free_luker_object__6TLobbyFv)(); fn_80197E64(); ((int (*)(void))clear_quest_vm_flag__6TLobbyFv)(); }
+void clear_quest_vm__6TLobbyFv(void) { ((int (*)(void))free_luker_object__6TLobbyFv)(); load_memcard_file(); ((int (*)(void))clear_quest_vm_flag__6TLobbyFv)(); }
 
 void TLobby__sub_801EF5D0(void) {
     set_partner_common_remark((int) (M2C_FIELD(&(*(RecoveredGlobal_801EF5D0_TLobby__data_80512220 *)&TLobby__data_80512220).value, s32 *, 0)), (int) (M2C_FIELD(&(*(RecoveredGlobal_801EF5D0_TLobby__data_80512220 *)&TLobby__data_80512220).value, s32 *, 4)));
@@ -7790,16 +7790,16 @@ void TLobby__sub_801F0574(u8 arg0) {
 }
 
 s32 get_load_result__15TAdPlayerLoadGCFv(s32);
-s32 TAdPlayerLoadGC__sub_801E1E38(s32);
-s32 TAdPlayerLoadGC__sub_801E2048(s32, const char *);
+s32 probe_card_slot__15TAdPlayerLoadGCFi(s32);
+s32 find_card_file__15TAdPlayerLoadGCFiPv(s32, const char *);
 extern const char lbl_80449CC8[];
 void TLobby__sub_801F064C(void) {
     u8 reg = ((s32 *)&TLobby__data_80512220)[0];
     s32 ok = 0;
-    if (TAdPlayerLoadGC__sub_801E1E38(0) != 0 && TAdPlayerLoadGC__sub_801E2048(0, lbl_80449CC8) == 0 && get_load_result__15TAdPlayerLoadGCFv(0) == 0) {
+    if (probe_card_slot__15TAdPlayerLoadGCFi(0) != 0 && find_card_file__15TAdPlayerLoadGCFiPv(0, lbl_80449CC8) == 0 && get_load_result__15TAdPlayerLoadGCFv(0) == 0) {
         ok = 1;
     }
-    if (ok == 0 && TAdPlayerLoadGC__sub_801E1E38(1) != 0 && TAdPlayerLoadGC__sub_801E2048(1, lbl_80449CC8) == 0 && get_load_result__15TAdPlayerLoadGCFv(1) == 0) {
+    if (ok == 0 && probe_card_slot__15TAdPlayerLoadGCFi(1) != 0 && find_card_file__15TAdPlayerLoadGCFiPv(1, lbl_80449CC8) == 0 && get_load_result__15TAdPlayerLoadGCFv(1) == 0) {
         ok = 1;
     }
     TLobby__data_805D5E78[reg] = ok;
@@ -8208,7 +8208,7 @@ void qst_op_list(void) {
     for (i = 0; i < list->count; i++) {
         forward_trade_action_default__16TObjCityMainWarpFPviii(TLobby__data_805D5E84, list->names[i], 7, i);
     }
-    TWindowSubComCard__sub_80265F60(TLobby__data_805D5E84);
+    calc_window_size__17TWindowSubComCardFPv(TLobby__data_805D5E84);
     align_menu_entry_positions(TLobby__data_805D5E84);
     set_ready_flag__18TCheckRoomSequenceFPv(TLobby__data_805D5E84);
     set_field_1c__6TLobbyFPvf(TLobby__data_805D5E84, lbl_805DC4D8);

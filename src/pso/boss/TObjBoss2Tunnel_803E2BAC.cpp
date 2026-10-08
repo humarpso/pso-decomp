@@ -12,7 +12,7 @@ struct Vtx_803E2BCC {
 };
 
 extern "C" {
-M2C_UNK TObjPlayer__sub_803E20B0();
+M2C_UNK load_screen_space_matrix__10TObjPlayerFv();
 M2C_UNK setup_opaque_color_draw();
 M2C_UNK TObjPlayer__sub_803E21DC();
 void TObjBoss2Tunnel__sub_803E2D10(s32 arg0);
@@ -64,7 +64,7 @@ void TObjBoss2Tunnel__sub_803E2BCC(Vtx_803E2BCC *p, s32 n) {
 #pragma pop
 
 void TObjBoss2Tunnel__sub_803E2D10(s32 arg0) {
-    TObjPlayer__sub_803E20B0();
+    load_screen_space_matrix__10TObjPlayerFv();
     if (arg0 != 0) {
         TObjPlayer__sub_803E21DC();
         return;

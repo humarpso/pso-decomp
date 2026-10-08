@@ -37,7 +37,7 @@ M2C_UNK TKeyBoardControl__sub_8000F9CC(int);
 s32 is_ready__22TQuestVmDownLoadServerFv();
 M2C_UNK TLobby__sub_800FA464();
 s8 func_801A5E54__Fv();
-M2C_UNK TKeyBoardControl__sub_801A5EC4();
+M2C_UNK update_input_frame__16TKeyBoardControlFv();
 M2C_UNK controller_stuff__Fv();
 M2C_UNK render_tick__Fv();
 M2C_UNK update_sound_request_slots();
@@ -47,7 +47,7 @@ M2C_UNK render__9TMainTaskFv(void *);
 M2C_UNK run_task__9TMainTaskFv(void *);
 M2C_UNK noop__23TAdSinglePlyChrSelectGCFv();
 extern RecoveredGlobal_8011A350_main_task main_task;
-void TItemReverseTech__sub_8011A350(void);
+void run_frame__16TItemReverseTechFv(void);
 M2C_UNK render_tick__Fv();
 M2C_UNK delete_all_task_children__9TMainTaskFv(void *);
 extern RecoveredGlobal_8011A3D8_lbl_804A03A8 lbl_804A03A8;
@@ -65,7 +65,7 @@ extern Name_8011A270 lbl_8043E714;
 extern int TItemReverseTech__data_805D54D0;
 extern int lbl_805D54D4;
 extern int lbl_805D54D8;
-void TItemReverseTech__sub_8011A270(void);
+void load_textures__16TItemReverseTechFv(void);
 void TKeyBoardControl__sub_8000F90C(s32);
 void TKeyBoardControl__sub_8000F91C(s32);
 void set_active_camera_pose(Vec_8011A43C *, Vec_8011A43C *);
@@ -87,7 +87,7 @@ extern u8 lbl_804A6F34[];
 extern s32 tl_camera;
 extern const float lbl_805DAC4C;
 extern const f32 lbl_805DAC50;
-void TItemReverseTech__sub_8011A43C(void);
+void init_scene__16TItemReverseTechFv(void);
 }
 
 extern "C" {
@@ -125,7 +125,7 @@ typedef char RecoveredGlobal_8011A350_main_task_size[sizeof(RecoveredGlobal_8011
 
 #pragma push
 #pragma opt_propagation off
-void TItemReverseTech__sub_8011A270(void) {
+void load_textures__16TItemReverseTechFv(void) {
     Name_8011A270 *name = &lbl_8043E714;
     Ent_8011A270 *e;
     s32 i;
@@ -156,10 +156,10 @@ void TItemReverseTech__sub_8011A270(void) {
 }
 #pragma pop
 
-void TItemReverseTech__sub_8011A350(void) {
+void run_frame__16TItemReverseTechFv(void) {
     M2C_UNK *var_r3;
     controller_stuff__Fv();
-    TKeyBoardControl__sub_801A5EC4();
+    update_input_frame__16TKeyBoardControlFv();
     var_r3 = (M2C_UNK *)(&main_task.value);
     var_r3 = (M2C_UNK *)(&main_task.value);
     some_empty_func__9TMainTaskFv((void *) (&main_task.value));
@@ -211,7 +211,7 @@ void TItemReverseTech__sub_8011A3D8(void) {
 }
 
 typedef s32 M2C_UNK;
-void TItemReverseTech__sub_8011A43C(void) {
+void init_scene__16TItemReverseTechFv(void) {
     Ent_8011A43C *e;
     u32 i;
     void (*fn)();

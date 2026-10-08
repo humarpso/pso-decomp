@@ -278,12 +278,12 @@ extern const f32 TBoss2DeRolLe__data_805D82A0;
 extern const f32 TBoss2DeRolLe__data_805D82BC;
 extern const f32 lbl_805D844C;
 void TBoss2DeRolLe__sub_800360A8(void *arg0);
-M2C_UNK TBoss2DeRolLe__sub_80033D44(void *);
+M2C_UNK advance_action_sequence__13TBoss2DeRolLeFPv(void *);
 s32 queue_destruction__7TObjectFv(void *);
 s32 construct_piece_controller__10TObjPlayerFPvii(int, void *, int);
 s32 TBoss2DeRolLe__sub_8003383C(void *);
 s32 update_projectile_spawns__13TBoss2DeRolLeFPv(void *);
-s32 TBoss2DeRolLe__sub_80033AA4(void *);
+s32 update_particle_ctrls__13TBoss2DeRolLeFPv(void *);
 M2C_UNK TBoss2DeRolLe__sub_80034034(void *);
 s32 is_ready__13TBoss2DeRolLeFPv(void *);
 s32 backup_pos__13TBoss2DeRolLeFi(void *);
@@ -308,13 +308,13 @@ M2C_UNK __dt__7TObjectFv(void *, int);
 s32 queue_destruction__7TObjectFv(void *);
 s32 free_if_positive__13TBoss2DeRolLeFis(s32 arg0, s16 arg1);
 M2C_UNK __dt__9TObjEneDDFv(void *, int);
-M2C_UNK TBoss8Dragon__sub_800BC5A0(void *, int);
+M2C_UNK delete_buffer__12TBoss8DragonFis(void *, int);
 M2C_UNK free__11TOBoss4RockFUi(int);
 M2C_UNK free_collision_body_parts(void *);
 M2C_UNK __dl__7TObjectFPv(void *);
 extern u8 lbl_804824D0[];
 extern s32 TBoss2DeRolLe__data_805D4BC4;
-u8 *TBoss2DeRolLe__sub_80035420(u8 *arg0, s16 arg1);
+u8 *__dt__13TBoss2DeRolLeFPvs(u8 *arg0, s16 arg1);
 void VecCopy__FP3VecPC3Vec(void *, void *);
 f32 get_random_float__8TObjFishFv(f32);
 f32 get_ad_end_text_start__10TObjPlayerFv(f32, f32);
@@ -375,7 +375,7 @@ extern s32 TBoss2DeRolLe__data_805D4BC4;
 extern u8 *lbl_805D4BC8;
 extern s32 lbl_805D4BCC;
 extern const f32 TBoss2DeRolLe__data_805D827C;
-void TBoss2DeRolLe__sub_80035D24(void);
+void load_resources__13TBoss2DeRolLeFv(void);
 }
 
 extern "C" {
@@ -488,7 +488,7 @@ void run_task__13TBoss2DeRolLeFPv(u8 *arg0) {
     {
       case 1:
         *((s32 *) (((s8 *) arg0) + 0x3F4)) = 0;
-        TBoss2DeRolLe__sub_80033D44((void *) arg0);
+        advance_action_sequence__13TBoss2DeRolLeFPv((void *) arg0);
         break;
       case 0:
         *((s32 *) (((s8 *) arg0) + 0x3F4)) = 2;
@@ -554,7 +554,7 @@ void run_task__13TBoss2DeRolLeFPv(u8 *arg0) {
   backup_pos__13TBoss2DeRolLeFi((void *) arg0);
   set_player_state_default__12TBoss8DragonFPv((void *) arg0);
   add_radar_scaled_marker((void *) (arg0 + 0x38), (int) (-0x5DB4), (int) 1, (int) 1, (f32) TBoss2DeRolLe__data_805D82A0);
-  TBoss2DeRolLe__sub_80033AA4((void *) arg0);
+  update_particle_ctrls__13TBoss2DeRolLeFPv((void *) arg0);
   if (temp_r30 == 0)
   {
     run_tasks__7TObjectFv((void *) (arg0 + 0x3D8));
@@ -562,7 +562,7 @@ void run_task__13TBoss2DeRolLeFPv(u8 *arg0) {
 }
 
 #define self ((Self_80035420 *)arg0)
-u8 *TBoss2DeRolLe__sub_80035420(u8 *arg0, s16 arg1) {
+u8 *__dt__13TBoss2DeRolLeFPvs(u8 *arg0, s16 arg1) {
     s32 i;
     if (arg0 != NULL) {
         self->vtable = lbl_804824D0;
@@ -587,7 +587,7 @@ u8 *TBoss2DeRolLe__sub_80035420(u8 *arg0, s16 arg1) {
             self->x6D0 = NULL;
         }
         if (self->x6C8 != NULL) {
-            TBoss8Dragon__sub_800BC5A0(self->x6C8, 1);
+            delete_buffer__12TBoss8DragonFis(self->x6C8, 1);
             self->x6C8 = NULL;
         }
         if (self->x6B8 != NULL) {
@@ -663,7 +663,7 @@ u32 lbl_804FE300[3];
 u32 lbl_804FE30C[4];
 u32 lbl_804FE31C[3];
 Slot_80035D24 lbl_804FE328[11];
-void TBoss2DeRolLe__sub_80035D24(void) {
+void load_resources__13TBoss2DeRolLeFv(void) {
     s32 k;
     s32 m2;
     s32 m3;

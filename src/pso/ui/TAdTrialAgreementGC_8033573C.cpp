@@ -53,9 +53,9 @@ extern "C" {
 void *__dt__19TAdTrialAgreementGCFv(void *arg0, s16 arg1);
 s32 check_card_file__19TAdTrialAgreementGCFi(s32 arg0);
 void run_task__19TAdTrialAgreementGCFv(void *arg0);
-s32 TAdPlayerLoadGC__sub_801E0D8C(M2C_UNK);
-s32 TAdPlayerLoadGC__sub_801E1E38(M2C_UNK);
-s32 TAdPlayerLoadGC__sub_801E2048(M2C_UNK, M2C_UNK *);
+s32 probe_and_check_card__15TAdPlayerLoadGCFi(M2C_UNK);
+s32 probe_card_slot__15TAdPlayerLoadGCFi(M2C_UNK);
+s32 find_card_file__15TAdPlayerLoadGCFiPv(M2C_UNK, M2C_UNK *);
 void __dl__7TObjectFPv(void *);
 void __dt__18TAdAgreementBaseGCFv(void *, int);
 s32 check_memcard_status__15TAdPlayerLoadGCFi(M2C_UNK);
@@ -66,10 +66,10 @@ extern M2C_UNK lbl_804C8914[];
 s32 check_card_file__19TAdTrialAgreementGCFi(s32 arg0) {
     s32 temp_r3;
 
-    if (TAdPlayerLoadGC__sub_801E1E38(0) == 0) {
+    if (probe_card_slot__15TAdPlayerLoadGCFi(0) == 0) {
         return 0;
     }
-    if (TAdPlayerLoadGC__sub_801E0D8C(0) == 0) {
+    if (probe_and_check_card__15TAdPlayerLoadGCFi(0) == 0) {
         return 0;
     }
     wait_for_load__19TAdTrialAgreementGCFv(arg0);
@@ -77,7 +77,7 @@ s32 check_card_file__19TAdTrialAgreementGCFi(s32 arg0) {
         return 0;
     }
     wait_for_load__19TAdTrialAgreementGCFv(arg0);
-    temp_r3 = TAdPlayerLoadGC__sub_801E2048(0, lbl_804C8914);
+    temp_r3 = find_card_file__15TAdPlayerLoadGCFiPv(0, lbl_804C8914);
     if ((temp_r3 == 0) || ((u32) (temp_r3 + 0x10000) == 0xFF41U)) {
         return 1;
     }

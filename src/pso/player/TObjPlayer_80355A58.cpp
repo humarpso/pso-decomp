@@ -30,7 +30,7 @@ void *item_equip_variant_deleting_dtor_80355B48(void *arg0, s16 arg1);
 void apply_mag_effect_if_active__10TObjPlayerFPvi(void *arg0, s32 arg1);
 s32 get_current_floor();
 s8 TObjPlayer__sub_80102C30(void *);
-M2C_UNK TObjPlayer__sub_8011EAB8(void *, s32, s32, f32);
+M2C_UNK spawn_pg_effect__10TObjPlayerFPvPvif(void *, s32, s32, f32);
 void free_obj_heap__10TObjPlayerFPv(void *);
 s32 get_field_3e4__10TObjPlayerFPv(u32);
 void item_equip_variant_deleting_dtor_80120CF8(void *, int);
@@ -45,7 +45,7 @@ void apply_mag_effect_if_active__10TObjPlayerFPvi(void *arg0, s32 arg1) {
         {
         s32 t = get_current_floor();
         if ((t == temp_r31) && (TObjPlayer__sub_80102C30(arg0) == 2)) {
-            TObjPlayer__sub_8011EAB8(arg0, M2C_FIELD(arg0, u32 *, 0xF0) + 0x2FC, arg1, M2C_FIELD(arg0, f32 *, 0x1F8));
+            spawn_pg_effect__10TObjPlayerFPvPvif(arg0, M2C_FIELD(arg0, u32 *, 0xF0) + 0x2FC, arg1, M2C_FIELD(arg0, f32 *, 0x1F8));
         }
         }
     }

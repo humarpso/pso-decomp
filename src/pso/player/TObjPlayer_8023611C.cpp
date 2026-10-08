@@ -140,7 +140,7 @@ s32 get_lobby_flag__6TLobbyFv();
 s32 get_field_3e4__10TObjPlayerFPv(void *);
 u8 *find_entity_by_id(u16);
 PlayerData_80236154 *get_player_data__10TObjPlayerFi(s32);
-s32 TObjPlayer__sub_802364D8(void *self, int target, void *_w2, void *arg3);
+s32 collect_body_contacts__10TObjPlayerFPviPvPv(void *self, int target, void *_w2, void *arg3);
 extern RecoveredGlobal_80236290_lbl_80516150 lbl_80516150;
 extern const f32 lbl_805DC890;
 extern const f32 lbl_805DC898;
@@ -289,7 +289,7 @@ s32 find_area_technique_contact(void *self, int target, void *_w2, void *arg3) {
     return (s32)&lbl_80516150;
 }
 
-s32 TObjPlayer__sub_802364D8(void *self, int target, void *_w2, void *arg3) {
+s32 collect_body_contacts__10TObjPlayerFPviPvPv(void *self, int target, void *_w2, void *arg3) {
     Vec_802364D8 pos;
     PD_802364D8 *e;
     PD_802364D8 *pd;
@@ -354,7 +354,7 @@ void TObjPlayer__sub_80236728(u8 *arg0, s32 arg1) {
 }
 
 void TObjPlayer__sub_80236754(u8 *arg0, s32 arg1) {
-    TObjPlayer__sub_802364D8((void *)((void *) (arg0)), (int)((int) (M2C_FIELD(arg0, s32 *, 0xE8))), (void *)((void *) (arg0 + 0xBC)), (void *)((void *) (arg1)));
+    collect_body_contacts__10TObjPlayerFPviPvPv((void *)((void *) (arg0)), (int)((int) (M2C_FIELD(arg0, s32 *, 0xE8))), (void *)((void *) (arg0 + 0xBC)), (void *)((void *) (arg1)));
 }
 
 void TObjPlayer__sub_80236780(u8 *arg0, s32 arg1) {

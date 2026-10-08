@@ -276,7 +276,7 @@ void TObjPlayer__sub_800A100C(s32 _w0);
 s32 TObjPlayer__sub_800A1010(s32 arg0);
 s32 TObjPlayer__sub_800A1058(s32 arg0);
 void TObjPlayer__sub_800A1298(void);
-void TObjPlayer__sub_800A12C0(Obj_800A12C0 *o);
+void update_move_to_destination__10TObjPlayerFPv(Obj_800A12C0 *o);
 s32 update_hide_sequence__10TObjPlayerFPv(u8 *arg0);
 void trigger_action_if_not_flagged__10TObjPlayerFPv(void *arg0);
 void TObjPlayer__sub_800A1520(u8 *arg0);
@@ -319,7 +319,7 @@ void set_param__12TObjEneLappyFPvi(void *, s32);
 u32 get_enemy_entity(u16);
 s32 initialize__9TObjEnemyFPv(void *);
 M2C_UNK scale_velocity__19TObjGyaranzoMissileFPvf(void *, f32);
-f32 TObjPlayer__sub_8013153C(void *, int);
+f32 horizontal_distance__10TObjPlayerFPvPv(void *, int);
 f32 xz_distance_squared(void *, void *);
 s32 angle_diff_s16(s32, s32);
 M2C_UNK advance_animation_playback(void *);
@@ -805,7 +805,7 @@ s32 TObjPlayer__sub_800A1058(s32 arg0) {
 #pragma inline_depth(1)
 #pragma auto_inline on
 #pragma dont_inline off
-void TObjPlayer__sub_800A10A0(u8 *arg0) {
+void step_along_ground__10TObjPlayerFPv(u8 *arg0) {
     Raw_800A10A0 pos;
     Raw_800A10A0 vel;
     Raw_800A10A0 dir;
@@ -861,7 +861,7 @@ void TObjPlayer__sub_800A1298(void) {
     lbl_805D5008 = ((f32 (*)(int))TObjPlayer__sub_800A3200)((int) (3));
 }
 
-void TObjPlayer__sub_800A12C0(Obj_800A12C0 *o) {
+void update_move_to_destination__10TObjPlayerFPv(Obj_800A12C0 *o) {
     switch (o->state) {
     case -1:
         break;
@@ -957,7 +957,7 @@ void TObjPlayer__sub_800A1520(u8 *arg0) {
         update_hide_sequence__10TObjPlayerFPv((u8 *)((void *) arg0));
         return;
       case 8:
-        ((s32 (*)(void *))TObjPlayer__sub_800A12C0)((void *) arg0);
+        ((s32 (*)(void *))update_move_to_destination__10TObjPlayerFPv)((void *) arg0);
         break;
     }
   }
@@ -1381,7 +1381,7 @@ u8 *TObjPlayer__sub_800A34E8(u8 *arg0, u8 *arg1, s32 arg2, s32 arg3) {
     temp_r3 = csnVector(arg0 + 0x38, &v, -1);
     }
     if (temp_r3 != NULL) {
-        M2C_FIELD(arg0, s32 *, 0xC4) = (s32) (TObjPlayer__sub_8013153C((void *) (arg0 + 0x38), M2C_FIELD(temp_r3, s32 *, 4)) / lbl_805D5008);
+        M2C_FIELD(arg0, s32 *, 0xC4) = (s32) (horizontal_distance__10TObjPlayerFPvPv((void *) (arg0 + 0x38), M2C_FIELD(temp_r3, s32 *, 4)) / lbl_805D5008);
     } else {
         M2C_FIELD(arg0, s32 *, 0xC4) = (s32) (lbl_805D99DC / lbl_805D5008);
     }

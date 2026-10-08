@@ -62,7 +62,7 @@ extern s32 TObjEneMe1GiGue__data_805D6834;
 s32 TObjEneMe1GiGue__sub_802CDAC4(void *self, s32 i);
 f64 get_ad_end_text_start__10TObjPlayerFv(f32, f32);
 s32 spawn_particle_effect_with_rotation(Vec_802CDEB4 *, Ang_802CDEB4 *, int, int);
-f32 TObjPlayer__sub_8013153C(Vec_802CDEB4 *, Vec_802CDEB4 *);
+f32 horizontal_distance__10TObjPlayerFPvPv(Vec_802CDEB4 *, Vec_802CDEB4 *);
 f32 xz_distance_squared(Vec_802CDEB4 *, Vec_802CDEB4 *);
 u8 *find_entity_by_id(s16);
 M2C_UNK construct_collider_proxy__10TObjPlayerFPv(void *, s32);
@@ -243,7 +243,7 @@ u8 *TObjPlayer__sub_802CDEB4(u8 *arg0, Vec_802CDEB4 *arg1, s16 arg2, Rot_802CDEB
     Ang_802CDEB4 ang;
     ang.x = 0;
     ang.y = (s32)(lbl_804722C8[0] * get_ad_end_text_start__10TObjPlayerFv(pos->x - arg1->x, pos->z - arg1->z)) + 0x4000;
-    ang.z = 0x4000 - (s32)(lbl_804722C8[0] * get_ad_end_text_start__10TObjPlayerFv(pos->y - arg1->y, TObjPlayer__sub_8013153C(pos, arg1)));
+    ang.z = 0x4000 - (s32)(lbl_804722C8[0] * get_ad_end_text_start__10TObjPlayerFv(pos->y - arg1->y, horizontal_distance__10TObjPlayerFPvPv(pos, arg1)));
     M2C_FIELD(arg0, s32 *, 0xF8) = spawn_particle_effect_with_rotation(arg1, &ang, 0x201, 2);
     M2C_FIELD(arg0, s32 *, 0xFC) = spawn_particle_effect_with_rotation(arg1, &ang, 0x202, 2);
     }

@@ -43,7 +43,7 @@ extern s32 TLobby__data_805D6148;
 s32 TLobby__sub_8020AFA4(void);
 s32 read_disc_file(void *, Rec_8020AD40 *);
 void debug_print__6TLobbyFii(void *, ...);
-void TLobby__sub_801317E4(void *, s32, void *);
+void replace_file_extension__6TLobbyFPvPvPv(void *, s32, void *);
 void swap_object_row_endian(Rec_8020AD40 *);
 void TLobby__sub_8020AA94(Rec_8020AD40 *, s32, s32);
 void TLobby__sub_8020B3E4(s32, Rec_8020AD40 *, s32);
@@ -83,17 +83,17 @@ s32 load_area_object_set(s32 arg0, s32 arg1, s32 arg2, s32 arg3) {
     if (arg1 == 0 || arg1 == 0x12) {
         switch (get_game_play_mode()) {
         case 0:
-            TLobby__sub_801317E4(name, id, lbl_8044BBB0);
+            replace_file_extension__6TLobbyFPvPvPv(name, id, lbl_8044BBB0);
             break;
         case 1:
-            TLobby__sub_801317E4(name, id, lbl_8044BBDC);
+            replace_file_extension__6TLobbyFPvPvPv(name, id, lbl_8044BBDC);
             break;
         case 2:
-            TLobby__sub_801317E4(name, id, lbl_8044BBE8);
+            replace_file_extension__6TLobbyFPvPvPv(name, id, lbl_8044BBE8);
             break;
         }
     } else {
-        TLobby__sub_801317E4(name, id, lbl_8044BBB0);
+        replace_file_extension__6TLobbyFPvPvPv(name, id, lbl_8044BBB0);
     }
     len = read_disc_file(name, TLobby__data_805D60F0);
     if (len < 0) {

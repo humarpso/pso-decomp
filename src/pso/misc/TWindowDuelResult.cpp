@@ -39,7 +39,7 @@ struct W_8024F3CC {
 };
 extern "C" {
 s8 get_type__20TWindowSubStatusDispFPv(int);
-s32 TWindowSubStatusDisp__sub_80257CB8(void *);
+s32 destroy_all_items__20TWindowSubStatusDispFPv(void *);
 s32 setup_window_draw_context(void *, void *);
 M2C_UNK draw_window_frame(void *, int);
 M2C_UNK draw_visible_window_entries(void *, void *, int);
@@ -47,7 +47,7 @@ M2C_UNK draw_list_page_indicator(int, int);
 void TWindowDuelResult__sub_8024F478(u8 *arg0);
 s32 get_camera_id__11TCameraCtrlFv();
 u8 *alloc__23TAdSinglePlyChrSelectGCFPv(void *);
-s32 TWindowDD__sub_802466E0(void *, void *, void *, int);
+s32 construct_base__9TWindowDDFPvPvsPv(void *, void *, void *, int);
 M2C_UNK TWindowDuelResult__sub_8024F3CC(void *);
 u8 *init__21TWindowSubComCardListFPviii(void *, s32, s32, s32);
 s32 get_window_layout_position(int);
@@ -270,7 +270,7 @@ s32 TWindowDuelResult__sub_8024F3CC(void *arg0_) {
     typedef void (W_8024F3CC::*PT)();
     static PT tbl[2] = { &W_8024F3CC::a, &W_8024F3CC::b };
     W_8024F3CC *w = (W_8024F3CC *)arg0;
-    TWindowSubStatusDisp__sub_80257CB8(arg0 + 0x24);
+    destroy_all_items__20TWindowSubStatusDispFPv(arg0 + 0x24);
     s8 t = get_type__20TWindowSubStatusDispFPv(*(s32 *)(arg0 + 0x68));
     (w->*tbl[t])();
     TWindowDuelResult__sub_8024F330(arg0);
@@ -329,7 +329,7 @@ typedef char RecoveredGlobal_8024F5B0_lbl_804CF020_size[sizeof(RecoveredGlobal_8
 u8 *TWindowDuelResult__ct(u8 *arg0, s16 arg1) {
     u8 *temp_r3;
     u8 *var_r0;
-    TWindowDD__sub_802466E0((void *) (arg0), (void *) (&__vt__17TWindowDuelResult.value), (void *) (arg1), (int) (get_window_layout_position((int) (0x24))));
+    construct_base__9TWindowDDFPvPvsPv((void *) (arg0), (void *) (&__vt__17TWindowDuelResult.value), (void *) (arg1), (int) (get_window_layout_position((int) (0x24))));
     M2C_FIELD(arg0, M2C_UNK **, 0x18) = &(*(RecoveredGlobal_8024F5B0_lbl_804CF020 *)lbl_804CF020).value;
     M2C_FIELD(arg0, s32 *, 0) = (s32) lbl_805D38F0;
     temp_r3 = (u8 *)(alloc__23TAdSinglePlyChrSelectGCFPv((void *)0xC));

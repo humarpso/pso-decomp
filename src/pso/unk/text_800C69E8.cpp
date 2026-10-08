@@ -15,7 +15,7 @@ void TObjPlayer__sub_800C6A18(O_800C6A18 *self);
 M2C_UNK VecCopy__FP3VecPC3Vec(void *, void *);
 f64 get_ad_end_text_start__10TObjPlayerFv(f32, f32);
 void *csnVector(void *, void *, s32);
-f32 TObjPlayer__sub_8013153C(void *, s32);
+f32 horizontal_distance__10TObjPlayerFPvPv(void *, s32);
 M2C_UNK vec3_add_to(void *, void *);
 M2C_UNK matrix_mult_vec(int, void *, void *);
 M2C_UNK rotate_matrix_y(int, int);
@@ -27,7 +27,7 @@ extern const f64 lbl_8043BCC8[];
 extern u8 lbl_8058D490[];
 extern const f32 lbl_805DA068;
 extern const f32 lbl_805DA06C;
-void TObjPlayer__sub_800C6A48(u8 *self, f32 *dir, f32 a, f32 b);
+void pick_open_direction__10TObjPlayerFPvPvff(u8 *self, f32 *dir, f32 a, f32 b);
 }
 
 extern "C" {
@@ -57,7 +57,7 @@ void TObjPlayer__sub_800C6A18(O_800C6A18 *self) {
         self->f338 = 0xFFFF;
     }
 }
-void TObjPlayer__sub_800C6A48(u8 *self, f32 *dir, f32 a, f32 b) {
+void pick_open_direction__10TObjPlayerFPvPvff(u8 *self, f32 *dir, f32 a, f32 b) {
     Vec_800C6A48 sp20;
     f32 best;
     s32 ang;
@@ -86,7 +86,7 @@ void TObjPlayer__sub_800C6A48(u8 *self, f32 *dir, f32 a, f32 b) {
                 pop_matrix();
                 return;
             }
-            d = TObjPlayer__sub_8013153C(self + 0x38, M2C_FIELD(p, s32 *, 4)) - b;
+            d = horizontal_distance__10TObjPlayerFPvPv(self + 0x38, M2C_FIELD(p, s32 *, 4)) - b;
             if (best < d) {
                 best = d;
                 bestAng = ang;

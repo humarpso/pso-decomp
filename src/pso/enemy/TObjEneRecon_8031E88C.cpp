@@ -156,7 +156,7 @@ extern char lbl_80476440[];
 extern s32 lbl_805D28B8;
 extern const f32 TObjEneRecon__data_805DF438;
 extern const f32 lbl_805DF43C;
-void TObjEneRecon__sub_8031E88C(u8 *arg0);
+void draw_with_debug_info__12TObjEneReconFPv(u8 *arg0);
 M2C_UNK VecCopy__FP3VecPC3Vec(void *, void *);
 s32 is_split_screen();
 s32 get_camera_mode__11TCameraCtrlFv();
@@ -191,12 +191,12 @@ extern const f32 TObjEneRecon__data_805DF438;
 extern const f32 lbl_805DF43C;
 extern const f32 lbl_805DF440;
 extern const f32 lbl_805DF444;
-void TObjEneRecon__sub_8031EA70(u8 *arg0);
+void render__12TObjEneReconFPv(u8 *arg0);
 }
 
 extern "C" {
 
-void TObjEneRecon__sub_8031E88C(u8 *arg0) {
+void draw_with_debug_info__12TObjEneReconFPv(u8 *arg0) {
     s32 temp_r0;
     s32 temp_r0_2;
     if (get_target_info__9TObjEneDDFPv() != 0) {
@@ -243,7 +243,7 @@ void TObjEneRecon__sub_8031E88C(u8 *arg0) {
     draw_chunk_object((void *) (lbl_805D28B8));
     pop_matrix();
 }
-void TObjEneRecon__sub_8031EA70(u8 *arg0) {
+void render__12TObjEneReconFPv(u8 *arg0) {
     s32 temp_r0;
     s32 temp_r30;
     Fade_8031EA70 *temp_r29;

@@ -117,7 +117,7 @@ extern "C" {
 void * TObjNpcNHW01__create(void *arg0);
 void *__dt__12TObjNpcNHW00Fv(void *arg0, s16 arg1);
 void free_static_resources__12TObjNpcNHW00Fv(void);
-void TLobby__sub_800F957C(void*);
+void free_nodes_with_id__6TLobbyFUi(void*);
 void TLobby__sub_803DA16C(void*);
 void *TObjControl__ct(void *, void *);
 void *TObjNpcNHW01__ct(void *, void *, void *);
@@ -136,7 +136,7 @@ void free_static_resources__12TObjNpcNHW00Fv(void) {
         TObjNpcNHW00__data_805D5834 = 0U;
     }
     if ((u32) TObjNpcNHW00__data_805D5830 != 0U) {
-        TLobby__sub_800F957C((void*)TObjNpcNHW00__data_805D5830);
+        free_nodes_with_id__6TLobbyFUi((void*)TObjNpcNHW00__data_805D5830);
         TObjNpcNHW00__data_805D5830 = 0U;
     }
 }

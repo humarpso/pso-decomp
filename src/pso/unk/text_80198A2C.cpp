@@ -318,12 +318,12 @@ extern char lbl_8044610C[];
 extern char lbl_80446124[];
 extern s32 lbl_804B8DAC[];
 extern Pair_80198F14 lbl_8050DD50[];
-void TLanguage__sub_80198F14(void);
+void load_lobby_textures__9TLanguageFv(void);
 }
 
 extern "C" {
 
-void TLanguage__sub_80198F14(void) {
+void load_lobby_textures__9TLanguageFv(void) {
     Pair_80198F14 *p = lbl_8050DD50;
     Cfg_80198F14 *c = &lbl_8050DDAC;
     void *obj;
@@ -916,7 +916,7 @@ extern s32 some_id_805c6f74;
 
 #define F(t, o) M2C_FIELD(arg0, t *, o)
 extern const f32 lbl_805DBF40;
-void TObjFish__sub_80199A44(u8 *arg0) {
+void draw_model__8TObjFishFPv(u8 *arg0) {
     Vec_80199A44 dir;
     Color_80199A44 color = lbl_80446060[0];
     Vec_80199A44 pos;
@@ -1136,7 +1136,7 @@ void open__11TWindowCtrlFiii(s32, void *, int);
 void vec3_add_to(void *, void *);
 extern u8 lbl_8044613C[];
 extern s32 lbl_805D53A0;
-void TWindowTimer__sub_80199F14(Timer_80199F14 *self);
+void update_motion__12TWindowTimerFPv(Timer_80199F14 *self);
 s32 obj_getField1c(void *);
 void TWindowTimer__sub_8019A098(void);
 void TWindowTimer__sub_8019A738(s32 i);
@@ -1146,7 +1146,7 @@ void open__11TWindowCtrlFiii(s32, void *, int);
 f32 get_ad_end_text_start__10TObjPlayerFv(f32, f32);
 extern u8 lbl_80446148[];
 extern const f64 lbl_80446150[];
-void TWindowTimer__sub_8019A104(void *arg0, u16 id);
+void update_goal_checks__12TWindowTimerFPvUs(void *arg0, u16 id);
 }
 
 extern "C" {
@@ -1174,7 +1174,7 @@ void update_best_time__12TWindowTimerFPv(void *arg0) {
 
 extern M2C_UNK lbl_804B8E18[];
 
-void TWindowTimer__sub_80199F14(Timer_80199F14 *self) {
+void update_motion__12TWindowTimerFPv(Timer_80199F14 *self) {
     s32 i;
     Vec_80199F14 q;
     Vec_80199F14 p;
@@ -1189,7 +1189,7 @@ void TWindowTimer__sub_80199F14(Timer_80199F14 *self) {
         queue_destruction__7TObjectFv(self);
         return;
     }
-    TWindowTimer__sub_8019A104((void *)(self), (u16)(lbl_805D53A0));
+    update_goal_checks__12TWindowTimerFPvUs((void *)(self), (u16)(lbl_805D53A0));
     update_best_time__12TWindowTimerFPv(self);
     if (self->pos.y <= (-5e+02f)) {
         queue_destruction__7TObjectFv(self);
@@ -1228,7 +1228,7 @@ void TWindowTimer__sub_8019A098(void) {
 #define CFG (*(Cfg_8019A104 *)&lbl_8050DD58)
 #define ST (*(State_8019A104 *)lbl_8050DDAC)
 extern const char lbl_805DBF94[] = "Go!";
-void TWindowTimer__sub_8019A104(void *arg0, u16 id) {
+void update_goal_checks__12TWindowTimerFPvUs(void *arg0, u16 id) {
     Timer_8019A104 *self;
     Player_8019A104 *p;
     f32 len;

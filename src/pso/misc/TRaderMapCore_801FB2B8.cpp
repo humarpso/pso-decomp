@@ -42,7 +42,7 @@ s32 get_player_by_client_id(int);
 M2C_UNK update_radar_auto_discovery(void *, int, void *);
 M2C_UNK gather_player_markers__13TRaderMapCoreFv(void *);
 M2C_UNK update_follow_projection__13TRaderMapCoreFv(void *, void *);
-M2C_UNK TRaderMapCore__sub_801FAF24();
+M2C_UNK update_pan_zoom_input__13TRaderMapCoreFPv();
 M2C_UNK update_target__13TRaderMapCoreFPv(void *);
 void advance_scroll__13TRaderMapCoreFPv(void *arg0);
 s32 is_not_split_screen__13TRaderMapCoreFv();
@@ -110,7 +110,7 @@ void run_task__13TRaderMapCoreFv(u8 *arg0) {
             update_target__13TRaderMapCoreFPv(arg0);
             break;
         case 2:
-            TRaderMapCore__sub_801FAF24();
+            update_pan_zoom_input__13TRaderMapCoreFPv();
             break;
         }
         gather_player_markers__13TRaderMapCoreFv((void *) (arg0));

@@ -4,6 +4,10 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 #define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
 #define M2C_BITWISE(type, expr) ((type)(expr))
 
+struct GE_802F1DAC { s32 a, b, obj, d; };
+
+struct GE_802F1E54 { s32 a, b, obj, d; };
+
 extern "C" {
 M2C_UNK queue_destruction__7TObjectFv(void *);
 M2C_UNK update_collision__18TObjBoss7TunnelColFPv(void *);
@@ -15,7 +19,7 @@ M2C_UNK func_80141618__Fv();
 M2C_UNK set_depth_buffer_settings_id__FUl(int);
 M2C_UNK begin_effect_render__13TParticleCtrlFv();
 M2C_UNK end_effect_render__13TParticleCtrlFv();
-M2C_UNK TObjPlayer__sub_803D9730(int, int);
+M2C_UNK concat_matrix__10TObjPlayerFUiUi(int, int);
 M2C_UNK draw_ginja_object(int);
 s32 is_in_camera_range__18TObjBoss7TunnelColFPv(void *);
 s32 push_matrix();
@@ -23,12 +27,34 @@ s32 pop_matrix();
 s32 set_global_param__8TObjFishFi(int);
 extern u8 *lbl_805D6950;
 extern u8 *lbl_805D6954;
-void fn_802F1D1C(u8 *arg0);
+void draw_tunnel_segment(u8 *arg0);
+M2C_UNK func_80141618__Fv();
+M2C_UNK set_depth_buffer_settings_id__FUl(int);
+s32 is_in_camera_range__18TObjBoss7TunnelColFPv(void *);
+M2C_UNK concat_matrix__10TObjPlayerFUiUi(int, int);
+s32 push_matrix();
+s32 pop_matrix();
+s32 set_global_param__8TObjFishFi(int);
+M2C_UNK draw_ginja_object(int);
+extern u8 *lbl_805D6950;
+extern u8 *lbl_805D6954;
+void fn_802F1DAC(u8 *arg0);
+M2C_UNK func_80141618__Fv();
+M2C_UNK set_depth_buffer_settings_id__FUl(int);
+s32 is_in_camera_range__18TObjBoss7TunnelColFPv(void *);
+M2C_UNK concat_matrix__10TObjPlayerFUiUi(int, int);
+s32 push_matrix();
+s32 pop_matrix();
+s32 set_global_param__8TObjFishFi(int);
+M2C_UNK draw_ginja_object(int);
+extern u8 *lbl_805D6950;
+extern u8 *lbl_805D6954;
+void fn_802F1E54(u8 *arg0);
 }
 
 extern "C" {
 
-void fn_802F1D1C(u8 *arg0) {
+void draw_tunnel_segment(u8 *arg0) {
     s32 var_r31;
     u8 *var_r30;
     u8 *var_r3;
@@ -46,7 +72,7 @@ void fn_802F1D1C(u8 *arg0) {
         push_matrix();
         var_r4 = (u8 *)(var_r30 + 0x48);
         var_r3 = (u8 *)(NULL);
-        TObjPlayer__sub_803D9730((int) (0), (int) (var_r4));
+        concat_matrix__10TObjPlayerFUiUi((int) (0), (int) (var_r4));
         var_r3 = (u8 *)(lbl_805D6950);
         var_r3 = (u8 *)(M2C_FIELD(var_r3, u8 **, 0x42C));
         var_r3 += var_r31 * 0x10;
@@ -54,6 +80,33 @@ void fn_802F1D1C(u8 *arg0) {
         draw_ginja_object((int) (var_r3));
         pop_matrix();
         end_effect_render__13TParticleCtrlFv();
+        func_80141618__Fv();
+    }
+}
+
+void fn_802F1DAC(u8 *arg0) {
+    if (((s32 (*)(void))is_in_camera_range__18TObjBoss7TunnelColFPv)() != 0) {
+        set_depth_buffer_settings_id__FUl((int) (2));
+        set_global_param__8TObjFishFi((int) (lbl_805D6954));
+        push_matrix();
+        concat_matrix__10TObjPlayerFUiUi((int) (0), (int) (arg0 + 0x48));
+        ((M2C_UNK (*)(int, void *))draw_ginja_object)(M2C_FIELD(lbl_805D6950, GE_802F1DAC **, 0x42C)[M2C_FIELD(arg0, s32 **, 0x3C)[1]].obj, (void *) (lbl_805D6950));
+        if ((s32) M2C_FIELD(arg0, s32 *, 0x38) == 4) {
+            ((M2C_UNK (*)(int, void *))draw_ginja_object)(M2C_FIELD(lbl_805D6950, GE_802F1DAC **, 0x42C)[M2C_FIELD(arg0, s32 **, 0x3C)[2]].obj, (void *) (lbl_805D6950));
+        }
+        pop_matrix();
+        func_80141618__Fv();
+    }
+}
+
+void fn_802F1E54(u8 *arg0) {
+    if (((s32 (*)(void))is_in_camera_range__18TObjBoss7TunnelColFPv)() != 0) {
+        set_depth_buffer_settings_id__FUl((int) (1));
+        set_global_param__8TObjFishFi((int) (lbl_805D6954));
+        push_matrix();
+        concat_matrix__10TObjPlayerFUiUi((int) (0), (int) (arg0 + 0x48));
+        ((M2C_UNK (*)(int, void *))draw_ginja_object)(M2C_FIELD(lbl_805D6950, GE_802F1E54 **, 0x42C)[M2C_FIELD(arg0, s32 **, 0x3C)[0]].obj, (void *) (lbl_805D6950));
+        pop_matrix();
         func_80141618__Fv();
     }
 }

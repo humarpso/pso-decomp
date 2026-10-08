@@ -64,7 +64,7 @@ extern Vec_8004F3D4 lbl_804373F4[];
 extern Vec_8004F3D4 lbl_80437400[];
 extern const f32 lbl_805D89FC;
 extern const f32 lbl_805D8A00;
-void TBoss4Type2__sub_8004F3D4(Self_8004F3D4 *self);
+void update_effect_timeline__11TBoss4Type2FPv(Self_8004F3D4 *self);
 }
 
 extern "C" {
@@ -106,7 +106,7 @@ typedef struct Vec_8004F3D4 Vec_8004F3D4;
 #pragma inline_depth(1)
 #pragma auto_inline off
 #pragma dont_inline off
-void TBoss4Type2__sub_8004F3D4(Self_8004F3D4 *self) {
+void update_effect_timeline__11TBoss4Type2FPv(Self_8004F3D4 *self) {
   f32 f;
   const f32 *new_var;
   u32 r;

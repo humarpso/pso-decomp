@@ -25,7 +25,7 @@ s32 alloc__23TAdSinglePlyChrSelectGCFPv(int);
 s32 alloc_tables__6TLobbyFPvii(s32, s32, s32);
 s32 collect_and_count__12TBoss3VoloptFUii(u32 arg0, s32 arg1);
 s32 *alloc_buffer__11TOBoss4RockFPv(s32);
-void fn_8004AA80(Obj_8004AA80 *arg0, Rec_8004AA80 *arg1, s32 arg2);
+void init_model_node_tables(Obj_8004AA80 *arg0, Rec_8004AA80 *arg1, s32 arg2);
 }
 
 extern "C" {
@@ -41,7 +41,7 @@ void fn_8004AA04(Obj_8004AA04 *self) {
     free__11TOBoss4RockFUi(self->items);
     self->items = 0;
 }
-void fn_8004AA80(Obj_8004AA80 *arg0, Rec_8004AA80 *arg1, s32 arg2) {
+void init_model_node_tables(Obj_8004AA80 *arg0, Rec_8004AA80 *arg1, s32 arg2) {
     s32 h;
     s32 i;
     Rec_8004AA80 *r;

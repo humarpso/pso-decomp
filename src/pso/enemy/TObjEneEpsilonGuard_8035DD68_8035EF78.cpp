@@ -245,7 +245,7 @@ struct VObj_18_b345b0 : VBase_18_b345b0 {
 
 extern "C" {
 M2C_UNK handle_message__19TObjEneEpsilonGuardFPvi(void *, s32);
-M2C_UNK TObjEneEpsilonGuard__sub_8035E430(void *, s32);
+M2C_UNK handle_break_state__19TObjEneEpsilonGuardFPvi(void *, s32);
 M2C_UNK TObjEneEpsilonGuard__sub_8035E578(void *, s32);
 M2C_UNK state_orbit__19TObjEneEpsilonGuardFPvi(void *, s32);
 M2C_UNK TObjEneEpsilonGuard__sub_8035E8C0(void *, s32);
@@ -268,7 +268,7 @@ s16 obj_getField1c(void *);
 M2C_UNK init_common_from__9TObjEneDDFPvPv(void *, void *);
 void init_common__18TObjEneMe3SinowZoaFPv(void *);
 M2C_UNK activate_and_dispatch__10TObjPlayerFPv(void *);
-void TObjEneEpsilonGuard__sub_8035F2F4(void *);
+void init_model_and_state__19TObjEneEpsilonGuardFPv(void *);
 s32 get_bml_motion(void *, int);
 s32 TObjFish__sub_8001EDB0(void *, int);
 s32 get_bml_model(void *, int);
@@ -494,7 +494,7 @@ void TObjEneEpsilonGuard__vt85(void *arg0, s32 arg1, s32 arg2) {
         TObjEneEpsilonGuard__sub_8035E578((void *) (arg0), arg2);
         return;
     case 4:
-        TObjEneEpsilonGuard__sub_8035E430((void *) (arg0), arg2);
+        handle_break_state__19TObjEneEpsilonGuardFPvi((void *) (arg0), arg2);
         return;
     case 5:
         handle_message__19TObjEneEpsilonGuardFPvi((void *) (arg0), arg2);
@@ -560,7 +560,7 @@ u8 *__dt__19TObjEneEpsilonGuardFv(u8 *arg0, s16 arg1) {
     return arg0;
 }
 
-void TObjEneEpsilonGuard__sub_8035F2F4(void *arg0_) {
+void init_model_and_state__19TObjEneEpsilonGuardFPv(void *arg0_) {
 #define arg0 ((u8 *)arg0_)
 
     void *o;
@@ -621,7 +621,7 @@ void *TObjEneEpsilonGuard__ct(void *arg0, void *arg1, void *arg2, void *arg3, vo
     M2C_FIELD(arg0, s32 *, 0x64) = 0;
     M2C_FIELD(arg0, s32 *, 0x5C) = 0;
     M2C_FIELD(arg0, s32 *, 0x60) = (s32)arg6;
-    TObjEneEpsilonGuard__sub_8035F2F4((void *) (arg0));
+    init_model_and_state__19TObjEneEpsilonGuardFPv((void *) (arg0));
     ((VObj_18_599a64 *)(arg0))->m93();
     M2C_FIELD(arg0, s32 *, 0x46C) = (s32) (M2C_FIELD(arg0, s32 *, 0x46C) | 0x10);
     for (var_r30 = 0; var_r30 < 4; var_r30++) {

@@ -63,7 +63,7 @@ extern void (*lbl_805D6B9C)(Iface_80143FB0 *, void *);
 extern void (*lbl_805D6BA0)(Iface_80143FB0 *);
 extern void (*lbl_805D6BA4)(Iface_80143FB0 *);
 
-void TMovie__sub_80143FB0(Movie_80143FB0 *o, s32 arg1, s32 arg2) {
+void init_sfd_player__6TMovieFPvii(Movie_80143FB0 *o, s32 arg1, s32 arg2) {
     Info_80143FB0 *info = &o->info;
     Iface_80143FB0 *f;
 

@@ -29,7 +29,7 @@ extern s32 lbl_805D7774;
 extern const f32 lbl_805D93DC;
 extern const f32 lbl_805D940C;
 extern const f32 lbl_805D9414;
-void TOTrapAncient02__sub_800837D4(s32 arg0);
+void load_projection_tex_matrix__15TOTrapAncient02Fi(s32 arg0);
 f64 calc_camera_fov_degrees();
 s32 is_split_screen();
 s32 TCameraCtrl__sub_800689F4();
@@ -118,7 +118,7 @@ void load_projected_texture_matrix(f32 farg0) {
     }
 }
 
-void TOTrapAncient02__sub_800837D4(s32 arg0) {
+void load_projection_tex_matrix__15TOTrapAncient02Fi(s32 arg0) {
     u8 sp10[0x30];
     f32 spC;
     f32 sp8;

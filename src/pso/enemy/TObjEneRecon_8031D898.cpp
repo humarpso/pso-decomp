@@ -46,7 +46,7 @@ void transition_enemy_state(void *, s32);
 void *find_entity_by_id(u16);
 s32 TObjEneRecon__sub_8031F0F0(void *, u16);
 extern const f32 lbl_805DF420;
-void TObjEneRecon__sub_8031D898(Recon_8031D898 *o);
+void retarget__12TObjEneReconFPv(Recon_8031D898 *o);
 void queue_destruction__7TObjectFv(void *);
 void enemy_set_target_id(void *, u16);
 s32 collect_enemy_target_candidates(void *, void *, f32);
@@ -54,12 +54,12 @@ void transition_enemy_state(void *, s32);
 void *find_entity_by_id(u16);
 s32 TObjEneRecon__sub_8031F0F0(void *, u16);
 extern const f32 lbl_805DF420;
-void TObjEneRecon__sub_8031D994(Recon_8031D994 *o);
+void select_next_target__12TObjEneReconFPv(Recon_8031D994 *o);
 }
 
 extern "C" {
 
-void TObjEneRecon__sub_8031D898(Recon_8031D898 *o) {
+void retarget__12TObjEneReconFPv(Recon_8031D898 *o) {
     Hit_8031D898 hits[5];
     void *p;
     s32 n;
@@ -89,7 +89,7 @@ void TObjEneRecon__sub_8031D898(Recon_8031D898 *o) {
     o->f474 = 0;
 }
 
-void TObjEneRecon__sub_8031D994(Recon_8031D994 *o) {
+void select_next_target__12TObjEneReconFPv(Recon_8031D994 *o) {
     Hit_8031D994 hits[5];
     void *p;
     s32 n;

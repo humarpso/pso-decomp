@@ -24,7 +24,7 @@ struct S_80347CC8 { u8 pad[0x38]; f32 f38; };
 struct W_80347CC8 { u8 pad[0x70]; S_80347CC8 *f70; };
 
 extern "C" {
-void TWindowDD__sub_80348688(s32, void *);
+void append_prompt_newline__9TWindowDDFPvPv(s32, void *);
 void TWindowDD__sub_8034886C(s32, s32, void *);
 void TWindowDD__sub_8034740C(u8 *arg0, s32 arg1, s32 arg2);
 s32 TWindowDD__sub_80347EF4(u8 *arg0);
@@ -135,7 +135,7 @@ block_5:
 void TWindowDD__sub_8034740C(u8 *arg0, s32 arg1, s32 arg2) {
     TWindowDD__sub_80347474((s32)((s32) arg0), (s32)((s32) M2C_FIELD(arg0, s16 *, 4)), (s32)(arg1), (s32)(arg2));
     if ((s16) M2C_FIELD(arg0, s16 *, 0) > 1) {
-        TWindowDD__sub_80348688(arg1, (void *) arg2);
+        append_prompt_newline__9TWindowDDFPvPv(arg1, (void *) arg2);
         TWindowDD__sub_8034886C((s32) M2C_FIELD(arg0, s16 *, 6), arg1, (void *) arg2);
     }
 }

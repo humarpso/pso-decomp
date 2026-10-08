@@ -42,7 +42,7 @@ extern char lbl_80446FFC[];
 extern s16 lbl_80511CB0[];
 extern s32 lbl_805D53A0;
 extern s32 TLobby__data_805D5DC0;
-void TLobby__sub_801C2F40(Lobby_801C2F40 *self);
+void start_duel_battle__6TLobbyFPv(Lobby_801C2F40 *self);
 }
 
 extern "C" {
@@ -133,7 +133,7 @@ void init__6TLobbyFPv(void *arg0) {
         var_r31 += 1;
     } while (var_r31 < 4);
 }
-void TLobby__sub_801C2F40(Lobby_801C2F40 *self) {
+void start_duel_battle__6TLobbyFPv(Lobby_801C2F40 *self) {
     char *name;
     void *obj;
     u32 p;

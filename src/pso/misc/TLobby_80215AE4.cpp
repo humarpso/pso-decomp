@@ -16,10 +16,10 @@ extern "C" {
 void update_all__6TLobbyFi(s32 arg0);
 void free_window__6TLobbyFv(void);
 M2C_UNK TLobby__sub_80215720(s32);
-M2C_UNK TLobby__sub_8021587C(s32);
+M2C_UNK roll_item_grind_bonus__6TLobbyFPv(s32);
 M2C_UNK TLobby__sub_8021599C(s32);
 s32 TLobby__sub_80215ABC();
-void TLobby__sub_800F957C(void*);
+void free_nodes_with_id__6TLobbyFUi(void*);
 
 extern u32 lbl_805D61C0;
 extern s32 lbl_805D61C4;
@@ -30,7 +30,7 @@ void update_all__6TLobbyFi(s32 arg0) {
         lbl_805D61C8 = 0;
         lbl_805D61C4 = TLobby__sub_80215ABC();
         TLobby__sub_8021599C(arg0);
-        TLobby__sub_8021587C(arg0);
+        roll_item_grind_bonus__6TLobbyFPv(arg0);
         TLobby__sub_80215720(arg0);
     }
 }
@@ -39,7 +39,7 @@ extern u32 lbl_805D61C0;
 
 void free_window__6TLobbyFv(void) {
     if ((u32) lbl_805D61C0 != 0U) {
-        TLobby__sub_800F957C((void*)lbl_805D61C0);
+        free_nodes_with_id__6TLobbyFUi((void*)lbl_805D61C0);
         lbl_805D61C0 = 0U;
     }
 }

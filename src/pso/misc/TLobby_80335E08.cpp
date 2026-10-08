@@ -88,7 +88,7 @@ extern const f32 lbl_805DF8D8;
 extern const f32 lbl_805DF8DC;
 extern const f32 lbl_805DF8E0;
 extern const f32 lbl_805DF8E4;
-void TLobby__sub_80335E7C(void);
+void draw_title_screen__6TLobbyFv(void);
 M2C_UNK notify_fish_if_valid__10TObjPlayerFUi(M2C_UNK *);
 extern RecoveredGlobal_8000F7FC_lbl_80515F48 lbl_804EE584;
 void bind_title_texture_list(void);
@@ -111,7 +111,7 @@ void TLobby__sub_80335E74(void) {  }
 void TLobby__sub_80335E78(void) {  }
 
 typedef struct Stack_80335E7C Stack_80335E7C;
-void TLobby__sub_80335E7C(void) {
+void draw_title_screen__6TLobbyFv(void) {
   Stack_80335E7C stack;
   begin_effect_render__13TParticleCtrlFv();
   restore_full_screen_view__11TCameraCtrlFv();

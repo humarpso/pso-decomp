@@ -29,7 +29,7 @@ extern u32 lbl_805D7774;
 s32 pop_matrices(s32 arg0);
 f32 PSMTXConcat(int, int, int);
 extern u32 lbl_805D7774;
-void TObjPlayer__sub_803D9730(u32 arg0, u32 arg1);
+void concat_matrix__10TObjPlayerFUiUi(u32 arg0, u32 arg1);
 f32 PSMTXConcat(int, int, int);
 extern u32 lbl_805D7774;
 void TCameraCtrl__sub_803D976C(u32 arg0, u32 arg1);
@@ -82,7 +82,7 @@ void rotate_matrix_x(Matrix34* matrix, s32 angle) {
 
 #pragma push
 #pragma scheduling off
-void TObjPlayer__sub_803D9730(u32 arg0, u32 arg1) {
+void concat_matrix__10TObjPlayerFUiUi(u32 arg0, u32 arg1) {
     u32 var_r3;
     u32 var_r4;
     var_r3 = arg0;

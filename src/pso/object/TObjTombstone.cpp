@@ -72,7 +72,7 @@ int sprintf(char *, const char *, ...);
 char *strncpy(char *, const char *, unsigned long);
 unsigned long strlen(const char *);
 extern char lbl_80438810[];
-void TObjTombstone__sub_80075CB4(Obj_80075CB4 *self);
+void format_player_name__13TObjTombstoneFPv(Obj_80075CB4 *self);
 int sprintf(char *, const char *, ...);
 extern char lbl_804387C8[];
 extern char lbl_804387E0[];
@@ -89,9 +89,9 @@ void TObjTombstone__sub_80075B5C(Tomb_80075B5C *self);
 extern "C" {
 
 void render__13TObjTombstoneFv(s32 arg0);
-s32 TWindowSubStatusDisp__sub_8006F190(M2C_UNK);
+s32 resolve_player_slot__20TWindowSubStatusDispFi(M2C_UNK);
 M2C_UNK TObjTombstone__sub_80075340(s32);
-M2C_UNK TObjTombstone__sub_800753DC(s32);
+M2C_UNK draw_name_labels__13TObjTombstoneFPv(s32);
 M2C_UNK update_render_flags__13TObjTombstoneFPv(s32);
 s32 check_height_ready__13TObjTombstoneFPv();
 
@@ -100,14 +100,14 @@ void render__13TObjTombstoneFv(s32 arg0) {
 
     if (check_height_ready__13TObjTombstoneFPv() != 0) {
         update_render_flags__13TObjTombstoneFPv(arg0);
-        temp_r3 = TWindowSubStatusDisp__sub_8006F190(-1);
+        temp_r3 = resolve_player_slot__20TWindowSubStatusDispFi(-1);
         switch (temp_r3) {
         case 2:
         case 3:
             TObjTombstone__sub_80075340(arg0);
             break;
         default:
-            TObjTombstone__sub_800753DC(arg0);
+            draw_name_labels__13TObjTombstoneFPv(arg0);
             break;
         }
     }
@@ -198,7 +198,7 @@ void TObjTombstone__sub_80075C60(Obj_80075C60 *self) {
     self->buf[0x2F] = 0;
 }
 
-void TObjTombstone__sub_80075CB4(Obj_80075CB4 *self) {
+void format_player_name__13TObjTombstoneFPv(Obj_80075CB4 *self) {
     char buf[0x30];
     char *p;
     Ply_80075CB4 *ply;
@@ -221,7 +221,7 @@ void TObjTombstone__sub_80075D68(O_80075D68 *self) {
     for (i = 0; i < 6; i++) {
         self->e[i].f0 = 0;
     }
-    TObjTombstone__sub_80075CB4((Obj_80075CB4 *)(self));
+    format_player_name__13TObjTombstoneFPv((Obj_80075CB4 *)(self));
 }
 
 }

@@ -49,7 +49,7 @@ s32 get_global_state__14TOKeyMachine01Fv(void);
 s32 TWindowCtrlMain__sub_8024CE58(void);
 M2C_UNK strncpy(void *, void *, int);
 extern s32 lbl_805D53A0;
-M2C_UNK TObjDeadListWin__sub_80073B38(Win_80073B38 *self);
+M2C_UNK refresh_names__15TObjDeadListWinFPv(Win_80073B38 *self);
 }
 
 extern "C" {
@@ -124,7 +124,7 @@ void update_countdown__15TObjDeadListWinFPv(void *arg0) {
     }
 }
 
-M2C_UNK TObjDeadListWin__sub_80073B38(Win_80073B38 *self) {
+M2C_UNK refresh_names__15TObjDeadListWinFPv(Win_80073B38 *self) {
     s32 i;
     u8 *player;
     u8 *me;
@@ -153,7 +153,7 @@ void run_task__15TObjDeadListWinFv(u8 *arg0) {
     temp_r0 = M2C_FIELD(arg0, s32 *, 0x1C);
     switch (temp_r0) {
     case 0:
-        TObjDeadListWin__sub_80073B38((Win_80073B38 *)((void *) (arg0)));
+        refresh_names__15TObjDeadListWinFPv((Win_80073B38 *)((void *) (arg0)));
         return;
     case 1:
         update_countdown__15TObjDeadListWinFPv((void *) (arg0));

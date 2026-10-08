@@ -104,7 +104,7 @@ extern u32 lbl_805D6968;
 void TObjBoss2Tunnel__sub_802F22C4(void);
 s32 query_teammate_state__9TObjEneDDFPv();
 M2C_UNK draw_particle_effect(int);
-M2C_UNK fn_802F1D1C(int);
+M2C_UNK draw_tunnel_segment(int);
 M2C_UNK fn_802F1DAC(int);
 M2C_UNK fn_802F1E54(int);
 void TObjBoss2Tunnel__sub_802F2348(u8 *arg0);
@@ -196,7 +196,7 @@ void TObjBoss2Tunnel__sub_802F2348(u8 *arg0) {
             fn_802F1DAC((int)n);
         }
         for (n = M2C_FIELD(arg0, Li_802F2348 **, 0x8C)->head; n != 0; n = n->next) {
-            fn_802F1D1C((int)n);
+            draw_tunnel_segment((int)n);
         }
     }
 }

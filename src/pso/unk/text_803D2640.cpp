@@ -47,16 +47,16 @@ struct Obj_803D28D8 {
 struct Buf_803D28D8 { u8 *ptr; s32 len; };
 
 extern "C" {
-void TLobby__sub_803D1FD4(void);
+void restore_interrupts_nested__6TLobbyFv(void);
 void lock_enter__6TLobbyFv(void);
 void TLobby__sub_803D2A14(Ring_803D2A14 *r, s32 which, s32 max, Span_803D2A14 *out);
-void TLobby__sub_803D1FD4(void);
+void restore_interrupts_nested__6TLobbyFv(void);
 void lock_enter__6TLobbyFv(void);
 bool TLobby__sub_803D2640(Obj_803D2640 *o, s32 mode, s32 n, s32 *out);
-void TLobby__sub_803D1FD4(void);
+void restore_interrupts_nested__6TLobbyFv(void);
 void lock_enter__6TLobbyFv(void);
 void TLobby__sub_803D274C(u8 *arg0, s32 arg1, u8 *arg2);
-void TLobby__sub_803D1FD4(void);
+void restore_interrupts_nested__6TLobbyFv(void);
 void lock_enter__6TLobbyFv(void);
 void *memcpy(void *, const void *, unsigned long);
 void TLobby__sub_803D28D8(Obj_803D28D8 *o, s32 mode, Buf_803D28D8 *b);
@@ -83,7 +83,7 @@ bool TLobby__sub_803D2640(Obj_803D2640 *o, s32 mode, s32 n, s32 *out) {
         }
     }
     *out = mode;
-    TLobby__sub_803D1FD4();
+    restore_interrupts_nested__6TLobbyFv();
     return !(n - mode);
 }
 
@@ -131,7 +131,7 @@ void TLobby__sub_803D274C(u8 *arg0, s32 arg1, u8 *arg2) {
                 temp_r12_3(M2C_FIELD(arg0, s32 *, 0x2C), -3);
             }
         }
-        TLobby__sub_803D1FD4();
+        restore_interrupts_nested__6TLobbyFv();
     }
 
 #define MIN_803D28D8(a, b) ((a) < (b) ? (a) : (b))
@@ -164,7 +164,7 @@ void TLobby__sub_803D28D8(Obj_803D28D8 *o, s32 mode, Buf_803D28D8 *b) {
             o->cb(o->cbArg, -3);
         }
     }
-    TLobby__sub_803D1FD4();
+    restore_interrupts_nested__6TLobbyFv();
 }
 
 void TLobby__sub_803D2A14(Ring_803D2A14 *r, s32 which, s32 max, Span_803D2A14 *out) {
@@ -188,7 +188,7 @@ void TLobby__sub_803D2A14(Ring_803D2A14 *r, s32 which, s32 max, Span_803D2A14 *o
             r->cb(r->cbArg, -3);
         }
     }
-    TLobby__sub_803D1FD4();
+    restore_interrupts_nested__6TLobbyFv();
 }
 
 }

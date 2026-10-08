@@ -33,7 +33,7 @@ struct V4_8035740C { f32 x, y, z; s32 w; };
 struct O_8035740C { u8 pad0[0xC4]; V4_8035740C v[10]; };
 
 extern "C" {
-u8 * fn_802E4A4C(void *, M2C_UNK, void *);
+u8 * construct_attack_collision(void *, M2C_UNK, void *);
 f32 sin_table_lookup(s32);
 f32 cos_table_lookup(s32);
 f32 normalize_vector(void *);
@@ -64,7 +64,7 @@ M2C_UNK disallow_rendering__7TObjectFv(void *);
 M2C_UNK decrement_packed_timer__15TObjBoss2TunnelFPvi(void *, int);
 M2C_UNK approach_value__20TItemEffOrgaFlowShotFPvff(void *, f32, f32);
 s32 has_game_join_id();
-M2C_UNK TItemAttackCol__sub_802E4918(void *);
+M2C_UNK check_hits__14TItemAttackColFPv(void *);
 void TItemEffOrgaFlowShot__sub_80357284(void *arg0);
 void TItemEffOrgaFlowShot__sub_80357358(u8 *arg0);
 extern const f32 lbl_805E0030;
@@ -249,7 +249,7 @@ void run_task__20TItemEffOrgaFlowShotFv(u8 *arg0) {
     s32 temp_r3;
     s32 var_r30;
     if (has_game_join_id() != 0) {
-        TItemAttackCol__sub_802E4918((void *) (arg0));
+        check_hits__14TItemAttackColFPv((void *) (arg0));
     } else {
         queue_destruction__7TObjectFv((void *) (arg0));
         disallow_rendering__7TObjectFv((void *) (arg0));
@@ -284,7 +284,7 @@ void *__dt__20TItemEffOrgaFlowShotFv(void *arg0, s16 arg1) {
 }
 
 u8 *TItemEffOrgaFlowShot__ct(u8 *arg0, s32 arg1, u8 *arg2) {
-    fn_802E4A4C(arg0, arg1, arg2);
+    construct_attack_collision(arg0, arg1, arg2);
     M2C_FIELD(arg0, M2C_UNK **, 0x18) = &(*(RecoveredGlobal_80357548___vt__20TItemEffOrgaFlowShot *)&__vt__20TItemEffOrgaFlowShot).value;
     M2C_FIELD(arg0, s32 *, 0) = (s32) lbl_805D43B0;
     M2C_FIELD(arg0, s32 *, 0xC0) = 0;

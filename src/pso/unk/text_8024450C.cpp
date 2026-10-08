@@ -7,7 +7,7 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 extern "C" {
 s32 TObjNewFloorWin__sub_8007410C(void);
 s32 TWindowSubComCard__sub_80244774(void);
-M2C_UNK TWindowSubStatusDisp__sub_80244494(int, int, int);
+M2C_UNK set_count_ratio_text__20TWindowSubStatusDispFiii(int, int, int);
 void fn_8024450C(s32 arg0);
 u32 calc_text_width(void *);
 s32 __nw__7TObjectFUl(int);
@@ -43,7 +43,7 @@ void fn_8024450C(s32 arg0) {
     var_r3 = var_r30;
     var_r5 = TWindowSubComCard__sub_80244774();
     var_r4 = var_r31;
-    TWindowSubStatusDisp__sub_80244494((int) (var_r3), (int) (var_r4), (int) (var_r5));
+    set_count_ratio_text__20TWindowSubStatusDispFiii((int) (var_r3), (int) (var_r4), (int) (var_r5));
 }
 #pragma push
 #pragma fp_contract on

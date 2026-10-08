@@ -1467,7 +1467,7 @@ s32 state_death_fall__13TObjEneBm3FlyFPvi(void *, void *);
 s32 action__13TObjEneBm3FlyFPvi(void *, void *);
 s32 update_recoil_state__13TObjEneBm3FlyFv(void *, void *);
 s32 TObjEneBm3Fly__sub_800B02C8(void *, void *);
-s32 TObjEneBm3Fly__sub_800B044C(void *, void *);
+s32 state_circle_target__13TObjEneBm3FlyFPvi(void *, void *);
 s32 execute_action__13TObjEneBm3FlyFPvi(void *, void *);
 s32 TObjEneBm3Fly__sub_800B0B20(void *, void *);
 s32 TObjEneBm3Fly__sub_800B0F70(void *, void *);
@@ -1492,7 +1492,7 @@ u8 * TObjEneBm3Fly__ct(u8 *arg0, M2C_UNK arg1, u8 *arg2, s32 arg3, s32 arg4, u8 
 void release_shared_data__13TObjEneBm3FlyFv(void);
 void * create__13TObjEneBm3FlyFPvPvPvPvPv(void *arg0, void *arg1, void *arg2, void *arg3, void *arg4);
 void load_resources__13TObjEneBm3FlyFv(void);
-void TObjPlayer__sub_800B23A0(u8 *arg0);
+void render_with_state_debug__10TObjPlayerFPv(u8 *arg0);
 void render__17TObjEneBm3FlyNestFPv(u8 *arg0);
 void handle_attachment_sample__17TObjEneBm3FlyNestFi(s32 arg0);
 void capture_attachment__17TObjEneBm3FlyNestFv(void * _w0);
@@ -1521,7 +1521,7 @@ void TObjEneBm3FlyNest__sub_800B3BE8(void);
 void update_state__17TObjEneBm3FlyNestFPv(void *arg0);
 void update_state_action__17TObjEneBm3FlyNestFPv(void *arg0);
 void TObjEneBm3FlyNest__sub_800B3CBC(void);
-void TObjEneBm3FlyNest__sub_800B3CC0(s32 arg0, u32 arg1, s32 arg2);
+void dispatch_state__17TObjEneBm3FlyNestFiUii(s32 arg0, u32 arg1, s32 arg2);
 void run_task__17TObjEneBm3FlyNestFPv(u8 *arg0);
 Obj_800B3E40 * TObjEneBm3FlyNest__sub_800B3E40(Obj_800B3E40 *self, s16 flag);
 void * TObjEneBm3FlyNest__ct(void *, void *, void *);
@@ -1955,7 +1955,7 @@ void TObjEneBm3Fly__vt85(s32 arg0, u32 arg1, s32 arg2) {
         execute_action__13TObjEneBm3FlyFPvi((void *) (arg0), (void *) (arg2));
         return;
     case 4:
-        TObjEneBm3Fly__sub_800B044C((void *) (arg0), (void *) (arg2));
+        state_circle_target__13TObjEneBm3FlyFPvi((void *) (arg0), (void *) (arg2));
         return;
     case 6:
         update_recoil_state__13TObjEneBm3FlyFv((void *) (arg0), (void *) (arg2));

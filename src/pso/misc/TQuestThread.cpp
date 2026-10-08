@@ -219,10 +219,10 @@ s32 get_register__12TQuestThreadFPvi(u8 *arg0, s32 arg1);
 void TQuestThread__sub_801F5ECC(void);
 void * destroy__12TQuestThreadFPvs(void *arg0, s16 arg1);
 void destroy_quest_obj__12TQuestThreadFv(void);
-s32 TQuestThread__sub_801F60DC(void);
+s32 create_by_mode__12TQuestThreadFv(void);
 u8 * TQuestThread__sub_801F624C(u8 *arg0, s32 arg1, s32 arg2, s32 arg3);
 u8 * load_quest_root_script(u8 *arg0, void *parent, void *arg2, s32 arg3);
-QThread_801F6418 * TQuestThread__sub_801F6418(QThread_801F6418 *self, void *unused, void *scene);
+QThread_801F6418 * construct_load_quest__12TQuestThreadFPvPvPv(QThread_801F6418 *self, void *unused, void *scene);
 void set_status_flag_80__12TQuestThreadFPv(void* p);
 void TQuestThread__sub_801F64CC(int a0);
 int queue_destruction__12TQuestThreadFPv(void* p);
@@ -927,7 +927,7 @@ void load_area_dialogue_script(void) {
     }
 }
 
-s32 TQuestThread__sub_801F60DC(void) {
+s32 create_by_mode__12TQuestThreadFv(void) {
     s32 temp_r31;
     s32 temp_r31_2;
     s32 temp_r31_3;
@@ -940,7 +940,7 @@ s32 TQuestThread__sub_801F60DC(void) {
     case 1:
         temp_r31 = ((s32 (*)(M2C_UNK))__nw__7TObjectFUl)(0x1A4);
         if (temp_r31 != 0) {
-            temp_r31 = ((s32)TQuestThread__sub_801F6418((QThread_801F6418 *)(temp_r31), (void *)(tl_su), (void *)(TQuestThread__sub_801F6548())));
+            temp_r31 = ((s32)construct_load_quest__12TQuestThreadFPvPvPv((QThread_801F6418 *)(temp_r31), (void *)(tl_su), (void *)(TQuestThread__sub_801F6548())));
         }
         return temp_r31;
     case 2:
@@ -968,7 +968,7 @@ s32 TQuestThread__sub_801F60DC(void) {
     case 5:
         var_r30_4 = ((s32 (*)(M2C_UNK))__nw__7TObjectFUl)(0x1A4);
         if (var_r30_4 != 0) {
-            var_r30_4 = ((s32)TQuestThread__sub_801F6418((QThread_801F6418 *)(var_r30_4), (void *)(tl_su), (void *)(TQuestThread__sub_801F6548())));
+            var_r30_4 = ((s32)construct_load_quest__12TQuestThreadFPvPvPv((QThread_801F6418 *)(var_r30_4), (void *)(tl_su), (void *)(TQuestThread__sub_801F6548())));
         }
         return var_r30_4;
     default:
@@ -1044,7 +1044,7 @@ u8 *load_quest_root_script(u8 *arg0, void *parent, void *arg2, s32 arg3) {
     return arg0;
 }
 
-QThread_801F6418 *TQuestThread__sub_801F6418(QThread_801F6418 *self, void *unused, void *scene) {
+QThread_801F6418 *construct_load_quest__12TQuestThreadFPvPvPv(QThread_801F6418 *self, void *unused, void *scene) {
     s32 r;
     __ct__7TObjectFP7TObject();
     self->vt = ((u8 *)&TQuestThread__data_804C8678);

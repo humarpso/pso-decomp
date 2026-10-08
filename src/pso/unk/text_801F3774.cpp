@@ -40,7 +40,7 @@ void handle_6x75_update_quest_flag_dc(u8 *arg0);
 extern s32 lbl_805D5544;
 extern char lbl_80512790[],lbl_805127B0[];
 extern char lbl_80449CD8[],lbl_80449CE0[],lbl_80449CE8[],lbl_80449CF0[],lbl_80449CF8[],lbl_80449D00[];
-void TLobby__sub_801317E4(char*,const char*,const char*);
+void replace_file_extension__6TLobbyFPvPvPv(char*,const char*,const char*);
 void prepare_offline_quest_filenames(const char* identity);
 }
 
@@ -93,14 +93,14 @@ void handle_6x75_update_quest_flag_dc(u8 *arg0) {
 
 void prepare_offline_quest_filenames(const char* identity) {
  switch(lbl_805D5544) {
- case 0:TLobby__sub_801317E4(lbl_80512790,identity,lbl_80449CD8);break;
- case 1:TLobby__sub_801317E4(lbl_80512790,identity,lbl_80449CE0);break;
- case 2:TLobby__sub_801317E4(lbl_80512790,identity,lbl_80449CE8);break;
- case 3:TLobby__sub_801317E4(lbl_80512790,identity,lbl_80449CF0);break;
- case 4:TLobby__sub_801317E4(lbl_80512790,identity,lbl_80449CF8);break;
- default:TLobby__sub_801317E4(lbl_80512790,identity,lbl_80449CE0);break;
+ case 0:replace_file_extension__6TLobbyFPvPvPv(lbl_80512790,identity,lbl_80449CD8);break;
+ case 1:replace_file_extension__6TLobbyFPvPvPv(lbl_80512790,identity,lbl_80449CE0);break;
+ case 2:replace_file_extension__6TLobbyFPvPvPv(lbl_80512790,identity,lbl_80449CE8);break;
+ case 3:replace_file_extension__6TLobbyFPvPvPv(lbl_80512790,identity,lbl_80449CF0);break;
+ case 4:replace_file_extension__6TLobbyFPvPvPv(lbl_80512790,identity,lbl_80449CF8);break;
+ default:replace_file_extension__6TLobbyFPvPvPv(lbl_80512790,identity,lbl_80449CE0);break;
  }
- TLobby__sub_801317E4(lbl_805127B0,identity,lbl_80449D00);
+ replace_file_extension__6TLobbyFPvPvPv(lbl_805127B0,identity,lbl_80449D00);
 }
 
 void TLobby__sub_801F3990(void *arg0) {

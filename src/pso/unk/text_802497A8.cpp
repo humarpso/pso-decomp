@@ -23,12 +23,12 @@ void set_text_entry_string(void *, void *, int);
 void set_default_status__17TWindowDuelResultFPvi(void *, int);
 extern s32 lbl_804CE8E4[];
 extern const f32 lbl_805DCBCC;
-void fn_802497A8(Win_802497A8 *arg0, void *arg1);
+void update_com_card_display(Win_802497A8 *arg0, void *arg1);
 }
 
 extern "C" {
 
-void fn_802497A8(Win_802497A8 *arg0, void *arg1) {
+void update_com_card_display(Win_802497A8 *arg0, void *arg1) {
     Txt_802497A8 *t4;
     void *t14;
     void *t0;

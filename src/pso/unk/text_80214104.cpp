@@ -29,12 +29,12 @@ void reset_random_enemies_mode(void);
 void set_random_enemies_mode(void);
 extern s32 TLobby__data_805D5580;
 extern s32 tl_00;
-void TLobby__sub_80214104(Seq_80214104 *self);
+void handle_random_enemies_choice__6TLobbyFPv(Seq_80214104 *self);
 }
 
 extern "C" {
 
-void TLobby__sub_80214104(Seq_80214104 *self) {
+void handle_random_enemies_choice__6TLobbyFPv(Seq_80214104 *self) {
     void *mem;
     if (self->child != NULL) {
         if (all_parents_unqueued_for_destruction__7TObjectFv(self->child) != 0) return;

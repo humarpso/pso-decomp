@@ -584,7 +584,7 @@ extern const f32 lbl_805DEFD4;
 extern const f32 TObjEneDellBiter__data_805DEFD8;
 void TObjEneDellBiter__sub_80303BC0(u8 *arg0, s32 arg1);
 f64 get_ad_end_text_start__10TObjPlayerFv(f32, f32);
-s32 TObjBoss2Tunnel__sub_8007E5A0(int, int, int, int, int);
+s32 turn_toward_angle_limited__15TObjBoss2TunnelFiiiii(int, int, int, int, int);
 M2C_UNK enemy_copy_target_destination(void *);
 M2C_UNK update_velocity__9TObjEneDDFPv(void *);
 M2C_UNK move_clamped_on_ground__9TObjEneDDFPvfff(void *, f32, f32, f32);
@@ -631,8 +631,8 @@ void TObjEneDellBiter__sub_80304D10(u8 *arg0, s32 arg1);
 s32 VecCopy__FP3VecPC3Vec(void *, void *);
 f64 get_ad_end_text_start__10TObjPlayerFv(f32, f32);
 s32 get_flag_b4__21TObjEneMe3ShinowaRealFPv(void *);
-M2C_UNK fn_8002B094(int);
-s32 TObjBoss2Tunnel__sub_8007E5A0(int, int, int, int, int);
+M2C_UNK fill_value_array(int);
+s32 turn_toward_angle_limited__15TObjBoss2TunnelFiiiii(int, int, int, int, int);
 f32 clamp_velocity__15TObjBoss2TunnelFPv(void *);
 s32 enemy_validate_retained_target();
 M2C_UNK enemy_copy_target_destination(void *);
@@ -1890,19 +1890,19 @@ M2C_UNK queue_destruction__7TObjectFv(void *);
 void TLobby__sub_8001FE7C(void*, int);
 s32 get_game_mode__6TLobbyFv(void);
 s32 get_flag_b4__21TObjEneMe3ShinowaRealFPv(void *);
-M2C_UNK fn_8002B094(int);
+M2C_UNK fill_value_array(int);
 Obj_80305C40 * get_battle_param__10TObjPlayerFi(s32);
 void attach_particle_model(void *, s32, s32, s32, s32, f32);
 s32 get_mode__11TCameraCtrlFPv(void *);
 u32 csnLookAt(void *, void *);
 Hit_803059BC * csnVectorUnder(Vec_803059BC *, void *, s32);
-s32 TObjBoss2Tunnel__sub_8007E5A0(int, int, int, int, int);
+s32 turn_toward_angle_limited__15TObjBoss2TunnelFiiiii(int, int, int, int, int);
 s32 rotate_xz_pair_by_angle(void *, void *, int);
 s32 is_vec_xz_cross_negative(void *, void *);
 f32 clamp_velocity__15TObjBoss2TunnelFPv(void *);
 s32 check_demo_mode__10TObjPlayerFv();
 void set_position_xy__10TObjPlayerFPvff(void *, f32, f32);
-s32 TParticleCtrl__sub_80086884(s32);
+s32 get_particle_model__13TParticleCtrlFi(s32);
 int get_instance__13TParticleCtrlFv(void);
 M2C_UNK spawn_particle_effect(void *, int);
 u32 create_particle_emitter(void *, int);
@@ -1915,7 +1915,7 @@ s32 update_linked_position__14TObjEneEpsilonFPv(f32);
 M2C_UNK spawn_part__14TObjEneEpsilonFi(void *, f32);
 M2C_UNK select_and_apply_target__14TObjEneEpsilonFPvf(void *, f32);
 void enemy_clear_target(void *);
-void TBoss2DeRolLe__sub_800B98D8(void *, u32);
+void set_target_player__13TBoss2DeRolLeFPvPv(void *, u32);
 void enemy_set_target_id(void *, u16);
 M2C_UNK update_velocity__9TObjEneDDFPv(void *);
 void init_object__9TObjEneDDFPv(void *);
@@ -1964,7 +1964,7 @@ void * __nw__7TObjectFUl(int);
 void __dt__7TObjectFv(void *, int);
 s32 __ct__7TObjectFP7TObject(void *, void *);
 M2C_UNK TObjPlayer__sub_8023DEE0(void *, int, int, int);
-s32 TObjEneRecon__sub_8029E960(void *);
+s32 push_reflect_matrix__12TObjEneReconFPv(void *);
 M2C_UNK restore_render_scissor(int);
 M2C_UNK set_active__12TObjEneReconFv();
 void TObjEneDellBiter__sub_803030D4(void);
@@ -1975,7 +1975,7 @@ s32 render_model_if_visible__16TObjEneDellBiterFPv(u8 *arg0);
 void TObjEneDellBiter__vt104(u8 *arg0);
 void TObjEneDellBiter__vt103(void* p);
 void TObjEneDellBiter__sub_80303894(void);
-void TObjEneDellBiter__sub_8030390C(u8 *arg0, s32 arg1);
+void state_death__16TObjEneDellBiterFPvi(u8 *arg0, s32 arg1);
 void TObjEneDellBiter__sub_80303AA0(u8 *arg0, s32 arg1);
 void TObjEneDellBiter__sub_80303F04(u8 *arg0, s32 arg1);
 void TObjEneDellBiter__sub_803040D0(u8 *arg0, s32 arg1);
@@ -2009,7 +2009,7 @@ void TObjEneDellBiter__vt60(u8 *arg0);
 void TObjEneDellBiter__vt61(void* p);
 void TObjEneDellBiter__vt26(void);
 void run_task__16TObjEneDellBiterFv(u8 *arg0);
-void TObjEneDellBiter__sub_80306468(void *);
+void init_params__16TObjEneDellBiterFPv(void *);
 void * TObjEneDellBiter__ct(void *arg0, void *arg1, void *arg2);
 void TObjEneDellBiter__sub_803067AC(s32 arg0, f32 farg0);
 void destroy_static_instance__16TObjEneDellBiterFv(void);
@@ -2051,7 +2051,7 @@ extern const f32 TObjEneDellBiter__data_805DEFF4;
 extern const f32 TObjEneDellBiter__data_805DF00C;
 void TObjPlayer__sub_800A05B8(void *, s32);
 void __dt__9TObjEneDDFv(void *, s32);
-void TBoss8Dragon__sub_800BC5A0(void *, s32);
+void delete_buffer__12TBoss8DragonFis(void *, s32);
 void free_collision_body_parts(void *);
 void __destroy_arr(void *, void *, s32, s32);
 u8 *__dt__16TObjEneDellBiterFv(u8 *arg0, s16 arg1);
@@ -2359,7 +2359,7 @@ s32 register_boss__6TLobbyFPv(int);
 void *load_enemy_bml_resource(void *);
 s32 spawn_npc_enemy__6TLobbyFsiiiff(int, int, int, void *, f32, f32);
 extern S16_80306858 lbl_8047527C;
-void TObjEneDellBiter__sub_80306858(void);
+void load_resources__16TObjEneDellBiterFv(void);
 }
 void *lbl_804E6B70[7] = {
     (void *)0x43610000, (void *)0x0, (void *)0x600, (void *)0x0,
@@ -2508,7 +2508,7 @@ u8 *TObjEneDellBiter__sub_80303204(u8 *arg0, s32 arg1, u8 *arg2, s32 arg3, f32 f
 
 s32 render_model_if_visible__16TObjEneDellBiterFPv(u8 *arg0) {
     if (get_mode__11TCameraCtrlFPv(main_task) & 0x20) {
-        if (TObjEneRecon__sub_8029E960((void *) (arg0 + 0x3C8)) != 0) {
+        if (push_reflect_matrix__12TObjEneReconFPv((void *) (arg0 + 0x3C8)) != 0) {
             set_global_param__8TObjFishFi((int) (M2C_FIELD(arg0, s32 *, 0x24)));
             push_matrix();
             post_translate_matrix((void *) (arg0 + 0x38));
@@ -2687,7 +2687,7 @@ void TObjEneDellBiter__sub_80303894(void) {
     TObjEneDellBiter__data_805D6A34 += 1;
 }
 
-void TObjEneDellBiter__sub_8030390C(u8 *arg0, s32 arg1) {
+void state_death__16TObjEneDellBiterFPvi(u8 *arg0, s32 arg1) {
     s32 temp_r0;
     switch (arg1) {
     case 4:
@@ -2974,7 +2974,7 @@ void handle_attack_event__16TObjEneDellBiterFPvi(u8 *arg0, s32 arg1) {
         set_field_378__9TObjEneDDFPvi((void *) (arg0), (int) (5));
         M2C_FIELD(arg0, s32 *, 0x3C0) = (s32) (M2C_FIELD(arg0, s32 *, 0x3C0) & 0xFFFFFFFC);
         M2C_FIELD(arg0, s32 *, 0x3C0) = (s32) (M2C_FIELD(arg0, s32 *, 0x3C0) | 4);
-        fn_8002B094((int) (M2C_FIELD(arg0, s32 *, 0x4A0)));
+        fill_value_array((int) (M2C_FIELD(arg0, s32 *, 0x4A0)));
         reset_timer__11TBoss4Type3FPv((int) (M2C_FIELD(arg0, s32 *, 0x4A4)));
         M2C_FIELD(arg0, s32 *, 0x4CC) = 0;
         M2C_FIELD(arg0, s32 *, 0x4D0) = 0;
@@ -2995,7 +2995,7 @@ void handle_attack_event__16TObjEneDellBiterFPvi(u8 *arg0, s32 arg1) {
     case 0:
         advance_animation_playback((void *)((void *)(arg0)));
         temp_r3 = M2C_FIELD(arg0, s32 *, 0x60);
-        M2C_FIELD(arg0, s32 *, 0x484) = TObjBoss2Tunnel__sub_8007E5A0((int) (temp_r3), (int) (M2C_FIELD(arg0, s32 *, 0x484)), (int) (temp_r3), (int) (0x200), (int) (0x2000));
+        M2C_FIELD(arg0, s32 *, 0x484) = turn_toward_angle_limited__15TObjBoss2TunnelFiiiii((int) (temp_r3), (int) (M2C_FIELD(arg0, s32 *, 0x484)), (int) (temp_r3), (int) (0x200), (int) (0x2000));
         temp_r0 = M2C_FIELD(arg0, s32 *, 0x4D0);
         switch (temp_r0) {
         case 0:
@@ -3047,7 +3047,7 @@ void TObjEneDellBiter__sub_803044AC(u8 *arg0, s32 arg1) {
         F(s32, 0x4D0) = 0;
         F(f32, 0x4DC) = G(f32, 0);
         F(f32, 0x4E0) = TObjEneDellBiter__data_805DEFF4;
-        fn_8002B094(F(s32, 0x4A0));
+        fill_value_array(F(s32, 0x4A0));
         set_active__9TObjEneDDFPv(arg0);
         break;
     case 3:
@@ -3078,7 +3078,7 @@ void TObjEneDellBiter__sub_803044AC(u8 *arg0, s32 arg1) {
                 update_velocity__9TObjEneDDFPv(arg0);
             }
             F(s32, 0x60) = approach_angle_limited(F(s32, 0x60), (s32)(TObjEneDellBiter__data_80475328 * get_ad_end_text_start__10TObjPlayerFv(F(f32, 0x3A0), F(f32, 0x3A8))), 0x280);
-            F(s32, 0x484) = TObjBoss2Tunnel__sub_8007E5A0(F(s32, 0x60), F(s32, 0x484), F(s32, 0x60), 0x200, 0x2000);
+            F(s32, 0x484) = turn_toward_angle_limited__15TObjBoss2TunnelFiiiii(F(s32, 0x60), F(s32, 0x484), F(s32, 0x60), 0x200, 0x2000);
             ((VObj_18_313dd8 *)(arg0))->m87();
             break;
         case 1:
@@ -3177,7 +3177,7 @@ void TObjEneDellBiter__sub_8030492C(u8 *arg0, s32 arg1) {
             update_velocity__9TObjEneDDFPv((void *) (arg0));
         }
         M2C_FIELD(arg0, s32 *, 0x60) = approach_angle_limited((int) (M2C_FIELD(arg0, s32 *, 0x60)), temp_r30 = (s32) (TObjEneDellBiter__data_80475328 * get_ad_end_text_start__10TObjPlayerFv((f32) (M2C_FIELD(arg0, f32 *, 0x3A0)), (f32) (M2C_FIELD(arg0, f32 *, 0x3A8)))), (int) (0x300));
-        M2C_FIELD(arg0, s32 *, 0x484) = TObjBoss2Tunnel__sub_8007E5A0((int) (M2C_FIELD(arg0, s32 *, 0x60)), (int) (M2C_FIELD(arg0, s32 *, 0x484)), (int) (temp_r30), (int) (0x200), (int) (0x2000));
+        M2C_FIELD(arg0, s32 *, 0x484) = turn_toward_angle_limited__15TObjBoss2TunnelFiiiii((int) (M2C_FIELD(arg0, s32 *, 0x60)), (int) (M2C_FIELD(arg0, s32 *, 0x484)), (int) (temp_r30), (int) (0x200), (int) (0x2000));
         temp_r30_2 = (u8 *)(TObjEneDellBiter__data_805D6A2C);
         if (M2C_FIELD(arg0, f32 *, 0x3AC) <= (f32) M2C_FIELD(temp_r30_2, s32 *, 0x28)) {
             temp_f31 = M2C_FIELD(arg0, f32 *, 0x3A8) * cos_table_lookup((int) (M2C_FIELD(arg0, s32 *, 0x60)));
@@ -3466,7 +3466,7 @@ void TObjEneDellBiter__vt85(s32 arg0, u32 arg1, s32 arg2) {
         ((s32 (*)(void *, void *))TObjEneDellBiter__sub_80303AA0)((void *) (arg0), (void *) (arg2));
         return;
     case 11:
-        ((s32 (*)(void *, void *))TObjEneDellBiter__sub_8030390C)((void *) (arg0), (void *) (arg2));
+        ((s32 (*)(void *, void *))state_death__16TObjEneDellBiterFPvi)((void *) (arg0), (void *) (arg2));
     default:
         return;
     }
@@ -3503,7 +3503,7 @@ void TObjEneDellBiter__sub_803055C8(u8 *arg0) {
     if (temp_r3 < 0x1000U) {
         temp_r3_2 = get_player_by_client_id((u32) temp_r3);
         if (temp_r3_2 != 0) {
-            TBoss2DeRolLe__sub_800B98D8(arg0, (u32) temp_r3_2);
+            set_target_player__13TBoss2DeRolLeFPvPv(arg0, (u32) temp_r3_2);
         }
         M2C_FIELD(arg0, s32 *, 0x3C0) = (s32) (M2C_FIELD(arg0, s32 *, 0x3C0) | 8);
     }
@@ -3592,7 +3592,7 @@ s32 TObjEneDellBiter__sub_803059BC(void *arg0, void *arg1) {
         if (hit->flags & 4) {
             e = (void *)spawn_particle_effect(hit->obj + 0x38, 0x49);
             if (e != NULL) {
-                attach_particle_model(e, TParticleCtrl__sub_80086884(2), get_instance__13TParticleCtrlFv(), 0, 1, TObjEneDellBiter__data_805DEFD8);
+                attach_particle_model(e, get_particle_model__13TParticleCtrlFi(2), get_instance__13TParticleCtrlFv(), 0, 1, TObjEneDellBiter__data_805DEFD8);
                 set_position_xy__10TObjPlayerFPvff(e, lbl_805DF020, lbl_805DF020);
             }
             e = (void *)spawn_particle_effect(hit->obj + 0x38, 0xA4);
@@ -3604,7 +3604,7 @@ s32 TObjEneDellBiter__sub_803059BC(void *arg0, void *arg1) {
         if (hit->flags & 2) {
             e = (void *)spawn_particle_effect(hit->obj + 0x54, 0x49);
             if (e != NULL) {
-                attach_particle_model(e, TParticleCtrl__sub_80086884(2), get_instance__13TParticleCtrlFv(), 0, 1, TObjEneDellBiter__data_805DEFD8);
+                attach_particle_model(e, get_particle_model__13TParticleCtrlFi(2), get_instance__13TParticleCtrlFv(), 0, 1, TObjEneDellBiter__data_805DEFD8);
                 set_position_xy__10TObjPlayerFPvff(e, lbl_805DF020, lbl_805DF020);
             }
             e = (void *)spawn_particle_effect(hit->obj + 0x54, 0xA4);
@@ -3838,7 +3838,7 @@ u8 *__dt__16TObjEneDellBiterFv(u8 *arg0, s16 arg1) {
             M2C_FIELD(arg0, void **, 0x4A4) = NULL;
         }
         if (M2C_FIELD(arg0, void **, 0x4A0) != NULL) {
-            TBoss8Dragon__sub_800BC5A0(M2C_FIELD(arg0, void **, 0x4A0), 1);
+            delete_buffer__12TBoss8DragonFis(M2C_FIELD(arg0, void **, 0x4A0), 1);
             M2C_FIELD(arg0, void **, 0x4A0) = NULL;
         }
         if (M2C_FIELD(arg0, VD_803062D4 **, 0x498) != NULL) {
@@ -3868,7 +3868,7 @@ u8 *__dt__16TObjEneDellBiterFv(u8 *arg0, s16 arg1) {
 extern s32 lbl_805D6A20;
 extern s32 lbl_805D6A28;
 extern const f32 lbl_805DF038;
-void TObjEneDellBiter__sub_80306468(void *arg0_) {
+void init_params__16TObjEneDellBiterFPv(void *arg0_) {
     Obj_80306468 *self = (Obj_80306468 *)arg0_;
     s32 i;
     void *n;
@@ -3947,7 +3947,7 @@ void *TObjEneDellBiter__ct(void *arg0, void *arg1, void *arg2) {
     M2C_FIELD(arg0, void **, 0x0) = lbl_805D4078;
     invoke_initialization_hook__9TObjEneDDFPv(arg0, arg2);
     TObjEneDellBiter__sub_80305F58((u8 *)(arg0));
-    TObjEneDellBiter__sub_80306468(arg0);
+    init_params__16TObjEneDellBiterFPv(arg0);
     return arg0;
 }
 
@@ -3980,7 +3980,7 @@ void *TObjEneDellBiter__create(void *arg0) {
 }
 
 #define G_80306858 (*(V3_80306858 *)&lbl_80541E48)
-void TObjEneDellBiter__sub_80306858(void) {
+void load_resources__16TObjEneDellBiterFv(void) {
     G_80306858.x = TObjEneDellBiter__data_805DEFF4;
     G_80306858.y = TObjEneDellBiter__data_805DEFF4;
     G_80306858.z = TObjEneDellBiter__data_805DEFF4;

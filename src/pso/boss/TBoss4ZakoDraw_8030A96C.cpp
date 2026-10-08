@@ -52,7 +52,7 @@ extern RecoveredGlobal_8030ABF4_lbl_80541E58 lbl_80541E58;
 extern s32 lbl_805D6A68;
 extern s32 lbl_805D6A70;
 extern const f32 lbl_805DF148;
-void TObjPlayer__sub_8030AB48(void);
+void draw_area_chunk_objects__10TObjPlayerFv(void);
 void VecCopy__FP3VecPC3Vec(void *, void *);
 extern RecoveredGlobal_8030ABF4_lbl_80541E58 lbl_80541E58;
 extern s32 lbl_805D6A70;
@@ -161,7 +161,7 @@ void TObjPlayer__sub_8030A9B0() {
 void TObjPlayer__sub_8030A9B0();
 #pragma pop
 
-void TObjPlayer__sub_8030AB48(void) {
+void draw_area_chunk_objects__10TObjPlayerFv(void) {
     Tbl_8030AB48 *t = &((Tbl_8030AB48 *)&lbl_80541E58)[lbl_805D6A70];
     Ent_8030AB48 *p = t->ents;
     s32 r31;
@@ -198,7 +198,7 @@ void TCameraCtrl__sub_8030ABF4(void) {
         var_r4 = (u8 *)((void *)8);
         var_r3 = (M2C_UNK *)(M2C_FIELD(get_bml_model(get_instance_count__9TBoss4UroFv(), 8), M2C_UNK **, 0x2C));
         M2C_FIELD(var_r3, s32 *, 0x18) = (s32) (lbl_805D6A74 << 0xC);
-        TObjPlayer__sub_8030AB48();
+        draw_area_chunk_objects__10TObjPlayerFv();
         TObjPlayer__sub_8030A9B0();
     }
 }

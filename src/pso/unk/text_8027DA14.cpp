@@ -22,7 +22,7 @@ u8 * get_window_layout_position(s32);
 s32 construct_type1_heading__20TWindowSubStatusDispFPvii(s32, s32, s32);
 s32 get_message_10__20TWindowSubStatusDispFPv(int);
 u32 calc_text_width();
-M2C_UNK TWindowDD__sub_802466E0(void *, void *, int, int);
+M2C_UNK construct_base__9TWindowDDFPvPvsPv(void *, void *, int, int);
 M2C_UNK set_text_entry_string(int, int, int);
 M2C_UNK update_slot_display_flags__26TWindowSubQuestBoardSelectFPv(void *, f32, f32);
 M2C_UNK select_next__26TWindowSubQuestBoardSelectFPv(void *);
@@ -44,7 +44,7 @@ u8 *TWindowSubQuestBoardSelect__ct(u8 *arg0) {
     f32 temp_f2;
     s32 temp_r30;
     s32 var_r30;
-    TWindowDD__sub_802466E0((void *) (arg0), (void *) (&lbl_804D19A8.value), (int) (4), (int) (get_window_layout_position(0x70)));
+    construct_base__9TWindowDDFPvPvsPv((void *) (arg0), (void *) (&lbl_804D19A8.value), (int) (4), (int) (get_window_layout_position(0x70)));
     M2C_FIELD(arg0, M2C_UNK **, 0x18) = &__vt__26TWindowSubQuestBoardSelect.value;
     M2C_FIELD(arg0, s32 *, 0) = (s32) lbl_805D3A80;
     var_r30 = alloc__23TAdSinglePlyChrSelectGCFPv((void *)0x24);

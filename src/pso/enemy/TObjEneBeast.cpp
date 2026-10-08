@@ -73,7 +73,7 @@ extern "C" void TObjPlayer__sub_80018E6C();
 extern "C" void TObjPlayer__sub_80019568();
 extern "C" void TObjPlayer__sub_80092A7C();
 extern "C" void TObjPlayer__sub_800C53B4();
-extern "C" void TObjPlayer__sub_800C5B10();
+extern "C" void update_turn_toward_target__10TObjPlayerFPv();
 extern "C" void TObjPlayer__sub_800F65D0();
 extern "C" void TObjPlayer__sub_800F673C();
 extern "C" void add_actor_exp();
@@ -243,7 +243,7 @@ void *lbl_8048F4B4[103] = {
     (void *)&enemy_spawn_zalure_effect, (void *)&TObjPlayer__sub_80010A80, (void *)&TObjPlayer__sub_800F65D0, (void *)&fn_80010EC8,
     (void *)&fn_80010EC4, (void *)&fn_80010EC0, (void *)&fn_80010EBC, (void *)&call_vt78__10TObjPlayerFPv,
     (void *)&TObjPlayer__sub_800F673C, (void *)&apply_set_data__9TObjEnemyFPvPv, (void *)&fn_800F5D80, (void *)&update_appearance__12TObjEneBeastFPv,
-    (void *)&beast_idle_update, (void *)&TObjPlayer__sub_800C5B10, (void *)&beast_update_approach, (void *)&beast_update_group_chase,
+    (void *)&beast_idle_update, (void *)&update_turn_toward_target__10TObjPlayerFPv, (void *)&beast_update_approach, (void *)&beast_update_group_chase,
     (void *)&beast_update_attack, (void *)&TObjPlayer__sub_800C53B4, (void *)&beast_update_hurt, (void *)&beast_update_dead,
     (void *)&beast_retire_corpse, (void *)&update_claw_trail__12TObjEneBeastFPv, (void *)&spawn_death_fire__12TObjEneBeastFPv, (void *)&play_claw_effect__18TObjEneBalClawClawFi,
     (void *)&spawn_claw_effect__18TObjEneBalClawClawFi, (void *)&play_claw_sound__18TObjEneBalClawClawFi, (void *)&play_hit_effect__18TObjEneBalClawClawFi, (void *)&TObjEneBalClawClaw__sub_80091CD0,

@@ -38,7 +38,7 @@ extern "C" {
 s32 get_array_entry__20TWindowSubStatusDispFPvi(void *, int);
 void draw_right_aligned_number(void *);
 void refresh_digit_entries__18TWindowInputNumberFPv(u8 *arg0);
-u8 * TWindowDD__sub_802466E0(void *, s32, s16, s32);
+u8 * construct_base__9TWindowDDFPvPvsPv(void *, s32, s16, s32);
 void refresh_digit_entries__18TWindowInputNumberFPv(u8 *arg0);
 void calc_digit_count__18TWindowInputNumberFv(void *);
 extern RecoveredGlobal_80256A60_lbl_804CF8EC lbl_804CF8EC;
@@ -246,7 +246,7 @@ extern s8 lbl_8050E208[];
 typedef char RecoveredGlobal_80256A60_lbl_804CF8EC_size[sizeof(RecoveredGlobal_80256A60_lbl_804CF8EC) == 0x14 ? 1 : -1];
 typedef char RecoveredGlobal_80256A60___vt__18TWindowInputNumber_size[sizeof(RecoveredGlobal_80256A60___vt__18TWindowInputNumber) == 0x18 ? 1 : -1];
 u8 *TWindowInputNumber__ct(u8 *arg0, s32 arg1, s32 arg2, s32 arg3, s32 arg4, s16 arg5) {
-    TWindowDD__sub_802466E0(arg0, (s32) &lbl_804CF8EC.value, arg5, arg1);
+    construct_base__9TWindowDDFPvPvsPv(arg0, (s32) &lbl_804CF8EC.value, arg5, arg1);
     M2C_FIELD(arg0, M2C_UNK **, 0x18) = &(*(RecoveredGlobal_80256A60___vt__18TWindowInputNumber *)&__vt__18TWindowInputNumber).value;
     M2C_FIELD(arg0, s32 *, 0) = (s32) lbl_805D3918;
     M2C_FIELD(arg0, s16 *, 0x20) = arg5;

@@ -31,7 +31,7 @@ public:
 typedef void (Self_802D4B6C::*Act_802D4B6C)();
 
 extern "C" {
-M2C_UNK TAdMultiChgGameModeGC__sub_8023E834(void *);
+M2C_UNK set_default_camera__21TAdMultiChgGameModeGCFv(void *);
 }
 
 extern "C" {
@@ -60,7 +60,7 @@ extern "C" {
 void *__dt__23TAdSinglePlyChrSelectGCFv(void *arg0, s16 arg1);
 void cleanup__23TAdSinglePlyChrSelectGCFPv(void *arg0);
 void reset__23TAdSinglePlyChrSelectGCFPv(void *arg0);
-M2C_UNK TAdEnterSerialAccessGC__sub_802AEBA8(s32);
+M2C_UNK reset_input_state__22TAdEnterSerialAccessGCFPv(s32);
 M2C_UNK *get_localized_text_entry(M2C_UNK, M2C_UNK);
 M2C_UNK play_sound_effect(M2C_UNK, M2C_UNK, M2C_UNK, M2C_UNK);
 s32 TWindowShortListCtrl__check_controller_button(void *, M2C_UNK);
@@ -78,7 +78,7 @@ extern char lbl_8050E208[];
 extern M2C_UNK lbl_805DE784;
 
 void cleanup__23TAdSinglePlyChrSelectGCFPv(void *arg0) {
-    TAdEnterSerialAccessGC__sub_802AEBA8(M2C_FIELD(arg0, s32 *, 0x2C));
+    reset_input_state__22TAdEnterSerialAccessGCFPv(M2C_FIELD(arg0, s32 *, 0x2C));
     set_field_100__22TAdMultiPlyChrSelectGCFPvi(M2C_FIELD(arg0, s32 *, 0x30), 1);
     set_entry_value__22TAdMultiPlyChrSelectGCFiiUi(M2C_FIELD(arg0, s32 *, 0x34), 0, &lbl_805DE784);
     set_entry_value__22TAdMultiPlyChrSelectGCFiiUi(M2C_FIELD(arg0, s32 *, 0x34), 1, &lbl_805DE784);
@@ -128,7 +128,7 @@ void cleanup__23TAdSinglePlyChrSelectGCFPv(void *arg0) {
 }
 
 void run_task__23TAdSinglePlyChrSelectGCFv(Self_802D4B6C *self) {
-    TAdMultiChgGameModeGC__sub_8023E834(self);
+    set_default_camera__21TAdMultiChgGameModeGCFv(self);
     static Act_802D4B6C tbl[13] = {
         &Self_802D4B6C::a0, &Self_802D4B6C::a1, &Self_802D4B6C::a2, &Self_802D4B6C::a3,
         &Self_802D4B6C::a4, &Self_802D4B6C::a5, &Self_802D4B6C::a6, &Self_802D4B6C::a7,

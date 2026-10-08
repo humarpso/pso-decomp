@@ -9,7 +9,7 @@ extern "C" {
 s32 apply_settings__23TAdSinglePlyChrSelectGCFi(void);
 s32 TAdSinglePlyChrSelectGC__sub_802E18C8(void);
 s32 TAdSinglePlyChrSelectGC__sub_802E1F14(void);
-s32 TAdSinglePlyChrSelectGC__sub_802E1DF8(void * a0 = 0, s32 a1 = 0);
+s32 change_state__23TAdSinglePlyChrSelectGCFPvi(void * a0 = 0, s32 a1 = 0);
 s32 poll_load_status__23TAdSinglePlyChrSelectGCFPv(void * a0 = 0);
 s32 create__23TAdSinglePlyChrSelectGCFv(void);
 int TAdSinglePlyChrSelectGC__sub_802E1F8C(void* p);
@@ -29,10 +29,10 @@ void init__23TAdSinglePlyChrSelectGCFPv(void *arg0) {
     M2C_FIELD(arg0, s32 *, 0x44) = poll_load_status__23TAdSinglePlyChrSelectGCFPv(arg0);
     M2C_FIELD(arg0, s32 *, 0x1C) = -1;
     if ((s32) M2C_FIELD(arg0, s32 *, 0x44) == 0) {
-        TAdSinglePlyChrSelectGC__sub_802E1DF8(arg0, 1);
+        change_state__23TAdSinglePlyChrSelectGCFPvi(arg0, 1);
         return;
     }
-    TAdSinglePlyChrSelectGC__sub_802E1DF8(arg0, 0);
+    change_state__23TAdSinglePlyChrSelectGCFPvi(arg0, 0);
 }
 
 }

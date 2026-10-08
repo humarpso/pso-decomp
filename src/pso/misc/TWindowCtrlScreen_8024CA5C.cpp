@@ -10,7 +10,7 @@ struct RecoveredGlobal_8024CAD0___vt__17TWindowCtrlScreen {
 };
 
 extern "C" {
-s32 TCameraCtrl__sub_80068958(int);
+s32 get_nth_view_player_id__11TCameraCtrlFi(int);
 s32 TCameraCtrl__sub_80068EF0();
 s32 restore_full_screen_view__11TCameraCtrlFv();
 s32 reset_transform_state__10TObjPlayerFv();
@@ -36,7 +36,7 @@ extern "C" {
 void render__17TWindowCtrlScreenFv(void) {
     u16 temp_r31;
     if (is_window_display_enabled() != 0) {
-        temp_r31 = TCameraCtrl__sub_80068958((int) (get_camera_no__11TCameraCtrlFv()));
+        temp_r31 = get_nth_view_player_id__11TCameraCtrlFi((int) (get_camera_no__11TCameraCtrlFv()));
         reset_transform_state__10TObjPlayerFv();
         begin_effect_render__13TParticleCtrlFv();
         render_nodes__7TObjectFv((int) (TWindowCtrlMain__data_805D6404));

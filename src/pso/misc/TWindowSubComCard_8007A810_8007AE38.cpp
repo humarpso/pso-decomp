@@ -23,14 +23,14 @@ void handle_6x06_send_guild_card(s32 arg0);
 extern "C" {
 
 void start_player_data_load__17TWindowSubComCardFi(s32 arg0);
-s32 TWindowSubComCard__sub_8007A8F8(M2C_UNK);
+s32 get_card_entry__17TWindowSubComCardFi(M2C_UNK);
 M2C_UNK TWindowSubComCard__sub_8007ADB4(s32, s32, M2C_UNK);
 M2C_UNK load_player_data__23TAdSinglePlyChrSelectGCFv();
 
 void start_player_data_load__17TWindowSubComCardFi(s32 arg0) {
     u32 temp;
     if (TWindowSubComCard__sub_8007B070((int)(arg0)) == 0) {
-        temp = (u32) TWindowSubComCard__sub_8007A8F8(0);
+        temp = (u32) get_card_entry__17TWindowSubComCardFi(0);
         TWindowSubComCard__sub_8007ADB4(arg0, (s32) temp, 0xD2);
         load_player_data__23TAdSinglePlyChrSelectGCFv();
     }

@@ -16,7 +16,7 @@ struct RecoveredGlobal_8024AD30_lbl_804CEA28 {
 };
 
 extern "C" {
-s32 TWindowCtrl__sub_8024AF34(void *, void *);
+s32 call_window_method__11TWindowCtrlFPvi(void *, void *);
 extern RecoveredGlobal_8024AD30_lbl_804CEA28 lbl_804CEA28;
 void end_player_keyboard_hold(s32 arg0);
 }
@@ -32,7 +32,7 @@ void end_player_keyboard_hold(s32 arg0) {
     stack.sp8 = M2C_FIELD(&lbl_804CEA28.value, s32 *, 0);
     stack.spC = M2C_FIELD(&lbl_804CEA28.value, s32 *, 4);
     stack.sp10 = M2C_FIELD(&lbl_804CEA28.value, s32 *, 8);
-    TWindowCtrl__sub_8024AF34((void *) (arg0), (void *) (&stack.sp8));
+    call_window_method__11TWindowCtrlFPvi((void *) (arg0), (void *) (&stack.sp8));
 }
 
 }

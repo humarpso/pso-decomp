@@ -8,7 +8,7 @@ extern "C" {
 
 void update_effect_sequence__10TObjPlayerFv(void);
 M2C_UNK update_camera_sequence__9TObjEneDDFPv();
-M2C_UNK TObjPlayer__sub_803D8960(M2C_UNK, s32, s32, M2C_UNK);
+M2C_UNK mult_vec_array__10TObjPlayerFUii(M2C_UNK, s32, s32, M2C_UNK);
 M2C_UNK rotate_matrix_y(M2C_UNK, s32);
 M2C_UNK push_matrix();
 M2C_UNK pop_matrix();
@@ -25,7 +25,7 @@ void update_effect_sequence__10TObjPlayerFv(void) {
     case 14:
         push_matrix();
         update_camera_sequence__9TObjEneDDFPv();
-        TObjPlayer__sub_803D8960(0, lbl_805D5180, lbl_805D5180, 2);
+        mult_vec_array__10TObjPlayerFUii(0, lbl_805D5180, lbl_805D5180, 2);
         pop_matrix();
         break;
     }

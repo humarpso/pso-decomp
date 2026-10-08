@@ -45,7 +45,7 @@ int TAdSinglePlyChrSelectGC__sub_8028DC1C(void* p);
 s32 TAdEndText__sub_8001B3EC(s32);
 s32 submit_card_password__17TWindowSubComCardFi(u8 *);
 M2C_UNK strncpy(void *, void *, int);
-s32 TObjCMMainMenu__sub_8028DA7C(s8 *arg0);
+s32 validate_character_name__14TObjCMMainMenuFPv(s8 *arg0);
 }
 
 extern "C" {
@@ -82,7 +82,7 @@ void select_char_menu__14TObjCMMainMenuFv(void) {
     TObjCMMainMenu__sub_8028DA0C((s32)(get_char_index__23TAdSinglePlyChrSelectGCFUi(0xFFFF) + 0x370));
 }
 
-s32 TObjCMMainMenu__sub_8028DA7C(s8 *arg0) {
+s32 validate_character_name__14TObjCMMainMenuFPv(s8 *arg0) {
     s8 buf[13];
     s8 out[16];
     s32 found;

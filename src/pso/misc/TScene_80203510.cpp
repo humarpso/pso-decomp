@@ -97,7 +97,7 @@ void push_matrix_from(void *);
 void rotate_matrix_y(s32, s32);
 void rotate_vector_by_matrix(s32, void *, Vec_80204024 *);
 void pop_matrix(void);
-s32 TScene__sub_80204B78(s32 arg0, Obj_80204B78 *obj, Vec_80204024 *pos, void *arg3, s32 arg4);
+s32 check_object_in_view_cone__6TSceneFiPvPvPvi(s32 arg0, Obj_80204B78 *obj, Vec_80204024 *pos, void *arg3, s32 arg4);
 extern SceneMaterialRoot* TScene__data_805D5FCC;
 extern RecoveredCallback_2be3cacebb2e TScene__data_805D5FF4;
 extern s32 some_id_805c6f74;
@@ -570,7 +570,7 @@ s32 is_split_screen(void);
 #define TEST ((s32 (*)(f32, void *, void *, void *, Vec_80204024 *))TScene__sub_80204024)
 #define VIS ((s32 (*)(void *, void *, f32, f32))TScene__sub_80204188)
 
-void TScene__sub_80204688(Task_80204688 *task) {
+void cull_sections__6TSceneFPv(Task_80204688 *task) {
     static f32 s_near = lbl_805DC5E8;
     static f32 s_far = lbl_805DC5EC;
     static f32 s_pad = lbl_805DC5F0;
@@ -703,7 +703,7 @@ void TScene__sub_80204688(Task_80204688 *task) {
 #undef TEST
 #undef VIS
 
-s32 TScene__sub_80204B78(s32 arg0, Obj_80204B78 *obj, Vec_80204024 *pos, void *arg3, s32 arg4) {
+s32 check_object_in_view_cone__6TSceneFiPvPvPvi(s32 arg0, Obj_80204B78 *obj, Vec_80204024 *pos, void *arg3, s32 arg4) {
     Vec_80204024 c;
     Vec_80204024 a;
     Vec_80204024 b;

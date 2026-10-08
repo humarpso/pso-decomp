@@ -34,7 +34,7 @@ s32 get_selected_slot__23TAdSinglePlyChrSelectGCFPv(s32);
 s32 TAdSinglePlyChrSelectGC__sub_801334DC(s32);
 s32 test_flag_4c__23TAdSinglePlyChrSelectGCFPv(void *, s32);
 s32 TWindowShortListCtrl__check_controller_button(void *, s32);
-void TAdMultiChgGameModeGC__sub_8023E834(void);
+void set_default_camera__21TAdMultiChgGameModeGCFv(void);
 void set_game_mode_changed__21TAdMultiChgGameModeGCFv(void);
 void set_entry_value__22TAdMultiPlyChrSelectGCFiiUi(s32, s32, u32);
 extern u8 lbl_8050E208[];
@@ -55,10 +55,10 @@ void __ct__13TAdTitleTexGCFv(void *, void *);
 void __ct__14TAdSelectTxtGCFv(void *, void *, void *, int);
 void *__ct__14TAdSelectCurGCFv(void *, void *, void *, void *);
 void *__ct__13TAdGuideTxtGCFv(void *, void *);
-void TLevelSelect__sub_802AEBE4(void *, void *);
+void add_item_rect__12TLevelSelectFPvPv(void *, void *);
 s32 get_localized_text_entry(s32, s32);
 void set_entry_value__22TAdMultiPlyChrSelectGCFiiUi(s32, s32, u32);
-void TAdMcSelectGC__sub_80019DA8(void *, s32, f32);
+void create_draw_line_ctrl__13TAdMcSelectGCFiif(void *, s32, f32);
 extern Ents_8013319C lbl_8043ED28;
 extern Pos_8013319C lbl_8043ED58[];
 extern Poss_8013319C lbl_8043ED60;
@@ -96,7 +96,7 @@ int count_unlocked_difficulties__12TLevelSelectFv(void) {
     return n;
 }
 void run_task__12TLevelSelectFv(Self_80133068 *self) {
-    TAdMultiChgGameModeGC__sub_8023E834();
+    set_default_camera__21TAdMultiChgGameModeGCFv();
     if (lbl_805D5550 != TAdSinglePlyChrSelectGC__sub_801334DC(self->f20)) {
         set_entry_value__22TAdMultiPlyChrSelectGCFiiUi(self->f24, 1, get_localized_text_entry(0xD, TAdSinglePlyChrSelectGC__sub_801334DC(self->f20) + 1));
     }
@@ -170,7 +170,7 @@ Self_8013319C *__ct__12TLevelSelectFv(Self_8013319C *self) {
                 p = __ct__14TAdSelectCurGCFv(p, self, &poss, &pos);
             }
             self->cur = p;
-            TLevelSelect__sub_802AEBE4(self->cur, &poss.p[0]);
+            add_item_rect__12TLevelSelectFPvPv(self->cur, &poss.p[0]);
             p = __nw__7TObjectFUl(0x44);
             if (p != NULL) {
                 p = __ct__13TAdGuideTxtGCFv(p, self);
@@ -180,21 +180,21 @@ Self_8013319C *__ct__12TLevelSelectFv(Self_8013319C *self) {
             ((void (*)(void *, s32, u32))set_entry_value__22TAdMultiPlyChrSelectGCFiiUi)(self->guide, 1, get_localized_text_entry(0xD, 1));
             switch (self->count) {
             case 1:
-                TLevelSelect__sub_802AEBE4(self->cur, &poss.p[1]);
+                add_item_rect__12TLevelSelectFPvPv(self->cur, &poss.p[1]);
                 break;
             case 2:
-                TLevelSelect__sub_802AEBE4(self->cur, &poss.p[1]);
-                TLevelSelect__sub_802AEBE4(self->cur, &poss.p[2]);
+                add_item_rect__12TLevelSelectFPvPv(self->cur, &poss.p[1]);
+                add_item_rect__12TLevelSelectFPvPv(self->cur, &poss.p[2]);
                 break;
             case 3:
-                TLevelSelect__sub_802AEBE4(self->cur, &poss.p[1]);
-                TLevelSelect__sub_802AEBE4(self->cur, &poss.p[2]);
-                TLevelSelect__sub_802AEBE4(self->cur, &poss.p[3]);
+                add_item_rect__12TLevelSelectFPvPv(self->cur, &poss.p[1]);
+                add_item_rect__12TLevelSelectFPvPv(self->cur, &poss.p[2]);
+                add_item_rect__12TLevelSelectFPvPv(self->cur, &poss.p[3]);
                 break;
             }
         }
     }
-    TAdMcSelectGC__sub_80019DA8(self, 2, lbl_805DB080);
+    create_draw_line_ctrl__13TAdMcSelectGCFiif(self, 2, lbl_805DB080);
     return self;
 }
 

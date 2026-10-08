@@ -11,7 +11,7 @@ void *create__15TFontSmallLobbyFPv(void *arg0);
 void update_help_text__14TFontSmallHelpFPv(void *arg0);
 M2C_UNK TFontSmallHelp__sub_800FC424(void *, s32);
 s32 get_player_by_client_id(s32);
-u32 TWindowSubStatusDisp__sub_800FC968(s32);
+u32 build_status_text__20TWindowSubStatusDispFi(s32);
 void __dl__7TObjectFPv(void *);
 void __dt__14TFontSmallHelpFv(void *, int);
 void *__nw__7TObjectFUl(int);
@@ -47,7 +47,7 @@ void update_help_text__14TFontSmallHelpFPv(void *arg0) {
     temp_r3_2 = get_card_status_bits__20TWindowShortListCtrlFv(M2C_FIELD(arg0, s32 *, 0x5C));
     if ((s32) M2C_FIELD(arg0, s32 *, 0x60) != temp_r3_2) {
         M2C_FIELD(arg0, s32 *, 0x60) = temp_r3_2;
-        temp_r3_3 = TWindowSubStatusDisp__sub_800FC968(M2C_FIELD(arg0, s32 *, 0x5C));
+        temp_r3_3 = build_status_text__20TWindowSubStatusDispFi(M2C_FIELD(arg0, s32 *, 0x5C));
         set_help_text__14TFontSmallHelpFPvUi(arg0, temp_r3_3);
         if (temp_r3_3 != 0U) {
             if ((s32) M2C_FIELD(arg0, s32 *, 0x60) == 3) {

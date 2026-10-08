@@ -25,7 +25,7 @@ void TAdTrialAgreementGC__vt6(void);
 void render__19TAdTrialAgreementGCFv(void *arg0);
 void wait_for_load__19TAdTrialAgreementGCFv(void);
 s32 TAdPlayerLoadGC__sub_801E1B50(s32);
-s32 TAdPlayerLoadGC__sub_801E1E38(s32);
+s32 probe_card_slot__15TAdPlayerLoadGCFi(s32);
 int TKeyBoardControl__sub_8000F9CC(void*);
 int close_window__14TAdScrollWinGCFPv(void*);
 s32 render_tick__Fv();
@@ -41,7 +41,7 @@ int TAdTrialAgreementGC__vt5(void* p) { return request_scene_change__21TAdMultiC
 void TAdTrialAgreementGC__vt4(void* p) { if (*(unsigned int*)((char*)p + 0x38) != 0) { close_window__14TAdScrollWinGCFPv(*(void**)((char*)p + 0x38)); *(int*)((char*)p + 0x38) = 0; } }
 void wait_for_load__19TAdTrialAgreementGCFv(void) {
 loop_1:
-    if ((TAdPlayerLoadGC__sub_801E1E38(0) != 0) && (TAdPlayerLoadGC__sub_801E1B50(0) != 0)) {
+    if ((probe_card_slot__15TAdPlayerLoadGCFi(0) != 0) && (TAdPlayerLoadGC__sub_801E1B50(0) != 0)) {
         render_tick__Fv();
         goto loop_1;
     }

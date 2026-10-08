@@ -487,7 +487,7 @@ extern RecoveredGlobal_801F9720_TRaderMapCore__data_80513708 TRaderMapCore__data
 extern const f32 TRaderMapCore__data_805DC528;
 extern const f32 TRaderMapCore__data_805DC58C;
 extern const f32 lbl_805DC598;
-void TRaderMapCore__sub_801FAF24(u8 *arg0);
+void update_pan_zoom_input__13TRaderMapCoreFPv(u8 *arg0);
 }
 
 extern "C" {
@@ -1189,7 +1189,7 @@ s32 is_render_admitted__13TRaderMapCoreFPvPv(void *arg0v, void *arg1) {
     return all_parents_unqueued_for_destruction__7TObjectFv(arg0v) != 0 ? 1 : 0;
 }
 
-void TRaderMapCore__sub_801FAF24(u8 *arg0) {
+void update_pan_zoom_input__13TRaderMapCoreFPv(u8 *arg0) {
     Radar_801FAF24 *self = (Radar_801FAF24 *)arg0;
     u32 p;
     s32 i;

@@ -105,7 +105,7 @@ int get_mag_mind_level__9TItemDataFPv(void*);
 int get_stat_percent__9TItemDataFPv(void*);
 int get_level__9TItemDataFPv(void*);
 int get_percent__9TItemDataFPv(void*);
-s16 TItemMagSub__sub_8011455C(void *);
+s16 get_total_level__11TItemMagSubFPv(void *);
 void TItemMag__vt12(s32 arg0);
 s32 obj_isState2_324(void *);
 s16 obj_getS16_32E(void *);
@@ -139,7 +139,7 @@ extern const f32 lbl_805DABB8;
 u8 *TItemEquipBase__ct(u8 *arg0, s32 arg1, s32 arg2);
 void *initialize_mag_data__9TItemDataFPv(void *p);
 void deserialize_mag__9TItemDataFPvPv(void *src, void *dst);
-s16 TItemMagSub__sub_8011455C(void *);
+s16 get_total_level__11TItemMagSubFPv(void *);
 void set_field_EE__8TItemMagFPvUc(void *p, u8 v);
 void copy_owner_data__8TItemMagFPv(void *);
 u8 *TItemMag__ct(Mag_801139F4 *self, s32 a, s32 src);
@@ -182,7 +182,7 @@ s32 push_matrix();
 s32 pop_matrix();
 void TObjPlayer__sub_80364198();
 f32 get_mag_scale__10TObjPlayerFPv(void *);
-void TObjPlayer__sub_80364028(f32);
+void set_model_fade_alpha__10TObjPlayerFf(f32);
 void warn_if_gauge_low__10TObjPlayerFv();
 void TObjPlayer__sub_8036414C();
 extern const f32 TItemMag__data_805DABA8;
@@ -197,7 +197,7 @@ extern u8 lbl_8043E57C[];
 extern int TItemMag__data_805D54A8;
 extern int lbl_805D54AC;
 extern int lbl_805D54B0;
-void TItemMag__sub_80113B6C(void);
+void load_data_files__8TItemMagFv(void);
 }
 
 extern "C" {
@@ -308,7 +308,7 @@ void TItemMag__vt14(Self_80113310 *self) {
 int TItemMag__vt13(void* p) { return tick_fullness_timer__8TItemMagFPv(p); }
 
 void TItemMag__vt12(s32 arg0) {
-    if ((TItemMagSub__sub_8011455C((void *) (arg0 + 0x198)) > 0xC8) || (((s16)get_stat_percent__9TItemDataFPv((void*)((void *) (arg0 + 0x198)))) < 0) || (((s16)get_percent__9TItemDataFPv((void*)((void *) (arg0 + 0x198)))) < 0) || (((s16)get_level__9TItemDataFPv((void*)((void *) (arg0 + 0x198)))) < 0) || (((s16)get_mag_mind_level__9TItemDataFPv((void*)((void *) (arg0 + 0x198)))) < 0)) {
+    if ((get_total_level__11TItemMagSubFPv((void *) (arg0 + 0x198)) > 0xC8) || (((s16)get_stat_percent__9TItemDataFPv((void*)((void *) (arg0 + 0x198)))) < 0) || (((s16)get_percent__9TItemDataFPv((void*)((void *) (arg0 + 0x198)))) < 0) || (((s16)get_level__9TItemDataFPv((void*)((void *) (arg0 + 0x198)))) < 0) || (((s16)get_mag_mind_level__9TItemDataFPv((void*)((void *) (arg0 + 0x198)))) < 0)) {
         refresh_if_current_player__20TWindowSubStatusDispFPv((void *) (arg0));
     }
 }
@@ -348,7 +348,7 @@ void TItemMag__vt24(Self_801135E0 *self) {
     scale = get_stat_f32__8TItemMagFPv(self->owner->stats);
     push_matrix();
     TObjPlayer__sub_80364198();
-    TObjPlayer__sub_80364028(get_mag_scale__10TObjPlayerFPv(self));
+    set_model_fade_alpha__10TObjPlayerFf(get_mag_scale__10TObjPlayerFPv(self));
     for (i = 0; i != 2; i++) {
         if (self->subs[i] != NULL && is_feed_empty__8TItemMagFPv((void*)(self->subs[i])) != 0) {
             child = self->subs[i];
@@ -479,7 +479,7 @@ u8 *TItemMag__ct(Mag_801139F4 *self, s32 a, s32 src) {
     self->x194 = lbl_805DABB8;
     deserialize_mag__9TItemDataFPvPv((void *)src, self->data198);
     self->flags1a4 &= ~0x40;
-    set_field_EE__8TItemMagFPvUc(self, TItemMagSub__sub_8011455C(self->data198));
+    set_field_EE__8TItemMagFPvUc(self, get_total_level__11TItemMagSubFPv(self->data198));
     self->m17(1);
     self->x18c = 0;
     for (i = 0; i < 2; i++) {
@@ -507,7 +507,7 @@ u8 *TItemMag__sub_80113AD4(s32 arg0) {
 
 void cleanup__8TItemMagFv(void) { __dt__9TItemLoadFPvs((void*)(TItemMag__data_805D54A8), (void*)1); fn_800F953C((void*)(lbl_805D54B0)); TItemMag__data_805D54A8 = 0; lbl_805D54AC = 0; lbl_805D54B0 = 0; }
 
-void TItemMag__sub_80113B6C(void) {
+void load_data_files__8TItemMagFv(void) {
     s32 i;
     s32 j;
     Rec_80113B6C *rec;

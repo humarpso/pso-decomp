@@ -83,7 +83,7 @@ struct S_801FE010 {
 };
 
 extern "C" {
-s32 TAdPlayerLoadGC__sub_801E2048(int, void *);
+s32 find_card_file__15TAdPlayerLoadGCFiPv(int, void *);
 M2C_UNK load_player_slot__23TAdSinglePlyChrSelectGCFPvii(int, void *, void *);
 extern unsigned char lbl_804C88C0[];
 extern int lbl_805D49B4;
@@ -93,7 +93,7 @@ s32 TAdSinglePlyChrSelectGC__sub_801FCCDC(void *, void *);
 extern RecoveredGlobal_801FE3E4_lbl_805137C8 lbl_805137C8;
 extern u32 lbl_805D5F5C;
 M2C_UNK *TAdSinglePlyChrSelectGC__sub_801FE3E4(u32 arg0);
-s32 TAdPlayerLoadGC__sub_801E2048(int, void *);
+s32 find_card_file__15TAdPlayerLoadGCFiPv(int, void *);
 M2C_UNK load_player_slot__23TAdSinglePlyChrSelectGCFPvii(int, void *, void *);
 extern unsigned char lbl_804C8914[];
 extern int lbl_805D49B4;
@@ -103,7 +103,7 @@ extern u32 lbl_805D5F58;
 void TAdSinglePlyChrSelectGC__sub_801FE2D0(s32 i);
 extern u32 lbl_805D5F5C;
 void TAdSinglePlyChrSelectGC__sub_801FE304(s32 i);
-s32 TAdPlayerLoadGC__sub_801E2048(int, void *);
+s32 find_card_file__15TAdPlayerLoadGCFiPv(int, void *);
 M2C_UNK load_player_slot__23TAdSinglePlyChrSelectGCFPvii(int, void *, void *);
 extern unsigned char lbl_804C8914[];
 extern int lbl_805D49B4;
@@ -152,7 +152,7 @@ s32 TAdSinglePlyChrSelectGC__sub_801FDB58(s32 arg0) {
     s32 r = -1;
     lbl_805D5F8C = arg0;
     if (arg0 >= 0 && arg0 <= 7) {
-        r = TAdPlayerLoadGC__sub_801E2048((int)(arg0), (void *)(((u8 *)&lbl_804C8914)));
+        r = find_card_file__15TAdPlayerLoadGCFiPv((int)(arg0), (void *)(((u8 *)&lbl_804C8914)));
         if (r == 0) {
             (*(s32 *)&lbl_805D49B4) = 1;
             r = ((s32)load_player_slot__23TAdSinglePlyChrSelectGCFPvii(lbl_805D5F8C, ((u8 *)&lbl_804C8914), (void *)(*(s32 *)&lbl_805D5F9C)));
@@ -162,14 +162,14 @@ s32 TAdSinglePlyChrSelectGC__sub_801FDB58(s32 arg0) {
 }
 
 void TAdSinglePlyChrSelectGC__sub_801FDBC4(void) {
-    if (TAdPlayerLoadGC__sub_801E2048((int) (1), (void *) (&(*(RecoveredGlobal_801FDC14_lbl_804C88C0 *)&lbl_804C8914).value)) == 0) {
+    if (find_card_file__15TAdPlayerLoadGCFiPv((int) (1), (void *) (&(*(RecoveredGlobal_801FDC14_lbl_804C88C0 *)&lbl_804C8914).value)) == 0) {
         (*(s32 *)&lbl_805D49B4) = 1;
         load_player_slot__23TAdSinglePlyChrSelectGCFPvii((int) (1), (void *) (&(*(RecoveredGlobal_801FDC14_lbl_804C88C0 *)&lbl_804C8914).value), (void *) ((*(s32 *)&lbl_805D5F9C)));
     }
 }
 
 void TAdSinglePlyChrSelectGC__sub_801FDC14(void) {
-    if (TAdPlayerLoadGC__sub_801E2048((int) (1), (void *) (&(*(RecoveredGlobal_801FDC14_lbl_804C88C0 *)&lbl_804C88C0).value)) == 0) {
+    if (find_card_file__15TAdPlayerLoadGCFiPv((int) (1), (void *) (&(*(RecoveredGlobal_801FDC14_lbl_804C88C0 *)&lbl_804C88C0).value)) == 0) {
         (*(s32 *)&lbl_805D49B4) = 1;
         load_player_slot__23TAdSinglePlyChrSelectGCFPvii((int) (1), (void *) (&(*(RecoveredGlobal_801FDC14_lbl_804C88C0 *)&lbl_804C88C0).value), (void *) ((*(s32 *)&lbl_805D5F94)));
     }

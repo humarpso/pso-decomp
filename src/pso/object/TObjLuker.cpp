@@ -87,19 +87,19 @@ s32 get_player_floor__6TLobbyFi(s32 p);
 s32 get_floor_destination_name(s32 f);
 void add_text_entry__19TWindowSubTradeMainFPviiii(void *w, s32 a, s32 b, s32 c, s32 d);
 void set_flag_40__16TAdChrSelASlotGCFPv(void *w);
-void TWindowSubComCard__sub_80265F60(void *w);
+void calc_window_size__17TWindowSubComCardFPv(void *w);
 void align_menu_entry_positions(void *w);
 void set_flag_4__9TObjLukerFPv(void *w);
 void disallow_rendering__7TObjectFv(void *w);
-void TObjLuker__sub_801A0E38(Obj_801A0E38 *self);
+void open_destination_windows__9TObjLukerFPv(Obj_801A0E38 *self);
 Ctrl_801A0E38 *get_player_by_client_id(u16 id);
-void TWindowSubComCard__sub_802655E4(void *w);
+void reset_entries__17TWindowSubComCardFPv(void *w);
 s32 get_player_floor__6TLobbyFi(s32 p);
 s32 get_floor_destination_name(s32 f);
 void add_text_entry__19TWindowSubTradeMainFPviiii(void *w, s32 a, s32 b, s32 c, s32 d);
-void TWindowSubComCard__sub_80265F60(void *w);
+void calc_window_size__17TWindowSubComCardFPv(void *w);
 void align_menu_entry_positions(void *w);
-void TObjLuker__sub_801A0CE8(Obj_801A0CE8 *self);
+void update_floor_name_windows__9TObjLukerFPv(Obj_801A0CE8 *self);
 void set_flag_4__9TObjLukerFPv(void *w);
 void disallow_rendering__7TObjectFv(void *w);
 void TObjLuker__sub_801A0C38(Obj_801A0C38 *self, u16 i);
@@ -114,7 +114,7 @@ extern s32 lbl_805D34A8;
 void *TObjLuker__ct(void *arg0, void *arg1, void *arg2);
 s32 is_split_screen(void);
 Ctrl_801A0E38 *get_player_by_client_id(u16 id);
-u16 TCameraCtrl__sub_80068958(s32);
+u16 get_nth_view_player_id__11TCameraCtrlFi(s32);
 s32 get_instance__11TCameraCtrlFv(void);
 f32 horizontal_distance_squared(void *, void *);
 s32 TWindowShortListCtrl__check_controller_button(void *, int);
@@ -125,9 +125,9 @@ s32 are_players_gathered_near(void *arg0, s32 *arg1, f32 range);
 s32 is_split_screen(void);
 void queue_destruction__7TObjectFv(void *);
 M2C_UNK spawn_particle_effect(void *, int);
-void TObjLuker__sub_801A0CE8(Obj_801A0CE8 *self);
+void update_floor_name_windows__9TObjLukerFPv(Obj_801A0CE8 *self);
 void TObjLuker__sub_801A0DB4(Obj_801A0DB4 *self);
-void TObjLuker__sub_801A0E38(Obj_801A0E38 *self);
+void open_destination_windows__9TObjLukerFPv(Obj_801A0E38 *self);
 s32 are_players_gathered_near(void *arg0, s32 *arg1, f32 range);
 s32 TWindowShortListCtrl__check_controller_button(void *, int);
 M2C_UNK play_effect_default__10TObjPlayerFii(void *, int);
@@ -205,7 +205,7 @@ void TObjLuker__sub_801A0C7C(s32 arg0, s32 arg1) {
 }
 #pragma pop
 
-void TObjLuker__sub_801A0CE8(Obj_801A0CE8 *self) {
+void update_floor_name_windows__9TObjLukerFPv(Obj_801A0CE8 *self) {
     s32 target = ((Ctrl_801A0CE8 *)get_player_by_client_id(self->id))->target;
     s32 i;
     for (i = 0; i < 4; i++) {
@@ -213,12 +213,12 @@ void TObjLuker__sub_801A0CE8(Obj_801A0CE8 *self) {
             if (self->cur != target) {
                 s32 j;
                 for (j = 0; j < 4; j++) {
-                    TWindowSubComCard__sub_802655E4(self->wins[j]);
+                    reset_entries__17TWindowSubComCardFPv(self->wins[j]);
                 }
                 self->cur = target;
             }
             add_text_entry__19TWindowSubTradeMainFPviiii(self->wins[i], get_floor_destination_name(get_player_floor__6TLobbyFi(target)), 2, 0, -1);
-            TWindowSubComCard__sub_80265F60(self->wins[i]);
+            calc_window_size__17TWindowSubComCardFPv(self->wins[i]);
             align_menu_entry_positions(self->wins[i]);
         }
     }
@@ -237,7 +237,7 @@ void TObjLuker__sub_801A0DB4(Obj_801A0DB4 *self) {
     }
 }
 
-void TObjLuker__sub_801A0E38(Obj_801A0E38 *self) {
+void open_destination_windows__9TObjLukerFPv(Obj_801A0E38 *self) {
     s32 target = get_player_by_client_id(self->id)->target;
     s32 i;
     for (i = 0; i < 4; i++) {
@@ -251,7 +251,7 @@ void TObjLuker__sub_801A0E38(Obj_801A0E38 *self) {
                 self->cur = target;
                 add_text_entry__19TWindowSubTradeMainFPviiii(self->wins[i], get_floor_destination_name(get_player_floor__6TLobbyFi(target)), 2, 0, -1);
                 set_flag_40__16TAdChrSelASlotGCFPv(self->wins[i]);
-                TWindowSubComCard__sub_80265F60(self->wins[i]);
+                calc_window_size__17TWindowSubComCardFPv(self->wins[i]);
                 align_menu_entry_positions(self->wins[i]);
                 set_flag_4__9TObjLukerFPv(self->wins[i]);
                 disallow_rendering__7TObjectFv(self->wins[i]);
@@ -298,7 +298,7 @@ s32 are_players_gathered_near(void *arg0, s32 *arg1, f32 range) {
         s32 found = 0;
         s32 j;
         for (j = 0; j < get_instance__11TCameraCtrlFv(); j++) {
-            p = (Plr_801A0F34 *)((Ctrl_801A0E38 *(*)(s32))get_player_by_client_id)(TCameraCtrl__sub_80068958(j));
+            p = (Plr_801A0F34 *)((Ctrl_801A0E38 *(*)(s32))get_player_by_client_id)(get_nth_view_player_id__11TCameraCtrlFi(j));
             if (p != NULL &&
                 TWindowShortListCtrl__check_controller_button(lbl_8050E208[get_map_id__13TRaderMapCoreFPv(p)].btn, 4) != 0) {
                 found = 1;
@@ -449,8 +449,8 @@ void run_task__9TObjLukerFv(u8 *arg0) {
     s32 flag;
     p = (u8 *)get_player_by_client_id(M2C_FIELD(arg0, u16 *, 0xA8));
     if (p != NULL) {
-        TObjLuker__sub_801A0CE8((Obj_801A0CE8 *) arg0);
-        TObjLuker__sub_801A0E38((Obj_801A0E38 *) arg0);
+        update_floor_name_windows__9TObjLukerFPv((Obj_801A0CE8 *) arg0);
+        open_destination_windows__9TObjLukerFPv((Obj_801A0E38 *) arg0);
     }
     if (p == NULL) {
         if (M2C_FIELD(arg0, void **, 0xA4) != NULL) {

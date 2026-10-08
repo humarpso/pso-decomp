@@ -29,7 +29,7 @@ s32 TAdMultiPlyChrSelectGC__sub_802C64D0(int);
 s32 TAdMultiPlyChrSelectGC__sub_802C6558();
 M2C_UNK TAdMultiPlyChrSelectGC__sub_802C658C(int);
 M2C_UNK TAdMultiPlyChrSelectGC__sub_802C6660(int);
-M2C_UNK TAdMultiPlyChrSelectGC__sub_802C6A10();
+M2C_UNK reset_slot_selections__22TAdMultiPlyChrSelectGCFv();
 s32 get_player_index__22TAdMultiPlyChrSelectGCFPv(s32);
 M2C_UNK TAdMultiPlyChrSelectGC__sub_802E006C(int, int, int);
 s32 get_chr_select_state__22TAdMultiPlyChrSelectGCFv();
@@ -51,7 +51,7 @@ M2C_UNK *get_localized_text_entry(M2C_UNK, M2C_UNK);
 M2C_UNK play_sound_effect(M2C_UNK, M2C_UNK, M2C_UNK, M2C_UNK);
 s32 count_ready__22TAdMultiPlyChrSelectGCFv();
 s32 TAdMultiPlyChrSelectGC__sub_802C6558();
-M2C_UNK TAdMultiPlyChrSelectGC__sub_802C6A10();
+M2C_UNK reset_slot_selections__22TAdMultiPlyChrSelectGCFv();
 s32 get_player_index__22TAdMultiPlyChrSelectGCFPv(s32);
 s32 get_chr_select_state__22TAdMultiPlyChrSelectGCFv();
 s32 get_clamped_cursor__22TAdMultiPlyChrSelectGCFv();
@@ -66,7 +66,7 @@ void update_button_input__22TAdMultiPlyChrSelectGCFPv(void *arg0) {
         return;
     }
     if (get_player_index__22TAdMultiPlyChrSelectGCFPv(M2C_FIELD(arg0, s32 *, 0x68)) == 1) {
-        TAdMultiPlyChrSelectGC__sub_802C6A10();
+        reset_slot_selections__22TAdMultiPlyChrSelectGCFv();
         M2C_FIELD(arg0, s32 *, 0x20) = 0;
         return;
     }
@@ -100,7 +100,7 @@ void TAdMultiPlyChrSelectGC__sub_802DEDA8(u8 *arg0) {
         return;
     }
     if (get_player_index__22TAdMultiPlyChrSelectGCFPv((s32)((int) (M2C_FIELD(arg0, s32 *, 0x68)))) == 1) {
-        TAdMultiPlyChrSelectGC__sub_802C6A10();
+        reset_slot_selections__22TAdMultiPlyChrSelectGCFv();
         M2C_FIELD(arg0, s32 *, 0x20) = 0;
         return;
     }
@@ -118,7 +118,7 @@ void TAdMultiPlyChrSelectGC__sub_802DEDA8(u8 *arg0) {
         if (TAdMultiPlyChrSelectGC__sub_802C64D0((int) (var_r30)) != 0) {
             TAdMultiPlyChrSelectGC__sub_802C658C((int) (var_r30));
             if (is_slot_active__23TAdSinglePlyChrSelectGCFUi() == 0) {
-                TAdMultiPlyChrSelectGC__sub_802C6A10();
+                reset_slot_selections__22TAdMultiPlyChrSelectGCFv();
             }
         }
         var_r30 += 1;

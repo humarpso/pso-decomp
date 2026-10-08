@@ -83,7 +83,7 @@ M2C_UNK validate_and_set_selection__6TLobbyFPvi(void *, int);
 M2C_UNK TLobby__sub_803382E4();
 M2C_UNK TLobby__sub_803CB81C();
 extern unsigned char lbl_80514F64[];
-void TLobby__sub_802280C4(void);
+void wait_for_sound_init__6TLobbyFv(void);
 s32 init_range_zero__6TLobbyFPv(void* arg0);
 extern RecoveredGlobal_802287F0_lbl_80515BA0 lbl_80515BA0;
 s32 TLobby__sub_802287F0(void);
@@ -125,7 +125,7 @@ void refresh_render_state__6TLobbyFv(void);
 void set_area__6TLobbyFPvi(void *arg0, s32 arg1);
 s32 get_floor_map_terrain(s32);
 int TLobby__sub_80227B48(float);
-int TLobby__sub_802405B0(void*, void*);
+int pop_sound_groups__6TLobbyFPvi(void*, void*);
 void __ct__7TObjectFP7TObject(void *);
 s32 get_global_state__14TOKeyMachine01Fv();
 M2C_UNK init_range__6TLobbyFPvi(void*, int);
@@ -134,7 +134,7 @@ int render_tick__Fv(void);
 
     extern unsigned char lbl_80514F64[];
     extern float lbl_805DC76C;
-void refresh_render_state__6TLobbyFv(void) { TLobby__sub_802405B0(lbl_80514F64, (void*)0); TLobby__sub_80227B48(lbl_805DC76C); render_tick__Fv(); }
+void refresh_render_state__6TLobbyFv(void) { pop_sound_groups__6TLobbyFPvi(lbl_80514F64, (void*)0); TLobby__sub_80227B48(lbl_805DC76C); render_tick__Fv(); }
 
 void load_floor_sound_bank(s32 arg0) {
     s32 temp_r0;
@@ -177,7 +177,7 @@ void TLobby__sub_8022809C(void) {
 }
 
 typedef char RecoveredGlobal_802280C4_lbl_80514F64_size[sizeof(RecoveredGlobal_802280C4_lbl_80514F64) == 0xC3C ? 1 : -1];
-void TLobby__sub_802280C4(void) {
+void wait_for_sound_init__6TLobbyFv(void) {
     init_sound_aux_effects((void *) (&(*(RecoveredGlobal_802280C4_lbl_80514F64 *)&lbl_80514F64).value));
     validate_and_set_selection__6TLobbyFPvi((void *) (&(*(RecoveredGlobal_802280C4_lbl_80514F64 *)&lbl_80514F64).value), (int) (0));
     do {

@@ -67,7 +67,7 @@ extern const f32 lbl_805D88B0;
 u8 *TBoss3Volopt__sub_80049E9C(u8 *arg0, s32 arg1, s32 arg2, s32 arg3, s32 arg4);
 s32 VecCopy__FP3VecPC3Vec(void *, void *);
 f32 TBoss3Volopt__sub_8004812C(int);
-void TBoss3Volopt__sub_80049A1C(void *);
+void explode_and_destroy__12TBoss3VoloptFPv(void *);
 u32 csnVector(void *, void *, s32);
 void copy_vec3__11TBoss4Type2FPvPv(void *, void *);
 void copy_pos__11TNowLoadingFPvPv(void *, void *);
@@ -83,7 +83,7 @@ void subtract_vector(void *, void *);
 extern s32 lbl_805D4D30;
 extern const f32 lbl_805D88A4;
 extern const f32 lbl_805D88A8;
-void TBoss3Volopt__sub_80049C10(Self_80049C10 *self);
+void update_homing_projectile__12TBoss3VoloptFPv(Self_80049C10 *self);
 }
 
 extern "C" {
@@ -96,7 +96,7 @@ M2C_UNK queue_destruction__7TObjectFv(void *);
 
 extern M2C_UNK lbl_80484AFC[];
 
-void TBoss3Volopt__sub_80049C10(Self_80049C10 *self) {
+void update_homing_projectile__12TBoss3VoloptFPv(Self_80049C10 *self) {
     Tgt_80049C10 *t;
     t = get_player_by_client_id(self->fcc);
     if (t != NULL) {
@@ -122,7 +122,7 @@ void TBoss3Volopt__sub_80049C10(Self_80049C10 *self) {
         copy_pos__11TNowLoadingFPvPv(self->fe0, &n);
     }
     if (csnVector(&self->prev, &self->pos, -1) != 0) {
-        TBoss3Volopt__sub_80049A1C(self);
+        explode_and_destroy__12TBoss3VoloptFPv(self);
         return;
     }
     self->fa4->f18 &= ~6;
@@ -134,12 +134,12 @@ void TBoss3Volopt__sub_80049C10(Self_80049C10 *self) {
     check_object_collisions__10TObjPlayerFPv(self);
     check_enemy_body_collisions(self);
     if (self->fa4->f18 & 0x180000) {
-        TBoss3Volopt__sub_80049A1C(self);
+        explode_and_destroy__12TBoss3VoloptFPv(self);
         return;
     }
     self->fd0++;
     if (self->fd0 > lbl_805D4D30) {
-        TBoss3Volopt__sub_80049A1C(self);
+        explode_and_destroy__12TBoss3VoloptFPv(self);
         return;
     }
     play_persistent_sound(0x4003C114, self, &self->pos, 0, 0);

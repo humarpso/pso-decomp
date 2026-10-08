@@ -34,7 +34,7 @@ s32 get_floor_map_terrain(s32);
 M2C_UNK mark_area_change_pending();
 M2C_UNK prepare_hospital_return__10TObjPlayerFi();
 M2C_UNK set_area__6TLobbyFPvi(void *, int, int);
-M2C_UNK TNpcPlayer__sub_8034E7A0();
+M2C_UNK send_inter_level_warp_all__10TNpcPlayerFi();
 extern RecoveredGlobal_8026D18C_lbl_80515BA0 lbl_80515BA0;
 extern s32 lbl_805D55C0;
 extern int TWindowReturnCity__data_805D6468;
@@ -47,7 +47,7 @@ s32 get_window_layout_position(int);
 void TWindowCtrl__sub_8026D4E8(void);
 s32 free_member__17TWindowSubComCardFPv(int, int);
 s32 forward_slot_selection__16TAdChrSelASlotGCFPvPvPv(int, int, int, f32);
-s32 TWindowMessageYesNo__sub_802A59D8(void *, int, int, int);
+s32 create__19TWindowMessageYesNoFPvPvPvPv(void *, int, int, int);
 extern M2C_UNK __vt__17TWindowReturnCity[];
 extern s32 lbl_805D39B8;
 extern const f32 lbl_805DD2E8;
@@ -61,7 +61,7 @@ s32 query_battle_state__17TWindowReturnCityFPv(void *arg0);
 void clear_flag_bit5__17TWindowReturnCityFv(void);
 s32 get_slot_or_neg1__17TWindowSubComCardFPv(s32);
 s32 get_card_data__17TWindowSubComCardFPv(s32);
-s32 TWindowSubComCard__sub_802A57FC(s32);
+s32 is_child_visible__17TWindowSubComCardFPv(s32);
 void return_to_city_after_defeat(void);
 extern s32 lbl_805D55C0;
 extern s32 tl_00;
@@ -75,7 +75,7 @@ s32 query_battle_state__17TWindowReturnCityFPv(void *arg0);
 void clear_flag_bit5__17TWindowReturnCityFv(void);
 s32 get_slot_or_neg1__17TWindowSubComCardFPv(s32);
 s32 get_card_data__17TWindowSubComCardFPv(s32);
-s32 TWindowSubComCard__sub_802A57FC(s32);
+s32 is_child_visible__17TWindowSubComCardFPv(s32);
 void return_to_city_after_defeat(void);
 extern s32 lbl_805D55C0;
 extern s32 tl_00;
@@ -106,7 +106,7 @@ void return_to_city_after_defeat(void) {
         set_area__6TLobbyFPvi((void *) (&lbl_80515BA0.value), (int) (0), (int) (get_floor_map_terrain(0)));
         mark_area_change_pending();
         get_dest_area__17TObjAreaWarpQuestFPv(&lbl_80515BA0.value);
-        TNpcPlayer__sub_8034E7A0();
+        send_inter_level_warp_all__10TNpcPlayerFi();
         (*(s32 *)&TWindowReturnCity__data_805D6468) = 4;
     }
 }
@@ -150,7 +150,7 @@ void run_task__17TWindowReturnCityFv(void *arg0) {
                 M2C_FIELD(arg0, s32 *, 0x20) = 2;
                 return;
             }
-            if (TWindowSubComCard__sub_802A57FC(M2C_FIELD(arg0, s32 *, 0x1C)) != 0) {
+            if (is_child_visible__17TWindowSubComCardFPv(M2C_FIELD(arg0, s32 *, 0x1C)) != 0) {
                 temp_r3 = get_slot_or_neg1__17TWindowSubComCardFPv(M2C_FIELD(arg0, s32 *, 0x1C));
                 if (temp_r3 == 0) {
                     TWindowReturnCity__data_805D6468 = M2C_FIELD(arg0, s32 *, 0x24);
@@ -193,7 +193,7 @@ u8 *TWindowReturnCity__ct(u8 *arg0, s32 arg1, s32 arg2) {
   *((M2C_UNK **) (((s8 *) arg0) + 0x18)) = &(*(RecoveredGlobal_8026D40C___vt__17TWindowReturnCity *)&__vt__17TWindowReturnCity).value;
   *((s32 *) (((s8 *) arg0) + 0)) = (s32) lbl_805D39B8;
   *((s32 *) (((s8 *) arg0) + 0x24)) = arg2;
-  temp_r31 = TWindowMessageYesNo__sub_802A59D8((void *) arg0, (int) (*((s32 *) (((s8 *) arg0) + 0x24))), (int) 0, (int) 0);
+  temp_r31 = create__19TWindowMessageYesNoFPvPvPvPv((void *) arg0, (int) (*((s32 *) (((s8 *) arg0) + 0x24))), (int) 0, (int) 0);
   *((s32 *) (((s8 *) arg0) + 0x1C)) = temp_r31;
   if (arg0)
   {

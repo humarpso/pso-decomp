@@ -162,7 +162,7 @@ s32 TAdEndText__sub_8001A990(void);
 s32 TAdEndText__sub_8001B41C(void);
 s32 fn_8001A988(void);
 void free_resources__10TAdEndTextFv(void);
-void TLobby__sub_800F957C(void*);
+void free_nodes_with_id__6TLobbyFUi(void*);
 void TLobby__sub_803DA16C(void*);
 
 extern s32 lbl_805D4F0C;
@@ -337,7 +337,7 @@ void free_resources__10TAdEndTextFv(void) {
         TAdEndText__data_805D49F4 = 0U;
     }
     if ((u32) TAdEndText__data_805D49F8 != 0U) {
-        TLobby__sub_800F957C((void*)TAdEndText__data_805D49F8);
+        free_nodes_with_id__6TLobbyFUi((void*)TAdEndText__data_805D49F8);
         TAdEndText__data_805D49F8 = 0U;
     }
 }

@@ -26,7 +26,7 @@ s32 TQuestVmDownLoadServer__sub_8006EF6C(s32);
 u32 calc_text_width(void);
 u8 *get_array_entry__20TWindowSubStatusDispFPvi(void *, s32);
 void save_position__17TWindowSubComCardFPv(void *);
-void TWindowDD__sub_802466E0(void *, void *, s16, s32);
+void construct_base__9TWindowDDFPvPvsPv(void *, void *, s16, s32);
 void set_text_entry_string(void *, s32, s32);
 s32 get_window_layout_position(s32);
 f32 get_base_y__20TWindowSubStatusDispFf(f32);
@@ -87,7 +87,7 @@ void *TWindowQuantity__ct(void *arg0, void *arg1) {
     u8 *e0;
     s32 id;
     f32 n;
-    TWindowDD__sub_802466E0(arg0, lbl_804D0870, (s16)(s32)arg1, get_window_layout_position(0x2A));
+    construct_base__9TWindowDDFPvPvsPv(arg0, lbl_804D0870, (s16)(s32)arg1, get_window_layout_position(0x2A));
     self->vt = ((void * *)&__vt__15TWindowQuantity);
     self->f0 = lbl_805D39B0;
     id = TQuestVmDownLoadServer__sub_8006EF6C(1);

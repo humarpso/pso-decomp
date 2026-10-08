@@ -12,14 +12,14 @@ struct AreaAttackHistory {
 };
 
 extern "C" {
-s32 TBoss8Dragon__sub_800BC5A0(s32 arg0, s16 arg1);
+s32 delete_buffer__12TBoss8DragonFis(s32 arg0, s16 arg1);
 s32 __dl__FPv(u32 *);
 u32 *free_buffer__12TBoss8DragonFPvs(u32 *arg0, s16 arg1);
 extern M2C_UNK __vt__13TLockOnCursor[];
 extern M2C_UNK TLockOnCursor__sub_8013EFB8[];
 extern M2C_UNK __dt_deleting__13TLockOnCursorFis[];
 extern void *lbl_805D2CB4;
-s32 TBoss8Dragon__sub_800BC5A0(s32 arg0, s16 arg1);
+s32 delete_buffer__12TBoss8DragonFis(s32 arg0, s16 arg1);
 s32 fn_800BC758(u8 *arg0);
 s32 attack_target_history_add(s32 arg0, s32 arg1);
 s32 fn_800BC6E4(u8 *arg0, s32 arg1);
@@ -34,7 +34,7 @@ u32 *free_buffer__12TBoss8DragonFPvs(u32 *arg0, s16 arg1);
 void *init_buffer__12TBoss8DragonFPvii(void *arg0, s32 arg1, s32 arg2);
 s32 __dl__FPv(u32 *);
 s32 alloc_buffer__11TOBoss4RockFPv(s32);
-s32 fn_8002B094(void *);
+s32 fill_value_array(void *);
 s32 free__11TOBoss4RockFUi(u32);
 int queue_destruction__12TObjGrassWebFPv(void* p);
 int queue_destruction__7TObjectFv(void*);
@@ -49,7 +49,7 @@ s32 attack_target_history_add(s32 arg0, s32 arg1) {
     return 0;
 }
 
-s32 TBoss8Dragon__sub_800BC5A0(s32 arg0, s16 arg1) {
+s32 delete_buffer__12TBoss8DragonFis(s32 arg0, s16 arg1) {
     if (arg0 != 0) {
         free_buffer__12TBoss8DragonFPvs((u32 *)(arg0), (s16)(0));
         if (arg1 > 0) {
@@ -73,7 +73,7 @@ void *init_buffer__12TBoss8DragonFPvii(void *arg0, s32 arg1, s32 arg2) {
     M2C_FIELD(arg0, s32 *, 4) = arg2;
     M2C_FIELD(arg0, s32 *, 8) = 0;
     M2C_FIELD(arg0, s32 *, 0xC) = arg1;
-    fn_8002B094(arg0);
+    fill_value_array(arg0);
     return arg0;
 }
 u32 *free_buffer__12TBoss8DragonFPvs(u32 *arg0, s16 arg1) {

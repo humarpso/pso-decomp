@@ -8,7 +8,7 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 extern "C" {
 f32 PSMTXMultVecArray(s32, s32);
 extern s32 lbl_805D7774;
-void TObjPlayer__sub_803D8960(u32 arg0, s32 arg1);
+void mult_vec_array__10TObjPlayerFUii(u32 arg0, s32 arg1);
 s32 PSMTXInverse(int, int);
 extern s32 lbl_805D7774;
 void TObjPlayer__sub_803D89E8(u32 arg0);
@@ -31,7 +31,7 @@ void PSMTXScale(f32 (*m)[4], f32 sx, f32 sy, f32 sz);
 void PSMTXConcat(f32 (*a)[4], f32 (*b)[4], f32 (*ab)[4]);
 void scale_matrix(f32 (*m)[4], f32 sx, f32 sy, f32 sz);
 int vsprintf(char *s, const char *fmt, va_list ap);
-void TObjEneMe1Gee__sub_803D8098(s32 arg0, char *arg1);
+void queue_debug_text__13TObjEneMe1GeeFiPv(s32 arg0, char *arg1);
 void debug_printf_at(s32 arg0, const char *fmt, ...);
 }
 
@@ -42,7 +42,7 @@ void debug_printf_at(s32 arg0, const char *fmt, ...) {
     char buf[128];
     va_start(ap, fmt);
     vsprintf(buf, fmt, ap);
-    TObjEneMe1Gee__sub_803D8098(arg0, buf);
+    queue_debug_text__13TObjEneMe1GeeFiPv(arg0, buf);
 }
 
 #pragma push
@@ -63,7 +63,7 @@ void matrix_mult_vec(u32 arg0) {
 
 #pragma push
 #pragma scheduling off
-void TObjPlayer__sub_803D8960(u32 arg0, s32 arg1) {
+void mult_vec_array__10TObjPlayerFUii(u32 arg0, s32 arg1) {
     u32 var_r3;
     var_r3 = arg0;
     if (var_r3 == 0U) {

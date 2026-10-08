@@ -36,7 +36,7 @@ void TKeyBoardControl__sub_8000F9CC(s32);
 void queue_destruction__7TObjectFv(void *);
 s32 TLobby__sub_80145A94(void);
 s32 TLobby__sub_80145DB4(s32);
-void TLobby__sub_8014797C(void);
+void init_account_entries__6TLobbyFv(void);
 void set_game_mode__21TAdMultiChgGameModeGCFv(void);
 u8 * TAdWarningBaseGC__ct(void *);
 extern M2C_UNK __vt__17TAdExNetConfirmGC[];
@@ -92,7 +92,7 @@ u8 *TAdExNetConfirmGC__ct(u8 *arg0) {
     M2C_FIELD(arg0, s32 *, 0) = (s32) lbl_805D4200;
     if ((TLobby__sub_80145DB4(1) != 0) || (TLobby__sub_80145DB4(4) != 0)) {
         if (TLobby__sub_80145A94() != 0) {
-            TLobby__sub_8014797C();
+            init_account_entries__6TLobbyFv();
         } else {
             TKeyBoardControl__sub_8000F9CC(0x13);
         }

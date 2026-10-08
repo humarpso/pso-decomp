@@ -10,7 +10,7 @@ void render_body_effects__11TBoss6Type2FPv(u8 *arg0);
 M2C_UNK TBoss6PlotFalz__sub_802AC008(f32, f32);
 M2C_UNK TBoss6Type2__sub_802B9EE4(void *);
 M2C_UNK TBoss6Type2__sub_802B9F0C();
-M2C_UNK TBoss6Type2__sub_802BCAB8(void *);
+M2C_UNK draw_body_models__11TBoss6Type2FPv(void *);
 M2C_UNK post_translate_matrix(void *);
 M2C_UNK rotate_matrix_y(int, int);
 M2C_UNK push_matrix();
@@ -37,7 +37,7 @@ void render_body_effects__11TBoss6Type2FPv(u8 *arg0) {
     if (var_r31 != 0) {
         TBoss6PlotFalz__sub_802AC008((f32) (M2C_FIELD(arg0, f32 *, 0x4FC)), (f32) (M2C_FIELD(arg0, f32 *, 0x500)));
     }
-    TBoss6Type2__sub_802BCAB8((void *) (arg0));
+    draw_body_models__11TBoss6Type2FPv((void *) (arg0));
     if (var_r31 != 0) {
         update_camera_target__14TBoss6PlotFalzFv();
     }

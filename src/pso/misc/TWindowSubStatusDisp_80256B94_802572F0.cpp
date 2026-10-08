@@ -49,7 +49,7 @@ extern const f32 lbl_805DCEE0;
 extern const f32 lbl_805DCEE4;
 extern const f32 lbl_805DCEE8;
 extern const f32 lbl_805DCEEC;
-void TWindowSubStatusDisp__sub_80257784(Gauge_80257784 *self, Parent_80257784 *parent);
+void draw_gauge__20TWindowSubStatusDispFPvPv(Gauge_80257784 *self, Parent_80257784 *parent);
 }
 
 extern "C" {
@@ -151,7 +151,7 @@ void * TWindowSubStatusDisp__sub_80257AF4(void *arg0, s16 arg1);
 u8 * TWindowSubStatusDisp__sub_80257B4C(u8 *arg0, u8 *arg1);
 void draw_visible_window_entries(void *self, List_80257BC0 *list, void *ctx);
 void update_window_entry_list(Win_80257C28 *self, List_80257C28 *list);
-void TWindowSubStatusDisp__sub_80257CB8(List_80257CB8 *arg0);
+void destroy_all_items__20TWindowSubStatusDispFPv(List_80257CB8 *arg0);
 void init_window_layout_entries(List_80257D44 *self, Desc_80257D44 *desc, s32 arg2);
 void TWindowSubStatusDisp__sub_80258050(void);
 void TWindowSubStatusDisp__sub_80258054(void);
@@ -208,7 +208,7 @@ void update_disp_value__20TWindowSubStatusDispFPv(void *arg0) {
 
 #pragma push
 #pragma fp_contract on
-void TWindowSubStatusDisp__sub_80257784(Gauge_80257784 *self, Parent_80257784 *parent) {
+void draw_gauge__20TWindowSubStatusDispFPvPv(Gauge_80257784 *self, Parent_80257784 *parent) {
     Pos_80257784 pos;
     f32 scale;
     f32 lo;
@@ -344,7 +344,7 @@ void update_window_entry_list(Win_80257C28 *self, List_80257C28 *list) {
     }
 }
 
-void TWindowSubStatusDisp__sub_80257CB8(List_80257CB8 *arg0) {
+void destroy_all_items__20TWindowSubStatusDispFPv(List_80257CB8 *arg0) {
     Elem_80257CB8 **p;
     u32 n;
     n = arg0->count;

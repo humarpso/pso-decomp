@@ -20,7 +20,7 @@ struct RecoveredGlobal_8024287C_lbl_80517F9C {
 };
 
 extern "C" {
-M2C_UNK TLobby__sub_803DE7BC(int, void *, void *);
+M2C_UNK move_words__6TLobbyFPvPvi(int, void *, void *);
 extern RecoveredGlobal_802426E8_lbl_80517F9C lbl_80517F9C;
 extern int lbl_805D63DC;
 void TLobby__sub_802426E8(s32 arg0);
@@ -90,7 +90,7 @@ void TLobby__sub_802426E8(s32 arg0) {
     u8 *temp_r3;
     if (arg0 < 7) {
         temp_r3 = (u8 *)&lbl_80517F9C.value + (arg0 * 0xBC);
-        TLobby__sub_803DE7BC((int) (temp_r3), (void *) (temp_r3 + 0xBC), (void *) ((u32) ((7 - arg0) * 0xBC) >> 2U));
+        move_words__6TLobbyFPvPvi((int) (temp_r3), (void *) (temp_r3 + 0xBC), (void *) ((u32) ((7 - arg0) * 0xBC) >> 2U));
     }
     (*(s32 *)&lbl_805D63DC) -= 1;
 }

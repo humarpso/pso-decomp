@@ -47,10 +47,10 @@ M2C_UNK getDateStamp__FP9DateStamp(M2C_UNK *);
 M2C_UNK memmove(void *, void *, int);
 M2C_UNK memset(M2C_UNK, s32, s32);
 extern u8 *lbl_805D5F6C;
-void TAdSinglePlyChrSelectGC__sub_802012AC(void);
+void reset_save_header__23TAdSinglePlyChrSelectGCFv(void);
 M2C_UNK memset(M2C_UNK, s32, s32);
 s32 alloc__23TAdSinglePlyChrSelectGCFPv(M2C_UNK);
-s32 TAdSinglePlyChrSelectGC__sub_801FC900(s32 allocation);
+s32 init_char_slots__23TAdSinglePlyChrSelectGCFi(s32 allocation);
 extern u32 lbl_805D5F5C;
 extern u32 lbl_805D5F70;
 void TAdSinglePlyChrSelectGC__sub_802028EC(void);
@@ -73,7 +73,7 @@ extern u32 lbl_805D5F58;
 extern u8 *lbl_805D5F60;
 extern void *lbl_805D5F64;
 extern s32 lbl_805D5F68;
-void TAdSinglePlyChrSelectGC__sub_80201970(void);
+void release_all__23TAdSinglePlyChrSelectGCFv(void);
 s32 TAdPlayerLoadGC__sub_801E1B50(void *);
 s32 TAdSinglePlyChrSelectGC__sub_801FDA4C();
 s32 TAdSinglePlyChrSelectGC__sub_801FE75C();
@@ -82,9 +82,9 @@ M2C_UNK load_selected_char__23TAdSinglePlyChrSelectGCFv();
 M2C_UNK load_and_verify_data(int);
 M2C_UNK TAdSinglePlyChrSelectGC__sub_801FFE44(int);
 M2C_UNK TAdSinglePlyChrSelectGC__sub_801FFEBC();
-M2C_UNK TAdSinglePlyChrSelectGC__sub_802002E8(int);
+M2C_UNK apply_loaded_character__23TAdSinglePlyChrSelectGCFi(int);
 M2C_UNK TAdSinglePlyChrSelectGC__sub_80200418();
-M2C_UNK TAdSinglePlyChrSelectGC__sub_80200470();
+M2C_UNK prepare_save_data__23TAdSinglePlyChrSelectGCFv();
 M2C_UNK init_slots__23TAdSinglePlyChrSelectGCFv();
 M2C_UNK TAdSinglePlyChrSelectGC__sub_8028DC14();
 M2C_UNK init_battle_selection__10TObjPlayerFv();
@@ -96,7 +96,7 @@ extern s32 lbl_805D5F80;
 extern s32 lbl_805D5F8C;
 extern s32 lbl_805D5FA8;
 void run_save_load_sequence__23TAdSinglePlyChrSelectGCFv(void);
-void TWindowSubSymbolChat__sub_80077544(Card_80201354 *);
+void load_symbol_chat_data__20TWindowSubSymbolChatFPv(Card_80201354 *);
 s32 TLobby__sub_80146D50(s32);
 s32 TLobby__sub_80146D68(s32);
 void set_fresh_card_flag(Card_80201354 *);
@@ -132,7 +132,7 @@ s32 init_buffer(void);
 void init_timestamped_data(void);
 s32 update_elapsed_time__23TAdSinglePlyChrSelectGCFPv(void *arg0);
 M2C_UNK DateToSeconds__FP9DateStampPi(M2C_UNK *, s32 *);
-s32 TAdSinglePlyChrSelectGC__sub_801FC900(s32 allocation);
+s32 init_char_slots__23TAdSinglePlyChrSelectGCFi(s32 allocation);
 M2C_UNK TAdSinglePlyChrSelectGC__sub_80200690(s32, s32);
 u32 TAdSinglePlyChrSelectGC__sub_80201204(s32, M2C_UNK);
 void __dl__FPv(void*);
@@ -205,7 +205,7 @@ s32 init_and_register__23TAdSinglePlyChrSelectGCFi(s32 arg0) {
 
     var_r29 = alloc__23TAdSinglePlyChrSelectGCFPv(0x1156C);
     if (var_r29 != 0) {
-        var_r29 = TAdSinglePlyChrSelectGC__sub_801FC900(var_r29);
+        var_r29 = init_char_slots__23TAdSinglePlyChrSelectGCFi(var_r29);
     }
     TAdSinglePlyChrSelectGC__sub_80200690(var_r29, arg0);
     temp_r30 = get_type__23TAdSinglePlyChrSelectGCFPv(var_r29);
@@ -232,7 +232,7 @@ void init_timestamped_data(void) {
 
 extern u32 lbl_805D5F98;
 
-void TAdSinglePlyChrSelectGC__sub_802012AC(void) {
+void reset_save_header__23TAdSinglePlyChrSelectGCFv(void) {
   volatile unsigned long long sp10;
   M2C_UNK sp8;
   memset((M2C_UNK)((void *) lbl_805D5F6C), (s32)((int) 0), (s32)((int) 0x11C));
@@ -273,7 +273,7 @@ s32 init_fresh_character_card(void) {
     for (i = 0; i < 200; i++) {
         TAdSinglePlyChrSelectGC__sub_80211584(&card->items[i]);
     }
-    TWindowSubSymbolChat__sub_80077544(card);
+    load_symbol_chat_data__20TWindowSubSymbolChatFPv(card);
     set_fresh_card_flag(card);
     TWindowShortListCtrl__sub_8026E884(card->f22C4);
 }
@@ -372,7 +372,7 @@ void run_save_load_sequence__23TAdSinglePlyChrSelectGCFv(void) {
         lbl_805D5F78 = 4;
         break;
     case 4:
-        TAdSinglePlyChrSelectGC__sub_80200470();
+        prepare_save_data__23TAdSinglePlyChrSelectGCFv();
         lbl_805D5F78 = 5;
         break;
     case 5:
@@ -405,7 +405,7 @@ void run_save_load_sequence__23TAdSinglePlyChrSelectGCFv(void) {
         }
         break;
     case 9:
-        TAdSinglePlyChrSelectGC__sub_802002E8((int) (0));
+        apply_loaded_character__23TAdSinglePlyChrSelectGCFi((int) (0));
         lbl_805D5F78 = 0;
         reset_quest_id__23TAdSinglePlyChrSelectGCFv();
         lbl_805D49B4 = 0;
@@ -523,7 +523,7 @@ void run_save_load_sequence__23TAdSinglePlyChrSelectGCFv(void) {
     }
 }
 
-void TAdSinglePlyChrSelectGC__sub_80201970(void) {
+void release_all__23TAdSinglePlyChrSelectGCFv(void) {
     TAdSinglePlyChrSelectGC__sub_801FCBA0((void *) (&lbl_805137D8.value));
     TAdSinglePlyChrSelectGC__sub_80202C08((void *) (&lbl_805137F8.value));
     if ((void *) lbl_805D5F60 != NULL) {
@@ -565,7 +565,7 @@ void TAdSinglePlyChrSelectGC__sub_802028EC(void) {
     temp_r3 = alloc__23TAdSinglePlyChrSelectGCFPv((M2C_UNK)((int) (0x1156C)));
     var_r0 = temp_r3;
     if (var_r0 != 0) {
-        var_r0 = TAdSinglePlyChrSelectGC__sub_801FC900((s32)((int) (temp_r3)));
+        var_r0 = init_char_slots__23TAdSinglePlyChrSelectGCFi((s32)((int) (temp_r3)));
     }
     (*(s32 *)&lbl_805D5F5C) = var_r0;
     var_r3 = 0x11C;

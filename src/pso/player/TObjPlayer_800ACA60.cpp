@@ -416,7 +416,7 @@ void run_task__11TObjEneMojaFPv(u8 *arg0);
 f32 calc_boss4_scale__10TObjPlayerFi(void *);
 s32 select_enemy_destination(void *, Vec_800AE18C *, int);
 M2C_UNK copy_position_if_valid__10TObjPlayerFii(void *, Vec_800AE18C *);
-f32 TObjPlayer__sub_800186E8(void *, void *, Vec_800AE18C *);
+f32 calc_xz_distance_sq__10TObjPlayerFiUiPv(void *, void *, Vec_800AE18C *);
 s32 get_field_0c__10TObjPlayerFPv(u32);
 f32 get_pos_x__10TObjPlayerFPv(u32);
 f32 get_ad_end_text_start__10TObjPlayerFv(f32, f32);
@@ -440,8 +440,8 @@ M2C_UNK advance_animation_playback();
 M2C_UNK update_collisions__10TObjPlayerFPv(void *);
 M2C_UNK play_effect_if_v2__10TObjPlayerFi(int);
 M2C_UNK play_sound_effect(void *, void *, int, int);
-M2C_UNK TObjPlayer__sub_803D8960(int, int, void *, int);
-M2C_UNK TObjPlayer__sub_803D8CD4(int);
+M2C_UNK mult_vec_array__10TObjPlayerFUii(int, int, void *, int);
+M2C_UNK set_matrix_identity__10TObjPlayerFPv(int);
 M2C_UNK rotate_matrix_y(int, int);
 M2C_UNK push_matrix();
 M2C_UNK pop_matrix();
@@ -1013,10 +1013,10 @@ M2C_UNK update_punch_attack__11TObjEneMojaFPv(void *self_800ADAAC) {
             e = lookup_entry_by_value__10TObjPlayerFPvf(lbl_805D50DC);
             if (e != 0) {
                 push_matrix();
-                TObjPlayer__sub_803D8CD4(0);
+                set_matrix_identity__10TObjPlayerFPv(0);
                 post_translate_matrix(arg0 + 0x38);
                 rotate_matrix_y(0, *(s32 *)(arg0 + 0x60));
-                TObjPlayer__sub_803D8960(0, e, &sp8, 2);
+                mult_vec_array__10TObjPlayerFUii(0, e, &sp8, 2);
                 pop_matrix();
                 o = *(V398_800ADAAC **)(arg0 + 0x398);
                 if (o != NULL) {
@@ -1100,7 +1100,7 @@ s32 select_attack__11TObjEneMojaFPv(u8 *arg0) {
     Vec_800AE18C d;
     if (M2C_FIELD(arg0, s16 *, 0x326) > 1 && (t = M2C_FIELD(arg0, u8 **, 0x2A8)) != NULL &&
         M2C_FIELD(arg0, u32 *, 0x318) != 0 && !(M2C_FIELD(t, u32 *, 0x30) & 0x02000800)) {
-        dist = TObjPlayer__sub_800186E8(arg0, t, &d);
+        dist = calc_xz_distance_sq__10TObjPlayerFiUiPv(arg0, t, &d);
         angd = angle_difference_abs(M2C_FIELD(arg0, s32 *, 0x60),
                                     (s32)(lbl_8043B0C8[0] * get_ad_end_text_start__10TObjPlayerFv(d.x, d.z)));
         c = M2C_FIELD(M2C_FIELD(arg0, u8 **, 0x2A8), u8 **, 0xA4);

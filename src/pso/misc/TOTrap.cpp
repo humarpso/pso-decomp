@@ -217,7 +217,7 @@ s32 access_object_saved_state(void *, void *, int);
 M2C_UNK send_code_45_1__10TObjPlayerFi(s32);
 s32 get_player_by_client_id(u32);
 extern const f32 TOTrap__data_805DBA3C;
-f32 TOTrap__sub_80178F54(u8 *arg0, u32 arg1);
+f32 set_triggered_state__6TOTrapFPvUi(u8 *arg0, u32 arg1);
 M2C_UNK submit_cursor_candidate(void *, M2C_UNK);
 void TOTrap__sub_80178DCC(u8 *arg0);
 extern u32 lbl_80442CD0[];
@@ -384,7 +384,7 @@ void trigger__6TOTrapFPvPvi(void *arg0, s16 *arg1, s32 arg2) {
     }
 }
 
-f32 TOTrap__sub_80178F54(u8 *arg0, u32 arg1) {
+f32 set_triggered_state__6TOTrapFPvUi(u8 *arg0, u32 arg1) {
   s16 sp8;
   s32 temp_r3_2;
   u16 temp_r3;

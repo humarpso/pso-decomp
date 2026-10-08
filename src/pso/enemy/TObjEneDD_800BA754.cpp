@@ -52,7 +52,7 @@ void TObjEneDD__vt86(void *arg0);
 u8 is_valid_target__9TObjEneDDFPv(void *arg0);
 int TObjEneDD__sub_800BA6B8(void* p);
 int TObjEneDD__sub_800BA6C4(void* p);
-int TObjEneDD__sub_800BA934(void* a0 = 0);
+int transform_part_positions__9TObjEneDDFPv(void* a0 = 0);
 int init_collision_body_parts(void*);
 M2C_UNK check_enemy_body_collisions(void *);
 s32 all_parents_unqueued_for_destruction__7TObjectFv();

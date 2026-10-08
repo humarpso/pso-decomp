@@ -9,7 +9,7 @@ struct PhotonBlastChain_801AA424 {
 typedef s32 M2C_UNK;
 extern "C" {
 void TLobby__sub_8001FE7C(u32, int);
-void TLobby__sub_800FD6A0(void *, int);
+void call_funcs_reverse__6TLobbyFPvUi(void *, int);
 extern u8 lbl_804C344C[];
 extern u32 lbl_8050E880[];
 extern u32 lbl_805D5D28;
@@ -31,7 +31,7 @@ extern "C" {
 
 void TObjPlayer__sub_801AA3B4(void) {
     s32 i;
-    TLobby__sub_800FD6A0(lbl_804C344C, 0x50);
+    call_funcs_reverse__6TLobbyFPvUi(lbl_804C344C, 0x50);
     if (lbl_805D5D28 != 0U) {
         TLobby__sub_8001FE7C(lbl_805D5D28, 1);
         lbl_805D5D28 = 0U;

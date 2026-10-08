@@ -15,11 +15,11 @@ M2C_UNK copy_pos__11TNowLoadingFPvPv(void *, void *);
 M2C_UNK play_sound_effect(M2C_UNK, void *, M2C_UNK, M2C_UNK);
 extern const f32 lbl_805D89D0;
 extern const f32 lbl_805D89DC;
-void TBoss4Type2__sub_8004EE74(u8 *arg0);
+void update_timed_effect__11TBoss4Type2FPv(u8 *arg0);
 M2C_UNK sync_player_globals__10TObjPlayerFv();
 M2C_UNK TObjPlayer__sub_80052390(f32);
 M2C_UNK clear_render_callback__8TObjFishFv(s32);
-M2C_UNK TObjFish__sub_800E3074(s32);
+M2C_UNK set_draw_callback_list__8TObjFishFPv(s32);
 M2C_UNK rotate_matrix_y(s32, s32);
 M2C_UNK push_matrix();
 M2C_UNK pop_matrix();
@@ -109,7 +109,7 @@ void *lbl_804856E0[3] = {
     (void *)0x60000, (void *)0x0, (void *)0x3f800000,
 };
 void *lbl_804856EC[13] = {
-    (void *)0x0, (void *)0x0, (void *)&fn_8004EF94, (void *)&TBoss4Type2__sub_8004EE74,
+    (void *)0x0, (void *)0x0, (void *)&fn_8004EF94, (void *)&update_timed_effect__11TBoss4Type2FPv,
     (void *)&TObjPlayer__sub_8004ED28, (void *)&render_shadows__7TObjectFv, (void *)&TLobby__sub_801A1FD8, (void *)&apply_object_set_data,
     (void *)&reset_motion_fields__10TObjPlayerFPv, (void *)&TParticleCtrl__sub_801A2124, (void *)&update_object_view_visibility, (void *)&classify_actor_view_detail,
     (void *)&TObjRoomId__sub_801A1E2C,
@@ -134,7 +134,7 @@ void TObjPlayer__sub_8004ED28(u8 *arg0) {
     post_translate_matrix(arg0 + 0xA0);
     rotate_matrix_y(0, M2C_FIELD(arg0, s32 *, 0xAC));
     set_global_param__8TObjFishFi(M2C_FIELD(arg0, s32 *, 0x98));
-    TObjFish__sub_800E3074(M2C_FIELD(arg0, s32 *, 0xB8));
+    set_draw_callback_list__8TObjFishFPv(M2C_FIELD(arg0, s32 *, 0xB8));
     func_803e11e8__FUl(1);
     draw_model_motion(M2C_FIELD(arg0, s32 *, 0x94), M2C_FIELD(arg0, s32 *, 0x9C), M2C_FIELD(arg0, f32 *, 0xB4));
     clear_render_callback__8TObjFishFv(M2C_FIELD(arg0, s32 *, 0xB8));
@@ -150,7 +150,7 @@ void TObjPlayer__sub_8004ED28(u8 *arg0) {
 
 #pragma push
 #pragma opt_common_subs off
-void TBoss4Type2__sub_8004EE74(u8 *arg0) {
+void update_timed_effect__11TBoss4Type2FPv(u8 *arg0) {
     f32 cur;
     f32 nxt;
     s32 temp_r0;

@@ -112,9 +112,9 @@ struct Seq_8021B518 { u8 pad[0x24]; s32 f24; u8 pad28[4]; void *win; };
 
 extern "C" {
 M2C_UNK set_field_20__12TQuestListVMFPvi(void *, s32);
-u32 TShopSequence__sub_80223600(void *, s32, s32);
+u32 create_message_window__13TShopSequenceFPvii(void *, s32, s32);
 unsigned short get_child_field1c__15TShopWindowBaseFPv(void *);
-s32 fn_8026934C(s32);
+s32 create_meseta_window(s32);
 s32 set_service_counter_camera(void *, int);
 s32 get_window_layout_position(int, f32);
 extern const f32 lbl_805DC6C8;
@@ -174,7 +174,7 @@ M2C_UNK set_position_xy(void *, f32, f32);
 M2C_UNK TWindow__close(void *);
 s32 get_selected_menu_value(void *);
 M2C_UNK align_menu_entry_positions(void *);
-M2C_UNK TWindowSubComCard__sub_80265F60(void *);
+M2C_UNK calc_window_size__17TWindowSubComCardFPv(void *);
 M2C_UNK forward_trade_action_default__16TObjCityMainWarpFPviii(void *, s32, s32, s32);
 void *create_window_menu(s32, s32, u16);
 s32 get_window_layout_position(int, f32);
@@ -218,7 +218,7 @@ void update_buy_sell_choice__26TShopEquipmentGearSequenceFPv(void *self) {
         arg0->win = create_window_menu(((s32 (*)(int)) get_window_layout_position)(0x2B), 2, id);
         forward_trade_action_default__16TObjCityMainWarpFPviii(arg0->win, get_shop_text(4), 6, 0);
         forward_trade_action_default__16TObjCityMainWarpFPviii(arg0->win, get_shop_text(6), 6, 1);
-        TWindowSubComCard__sub_80265F60(arg0->win);
+        calc_window_size__17TWindowSubComCardFPv(arg0->win);
         align_menu_entry_positions(arg0->win);
         set_ready_flag__18TCheckRoomSequenceFPv(arg0->win);
         set_position_xy(arg0->win, get_scale__15TShopWindowBaseFv(arg0), get_scale__15TShopWindowBaseFv(arg0));
@@ -251,9 +251,9 @@ s32 open_greeting__26TShopEquipmentGearSequenceFPv(u8 *arg0) {
   Stack_8021D948 stack;
   stack.sp8 = lbl_805DC6C8;
   stack.spC = lbl_805DC6CC;
-  TShopSequence__sub_80223600(arg0, get_window_layout_position((int) 0x2C, (f32) lbl_805DC6C8), (s32) (&stack.sp8));
+  create_message_window__13TShopSequenceFPvii(arg0, get_window_layout_position((int) 0x2C, (f32) lbl_805DC6C8), (s32) (&stack.sp8));
   PSO_VCALL_VObj_18_a93f07_m4(arg0, 0x2b, 1);
-  *((s32 *) (((s8 *) arg0) + 0x30)) = fn_8026934C((s32) get_child_field1c__15TShopWindowBaseFPv(arg0));
+  *((s32 *) (((s8 *) arg0) + 0x30)) = create_meseta_window((s32) get_child_field1c__15TShopWindowBaseFPv(arg0));
   set_field_20__12TQuestListVMFPvi(arg0, 2);
   *((s32 *) (((s8 *) arg0) + 0x34)) = set_service_counter_camera((void *) arg0, (int) 0x4);
 }

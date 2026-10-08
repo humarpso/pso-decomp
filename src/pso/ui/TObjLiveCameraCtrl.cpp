@@ -9,8 +9,8 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 extern "C" {
 void queue_destruction__7TObjectFv(void *);
 void update_toggle_state__12TBoss8DragonFPv(void *);
-void TBoss8Dragon__sub_8030BB24(void *);
-void TBoss8Dragon__sub_8030B8A8(void *);
+void update_live_camera__12TBoss8DragonFPv(void *);
+void choose_next_camera_shot__12TBoss8DragonFPv(void *);
 void copy_position_vectors__11TCameraCtrlFPvPvPv(void *, void *, void *);
 }
 
@@ -28,8 +28,8 @@ extern M2C_UNK TObjLiveCameraCtrl__data_805D6A88;
 
 void TObjLiveCameraCtrl::run_task() {
     update_toggle_state__12TBoss8DragonFPv(this);
-    TBoss8Dragon__sub_8030BB24(this);
-    TBoss8Dragon__sub_8030B8A8(this);
+    update_live_camera__12TBoss8DragonFPv(this);
+    choose_next_camera_shot__12TBoss8DragonFPv(this);
     if (camera_object != NULL) {
         copy_position_vectors__11TCameraCtrlFPvPvPv(camera_object, vector_34, vector_40);
     }

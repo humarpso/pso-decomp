@@ -34,7 +34,7 @@ extern s32 lbl_805D5CB8;
 extern s32 lbl_805D5CBC;
 extern s32 lbl_805D5CC0;
 extern s32 lbl_805D5CC4;
-void fn_801A0578(void);
+void load_warp_beam_resources(void);
 }
 
 extern "C" {
@@ -49,7 +49,7 @@ void fn_801A0520(void) {
         lbl_8050DDC8[i] = 0;
     }
 }
-void fn_801A0578(void) {
+void load_warp_beam_resources(void) {
     Node_801A0578 *root;
     void *p;
     p = alloc__23TAdSinglePlyChrSelectGCFPv(0x440);

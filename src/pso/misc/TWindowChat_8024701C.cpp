@@ -41,7 +41,7 @@ bool TWindowCtrl__sub_8024701C(Win_8024701C *w);
 extern "C" {
 
 s32 close_all_children__11TWindowChatFPv();
-s32 TWindowChat__sub_8024792C(void *);
+s32 open_next_input_window__11TWindowChatFPv(void *);
 void free_icon__18TWindowSubShortCutFPv(void* p);
 int TWindowChat__sub_80247D2C(void*);
 

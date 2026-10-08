@@ -8,15 +8,131 @@ struct Stack_802F3A48 {
     u8 trailing_storage[0x3C];
 };
 
+struct Vec_802F376C { f32 x, y, z; };
+
+struct Ent_802F376C { u8 pad[0x38]; f32 x; f32 y; f32 z; };
+
+struct Vec_802F3878 { f32 x, y, z; };
+
+struct Ent_802F3878 { u8 pad[0x38]; f32 x; f32 y; f32 z; };
+
+struct Vec_802F3974 { f32 x, y, z; };
+
+struct Ent_802F3974 { u8 pad[0x38]; f32 x; f32 y; f32 z; };
+
 extern "C" {
 s32 __nw__7TObjectFUl(int);
 s32 setup_attack_slot__12TBoss8DragonFiUiiiPv(void *, void *, void *, void *, void *);
 s32 TBoss8Dragon__sub_80359DC4(int, int, void *, void *);
 extern s32 tl_04;
 s32 TBoss8Dragon__sub_802F3A48(s32 arg0, s32 arg1, s32 arg2, s32 arg3, s32 arg4);
+u16 obj_getField1c(void *);
+f32 clamp_velocity__15TObjBoss2TunnelFPv(void *);
+Ent_802F376C *get_enemy_entity(u16);
+u16 get_part_count_plus__12TBoss8DragonFPvi(void *, int);
+extern u32 lbl_805D6978;
+extern const f32 lbl_805DED48;
+s32 TBoss8Dragon__sub_802F376C(Ent_802F376C *arg0);
+u16 obj_getField1c(void *);
+f32 clamp_velocity__15TObjBoss2TunnelFPv(void *);
+Ent_802F376C *get_enemy_entity(u16);
+u16 get_part_count_plus__12TBoss8DragonFPvi(void *, int);
+extern u32 lbl_805D6978;
+extern const f32 lbl_805DED48;
+extern const f32 lbl_805DED4C;
+s32 TBoss8Dragon__sub_802F3878(Ent_802F3878 *arg0);
+u16 obj_getField1c(void *);
+f32 clamp_velocity__15TObjBoss2TunnelFPv(void *);
+Ent_802F376C *get_enemy_entity(u16);
+u16 get_part_count_plus__12TBoss8DragonFPvi(void *, int);
+extern u32 lbl_805D6978;
+extern const f32 lbl_805DED48;
+extern const f32 lbl_805DED4C;
+s32 TBoss8Dragon__sub_802F3974(Ent_802F3974 *arg0);
 }
 
 extern "C" {
+
+s32 TBoss8Dragon__sub_802F376C(Ent_802F376C *arg0) {
+    Vec_802F376C v;
+    f32 len;
+    s32 i;
+    if (lbl_805D6978 == 0) {
+        return 1;
+    }
+    v.x = arg0->x - arg0->x;
+    v.y = lbl_805DED48;
+    v.z = arg0->z - arg0->z;
+    len = clamp_velocity__15TObjBoss2TunnelFPv(&v);
+    for (i = 1; i < 6; i++) {
+        u16 id = get_part_count_plus__12TBoss8DragonFPvi((void *)lbl_805D6978, i);
+        if (id != obj_getField1c(arg0)) {
+            Ent_802F376C *e = get_enemy_entity(id);
+            if (e != NULL) {
+                v.x = e->x - arg0->x;
+                v.y = lbl_805DED48;
+                v.z = e->z - arg0->z;
+                if (!(clamp_velocity__15TObjBoss2TunnelFPv(&v) >= len)) {
+                    return 0;
+                }
+            }
+        }
+    }
+    return 1;
+}
+
+#pragma push
+#pragma fp_contract on
+s32 TBoss8Dragon__sub_802F3878(Ent_802F3878 *arg0) {
+    Vec_802F3878 v;
+    f32 d;
+    s32 i;
+    if (lbl_805D6978 == 0) {
+        return 0;
+    }
+    for (i = 0; i < 6; i++) {
+        u16 id = get_part_count_plus__12TBoss8DragonFPvi((void *)lbl_805D6978, i);
+        if (id != obj_getField1c(arg0)) {
+            Ent_802F3878 *e = ((Ent_802F3878 *)get_enemy_entity(id));
+            if (e != NULL) {
+                v.x = e->x - arg0->x;
+                v.y = lbl_805DED48;
+                v.z = e->z - arg0->z;
+                d = clamp_velocity__15TObjBoss2TunnelFPv(&v) - lbl_805DED4C;
+                if (!(d >= lbl_805DED48)) {
+                    arg0->x = v.x * d + arg0->x;
+                    arg0->z = v.z * d + arg0->z;
+                    return 1;
+                }
+            }
+        }
+    }
+    return 0;
+}
+#pragma pop
+
+s32 TBoss8Dragon__sub_802F3974(Ent_802F3974 *arg0) {
+    Vec_802F3974 v;
+    s32 i;
+    if (lbl_805D6978 == 0) {
+        return 0;
+    }
+    for (i = 0; i < 6; i++) {
+        u16 id = get_part_count_plus__12TBoss8DragonFPvi((void *)lbl_805D6978, i);
+        if (id != obj_getField1c(arg0)) {
+            Ent_802F3974 *e = ((Ent_802F3974 *)get_enemy_entity(id));
+            if (e != NULL) {
+                v.x = e->x - arg0->x;
+                v.y = lbl_805DED48;
+                v.z = e->z - arg0->z;
+                if (!(clamp_velocity__15TObjBoss2TunnelFPv(&v) >= lbl_805DED4C)) {
+                    return 1;
+                }
+            }
+        }
+    }
+    return 0;
+}
 
 s32 TBoss8Dragon__sub_802F3A48(s32 arg0, s32 arg1, s32 arg2, s32 arg3, s32 arg4) {
     Stack_802F3A48 stack;

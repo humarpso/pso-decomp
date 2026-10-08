@@ -7,7 +7,7 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 extern "C" {
 M2C_UNK copy_header__6TLobbyFPvPv(void *, void *);
 extern s32 TLobby__data_805D6144;
-s32 TLobby__sub_8002AFD4(u8 *arg0, s32 arg1, s16 arg2);
+s32 exchange_object_state__6TLobbyFPvis(u8 *arg0, s32 arg1, s16 arg2);
 }
 
 extern "C" {
@@ -44,7 +44,7 @@ void bswap_6x12_packet__10TObjPlayerFPv(void* p) { read_be16_field2__10TObjPlaye
 void set_type_dragon__10TObjPlayerFPv(void* p) { *(u8*)((char*)p + 0x0) = 18; *(u8*)((char*)p + 0x1) = 5; }
 void bswap_dragon_boss_fields__10TObjPlayerFPv(void* p) { read_be16_field2__10TObjPlayerFPv(p); bswap_16__FPUs((char*)p + 0x4); bswap_16__FPUs((char*)p + 0x6); bswap_32__FPUl((char*)p + 0x8); }
 void bswap_stats__10TObjPlayerFPv(void* p) { read_be16_field2__10TObjPlayerFPv(p); bswap_16__FPUs((char*)p + 0x4); bswap_16__FPUs((char*)p + 0x6); bswap_32__FPUl((char*)p + 0x8); }
-s32 TLobby__sub_8002AFD4(u8 *arg0, s32 arg1, s16 arg2) {
+s32 exchange_object_state__6TLobbyFPvis(u8 *arg0, s32 arg1, s16 arg2) {
     s16 temp_r31;
     temp_r31 = M2C_FIELD(arg0, s16 *, 0x2C);
     if ((temp_r31 < 0) || (temp_r31 > 0xB4F)) {

@@ -14,12 +14,12 @@ void draw_ginja_object(s32);
 void draw_ginja_model_with_motion(s32, s32, f32);
 extern u16 lbl_80445B7C[];
 extern s32 lbl_805D5C28;
-void fn_80192554(Obj_80192554 *arg0);
+void draw_lazer_fence_extra_model(Obj_80192554 *arg0);
 }
 
 extern "C" {
 
-void fn_80192554(Obj_80192554 *arg0) {
+void draw_lazer_fence_extra_model(Obj_80192554 *arg0) {
     s32 i;
     for (i = 0; i < 4; i++) {
         free_children__12TObjDoorJungFPvPv(arg0->fC8[i], lbl_80445B7C[arg0->fAC]);

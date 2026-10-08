@@ -18,12 +18,12 @@ M2C_UNK text_builder_append(void *);
 extern M2C_UNK lbl_8044CB60[];
 extern M2C_UNK lbl_805DC790;
 extern M2C_UNK lbl_805DC794;
-void TWindowSubStatusDisp__sub_80228CC0(u32 arg0);
+void append_play_time__20TWindowSubStatusDispFUi(u32 arg0);
 }
 
 extern "C" {
 
-void TWindowSubStatusDisp__sub_80228CC0(u32 arg0) {
+void append_play_time__20TWindowSubStatusDispFUi(u32 arg0) {
     u32 h = arg0 / 3600U;
     u32 rem = arg0 % 3600U;
     if (h > 99U) {

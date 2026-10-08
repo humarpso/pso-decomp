@@ -53,7 +53,7 @@ extern char lbl_8047E04C[];
 extern char lbl_8047E08C[];
 extern RecoveredCallback_4873a87e26d6 lbl_805D7678;
 extern s32 lbl_805D767C;
-u32 TLobby__sub_803D4290(char *s);
+u32 mfci_get_adr_size__6TLobbyFPv(char *s);
 extern RecoveredCallback_4873a87e26d6 lbl_805D7678;
 extern s32 lbl_805D767C;
 unsigned long strlen(const char *);
@@ -216,7 +216,7 @@ File_803D4058 *TLobby__sub_803D4058(const char *name, s32 arg1, s32 mode) {
 }
 #pragma pop
 
-u32 TLobby__sub_803D4290(char *s) {
+u32 mfci_get_adr_size__6TLobbyFPv(char *s) {
     u32 lo;
     if (strlen(s) != 17) {
         sprintf(lbl_8058B6F0, lbl_8047E04C, s);

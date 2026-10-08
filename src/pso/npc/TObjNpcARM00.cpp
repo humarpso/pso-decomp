@@ -119,7 +119,7 @@ void * TObjNpcARW00__create(void *arg0);
 void *__dt__12TObjNpcARM00Fv(void *arg0, s16 arg1);
 void free_resources__12TObjNpcARM00Fv(void);
 M2C_UNK play_sound_effect(M2C_UNK, s32, M2C_UNK, M2C_UNK);
-void TLobby__sub_800F957C(void*);
+void free_nodes_with_id__6TLobbyFUi(void*);
 void TLobby__sub_803DA16C(void*);
 void *TObjControl__ct(void *, void *);
 void *TObjNpcARW00__ct(void *, void *, void *);
@@ -138,7 +138,7 @@ void free_resources__12TObjNpcARM00Fv(void) {
         TObjNpcARM00__data_805D572C = 0U;
     }
     if ((u32) TObjNpcARM00__data_805D5728 != 0U) {
-        TLobby__sub_800F957C((void*)TObjNpcARM00__data_805D5728);
+        free_nodes_with_id__6TLobbyFUi((void*)TObjNpcARM00__data_805D5728);
         TObjNpcARM00__data_805D5728 = 0U;
     }
 }

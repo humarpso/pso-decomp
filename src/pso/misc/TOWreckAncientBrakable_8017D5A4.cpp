@@ -12,7 +12,7 @@ u8 is_current_floor_switch_set(u16);
 M2C_UNK spawn_particle_effect(void *, M2C_UNK);
 s32 check_demo_mode__10TObjPlayerFv();
 M2C_UNK TOWreckAncientBrakable__sub_8017D444(void *);
-M2C_UNK TOWreckAncientBrakable__sub_8017D448(void *);
+M2C_UNK spawn_debris__22TOWreckAncientBrakableFPv(void *);
 M2C_UNK queue_destruction__7TObjectFv(void *);
 M2C_UNK set_flag8__6TLobbyFPv(void *);
 
@@ -35,7 +35,7 @@ void update_break_state__22TOWreckAncientBrakableFPv(u8 *arg0) {
             play_sound_effect(0x43C11, arg0 + 0x38, 0, 0);
             spawn_particle_effect(arg0 + 0x38, 0x45);
             spawn_particle_effect(arg0 + 0x38, 0x46);
-            TOWreckAncientBrakable__sub_8017D448(arg0);
+            spawn_debris__22TOWreckAncientBrakableFPv(arg0);
         }
         return;
     case 1:

@@ -94,7 +94,7 @@ extern "C" {
 
 void camera_renderer_setup_nop(void);
 int TObjPlayer__sub_803DAD28(void*);
-int TObjPlayer__sub_803E2810(void*, void*, void*);
+int draw_textured_vertices__10TObjPlayerFPvii(void*, void*, void*);
 
 void TCameraCtrl__sub_801E317C(s32 mode, Rect_801E317C *r) {
     f32 adj;
@@ -139,10 +139,10 @@ void camera_renderer_setup_nop(void) {  }
 extern "C" {
 
 int TObjPlayer__sub_803DAD28(void*);
-int TObjPlayer__sub_803E2810(void*, void*, void*);
+int draw_textured_vertices__10TObjPlayerFPvii(void*, void*, void*);
 void camera_renderer_setup_nop(void);
 
-void draw_transformed_primitive__9TWindowDDFPvPvPvPv(void* p, void* a1, void* a2, void* a3) { TObjPlayer__sub_803DAD28(a2); TObjPlayer__sub_803E2810(p, a1, a3); }
+void draw_transformed_primitive__9TWindowDDFPvPvPvPv(void* p, void* a1, void* a2, void* a3) { TObjPlayer__sub_803DAD28(a2); draw_textured_vertices__10TObjPlayerFPvii(p, a1, a3); }
 
 }
 
@@ -183,16 +183,16 @@ struct Tris_801E3784 {
 };
 
 extern "C" {
-void TWindowCtrlMain__sub_801E352C(Ctrl_801E352C *c, s32 n, s32 flags, f32 _w3);
+void draw_strip_swap_color__15TWindowCtrlMainFPviif(Ctrl_801E352C *c, s32 n, s32 flags, f32 _w3);
 void TObjEneRe4Sorcerer__sub_801E3F20(void);
 void TObjPlayer__sub_801E3F24(u32);
 void TObjPlayer__sub_801E3F30(f32, f32, f32);
 void GXBegin(s32, s32, u16);
 void GXSetLineWidth(s32, s32);
-void TObjPlayer__sub_803E20B0(void);
+void load_screen_space_matrix__10TObjPlayerFv(void);
 void setup_opaque_color_draw(void);
 void TObjPlayer__sub_803E21DC(void);
-void fn_801E3330(Lines_801E3330 *l, s32 n, s32 flags, f32 scale);
+void draw_color_lines(Lines_801E3330 *l, s32 n, s32 flags, f32 scale);
 void reset_line_width(void);
 void TObjEneRe4Sorcerer__sub_801E3F20(void);
 void TObjPlayer__sub_801E3F24(u32);
@@ -208,16 +208,16 @@ void TObjEneRe4Sorcerer__sub_801E3F20(void);
 void TObjPlayer__sub_801E3F24(u32);
 void TObjPlayer__sub_801E3F30(f32, f32, f32);
 void GXBegin(s32, s32, u16);
-void TObjPlayer__sub_803E20B0(void);
+void load_screen_space_matrix__10TObjPlayerFv(void);
 void setup_opaque_color_draw(void);
 void TObjPlayer__sub_803E21DC(void);
 void setup_blended_textured_draw(void);
 void setup_render__10TObjPlayerFv(void);
-void fn_801E3330(Lines_801E3330 *l, s32 n, s32 flags, f32 scale);
+void draw_color_lines(Lines_801E3330 *l, s32 n, s32 flags, f32 scale);
 void copy_vec2__28TWindowSubSymbolChatPartsSetFPvPv(void *, void *);
 void TObjCMHairMenu__sub_801E3F54(void *, void *);
 void fn_801E3F44(f32, f32);
-void TObjCMHairMenu__sub_801E35C4(Strip_801E35C4 *self, s32 count, s32 flags, f32 scale);
+void draw_tri_fan_2d__14TObjCMHairMenuFPviif(Strip_801E35C4 *self, s32 count, s32 flags, f32 scale);
 void TObjEneRe4Sorcerer__sub_801E3F20(void);
 void TObjPlayer__sub_801E3F24(u32);
 void TObjPlayer__sub_801E3F30(f32, f32, f32);
@@ -230,7 +230,7 @@ void setup_render__10TObjPlayerFv(void);
 void setup_blended_textured_draw(void);
 void TObjPlayer__sub_803E2248(void);
 void load_context_texture_obj(void);
-void TObjPlayer__sub_801E3784(Tris_801E3784 *t, s32 n, u32 flags);
+void draw_tri_fan_3d__10TObjPlayerFPviUi(Tris_801E3784 *t, s32 n, u32 flags);
 }
 
 extern "C" {
@@ -239,13 +239,13 @@ void reset_line_width(void);
 void set_line_width(int a0);
 void camera_renderer_setup_nop(void);
 int TObjPlayer__sub_803DAD28(void*);
-int TObjPlayer__sub_803E2810(void*, void*, void*);
+int draw_textured_vertices__10TObjPlayerFPvii(void*, void*, void*);
 
     extern int lbl_805D3580;
 
-void fn_801E3330(Lines_801E3330 *l, s32 n, s32 flags, f32 scale) {
+void draw_color_lines(Lines_801E3330 *l, s32 n, s32 flags, f32 scale) {
     u32 c;
-    TObjPlayer__sub_803E20B0();
+    load_screen_space_matrix__10TObjPlayerFv();
     if (flags & 4) {
         TObjPlayer__sub_803E21DC();
     } else {
@@ -304,12 +304,12 @@ void reset_line_width(void) { lbl_805D3580 = 12; }
 
     extern int lbl_805D3580;
 void set_line_width(int a0) { lbl_805D3580 = a0; }
-void TWindowCtrlMain__sub_801E352C(Ctrl_801E352C *c, s32 n, s32 flags, f32 _w3) {
+void draw_strip_swap_color__15TWindowCtrlMainFPviif(Ctrl_801E352C *c, s32 n, s32 flags, f32 _w3) {
     s32 i;
     u32 x;
     u32 *p;
     if (!(flags & 2)) {
-        TObjCMHairMenu__sub_801E35C4((Strip_801E35C4 *)(c), (s32)(n), (s32)(flags), _w3);
+        draw_tri_fan_2d__14TObjCMHairMenuFPviif((Strip_801E35C4 *)(c), (s32)(n), (s32)(flags), _w3);
         return;
     }
     p = c->data;
@@ -318,7 +318,7 @@ void TWindowCtrlMain__sub_801E352C(Ctrl_801E352C *c, s32 n, s32 flags, f32 _w3) 
         *p = (x << 8) | (x >> 24);
         p++;
     }
-    TObjCMHairMenu__sub_801E35C4((Strip_801E35C4 *)(c), (s32)(n), (s32)(flags), _w3);
+    draw_tri_fan_2d__14TObjCMHairMenuFPviif((Strip_801E35C4 *)(c), (s32)(n), (s32)(flags), _w3);
     {
     u32 *q = c->data;
     u32 y;
@@ -329,7 +329,7 @@ void TWindowCtrlMain__sub_801E352C(Ctrl_801E352C *c, s32 n, s32 flags, f32 _w3) 
     }
     }
 }
-void TObjCMHairMenu__sub_801E35C4(Strip_801E35C4 *self, s32 count, s32 flags, f32 scale) {
+void draw_tri_fan_2d__14TObjCMHairMenuFPviif(Strip_801E35C4 *self, s32 count, s32 flags, f32 scale) {
     Strip_801E35C4 tmp;
     Vec2_801E3330 v[2];
     u32 c[2];
@@ -342,15 +342,15 @@ void TObjCMHairMenu__sub_801E35C4(Strip_801E35C4 *self, s32 count, s32 flags, f3
         tmp.colors = c;
         tmp.f8 = self->f8;
         tmp.count = 2;
-        fn_801E3330((Lines_801E3330 *)self, count, flags | 0x10, scale);
+        draw_color_lines((Lines_801E3330 *)self, count, flags | 0x10, scale);
         copy_vec2__28TWindowSubSymbolChatPartsSetFPvPv(&v[0], &self->verts[0]);
         copy_vec2__28TWindowSubSymbolChatPartsSetFPvPv(&v[1], &self->verts[self->count - 1]);
         TObjCMHairMenu__sub_801E3F54(&c[0], &self->colors[0]);
         TObjCMHairMenu__sub_801E3F54(&c[1], &self->colors[self->count - 1]);
-        fn_801E3330((Lines_801E3330 *)&tmp, 2, flags, scale);
+        draw_color_lines((Lines_801E3330 *)&tmp, 2, flags, scale);
         return;
     }
-    TObjPlayer__sub_803E20B0();
+    load_screen_space_matrix__10TObjPlayerFv();
     tex = flags & 8;
     if (tex) {
         if (flags & 4) {
@@ -375,7 +375,7 @@ void TObjCMHairMenu__sub_801E35C4(Strip_801E35C4 *self, s32 count, s32 flags, f3
     }
     TObjEneRe4Sorcerer__sub_801E3F20();
 }
-void TObjPlayer__sub_801E3784(Tris_801E3784 *t, s32 n, u32 flags) {
+void draw_tri_fan_3d__10TObjPlayerFPviUi(Tris_801E3784 *t, s32 n, u32 flags) {
     Vec3_801E3784 *p;
     UV_801E3784 *uv;
     u32 *c;
@@ -564,17 +564,17 @@ extern "C" {
 M2C_UNK TLobby__sub_800F8FB8();
 s32 run_frame__6TLobbyFv();
 s32 TLobby__sub_803382E4();
-s32 TLobby__sub_803CD5C4(void *);
-s32 TLobby__sub_803CD840(void *, void *, int, void *);
+s32 read_afs_toc__6TLobbyFi(void *);
+s32 adxf_open_file__6TLobbyFiPviPv(void *, void *, int, void *);
 s32 TLobby__sub_801E3E9C(s32 arg0, s32 arg1, s32 arg2);
 M2C_UNK TLobby__sub_800F8FB8();
 s32 reset_state_byte__6TLobbyFv();
 s32 disable_disconnected_ports__16TKeyBoardControlFv(void *);
 s32 update_global_sound_frame();
 s32 flush_input__16TKeyBoardControlFv();
-s32 TLobby__sub_803CD5C4(void *);
-s32 TLobby__sub_803CD840(void *, void *, int, void *);
-s32 TKeyBoardControl__sub_803DEA18();
+s32 read_afs_toc__6TLobbyFi(void *);
+s32 adxf_open_file__6TLobbyFiPviPv(void *, void *, int, void *);
+s32 read_pads__16TKeyBoardControlFv();
 extern RecoveredGlobal_801E3E24_TKeyBoardControl__data_80506270 TKeyBoardControl__data_80506270;
 s32 TKeyBoardControl__sub_801E3E24(s32 arg0, s32 arg1, s32 arg2);
 void bswap_16__FPUs(u16 *p);
@@ -639,14 +639,14 @@ void render_tick__Fv(void) {
 
 s32 TKeyBoardControl__sub_801E3E24(s32 arg0, s32 arg1, s32 arg2) {
     s32 temp_r3;
-    temp_r3 = TLobby__sub_803CD840((void *) (arg0), (void *) (arg1), (int) (0), (void *) (arg2));
+    temp_r3 = adxf_open_file__6TLobbyFiPviPv((void *) (arg0), (void *) (arg1), (int) (0), (void *) (arg2));
     if (temp_r3 >= 0) {
 loop_2:
-        if (TLobby__sub_803CD5C4((void *) (arg0)) != 3) {
+        if (read_afs_toc__6TLobbyFi((void *) (arg0)) != 3) {
             TLobby__sub_800F8FB8();
             flush_input__16TKeyBoardControlFv();
             update_global_sound_frame();
-            TKeyBoardControl__sub_803DEA18();
+            read_pads__16TKeyBoardControlFv();
             disable_disconnected_ports__16TKeyBoardControlFv((void *) (&TKeyBoardControl__data_80506270.value));
             reset_state_byte__6TLobbyFv();
             goto loop_2;
@@ -657,10 +657,10 @@ loop_2:
 
 s32 TLobby__sub_801E3E9C(s32 arg0, s32 arg1, s32 arg2) {
     s32 temp_r3;
-    temp_r3 = TLobby__sub_803CD840((void *) (arg0), (void *) (arg1), (int) (0), (void *) (arg2));
+    temp_r3 = adxf_open_file__6TLobbyFiPviPv((void *) (arg0), (void *) (arg1), (int) (0), (void *) (arg2));
     if (temp_r3 >= 0) {
 loop_1:
-        if (TLobby__sub_803CD5C4((void *) (arg0)) != 3) {
+        if (read_afs_toc__6TLobbyFi((void *) (arg0)) != 3) {
             TLobby__sub_800F8FB8();
             TLobby__sub_803382E4();
             run_frame__6TLobbyFv();

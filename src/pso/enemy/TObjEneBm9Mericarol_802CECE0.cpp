@@ -689,6 +689,37 @@ struct VObj_18_9aa5d1 : VBase_18_9aa5d1 {
     virtual M2C_UNK m100();
 };
 
+struct VBase_18_9e4fef { char pad[0x18]; };
+
+struct VObj_18_9e4fef : VBase_18_9e4fef {
+    virtual void m0();
+    virtual void m1();
+    virtual void m2();
+    virtual void m3();
+    virtual void m4();
+    virtual void m5();
+    virtual void m6();
+    virtual void m7();
+    virtual void m8();
+    virtual void m9();
+    virtual void m10();
+    virtual void m11();
+    virtual void m12();
+    virtual void m13();
+    virtual void m14();
+    virtual void m15();
+    virtual void m16();
+    virtual void m17();
+    virtual void m18();
+    virtual void m19();
+    virtual void m20();
+    virtual f32 m21(void *, s32 *, s32, s32, s32);
+};
+
+typedef struct Arg_802CF6AC { s32 a; f32 b; } Arg_802CF6AC;
+
+typedef struct Ene_802CF6AC { u8 pad0[0xA4]; u8 *fa4; u8 padA8[0x488 - 0xA8]; s32 f488; } Ene_802CF6AC;
+
 extern "C" {
 s32 get_flag_b4__21TObjEneMe3ShinowaRealFPv(void *);
 s32 refresh_and_send_entity_flags__12TBoss8DragonFPv(void *);
@@ -705,7 +736,7 @@ extern const f32 lbl_805DE70C;
 extern const f32 lbl_805DE710;
 extern const f32 lbl_805DE714;
 extern const f32 lbl_805DE718;
-void TObjEneBm9Mericarol__sub_802CF1B4(u8 *arg0, s32 arg1);
+void state_burrow__19TObjEneBm9MericarolFPvi(u8 *arg0, s32 arg1);
 f32 calc_boss4_scale__10TObjPlayerFi(s32);
 s32 get_flag_b4__21TObjEneMe3ShinowaRealFPv(void *);
 M2C_UNK play_sound_effect(M2C_UNK, void *, M2C_UNK, M2C_UNK);
@@ -734,7 +765,7 @@ void TObjEneBm9Mericarol__sub_802CF178(void *self, s32 msg);
 extern s32 lbl_805D5550;
 s32 TObjEneBm9Mericarol__sub_802CED50(Obj_800ACA10 *self);
 f64 get_ad_end_text_start__10TObjPlayerFv(f32, f32);
-M2C_UNK fn_8002B094(int, int, int, f32);
+M2C_UNK fill_value_array(int, int, int, f32);
 s32 enemy_validate_retained_target(void *);
 M2C_UNK enemy_copy_target_destination(void *);
 M2C_UNK update_velocity__9TObjEneDDFPv(void *);
@@ -751,7 +782,6 @@ M2C_UNK advance_animation_playback(void *);
 M2C_UNK update_enemy_collision_flags__10TObjPlayerFPv(void *);
 M2C_UNK play_sound_effect(M2C_UNK, void *, M2C_UNK, M2C_UNK);
 M2C_UNK fn_802CE510(void *);
-M2C_UNK TObjEneBm9Mericarol__sub_802CF6AC(void *);
 M2C_UNK TObjEneBm9Mericarol__sub_802D095C(void *);
 extern const f64 lbl_804724B8;
 extern const f32 lbl_805DE70C;
@@ -780,8 +810,8 @@ M2C_UNK play_sound_effect(M2C_UNK, void *, M2C_UNK, M2C_UNK);
 M2C_UNK TObjEneBm9Mericarol__sub_802D073C(void *);
 s32 get_phase__19TObjEneBm9MericarolFPv(void *, int);
 M2C_UNK TObjEneBm9Mericarol__sub_802D0940(void *);
-M2C_UNK TObjPlayer__sub_803D8960(int, int, void *, int);
-M2C_UNK TObjPlayer__sub_803D8CD4(int);
+M2C_UNK mult_vec_array__10TObjPlayerFUii(int, int, void *, int);
+M2C_UNK set_matrix_identity__10TObjPlayerFPv(int);
 M2C_UNK rotate_matrix_y(int, int);
 M2C_UNK push_matrix();
 M2C_UNK pop_matrix();
@@ -838,7 +868,7 @@ extern const f64 lbl_804724B8;
 extern u8 *lbl_80540B7C[];
 extern const f32 lbl_805DE710;
 extern const f32 lbl_805DE720;
-void TObjEneBm9Mericarol__sub_802CFF40(u8 *arg0, s32 arg1);
+void handle_shot_state__19TObjEneBm9MericarolFPvi(u8 *arg0, s32 arg1);
 f32 calc_boss4_scale__10TObjPlayerFi(s32);
 f64 get_ad_end_text_start__10TObjPlayerFv(f32, f32);
 s32 update_death_check__14TObjEneEpsilonFPv(void *);
@@ -865,6 +895,16 @@ extern const f32 lbl_805DE718;
 extern const f32 lbl_805DE734;
 extern const f32 lbl_805DE738;
 void TObjEneBm9Mericarol__sub_802D01D8(u8 *arg0, s32 arg1);
+s32 obj_is_hit_receivable();
+void obj_setFlags30(void *, int);
+u8 *get_battle_param__10TObjPlayerFi(s32);
+s32 attack_target_history_add(int, void *);
+M2C_UNK init_all_slots__10TObjPlayerFv();
+M2C_UNK check_object_collisions__10TObjPlayerFPv(void *);
+s32 get_phase__19TObjEneBm9MericarolFPv(void *, int);
+extern u8 *lbl_80540B7C[];
+extern const f32 lbl_805DE70C;
+s32 TObjEneBm9Mericarol__sub_802CF6AC(Ene_802CF6AC *o);
 }
 
 extern "C" {
@@ -1040,7 +1080,7 @@ void TObjEneBm9Mericarol__sub_802CF178(void *self, s32 msg) {
     }
 }
 
-void TObjEneBm9Mericarol__sub_802CF1B4(u8 *arg0, s32 arg1) {
+void state_burrow__19TObjEneBm9MericarolFPvi(u8 *arg0, s32 arg1) {
   f32 temp_f1;
   Stack_802CF1B4 stack;
   s32 temp_r0;
@@ -1213,6 +1253,35 @@ void TObjEneBm9Mericarol__sub_802CF4F8(u8 *arg0, s32 arg1) {
       break;
   }
 }
+
+s32 TObjEneBm9Mericarol__sub_802CF6AC(Ene_802CF6AC *o) {
+    s32 ret;
+    s32 i;
+    VObj_18_9e4fef *p;
+    ret = 0;
+    init_all_slots__10TObjPlayerFv();
+    check_object_collisions__10TObjPlayerFPv(o);
+    if (*(u32 *)(o->fa4 + 0x18) & 0x80000) {
+        ret = 1;
+        for (i = 0; i < 16; i++) {
+            p = (VObj_18_9e4fef *)get_battle_param__10TObjPlayerFi(i);
+            if (p == NULL) {
+                break;
+            }
+            if (obj_is_hit_receivable() != 0 && attack_target_history_add(o->f488, p) != 0) {
+                Arg_802CF6AC t;
+                t.a = 0;
+                t.b = *(f32 *)lbl_80540B7C[((s32 (*)(void *))get_phase__19TObjEneBm9MericarolFPv)(o)];
+                Arg_802CF6AC arg = t;
+                if (p->m21(o, (s32 *)&arg, 0, -1, -1) > lbl_805DE70C) {
+                    obj_setFlags30(p, 0x600);
+                }
+            }
+        }
+    }
+    return ret;
+}
+
 void TObjEneDD__sub_802CF7B4(u8 *arg0, s32 arg1) {
     f32 temp_f1;
     s32 temp_r0;
@@ -1240,7 +1309,7 @@ void TObjEneDD__sub_802CF7B4(u8 *arg0, s32 arg1) {
         temp_f1 = M2C_FIELD(arg0, f32 *, 0x444);
         M2C_FIELD(arg0, f32 *, 0x4A4) = temp_f1;
         M2C_FIELD(arg0, f32 *, 0x4A8) = (f32) lbl_805DE70C;
-        fn_8002B094((int) (M2C_FIELD(arg0, s32 *, 0x488)), (int) (temp_r4), (int) (temp_r5), (f32) (temp_f1));
+        fill_value_array((int) (M2C_FIELD(arg0, s32 *, 0x488)), (int) (temp_r4), (int) (temp_r5), (f32) (temp_f1));
         set_active__9TObjEneDDFPv((void *) (arg0));
         return;
     case 3:
@@ -1292,7 +1361,7 @@ void TObjEneDD__sub_802CF7B4(u8 *arg0, s32 arg1) {
             if (M2C_FIELD(M2C_FIELD(arg0, u8 **, 0xA4), s32 *, 0x18) & 0x200000) {
                 var_r30 = 1;
             }
-            TObjEneBm9Mericarol__sub_802CF6AC((void *) (arg0));
+            TObjEneBm9Mericarol__sub_802CF6AC((Ene_802CF6AC *)((void *) (arg0)));
             M2C_FIELD(arg0, f32 *, 0x4A8) = (f32) (M2C_FIELD(arg0, f32 *, 0x4A8) + M2C_FIELD(arg0, f32 *, 0x444));
             if (M2C_FIELD(arg0, f32 *, 0x4A8) >= lbl_805DE724) {
                 var_r30 = 1;
@@ -1389,11 +1458,11 @@ void TObjPlayer__sub_802CFB64(u8 *arg0, s32 arg1) {
                 e0 = lookup_entry_by_value__10TObjPlayerFPvf((void *)lbl_805D6860, M2C_FIELD(arg0, f32 *, 0xC0));
                 e1 = lookup_entry_by_value__10TObjPlayerFPvf((void *)lbl_805D6864, M2C_FIELD(arg0, f32 *, 0xC0));
                 push_matrix();
-                TObjPlayer__sub_803D8CD4(0);
+                set_matrix_identity__10TObjPlayerFPv(0);
                 post_translate_matrix(arg0 + 0x38);
                 rotate_matrix_y(0, M2C_FIELD(arg0, s32 *, 0x60));
-                TObjPlayer__sub_803D8960(0, e0, &sp20, 2);
-                TObjPlayer__sub_803D8960(0, e1, &sp8, 2);
+                mult_vec_array__10TObjPlayerFUii(0, e0, &sp20, 2);
+                mult_vec_array__10TObjPlayerFUii(0, e1, &sp8, 2);
                 pop_matrix();
                 if (M2C_FIELD(arg0, u8 **, 0x3C0) != NULL) {
                     ((VObj_18 *)M2C_FIELD(arg0, u8 **, 0x3C0))->m4((M2C_UNK *)&sp20, (M2C_UNK *)&sp2C);
@@ -1426,7 +1495,7 @@ void TObjPlayer__sub_802CFB64(u8 *arg0, s32 arg1) {
 }
 #define OBJINBAND(o, f) ((s32 (*)(void *, f32))objInBand__FP7GameObjf)((o), (f))
 #define PHASE(o) ((s32 (*)(void *))get_phase__19TObjEneBm9MericarolFPv)(o)
-void TObjEneBm9Mericarol__sub_802CFF40(u8 *arg0, s32 arg1) {
+void handle_shot_state__19TObjEneBm9MericarolFPvi(u8 *arg0, s32 arg1) {
     u32 obj;
     s32 cmp;
     f32 lim;

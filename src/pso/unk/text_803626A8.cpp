@@ -131,6 +131,12 @@ struct Res_803627DC { u8 pad[0x42C]; Model_803627DC *f42c; s32 f430; };
 
 struct Quad_803627DC { s32 a, b, c, d; };
 
+class V_8036274C {
+public:
+    u8 pad[0xC];
+    virtual ~V_8036274C();
+};
+
 extern "C" {
 M2C_UNK set_evp__12TItemProUnitFPvf(int, f32);
 extern const f32 lbl_805E0258;
@@ -197,7 +203,12 @@ extern u8 *lbl_805D6FA8;
 extern const f32 lbl_805E0248;
 extern const f32 lbl_805E024C;
 extern const f32 lbl_805E0250;
-void TObjEneEpsilonGuard__sub_803627DC(void);
+void load_assets__19TObjEneEpsilonGuardFv(void);
+void TLobby__sub_8001FE7C(void *, int);
+extern u8 *lbl_805D6FA0;
+extern u8 *lbl_805D6FA4;
+extern u8 *lbl_805D6FA8;
+void TObjEneEpsilonGuard__sub_8036274C(void);
 }
 
 extern "C" {
@@ -239,7 +250,22 @@ void TObjPlayer__sub_803626A8(u8 *arg0, s32 arg1, s32 arg2) {
 
 typedef char RecoveredGlobal_80362B48___vt__14TObjEneEpsilon_size[sizeof(RecoveredGlobal_80362B48___vt__14TObjEneEpsilon) == 0x1A4 ? 1 : -1];
 
-void TObjEneEpsilonGuard__sub_803627DC(void) {
+void TObjEneEpsilonGuard__sub_8036274C(void) {
+    if ((*(V_8036274C * *)&lbl_805D6FA4) != NULL) {
+        delete (*(V_8036274C * *)&lbl_805D6FA4);
+        (*(V_8036274C * *)&lbl_805D6FA4) = NULL;
+    }
+    if ((*(V_8036274C * *)&lbl_805D6FA8) != NULL) {
+        delete (*(V_8036274C * *)&lbl_805D6FA8);
+        (*(V_8036274C * *)&lbl_805D6FA8) = NULL;
+    }
+    if ((*(u32 *)&lbl_805D6FA0) != 0) {
+        TLobby__sub_8001FE7C((void *)(*(u32 *)&lbl_805D6FA0), 1);
+        (*(u32 *)&lbl_805D6FA0) = 0;
+    }
+}
+
+void load_assets__19TObjEneEpsilonGuardFv(void) {
     u8 *p;
     lbl_80543A18[0] = lbl_805E0248;
     lbl_80543A18[1] = lbl_805E0248;

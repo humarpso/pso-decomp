@@ -59,17 +59,17 @@ s32 get_selected_menu_value(s32);
 void *send_cmd_133__17TWindowSubComCardFv(void);
 void *send_command__17TWindowSubComCardFi(s32);
 void update_display_value__17TWindowSubComCardFUiUiPv(void *, void *, void *);
-void *TWindowSubComCard__sub_8007A8F8(s32);
+void *get_card_entry__17TWindowSubComCardFi(s32);
 s32 get_card_id__17TWindowSubComCardFPv(void *);
 void *create_list_item__19TWindowSubShortMailFPv(void *);
 void advance_line__19TWindowSubShortMailFPvi(void *, s32);
-s32 TWindowSubShortMail__sub_8027EDD4(void *, void *);
+s32 refresh_mail_list__19TWindowSubShortMailFPvPv(void *, void *);
 void clear_selected_and_update_entry__14TWindowSubItemFPv(void *);
 s32 is_active__19TWindowSubShortMailFv(void);
 void update_mail_count__19TWindowSubShortMailFPv(void *);
 s32 get_flag_bit2__6TLobbyFPv(void *);
 s32 get_status_flag__6TLobbyFPv(void *);
-void *TWindowSubShortMail__sub_8027EB90(void *);
+void *build_menu__19TWindowSubShortMailFv(void *);
 void clear_transition_flag__17TWindowSubComCardFPv(void *);
 s32 select_cursor_entry__6TLobbyFPv(void *);
 void *TLobby__sub_80225924(s32);
@@ -82,9 +82,9 @@ void hide_window__19TWindowSubShortMailFPv(void *);
 s32 is_keyboard_active__17TWindowSubComCardFPv(void *);
 s32 update_keyboard__17TWindowSubComCardFPv(void *);
 void TWindowSubShortMail__sub_80131998(void *);
-void *TWindowSubShortMail__sub_8027EA88(void *, s32);
+void *open_confirm_prompt__19TWindowSubShortMailFPvi(void *, s32);
 s32 get_card_data__17TWindowSubComCardFPv(void *);
-s32 TWindowSubComCard__sub_802A57FC(void *);
+s32 is_child_visible__17TWindowSubComCardFPv(void *);
 s32 get_slot_or_neg1__17TWindowSubComCardFPv(void *);
 void close__19TWindowSubShortMailFPv(void *);
 void TWindowSubShortMail__sub_8027E620(void *p);
@@ -188,7 +188,7 @@ void run_task__19TWindowSubShortMailFv(ShortMail_8027EF98 *o) {
         } else if (is_visible__17TWindowSubComCardFPv(o->w54) != 0) {
             void *p;
             o->f30 = -1;
-            p = TWindowSubComCard__sub_8007A8F8(get_selected_menu_value((s32)(o->w54)));
+            p = get_card_entry__17TWindowSubComCardFi(get_selected_menu_value((s32)(o->w54)));
             if (p != NULL) {
                 o->f2c = get_card_id__17TWindowSubComCardFPv(p);
             }
@@ -203,12 +203,12 @@ void run_task__19TWindowSubShortMailFv(ShortMail_8027EF98 *o) {
             o->w38 = create_list_item__19TWindowSubShortMailFPv(o);
             advance_line__19TWindowSubShortMailFPvi(o->w38, -1);
         }
-        TWindowSubShortMail__sub_8027EDD4(o, o->w38);
+        refresh_mail_list__19TWindowSubShortMailFPvPv(o, o->w38);
         clear_selected_and_update_entry__14TWindowSubItemFPv(o->w38);
         o->state = 8;
     case 8:
         if (is_active__19TWindowSubShortMailFv() != 0) {
-            TWindowSubShortMail__sub_8027EDD4(o, o->w38);
+            refresh_mail_list__19TWindowSubShortMailFPvPv(o, o->w38);
         }
         update_mail_count__19TWindowSubShortMailFPv(o);
         if (get_flag_bit2__6TLobbyFPv(o->w38) != 0) {
@@ -222,13 +222,13 @@ void run_task__19TWindowSubShortMailFv(ShortMail_8027EF98 *o) {
         if (o->w50 != NULL) { close__17TWindowSubComCardFPv(o->w50); o->w50 = NULL; }
         if (o->w3c != NULL) { TWindow__close(o->w3c); o->w3c = NULL; }
         if (o->w44 == NULL) {
-            o->w44 = TWindowSubShortMail__sub_8027EB90(o);
+            o->w44 = build_menu__19TWindowSubShortMailFv(o);
         }
         clear_flag_and_release__17TWindowSubComCardFPv(o->w44);
         clear_transition_flag__17TWindowSubComCardFPv(o->w44);
         o->state = 0xA;
     case 10:
-        if (is_active__19TWindowSubShortMailFv() != 0 && TWindowSubShortMail__sub_8027EDD4(o, o->w38) == 0) {
+        if (is_active__19TWindowSubShortMailFv() != 0 && refresh_mail_list__19TWindowSubShortMailFPvPv(o, o->w38) == 0) {
             o->state = 7;
         } else if (get_status_flag__17TWindowSubComCardFPv((s32)o->w44) != 0) {
             o->state = 7;
@@ -267,12 +267,12 @@ void run_task__19TWindowSubShortMailFv(ShortMail_8027EF98 *o) {
     case 13:
         set_position__19TWindowSubShortMailFPvPv(o->w5c, ((void *)get_window_layout_position((int)(0xBC))));
         TWindowSubShortMail__sub_80131998(o->w5c);
-        o->w50 = TWindowSubShortMail__sub_8027EA88(o, o->f20);
+        o->w50 = open_confirm_prompt__19TWindowSubShortMailFPvi(o, o->f20);
         o->state = 0xE;
     case 14:
         if (get_card_data__17TWindowSubComCardFPv(o->w50) != 0) {
             o->state = 0xB;
-        } else if (TWindowSubComCard__sub_802A57FC(o->w50) != 0) {
+        } else if (is_child_visible__17TWindowSubComCardFPv(o->w50) != 0) {
             if (get_slot_or_neg1__17TWindowSubComCardFPv(o->w50) == 0) {
                 close__19TWindowSubShortMailFPv(o);
                 o->state = 1;
@@ -292,11 +292,11 @@ void run_task__19TWindowSubShortMailFv(ShortMail_8027EF98 *o) {
         o->w50 = open_confirm_dialog__19TWindowSubShortMailFPv(o);
         o->state = 0x12;
     case 18:
-        if (is_active__19TWindowSubShortMailFv() != 0 && TWindowSubShortMail__sub_8027EDD4(o, o->w38) == 0) {
+        if (is_active__19TWindowSubShortMailFv() != 0 && refresh_mail_list__19TWindowSubShortMailFPvPv(o, o->w38) == 0) {
             o->state = 7;
         } else if (get_card_data__17TWindowSubComCardFPv(o->w50) != 0) {
             o->state = 9;
-        } else if (TWindowSubComCard__sub_802A57FC(o->w50) != 0) {
+        } else if (is_child_visible__17TWindowSubComCardFPv(o->w50) != 0) {
             if (get_slot_or_neg1__17TWindowSubComCardFPv(o->w50) == 0) {
                 TLobby__sub_80225A74(select_cursor_entry__6TLobbyFPv(o->w38));
                 o->state = 7;
@@ -374,7 +374,7 @@ void run_task__19TWindowSubShortMailFv(ShortMail_8027EF98 *o) {
     case 27:
         if (get_card_data__17TWindowSubComCardFPv(o->w50) != 0) {
             o->state = 0x18;
-        } else if (TWindowSubComCard__sub_802A57FC(o->w50) != 0) {
+        } else if (is_child_visible__17TWindowSubComCardFPv(o->w50) != 0) {
             if (get_slot_or_neg1__17TWindowSubComCardFPv(o->w50) == 0) {
                 void *b = realloc_buffer__17TWindowSubComCardFPv(o->w5c);
                 TLobby__sub_8001DAB4(b);

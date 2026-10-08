@@ -45,9 +45,9 @@ s32 get_window_layout_position(int);
 M2C_UNK notify_warp_flag70__19TWindowSubShortMailFPv(int);
 M2C_UNK free_member__17TWindowSubComCardFPv(int, int);
 M2C_UNK open_yes_no_prompt(int, int, int, int, f32);
-s32 TWindowMessageYesNo__sub_802A59D8(void *, int, int, int);
+s32 create__19TWindowMessageYesNoFPvPvPvPv(void *, int, int, int);
 extern const f32 lbl_805DE298;
-s32 fn_802B1AB4(u8 *arg0, s32 arg1);
+s32 open_trade_confirm_prompt(u8 *arg0, s32 arg1);
 s32 get_shared_text_buffer();
 u8 *get_player_by_client_id(s32);
 M2C_UNK text_builder_append();
@@ -61,7 +61,7 @@ s32 fn_802B1B80(u8 *arg0, s32 arg1, s32 arg2);
 
 extern "C" {
 
-s32 fn_802B1AB4(u8 *arg0, s32 arg1) {
+s32 open_trade_confirm_prompt(u8 *arg0, s32 arg1) {
     s32 temp_r29;
     u8 *temp_r29_2;
     temp_r29_2 = (u8 *)(get_player_by_client_id(arg1));
@@ -72,7 +72,7 @@ s32 fn_802B1AB4(u8 *arg0, s32 arg1) {
     }
     get_message_10__20TWindowSubStatusDispFPv((int) (0xD6));
     text_builder_append();
-    temp_r29 = TWindowMessageYesNo__sub_802A59D8((void *) (arg0), (int) (M2C_FIELD(arg0, s32 *, 0x20)), (int) (0), (int) (0));
+    temp_r29 = create__19TWindowMessageYesNoFPvPvPvPv((void *) (arg0), (int) (M2C_FIELD(arg0, s32 *, 0x20)), (int) (0), (int) (0));
     open_yes_no_prompt((int) (temp_r29), (int) (get_message_10__20TWindowSubStatusDispFPv((int) (0x20))), (int) (get_shared_text_buffer()), (int) (get_window_layout_position((int) (0x5B))), (f32) (lbl_805DE298));
     free_member__17TWindowSubComCardFPv((int) (temp_r29), (int) (1));
     notify_warp_flag70__19TWindowSubShortMailFPv((int) (temp_r29));

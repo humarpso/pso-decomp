@@ -18,7 +18,7 @@ s32 get_field_3e4__10TObjPlayerFPv(s32);
 f32 xz_distance_squared(s32, s32);
 s32 get_player_by_client_id(s32);
 extern s32 lbl_805D53A0;
-s32 TObjCityMainWarp__sub_80186BBC(s32 arg0, f32 farg0);
+s32 find_local_player_in_range__16TObjCityMainWarpFif(s32 arg0, f32 farg0);
 s32 get_main_phase();
 extern s32 lbl_805D55C0;
 s32 TObjCityMainWarp__sub_80186B00(void);
@@ -179,7 +179,7 @@ s32 TObjCityMainWarp__sub_80186B34(Obj_80186B34 *arg0) {
 
 #pragma push
 #pragma fp_contract on
-s32 TObjCityMainWarp__sub_80186BBC(s32 arg0, f32 farg0) {
+s32 find_local_player_in_range__16TObjCityMainWarpFif(s32 arg0, f32 farg0) {
     s32 temp_r3;
     s32 temp_r31;
     s32 temp_r3b;

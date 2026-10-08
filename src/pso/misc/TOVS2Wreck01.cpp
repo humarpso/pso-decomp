@@ -24,7 +24,7 @@ void *TOVS2Wreck01__ct(void *arg0, void *arg1);
 void *__dt__12TOVS2Wreck01Fv(void *arg0, s16 arg1);
 void check_collision_effect(u8 *arg0);
 M2C_UNK post_translate_matrix(void *);
-void TOVS2Wall01__sub_8017C8EC(void *, void *, int);
+void init_wreck_object__11TOVS2Wall01FPvii(void *, void *, int);
 M2C_UNK draw_ginja_object(s32);
 M2C_UNK rotate_matrix_y(M2C_UNK, s32);
 M2C_UNK push_matrix();
@@ -59,7 +59,7 @@ extern M2C_UNK __vt__12TOVS2Wreck01[];
 extern void *lbl_805D31C8;
 
 void *TOVS2Wreck01__ct(void *arg0, void *arg1) {
-    TOVS2Wall01__sub_8017C8EC(arg0, arg1, 0);
+    init_wreck_object__11TOVS2Wall01FPvii(arg0, arg1, 0);
     M2C_FIELD(arg0, M2C_UNK **, 0x18) = __vt__12TOVS2Wreck01;
     M2C_FIELD(arg0, void **, 0x0) = lbl_805D31C8;
     return arg0;

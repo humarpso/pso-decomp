@@ -85,7 +85,7 @@ struct RecoveredGlobal_8015E188___vt__15TODoorAncient01 {
 };
 
 extern "C" {
-s32 fn_801582C4(void *, f32);
+s32 is_in_view_depth(void *, f32);
 M2C_UNK begin_effect_render__13TParticleCtrlFv();
 M2C_UNK end_effect_render__13TParticleCtrlFv();
 M2C_UNK rotate_matrix_y(int, int);
@@ -168,7 +168,7 @@ void render__15TODoorAncient01Fv(u8 *arg0) {
     u8 *temp_r31_2;
     u8 *temp_r31_3;
     u8 *temp_r31_4;
-    if ((((VObj *)arg0)->m8(M2C_FIELD(arg0, f32 *, 0xC0), M2C_FIELD(arg0, f32 *, 0xC4)) != 0) && (fn_801582C4((void *) (arg0), (f32) (lbl_805DB3E8)) != 0)) {
+    if ((((VObj *)arg0)->m8(M2C_FIELD(arg0, f32 *, 0xC0), M2C_FIELD(arg0, f32 *, 0xC4)) != 0) && (is_in_view_depth((void *) (arg0), (f32) (lbl_805DB3E8)) != 0)) {
         push_matrix();
         post_translate_matrix((void *) (arg0 + 0x38));
         rotate_matrix_y((int) (0), (int) (M2C_FIELD(arg0, s32 *, 0x60)));

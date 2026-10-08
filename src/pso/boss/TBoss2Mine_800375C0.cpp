@@ -1510,7 +1510,7 @@ M2C_UNK check_state_flag_2__9TObjEneDDFPv(void *);
 M2C_UNK init_model__9TObjEneDDFPv(void *, void *, int, int);
 M2C_UNK init_position_vectors__9TObjEneDDFPv(void *);
 extern u8 *lbl_805D4BA4;
-void TBoss2Mine__sub_80038BA0(u8 *arg0, s32 arg1);
+void init__10TBoss2MineFPvi(u8 *arg0, s32 arg1);
 }
 
 extern "C" {
@@ -1552,7 +1552,7 @@ void *lbl_80482CD8[11] = {
     (void *)0x0, (void *)0x0, (void *)0x8003, (void *)0x0,
     (void *)0x0, (void *)0x0, (void *)0x0,
 };
-void TBoss2Mine__sub_80038BA0(u8 *arg0, s32 arg1) {
+void init__10TBoss2MineFPvi(u8 *arg0, s32 arg1) {
     s32 temp_r29;
     s32 temp_r30;
     u8 *temp_r6;

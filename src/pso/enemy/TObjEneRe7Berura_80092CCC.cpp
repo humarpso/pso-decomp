@@ -362,7 +362,7 @@ void apply_effect_variant_b__10TObjPlayerFii(void *, int);
 s32 copy_target_state__14TObjEnePanarmsFPvPv(void *, int);
 s32 play_sound_effect(s32, void *, s32, s32);
 s32 advance_animation_playback(void *);
-void TObjEneRe7Berura__sub_8009331C(VObj_18_444bc5 *obj, s32 mode);
+void update_death_state__16TObjEneRe7BeruraFPvi(VObj_18_444bc5 *obj, s32 mode);
 void VecCopy__FP3VecPC3Vec(void *, const void *);
 s32 is_split_screen();
 s32 get_camera_mode__11TCameraCtrlFv();
@@ -617,7 +617,7 @@ void demo_frame_callback__16TObjEneRe7BeruraFv(void) {
     lbl_805D4F68 += 1;
 }
 
-void TObjEneRe7Berura__sub_8009331C(VObj_18_444bc5 *obj, s32 mode) {
+void update_death_state__16TObjEneRe7BeruraFPvi(VObj_18_444bc5 *obj, s32 mode) {
     F_8009331C *self = (F_8009331C *)obj;
     switch (mode) {
     case 4:

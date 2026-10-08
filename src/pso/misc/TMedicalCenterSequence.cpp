@@ -128,9 +128,9 @@ struct VObj_8021658C : Base_8021658C {
 
 extern "C" {
 int set_field_20__12TQuestListVMFPvi(void*, void*);
-u32 TShopSequence__sub_80223600(void *, s32, s32);
+u32 create_message_window__13TShopSequenceFPvii(void *, s32, s32);
 s32 get_child_field1c__15TShopWindowBaseFPv(void *);
-s32 fn_8026934C(unsigned short);
+s32 create_meseta_window(unsigned short);
 s32 set_service_counter_camera(void *, int);
 s32 get_window_layout_position(int, f32);
 extern const f32 lbl_805DC688;
@@ -296,9 +296,9 @@ M2C_UNK open_greeting_window__22TMedicalCenterSequenceFPv(u8 *arg0) {
   Stack_80216830 stack;
   stack.sp8 = lbl_805DC688;
   stack.spC = lbl_805DC68C;
-  TShopSequence__sub_80223600(arg0, get_window_layout_position((int) 0x2C, (f32) lbl_805DC688), (s32) (&stack.sp8));
+  create_message_window__13TShopSequenceFPvii(arg0, get_window_layout_position((int) 0x2C, (f32) lbl_805DC688), (s32) (&stack.sp8));
   PSO_VCALL_VObj_18_a93f07_m4(arg0, 0x1F, 1);
-  *((s32 *) (((s8 *) arg0) + 0x2C)) = fn_8026934C((s32) get_child_field1c__15TShopWindowBaseFPv(arg0));
+  *((s32 *) (((s8 *) arg0) + 0x2C)) = create_meseta_window((s32) get_child_field1c__15TShopWindowBaseFPv(arg0));
   set_field_20__12TQuestListVMFPvi((void*)(arg0), (void*)(2));
   *((s32 *) (((s8 *) arg0) + 0x34)) = set_service_counter_camera((void *) arg0, (int) 0);
 }

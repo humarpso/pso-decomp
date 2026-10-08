@@ -27,7 +27,7 @@ s32 get_instance__15TAdPlayerLoadGCFv(void);
 void TAdDialingGC__sub_801A4CA4(void *);
 s32 TWindowShortListCtrl__sub_801A513C(void *);
 int TWindowShortListCtrl__sub_801A5144(void *);
-s32 TAdSinglePlyChrSelectGC__sub_801FC5D8(void);
+s32 verify_system_file__23TAdSinglePlyChrSelectGCFPv(void);
 void pso_system_load_gc(void);
 void request_scene_change__21TAdMultiChgGameModeGCFv(void);
 void TWindow__close(void *);
@@ -40,12 +40,12 @@ extern Vec_801A4D30 lbl_8044694C;
 extern Pair_801A4D30 lbl_80446958[];
 extern Pair_801A4D30 lbl_80446960[];
 extern const f32 lbl_805DC0A8;
-void fn_801A4D30(Obj_801A4D30 *self);
+void run_memcard_check_scene(Obj_801A4D30 *self);
 }
 
 extern "C" {
 
-void fn_801A4D30(Obj_801A4D30 *self) {
+void run_memcard_check_scene(Obj_801A4D30 *self) {
     Vec_801A4D30 pos = lbl_80446940;
     Vec_801A4D30 target = lbl_8044694C;
     activate_camera_mode(9);
@@ -85,7 +85,7 @@ void fn_801A4D30(Obj_801A4D30 *self) {
         if (self->card != NULL && TAdSinglePlyChrSelectGC__sub_8033B9F8(self->card) == 1) {
             queue_destruction__7TObjectFv(self->card);
             self->card = NULL;
-            if (TAdSinglePlyChrSelectGC__sub_801FC5D8() != 0) {
+            if (verify_system_file__23TAdSinglePlyChrSelectGCFPv() != 0) {
                 pso_system_load_gc();
             }
             self->timer = 0;

@@ -60,9 +60,9 @@ s32 alloc_download_quest__6TLobbyFPviPv(u8 *arg0, s32 arg1, s32 *arg2) {
     }
     return ret;
 }
-M2C_UNK TLobby__sub_8001EE48(M2C_UNK *);
+M2C_UNK tmp_buf_release__6TLobbyFi(M2C_UNK *);
 s32 TLobby__sub_8001EEF4();
-s32 TLobby__sub_8001EEFC(M2C_UNK *);
+s32 tmp_buf_use_req__6TLobbyFPv(M2C_UNK *);
 u8 *set_stream_and_load_file__6TLobbyFi(s32);
 s32 update_lobby_scene__6TSceneFPv();
 M2C_UNK read_disc_file(s32, s32);
@@ -88,10 +88,10 @@ s32 load_encrypted_text_archive(char *arg0, s32 *arg1) {
         return 0;
     }
     if ((size <= 0x40000) && (TLobby__sub_8001EEF4() != 0)) {
-        buf = (u8 *)TLobby__sub_8001EEFC(lbl_80499A40);
+        buf = (u8 *)tmp_buf_use_req__6TLobbyFPv(lbl_80499A40);
         read_disc_file((s32)arg0, (s32)buf);
         ret = alloc_download_quest__6TLobbyFPviPv(buf, size, &sp8);
-        TLobby__sub_8001EE48(lbl_80499A40);
+        tmp_buf_release__6TLobbyFi(lbl_80499A40);
     } else {
         open__8TGStreamFPvPvi((M2C_UNK *)&st, (s32)arg0, 1);
         buf = (u8 *)alloc__22TQuestVmDownLoadServerFPv(0x800);

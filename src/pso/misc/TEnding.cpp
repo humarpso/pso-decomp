@@ -2,14 +2,14 @@
 
 extern "C" {
 void TEnding__sub_8008C9F8();
-void TAdMultiChgGameModeGC__sub_8023E834();
+void set_default_camera__21TAdMultiChgGameModeGCFv();
 void TObjPlayer__sub_8001A8F0(void *, TEnding *);
 void TAdRicoRingCtrl__sub_8001B4A0(TAdRicoRingCtrl *, f32);
 s32 TAdEndText__sub_8001A990();
 u32 __cvt_fp2unsigned(f32);
 void destroy_keyboard_objects();
 void init__22THunterGuildSeqOfflineFPvPvPv(void *, TObject *, void *);
-void TLobby__sub_8022743C();
+void stop_audio_streams__6TLobbyFv();
 void cleanup_game_objects__9TMainTaskFv();
 void set_current_floor_area(s32);
 s32 TKeyBoardControl__sub_8000F828();
@@ -31,7 +31,7 @@ extern const f32 lbl_805D9578;
 void TEnding::run_task() {
     switch (phase) {
     case 0: {
-        TAdMultiChgGameModeGC__sub_8023E834();
+        set_default_camera__21TAdMultiChgGameModeGCFv();
         u32 ticks = lbl_805D4F08 + 1;
         lbl_805D4F08 = ticks;
         s32 rate = timing_rate;
@@ -65,7 +65,7 @@ void TEnding::run_task() {
 
 TEnding::~TEnding() {
     lbl_805D4F0C = 0;
-    TLobby__sub_8022743C();
+    stop_audio_streams__6TLobbyFv();
 }
 
 TEnding::TEnding() : TObject(tl_window) {

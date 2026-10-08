@@ -27,14 +27,14 @@ extern const f32 lbl_805DBCF4;
 extern const f32 lbl_805DBD00;
 extern const f32 lbl_805DBD04;
 extern const f32 lbl_805DBD08;
-u8 *fn_8018A150(u8 *arg0, M2C_UNK arg1, s32 arg2);
+u8 *init_container_base(u8 *arg0, M2C_UNK arg1, s32 arg2);
 }
 
 extern "C" {
 
 #pragma push
 #pragma fp_contract on
-u8 *fn_8018A150(u8 *arg0, M2C_UNK arg1, s32 arg2) {
+u8 *init_container_base(u8 *arg0, M2C_UNK arg1, s32 arg2) {
     construct_actor_base__10TObjPlayerFPvPv(arg0);
     M2C_FIELD(arg0, M2C_UNK **, 0x18) = &lbl_804B6C24.value;
     init_vtable_804AF8D8__14TOAirconCave01FPv(arg0 + 0x340);

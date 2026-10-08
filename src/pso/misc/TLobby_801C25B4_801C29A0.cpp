@@ -47,11 +47,11 @@ u8 TLobby__sub_801D7100(void *);
 extern u8 lbl_8050EA40[];
 extern s32 TLobby__data_80511CA0[];
 extern s32 lbl_805D53A0;
-void TLobby__sub_801C29F0(void *self);
+void send_battle_mode_state__6TLobbyFPv(void *self);
 VObj_801C2B04 *get_player_by_client_id(s32);
 void clear_counter__6TLobbyFPv(void *a0);
 void send_neg50__6TLobbyFPvPv(void *p, s32 a1);
-void TLobby__sub_801C343C(void *);
+void calc_player_rankings__6TLobbyFPv(void *);
 void init_all_default__11TWindowCtrlFPv(void *);
 int sprintf(char *, const char *, ...);
 extern char lbl_80446FCC[];
@@ -59,7 +59,7 @@ extern char lbl_80446FD4[];
 extern char lbl_80446FDC[];
 extern char *lbl_804C3E78[];
 extern Entry_801C2B04 TLobby__data_80511C80[];
-void TLobby__sub_801C2B04(void *self);
+void show_score_results__6TLobbyFPv(void *self);
 }
 
 extern "C" {
@@ -77,7 +77,7 @@ u8 check_timeout__6TLobbyFPv(void *arg0) {
     return (u8) (M2C_FIELD(arg0, s32 *, 0x270) == 2);
 }
 
-void TLobby__sub_801C29F0(void *self) {
+void send_battle_mode_state__6TLobbyFPv(void *self) {
     Msg_801C29F0 m;
     Player_801C29F0 *p;
     s32 id;
@@ -105,16 +105,16 @@ void TLobby__sub_801C29F0(void *self) {
 }
 
 void set_flag_270__6TLobbyFPv(void *arg0) {
-    TLobby__sub_801C29F0((void *)(arg0));
+    send_battle_mode_state__6TLobbyFPv((void *)(arg0));
     M2C_FIELD(arg0, s32 *, 0x270) = 1;
 }
-void TLobby__sub_801C2B04(void *self) {
+void show_score_results__6TLobbyFPv(void *self) {
     char buf[0x48];
     Entry_801C2B04 *e;
     s32 i;
     VObj_801C2B04 *p;
     clear_counter__6TLobbyFPv(self);
-    TLobby__sub_801C343C(self);
+    calc_player_rankings__6TLobbyFPv(self);
     init_all_default__11TWindowCtrlFPv(lbl_80446FCC);
     for (i = 0; i < 4; i++) {
         e = &TLobby__data_80511C80[i];

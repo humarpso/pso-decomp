@@ -354,7 +354,7 @@ extern FollowView *lbl_805D4DF0;
 
 s32 conversation_camera_obstructed(FollowController *self,s32 heading);
 s32 is_split_screen();
-u16 TCameraCtrl__sub_80068958(s32 n);
+u16 get_nth_view_player_id__11TCameraCtrlFi(s32 n);
 void set_pos_target__11TCameraCtrlFPvPvPvi(void *arg0, void *arg1, void *arg2, s32 arg3);
 s32 get_player_by_client_id(u32);
 extern RecoveredGlobal_8006D494_camera_controller_registry camera_controller_registry;
@@ -436,7 +436,7 @@ void update_follow_motion_state__11TCameraCtrlFPv(u8 *arg0);
 s32 is_split_screen();
 s32 get_field_3e4__10TObjPlayerFPv(void *);
 void set_target__11TCameraCtrlFPvUi(void *, s32);
-u16 TCameraCtrl__sub_80068958(s32 n);
+u16 get_nth_view_player_id__11TCameraCtrlFi(s32 n);
 void reset_cameras_to_actor(void *p, s32 x);
 s32 TCameraCtrl__sub_8006CDD0(u8 *arg0);
 s32 is_flag_set__11TCameraCtrlFv(void);
@@ -689,7 +689,7 @@ void apply_follow_camera_offsets(void *arg0, void *arg1, s32 arg2, u16 arg3) {
             if (arg3 == 0xFFFF) {
                 for (i = 0; i < 4; i++) {
                     cam = REG_8006D344[TCameraCtrl__data_804FF628.value + i];
-                    p = (Ply_8006D344 *)get_player_by_client_id(TCameraCtrl__sub_80068958(i));
+                    p = (Ply_8006D344 *)get_player_by_client_id(get_nth_view_player_id__11TCameraCtrlFi(i));
                     v = arg2;
                     if (p != 0) {
                         v = p->f60 + arg2;
@@ -1170,7 +1170,7 @@ void update_follow_camera__11TCameraCtrlFv(u8 *arg0) {
         M2C_FIELD(arg0, s32 *, 0x24) = 1;
         break;
     case 1:
-        i = (u16)((s32 (*)(s32))TCameraCtrl__sub_80068958)(get_camera_no__11TCameraCtrlFv());
+        i = (u16)((s32 (*)(s32))get_nth_view_player_id__11TCameraCtrlFi)(get_camera_no__11TCameraCtrlFv());
         player = (u8 *)get_player_by_client_id(i);
         if ((player != NULL && check_flag_100__10TObjPlayerFPv(player) == 0) || get_flag_bit3__11TWindowCtrlFv() == 1) {
             i = fn_8006E82C(i);

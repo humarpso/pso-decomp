@@ -55,7 +55,7 @@ void set_trade_state__19TWindowSubTradeMainFPvs(void *arg0, s16 arg1) {
 
 #pragma push
 #pragma fp_contract on
-void TWindowSubStatusDisp__sub_8027831C(Disp_8027831C *self, Win_8027831C *win) {
+void draw_tab_label__20TWindowSubStatusDispFPvPv(Disp_8027831C *self, Win_8027831C *win) {
     V2_8027831C pos;
     s32 msg;
     s16 fl;

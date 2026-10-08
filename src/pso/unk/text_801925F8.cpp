@@ -33,7 +33,7 @@ void draw_ginja_object(void *);
 void rotate_matrix_y(int, void *);
 void push_matrix(void);
 void pop_matrix(void);
-M2C_UNK fn_80192554(void *);
+M2C_UNK draw_lazer_fence_extra_model(void *);
 void set_global_param__8TObjFishFi(void *);
 M2C_UNK set_indexed_flags(void *, M2C_UNK, M2C_UNK);
 
@@ -58,7 +58,7 @@ void render__19TObjLazerFenceExtraFv(void *arg0) {
         temp_r0 = M2C_FIELD(arg0, s32 *, 0xB4);
         switch (temp_r0) {
         case 0:
-            fn_80192554(arg0);
+            draw_lazer_fence_extra_model(arg0);
             return;
         case 1:
             render_lazer_fence_model((void *)(arg0));

@@ -98,7 +98,7 @@ void VecCopy__FP3VecPC3Vec(void *, void *);
 s32 isV2Mode__12TBoss1DragonFv();
 void *alloc__23TAdSinglePlyChrSelectGCFPv(int);
 s32 create_particle_emitter(void *, int, f32);
-void fn_800BC4C8(void *);
+void construct_collision_body(void *);
 void *TBoss8Dragon__sub_800BC5EC(void *, int);
 s32 rand();
 extern const V3_8002C544 lbl_80435560;
@@ -122,7 +122,7 @@ extern "C" {
 void *__dt__15TObjBoss1CraterFv(void *arg0, s16 arg1);
 s32 is_count_below_limit__15TObjBoss1CraterFv(void);
 void render__15TObjBoss1CraterFv(u8 *arg0);
-void TBoss8Dragon__sub_800BC5A0(void *, int);
+void delete_buffer__12TBoss8DragonFis(void *, int);
 M2C_UNK post_translate_matrix(void *);
 M2C_UNK draw_chunk_object(void *);
 M2C_UNK rotate_matrix_y(int, int);
@@ -209,7 +209,7 @@ void TObjBoss1Crater__vt19(Src_8002C3FC *arg0, VObj_18_5c1903 *self, M2C_UNK arg
 void *__dt__15TObjBoss1CraterFv(void *arg0, s16 arg1) {
     if (arg0 != NULL) {
         M2C_FIELD(arg0, M2C_UNK **, 0x18) = __vt__15TObjBoss1Crater;
-        if (M2C_FIELD(arg0, void **, 0xB4) != NULL) { TBoss8Dragon__sub_800BC5A0(M2C_FIELD(arg0, void **, 0xB4), 1); M2C_FIELD(arg0, M2C_UNK *, 0xB4) = 0; }
+        if (M2C_FIELD(arg0, void **, 0xB4) != NULL) { delete_buffer__12TBoss8DragonFis(M2C_FIELD(arg0, void **, 0xB4), 1); M2C_FIELD(arg0, M2C_UNK *, 0xB4) = 0; }
         if (M2C_FIELD(arg0, void **, 0xB0) != NULL) { queue_destruction__7TObjectFv(M2C_FIELD(arg0, void **, 0xB0)); M2C_FIELD(arg0, M2C_UNK *, 0xB0) = 0; }
         destroy_enemy_object__10TObjPlayerFPvs(arg0, 0);
         if (arg1 > 0) {
@@ -225,7 +225,7 @@ Crater_8002C544 *TObjBoss1Crater__ct(Crater_8002C544 *self, void *arg1, void *ar
     f32 r;
     void *p;
     s32 i;
-    fn_800BC4C8(self);
+    construct_collision_body(self);
     self->vt = ((s32 *)&__vt__15TObjBoss1Crater);
     r = lbl_80435560.z;
     self->f0 = lbl_805D2688;

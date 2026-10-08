@@ -35,7 +35,7 @@ struct Bringer_80099F0C : Base_80099F0C {
 struct Arg_80099F0C { s32 a; f32 b; };
 
 extern "C" {
-int fn_800BC4C8(void);
+int construct_collision_body(void);
 extern M2C_UNK lbl_8048FE08[];
     extern int lbl_805D29AC;
 extern const f32 lbl_805D9860;
@@ -63,7 +63,7 @@ extern const f32 lbl_805D9850;
 extern const f32 lbl_805D9854;
 extern const f32 lbl_805D9858;
 extern const f32 lbl_805D985C;
-void TObjEneDf2Bringer__sub_80099F0C(Bringer_80099F0C *self);
+void update_shot__17TObjEneDf2BringerFPv(Bringer_80099F0C *self);
 }
 
 extern "C" {
@@ -76,11 +76,11 @@ f32 cos_table_lookup(int);
 M2C_UNK VecCopy__FP3VecPC3Vec(void *, const void *);
 void __dl__7TObjectFPv(void *);
 void destroy_enemy_object__10TObjPlayerFPvs(void *, int);
-M2C_UNK fn_8002B094(int);
+M2C_UNK fill_value_array(int);
 
 #pragma push
 #pragma fp_contract on
-void TObjEneDf2Bringer__sub_80099F0C(Bringer_80099F0C *self) {
+void update_shot__17TObjEneDf2BringerFPv(Bringer_80099F0C *self) {
     Vec_80099F0C v;
     Vec_80099F0C d;
     Vec_80099F0C e;
@@ -143,7 +143,7 @@ void setup_dir_shot__17TObjEneDf2BringerFPvPvif(u8 *arg0, const void *arg1, s32 
     M2C_FIELD(arg0, f32 *, 0xBC) = (f32) lbl_805D9860;
     M2C_FIELD(arg0, f32 *, 0xC0) = cos_table_lookup((int) (M2C_FIELD(arg0, s32 *, 0x60)));
     M2C_FIELD(arg0, s32 *, 0xB0) = 1;
-    fn_8002B094((int) (M2C_FIELD(arg0, s32 *, 0xC4)));
+    fill_value_array((int) (M2C_FIELD(arg0, s32 *, 0xC4)));
     M2C_FIELD(arg0, f32 *, 0xC8) = (f32) lbl_805D9860;
     M2C_FIELD(arg0, f32 *, 0xCC) = (f32) lbl_805D9860;
     M2C_FIELD(arg0, f32 *, 0xD0) = farg0;
@@ -162,7 +162,7 @@ void *TObjEneDf2Bringer__sub_8009A1BC(void *arg0, s16 arg1) {
     }
     return arg0;
 }
-void* init__17TObjEneDf2BringerFPviii(void* a0, int a1, int a2, int a3) { fn_800BC4C8(); *(int*)((char*)a0 + 0x18) = (int)((unsigned char *)&lbl_8048FE08); *(int*)((char*)a0 + 0x0) = lbl_805D29AC; *(int*)((char*)a0 + 0xb0) = 0; *(float*)((char*)a0 + 0xd0) = (*(const float *)&lbl_805D9860); *(float*)((char*)a0 + 0xc8) = (*(const float *)&lbl_805D9860); *(float*)((char*)a0 + 0xcc) = (*(const float *)&lbl_805D9860); *(int*)((char*)a0 + 0xb4) = 0; *(float*)((char*)a0 + 0x38) = (*(const float *)&lbl_805D9860); *(float*)((char*)a0 + 0x3c) = (*(const float *)&lbl_805D9860); *(float*)((char*)a0 + 0x40) = (*(const float *)&lbl_805D9860); *(float*)((char*)a0 + 0xb8) = (*(const float *)&lbl_805D9860); *(float*)((char*)a0 + 0xbc) = (*(const float *)&lbl_805D9860); *(float*)((char*)a0 + 0xc0) = (*(const float *)&lbl_805D9860); *(int*)((char*)a0 + 0xc4) = a3; *(int*)((char*)*(int*)((char*)a0 + 0xa4) + 0x14) = 1; return a0; }
+void* init__17TObjEneDf2BringerFPviii(void* a0, int a1, int a2, int a3) { construct_collision_body(); *(int*)((char*)a0 + 0x18) = (int)((unsigned char *)&lbl_8048FE08); *(int*)((char*)a0 + 0x0) = lbl_805D29AC; *(int*)((char*)a0 + 0xb0) = 0; *(float*)((char*)a0 + 0xd0) = (*(const float *)&lbl_805D9860); *(float*)((char*)a0 + 0xc8) = (*(const float *)&lbl_805D9860); *(float*)((char*)a0 + 0xcc) = (*(const float *)&lbl_805D9860); *(int*)((char*)a0 + 0xb4) = 0; *(float*)((char*)a0 + 0x38) = (*(const float *)&lbl_805D9860); *(float*)((char*)a0 + 0x3c) = (*(const float *)&lbl_805D9860); *(float*)((char*)a0 + 0x40) = (*(const float *)&lbl_805D9860); *(float*)((char*)a0 + 0xb8) = (*(const float *)&lbl_805D9860); *(float*)((char*)a0 + 0xbc) = (*(const float *)&lbl_805D9860); *(float*)((char*)a0 + 0xc0) = (*(const float *)&lbl_805D9860); *(int*)((char*)a0 + 0xc4) = a3; *(int*)((char*)*(int*)((char*)a0 + 0xa4) + 0x14) = 1; return a0; }
 void TObjEneDf2Bringer__sub_8009A2A0(void) {  }
 
 #pragma push

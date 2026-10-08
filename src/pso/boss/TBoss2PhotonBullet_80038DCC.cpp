@@ -38,7 +38,7 @@ struct VObj_18_39be15 : VBase_18_39be15 {
 typedef struct Pair_80038E2C { s32 a; f32 b; } Pair_80038E2C;
 
 extern "C" {
-s32 TObjEneDD__sub_800B9D94(void *, void *, int, void *);
+s32 draw_oriented_shadow__9TObjEneDDFiiiUi(void *, void *, int, void *);
 extern RecoveredGlobal_80038DCC_lbl_80435B6C lbl_80435B6C;
 void render__18TBoss2PhotonBulletFv(u8 *arg0);
 void queue_destruction__7TObjectFv(void *);
@@ -56,7 +56,7 @@ void __dl__7TObjectFPv(void *);
 void destroy_enemy_object__10TObjPlayerFPvs(void *, int);
 extern void *__vt__18TBoss2PhotonBullet[];
 s32 VecCopy__FP3VecPC3Vec(void *, void *);
-s32 fn_800BC4C8(void *, void *, void *);
+s32 construct_collision_body(void *, void *, void *);
 extern s32 lbl_805D26DC;
 u8 *TBoss2PhotonBullet__ct(u8 *arg0, s32 arg1, s32 arg2, u8 *arg3, u8 *arg4, f32 farg0);
 }
@@ -73,7 +73,7 @@ void render__18TBoss2PhotonBulletFv(u8 *arg0) {
         stack.sp8 = M2C_FIELD(&lbl_80435B6C.value, s32 *, 0);
         stack.spC = M2C_FIELD(&lbl_80435B6C.value, s32 *, 4);
         stack.sp10 = M2C_FIELD(&lbl_80435B6C.value, s32 *, 8);
-        TObjEneDD__sub_800B9D94((void *) (arg0 + 0x38), (void *) (arg0 + 0xCC), (int) (0), (void *) (&stack.sp8));
+        draw_oriented_shadow__9TObjEneDDFiiiUi((void *) (arg0 + 0x38), (void *) (arg0 + 0xCC), (int) (0), (void *) (&stack.sp8));
     }
 }
 #pragma push
@@ -133,7 +133,7 @@ void *__dt__18TBoss2PhotonBulletFv(void *arg0, s16 arg1) {
     return arg0;
 }
 u8 *TBoss2PhotonBullet__ct(u8 *arg0, s32 arg1, s32 arg2, u8 *arg3, u8 *arg4, f32 farg0) {
-    fn_800BC4C8((void *) (arg0), (void *) (arg1), (void *) (arg2));
+    construct_collision_body((void *) (arg0), (void *) (arg1), (void *) (arg2));
     M2C_FIELD(arg0, void ***, 0x18) = __vt__18TBoss2PhotonBullet;
     M2C_FIELD(arg0, s32 *, 0) = (s32) lbl_805D26DC;
     VecCopy__FP3VecPC3Vec((void *) (arg0 + 0xC0), (void *) (arg3));

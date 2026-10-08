@@ -25,16 +25,16 @@ u16 obj_getField1c(void *);
 s16 get_stat_by_key_state__10TObjPlayerFPv(void *);
 s32 is_technique_ready__8TTecCtrlFv();
 void copy_pos__14TItemAttackColFPvPv(void* p, void* q);
-s32 TItemAttackCol__sub_802E4798(u8 *arg0, Hit_802E4798 *arg1);
+s32 try_add_hit_target__14TItemAttackColFPvPv(u8 *arg0, Hit_802E4798 *arg1);
 M2C_UNK queue_destruction__7TObjectFv(void *);
 M2C_UNK apply_status_effect__10TObjPlayerFi(void *);
 M2C_UNK TObjPlayer__sub_801542F4(void *);
 M2C_UNK TObjPlayer__sub_8015431C(void *);
 M2C_UNK reset_global_table();
-s32 TItemAttackCol__sub_802E4798(u8 *arg0, Hit_802E4798 *arg1);
+s32 try_add_hit_target__14TItemAttackColFPvPv(u8 *arg0, Hit_802E4798 *arg1);
 s32 get_instance__16TObjOnlineEndingFv();
 Hit_802E4798 *get_attack_entry__16TObjOnlineEndingFi(int);
-void TItemAttackCol__sub_802E4918(u8 *arg0);
+void check_hits__14TItemAttackColFPv(u8 *arg0);
 }
 
 extern "C" {
@@ -44,7 +44,7 @@ void *destroy_attack_collision__14TItemAttackColFPvs(void *arg0, s16 arg1);
 void __dl__7TObjectFPv(void *);
 void __dt__7TObjectFv(void *, int);
 
-s32 TItemAttackCol__sub_802E4798(u8 *arg0, Hit_802E4798 *arg1) {
+s32 try_add_hit_target__14TItemAttackColFPvPv(u8 *arg0, Hit_802E4798 *arg1) {
     s32 ok;
     Hit_802E4798 *e;
     s32 i;
@@ -86,7 +86,7 @@ void copy_pos__14TItemAttackColFPvPv(void* p, void* q) { *(u32*)((char*)p + 0x0)
 
 extern M2C_UNK lbl_804E355C[];
 
-void TItemAttackCol__sub_802E4918(u8 *arg0) {
+void check_hits__14TItemAttackColFPv(u8 *arg0) {
     s32 i;
     Hit_802E4798 *e;
     reset_global_table();
@@ -99,7 +99,7 @@ void TItemAttackCol__sub_802E4918(u8 *arg0) {
     }
     for (i = 0; i != get_instance__16TObjOnlineEndingFv(); i++) {
         e = get_attack_entry__16TObjOnlineEndingFi(i);
-        if (TItemAttackCol__sub_802E4798(arg0, e) != 0) {
+        if (try_add_hit_target__14TItemAttackColFPvPv(arg0, e) != 0) {
             ((VObj_18_909b87 *)arg0)->m4((s32)e);
             M2C_FIELD(arg0, s32 *, 0xA4) -= 1;
             if (M2C_FIELD(arg0, s32 *, 0xA4) == 0) {

@@ -76,7 +76,7 @@ void run_task__20TWindowActionPaletteFv(u8 *arg0);
 s32 get_camera_id__11TCameraCtrlFv(void);
 void set_slot__20TWindowActionPaletteFPvUc(void *, u8);
 void set_mode__20TWindowActionPaletteFPvUc(void *, u8);
-void TWindowDD__sub_802466E0(void *, void *, s32, s32);
+void construct_base__9TWindowDDFPvPvsPv(void *, void *, s32, s32);
 s32 get_window_layout_position(s32);
 void *__construct_array(void *, void *, void *, u32, u32);
 void free_if_valid__14TPlyDispConfigFis(void *, s16);
@@ -136,7 +136,7 @@ u8 get_type__11TMainCursorFPv(void *);
 void draw_action_palette_icon(void *, int, u16);
 void set_slot__20TWindowActionPaletteFPvUc(void *, u8);
 void set_mode__20TWindowActionPaletteFPvUc(void *, u8);
-void TWindowActionPalette__sub_80243968(void *arg0, int idx, int mode, int slot);
+void update_slot_icon__20TWindowActionPaletteFPviii(void *arg0, int idx, int mode, int slot);
 }
 
 extern "C" {
@@ -163,7 +163,7 @@ void set_bank_panel_art__20TWindowActionPaletteFPvi(TWindowActionPalette* self,u
 extern "C" {
 
 #define self ((Obj_80243968 *)arg0)
-void TWindowActionPalette__sub_80243968(void *arg0, int idx, int mode, int slot) {
+void update_slot_icon__20TWindowActionPaletteFPviii(void *arg0, int idx, int mode, int slot) {
     if (((u32 (*)(int))get_player_by_client_id)(self->id) != 0) {
         Ent_80243968 *ent = (Ent_80243968 *)((void *)get_array_entry__20TWindowSubStatusDispFPvi((TWindowActionPalette*)(self), (int)(4)));
         if (TObjPlayer__sub_80354C7C((u16)self->id) != 0) {
@@ -309,7 +309,7 @@ void run_task__20TWindowActionPaletteFv(u8 *arg0) {
         update_slot_sprites__20TWindowActionPaletteFv(arg0, 0, 7, v);
     }
     if (TObjPlayer__sub_80354D5C((u16)M2C_FIELD(arg0, s16 *, 0x20)) != 0 && TWindowActionPalette__sub_801C1C00((void *)(player + 0x500)) != 0) {
-        TWindowActionPalette__sub_80243968((void *)(arg0), (int)(1), (int)(7), (int)(7));
+        update_slot_icon__20TWindowActionPaletteFPviii((void *)(arg0), (int)(1), (int)(7), (int)(7));
     } else {
         v = TWindowActionPalette__sub_801C1DB8(effect, 2);
         update_slot_sprites__20TWindowActionPaletteFv(arg0, 1, TWindowActionPalette__sub_801C1E1C(effect, 2), v);
@@ -349,7 +349,7 @@ extern "C" u8 *__dt__20TWindowActionPaletteFv(u8 *self, s16 delete_flag) {
 }
 Pal_80244108 *TWindowActionPalette__ct(Pal_80244108 *self, s16 slot) {
     u32 i;
-    TWindowDD__sub_802466E0(self, lbl_804CDF9C, slot, get_window_layout_position(0x1F));
+    construct_base__9TWindowDDFPvPvsPv(self, lbl_804CDF9C, slot, get_window_layout_position(0x1F));
     self->vt = __vt__20TWindowActionPalette;
     __construct_array(self->arr, (void *)init_gc_tag, (void *)free_if_valid__14TPlyDispConfigFis, 4, 3);
     self->f0 = lbl_805D3870;

@@ -240,7 +240,7 @@ s32 get_state__18TObjEneRe4SorcererFPv(int);
 s32 TObjEneRe4Sorcerer__sub_800ED498(int);
 void TObjEneRe4Sorcerer__sub_800EF214(s32 arg0);
 void create_effect__18TObjEneRe4SorcererFPv(u8 *arg0);
-s32 TObjEneRe4Sorcerer__sub_800EF354(u8 *arg0);
+s32 cast_technique__18TObjEneRe4SorcererFPv(u8 *arg0);
 void turn_to_target__18TObjEneRe4SorcererFPv(void *arg0);
 void set_photon_state__18TObjEneRe4SorcererFPv(void *arg0);
 void advance_anim_frame__18TObjEneRe4SorcererFPv(void *arg0);
@@ -1065,7 +1065,7 @@ M2C_UNK set_state_8__9TObjEneDDFPv(void *);
 s32 is_alive__9TObjEneDDFPv(s32);
 s32 transform_relative_position__9TObjEneDDFPvPv(void *, void *);
 s32 TObjEneDD__sub_800BA804(int);
-void TObjEneDD__sub_800BA934(void *);
+void transform_part_positions__9TObjEneDDFPv(void *);
 M2C_UNK init_model__9TObjEneDDFPv(void *, void *, int, int);
 M2C_UNK set_active__9TObjEneDDFPv(void *);
 M2C_UNK TObjEneDD__sub_800BABCC(void *, f32, f32, f32);
@@ -1083,7 +1083,7 @@ M2C_UNK transition_enemy_state(void *, M2C_UNK);
 M2C_UNK init_position_vectors__9TObjEneDDFPv(void *);
 s32 tick_period_counter(s32, M2C_UNK, M2C_UNK);
 M2C_UNK activate_and_dispatch__10TObjPlayerFPv(void *);
-M2C_UNK TBoss3Volopt__sub_800D8B30(void *);
+M2C_UNK play_area_variant_sound__12TBoss3VoloptFi(void *);
 s32 request_two_effects__10TObjPlayerFPv(void *);
 s32 apply_effect_variant_b__10TObjPlayerFii(void *, int);
 M2C_UNK reset_transform__13TObjEneRe4BitFPv();
@@ -1098,7 +1098,7 @@ M2C_UNK create_enabled__13TObjEneRe4BitFiiii(void *, void *, int, int);
 M2C_UNK create_disabled__13TObjEneRe4BitFiiii(void *, void *, int, int);
 M2C_UNK TObjEneRe4Bit__sub_800EDAB0();
 void TObjEneRe4Bit__sub_800EDAB4();
-void TObjEneRe4Sorcerer__sub_800EE01C(u8 *arg0, s32 arg1);
+void handle_death_state__18TObjEneRe4SorcererFPvi(u8 *arg0, s32 arg1);
 void TObjEneRe4Sorcerer__sub_800EE0F8(u8 *arg0, s32 arg1);
 void TObjEneRe4Sorcerer__sub_800EE1CC(u8 *arg0, s32 arg1);
 s32 TObjEneRe4Sorcerer__sub_800EE598(void *, void *);
@@ -1111,7 +1111,7 @@ void TObjEneRe4Sorcerer__vt85(s32 arg0, u32 arg1, s32 arg2);
 void TObjEneRe4Sorcerer__sub_800EF214(s32 arg0);
 void create_effect__18TObjEneRe4SorcererFPv(u8 *arg0);
 s32 cast_resta__18TObjEneRe4SorcererFPv(u8 *arg0);
-s32 TObjEneRe4Sorcerer__sub_800EF354(u8 *arg0);
+s32 cast_technique__18TObjEneRe4SorcererFPv(u8 *arg0);
 void turn_to_target__18TObjEneRe4SorcererFPv(void *arg0);
 void calc_orb_positions__18TObjEneRe4SorcererFPv(void *arg0);
 void apply_mylla_effect__18TObjEneRe4SorcererFPv(void *arg0);
@@ -1137,11 +1137,11 @@ void TObjEneRe4Sorcerer__vt61(void* p);
 void TObjEneRe4Sorcerer__vt26(void);
 void run_task__18TObjEneRe4SorcererFv(u8 *arg0);
 Obj_800F0054 * __dt__18TObjEneRe4SorcererFv(Obj_800F0054 *arg0, s16 arg1);
-void TObjEneRe4Sorcerer__sub_800F0118(u8 *arg0);
+void init_enemy__18TObjEneRe4SorcererFPv(u8 *arg0);
 void * TObjEneRe4Sorcerer__ct(void *arg0, void *arg1, void *arg2);
 void free_bits__18TObjEneRe4SorcererFv(void);
 void * create__18TObjEneRe4SorcererFPv(void *arg0);
-void TObjEneRe4Sorcerer__sub_800F0464(void);
+void load_resources__18TObjEneRe4SorcererFv(void);
 void TBoss3Volopt__sub_800F059C(void);
 s32 TBoss3Volopt__sub_800F05A0(s32 arg0);
 s32 remap_area_sound_id(s32 arg0, s32 arg1);
@@ -1671,7 +1671,7 @@ void render__18TObjEneRe4SorcererFv(u8 *arg0) {
     }
 }
 
-void TObjEneRe4Sorcerer__sub_800EE01C(u8 *arg0, s32 arg1) {
+void handle_death_state__18TObjEneRe4SorcererFPvi(u8 *arg0, s32 arg1) {
     switch (arg1) {
     case 4:
         M2C_FIELD(arg0, s16 *, 0xB8) = 6;
@@ -1908,7 +1908,7 @@ void TObjEneRe4Sorcerer__sub_800EE7DC(u8 *arg0, s32 arg1) {
                 switch (var_r3) {
                 case 2:
                     M2C_FIELD(arg0, s32 *, 0x4E8) = 2;
-                    TObjEneRe4Sorcerer__sub_800EF354(arg0);
+                    cast_technique__18TObjEneRe4SorcererFPv(arg0);
                     break;
                 case 3:
                     M2C_FIELD(arg0, s32 *, 0x4E8) = 2;
@@ -1993,7 +1993,7 @@ s32 TObjEneRe4Sorcerer__sub_800EEC00(void *arg0p, void *arg1p) {
         M2C_FIELD(arg0, s32 *, 0x4E4) = 0;
         M2C_FIELD(arg0, s32 *, 0x4E8) = 0;
         ((VObj_14_763762 *)((u8 *)(arg0) + (1020)))->m2();
-        TBoss3Volopt__sub_800D8B30((void *) ((u8 *)(arg0) + 0x38));
+        play_area_variant_sound__12TBoss3VoloptFi((void *) ((u8 *)(arg0) + 0x38));
         break;
     case 3:
         if ((s32) M2C_FIELD(arg0, s32 *, 0x4E4) >= 0x1E) {
@@ -2057,7 +2057,7 @@ s32 TObjEneRe4Sorcerer__sub_800EEDE4(void *arg0p, void *arg1p) {
         M2C_FIELD(arg0, f32 *, 0x3F8) = TObjEneRe4Sorcerer__data_805DA790;
         M2C_FIELD(arg0, s32 *, 0x4E4) = 0;
         M2C_FIELD(arg0, s32 *, 0x4E8) = 0;
-        TBoss3Volopt__sub_800D8B30(arg0 + 0x38);
+        play_area_variant_sound__12TBoss3VoloptFi(arg0 + 0x38);
         break;
     case 3:
         if (M2C_FIELD(arg0, s32 *, 0x4E4) >= 0x3C) {
@@ -2175,7 +2175,7 @@ void TObjEneRe4Sorcerer__vt85(s32 arg0, u32 arg1, s32 arg2) {
         TObjEneRe4Sorcerer__sub_800EE0F8((u8 *)((void *) (arg0)), (s32)((void *) (arg2)));
         return;
     case 9:
-        TObjEneRe4Sorcerer__sub_800EE01C((u8 *)((void *) (arg0)), (s32)((void *) (arg2)));
+        handle_death_state__18TObjEneRe4SorcererFPvi((u8 *)((void *) (arg0)), (s32)((void *) (arg2)));
     default:
         return;
     }
@@ -2208,7 +2208,7 @@ s32 cast_resta__18TObjEneRe4SorcererFPv(u8 *arg0) {
     return 0;
 }
 
-s32 TObjEneRe4Sorcerer__sub_800EF354(u8 *arg0) {
+s32 cast_technique__18TObjEneRe4SorcererFPv(u8 *arg0) {
     Vec_800EF354 v;
     s32 frame;
     u8 *src;
@@ -2381,7 +2381,7 @@ void TObjEneRe4Sorcerer__sub_800EF95C(Obj_800EF95C *self, f32 speed) {
     self->rot = self->ang + 0x8000;
     calc_orb_positions__18TObjEneRe4SorcererFPv(self);
     self->ang += 0x2AAA;
-    TObjEneDD__sub_800BA934(self);
+    transform_part_positions__9TObjEneDDFPv(self);
     for (i = 0; i < 2; i++) {
         p = find_entity_by_id(self->orbs[i]);
         if (p != 0) {
@@ -2501,7 +2501,7 @@ Obj_800F0054 *__dt__18TObjEneRe4SorcererFv(Obj_800F0054 *arg0, s16 arg1) {
 
 #pragma push
 #pragma opt_loop_invariants off
-void TObjEneRe4Sorcerer__sub_800F0118(u8 *arg0) {
+void init_enemy__18TObjEneRe4SorcererFPv(u8 *arg0) {
     Sorc_800F0118 *self = (Sorc_800F0118 *) arg0;
     s32 i;
     u16 id;
@@ -2566,7 +2566,7 @@ void *TObjEneRe4Sorcerer__ct(void *arg0, void *arg1, void *arg2) {
     M2C_FIELD(arg0, void **, 0x0) = lbl_805D2AF0;
     invoke_initialization_hook__9TObjEneDDFPv(arg0, arg2);
     ((void (*)(void *))TObjEneRe4Sorcerer__sub_800EFE30)(arg0);
-    ((void (*)(void *))TObjEneRe4Sorcerer__sub_800F0118)(arg0);
+    ((void (*)(void *))init_enemy__18TObjEneRe4SorcererFPv)(arg0);
     return arg0;
 }
 
@@ -2590,7 +2590,7 @@ void *create__18TObjEneRe4SorcererFPv(void *arg0) {
     return o;
 }
 
-void TObjEneRe4Sorcerer__sub_800F0464(void) {
+void load_resources__18TObjEneRe4SorcererFv(void) {
     u32 r;
     lbl_80501070.x = TObjEneRe4Sorcerer__data_805DA790;
     lbl_80501070.y = TObjEneRe4Sorcerer__data_805DA790;

@@ -24,12 +24,12 @@ extern const f32 lbl_805D8908;
 extern const f32 lbl_805D890C;
 extern const f32 lbl_805D8910;
 extern const f32 lbl_805D8914;
-void TBoss4DarkFalz__sub_8004AB90(M2C_UNK arg0, s32 arg1);
+void push_players_out_of_zone__14TBoss4DarkFalzFii(M2C_UNK arg0, s32 arg1);
 }
 
 extern "C" {
 
-void TBoss4DarkFalz__sub_8004AB90(M2C_UNK arg0, s32 arg1) {
+void push_players_out_of_zone__14TBoss4DarkFalzFii(M2C_UNK arg0, s32 arg1) {
     Vec_8004AB90 v;
     E_8004AB90 *e;
     Vec_8004AB90 *ev;

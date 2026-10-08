@@ -26,7 +26,7 @@ s32 TObjFish__sub_8001EDB0(void *, int);
 s32 get_bml_model(void *, int);
 s32 reset_photon_effect__10TObjPlayerFPv(void *);
 s32 init_collision_body_parts(void *, void *, int);
-s32 fn_8018A150(void *, int, void *);
+s32 init_container_base(void *, int, void *);
 extern RecoveredGlobal_8015C534_lbl_804B00C8 lbl_804B00C8;
 extern RecoveredGlobal_8015C534_lbl_804B08BC lbl_804B08BC;
 extern u32 lbl_805D58E8;
@@ -39,7 +39,7 @@ extern "C" {
 typedef char RecoveredGlobal_8015C534_lbl_804B00C8_size[sizeof(RecoveredGlobal_8015C534_lbl_804B00C8) == 0x2C ? 1 : -1];
 typedef char RecoveredGlobal_8015C534_lbl_804B08BC_size[sizeof(RecoveredGlobal_8015C534_lbl_804B08BC) == 0x14C ? 1 : -1];
 u8 *fn_8015C534(u8 *arg0, s32 arg1) {
-    fn_8018A150((void *) (arg0), (int) (tl_05), (void *) (arg1));
+    init_container_base((void *) (arg0), (int) (tl_05), (void *) (arg1));
     M2C_FIELD(arg0, M2C_UNK **, 0x18) = &lbl_804B08BC.value;
     M2C_FIELD(arg0, s16 *, 0x326) = 0;
     M2C_FIELD(arg0, s32 *, 0x30) = (s32) (M2C_FIELD(arg0, s32 *, 0x30) | 0x60000000);

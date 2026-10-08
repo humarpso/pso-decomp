@@ -35,7 +35,7 @@ M2C_UNK TLobby__sub_802D2D64();
 M2C_UNK TLobby__sub_802D3070(s32);
 u32 get_player_by_client_id(s32);
 s32 TWindowSubTradeMain__sub_802D3924(s32);
-int TWindowTradeRequest__sub_80249FCC(void);
+int close_request_window__19TWindowTradeRequestFv(void);
 
 extern s32 lbl_805D53A0;
 extern u8 TLobby__data_805D688B;
@@ -70,7 +70,7 @@ void TLobby__sub_802D3820(void) {
     }
 }
 
-void close_trade_request__6TLobbyFv(void) { lbl_805D6888 = 0; TWindowTradeRequest__sub_80249FCC(); }
+void close_trade_request__6TLobbyFv(void) { lbl_805D6888 = 0; close_request_window__19TWindowTradeRequestFv(); }
 void TLobby__sub_802D38B4(void) {
     s32 i;
     TLobby__data_805D688A = 4;

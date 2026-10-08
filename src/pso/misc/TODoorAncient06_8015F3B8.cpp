@@ -61,7 +61,7 @@ extern u8 lbl_804B1038[];
 extern void *lbl_805D5928;
 extern void *TODoorAncient06__data_805D592C;
 extern void *lbl_805D5930;
-void TODoorAncient06__sub_8015F440(void);
+void load_resources__15TODoorAncient06Fv(void);
 }
 
 extern "C" {
@@ -105,7 +105,7 @@ extern M2C_UNK __vt__15TODoorAncient06[];
 #define G591C (*(s32 **)&TODoorAncient06__data_805D592C)
 #define G5920 (*(u8 **)&lbl_805D5930)
 #define NODE(p, o) (*(u8 **)((u8 *)(p) + (o)))
-void TODoorAncient06__sub_8015F440(void) {
+void load_resources__15TODoorAncient06Fv(void) {
     u8 *p;
     p = alloc__23TAdSinglePlyChrSelectGCFPv(0x440);
     if (p != NULL) {

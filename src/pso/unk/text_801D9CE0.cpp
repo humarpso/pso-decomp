@@ -29,7 +29,7 @@ void set_field_1c__10TObjPlayerFPvf(void *, f32);
 void set_field18__10TObjPlayerFPvf(void *, f32);
 extern const f32 lbl_805DC408;
 extern const f32 lbl_805DC40C;
-void TObjPlayer__sub_801D9D24(Techs_801D9D24 *self);
+void reset_tech_state__10TObjPlayerFPv(Techs_801D9D24 *self);
 }
 
 extern "C" {
@@ -41,7 +41,7 @@ void TObjPlayer__sub_801D9CE0(void *arg0) {
         i++;
     } while (i < 0x13);
 }
-void TObjPlayer__sub_801D9D24(Techs_801D9D24 *self) {
+void reset_tech_state__10TObjPlayerFPv(Techs_801D9D24 *self) {
     s32 n;
     u8 v;
     s32 i;

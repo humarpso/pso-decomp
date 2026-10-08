@@ -69,7 +69,7 @@ s32 get_window_layout_position(s32);
 char *strncpy(char *, const char *, u32);
 extern u8 lbl_804E71B8[];
 extern s32 lbl_805D53A0;
-void TAdVIConfigGC__sub_80307D00(Cfg_80307D00 *arg0);
+void open_player_names_window__13TAdVIConfigGCFPv(Cfg_80307D00 *arg0);
 }
 
 extern "C" {
@@ -100,7 +100,7 @@ int VIFlush(void);
 M2C_UNK memset(void *, int, int);
 void set_field_2c__13TAdVIConfigGCFPvi(void *, int);
 
-void TAdVIConfigGC__sub_80307D00(Cfg_80307D00 *arg0) {
+void open_player_names_window__13TAdVIConfigGCFPv(Cfg_80307D00 *arg0) {
     s32 i;
     u8 *p;
     if (arg0->win != 0) {
@@ -133,7 +133,7 @@ void TAdVIConfigGC__sub_80307DF4(u8 *arg0) {
     temp_r3 = TLobby__sub_801B0974();
     if ((s32) M2C_FIELD(arg0, s32 *, 4) != temp_r3) {
         M2C_FIELD(arg0, s32 *, 4) = temp_r3;
-        TAdVIConfigGC__sub_80307D00((Cfg_80307D00 *)((void *) (arg0)));
+        open_player_names_window__13TAdVIConfigGCFPv((Cfg_80307D00 *)((void *) (arg0)));
     }
     fn_80307BE8((void *) (arg0));
     temp_r3_2 = (u8 *)(M2C_FIELD(arg0, u8 **, 0x24));
@@ -174,7 +174,7 @@ u8 *init__13TAdVIConfigGCFPvf(u8 *arg0, f32 farg0) {
     M2C_FIELD(arg0, s32 *, 4) = TLobby__sub_801B0974();
     M2C_FIELD(arg0, s32 *, 0x14) = 0;
     M2C_FIELD(arg0, s32 *, 0x18) = 0;
-    TAdVIConfigGC__sub_80307D00((Cfg_80307D00 *)((void *) (arg0)));
+    open_player_names_window__13TAdVIConfigGCFPv((Cfg_80307D00 *)((void *) (arg0)));
     M2C_FIELD(arg0, s32 *, 0x1C) = 0;
     return arg0;
 }

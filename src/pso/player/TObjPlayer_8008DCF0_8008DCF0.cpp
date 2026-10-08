@@ -185,7 +185,7 @@ extern s32 lbl_805D5870;
 s32 TObjPlayer__sub_8008E098(Obj_8008E098 *self);
 void vec3_add_to(Vec_8008E18C *, Vec_8008E18C *);
 void matrix_mult_vec(void *, Vec_8008E18C *, Vec_8008E18C *);
-void TObjPlayer__sub_803D8CD4(void *);
+void set_matrix_identity__10TObjPlayerFPv(void *);
 M2C_UNK rotate_matrix_y(M2C_UNK, s32);
 M2C_UNK push_matrix();
 M2C_UNK pop_matrix();
@@ -215,12 +215,12 @@ M2C_UNK VecCopy__FP3VecPC3Vec(void *, void *);
 int reset_enemy_state__10TObjPlayerFPv(void* p);
 M2C_UNK advance_animation_playback(void *);
 M2C_UNK update_collisions__10TObjPlayerFPv(void *);
-M2C_UNK TObjPlayer__sub_800C6A48(void *, void *, f32, f32);
+M2C_UNK pick_open_direction__10TObjPlayerFPvPvff(void *, void *, f32, f32);
 M2C_UNK subtract_vector(void *, void *);
 extern const f32 lbl_805D9620;
 extern const f32 lbl_805D9624;
 extern const f32 lbl_805D9628;
-void TObjPlayer__sub_8008DE9C(Obj_8008DE9C *self);
+void update_move_to_target__10TObjPlayerFPv(Obj_8008DE9C *self);
 M2C_UNK apply_actor_gravity(void *, M2C_UNK, f32);
 s16 obj_getS16_32C(void *);
 void queue_destruction__7TObjectFv(u32);
@@ -342,7 +342,7 @@ void TObjPlayer__sub_8008DD14(Obj_8008DD14 *self) {
     }
 }
 
-void TObjPlayer__sub_8008DE9C(Obj_8008DE9C *self) {
+void update_move_to_target__10TObjPlayerFPv(Obj_8008DE9C *self) {
     switch (self->state) {
     case -1:
         break;
@@ -351,7 +351,7 @@ void TObjPlayer__sub_8008DE9C(Obj_8008DE9C *self) {
         self->fB8 = get_flag_0x388_b24__10TObjPlayerFPv(self) != 0 ? 1 : 6;
         Vec_8008DD14 d = self->pos;
         subtract_vector(&d, &self->target->pos);
-        TObjPlayer__sub_800C6A48(self, &d, lbl_805D9624, lbl_805D9628);
+        pick_open_direction__10TObjPlayerFPvPvff(self, &d, lbl_805D9624, lbl_805D9628);
         self->state = 1;
         break;
     }
@@ -363,7 +363,7 @@ void TObjPlayer__sub_8008DE9C(Obj_8008DE9C *self) {
         if (((VObj_8008DE9C *)self)->m17(0x5A) != 0) {
             Vec_8008DD14 d2 = self->pos;
             subtract_vector(&d2, &self->target->pos);
-            TObjPlayer__sub_800C6A48(self, &d2, lbl_805D9624, lbl_805D9628);
+            pick_open_direction__10TObjPlayerFPvPvff(self, &d2, lbl_805D9624, lbl_805D9628);
         }
         VecCopy__FP3VecPC3Vec(&self->f290, &self->pos);
         calc_velocity_toward_destination(self, self->f290, self->f29C, self->info, self->info->f4);
@@ -411,7 +411,7 @@ void TObjPlayer__sub_8008E18C(Obj_8008E18C *self, s32 slot, Vec_8008E18C *out, s
     out->x = lbl_805D9620;
     out->y = lbl_805D9620;
     out->z = lbl_805D9630;
-    TObjPlayer__sub_803D8CD4(0);
+    set_matrix_identity__10TObjPlayerFPv(0);
     rotate_matrix_y((M2C_UNK)(0), (s32)(angle));
     matrix_mult_vec(0, out, out);
     vec3_add_to(out, &self->pos);

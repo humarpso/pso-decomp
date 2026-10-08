@@ -30,7 +30,7 @@ M2C_UNK draw_window_tab(void *, void *, int, f32);
 extern const f32 lbl_805DD890;
 void TWindowTimer__sub_80287DD8(M2C_UNK arg0, s32 arg1);
 void save_position__17TWindowSubComCardFPv(void *);
-u8 * TWindowDD__sub_802466E0(void *, void *, s16, void *);
+u8 * construct_base__9TWindowDDFPvPvsPv(void *, void *, s16, void *);
 u8 * get_zero_vec2(void);
 void update_chat_parts__12TWindowTimerFPv(u8 *arg0);
 extern RecoveredGlobal_80287FBC_lbl_804D2E74 lbl_804D2E74;
@@ -187,7 +187,7 @@ void *__dt__12TWindowTimerFv(void *arg0, s16 arg1) {
 typedef char RecoveredGlobal_80287FBC_lbl_804D2E74_size[sizeof(RecoveredGlobal_80287FBC_lbl_804D2E74) == 0x14 ? 1 : -1];
 typedef char RecoveredGlobal_80287FBC___vt__12TWindowTimer_size[sizeof(RecoveredGlobal_80287FBC___vt__12TWindowTimer) == 0x18 ? 1 : -1];
 u8 *TWindowTimer__ct(u8 *arg0) {
-    TWindowDD__sub_802466E0(arg0, &lbl_804D2E74.value, 4, get_zero_vec2());
+    construct_base__9TWindowDDFPvPvsPv(arg0, &lbl_804D2E74.value, 4, get_zero_vec2());
     M2C_FIELD(arg0, M2C_UNK **, 0x18) = &(*(RecoveredGlobal_80287FBC___vt__12TWindowTimer *)&__vt__12TWindowTimer).value;
     M2C_FIELD(arg0, s32 *, 0) = (s32) lbl_805D3AD8;
     M2C_FIELD(arg0, s32 *, 0x60) = 0;

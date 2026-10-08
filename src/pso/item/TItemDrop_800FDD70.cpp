@@ -13,7 +13,7 @@ extern u32 TItemDrop__data_805D53C4;
 extern s32 TItemDrop__data_805D53C8;
 Ent_800FDD70 *find_gsl_entry(void *name);
 M2C_UNK fn_800F93B4(void *, Ent_800FDD70 *, s32);
-M2C_UNK TLobby__sub_8013189C(void *, void *, const void *);
+M2C_UNK change_file_extension__6TLobbyFPvPvPv(void *, void *, const void *);
 M2C_UNK TLobby__sub_803CCE9C(u32);
 s32 strlen(char *);
 extern Ent_800FDD70 TItemDrop__data_805011E0[];
@@ -30,8 +30,8 @@ M2C_UNK run_frame__6TLobbyFv();
 M2C_UNK reset__8TGStreamFv();
 M2C_UNK strncpy(char *, char *, s32);
 s32 TLobby__sub_803CC4C0(u32);
-M2C_UNK TLobby__sub_803CCB5C(u32, s32, Ent_800FDD70 *);
-u32 TLobby__sub_803CD3A8(char *, s32);
+M2C_UNK read_checked_align__6TLobbyFiii(u32, s32, Ent_800FDD70 *);
+u32 adxf_open__6TLobbyFUii(char *, s32);
 extern Ent_800FDD70 TItemDrop__data_805011E0[];
 extern char TItemDrop__data_805041E0[];
 extern char *lbl_805D2B38;
@@ -67,7 +67,7 @@ void TItemDrop__sub_800FDDF4(void) {
     } else {
         n = strlen(lbl_805D2B38);
         if (n > 0) {
-            TLobby__sub_8013189C(buf, TItemDrop__data_805041E0, lbl_805DAA3C);
+            change_file_extension__6TLobbyFPvPvPv(buf, TItemDrop__data_805041E0, lbl_805DAA3C);
             fn_800F93B4(buf, TItemDrop__data_805011E0, n);
         }
         TItemDrop__data_805D53D0 = 0;
@@ -79,10 +79,10 @@ void TItemDrop__sub_800FDE7C(char *name) {
     s32 i;
     strncpy(TItemDrop__data_805041E0, name, 0x20);
     if (TItemDrop__data_805D53CC == 0) {
-        TItemDrop__data_805D53C4 = TLobby__sub_803CD3A8(name, 0);
+        TItemDrop__data_805D53C4 = adxf_open__6TLobbyFUii(name, 0);
         if (TItemDrop__data_805D53C4 != 0) {
             reset__8TGStreamFv();
-            TLobby__sub_803CCB5C(TItemDrop__data_805D53C4, 6, TItemDrop__data_805011E0);
+            read_checked_align__6TLobbyFiii(TItemDrop__data_805D53C4, 6, TItemDrop__data_805011E0);
             set_read_params__6TLobbyFiii(&TItemDrop__data_805D53C4, 6, TItemDrop__data_805011E0);
             for (;;) {
                 if (TLobby__sub_803CC4C0(TItemDrop__data_805D53C4) == 3) {

@@ -24,7 +24,7 @@ extern s32 lbl_805D6460;
 extern u8 *lbl_805D6464;
 void cache_last_chat_line(u32 arg0);
 M2C_UNK heap_free__5THeapFPv(s32, void *);
-s32 TLobby__sub_803DE7BC(int, void *, void *);
+s32 move_words__6TLobbyFPvPvi(int, void *, void *);
 extern RecoveredGlobal_8026A6DC_lbl_805187D8 lbl_805187D8;
 extern s32 lbl_805D6460;
 void chat_log_remove_line(s32 arg0);
@@ -83,7 +83,7 @@ void chat_log_remove_line(s32 arg0) {
         heap_free__5THeapFPv((s32)((void *) (lbl_805D6460)), (void *)((int) (temp_r4)));
         *temp_r31 = 0U;
         if (arg0 < 0x1D) {
-            TLobby__sub_803DE7BC((int) (temp_r31), (void *) ((u8 *)&lbl_805187D8.value + ((arg0 + 1) * 4)), (void *) ((0x1D - arg0) & 0x3FFFFFFF));
+            move_words__6TLobbyFPvPvi((int) (temp_r31), (void *) ((u8 *)&lbl_805187D8.value + ((arg0 + 1) * 4)), (void *) ((0x1D - arg0) & 0x3FFFFFFF));
         }
         M2C_FIELD(&lbl_805187D8.value, s32 *, 0x74) = 0;
     }

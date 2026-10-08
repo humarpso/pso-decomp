@@ -269,7 +269,7 @@ extern s32 lbl_805D5668;
 extern s32 lbl_805D7780;
 extern s32 lbl_805D7784;
 extern s32 some_id_805c6f74;
-void TObjChip__sub_8017FE58(Obj_8017FE58 *o);
+void draw_chips__8TObjChipFPv(Obj_8017FE58 *o);
 }
 
 extern "C" {
@@ -288,7 +288,7 @@ M2C_UNK VecCopy__FP3VecPC3Vec(void *, void *);
 M2C_UNK copy_xyz__10TObjPlayerFPvPv(void *, void *);
 M2C_UNK queue_destruction__7TObjectFv(void *);
 
-void TObjChip__sub_8017FE58(Obj_8017FE58 *o) {
+void draw_chips__8TObjChipFPv(Obj_8017FE58 *o) {
     Chip_8017FE58 *c = o->chips;
     if (o->flags & 8) {
         if (o->flags & 4) {

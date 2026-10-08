@@ -40,7 +40,7 @@ s32 TAdSinglePlyChrSelectGC__sub_801334DC(int);
 s32 test_flag_4c__23TAdSinglePlyChrSelectGCFPv(void *, int);
 s32 TWindowShortListCtrl__check_controller_button(void *, int);
 M2C_UNK play_sound_effect(int, int, int, int);
-M2C_UNK TAdMultiChgGameModeGC__sub_8023E834();
+M2C_UNK set_default_camera__21TAdMultiChgGameModeGCFv();
 M2C_UNK request_scene_change__21TAdMultiChgGameModeGCFv();
 M2C_UNK set_change_game_mode__21TAdMultiChgGameModeGCFv();
 M2C_UNK set_game_mode__21TAdMultiChgGameModeGCFv();
@@ -50,7 +50,7 @@ extern RecoveredGlobal_802C47E8_lbl_8050E208 lbl_8050E208;
 extern RecoveredGlobal_802C47E8_lbl_8050E3B8 lbl_8050E3B8;
 extern s32 lbl_805D67C8;
 void run_task__19TAdSelectGameModeGCFv(u8 *arg0);
-void TAdMcSelectGC__sub_80019DA8(void *, s32, f32);
+void create_draw_line_ctrl__13TAdMcSelectGCFiif(void *, s32, f32);
 s32 get_localized_text_entry(int, int);
 void *__nw__7TObjectFUl(int);
 void __ct__7TObjectFP7TObject(void *, void *);
@@ -60,7 +60,7 @@ void __ct__8TAdRayGCFv(void *, void *);
 void *__ct__10TAdTitleGCFv(void *, void *, int);
 void *__ct__14TAdSelectTxtGCFv(void *, void *, void *, int);
 void __ct__13TAdTitleTexGCFv(void *, void *);
-void TLevelSelect__sub_802AEBE4(void *, void *);
+void add_item_rect__12TLevelSelectFPvPv(void *, void *);
 void *__ct__14TAdSelectCurGCFv(void *, void *, void *, void *);
 M2C_UNK set_entry_value__22TAdMultiPlyChrSelectGCFiiUi(int, int, int);
 void *__ct__13TAdGuideTxtGCFv(void *, void *);
@@ -127,7 +127,7 @@ void TAdSelectGameModeGC__sub_802C478C(void) {
 }
 void run_task__19TAdSelectGameModeGCFv(u8 *arg0) {
     s32 temp_r3;
-    TAdMultiChgGameModeGC__sub_8023E834();
+    set_default_camera__21TAdMultiChgGameModeGCFv();
     if ((s32) lbl_805D67C8 != TAdSinglePlyChrSelectGC__sub_801334DC((int) (M2C_FIELD(arg0, s32 *, 0x1C)))) {
         set_entry_value__22TAdMultiPlyChrSelectGCFiiUi((int) (M2C_FIELD(arg0, s32 *, 0x20)), (int) (1), (int) (get_localized_text_entry((int) (0x15), (int) (TAdSinglePlyChrSelectGC__sub_801334DC((int) (M2C_FIELD(arg0, s32 *, 0x1C))) + 1))));
     }
@@ -189,8 +189,8 @@ u8 *__ct__19TAdSelectGameModeGCFv(u8 *arg0, void *parent) {
             p = __ct__14TAdSelectCurGCFv(p, arg0, &b, &a);
         }
         M2C_FIELD(arg0, void **, 0x1C) = p;
-        TLevelSelect__sub_802AEBE4(M2C_FIELD(arg0, void **, 0x1C), &b.x[0]);
-        TLevelSelect__sub_802AEBE4(M2C_FIELD(arg0, void **, 0x1C), &b.x[1]);
+        add_item_rect__12TLevelSelectFPvPv(M2C_FIELD(arg0, void **, 0x1C), &b.x[0]);
+        add_item_rect__12TLevelSelectFPvPv(M2C_FIELD(arg0, void **, 0x1C), &b.x[1]);
     }
     p = __nw__7TObjectFUl(0x44);
     if (p != 0) {
@@ -199,7 +199,7 @@ u8 *__ct__19TAdSelectGameModeGCFv(u8 *arg0, void *parent) {
     M2C_FIELD(arg0, void **, 0x20) = p;
     set_entry_value__22TAdMultiPlyChrSelectGCFiiUi(M2C_FIELD(arg0, s32 *, 0x20), 0, get_localized_text_entry(0x15, 0));
     set_entry_value__22TAdMultiPlyChrSelectGCFiiUi(M2C_FIELD(arg0, s32 *, 0x20), 1, get_localized_text_entry(0x15, 1));
-    TAdMcSelectGC__sub_80019DA8(arg0, 0xA, lbl_805DE538);
+    create_draw_line_ctrl__13TAdMcSelectGCFiif(arg0, 0xA, lbl_805DE538);
     return arg0;
 }
 

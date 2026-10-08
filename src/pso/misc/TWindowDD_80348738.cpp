@@ -8,14 +8,14 @@ extern "C" {
 
 void show_message_by_count__9TWindowDDFii(s32 arg0, s32 arg1);
 s32 TWindowDD__sub_803487DC();
-M2C_UNK TWindowDD__sub_80348818(M2C_UNK, s32, s32);
+M2C_UNK append_char__9TWindowDDFciPv(M2C_UNK, s32, s32);
 
 void show_message_by_count__9TWindowDDFii(s32 arg0, s32 arg1) {
     if (TWindowDD__sub_803487DC() > 0xF) {
-        TWindowDD__sub_80348818(0xA, arg0, arg1);
+        append_char__9TWindowDDFciPv(0xA, arg0, arg1);
         return;
     }
-    TWindowDD__sub_80348818(0x20, arg0, arg1);
+    append_char__9TWindowDDFciPv(0x20, arg0, arg1);
 }
 
 }

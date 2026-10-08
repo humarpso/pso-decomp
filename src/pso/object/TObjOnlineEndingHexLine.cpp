@@ -25,6 +25,27 @@ struct Self_802E5EFC { u8 pad[0x1c]; s32 timer; };
 
 typedef struct V4_802E62A4 { s32 a, b, c, d; } V4_802E62A4;
 
+struct Pos_802E57E0 { s16 x; s16 y; };
+
+struct Line_802E57E0 { u8 b[4]; };
+
+struct Hex_802E57E0 {
+    s32 f0;
+    u8 pad4[0x14];
+    void *vt;
+    Line_802E57E0 lines[32];
+    f32 f9C;
+};
+
+extern "C" {
+M2C_UNK __ct__7TObjectFP7TObject(void *, void *);
+void TObjOnlineEndingHexLine__sub_802E55A4(void *arg0, void *arg1);
+extern void *__vt__23TObjOnlineEndingHexLine[];
+extern s32 lbl_805D3FA4;
+extern const f32 lbl_805DE968;
+Hex_802E57E0 *__ct__23TObjOnlineEndingHexLineFv(Hex_802E57E0 *arg0, s32 arg1, Pos_802E57E0 *arg2);
+}
+
 extern "C" {
 
 V4_802E62A4 lbl_804E3A98[1] = {
@@ -84,13 +105,12 @@ M2C_UNK bswap_6x92__14TAdGameStartGCFPv(void *);
 M2C_UNK copy_vec2__28TWindowSubSymbolChatPartsSetFPvPv(void *, void *);
 f32 sin_table_lookup(int);
 f32 cos_table_lookup(int);
-M2C_UNK fn_801E3330(Desc_802E55B8 *, s32, s32, f32);
+M2C_UNK draw_color_lines(Desc_802E55B8 *, s32, s32, f32);
 s32 is_on_current_screen__11TCameraCtrlFPv(void *, s32);
 void send_6x92__14TAdGameStartGCFPv(Pkt_802E5EFC *);
 void TAdGameStartGC__sub_802E6368(Pkt_802E5EFC *);
 void *__nw__7TObjectFUl(int);
 M2C_UNK __ct__7TObjectFP7TObject(void *, void *);
-void *__ct__23TObjOnlineEndingHexLineFv(void *, void *, void *);
 
 void TObjOnlineEndingHexLine__sub_802E530C(void *);
 void TObjOnlineEndingHexLine__sub_802E55A4(void *arg0, void *arg1);
@@ -216,7 +236,7 @@ void render__23TObjOnlineEndingHexLineFv(u8 *arg0) {
     d.cols = cols;
     d.z = 0;
     d.n = n;
-    fn_801E3330(&d, n, 0x15, lbl_805DE964);
+    draw_color_lines(&d, n, 0x15, lbl_805DE964);
 }
 #pragma pop
 
@@ -241,11 +261,39 @@ void *__dt__23TObjOnlineEndingHexLineFv(void *arg0, s16 arg1) {
     return arg0;
 }
 
+Hex_802E57E0 *__ct__23TObjOnlineEndingHexLineFv(Hex_802E57E0 *arg0, s32 arg1, Pos_802E57E0 *arg2) {
+    s32 i;
+    ((void (*)(void *))__ct__7TObjectFP7TObject)(arg0);
+    arg0->vt = __vt__23TObjOnlineEndingHexLine;
+    arg0->f0 = lbl_805D3FA4;
+    Pos_802E57E0 pos = *arg2;
+    if (pos.y & 1) {
+        if (pos.x % 3 == 2) {
+            if (pos.x + 1 < 0x16) {
+                pos.x++;
+            } else {
+                pos.x--;
+            }
+        }
+    } else if (pos.x % 3 == 1) {
+        if (pos.x + 1 < 0x16) {
+            pos.x++;
+        } else {
+            pos.x--;
+        }
+    }
+    for (i = 0; i < 32; i++) {
+        TObjOnlineEndingHexLine__sub_802E55A4(&arg0->lines[i], &pos);
+    }
+    arg0->f9C = lbl_805DE968;
+    return arg0;
+}
+
 void * create__23TObjOnlineEndingHexLineFPvPv(void *arg0, void *arg1) {
     void *o;
     o = __nw__7TObjectFUl(0xA0);
     if (o != NULL) {
-        o = __ct__23TObjOnlineEndingHexLineFv(o, arg0, arg1);
+        o = __ct__23TObjOnlineEndingHexLineFv((Hex_802E57E0 *)(o), (s32)(arg0), (Pos_802E57E0 *)(arg1));
     }
     return o;
 }

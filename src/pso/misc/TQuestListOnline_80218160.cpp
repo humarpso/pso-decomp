@@ -4,10 +4,10 @@ struct Obj_802181B0 { u8 pad[0x20]; u32 state; };
 
 extern "C" {
 void reset_state__16TQuestListOnlineFPv(void* a0);
-void TQuestListOnline__sub_80217F88(void *);
-void TQuestListOnline__sub_80217EC4(void *);
+void build_list_window__16TQuestListOnlineFPv(void *);
+void show_info_window__16TQuestListOnlineFPv(void *);
 void TQuestListOnline__sub_80217C1C(void *);
-void TQuestListOnline__sub_802178E4(void *);
+void handle_quest_confirm__16TQuestListOnlineFPv(void *);
 int run_task__16TQuestListOnlineFPv(void *);
 void request_quest_list__16TQuestListOnlineFi(s32);
 void TQuestListOnline__sub_80217B30(void *);
@@ -33,10 +33,10 @@ void reset_state__16TQuestListOnlineFPv(void* a0) { fn_801DB6F0((void*)(TLobby__
 void TQuestListOnline__vt9(Obj_802181B0 *arg0) {
     switch (arg0->state) {
     case 0: reset_state__16TQuestListOnlineFPv((void*)(arg0)); break;
-    case 1: TQuestListOnline__sub_80217F88(arg0); break;
-    case 2: TQuestListOnline__sub_80217EC4(arg0); break;
+    case 1: build_list_window__16TQuestListOnlineFPv(arg0); break;
+    case 2: show_info_window__16TQuestListOnlineFPv(arg0); break;
     case 3: TQuestListOnline__sub_80217C1C(arg0); break;
-    case 4: TQuestListOnline__sub_802178E4(arg0); break;
+    case 4: handle_quest_confirm__16TQuestListOnlineFPv(arg0); break;
     case 5: run_task__16TQuestListOnlineFPv(arg0); break;
     case 6: request_quest_list__16TQuestListOnlineFi((s32)arg0); break;
     case 7: TQuestListOnline__sub_80217B30(arg0); break;

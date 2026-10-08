@@ -9,7 +9,7 @@ struct SD_80281760 { s32 f0; u8 pad4[0x14]; void *vt; u8 pad1c[4]; s16 f20; u8 p
 extern "C" {
 M2C_UNK initialize_subwindow__9TWindowDDFPv(void *);
 M2C_UNK update_window_entry_list(void *, void *);
-M2C_UNK TWindowSubStatusDisp__sub_80257CB8(void *);
+M2C_UNK destroy_all_items__20TWindowSubStatusDispFPv(void *);
 M2C_UNK fn_8026C7AC(int, int);
 s32 handle_list_page_flip_input(int);
 M2C_UNK dispatch_page_update__20TWindowSubStatusDispFv(void *);
@@ -17,7 +17,7 @@ M2C_UNK dispatch_page_init__20TWindowSubStatusDispFv(void *);
 extern M2C_UNK lbl_805DD6F4;
 void TWindowSubStatusDisp__sub_80281644(u8 *arg0);
 void *alloc__23TAdSinglePlyChrSelectGCFPv(int);
-void TWindowDD__sub_802466E0(void *, void *, s16, s32);
+void construct_base__9TWindowDDFPvPvsPv(void *, void *, s16, s32);
 void *init__21TWindowSubComCardListFPviii(void *, int, int, s32);
 s32 get_window_layout_position(int);
 M2C_UNK dispatch_page_init__20TWindowSubStatusDispFv(void *);
@@ -68,7 +68,7 @@ void TWindowSubStatusDisp__sub_80281644(u8 *arg0) {
       *((s16 *) (((s8 *) arg0) + 0x60)) = *((s16 *) (((s8 *) arg0) + 0x62));
       fn_8026C7AC((int) (*((s32 *) (((s8 *) arg0) + 0x68))), (int) ((s8) (*((u8 *) (((s8 *) (((u8 *) (&lbl_805DD6F4)) + (*((s16 *) (((s8 *) arg0) + 0x60))))) + 0)))));
     }
-    TWindowSubStatusDisp__sub_80257CB8((void *) (((u8 *) arg0) + 0x24));
+    destroy_all_items__20TWindowSubStatusDispFPv((void *) (((u8 *) arg0) + 0x24));
     dispatch_page_init__20TWindowSubStatusDispFv((void *) arg0);
   }
   dispatch_page_update__20TWindowSubStatusDispFv((void *) arg0);
@@ -89,7 +89,7 @@ void *dt__20TWindowSubStatusDispFPvs(void *arg0, s16 arg1) {
 }
 SD_80281760 *TWindowSubStatusDisp__ct(SD_80281760 *arg0, s32 arg1) {
     void *w;
-    TWindowDD__sub_802466E0(arg0, __vt__20TWindowSubStatusDisp, arg1, get_window_layout_position(0x19));
+    construct_base__9TWindowDDFPvPvsPv(arg0, __vt__20TWindowSubStatusDisp, arg1, get_window_layout_position(0x19));
     arg0->vt = ((u8 *)&lbl_804D2B30);
     arg0->f0 = lbl_805D3AA0;
     arg0->f20 = arg1;

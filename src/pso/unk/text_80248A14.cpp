@@ -11,12 +11,12 @@ s32 get_cursor_pos__14TWindowSubItemFPv(s32);
 s32 is_flag_4_set__20TWindowSubStatusDispFPv(s32);
 void advance_state__20TWindowSubStatusDispFPv(s32);
 void finalize_state__20TWindowSubStatusDispFPv(s32);
-void THunterGuildSeqOffline__sub_80248A14(Obj_80248A14 *arg0, s32 arg1, s32 arg2);
+void advance_matching_entries__22THunterGuildSeqOfflineFPvii(Obj_80248A14 *arg0, s32 arg1, s32 arg2);
 }
 
 extern "C" {
 
-void THunterGuildSeqOffline__sub_80248A14(Obj_80248A14 *arg0, s32 arg1, s32 arg2) {
+void advance_matching_entries__22THunterGuildSeqOfflineFPvii(Obj_80248A14 *arg0, s32 arg1, s32 arg2) {
     s32 i;
     s32 e;
     for (i = 0; i < arg0->count; i++) {

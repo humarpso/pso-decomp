@@ -4,7 +4,7 @@ struct Desc_80290D1C { void *verts; u32 *colors; int start; int count; };
 
 extern "C" {
 M2C_UNK draw_line_list(void *, int, int);
-void TObjPlayer__sub_801E3784(void *, int, int);
+void draw_tri_fan_3d__10TObjPlayerFPviUi(void *, int, int);
 s32 __cvt_fp2unsigned(f32);
 extern M2C_UNK lbl_80464CB0[];
 extern u32 lbl_804DA97C[4];
@@ -32,7 +32,7 @@ void draw_creation_ruler_lines(f32 farg0) {
     draw_line_list(&d, 0x10, 5);
     c = __cvt_fp2unsigned(lbl_805DD95C * farg0) | 0x40400000 | 0x4000;
     lbl_804DA97C[0] = lbl_804DA97C[1] = c;
-    TObjPlayer__sub_801E3784(lbl_804DA98C, 4, 7);
+    draw_tri_fan_3d__10TObjPlayerFPviUi(lbl_804DA98C, 4, 7);
 }
 
 }

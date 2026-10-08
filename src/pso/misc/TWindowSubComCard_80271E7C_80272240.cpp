@@ -27,7 +27,7 @@ void *get_card_data_ptr__17TWindowSubComCardFPv(int);
 void *TWindowSubComCard__sub_8027523C(int);
 void *get_name__17TWindowSubComCardFPv(int);
 extern u8 lbl_805DD4F8;
-void TWindowSubComCard__sub_80272290(u8 *arg0, s32 arg1);
+void set_selected_card__17TWindowSubComCardFPvi(u8 *arg0, s32 arg1);
 }
 
 extern "C" {
@@ -35,11 +35,11 @@ extern "C" {
 s32 create_card_list__17TWindowSubComCardFiiii(s32 a0 = 0, s32 a1 = 0, s32 a2 = 0, s32 a3 = 0);
 s32 create__14TWindowComCardFPvPv(s32 a0 = 0, s32 a1 = 0);
 s32 TWindowComCard__sub_80249980(s32 a0 = 0, s32 a1 = 0, s32 a2 = 0);
-s32 TWindowSubComCard__sub_8007BC04(s32 a0 = 0);
+s32 get_card_slot__17TWindowSubComCardFi(s32 a0 = 0);
 s32 TWindowSubComCard__sub_8007A860(s32);
 s32 send_and_handle__6TLobbyFPvii(s32, s32, s32);
 int get_message_10__20TWindowSubStatusDispFPv(void*);
-int TWindowSubComCard__sub_8007A8F8(void);
+int get_card_entry__17TWindowSubComCardFi(void);
 int get_card_id__17TWindowSubComCardFPv(void);
 int TLobby__sub_802421C4(void);
 int get_selected_menu_value(void*);
@@ -55,7 +55,7 @@ void set_card_index__17TWindowSubComCardFPvi(void *arg0, s32 arg1) {
 }
 typedef char RecoveredGlobal_8034CC68_lbl_80478C3C_size[sizeof(RecoveredGlobal_8034CC68_lbl_80478C3C) == 0xC ? 1 : -1];
 
-void TWindowSubComCard__sub_80272290(u8 *arg0, s32 arg1) {
+void set_selected_card__17TWindowSubComCardFPvi(u8 *arg0, s32 arg1) {
     u8 *temp_r31;
     s32 temp_r30;
     Rec_80272290 *cnt;

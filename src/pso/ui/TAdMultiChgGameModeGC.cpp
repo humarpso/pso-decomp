@@ -42,18 +42,18 @@ s32 get_selected_slot__23TAdSinglePlyChrSelectGCFPv(int);
 s32 TAdSinglePlyChrSelectGC__sub_801334DC(int);
 s32 test_flag_4c__23TAdSinglePlyChrSelectGCFPv(void *, int);
 s32 TWindowShortListCtrl__check_controller_button(void *, int);
-s32 TAdMultiChgGameModeGC__sub_8023E834();
+s32 set_default_camera__21TAdMultiChgGameModeGCFv();
 s32 set_mode_18__21TAdMultiChgGameModeGCFv();
 s32 set_mode_state_0e__21TAdMultiChgGameModeGCFv();
 s32 set_mode_state_0d__21TAdMultiChgGameModeGCFv();
 s32 request_scene_change__21TAdMultiChgGameModeGCFv();
 s32 set_entry_value__22TAdMultiPlyChrSelectGCFiiUi(int, int, int);
-s32 TAdMultiPlyChrSelectGC__sub_802C6A10();
+s32 reset_slot_selections__22TAdMultiPlyChrSelectGCFv();
 s32 check_players_ready__21TAdMultiChgGameModeGCFv(void *);
 extern RecoveredGlobal_802FFCE4_lbl_8050E208 lbl_8050E208;
 extern s32 lbl_805D69E8;
 void run_task__21TAdMultiChgGameModeGCFv(RecoveredFields_802FFCE4_arg0 *arg0);
-void TAdMcSelectGC__sub_80019DA8(void *, s32, f32);
+void create_draw_line_ctrl__13TAdMcSelectGCFiif(void *, s32, f32);
 void *__nw__7TObjectFUl(u32);
 void __ct__7TObjectFP7TObject(void *);
 void __ct__9TAdBackGCFv(void *, void *);
@@ -62,7 +62,7 @@ void __ct__8TAdRayGCFv(void *, void *);
 void __ct__10TAdTitleGCFv(void *, void *, s32);
 void __ct__14TAdSelectTxtGCFv(void *, void *, void *, s32);
 void __ct__13TAdTitleTexGCFv(void *, void *);
-void TLevelSelect__sub_802AEBE4(void *, void *);
+void add_item_rect__12TLevelSelectFPvPv(void *, void *);
 void *__ct__14TAdSelectCurGCFv(void *, void *, void *, void *);
 void *__ct__13TAdGuideTxtGCFv(void *, void *);
 void set_ad_field__6TLobbyFPvi(void *, s32);
@@ -106,7 +106,7 @@ void run_task__21TAdMultiChgGameModeGCFv(RecoveredFields_802FFCE4_arg0 *arg0) {
   s32 temp_r3;
   s32 *new_var;
   s32 temp_r4;
-  TAdMultiChgGameModeGC__sub_8023E834();
+  set_default_camera__21TAdMultiChgGameModeGCFv();
   arg0->field_20 = TAdSinglePlyChrSelectGC__sub_801334DC((int) arg0->field_2C);
   temp_r4 = arg0->field_20;
   new_var = &arg0->field_2C;
@@ -128,7 +128,7 @@ void run_task__21TAdMultiChgGameModeGCFv(RecoveredFields_802FFCE4_arg0 *arg0) {
         set_mode_state_0d__21TAdMultiChgGameModeGCFv();
         break;
       case 1:
-        TAdMultiPlyChrSelectGC__sub_802C6A10();
+        reset_slot_selections__22TAdMultiPlyChrSelectGCFv();
         lbl_805D69E8 = 1;
         set_mode_18__21TAdMultiChgGameModeGCFv();
         break;
@@ -191,9 +191,9 @@ Obj_802FFE58 *__ct__21TAdMultiChgGameModeGCFv(Obj_802FFE58 *self) {
                 p = __ct__14TAdSelectCurGCFv(p, self, &pos, &cur);
             }
             self->f2C = p;
-            TLevelSelect__sub_802AEBE4(self->f2C, &pos.v[0]);
-            TLevelSelect__sub_802AEBE4(self->f2C, &pos.v[2]);
-            TLevelSelect__sub_802AEBE4(self->f2C, &pos.v[4]);
+            add_item_rect__12TLevelSelectFPvPv(self->f2C, &pos.v[0]);
+            add_item_rect__12TLevelSelectFPvPv(self->f2C, &pos.v[2]);
+            add_item_rect__12TLevelSelectFPvPv(self->f2C, &pos.v[4]);
         }
     }
     set_ad_field__6TLobbyFPvi(self->f2C, self->f20);
@@ -202,7 +202,7 @@ Obj_802FFE58 *__ct__21TAdMultiChgGameModeGCFv(Obj_802FFE58 *self) {
         p = __ct__13TAdGuideTxtGCFv(p, self);
     }
     self->f28 = p;
-    TAdMcSelectGC__sub_80019DA8(self, 0xF, lbl_805DEF38);
+    create_draw_line_ctrl__13TAdMcSelectGCFiif(self, 0xF, lbl_805DEF38);
     return self;
 }
 

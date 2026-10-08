@@ -82,8 +82,6 @@ extern "C" {
 int strncmp(const char *, const char *, unsigned long);
 char *strncpy(char *, const char *, unsigned long);
 int atoi(const char *);
-s32 TQuestVmDownLoadServer__sub_803F7058(char *, u32);
-s32 TQuestVmDownLoadServer__sub_803F70C0(char *, u32);
 void TQuestVmDownLoadServer__sub_803F7128(char *, char *, u32, int);
 extern char lbl_805A8C08[];
 extern char lbl_805D4710[8];
@@ -140,7 +138,15 @@ extern char lbl_805D47E8[4];
 extern char lbl_805D47EC[4];
 extern s32 lbl_805D79E8;
 extern u32 lbl_805D79EC;
-s32 TQuestVmDownLoadServer__sub_803F63F0(char *s, u32 n, Q_803F63F0 *q);
+s32 parse_config_line__22TQuestVmDownLoadServerFPvUiPv(char *s, u32 n, Q_803F63F0 *q);
+char *strncpy(char *, const char *, unsigned long);
+int atoi(const char *);
+extern s32 lbl_805D79E8;
+s32 TQuestVmDownLoadServer__sub_803F7058(char *s, u32 n);
+char *strncpy(char *, const char *, unsigned long);
+s32 fn_803F71BC(char *);
+extern s32 lbl_805D79E8;
+s32 TQuestVmDownLoadServer__sub_803F70C0(char *s, u32 n);
 }
 
 extern "C" {
@@ -151,7 +157,7 @@ extern "C" {
 #define GET(f) TQuestVmDownLoadServer__sub_803F7058(s, n)
 #define GETL() TQuestVmDownLoadServer__sub_803F70C0(s, n)
 #define CPY(dst, len) TQuestVmDownLoadServer__sub_803F7128(dst, s, n, len)
-s32 TQuestVmDownLoadServer__sub_803F63F0(char *s, u32 n, Q_803F63F0 *q) {
+s32 parse_config_line__22TQuestVmDownLoadServerFPvUiPv(char *s, u32 n, Q_803F63F0 *q) {
     char buf[8];
     s32 i;
     lbl_805D79E8 = 0;
@@ -165,13 +171,13 @@ s32 TQuestVmDownLoadServer__sub_803F63F0(char *s, u32 n, Q_803F63F0 *q) {
     buf[4] = 0;
     i = atoi(&buf[3]);
     if (strncmp(s, lbl_805D4710, 4) == 0) {
-        q->v0 = TQuestVmDownLoadServer__sub_803F7058(s, n);
+        q->v0 = TQuestVmDownLoadServer__sub_803F7058((char *)(s), (u32)(n));
     } else if (strncmp(s, lbl_805D4718, 4) == 0) {
-        q->v2 = TQuestVmDownLoadServer__sub_803F7058(s, n);
+        q->v2 = TQuestVmDownLoadServer__sub_803F7058((char *)(s), (u32)(n));
     } else if (strncmp(s, lbl_805D4720, 4) == 0) {
-        q->v4 = TQuestVmDownLoadServer__sub_803F7058(s, n);
+        q->v4 = TQuestVmDownLoadServer__sub_803F7058((char *)(s), (u32)(n));
     } else if (strncmp(s, lbl_805D4728, 4) == 0) {
-        q->v6 = TQuestVmDownLoadServer__sub_803F7058(s, n);
+        q->v6 = TQuestVmDownLoadServer__sub_803F7058((char *)(s), (u32)(n));
     }
     if (lbl_805D79E8 == 0 && i < 6) {
         if (strncmp(s, lbl_805D4730, 3) == 0) {
@@ -290,6 +296,40 @@ s32 TQuestVmDownLoadServer__sub_803F63F0(char *s, u32 n, Q_803F63F0 *q) {
         lbl_805A8C08[lbl_805D79EC] = 0;
     }
     return 0;
+}
+#pragma pop
+
+#pragma push
+#pragma peephole off
+#pragma scheduling off
+s32 TQuestVmDownLoadServer__sub_803F7058(char *s, u32 n) {
+    char buf[0x20];
+    s32 r;
+    if (n > 0x20) {
+        return 0;
+    }
+    strncpy(buf, s, n);
+    buf[n] = 0;
+    r = atoi(&buf[5]);
+    lbl_805D79E8 = 1;
+    return r;
+}
+#pragma pop
+
+#pragma push
+#pragma peephole off
+#pragma scheduling off
+s32 TQuestVmDownLoadServer__sub_803F70C0(char *s, u32 n) {
+    char buf[0x20];
+    s32 r;
+    if (n > 0x20) {
+        return 0;
+    }
+    strncpy(buf, s, n);
+    buf[n] = 0;
+    r = fn_803F71BC(&buf[5]);
+    lbl_805D79E8 = 1;
+    return r;
 }
 #pragma pop
 

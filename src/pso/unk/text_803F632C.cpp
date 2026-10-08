@@ -2,7 +2,7 @@
 extern "C" {
 int strncmp(const char *, const char *, u32);
 u32 strlen(const char *);
-void TQuestVmDownLoadServer__sub_803F63F0(char *, int, void *);
+void parse_config_line__22TQuestVmDownLoadServerFPvUiPv(char *, int, void *);
 extern char lbl_804FD338[];
 extern s32 lbl_805D79EC;
 s32 fn_803F632C(char *buf, u32 len, void *arg2);
@@ -26,7 +26,7 @@ s32 fn_803F632C(char *buf, u32 len, void *arg2) {
     for (i = 4; i < len; i++) {
         if (buf[i] == '\r') {
             if (buf[i + 1] == '\n') {
-                TQuestVmDownLoadServer__sub_803F63F0(buf + start, i - start, arg2);
+                parse_config_line__22TQuestVmDownLoadServerFPvUiPv(buf + start, i - start, arg2);
                 start = i + 2;
             }
         }

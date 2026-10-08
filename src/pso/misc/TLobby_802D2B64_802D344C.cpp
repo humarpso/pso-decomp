@@ -22,10 +22,10 @@ extern s8 TLobby__data_805D688A;
 extern s8 TLobby__data_805D688B;
 extern s32 TLobby__data_805D688C;
 void TLobby__sub_802D36E0(void *arg0);
-s32 TWindowTradeRequest__sub_80249FCC();
+s32 close_request_window__19TWindowTradeRequestFv();
 void reset__6TLobbyFv(void);
 void TLobby__sub_802D361C(O_802D361C *self);
-s32 TWindowTradeRequest__sub_80249FCC();
+s32 close_request_window__19TWindowTradeRequestFv();
 void reset__6TLobbyFv(void);
 void TLobby__sub_802D3654(O_802D3654 *self);
 }
@@ -85,7 +85,7 @@ void update_flag_by_state__6TLobbyFPv(void *arg0) {
 void TLobby__sub_802D361C(O_802D361C *self) {
     switch (self->state) {
     case 0:
-        TWindowTradeRequest__sub_80249FCC();
+        close_request_window__19TWindowTradeRequestFv();
         reset__6TLobbyFv();
         break;
     case 1:
@@ -99,7 +99,7 @@ void TLobby__sub_802D3654(O_802D3654 *self) {
     case 3:
         break;
     case 4:
-        TWindowTradeRequest__sub_80249FCC();
+        close_request_window__19TWindowTradeRequestFv();
         reset__6TLobbyFv();
         break;
     }

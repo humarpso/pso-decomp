@@ -14,7 +14,7 @@ s32 text_builder_reset();
 s32 set_entry_display_value__20TWindowSubStatusDispFPvi(void *, int);
 extern s32 lbl_805D63E8;
 extern M2C_UNK lbl_805DCAB8;
-void TWindowSubStatusDisp__sub_80244494(s32 arg0, s32 arg1, s32 arg2);
+void set_count_ratio_text__20TWindowSubStatusDispFiii(s32 arg0, s32 arg1, s32 arg2);
 }
 
 extern "C" {
@@ -22,7 +22,7 @@ extern "C" {
 void *construct_with_parent__15TWindowAdditionFPvPv(void *arg0, void *arg1);
 void *destroy_window__15TWindowAdditionFPvs(void *arg0, s16 arg1);
 void TWindowAddition__ct(void *, void *);
-void TWindowDD__sub_802466E0(void *);
+void construct_base__9TWindowDDFPvPvsPv(void *);
 void __dl__7TObjectFPv(void *);
 void destroy_window_base__9TWindowDDFPvs(void *, int);
 
@@ -42,12 +42,12 @@ void *destroy_window__15TWindowAdditionFPvs(void *arg0, s16 arg1) {
 extern M2C_UNK lbl_804CDFE8[];
 
 void *construct_with_parent__15TWindowAdditionFPvPv(void *arg0, void *arg1) {
-    TWindowDD__sub_802466E0(arg0);
+    construct_base__9TWindowDDFPvPvsPv(arg0);
     M2C_FIELD(arg0, M2C_UNK **, 0x18) = lbl_804CDFE8;
     TWindowAddition__ct(arg0, arg1);
     return arg0;
 }
-void TWindowSubStatusDisp__sub_80244494(s32 arg0, s32 arg1, s32 arg2) {
+void set_count_ratio_text__20TWindowSubStatusDispFiii(s32 arg0, s32 arg1, s32 arg2) {
     text_builder_reset();
     text_builder_append((void *) (TQuestVmDownLoadServer__sub_8006EF6C(0x67)));
     append_text_space();

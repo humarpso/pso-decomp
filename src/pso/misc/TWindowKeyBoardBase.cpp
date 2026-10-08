@@ -15,7 +15,7 @@ u8 * TWindowKeyBoardBase__sub_8008116C(void *);
 int alloc_buffer__11TOBoss4RockFPv(void *);
 u8 * get_window_layout_position(s32);
 M2C_UNK init_keyboard_text_buffer(void *, int, int);
-M2C_UNK TWindowDD__sub_802466E0(void *, void *, int, int);
+M2C_UNK construct_base__9TWindowDDFPvPvsPv(void *, void *, int, int);
 M2C_UNK init_keyboard_text_field(void *, int, int);
 extern RecoveredGlobal_8025E9E4_lbl_804CFA70 lbl_804CFA70;
 extern M2C_UNK __vt__19TWindowKeyBoardBase[];
@@ -25,12 +25,12 @@ u8 *TWindowKeyBoardBase__ct(u8 *arg0);
 M2C_UNK TLobby__sub_8001D600(M2C_UNK, s32, s32, s32);
 M2C_UNK safe_free__23TAdSinglePlyChrSelectGCFUi(s32);
 s32 set_stream_and_load_file__6TLobbyFi(M2C_UNK *);
-s32 TLobby__sub_800FD944(M2C_UNK *);
+s32 get_resource_file_size__6TLobbyFPv(M2C_UNK *);
 s32 Dolphin_ARAlloc(s32);
 M2C_UNK TQuestVmDownLoadServer__sub_803F09A4();
 M2C_UNK TQuestVmDownLoadServer__sub_803F0C04(s32, s32, M2C_UNK, M2C_UNK, M2C_UNK);
 extern M2C_UNK lbl_8044F098[];
-void TLobby__sub_8025EAD4(void);
+void load_ask_dictionary__6TLobbyFv(void);
 }
 
 extern "C" {
@@ -81,7 +81,7 @@ void *__dt__19TWindowKeyBoardBaseFv(void *arg0, s16 arg1) {
 }
 u8 *TWindowKeyBoardBase__ct(u8 *arg0) {
     s32 temp_r31;
-    TWindowDD__sub_802466E0((void *) (arg0), (void *) (&lbl_804CFA70.value), (int) (4), (int) (get_window_layout_position(0xB7)));
+    construct_base__9TWindowDDFPvPvsPv((void *) (arg0), (void *) (&lbl_804CFA70.value), (int) (4), (int) (get_window_layout_position(0xB7)));
     M2C_FIELD(arg0, M2C_UNK **, 0x18) = &(*(RecoveredGlobal_8025E9E4___vt__19TWindowKeyBoardBase *)&__vt__19TWindowKeyBoardBase).value;
     TWindowKeyBoardBase__sub_8008116C(arg0 + 0x6C);
     TWindowKeyBoardBase__sub_8008116C(arg0 + 0x84);
@@ -105,12 +105,12 @@ u8 *TWindowKeyBoardBase__ct(u8 *arg0) {
     }
     return arg0;
 }
-void TLobby__sub_8025EAD4(void) {
+void load_ask_dictionary__6TLobbyFv(void) {
     s32 data;
     s32 size;
     s32 aligned;
     s32 aram;
-    size = TLobby__sub_800FD944(lbl_8044F098);
+    size = get_resource_file_size__6TLobbyFPv(lbl_8044F098);
     aligned = (size + 0x1F) & ~0x1F;
     aram = Dolphin_ARAlloc(aligned);
     data = set_stream_and_load_file__6TLobbyFi(lbl_8044F098);

@@ -116,7 +116,7 @@ void TObjPlayer__sub_802D564C(Pl_802D564C *arg0);
 f32 sin_table_lookup(int);
 f32 cos_table_lookup(int);
 M2C_UNK TObjPlayer__sub_803D8BFC(int, void *, int);
-M2C_UNK TObjPlayer__sub_803D8CD4(int);
+M2C_UNK set_matrix_identity__10TObjPlayerFPv(int);
 M2C_UNK transform_point_by_current_matrix(void *, void *);
 void push_matrix(void);
 void pop_matrix(void);
@@ -226,7 +226,7 @@ void TObjPlayer__sub_802D577C(void *arg0_) {
             b.x = cos_table_lookup(ang2);
             b.y = sin_table_lookup(ang2);
             push_matrix();
-            TObjPlayer__sub_803D8CD4(0);
+            set_matrix_identity__10TObjPlayerFPv(0);
             post_translate_matrix(q);
             TObjPlayer__sub_803D8BFC(0, &b, ang);
             transform_point_by_current_matrix(&a, p);

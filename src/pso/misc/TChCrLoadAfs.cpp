@@ -38,7 +38,7 @@ struct Ld_8028BE00 {
 extern "C" {
 u32 alloc__22TQuestVmDownLoadServerFPv(s32);
 s32 TLobby__sub_803CC53C(u32);
-s32 TLobby__sub_803CCB5C(u32, s32, u32);
+s32 read_checked_align__6TLobbyFiii(u32, s32, u32);
 u32 adxf_open_afs__6TLobbyFii(s32, s32);
 extern Te_8028BFA4 lbl_804D88B8[];
 void start_read__22TChCrLoadAfsTextureReqFPv(Cl_8028BFA4 *arg0);
@@ -61,7 +61,7 @@ void update_loading__22TChCrLoadAfsTextureReqFPv(Ld_8028BE00 *arg0);
 
 extern "C" {
 int TLobby__sub_803CC4C0(int);
-int TLobby__sub_803CC980(int);
+int adxf_stop__6TLobbyFPv(int);
 int TLobby__sub_803CCE9C(int);
 int safe_free__23TAdSinglePlyChrSelectGCFUi(int);
 int release_load_slot__12TChCrLoadAfsFPv(void *);
@@ -81,7 +81,7 @@ void start_download__12TChCrLoadAfsFPv(void *arg0);
 void TChCrLoadAfs__sub_8028B940(void);
 void TChCrLoadAfs__sub_8028B944(void);
 s32 TLobby__sub_803CC53C(u32);
-s32 TLobby__sub_803CCB5C(u32, s32, u32);
+s32 read_checked_align__6TLobbyFiii(u32, s32, u32);
 u32 adxf_open_afs__6TLobbyFii(s32, s32);
 void __ct__7TObjectFP7TObject(void *);
 void *__nw__7TObjectFUl(int);
@@ -107,7 +107,7 @@ void start_download__12TChCrLoadAfsFPv(void *arg0) {
             M2C_FIELD(arg0, s32 *, 0x2C) = 3;
             return;
         }
-        TLobby__sub_803CCB5C(M2C_FIELD(arg0, u32 *, 0x1C), temp_r3_2, M2C_FIELD(arg0, u32 *, 0x28));
+        read_checked_align__6TLobbyFiii(M2C_FIELD(arg0, u32 *, 0x1C), temp_r3_2, M2C_FIELD(arg0, u32 *, 0x28));
         M2C_FIELD(arg0, s32 *, 0x2C) = 1;
     }
 }
@@ -153,7 +153,7 @@ void TChCrLoadAfs::run_task() {
 TChCrLoadAfs::~TChCrLoadAfs() {
     u32 handle = load_handle;
     if (handle != 0) {
-        if (TLobby__sub_803CC4C0((int)handle) == 2) TLobby__sub_803CC980((int)load_handle);
+        if (TLobby__sub_803CC4C0((int)handle) == 2) adxf_stop__6TLobbyFPv((int)load_handle);
         TLobby__sub_803CCE9C((int)load_handle);
         load_handle = 0;
     }
@@ -294,7 +294,7 @@ void start_read__22TChCrLoadAfsTextureReqFPv(Cl_8028BFA4 *arg0) {
         buf = ((void *)alloc__22TQuestVmDownLoadServerFPv((s32)(n << 11)));
         arg0->bufs[arg0->f5c] = buf;
         if (buf != NULL) {
-            TLobby__sub_803CCB5C((u32)(arg0->f60), (s32)(n), (u32)(arg0->bufs[arg0->f5c]));
+            read_checked_align__6TLobbyFiii((u32)(arg0->f60), (s32)(n), (u32)(arg0->bufs[arg0->f5c]));
             arg0->f2c = 2;
         }
     }

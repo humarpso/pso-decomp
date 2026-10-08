@@ -2,7 +2,7 @@
 struct Obj_802AEBA8 { u8 pad[0xa4]; s32 a4; s32 a8; s32 ac; u8 pad2[0x6bc - 0xb0]; s32 arr[16]; s32 f6fc; s32 f700; };
 
 extern "C" {
-void TAdEnterSerialAccessGC__sub_802AEBA8(Obj_802AEBA8 *self);
+void reset_input_state__22TAdEnterSerialAccessGCFPv(Obj_802AEBA8 *self);
 typedef struct { f32 x, y; } V2_802AEBE4;
 typedef struct { f32 x, y, x2, y2; f32 pad[4]; } Quad_802AEBE4;
 
@@ -27,7 +27,7 @@ extern const f32 lbl_805DE1DC;
 
 extern "C" {
 
-void TAdEnterSerialAccessGC__sub_802AEBA8(Obj_802AEBA8 *self) {
+void reset_input_state__22TAdEnterSerialAccessGCFPv(Obj_802AEBA8 *self) {
     s32 i;
     self->a4 = 0;
     self->a8 = 0;
@@ -37,7 +37,7 @@ void TAdEnterSerialAccessGC__sub_802AEBA8(Obj_802AEBA8 *self) {
     for (i = 0; i < 16; i++) self->arr[i] = 0;
 }
 
-void TLevelSelect__sub_802AEBE4(Obj_802AEBE4 *self, void *src) {
+void add_item_rect__12TLevelSelectFPvPv(Obj_802AEBE4 *self, void *src) {
     if (self->count < 16) {
         copy_vec2__28TWindowSubSymbolChatPartsSetFPvPv(&self->pts[self->count], src);
         self->q0[self->count].x = lbl_805DE1D8 + self->pts[self->count].x;

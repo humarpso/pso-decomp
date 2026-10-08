@@ -338,7 +338,7 @@ void render__13TObjEneRe4BitFv(Bit_800ECA40 *self);
 extern "C" {
 
 void reset_transform__13TObjEneRe4BitFPv(void *arg0);
-void TObjEneDD__sub_800BA934(void *);
+void transform_part_positions__9TObjEneDDFPv(void *);
 M2C_UNK transition_enemy_state(void *, M2C_UNK);
 void VecCopy__FP3VecPC3Vec(void *, void *);
 M2C_UNK set_field_378__9TObjEneDDFPvi(void *, M2C_UNK);
@@ -628,7 +628,7 @@ void reset_transform__13TObjEneRe4BitFPv(void *arg0) {
     M2C_FIELD(arg0, f32 *, 0x3FC) = TObjEneRe4Bit__data_805DA770;
     M2C_FIELD(arg0, f32 *, 0x400) = TObjEneRe4Bit__data_805DA770;
     update_position_flag__13TObjEneRe4BitFPv((void *)(arg0));
-    TObjEneDD__sub_800BA934(arg0);
+    transform_part_positions__9TObjEneDDFPv(arg0);
 }
 
 }

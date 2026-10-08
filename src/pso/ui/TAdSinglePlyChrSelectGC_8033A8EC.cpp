@@ -62,10 +62,10 @@ s32 send_and_handle__6TLobbyFPvii(s32, s32, s32);
 void set_char_slots__23TAdSinglePlyChrSelectGCFPvii(void *arg0, s32 arg1, s32 arg2);
 int request_queued_main_phase(void*);
 int TAdSinglePlyChrSelectGC__sub_8033B244(void* p);
-M2C_UNK TLobby__sub_800FD6A0(void *, int);
+M2C_UNK call_funcs_reverse__6TLobbyFPvUi(void *, int);
 M2C_UNK render_tick__Fv();
 M2C_UNK set_and_notify__6TLobbyFi(int);
-M2C_UNK TLobby__sub_8022743C();
+M2C_UNK stop_audio_streams__6TLobbyFv();
 M2C_UNK delete_all_task_children__9TMainTaskFv(void *);
 extern RecoveredGlobal_8033B264_lbl_804EF728 lbl_804EF728;
 extern RecoveredGlobal_8033B264_main_task main_task;
@@ -96,7 +96,7 @@ M2C_UNK TAdSinglePlyChrSelectGC__sub_8033B5F0(void *);
 int TAdSinglePlyChrSelectGC__sub_8033B244(void* p);
 extern s32 tl_fade;
 void TAdSinglePlyChrSelectGC__sub_8033AA64(O_8033AA64 *arg0);
-s32 TAdPlayerLoadGC__sub_801E21A8(int, void *, int);
+s32 get_card_file_info__15TAdPlayerLoadGCFiPvPv(int, void *, int);
 s32 query_memcard_capacity__15TAdPlayerLoadGCFi(int, int);
 void set_char_slots__23TAdSinglePlyChrSelectGCFPvii(void *arg0, s32 arg1, s32 arg2);
 void init_warps__23TAdSinglePlyChrSelectGCFPv(void* a0);
@@ -107,7 +107,7 @@ s32 get_instance__15TAdPlayerLoadGCFv(void);
 s32 init__22THunterGuildSeqOfflineFPvPvPv(u32, int, void *);
 s32 get_load_result__15TAdPlayerLoadGCFv(s32);
 s32 TAdPlayerLoadGC__sub_801E1B50(s32);
-s32 TAdPlayerLoadGC__sub_801E1E38(s32);
+s32 probe_card_slot__15TAdPlayerLoadGCFi(s32);
 u32 __nw__7TObjectFUl(int);
 void set_char_slots__23TAdSinglePlyChrSelectGCFPvii(void *arg0, s32 arg1, s32 arg2);
 void close_window__23TAdSinglePlyChrSelectGCFPv(void *arg0);
@@ -116,13 +116,13 @@ M2C_UNK TAdSinglePlyChrSelectGC__sub_8033B5F0(void *);
 int TAdSinglePlyChrSelectGC__sub_8033B244(void* p);
 extern s32 tl_fade;
 extern s32 lbl_805D6D90;
-void TAdSinglePlyChrSelectGC__sub_8033AB04(O_8033AB04 *arg0);
+void handle_player_load__23TAdSinglePlyChrSelectGCFPv(O_8033AB04 *arg0);
 s8 get_chr_select_state__23TAdSinglePlyChrSelectGCFv(void);
 s32 TAdSinglePlyChrSelectGC__sub_8001C5F0(void);
 s32 get_instance__15TAdPlayerLoadGCFv(void);
 s32 get_load_result__15TAdPlayerLoadGCFv(s32);
 s32 TAdPlayerLoadGC__sub_801E1B50(s32);
-s32 TAdPlayerLoadGC__sub_801E1E38(s32);
+s32 probe_card_slot__15TAdPlayerLoadGCFi(s32);
 void check_ready__23TAdSinglePlyChrSelectGCFv(void);
 void set_char_slots__23TAdSinglePlyChrSelectGCFPvii(void *arg0, s32 arg1, s32 arg2);
 void init_warps__23TAdSinglePlyChrSelectGCFPv(void* a0);
@@ -136,7 +136,7 @@ M2C_UNK activate_camera_mode(int);
 s32 is_ready__22TQuestVmDownLoadServerFv();
 M2C_UNK TLobby__sub_800FA464();
 s8 func_801A5E54__Fv();
-M2C_UNK TKeyBoardControl__sub_801A5EC4();
+M2C_UNK update_input_frame__16TKeyBoardControlFv();
 M2C_UNK controller_stuff__Fv();
 M2C_UNK render_tick__Fv();
 M2C_UNK run_save_load_sequence__23TAdSinglePlyChrSelectGCFv();
@@ -151,7 +151,7 @@ extern V3_8033B2AC lbl_80477D78[];
 extern V3_8033B2AC lbl_80477D84[];
 extern RecoveredGlobal_8033B264_main_task main_task;
 extern s32 lbl_805D6D90;
-void TAdSinglePlyChrSelectGC__sub_8033B2AC(void);
+void run_frame__23TAdSinglePlyChrSelectGCFv(void);
 M2C_UNK TKeyBoardControl__sub_8000F90C(int);
 M2C_UNK set_active_camera_pose(void *, void *);
 M2C_UNK select_active_controller__11TCameraCtrlFc(int);
@@ -180,12 +180,12 @@ s32 TQuestVmDownLoadServer__sub_8006EF6C(s32);
 u32 alloc__23TAdSinglePlyChrSelectGCFPv(int);
 s32 TAdPlayerLoadGC__sub_801E1B50(s32);
 M2C_UNK register_callback__23TAdSinglePlyChrSelectGCFis(int, int);
-u32 TAdSinglePlyChrSelectGC__sub_801FC900();
+u32 init_char_slots__23TAdSinglePlyChrSelectGCFi();
 int TAdSinglePlyChrSelectGC__sub_801FCD3C(void *);
 s32 TAdSinglePlyChrSelectGC__sub_801FD8B8(int, int, int, int);
-M2C_UNK TAdSinglePlyChrSelectGC__sub_80200560(int);
+M2C_UNK decrypt_char_data__23TAdSinglePlyChrSelectGCFPv(int);
 M2C_UNK encrypt_save_data__23TAdSinglePlyChrSelectGCFPvPv(int);
-M2C_UNK TAdSinglePlyChrSelectGC__sub_80200A44(int);
+M2C_UNK save_character_file__23TAdSinglePlyChrSelectGCFi(int);
 s32 init_and_register__23TAdSinglePlyChrSelectGCFi(int);
 s32 get_field_118__22TAdEnterSerialAccessGCFv();
 s32 get_card_window__17TWindowSubComCardFUi(int);
@@ -196,7 +196,7 @@ void init_warps__23TAdSinglePlyChrSelectGCFPv(void* a0);
 void TAdSinglePlyChrSelectGC__sub_8033B9C4(s32);
 M2C_UNK memcpy(int, void *, int);
 extern s32 lbl_805D6D90;
-void TAdSinglePlyChrSelectGC__sub_8033AE30(u8 *arg0);
+void handle_load_result__23TAdSinglePlyChrSelectGCFPv(u8 *arg0);
 int queue_destruction__7TObjectFv(void*);
 s32 init__22THunterGuildSeqOfflineFPvPvPv(u32, int, void *);
 u32 __nw__7TObjectFUl(int);
@@ -267,9 +267,9 @@ void TAdSinglePlyChrSelectGC__sub_8033AA64(O_8033AA64 *arg0) {
     }
 }
 
-void TAdSinglePlyChrSelectGC__sub_8033AB04(O_8033AB04 *arg0) {
+void handle_player_load__23TAdSinglePlyChrSelectGCFPv(O_8033AB04 *arg0) {
     u32 p;
-    if (TAdPlayerLoadGC__sub_801E1E38(arg0->f24) == 0) {
+    if (probe_card_slot__15TAdPlayerLoadGCFi(arg0->f24) == 0) {
         arg0->f2C = 0;
         TAdSinglePlyChrSelectGC__sub_8033B5F0(arg0);
         return;
@@ -311,7 +311,7 @@ void update_setup__23TAdSinglePlyChrSelectGCFPv(void *arg0) {
 }
 
 void TAdSinglePlyChrSelectGC__sub_8033AC44(O_8033AC44 *arg0) {
-    switch (TAdPlayerLoadGC__sub_801E21A8(arg0->f24, lbl_804C89BC, 0)) {
+    switch (get_card_file_info__15TAdPlayerLoadGCFiPvPv(arg0->f24, lbl_804C89BC, 0)) {
     case 0:
         arg0->f2c = 7;
         break;
@@ -331,7 +331,7 @@ void TAdSinglePlyChrSelectGC__sub_8033AC44(O_8033AC44 *arg0) {
 }
 
 void TAdSinglePlyChrSelectGC__sub_8033ACF4(O_8033ACF4 *arg0) {
-    if (TAdPlayerLoadGC__sub_801E1E38(arg0->f24) == 0) {
+    if (probe_card_slot__15TAdPlayerLoadGCFi(arg0->f24) == 0) {
         arg0->f2C = 0;
         TAdSinglePlyChrSelectGC__sub_8033B5F0(arg0);
         return;
@@ -371,7 +371,7 @@ void update_select_state__23TAdSinglePlyChrSelectGCFPv(void *arg0) {
     TAdSinglePlyChrSelectGC__sub_8033B5F0(arg0);
 }
 
-void TAdSinglePlyChrSelectGC__sub_8033AE30(u8 *arg0) {
+void handle_load_result__23TAdSinglePlyChrSelectGCFPv(u8 *arg0) {
     s32 r;
     s32 cw;
     s32 inst;
@@ -383,10 +383,10 @@ void TAdSinglePlyChrSelectGC__sub_8033AE30(u8 *arg0) {
         src = M2C_FIELD(arg0, s32 *, 0x20);
         obj = alloc__23TAdSinglePlyChrSelectGCFPv(0x1156C);
         if (obj != 0U) {
-            obj = TAdSinglePlyChrSelectGC__sub_801FC900();
+            obj = init_char_slots__23TAdSinglePlyChrSelectGCFi();
         }
         memcpy(obj, (void *)(src + 0x2048), 0x1156C);
-        TAdSinglePlyChrSelectGC__sub_80200560(obj);
+        decrypt_char_data__23TAdSinglePlyChrSelectGCFPv(obj);
         if (init_and_register__23TAdSinglePlyChrSelectGCFi(obj) == 0) {
             lbl_805D6D90 &= ~1;
             send_and_handle__6TLobbyFPvii(M2C_FIELD(arg0, s32 *, 0x38), TQuestVmDownLoadServer__sub_8006EF6C(0x6D), 1);
@@ -409,7 +409,7 @@ void TAdSinglePlyChrSelectGC__sub_8033AE30(u8 *arg0) {
             } else {
                 TAdSinglePlyChrSelectGC__sub_8033B9C4(get_field_118__22TAdEnterSerialAccessGCFv());
                 encrypt_save_data__23TAdSinglePlyChrSelectGCFPvPv(get_instance__23TAdSinglePlyChrSelectGCFv());
-                TAdSinglePlyChrSelectGC__sub_80200A44(1);
+                save_character_file__23TAdSinglePlyChrSelectGCFi(1);
                 M2C_FIELD(arg0, s32 *, 0x2C) = 4;
             }
             if (obj != 0U) {
@@ -465,16 +465,16 @@ void set_char_slots__23TAdSinglePlyChrSelectGCFPvii(void *arg0, s32 arg1, s32 ar
 int TAdSinglePlyChrSelectGC__sub_8033B244(void* p) { return request_queued_main_phase(p); }
 void TAdSinglePlyChrSelectGC__sub_8033B264(void) {
     delete_all_task_children__9TMainTaskFv((void *) (&main_task.value));
-    TLobby__sub_8022743C();
+    stop_audio_streams__6TLobbyFv();
     set_and_notify__6TLobbyFi((int) (0));
-    TLobby__sub_800FD6A0((void *) (&lbl_804EF728.value), (int) (0x30));
+    call_funcs_reverse__6TLobbyFPvUi((void *) (&lbl_804EF728.value), (int) (0x30));
     render_tick__Fv();
 }
 
-void TAdSinglePlyChrSelectGC__sub_8033B2AC(void) {
+void run_frame__23TAdSinglePlyChrSelectGCFv(void) {
     func_803DCDFC__Fv();
     controller_stuff__Fv();
-    TKeyBoardControl__sub_801A5EC4();
+    update_input_frame__16TKeyBoardControlFv();
     V3_8033B2AC a = lbl_80477D78[0];
     V3_8033B2AC b = lbl_80477D84[0];
     activate_camera_mode(9);

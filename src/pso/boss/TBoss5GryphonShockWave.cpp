@@ -20,7 +20,7 @@ s32 spawn_particle_effect_with_flags(void *, s32, M2C_UNK);
 u32 spawn_continuous_particle_effect_with_flags(void *, s32, M2C_UNK);
 M2C_UNK copy_pos__11TNowLoadingFPvPv(u32, void *);
 M2C_UNK play_sound_effect(M2C_UNK, void *, M2C_UNK, M2C_UNK);
-M2C_UNK TBoss8Dragon__sub_8034D500(void *, M2C_UNK, M2C_UNK, void *, f32);
+M2C_UNK eval_bezier_curve__12TBoss8DragonFPviiPvf(void *, M2C_UNK, M2C_UNK, void *, f32);
 M2C_UNK fn_80355970(s32, s32, void *, u16);
 extern s32 lbl_805D4DA4;
 extern s32 lbl_805D4DA8;
@@ -62,7 +62,7 @@ void run_task__22TBoss5GryphonShockWaveFv(u8 *arg0) {
     case 0:
         M2C_FIELD(arg0, s32 *, 0x1C) = 1;
     case 1:
-        TBoss8Dragon__sub_8034D500(arg0 + 0x40, 3, 0, arg0 + 0x2C, (f32) M2C_FIELD(arg0, s32 *, 0x20) / (f32) M2C_FIELD(arg0, s32 *, 0x24));
+        eval_bezier_curve__12TBoss8DragonFPviiPvf(arg0 + 0x40, 3, 0, arg0 + 0x2C, (f32) M2C_FIELD(arg0, s32 *, 0x20) / (f32) M2C_FIELD(arg0, s32 *, 0x24));
         if ((u32) M2C_FIELD(arg0, u32 *, 0x3C) == 0U) {
             M2C_FIELD(arg0, u32 *, 0x3C) = spawn_continuous_particle_effect_with_flags(arg0 + 0x2C, M2C_FIELD((*(u8 * *)&lbl_805D4DC8), s32 *, 0), 0x40);
         }

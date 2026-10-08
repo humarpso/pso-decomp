@@ -44,11 +44,11 @@ extern s32 lbl_805D5660;
 extern u8 *TObjDoaEx01__data_805D5BB4;
 extern u8 *TObjDoaEx01__data_805D5BB8;
 extern s32 some_id_805c6f74;
-M2C_UNK TObjDoaEx01__sub_8018DD0C(void *arg0, s32 arg1);
+M2C_UNK draw_object_tree__11TObjDoaEx01FPvi(void *arg0, s32 arg1);
 s32 get_bml_motion(s32, M2C_UNK);
 M2C_UNK TObjFish__sub_8001EDB0(s32, M2C_UNK);
 s32 get_bml_model(s32, M2C_UNK);
-M2C_UNK TObjDoaEx01__sub_8018DD0C(void *arg0, s32 arg1);
+M2C_UNK draw_object_tree__11TObjDoaEx01FPvi(void *arg0, s32 arg1);
 M2C_UNK free_children__12TObjDoorJungFPvPv(s32, M2C_UNK);
 M2C_UNK rotate_matrix_y(M2C_UNK, s32);
 M2C_UNK push_matrix();
@@ -62,7 +62,7 @@ extern u8 *TObjDoaEx01__data_805D5BB8;
 extern const f32 TObjDoaEx01__data_805DBDA0;
 extern const f32 lbl_805DBDB4;
 extern const f32 lbl_805DBDB8;
-void TObjDoaEx01__sub_8018DEC8(u8 *arg0);
+void draw_model__11TObjDoaEx01FPv(u8 *arg0);
 }
 
 extern "C" {
@@ -95,7 +95,7 @@ extern u8 *TObjDoaEx01__data_805D5BB8;
 extern const f32 lbl_805DBDB4;
 extern const f32 lbl_805DBDB8;
 
-M2C_UNK TObjDoaEx01__sub_8018DD0C(void *arg0, s32 arg1) {
+M2C_UNK draw_object_tree__11TObjDoaEx01FPvi(void *arg0, s32 arg1) {
     NjObj_8018DD0C *obj = (NjObj_8018DD0C *)arg1;
     u32 flags = obj->evalflags;
     push_matrix();
@@ -123,11 +123,11 @@ M2C_UNK TObjDoaEx01__sub_8018DD0C(void *arg0, s32 arg1) {
         }
     }
     if (obj->child != 0) {
-        TObjDoaEx01__sub_8018DD0C(arg0, (s32)obj->child);
+        draw_object_tree__11TObjDoaEx01FPvi(arg0, (s32)obj->child);
     }
     pop_matrix();
     if (obj->sibling != 0) {
-        TObjDoaEx01__sub_8018DD0C(arg0, (s32)obj->sibling);
+        draw_object_tree__11TObjDoaEx01FPvi(arg0, (s32)obj->sibling);
     }
 }
 
@@ -143,11 +143,11 @@ void try_open__11TObjDoaEx01FPv(u8 *arg0) {
         push_matrix();
         post_translate_matrix(arg0 + 0x38);
         rotate_matrix_y(0, M2C_FIELD(arg0, s32 *, 0x60));
-        TObjDoaEx01__sub_8018DD0C((void *)(arg0), (s32)(temp_r31));
+        draw_object_tree__11TObjDoaEx01FPvi((void *)(arg0), (s32)(temp_r31));
         pop_matrix();
     }
 }
-void TObjDoaEx01__sub_8018DEC8(u8 *arg0) {
+void draw_model__11TObjDoaEx01FPv(u8 *arg0) {
     f32 temp_f31;
     s32 temp_r31;
     s32 temp_r31_2;
@@ -165,7 +165,7 @@ void TObjDoaEx01__sub_8018DEC8(u8 *arg0) {
             temp_r31 = get_bml_motion((TObjDoaEx01__data_805D5BB0), (0));
             draw_ginja_model_with_motion(get_bml_model((TObjDoaEx01__data_805D5BB0), (0)), temp_r31, temp_f31);
         } else {
-            TObjDoaEx01__sub_8018DD0C(arg0, (temp_r31));
+            draw_object_tree__11TObjDoaEx01FPvi(arg0, (temp_r31));
         }
         pop_matrix();
     }

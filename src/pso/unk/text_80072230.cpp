@@ -100,7 +100,7 @@ void *get_player_by_client_id(s32);
 extern M2C_UNK lbl_8048C9D8[];
 void handle_6x9D_set_challenge_dead_flag(Pkt_80072230 *pkt);
 s32 check_challenge_time_range__6TLobbyFi(s32);
-s32 TLobby__sub_8006F994(s32);
+s32 get_valid_slot__6TLobbyFi(s32);
 s32 mix_seed_checked__6TLobbyFi(void *);
 s32 is_flag_set__6TLobbyFv();
 M2C_UNK byteswap_challenge_time_packet__6TLobbyFPv(void *);
@@ -178,7 +178,7 @@ void handle_6x95_set_challenge_time(Pkt_80072230 *pkt) {
     byteswap_challenge_time_packet__6TLobbyFPv(pkt);
     t = pkt->val;
     idx = pkt->idx;
-    r = TLobby__sub_8006F994(t);
+    r = get_valid_slot__6TLobbyFi(t);
     if (idx < 0 || idx >= 4) {
         return;
     }

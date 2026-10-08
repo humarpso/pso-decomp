@@ -300,21 +300,21 @@ u8 * TObjEneBalClaw__ct(void *);
 M2C_UNK TObjEneBalClawClaw__ct(void *);
 s32 TObjEnemyCustom__sub_800C7860(void *);
 u8 *TObjEneBalClawClaw__sub_80091C58(u8 *arg0, M2C_UNK arg1, u8 *arg2);
-s32 TObjEneBalClawClaw__sub_80090504(void *);
+s32 update_chase_state__18TObjEneBalClawClawFPv(void *);
 s32 TObjEneBalClawClaw__sub_8009060C(void *);
 s32 TObjEneBalClawClaw__sub_800906C8(void *);
-s32 TObjEneBalClawClaw__sub_80090850(void *);
-s32 TObjEneBalClawClaw__sub_80090A70(void *);
+s32 update_move_to_target__18TObjEneBalClawClawFPv(void *);
+s32 update_follow_parent__18TObjEneBalClawClawFPv(void *);
 s32 TObjEneBalClawClaw__sub_80090D3C(void *);
 s32 action__18TObjEneBalClawClawFPv(void *);
 s32 TObjEneBalClawClaw__sub_80090ECC(void *);
 s32 TObjEneBalClawClaw__sub_80091134(void *);
 s32 TObjEneBalClawClaw__sub_80091200(void *);
-s32 TObjEneBalClawClaw__sub_80091354(void *);
-void TObjEneBalClawClaw__sub_800916A8(u8 *arg0);
+s32 update_chase__18TObjEneBalClawClawFPv(void *);
+void update_state__18TObjEneBalClawClawFPv(u8 *arg0);
 u32 lookup_entry_by_value__10TObjPlayerFPvf(void *, f32);
-void TObjPlayer__sub_803D8960(int, u32, void *, int);
-void TObjPlayer__sub_803D8CD4(void *);
+void mult_vec_array__10TObjPlayerFUii(int, u32, void *, int);
+void set_matrix_identity__10TObjPlayerFPv(void *);
 s32 rotate_matrix_y(int, int);
 void push_matrix(void);
 s32 pop_matrix();
@@ -365,7 +365,7 @@ M2C_UNK update_claw_angle__14TObjEneBalClawFPv(void *);
 M2C_UNK TObjEneBalClawClaw__sub_80090824(void *);
 M2C_UNK TObjEneBalClawClaw__sub_800914A4(void *);
 void update_attack_distance_state__18TObjEneBalClawClawFPv(u8 *arg0);
-void TObjEneBalClawClaw__sub_800916A8(u8 *arg0);
+void update_state__18TObjEneBalClawClawFPv(u8 *arg0);
 M2C_UNK TObjPlayer__sub_800C6A18(void *);
 s32 find_active_entity_by_id(int);
 s32 find_entity_by_id(int);
@@ -614,7 +614,7 @@ void update_attack_distance_state__18TObjEneBalClawClawFPv(u8 *arg0) {
 
 extern void *tl_04;
 
-void TObjEneBalClawClaw__sub_800916A8(u8 *arg0) {
+void update_state__18TObjEneBalClawClawFPv(u8 *arg0) {
   s16 temp_r0;
   void *new_var;
   void *new_var2;
@@ -628,7 +628,7 @@ void TObjEneBalClawClaw__sub_800916A8(u8 *arg0) {
         TObjEneBalClawClaw__sub_80090D3C(new_var2);
         return;
       case 1:
-        TObjEneBalClawClaw__sub_80091354(new_var);
+        update_chase__18TObjEneBalClawClawFPv(new_var);
         return;
       case 2:
         TObjEneBalClawClaw__sub_80090ECC(new_var);
@@ -647,16 +647,16 @@ void TObjEneBalClawClaw__sub_800916A8(u8 *arg0) {
         TObjEneBalClawClaw__sub_800906C8(new_var = new_var);
         return;
       case 10:
-        TObjEneBalClawClaw__sub_80090A70(new_var);
+        update_follow_parent__18TObjEneBalClawClawFPv(new_var);
         return;
       case 11:
         TObjEneBalClawClaw__sub_8009060C(new_var);
         return;
       case 8:
-        TObjEneBalClawClaw__sub_80090850(new_var);
+        update_move_to_target__18TObjEneBalClawClawFPv(new_var);
         return;
       case 12:
-        TObjEneBalClawClaw__sub_80090504(new_var);
+        update_chase_state__18TObjEneBalClawClawFPv(new_var);
         break;
     }
   }
@@ -687,14 +687,14 @@ void TObjEneBalClawClaw__sub_8009173C(u8 *arg0) {
     if ((s16) M2C_FIELD(arg0, s16 *, 0x326) != (s32) M2C_FIELD(arg0, s32 *, 0x374)) {
         if ((s32) M2C_FIELD(arg0, s32 *, 0x37C) != -1) {
             M2C_FIELD(arg0, s32 *, 0x37C) = -1;
-            TObjEneBalClawClaw__sub_800916A8(arg0);
+            update_state__18TObjEneBalClawClawFPv(arg0);
         }
         M2C_FIELD(arg0, s16 *, 0x326) = (s16) M2C_FIELD(arg0, s32 *, 0x374);
         M2C_FIELD(arg0, s32 *, 0x37C) = 0;
     }
     M2C_FIELD(arg0, s32 *, 0x2A8) = find_active_entity_by_id((int) (M2C_FIELD(arg0, u16 *, 0x338)));
     TObjPlayer__sub_800C6A18((void *) (arg0));
-    TObjEneBalClawClaw__sub_800916A8(arg0);
+    update_state__18TObjEneBalClawClawFPv(arg0);
     temp_r3_2 = M2C_FIELD(arg0, s32 *, 0x388);
     if (!(temp_r3_2 & 0x10000000)) {
         if (temp_r3_2 & 0x20000000) {
@@ -949,10 +949,10 @@ void update_claw_trail__12TObjEneBeastFPv(Obj_80091EA4 *self) {
         }
         if (entry != 0) {
             push_matrix();
-            TObjPlayer__sub_803D8CD4(0);
+            set_matrix_identity__10TObjPlayerFPv(0);
             post_translate_matrix(&self->pos);
             rotate_matrix_y(0, self->angle);
-            TObjPlayer__sub_803D8960(0, entry, &pos, 2);
+            mult_vec_array__10TObjPlayerFUii(0, entry, &pos, 2);
             pop_matrix();
             eff = self->effects[idx];
             if (eff != NULL) {

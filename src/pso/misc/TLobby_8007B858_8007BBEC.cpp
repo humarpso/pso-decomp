@@ -8,10 +8,10 @@ struct L_8007BC5C { u8 pad0; u8 count; u8 pad2[2]; s32 ids[30]; };
 
 extern "C" {
 s32 get_state__23TAdSinglePlyChrSelectGCFv(void);
-s32 TWindowSubComCard__sub_8007BC04(s32 arg0);
+s32 get_card_slot__17TWindowSubComCardFi(s32 arg0);
 s32 get_card_id__17TWindowSubComCardFPv(void *);
 s32 is_active__17TWindowSubComCardFPv(void *);
-s32 TWindowSubComCard__sub_8007BC04(s32 arg0);
+s32 get_card_slot__17TWindowSubComCardFi(s32 arg0);
 void TLobby__sub_8007BC5C(L_8007BC5C *arg0);
 }
 
@@ -30,7 +30,7 @@ void TLobby__sub_8007BBF8(void) { lbl_805D5C48 = 0; }
 
 extern s32 TLobby__data_805D5580;
 
-s32 TWindowSubComCard__sub_8007BC04(s32 arg0) {
+s32 get_card_slot__17TWindowSubComCardFi(s32 arg0) {
     s32 temp_r3;
     s32 var_r31;
     s32 var_r3;
@@ -55,7 +55,7 @@ void TLobby__sub_8007BC5C(L_8007BC5C *arg0) {
     s32 *p;
     s32 i;
     s32 n;
-    card = (u8 *)TWindowSubComCard__sub_8007BC04(0);
+    card = (u8 *)get_card_slot__17TWindowSubComCardFi(0);
     p = arg0->ids;
     n = 0;
     i = 0;

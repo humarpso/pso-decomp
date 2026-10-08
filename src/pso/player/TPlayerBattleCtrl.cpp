@@ -9,9 +9,9 @@ extern "C" {
 s32 TLobby__sub_801C38E8(void *);
 s32 TLobby__sub_801C3AF4(void *);
 s32 TLobby__sub_801C418C(void *);
-s32 TLobby__sub_801C4214(void *);
-s32 TLobby__sub_801C484C(void *);
-s32 TLobby__sub_801C49B8(void *);
+s32 update_duel_result__6TLobbyFPv(void *);
+s32 update_timed_wait__6TLobbyFPv(void *);
+s32 update_battle_intro__6TLobbyFPv(void *);
 void fn_801C4D28(void *arg0);
 M2C_UNK TLobby__sub_801C3030();
 s32 fn_801C4CE0(void *arg0);
@@ -38,13 +38,13 @@ void fn_801C4D28(void *arg0) {
         fn_801C4CE0((void *)((void *) (arg0)));
         return;
     case 1:
-        TLobby__sub_801C49B8((void *) (arg0));
+        update_battle_intro__6TLobbyFPv((void *) (arg0));
         return;
     case 2:
-        TLobby__sub_801C484C((void *) (arg0));
+        update_timed_wait__6TLobbyFPv((void *) (arg0));
         return;
     case 3:
-        TLobby__sub_801C4214((void *) (arg0));
+        update_duel_result__6TLobbyFPv((void *) (arg0));
         return;
     case 4:
         TLobby__sub_801C418C((void *) (arg0));

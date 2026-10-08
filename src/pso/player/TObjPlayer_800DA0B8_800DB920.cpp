@@ -8,7 +8,7 @@ typedef s32 M2C_UNK;
 extern "C" {
 M2C_UNK apply_actor_gravity(void *, int, f32);
 M2C_UNK TBoss3VoloptMonitor__sub_8004292C(void *);
-M2C_UNK TObjPlayer__sub_800DA508(void *, void *, f32);
+M2C_UNK update_circle_move__10TObjPlayerFPvPvf(void *, void *, f32);
 s32 objInBand__FP7GameObjf(void *, f32);
 M2C_UNK advance_animation_playback(void *);
 M2C_UNK check_object_collisions__10TObjPlayerFPv(void *);
@@ -44,7 +44,7 @@ void TObjPlayer__sub_800DB970(u8 *arg0) {
         TBoss3VoloptMonitor__sub_8004292C(arg0);
     case 1:
         advance_animation_playback(arg0);
-        TObjPlayer__sub_800DA508(arg0, arg0 + 0x50, M2C_FIELD(arg0, f32 *, 0x358));
+        update_circle_move__10TObjPlayerFPvPvf(arg0, arg0 + 0x50, M2C_FIELD(arg0, f32 *, 0x358));
         if (objInBand__FP7GameObjf(arg0, lbl_805DA464) != 0 || objInBand__FP7GameObjf(arg0, lbl_805DA3FC) != 0) {
             play_sound_effect(0x4003AD23, arg0 + 0x38, 0, 0);
         }

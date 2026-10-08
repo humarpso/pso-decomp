@@ -17,7 +17,7 @@ extern "C" {
 s32 VecCopy__FP3VecPC3Vec(void *, void *);
 s32 create_particle_emitter(void *, int);
 u8 * get_anim_frame__25TObjCity_Season_EasterEggFPv(void *);
-s32 fn_80184B44(void *, void *, void *, int, f32);
+s32 init_city_season_object(void *, void *, void *, int, f32);
 extern M2C_UNK lbl_804B5DA0[];
 extern s32 lbl_805D3270;
 extern const f32 lbl_805DBC18;
@@ -82,7 +82,7 @@ u8 *TObjCity_Season_XmasTree__ct(u8 *arg0, s32 arg1, s32 arg2) {
     typedef char sp8_offset[(offsetof(Stack_801844C8, sp8) == 0x0) ? 1 : -1];
     typedef char spC_offset[(offsetof(Stack_801844C8, spC) == 0x4) ? 1 : -1];
     Stack_801844C8 stack;
-    fn_80184B44((void *) (arg0), (void *) (arg1), (void *) (arg2), (int) (2), (f32) (lbl_805DBC74));
+    init_city_season_object((void *) (arg0), (void *) (arg1), (void *) (arg2), (int) (2), (f32) (lbl_805DBC74));
     M2C_FIELD(arg0, M2C_UNK **, 0x18) = &(*(RecoveredGlobal_801844C8_lbl_804B5DA0 *)&lbl_804B5DA0).value;
     M2C_FIELD(arg0, s32 *, 0) = (s32) lbl_805D3270;
     if (((u32)get_anim_frame__25TObjCity_Season_EasterEggFPv((void *)((void *) (arg0)))) != 0U) {

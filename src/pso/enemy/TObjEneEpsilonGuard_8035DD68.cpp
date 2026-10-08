@@ -443,7 +443,7 @@ void trigger_dell_biter_events__10TObjPlayerFPv(void *);
 void play_sound_effect(int, void *, int, int);
 extern u8 lbl_80479C50[];
 extern s32 lbl_805D6FA8;
-void TObjEneEpsilonGuard__sub_8035E430(G_8035E430 *o, s32 arg1);
+void handle_break_state__19TObjEneEpsilonGuardFPvi(G_8035E430 *o, s32 arg1);
 s32 is_split_screen();
 s32 get_camera_mode__11TCameraCtrlFv();
 s32 get_mode__11TCameraCtrlFPv(void *);
@@ -475,7 +475,7 @@ extern s32 lbl_805D7784;
 extern s32 some_id_805c6f74;
 extern const f32 TObjEneEpsilonGuard__data_805E01D8;
 extern const f32 TObjEneEpsilonGuard__data_805E01DC;
-void TObjEneEpsilonGuard__sub_8035E018(u8 *arg0, s32 arg1);
+void render_with_fade__19TObjEneEpsilonGuardFPvi(u8 *arg0, s32 arg1);
 M2C_UNK enemy_copy_target_destination(void *);
 M2C_UNK update_velocity__9TObjEneDDFPv(void *);
 M2C_UNK move_with_wall_slide_commit__9TObjEneDDFPvfff(void *, void *, f32, f32, f32);
@@ -677,7 +677,7 @@ void render_guard_effect__19TObjEneEpsilonGuardFPv(u8 *arg0) {
     }
 }
 
-void TObjEneEpsilonGuard__sub_8035E018(u8 *arg0, s32 arg1) {
+void render_with_fade__19TObjEneEpsilonGuardFPvi(u8 *arg0, s32 arg1) {
     s32 i;
     VObj_8035E018 *r;
     i = 0;
@@ -762,7 +762,7 @@ void render__19TObjEneEpsilonGuardFv(u8 *arg0) {
         if (var_r31 != 0) {
             update_player_state__9TObjEneDDFPv((void *) (arg0), (int) (0), (int) (0));
             toggle_flag_9__10TObjPlayerFPv((void *) (arg0));
-            TObjEneEpsilonGuard__sub_8035E018((u8 *)((u8 *) (arg0)), (s32)((s32) (var_r31)));
+            render_with_fade__19TObjEneEpsilonGuardFPvi((u8 *)((u8 *) (arg0)), (s32)((s32) (var_r31)));
             render_guard_effect__19TObjEneEpsilonGuardFPv((u8 *)((void *) (arg0)));
             return;
         }
@@ -807,7 +807,7 @@ typedef char RecoveredFields_8035E578_arg0_B8_offset[offsetof(RecoveredFields_80
 typedef char RecoveredFields_8035E578_arg0_46C_offset[offsetof(RecoveredFields_8035E578_arg0, field_46C) == 0x46C ? 1 : -1];
 
 typedef s32 M2C_UNK;
-void TObjEneEpsilonGuard__sub_8035E430(G_8035E430 *o, s32 arg1) {
+void handle_break_state__19TObjEneEpsilonGuardFPvi(G_8035E430 *o, s32 arg1) {
     switch (arg1) {
     case 4:
         o->xB8 = 0;

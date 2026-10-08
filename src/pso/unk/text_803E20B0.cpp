@@ -20,7 +20,7 @@ extern Vp_803E20B0 *lbl_805D7734;
 
 extern "C" {
 
-void TObjPlayer__sub_803E20B0(void) {
+void load_screen_space_matrix__10TObjPlayerFv(void) {
     Mtx_803E20B0 m;
     f32 z;
     f32 s;

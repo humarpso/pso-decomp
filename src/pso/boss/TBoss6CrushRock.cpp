@@ -72,7 +72,7 @@ u8 *__ct__15TBoss6CrushRockFv(u8 *arg0, s32 arg1, s32 arg2, s32 arg3) {
 
 #pragma push
 #pragma fp_contract on
-void TBoss6Rock__sub_8035A460(Vec_8035A460 *self, s32 kind) {
+void spawn_crush_rocks__10TBoss6RockFPvi(Vec_8035A460 *self, s32 kind) {
     f32 radius;
     s32 base;
     s32 n;

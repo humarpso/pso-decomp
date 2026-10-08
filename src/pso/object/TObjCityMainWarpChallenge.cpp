@@ -14,7 +14,7 @@ struct Warp_80187B50 { u8 pad[0x144]; s32 arr[4]; };
 
 extern "C" {
 s32 check_demo_mode__10TObjPlayerFv();
-M2C_UNK TObjPlayer__sub_80187438(void *);
+M2C_UNK count_players_in_warp_radius__10TObjPlayerFPv(void *);
 void update_state__25TObjCityMainWarpChallengeFPv(void *arg0);
 extern const f32 lbl_805DBCC4;
 extern const f32 lbl_805DBCC8;
@@ -47,8 +47,8 @@ void update_state__25TObjCityMainWarpChallengeFPv(void *arg0);
 M2C_UNK post_translate_matrix(void *);
 M2C_UNK draw_ginja_object(s32);
 M2C_UNK TObjCityMainWarp__sub_80186DA0();
-M2C_UNK TObjCityMainWarp__sub_8018709C();
-M2C_UNK TObjCityMainWarp__sub_801871D0();
+M2C_UNK update_warp_sequence__16TObjCityMainWarpFPv();
+M2C_UNK update_challenge_state__16TObjCityMainWarpFPv();
 M2C_UNK draw_ginja_model_with_motion(s32, s32, f32);
 M2C_UNK unregister_object_by_id(M2C_UNK *);
 M2C_UNK rotate_matrix_y(M2C_UNK, s32);
@@ -70,10 +70,10 @@ void update_state__25TObjCityMainWarpChallengeFPv(void *arg0) {
     temp_r0 = M2C_FIELD(arg0, s16 *, 0xDE);
     switch (temp_r0) {
     case 0:
-        TObjCityMainWarp__sub_801871D0();
+        update_challenge_state__16TObjCityMainWarpFPv();
         return;
     case 1:
-        TObjCityMainWarp__sub_8018709C();
+        update_warp_sequence__16TObjCityMainWarpFPv();
         return;
     case 2:
         update_state__16TObjCityMainWarpFPv();
@@ -141,7 +141,7 @@ void run_task__25TObjCityMainWarpChallengeFv(u8 *arg0) {
             M2C_FIELD(arg0, s16 *, 0xDE) = (s16) M2C_FIELD(arg0, s16 *, 0xDC);
             M2C_FIELD(arg0, s16 *, 0xE0) = 0;
         }
-        TObjPlayer__sub_80187438((void *) (arg0));
+        count_players_in_warp_radius__10TObjPlayerFPv((void *) (arg0));
         update_state__25TObjCityMainWarpChallengeFPv((void *) (arg0));
         if ((void *) M2C_FIELD(arg0, u8 **, 0xD4) != NULL) {
             M2C_FIELD(arg0, f32 *, 0xC4) = (f32) (M2C_FIELD(arg0, f32 *, 0xC4) + lbl_805DBCC4);

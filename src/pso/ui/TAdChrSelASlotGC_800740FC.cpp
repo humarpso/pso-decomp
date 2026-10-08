@@ -20,7 +20,7 @@ struct Srv_80074114 {
 
 extern "C" {
 char *TQuestVmDownLoadServer__sub_8006EF6C(M2C_UNK);
-s32 TWindowSubStatusDisp__sub_8006F190(int);
+s32 resolve_player_slot__20TWindowSubStatusDispFi(int);
 M2C_UNK split_time_hms__22TQuestVmDownLoadServerFiPvPvPv(s32, s32 *, s32 *, s32 *);
 int sprintf(char *, const char *, ...);
 int strncmp(const char *, const char *, unsigned long);
@@ -35,7 +35,7 @@ extern char lbl_804386F0[];
 extern char lbl_804386FC[];
 extern char *lbl_8048D1A8[];
 extern char lbl_805D9158[4];
-void TQuestVmDownLoadServer__sub_80074114(Srv_80074114 *arg0);
+void build_result_text__22TQuestVmDownLoadServerFPv(Srv_80074114 *arg0);
 }
 
 extern "C" {
@@ -49,7 +49,7 @@ void set_flag_40__16TAdChrSelASlotGCFPv(void* p) { *(u16*)((char*)p + 0x70) |= 0
 
     extern int lbl_805D5FD8;
 int TObjNewFloorWin__sub_8007410C(void) {  return lbl_805D5FD8; }
-void TQuestVmDownLoadServer__sub_80074114(Srv_80074114 *arg0) {
+void build_result_text__22TQuestVmDownLoadServerFPv(Srv_80074114 *arg0) {
     char tmp[0x28];
     s32 h;
     s32 m;
@@ -93,7 +93,7 @@ void TQuestVmDownLoadServer__sub_80074114(Srv_80074114 *arg0) {
         strncat(arg0->buf, tmp, 0x30);
     }
     strncat(arg0->buf, lbl_805D9158, 2);
-    if (TWindowSubStatusDisp__sub_8006F190(-1) == 0) {
+    if (resolve_player_slot__20TWindowSubStatusDispFi(-1) == 0) {
         n = TQuestVmDownLoadServer__sub_8006EF6C(0x57);
         if (arg0->name138[0] == 0 || strncmp(arg0->name138, arg0->name14c, 0xC) == 0) {
             sprintf(tmp, lbl_804386F0, n, arg0->name14c);

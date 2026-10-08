@@ -60,7 +60,7 @@ extern const f32 TWindowFukidasi__data_805DCD18;
 extern const f32 TWindowFukidasi__data_805DCD1C;
 extern const f32 lbl_805DCD20;
 extern const f32 lbl_805DCD24;
-s32 TWindowFukidasi__sub_802506E8(Fuki_802506E8 *b, f32 *rect, f32 *o);
+s32 try_place_bubble__15TWindowFukidasiFPvPvPv(Fuki_802506E8 *b, f32 *rect, f32 *o);
 }
 
 extern "C" {
@@ -224,7 +224,7 @@ Ent_802511E4 * find_entity_by_id(u16);
 f32 get_card_window_scale__20TWindowSubStatusDispFi(s16);
 u32 get_battle_ctrl_flag__10TObjPlayerFUs(u16);
 u32 get_player_by_client_id(u32);
-void TObjCMHairMenu__sub_801E35C4(Prim_802521E8 *, s32, s32, f32);
+void draw_tri_fan_2d__14TObjCMHairMenuFPviif(Prim_802521E8 *, s32, s32, f32);
 s32 get_array_entry__20TWindowSubStatusDispFPvi(void *, s32);
 s32 play_sound_effect(int, int, int, int);
 u32 strnlen__19TWindowKeyBoardSoftFPvUi(void *, int);
@@ -293,7 +293,7 @@ s32 is_balloon_visible(void *);
 s32 fn_80252CBC(void);
 void draw_visible_window_entries(void *, void *, View_80252764 *);
 void update_window_entry_list(void *, void *);
-M2C_UNK TWindowSubStatusDisp__sub_80257CB8(void *);
+M2C_UNK destroy_all_items__20TWindowSubStatusDispFPv(void *);
 M2C_UNK init_window_layout_entries(void *, void *, int);
 s32 reset_float_field__15TWindowHelpItemFPv();
 s32 measure_message_text_width(int, f32);
@@ -540,7 +540,7 @@ struct Cam_80251380;
 #define F70_802506E8 ((Fuki_80250F70 *)b)
 #define CLAMP_802506E8 ((s32 (*)(Fuki_80250F70 *, f32 *, f32))clamp_position__15TWindowFukidasiFPvPvf)
 #define DRAW_802506E8 ((void *(*)(Fuki_80250F70 *, f32 *, f32 *, s32))draw_resolved_window__15TWindowFukidasiFiiii)
-s32 TWindowFukidasi__sub_802506E8(Fuki_802506E8 *b, f32 *rect, f32 *o) {
+s32 try_place_bubble__15TWindowFukidasiFPvPvPv(Fuki_802506E8 *b, f32 *rect, f32 *o) {
     f32 world[3];
     f32 edge[2];
     f32 dx;
@@ -711,7 +711,7 @@ void refresh_rect_placement__15TWindowFukidasiFPv(Fuki_80251028 *b) {
             if (shift_rect_with_head__15TWindowFukidasiFPvPvPv((Fuki_80250F70 *)b, b->rect, a) != 0) {
                 res = a;
             }
-            if (TWindowFukidasi__sub_802506E8((Fuki_802506E8 *)(b), (f32 *)(a), (f32 *)(d)) != 0) {
+            if (try_place_bubble__15TWindowFukidasiFPvPvPv((Fuki_802506E8 *)(b), (f32 *)(a), (f32 *)(d)) != 0) {
                 res = d;
             }
             if (res != d && rest_balloon__15TWindowFukidasiFv((Fuki_80250A24 *)(b), (f32 *)(d), (f32 *)(c)) != 0) {
@@ -959,7 +959,7 @@ void open__15TWindowFukidasiFPvPvi(u8 *arg0, u32 *arg1, s32 arg2) {
     ((M2C_UNK (*)(void *, s32))init_flags__15TWindowFukidasiFPvi)(arg0, arg2);
     if ((u8) M2C_FIELD(arg0, u8 *, 0x72) != 1) {
         M2C_FIELD(arg0, u8 *, 0x72) = 1U;
-        TWindowSubStatusDisp__sub_80257CB8(arg0 + 0x24);
+        destroy_all_items__20TWindowSubStatusDispFPv(arg0 + 0x24);
         TWindowSubSymbolChat__sub_80248494(arg0 + 0x24, M2C_FIELD(arg0, s16 *, 0x20));
         if ((u8) M2C_FIELD(arg0, u8 *, 0x70) != 0) {
             var_r31 = 1;
@@ -992,7 +992,7 @@ void set_text__15TWindowFukidasiFPvii(u8 *arg0, s32 arg1, s32 arg2) {
   if (((u8) (*((u8 *) (((s8 *) arg0) + 0x72)))) != 0)
   {
     *((u8 *) (((s8 *) arg0) + 0x72)) = 0U;
-    TWindowSubStatusDisp__sub_80257CB8((void *) (arg0 + 0x24));
+    destroy_all_items__20TWindowSubStatusDispFPv((void *) (arg0 + 0x24));
     init_window_layout_entries((void *) (arg0 + 0x24), (void *) (&lbl_804CF080.value), (int) (*((s16 *) (((s8 *) arg0) + 0x20))));
   }
   temp_r3 = (u8 *) ((u8 * (*)(void *, s32))get_array_entry__20TWindowSubStatusDispFPvi)(arg0, 0);
@@ -1118,7 +1118,7 @@ void draw_tail__15TWindowFukidasiFPvPvUiPvf(Fuki_802521E8 *b, void *view, u32 co
         verts[3] = off[1] + (b->tail * (lbl_805DCD78 * sin_table_lookup(angle + 0x4000)) + cy);
         verts[4] = off[0] + (b->tail * (lbl_805DCD78 * cos_table_lookup(angle - 0x4000)) + cx);
         verts[5] = off[1] + (b->tail * (lbl_805DCD78 * sin_table_lookup(angle - 0x4000)) + cy);
-        TObjCMHairMenu__sub_801E35C4(&prim, 3, 2, lbl_805DCD90 + b->f54);
+        draw_tri_fan_2d__14TObjCMHairMenuFPviif(&prim, 3, 2, lbl_805DCD90 + b->f54);
     }
 }
 extern int fold_flush_8;

@@ -84,7 +84,7 @@ u16 fn_8003C8B4(void);
 u16 fn_8003C804(void);
 void TBoss3Volopt__sub_80044CE4(void);
 s32 count_dead_parts__12TBoss3VoloptFPv(void *);
-s16 TBoss3Volopt__sub_80045390(void *);
+s16 find_facing_player__12TBoss3VoloptFPv(void *);
 void finalize_and_send_60__12TBoss3VoloptFPv(void* p);
 void set_type__12TBoss3VoloptFPv(void* p);
 extern u16 lbl_805D2718;
@@ -95,12 +95,12 @@ extern const f32 lbl_805D8694;
 extern const f32 lbl_805D8698;
 extern const f32 lbl_805D869C;
 extern const f32 lbl_805D86A0;
-void TBoss3Volopt__sub_8003DD4C(void *arg0_);
+void select_and_send_attack__12TBoss3VoloptFPv(void *arg0_);
 void TCameraCtrl__sub_8003D340(u8 *arg0);
 void update_volopt_seq__11TCameraCtrlFPv(void *arg0);
-void TCameraCtrl__sub_8003D648(u8 *arg0);
+void run_intro_camera_sequence__11TCameraCtrlFPv(u8 *arg0);
 void TBoss3Volopt__sub_8003D7BC(u8 *arg0);
-void TBoss3Volopt__sub_8003DA78(u8 *arg0);
+void update_intro_cutscene__12TBoss3VoloptFPv(u8 *arg0);
 void request_follow_camera_offsets(void *, void *, int, f32);
 M2C_UNK play_persistent_sound(M2C_UNK, void *, M2C_UNK, M2C_UNK, M2C_UNK);
 extern s32 lbl_805D4C30;
@@ -108,7 +108,7 @@ extern s32 lbl_805D4C34;
 extern s32 lbl_805D4C38;
 extern s32 lbl_805D4C3C;
 extern const f32 lbl_805D8660;
-void TBoss3Volopt__sub_8003EB34(u8 *arg0);
+void update_camera_seq__12TBoss3VoloptFPv(u8 *arg0);
 }
 
 extern "C" {
@@ -306,16 +306,16 @@ s32 is_photon_blast_active__11TCameraCtrlFv(void);
 s32 is_photon_ready__11TCameraCtrlFv(void);
 s32 TCameraCtrl__sub_8003D2C4(void);
 void update_volopt_seq__11TCameraCtrlFPv(void *arg0);
-void TCameraCtrl__sub_8003D648(u8 *arg0);
-void TBoss3Volopt__sub_8003DA78(u8 *arg0);
-void TBoss3Volopt__sub_8003DC34(u8 *arg0);
+void run_intro_camera_sequence__11TCameraCtrlFPv(u8 *arg0);
+void update_intro_cutscene__12TBoss3VoloptFPv(u8 *arg0);
+void start_phase2__12TBoss3VoloptFPv(u8 *arg0);
 void reset_vol_opt_state(void* a0);
 int TBoss3Volopt__sub_8003EA2C(void*);
 void render__12TBoss3VoloptFv(void);
 void run_task__12TBoss3VoloptFv(u8 *arg0);
 void * create__12TBoss3VoloptFPv(void *arg0);
 void free_parts__12TBoss3VoloptFv(void);
-void TBoss3Volopt__sub_8003EE10(void);
+void load_resources__12TBoss3VoloptFv(void);
 S_8003EF38 * __dt__12TBoss3VoloptFv(S_8003EF38 *o, s16 flag);
 u8 * TBoss3Volopt__ct(u8 *arg0, s32 arg1);
 int reset_photon_effect__12TBoss3VoloptFPv(void* p);
@@ -352,7 +352,7 @@ void start_attack__20TBoss3VoloptHiraisinFPv(void *);
 M2C_UNK destroy__20TBoss3VoloptHiraisinFv();
 void init_models__20TBoss3VoloptHiraisinFv(void);
 M2C_UNK release__19TBoss3VoloptMonitorFv();
-void TBoss3VoloptMonitor__sub_80042408(void);
+void load_resources__19TBoss3VoloptMonitorFv(void);
 void set_target_id__10TObjPlayerFPvi(void *, s32);
 s32 TObjPlayer__sub_80042EC0(void *);
 void TBoss3VoloptP01__sub_80042F84(void *);
@@ -720,10 +720,10 @@ void update_volopt_seq__11TCameraCtrlFPv(void *arg0) {
     case 1:
         if (get_main_phase() == 0xF) {
             if (TLobby__sub_800C6C10() != 0) {
-                TBoss3Volopt__sub_8003DD4C((void *)(arg0));
+                select_and_send_attack__12TBoss3VoloptFPv((void *)(arg0));
             }
         } else {
-            TBoss3Volopt__sub_8003DD4C((void *)(arg0));
+            select_and_send_attack__12TBoss3VoloptFPv((void *)(arg0));
         }
         if (((s32)TCameraCtrl__sub_8003D1E8((void *)(arg0))) != 0) {
             ((M2C_UNK (*)(void))update_phase__12TBoss3VoloptFv)();
@@ -743,7 +743,7 @@ void update_volopt_seq__11TCameraCtrlFPv(void *arg0) {
     }
 }
 
-void TCameraCtrl__sub_8003D648(u8 *arg0) {
+void run_intro_camera_sequence__11TCameraCtrlFPv(u8 *arg0) {
     typedef char sp8_offset[(offsetof(Stack_8003D648, sp8) == 0x0) ? 1 : -1];
     typedef char sp9_offset[(offsetof(Stack_8003D648, sp9) == 0x1) ? 1 : -1];
     typedef char spA_offset[(offsetof(Stack_8003D648, spA) == 0x2) ? 1 : -1];
@@ -756,7 +756,7 @@ void TCameraCtrl__sub_8003D648(u8 *arg0) {
     temp_r0 = M2C_FIELD(arg0, s32 *, 0x37C);
     switch (temp_r0) {
     case 0:
-        ((s32 (*)(void *))TBoss3Volopt__sub_8003DC34)((void *) (arg0));
+        ((s32 (*)(void *))start_phase2__12TBoss3VoloptFPv)((void *) (arg0));
         activate_camera_mode((int) (9));
         set_active_camera_pose((void *) (&lbl_8048377C.value), (void *) ((u8 *)&lbl_8048377C.value + 0xC));
         TObjPlayer__sub_801BA494();
@@ -885,7 +885,7 @@ void TBoss3Volopt__sub_8003D7BC(u8 *arg0) {
 }
 #pragma pop
 
-void TBoss3Volopt__sub_8003DA78(u8 *arg0) {
+void update_intro_cutscene__12TBoss3VoloptFPv(u8 *arg0) {
     Cam_8003DA78 c1;
     Cam_8003DA78 c2;
     switch (M2C_FIELD(arg0, s32 *, 0x37C)) {
@@ -946,7 +946,7 @@ void TBoss3Volopt__sub_8003DA78(u8 *arg0) {
     }
 }
 
-void TBoss3Volopt__sub_8003DC34(u8 *arg0) {
+void start_phase2__12TBoss3VoloptFPv(u8 *arg0) {
     M2C_FIELD(arg0, s32 *, 0x3A8) = 1;
     if (((u8 * (*)(u16))find_entity_by_id)(lbl_805D2718) != NULL) {
         TObjEnemyCustom__sub_800C7860();
@@ -980,7 +980,7 @@ void reset_vol_opt_state(void* a0) {
 
 #pragma push
 #pragma fp_contract on
-void TBoss3Volopt__sub_8003DD4C(void *arg0_) {
+void select_and_send_attack__12TBoss3VoloptFPv(void *arg0_) {
     void *e;
     s32 n;
     Volopt_8003DD4C *o = (Volopt_8003DD4C *)arg0_;
@@ -1120,7 +1120,7 @@ void TBoss3Volopt__sub_8003DD4C(void *arg0_) {
                 set_type__12TBoss3VoloptFPv((void*)(&p));
                 p.id = o->id;
                 p.cmd = 3;
-                p.arg = TBoss3Volopt__sub_80045390(e);
+                p.arg = find_facing_player__12TBoss3VoloptFPv(e);
                 finalize_and_send_60__12TBoss3VoloptFPv((void*)(&p));
                 o->f3f2 = 30.0f * (f32)count_dead_parts__12TBoss3VoloptFPv(e) + 30.0f;
             }
@@ -1188,14 +1188,14 @@ void TBoss3Volopt__sub_8003DD4C(void *arg0_) {
 
 void render__12TBoss3VoloptFv(void) {  }
 
-void TBoss3Volopt__sub_8003EB34(u8 *arg0) {
+void update_camera_seq__12TBoss3VoloptFPv(u8 *arg0) {
     u8 *p;
     switch (*(s16 *)(arg0 + 0x326)) {
     case 0:
         TCameraCtrl__sub_8003D340(arg0);
         break;
     case 1:
-        TBoss3Volopt__sub_8003DA78(arg0);
+        update_intro_cutscene__12TBoss3VoloptFPv(arg0);
         play_persistent_sound(0x4003C600, arg0, 0, 0, 0);
         break;
     case 2:
@@ -1212,7 +1212,7 @@ void TBoss3Volopt__sub_8003EB34(u8 *arg0) {
         }
         break;
     case 3:
-        TCameraCtrl__sub_8003D648(arg0);
+        run_intro_camera_sequence__11TCameraCtrlFPv(arg0);
         play_persistent_sound(0x4003C601, arg0, 0, 0, 0);
         break;
     case 4:
@@ -1251,12 +1251,12 @@ void run_task__12TBoss3VoloptFv(u8 *arg0) {
         if ((s32) M2C_FIELD(arg0, s32 *, 0x374) != (s16) M2C_FIELD(arg0, s16 *, 0x326)) {
             if ((s32) M2C_FIELD(arg0, s32 *, 0x37C) != -1) {
                 M2C_FIELD(arg0, s32 *, 0x37C) = -1;
-                TBoss3Volopt__sub_8003EB34((u8 *)((void *) (arg0)));
+                update_camera_seq__12TBoss3VoloptFPv((u8 *)((void *) (arg0)));
             }
             M2C_FIELD(arg0, s16 *, 0x326) = (s16) M2C_FIELD(arg0, s32 *, 0x374);
             M2C_FIELD(arg0, s32 *, 0x37C) = 0;
         }
-        TBoss3Volopt__sub_8003EB34((u8 *)((void *) (arg0)));
+        update_camera_seq__12TBoss3VoloptFPv((u8 *)((void *) (arg0)));
     }
 }
 
@@ -1433,7 +1433,7 @@ void TBoss3Volopt__sub_8003E584(void *arg0_) {
 }
 #undef F
 
-void TBoss3Volopt__sub_8003EE10(void) {
+void load_resources__12TBoss3VoloptFv(void) {
     s32 v2;
     void *p;
     v2 = check_v2_mode__9TObjEneDDFv();
@@ -1455,7 +1455,7 @@ void TBoss3Volopt__sub_8003EE10(void) {
     cache_volopt_resource_ptrs();
     TBoss3Volopt__sub_80047A60();
     init_models__20TBoss3VoloptHiraisinFv();
-    TBoss3VoloptMonitor__sub_80042408();
+    load_resources__19TBoss3VoloptMonitorFv();
     lbl_805D4D4C = *(s32 *)(*(u8 **)(*(u8 **)(lbl_805D4C10 + 0x42C) + 0xD8) + 4);
     lbl_805D4D48 = *(s32 *)(*(u8 **)(*(u8 **)(*(u8 **)(lbl_805D4C10 + 0x42C) + 0xD8) + 0x2C) + 4);
     lbl_805D4D50 = *(s32 *)(*(u8 **)(lbl_805D4C10 + 0x42C) + 0xDC);

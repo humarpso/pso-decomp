@@ -41,7 +41,7 @@ extern char *lbl_8049CA40[];
 extern Ent_800FC968 lbl_80509D5C[];
 extern char lbl_805DA9F4[4];
 extern char lbl_805DA9F8[4];
-s32 TWindowSubStatusDisp__sub_800FC968(s32 arg0);
+s32 build_status_text__20TWindowSubStatusDispFi(s32 arg0);
 }
 
 extern "C" {
@@ -63,7 +63,7 @@ void advance_card_status__15TWindowCtrlMainFi(s32 arg0) {
     }
     fn_800FCCC8(arg0, var_r4);
 }
-s32 TWindowSubStatusDisp__sub_800FC968(s32 arg0) {
+s32 build_status_text__20TWindowSubStatusDispFi(s32 arg0) {
     s32 mode;
     M2C_UNK *name;
     u8 *info;

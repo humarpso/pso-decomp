@@ -24,7 +24,7 @@ extern const f32 TWindowEffectLight__data_805DE0E4;
 extern const f32 lbl_805DE0E8;
 f32 calc_scale__18TWindowEffectLightFPv(u8 *arg0);
 s32 is_split_screen(void);
-u16 TCameraCtrl__sub_80068958(s32);
+u16 get_nth_view_player_id__11TCameraCtrlFi(s32);
 void TCameraCtrl__sub_80068EF0(void);
 void restore_full_screen_view__11TCameraCtrlFv(void);
 void reset_transform_state__10TObjPlayerFv(void);
@@ -46,7 +46,7 @@ void render__18TWindowEffectLightFv(u8 *arg0);
 M2C_UNK copy_vec2__28TWindowSubSymbolChatPartsSetFPvPv(void *, void *);
 s32 TCameraCtrl__sub_800688D0(u16);
 M2C_UNK __ct__7TObjectFP7TObject(void *, int);
-M2C_UNK TWindowKeyBoardSoft__sub_8024EC34(void *, s32);
+M2C_UNK adjust_pos_for_split_screen__19TWindowKeyBoardSoftFPvi(void *, s32);
 extern void *__vt__18TWindowEffectLight[];
 extern s32 lbl_805D3E60;
 extern s32 tl_window;
@@ -95,7 +95,7 @@ u8 *__ct__18TWindowEffectLightFv(u8 *self, void *arg1, s16 arg2, u32 arg3) {
     M2C_FIELD(self, void **, 0x18) = __vt__18TWindowEffectLight;
     M2C_FIELD(self, s32 *, 0) = lbl_805D3E60;
     copy_vec2__28TWindowSubSymbolChatPartsSetFPvPv(self + 0x1C, arg1);
-    TWindowKeyBoardSoft__sub_8024EC34(self + 0x1C, TCameraCtrl__sub_800688D0(arg3));
+    adjust_pos_for_split_screen__19TWindowKeyBoardSoftFPvi(self + 0x1C, TCameraCtrl__sub_800688D0(arg3));
     M2C_FIELD(self, s16 *, 0x24) = arg2;
     M2C_FIELD(self, s16 *, 0x26) = -1;
     M2C_FIELD(self, u32 *, 0x28) = arg3;
@@ -127,7 +127,7 @@ void calc_alpha__18TWindowEffectLightFPv(u8 *arg0) {
 void render__18TWindowEffectLightFv(u8 *arg0) {
   s16 temp_r0;
   temp_r0 = 0x28;
-  if ((is_window_display_enabled() != 0) && ((is_split_screen() == 0) || (((s32) (*((s32 *) (((s8 *) arg0) + temp_r0)))) == ((s32) TCameraCtrl__sub_80068958(get_camera_no__11TCameraCtrlFv())))))
+  if ((is_window_display_enabled() != 0) && ((is_split_screen() == 0) || (((s32) (*((s32 *) (((s8 *) arg0) + temp_r0)))) == ((s32) get_nth_view_player_id__11TCameraCtrlFi(get_camera_no__11TCameraCtrlFv())))))
   {
     begin_effect_render__13TParticleCtrlFv();
     restore_full_screen_view__11TCameraCtrlFv();

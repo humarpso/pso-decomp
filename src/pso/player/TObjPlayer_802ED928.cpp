@@ -132,12 +132,12 @@ M2C_UNK TObjEneDD__sub_800BBA0C(void *);
 M2C_UNK send_entity_set_flags__6TLobbyFPv(void *);
 u32 __nw__7TObjectFUl(int);
 M2C_UNK run_tasks__7TObjectFv(void *);
-M2C_UNK TObjPlayer__sub_802E6F10(void *, void *, int);
+M2C_UNK init_breakup_pieces__10TObjPlayerFPvPvi(void *, void *, int);
 M2C_UNK fn_802E79B0(void *);
 M2C_UNK TObjPlayer__sub_802E8234(void *);
 M2C_UNK update_projectile_spawns__8TObjFishFPv(void *);
 M2C_UNK TParticleCtrl__sub_802EC550(void *);
-M2C_UNK TObjFish__sub_802EC7F0(void *);
+M2C_UNK advance_action_sequence__8TObjFishFPv(void *);
 M2C_UNK TObjPlayer__sub_802ECAA4(void *);
 s32 TObjPlayer__sub_802ECB10();
 M2C_UNK flee_if_disturbed__8TObjFishFPv(void *);
@@ -145,7 +145,7 @@ M2C_UNK sync_position_vectors__8TObjFishFi(void *);
 void update_or_dispatch__10TObjPlayerFPv(void *arg0);
 void TObjPlayer__sub_802ED984(void);
 M2C_UNK apply_with_callback__10TObjPlayerFPvif(int, int);
-M2C_UNK TObjPlayer__sub_803D8CD4(int);
+M2C_UNK set_matrix_identity__10TObjPlayerFPv(int);
 M2C_UNK rotate_matrix_by_node_angles(void *, int);
 M2C_UNK push_matrix();
 M2C_UNK pop_matrix();
@@ -192,7 +192,7 @@ void TObjPlayer__sub_802ED988(u8 *arg0) {
         {
             void *p = (void *) __nw__7TObjectFUl((int) (0x3C));
             if (p != NULL) {
-                TObjPlayer__sub_802E6F10(p, (void *) (arg0), (int) (M2C_FIELD(arg0, s32 *, 0x6D4)));
+                init_breakup_pieces__10TObjPlayerFPvPvi(p, (void *) (arg0), (int) (M2C_FIELD(arg0, s32 *, 0x6D4)));
             }
         }
     }
@@ -208,7 +208,7 @@ void TObjPlayer__sub_802ED988(u8 *arg0) {
         switch (temp_r0) {
         case 1:
             M2C_FIELD(arg0, s32 *, 0x6B8) = 0;
-            TObjFish__sub_802EC7F0((void *) (arg0));
+            advance_action_sequence__8TObjFishFPv((void *) (arg0));
             break;
         case 0:
             M2C_FIELD(arg0, s32 *, 0x6B8) = 2;
@@ -262,7 +262,7 @@ void TObjPlayer__sub_802ED988(u8 *arg0) {
     if ((u32) M2C_FIELD(arg0, u32 *, 0x7AC) != 0U) {
         set_global_flag__10TObjPlayerFv();
         push_matrix();
-        TObjPlayer__sub_803D8CD4((int) (0));
+        set_matrix_identity__10TObjPlayerFPv((int) (0));
         post_translate_matrix((void *) (arg0 + 0x38));
         post_translate_matrix((void *) (arg0 + 0x6EC));
         rotate_matrix_by_node_angles((void *) (arg0 + 0x5C), (int) (1));

@@ -44,7 +44,7 @@ extern u8 lbl_8048C9D8[];
 s32 TLobby__sub_80071B30(s32 arg0, s32 arg1);
 void VecCopy__FP3VecPC3Vec(Vec_80071BC0 *, void *);
 void save_position__14TBoss4DarkFalzFi(Plr_80071BC0 *);
-void TBoss4DarkFalz__sub_8004C220(Plr_80071BC0 *, Vec_80071BC0 *);
+void set_position_from__14TBoss4DarkFalzFPvPv(Plr_80071BC0 *, Vec_80071BC0 *);
 void copy_header_struct__6TLobbyFPvPv(void *, void *);
 void copy_player_visual_record(Chr_80071BC0 *, void *);
 void clear_header_struct__10TObjPlayerFPv(Hdr_80071BC0 *);
@@ -58,7 +58,7 @@ extern Tbl_80071BC0 lbl_8048A088[];
 extern Tbl_80071BC0 lbl_8048B0F4[];
 extern Tbl_80071BC0 lbl_8048C244[];
 extern s32 lbl_805D53A0;
-void TObjPlayer__sub_80071BC0(s32 arg0);
+void rebuild_players_for_stage__10TObjPlayerFi(s32 arg0);
 }
 
 extern "C" {
@@ -80,7 +80,7 @@ s32 TLobby__sub_80071B30(s32 arg0, s32 arg1) {
     }
     return i;
 }
-void TObjPlayer__sub_80071BC0(s32 arg0) {
+void rebuild_players_for_stage__10TObjPlayerFi(s32 arg0) {
     Hdr_80071BC0 hdr;
     Vec_80071BC0 pos;
     Chr_80071BC0 chr;
@@ -133,7 +133,7 @@ void TObjPlayer__sub_80071BC0(s32 arg0) {
                 }
             }
             copy_header_struct__6TLobbyFPvPv((u8 *)p + 0xdac, &hdr);
-            TBoss4DarkFalz__sub_8004C220(p, &pos);
+            set_position_from__14TBoss4DarkFalzFPvPv(p, &pos);
             save_position__14TBoss4DarkFalzFi(p);
             p->m6();
             TObjPlayer__sub_801D9B38((u8 *)p + 0x428, 0xff);

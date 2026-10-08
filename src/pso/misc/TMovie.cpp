@@ -12,13 +12,13 @@ s32 close__6TMovieFis(s32 arg0, s16 arg1);
 M2C_UNK __dl__FPv(s32);
 M2C_UNK release__6TMovieFPv();
 M2C_UNK free_buffer__6TMovieFPv(s32);
-M2C_UNK TLobby__sub_8022743C();
+M2C_UNK stop_audio_streams__6TLobbyFv();
 
 s32 close__6TMovieFis(s32 arg0, s16 arg1) {
     if (arg0 != 0) {
         release__6TMovieFPv();
         free_buffer__6TMovieFPv(arg0);
-        TLobby__sub_8022743C();
+        stop_audio_streams__6TLobbyFv();
         if (arg1 > 0) {
             __dl__FPv(arg0);
         }
@@ -130,13 +130,13 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 extern "C" {
 
 s32 stop_if_advanced__6TMovieFPv(void *arg0);
-M2C_UNK TObjPlayer__sub_80084038(M2C_UNK, M2C_UNK, f32);
+M2C_UNK draw_screen_quad__10TObjPlayerFUiif(M2C_UNK, M2C_UNK, f32);
 
 extern f32 lbl_805DB178;
 
 s32 stop_if_advanced__6TMovieFPv(void *arg0) {
     if ((s32) M2C_FIELD(arg0, s32 *, 0x58) >= 2) {
-        TObjPlayer__sub_80084038(-1, 0, lbl_805DB178);
+        draw_screen_quad__10TObjPlayerFUiif(-1, 0, lbl_805DB178);
     }
     return 1;
 }

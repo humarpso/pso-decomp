@@ -63,7 +63,7 @@ extern char lbl_80441628[];
 extern char lbl_804B1DA8[];
 extern u8 *TOFenceAncient03__data_805D59C0;
 extern u32 TOFenceAncient03__data_805D59C4;
-void TOFenceAncient03__sub_801673C4(void);
+void load_resources__16TOFenceAncient03Fv(void);
 }
 
 extern "C" {
@@ -124,7 +124,7 @@ void TOFenceAncient03__sub_8016733C(void) {
   }
 }
 
-void TOFenceAncient03__sub_801673C4(void) {
+void load_resources__16TOFenceAncient03Fv(void) {
     O_801673C4 *o;
     Arr_801673C4 *r;
     o = alloc__23TAdSinglePlyChrSelectGCFPv(0x440);

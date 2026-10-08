@@ -48,7 +48,7 @@ extern s32 lbl_805D7774;
 extern const f32 lbl_805DFAC8;
 extern const f32 lbl_805DFACC;
 extern const f32 lbl_805DFAD0;
-void TObjPlayer__sub_8033E988(void);
+void setup_projection_tex_matrix__10TObjPlayerFv(void);
 void TObjPlayer__sub_8033EAF0(s32 arg0, s32 arg1);
 void queue_destruction__7TObjectFv(void *);
 void TLobby__sub_8033EE38(void *);
@@ -60,7 +60,7 @@ M2C_UNK play_indirect_effect_recipe(int, int, int);
 M2C_UNK get_object__13TParticleCtrlFPv(int);
 void init_particle_effect__10TObjPlayerFv(void);
 void reset_effects__10TObjPlayerFv(void);
-void TObjPlayer__sub_8033E988(void);
+void setup_projection_tex_matrix__10TObjPlayerFv(void);
 M2C_UNK rotate_matrix_by_node_angles(void *, int);
 M2C_UNK push_matrix();
 M2C_UNK pop_matrix();
@@ -68,7 +68,7 @@ M2C_UNK post_translate_matrix(void *);
 int set_global_param__8TObjFishFi(void);
 M2C_UNK draw_ginja_object(int);
 M2C_UNK set_current_scene__6TSceneFi(int);
-void TObjPlayer__sub_8033EB4C(O_8033EB4C *self);
+void draw_ginja_item_list__10TObjPlayerFPv(O_8033EB4C *self);
 }
 
 extern "C" {
@@ -88,7 +88,7 @@ void init_particle_effect__10TObjPlayerFv(void) { TObjPlayer__sub_803078B0(); se
     extern int some_id_805c6f74;
 void reset_effects__10TObjPlayerFv(void) { TObjPlayer__sub_803DC850((void*)0); TObjPlayer__sub_803DC83C((void*)0); set_global_effect_state__10TObjPlayerFi((void*)0); some_id_805c6f74 = (some_id_805c6f74 & 0xfff7ffff); }
 
-void TObjPlayer__sub_8033E988(void) {
+void setup_projection_tex_matrix__10TObjPlayerFv(void) {
     u8 sp10[0x30];
     f32 spC;
     f32 sp8;
@@ -134,7 +134,7 @@ void TObjPlayer__sub_8033EAF0(s32 arg0, s32 arg1) {
     M2C_FIELD(arg0, u8 *, 0x23) = (u8) M2C_FIELD(arg1, u8 *, 0x23);
 }
 
-void TObjPlayer__sub_8033EB4C(O_8033EB4C *self) {
+void draw_ginja_item_list__10TObjPlayerFPv(O_8033EB4C *self) {
     s32 i;
     for (i = 0; i < self->n; i++) {
         get_object__13TParticleCtrlFPv(self->items[i].obj);
@@ -146,7 +146,7 @@ void TObjPlayer__sub_8033EB4C(O_8033EB4C *self) {
         rotate_matrix_by_node_angles(self->items[i].b, 1);
         play_indirect_effect_recipe(self->items[i].obj, 1, 1);
         ((void (*)(void *))init_particle_effect__10TObjPlayerFv)(self);
-        ((void (*)(void *))TObjPlayer__sub_8033E988)(self);
+        ((void (*)(void *))setup_projection_tex_matrix__10TObjPlayerFv)(self);
         ((void (*)(s32))set_global_param__8TObjFishFi)(self->items[i].p18);
         draw_ginja_object(self->items[i].p1C);
         pop_matrix();

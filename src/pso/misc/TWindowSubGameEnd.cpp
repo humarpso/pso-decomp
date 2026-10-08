@@ -24,7 +24,7 @@ u32 __nw__7TObjectFUl(int);
 M2C_UNK fn_8024AB54(int);
 s32 get_slot_or_neg1__17TWindowSubComCardFPv(int);
 s32 get_card_data__17TWindowSubComCardFPv(int);
-s32 TWindowSubComCard__sub_802A57FC(int);
+s32 is_child_visible__17TWindowSubComCardFPv(int);
 void init_char_select__16TKeyBoardControlFv(void);
 extern s32 tl_00;
 extern int lbl_805D6480;
@@ -37,7 +37,7 @@ s32 get_window_layout_position(M2C_UNK);
 M2C_UNK notify_warp_flag70__19TWindowSubShortMailFPv(s32);
 M2C_UNK free_member__17TWindowSubComCardFPv(s32, M2C_UNK);
 M2C_UNK forward_slot_selection__16TAdChrSelASlotGCFPvPvPv(s32, s32, s32, f32);
-s32 TWindowMessageYesNo__sub_802A59D8(void *, s32, M2C_UNK, M2C_UNK);
+s32 create__19TWindowMessageYesNoFPvPvPvPv(void *, s32, M2C_UNK, M2C_UNK);
 extern M2C_UNK __vt__17TWindowSubGameEnd[];
 extern s32 lbl_805D3A48;
 extern const f32 lbl_805DD628;
@@ -52,7 +52,7 @@ void TLobby__sub_80279708(void);
 void *__dt__17TWindowSubGameEndFv(void *arg0, s16 arg1);
 void init_char_select__16TKeyBoardControlFv(void);
 void render__17TWindowSubGameEndFv(void);
-s32 TAdSinglePlyChrSelectGC__sub_801FF4F0();
+s32 setup_player_battle_ctrls__23TAdSinglePlyChrSelectGCFv();
 s32 TKeyBoardControl__sub_8000F91C(s32);
 s32 TKeyBoardControl__sub_8000F9CC(s32);
 void __dl__7TObjectFPv(void *);
@@ -63,7 +63,7 @@ s32 is_split_screen();
 
 void init_char_select__16TKeyBoardControlFv(void) {
     if (is_split_screen() != 0) {
-        TAdSinglePlyChrSelectGC__sub_801FF4F0();
+        setup_player_battle_ctrls__23TAdSinglePlyChrSelectGCFv();
         TKeyBoardControl__sub_8000F9CC(7);
         return;
     }
@@ -85,7 +85,7 @@ void run_task__17TWindowSubGameEndFv(u8 *arg0) {
             M2C_FIELD(arg0, VObj_18_204a81 **, 0x24)->m7();
             return;
         }
-        if (TWindowSubComCard__sub_802A57FC(M2C_FIELD(arg0, s32 *, 0x28)) != 0) {
+        if (is_child_visible__17TWindowSubComCardFPv(M2C_FIELD(arg0, s32 *, 0x28)) != 0) {
             slot = get_slot_or_neg1__17TWindowSubComCardFPv(M2C_FIELD(arg0, s32 *, 0x28));
             if (slot == 0) {
                 if (lbl_805D6480 != 1) {
@@ -141,7 +141,7 @@ void *TWindowSubGameEnd__ct(void *arg0, s32 arg1, s32 arg2) {
         var_r31 = get_message_10__20TWindowSubStatusDispFPv(0x3A);
         var_f31 = lbl_805DD628;
     }
-    M2C_FIELD(arg0, s32 *, 0x28) = TWindowMessageYesNo__sub_802A59D8(arg0, M2C_FIELD(arg0, s32 *, 0x20), 0, 0);
+    M2C_FIELD(arg0, s32 *, 0x28) = create__19TWindowMessageYesNoFPvPvPvPv(arg0, M2C_FIELD(arg0, s32 *, 0x20), 0, 0);
     forward_slot_selection__16TAdChrSelASlotGCFPvPvPv(M2C_FIELD(arg0, s32 *, 0x28), var_r31, get_window_layout_position(0x17), var_f31);
     free_member__17TWindowSubComCardFPv(M2C_FIELD(arg0, s32 *, 0x28), 1);
     notify_warp_flag70__19TWindowSubShortMailFPv(M2C_FIELD(arg0, s32 *, 0x28));

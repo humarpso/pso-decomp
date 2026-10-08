@@ -18,7 +18,7 @@ struct Ctrl_8030A5B8 {
 
 extern "C" {
 s16 obj_getField1c(void *);
-void TBoss4DarkFalz__sub_8004C220(void *, void *);
+void set_position_from__14TBoss4DarkFalzFPvPv(void *, void *);
 void reset_photon_effect__10TObjPlayerFPv(void *);
 void initialize_linked_object_reference(void *, void *);
 void construct_collider_proxy__10TObjPlayerFPv(void *, int);
@@ -81,7 +81,7 @@ Ctrl_8030A5B8 *TPlyFollowParticleCtrl__ct(Ctrl_8030A5B8 *self, u8 *arg1) {
     self->link->flags &= 0xFFFFFFFE;
     self->s_ac = obj_getField1c(arg1);
     self->s_ae = 0xFFFF;
-    TBoss4DarkFalz__sub_8004C220(self, arg1 + 0x74);
+    set_position_from__14TBoss4DarkFalzFPvPv(self, arg1 + 0x74);
     return self;
 }
 

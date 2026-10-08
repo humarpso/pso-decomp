@@ -24,6 +24,17 @@ struct Kb_800808FC {
 struct Field_80080D1C;
 struct F_80080DFC { u16 *buffer; s32 cursor; u32 width; u32 linePixels; s32 scroll; u32 capacity; };
 
+struct Kb_8008081C {
+    u16 *buf;
+    s32 cursor;
+    u8 pad8[8];
+    s32 len;
+};
+
+struct F_80080A08 { u16 *buffer; u32 cursor; };
+
+struct F_80080B34 { u16 *buffer; u32 cursor; };
+
 extern "C" {
 u16 map_char_to_font_code(u16);
 u8 get_font_char_advance(u16);
@@ -33,14 +44,18 @@ extern u16 lbl_8048E020[];
 s32 TWindowKeyBoardSoft__sub_80080ABC(Field_80080ABC *f);
 void TWindowKeyBoardSoft__sub_80080CC0(Field_80080CC0 *f);
 s32 TWindowKeyBoardSoft__sub_800809C0(Field_800809C0 *f);
-void TWindowKeyBoardSoft__sub_80080A08(Kb_800808FC *);
 s32 TWindowKeyBoardSoft__sub_80080ABC(Field_80080ABC *f);
-s32 TWindowKeyBoardSoft__sub_80080B34(Kb_800808FC *);
 void TWindowKeyBoardSoft__sub_80080CC0(Field_80080CC0 *f);
 s32 TWindowKeyBoardSoft__sub_80080F68(F_80080F68 *arg0, u16 arg1);
 void TWindowKeyBoardSoft__sub_800808FC(Kb_800808FC *kb, u16 ch);
 s32 TWindowKeyBoardSoft__sub_80080D1C(Field_80080D1C *f, u16 code, u32 *x, u32 *y, u32 *count);
 s32 TWindowKeyBoardSoft__sub_80080DFC(F_80080DFC *arg0, u16 *arg1);
+extern s32 lbl_805D5544;
+void TWindowKeyBoardSoft__sub_8008081C(Kb_8008081C *kb, char *s);
+extern u16 lbl_8048E02C[];
+s32 TWindowKeyBoardSoft__sub_80080A08(F_80080A08 *arg0);
+extern u16 lbl_8048DFF8[];
+s32 TWindowKeyBoardSoft__sub_80080B34(F_80080B34 *arg0);
 }
 
 extern "C" {
@@ -69,10 +84,50 @@ void TWindowKeyBoardSoft__sub_80080798(F_80080798 *arg0, u8 *arg1) {
     }
 }
 
+void TWindowKeyBoardSoft__sub_8008081C(Kb_8008081C *kb, char *s) {
+    u16 *dst;
+    s32 jp;
+    s32 c;
+    dst = kb->buf;
+    kb->len = 0;
+    kb->cursor = kb->len;
+    if (s == NULL) {
+        return;
+    }
+    jp = lbl_805D5544 == 0 ? 1 : 0;
+    if (*s == 9) {
+        s += 2;
+        switch (s[-1]) {
+        case 'J':
+            if (jp == 0) {
+                return;
+            }
+            break;
+        case 'E':
+            if (jp == 1) {
+                return;
+            }
+            break;
+        }
+    }
+    while (*s != 0) {
+        c = *(u8 *)s++;
+        if (jp != 0) {
+            if ((c & 0xE0) == 0x80 || (c & 0xE0) == 0xE0) {
+                c = ((u8)c << 8) | *(u8 *)s++;
+            }
+        }
+        *dst++ = c;
+        kb->len++;
+    }
+    *dst = 0;
+    kb->cursor = kb->len;
+}
+
 void TWindowKeyBoardSoft__sub_800808FC(Kb_800808FC *kb, u16 ch) {
     switch (ch) {
     case 0x814A:
-        if (TWindowKeyBoardSoft__sub_80080B34(kb) != 0) {
+        if (TWindowKeyBoardSoft__sub_80080B34((F_80080B34 *)(kb)) != 0) {
             return;
         }
         break;
@@ -82,7 +137,7 @@ void TWindowKeyBoardSoft__sub_800808FC(Kb_800808FC *kb, u16 ch) {
         }
         break;
     case 0xFF20:
-        TWindowKeyBoardSoft__sub_80080A08(kb);
+        TWindowKeyBoardSoft__sub_80080A08((F_80080A08 *)(kb));
         return;
     }
     if (TWindowKeyBoardSoft__sub_80080F68((F_80080F68 *)kb, ch) == 0) {
@@ -106,6 +161,35 @@ s32 TWindowKeyBoardSoft__sub_800809C0(Field_800809C0 *f) {
     return 1;
 }
 
+s32 TWindowKeyBoardSoft__sub_80080A08(F_80080A08 *arg0) {
+    u16 *p;
+    u16 c;
+    s32 i;
+    if (arg0->cursor == 0) {
+        return 0;
+    }
+    p = arg0->buffer + arg0->cursor;
+    c = p[-1];
+    if (c >= 0x8340) {
+        c -= 0xA1;
+    }
+    for (i = 0; i < 10; i++) {
+        if (c == lbl_8048E02C[i]) {
+            p[-1]--;
+            return 1;
+        }
+    }
+    if (c == 0x82A9) {
+        p[-1] = 0x8395;
+        return 1;
+    }
+    if (c == 0x82AF) {
+        p[-1] = 0x8396;
+        return 1;
+    }
+    return 0;
+}
+
 s32 TWindowKeyBoardSoft__sub_80080ABC(Field_80080ABC *f) {
     u16 *last;
     u16 c;
@@ -123,6 +207,31 @@ s32 TWindowKeyBoardSoft__sub_80080ABC(Field_80080ABC *f) {
             last[-1] += 2;
             return 1;
         }
+    }
+    return 0;
+}
+
+s32 TWindowKeyBoardSoft__sub_80080B34(F_80080B34 *arg0) {
+    u16 *p;
+    u16 c;
+    s32 i;
+    if (arg0->cursor == 0) {
+        return 0;
+    }
+    p = arg0->buffer + arg0->cursor;
+    c = p[-1];
+    if (c >= 0x8340) {
+        c -= 0xA1;
+    }
+    for (i = 0; i < 20; i++) {
+        if (c == lbl_8048DFF8[i]) {
+            p[-1]++;
+            return 1;
+        }
+    }
+    if (c == 0x82A4) {
+        p[-1] = 0x8394;
+        return 1;
     }
     return 0;
 }

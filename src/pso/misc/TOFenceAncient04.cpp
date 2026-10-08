@@ -286,7 +286,7 @@ void TOFenceAncient04__vt13(void* p);
 void TOFenceAncient04__vt12(void* p);
 void * create__16TOFenceAncient04FPv(void *arg0);
 void destroy__16TOFenceAncient04Fv(void);
-void TOFenceAncient04__sub_8016775C(void);
+void load_resources__16TOFenceAncient04Fv(void);
 void * __dt__16TOFenceAncient04Fv(void *arg0, s16 arg1);
 u8 * TOFenceAncient04__ct(u8 *arg0, M2C_UNK arg1, s32 arg2);
 void TOHangceilingCave01KeyQuick__vt78(u8 *arg0);
@@ -309,7 +309,7 @@ void fn_80168398(u8 *arg0);
 void fn_80168488(VO_80168488 *arg0);
 void init_geometry__19TOHangceilingCave01FPv(void *);
 void destroy_hanging_object__27TOHangceilingCave01KeyQuickFPvs(void *, int);
-void TOHangceilingCave01KeyQuick__sub_80168C6C(void *);
+void init_base__27TOHangceilingCave01KeyQuickFPvii(void *);
 void set_scale__27TOHangceilingCave01KeyQuickFPvf(void *, f32);
 void * get_player_by_client_id(s32);
 M2C_UNK free_if_valid__10TObjPlayerFi(s32);
@@ -397,7 +397,7 @@ void destroy__16TOFenceAncient04Fv(void) {
     }
 }
 
-void TOFenceAncient04__sub_8016775C(void) {
+void load_resources__16TOFenceAncient04Fv(void) {
     Big_8016775C *v = (Big_8016775C *)alloc__23TAdSinglePlyChrSelectGCFPv(0x440);
     if (v != NULL) {
         v = load_resource_from_descriptor(v, 1, lbl_804B1F70, 0, 0, 0);

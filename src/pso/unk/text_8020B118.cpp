@@ -34,7 +34,7 @@ extern s32 TLobby__data_805D60E8;
 extern s32 TLobby__data_805D60EC;
 extern s32 TLobby__data_805D60F4;
 extern s16 TLobby__data_805D6134;
-void TLobby__sub_8020B118(void);
+void load_set_gsl_files__6TLobbyFv(void);
 extern s32 TLobby__data_80513CC8[];
 s32 TLobby__sub_8020B2DC(void);
 extern s32 TLobby__data_80513C80[];
@@ -47,7 +47,7 @@ s32 TLobby__sub_8020B1E4(s32 arg0, s16 arg1, s16 arg2, s32 arg3);
 
 extern "C" {
 
-void TLobby__sub_8020B118(void) {
+void load_set_gsl_files__6TLobbyFv(void) {
     lbl_805D60D8 = 0;
     lbl_805D60DC = 0;
     TLobby__data_805D60E0 = 0;

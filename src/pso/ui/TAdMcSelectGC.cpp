@@ -22,7 +22,7 @@ s32 get_slot_index__13TAdMcSelectGCFPv(void *);
 s32 TAdMcSelectGC__sub_80329DD0(void);
 s32 get_state_flag__9TMainTaskFv();
 void render__13TAdMcSelectGCFv(void *self);
-void *TAdMcSelectGC__sub_80019DA8(void *, s32, f32);
+void *create_draw_line_ctrl__13TAdMcSelectGCFiif(void *, s32, f32);
 void *__nw__7TObjectFUl(u32);
 void __ct__7TObjectFP7TObject(void *, void *);
 void *__ct__9TAdBackGCFv(void *, void *);
@@ -152,8 +152,8 @@ Self_80329EC8 *TAdMcSelectGC__ct(Self_80329EC8 *self, void *parent) {
         p = __ct__10TAdTitleGCFv(p, self, 0xD);
     }
     TAdMcSelectGC__sub_8032A188(p, 0);
-    TAdMcSelectGC__sub_8032A180(TAdMcSelectGC__sub_80019DA8(self, 0x16, lbl_805DF720), 0);
-    TAdMcSelectGC__sub_8032A180(TAdMcSelectGC__sub_80019DA8(self, 0x17, lbl_805DF720), 0);
+    TAdMcSelectGC__sub_8032A180(create_draw_line_ctrl__13TAdMcSelectGCFiif(self, 0x16, lbl_805DF720), 0);
+    TAdMcSelectGC__sub_8032A180(create_draw_line_ctrl__13TAdMcSelectGCFiif(self, 0x17, lbl_805DF720), 0);
     p = __nw__7TObjectFUl(0x128);
     if (p != NULL) {
         p = __ct__15TAdChrSelSlotGCFv(p, self);

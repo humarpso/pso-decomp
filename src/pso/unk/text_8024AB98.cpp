@@ -38,13 +38,13 @@ struct RecoveredGlobal_8024AC20_lbl_804CEA58 {
 };
 
 extern "C" {
-s32 TWindowCtrl__sub_8024AF34(void *, void *);
+s32 call_window_method__11TWindowCtrlFPvi(void *, void *);
 extern RecoveredGlobal_8024AB98_lbl_804CEA70 lbl_804CEA70;
 void TWindowSubComCard__sub_8024AB98(s32 arg0);
-s32 TWindowCtrl__sub_8024AF34(void *, void *);
+s32 call_window_method__11TWindowCtrlFPvi(void *, void *);
 extern RecoveredGlobal_8024ABDC_lbl_804CEA64 lbl_804CEA64;
 void TObjPlayer__sub_8024ABDC(s32 arg0);
-s32 TWindowCtrl__sub_8024AF34(void *, void *);
+s32 call_window_method__11TWindowCtrlFPvi(void *, void *);
 extern RecoveredGlobal_8024AC20_lbl_804CEA58 lbl_804CEA58;
 void TLobby__sub_8024AC20(s32 arg0);
 }
@@ -60,7 +60,7 @@ void TWindowSubComCard__sub_8024AB98(s32 arg0) {
     stack.sp8 = M2C_FIELD(&lbl_804CEA70.value, s32 *, 0);
     stack.spC = M2C_FIELD(&lbl_804CEA70.value, s32 *, 4);
     stack.sp10 = M2C_FIELD(&lbl_804CEA70.value, s32 *, 8);
-    TWindowCtrl__sub_8024AF34((void *) (arg0), (void *) (&stack.sp8));
+    call_window_method__11TWindowCtrlFPvi((void *) (arg0), (void *) (&stack.sp8));
 }
 typedef char RecoveredGlobal_8024ABDC_lbl_804CEA64_size[sizeof(RecoveredGlobal_8024ABDC_lbl_804CEA64) == 0xC ? 1 : -1];
 void TObjPlayer__sub_8024ABDC(s32 arg0) {
@@ -71,7 +71,7 @@ void TObjPlayer__sub_8024ABDC(s32 arg0) {
     stack.sp8 = M2C_FIELD(&lbl_804CEA64.value, s32 *, 0);
     stack.spC = M2C_FIELD(&lbl_804CEA64.value, s32 *, 4);
     stack.sp10 = M2C_FIELD(&lbl_804CEA64.value, s32 *, 8);
-    TWindowCtrl__sub_8024AF34((void *) (arg0), (void *) (&stack.sp8));
+    call_window_method__11TWindowCtrlFPvi((void *) (arg0), (void *) (&stack.sp8));
 }
 typedef char RecoveredGlobal_8024AC20_lbl_804CEA58_size[sizeof(RecoveredGlobal_8024AC20_lbl_804CEA58) == 0xC ? 1 : -1];
 void TLobby__sub_8024AC20(s32 arg0) {
@@ -82,7 +82,7 @@ void TLobby__sub_8024AC20(s32 arg0) {
     stack.sp8 = M2C_FIELD(&lbl_804CEA58.value, s32 *, 0);
     stack.spC = M2C_FIELD(&lbl_804CEA58.value, s32 *, 4);
     stack.sp10 = M2C_FIELD(&lbl_804CEA58.value, s32 *, 8);
-    TWindowCtrl__sub_8024AF34((void *) (arg0), (void *) (&stack.sp8));
+    call_window_method__11TWindowCtrlFPvi((void *) (arg0), (void *) (&stack.sp8));
 }
 
 }

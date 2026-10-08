@@ -8,7 +8,7 @@ extern "C" {
 
 void update_fade_timer__10TObjPlayerFPv(void *arg0);
 s32 has_game_join_id();
-M2C_UNK TItemAttackCol__sub_802E4918(void *);
+M2C_UNK check_hits__14TItemAttackColFPv(void *);
 M2C_UNK queue_destruction__7TObjectFv(void *);
 
 extern f32 lbl_805DAD50;
@@ -28,7 +28,7 @@ void update_fade_timer__10TObjPlayerFPv(void *arg0) {
         } else {
             queue_destruction__7TObjectFv(arg0);
         }
-        TItemAttackCol__sub_802E4918(arg0);
+        check_hits__14TItemAttackColFPv(arg0);
     }
 }
 

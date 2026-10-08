@@ -20,7 +20,7 @@ u8 *__nw__7TObjectFUl(M2C_UNK);
 extern u8 *lbl_805D68D0;
 u8 *TAdMultiPlyChrSelectGC__sub_802DFF78(s32 arg0, s32 arg1);
 void __ct__7TObjectFP7TObject(void *, void *);
-void TAdMultiPlyChrSelectGC__sub_802DF9B4(void *);
+void create_widgets__22TAdMultiPlyChrSelectGCFPv(void *);
 void handle_event__22TAdMultiPlyChrSelectGCFPvi(void *arg0, s32 arg1);
 void TAdMultiPlyChrSelectGC__sub_802DFCCC(void *, s32);
 s32 get_select_flag__22TAdMultiPlyChrSelectGCFv(void);
@@ -177,7 +177,7 @@ u8 *TAdMultiPlyChrSelectGC__ct(u8 *arg0, u8 *arg1, s32 arg2) {
     M2C_FIELD(arg0, M2C_UNK **, 0x18) = &__vt__22TAdMultiPlyChrSelectGC.value;
     M2C_FIELD(arg0, s32 *, 0) = (s32) lbl_805D3F68;
     TAdMultiPlyChrSelectGC__sub_802DFCCC(arg0, arg2);
-    TAdMultiPlyChrSelectGC__sub_802DF9B4(arg0);
+    create_widgets__22TAdMultiPlyChrSelectGCFPv(arg0);
     handle_event__22TAdMultiPlyChrSelectGCFPvi(arg0, get_select_flag__22TAdMultiPlyChrSelectGCFv());
     return arg0;
 }

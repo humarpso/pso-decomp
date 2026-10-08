@@ -200,15 +200,15 @@ s32 TObjEneDD__sub_800C2628(void *, void *);
 s32 handle_event__16TObjEneRe2FlowerFPvi(void *, void *);
 s32 fn_800C2A88(void *, void *);
 s32 fn_800C2AC4(void *, void *);
-s32 TObjEneDD__sub_800C2CE0(void *, void *);
+s32 state_damaged__9TObjEneDDFPvi(void *, void *);
 s32 TObjEneRe2Flower__sub_800C2E64(void *, void *);
 s32 fn_800C3088(void *, void *);
 s32 fn_800C32DC(void *, void *);
-s32 TObjEneDD__sub_800C34FC(void *, void *);
+s32 state_chase_target__9TObjEneDDFPvi(void *, void *);
 s32 handle_flower_state_change(void *, void *);
 s32 handle_state__9TObjEneDDFPvi(void *, void *);
 s32 dispatch_action__9TObjEneDDFPvi(void *, void *);
-void TObjEneRe2Flower__sub_800C3EA8(s32 arg0, u32 arg1, s32 arg2);
+void dispatch_action__16TObjEneRe2FlowerFiUii(s32 arg0, u32 arg1, s32 arg2);
 s32 obj_is_hit_receivable(void *);
 f32 get_random_float__8TObjFishFv(f32);
 s32 get_battle_param__10TObjPlayerFi(s32);
@@ -218,7 +218,7 @@ M2C_UNK init_all_slots__10TObjPlayerFv();
 M2C_UNK mark_enemy_body_contacts(void *);
 M2C_UNK TObjPlayer__sub_801561C4(void *, f32);
 extern const f32 lbl_805DA000;
-s32 TObjPlayer__sub_800C45AC(u8 *arg0, u8 *arg1, s32 arg2, u32 arg3, f32 farg0);
+s32 hit_area_targets__10TObjPlayerFPvPviUif(u8 *arg0, u8 *arg1, s32 arg2, u32 arg3, f32 farg0);
 }
 
 extern "C" {
@@ -269,7 +269,7 @@ void TObjEneRe2Flower__sub_800C3EA4(void) {  }
 
 extern M2C_UNK lbl_804931FC[];
 
-void TObjEneRe2Flower__sub_800C3EA8(s32 arg0, u32 arg1, s32 arg2) {
+void dispatch_action__16TObjEneRe2FlowerFiUii(s32 arg0, u32 arg1, s32 arg2) {
     switch (arg1) {
     case 0:
         dispatch_action__9TObjEneDDFPvi((void *) (arg0), (void *) (arg2));
@@ -281,7 +281,7 @@ void TObjEneRe2Flower__sub_800C3EA8(s32 arg0, u32 arg1, s32 arg2) {
         handle_flower_state_change((void *) (arg0), (void *) (arg2));
         return;
     case 3:
-        TObjEneDD__sub_800C34FC((void *) (arg0), (void *) (arg2));
+        state_chase_target__9TObjEneDDFPvi((void *) (arg0), (void *) (arg2));
         return;
     case 4:
         fn_800C32DC((void *) (arg0), (void *) (arg2));
@@ -290,7 +290,7 @@ void TObjEneRe2Flower__sub_800C3EA8(s32 arg0, u32 arg1, s32 arg2) {
         fn_800C3088((void *) (arg0), (void *) (arg2));
         return;
     case 9:
-        TObjEneDD__sub_800C2CE0((void *) (arg0), (void *) (arg2));
+        state_damaged__9TObjEneDDFPvi((void *) (arg0), (void *) (arg2));
         return;
     case 10:
         fn_800C2AC4((void *) (arg0), (void *) (arg2));
@@ -390,7 +390,7 @@ void TObjPlayer__sub_800C44C4(void) {
     temp_r5 = (u8 *)(M2C_FIELD(lbl_805D5174, u8 **, 0x42C));
     spawn_npc_enemy__6TLobbyFsiiiff((int) (0x37), (int) (M2C_FIELD(temp_r5, s32 *, 8)), (int) (M2C_FIELD(temp_r5, s32 *, 0xC)), (void *) (&stack.sp8), (f32) (lbl_805D9FBC), (f32) (lbl_805D9FAC));
 }
-s32 TObjPlayer__sub_800C45AC(u8 *arg0, u8 *arg1, s32 arg2, u32 arg3, f32 farg0) {
+s32 hit_area_targets__10TObjPlayerFPvPviUif(u8 *arg0, u8 *arg1, s32 arg2, u32 arg3, f32 farg0) {
     s32 result;
     s32 flags;
     s32 p;

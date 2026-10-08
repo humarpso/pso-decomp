@@ -140,7 +140,7 @@ M2C_UNK compose_motion_node_matrix(int);
 M2C_UNK matrix_mult_vec(int, int, int);
 M2C_UNK push_matrix();
 M2C_UNK pop_matrix();
-s32 TBreakUpMdl__sub_80096CE0(u8 *arg0, u8 *arg1, s32 arg2);
+s32 collect_node_positions__11TBreakUpMdlFPvPvi(u8 *arg0, u8 *arg1, s32 arg2);
 f32 clamp_velocity__15TObjBoss2TunnelFPv(void *);
 M2C_UNK VecCopy__FP3VecPC3Vec(void *, void *);
 M2C_UNK matrix_mult_vec(int, int, int);
@@ -150,20 +150,20 @@ M2C_UNK pop_matrix();
 M2C_UNK scale_current_matrix(void *);
 M2C_UNK post_translate_matrix(void *);
 s32 build_node_records__11TBreakUpMdlFPvPvi(u8 *arg0, u8 *arg1, s32 arg2);
-s32 TBreakUpMdl__sub_80096CE0(u8 *arg0, u8 *arg1, s32 arg2);
+s32 collect_node_positions__11TBreakUpMdlFPvPvi(u8 *arg0, u8 *arg1, s32 arg2);
 void bind_motion_context(s32, f32);
 s32 push_matrix_from(u32);
 M2C_UNK pop_matrix();
 extern M2C_UNK TBreakUpMdl__data_8048FA00[];
 extern RecoveredGlobal_80096F54_lbl_8058D490 lbl_8058D490;
 u8 *TBreakUpMdl__sub_80096F54(u8 *arg0, s32 arg1, s32 arg2, f32 farg0);
-s32 TBreakUpMdl__sub_80096CE0(u8 *arg0, u8 *arg1, s32 arg2);
+s32 collect_node_positions__11TBreakUpMdlFPvPvi(u8 *arg0, u8 *arg1, s32 arg2);
 void bind_motion_context(s32, f32);
 s32 push_matrix_from(u32);
 M2C_UNK pop_matrix();
 extern M2C_UNK TBreakUpMdl__data_8048FA00[];
 extern RecoveredGlobal_80096F54_lbl_8058D490 lbl_8058D490;
-u8 *TBreakUpMdl__sub_80096FD8(u8 *arg0, s32 arg1, s32 arg2, f32 farg0);
+u8 *init__11TBreakUpMdlFPviif(u8 *arg0, s32 arg1, s32 arg2, f32 farg0);
 s32 build_node_records__11TBreakUpMdlFPvPvi(u8 *arg0, u8 *arg1, s32 arg2);
 s32 push_matrix_from(u32);
 M2C_UNK pop_matrix();
@@ -368,7 +368,7 @@ u8 *TBreakUpMdl__ct(u8 *arg0, void *arg1, Model_80096AD8 *arg2, void *arg3, s32 
 
 #pragma push
 #pragma fp_contract on
-s32 TBreakUpMdl__sub_80096CE0(u8 *arg0, u8 *arg1, s32 arg2) {
+s32 collect_node_positions__11TBreakUpMdlFPvPvi(u8 *arg0, u8 *arg1, s32 arg2) {
     u8 *temp_r31;
     s32 temp_r30;
     s32 temp_r4;
@@ -390,7 +390,7 @@ s32 TBreakUpMdl__sub_80096CE0(u8 *arg0, u8 *arg1, s32 arg2) {
             *(s32 *)temp_r31 = M2C_FIELD(var_r28, s32 *, 4);
         }
         if (!(temp_r30 & 0x10)) {
-            var_r29 = TBreakUpMdl__sub_80096CE0(arg0, M2C_FIELD(var_r28, u8 **, 0x2C), var_r29);
+            var_r29 = collect_node_positions__11TBreakUpMdlFPvPvi(arg0, M2C_FIELD(var_r28, u8 **, 0x2C), var_r29);
         }
         pop_matrix();
         var_r28 = (u8 *)(M2C_FIELD(var_r28, u8 **, 0x30));
@@ -464,18 +464,18 @@ u8 *TBreakUpMdl__sub_80096F54(u8 *arg0, s32 arg1, s32 arg2, f32 farg0) {
     alloc_breakup_piece_records((Brk_80096EBC *)(arg0), (void *)(arg1));
     bind_motion_context(arg2, farg0);
     push_matrix_from((u32) &lbl_8058D490.value);
-    TBreakUpMdl__sub_80096CE0((u8 *)(arg0), (u8 *)((void *) arg1), (s32)(0));
+    collect_node_positions__11TBreakUpMdlFPvPvi((u8 *)(arg0), (u8 *)((void *) arg1), (s32)(0));
     pop_matrix();
     return arg0;
 }
 
-u8 *TBreakUpMdl__sub_80096FD8(u8 *arg0, s32 arg1, s32 arg2, f32 farg0) {
+u8 *init__11TBreakUpMdlFPviif(u8 *arg0, s32 arg1, s32 arg2, f32 farg0) {
     M2C_FIELD(arg0, M2C_UNK **, 0xC) = &(*(RecoveredGlobal_80096FD8_TBreakUpMdl__data_8048FA00 *)&TBreakUpMdl__data_8048FA00).value;
     M2C_FIELD(arg0, s32 *, 8) = 0;
     alloc_breakup_piece_records((Brk_80096EBC *)(arg0), (void *)(arg1));
     bind_motion_context(arg2, farg0);
     push_matrix_from((u32) &(*(RecoveredGlobal_80096FD8_lbl_8058D490 *)&lbl_8058D490).value);
-    TBreakUpMdl__sub_80096CE0((u8 *)(arg0), (u8 *)((void *) arg1), (s32)(0));
+    collect_node_positions__11TBreakUpMdlFPvPvi((u8 *)(arg0), (u8 *)((void *) arg1), (s32)(0));
     pop_matrix();
     return arg0;
 }

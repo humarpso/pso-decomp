@@ -359,7 +359,7 @@ extern const f32 TObjEneMe3Stelth__data_805DA840;
 extern const f32 TObjEneMe3Stelth__data_805DA844;
 extern const f32 TObjEneMe3Stelth__data_805DA850;
 extern const f32 lbl_805DA854;
-void TObjEneMe3Stelth__sub_800F26A4(u8 *arg0, s32 arg1);
+void handle_breakup_state__16TObjEneMe3StelthFPvi(u8 *arg0, s32 arg1);
 f32 calc_boss4_scale__10TObjPlayerFi(void *);
 M2C_UNK VecCopy__FP3VecPC3Vec(void *, void *);
 s32 get_flag_b4__21TObjEneMe3ShinowaRealFPv(void *);
@@ -493,7 +493,7 @@ void TObjEneMe3Stelth__sub_800F2270(u8 *arg0, s32 arg1) {
 }
 #pragma pop
 
-void TObjEneMe3Stelth__sub_800F26A4(u8 *arg0, s32 arg1) {
+void handle_breakup_state__16TObjEneMe3StelthFPvi(u8 *arg0, s32 arg1) {
     Vec_800F26A4 ofs;
     Vec_800F26A4 v;
     switch (arg1) {

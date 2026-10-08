@@ -60,7 +60,7 @@ u8 *TObjPlayer__sub_8012D6BC(u8 *arg0, s16 arg1, s32 arg2, f32 farg0) {
     return arg0;
 }
 
-void TObjPlayer__sub_8012D708(Self_8012D708 *self) {
+void fire_slicer_with_timer__10TObjPlayerFPv(Self_8012D708 *self) {
     Tec_8012D708 tec;
 
     init_slicer_launch_state((SlicerState_801295FC *)&tec);

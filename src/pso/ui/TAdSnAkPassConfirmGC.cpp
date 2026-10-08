@@ -36,7 +36,7 @@ extern "C" {
 s32 get_state_flag__9TMainTaskFv();
 void TAdYesNoBaseGC__vt7(void *self);
 void *__nw__7TObjectFUl(u32);
-s32 TWindowOptionCtrl__sub_8026B4E0(void *, int);
+s32 create_serial_info_window__17TWindowOptionCtrlFPvi(void *, int);
 void __ct__10TAdTitleGCFv(void *, void *, int);
 void init_parts__14TAdYesNoBaseGCFPvPvPv(void *, void *, void *);
 void TAdYesNoBaseGC__ct(void *);
@@ -108,7 +108,7 @@ Obj_8032C004 *TAdSnAkPassConfirmGC__ct(Obj_8032C004 *arg0) {
     if (p != 0) {
         __ct__10TAdTitleGCFv(p, arg0, 0x11);
     }
-    arg0->f48 = TWindowOptionCtrl__sub_8026B4E0(lbl_804772C0, 0);
+    arg0->f48 = create_serial_info_window__17TWindowOptionCtrlFPvi(lbl_804772C0, 0);
     init_parts__14TAdYesNoBaseGCFPvPvPv(arg0, lbl_804772C8, lbl_804772D0);
     return arg0;
 }

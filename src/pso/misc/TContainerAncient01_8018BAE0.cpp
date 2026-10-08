@@ -13,7 +13,7 @@ s32 TObjFish__sub_8001EDB0(u32, int);
 s32 get_bml_model(u32, int);
 void *load_resource_from_descriptor(void *, s32, void *, s32, s32, s32);
 void *alloc__23TAdSinglePlyChrSelectGCFPv(s32);
-s32 TContainerAncient01__sub_8020335C();
+s32 is_global_state_in_table__19TContainerAncient01Fv();
 void spawn_attack__16TObjEneMe3StelthFsiiiff(s16, s32, s32, Param_8018BB64 *, f32, f32);
 extern Param_8018BB64 lbl_80445084[];
 extern u8 lbl_804B6D88[];
@@ -54,7 +54,7 @@ void release_static_resource__19TContainerAncient01Fv(void) {
 void TContainerAncient01__sub_8018BB64(void) {
     void *p;
     TContainerAncient01__data_805D5B90 = 0;
-    if (TContainerAncient01__sub_8020335C() != 0) {
+    if (is_global_state_in_table__19TContainerAncient01Fv() != 0) {
         p = alloc__23TAdSinglePlyChrSelectGCFPv(0x440);
         if (p != NULL) {
             p = load_resource_from_descriptor(p, 5, lbl_804B6DB0, 0, 0, 0);

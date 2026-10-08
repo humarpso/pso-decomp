@@ -44,6 +44,12 @@ struct GvmTextureHeader_803DDDC8 {
     s16 directoryCount;
 };
 
+struct FileInfo_803DD784 { u8 pad[0x34]; u32 length; u32 f38; };
+
+struct Tex_803DD784 { u8 pad[0x20]; void *buf; };
+
+struct Slot_803DD784 { s32 f0; s32 f4; s32 f8; Tex_803DD784 *tex; s32 f10; s32 f14; };
+
 extern "C" {
 extern s32 lbl_805D77A0;
 s32 TLobby__sub_803DDD2C(s32 arg0);
@@ -108,6 +114,19 @@ u32 TLobby__sub_803DE2F8(u32 v);
 void move_data__6TLobbyFv(void*, const void*, s32);
 void *xmalloc__FUl(u32 bytes);
 void *load_nj_chunk_model_resource(u8 *base, u32 *off, u32 *out);
+s32 DVDOpen(const char *, FileInfo_803DD784 *);
+s32 DVDClose(FileInfo_803DD784 *);
+s32 Dolphin_DVDReadPrio(FileInfo_803DD784 *, void *, s32, s32, s32);
+u32 find_gvrt_texture_chunk(Desc_803DDA68 *, s32 *, u32);
+s32 TObjPlayer__sub_803D9E38(Obj_803DDA68 *, s32, s32 *, s32 *);
+void TAdSinglePlyChrSelectGC__sub_803DA038(char *, Info_803DDA68 *, void *);
+M2C_UNK TObjPlayer__sub_803DA7E0();
+s32 TObjPlayer__sub_803DAC48(Obj_803DDA68 *, s32, s32, s32, Desc_803DDA68 *, s32 *);
+extern S_803DA7E0 lbl_8058D470;
+extern u8 lbl_8058D860[];
+extern char lbl_805D46D8[4];
+extern Slot_803DD784 *lbl_805D7768;
+s32 TObjPlayer__sub_803DD784(Obj_803DDA68 *obj, s32 idx);
 }
 
 extern "C" {
@@ -147,6 +166,58 @@ void TObjPlayer__sub_803DD6DC(struct Obj_803DD6DC *arg0, s32 arg1) {
 
 extern s32 lbl_805D77A0;
 extern s32 lbl_805D77A4;
+
+#pragma push
+#pragma optimize_for_size off
+#pragma use_lmw_stmw off
+s32 TObjPlayer__sub_803DD784(Obj_803DDA68 *obj, s32 idx) {
+    s32 sz;
+    s32 id;
+    s32 arg;
+    s32 handle;
+    Desc_803DDA68 desc;
+    char name[32];
+    FileInfo_803DD784 fi;
+    u32 n;
+    s32 r;
+    u32 base = (u32)lbl_8058D860;
+    FileInfo_803DD784 *pfi;
+    u32 size;
+    TObjPlayer__sub_803DA7E0();
+    r = TObjPlayer__sub_803D9E38(obj, idx, &id, &arg);
+    if (r != 0) {
+        return r;
+    }
+    TAdSinglePlyChrSelectGC__sub_803DA038(name, obj->ents[idx].info, lbl_805D46D8);
+    pfi = &fi;
+    if (DVDOpen(name, pfi) == 0) {
+        lbl_8058D470.c = 2;
+        return -1;
+    }
+    size = (fi.length + 0x1F) & ~0x1F;
+    if (Dolphin_DVDReadPrio(pfi, (void *)base, 0x20, 0, 2) == -1) {
+        DVDClose(pfi);
+        return -1;
+    }
+    n = find_gvrt_texture_chunk(&desc, &sz, base);
+    if (n == 0) {
+        DVDClose(pfi);
+        return -1;
+    }
+    if ((u32)id != 0xFFFFFFFF) {
+        sz = id;
+    }
+    r = TObjPlayer__sub_803DAC48(obj, idx, sz, arg, &desc, &handle);
+    if (r != 0) {
+        DVDClose(pfi);
+        return r;
+    }
+    n -= base;
+    Dolphin_DVDReadPrio(pfi, lbl_805D7768[handle].tex->buf, size - n, n, 2);
+    DVDClose(pfi);
+    return 1;
+}
+#pragma pop
 
 s32 TObjPlayer__sub_803DD91C(Obj_803DDA68 *obj, s32 idx) {
     s32 sz;

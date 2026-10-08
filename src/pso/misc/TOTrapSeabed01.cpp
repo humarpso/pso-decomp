@@ -156,12 +156,12 @@ u32 get_player_by_client_id(u32);
 M2C_UNK fn_802C9C18(void *, int);
 s32 is_not_split_screen__13TRaderMapCoreFv();
 extern s32 lbl_805D53A0;
-void TOTrapSeabed01__sub_802CA038(u8 *arg0);
+void check_hold_player__14TOTrapSeabed01FPv(u8 *arg0);
 void calc_attach_pos__10TObjPlayerFPv(void *);
 void obj_clearFlags30(void *, u32);
 void clear_player_status_flag__10TObjPlayerFPviUi(void *, s32, u32);
 void set_indexed_flags(void *, s32, s32);
-void TOTrapSeabed01__sub_802CA038(u8 *arg0);
+void check_hold_player__14TOTrapSeabed01FPv(u8 *arg0);
 void TOTrapSeabed01__vt79(u8 *arg0);
 M2C_UNK VecCopy__FP3VecPC3Vec(void *, void *);
 s32 get_bml_model(int, int);
@@ -173,7 +173,7 @@ M2C_UNK __ct__13TObjSuisoChipFv(void *, void *, void *);
 M2C_UNK fn_802C9C18(void *, int);
 M2C_UNK matrix_mult_vec(void *, void *, void *);
 M2C_UNK set_position_vec3__10TObjPlayerFPvPv(void *, void *);
-M2C_UNK TObjPlayer__sub_803D8CD4(void *);
+M2C_UNK set_matrix_identity__10TObjPlayerFPv(void *);
 M2C_UNK rotate_matrix_y(void *, int);
 extern u8 lbl_80472044[];
 extern Entry_802C9E3C lbl_804E0FE4[];
@@ -194,14 +194,14 @@ extern "C" {
 
 void TOTrapSeabed01__vt20(s32 arg0, s32 arg1, f32 farg0);
 void trigger_by_id__14TOTrapSeabed01FUi(u32 arg0);
-M2C_UNK TOTrap__sub_80178F54(s32, s32, f32);
+M2C_UNK set_triggered_state__6TOTrapFPvUi(s32, s32, f32);
 M2C_UNK begin_effect_render__13TParticleCtrlFv();
 M2C_UNK end_effect_render__13TParticleCtrlFv();
 M2C_UNK fn_802C9D38();
 
 void TOTrapSeabed01__vt20(s32 arg0, s32 arg1, f32 farg0) {
     fn_802C9D38();
-    TOTrap__sub_80178F54(arg0, arg1, farg0);
+    set_triggered_state__6TOTrapFPvUi(arg0, arg1, farg0);
 }
 
 extern u32 lbl_805D6818;
@@ -227,7 +227,7 @@ void TOTrapSeabed01__vt83(Trap_802C9E3C *self) {
         }
         Vec_802C9E3C v = p.pos;
         v.y = y;
-        TObjPlayer__sub_803D8CD4(&m);
+        set_matrix_identity__10TObjPlayerFPv(&m);
         set_position_vec3__10TObjPlayerFPvPv(&m, &self->pos);
         rotate_matrix_y(&m, self->rotY);
         matrix_mult_vec(&m, &v, &v);
@@ -256,7 +256,7 @@ s32 TOTrapSeabed01__vt65(Trap_802C9F70 *self) {
 
 #pragma push
 #pragma fp_contract on
-void TOTrapSeabed01__sub_802CA038(u8 *arg0) {
+void check_hold_player__14TOTrapSeabed01FPv(u8 *arg0) {
     f32 temp_f0;
     f32 temp_f31;
     u32 temp_r3;
@@ -310,7 +310,7 @@ void TOTrapSeabed01__vt79(u8 *arg0) {
         clear_player_status_flag__10TObjPlayerFPviUi(arg0, 0, 0x08001F04U);
         set_indexed_flags(arg0, 0, 0x8003);
         obj_clearFlags30(arg0, 0x40000U);
-        TOTrapSeabed01__sub_802CA038((u8 *)((void *) (arg0)));
+        check_hold_player__14TOTrapSeabed01FPv((u8 *)((void *) (arg0)));
     }
 }
 

@@ -38,11 +38,11 @@ M2C_UNK set_flag70_bit100__17TWindowOptionCtrlFPv(int);
 f32 TWindowSubEquip__sub_80263AF8(int, int);
 s32 create_titled_window_menu(int, int, int, int);
 s32 get_window_layout_position(int);
-s32 TWindowSubTechnique__sub_80286E0C(u8 *arg0);
+s32 create_title_window__19TWindowSubTechniqueFPv(u8 *arg0);
 extern s16 *lbl_804D2E20[];
 extern const f32 lbl_805DD838;
 s32 get_cursor_pos__20TWindowShortListCtrlFPv(s32);
-void TWindowSubComCard__sub_802655E4(s32);
+void reset_entries__17TWindowSubComCardFPv(s32);
 void draw_technique_row__19TWindowSubTechniqueFiii(s32 arg0, s32 arg1, s32 arg2);
 void update_layout_height__17TWindowSubComCardFPvf(s32, f32);
 void align_menu_entry_positions(s32);
@@ -106,7 +106,7 @@ void TWindowSubTechnique::rebuildTechniqueList(s32 list, s32 category) {
     s16 *entry;
     entry = lbl_804D2E20[category];
     selected = get_cursor_pos__20TWindowShortListCtrlFPv(list);
-    TWindowSubComCard__sub_802655E4(list);
+    reset_entries__17TWindowSubComCardFPv(list);
     while (*entry != 19) {
         draw_technique_row__19TWindowSubTechniqueFiii(*entry, playerIndex, list);
         ++entry;
@@ -116,7 +116,7 @@ void TWindowSubTechnique::rebuildTechniqueList(s32 list, s32 category) {
     set_selected_index__17TWindowSubComCardFPvs(list, selected);
 }
 
-s32 TWindowSubTechnique__sub_80286E0C(u8 *arg0) {
+s32 create_title_window__19TWindowSubTechniqueFPv(u8 *arg0) {
   s32 temp_r31;
   s32 temp_r31_2;
   temp_r31_2 = (0, get_message_10__20TWindowSubStatusDispFPv((int) 0x30));

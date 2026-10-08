@@ -44,7 +44,7 @@ void set_parent__7TObjectFP7TObject(void *, void *);
 extern void *lbl_805D5544;
 extern void *lbl_805D5EE8;
 extern void *tl_00;
-void TOChatSensor__sub_8015AD54(u8 *arg0, void *arg1);
+void handle_chat_message__12TOChatSensorFPvPv(u8 *arg0, void *arg1);
 }
 
 extern "C" {
@@ -84,7 +84,7 @@ void TOChatSensor__sub_8015ACE4(C_8015ACE4 *arg0, void *arg1) {
     }
 }
 
-void TOChatSensor__sub_8015AD54(u8 *arg0, void *arg1) {
+void handle_chat_message__12TOChatSensorFPvPv(u8 *arg0, void *arg1) {
     Packet_8015AD54 pkt;
     s32 r;
     u32 mode;

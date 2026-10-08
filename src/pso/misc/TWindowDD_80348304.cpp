@@ -24,7 +24,7 @@ void TWindowDD__sub_803484C4(u8 *arg0);
 s32 TWindowDD__sub_80348470(u8 *arg0);
 int TWindowDD__sub_8034B008(s32, s32);
 void TWindowDD__sub_80348448(M2C_UNK arg0, s16 arg1);
-void TWindowDD__sub_80348688(u8 *arg0, s32 *arg1);
+void append_prompt_newline__9TWindowDDFPvPv(u8 *arg0, s32 *arg1);
 M2C_UNK TWindow__close(void *);
 void TWindowDD__sub_80348520(void *p);
 s32 get_player_count__10TObjPlayerFv();
@@ -51,7 +51,7 @@ M2C_UNK TWindowDD__sub_80344980();
 M2C_UNK TWindowDD__sub_80344F54();
 M2C_UNK TWindowDD__sub_80345608();
 M2C_UNK TWindowDD__sub_80345C64();
-M2C_UNK TWindowDD__sub_803461CC();
+M2C_UNK format_entry_text__9TWindowDDFPvPv();
 M2C_UNK TWindowDD__sub_80346434();
 M2C_UNK TWindowDD__sub_80346640();
 
@@ -162,7 +162,7 @@ s32 TWindowDD__sub_803485F4(s32 arg0, s32 *arg1) {
 void update_state__9TWindowDDFv(void) {
     switch ((s32) TWindowDD__data_805D6E08) {
     case 0:
-        TWindowDD__sub_803461CC();
+        format_entry_text__9TWindowDDFPvPv();
         return;
     default:
         TWindowDD__sub_80345C64();
@@ -179,7 +179,7 @@ void update_state__9TWindowDDFv(void) {
     }
 }
 
-void TWindowDD__sub_80348688(u8 *arg0, s32 *arg1) {
+void append_prompt_newline__9TWindowDDFPvPv(u8 *arg0, s32 *arg1) {
     s32 p = *arg1;
     if (((s32)TWindowDD__sub_803485F4((s32)((s32)(3)), (s32 *)((s32 *)(arg1)))) != 0) {
         arg0[p++] = 0xA;

@@ -162,7 +162,7 @@ extern u32 TOTrapSeabed01__data_805D6814;
 extern s32 lbl_805D6818;
 extern s32 lbl_805D681C;
 extern s32 lbl_805D6820;
-void TOTrapSeabed01__sub_802CA820(void);
+void load_resources__14TOTrapSeabed01Fv(void);
 extern s32 lbl_80472090[];
 extern const f32 lbl_805DE658;
 void TOTrapSeabed01__sub_802CA5F4(void *arg0);
@@ -272,7 +272,7 @@ void free_static_resources__14TOTrapSeabed01Fv(void) {
     }
 }
 
-void TOTrapSeabed01__sub_802CA820(void) {
+void load_resources__14TOTrapSeabed01Fv(void) {
     void *p = alloc__23TAdSinglePlyChrSelectGCFPv(0x440);
     if (p != 0) {
         p = load_resource_from_descriptor(p, 5, lbl_804E0FA8, 0, 0, 0);

@@ -43,7 +43,7 @@ s32 __dl__FPv(u32 *);
 s32 all_parents_unqueued_for_destruction__7TObjectFv(s32);
 s32 alloc_buffer__11TOBoss4RockFPv(s32);
 void destroy_particle__13TParticleCtrlFPvs(void *, int);
-s32 fn_8002B094(void *);
+s32 fill_value_array(void *);
 s32 free__11TOBoss4RockFUi(u32);
 s32 obj_testFlags30(s32, s32);
 s32 play_effect__10TObjPlayerFiii(s32, s32, s32);

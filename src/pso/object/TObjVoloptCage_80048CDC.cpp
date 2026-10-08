@@ -196,7 +196,7 @@ extern const f32 lbl_805D8868;
 extern const f32 lbl_805D886C;
 extern Pair_80048C04 lbl_804366E8[];
 void fn_80048C04(Self_80048C04 *self);
-void TObjVoloptCage__sub_80048CDC(u8 *arg0);
+void update_breakup__14TObjVoloptCageFPv(u8 *arg0);
 s32 TObjVoloptPillar__sub_80048118(s32);
 s32 play_sound_effect(s32, u32, s16, s32);
 extern const f32 lbl_805D8874;
@@ -302,7 +302,7 @@ void fn_80048C04(Self_80048C04 *self) {
 
 #pragma push
 #pragma fp_contract on
-void TObjVoloptCage__sub_80048CDC(u8 *arg0) {
+void update_breakup__14TObjVoloptCageFPv(u8 *arg0) {
     Vec_80048CDC v;
     s32 idx;
 

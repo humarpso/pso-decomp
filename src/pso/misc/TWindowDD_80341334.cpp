@@ -32,7 +32,7 @@ struct RecoveredGlobal_8034146C_TWindowDD__data_804EFC24 {
 extern "C" {
 s32 copy_vec2__28TWindowSubSymbolChatPartsSetFPvPv(void *, void *);
 u8 *get_array_entry__20TWindowSubStatusDispFPvi(void *, s32);
-s32 TWindowDD__sub_802466E0(void *, void *, int, void *);
+s32 construct_base__9TWindowDDFPvPvsPv(void *, void *, int, void *);
 s32 refresh_status_display__9TWindowDDFv(int);
 s32 reset_float_field__15TWindowHelpItemFPv(int);
 s32 set_text_entry_string(int, void *, int);
@@ -77,7 +77,7 @@ typedef char RecoveredGlobal_8034138C_lbl_804EFC38_size[sizeof(RecoveredGlobal_8
 u8 *TWindowDD__sub_8034138C(u8 *arg0, s32 arg1, s32 arg2, s32 arg3, s32 arg4) {
     s32 temp_r0;
     u8 *temp_r3;
-    TWindowDD__sub_802466E0((void *) (arg0), (void *) (&TWindowDD__data_804EFC24.value), (int) (4), (void *) (arg1));
+    construct_base__9TWindowDDFPvPvsPv((void *) (arg0), (void *) (&TWindowDD__data_804EFC24.value), (int) (4), (void *) (arg1));
     M2C_FIELD(arg0, M2C_UNK **, 0x18) = &(*(RecoveredGlobal_8034138C_lbl_804EFC38 *)&lbl_804EFC38).value;
     M2C_FIELD(arg0, s32 *, 0) = (s32) lbl_805D42D8;
     copy_vec2__28TWindowSubSymbolChatPartsSetFPvPv((void *) (arg0 + 0x64), (void *) (arg1));

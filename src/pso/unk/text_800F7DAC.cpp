@@ -83,7 +83,7 @@ void * init_fade__6TLobbyFPvPvPv(void *arg0, void *arg1, void *arg2);
 void TLobby__sub_800F87B4(u8 *arg0);
 void * THunterGuildSeqOffline__sub_800F8820(void *arg0, s16 arg1);
 void * init__22THunterGuildSeqOfflineFPvPvPv(void *arg0, void *arg1, void *arg2);
-void TObjCMHairMenu__sub_801E35C4(Quad_800F7E28 *, s32, s32, f32);
+void draw_tri_fan_2d__14TObjCMHairMenuFPviif(Quad_800F7E28 *, s32, s32, f32);
 void __dl__7TObjectFPv(void *);
 s32 __dt__7TObjectFv(void *, int);
 void __ct__7TObjectFP7TObject(void *);
@@ -174,7 +174,7 @@ void render_screen_fade(Fade_800F7E28 *self) {
     q.pos[7] = (4.8e+02f);
     q.col[3] = self->u.color;
     if ((0.0f) != (f32)self->u.c[3]) {
-        TObjCMHairMenu__sub_801E35C4(&q, 4, 0x16, (-1e+01f));
+        draw_tri_fan_2d__14TObjCMHairMenuFPviif(&q, 4, 0x16, (-1e+01f));
     }
     TCameraCtrl__sub_80068EF0();
 }
@@ -490,7 +490,7 @@ void TBoss3Volopt__sub_800F88D8(Fade_800F88D8 *self) {
     q.pos[7] = (4.8e+02f);
     q.col[3] = self->u.color;
     if ((0.0f) != (f32)self->u.c[3]) {
-        ((void (*)(Quad_800F88D8 *, s32, s32, f32))TObjCMHairMenu__sub_801E35C4)(&q, 4, 0x16, (-1e+01f));
+        ((void (*)(Quad_800F88D8 *, s32, s32, f32))draw_tri_fan_2d__14TObjCMHairMenuFPviif)(&q, 4, 0x16, (-1e+01f));
     }
     TCameraCtrl__sub_80068EF0();
 }

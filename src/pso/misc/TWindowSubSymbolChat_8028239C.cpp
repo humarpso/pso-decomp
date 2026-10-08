@@ -60,7 +60,7 @@ s32 draw_card_icon__17TWindowSubComCardFiii(s32, M2C_UNK, s32);
 M2C_UNK get_window_layout_position(M2C_UNK);
 extern const f32 lbl_805DD748;
 extern const f32 lbl_805DD74C;
-s32 TWindowSubSymbolChat__sub_80282600(Win_80282600 *arg0);
+s32 create_symbol_list_card__20TWindowSubSymbolChatFPv(Win_80282600 *arg0);
 s32 queue_destruction__7TObjectFv(int);
 M2C_UNK copy_vec2__28TWindowSubSymbolChatPartsSetFPvPv(void *, int);
 s32 is_visible__17TWindowSubComCardFPv(int);
@@ -85,7 +85,7 @@ M2C_UNK free__11TOBoss4RockFUi(int);
 M2C_UNK clear_flag_and_release__17TWindowSubComCardFPv(int);
 s32 __nw__7TObjectFUl(int);
 s32 TWindow__close(int);
-M2C_UNK TWindowSubSymbolChat__sub_802484C0(void *);
+M2C_UNK update_visibility__20TWindowSubSymbolChatFPv(void *);
 M2C_UNK set_selection__20TWindowSubSymbolChatFPvUi(void *, int);
 M2C_UNK set_from_key__20TWindowSubSymbolChatFii(void *, int);
 s32 update_selected_item__17TWindowOptionCtrlFPv(int);
@@ -93,9 +93,9 @@ s32 get_selected_menu_value(int);
 M2C_UNK clear_transition_flag__17TWindowSubComCardFPv(int);
 M2C_UNK open__17TWindowOptionCtrlFPv(int);
 M2C_UNK get_window_layout_position(M2C_UNK);
-M2C_UNK TWindowSubSymbolChat__sub_802819BC(void *);
+M2C_UNK update_sub_window__20TWindowSubSymbolChatFPv(void *);
 M2C_UNK update_state__20TWindowSubSymbolChatFPv(void *);
-M2C_UNK TWindowSubSymbolChat__sub_80281B18(void *);
+M2C_UNK draw_selected_entry__20TWindowSubSymbolChatFPv(void *);
 M2C_UNK TWindowSubSymbolChat__sub_80281C60(void *);
 M2C_UNK TWindowSubSymbolChat__sub_80281CC4(void *);
 u32 create_keyboard_control__20TWindowSubSymbolChatFPv(void *);
@@ -110,7 +110,7 @@ u32 TWindowSubSymbolChat__sub_8028233C(void *);
 s32 open_edit_menu__20TWindowSubSymbolChatFPv(void *arg0);
 s32 open_main_menu__20TWindowSubSymbolChatFv(void *);
 void apply_symbol__20TWindowSubSymbolChatFPv(void *arg0);
-s32 TWindowSubSymbolChat__sub_80282600(Win_80282600 *arg0);
+s32 create_symbol_list_card__20TWindowSubSymbolChatFPv(Win_80282600 *arg0);
 s32 TWindowSubSymbolChat__sub_802826E4(M2C_UNK arg0, s32 arg1);
 M2C_UNK *TWindowSubSymbolChat__sub_8028379C(void);
 M2C_UNK set_flag_bit1__20TWindowSubSymbolChatFPv(int);
@@ -139,11 +139,11 @@ M2C_UNK open__20TWindowSubSymbolChatFPvi(int, void *);
 M2C_UNK fn_80285A28(int, void *);
 s32 TWindowSubSymbolChat__sub_80285E10(int, void *, void *);
 M2C_UNK TWindowSubSymbolChat__sub_80285FF4(int, void *);
-M2C_UNK TWindowSubSymbolChat__sub_80286028(int, void *);
+M2C_UNK init_symbol_layout__20TWindowSubSymbolChatFPvPv(int, void *);
 s32 close__17TWindowSubComCardFPv(int);
 s32 get_slot_or_neg1__17TWindowSubComCardFPv(int);
 s32 get_card_data__17TWindowSubComCardFPv(int);
-s32 TWindowSubComCard__sub_802A57FC(int);
+s32 is_child_visible__17TWindowSubComCardFPv(int);
 extern s8 TWindowSubSymbolChat__data_805D6494;
 extern s32 TWindowSubSymbolChat__data_805D6498;
 extern s32 TWindowSubSymbolChat__data_805D649C;
@@ -218,7 +218,7 @@ void apply_symbol__20TWindowSubSymbolChatFPv(void *arg0) {
     TWindowSubComCard__sub_80265680(M2C_FIELD(arg0, s32 *, 0x38), (s16) M2C_FIELD(arg0, s32 *, 0x20));
 }
 
-s32 TWindowSubSymbolChat__sub_80282600(Win_80282600 *arg0) {
+s32 create_symbol_list_card__20TWindowSubSymbolChatFPv(Win_80282600 *arg0) {
     s32 i;
     s32 sym;
     s32 card;
@@ -289,8 +289,8 @@ void run_task__20TWindowSubSymbolChatFv(u8 *arg0) {
         if ((void *) M2C_FIELD(arg0, u8 **, 0x30) == NULL) {
             M2C_FIELD(arg0, u8 **, 0x30) = ((u8 *)TWindowSubSymbolChat__sub_802826E4((M2C_UNK)(arg0), (s32)(0)));
         }
-        TWindowSubSymbolChat__sub_802484C0((void *) (M2C_FIELD(arg0, u8 **, 0x30)));
-        M2C_FIELD(arg0, u32 *, 0x38) = ((u32)TWindowSubSymbolChat__sub_80282600((Win_80282600 *)((void *) (arg0))));
+        update_visibility__20TWindowSubSymbolChatFPv((void *) (M2C_FIELD(arg0, u8 **, 0x30)));
+        M2C_FIELD(arg0, u32 *, 0x38) = ((u32)create_symbol_list_card__20TWindowSubSymbolChatFPv((Win_80282600 *)((void *) (arg0))));
         M2C_FIELD(arg0, u8 *, 0x1C) = 2U;
     case 2:
         set_from_key__20TWindowSubSymbolChatFii((void *) (M2C_FIELD(arg0, u8 **, 0x30)), (int) (get_selected_menu_value((int) (M2C_FIELD(arg0, u32 *, 0x38)))));
@@ -306,7 +306,7 @@ void run_task__20TWindowSubSymbolChatFv(u8 *arg0) {
             M2C_FIELD(arg0, u32 *, 0x28) = get_instance__20TWindowSubSymbolChatFv();
             update_selected_symbol__20TWindowSubSymbolChatFPv((int) (M2C_FIELD(arg0, u32 *, 0x28)));
             set_flag_bit2__20TWindowSubSymbolChatFPv((int) (M2C_FIELD(arg0, u32 *, 0x28)));
-            TWindowSubSymbolChat__sub_802484C0((void *) (M2C_FIELD(arg0, u8 **, 0x30)));
+            update_visibility__20TWindowSubSymbolChatFPv((void *) (M2C_FIELD(arg0, u8 **, 0x30)));
             M2C_FIELD(arg0, u8 *, 0x1C) = 3U;
             return;
         }
@@ -388,7 +388,7 @@ void run_task__20TWindowSubSymbolChatFv(u8 *arg0) {
         clear_flag_and_release__17TWindowSubComCardFPv((int) (M2C_FIELD(arg0, u32 *, 0x38)));
         M2C_FIELD(arg0, u8 *, 0x1C) = 7U;
     case 7:
-        TWindowSubSymbolChat__sub_802819BC((void *) (arg0));
+        update_sub_window__20TWindowSubSymbolChatFPv((void *) (arg0));
         if (get_status_flag__17TWindowSubComCardFPv((int) (M2C_FIELD(arg0, u32 *, 0x38))) != 0) {
             M2C_FIELD(arg0, u8 *, 0x1C) = 4U;
             return;
@@ -422,7 +422,7 @@ void run_task__20TWindowSubSymbolChatFv(u8 *arg0) {
         }
         if (is_open__20TWindowSubSymbolChatFPv((int) (M2C_FIELD(arg0, u32 *, 0x48))) != 0) {
             TWindowSubSymbolChat__sub_800772D8((int) (M2C_FIELD(arg0, u32 *, 0x28)), (int) (fn_802839A4((int) (M2C_FIELD(arg0, u32 *, 0x48)))), (int) (TWindowSubSymbolChat__data_805D6494));
-            TWindowSubSymbolChat__sub_802484C0((void *) (M2C_FIELD(arg0, u8 **, 0x30)));
+            update_visibility__20TWindowSubSymbolChatFPv((void *) (M2C_FIELD(arg0, u8 **, 0x30)));
             M2C_FIELD(arg0, u8 *, 0x1C) = 4U;
             return;
         }
@@ -500,7 +500,7 @@ void run_task__20TWindowSubSymbolChatFv(u8 *arg0) {
         }
         if ((u32) M2C_FIELD(arg0, u32 *, 0x50) == 0U) {
             M2C_FIELD(arg0, u32 *, 0x50) = create_parts_set__20TWindowSubSymbolChatFPv((void *) (arg0));
-            TWindowSubSymbolChat__sub_80286028((int) (M2C_FIELD(arg0, u32 *, 0x50)), (void *) (&TWindowSubSymbolChat__data_805D64A0));
+            init_symbol_layout__20TWindowSubSymbolChatFPvPv((int) (M2C_FIELD(arg0, u32 *, 0x50)), (void *) (&TWindowSubSymbolChat__data_805D64A0));
         }
         M2C_FIELD(arg0, u8 *, 0x1C) = 0xFU;
     case 15:
@@ -510,7 +510,7 @@ void run_task__20TWindowSubSymbolChatFv(u8 *arg0) {
         }
         if (is_active__20TWindowSubSymbolChatFPv((int) (M2C_FIELD(arg0, u32 *, 0x50))) != 0) {
             TWindowSubSymbolChat__sub_80281CC4((void *) (arg0));
-            TWindowSubSymbolChat__sub_802484C0((void *) (M2C_FIELD(arg0, u8 **, 0x30)));
+            update_visibility__20TWindowSubSymbolChatFPv((void *) (M2C_FIELD(arg0, u8 **, 0x30)));
             if (refresh_parts__20TWindowSubSymbolChatFPv() > 0) {
                 M2C_FIELD(arg0, u8 *, 0x1C) = 0xCU;
                 return;
@@ -569,7 +569,7 @@ void run_task__20TWindowSubSymbolChatFv(u8 *arg0) {
         }
         if (is_active__20TWindowSubSymbolChatFPv((int) (M2C_FIELD(arg0, u32 *, 0x50))) != 0) {
             TWindowSubSymbolChat__sub_80281C60((void *) (arg0));
-            TWindowSubSymbolChat__sub_802484C0((void *) (M2C_FIELD(arg0, u8 **, 0x30)));
+            update_visibility__20TWindowSubSymbolChatFPv((void *) (M2C_FIELD(arg0, u8 **, 0x30)));
             M2C_FIELD(arg0, u8 *, 0x1C) = 0x10U;
             return;
         }
@@ -656,8 +656,8 @@ void run_task__20TWindowSubSymbolChatFv(u8 *arg0) {
             return;
         }
         if (is_active__20TWindowSubSymbolChatFPv((int) (M2C_FIELD(arg0, u32 *, 0x50))) != 0) {
-            TWindowSubSymbolChat__sub_80281B18((void *) (arg0));
-            TWindowSubSymbolChat__sub_802484C0((void *) (M2C_FIELD(arg0, u8 **, 0x30)));
+            draw_selected_entry__20TWindowSubSymbolChatFPv((void *) (arg0));
+            update_visibility__20TWindowSubSymbolChatFPv((void *) (M2C_FIELD(arg0, u8 **, 0x30)));
             M2C_FIELD(arg0, u8 *, 0x1C) = 0x16U;
             return;
         }
@@ -667,7 +667,7 @@ void run_task__20TWindowSubSymbolChatFv(u8 *arg0) {
     case 29:
         TWindowSubSymbolChat__sub_800774E4((int) (M2C_FIELD(arg0, u32 *, 0x28)));
         set_flag_bit2__20TWindowSubSymbolChatFPv((int) (M2C_FIELD(arg0, u32 *, 0x28)));
-        TWindowSubSymbolChat__sub_802484C0((void *) (M2C_FIELD(arg0, u8 **, 0x30)));
+        update_visibility__20TWindowSubSymbolChatFPv((void *) (M2C_FIELD(arg0, u8 **, 0x30)));
         M2C_FIELD(arg0, u8 *, 0x1C) = 4U;
         return;
     case 30:
@@ -684,7 +684,7 @@ void run_task__20TWindowSubSymbolChatFv(u8 *arg0) {
         }
         temp_r4 = (u8 *)(M2C_FIELD(arg0, u8 **, 0x34));
         M2C_FIELD(temp_r4, s32 *, 0x64) = 1;
-        M2C_FIELD(arg0, u32 *, 0x38) = ((u32)TWindowSubSymbolChat__sub_80282600((Win_80282600 *)((void *) (arg0))));
+        M2C_FIELD(arg0, u32 *, 0x38) = ((u32)create_symbol_list_card__20TWindowSubSymbolChatFPv((Win_80282600 *)((void *) (arg0))));
         apply_symbol__20TWindowSubSymbolChatFPv((void *) (arg0));
         M2C_FIELD(arg0, u8 *, 0x1C) = 0x1FU;
     case 31:
@@ -706,7 +706,7 @@ void run_task__20TWindowSubSymbolChatFv(u8 *arg0) {
         set_flag_bit1__20TWindowSubSymbolChatFPv((int) (M2C_FIELD(arg0, u32 *, 0x28)));
         set_flag_bit2__20TWindowSubSymbolChatFPv((int) (M2C_FIELD(arg0, u32 *, 0x28)));
         TWindowSubSymbolChat__sub_80076FEC((int) (M2C_FIELD(arg0, u32 *, 0x28)), (int) (get_message_10__20TWindowSubStatusDispFPv((M2C_UNK)((int) (0xB5)))));
-        TWindowSubSymbolChat__sub_802484C0((void *) (M2C_FIELD(arg0, u8 **, 0x30)));
+        update_visibility__20TWindowSubSymbolChatFPv((void *) (M2C_FIELD(arg0, u8 **, 0x30)));
         M2C_FIELD(arg0, u8 *, 0x1C) = 4U;
         return;
     case 34:
@@ -740,7 +740,7 @@ void run_task__20TWindowSubSymbolChatFv(u8 *arg0) {
             M2C_FIELD(arg0, u8 *, 0x1C) = 0x22U;
             return;
         }
-        if (TWindowSubComCard__sub_802A57FC((int) (M2C_FIELD(arg0, u32 *, 0x40))) != 0) {
+        if (is_child_visible__17TWindowSubComCardFPv((int) (M2C_FIELD(arg0, u32 *, 0x40))) != 0) {
             if (get_slot_or_neg1__17TWindowSubComCardFPv((int) (M2C_FIELD(arg0, u32 *, 0x40))) == 0) {
                 TWindowSubSymbolChat__sub_8007706C((int) (M2C_FIELD(arg0, u32 *, 0x28)), (int) (get_selected_menu_value((int) (M2C_FIELD(arg0, u32 *, 0x38)))));
                 M2C_FIELD(arg0, u8 *, 0x1C) = 4U;

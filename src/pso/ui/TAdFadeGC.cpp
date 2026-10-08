@@ -29,8 +29,8 @@ extern const f32 lbl_805DE5F0;
 extern const f32 lbl_805DE600;
 extern const f32 lbl_805DE608;
 void run_task__9TAdFadeGCFv(void *arg0);
-M2C_UNK fn_801E3330(void *, int, int, f32);
-M2C_UNK TObjCMHairMenu__sub_801E35C4(void *, int, int, f32, f32, f32);
+M2C_UNK draw_color_lines(void *, int, int, f32);
+M2C_UNK draw_tri_fan_2d__14TObjCMHairMenuFPviif(void *, int, int, f32, f32, f32);
 M2C_UNK abs__4cXyzCFv(M2C_UNK, M2C_UNK);
 extern f32 lbl_805D6800;
 extern s8 lbl_805D6804;
@@ -84,7 +84,7 @@ void TAdFadeGC__sub_802C79C8(u8 *arg0) {
                 lbl_805D6804 = 1;
                 lbl_805D6800 = lbl_805DE5F8;
             }
-            fn_801E3330(&d, 4, 7, lbl_805D6800);
+            draw_color_lines(&d, 4, 7, lbl_805D6800);
         }
         abs__4cXyzCFv(0, 8);
         abs__4cXyzCFv(1, 6);
@@ -107,7 +107,7 @@ void TAdFadeGC__sub_802C79C8(u8 *arg0) {
         d.pos[7] = TAdFadeGC__data_805DE5E8;
         c = M2C_FIELD(arg0, u32 *, 0x30);
         d.col[3] = (c << 8) | (c >> 24);
-        TObjCMHairMenu__sub_801E35C4(&d, 4, 7, lbl_805DE5F8, lbl_805DE5FC, TAdFadeGC__data_805DE5E8);
+        draw_tri_fan_2d__14TObjCMHairMenuFPviif(&d, 4, 7, lbl_805DE5F8, lbl_805DE5FC, TAdFadeGC__data_805DE5E8);
         break;
     }
 }

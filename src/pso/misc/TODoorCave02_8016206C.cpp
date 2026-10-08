@@ -61,7 +61,7 @@ extern u8 lbl_804B1478[];
 extern s32 enable_v2_features;
 extern u32 lbl_805D5960;
 extern s32 *TODoorCave02__data_805D5964;
-void TODoorCave02__sub_8016211C(void);
+void load_resources__12TODoorCave02Fv(void);
 }
 
 extern "C" {
@@ -107,7 +107,7 @@ void free_globals__12TODoorCave02Fv(void) {
 
 extern M2C_UNK __vt__12TODoorCave02[];
 
-void TODoorCave02__sub_8016211C(void) {
+void load_resources__12TODoorCave02Fv(void) {
     void *o;
     TODoorCave02__data_805D5964 = (s32 *)alloc_buffer__11TOBoss4RockFPv(8);
     if (enable_v2_features == 1 && is_online_ready__6TLobbyFv() != 0) {

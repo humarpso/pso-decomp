@@ -15,9 +15,9 @@ extern "C" {
 void TBoss6PlotFalz__sub_802B0228(void *arg0);
 void load_player_footstamp(void);
 void reset_ending_state__14TBoss6PlotFalzFPv(void* p);
-M2C_UNK TBoss6PlotFalz__sub_802AB490(void *);
-M2C_UNK TBoss6PlotFalz__sub_802AC678();
-int TBoss6PlotFalz__sub_802AC6D0(void*);
+M2C_UNK award_exp_and_destroy__14TBoss6PlotFalzFPv(void *);
+M2C_UNK end_cutscene_camera__14TBoss6PlotFalzFPv();
+int freeze_all_players__14TBoss6PlotFalzFv(void*);
 int load_gvm_texture_file(void*);
 int create__16TObjOnlineEndingFPv(void*);
 
@@ -39,11 +39,11 @@ void TBoss6PlotFalz__sub_802B0228(void *arg0) {
     temp_r0 = M2C_FIELD(arg0, s32 *, 0x3CC) + 1;
     M2C_FIELD(arg0, s32 *, 0x3CC) = temp_r0;
     if (temp_r0 > 0x1C6) {
-        TBoss6PlotFalz__sub_802AC678();
-        TBoss6PlotFalz__sub_802AB490(arg0);
+        end_cutscene_camera__14TBoss6PlotFalzFPv();
+        award_exp_and_destroy__14TBoss6PlotFalzFPv(arg0);
     }
 }
 
-void reset_ending_state__14TBoss6PlotFalzFPv(void* p) { TBoss6PlotFalz__sub_802AC6D0(p); *(int*)((char*)p + 0x3d0) = 0; *(int*)((char*)p + 0x3cc) = 0; create__16TObjOnlineEndingFPv(p); }
+void reset_ending_state__14TBoss6PlotFalzFPv(void* p) { freeze_all_players__14TBoss6PlotFalzFv(p); *(int*)((char*)p + 0x3d0) = 0; *(int*)((char*)p + 0x3cc) = 0; create__16TObjOnlineEndingFPv(p); }
 
 }

@@ -53,8 +53,8 @@ extern s32 lbl_805D7774;
 extern const f32 lbl_805DDDA0;
 extern const f32 lbl_805DDDA4;
 extern const f32 lbl_805DDDA8;
-void TObjPlayer__sub_8029EEAC(s32 arg0, s32 arg1, s32 arg2);
-void TObjPlayer__sub_8029EEAC(s32 arg0, s32 arg1, s32 arg2);
+void setup_projection_texture__10TObjPlayerFiii(s32 arg0, s32 arg1, s32 arg2);
+void setup_projection_texture__10TObjPlayerFiii(s32 arg0, s32 arg1, s32 arg2);
 void clear_state_if_flag80__10TObjPlayerFi(s32 arg0);
 void TObjPlayer__sub_8029EE2C(void);
 void set_id__6TSceneFi(void *f);
@@ -93,7 +93,7 @@ extern const f32 lbl_805DDD8C;
 extern const f32 lbl_805DDD90;
 extern const f32 lbl_805DDDAC;
 extern const f32 lbl_805DDDB0;
-void TSceneSora__sub_8029EFFC(Sora_8029EFFC *o);
+void render_reflections__10TSceneSoraFPv(Sora_8029EFFC *o);
 }
 
 extern "C" {
@@ -115,7 +115,7 @@ void clear_state_if_flag80__10TObjPlayerFi(s32 arg0) {
     }
 }
 
-void TObjPlayer__sub_8029EEAC(s32 arg0, s32 arg1, s32 arg2) {
+void setup_projection_texture__10TObjPlayerFiii(s32 arg0, s32 arg1, s32 arg2) {
     u8 sp10[0x30];
     f32 spC;
     f32 sp8;
@@ -145,7 +145,7 @@ void TObjPlayer__sub_8029EEAC(s32 arg0, s32 arg1, s32 arg2) {
     }
 }
 
-void TSceneSora__sub_8029EFFC(Sora_8029EFFC *o) {
+void render_reflections__10TSceneSoraFPv(Sora_8029EFFC *o) {
     Cam_8029EFFC c3;
     Cam_8029EFFC c2;
     Cam_8029EFFC c1;
@@ -274,7 +274,7 @@ void TSceneSora__sub_8029EFFC(Sora_8029EFFC *o) {
 
 void TSceneSora__sub_8029F3E4(void) {  }
 int TScene__sub_8029F3E8(void) {
-    set_id__6TSceneFi((void *)TObjPlayer__sub_8029EEAC);
+    set_id__6TSceneFi((void *)setup_projection_texture__10TObjPlayerFiii);
     set_active_scene__6TSceneFi((void *)clear_state_if_flag80__10TObjPlayerFi);
     return set_instance__6TSceneFi((void *)TObjPlayer__sub_8029EE2C);
 }

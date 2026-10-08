@@ -9,11 +9,11 @@ extern "C" {
 void render__11TObjDoaEx01Fv(void *arg0);
 
 M2C_UNK try_open__11TObjDoaEx01FPv();
-M2C_UNK TObjDoaEx01__sub_8018DEC8();
+M2C_UNK draw_model__11TObjDoaEx01FPv();
 
 void render__11TObjDoaEx01Fv(void *arg0) {
     if (M2C_FIELD(arg0, s32 *, 0xD0) & 1) {
-        TObjDoaEx01__sub_8018DEC8();
+        draw_model__11TObjDoaEx01FPv();
         return;
     }
     try_open__11TObjDoaEx01FPv();

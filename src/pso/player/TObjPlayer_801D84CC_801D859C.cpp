@@ -34,7 +34,7 @@ struct VObj_84_801d859c_801D84CC : VObj_84Base_801d859c_801D84CC {
 };
 
 void process_trade_target__10TObjPlayerFiPv(s32 arg0, void *arg1);
-int TBoss4DarkFalz__sub_8004C220(void*);
+int set_position_from__14TBoss4DarkFalzFPvPv(void*);
 s32 advance_item_id_counter();
 M2C_UNK send_6x29_delete_item__10TObjPlayerFPvii(s32, s32, M2C_UNK);
 u32 pickup_item__10TObjPlayerFv(s32, void *);

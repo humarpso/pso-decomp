@@ -18,8 +18,8 @@ extern int lbl_805D5538;
 extern int lbl_805D553C;
 extern int TWindowKeyBoardSoft__data_805D5548;
 void select_language_text_resources(s32 arg0);
-M2C_UNK TLobby__sub_8001EE48(void *);
-s32 TLobby__sub_8001EEFC(void *);
+M2C_UNK tmp_buf_release__6TLobbyFi(void *);
+s32 tmp_buf_use_req__6TLobbyFPv(void *);
 M2C_UNK begin_render__20TWindowSubStatusDispFv();
 M2C_UNK decode_font_data__9TLanguageFPvPvii(void *, void *, int, int);
 M2C_UNK draw_string__9TLanguageFPvPvi(void *, void *, int);
@@ -54,7 +54,7 @@ extern "C" {
 
 void free_instance__19TWindowKeyBoardSoftFv(void);
 void free_resources__19TWindowKeyBoardSoftFv(void);
-int TLobby__sub_800F957C(void*);
+int free_nodes_with_id__6TLobbyFUi(void*);
 M2C_UNK TLobby__sub_803DA16C(void *);
 M2C_UNK safe_free__23TAdSinglePlyChrSelectGCFUi(void *);
 
@@ -74,13 +74,13 @@ void free_instance__19TWindowKeyBoardSoftFv(void) {
     extern int lbl_805D5538;
     extern int lbl_805D553C;
     extern int TWindowKeyBoardSoft__data_805D5548;
-void free_resources__19TWindowKeyBoardSoftFv(void) { TLobby__sub_800F957C((void*)(lbl_805D5538)); TWindowKeyBoardSoft__data_805D5548 = 0; lbl_805D553C = 0; lbl_805D5538 = 0; }
+void free_resources__19TWindowKeyBoardSoftFv(void) { free_nodes_with_id__6TLobbyFUi((void*)(lbl_805D5538)); TWindowKeyBoardSoft__data_805D5548 = 0; lbl_805D553C = 0; lbl_805D5538 = 0; }
 
 void TLanguage__ct(s32 arg0) {
     s32 sp8;
-    sp8 = TLobby__sub_8001EEFC((void *) (lbl_8043EAE8));
+    sp8 = tmp_buf_use_req__6TLobbyFPv((void *) (lbl_8043EAE8));
     draw_string__9TLanguageFPvPvi((void *) (lbl_8043EAF4), (void *) (&sp8), (int) (0x48));
-    TLobby__sub_8001EE48((void *) (lbl_8043EAE8));
+    tmp_buf_release__6TLobbyFi((void *) (lbl_8043EAE8));
     switch (arg0) {
     case 0:
         draw_string__9TLanguageFPvPvi((void *) (lbl_8043EB08), (void *) (&sp8), (int) (0x49));

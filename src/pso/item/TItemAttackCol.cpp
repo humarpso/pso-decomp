@@ -163,7 +163,7 @@ s32 copy_pos__11TNowLoadingFPvPv(int, void *);
 f32 TObjPlayer__sub_8014241C(void *, void *);
 void shift_collision_bounds__14TItemAttackColFPv(void *arg0);
 s32 has_game_join_id(void *);
-s32 TItemAttackCol__sub_802E4918(void *);
+s32 check_hits__14TItemAttackColFPv(void *);
 void run_task__14TItemAttackColFv(u8 *arg0);
 u8 get_field_ed__10TObjPlayerFPv(int);
 u32 find_item_by_id(int);
@@ -185,6 +185,21 @@ void set_flags__10TObjPlayerFPvUi(void *, u32);
 M2C_UNK VecCopy__FP3VecPC3Vec(M2C_UNK *, s32);
 void TItemAttackCol__sub_802E3D8C(u8 *arg0, void *arg1);
 extern const f32 lbl_805DE910;
+u32 query_game_join_id__10TObjPlayerFv(int);
+M2C_UNK run_with_transform_context__10TObjPlayerFiii(int, void *);
+M2C_UNK begin_effect_render__13TParticleCtrlFv();
+M2C_UNK end_effect_render__13TParticleCtrlFv();
+s32 all_parents_unqueued_for_destruction__7TObjectFv();
+M2C_UNK notify_fish_if_valid__10TObjPlayerFUi(void *);
+M2C_UNK rotate_matrix_by_node_angles(void *, int);
+M2C_UNK push_matrix();
+M2C_UNK pop_matrix();
+M2C_UNK scale_current_matrix(void *);
+M2C_UNK post_translate_matrix(void *);
+void add_to_active_list__14TItemAttackColFPv(void* a0);
+extern int lbl_805D68E8;
+extern int lbl_805D68EC;
+void render__14TItemAttackColFv(u8 *arg0);
 }
 
 extern "C" {
@@ -264,6 +279,31 @@ void TItemAttackCol__sub_802E3D8C(u8 *arg0, void *arg1) {
     }
 }
 
+void render__14TItemAttackColFv(u8 *arg0) {
+    if (all_parents_unqueued_for_destruction__7TObjectFv() == 0 || query_game_join_id__10TObjPlayerFv((int) (M2C_FIELD(arg0, s32 *, 0xAC))) == 0U) {
+        return;
+    }
+    {
+        if ((u32) M2C_FIELD(arg0, u32 *, 0xE8) != 0U) {
+            if ((u32) M2C_FIELD(arg0, u32 *, 0xEC) != 0U) {
+                notify_fish_if_valid__10TObjPlayerFUi(M2C_FIELD(arg0, void **, 0xEC));
+            }
+            begin_effect_render__13TParticleCtrlFv();
+            lbl_805D68E8 = (int)arg0;
+            lbl_805D68EC = 0;
+            push_matrix();
+            post_translate_matrix((void *) (arg0 + 0x24));
+            rotate_matrix_by_node_angles((void *) (arg0 + 0xF0), (int) (1));
+            rotate_matrix_by_node_angles((void *) (arg0 + 0xFC), (int) (1));
+            scale_current_matrix((void *) (arg0 + 0x108));
+            run_with_transform_context__10TObjPlayerFiii((int) (M2C_FIELD(arg0, u32 *, 0xE8)), (void *) add_to_active_list__14TItemAttackColFPv);
+            pop_matrix();
+            lbl_805D68E8 = 0;
+            end_effect_render__13TParticleCtrlFv();
+        }
+    }
+}
+
 void run_task__14TItemAttackColFv(u8 *arg0) {
     u32 temp_r3;
     u32 temp_r3_2;
@@ -297,7 +337,7 @@ void run_task__14TItemAttackColFv(u8 *arg0) {
     if (temp_r3_4 != 0U) {
         copy_pos__11TNowLoadingFPvPv((int) (temp_r3_4), (void *) (arg0 + 0x24));
     }
-    TItemAttackCol__sub_802E4918((void *) (arg0));
+    check_hits__14TItemAttackColFPv((void *) (arg0));
     if ((M2C_FIELD(arg0, f32 *, 0xDC) <= TObjPlayer__sub_8014241C((void *) (arg0 + 0x24), (void *) (arg0 + 0xC4))) || (test_flags_any((void *) (arg0 + 0xE0), (int) (1)) != 0)) {
         queue_destruction__7TObjectFv((void *) (arg0));
     }

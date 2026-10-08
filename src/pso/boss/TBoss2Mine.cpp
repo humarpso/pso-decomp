@@ -18,7 +18,7 @@ void TBoss2Mine__vt47(void);
 void TBoss2Mine__vt48(void);
 void TBoss2Mine__vt49(void);
 void TBoss2Mine__vt50(void);
-M2C_UNK TBoss2Mine__sub_80038BA0(void *, s32);
+M2C_UNK init__10TBoss2MineFPvi(void *, s32);
 M2C_UNK TObjEneDD__ct(void *, s32);
 int TObjPlayer__sub_800F0928(void*);
 s32 get_instance__13TBoss2DeRolLeFv(void);
@@ -39,7 +39,7 @@ void *TBoss2Mine__ct(void *arg0, s32 arg1, s16 arg2, s16 arg3, s32 arg4) {
     }
     M2C_FIELD(arg0, s16 *, 0x1C) = arg2;
     M2C_FIELD(arg0, s16 *, 0x2C) = arg3;
-    TBoss2Mine__sub_80038BA0(arg0, arg4);
+    init__10TBoss2MineFPvi(arg0, arg4);
     return arg0;
 }
 

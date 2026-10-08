@@ -30,7 +30,7 @@ M2C_UNK push_matrix();
 extern u16 lbl_805D65F8;
 extern const f32 lbl_805DDD8C;
 extern const f32 lbl_805DDD90;
-s32 TObjEneRecon__sub_8029E960(u8 *arg0);
+s32 push_reflect_matrix__12TObjEneReconFPv(u8 *arg0);
 }
 
 extern "C" {
@@ -82,7 +82,7 @@ s32 render_player_marker__12TObjEneReconFUsi(u16 arg0, s32 arg1) {
 
 extern u16 lbl_805D65F8;
 
-s32 TObjEneRecon__sub_8029E960(u8 *arg0) {
+s32 push_reflect_matrix__12TObjEneReconFPv(u8 *arg0) {
     typedef char sp8_offset[(offsetof(Stack_8029E960, sp8) == 0x0) ? 1 : -1];
     typedef char spC_offset[(offsetof(Stack_8029E960, spC) == 0x4) ? 1 : -1];
     typedef char sp10_offset[(offsetof(Stack_8029E960, sp10) == 0x8) ? 1 : -1];

@@ -76,7 +76,7 @@ void debug_printf_at(s32 id, const char *fmt, ...);
 extern const char lbl_80444250[];
 void fn_80183AA0(void *self);
 void VecCopy__FP3VecPC3Vec(Vec_80183AF0 *, const Vec_80183AF0 *);
-void TObjEneDD__sub_800B9D94(Vec_80183AF0 *, Vec_80183AF0 *, s32, Vec_80183AF0 *);
+void draw_oriented_shadow__9TObjEneDDFiiiUi(Vec_80183AF0 *, Vec_80183AF0 *, s32, Vec_80183AF0 *);
 s32 TObjCity_Season_SonicAdv2__sub_80183C38(void *arg0);
 Res_80183AF0 *get_anim_frame__25TObjCity_Season_EasterEggFPv(void *);
 void rotate_matrix_y(int, s32);
@@ -131,7 +131,7 @@ void fn_80183AF0(Obj_80183AF0 *self) {
         b.x = lbl_805DBC54[0];
         b.y = lbl_805DBC1C[0];
         b.z = lbl_805DBC58[0];
-        TObjEneDD__sub_800B9D94(&pos, &a, self->x60, &b);
+        draw_oriented_shadow__9TObjEneDDFiiiUi(&pos, &a, self->x60, &b);
     }
 }
 #pragma pop

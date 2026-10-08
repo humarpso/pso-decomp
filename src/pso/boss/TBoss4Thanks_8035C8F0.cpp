@@ -19,7 +19,7 @@ void *TBoss4Thanks__ct(void *, void *);
 void *__nw__7TObjectFUl(int);
 M2C_UNK dispatch_main_phase__12TBoss4ThanksFv();
 s32 fn_8035C2B4();
-s32 fn_8035C9E8();
+s32 any_player_has_listed_item();
 s32 get_main_phase();
 int is_door_0x97_open__12TBoss4ThanksFv(void*);
 s32 is_split_screen();
@@ -46,7 +46,7 @@ int TBoss4Thanks__sub_8035C96C(void* p) { return is_door_0x97_open__12TBoss4Than
 extern s32 lbl_805D5550;
 
 s32 check_ready__12TBoss4ThanksFv(void) {
-    if (((s32) lbl_805D5550 == 0) || ((get_main_phase() == 0xE) && (is_split_screen() == 0)) || (fn_8035C9E8() == 0)) {
+    if (((s32) lbl_805D5550 == 0) || ((get_main_phase() == 0xE) && (is_split_screen() == 0)) || (any_player_has_listed_item() == 0)) {
         return 0;
     }
     dispatch_main_phase__12TBoss4ThanksFv();

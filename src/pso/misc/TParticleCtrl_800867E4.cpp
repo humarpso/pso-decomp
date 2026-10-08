@@ -21,7 +21,7 @@ struct Ent_800868C4 { u8 data[0x98]; };
 extern "C" {
 s32 get_bml_model(void *, s32);
 extern u8 *TParticleCtrl__data_805D4F00;
-s32 TParticleCtrl__sub_80086884(s32 arg0);
+s32 get_particle_model__13TParticleCtrlFi(s32 arg0);
 s32 alloc_child_particle__13TParticleCtrlFPvPvPvPv(void *, void *, void *, void *);
 extern RecoveredGlobal_8008683C_lbl_804393F0 lbl_804393F0;
 void generate_child_default__13TParticleCtrlFiii(s32 arg0, s32 arg1, s32 arg2);
@@ -79,7 +79,7 @@ void generate_child_default__13TParticleCtrlFiii(s32 arg0, s32 arg1, s32 arg2) {
     alloc_child_particle__13TParticleCtrlFPvPvPvPv((void *) (arg0), (void *) (arg1), (void *) (&stack.sp8), (void *) (arg2));
 }
 
-s32 TParticleCtrl__sub_80086884(s32 arg0) {
+s32 get_particle_model__13TParticleCtrlFi(s32 arg0) {
     if (arg0 < 3) {
         return get_bml_model(TParticleCtrl__data_805D4F00, arg0);
     }

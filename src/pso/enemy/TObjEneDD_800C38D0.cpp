@@ -158,8 +158,8 @@ void dispatch_action__9TObjEneDDFPvi(void *arg0, s32 arg1);
 void handle_state__9TObjEneDDFPvi(u8 *arg0, s32 arg1);
 void noop__9TObjEneDDFv(void);
 M2C_UNK advance_animation_playback();
-M2C_UNK TBoss3Volopt__sub_800D8C48(void *);
-M2C_UNK TBoss3Volopt__sub_800D8E80(void *);
+M2C_UNK play_area_se_with_particle__12TBoss3VoloptFi(void *);
+M2C_UNK play_area_sound_effect__12TBoss3VoloptFi(void *);
 M2C_UNK transition_enemy_state(void *, s32);
 M2C_UNK TObjEneMe3SinowZoa__sub_800D758C(void *);
 M2C_UNK clear_child_flags__16TObjEneRe2FlowerFPv(void *);
@@ -178,10 +178,10 @@ void handle_state__9TObjEneDDFPvi(u8 *arg0, s32 arg1) {
         enemy_clear_target(arg0);
         TObjEneMe3SinowZoa__sub_800D758C(arg0 + 0x3F4);
         if (get_flag_11__16TObjEneRe2FlowerFPv(arg0) != 0) {
-            TBoss3Volopt__sub_800D8C48(arg0 + 0x38);
+            play_area_se_with_particle__12TBoss3VoloptFi(arg0 + 0x38);
             return;
         }
-        TBoss3Volopt__sub_800D8E80(arg0 + 0x38);
+        play_area_sound_effect__12TBoss3VoloptFi(arg0 + 0x38);
         return;
     case 3:
         if (((V_Sub_800c38d0 *) (arg0 + 0x3F4))->m5() != 0) {

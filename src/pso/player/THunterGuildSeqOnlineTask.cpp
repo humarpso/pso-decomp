@@ -32,7 +32,7 @@ extern int TQuestListOnline__data_805D619C;
 extern u32 TQuestListOnline__data_805D61A0;
 extern u32 TQuestListOnline__data_805D61A4;
 extern void *TQuestListOnline__data_805D61A8;
-void TQuestListOnline__sub_80214D18(void);
+void close_windows_and_reset__16TQuestListOnlineFv(void);
 void TKeyBoardControl__sub_8000F950();
 void TKeyBoardControl__sub_8000F95C();
 s32 is_flag_set__6TLobbyFv();
@@ -59,9 +59,9 @@ extern u32 TQuestListOnline__data_805D61A0;
 extern u32 TQuestListOnline__data_805D61A4;
 extern void *TQuestListOnline__data_805D61A8;
 extern s32 lbl_805D61AC;
-void TQuestListOnline__sub_80214E08(void);
+void handle_quest_ready__16TQuestListOnlineFv(void);
 void *TQuestVmDownLoadServer__sub_8006EF6C(s32);
-void TDLGraph__sub_8007F6F8(s32, s32);
+void update_graph__8TDLGraphFii(s32, s32);
 void send_quest_barrier__9TProtocolFv(s32);
 void set_field_1c__6TLobbyFPvf(void *, f32);
 void complete_reveal__14TWindowMessageFPv(void *);
@@ -80,7 +80,7 @@ extern void *TQuestListOnline__data_805D61A8;
 extern s32 lbl_805D61B0;
 extern s32 lbl_805D61B4;
 extern const f32 lbl_805DC660;
-void TLobby__sub_80214F80(Pkt_80214F80 *p);
+void handle_quest_download_chunk__6TLobbyFPv(Pkt_80214F80 *p);
 }
 
 extern "C" {
@@ -139,7 +139,7 @@ void handle_6x73_exit_quest(void) {
         init__22THunterGuildSeqOfflineFPvPvPv(o, tl_00, reset_random_enemies_mode);
     }
 }
-void TQuestListOnline__sub_80214D18(void) {
+void close_windows_and_reset__16TQuestListOnlineFv(void) {
     u8 *q;
     if (get_input__16TKeyBoardControlFv() == 0) {
         clear_counter__6TLobbyFv();
@@ -175,7 +175,7 @@ void TQuestListOnline__sub_80214D18(void) {
         reset_download__22TQuestVmDownLoadServerFv();
     }
 }
-void TQuestListOnline__sub_80214E08(void) {
+void handle_quest_ready__16TQuestListOnlineFv(void) {
     s32 i;
     void *p;
     u8 *q;
@@ -236,7 +236,7 @@ void TQuestListOnline__sub_80214E08(void) {
     }
     unsuppress_slot__11TWindowCtrlFi((void *)lbl_805D53A0);
 }
-void TLobby__sub_80214F80(Pkt_80214F80 *p) {
+void handle_quest_download_chunk__6TLobbyFPv(Pkt_80214F80 *p) {
     int *flag;
     u8 *buf;
     if (p != NULL) {
@@ -252,7 +252,7 @@ void TLobby__sub_80214F80(Pkt_80214F80 *p) {
         if (buf != NULL) {
             memcpy(buf + (p->chunk << 10), p->data, p->size);
             lbl_805D61B4 += p->size;
-            TDLGraph__sub_8007F6F8(lbl_805D61B4, lbl_805D61B0);
+            update_graph__8TDLGraphFii(lbl_805D61B4, lbl_805D61B0);
             if (p->size < 0x400) {
                 *flag = 1;
             }

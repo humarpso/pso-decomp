@@ -38,7 +38,7 @@ struct Ene_800DA2A0 : Base_800DA2A0 {
 extern "C" {
 u16 find_nearest_visible_player(void *, s32, f32);
 M2C_UNK update_if_active__15TObjEneMe1GiGueFPv(void *, M2C_UNK, s32);
-s32 TObjPlayer__sub_800C6FFC(void *, f32);
+s32 select_nearest_target__10TObjPlayerFPvf(void *, f32);
 void TObjPlayer__sub_800DA1F4(Obj_800DA1F4 *arg0);
 extern const f32 lbl_805DA408;
 void TObjPlayer__sub_800DA2A0(Ene_800DA2A0 *arg0);
@@ -63,7 +63,7 @@ M2C_UNK update_if_active__15TObjEneMe1GiGueFPv(void *, M2C_UNK, s32);
 M2C_UNK TObjEneMe3SinowZoa__sub_800D758C(void *);
 M2C_UNK update_collisions__10TObjPlayerFPv(void *);
 u32 get_player_by_client_id(M2C_UNK);
-M2C_UNK TBoss3Volopt__sub_800D8E80(void *, s32);
+M2C_UNK play_area_sound_effect__12TBoss3VoloptFi(void *, s32);
 M2C_UNK set_shake_preset__11TCameraCtrlFi(M2C_UNK);
 
 void update_death_state__10TObjPlayerFPv(u8 *arg0) {
@@ -78,7 +78,7 @@ void update_death_state__10TObjPlayerFPv(u8 *arg0) {
         temp_r4 = M2C_FIELD(arg0, s32 *, 0x30) | 0x04000000;
         M2C_FIELD(arg0, s32 *, 0x30) = temp_r4;
         M2C_FIELD(arg0, s16 *, 0xB8) = 0;
-        TBoss3Volopt__sub_800D8E80(arg0 + 0x2FC, temp_r4);
+        play_area_sound_effect__12TBoss3VoloptFi(arg0 + 0x2FC, temp_r4);
         TObjEneMe3SinowZoa__sub_800D758C(arg0 + 0x3E8);
         M2C_FIELD(arg0, s32 *, 0x37C) = 1;
     case 1:
@@ -125,7 +125,7 @@ void TObjPlayer__sub_800DA2A0(Ene_800DA2A0 *arg0) {
     case 0:
         if (arg0->v17(0x1E) != 0) {
             if (find_nearest_visible_player(arg0, 0, *arg0->param) != 0xFFFF) {
-                TObjPlayer__sub_800C6FFC(arg0, *arg0->param);
+                select_nearest_target__10TObjPlayerFPvf(arg0, *arg0->param);
                 if (arg0->f388 & 0x40000) {
                     TObjPlayer__sub_800DA1F4((Obj_800DA1F4 *)((struct Obj_800DA1F4 *)arg0));
                 } else {

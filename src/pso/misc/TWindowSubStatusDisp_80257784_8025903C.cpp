@@ -8,7 +8,7 @@ int get_shared_text_buffer(void);
 int update_stat_line_if_positive__20TWindowSubStatusDispFPvi(void*, void*);
 int update_item_colors__20TWindowSubStatusDispFPvi(void*, void*);
 int select_item_icon__20TWindowSubStatusDispFPviUcUci(void*, void*, void*, void*, void*);
-int TWindowSubStatusDisp__sub_80259268(void*, void*, void*, void*, void*);
+int replace_owned_string__20TWindowSubStatusDispFPviiii(void*, void*, void*, void*, void*);
 int forward_message__6TLobbyFiUi(int, void*);
 int get_item_data__6TLobbyFUi(void*);
 
@@ -24,7 +24,7 @@ void set_item_info__20TWindowSubStatusDispFPvPviPv(void* a0, void* a1, int a2, v
     temp_r3 = is_wrapped__9TItemDataFPv(a1);
     select_item_icon__20TWindowSubStatusDispFPviUcUci(a0, (void*)temp_r31, (void*)(*(unsigned char*)((char*)a1 + 0x0)), (void*)(*(unsigned char*)((char*)a1 + 0x1)), (void*)temp_r3);
     forward_message__6TLobbyFiUi(get_shared_text_buffer(), a1);
-    *(int*)((char*)a0 + 0x20) = TWindowSubStatusDisp__sub_80259268(a0, (void*)get_shared_text_buffer(), (void*)(*(int*)((char*)a0 + 0x20)), (void*)8, (void*)1);
+    *(int*)((char*)a0 + 0x20) = replace_owned_string__20TWindowSubStatusDispFPviiii(a0, (void*)get_shared_text_buffer(), (void*)(*(int*)((char*)a0 + 0x20)), (void*)8, (void*)1);
     update_stat_line_if_positive__20TWindowSubStatusDispFPvi(a0, a3);
     update_item_colors__20TWindowSubStatusDispFPvi(a0, a1);
     *(int*)((char*)a0 + 0x34) = *(int*)((char*)a0 + 0x30);

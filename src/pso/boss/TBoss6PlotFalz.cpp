@@ -283,7 +283,7 @@ extern "C" {
 extern RecoveredGlobal_802AB1C8_TBoss6PlotFalz__data_804DE66C TBoss6PlotFalz__data_804DE66C;
 void TBoss6PlotFalz__sub_802AB1C8(u8 *arg0);
 void TBoss6PlotFalz__sub_802AB14C(u8 *arg0);
-void TBoss6PlotFalz__sub_802AB2B8(u8 *arg0, s32 arg1);
+void set_state__14TBoss6PlotFalzFPvi(u8 *arg0, s32 arg1);
 }
 
 extern "C" {
@@ -345,7 +345,7 @@ void set_state_2__14TBoss6PlotFalzFPv(void* p) { *(s32*)((char*)p + 0x3d4) = 0; 
 void reset_state__14TBoss6PlotFalzFPv(void* p) { *(s32*)((char*)p + 0x3d4) = 0; *(s32*)((char*)p + 0x3d8) = 0; }
 void activate_warp__14TBoss6PlotFalzFPv(void* p) { void* m = *(void**)((char*)p + 0x384); if (m) activate_warp__15TBoss6EmptyWarpFPv(m); }
 void free_child__14TBoss6PlotFalzFPv(void* p) { void* m = *(void**)((char*)p + 0x384); if (m) TBoss6EmptyWarp__sub_802B1004(m); }
-void TBoss6PlotFalz__sub_802AB2B8(u8 *arg0, s32 arg1) {
+void set_state__14TBoss6PlotFalzFPvi(u8 *arg0, s32 arg1) {
     MemberActionStorage_802AB2B8 leave;
     MemberActionStorage_802AB2B8 enter;
     u8 *e;
@@ -410,7 +410,7 @@ int play_sound_effect(int, int, int, int);
 int TBoss6Thanks__sub_8035D270();
 void TBoss6PlotFalz__sub_802AB3E0(void);
 f64 get_ad_end_text_start__10TObjPlayerFv(f32, f32);
-s32 TCameraCtrl__sub_80068958();
+s32 get_nth_view_player_id__11TCameraCtrlFi();
 s32 angle_diff_s16(s32, s32);
 M2C_UNK get_camera_no__11TCameraCtrlFv();
 M2C_UNK vec3_add_to(void *, void *);
@@ -540,13 +540,13 @@ struct V3_802AB490 { s32 x, y, z; };
 struct Msg_802AB490 { s32 a, b, c; };
 extern "C" {
 s32 is_split_screen();
-s32 TLobby__sub_8002AFD4(void *, void *, int);
+s32 exchange_object_state__6TLobbyFPvis(void *, void *, int);
 void TLobby__sub_800F6510(void *, void *);
 void distribute_experience(void *);
 s32 send_entity_set_flags__6TLobbyFPv(void *);
 extern s32 lbl_805D53A0;
 
-void TBoss6PlotFalz__sub_802AB490(u8 *arg0) {
+void award_exp_and_destroy__14TBoss6PlotFalzFPv(u8 *arg0) {
     TBoss6PlotFalz__sub_802AB3E0();
     if (is_split_screen() != 0) {
         distribute_experience(arg0);
@@ -562,7 +562,7 @@ void TBoss6PlotFalz__sub_802AB490(u8 *arg0) {
     Msg_802AB490 m;
     m.a = 0x800;
     TLobby__sub_800F6510(arg0, &m);
-    TLobby__sub_8002AFD4(arg0, &m, 0);
+    exchange_object_state__6TLobbyFPvis(arg0, &m, 0);
     ((VObj_802AB490 *)arg0)->m77(&m);
     send_entity_set_flags__6TLobbyFPv(arg0);
     queue_destruction__7TObjectFv(arg0);
@@ -583,7 +583,7 @@ void TBoss6PlotFalz__sub_802AB568(u8 *arg0, s32 arg1, f32 farg0) {
 f32 sin_table_lookup(s32);
 #pragma push
 #pragma fp_contract on
-s32 TBoss6PlotFalz__sub_802AB5B4(s32 arg0, f32 farg0) {
+s32 rand_vary_count__14TBoss6PlotFalzFif(s32 arg0, f32 farg0) {
     s32 v = (s32)((f32)arg0 * (farg0 * sin_table_lookup((s32)(65535.0f * (3.0517578125e-05f * (f32)rand())))) + (f32)arg0);
     if (v < 1) {
         v = 1;
@@ -625,7 +625,7 @@ s32 TBoss6PlotFalz__sub_802AB6CC(void *arg0, f32 r) {
     s32 s2;
     p.y = 0.0f;
     get_camera_no__11TCameraCtrlFv();
-    player = get_player_by_client_id(TCameraCtrl__sub_80068958());
+    player = get_player_by_client_id(get_nth_view_player_id__11TCameraCtrlFi());
     if (player == NULL) {
         return 0;
     }
@@ -805,8 +805,8 @@ s32 is_locally_controlled__10TObjPlayerFPv(s32);
 s32 get_game_mode__6TLobbyFv(void);
 void spawn_effect__11TBoss4Type3Fsss(s16, s16, s16);
 f32 xyz_distance(void *, void *);
-void TBoss6PlotFalz__sub_802ABE3C(void *pos, s16 amount, s16 kind, f32 range);
-void TBoss6PlotFalz__sub_802ABF44(f32 f);
+void apply_radial_effect_to_players__14TBoss6PlotFalzFPvssf(void *pos, s16 amount, s16 kind, f32 range);
+void set_fade_material_color__14TBoss6PlotFalzFf(f32 f);
 }
 
 extern "C" {
@@ -886,7 +886,7 @@ s32 TBoss6Type1__sub_802ABDEC(s32 seed) {
 }
 
 void reset_fish_globals__8TObjFishFv(void) { lbl_805D7784 = lbl_805D5664; lbl_805D7780 = lbl_805D5668; some_id_805c6f74 = lbl_805D5660; }
-void TBoss6PlotFalz__sub_802ABE3C(void *pos, s16 amount, s16 kind, f32 range) {
+void apply_radial_effect_to_players__14TBoss6PlotFalzFPvssf(void *pos, s16 amount, s16 kind, f32 range) {
     s32 n;
     s32 i;
     s32 p;
@@ -906,7 +906,7 @@ extern "C" {
 __declspec(section ".sdata2") const s32 lbl_805DE0B8[1] = { 0x8829 };
 }
 #define lbl_805DE0B8 (lbl_805DE0B8[0])
-void TBoss6PlotFalz__sub_802ABF44(f32 f) {
+void set_fade_material_color__14TBoss6PlotFalzFf(f32 f) {
     Color_802ABF44 c;
     s32 old = (*(s32 *)&some_id_805c6f74);
     (*(s32 *)&some_id_805c6f74) = old & ~0x10;
@@ -1088,7 +1088,7 @@ void destroy_buffer_pair(void *p, s32 flag);
 int free__11TOBoss4RockFUi(void *p);
 void TBoss6PlotFalz__sub_802AC25C(Obj_8004AA04 *self);
 void refresh_equipment_slot__10TObjPlayerFv(void *p);
-void TBoss6PlotFalz__sub_802AC4D8(void *self);
+void refresh_players_equipment__14TBoss6PlotFalzFPv(void *self);
 void scroll_strip_uvs(u32, s16, s16);
 void TBoss6PlotFalz__sub_802AC1D8(Obj_802AC1D8 *o, s32 dx, s32 dy);
 s32 get_bml_model(s32, s32);
@@ -1096,12 +1096,12 @@ int get_fish_count__8TObjFishFv(void);
 s32 alloc_tables__6TLobbyFPvii(s32, s32, s32);
 s32 collect_and_count__12TBoss3VoloptFUii(u32 arg0, s32 arg1);
 s32 *alloc_buffer__11TOBoss4RockFPv(s32);
-void TBoss6PlotFalz__sub_802AC2D8(Obj_8004AA80 *arg0, Rec_8004AA80 *arg1, s32 arg2);
+void build_tables__14TBoss6PlotFalzFPvPvi(Obj_8004AA80 *arg0, Rec_8004AA80 *arg1, s32 arg2);
 M2C_UNK refresh_collision_body_centers(void *);
 extern u8 lbl_804705B4[];
 extern s32 lbl_805D5868;
 extern s32 lbl_805D5870;
-void TBoss6PlotFalz__sub_802AC3E8(void);
+void warp_nearby_players__14TBoss6PlotFalzFv(void);
 }
 
 extern "C" {
@@ -1148,7 +1148,7 @@ typedef char RecoveredGlobal_8004B084_TBoss4DarkFalz__data_80485108_size[sizeof(
 typedef char MemberActionStorage_8004B0F8_size[sizeof(MemberActionStorage_8004B0F8) == 12 ? 1 : -1];
 typedef char RecoveredGlobal_8004B0F8_TBoss4DarkFalz__data_80485108_size[sizeof(RecoveredGlobal_8004B0F8_TBoss4DarkFalz__data_80485108) == 0x340 ? 1 : -1];
 
-void TBoss6PlotFalz__sub_802AC2D8(Obj_8004AA80 *arg0, Rec_8004AA80 *arg1, s32 arg2) {
+void build_tables__14TBoss6PlotFalzFPvPvi(Obj_8004AA80 *arg0, Rec_8004AA80 *arg1, s32 arg2) {
     s32 h;
     s32 i;
     Rec_8004AA80 *r;
@@ -1178,7 +1178,7 @@ void TBoss6PlotFalz__sub_802AC2D8(Obj_8004AA80 *arg0, Rec_8004AA80 *arg1, s32 ar
     }
 }
 
-void TBoss6PlotFalz__sub_802AC3E8(void) {
+void warp_nearby_players__14TBoss6PlotFalzFv(void) {
     Vec_802AC3E8 v;
     s32 i;
     Obj_802AC3E8 *p;
@@ -1197,7 +1197,7 @@ void TBoss6PlotFalz__sub_802AC3E8(void) {
     }
 }
 
-void TBoss6PlotFalz__sub_802AC4D8(void *self) {
+void refresh_players_equipment__14TBoss6PlotFalzFPv(void *self) {
     s32 i;
     void *p;
     for (i = 0; i < lbl_805D586C; i++) {
@@ -1216,13 +1216,13 @@ struct V_802AC538 { f32 x, y, z; };
 extern "C" {
 u8 *get_hit_data__14TBoss4DarkFalzFPv(void *);
 void save_position__14TBoss4DarkFalzFi(void *);
-void TBoss4DarkFalz__sub_8004C220();
+void set_position_from__14TBoss4DarkFalzFPvPv();
 void reset_cameras_to_actor(void *, s32);
 extern const V_802AC538 lbl_804705A8;
 
 #pragma push
 #pragma fp_contract on
-void fn_802AC538(void) {
+void place_players_in_warp_circle(void) {
     s32 step;
     s32 ang = 0;
     s32 i;
@@ -1237,7 +1237,7 @@ void fn_802AC538(void) {
             V_802AC538 pos = lbl_804705A8;
             pos.x += 350.0f * sin_table_lookup(ang);
             pos.z += 350.0f * cos_table_lookup(ang);
-            ((void (*)(void *, void *))TBoss4DarkFalz__sub_8004C220)(p, &pos);
+            ((void (*)(void *, void *))set_position_from__14TBoss4DarkFalzFPvPv)(p, &pos);
             save_position__14TBoss4DarkFalzFi(p);
             *(s32 *)(get_hit_data__14TBoss4DarkFalzFPv(p) + 4) = ang + 0x8000;
             refresh_equipment_slot__10TObjPlayerFv(p);
@@ -1251,28 +1251,28 @@ void fn_802AC538(void) {
 #pragma pop
 }
 
-#define TBoss6PlotFalz__sub_802AC3E8 ((int (*)(void))TBoss6PlotFalz__sub_802AC3E8)
+#define warp_nearby_players__14TBoss6PlotFalzFv ((int (*)(void))warp_nearby_players__14TBoss6PlotFalzFv)
 
 extern "C" {
 
 void init_warp__15TBoss6EmptyWarpFv(void);
 
-void fn_802AC538(void);
+void place_players_in_warp_circle(void);
 
-void init_warp__15TBoss6EmptyWarpFv(void) { fn_802AC538(); TBoss6PlotFalz__sub_802AC3E8(); }
+void init_warp__15TBoss6EmptyWarpFv(void) { place_players_in_warp_circle(); warp_nearby_players__14TBoss6PlotFalzFv(); }
 
 }
-#undef TBoss6PlotFalz__sub_802AC3E8
+#undef warp_nearby_players__14TBoss6PlotFalzFv
 
 extern "C" {
 s32 init_all_slots2__11TWindowCtrlFv();
 s32 end_camera_pan__10TObjPlayerFPv(void *p);
 s32 release_all_players_control_lock();
-void TBoss6PlotFalz__sub_802AC678(void *self);
+void end_cutscene_camera__14TBoss6PlotFalzFPv(void *self);
 void start_freeze__10TObjPlayerFPv();
 void init_all_slots__11TWindowCtrlFv();
-void TBoss6PlotFalz__sub_802AC6D0(void);
-void TBoss4DarkFalz__sub_8004C220();
+void freeze_all_players__14TBoss6PlotFalzFv(void);
+void set_position_from__14TBoss4DarkFalzFPvPv();
 void save_position__14TBoss4DarkFalzFi(void *);
 void set_indexed_flags(void *, int, int);
 void TBoss6PlotFalz__sub_802AC724(u8 *arg0, u32 arg1);
@@ -1283,7 +1283,7 @@ extern "C" {
 void render__14TBoss6PlotFalzFv(void);
 void TBoss6PlotFalz__vt61(void);
 
-void TBoss6PlotFalz__sub_802AC678(void *self) {
+void end_cutscene_camera__14TBoss6PlotFalzFPv(void *self) {
     s32 i;
     void *p;
     init_all_slots2__11TWindowCtrlFv();
@@ -1296,7 +1296,7 @@ void TBoss6PlotFalz__sub_802AC678(void *self) {
     release_all_players_control_lock();
 }
 
-void TBoss6PlotFalz__sub_802AC6D0(void) {
+void freeze_all_players__14TBoss6PlotFalzFv(void) {
     s32 i;
     init_all_slots__11TWindowCtrlFv();
     for (i = 0; i < lbl_805D586C; i++) {
@@ -1309,7 +1309,7 @@ void TBoss6PlotFalz__sub_802AC724(u8 *arg0, u32 arg1) {
     if (arg0 == NULL || arg1 == 0U) {
         return;
     }
-    TBoss4DarkFalz__sub_8004C220();
+    set_position_from__14TBoss4DarkFalzFPvPv();
     save_position__14TBoss4DarkFalzFi(arg0);
     set_indexed_flags(arg0, 0, 0x900000);
     *(u32 *)(arg0 + 0x30) &= 0xFFFFFFDF;
@@ -1324,8 +1324,8 @@ void TBoss6PlotFalz__sub_802AC724(u8 *arg0, u32 arg1) {
 #define queue_destruction__7TObjectFv ((s32 (*)(int))queue_destruction__7TObjectFv)
 #define destroy_static_instance__14TBoss6PlotFalzFv ((s32 (*)(void *))destroy_static_instance__14TBoss6PlotFalzFv)
 #define queue_instance_destruction__14TBoss6PlotFalzFv ((s32 (*)(void *))queue_instance_destruction__14TBoss6PlotFalzFv)
-#define TBoss6PlotFalz__sub_802AC4D8 ((s32 (*)())TBoss6PlotFalz__sub_802AC4D8)
-#define TBoss6PlotFalz__sub_802AC678 ((s32 (*)())TBoss6PlotFalz__sub_802AC678)
+#define refresh_players_equipment__14TBoss6PlotFalzFPv ((s32 (*)())refresh_players_equipment__14TBoss6PlotFalzFPv)
+#define end_cutscene_camera__14TBoss6PlotFalzFPv ((s32 (*)())end_cutscene_camera__14TBoss6PlotFalzFPv)
 #define ensure_field384__14TBoss6PlotFalzFPv ((M2C_UNK (*)(void *))ensure_field384__14TBoss6PlotFalzFPv)
 #define update_active_flag__14TBoss6PlotFalzFv ((M2C_UNK (*)())update_active_flag__14TBoss6PlotFalzFv)
 #define TBoss6PlotFalz__data_805D66F0 (*(s32 *)&TBoss6PlotFalz__data_805D66F0)
@@ -1467,7 +1467,7 @@ void TBoss6PlotFalz__sub_802ACBE4(void);
 s32 restore_player_cameras();
 void __dt__9TObjEnemyFv(void *, int);
 s32 send_entity_set_flags__6TLobbyFPv(void *);
-s32 TLobby__sub_8022743C();
+s32 stop_audio_streams__6TLobbyFv();
 s32 play_area_music(void *);
 volatile int __dl__7TObjectFPv(void *);
 s32 is_ending_or_split_screen__14TBoss6PlotFalzFv(void *);
@@ -1482,7 +1482,7 @@ void handle_6xA3_olga_flow_boss_actions(Msg_802AC7E4 *m);
 s32 register_object__6TLobbyFPv(int);
 s32 dispatch_shared_handler_b__6TLobbyFPv(int);
 s32 register_boss__6TLobbyFPv(int);
-s32 TLobby__sub_8002AFD4(void *, void *, int);
+s32 exchange_object_state__6TLobbyFPvis(void *, void *, int);
 M2C_UNK bind_enemy_combat_stats(void *, int, int, int);
 M2C_UNK initialize__9TObjEnemyFPv();
 M2C_UNK register_entity_by_id(void *);
@@ -1533,7 +1533,7 @@ void handle_6xA3_olga_flow_boss_actions(Msg_802AC7E4 *m) {
     if (b != NULL && b == (Boss_802AC7E4 *)TBoss6PlotFalz__data_805D66EC) {
         ph = m->phase;
         if (ph >= 0 && ph < 9 && ph != get_phase__8TObjFishFPv(b)) {
-            TBoss6PlotFalz__sub_802AB2B8((u8 *)b, ph);
+            set_state__14TBoss6PlotFalzFPvi((u8 *)b, ph);
         }
         mode = m->mode;
         if (mode >= 0) {
@@ -1547,7 +1547,7 @@ struct Boss_802AC86C { u8 pad[0x1C]; u16 f1C; u8 pad2[0x374 - 0x1E]; s32 f374; }
 void fn_802ACD60(void *);
 void build_6xA3_olga_flow_boss_actions(void *);
 
-void TBoss6PlotFalz__sub_802AC86C(Boss_802AC86C *o, s8 v) {
+void send_6xA3_action__14TBoss6PlotFalzFPvc(Boss_802AC86C *o, s8 v) {
     Msg_802AC86C m;
     if (o->f374 == 0) {
         build_6xA3_olga_flow_boss_actions(&m);
@@ -1585,7 +1585,7 @@ u8 *__dt__14TBoss6PlotFalzFv(u8 *arg0, s16 arg1) {
     }
     if (is_ending_or_split_screen__14TBoss6PlotFalzFv((void *) arg0) == 0)
     {
-      TLobby__sub_8022743C();
+      stop_audio_streams__6TLobbyFv();
       if (((s32) (*new_var)) == 7)
       {
         play_area_music((void *) (&lbl_804705E8.value));
@@ -1597,8 +1597,8 @@ u8 *__dt__14TBoss6PlotFalzFv(u8 *arg0, s16 arg1) {
       queue_destruction__7TObjectFv((int) temp_r3);
       ((RecoveredFields_802AC904_arg0 *) arg0)->field_380 = 0U;
     }
-    TBoss6PlotFalz__sub_802AC678();
-    TBoss6PlotFalz__sub_802AC4D8();
+    end_cutscene_camera__14TBoss6PlotFalzFPv();
+    refresh_players_equipment__14TBoss6PlotFalzFPv();
     restore_player_cameras();
     queue_instance_destruction__14TBoss6PlotFalzFv((void *) arg0);
     destroy_static_instance__14TBoss6PlotFalzFv((void *) arg0);
@@ -1630,10 +1630,10 @@ s32 TBoss6PlotFalz__ct(s32 self, s32 arg1, s32 arg2) {
     ((VObj_18_aa4667 *)(arg0))->m79(arg2);
     TBoss4DarkFalz__sub_8004B4F0((void *) (arg0 + 0x388), (void *) (arg2));
     M2C_FIELD(arg0, s16 *, 0x38A) = 0;
-    if (TLobby__sub_8002AFD4((void *) (arg0), (void *) (&sp8), (int) (1)) != 0) {
+    if (exchange_object_state__6TLobbyFPvis((void *) (arg0), (void *) (&sp8), (int) (1)) != 0) {
         sp8.a = 0;
         sp8.c = 0;
-        TLobby__sub_8002AFD4((void *) (arg0), (void *) (&sp8), (int) (0));
+        exchange_object_state__6TLobbyFPvis((void *) (arg0), (void *) (&sp8), (int) (0));
     }
     VecCopy__FP3VecPC3Vec(arg0 + 0x44, VecCopy__FP3VecPC3Vec(arg0 + 0x50, VecCopy__FP3VecPC3Vec(arg0 + 0x74, arg0 + 0x38)));
     VecCopy__FP3VecPC3Vec(arg0 + 0x2FC, arg0 + 0x38);
@@ -1662,7 +1662,7 @@ s32 TBoss6PlotFalz__ct(s32 self, s32 arg1, s32 arg2) {
     TBoss6PlotFalz__data_805D3E54 = (-1.0f);
     M2C_FIELD(arg0, s8 *, 0x37C) = 0;
     M2C_FIELD(arg0, s32 *, 0x378) = -1;
-    TBoss6PlotFalz__sub_802AB2B8(arg0, 0);
+    set_state__14TBoss6PlotFalzFPvi(arg0, 0);
     return self;
 }
 #pragma pop

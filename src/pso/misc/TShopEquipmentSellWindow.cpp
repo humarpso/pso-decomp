@@ -142,7 +142,7 @@ void TShopEquipmentSellWindow__vt9(u8 *arg0);
 int count_matching_items__10TObjPlayerFPvi(void *a0, u32 *a1);
 s32 get_item_data_value__24TShopEquipmentSellWindowFUi(u32 arg0);
 s32 copy_to_item_data__5TItemFPvPv(u32, void *);
-int TShopArmorListWindow__sub_80266DB0(void *);
+int reset_list__20TShopArmorListWindowFPv(void *);
 s32 get_shop_text(M2C_UNK);
 void *create_item_list_window(s32, s32, u16);
 void add_item__24TShopEquipmentSellWindowFPviii(void *arg0, s32 arg1, s32 arg2, s32 arg3);
@@ -184,7 +184,7 @@ M2C_UNK set_position_xy(u32, f32, f32);
 void TWindowHelpItem__set_displayed_item_by_id(void *arg0, s32 arg1);
 void *TWindowInputNumber__ct(void *, M2C_UNK, s32, s32, s32, s16);
 M2C_UNK align_menu_entry_positions(u32);
-M2C_UNK TWindowSubComCard__sub_80265F60(u32);
+M2C_UNK calc_window_size__17TWindowSubComCardFPv(u32);
 M2C_UNK forward_trade_action_default__16TObjCityMainWarpFPviii(u32, s32, M2C_UNK, M2C_UNK);
 u32 create_window_menu(M2C_UNK, M2C_UNK, u16);
 s32 select_cursor_entry__6TLobbyFPv(void *);
@@ -218,7 +218,7 @@ s32 get_shop_text(M2C_UNK);
 int TShopWindowBase__sub_802239EC(void *);
 int TShopWindowBase__sub_80223A48(void *);
 M2C_UNK align_menu_entry_positions(u32);
-M2C_UNK TWindowSubComCard__sub_80265F60(u32);
+M2C_UNK calc_window_size__17TWindowSubComCardFPv(u32);
 M2C_UNK get_window_layout_position(M2C_UNK);
 void TWindow__close(void *);
 void __ct__15TShopWindowBaseFv(void *);
@@ -301,7 +301,7 @@ void handle_input_window_result__24TShopEquipmentSellWindowFPv(void *arg0) {
             M2C_FIELD(arg0, u32 *, 0x390) = create_window_menu(get_window_layout_position(0x2B), 2, temp_r31);
             forward_trade_action_default__16TObjCityMainWarpFPviii(M2C_FIELD(arg0, u32 *, 0x390), get_shop_text(6), 6, 0);
             forward_trade_action_default__16TObjCityMainWarpFPviii(M2C_FIELD(arg0, u32 *, 0x390), get_shop_text(7), 6, 1);
-            TWindowSubComCard__sub_80265F60(M2C_FIELD(arg0, u32 *, 0x390));
+            calc_window_size__17TWindowSubComCardFPv(M2C_FIELD(arg0, u32 *, 0x390));
             align_menu_entry_positions(M2C_FIELD(arg0, u32 *, 0x390));
             set_ready_flag__18TCheckRoomSequenceFPv(M2C_FIELD(arg0, u32 *, 0x390));
             temp_f31 = get_scale__15TShopWindowBaseFv(arg0);
@@ -377,7 +377,7 @@ void handle_selection__24TShopEquipmentSellWindowFv(Win_8021CC44 *w) {
             w->menu_win = create_window_menu(get_window_layout_position(0x2B), 2, obj_getField1c((s32)w->owner));
             forward_trade_action_default__16TObjCityMainWarpFPviii(w->menu_win, get_shop_text(6), 6, 0);
             forward_trade_action_default__16TObjCityMainWarpFPviii(w->menu_win, get_shop_text(7), 6, 1);
-            TWindowSubComCard__sub_80265F60(w->menu_win);
+            calc_window_size__17TWindowSubComCardFPv(w->menu_win);
             align_menu_entry_positions(w->menu_win);
             set_ready_flag__18TCheckRoomSequenceFPv(w->menu_win);
             set_position_xy(w->menu_win, get_scale__15TShopWindowBaseFv(w), get_scale__15TShopWindowBaseFv(w));
@@ -409,7 +409,7 @@ void build_sell_list__24TShopEquipmentSellWindowFPv(Win_8021CF04 *self) {
     if (self->count == 0) {
         set_field_20__12TQuestListVMFPvi(self, 7);
         if (self->list_win != NULL) {
-            TShopArmorListWindow__sub_80266DB0(self->list_win);
+            reset_list__20TShopArmorListWindowFPv(self->list_win);
         }
         return;
     }
@@ -422,7 +422,7 @@ void build_sell_list__24TShopEquipmentSellWindowFPv(Win_8021CF04 *self) {
         }
         calc_list_content_extent(self->list_win);
     } else {
-        TShopArmorListWindow__sub_80266DB0(self->list_win);
+        reset_list__20TShopArmorListWindowFPv(self->list_win);
         for (i = 0; i < self->count; i++) {
             add_item__24TShopEquipmentSellWindowFPviii(self->list_win, self->entries[i].id, self->entries[i].price, i);
         }

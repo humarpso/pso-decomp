@@ -10,7 +10,7 @@ extern "C" {
 f32 vec_squared_length(u8 *arg0);
 f32 matrix_identity(void *);
 extern u8 *lbl_805D7774;
-void TObjPlayer__sub_803D8CD4(u8 *arg0);
+void set_matrix_identity__10TObjPlayerFPv(u8 *arg0);
 M2C_UNK PSMTXMultVecSR(int);
 extern u8 *lbl_805D7774;
 void rotate_vector_by_matrix(u32 arg0);
@@ -19,6 +19,11 @@ void GXGetProjectionv(f32 *p);
 void GXGetViewportv(f32 *vp);
 void GXProject(f32 x, f32 y, f32 z, u8 *mtx, f32 *pm, f32 *vp, f32 *sx, f32 *sy, f32 *sz);
 void project_world_to_screen(u8 *mtx, Vec_803D8D1C *pos, f32 *out);
+void PSMTXConcat(void *, void *, void *);
+void PSMTXRotAxisRad(void *, void *, f32);
+extern u8 *lbl_805D7774;
+extern f64 lbl_805E0ED8;
+void TObjPlayer__sub_803D8BFC(u8 *arg0, s32 arg1, s32 arg2);
 }
 
 extern "C" {
@@ -32,13 +37,30 @@ void set_monitor_position_vec3__10TObjPlayerFPvPv(u8 *arg0, u8 *arg1) {
     scale_matrix((f32) (M2C_FIELD(arg1, f32 *, 0)), (f32) (M2C_FIELD(arg1, f32 *, 4)), (f32) (M2C_FIELD(arg1, f32 *, 8)));
 }
 
+#pragma push
+#pragma scheduling off
+void TObjPlayer__sub_803D8BFC(u8 *arg0, s32 arg1, s32 arg2) {
+    u8 sp8[0x30];
+    u8 *m;
+    if (arg0 == 0) {
+        m = lbl_805D7774;
+    } else {
+        m = arg0;
+    }
+    if (arg2 != 0) {
+        PSMTXRotAxisRad(sp8, (void *)arg1, lbl_805E0ED8 * arg2);
+        PSMTXConcat(m, sp8, m);
+    }
+}
+#pragma pop
+
 void set_position_vec3__10TObjPlayerFPvPv(u8 *arg0, u8 *arg1) {
     translate_matrix((f32) (M2C_FIELD(arg1, f32 *, 0)), (f32) (M2C_FIELD(arg1, f32 *, 4)), (f32) (M2C_FIELD(arg1, f32 *, 8)));
 }
 
 #pragma push
 #pragma scheduling off
-void TObjPlayer__sub_803D8CD4(u8 *arg0) {
+void set_matrix_identity__10TObjPlayerFPv(u8 *arg0) {
     u8 *var_r3;
     var_r3 = (u8 *)(arg0);
     if (var_r3 == NULL) {

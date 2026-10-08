@@ -93,7 +93,7 @@ f32 sin_table_lookup(s32);
 f32 cos_table_lookup(s32);
 M2C_UNK vec3_add_to(s32, s32, s32);
 M2C_UNK matrix_mult_vec(int, void *, void *);
-M2C_UNK TObjPlayer__sub_803D8CD4(int);
+M2C_UNK set_matrix_identity__10TObjPlayerFPv(int);
 M2C_UNK rotate_matrix_y(int, int);
 M2C_UNK translate_matrix(int, f32, f32, f32);
 M2C_UNK push_matrix(void);
@@ -115,10 +115,10 @@ void enable__19TBoss1DragonEffTailFPv(void* p);
 int is_visible__19TBoss1DragonEffTailFPv(void* p);
 void render__19TBoss1DragonEffTailFv(void);
 M2C_UNK vec3_add_to(s32, s32, s32);
-void TBoss8Dragon__sub_800BC5A0(void *, int);
+void delete_buffer__12TBoss8DragonFis(void *, int);
 void __dl__7TObjectFPv(void *);
 void destroy_enemy_object__10TObjPlayerFPvs(void *, int);
-int fn_8002B094(void*);
+int fill_value_array(void*);
 
 void render__19TBoss1DragonEffTailFv(void) {  }
 
@@ -135,7 +135,7 @@ void run_task__19TBoss1DragonEffTailFv(u8 *arg0) {
     M2C_FIELD(arg0, s32 *, 0x60) = M2C_FIELD(M2C_FIELD(arg0, u8 **, 0xB0), s32 *, 0x60);
     src = M2C_FIELD(arg0, Vec_8002BD38 **, 0xB4);
     push_matrix();
-    TObjPlayer__sub_803D8CD4(0);
+    set_matrix_identity__10TObjPlayerFPv(0);
     rotate_matrix_y(0, -M2C_FIELD(arg0, s32 *, 0x60));
     translate_matrix(0, -M2C_FIELD(arg0, f32 *, 0x38), -M2C_FIELD(arg0, f32 *, 0x3C), -M2C_FIELD(arg0, f32 *, 0x40));
     for (i = 0; i < 0x11; i++) {
@@ -175,14 +175,14 @@ void TBoss1DragonEffTail__vt20(u8 *arg0, u8 *arg1) {
 
 void enable__19TBoss1DragonEffTailFPv(void* p) { *(int*)((char*)p + 0xbc) = 1; is_visible__19TBoss1DragonEffTailFPv((void*)(p)); }
 void disable__19TBoss1DragonEffTailFPv(void* p) { *(int*)((char*)p + 0xbc) = 0; is_visible__19TBoss1DragonEffTailFPv((void*)(p)); }
-int is_visible__19TBoss1DragonEffTailFPv(void* p) { return fn_8002B094(*(void**)((char*)p + 0xb8)); }
+int is_visible__19TBoss1DragonEffTailFPv(void* p) { return fill_value_array(*(void**)((char*)p + 0xb8)); }
 
 extern M2C_UNK __vt__19TBoss1DragonEffTail[];
 
 void *__dt__19TBoss1DragonEffTailFv(void *arg0, s16 arg1) {
     if (arg0 != NULL) {
         M2C_FIELD(arg0, M2C_UNK **, 0x18) = __vt__19TBoss1DragonEffTail;
-        TBoss8Dragon__sub_800BC5A0(M2C_FIELD(arg0, void **, 0xB8), 1);
+        delete_buffer__12TBoss8DragonFis(M2C_FIELD(arg0, void **, 0xB8), 1);
         M2C_FIELD(arg0, M2C_UNK *, 0xB8) = 0;
         destroy_enemy_object__10TObjPlayerFPvs(arg0, 0);
         if (arg1 > 0) {

@@ -97,7 +97,7 @@ M2C_UNK update_layout_height__17TWindowSubComCardFPvf(int, f32);
 M2C_UNK forward_trade_action_default__16TObjCityMainWarpFPviii(s32, s32, M2C_UNK, s32);
 s32 create_titled_window_menu(int, int, int, int);
 s32 get_window_layout_position(M2C_UNK);
-s32 TWindowSubItem__sub_80279E68(u8 *arg0);
+s32 create_menu_window__14TWindowSubItemFPv(u8 *arg0);
 s32 get_message_10__20TWindowSubStatusDispFPv(M2C_UNK);
 M2C_UNK set_flag70_bit10__16TObjCityMainWarpFPv(int);
 M2C_UNK set_field_1c__6TLobbyFPvf(s32);
@@ -145,7 +145,7 @@ void add_battle_stat_entry(void *, s32, s32, s32);
 void add_list_entry__23TShopJudgmentItemWindowFPvii(void *, void *, s32);
 void TWindowSubItem__sub_8027AA80(Wn_8027AA80 *arg0);
 void TWindowSubItem__sub_8027AB10(Wn_8027AB10 *arg0);
-void fn_8027ABFC(Win_8027ABFC *arg0);
+void populate_sub_item_list(Win_8027ABFC *arg0);
 u8 get_field_ed__10TObjPlayerFPv(void *);
 void copy_to_item_data__5TItemFPvPv(void *, ItemData_80279754 *);
 u8 get_field_ec__12TOSwitchItemFPv(int);
@@ -160,7 +160,7 @@ s32 get_flag_bit2__6TLobbyFPv(s32);
 s32 test_flag_4c__23TAdSinglePlyChrSelectGCFPv(void *, s32);
 s32 TWindowShortListCtrl__check_controller_button(void *, s32);
 s32 is_usable__14TWindowSubItemFi(s32);
-void TObjPlayer__sub_801B89B0(s32, s32);
+void send_trap_packet__10TObjPlayerFPvi(s32, s32);
 void TObjPlayer__sub_801B8A80(s32, s32);
 void request_item_drop__10TObjPlayerFPvii(s32, s32, s32);
 s32 get_player_by_client_id(s32);
@@ -186,13 +186,13 @@ void clear_transition_flag__17TWindowSubComCardFPv(u32);
 void open__17TWindowOptionCtrlFPv(u32);
 s32 select_cursor_entry__6TLobbyFPv(int);
 s32 get_window_layout_position(M2C_UNK);
-void TWindowShortListCtrl__sub_8026E93C(s32, s32);
+void assign_item_to_palette__20TWindowShortListCtrlFUiUi(s32, s32);
 void set_displayed_item__14TWindowSubItemFPvi(void *arg0, s32 arg1);
 void TWindowSubItem__sub_802797FC(u8 *arg0);
 void close_windows__14TWindowSubItemFPvi(void *arg0, s32 arg1);
 void exec_item_command__14TWindowSubItemFPvii(void *arg0, s32 arg1, s32 arg2);
 s32 create_count_input__14TWindowSubItemFPvi(void *arg0, s32 arg1);
-s32 TWindowSubItem__sub_80279E68(u8 *arg0);
+s32 create_menu_window__14TWindowSubItemFPv(u8 *arg0);
 s32 open_purpose_window__14TWindowSubItemFPvi(u8 *arg0, s32 arg1);
 void clear_flag_and_release__14TWindowSubItemFPv(void *arg0);
 void TWindowSubItem__sub_8027AA30(u8 *arg0);
@@ -226,8 +226,8 @@ M2C_UNK send_6x26_unequip_item__10TObjPlayerFPvPv(s32, s32);
 M2C_UNK send_6x25_equip_item(s32, s32, M2C_UNK);
 s32 is_boss_area();
 s32 get_player_by_client_id(s32);
-int TShopArmorListWindow__sub_80266CF8(void*);
-int TShopArmorListWindow__sub_80266DB0(void*);
+int clamp_selection_to_valid_entry__20TShopArmorListWindowFPv(void*);
+int reset_list__20TShopArmorListWindowFPv(void*);
 M2C_UNK TWindowHelpItem__set_displayed_item_by_id(u32);
 s32 TWindowInputNumber__ct(s32, s32, M2C_UNK, s32, M2C_UNK, s16);
 s32 get_window_layout_position(M2C_UNK);
@@ -485,7 +485,7 @@ s32 create_count_input__14TWindowSubItemFPvi(void *arg0, s32 arg1) {
     return var_r31;
 }
 
-s32 TWindowSubItem__sub_80279E68(u8 *arg0) {
+s32 create_menu_window__14TWindowSubItemFPv(u8 *arg0) {
     s32 temp_r31;
     temp_r31 = create_titled_window_menu(((int)get_window_layout_position((M2C_UNK)((int) (6)))), (int) (2), get_message_10__20TWindowSubStatusDispFPv((M2C_UNK)((int) (0x27))), (int) (M2C_FIELD(arg0, s32 *, 0x24)));
     forward_trade_action_default__16TObjCityMainWarpFPviii((s32)((int) (temp_r31)), (s32)((int) (get_message_10__20TWindowSubStatusDispFPv((int) (0x5D)))), (M2C_UNK)((int) (6)), (s32)((int) (0)));
@@ -591,7 +591,7 @@ void run_task__14TWindowSubItemFv(u8 *arg0) {
             F(u8, 0x1C) = 4;
         case 4:
             if (get_selected_menu_value(F(u32, 0x34)) == 0) {
-                TWindowShortListCtrl__sub_8026E93C(select_cursor_entry__6TLobbyFPv(LIST), F(s32, 0x24));
+                assign_item_to_palette__20TWindowShortListCtrlFUiUi(select_cursor_entry__6TLobbyFPv(LIST), F(s32, 0x24));
             }
             if (get_status_flag__17TWindowSubComCardFPv(F(u32, 0x34)) != 0) {
                 F(u8, 0x1C) = 1;
@@ -613,7 +613,7 @@ void run_task__14TWindowSubItemFv(u8 *arg0) {
             break;
         case 6:
             open__17TWindowOptionCtrlFPv(F(u32, 0x34));
-            F(u32, 0x38) = TWindowSubItem__sub_80279E68(arg0);
+            F(u32, 0x38) = create_menu_window__14TWindowSubItemFPv(arg0);
             F(u8, 0x1C) = 7;
         case 7:
             if (get_status_flag__17TWindowSubComCardFPv(F(u32, 0x38)) != 0) {
@@ -708,7 +708,7 @@ void run_task__14TWindowSubItemFv(u8 *arg0) {
             }
             p = get_player_by_client_id(F(s32, 0x24));
             if (p != 0 && is_usable__14TWindowSubItemFi(p) != 0 && TWindowCtrl__sub_8024A228(F(s32, 0x24)) != 0) {
-                TObjPlayer__sub_801B89B0(p, select_cursor_entry__6TLobbyFPv(LIST) & 0xF);
+                send_trap_packet__10TObjPlayerFPvi(p, select_cursor_entry__6TLobbyFPv(LIST) & 0xF);
                 F(u8, 0x1C) = 1;
                 return;
             }
@@ -874,9 +874,9 @@ void TWindowSubItem__sub_8027AB10(Wn_8027AB10 *arg0) {
     }
 }
 
-void refresh__14TWindowSubItemFPv(void* p) { save_cursor_selection__20TShopArmorListWindowFPv(p); TShopArmorListWindow__sub_80266DB0(p); fn_8027ABFC((Win_8027ABFC*)(p)); TShopArmorListWindow__sub_80266CF8(p); TWindowSubStatusDisp__sub_80266EB8(p); reset_selected__14TWindowSubItemFPv((void*)(p)); }
+void refresh__14TWindowSubItemFPv(void* p) { save_cursor_selection__20TShopArmorListWindowFPv(p); reset_list__20TShopArmorListWindowFPv(p); populate_sub_item_list((Win_8027ABFC*)(p)); clamp_selection_to_valid_entry__20TShopArmorListWindowFPv(p); TWindowSubStatusDisp__sub_80266EB8(p); reset_selected__14TWindowSubItemFPv((void*)(p)); }
 
-void fn_8027ABFC(Win_8027ABFC *arg0) {
+void populate_sub_item_list(Win_8027ABFC *arg0) {
     s32 ids[30];
     Player_8027ABFC *pl;
     Quest_8027ABFC *q;

@@ -37,12 +37,17 @@ struct Ch_803D4770 {
     u32 stid;
 };
 
+struct S_803D4714 { u8 f; u8 pad[0x7f]; };
+
 extern "C" {
 void sndStreamARAMUpdate(u32 stid, u32 off1, u32 len1, u32 off2, u32 len2);
 void TLobby__sub_803D3130(void *, s32, void *, void *);
 void *memcpy(void *, const void *, u32);
 void *memset(void *, int, u32);
 void TLobby__sub_803D4770(Obj_803D4770 *o);
+void TLobby__sub_803D4770(Obj_803D4770 *o);
+extern S_803D4714 lbl_8058C160[];
+void TLobby__sub_803D4714(void);
 }
 
 extern "C" {
@@ -62,6 +67,17 @@ inline s32 flagB_803D4770(Obj_803D4770 *o) {
     }
     return (o->flags >> 1) & 1;
 }
+
+struct Obj_803D4770;
+void TLobby__sub_803D4714(void) {
+    u32 i;
+    for (i = 0; i < 0x10; i++) {
+        if ((s32)lbl_8058C160[i].f == 1) {
+            TLobby__sub_803D4770((Obj_803D4770 *)&lbl_8058C160[i]);
+        }
+    }
+}
+
 void TLobby__sub_803D4770(Obj_803D4770 *o) {
     Pair_803D4770 f;
     Pair_803D4770 e;

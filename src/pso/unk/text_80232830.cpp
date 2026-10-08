@@ -16,7 +16,7 @@ struct RecoveredGlobal_80232830_lbl_804CC55C
 extern "C" {
 s32 calc_technique_parameters(int, int, int);
 s32 is_technique_ready__8TTecCtrlFv();
-s32 TTecAnti__sub_8022B35C(void *, int);
+s32 copy_params__8TTecAntiFPvPv(void *, int);
 extern RecoveredGlobal_80232830_lbl_804CC510 lbl_804CC510;
 extern RecoveredGlobal_80232830_lbl_804CC55C lbl_804CC55C;
 void init_parameters__10TTecGrantsFPv(u8 *arg0);
@@ -34,7 +34,7 @@ void init_parameters__10TTecGrantsFPv(u8 *arg0) {
   s8 *new_var;
   new_var = (s8 *) arg0;
   new_var3 = (int) calc_technique_parameters((int) 9, (int) (*((s16 *) (((s8 *) arg0) + 0x78))), (int) 0xFFFF);
-  TTecAnti__sub_8022B35C((void *) (arg0 + 0x88), new_var3);
+  copy_params__8TTecAntiFPvPv((void *) (arg0 + 0x88), new_var3);
   if ((((s16) (*((s16 *) (new_var + 0x78)))) >= 0xF) && (is_technique_ready__8TTecCtrlFv() == 0))
   {
     new_var2 = &lbl_804CC510.value;

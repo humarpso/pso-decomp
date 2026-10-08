@@ -19,7 +19,7 @@ s32 VecCopy__FP3VecPC3Vec(void *, void *);
 s32 attach_particle_model(int, int, int, int, int, f32);
 u8 *csnVectorUnder(M2C_UNK *, s32, s32);
 s32 set_position_xy__10TObjPlayerFPvff(int, f32, f32);
-s32 TParticleCtrl__sub_80086884(int);
+s32 get_particle_model__13TParticleCtrlFi(int);
 s32 get_instance__13TParticleCtrlFv();
 u32 spawn_particle_effect(void *, int);
 s32 fn_800D8830(void *, void *);
@@ -70,7 +70,7 @@ void fn_802CE510(int arg0) {
         if (temp_r3_2 != 0U)
         {
           ;
-          attach_particle_model((int) temp_r3_2, (int) TParticleCtrl__sub_80086884((int) 2), (int) get_instance__13TParticleCtrlFv(), (int) 0, (int) 1, (f32) lbl_805DE6F4);
+          attach_particle_model((int) temp_r3_2, (int) get_particle_model__13TParticleCtrlFi((int) 2), (int) get_instance__13TParticleCtrlFv(), (int) 0, (int) 1, (f32) lbl_805DE6F4);
           temp_r3 = temp_r3;
           new_var = (int) temp_r3_2;
           set_position_xy__10TObjPlayerFPvff(new_var, (f32) lbl_805DE6EC, (f32) lbl_805DE6F4);

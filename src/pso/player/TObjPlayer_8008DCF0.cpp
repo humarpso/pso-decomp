@@ -196,7 +196,7 @@ M2C_UNK play_sound_effect(int, void *, int, int);
 extern const f32 lbl_805D964C;
 extern const f32 lbl_805D9664;
 extern const f32 lbl_805D9668;
-void TObjPlayer__sub_8008F730(u8 *arg0);
+void run_death_sequence__10TObjPlayerFPv(u8 *arg0);
 M2C_UNK apply_actor_gravity(void *, M2C_UNK, f32);
 M2C_UNK update_enemy_wander_move(void *, Vec_8008FAD0 *, int, f32);
 M2C_UNK update_angle__10TObjPlayerFPviPv(void *, void *, void *);
@@ -277,7 +277,7 @@ void TObjPlayer__sub_8008F1DC(void *arg0);
 M2C_UNK reset_enemy_state__10TObjPlayerFPv();
 M2C_UNK apply_actor_gravity(void *, M2C_UNK, f32);
 M2C_UNK TObjPlayer__sub_800A0554(void *);
-M2C_UNK TBoss3Volopt__sub_800D8C48(void *);
+M2C_UNK play_area_se_with_particle__12TBoss3VoloptFi(void *);
 M2C_UNK advance_animation_playback(void *);
 extern const f32 lbl_805D9620;
 void TObjPlayer__sub_8008EC3C(u8 *arg0);
@@ -322,7 +322,7 @@ void TObjPlayer__sub_8008EC3C(u8 *arg0) {
         M2C_FIELD(arg0, s32 *, 0x388) = temp_r4;
         M2C_FIELD(arg0, s32 *, 0x30) = (s32) (M2C_FIELD(arg0, s32 *, 0x30) | 0x04000000);
         M2C_FIELD(arg0, s16 *, 0xB8) = (M2C_FIELD(arg0, s32 *, 0x388) & 0x01000000) ? 0 : 5;
-        TBoss3Volopt__sub_800D8C48(arg0 + 0x38);
+        play_area_se_with_particle__12TBoss3VoloptFi(arg0 + 0x38);
         TObjPlayer__sub_800A0554(arg0 + 0x390);
         M2C_FIELD(arg0, s32 *, 0x37C) = 1;
     case 1:
@@ -562,7 +562,7 @@ void TObjPlayer__sub_8008F1DC(void *arg0) {
 #undef o
 #pragma pop
 
-void TObjPlayer__sub_8008F730(u8 *arg0) {
+void run_death_sequence__10TObjPlayerFPv(u8 *arg0) {
     s32 i;
     u8 *p;
     switch (M2C_FIELD(arg0, s32 *, 0x37C)) {

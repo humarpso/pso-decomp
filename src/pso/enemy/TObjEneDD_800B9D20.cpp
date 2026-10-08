@@ -31,7 +31,7 @@ M2C_UNK scale_current_matrix(void *);
 M2C_UNK post_translate_matrix(void *);
 extern const f32 TObjEneDD__data_805D9E8C;
 extern const f32 lbl_805D9E90;
-void TObjEneDD__sub_800B9D94(s32 arg0, s32 arg1, s32 arg2, u32 arg3);
+void draw_oriented_shadow__9TObjEneDDFiiiUi(s32 arg0, s32 arg1, s32 arg2, u32 arg3);
 int bind_enemy_combat_stats(void*);
 void reload_stats_keep_hp_tp__9TObjEneDDFPv(Obj_800B9E84 *self);
 }
@@ -46,7 +46,7 @@ int update_camera_sequence__9TObjEneDDFPv(void* p);
 int update_player_state__9TObjEneDDFPv(void* p);
 int update_primary_light__9TObjEneDDFPv(void* p);
 int update_secondary_light__9TObjEneDDFPv(void* p);
-int TCameraCtrl__sub_80069148(void*);
+int transform_to_view__11TCameraCtrlFii(void*);
 int TCameraCtrl__sub_800691C8(void*);
 int TLobby__sub_800C6C10(void*);
 int restore_scene_lighting(void*);
@@ -71,7 +71,7 @@ void clear_global_flag_400__9TObjEneDDFv(void) { some_id_805c6f74 = (some_id_805
 
 int update_player_state__9TObjEneDDFPv(void* p) { return render_with_position_override__10TObjPlayerFPvPvi(p); }
 
-void TObjEneDD__sub_800B9D94(s32 arg0, s32 arg1, s32 arg2, u32 arg3) {
+void draw_oriented_shadow__9TObjEneDDFiiiUi(s32 arg0, s32 arg1, s32 arg2, u32 arg3) {
     Stack_800B9D94 stack;
     direction_to_rotation_xz((void *) (arg1), (void *) (&stack.sp8), (void *) (&stack.sp10));
     push_matrix();
@@ -104,7 +104,7 @@ void reload_stats_keep_hp_tp__9TObjEneDDFPv(Obj_800B9E84 *self) {
 }
 
 void reset_hp__9TObjEneDDFPv(void* p) { bind_enemy_combat_stats(p); *(short*)((char*)p + 0x33e) = *(short*)((char*)p + 0x32c); }
-int get_camera_ctrl__9TObjEneDDFPv(void* p) { return TCameraCtrl__sub_80069148(p); }
+int get_camera_ctrl__9TObjEneDDFPv(void* p) { return transform_to_view__11TCameraCtrlFii(p); }
 int update_camera_sequence__9TObjEneDDFPv(void* p) { return TCameraCtrl__sub_800691C8(p); }
 int initialize_enemy_state__9TObjEneDDFPv(void* p) { return set_param__12TObjEneLappyFPvi(p); }
 

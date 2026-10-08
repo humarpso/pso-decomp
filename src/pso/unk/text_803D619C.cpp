@@ -25,6 +25,7 @@ extern RecoveredGlobal_803C5850_lbl_80572020 lbl_8058C960;
 extern s32 lbl_805D76A0;
 extern s32 lbl_805D76A4;
 void TLobby__sub_803D61D8(void);
+s32 TBoss8Dragon__sub_803D6214(s32 n, s32 k);
 }
 
 extern "C" {
@@ -40,6 +41,21 @@ void TLobby__sub_803D61D8(void) {
     lbl_805D76A0 = 0;
     lbl_805D76A4 = 0;
 }
+#pragma push
+#pragma optimize_for_size off
+#pragma scheduling off
+#pragma peephole off
+s32 TBoss8Dragon__sub_803D6214(s32 n, s32 k) {
+    s32 d = 1;
+    s32 r = 1;
+    s32 i;
+    for (i = k; i != 0; i--) {
+        d *= i;
+        r *= n - i + 1;
+    }
+    return r / d;
+}
+#pragma pop
 
 typedef char RecoveredGlobal_803C588C_lbl_80572020_size[sizeof(RecoveredGlobal_803C588C_lbl_80572020) == 0x100 ? 1 : -1];
 

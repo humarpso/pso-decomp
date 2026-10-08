@@ -102,7 +102,7 @@ extern s32 lbl_805D2F70;
 extern u32 TODoorCave03__data_805D5968;
 extern const f32 TODoorCave03__data_805DB4D4;
 u8 *TODoorCave03__ct(u8 *arg0, M2C_UNK arg1, s32 arg2);
-s32 fn_801582C4(void *, f32);
+s32 is_in_view_depth(void *, f32);
 void begin_effect_render__13TParticleCtrlFv(void);
 void end_effect_render__13TParticleCtrlFv(void);
 void rotate_matrix_y(s32, s32);
@@ -203,7 +203,7 @@ void TODoorCave03__vt13(u8 *arg0) {
 void render__12TODoorCave03Fv(u8 *arg0) {
     Model_801625AC *m;
     if (((VObj_18_26a62c *)(arg0))->m8(*(f32 *)(arg0 + 0xC0), *(f32 *)(arg0 + 0xC4)) != 0 &&
-        fn_801582C4(arg0, lbl_805DB4E8) != 0) {
+        is_in_view_depth(arg0, lbl_805DB4E8) != 0) {
         set_global_param__8TObjFishFi(*(s32 *)(arg0 + 0x24));
         push_matrix();
         post_translate_matrix(arg0 + 0x38);

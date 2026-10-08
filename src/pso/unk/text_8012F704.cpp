@@ -37,7 +37,7 @@ extern const f32 lbl_805DAFB8;
 extern const f32 lbl_805DAFC0;
 extern const f32 lbl_805DAFC4;
 
-void TObjPlayer__sub_8012F704(Self_8012F704 *self) {
+void launch_slicer_tech__10TObjPlayerFPv(Self_8012F704 *self) {
     Tec_8012F704 tec;
 
     init_slicer_launch_state((SlicerState_801295FC *)&tec);

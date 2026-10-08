@@ -52,7 +52,7 @@ M2C_UNK queue_destruction__7TObjectFv(void *);
 extern Vec_802E4E44 lbl_80472B9C;
 extern Vec_802E4E44 lbl_80472BA8;
 void TObjOnlineEnding__sub_802E4E44(Obj_802E4E44 *arg0);
-M2C_UNK TObjPlayer__sub_80051BE0(int, int, f32, f32);
+M2C_UNK draw_player_model_by_client__10TObjPlayerFUsiff(int, int, f32, f32);
 u32 calc_text_width(void *);
 M2C_UNK render_status_line__15TAdSubPlyItemGCFPvi(void *, int, f32, f32, f32);
 M2C_UNK begin_effect_render__13TParticleCtrlFv();
@@ -77,7 +77,7 @@ extern const f32 lbl_805DE938;
 extern const f32 lbl_805DE93C;
 extern const f32 lbl_805DE940;
 extern const f32 lbl_805DE944;
-void TObjOnlineEnding__sub_802E4C70(Obj_802E4C70 *arg0);
+void draw_scene__16TObjOnlineEndingFPv(Obj_802E4C70 *arg0);
 }
 
 extern "C" {
@@ -123,7 +123,7 @@ void create_result_window__16TObjOnlineEndingFPv(void *arg0) {
 
 extern const M2C_UNK lbl_804E3A64[];
 
-void TObjOnlineEnding__sub_802E4C70(Obj_802E4C70 *arg0) {
+void draw_scene__16TObjOnlineEndingFPv(Obj_802E4C70 *arg0) {
     s32 i;
     Ent_802E4C70 *e;
     if (lbl_805D68F8 == 0) {
@@ -159,7 +159,7 @@ void TObjOnlineEnding__sub_802E4C70(Obj_802E4C70 *arg0) {
             post_translate_matrix(e->f18);
             rotate_matrix_y(0, e->f1C);
             scale_matrix(0, e->f20, e->f20, e->f20);
-            TObjPlayer__sub_80051BE0(e->id, e->f24, lbl_805DE944, lbl_805DE934);
+            draw_player_model_by_client__10TObjPlayerFUsiff(e->id, e->f24, lbl_805DE944, lbl_805DE934);
             pop_matrix();
         }
     }

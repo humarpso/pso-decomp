@@ -1290,7 +1290,7 @@ s32 check_value_equals__13TQuestColCtrlFPvi(int, void *);
 void construct_target_cursor_records__10TObjPlayerFi(void *);
 s32 check_player_flag1__6TLobbyFPv(void *);
 s32 check_flag__10TObjPlayerFPvi(int, int);
-void TBoss4DarkFalz__sub_8004C220(void *, void *);
+void set_position_from__14TBoss4DarkFalzFPvPv(void *, void *);
 void * get_position_ptr__10TObjPlayerFPv(void *);
 M2C_UNK fn_800660B8(void *);
 M2C_UNK reset_cameras_to_actor(void *, int);
@@ -1557,7 +1557,7 @@ void reset_lobby_state__10TObjPlayerFPv(u8 *arg0);
 void try_use_mag__10TObjPlayerFPv(u8 *arg0);
 void enter_freeze_action__10TObjPlayerFv(void *arg0);
 void handle_6x53(void *arg0);
-void TObjPlayer__sub_801C9400(u8 *arg0);
+void send_name_and_state__10TObjPlayerFPv(u8 *arg0);
 void TObjPlayer__sub_801C94B8(u8 *arg0);
 void update_gated_action__10TObjPlayerFPv(void *arg0);
 void TObjPlayer__sub_801C959C(void);
@@ -1706,7 +1706,7 @@ void TObjPlayer__sub_801CDC68(void);
 void finish_attack_stage3__10TObjPlayerFPv(u8 *arg0);
 void check_attack_stage3_input__10TObjPlayerFv(void);
 int try_apply_status_action_1__10TObjPlayerFPv(void* p);
-void TObjPlayer__sub_801CDD24(s32 arg0, s16 arg1);
+void run_attack_stage3_phase__10TObjPlayerFis(s32 arg0, s16 arg1);
 void reset_target_link__10TObjPlayerFPv(void *arg0);
 int TObjPlayer__sub_801CDDEC(void* p);
 void enter_attack_stage2__10TObjPlayerFPv(u8 *arg0);
@@ -1716,7 +1716,7 @@ void TObjPlayer__sub_801CE064(void);
 void finish_attack_stage2__10TObjPlayerFPv(Player_801CE068 *self);
 void TObjPlayer__sub_801CE134(s32 arg0);
 int apply_status_action__10TObjPlayerFPv(void* p);
-void TObjPlayer__sub_801CE19C(s32 arg0, s16 arg1);
+void run_attack_stage2_phase__10TObjPlayerFis(s32 arg0, s16 arg1);
 void start_attack_preparation__10TObjPlayerFPv(u8 *arg0);
 void setup_attack_stage__10TObjPlayerFPv(u8 *arg0);
 void handle_6x46_attack_finished(s32 arg0);
@@ -1737,7 +1737,7 @@ void TObjPlayer__sub_801CF2AC(void);
 void finish_attack_stage1__10TObjPlayerFPv(Player_801CF2B0 *self);
 void update_active_item__10TObjPlayerFi(s32 arg0);
 int TObjPlayer__sub_801CF3C0(void* p);
-void TObjPlayer__sub_801CF3E0(s32 arg0, s16 arg1);
+void run_attack_stage1_phase__10TObjPlayerFis(s32 arg0, s16 arg1);
 s32 update_aim_target__10TObjPlayerFPv(void *arg0);
 void apply_damage_and_reset__10TObjPlayerFPv(void* p);
 void update_run_movement__10TObjPlayerFPv(Plr_801CF56C *self);
@@ -2061,7 +2061,7 @@ void dispatch_to_child__11TWindowCtrlFiPv(u16, s32);
 s32 check_hit_by_id__10TObjPlayerFiii(s32, s32, s32);
 M2C_UNK release_photon_blast_requests(u32);
 u8 * TObjPlayer__sub_80312CCC(void *, int);
-void TObjPlayer__sub_80312D4C(void *, s32);
+void create_party_effects__10TObjPlayerFPvi(void *, s32);
 s32 TObjPlayer__sub_80312E0C(void*);
 void TObjPlayer__sub_80312E98(void *, s32);
 M2C_UNK TObjPlayer__sub_80312F0C(void*);
@@ -2917,7 +2917,7 @@ void handle_6x56_set_player_position_and_angle(void *arg0) {
         p = ((Player_801C8B5C *)((u8 * (*)(s32))get_player_by_client_id)((s32)(m.slot)));
         if (p != NULL) {
             p->ang = m.c;
-            TBoss4DarkFalz__sub_8004C220(p, m.vec);
+            set_position_from__14TBoss4DarkFalzFPvPv(p, m.vec);
             calc_attach_pos__10TObjPlayerFPv(p);
             ((void (*)(void *, s32, s32))run_action_state_phase__10TObjPlayerFisi)(p, 0x15, 0);
         }
@@ -2997,7 +2997,7 @@ void update_warp_relocation__10TObjPlayerFv(u8 *arg0) {
             var_f31 = 0.0f;
             M2C_FIELD(arg0, s16 *, 0x328) = 3;
             M2C_FIELD(arg0, s32 *, 0x60) = M2C_FIELD(arg0, s32 *, 0x65C);
-            ((M2C_UNK (*)(void *, void *))TBoss4DarkFalz__sub_8004C220)(arg0, arg0 + 0x660);
+            ((M2C_UNK (*)(void *, void *))set_position_from__14TBoss4DarkFalzFPvPv)(arg0, arg0 + 0x660);
             refresh_equipment_slot__10TObjPlayerFv(arg0);
             clear_flag_4000__10TObjPlayerFPv(arg0);
             ((VObj_18_d7a0b2 *)(arg0))->m15();
@@ -3065,7 +3065,7 @@ void handle_6x55_intra_map_warp(s32 arg0) {
         p = get_player_by_client_id(cmd.client);
         if (p != NULL && is_in_tl03_state__10TObjPlayerFPv(p) != 0 && test_action_mask__10TObjPlayerFPvi(p, 0x8200) == 0) {
             *(s32 *)(p + 0x65C) = cmd.area;
-            TBoss4DarkFalz__sub_8004C220(p, &cmd.a);
+            set_position_from__14TBoss4DarkFalzFPvPv(p, &cmd.a);
             VecCopy__FP3VecPC3Vec(p + 0x660, &cmd.pos);
             ((void (*)(void *, s32, s32))run_action_state_phase__10TObjPlayerFisi)(p, 0x14, 0);
         }
@@ -3181,7 +3181,7 @@ void handle_6x53(void *arg0) {
 
 void* update_small_font2__10TObjPlayerFPv(void* p) { TFontSmallLobby__sub_801C0228(p); return p; }
 
-void TObjPlayer__sub_801C9400(u8 *arg0) {
+void send_name_and_state__10TObjPlayerFPv(u8 *arg0) {
     MsgA_801C9400 a;
     MsgB_801C9400 b;
     if (is_active__8TItemMagFPv() == 0) {
@@ -3272,7 +3272,7 @@ void TObjPlayer__sub_801C9648(s32 arg0, s16 arg1) {
         ((s32 (*)(void *))TObjPlayer__sub_801C94B8)((void *) arg0);
         return;
       case 5:
-        ((s32 (*)(void *))TObjPlayer__sub_801C9400)((void *) arg0);
+        ((s32 (*)(void *))send_name_and_state__10TObjPlayerFPv)((void *) arg0);
         return;
       case 0:
         ((s32 (*)(void *))enter_freeze_action__10TObjPlayerFv)((void *) arg0);
@@ -4482,7 +4482,7 @@ void run_guard_reaction_phase__10TObjPlayerFis(s32 arg0, s16 arg1) {
 
 void TObjPlayer__sub_801CBC90(s32 arg0) {
     if ((void *) lbl_805D5D68 != NULL) {
-        TObjPlayer__sub_80312D4C(lbl_805D5D68, arg0);
+        create_party_effects__10TObjPlayerFPvi(lbl_805D5D68, arg0);
     }
 }
 
@@ -5354,7 +5354,7 @@ void check_attack_stage3_input__10TObjPlayerFv(void) {  }
 
 int try_apply_status_action_1__10TObjPlayerFPv(void* p) { return try_apply_status_action__10TObjPlayerFi(p); }
 
-void TObjPlayer__sub_801CDD24(s32 arg0, s16 arg1) {
+void run_attack_stage3_phase__10TObjPlayerFis(s32 arg0, s16 arg1) {
   {
     switch (arg1)
     {
@@ -5491,7 +5491,7 @@ void TObjPlayer__sub_801CE134(s32 arg0) {
 
 int apply_status_action__10TObjPlayerFPv(void* p) { return try_apply_status_action__10TObjPlayerFi(p); }
 
-void TObjPlayer__sub_801CE19C(s32 arg0, s16 arg1) {
+void run_attack_stage2_phase__10TObjPlayerFis(s32 arg0, s16 arg1) {
   int new_var2;
   void *new_var;
   new_var2 = ((u32) arg1) <= 8U;
@@ -5847,7 +5847,7 @@ void update_active_item__10TObjPlayerFi(s32 arg0) {
 
 int TObjPlayer__sub_801CF3C0(void* p) { return try_apply_status_action__10TObjPlayerFi(p); }
 
-void TObjPlayer__sub_801CF3E0(s32 arg0, s16 arg1) {
+void run_attack_stage1_phase__10TObjPlayerFis(s32 arg0, s16 arg1) {
   {
     switch (arg1)
     {
@@ -6390,7 +6390,7 @@ void handle_6x3F_set_position(void *arg0) {
     if (validate_6x3F_set_position(&m) != 0) {
         p = (Player_801D0634 *)((void * (*)(s32))get_player_by_client_id)(m.id);
         if (p != NULL) {
-            TBoss4DarkFalz__sub_8004C220(p, m.vec);
+            set_position_from__14TBoss4DarkFalzFPvPv(p, m.vec);
             ((void (*)(void *))set_flag_400000__10TObjPlayerFi)(p);
             if (m.floor >= 0) {
                 set_floor__10TObjPlayerFPvi(p, m.floor);
@@ -6423,7 +6423,7 @@ void handle_6x3E_stop_at_position(void *arg0) {
     if (p == NULL) {
         return;
     }
-    TBoss4DarkFalz__sub_8004C220(p, m.vec);
+    set_position_from__14TBoss4DarkFalzFPvPv(p, m.vec);
     if (m.floor >= 0) {
         set_floor__10TObjPlayerFPvi(p, m.floor);
         set_floor_index__10TObjPlayerFPvi(p, get_player_floor__6TLobbyFi(m.floor));
@@ -6562,13 +6562,13 @@ void run_action_state_phase__10TObjPlayerFisi(s32 arg0, s16 arg1, s32 arg2) {
         ((void (*)(s32, s32))dispatch_run_state__10TObjPlayerFis)(arg0, arg2);
         break;
     case 5:
-        ((void (*)(s32, s32))TObjPlayer__sub_801CF3E0)(arg0, arg2);
+        ((void (*)(s32, s32))run_attack_stage1_phase__10TObjPlayerFis)(arg0, arg2);
         break;
     case 6:
-        ((void (*)(s32, s32))TObjPlayer__sub_801CE19C)(arg0, arg2);
+        ((void (*)(s32, s32))run_attack_stage2_phase__10TObjPlayerFis)(arg0, arg2);
         break;
     case 7:
-        ((void (*)(s32, s32))TObjPlayer__sub_801CDD24)(arg0, arg2);
+        ((void (*)(s32, s32))run_attack_stage3_phase__10TObjPlayerFis)(arg0, arg2);
         break;
     case 8:
         ((void (*)(s32, s32))dispatch_technique_cast_state__10TObjPlayerFis)(arg0, arg2);

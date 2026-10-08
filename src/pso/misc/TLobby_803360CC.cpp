@@ -47,7 +47,7 @@ M2C_UNK queue_destruction__7TObjectFv(void*);
 void TLobby__sub_8033645C(void* p);
 void TLobby__sub_8033645C(void* p);
 M2C_UNK TCameraCtrl__sub_800694A8();
-M2C_UNK TLobby__sub_8022743C();
+M2C_UNK stop_audio_streams__6TLobbyFv();
 M2C_UNK __dl__7TObjectFPv(void *);
 M2C_UNK __dt__7TObjectFv(void *, M2C_UNK);
 M2C_UNK queue_destruction__7TObjectFv(void*);
@@ -57,7 +57,7 @@ void *destroy__6TLobbyFPvs(void *arg0, s16 arg1);
     extern int lbl_805D68C8;
 void TAdMultiPlyChrSelectGC__sub_803367E8(void);
 s32 TLobby__sub_803DA16C(void *, M2C_UNK);
-u64 TLobby__sub_800FD6A0(void *, int);
+u64 call_funcs_reverse__6TLobbyFPvUi(void *, int);
 extern RecoveredGlobal_8033670C_lbl_804EE58C lbl_804EE58C;
 extern u8 *lbl_805D6D48;
 void TLobby__sub_8033670C(void);
@@ -74,7 +74,7 @@ void create__20TItemReverseTechCtrlFPv(void *);
 void *__nw__7TObjectFUl(u32);
 void __ct__7TObjectFP7TObject(void *);
 void apply_bgm_col_ctrl__21TAdMultiChgGameModeGCFi(void *);
-void TAdMultiPlyChrSelectGC__sub_802C6A10(void);
+void reset_slot_selections__22TAdMultiPlyChrSelectGCFv(void);
 void reset_count__14TObjEneDolmOlmFv(void);
 void *init_camera_state__6TLobbyFPvi(void *, void *);
 void *ct_with_parent__6TLobbyFPvPv(void *, s32);
@@ -99,9 +99,9 @@ M2C_UNK queue_destruction__7TObjectFv(void*);
 void set_flag_4__9TObjLukerFPv(void *);
 s32 TKeyBoardControl__sub_80132368(void *);
 s32 TKeyBoardControl__sub_801A57D0();
-s32 TAdPlayerLoadGC__sub_801E1E38(int);
+s32 probe_card_slot__15TAdPlayerLoadGCFi(int);
 M2C_UNK TWindowOptionCtrl__sub_802273B4(int);
-M2C_UNK TAdMultiChgGameModeGC__sub_8023E834();
+M2C_UNK set_default_camera__21TAdMultiChgGameModeGCFv();
 M2C_UNK request_scene_change__21TAdMultiChgGameModeGCFv();
 M2C_UNK set_opening_movie_purpose(int);
 s32 start_offline_seq__23TAdSinglePlyChrSelectGCFPv(void *);
@@ -185,8 +185,8 @@ void TLobby__sub_8033633C(void) {  }
 typedef char RecoveredGlobal_80336340_TKeyBoardControl__data_80506270_size[sizeof(RecoveredGlobal_80336340_TKeyBoardControl__data_80506270) == 0xB0 ? 1 : -1];
 void update_title_idle_transition(Obj_80336340 *arg0) {
     s32 var_r28;
-    TAdMultiChgGameModeGC__sub_8023E834();
-    if (TAdPlayerLoadGC__sub_801E1E38((int) (0)) == 0) {
+    set_default_camera__21TAdMultiChgGameModeGCFv();
+    if (probe_card_slot__15TAdPlayerLoadGCFi((int) (0)) == 0) {
         for (var_r28 = 0; var_r28 != 3; var_r28++) {
             if (arg0->objs[var_r28] != NULL) {
                 queue_destruction__7TObjectFv(arg0->objs[var_r28]);
@@ -224,7 +224,7 @@ void *destroy__6TLobbyFPvs(void *arg0, s16 arg1) {
         }
         TLobby__sub_8033645C((void*)(arg0));
         TCameraCtrl__sub_800694A8();
-        TLobby__sub_8022743C();
+        stop_audio_streams__6TLobbyFv();
         __dt__7TObjectFv(arg0, 0);
         if (arg1 > 0) {
             __dl__7TObjectFPv(arg0);
@@ -243,7 +243,7 @@ u8 *construct_title_scene__6TLobbyFPv(u8 *arg0) {
     M2C_FIELD(arg0, s32 *, 0x2C) = 0;
     M2C_FIELD(arg0, s32 *, 0x3C) = 0;
     TKeyBoardControl__sub_8000F90C(1);
-    TAdMultiPlyChrSelectGC__sub_802C6A10();
+    reset_slot_selections__22TAdMultiPlyChrSelectGCFv();
     reset_count__14TObjEneDolmOlmFv();
     TAdMultiPlyChrSelectGC__sub_803367E8();
     lbl_805D6D44 = 0;
@@ -302,7 +302,7 @@ u8 *construct_title_scene__6TLobbyFPv(u8 *arg0) {
 typedef char RecoveredGlobal_8033670C_lbl_804EE58C_size[sizeof(RecoveredGlobal_8033670C_lbl_804EE58C) == 0x50 ? 1 : -1];
 void TLobby__sub_8033670C(void) {
     u32 temp_r4;
-    temp_r4 = (u32) TLobby__sub_800FD6A0((void *) (&lbl_804EE58C.value), (int) (0x20));
+    temp_r4 = (u32) call_funcs_reverse__6TLobbyFPvUi((void *) (&lbl_804EE58C.value), (int) (0x20));
     if ((void *) lbl_805D6D48 != NULL) {
         TLobby__sub_803DA16C(lbl_805D6D48, (s32) temp_r4);
         lbl_805D6D48 = NULL;

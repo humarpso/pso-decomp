@@ -127,7 +127,7 @@ extern char lbl_80478408[];
 extern s32 TAdPlyStatusGC__data_805D6DB0;
 extern u32 lbl_805D6DB4;
 extern char lbl_805DFAE8[4];
-void TAdPlyStatusGC__sub_8033F6A8(char *buf);
+void format_status_strings__14TAdPlyStatusGCFPv(char *buf);
 }
 
 extern "C" {
@@ -144,7 +144,7 @@ void render__14TAdPlyStatusGCFv(void* p) { if (get_state_flag__9TMainTaskFv(p) !
 
 typedef char RecoveredGlobal_8033F93C_lbl_8050E3B8_size[sizeof(RecoveredGlobal_8033F93C_lbl_8050E3B8) == 0x1B0 ? 1 : -1];
 
-void TAdPlyStatusGC__sub_8033F6A8(char *buf) {
+void format_status_strings__14TAdPlyStatusGCFPv(char *buf) {
     u8 *c;
     u32 time;
     u32 mins;

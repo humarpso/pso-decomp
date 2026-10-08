@@ -121,7 +121,7 @@ M2C_UNK draw_chunk_object(s32);
 extern Vec_802CE740 lbl_8047249C;
 extern const f32 lbl_805DE700;
 extern const f32 lbl_805DE704;
-void TObjPlayer__sub_802CE740(u8 *arg0);
+void draw_color_variant__10TObjPlayerFPv(u8 *arg0);
 s32 is_split_screen();
 s32 get_camera_mode__11TCameraCtrlFv();
 s32 check_demo_mode__10TObjPlayerFv();
@@ -186,7 +186,7 @@ void TObjPlayer__sub_802CE68C(u8 *arg0, s32 arg1, s32 arg2) {
     pop_matrix();
     clear_global_state__10TObjPlayerFv();
 }
-void TObjPlayer__sub_802CE740(u8 *arg0) {
+void draw_color_variant__10TObjPlayerFPv(u8 *arg0) {
     s32 s0;
     s32 s1;
     s32 s2;

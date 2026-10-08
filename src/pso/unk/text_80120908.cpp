@@ -41,7 +41,7 @@ M2C_UNK reset_model_node_counter();
 M2C_UNK set_shadow_material_state();
 M2C_UNK notify_fish_if_valid__10TObjPlayerFUi(int);
 M2C_UNK warn_if_gauge_low__10TObjPlayerFv();
-M2C_UNK TObjPlayer__sub_80364028();
+M2C_UNK set_model_fade_alpha__10TObjPlayerFf();
 M2C_UNK TObjPlayer__sub_8036414C();
 M2C_UNK TObjPlayer__sub_80364198();
 M2C_UNK push_matrix_from();
@@ -96,7 +96,7 @@ s32 draw_weapon_model(void *arg0) {
             TObjPlayer__sub_80364198();
             some_id_805c6f74 &= 0xFFFFFFEF;
             get_mag_scale__10TObjPlayerFPv((void *) (arg0));
-            TObjPlayer__sub_80364028();
+            set_model_fade_alpha__10TObjPlayerFf();
             if (is_flag_400__10TObjPlayerFPv((void *) (arg0)) != 0) {
                 some_id_805c6f74 |= 0x8011;
                 set_color_blend_mode((int) (1), (int) (4), (int) (5), (int) (0));

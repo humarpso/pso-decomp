@@ -53,7 +53,7 @@ extern const f32 lbl_805DF640;
 extern const f32 lbl_805DF644;
 extern const f32 lbl_805DF648;
 extern const f32 lbl_805DF64C;
-void fn_80326074(Wing_80326074 *self);
+void rebuild_lightning_segments(Wing_80326074 *self);
 }
 
 extern "C" {
@@ -95,7 +95,7 @@ void fn_80325F7C(void *arg0) {
 }
 #pragma push
 #pragma fp_contract on
-void fn_80326074(Wing_80326074 *self) {
+void rebuild_lightning_segments(Wing_80326074 *self) {
     Vec_80326074 q;
     Vec_80326074 p;
     Vec_80326074 d;

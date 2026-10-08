@@ -118,7 +118,7 @@ void * TObjNpcLappy__create(void *arg0);
 void TObjNpcLappy__sub_8014B620(void *arg0);
 void *__dt__12TObjNpcHRM01Fv(void *arg0, s16 arg1);
 void free_shared_objects__12TObjNpcHRM01Fv(void);
-void TLobby__sub_800F957C(void*);
+void free_nodes_with_id__6TLobbyFUi(void*);
 void TLobby__sub_803DA16C(void*);
 void *TObjControl__ct(void *, void *);
 void *TObjNpcLappy__ct(void *, void *, void *);
@@ -137,7 +137,7 @@ void free_shared_objects__12TObjNpcHRM01Fv(void) {
         TObjNpcHRM01__data_805D57CC = 0U;
     }
     if ((u32) TObjNpcHRM01__data_805D57C8 != 0U) {
-        TLobby__sub_800F957C((void*)TObjNpcHRM01__data_805D57C8);
+        free_nodes_with_id__6TLobbyFUi((void*)TObjNpcHRM01__data_805D57C8);
         TObjNpcHRM01__data_805D57C8 = 0U;
     }
 }

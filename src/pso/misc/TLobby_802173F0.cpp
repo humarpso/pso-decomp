@@ -13,13 +13,13 @@ void clear_flag_if_not_split_screen__6TLobbyFv(void);
 extern "C" {
 
 void free_global__6TLobbyFv(void);
-void TLobby__sub_800F957C(void*);
+void free_nodes_with_id__6TLobbyFUi(void*);
 
 extern u32 lbl_805D61D8;
 
 void free_global__6TLobbyFv(void) {
     if ((u32) lbl_805D61D8 != 0U) {
-        TLobby__sub_800F957C((void*)lbl_805D61D8);
+        free_nodes_with_id__6TLobbyFUi((void*)lbl_805D61D8);
         lbl_805D61D8 = 0U;
     }
 }

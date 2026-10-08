@@ -20,7 +20,7 @@ void enemy_set_target_id(Obj_800B9958 *self, u16 id);
 s32 get_game_mode__6TLobbyFv(void);
 void *get_player_data__10TObjPlayerFi(s32);
 u16 obj_getField1c(void *);
-void TBoss2DeRolLe__sub_800B98D8(Obj_800B98D8 *self, void *player);
+void set_target_player__13TBoss2DeRolLeFPvPv(Obj_800B98D8 *self, void *player);
 }
 
 extern "C" {
@@ -49,7 +49,7 @@ void enemy_clear_target(O_800B98C0 *self, u16 _w1) {
     self->f38c = 0xFFFF;
 }
 
-void TBoss2DeRolLe__sub_800B98D8(Obj_800B98D8 *self, void *player) {
+void set_target_player__13TBoss2DeRolLeFPvPv(Obj_800B98D8 *self, void *player) {
     s32 n;
     s32 i;
     self->target_id = 0xFFFF;

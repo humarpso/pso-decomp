@@ -204,7 +204,7 @@ extern const float TContainerAncient01__data_805DBD1C;
 extern const f32 lbl_805DBD50;
 extern const f32 lbl_805DBD54;
 extern const f32 lbl_805DBD58;
-void TContainerAncient01__sub_8018ADAC(u8 *arg0);
+void update_state_machine__19TContainerAncient01FPv(u8 *arg0);
 f32 xyz_distance_squared(void *, void *, void *);
 extern const f32 TContainerAncient01__data_805DBD44;
 s32 TContainerAncient01__sub_8018ACC8(s32 arg0, s32 arg1);
@@ -228,7 +228,7 @@ void TContainerAncient01__sub_8018A9D8(u8 *arg0);
 void request_box_item_drop(void *, void *, int);
 void clear_player_status_flag__10TObjPlayerFPviUi(void *, int, u32);
 void trigger_spawn__19TContainerAncient01FPvPvPv(void *, void *, void *);
-s32 TContainerAncient01__sub_8020335C();
+s32 is_global_state_in_table__19TContainerAncient01Fv();
 void set_flag8__6TLobbyFPv(void *);
 extern s32 lbl_8050DC70[];
 void TContainerAncient01__sub_8018AB44(Obj_8018AB44 *arg0);
@@ -278,7 +278,7 @@ void TContainerAncient01__sub_8018B510(Obj_8018B510 *arg0);
 void request_box_item_drop(void *, void *, int);
 void clear_player_status_flag__10TObjPlayerFPviUi(void *, int, u32);
 void TContainerAncient01__sub_8018B158(void* p, void* a1, void* a2);
-s32 TContainerAncient01__sub_8020335C();
+s32 is_global_state_in_table__19TContainerAncient01Fv();
 void set_flag8__6TLobbyFPv(void *);
 extern s32 lbl_8050DC68[];
 void TContainerAncient01__sub_8018B700(Obj_8018B700 *arg0);
@@ -446,7 +446,7 @@ void *lbl_804B6DEC[12] = {
     (void *)0x20000, (void *)0x1, (void *)0x3f800000, (void *)0x4,
 };
 void *lbl_804B6E1C[79] = {
-    (void *)0x0, (void *)0x0, (void *)&dt__20TContainerAncient01RFPvs, (void *)&TContainerAncient01__sub_8018ADAC,
+    (void *)0x0, (void *)0x0, (void *)&dt__20TContainerAncient01RFPvs, (void *)&update_state_machine__19TContainerAncient01FPv,
     (void *)&draw__19TContainerAncient01FPv, (void *)&render_shadows__7TObjectFv, (void *)&set_target_value__19TContainerAncient01FPvPvi, (void *)&apply_object_set_data,
     (void *)&reset_actor_action_state, (void *)&get_actor_body_center, (void *)&update_object_view_visibility, (void *)&classify_actor_view_detail,
     (void *)&TObjRoomId__sub_801A1E2C, (void *)&TObjPlayer__sub_80019568, (void *)&add_actor_exp, (void *)&TObjPlayer__sub_800111D8,
@@ -627,7 +627,7 @@ void TContainerAncient01__sub_8018AB44(Obj_8018AB44 *arg0) {
         clear_player_status_flag__10TObjPlayerFPviUi(arg0, 0, 1);
         trigger_spawn__19TContainerAncient01FPvPvPv((void *)(arg0), (void *)(arg0->pos), (void *)(lbl_8050DC70[0]));
         trigger_spawn__19TContainerAncient01FPvPvPv((void *)(arg0), (void *)(arg0->pos), (void *)(lbl_8050DC70[1]));
-        if (TContainerAncient01__sub_8020335C() == 0) {
+        if (is_global_state_in_table__19TContainerAncient01Fv() == 0) {
             request_box_item_drop(arg0, arg0->pos, 1);
         }
         set_flag8__6TLobbyFPv(arg0);
@@ -684,7 +684,7 @@ void draw__19TContainerAncient01FPv(u8 *arg0) {
         pop_matrix();
     }
 }
-void TContainerAncient01__sub_8018ADAC(u8 *arg0) {
+void update_state_machine__19TContainerAncient01FPv(u8 *arg0) {
     f32 temp_f1;
     f32 temp_f1_2;
     s16 temp_r0;
@@ -941,7 +941,7 @@ void TContainerAncient01__sub_8018B700(Obj_8018B700 *arg0) {
         clear_player_status_flag__10TObjPlayerFPviUi(arg0, 0, 1);
         TContainerAncient01__sub_8018B158((void*)(arg0), (void*)(arg0->pos), (void*)(lbl_8050DC68[0]));
         TContainerAncient01__sub_8018B158((void*)(arg0), (void*)(arg0->pos), (void*)(lbl_8050DC68[1]));
-        if (TContainerAncient01__sub_8020335C() == 0) {
+        if (is_global_state_in_table__19TContainerAncient01Fv() == 0) {
             request_box_item_drop(arg0, arg0->pos, 1);
         }
         set_flag8__6TLobbyFPv(arg0);

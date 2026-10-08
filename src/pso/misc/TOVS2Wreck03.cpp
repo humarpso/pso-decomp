@@ -7,7 +7,7 @@ extern "C" {
 void *TOVS2Wreck03__create(void *arg0);
 void *TOVS2Wreck03__ct(void *arg0, void *arg1);
 void *__dt__12TOVS2Wreck03Fv(void *arg0, s16 arg1);
-void TOVS2Wall01__sub_8017C8EC(void *, void *, int);
+void init_wreck_object__11TOVS2Wall01FPvii(void *, void *, int);
 void __dl__7TObjectFPv(void *);
 void *__nw__7TObjectFUl(int);
 void destroy__11TOVS2Wall01FPvs(void *, int);
@@ -37,7 +37,7 @@ extern M2C_UNK __vt__12TOVS2Wreck03[];
 extern void *lbl_805D31D0;
 
 void *TOVS2Wreck03__ct(void *arg0, void *arg1) {
-    TOVS2Wall01__sub_8017C8EC(arg0, arg1, 2);
+    init_wreck_object__11TOVS2Wall01FPvii(arg0, arg1, 2);
     M2C_FIELD(arg0, M2C_UNK **, 0x18) = __vt__12TOVS2Wreck03;
     M2C_FIELD(arg0, void **, 0x0) = lbl_805D31D0;
     return arg0;

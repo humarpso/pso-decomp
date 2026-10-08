@@ -46,7 +46,7 @@ void TChallenge4PResult__sub_8034B8B0(void* p);
 void TChallenge4PResult__sub_8034B8BC(u8 *arg0);
 void TChallenge4PResult__sub_8034B918(u8 *arg0);
 int TChallenge4PResult__sub_8034B974(void);
-void TChallenge4PResult__sub_8034BADC(u8 *arg0);
+void handle_result_code__18TChallenge4PResultFPv(u8 *arg0);
 }
 
 extern "C" {
@@ -182,7 +182,7 @@ void TChallenge4PResult__sub_8034BA68(TChallenge4PResult *arg0) {
     }
 }
 
-void TChallenge4PResult__sub_8034BADC(u8 *arg0) {
+void handle_result_code__18TChallenge4PResultFPv(u8 *arg0) {
     s32 temp_r3;
     temp_r3 = TLobby__sub_80292270((int) (M2C_FIELD(arg0, s32 *, 0x28)), (int) (M2C_FIELD(arg0, u16 *, 0x24)));
     switch (temp_r3) {
@@ -251,7 +251,7 @@ void TChallenge4PResult::run_task() {
             update_input__18TChallenge4PResultFPv((void *) (this));
             return;
         case 1:
-            TChallenge4PResult__sub_8034BADC((u8 *)((void *) (this)));
+            handle_result_code__18TChallenge4PResultFPv((u8 *)((void *) (this)));
             return;
         case 2:
             TChallenge4PResult__sub_8034BA68((TChallenge4PResult *)((void *) (this)));

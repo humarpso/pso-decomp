@@ -138,7 +138,7 @@ M2C_UNK __dl__7TObjectFPv(void *);
 void *__nw__7TObjectFUl(int);
 M2C_UNK clear_player_status_flag__10TObjPlayerFPviUi(void *, M2C_UNK, M2C_UNK);
 M2C_UNK destroy_ancient_door_base__15TODoorAncient01FPvs(void *, M2C_UNK);
-s32 fn_801582C4();
+s32 is_in_view_depth();
 M2C_UNK free__11TOBoss4RockFUi(void*);
 M2C_UNK free_if_valid__10TObjPlayerFi(s32);
 M2C_UNK set_indexed_flags(void *, M2C_UNK, M2C_UNK);
@@ -192,7 +192,7 @@ u8 is_open__15TODoorVS2Door01FPv(void *arg0) {
     int var_r31;
 
     var_r31 = 0;
-    if ((fn_801582C4() != 0) || ((s32) M2C_FIELD(arg0, s32 *, 0xAC) != 0)) {
+    if ((is_in_view_depth() != 0) || ((s32) M2C_FIELD(arg0, s32 *, 0xAC) != 0)) {
         var_r31 = 1;
     }
     return (u8) var_r31;

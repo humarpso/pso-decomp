@@ -9,12 +9,12 @@ u8 get_field_ed__10TObjPlayerFPv(void *);
 u8 get_slot_count__14TItemProShieldFPv(void *);
 void *get_equip_field_d04__10TObjPlayerFPv(void *, int);
 extern u8 lbl_80479B4C[][3];
-s32 fn_8035C9E8(void);
+s32 any_player_has_listed_item(void);
 }
 
 extern "C" {
 
-s32 fn_8035C9E8(void) {
+s32 any_player_has_listed_item(void) {
     s32 n = get_game_mode__6TLobbyFv();
     s32 i;
     for (i = 0; i < n; i++) {

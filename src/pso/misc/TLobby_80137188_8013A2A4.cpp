@@ -18,7 +18,7 @@ void TLobby__sub_8013A95C(void *);
 void TLobby__sub_8013A9C0(void *);
 int bswap_16__FPUs(void*);
 int bswap_32__FPUl(void*);
-void TLobby__sub_8013A348(s32 arg0);
+void bswap_player_data__6TLobbyFi(s32 arg0);
 }
 
 extern "C" {
@@ -41,7 +41,7 @@ void TLobby__sub_8013A2DC(void) {  }
 void bswap_6x6E_sync_game_state__6TLobbyFPv(void* p) { bswap_16__FPUs(p); bswap_16__FPUs((char*)p + 0x2); bswap_16__FPUs((char*)p + 0x4); bswap_16__FPUs((char*)p + 0x6); }
 void open_hard_keyboard__6TLobbyFPv(void* p) { test_card_flag__19TWindowKeyBoardHardFii(p, (void*)262144); }
 
-void TLobby__sub_8013A348(s32 arg0) {
+void bswap_player_data__6TLobbyFi(s32 arg0) {
     s32 i;
     bswap_16__FPUs((void*)((void *) (arg0)));
     bswap_16__FPUs((void*)((void *) (arg0 + 2)));

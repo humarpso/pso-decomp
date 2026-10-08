@@ -5,7 +5,7 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 #define M2C_BITWISE(type, expr) ((type)(expr))
 
 extern "C" {
-s32 TWindowSubStatusDisp__sub_80259268(void *, s32, s32, M2C_UNK, M2C_UNK);
+s32 replace_owned_string__20TWindowSubStatusDispFPviiii(void *, s32, s32, M2C_UNK, M2C_UNK);
 extern const f32 lbl_805DCF04;
 void init_status_entry__20TWindowSubStatusDispFPvcUii(u8 *arg0, s8 arg1, u32 arg2, s32 arg3);
 }
@@ -13,7 +13,7 @@ void init_status_entry__20TWindowSubStatusDispFPvcUii(u8 *arg0, s8 arg1, u32 arg
 extern "C" {
 
 void init_list_entry__20TWindowSubStatusDispFPvUcii(void *arg0, u8 arg1, s32 arg2, s32 arg3);
-s32 TWindowSubStatusDisp__sub_80259268(void *, s32, s32, M2C_UNK, M2C_UNK);
+s32 replace_owned_string__20TWindowSubStatusDispFPviiii(void *, s32, s32, M2C_UNK, M2C_UNK);
 
 extern const f32 lbl_805DCF04;
 
@@ -29,7 +29,7 @@ void init_list_entry__20TWindowSubStatusDispFPvUcii(void *arg0, u8 arg1, s32 arg
     M2C_FIELD(arg0, s8 *, 0x1D) = 0x33;
     M2C_FIELD(arg0, s32 *, 0x28) = -1;
     M2C_FIELD(arg0, s32 *, 0x2C) = -1;
-    M2C_FIELD(arg0, s32 *, 0x20) = TWindowSubStatusDisp__sub_80259268(arg0, arg2, M2C_FIELD(arg0, s32 *, 0x20), 8, 1);
+    M2C_FIELD(arg0, s32 *, 0x20) = replace_owned_string__20TWindowSubStatusDispFPviiii(arg0, arg2, M2C_FIELD(arg0, s32 *, 0x20), 8, 1);
     M2C_FIELD(arg0, s32 *, 0x30) = -1;
     M2C_FIELD(arg0, s32 *, 0x34) = -1;
     M2C_FIELD(arg0, s32 *, 0x18) = arg3;
@@ -45,7 +45,7 @@ void init_status_entry__20TWindowSubStatusDispFPvcUii(u8 *arg0, s8 arg1, u32 arg
     M2C_FIELD(arg0, s8 *, 0x1D) = arg1;
     M2C_FIELD(arg0, s32 *, 0x28) = -1;
     M2C_FIELD(arg0, s32 *, 0x2C) = -1;
-    M2C_FIELD(arg0, s32 *, 0x20) = ((u32)TWindowSubStatusDisp__sub_80259268((void *)(arg0), (s32)(arg2), (s32)(M2C_FIELD(arg0, s32 *, 0x20)), (M2C_UNK)(8), (M2C_UNK)(1)));
+    M2C_FIELD(arg0, s32 *, 0x20) = ((u32)replace_owned_string__20TWindowSubStatusDispFPviiii((void *)(arg0), (s32)(arg2), (s32)(M2C_FIELD(arg0, s32 *, 0x20)), (M2C_UNK)(8), (M2C_UNK)(1)));
     M2C_FIELD(arg0, s32 *, 0x30) = -1;
     M2C_FIELD(arg0, s32 *, 0x34) = -1;
     M2C_FIELD(arg0, s32 *, 0x18) = arg3;

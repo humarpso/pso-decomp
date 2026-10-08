@@ -35,12 +35,12 @@ s32 check_player_action_allowed();
 M2C_UNK fn_801D41B4(s32);
 s32 fn_801D4270(s32);
 M2C_UNK send_trade_ready__9TProtocolFv(s32);
-s32 TAdSinglePlyChrSelectGC__sub_801FD21C();
+s32 load_character_from_card__23TAdSinglePlyChrSelectGCFv();
 M2C_UNK *TLobby__sub_802D29AC(void);
 extern s32 lbl_805D53A0;
 extern s32 TLobby__data_805D5580;
 extern u8 TLobby__data_805D688B;
-void TLobby__sub_802D2A70(void);
+void apply_trade_items__6TLobbyFv(void);
 }
 
 extern "C" {
@@ -111,7 +111,7 @@ s32 TLobby__sub_802D2A50(u32 arg0) {
     TLobby__data_805D6894 = arg0;
     return 1;
 }
-void TLobby__sub_802D2A70(void) {
+void apply_trade_items__6TLobbyFv(void) {
     s32 allowed;
     struct E_802D2A70 *list;
     u32 id;
@@ -143,7 +143,7 @@ void TLobby__sub_802D2A70(void) {
                         }
                     }
                 }
-                if ((flag == 0) || (TAdSinglePlyChrSelectGC__sub_801FD21C() == 0)) {
+                if ((flag == 0) || (load_character_from_card__23TAdSinglePlyChrSelectGCFv() == 0)) {
                     TLobby__data_805D688B = 8;
                     send_trade_ready__9TProtocolFv(TLobby__data_805D5580);
                 }

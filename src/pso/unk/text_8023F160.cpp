@@ -14,7 +14,7 @@ struct RecoveredGlobal_8023F18C_lbl_804CCE60 {
 };
 
 extern "C" {
-void TLobby__sub_800FD6A0(s32, u32);
+void call_funcs_reverse__6TLobbyFPvUi(s32, u32);
 extern RecoveredGlobal_8023F160_lbl_804CCE60 lbl_804CCE60;
 void fn_8023F160(void);
 M2C_UNK run_load_callback_table(void *, int);
@@ -26,7 +26,7 @@ extern "C" {
 
 typedef char RecoveredGlobal_8023F160_lbl_804CCE60_size[sizeof(RecoveredGlobal_8023F160_lbl_804CCE60) == 0x38 ? 1 : -1];
 void fn_8023F160(void) {
-    TLobby__sub_800FD6A0((s32) &lbl_804CCE60.value, 0x38U);
+    call_funcs_reverse__6TLobbyFPvUi((s32) &lbl_804CCE60.value, 0x38U);
 }
 typedef char RecoveredGlobal_8023F18C_lbl_804CCE60_size[sizeof(RecoveredGlobal_8023F18C_lbl_804CCE60) == 0x38 ? 1 : -1];
 void fn_8023F18C(void) {

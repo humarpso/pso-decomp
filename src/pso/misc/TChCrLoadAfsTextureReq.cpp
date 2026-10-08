@@ -59,7 +59,7 @@ u32 alloc__23TAdSinglePlyChrSelectGCFPv(int);
 M2C_UNK fn_8028C8A8(void *);
 M2C_UNK TLobby__sub_8028D628(int, int);
 s32 start_load_default__6TLobbyFPv(int);
-void TLobby__sub_8028C530(u8 *arg0);
+void update_model_load__6TLobbyFPv(u8 *arg0);
 void __ct__7TObjectFP7TObject(void *, void *);
 extern M2C_UNK __vt__22TChCrLoadAfsTextureReq[];
 extern void *lbl_805D3B50;
@@ -70,7 +70,7 @@ void safe_free__23TAdSinglePlyChrSelectGCFUi(u32);
 void __dl__7TObjectFPv(void *);
 void finish_request__22TChCrLoadAfsTextureReqFPv(void *arg0);
 s32 TLobby__sub_803CC4C0(s32);
-void TLobby__sub_803CC980(s32);
+void adxf_stop__6TLobbyFPv(s32);
 void TLobby__sub_803CCE9C(s32);
 extern M2C_UNK __vt__22TChCrLoadAfsTextureReq[];
 Req_8028C1F0 *__dt__22TChCrLoadAfsTextureReqFv(Req_8028C1F0 *arg0, s16 arg1);
@@ -153,7 +153,7 @@ Req_8028C1F0 *__dt__22TChCrLoadAfsTextureReqFv(Req_8028C1F0 *arg0, s16 arg1) {
         arg0->vt = ((s32 *)&__vt__22TChCrLoadAfsTextureReq);
         if (arg0->mode == 0 && arg0->tab[0] != 0) {
             if (TLobby__sub_803CC4C0(arg0->handle) == 2) {
-                TLobby__sub_803CC980(arg0->handle);
+                adxf_stop__6TLobbyFPv(arg0->handle);
             }
             TLobby__sub_803CCE9C(arg0->handle);
             arg0->handle = 0;
@@ -243,7 +243,7 @@ f32 TLobby__sub_8028C50C(void) {
 }
 #pragma push
 #pragma fp_contract on
-void TLobby__sub_8028C530(u8 *arg0) {
+void update_model_load__6TLobbyFPv(u8 *arg0) {
     s32 *temp_r5;
     s32 temp_r0;
     s32 temp_r4;

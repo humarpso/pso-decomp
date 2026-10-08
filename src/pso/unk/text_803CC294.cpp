@@ -59,27 +59,27 @@ struct Snd_803CC980 {
 };
 
 extern "C" {
-M2C_UNK TLobby__sub_803C57C8(void *);
+M2C_UNK notify_error__6TLobbyFPv(void *);
 extern RecoveredGlobal_803CC500_lbl_8047C910 lbl_8047C910;
 s32 TLobby__sub_803CC500(u8 *arg0);
-M2C_UNK TLobby__sub_803C57C8(void *);
+M2C_UNK notify_error__6TLobbyFPv(void *);
 extern RecoveredGlobal_803CC53C_lbl_8047C93C lbl_8047C93C;
 s32 TLobby__sub_803CC53C(u8 *arg0);
-M2C_UNK TLobby__sub_803C57C8(void *);
+M2C_UNK notify_error__6TLobbyFPv(void *);
 s32 TLobby__sub_803CCB98();
 extern RecoveredGlobal_803CCB5C_lbl_8047CA28 lbl_8047CA28;
-s32 TLobby__sub_803CCB5C(M2C_UNK arg0, M2C_UNK arg1, s32 arg2);
-M2C_UNK TLobby__sub_803C57C8(void *);
+s32 read_checked_align__6TLobbyFiii(M2C_UNK arg0, M2C_UNK arg1, s32 arg2);
+M2C_UNK notify_error__6TLobbyFPv(void *);
 extern char lbl_8047C88C[];
 s32 TLobby__sub_803CC4C0(Obj_803CC4C0 *p);
 M2C_UNK strncpy(void *, void *, int);
-M2C_UNK TLobby__sub_803C57C8(void *);
+M2C_UNK notify_error__6TLobbyFPv(void *);
 extern M2C_UNK lbl_8047C844[];
 extern M2C_UNK lbl_8047C868[];
 extern Ent_803CC294 *lbl_8057C7D0[];
-s32 TLobby__sub_803CC294(s32 arg0, s32 arg1, char *arg2, s32 *arg3, s32 *arg4, s32 *arg5);
+s32 get_afs_file_info__6TLobbyFiiPvPvPvPv(s32 arg0, s32 arg1, char *arg2, s32 *arg3, s32 *arg4, s32 *arg5);
 s32 memcmp(void *, void *, int);
-M2C_UNK TLobby__sub_803C57C8(void *);
+M2C_UNK notify_error__6TLobbyFPv(void *);
 s32 TLobby__sub_803CCB98();
 M2C_UNK TLobby__sub_803CD804();
 extern M2C_UNK lbl_8047C818[];
@@ -89,12 +89,12 @@ extern Strm_803CD5C4 *lbl_805D75D8;
 extern s32 lbl_805D75DC;
 extern u8 *lbl_805D75EC;
 extern M2C_UNK lbl_805E0D88;
-s32 TLobby__sub_803CD5C4(s32 arg0);
+s32 read_afs_toc__6TLobbyFi(s32 arg0);
 M2C_UNK release_ref__6TLobbyFv();
 M2C_UNK init_once__6TLobbyFv();
-M2C_UNK TLobby__sub_803C57C8(void *);
-u32 TLobby__sub_803C8F5C(Buf_803CD16C *, s32, s32, s32, s32);
-s32 TLobby__sub_803CC294(s32 arg0, s32 arg1, char *arg2, s32 *arg3, s32 *arg4, s32 *arg5);
+M2C_UNK notify_error__6TLobbyFPv(void *);
+u32 adxstm_open_fname_range__6TLobbyFPviiii(Buf_803CD16C *, s32, s32, s32, s32);
+s32 get_afs_file_info__6TLobbyFiiPvPvPvPv(s32 arg0, s32 arg1, char *arg2, s32 *arg3, s32 *arg4, s32 *arg5);
 M2C_UNK TLobby__sub_803CCE9C(Slot_803CD16C *);
 extern M2C_UNK lbl_8047CB7C[];
 extern LogHdr_803CD16C lbl_8057B7B0;
@@ -104,7 +104,7 @@ extern s32 lbl_805D75E0;
 Slot_803CD16C *adxf_open_afs__6TLobbyFii(s32 arg0, s32 arg1);
 M2C_UNK release_ref__6TLobbyFv();
 M2C_UNK init_once__6TLobbyFv();
-M2C_UNK TLobby__sub_803C57C8(void *);
+M2C_UNK notify_error__6TLobbyFPv(void *);
 s32 get_field_14__6TLobbyFPv(u32);
 u32 TLobby__sub_803C8CDC(u32, s32, s32);
 M2C_UNK TLobby__sub_803CCE9C(Slot_803CD16C *);
@@ -114,10 +114,10 @@ extern LogHdr_803CD16C lbl_8057B7B0;
 extern LogEnt_803CD16C lbl_8057B7D0[];
 extern Slot_803CD16C lbl_8057CBD0[];
 extern s32 lbl_805D75E0;
-Slot_803CD16C *TLobby__sub_803CD3A8(u32 arg0, s32 arg1);
+Slot_803CD16C *adxf_open__6TLobbyFUii(u32 arg0, s32 arg1);
 M2C_UNK release_ref__6TLobbyFv();
 M2C_UNK init_once__6TLobbyFv();
-M2C_UNK TLobby__sub_803C57C8(void *);
+M2C_UNK notify_error__6TLobbyFPv(void *);
 M2C_UNK TLobby__sub_803C85AC(u32, s32 *);
 M2C_UNK TLobby__sub_803C89C4(u32);
 M2C_UNK invalidate_cache__6TLobbyFv(s32, s32);
@@ -127,7 +127,7 @@ extern LogHdr_803CD16C lbl_8057B7B0;
 extern LogEnt_803CD16C lbl_8057B7D0[];
 extern s32 lbl_805D75E0;
 extern s32 lbl_805D75E4;
-s32 TLobby__sub_803CC980(Snd_803CC980 *arg0);
+s32 adxf_stop__6TLobbyFPv(Snd_803CC980 *arg0);
 }
 
 extern "C" {
@@ -139,20 +139,20 @@ typedef char RecoveredGlobal_803CC500_lbl_8047C910_size[sizeof(RecoveredGlobal_8
 #pragma dont_inline off
 inline s32 check_803CC294(s32 arg0, s32 arg1) {
     if (arg0 < 0 || arg0 >= 0x100) {
-        TLobby__sub_803C57C8(lbl_8047C844);
+        notify_error__6TLobbyFPv(lbl_8047C844);
         return -3;
     }
     if (lbl_8057C7D0[arg0] == NULL) {
-        TLobby__sub_803C57C8(lbl_8047C844);
+        notify_error__6TLobbyFPv(lbl_8047C844);
         return -3;
     }
     if (arg1 < 0 || arg1 >= lbl_8057C7D0[arg0]->f8) {
-        TLobby__sub_803C57C8(lbl_8047C868);
+        notify_error__6TLobbyFPv(lbl_8047C868);
         return -3;
     }
     return 0;
 }
-s32 TLobby__sub_803CC294(s32 arg0, s32 arg1, char *arg2, s32 *arg3, s32 *arg4, s32 *arg5) {
+s32 get_afs_file_info__6TLobbyFiiPvPvPvPv(s32 arg0, s32 arg1, char *arg2, s32 *arg3, s32 *arg4, s32 *arg5) {
     s32 st;
     Ent_803CC294 *e;
     u16 *arr;
@@ -195,7 +195,7 @@ s32 TLobby__sub_803CC294(s32 arg0, s32 arg1, char *arg2, s32 *arg3, s32 *arg4, s
 
 s32 TLobby__sub_803CC4C0(Obj_803CC4C0 *p) {
     if (p == 0) {
-        TLobby__sub_803C57C8(lbl_8047C88C);
+        notify_error__6TLobbyFPv(lbl_8047C88C);
         return -3;
     }
     return p->b;
@@ -203,7 +203,7 @@ s32 TLobby__sub_803CC4C0(Obj_803CC4C0 *p) {
 
 s32 TLobby__sub_803CC500(u8 *arg0) {
     if (arg0 == NULL) {
-        TLobby__sub_803C57C8((void *) (&lbl_8047C910.value));
+        notify_error__6TLobbyFPv((void *) (&lbl_8047C910.value));
         return -3;
     }
     return M2C_FIELD(arg0, s32 *, 0x10);
@@ -211,7 +211,7 @@ s32 TLobby__sub_803CC500(u8 *arg0) {
 typedef char RecoveredGlobal_803CC53C_lbl_8047C93C_size[sizeof(RecoveredGlobal_803CC53C_lbl_8047C93C) == 0x74 ? 1 : -1];
 s32 TLobby__sub_803CC53C(u8 *arg0) {
     if (arg0 == NULL) {
-        TLobby__sub_803C57C8((void *) (&lbl_8047C93C.value));
+        notify_error__6TLobbyFPv((void *) (&lbl_8047C93C.value));
         return -3;
     }
     return M2C_FIELD(arg0, s32 *, 0xC);
@@ -221,7 +221,7 @@ typedef char RecoveredGlobal_803CCB5C_lbl_8047CA28_size[sizeof(RecoveredGlobal_8
 #pragma push
 #pragma inline_depth(4)
 #pragma dont_inline off
-s32 TLobby__sub_803CC980(Snd_803CC980 *arg0) {
+s32 adxf_stop__6TLobbyFPv(Snd_803CC980 *arg0) {
     s32 sp8;
     {
         LogEnt_803CD16C *e;
@@ -239,7 +239,7 @@ s32 TLobby__sub_803CC980(Snd_803CC980 *arg0) {
         lbl_805D75E0 = i + 1;
     }
     if (arg0 == NULL) {
-        TLobby__sub_803C57C8(lbl_8047C9B0);
+        notify_error__6TLobbyFPv(lbl_8047C9B0);
         return -3;
     }
     if (arg0->state == 1) {
@@ -250,7 +250,7 @@ s32 TLobby__sub_803CC980(Snd_803CC980 *arg0) {
         return arg0->f14;
     }
     if (arg0->f4 == 0) {
-        TLobby__sub_803C57C8(lbl_8047C9D4);
+        notify_error__6TLobbyFPv(lbl_8047C9D4);
         return -1;
     }
     init_once__6TLobbyFv();
@@ -281,9 +281,9 @@ s32 TLobby__sub_803CC980(Snd_803CC980 *arg0) {
 }
 #pragma pop
 
-s32 TLobby__sub_803CCB5C(M2C_UNK arg0, M2C_UNK arg1, s32 arg2) {
+s32 read_checked_align__6TLobbyFiii(M2C_UNK arg0, M2C_UNK arg1, s32 arg2) {
     if (arg2 & 0x1F) {
-        TLobby__sub_803C57C8((void *) (&lbl_8047CA28.value));
+        notify_error__6TLobbyFPv((void *) (&lbl_8047CA28.value));
         return -3;
     }
     return TLobby__sub_803CCB98();
@@ -297,7 +297,7 @@ inline s32 rd32_803CD5C4(u8 *p) {
 }
 inline s32 state_803CD5C4(s32 base) {
     if (lbl_805D75D8 == NULL) {
-        TLobby__sub_803C57C8((void *)(base + 0x74));
+        notify_error__6TLobbyFPv((void *)(base + 0x74));
         return -3;
     }
     return lbl_805D75D8->f1;
@@ -339,14 +339,14 @@ inline s32 open_803CD16C(Slot_803CD16C *s, s32 arg0, s32 arg1) {
     s32 b;
     s32 a;
     u32 h;
-    if (TLobby__sub_803CC294(arg0, arg1, (char *)&buf, &a, &b, &c) < 0) {
+    if (get_afs_file_info__6TLobbyFiiPvPvPvPv(arg0, arg1, (char *)&buf, &a, &b, &c) < 0) {
         return -3;
     }
     s->f30 = b;
-    h = TLobby__sub_803C8F5C(&buf, a, b, c, 0);
+    h = adxstm_open_fname_range__6TLobbyFPviiii(&buf, a, b, c, 0);
     s->f4 = h;
     if (h == 0) {
-        TLobby__sub_803C57C8(lbl_8047CB7C);
+        notify_error__6TLobbyFPv(lbl_8047CB7C);
         return -1;
     }
     s->fc = c;
@@ -429,12 +429,12 @@ inline s32 open_803CD3A8(Slot_803CD16C *s, u32 arg0, s32 arg1) {
     u32 h;
     s32 sz;
     if (arg0 == 0) {
-        TLobby__sub_803C57C8(lbl_8047CBA4);
+        notify_error__6TLobbyFPv(lbl_8047CBA4);
         return -1;
     }
     h = TLobby__sub_803C8CDC(arg0, arg1, 0);
     if (h == 0) {
-        TLobby__sub_803C57C8(lbl_8047CBD8);
+        notify_error__6TLobbyFPv(lbl_8047CBD8);
         return -1;
     }
     s->f4 = h;
@@ -443,7 +443,7 @@ inline s32 open_803CD3A8(Slot_803CD16C *s, u32 arg0, s32 arg1) {
     s->f10 = sz;
     return 0;
 }
-Slot_803CD16C *TLobby__sub_803CD3A8(u32 arg0, s32 arg1) {
+Slot_803CD16C *adxf_open__6TLobbyFUii(u32 arg0, s32 arg1) {
     Slot_803CD16C *s;
     {
         LogEnt_803CD16C *e;
@@ -485,14 +485,14 @@ Slot_803CD16C *TLobby__sub_803CD3A8(u32 arg0, s32 arg1) {
 }
 #pragma pop
 
-s32 TLobby__sub_803CD5C4(s32 arg0) {
+s32 read_afs_toc__6TLobbyFi(s32 arg0) {
     s16 *arr;
     Ent_803CD5C4 *e;
     s32 st;
     s32 i;
     s32 base = (s32)lbl_8047C818;
     if (arg0 != lbl_805D75D4) {
-        TLobby__sub_803C57C8((void *)(base + 0x4D0));
+        notify_error__6TLobbyFPv((void *)(base + 0x4D0));
         return -3;
     }
     st = state_803CD5C4(base);
@@ -504,13 +504,13 @@ s32 TLobby__sub_803CD5C4(s32 arg0) {
     if (e->f8 == 0) {
         s32 n;
         if (memcmp(lbl_805D75EC, &lbl_805E0D88, 3) != 0) {
-            TLobby__sub_803C57C8((void *)(base + 0x504));
+            notify_error__6TLobbyFPv((void *)(base + 0x504));
             TLobby__sub_803CD804();
             return 4;
         }
         n = rd32_803CD5C4(lbl_805D75EC + 4);
         if (n > 0x10000) {
-            TLobby__sub_803C57C8((void *)(base + 0x538));
+            notify_error__6TLobbyFPv((void *)(base + 0x538));
             TLobby__sub_803CD804();
             return 4;
         }

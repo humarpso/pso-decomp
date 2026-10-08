@@ -7,8 +7,8 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 extern "C" {
 
 void return_to_main_menu__6TLobbyFv(void);
-void TLobby__sub_8013703C();
-M2C_UNK TLobby__sub_8013990C(M2C_UNK);
+void open_ship_block_select_menu__6TLobbyFiPvPv();
+M2C_UNK show_seq_phase_message__6TLobbyFi(M2C_UNK);
 M2C_UNK TWindow__close(u32);
 M2C_UNK fn_801DB7EC(void *);
 
@@ -23,7 +23,7 @@ extern u32 lbl_805D55E4;
 void return_to_main_menu__6TLobbyFv(void) {
     u32 t;
 
-    TLobby__sub_8013990C(6);
+    show_seq_phase_message__6TLobbyFi(6);
     t = lbl_805D55E0;
     if (t != 0U) {
         TWindow__close(t);
@@ -49,7 +49,7 @@ void return_to_main_menu__6TLobbyFv(void) {
         TWindow__close(t);
         TLobby__data_805D55D0 = 0U;
     }
-    M2C_FIELD(TLobby__data_805D5580, void **, 0xBBE4) = (void *)&TLobby__sub_8013703C;
+    M2C_FIELD(TLobby__data_805D5580, void **, 0xBBE4) = (void *)&open_ship_block_select_menu__6TLobbyFiPvPv;
     fn_801DB7EC(TLobby__data_805D5580);
     TLobby__data_805D5594 = 7;
 }

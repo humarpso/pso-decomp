@@ -72,10 +72,10 @@ extern u8 *lbl_805D6CA0;
 extern s32 lbl_805D6CA4;
 extern const f32 lbl_805DF780;
 void TAdEnterPasswordGC__sub_8032B5B0(u8 *arg0);
-u32 TAdEnterSerialAccessGC__sub_8032AD30(s32, s32);
+u32 create_keyboard_control__22TAdEnterSerialAccessGCFii(s32, s32);
 s32 TAdEnterSerialAccessGC__sub_8032AE54(M2C_UNK, s32);
-M2C_UNK TAdEnterSerialAccessGC__sub_802AEBA8(void *);
-M2C_UNK TLevelSelect__sub_802AEBE4(int, void *);
+M2C_UNK reset_input_state__22TAdEnterSerialAccessGCFPv(void *);
+M2C_UNK add_item_rect__12TLevelSelectFPvPv(int, void *);
 M2C_UNK set_active__22TAdEnterSerialAccessGCFPv(int);
 s32 TAdEnterSerialAccessGC__sub_8032AE1C(void *);
 extern RecoveredGlobal_8032B904_lbl_80477278 lbl_80477278;
@@ -113,8 +113,8 @@ s32 TWindowShortListCtrl__check_controller_button(void *, int);
 void free_menu_object(void *);
 s32 get_field_118__22TAdEnterSerialAccessGCFv(void);
 M2C_UNK play_sound_effect(int, int, int, int);
-M2C_UNK TAdEnterSerialAccessGC__sub_802AEBA8(void *);
-M2C_UNK TLevelSelect__sub_802AEBE4(int, void *);
+M2C_UNK reset_input_state__22TAdEnterSerialAccessGCFPv(void *);
+M2C_UNK add_item_rect__12TLevelSelectFPvPv(int, void *);
 M2C_UNK set_active__22TAdEnterSerialAccessGCFPv(int);
 void TAdEnterSerialAccessGC__sub_80322418(s32, int);
 void set_state_3__22TAdEnterSerialAccessGCFPv(u32);
@@ -128,7 +128,7 @@ extern u8 lbl_8050E208[];
 extern u8 lbl_8050E3B8[];
 extern u8 *lbl_805D6CA0;
 extern s32 lbl_805D6CA4;
-void TAdEnterPasswordGC__sub_8032B6A0(Pw_8032B6A0 *self);
+void update_password_input__18TAdEnterPasswordGCFPv(Pw_8032B6A0 *self);
 }
 
 extern "C" {
@@ -181,7 +181,7 @@ extern M2C_UNK __vt__18TAdEnterPasswordGC[];
 typedef struct Pw_8032B6A0 Pw_8032B6A0;
 typedef struct RecoveredGlobal_8032B904_lbl_80477278 RecoveredGlobal_8032B904_lbl_80477278;
 typedef struct RecoveredGlobal_8032BA8C_TAdEnterPasswordGC__data_804EDA20 RecoveredGlobal_8032BA8C_TAdEnterPasswordGC__data_804EDA20;
-void TAdEnterPasswordGC__sub_8032B6A0(Pw_8032B6A0 *self) {
+void update_password_input__18TAdEnterPasswordGCFPv(Pw_8032B6A0 *self) {
   s32 buf = realloc_buffer__17TWindowSubComCardFPv(lbl_805D6CA0);
   s32 prev;
   int cur;
@@ -239,15 +239,15 @@ void TAdEnterPasswordGC__sub_8032B6A0(Pw_8032B6A0 *self) {
     {
       if (self->serial != 0)
       {
-        TAdEnterSerialAccessGC__sub_802AEBA8((void *) self->serial);
-        TLevelSelect__sub_802AEBE4(self->serial, ((u8 *) (&lbl_80477278.value)) + 8);
+        reset_input_state__22TAdEnterSerialAccessGCFPv((void *) self->serial);
+        add_item_rect__12TLevelSelectFPvPv(self->serial, ((u8 *) (&lbl_80477278.value)) + 8);
       }
     }
     else
       if (self->serial != 0)
     {
-      TAdEnterSerialAccessGC__sub_802AEBA8((void *) self->serial);
-      TLevelSelect__sub_802AEBE4(self->serial, &lbl_80477278.value);
+      reset_input_state__22TAdEnterSerialAccessGCFPv((void *) self->serial);
+      add_item_rect__12TLevelSelectFPvPv(self->serial, &lbl_80477278.value);
     }
   }
   if ((get_selected_slot__23TAdSinglePlyChrSelectGCFPv(self->serial) == 1) && (update_keyboard__17TWindowSubComCardFPv(lbl_805D6CA0) != 0))
@@ -265,11 +265,11 @@ void TAdEnterPasswordGC__sub_8032B904(s32 arg0) {
     M2C_FIELD(arg0, s32 *, 0x30) = TAdEnterSerialAccessGC__sub_8032AE54(arg0, 2);
     M2C_FIELD(arg0, s32 *, 0x34) = TAdEnterSerialAccessGC__sub_8032AE1C((void *) (arg0));
     if ((u32) M2C_FIELD(arg0, u32 *, 0x2C) != 0U) {
-        TAdEnterSerialAccessGC__sub_802AEBA8(M2C_FIELD(arg0, void **, 0x2C));
-        TLevelSelect__sub_802AEBE4((int) (M2C_FIELD(arg0, u32 *, 0x2C)), (void *) (&lbl_80477278.value));
+        reset_input_state__22TAdEnterSerialAccessGCFPv(M2C_FIELD(arg0, void **, 0x2C));
+        add_item_rect__12TLevelSelectFPvPv((int) (M2C_FIELD(arg0, u32 *, 0x2C)), (void *) (&lbl_80477278.value));
         set_active__22TAdEnterSerialAccessGCFPv((int) (M2C_FIELD(arg0, u32 *, 0x2C)));
     }
-    (*(u32 *)&lbl_805D6CA0) = TAdEnterSerialAccessGC__sub_8032AD30(arg0, 2);
+    (*(u32 *)&lbl_805D6CA0) = create_keyboard_control__22TAdEnterSerialAccessGCFii(arg0, 2);
     lbl_805D6CA4 = 1;
 }
 

@@ -110,7 +110,7 @@ extern const f32 lbl_805D8CBC;
 extern const f32 lbl_805D8CF4;
 extern const f32 lbl_805D8CF8;
 extern const f32 lbl_805D8CFC;
-void TBoss4Zako__sub_8005C368(u8 *arg0);
+void update_target_position__10TBoss4ZakoFPv(u8 *arg0);
 void VecCopy__FP3VecPC3Vec(void *, void *);
 void enter_state_3__11TBoss4BishiFPv(void* p);
 void vec3_add_to(void *, void *);
@@ -145,7 +145,7 @@ extern const f32 lbl_805D8CBC;
 extern const f32 lbl_805D8CE8;
 extern const f32 lbl_805D8CEC;
 extern const f32 lbl_805D8CF0;
-void TBoss4Zako__sub_8005C218(void *p);
+void update_orbit_velocity__10TBoss4ZakoFPv(void *p);
 s32 get_phase__9TBoss4UroFPv(void *);
 void TBoss4Zako__sub_8005C9BC(void *);
 s32 TBoss4Uro__sub_8005D698(void *);
@@ -459,15 +459,15 @@ V2_8005BF68 __vt__11TBoss4Bishi[4] = {
 
 void TBoss4Zako__vt4(void *arg0) {
     struct VOff_8005C450_arg0_8005BABC *self = (struct VOff_8005C450_arg0_8005BABC *)arg0;
-    TBoss4Zako__sub_8005C368((u8 *)(arg0));
-    TBoss4Zako__sub_8005C218((void *)(arg0));
+    update_target_position__10TBoss4ZakoFPv((u8 *)(arg0));
+    update_orbit_velocity__10TBoss4ZakoFPv((void *)(arg0));
     VecCopy__FP3VecPC3Vec((void *)((void *)((char *)arg0 + 68)), (void *)(self->f_38));
     vec3_add_to(self->f_38, (void *)((char *)arg0 + 908));
 }
 
 #pragma push
 #pragma fp_contract on
-void TBoss4Zako__sub_8005C368(u8 *arg0) {
+void update_target_position__10TBoss4ZakoFPv(u8 *arg0) {
     s32 temp_r31;
     s32 temp_r3;
     if (!(M2C_FIELD(arg0, s32 *, 0x3B8) & 0x7F)) {
@@ -493,7 +493,7 @@ void TBoss4Zako__sub_8005C368(u8 *arg0) {
 #pragma push
 #pragma fp_contract on
 #pragma opt_common_subs off
-void TBoss4Zako__sub_8005C218(void *p) {
+void update_orbit_velocity__10TBoss4ZakoFPv(void *p) {
 #define o ((Obj_8005C218 *)p)
     f32 tx;
     f32 tz;

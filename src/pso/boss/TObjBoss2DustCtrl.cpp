@@ -33,7 +33,7 @@ f32 sin_table_lookup(int);
 f32 cos_table_lookup(int, f32);
 s32 calc_random_scaled__10TObjPlayerFv();
 void matrix_mult_vec(s32, Vec_8003AB7C *, Out_8003AB7C *);
-void TObjPlayer__sub_803D8CD4(s32);
+void set_matrix_identity__10TObjPlayerFPv(s32);
 void translate_matrix(s32, f32, f32, f32);
 void rotate_matrix_x(s32, s32);
 void push_matrix(void);
@@ -75,7 +75,7 @@ void TObjBoss2DustCtrl::run_task() {
     scale = lbl_805D85BC;
     ang = lbl_804FEE40;
     for (i = 0; i < 10; i++) {
-        TObjPlayer__sub_803D8CD4(0);
+        set_matrix_identity__10TObjPlayerFPv(0);
         translate_matrix(0, lbl_805D85B8, scale * sin_table_lookup(ang[i]), lbl_805D85B8);
         {
             s32 a = ang[i];

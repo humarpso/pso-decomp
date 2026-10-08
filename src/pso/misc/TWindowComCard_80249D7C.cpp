@@ -56,7 +56,7 @@ typedef struct Win_80249ED8 {
 
 void *get_array_entry__20TWindowSubStatusDispFPvi(void *, s32);
 void save_position__17TWindowSubComCardFPv(void *p);
-void TWindowDD__sub_802466E0(void *, void *, s16, s32);
+void construct_base__9TWindowDDFPvPvsPv(void *, void *, s16, s32);
 void set_help_mode__14TWindowComCardFPvi(void *, s32);
 s32 get_zero_vec2();
 extern s32 lbl_804CE950[];
@@ -68,7 +68,7 @@ void TWindowComCard__sub_80249E24(u8 *arg0);
 void queue_destruction__7TObjectFv(void *);
 extern struct Obj054_80249DE4 *TWindowCtrl__data_805D63F8;
 extern u16 lbl_805D63FC;
-void TWindowTradeRequest__sub_80249FCC(void);
+void close_request_window__19TWindowTradeRequestFv(void);
 }
 
 extern "C" {
@@ -117,7 +117,7 @@ void *TWindowComCard__sub_80249E80(void *arg0, s16 arg1) {
 #pragma push
 #pragma fp_contract on
 Win_80249ED8 *TWindowComCard__sub_80249ED8(Win_80249ED8 *o, Parent_80249ED8 *parent, Vec2_80249ED8 *ofs, s32 col, s32 mode, s32 arg5) {
-    TWindowDD__sub_802466E0(o, lbl_804CE950, arg5, get_zero_vec2());
+    construct_base__9TWindowDDFPvPvsPv(o, lbl_804CE950, arg5, get_zero_vec2());
     o->vtbl = (s32 *)lbl_804CE964;
     o->parent = parent;
     o->ofs.x = ofs->x;
@@ -134,7 +134,7 @@ Win_80249ED8 *TWindowComCard__sub_80249ED8(Win_80249ED8 *o, Parent_80249ED8 *par
 
 extern struct Obj054_80249DE4 *TWindowCtrl__data_805D63F8;
 
-void TWindowTradeRequest__sub_80249FCC(void) {
+void close_request_window__19TWindowTradeRequestFv(void) {
     u8 *temp_r3;
     lbl_805D63FC &= 0xFFFFFFF7;
     if ((void *) (*(u8 * *)&TWindowCtrl__data_805D63F8) != NULL) {

@@ -35,7 +35,7 @@ extern const f32 lbl_805D8A30;
 extern const f32 lbl_805D8A34;
 void run_task__11TObjDFYutaiFv(u8 *arg0);
 void VecCopy__FP3VecPC3Vec(void *, void *);
-void TObjPlayer__sub_80051E9C(u16, f32);
+void draw_player_model_by_id__10TObjPlayerFif(u16, f32);
 s32 TBoss4Type3__sub_8005254C(int);
 u8 *get_player_by_client_id(u16);
 void scale_matrix(s32, f32, f32, f32);
@@ -89,7 +89,7 @@ void render__11TObjDFYutaiFv(Obj_800502FC *arg0) {
     post_translate_matrix(&v);
     rotate_matrix_y(0, *(s32 *)(p + 0x60));
     scale_matrix(0, s, s, s);
-    TObjPlayer__sub_80051E9C(arg0->id, w);
+    draw_player_model_by_id__10TObjPlayerFif(arg0->id, w);
     pop_matrix();
 }
 

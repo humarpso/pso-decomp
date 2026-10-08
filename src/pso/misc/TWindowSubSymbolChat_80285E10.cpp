@@ -14,7 +14,7 @@ u16 *get_parts_entry__28TWindowSubSymbolChatPartsSetFPvi(void *, s32);
 u16 *get_parts_entry__28TWindowSubSymbolChatPartsSetFii(void *, s32);
 void TWindowSubSymbolChatPartsSet__sub_8028625C(void *);
 extern const f32 lbl_805DD810;
-void TWindowSubSymbolChat__sub_80286028(u8 *arg0, s32 *arg1);
+void init_symbol_layout__20TWindowSubSymbolChatFPvPv(u8 *arg0, s32 *arg1);
 }
 
 extern "C" {
@@ -25,7 +25,7 @@ void TWindowSubSymbolChat__sub_80285FF4(u8 *arg0, s32 arg1) {
     M2C_FIELD(arg0, s8 *, 0x69) = 1;
     TWindowSubSymbolChatPartsSet__sub_8028625C(arg0);
 }
-void TWindowSubSymbolChat__sub_80286028(u8 *arg0, s32 *arg1) {
+void init_symbol_layout__20TWindowSubSymbolChatFPvPv(u8 *arg0, s32 *arg1) {
   s32 var_r29;
   u16 *temp_r30;
   u16 *temp_r31;

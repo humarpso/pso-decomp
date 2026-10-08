@@ -129,7 +129,7 @@ extern s32 some_id_805c6f74;
 extern const f32 lbl_805D99F0;
 extern const f32 lbl_805D99FC;
 extern const f32 lbl_805D9A00;
-void TObjPlayer__sub_800A3D1C(Obj_800A3D1C *o);
+void draw_ribbon_strip__10TObjPlayerFPv(Obj_800A3D1C *o);
 }
 
 extern "C" {
@@ -218,7 +218,7 @@ u8 *__ct__12TEneEffHamonFv(u8 *arg0, s32 arg1, s32 arg2, s32 arg3, f32 farg0) {
 #pragma push
 #pragma fp_contract on
 #pragma fp_contract on
-void TObjPlayer__sub_800A3D1C(Obj_800A3D1C *o) {
+void draw_ribbon_strip__10TObjPlayerFPv(Obj_800A3D1C *o) {
     Vtx_800A3D1C verts[34];
     Vec_800A3D1C out[17];
     f32 sa[17];

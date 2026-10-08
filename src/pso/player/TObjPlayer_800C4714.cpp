@@ -1030,7 +1030,7 @@ void free__11TOBoss4RockFUi(void *);
 void TObjPlayer__sub_800C4D44(void);
 M2C_UNK VecCopy__FP3VecPC3Vec(void *, void *);
 u16 obj_getField1c(void *);
-u8 *fn_800BC4C8(u8 *arg0, M2C_UNK arg1, u32 arg2);
+u8 *construct_collision_body(u8 *arg0, M2C_UNK arg1, u32 arg2);
 f32 sin_table_lookup(int);
 f32 cos_table_lookup(int);
 extern const Vec_800C4A5C lbl_8043BC10[];
@@ -1121,7 +1121,7 @@ M2C_UNK subtract_vector(void *, void *);
 extern const f64 lbl_8043BC88;
 extern const f32 lbl_805DA030;
 extern const f32 lbl_805DA034;
-void TObjPlayer__sub_800C5B10(Player_800C5B10 *arg0);
+void update_turn_toward_target__10TObjPlayerFPv(Player_800C5B10 *arg0);
 }
 
 extern "C" {
@@ -1132,7 +1132,7 @@ void *dt_with_child_destroy__10TObjPlayerFPvs(void *arg0, s16 arg1);
 void *init_target_ref__10TObjPlayerFPvii(void *arg0, s32 arg1, s32 arg2);
 void update_equip_effect_if_active__10TObjPlayerFPv(u8 *arg0);
 s32 spawn_continuous_particle_effect_with_flags(s32, M2C_UNK, M2C_UNK);
-M2C_UNK TObjEneDD__sub_800B9D94(void *, void *, M2C_UNK, M2C_UNK);
+M2C_UNK draw_oriented_shadow__9TObjEneDDFiiiUi(void *, void *, M2C_UNK, M2C_UNK);
 M2C_UNK __ct__7TObjectFP7TObject();
 void __dl__7TObjectFPv(void *);
 void __dt__7TObjectFv(void *, int);
@@ -1142,7 +1142,7 @@ int queue_destruction__7TObjectFv(void*);
 
 void update_equip_effect_if_active__10TObjPlayerFPv(u8 *arg0) {
     if ((s32) M2C_FIELD(arg0, s32 *, 0x100) != 0) {
-        TObjEneDD__sub_800B9D94(arg0 + 0x38, arg0 + 0xD8, 0, 0);
+        draw_oriented_shadow__9TObjEneDDFiiiUi(arg0 + 0x38, arg0 + 0xD8, 0, 0);
     }
 }
 
@@ -1165,7 +1165,7 @@ extern M2C_UNK lbl_80493438[];
 Obj_800C4A5C *TObjPlayer__sub_800C4A5C(Obj_800C4A5C *o, void *owner, Vec_800C4A5C *start, s32 angle) {
     f32 s;
     f32 c;
-    fn_800BC4C8((u8 *)o, (M2C_UNK)owner, (u32)owner);
+    construct_collision_body((u8 *)o, (M2C_UNK)owner, (u32)owner);
     o->vptr = lbl_804933D8;
     o->f0 = lbl_805D2A50;
     o->coll->radius = lbl_8043BC10[0].z;
@@ -1265,7 +1265,7 @@ void TObjPlayer__sub_800C4D44(void) {
 }
 
 void *alloc_buffer__11TOBoss4RockFPv(s32);
-void TLobby__sub_801E47C4(void *, void *);
+void pso_load_texture__6TLobbyFPv(void *, void *);
 void set_render_rect__10TObjPlayerFPviiii(void *, void *, s32, s32, s32);
 void set_texture_name(void *, void *, s32, s32);
 void TObjPlayer__sub_800C4D88(void) {
@@ -1273,7 +1273,7 @@ void TObjPlayer__sub_800C4D88(void) {
     set_texture_name(&lbl_80500C24, &lbl_80500C00, 0x18696, 0x40800000);
     ((Node_800C4D88 *)lbl_80500C30)->p = &lbl_80500C24;
     ((Node_800C4D88 *)lbl_80500C30)->v = 1;
-    TLobby__sub_801E47C4(lbl_80500C30, &lbl_80500C24);
+    pso_load_texture__6TLobbyFPv(lbl_80500C30, &lbl_80500C24);
 }
 void TObjPlayer__sub_800C4E08(u8 *arg0) {
     if (obj_testFlags30((void *)(arg0), (int)(0x100000)) != 0) {
@@ -1608,7 +1608,7 @@ void beast_update_approach(u8 *arg0) {
     obj_clearFlags30(arg0, 0x200000);
 }
 
-void TObjPlayer__sub_800C5B10(Player_800C5B10 *arg0) {
+void update_turn_toward_target__10TObjPlayerFPv(Player_800C5B10 *arg0) {
     s32 ang;
     advance_animation_playback();
     switch (arg0->field_328) {

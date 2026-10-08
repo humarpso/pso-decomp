@@ -86,7 +86,7 @@ void present_frame_and_wait_vsync(void);
 void run_callback__6TMovieFv(void);
 void init_locked_cache_heap(u8 *arg0);
 void set_present_interval(M2C_UNK *arg0, s32 arg1);
-void fn_803DD0D8(void);
+void init_gx_display(void);
 void fn_803DD294(void);
 }
 
@@ -179,7 +179,7 @@ void set_present_interval(M2C_UNK *arg0, s32 arg1) {
 }
 
 #define rmode ((RMode_803DD0D8 *)lbl_805D7734)
-void fn_803DD0D8(void) {
+void init_gx_display(void) {
     s32 i;
     s32 n;
     u32 addr;

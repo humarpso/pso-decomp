@@ -72,7 +72,7 @@ M2C_UNK TKeyBoardControl__sub_80132650(void *);
 M2C_UNK update_button_hold_counters(int);
 extern RecoveredGlobal_801A5EC4_TKeyBoardControl__data_80506270 TKeyBoardControl__data_80506270;
 extern RecoveredGlobal_801A5EC4_lbl_8050E208 lbl_8050E208;
-void TKeyBoardControl__sub_801A5EC4(void);
+void update_input_frame__16TKeyBoardControlFv(void);
 s32 TKeyBoardControl__sub_80132310(s32);
 u8 get_key_state_2__16TKeyBoardControlFPv(void *);
 u8 TKeyBoardControl__sub_8013239C(void *, int);
@@ -267,7 +267,7 @@ void TKeyBoardControl__sub_801A5EA0(u8 arg0) {
 }
 typedef char RecoveredGlobal_801A5EC4_TKeyBoardControl__data_80506270_size[sizeof(RecoveredGlobal_801A5EC4_TKeyBoardControl__data_80506270) == 0xB0 ? 1 : -1];
 typedef char RecoveredGlobal_801A5EC4_lbl_8050E208_size[sizeof(RecoveredGlobal_801A5EC4_lbl_8050E208) == 0x1B0 ? 1 : -1];
-void TKeyBoardControl__sub_801A5EC4(void) {
+void update_input_frame__16TKeyBoardControlFv(void) {
     u8 *temp_r31;
     TKeyBoardControl__sub_80132650((void *) (&TKeyBoardControl__data_80506270.value));
     if (is_split_screen() == 0) {

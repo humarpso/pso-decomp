@@ -32,7 +32,7 @@ s32 item_identity_matches(void *, void *);
 s32 TObjPlayer__sub_801C1AC8();
 void *get_trade_obj_ptr__6TLobbyFPv(s32);
 Entry_802D20C8 *TLobby__sub_802D230C(void *);
-s32 TLobby__sub_802D20C8(Entry_802D20C8 *arg0, u32 arg1, s32 arg2);
+s32 add_trade_item__6TLobbyFPvUii(Entry_802D20C8 *arg0, u32 arg1, s32 arg2);
 u8 *get_quest_id__12TQuestListVMFPv(void *);
 u32 find_item_by_id();
 u8 *get_player_by_client_id(s32);
@@ -111,7 +111,7 @@ void clear_stale_entries__6TLobbyFPv(u8 *arg0) {
         var_r29 += 8;
     } while (var_r28 < 0x1E);
 }
-s32 TLobby__sub_802D20C8(Entry_802D20C8 *arg0, u32 arg1, s32 arg2) {
+s32 add_trade_item__6TLobbyFPvUii(Entry_802D20C8 *arg0, u32 arg1, s32 arg2) {
     ItemB_802D20C8 a;
     ItemA_802D20C8 b;
     u32 item;

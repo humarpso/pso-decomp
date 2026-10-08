@@ -175,8 +175,8 @@ f32 vector_length(Vec_80368C14 *);
 void subtract_vector(Vec_80368C14 *, void *);
 extern const f32 TBoss6MagMine__data_805E0314;
 extern const f32 lbl_805E031C;
-void TBoss6MagMine__sub_80368C14(Mine_80368C14 *o);
-s32 TBoss6PlotFalz__sub_802AB5B4(int, f32);
+void explode__13TBoss6MagMineFPv(Mine_80368C14 *o);
+s32 rand_vary_count__14TBoss6PlotFalzFif(int, f32);
 u32 get_hp__14TBoss6PlotFalzFv();
 s32 get_field_0x42c__13TBoss6MagMineFPv(void* p);
 int TBoss6PlotFalz__sub_8036964C(void);
@@ -188,7 +188,7 @@ u8 *dispatch_shared_handler_a__6TLobbyFPv(int);
 s32 register_object__6TLobbyFPv(int);
 s32 dispatch_shared_handler_b__6TLobbyFPv(int);
 s32 register_boss__6TLobbyFPv(int);
-s32 TLobby__sub_8002AFD4(void *, void *, int);
+s32 exchange_object_state__6TLobbyFPvis(void *, void *, int);
 M2C_UNK reset_photon_effect__12TBoss3VoloptFPv(void *);
 u32 create_particle_emitter(void *, int);
 void set_flags__11TBoss4Type2FPvUi(void *, u32);
@@ -224,7 +224,7 @@ s32 create__13TBoss6MagMineFi(s32 arg0);
 s32 get_field_0x42c__13TBoss6MagMineFPv(void* p);
 void init__13TBoss6MagMineFPv(void* p);
 void update_linked_state__13TBoss6MagMineFPv(void *arg0);
-M2C_UNK TBoss6PlotFalz__sub_802ABE3C(s32, M2C_UNK, M2C_UNK, f32);
+M2C_UNK apply_radial_effect_to_players__14TBoss6PlotFalzFPvssf(s32, M2C_UNK, M2C_UNK, f32);
 M2C_UNK TBoss6PlotFalz__sub_802AC008(f32, f32);
 int post_translate_matrix(void*);
 int spawn_particle_effect_with_flags(void*, void*, void*);
@@ -317,7 +317,7 @@ void TBoss6MagMine__sub_80368AB8(u8 *arg0, u8 *arg1) {
         ((VObj_18_5673ef *)(arg1))->m45();
         return;
     default:
-        temp_r3_2 = TBoss6PlotFalz__sub_802AB5B4((int) (M2C_FIELD(arg0, s32 *, 0x39C)), (f32) (lbl_805E0318));
+        temp_r3_2 = rand_vary_count__14TBoss6PlotFalzFif((int) (M2C_FIELD(arg0, s32 *, 0x39C)), (f32) (lbl_805E0318));
         stack.sp8 = 1;
         stack.sp10 = 1;
         stack.sp14 = (f32) temp_r3_2;
@@ -327,7 +327,7 @@ void TBoss6MagMine__sub_80368AB8(u8 *arg0, u8 *arg1) {
     }
 }
 
-void TBoss6MagMine__sub_80368C14(Mine_80368C14 *o) {
+void explode__13TBoss6MagMineFPv(Mine_80368C14 *o) {
     s32 n = get_game_mode__6TLobbyFv();
     s32 i;
     for (i = 0; i < n; i++) {
@@ -349,10 +349,10 @@ void TBoss6MagMine__vt4(void* p) { spawn_particle_effect_with_flags((void*)((cha
 extern f32 lbl_805E0320;
 
 void TBoss6MagMine__vt3(s32 arg0) {
-    TBoss6MagMine__sub_80368C14((Mine_80368C14 *)(arg0));
+    explode__13TBoss6MagMineFPv((Mine_80368C14 *)(arg0));
     spawn_particle_effect_with_flags((void*)(arg0 + 0x38), (void*)(0xFB), (void*)(0x40));
     spawn_particle_effect_with_flags((void*)(arg0 + 0x38), (void*)(0xFC), (void*)(0x40));
-    TBoss6PlotFalz__sub_802ABE3C(arg0 + 0x38, 0xC0, 0xF, lbl_805E0320);
+    apply_radial_effect_to_players__14TBoss6PlotFalzFPvssf(arg0 + 0x38, 0xC0, 0xF, lbl_805E0320);
     queue_destruction__7TObjectFv((void*)(arg0));
 }
 
@@ -420,10 +420,10 @@ s32 TBoss6MagMine__ct(s32 arg0, s32 arg1, s32 arg2) {
     VecCopy__FP3VecPC3Vec(arg0 + 0x384, arg2 + 0x4C);
     add_flags_2e4__10TObjPlayerFPvUi(self, 8);
     ((VObj_18_aa4667 *)(self))->m79(arg2);
-    if (TLobby__sub_8002AFD4(self, &key, 1) != 0) {
+    if (exchange_object_state__6TLobbyFPvis(self, &key, 1) != 0) {
         key.a = 0;
         key.c = 0;
-        TLobby__sub_8002AFD4(self, &key, 0);
+        exchange_object_state__6TLobbyFPvis(self, &key, 0);
     }
     M2C_FIELD(self, s32 *, 0x374) = get_fish_count__8TObjFishFv();
     M2C_FIELD(self, s32 *, 0x24) = 0;

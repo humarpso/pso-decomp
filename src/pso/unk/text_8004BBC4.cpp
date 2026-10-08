@@ -20,7 +20,7 @@ typedef struct Msg_8004BFA4 {
 extern "C" {
 M2C_UNK TBoss4DarkFalz__sub_8004B084(void *);
 M2C_UNK TBoss4DarkFalz__sub_8004B0F8(void *);
-M2C_UNK TBoss4DarkFalz__sub_8004B20C(void *, int);
+M2C_UNK change_state__14TBoss4DarkFalzFPvi(void *, int);
 M2C_UNK update_visible_flag__14TBoss4DarkFalzFPv(void *);
 M2C_UNK TBoss4DarkFalz__sub_8004BAC4(void *);
 s32 check_demo_mode__10TObjPlayerFv();
@@ -33,7 +33,7 @@ M2C_UNK init_uro_link__14TBoss4DarkFalzFv();
 extern RecoveredGlobal_8004C0D4_lbl_80484D74 lbl_80484D74;
 extern int lbl_805D4D58;
 void TBoss4DarkFalz__sub_8004C0D4(void);
-M2C_UNK TBoss4DarkFalz__sub_8004B20C(void *, int);
+M2C_UNK change_state__14TBoss4DarkFalzFPvi(void *, int);
 s32 get_phase__9TBoss4UroFPv(void *);
 void swap_bytes__14TBoss4DarkFalzFPv(void *);
 void TBoss4Type2__sub_80053BF4(void *, s32);
@@ -49,9 +49,9 @@ s32 is_ending_or_split_screen__14TBoss4DarkFalzFv(void);
 u8 * __dt__9TObjEnemyFv(void *, s16);
 s32 send_entity_set_flags__6TLobbyFPv(void *);
 void __dl__7TObjectFPv(s32);
-M2C_UNK TBoss4DarkFalz__sub_8004BA18(void *);
+M2C_UNK end_player_camera_pans__14TBoss4DarkFalzFPv(void *);
 M2C_UNK restore_player_cameras();
-M2C_UNK TLobby__sub_8022743C();
+M2C_UNK stop_audio_streams__6TLobbyFv();
 extern M2C_UNK __vt__14TBoss4DarkFalz[];
 extern void *TBoss4DarkFalz__data_805D4D5C;
 extern void *TBoss4DarkFalz__data_805D4D60;
@@ -77,7 +77,7 @@ void render__14TBoss4DarkFalzFv(void) {  }
 
 void run_task__14TBoss4DarkFalzFv(u8 *arg0) {
     if (((s32) M2C_FIELD(arg0, s32 *, 0x37C) != 0) && (check_demo_mode__10TObjPlayerFv() != 0)) {
-        TBoss4DarkFalz__sub_8004B20C((void *) (arg0), (int) (0));
+        change_state__14TBoss4DarkFalzFPvi((void *) (arg0), (int) (0));
     }
     if (query_teammate_state__9TObjEneDDFPv() == 0) {
         update_visible_flag__14TBoss4DarkFalzFPv((void *) (arg0));
@@ -105,10 +105,10 @@ u8 *__dt__14TBoss4DarkFalzFv(u8 *arg0, s16 arg1) {
             send_entity_set_flags__6TLobbyFPv(arg0);
             break;
         }
-        TBoss4DarkFalz__sub_8004BA18((void *) (arg0));
+        end_player_camera_pans__14TBoss4DarkFalzFPv((void *) (arg0));
         restore_player_cameras();
         if (is_ending_or_split_screen__14TBoss4DarkFalzFv() == 0) {
-            TLobby__sub_8022743C();
+            stop_audio_streams__6TLobbyFv();
         }
         temp_r3 = (u8 *)(M2C_FIELD(arg0, u8 **, 0x398));
         if (temp_r3 != NULL) {
@@ -146,7 +146,7 @@ void handle_6x19_dark_falz_actions(Msg_8004BFA4 *arg0) {
     }
     if (arg0->action != -1 && arg0->action >= 0 && arg0->action < 16 &&
         arg0->action != get_phase__9TBoss4UroFPv(ent)) {
-        TBoss4DarkFalz__sub_8004B20C(ent, arg0->action);
+        change_state__14TBoss4DarkFalzFPvi(ent, arg0->action);
     }
     arg = arg0->arg;
     if (arg == -1) {

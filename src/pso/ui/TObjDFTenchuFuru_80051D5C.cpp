@@ -62,7 +62,7 @@ void boss6type2_draw_models(s32 arg0, s32 arg1, s32 arg2, u32 arg3, u32 arg4, u3
     }
 }
 
-void TObjPlayer__sub_80051E9C(s32 arg0, f32 farg0) {
+void draw_player_model_by_id__10TObjPlayerFif(s32 arg0, f32 farg0) {
     u8 *p;
     u32 m8b0;
     u32 m8ac;

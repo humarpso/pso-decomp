@@ -160,7 +160,7 @@ extern u8 lbl_80444218[];
 extern u8 lbl_80444228[];
 extern u8 lbl_80444238[];
 extern u8 lbl_80444248[];
-void TObjEneBm5GibonU__sub_801834C4(void);
+void draw_debug_info__16TObjEneBm5GibonUFv(void);
 }
 
 extern "C" {
@@ -197,7 +197,7 @@ u8 *TObjEneBm5GibonU__sub_8018343C(u8 *arg0, u8 *arg1, u8 *arg2, f32 farg0) {
     M2C_FIELD(arg0, f32 *, 0x3C) = (f32) lbl_805DBC1C;
     return arg0;
 }
-void TObjEneBm5GibonU__sub_801834C4(void) {
+void draw_debug_info__16TObjEneBm5GibonUFv(void) {
     ((void (*)(void))fn_8018355C)();
     set_global_count__12TObjNpcEnemyFi(0xFF00FF);
     debug_printf_at(0x13001C, lbl_80444218);

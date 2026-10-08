@@ -27,10 +27,10 @@ void render__12TAdMcCheckGCFv(void);
 void run_task__12TAdMcCheckGCFv(u8 *arg0);
 void set_tex_coord_gen2(s32 arg0, s32 arg1, s32 arg2, s32 arg3);
 s32 GXSetTexCoordGen2(s32, s32, s32, s32, s32, s32);
-s32 TAdPlayerLoadGC__sub_801E0D8C(int);
-s32 TAdPlayerLoadGC__sub_801E1E38(int);
+s32 probe_and_check_card__15TAdPlayerLoadGCFi(int);
+s32 probe_card_slot__15TAdPlayerLoadGCFi(int);
 s32 get_localized_text_entry(M2C_UNK, s32);
-M2C_UNK TWindowSubComCard__sub_80265CFC(s32, f32);
+M2C_UNK calc_layout_height__17TWindowSubComCardFPvf(s32, f32);
 void __ct__7TObjectFP7TObject(void *);
 s32 check_memcard_status__15TAdPlayerLoadGCFi(int);
 s32 check_room_seq_4__16TAdChrSelASlotGCFii(void *, M2C_UNK, s32);
@@ -58,14 +58,14 @@ s32 create__12TAdMcCheckGCFPvi(void *arg0, s32 arg1) {
     forward_trade_action_default__16TObjCityMainWarpFPviii(temp_r31, get_localized_text_entry(0x16, arg1), 0x20, 0);
     set_flag_40__16TAdChrSelASlotGCFPv(temp_r31);
     set_status_flag_80__12TQuestThreadFPv(temp_r31);
-    TWindowSubComCard__sub_80265CFC(temp_r31, lbl_805DFAD8);
+    calc_layout_height__17TWindowSubComCardFPvf(temp_r31, lbl_805DFAD8);
     return temp_r31;
 }
 
 void run_task__12TAdMcCheckGCFv(u8 *arg0) {
     s32 temp_r0;
 
-    if (TAdPlayerLoadGC__sub_801E1E38((int) (M2C_FIELD(arg0, s32 *, 0x28))) == 0) {
+    if (probe_card_slot__15TAdPlayerLoadGCFi((int) (M2C_FIELD(arg0, s32 *, 0x28))) == 0) {
         M2C_FIELD(arg0, s32 *, 0x1C) = 0;
         if ((u32) M2C_FIELD(arg0, u32 *, 0x2C) != 0U) {
             queue_destruction__7TObjectFv(M2C_FIELD(arg0, void **, 0x2C));
@@ -87,12 +87,12 @@ void run_task__12TAdMcCheckGCFv(u8 *arg0) {
     temp_r0 = M2C_FIELD(arg0, s32 *, 0x1C);
     switch (temp_r0) {
     case 0:
-        if (TAdPlayerLoadGC__sub_801E1E38((int) (M2C_FIELD(arg0, s32 *, 0x28))) != 0) {
+        if (probe_card_slot__15TAdPlayerLoadGCFi((int) (M2C_FIELD(arg0, s32 *, 0x28))) != 0) {
             M2C_FIELD(arg0, s32 *, 0x1C) = 1;
         }
         break;
     case 1:
-        if ((TAdPlayerLoadGC__sub_801E0D8C((int) (M2C_FIELD(arg0, s32 *, 0x28))) == 0) && ((u32) (get_load_result__15TAdPlayerLoadGCFv((int) (M2C_FIELD(arg0, s32 *, 0x28))) + 0x10000) == 0xFF83U)) {
+        if ((probe_and_check_card__15TAdPlayerLoadGCFi((int) (M2C_FIELD(arg0, s32 *, 0x28))) == 0) && ((u32) (get_load_result__15TAdPlayerLoadGCFv((int) (M2C_FIELD(arg0, s32 *, 0x28))) + 0x10000) == 0xFF83U)) {
             if (((s32) M2C_FIELD(arg0, s32 *, 0x24) > 0xA) && ((u32) M2C_FIELD(arg0, u32 *, 0x2C) == 0U)) {
                 M2C_FIELD(arg0, u32 *, 0x2C) = create__12TAdMcCheckGCFPvi((void *)((void *) (arg0)), (s32)((int) (M2C_FIELD(arg0, s32 *, 0x28) + 2)));
             }
@@ -105,7 +105,7 @@ void run_task__12TAdMcCheckGCFv(u8 *arg0) {
         }
         break;
     case 2:
-        if ((TAdPlayerLoadGC__sub_801E0D8C((int) (M2C_FIELD(arg0, s32 *, 0x28))) == 0) && ((u32) (get_load_result__15TAdPlayerLoadGCFv((int) (M2C_FIELD(arg0, s32 *, 0x28))) + 0x10000) == 0xFF21U)) {
+        if ((probe_and_check_card__15TAdPlayerLoadGCFi((int) (M2C_FIELD(arg0, s32 *, 0x28))) == 0) && ((u32) (get_load_result__15TAdPlayerLoadGCFv((int) (M2C_FIELD(arg0, s32 *, 0x28))) + 0x10000) == 0xFF21U)) {
             if (((s32) M2C_FIELD(arg0, s32 *, 0x24) > 0xA) && ((u32) M2C_FIELD(arg0, u32 *, 0x30) == 0U)) {
                 M2C_FIELD(arg0, u32 *, 0x30) = create__12TAdMcCheckGCFPvi((void *)((void *) (arg0)), (s32)((int) (M2C_FIELD(arg0, s32 *, 0x28) + 4)));
             }
@@ -118,7 +118,7 @@ void run_task__12TAdMcCheckGCFv(u8 *arg0) {
         }
         break;
     case 3:
-        if (TAdPlayerLoadGC__sub_801E0D8C((int) (M2C_FIELD(arg0, s32 *, 0x28))) != 0) {
+        if (probe_and_check_card__15TAdPlayerLoadGCFi((int) (M2C_FIELD(arg0, s32 *, 0x28))) != 0) {
             if ((s32) M2C_FIELD(arg0, s32 *, 0x28) == 1) {
                 M2C_FIELD(arg0, s32 *, 0x1C) = 5;
             } else {

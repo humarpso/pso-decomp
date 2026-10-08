@@ -19,7 +19,7 @@ void TWindow__close(void *);
 void destroy_window_base__9TWindowDDFPvs(void *, int);
 extern u8 __vt__19TWindowSimpleStatus[];
 u8 *__dt__19TWindowSimpleStatusFv(SS_802705D8 *arg0, s16 arg1);
-void *TWindowDD__sub_802466E0(void *, void *, s16, void *);
+void *construct_base__9TWindowDDFPvPvsPv(void *, void *, s16, void *);
 extern u8 __vt__19TWindowSimpleStatus[];
 extern s32 lbl_805D39E8;
 extern const f32 lbl_805DD3EC;
@@ -30,7 +30,7 @@ extern "C" {
 
 void * create__19TWindowSimpleStatusFPvPv(void *arg0, void *arg1);
 void run_task__19TWindowSimpleStatusFv(s32 arg0);
-M2C_UNK TWindowComCard__sub_8026F9F4(s32, s32);
+M2C_UNK update_status_icons__14TWindowComCardFPvPv(s32, s32);
 s32 get_window_layout_position(M2C_UNK);
 M2C_UNK update_window_entry_list(s32, s32);
 void *__nw__7TObjectFUl(int);
@@ -54,7 +54,7 @@ void run_task__19TWindowSimpleStatusFv(s32 arg0) {
     update_hp_tp_level__20TWindowSubStatusDispFPv();
     fn_80270014(arg0);
     update_status_help_item(arg0);
-    TWindowComCard__sub_8026F9F4(arg0, get_window_layout_position(0x1D));
+    update_status_icons__14TWindowComCardFPvPv(arg0, get_window_layout_position(0x1D));
     initialize_subwindow__9TWindowDDFPv(arg0);
     update_fade__17TWindowSubComCardFPv(arg0);
     update_window_entry_list(arg0, arg0 + 0x24);
@@ -83,7 +83,7 @@ u8 *__dt__19TWindowSimpleStatusFv(SS_802705D8 *arg0, s16 arg1) {
 
 SS_80270668 *TWindowSimpleStatus__ct(SS_80270668 *arg0, void *arg1, s32 arg2, void *arg3) {
     s32 i;
-    TWindowDD__sub_802466E0(arg0, arg3, arg2, arg1);
+    construct_base__9TWindowDDFPvPvsPv(arg0, arg3, arg2, arg1);
     arg0->vt = __vt__19TWindowSimpleStatus;
     arg0->f0 = lbl_805D39E8;
     arg0->f20 = arg2;

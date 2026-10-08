@@ -8,7 +8,7 @@ extern "C" {
 int close_and_advance__9TSaveChCrFPvPv(void*, int);
 int close_window__9TSaveChCrFPv(void*);
 void fn_80339D78(u8 *arg0);
-s32 TAdPlayerLoadGC__sub_801E2048(int, void *);
+s32 find_card_file__15TAdPlayerLoadGCFiPv(int, void *);
 extern M2C_UNK lbl_804C88C0[];
 extern M2C_UNK lbl_804C8914[];
 extern M2C_UNK lbl_804C89BC[];
@@ -93,7 +93,7 @@ void fn_80339D78(u8 *arg0) {
     }
 }
 s32 TAdSinglePlyChrSelectGC__sub_80339DBC(void) {
-    if ((TAdPlayerLoadGC__sub_801E2048((int) (0), (void *) (lbl_804C8914)) != 0) || (TAdPlayerLoadGC__sub_801E2048((int) (0), (void *) (lbl_804C88C0)) != 0) || (TAdPlayerLoadGC__sub_801E2048((int) (0), (void *) (lbl_804C89BC)) != 0)) {
+    if ((find_card_file__15TAdPlayerLoadGCFiPv((int) (0), (void *) (lbl_804C8914)) != 0) || (find_card_file__15TAdPlayerLoadGCFiPv((int) (0), (void *) (lbl_804C88C0)) != 0) || (find_card_file__15TAdPlayerLoadGCFiPv((int) (0), (void *) (lbl_804C89BC)) != 0)) {
         return 0;
     }
     return 1;

@@ -39,7 +39,7 @@ extern RecoveredGlobal_803D2E94_lbl_8058A880 lbl_8058A880;
 extern s32 lbl_805D7650;
 void TLobby__sub_803D2E94(void);
 void TLobby__sub_803D2E90(void);
-void TLobby__sub_803D1FD4(void);
+void restore_interrupts_nested__6TLobbyFv(void);
 void lock_enter__6TLobbyFv(void);
 void TLobby__sub_803D2E90(void);
 extern RecoveredGlobal_803D2E04_lbl_80587880 lbl_80587880;
@@ -83,7 +83,7 @@ Obj_803D2C84 *TLobby__sub_803D2C84(s32 data, s32 bsize, s32 x24) {
         s->x14 = 0;
         s->x18 = 0;
     }
-    TLobby__sub_803D1FD4();
+    restore_interrupts_nested__6TLobbyFv();
     return s;
 }
 

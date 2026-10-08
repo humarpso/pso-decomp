@@ -144,7 +144,7 @@ void TLobby__sub_80049568(void);
 void obj_clear_flag30_20000(void *arg0);
 void obj_set_flag_20000(void *arg0);
 void update_state__14TObjVoloptCageFPv(void *arg0);
-M2C_UNK TObjVoloptCage__sub_80048CDC();
+M2C_UNK update_breakup__14TObjVoloptCageFPv();
 M2C_UNK TObjVoloptCage__sub_80048E80();
 M2C_UNK TObjVoloptCage__sub_80049000();
 M2C_UNK obj_clearFlags30(void *, M2C_UNK);
@@ -166,7 +166,7 @@ void update_state__14TObjVoloptCageFPv(void *arg0) {
         TObjVoloptCage__sub_80048E80();
         return;
     case 5:
-        TObjVoloptCage__sub_80048CDC();
+        update_breakup__14TObjVoloptCageFPv();
         return;
     }
 }

@@ -28,7 +28,7 @@ extern "C" {
 void TPlayerBattleCtrl4P__vt0(void* p);
 void TPlayerBattleCtrl4P__vt7(void *arg0);
 int TPlayerBattleCtrl4P__sub_803112AC(void*, void*);
-int TPlayerBattleCtrl4P__sub_8031171C(void*);
+int init_battle__19TPlayerBattleCtrl4PFPv(void*);
 void send_and_handle__6TLobbyFPvii(void *, void *, int);
 void set_score__19TPlayerBattleCtrl4PFPvi(void *, int);
 void *__dt__19TPlayerBattleCtrl4PFPvs(void *arg0, s16 arg1);
@@ -116,7 +116,7 @@ void TPlayerBattleCtrl4P__sub_80312994(Self_80312994 *self) {
     (self->*tbl[self->mode])();
 }
 
-void TPlayerBattleCtrl4P__vt0(void* p) { TPlayerBattleCtrl4P__sub_8031171C(p); TPlayerBattleCtrl4P__sub_803112AC(p, (void*)1); }
+void TPlayerBattleCtrl4P__vt0(void* p) { init_battle__19TPlayerBattleCtrl4PFPv(p); TPlayerBattleCtrl4P__sub_803112AC(p, (void*)1); }
 
 void *lbl_804E7DF8[66] = {
     (void *)0x0, (void *)0xffffffff, (void *)&TPlayerBattleCtrl4P__vt6, (void *)0x0,

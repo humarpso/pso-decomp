@@ -8,11 +8,11 @@ struct O_80337054 { u8 pad[0x3CC]; s32 f3cc; u8 pad2[0x410 - 0x3D0]; s32 f410; }
 
 extern "C" {
 void TBoss6Type2__sub_8032F5C4(void *);
-s32 TBoss6Type2__sub_803301B8(void * a0, s32 a1);
+s32 set_action__11TBoss6Type2FPvi(void * a0, s32 a1);
 extern const f32 lbl_805DF978;
 extern const f32 lbl_805DF97C;
 void TBoss6Type2__sub_80336E6C(u8 *arg0);
-s32 TBoss6Type2__sub_803301B8(void * a0, s32 a1);
+s32 set_action__11TBoss6Type2FPvi(void * a0, s32 a1);
 extern const f32 lbl_805DF980;
 extern const f32 lbl_805DF984;
 void TBoss6Type2__sub_80336F54(u8 *arg0);
@@ -35,14 +35,14 @@ void update_effect_subsystems__11TBoss6Type2FPv(void *arg0);
 int play_sound_effect(void*, void*, void*, void*);
 int TBoss6Type2__sub_8032E770(void*, void*);
 int TBoss6Type2__sub_8032E7B4(void*, void*);
-s32 TBoss6Type2__sub_8032EAE4(void *);
+s32 enforce_min_distance__11TBoss6Type2FPv(void *);
 s32 TBoss6Type2__sub_8032EBB4(void *);
-s32 TBoss6Type2__sub_8032ECE0(void *);
+s32 push_out_from_target__11TBoss6Type2FPv(void *);
 s32 TBoss6Type2__sub_8032F5FC(void *);
-s32 TBoss6Type2__sub_8032F690();
-s32 TBoss6Type2__sub_8032F824();
+s32 turn_toward_target__11TBoss6Type2FPv();
+s32 fly_toward_target__11TBoss6Type2FPv();
 s32 TBoss6Type2__sub_8032FB84();
-s32 TBoss6Type2__sub_803301B8(void * a0 = 0, s32 a1 = 0);
+s32 set_action__11TBoss6Type2FPvi(void * a0 = 0, s32 a1 = 0);
 
 #pragma push
 #pragma opt_common_subs off
@@ -55,10 +55,10 @@ void TBoss6Type2__sub_80336E6C(u8 *arg0) {
     if ((s32) M2C_FIELD(arg0, s32 *, 0x3CC) >= 0x5A) {
         TBoss6Type2__sub_8032F5C4(arg0);
         if ((s32) M2C_FIELD(arg0, s32 *, 0x40C) != 0) {
-            TBoss6Type2__sub_803301B8((void *)((void *) (arg0)), (s32)((int) (1)));
+            set_action__11TBoss6Type2FPvi((void *)((void *) (arg0)), (s32)((int) (1)));
             return;
         }
-        TBoss6Type2__sub_803301B8((void *)((void *) (arg0)), (s32)((int) (2)));
+        set_action__11TBoss6Type2FPvi((void *)((void *) (arg0)), (s32)((int) (2)));
     }
 }
 #pragma pop
@@ -75,7 +75,7 @@ void TBoss6Type2__sub_80336F54(u8 *arg0) {
     }
     M2C_FIELD(arg0, s32 *, 0x3CC) = (s32) (M2C_FIELD(arg0, s32 *, 0x3CC) + 1);
     if ((s32) M2C_FIELD(arg0, s32 *, 0x3CC) >= (s32) M2C_FIELD(arg0, s32 *, 0x3C0)) {
-        TBoss6Type2__sub_803301B8(arg0, 5);
+        set_action__11TBoss6Type2FPvi(arg0, 5);
     }
 }
 #pragma pop
@@ -86,10 +86,10 @@ void tick_attack_timer__11TBoss6Type2FPv(void *arg0) {
     if ((s32) M2C_FIELD(arg0, s32 *, 0x3CC) < 0) {
         TBoss6Type2__sub_8032E770((void*)(arg0), (void*)(3));
         if ((s32) M2C_FIELD(arg0, s32 *, 0x40C) != 0) {
-            TBoss6Type2__sub_803301B8(arg0, 1);
+            set_action__11TBoss6Type2FPvi(arg0, 1);
             return;
         }
-        TBoss6Type2__sub_803301B8(arg0, 2);
+        set_action__11TBoss6Type2FPvi(arg0, 2);
     }
 }
 
@@ -106,22 +106,22 @@ void TBoss6Type2__sub_80337054(O_80337054 *arg0) {
 }
 
 void update_effect_subsystems__11TBoss6Type2FPv(void *arg0) {
-    TBoss6Type2__sub_8032F690();
+    turn_toward_target__11TBoss6Type2FPv();
     TBoss6Type2__sub_8032F5FC(arg0);
-    TBoss6Type2__sub_8032ECE0(arg0);
+    push_out_from_target__11TBoss6Type2FPv(arg0);
     TBoss6Type2__sub_8032EBB4(arg0);
-    TBoss6Type2__sub_8032EAE4(arg0);
+    enforce_min_distance__11TBoss6Type2FPv(arg0);
     if ((s32) M2C_FIELD(arg0, s32 *, 0x40C) != 0) {
-        TBoss6Type2__sub_803301B8(arg0, 1);
+        set_action__11TBoss6Type2FPvi(arg0, 1);
     }
 }
 void TBoss6Type2__sub_80337108(void) {  }
 void update_attack_state__11TBoss6Type2FPv(void *arg0) {
-    TBoss6Type2__sub_8032F824();
-    TBoss6Type2__sub_8032ECE0(arg0);
-    TBoss6Type2__sub_8032EAE4(arg0);
+    fly_toward_target__11TBoss6Type2FPv();
+    push_out_from_target__11TBoss6Type2FPv(arg0);
+    enforce_min_distance__11TBoss6Type2FPv(arg0);
     if ((s32) M2C_FIELD(arg0, s32 *, 0x40C) == 0) {
-        TBoss6Type2__sub_803301B8(arg0, 2);
+        set_action__11TBoss6Type2FPvi(arg0, 2);
     }
 }
 void TBoss6Type2__sub_80337160(void) {  }
@@ -129,7 +129,7 @@ void advance_phase_counter__11TBoss6Type2FPv(void *arg0) {
     TBoss6Type2__sub_8032FB84();
     M2C_FIELD(arg0, s32 *, 0x3CC) = (s32) (M2C_FIELD(arg0, s32 *, 0x3CC) + 1);
     if ((s32) M2C_FIELD(arg0, s32 *, 0x3CC) >= 4) {
-        TBoss6Type2__sub_803301B8(arg0, 1);
+        set_action__11TBoss6Type2FPvi(arg0, 1);
     }
 }
 void TBoss6Type2__sub_803371B4(void* p) { *(s32*)((char*)p + 0x3cc) = 0; }

@@ -6,15 +6,15 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 
 extern "C" {
 
-s32 TWindowSubComCard__sub_80244888(void *);
+s32 reparent_to_main_ctrl__17TWindowSubComCardFi(void *);
 s32 get_selected_menu_value(s32);
 s32 get_status_flag__17TWindowSubComCardFPv(s32);
 s32 set_status_flag_80__12TQuestThreadFPv(s32);
-s32 TWindowSubComCard__sub_80265CFC(s32, f32);
+s32 calc_layout_height__17TWindowSubComCardFPvf(s32, f32);
 s32 forward_trade_action_default__16TObjCityMainWarpFPviii(s32, s32, s32, s32);
 s32 create_window_menu(s32, s32, s32);
 int confirm_selection__11TWindowMenuFPv(void*);
-int TWindowSubComCard__sub_802A57FC(void* a0 = 0);
+int is_child_visible__17TWindowSubComCardFPv(void* a0 = 0);
 void run_task__19TWindowMessageYesNoFv(void* p);
 int open_yes_no_prompt(void* a0 = 0, void* a1 = 0, void* a2 = 0, void* a3 = 0);
 void forward_slot_selection__16TAdChrSelASlotGCFPvPvPv(void* p, void* a1, void* a2);

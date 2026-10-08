@@ -123,7 +123,7 @@ s32 is_split_screen();
 M2C_UNK queue_destruction__7TObjectFv(void *);
 s32 TLobby__sub_8029359C(void *arg0);
 void VecCopy__FP3VecPC3Vec(void *, void *);
-s32 TWindowSubStatusDisp__sub_8006F190(s32);
+s32 resolve_player_slot__20TWindowSubStatusDispFi(s32);
 u32 get_player_by_client_id(u32);
 u8 *get_card_window__17TWindowSubComCardFUi(s32);
 void TLobby__sub_802932B0(u8 *arg0, u8 *arg1);
@@ -141,7 +141,7 @@ void create_time_window2__6TLobbyFv(void *);
 M2C_UNK create_ch_time_win(s32);
 void create_time_window2__6TLobbyFv(void * _w0);
 void TLobby__sub_802933FC(void *arg0);
-s32 TWindowSubStatusDisp__sub_8006F190(s32);
+s32 resolve_player_slot__20TWindowSubStatusDispFi(s32);
 void TLobby__sub_80074E48(void);
 void create_tombstone__6TLobbyFPvPvPv(s32, s32, Tag_802932EC *);
 u32 get_player_by_client_id(u32);
@@ -436,7 +436,7 @@ void TLobby__sub_80293218(s32 arg0) {
         Rec_80293218 *r = &(*(G_80293218 *)&lbl_804DB1F0).r[arg0];
         if (r->f0 != 0) {
             u8 *o = r->out;
-            o[0] = TWindowSubStatusDisp__sub_8006F190(-1);
+            o[0] = resolve_player_slot__20TWindowSubStatusDispFi(-1);
             o[1] = (*(G_80293218 *)&lbl_804DB1F0).f0;
             o[2] = (*(G_80293218 *)&lbl_804DB1F0).f8;
             VecCopy__FP3VecPC3Vec(o + 4, p + 0x38);
@@ -463,7 +463,7 @@ void TLobby__sub_802932EC() {
         r = &((G_802932EC *)lbl_804DB1F0)->recs[i];
         if (r->active != 0 && get_player_by_client_id(i) != 0) {
             t = &r->tag;
-            if (t->phase == TWindowSubStatusDisp__sub_8006F190(-1) &&
+            if (t->phase == resolve_player_slot__20TWindowSubStatusDispFi(-1) &&
                 t->layout == ((G_802932EC *)lbl_804DB1F0)->layout &&
                 t->slot == ((G_802932EC *)lbl_804DB1F0)->slot) {
                 create_tombstone__6TLobbyFPvPvPv(tl_07, i, t);

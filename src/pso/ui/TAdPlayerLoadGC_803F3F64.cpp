@@ -127,7 +127,7 @@ extern u32 lbl_805D7980;
 extern Save_803F3F64 *lbl_805D79A0;
 extern Big_803F47BC *lbl_805D79C0;
 extern void *lbl_805D79E0;
-void TAdPlayerLoadGC__sub_803F3F64(void);
+void update_network_info_load__15TAdPlayerLoadGCFv(void);
 }
 
 extern "C" {
@@ -141,7 +141,7 @@ extern s32 lbl_805D79A4;
 
 #pragma scheduling off
 #pragma peephole off
-void TAdPlayerLoadGC__sub_803F3F64(void) {
+void update_network_info_load__15TAdPlayerLoadGCFv(void) {
     AdLoadState_805A82C0 *s;
     u32 crc;
     u32 sum;

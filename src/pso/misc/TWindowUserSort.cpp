@@ -42,8 +42,8 @@ int create_char_select_slot__17TWindowMainMenu1PFPv(void*);
 extern RecoveredGlobal_80288490_lbl_804D0460 lbl_804D0460;
 extern RecoveredGlobal_80288490_lbl_804D04A0 lbl_804D04A0;
 void TWindowMainMenu1P__vt4(u8 *arg0);
-u8 * TWindowDD__sub_802466E0(void *, s32, s16, s32);
-void TWindowSubStatusDisp__sub_80288104(void *, s32);
+u8 * construct_base__9TWindowDDFPvPvsPv(void *, s32, s16, s32);
+void fill_card_text_entries__20TWindowSubStatusDispFPvi(void *, s32);
 extern RecoveredGlobal_80288380_lbl_804D304C lbl_804D304C;
 extern M2C_UNK __vt__15TWindowUserSort[];
 extern s32 lbl_805D3AE0;
@@ -92,11 +92,11 @@ void *__dt__15TWindowUserSortFv(void *arg0, s16 arg1) {
 typedef char RecoveredGlobal_80288380_lbl_804D304C_size[sizeof(RecoveredGlobal_80288380_lbl_804D304C) == 0x14 ? 1 : -1];
 typedef char RecoveredGlobal_80288380___vt__15TWindowUserSort_size[sizeof(RecoveredGlobal_80288380___vt__15TWindowUserSort) == 0x18 ? 1 : -1];
 u8 *TWindowUserSort__ct(u8 *arg0, s32 arg1, s32 arg2) {
-    TWindowDD__sub_802466E0(arg0, (s32) &lbl_804D304C.value, 4, arg1);
+    construct_base__9TWindowDDFPvPvsPv(arg0, (s32) &lbl_804D304C.value, 4, arg1);
     M2C_FIELD(arg0, M2C_UNK **, 0x18) = &(*(RecoveredGlobal_80288380___vt__15TWindowUserSort *)&__vt__15TWindowUserSort).value;
     M2C_FIELD(arg0, s32 *, 0) = (s32) lbl_805D3AE0;
     M2C_FIELD(arg0, s32 *, 0x60) = arg2;
-    TWindowSubStatusDisp__sub_80288104(arg0 + 0x24, arg2);
+    fill_card_text_entries__20TWindowSubStatusDispFPvi(arg0 + 0x24, arg2);
     return arg0;
 }
 

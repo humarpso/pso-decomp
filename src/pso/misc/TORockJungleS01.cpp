@@ -72,7 +72,7 @@ extern u32 lbl_805D65D0;
 extern u32 lbl_805D65D4;
 extern const f32 lbl_805DDD20;
 extern const f32 lbl_805DDD24;
-void TORockJungleS01__sub_8029CB90(void);
+void load_resources__15TORockJungleS01Fv(void);
 }
 
 extern "C" {
@@ -176,7 +176,7 @@ void free_globals__15TORockJungleS01Fv(void) {
         lbl_805D65D0 = 0U;
     }
 }
-void TORockJungleS01__sub_8029CB90(void) {
+void load_resources__15TORockJungleS01Fv(void) {
     void *o;
     o = alloc__23TAdSinglePlyChrSelectGCFPv(0x440);
     if (o != NULL) {

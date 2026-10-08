@@ -428,7 +428,7 @@ void assign_id_and_init__5TItemFPvii(void *arg0, s32 arg1, s32 arg2);
 void send_field_state__5TItemFisi(s32 arg0, s16 arg1, s32 arg2);
 void handle_pickup__5TItemFiiUi(s32 arg0, s32 arg1, u32 arg2);
 M2C_UNK set_mode__5TItemFPvc(s32, M2C_UNK);
-M2C_UNK TItem__sub_80101FEC(void *, s32, s32);
+M2C_UNK send_drop_item_6x5D__5TItemFPviPv(void *, s32, s32);
 M2C_UNK send_field_state_if_active__10TObjPlayerFii(s32, M2C_UNK);
 u32 pickup_item__10TObjPlayerFv(u32, s32);
 s32 get_current_floor();
@@ -442,7 +442,7 @@ void assign_id_and_init__5TItemFPvii(void *arg0, s32 arg1, s32 arg2) {
     if ((s32) M2C_FIELD(arg0, s32 *, 0xC) == -1) {
         M2C_FIELD(arg0, s32 *, 0xC) = advance_item_id_counter(arg1);
     }
-    TItem__sub_80101FEC(arg0, arg1, arg2);
+    send_drop_item_6x5D__5TItemFPviPv(arg0, arg1, arg2);
 }
 
 void send_field_state__5TItemFisi(s32 arg0, s16 arg1, s32 arg2) {

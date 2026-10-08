@@ -57,11 +57,11 @@ M2C_UNK set_position_xy(u32, f32, f32);
 void TWindow__close(void *);
 u32 create_yes_no_window(M2C_UNK, M2C_UNK, M2C_UNK, M2C_UNK);
 M2C_UNK get_window_layout_position(M2C_UNK);
-void TShopKeepItemWindow__sub_80221B34(void *arg0);
+void update_number_input__19TShopKeepItemWindowFPv(void *arg0);
 s32 close_with_cancel_callback__19TShopKeepItemWindowFPv(void *arg0);
 s32 close_with_ok_callback__19TShopKeepItemWindowFPv(void *arg0);
 s32 close__19TShopKeepItemWindowFPv(void *arg0);
-void TShopKeepItemWindow__sub_80221B34(void *arg0);
+void update_number_input__19TShopKeepItemWindowFPv(void *arg0);
 s32 handle_deposit_list_select__19TShopKeepItemWindowFv(void *);
 s32 rebuild_item_list__19TShopKeepItemWindowFv(void *);
 void TShopKeepItemWindow__vt9(u8 *arg0);
@@ -197,7 +197,7 @@ void handle_deposit_confirm__19TShopKeepItemWindowFv(void *arg0) {
     }
 }
 
-void TShopKeepItemWindow__sub_80221B34(void *arg0) {
+void update_number_input__19TShopKeepItemWindowFPv(void *arg0) {
     f32 temp_f31;
     u16 temp_r31;
     u32 w;
@@ -241,7 +241,7 @@ void TShopKeepItemWindow__vt9(u8 *arg0) {
         close__19TShopKeepItemWindowFPv((void *) (arg0));
         return;
     case 4:
-        TShopKeepItemWindow__sub_80221B34((void *) (arg0));
+        update_number_input__19TShopKeepItemWindowFPv((void *) (arg0));
         return;
     case 5:
         close_with_ok_callback__19TShopKeepItemWindowFPv((void *) (arg0));

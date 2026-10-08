@@ -35,7 +35,7 @@ int vsprintf(char *s, const char *fmt, va_list ap);
 extern u8 lbl_80582F58[];
 extern RecoveredCallback_c88e8900640a lbl_805D7618;
 extern s32 lbl_805D761C;
-void TLobby__sub_803D0DEC(const char *fmt, ...);
+void log_printf__6TLobbyFPvi(const char *fmt, ...);
 void DCInvalidateRange(void *, u32);
 s32 DVDGetTransferredSize(void *);
 s32 DVDGetCommandBlockStatus(void *);
@@ -88,7 +88,7 @@ void TLobby__sub_803D0DE4(s32 arg0, s32 arg1, s32 arg2, s32 arg3) {
 }
 #pragma pop
 
-void TLobby__sub_803D0DEC(const char *fmt, ...) {
+void log_printf__6TLobbyFPvi(const char *fmt, ...) {
     va_list ap;
     va_start(ap, fmt);
     vsprintf((char *)lbl_80582F58, fmt, ap);

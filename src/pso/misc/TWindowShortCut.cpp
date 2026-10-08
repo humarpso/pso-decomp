@@ -21,7 +21,7 @@ M2C_UNK draw_window_frame(void *, int);
 M2C_UNK draw_visible_window_entries(void *, void *, int);
 M2C_UNK forward_render__20TWindowSubStatusDispFPv(int, int);
 int alloc__23TAdSinglePlyChrSelectGCFPv(void *);
-u8 * TWindowDD__sub_802466E0(void *, s32, s16, s32);
+u8 * construct_base__9TWindowDDFPvPvsPv(void *, s32, s16, s32);
 s32 construct_type1_heading__20TWindowSubStatusDispFPvii(s32, s32, s32);
 s32 get_message_10__20TWindowSubStatusDispFPv(int);
 M2C_UNK TWindowSubStatusDisp__sub_8026E1D4(void *, void *, void *);
@@ -73,7 +73,7 @@ typedef char RecoveredGlobal_8026E728_lbl_804D0AE0_size[sizeof(RecoveredGlobal_8
 typedef char RecoveredGlobal_8026E728___vt__15TWindowShortCut_size[sizeof(RecoveredGlobal_8026E728___vt__15TWindowShortCut) == 0x1C ? 1 : -1];
 u8 *TWindowShortCut__ct(u8 *arg0, s32 arg1, s32 arg2, s32 arg3) {
     s32 var_r31;
-    TWindowDD__sub_802466E0(arg0, (s32) &lbl_804D0AE0.value, 4, arg1);
+    construct_base__9TWindowDDFPvPvsPv(arg0, (s32) &lbl_804D0AE0.value, 4, arg1);
     M2C_FIELD(arg0, M2C_UNK **, 0x18) = &(*(RecoveredGlobal_8026E728___vt__15TWindowShortCut *)&__vt__15TWindowShortCut).value;
     M2C_FIELD(arg0, s32 *, 0) = (s32) lbl_805D39D8;
     var_r31 = alloc__23TAdSinglePlyChrSelectGCFPv((void *)0x24);

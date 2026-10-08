@@ -239,7 +239,7 @@ s32 increment_counter__20TWindowSubStatusDispFPv(int);
 s32 update_subwindow__20TWindowSubStatusDispFPv(int);
 extern RecoveredGlobal_80268D08_lbl_8050E208 lbl_8050E208;
 extern const f32 lbl_805DD1F8;
-void TWindowSubStatusDisp__sub_80268D08(u8 *arg0);
+void handle_choice_input__20TWindowSubStatusDispFPv(u8 *arg0);
 }
 
 extern "C" {
@@ -274,7 +274,7 @@ void TWindowSubStatusDisp__sub_80268C80(u8 *arg0) {
 extern M2C_UNK lbl_804D0658[];
 
 typedef char RecoveredGlobal_80268D08_lbl_8050E208_size[sizeof(RecoveredGlobal_80268D08_lbl_8050E208) == 0x1B0 ? 1 : -1];
-void TWindowSubStatusDisp__sub_80268D08(u8 *arg0) {
+void handle_choice_input__20TWindowSubStatusDispFPv(u8 *arg0) {
     u32 temp_r3;
     u32 temp_r3_2;
     u8 *temp_r30;

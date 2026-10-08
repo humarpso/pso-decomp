@@ -104,7 +104,7 @@ extern M2C_UNK lbl_8048C9D8[];
 s32 TLobby__sub_800712D8(s32 idx, s32 value, s32 arg);
 s32 calc_challenge_time_limit__6TLobbyFv();
 s32 check_challenge_time_range__6TLobbyFi(s32);
-s32 TLobby__sub_8006F994(s32);
+s32 get_valid_slot__6TLobbyFi(s32);
 s32 get_player_by_client_id(u32);
 extern M2C_UNK lbl_8048C9D8[];
 extern s32 lbl_805D4E38;
@@ -178,7 +178,7 @@ s32 TLobby__sub_80070DCC(void) {
             if (v == 0) {
                 return -1;
             }
-            t = TLobby__sub_8006F994(v);
+            t = get_valid_slot__6TLobbyFi(v);
             if (check_challenge_time_range__6TLobbyFi(t) != 0) {
                 return -2;
             }

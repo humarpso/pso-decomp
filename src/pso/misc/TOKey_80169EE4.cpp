@@ -39,7 +39,7 @@ s32 get_current_floor();
 s32 get_field_3e4__10TObjPlayerFPv(void *);
 f32 xyz_distance_squared(void *, void *);
 extern s32 lbl_805D53A0;
-s32 TOKey__sub_8016A310(Self_8016A310 *self);
+s32 is_local_player_in_range__5TOKeyFPv(Self_8016A310 *self);
 s32 get_player_data__10TObjPlayerFi(int);
 s32 get_current_floor();
 s32 get_field_3e4__10TObjPlayerFPv(void *);
@@ -200,7 +200,7 @@ s32 is_any_player_in_range__5TOKeyFPv(Obj_8016A280 *arg0) {
     return 0;
 }
 
-s32 TOKey__sub_8016A310(Self_8016A310 *self) {
+s32 is_local_player_in_range__5TOKeyFPv(Self_8016A310 *self) {
     u8 *p = (u8 *)((void *)get_player_by_client_id(lbl_805D53A0));
     if (p != 0) {
         if (get_field_3e4__10TObjPlayerFPv(p) == get_current_floor()) {
@@ -222,7 +222,7 @@ s32 is_confirm_pressed__5TOKeyFPv(void *arg0) {
     if ((temp_r0 == 0) && ((s32) M2C_FIELD(arg0, s32 *, 0xD4) == 1)) {
         return 0;
     }
-    if ((TOKey__sub_8016A310((Self_8016A310 *)(arg0)) != 0) && (TWindowShortListCtrl__check_controller_button(lbl_8050E208 + 0x20, 4) != 0)) {
+    if ((is_local_player_in_range__5TOKeyFPv((Self_8016A310 *)(arg0)) != 0) && (TWindowShortListCtrl__check_controller_button(lbl_8050E208 + 0x20, 4) != 0)) {
         return 1;
     }
     return 0;

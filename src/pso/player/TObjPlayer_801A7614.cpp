@@ -37,7 +37,7 @@ extern s32 lbl_805D5D10;
 extern PhotonDrawContext_801A7638 lbl_8050E578[];
 void publish_photon_blast_joint_origins();
 int set_global_state__16TObjEneRe7BeruraFi(void*);
-void TObjPlayer__sub_801A7638(PhotonDrawOwner_801A7638 *self);
+void set_photon_blast_joint_callback__10TObjPlayerFPv(PhotonDrawOwner_801A7638 *self);
 void copy_pos__11TNowLoadingFPvPv(void *, void *);
 s32 all_parents_unqueued_for_destruction__7TObjectFv(void *);
 void update_photon_blast_attachments(struct Self_801A7680 *self);
@@ -56,7 +56,7 @@ int update_all__8TFogCtrlFi(void*);
 
 int clear_render_context__10TObjPlayerFv(void) { return set_global_state__16TObjEneRe7BeruraFi((void*)(0)); }
 
-void TObjPlayer__sub_801A7638(PhotonDrawOwner_801A7638 *self) {
+void set_photon_blast_joint_callback__10TObjPlayerFPv(PhotonDrawOwner_801A7638 *self) {
     lbl_805D5D10=0;
     lbl_8050E578[0].bindings=self->bindings;
     lbl_8050E578[0].binding_count=self->binding_count;

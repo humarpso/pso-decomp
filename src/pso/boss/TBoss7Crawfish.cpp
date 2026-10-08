@@ -98,7 +98,7 @@ s32 TBoss7Crawfish__sub_80308AA8(u8 *arg0);
 s32 spawn_particle_effect(void *, int);
 extern const f32 TBoss7Crawfish__data_805DF0D8;
 void TBoss7Crawfish__sub_80308910(u8 *arg0);
-s32 TLobby__sub_8002AFD4(void *, void *, int);
+s32 exchange_object_state__6TLobbyFPvis(void *, void *, int);
 void TBoss7Crawfish__sub_80308B38(s32 arg0);
 s32 get_mode__11TCameraCtrlFPv(void *);
 f32 horizontal_distance_squared(void *, void *);
@@ -115,7 +115,7 @@ M2C_UNK reset_global_table();
 s32 get_instance__16TObjOnlineEndingFv();
 Slot_803086A8 *get_attack_entry__16TObjOnlineEndingFi(s32);
 M2C_UNK TBoss7Crawfish__sub_8030895C(void *, void *);
-void TBoss7Crawfish__sub_803086A8(Obj_803086A8 *o);
+void register_attack_hits__14TBoss7CrawfishFPv(Obj_803086A8 *o);
 }
 
 extern "C" {
@@ -128,7 +128,7 @@ void free_child__14TBoss7CrawfishFPv(void* p);
 void render__14TBoss7CrawfishFv(void* p);
 void spawn_effect__14TBoss7CrawfishFii(s32 arg0, s32 arg1);
 M2C_UNK play_sound_effect(s32, s32, M2C_UNK, M2C_UNK);
-int TBoss7Crawfish__sub_80308F8C(void*, int);
+int change_state__14TBoss7CrawfishFPvi(void*, int);
 int scale_current_matrix(void*);
 int post_translate_matrix(void*);
 M2C_UNK play_persistent_sound(s32, s32, s32, M2C_UNK, M2C_UNK);
@@ -149,7 +149,7 @@ s32 TBoss7Crawfish__sub_80308688(void *arg0) {
     return (u32) __cntlzw((u32) (lbl_805DF0C8 < M2C_FIELD(arg0, f32 *, 0x38))) >> 5;
 }
 
-void TBoss7Crawfish__sub_803086A8(Obj_803086A8 *o) {
+void register_attack_hits__14TBoss7CrawfishFPv(Obj_803086A8 *o) {
     Msg_803086A8 msg;
     s32 i;
     Slot_803086A8 *e;
@@ -261,10 +261,10 @@ void TBoss7Crawfish__sub_80308B38(s32 arg0) {
     typedef char sp8_offset[(offsetof(Stack_80308B38, sp8) == 0x0) ? 1 : -1];
     typedef char spE_offset[(offsetof(Stack_80308B38, spE) == 0x6) ? 1 : -1];
     Stack_80308B38 stack;
-    if (TLobby__sub_8002AFD4((void *) (arg0), (void *) (&stack.sp8), (int) (1)) != 0) {
+    if (exchange_object_state__6TLobbyFPvis((void *) (arg0), (void *) (&stack.sp8), (int) (1)) != 0) {
         stack.sp8 = 0;
         stack.spE = 0;
-        TLobby__sub_8002AFD4((void *) (arg0), (void *) (&stack.sp8), (int) (0));
+        exchange_object_state__6TLobbyFPvis((void *) (arg0), (void *) (&stack.sp8), (int) (0));
     }
 }
 
@@ -277,6 +277,6 @@ void check_band_and_destroy__14TBoss7CrawfishFi(s32 arg0) {
     }
 }
 
-int TBoss7Crawfish__sub_80308BEC(void* p) { return TBoss7Crawfish__sub_80308F8C(p, 5); }
+int TBoss7Crawfish__sub_80308BEC(void* p) { return change_state__14TBoss7CrawfishFPvi(p, 5); }
 
 }

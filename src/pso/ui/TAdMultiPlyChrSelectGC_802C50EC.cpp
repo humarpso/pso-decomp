@@ -152,7 +152,7 @@ extern int TAdMultiPlyChrSelectGC__data_805D67D8;
 void TAdMultiPlyChrSelectGC__sub_802C6988(void);
 extern int TAdMultiPlyChrSelectGC__data_805D67D8;
 void TAdMultiPlyChrSelectGC__sub_802C5B7C(void);
-void TAdMultiPlyChrSelectGC__sub_802C6A10(void);
+void reset_slot_selections__22TAdMultiPlyChrSelectGCFv(void);
 extern int TAdMultiPlyChrSelectGC__data_805D67D8;
 extern const f32 TAdMultiPlyChrSelectGC__data_805DE56C;
 void TAdMultiPlyChrSelectGC__sub_802C5594(S_802C5594 *arg0);
@@ -173,7 +173,7 @@ extern s32 lbl_805D67D4;
 extern s32 TAdMultiPlyChrSelectGC__data_805D67DC;
 extern const f32 lbl_805DE57C;
 extern const f32 lbl_805DE580;
-void TAdMultiPlyChrSelectGC__sub_802C5314(S_802C5314 *self);
+void draw_selection_cursors__22TAdMultiPlyChrSelectGCFPv(S_802C5314 *self);
 s32 TWindowShortListCtrl__check_controller_button(void *, int);
 s32 dispatch_draw_command__22TAdMultiPlyChrSelectGCFiiii(void *, int, int, int);
 M2C_UNK play_sound_effect(int, void *, int, int);
@@ -189,7 +189,7 @@ s32 count_ready__22TAdMultiPlyChrSelectGCFv(void);
 s32 TAdMultiPlyChrSelectGC__sub_802C6558(void);
 extern u8 lbl_8050E3B8[];
 extern int TAdMultiPlyChrSelectGC__data_805D67D8;
-void TAdMultiPlyChrSelectGC__sub_802C61E4(S_802C61E4 *self);
+void handle_dpad_input__22TAdMultiPlyChrSelectGCFPv(S_802C61E4 *self);
 M2C_UNK play_sound_effect(int, void *, int, int);
 extern s32 TAdMultiPlyChrSelectGC__data_804E0A68[][5];
 extern Jump_802C5C84 lbl_80471B00[][5];
@@ -198,7 +198,7 @@ void TAdMultiPlyChrSelectGC__sub_802C5C84(Self_802C5C84 *self, s32 x_, s32 y_, s
 s32 TWindowShortListCtrl__check_controller_button(void *, int);
 void TAdMultiPlyChrSelectGC__sub_802C5C28(s32 arg0, u32 *arg1);
 void TAdMultiPlyChrSelectGC__sub_802C6008(S_802C6008 *self);
-void TAdMultiPlyChrSelectGC__sub_802C61E4(S_802C61E4 *self);
+void handle_dpad_input__22TAdMultiPlyChrSelectGCFPv(S_802C61E4 *self);
 s32 TAdMultiPlyChrSelectGC__sub_802C64D0(s32);
 s32 count_ready__22TAdMultiPlyChrSelectGCFv(void);
 s32 TAdMultiPlyChrSelectGC__sub_802C6558(void);
@@ -208,7 +208,7 @@ s32 find_active_slot__22TAdMultiPlyChrSelectGCFv(void);
 extern u8 lbl_8050E3B8[];
 extern int TAdMultiPlyChrSelectGC__data_805D67D8;
 extern s32 TAdMultiPlyChrSelectGC__data_805D67DC;
-void TAdMultiPlyChrSelectGC__sub_802C6AC8(S_802C6AC8 *o);
+void update_selection__22TAdMultiPlyChrSelectGCFPv(S_802C6AC8 *o);
 }
 
 extern "C" {
@@ -245,7 +245,7 @@ void *TAdMultiPlyChrSelectGC__data_804E0AF0[4] = {
 #define TAdMultiPlyChrSelectGC__data_804E0AE0 ((s32 *)TAdMultiPlyChrSelectGC__data_804E0AE0)
 #define TAdMultiPlyChrSelectGC__data_804E0AF0 ((f32 *)TAdMultiPlyChrSelectGC__data_804E0AF0)
 
-void TAdMultiPlyChrSelectGC__sub_802C5314(S_802C5314 *self) {
+void draw_selection_cursors__22TAdMultiPlyChrSelectGCFPv(S_802C5314 *self) {
     u32 i;
     u32 j;
     s32 n;
@@ -297,7 +297,7 @@ void TAdMultiPlyChrSelectGC__sub_802C5314(S_802C5314 *self) {
 
 void update__22TAdMultiPlyChrSelectGCFi(s32 arg0) {
     if (get_state_flag__9TMainTaskFv() != 1) {
-        TAdMultiPlyChrSelectGC__sub_802C5314((S_802C5314 *)(arg0));
+        draw_selection_cursors__22TAdMultiPlyChrSelectGCFPv((S_802C5314 *)(arg0));
         switch ((s32) TAdMultiPlyChrSelectGC__data_805D67DC) {
         case 0:
             TAdMultiPlyChrSelectGC__sub_802C522C(arg0);
@@ -493,7 +493,7 @@ void TAdMultiPlyChrSelectGC__sub_802C6008(S_802C6008 *self) {
 }
 
 #define WIN_802C61E4 ((void *)(lbl_8050E3B8 + TAdMultiPlyChrSelectGC__data_805D67D8 * 0x50 + 0x20))
-void TAdMultiPlyChrSelectGC__sub_802C61E4(S_802C61E4 *self) {
+void handle_dpad_input__22TAdMultiPlyChrSelectGCFPv(S_802C61E4 *self) {
     s32 n;
     s32 m;
     TAdMultiPlyChrSelectGC__sub_802C5F1C(self, self->f1C++);
@@ -637,7 +637,7 @@ s32 get_clamped_cursor__22TAdMultiPlyChrSelectGCFv(void) {
     return (*(s32 *)&TAdMultiPlyChrSelectGC__data_805D67D8);
 }
 
-void TAdMultiPlyChrSelectGC__sub_802C6A10(void) {
+void reset_slot_selections__22TAdMultiPlyChrSelectGCFv(void) {
     s32 i;
     for (i = 0; i < 4; i++) {
         ((s32 *)&TAdMultiPlyChrSelectGC__data_804E0A48)[i] = -1;
@@ -661,7 +661,7 @@ loop_1:
     goto loop_1;
 }
 #define FIND_SLOT(o) ((s32 (*)(void *))find_active_slot__22TAdMultiPlyChrSelectGCFv)(o)
-void TAdMultiPlyChrSelectGC__sub_802C6AC8(S_802C6AC8 *o) {
+void update_selection__22TAdMultiPlyChrSelectGCFPv(S_802C6AC8 *o) {
     u32 i;
     u32 j;
     u32 k;
@@ -687,7 +687,7 @@ void TAdMultiPlyChrSelectGC__sub_802C6AC8(S_802C6AC8 *o) {
     if (o->f534 != 0) {
         switch (TAdMultiPlyChrSelectGC__data_805D67DC) {
         case 0:
-            TAdMultiPlyChrSelectGC__sub_802C61E4((S_802C61E4 *)o);
+            handle_dpad_input__22TAdMultiPlyChrSelectGCFPv((S_802C61E4 *)o);
             if (get_clamped_cursor__22TAdMultiPlyChrSelectGCFv() == 3 && TAdMultiPlyChrSelectGC__sub_802C64D0(3) != 0) {
                 s32 n = count_ready__22TAdMultiPlyChrSelectGCFv();
                 if (TAdMultiPlyChrSelectGC__sub_802C6558() < n) {

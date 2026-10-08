@@ -14,7 +14,7 @@ struct Seq_80212304 {
 extern "C" {
 f32 xz_distance_squared(void *, void *);
 s32 get_player_by_client_id(int);
-M2C_UNK THunterGuildSeqOffline__sub_80248A14(int, int, int);
+M2C_UNK advance_matching_entries__22THunterGuildSeqOfflineFPvii(int, int, int);
 extern s32 TLobby__data_805D53AC;
 extern f32 THunterGuildSeqOffline__data_805DC648;
 void THunterGuildSeqOffline__sub_80212230(u8 *arg0);
@@ -33,7 +33,7 @@ s32 TLobby__sub_801B0974();
 s32 get_player_by_client_id(int);
 extern s32 TLobby__data_805D53AC;
 extern f32 THunterGuildSeqOffline__data_805DC648;
-s32 THunterGuildSeqOffline__sub_80212120(void);
+s32 check_party_gathered__22THunterGuildSeqOfflineFv(void);
 void set_close_flag__19TWindowSubTradeMainFPv(void *);
 void set_visible__19TWindowSubTradeMainFPv(void *);
 s32 get_player_by_client_id(int);
@@ -43,7 +43,7 @@ void *refresh_with_default_list__20TWindowSubStatusDispFii(void *, void *);
 void *get_window_layout_position(s32);
 char *strcpy(char *, const char *);
 extern u8 lbl_804C96B8[];
-void THunterGuildSeqOffline__sub_80212304(Seq_80212304 *self);
+void open_member_name_window__22THunterGuildSeqOfflineFPv(Seq_80212304 *self);
 }
 
 extern "C" {
@@ -96,7 +96,7 @@ s32 THunterGuildSeqOffline__sub_80212074(void) {
     return (u32)__cntlzw((u32)((xz_distance_squared((void *) (temp_r3 + 0x38), (void *) (temp_r3_2 + 0x38)) > (*(const f32 *)&THunterGuildSeqOffline__data_805DC648)))) >> 5;
 }
 
-s32 THunterGuildSeqOffline__sub_80212120(void) {
+s32 check_party_gathered__22THunterGuildSeqOfflineFv(void) {
     s32 i;
     s32 result;
     s32 j;
@@ -147,21 +147,21 @@ void THunterGuildSeqOffline__sub_80212230(u8 *arg0) {
                 temp_r3 = get_player_by_client_id((int) (var_r30));
                 if (temp_r3 != 0) {
                     if (xz_distance_squared((void *) (temp_r31 + 0x38), (void *) (temp_r3 + 0x38)) <= THunterGuildSeqOffline__data_805DC648) {
-                        THunterGuildSeqOffline__sub_80248A14((int) (M2C_FIELD(arg0, u32 *, 0x1C)), (int) (1), (int) (var_r30));
+                        advance_matching_entries__22THunterGuildSeqOfflineFPvii((int) (M2C_FIELD(arg0, u32 *, 0x1C)), (int) (1), (int) (var_r30));
                     } else {
-                        THunterGuildSeqOffline__sub_80248A14((int) (M2C_FIELD(arg0, u32 *, 0x1C)), (int) (0), (int) (var_r30));
+                        advance_matching_entries__22THunterGuildSeqOfflineFPvii((int) (M2C_FIELD(arg0, u32 *, 0x1C)), (int) (0), (int) (var_r30));
                     }
                 } else {
-                    THunterGuildSeqOffline__sub_80248A14((int) (M2C_FIELD(arg0, u32 *, 0x1C)), (int) (0), (int) (var_r30));
+                    advance_matching_entries__22THunterGuildSeqOfflineFPvii((int) (M2C_FIELD(arg0, u32 *, 0x1C)), (int) (0), (int) (var_r30));
                 }
             } else {
-                THunterGuildSeqOffline__sub_80248A14((int) (M2C_FIELD(arg0, u32 *, 0x1C)), (int) (1), (int) (var_r30));
+                advance_matching_entries__22THunterGuildSeqOfflineFPvii((int) (M2C_FIELD(arg0, u32 *, 0x1C)), (int) (1), (int) (var_r30));
             }
             var_r30 += 1;
         } while (var_r30 < 4);
     }
 }
-void THunterGuildSeqOffline__sub_80212304(Seq_80212304 *self) {
+void open_member_name_window__22THunterGuildSeqOfflineFPv(Seq_80212304 *self) {
     s32 i;
     if (self->win != 0) {
         TWindow__close(self->win);

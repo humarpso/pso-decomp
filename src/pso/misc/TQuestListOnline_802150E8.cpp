@@ -127,7 +127,7 @@ extern G_802156E0 *lbl_805D61C0;
 extern s32 lbl_805D61C4;
 extern s32 lbl_805D61C8;
 extern s32 lbl_805D6238;
-void TLobby__sub_8021587C(Item_8021587C *item);
+void roll_item_grind_bonus__6TLobbyFPv(Item_8021587C *item);
 u8 find_adjacent_matching_slot__10TObjPlayerFUc(u8);
 u8 TObjPlayer__sub_8010494C(u8);
 s32 pop_byte__6TLobbyFPv(void *);
@@ -152,7 +152,7 @@ extern s32 lbl_805D61C4;
 extern s32 lbl_805D61C8;
 extern s32 lbl_805D6238;
 void TLobby__sub_80215720(Obj_80215720 *arg0);
-void TDLGraph__sub_8007F6F8(s32, s32);
+void update_graph__8TDLGraphFii(s32, s32);
 void *alloc_buffer__11TOBoss4RockFPv(s32);
 void render_tick__Fv();
 s32 get_guild_text(s32);
@@ -187,7 +187,7 @@ extern char lbl_805DC668[4];
 extern char lbl_805DC66C[4];
 extern char lbl_805DC670[4];
 extern char lbl_805DC674[4];
-void TQuestListOnline__sub_802150E8(Ent_802150E8 *arg0);
+void begin_file_download__16TQuestListOnlineFPv(Ent_802150E8 *arg0);
 s32 get_camera_id__11TCameraCtrlFv();
 void TQuestListOnline__sub_8013ACF4(s32);
 s32 THunterGuildSeqOffline__sub_80212074();
@@ -205,7 +205,7 @@ extern s32 TQuestListOnline__data_805D6194;
 extern int TQuestListOnline__data_805D61A4;
 extern const f32 lbl_805DC664;
 extern const f32 lbl_805DC678;
-void TQuestListOnline__sub_80215380(void *arg0);
+void receive_quest_info__16TQuestListOnlineFPv(void *arg0);
 }
 
 extern "C" {
@@ -221,7 +221,7 @@ extern "C" {
     extern int lbl_805D61B0;
     extern int lbl_805D61B4;
 
-void TQuestListOnline__sub_802150E8(Ent_802150E8 *arg0) {
+void begin_file_download__16TQuestListOnlineFPv(Ent_802150E8 *arg0) {
     Pair_802150E8 p;
     char buf[0x10];
     char *tok;
@@ -284,12 +284,12 @@ void TQuestListOnline__sub_802150E8(Ent_802150E8 *arg0) {
             s->buf = alloc_buffer__11TOBoss4RockFPv(arg0->size);
             memset(s->buf, 0, (void *)arg0->size);
             TQuestListOnline__data_805D6198 = 0;
-            TDLGraph__sub_8007F6F8(lbl_805D61B4, lbl_805D61B0 += arg0->size);
+            update_graph__8TDLGraphFii(lbl_805D61B4, lbl_805D61B0 += arg0->size);
         }
     }
 }
 
-void TQuestListOnline__sub_80215380(void *arg0) {
+void receive_quest_info__16TQuestListOnlineFPv(void *arg0) {
     Pair_80215380 p;
     if ((u32) TQuestListOnline__data_805D6194 != 0U) {
         memcpy(TQuestListOnline__data_805D6194, arg0, 0x124);
@@ -446,7 +446,7 @@ void TLobby__sub_80215720(Obj_80215720 *arg0) {
     lbl_805D61C8 += ((s8 (*)(s8))TLobby__sub_802156E0)(r);
 }
 
-void TLobby__sub_8021587C(Item_8021587C *item) {
+void roll_item_grind_bonus__6TLobbyFPv(Item_8021587C *item) {
     u8 buf[0x68];
     Ent_8021587C *e;
     s32 n;

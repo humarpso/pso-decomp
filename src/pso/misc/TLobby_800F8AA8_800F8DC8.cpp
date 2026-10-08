@@ -9,10 +9,10 @@ extern u8 lbl_805D533C;
 extern u8 lbl_8049C61C[];
 extern u8 lbl_80499AA0[];
 extern const char lbl_8043D9F4[];
-void *TLobby__sub_8001EEFC(const char *);
+void *tmp_buf_use_req__6TLobbyFPv(const char *);
 s32 prs_decompress_buffer(void *, void *);
 s32 load_gvm_texture_archive(void *, void *);
-void TLobby__sub_8001EE48(const char *s);
+void tmp_buf_release__6TLobbyFi(const char *s);
 void TLobby__sub_800F8EB4(void);
 void set_global_param__8TObjFishFi(void *);
 void begin_screen_draw(int);
@@ -63,12 +63,12 @@ void TLobby__sub_800F8E78(void) {
 }
 
 void TLobby__sub_800F8EB4(void) {
-    void *file = TLobby__sub_8001EEFC(lbl_8043D9F4);
+    void *file = tmp_buf_use_req__6TLobbyFPv(lbl_8043D9F4);
     if (file != 0) {
         s32 r;
         prs_decompress_buffer(lbl_80499AA0, file);
         r = load_gvm_texture_archive(file, lbl_8049C61C);
-        TLobby__sub_8001EE48(lbl_8043D9F4);
+        tmp_buf_release__6TLobbyFi(lbl_8043D9F4);
         lbl_805D533C = 1;
         if (r == -1) {
             lbl_805D533C = 0;

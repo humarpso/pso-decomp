@@ -81,11 +81,11 @@ M2C_UNK TWindow__close(void *);
 void TWindowCtrl__sub_8024A4EC(void);
 s32 set_time__12TWindowTimerFPvUi(int, void *);
 extern void *TWindowCtrl__data_805D63F8;
-void TWindowCtrl__sub_8024A4B0(s32 arg0);
+void set_timer_window_time__11TWindowCtrlFi(s32 arg0);
 s32 TWindowCtrl__sub_8024B098(void *, void *);
 extern RecoveredGlobal_8024A228_lbl_804CEA88 lbl_804CEA88;
 void TWindowCtrl__sub_8024A228(s32 arg0);
-s32 TWindowCtrl__sub_8024AF34(void *, void *);
+s32 call_window_method__11TWindowCtrlFPvi(void *, void *);
 extern RecoveredGlobal_8024A1CC_lbl_804CEA94 lbl_804CEA94;
 void TWindowCtrl__sub_8024A1CC(s32 arg0);
 extern void *TWindowCtrl__data_805D63F8;
@@ -169,7 +169,7 @@ void TWindowCtrl__sub_8024A1CC(s32 arg0) {
     stack.sp8 = M2C_FIELD(&lbl_804CEA94.value, s32 *, 0);
     stack.spC = M2C_FIELD(&lbl_804CEA94.value, s32 *, 4);
     stack.sp10 = M2C_FIELD(&lbl_804CEA94.value, s32 *, 8);
-    TWindowCtrl__sub_8024AF34((void *) (arg0), (void *) (&stack.sp8));
+    call_window_method__11TWindowCtrlFPvi((void *) (arg0), (void *) (&stack.sp8));
 }
 
 void set_field22__11TWindowCtrlFv(void) {
@@ -272,7 +272,7 @@ void create_timer__11TWindowCtrlFv(void) {
 
 extern void *TWindowCtrl__data_805D63F8;
 
-void TWindowCtrl__sub_8024A4B0(s32 arg0) {
+void set_timer_window_time__11TWindowCtrlFi(s32 arg0) {
     u32 temp_r3;
     if ((void *) (*(u8 * *)&TWindowCtrl__data_805D63F8) != NULL) {
         temp_r3 = M2C_FIELD((*(u8 * *)&TWindowCtrl__data_805D63F8), u32 *, 0x30);

@@ -3,7 +3,7 @@ typedef s32 M2C_UNK;
 #define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
 extern "C" {
 void copy_vec2__28TWindowSubSymbolChatPartsSetFPvPv(void *, void *);
-void TObjCMHairMenu__sub_801E35C4(void *, int, int, f32);
+void draw_tri_fan_2d__14TObjCMHairMenuFPviif(void *, int, int, f32);
 void copy4__18TAdChrMoveEffectGCFPvPv(void *, void *);
 extern const f32 lbl_805DFCE8;
 extern const f32 lbl_805DFCEC;
@@ -51,7 +51,7 @@ void fn_80348E34(u8 *arg0) {
                 desc.pos[7] = M2C_FIELD(e, f32 *, 0x48);
                 copy4__18TAdChrMoveEffectGCFPvPv(desc.col + 12, src);
                 desc.col[15] = M2C_FIELD(e, u8 *, 0x50);
-                TObjCMHairMenu__sub_801E35C4(&desc, 4, 7, lbl_805DFCEC * (f32)i + lbl_805DFCE8);
+                draw_tri_fan_2d__14TObjCMHairMenuFPviif(&desc, 4, 7, lbl_805DFCEC * (f32)i + lbl_805DFCE8);
             }
         }
     }

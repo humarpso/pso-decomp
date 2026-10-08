@@ -93,13 +93,13 @@ f32 xyz_distance_squared(void *, void *);
 extern const f32 lbl_805D525C;
 extern s32 lbl_805D526C;
 extern s32 lbl_805D53A0;
-void TObjPlayer__sub_800DC4B4(Src_800DC4B4 *arg0, Obj_800DC4B4 *obj, void *attacker);
+void hit_object_in_radius__10TObjPlayerFPvPvPv(Src_800DC4B4 *arg0, Obj_800DC4B4 *obj, void *attacker);
 M2C_UNK VecCopy__FP3VecPC3Vec(void *, int);
 void *get_player_data__10TObjPlayerFi(s32);
 void queue_destruction__7TObjectFv(void *);
 u32 csnVector(void *, void *, int);
 M2C_UNK copy_pos__11TNowLoadingFPvPv(void *, void *);
-void TObjPlayer__sub_800DC4B4(Src_800DC4B4 *arg0, Obj_800DC4B4 *obj, void *attacker);
+void hit_object_in_radius__10TObjPlayerFPvPvPv(Src_800DC4B4 *arg0, Obj_800DC4B4 *obj, void *attacker);
 s32 TObjPlayer__sub_800DC5F4(M2C_UNK arg0, s32 arg1);
 void *find_entity_by_id(u16);
 s32 is_valid_and_active__10TObjPlayerFUi();
@@ -108,14 +108,14 @@ extern const f32 lbl_805D525C;
 extern s32 lbl_805D586C;
 extern s32 lbl_805D5870;
 extern const f32 lbl_805DA478;
-void TObjPlayer__sub_800DC648(Me_800DC648 *arg0);
+void update_projectile__10TObjPlayerFPv(Me_800DC648 *arg0);
 M2C_UNK VecCopy__FP3VecPC3Vec(void *, int);
 u16 obj_getField1c(void *);
 f32 get_ad_end_text_start__10TObjPlayerFv(f32, f32);
 s32 spawn_particle_effect_with_rotation(void *, void *, int, int);
 s32 spawn_continuous_particle_effect_with_flags(void *, int, int);
 s32 TObjPlayer__sub_800DC5F4(M2C_UNK arg0, s32 arg1);
-f32 TObjPlayer__sub_8013153C(void *, void *);
+f32 horizontal_distance__10TObjPlayerFPvPv(void *, void *);
 M2C_UNK construct_collider_proxy__10TObjPlayerFPv(void *, int);
 f32 vector_length(void *);
 M2C_UNK subtract_vector(void *, void *);
@@ -123,7 +123,7 @@ extern M2C_UNK lbl_80494E10[];
 extern const f32 lbl_805D525C;
 extern s32 tl_06;
 extern const f32 lbl_805DA47C;
-u8 *TObjPlayer__sub_800DC83C(u8 *arg0, Vec_800DC83C *arg1, Vec_800DC83C *arg2, s32 arg3, void *arg4);
+u8 *construct_beam_effect__10TObjPlayerFPvPvPviPv(u8 *arg0, Vec_800DC83C *arg1, Vec_800DC83C *arg2, s32 arg3, void *arg4);
 M2C_UNK VecCopy__FP3VecPC3Vec(void *, int);
 s32 is_split_screen();
 void queue_destruction__7TObjectFv(void *);
@@ -182,7 +182,7 @@ s32 TObjPlayer__sub_800DC478(u8 *arg0, s32 arg1, f32 farg0) {
     return 0;
 }
 
-void TObjPlayer__sub_800DC4B4(Src_800DC4B4 *arg0, Obj_800DC4B4 *obj, void *attacker) {
+void hit_object_in_radius__10TObjPlayerFPvPvPv(Src_800DC4B4 *arg0, Obj_800DC4B4 *obj, void *attacker) {
     if (obj == NULL) {
         return;
     }
@@ -220,7 +220,7 @@ s32 TObjPlayer__sub_800DC5F4(M2C_UNK arg0, s32 arg1) {
     return 1;
 }
 
-void TObjPlayer__sub_800DC648(Me_800DC648 *arg0) {
+void update_projectile__10TObjPlayerFPv(Me_800DC648 *arg0) {
     void *att;
     s32 i;
     void *pl;
@@ -254,7 +254,7 @@ void TObjPlayer__sub_800DC648(Me_800DC648 *arg0) {
         for (i = 0; i < lbl_805D586C + lbl_805D5870; i++) {
             pl = get_player_data__10TObjPlayerFi(i);
             if (pl != NULL && is_valid_and_active__10TObjPlayerFUi() != 0) {
-                TObjPlayer__sub_800DC4B4((Src_800DC4B4 *)arg0, (Obj_800DC4B4 *)pl, att);
+                hit_object_in_radius__10TObjPlayerFPvPvPv((Src_800DC4B4 *)arg0, (Obj_800DC4B4 *)pl, att);
             }
         }
     }
@@ -272,7 +272,7 @@ void *TObjPlayer__sub_800DC7B0(void *arg0, s16 arg1) {
     }
     return arg0;
 }
-u8 *TObjPlayer__sub_800DC83C(u8 *arg0, Vec_800DC83C *arg1, Vec_800DC83C *arg2, s32 arg3, void *arg4) {
+u8 *construct_beam_effect__10TObjPlayerFPvPvPviPv(u8 *arg0, Vec_800DC83C *arg1, Vec_800DC83C *arg2, s32 arg3, void *arg4) {
     Ang_800DC83C ang;
     f32 s;
     construct_collider_proxy__10TObjPlayerFPv(arg0, tl_06);
@@ -289,7 +289,7 @@ u8 *TObjPlayer__sub_800DC83C(u8 *arg0, Vec_800DC83C *arg1, Vec_800DC83C *arg2, s
     M2C_FIELD(arg0, s16 *, 0xFC) = obj_getField1c(arg4);
     ang.x = 0;
     ang.y = (s32)(10430.38043493439 * get_ad_end_text_start__10TObjPlayerFv(arg2->x - arg1->x, arg2->z - arg1->z)) + 0x4000;
-    ang.z = 0x4000 - (s32)(10430.38043493439 * get_ad_end_text_start__10TObjPlayerFv(arg2->y - arg1->y, TObjPlayer__sub_8013153C(arg2, arg1)));
+    ang.z = 0x4000 - (s32)(10430.38043493439 * get_ad_end_text_start__10TObjPlayerFv(arg2->y - arg1->y, horizontal_distance__10TObjPlayerFPvPv(arg2, arg1)));
     M2C_FIELD(arg0, s32 *, 0xE0) = spawn_particle_effect_with_rotation(arg1, &ang, 0xF5, 2);
     if (M2C_FIELD(arg0, s32 *, 0xF4) != 0) {
         VecCopy__FP3VecPC3Vec(arg0 + 0xE8, (int)(arg0 + 0xAC));

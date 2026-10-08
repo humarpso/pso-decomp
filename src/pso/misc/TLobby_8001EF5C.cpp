@@ -109,6 +109,29 @@ typedef struct Lobby_8001FBEC {
     Ent_8001FBEC *entries;
 } Lobby_8001FBEC;
 
+struct Lobby_8001FBEC;
+struct Ent_8001F128 {
+    s32 flags;
+    s32 unk4;
+    s32 motion;
+    u32 texture;
+};
+
+struct Rec_8001F128 { u8 pad0[0x20]; s32 size; u8 pad24[4]; s32 rawSize; u8 pad2C[0x14]; };
+
+struct Ctx_8001F128 {
+    u32 flags;
+    s32 nmodel;
+    s32 nmotion;
+    s32 ntex;
+    u32 state;
+    u8 pad14[0x42C - 0x14];
+    Ent_8001F128 *entries;
+    u8 pad430[4];
+    s32 f434;
+    s32 f438;
+};
+
 extern "C" {
 M2C_UNK TItemDrop__sub_800FE2DC();
 s32 alloc__22TQuestVmDownLoadServerFPv(M2C_UNK);
@@ -127,22 +150,22 @@ void load_bin_motion_callback(void *arg0);
 extern s32 lbl_805D4AD0;
 void reset_battle_state__6TLobbyFPv(void *arg0);
 void set_flag_and_notify__6TLobbyFPv(void *arg0);
-void TLobby__sub_8001EE48(const char *s);
+void tmp_buf_release__6TLobbyFi(const char *s);
 extern char lbl_80434C38[];
 void TLobby__sub_8001F8D8(Obj_8001F8D8 *self, void * _w1);
 s32 alloc_load_data__6TLobbyFPviii(void *arg0, s32 arg1, s32 arg2, s32 arg3);
 M2C_UNK debug_print__6TLobbyFii(M2C_UNK *, ...);
 extern M2C_UNK lbl_80434CC4[];
 s32 bind_bml_motion(struct Lobby_8001FB6C *self, s32 idx, void *bytes);
-s32 TGStream__sub_800FDBA8(void *, s32);
+s32 load_sct_file__8TGStreamFii(void *, s32);
 M2C_UNK debug_print__6TLobbyFii(M2C_UNK *, ...);
-M2C_UNK TLobby__sub_8013189C(void *, void *, void *);
+M2C_UNK change_file_extension__6TLobbyFPvPvPv(void *, void *, void *);
 M2C_UNK load_gvm_texture_archive(s32, s32);
 extern M2C_UNK lbl_80434B04[];
 extern M2C_UNK lbl_80434B24[];
 extern s32 lbl_805D4ACC;
 extern M2C_UNK lbl_805D7F10;
-void TLobby__sub_8001F018(Lobby_8001F018 *arg0, void *arg1, s32 arg2);
+void load_texture_sub__6TLobbyFPvPvi(Lobby_8001F018 *arg0, void *arg1, s32 arg2);
 s32 alloc_load_data__6TLobbyFPviii(void *arg0, s32 arg1, s32 arg2, s32 arg3);
 s32 set_stream_state__6TLobbyFi(s32, s32);
 M2C_UNK debug_print__6TLobbyFii(M2C_UNK *, ...);
@@ -150,27 +173,27 @@ extern M2C_UNK lbl_80434D10[];
 extern M2C_UNK lbl_80434D30[];
 extern M2C_UNK lbl_80434D54[];
 extern s32 lbl_805D4ACC;
-s32 TLobby__sub_8001FCC4(Lobby_8001FB6C *arg0, s32 arg1, s32 arg2);
-void TLobby__sub_8001F018(Lobby_8001F018 *arg0, void *arg1, s32 arg2);
+s32 load_bin_motion__6TLobbyFPvii(Lobby_8001FB6C *arg0, s32 arg1, s32 arg2);
+void load_texture_sub__6TLobbyFPvPvi(Lobby_8001F018 *arg0, void *arg1, s32 arg2);
 s32 set_stream_state__6TLobbyFi(s32, s32);
-s32 TLobby__sub_800FD944(s32);
+s32 get_resource_file_size__6TLobbyFPv(s32);
 M2C_UNK debug_print__6TLobbyFii(M2C_UNK *, ...);
 extern M2C_UNK lbl_80434D74[];
 extern M2C_UNK lbl_80434D94[];
 extern s32 lbl_805D4ACC;
-s32 TLobby__sub_8001FD98(Lobby_8001FD98 *arg0, s32 arg1, s32 arg2);
+s32 load_bin_model__6TLobbyFPvii(Lobby_8001FD98 *arg0, s32 arg1, s32 arg2);
 M2C_UNK TLobby__sub_8001EDD8(void *, s32);
 s32 alloc_load_data__6TLobbyFPviii(void *arg0, s32 arg1, s32 arg2, s32 arg3);
 void TLobby__sub_8001F8D8(Obj_8001F8D8 *self, void * _w1);
 s32 create_file_load_entry__6TLobbyFiiUiiPv(void *, s32, void *, void *, void *);
 M2C_UNK debug_print__6TLobbyFii(M2C_UNK *, ...);
-M2C_UNK TLobby__sub_8013189C(void *, void *, void *);
+M2C_UNK change_file_extension__6TLobbyFPvPvPv(void *, void *, void *);
 void increment_ref_and_set_flag__6TLobbyFPv(void *arg0);
 extern M2C_UNK lbl_80434C70[];
 extern M2C_UNK lbl_80434C98[];
 extern s32 lbl_805D4ACC;
 extern M2C_UNK lbl_805D7F10;
-void TLobby__sub_8001FA1C(Lobby_8001FA1C *self);
+void load_bin_model_callback__6TLobbyFPv(Lobby_8001FA1C *self);
 M2C_UNK TLobby__sub_8001EDF4(void *);
 void free_if_not_owner__6TLobbyFPvPv(void* p, void* a1);
 void __dl__FPv(void *);
@@ -185,7 +208,7 @@ void reset_battle_state__6TLobbyFPv(void *arg0);
 void set_flag_and_notify__6TLobbyFPv(void *arg0);
 s32 bind_bml_motion(struct Lobby_8001FB6C *self, s32 idx, void *bytes);
 M2C_UNK load_gvm_texture_archive(s32, s32);
-void TLobby__sub_8001F018(Lobby_8001F018 *arg0, void *arg1, s32 arg2);
+void load_texture_sub__6TLobbyFPvPvi(Lobby_8001F018 *arg0, void *arg1, s32 arg2);
 M2C_UNK safe_free__23TAdSinglePlyChrSelectGCFUi(s32);
 extern s32 lbl_805D4AD0;
 extern u32 lbl_805D4AD8;
@@ -215,6 +238,42 @@ s32 alloc_load_data__6TLobbyFPviii(void *arg0, s32 arg1, s32 arg2, s32 arg3);
 M2C_UNK debug_print__6TLobbyFii(M2C_UNK *, ...);
 extern M2C_UNK lbl_80434CE8[];
 s32 bind_bml_model(Lobby_8001FBEC *arg0, u32 arg1, s32 arg2, s32 arg3);
+void tmp_buf_release__6TLobbyFi(const char *s);
+u8 *tmp_buf_use_req__6TLobbyFPv(const char *);
+void set_flag_and_notify__6TLobbyFPv(void *arg0);
+s32 bind_bml_motion(struct Lobby_8001FB6C *self, s32 idx, void *bytes);
+s32 bind_bml_model(Lobby_8001FBEC *arg0, u32 arg1, s32 arg2, s32 arg3);
+M2C_UNK safe_free__23TAdSinglePlyChrSelectGCFUi(s32);
+s32 alloc__22TQuestVmDownLoadServerFPv(M2C_UNK);
+void prs_decompress_buffer(s32, void *);
+void reset_read_state__6TLobbyFv(void);
+void set_read_params__6TLobbyFiii(void *, s32, void *);
+void debug_printf_nop(void *, ...);
+M2C_UNK debug_print__6TLobbyFii(M2C_UNK *, ...);
+M2C_UNK change_file_extension__6TLobbyFPvPvPv(void *, void *, void *);
+s32 TLobby__sub_803CC4C0(u32);
+s32 TLobby__sub_803CC53C(void);
+void read_checked_align__6TLobbyFiii(u32, s32, void *);
+void TLobby__sub_803CCE9C(u32);
+u32 adxf_open__6TLobbyFUii(void *, s32);
+M2C_UNK load_gvm_texture_archive(s32, s32);
+extern char lbl_80434B44[];
+extern M2C_UNK lbl_80434B50[];
+extern M2C_UNK lbl_80434B70[];
+extern M2C_UNK lbl_80434B90[];
+extern M2C_UNK lbl_80434BB0[];
+extern M2C_UNK lbl_80434BD4[];
+extern M2C_UNK lbl_80434BF8[];
+extern M2C_UNK lbl_80434C18[];
+extern u8 lbl_805D4AC8;
+extern u32 lbl_805D4AD8;
+extern u32 lbl_805D4ADC;
+extern u8 *lbl_805D4AE0;
+extern Rec_8001F128 *lbl_805D4AE4;
+extern s32 lbl_805D4AE8;
+extern u8 *lbl_805D4AEC;
+extern M2C_UNK lbl_805D7F10;
+s32 TLobby__sub_8001F128(u8 *arg0, u8 *arg1);
 }
 
 extern "C" {
@@ -249,11 +308,11 @@ s32 alloc_load_data__6TLobbyFPviii(void *arg0, s32 arg1, s32 arg2, s32 arg3) {
     return load_nj_chunk_model_resource(arg1, arg2, arg3);
 }
 
-void TLobby__sub_8001F018(Lobby_8001F018 *arg0, void *arg1, s32 arg2) {
+void load_texture_sub__6TLobbyFPvPvi(Lobby_8001F018 *arg0, void *arg1, s32 arg2) {
     char buf[0x20];
     s32 size;
-    TLobby__sub_8013189C(buf, arg1, &lbl_805D7F10);
-    size = TGStream__sub_800FDBA8(buf, lbl_805D4ACC);
+    change_file_extension__6TLobbyFPvPvPv(buf, arg1, &lbl_805D7F10);
+    size = load_sct_file__8TGStreamFii(buf, lbl_805D4ACC);
     if (size > 0x40000) {
         debug_print__6TLobbyFii(lbl_80434B04, buf);
     } else if (size > 0) {
@@ -280,6 +339,218 @@ void set_flag_and_notify__6TLobbyFPv(void *arg0) {
 extern s32 lbl_805D4ACC;
 extern u32 lbl_805D4AD8;
 
+#define self ((Ctx_8001F128 *) arg0)
+s32 TLobby__sub_8001F128(u8 *arg0, u8 *arg1) {
+    s32 n;
+    switch (self->state) {
+    case 0:
+        lbl_805D4AE0 = NULL;
+        if (self->flags & 0x200) {
+            self->state = 9;
+            break;
+        }
+        lbl_805D4AE8 = 0;
+        lbl_805D4AEC = tmp_buf_use_req__6TLobbyFPv(lbl_80434B44);
+        lbl_805D4ADC = adxf_open__6TLobbyFUii(arg1, 0);
+        if (lbl_805D4ADC == 0) {
+            debug_print__6TLobbyFii(lbl_80434B50, arg1);
+            self->state = 0xB;
+            return -1;
+        }
+        n = ((self->f434 + self->f438 + 1) * 64 + 0x7FF) / 2048;
+        if (n > 0x4000) {
+            debug_printf_nop(lbl_80434B70, n);
+        }
+        lbl_805D4AE0 = (u8 *) lbl_805D4AD8;
+        lbl_805D4AE4 = (Rec_8001F128 *) (lbl_805D4AD8 + 0x40);
+        read_checked_align__6TLobbyFiii(lbl_805D4ADC, n, (void *) lbl_805D4AD8);
+        set_read_params__6TLobbyFiii(&lbl_805D4ADC, n, lbl_805D4AE0);
+        self->state = 1;
+    case 1:
+        if (self->flags & 0x200) {
+            reset_read_state__6TLobbyFv();
+            TLobby__sub_803CCE9C(lbl_805D4ADC);
+            self->state = 9;
+        } else if (TLobby__sub_803CC4C0(lbl_805D4ADC) == 3) {
+            reset_read_state__6TLobbyFv();
+            switch (lbl_805D4AE0[8]) {
+            case 0x50:
+                lbl_805D4AC8 = 1;
+                break;
+            default:
+                lbl_805D4AC8 = 0;
+                break;
+            }
+            self->state = 2;
+        }
+        break;
+    case 2:
+        if (self->flags & 0x200) {
+            reset_read_state__6TLobbyFv();
+            TLobby__sub_803CCE9C(lbl_805D4ADC);
+            self->state = 9;
+        } else if (self->nmodel < self->f434) {
+            n = (lbl_805D4AE4->size + 0x7FF) / 2048;
+            switch ((s8) lbl_805D4AC8) {
+            case 0:
+            case 1:
+                read_checked_align__6TLobbyFiii(lbl_805D4ADC, n, lbl_805D4AEC);
+                set_read_params__6TLobbyFiii(&lbl_805D4ADC, n, lbl_805D4AEC);
+                break;
+            default:
+                debug_print__6TLobbyFii(lbl_80434B90);
+                break;
+            }
+            self->state = 3;
+        } else {
+            self->state = 4;
+        }
+        break;
+    case 3:
+        if (self->flags & 0x200) {
+            reset_read_state__6TLobbyFv();
+            TLobby__sub_803CCE9C(lbl_805D4ADC);
+            self->state = 9;
+        } else if (TLobby__sub_803CC4C0(lbl_805D4ADC) == 3) {
+            reset_read_state__6TLobbyFv();
+            switch ((s8) lbl_805D4AC8) {
+            case 1: {
+                s32 p = alloc__22TQuestVmDownLoadServerFPv(lbl_805D4AE4->rawSize);
+                if (p != 0) {
+                    prs_decompress_buffer((s32) lbl_805D4AEC, (void *) p);
+                    bind_bml_model((Lobby_8001FBEC *) self, lbl_805D4AE4->rawSize, self->nmodel++, p);
+                    safe_free__23TAdSinglePlyChrSelectGCFUi(p);
+                } else {
+                    debug_print__6TLobbyFii(lbl_80434BB0);
+                }
+                break;
+            }
+            case 0:
+                bind_bml_model((Lobby_8001FBEC *) self, lbl_805D4AE4->size, self->nmodel++, (s32) lbl_805D4AEC);
+                break;
+            }
+            lbl_805D4AE4++;
+            self->state = 2;
+        }
+        break;
+    case 4:
+        if (self->flags & 0x200) {
+            reset_read_state__6TLobbyFv();
+            TLobby__sub_803CCE9C(lbl_805D4ADC);
+            self->state = 9;
+        } else if (self->nmotion < self->f438) {
+            n = (lbl_805D4AE4->size + 0x7FF) / 2048;
+            switch ((s8) lbl_805D4AC8) {
+            case 0:
+            case 1:
+                read_checked_align__6TLobbyFiii(lbl_805D4ADC, n, lbl_805D4AEC);
+                set_read_params__6TLobbyFiii(&lbl_805D4ADC, n, lbl_805D4AEC);
+                break;
+            default:
+                debug_print__6TLobbyFii(lbl_80434B90);
+                break;
+            }
+            self->state = 5;
+        } else {
+            reset_read_state__6TLobbyFv();
+            TLobby__sub_803CCE9C(lbl_805D4ADC);
+            lbl_805D4AE4 = (Rec_8001F128 *) (lbl_805D4AE0 + 0x40);
+            self->state = 6;
+        }
+        break;
+    case 5:
+        if (self->flags & 0x200) {
+            reset_read_state__6TLobbyFv();
+            TLobby__sub_803CCE9C(lbl_805D4ADC);
+            self->state = 9;
+        } else if (TLobby__sub_803CC4C0(lbl_805D4ADC) == 3) {
+            reset_read_state__6TLobbyFv();
+            switch ((s8) lbl_805D4AC8) {
+            case 1: {
+                s32 p = alloc__22TQuestVmDownLoadServerFPv(lbl_805D4AE4->rawSize);
+                if (p != 0) {
+                    prs_decompress_buffer((s32) lbl_805D4AEC, (void *) p);
+                    bind_bml_motion((Lobby_8001FB6C *) self, self->nmodel++, (void *) p);
+                    safe_free__23TAdSinglePlyChrSelectGCFUi(p);
+                } else {
+                    debug_print__6TLobbyFii(lbl_80434BD4);
+                }
+                break;
+            }
+            case 0:
+                bind_bml_motion((Lobby_8001FB6C *) self, self->nmotion++, lbl_805D4AEC);
+                break;
+            }
+            lbl_805D4AE4++;
+            self->state = 4;
+        }
+        break;
+    case 6:
+        while (self->entries[lbl_805D4AE8].texture == 0) {
+            lbl_805D4AE8++;
+            lbl_805D4AE4++;
+            if (lbl_805D4AE8 >= self->f434) {
+                break;
+            }
+        }
+        if (lbl_805D4AE8 < self->f434) {
+            change_file_extension__6TLobbyFPvPvPv(0, lbl_805D4AE4, &lbl_805D7F10);
+            lbl_805D4ADC = adxf_open__6TLobbyFUii(lbl_805D4AE4, 0);
+            if (lbl_805D4ADC != 0) {
+                n = TLobby__sub_803CC53C();
+                if (n > 0x80) {
+                    debug_print__6TLobbyFii(lbl_80434BF8, lbl_805D4AE4, n << 11);
+                    lbl_805D4AE8++;
+                    lbl_805D4AE4++;
+                } else {
+                    read_checked_align__6TLobbyFiii(lbl_805D4ADC, n, lbl_805D4AEC);
+                    set_read_params__6TLobbyFiii(&lbl_805D4ADC, n, lbl_805D4AEC);
+                }
+            } else {
+                self->entries[lbl_805D4AE8].flags |= 2;
+                if (!(self->flags & 4)) {
+                    debug_print__6TLobbyFii(lbl_80434C18, lbl_805D4AE4);
+                }
+                lbl_805D4AE8++;
+                lbl_805D4AE4++;
+                break;
+            }
+            self->state = 7;
+        } else {
+            set_flag_and_notify__6TLobbyFPv(self);
+            self->state = 0xA;
+        }
+        break;
+    case 7:
+        if (self->flags & 0x200) {
+            reset_read_state__6TLobbyFv();
+            TLobby__sub_803CCE9C(lbl_805D4ADC);
+            self->state = 9;
+        } else if (TLobby__sub_803CC4C0(lbl_805D4ADC) == 3) {
+            reset_read_state__6TLobbyFv();
+            load_gvm_texture_archive((s32) lbl_805D4AEC, (s32) self->entries[lbl_805D4AE8].texture);
+            self->entries[lbl_805D4AE8].flags |= 1;
+            lbl_805D4AE8++;
+            lbl_805D4AE4++;
+            self->ntex++;
+            self->state = 6;
+        }
+        break;
+    case 9:
+        self->state = 0xA;
+    case 10:
+        tmp_buf_release__6TLobbyFi(lbl_80434B44);
+        lbl_805D4AE0 = NULL;
+        return 1;
+    case 11:
+        tmp_buf_release__6TLobbyFi(lbl_80434B44);
+        lbl_805D4AE0 = NULL;
+        return -1;
+    }
+    return 0;
+}
+#undef self
+
 void free_chr_select_data__6TLobbyFv(void) {
     if ((u32) lbl_805D4AD8 != 0U) {
         xfree__FPv((void*)((void*)lbl_805D4AD8));
@@ -301,7 +572,7 @@ void TLobby__sub_8001F8D8(Obj_8001F8D8 *self, void * _w1) {
     if (self->f434 <= self->f4 && self->f438 <= self->f8 && self->f43c <= self->fc) {
         set_flag_and_notify__6TLobbyFPv(self);
         self->f418 = 0;
-        TLobby__sub_8001EE48(lbl_80434C38);
+        tmp_buf_release__6TLobbyFi(lbl_80434C38);
     }
 }
 
@@ -332,7 +603,7 @@ void load_bin_motion_callback(void *arg0) {
 }
 
 struct Obj_8001F8D8;
-void TLobby__sub_8001FA1C(Lobby_8001FA1C *self) {
+void load_bin_model_callback__6TLobbyFPv(Lobby_8001FA1C *self) {
     char name[0x20];
     Params_8001FA1C params;
     u32 i;
@@ -350,7 +621,7 @@ void TLobby__sub_8001FA1C(Lobby_8001FA1C *self) {
             *slot = data;
             params.a = self->fC;
             params.b = self->f10;
-            TLobby__sub_8013189C(name, (void *)self->f0, &lbl_805D7F10);
+            change_file_extension__6TLobbyFPvPvPv(name, (void *)self->f0, &lbl_805D7F10);
             r = create_file_load_entry__6TLobbyFiiUiiPv(name, *slot, (void *)increment_ref_and_set_flag__6TLobbyFPv, &params, &handle);
             if (r >= 0) {
                 TLobby__sub_8001EDD8(self->fC, handle);
@@ -410,7 +681,7 @@ s32 bind_bml_model(Lobby_8001FBEC *arg0, u32 arg1, s32 arg2, s32 arg3) {
     return 1;
 }
 
-s32 TLobby__sub_8001FCC4(Lobby_8001FB6C *arg0, s32 arg1, s32 arg2) {
+s32 load_bin_motion__6TLobbyFPvii(Lobby_8001FB6C *arg0, s32 arg1, s32 arg2) {
     u32 offset;
     s32 tag;
     s32 size;
@@ -433,11 +704,11 @@ s32 TLobby__sub_8001FCC4(Lobby_8001FB6C *arg0, s32 arg1, s32 arg2) {
     return 1;
 }
 
-s32 TLobby__sub_8001FD98(Lobby_8001FD98 *arg0, s32 arg1, s32 arg2) {
+s32 load_bin_model__6TLobbyFPvii(Lobby_8001FD98 *arg0, s32 arg1, s32 arg2) {
     s32 size;
     arg0->entries[arg2].motion = NULL;
     arg0->entries[arg2].texture = NULL;
-    size = TLobby__sub_800FD944(arg1);
+    size = get_resource_file_size__6TLobbyFPv(arg1);
     if (size <= 0) {
         debug_print__6TLobbyFii(lbl_80434D74, arg1);
         return 0;
@@ -448,7 +719,7 @@ s32 TLobby__sub_8001FD98(Lobby_8001FD98 *arg0, s32 arg1, s32 arg2) {
     set_stream_state__6TLobbyFi(arg1, lbl_805D4ACC);
     bind_bml_model((Lobby_8001FBEC *)(arg0), (u32)(size), (s32)(arg2), (s32)(lbl_805D4ACC));
     if (arg0->entries[arg2].texture != NULL) {
-        TLobby__sub_8001F018((Lobby_8001F018 *)(arg0), (void *)(arg1), (s32)(arg2));
+        load_texture_sub__6TLobbyFPvPvi((Lobby_8001F018 *)(arg0), (void *)(arg1), (s32)(arg2));
     }
     return 1;
 }
@@ -648,7 +919,7 @@ Lobby_80020004 *load_resource_from_descriptor(Lobby_80020004 *self, s32 kind, De
             for (s32 i = 0; i < self->nEnts16; i++, rec++) {
                 if (self->ents16[i].b != NULL) {
                     strncpy(name, rec->name, 0x20);
-                    TLobby__sub_8001F018((Lobby_8001F018 *)self, name, i);
+                    load_texture_sub__6TLobbyFPvPvi((Lobby_8001F018 *)self, name, i);
                 }
             }
         }

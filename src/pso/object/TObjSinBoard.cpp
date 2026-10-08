@@ -46,7 +46,7 @@ M2C_UNK set_global_param__8TObjFishFi(int);
 M2C_UNK draw_ginja_model(void *);
 extern RecoveredGlobal_801982D4_lbl_804B8DAC lbl_804B8DAC;
 extern s32 lbl_805D5C60;
-void TObjPlayer__sub_801982D4(u8 *arg0);
+void draw_hinged_model__10TObjPlayerFPv(u8 *arg0);
 s32 TPhotonMagicSquare__sub_801A2640(void *, void *);
 extern M2C_UNK __vt__12TObjSinBoard[];
 extern s32 lbl_805D3430;
@@ -55,7 +55,7 @@ s32 get_state_flag__9TMainTaskFv();
 void reset_transform_state__10TObjPlayerFv();
 void begin_effect_render__13TParticleCtrlFv();
 void end_effect_render__13TParticleCtrlFv();
-void TObjPlayer__sub_801E3784(Desc_8019806C *, int, int);
+void draw_tri_fan_3d__10TObjPlayerFPviUi(Desc_8019806C *, int, int);
 void scale_matrix(int, f32, f32, f32);
 M2C_UNK rotate_matrix_y(int, int);
 M2C_UNK rotate_matrix_z(int, int);
@@ -84,7 +84,7 @@ extern u8 lbl_8050DD58[];
 extern void *tl_05;
 extern s32 tl_06;
 extern const f32 lbl_805DBF40;
-void TOSwitchAttack__sub_80198504(void *self);
+void update_effects__14TOSwitchAttackFPv(void *self);
 }
 
 extern "C" {
@@ -126,7 +126,7 @@ void render__12TObjSinBoardFv(u8 *arg0) {
         rotate_matrix_x(0, *(s32 *)(arg0 + 0x5C));
         rotate_matrix_y(0, *(s32 *)(arg0 + 0x60));
         scale_matrix(0, *(f32 *)(arg0 + 0x68), *(f32 *)(arg0 + 0x6C), *(f32 *)(arg0 + 0x70));
-        TObjPlayer__sub_801E3784(&d, 4, 0xE);
+        draw_tri_fan_3d__10TObjPlayerFPviUi(&d, 4, 0xE);
         pop_matrix();
         end_effect_render__13TParticleCtrlFv();
     }
@@ -165,7 +165,7 @@ void *TObjSinBoard__create(void *arg0) {
     }
     return o;
 }
-void TObjPlayer__sub_801982D4(u8 *arg0) {
+void draw_hinged_model__10TObjPlayerFPv(u8 *arg0) {
     u8 *temp_r3;
     if ((s32) M2C_FIELD(arg0, s32 *, 0x3C) != 0) {
         M2C_FIELD(arg0, s32 *, 0x38) = (s32) (M2C_FIELD(arg0, s32 *, 0x38) + 0x38E);
@@ -208,7 +208,7 @@ void TWindowTimer__sub_8019841C(void *arg0) {
     if (M2C_FIELD(arg0, s32 *, 0x28) != 0) {
         if (M2C_FIELD(lbl_8050DDAC, s16 *, 0x10) & (M2C_FIELD(arg0, s32 *, 0x40) != 0 ? 0x10 : 1)) {
             M2C_FIELD(arg0, s32 *, 0x3C) = 1;
-            TOSwitchAttack__sub_80198504((void *)(arg0));
+            update_effects__14TOSwitchAttackFPv((void *)(arg0));
         } else {
             M2C_FIELD(arg0, s32 *, 0x3C) = 0;
             M2C_FIELD(arg0, s32 *, 0x30) = 0;
@@ -216,7 +216,7 @@ void TWindowTimer__sub_8019841C(void *arg0) {
     } else {
         if (M2C_FIELD(lbl_8050DDAC, s16 *, 0x10) & (M2C_FIELD(arg0, s32 *, 0x40) != 0 ? 0x20 : 2)) {
             M2C_FIELD(arg0, s32 *, 0x3C) = 1;
-            TOSwitchAttack__sub_80198504((void *)(arg0));
+            update_effects__14TOSwitchAttackFPv((void *)(arg0));
         } else {
             M2C_FIELD(arg0, s32 *, 0x3C) = 0;
             M2C_FIELD(arg0, s32 *, 0x30) = 0;
@@ -228,7 +228,7 @@ void TWindowTimer__sub_8019841C(void *arg0) {
         queue_destruction__7TObjectFv(arg0);
     }
 }
-void TOSwitchAttack__sub_80198504(void *self) {
+void update_effects__14TOSwitchAttackFPv(void *self) {
     u8 *arg0 = (u8 *)self;
     Vec_80198504 v6;
     Vec_80198504 v2a;

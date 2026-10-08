@@ -14,10 +14,10 @@ s32 is_trade_active();
 s32 is_active__19TWindowSubShortMailFv();
 s32 is_com_card_active();
 s32 is_guild_card_receive_active();
-void TWindowSubStatusDisp__sub_80246980(s32 arg0);
+void update_entry_visibility__20TWindowSubStatusDispFi(s32 arg0);
 u8 TWindowSubAreaMapDisp__sub_80246948(Obj_80246948 *self);
-M2C_UNK TLobby__sub_8001EE48(void *);
-s32 TLobby__sub_8001EEFC(void *);
+M2C_UNK tmp_buf_release__6TLobbyFi(void *);
+s32 tmp_buf_use_req__6TLobbyFPv(void *);
 M2C_UNK draw_string__9TLanguageFPvPvi(void *, void *, int);
 M2C_UNK TLobby__sub_8023E554(void *, void *);
 M2C_UNK set_global_param__8TObjFishFi(void *);
@@ -59,7 +59,7 @@ void free_window__15TWindowCtrlMainFv(void) {
 
 void load_hud_palette_textures(void) {
     s32 sp8[3];
-    sp8[0] = TLobby__sub_8001EEFC((void *) (lbl_8044E658));
+    sp8[0] = tmp_buf_use_req__6TLobbyFPv((void *) (lbl_8044E658));
     draw_string__9TLanguageFPvPvi((void *) (lbl_8044E688), (void *) (sp8), (int) (0x40));
     draw_string__9TLanguageFPvPvi((void *) (lbl_8044E69C), (void *) (sp8), (int) (0x41));
     draw_string__9TLanguageFPvPvi((void *) (lbl_8044E6B0), (void *) (sp8), (int) (0x42));
@@ -70,7 +70,7 @@ void load_hud_palette_textures(void) {
     draw_string__9TLanguageFPvPvi((void *) (lbl_8044E720), (void *) (sp8), (int) (1));
     draw_string__9TLanguageFPvPvi((void *) (lbl_8044E734), (void *) (sp8), (int) (0x4A));
     draw_string__9TLanguageFPvPvi((void *) (lbl_8044E748), (void *) (sp8), (int) (0x43));
-    TLobby__sub_8001EE48((void *) (lbl_8044E658));
+    tmp_buf_release__6TLobbyFi((void *) (lbl_8044E658));
     TLobby__sub_8023E554((void *) (lbl_8044E758), (void *) (lbl_804D2F3C));
     lbl_805D63F0 = (u32)lbl_804D2F3C;
     set_global_param__8TObjFishFi((void *) (lbl_804D2F3C));
@@ -99,7 +99,7 @@ int TWindowFukidasi__sub_8024695C(void* p) { return (*(u32*)((char*)p + 0x2c) >>
 int get_visible_flag__15TWindowFukidasiFPv(void* p) { return (*(u32*)((char*)p + 0x2c) >> 9) & 0x1; }
 
 int is_bit10_set__15TWindowFukidasiFPv(void* p) { return (*(u32*)((char*)p + 0x2c) >> 10) & 0x1; }
-void TWindowSubStatusDisp__sub_80246980(s32 arg0) {
+void update_entry_visibility__20TWindowSubStatusDispFi(s32 arg0) {
     u32 temp_r31;
     u32 temp_r30;
     u32 temp_r29;

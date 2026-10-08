@@ -38,7 +38,7 @@ extern s32 lbl_805D3848;
 extern s32 tl_01;
 extern s32 tl_02;
 extern s32 lbl_805D63CC;
-void TAdMultiChgGameModeGC__sub_8023ED34(void);
+void create_mode_scene__21TAdMultiChgGameModeGCFv(void);
 }
 
 extern "C" {
@@ -174,7 +174,7 @@ void init_change_mode__21TAdMultiChgGameModeGCFv(void) {
     lbl_805D3848 = 0;
     lbl_805D63C8 = 1;
 }
-void TAdMultiChgGameModeGC__sub_8023ED34(void) {
+void create_mode_scene__21TAdMultiChgGameModeGCFv(void) {
     void *p;
     switch (lbl_805D3848) {
     case 0:

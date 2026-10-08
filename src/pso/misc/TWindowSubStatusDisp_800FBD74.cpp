@@ -200,7 +200,7 @@ struct Quad_800FC24C { f32 x0; f32 y0; f32 x1; f32 y1; f32 u0; f32 v0; f32 u1; f
 s32 is_split_screen();
 s32 get_camera_mode__11TCameraCtrlFv();
 M2C_UNK get_random_float__21TObjEneMe3ShinowaRealFv(f32);
-s32 TCameraCtrl__sub_80068958(int);
+s32 get_nth_view_player_id__11TCameraCtrlFi(int);
 void read_disc_file(void *, void *);
 M2C_UNK destroy_instance__22TQuestVmDownLoadServerFv();
 void create_instance__8TFogCtrlFv(void);
@@ -229,12 +229,12 @@ TFogCtrl_800FB92C * TFogCtrl__ct(TFogCtrl_800FB92C *self, void *parent, s32 inde
 void TFogCtrl__sub_800FBA54(void);
 void TFogCtrl__sub_800FBA58(void);
 void TFogCtrl__sub_800FBAAC(void);
-void TFogCtrl__sub_800FBAB0(void);
+void update_fog_entries__8TFogCtrlFv(void);
 void create_area_fog_ctrl(void);
 void reset__8TFogCtrlFv(void);
 void init_scene_fog_system(void);
 void TWindowSubStatusDisp__sub_800FBD74(s32 arg0, f32 farg0, f32 farg1, f32 farg2);
-void TWindowSubStatusDisp__sub_800FBEA8(void *color, s16 value, u16 digits, f32 x, f32 y, f32 scale);
+void draw_number_digits__20TWindowSubStatusDispFPvsUsfff(void *color, s16 value, u16 digits, f32 x, f32 y, f32 scale);
 void draw_small_font_text(void *color, const char *s, f32 x, f32 y, f32 scale);
 int get_name_text_width(void* p);
 u32 calc_small_font_text_width(const char *s);
@@ -324,7 +324,7 @@ void TWindowSubStatusDisp__sub_800FBD74(s32 arg0, f32 farg0, f32 farg1, f32 farg
     get_player__20TWindowSubStatusDispFv();
 }
 
-void TWindowSubStatusDisp__sub_800FBEA8(void *color, s16 value, u16 digits, f32 x, f32 y, f32 scale) {
+void draw_number_digits__20TWindowSubStatusDispFPvsUsfff(void *color, s16 value, u16 digits, f32 x, f32 y, f32 scale) {
     Pos_800FBEA8 pos;
     s32 id;
     s32 i;

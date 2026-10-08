@@ -17,7 +17,7 @@ void set_glyph_quad_extents(u8, void *);
 s32 map_char_to_font_code(u16);
 u8 get_font_char_advance(s32);
 void apply_context_transform_to_rect(void *, void *);
-M2C_UNK TObjCMHairMenu__sub_801E35C4(void *, int, int, f32);
+M2C_UNK draw_tri_fan_2d__14TObjCMHairMenuFPviif(void *, int, int, f32);
 extern u32 lbl_804CFA84[];
 extern const f32 lbl_805DD048;
 extern const f32 lbl_805DD058;
@@ -99,7 +99,7 @@ int TWindowKeyBoardSoft__sub_8025D1C8(void*, void*);
 int TWindowKeyBoardSoft__sub_8025D264(void*, void*);
 void update_input__19TWindowKeyBoardSoftFPvPv(void* p, void* a1);
 s32 TWindowKeyBoardSoft__sub_8025D378(void *, void *);
-void TWindowKeyBoardSoft__sub_8025D47C(KbSoft_8025D47C *self, char *name, char *text);
+void write_name_and_text__19TWindowKeyBoardSoftFPvPvPv(KbSoft_8025D47C *self, char *name, char *text);
 s32 TWindowKeyBoardSoft__sub_8025D544(void *, M2C_UNK *, s8 *);
 void set_kanji_mode__19TWindowKeyBoardSoftFPv(void *arg0);
 void set_kana_mode__19TWindowKeyBoardSoftFPv(void *arg0);
@@ -248,7 +248,7 @@ void TWindowKeyBoardSoft__sub_8025D3CC(u8 *arg0, u8 *arg1) {
     *(u32 *)(arg0 + 0xA4) = *(u32 *)(arg0 + 0xA0);
 }
 
-void TWindowKeyBoardSoft__sub_8025D47C(KbSoft_8025D47C *self, char *name, char *text) {
+void write_name_and_text__19TWindowKeyBoardSoftFPvPvPv(KbSoft_8025D47C *self, char *name, char *text) {
     u8 *p = self->buf;
     s32 n1 = strnlen__19TWindowKeyBoardSoftFPvUi(name, 0x100);
     s32 n2;
@@ -335,7 +335,7 @@ void TWindowKeyBoardSoft__sub_8025D7FC(KbSoft_8025D7FC *self) {
     }
     self->sel = i;
     self->count = n;
-    TWindowKeyBoardSoft__sub_8025D47C((KbSoft_8025D47C *)(self), (char *)((M2C_UNK *)name), (char *)((s8 *)text));
+    write_name_and_text__19TWindowKeyBoardSoftFPvPvPv((KbSoft_8025D47C *)(self), (char *)((M2C_UNK *)name), (char *)((s8 *)text));
 }
 
 void TWindowKeyBoardSoft__sub_8025D8C8(KbSoft_8025D8C8 *self) {
@@ -364,7 +364,7 @@ void TWindowKeyBoardSoft__sub_8025D8C8(KbSoft_8025D8C8 *self) {
     }
     self->sel = i;
     self->count = n;
-    TWindowKeyBoardSoft__sub_8025D47C((KbSoft_8025D47C *)(self), (char *)((M2C_UNK *)name), (char *)((s8 *)text));
+    write_name_and_text__19TWindowKeyBoardSoftFPvPvPv((KbSoft_8025D47C *)(self), (char *)((M2C_UNK *)name), (char *)((s8 *)text));
 }
 
 void select_next__19TWindowKeyBoardSoftFPv(void *arg0) {
@@ -437,7 +437,7 @@ void convert_input_text__19TWindowKeyBoardSoftFPv(void *arg0) {
     }
     M2C_FIELD(arg0, s32 *, 0xB0) = 0x94;
     if (TWindowKeyBoardSoft__sub_8025D544(arg0, (M2C_UNK *)sp8, sp108) != 0) {
-        TWindowKeyBoardSoft__sub_8025D47C((KbSoft_8025D47C *)(arg0), (char *)((M2C_UNK *)sp8), (char *)(sp108));
+        write_name_and_text__19TWindowKeyBoardSoftFPvPvPv((KbSoft_8025D47C *)(arg0), (char *)((M2C_UNK *)sp8), (char *)(sp108));
         M2C_FIELD(arg0, u16 *, 0x60) = (u16) (M2C_FIELD(arg0, u16 *, 0x60) | 4);
     }
 }
@@ -497,7 +497,7 @@ void TWindowSubStatusDisp__sub_8025DECC(void *arg0, void *arg1, void *arg2) {
                 pos[5] = q.y2;
                 pos[6] = q.x;
                 pos[7] = q.y2;
-                TObjCMHairMenu__sub_801E35C4(&d, 4, 6, depth);
+                draw_tri_fan_2d__14TObjCMHairMenuFPviif(&d, 4, 6, depth);
                 ((f32 *)arg2)[0] += (f32)(s32)adv;
             }
         }

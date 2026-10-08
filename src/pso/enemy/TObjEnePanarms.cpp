@@ -305,7 +305,7 @@ void TObjEnePanarms__sub_800E0B9C(Obj_800E0B9C *arg0);
 void update_hit_state__14TObjEnePanarmsFPv(void *arg0);
 void TObjEnePanarms__sub_800E0CB0(u8 *arg0);
 void TObjEnePanarms__sub_800E0E88(u8 *arg0);
-void TObjEnePanarms__sub_800E0ED0(u8 *arg0);
+void update_move_to_target__14TObjEnePanarmsFPv(u8 *arg0);
 void TObjEnePanarms__sub_800E1090(u8 *arg0);
 void start_action__14TObjEnePanarmsFPv(void *arg0);
 void handle_split_flag__14TObjEnePanarmsFPv(void *arg0);
@@ -314,7 +314,7 @@ void TObjEnePanarms__sub_800E152C(u8 *arg0);
 void reset_state__14TObjEnePanarmsFPv(void* a0);
 void TObjEnePanarms__sub_800E15B4(u8 *arg0);
 void TObjEnePanarms__sub_800E1608(u8 *arg0, s32 arg1);
-s32 TObjEnePanarms__sub_800E18B0(u8 *arg0, Vec_800E18B0 *arg1);
+s32 try_move_with_detour__14TObjEnePanarmsFPvPv(u8 *arg0, Vec_800E18B0 *arg1);
 void TObjEnePanarms__sub_800E1A44(u8 *arg0);
 void TObjEnePanarms__sub_800E1B50(u8 *arg0);
 void TObjEnePanarms__sub_800E1B78(u8 *arg0, u8 *arg1, s32 *arg2);
@@ -331,7 +331,7 @@ void TObjEnePanarms__sub_800E1E74(Obj_800E1E74 *self);
 void TObjEnePanarms__sub_800E1ED0(u8 *arg0);
 void update_linked_effect__14TObjEnePanarmsFPv(u8 *arg0);
 void draw__14TObjEnePanarmsFPv(void* p);
-void TObjEnePanarms__sub_800E20D0(u8 *arg0);
+void draw_with_fade__14TObjEnePanarmsFPv(u8 *arg0);
 Obj_800E24A4 * fn_800E24A4(Obj_800E24A4 *arg0, s16 arg1);
 s32 TObjEnePanBARA__ct(s32, s32, s32, s32);
 s32 create_bara__14TObjEnePanarmsFii(s32 arg0, s32 arg1);
@@ -345,7 +345,7 @@ void TObjEnePanarms__sub_800E2EF0(void*, s32, s32);
 int TObjEnePanarms__sub_800E2F6C(u8 *arg0, s32 arg1, f32 farg0);
 s32 TObjEnePanarms__sub_800E2FB4(O_800E2FB4 *self);
 int clear_render_callback__8TObjFishFv(void);
-int TObjFish__sub_800E3074(void*);
+int set_draw_callback_list__8TObjFishFPv(void*);
 void init_state_1__8TObjFishFPv(s32);
 M2C_UNK draw_blob_shadow(int);
 M2C_UNK copy_target_state__14TObjEnePanarmsFPvPv(void *, M2C_UNK);
@@ -608,7 +608,7 @@ void TObjEnePanarms__sub_800E0048(u8 *arg0) {
         }
         v.x *= M2C_FIELD(arg0, f32 *, 0x3B0);
         v.z *= M2C_FIELD(arg0, f32 *, 0x3B0);
-        ((M2C_UNK (*)(void *, void *))TObjEnePanarms__sub_800E18B0)(arg0, &v);
+        ((M2C_UNK (*)(void *, void *))try_move_with_detour__14TObjEnePanarmsFPvPv)(arg0, &v);
     }
     if (M2C_FIELD(arg0, f32 *, 0x3D8) < lbl_805DA53C) {
         TObjEnePanarms__sub_800E1C98(arg0, 0xE);
@@ -732,7 +732,7 @@ void TObjEnePanarms__sub_800E055C(u8 *arg0) {
     v.x = M2C_FIELD(arg0, f32 *, 0x3B0) * sin_table_lookup(M2C_FIELD(arg0, s32 *, 0x60));
     v.z = M2C_FIELD(arg0, f32 *, 0x3B0) * cos_table_lookup(M2C_FIELD(arg0, s32 *, 0x60));
     v.y = 0.0f;
-    ((void (*)(void *, Vec_800E18B0 *))TObjEnePanarms__sub_800E18B0)(arg0, &v);
+    ((void (*)(void *, Vec_800E18B0 *))try_move_with_detour__14TObjEnePanarmsFPvPv)(arg0, &v);
     if (((s32 (*)(void *))is_below_half_hp__14TObjEnePanarmsFPv)(arg0) != 0) {
         TObjEnePanarms__sub_800E1C98(arg0, 0xC);
         return;
@@ -755,7 +755,7 @@ void init_action__14TObjEnePanarmsFPv(void* a0) {
     set_field_b8__14TObjEnePanarmsFPvs((void*)(a0), (int)(2));
 }
 
-void TObjEnePanarms__sub_800E06DC(u8 *arg0) {
+void update_chase_target__14TObjEnePanarmsFPv(u8 *arg0) {
     Vec_800E06DC sp8;
     f32 v;
     u8 *p;
@@ -789,7 +789,7 @@ void TObjEnePanarms__sub_800E06DC(u8 *arg0) {
     }
     sp8.x *= M2C_FIELD(arg0, f32 *, 0x3B0);
     sp8.z *= M2C_FIELD(arg0, f32 *, 0x3B0);
-    ((M2C_UNK (*)(void *, void *))TObjEnePanarms__sub_800E18B0)(arg0, &sp8);
+    ((M2C_UNK (*)(void *, void *))try_move_with_detour__14TObjEnePanarmsFPvPv)(arg0, &sp8);
     if (TObjEnePanarms__data_805DA524 == M2C_FIELD(arg0, f32 *, 0x3B0)) {
         TObjEnePanarms__sub_800E1C98(arg0, 0xA);
         return;
@@ -974,7 +974,7 @@ void TObjEnePanarms__sub_800E0E88(u8 *arg0) {
     set_field_b8__14TObjEnePanarmsFPvs((void*)(arg0), (int)(1));
 }
 
-void TObjEnePanarms__sub_800E0ED0(u8 *arg0) {
+void update_move_to_target__14TObjEnePanarmsFPv(u8 *arg0) {
     Vec_800E0ED0 sp8;
     f32 dist;
     f32 v;
@@ -1015,7 +1015,7 @@ void TObjEnePanarms__sub_800E0ED0(u8 *arg0) {
     }
     sp8.x *= M2C_FIELD(arg0, f32 *, 0x3B0);
     sp8.z *= M2C_FIELD(arg0, f32 *, 0x3B0);
-    ((M2C_UNK (*)(void *, void *))TObjEnePanarms__sub_800E18B0)(arg0, &sp8);
+    ((M2C_UNK (*)(void *, void *))try_move_with_detour__14TObjEnePanarmsFPvPv)(arg0, &sp8);
     if (horizontal_distance_squared(arg0 + 0x38C, arg0 + 0x38) < lbl_805DA570) {
         TObjEnePanarms__sub_800E1C98(arg0, 4);
     }
@@ -1105,7 +1105,7 @@ void TObjEnePanarms__sub_800E10D0(u8 *arg0) {
     }
     a.x *= M2C_FIELD(arg0, f32 *, 0x3B0);
     a.z *= M2C_FIELD(arg0, f32 *, 0x3B0);
-    ((M2C_UNK (*)(void *, void *))TObjEnePanarms__sub_800E18B0)(arg0, &a);
+    ((M2C_UNK (*)(void *, void *))try_move_with_detour__14TObjEnePanarmsFPvPv)(arg0, &a);
     if (((s32 (*)(void *))is_below_half_hp__14TObjEnePanarmsFPv)(arg0) != 0) {
         TObjEnePanarms__sub_800E1C98(arg0, 0xC);
         return;
@@ -1248,7 +1248,7 @@ extern int fold_flush_5;
 #pragma auto_inline off
 #pragma dont_inline off
 #pragma fp_contract on
-s32 TObjEnePanarms__sub_800E18B0(u8 *arg0, Vec_800E18B0 *arg1) {
+s32 try_move_with_detour__14TObjEnePanarmsFPvPv(u8 *arg0, Vec_800E18B0 *arg1) {
     Vec_800E18B0 dir;
     Vec_800E18B0 t;
     Vec_800E18B0 p;
@@ -1482,9 +1482,9 @@ void update_linked_effect__14TObjEnePanarmsFPv(u8 *arg0) {
     }
 }
 
-void draw__14TObjEnePanarmsFPv(void* p) { ((int (*)(void*))push_matrix)(p); ((int (*)(void*))post_translate_matrix)((char*)p + 0x38); ((int (*)(void*, void*))rotate_matrix_y)((void*)0, *(void**)((char*)p + 0x60)); set_global_param__8TObjFishFi(*(void**)((char*)p + 0x24)); TObjFish__sub_800E3074(*(void**)((char*)p + 0x3dc)); draw__16TObjEneRe7BeruraFPv(p); ((int (*)(void*))clear_render_callback__8TObjFishFv)(*(void**)((char*)p + 0x3dc)); ((int (*)(void))pop_matrix)(); }
+void draw__14TObjEnePanarmsFPv(void* p) { ((int (*)(void*))push_matrix)(p); ((int (*)(void*))post_translate_matrix)((char*)p + 0x38); ((int (*)(void*, void*))rotate_matrix_y)((void*)0, *(void**)((char*)p + 0x60)); set_global_param__8TObjFishFi(*(void**)((char*)p + 0x24)); set_draw_callback_list__8TObjFishFPv(*(void**)((char*)p + 0x3dc)); draw__16TObjEneRe7BeruraFPv(p); ((int (*)(void*))clear_render_callback__8TObjFishFv)(*(void**)((char*)p + 0x3dc)); ((int (*)(void))pop_matrix)(); }
 
-void TObjEnePanarms__sub_800E20D0(u8 *arg0) {
+void draw_with_fade__14TObjEnePanarmsFPv(u8 *arg0) {
     s32 temp_r4;
     s32 var_r31;
     VObj_14_aa9368 *temp_r31;
@@ -1523,7 +1523,7 @@ void TObjEnePanarms__sub_800E20D0(u8 *arg0) {
     ((M2C_UNK (*)(void *))update_linked_effect__14TObjEnePanarmsFPv)((void *) (arg0));
 }
 
-void TObjEnePanarms__sub_800E2200(Panarms_800E2200 *self) {
+void run_state_machine__14TObjEnePanarmsFPv(Panarms_800E2200 *self) {
     Fn_800E2200 fn;
     Vec_800E2200 a;
     f32 s;

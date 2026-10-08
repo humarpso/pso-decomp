@@ -33,7 +33,7 @@ s32 copy_vec4__13TRaderMapCoreFPvPv(void *, void *);
 s32 scroll_strip_uvs(void *, s16, int);
 s32 draw__16TObjEneRe7BeruraFPv(void *);
 s32 clear_render_context__10TObjPlayerFv(void *);
-s32 TObjPlayer__sub_801A7638(void *);
+s32 set_photon_blast_joint_callback__10TObjPlayerFPv(void *);
 s32 begin_effect_render__13TParticleCtrlFv();
 s32 end_effect_render__13TParticleCtrlFv();
 s32 rotate_matrix_y(int, int);
@@ -150,7 +150,7 @@ void render__12TPhotonPillaFPv(Self_801ADDDC *self) {
         push_matrix();
         translate_matrix(0, self->pos.x, self->pos.y, self->pos.z);
         rotate_matrix_y(0, self->f60);
-        TObjPlayer__sub_801A7638(self);
+        set_photon_blast_joint_callback__10TObjPlayerFPv(self);
         lbl_805D5660 = some_id_805c6f74;
         copy_vec4__13TRaderMapCoreFPvPv(&lbl_8050BEC0, &lbl_8058D4C0);
         lbl_805D5664 = lbl_805D7784;

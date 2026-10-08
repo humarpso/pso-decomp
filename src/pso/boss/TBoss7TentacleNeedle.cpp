@@ -22,9 +22,9 @@ void TBoss7Tentacle__sub_802F09FC(u8 *arg0);
 void TBoss7Tentacle__sub_802F0A2C(u8 *arg0);
 void TBoss7Tentacle__sub_802F0A44(u8 *arg0);
 f32 sin_table_lookup(s32);
-M2C_UNK TObjPlayer__sub_803D8CD4(int);
+M2C_UNK set_matrix_identity__10TObjPlayerFPv(int);
 M2C_UNK subtract_vector(void *, void *);
-M2C_UNK TObjPlayer__sub_803D9730(int, int);
+M2C_UNK concat_matrix__10TObjPlayerFUiUi(int, int);
 M2C_UNK transform_point_by_current_matrix(void *, void *);
 void push_matrix(void);
 void pop_matrix(void);
@@ -176,7 +176,7 @@ void TObjPlayer__sub_802F0D2C(void);
 s32 rand(void);
 M2C_UNK rotate_matrix_zyx(int, int, int, int);
 M2C_UNK rotate_matrix_y(int, int);
-M2C_UNK TObjPlayer__sub_803D9730(int, int);
+M2C_UNK concat_matrix__10TObjPlayerFUiUi(int, int);
 void rotate_matrix_by_node_angles(void *, int);
 void push_matrix(void);
 void pop_matrix(void);
@@ -395,7 +395,7 @@ void render__14TBoss7TentacleFv(u8 *arg0) {
     switch (temp_r0) {
     case 0:
         ((M2C_UNK (*)(void))set_global_flag__10TObjPlayerFv)();
-        TObjPlayer__sub_803D9730((int) (0), (int) (M2C_FIELD(arg0, s32 *, 0x130)));
+        concat_matrix__10TObjPlayerFUiUi((int) (0), (int) (M2C_FIELD(arg0, s32 *, 0x130)));
         rotate_matrix_y((int) (0), (int) (M2C_FIELD(arg0, s32 *, 0x13C)));
         scale_current_matrix((void *) ((u8 *)(arg0) + 0x24));
         ((M2C_UNK (*)(void *, int, f32))draw_model_motion)((void *) (M2C_FIELD(arg0, M2C_UNK **, 0x1C)), (int) (M2C_FIELD(arg0, s32 *, 0x20)), (f32) (M2C_FIELD(arg0, f32 *, 0x134)));
@@ -405,14 +405,14 @@ void render__14TBoss7TentacleFv(u8 *arg0) {
     case 4:
     case 5:
         ((M2C_UNK (*)(void))set_global_flag__10TObjPlayerFv)();
-        TObjPlayer__sub_803D9730((int) (0), (int) (M2C_FIELD(arg0, s32 *, 0x130)));
+        concat_matrix__10TObjPlayerFUiUi((int) (0), (int) (M2C_FIELD(arg0, s32 *, 0x130)));
         rotate_matrix_zyx((int) (0), (int) (M2C_FIELD(arg0, s32 *, 0x140)), (int) (M2C_FIELD(arg0, s32 *, 0x13C)), (int) (0));
         scale_current_matrix((void *) ((u8 *)(arg0) + 0x24));
         ((M2C_UNK (*)(void *, int, f32))draw_model_motion)((void *) (M2C_FIELD(arg0, M2C_UNK **, 0x1C)), (int) (M2C_FIELD(arg0, s32 *, 0x20)), (f32) (M2C_FIELD(arg0, f32 *, 0x134)));
         ((M2C_UNK (*)(void))clear_global_state__10TObjPlayerFv)();
         break;
     case 2:
-        TObjPlayer__sub_803D9730((int) (0), (int) (M2C_FIELD(arg0, s32 *, 0x130)));
+        concat_matrix__10TObjPlayerFUiUi((int) (0), (int) (M2C_FIELD(arg0, s32 *, 0x130)));
         rotate_matrix_zyx((int) (0), (int) (M2C_FIELD(arg0, s32 *, 0x140)), (int) (M2C_FIELD(arg0, s32 *, 0x13C)), (int) (0));
         scale_current_matrix((void *) ((u8 *)(arg0) + 0x24));
         draw_chunk_object((void *) (M2C_FIELD(arg0, M2C_UNK **, 0x1C)));
@@ -509,8 +509,8 @@ void run_task__14TBoss7TentacleFv(u8 *arg0) {
         v.y = TBoss7Tentacle__data_805DEC04;
         v.z = TBoss7Tentacle__data_805DEC04;
         push_matrix();
-        TObjPlayer__sub_803D8CD4(0);
-        TObjPlayer__sub_803D9730(0, M2C_FIELD(arg0, s32 *, 0x130));
+        set_matrix_identity__10TObjPlayerFPv(0);
+        concat_matrix__10TObjPlayerFUiUi(0, M2C_FIELD(arg0, s32 *, 0x130));
         transform_point_by_current_matrix(&v, arg0 + 0x40);
         pop_matrix();
         VecCopy__FP3VecPC3Vec(&v, arg0 + 0x14C);

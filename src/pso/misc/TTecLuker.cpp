@@ -198,7 +198,7 @@ s32 get_stat_by_key_state__10TObjPlayerFPv(void *);
 s32 get_current_floor(void);
 void *create_telepipe_visual(void *self, Vec_802347B4 *pos, u16 id, s32 res);
 u8 *construct_field_collider__9TTecLukerFPviii(u8 *arg0, s32 arg1, s32 arg2, s32 arg3);
-void TBoss4DarkFalz__sub_8004C220(void *c, Vec_802347B4 *pos);
+void set_position_from__14TBoss4DarkFalzFPvPv(void *c, Vec_802347B4 *pos);
 void write_telepipe_record(u8 *arg0, u16 arg1, s16 arg2, u8 *arg3, s32 arg4);
 void TTecLuker__sub_802340E4(u8 *arg0);
 extern s32 tl_07;
@@ -697,7 +697,7 @@ void setup_telepipe_field__9TTecLukerFPv(Pipe_802347B4 *s) {
     s->visual = v;
     s->phase = 1;
     if (s->collider != 0) {
-        TBoss4DarkFalz__sub_8004C220(s->collider, &s->pos);
+        set_position_from__14TBoss4DarkFalzFPvPv(s->collider, &s->pos);
     } else {
         u8 *c = (u8 *)__nw__7TObjectFUl(0xb4);
         if (c != 0) {

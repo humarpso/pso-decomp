@@ -82,7 +82,7 @@ struct Self_8004A1CC {
 
 extern "C" {
 void VecCopy__FP3VecPC3Vec(void *, void *);
-f32 TObjPlayer__sub_8013153C(void *, void *);
+f32 horizontal_distance__10TObjPlayerFPvPv(void *, void *);
 void init_collision_body_parts(void *, void *, s32);
 void construct_collider_proxy__10TObjPlayerFPv(void *, s32);
 extern u8 lbl_80484B38[];
@@ -308,7 +308,7 @@ S_8004A574 *TObjVoloptPillar__ct(S_8004A574 *o, void *pos, s32 arg2) {
     o->f0 = lbl_805D2760;
     init_collision_body_parts(o, lbl_80484B38, 1);
     VecCopy__FP3VecPC3Vec(o->v38, pos);
-    d = TObjPlayer__sub_8013153C(o->v38, lbl_804FEE68);
+    d = horizontal_distance__10TObjPlayerFPvPv(o->v38, lbl_804FEE68);
     if (d < lbl_805D88E4) {
         o->f3c = TObjVoloptPillar__data_805D88C8;
     } else {

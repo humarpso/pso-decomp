@@ -50,8 +50,8 @@ void queue_destruction__7TObjectFv(void *);
 s32 query_teammate_state__9TObjEneDDFPv(void);
 M2C_UNK spawn_particle_effect(void *, int);
 M2C_UNK play_sound_effect(int, void *, int, int);
-M2C_UNK TBoss6PlotFalz__sub_802ABE3C(void *, int, int, f32);
-M2C_UNK TBoss6Rock__sub_8035A460(void *, int);
+M2C_UNK apply_radial_effect_to_players__14TBoss6PlotFalzFPvssf(void *, int, int, f32);
+M2C_UNK spawn_crush_rocks__10TBoss6RockFPvi(void *, int);
 M2C_UNK TBoss6RockChase__sub_8036D1B4(void *);
 extern const f32 TBoss6RockChase__data_805E03B8;
 extern const f32 lbl_805E03C0;
@@ -102,8 +102,8 @@ void run_task__15TBoss6RockChaseFv(u8 *arg0) {
             play_sound_effect((int) (0x4006B51E), (void *) (arg0 + 0x38), (int) (0), (int) (0));
             spawn_particle_effect((void *) (arg0 + 0x38), (int) (0x220));
             spawn_particle_effect((void *) (arg0 + 0x38), (int) (0x222));
-            TBoss6PlotFalz__sub_802ABE3C((void *) (arg0 + 0x38), (int) (0xC0), (int) (0xF), (f32) (lbl_805E03C8));
-            TBoss6Rock__sub_8035A460((void *) (arg0 + 0x38), (int) (M2C_FIELD(arg0, s32 *, 0xB0)));
+            apply_radial_effect_to_players__14TBoss6PlotFalzFPvssf((void *) (arg0 + 0x38), (int) (0xC0), (int) (0xF), (f32) (lbl_805E03C8));
+            spawn_crush_rocks__10TBoss6RockFPvi((void *) (arg0 + 0x38), (int) (M2C_FIELD(arg0, s32 *, 0xB0)));
             play_sound_effect((int) (0x4006AB1F), (void *) (arg0 + 0x38), (int) (0), (int) (0));
             queue_destruction__7TObjectFv(arg0);
         }

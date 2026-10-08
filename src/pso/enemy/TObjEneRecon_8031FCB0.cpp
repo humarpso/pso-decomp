@@ -284,8 +284,8 @@ extern "C" void TObjEneDD__vt98();
 extern "C" void TObjEneDD__vt99();
 extern "C" void TObjEneEpsilon__vt101();
 extern "C" void TObjEneEpsilon__vt81();
-extern "C" void TObjEneRecon__sub_8031E88C();
-extern "C" void TObjEneRecon__sub_8031EA70();
+extern "C" void draw_with_debug_info__12TObjEneReconFPv();
+extern "C" void render__12TObjEneReconFPv();
 extern "C" void TObjEneRecon__sub_8031FB6C();
 extern "C" void TObjEneRecon__sub_8031FC58();
 extern "C" void TObjEneRecon__sub_8031FC5C();
@@ -429,7 +429,7 @@ void *lbl_804EC760[16] = {
 };
 void *lbl_804EC7A0[107] = {
     (void *)0x0, (void *)0x0, (void *)&fn_8031FE14, (void *)&fn_8031FD3C,
-    (void *)&TObjEneRecon__sub_8031EA70, (void *)&render_actor_shadows_default, (void *)&TLobby__sub_801A1FD8, (void *)&apply_object_set_data,
+    (void *)&render__12TObjEneReconFPv, (void *)&render_actor_shadows_default, (void *)&TLobby__sub_801A1FD8, (void *)&apply_object_set_data,
     (void *)&reset_actor_action_state, (void *)&get_actor_body_center, (void *)&update_object_view_visibility, (void *)&classify_actor_view_detail,
     (void *)&get_enemy_name__14TObjEnePanarmsFPv, (void *)&TObjPlayer__sub_80019568, (void *)&add_actor_exp, (void *)&TObjPlayer__sub_800111D8,
     (void *)&get_actor_level_index, (void *)&update_actor_ground_y, (void *)&TObjPlayer__sub_80018E6C, (void *)&is_actor_cadence_frame,
@@ -454,7 +454,7 @@ void *lbl_804EC7A0[107] = {
     (void *)&TObjEneDD__vt89, (void *)&TObjEneDD__vt90, (void *)&TObjEneDD__vt91, (void *)&TObjEneDD__vt92,
     (void *)&TObjEneDD__vt93, (void *)&TObjEneDD__vt94, (void *)&TObjEneDD__vt95, (void *)&TObjEneDD__vt96,
     (void *)&TObjEneDD__vt97, (void *)&TObjEneDD__vt98, (void *)&TObjEneDD__vt99, (void *)&TObjEneDD__vt100,
-    (void *)&TObjEneEpsilon__vt101, (void *)&update_if_800BB858__12TObjEneReconFPv, (void *)&TObjEneRecon__sub_8031E88C,
+    (void *)&TObjEneEpsilon__vt101, (void *)&update_if_800BB858__12TObjEneReconFPv, (void *)&draw_with_debug_info__12TObjEneReconFPv,
 };
 #define lbl_804EC668 ((u8 *)lbl_804EC668)
 #define lbl_804EC684 ((u8 *)lbl_804EC684)
@@ -592,14 +592,14 @@ u8 *TObjEneRecobox__ct(u8 *arg0, s32 arg1, u8 *arg2) {
 
 extern "C" {
 s32 get_global_state__14TOKeyMachine01Fv();
-u32 TObjEneRecobox__sub_8032013C(u32 arg0);
+u32 remap_area_sound_id__14TObjEneRecoboxFUi(u32 arg0);
 }
 
 extern "C" {
 
 int TObjEneRecobox__sub_803201D0(void);
 
-u32 TObjEneRecobox__sub_8032013C(u32 arg0) {
+u32 remap_area_sound_id__14TObjEneRecoboxFUi(u32 arg0) {
     u32 ret;
     if (((s32)(arg0 & 0xBFFF00FF) >> 16 << 16) != 0x30000) {
         return arg0;
@@ -669,7 +669,7 @@ s32 dispatch_shared_handler_b__6TLobbyFPv(s32);
 s32 register_boss__6TLobbyFPv(s32);
 u32 load_enemy_bml_resource(void *);
 void spawn_npc_enemy__6TLobbyFsiiiff(s16, s32, s32, void *, f32, f32);
-void TObjEneRecon__sub_8031E708(void);
+void load_resources__12TObjEneReconFv(void);
 extern Spawn_80320260 lbl_804762D4;
 extern "C" u8 lbl_80476118[];
 extern "C" u8 lbl_80476124[];
@@ -703,7 +703,7 @@ extern const f32 lbl_805DF46C;
 #pragma dont_inline off
 #pragma inline_depth(4)
 static inline f32 getf_80320260(Sub_80320260 *p) { return p->f0C; }
-void TObjEneRecobox__sub_80320260(void) {
+void load_resources__14TObjEneRecoboxFv(void) {
     Box_80320260 *box;
 
     lbl_80543000.x = lbl_805DF46C;
@@ -722,7 +722,7 @@ void TObjEneRecobox__sub_80320260(void) {
     lbl_805D6B14 = dispatch_shared_handler_b__6TLobbyFPv(0x41);
     lbl_805D6B18 = register_object__6TLobbyFPv(0x41);
     lbl_805D6B1C = dispatch_shared_handler_a__6TLobbyFPv(0x41);
-    TObjEneRecon__sub_8031E708();
+    load_resources__12TObjEneReconFv();
     {
         Sub_80320260 *sp = &lbl_804EC684;
         Spawn_80320260 s = lbl_804762D4;

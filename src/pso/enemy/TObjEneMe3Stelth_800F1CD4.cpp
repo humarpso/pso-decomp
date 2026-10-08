@@ -190,7 +190,7 @@ extern const f32 lbl_805D9E88;
 extern const f32 TObjEneMe3Stelth__data_805DA808;
 extern const f32 lbl_805DA83C;
 extern const f32 TObjEneMe3Stelth__data_805DA840;
-void TObjEneMe3Stelth__sub_800F1CD4(void *arg0_);
+void render__16TObjEneMe3StelthFPv(void *arg0_);
 }
 
 extern "C" {
@@ -198,7 +198,7 @@ extern "C" {
 #define F(t, o) M2C_FIELD(arg0, t *, o)
 #define VO ((VObj_18_18102d *)(arg0))
 #define VS ((VObj_14_aa9368 *)(arg0 + 0x404))
-void TObjEneMe3Stelth__sub_800F1CD4(void *arg0_) {
+void render__16TObjEneMe3StelthFPv(void *arg0_) {
     s32 mode;
     s32 draw;
     u8 *arg0 = (u8 *)arg0_;

@@ -43,7 +43,7 @@ extern "C" {
 void TWindowGetComCard__sub_8007B65C(void* p);
 void TWindowGetComCard__sub_8007B67C(void* p);
 void remove_entry__17TWindowGetComCardFiii(s32 arg0, s32 arg1, s32 arg2);
-M2C_UNK TLobby__sub_803DE7BC(s32, s32, u32);
+M2C_UNK move_words__6TLobbyFPvPvi(s32, s32, u32);
 M2C_UNK TWindowSubComCard__sub_8007B26C(s32);
 
 typedef char RecoveredGlobal_8007B54C_TWindowGetComCard__data_80500158_size[sizeof(RecoveredGlobal_8007B54C_TWindowGetComCard__data_80500158) == 0x240 ? 1 : -1];
@@ -64,7 +64,7 @@ void remove_entry__17TWindowGetComCardFiii(s32 arg0, s32 arg1, s32 arg2) {
 
     if (arg0 < (s32) (arg2 - 1)) {
         temp_r3 = arg1 + (arg0 * 0x90);
-        TLobby__sub_803DE7BC(temp_r3, temp_r3 + 0x90, (u32) (((arg2 - arg0) - 1) * 0x90) >> 2U);
+        move_words__6TLobbyFPvPvi(temp_r3, temp_r3 + 0x90, (u32) (((arg2 - arg0) - 1) * 0x90) >> 2U);
     }
     arg1 += (arg2 - 1) * 0x90;
     TWindowSubComCard__sub_8007B26C(arg1);

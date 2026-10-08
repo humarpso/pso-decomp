@@ -35,7 +35,7 @@ s32 is_active__17TWindowSubComCardFPv(void *);
 s32 TWindowSubComCard__sub_8007AF60(Card_8007AF60 *p, s32 n);
 s32 is_active__17TWindowSubComCardFPv(void *);
 s32 TWindowSubComCard__sub_8007B010(Card_8007B010 *p, s32 n);
-Card_8007AFB8 *TWindowSubComCard__sub_8007A8F8(s32);
+Card_8007AFB8 *get_card_entry__17TWindowSubComCardFi(s32);
 s32 is_active__17TWindowSubComCardFPv(void *);
 s32 TWindowSubComCard__sub_8007AFB8(void);
 s32 forward_return_arg__17TWindowSubComCardFi(void *, void *);
@@ -80,7 +80,7 @@ s32 TWindowSubComCard__sub_8007AF60(Card_8007AF60 *p, s32 n) {
 }
 
 s32 TWindowSubComCard__sub_8007AFB8(void) {
-    Card_8007AFB8 *p = TWindowSubComCard__sub_8007A8F8(0);
+    Card_8007AFB8 *p = get_card_entry__17TWindowSubComCardFi(0);
     s32 i;
     for (i = 0; i < 0xD2; i++, p++) {
         if (is_active__17TWindowSubComCardFPv(p) == 0) {

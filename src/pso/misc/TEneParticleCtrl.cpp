@@ -19,7 +19,7 @@ struct O_80338D58 { u8 pad[0x72]; s16 idx; u8 pad2[2]; s16 count; };
 extern "C" {
 s32 VecCopy__FP3VecPC3Vec(void *, void *);
 u16 obj_getField1c(void *);
-s32 TBoss4DarkFalz__sub_8004C220(void *, void *);
+s32 set_position_from__14TBoss4DarkFalzFPvPv(void *, void *);
 u32 spawn_continuous_particle_effect_with_flags(void *, int, int);
 s32 set_owner_id__13TParticleCtrlFPvUs(int, int);
 s32 reset_photon_effect__10TObjPlayerFPv(void *);
@@ -81,7 +81,7 @@ u8 *TEneParticleCtrl__ct(u8 *arg0, s32 arg1, s32 arg2) {
     temp_r4 = (u8 *)(M2C_FIELD(arg0, u8 **, 0xA4));
     M2C_FIELD(temp_r4, s32 *, 0x18) = (s32) (M2C_FIELD(temp_r4, s32 *, 0x18) & 0xFFFFFFFE);
     M2C_FIELD(arg0, u16 *, 0xAC) = obj_getField1c((void *) (arg1));
-    TBoss4DarkFalz__sub_8004C220((void *) (arg0), (void *) (arg1 + 0x74));
+    set_position_from__14TBoss4DarkFalzFPvPv((void *) (arg0), (void *) (arg1 + 0x74));
     VecCopy__FP3VecPC3Vec((void *) (arg0 + 0xB4), (void *) (arg1 + 0x2FC));
     M2C_FIELD(arg0, s32 *, 0xB0) = arg2;
     M2C_FIELD(arg0, u32 *, 0xC0) = spawn_continuous_particle_effect_with_flags((void *) (arg0 + 0xB4), (int) (M2C_FIELD(arg0, s32 *, 0xB0)), (int) (0x10));

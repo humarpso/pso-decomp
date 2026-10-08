@@ -26,7 +26,7 @@ extern "C" void TWindowDD__sub_80340A78();
 extern "C" void init__9TWindowDDFPv();
 extern "C" void render_shadows__7TObjectFv();
 struct W_80340F00 { s32 f0; u8 pad4[0x14]; void *p18; u8 pad1c[0x5C - 0x1C]; s32 f5c; u8 pad60[4]; f32 f64; f32 f68; f32 f6c; };
-void *TWindowDD__sub_802466E0(void *, void *, s16, void *);
+void *construct_base__9TWindowDDFPvPvsPv(void *, void *, s16, void *);
 extern s32 lbl_805D42D0;
 extern const f32 lbl_805DFC50;
 extern const f32 lbl_805DFC70;
@@ -60,7 +60,7 @@ void *dt__9TWindowDDFPvs(void *arg0, s16 arg1) {
 }
 
 W_80340F00 *TWindowDD__sub_80340F00(W_80340F00 *arg0) {
-    TWindowDD__sub_802466E0(arg0, lbl_804EFBD0, 4, lbl_804EFBC8);
+    construct_base__9TWindowDDFPvPvsPv(arg0, lbl_804EFBD0, 4, lbl_804EFBC8);
     arg0->p18 = lbl_804EFBE4;
     arg0->f0 = lbl_805D42D0;
     arg0->f64 = lbl_805DFC70;

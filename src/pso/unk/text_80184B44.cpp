@@ -39,14 +39,14 @@ u32 get_anim_frame__25TObjCity_Season_EasterEggFPv(void *);
 extern RecoveredGlobal_80184B44_lbl_804440B0 lbl_804440B0;
 extern RecoveredGlobal_80184B44_lbl_804B5E48 lbl_804B5E48;
 extern const f32 lbl_805DBC1C;
-u8 *fn_80184B44(u8 *arg0, M2C_UNK arg1, s32 arg2, s32 arg3, f32 farg0);
+u8 *init_city_season_object(u8 *arg0, M2C_UNK arg1, s32 arg2, s32 arg3, f32 farg0);
 }
 
 extern "C" {
 
 typedef char RecoveredGlobal_80184B44_lbl_804440B0_size[sizeof(RecoveredGlobal_80184B44_lbl_804440B0) == 0x2C ? 1 : -1];
 typedef char RecoveredGlobal_80184B44_lbl_804B5E48_size[sizeof(RecoveredGlobal_80184B44_lbl_804B5E48) == 0x38 ? 1 : -1];
-u8 *fn_80184B44(u8 *arg0, M2C_UNK arg1, s32 arg2, s32 arg3, f32 farg0) {
+u8 *init_city_season_object(u8 *arg0, M2C_UNK arg1, s32 arg2, s32 arg3, f32 farg0) {
     struct CopyStack_80184B44 { u8 bytes[0x2C]; };
     CopyStack_80184B44 copy_storage_80184B44;
     u8 *temp_r4;

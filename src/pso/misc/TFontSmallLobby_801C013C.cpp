@@ -118,7 +118,7 @@ int TFontSmallLobby__sub_801C013C(void* p);
 void init_forward__10TObjPlayerFPv(void *);
 extern M2C_UNK fn_80152EF8[];
 void __construct_array(void *, void *, int, int, int);
-void TObjPlayer__sub_801D9D24(void *);
+void reset_tech_state__10TObjPlayerFPv(void *);
 void *TFontSmallLobby__sub_801C0164(void *arg0);
 int TFontSmallLobby__sub_801C01BC(void* p);
 int read_be16_field2__10TObjPlayerFPv(void*);
@@ -302,7 +302,7 @@ int TFontSmallLobby__sub_801C013C(void* p) { return clear_flags__11TAdRicoRingFP
 void *TFontSmallLobby__sub_801C0164(void *arg0) {
     init_forward__10TObjPlayerFPv((void *)((char *)arg0 + 16));
     __construct_array((void *)((char *)arg0 + 32), fn_80152EF8, 0, 4, 10);
-    TObjPlayer__sub_801D9D24(arg0);
+    reset_tech_state__10TObjPlayerFPv(arg0);
     return arg0;
 }
 

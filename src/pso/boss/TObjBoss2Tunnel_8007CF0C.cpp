@@ -23,11 +23,11 @@ extern "C" {
 void TObjBoss2Tunnel__sub_8007DD24(void);
 void load_data_buffers(void);
 s32 memcard_check_snapshot(s32 arg0, s32 *arg1);
-s32 TAdPlayerLoadGC__sub_801E0D8C(M2C_UNK);
+s32 probe_and_check_card__15TAdPlayerLoadGCFi(M2C_UNK);
 s32 TAdPlayerLoadGC__sub_801E0FA4(M2C_UNK);
 s32 TAdPlayerLoadGC__sub_801E1B50(M2C_UNK);
-s32 TAdPlayerLoadGC__sub_801E1E38(M2C_UNK);
-s32 TAdPlayerLoadGC__sub_801E2048(M2C_UNK, M2C_UNK *);
+s32 probe_card_slot__15TAdPlayerLoadGCFi(M2C_UNK);
+s32 find_card_file__15TAdPlayerLoadGCFiPv(M2C_UNK, M2C_UNK *);
 M2C_UNK init_capture_texture(M2C_UNK);
 s32 check_memcard_status__15TAdPlayerLoadGCFi(M2C_UNK);
 s32 get_instance__15TAdPlayerLoadGCFv();
@@ -80,13 +80,13 @@ s32 memcard_check_snapshot(s32 arg0, s32 *arg1) {
     if (get_instance__15TAdPlayerLoadGCFv() != 0) {
         return 0;
     }
-    if (TAdPlayerLoadGC__sub_801E1E38(1) == 0) {
+    if (probe_card_slot__15TAdPlayerLoadGCFi(1) == 0) {
         if (arg1 != NULL) {
             *arg1 = -4;
         }
         return 0;
     }
-    if (TAdPlayerLoadGC__sub_801E0D8C(1) == 0) {
+    if (probe_and_check_card__15TAdPlayerLoadGCFi(1) == 0) {
         if (arg1 != NULL) {
             if ((u32)(get_load_result__15TAdPlayerLoadGCFv(1) + 0x10000) == 0xff83U) {
                 if (arg1 != NULL) {
@@ -114,7 +114,7 @@ s32 memcard_check_snapshot(s32 arg0, s32 *arg1) {
         }
         return 0;
     }
-    temp_r3 = TAdPlayerLoadGC__sub_801E2048(1, TObjBoss2Tunnel__data_80438A08);
+    temp_r3 = find_card_file__15TAdPlayerLoadGCFiPv(1, TObjBoss2Tunnel__data_80438A08);
     if (temp_r3 == 0) {
         if (arg1 != NULL) {
             *arg1 = 1;

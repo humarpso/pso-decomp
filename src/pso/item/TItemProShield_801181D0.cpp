@@ -120,7 +120,7 @@ int TItemEquipBase__sub_8010A82C(void*);
 M2C_UNK register_technique_boosts__14TItemEquipBaseFPvPv(void *, s32);
 M2C_UNK draw_ginja_object(u32);
 M2C_UNK refresh_owner_stats__5TItemFPv(void *);
-M2C_UNK TObjPlayer__sub_80364028();
+M2C_UNK set_model_fade_alpha__10TObjPlayerFf();
 M2C_UNK TObjPlayer__sub_8036414C();
 M2C_UNK TObjPlayer__sub_80364198();
 M2C_UNK push_matrix_from();
@@ -143,7 +143,7 @@ void deactivate_shield_effect__14TItemProShieldFPvi(void *arg0, s32 arg1) {
         TObjPlayer__sub_80364198();
         some_id_805c6f74 &= 0xFFFFFFEF;
         get_mag_scale__10TObjPlayerFPv(arg0);
-        TObjPlayer__sub_80364028();
+        set_model_fade_alpha__10TObjPlayerFf();
         if (M2C_FIELD(arg0, s32 *, 0x19C) & 2) {
             begin_effect_render__13TParticleCtrlFv();
         }

@@ -57,7 +57,7 @@ extern char lbl_8047DAB8[];
 extern char lbl_80582E58[];
 extern s32 lbl_805D7608;
 extern RecoveredCallback_4873a87e26d6 lbl_805D760C;
-s32 TLobby__sub_803D0AE8(const char *name);
+s32 get_dvd_file_size__6TLobbyFPv(const char *name);
 }
 
 extern "C" {
@@ -120,7 +120,7 @@ s32 TLobby__sub_803D0654(struct File_803D0654 *arg0, s32 arg1, s32 arg2) {
     return arg0->pos;
 }
 typedef s32 (*RecoveredCallback_4873a87e26d6)(s32, s32 *, s32);
-s32 TLobby__sub_803D0AE8(const char *name) {
+s32 get_dvd_file_size__6TLobbyFPv(const char *name) {
     char *msg = lbl_8047DAB8;
     s32 size;
     u32 len;

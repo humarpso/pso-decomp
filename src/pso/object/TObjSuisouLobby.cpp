@@ -51,7 +51,7 @@ s32 init_map_object_base(void *, void *);
 s32 is_lobby_event_active(void);
 void TObjSuisouLobby__sub_80369D68(void);
 s32 matrix_mult_vec(int, void *, void *);
-s32 TObjPlayer__sub_803D8CD4(int);
+s32 set_matrix_identity__10TObjPlayerFPv(int);
 M2C_UNK rotate_matrix_y(int, int);
 M2C_UNK push_matrix();
 M2C_UNK pop_matrix();
@@ -224,7 +224,7 @@ void *TObjSuisouLobby__ct(void *arg0, void *arg1, void *arg2) {
     {
         Vec_80369ED4 v = lbl_8047A3D0[0];
         push_matrix();
-        TObjPlayer__sub_803D8CD4(0);
+        set_matrix_identity__10TObjPlayerFPv(0);
         post_translate_matrix(self->x38);
         rotate_matrix_y(0, self->x60);
         matrix_mult_vec(0, &v, &v);
@@ -237,7 +237,7 @@ void *TObjSuisouLobby__ct(void *arg0, void *arg1, void *arg2) {
     {
         Vec_80369ED4 v = lbl_8047A3DC[0];
         push_matrix();
-        TObjPlayer__sub_803D8CD4(0);
+        set_matrix_identity__10TObjPlayerFPv(0);
         post_translate_matrix(self->x38);
         rotate_matrix_y(0, self->x60);
         matrix_mult_vec(0, &v, &v);

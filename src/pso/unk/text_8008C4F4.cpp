@@ -24,7 +24,7 @@ M2C_UNK TKeyBoardControl__sub_8000F9CC(int);
 s32 is_ready__22TQuestVmDownLoadServerFv();
 M2C_UNK TLobby__sub_800FA464();
 s8 func_801A5E54__Fv();
-M2C_UNK TKeyBoardControl__sub_801A5EC4();
+M2C_UNK update_input_frame__16TKeyBoardControlFv();
 M2C_UNK controller_stuff__Fv();
 M2C_UNK render_tick__Fv();
 M2C_UNK update_sound_request_slots();
@@ -35,10 +35,10 @@ M2C_UNK run_task__9TMainTaskFv(void *);
 M2C_UNK noop__23TAdSinglePlyChrSelectGCFv();
 M2C_UNK func_803DCDFC__Fv();
 extern RecoveredGlobal_8008C534_main_task main_task;
-void fn_8008C534(void);
-M2C_UNK TLobby__sub_800FD6A0(void *, int);
+void run_game_frame(void);
+M2C_UNK call_funcs_reverse__6TLobbyFPvUi(void *, int);
 M2C_UNK render_tick__Fv();
-M2C_UNK TLobby__sub_8022743C();
+M2C_UNK stop_audio_streams__6TLobbyFv();
 M2C_UNK delete_all_task_children__9TMainTaskFv(void *);
 extern RecoveredGlobal_8008C4F4_lbl_8048E7C0 lbl_8048E7C0;
 extern RecoveredGlobal_8008C534_main_task main_task;
@@ -54,22 +54,22 @@ typedef char RecoveredGlobal_8008C4F4_main_task_size[sizeof(RecoveredGlobal_8008
 void fn_8008C4F4(void) {
     M2C_UNK *var_r3;
     s32 var_r4;
-    TLobby__sub_8022743C();
+    stop_audio_streams__6TLobbyFv();
     var_r3 = (M2C_UNK *)(&(*(RecoveredGlobal_8008C4F4_main_task *)&main_task).value);
     var_r3 = (M2C_UNK *)(&(*(RecoveredGlobal_8008C4F4_main_task *)&main_task).value);
     delete_all_task_children__9TMainTaskFv((void *) (&(*(RecoveredGlobal_8008C4F4_main_task *)&main_task).value));
     var_r3 = (M2C_UNK *)(&lbl_8048E7C0.value);
     var_r4 = 0x68;
     var_r3 = (M2C_UNK *)(&lbl_8048E7C0.value);
-    TLobby__sub_800FD6A0((void *) (&lbl_8048E7C0.value), (int) (0x68));
+    call_funcs_reverse__6TLobbyFPvUi((void *) (&lbl_8048E7C0.value), (int) (0x68));
     render_tick__Fv();
 }
 
-void fn_8008C534(void) {
+void run_game_frame(void) {
     M2C_UNK *var_r3;
     func_803DCDFC__Fv();
     controller_stuff__Fv();
-    TKeyBoardControl__sub_801A5EC4();
+    update_input_frame__16TKeyBoardControlFv();
     var_r3 = (M2C_UNK *)(&main_task.value);
     var_r3 = (M2C_UNK *)(&main_task.value);
     some_empty_func__9TMainTaskFv((void *) (&main_task.value));

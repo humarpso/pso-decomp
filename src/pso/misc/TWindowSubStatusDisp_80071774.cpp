@@ -18,7 +18,7 @@ struct G_800718D0 { u8 pad[0xC]; s32 fc; u8 rest[0x100]; };
 extern "C" {
 s32 get_layout_id__20TWindowSubStatusDispFv(void *);
 s32 TWindowSubStatusDisp__sub_8006F0D8(void *, void *);
-s32 TLobby__sub_8006F994(int);
+s32 get_valid_slot__6TLobbyFi(int);
 u32 get_card_window__17TWindowSubComCardFUi(u32);
 s32 TWindowSubStatusDisp__sub_80071A24(s32 arg0, u16 arg1, s32 arg2);
 s32 TLobby__sub_8006F888(void *, void *, int);
@@ -26,12 +26,12 @@ extern RecoveredGlobal_80071820_lbl_804FF820 lbl_804FF820;
 extern M2C_UNK lbl_805D2858;
 M2C_UNK *TWindowSubStatusDisp__sub_80071820(u32 arg0);
 u32 get_card_window__17TWindowSubComCardFUi(u32);
-s32 TWindowSubStatusDisp__sub_8006F190(s32 slot);
+s32 resolve_player_slot__20TWindowSubStatusDispFi(s32 slot);
 s32 get_slot_clamped__6TLobbyFv(s32);
 s32 TWindowSubStatusDisp__sub_80071868(u16 id, s32 slot);
 s32 get_layout_id__20TWindowSubStatusDispFv(void *);
 s32 TWindowSubStatusDisp__sub_8006F0D8(void *, void *);
-s32 TLobby__sub_8006F994(int);
+s32 get_valid_slot__6TLobbyFi(int);
 u32 get_card_window__17TWindowSubComCardFUi(u32);
 s32 TWindowSubStatusDisp__sub_80071988(s32 arg0, s32 arg1);
 s32 calc_layout_hash__20TWindowSubStatusDispFv(int);
@@ -96,7 +96,7 @@ s32 TWindowSubStatusDisp__sub_80071868(u16 id, s32 slot) {
     if (w == 0) {
         return 0;
     }
-    idx = TWindowSubStatusDisp__sub_8006F190(slot);
+    idx = resolve_player_slot__20TWindowSubStatusDispFi(slot);
     if (idx < 3) {
         v = w->e[idx].a;
     } else {
@@ -143,7 +143,7 @@ s32 TWindowSubStatusDisp__sub_80071988(s32 arg0, s32 arg1) {
     sum = 0;
     n = get_layout_id__20TWindowSubStatusDispFv((void *)arg1);
     for (i = 0; i < n; i++, p++) {
-        r = TLobby__sub_8006F994(*p);
+        r = get_valid_slot__6TLobbyFi(*p);
         if (r == 0) {
             return 0;
         }
@@ -160,7 +160,7 @@ s32 TWindowSubStatusDisp__sub_80071A24(s32 arg0, u16 arg1, s32 arg2) {
     if ((arg0 < 0) || (arg0 >= temp_r3) || (temp_r31 == 0U)) {
         return 0;
     }
-    return TLobby__sub_8006F994((int) (M2C_FIELD(TWindowSubStatusDisp__sub_8006F0D8((void *) (temp_r31 + 0x21C4), (void *) (arg2)), M2C_UNK *, (arg0 * 4))));
+    return get_valid_slot__6TLobbyFi((int) (M2C_FIELD(TWindowSubStatusDisp__sub_8006F0D8((void *) (temp_r31 + 0x21C4), (void *) (arg2)), M2C_UNK *, (arg0 * 4))));
 }
 
 }

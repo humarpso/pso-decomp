@@ -476,7 +476,7 @@ M2C_UNK TObjEneMerillLia__sub_800D56B4(void *);
 M2C_UNK update_prev_position__10TObjPlayerFPv(void *);
 M2C_UNK submit_cursor_candidate(void *, int);
 extern const f32 TObjEneMerillLia__data_805DA2F4;
-void TObjEneMerillLia__sub_800D6AAC(u8 *arg0);
+void run_state_dispatch__16TObjEneMerillLiaFPv(u8 *arg0);
 s32 render_with_position_override__10TObjPlayerFPvPvi(void *, void *, int);
 s32 check_demo_mode__10TObjPlayerFv();
 s32 toggle_particle_effect__10TObjPlayerFv();
@@ -504,7 +504,7 @@ extern const f32 lbl_805DA324;
 extern const f32 lbl_805DA328;
 extern const f32 lbl_805DA32C;
 extern const f32 lbl_805DA330;
-void TObjEneMerillLia__sub_800D6810(u8 *arg0);
+void render__16TObjEneMerillLiaFPv(u8 *arg0);
 extern u32 TObjEneMerillLia__data_805D5220;
 void TObjEneMerillLia__sub_800D7274(O_800D7274 *self, s32 i);
 extern s32 lbl_805D5550;
@@ -512,7 +512,7 @@ s32 TObjEneMerillLia__sub_800D5100(Obj_800D5100 *self);
 void set_param__12TObjEneLappyFPvi(void *p, s32 v);
 void TObjEneMerillLia__sub_800D5150(Obj_800D5150 *self);
 s32 TObjEneMe3SinowZoa__sub_800D758C(void *);
-s32 TBoss3Volopt__sub_800D8E80(void *);
+s32 play_area_sound_effect__12TBoss3VoloptFi(void *);
 s32 advance_animation_playback(void *);
 void TObjEneMerillLia__sub_800D5570(Obj_800D5570 *arg0);
 s32 obj_testFlags30(void *, int);
@@ -561,7 +561,7 @@ extern u32 TObjEneMerillLia__data_805D521C;
 extern s32 lbl_805D5678;
 extern const f32 lbl_805DA30C;
 extern const f32 lbl_805DA310;
-M2C_UNK TObjEneMerillLia__sub_800D57C8(void *p);
+M2C_UNK update_kafun_attack__16TObjEneMerillLiaFPv(void *p);
 M2C_UNK apply_actor_gravity(void *, int, f32);
 M2C_UNK enemy_move_toward(void *, s32, void *, int, f32);
 M2C_UNK VecCopy__FP3VecPC3Vec(void *, void *);
@@ -577,11 +577,11 @@ M2C_UNK minimap_render_dot(void *, int, int, int);
 extern const f32 TObjEneMerillLia__data_805DA300;
 extern const f32 lbl_805DA31C;
 extern const f32 lbl_805DA320;
-void TObjEneMerillLia__sub_800D6618(u8 *arg0);
+void update_chase_target__16TObjEneMerillLiaFPv(u8 *arg0);
 M2C_UNK VecCopy__FP3VecPC3Vec(void *, void *);
 void attach_particle_model(void *, s32, s32, s32, s32, f32);
 u8 * csnVectorUnder(s32, void *, s32);
-s32 TParticleCtrl__sub_80086884(s32);
+s32 get_particle_model__13TParticleCtrlFi(s32);
 int get_instance__13TParticleCtrlFv(void);
 s32 spawn_particle_effect(s32, s32);
 void fn_800D88E4(s32);
@@ -593,7 +593,7 @@ extern const f32 lbl_805DA2F0;
 extern const f32 TObjEneMerillLia__data_805DA2F4;
 extern const f32 lbl_805DA2F8;
 extern const f32 lbl_805DA2FC;
-void TObjEneMerillLia__sub_800D4D74(u8 *arg0);
+void spawn_ground_effect__16TObjEneMerillLiaFPv(u8 *arg0);
 s16 find_nearest_visible_player(void *, s32, f32);
 f32 enemy_backstep_from_point(void *, void *, f32);
 void update_angle__10TObjPlayerFPviPv(void *arg0, s32 arg1, void *arg2);
@@ -601,7 +601,7 @@ M2C_UNK obj_clearFlags30(void *, M2C_UNK);
 s32 get_current_floor();
 s32 get_field_3e4__10TObjPlayerFPv(void *);
 u32 csnVector(void *, void *, s32);
-void TObjEneMerillLia__sub_800D4D74(u8 *arg0);
+void spawn_ground_effect__16TObjEneMerillLiaFPv(u8 *arg0);
 void TObjEneMerillLia__sub_800D5480(u8 *arg0);
 f32 xz_distance_squared(void *, void *);
 s32 advance_animation_playback(void *);
@@ -690,7 +690,7 @@ extern "C" void TObjPlayer__sub_80018E6C();
 extern "C" void TObjPlayer__sub_80019568();
 extern "C" void TObjPlayer__sub_80092A7C();
 extern "C" void TObjPlayer__sub_800C53B4();
-extern "C" void TObjPlayer__sub_800C5B10();
+extern "C" void update_turn_toward_target__10TObjPlayerFPv();
 extern "C" void TObjPlayer__sub_800C69FC();
 extern "C" void TObjPlayer__sub_800F65D0();
 extern "C" void TObjPlayer__sub_800F673C();
@@ -837,8 +837,8 @@ void *lbl_804946A4[33] = {
     (void *)0x0,
 };
 void *lbl_80494728[103] = {
-    (void *)0x0, (void *)0x0, (void *)&__dt__16TObjEneMerillLiaFPvs, (void *)&TObjEneMerillLia__sub_800D6AAC,
-    (void *)&TObjEneMerillLia__sub_800D6810, (void *)&render_actor_shadows_default, (void *)&TLobby__sub_801A1FD8, (void *)&apply_object_set_data,
+    (void *)0x0, (void *)0x0, (void *)&__dt__16TObjEneMerillLiaFPvs, (void *)&run_state_dispatch__16TObjEneMerillLiaFPv,
+    (void *)&render__16TObjEneMerillLiaFPv, (void *)&render_actor_shadows_default, (void *)&TLobby__sub_801A1FD8, (void *)&apply_object_set_data,
     (void *)&reset_actor_action_state, (void *)&get_actor_body_center, (void *)&update_object_view_visibility, (void *)&classify_actor_view_detail,
     (void *)&get_enemy_name__14TObjEnePanarmsFPv, (void *)&TObjPlayer__sub_80019568, (void *)&add_actor_exp, (void *)&TObjPlayer__sub_800111D8,
     (void *)&get_actor_level_index, (void *)&update_actor_ground_y, (void *)&TObjPlayer__sub_80018E6C, (void *)&is_actor_cadence_frame,
@@ -858,7 +858,7 @@ void *lbl_80494728[103] = {
     (void *)&enemy_spawn_zalure_effect, (void *)&TObjPlayer__sub_80010A80, (void *)&TObjPlayer__sub_800F65D0, (void *)&fn_80010EC8,
     (void *)&fn_80010EC4, (void *)&fn_80010EC0, (void *)&fn_80010EBC, (void *)&call_vt78__10TObjPlayerFPv,
     (void *)&TObjPlayer__sub_800F673C, (void *)&apply_set_data__9TObjEnemyFPvPv, (void *)&fn_800F5D80, (void *)&TObjEneMerillLia__sub_800D64F0,
-    (void *)&TObjEneMerillLia__sub_800D5BCC, (void *)&TObjPlayer__sub_800C5B10, (void *)&TObjEneMerillLia__sub_800D6618, (void *)&TObjEneMerillLia__sub_800D6110,
+    (void *)&TObjEneMerillLia__sub_800D5BCC, (void *)&update_turn_toward_target__10TObjPlayerFPv, (void *)&update_chase_target__16TObjEneMerillLiaFPv, (void *)&TObjEneMerillLia__sub_800D6110,
     (void *)&beast_update_attack, (void *)&TObjPlayer__sub_800C53B4, (void *)&TObjEneMerillLia__sub_800D59E4, (void *)&beast_update_dead,
     (void *)&beast_retire_corpse, (void *)&TObjEneMerillLia__sub_800D50FC, (void *)&TObjEneMerillLia__sub_800D5060, (void *)&TObjPlayer__sub_800C69FC,
     (void *)&TObjEneMerillLia__sub_800D4FD8, (void *)&TObjEneMerillLia__sub_800D4F94, (void *)&TObjEneMerillLia__sub_800D4F50, (void *)&TObjEneMerillLia__sub_800D4F0C,
@@ -868,7 +868,7 @@ void *lbl_80494728[103] = {
 
 void TObjEneMerillLia__sub_800D4D70(void) {  }
 
-void TObjEneMerillLia__sub_800D4D74(u8 *arg0) {
+void spawn_ground_effect__16TObjEneMerillLiaFPv(u8 *arg0) {
     typedef char sp8_offset[(offsetof(Stack_800D4D74, sp8) == 0x0) ? 1 : -1];
     typedef char spC_offset[(offsetof(Stack_800D4D74, spC) == 0x4) ? 1 : -1];
     Stack_800D4D74 stack;
@@ -882,7 +882,7 @@ void TObjEneMerillLia__sub_800D4D74(u8 *arg0) {
         if (((s32) ((f32) lbl_805D53A4 * (lbl_805DA2F0 * (f32) rand())) % 5) == 0) {
             temp_r3_2 = spawn_particle_effect(M2C_FIELD(temp_r3, s32 *, 4) + 0x38, 0x49);
             if (temp_r3_2 != 0) {
-                attach_particle_model((void *) temp_r3_2, TParticleCtrl__sub_80086884(2), get_instance__13TParticleCtrlFv(), 0, 1, TObjEneMerillLia__data_805DA2F4);
+                attach_particle_model((void *) temp_r3_2, get_particle_model__13TParticleCtrlFi(2), get_instance__13TParticleCtrlFv(), 0, 1, TObjEneMerillLia__data_805DA2F4);
             }
             spawn_particle_effect(M2C_FIELD(temp_r3, s32 *, 4) + 0x38, 0xA4);
         }
@@ -1119,10 +1119,10 @@ void TObjEneMerillLia__sub_800D5570(Obj_800D5570 *arg0) {
         arg0->state = 1;
         arg0->fb8 = 1;
         TObjEneMe3SinowZoa__sub_800D758C((u8 *)arg0 + 0x3A8);
-        TBoss3Volopt__sub_800D8E80(arg0->sub38);
+        play_area_sound_effect__12TBoss3VoloptFi(arg0->sub38);
         break;
     case 1:
-        TObjEneMerillLia__sub_800D4D74((u8 *)(arg0));
+        spawn_ground_effect__16TObjEneMerillLiaFPv((u8 *)(arg0));
         if (((VObj_14_800D5570 *)((u8 *)arg0 + 0x3A8))->m5() != 0) {
             arg0->state = 2;
         }
@@ -1161,7 +1161,7 @@ void TObjEneMerillLia__sub_800D5614(void *ov) {
 struct Obj_800D5100;
 struct RecoveredGlobal_800D5060_lbl_8058D490;
 #define arg0 ((u8 *)p)
-M2C_UNK TObjEneMerillLia__sub_800D57C8(void *p) {
+M2C_UNK update_kafun_attack__16TObjEneMerillLiaFPv(void *p) {
     Vec_800D57C8 sp14;
     s16 temp_r0;
     advance_animation_playback((void *) (arg0));
@@ -1353,7 +1353,7 @@ void TObjEneMerillLia__sub_800D6110(Obj_800D6110 *arg0) {
         break;
     case 1:
         if (arg0->f2a8 != NULL) {
-            TObjEneMerillLia__sub_800D4D74((u8 *)arg0);
+            spawn_ground_effect__16TObjEneMerillLiaFPv((u8 *)arg0);
             save.x = arg0->pos.x;
             save.y = arg0->pos.y;
             save.z = arg0->pos.z;
@@ -1449,7 +1449,7 @@ void TObjEneMerillLia__sub_800D64F0(Ene_800D64F0 *arg0) {
         }
         break;
     case 1:
-        TObjEneMerillLia__sub_800D4D74((u8 *)(arg0));
+        spawn_ground_effect__16TObjEneMerillLiaFPv((u8 *)(arg0));
         if (objInBand__FP7GameObjf(arg0, lbl_805DA304) != 0) {
             TObjEneMerillLia__sub_800D501C((s32)arg0);
         }
@@ -1469,7 +1469,7 @@ void TObjEneMerillLia__sub_800D64F0(Ene_800D64F0 *arg0) {
     advance_animation_playback(arg0);
 }
 
-void TObjEneMerillLia__sub_800D6618(u8 *arg0) {
+void update_chase_target__16TObjEneMerillLiaFPv(u8 *arg0) {
     Vec_800D6618 sp14;
     f32 r;
     switch (M2C_FIELD(arg0, s16 *, 0x328)) {
@@ -1482,7 +1482,7 @@ void TObjEneMerillLia__sub_800D6618(u8 *arg0) {
         }
         break;
     default:
-        TObjEneMerillLia__sub_800D4D74((u8 *)(arg0));
+        spawn_ground_effect__16TObjEneMerillLiaFPv((u8 *)(arg0));
         if (M2C_FIELD(arg0, u32 *, 0x2A8) != 0U) {
             if (test_elt_flag__10TObjPlayerFPvii(arg0, 0, 0x300000) != 0) {
                 if ((f32) M2C_FIELD(arg0, u32 *, 0x38C)++ < lbl_805DA31C) {
@@ -1517,7 +1517,7 @@ void TObjEneMerillLia__sub_800D6618(u8 *arg0) {
     obj_clearFlags30(arg0, 0x200000);
 }
 
-void TObjEneMerillLia__sub_800D6810(u8 *arg0) {
+void render__16TObjEneMerillLiaFPv(u8 *arg0) {
   Stack_800D6810 stack;
   s32 var_r30;
   s16 temp_r0;
@@ -1631,7 +1631,7 @@ typedef struct VObj_18_477421 VObj_18_477421;
 #define PSO_VCALL_VObj_18_477421_m88(_self) (((VObj_18_477421 *)(_self))->m88())
 #define PSO_VCALL_VObj_18_477421_m89(_self) (((VObj_18_477421 *)(_self))->m89())
 #define PSO_VCALL_VObj_18_477421_m90(_self) (((VObj_18_477421 *)(_self))->m90())
-void TObjEneMerillLia__sub_800D6AAC(u8 *arg0) {
+void run_state_dispatch__16TObjEneMerillLiaFPv(u8 *arg0) {
   s16 temp_r0;
   if (check_demo_mode__10TObjPlayerFv() == 1)
   {
@@ -1673,7 +1673,7 @@ void TObjEneMerillLia__sub_800D6AAC(u8 *arg0) {
         PSO_VCALL_VObj_18_477421_m90(arg0);
         break;
       case 10:
-        TObjEneMerillLia__sub_800D57C8((void *)((void *) arg0));
+        update_kafun_attack__16TObjEneMerillLiaFPv((void *)((void *) arg0));
         break;
       case 11:
         TObjEneMerillLia__sub_800D56B4((void *) arg0);

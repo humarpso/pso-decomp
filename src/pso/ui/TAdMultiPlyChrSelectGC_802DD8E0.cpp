@@ -50,14 +50,14 @@ s32 get_ready_state__22TAdMultiPlyChrSelectGCFPv(s32);
 M2C_UNK TAdGameStartGC__sub_802E644C(s32);
 s32 TAdMultiPlyChrSelectGC__sub_8030E2E4(void *, M2C_UNK);
 M2C_UNK TAdChrMoveEffectGC__sub_803490AC();
-void TAdMultiPlyChrSelectGC__sub_802DDF40(void *arg0);
+void reset_to_select__22TAdMultiPlyChrSelectGCFPv(void *arg0);
 M2C_UNK queue_destruction__7TObjectFv(void *);
 s32 TWindowShortListCtrl__check_controller_button(void *, M2C_UNK, s32);
 M2C_UNK play_sound_effect(M2C_UNK, M2C_UNK, M2C_UNK, M2C_UNK);
 M2C_UNK close__17TWindowSubComCardFPv(void *);
 M2C_UNK TAdMultiPlyChrSelectGC__sub_802C5944(int, void *, int, int);
 M2C_UNK TAdMultiPlyChrSelectGC__sub_802C59EC(int, int);
-M2C_UNK TAdMultiPlyChrSelectGC__sub_802C6A10();
+M2C_UNK reset_slot_selections__22TAdMultiPlyChrSelectGCFv();
 s32 get_player_index__22TAdMultiPlyChrSelectGCFPv(u32);
 M2C_UNK set_field_100__22TAdMultiPlyChrSelectGCFPvi(s32, M2C_UNK);
 s32 get_instance__22TAdMultiPlyChrSelectGCFv(s32);
@@ -70,7 +70,7 @@ M2C_UNK queue_destruction__7TObjectFv(void *);
 s32 TWindowShortListCtrl__check_controller_button(void *, M2C_UNK, s32);
 M2C_UNK play_sound_effect(M2C_UNK, M2C_UNK, M2C_UNK, M2C_UNK);
 M2C_UNK TAdMultiPlyChrSelectGC__sub_802C5A44(int, void *, int);
-M2C_UNK TAdMultiPlyChrSelectGC__sub_802C6A10();
+M2C_UNK reset_slot_selections__22TAdMultiPlyChrSelectGCFv();
 s32 get_player_index__22TAdMultiPlyChrSelectGCFPv(u32);
 s32 get_instance__22TAdMultiPlyChrSelectGCFv(s32);
 s32 get_mode__22TAdMultiPlyChrSelectGCFPv(s32);
@@ -93,7 +93,7 @@ u32 __nw__7TObjectFUl(M2C_UNK);
 u32 TAdSinglePlyChrSelectGC__sub_801FE3E4(s32);
 s32 TAdSinglePlyChrSelectGC__sub_801FE800(s32);
 M2C_UNK play_sound_effect(M2C_UNK, M2C_UNK, M2C_UNK, M2C_UNK);
-M2C_UNK TAdMultiPlyChrSelectGC__sub_802C6A10();
+M2C_UNK reset_slot_selections__22TAdMultiPlyChrSelectGCFv();
 s32 get_player_index__22TAdMultiPlyChrSelectGCFPv(u32);
 M2C_UNK set_field_100__22TAdMultiPlyChrSelectGCFPvi(s32, M2C_UNK);
 s32 get_instance__22TAdMultiPlyChrSelectGCFv(s32);
@@ -141,7 +141,7 @@ void update_select__22TAdMultiPlyChrSelectGCFPv(void *arg0) {
     if (get_mode__22TAdMultiPlyChrSelectGCFPv(M2C_FIELD(arg0, s32 *, 0x6C)) <= 1) {
         play_sound_effect(0x52F16, 0, 0, 0);
         if (get_player_index__22TAdMultiPlyChrSelectGCFPv(M2C_FIELD(arg0, u32 *, 0x68)) == 1) {
-            TAdMultiPlyChrSelectGC__sub_802C6A10();
+            reset_slot_selections__22TAdMultiPlyChrSelectGCFv();
             if ((u32) M2C_FIELD(arg0, u32 *, 0x68) != 0U) {
                 queue_destruction__7TObjectFv(M2C_FIELD(arg0, void **, 0x68));
                 M2C_FIELD(arg0, u32 *, 0x68) = 0U;
@@ -212,7 +212,7 @@ void TAdMultiPlyChrSelectGC__sub_802DDBA8(u8 *arg0) {
     if (get_mode__22TAdMultiPlyChrSelectGCFPv((s32)((int) (M2C_FIELD(arg0, s32 *, 0x6C)))) <= 1) {
         play_sound_effect((M2C_UNK)((int) (0x52F16)), (M2C_UNK)((int) (0)), (M2C_UNK)((int) (0)), (M2C_UNK)((int) (0)));
         if (get_player_index__22TAdMultiPlyChrSelectGCFPv((u32)((int) (M2C_FIELD(arg0, u32 *, 0x68)))) == 1) {
-            TAdMultiPlyChrSelectGC__sub_802C6A10();
+            reset_slot_selections__22TAdMultiPlyChrSelectGCFv();
             if ((u32) M2C_FIELD(arg0, u32 *, 0x68) != 0U) {
                 queue_destruction__7TObjectFv(M2C_FIELD(arg0, void **, 0x68));
                 M2C_FIELD(arg0, u32 *, 0x68) = 0U;
@@ -277,7 +277,7 @@ void TAdMultiPlyChrSelectGC__sub_802DDD08(u8 *arg0) {
         temp_r0 = M2C_FIELD(arg0, s32 *, 0x1C) + 1;
         M2C_FIELD(arg0, s32 *, 0x1C) = temp_r0;
         if (temp_r0 > 0xA) {
-            TAdMultiPlyChrSelectGC__sub_802C6A10();
+            reset_slot_selections__22TAdMultiPlyChrSelectGCFv();
             play_sound_effect((M2C_UNK)((int) (0x52F16)), (M2C_UNK)((int) (0)), (M2C_UNK)((int) (0)), (M2C_UNK)((int) (0)));
             if ((u32) M2C_FIELD(arg0, u32 *, 0x68) != 0U) {
                 queue_destruction__7TObjectFv(M2C_FIELD(arg0, void **, 0x68));
@@ -288,7 +288,7 @@ void TAdMultiPlyChrSelectGC__sub_802DDD08(u8 *arg0) {
     }
 }
 
-void TAdMultiPlyChrSelectGC__sub_802DDF40(void *arg0) {
+void reset_to_select__22TAdMultiPlyChrSelectGCFPv(void *arg0) {
     Stack_802DDF40 stack;
     s32 temp_r31;
     s32 temp_r3;

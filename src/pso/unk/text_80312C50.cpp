@@ -44,7 +44,7 @@ void TObjPlayer__sub_80313010(void *o, s32 id);
 int query_field40__10TObjPlayerFPv(void* p);
 int TObjPlayer__sub_803131AC(void* a0);
 extern const f32 lbl_805DF248;
-void TObjPlayer__sub_80312D4C(void *o, s32 id);
+void create_party_effects__10TObjPlayerFPvi(void *o, s32 id);
 s32 get_section_id__10TObjPlayerFPv(void *);
 void *get_player_by_client_id(s32);
 u8 * get_element__10TObjPlayerFPvi(void *, int);
@@ -104,7 +104,7 @@ void *TObjPlayer__sub_80312CCC(void *list, s32 section) {
     return 0;
 }
 
-void TObjPlayer__sub_80312D4C(void *o, s32 id) {
+void create_party_effects__10TObjPlayerFPvi(void *o, s32 id) {
     s32 n;
     s32 i;
     s32 sec;

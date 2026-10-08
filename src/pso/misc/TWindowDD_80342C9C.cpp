@@ -9,7 +9,7 @@ M2C_UNK TWindowDD__sub_803428C4(void *);
 M2C_UNK TWindowDD__sub_80342B5C(void *);
 s32 TWindowDD__sub_80342F84();
 s32 update_close_flag__9TWindowDDFPv(void *);
-M2C_UNK TWindowDD__sub_8034330C(void *);
+M2C_UNK apply_entry_layout__9TWindowDDFPv(void *);
 M2C_UNK TWindowDD__sub_803435A0(void *);
 M2C_UNK TWindowDD__sub_80347B70(void *);
 M2C_UNK TWindowDD__sub_80347C50();
@@ -25,7 +25,7 @@ void TWindowDD__sub_80342D14(u8 *arg0);
 extern "C" {
 
 void update_transition__9TWindowDDFPv(void *arg0);
-M2C_UNK TWindowDD__sub_8034330C(void *);
+M2C_UNK apply_entry_layout__9TWindowDDFPv(void *);
 M2C_UNK TWindowDD__sub_803435A0(void *);
 M2C_UNK TWindowDD__sub_80347B70(void *);
 M2C_UNK TWindowDD__sub_80347C50();
@@ -45,7 +45,7 @@ void update_transition__9TWindowDDFPv(void *arg0) {
     }
     if (TWindowDD__sub_803482B0(arg0) != 0) {
         play_se__9TWindowDDFv();
-        TWindowDD__sub_8034330C(arg0);
+        apply_entry_layout__9TWindowDDFPv(arg0);
     }
 }
 void TWindowDD__sub_80342D14(u8 *arg0) {
@@ -64,7 +64,7 @@ void TWindowDD__sub_80342D14(u8 *arg0) {
         } else if (TWindowDD__sub_803482B0((void *) (arg0)) != 0) {
             play_se__9TWindowDDFv();
             M2C_FIELD(arg0, s32 *, 0xA4) = 0;
-            TWindowDD__sub_8034330C((void *) (arg0));
+            apply_entry_layout__9TWindowDDFPv((void *) (arg0));
         }
         break;
     case 1:

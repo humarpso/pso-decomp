@@ -36,7 +36,7 @@ u8 is_idle__22TQuestVmDownLoadServerFPv(void *arg0);
 u8 read_byte__22TQuestVmDownLoadServerFPv(void *arg0);
 void TQuestVmDownLoadServer__sub_80222754(void *arg0, s8 arg1);
 void TQuestVmDownLoadServer__sub_80222768(void *arg0, s32 arg1, s32 arg2);
-s32 TQuestVmDownLoadServer__sub_80222774(void *arg0, s32 arg1, s32 arg2);
+s32 parse_message_text__22TQuestVmDownLoadServerFPvii(void *arg0, s32 arg1, s32 arg2);
 s32 TQuestThread__sub_801F5E58(void);
 void TQuestVmDownLoadServer__sub_80222704(void *arg0, s32 arg1);
 int strcmp(const char *, const char *);
@@ -172,7 +172,7 @@ void TQuestVmDownLoadServer__sub_80222768(void *arg0, s32 arg1, s32 arg2) {
     M2C_FIELD(arg0, s32 *, 0x208) = arg2;
 }
 
-s32 TQuestVmDownLoadServer__sub_80222774(void *arg0, s32 arg1, s32 arg2) {
+s32 parse_message_text__22TQuestVmDownLoadServerFPvii(void *arg0, s32 arg1, s32 arg2) {
     s8 b;
     TQuestVmDownLoadServer__sub_80222768(arg0, arg1, arg2);
     while (((s32 (*)(void *))is_idle__22TQuestVmDownLoadServerFPv)(arg0) == 0) {
@@ -214,7 +214,7 @@ void format_and_send_message__22TQuestVmDownLoadServerFPvii(u8 *arg0, s32 arg1, 
     if ((u32) M2C_FIELD(arg0, u32 *, 0x20C) != 0U) {
         temp_r31 = get_guild_text(arg1);
         memset(arg0 + 4, 0, 0x200);
-        TQuestVmDownLoadServer__sub_80222774((void *)(arg0), (s32)(temp_r31), (s32)(arg0 + 4));
+        parse_message_text__22TQuestVmDownLoadServerFPvii((void *)(arg0), (s32)(temp_r31), (s32)(arg0 + 4));
         TWindowMessagePage__sub_8026AE20((u32)(M2C_FIELD(arg0, u32 *, 0x20C)), (void *)(arg0 + 4), (s32)(arg2 | 0x80));
     }
 }
@@ -222,7 +222,7 @@ void format_and_send_message__22TQuestVmDownLoadServerFPvii(u8 *arg0, s32 arg1, 
 void display_message__22TQuestVmDownLoadServerFPvii(u8 *arg0, s32 arg1, s32 arg2) {
     if ((u32) M2C_FIELD(arg0, u32 *, 0x20C) != 0U) {
         memset(arg0 + 4, 0, 0x200);
-        TQuestVmDownLoadServer__sub_80222774((void *)(arg0), (s32)(arg1), (s32)(arg0 + 4));
+        parse_message_text__22TQuestVmDownLoadServerFPvii((void *)(arg0), (s32)(arg1), (s32)(arg0 + 4));
         TWindowMessagePage__sub_8026AE20(M2C_FIELD(arg0, u32 *, 0x20C), arg0 + 4, arg2 | 0x80);
     }
 }

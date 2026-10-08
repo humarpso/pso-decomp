@@ -8,11 +8,11 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 extern "C" {
 s32 TWindowChat__sub_80247D50(u8 *arg0);
 u8 TWindowChat__sub_80247EC0(u8 *arg0);
-M2C_UNK TWindowChat__sub_8024792C(void *);
+M2C_UNK open_next_input_window__11TWindowChatFPv(void *);
 int is_mode_bit4__11TWindowChatFPv(void* p);
 M2C_UNK flush_if_flagged__11TWindowChatFPv(void *);
 void TWindowChat__sub_80247E50(u8 *arg0);
-M2C_UNK TWindowChat__sub_8024792C(void *);
+M2C_UNK open_next_input_window__11TWindowChatFPv(void *);
 int is_visible__11TWindowChatFPv(void* p);
 void TWindowChat__sub_80247DFC(u8 *arg0);
 }
@@ -51,7 +51,7 @@ int is_mode_bit6__11TWindowChatFPv(void* p) { return (*(u16*)((char*)p + 0x1e) >
 void TWindowChat__sub_80247DFC(u8 *arg0) {
     if (is_visible__11TWindowChatFPv((void*)arg0) != 0) {
         M2C_FIELD(arg0, u16 *, 0x1E) = (u16) (M2C_FIELD(arg0, u16 *, 0x1E) & 0xFFFFFFDF);
-        TWindowChat__sub_8024792C((void *) (arg0));
+        open_next_input_window__11TWindowChatFPv((void *) (arg0));
     }
 }
 
@@ -63,7 +63,7 @@ void TWindowChat__sub_80247E50(u8 *arg0) {
         if ((u32) M2C_FIELD(arg0, u32 *, 0x20) != 0U) {
             flush_if_flagged__11TWindowChatFPv(M2C_FIELD(arg0, void **, 0x20));
         }
-        TWindowChat__sub_8024792C((void *) (arg0));
+        open_next_input_window__11TWindowChatFPv((void *) (arg0));
     }
 }
 

@@ -1,7 +1,7 @@
 #include "pso/TAdTimeSetGC.h"
 extern "C" {
 s32 poll_load_status__23TAdSinglePlyChrSelectGCFPv();
-void TAdSinglePlyChrSelectGC__sub_802E1DF8(void *, int);
+void change_state__23TAdSinglePlyChrSelectGCFPvi(void *, int);
 }
 extern "C" {
 extern void *lbl_804E32A4[];
@@ -18,7 +18,7 @@ void TAdTimeSetGC::run_task() {
   load_status = poll_load_status__23TAdSinglePlyChrSelectGCFPv();
   if (load_status & 1)
   {
-    TAdSinglePlyChrSelectGC__sub_802E1DF8(this, 0);
+    change_state__23TAdSinglePlyChrSelectGCFPvi(this, 0);
   }
   TAdTimeSetGCStateAction action = *(entry_action = &((TAdTimeSetGCStateActions *)lbl_804E32A4)[state_index].task);
   if (action != 0)
@@ -57,7 +57,7 @@ extern "C" {
 void *TAdTimeSetGC__ct(void *arg0);
 void TAdTimeSetGC__sub_802E34A4(void);
 void TAdTimeSetGC__sub_802E34A8(void);
-void TLobby__sub_8022743C(void);
+void stop_audio_streams__6TLobbyFv(void);
 void __ct__7TObjectFP7TObject(void *);
 void init__23TAdSinglePlyChrSelectGCFPv(void *);
 
@@ -69,7 +69,7 @@ void *TAdTimeSetGC__ct(void *arg0) {
     M2C_FIELD(arg0, M2C_UNK **, 0x18) = __vt__12TAdTimeSetGC;
     M2C_FIELD(arg0, void **, 0x0) = lbl_805D3F80;
     init__23TAdSinglePlyChrSelectGCFPv(arg0);
-    TLobby__sub_8022743C();
+    stop_audio_streams__6TLobbyFv();
     return arg0;
 }
 
@@ -78,7 +78,7 @@ void TAdTimeSetGC__sub_802E34A8(void) {  }
 
 }
 
-extern "C" void TAdSinglePlyChrSelectGC__sub_802E11D4();
+extern "C" void draw_date_time__23TAdSinglePlyChrSelectGCFPv();
 extern "C" void TAdSinglePlyChrSelectGC__sub_802E13C8();
 extern "C" void TAdSinglePlyChrSelectGC__sub_802E1F8C();
 extern "C" void TAdSinglePlyChrSelectGC__sub_802E1FAC();
@@ -216,5 +216,5 @@ void *lbl_804E32A4[150] = {
 };
 void *lbl_804E34FC[6] = {
     (void *)0x0, (void *)0x0, (void *)&TAdSinglePlyChrSelectGC__sub_802E13C8, (void *)&run_task__7TObjectFv,
-    (void *)&TAdSinglePlyChrSelectGC__sub_802E11D4, (void *)&render_shadows__7TObjectFv,
+    (void *)&draw_date_time__23TAdSinglePlyChrSelectGCFPv, (void *)&render_shadows__7TObjectFv,
 };

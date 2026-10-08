@@ -20,13 +20,13 @@ s32 TShopGenerator__sub_80222DAC(s32 arg0);
 extern "C" {
 
 void free_singleton__6TLobbyFv(void);
-void TLobby__sub_800F957C(void*);
+void free_nodes_with_id__6TLobbyFUi(void*);
 
 extern u32 lbl_805D6258;
 
 void free_singleton__6TLobbyFv(void) {
     if ((u32) lbl_805D6258 != 0U) {
-        TLobby__sub_800F957C((void*)lbl_805D6258);
+        free_nodes_with_id__6TLobbyFUi((void*)lbl_805D6258);
         lbl_805D6258 = 0U;
     }
 }

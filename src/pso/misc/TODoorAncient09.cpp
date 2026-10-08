@@ -108,7 +108,7 @@ M2C_UNK post_translate_matrix(void *);
 M2C_UNK set_global_param__8TObjFishFi(s32);
 int draw_ginja_model(void *);
 extern void *TODoorAncient09__data_805D5954;
-void TODoorAncient09__sub_80160BA8(Door_80160BA8 *self);
+void draw_model__15TODoorAncient09FPv(Door_80160BA8 *self);
 }
 
 extern "C" {
@@ -139,7 +139,7 @@ M2C_UNK pop_matrix();
 M2C_UNK __dl__7TObjectFPv(void *);
 void *__nw__7TObjectFUl(int);
 M2C_UNK destroy_ancient_door_base__15TODoorAncient01FPvs(void *, M2C_UNK);
-s32 fn_801582C4(void *, f32);
+s32 is_in_view_depth(void *, f32);
 M2C_UNK free__11TOBoss4RockFUi(void*);
 M2C_UNK free_if_valid__10TObjPlayerFi(s32);
 s32 get_main_phase();
@@ -244,7 +244,7 @@ void TODoorAncient09__vt12(u8 *arg0) {
 }
 #pragma pop
 
-void TODoorAncient09__sub_80160BA8(Door_80160BA8 *self) {
+void draw_model__15TODoorAncient09FPv(Door_80160BA8 *self) {
     s32 on[2];
     Node_80160BA8 *pairs[2][2];
     Node_80160BA8 *root;
@@ -298,7 +298,7 @@ void TODoorAncient09__sub_80160BA8(Door_80160BA8 *self) {
 void render__15TODoorAncient09Fv(u8 *arg0) {
     s32 temp_r0;
 
-    if ((VCALL_m8(arg0) != 0) && (fn_801582C4(arg0, lbl_805DB480) != 0)) {
+    if ((VCALL_m8(arg0) != 0) && (is_in_view_depth(arg0, lbl_805DB480) != 0)) {
         temp_r0 = M2C_FIELD(arg0, s32 *, 0xAC);
         switch (temp_r0) {
         case 1:
@@ -319,7 +319,7 @@ void render__15TODoorAncient09Fv(u8 *arg0) {
             pop_matrix();
             return;
         case 0:
-            TODoorAncient09__sub_80160BA8((Door_80160BA8 *)(arg0));
+            draw_model__15TODoorAncient09FPv((Door_80160BA8 *)(arg0));
             break;
         }
     }

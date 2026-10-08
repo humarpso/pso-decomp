@@ -121,7 +121,7 @@ M2C_UNK get_or_assign_actor_id(void *, int);
 s32 TBoss7Crawfish__sub_80308AA8(void *);
 M2C_UNK TBoss7Crawfish__sub_80308B38(void *);
 M2C_UNK TBoss7Crawfish__sub_80308ED8(void *, void *);
-M2C_UNK TBoss7Crawfish__sub_80308F8C(void *, int);
+M2C_UNK change_state__14TBoss7CrawfishFPvi(void *, int);
 void set_anim_timer__14TBoss7CrawfishFPvs(void* p, s16 v);
 extern M2C_UNK lbl_80475570[];
 extern M2C_UNK lbl_804E7380[];
@@ -150,8 +150,8 @@ void run_task__14TBoss7CrawfishFv(u8 *arg0);
 void set_anim_timer__14TBoss7CrawfishFPvs(void* p, s16 v);
 M2C_UNK advance_animation_playback(void *);
 M2C_UNK TBoss7Crawfish__sub_80308BEC(void *);
-M2C_UNK TBoss7Crawfish__sub_80308D1C(void *);
-M2C_UNK TBoss7Crawfish__sub_80308F8C(void *, int);
+M2C_UNK aim_at_nearest_player__14TBoss7CrawfishFPv(void *);
+M2C_UNK change_state__14TBoss7CrawfishFPvi(void *, int);
 void TLobby__sub_8001FE7C(void*, int);
 M2C_UNK unregister_object_by_id(void *);
 M2C_UNK refresh_collision_body_centers(void *);
@@ -177,7 +177,7 @@ void run_task__14TBoss7CrawfishFv(u8 *arg0) {
     s16 temp_r0;
 
     if (((s16) M2C_FIELD(arg0, s16 *, 0x326) != 5) && (obj_testFlags30((void *) (arg0), (int) (0x800)) != 0)) {
-        TBoss7Crawfish__sub_80308F8C((void *) (arg0), (int) (4));
+        change_state__14TBoss7CrawfishFPvi((void *) (arg0), (int) (4));
     }
     temp_r0 = M2C_FIELD(arg0, s16 *, 0x326);
     switch (temp_r0) {
@@ -185,7 +185,7 @@ void run_task__14TBoss7CrawfishFv(u8 *arg0) {
         update_attack_state__14TBoss7CrawfishFPv((void *) (arg0));
         break;
     case 1:
-        TBoss7Crawfish__sub_80308D1C((void *) (arg0));
+        aim_at_nearest_player__14TBoss7CrawfishFPv((void *) (arg0));
         break;
     case 2:
         update_motion_and_release__14TBoss7CrawfishFPv((void *) (arg0));
@@ -255,7 +255,7 @@ u8 *TBoss7Crawfish__ct(u8 *arg0, M2C_UNK arg1, s32 arg2) {
     get_or_assign_actor_id((void *) (arg0), (int) (0));
     reset_photon_effect__10TObjPlayerFPv((void *) (arg0));
     TBoss7Crawfish__sub_80308B38((void *) (arg0));
-    TBoss7Crawfish__sub_80308F8C((void *) (arg0), (int) (0));
+    change_state__14TBoss7CrawfishFPvi((void *) (arg0), (int) (0));
     v.z = TBoss7Crawfish__data_805DF0D8;
     v.y = TBoss7Crawfish__data_805DF0D8;
     v.x = TBoss7Crawfish__data_805DF0D8;

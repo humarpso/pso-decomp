@@ -35,7 +35,7 @@ s32 TObjEneMe3Stelth__sub_800F4814(void *);
 s32 TObjEneMe3Stelth__sub_800F4850(void *);
 f32 TObjEneMe3Stelth__sub_800F4D68(void *);
 M2C_UNK end_effect_render__13TParticleCtrlFv();
-M2C_UNK TObjEneMe1Gee__sub_803D8098(s32, const char *);
+M2C_UNK queue_debug_text__13TObjEneMe1GeeFiPv(s32, const char *);
 M2C_UNK fn_803D81D0(s32, s32, f32);
 void debug_printf_at(s32 id, const char *fmt, ...);
 M2C_UNK scale_matrix(int, f32, f32, f32);
@@ -64,12 +64,12 @@ extern const f32 TObjEneMe3Stelth__data_805DA808;
 extern const f32 TObjEneMe3Stelth__data_805DA80C;
 extern const f32 lbl_805DA83C;
 extern const f32 TObjEneMe3Stelth__data_805DA840;
-void TObjEneMe3Stelth__sub_800F18C8(Obj_800F18C8 *arg0);
+void draw_with_debug_info__16TObjEneMe3StelthFPv(Obj_800F18C8 *arg0);
 }
 
 extern "C" {
 
-void TObjEneMe3Stelth__sub_800F18C8(Obj_800F18C8 *arg0) {
+void draw_with_debug_info__16TObjEneMe3StelthFPv(Obj_800F18C8 *arg0) {
     s32 save[3];
     s32 flag;
     Motion_800F18C8 *motion;
@@ -85,10 +85,10 @@ void TObjEneMe3Stelth__sub_800F18C8(Obj_800F18C8 *arg0) {
         } else {
             debug_printf_at(TObjEneDD__sub_800BB878(0xF, 2), lbl_8043D6BC);
         }
-        TObjEneMe1Gee__sub_803D8098(TObjEneDD__sub_800BB878(0, 4), lbl_8043D6C8);
-        TObjEneMe1Gee__sub_803D8098(TObjEneDD__sub_800BB878(0, 3), lbl_8043D6E0);
-        TObjEneMe1Gee__sub_803D8098(TObjEneDD__sub_800BB878(0, 6), lbl_8043D6F8);
-        TObjEneMe1Gee__sub_803D8098(TObjEneDD__sub_800BB878(0, 5), lbl_8043D710);
+        queue_debug_text__13TObjEneMe1GeeFiPv(TObjEneDD__sub_800BB878(0, 4), lbl_8043D6C8);
+        queue_debug_text__13TObjEneMe1GeeFiPv(TObjEneDD__sub_800BB878(0, 3), lbl_8043D6E0);
+        queue_debug_text__13TObjEneMe1GeeFiPv(TObjEneDD__sub_800BB878(0, 6), lbl_8043D6F8);
+        queue_debug_text__13TObjEneMe1GeeFiPv(TObjEneDD__sub_800BB878(0, 5), lbl_8043D710);
         if (TObjEneMe3Stelth__sub_800F47D4(arg0) != 0) {
             debug_printf_at(TObjEneDD__sub_800BB878(0, 9), lbl_8043D728);
         } else {

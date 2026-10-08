@@ -6,7 +6,7 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 
 extern "C" {
 M2C_UNK reset_fish_globals__8TObjFishFv();
-M2C_UNK TBoss6PlotFalz__sub_802ABF44(f32);
+M2C_UNK set_fade_material_color__14TBoss6PlotFalzFf(f32);
 M2C_UNK push_matrix();
 M2C_UNK pop_matrix();
 M2C_UNK post_translate_matrix(M2C_UNK *);
@@ -19,7 +19,7 @@ extern const f32 lbl_805DFA74;
 extern const f32 lbl_805DFA78;
 void TObjPlayer__sub_8033D380(void *arg0);
 M2C_UNK reset_fish_globals__8TObjFishFv();
-M2C_UNK TBoss6PlotFalz__sub_802ABF44(f32);
+M2C_UNK set_fade_material_color__14TBoss6PlotFalzFf(f32);
 M2C_UNK push_matrix();
 M2C_UNK pop_matrix();
 M2C_UNK post_translate_matrix(M2C_UNK *);
@@ -39,10 +39,10 @@ extern "C" {
 void draw_mesh_group__10TObjPlayerFPv(void *arg0);
 void update_all__10TObjPlayerFPv(void* p);
 void update_hp_gauge_fade__10TObjPlayerFPv(void *arg0);
-M2C_UNK TBoss6PlotFalz__sub_802ABF44(f32);
+M2C_UNK set_fade_material_color__14TBoss6PlotFalzFf(f32);
 M2C_UNK post_translate_matrix(M2C_UNK *);
 M2C_UNK draw_model_motion(s32, s32, f32);
-M2C_UNK TObjFish__sub_800E3074(u32);
+M2C_UNK set_draw_callback_list__8TObjFishFPv(u32);
 M2C_UNK push_matrix();
 M2C_UNK pop_matrix();
 M2C_UNK clear_global_state__10TObjPlayerFv();
@@ -83,7 +83,7 @@ void TObjPlayer__sub_8033D380(void *arg0) {
     }
     if (lbl_805DFA70 != var_f31) {
         if (var_f31 < lbl_805DFA74) {
-            TBoss6PlotFalz__sub_802ABF44(var_f31);
+            set_fade_material_color__14TBoss6PlotFalzFf(var_f31);
         }
         set_global_param__8TObjFishFi(M2C_FIELD(arg0, s32 *, 0xCC));
         set_global_flag__10TObjPlayerFv();
@@ -117,13 +117,13 @@ void update_hp_gauge_fade__10TObjPlayerFPv(void *arg0) {
     }
     if ((lbl_805DFA70 != var_f31) && ((u32) M2C_FIELD(arg0, u32 *, 0x7C) != 0U)) {
         if (var_f31 < lbl_805DFA74) {
-            TBoss6PlotFalz__sub_802ABF44(var_f31);
+            set_fade_material_color__14TBoss6PlotFalzFf(var_f31);
         }
         push_matrix();
         set_global_flag__10TObjPlayerFv();
         post_translate_matrix(lbl_80477F2C);
         set_global_param__8TObjFishFi(M2C_FIELD(arg0, s32 *, 0xC0));
-        TObjFish__sub_800E3074(M2C_FIELD(arg0, u32 *, 0x7C));
+        set_draw_callback_list__8TObjFishFPv(M2C_FIELD(arg0, u32 *, 0x7C));
         draw_model_motion(M2C_FIELD(arg0, s32 *, 0xBC), M2C_FIELD(arg0, s32 *, 0xC4), M2C_FIELD(arg0, f32 *, 0xE0));
         clear_render_callback__8TObjFishFv(M2C_FIELD(arg0, u32 *, 0x7C));
         clear_global_state__10TObjPlayerFv();
@@ -150,7 +150,7 @@ void TObjPlayer__sub_8033D590(void *arg0) {
     }
     if (lbl_805DFA70 != var_f31) {
         if (var_f31 < lbl_805DFA74) {
-            TBoss6PlotFalz__sub_802ABF44(var_f31);
+            set_fade_material_color__14TBoss6PlotFalzFf(var_f31);
         }
         push_matrix();
         set_global_flag__10TObjPlayerFv();

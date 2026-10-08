@@ -23,6 +23,16 @@ struct TAdLoadQuestPrtTxtGC_8034A090 {
     s32 timer;
 };
 
+typedef s32 M2C_UNK;
+struct T_8034A198 {
+    u8 pad0[0x18];
+    void *vt;
+    s32 count;
+    void *objs[32];
+    u8 pada0[0x220 - 0xA0];
+    s32 slot;
+};
+
 extern "C" {
 s32 __nw__7TObjectFUl(int);
 s32 TAdLoadQuestPrtTxtGC__ct(int, void *, void *);
@@ -34,6 +44,12 @@ void enable__13TParticleCtrlFPv(void *);
 extern const f32 lbl_805DFD20;
 extern const f32 lbl_805DFD24;
 void run_task__20TAdLoadQuestPrtTxtGCFv(TAdLoadQuestPrtTxtGC_8034A090 *self);
+M2C_UNK __dt__7TObjectFv(void *, int);
+M2C_UNK queue_destruction__7TObjectFv(void *);
+M2C_UNK __dl__7TObjectFPv(void *);
+extern RecoveredGlobal_8034A5D0_lbl_804EFF80 lbl_804EFF80;
+extern M2C_UNK __vt__20TAdLoadQuestPrtTxtGC[];
+T_8034A198 *__dt__20TAdLoadQuestPrtTxtGCFv(T_8034A198 *arg0, s16 arg1);
 }
 
 extern "C" {
@@ -69,6 +85,27 @@ void run_task__20TAdLoadQuestPrtTxtGCFv(TAdLoadQuestPrtTxtGC_8034A090 *self) {
     case 2:
         break;
     }
+}
+
+T_8034A198 *__dt__20TAdLoadQuestPrtTxtGCFv(T_8034A198 *arg0, s16 arg1) {
+    s32 i;
+    if (arg0 != NULL) {
+        arg0->vt = __vt__20TAdLoadQuestPrtTxtGC;
+        if (((u32 *)&lbl_804EFF80)[arg0->slot] != 0) {
+            ((u32 *)&lbl_804EFF80)[arg0->slot] = 0;
+        }
+        for (i = 0; i < arg0->count; i++) {
+            if (arg0->objs[i] != NULL) {
+                queue_destruction__7TObjectFv(arg0->objs[i]);
+                arg0->objs[i] = NULL;
+            }
+        }
+        __dt__7TObjectFv(arg0, 0);
+        if (arg1 > 0) {
+            __dl__7TObjectFPv(arg0);
+        }
+    }
+    return arg0;
 }
 
 s32 TAdLoadQuestGC__sub_8034A5D0(s32 arg0, s32 arg1) {

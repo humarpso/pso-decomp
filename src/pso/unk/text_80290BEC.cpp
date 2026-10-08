@@ -15,7 +15,7 @@ struct RecoveredGlobal_80290C20_main_task {
 
 extern "C" {
 M2C_UNK render_tick__Fv();
-M2C_UNK TLobby__sub_8022743C();
+M2C_UNK stop_audio_streams__6TLobbyFv();
 M2C_UNK delete_all_task_children__9TMainTaskFv(void *);
 M2C_UNK free_all_resources__6TLobbyFv();
 extern RecoveredGlobal_80290BEC_main_task main_task;
@@ -25,7 +25,7 @@ M2C_UNK TKeyBoardControl__sub_8000F9CC(int);
 s32 is_ready__22TQuestVmDownLoadServerFv();
 M2C_UNK TLobby__sub_800FA464();
 s8 func_801A5E54__Fv();
-M2C_UNK TKeyBoardControl__sub_801A5EC4();
+M2C_UNK update_input_frame__16TKeyBoardControlFv();
 M2C_UNK controller_stuff__Fv();
 M2C_UNK render_tick__Fv();
 M2C_UNK run_save_load_sequence__23TAdSinglePlyChrSelectGCFv();
@@ -37,7 +37,7 @@ M2C_UNK run_task__9TMainTaskFv(void *);
 M2C_UNK noop__23TAdSinglePlyChrSelectGCFv();
 M2C_UNK func_803DCDFC__Fv();
 extern RecoveredGlobal_80290BEC_main_task main_task;
-void fn_80290C20(void);
+void run_main_frame(void);
 }
 
 extern "C" {
@@ -45,7 +45,7 @@ extern "C" {
 typedef char RecoveredGlobal_80290BEC_main_task_size[sizeof(RecoveredGlobal_80290BEC_main_task) == 0x34 ? 1 : -1];
 void fn_80290BEC(void) {
     M2C_UNK *var_r3;
-    TLobby__sub_8022743C();
+    stop_audio_streams__6TLobbyFv();
     var_r3 = (M2C_UNK *)(&main_task.value);
     var_r3 = (M2C_UNK *)(&main_task.value);
     delete_all_task_children__9TMainTaskFv((void *) (&main_task.value));
@@ -53,11 +53,11 @@ void fn_80290BEC(void) {
     render_tick__Fv();
 }
 typedef char RecoveredGlobal_80290C20_main_task_size[sizeof(RecoveredGlobal_80290C20_main_task) == 0x34 ? 1 : -1];
-void fn_80290C20(void) {
+void run_main_frame(void) {
     M2C_UNK *var_r3;
     func_803DCDFC__Fv();
     controller_stuff__Fv();
-    TKeyBoardControl__sub_801A5EC4();
+    update_input_frame__16TKeyBoardControlFv();
     var_r3 = (M2C_UNK *)(&(*(RecoveredGlobal_80290C20_main_task *)&main_task).value);
     var_r3 = (M2C_UNK *)(&(*(RecoveredGlobal_80290C20_main_task *)&main_task).value);
     some_empty_func__9TMainTaskFv((void *) (&(*(RecoveredGlobal_80290C20_main_task *)&main_task).value));

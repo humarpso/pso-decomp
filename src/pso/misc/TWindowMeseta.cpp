@@ -27,7 +27,7 @@ extern "C" {
 s32 get_camera_id__11TCameraCtrlFv();
 M2C_UNK get_array_entry__20TWindowSubStatusDispFPvi(void *, M2C_UNK);
 void save_position__17TWindowSubComCardFPv(void *);
-void TWindowDD__sub_802466E0(void *, M2C_UNK *, s16, s32);
+void construct_base__9TWindowDDFPvPvsPv(void *, M2C_UNK *, s16, s32);
 void TWindowSubStatusDisp__sub_80259DB0(void *, s32);
 void set_text_entry_string(void *, s32, s32);
 s32 get_meseta_value__13TWindowMesetaFPv();
@@ -84,7 +84,7 @@ void *__dt__13TWindowMesetaFv(void *arg0, s16 arg1) {
 void *TWindowMeseta__ct(void *arg0, s32 arg1, s32 arg2, s32 arg3) {
     Sub_80269244 *a;
     Sub_80269244 *b;
-    TWindowDD__sub_802466E0(arg0, lbl_804D06CC, arg2, arg1);
+    construct_base__9TWindowDDFPvPvsPv(arg0, lbl_804D06CC, arg2, arg1);
     self->vt = __vt__13TWindowMeseta;
     self->name = lbl_805D3978;
     self->x64 = arg2;

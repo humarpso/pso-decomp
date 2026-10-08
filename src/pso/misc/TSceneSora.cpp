@@ -85,12 +85,12 @@ void *get_current_floor();
 u32 TLobby__sub_8002058C(void *, int, Res_80207478 *, Res_80207478 *, int, int, int);
 void *alloc__23TAdSinglePlyChrSelectGCFPv(int);
 s32 update_lobby_scene__6TSceneFPv(void *);
-M2C_UNK TLobby__sub_801317E4(char *, char *, char *);
+M2C_UNK replace_file_extension__6TLobbyFPvPvPv(char *, char *, char *);
 s32 lookup_scene_object__6TLobbyFPv(void *, Ref_80207478 *);
 Ent_80207478 *get_floor_scene_table(s32);
 s32 is_not_split_screen__13TRaderMapCoreFv();
 M2C_UNK TLobby__sub_803CCE9C(void *);
-void *TLobby__sub_803CD3A8(char *, int);
+void *adxf_open__6TLobbyFUii(char *, int);
 extern char lbl_8044A9D0[];
 extern char lbl_8044A9D8[];
 extern char lbl_8044A9E0[];
@@ -214,22 +214,22 @@ void load_sky_resources__10TSceneSoraFv(void) {
     if (lookup_scene_object__6TLobbyFPv(get_current_floor(), &ref) != 0) {
         ok = 0;
         tbl = get_floor_scene_table(ref.id);
-        TLobby__sub_801317E4(name1, tbl[ref.idx].name, lbl_8044A9D0);
+        replace_file_extension__6TLobbyFPvPvPv(name1, tbl[ref.idx].name, lbl_8044A9D0);
         if (is_not_split_screen__13TRaderMapCoreFv() == 1) {
-            TLobby__sub_801317E4(name2, tbl[ref.idx].name, lbl_8044A9D8);
+            replace_file_extension__6TLobbyFPvPvPv(name2, tbl[ref.idx].name, lbl_8044A9D8);
             ok = update_lobby_scene__6TSceneFPv(name2);
         }
         if (ok <= 0) {
-            TLobby__sub_801317E4(name2, tbl[ref.idx].name, lbl_8044A9E0);
+            replace_file_extension__6TLobbyFPvPvPv(name2, tbl[ref.idx].name, lbl_8044A9E0);
         }
-        p = TLobby__sub_803CD3A8(name2, 0);
+        p = adxf_open__6TLobbyFUii(name2, 0);
         if (p != NULL) {
             b.buf = name2;
             TLobby__sub_803CCE9C(p);
         } else {
             return;
         }
-        p = TLobby__sub_803CD3A8(name1, 0);
+        p = adxf_open__6TLobbyFUii(name1, 0);
         if (p != NULL) {
             a.buf = name1;
             lbl_805D6058 = 1;

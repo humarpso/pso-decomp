@@ -239,13 +239,13 @@ M2C_UNK advance_animation_playback();
 M2C_UNK play_effect_if_v2__10TObjPlayerFi(M2C_UNK);
 M2C_UNK play_sound_effect(M2C_UNK, void *, M2C_UNK, M2C_UNK);
 extern const f32 lbl_805D9FD0;
-void TObjEneDD__sub_800C2CE0(u8 *arg0, s32 arg1);
+void state_damaged__9TObjEneDDFPvi(u8 *arg0, s32 arg1);
 }
 
 extern "C" {
 
 #define F(T, o) M2C_FIELD(arg0, T *, o)
-void TObjEneDD__sub_800C2CE0(u8 *arg0, s32 arg1) {
+void state_damaged__9TObjEneDDFPvi(u8 *arg0, s32 arg1) {
     switch (arg1) {
     case 4:
         F(s16, 0xB8) = 4;

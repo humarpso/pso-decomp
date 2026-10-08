@@ -126,7 +126,7 @@ void *__dt__19TObjNpcGovernorBaseFv(void *arg0, s16 arg1);
 void free_resources__12TObjNpcHFW00Fv(void);
 void free_shared_data__19TObjNpcGovernorBaseFv(void);
 void TLobby__sub_8001FE7C(void*, int);
-void TLobby__sub_800F957C(void*);
+void free_nodes_with_id__6TLobbyFUi(void*);
 void TLobby__sub_803DA16C(void*);
 void *TObjControl__ct(void *, void *);
 void *TObjNpcHFW00__ct(void *, void *, void *);
@@ -207,7 +207,7 @@ void free_resources__12TObjNpcHFW00Fv(void) {
         TObjNpcHFW00__data_805D57AC = 0U;
     }
     if ((u32) TObjNpcHFW00__data_805D57A8 != 0U) {
-        TLobby__sub_800F957C((void*)TObjNpcHFW00__data_805D57A8);
+        free_nodes_with_id__6TLobbyFUi((void*)TObjNpcHFW00__data_805D57A8);
         TObjNpcHFW00__data_805D57A8 = 0U;
     }
 }

@@ -20,7 +20,7 @@ extern "C" {
 
 void *__dt__15TBoss6EmptyWarpFv(void *arg0, s16 arg1);
 int render__15TBoss6EmptyWarpFv(void* p);
-void TBoss6PlotFalz__sub_802AC678(void);
+void end_cutscene_camera__14TBoss6PlotFalzFPv(void);
 void __dl__7TObjectFPv(void *);
 void __dt__7TObjectFv(void *, int);
 int fn_802B0DCC(void*);
@@ -50,7 +50,7 @@ void run_task__15TBoss6EmptyWarpFv(u8 *arg0) {
 void *__dt__15TBoss6EmptyWarpFv(void *arg0, s16 arg1) {
     if (arg0 != NULL) {
         M2C_FIELD(arg0, M2C_UNK **, 0x18) = __vt__15TBoss6EmptyWarp;
-        TBoss6PlotFalz__sub_802AC678();
+        end_cutscene_camera__14TBoss6PlotFalzFPv();
         __dt__7TObjectFv(arg0, 0);
         if (arg1 > 0) {
             __dl__7TObjectFPv(arg0);

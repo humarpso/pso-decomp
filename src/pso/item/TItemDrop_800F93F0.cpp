@@ -16,7 +16,7 @@ struct Head_800F957C { u8 pad[0x14]; N_800F957C *first; };
 extern "C" {
 extern Head_800F957C lbl_8050113C[];
 int safe_free__23TAdSinglePlyChrSelectGCFUi(void*);
-void TLobby__sub_800F957C(u32 arg0);
+void free_nodes_with_id__6TLobbyFUi(u32 arg0);
 }
 
 extern "C" {
@@ -96,7 +96,7 @@ s32 load_relocatable_file(s32 arg0, s32 arg1) {
 extern "C" {
 int fn_800F953C(void* p) { return safe_free__23TAdSinglePlyChrSelectGCFUi(p); }
 int fn_800F955C(void* p) { return set_stream_and_load_file__6TLobbyFi(p); }
-void TLobby__sub_800F957C(u32 arg0) {
+void free_nodes_with_id__6TLobbyFUi(u32 arg0) {
     N_800F957C *n = lbl_8050113C->first;
     while (n != 0) {
         if (n->id24 == arg0) {

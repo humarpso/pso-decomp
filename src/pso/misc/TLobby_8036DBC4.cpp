@@ -6,9 +6,9 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 
 extern "C" {
 s32 get_camera_id__11TCameraCtrlFv();
-s32 TLobby__sub_8001EEFC(void *);
+s32 tmp_buf_use_req__6TLobbyFPv(void *);
 void draw_string__9TLanguageFPvPvi(void *, void *, int);
-void TLobby__sub_8001EE48(void *);
+void tmp_buf_release__6TLobbyFi(void *);
 s32 load_gvm_texture_file(void *);
 void set_global_param__8TObjFishFi();
 void TLanguage__sub_803DAF70(int, int);
@@ -38,9 +38,9 @@ void free_singleton_805D7018__6TLobbyFv(void) {
 void TBGMulti__ct(void) {
     s32 sp8[4];
     if (get_camera_id__11TCameraCtrlFv() == 3) {
-        sp8[0] = TLobby__sub_8001EEFC(lbl_8047AD08);
+        sp8[0] = tmp_buf_use_req__6TLobbyFPv(lbl_8047AD08);
         draw_string__9TLanguageFPvPvi(lbl_8047AD14, sp8, 0x4D);
-        TLobby__sub_8001EE48(lbl_8047AD08);
+        tmp_buf_release__6TLobbyFi(lbl_8047AD08);
         (*(s32 *)&lbl_805D7018) = load_gvm_texture_file(lbl_8047AD20);
         set_global_param__8TObjFishFi();
         TLanguage__sub_803DAF70(0, 0x4D);

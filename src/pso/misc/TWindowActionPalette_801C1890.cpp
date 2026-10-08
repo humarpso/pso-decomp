@@ -343,7 +343,7 @@ void TWindowActionPalette__sub_801C1E1C(s32 *arg0, s32 arg1);
 s32 test_item_flags__10TObjPlayerFPvUi(void *, s32);
 u8 is_item_equipped(u8 *arg0);
 u8 get_type__11TMainCursorFPv(void *);
-u8 *TWindowActionPalette__sub_801C1DE0(s32 arg0, s32 arg1, s32 arg2);
+u8 *get_slot_type__20TWindowActionPaletteFiii(s32 arg0, s32 arg1, s32 arg2);
 u8 get_enabled__11TMainCursorFPv(void *);
 u8 *TWindowActionPalette__sub_801C1D7C(s32 arg0, s32 arg1, s32 arg2);
 void *TWindowActionPalette__sub_801C1C68(O_801C1C68 *self, s32 i);
@@ -522,7 +522,7 @@ void TWindowActionPalette__sub_801C1DB8(s32 *arg0, s32 arg1) {
     TWindowActionPalette__sub_801C1D7C((s32)((s32) arg0), (s32)(*arg0), (s32)(arg1));
 }
 
-u8 *TWindowActionPalette__sub_801C1DE0(s32 arg0, s32 arg1, s32 arg2) {
+u8 *get_slot_type__20TWindowActionPaletteFiii(s32 arg0, s32 arg1, s32 arg2) {
   s32 var_r31;
   s32 new_var;
   u8 *var_r3;
@@ -534,7 +534,7 @@ u8 *TWindowActionPalette__sub_801C1DE0(s32 arg0, s32 arg1, s32 arg2) {
 }
 
 void TWindowActionPalette__sub_801C1E1C(s32 *arg0, s32 arg1) {
-    TWindowActionPalette__sub_801C1DE0((s32)((s32) arg0), (s32)(*arg0), (s32)(arg1));
+    get_slot_type__20TWindowActionPaletteFiii((s32)((s32) arg0), (s32)(*arg0), (s32)(arg1));
 }
 
 void* fn_801C1E44(void* p) { return p; }

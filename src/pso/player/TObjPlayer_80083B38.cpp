@@ -188,7 +188,7 @@ M2C_UNK GXSetTevOp(M2C_UNK, M2C_UNK);
 M2C_UNK GXSetTevOrder(M2C_UNK, M2C_UNK, M2C_UNK, M2C_UNK);
 M2C_UNK set_global_param__8TObjFishFi(M2C_UNK *);
 M2C_UNK load_list_texture(M2C_UNK, M2C_UNK, M2C_UNK, M2C_UNK);
-M2C_UNK TObjPlayer__sub_803E20B0();
+M2C_UNK load_screen_space_matrix__10TObjPlayerFv();
 M2C_UNK setup_blended_textured_draw();
 extern G_800845F8 lbl_8048E5B4;
 extern const f32 lbl_805D93D0;
@@ -196,7 +196,7 @@ extern const f32 lbl_805D93D8;
 extern const f32 lbl_805D9404;
 extern const f32 lbl_805D9408;
 extern const f32 lbl_805D9440;
-void TObjPlayer__sub_80084038(u32 arg0, s32 arg1, f32 farg0);
+void draw_screen_quad__10TObjPlayerFUiif(u32 arg0, s32 arg1, f32 farg0);
 M2C_UNK set_tex_coord_gen__10TObjPlayerFiiii(M2C_UNK, M2C_UNK, M2C_UNK, M2C_UNK);
 M2C_UNK TObjPlayer__sub_800847FC();
 M2C_UNK TObjPlayer__sub_80084824(f32, f32);
@@ -213,13 +213,13 @@ M2C_UNK GXSetTevOp(M2C_UNK, M2C_UNK);
 M2C_UNK GXSetTevOrder(M2C_UNK, M2C_UNK, M2C_UNK, M2C_UNK);
 M2C_UNK set_global_param__8TObjFishFi(M2C_UNK *);
 M2C_UNK load_list_texture(M2C_UNK, M2C_UNK, M2C_UNK, M2C_UNK);
-M2C_UNK TObjPlayer__sub_803E20B0();
+M2C_UNK load_screen_space_matrix__10TObjPlayerFv();
 M2C_UNK setup_blended_textured_draw();
 extern G_800845F8 lbl_8048E5B4;
 extern const f32 lbl_805D93D0;
 extern const f32 lbl_805D93D8;
 extern const f32 lbl_805D9444;
-void TObjPlayer__sub_800842A4(u32 arg0, f32 *arg1, f32 *arg2, s32 arg3);
+void draw_textured_screen_quad__10TObjPlayerFUiPvPvi(u32 arg0, f32 *arg1, f32 *arg2, s32 arg3);
 }
 
 extern "C" {
@@ -379,7 +379,7 @@ s32 check_all_players_ready__10TObjPlayerFv(void) {
     return flag;
 }
 
-void TObjPlayer__sub_80084038(u32 arg0, s32 arg1, f32 farg0) {
+void draw_screen_quad__10TObjPlayerFUiif(u32 arg0, s32 arg1, f32 farg0) {
     f32 temp_f31;
     f32 temp_f30;
     f32 temp_f30_2;
@@ -396,7 +396,7 @@ void TObjPlayer__sub_80084038(u32 arg0, s32 arg1, f32 farg0) {
     }
     load_list_texture(0, 0, 0, 0);
     reset_transform_state__10TObjPlayerFv();
-    TObjPlayer__sub_803E20B0();
+    load_screen_space_matrix__10TObjPlayerFv();
     setup_blended_textured_draw();
     GXSetNumTexGens(1);
     GXSetNumChans(1);
@@ -438,7 +438,7 @@ void TObjPlayer__sub_80084038(u32 arg0, s32 arg1, f32 farg0) {
     }
 }
 
-void TObjPlayer__sub_800842A4(u32 arg0, f32 *arg1, f32 *arg2, s32 arg3) {
+void draw_textured_screen_quad__10TObjPlayerFUiPvPvi(u32 arg0, f32 *arg1, f32 *arg2, s32 arg3) {
     u32 temp_r31;
     void *temp_r4;
     void *temp_r4_2;
@@ -450,7 +450,7 @@ void TObjPlayer__sub_800842A4(u32 arg0, f32 *arg1, f32 *arg2, s32 arg3) {
     }
     load_list_texture(0, 0, 0, 0);
     reset_transform_state__10TObjPlayerFv();
-    TObjPlayer__sub_803E20B0();
+    load_screen_space_matrix__10TObjPlayerFv();
     setup_blended_textured_draw();
     GXSetNumTexGens((M2C_UNK)(1));
     GXSetNumChans((M2C_UNK)(1));

@@ -117,7 +117,7 @@ extern "C" {
 void * TObjNpcNurseBase__create(void *arg0);
 void *__dt__12TObjNpcNHW01Fv(void *arg0, s16 arg1);
 void free_resources__12TObjNpcNHW01Fv(void);
-void TLobby__sub_800F957C(void*);
+void free_nodes_with_id__6TLobbyFUi(void*);
 void TLobby__sub_803DA16C(void*);
 void *TObjControl__ct(void *, void *);
 void *TObjNpcNurseBase__ct(void *, void *, void *);
@@ -136,7 +136,7 @@ void free_resources__12TObjNpcNHW01Fv(void) {
         TObjNpcNHW01__data_805D583C = 0U;
     }
     if ((u32) TObjNpcNHW01__data_805D5838 != 0U) {
-        TLobby__sub_800F957C((void*)TObjNpcNHW01__data_805D5838);
+        free_nodes_with_id__6TLobbyFUi((void*)TObjNpcNHW01__data_805D5838);
         TObjNpcNHW01__data_805D5838 = 0U;
     }
 }

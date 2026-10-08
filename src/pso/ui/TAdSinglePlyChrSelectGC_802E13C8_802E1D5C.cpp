@@ -14,7 +14,7 @@ struct RecoveredGlobal_802E1DF8_lbl_804E32A4 {
 
 extern "C" {
 extern RecoveredGlobal_802E1DF8_lbl_804E32A4 lbl_804E32A4;
-void TAdSinglePlyChrSelectGC__sub_802E1DF8(u8 *arg0, s32 arg1);
+void change_state__23TAdSinglePlyChrSelectGCFPvi(u8 *arg0, s32 arg1);
 }
 
 extern "C" {
@@ -60,7 +60,7 @@ s32 count_flags__23TAdSinglePlyChrSelectGCFPv(void *arg0) {
 }
 typedef char MemberActionStorage_802E1DF8_size[sizeof(MemberActionStorage_802E1DF8) == 12 ? 1 : -1];
 typedef char RecoveredGlobal_802E1DF8_lbl_804E32A4_size[sizeof(RecoveredGlobal_802E1DF8_lbl_804E32A4) == 0x258 ? 1 : -1];
-void TAdSinglePlyChrSelectGC__sub_802E1DF8(u8 *arg0, s32 arg1) {
+void change_state__23TAdSinglePlyChrSelectGCFPvi(u8 *arg0, s32 arg1) {
     MemberActionStorage_802E1DF8 member_action;
     u8 *temp_r6;
     if ((s32) M2C_FIELD(arg0, s32 *, 0x1C) != arg1) {

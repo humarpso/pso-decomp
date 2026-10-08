@@ -66,6 +66,12 @@ struct M2CCopy_1C0 { u8 bytes[0x1c0]; };
 
 struct M2CCopy_410 { u8 bytes[0x410]; };
 
+struct E_80070254 { u8 pad[0x104]; };
+
+struct G_80070254 { u8 pad[0x270]; E_80070254 e[4]; };
+
+struct L_80070254 { u8 pad[0x24]; s32 x24; };
+
 extern "C" {
 s32 get_card_window__17TWindowSubComCardFUi(u32);
 extern s32 lbl_805D53A0;
@@ -92,6 +98,11 @@ extern s32 tl_07;
 void TLobby__sub_80070170(void *arg0);
 Info_800703D0 *TLobby__sub_800703D0(Info_800703D0 *dst, Info_800703D0 *src);
 void TLobby__sub_800707F4(u8 *arg0, u8 *arg1);
+M2C_UNK TLobby__sub_800725E0(void *);
+u32 get_player_by_client_id(s32);
+extern void *lbl_8048C9D8[];
+extern s32 lbl_805D53A0;
+void TLobby__sub_80070254(L_80070254 *arg0);
 }
 
 extern "C" {
@@ -101,7 +112,7 @@ void TLobby__sub_80070598(u8 *arg0);
 void cleanup_if_inactive__6TLobbyFPv(void* p);
 void update_battle_cleanup_flag__6TLobbyFPv(void *arg0);
 s32 is_quest_active();
-M2C_UNK TLobby__sub_8006FC7C(void *);
+M2C_UNK update_card_save_info__6TLobbyFv(void *);
 M2C_UNK TLobby__sub_8006FE7C();
 s32 TLobby__sub_80070078(void *);
 M2C_UNK TLobby__sub_800722AC(s32);
@@ -118,22 +129,50 @@ s32 init__23TAdSinglePlyChrSelectGCFv();
 
 extern s32 tl_07;
 
-extern "C" void TLobby__sub_80070674();
+extern "C" {
+void TLobby__sub_80070674();
+}
 struct Obj_80070774 { u8 pad0[0x18]; void *vt; };
 Obj_80070774 *TLobby__sub_80070774(Obj_80070774 *arg0, s16 arg1);
-extern "C" u8 lbl_805D90D0[];
-extern "C" u8 lbl_805D90D4[];
-extern "C" u8 lbl_805D90D8[];
-extern "C" u8 lbl_805D90DC[];
-extern "C" u8 lbl_805D90E0[];
-extern "C" u8 lbl_805D90E4[];
-extern "C" u8 lbl_805D90E8[];
-extern "C" u8 lbl_805D90EC[];
-extern "C" u8 lbl_805D90F0[];
-extern "C" u8 lbl_805D90F4[];
-extern "C" u8 lbl_805D90F8[];
-extern "C" u8 lbl_805D90FC[];
-extern "C" void render_shadows__7TObjectFv();
+extern "C" {
+extern u8 lbl_805D90D0[];
+}
+extern "C" {
+extern u8 lbl_805D90D4[];
+}
+extern "C" {
+extern u8 lbl_805D90D8[];
+}
+extern "C" {
+extern u8 lbl_805D90DC[];
+}
+extern "C" {
+extern u8 lbl_805D90E0[];
+}
+extern "C" {
+extern u8 lbl_805D90E4[];
+}
+extern "C" {
+extern u8 lbl_805D90E8[];
+}
+extern "C" {
+extern u8 lbl_805D90EC[];
+}
+extern "C" {
+extern u8 lbl_805D90F0[];
+}
+extern "C" {
+extern u8 lbl_805D90F4[];
+}
+extern "C" {
+extern u8 lbl_805D90F8[];
+}
+extern "C" {
+extern u8 lbl_805D90FC[];
+}
+extern "C" {
+void render_shadows__7TObjectFv();
+}
 void *lbl_8048C348[420] = {
     (void *)0xffffffff, (void *)0x3f800000, (void *)0xffffffff, (void *)0x0,
     (void *)0x39383814, (void *)0xfffffff6, (void *)0xffffffff, (void *)0x0,
@@ -382,7 +421,7 @@ void update_battle_cleanup_flag__6TLobbyFPv(void *arg0) {
     }
     if (check_player_state_flag_2__6TLobbyFPv() != 0) {
         if (((s32) M2C_FIELD(arg0, s32 *, 0x28) != 0) && ((s32) M2C_FIELD(&lbl_8048C9D8, s32 *, 0x34) == 0)) {
-            TLobby__sub_8006FC7C(arg0);
+            update_card_save_info__6TLobbyFv(arg0);
             TLobby__sub_800722AC(lbl_805D53A0);
             TLobby__sub_80072618();
         }
@@ -431,6 +470,33 @@ void TLobby__sub_80070170(void *arg0) {
             create_time_window__6TLobbyFv((void *)(arg0));
         }
         break;
+    }
+}
+
+void TLobby__sub_80070254(L_80070254 *arg0) {
+    s32 found;
+    s32 i;
+    s32 *p;
+    found = 0;
+    for (i = 0; i < 4; i++) {
+        if (i != lbl_805D53A0) {
+            p = (s32 *)&((G_80070254 *)lbl_8048C9D8)->e[i];
+            if (get_player_by_client_id(i) == 0) {
+                if (*p != 0) {
+                    *p = 0;
+                }
+            } else if (*p == 0) {
+                found = 1;
+            }
+        }
+    }
+    if (found != 0) {
+        arg0->x24++;
+        if (arg0->x24 % 30 == 0) {
+            TLobby__sub_800725E0(arg0);
+        }
+    } else {
+        arg0->x24 = 0;
     }
 }
 

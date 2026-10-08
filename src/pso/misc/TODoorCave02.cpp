@@ -23,7 +23,7 @@ M2C_UNK set_chunk_material_color(void *);
 extern u8 lbl_804A7418[];
 extern s32 lbl_805D5660;
 extern s32 some_id_805c6f74;
-M2C_UNK TODoorCave02__sub_80161EE0(void *arg0_, void *arg1_);
+M2C_UNK draw_parts__12TODoorCave02FPvPv(void *arg0_, void *arg1_);
 }
 
 extern "C" {
@@ -52,7 +52,7 @@ M2C_UNK rotate_matrix_y(M2C_UNK, s32);
 M2C_UNK push_matrix();
 M2C_UNK pop_matrix();
 M2C_UNK clear_player_status_flag__10TObjPlayerFPviUi(void *, M2C_UNK, M2C_UNK);
-s32 fn_801582C4(void *, f32);
+s32 is_in_view_depth(void *, f32);
 M2C_UNK set_global_param__8TObjFishFi(s32);
 
 void TODoorCave02__vt18(void) {  }
@@ -98,7 +98,7 @@ void TODoorCave02__vt13(u8 *arg0) {
     }
 }
 
-M2C_UNK TODoorCave02__sub_80161EE0(void *arg0_, void *arg1_) {
+M2C_UNK draw_parts__12TODoorCave02FPvPv(void *arg0_, void *arg1_) {
     u8 *arg0 = (u8 *)arg0_;
     u8 *arg1 = (u8 *)arg1_;
     s32 temp_r4;
@@ -129,14 +129,14 @@ M2C_UNK TODoorCave02__sub_80161EE0(void *arg0_, void *arg1_) {
 }
 
 void render__12TODoorCave02Fv(u8 *arg0) {
-    if ((((VObj_80161D38 *)arg0)->m8(M2C_FIELD(arg0, f32 *, 0xC0), M2C_FIELD(arg0, f32 *, 0xC4)) != 0) && (fn_801582C4(arg0, lbl_805DB4C4) != 0)) {
+    if ((((VObj_80161D38 *)arg0)->m8(M2C_FIELD(arg0, f32 *, 0xC0), M2C_FIELD(arg0, f32 *, 0xC4)) != 0) && (is_in_view_depth(arg0, lbl_805DB4C4) != 0)) {
         push_matrix();
         post_translate_matrix(arg0 + 0x38);
         rotate_matrix_y(0, M2C_FIELD(arg0, s32 *, 0x60));
         if ((s32) M2C_FIELD(arg0, s32 *, 0xAC) == 0) {
             set_global_param__8TObjFishFi(*(s32 *)(TODoorCave02__data_805D5964 + ((M2C_FIELD(arg0, s32 *, 0xD0) * 4) & 4)));
-            TODoorCave02__sub_80161EE0((void *)(arg0), (void *)(M2C_FIELD(M2C_FIELD(arg0, void **, 0x34), void **, 0x2C)));
-            TODoorCave02__sub_80161EE0((void *)(arg0), (void *)(M2C_FIELD(M2C_FIELD(M2C_FIELD(arg0, void **, 0x34), void **, 0x2C), void **, 0x30)));
+            draw_parts__12TODoorCave02FPvPv((void *)(arg0), (void *)(M2C_FIELD(M2C_FIELD(arg0, void **, 0x34), void **, 0x2C)));
+            draw_parts__12TODoorCave02FPvPv((void *)(arg0), (void *)(M2C_FIELD(M2C_FIELD(M2C_FIELD(arg0, void **, 0x34), void **, 0x2C), void **, 0x30)));
         } else {
             set_global_param__8TObjFishFi(M2C_FIELD(TODoorCave02__data_805D5964, s32 *, 4));
             draw_ginja_model_with_motion(M2C_FIELD(arg0, void **, 0x34), M2C_FIELD(arg0, s32 *, 0xBC), M2C_FIELD(arg0, f32 *, 0xB0));

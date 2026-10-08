@@ -9,7 +9,7 @@ struct E1_8020AB50 { E2_8020AB50 *recs; s32 count; };
 extern "C" {
 s32 read_disc_file(void *, void *);
 void debug_print__6TLobbyFii(const char *, ...);
-M2C_UNK TLobby__sub_801317E4(void *, s32, void *);
+M2C_UNK replace_file_extension__6TLobbyFPvPvPv(void *, s32, void *);
 M2C_UNK bswap_enemy_set_row(void *);
 M2C_UNK reserve_enemy_set_actor_ids(void *, u32, s32);
 M2C_UNK TLobby__sub_8020B374(s32, void *, s32);
@@ -49,17 +49,17 @@ s32 load_area_enemy_set(s32 arg0, s32 arg1, s32 arg2, s32 arg3) {
     if (arg1 == 0 || arg1 == 0x12) {
         switch (get_game_play_mode()) {
         case 0:
-            TLobby__sub_801317E4(buf, name, lbl_8044BBA8);
+            replace_file_extension__6TLobbyFPvPvPv(buf, name, lbl_8044BBA8);
             break;
         case 1:
-            TLobby__sub_801317E4(buf, name, lbl_8044BBC8);
+            replace_file_extension__6TLobbyFPvPvPv(buf, name, lbl_8044BBC8);
             break;
         case 2:
-            TLobby__sub_801317E4(buf, name, lbl_8044BBD4);
+            replace_file_extension__6TLobbyFPvPvPv(buf, name, lbl_8044BBD4);
             break;
         }
     } else {
-        TLobby__sub_801317E4(buf, name, lbl_8044BBA8);
+        replace_file_extension__6TLobbyFPvPvPv(buf, name, lbl_8044BBA8);
     }
     size = read_disc_file(buf, TLobby__data_805D60F0);
     if (size < 0) {

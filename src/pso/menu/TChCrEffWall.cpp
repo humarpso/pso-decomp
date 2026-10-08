@@ -17,7 +17,7 @@ void TCameraCtrl__sub_80068EF0(void);
 void restore_full_screen_view__11TCameraCtrlFv(void);
 void set_depth_buffer_settings_1__Fv(void);
 void restore_saved_depth_alpha_state(void);
-void TWindowCtrlMain__sub_801E352C(Args_8029ACF8 *, s32, s32, f32);
+void draw_strip_swap_color__15TWindowCtrlMainFPviif(Args_8029ACF8 *, s32, s32, f32);
 void TChCrEffWall__sub_802910C8(s32, Ent_8029ACF8 *, f32);
 extern Ent_8029ACF8 lbl_804652F0[6];
 extern Ent_8029ACF8 lbl_80465320[2];
@@ -63,10 +63,10 @@ void render__12TChCrEffWallFv(void) {
     args.c = 0;
     args.d = 4;
     args.a = lbl_804DBF68;
-    TWindowCtrlMain__sub_801E352C(&args, 4, 6, lbl_805DDCB4);
+    draw_strip_swap_color__15TWindowCtrlMainFPviif(&args, 4, 6, lbl_805DDCB4);
     args.b = lbl_804DBFA8;
     args.a = lbl_804DBF88;
-    TWindowCtrlMain__sub_801E352C(&args, 4, 6, lbl_805DDCB4);
+    draw_strip_swap_color__15TWindowCtrlMainFPviif(&args, 4, 6, lbl_805DDCB4);
     TCameraCtrl__sub_80068EF0();
     restore_saved_depth_alpha_state();
 }

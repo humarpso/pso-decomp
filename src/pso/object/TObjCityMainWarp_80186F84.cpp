@@ -64,10 +64,10 @@ M2C_UNK TWindow__close(u32);
 char *strcpy(char *, const char *);
 extern s32 lbl_805D53A0;
 extern const f32 lbl_805DBCA8;
-void TObjPlayer__sub_80187438(u8 *arg0);
+void count_players_in_warp_radius__10TObjPlayerFPv(u8 *arg0);
 s32 TLobby__sub_800C6C10(s32);
 s32 TObjCityMainWarp__sub_80186B34(void *);
-s32 TObjCityMainWarp__sub_80186BBC(void *, f32);
+s32 find_local_player_in_range__16TObjCityMainWarpFif(void *, f32);
 M2C_UNK close_windows__16TObjCityMainWarpFPv();
 M2C_UNK TObjCityMainWarp__sub_80186CC8(void *, M2C_UNK);
 M2C_UNK trigger_warp_effect__16TObjCityMainWarpFPvi(void *, s32);
@@ -76,11 +76,11 @@ s32 get_warp_state__19TWindowSubTradeMainFv();
 M2C_UNK play_sound_effect(M2C_UNK, void *, M2C_UNK, M2C_UNK);
 extern s32 lbl_805D53A0;
 extern void *lbl_805D5B28;
-void TObjCityMainWarp__sub_8018709C(u8 *arg0);
+void update_warp_sequence__16TObjCityMainWarpFPv(u8 *arg0);
 s32 get_main_phase();
 s32 TLobby__sub_800C6C10(s32);
 s32 TObjCityMainWarp__sub_80186B34(void *);
-s32 TObjCityMainWarp__sub_80186BBC(void *, f32);
+s32 find_local_player_in_range__16TObjCityMainWarpFif(void *, f32);
 M2C_UNK close_windows__16TObjCityMainWarpFPv();
 M2C_UNK TObjCityMainWarp__sub_80186CC8(void *, M2C_UNK);
 M2C_UNK notify_player_warp__16TObjCityMainWarpFPvi(void *, s32);
@@ -90,17 +90,17 @@ s32 get_warp_state__19TWindowSubTradeMainFv();
 M2C_UNK TWindow__close(u32);
 s32 get_slot_or_neg1__17TWindowSubComCardFPv(u32);
 s32 get_card_data__17TWindowSubComCardFPv(u32);
-s32 TWindowSubComCard__sub_802A57FC(u32);
+s32 is_child_visible__17TWindowSubComCardFPv(u32);
 extern s32 lbl_805D53A0;
 extern void *lbl_805D5B28;
-void TObjCityMainWarp__sub_801871D0(u8 *arg0);
+void update_challenge_state__16TObjCityMainWarpFPv(u8 *arg0);
 }
 
 extern "C" {
 
 void update_state__16TObjCityMainWarpFPv(void *arg0);
 s32 TObjCityMainWarp__sub_80186B00();
-s32 TObjCityMainWarp__sub_80186BBC(void *, f32);
+s32 find_local_player_in_range__16TObjCityMainWarpFif(void *, f32);
 M2C_UNK notify_player_warp__16TObjCityMainWarpFPvi(void *, s32);
 
 extern s32 lbl_805D53A0;
@@ -123,7 +123,7 @@ void update_state__16TObjCityMainWarpFPv(void *arg0) {
         return;
     case 1:
         if (TObjCityMainWarp__sub_80186B00() == 0) {
-            temp_r3 = TObjCityMainWarp__sub_80186BBC(arg0, M2C_FIELD(arg0, f32 *, 0xAC));
+            temp_r3 = find_local_player_in_range__16TObjCityMainWarpFif(arg0, M2C_FIELD(arg0, f32 *, 0xAC));
             if (temp_r3 != 0) {
                 notify_player_warp__16TObjCityMainWarpFPvi(arg0, lbl_805D53A0);
                 M2C_FIELD(arg0, s32 *, 0xBC) = (s32) lbl_805D5B60;
@@ -145,7 +145,7 @@ void update_state__16TObjCityMainWarpFPv(void *arg0) {
     }
 }
 
-void TObjCityMainWarp__sub_8018709C(u8 *arg0) {
+void update_warp_sequence__16TObjCityMainWarpFPv(u8 *arg0) {
     s32 r;
     switch (M2C_FIELD(arg0, s16 *, 0xE0)) {
     case 0:
@@ -156,7 +156,7 @@ void TObjCityMainWarp__sub_8018709C(u8 *arg0) {
         M2C_FIELD(arg0, s32 *, 0xD4) = M2C_FIELD(M2C_FIELD(lbl_805D5B28, void **, 0x430), s32 *, 0x2C);
         break;
     case 1:
-        if (((u32 (*)(f32))TObjCityMainWarp__sub_80186BBC)(M2C_FIELD(arg0, f32 *, 0xAC)) != 0) {
+        if (((u32 (*)(f32))find_local_player_in_range__16TObjCityMainWarpFif)(M2C_FIELD(arg0, f32 *, 0xAC)) != 0) {
             TObjCityMainWarp__sub_801875F8(arg0);
             if (M2C_FIELD(arg0, s32 *, 0x170) == 0) {
                 trigger_warp_effect__16TObjCityMainWarpFPvi(arg0, lbl_805D53A0);
@@ -185,7 +185,7 @@ void TObjCityMainWarp__sub_8018709C(u8 *arg0) {
     }
 }
 
-void TObjCityMainWarp__sub_801871D0(u8 *arg0) {
+void update_challenge_state__16TObjCityMainWarpFPv(u8 *arg0) {
     s32 r;
     if (M2C_FIELD(arg0, s32 *, 0x15C) == 1) {
         M2C_FIELD(arg0, s16 *, 0xDC) = 3;
@@ -200,7 +200,7 @@ void TObjCityMainWarp__sub_801871D0(u8 *arg0) {
         M2C_FIELD(arg0, s32 *, 0xD4) = M2C_FIELD(M2C_FIELD(lbl_805D5B28, void **, 0x430), s32 *, 0x2C);
         break;
     case 1:
-        if (((u32 (*)(f32))TObjCityMainWarp__sub_80186BBC)(M2C_FIELD(arg0, f32 *, 0xAC)) != 0) {
+        if (((u32 (*)(f32))find_local_player_in_range__16TObjCityMainWarpFif)(M2C_FIELD(arg0, f32 *, 0xAC)) != 0) {
             TObjCityMainWarp__sub_801875F8(arg0);
             trigger_warp_effect__16TObjCityMainWarpFPvi(arg0, lbl_805D53A0);
             M2C_FIELD(arg0, s16 *, 0xE0) = 2;
@@ -220,7 +220,7 @@ void TObjCityMainWarp__sub_801871D0(u8 *arg0) {
         if (M2C_FIELD(arg0, u32 *, 0x168) != 0) {
             if (get_card_data__17TWindowSubComCardFPv(M2C_FIELD(arg0, u32 *, 0x168)) != 0) {
                 M2C_FIELD(arg0, s16 *, 0xE0) = 3;
-            } else if (TWindowSubComCard__sub_802A57FC(M2C_FIELD(arg0, u32 *, 0x168)) != 0) {
+            } else if (is_child_visible__17TWindowSubComCardFPv(M2C_FIELD(arg0, u32 *, 0x168)) != 0) {
                 r = get_slot_or_neg1__17TWindowSubComCardFPv(M2C_FIELD(arg0, u32 *, 0x168));
                 if (r == 0) {
                     trigger_warp_effect__16TObjCityMainWarpFPvi(arg0, lbl_805D53A0);
@@ -246,7 +246,7 @@ void TObjCityMainWarp__sub_801871D0(u8 *arg0) {
         M2C_FIELD(arg0, s16 *, 0xE0) = 4;
         break;
     case 4:
-        if (((u32 (*)(f32))TObjCityMainWarp__sub_80186BBC)(M2C_FIELD(arg0, f32 *, 0xAC)) == 0) {
+        if (((u32 (*)(f32))find_local_player_in_range__16TObjCityMainWarpFif)(M2C_FIELD(arg0, f32 *, 0xAC)) == 0) {
             M2C_FIELD(arg0, s16 *, 0xE0) = 1;
             break;
         }
@@ -264,7 +264,7 @@ void TObjCityMainWarp__sub_801871D0(u8 *arg0) {
     }
 }
 
-void TObjPlayer__sub_80187438(u8 *arg0) {
+void count_players_in_warp_radius__10TObjPlayerFPv(u8 *arg0) {
     Warp_80187438 *self = (Warp_80187438 *)arg0;
     s32 i;
     s32 inside;

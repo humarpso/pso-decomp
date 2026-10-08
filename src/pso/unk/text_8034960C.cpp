@@ -7,7 +7,7 @@ struct Desc_80349844 {
 };
 
 extern "C" {
-void fn_801E3330(Desc_80349844 *, s32, s32, f32);
+void draw_color_lines(Desc_80349844 *, s32, s32, f32);
 extern const f32 lbl_805DFD04;
 extern const f32 lbl_805DFD08;
 extern const f32 lbl_805DFD0C;
@@ -44,7 +44,7 @@ void fn_80349844(void) {
         d.pos[6] = lbl_805DFD0C;
         d.pos[7] = y2;
         d.col[3] = 0xFF001A36;
-        fn_801E3330(&d, 4, 3, lbl_805DFD14);
+        draw_color_lines(&d, 4, 3, lbl_805DFD14);
     }
 }
 

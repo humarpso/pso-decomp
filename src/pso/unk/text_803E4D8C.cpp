@@ -100,7 +100,7 @@ void pop_matrix(void);
 void TObjPlayer__sub_803E53BC(void);
 void update_render_state__10TObjPlayerFv(s32 *, s32 *);
 extern u8 *lbl_805D4698;
-void TObjPlayer__sub_803E4E20(s32 arg0);
+void draw_motion_node_list__10TObjPlayerFi(s32 arg0);
 void find_motion_key_interval(void *, s32, s32 count, f32 t, void *, void *, void *);
 extern u32 *lbl_805D7778;
 extern const f32 lbl_805E10B8;
@@ -129,10 +129,10 @@ void TObjPlayer__sub_803E4D8C(s32 arg0, s32 arg1, u8 *arg2, f32 farg0, s32 arg3)
     }
     TObjPlayer__sub_803E5458(0);
     TObjPlayer__sub_803E53F8(arg2, farg0);
-    TObjPlayer__sub_803E4E20((s32)(arg0));
+    draw_motion_node_list__10TObjPlayerFi((s32)(arg0));
 }
 
-void TObjPlayer__sub_803E4E20(s32 arg0) {
+void draw_motion_node_list__10TObjPlayerFi(s32 arg0) {
     s32 tmp;
     Ctx_803E4E20 *ctx;
     s32 *obj;
@@ -158,7 +158,7 @@ void TObjPlayer__sub_803E4E20(s32 arg0) {
             ctx->draw(n->obj);
         }
         if (n->child != NULL) {
-            TObjPlayer__sub_803E4E20((s32)n->child);
+            draw_motion_node_list__10TObjPlayerFi((s32)n->child);
         }
         pop_matrix();
         n = n->next;

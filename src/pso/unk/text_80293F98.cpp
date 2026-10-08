@@ -21,7 +21,7 @@ struct RecoveredGlobal_80293F98_lbl_804DB900 {
 };
 
 extern "C" {
-s32 TWindowCtrlMain__sub_801E352C(void *, int, int, f32);
+s32 draw_strip_swap_color__15TWindowCtrlMainFPviif(void *, int, int, f32);
 s32 __cvt_fp2unsigned(f32);
 extern RecoveredGlobal_80293F98_lbl_804DB900 lbl_804DB900;
 extern const f32 lbl_805DD9E0;
@@ -52,7 +52,7 @@ void TChCrEffFade__sub_80293F98(f32 farg0) {
     stack.sp10 = 0;
     stack.sp14 = 4;
     stack.sp8 = (M2C_UNK *)(&lbl_804DB900.value);
-    TWindowCtrlMain__sub_801E352C((void *) (&stack.sp8), (int) (4), (int) (6), (f32) (lbl_805DD9E4));
+    draw_strip_swap_color__15TWindowCtrlMainFPviif((void *) (&stack.sp8), (int) (4), (int) (6), (f32) (lbl_805DD9E4));
 }
 
 }

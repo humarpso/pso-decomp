@@ -121,7 +121,7 @@ M2C_UNK scale_matrix(int, f32, f32, f32);
 M2C_UNK rotate_matrix_y(int, int);
 M2C_UNK translate_matrix(int, f32, f32, f32);
 extern RecoveredGlobal_800D9E8C_lbl_8058D490 lbl_8058D490;
-void TObjPlayer__sub_800D9E8C(u8 *arg0);
+void render_model_transformed__10TObjPlayerFPv(u8 *arg0);
 extern s32 lbl_805D586C;
 extern s32 lbl_805D5870;
 void *get_player_data__10TObjPlayerFi(s32 i);
@@ -129,7 +129,7 @@ s32 is_valid_and_active__10TObjPlayerFUi(void *p);
 s32 TObjPlayer__sub_800D9F4C(Obj_800D9F4C *self);
 f64 get_ad_end_text_start__10TObjPlayerFv(f32, f32);
 Hit_800D9C7C *csnVector(void *, void *, s32);
-f32 TObjPlayer__sub_8013153C(void *, s32);
+f32 horizontal_distance__10TObjPlayerFPvPv(void *, s32);
 M2C_UNK vec3_add_to(void *, void *);
 M2C_UNK matrix_mult_vec(int, Vec_800D9C7C *, void *);
 M2C_UNK rotate_matrix_y(int, int);
@@ -141,7 +141,7 @@ extern const f64 lbl_8043C900[];
 extern RecoveredGlobal_800D9E8C_lbl_8058D490 lbl_8058D490;
 extern const f32 lbl_805DA3F8;
 extern const f32 lbl_805DA3FC;
-void TObjPlayer__sub_800D9C7C(u8 *arg0, f32 *arg1);
+void find_open_direction__10TObjPlayerFPvPv(u8 *arg0, f32 *arg1);
 s16 obj_getField1c(void *);
 f64 get_ad_end_text_start__10TObjPlayerFv(f32, f32);
 s32 angle_difference_abs(s32, s32);
@@ -167,7 +167,7 @@ s32 TObjPlayer__sub_800D9C34(s32 arg0) {
 
 #pragma push
 #pragma opt_common_subs off
-void TObjPlayer__sub_800D9C7C(u8 *arg0, f32 *arg1) {
+void find_open_direction__10TObjPlayerFPvPv(u8 *arg0, f32 *arg1) {
     s32 ang;
     s32 best;
     s32 i;
@@ -192,7 +192,7 @@ void TObjPlayer__sub_800D9C7C(u8 *arg0, f32 *arg1) {
                 pop_matrix();
                 return;
             }
-            d = TObjPlayer__sub_8013153C(arg0 + 0x38, h->x4) - bias;
+            d = horizontal_distance__10TObjPlayerFPvPv(arg0 + 0x38, h->x4) - bias;
             if (bestv < d) {
                 bestv = d;
                 best = ang;
@@ -223,7 +223,7 @@ void TObjPlayer__sub_800D9E08(s32 arg0) {
     lbl_805D5270 = TObjPlayer__sub_800DC420((void *) (arg0), (int) (1));
 }
 typedef char RecoveredGlobal_800D9E8C_lbl_8058D490_size[sizeof(RecoveredGlobal_800D9E8C_lbl_8058D490) == 0x30 ? 1 : -1];
-void TObjPlayer__sub_800D9E8C(u8 *arg0) {
+void render_model_transformed__10TObjPlayerFPv(u8 *arg0) {
     f32 temp_f1;
     push_matrix_from((u32) &lbl_8058D490.value);
     translate_matrix((int) (0), (f32) (M2C_FIELD(arg0, f32 *, 0x38)), (f32) (M2C_FIELD(arg0, f32 *, 0x404) + (M2C_FIELD(arg0, f32 *, 0x3C) + M2C_FIELD(arg0, f32 *, 0x3E4))), (f32) (M2C_FIELD(arg0, f32 *, 0x40)));

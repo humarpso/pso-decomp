@@ -286,7 +286,7 @@ void TOFenceAncient04__vt13(void* p);
 void TOFenceAncient04__vt12(void* p);
 void * create__16TOFenceAncient04FPv(void *arg0);
 void destroy__16TOFenceAncient04Fv(void);
-void TOFenceAncient04__sub_8016775C(void);
+void load_resources__16TOFenceAncient04Fv(void);
 void * __dt__16TOFenceAncient04Fv(void *arg0, s16 arg1);
 u8 * TOFenceAncient04__ct(u8 *arg0, M2C_UNK arg1, s32 arg2);
 void TOHangceilingCave01KeyQuick__vt78(u8 *arg0);
@@ -309,7 +309,7 @@ void fn_80168398(u8 *arg0);
 void fn_80168488(VO_80168488 *arg0);
 void init_geometry__19TOHangceilingCave01FPv(void *);
 void destroy_hanging_object__27TOHangceilingCave01KeyQuickFPvs(void *, int);
-void TOHangceilingCave01KeyQuick__sub_80168C6C(void *);
+void init_base__27TOHangceilingCave01KeyQuickFPvii(void *);
 void set_scale__27TOHangceilingCave01KeyQuickFPvf(void *, f32);
 void * get_player_by_client_id(s32);
 M2C_UNK free_if_valid__10TObjPlayerFi(s32);
@@ -456,7 +456,7 @@ void *__dt__27TOHangceilingCave01KeyQuickFv(void *arg0, s16 arg1) {
 }
 
 u8 *TOHangceilingCave01KeyQuick__ct(u8 *arg0, s32 arg1) {
-    ((u8 * (*)(void *, s32))TOHangceilingCave01KeyQuick__sub_80168C6C)(arg0, arg1);
+    ((u8 * (*)(void *, s32))init_base__27TOHangceilingCave01KeyQuickFPvii)(arg0, arg1);
     M2C_FIELD(arg0, M2C_UNK **, 0x18) = &(*(RecoveredGlobal_80167C78___vt__27TOHangceilingCave01KeyQuick *)&__vt__27TOHangceilingCave01KeyQuick).value;
     M2C_FIELD(arg0, s32 *, 0) = (s32) lbl_805D2FF0;
     init_geometry__19TOHangceilingCave01FPv(arg0);
@@ -520,7 +520,7 @@ void *__dt__22TOHangceilingCave01KeyFv(void *arg0, s16 arg1) {
 }
 
 void *TOHangceilingCave01Key__ct(void *arg0) {
-    TOHangceilingCave01KeyQuick__sub_80168C6C(arg0);
+    init_base__27TOHangceilingCave01KeyQuickFPvii(arg0);
     M2C_FIELD(arg0, M2C_UNK **, 0x18) = __vt__22TOHangceilingCave01Key;
     M2C_FIELD(arg0, void **, 0x0) = lbl_805D2FEC;
     init_geometry__19TOHangceilingCave01FPv(arg0);
@@ -590,7 +590,7 @@ void *__dt__25TOHangceilingCave01NormalFv(void *arg0, s16 arg1) {
 }
 
 void *TOHangceilingCave01Normal__ct(void *arg0) {
-    TOHangceilingCave01KeyQuick__sub_80168C6C(arg0);
+    init_base__27TOHangceilingCave01KeyQuickFPvii(arg0);
     M2C_FIELD(arg0, M2C_UNK **, 0x18) = __vt__25TOHangceilingCave01Normal;
     M2C_FIELD(arg0, void **, 0x0) = lbl_805D2FE8;
     init_geometry__19TOHangceilingCave01FPv(arg0);
@@ -742,7 +742,7 @@ M2C_UNK draw_ginja_model_with_motion(void *, void *, f32);
 extern u8 *lbl_805D59DC;
 extern const f32 lbl_805DB674;
 extern const f32 lbl_805DB67C;
-void TOHangceilingCave01__sub_80168644(u8 *arg0);
+void draw_model__19TOHangceilingCave01FPv(u8 *arg0);
 }
 
 extern "C" {
@@ -918,7 +918,7 @@ void TOHangceilingCave01__sub_80168640(void) {  }
 
 extern const f32 lbl_805DB694;
 
-void TOHangceilingCave01__sub_80168644(u8 *arg0) {
+void draw_model__19TOHangceilingCave01FPv(u8 *arg0) {
     f32 temp_f1;
     f32 temp_f2;
     s32 temp_r29;
@@ -1072,7 +1072,7 @@ extern s32 lbl_805D59E0;
 extern const char lbl_80441858[] = "fs_obj_turiten_singo.gvm";
 extern const char lbl_80441874[] = "fs_obj_turiten_singo_r.gvm";
 
-void fn_80168AA8(void) {
+void load_turiten_singo_resources(void) {
     void *p;
 
     (*(void **)&lbl_805D59D0) = 0;

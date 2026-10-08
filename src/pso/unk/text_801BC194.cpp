@@ -15,7 +15,7 @@ s32 obj_isState2_324(void *);
 u16 obj_getField1c(void *);
 s32 check_flag__10TObjPlayerFPvi(void *, int);
 M2C_UNK save_position__14TBoss4DarkFalzFi(void *);
-M2C_UNK TBoss4DarkFalz__sub_8004C220(void *, void *);
+M2C_UNK set_position_from__14TBoss4DarkFalzFPvPv(void *, void *);
 M2C_UNK reset_cameras_to_actor(void *, int);
 M2C_UNK set_state_flags__10TObjPlayerFPvUi(void *, int);
 M2C_UNK set_camera_mode__10TObjPlayerFi(int);
@@ -54,7 +54,7 @@ void place_on_area_entry__10TObjPlayerFPv(u8 *arg0) {
         is_locally_controlled__10TObjPlayerFPv(arg0) != 0 && has_active_camera_event__10TObjPlayerFv(arg0) == 0 &&
         check_flag__10TObjPlayerFPvi(arg0, 0x100000) == 0 && is_key_machine_ready__10TObjPlayerFv() != 0) {
         set_state_flags__10TObjPlayerFPvUi(arg0, 0x100000);
-        TBoss4DarkFalz__sub_8004C220(arg0, TObjPlayer__sub_801D8C6C(arg0));
+        set_position_from__14TBoss4DarkFalzFPvPv(arg0, TObjPlayer__sub_801D8C6C(arg0));
         M2C_FIELD(arg0, s32 *, 0x60) = TObjPlayer__sub_801D8C3C(arg0);
         play_effect_default__10TObjPlayerFii(arg0, 0x1E);
         set_camera_mode__10TObjPlayerFi(3);
@@ -65,17 +65,17 @@ void place_on_area_entry__10TObjPlayerFPv(u8 *arg0) {
     } else if (obj_isState2_324(arg0) == 0) {
         p = consume_telepipe_arrival(obj_getField1c(arg0), arg0 + 0x60);
         if (p != NULL) {
-            TBoss4DarkFalz__sub_8004C220(arg0, p);
+            set_position_from__14TBoss4DarkFalzFPvPv(arg0, p);
         } else {
             e = &TObjPlayer__data_8050E920[obj_getField1c(arg0)];
             if (obj_isState2_324(arg0) == 0 && TObjPlayer__sub_801BF95C(e) == 1) {
                 TObjPlayer__sub_801BF954(e, 0);
                 M2C_FIELD(arg0, s32 *, 0x60) = get_lock_timer__10TObjPlayerFPv(e);
-                TBoss4DarkFalz__sub_8004C220(arg0, get_sub_object__10TObjPlayerFPv(e));
+                set_position_from__14TBoss4DarkFalzFPvPv(arg0, get_sub_object__10TObjPlayerFPv(e));
             } else {
                 other = find_player_arrival_set(arg0, obj_getField1c(arg0));
                 if (other != NULL) {
-                    TBoss4DarkFalz__sub_8004C220(arg0, other + 0x38);
+                    set_position_from__14TBoss4DarkFalzFPvPv(arg0, other + 0x38);
                     M2C_FIELD(arg0, s32 *, 0x60) = M2C_FIELD(other, s32 *, 0x60);
                 } else {
                     set_position__10TObjPlayerFPvfff(arg0, TObjPlayer__data_805DC278, TObjPlayer__data_805DC278, TObjPlayer__data_805DC278);

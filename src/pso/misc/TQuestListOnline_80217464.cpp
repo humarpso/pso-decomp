@@ -41,7 +41,7 @@ void invoke_callback_28_and_queue_destruction__16TQuestListOnlineFPv(void *arg0)
 void invoke_callback_2c_and_queue_destruction__16TQuestListOnlineFPv(void *arg0);
 void invoke_callback_34_and_queue_destruction__16TQuestListOnlineFPv(void *arg0);
 s32 TLobby__sub_8001EEF4();
-s32 TLobby__sub_8001EEFC(M2C_UNK *);
+s32 tmp_buf_use_req__6TLobbyFPv(M2C_UNK *);
 s32 TLobby__sub_80071698(M2C_UNK);
 s32 get_story_flag(M2C_UNK);
 M2C_UNK TWindow__close(void *);
@@ -166,7 +166,7 @@ void TQuestListOnline__sub_80217714(s32 arg0) {
 s32 init__16TQuestListOnlineFv(void) {
     TQuestListOnline__data_805D61E4 = 0;
     if (TLobby__sub_8001EEF4() != 0) {
-        TQuestListOnline__data_805D61E4 = TLobby__sub_8001EEFC(lbl_8044BEB0);
+        TQuestListOnline__data_805D61E4 = tmp_buf_use_req__6TLobbyFPv(lbl_8044BEB0);
         return 1;
     }
     return 0;

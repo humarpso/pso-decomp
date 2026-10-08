@@ -36,7 +36,7 @@ M2C_UNK set_global_flag__10TObjPlayerFv();
 M2C_UNK clear_global_state__10TObjPlayerFv();
 extern s32 lbl_80496CC8[];
 extern s32 some_id_805c6f74;
-void TObjEneSlimeOne__sub_800EC4A0(u8 *arg0, s32 arg1);
+void draw_part__15TObjEneSlimeOneFPvi(u8 *arg0, s32 arg1);
 }
 
 extern "C" {
@@ -90,7 +90,7 @@ extern f32 lbl_805D52B8;
 extern u8 lbl_805D52BC;
 extern f32 lbl_805DA760;
 
-void TObjEneSlimeOne__sub_800EC4A0(u8 *arg0, s32 arg1) {
+void draw_part__15TObjEneSlimeOneFPvi(u8 *arg0, s32 arg1) {
     s32 state = M2C_FIELD(arg0, s32 *, 4);
     if (state == -1) {
         return;

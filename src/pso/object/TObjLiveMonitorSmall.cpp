@@ -17,7 +17,7 @@ s32 TObjLiveMonitor__sub_8030C050(s32);
 M2C_UNK push_matrix();
 M2C_UNK pop_matrix();
 M2C_UNK draw_ginja_model(void *);
-int TObjPlayer__sub_8030B208(void *arg0);
+int render_live_monitor_screen__10TObjPlayerFPv(void *arg0);
 }
 
 extern "C" {
@@ -31,7 +31,7 @@ void __ct__15TObjLiveMonitorFv(void *);
 void *__nw__7TObjectFUl(M2C_UNK);
 int fn_8030B370(void*);
 
-int render__20TObjLiveMonitorSmallFv(void* p) { return TObjPlayer__sub_8030B208((void *)(p)); }
+int render__20TObjLiveMonitorSmallFv(void* p) { return render_live_monitor_screen__10TObjPlayerFPv((void *)(p)); }
 int run_task__20TObjLiveMonitorSmallFv(void* p) { return fn_8030B370(p); }
 
 extern M2C_UNK __vt__20TObjLiveMonitorSmall[];
@@ -70,7 +70,7 @@ s32 spawn_for_each_fish__20TObjLiveMonitorSmallFi(s32 arg0) {
     }
     return 0;
 }
-int TObjPlayer__sub_8030B208(void *arg0) {
+int render_live_monitor_screen__10TObjPlayerFPv(void *arg0) {
     s32 e;
     s32 var_r4;
     switch (M2C_FIELD(arg0, s32 *, 0x24)) {

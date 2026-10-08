@@ -125,7 +125,7 @@ extern Glob_8018E358 TObjDoor__data_8050DC80[];
 extern s32 lbl_805D5660;
 extern s32 TObjDoor__data_805D5BC0;
 extern s32 some_id_805c6f74;
-void TObjDoor__sub_8018E40C(Door_8018E40C *arg0);
+void render__8TObjDoorFPv(Door_8018E40C *arg0);
 void begin_effect_render__13TParticleCtrlFv();
 void end_effect_render__13TParticleCtrlFv();
 void free_children__12TObjDoorJungFPvPv(void *, int);
@@ -150,7 +150,7 @@ extern u32 lbl_805D5BC4;
 extern s32 TObjDoor__data_805D5BC0;
 extern Glob_8018E358 TObjDoor__data_8050DC80[];
 extern DoorMotionHeader* TObjDoor__data_8050DC78[];
-void TObjDoor__sub_8018F30C(void);
+void load_resources__8TObjDoorFv(void);
 void begin_effect_render__13TParticleCtrlFv();
 void end_effect_render__13TParticleCtrlFv();
 void free_children__12TObjDoorJungFPvPv(void *, int);
@@ -217,7 +217,7 @@ extern DoorMotionHeader* TObjDoor__data_8050DC78[];
 
 extern "C" void update_locked_pulse__8TObjDoorFPv(TObjDoor *door);
 extern "C" void draw_closing__8TObjDoorFPv(Door_8018E358 *arg0);
-extern "C" void TObjDoor__sub_8018E358(Door_8018E358 *arg0);
+extern "C" void draw_model__8TObjDoorFPv(Door_8018E358 *arg0);
 extern "C" u8 lbl_804454A0[];
 extern "C" u8 lbl_804454B8[];
 extern "C" u8 lbl_804454D4[];
@@ -293,10 +293,10 @@ void *lbl_804B77CC[3] = {
     (void *)0x0, (void *)0xffffffff, (void *)&draw_closing__8TObjDoorFPv,
 };
 void *lbl_804B77D8[3] = {
-    (void *)0x0, (void *)0xffffffff, (void *)&TObjDoor__sub_8018E40C,
+    (void *)0x0, (void *)0xffffffff, (void *)&render__8TObjDoorFPv,
 };
 void *lbl_804B77E4[3] = {
-    (void *)0x0, (void *)0xffffffff, (void *)&TObjDoor__sub_8018E358,
+    (void *)0x0, (void *)0xffffffff, (void *)&draw_model__8TObjDoorFPv,
 };
 void *lbl_804B77F0[18] = {
     (void *)0x0, (void *)0x0, (void *)0x0, (void *)0x0,
@@ -309,7 +309,7 @@ void *lbl_804B77F0[18] = {
 #define lbl_804B764C ((u8 *)lbl_804B764C)
 #define TObjDoor__data_804B7678 ((Color_8018E40C *)TObjDoor__data_804B7678)
 
-void TObjDoor__sub_8018E358(Door_8018E358 *arg0) {
+void draw_model__8TObjDoorFPv(Door_8018E358 *arg0) {
     set_global_param__8TObjFishFi(TObjDoor__data_805D5BC0);
     push_matrix();
     post_translate_matrix(arg0->f38);
@@ -326,7 +326,7 @@ void TObjDoor__sub_8018E358(Door_8018E358 *arg0) {
     pop_matrix();
 }
 
-void TObjDoor__sub_8018E40C(Door_8018E40C *arg0) {
+void render__8TObjDoorFPv(Door_8018E40C *arg0) {
     set_global_param__8TObjFishFi(TObjDoor__data_805D5BC0);
     push_matrix();
     post_translate_matrix(arg0->f38);
@@ -675,7 +675,7 @@ void free_resources__8TObjDoorFv(void) {
 }
 
 extern "C" const char lbl_80445588[] = "fe_obj_door.gvm";
-void TObjDoor__sub_8018F30C(void) {
+void load_resources__8TObjDoorFv(void) {
     s32 p = alloc__23TAdSinglePlyChrSelectGCFPv((void *)0x440);
     if (p != 0) {
         p = (s32)load_resource_from_descriptor((void *)p, 5, lbl_804B763C, 0, 0, 0);

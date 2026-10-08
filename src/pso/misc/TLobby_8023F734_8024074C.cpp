@@ -8,7 +8,7 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 extern "C" {
 
 s32 validate_and_set_selection__6TLobbyFPvi(void *arg0, s32 arg1);
-M2C_UNK TLobby__sub_802405B0(void *, M2C_UNK);
+M2C_UNK pop_sound_groups__6TLobbyFPvi(void *, M2C_UNK);
 M2C_UNK sndVolume(M2C_UNK, M2C_UNK, M2C_UNK);
 
 extern M2C_UNK lbl_804CD9A8[];
@@ -21,7 +21,7 @@ s32 validate_and_set_selection__6TLobbyFPvi(void *arg0, s32 arg1) {
         return 8;
     }
     if ((s32) M2C_FIELD(arg0, s32 *, 0x288) > 0) {
-        TLobby__sub_802405B0(arg0, 0);
+        pop_sound_groups__6TLobbyFPvi(arg0, 0);
     }
     sndVolume(0x7F, 0, 0xFF);
     if ((s32) M2C_FIELD(arg0, s32 *, 0x298) != 1) {

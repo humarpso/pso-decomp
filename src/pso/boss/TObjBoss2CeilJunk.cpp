@@ -109,7 +109,7 @@ extern RecoveredGlobal_8003A6F4_lbl_80435BD8 lbl_80435BD8;
 extern M2C_UNK __vt__17TObjBoss2CeilJunk[];
 extern s32 lbl_805D26E8;
 u8 *TObjBoss2CeilJunk__ct(struct RecoveredFields_8003A6F4_arg0 *arg0, s32 arg1, s32 arg2);
-M2C_UNK TObjEneDD__sub_800B9D94(void *, void *, int, void *);
+M2C_UNK draw_oriented_shadow__9TObjEneDDFiiiUi(void *, void *, int, void *);
 M2C_UNK rotate_matrix_y(int, int);
 M2C_UNK rotate_matrix_x(int, int);
 M2C_UNK push_matrix();
@@ -170,7 +170,7 @@ void render__17TObjBoss2CeilJunkFv(Obj_8003A1B4 *self) {
     new_var = (0.2f) * t;
     s.y = (1.0f);
     s.x = (s.z = new_var);
-    TObjEneDD__sub_800B9D94(self->f44, self->f9C, 0, &s);
+    draw_oriented_shadow__9TObjEneDDFiiiUi(self->f44, self->f9C, 0, &s);
   }
   lbl_805D5660 = some_id_805c6f74;
   if (self->fB4 < (1.0f))

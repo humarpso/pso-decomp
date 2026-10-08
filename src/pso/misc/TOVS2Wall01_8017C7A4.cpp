@@ -54,7 +54,7 @@ extern s32 lbl_805D31C4;
 extern u32 TOVS2Wall01__data_805D5AE8;
 extern void *tl_05;
 extern const f32 lbl_805DBAB0;
-u8 *TOVS2Wall01__sub_8017C8EC(u8 *arg0, s32 arg1, s32 arg2);
+u8 *init_wreck_object__11TOVS2Wall01FPvii(u8 *arg0, s32 arg1, s32 arg2);
 M2C_UNK add_entry__11TMotorcycleFsiiff(int, int, int, f32, f32);
 s32 TObjFish__sub_8001EDB0(int, void *);
 u8 *get_bml_model(s32, s32);
@@ -134,7 +134,7 @@ void *destroy__11TOVS2Wall01FPvs(void *arg0, s16 arg1) {
 
 typedef char RecoveredGlobal_8017C8EC_lbl_804B4ECC_size[sizeof(RecoveredGlobal_8017C8EC_lbl_804B4ECC) == 0x134 ? 1 : -1];
 typedef char RecoveredGlobal_8017C8EC_lbl_804B528C_size[sizeof(RecoveredGlobal_8017C8EC_lbl_804B528C) == 0x3C ? 1 : -1];
-u8 *TOVS2Wall01__sub_8017C8EC(u8 *arg0, s32 arg1, s32 arg2) {
+u8 *init_wreck_object__11TOVS2Wall01FPvii(u8 *arg0, s32 arg1, s32 arg2) {
     init_map_object_base((void *) (arg0), (int) ((*(s32 *)&tl_05)));
     M2C_FIELD(arg0, M2C_UNK **, 0x18) = &(*(RecoveredGlobal_8017C8EC_lbl_804B528C *)&lbl_804B528C).value;
     M2C_FIELD(arg0, s32 *, 0) = (s32) lbl_805D31C4;

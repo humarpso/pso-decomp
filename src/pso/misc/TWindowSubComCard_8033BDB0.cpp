@@ -33,7 +33,7 @@ void TWindowSubComCard__sub_8033BF90(u8 *arg0);
 extern RecoveredGlobal_8033C024_lbl_804EF940 lbl_804EF940;
 void TWindowSubComCard__sub_8033C024(u8 *arg0, s32 arg1);
 u32 get_message_10__20TWindowSubStatusDispFPv(M2C_UNK);
-void TWindowSubComCard__sub_80244888(s32);
+void reparent_to_main_ctrl__17TWindowSubComCardFi(s32);
 M2C_UNK set_selected_index__17TWindowSubComCardFPvs(u32, s16);
 M2C_UNK align_menu_entry_positions(u32);
 M2C_UNK update_layout_height__17TWindowSubComCardFPvf(u32, f32);
@@ -49,7 +49,7 @@ extern M2C_UNK lbl_80477DB4[];
 extern M2C_UNK lbl_80477DBC[];
 extern M2C_UNK lbl_804EF8D8[];
 extern const f32 lbl_805D6D98;
-void TWindowSubComCard__sub_8033BDB0(void *arg0, u32 arg1, s32 arg2, u32 arg3, u32 arg4);
+void create_message_and_menu__17TWindowSubComCardFPvUiiUiUi(void *arg0, u32 arg1, s32 arg2, u32 arg3, u32 arg4);
 s32 is_visible__17TWindowSubComCardFPv(void *);
 s32 get_selected_menu_value(void *);
 void TWindowSubComCard__sub_8033C1CC(O_8033C1CC *arg0);
@@ -68,7 +68,7 @@ s32 init__22TQuestVmDownLoadServerFPvPvPvPvPv(void *, s32, s32, s32, s32);
 void render__16TCheckMemoryCardFv(void);
 int update_card_display__17TWindowSubComCardFPvPvPvPvPv(void*, int, int, int, int);
 
-void TWindowSubComCard__sub_8033BDB0(void *arg0, u32 arg1, s32 arg2, u32 arg3, u32 arg4) {
+void create_message_and_menu__17TWindowSubComCardFPvUiiUiUi(void *arg0, u32 arg1, s32 arg2, u32 arg3, u32 arg4) {
     u32 msg;
     if (M2C_FIELD(arg0, u32 *, 0x30) != 0U || M2C_FIELD(arg0, u32 *, 0x34) != 0U) {
         return;
@@ -82,7 +82,7 @@ void TWindowSubComCard__sub_8033BDB0(void *arg0, u32 arg1, s32 arg2, u32 arg3, u
         return;
     }
     if (M2C_FIELD(arg0, u32 *, 0x30) != 0U && M2C_FIELD(arg0, s32 *, 0x4C) != 0) {
-        TWindowSubComCard__sub_80244888(M2C_FIELD(arg0, s32 *, 0x30));
+        reparent_to_main_ctrl__17TWindowSubComCardFi(M2C_FIELD(arg0, s32 *, 0x30));
     }
     if (arg1 != 0U) {
         send_and_handle__6TLobbyFPvii(M2C_FIELD(arg0, u32 *, 0x30), arg1, 3);
@@ -100,7 +100,7 @@ void TWindowSubComCard__sub_8033BDB0(void *arg0, u32 arg1, s32 arg2, u32 arg3, u
         return;
     }
     if (M2C_FIELD(arg0, u32 *, 0x34) != 0U && M2C_FIELD(arg0, s32 *, 0x4C) != 0) {
-        TWindowSubComCard__sub_80244888(M2C_FIELD(arg0, s32 *, 0x34));
+        reparent_to_main_ctrl__17TWindowSubComCardFi(M2C_FIELD(arg0, s32 *, 0x34));
     }
     msg = arg3;
     if (arg3 == 0U) {

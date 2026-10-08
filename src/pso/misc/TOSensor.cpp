@@ -329,7 +329,7 @@ extern s32 lbl_805D5A90;
 extern s32 lbl_805D5A94;
 extern s32 lbl_805D5A98;
 extern s32 lbl_805D5A9C;
-void TOSensorAncient01__sub_80175D0C(void);
+void load_resources__17TOSensorAncient01Fv(void);
 }
 
 extern "C" {
@@ -471,7 +471,7 @@ extern const char lbl_80442A00[];
 extern const char lbl_80442A18[];
 }
 
-void TOSensorAncient01__sub_80175D0C(void) {
+void load_resources__17TOSensorAncient01Fv(void) {
     void *p;
     p = alloc__23TAdSinglePlyChrSelectGCFPv(0x440);
     if (p != NULL) {

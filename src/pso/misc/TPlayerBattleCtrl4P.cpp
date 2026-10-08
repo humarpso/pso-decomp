@@ -41,7 +41,7 @@ extern "C" {
 int set_score__19TPlayerBattleCtrl4PFPvi(void*, void*);
 void TPlayerBattleCtrl4P__vt11(u8 *arg0);
 s64 OSGetTime(void);
-void TWindowCtrl__sub_8024A4B0(s32);
+void set_timer_window_time__11TWindowCtrlFi(s32);
 M2C_UNK TPlayerBattleCtrl4P__sub_803112AC(void *, M2C_UNK);
 s32 TPlayerBattleCtrl4P__sub_803109D4(void *);
 void TPlayerBattleCtrl4P__sub_80310910(void *, s32);
@@ -81,7 +81,7 @@ void TPlayerBattleCtrl4P__vt8(void *arg0);
 M2C_UNK __ct__15TDuelEffectCtrlFP7TObjectUc(void *, void *, M2C_UNK);
 u8 get_rule_field_a__6TLobbyFPv(M2C_UNK *);
 M2C_UNK TPlayerBattleCtrl4P__sub_803112AC(void *, M2C_UNK);
-int TPlayerBattleCtrl4P__sub_80311618(void*);
+int start_duel__19TPlayerBattleCtrl4PFPv(void*);
 M2C_UNK TWindow__close(void *);
 void *__nw__7TObjectFUl(M2C_UNK);
 s32 check_all_players_flag__19TPlayerBattleCtrl4PFv(void *);
@@ -143,7 +143,7 @@ void TPlayerBattleCtrl4P__vt16(Ctl_80311FA0 *o) {
     secs = (OSGetTime() - o->start) / (*(u32 *)0x800000F8 / 4);
     r = o->total - secs;
     o->remain = r > 0 ? r : 0;
-    TWindowCtrl__sub_8024A4B0(o->remain);
+    set_timer_window_time__11TWindowCtrlFi(o->remain);
     if (o->remain == 0) {
         TPlayerBattleCtrl4P__sub_803112AC(o, 3);
         return;
@@ -163,7 +163,7 @@ void TPlayerBattleCtrl4P__vt16(Ctl_80311FA0 *o) {
     TPlayerBattleCtrl4P__sub_80310C08(o);
 }
 
-void TPlayerBattleCtrl4P__vt15(void* p) { TPlayerBattleCtrl4P__sub_80311618(p); set_score__19TPlayerBattleCtrl4PFPvi((void*)((void*)(p)), (void*)((void*)((void*)1))); }
+void TPlayerBattleCtrl4P__vt15(void* p) { start_duel__19TPlayerBattleCtrl4PFPv(p); set_score__19TPlayerBattleCtrl4PFPvi((void*)((void*)(p)), (void*)((void*)((void*)1))); }
 
 void TPlayerBattleCtrl4P__vt14(void *arg0) {
     void *temp_r3 = M2C_FIELD(arg0, void **, 0x20);

@@ -229,7 +229,7 @@ s32 dispatch_shared_handler_b__6TLobbyFPv(s32);
 s32 register_boss__6TLobbyFPv(s32);
 Fish_80042408 *get_bml_model(s32, s32);
 void TObjGyaranzoMissile__sub_80131488(void *);
-void TLobby__sub_801E468C(void *, void *);
+void load_texture_pvm_file__6TLobbyFPvi(void *, void *);
 extern u8 lbl_80436608[];
 extern s32 lbl_80483EB4[];
 extern s32 lbl_804FEEC0[];
@@ -240,7 +240,7 @@ extern s32 lbl_805D4C98;
 extern s32 lbl_805D4C9C;
 extern G_80042944 *lbl_805D4CA0;
 extern u32 lbl_805D4CA4;
-void TBoss3VoloptMonitor__sub_80042408(void);
+void load_resources__19TBoss3VoloptMonitorFv(void);
 M2C_UNK recalc_combat_stats__10TObjPlayerFv(void *, s32, s32, s32, f32, f32);
 M2C_UNK add_flags_2e4__10TObjPlayerFPvUi(void *, u32);
 M2C_UNK obj_setFlags30(void *, s32);
@@ -422,7 +422,7 @@ extern "C" u8 lbl_804365D4[];
 extern "C" u8 lbl_804365EC[];
 void VecCopy__FP3VecPC3Vec(void *, void *);
 M2C_UNK matrix_mult_vec(int, void *, void *);
-M2C_UNK TObjPlayer__sub_803D8CD4(int);
+M2C_UNK set_matrix_identity__10TObjPlayerFPv(int);
 struct G44_800426EC { u8 pad[0x2C]; };
 struct V12_800426EC { f32 x, y, z; };
 struct Mon_800426EC;
@@ -591,12 +591,12 @@ void release__19TBoss3VoloptMonitorFv(void) {
 
 extern void *tl_04;
 
-void TBoss3VoloptMonitor__sub_80042408(void) {
+void load_resources__19TBoss3VoloptMonitorFv(void) {
     s32 i;
     (*(u8 * *)&lbl_805D4CA4) = (u8 *)lbl_80484018;
     (*(s32 *)&lbl_805D4CA0) = lbl_805D4C10;
     TObjGyaranzoMissile__sub_80131488(lbl_80484018);
-    TLobby__sub_801E468C(lbl_80436608, (*(u8 * *)&lbl_805D4CA4));
+    load_texture_pvm_file__6TLobbyFPvi(lbl_80436608, (*(u8 * *)&lbl_805D4CA4));
     for (i = 0; i < 4; i++) {
         lbl_804FEEC0[i] = get_bml_model((*(s32 *)&lbl_805D4CA0), lbl_80483EB4[8 + i])->f4;
     }
@@ -696,7 +696,7 @@ void *__vt__19TBoss3VoloptMonitor[84] = {
     (void *)&fn_80010EC4, (void *)&fn_80010EC0, (void *)&fn_80010EBC, (void *)&call_player_preserving_field__15TObjEnemyCustomFPv,
     (void *)&TObjPlayer__sub_800F673C, (void *)&apply_set_data__9TObjEnemyFPvPv, (void *)&fn_800F5D80, (void *)0x0,
 };
-u8 *TBoss3VoloptMonitor__sub_800426EC(u8 *arg0, u8 *arg1, s32 arg2, s32 arg3, s32 arg4, s32 arg5) {
+u8 *init_with_slot__19TBoss3VoloptMonitorFPvPviiii(u8 *arg0, u8 *arg1, s32 arg2, s32 arg3, s32 arg4, s32 arg5) {
     s32 t;
     Mon_800426EC *m;
 
@@ -716,7 +716,7 @@ u8 *TBoss3VoloptMonitor__sub_800426EC(u8 *arg0, u8 *arg1, s32 arg2, s32 arg3, s3
     M2C_FIELD(arg0, s32 *, 0x60) = (s32)(lbl_805D8754 * (f32)t);
     TBoss3VoloptMonitor__sub_80042944((O_80042944 *)arg0, lbl_80483EB4[M2C_FIELD(arg0, s32 *, 0x368)]);
     push_matrix();
-    TObjPlayer__sub_803D8CD4(0);
+    set_matrix_identity__10TObjPlayerFPv(0);
     rotate_matrix_y(0, M2C_FIELD(arg0, s32 *, 0x60));
     matrix_mult_vec(0, (u8 *)lbl_80483E84 + M2C_FIELD(arg0, s32 *, 0x368) * 0xC, arg0 + 0x38);
     pop_matrix();

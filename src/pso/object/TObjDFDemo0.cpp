@@ -69,7 +69,7 @@ void clear_global_state__10TObjPlayerFv();
 extern const f32 lbl_805D8988;
 extern const f32 lbl_805D898C;
 extern const f32 lbl_805D89A0;
-void TObjPlayer__sub_8004E2C8(Obj_8004E2C8 *arg0);
+void draw_fading_model__10TObjPlayerFPv(Obj_8004E2C8 *arg0);
 void sync_player_globals__10TObjPlayerFv();
 void TObjPlayer__sub_80052390(f32);
 Outer_8004E068 *collect_and_count__12TBoss3VoloptFUii(s32, s32);
@@ -192,7 +192,7 @@ void TObjPlayer__sub_8004E068(Self_8004E068 *self) {
   }
 }
 
-void TObjPlayer__sub_8004E2C8(Obj_8004E2C8 *arg0) {
+void draw_fading_model__10TObjPlayerFPv(Obj_8004E2C8 *arg0) {
     f32 max;
     f32 alpha;
     f32 f;
@@ -232,6 +232,6 @@ void TObjPlayer__sub_8004E2C8(Obj_8004E2C8 *arg0) {
     }
 }
 
-void TObjPlayer__sub_8004E3F4(void* p) { TObjPlayer__sub_8004E2C8((Obj_8004E2C8 *)(p)); TObjPlayer__sub_8004E068((Self_8004E068 *)(p)); }
+void TObjPlayer__sub_8004E3F4(void* p) { draw_fading_model__10TObjPlayerFPv((Obj_8004E2C8 *)(p)); TObjPlayer__sub_8004E068((Self_8004E068 *)(p)); }
 
 }

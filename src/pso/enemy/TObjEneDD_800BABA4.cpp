@@ -268,7 +268,7 @@ M2C_UNK VecCopy__FP3VecPC3Vec(void *, int);
 u8 *try_move_actor_xz_on_ground(u8 *arg0, u8 *arg1);
 u8 *try_move_actor_xz_on_ground(u8 *arg0, u8 *arg1);
 void calc_shot_position__9TObjEneDDFPvPvfff(void *, void *, f32, f32, f32);
-void TObjEneDD__sub_800BAD1C(u8 *arg0, f32 farg0, f32 farg1, f32 farg2);
+void move_to_shot_position__9TObjEneDDFPvfff(u8 *arg0, f32 farg0, f32 farg1, f32 farg2);
 void calc_shot_position__9TObjEneDDFPvPvfff(void *, void *, f32, f32, f32);
 void move_with_wall_stop__9TObjEneDDFPvfff(u8 *arg0, f32 farg0, f32 farg1, f32 farg2);
 void TObjEneDD__sub_800BABCC(u8 *arg0, f32 farg0, f32 farg1, f32 farg2);
@@ -291,7 +291,7 @@ void calc_wall_slide_destination(void *arg0, void *arg1, f32 dx, f32 dz, f32 dis
 extern "C" {
 
 int init_collision_body_parts(void*);
-int TObjEneDD__sub_800BA934(void* a0 = 0);
+int transform_part_positions__9TObjEneDDFPv(void* a0 = 0);
 void init_model__9TObjEneDDFPv(void* p);
 void TObjEneDD__vt85(void);
 void clear_field_388__9TObjEneDDFPv(void* p);
@@ -336,7 +336,7 @@ void move_with_wall_slide_on_ground__9TObjEneDDFPvfff(u8 *arg0, f32 farg0, f32 f
     try_move_actor_xz_on_ground((u8 *)(arg0), (u8 *)(&sp8));
 }
 
-void TObjEneDD__sub_800BAD1C(u8 *arg0, f32 farg0, f32 farg1, f32 farg2) {
+void move_to_shot_position__9TObjEneDDFPvfff(u8 *arg0, f32 farg0, f32 farg1, f32 farg2) {
     M2C_UNK sp8;
     calc_shot_position__9TObjEneDDFPvPvfff(arg0, &sp8, farg0, farg1, farg2);
     try_move_actor_xz_on_ground((u8 *)(arg0), (u8 *)(&sp8));

@@ -8,7 +8,7 @@ extern "C" {
 
 void copy_position__12TBoss8DragonFii(s32 arg0, s32 arg1);
 void update_wing_segments(u8 *arg0);
-M2C_UNK TBoss8Dragon__sub_8034D500(void *, int, int, void *, f32);
+M2C_UNK eval_bezier_curve__12TBoss8DragonFPviiPvf(void *, int, int, void *, f32);
 int VecCopy__FP3VecPC3Vec(s32, s32, s32);
 M2C_UNK copy_pos__11TNowLoadingFPvPv(void *, void *);
 
@@ -17,8 +17,8 @@ void copy_position__12TBoss8DragonFii(s32 arg0, s32 arg1) {
 }
 
 void update_wing_segments(u8 *arg0) {
-    TBoss8Dragon__sub_8034D500((void *) (arg0 + 0x48), (int) (M2C_FIELD(arg0, s32 *, 0x90)), (int) (0), (void *) (arg0 + 0x20), (f32) (M2C_FIELD(arg0, f32 *, 0x88)));
-    TBoss8Dragon__sub_8034D500((void *) (arg0 + 0x48), (int) (M2C_FIELD(arg0, s32 *, 0x90)), (int) (0), (void *) (arg0 + 0x2C), (f32) (M2C_FIELD(arg0, f32 *, 0x8C)));
+    eval_bezier_curve__12TBoss8DragonFPviiPvf((void *) (arg0 + 0x48), (int) (M2C_FIELD(arg0, s32 *, 0x90)), (int) (0), (void *) (arg0 + 0x20), (f32) (M2C_FIELD(arg0, f32 *, 0x88)));
+    eval_bezier_curve__12TBoss8DragonFPviiPvf((void *) (arg0 + 0x48), (int) (M2C_FIELD(arg0, s32 *, 0x90)), (int) (0), (void *) (arg0 + 0x2C), (f32) (M2C_FIELD(arg0, f32 *, 0x8C)));
     if (M2C_FIELD(arg0, void **, 0x38) != 0) {
         copy_pos__11TNowLoadingFPvPv(M2C_FIELD(arg0, void **, 0x38), (void *) (arg0 + 0x20));
     }

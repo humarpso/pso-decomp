@@ -478,14 +478,14 @@ u32 csnLookAt(void *, void *);
 f32 clamp_velocity__15TObjBoss2TunnelFPv(void *);
 void * alloc__23TAdSinglePlyChrSelectGCFPv(int);
 s32 check_demo_mode__10TObjPlayerFv();
-s32 TObjEneRe7Berura__sub_8009331C(void *, void *);
+s32 update_death_state__16TObjEneRe7BeruraFPvi(void *, void *);
 s32 TObjEneRe7Berura__sub_80093470(void *, void *);
 s32 state_patrol__16TObjEneRe7BeruraFPvi(void *, void *);
 s32 TObjEneRe7Berura__sub_800936A8(void *, void *);
 s32 TObjEneRe7Berura__sub_80093888(void *, void *);
 s32 TObjEneRe7Berura__sub_80093C80(void *, void *);
 s32 TObjEneRe7Berura__sub_800940E8(void *, void *);
-s32 TObjEneRe7Berura__sub_80094470(void *, void *);
+s32 handle_state__16TObjEneRe7BeruraFPvi(void *, void *);
 s32 TObjEneRe7Berura__sub_80094624(void *, void *);
 s32 TObjEneRe7Berura__sub_8009472C(void *, void *);
 void state_attack__16TObjEneRe7BeruraFPvi(u8 *arg0, s32 arg1);
@@ -505,9 +505,9 @@ void init_part__16TObjEneRe7BeruraFi(s32 arg0);
 void set_data_and_draw_node_tree__16TObjEneRe7BeruraFii(int a0, int a1);
 void draw_node_tree__16TObjEneRe7BeruraFPv(void *arg0);
 void apply_attack_params__16TObjEneRe7BeruraFiPv(s32 arg0, u8 *arg1);
-M2C_UNK TObjEneRe7Berura__sub_8009503C(void *arg0, int idx);
+M2C_UNK collect_node_matrices__16TObjEneRe7BeruraFPvi(void *arg0, int idx);
 u8 TObjEneRe7Berura__sub_8009518C(O_8009518C *self);
-s32 TObjEneRe7Berura__sub_800951AC(Berura_800951AC *self);
+s32 acquire_target_in_view__16TObjEneRe7BeruraFPv(Berura_800951AC *self);
 void TObjEneRe7Berura__sub_80095328(void);
 void TObjEneRe7Berura__vt86(void *arg0);
 void update_collision_center__16TObjEneRe7BeruraFPv(u8 *arg0);
@@ -517,11 +517,11 @@ void TObjEneRe7Berura__vt61(void* p);
 void TObjEneRe7Berura__vt26(void);
 void run_task__16TObjEneRe7BeruraFv(u8 *arg0);
 Berura_800954E8 * __dt__16TObjEneRe7BeruraFv(Berura_800954E8 *self, s16 flag);
-void TObjEneRe7Berura__sub_800955E0(u8 *arg0);
+void init_enemy__16TObjEneRe7BeruraFPv(u8 *arg0);
 void * TObjEneRe7Berura__ct(void *arg0, void *arg1, void *arg2);
 void destroy_children__16TObjEneRe7BeruraFv(void);
 void * create__16TObjEneRe7BeruraFPv(void *arg0);
-void TObjEneRe7Berura__sub_800959F8(void);
+void load_static_resources__16TObjEneRe7BeruraFv(void);
 void fn_80095DD0(u8 *arg0);
 void fn_80095DF4(u8 *arg0);
 s32 spawn_punch__16TObjEneRe7BeruraFPv(void *);
@@ -550,8 +550,8 @@ int transition_enemy_state(void*, void*);
 void init_position_vectors__9TObjEneDDFPv(void *);
 void activate_and_dispatch__10TObjPlayerFPv(void *);
 s32 create__12TObjEneSaverFPvPv(s32, s32);
-M2C_UNK TBoss3Volopt__sub_800D8C48(void *);
-void TBoss4Type3__sub_800D9994(void *, s32, u8 *, s32 *, V3_800959F8 *);
+M2C_UNK play_area_se_with_particle__12TBoss3VoloptFi(void *);
+void draw_motion_trail__11TBoss4Type3FPviiii(void *, s32, u8 *, s32 *, V3_800959F8 *);
 void __dt__11TBoss4Type3FPvs(void*, int);
 void * init_trail_buffer__11TBoss4Type3FPvifff(void *arg0, s32 segs, f32 start, f32 end, f32 step);
 void destroy_buffer_pair(void*, int);
@@ -579,7 +579,7 @@ void get_current_matrix(void *);
 void TObjPlayer__sub_803D9324(int, void *);
 M2C_UNK subtract_vector(void *, void *);
 void translate_matrix(s32, f32, f32, f32);
-M2C_UNK TObjPlayer__sub_803D9730(M2C_UNK, s32);
+M2C_UNK concat_matrix__10TObjPlayerFUiUi(M2C_UNK, s32);
 M2C_UNK push_matrix_from(void *, int, int, int);
 M2C_UNK push_matrix();
 M2C_UNK pop_matrix();
@@ -826,7 +826,7 @@ void state_attack__16TObjEneRe7BeruraFPvi(u8 *arg0, s32 arg1) {
         M2C_FIELD(arg0, s32 *, 0x3C0) = (s32) (M2C_FIELD(arg0, s32 *, 0x3C0) | 2);
         set_field_378__9TObjEneDDFPvi(arg0, 3, temp_r5);
         TObjPlayer__sub_800A0554(arg0 + 0x3D8);
-        TBoss3Volopt__sub_800D8C48(arg0 + 0x38);
+        play_area_se_with_particle__12TBoss3VoloptFi(arg0 + 0x38);
         ((M2C_UNK (*)(void *))init_fields4B8__16TObjEneRe7BeruraFPv)(arg0);
         return;
     case 3:
@@ -869,7 +869,7 @@ void TObjEneRe7Berura__vt85(s32 arg0, u32 arg1, s32 arg2) {
         TObjEneRe7Berura__sub_80094624((void *) (arg0), (void *) (arg2));
         return;
     case 8:
-        TObjEneRe7Berura__sub_80094470((void *) (arg0), (void *) (arg2));
+        handle_state__16TObjEneRe7BeruraFPvi((void *) (arg0), (void *) (arg2));
         return;
     case 4:
         TObjEneRe7Berura__sub_800940E8((void *) (arg0), (void *) (arg2));
@@ -890,7 +890,7 @@ void TObjEneRe7Berura__vt85(s32 arg0, u32 arg1, s32 arg2) {
         TObjEneRe7Berura__sub_80093470((void *) (arg0), (void *) (arg2));
         return;
     case 11:
-        TObjEneRe7Berura__sub_8009331C((void *) (arg0), (void *) (arg2));
+        update_death_state__16TObjEneRe7BeruraFPvi((void *) (arg0), (void *) (arg2));
     default:
         return;
     }
@@ -1021,7 +1021,7 @@ void draw_node_tree__16TObjEneRe7BeruraFPv(void *arg0) {
         push_matrix();
         temp_r4 = TObjEneRe7Berura__data_805D4F98;
         TObjEneRe7Berura__data_805D4F98 = temp_r4 + 0x30;
-        TObjPlayer__sub_803D9730(0, temp_r4);
+        concat_matrix__10TObjPlayerFUiUi(0, temp_r4);
         temp_r31 = M2C_FIELD(var_r30, s32 *, 0);
         if (!(temp_r31 & 8)) {
             draw_chunk_model(M2C_FIELD(var_r30, s32 *, 4));
@@ -1047,13 +1047,13 @@ void apply_attack_params__16TObjEneRe7BeruraFiPv(s32 arg0, u8 *arg1) {
     lbl_805D4F94 = temp_r4;
     lbl_805D4F9C = (long) (arg1 + 0x58);
     push_matrix_from((void *) (lbl_8058D490), (int) (temp_r4), (int) (temp_r5), (int) (temp_r6));
-    TObjEneRe7Berura__sub_8009503C((void *)((void *) (arg0)), (int)((int) (0)));
+    collect_node_matrices__16TObjEneRe7BeruraFPvi((void *)((void *) (arg0)), (int)((int) (0)));
     pop_matrix();
 }
 
 #define V ((f32 *)lbl_805D4F9C)
 #define node ((Node_8009503C *)arg0)
-M2C_UNK TObjEneRe7Berura__sub_8009503C(void *arg0, int idx) {
+M2C_UNK collect_node_matrices__16TObjEneRe7BeruraFPvi(void *arg0, int idx) {
     Mtx_8009503C m;
     u32 flags;
     do {
@@ -1070,7 +1070,7 @@ M2C_UNK TObjEneRe7Berura__sub_8009503C(void *arg0, int idx) {
             get_current_matrix(&m);
             ((M2C_UNK (*)(void *))push_matrix_from)(lbl_8058D490);
             translate_matrix(0, -V[0], -V[1], -V[2]);
-            ((M2C_UNK (*)(M2C_UNK, void *))TObjPlayer__sub_803D9730)(0, &m);
+            ((M2C_UNK (*)(M2C_UNK, void *))concat_matrix__10TObjPlayerFUiUi)(0, &m);
             get_current_matrix(&m);
             pop_matrix();
             TObjPlayer__sub_803D9324(0, &m);
@@ -1082,7 +1082,7 @@ M2C_UNK TObjEneRe7Berura__sub_8009503C(void *arg0, int idx) {
         }
         idx++;
         if (!(flags & 0x10)) {
-            idx = TObjEneRe7Berura__sub_8009503C(node->child, idx);
+            idx = collect_node_matrices__16TObjEneRe7BeruraFPvi(node->child, idx);
         }
         pop_matrix();
         arg0 = node->next;
@@ -1096,7 +1096,7 @@ u8 TObjEneRe7Berura__sub_8009518C(O_8009518C *self) {
 
 #pragma push
 #pragma fp_contract on
-s32 TObjEneRe7Berura__sub_800951AC(Berura_800951AC *self) {
+s32 acquire_target_in_view__16TObjEneRe7BeruraFPv(Berura_800951AC *self) {
     Vec_800951AC v;
     s32 n;
     Player_800951AC *p;
@@ -1210,7 +1210,7 @@ Berura_800954E8 *__dt__16TObjEneRe7BeruraFv(Berura_800954E8 *self, s16 flag) {
     return self;
 }
 
-void TObjEneRe7Berura__sub_800955E0(u8 *arg0) {
+void init_enemy__16TObjEneRe7BeruraFPv(u8 *arg0) {
     Self_800955E0 *S = (Self_800955E0 *)arg0;
     s32 i;
     s32 j;
@@ -1280,7 +1280,7 @@ void *TObjEneRe7Berura__ct(void *arg0, void *arg1, void *arg2) {
     M2C_FIELD(arg0, void **, 0x0) = lbl_805D2988;
     invoke_initialization_hook__9TObjEneDDFPv(arg0, arg2);
     ((void (*)(void *))TObjEneRe7Berura__sub_80095328)(arg0);
-    ((void (*)(void *))TObjEneRe7Berura__sub_800955E0)(arg0);
+    ((void (*)(void *))init_enemy__16TObjEneRe7BeruraFPv)(arg0);
     return arg0;
 }
 
@@ -1318,7 +1318,7 @@ __declspec(section ".data") s32 TObjEneRe7Berura__data_805007D4[2];
 Elem_800959F8 TObjEneRe7Berura__data_805007DC[2];
 
 #define RES ((Res_800959F8 *)TObjEneRe7Berura__data_805D4F64)
-void TObjEneRe7Berura__sub_800959F8(void) {
+void load_static_resources__16TObjEneRe7BeruraFv(void) {
     s32 pair[4];
     V3_800959F8 vecs[4];
     Res_800959F8 *r;
@@ -1402,7 +1402,7 @@ void TObjEneRe7Berura__sub_800959F8(void) {
     }
     vecs[0].x = TObjEneRe7Berura__data_805D9730;
     vecs[2].x = TObjEneRe7Berura__data_805D9730;
-    TBoss4Type3__sub_800D9994(p, *(s32 *)(RES->f42C + 8), (RES->f430 + lbl_8048F6D4[2].f4)->f4, pair, vecs);
+    draw_motion_trail__11TBoss4Type3FPviiii(p, *(s32 *)(RES->f42C + 8), (RES->f430 + lbl_8048F6D4[2].f4)->f4, pair, vecs);
     for (i = 0; i < 1; i++) {
         TObjEneRe7Berura__data_805D4F58[i] = register_boss__6TLobbyFPv(lbl_805D9718[i]);
     }

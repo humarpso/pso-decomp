@@ -67,7 +67,7 @@ extern const f32 TLoadingCur__data_805D7E9C;
 u8 *TLoadingCur__ct(u8 *arg0, s32 arg1);
 void VecCopy__FP3VecPC3Vec(void *, void *);
 s32 is_split_screen(void);
-void fn_8001CAD4(void *);
+void update_camera_facing_offset(void *);
 void fn_8001CBC4(void *, void *);
 s32 is_flag_set__11TLoadingCurFPv(void *, s32);
 M2C_UNK play_persistent_sound(int, void *, void *, int, int);
@@ -200,7 +200,7 @@ void run_task__11TLoadingCurFv(void *arg0) {
     self->f40 *= lbl_805D7EBC;
     fn_8001CBC4(sp8, arg0);
     VecCopy__FP3VecPC3Vec(self->f44, sp8);
-    fn_8001CAD4(arg0);
+    update_camera_facing_offset(arg0);
     if (TLoadingCur__data_805D7E9C != x || TLoadingCur__data_805D7E9C != y) {
         if (is_split_screen() != 0) {
             play_persistent_sound(0x53C10, arg0, (u8 *)arg0 + 0x2C, 0, 1);

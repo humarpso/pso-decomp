@@ -18,6 +18,29 @@ typedef struct TradeMain_80330BCC {
     void *w4C;
 } TradeMain_80330BCC;
 
+typedef s32 M2C_UNK;
+struct PB_803310BC { u8 pad[0x18]; };
+
+class Plr_803310BC : public PB_803310BC {
+public:
+    virtual void m0(); virtual void m1(); virtual void m2(); virtual void m3();
+    virtual void m4(); virtual void m5(); virtual void m6(); virtual void m7();
+    virtual void m8(); virtual void m9(); virtual s32 m10();
+};
+
+struct Self_803310BC { u8 pad[0x28]; s32 f28; s32 f2c; };
+
+struct PB_80331178 { u8 pad[0x18]; };
+
+class Plr_80331178 : public PB_80331178 {
+public:
+    virtual void m0(); virtual void m1(); virtual void m2(); virtual void m3();
+    virtual void m4(); virtual void m5(); virtual void m6(); virtual void m7();
+    virtual void m8(); virtual void m9(); virtual s32 m10();
+};
+
+struct Self_80331178 { u8 pad[0x28]; s32 f28; s32 f2c; };
+
 extern "C" {
 extern s32 lbl_805D49C0;
 void TKeyBoardControl__sub_8000F950(void);
@@ -38,7 +61,7 @@ extern s32 lbl_805D62B0;
     extern int lbl_805D5680;
 u8 * TWindowSubTradeMain__sub_8033131C(void* p, void* _w1);
 void initialize_option_dialog(void *, s32, s32, f32);
-u8 * TWindowMessageYesNo__sub_802A59D8(void *, void *, void *, void *);
+u8 * create__19TWindowMessageYesNoFPvPvPvPv(void *, void *, void *, void *);
 s32 get_window_layout_position(s32);
 extern f32 TWindowSubTradeMain__data_805DF858;
 u8 *TWindowSubTradeMain__sub_803312BC(u8 *arg0, s32 arg1);
@@ -54,7 +77,39 @@ void update_card_slot__17TWindowSubComCardFPv(void *);
 void notify_trade_main__17TWindowSubComCardFPv(void *);
 void TWindowSubTradeMain__sub_803323A8(void *);
 void TWindowSubTradeMain__sub_803323B8(void *);
-void TWindowSubTradeMain__sub_80330BCC(TradeMain_80330BCC *self, s32 on);
+void set_child_windows_enabled__19TWindowSubTradeMainFPvi(TradeMain_80330BCC *self, s32 on);
+Plr_803310BC *get_player_by_client_id(s32);
+M2C_UNK set_field_1c__6TLobbyFPvf(s32);
+M2C_UNK TWindowSubEquip__sub_80263AF8(s32, M2C_UNK);
+M2C_UNK close__19TWindowSubTradeMainFPv(s32);
+M2C_UNK ensure_status_display__20TWindowSubStatusDispFPvi(s32, s32);
+s32 get_window_layout_position(s32);
+s32 set_trade_state__19TWindowSubTradeMainFPvs(u32, s32);
+s32 refresh_item_list__19TWindowSubTradeMainFPvPv(u32, s32);
+s32 create_equip_kind_window(M2C_UNK, M2C_UNK *, s32);
+s32 TLobby__sub_802D29AC();
+extern M2C_UNK lbl_8047748C[];
+s32 TWindowSubTradeMain__sub_803310BC(Self_803310BC *arg0);
+Plr_803310BC *get_player_by_client_id(s32);
+M2C_UNK set_field_1c__6TLobbyFPvf(s32);
+M2C_UNK TWindowSubEquip__sub_80263AF8(s32, M2C_UNK);
+M2C_UNK close__19TWindowSubTradeMainFPv(s32);
+M2C_UNK ensure_status_display__20TWindowSubStatusDispFPvi(s32, s32);
+s32 get_window_layout_position(s32);
+s32 set_trade_state__19TWindowSubTradeMainFPvs(u32, s32);
+s32 refresh_item_list__19TWindowSubTradeMainFPvPv(u32, s32);
+s32 create_equip_kind_window(M2C_UNK, M2C_UNK *, s32);
+s32 TLobby__sub_802D299C();
+s8 get_trade_mode__6TLobbyFv();
+extern M2C_UNK lbl_80477484[];
+s32 TWindowSubTradeMain__sub_80331178(Self_80331178 *arg0);
+s32 get_message_10__20TWindowSubStatusDispFPv(s32);
+s32 get_window_layout_position(s32);
+M2C_UNK free_member__17TWindowSubComCardFPv(u8 *, int);
+M2C_UNK open_yes_no_prompt(u8 *, int, int, int, f32);
+u8 * create__19TWindowMessageYesNoFPvPvPvPv(void *, void *, void *, void *);
+extern f32 TWindowSubTradeMain__data_805DF858;
+u8 *TWindowSubTradeMain__sub_80331238(u8 *arg0);
 }
 
 extern "C" {
@@ -120,7 +175,7 @@ void TWindowSubTradeMain__sub_80330B84(M2C_UNK arg0, u8 *arg1, u8 *arg2) {
     }
 }
 
-void TWindowSubTradeMain__sub_80330BCC(TradeMain_80330BCC *self, s32 on) {
+void set_child_windows_enabled__19TWindowSubTradeMainFPvi(TradeMain_80330BCC *self, s32 on) {
     switch (self->state) {
     case 2:
         if (self->w30 != 0) {
@@ -293,9 +348,51 @@ s32 create_list__19TWindowSubTradeMainFPv(void *arg0) {
     return temp_r31;
 }
 
+s32 TWindowSubTradeMain__sub_803310BC(Self_803310BC *arg0) {
+    Plr_803310BC *p;
+    s32 w;
+    p = get_player_by_client_id(arg0->f28);
+    if (p == NULL) {
+        return 0;
+    }
+    w = create_equip_kind_window(get_window_layout_position(0x61), lbl_8047748C, arg0->f28);
+    ensure_status_display__20TWindowSubStatusDispFPvi(w, p->m10());
+    set_trade_state__19TWindowSubTradeMainFPvs(w, 0);
+    refresh_item_list__19TWindowSubTradeMainFPvPv(w, TLobby__sub_802D29AC());
+    close__19TWindowSubTradeMainFPv(w);
+    TWindowSubEquip__sub_80263AF8(arg0->f2c, 1);
+    set_field_1c__6TLobbyFPvf(w);
+    return w;
+}
+
+s32 TWindowSubTradeMain__sub_80331178(Self_80331178 *arg0) {
+    Plr_80331178 *p;
+    s32 w;
+    p = ((Plr_80331178 *)get_player_by_client_id(get_trade_mode__6TLobbyFv()));
+    if (p == NULL) {
+        return 0;
+    }
+    w = create_equip_kind_window(get_window_layout_position(0x60), lbl_80477484, arg0->f28);
+    ensure_status_display__20TWindowSubStatusDispFPvi(w, p->m10());
+    set_trade_state__19TWindowSubTradeMainFPvs(w, 0);
+    refresh_item_list__19TWindowSubTradeMainFPvPv(w, TLobby__sub_802D299C());
+    close__19TWindowSubTradeMainFPv(w);
+    TWindowSubEquip__sub_80263AF8(arg0->f2c, 0);
+    set_field_1c__6TLobbyFPvf(w);
+    return w;
+}
+
+u8 *TWindowSubTradeMain__sub_80331238(u8 *arg0) {
+    u8 *w;
+    w = create__19TWindowMessageYesNoFPvPvPvPv(arg0, *(void **)(arg0 + 0x28), NULL, NULL);
+    open_yes_no_prompt(w, get_message_10__20TWindowSubStatusDispFPv(0x20), get_message_10__20TWindowSubStatusDispFPv(0xE4), get_window_layout_position(0x5F), TWindowSubTradeMain__data_805DF858);
+    free_member__17TWindowSubComCardFPv(w, 1);
+    return w;
+}
+
 u8 *TWindowSubTradeMain__sub_803312BC(u8 *arg0, s32 arg1) {
     u8 *temp_r31;
-    temp_r31 = (u8 *)(TWindowMessageYesNo__sub_802A59D8(arg0, M2C_FIELD(arg0, u8 **, 0x28), NULL, NULL));
+    temp_r31 = (u8 *)(create__19TWindowMessageYesNoFPvPvPvPv(arg0, M2C_FIELD(arg0, u8 **, 0x28), NULL, NULL));
     initialize_option_dialog(temp_r31, arg1, get_window_layout_position((s32)((int) (0x5F))), TWindowSubTradeMain__data_805DF858);
     return temp_r31;
 }

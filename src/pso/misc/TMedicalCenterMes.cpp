@@ -12,7 +12,7 @@ u32 create_window__17TMedicalCenterMesFPvii(void *arg0, s32 arg1, s32 arg2);
 void *destroy__17TMedicalCenterMesFPvs(void *arg0, s16 arg1);
 void show_message__17TMedicalCenterMesFPvii(u8 *arg0, s32 arg1, s32 arg2);
 s32 get_shop_text(s32);
-M2C_UNK TQuestVmDownLoadServer__sub_80222774(void *, s32, void *);
+M2C_UNK parse_message_text__22TQuestVmDownLoadServerFPvii(void *, s32, void *);
 M2C_UNK TWindowMessagePage__sub_8026AE20(u32, void *, s32);
 u32 TWindowMessagePage__sub_8026AE7C(s32, s32, M2C_UNK, s32);
 int TWindow__close(void*);
@@ -28,7 +28,7 @@ void show_message__17TMedicalCenterMesFPvii(u8 *arg0, s32 arg1, s32 arg2) {
     if ((u32) M2C_FIELD(arg0, u32 *, 0x20C) != 0U) {
         temp_r31 = get_shop_text(arg1);
         memset(arg0 + 4, 0, 0x200);
-        TQuestVmDownLoadServer__sub_80222774(arg0, temp_r31, arg0 + 4);
+        parse_message_text__22TQuestVmDownLoadServerFPvii(arg0, temp_r31, arg0 + 4);
         TWindowMessagePage__sub_8026AE20(M2C_FIELD(arg0, u32 *, 0x20C), arg0 + 4, arg2 | 0x80);
     }
 }

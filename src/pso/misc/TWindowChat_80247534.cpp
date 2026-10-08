@@ -47,7 +47,7 @@ s32 TWindowKeyBoardSoft__ct(int, void *, void *);
 s32 get_window_layout_position(int);
 s32 TWindowDD__ct(int, void *, void *);
 extern s32 lbl_805D53A0;
-void TWindowChat__sub_8024792C(u8 *arg0);
+void open_next_input_window__11TWindowChatFPv(u8 *arg0);
 s32 fn_8002AE08(void *);
 s32 is_key_held__16TKeyBoardControlFPv(int);
 s32 TWindowShortListCtrl__check_controller_button(void *, int);
@@ -56,7 +56,7 @@ M2C_UNK init_parts__10TObjPlayerFPv(s32);
 M2C_UNK reset_equip_slots__10TObjPlayerFPv(int);
 s32 get_player_by_client_id(s32);
 void close_all_children__11TWindowChatFPv(void *arg0);
-void TWindowChat__sub_8024792C(u8 *arg0);
+void open_next_input_window__11TWindowChatFPv(u8 *arg0);
 s32 is_mode_bit6__11TWindowChatFPv(void *);
 s32 TWindowChat__sub_80247EC0(void *);
 M2C_UNK begin_player_keyboard_hold(void *);
@@ -185,7 +185,7 @@ void TWindowChat__sub_8024775C(u8 *arg0) {
       {
         ((RecoveredFields_8024775C_arg0 *) arg0)->field_1E = (u16) (((RecoveredFields_8024775C_arg0 *) arg0)->field_1E & 0xFFFFFFFD);
         close_all_children__11TWindowChatFPv((void *) arg0);
-        TWindowChat__sub_8024792C((u8 *)((void *) arg0));
+        open_next_input_window__11TWindowChatFPv((u8 *)((void *) arg0));
         if (is_mode_bit6__11TWindowChatFPv((void *) arg0) != 0)
         {
           begin_player_keyboard_hold((void *) lbl_805D53A0);
@@ -202,7 +202,7 @@ void TWindowChat__sub_8024775C(u8 *arg0) {
       }
       close_all_children__11TWindowChatFPv((void *) arg0);
       ((RecoveredFields_8024775C_arg0 *) arg0)->field_1E = (u16) (((RecoveredFields_8024775C_arg0 *) arg0)->field_1E | 2);
-      TWindowChat__sub_8024792C((u8 *)((void *) arg0));
+      open_next_input_window__11TWindowChatFPv((u8 *)((void *) arg0));
       if (is_mode_bit6__11TWindowChatFPv((void *) arg0) != 0)
       {
         init_parts__10TObjPlayerFPv((s32)((int) temp_r3));
@@ -219,12 +219,12 @@ void TWindowChat__sub_8024775C(u8 *arg0) {
       {
         ((RecoveredFields_8024775C_arg0 *) arg0)->field_1C = (u8) (temp_r3_2 - 3);
       }
-      TWindowChat__sub_8024792C((u8 *)((void *) arg0));
+      open_next_input_window__11TWindowChatFPv((u8 *)((void *) arg0));
     }
   }
 }
 
-void TWindowChat__sub_8024792C(u8 *arg0) {
+void open_next_input_window__11TWindowChatFPv(u8 *arg0) {
     s32 temp_r3;
     s32 temp_r3_2;
     s32 temp_r3_3;

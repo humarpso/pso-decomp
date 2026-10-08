@@ -8,14 +8,14 @@ s32 get_message_10__20TWindowSubStatusDispFPv(int);
 s32 __nw__7TObjectFUl(int);
 s32 TWindowMeseta__ct(int, int, void *, int);
 s32 get_window_layout_position(int);
-s32 fn_8026934C(s32 arg0);
+s32 create_meseta_window(s32 arg0);
 }
 
 extern "C" {
 
 #pragma push
 #pragma scheduling off
-s32 fn_8026934C(s32 arg0) {
+s32 create_meseta_window(s32 arg0) {
     s32 temp_r31;
     s32 var_r30;
     var_r30 = __nw__7TObjectFUl((int) (0x74));

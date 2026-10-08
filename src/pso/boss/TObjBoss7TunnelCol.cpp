@@ -18,7 +18,7 @@ void update_collision__18TObjBoss7TunnelColFPv(void *arg0);
 void rotate_matrix_yxz(void *, void *, void *, void *);
 void unregister_object_by_id(void *);
 void construct_collider_proxy__10TObjPlayerFPv(void *);
-void TObjPlayer__sub_803D8CD4(void *);
+void set_matrix_identity__10TObjPlayerFPv(void *);
 void __dl__7TObjectFPv(void *);
 void clear_obj_links(void *);
 void destroy_particle_controller__10TObjPlayerFPvs(void *, int);
@@ -68,7 +68,7 @@ void *TObjBoss7TunnelCol__ct(void *arg0) {
 
 void update_collision__18TObjBoss7TunnelColFPv(void *arg0) {
     struct VOff_802F1C68_arg0_802f1c68_802F1B7C *self = (struct VOff_802F1C68_arg0_802f1c68_802F1B7C *)arg0;
-    TObjPlayer__sub_803D8CD4(self->f_48);
+    set_matrix_identity__10TObjPlayerFPv(self->f_48);
     set_position_vec3__10TObjPlayerFPvPv(self->f_48, (void *)((char *)arg0 + 28));
     rotate_matrix_yxz(self->f_48, M2C_FIELD(arg0, void **, 0x28), M2C_FIELD(arg0, void **, 0x2C), M2C_FIELD(arg0, void **, 0x30));
 }

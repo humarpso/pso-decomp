@@ -25,7 +25,7 @@ M2C_UNK TGStream__ct(M2C_UNK *, M2C_UNK);
 M2C_UNK open__8TGStreamFPvPvi(M2C_UNK *, s32, M2C_UNK);
 void debug_print__6TLobbyFii(const char *, ...);
 extern char lbl_8043DE90[];
-s32 TGStream__sub_800FDBA8(s32 name, s32 dst);
+s32 load_sct_file__8TGStreamFii(s32 name, s32 dst);
 M2C_UNK read_sectors_sync__8TGStreamFPvii(M2C_UNK *, s32, s32);
 s32 get_instance__8TGStreamFv(M2C_UNK *);
 M2C_UNK TGStream__ct(M2C_UNK *, M2C_UNK);
@@ -92,7 +92,7 @@ s32 TGStream__sub_800FDADC(s32 arg0, u8 *arg1) {
     return size;
 }
 
-s32 TGStream__sub_800FDBA8(s32 name, s32 dst) {
+s32 load_sct_file__8TGStreamFii(s32 name, s32 dst) {
     Stream_800FDBA8 st;
     s32 size;
     s32 sectors;

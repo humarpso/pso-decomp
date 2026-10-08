@@ -57,7 +57,7 @@ extern Rec_80364028 lbl_80479FF8;
 extern void *lbl_805D6FB8;
 extern s32 some_id_805c6f74;
 extern const f32 lbl_805E0288;
-void TObjPlayer__sub_80364028(f32 farg0);
+void set_model_fade_alpha__10TObjPlayerFf(f32 farg0);
 }
 
 extern "C" {
@@ -87,7 +87,7 @@ void warn_if_gauge_low__10TObjPlayerFv(void) {
 }
 typedef char RecoveredGlobal_803640C8_lbl_8058D4C0_size[sizeof(RecoveredGlobal_803640C8_lbl_8058D4C0) == 0x10 ? 1 : -1];
 
-void TObjPlayer__sub_80364028(f32 farg0) {
+void set_model_fade_alpha__10TObjPlayerFf(f32 farg0) {
     if (farg0 < lbl_805E0288) {
         some_id_805c6f74 |= 0x24;
         set_chunk_material_override_pair(-1, 0x800);

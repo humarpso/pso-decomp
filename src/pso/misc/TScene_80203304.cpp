@@ -12,7 +12,7 @@ M2C_UNK *resolve_indirect_object_record(M2C_UNK arg0, u8 *arg1);
 M2C_UNK *resolve_indirect_node_record(M2C_UNK arg0, u8 *arg1);
 s32 get_global_state__14TOKeyMachine01Fv(void);
 extern struct Tbl_8020335C lbl_8044A874;
-s32 TContainerAncient01__sub_8020335C(void);
+s32 is_global_state_in_table__19TContainerAncient01Fv(void);
 }
 
 extern "C" {
@@ -40,7 +40,7 @@ void set_active_scene__6TSceneFi(int a0) { TScene__data_805D5FF0 = a0; }
 
     extern int TScene__data_805D5FEC;
 void set_id__6TSceneFi(int a0) { TScene__data_805D5FEC = a0; }
-s32 TContainerAncient01__sub_8020335C(void) {
+s32 is_global_state_in_table__19TContainerAncient01Fv(void) {
     struct Tbl_8020335C t = lbl_8044A874;
     s32 state = get_global_state__14TOKeyMachine01Fv();
     s32 i;

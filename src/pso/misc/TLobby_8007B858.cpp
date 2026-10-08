@@ -25,7 +25,7 @@ struct RecoveredGlobal_8007BA20_lbl_8048D5A8 {
 };
 
 extern "C" {
-void TLanguage__sub_80198F14(void);
+void load_lobby_textures__9TLanguageFv(void);
 s32 get_global_state__14TOKeyMachine01Fv();
 void TLobby__sub_802A5154(void);
 void load_obj_lobby_main(void);
@@ -33,14 +33,14 @@ s32 run_load_callback_table(void *, int);
 extern RecoveredGlobal_8007BA98_lbl_8048D4C0 lbl_8048D4C0;
 extern RecoveredGlobal_8007BA98_lbl_8048D5A8 lbl_8048D5A8;
 s32 TLobby__sub_8007BA98(void);
-void TLobby__sub_800FD6A0(s32, u32);
+void call_funcs_reverse__6TLobbyFPvUi(s32, u32);
 void fn_80198E84(void);
 s32 get_global_state__14TOKeyMachine01Fv();
 void free_dialing_gc__6TLobbyFv(void);
 void TLobby__sub_8035202C(void);
 extern RecoveredGlobal_8007BA98_lbl_8048D4C0 lbl_8048D4C0;
 extern RecoveredGlobal_8007BA98_lbl_8048D5A8 lbl_8048D5A8;
-void TLobby__sub_8007BA20(void);
+void clear_session_buffers__6TLobbyFv(void);
 }
 
 extern "C" {
@@ -157,16 +157,16 @@ typedef char RecoveredGlobal_8007BA98_lbl_8048D5A8_size[sizeof(RecoveredGlobal_8
 
 typedef char RecoveredGlobal_8007BA20_lbl_8048D4C0_size[sizeof(RecoveredGlobal_8007BA20_lbl_8048D4C0) == 0xE8 ? 1 : -1];
 typedef char RecoveredGlobal_8007BA20_lbl_8048D5A8_size[sizeof(RecoveredGlobal_8007BA20_lbl_8048D5A8) == 0x20 ? 1 : -1];
-void TLobby__sub_8007BA20(void) {
+void clear_session_buffers__6TLobbyFv(void) {
     if (get_global_state__14TOKeyMachine01Fv() == 0xF) {
         free_dialing_gc__6TLobbyFv();
         fn_80198E84();
         TLobby__sub_8035202C();
     }
     if ((get_global_state__14TOKeyMachine01Fv() != 0) && (get_global_state__14TOKeyMachine01Fv() != 0xF) && (get_global_state__14TOKeyMachine01Fv() != 0x12)) {
-        TLobby__sub_800FD6A0((s32) &(*(RecoveredGlobal_8007BA20_lbl_8048D5A8 *)&lbl_8048D5A8).value, 0x20U);
+        call_funcs_reverse__6TLobbyFPvUi((s32) &(*(RecoveredGlobal_8007BA20_lbl_8048D5A8 *)&lbl_8048D5A8).value, 0x20U);
     }
-    TLobby__sub_800FD6A0((s32) &(*(RecoveredGlobal_8007BA20_lbl_8048D4C0 *)&lbl_8048D4C0).value, 0xE8U);
+    call_funcs_reverse__6TLobbyFPvUi((s32) &(*(RecoveredGlobal_8007BA20_lbl_8048D4C0 *)&lbl_8048D4C0).value, 0xE8U);
 }
 
 s32 TLobby__sub_8007BA98(void) {
@@ -184,7 +184,7 @@ s32 TLobby__sub_8007BA98(void) {
     }
     if (get_global_state__14TOKeyMachine01Fv() == 0xF) {
         load_obj_lobby_main();
-        TLanguage__sub_80198F14();
+        load_lobby_textures__9TLanguageFv();
         TLobby__sub_802A5154();
     }
     return 1;

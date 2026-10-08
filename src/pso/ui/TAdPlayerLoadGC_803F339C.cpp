@@ -46,6 +46,9 @@ M2C_UNK memset(void *, int, int);
 extern Slot_803F3478 lbl_805A28E0[];
 s32 get_load_state__15TAdPlayerLoadGCFv(void);
 s32 TAdPlayerLoadGC__sub_803F339C(s32 arg0, s32 *arg1);
+extern Slot_803F3478 lbl_805A28E0[];
+s32 get_load_state__15TAdPlayerLoadGCFv(void);
+s32 TAdPlayerLoadGC__sub_803F3998(s32 chan);
 }
 
 extern "C" {
@@ -172,6 +175,23 @@ s32 TAdPlayerLoadGC__sub_803F38BC(s32 arg0, s32 *arg1) {
     }
     return r;
 }
+
+s32 TAdPlayerLoadGC__sub_803F3998(s32 chan) {
+    s32 r;
+    if (get_load_state__15TAdPlayerLoadGCFv() < 1) {
+        return -1;
+    }
+    if (lbl_805A28E0[chan].f44 != 0) {
+        r = -4;
+    } else {
+        lbl_805A28E0[chan].f44 = 1;
+        lbl_805A28E0[chan].f48 = 1;
+        r = 0;
+        lbl_805A28E0[chan].f58 = 200;
+    }
+    return r;
+}
+
 s32 TAdPlayerLoadGC__sub_803F3A14(s32 arg0, s32 *arg1) {
     s32 r;
     s32 t;

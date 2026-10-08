@@ -45,7 +45,7 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 extern "C" {
 s32 is_split_screen();
 M2C_UNK TObjPlayer__sub_80084500();
-M2C_UNK TObjPlayer__sub_8030B208(void *);
+M2C_UNK render_live_monitor_screen__10TObjPlayerFPv(void *);
 void update_camera__15TObjLiveMonitorFPv(void* p);
 s32 get_table_entry__18TObjLiveCameraCtrlFi(int);
 s32 TObjLiveMonitor__sub_8030C050();
@@ -67,7 +67,7 @@ void render__15TObjLiveMonitorFv(u8 *arg0) {
     } else if (is_split_screen() == 0) {
         TObjPlayer__sub_80084500();
     } else {
-        TObjPlayer__sub_8030B208((void *) (arg0));
+        render_live_monitor_screen__10TObjPlayerFPv((void *) (arg0));
     }
     push_matrix();
     draw_ginja_object((int) (M2C_FIELD(arg0, s32 *, 0x1C)));
@@ -283,7 +283,7 @@ extern const f32 lbl_805DF1C8;
 extern const f32 lbl_805DF1CC;
 extern const f32 lbl_805DF1D0;
 extern const f32 lbl_805DF1D4;
-void TBoss8Dragon__sub_8030BB24(u8 *arg0);
+void update_live_camera__12TBoss8DragonFPv(u8 *arg0);
 f32 calc_random_ratio__10TObjPlayerFv(void *);
 u8 *get_enemy_entity(u16);
 u8 *get_player_by_client_id(s32);
@@ -304,7 +304,7 @@ extern const f32 lbl_805DF1A8;
 extern const f32 lbl_805DF1AC;
 extern const f32 lbl_805DF1B0;
 extern const f32 lbl_805DF1B4;
-void TBoss8Dragon__sub_8030B8A8(u8 *arg0);
+void choose_next_camera_shot__12TBoss8DragonFPv(u8 *arg0);
 }
 
 extern "C" {
@@ -341,7 +341,7 @@ void TBoss8Dragon__sub_8030B818(u8 *arg0, int _w1) {
 
 #pragma push
 #pragma fp_contract on
-void TBoss8Dragon__sub_8030B8A8(u8 *arg0) {
+void choose_next_camera_shot__12TBoss8DragonFPv(u8 *arg0) {
     f32 r;
     u8 *p;
     if (M2C_FIELD(arg0, s16 *, 0x1E) < 0) {
@@ -402,7 +402,7 @@ void TBoss8Dragon__sub_8030B8A8(u8 *arg0) {
 
 #pragma push
 #pragma fp_contract on
-void TBoss8Dragon__sub_8030BB24(u8 *arg0) {
+void update_live_camera__12TBoss8DragonFPv(u8 *arg0) {
     s16 temp_r0;
     u32 temp_r3_4;
     u8 *temp_r3;

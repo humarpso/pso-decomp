@@ -233,7 +233,7 @@ void stop_audio_stream(u8 *arg0);
 M2C_UNK calc_adx_predictor_coeffs(void *, void *, void *, void *);
 void TLobby__sub_803CB594(s32 arg0, void *arg1, s32 arg2);
 s8 TLobby__sub_803C9CB0(u8 *arg0);
-M2C_UNK TLobby__sub_803C57C8(void *);
+M2C_UNK notify_error__6TLobbyFPv(void *);
 void TLobby__sub_803CB7F8(M2C_UNK arg0, s32 arg1);
 M2C_UNK memset(void *, int, int);
 extern Ch_803CB5C4 lbl_80575B40[16];
@@ -257,7 +257,7 @@ void stop_audio_stream(u8 *arg0);
 M2C_UNK init_once__6TLobbyFv();
 M2C_UNK release_ref__6TLobbyFv();
 void *TLobby__sub_803C8BAC(const char *name, s32 arg);
-void TLobby__sub_803C5744(const char *msg, const char *arg);
+void report_adx_error__6TLobbyFPvi(const char *msg, const char *arg);
 void configure_audio_stream_output(Stream_803C9FCC *self);
 void start_audio_stream_file(Stream_803CA824 *self, const char *name);
 s16 TLobby__sub_803C96E0(Obj_803C96E0 *self, s32 i);
@@ -269,7 +269,7 @@ extern const char *const volatile lbl_805E0D78;
 void ARAlloc(void);
 void TLobby__sub_803CB81C(void);
 M2C_UNK TLobby__sub_803CBF50(void *);
-M2C_UNK TLobby__sub_803C57C8(void *);
+M2C_UNK notify_error__6TLobbyFPv(void *);
 extern u8 lbl_8047C690[];
 void TLobby__sub_803C96F0(S_803C96F0 *arg0, s32 arg1, s16 arg2);
 M2C_UNK GXFlush();
@@ -282,11 +282,11 @@ extern s32 lbl_805D7564;
 void TLobby__sub_803C9608(void);
 M2C_UNK release_ref__6TLobbyFv();
 M2C_UNK init_once__6TLobbyFv();
-M2C_UNK TLobby__sub_803C57C8(void *);
+M2C_UNK notify_error__6TLobbyFPv(void *);
 void stop_audio_stream(u8 *arg0);
 s32 TLobby__sub_803D2474(void *, int);
 extern char lbl_8047C6C0[];
-void TLobby__sub_803CA774(u8 *arg0, u8 *arg1, s32 arg2);
+void adxt_start_mem_idx__6TLobbyFPvPvi(u8 *arg0, u8 *arg1, s32 arg2);
 void TLobby__sub_803CE544(void *, int);
 void TLobby__sub_803CF958(const char *);
 void TLobby__sub_803CFAA8(const char *, void *, int);
@@ -372,7 +372,7 @@ void TLobby__sub_803CA194(Obj_803CA194 *arg0);
 void *TLobby__sub_803C0848(void *, s32, void *);
 void TLobby__sub_803CA194(Obj_803CA194 *arg0);
 void *run_step_5210__6TLobbyFv(void *, s32);
-void *TLobby__sub_803D1A98(void *);
+void *lsc_create__6TLobbyFPv(void *);
 void *TLobby__sub_803D2C84(void *, s32, s32);
 M2C_UNK memset(void *, int, int);
 extern Ent_803C9608 lbl_80572120[16];
@@ -548,7 +548,7 @@ void TLobby__sub_803C96F0(S_803C96F0 *arg0, s32 arg1, s16 arg2) {
         TLobby__sub_803CBF50(arg0->p);
         return;
     }
-    TLobby__sub_803C57C8(lbl_8047C690);
+    notify_error__6TLobbyFPv(lbl_8047C690);
 }
 
 s32 TLobby__sub_803C9740(u8 *arg0) {
@@ -883,7 +883,7 @@ Ch_803CA3C4 *TLobby__sub_803CA3C4(s32 n, s32 base, s32 size) {
         TLobby__sub_803CA194((Obj_803CA194 *)c);
         return NULL;
     }
-    if ((c->f94 = TLobby__sub_803D1A98(c->f10)) == NULL) {
+    if ((c->f94 = lsc_create__6TLobbyFPv(c->f10)) == NULL) {
         TLobby__sub_803CA194((Obj_803CA194 *)c);
         return NULL;
     }
@@ -910,7 +910,7 @@ Ch_803CA3C4 *TLobby__sub_803CA3C4(s32 n, s32 base, s32 size) {
     return c;
 }
 
-void TLobby__sub_803CA774(u8 *arg0, u8 *arg1, s32 arg2) {
+void adxt_start_mem_idx__6TLobbyFPvPvi(u8 *arg0, u8 *arg1, s32 arg2) {
     s32 r;
     stop_audio_stream(arg0);
     if (arg2 >= ((Ent_803CA774 *)arg1)[0].len || arg2 < 0) {
@@ -920,7 +920,7 @@ void TLobby__sub_803CA774(u8 *arg0, u8 *arg1, s32 arg2) {
     r = TLobby__sub_803D2474(arg1 + *(s32 *)(arg1 + (arg2 + 1) * 8), 0x40000000);
     if (r == 0) {
         release_ref__6TLobbyFv();
-        TLobby__sub_803C57C8(lbl_8047C6C0);
+        notify_error__6TLobbyFPv(lbl_8047C6C0);
         return;
     }
     TLobby__sub_803CA0C8((Stream_803CA0C8 *)(arg0), (s32)(r));
@@ -934,7 +934,7 @@ void start_audio_stream_file(Stream_803CA824 *self, const char *name) {
     init_once__6TLobbyFv();
     if ((self->handle = TLobby__sub_803C8BAC(name, self->f10)) == 0) {
         release_ref__6TLobbyFv();
-        TLobby__sub_803C5744(lbl_8047C6F0, name);
+        report_adx_error__6TLobbyFPvi(lbl_8047C6F0, name);
         self->f60 = -1;
         self->state = 6;
     } else {
@@ -1092,7 +1092,7 @@ void TLobby__sub_803CB74C(s32 *arg0) {
 }
 
 void TLobby__sub_803CB7F8(M2C_UNK arg0, s32 arg1) {
-    TLobby__sub_803C57C8((void *) (arg1));
+    notify_error__6TLobbyFPv((void *) (arg1));
 }
 
 void TLobby__sub_803CB81C(void) {

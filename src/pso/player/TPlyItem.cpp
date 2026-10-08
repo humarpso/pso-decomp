@@ -119,7 +119,7 @@ void *get_owner_if_alive__10TObjPlayerFPv(void *);
 s32 is_item_valid__9TItemListFi(void *);
 extern u8 *lbl_805D5DE0;
 extern u8 lbl_805D5E04;
-void TLobby__sub_801D50E0(void *arg0);
+void reduce_child_item_amounts__6TLobbyFPv(void *arg0);
 s32 get_field_d8__10TObjPlayerFPv(void *);
 void *get_owner_if_alive__10TObjPlayerFPv(void *);
 s32 is_item_valid__9TItemListFi(void *);
@@ -176,10 +176,10 @@ void TLobby__sub_801D5004(void *arg0) {
                 }
             }
         }
-        TLobby__sub_801D50E0((void *)(it));
+        reduce_child_item_amounts__6TLobbyFPv((void *)(it));
     }
 }
-void TLobby__sub_801D50E0(void *arg0) {
+void reduce_child_item_amounts__6TLobbyFPv(void *arg0) {
     Item_801D50E0 *self = (Item_801D50E0 *)arg0;
     VObj_801D50E0 *owner;
     Item_801D50E0 *it;
@@ -196,7 +196,7 @@ void TLobby__sub_801D50E0(void *arg0) {
                 }
             }
         }
-        TLobby__sub_801D50E0(it);
+        reduce_child_item_amounts__6TLobbyFPv(it);
     }
 }
 void TObjPlayer__sub_801D51A0(void *arg0) {

@@ -22,7 +22,7 @@ void *__dt__11TWindowChatFv(void *arg0, s16 arg1);
 int get_flag__11TWindowChatFPv(void* p);
 u8 get_input_mode__11TWindowChatFPv(void* p);
 s32 get_player_by_client_id(s32);
-void TWindowChat__sub_8024792C(void *);
+void open_next_input_window__11TWindowChatFPv(void *);
 int TWindowChat__sub_80247DAC(void* p);
 M2C_UNK end_player_keyboard_hold(s32);
 void *TWindowKeyBoardBase__ct(void *);
@@ -137,7 +137,7 @@ void *TWindowChat__ct(void *arg0, void *arg1, void *arg2) {
     M2C_FIELD(arg0, u32 *, 0x34) = 0;
     M2C_FIELD(arg0, u32 *, 0x30) = 0;
     M2C_FIELD(arg0, void **, 0x38) = arg2;
-    TWindowChat__sub_8024792C(arg0);
+    open_next_input_window__11TWindowChatFPv(arg0);
     return arg0;
 }
 

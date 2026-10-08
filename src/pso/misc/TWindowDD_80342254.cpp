@@ -15,7 +15,7 @@ struct O_803422F0 { s32 f0; u8 pad[0x14]; void *f18; u8 pad2[0x5C - 0x1C]; s32 f
 
 extern "C" {
 s16 TWindowDD__sub_80342158(int);
-M2C_UNK TWindowDD__sub_8034330C(void *);
+M2C_UNK apply_entry_layout__9TWindowDDFPv(void *);
 M2C_UNK TWindowDD__sub_803435A0(void *);
 M2C_UNK TWindowDD__sub_80347B70(void *);
 M2C_UNK TWindowDD__sub_80347C50();
@@ -29,9 +29,9 @@ s32 __nw__7TObjectFUl(int);
 s32 TWindowDD__sub_80342384(s32 arg0, s32 arg1);
 u8 TWindowDD__sub_80342268(O_80342268 *self);
 u8 TWindowDD__sub_80342254(O_80342254 *self);
-s32 TWindowDD__sub_802466E0(void *, void *, int, void *);
+s32 construct_base__9TWindowDDFPvPvsPv(void *, void *, int, void *);
 s32 reset_fields__9TWindowDDFPv(void *, void *);
-s32 TWindowDD__sub_80341FFC(void *);
+s32 load_element_list__9TWindowDDFPv(void *);
 extern s32 lbl_805D42E0;
 extern const f32 TWindowDD__data_805DFCA8;
 s32 TWindowDD__sub_803422F0(int a0, void *a1, void *a2);
@@ -50,7 +50,7 @@ extern "C" {
 void TWindowDD__sub_80341500();
 }
 extern "C" {
-void TWindowDD__sub_80341B28();
+void handle_scroll_input__9TWindowDDFPv();
 }
 extern "C" {
 void render_shadows__7TObjectFv();
@@ -69,7 +69,7 @@ void *lbl_804EFC7C[5] = {
     (void *)0x3,
 };
 void *lbl_804EFC90[6] = {
-    (void *)0x0, (void *)0x0, (void *)&destroy__9TWindowDDFPvs, (void *)&TWindowDD__sub_80341B28,
+    (void *)0x0, (void *)0x0, (void *)&destroy__9TWindowDDFPvs, (void *)&handle_scroll_input__9TWindowDDFPv,
     (void *)&TWindowDD__sub_80341500, (void *)&render_shadows__7TObjectFv,
 };
 #define TWindowDD__data_804EFC50 (*(RecoveredGlobal_80342384_TWindowDD__data_804EFC50 *)TWindowDD__data_804EFC50)
@@ -100,7 +100,7 @@ s32 TWindowDD__sub_803422F0(int a0, void *a1, void *a2) {
 #define arg1 ((s32)a1)
 #define arg2 ((s32)a2)
     s32 v;
-    TWindowDD__sub_802466E0(arg0, lbl_804EFC7C, 4, lbl_804EFC74);
+    construct_base__9TWindowDDFPvPvsPv(arg0, lbl_804EFC7C, 4, lbl_804EFC74);
     arg0->f18 = lbl_804EFC90;
     v = lbl_805D42E0;
     arg0->f0 = v;
@@ -111,7 +111,7 @@ s32 TWindowDD__sub_803422F0(int a0, void *a1, void *a2) {
     arg0->f60 = 0;
     arg0->f70 = arg1;
     reset_fields__9TWindowDDFPv(arg0, (void *)v);
-    TWindowDD__sub_80341FFC(arg0);
+    load_element_list__9TWindowDDFPv(arg0);
     arg0->f5c = 0x01000000;
     return a0;
 #undef arg0
@@ -158,7 +158,7 @@ void TWindowDD__sub_80342428(u8 *arg0) {
   if (TWindowDD__sub_803482B0((void *) arg0) != 0)
   {
     play_se__9TWindowDDFv();
-    TWindowDD__sub_8034330C((void *) arg0);
+    apply_entry_layout__9TWindowDDFPv((void *) arg0);
   }
 }
 

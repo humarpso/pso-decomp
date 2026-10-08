@@ -12,7 +12,7 @@ s32 rand(void);
 extern s32 lbl_805D586C;
 extern const f32 lbl_805D890C;
 extern const f32 lbl_805D8918;
-u16 TBoss4Type3__sub_8004AE60(void);
+u16 pick_random_target_player__11TBoss4Type3Fv(void);
 }
 
 extern "C" {
@@ -74,7 +74,7 @@ u8 is_active__14TBoss4DarkFalzFv(void) {
     }
     return (u8) var_r31;
 }
-u16 TBoss4Type3__sub_8004AE60(void) {
+u16 pick_random_target_player__11TBoss4Type3Fv(void) {
     u16 buf[4];
     s32 n;
     s32 i;
@@ -197,7 +197,7 @@ V(60)V(61)V(62)V(63)V(64)V(65)V(66)V(67)V(68)V(69)V(70)V(71)V(72)V(73)V(74)V(75)
 extern "C" {
 s32 is_split_screen();
 M2C_UNK queue_destruction__7TObjectFv(void *);
-M2C_UNK TLobby__sub_8002AFD4(void *, void *, int);
+M2C_UNK exchange_object_state__6TLobbyFPvis(void *, void *, int);
 M2C_UNK TLobby__sub_800F6510(void *, void *);
 M2C_UNK distribute_experience(void *);
 s32 get_player_by_client_id(void *);
@@ -223,23 +223,23 @@ extern s32 lbl_805D586C;
 s32 TBoss4DarkFalz__sub_8004AFC4(void);
 void set_code_25_4__14TBoss4DarkFalzFPv(void *p);
 void swap_and_send__14TBoss4DarkFalzFPv(void *p);
-void TBoss4DarkFalz__sub_8004B16C(Obj_8004B16C *self, s32 arg);
+void send_code_25_4__14TBoss4DarkFalzFPvi(Obj_8004B16C *self, s32 arg);
 void set_code_25_4__14TBoss4DarkFalzFPv(void *p);
 void swap_and_send__14TBoss4DarkFalzFPv(void *p);
 void TBoss4DarkFalz__sub_8004B1BC(Obj_8004B1BC *self, s32 arg);
 s32 get_field_3e0__12TBoss3VoloptFPv(void *p);
 void refresh_equipment_slot__10TObjPlayerFv(void *p);
 extern s32 lbl_805D586C;
-void TBoss4DarkFalz__sub_8004B77C(void *self);
+void refresh_player_equipment__14TBoss4DarkFalzFPv(void *self);
 s32 init_all_slots2__11TWindowCtrlFv();
 s32 end_camera_pan__10TObjPlayerFPv(void *p);
 s32 release_all_players_control_lock();
 extern s32 lbl_805D586C;
-void TBoss4DarkFalz__sub_8004BA18(void *self);
+void end_player_camera_pans__14TBoss4DarkFalzFPv(void *self);
 s32 init_all_slots__11TWindowCtrlFv();
 s32 start_freeze__10TObjPlayerFPv(void *p);
 extern s32 lbl_805D586C;
-void TBoss4DarkFalz__sub_8004BA70(void *self);
+void freeze_all_players__14TBoss4DarkFalzFPv(void *self);
 void VecCopy__FP3VecPC3Vec(void *, void *);
 s32 get_field_3e0__12TBoss3VoloptFPv(void *p);
 void spawn_particle_effect(void *, s32);
@@ -260,13 +260,13 @@ extern s32 lbl_805D5550;
 extern const f32 lbl_805D891C;
 extern const f32 lbl_805D8920;
 extern const f32 lbl_805D8924;
-void TBoss4DarkFalz__sub_8004B3BC(u8 *arg0);
+void spawn_zako_rings__14TBoss4DarkFalzFPv(u8 *arg0);
 s32 is_locally_controlled__10TObjPlayerFPv(void *);
 s32 get_field_3e0__12TBoss3VoloptFPv(void *p);
 s32 calc_rate_from_field__14TBoss4DarkFalzFPv(void *arg0);
 Hit_8004B7DC *get_hit_data__14TBoss4DarkFalzFPv(void *);
 void save_position__14TBoss4DarkFalzFi(void *);
-void TBoss4DarkFalz__sub_8004C220(void *, Vec_8004B7DC *);
+void set_position_from__14TBoss4DarkFalzFPvPv(void *, Vec_8004B7DC *);
 void reset_cameras_to_actor(void *, s32);
 void refresh_equipment_slot__10TObjPlayerFv(void *p);
 f32 sin_table_lookup(s32);
@@ -280,7 +280,7 @@ s32 get_field_3e0__12TBoss3VoloptFPv(void *p);
 s32 calc_rate_from_field__14TBoss4DarkFalzFPv(void *arg0);
 Hit_8004B7DC *get_hit_data__14TBoss4DarkFalzFPv(void *);
 void save_position__14TBoss4DarkFalzFi(void *);
-void TBoss4DarkFalz__sub_8004C220(void *, Vec_8004B7DC *);
+void set_position_from__14TBoss4DarkFalzFPvPv(void *, Vec_8004B7DC *);
 void reset_cameras_to_actor(void *, s32);
 void refresh_equipment_slot__10TObjPlayerFv(void *p);
 f32 sin_table_lookup(s32);
@@ -380,7 +380,7 @@ void TBoss4DarkFalz__sub_8004B0F8(u8 *arg0) {
   }
 }
 
-void TBoss4DarkFalz__sub_8004B16C(Obj_8004B16C *self, s32 arg) {
+void send_code_25_4__14TBoss4DarkFalzFPvi(Obj_8004B16C *self, s32 arg) {
     Msg_8004B16C msg;
     set_code_25_4__14TBoss4DarkFalzFPv(&msg);
     msg.id = self->id;
@@ -398,7 +398,7 @@ void TBoss4DarkFalz__sub_8004B1BC(Obj_8004B1BC *self, s32 arg) {
     swap_and_send__14TBoss4DarkFalzFPv(&msg);
 }
 
-void TBoss4DarkFalz__sub_8004B20C(Boss_8004B20C *arg0, s32 arg1) {
+void change_state__14TBoss4DarkFalzFPvi(Boss_8004B20C *arg0, s32 arg1) {
     if (arg1 < 0 || arg1 >= 16) {
         return;
     }
@@ -451,7 +451,7 @@ s32 is_timer_expired__14TBoss4DarkFalzFPv(void *arg0) {
 }
 
 #pragma fp_contract on
-void TBoss4DarkFalz__sub_8004B3BC(u8 *arg0) {
+void spawn_zako_rings__14TBoss4DarkFalzFPv(u8 *arg0) {
     Params_8004B3BC p;
     f32 r;
     f32 dr;
@@ -544,7 +544,7 @@ struct V3_8004B654 { u32 w[3]; };
 #pragma inline_depth(4)
 #pragma dont_inline off
 #pragma auto_inline on
-void TBoss4DarkFalz__sub_8004B654(u8 *arg0) {
+void handle_defeat__14TBoss4DarkFalzFPv(u8 *arg0) {
     struct V3_8004B654 save;
     s32 flags[3];
     s32 p;
@@ -563,7 +563,7 @@ void TBoss4DarkFalz__sub_8004B654(u8 *arg0) {
     }
     flags[0] = 0x800;
     TLobby__sub_800F6510((void *) (arg0), (void *) (flags));
-    TLobby__sub_8002AFD4((void *) (arg0), (void *) (flags), 0);
+    exchange_object_state__6TLobbyFPvis((void *) (arg0), (void *) (flags), 0);
     ((VObj_18_8004B654 *)(arg0))->m77(flags);
     send_entity_set_flags__6TLobbyFPv((void *) (arg0));
     queue_destruction__7TObjectFv((void *) (arg0));
@@ -581,7 +581,7 @@ void TBoss4DarkFalz__sub_8004B730(u8 *arg0, s32 arg1, f32 farg0) {
         fn_803594B4(temp_r3, arg1, var_f1);
     }
 }
-void TBoss4DarkFalz__sub_8004B77C(void *self) {
+void refresh_player_equipment__14TBoss4DarkFalzFPv(void *self) {
     s32 i;
     void *p;
     for (i = 0; i < lbl_805D586C; i++) {
@@ -609,7 +609,7 @@ void TBoss4DarkFalz__sub_8004B7DC(void *arg0) {
             Vec_8004B7DC v = base;
             v.x += lbl_805D892C * sin_table_lookup(ang);
             v.z += lbl_805D892C * cos_table_lookup(ang);
-            TBoss4DarkFalz__sub_8004C220(p, &v);
+            set_position_from__14TBoss4DarkFalzFPvPv(p, &v);
             save_position__14TBoss4DarkFalzFi(p);
             get_hit_data__14TBoss4DarkFalzFPv(p)->f4 = ang + 0x8000;
             refresh_equipment_slot__10TObjPlayerFv(p);
@@ -636,7 +636,7 @@ void TBoss4DarkFalz__sub_8004B8F8(void *arg0) {
             Vec_8004B8F8 v = base;
             v.x += lbl_805D8928 * sin_table_lookup(ang);
             v.z += lbl_805D8928 * cos_table_lookup(ang);
-            TBoss4DarkFalz__sub_8004C220((void *)(p), (Vec_8004B7DC *)(&v));
+            set_position_from__14TBoss4DarkFalzFPvPv((void *)(p), (Vec_8004B7DC *)(&v));
             save_position__14TBoss4DarkFalzFi(p);
             ((Hit_8004B8F8 *)get_hit_data__14TBoss4DarkFalzFPv(p))->f4 = 0x8000;
             refresh_equipment_slot__10TObjPlayerFv(p);
@@ -648,7 +648,7 @@ void TBoss4DarkFalz__sub_8004B8F8(void *arg0) {
     }
 }
 
-void TBoss4DarkFalz__sub_8004BA18(void *self) {
+void end_player_camera_pans__14TBoss4DarkFalzFPv(void *self) {
     s32 i;
     void *p;
     init_all_slots2__11TWindowCtrlFv();
@@ -660,7 +660,7 @@ void TBoss4DarkFalz__sub_8004BA18(void *self) {
     }
     release_all_players_control_lock();
 }
-void TBoss4DarkFalz__sub_8004BA70(void *self) {
+void freeze_all_players__14TBoss4DarkFalzFPv(void *self) {
     s32 i;
     void *p;
     init_all_slots__11TWindowCtrlFv();

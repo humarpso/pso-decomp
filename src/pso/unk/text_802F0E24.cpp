@@ -13,7 +13,7 @@ void fn_802F0E24(void);
 void *load_resource_from_descriptor(void *, s32, void *, s32, s32, s32);
 void *alloc__23TAdSinglePlyChrSelectGCFPv(M2C_UNK);
 M2C_UNK init_heap__13TParticleCtrlFPv(M2C_UNK);
-M2C_UNK TLobby__sub_801E468C(void *, void *);
+M2C_UNK load_texture_pvm_file__6TLobbyFPvi(void *, void *);
 extern u8 lbl_80474344[];
 extern u8 lbl_804E48C4[];
 extern void *lbl_805D6950;
@@ -44,7 +44,7 @@ void fn_802F0E94(void) {
     }
     lbl_805D6950 = p;
     lbl_805D6954 = *(void **)(((struct Obj_802F0E94 *)p)->f42c + 0xC);
-    TLobby__sub_801E468C(lbl_80474344, lbl_805D6954);
+    load_texture_pvm_file__6TLobbyFPvi(lbl_80474344, lbl_805D6954);
     init_heap__13TParticleCtrlFPv(0x50000);
 }
 

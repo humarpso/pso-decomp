@@ -38,7 +38,7 @@ void normalize__9TItemDataFv(void *);
 s16 get_stat_by_key_state__10TObjPlayerFPv(int);
 s32 get_player_by_client_id(u16);
 extern s32 lbl_805D5450;
-void TItem__sub_80101FEC(void *item, s32 id, Pos_80101FEC *pos);
+void send_drop_item_6x5D__5TItemFPviPv(void *item, s32 id, Pos_80101FEC *pos);
 }
 
 extern "C" {
@@ -62,7 +62,7 @@ void handle_6x5D_drop_stacked_item(u8 *arg0) {
         spawn_dropped_item_from_msg((void *) (&drop.floor), (int) (0));
     }
 }
-void TItem__sub_80101FEC(void *item, s32 id, Pos_80101FEC *pos) {
+void send_drop_item_6x5D__5TItemFPviPv(void *item, s32 id, Pos_80101FEC *pos) {
     Msg_80101FEC m;
     s32 h;
     init_fields__6TLobbyFPv(&m);

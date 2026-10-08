@@ -26,7 +26,7 @@ extern u8 lbl_804398CC[];
 extern u8 lbl_8048E840[];
 extern u32 lbl_805D4F14;
 extern s32 lbl_805D5550;
-void TScene__sub_8008CF50(void);
+void bind_ending_wall_textures__6TSceneFv(void);
 }
 
 extern "C" {
@@ -70,7 +70,7 @@ void destroy_instance__9TEndingABFv(void) {
         lbl_805D4F14 = 0U;
     }
 }
-void TScene__sub_8008CF50(void) {
+void bind_ending_wall_textures__6TSceneFv(void) {
     u8 *base = lbl_8048E840;
     u8 *t;
     if (fn_8001A988() != 0) {

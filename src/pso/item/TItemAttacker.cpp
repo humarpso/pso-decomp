@@ -14,7 +14,7 @@ struct Rec_80103368 { u8 pad[0x1C]; f32 v[3]; u8 pad2[0x2C - 0x28]; };
 struct M_80103368 { u8 pad[0xA4]; Rec_80103368 *recs; };
 
 extern "C" {
-s32 TLobby__sub_8001EE48(s32);
+s32 tmp_buf_release__6TLobbyFi(s32);
 void free__11TOBoss4RockFUi(u32);
 extern M2C_UNK lbl_8043E038[];
 extern s32 lbl_805D5410;
@@ -39,7 +39,7 @@ void run_task__13TItemAttackerFv(void* p);
 void spawn_item_timer__13TItemAttackerFiii(s32 arg0, s32 arg1, s32 arg2);
 M2C_UNK TItemTimer__ct(void *, s32, s32, s32);
 s32 TLobby__sub_8001EEF4();
-s32 TLobby__sub_8001EEFC(M2C_UNK *);
+s32 tmp_buf_use_req__6TLobbyFPv(M2C_UNK *);
 M2C_UNK deliver_delayed_weapon_hit();
 u32 __nw__7TObjectFUl(M2C_UNK);
 s32 alloc_buffer__11TOBoss4RockFPv(s32);
@@ -102,7 +102,7 @@ extern s32 lbl_805D5414;
 void TItemBuff__ct(void) {
     if ((u32) (*(u32 *)&lbl_805D5414) != 0) {
         if ((s32) lbl_805D5410 != 0) {
-            TLobby__sub_8001EE48((s32) &(*(RecoveredGlobal_8010355C_lbl_8043E038 *)&lbl_8043E038).value);
+            tmp_buf_release__6TLobbyFi((s32) &(*(RecoveredGlobal_8010355C_lbl_8043E038 *)&lbl_8043E038).value);
         } else {
             free__11TOBoss4RockFUi((*(u32 *)&lbl_805D5414));
         }
@@ -118,7 +118,7 @@ s32 create_item_buff(s32 arg0) {
         temp_r3 = TLobby__sub_8001EEF4();
         lbl_805D5410 = temp_r3;
         if ((temp_r3 != 0) && (arg0 < 0x40000)) {
-            lbl_805D5414 = TLobby__sub_8001EEFC(lbl_8043E038);
+            lbl_805D5414 = tmp_buf_use_req__6TLobbyFPv(lbl_8043E038);
         } else {
             lbl_805D5414 = alloc_buffer__11TOBoss4RockFPv(arg0);
         }

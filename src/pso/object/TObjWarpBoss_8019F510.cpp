@@ -61,7 +61,7 @@ s32 TObjFish__sub_8001EDB0(s32, M2C_UNK);
 s32 get_bml_model(s32, M2C_UNK);
 s32 load_resource_from_descriptor(M2C_UNK, void *, M2C_UNK, M2C_UNK, M2C_UNK);
 s32 alloc__23TAdSinglePlyChrSelectGCFPv(M2C_UNK);
-s32 TContainerAncient01__sub_8020335C();
+s32 is_global_state_in_table__19TContainerAncient01Fv();
 s32 get_global_state__14TOKeyMachine01Fv();
 extern u32 lbl_805D5C88;
 extern int lbl_805D5C8C;
@@ -93,7 +93,7 @@ extern void *lbl_804B94BC[4];
 extern void *lbl_804B94CC[3];
 extern void *lbl_804B94E8[3];
 extern __declspec(section ".data") void *lbl_804B94F4[2];
-void TObjFish__sub_8019F764(void);
+void load_models__8TObjFishFv(void);
 }
 
 extern "C" {
@@ -224,7 +224,7 @@ __declspec(section ".data") void *lbl_804B94F4[2] = {
 void *lbl_804B94FC[4] = {
     (void *)&lbl_804465FC, (void *)&lbl_804B94E8, (void *)&lbl_804B94F4, (void *)0x20001,
 };
-void TObjFish__sub_8019F764(void) {
+void load_models__8TObjFishFv(void) {
     s32 st;
     s32 r;
     st = get_global_state__14TOKeyMachine01Fv();
@@ -243,7 +243,7 @@ void TObjFish__sub_8019F764(void) {
         (*(s32 *)&lbl_805D5CA4) = TObjFish__sub_8001EDB0((*(s32 *)&lbl_805D5C88), 2);
         return;
     }
-    if (TContainerAncient01__sub_8020335C() != 0 || st == 0x1C || st == 0x1D) {
+    if (is_global_state_in_table__19TContainerAncient01Fv() != 0 || st == 0x1C || st == 0x1D) {
         r = alloc__23TAdSinglePlyChrSelectGCFPv(0x440);
         if (r != 0) {
             r = ((s32 (*)(s32, M2C_UNK, void *, M2C_UNK, M2C_UNK, M2C_UNK)) load_resource_from_descriptor)(r, 5, lbl_804B94FC, 0, 0, 0);

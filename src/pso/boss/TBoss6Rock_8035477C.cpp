@@ -36,7 +36,7 @@ u8 *TBoss6Rock__ct(u8 *arg0, M2C_UNK arg1, s32 arg2);
 u8 * destroy_particle_controller__10TObjPlayerFPvs(void *, s16);
 void __dl__7TObjectFPv(s32);
 void release_object__10TBoss6RockFPv(void *);
-void TBoss6Rock__sub_8035A460(void *, s32);
+void spawn_crush_rocks__10TBoss6RockFPvi(void *, s32);
 extern RecoveredGlobal_80354948___vt__10TBoss6Rock __vt__10TBoss6Rock;
 extern RecoveredGlobal_803548B4_TBoss6Rock__data_80543778 TBoss6Rock__data_80543778;
 u8 *__dt__10TBoss6RockFv(u8 *arg0, s16 arg1);
@@ -46,11 +46,11 @@ extern "C" {
 
 void *create__10TBoss6RockFPv(void *arg0);
 void render__10TBoss6RockFv(void* p);
-int TBoss6Rock__sub_803546B0(void*);
+int draw_model__10TBoss6RockFPv(void*);
 void *__nw__7TObjectFUl(int);
 int is_active__10TBoss6RockFv(void*);
 
-void render__10TBoss6RockFv(void* p) { if (is_active__10TBoss6RockFv(p) != 0) { TBoss6Rock__sub_803546B0(p); } }
+void render__10TBoss6RockFv(void* p) { if (is_active__10TBoss6RockFv(p) != 0) { draw_model__10TBoss6RockFPv(p); } }
 
 extern void *tl_02;
 
@@ -63,7 +63,7 @@ u8 *__dt__10TBoss6RockFv(u8 *arg0, s16 arg1) {
     if (arg0 != NULL) {
         M2C_FIELD(arg0, M2C_UNK **, 0x18) = &(*(RecoveredGlobal_803548B4___vt__10TBoss6Rock *)&__vt__10TBoss6Rock).value;
         if ((s32) M2C_FIELD(arg0, s32 *, 0xC4) != 0) {
-            TBoss6Rock__sub_8035A460(arg0 + 0xD4, M2C_FIELD(arg0, s32 *, 0xB4));
+            spawn_crush_rocks__10TBoss6RockFPvi(arg0 + 0xD4, M2C_FIELD(arg0, s32 *, 0xB4));
         }
         release_object__10TBoss6RockFPv(arg0);
         M2C_FIELD(&TBoss6Rock__data_80543778.value, M2C_UNK *, (M2C_FIELD(arg0, s32 *, 0xAC) * 4)) = 0;

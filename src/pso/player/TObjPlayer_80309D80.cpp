@@ -62,7 +62,7 @@ void emit_player_sprite_particle(M2C_UNK arg0, s32 arg1, s32 arg2);
 void emit_idle_water_splash(s32 arg0, s32 arg1);
 s32 emit_player_particle(void* p, void* a1, void* a2);
 s32 get_instance__13TParticleCtrlFv();
-s32 TParticleCtrl__sub_80086884(s32);
+s32 get_particle_model__13TParticleCtrlFi(s32);
 void attach_particle_model(s32, s32, s32, s32, s32, f32);
 extern f32 lbl_805DF134;
 s32 emit_player_model_particle(s32 owner, s32 position, s32 entry, s32 model);
@@ -195,7 +195,7 @@ s32 emit_player_model_particle(s32 owner, s32 position, s32 entry, s32 model) {
   s32 emitter = emit_player_particle((void*)(owner), (void*)(position), (void*)(entry));
   if (emitter)
   {
-    attach_particle_model(emitter, TParticleCtrl__sub_80086884(model), get_instance__13TParticleCtrlFv(), 0, 1, lbl_805DF134);
+    attach_particle_model(emitter, get_particle_model__13TParticleCtrlFi(model), get_instance__13TParticleCtrlFv(), 0, 1, lbl_805DF134);
   }
   return emitter;
 }

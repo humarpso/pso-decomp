@@ -57,9 +57,9 @@ s32 get_entry__23TAdSinglePlyChrSelectGCFi(s32 arg0);
 s32 is_slot_active__23TAdSinglePlyChrSelectGCFUi(u32 arg0);
 s32 load_player__23TAdSinglePlyChrSelectGCFv(void);
 s32 load_player_data__23TAdSinglePlyChrSelectGCFv(void);
-s32 TAdPlayerLoadGC__sub_801E0D8C(s32);
+s32 probe_and_check_card__15TAdPlayerLoadGCFi(s32);
 s32 TAdPlayerLoadGC__sub_801E1B50(s32);
-s32 TAdPlayerLoadGC__sub_801E2048(s32, M2C_UNK *);
+s32 find_card_file__15TAdPlayerLoadGCFiPv(s32, M2C_UNK *);
 int load_player_slot__23TAdSinglePlyChrSelectGCFPvii(void *, int, int);
 void set_quest_download_server__23TAdSinglePlyChrSelectGCFi(int);
 struct RecoveredGlobal_801FE75C_lbl_804C88C0 {
@@ -147,7 +147,7 @@ s32 TAdSinglePlyChrSelectGC__sub_801FE75C(void) {
     var_r0 = -1;
     lbl_805D5F7C = (s32) temp_r3;
     if ((temp_r3 >= 0) && (temp_r3 <= 7)) {
-        var_r0 = TAdPlayerLoadGC__sub_801E2048((s32) temp_r3, (M2C_UNK *) &lbl_804C88C0.value);
+        var_r0 = find_card_file__15TAdPlayerLoadGCFiPv((s32) temp_r3, (M2C_UNK *) &lbl_804C88C0.value);
         if (var_r0 == 0) {
             set_quest_download_server__23TAdSinglePlyChrSelectGCFi(lbl_805D5F7C);
             lbl_805D49B4 = 1;
@@ -195,8 +195,8 @@ s32 load_player_data__23TAdSinglePlyChrSelectGCFv(void) {
     s32 var_r31;
 
     var_r31 = 0xFFFF0000;
-    if (((u32) lbl_805D5F68 != 0U) && (get_instance__15TAdPlayerLoadGCFv() == 0) && (TAdPlayerLoadGC__sub_801E0D8C(lbl_805D5F80) != 0)) {
-        var_r31 = TAdPlayerLoadGC__sub_801E2048(lbl_805D5F80, lbl_804C89BC);
+    if (((u32) lbl_805D5F68 != 0U) && (get_instance__15TAdPlayerLoadGCFv() == 0) && (probe_and_check_card__15TAdPlayerLoadGCFi(lbl_805D5F80) != 0)) {
+        var_r31 = find_card_file__15TAdPlayerLoadGCFiPv(lbl_805D5F80, lbl_804C89BC);
         if ((var_r31 == 0) && (check_ready__23TAdSinglePlyChrSelectGCFv() != 0)) {
             var_r31 = setup__23TAdSinglePlyChrSelectGCFi(lbl_805D5F80);
             if (var_r31 == 0) {
@@ -224,7 +224,7 @@ s32 load_player__23TAdSinglePlyChrSelectGCFv(void) {
         lbl_805D5F80 = temp_r3;
         var_r31 = TAdPlayerLoadGC__sub_801E1B50(lbl_805D5F80);
         if (var_r31 == 0) {
-            var_r31 = TAdPlayerLoadGC__sub_801E2048(lbl_805D5F80, lbl_804C89BC);
+            var_r31 = find_card_file__15TAdPlayerLoadGCFiPv(lbl_805D5F80, lbl_804C89BC);
             if (var_r31 == 0) {
                 var_r3 = TAdSinglePlyChrSelectGC__sub_801FC564(lbl_805D5F80);
                 if (var_r3 == 0) {

@@ -101,7 +101,7 @@ void *memcpy(void *, const void *, u32);
 extern char lbl_8043E048[];
 extern Ent_801037A0 **lbl_805D541C;
 extern s32 lbl_805D5420;
-s32 TLobby__sub_80103BFC(s32 n, s32 val);
+s32 remove_item_condition__6TLobbyFii(s32 n, s32 val);
 void debug_print__6TLobbyFii(const char *, ...);
 extern char lbl_8043E048[];
 extern Ent_801037A0 **lbl_805D541C;
@@ -153,7 +153,7 @@ void handle_6x63_destroy_floor_item(void *arg0) {
     struct VObj_80103748 *o;
 
     bswap_player_packet__6TLobbyFPv();
-    TLobby__sub_80103BFC((s32)(M2C_FIELD(arg0, s32 *, 8)), (s32)(M2C_FIELD(arg0, s32 *, 4)));
+    remove_item_condition__6TLobbyFii((s32)(M2C_FIELD(arg0, s32 *, 8)), (s32)(M2C_FIELD(arg0, s32 *, 4)));
     o = (struct VObj_80103748 *)find_item_by_id(M2C_FIELD(arg0, s32 *, 4));
     if (o != NULL) {
         o->m27();
@@ -305,7 +305,7 @@ void TLobby__sub_80103B70(s32 n) {
     }
 }
 
-s32 TLobby__sub_80103BFC(s32 n, s32 val) {
+s32 remove_item_condition__6TLobbyFii(s32 n, s32 val) {
     Ent_801037A0 *list;
     s32 count;
     s32 lo;

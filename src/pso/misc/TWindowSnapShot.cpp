@@ -55,7 +55,7 @@ void run_task__15TWindowSnapShotFv(u8 *arg0);
 s32 TObjBoss2Tunnel__sub_8007CB50(void);
 s32 get_localized_text_entry(M2C_UNK, M2C_UNK);
 s32 get_array_entry__20TWindowSubStatusDispFPvi(void *, s32);
-u8 * TWindowDD__sub_802466E0(void *, s32, s16, s32);
+u8 * construct_base__9TWindowDDFPvPvsPv(void *, s32, s16, s32);
 int set_default_status__17TWindowDuelResultFPvi(void *, int);
 extern RecoveredGlobal_802A80A0_lbl_804DDEB4 lbl_804DDEB4;
 extern M2C_UNK __vt__15TWindowSnapShot[];
@@ -166,7 +166,7 @@ typedef char RecoveredGlobal_802A80A0_lbl_804DDEB4_size[sizeof(RecoveredGlobal_8
 typedef char RecoveredGlobal_802A80A0___vt__15TWindowSnapShot_size[sizeof(RecoveredGlobal_802A80A0___vt__15TWindowSnapShot) == 0x18 ? 1 : -1];
 u8 *TWindowSnapShot__ct(u8 *arg0, s32 arg1) {
     s32 temp_r31;
-    TWindowDD__sub_802466E0(arg0, (s32) &lbl_804DDEB4.value, 4, arg1);
+    construct_base__9TWindowDDFPvPvsPv(arg0, (s32) &lbl_804DDEB4.value, 4, arg1);
     M2C_FIELD(arg0, M2C_UNK **, 0x18) = &(*(RecoveredGlobal_802A80A0___vt__15TWindowSnapShot *)&__vt__15TWindowSnapShot).value;
     M2C_FIELD(arg0, s32 *, 0) = (s32) lbl_805D3E18;
     M2C_FIELD(arg0, u8 *, 0x60) = 0U;

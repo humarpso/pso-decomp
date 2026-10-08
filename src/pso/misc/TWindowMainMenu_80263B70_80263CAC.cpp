@@ -22,7 +22,7 @@ void add_menu_entry__15TWindowMainMenuFPvs(u8 *arg0, s16 arg1);
 void close_and_clear_flags__15TWindowMainMenuFPv(void *arg0);
 void open__15TWindowMainMenuFPvi(void *arg0, s32 arg1);
 s32 get_player_by_client_id(s32);
-M2C_UNK TWindowMainMenu__sub_802646E4(void *, s32);
+M2C_UNK populate_menu__15TWindowMainMenuFPvPv(void *, s32);
 M2C_UNK close__15TWindowMainMenuFPv(void *);
 M2C_UNK close_child_window__15TWindowMainMenuFPv(void *, s32);
 M2C_UNK destroy_submenu__15TWindowMainMenuFPv(void *);
@@ -54,7 +54,7 @@ void open__15TWindowMainMenuFPvi(void *arg0, s32 arg1) {
         M2C_FIELD(arg0, s32 *, 0x5C) = arg1;
         M2C_FIELD(arg0, s16 *, 0x50) = 0;
         update_keyboard_card_state__15TWindowMainMenuFPv(arg0, temp_r4);
-        TWindowMainMenu__sub_802646E4(arg0, M2C_FIELD(arg0, s32 *, 0x5C));
+        populate_menu__15TWindowMainMenuFPvPv(arg0, M2C_FIELD(arg0, s32 *, 0x5C));
         reset_equip_slots__10TObjPlayerFPv(temp_r3);
     }
 }

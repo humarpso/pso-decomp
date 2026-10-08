@@ -7,7 +7,7 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 extern "C" {
 
 void handle_input__9TWindowDDFi(s32 arg0);
-M2C_UNK TWindowDD__sub_8034330C(s32);
+M2C_UNK apply_entry_layout__9TWindowDDFPv(s32);
 M2C_UNK TWindowDD__sub_80347B70();
 M2C_UNK play_se__9TWindowDDFv();
 M2C_UNK play_sound__9TWindowDDFv();
@@ -24,7 +24,7 @@ void handle_input__9TWindowDDFi(s32 arg0) {
     }
     if (TWindowDD__sub_803482B0(arg0) != 0) {
         play_se__9TWindowDDFv();
-        TWindowDD__sub_8034330C(arg0);
+        apply_entry_layout__9TWindowDDFPv(arg0);
     }
 }
 

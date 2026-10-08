@@ -120,7 +120,7 @@ void * TObjNpcARM00__create(void *arg0);
 int TObjNpcFemaleBase__sub_80147CD4(void);
 void *__dt__12TObjNpcAHM01Fv(void *arg0, s16 arg1);
 void free_resources__12TObjNpcAHM01Fv(void);
-void TLobby__sub_800F957C(void*);
+void free_nodes_with_id__6TLobbyFUi(void*);
 void TLobby__sub_803DA16C(void*);
 void *TObjControl__ct(void *, void *);
 void *TObjNpcARM00__ct(void *, void *, void *);
@@ -139,7 +139,7 @@ void free_resources__12TObjNpcAHM01Fv(void) {
         TObjNpcAHM01__data_805D5724 = 0U;
     }
     if ((u32) TObjNpcAHM01__data_805D5720 != 0U) {
-        TLobby__sub_800F957C((void*)TObjNpcAHM01__data_805D5720);
+        free_nodes_with_id__6TLobbyFUi((void*)TObjNpcAHM01__data_805D5720);
         TObjNpcAHM01__data_805D5720 = 0U;
     }
 }

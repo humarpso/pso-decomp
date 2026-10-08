@@ -193,7 +193,7 @@ extern void *lbl_805D63AC;
 extern void *lbl_805D63B0;
 void TTecRaBarta__vt6(Rabarta_80237494 *self, void *pos);
 s32 is_technique_ready__8TTecCtrlFv();
-void TTecAnti__sub_8022B35C(void *, s32);
+void copy_params__8TTecAntiFPvPv(void *, s32);
 s32 calc_technique_parameters(s32, s32, s32);
 extern Params_802377FC lbl_804CC510;
 extern Scale_802377FC lbl_804CC55C;
@@ -347,7 +347,7 @@ void TTecRaBarta__vt7(void *arg0) {
 
 void calc_parameters__11TTecRaBartaFv(RaBarta_802377FC *self) {
     s32 res = calc_technique_parameters(5, self->level, 0xFFFF);
-    TTecAnti__sub_8022B35C(&self->amount, res);
+    copy_params__8TTecAntiFPvPv(&self->amount, res);
     if (self->level >= 0xF && is_technique_ready__8TTecCtrlFv() == 0) {
         self->amount = lbl_804CC510.base + lbl_804CC510.per_level * self->level;
         return;

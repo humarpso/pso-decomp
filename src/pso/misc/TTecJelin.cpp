@@ -162,7 +162,7 @@ void VecCopy__FP3VecPC3Vec(Vec_80233958 *, Vec_80233958 *);
 s32 play_sound_effect(int, void *, int, int);
 s32 update_technique_slot__10TTecRaFoieFi(s32, s32, s32);
 s32 obj_getField1c(void *);
-Jelin_80233958 *TTecJelin__sub_80233958(Jelin_80233958 *self, s32 _w1, s32 _w2, s32 _w3, s32 _w4);
+Jelin_80233958 *construct__9TTecJelinFPviiii(Jelin_80233958 *self, s32 _w1, s32 _w2, s32 _w3, s32 _w4);
 void VecCopy__FP3VecPC3Vec(Vec_80233958 *, Vec_80233958 *);
 s32 obj_getField1c(void *);
 s32 construct_target_cursor_records__10TObjPlayerFi(void *);
@@ -182,7 +182,7 @@ void *__dt__9TTecJelinFv(void *arg0, s16 arg1);
 void create__9TTecJelinFiiii(s32 arg0, s32 arg1, s32 arg2, s32 arg3);
 void init_tech_params__9TTecJelinFPv(u8 *arg0);
 void render__9TTecJelinFv(void);
-M2C_UNK TTecAnti__sub_8022B35C(void *, s32);
+M2C_UNK copy_params__8TTecAntiFPvPv(void *, s32);
 s32 calc_technique_parameters(M2C_UNK, s16, M2C_UNK);
 void __dl__7TObjectFPv(void *);
 u32 __nw__7TObjectFUl(s32 a0 = 0);
@@ -193,7 +193,7 @@ extern const f64 lbl_8044D658;
 void init_tech_params__9TTecJelinFPv(u8 *arg0) {
     s32 res;
     res = calc_technique_parameters(0xB, M2C_FIELD(arg0, s16 *, 0x78), 0xFFFF);
-    TTecAnti__sub_8022B35C(arg0 + 0x88, res);
+    copy_params__8TTecAntiFPvPv(arg0 + 0x88, res);
     M2C_FIELD(arg0, f32 *, 0x88) = (f32) (M2C_FIELD(arg0, s16 *, 0xAC) * M2C_FIELD(arg0, s16 *, 0x78));
 }
 
@@ -215,7 +215,7 @@ void create__9TTecJelinFiiii(s32 arg0, s32 arg1, s32 arg2, s32 arg3) {
     u32 obj;
     obj = __nw__7TObjectFUl(0x14C);
     if (obj != 0U) {
-        TTecJelin__sub_80233958((Jelin_80233958 *)(obj), (s32)(arg0), (s32)(arg1), (s32)(arg2), (s32)(arg3));
+        construct__9TTecJelinFPviiii((Jelin_80233958 *)(obj), (s32)(arg0), (s32)(arg1), (s32)(arg2), (s32)(arg3));
     }
 }
 void render__9TTecJelinFv(void) {  }
@@ -293,7 +293,7 @@ Jelin_80233808 *TTecJelin__ct(Jelin_80233808 *self, void *_w1, void *_w2, void *
     return self;
 }
 
-Jelin_80233958 *TTecJelin__sub_80233958(Jelin_80233958 *self, s32 _w1, s32 _w2, s32 _w3, s32 _w4) {
+Jelin_80233958 *construct__9TTecJelinFPviiii(Jelin_80233958 *self, s32 _w1, s32 _w2, s32 _w3, s32 _w4) {
     s32 r;
     construct_area_technique_base(self);
     self->vt = ((s32 *)&__vt__9TTecJelin);

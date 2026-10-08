@@ -2595,7 +2595,7 @@ void TObjEneMe1CanadinLeader__sub_8009A938(u8 *arg0);
 void * TObjEneMe1CanadinLeader__sub_8009AA0C(void *arg0, s16 arg1);
 u8 * TObjEneMe1CanadinLeader__sub_8009AA64(u8 *arg0, s32 arg1, u8 *arg2, s32 arg3, f32 farg0);
 void TObjEneMe1CanadinLeader__vt110(Leader_8009AB4C *obj, s32 mode);
-void TObjEneMe1CanadinLeader__sub_8009AF54(void *arg0);
+void update_formation_state__23TObjEneMe1CanadinLeaderFPv(void *arg0);
 u8 TObjEneMe1CanadinLeader__vt107(void *arg0);
 void TObjEneMe1CanadinLeader__vt111(void *arg0);
 s32 TObjEneMe1CanadinLeader__vt114(Obj_8009B1CC *arg0);
@@ -2624,7 +2624,7 @@ void TObjEneMe1Canadin__vt109(void *arg0, s32 arg1);
 void action__17TObjEneMe1CanadinFPvi(void *arg0, s32 arg1);
 void TObjEneMe1Canadin__sub_8009DE90(void *argv0, s32 arg1);
 void handle_state__17TObjEneMe1CanadinFPvi(void *arg0, s32 arg1);
-void TObjEneMe1Canadin__sub_8009E0AC(Canadin_8009E0AC *self, u32 which, s32 arg);
+void dispatch_state__17TObjEneMe1CanadinFPvUii(Canadin_8009E0AC *self, u32 which, s32 arg);
 void fn_8009E1D4(u8 *arg0, s32 arg1);
 void set_flag3c8_bit40__23TObjEneMe1CanadinLeaderFPv(void* p);
 void set_flag3c8_bit20__23TObjEneMe1CanadinLeaderFPv(void* p);
@@ -2690,7 +2690,7 @@ void set_mode0xD_unless_0xBor0xD__17TObjEneMe1CanadinFPv(void *arg0);
 void TObjEneMe1Canadin__sub_8009EE84(void);
 void run_task__17TObjEneMe1CanadinFv(u8 *arg0);
 void * __dt__17TObjEneMe1CanadinFv(void *arg0, s16 arg1);
-void TObjEneMe1Canadin__sub_8009F004(u8 *arg0);
+void setup_enemy__17TObjEneMe1CanadinFPv(u8 *arg0);
 u8 * TObjEneMe1Canadin__ct(u8 *arg0, M2C_UNK arg1, u8 *arg2, s32 arg3, s16 arg4, s16 arg5);
 void * init__17TObjEneMe1CanadinFPvPvPvPv(void *arg0, void *arg1, void *arg2, void *arg3);
 void * create_canadin__23TObjEneMe1CanadinLeaderFPvPvPvPv(void *arg0, void *arg1, void *arg2, void *arg3);
@@ -2703,7 +2703,7 @@ void enemy_copy_target_destination(void *);
 s32 update_linked_position__14TObjEneEpsilonFPv(void *, f32);
 int select_and_apply_target__14TObjEneEpsilonFPvf(void*);
 void enemy_init_acquire_period(void *, s32);
-s32 TBoss2DeRolLe__sub_800B98D8(void *);
+s32 set_target_player__13TBoss2DeRolLeFPvPv(void *);
 M2C_UNK update_velocity__9TObjEneDDFPv(void *);
 void __dt__9TObjEneDDFv(void *, int);
 void init_object__9TObjEneDDFPv(void *);
@@ -3196,7 +3196,7 @@ void *__vt__23TObjEneMe1CanadinLeader[118] = {
     (void *)&enemy_spawn_zalure_effect, (void *)&TObjPlayer__sub_80010A80, (void *)&TObjPlayer__sub_800F65D0, (void *)&fn_80010EC8,
     (void *)&fn_80010EC4, (void *)&fn_80010EC0, (void *)&fn_80010EBC, (void *)&TObjEneDD__vt77,
     (void *)&TObjPlayer__sub_800F673C, (void *)&apply_set_data__9TObjEnemyFPvPv, (void *)&fn_800F5D80, (void *)&TObjEneEpsilon__vt81,
-    (void *)&TObjEneDD__vt82, (void *)&TObjEneDD__vt83, (void *)&TObjEneDD__vt84, (void *)&TObjEneMe1Canadin__sub_8009E0AC,
+    (void *)&TObjEneDD__vt82, (void *)&TObjEneDD__vt83, (void *)&TObjEneDD__vt84, (void *)&dispatch_state__17TObjEneMe1CanadinFPvUii,
     (void *)&update__17TObjEneMe1CanadinFPv, (void *)&call_dd_vt86__17TObjEneMe1CanadinFPv, (void *)&TObjEneDD__vt87, (void *)&TObjEneDD__vt88,
     (void *)&TObjEneDD__vt89, (void *)&TObjEneDD__vt90, (void *)&TObjEneDD__vt91, (void *)&TObjEneDD__vt92,
     (void *)&TObjEneDD__vt93, (void *)&TObjEneDD__vt94, (void *)&TObjEneDD__vt95, (void *)&TObjEneDD__vt96,
@@ -3384,7 +3384,7 @@ void TObjEneMe1CanadinLeader__vt108(u8 *arg0, s32 arg1) {
 #undef self
 
 #define self ((Obj_8009AF54 *)arg0)
-void TObjEneMe1CanadinLeader__sub_8009AF54(void *arg0) {
+void update_formation_state__23TObjEneMe1CanadinLeaderFPv(void *arg0) {
     s32 i;
     s32 j;
     if (self->flags3C8 & 0x10) {
@@ -3580,7 +3580,7 @@ void run_task__23TObjEneMe1CanadinLeaderFv(u8 *arg0) {
     if (((VObj_18 *)(arg0))->m81() != 4) {
         ((VObj_18 *)(arg0))->m83();
         TObjEneMe1CanadinLeader__sub_8009E504((void *) (arg0));
-        TObjEneMe1CanadinLeader__sub_8009AF54((void *)((void *) (arg0)));
+        update_formation_state__23TObjEneMe1CanadinLeaderFPv((void *)((void *) (arg0)));
     }
     ((M2C_UNK (*)(void *))copy_pos__17TObjEneMe1CanadinFPv)((void *) (arg0));
     set_player_state_default__12TBoss8DragonFPv((void *) (arg0));
@@ -4563,7 +4563,7 @@ void handle_state__17TObjEneMe1CanadinFPvi(void *arg0, s32 arg1) {
     }
 }
 
-void TObjEneMe1Canadin__sub_8009E0AC(Canadin_8009E0AC *self, u32 which, s32 arg) {
+void dispatch_state__17TObjEneMe1CanadinFPvUii(Canadin_8009E0AC *self, u32 which, s32 arg) {
     switch (which) {
     case 0:
         handle_state__17TObjEneMe1CanadinFPvi(self, arg);
@@ -4650,7 +4650,7 @@ void TObjEneMe1CanadinLeader__sub_8009E27C(void* p) { *(u32*)((char*)p + 0x3c8) 
 void set_attack_flag__23TObjEneMe1CanadinLeaderFPv(void* p) { *(u32*)((char*)p + 0x3c8) |= 0x2; }
 
 void set_leader_index__23TObjEneMe1CanadinLeaderFPvii(void *arg0, s32 arg1, s32 arg2) {
-    TBoss2DeRolLe__sub_800B98D8(arg0);
+    set_target_player__13TBoss2DeRolLeFPvPv(arg0);
     M2C_FIELD(arg0, s32 *, 0x400) = arg2;
     M2C_FIELD(arg0, s32 *, 0x3C8) = (s32) (M2C_FIELD(arg0, s32 *, 0x3C8) | 1);
 }
@@ -4839,7 +4839,7 @@ s32 TObjEneMe1Canadin__sub_8009E860(Canadin_8009E860 *self, f32 *out, f32 _w2) {
             if (self->target->m114(id) != 0) {
                 *out = newton_sqrtf(list[i].dist);
                 found = 1;
-                ((void (*)(void *, u32))TBoss2DeRolLe__sub_800B98D8)(self, id);
+                ((void (*)(void *, u32))set_target_player__13TBoss2DeRolLeFPvPv)(self, id);
                 break;
             }
         }
@@ -5032,7 +5032,7 @@ void *__dt__17TObjEneMe1CanadinFv(void *arg0, s16 arg1) {
 
 #pragma push
 #pragma fp_contract on
-void TObjEneMe1Canadin__sub_8009F004(u8 *arg0) {
+void setup_enemy__17TObjEneMe1CanadinFPv(u8 *arg0) {
     s32 i;
     void *p;
 
@@ -5121,7 +5121,7 @@ u8 *TObjEneMe1Canadin__ct(u8 *arg0, M2C_UNK arg1, u8 *arg2, s32 arg3, s16 arg4, 
     M2C_FIELD(arg0, s32 *, 0x60) = (s32) M2C_FIELD(M2C_FIELD(arg0, u8 **, 0x3C0), s32 *, 0x60);
     M2C_FIELD(arg0, s32 *, 0x3C8) = 0;
     M2C_FIELD(arg0, s32 *, 0x3C4) = 1;
-    ((void (*)(void *))TObjEneMe1Canadin__sub_8009F004)((void *) (arg0));
+    ((void (*)(void *))setup_enemy__17TObjEneMe1CanadinFPv)((void *) (arg0));
     return arg0;
 }
 
@@ -5135,7 +5135,7 @@ void *init__17TObjEneMe1CanadinFPvPvPvPv(void *arg0, void *arg1, void *arg2, voi
     update_by_field_0x354__17TObjEneMe1CanadinFPv((void *)(arg0));
     M2C_FIELD(arg0, void **, 0x3C0) = arg0;
     M2C_FIELD(arg0, void **, 0x3C4) = arg3;
-    ((void (*)(void *))TObjEneMe1Canadin__sub_8009F004)(arg0);
+    ((void (*)(void *))setup_enemy__17TObjEneMe1CanadinFPv)(arg0);
     return arg0;
 }
 

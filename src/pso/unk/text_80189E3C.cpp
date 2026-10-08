@@ -18,12 +18,12 @@ extern const char lbl_80444F00[];
 extern const char lbl_80444F10[];
 extern const char lbl_80444F20[];
 extern const f32 lbl_805DBCF4;
-void fn_80189E3C(Obj_80189E3C *self);
+void debug_print_item_box_info(Obj_80189E3C *self);
 }
 
 extern "C" {
 
-void fn_80189E3C(Obj_80189E3C *self) {
+void debug_print_item_box_info(Obj_80189E3C *self) {
     Item_80189E3C item;
     if (self->x68 > lbl_805DBCF4) {
         self->x360 = 1;

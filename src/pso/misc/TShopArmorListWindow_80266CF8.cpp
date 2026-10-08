@@ -9,10 +9,10 @@ struct Win_80266CF8 { u8 p0[0x72]; s16 f72; s16 f74; u8 p76[2]; s16 f78; };
 extern "C" {
 void *get_array_entry__20TWindowSubStatusDispFPvi(void *, s32);
 s32 is_flag_4_set__20TWindowSubStatusDispFPv(void *);
-void TShopArmorListWindow__sub_80266CF8(Win_80266CF8 *w);
+void clamp_selection_to_valid_entry__20TShopArmorListWindowFPv(Win_80266CF8 *w);
 void *get_array_entry__20TWindowSubStatusDispFPvi(void *, s32);
 void reset__20TWindowSubStatusDispFPv(void *);
-void TShopArmorListWindow__sub_80266DB0(u8 *arg0);
+void reset_list__20TShopArmorListWindowFPv(u8 *arg0);
 }
 
 extern "C" {
@@ -20,7 +20,7 @@ extern "C" {
 void save_cursor_selection__20TShopArmorListWindowFPv(void *arg0);
 s32 select_cursor_entry__6TLobbyFPv();
 
-void TShopArmorListWindow__sub_80266CF8(Win_80266CF8 *w) {
+void clamp_selection_to_valid_entry__20TShopArmorListWindowFPv(Win_80266CF8 *w) {
     void *e;
     if (w->f72 >= 0) {
         if (w->f78 >= w->f72) {
@@ -40,7 +40,7 @@ void save_cursor_selection__20TShopArmorListWindowFPv(void *arg0) {
     M2C_FIELD(arg0, s16 *, 0x78) = (s16) M2C_FIELD(arg0, s16 *, 0x74);
     M2C_FIELD(arg0, s32 *, 0x7C) = select_cursor_entry__6TLobbyFPv();
 }
-void TShopArmorListWindow__sub_80266DB0(u8 *arg0) {
+void reset_list__20TShopArmorListWindowFPv(u8 *arg0) {
     u32 i;
     M2C_FIELD(arg0, s16 *, 0x72) = 0;
     M2C_FIELD(arg0, s16 *, 0x74) = 0;

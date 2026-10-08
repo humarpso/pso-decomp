@@ -90,7 +90,7 @@ void update_angle__10TObjPlayerFPviPv(void *arg0, s32 arg1, void *arg2);
 void VecCopy__FP3VecPC3Vec(void *, const void *);
 void advance_animation_playback(void *);
 extern const f32 TObjEneBalClawClaw__data_805D968C;
-void TObjEneBalClawClaw__sub_80090850(Claw_80090850 *self);
+void update_move_to_target__18TObjEneBalClawClawFPv(Claw_80090850 *self);
 void apply_actor_gravity(void *, int, f32);
 void update_angle__10TObjPlayerFPviPv(void *arg0, s32 arg1, void *arg2);
 int update_if_active__15TObjEneMe1GiGueFPv(void*, int);
@@ -99,7 +99,7 @@ void advance_animation_playback(void *);
 s32 update_collisions__10TObjPlayerFPv(void *);
 extern const f32 TObjEneBalClawClaw__data_805D968C;
 extern const f32 lbl_805D9690;
-void TObjEneBalClawClaw__sub_80090504(u8 *arg0);
+void update_chase_state__18TObjEneBalClawClawFPv(u8 *arg0);
 }
 
 extern "C" {
@@ -112,7 +112,7 @@ int update_if_active__15TObjEneMe1GiGueFPv(void*, int);
 typedef char RecoveredFields_8009060C_arg0_37C_offset[offsetof(RecoveredFields_8009060C_arg0, field_37C) == 0x37C ? 1 : -1];
 typedef char RecoveredFields_8009060C_arg0_388_offset[offsetof(RecoveredFields_8009060C_arg0, field_388) == 0x388 ? 1 : -1];
 
-void TObjEneBalClawClaw__sub_80090504(u8 *arg0) {
+void update_chase_state__18TObjEneBalClawClawFPv(u8 *arg0) {
     u8 *temp_r5;
     switch (M2C_FIELD(arg0, s32 *, 0x37C)) {
     case -1:
@@ -197,7 +197,7 @@ void TObjEneBalClawClaw__sub_80090824(void) {  }
 
 void TObjEneBalClawClaw__sub_80090828(void) {  }
 int reset_active_state__18TObjEneBalClawClawFPv(void* p) { return update_if_active__15TObjEneMe1GiGueFPv(p, 0); }
-void TObjEneBalClawClaw__sub_80090850(Claw_80090850 *self) {
+void update_move_to_target__18TObjEneBalClawClawFPv(Claw_80090850 *self) {
     switch (self->state) {
     case -1:
         break;

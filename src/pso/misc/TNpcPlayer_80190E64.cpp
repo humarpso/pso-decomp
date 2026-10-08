@@ -72,7 +72,7 @@ void *__nw__7TObjectFUl(int);
 extern int lbl_805D3360;
 extern s32 lbl_805D53A0;
 extern void *tl_07;
-void TLobby__sub_80190FDC(Npc_80190FDC *arg0);
+void update_npc_proximity__6TLobbyFPv(Npc_80190FDC *arg0);
 }
 
 extern "C" {
@@ -138,7 +138,7 @@ void TLobby__sub_80190FD8(void) {  }
 typedef char RecoveredGlobal_8019118C_lbl_804B7BD8_size[sizeof(RecoveredGlobal_8019118C_lbl_804B7BD8) == 0x2C ? 1 : -1];
 typedef char RecoveredGlobal_8019118C_lbl_804B7C1C_size[sizeof(RecoveredGlobal_8019118C_lbl_804B7C1C) == 0x3C ? 1 : -1];
 
-void TLobby__sub_80190FDC(Npc_80190FDC *arg0) {
+void update_npc_proximity__6TLobbyFPv(Npc_80190FDC *arg0) {
     Ply_80190FDC *p;
     void *o;
     if (lbl_805D3360 == arg0->f8C) {

@@ -223,7 +223,7 @@ M2C_UNK TItemMag__sub_80114198(void *, int);
 M2C_UNK TItemMag__sub_8011423C(void *, int);
 M2C_UNK mag_feed_add_def(void *, int);
 s32 TItemMag__sub_801143E8(void *, s32);
-s16 TItemMagSub__sub_8011455C(void *);
+s16 get_total_level__11TItemMagSubFPv(void *);
 void set_type__8TItemMagFPvi(u8 *arg0, s32 arg1);
 void clear_flag2__11TItemMagSubFPv(void *arg0);
 s32 get_world_position__11TItemMagSubFPvUi(u8 *arg0, u32 arg1);
@@ -651,7 +651,7 @@ u8 evolve_rare_form__8TItemMagFPv(u8 *arg0) {
     s16 pct;
     s8 group;
     before = ((u8 (*)(void *))get_field_ed__10TObjPlayerFPv)(arg0);
-    if (M2C_FIELD(arg0, u8 **, 0xF0) != NULL && TItemMagSub__sub_8011455C(arg0 + 0x198) >= 100) {
+    if (M2C_FIELD(arg0, u8 **, 0xF0) != NULL && get_total_level__11TItemMagSubFPv(arg0 + 0x198) >= 100) {
         group = (s8)M2C_FIELD(M2C_FIELD(arg0, u8 **, 0xF0), u8 *, 0x88C) % 3;
         pct = ((s16 (*)(s32))get_mag_item_percent)((s32)arg0);
         level = get_mag_level((s32)arg0);
@@ -994,7 +994,7 @@ void apply_natural_evolution__8TItemMagFPv(Self_801124C4 *self) {
   s16 level;
   u8 before;
   stage = ((s8 (*)(void *))get_evolution_stage__8TItemMagFPv)(self);
-  level = TItemMagSub__sub_8011455C(self->data);
+  level = get_total_level__11TItemMagSubFPv(self->data);
   before = get_field_ed__10TObjPlayerFPv((s32) self);
   {
     new_var = (s32) self;
@@ -1232,7 +1232,7 @@ s32 apply_feed_stats__8TItemMagFPvPv(u8 *arg0, u8 *arg1) {
         TItemMag__sub_80114198((void *) (arg0 + 0x198), (int) (M2C_FIELD(arg1, s16 *, 8)));
         add_stat_clamped__8TItemMagFPvi((void *) (arg0 + 0x198), (int) (M2C_FIELD(arg1, s16 *, 0)));
         add_clamped_stat__8TItemMagFPvi((void *) (arg0 + 0x198), (int) (M2C_FIELD(arg1, s16 *, 2)));
-        set_field_EE__8TItemMagFPvUc((void *) (arg0), (void *) (((u8 (*)(void *))TItemMagSub__sub_8011455C)((void *) (arg0 + 0x198))));
+        set_field_EE__8TItemMagFPvUc((void *) (arg0), (void *) (((u8 (*)(void *))get_total_level__11TItemMagSubFPv)((void *) (arg0 + 0x198))));
         if (TObjPlayer__sub_80102C30((void *) (arg0)) == 2) {
             refresh_owner_stats__5TItemFPv((void *) (arg0));
             if (obj_isState2_324((int) (M2C_FIELD(arg0, s32 *, 0xF0))) == 0) {

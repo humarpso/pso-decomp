@@ -30,7 +30,7 @@ void set_global_param__8TObjFishFi(void *);
 void draw_ginja_object(void *);
 M2C_UNK draw_ginja_model_with_motion(s32, s32, f32);
 extern void *lbl_805D5C28;
-void TObjLazerFence4__sub_801932E4(u8 *arg0);
+void draw_model__15TObjLazerFence4FPv(u8 *arg0);
 void clear_player_status_flag__10TObjPlayerFPviUi(void *, int, int);
 u8 is_current_floor_switch_set(int);
 extern const f32 lbl_805DBE68;
@@ -109,7 +109,7 @@ void draw__15TObjLazerFence4FPv(void *arg0) {
     pop_matrix();
 }
 
-void TObjLazerFence4__sub_801932E4(u8 *arg0) {
+void draw_model__15TObjLazerFence4FPv(u8 *arg0) {
   s32 *new_var;
   u16 *new_var2;
   s32 var_r31;
@@ -164,7 +164,7 @@ void render__15TObjLazerFence4Fv(void *arg0) {
         temp_r0 = M2C_FIELD(arg0, s32 *, 0xAC);
         switch (temp_r0) {
         case 0:
-            TObjLazerFence4__sub_801932E4((u8 *)(arg0));
+            draw_model__15TObjLazerFence4FPv((u8 *)(arg0));
             return;
         case 1:
             draw__15TObjLazerFence4FPv((void *)(arg0));

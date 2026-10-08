@@ -168,13 +168,13 @@ u8 *get_player_data__10TObjPlayerFi(s32);
 s32 get_game_mode__6TLobbyFv();
 M2C_UNK play_sound_effect(int, void *, int, int);
 s32 is_active__14TBoss6PlotFalzFPv(void *);
-s32 TBoss6PlotFalz__sub_802AB5B4(s32, f32);
+s32 rand_vary_count__14TBoss6PlotFalzFif(s32, f32);
 f32 vector_length(void *);
 f32 subtract_vector(void *, void *);
 extern const f32 TBoss6Mine__data_805DF580;
 extern const f32 lbl_805DF590;
 extern const f32 lbl_805DF594;
-void TBoss6Mine__sub_803240F8(u8 *arg0);
+void explode_damage_players__10TBoss6MineFPv(u8 *arg0);
 M2C_UNK VecCopy__FP3VecPC3Vec(s32, s32);
 f32 vector_length(void *);
 f32 normalize_vector(void *);
@@ -190,7 +190,7 @@ f32 subtract_vector(void *, void *);
 f32 normalize_vector(void *);
 extern const f64 lbl_804766A0[];
 extern const f32 lbl_805DF588;
-void TBoss6Mine__sub_80323FA4(u8 *arg0);
+void update_facing_angles__10TBoss6MineFPv(u8 *arg0);
 s32 play_persistent_sound(s32, s32, u32, s16, s32);
 void TBoss6Mine__vt2(u8 *arg0);
 M2C_UNK VecCopy__FP3VecPC3Vec(s32, s32);
@@ -199,7 +199,7 @@ f32 *dispatch_shared_handler_a__6TLobbyFPv(M2C_UNK);
 s32 register_object__6TLobbyFPv(int);
 s32 dispatch_shared_handler_b__6TLobbyFPv(int);
 s32 register_boss__6TLobbyFPv(int);
-s32 TLobby__sub_8002AFD4(void *, void *, int);
+s32 exchange_object_state__6TLobbyFPvis(void *, void *, int);
 M2C_UNK reset_photon_effect__12TBoss3VoloptFPv(void *);
 u32 create_particle_emitter(void *, int);
 M2C_UNK set_flags__11TBoss4Type2FPvUi(u32, int);
@@ -237,7 +237,7 @@ void draw__10TBoss6MineFPv(void *arg0);
 void draw_parts__10TBoss6MineFPv(void* p);
 void set_state7__10TBoss6MineFPv(void *arg0);
 M2C_UNK play_sound_effect(int, void *, int, int);
-M2C_UNK TBoss6PlotFalz__sub_802ABE3C(s32, M2C_UNK, M2C_UNK, f32);
+M2C_UNK apply_radial_effect_to_players__14TBoss6PlotFalzFPvssf(s32, M2C_UNK, M2C_UNK, f32);
 M2C_UNK TBoss6PlotFalz__sub_802AC008(f32, f32);
 void TBoss6Type1__sub_802B5DD4(void *);
 int post_translate_matrix(void*);
@@ -302,7 +302,7 @@ void draw__10TBoss6MineFPv(void *arg0) {
 
 void draw_parts__10TBoss6MineFPv(void* p) { push_matrix(p); post_translate_matrix((char*)p + 0x38); rotate_matrix_y((void*)0, *(void**)((char*)p + 0x390)); rotate_matrix_x((void*)0, *(void**)((char*)p + 0x394)); rotate_matrix_y((void*)0, *(void**)((char*)p + 0x398)); draw__10TBoss6MineFPv((void *)(p)); pop_matrix(); }
 
-void TBoss6Mine__sub_80323FA4(u8 *arg0) {
+void update_facing_angles__10TBoss6MineFPv(u8 *arg0) {
     Vec_80323FA4 v;
     s32 a;
     s32 b;
@@ -335,7 +335,7 @@ s32 TBoss6Mine__sub_803240C4(s32 arg0) {
     return vector_length((void *) (arg0 + 0x38)) > lbl_805DF58C;
 }
 
-void TBoss6Mine__sub_803240F8(u8 *arg0) {
+void explode_damage_players__10TBoss6MineFPv(u8 *arg0) {
     s32 n;
     s32 i;
     u8 *pl;
@@ -348,7 +348,7 @@ void TBoss6Mine__sub_803240F8(u8 *arg0) {
             v.y = TBoss6Mine__data_805DF580;
             if (!(vector_length(&v) > lbl_805DF590)) {
                 Hit_803240F8 h;
-                s32 r = TBoss6PlotFalz__sub_802AB5B4(M2C_FIELD(arg0, s32 *, 0x384), lbl_805DF594);
+                s32 r = rand_vary_count__14TBoss6PlotFalzFif(M2C_FIELD(arg0, s32 *, 0x384), lbl_805DF594);
                 h.a = 1;
                 h.c = 1;
                 h.d = r;
@@ -365,10 +365,10 @@ void TBoss6Mine__vt7(void* p) { spawn_particle_effect_with_flags((void*)((char*)
 extern f32 lbl_805DF598;
 
 void TBoss6Mine__vt6(s32 arg0) {
-    TBoss6Mine__sub_803240F8((u8 *)(arg0));
+    explode_damage_players__10TBoss6MineFPv((u8 *)(arg0));
     spawn_particle_effect_with_flags((void*)(arg0 + 0x38), (void*)(0xFB), (void*)(0x40));
     spawn_particle_effect_with_flags((void*)(arg0 + 0x38), (void*)(0xFC), (void*)(0x40));
-    TBoss6PlotFalz__sub_802ABE3C(arg0 + 0x38, 0xC0, 0xF, lbl_805DF598);
+    apply_radial_effect_to_players__14TBoss6PlotFalzFPvssf(arg0 + 0x38, 0xC0, 0xF, lbl_805DF598);
     queue_destruction__7TObjectFv((void*)(arg0));
 }
 
@@ -534,10 +534,10 @@ s32 TBoss6Mine__ct(s32 arg0, s32 arg1, s32 arg2) {
     M2C_FIELD(THIS, s32 *, 0x388) = M2C_FIELD(arg2, s32 *, 0x60);
     add_flags_2e4__10TObjPlayerFPvUi(THIS, 8);
     ((VObj_18_f05d67 *)THIS)->m79((void *)arg2);
-    if (TLobby__sub_8002AFD4(THIS, &tmp, 1) != 0) {
+    if (exchange_object_state__6TLobbyFPvis(THIS, &tmp, 1) != 0) {
         tmp.a = 0;
         tmp.b = 0;
-        TLobby__sub_8002AFD4(THIS, &tmp, 0);
+        exchange_object_state__6TLobbyFPvis(THIS, &tmp, 0);
     }
     M2C_FIELD(THIS, s32 *, 0x374) = get_fish_count__8TObjFishFv();
     M2C_FIELD(THIS, s32 *, 0x24) = 0;
