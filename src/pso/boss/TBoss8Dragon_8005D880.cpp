@@ -716,6 +716,8 @@ extern const f32 lbl_805D8DB0;
 extern const f32 lbl_805D8DB4;
 void TBoss8Dragon__sub_8005F0B8(u8 *arg0, u32 *arg1);
 M2C_UNK TBoss8Dragon__sub_80064C94(void *arg0, void *);
+f32 TBoss8Dragon__sub_8005EA5C(f32 farg0, f32 farg1);
+s32 TBoss8Dragon__sub_8005E9E8(s32 self, s32 arg1, s32 arg2);
 }
 
 extern "C" {
@@ -1617,7 +1619,6 @@ s32 TBoss8Dragon__sub_8005E868(s32 arg0, Ent_8005E868 *arg1, s32 arg2);
 s32 calc_product__12TBoss8DragonFiiii(s32 arg0, s32 arg1, s32 arg2, s32 arg3);
 s32 TBoss8Dragon__sub_8005E944(s32 arg0, s32 arg1, s32 arg2);
 s32 TBoss8Dragon__sub_8005E9D8(void *self, O_8005E9D8 *o, s32 i);
-s32 TBoss8Dragon__sub_8005E9E8(s32, s32, s32);
 f32 TBoss8Dragon__sub_8005EA5C(f32 farg0, f32 farg1);
 f32 TBoss8Dragon__sub_8005EAD0(void *arg0, void *arg1, int arg2);
 void TBoss8Dragon__sub_8005EB6C(s32 arg0, u8 *arg1, s32 arg2);
@@ -3045,7 +3046,7 @@ s32 TBoss8Dragon__sub_8005E868(s32 arg0, Ent_8005E868 *arg1, s32 arg2) {
 s32 calc_product__12TBoss8DragonFiiii(s32 arg0, s32 arg1, s32 arg2, s32 arg3) {
     s32 temp_r31;
 
-    temp_r31 = TBoss8Dragon__sub_8005E9E8(arg0, arg1, arg3);
+    temp_r31 = TBoss8Dragon__sub_8005E9E8((s32)(arg0), (s32)(arg1), (s32)(arg3));
     return temp_r31 * ((s32 (*)(s32, s32, s32))TBoss8Dragon__sub_8005E868)(arg0, arg1, arg2);
 }
 
@@ -3059,6 +3060,12 @@ extern int fold_flush_4;
 
 s32 TBoss8Dragon__sub_8005E9D8(void *self, O_8005E9D8 *o, s32 i) {
     return o->e[i].a;
+}
+
+s32 TBoss8Dragon__sub_8005E9E8(s32 self, s32 arg1, s32 arg2) {
+    u8 *temp_r8;
+    temp_r8 = (u8 *)(arg1 + (arg2 * 8));
+    return (s32) ((f32 (*)(s32, f32, f32))TBoss8Dragon__sub_8005EA5C)(self, (f32) M2C_FIELD(temp_r8, s32 *, 8), (f32) M2C_FIELD(temp_r8, s32 *, 0xC));
 }
 
 #pragma push
@@ -3113,7 +3120,7 @@ void TBoss8Dragon__sub_8005EBDC(u8 *arg0, u8 *arg1, u8 *arg2) {
 }
 
 void calc_params__12TBoss8DragonFiPvi(s32 arg0, void *arg1, s32 arg2) {
-    M2C_FIELD(arg1, s32 *, 4) = TBoss8Dragon__sub_8005E9E8(arg0, arg2, 1);
+    M2C_FIELD(arg1, s32 *, 4) = TBoss8Dragon__sub_8005E9E8((s32)(arg0), (s32)(arg2), (s32)(1));
     M2C_FIELD(arg1, f32 *, 0xC) = ((f32 (*)(s32, s32, M2C_UNK))TBoss8Dragon__sub_8005EAD0)(arg0, arg2, 0);
     M2C_FIELD(arg1, f32 *, 0x10) = ((f32 (*)(s32, s32, M2C_UNK))TBoss8Dragon__sub_8005EAD0)(arg0, arg2, 1);
     M2C_FIELD(arg1, s32 *, 8) = ((s32 (*)(s32, s32, M2C_UNK))TBoss8Dragon__sub_8005E868)(arg0, arg2, 0);

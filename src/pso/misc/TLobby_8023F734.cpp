@@ -41,7 +41,6 @@ extern "C" {
 s32 set_voice_pitch_slide(u8 *arg0, s32 arg1, s32 arg2);
 M2C_UNK sndFXCtrl(int, int, int);
 void send_voice_controller_updates(u8 *arg0);
-int TLobby__sub_80240E8C(void);
 extern const f32 lbl_805DC9E4;
 s32 init_sound_voice__6TLobbyFPviiii(void *arg0, s32 arg1, s32 arg2, s32 arg3, s32 arg4);
 M2C_UNK sndFXKeyOff(int);
@@ -65,11 +64,12 @@ extern s32 TLobby__data_805D5E24;
 s32 tick_sound_voice(SoundRequestVoice *v);
 u32 advance_rng__6TLobbyFPv(void *);
 void TLobby__sub_80241798(Sound_80241798 *arg0);
+u32 advance_rng__6TLobbyFPv(void *);
+void TLobby__sub_80240E8C(u8 *arg0);
 }
 
 extern "C" {
 
-int TLobby__sub_80240E8C(void);
 void TLobby__sub_80240F38(void);
 void TLobby__sub_80241A0C(void);
 void clamp_params__6TLobbyFPv(void *arg0);
@@ -188,7 +188,23 @@ s32 tick_sound_voice(SoundRequestVoice *v) {
     return 0;
 }
 
-int TLobby__sub_80240E8C(void) { return 0; }
+void TLobby__sub_80240E8C(u8 *arg0) {
+    switch (M2C_FIELD(arg0, s32 *, 0x10)) {
+    case 0:
+        switch (M2C_FIELD(arg0, s32 *, 0x14)) {
+        case 0: case 1: case 2: case 3: case 4:
+        case 7: case 8: case 9:
+        case 21:
+        case 23: case 24: case 25: case 26: case 27: case 28: case 29: case 30: case 31:
+            M2C_FIELD(arg0, s32 *, 8) |= 0x100;
+            break;
+        }
+        break;
+    }
+    if (M2C_FIELD(arg0, s32 *, 8) & 0x100) {
+        M2C_FIELD(arg0, s16 *, 0x90) = (s16)(advance_rng__6TLobbyFPv(M2C_FIELD(arg0, void **, 0)) & 1);
+    }
+}
 
 void TLobby__sub_80240F38(void) {  }
 
@@ -437,7 +453,7 @@ s32 init_sound_voice__6TLobbyFPviiii(void *arg0, s32 arg1, s32 arg2, s32 arg3, s
     switch (M2C_FIELD(arg0, s32 *, 0xC)) {
     case 0:
         M2C_FIELD(arg0, s32 *, 4) = -1;
-        TLobby__sub_80240E8C();
+        TLobby__sub_80240E8C((u8 *)(arg0));
         break;
     }
     return 0;

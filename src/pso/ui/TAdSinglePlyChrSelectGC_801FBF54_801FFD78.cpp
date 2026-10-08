@@ -77,7 +77,6 @@ M2C_UNK memcpy(void *, s32, M2C_UNK);
 extern s32 *lbl_805D5F6C;
 extern s32 lbl_805D5F9C;
 s32 TAdSinglePlyChrSelectGC__sub_801FFE44(s32 arg0);
-M2C_UNK TAdSinglePlyChrSelectGC__sub_802008E8();
 s32 get_serial_access_field_118__23TAdSinglePlyChrSelectGCFPv();
 extern RecoveredGlobal_801FFF14_lbl_80513910 lbl_80513910;
 extern s32 lbl_805D5F68;
@@ -251,6 +250,34 @@ extern s32 lbl_805D5F58;
 extern s32 lbl_805D5F5C;
 extern s32 lbl_805D5F94;
 s32 save_character_file__23TAdSinglePlyChrSelectGCFi(int arg0);
+void __construct_array(void *, void *, void *, int, int);
+void init_guild_card_tag__17TWindowSubComCardFi();
+int TAdSinglePlyChrSelectGC__sub_801FFDB8(s32 arg0);
+s32 TAdSinglePlyChrSelectGC__sub_80201204(s32 *, M2C_UNK);
+M2C_UNK memcpy(void *, s32, M2C_UNK);
+extern s32 *lbl_805D5F70;
+extern s32 lbl_805D5F9C;
+void TAdSinglePlyChrSelectGC__sub_801FFEBC(void);
+void TAdPlayerLoadGC__sub_801E14E4(File_80200A44 *);
+void TAdPlayerLoadGC__sub_801E14E8(File_80200A44 *, s32);
+void build_save_file_image__15TAdPlayerLoadGCFPvPv(s32, File_80200A44 *);
+char *strcpy(char *, const char *);
+M2C_UNK memcpy(void *, s32, M2C_UNK);
+M2C_UNK memset(void *, M2C_UNK, M2C_UNK);
+extern u8 lbl_804C88C0[];
+extern s32 lbl_805D5F68;
+extern s32 lbl_805D5F98;
+M2C_UNK TAdSinglePlyChrSelectGC__sub_802008E8();
+void TAdPlayerLoadGC__sub_801E14E4(File_80200A44 *);
+void TAdPlayerLoadGC__sub_801E14E8(File_80200A44 *, s32);
+void build_save_file_image__15TAdPlayerLoadGCFPvPv(s32, File_80200A44 *);
+char *strcpy(char *, const char *);
+M2C_UNK memcpy(void *, s32, M2C_UNK);
+M2C_UNK memset(void *, M2C_UNK, M2C_UNK);
+extern u8 lbl_804C88C0[];
+extern s32 *lbl_805D5F6C;
+extern s32 lbl_805D5F9C;
+M2C_UNK TAdSinglePlyChrSelectGC__sub_80200998();
 }
 
 extern "C" {
@@ -260,8 +287,6 @@ void game_state_load(void);
 s32 init_windows__23TAdSinglePlyChrSelectGCFi(s32 arg0);
 s32 TAdSinglePlyChrSelectGC__sub_801FCD04(s32);
 s32 TAdSinglePlyChrSelectGC__sub_801FCD3C(s32);
-int TAdSinglePlyChrSelectGC__sub_801FFDB8(s32);
-M2C_UNK TAdSinglePlyChrSelectGC__sub_80200998();
 void reset_character_data__23TAdSinglePlyChrSelectGCFv(void);
 s32 TAdSinglePlyChrSelectGC__sub_80201204(s32 *, M2C_UNK);
 M2C_UNK init_class_starting_inventory(void *);
@@ -272,11 +297,16 @@ M2C_UNK memcpy(void *, s32, M2C_UNK);
 
 s32 init_windows__23TAdSinglePlyChrSelectGCFi(s32 arg0) {
     TAdSinglePlyChrSelectGC__sub_801FFDFC((u8 *)(arg0 + 4));
-    TAdSinglePlyChrSelectGC__sub_801FFDB8(arg0 + 0xD2C4);
+    TAdSinglePlyChrSelectGC__sub_801FFDB8((s32)(arg0 + 0xD2C4));
     return arg0;
 }
 
 extern s32 *lbl_805D5F6C;
+
+int TAdSinglePlyChrSelectGC__sub_801FFDB8(s32 arg0) {
+    __construct_array((void *)arg0, (void *)init_guild_card_tag__17TWindowSubComCardFi, 0, 0x90, 0x1C);
+    return arg0;
+}
 
 u8 *TAdSinglePlyChrSelectGC__sub_801FFDFC(u8 *arg0) {
     __construct_array(arg0 + 0xC0, (void *)reinit__17TWindowSubComCardFi, 0, 0x100, 0xD2);
@@ -303,6 +333,19 @@ s32 TAdSinglePlyChrSelectGC__sub_801FFE44(s32 arg0) {
 #pragma pop
 
 typedef char RecoveredGlobal_801FFF14_lbl_80513910_size[sizeof(RecoveredGlobal_801FFF14_lbl_80513910) == 0x10 ? 1 : -1];
+
+void TAdSinglePlyChrSelectGC__sub_801FFEBC(void) {
+    u32 sum;
+    u32 r;
+    memcpy((void *)((void *)lbl_805D5F70), (s32)(lbl_805D5F9C + 0x2048), (M2C_UNK)(0x11C));
+    sum = *lbl_805D5F70;
+    *lbl_805D5F70 = 0;
+    r = (u32)TAdSinglePlyChrSelectGC__sub_80201204((s32 *)(lbl_805D5F70), (M2C_UNK)(0x11C));
+    if (r != sum) {
+        return;
+    }
+}
+
 void TAdSinglePlyChrSelectGC__sub_801FFF14(void) {
     s32 temp_r3;
     temp_r3 = get_serial_access_field_118__23TAdSinglePlyChrSelectGCFPv();
@@ -545,6 +588,42 @@ M2C_UNK encrypt_save_data__23TAdSinglePlyChrSelectGCFPvPv(void *arg0, void *arg1
     register_callback__23TAdSinglePlyChrSelectGCFis(a, 1);
 }
 #undef self
+
+M2C_UNK TAdSinglePlyChrSelectGC__sub_802008E8() {
+    s32 base = (s32)lbl_804C88C0;
+    File_80200A44 f;
+    memset((void *)(&f), 0, sizeof(f));
+    strcpy(f.name, (char *)(base + 0xB4));
+    strcpy(f.title, (char *)(base + 0x11C));
+    memcpy((void *)(f.icon), base + 0xEC, 0x10);
+    TAdPlayerLoadGC__sub_801E14E8(&f, 1);
+    f.f4C = 1;
+    f.f4E = 1;
+    f.f50 = 0;
+    f.f54 = 0;
+    f.buf = lbl_805D5F68;
+    f.size = 0xE28C;
+    build_save_file_image__15TAdPlayerLoadGCFPvPv(lbl_805D5F98, &f);
+    TAdPlayerLoadGC__sub_801E14E4(&f);
+}
+
+M2C_UNK TAdSinglePlyChrSelectGC__sub_80200998() {
+    s32 base = (s32)lbl_804C88C0;
+    File_80200A44 f;
+    memset((void *)(&f), 0, sizeof(f));
+    strcpy(f.name, (char *)(base + 0xB4));
+    strcpy(f.title, (char *)(base + 0xC8));
+    memcpy((void *)(f.icon), base + 0xEC, 0x10);
+    TAdPlayerLoadGC__sub_801E14E8(&f, 0);
+    f.f4C = 1;
+    f.f4E = 1;
+    f.f50 = 0;
+    f.f54 = 0;
+    f.buf = (s32)lbl_805D5F6C;
+    f.size = 0x11C;
+    build_save_file_image__15TAdPlayerLoadGCFPvPv(lbl_805D5F9C, &f);
+    TAdPlayerLoadGC__sub_801E14E4(&f);
+}
 
 s32 save_character_file__23TAdSinglePlyChrSelectGCFi(int arg0) {
     s32 base = (s32)lbl_804C88C0;

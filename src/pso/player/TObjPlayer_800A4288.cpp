@@ -5,6 +5,16 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 #define M2C_BITWISE(type, expr) ((type)(expr))
 
 struct Obj_800A6B14;
+
+extern "C" {
+s32 update_movement_status__10TObjPlayerFv();
+M2C_UNK obj_clearFlags30(void *, int);
+s32 TObjPlayer__sub_800A65FC(u8 *arg0);
+s32 update_action_hold_status__10TObjPlayerFv();
+M2C_UNK obj_clearFlags30(void *, int);
+s32 TObjPlayer__sub_800A66BC(u8 *arg0);
+}
+
 extern "C" {
 void step_angle_clamped__10TObjPlayerFPvi(void*, s32);
 void turn_toward_target__10TObjPlayerFPv(Obj_800A6B14*);
@@ -1609,6 +1619,51 @@ void TObjPlayer__sub_800A64E8(u8 *arg0) {
 }
 
 #define P_800A677C(p) ((Obj_800A677C *)(p))
+
+s32 TObjPlayer__sub_800A65FC(u8 *arg0) {
+    if (update_movement_status__10TObjPlayerFv() != 0) {
+        switch (M2C_FIELD(arg0, s16 *, 0x326)) {
+        case 0:
+        case 1:
+        case 2:
+        case 0xB:
+            if (((VObj14 *)(arg0 + 0x3A4))->m5() == 1) {
+                M2C_FIELD(arg0, s32 *, 0x374) &= ~0x43;
+                M2C_FIELD(arg0, s32 *, 0x374) |= 4;
+                M2C_FIELD(arg0, s16 *, 0x326) = 3;
+                M2C_FIELD(arg0, s16 *, 0x328) = 0;
+                M2C_FIELD(arg0, s16 *, 0xB8) = 1;
+                obj_clearFlags30(arg0, 0x06240000);
+            }
+            break;
+        }
+        return 1;
+    }
+    return 0;
+}
+
+s32 TObjPlayer__sub_800A66BC(u8 *arg0) {
+    if (update_action_hold_status__10TObjPlayerFv() != 0) {
+        switch (M2C_FIELD(arg0, s16 *, 0x326)) {
+        case 0:
+        case 1:
+        case 2:
+        case 0xB:
+            if (((VObj14 *)(arg0 + 0x3A4))->m5() == 1) {
+                M2C_FIELD(arg0, s32 *, 0x374) &= ~0x43;
+                M2C_FIELD(arg0, s32 *, 0x374) |= 4;
+                M2C_FIELD(arg0, s16 *, 0x326) = 3;
+                M2C_FIELD(arg0, s16 *, 0x328) = 0;
+                M2C_FIELD(arg0, s16 *, 0xB8) = 1;
+                obj_clearFlags30(arg0, 0x06240000);
+            }
+            break;
+        }
+        return 1;
+    }
+    return 0;
+}
+
 void find_nearest_target__10TObjPlayerFPv(Obj_800A677C *self) {
     if (self->f374 & 0x40) {
         self->f338 = 0xFFFF;

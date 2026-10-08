@@ -6,6 +6,8 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 
 struct Ent_80226294 { u32 flags; u8 pad4[4]; s32 f8; u8 padC[0xC]; s16 f18; u8 pad1a[0xE]; };
 
+typedef s32 M2C_UNK;
+
 extern "C" {
 u8 *get_global_state__23TAdSinglePlyChrSelectGCFv();
 M2C_UNK set_mode__6TLobbyFi(int);
@@ -16,6 +18,28 @@ extern u32 lbl_805DC748;
 extern s32 lbl_805D62B0;
 void release_sound_with_fade(s32 idx);
 void stop_sound_request(s32 idx);
+u8 *get_global_state__23TAdSinglePlyChrSelectGCFv();
+M2C_UNK set_mode__6TLobbyFi(int);
+u32 OSGetSoundMode();
+extern s8 lbl_805D3708;
+int TLobby__sub_80226328(void *);
+M2C_UNK TLobby__sub_80227D38();
+extern Ent_80226294 lbl_805145F0[];
+extern s32 lbl_805D62B0;
+extern u32 lbl_805DC748;
+void TLobby__sub_8022644C(void);
+void set_cue_stream_gain(s32, s32);
+void TLobby__sub_80227CE8(void);
+extern s32 lbl_805D6290;
+extern s32 lbl_805D6294;
+extern s32 lbl_805D6298;
+extern s32 lbl_805D629C;
+extern s32 lbl_805D62A0;
+extern s32 lbl_805D62A4;
+extern s32 lbl_805D62A8;
+extern s32 lbl_805D62AC;
+extern const f32 lbl_805DC740;
+void TLobby__sub_8022614C(s32 arg0);
 }
 
 extern "C" {
@@ -24,11 +48,20 @@ int TLobby__sub_80226308(void* p);
 void TTecRaFoie__sub_80226254(void);
 int get_lobby_data__6TLobbyFv(void);
 void update_technique_slot__10TTecRaFoieFi(s32 arg0);
-int TLobby__sub_80226328(void*);
 M2C_UNK set_sound_slot_pitch();
 
     extern int lbl_805D6280;
 int get_lobby_data__6TLobbyFv(void) {  return lbl_805D6280; }
+
+void TLobby__sub_8022614C(s32 arg0) {
+    TLobby__sub_80227CE8();
+    lbl_805D6294 = arg0;
+    lbl_805D629C = lbl_805D6290 + lbl_805D6294 + lbl_805D6298;
+    lbl_805D62A0 = lbl_805D6290 + lbl_805D6298;
+    lbl_805D62A8 = (s32)(lbl_805DC740 * (f32)arg0);
+    lbl_805D62AC = lbl_805D62A4 + lbl_805D62A8;
+    set_cue_stream_gain(lbl_805D62AC, lbl_805D62A8);
+}
 
 void TTecRaFoie__sub_80226254(void) {  }
 
@@ -49,7 +82,25 @@ void stop_sound_request(s32 idx) {
     }
 }
 
-int TLobby__sub_80226308(void* p) { return TLobby__sub_80226328(p); }
+int TLobby__sub_80226308(void* p) { return TLobby__sub_80226328((void *)(p)); }
+
+int TLobby__sub_80226328(void *) {
+    u8 *p;
+    if (OSGetSoundMode() == 0U) {
+        lbl_805D3708 = 1;
+        set_mode__6TLobbyFi(0);
+    } else {
+        set_mode__6TLobbyFi(1);
+        lbl_805D3708 = 0;
+        p = get_global_state__23TAdSinglePlyChrSelectGCFv();
+        if (p != NULL && p != NULL && M2C_FIELD(p, s16 *, 0xE) != 0) {
+            lbl_805D3708 = 2;
+            set_mode__6TLobbyFi(2);
+        }
+    }
+    return lbl_805D3708;
+}
+
 void TLobby__sub_802263A8(s32 arg0) {
     M2C_UNK var_r30;
     u8 *temp_r3;
@@ -75,6 +126,17 @@ void TLobby__sub_802263A8(s32 arg0) {
         break;
     }
     set_mode__6TLobbyFi((int) (var_r30));
+}
+void TLobby__sub_8022644C(void) {
+    s32 i;
+    if (lbl_805D62B0 != 0) {
+        TLobby__sub_80227D38();
+    }
+    for (i = 0; i < 0x28; i++) {
+        lbl_805145F0[i].flags &= lbl_805DC748;
+        lbl_805145F0[i].f18 = 0;
+        lbl_805145F0[i].f8 = 0;
+    }
 }
 
 }

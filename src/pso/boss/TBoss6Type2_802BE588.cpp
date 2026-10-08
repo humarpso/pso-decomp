@@ -4,6 +4,20 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 #define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
 #define M2C_BITWISE(type, expr) ((type)(expr))
 
+struct T2_802BE6D4 { u8 pad0[0x45C]; s32 f45C; s32 f460; };
+
+struct Vec_802BE9AC { f32 x, y, z; };
+
+struct Obj_802BE9AC {
+    u8 pad0[0x38];
+    Vec_802BE9AC pos;
+    u8 pad44[0x45C - 0x44];
+    s32 t45C;
+    s32 t460;
+    u8 pad464[0x55C - 0x464];
+    u16 client;
+};
+
 extern "C" {
 s32 update_attack_target__11TBoss6Type2FPv(void* a0);
 s32 TBoss6Type2__sub_802BC23C();
@@ -38,11 +52,27 @@ s32 is_target_valid__11TBoss6Type2FPv(void *);
 extern const f32 lbl_805DE4E0;
 extern const f32 lbl_805DE4E4;
 void TBoss6Type2__sub_802BEC28(u8 *arg0);
+M2C_UNK set_shake_preset__11TCameraCtrlFi(M2C_UNK);
+void spawn_rocks_around_players__11TBoss6Type2FPv(void *);
+void select_next_state__11TBoss6Type2FPv(void *arg0);
+void TBoss6Type2__sub_802BE6D4(T2_802BE6D4 *arg0);
+M2C_UNK VecCopy__FP3VecPC3Vec(void *, void *);
+M2C_UNK spawn_particle_effect(void *, int);
+u32 get_player_by_client_id(int);
+M2C_UNK play_sound_effect(int, void *, int, int);
+s32 spawn_particle_slot__11TBoss6Type2FPvi(void *, s32);
+M2C_UNK TBoss6Type2__sub_802BB768(void *);
+s32 is_target_valid__11TBoss6Type2FPv(void *);
+M2C_UNK TBoss6Type2__sub_8036A92C(void *, void *, int, f32);
+M2C_UNK create__14TBoss6EffHyouiFPvPvPv(int, int, int);
+extern const f32 lbl_805DE404;
+extern const f32 lbl_805DE4E8;
+extern const f32 lbl_805DE4EC;
+void TBoss6Type2__sub_802BE9AC(Obj_802BE9AC *arg0);
 }
 
 extern "C" {
 
-int TBoss6Type2__sub_802BE6D4(void);
 void TBoss6Type2__sub_802BF3F4(void* p);
 void check_state_0x460_eq4__11TBoss6Type2FPv(void* p);
 void init_attack_timers__11TBoss6Type2FPv(u8 *arg0);
@@ -137,7 +167,14 @@ void TBoss6Type2__sub_802BE6A0(u8 *arg0) {
     TBoss6Type2__sub_802BB768(arg0);
 }
 
-int TBoss6Type2__sub_802BE6D4(void) { return 0; }
+void TBoss6Type2__sub_802BE6D4(T2_802BE6D4 *arg0) {
+    s32 d = arg0->f45C - arg0->f460;
+    if (arg0->f460 >= 0x1E && d % 30 == 0) {
+        spawn_rocks_around_players__11TBoss6Type2FPv(arg0);
+        set_shake_preset__11TCameraCtrlFi((M2C_UNK)(1));
+    }
+    select_next_state__11TBoss6Type2FPv(arg0);
+}
 
 void tick_timer_0x460__11TBoss6Type2FPv(void *arg0) {
     s32 temp_r0;
@@ -221,6 +258,31 @@ void TBoss6Type2__sub_802BE8B8(u8 *arg0) {
     }
 }
 #pragma pop
+
+void TBoss6Type2__sub_802BE9AC(Obj_802BE9AC *arg0) {
+    static s32 dur = (s32)(lbl_805DE4E8 / lbl_805DE404);
+    Vec_802BE9AC v;
+    u32 pl;
+    s32 d = dur;
+    arg0->t45C = d;
+    arg0->t460 = d;
+    play_sound_effect(0x68A25, &arg0->pos, 0, 1);
+    spawn_particle_slot__11TBoss6Type2FPvi((void *)(arg0), (s32)(7));
+    TBoss6Type2__sub_802BB768(arg0);
+    if (arg0->client != 0xFFFF) {
+        pl = get_player_by_client_id(arg0->client);
+        if (pl != 0) {
+            VecCopy__FP3VecPC3Vec(&v, (void *)(pl + 0x38));
+            v.y += lbl_805DE4EC;
+            ((M2C_UNK (*)(void *, void *, int))TBoss6Type2__sub_8036A92C)(arg0, &v, arg0->t45C);
+            spawn_particle_effect((void *)(pl + 0x38), 0x36);
+        }
+        create__14TBoss6EffHyouiFPvPvPv(arg0->client, 1, arg0->t45C);
+        if (is_target_valid__11TBoss6Type2FPv(arg0) == 0) {
+            play_sound_effect(0x40069E13, &arg0->pos, 0, 1);
+        }
+    }
+}
 
 void update_attack_timer__11TBoss6Type2FPv(u8 *arg0) {
     s32 temp_r0;

@@ -28,6 +28,11 @@ typedef struct S_802D3544 {
     s32 fC;
 } S_802D3544;
 
+typedef s32 M2C_UNK;
+struct O_802D368C { u8 pad[5]; u8 state; };
+
+struct O_802D377C { u8 pad0[2]; u16 f2; u8 pad4; u8 state; u8 pad6[6]; s32 fC; };
+
 extern "C" {
 M2C_UNK get_shared_text_buffer();
 M2C_UNK get_message_10__20TWindowSubStatusDispFPv(M2C_UNK);
@@ -60,6 +65,19 @@ extern u8 TLobby__data_80540BD0[];
 extern s8 TLobby__data_805D688A;
 extern u32 TLobby__data_805D6898;
 void TLobby__sub_802D3544(S_802D3544 *arg0);
+M2C_UNK get_shared_text_buffer();
+M2C_UNK get_message_10__20TWindowSubStatusDispFPv(M2C_UNK);
+M2C_UNK refresh_player_status__6TLobbyFv(int);
+M2C_UNK text_builder_append();
+M2C_UNK text_builder_reset();
+M2C_UNK reset__6TLobbyFi();
+extern s8 TLobby__data_805D688A;
+void TLobby__sub_802D368C(O_802D368C *self);
+M2C_UNK TLobby__sub_802D3AA8();
+extern s8 TLobby__data_805D688A;
+extern s8 TLobby__data_805D688B;
+extern s32 TLobby__data_805D688C;
+void TLobby__sub_802D377C(O_802D377C *self);
 }
 
 extern "C" {
@@ -171,6 +189,22 @@ void TLobby__sub_802D3654(O_802D3654 *self) {
     }
 }
 
+void TLobby__sub_802D368C(O_802D368C *self) {
+    switch (self->state) {
+    case 0:
+        text_builder_reset();
+        refresh_player_status__6TLobbyFv(TLobby__data_805D688A);
+        get_message_10__20TWindowSubStatusDispFPv(0xF1);
+        text_builder_append();
+        get_shared_text_buffer();
+        reset__6TLobbyFi();
+        break;
+    case 1:
+    case 2:
+        break;
+    }
+}
+
 void TLobby__sub_802D36E0(void *arg0) {
     u8 temp_r0;
     temp_r0 = M2C_FIELD(arg0, u8 *, 5);
@@ -192,6 +226,19 @@ void TLobby__sub_802D36E0(void *arg0) {
         TLobby__sub_802D30E8(TLobby__data_805D688A);
     case 4:
         return;
+    }
+}
+void TLobby__sub_802D377C(O_802D377C *self) {
+    switch (self->state) {
+    case 0:
+        TLobby__data_805D688A = self->f2;
+        TLobby__data_805D688C = self->fC;
+        TLobby__sub_802D3AA8();
+        TLobby__data_805D688B = 2;
+        break;
+    case 1:
+    case 2:
+        break;
     }
 }
 

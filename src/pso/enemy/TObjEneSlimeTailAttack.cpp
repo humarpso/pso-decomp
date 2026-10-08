@@ -24,6 +24,28 @@ struct Vec_800EAD84 { f32 x, y, z; };
 
 struct Obj_800EAD84 { u8 pad0[0x38]; Vec_800EAD84 pos; };
 
+struct VBase_18_26a62c { char pad[0x18]; };
+
+struct VObj_18_26a62c : VBase_18_26a62c {
+    virtual void m0();
+    virtual void m1();
+    virtual void m2();
+    virtual void m3();
+    virtual void m4();
+    virtual void m5();
+    virtual void m6();
+    virtual void m7();
+    virtual s32 m8(f32, f32);
+};
+
+struct Vec_800EAEE8 { f32 x, y, z; };
+
+struct Stack_800EAEE8 {
+    s32 sp8;
+    f32 spC;
+    s32 sp10;
+};
+
 extern "C" {
 void calc_distance_to_client__10TObjPlayerFiUsUi(void *, u16, void *);
 M2C_UNK VecCopy__FP3VecPC3Vec(void *, void *);
@@ -57,6 +79,23 @@ M2C_UNK try_spawn_child__15TObjEneSlimeOneFiPv(int arg0, void *arg1);
 s32 project_actor_to_ground(void *, void *, int);
 extern const f32 lbl_805DA6AC;
 s32 TObjEneSlimeOne__sub_800EAD84(Obj_800EAD84 *arg0);
+s32 check_demo_mode__10TObjPlayerFv();
+M2C_UNK toggle_particle_effect__10TObjPlayerFv();
+M2C_UNK init_render_globals__10TObjPlayerFv();
+M2C_UNK TObjPlayer__sub_800EBE48(f32);
+M2C_UNK draw_part__15TObjEneSlimeOneFPvi(int, int);
+M2C_UNK end_effect_render__13TParticleCtrlFv();
+s32 toggle_flag_9__10TObjPlayerFPv(void *);
+M2C_UNK set_monitor_position_vec3__10TObjPlayerFPvPv(int, void *);
+M2C_UNK rotate_matrix_y(int, int);
+M2C_UNK push_matrix();
+M2C_UNK pop_matrix();
+M2C_UNK post_translate_matrix(void *);
+extern const f32 lbl_805DA67C;
+extern const f32 lbl_805DA6B4;
+extern const f32 lbl_805DA6E4;
+extern const f32 lbl_805DA728;
+void render__15TObjEneSlimeOneFv(u8 *arg0);
 }
 
 extern "C" {
@@ -544,6 +583,10 @@ extern s32 tl_04;
 #pragma dont_inline off
 extern "C" {
 void set_state__15TObjEneSlimeOneFPvi(TSlime_800EAE78 *arg0, s32 arg1);
+}
+
+extern "C" {
+void TObjPlayer__sub_800E9090(Bomb_800E9090 *self);
 }
 
 void TObjPlayer__sub_800E80C0(u8 *arg0) {
@@ -1605,6 +1648,33 @@ void set_state__15TObjEneSlimeOneFPvi(TSlime_800EAE78 *arg0, s32 arg1) {
     Action_800EAE78 a = lbl_80496574[arg0->state].fn;
     if (a != 0) {}
     (arg0->*a)();
+}
+
+struct Bomb_800E9090;
+void render__15TObjEneSlimeOneFv(u8 *arg0) {
+    s32 temp_r31;
+    if ((check_demo_mode__10TObjPlayerFv() == 0) && !(M2C_FIELD(arg0, f32 *, 0x3A0) <= lbl_805DA6B4) && (((VObj_18_26a62c *)(arg0))->m8(lbl_805DA728, lbl_805DA6E4) != 0)) {
+        temp_r31 = toggle_flag_9__10TObjPlayerFPv((void *) (arg0));
+        if (M2C_FIELD(arg0, f32 *, 0x3A0) < lbl_805DA67C) {
+            TObjPlayer__sub_800EBE48(M2C_FIELD(arg0, f32 *, 0x3A0));
+        }
+        toggle_particle_effect__10TObjPlayerFv();
+        push_matrix();
+        {
+            Vec_800EAEE8 v = *(Vec_800EAEE8 *)(arg0 + 0x38);
+            v.y += M2C_FIELD(arg0, f32 *, 0x3A4);
+            post_translate_matrix(&v);
+        }
+        rotate_matrix_y((int) (0), (int) (M2C_FIELD(arg0, s32 *, 0x60)));
+        set_monitor_position_vec3__10TObjPlayerFPvPv((int) (0), (void *) (arg0 + 0x3A8));
+        draw_part__15TObjEneSlimeOneFPvi((int) (M2C_FIELD(arg0, s32 *, 0x388)), (int) (temp_r31));
+        pop_matrix();
+        end_effect_render__13TParticleCtrlFv();
+        if (M2C_FIELD(arg0, f32 *, 0x3A0) < lbl_805DA67C) {
+            init_render_globals__10TObjPlayerFv();
+        }
+        TObjPlayer__sub_800E9090((Bomb_800E9090 *) (arg0));
+    }
 }
 
 void *__dt__15TObjEneSlimeOneFv(void *arg0, s16 arg1) {

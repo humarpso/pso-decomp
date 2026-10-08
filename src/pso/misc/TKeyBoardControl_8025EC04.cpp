@@ -310,6 +310,32 @@ s32 poll_input__16TKeyBoardControlFPv(void *arg0) {
     }
 }
 
+s32 TKeyBoardControl__sub_8025F3D4(void *arg0, s32 arg1, u8 arg2) {
+    extern u8 lbl_804CFAE4[];
+    extern u8 lbl_805D392C[8];
+    u32 st;
+    u32 i;
+
+    st = poll_input__16TKeyBoardControlFPv(arg0);
+    if (st == 0U && (u8)arg1 == 0x32) {
+        return 0;
+    }
+    for (i = 0; i < 7; i++) {
+        if (arg2 == lbl_804CFAE4[i]) {
+            if (!(lbl_805D392C[st] & (1 << i))) {
+                return 0;
+            }
+            if (M2C_FIELD(arg0, u32 *, 0x6C) == i) {
+                M2C_FIELD(arg0, u32 *, 0x6C) = 7;
+                return 0;
+            }
+            M2C_FIELD(arg0, u32 *, 0x6C) = i;
+            return 1;
+        }
+    }
+    return 0;
+}
+
 void process_key_input__16TKeyBoardControlFPvi(void *arg0, s32 arg1) {
     u16 sp8;
     s32 temp_r31;
@@ -335,6 +361,17 @@ block_7:
         }
         set_input_mode__20TWindowSubStatusDispFPvUc(M2C_FIELD(arg0, s32 *, 0x70), temp_r31);
         TWindowKeyBoardSoft__sub_8025C618(M2C_FIELD(arg0, s32 *, 0x70), sp8);
+    }
+}
+
+void TKeyBoardControl__sub_8025FBE8(Ctl_8025F21C *c) {
+    s32 i;
+    s32 n;
+    if (!(c->f60 & 2)) {
+        n = get_key_state_2__16TKeyBoardControlFPv(TKeyBoardControl__data_80506270);
+        for (i = 0; i < n; i++) {
+            process_key_input__16TKeyBoardControlFPvi(c, ((s32 (*)(void *, u8))TKeyBoardControl__sub_8013239C)(TKeyBoardControl__data_80506270, i));
+        }
     }
 }
 

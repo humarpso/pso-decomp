@@ -27,6 +27,12 @@ struct RecoveredGlobal_80165538___vt__20TODragonflyMachine01 {
     u8 remaining[0x3C];
 };
 
+struct T4_80165434 { s32 v[4]; };
+
+struct Sub_80165434 { u8 pad[8]; s32 a; s32 b; };
+
+struct O_80165434 { u8 pad[0x42C]; Sub_80165434 *sub; s32 f430; };
+
 extern "C" {
 u8 * TODragonfly__ct(void *);
 s32 rand(void);
@@ -42,6 +48,17 @@ extern const f32 lbl_805DB5C4;
 extern const f32 lbl_805DB5C8;
 extern const f32 lbl_805DB5CC;
 u8 *TODragonflyMachine01__ct(u8 *arg0, int arg1);
+O_80165434 *load_resource_from_descriptor(void *, s32, void *, s32, s32, s32);
+O_80165434 *alloc__23TAdSinglePlyChrSelectGCFPv(s32);
+void spawn_attack__16TObjEneMe3StelthFsiiiff(s16, int, int, void *, f32, f32);
+extern s32 lbl_80441214[];
+extern char lbl_804B1938[];
+extern u32 TODragonflyMachine01__data_805D5998;
+extern s32 lbl_805D599C;
+extern s32 lbl_805D59A0;
+extern const f32 lbl_805DB5B0;
+extern const f32 lbl_805DB5B4;
+void TODragonflyMachine01__sub_80165434(void);
 }
 
 extern "C" {
@@ -125,6 +142,25 @@ void unload_static_data__20TODragonflyMachine01Fv(void) {
 }
 
 extern M2C_UNK __vt__20TODragonflyMachine01[];
+
+void TODragonflyMachine01__sub_80165434(void) {
+    T4_80165434 sp8;
+    O_80165434 *o;
+    s32 z = 0;
+    o = alloc__23TAdSinglePlyChrSelectGCFPv(0x440);
+    if (o != NULL) {
+        o = load_resource_from_descriptor(o, 1, lbl_804B1938, 0, 0, 0);
+    }
+    (*(O_80165434 * *)&TODragonflyMachine01__data_805D5998) = o;
+    lbl_805D599C = z;
+    lbl_805D59A0 = z;
+    sp8.v[0] = lbl_80441214[0];
+    sp8.v[1] = lbl_80441214[1];
+    sp8.v[2] = lbl_80441214[2];
+    sp8.v[3] = lbl_80441214[3];
+    sp8.v[0] = o->f430;
+    spawn_attack__16TObjEneMe3StelthFsiiiff(0x38, o->sub->a, o->sub->b, &sp8, lbl_805DB5B0, lbl_805DB5B4);
+}
 
 void *__dt__20TODragonflyMachine01Fv(void *arg0, s16 arg1) {
     if (arg0 != NULL) {

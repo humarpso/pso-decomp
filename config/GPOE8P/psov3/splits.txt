@@ -7748,6 +7748,8 @@ pso/misc/TLobby_801C25B4_801C29A0.cpp:
 
 pso/misc/TLobby_801C25B4_801C2BCC.cpp:
 	.text       start:0x801C2BCC end:0x801C3130
+	.rodata     start:0x80446FE8 end:0x80446FF0
+	.sdata2     start:0x805DC2F8 end:0x805DC300
 
 pso/misc/TLobby_801C25B4.cpp:
 	.text       start:0x801C3130 end:0x801C4CE0
@@ -9312,6 +9314,7 @@ pso/misc/TLobby_80226070_802260F0.cpp:
 
 pso/misc/TLobby_80226070.cpp:
 	.text       start:0x80226144 end:0x802264B8
+	.rodata     start:0x8044C850 end:0x8044C858
 
 pso/unk/text_802264B8.cpp:
 	.text       start:0x802264B8 end:0x80226534
@@ -11845,6 +11848,7 @@ pso/boss/TBoss6Type2.cpp:
 pso/boss/TBoss6Type2_802BE588.cpp:
 	.text       start:0x802BE588 end:0x802BF558
 	.rodata     start:0x80471538 end:0x80471540
+	.sbss       start:0x805D6788 end:0x805D6790
 
 pso/boss/TBoss6Type2_802BF558.cpp:
 	.text       start:0x802BF558 end:0x802BFBF4
@@ -13568,6 +13572,7 @@ pso/player/TObjPlayer_8033C7C8.cpp:
 
 pso/object/TObjFish_8033CCC8.cpp:
 	.text       start:0x8033CCC8 end:0x8033D324
+	.rodata     start:0x80477F08 end:0x80477F10
 	.sdata2     start:0x805DFA64 end:0x805DFA70
 
 pso/player/TObjPlayer_8033D324.cpp:

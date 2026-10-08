@@ -1158,6 +1158,45 @@ void search_target__16TObjEneMerillLiaFPv(void *ov) {
 }
 #undef arg0
 
+#define arg0 ((u8 *)ov)
+M2C_UNK TObjEneMerillLia__sub_800D56B4(void *ov) {
+    s16 temp_r0;
+
+    advance_animation_playback(arg0);
+    temp_r0 = M2C_FIELD(arg0, s16 *, 0x328);
+    switch (temp_r0) {
+    case 0:
+    default:
+        if ((s32) M2C_FIELD(arg0, s32 *, 0x390) == 1) {
+            M2C_FIELD(arg0, s16 *, 0x328) = 2;
+        } else {
+            M2C_FIELD(arg0, s16 *, 0x328) = 1;
+            M2C_FIELD(arg0, s16 *, 0xB8) = 0xD;
+            set_indexed_flags(arg0, 0, 0x0A000000);
+            obj_setFlags30(arg0, 0x04000000);
+            TObjEneMerillLia__sub_800D501C((s32)arg0);
+        }
+        break;
+    case 1:
+        spawn_ground_effect__16TObjEneMerillLiaFPv(arg0);
+        if ((u32) M2C_FIELD(arg0, u32 *, 0xB4) != 0x20U) {
+            M2C_FIELD(arg0, s16 *, 0x328) = 2;
+            M2C_FIELD(arg0, s32 *, 0x390) = 1;
+            clear_player_status_flag__10TObjPlayerFPviUi(arg0, 0, 0x0A000000);
+            obj_clearFlags30(arg0, 0x04040000);
+        }
+        break;
+    case 2:
+        M2C_FIELD(arg0, s16 *, 0x326) = 0xC;
+        M2C_FIELD(arg0, s16 *, 0xB8) = 1;
+        break;
+    }
+    update_collisions__10TObjPlayerFPv(arg0);
+    update_enemy_collision_flags__10TObjPlayerFPv(arg0);
+    minimap_render_dot(arg0 + 0x38, -0x5DB4, 1, 0);
+}
+#undef arg0
+
 struct Obj_800D5100;
 struct RecoveredGlobal_800D5060_lbl_8058D490;
 #define arg0 ((u8 *)p)

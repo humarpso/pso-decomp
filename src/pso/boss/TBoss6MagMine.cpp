@@ -156,10 +156,18 @@ struct VObj_18_aa4667 : VBase_18_aa4667 {
 
 struct Key_80369228 { s32 a; s16 b; s16 c; s32 d; s32 e; };
 
+typedef s32 M2C_UNK;
+struct M_80368CE4 { u8 pad[0x384]; Vec_80368C14 home; };
+
+struct P_80368CE4 { u8 pad[0x38]; Vec_80368C14 pos; };
+
+struct Vec_80369598 { f32 x, y, z; };
+
+struct Params_80369598 { u8 pad0[6]; s16 f6; s16 f8; u8 padA[6]; Vec_80369598 pos; u8 pad1C[0x40 - 0x1C]; Vec_80369598 a; Vec_80369598 b; };
+
 extern "C" {
 extern const f32 TBoss6MagMine__data_805E0310;
 void TBoss6MagMine__sub_80368994(u8 *arg0);
-s32 TBoss6MagMine__sub_80368CE4(void *);
 extern const f32 lbl_805E0324;
 extern const f32 TBoss6MagMine__data_805E0328;
 void TBoss6MagMine__vt2(u8 *arg0);
@@ -209,12 +217,28 @@ extern const f32 TBoss6MagMine__data_805E0328;
 extern const f32 lbl_805E0338;
 extern const f32 lbl_805E033C;
 s32 TBoss6MagMine__ct(s32 arg0, s32 arg1, s32 arg2);
+M2C_UNK VecCopy__FP3VecPC3Vec(s32, s32);
+void *get_player_data__10TObjPlayerFi(int);
+s32 get_game_mode__6TLobbyFv(void);
+s32 is_active__14TBoss6PlotFalzFPv(void *);
+f32 vector_length(Vec_80368C14 *);
+void subtract_vector(Vec_80368C14 *, void *);
+extern const f32 TBoss6MagMine__data_805E0314;
+extern const f32 lbl_805E031C;
+s32 TBoss6MagMine__sub_80368CE4(void *arg0_);
+M2C_UNK VecCopy__FP3VecPC3Vec(s32, s32);
+void TBoss4DarkFalz__sub_8004B4F0(void *, s32);
+s32 get_next_point__14TBoss6PlotFalzFPvPvPv(u32, void *, void *);
+s32 get_phase__8TObjFishFPv();
+s32 get_mag_mine_ptr__11TBoss6Type1FPv(u32);
+u32 get_hp__14TBoss6PlotFalzFv();
+s32 create__13TBoss6MagMineFi(s32 arg0);
+void TBoss6MagMine__sub_80369598(void *arg0, void *arg1);
 }
 
 extern "C" {
 
 void TBoss6MagMine__sub_8036897C(void *arg0);
-int TBoss6MagMine__sub_80369598(void);
 void TBoss6MagMine__vt3(s32 arg0);
 void TBoss6MagMine__vt4(void* p);
 int TBoss6PlotFalz__sub_8036964C(void);
@@ -344,6 +368,27 @@ void explode__13TBoss6MagMineFPv(Mine_80368C14 *o) {
     play_sound_effect(0x4003BA1E, &o->pos, 0, 0);
 }
 
+s32 TBoss6MagMine__sub_80368CE4(void *arg0_) {
+    M_80368CE4 *arg0 = (M_80368CE4 *)arg0_;
+    Vec_80368C14 d;
+    s32 n;
+    s32 i;
+    void *p;
+    n = get_game_mode__6TLobbyFv();
+    for (i = 0; i < n; i++) {
+        p = get_player_data__10TObjPlayerFi(i);
+        if (is_active__14TBoss6PlotFalzFPv(p) != 0) {
+            ((void (*)(Vec_80368C14 *, Vec_80368C14 *))VecCopy__FP3VecPC3Vec)(&d, &((P_80368CE4 *)p)->pos);
+            subtract_vector(&d, &arg0->home);
+            d.y = TBoss6MagMine__data_805E0314;
+            if (vector_length(&d) <= lbl_805E031C) {
+                return 1;
+            }
+        }
+    }
+    return 0;
+}
+
 void TBoss6MagMine__vt4(void* p) { spawn_particle_effect_with_flags((void*)((char*)p + 0x38), (void*)((void*)252), (void*)((void*)64)); queue_destruction__7TObjectFv((void*)(p)); }
 
 extern f32 lbl_805E0320;
@@ -362,7 +407,7 @@ extern M2C_UNK lbl_804F322C[];
 #pragma opt_common_subs off
 void TBoss6MagMine__vt2(u8 *arg0) {
     f32 temp_f1;
-    if (TBoss6MagMine__sub_80368CE4((void *) (arg0)) != 0) {
+    if (TBoss6MagMine__sub_80368CE4((void *)((void *) (arg0))) != 0) {
         M2C_FIELD(arg0, s32 *, 0x394) = 0x96;
     }
     M2C_FIELD(arg0, f32 *, 0x398) = (f32) (M2C_FIELD(arg0, f32 *, 0x398) + lbl_805E0324);
@@ -484,7 +529,22 @@ s32 create__13TBoss6MagMineFi(s32 arg0) {
     return var_r31;
 }
 
-int TBoss6MagMine__sub_80369598(void) { return 0; }
+void TBoss6MagMine__sub_80369598(void *arg0, void *arg1) {
+    Params_80369598 p;
+    u32 boss;
+    boss = get_hp__14TBoss6PlotFalzFv();
+    if (boss == 0 || get_phase__8TObjFishFPv() != 6) {
+        return;
+    }
+    TBoss4DarkFalz__sub_8004B4F0(&p, get_mag_mine_ptr__11TBoss6Type1FPv(boss));
+    ((void (*)(void *, void *))VecCopy__FP3VecPC3Vec)(&p.a, arg0);
+    ((void (*)(void *, void *))VecCopy__FP3VecPC3Vec)(&p.b, arg1);
+    p.f8 = 1;
+    ((void (*)(void *, void *))VecCopy__FP3VecPC3Vec)(&p.pos, &p.a);
+    if (get_next_point__14TBoss6PlotFalzFPvPvPv(boss, &p, &p.f6) != 0) {
+        create__13TBoss6MagMineFi((s32)&p);
+    }
+}
 
 s32 get_field_0x42c__13TBoss6MagMineFPv(void* p) { return *(s32*)((char*)p + 0x42c); }
 

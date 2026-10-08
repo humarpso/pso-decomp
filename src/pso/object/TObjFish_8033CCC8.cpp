@@ -23,15 +23,29 @@ M2C_UNK queue_event_1D__12TBoss3VoloptFss(int, int);
 s32 get_phase__8TObjFishFPv(int);
 extern Range_8033CDF8 lbl_80477ED8[];
 void TObjFish__sub_8033CDF8(u8 *arg0);
+int clear_render_callback__8TObjFishFv(void);
+void set_draw_callback_list__8TObjFishFPv(void *);
+void reset_fish_globals__8TObjFishFv(void);
+void set_fade_material_color__14TBoss6PlotFalzFf(f32);
+s32 push_matrix(void);
+s32 pop_matrix(void);
+f32 post_translate_matrix(void);
+s32 set_global_param__8TObjFishFi(s32);
+void draw_model_motion(s32, s32, f32);
+void set_global_flag__10TObjPlayerFv(void);
+void clear_global_state__10TObjPlayerFv(void);
+extern const f32 lbl_805DFA58;
+extern const f32 lbl_805DFA5C;
+extern const f32 lbl_805DFA60;
+void TObjFish__sub_8033CCC8(u8 *arg0);
 }
 
 extern "C" {
 
-int TObjFish__sub_8033CDD8(void* p);
+void TObjFish__sub_8033CDD8(void* p);
 void * create__14TBoss6PlotFalzFPvPv(void *arg0, void *arg1);
 void *destroy__8TObjFishFPvs(void *arg0, s16 arg1);
 void restore_player_cameras();
-int TObjFish__sub_8033CCC8(void*);
 void *TObjFish__sub_8033D1AC(void *, void *, void *);
 void __dl__7TObjectFPv(void *);
 void __dt__7TObjectFv(void *, int);
@@ -39,7 +53,39 @@ void *__nw__7TObjectFUl(int);
 void init_state_1__8TObjFishFPv(void *);
 void request_destroy__11TBoss4Type2FUi(void *);
 
-int TObjFish__sub_8033CDD8(void* p) { return TObjFish__sub_8033CCC8(p); }
+void TObjFish__sub_8033CCC8(u8 *arg0) {
+    f32 var_f31;
+    s32 temp_r0;
+    temp_r0 = M2C_FIELD(arg0, s32 *, 0x44);
+    if (temp_r0 < 0xBF) {
+        var_f31 = lbl_805DFA58;
+    } else if (temp_r0 >= 0xCC) {
+        var_f31 = lbl_805DFA5C;
+    } else {
+        var_f31 = (f32) (0xCC - temp_r0) / lbl_805DFA60;
+    }
+    if (lbl_805DFA5C != var_f31) {
+        if (var_f31 < lbl_805DFA58) {
+            set_fade_material_color__14TBoss6PlotFalzFf(var_f31);
+        }
+        push_matrix();
+        set_global_flag__10TObjPlayerFv();
+        ((f32 (*)(void *))post_translate_matrix)(arg0 + 0x1C);
+        set_global_param__8TObjFishFi(M2C_FIELD(arg0, s32 *, 0x2C));
+        draw_model_motion(M2C_FIELD(arg0, s32 *, 0x28), M2C_FIELD(arg0, s32 *, 0x30), M2C_FIELD(arg0, f32 *, 0x40));
+        set_global_param__8TObjFishFi(M2C_FIELD(arg0, s32 *, 0x38));
+        set_draw_callback_list__8TObjFishFPv(M2C_FIELD(arg0, u8 **, 0x88));
+        draw_model_motion(M2C_FIELD(arg0, s32 *, 0x34), M2C_FIELD(arg0, s32 *, 0x3C), M2C_FIELD(arg0, f32 *, 0x40));
+        ((int (*)(void *))clear_render_callback__8TObjFishFv)(M2C_FIELD(arg0, u8 **, 0x88));
+        clear_global_state__10TObjPlayerFv();
+        pop_matrix();
+        if (var_f31 < lbl_805DFA58) {
+            reset_fish_globals__8TObjFishFv();
+        }
+    }
+}
+
+void TObjFish__sub_8033CDD8(void* p) { TObjFish__sub_8033CCC8((u8 *)(p)); }
 
 extern M2C_UNK lbl_804EF9EC[];
 

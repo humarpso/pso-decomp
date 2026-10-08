@@ -44,6 +44,12 @@ struct Buf_801FBFD0 {
 };
 
 struct Buf_801FBFD0;
+
+struct It_801FC0C8 { u8 b[0x18]; };
+
+struct S_801FC0C8 { u8 pad[8]; s32 magic; u8 pad2[0x248 - 0xC]; s32 f248; s32 f24C; It_801FC0C8 items[200]; };
+
+typedef s32 M2C_UNK;
 extern "C" {
 s32 find_card_file__15TAdPlayerLoadGCFiPv(s32, s32);
 int load_player_slot__23TAdSinglePlyChrSelectGCFPvii(void *, int, int);
@@ -115,6 +121,30 @@ extern int lbl_805D5F58;
 extern s32 lbl_805D5F7C;
 extern s32 lbl_805D5F84;
 s32 load_save_from_card__23TAdSinglePlyChrSelectGCFv(void);
+void TAdSinglePlyChrSelectGC__sub_80211584(void *);
+s32 TAdSinglePlyChrSelectGC__sub_801FC0C8(S_801FC0C8 *arg0);
+s32 TAdSinglePlyChrSelectGC__sub_80202B1C(s32, s32);
+u8 TAdSinglePlyChrSelectGC__sub_80202B30();
+s32 TAdSinglePlyChrSelectGC__sub_80203210(s32);
+s32 fn_8020325C(s32);
+void TAdSinglePlyChrSelectGC__sub_801FC138(s32 arg0);
+M2C_UNK __dl__FPv(s32);
+s32 alloc__23TAdSinglePlyChrSelectGCFPv(int);
+s32 TAdPlayerLoadGC__sub_801E1B50(void *);
+s32 find_card_file__15TAdPlayerLoadGCFiPv(s32, s32);
+M2C_UNK render_tick__Fv();
+s32 fields_equal__23TAdSinglePlyChrSelectGCFPvPv(void *arg0, void *arg1);
+M2C_UNK render_frame__23TAdSinglePlyChrSelectGCFv();
+u32 TAdSinglePlyChrSelectGC__sub_80201204(void *, s32, s32);
+M2C_UNK init_slots__23TAdSinglePlyChrSelectGCFv();
+int load_player_slot__23TAdSinglePlyChrSelectGCFPvii(void *, int, int);
+int memcpy(void*, void*, void*);
+extern M2C_UNK lbl_804C8914[];
+extern s32 lbl_805D49B4;
+extern s32 lbl_805D5F6C;
+extern s32 lbl_805D5F8C;
+extern s32 lbl_805D5F9C;
+s32 TAdSinglePlyChrSelectGC__sub_801FC9EC(void);
 }
 
 extern "C" {
@@ -211,6 +241,33 @@ s32 load_system_file__23TAdSinglePlyChrSelectGCFiPv(s32 arg0, s32 *arg1) {
     copy_name__23TAdSinglePlyChrSelectGCFi(arg0);
     lbl_805D49B4 = 0;
     return ok;
+}
+
+s32 TAdSinglePlyChrSelectGC__sub_801FC0C8(S_801FC0C8 *arg0) {
+    s32 i;
+    if (arg0 == NULL) {
+        return 0;
+    }
+    arg0->magic = 0xA205B064;
+    arg0->f248 = 0;
+    arg0->f24C = 0;
+    for (i = 0; i < 200; i++) {
+        TAdSinglePlyChrSelectGC__sub_80211584(&arg0->items[i]);
+    }
+    return 1;
+}
+
+void TAdSinglePlyChrSelectGC__sub_801FC138(s32 arg0) {
+    s32 i;
+    s32 n;
+    s32 e;
+    n = TAdSinglePlyChrSelectGC__sub_80202B30();
+    for (i = 0; i < n; i++) {
+        e = TAdSinglePlyChrSelectGC__sub_80202B1C(arg0, i);
+        if (fn_8020325C(e + 8) != 0) {
+            TAdSinglePlyChrSelectGC__sub_80203210(e);
+        }
+    }
 }
 
 u8 is_level_capped__23TAdSinglePlyChrSelectGCFPv(void *arg0) {
@@ -482,6 +539,41 @@ u8 *TAdSinglePlyChrSelectGC__sub_801FC984(u8 *arg0) {
 
 s32 fields_equal__23TAdSinglePlyChrSelectGCFPvPv(void *arg0, void *arg1) {
     return (u32) __cntlzw((u32) (M2C_FIELD(arg1, s32 *, 0x118) - M2C_FIELD(arg0, s32 *, 0x118))) >> 5;
+}
+
+s32 TAdSinglePlyChrSelectGC__sub_801FC9EC(void) {
+    u32 *buf;
+    s32 ret;
+    u32 sum;
+    u32 r;
+    ret = 0;
+    buf = (u32 *)alloc__23TAdSinglePlyChrSelectGCFPv(0x11C);
+    if (buf == NULL) {
+        return -3;
+    }
+    if (find_card_file__15TAdPlayerLoadGCFiPv(lbl_805D5F8C, (s32)lbl_804C8914) == 0) {
+        lbl_805D49B4 = 1;
+        load_player_slot__23TAdSinglePlyChrSelectGCFPvii((void *)lbl_805D5F8C, (int)lbl_804C8914, lbl_805D5F9C);
+        init_slots__23TAdSinglePlyChrSelectGCFv();
+        for (;;) {
+            if (TAdPlayerLoadGC__sub_801E1B50((void *)lbl_805D5F8C) == 0) break;
+            render_frame__23TAdSinglePlyChrSelectGCFv();
+            render_tick__Fv();
+        }
+        lbl_805D49B4 = 0;
+        memcpy((void*)(buf), (void*)((void *)(lbl_805D5F9C + 0x2048)), (void*)((void *)0x11C));
+        sum = *buf;
+        if (fields_equal__23TAdSinglePlyChrSelectGCFPvPv(buf, (void *)lbl_805D5F6C) == 0) {
+            ret = -1;
+        }
+        *buf = 0;
+        r = ((u32 (*)(void *, s32))TAdSinglePlyChrSelectGC__sub_80201204)(buf, 0x11C);
+        if (r != sum) {
+            ret = -2;
+        }
+    }
+    __dl__FPv((s32)buf);
+    return ret;
 }
 
 s32 poll_memcard_status__23TAdSinglePlyChrSelectGCFPv(void* p) { return verify_system_file__23TAdSinglePlyChrSelectGCFPv((void*)(p)); }

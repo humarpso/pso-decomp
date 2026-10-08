@@ -89,6 +89,26 @@ public:
 
 struct Pkt_8034E814 { u8 pad0[4]; u16 client; u16 target; s16 cmd; s16 state; };
 
+struct P_8034E054 { u8 pad[0x38]; f32 x; f32 y; f32 z; };
+
+struct Pkt_8034E64C { u16 hdr; u16 id; s16 flag; s16 arg; u32 pad; f32 x, y, z; };
+
+struct Stack_8034ECD0 {
+    M2C_UNK sp8;
+    s16 spC;
+    u16 spE;
+    s16 sp10;
+    s16 sp12;
+};
+
+struct Stack_8034ED58 {
+    M2C_UNK sp8;
+    s16 spC;
+    u16 spE;
+    s16 sp10;
+    s16 sp12;
+};
+
 extern "C" {
     extern int lbl_805D6EA0;
 void enable_partner_chatter__10TNpcPlayerFv(void);
@@ -211,6 +231,30 @@ void send_6x3E__10TNpcPlayerFi(void *);
 void init_6x3E_packet__10TNpcPlayerFPv(void *);
 extern const f64 lbl_80478CB0[];
 void quest_player_face_actor(u16 src, u16 dst);
+f32 get_ad_end_text_start__10TObjPlayerFv(f32, f32);
+u16 get_action_flags__10TNpcPlayerFPv(s32);
+s32 get_player_by_client_id(s32);
+void send_6x55_intra_map_warp(u16, f32 *, s32);
+extern const f64 lbl_80478CB0[];
+extern s32 lbl_805D53A0;
+void TNpcPlayer__sub_8034E054(u16 arg0, f32 *arg1);
+void VecCopy__FP3VecPC3Vec(void *, void *);
+s32 obj_isState3_324();
+s32 obj_testFlags30(void *, int);
+s32 obj_getField1c(s32);
+void send_6x3E__10TNpcPlayerFi(void *);
+void init_6x3E_packet__10TNpcPlayerFPv(void *);
+u16 get_action_flags__10TNpcPlayerFPv(s32);
+s32 get_player_by_client_id(s32);
+void TNpcPlayer__sub_8034E64C(void *pos, s16 arg);
+M2C_UNK notify_field1c__10TObjPlayerFi();
+s32 get_player_by_client_id(s32);
+void send_state_60__10TNpcPlayerFPv(void* p);
+void build_6x69_npc_control(void* p);
+void TNpcPlayer__sub_8034ECD0(s16 arg0, u16 arg1, s16 arg2);
+void send_state_60__10TNpcPlayerFPv(void* p);
+void build_6x69_npc_control(void* p);
+void TNpcPlayer__sub_8034ED58(s16 arg0, s16 arg1);
 }
 
 extern "C" {
@@ -235,6 +279,16 @@ void clear_partner_dialogue_flags(void) {
     s32 i;
     for (i = 0; i < 25; i++) {
         lbl_804F0280[i].flag = 0;
+    }
+}
+
+void TNpcPlayer__sub_8034E054(u16 arg0, f32 *arg1) {
+    s32 npc = get_player_by_client_id(arg0);
+    P_8034E054 *me = (P_8034E054 *)get_player_by_client_id(lbl_805D53A0);
+    if (me == NULL || arg0 == 0) return;
+    if (get_action_flags__10TNpcPlayerFPv(npc) != 0xFFFF) {
+        send_6x55_intra_map_warp(arg0, arg1,
+            (s32)(lbl_80478CB0[0] * get_ad_end_text_start__10TObjPlayerFv(arg1[0] - me->x, arg1[2] - me->z)));
     }
 }
 
@@ -396,6 +450,28 @@ void show_partner_chatter_for_key(s16 key) {
         if (player && obj_isState3_324() && key == get_stat_by_key_state__10TObjPlayerFPv(player)
             && !(lbl_805D6EA0 & 2) && (*(Global_8034E5A8 *)&lbl_804F0280).f46e) {
             open__11TWindowCtrlFiii(obj_getField1c(player), &(*(Global_8034E5A8 *)&lbl_804F0280).f46e, 0x1B);
+        }
+    }
+}
+
+void TNpcPlayer__sub_8034E64C(void *pos, s16 arg) {
+    Pkt_8034E64C pkt;
+    s32 i;
+    s32 p;
+    s16 flag;
+    for (i = 0; i < 4; i++) {
+        p = get_player_by_client_id(i);
+        if (p != 0 && obj_isState3_324() != 0 && get_action_flags__10TNpcPlayerFPv(p) != 0xFFFF) {
+            flag = 0;
+            if (obj_testFlags30((void *)p, 0x100000) != 0) {
+                flag = 1;
+            }
+            init_6x3E_packet__10TNpcPlayerFPv(&pkt);
+            pkt.id = obj_getField1c(p);
+            VecCopy__FP3VecPC3Vec(&pkt.x, pos);
+            pkt.arg = arg;
+            pkt.flag = flag;
+            send_6x3E__10TNpcPlayerFi(&pkt);
         }
     }
 }
@@ -569,6 +645,40 @@ void create_default_companion__10TNpcPlayerFssPvi(s16 arg0, s16 arg1, u8 *arg2, 
     send_state_60__10TNpcPlayerFPv((void*)(&stack.sp8));
     send_6x24_teleport_player(stack.spE, (s32) arg2, arg3);
 }
+
+void TNpcPlayer__sub_8034ECD0(s16 arg0, u16 arg1, s16 arg2) {
+    Stack_8034ECD0 stack;
+    s32 var_r31;
+    build_6x69_npc_control((void*)(&stack.sp8));
+    stack.spC = arg0;
+    var_r31 = 0;
+    stack.spE = 0xFFFF;
+    stack.sp10 = 3;
+    stack.sp12 = arg2;
+    stack.spE = arg1;
+loop_1:
+    if (((u32)get_player_by_client_id(var_r31)) != 0U) {
+        notify_field1c__10TObjPlayerFi();
+    } else {
+        var_r31 += 1;
+        if (var_r31 < 4) {
+            goto loop_1;
+        }
+    }
+    send_state_60__10TNpcPlayerFPv((void*)(&stack.sp8));
+}
+
+void TNpcPlayer__sub_8034ED58(s16 arg0, s16 arg1) {
+    Stack_8034ED58 stack;
+    build_6x69_npc_control((void*)(&stack.sp8));
+    stack.spE = 0xFFFF;
+    stack.spC = arg0;
+    stack.sp10 = 0;
+    stack.sp12 = arg1;
+    stack.spE = 1;
+    send_state_60__10TNpcPlayerFPv((void*)(&stack.sp8));
+}
+
 void TNpcPlayer__sub_8034EDB8(void) { lbl_805D6EA0 = 0; }
 
 void init_partner_dialogue(void) {

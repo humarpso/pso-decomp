@@ -494,6 +494,12 @@ struct G_8041509C { s16 a; u8 pad[0xA]; s16 c; };
 
 struct Tbl_80409AD8 { s16 count; u8 *list; };
 
+typedef struct Pkt_804081C0 { u8 pad0[4]; s32 f4; s32 f8; s16 fC; u8 padE[2]; u8 f10[8]; } Pkt_804081C0;
+
+typedef struct Pool_804081C0 { u8 pad0[0x24]; u8 *f24; } Pool_804081C0;
+
+typedef struct Out_804081C0 { u8 *f0; u8 *f4; u8 *f8; u8 *fC; u8 *f10; } Out_804081C0;
+
 extern "C" {
 s32 TLobby__sub_803FA150(M2C_UNK arg0, u8 *arg1);
 extern RecoveredGlobal_803F8AA0_lbl_805BA5C0 lbl_805BA5C0;
@@ -940,6 +946,12 @@ extern s16 lbl_805D7AF8;
 void TLobby__sub_803F8AA0(u8 *arg0);
 void TUdpSocket__sub_803F9EE4(void * _w0, int _w1, int _w2);
 s32 TLobby__sub_80409AD8(void);
+void set_value_and_enable__6TLobbyFPvi(u8 *arg0, s32 arg1);
+void TUdpSocket__sub_803F9EE4(void * _w0, int _w1, int _w2);
+void TLobby__sub_803F9F04(void * _w0, void * _w1, int _w2);
+u8 *alloc_free_entry__6TLobbyFv();
+extern Tbl_80408718 lbl_805C1AB0;
+Pkt_804081C0 *TLobby__sub_804081C0(Out_804081C0 *arg0, u8 *arg1);
 }
 
 extern "C" {
@@ -2037,7 +2049,6 @@ struct Ent_8040799C { s16 f0; s16 f2; s16 f4; s16 f6; u8 pad8[6]; u8 fE; u8 fF; 
 struct Tbl_8040799C { s16 count; s16 h2; s16 h4; s16 h6; s16 h8; s16 hA; s16 hC; u8 padE[2]; Peer_8040799C *list; Ent_8040799C *ents; };
 struct Out_8040799C { Conn_8040799C *a; void *b; void *c; void *d; void *e; };
 void TLobby__sub_80408060(void *, void *);
-void *TLobby__sub_804081C0(Out_8040799C *, void *);
 struct Ent_80408428;
 struct Ent_80408428 *find_or_add_peer_entry__6TLobbyFsiUcPvUcPvs(s16, s32, u8, void *, u8, void *, s16);
 
@@ -2081,7 +2092,7 @@ inline void Clear_8040799C(Peer_8040799C *p) {
 
 inline void Send_8040799C(Ent_8040799C *e, void *name) {
     Out_8040799C o;
-    void *r = TLobby__sub_804081C0(&o, e);
+    void *r = TLobby__sub_804081C0((Out_804081C0 *)(&o), (u8 *)(e));
     if (r != NULL) {
         o.a->f6 = 1;
         TLobby__sub_803F9F04(o.b, e->a12, e->fE);
@@ -2140,6 +2151,43 @@ typedef struct Key_804082AC { u8 pad0[0x10]; void *f10; } Key_804082AC;
 typedef struct Pool_804082AC { u8 pad0[8]; s16 f8; } Pool_804082AC;
 s32 TLobby__sub_803F9EC4(void * _w0, void * _w1, int _w2);
 void TLobby__sub_803F9F04(void * _w0, void * _w1, int _w2);
+
+struct Tbl_80408718;
+Pkt_804081C0 *TLobby__sub_804081C0(Out_804081C0 *arg0, u8 *arg1) {
+    s16 len;
+    Pkt_804081C0 *pkt;
+    u8 *buf;
+    u16 t;
+    u8 *q;
+    t = arg1[0xE] * 2 + 8;
+    t += arg1[0xF] * 2;
+    len = t;
+    if ((u32)len > 0x1CU) {
+        return NULL;
+    }
+    pkt = (Pkt_804081C0 *)alloc_free_entry__6TLobbyFv();
+    if (pkt == NULL) {
+        return NULL;
+    }
+    pkt->f4 = 1;
+    pkt->f8 = len;
+    buf = (u8 *)&((Pool_804081C0 *)&lbl_805C1AB0)->f24;
+    pkt->fC = t;
+    set_value_and_enable__6TLobbyFPvi(pkt->f10, *(s32 *)buf);
+    buf = *(u8 **)buf;
+    TUdpSocket__sub_803F9EE4(buf, 0, len);
+    TLobby__sub_803F9F04(buf, arg1 + 0xA, 6);
+    arg0->f0 = buf;
+    q = buf + 8;
+    arg0->f4 = q;
+    q += arg1[0xE];
+    arg0->f8 = q;
+    q += arg1[0xF];
+    arg0->fC = q;
+    q += arg1[0xE];
+    arg0->f10 = q;
+    return pkt;
+}
 
 s32 TLobby__sub_804082AC(Ent_804082AC *arg0, Key_804082AC *arg1, void *arg2) {
     s16 i;

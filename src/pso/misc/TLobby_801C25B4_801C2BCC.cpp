@@ -20,6 +20,13 @@ typedef struct Lobby_801C2F40 {
     s8 pending[8];
 } Lobby_801C2F40;
 
+typedef struct Msg_801C2D54 {
+    s32 hdr;
+    s8 sub;
+    u8 pad5[3];
+    s32 order[4];
+} Msg_801C2D54;
+
 extern "C" {
 M2C_UNK send_set_battle_mode_data__6TLobbyFPv(void *);
 M2C_UNK build_6x7D_set_battle_mode_data(void *);
@@ -43,6 +50,25 @@ extern s16 lbl_80511CB0[];
 extern s32 lbl_805D53A0;
 extern s32 TLobby__data_805D5DC0;
 void start_duel_battle__6TLobbyFPv(Lobby_801C2F40 *self);
+M2C_UNK queue_destruction__7TObjectFv(void *);
+s32 check_value_equals__13TQuestColCtrlFPvi(void *, s32);
+extern s32 lbl_805D2A98;
+void TLobby__sub_801C2C90(void *arg0);
+s32 obj_getField1c();
+M2C_UNK reset_cameras_to_actor(s32, M2C_UNK);
+M2C_UNK TObjPlayer__sub_801BC068(s32, u16);
+s32 update_battle_controller__10TObjPlayerFv();
+void TLobby__sub_801C2C90(void *arg0);
+M2C_UNK destroy__23TAdSinglePlyChrSelectGCFv();
+M2C_UNK init_scene_objects__6TLobbyFv();
+extern u16 lbl_80511CC0[];
+extern s32 tl_05;
+void TLobby__sub_801C2CEC(void);
+M2C_UNK build_6x7D_set_battle_mode_data(void *);
+M2C_UNK send_6x7D_set_battle_mode_data__6TLobbyFPv(void *);
+M2C_UNK TLobby__sub_801E4534(void *);
+s32 rand();
+void send_6x7D_set_battle_mode_data(void);
 }
 
 extern "C" {
@@ -103,6 +129,54 @@ void TLobby__sub_801C2C70(void) {
     for (i = 0; i < 4; i++) {
         (&lbl_805D5DBC)[i] = 0;
     }
+}
+
+void TLobby__sub_801C2C90(void *arg0) {
+    void *var_r31;
+    var_r31 = M2C_FIELD(arg0, void **, 0x14);
+while (var_r31 != NULL) {
+        if (check_value_equals__13TQuestColCtrlFPvi(var_r31, lbl_805D2A98) != 0) {
+            queue_destruction__7TObjectFv(var_r31);
+        }
+        TLobby__sub_801C2C90(var_r31);
+        var_r31 = M2C_FIELD(var_r31, void **, 0xC);
+    }
+}
+
+void TLobby__sub_801C2CEC(void) {
+    s32 temp_r3;
+    init_scene_objects__6TLobbyFv();
+    temp_r3 = update_battle_controller__10TObjPlayerFv();
+    if (temp_r3 != 0) {
+        TObjPlayer__sub_801BC068(temp_r3, lbl_80511CC0[(u16)obj_getField1c()]);
+        reset_cameras_to_actor(temp_r3, 0);
+    }
+    TLobby__sub_801C2C90((void *)tl_05);
+    destroy__23TAdSinglePlyChrSelectGCFv();
+}
+
+void send_6x7D_set_battle_mode_data(void) {
+    Msg_801C2D54 msg;
+    s32 i;
+    s32 a;
+    s32 b;
+    s32 t;
+    build_6x7D_set_battle_mode_data(&msg);
+    msg.sub = 6;
+    for (i = 0; i < 4; i++) {
+        msg.order[i] = i;
+    }
+    for (i = 0; i < 0x1E; i++) {
+        a = (s32) (4.0f * (3.0517578125e-05f * (f32) rand()));
+        b = (s32) (4.0f * (3.0517578125e-05f * (f32) rand()));
+        if (a != b) {
+            t = msg.order[a];
+            msg.order[a] = msg.order[b];
+            msg.order[b] = t;
+        }
+    }
+    send_6x7D_set_battle_mode_data__6TLobbyFPv(&msg);
+    TLobby__sub_801E4534(&msg);
 }
 
 void init__6TLobbyFPv(void *arg0) {

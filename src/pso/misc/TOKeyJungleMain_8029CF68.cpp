@@ -100,6 +100,7 @@ struct RecoveredGlobal_8029D438___vt__15TOKeyJungleMain {
     u8 remaining[0x70];
 };
 
+typedef s32 M2C_UNK;
 extern "C" {
 M2C_UNK post_translate_matrix(void *);
 M2C_UNK draw_ginja_object();
@@ -153,6 +154,11 @@ extern M2C_UNK __vt__15TOKeyJungleMain[];
 extern s32 lbl_805D3D50;
 extern const f32 lbl_805DDD3C;
 u8 *TOKeyJungleMain__ct(u8 *arg0, M2C_UNK arg1, s32 arg2);
+M2C_UNK set_global_count__12TObjNpcEnemyFi(M2C_UNK);
+void debug_printf_at(s32, const char *, ...);
+extern RecoveredGlobal_8029D238_TOKeyJungleMain__data_804653C8 TOKeyJungleMain__data_804653C8;
+extern char lbl_80465A2C[];
+void TOKeyJungleMain__vt24(void *arg0);
 }
 
 extern "C" {
@@ -190,6 +196,19 @@ void TOKeyJungleMain__sub_8029CFEC(void) {
         var_r0 = (long) (load_resource_from_descriptor((void *) temp_r3, 5, &lbl_804DC590.value, 0, 0, 0));
     }
     (*(s32 *)&TOKeyJungleMain__data_805D65E0) = var_r0;
+}
+
+void TOKeyJungleMain__vt24(void *arg0) {
+    M2C_FIELD(arg0, s32 *, 0xC8) = M2C_FIELD(arg0, s32 *, 0x84);
+    if (M2C_FIELD(arg0, s32 *, 0xC8) < 0) {
+        M2C_FIELD(arg0, s32 *, 0xC8) = 0;
+    }
+    if (M2C_FIELD(arg0, s32 *, 0xC8) > 2) {
+        M2C_FIELD(arg0, s32 *, 0xC8) = 2;
+    }
+    set_global_count__12TObjNpcEnemyFi(0xFF00FF);
+    debug_printf_at(0x130020, lbl_80465A2C, ((s32 *)&TOKeyJungleMain__data_804653C8)[M2C_FIELD(arg0, s32 *, 0xC8)]);
+    set_global_count__12TObjNpcEnemyFi(0xF0F0F0FF);
 }
 
 void render__15TOKeyJungleMainFv(u8 *arg0) {

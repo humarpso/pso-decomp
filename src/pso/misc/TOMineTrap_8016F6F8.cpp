@@ -5,6 +5,7 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 #define M2C_BITWISE(type, expr) ((type)(expr))
 
 struct Trap_8016F704 { u8 pad0[0x38]; f32 pos[3]; u8 pad44[0x84 - 0x44]; s32 delay; u8 pad88[0x2A8 - 0x88]; void *target; u8 pad2AC[0x34C - 0x2AC]; f32 range; u8 pad350[0x35C - 0x350]; u16 targetId; };
+
 extern "C" {
 s32 obj_testFlags30(void *, u32);
 s32 get_current_floor(void);
@@ -15,6 +16,22 @@ s32 get_trap_count__10TOMineTrapFv(void);
 u8 get_rule_field_0__6TLobbyFPv(void *);
 extern u8 lbl_8050EA40[];
 s32 find_target_in_range__10TOMineTrapFPv(Trap_8016F704 *self);
+u16 obj_getField1c(void *);
+s32 get_current_floor(void);
+s32 get_field_3e4__10TObjPlayerFPv(void *);
+u8 *TOMineTrap__ct(u8 *, u8 *, s32, s32);
+u8 *get_player_by_client_id(u32);
+s32 is_boss_area();
+s32 reset_key_machine_state__10TObjPlayerFv();
+void *__nw__7TObjectFUl(u32);
+extern s32 enable_v2_features;
+s32 TOMineTrap__sub_8016FD30(u32 arg0, s16 arg1, s16 arg2);
+M2C_UNK VecCopy__FP3VecPC3Vec(void *, void *);
+s32 is_split_screen();
+void *TOMineDisp__ct(void *, void *, u16);
+void *__nw__7TObjectFUl(u32);
+extern s32 lbl_805D53A0;
+void TOMineTrap__sub_80170450(u8 *arg0);
 }
 
 struct VBase_18 { char pad[0x18]; };
@@ -488,6 +505,25 @@ void destroy_matching_traps__10TOMineTrapFv(void) {
     }
 }
 
+s32 TOMineTrap__sub_8016FD30(u32 arg0, s16 arg1, s16 arg2) {
+    u16 id;
+    void *player;
+    void *obj;
+    if (enable_v2_features != 1 || arg0 == 0 || (id = obj_getField1c((void *)arg0)) == 0xFFFF || id >= 0x1000 ||
+        (player = (void *)get_player_by_client_id(id)) == 0 || get_field_3e4__10TObjPlayerFPv(player) != get_current_floor() ||
+        arg1 < 0 || arg1 >= 4 || arg2 < 0 || arg2 > 0x14) {
+        return 0;
+    }
+    if (is_boss_area() == 1 || reset_key_machine_state__10TObjPlayerFv() == 0) {
+        return 0;
+    }
+    obj = __nw__7TObjectFUl(0x384);
+    if (obj != 0) {
+        obj = ((u8 *(*)(u8 *, u8 *, s16, s16))TOMineTrap__ct)((u8 *)obj, (u8 *)arg0, arg1, arg2);
+    }
+    return (s32)obj;
+}
+
 void* get_mine_data_ptr__10TOMineTrapFPv(void* p) { return (char*)p + 0x334; }
 
 extern M2C_UNK __vt__10TOMineTrap[];
@@ -548,6 +584,33 @@ s32 can_trigger__10TOMineTrapFPvUi(void *arg0, u32 arg1) {
     }
     return 0;
 }
+
+void TOMineTrap__sub_80170450(u8 *arg0) {
+    u8 *obj;
+    u16 i;
+    if (is_split_screen() == 0) {
+        obj = (u8 *)__nw__7TObjectFUl(0xAC);
+        if (obj != NULL) {
+            obj = (u8 *)TOMineDisp__ct(obj, arg0, (u16)lbl_805D53A0);
+        }
+        if (obj != NULL) {
+            VecCopy__FP3VecPC3Vec(obj + 0x50, arg0 + 0x50);
+            VecCopy__FP3VecPC3Vec(obj + 0x38, arg0 + 0x38);
+        }
+    } else {
+        for (i = 0; i != 4; i++) {
+            obj = (u8 *)__nw__7TObjectFUl(0xAC);
+            if (obj != NULL) {
+                obj = (u8 *)TOMineDisp__ct(obj, arg0, i);
+            }
+            if (obj != NULL) {
+                VecCopy__FP3VecPC3Vec(obj + 0x50, arg0 + 0x50);
+                VecCopy__FP3VecPC3Vec(obj + 0x38, arg0 + 0x38);
+            }
+        }
+    }
+}
+
 void TOMineTrap__sub_80170524(u8 *arg0) {
     apply_object_set_data();
     ((VObj_18 *)(arg0))->m81();

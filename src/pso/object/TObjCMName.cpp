@@ -110,11 +110,19 @@ void TObjCMMainMenu__sub_80297B18(Menu_80297B18 *m);
 M2C_UNK run_tasks__7TObjectFv(void *);
 M2C_UNK request_creation_motion(int);
 s32 TAdSinglePlyChrSelectGC__sub_802905B8();
-M2C_UNK TObjCMMainMenu__sub_80298314(void *);
 M2C_UNK TObjCMMainMenu__sub_802983A0(void *);
 M2C_UNK reset_proportions__15TChCrCharSelectFv();
 M2C_UNK rand();
 extern const f32 lbl_805DDC10;
+f32 get_random_float__8TObjFishFv(f32);
+s32 is_active__23TAdSinglePlyChrSelectGCFv();
+void TObjCMMainMenu__sub_80298DA0(int a0);
+f32 get_ratio__16TObjCMProportionFv();
+f32 get_right_trigger_ratio__16TObjCMProportionFv();
+extern s32 TObjCMMainMenu__data_805D659C;
+extern const f32 lbl_805DDBF4;
+extern const f32 lbl_805DDBF8;
+void TObjCMMainMenu__sub_80298314(void * _w0);
 }
 
 extern "C" {
@@ -516,7 +524,9 @@ extern const f32 lbl_805DDC04;
 extern const f32 lbl_805DDC08;
 extern const f32 lbl_805DDC0C;
 
-extern "C" u8 lbl_805D3CD4[];
+extern "C" {
+extern u8 lbl_805D3CD4[];
+}
 extern void *lbl_804DBA68[8];
 extern void *lbl_804DBA88[6];
 extern void *lbl_804DBAA0[2];
@@ -1621,6 +1631,23 @@ void TObjCMMainMenu__vt7(void) {  }
 
 void TObjCMMainMenu__sub_80298310(void) {  }
 
+void TObjCMMainMenu__sub_80298314(void * _w0) {
+    f32 temp_f31;
+    f32 temp_f31_2;
+    if (is_active__23TAdSinglePlyChrSelectGCFv() != 0) {
+        switch (TObjCMMainMenu__data_805D659C) {
+        case 0:
+        case 1:
+            temp_f31 = get_right_trigger_ratio__16TObjCMProportionFv();
+            temp_f31_2 = get_ratio__16TObjCMProportionFv() - temp_f31;
+            if (get_random_float__8TObjFishFv(temp_f31_2) > lbl_805DDBF4) {
+                TObjCMMainMenu__sub_80298DA0((s32) (lbl_805DDBF8 * temp_f31_2));
+            }
+            break;
+        }
+    }
+}
+
 void update_submenu_fade__14TObjCMMainMenuFv(M_802983F8 *arg0) {
     f32 v;
     switch (TObjCMMainMenu__data_805D659C) {
@@ -1791,7 +1818,7 @@ void run_task__14TObjCMMainMenuFv(Menu_802987AC *arg0) {
     };
     (arg0->*table[TObjCMMainMenu__data_805D659C])();
     lbl_805D6598 = arg0->f24[arg0->f2c];
-    TObjCMMainMenu__sub_80298314(arg0);
+    TObjCMMainMenu__sub_80298314((void *)(arg0));
     ((void (*)(void *))TObjCMMainMenu__sub_80298310)(arg0);
     switch (TObjCMMainMenu__data_805D659C) {
     case 4:
