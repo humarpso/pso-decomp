@@ -45,7 +45,7 @@ int alloc__23TAdSinglePlyChrSelectGCFPv(void *);
 extern RecoveredGlobal_8018D47C_lbl_804B7134 lbl_804B7134;
 extern s32 TObjContainerJung__data_805D5BA0;
 extern s32 TObjContainerJung__data_805D5BA4;
-void TObjContainerJung__sub_8018D47C(void);
+void load_resources__17TObjContainerJungFv(void);
 void VecCopy__FP3VecPC3Vec(void *, void *);
 void reset_photon_effect__10TObjPlayerFPv(s32);
 u32 init_collision_body_parts(void *, s32, s32);
@@ -117,7 +117,7 @@ void release__17TObjContainerJungFv(void) {
     TObjContainerJung__data_805D5BA4 = 0;
 }
 
-void TObjContainerJung__sub_8018D47C(void) {
+void load_resources__17TObjContainerJungFv(void) {
     s32 temp_r3;
     s32 var_r0;
     temp_r3 = alloc__23TAdSinglePlyChrSelectGCFPv((void *)0x440);

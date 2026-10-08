@@ -517,7 +517,7 @@ void TObjEneMe1Canadin__sub_8009E930(u8 *arg0);
 void TObjEneMe1Canadin__sub_8009E948(u8 *arg0);
 void update_angle__17TObjEneMe1CanadinFPv(void *arg0);
 void update_hover_height__17TObjEneMe1CanadinFPv(void *arg0);
-void TObjEneMe1Canadin__sub_8009FADC(s32, f32, void *, s32);
+void push_history_entry__17TObjEneMe1CanadinFPvfPvi(s32, f32, void *, s32);
 void enemy_copy_target_destination(void *);
 s32 update_linked_position__14TObjEneEpsilonFPv(void *, f32);
 M2C_UNK update_velocity__9TObjEneDDFPv(void *);
@@ -4113,7 +4113,7 @@ void TObjEneMe1Canadin__sub_8009C91C(void *arg0, s32 arg1) {
                     move_to_wall_clamped_destination__9TObjEneDDFPvfff(o, v.x, v.z, c);
                 }
                 o->angle = (s32)(lbl_8043A3C8 * get_ad_end_text_start__10TObjPlayerFv(dir->x, dir->z)) + 0x8000;
-                TObjEneMe1Canadin__sub_8009FADC(o->f408, TObjEneMe1Canadin__data_805D98B4, o->f414, o->f4B4);
+                push_history_entry__17TObjEneMe1CanadinFPvfPvi(o->f408, TObjEneMe1Canadin__data_805D98B4, o->f414, o->f4B4);
                 break;
             }
             case 0:

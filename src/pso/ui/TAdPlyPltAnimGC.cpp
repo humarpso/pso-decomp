@@ -73,7 +73,7 @@ extern const f32 lbl_805DFFDC;
 extern const f32 lbl_805DFFE0;
 s32 __nw__7TObjectFUl(int);
 s32 TAdPlyPltAnimGC__ct(int, void *, void *);
-s32 TAdPlyPltAnimGC__sub_803560F0(s32 arg0, s32 arg1);
+s32 get_or_create__15TAdPlyPltAnimGCFii(s32 arg0, s32 arg1);
 void TAdPlyPltAnimGC__sub_8035615C(void);
 void TLobby__sub_803DA16C(void*);
 
@@ -182,7 +182,7 @@ s32 TAdPlyPltAnimGC__ct(int arg0, void *arg1, void *arg2) {
 #pragma pop
 
 typedef char RecoveredGlobal_803560F0_lbl_804F142C_size[sizeof(RecoveredGlobal_803560F0_lbl_804F142C) == 0x14 ? 1 : -1];
-s32 TAdPlyPltAnimGC__sub_803560F0(s32 arg0, s32 arg1) {
+s32 get_or_create__15TAdPlyPltAnimGCFii(s32 arg0, s32 arg1) {
     s32 temp_r30;
     s32 temp_r3;
     s32 var_r0;

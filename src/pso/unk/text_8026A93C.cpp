@@ -8,7 +8,7 @@ extern "C" {
 u8 * TWindowMessageLog__ct(void *, M2C_UNK, s32);
 u8 *__nw__7TObjectFUl(M2C_UNK);
 M2C_UNK TLobby__sub_80269DA4(void *, int);
-u8 *fn_8026A9D8(s32 arg0, s32 arg1, s32 arg2);
+u8 *create_message_log_window(s32 arg0, s32 arg1, s32 arg2);
 s32 get_shared_text_buffer();
 M2C_UNK append_text_space();
 M2C_UNK text_builder_append(M2C_UNK *);
@@ -50,7 +50,7 @@ void post_chat_log_message(u16 arg0, M2C_UNK *arg1) {
     }
 }
 
-u8 *fn_8026A9D8(s32 arg0, s32 arg1, s32 arg2) {
+u8 *create_message_log_window(s32 arg0, s32 arg1, s32 arg2) {
     u8 *temp_r3;
     u8 *var_r0;
     TLobby__sub_80269DA4((void *) (arg1), (int) (0x1E));

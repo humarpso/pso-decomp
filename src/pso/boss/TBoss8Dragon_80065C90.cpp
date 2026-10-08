@@ -25,13 +25,13 @@ struct O_80065FD4 { u16 a; u16 b; u32 c[4]; };
 extern "C" {
 void bswap_16__FPUs(u16 *);
 s32 bswap_32__FPUl(s32);
-void TBoss8Dragon__sub_80065FD4(O_80065FD4 *p);
+void byteswap_record__12TBoss8DragonFPv(O_80065FD4 *p);
 }
 
 extern "C" {
 
 void TBoss8Dragon__sub_80065DB4(u8 *arg0, u8 *arg1, u8 *arg2);
-void TBoss8Dragon__sub_80065EA0(u8 *arg0, u8 *arg1);
+void get_follow_camera_offsets__12TBoss8DragonFPvPv(u8 *arg0, u8 *arg1);
 M2C_UNK *TBoss8Dragon__sub_80065F08(void);
 void TBoss8Dragon__sub_80065F1C(void);
 void TBoss8Dragon__sub_80065F20(void);
@@ -102,7 +102,7 @@ void TBoss8Dragon__sub_80065DB4(u8 *arg0, u8 *arg1, u8 *arg2) {
     }
 }
 
-void TBoss8Dragon__sub_80065EA0(u8 *arg0, u8 *arg1) {
+void get_follow_camera_offsets__12TBoss8DragonFPvPv(u8 *arg0, u8 *arg1) {
     if ((void *) (*(u8 * *)&lbl_805D4DBC) == NULL) {
         VecCopy__FP3VecPC3Vec(arg0, &lbl_80487CCC.value);
         VecCopy__FP3VecPC3Vec(arg1, &lbl_80487CD8.value);
@@ -131,14 +131,14 @@ void TBoss8Dragon__sub_80065F4C(void* p) { byteswap_action_packet__12TBoss8Drago
 
 void byteswap_action_packet__12TBoss8DragonFPv(void *arg0) {
     read_be16_field2__10TObjPlayerFPv((void *)(arg0));
-    TBoss8Dragon__sub_80065FD4((O_80065FD4 *)((void *)((void *)((void *)((char *)arg0 + 20)))));
+    byteswap_record__12TBoss8DragonFPv((O_80065FD4 *)((void *)((void *)((void *)((char *)arg0 + 20)))));
     bswap_32__FPUl((s32)((void *)((char *)arg0 + 4)));
     bswap_32__FPUl((s32)((void *)((char *)arg0 + 8)));
     bswap_32__FPUl((s32)((void *)((char *)arg0 + 12)));
     bswap_32__FPUl((s32)((void *)((char *)arg0 + 16)));
 }
 
-void TBoss8Dragon__sub_80065FD4(O_80065FD4 *p) {
+void byteswap_record__12TBoss8DragonFPv(O_80065FD4 *p) {
     s32 i;
     bswap_16__FPUs(&p->a);
     bswap_16__FPUs(&p->b);

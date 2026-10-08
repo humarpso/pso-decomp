@@ -18,7 +18,7 @@ void update_phase__14TBoss6PlotFalzFi(s32 arg0);
 s32 play_sound_effect(s32, s32, s32, s32);
 s32 set_state__14TBoss6PlotFalzFPvi(void *, s32);
 s32 TBoss6PlotFalz__sub_802ABADC();
-int TBoss6PlotFalz__sub_802ABCDC(void*);
+int spawn_type1__14TBoss6PlotFalzFPv(void*);
 int refresh_players_equipment__14TBoss6PlotFalzFPv(void);
 int end_cutscene_camera__14TBoss6PlotFalzFPv(void*);
 M2C_UNK freeze_all_players__14TBoss6PlotFalzFv();
@@ -35,7 +35,7 @@ void update_phase__14TBoss6PlotFalzFi(s32 arg0) {
         send_6xA3_action__14TBoss6PlotFalzFPvc((void*)(arg0), (void*)(3));
     }
 }
-void enter_active_state__14TBoss6PlotFalzFPv(void* p) { end_cutscene_camera__14TBoss6PlotFalzFPv(p); refresh_players_equipment__14TBoss6PlotFalzFPv(); *(int*)((char*)p + 0x3d0) = 1; *(int*)((char*)p + 0x3cc) = 0; TBoss6PlotFalz__sub_802ABCDC(p); }
+void enter_active_state__14TBoss6PlotFalzFPv(void* p) { end_cutscene_camera__14TBoss6PlotFalzFPv(p); refresh_players_equipment__14TBoss6PlotFalzFPv(); *(int*)((char*)p + 0x3d0) = 1; *(int*)((char*)p + 0x3cc) = 0; spawn_type1__14TBoss6PlotFalzFPv(p); }
 
 void tick_timeout__14TBoss6PlotFalzFPv(void *arg0) {
     s32 temp_r0;

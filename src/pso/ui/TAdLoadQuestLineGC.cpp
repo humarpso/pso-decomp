@@ -12,7 +12,7 @@ void render_by_state__18TAdLoadQuestLineGCFPv(void *arg0);
 s32 __nw__7TObjectFUl(int);
 void *TAdLoadQuestLineGC__ct(void *arg0, void *arg1, void *arg2);
 extern TAdLoadQuestLineGC *lbl_804EFF60[3];
-s32 TAdLoadQuestGC__sub_8034A020(s32 arg0, s32 arg1);
+s32 get_or_create_line__14TAdLoadQuestGCFii(s32 arg0, s32 arg1);
 }
 
 extern "C" {
@@ -70,7 +70,7 @@ void *TAdLoadQuestLineGC__ct(void *arg0, void *arg1, void *arg2) {
     M2C_FIELD(arg0, u32 *, 0x20) = -1;
     return arg0;
 }
-s32 TAdLoadQuestGC__sub_8034A020(s32 arg0, s32 arg1) {
+s32 get_or_create_line__14TAdLoadQuestGCFii(s32 arg0, s32 arg1) {
     s32 temp_r30;
     s32 temp_r3;
     s32 var_r0;

@@ -110,19 +110,19 @@ s32 __nw__7TObjectFUl(int);
 s32 TObjNpcNgcBase__ct(int, int, void *, int);
 extern RecoveredGlobal_803591D0_TObjNpcNgcBase__data_805439A8 TObjNpcNgcBase__data_805439A8;
 extern s32 tl_04;
-s32 TObjNpcNgcBase__sub_80358AE8(s32 arg0);
+s32 create_variant_13__14TObjNpcNgcBaseFi(s32 arg0);
 s32 TObjControl__ct(int, int);
 s32 __nw__7TObjectFUl(int);
 s32 TObjNpcNgcBase__ct(int, int, void *, int);
 extern RecoveredGlobal_803591D0_TObjNpcNgcBase__data_805439A8 TObjNpcNgcBase__data_805439A8;
 extern s32 tl_04;
-s32 TObjNpcNgcBase__sub_80358E18(s32 arg0);
+s32 create_variant_7__14TObjNpcNgcBaseFi(s32 arg0);
 s32 TObjControl__ct(int, int);
 s32 __nw__7TObjectFUl(int);
 s32 TObjNpcNgcBase__ct(int, int, void *, int);
 extern RecoveredGlobal_803591D0_TObjNpcNgcBase__data_805439A8 TObjNpcNgcBase__data_805439A8;
 extern s32 tl_04;
-s32 TObjNpcNgcBase__sub_80358D90(s32 arg0);
+s32 create_variant_8__14TObjNpcNgcBaseFi(s32 arg0);
 s32 TObjControl__ct(int, int);
 s32 __nw__7TObjectFUl(int);
 s32 TObjNpcNgcBase__ct(int, int, void *, int);
@@ -140,7 +140,7 @@ s32 __nw__7TObjectFUl(int);
 s32 TObjNpcNgcBase__ct(int, int, void *, int);
 extern RecoveredGlobal_803591D0_TObjNpcNgcBase__data_805439A8 TObjNpcNgcBase__data_805439A8;
 extern s32 tl_04;
-s32 TObjNpcNgcBase__sub_80358EA0(s32 arg0);
+s32 create_variant_6__14TObjNpcNgcBaseFi(s32 arg0);
 s32 TObjControl__ct(int, int);
 s32 __nw__7TObjectFUl(int);
 s32 TObjNpcNgcBase__ct(int, int, void *, int);
@@ -152,7 +152,7 @@ s32 __nw__7TObjectFUl(int);
 s32 TObjNpcNgcBase__ct(int, int, void *, int);
 extern RecoveredGlobal_803591D0_TObjNpcNgcBase__data_805439A8 TObjNpcNgcBase__data_805439A8;
 extern s32 tl_04;
-s32 TObjNpcNgcBase__sub_80358F28(s32 arg0);
+s32 create_variant_5__14TObjNpcNgcBaseFi(s32 arg0);
 s32 TObjControl__ct(int, int);
 s32 __nw__7TObjectFUl(int);
 s32 TObjNpcNgcBase__ct(int, int, void *, int);
@@ -189,7 +189,7 @@ typedef char RecoveredGlobal_80358B70_TObjNpcNgcBase__data_805439A8_size[((sizeo
 
 typedef struct RecoveredGlobal_80358AE8_TObjNpcNgcBase__data_805439A8 RecoveredGlobal_80358AE8_TObjNpcNgcBase__data_805439A8;
 typedef char RecoveredGlobal_80358AE8_TObjNpcNgcBase__data_805439A8_size[((sizeof(RecoveredGlobal_80358AE8_TObjNpcNgcBase__data_805439A8)) == 0x38) ? (1) : (-1)];
-s32 TObjNpcNgcBase__sub_80358AE8(s32 arg0) {
+s32 create_variant_13__14TObjNpcNgcBaseFi(s32 arg0) {
   s32 temp_r3;
   s32 temp_r3_2;
   s32 var_r0;
@@ -318,7 +318,7 @@ s32 TObjNpcNgcBase__sub_80358D08(s32 arg0) {
   return 0;
 }
 
-s32 TObjNpcNgcBase__sub_80358D90(s32 arg0) {
+s32 create_variant_8__14TObjNpcNgcBaseFi(s32 arg0) {
   s32 temp_r3;
   s32 temp_r3_2;
   u32 *new_var;
@@ -344,7 +344,7 @@ s32 TObjNpcNgcBase__sub_80358D90(s32 arg0) {
   return 0;
 }
 
-s32 TObjNpcNgcBase__sub_80358E18(s32 arg0) {
+s32 create_variant_7__14TObjNpcNgcBaseFi(s32 arg0) {
   s32 temp_r3;
   s32 temp_r3_2;
   s32 var_r0;
@@ -374,7 +374,7 @@ typedef char RecoveredGlobal_803590C0_TObjNpcNgcBase__data_805439A8_size[((sizeo
 
 typedef struct RecoveredGlobal_80358EA0_TObjNpcNgcBase__data_805439A8 RecoveredGlobal_80358EA0_TObjNpcNgcBase__data_805439A8;
 typedef char RecoveredGlobal_80358EA0_TObjNpcNgcBase__data_805439A8_size[((sizeof(RecoveredGlobal_80358EA0_TObjNpcNgcBase__data_805439A8)) == 0x38) ? (1) : (-1)];
-s32 TObjNpcNgcBase__sub_80358EA0(s32 arg0) {
+s32 create_variant_6__14TObjNpcNgcBaseFi(s32 arg0) {
   s32 temp_r3;
   s32 temp_r3_2;
   s32 var_r0;
@@ -402,7 +402,7 @@ typedef char RecoveredGlobal_80359038_TObjNpcNgcBase__data_805439A8_size[((sizeo
 
 typedef struct RecoveredGlobal_80358F28_TObjNpcNgcBase__data_805439A8 RecoveredGlobal_80358F28_TObjNpcNgcBase__data_805439A8;
 typedef char RecoveredGlobal_80358F28_TObjNpcNgcBase__data_805439A8_size[((sizeof(RecoveredGlobal_80358F28_TObjNpcNgcBase__data_805439A8)) == 0x38) ? (1) : (-1)];
-s32 TObjNpcNgcBase__sub_80358F28(s32 arg0) {
+s32 create_variant_5__14TObjNpcNgcBaseFi(s32 arg0) {
   int new_var;
   s32 temp_r3;
   s32 temp_r3_2;

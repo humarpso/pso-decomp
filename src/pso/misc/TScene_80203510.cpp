@@ -61,7 +61,7 @@ extern SceneMaterialRoot* TScene__data_805D5FCC;
 SceneMaterialSection *find_scene_room_by_id(s32 id);
 void matrix_mult_vec(int, void *, void *);
 extern const f32 TScene__data_805DC5D8;
-bool TScene__sub_80204188(f32 farg0);
+bool is_in_view_depth__6TSceneFf(f32 farg0);
 f32 xyz_distance_squared(void *, void *);
 extern SceneMaterialRoot* TScene__data_805D5FCC;
 extern const f32 lbl_805DC5D0;
@@ -72,7 +72,7 @@ extern Root_80204024 *lbl_805D4DF0;
 extern const f32 TScene__data_805DC5D8;
 s32 TScene__sub_80204024(f32 thr, s32 unused, void *a, void *b, Vec_80204024 *c);
 f32 xz_distance_squared(void *, void *);
-bool TScene__sub_80204188(f32 farg0);
+bool is_in_view_depth__6TSceneFf(f32 farg0);
 extern Root_80204024 *lbl_805D4DF0;
 s32 TScene__sub_802040D4(void *arg0, Obj_802040D4 *o, f32 f0, f32 f1);
 f32 xz_distance_squared(void *, void *);
@@ -473,12 +473,12 @@ s32 TScene__sub_802040D4(void *arg0, Obj_802040D4 *o, f32 f0, f32 f1) {
         if (xz_distance_squared((*(u8 * *)&lbl_805D4DF0) + 0x178, p) < o->inner->radius * o->inner->radius) {
             return 1;
         }
-        return ((s32 (*)(void *, void *, f32, f32))TScene__sub_80204188)(arg0, p, f0, f1);
+        return ((s32 (*)(void *, void *, f32, f32))is_in_view_depth__6TSceneFf)(arg0, p, f0, f1);
     }
     return 0;
 }
 
-bool TScene__sub_80204188(f32 farg0) {
+bool is_in_view_depth__6TSceneFf(f32 farg0) {
     f32 sp[6];
     void *unused;
     matrix_mult_vec(0, unused, &sp[0]);
@@ -552,7 +552,7 @@ extern const f32 lbl_805DC5FC;
 extern Vec_80204024 lbl_8044A84C[];
 extern u8 lbl_8058D490[];
 extern Root_80204024 *lbl_805D4DF0;
-bool TScene__sub_80204188(f32 farg0);
+bool is_in_view_depth__6TSceneFf(f32 farg0);
 s32 TScene__sub_80204024(f32 thr, s32 unused, void *a, void *b, Vec_80204024 *c);
 void update_room_object_visibility__6TSceneFPvPv(void *task, SceneMaterialSection *room);
 SceneMaterialNode* resolve_indirect_node_record(void*,SceneMaterialStatic*);
@@ -568,7 +568,7 @@ s32 is_split_screen(void);
 
 #define CAM ((Cam_80204688 *)lbl_805D4DF0)
 #define TEST ((s32 (*)(f32, void *, void *, void *, Vec_80204024 *))TScene__sub_80204024)
-#define VIS ((s32 (*)(void *, void *, f32, f32))TScene__sub_80204188)
+#define VIS ((s32 (*)(void *, void *, f32, f32))is_in_view_depth__6TSceneFf)
 
 void cull_sections__6TSceneFPv(Task_80204688 *task) {
     static f32 s_near = lbl_805DC5E8;

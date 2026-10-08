@@ -22,7 +22,7 @@ extern "C" {
 int is_visible__17TWindowSubComCardFPv(void *);
 void init__9TItemDataFv(void *);
 s32 get_selected_menu_value(void *);
-void TChallenge4PResult__sub_8034B694(s32, M2C_UNK, s32);
+void set_entry_item__18TChallenge4PResultFPvPvi(s32, M2C_UNK, s32);
 extern RecoveredGlobal_8034B158_lbl_804F00C8 lbl_804F00C8;
 void submit_selected_item__22TChallenge4PItemSelectFPv(u8 *arg0);
 }
@@ -95,7 +95,7 @@ void submit_selected_item__22TChallenge4PItemSelectFPv(u8 *arg0) {
         stack.spA = (s8) M2C_FIELD(temp_r31, s32 *, 8);
         temp_r3_2 = M2C_FIELD(arg0, u32 *, 0x28);
         if (temp_r3_2 != 0U) {
-            TChallenge4PResult__sub_8034B694((s32) temp_r3_2, (s32) &stack.sp8, 2);
+            set_entry_item__18TChallenge4PResultFPvPvi((s32) temp_r3_2, (s32) &stack.sp8, 2);
         }
         M2C_FIELD(arg0, s32 *, 0x20) = 2;
     }

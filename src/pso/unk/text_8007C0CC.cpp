@@ -14,7 +14,7 @@ s32 subtractive_rng_next(s32 *arg0);
 void apply_rng_cipher__23TAdSinglePlyChrSelectGCFPvPvi(s32 *self, u32 *data, s32 len);
 s32 subtractive_rng_next(s32 *arg0);
 int bswap_32__FPUl(void *);
-void TAdSinglePlyChrSelectGC__sub_8007C2FC(s32 *self, u32 *data, s32 len);
+void crypt_data_be__23TAdSinglePlyChrSelectGCFPvPvi(s32 *self, u32 *data, s32 len);
 s32 subtractive_rng_next(s32 *arg0);
 void subtractive_rng_xor_buffer(s32 *self, u32 *data, s32 len);
 void subtractive_rng_refill(Crypt_8007C438 *c);
@@ -68,7 +68,7 @@ void subtractive_rng_make_shuffle(s32* stream) {
  }
 }
 
-void TAdSinglePlyChrSelectGC__sub_8007C2FC(s32 *self, u32 *data, s32 len) {
+void crypt_data_be__23TAdSinglePlyChrSelectGCFPvPvi(s32 *self, u32 *data, s32 len) {
     u32 *p;
     s32 i;
     s32 n = (len + 3) / 4;

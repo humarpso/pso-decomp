@@ -12,7 +12,7 @@ extern "C" {
 s32 vec3_add_to(void *, void *);
 s32 set_parent__7TObjectFP7TObject(void *, void *);
 extern void *lbl_805D4BF8;
-void TObjBoss2Tunnel__sub_8003B1FC(Obj_8003B1FC *self, void *arg);
+void detach_children__15TObjBoss2TunnelFPvPv(Obj_8003B1FC *self, void *arg);
 }
 
 extern "C" {
@@ -25,7 +25,7 @@ extern const f32 lbl_805D85D8;
 void TObjBoss2Tunnel__sub_8003B1D8(void) {
     ((void (*)(f32))release_children__15TObjBoss2TunnelFPvf)(lbl_805D85D8);
 }
-void TObjBoss2Tunnel__sub_8003B1FC(Obj_8003B1FC *self, void *arg) {
+void detach_children__15TObjBoss2TunnelFPvPv(Obj_8003B1FC *self, void *arg) {
     Obj_8003B1FC *c;
     while ((c = self->child) != 0) {
         vec3_add_to(c->xf, arg);

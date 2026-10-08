@@ -29,7 +29,7 @@ void *__nw__7TObjectFUl(int);
 extern s32 lbl_805D53A0;
 s32 create_com_card_window__17TWindowSubComCardFi(s32 arg0);
 void *__nw__7TObjectFUl(int);
-u8 *TWindowComCard__sub_80249980(s32 arg0, s32 arg1, s32 arg2);
+u8 *create_for_card__14TWindowComCardFiii(s32 arg0, s32 arg1, s32 arg2);
 u8 * construct_base__9TWindowDDFPvPvsPv(void *, s32, s16, s32);
 M2C_UNK update_com_card_display(s32, s32);
 extern RecoveredGlobal_80249BA8_lbl_804CE8D0 lbl_804CE8D0;
@@ -71,7 +71,7 @@ void set_display_value__14TWindowComCardFiii(s32 arg0, s32 arg1, s32 arg2) {
     }
 }
 
-u8 *TWindowComCard__sub_80249980(s32 arg0, s32 arg1, s32 arg2) {
+u8 *create_for_card__14TWindowComCardFiii(s32 arg0, s32 arg1, s32 arg2) {
     s32 var_r30;
     s32 var_r31;
     s32 var_r4;

@@ -651,7 +651,7 @@ void *create_particle_emitter(void *, s32);
 M2C_UNK copy_pos__11TNowLoadingFPvPv(void *, void *);
 M2C_UNK enable__13TParticleCtrlFPv(void *);
 s32 check_death_trigger__16TObjEneRe7BeruraFPv();
-void TObjEneRe7Berura__sub_80094D3C(void *);
+void destroy_parts__16TObjEneRe7BeruraFPv(void *);
 M2C_UNK launch__21TObjEneRe7BeruraPunchFPvii(s32, s32, void *, void *);
 s32 check_v2_mode__9TObjEneDDFv();
 M2C_UNK set_field_378__9TObjEneDDFPvi(void *, M2C_UNK);
@@ -1021,7 +1021,7 @@ void TObjEneRe7Berura__sub_80093C80(u8 *arg0, s32 arg1) {
                 vec3_add_to(&v, arg0 + 0x38);
                 launch__21TObjEneRe7BeruraPunchFPvii(F(s32, 0x3F8), F(s32, 0x3F4), &v, arg0 + 0x394);
                 F(s32, 0x4C0) = 1;
-                TObjEneRe7Berura__sub_80094D3C(arg0);
+                destroy_parts__16TObjEneRe7BeruraFPv(arg0);
                 play_sound_effect(copy_target_state__14TObjEnePanarmsFPvPv(arg0, 0x4003A321), (u32)(arg0 + 0x38), 0, 0);
                 play_effect_if_v2__10TObjPlayerFi(-0x100);
             }
@@ -1051,7 +1051,7 @@ void TObjEneRe7Berura__sub_80093C80(u8 *arg0, s32 arg1) {
     case 5:
         SUB->m2();
         ARMF[F(s32, 0x3F4)] &= ~7;
-        TObjEneRe7Berura__sub_80094D3C(arg0);
+        destroy_parts__16TObjEneRe7BeruraFPv(arg0);
         break;
     }
 }

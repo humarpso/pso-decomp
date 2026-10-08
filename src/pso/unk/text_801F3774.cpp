@@ -29,10 +29,10 @@ void byteswap_6x75_packet__6TLobbyFPv(void *arg0);
 s32 TLobby__send_and_handle_60(s32);
 void build_6x75_update_quest_flag_dc(void* p);
 extern s32 lbl_805D5550;
-void TLobby__sub_801F37CC(s16 arg0, s16 arg1);
+void send_6x75_quest_flag_cur_difficulty__6TLobbyFss(s16 arg0, s16 arg1);
 void TLobby__sub_801F3990(void *arg0);
 void build_6x75_update_quest_flag_dc(void* p);
-void TLobby__sub_801F3778(s16 arg0, s16 arg1, s16 arg2);
+void send_6x75_quest_flag__6TLobbyFsss(s16 arg0, s16 arg1, s16 arg2);
 void byteswap_6x75_packet__6TLobbyFPv(void *arg0);
 s32 fn_801F4560(int, int);
 s32 fn_801F469C(int, int);
@@ -58,7 +58,7 @@ s32 update_lobby_scene__6TSceneFPv();
 
 void TLobby__sub_801F3774(void) {  }
 
-void TLobby__sub_801F3778(s16 arg0, s16 arg1, s16 arg2) {
+void send_6x75_quest_flag__6TLobbyFsss(s16 arg0, s16 arg1, s16 arg2) {
     Stack_801F3778 stack;
     build_6x75_update_quest_flag_dc((void*)((void *) (&stack.sp8)));
     stack.spC = arg0;
@@ -68,7 +68,7 @@ void TLobby__sub_801F3778(s16 arg0, s16 arg1, s16 arg2) {
     TLobby__sub_801F3990(&stack.sp8);
 }
 
-void TLobby__sub_801F37CC(s16 arg0, s16 arg1) {
+void send_6x75_quest_flag_cur_difficulty__6TLobbyFss(s16 arg0, s16 arg1) {
     Stack_801F37CC stack;
     build_6x75_update_quest_flag_dc((void*)((void *) (&stack.sp8)));
     stack.spC = arg0;

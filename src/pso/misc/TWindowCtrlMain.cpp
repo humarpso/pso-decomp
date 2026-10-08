@@ -60,7 +60,7 @@ extern void *TWindowCtrlMain__data_805D6414;
 void free_all_windows__15TWindowCtrlMainFv(void);
 M2C_UNK load_hud_palette_textures();
 void init_fields__15TWindowCtrlMainFPv(void *);
-M2C_UNK TWindowKeyBoardSoft__sub_8024EDF8();
+M2C_UNK get_or_create_instance__19TWindowKeyBoardSoftFv();
 M2C_UNK TWindowCtrlMain__sub_8024EF30();
 extern Ent_8024D520 TWindowCtrlMain__data_80518730[6];
 extern void *TWindowCtrlMain__data_805D6400;
@@ -229,7 +229,7 @@ void reset_all__15TWindowCtrlMainFPv(void* _w0) {
     s32 i;
     load_hud_palette_textures();
     TWindowCtrlMain__sub_8024EF30();
-    TWindowKeyBoardSoft__sub_8024EDF8();
+    get_or_create_instance__19TWindowKeyBoardSoftFv();
     TWindowCtrlMain__data_805D6400 = 0;
     TWindowCtrlMain__data_805D6408 = 0;
     TWindowCtrlMain__data_805D640C = 0;

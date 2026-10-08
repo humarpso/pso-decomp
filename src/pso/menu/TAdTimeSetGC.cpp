@@ -98,7 +98,7 @@ extern "C" void TAdSinglePlyChrSelectGC__sub_802E2A88();
 extern "C" void TAdSinglePlyChrSelectGC__sub_802E2BC8();
 extern "C" void TAdSinglePlyChrSelectGC__sub_802E2BD4();
 extern "C" void TAdSinglePlyChrSelectGC__sub_802E2D3C();
-extern "C" void TAdSinglePlyChrSelectGC__sub_802E2DD8();
+extern "C" void handle_confirm_menu__23TAdSinglePlyChrSelectGCFPv();
 extern "C" void TAdSinglePlyChrSelectGC__sub_802E2F20();
 extern "C" void TAdSinglePlyChrSelectGC__sub_802E2F68();
 extern "C" void TAdSinglePlyChrSelectGC__sub_802E2FEC();
@@ -144,7 +144,7 @@ void *lbl_804E3050[149] = {
     (void *)0xffffffff, (void *)&ensure_player_loaded__23TAdSinglePlyChrSelectGCFPv, (void *)0x0, (void *)0xffffffff,
     (void *)&TAdSinglePlyChrSelectGC__sub_802E2F20, (void *)0x0, (void *)0xffffffff, (void *)&reset_on_load_complete__23TAdSinglePlyChrSelectGCFPv,
     (void *)0x0, (void *)0xffffffff, (void *)&open_char_select__23TAdSinglePlyChrSelectGCFi, (void *)0x0,
-    (void *)0xffffffff, (void *)&TAdSinglePlyChrSelectGC__sub_802E2DD8, (void *)0x0, (void *)0xffffffff,
+    (void *)0xffffffff, (void *)&handle_confirm_menu__23TAdSinglePlyChrSelectGCFPv, (void *)0x0, (void *)0xffffffff,
     (void *)&close_and_next_cancel__23TAdSinglePlyChrSelectGCFPv, (void *)0x0, (void *)0xffffffff, (void *)&update_load_state__23TAdSinglePlyChrSelectGCFi,
     (void *)0x0, (void *)0xffffffff, (void *)&TAdSinglePlyChrSelectGC__sub_802E2D3C, (void *)0x0,
     (void *)0xffffffff, (void *)&update_load_countdown__23TAdSinglePlyChrSelectGCFPv, (void *)0x0, (void *)0xffffffff,

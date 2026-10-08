@@ -180,7 +180,7 @@ M2C_UNK set_key_state__16TKeyBoardControlFi(void (*)(void));
 M2C_UNK fn_803DE804(u32, u32);
 s32 xmalloc__FUl(u32);
 M2C_UNK TKeyBoardControl__sub_803DE9C4(int, int, int);
-M2C_UNK TObjPlayer__sub_803DEC98(s32, int);
+M2C_UNK init_matrix_stack__10TObjPlayerFii(s32, int);
 M2C_UNK init_light_globals(int, int);
 M2C_UNK set_some_id__FUl(int);
 M2C_UNK TObjPlayer__sub_803E492C(void *, int);
@@ -419,7 +419,7 @@ void init_game_systems(void) {
     TObjPlayer__sub_803E492C((void *) ((*(s32 *)&lbl_805D49B0)), (int) (0x2000));
     set_key_state__16TKeyBoardControlFi(TKeyBoardControl__sub_8000F764);
     (*(s32 *)&lbl_805D49A8) = xmalloc__FUl(0x600);
-    TObjPlayer__sub_803DEC98((*(s32 *)&lbl_805D49A8), 0x20);
+    init_matrix_stack__10TObjPlayerFii((*(s32 *)&lbl_805D49A8), 0x20);
     set_matrix_identity__10TObjPlayerFPv(0);
     TKeyBoardControl__sub_803DE9C4((int) (0), (int) (0), (int) (0));
     enable_and_trigger__15TObjBoss2TunnelFv();

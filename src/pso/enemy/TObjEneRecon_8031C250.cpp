@@ -992,7 +992,7 @@ s32 approach_angle_limited(s32, s32, s32);
 s32 objInBand__FP7GameObjf(void *, f32);
 void advance_animation_playback(void *);
 void play_sound_effect(s32, void *, s32, s32);
-void TObjEneRecon__sub_8031BC3C(void *, void *, void *);
+void create_bomb__12TObjEneReconFPvPvPv(void *, void *, void *);
 s32 remap_area_sound_id__14TObjEneRecoboxFUi(s32);
 extern const f64 TObjEneRecon__data_80476110;
 extern const f32 lbl_805DF3F8;
@@ -1171,7 +1171,7 @@ void TObjEneRecon__sub_8031CCFC(u8 *arg0, s32 arg1) {
         case 1:
             if (objInBand__FP7GameObjf(arg0, lbl_805DF3F8) != 0) {
                 play_sound_effect(remap_area_sound_id__14TObjEneRecoboxFUi(0x4003A80A), arg0 + 0x38, 0, 0);
-                TObjEneRecon__sub_8031BC3C(arg0, arg0, arg0 + 0x40C);
+                create_bomb__12TObjEneReconFPvPvPv(arg0, arg0, arg0 + 0x40C);
             } else if (get_flag_b4__21TObjEneMe3ShinowaRealFPv(arg0) != 0) {
                 M2C_FIELD(arg0, s32 *, 0x3C0) = 2;
             }

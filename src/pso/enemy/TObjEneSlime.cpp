@@ -98,7 +98,7 @@ struct Obj_800EB984 { u8 pad[0x3b8]; Slot_800EB984 slots[4]; };
 
 extern "C" {
 void TObjEneSlimeOne__sub_800EC470(void* p);
-void TObjEneSlime__sub_800EB910(Obj_800EB910 *self);
+void release_split_slimes__12TObjEneSlimeFPv(Obj_800EB910 *self);
 void TObjEneSlime__sub_800EB9F0(void* p, void* q);
 void spawn_slime_in_slot(void *, s32, s32, s32);
 extern const Slot_800EB984 lbl_8043D218;
@@ -140,7 +140,7 @@ s32 fn_800EB8DC(void *);
 M2C_UNK queue_destruction__7TObjectFv(void *);
 M2C_UNK send_entity_set_flags__6TLobbyFPv(void *);
 
-void TObjEneSlime__sub_800EB910(Obj_800EB910 *self) {
+void release_split_slimes__12TObjEneSlimeFPv(Obj_800EB910 *self) {
     s32 i;
     for (i = 0; i < 4; i++) {
         Slot_800EB910 *s = &self->slots[i];
@@ -214,6 +214,6 @@ void run_task__12TObjEneSlimeFv(void *arg0) {
     }
 }
 
-void TObjEneSlime__vt61(void* p) { TObjEneSlime__sub_800EB910((Obj_800EB910 *)(p)); }
+void TObjEneSlime__vt61(void* p) { release_split_slimes__12TObjEneSlimeFPv((Obj_800EB910 *)(p)); }
 
 }

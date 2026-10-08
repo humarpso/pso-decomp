@@ -264,7 +264,7 @@ struct Text_801DC1E4 { u8 command; u8 flags; u16 size; char text[0x200]; };
 struct Proto_801DC1E4 { u8 pad[0x1910]; s32 connected; u8 pad1914[0x74]; u8 char_data[0x41C]; };
 
 void TItem__sub_80101CF8(void *);
-void TLobby__sub_80134BC4(void *, void *);
+void copy_player_record__6TLobbyFPvPv(void *, void *);
 void copy_player_data__9TProtocolFPvPv(void *, void *);
 void TProtocol__sub_801DF774(void *, void *);
 void bswap_player_record_upload(void *);
@@ -284,7 +284,7 @@ void send_player_data_98__9TProtocolFPvPvPvPvPvPvPv(Proto_801DC1E4 *self, u8 *ch
         tmp.flags = 3;
         tmp.size = sizeof(tmp);
         copy_player_data__9TProtocolFPvPv(tmp.char_data, self->char_data);
-        TLobby__sub_80134BC4(tmp.challenge, challenge);
+        copy_player_record__6TLobbyFPvPv(tmp.challenge, challenge);
         TProtocol__sub_801DF774(tmp.choice_search_config, choice_search_config);
         strncpy(tmp.info_board, info_board, sizeof(tmp.info_board));
         for (int i = 0; i < blocked_senders->flags; ++i) {
@@ -335,7 +335,7 @@ struct Text_801DC34C { u8 command; u8 flags; u16 size; char text[0x200]; };
 struct Proto_801DC34C { u8 pad[0x1910]; s32 connected; u8 pad1914[0x74]; u8 char_data[0x41C]; };
 
 void TItem__sub_80101CF8(void *);
-void TLobby__sub_80134BC4(void *, void *);
+void copy_player_record__6TLobbyFPvPv(void *, void *);
 void copy_player_data__9TProtocolFPvPv(void *, void *);
 void TProtocol__sub_801DF774(void *, void *);
 void bswap_player_record_upload(void *);
@@ -355,7 +355,7 @@ void send_player_data_61__9TProtocolFPvPvPvPvPvPvPv(Proto_801DC34C *self, u8 *ch
         tmp.flags = 3;
         tmp.size = sizeof(tmp);
         copy_player_data__9TProtocolFPvPv(tmp.char_data, self->char_data);
-        TLobby__sub_80134BC4(tmp.challenge, challenge);
+        copy_player_record__6TLobbyFPvPv(tmp.challenge, challenge);
         TProtocol__sub_801DF774(tmp.choice_search_config, choice_search_config);
         strncpy(tmp.info_board, info_board, sizeof(tmp.info_board));
         for (int i = 0; i < blocked_senders->flags; ++i) {

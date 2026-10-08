@@ -9,7 +9,7 @@ struct RecoveredGlobal_8035A860_lbl_804F1C58 {
 };
 
 extern "C" {
-s32 TObjBoss2Tunnel__sub_8007E6C4(void *);
+s32 count_tree_nodes__15TObjBoss2TunnelFPv(void *);
 s32 alloc_buffer__11TOBoss4RockFPv(int);
 s32 __ct__7TObjectFP7TObject(void *, void *);
 extern RecoveredGlobal_8035A860_lbl_804F1C58 lbl_804F1C58;
@@ -30,7 +30,7 @@ u8 *fn_8035A860(u8 *arg0, s32 arg1, s32 arg2) {
     M2C_FIELD(arg0, s32 *, 0x20) = 0;
     M2C_FIELD(arg0, f32 *, 0x24) = (f32) lbl_805E00E8;
     M2C_FIELD(arg0, s32 *, 0x30) = 0;
-    M2C_FIELD(arg0, s32 *, 0x2C) = TObjBoss2Tunnel__sub_8007E6C4((void *) (arg2));
+    M2C_FIELD(arg0, s32 *, 0x2C) = count_tree_nodes__15TObjBoss2TunnelFPv((void *) (arg2));
     M2C_FIELD(arg0, s32 *, 0x28) = alloc_buffer__11TOBoss4RockFPv((int) (M2C_FIELD(arg0, s32 *, 0x2C) * 0x30));
     M2C_FIELD(arg0, s32 *, 0x34) = 0;
     M2C_FIELD(arg0, s32 *, 0x38) = 0;

@@ -10,7 +10,7 @@ extern "C" {
 s32 TLobby__sub_803CC4C0(int);
 void TLobby__sub_803CCE9C(int);
 void release_load_slot__12TChCrLoadAfsFPv(void *);
-void TChCrLoadAfs__sub_8028B948(L_8028B948 *arg0);
+void poll_load__12TChCrLoadAfsFPv(L_8028B948 *arg0);
 }
 
 extern "C" {
@@ -25,7 +25,7 @@ s32 try_begin_load__12TChCrLoadAfsFPv();
 
 void TChCrLoadAfs__sub_8028B940(void) {  }
 void TChCrLoadAfs__sub_8028B944(void) {  }
-void TChCrLoadAfs__sub_8028B948(L_8028B948 *arg0) {
+void poll_load__12TChCrLoadAfsFPv(L_8028B948 *arg0) {
     switch (TLobby__sub_803CC4C0(arg0->f1c)) {
     case 2:
         return;

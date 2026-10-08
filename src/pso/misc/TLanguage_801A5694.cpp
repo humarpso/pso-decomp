@@ -9,7 +9,7 @@ extern "C" {
 void decode_font_data__9TLanguageFPvPvii(void *arg0, void *arg1, s32 arg2, s32 arg3);
 M2C_UNK draw_string__9TLanguageFPvPvi();
 M2C_UNK GXDrawDone();
-M2C_UNK fn_803DB05C(s32, u16, s16, u16 *);
+M2C_UNK init_and_load_tlut(s32, u16, s16, u16 *);
 
 M2C_UNK DCStoreRange(u16 *, M2C_UNK);
 
@@ -33,7 +33,7 @@ void decode_font_data__9TLanguageFPvPvii(void *arg0, void *arg1, s32 arg2, s32 a
         p += 1;
     }
     DCStoreRange(M2C_FIELD(arg1, u16 **, 0), 0x40000);
-    fn_803DB05C(arg3, M2C_FIELD(arg1, u16 *, 4), M2C_FIELD(arg1, s16 *, 0xA), M2C_FIELD(arg1, u16 **, 0));
+    init_and_load_tlut(arg3, M2C_FIELD(arg1, u16 *, 4), M2C_FIELD(arg1, s16 *, 0xA), M2C_FIELD(arg1, u16 **, 0));
     GXDrawDone();
 }
 

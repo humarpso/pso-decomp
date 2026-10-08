@@ -1396,7 +1396,7 @@ int TNpcPlayer__sub_8014DC30(void*);
 void sync_from_lobby__10TNpcPlayerFPv(WalkCmd_801F09EC *);
 void TNpcPlayer__sub_80152E74(WalkCmd_801F09EC *);
 u8 * find_entity_by_id(u16);
-void TOChatSensor__sub_8015ACE4(void *, s32);
+void set_trigger_text__12TOChatSensorFPvPv(void *, s32);
 void * TOChatSensor__create(Spawn_801EA508 *);
 void byteswap_and_send__6TLobbyFi(s32 arg0);
 void init_packet_67_04__6TLobbyFPv(void* p);
@@ -1607,7 +1607,7 @@ void TLobby__sub_801EA9F4(s32 arg0, s32 arg1);
 void TLobby__sub_801EAA14(s32 arg0, s32 arg1);
 void TLobby__sub_801EAA34(u8 a0, u8 a1);
 void TLobby__sub_801EAAB4(u8 a0, u8 a1);
-void TLobby__sub_801EAB34(s32 arg0);
+void broadcast_entry__6TLobbyFi(s32 arg0);
 void TLobby__sub_801EAB90(s32 arg0);
 void TLobby__sub_801EABEC(s32 arg0);
 void TLobby__sub_801EAC48(int _w0);
@@ -1946,7 +1946,7 @@ M2C_UNK dispatch_by_main_phase__14TBoss4DarkFalzFUs(void *);
 int create__16TObjItemOKWindowFPv(void*);
 int create__18TObjItemNameSelectFPv(void*);
 int create__17TObjItemNameEntryFPv(void*);
-M2C_UNK fn_801F57B4(s32);
+M2C_UNK destroy_children_with_tag(s32);
 s32 clear_floor_handler(int);
 M2C_UNK set_floor_handler(int, int);
 M2C_UNK clear_buffer__12TQuestThreadFPv(u32);
@@ -2699,7 +2699,7 @@ void free_static__6TLobbyFv(void) {
 }
 #pragma pop
 
-s32 TObjPlayer__sub_801B8C10(u32, u8, u8, u8);
+s32 count_items_of_type__10TObjPlayerFPvccc(u32, u8, u8, u8);
 void TLobby__sub_801E84D0(s32 i, s32 dst) {
     u16 a = TLobby__data_805D5E78[(u8)i++];
     u8 b = TLobby__data_805D5E78[(u8)i++];
@@ -2707,7 +2707,7 @@ void TLobby__sub_801E84D0(s32 i, s32 dst) {
     u8 d = TLobby__data_805D5E78[(u8)i];
     u32 p = get_player_by_client_id(a);
     if (p != 0) {
-        TLobby__data_805D5E78[(u8)dst] = TObjPlayer__sub_801B8C10(p, b, c, d);
+        TLobby__data_805D5E78[(u8)dst] = count_items_of_type__10TObjPlayerFPvccc(p, b, c, d);
     }
 }
 
@@ -4122,7 +4122,7 @@ void TLobby__sub_801EA8E8(void) {
     if ((u32) lbl_805D5EE8 != 0U) {
         clear_buffer__12TQuestThreadFPv(lbl_805D5EE8);
     }
-    fn_801F57B4(tl_00);
+    destroy_children_with_tag(tl_00);
     init_sub_objects__6TLobbyFv();
     reset_id_tables__6TLobbyFv();
     clear_floor_event_flags();
@@ -4271,7 +4271,7 @@ void TLobby__sub_801EAAB4(u8 a0, u8 a1) {
 #pragma inline_depth(1)
 #pragma auto_inline off
 #pragma dont_inline off
-void TLobby__sub_801EAB34(s32 arg0) {
+void broadcast_entry__6TLobbyFi(s32 arg0) {
     M2CCopy_30 sp8;
     u32 temp_r3;
     temp_r3 = ((int (*)(int))get_indexed_offset__6TLobbyFi)(arg0);
@@ -4405,7 +4405,7 @@ void spawn_chat_sensor__6TLobbyFv(void) {
     s.c = (*(int * *)&TLobby__data_805D5E78)[i];
     sensor = TOChatSensor__create((Spawn_801EA508 *)(&s));
     if (sensor != NULL) {
-        TOChatSensor__sub_8015ACE4(sensor, arg);
+        set_trigger_text__12TOChatSensorFPvPv(sensor, arg);
     }
 }
 #pragma pop

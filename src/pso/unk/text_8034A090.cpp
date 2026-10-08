@@ -37,7 +37,7 @@ extern "C" {
 s32 __nw__7TObjectFUl(int);
 s32 TAdLoadQuestPrtTxtGC__ct(int, void *, void *);
 extern RecoveredGlobal_8034A5D0_lbl_804EFF80 lbl_804EFF80;
-s32 TAdLoadQuestGC__sub_8034A5D0(s32 arg0, s32 arg1);
+s32 get_or_create_prt_txt__14TAdLoadQuestGCFii(s32 arg0, s32 arg1);
 void copy_pos__11TNowLoadingFPvPv(void *, void *);
 void clear_active_flag__13TParticleCtrlFPv(void *);
 void enable__13TParticleCtrlFPv(void *);
@@ -108,7 +108,7 @@ T_8034A198 *__dt__20TAdLoadQuestPrtTxtGCFv(T_8034A198 *arg0, s16 arg1) {
     return arg0;
 }
 
-s32 TAdLoadQuestGC__sub_8034A5D0(s32 arg0, s32 arg1) {
+s32 get_or_create_prt_txt__14TAdLoadQuestGCFii(s32 arg0, s32 arg1) {
     s32 temp_r30;
     s32 temp_r3;
     s32 var_r0;

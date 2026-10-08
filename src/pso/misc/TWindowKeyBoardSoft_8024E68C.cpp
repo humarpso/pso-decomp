@@ -37,7 +37,7 @@ extern "C" {
 u32 alloc__23TAdSinglePlyChrSelectGCFPv(int);
 u32 init_layout__19TWindowKeyBoardSoftFPv(void* a0);
 extern u32 lbl_805D6420;
-u32 TWindowKeyBoardSoft__sub_8024EDF8(void);
+u32 get_or_create_instance__19TWindowKeyBoardSoftFv(void);
 s32 __cvt_fp2unsigned(f32);
 extern const f32 lbl_805DCC84;
 extern const f32 lbl_805DCC88;
@@ -310,7 +310,7 @@ u32 open_singleton__19TWindowKeyBoardSoftFiiii(s32 arg0, s32 arg1, s32 arg2, s32
 
 extern u32 lbl_805D6420;
 
-u32 TWindowKeyBoardSoft__sub_8024EDF8(void) {
+u32 get_or_create_instance__19TWindowKeyBoardSoftFv(void) {
     u32 temp_r3;
     u32 var_r0;
     if ((u32) lbl_805D6420 != 0U) {

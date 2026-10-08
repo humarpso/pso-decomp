@@ -49,7 +49,7 @@ s32 queue_destruction__7TObjectFv(void *);
 s32 play_sound_effect(int, void *, int, int);
 M2C_UNK get_wing_position__26TBoss5GryphonLightningWingFii(s32, M2C_UNK *);
 s32 update_wing_segments(void *);
-s32 fn_80324E10(void *);
+s32 spawn_gryphon_lightning(void *);
 void apply_lightning_effect__26TBoss5GryphonLightningWingFi(s32 arg0);
 extern const f32 lbl_805DFED4;
 void run_task__26TBoss5GryphonLightningWingFv(u8 *arg0);
@@ -106,7 +106,7 @@ void run_task__26TBoss5GryphonLightningWingFv(u8 *arg0) {
         get_wing_position__26TBoss5GryphonLightningWingFii((s32)((void *) (arg0)), (M2C_UNK *)((void *) (&stack.sp8)));
         play_sound_effect((int) (0x40032516), (void *) (&stack.sp8), (int) (0), (int) (0));
     }
-    fn_80324E10((void *) (arg0));
+    spawn_gryphon_lightning((void *) (arg0));
     if ((s32) M2C_FIELD(arg0, s32 *, 0x94) >= (s32) M2C_FIELD(arg0, s32 *, 0x9C)) {
         queue_destruction__7TObjectFv((void *) (arg0));
     }

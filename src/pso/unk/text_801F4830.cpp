@@ -7,13 +7,13 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 extern "C" {
 
 void dispatch_by_main_phase__14TBoss4DarkFalzFUs(u16 arg0);
-M2C_UNK TLobby__sub_801F37CC(int, M2C_UNK);
+M2C_UNK send_6x75_quest_flag_cur_difficulty__6TLobbyFss(int, M2C_UNK);
 M2C_UNK set_story_flag(u16);
 s32 get_main_phase();
 
 void dispatch_by_main_phase__14TBoss4DarkFalzFUs(u16 arg0) {
     if (get_main_phase() == 0xF) {
-        TLobby__sub_801F37CC(arg0, 0);
+        send_6x75_quest_flag_cur_difficulty__6TLobbyFss(arg0, 0);
         return;
     }
     set_story_flag(arg0);

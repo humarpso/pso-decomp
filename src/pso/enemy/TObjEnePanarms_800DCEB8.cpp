@@ -185,7 +185,7 @@ s32 project_actor_to_ground(void *, void *, int);
 extern const f32 TObjEnePanarms__data_805DA4A4;
 void TObjEnePanarms__sub_800DECC4(Obj_800DECC4 *self);
 void request_destroy__11TBoss4Type2FUi(u32);
-void TObjEnePanarms__sub_800DF1B8(Obj_800DF1B8 *self);
+void destroy_handles__14TObjEnePanarmsFPv(Obj_800DF1B8 *self);
 u16 find_nearest_visible_player(void *, f32 *, f32);
 f64 get_ad_end_text_start__10TObjPlayerFv(f32, f32);
 extern const f64 TObjEnePanarms__data_8043CD20;
@@ -209,7 +209,7 @@ extern const f64 TObjEnePanarms__data_8043CD20;
 extern const f32 lbl_805DA4B4;
 extern const f32 lbl_805DA4F4;
 u16 turn_to_nearest_player__14TObjEnePanarmsFPvii(Obj_800DEA88 *arg0, s32 arg1, s32 arg2);
-void TObjEnePanarms__sub_800DF1B8(Obj_800DF1B8 *self);
+void destroy_handles__14TObjEnePanarmsFPv(Obj_800DF1B8 *self);
 extern Ent_800DED30 lbl_8049515C[];
 void set_state__14TObjEnePanarmsFPvi(Obj_800DED30 *arg0, s32 arg1);
 u8 *alloc__23TAdSinglePlyChrSelectGCFPv(s32);
@@ -1115,7 +1115,7 @@ void set_state__14TObjEnePanarmsFPvi(Obj_800DED30 *arg0, s32 arg1) {
     if (arg0->f374 < 0 || arg0->f374 >= 14) {
         return;
     }
-    TObjEnePanarms__sub_800DF1B8((Obj_800DF1B8 *)(arg0));
+    destroy_handles__14TObjEnePanarmsFPv((Obj_800DF1B8 *)(arg0));
     PMF_800DED30 p = lbl_8049515C[arg0->f374].fn;
     if (p) {
         (arg0->*p)();
@@ -1126,7 +1126,7 @@ void TObjEnePanarms__sub_800DEEF8(void* p) { push_matrix(p); post_translate_matr
 
 extern u32 TObjEnePanarms__data_805D5278;
 
-void TObjEnePanarms__sub_800DF1B8(Obj_800DF1B8 *self) {
+void destroy_handles__14TObjEnePanarmsFPv(Obj_800DF1B8 *self) {
     s32 i;
     for (i = 0; i < 2; i++) {
         if (self->handles[i] != 0) {

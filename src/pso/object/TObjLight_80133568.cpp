@@ -141,7 +141,7 @@ M2C_UNK GXInitLightDir(M2C_UNK *, f32, f32, f32);
 M2C_UNK init_distant_light(M2C_UNK, f32, f32, f32);
 extern RecoveredGlobal_801336E0_TObjLight__data_80506320 TObjLight__data_80506320;
 extern M2C_UNK TObjLight__data_8058D528[];
-void TObjLight__sub_801337A0(void);
+void init_directional_light__9TObjLightFv(void);
 M2C_UNK set_gx_light_color(M2C_UNK, f32, f32, f32);
 extern RecoveredGlobal_801336E0_TObjLight__data_80506320 TObjLight__data_80506320;
 M2C_UNK GXInitLightDir(M2C_UNK *, f32, f32, f32);
@@ -209,7 +209,7 @@ void init_area_lights(void);
 extern void *TObjLight__data_80506370[3];
 extern s32 TObjLight__data_805D5568;
 void __dl__FPv(void *);
-void TObjLight__sub_801335F0(void *p);
+void unregister_and_free__9TObjLightFPv(void *p);
 extern u32 TObjLight__data_805D5574;
 extern s32 lbl_805D5578;
 extern char lbl_8043ED80[];
@@ -315,7 +315,7 @@ void* init_light__9TObjLightFPvi(void* a0, int a1) { *(int*)((char*)a0 + 0x0) = 
 
 void TObjLight__sub_801335EC(void) {  }
 
-void TObjLight__sub_801335F0(void *p) {
+void unregister_and_free__9TObjLightFPv(void *p) {
     s32 i;
     void **q = TObjLight__data_80506370;
     for (i = 0; i < 3; i++) {
@@ -376,7 +376,7 @@ void TObjLight__sub_8013379C(void) {  }
 
 typedef char RecoveredGlobal_801337A0_TObjLight__data_80506320_size[sizeof(RecoveredGlobal_801337A0_TObjLight__data_80506320) == 0x50 ? 1 : -1];
 typedef char RecoveredGlobal_801337A0_TObjLight__data_8058D528_size[sizeof(RecoveredGlobal_801337A0_TObjLight__data_8058D528) == 0x140 ? 1 : -1];
-void TObjLight__sub_801337A0(void) {
+void init_directional_light__9TObjLightFv(void) {
     init_distant_light((M2C_UNK)(0), M2C_FIELD(&(*(RecoveredGlobal_801337A0_TObjLight__data_80506320 *)&TObjLight__data_80506320).value, f32 *, 0xC), M2C_FIELD(&(*(RecoveredGlobal_801337A0_TObjLight__data_80506320 *)&TObjLight__data_80506320).value, f32 *, 0x10), M2C_FIELD(&(*(RecoveredGlobal_801337A0_TObjLight__data_80506320 *)&TObjLight__data_80506320).value, f32 *, 0x14));
     GXInitLightDir((M2C_UNK *)(&(*(RecoveredGlobal_801337A0_TObjLight__data_8058D528 *)&TObjLight__data_8058D528).value), M2C_FIELD(&(*(RecoveredGlobal_801337A0_TObjLight__data_80506320 *)&TObjLight__data_80506320).value, f32 *, 0xC), M2C_FIELD(&(*(RecoveredGlobal_801337A0_TObjLight__data_80506320 *)&TObjLight__data_80506320).value, f32 *, 0x10), M2C_FIELD(&(*(RecoveredGlobal_801337A0_TObjLight__data_80506320 *)&TObjLight__data_80506320).value, f32 *, 0x14));
 }

@@ -97,7 +97,7 @@ extern const f32 TBoss7Crawfish__data_805DF0D8;
 s32 TBoss7Crawfish__sub_80308AA8(u8 *arg0);
 s32 spawn_particle_effect(void *, int);
 extern const f32 TBoss7Crawfish__data_805DF0D8;
-void TBoss7Crawfish__sub_80308910(u8 *arg0);
+void spawn_ground_effects__14TBoss7CrawfishFPv(u8 *arg0);
 s32 exchange_object_state__6TLobbyFPvis(void *, void *, int);
 void TBoss7Crawfish__sub_80308B38(s32 arg0);
 s32 get_mode__11TCameraCtrlFPv(void *);
@@ -205,7 +205,7 @@ block_5:
 
 void free_child__14TBoss7CrawfishFPv(void* p) { if (*(unsigned int*)((char*)p + 0x3cc) != 0) { queue_destruction__7TObjectFv((void*)(*(void**)((char*)p + 0x3cc))); *(int*)((char*)p + 0x3cc) = 0; } }
 
-void TBoss7Crawfish__sub_80308910(u8 *arg0) {
+void spawn_ground_effects__14TBoss7CrawfishFPv(u8 *arg0) {
     Vec position;
     position.x = M2C_FIELD(arg0, f32 *, 0x38);
     position.y = TBoss7Crawfish__data_805DF0D8;
@@ -270,7 +270,7 @@ void TBoss7Crawfish__sub_80308B38(s32 arg0) {
 
 void check_band_and_destroy__14TBoss7CrawfishFi(s32 arg0) {
     if (objInBand__FP7GameObjf(arg0, lbl_805DF0EC) != 0) {
-        TBoss7Crawfish__sub_80308910((u8 *)(arg0));
+        spawn_ground_effects__14TBoss7CrawfishFPv((u8 *)(arg0));
     }
     if (TBoss7Crawfish__data_805DF0D8 == get_health__14TBoss7CrawfishFPv(arg0)) {
         queue_destruction__7TObjectFv((void*)(arg0));

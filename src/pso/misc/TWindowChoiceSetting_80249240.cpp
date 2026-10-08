@@ -35,7 +35,7 @@ s32 draw__20TWindowChoiceSettingFPv(void *);
 s32 move_next_choice__20TWindowChoiceSettingFPv(void *);
 s32 move_cursor_prev__20TWindowChoiceSettingFPv(void *);
 s32 TWindowChoiceSetting__sub_802689EC(void *);
-s32 TWindowChoiceSetting__sub_80268A6C(void *);
+s32 clamp_scroll__20TWindowChoiceSettingFPv(void *);
 s32 increment_counter__20TWindowSubStatusDispFPv(int);
 s32 update_subwindow__20TWindowSubStatusDispFPv(int);
 extern RecoveredGlobal_802492C8_lbl_8050E208 lbl_8050E208;
@@ -116,7 +116,7 @@ void run_task__20TWindowChoiceSettingFv(u8 *arg0) {
     fn_80249078((void *) (arg0));
     step_window_tween((void *) (arg0));
     TWindowChoiceSetting__sub_802689EC((void *) (arg0));
-    TWindowChoiceSetting__sub_80268A6C((void *) (arg0));
+    clamp_scroll__20TWindowChoiceSettingFPv((void *) (arg0));
     update_window_entry_list((void *) (arg0), (void *) (arg0 + 0x24));
 }
 

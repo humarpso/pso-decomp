@@ -60,14 +60,14 @@ s32 TWindowKeyBoardSoft__sub_80080B34(F_80080B34 *arg0);
 
 extern "C" {
 
-void TWindowKeyBoardSoft__sub_80080798(F_80080798 *arg0, u8 *arg1);
+void append_text__19TWindowKeyBoardSoftFPvPv(F_80080798 *arg0, u8 *arg1);
 s32 TWindowKeyBoardSoft__sub_80080F68(F_80080F68 *arg0, u16 arg1);
 void delete_char__19TWindowKeyBoardSoftFPv(u8 *arg0);
 void delete_chars__19TWindowKeyBoardSoftFPvii(u8 *arg0, s32 arg1, s32 arg2);
 void reset_state__19TWindowKeyBoardSoftFPv(void *arg0);
 void clear_flag4_bit4__22TQuestVmDownLoadServerFPv(void* p);
 
-void TWindowKeyBoardSoft__sub_80080798(F_80080798 *arg0, u8 *arg1) {
+void append_text__19TWindowKeyBoardSoftFPvPv(F_80080798 *arg0, u8 *arg1) {
     u8 c;
 
     if (arg1 == NULL) {

@@ -91,7 +91,7 @@ extern int TQuestListOnline__data_805D61A4;
 extern int TQuestListOnline__data_805D61A8;
 extern int lbl_805D61AC;
 extern s32 TQuestListOnline__data_805D61E0;
-void TQuestListOnline__sub_802155B4(void);
+void init_download_buffers__16TQuestListOnlineFv(void);
 int memset(void*, void*, void*);
 s32 safe_free__23TAdSinglePlyChrSelectGCFUi(int);
 s32 free__11TOBoss4RockFUi(int);
@@ -361,7 +361,7 @@ void release_resources__16TQuestListOnlineFv(void) {
     TQuestListOnline__data_805D61E0 = 0;
 }
 
-void TQuestListOnline__sub_802155B4(void) {
+void init_download_buffers__16TQuestListOnlineFv(void) {
     (*(s32 *)&TQuestListOnline__data_805D6190) = alloc__22TQuestVmDownLoadServerFPv((void *)0x11D4);
     TQuestListOnline__data_805D6194 = alloc__22TQuestVmDownLoadServerFPv((void *)0x124);
     (*(s32 *)&TQuestListOnline__data_805D61A0) = 0;

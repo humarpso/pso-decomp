@@ -39,7 +39,7 @@ extern u32 lbl_805D6CE0;
 extern u32 lbl_805D6CE4;
 extern int lbl_805D6CEC;
 extern s32 lbl_805D6CF4;
-s32 TAdWarningBaseGC__sub_8032D030(s32 arg0, s32 arg1);
+s32 post_aram_request__16TAdWarningBaseGCFii(s32 arg0, s32 arg1);
 }
 
 extern "C" {
@@ -73,7 +73,7 @@ void TAdWarningBaseGC__sub_8032CE3C(u8 *arg0) {
         temp_r4 = M2C_FIELD(temp_r3, s32 *, 0x34);
         if (temp_r4 > 0) {
             temp_r3_2 = M2C_FIELD(temp_r3, u32 *, 0x38);
-            if ((temp_r3_2 != 0U) && (TAdWarningBaseGC__sub_8032D030((s32)((s32) temp_r3_2), (s32)(temp_r4)) != 0)) {
+            if ((temp_r3_2 != 0U) && (post_aram_request__16TAdWarningBaseGCFii((s32)((s32) temp_r3_2), (s32)(temp_r4)) != 0)) {
                 M2C_FIELD(arg0, s32 *, 0x1C) = 2;
                 return;
             }
@@ -121,7 +121,7 @@ int TAdWarningBaseGC__sub_8032D020(void) {  return ((lbl_805D6CEC + 0x1f) & 0xff
 
 extern M2C_UNK lbl_804EDBD0[];
 
-s32 TAdWarningBaseGC__sub_8032D030(s32 arg0, s32 arg1) {
+s32 post_aram_request__16TAdWarningBaseGCFii(s32 arg0, s32 arg1) {
     u32 size;
     size = (arg1 + 0x1F) & ~0x1F;
     (*(s32 *)&lbl_805D6CEC) = arg1;

@@ -63,7 +63,7 @@ s32 get_lobby_type__6TLobbyFv(void);
 extern RecoveredGlobal_80364A1C_lbl_804F2B18 lbl_804F2B18;
 extern u32 TObjTreeLobby__data_805D6FC0;
 extern s32 lbl_805D6FC4;
-void TObjTreeLobby__sub_80364A1C(void);
+void load_resources__13TObjTreeLobbyFv(void);
 s32 is_connected__6TLobbyFv();
 s32 is_lobby_obj_active__6TLobbyFv();
 void run_task__13TObjTreeLobbyFv(Obj_803648B8 *self);
@@ -167,7 +167,7 @@ void destroy_static_instance__13TObjTreeLobbyFv(void) {
         TObjTreeLobby__data_805D6FC0 = 0U;
     }
 }
-void TObjTreeLobby__sub_80364A1C(void) {
+void load_resources__13TObjTreeLobbyFv(void) {
     s32 temp_r3;
     s32 var_r0;
     temp_r3 = alloc__23TAdSinglePlyChrSelectGCFPv((void *)0x440);

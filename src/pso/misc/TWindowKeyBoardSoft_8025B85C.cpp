@@ -79,7 +79,7 @@ s32 convert_input_text__19TWindowKeyBoardSoftFPv(void *);
 s32 TWindowKeyBoardSoft__sub_803E67D4(void *, void *);
 void TWindowKeyBoardSoft__vt8(u8 *arg0);
 s32 get_shared_text_buffer();
-M2C_UNK TWindowKeyBoardSoft__sub_80080798(void *, s32);
+M2C_UNK append_text__19TWindowKeyBoardSoftFPvPv(void *, s32);
 M2C_UNK text_builder_append(M2C_UNK *);
 M2C_UNK text_builder_reset();
 M2C_UNK *TWindowCtrl__sub_8024B7D4(s32);
@@ -95,7 +95,7 @@ M2C_UNK delete_char__19TWindowKeyBoardSoftFPv(void *);
 void init__19TWindowKeyBoardSoftFPv(u8 *arg0);
 s32 update__19TWindowKeyBoardSoftFPv(void *);
 void handle_backspace__19TWindowKeyBoardSoftFPv(u8 *arg0);
-bool TWindowKeyBoardSoft__sub_8025B85C(u16 arg0);
+bool is_alnum__19TWindowKeyBoardSoftFUs(u16 arg0);
 extern s32 lbl_805D5544;
 u16 map_char_to_font_code(u16);
 u8 get_font_char_advance(u16);
@@ -104,7 +104,7 @@ void export_keyboard_text(Base_8025C974 *base, char *out);
 s32 measure_char_overflow__19TWindowKeyBoardSoftFPvUsPvPvPv(Field_8025C974 *, u16, u32 *, u32 *, u32 *);
 s32 TWindowKeyBoardSoft__sub_8025CA70(Base_8025C974 *arg0);
 M2C_UNK TWindowKeyBoardSoft__sub_800808FC(int, int);
-bool TWindowKeyBoardSoft__sub_8025B85C(u16 arg0);
+bool is_alnum__19TWindowKeyBoardSoftFUs(u16 arg0);
 M2C_UNK TWindowKeyBoardSoft__sub_8025C804(void *);
 M2C_UNK TWindowKeyBoardSoft__sub_8025DBDC(void *, M2C_UNK);
 extern s32 lbl_805D5544;
@@ -128,7 +128,7 @@ int is_flag_4_set__17TWindowSubComCardFPv(void* p);
 M2C_UNK reset_state__19TWindowKeyBoardSoftFPv(void *);
 s32 select_next__19TWindowKeyBoardSoftFPv();
 
-bool TWindowKeyBoardSoft__sub_8025B85C(u16 arg0) {
+bool is_alnum__19TWindowKeyBoardSoftFUs(u16 arg0) {
     if ((s32) arg0 < 0x30) {
         return 0;
     }
@@ -602,7 +602,7 @@ void TWindowKeyBoardSoft__sub_8025C51C(u8 *arg0, s32 arg1) {
                 text_builder_append(&lbl_805DD034);
             }
         }
-        TWindowKeyBoardSoft__sub_80080798(arg0 + 0x6C, get_shared_text_buffer());
+        append_text__19TWindowKeyBoardSoftFPvPv(arg0 + 0x6C, get_shared_text_buffer());
     }
 }
 
@@ -632,7 +632,7 @@ void TWindowKeyBoardSoft__sub_8025C618(u8 *arg0, u16 arg1) {
     if ((f & 0x80) && !((s32)arg1 >= 0x41 && (s32)arg1 <= 0x5A)) {
         return;
     }
-    if ((f & 0x100) && ((s32 (*)(u16))TWindowKeyBoardSoft__sub_8025B85C)(arg1) == 0) {
+    if ((f & 0x100) && ((s32 (*)(u16))is_alnum__19TWindowKeyBoardSoftFUs)(arg1) == 0) {
         return;
     }
     f = M2C_FIELD(arg0, s32 *, 0xB4);

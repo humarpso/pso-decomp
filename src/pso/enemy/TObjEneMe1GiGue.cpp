@@ -1128,7 +1128,7 @@ void action__15TObjEneMe1GiGueFPv(void *arg0);
 void apply_hit_shake__15TObjEneMe1GiGueFPvUi(void *arg0, u32 arg1);
 void init_move__15TObjEneMe1GiGueFPv(u8 *arg0);
 M2C_UNK advance_animation_playback(void *);
-M2C_UNK TObjEneMe1GiGueBarrier__sub_80325CC4(void *, void *);
+M2C_UNK create__22TObjEneMe1GiGueBarrierFPvPv(void *, void *);
 M2C_UNK enemy_wander_home(void *, s32, f32, f32, f32);
 M2C_UNK refresh_collision_body_centers(void *);
 u32 get_player_by_client_id(M2C_UNK);
@@ -1563,7 +1563,7 @@ void action__15TObjEneMe1GiGueFPv(void *arg0) {
         M2C_FIELD(arg0, s32 *, 0x37C) = 1;
         return;
     case 1:
-        TObjEneMe1GiGueBarrier__sub_80325CC4(arg0, arg0);
+        create__22TObjEneMe1GiGueBarrierFPvPv(arg0, arg0);
         M2C_FIELD(arg0, s32 *, 0x37C) = 2;
         M2C_FIELD(arg0, s32 *, 0x384) = 0x2D;
         advance_animation_playback(arg0);

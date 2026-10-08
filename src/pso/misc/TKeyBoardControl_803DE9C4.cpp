@@ -78,7 +78,7 @@ extern u32 lbl_805D7770;
 extern u32 lbl_805D7774;
 void PSMTXIdentity(void *);
 void move_data__6TLobbyFv(u32, void *, s32);
-void TObjPlayer__sub_803DEC98(s32 arg0, s32 arg1);
+void init_matrix_stack__10TObjPlayerFii(s32 arg0, s32 arg1);
 extern RecoveredGlobal_803DEB74_lbl_8058D8E0 lbl_8058D8E0;
 s16 TKeyBoardControl__sub_803DEC10(s16 x);
 M2C_UNK Dolphin_PADRead(void *, void *);
@@ -233,7 +233,7 @@ void clamp_axes__16TKeyBoardControlFPv(u8 *arg0) {
 
 extern s32 some_id_805c6f74;
 
-void TObjPlayer__sub_803DEC98(s32 arg0, s32 arg1) {
+void init_matrix_stack__10TObjPlayerFii(s32 arg0, s32 arg1) {
     lbl_805D7770 = 0xE0000000;
     lbl_805D7774 = 0xE0000000;
     lbl_805D776C = (arg1 - 1) * 0x30 + 0xE0000000;

@@ -32,7 +32,7 @@ extern f32 lbl_805D93D0;
 void TObjPlayer__sub_80083480(void* p);
 void TObjPlayer__sub_800834B0(void);
 void *TObjPlayer__sub_800834B4(void *arg0, s16 arg1);
-int TObjPlayer__sub_80141448(void*);
+int set_tev_swap_mode__10TObjPlayerFUc(void*);
 void __dl__7TObjectFPv(void *);
 void __dt__7TObjectFv(void *, int);
 s32 get_camera_flag__10TObjPlayerFv(void);
@@ -79,7 +79,7 @@ void update_camera_effect__10TObjPlayerFPv(void *arg0) {
         }
     }
 }
-void TObjPlayer__sub_80083480(void* p) { if (get_camera_flag__10TObjPlayerFv() != 0) { TObjPlayer__sub_80141448((void*)0); } }
+void TObjPlayer__sub_80083480(void* p) { if (get_camera_flag__10TObjPlayerFv() != 0) { set_tev_swap_mode__10TObjPlayerFUc((void*)0); } }
 void TObjPlayer__sub_800834B0(void) {  }
 void *TObjPlayer__sub_800834B4(void *arg0, s16 arg1) {
     if (arg0 != NULL) {

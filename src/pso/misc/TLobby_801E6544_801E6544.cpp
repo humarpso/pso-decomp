@@ -104,7 +104,7 @@ void append_card_window_text__6TLobbyFv(void);
 void capture_chat_sensor__6TLobbyFi(s32 arg0);
 s32 parse_f_index(s32 a0);
 int sscanf(M2C_UNK, M2C_UNK *, ...);
-M2C_UNK TOChatSensorCapture__sub_8015A99C(u16, s32);
+M2C_UNK capture_message__19TOChatSensorCaptureFUsPv(u16, s32);
 M2C_UNK TOChatSensor__sub_8015B108();
 M2C_UNK append_string(void *);
 u32 get_card_window__17TWindowSubComCardFUi(int);
@@ -113,7 +113,7 @@ extern s32 lbl_805D53A0;
 
 void capture_chat_sensor__6TLobbyFi(s32 arg0) {
     TOChatSensor__sub_8015B108();
-    TOChatSensorCapture__sub_8015A99C((u16) lbl_805D53A0, arg0);
+    capture_message__19TOChatSensorCaptureFUsPv((u16) lbl_805D53A0, arg0);
 }
 
 extern M2C_UNK lbl_80449C6C[];

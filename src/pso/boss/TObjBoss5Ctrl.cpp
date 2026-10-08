@@ -18,8 +18,8 @@ s32 get_current_floor(f32, f32, f32);
 s32 is_room_enemy_set_cleared(M2C_UNK, s32);
 u32 create__19TObjBoss5FloorStoneFv();
 u32 create__19TObjBoss5FloorGrassFv();
-u32 TObjBoss5PillarDemo__sub_8028AC8C();
-u32 TObjBoss5PillarCtrl__sub_8028B324(void *);
+u32 create__19TObjBoss5PillarDemoFv();
+u32 create__19TObjBoss5PillarCtrlFPv(void *);
 s32 is_split_screen();
 extern void *__vt__13TObjBoss5Ctrl[];
 extern s32 lbl_805D2828;
@@ -70,11 +70,11 @@ void *TObjBoss5Ctrl__ct(void *arg0) {
                 M2C_FIELD(arg0, u32 *, 0x20) = create__19TObjBoss5FloorStoneFv();
             }
             if ((u32) M2C_FIELD(arg0, u32 *, 0x24) == 0U) {
-                M2C_FIELD(arg0, u32 *, 0x24) = TObjBoss5PillarCtrl__sub_8028B324(arg0);
+                M2C_FIELD(arg0, u32 *, 0x24) = create__19TObjBoss5PillarCtrlFPv(arg0);
             }
         }
         if ((u32) M2C_FIELD(arg0, u32 *, 0x28) == 0U) {
-            M2C_FIELD(arg0, u32 *, 0x28) = TObjBoss5PillarDemo__sub_8028AC8C();
+            M2C_FIELD(arg0, u32 *, 0x28) = create__19TObjBoss5PillarDemoFv();
         }
     }
     return arg0;

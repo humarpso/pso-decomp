@@ -122,7 +122,7 @@ u8 *find_entity_by_id(u16);
 extern const f32 lbl_805DCBD8;
 extern const f32 lbl_805DCBDC;
 void get_speaker_balloon_anchor__11TWindowCtrlFPviPvPv(Ctrl_8024A928 *arg0, s32 arg1, f32 *arg2, s32 *arg3);
-void TOChatSensorCapture__sub_8015A99C(u16 arg0, const char *arg1);
+void capture_message__19TOChatSensorCaptureFUsPv(u16 arg0, const char *arg1);
 void *get_player_by_client_id(s32);
 char *skip_name_prefix__11TWindowCtrlFPvPv(void *self, char *s);
 s32 open__11TWindowCtrlFiii(s32 arg0, s32 arg1, s32 arg2);
@@ -475,7 +475,7 @@ void handle_chat_message__11TWindowCtrlFPvPv(Obj_8024AA08 *arg0, char *arg1) {
         }
         if (i < 12) {
             u16 slot = i;
-            TOChatSensorCapture__sub_8015A99C(slot, v);
+            capture_message__19TOChatSensorCaptureFUsPv(slot, v);
             open__11TWindowCtrlFiii(slot, (s32)v, 0xCB);
         }
     }

@@ -19,7 +19,7 @@ void TObjEneMorfosArm__sub_8033542C(void) {  }
 
 extern s32 lbl_805D6D38;
 
-void * TObjEneMorfosArm__sub_80335430(void *arg0, void *arg1) {
+void * create__16TObjEneMorfosArmFPvPv(void *arg0, void *arg1) {
     void *o;
     o = __nw__7TObjectFUl(0x104);
     if (o != NULL) {

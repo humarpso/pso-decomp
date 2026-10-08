@@ -55,7 +55,7 @@ extern const f32 lbl_805DD784;
 void run_task__28TWindowSubSymbolChatFaceTypeFv(u8 *arg0);
 s32 get_array_entry__20TWindowSubStatusDispFPvi(void *, int);
 s32 get_parts_entry__28TWindowSubSymbolChatPartsSetFi(int);
-void TWindowSubSymbolChatFaceType__sub_80283FA8(Win_80283FA8 *arg0);
+void update_parts_entries__28TWindowSubSymbolChatFaceTypeFPv(Win_80283FA8 *arg0);
 }
 
 extern "C" {
@@ -106,7 +106,7 @@ void TWindowSubSymbolChatFaceType__sub_80283F38(u8 *arg0, u8 *arg1) {
   TWindowSubSymbolChatFaceType__sub_80283C84(arg1, &stack.sp8, lbl_805DD77C, lbl_805DD780);
 }
 
-void TWindowSubSymbolChatFaceType__sub_80283FA8(Win_80283FA8 *arg0) {
+void update_parts_entries__28TWindowSubSymbolChatFaceTypeFPv(Win_80283FA8 *arg0) {
     s32 i;
     for (i = 0; i < 4; i++) {
         Ent_80283FA8 *e = (Ent_80283FA8 *)get_array_entry__20TWindowSubStatusDispFPvi(arg0, i);
@@ -117,7 +117,7 @@ void TWindowSubSymbolChatFaceType__sub_80283FA8(Win_80283FA8 *arg0) {
 void render__28TWindowSubSymbolChatFaceTypeFv(u8 *arg0) {
     s32 temp_r31;
     temp_r31 = draw_default_entry__9TWindowDDFi();
-    TWindowSubSymbolChatFaceType__sub_80283FA8((Win_80283FA8 *)((void *) (arg0)));
+    update_parts_entries__28TWindowSubSymbolChatFaceTypeFPv((Win_80283FA8 *)((void *) (arg0)));
     draw_window_frame((void *) (arg0), (int) (temp_r31));
     TWindowSubSymbolChatFaceType__sub_80283F38((u8 *)((void *) (arg0)), (u8 *)((int) (temp_r31)));
     forward_render__20TWindowSubStatusDispFPv((int) (M2C_FIELD(arg0, s32 *, 0x68)), (int) (temp_r31));

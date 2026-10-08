@@ -56,7 +56,7 @@ s32 get_lobby_type__6TLobbyFv(void);
 extern RecoveredGlobal_8035BEB8_lbl_804F1DF4 lbl_804F1DF4;
 extern u32 TObjWeddingLobby__data_805D6F60;
 extern u32 lbl_805D6F64;
-void TObjWeddingLobby__sub_8035BEB8(void);
+void load_resources__16TObjWeddingLobbyFv(void);
 s32 init_map_object_base(void *, void *);
 s32 get_filtered_event_theme__6TLobbyFv();
 extern M2C_UNK __vt__16TObjWeddingLobby[];
@@ -169,7 +169,7 @@ void release__16TObjWeddingLobbyFv(void) {
 
 extern M2C_UNK __vt__16TObjWeddingLobby[];
 
-void TObjWeddingLobby__sub_8035BEB8(void) {
+void load_resources__16TObjWeddingLobbyFv(void) {
     s32 temp_r3;
     s32 var_r0;
     temp_r3 = alloc__23TAdSinglePlyChrSelectGCFPv((void *)0x440);

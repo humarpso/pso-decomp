@@ -420,7 +420,7 @@ extern u8 lbl_8058D490[];
 void compute_follow_target__11TCameraCtrlFPv(Cam_8006E170 *self);
 s32 is_split_screen();
 void get_dragon_follow_camera_offsets(Vec_8006D9F0 *, Vec_8006D9F0 *);
-void TBoss8Dragon__sub_80065EA0(Vec_8006D9F0 *, Vec_8006D9F0 *);
+void get_follow_camera_offsets__12TBoss8DragonFPvPv(Vec_8006D9F0 *, Vec_8006D9F0 *);
 s32 get_camera_id__11TCameraCtrlFv();
 void request_follow_camera_offsets(void *arg0, void *arg1, u16 arg2);
 s32 get_global_state__14TOKeyMachine01Fv();
@@ -891,7 +891,7 @@ void select_follow_camera_offsets(Cam_8006D9F0 *arg0) {
     } else if (state == 30) {
         Vec_8006D9F0 b;
         Vec_8006D9F0 a;
-        TBoss8Dragon__sub_80065EA0(&a, &b);
+        get_follow_camera_offsets__12TBoss8DragonFPvPv(&a, &b);
         request_follow_camera_offsets(&a, &b, 0xFFFF);
     } else if (state == 33) {
         Vec_8006D9F0 b;

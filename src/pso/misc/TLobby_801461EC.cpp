@@ -56,7 +56,7 @@ void call_146CA0_with_5708__6TLobbyFv(void);
 void* TLobby__sub_80146D68(int a0);
 void TLobby__sub_8014715C(void* p, void* q);
 M2C_UNK TLobby__sub_8040A3C0();
-M2C_UNK TLobby__sub_8040AD64();
+M2C_UNK clear_all_used_records__6TLobbyFv();
 extern s32 lbl_805D570C;
 void teardown_boss2__6TLobbyFv(void);
 s32 is_state_active__6TLobbyFv(void);
@@ -198,7 +198,7 @@ int TLobby__sub_803F4B68(void*);
 M2C_UNK cleanup_subsystems__6TLobbyFv();
 M2C_UNK TLobby__sub_804219D0(M2C_UNK, M2C_UNK, s32);
 M2C_UNK TLobby__sub_80421A50(M2C_UNK, M2C_UNK, s32);
-s16 TLobby__sub_80426BD8();
+s16 query_link_status__6TLobbyFv();
 s8 func_801A5E54__Fv();
 s32 get_task_count__6TLobbyFv();
 M2C_UNK send_and_handle__6TLobbyFPv();
@@ -238,7 +238,7 @@ loop_1:
     if (func_801A5E54__Fv() != 0) {
         return 1;
     }
-    if (TLobby__sub_80426BD8() == 1) {
+    if (query_link_status__6TLobbyFv() == 1) {
         return 2;
     }
     goto loop_1;
@@ -571,7 +571,7 @@ void load_network_configs__6TLobbyFv(void) {
 void TLobby__sub_8014715C(void* p, void* q) { *(u32*)((char*)p + 0x0) = *(u32*)((char*)q + 0x0); }
 void teardown_boss2__6TLobbyFv(void) {
     if ((s32) lbl_805D570C != 0) {
-        TLobby__sub_8040AD64();
+        clear_all_used_records__6TLobbyFv();
         TLobby__sub_8040A3C0();
         lbl_805D570C = 0;
     }

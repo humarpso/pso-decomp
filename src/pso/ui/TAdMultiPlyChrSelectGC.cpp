@@ -18,7 +18,7 @@ struct O_802E0024 { u8 pad[0x4ac]; s32 tbl[4][3]; u8 pad2[0x4ec - 0x4ac - 0x30];
 extern "C" {
 u8 *__nw__7TObjectFUl(M2C_UNK);
 extern u8 *lbl_805D68D0;
-u8 *TAdMultiPlyChrSelectGC__sub_802DFF78(s32 arg0, s32 arg1);
+u8 *get_or_create__22TAdMultiPlyChrSelectGCFii(s32 arg0, s32 arg1);
 void __ct__7TObjectFP7TObject(void *, void *);
 void create_widgets__22TAdMultiPlyChrSelectGCFPv(void *);
 void handle_event__22TAdMultiPlyChrSelectGCFPvi(void *arg0, s32 arg1);
@@ -182,7 +182,7 @@ u8 *TAdMultiPlyChrSelectGC__ct(u8 *arg0, u8 *arg1, s32 arg2) {
     return arg0;
 }
 
-u8 *TAdMultiPlyChrSelectGC__sub_802DFF78(s32 arg0, s32 arg1) {
+u8 *get_or_create__22TAdMultiPlyChrSelectGCFii(s32 arg0, s32 arg1) {
     u8 *temp_r3;
     u8 *var_r0;
     if ((void *) lbl_805D68D0 != NULL) {

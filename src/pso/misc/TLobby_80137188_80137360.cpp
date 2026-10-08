@@ -30,7 +30,7 @@ extern s32 TLobby__data_805D5590;
 extern s16 TLobby__data_805D558C;
 extern s16 TLobby__data_805D558E;
 extern s32 TLobby__data_805D53AC;
-void TLobby__sub_8013A5D4(Rec_801378AC *dst, Rec_801378AC *src);
+void copy_member_record__6TLobbyFPvPv(Rec_801378AC *dst, Rec_801378AC *src);
 void add_lobby_members__6TLobbyFPvisi(Rec_801378AC *src, s32 n, s16 v, s32 w);
 void dispatch_by_index__6TLobbyFi(s32 arg0);
 void reset_state__6TLobbyFv(s32);
@@ -305,7 +305,7 @@ void add_lobby_members__6TLobbyFPvisi(Rec_801378AC *src, s32 n, s16 v, s32 w) {
     TLobby__data_805D5590 = 2;
     TLobby__data_805D558C = v;
     for (i = TLobby__data_805D558E; i < TLobby__data_805D558E + n; i++) {
-        TLobby__sub_8013A5D4(&TLobby__data_80506A6C[i], &src[i]);
+        copy_member_record__6TLobbyFPvPv(&TLobby__data_80506A6C[i], &src[i]);
     }
     TLobby__data_805D558E += n;
     TLobby__data_805D53AC = w;

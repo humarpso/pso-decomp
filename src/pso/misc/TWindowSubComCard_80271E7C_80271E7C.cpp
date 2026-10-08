@@ -51,7 +51,7 @@ void send_cmd_133__17TWindowSubComCardFv(void);
 void send_command__17TWindowSubComCardFi(s32 arg0);
 void send_state_if_dirty__17TWindowSubComCardFPv(u8 *arg0);
 int TLobby__sub_802421C4(void);
-s32 TWindowComCard__sub_80249980(s32 a0 = 0, s32 a1 = 0, s32 a2 = 0);
+s32 create_for_card__14TWindowComCardFiii(s32 a0 = 0, s32 a1 = 0, s32 a2 = 0);
 s32 TWindowSubComCard__sub_8007A860(s32);
 int get_card_entry__17TWindowSubComCardFi(void);
 s32 get_card_slot__17TWindowSubComCardFi(s32 a0 = 0);
@@ -127,7 +127,7 @@ void apply_selection__17TWindowSubComCardFi(s32 arg0) {
     s32 temp_r31;
 
     temp_r31 = get_card_slot__17TWindowSubComCardFi(0);
-    TWindowComCard__sub_80249980(get_window_layout_position(0x92), arg0, temp_r31);
+    create_for_card__14TWindowComCardFiii(get_window_layout_position(0x92), arg0, temp_r31);
 }
 void send_command__17TWindowSubComCardFi(s32 arg0) {
     create__14TWindowComCardFPvPv(get_window_layout_position(0x86), arg0);

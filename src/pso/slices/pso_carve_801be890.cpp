@@ -10,7 +10,7 @@ struct Inv_801BE890 { s32 f0; Item_801BE890 items[0x1E]; };
 
 extern "C" {
 void init__17TPlyInventoryItemFv(void *);
-Inv_801BE890 *TObjPlayer__sub_801BE890(Inv_801BE890 *arg0);
+Inv_801BE890 *init_inventory_list__10TObjPlayerFPv(Inv_801BE890 *arg0);
 }
 
 extern "C" {
@@ -91,7 +91,7 @@ int TObjPlayer__sub_801BEDA8(void*);
 int TObjPlayer__sub_801BEDB0(void*);
 int TObjPlayer__sub_801BEDB8(void*);
 
-Inv_801BE890 *TObjPlayer__sub_801BE890(Inv_801BE890 *arg0) {
+Inv_801BE890 *init_inventory_list__10TObjPlayerFPv(Inv_801BE890 *arg0) {
     s32 i;
     arg0->f0 = 0;
     for (i = 0; i < 0x1E; i++) {

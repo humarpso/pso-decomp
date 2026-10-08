@@ -706,7 +706,7 @@ s32 clamp_frame_index__9TObjEneDDFi(s32);
 s32 check_v2_mode__9TObjEneDDFv();
 s32 set_field_378__9TObjEneDDFPvi(void *, int);
 s32 transition_enemy_state(void *, int);
-M2C_UNK TObjEneMe3Stelth__sub_800F4700(void *);
+M2C_UNK create_resta_effect__16TObjEneMe3StelthFPv(void *);
 s32 advance_animation_playback(void *);
 M2C_UNK create__10TTecDebandFiii(void *, void *, s32);
 M2C_UNK create__9TTecSiftaFPvPvPv(void *, void *, s32);
@@ -743,7 +743,7 @@ void TObjEneMe3Stelth__sub_800F2C8C(u8 *arg0, s32 arg1) {
         switch (M2C_FIELD(arg0, s32 *, 0x424)) {
         case 0:
             if (((s32 (*)(void *))get_flag_b4__21TObjEneMe3ShinowaRealFPv)(arg0) != 0) {
-                TObjEneMe3Stelth__sub_800F4700(arg0);
+                create_resta_effect__16TObjEneMe3StelthFPv(arg0);
                 if (check_v2_mode__9TObjEneDDFv() != 0) {
                     M2C_FIELD(arg0, s32 *, 0x424) = 2;
                 } else {

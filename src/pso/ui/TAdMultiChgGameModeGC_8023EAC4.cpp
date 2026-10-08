@@ -8,7 +8,7 @@ typedef s32 M2C_UNK;
 extern "C" {
 void *__nw__7TObjectFUl(u32);
 void apply_bgm_col_ctrl__21TAdMultiChgGameModeGCFi(void *);
-s32 TAdMultiPlyChrSelectGC__sub_802DFF78(s32, s32);
+s32 get_or_create__22TAdMultiPlyChrSelectGCFii(s32, s32);
 void *TAdEnterPPPPassGC__ct(void *, s32);
 void *TAdEnterPasswordGC__ct(void *, s32);
 void *TAdEnterSerialAccessGC__ct(void *, s32);
@@ -221,7 +221,7 @@ void create_mode_scene__21TAdMultiChgGameModeGCFv(void) {
         lbl_805D63CC = (s32)p;
         break;
     case 7:
-        lbl_805D63CC = TAdMultiPlyChrSelectGC__sub_802DFF78(tl_01, 0);
+        lbl_805D63CC = get_or_create__22TAdMultiPlyChrSelectGCFii(tl_01, 0);
         break;
     case 8:
         p = __nw__7TObjectFUl(0x468);
@@ -266,7 +266,7 @@ void create_mode_scene__21TAdMultiChgGameModeGCFv(void) {
         lbl_805D63CC = (s32)p;
         break;
     case 14:
-        lbl_805D63CC = TAdMultiPlyChrSelectGC__sub_802DFF78(tl_01, 1);
+        lbl_805D63CC = get_or_create__22TAdMultiPlyChrSelectGCFii(tl_01, 1);
         break;
     case 15:
         p = __nw__7TObjectFUl(0x68);
@@ -332,7 +332,7 @@ void create_mode_scene__21TAdMultiChgGameModeGCFv(void) {
         lbl_805D63CC = (s32)p;
         break;
     case 24:
-        lbl_805D63CC = TAdMultiPlyChrSelectGC__sub_802DFF78(tl_01, 2);
+        lbl_805D63CC = get_or_create__22TAdMultiPlyChrSelectGCFii(tl_01, 2);
         break;
     case 25:
         p = __nw__7TObjectFUl(0x44);

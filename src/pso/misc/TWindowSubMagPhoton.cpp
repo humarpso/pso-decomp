@@ -58,7 +58,7 @@ void update_selection_input__19TWindowSubMagPhotonFPv(u8 *arg0);
 void get_cursor_origin__19TWindowSubMagPhotonFPvPv(void *, void *);
 void draw_cursor_sprite__21TWindowSubCustomEquipFPvPvif(void *, void *, int, f32);
 extern const f32 lbl_805DD680;
-M2C_UNK TWindowSubMagPhoton__sub_8027C4C8(void *arg0, int arg1);
+M2C_UNK draw_cursor__19TWindowSubMagPhotonFPvi(void *arg0, int arg1);
 s32 test_card_flag_2__12TBoss8DragonFPv(int);
 s32 get_message_10__20TWindowSubStatusDispFPv(M2C_UNK);
 s32 fn_801A51F0(int);
@@ -155,7 +155,7 @@ void update_selection_input__19TWindowSubMagPhotonFPv(u8 *arg0) {
     }
 }
 
-M2C_UNK TWindowSubMagPhoton__sub_8027C4C8(void *arg0, int arg1) {
+M2C_UNK draw_cursor__19TWindowSubMagPhotonFPvi(void *arg0, int arg1) {
     u8 sp8[16];
     get_cursor_origin__19TWindowSubMagPhotonFPvPv(arg0, sp8);
     ((void (*)(f32, void *, void *, int))draw_cursor_sprite__21TWindowSubCustomEquipFPvPvif)(lbl_805DD680, (void *)arg1, sp8, ((Win_8027C4C8 *)arg0)->f62);
@@ -166,7 +166,7 @@ void render__19TWindowSubMagPhotonFv(s32 arg0) {
     temp_r3 = draw_default_entry__9TWindowDDFi();
     draw_window_frame((void *) (arg0), (int) (temp_r3));
     draw_visible_window_entries((void *) (arg0), (void *) (arg0 + 0x24), (int) (temp_r3));
-    TWindowSubMagPhoton__sub_8027C4C8((void *)((void *) (arg0)), (int)((int) (temp_r3)));
+    draw_cursor__19TWindowSubMagPhotonFPvi((void *)((void *) (arg0)), (int)((int) (temp_r3)));
 }
 
 typedef char RecoveredGlobal_8027C56C_lbl_8050E208_size[sizeof(RecoveredGlobal_8027C56C_lbl_8050E208) == 0x1B0 ? 1 : -1];

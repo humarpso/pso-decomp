@@ -14,7 +14,7 @@ void TLobby__sub_80076F48(void *, void *);
 void *get_data_ptr__20TWindowSubSymbolChatFPv(void *);
 void bswap_symbol_chat_packet__20TWindowSubSymbolChatFPv(Pkt_80076E98 *);
 s32 get_player_by_client_id(s32);
-void TWindowCtrl__sub_8024B4E8(s32, void *, s32, s32);
+void open_balloon__11TWindowCtrlFUsPvii(s32, void *, s32, s32);
 void dispatch_by_index__6TLobbyFUsi(u16, void *);
 extern u8 lbl_804FF968[];
 extern s8 lbl_805D4E54;
@@ -35,7 +35,7 @@ void handle_6x07_symbol_chat(Pkt_80076E98 *arg0) {
     ply = get_player_by_client_id(arg0->f4);
     if (ply != 0) {
         dispatch_by_index__6TLobbyFUsi(arg0->f4, p);
-        TWindowCtrl__sub_8024B4E8(obj_getField1c(ply), p, 2, lbl_805D53A0);
+        open_balloon__11TWindowCtrlFUsPvii(obj_getField1c(ply), p, 2, lbl_805D53A0);
         if (*p & 0x200) {
             for (; lbl_805D4E54 >= 1; lbl_805D4E54--) {
             }

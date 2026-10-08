@@ -26,14 +26,14 @@ extern RecoveredGlobal_80198960_lbl_804B8DAC lbl_804B8DAC;
 extern RecoveredGlobal_80198960_lbl_8050DD58 lbl_8050DD58;
 extern u32 lbl_805D5C60;
 extern const f32 lbl_805DBF44;
-void fn_80198960(u8 *arg0);
+void TWindowTimer__sub_80198960(u8 *arg0);
 }
 
 extern "C" {
 
 typedef char RecoveredGlobal_80198960_lbl_804B8DAC_size[sizeof(RecoveredGlobal_80198960_lbl_804B8DAC) == 0x24 ? 1 : -1];
 typedef char RecoveredGlobal_80198960_lbl_8050DD58_size[sizeof(RecoveredGlobal_80198960_lbl_8050DD58) == 0x54 ? 1 : -1];
-void fn_80198960(u8 *arg0) {
+void TWindowTimer__sub_80198960(u8 *arg0) {
     if ((((u32) lbl_805D5C60 != 0U) || ((u32) M2C_FIELD(&lbl_804B8DAC.value, u32 *, 0x10) != 0U)) && ((u16) M2C_FIELD(&lbl_8050DD58.value, u16 *, 0x48) != 6)) {
         if ((s32) M2C_FIELD(arg0, s32 *, 0x50) == 1) {
             set_global_param__8TObjFishFi((int) (M2C_FIELD(&lbl_804B8DAC.value, u32 *, 0x10)));

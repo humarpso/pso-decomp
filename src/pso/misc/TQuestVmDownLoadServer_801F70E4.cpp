@@ -229,7 +229,7 @@ void TQuestVmDownLoadServer__sub_801F718C(u8 *arg0);
 void write_quest_data__22TQuestVmDownLoadServerFPv(void *arg0);
 void close_download__22TQuestVmDownLoadServerFPv(void *arg0);
 void TQuestVmDownLoadServer__sub_801F6C74(u8 *arg0);
-void TQuestVmDownLoadServer__sub_801F6C0C(u8 *arg0);
+void check_cancel_input__22TQuestVmDownLoadServerFPv(u8 *arg0);
 void close__22TQuestVmDownLoadServerFPv(void *arg0);
 void TQuestVmDownLoadServer__sub_801F6D24(QVm_801F6D24 *self);
 void destroy__22TQuestVmDownLoadServerFPv(void *arg0);
@@ -897,7 +897,7 @@ void TQuestVmDownLoadServer__vt1(u8 *arg0) {
         TQuestVmDownLoadServer__sub_801F6C74(arg0);
         break;
     case 20:
-        TQuestVmDownLoadServer__sub_801F6C0C(arg0);
+        check_cancel_input__22TQuestVmDownLoadServerFPv(arg0);
         break;
     case 17:
         close__22TQuestVmDownLoadServerFPv(arg0);

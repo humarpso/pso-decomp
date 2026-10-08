@@ -205,7 +205,7 @@ extern M2C_UNK lbl_805D4918;
 extern s32 lbl_805D7C98;
 s32 send_modem_hangup__23TAdSinglePlyChrSelectGCFi(s32 arg0);
 extern s16 lbl_805D4828;
-s16 TLobby__sub_80426BD8(void);
+s16 query_link_status__6TLobbyFv(void);
 s16 TLobby__sub_80427D0C(s16 arg0);
 s32 TLobby__sub_80428360(void);
 s16 TLobby__sub_803F96AC(void *, void *, void *);
@@ -218,7 +218,7 @@ extern s32 lbl_805D7BF4;
 extern s32 lbl_805D7BF8;
 extern s32 lbl_805D7BFC;
 extern u32 lbl_805D7C00;
-s32 TLobby__sub_804294E8(void);
+s32 init_buffer_pool__6TLobbyFv(void);
 void TAdSinglePlyChrSelectGC__sub_8042DDE4(int, int);
 extern RecoveredGlobal_8042E768_lbl_805D1D20 lbl_805D1D20;
 extern s32 lbl_805D7C98;
@@ -259,7 +259,7 @@ s32 TLobby__sub_803F9F04(void *, void *, int);
 s32 TLobby__sub_80427240(u8 **arg0);
 s32 TLobby__sub_803F9F04(void *, void *, int);
 s32 TLobby__sub_804277FC(s32 arg0, u8 *arg1, u16 arg2);
-u8 TLobby__sub_80424830(u8 *p, u8 tag, u8 **out);
+u8 find_dhcp_option__6TLobbyFPvUcPv(u8 *p, u8 tag, u8 **out);
 void TLobby__sub_80419DDC(void *);
 s32 TLobby__sub_80421B3C(s32);
 s32 TLobby__sub_804250A8(s32);
@@ -436,7 +436,7 @@ extern u32 lbl_805D7B7C;
 
 void parse_dhcp_lease_times__6TLobbyFPv(u8 *arg0);
 
-u8 TLobby__sub_80424830(u8 *p, u8 tag, u8 **out);
+u8 find_dhcp_option__6TLobbyFPvUcPv(u8 *p, u8 tag, u8 **out);
 
 s32 TLobby__sub_80424910(s32 arg0, void *arg1, void *arg2, void *arg3);
 
@@ -499,7 +499,7 @@ void TLobby__sub_80426A70(void *a, void *b);
 
 s32 TLobby__sub_80426B88(s16 arg0);
 
-s16 TLobby__sub_80426BD8(void);
+s16 query_link_status__6TLobbyFv(void);
 
 s32 TLobby__sub_80426C34(s32 arg0);
 
@@ -688,7 +688,7 @@ s32 wait_timeout_loop__6TLobbyFPv(u8 *arg0);
 
 void TLobby__sub_804294C4(void);
 
-s32 TLobby__sub_804294E8(void);
+s32 init_buffer_pool__6TLobbyFv(void);
 
 void reset_buffer_pool__6TLobbyFv(void);
 

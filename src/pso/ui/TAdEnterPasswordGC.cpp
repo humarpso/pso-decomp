@@ -85,7 +85,7 @@ void TAdEnterPasswordGC__sub_8032B904(s32 arg0);
 void strncpy(s32, s32, s32);
 M2C_UNK memset(void *, int, int);
 extern RecoveredGlobal_8032BA8C_TAdEnterPasswordGC__data_804EDA20 TAdEnterPasswordGC__data_804EDA20;
-void TAdEnterPasswordGC__sub_8032BA8C(s32 arg0);
+void set_password__18TAdEnterPasswordGCFi(s32 arg0);
 s32 TKeyBoardControl__sub_8000F9CC(int);
 void queue_destruction__7TObjectFv(void *);
 u8 *get_instance__23TAdSinglePlyChrSelectGCFv();
@@ -94,7 +94,7 @@ s32 __ct__10TAdTitleGCFv(int, void *, int);
 s32 create_parts__14TAdEnterBaseGCFPv(void *);
 s32 reset__14TAdEnterBaseGCFPvi(void *, int);
 s32 TAdEnterBaseGC__ct(void *);
-void TAdEnterPasswordGC__sub_8032BA8C(s32 arg0);
+void set_password__18TAdEnterPasswordGCFi(s32 arg0);
 extern M2C_UNK __vt__18TAdEnterPasswordGC[];
 extern s32 lbl_805D41E8;
 extern s32 lbl_805D6CA4;
@@ -287,7 +287,7 @@ void run_task__18TAdEnterPasswordGCFv(TAdEnterPasswordGC_8032B984 *self) {
     }
 }
 
-void TAdEnterPasswordGC__sub_8032BA8C(s32 arg0) {
+void set_password__18TAdEnterPasswordGCFi(s32 arg0) {
     memset((void *) (&TAdEnterPasswordGC__data_804EDA20.value), (int) (0), (int) (9));
     strncpy((s32) &TAdEnterPasswordGC__data_804EDA20.value, arg0, 9);
 }
@@ -315,7 +315,7 @@ u8 *TAdEnterPasswordGC__ct(u8 *arg0) {
     lbl_805D6CA4 = 0;
     M2C_FIELD(arg0, s32 *, 0x40) = 0;
     if ((s8) M2C_FIELD(get_instance__23TAdSinglePlyChrSelectGCFv(), u8 *, 0x1154C) != 0) {
-        TAdEnterPasswordGC__sub_8032BA8C((s32)((void *) (get_instance__23TAdSinglePlyChrSelectGCFv() + 0x1154C)));
+        set_password__18TAdEnterPasswordGCFi((s32)((void *) (get_instance__23TAdSinglePlyChrSelectGCFv() + 0x1154C)));
         TKeyBoardControl__sub_8000F9CC((int) (0xF));
         queue_destruction__7TObjectFv((void *) (arg0));
         return arg0;

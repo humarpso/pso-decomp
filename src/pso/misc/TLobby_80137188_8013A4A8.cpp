@@ -38,7 +38,7 @@ void *TObjPlayer__sub_8013A748(void *arg0, void *arg1);
 void *TObjPlayer__sub_8013A748(void *arg0, void *arg1);
 u8 *copy_player_data__9TProtocolFPvPv(u8 *arg0, u8 *arg1);
 u8 *copy_player_data__9TProtocolFPvPv(u8 *arg0, u8 *arg1);
-Rec_8013A5D4 *TLobby__sub_8013A5D4(Rec_8013A5D4 *dst, Rec_8013A5D4 *src);
+Rec_8013A5D4 *copy_member_record__6TLobbyFPvPv(Rec_8013A5D4 *dst, Rec_8013A5D4 *src);
 }
 
 extern "C" {
@@ -76,7 +76,7 @@ void send_packet_60__6TLobbyFi(s32 arg0) {
 }
 void TLobby__sub_8013A5C0(void* p) { *(u8*)((char*)p + 0x0) = 114; *(u8*)((char*)p + 0x1) = 1; }
 
-Rec_8013A5D4 *TLobby__sub_8013A5D4(Rec_8013A5D4 *dst, Rec_8013A5D4 *src) {
+Rec_8013A5D4 *copy_member_record__6TLobbyFPvPv(Rec_8013A5D4 *dst, Rec_8013A5D4 *src) {
     dst->f0 = src->f0;
     dst->f8 = src->f8;
     dst->fc = src->fc;

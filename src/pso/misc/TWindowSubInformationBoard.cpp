@@ -38,7 +38,7 @@ M2C_UNK init_once_data__6TLobbyFUi(void *);
 M2C_UNK flush_pending_send__6TLobbyFv();
 M2C_UNK set_info_board_text__6TLobbyFi();
 M2C_UNK set_page__26TWindowSubInformationBoardFPvi(void *, int);
-M2C_UNK TWindowSubInformationBoard__sub_8034CC68(void *, s16);
+M2C_UNK set_message_index__26TWindowSubInformationBoardFPvi(void *, s16);
 u32 open_keyboard__26TWindowSubInformationBoardFi(void *);
 u32 show_card_a7__26TWindowSubInformationBoardFPv(void *);
 u32 open_card_info_window__17TWindowSubComCardFPv(void *);
@@ -81,7 +81,7 @@ void run_task__26TWindowSubInformationBoardFv(u8 *arg0) {
         clear_flag_and_release__17TWindowSubComCardFPv((int) (M2C_FIELD(arg0, u32 *, 0x2C)));
         M2C_FIELD(arg0, u8 *, 0x1C) = 2U;
     case 2:
-        TWindowSubInformationBoard__sub_8034CC68((void *) (arg0), (get_cursor_pos__20TWindowShortListCtrlFPv((int) (M2C_FIELD(arg0, u32 *, 0x2C)))));
+        set_message_index__26TWindowSubInformationBoardFPvi((void *) (arg0), (get_cursor_pos__20TWindowShortListCtrlFPv((int) (M2C_FIELD(arg0, u32 *, 0x2C)))));
         if (get_status_flag__17TWindowSubComCardFPv((int) (M2C_FIELD(arg0, u32 *, 0x2C))) != 0) {
             temp_r3 = (u8 *)(M2C_FIELD(arg0, u8 **, 0x28));
             ((VObj_18_204a81 *)(temp_r3))->m7();

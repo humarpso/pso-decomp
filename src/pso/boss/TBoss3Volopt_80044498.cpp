@@ -746,9 +746,9 @@ f32 receive_physical_attack__10TObjPlayerFv(void *, void *, f32);
 f32 TBoss3Volopt__sub_80044E4C(Obj_80044E4C *self, void *a1, f32 x);
 void *__nw__7TObjectFUl(M2C_UNK);
 void *ct__12TBoss3VoloptFPvPvPv(void *arg0, void *arg1, void *arg2);
-void TBoss3Volopt__sub_80044600(void *arg0);
+void spawn_sub_objects__12TBoss3VoloptFPv(void *arg0);
 void queue_destruction__7TObjectFv(void *);
-void TBoss3Volopt__sub_800445A4(void *arg0);
+void destroy_sub_objects__12TBoss3VoloptFPv(void *arg0);
 void receive_direct_attack__10TObjPlayerFv(void *, void *, V2_80044DD4, void *, s32, s32);
 void TBoss3Volopt__sub_80044DD4(Obj_80044DD4 *self, void *a1, V2_80044DD4 v, void *a3);
 void queue_destruction__7TObjectFv(void *);
@@ -762,7 +762,7 @@ extern u8 *TBoss3Volopt__data_805D4D08;
 void TBoss3Volopt__sub_80045928(void *arg0);
 void TBoss3Volopt__sub_8004824C(void *);
 void broadcast_state__12TBoss3VoloptFPv(void *);
-void TBoss3Volopt__sub_80045328(Obj_80045328 *self);
+void broadcast_values__12TBoss3VoloptFPv(Obj_80045328 *self);
 void TBoss3Volopt__sub_80045928(void *arg0);
 void advance_animation_playback(void *);
 void TBoss3Volopt__sub_800472D4(Obj_800472D4 *self);
@@ -779,7 +779,7 @@ void TBoss3Volopt__sub_800472D4(Obj_800472D4 *self);
 void update_state__12TBoss3VoloptFPv(void *arg0);
 void TBoss3Volopt__sub_80047408(V_80047408 *self);
 void run_state__12TBoss3VoloptFPv(S_80047714 *o);
-void TBoss3Volopt__sub_80045328(Obj_80045328 *self);
+void broadcast_values__12TBoss3VoloptFPv(Obj_80045328 *self);
 void distribute_part_damage__12TBoss3VoloptFPv(Volopt_80044498 *self);
 void VecCopy__FP3VecPC3Vec(void *, void *);
 void *get_player_data__10TObjPlayerFi(s32);
@@ -952,13 +952,13 @@ void distribute_part_damage__12TBoss3VoloptFPv(Volopt_80044498 *self) {
                 }
                 mask <<= 1;
             }
-            TBoss3Volopt__sub_80045328((Obj_80045328 *)((struct Obj_80045328 *)self));
+            broadcast_values__12TBoss3VoloptFPv((Obj_80045328 *)((struct Obj_80045328 *)self));
         }
     }
     self->prevHp = self->hp;
 }
 
-void TBoss3Volopt__sub_800445A4(void *arg0) {
+void destroy_sub_objects__12TBoss3VoloptFPv(void *arg0) {
     Obj_800445A4 *self = (Obj_800445A4 *)arg0;
     s32 i;
     for (i = 0; i < 4; i++) {
@@ -969,7 +969,7 @@ void TBoss3Volopt__sub_800445A4(void *arg0) {
     }
 }
 
-void TBoss3Volopt__sub_80044600(void *arg0) {
+void spawn_sub_objects__12TBoss3VoloptFPv(void *arg0) {
     Obj_80044600 *self = (Obj_80044600 *)arg0;
     s32 i;
     for (i = 0; i < 4; i++) {
@@ -1155,7 +1155,7 @@ typedef char RecoveredGlobal_80045628_TBoss3Volopt__data_804845E8_size[sizeof(Re
 typedef char RecoveredGlobal_80045628_TBoss3Volopt__data_804FF038_size[sizeof(RecoveredGlobal_80045628_TBoss3Volopt__data_804FF038) == 0x14 ? 1 : -1];
 typedef char RecoveredGlobal_80045628_lbl_804FF14C_size[sizeof(RecoveredGlobal_80045628_lbl_804FF14C) == 0x40 ? 1 : -1];
 
-void TBoss3Volopt__sub_80045328(Obj_80045328 *self) {
+void broadcast_values__12TBoss3VoloptFPv(Obj_80045328 *self) {
     Msg_80045328 m;
     s32 i;
     TBoss3Volopt__sub_8004824C(&m);
@@ -2032,7 +2032,7 @@ void *destroy__12TBoss3VoloptFPvs(void *arg0, s16 arg1) {
         if (M2C_FIELD(arg0, void **, 0x474) != NULL) { queue_destruction__7TObjectFv(M2C_FIELD(arg0, void **, 0x474)); }
         if (M2C_FIELD(arg0, void **, 0x478) != NULL) { queue_destruction__7TObjectFv(M2C_FIELD(arg0, void **, 0x478)); }
         destroy_children__12TBoss3VoloptFPv((void *)(arg0));
-        TBoss3Volopt__sub_800445A4((void *)(arg0));
+        destroy_sub_objects__12TBoss3VoloptFPv((void *)(arg0));
         TObjPlayer__sub_800D7C58((s8 *)arg0 + 0x490, -1);
         __dt__15TObjEnemyCustomFv(arg0, 0);
         if (arg1 > 0) {

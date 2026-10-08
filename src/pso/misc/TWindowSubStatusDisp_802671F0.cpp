@@ -55,8 +55,8 @@ s32 get_array_entry__20TWindowSubStatusDispFPvi(void *, s16);
 M2C_UNK clamp_list_scroll_offset(int, void *, void *);
 M2C_UNK get_cursor_pos__14TWindowSubItemFPv();
 M2C_UNK copy_position__11TWindowMenuFPvPv(void *, void *);
-M2C_UNK TWindowSubStatusDisp__sub_8025882C(s32, s32);
-M2C_UNK TWindowSubStatusDisp__sub_802588AC(s32, s32);
+M2C_UNK setup_entry_msg_d1__20TWindowSubStatusDispFPvi(s32, s32);
+M2C_UNK setup_entry_msg_d0__20TWindowSubStatusDispFPvi(s32, s32);
 M2C_UNK init_no_item_entry__20TWindowSubStatusDispFPvi(s32, s32);
 M2C_UNK TWindowSubStatusDisp__sub_802589AC(s32, u8, u8, int, s32, s32);
 M2C_UNK fn_80266BD0(s32, u8 *, u8 *, s16);
@@ -186,7 +186,7 @@ void advance_line__19TWindowSubShortMailFPvi(void *arg0, s32 arg1) {
     s16 temp_r4;
     temp_r4 = (s16) M2C_FIELD(arg0, s16 *, 0x72);
     if (temp_r4 < (s16) M2C_FIELD(arg0, s16 *, 0x76)) {
-        TWindowSubStatusDisp__sub_8025882C(get_array_entry__20TWindowSubStatusDispFPvi(arg0, temp_r4), arg1);
+        setup_entry_msg_d1__20TWindowSubStatusDispFPvi(get_array_entry__20TWindowSubStatusDispFPvi(arg0, temp_r4), arg1);
         M2C_FIELD(arg0, s16 *, 0x72) = (s16) (M2C_FIELD(arg0, s16 *, 0x72) + 1);
     }
 }
@@ -195,7 +195,7 @@ void advance_status_disp_entry(void *arg0, s32 arg1) {
     s16 temp_r4;
     temp_r4 = (s16) M2C_FIELD(arg0, s16 *, 0x72);
     if (temp_r4 < (s16) M2C_FIELD(arg0, s16 *, 0x76)) {
-        TWindowSubStatusDisp__sub_802588AC(get_array_entry__20TWindowSubStatusDispFPvi(arg0, temp_r4), arg1);
+        setup_entry_msg_d0__20TWindowSubStatusDispFPvi(get_array_entry__20TWindowSubStatusDispFPvi(arg0, temp_r4), arg1);
         M2C_FIELD(arg0, s16 *, 0x72) = (s16) (M2C_FIELD(arg0, s16 *, 0x72) + 1);
     }
 }

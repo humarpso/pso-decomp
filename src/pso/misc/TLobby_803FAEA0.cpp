@@ -713,7 +713,7 @@ s16 TLobby__sub_8040FCEC(u32);
 s16 TLobby__sub_804136EC(s32);
 s16 TLobby__sub_8040DABC(u8 *arg0);
 void TLobby__sub_803F892C(void *);
-s32 TLobby__sub_8041A0C0(u16);
+s32 release_slot_by_id__6TLobbyFUs(u16);
 extern RecoveredGlobal_8040DD68_lbl_805C1B38 lbl_805C1B38;
 s32 TLobby__sub_8040DD68(void);
 void TLobby__sub_803F8958(void *);
@@ -724,7 +724,7 @@ void TUdpSocket__sub_803F9EE4(void * _w0, int _w1, int _w2);
 extern RecoveredGlobal_8040EF00_lbl_805C1B60 lbl_805C1B60;
 s32 TLobby__sub_8040ED70(void);
 void TLobby__sub_803F87DC(void *);
-s32 TLobby__sub_8041A0C0(u16);
+s32 release_slot_by_id__6TLobbyFUs(u16);
 extern RecoveredGlobal_8040FF0C_lbl_805C1B78 lbl_805C1B78;
 s32 shutdown_ipv6__6TLobbyFv(void);
 void TLobby__sub_803F89D8(void *);
@@ -907,7 +907,7 @@ u16 TLobby__sub_80402ADC(u8 *p);
 u8 *TLobby__sub_80402B28(u8 *p, u16 v);
 M2C_UNK PADRead(void *, Strm_80405A74 *);
 s16 TLobby__sub_80403F4C(void *, Strm_80405A74 **);
-s16 fn_804040E0(void *, Strm_80405A74 **);
+s16 TLobby__sub_804040E0(void *, Strm_80405A74 **);
 M2C_UNK TLobby__sub_804060B8(u8 *, u16, int);
 extern s16 lbl_805D7A7A;
 extern s16 lbl_805D7A7C;
@@ -2174,7 +2174,7 @@ typedef struct Mgr_8040AD64 {
 void TLobby__sub_804217E4(void);
 void TLobby__sub_80421814(void);
 
-s32 TLobby__sub_8040AD64(void);
+s32 clear_all_used_records__6TLobbyFv(void);
 
 typedef struct Conn_8040AF48 {
     s16 state;
@@ -2735,7 +2735,7 @@ s32 TLobby__sub_80419A7C(void);
 void clear_position__6TLobbyFPv(u8 *arg0);
 
 struct E_8041A0C0 { u8 pad[0x14]; s16 f14; u16 f16; s32 f18; };
-s32 TLobby__sub_8041A0C0(u16 a);
+s32 release_slot_by_id__6TLobbyFUs(u16 a);
 
 s32 register_protocol_handler__6TLobbyFUsi(u16 type, Handler_8041A130 fn);
 

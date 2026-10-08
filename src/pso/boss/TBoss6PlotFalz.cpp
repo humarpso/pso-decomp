@@ -281,7 +281,7 @@ union MemberActionStorage_802AB2B8 { s32 words[3]; void (TBoss6PlotFalz::*action
 
 extern "C" {
 extern RecoveredGlobal_802AB1C8_TBoss6PlotFalz__data_804DE66C TBoss6PlotFalz__data_804DE66C;
-void TBoss6PlotFalz__sub_802AB1C8(u8 *arg0);
+void call_state_action__14TBoss6PlotFalzFPv(u8 *arg0);
 void run_phase_action__14TBoss6PlotFalzFPv(u8 *arg0);
 void set_state__14TBoss6PlotFalzFPvi(u8 *arg0, s32 arg1);
 }
@@ -323,7 +323,7 @@ void run_phase_action__14TBoss6PlotFalzFPv(u8 *arg0) {
   update_random_shake__14TBoss6PlotFalzFPv((void *) arg0);
 }
 
-void TBoss6PlotFalz__sub_802AB1C8(u8 *arg0) {
+void call_state_action__14TBoss6PlotFalzFPv(u8 *arg0) {
   MemberActionStorage_802AB1C8 member_action;
   Stack_802AB1C8 stack;
   u8 *temp_r6;
@@ -694,7 +694,7 @@ s32 TBoss6PlotFalz__sub_802AB6CC(void *arg0, f32 r) {
 extern "C" {
 f32 cos_table_lookup(s32);
 
-f32 TBoss6PlotFalz__sub_802AB9F0(f32 t) {
+f32 cosine_ease__14TBoss6PlotFalzFf(f32 t) {
     if (t < 0.0f) {
         return 0.0f;
     }
@@ -792,9 +792,9 @@ typedef char RecoveredGlobal_802ABC14_lbl_804705C0_size[sizeof(RecoveredGlobal_8
 extern "C" {
 M2C_UNK TBoss4DarkFalz__sub_8004B4F0(void *, void *);
 u32 create__11TBoss6Type1Fi(void *, int);
-void TBoss6PlotFalz__sub_802ABCDC(u8 *arg0);
+void spawn_type1__14TBoss6PlotFalzFPv(u8 *arg0);
 u32 create__11TBoss6Type2Fi(void *, int);
-void TBoss6PlotFalz__sub_802ABC64(u8 *arg0);
+void spawn_type2__14TBoss6PlotFalzFPv(u8 *arg0);
 f32 TBoss6Mine__sub_802ABD88(s32 *arg0);
 extern RecoveredGlobal_802ABBC4_lbl_804705CC lbl_804705CC;
 s32 TBoss6PlotFalz__sub_802ABBC4(M2C_UNK arg0, s32 arg1);
@@ -836,7 +836,7 @@ s32 TBoss6PlotFalz__sub_802ABC14(M2C_UNK arg0, s32 arg1) {
     return 1;
 }
 
-void TBoss6PlotFalz__sub_802ABC64(u8 *arg0) {
+void spawn_type2__14TBoss6PlotFalzFPv(u8 *arg0) {
     Stack_802ABC64 stack;
     u8 *sp8;
     u16 temp_r4;
@@ -852,7 +852,7 @@ void TBoss6PlotFalz__sub_802ABC64(u8 *arg0) {
     }
 }
 
-void TBoss6PlotFalz__sub_802ABCDC(u8 *arg0) {
+void spawn_type1__14TBoss6PlotFalzFPv(u8 *arg0) {
     Stack_802ABCDC stack;
     u8 *sp8;
     u16 temp_r4;
@@ -1318,7 +1318,7 @@ void TBoss6PlotFalz__sub_802AC724(u8 *arg0, u32 arg1) {
 }
 
 #define run_phase_action__14TBoss6PlotFalzFPv ((M2C_UNK (*)(void *))run_phase_action__14TBoss6PlotFalzFPv)
-#define TBoss6PlotFalz__sub_802AB1C8 ((M2C_UNK (*)(void *))TBoss6PlotFalz__sub_802AB1C8)
+#define call_state_action__14TBoss6PlotFalzFPv ((M2C_UNK (*)(void *))call_state_action__14TBoss6PlotFalzFPv)
 #define set_visible_flag__14TBoss6PlotFalzFPv ((M2C_UNK (*)(void *))set_visible_flag__14TBoss6PlotFalzFPv)
 #define alloc__23TAdSinglePlyChrSelectGCFPv ((int (*)(void *))alloc__23TAdSinglePlyChrSelectGCFPv)
 #define queue_destruction__7TObjectFv ((s32 (*)(int))queue_destruction__7TObjectFv)
@@ -1487,7 +1487,7 @@ M2C_UNK bind_enemy_combat_stats(void *, int, int, int);
 M2C_UNK initialize__9TObjEnemyFPv();
 M2C_UNK register_entity_by_id(void *);
 M2C_UNK TBoss6PlotFalz__sub_802AAC98(void *);
-s32 fn_8035966C();
+s32 create_boss4_fade();
 extern s32 lbl_805D3E50;
 }
 
@@ -1512,7 +1512,7 @@ void run_task__14TBoss6PlotFalzFv(u8 *arg0) {
     if (query_teammate_state__9TObjEneDDFPv() == 0) {
         set_visible_flag__14TBoss6PlotFalzFPv((void *) (arg0));
         if ((s32) M2C_FIELD(arg0, s32 *, 0x374) == 0) {
-            TBoss6PlotFalz__sub_802AB1C8((void *) (arg0));
+            call_state_action__14TBoss6PlotFalzFPv((void *) (arg0));
         }
         run_phase_action__14TBoss6PlotFalzFPv((void *) (arg0));
     }
@@ -1653,7 +1653,7 @@ s32 TBoss6PlotFalz__ct(s32 self, s32 arg1, s32 arg2) {
     M2C_FIELD(arg0, s32 *, 0x3D0) = 0;
     M2C_FIELD(arg0, s32 *, 0x3D4) = 0;
     M2C_FIELD(arg0, s32 *, 0x3D8) = 0;
-    M2C_FIELD(arg0, s32 *, 0x380) = fn_8035966C();
+    M2C_FIELD(arg0, s32 *, 0x380) = create_boss4_fade();
     M2C_FIELD(arg0, s32 *, 0x384) = 0;
     ensure_field384__14TBoss6PlotFalzFPv((void *) (arg0));
     TBoss6PlotFalz__data_805D66F0 = 0;

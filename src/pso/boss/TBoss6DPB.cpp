@@ -72,7 +72,7 @@ void fn_8035D8B0(W_8035D8B0 *arg0);
 extern const f32 lbl_805E01C8;
 void run_task__9TBoss6DPBFv(u8 *arg0);
 u8 *__nw__7TObjectFUl(M2C_UNK);
-u8 *TBoss6Type2__sub_8035DC60(s32 arg0, s32 arg1, f32 farg0);
+u8 *create_dpb__11TBoss6Type2Fiif(s32 arg0, s32 arg1, f32 farg0);
 s32 try_apply_damage__19TObjEneEpsilonGuardFPvUii(void *, void *, int);
 extern const f32 TObjEneEpsilonGuard__data_805E01D8;
 f32 TObjEneEpsilonGuard__vt22(s32 arg0);
@@ -198,7 +198,7 @@ u8 *__ct__9TBoss6DPBFv(u8 *arg0, s32 arg1, s32 arg2, f32 farg0) {
 
 #pragma push
 #pragma fp_contract on
-u8 *TBoss6Type2__sub_8035DC60(s32 arg0, s32 arg1, f32 farg0) {
+u8 *create_dpb__11TBoss6Type2Fiif(s32 arg0, s32 arg1, f32 farg0) {
     u8 *temp_r3;
     u8 *var_r0;
     temp_r3 = (u8 *)(__nw__7TObjectFUl(0x3C));

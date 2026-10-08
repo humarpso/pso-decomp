@@ -13,7 +13,7 @@ struct M2CCopy_6C { u8 bytes[0x6C]; };
 
 extern "C" {
 s32 forward_return_arg__17TWindowSubComCardFi(s32);
-s32 TWindowSubComCard__sub_8007A9C0(s32 arg0, u8 *arg1);
+s32 copy_card__17TWindowSubComCardFiPv(s32 arg0, u8 *arg1);
 }
 
 extern "C" {
@@ -30,11 +30,11 @@ void swap_cards__17TWindowSubComCardFii(s32 arg0, s32 arg1) {
     reinit__17TWindowSubComCardFi(sp8);
     first_ptr = get_card_entry__17TWindowSubComCardFi(arg0);
     second_ptr = get_card_entry__17TWindowSubComCardFi(arg1);
-    TWindowSubComCard__sub_8007A9C0((s32)(sp8), (u8 *)(first_ptr));
-    TWindowSubComCard__sub_8007A9C0((s32)(first_ptr), (u8 *)(second_ptr));
-    TWindowSubComCard__sub_8007A9C0((s32)(second_ptr), (u8 *)(sp8));
+    copy_card__17TWindowSubComCardFiPv((s32)(sp8), (u8 *)(first_ptr));
+    copy_card__17TWindowSubComCardFiPv((s32)(first_ptr), (u8 *)(second_ptr));
+    copy_card__17TWindowSubComCardFiPv((s32)(second_ptr), (u8 *)(sp8));
 }
-s32 TWindowSubComCard__sub_8007A9C0(s32 arg0, u8 *arg1) {
+s32 copy_card__17TWindowSubComCardFiPv(s32 arg0, u8 *arg1) {
     s32 temp_r5;
     u8 *temp_r4;
     forward_return_arg__17TWindowSubComCardFi(arg0);

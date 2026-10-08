@@ -15,7 +15,7 @@ struct Vec_803226C0 { f32 x, y, z; };
 
 extern "C" {
 u8 *__nw__7TObjectFUl(M2C_UNK);
-u8 *TBoss6Type1__sub_80322AE0(s32 arg0, u8 *arg1, u8 *arg2, s16 arg3, f32 farg0);
+u8 *create_kakusan__11TBoss6Type1FiPvPvsf(s32 arg0, u8 *arg1, u8 *arg2, s16 arg3, f32 farg0);
 s32 VecCopy__FP3VecPC3Vec(void *, void *);
 u8 *dispatch_shared_handler_a__6TLobbyFPv(s32);
 u32 create_particle_emitter(void *, int);
@@ -196,7 +196,7 @@ u8 *TBoss6Kakusan__ct(u8 *arg0, s32 arg1, u8 *arg2, u8 *arg3, s16 arg4, f32 farg
 }
 #pragma pop
 
-u8 *TBoss6Type1__sub_80322AE0(s32 arg0, u8 *arg1, u8 *arg2, s16 arg3, f32 farg0) {
+u8 *create_kakusan__11TBoss6Type1FiPvPvsf(s32 arg0, u8 *arg1, u8 *arg2, s16 arg3, f32 farg0) {
     u8 *temp_r3;
     u8 *var_r0;
     temp_r3 = (u8 *)(__nw__7TObjectFUl(0x58));

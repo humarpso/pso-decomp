@@ -11,10 +11,10 @@ struct Ent_80077544 { u8 b[0x58]; };
 struct Win_80077544 { u8 pad[0x15A0]; struct Ent_80077544 e[12]; };
 
 extern "C" {
-void TWindowSubSymbolChat__sub_800774E4(Obj_800774E4 *self);
-M2C_UNK TWindowSubSymbolChat__sub_80076FEC(s32, s32);
+void clear_entries__20TWindowSubSymbolChatFPv(Obj_800774E4 *self);
+M2C_UNK set_entry_name__20TWindowSubSymbolChatFPvPv(s32, s32);
 int TWindowSubSymbolChat__sub_80077480(s32);
-void TWindowSubSymbolChat__sub_800774E4(Obj_800774E4 *self);
+void clear_entries__20TWindowSubSymbolChatFPv(Obj_800774E4 *self);
 M2C_UNK bswap_entry__20TWindowSubSymbolChatFPv(void *);
 s32 get_message_10__20TWindowSubStatusDispFPv(s32);
 M2C_UNK safe_free__23TAdSinglePlyChrSelectGCFUi(s32);
@@ -35,7 +35,7 @@ void open_symbol_chat__11TWindowChatFPv(s32 *arg0) {
     TWindowSubSymbolChat__sub_80077480(*arg0);
 }
 
-void TWindowSubSymbolChat__sub_800774E4(Obj_800774E4 *self) {
+void clear_entries__20TWindowSubSymbolChatFPv(Obj_800774E4 *self) {
     s32 i;
     self->f0 = 0;
     self->f4 = 0;
@@ -63,11 +63,11 @@ void load_symbol_chat_data__20TWindowSubSymbolChatFPv(struct Win_80077544 *w) {
     for (i = 0; i < 6; i++) {
         bswap_entry__20TWindowSubSymbolChatFPv(&e[i]);
         t = TWindowSubSymbolChat__sub_80077480(i);
-        TWindowSubSymbolChat__sub_80076FEC(t, get_message_10__20TWindowSubStatusDispFPv(i + 0xC6));
+        set_entry_name__20TWindowSubSymbolChatFPvPv(t, get_message_10__20TWindowSubStatusDispFPv(i + 0xC6));
     }
     for (; i < 12; i++) {
         bswap_entry__20TWindowSubSymbolChatFPv(&e[i]);
-        TWindowSubSymbolChat__sub_800774E4((Obj_800774E4 *)TWindowSubSymbolChat__sub_80077480(i));
+        clear_entries__20TWindowSubSymbolChatFPv((Obj_800774E4 *)TWindowSubSymbolChat__sub_80077480(i));
     }
 }
 
@@ -75,6 +75,6 @@ void TLobby__sub_80077608(void) {  }
 
     extern unsigned char lbl_804FF968[];
     extern unsigned char lbl_805D4E54;
-void TLobby__sub_8007760C(void) { lbl_805D4E54 = 0; TWindowSubSymbolChat__sub_800774E4((Obj_800774E4 *)(lbl_804FF968)); }
+void TLobby__sub_8007760C(void) { lbl_805D4E54 = 0; clear_entries__20TWindowSubSymbolChatFPv((Obj_800774E4 *)(lbl_804FF968)); }
 
 }

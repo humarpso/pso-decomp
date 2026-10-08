@@ -86,7 +86,7 @@ extern RecoveredGlobal_8022559C_lbl_80513F50 lbl_80513F50;
 void clear_shop_weapon_flags(void);
 int is_flag_set__6TLobbyFPv(void* p);
 extern unsigned char lbl_80513F70[];
-s32 TLobby__sub_802259A0(void);
+s32 find_free_slot__6TLobbyFv(void);
 int is_flag_set__6TLobbyFPv(void* p);
 void TLobby__sub_80225C8C(void* p);
 extern unsigned char lbl_80513F70[];
@@ -103,12 +103,12 @@ void *find_short_mail_by_id__6TLobbyFUi(u32 id);
 extern unsigned char lbl_80513F70[];
 extern int lbl_805D6274;
 s32 move_words__6TLobbyFPvPvi(int, void *, void *);
-void TLobby__sub_80225AD8(s32 idx);
+void remove_entry_at__6TLobbyFi(s32 idx);
 extern unsigned char lbl_80513F70[];
 extern s32 lbl_805D6270;
 extern int lbl_805D6274;
 void clear_lobby_flag__6TLobbyFv(void);
-void TLobby__sub_80225B40(void* _w0);
+void clear_all_entries__6TLobbyFPv(void* _w0);
 s32 is_split_screen(void);
 s32 create_named_object(void *);
 s32 alloc_buffer__11TOBoss4RockFPv(s32);
@@ -814,7 +814,7 @@ void *TLobby__sub_8022598C(int a0) {
 
 typedef struct RecoveredGlobal_802259A0_lbl_80513F70 RecoveredGlobal_802259A0_lbl_80513F70;
 typedef char RecoveredGlobal_802259A0_lbl_80513F70_size[((sizeof(RecoveredGlobal_802259A0_lbl_80513F70)) == 0x680) ? (1) : (-1)];
-s32 TLobby__sub_802259A0(void) {
+s32 find_free_slot__6TLobbyFv(void) {
   s32 var_r31;
   M2C_UNK *var_r30;
   var_r31 = 0;
@@ -828,13 +828,13 @@ s32 TLobby__sub_802259A0(void) {
   var_r30 = (M2C_UNK *) ((u8 *) ((M2C_UNK *) (((u8 *) var_r30) + 0xD0)));
   if (var_r31 >= 8)
   {
-    TLobby__sub_80225AD8((s32)(0));
+    remove_entry_at__6TLobbyFi((s32)(0));
     return 7;
   }
   goto loop_1;
 }
 
-void TLobby__sub_80225AD8(s32 idx) {
+void remove_entry_at__6TLobbyFi(s32 idx) {
     if (idx < 7) {
         L_80225AD8 *p = &((L_80225AD8 *)&lbl_80513F70)[idx];
         move_words__6TLobbyFPvPvi((int)p, p + 1, (void *)(((7 - idx) * sizeof(L_80225AD8)) >> 2));
@@ -843,7 +843,7 @@ void TLobby__sub_80225AD8(s32 idx) {
     (*(s32 *)&lbl_805D6274) = (*(s32 *)&lbl_805D6274) - 1;
 }
 
-void TLobby__sub_80225B40(void* _w0) {
+void clear_all_entries__6TLobbyFPv(void* _w0) {
     s32 i;
     L_80225B40 *p;
     lbl_805D6270 = 0;
@@ -881,8 +881,8 @@ void TLobby__sub_80225BC8(u8 *arg0, u8 *arg1) {
     M2C_FIELD(arg0, s8 *, 0xCB) = 0;
 }
 
-void TLobby__sub_80225C44(void* p) { TLobby__sub_80225B40((void*)(p)); }
-void TLobby__sub_80225C64(void* p) { TLobby__sub_80225B40((void*)(p)); }
+void TLobby__sub_80225C44(void* p) { clear_all_entries__6TLobbyFPv((void*)(p)); }
+void TLobby__sub_80225C64(void* p) { clear_all_entries__6TLobbyFPv((void*)(p)); }
 void* get_com_card_list__6TLobbyFPv(void* p) { return (char*)p + 0x8; }
 void TLobby__sub_80225C8C(void* p) { *(u8*)((char*)p + 0xcc) &= 0xfffffffd; }
 int is_flag_set__6TLobbyFPv(void* p) { return *(u8*)((char*)p + 0xcc) & 0x1; }

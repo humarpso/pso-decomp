@@ -507,7 +507,7 @@ void TObjEneMe3Stelth__sub_800F3FE4(void *, s32);
 void state_chase__16TObjEneMe3StelthFPvi(void *, s32);
 void TObjEneMe3Stelth__sub_800F42B8(void *, s32);
 void dispatch_state__16TObjEneMe3StelthFPvii(Obj_800F4598 *self, s32 arg1, s32 arg2);
-void TObjEneMe3Stelth__sub_800F4700(Obj_800F4700 *self);
+void create_resta_effect__16TObjEneMe3StelthFPv(Obj_800F4700 *self);
 void TObjEneMe3Stelth__sub_800F4758(u8 *arg0);
 u8 TObjEneMe3Stelth__sub_800F47D4(u8 *arg0);
 int select_and_apply_target__16TObjEneMe3StelthFPv(void* p);
@@ -844,7 +844,7 @@ void dispatch_state__16TObjEneMe3StelthFPvii(Obj_800F4598 *self, s32 arg1, s32 a
     }
 }
 
-void TObjEneMe3Stelth__sub_800F4700(Obj_800F4700 *self) {
+void create_resta_effect__16TObjEneMe3StelthFPv(Obj_800F4700 *self) {
     s32 f = clamp_frame_index__9TObjEneDDFi(TObjEneMe3Stelth__data_80501104[self->kind]->frame);
     create__9TTecRestaFPvPvPv(self, self->pos, f);
 }

@@ -98,7 +98,7 @@ Ctrl_8028B23C *TObjBoss5PillarCtrl__ct(Ctrl_8028B23C *arg0, void *arg1) {
     return arg0;
 }
 
-void * TObjBoss5PillarCtrl__sub_8028B324(void *arg0) {
+void * create__19TObjBoss5PillarCtrlFPv(void *arg0) {
     void *o;
     o = __nw__7TObjectFUl(0x24);
     if (o != NULL) {

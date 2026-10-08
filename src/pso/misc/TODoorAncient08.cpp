@@ -104,7 +104,7 @@ struct Door_80160000 {
 
 extern "C" {
 s32 access_object_saved_state(void *, void *, int);
-M2C_UNK fn_8015FC40(void *, void *);
+M2C_UNK door_ancient08_sync_state(void *, void *);
 u8 is_current_floor_switch_set(int);
 void TODoorAncient08__vt12(u8 *arg0);
 u8 *load_resource_from_descriptor(void *, s32, M2C_UNK *, s32, s32, s32);
@@ -276,7 +276,7 @@ void TODoorAncient08__vt12(u8 *arg0) {
             M2C_FIELD(arg0, s32 *, 0xD0) = (s32) (M2C_FIELD(arg0, s32 *, 0xD0) | 1);
             if (((u32) M2C_FIELD(arg0, u32 *, 0x80) != 0U) && (access_object_saved_state((void *) (arg0), (void *) (&sp8), (int) (1)) != 0)) {
                 sp8 = 1;
-                fn_8015FC40((void *) (arg0), (void *) (&sp8));
+                door_ancient08_sync_state((void *) (arg0), (void *) (&sp8));
                 access_object_saved_state((void *) (arg0), (void *) (&sp8), (int) (0));
             }
         }

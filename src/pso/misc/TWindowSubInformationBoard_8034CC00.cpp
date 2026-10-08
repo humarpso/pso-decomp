@@ -13,7 +13,7 @@ extern "C" {
 M2C_UNK send_and_handle__6TLobbyFPvii(s32, s32, M2C_UNK);
 s32 get_message_10__20TWindowSubStatusDispFPv(int);
 extern const RecoveredGlobal_8034CC68_lbl_80478C3C lbl_80478C3C;
-void TWindowSubInformationBoard__sub_8034CC68(u8 *arg0, s32 arg1);
+void set_message_index__26TWindowSubInformationBoardFPvi(u8 *arg0, s32 arg1);
 }
 
 extern "C" {
@@ -48,7 +48,7 @@ void set_page__26TWindowSubInformationBoardFPvi(void *arg0, s32 arg1) {
 extern s32 lbl_805D53A0;
 
 typedef char RecoveredGlobal_8034CC68_lbl_80478C3C_size[sizeof(RecoveredGlobal_8034CC68_lbl_80478C3C) == 0xC ? 1 : -1];
-void TWindowSubInformationBoard__sub_8034CC68(u8 *arg0, s32 arg1) {
+void set_message_index__26TWindowSubInformationBoardFPvi(u8 *arg0, s32 arg1) {
     if ((s32) M2C_FIELD(arg0, s32 *, 0x24) != arg1) {
         M2C_FIELD(arg0, s32 *, 0x24) = arg1;
         send_and_handle__6TLobbyFPvii((s32)(M2C_FIELD(arg0, u8 **, 0x34)), (s32)(get_message_10__20TWindowSubStatusDispFPv((int) (M2C_FIELD(&lbl_80478C3C.value, M2C_UNK *, (arg1 * 4))))), (M2C_UNK)(0x80));

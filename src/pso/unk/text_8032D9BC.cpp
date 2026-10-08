@@ -12,12 +12,12 @@ u32 __nw__7TObjectFUl(int);
 s32 setup_button__16TAdGuideButtonGCFPvPv(int, void *);
 u32 TAdGuideButtonGC__ct(int, void *);
 extern u32 lbl_805D6D04;
-void fn_8032D9BC(s32 arg0, s32 arg1);
+void create_guide_button(s32 arg0, s32 arg1);
 }
 
 extern "C" {
 
-void fn_8032D9BC(s32 arg0, s32 arg1) {
+void create_guide_button(s32 arg0, s32 arg1) {
     u32 temp_r3;
     u32 var_r0;
     if ((u32) lbl_805D6D04 == 0U) {

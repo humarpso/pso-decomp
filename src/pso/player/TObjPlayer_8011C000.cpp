@@ -137,7 +137,7 @@ void roll_table_ratio__9TItemDropFPvUi(u8 *arg0, u32 arg1);
 s32 rand();
 extern void *item_mgr;
 extern const f32 lbl_805DAC70;
-f32 TObjPlayer__sub_8011C2C4(u32 arg0);
+f32 get_drop_random_float__10TObjPlayerFUi(u32 arg0);
 }
 
 extern "C" {
@@ -244,7 +244,7 @@ void find_tool_pmt_base_id(s32 arg0, u8 *arg1) {
     }
 }
 
-f32 TObjPlayer__sub_8011C2C4(u32 arg0) {
+f32 get_drop_random_float__10TObjPlayerFUi(u32 arg0) {
     if (item_mgr != NULL) {
         return ((f32 (*)(u8 *, u32))roll_table_ratio__9TItemDropFPvUi)((u8 *)item_mgr, arg0);
     }
@@ -256,7 +256,7 @@ void roll_item_channel_below(u32 arg0, s32 arg1) {
         roll_channel_below__9TItemDropFPviUi((int) ((*(u32 *)&item_mgr)), (void *) (arg0), (void *) (arg1));
         return;
     }
-    __cvt_fp2unsigned((f32) arg0 * TObjPlayer__sub_8011C2C4((u32)((void *) (arg1))));
+    __cvt_fp2unsigned((f32) arg0 * get_drop_random_float__10TObjPlayerFUi((u32)((void *) (arg1))));
 }
 
 void drop_item_from_slot__10TObjPlayerFiii(s32 arg0, s32 arg1, s32 arg2) {

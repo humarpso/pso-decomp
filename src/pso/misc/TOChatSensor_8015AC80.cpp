@@ -33,7 +33,7 @@ extern const f32 lbl_805DB388;
 extern const f32 lbl_805DB38C;
 void render__12TOChatSensorFv(u8 *arg0);
 void *strncpy(void *, void *, s32);
-void TOChatSensor__sub_8015ACE4(C_8015ACE4 *arg0, void *arg1);
+void set_trigger_text__12TOChatSensorFPvPv(C_8015ACE4 *arg0, void *arg1);
 s16 get_current_floor(void);
 void send_state__12TOChatSensorFPv(void *);
 void init_packet_type__12TOChatSensorFPv(void *);
@@ -71,7 +71,7 @@ void check_player_proximity__12TOChatSensorFPv(u8 *arg0) {
 
 extern s32 *lbl_805D58D4;
 
-void TOChatSensor__sub_8015ACE4(C_8015ACE4 *arg0, void *arg1) {
+void set_trigger_text__12TOChatSensorFPvPv(C_8015ACE4 *arg0, void *arg1) {
     s32 i;
     if (arg1 != 0) {
         strncpy(arg0->buf, arg1, 0x1F);

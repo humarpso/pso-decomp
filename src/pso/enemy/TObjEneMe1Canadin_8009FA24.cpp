@@ -31,7 +31,7 @@ struct Obj_8009FA24 { u8 pad0[0x1C]; s32 n1c; s32 n20; s32 sel; u8 pad28[4]; Rec
 
 extern "C" {
 void VecCopy__FP3VecPC3Vec(Vec_8009FADC *dst, const Vec_8009FADC *src);
-void TObjEneMe1Canadin__sub_8009FADC(Obj_8009FADC *self, f32 f, const Vec_8009FADC *pos, s32 val);
+void push_history_entry__17TObjEneMe1CanadinFPvfPvi(Obj_8009FADC *self, f32 f, const Vec_8009FADC *pos, s32 val);
 extern const f32 lbl_805D993C;
 extern const f32 lbl_805D9940;
 s32 TObjEneMe1Canadin__sub_8009FB54(Obj_8009FB54 *self, s32 dec, f32 scale);
@@ -72,7 +72,7 @@ void TObjEneMe1Canadin__sub_8009FA24(Obj_8009FA24 *arg0) {
     }
 }
 
-void TObjEneMe1Canadin__sub_8009FADC(Obj_8009FADC *self, f32 f, const Vec_8009FADC *pos, s32 val) {
+void push_history_entry__17TObjEneMe1CanadinFPvfPvi(Obj_8009FADC *self, f32 f, const Vec_8009FADC *pos, s32 val) {
     s32 i = self->idx;
     self->entries[i].f = f;
     self->entries[i].val = val;

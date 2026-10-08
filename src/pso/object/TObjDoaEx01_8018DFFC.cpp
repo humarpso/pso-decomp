@@ -48,7 +48,7 @@ extern RecoveredGlobal_8018E1E0_lbl_804B7588 lbl_804B7588;
 extern u32 TObjDoaEx01__data_805D5BB0;
 extern u8 *TObjDoaEx01__data_805D5BB4;
 extern s32 TObjDoaEx01__data_805D5BB8;
-void TObjDoaEx01__sub_8018E1E0(void);
+void load_resources__11TObjDoaEx01Fv(void);
 u8 *get_bml_motion(s32, s32);
 s32 reset_photon_effect__10TObjPlayerFPv(void *);
 s32 refresh_collision_body_centers(void *);
@@ -131,7 +131,7 @@ void free_resource__11TObjDoaEx01Fv(void) {
         TObjDoaEx01__data_805D5BB0 = 0U;
     }
 }
-void TObjDoaEx01__sub_8018E1E0(void) {
+void load_resources__11TObjDoaEx01Fv(void) {
     s32 temp_r3;
     s32 var_r0;
     u8 *temp_r3_2;

@@ -131,7 +131,7 @@ u8 * load_resource_from_descriptor(void *, s32, void *, s32, s32, s32);
 int alloc__23TAdSinglePlyChrSelectGCFPv(void *);
 extern RecoveredGlobal_8035B2DC_lbl_804F1CB8 lbl_804F1CB8;
 extern u32 TPlyPhotonChair__data_805D6F40;
-s32 TPlyPhotonChair__sub_8035B2DC(void);
+s32 load_resources__15TPlyPhotonChairFv(void);
 void TPlyPhotonChair__sub_8035B66C(void* p);
 extern RecoveredGlobal_8035B630_lbl_804A7488 lbl_804A7488;
 u8 *TPlyPhotonChair__sub_8035B630(u8 *arg0);
@@ -277,7 +277,7 @@ void free_static_model__15TPlyPhotonChairFv(void) {
 
 extern M2C_UNK __vt__15TPlyPhotonChair[];
 
-s32 TPlyPhotonChair__sub_8035B2DC(void) {
+s32 load_resources__15TPlyPhotonChairFv(void) {
     s32 temp_r3;
     s32 var_r0;
     temp_r3 = alloc__23TAdSinglePlyChrSelectGCFPv((void *)0x440);

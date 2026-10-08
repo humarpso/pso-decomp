@@ -1986,7 +1986,7 @@ void update_state__16TObjEneDellBiterFPvi(void *arg0, s32 arg1);
 void TObjEneDellBiter__vt85(s32 arg0, u32 arg1, s32 arg2);
 s32 TObjEneDellBiter__sub_803054A8(u8 *arg0);
 s32 TObjEneDellBiter__sub_803054FC(u8 *arg0);
-s32 TObjEneDellBiter__sub_80305550(u8 *arg0);
+s32 check_low_hp_transition__16TObjEneDellBiterFPv(u8 *arg0);
 void TObjEneDellBiter__sub_803055C8(u8 *arg0);
 void TObjEneDellBiter__vt102(void *arg0, f32 farg0);
 void noop__16TObjEneDellBiterFv(void);
@@ -2749,7 +2749,7 @@ void TObjEneDellBiter__sub_80303AA0(u8 *arg0, s32 arg1) {
         set_active__9TObjEneDDFPv(arg0);
         break;
     case 3:
-        if (get_flag_b4__21TObjEneMe3ShinowaRealFPv(arg0) != 0 && ((s32 (*)(void *))TObjEneDellBiter__sub_80305550)(arg0) == 0 &&
+        if (get_flag_b4__21TObjEneMe3ShinowaRealFPv(arg0) != 0 && ((s32 (*)(void *))check_low_hp_transition__16TObjEneDellBiterFPv)(arg0) == 0 &&
             ((s32 (*)(void *))TObjEneDellBiter__sub_803054A8)(arg0) == 0 && ((s32 (*)(void *))TObjEneDellBiter__sub_803054FC)(arg0) == 0) {
             transition_enemy_state(arg0, M2C_FIELD(arg0, s32 *, 0x378));
         }
@@ -3488,7 +3488,7 @@ s32 TObjEneDellBiter__sub_803054FC(u8 *arg0) {
     return 0;
 }
 
-s32 TObjEneDellBiter__sub_80305550(u8 *arg0) {
+s32 check_low_hp_transition__16TObjEneDellBiterFPv(u8 *arg0) {
     if (!(M2C_FIELD(arg0, s32 *, 0x3C0) & 0x10) && ((s16) M2C_FIELD(arg0, s16 *, 0x32C) <= (s32) ((s16) M2C_FIELD(arg0, s16 *, 0x2B8) / 2)) && (calc_boss4_scale__10TObjPlayerFi((s32)((s32) arg0)) <= M2C_FIELD(arg0, f32 *, 0x4B8))) {
         ((M2C_UNK (*)(void *, M2C_UNK))transition_enemy_state)((void *)((void *) (arg0)), (M2C_UNK)((int) (0xC)));
         return 1;

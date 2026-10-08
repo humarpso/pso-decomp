@@ -157,7 +157,7 @@ s32 create_window_menu(s32 arg0, s32 arg1, s32 arg2);
 void check_room_seq_4__16TAdChrSelASlotGCFii(s32 arg0, s32 arg1);
 s32 create_titled_window_menu(s32 arg0, s32 arg1, s32 arg2, s32 arg3);
 void draw_card_icon__17TWindowSubComCardFiii(s32 arg0, s32 arg1, s32 arg2);
-void TWindowSubComCard__sub_802665C0(u8 *arg0, u8 *arg1);
+void draw_selected_bar__17TWindowSubComCardFPvPv(u8 *arg0, u8 *arg1);
 void render_selected_entry__17TWindowSubComCardFPvi(void *arg0, s32 arg1);
 void render__11TWindowMenuFv(u8 *arg0);
 void * __dt__11TWindowMenuFv(void *arg0, s16 arg1);
@@ -734,7 +734,7 @@ void draw_card_icon__17TWindowSubComCardFiii(s32 arg0, s32 arg1, s32 arg2) {
     ((int (*)(void*, void*, void*, void*))create_titled_window_menu)((void*)(arg0), (void*)(arg1), (void*)(arg2), (void*)(4));
 }
 
-void TWindowSubComCard__sub_802665C0(u8 *arg0, u8 *arg1) {
+void draw_selected_bar__17TWindowSubComCardFPvPv(u8 *arg0, u8 *arg1) {
     s16 temp_r4;
     u16 *temp_r3;
     if (!(lbl_805D53A4 & 0x10)) {
@@ -765,7 +765,7 @@ void render__11TWindowMenuFv(u8 *arg0) {
     draw_visible_window_entries(arg0, arg0 + 0x24, temp_r3);
     if (!(M2C_FIELD(arg0, u16 *, 0x70) & 0x80)) {
         ((M2C_UNK (*)(void *, s32))render_selected_entry__17TWindowSubComCardFPvi)(arg0, temp_r3);
-        ((M2C_UNK (*)(void *, s32))TWindowSubComCard__sub_802665C0)(arg0, temp_r3);
+        ((M2C_UNK (*)(void *, s32))draw_selected_bar__17TWindowSubComCardFPvPv)(arg0, temp_r3);
     }
     if ((u32) M2C_FIELD(arg0, u32 *, 0x88) != 0U) {
         forward_render__20TWindowSubStatusDispFPv(M2C_FIELD(arg0, u32 *, 0x88), temp_r3);

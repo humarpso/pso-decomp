@@ -32,7 +32,7 @@ M2C_UNK fn_802E52AC();
 M2C_UNK init_uro_link__14TBoss4DarkFalzFv();
 extern RecoveredGlobal_8004C0D4_lbl_80484D74 lbl_80484D74;
 extern int lbl_805D4D58;
-void TBoss4DarkFalz__sub_8004C0D4(void);
+void load_resources__14TBoss4DarkFalzFv(void);
 M2C_UNK change_state__14TBoss4DarkFalzFPvi(void *, int);
 s32 get_phase__9TBoss4UroFPv(void *);
 void swap_bytes__14TBoss4DarkFalzFPv(void *);
@@ -180,7 +180,7 @@ void cleanup_global__14TBoss4DarkFalzFv(void) { free_global_instance__14TBoss4Da
 
 extern s32 tl_04;
 
-void TBoss4DarkFalz__sub_8004C0D4(void) {
+void load_resources__14TBoss4DarkFalzFv(void) {
     s32 temp_r3;
     s32 var_r0;
     temp_r3 = alloc__23TAdSinglePlyChrSelectGCFPv((void *)0x440);

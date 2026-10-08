@@ -110,7 +110,7 @@ struct Table_800712D8 {
 };
 
 extern "C" {
-void TLobby__sub_8006F910(void *, void *, s32);
+void encode_name_xor__6TLobbyFPvPvi(void *, void *, s32);
 extern A_80291FC0 lbl_804DB1F0[];
 void TLobby__sub_80292574(u8 *arg0, s32 arg1);
 extern A_80291FC0 lbl_804DB1F0[];
@@ -391,7 +391,7 @@ s32 TLobby__sub_802924B4(s32 arg0, u16 arg1) {
 }
 
 void TLobby__sub_80292574(u8 *arg0, s32 arg1) {
-    TLobby__sub_8006F910((u8 *)&(*(RecoveredGlobal_80292574_lbl_804DB1F0 *)&lbl_804DB1F0).value + 0x50, arg0, 0xC);
+    encode_name_xor__6TLobbyFPvPvi((u8 *)&(*(RecoveredGlobal_80292574_lbl_804DB1F0 *)&lbl_804DB1F0).value + 0x50, arg0, 0xC);
     M2C_FIELD(&(*(RecoveredGlobal_80292574_lbl_804DB1F0 *)&lbl_804DB1F0).value, s32 *, 0x18) = (s32) (arg1 | 0xFF000000);
 }
 typedef char RecoveredGlobal_802925C4_lbl_80540968_size[sizeof(RecoveredGlobal_802925C4_lbl_80540968) == 0x20 ? 1 : -1];

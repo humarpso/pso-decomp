@@ -87,7 +87,7 @@ s32 get_instance__15TAdPlayerLoadGCFv();
 s32 handle_mode_selection__21TAdMultiChgGameModeGCFPv(void *arg0);
 void TAdMultiChgGameModeGC__sub_8036E6A0(s32 arg0);
 void TAdMultiChgGameModeGC__sub_8036E6EC(void);
-M2C_UNK TAdSinglePlyChrSelectGC__sub_801FD6B4();
+M2C_UNK refresh_char_slots__23TAdSinglePlyChrSelectGCFv();
 s32 encrypt_save_and_write__23TAdSinglePlyChrSelectGCFv();
 s32 handle_mode_selection__21TAdMultiChgGameModeGCFPv(void *arg0);
 void TAdMultiChgGameModeGC__sub_8036E6F0(s32 arg0);
@@ -151,7 +151,7 @@ s32 TAdSinglePlyChrSelectGC__sub_801FD668();
 s32 TAdPlayerLoadGC__sub_801FD770();
 s32 handle_mode_selection__21TAdMultiChgGameModeGCFPv(void *arg0);
 void set_state__21TAdMultiChgGameModeGCFPvi(u8 *arg0, s32 arg1);
-void TAdMultiChgGameModeGC__sub_8036E754(void *arg0);
+void check_player_load_result__21TAdMultiChgGameModeGCFPv(void *arg0);
 void *__ct__7TObjectFP7TObject(void *, void *);
 M2C_UNK stop_audio_streams__6TLobbyFv();
 M2C_UNK TKeyBoardControl__sub_8000F90C(M2C_UNK);
@@ -435,7 +435,7 @@ void TAdMultiChgGameModeGC__sub_8036E6A0(s32 arg0) {
 void TAdMultiChgGameModeGC__sub_8036E6EC(void) {  }
 void TAdMultiChgGameModeGC__sub_8036E6F0(s32 arg0) {
     if (((int)handle_mode_selection__21TAdMultiChgGameModeGCFPv((void *)((void*)arg0))) == 0) {
-        TAdSinglePlyChrSelectGC__sub_801FD6B4();
+        refresh_char_slots__23TAdSinglePlyChrSelectGCFv();
         if (encrypt_save_and_write__23TAdSinglePlyChrSelectGCFv() != 0) {
             set_state__21TAdMultiChgGameModeGCFPvi((u8 *)((void *)((void*)((void *) (arg0)))), (s32)((M2C_UNK)((void*)((int) (7)))));
             return;
@@ -445,7 +445,7 @@ void TAdMultiChgGameModeGC__sub_8036E6F0(s32 arg0) {
 }
 void TAdMultiChgGameModeGC__sub_8036E750(void) {  }
 
-void TAdMultiChgGameModeGC__sub_8036E754(void *arg0) {
+void check_player_load_result__21TAdMultiChgGameModeGCFPv(void *arg0) {
     if (handle_mode_selection__21TAdMultiChgGameModeGCFPv(arg0) != 0) {
         return;
     }

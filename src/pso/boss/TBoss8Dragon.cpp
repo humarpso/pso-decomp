@@ -1838,7 +1838,7 @@ s32 is_health_low__12TBoss8DragonFPv(void *arg0);
 void set_damage_phase_value__12TBoss8DragonFPvi(void *arg0, s32 arg1);
 void init_default__12TBoss8DragonFPv(void *arg0);
 s32 is_near_target__12TBoss8DragonFPv(Boss_802FC910 *o);
-void TBoss8Dragon__sub_802FC978(u8 *arg0, f32 *arg1, f32 *arg2);
+void calc_orbit_xz__12TBoss8DragonFPvPvPv(u8 *arg0, f32 *arg1, f32 *arg2);
 void TBoss8Dragon__sub_802FC9D8(u8 *arg0);
 bool TBoss8Dragon__sub_802FCCBC(u8 *arg0);
 void set_state_22__12TBoss8DragonFPv(void* p);
@@ -6871,7 +6871,7 @@ void init_default__12TBoss8DragonFPv(void *arg0) {
 s32 is_near_target__12TBoss8DragonFPv(Boss_802FC910 *o) {
     struct { f32 b[2]; V_802FC910 c; } s;
     V_802FC910 a;
-    TBoss8Dragon__sub_802FC978((u8 *)o, s.b, (f32 *)&s.c);
+    calc_orbit_xz__12TBoss8DragonFPvPvPv((u8 *)o, s.b, (f32 *)&s.c);
     ((void (*)(void *, void *))VecCopy__FP3VecPC3Vec)(&a, &o->pos);
     subtract_vector(&a, s.b);
     return ((f32 (*)(void *))clamp_velocity__15TObjBoss2TunnelFPv)(&a) <= TBoss8Dragon__data_805DEE9C;
@@ -6879,7 +6879,7 @@ s32 is_near_target__12TBoss8DragonFPv(Boss_802FC910 *o) {
 
 #pragma push
 #pragma fp_contract on
-void TBoss8Dragon__sub_802FC978(u8 *arg0, f32 *arg1, f32 *arg2) {
+void calc_orbit_xz__12TBoss8DragonFPvPvPv(u8 *arg0, f32 *arg1, f32 *arg2) {
     *arg1 = (lbl_805DEEDC * sin_table_lookup(M2C_FIELD(arg0, s32 *, 0x60))) + M2C_FIELD(arg0, f32 *, 0x38);
     *arg2 = (lbl_805DEEDC * cos_table_lookup(M2C_FIELD(arg0, s32 *, 0x60))) + M2C_FIELD(arg0, f32 *, 0x40);
 }

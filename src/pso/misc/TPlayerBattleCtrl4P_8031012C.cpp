@@ -207,7 +207,7 @@ void update_players__19TPlayerBattleCtrl4PFv(void);
 M2C_UNK TLobby__sub_801B09A4();
 int play_cue_stream_file(void*);
 void *get_player_by_client_id(s32);
-int fn_801C23A8(void*, void*);
+int show_duel_result_window(void*, void*);
 M2C_UNK inc_player_count__10TObjPlayerFv();
 
 s32 check_all_players_flag__19TPlayerBattleCtrl4PFv(void);
@@ -225,7 +225,7 @@ M2C_UNK suppress_slot__11TWindowCtrlFi(u32);
 M2C_UNK unsuppress_slot__11TWindowCtrlFi(u16);
 M2C_UNK clear_flag__11TWindowCtrlFv();
 M2C_UNK clear_trap_counts(s32);
-M2C_UNK fn_801F57B4(s32);
+M2C_UNK destroy_children_with_tag(s32);
 M2C_UNK fn_8020910C(s32);
 M2C_UNK begin_player_keyboard_hold(u32);
 M2C_UNK obj_set_flag_20000();
@@ -369,7 +369,7 @@ void init__19TPlayerBattleCtrl4PFv(void) {
 }
 
 int init_ctrl_default__19TPlayerBattleCtrl4PFPv(void* p) { return ((int (*)(void*, int))TPlayerBattleCtrl4P__sub_803112AC)(p, 0); }
-void notify_lobby__19TPlayerBattleCtrl4PFPvPvPv(void* p, void* a1, void* a2) { play_cue_stream_file(a1); fn_801C23A8((void*)-50, a2); }
+void notify_lobby__19TPlayerBattleCtrl4PFPvPvPv(void* p, void* a1, void* a2) { play_cue_stream_file(a1); show_duel_result_window((void*)-50, a2); }
 void reset_score_counters__19TPlayerBattleCtrl4PFPv(void* p) { *(s32*)((char*)p + 0x260) = 0; *(s32*)((char*)p + 0x290) = 0; }
 
 void TPlayerBattleCtrl4P__sub_80310674(void) {
@@ -685,7 +685,7 @@ void update__19TPlayerBattleCtrl4PFv(void) {
         var_r31 += 1;
     } while (var_r31 < 4);
     fn_8020910C(tl_01);
-    fn_801F57B4(tl_00);
+    destroy_children_with_tag(tl_00);
     TLobby__sub_8020BCE4();
     TLobby__sub_8020BB18();
     var_r31_2 = 0;

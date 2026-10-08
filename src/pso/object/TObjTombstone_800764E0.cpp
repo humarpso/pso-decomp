@@ -10,7 +10,7 @@ typedef char RecoveredGlobal_800765B4_lbl_8048D240_size[sizeof(RecoveredGlobal_8
 extern "C" {
 u8 * load_resource_from_descriptor(void *, s32, void *, s32, s32, s32);
 int alloc__23TAdSinglePlyChrSelectGCFPv(void *);
-M2C_UNK TObjTombstone__sub_80074FAC();
+M2C_UNK reset_matrix__13TObjTombstoneFv();
 extern RecoveredGlobal_800765B4_lbl_8048D240 lbl_8048D240;
 extern u32 TObjTombstone__data_805D4E48;
 void load_resources__13TObjTombstoneFv(void);
@@ -22,7 +22,7 @@ void destroy__13TObjTombstoneFv(void);
 void *init__13TObjTombstoneFPviii(void *arg0, s32 arg1, s32 arg2, s32 arg3);
 void TLobby__sub_8001FE7C(void*, int);
 M2C_UNK construct_collider_proxy__10TObjPlayerFPv();
-M2C_UNK TObjTombstone__sub_80074FAC();
+M2C_UNK reset_matrix__13TObjTombstoneFv();
 M2C_UNK init_parts__13TObjTombstoneFPv(void *);
 M2C_UNK setup__13TObjTombstoneFPvii(void *, s32, s32);
 
@@ -54,7 +54,7 @@ void destroy__13TObjTombstoneFv(void) {
     if ((u32) TObjTombstone__data_805D4E48 != 0U) {
         TLobby__sub_8001FE7C((void*)TObjTombstone__data_805D4E48, 1);
         TObjTombstone__data_805D4E48 = 0U;
-        TObjTombstone__sub_80074FAC();
+        reset_matrix__13TObjTombstoneFv();
     }
 }
 void load_resources__13TObjTombstoneFv(void) {
@@ -67,7 +67,7 @@ void load_resources__13TObjTombstoneFv(void) {
             var_r0 = (long) (load_resource_from_descriptor((void *) temp_r3, 1, &lbl_8048D240.value, 0, 0, 0));
         }
         (*(u8 * *)&TObjTombstone__data_805D4E48) = (unsigned char *) ((void *) var_r0);
-        TObjTombstone__sub_80074FAC();
+        reset_matrix__13TObjTombstoneFv();
     }
 }
 

@@ -74,7 +74,7 @@ typedef s32 M2C_UNK;
 extern "C" {
 s32 obj_getField1c(int);
 s32 construct_target_cursor_records__10TObjPlayerFi(void *);
-s32 fn_8022F42C(void *);
+s32 TTecDeband__sub_8022F42C(void *);
 int init_params__10TTecDebandFPv(void* p);
 void update_effect_params__10TTecDebandFPv(u8 *arg0);
 s32 TTecPlayerInfluence__ct(void *, void *, void *, void *);
@@ -95,7 +95,7 @@ void show_party_effect__11TWindowCtrlFPvPvPv(s32, s32, s32);
 void TTecDeband__vt5(Obj_8022F588 *arg0, VObj_18_b27ba1 *arg1);
 s32 obj_getField1c(int);
 s32 construct_target_cursor_records__10TObjPlayerFi(void *);
-s32 fn_8022F42C(void *);
+s32 TTecDeband__sub_8022F42C(void *);
 int init_params__10TTecDebandFPv(void* p);
 void update_effect_params__10TTecDebandFPv(u8 *arg0);
 s32 TTecPlayerInfluence__ct(void *, void *, void *, void *);
@@ -232,7 +232,7 @@ s32 TTecDeband__ct(u32 a0, s32 arg1, s32 arg2, s32 arg3, s32 arg4) {
     }
     if (M2C_FIELD(arg0, s32 *, 0xAC) != 0) {
         init_params__10TTecDebandFPv(arg0);
-        fn_8022F42C(arg0);
+        TTecDeband__sub_8022F42C(arg0);
     }
     return (s32)a0;
 #undef arg0
@@ -257,7 +257,7 @@ u8 *TTecDeband__sub_8022F948(u8 *arg0, s32 arg1, s32 arg2, s32 arg3) {
         M2C_FIELD(arg0, s16 *, 0xA8) = obj_getField1c((int) (temp_r3_2));
     }
     init_params__10TTecDebandFPv((void*)((void *) (arg0)));
-    fn_8022F42C((void *) (arg0));
+    TTecDeband__sub_8022F42C((void *) (arg0));
     return arg0;
 }
 

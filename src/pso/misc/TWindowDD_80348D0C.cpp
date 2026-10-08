@@ -17,7 +17,7 @@ void TWindowDD__sub_80348DFC(S_80348DFC *self);
 void TWindowDD__sub_80348DD8(S_80348DD8 *self, s16 v);
 void bswap_16__FPUs(void *);
 void bswap_32__FPUl(void *);
-void TWindowDD__sub_80348D0C(S_80348D0C *arg0);
+void bswap_word_select__9TWindowDDFPv(S_80348D0C *arg0);
 }
 
 extern "C" {
@@ -29,7 +29,7 @@ int TLobby__send_and_handle_60(void*);
 int handle_word_select__9TWindowDDFPv(void*);
 void init_header__9TWindowDDFPv(void* p);
 
-void TWindowDD__sub_80348D0C(S_80348D0C *arg0) {
+void bswap_word_select__9TWindowDDFPv(S_80348D0C *arg0) {
     s32 i;
     bswap_16__FPUs(&arg0->a);
     bswap_16__FPUs(&arg0->b);

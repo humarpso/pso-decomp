@@ -268,7 +268,7 @@ s32 spawn_particle_effect_with_rotation(void *, void *, int, int);
 M2C_UNK spawn_particle_effect(void *, int);
 M2C_UNK copy_pos__11TNowLoadingFPvPv(void *, void *);
 void * TObjPlayer__sub_800A05B8(void *, s16);
-M2C_UNK TObjPlayer__sub_800A0728();
+M2C_UNK trigger_targets_action__10TObjPlayerFPv();
 u8 * TObjEneDarkGunCenter__ct(u8 *arg0, M2C_UNK arg1, s32 arg2);
 void fn_800A0FAC(u8 *arg0);
 void fn_800A0FDC(u8 *arg0);
@@ -1128,7 +1128,7 @@ void handle_status_326__10TObjPlayerFPv(void *arg0) {
     temp_r0 = M2C_FIELD(arg0, s16 *, 0x326);
     if (temp_r0 != 4) {
         if ((temp_r0 == 2) && (is_flag_set_388_bit26__10TObjPlayerFPv((void*)((s32)(arg0))) != 0) && (get_enemy_entity(M2C_FIELD(arg0, u16 *, 0x428)) != 0U)) {
-            TObjPlayer__sub_800A0728();
+            trigger_targets_action__10TObjPlayerFPv();
             return;
         }
         set_state__15TObjEneMe1GiGueFPvi(arg0, 4);

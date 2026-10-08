@@ -11,7 +11,7 @@ struct B_801F4340 { s32 a; s16 b; u8 rest[6]; };
 extern "C" {
 extern A_801F4340* TLobby__data_805D6140;
 extern B_801F4340* TLobby__data_805D6144;
-void TLobby__sub_801F4340(void);
+void init_id_tables__6TLobbyFv(void);
 }
 
 extern "C" {
@@ -34,14 +34,14 @@ void open_session__6TLobbyFi(s32 arg0) {
         if (t != 0) {
             read_disc_file(arg0, t);
             populate_quest_floor_sets();
-            TLobby__sub_801F4340();
+            init_id_tables__6TLobbyFv();
             TLobby__data_805D6134 = 1;
             safe_free__23TAdSinglePlyChrSelectGCFUi(TLobby__data_805D5EE0);
             TLobby__data_805D5EE0 = 0;
         }
     }
 }
-void TLobby__sub_801F4340(void) {
+void init_id_tables__6TLobbyFv(void) {
     s32 i;
     s32 n = 0;
     for (i = 0; i < 0xBA0; i++) {

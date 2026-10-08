@@ -188,7 +188,7 @@ void TObjEneMe1GiGueBarrier__sub_80325CC0(void) {  }
 
 extern s32 lbl_805D6C60;
 
-void * TObjEneMe1GiGueBarrier__sub_80325CC4(void *arg0, void *arg1) {
+void * create__22TObjEneMe1GiGueBarrierFPvPv(void *arg0, void *arg1) {
     void *o;
     o = __nw__7TObjectFUl(0x10C);
     if (o != NULL) {

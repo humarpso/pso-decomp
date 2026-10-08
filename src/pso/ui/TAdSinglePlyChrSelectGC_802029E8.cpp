@@ -105,7 +105,7 @@ extern int lbl_805D5F58;
 extern s32 lbl_805D5F60;
 extern s32 *lbl_805D5F64;
 extern int lbl_805D5F74;
-s32 TAdSinglePlyChrSelectGC__sub_80202A74(s32 arg0, s16 arg1);
+s32 destroy_chardata_array__23TAdSinglePlyChrSelectGCFis(s32 arg0, s16 arg1);
 void init__9TItemDataFv(void *);
 void clear_inventory_slot__23TAdSinglePlyChrSelectGCFPv(u8 *arg0);
 s32 init_single_player_chr_select__6TLobbyFPv(s32);
@@ -179,7 +179,7 @@ s32 TAdSinglePlyChrSelectGC__sub_80202A68(u8 *arg0) {
     return M2C_FIELD(arg0, s32 *, 0x194AC);
 }
 
-s32 TAdSinglePlyChrSelectGC__sub_80202A74(s32 arg0, s16 arg1) {
+s32 destroy_chardata_array__23TAdSinglePlyChrSelectGCFis(s32 arg0, s16 arg1) {
     if (arg0 != 0) {
         __destroy_arr(arg0 + 4, (M2C_UNK *)free_chardata__23TAdSinglePlyChrSelectGCFis, 0x39b4, 7);
         if (arg1 > 0) {

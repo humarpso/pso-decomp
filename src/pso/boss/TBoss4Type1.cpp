@@ -333,7 +333,7 @@ S_80054938 * fn_80054938(S_80054938 *o, s16 flag);
 s32 TBoss4Type1__ct(s32, s32, s32);
 s32 create__11TBoss4Type1Fi(s32 arg0);
 M2C_UNK TBoss4Type2__sub_80054DA8();
-void TBoss4Type2__sub_80054F6C(s32 arg0);
+void create_all_tenchu_furu__11TBoss4Type2Fi(s32 arg0);
 M2C_UNK TBoss4Type2__sub_80054FC0(void *, f32);
 void TBoss4Type2__sub_80055300(void);
 Vec_80053E40 * get_position_ptr__10TObjPlayerFPv(void *);
@@ -626,7 +626,7 @@ void TBoss4Type2__sub_800525AC(u8 *arg0) {
     temp_r30 = (u8 *)(arg0 + 0x490);
     temp_r0 = M2C_FIELD(arg0, s32 *, 0x398);
     if (temp_r0 == 6) {
-        ((M2C_UNK (*)(void))TBoss4Type2__sub_80054F6C)();
+        ((M2C_UNK (*)(void))create_all_tenchu_furu__11TBoss4Type2Fi)();
     } else if (temp_r0 == 1) {
         TBoss4Type2__sub_80054DA8();
     }
@@ -1491,7 +1491,7 @@ void render_and_update_effects__10TObjPlayerFPv(void* p) { ((int (*)(void*))push
 
 #pragma push
 #pragma opt_common_subs off
-void fn_80054738(Obj_80054738 *self) {
+void TBoss4Type2__sub_80054738(Obj_80054738 *self) {
     Act_800542B0 act;
     if (is_field378_zero__14TBoss4DarkFalzFPv(self->x38c) != 0) {
         act = lbl_80485C48[self->x374].a;
@@ -1581,7 +1581,7 @@ s32 create__11TBoss4Type1Fi(s32 arg0) {
     return var_r31;
 }
 
-void TBoss4Type2__sub_80054F6C(s32 arg0) {
+void create_all_tenchu_furu__11TBoss4Type2Fi(s32 arg0) {
     M2C_UNK *var_r31;
     s32 var_r30;
     var_r30 = 0;

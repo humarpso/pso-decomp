@@ -19,7 +19,7 @@ void set_and_notify__6TLobbyFi(int);
 u8 *__nw__7TObjectFUl(s32);
 extern u8 *lbl_805D5D90;
 extern s32 tl_00;
-void fn_801C23A8(s32 arg0, s32 arg1);
+void show_duel_result_window(s32 arg0, s32 arg1);
 u8 * __dt__7TObjectFv(void *, s16);
 void __dl__7TObjectFPv(s32);
 extern RecoveredGlobal_801C241C_lbl_804C3E60 lbl_804C3E60;
@@ -29,7 +29,7 @@ u8 *fn_801C241C(u8 *arg0, s16 arg1);
 
 extern "C" {
 
-void fn_801C23A8(s32 arg0, s32 arg1) {
+void show_duel_result_window(s32 arg0, s32 arg1) {
     u8 *temp_r3;
     u8 *var_r0;
     if ((void *) lbl_805D5D90 != NULL) {

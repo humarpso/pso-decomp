@@ -111,7 +111,7 @@ extern "C" {
 void *__dt__12TObjEneSlimeFv(void *arg0, s16 arg1);
 void free_instance__12TObjEneSlimeFv(void);
 void TLobby__sub_8001FE7C(void*, int);
-void TObjEneSlime__sub_800EB910(void *);
+void release_split_slimes__12TObjEneSlimeFPv(void *);
 void __dl__7TObjectFPv(void *);
 void __dt__9TObjEnemyFv(void *, int);
 
@@ -120,7 +120,7 @@ extern M2C_UNK __vt__12TObjEneSlime[];
 void *__dt__12TObjEneSlimeFv(void *arg0, s16 arg1) {
     if (arg0 != NULL) {
         M2C_FIELD(arg0, M2C_UNK **, 0x18) = __vt__12TObjEneSlime;
-        TObjEneSlime__sub_800EB910(arg0);
+        release_split_slimes__12TObjEneSlimeFPv(arg0);
         __dt__9TObjEnemyFv(arg0, 0);
         if (arg1 > 0) {
             __dl__7TObjectFPv(arg0);

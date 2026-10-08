@@ -39,13 +39,13 @@ void TObjPlayer__sub_8032E0A4(u8 *arg0);
 u8 *find_entity_by_id(u16);
 void TObjPlayer__sub_8032DF74(u8 *arg0);
 void queue_destruction__7TObjectFv(void *);
-void TObjPlayer__sub_8032DFF8(O_8032DFF8 *arg0);
+void destroy_effect_objects__10TObjPlayerFPv(O_8032DFF8 *arg0);
 void queue_destruction__7TObjectFv(void *);
 void copy_pos__11TNowLoadingFPvPv(void *, void *);
 u32 find_item_by_id(s32);
 s8 TObjPlayer__sub_80102C30();
 void TObjPlayer__sub_8032DF74(u8 *arg0);
-void TObjPlayer__sub_8032DFF8(O_8032DFF8 *arg0);
+void destroy_effect_objects__10TObjPlayerFPv(O_8032DFF8 *arg0);
 void TObjPlayer__sub_8032E11C(u8 *arg0);
 }
 
@@ -69,7 +69,7 @@ void TObjPlayer__sub_8032DF74(u8 *arg0) {
   }
 }
 
-void TObjPlayer__sub_8032DFF8(O_8032DFF8 *arg0) {
+void destroy_effect_objects__10TObjPlayerFPv(O_8032DFF8 *arg0) {
     s32 i;
     for (i = 0; i != 3; i++) {
         if (arg0->o[i] != 0) {
@@ -127,7 +127,7 @@ void TObjPlayer__sub_8032E11C(u8 *arg0) {
     if (M2C_FIELD(arg0, s32 *, 0x30) == 0) {
         ((VObj_8032E11C *)arg0)->m4();
     } else if (M2C_FIELD(arg0, s32 *, 0x30) == 6) {
-        TObjPlayer__sub_8032DFF8((O_8032DFF8 *)arg0);
+        destroy_effect_objects__10TObjPlayerFPv((O_8032DFF8 *)arg0);
         ((VObj_8032E11C *)arg0)->m5();
     } else if (M2C_FIELD(arg0, s32 *, 0x30) == 12) {
         queue_destruction__7TObjectFv(arg0);

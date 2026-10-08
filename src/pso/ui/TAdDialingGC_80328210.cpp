@@ -23,11 +23,11 @@ struct Obj_803285C0 { u8 pad[0x20]; s32 mode; u8 pad2[0xC]; s16 state; };
 
 extern "C" {
 s32 get_localized_text_entry(int, int);
-M2C_UNK fn_8032D9BC(void *, void *, f32);
+M2C_UNK create_guide_button(void *, void *, f32);
 M2C_UNK fn_8032DA28(void *);
 extern const f32 lbl_805DF6E4;
 extern const f32 lbl_805DF6E8;
-void TAdDialingGC__sub_803286AC(u8 *arg0);
+void show_guide_button__12TAdDialingGCFPv(u8 *arg0);
 s32 test_flag_4c__23TAdSinglePlyChrSelectGCFPv(void *, int);
 s32 TWindowShortListCtrl__check_controller_button(void *, int);
 extern RecoveredGlobal_803284F8_lbl_8050E208 lbl_8050E208;
@@ -136,7 +136,7 @@ void update_dial_state__12TAdDialingGCFPvi(void *arg0, s32 arg1) {
         M2C_FIELD(arg0, s32 *, 0xA0) = temp_r4 + 1;
         if ((s32) M2C_FIELD(arg0, s32 *, 0xA0) > 0x5A) {
             spawn_title_screen__12TAdDialingGCFPvi((void *)((void *)(arg0)), (s32)((s32)(temp_r4)));
-            TAdDialingGC__sub_803286AC((u8 *)(arg0));
+            show_guide_button__12TAdDialingGCFPv((u8 *)(arg0));
             M2C_FIELD(arg0, s32 *, 0xA0) = 0;
             M2C_FIELD(arg0, s32 *, 0x20) = 1;
         }
@@ -160,7 +160,7 @@ void update_dial_state__12TAdDialingGCFPvi(void *arg0, s32 arg1) {
             M2C_FIELD(arg0, s32 *, 0x20) = 3;
             return;
         default:
-            TAdDialingGC__sub_803286AC((u8 *)(arg0));
+            show_guide_button__12TAdDialingGCFPv((u8 *)(arg0));
             if (TAdDialingGC__sub_803284F8((s32)(arg0)) != 0) {
                 M2C_FIELD(arg0, s32 *, 0x20) = 3;
                 return;
@@ -253,7 +253,7 @@ void update_state_display__12TAdDialingGCFPv(Obj_803285C0 *arg0) {
     }
 }
 
-void TAdDialingGC__sub_803286AC(u8 *arg0) {
+void show_guide_button__12TAdDialingGCFPv(u8 *arg0) {
     Stack_803286AC stack;
     if (!(M2C_FIELD(arg0, s32 *, 0xA4) & 2)) {
         fn_8032DA28((void *) (&stack.sp8));
@@ -263,7 +263,7 @@ void TAdDialingGC__sub_803286AC(u8 *arg0) {
         stack.sp14 = lbl_805DF6E4;
         stack.sp10 = lbl_805DF6E8;
         stack.sp18 = lbl_805DF6E8;
-        fn_8032D9BC((void *) (arg0), (void *) (&stack.sp8), (f32) (lbl_805DF6E4));
+        create_guide_button((void *) (arg0), (void *) (&stack.sp8), (f32) (lbl_805DF6E4));
         M2C_FIELD(arg0, s32 *, 0xA4) = (s32) (M2C_FIELD(arg0, s32 *, 0xA4) | 2);
     }
 }
@@ -275,7 +275,7 @@ void TAdDialingGC__sub_80328730(s32 arg0) {
         switch (TAdDialingGC__data_805D6C78->state) {
         case 0:
             ((void (*)(void *))spawn_title_screen__12TAdDialingGCFPvi)(TAdDialingGC__data_805D6C78);
-            TAdDialingGC__sub_803286AC((u8 *)TAdDialingGC__data_805D6C78);
+            show_guide_button__12TAdDialingGCFPv((u8 *)TAdDialingGC__data_805D6C78);
             break;
         case 1:
         case 2:
@@ -286,7 +286,7 @@ void TAdDialingGC__sub_80328730(s32 arg0) {
                 return;
             }
             ((void (*)(void *))spawn_title_screen__12TAdDialingGCFPvi)(TAdDialingGC__data_805D6C78);
-            TAdDialingGC__sub_803286AC((u8 *)TAdDialingGC__data_805D6C78);
+            show_guide_button__12TAdDialingGCFPv((u8 *)TAdDialingGC__data_805D6C78);
             break;
         }
     }

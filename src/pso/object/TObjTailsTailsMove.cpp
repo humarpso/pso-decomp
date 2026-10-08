@@ -49,7 +49,7 @@ void *TObjTailsTailsMove__ct(void *arg0, void *arg1) {
     return arg0;
 }
 
-void * TObjTailsTailsMove__sub_800FFDBC(void *arg0) {
+void * create__18TObjTailsTailsMoveFPv(void *arg0) {
     void *o;
     o = __nw__7TObjectFUl(0x2C);
     if (o != NULL) {

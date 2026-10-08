@@ -12,7 +12,7 @@ void render_state__18TAdLoadQuestCellGCFPv(void *arg0);
 s32 __nw__7TObjectFUl(int);
 void *TAdLoadQuestCellGC__ct(void *arg0, void *arg1, void *arg2);
 __declspec(section ".data") TAdLoadQuestCellGC *lbl_804EFF38[3] = { 0, 0, 0 };
-s32 TAdLoadQuestGC__sub_80349B20(s32 arg0, s32 arg1);
+s32 get_or_create_cell__14TAdLoadQuestGCFii(s32 arg0, s32 arg1);
 }
 
 extern "C" {
@@ -74,7 +74,7 @@ void *TAdLoadQuestCellGC__ct(void *arg0, void *arg1, void *arg2) {
     M2C_FIELD(arg0, u32 *, 0x20) = -1;
     return arg0;
 }
-s32 TAdLoadQuestGC__sub_80349B20(s32 arg0, s32 arg1) {
+s32 get_or_create_cell__14TAdLoadQuestGCFii(s32 arg0, s32 arg1) {
     s32 temp_r30;
     s32 temp_r3;
     s32 var_r0;

@@ -352,7 +352,7 @@ void TBoss6MagMine__sub_80369598(void *, void *);
 void TBoss6Type2__sub_8032F304(O_8032F304 *arg0);
 s32 VecCopy__FP3VecPC3Vec(void *, void *);
 void set_action__11TBoss6Type2FPvi(u8 *arg0, s32 arg1);
-void TBoss6Type2__sub_8032F360(O_8032F360 *arg0, V3_8032F360 *arg1, s32 arg2);
+void set_path_points__11TBoss6Type2FPvPvi(O_8032F360 *arg0, V3_8032F360 *arg1, s32 arg2);
 s32 VecCopy__FP3VecPC3Vec(void *, void *);
 void TBoss6Type2__sub_802BD378(void *, s32, void *, void *);
 s32 TBoss6Type2__sub_8032FB84(O_8032FB84 *arg0);
@@ -817,7 +817,7 @@ void TBoss6Type2__sub_8032F304(O_8032F304 *arg0) {
     }
 }
 
-void TBoss6Type2__sub_8032F360(O_8032F360 *arg0, V3_8032F360 *arg1, s32 arg2) {
+void set_path_points__11TBoss6Type2FPvPvi(O_8032F360 *arg0, V3_8032F360 *arg1, s32 arg2) {
     s32 i;
     s32 n = arg2;
     arg0->z = 0;
@@ -834,7 +834,7 @@ void TBoss6Type2__sub_8032F360(O_8032F360 *arg0, V3_8032F360 *arg1, s32 arg2) {
 void TBoss6Type2__sub_8032F3E0(s32 i, void *pts, s32 n) {
     void *p = lbl_804EDDE4[i];
     if (p != 0) {
-        TBoss6Type2__sub_8032F360((O_8032F360 *)((void *)(p)), (V3_8032F360 *)((void *)(pts)), (s32)((s32)(n)));
+        set_path_points__11TBoss6Type2FPvPvi((O_8032F360 *)((void *)(p)), (V3_8032F360 *)((void *)(pts)), (s32)((s32)(n)));
     }
 }
 

@@ -2434,7 +2434,7 @@ void send_6x2A_drop_item__10TObjPlayerFv(void *arg0, s32 arg1, void *arg2, s32 a
 s32 send_trap_packet__10TObjPlayerFPvi(void *, int);
 void TObjPlayer__sub_801B8A80(u8 *arg0, s32 arg1);
 void request_item_drop__10TObjPlayerFPvii(u8 *arg0, s32 arg1, s32 arg2);
-s32 TObjPlayer__sub_801B8C10(u8 *arg0, s8 arg1, s8 arg2, s8 arg3);
+s32 count_items_of_type__10TObjPlayerFPvccc(u8 *arg0, s8 arg1, s8 arg2, s8 arg3);
 void dispatch_input__10TObjPlayerFPvii(void *arg0, s32 arg1, s32 arg2);
 void handle_6xAC(void *arg0);
 void dispatch_action__10TObjPlayerFPvii(void *arg0, s32 arg1, s32 arg2);
@@ -2557,7 +2557,7 @@ void TObjPlayer__sub_801BE838(void *, s32);
 s32 get_field_374_state__10TObjPlayerFPv(void *);
 void TObjPlayer__sub_801BE864(void *, s32);
 s32 get_field_374__10TObjPlayerFPv(void *);
-void TObjPlayer__sub_801BE890(void *);
+void init_inventory_list__10TObjPlayerFPv(void *);
 M2C_UNK set_move_mode__10TObjPlayerFPvi(s32, M2C_UNK);
 M2C_UNK set_input_mode__10TObjPlayerFPvi(s32, M2C_UNK);
 s32 TObjPlayer__sub_801BE8F4(void *, M2C_UNK, M2C_UNK);
@@ -5658,7 +5658,7 @@ Obj_801B4FD8 *TObjPlayer__sub_801B4FD8(Obj_801B4FD8 *self) {
     TObjPlayer__sub_801C20A4(self->f78);
     init_forward__10TObjPlayerFPv(self->f94);
     TObjPlayer__sub_801BF660(self->f98);
-    TObjPlayer__sub_801BE890(self->f13C);
+    init_inventory_list__10TObjPlayerFPv(self->f13C);
     self->f0 = 0xFFFF;
     self->f2 = 0;
     self->f4 = 0;
@@ -6691,7 +6691,7 @@ s32 try_send_6x27_use_item(void *arg0, s32 arg1) {
 void rebuild_player_inventory(void *arg0) {
     Buf_801B802C b;
     if ((u32) M2C_FIELD(arg0, u32 *, 0xD00) != 0U) {
-        ((M2C_UNK (*)(s32 *))TObjPlayer__sub_801BE890)((s32 *)&b);
+        ((M2C_UNK (*)(s32 *))init_inventory_list__10TObjPlayerFPv)((s32 *)&b);
         b.n = ((s32 (*)(void *, M2C_UNK *))query_state_if_present__10TObjPlayerFPv)(arg0, (M2C_UNK *)b.ents);
         destroy_subobjects__10TObjPlayerFPvi(M2C_FIELD(arg0, u32 *, 0xD00), arg0);
         queue_destruction__7TObjectFv(M2C_FIELD(arg0, u32 *, 0xD00));
@@ -6999,7 +6999,7 @@ void request_item_drop__10TObjPlayerFPvii(u8 *arg0, s32 arg1, s32 arg2) {
     insert_item_node__10TObjPlayerFiiiii(*(s32 *)(arg0 + 0xD00) + 0x20, (void *)TObjPlayer__sub_801BF914(arg0 + 0x84C), arg0, &item, id);
 }
 
-s32 TObjPlayer__sub_801B8C10(u8 *arg0, s8 arg1, s8 arg2, s8 arg3) {
+s32 count_items_of_type__10TObjPlayerFPvccc(u8 *arg0, s8 arg1, s8 arg2, s8 arg3) {
     TItemData item_data;
     if ((u32) M2C_FIELD(arg0, u32 *, 0xD00) == 0U) {
         return 0;

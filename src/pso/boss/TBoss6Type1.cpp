@@ -415,7 +415,7 @@ extern const f32 TBoss6Type1__data_805DE2D0;
 extern const s32 lbl_805DE3A8;
 extern const s32 lbl_805DE3B0;
 void TBoss6Type1__sub_802B7D50(u8 *arg0);
-f32 TBoss6PlotFalz__sub_802AB9F0(f32);
+f32 cosine_ease__14TBoss6PlotFalzFf(f32);
 M2C_UNK VecCopy__FP3VecPC3Vec(void *, void *);
 f32 sin_table_lookup(s32);
 f32 vec3_add_to(void *, void *);
@@ -796,7 +796,7 @@ void TBoss6Type1__sub_802B5140(s32 arg0, s32 arg1, s32 arg2) {
     temp_f31 = sin_table_lookup((s32)((int) (0x6000)));
     var_f31 = sin_table_lookup((s32)((int) (temp_r31))) / temp_f31;
     if (temp_r31 > 0x4000) {
-        var_f31 += (TBoss6Type1__data_805DE2E4 - var_f31) * TBoss6PlotFalz__sub_802AB9F0((var_f30 - lbl_805DE2F8) / lbl_805DE2FC);
+        var_f31 += (TBoss6Type1__data_805DE2E4 - var_f31) * cosine_ease__14TBoss6PlotFalzFf((var_f30 - lbl_805DE2F8) / lbl_805DE2FC);
     }
     VecCopy__FP3VecPC3Vec((void *) (&stack.sp8), (void *) (&lbl_80470CE0.value));
     subtract_vector((void *) (&stack.sp8), (void *) (&lbl_80470CD4.value));

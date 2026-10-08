@@ -21,7 +21,7 @@ extern "C" {
 s32 draw_default_entry__9TWindowDDFi();
 M2C_UNK draw_window_frame(void *, int);
 M2C_UNK draw_visible_window_entries(void *, void *, int);
-M2C_UNK TWindowSubCustomEquip__sub_80275F90(void *, int);
+M2C_UNK draw_cursor__21TWindowSubCustomEquipFPvPv(void *, int);
 M2C_UNK forward_render__20TWindowSubStatusDispFPv(int, int);
 void render__21TWindowSubCustomEquipFv(u8 *arg0);
 s32 get_array_entry__20TWindowSubStatusDispFPvi(void *, s32);
@@ -298,7 +298,7 @@ void render__21TWindowSubCustomEquipFv(u8 *arg0) {
     temp_r3 = draw_default_entry__9TWindowDDFi();
     draw_window_frame((void *) (arg0), (int) (temp_r3));
     draw_visible_window_entries((void *) (arg0), (void *) (arg0 + 0x24), (int) (temp_r3));
-    TWindowSubCustomEquip__sub_80275F90((void *) (arg0), (int) (temp_r3));
+    draw_cursor__21TWindowSubCustomEquipFPvPv((void *) (arg0), (int) (temp_r3));
     forward_render__20TWindowSubStatusDispFPv((int) (M2C_FIELD(arg0, s32 *, 0x6C)), (int) (temp_r3));
 }
 

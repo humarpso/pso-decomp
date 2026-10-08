@@ -157,7 +157,7 @@ extern RecoveredGlobal_802D72E4_TObjNpcEnemy__data_80540FF0 TObjNpcEnemy__data_8
 s16 *insert_slot_by_id__12TObjNpcEnemyFs(s16 arg0);
 M2C_UNK reset_anim_fields__12TObjNpcEnemyFPv(void *);
 extern RecoveredGlobal_802D72E4_TObjNpcEnemy__data_80540FF0 TObjNpcEnemy__data_80540FF0;
-void TObjNpcEnemy__sub_802D73F8(void);
+void reset_all_anim_fields__12TObjNpcEnemyFv(void);
 s32 TObjNpcEnemy__sub_802D7444(void *arg0);
 }
 
@@ -243,7 +243,7 @@ s16 *insert_slot_by_id__12TObjNpcEnemyFs(s16 arg0) {
     return (s16 *)e;
 }
 
-void TObjNpcEnemy__sub_802D73F8(void) {
+void reset_all_anim_fields__12TObjNpcEnemyFv(void) {
     s32 i;
     for (i = 0; i < 0x10; i++) {
         reset_anim_fields__12TObjNpcEnemyFPv(&((Ent_802D732C *)&TObjNpcEnemy__data_80540FF0)[i]);

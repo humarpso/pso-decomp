@@ -47,7 +47,7 @@ void copy_vec2__28TWindowSubSymbolChatPartsSetFPvPv(void *, void *);
 void TObjPlayer__sub_80082C30(void);
 void draw_textured_screen_quad__10TObjPlayerFUiPvPvi(s32, void *, void *, s32);
 void setup_tev_swap__10TObjPlayerFv(void);
-void TObjPlayer__sub_80141448(s32);
+void set_tev_swap_mode__10TObjPlayerFUc(s32);
 s32 is_on_current_screen__11TCameraCtrlFPv(void *, s32);
 void GXPixModeSync(void);
 void GXSetTexCopySrc(u16, u16, u16, u16);
@@ -164,7 +164,7 @@ void copy_screen_to_texture__10TObjPlayerFiPv(s32 mode, void *src) {
         b.x = lbl_805D93C8;
         b.y = lbl_805D93C0;
         if (is_on_current_screen__11TCameraCtrlFPv(cam, 0x100) != 0) {
-            TObjPlayer__sub_80141448(0);
+            set_tev_swap_mode__10TObjPlayerFUc(0);
         }
         draw_textured_screen_quad__10TObjPlayerFUiPvPvi(-1, &a, &b, 1);
         if (is_on_current_screen__11TCameraCtrlFPv(cam, 0x100) != 0) {
@@ -188,7 +188,7 @@ void copy_screen_to_texture__10TObjPlayerFiPv(s32 mode, void *src) {
         b.x = lbl_805D93C8;
         b.y = lbl_805D93C0;
         if (is_on_current_screen__11TCameraCtrlFPv(cam, 0x100) != 0) {
-            TObjPlayer__sub_80141448(0);
+            set_tev_swap_mode__10TObjPlayerFUc(0);
         }
         draw_textured_screen_quad__10TObjPlayerFUiPvPvi(-1, &a, &b, 0);
         if (is_on_current_screen__11TCameraCtrlFPv(cam, 0x100) != 0) {

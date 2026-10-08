@@ -7,7 +7,7 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 extern "C" {
 void TWindowSubSymbolChatPartsSet__sub_8028625C(void *);
 void TWindowSubSymbolChat__sub_80285FF4(u8 *arg0, s32 arg1);
-s32 TWindowSubSymbolChat__sub_80077108(s32, s32);
+s32 find_free_entry__20TWindowSubSymbolChatFPvi(s32, s32);
 s32 get_instance__20TWindowSubSymbolChatFv(void);
 u16 *TWindowSubSymbolChatPartsSet__sub_802482B8(void *, s32);
 u16 *get_parts_entry__28TWindowSubSymbolChatPartsSetFPvi(void *, s32);
@@ -56,8 +56,8 @@ void init_symbol_layout__20TWindowSubSymbolChatFPvPv(u8 *arg0, s32 *arg1) {
   }
   while (var_r29 < 4);
   temp_r3_2 = get_instance__20TWindowSubSymbolChatFv();
-  *((s32 *) (((s8 *) arg0) + 0x74)) = TWindowSubSymbolChat__sub_80077108(temp_r3_2, 0);
-  *((s32 *) (((s8 *) arg0) + 0x78)) = TWindowSubSymbolChat__sub_80077108(temp_r3_2, (*((s32 *) (((s8 *) arg0) + 0x74))) + 1);
+  *((s32 *) (((s8 *) arg0) + 0x74)) = find_free_entry__20TWindowSubSymbolChatFPvi(temp_r3_2, 0);
+  *((s32 *) (((s8 *) arg0) + 0x78)) = find_free_entry__20TWindowSubSymbolChatFPvi(temp_r3_2, (*((s32 *) (((s8 *) arg0) + 0x74))) + 1);
   *((s8 *) (((s8 *) arg0) + 0x69)) = 0;
   TWindowSubSymbolChatPartsSet__sub_8028625C((void *) arg0);
 }

@@ -99,7 +99,7 @@ s32 TAdPlyStatusGC__sub_8033F8B0(void *arg0, void *arg1);
 M2C_UNK disallow_rendering__7TObjectFv();
 s32 get_localized_text_entry(int, int);
 void __ct__7TObjectFP7TObject(void *, void *);
-void fn_8032D9BC(void *, void *);
+void create_guide_button(void *, void *);
 u32 get_player_index__14TAdPlyStatusGCFv();
 void *__construct_array(void *, void *, void *, u32, u32);
 void *fn_8032DA28(void *);
@@ -331,7 +331,7 @@ TAdPlyStatusGC_8033FC14 *TAdPlyStatusGC__ct(TAdPlyStatusGC_8033FC14 *self, void 
     self->elems[1].f14 = 0;
     self->elems[1].f18 = 8;
     self->elems[1].f1C = 0x1E;
-    fn_8032D9BC(self, self->elems);
+    create_guide_button(self, self->elems);
     if (get_player_index__14TAdPlyStatusGCFv() != 0U) {
         disallow_rendering__7TObjectFv();
     }

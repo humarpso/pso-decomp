@@ -17,7 +17,7 @@ M2C_UNK TAdPlyPltAnimCtrlGC__sub_80355D38();
 void TAdPlyPltAnimCtrlGC__sub_80355168(u8 *arg0);
 u8 fn_8035510C(s32 *arg0, s32 arg1);
 s32 __ct__7TObjectFP7TObject(void *, void *);
-s32 TAdPlyPltAnimGC__sub_803560F0(void *, int);
+s32 get_or_create__15TAdPlyPltAnimGCFii(void *, int);
 extern M2C_UNK __vt__19TAdPlyPltAnimCtrlGC[];
 extern s32 lbl_805D4390;
 u8 *TAdPlyPltAnimCtrlGC__ct(u8 *arg0, s32 arg1);
@@ -179,7 +179,7 @@ u8 *TAdPlyPltAnimCtrlGC__ct(u8 *arg0, s32 arg1) {
     M2C_FIELD(arg0, s32 *, 0x1C) = 0;
     M2C_FIELD(arg0, s32 *, 0x20) = -1;
     do {
-        TAdPlyPltAnimGC__sub_803560F0((void *) (arg0), (int) (var_r31));
+        get_or_create__15TAdPlyPltAnimGCFii((void *) (arg0), (int) (var_r31));
         var_r31 += 1;
     } while (var_r31 < 5);
     return arg0;

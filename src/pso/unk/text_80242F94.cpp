@@ -39,7 +39,7 @@ void reset_state__23TAdSinglePlyChrSelectGCFPv(void *);
 extern RecoveredGlobal_802430E8_lbl_80518580 lbl_80518580;
 extern Pt_80243070 lbl_80518700[];
 extern const f32 lbl_805DCA04;
-void TAdSinglePlyChrSelectGC__sub_80243070(s16 arg0);
+void reset_all_slots__23TAdSinglePlyChrSelectGCFs(s16 arg0);
 void accumulate_rumble_strength__23TAdSinglePlyChrSelectGCFPvi(Sp_802430F4 *, u32, s32);
 void TAdSinglePlyChrSelectGC__sub_80242B24(Sp_802430F4 *);
 s32 update_rumble_pattern__23TAdSinglePlyChrSelectGCFPvPv(Pt_80243070 *, Sp_802430F4 *);
@@ -91,7 +91,7 @@ loop_1:
     goto loop_1;
 }
 
-void TAdSinglePlyChrSelectGC__sub_80243070(s16 arg0) {
+void reset_all_slots__23TAdSinglePlyChrSelectGCFs(s16 arg0) {
     Ent_80243070 *p = ((Ent_80243070 *)&lbl_80518580);
     s32 i;
     Pt_80243070 *q;

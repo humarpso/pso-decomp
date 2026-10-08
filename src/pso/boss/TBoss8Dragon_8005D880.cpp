@@ -716,7 +716,7 @@ extern const f32 lbl_805D8DB0;
 extern const f32 lbl_805D8DB4;
 void choose_next_action__12TBoss8DragonFPvPv(u8 *arg0, u32 *arg1);
 M2C_UNK TBoss8Dragon__sub_80064C94(void *arg0, void *);
-f32 TBoss8Dragon__sub_8005EA5C(f32 farg0, f32 farg1);
+f32 random_in_range__12TBoss8DragonFff(f32 farg0, f32 farg1);
 s32 TBoss8Dragon__sub_8005E9E8(s32 self, s32 arg1, s32 arg2);
 }
 
@@ -1613,13 +1613,13 @@ s32 TBoss8Dragon__sub_8005E1E8(f32 farg0);
 void free_parts__12TBoss8DragonFPv(void *arg0);
 void update_particle_positions__12TBoss8DragonFPv(void *arg0);
 void TBoss8Dragon__sub_8005E39C(Obj_8005E39C *self);
-void TBoss8Dragon__sub_8005E4D4(Obj_8005E4D4 *self);
+void destroy_parts__12TBoss8DragonFPv(Obj_8005E4D4 *self);
 void enable_particles__12TBoss8DragonFPv(Obj_8005E52C *self);
 s32 get_random_sign__12TBoss8DragonFiPvi(s32 arg0, Ent_8005E868 *arg1, s32 arg2);
 s32 calc_product__12TBoss8DragonFiiii(s32 arg0, s32 arg1, s32 arg2, s32 arg3);
 s32 TBoss8Dragon__sub_8005E944(s32 arg0, s32 arg1, s32 arg2);
 s32 TBoss8Dragon__sub_8005E9D8(void *self, O_8005E9D8 *o, s32 i);
-f32 TBoss8Dragon__sub_8005EA5C(f32 farg0, f32 farg1);
+f32 random_in_range__12TBoss8DragonFff(f32 farg0, f32 farg1);
 f32 TBoss8Dragon__sub_8005EAD0(void *arg0, void *arg1, int arg2);
 void TBoss8Dragon__sub_8005EB6C(s32 arg0, u8 *arg1, s32 arg2);
 void TBoss8Dragon__sub_8005EBDC(u8 *arg0, u8 *arg1, u8 *arg2);
@@ -2944,7 +2944,7 @@ void TBoss8Dragon__sub_8005E39C(Obj_8005E39C *self) {
 extern int fold_flush_3;
 #pragma pop
 
-void TBoss8Dragon__sub_8005E4D4(Obj_8005E4D4 *self) {
+void destroy_parts__12TBoss8DragonFPv(Obj_8005E4D4 *self) {
     s32 i;
     for (i = 15; i >= 0; i--) {
         if (self->parts[i] != 0) {
@@ -3065,12 +3065,12 @@ s32 TBoss8Dragon__sub_8005E9D8(void *self, O_8005E9D8 *o, s32 i) {
 s32 TBoss8Dragon__sub_8005E9E8(s32 self, s32 arg1, s32 arg2) {
     u8 *temp_r8;
     temp_r8 = (u8 *)(arg1 + (arg2 * 8));
-    return (s32) ((f32 (*)(s32, f32, f32))TBoss8Dragon__sub_8005EA5C)(self, (f32) M2C_FIELD(temp_r8, s32 *, 8), (f32) M2C_FIELD(temp_r8, s32 *, 0xC));
+    return (s32) ((f32 (*)(s32, f32, f32))random_in_range__12TBoss8DragonFff)(self, (f32) M2C_FIELD(temp_r8, s32 *, 8), (f32) M2C_FIELD(temp_r8, s32 *, 0xC));
 }
 
 #pragma push
 #pragma fp_contract on
-f32 TBoss8Dragon__sub_8005EA5C(f32 farg0, f32 farg1) {
+f32 random_in_range__12TBoss8DragonFff(f32 farg0, f32 farg1) {
     return (farg1 * (lbl_805D8D98 * (f32) rand())) + farg0;
 }
 extern int fold_flush_5;
@@ -3081,7 +3081,7 @@ extern int fold_flush_5;
 f32 TBoss8Dragon__sub_8005EAD0(void *arg0, void *arg1, int arg2) {
   u8 *temp_r4;
   temp_r4 = (u8 *)arg1 + (arg2 * 8);
-  return ((f32 (*)(int, f32, f32))TBoss8Dragon__sub_8005EA5C)((int)arg0, (f32) (*((f32 *) (((s8 *) temp_r4) + 0x28))), (f32) (*((f32 *) (((s8 *) temp_r4) + 0x2C))));
+  return ((f32 (*)(int, f32, f32))random_in_range__12TBoss8DragonFff)((int)arg0, (f32) (*((f32 *) (((s8 *) temp_r4) + 0x28))), (f32) (*((f32 *) (((s8 *) temp_r4) + 0x2C))));
 }
 extern int fold_flush_6;
 #pragma pop

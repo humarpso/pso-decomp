@@ -102,7 +102,7 @@ void align_menu_entry_positions(void *w);
 void update_floor_name_windows__9TObjLukerFPv(Obj_801A0CE8 *self);
 void set_flag_4__9TObjLukerFPv(void *w);
 void disallow_rendering__7TObjectFv(void *w);
-void TObjLuker__sub_801A0C38(Obj_801A0C38 *self, u16 i);
+void hide_part__9TObjLukerFPvUs(Obj_801A0C38 *self, u16 i);
 void destroy_particle__13TParticleCtrlFPvs(void *, int);
 void __dl__7TObjectFPv(void *);
 void TWindow__close(void *);
@@ -149,7 +149,7 @@ void run_task__9TObjLukerFv(u8 *arg0);
 s32 obj_getField1c(int);
 s32 is_split_screen(void);
 f32 horizontal_distance_squared(void *, void *);
-void TObjLuker__sub_801A0C38(Obj_801A0C38 *self, u16 i);
+void hide_part__9TObjLukerFPvUs(Obj_801A0C38 *self, u16 i);
 void show_part__9TObjLukerFii(s32 arg0, s32 arg1);
 void close_windows__9TObjLukerFPv(Obj_801A0DB4 *self);
 s32 check_flag_100__10TObjPlayerFPv(void *);
@@ -181,7 +181,7 @@ void *TObjLuker__create(void *arg0);
 void render__9TObjLukerFv(void);
 void *__nw__7TObjectFUl(int);
 
-void TObjLuker__sub_801A0C38(Obj_801A0C38 *self, u16 i) {
+void hide_part__9TObjLukerFPvUs(Obj_801A0C38 *self, u16 i) {
     if (self->parts[i] != 0) {
         set_flag_4__9TObjLukerFPv(self->parts[i]);
         disallow_rendering__7TObjectFv(self->parts[i]);
@@ -317,7 +317,7 @@ s32 are_players_gathered_near(void *arg0, s32 *arg1, f32 range) {
     return ret;
 }
 
-#define C38_801A10A0 ((void (*)(void *, int))TObjLuker__sub_801A0C38)
+#define C38_801A10A0 ((void (*)(void *, int))hide_part__9TObjLukerFPvUs)
 #define DB4_801A10A0 ((void (*)(void *))close_windows__9TObjLukerFPv)
 #define PBC_801A10A0 ((u32 (*)(void *))get_player_by_client_id)
 s32 is_player_in_range__9TObjLukerFv(s32 arg0, f32 farg0) {

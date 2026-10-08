@@ -10,7 +10,7 @@ void *TLobby__sub_80329310(void *arg0, s16 arg1);
 void update_photon_chair__6TLobbyFv(void);
 void update_photon_chairs__6TLobbyFv(void);
 M2C_UNK TLobby__sub_802A7AF8(void *, M2C_UNK);
-s32 TPlyPhotonChair__sub_8035B2DC();
+s32 load_resources__15TPlyPhotonChairFv();
 u32 alloc_work_buffer__6TLobbyFv();
 int clear_flag_at_6c84__6TLobbyFv(void);
 M2C_UNK free__10TObjPlayerFPv(void *);
@@ -25,7 +25,7 @@ void update_photon_chair__6TLobbyFv(void) {
         set_photon_chair_flag__6TLobbyFi(1);
         return;
     }
-    TPlyPhotonChair__sub_8035B2DC();
+    load_resources__15TPlyPhotonChairFv();
 }
 
 extern M2C_UNK lbl_804ED7D0[];

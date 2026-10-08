@@ -29,7 +29,7 @@ void OSFreeToHeap(void *heap, void *p);
 s32 fn_803DB20C(Obj_803DB20C *o);
 void GXInitTlutObj(void *, void *, s32, s32, s32);
 void GXLoadTlut(void *, s32);
-void fn_803DB05C(s32 arg0, s32 arg1, u16 arg2, void *arg3);
+void init_and_load_tlut(s32 arg0, s32 arg1, u16 arg2, void *arg3);
 s32 GXGetTexBufferSize(u16, u16, u32, u8, u8);
 void fn_803DB15C(Tex_803DB15C *arg0);
 extern void *lbl_805D7754;
@@ -66,7 +66,7 @@ s32 fn_803DAFA8(struct Hdr_803DAFA8 *arg0, struct Out_803DAFA8 *arg1) {
     return 1;
 }
 
-void fn_803DB05C(s32 arg0, s32 arg1, u16 arg2, void *arg3) {
+void init_and_load_tlut(s32 arg0, s32 arg1, u16 arg2, void *arg3) {
     u32 sp8[3];
     GXInitTlutObj(sp8, arg3, arg1, arg2, arg1);
     GXLoadTlut(sp8, arg0);

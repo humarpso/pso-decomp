@@ -25,12 +25,12 @@ struct Stack_801DB554 {
 
 extern "C" {
 void bswap__13packet_headerFv(s32);
-void TLobby__sub_801DB554(u8 *arg0);
+void send_6F_burst_done__6TLobbyFPv(u8 *arg0);
 }
 
 extern "C" {
 
-void TLobby__sub_801DB554(u8 *arg0) {
+void send_6F_burst_done__6TLobbyFPv(u8 *arg0) {
     Stack_801DB554 stack;
     if ((s32) M2C_FIELD(arg0, s32 *, 0x1910) != 0) {
         stack.sp8 = 0x6F;

@@ -80,7 +80,7 @@ M2C_UNK spawn_particle_effect(s32, M2C_UNK);
 void *__nw__7TObjectFUl(int);
 struct Equip_80108A20 { s32 x0; u8 pad4[0x18 - 4]; void *vt; void *src; s32 x20; void *x24; };
 void spawn_item_timer__13TItemAttackerFiii(void *, void *, s32);
-M2C_UNK fn_80108860(void *, void *);
+M2C_UNK spawn_equip_particle_effect(void *, void *);
 M2C_UNK __ct__7TObjectFP7TObject(void *, void *);
 extern M2C_UNK TItemEffEquip__sub_801088D0[];
 extern M2C_UNK TItemEffEquip__sub_801088F8[];
@@ -103,7 +103,7 @@ void *TItemEffEquip__ct(void *arg0, void *arg1, void *arg2, void *arg3, void *ar
     self->x20 = 0;
     self->x24 = arg5;
     if (self->src != NULL) {
-        fn_80108860(arg0, arg4);
+        spawn_equip_particle_effect(arg0, arg4);
         spawn_item_timer__13TItemAttackerFiii(arg0, TItemEffEquip__sub_801088F8, 0xA);
         spawn_item_timer__13TItemAttackerFiii(arg0, TItemEffEquip__sub_801088D0, 0x14);
     } else {

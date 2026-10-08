@@ -17,7 +17,7 @@ void TAdSinglePlyChrSelectGC__sub_802E2BD4(s32 arg0);
 s32 is_visible__17TWindowSubComCardFPv(void *);
 s32 get_selected_menu_value(void *);
 s32 change_state__23TAdSinglePlyChrSelectGCFPvi(void *, s32);
-void TAdSinglePlyChrSelectGC__sub_802E2DD8(u8 *arg0);
+void handle_confirm_menu__23TAdSinglePlyChrSelectGCFPv(u8 *arg0);
 int close_and_next__23TAdSinglePlyChrSelectGCFPvPvPvPvPv(void*, int, int, int, int);
 s32 check_capacity__23TAdSinglePlyChrSelectGCFi(void *);
 s32 change_state__23TAdSinglePlyChrSelectGCFPvi(void *, s32);
@@ -133,7 +133,7 @@ void update_load_state__23TAdSinglePlyChrSelectGCFi(s32 arg0) {
 
 int close_and_next_cancel__23TAdSinglePlyChrSelectGCFPv(void* p) { return close_and_next__23TAdSinglePlyChrSelectGCFPvPvPvPvPv((void*)(p), (int)(2), (int)(-1), (int)(-1), (int)(-1)); }
 
-void TAdSinglePlyChrSelectGC__sub_802E2DD8(u8 *arg0) {
+void handle_confirm_menu__23TAdSinglePlyChrSelectGCFPv(u8 *arg0) {
     if (M2C_FIELD(arg0, void **, 0x54) == 0 || is_visible__17TWindowSubComCardFPv(M2C_FIELD(arg0, void **, 0x54)) == 0) {
         return;
     }

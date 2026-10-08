@@ -14,7 +14,7 @@ M2C_UNK clamp_list_scroll_offset(int, void *, void *);
 extern const f32 lbl_805DD1D8;
 extern const f32 lbl_805DD1DC;
 extern const f32 lbl_805DD1E0;
-void TWindowChoiceSetting__sub_80268A6C(u8 *arg0);
+void clamp_scroll__20TWindowChoiceSettingFPv(u8 *arg0);
 }
 
 extern "C" {
@@ -131,7 +131,7 @@ void TWindowChoiceSetting__sub_802689EC(W_802689EC *w) {
 }
 #pragma pop
 
-void TWindowChoiceSetting__sub_80268A6C(u8 *arg0) {
+void clamp_scroll__20TWindowChoiceSettingFPv(u8 *arg0) {
     Stack_80268A6C stack;
     f32 temp_f1;
     if ((u32) M2C_FIELD(arg0, u32 *, 0x7C) != 0U) {
@@ -319,7 +319,7 @@ void handle_choice_input__20TWindowSubStatusDispFPv(u8 *arg0) {
     initialize_subwindow__9TWindowDDFPv((void *) (arg0));
     step_window_tween((void *) (arg0));
     ((s32 (*)(void *))TWindowChoiceSetting__sub_802689EC)((void *) (arg0));
-    ((s32 (*)(void *))TWindowChoiceSetting__sub_80268A6C)((void *) (arg0));
+    ((s32 (*)(void *))clamp_scroll__20TWindowChoiceSettingFPv)((void *) (arg0));
     update_window_entry_list((void *) (arg0), (void *) (arg0 + 0x24));
 }
 

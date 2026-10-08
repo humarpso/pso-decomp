@@ -67,12 +67,12 @@ extern "C" {
 void TObjPlayer__sub_800F083C(void);
 void clear_alt_model_flag__10TObjPlayerFv(void);
 void update_lights__10TObjPlayerFv(void);
-int TObjLight__sub_801337A0(void*);
+int init_directional_light__9TObjLightFv(void*);
 int TObjLight__sub_801337F8(void*);
 M2C_UNK set_chunk_material_override_pair(M2C_UNK, M2C_UNK);
 
     extern int lbl_805D5560;
-void update_lights__10TObjPlayerFv(void) { TObjLight__sub_801337A0((void*)(lbl_805D5560)); TObjLight__sub_801337F8((void*)(lbl_805D5560)); }
+void update_lights__10TObjPlayerFv(void) { init_directional_light__9TObjLightFv((void*)(lbl_805D5560)); TObjLight__sub_801337F8((void*)(lbl_805D5560)); }
 
 void TObjPlayer__sub_800F083C(void) {  }
 

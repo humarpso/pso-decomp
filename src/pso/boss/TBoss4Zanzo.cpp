@@ -135,7 +135,7 @@ void request_destroy__11TBoss4Type2FUi(void *);
 void set_flags__11TBoss4Type2FPvUi(void *, u32);
 void copy_pos__11TNowLoadingFPvPv(void *, void *);
 M2C_UNK TBoss4Type2__sub_80054DA8();
-M2C_UNK TBoss4Type2__sub_80054F6C();
+M2C_UNK create_all_tenchu_furu__11TBoss4Type2Fi();
 s32 TBoss4Type2__sub_80057048(void *, int);
 u32 create_particle_emitter(void *, int);
 M2C_UNK play_persistent_sound(int, void *, void *, int, int);
@@ -1207,7 +1207,7 @@ void TBoss4Type2__vt21(Obj_80055BC0 *o) {
     u32 temp_r3_9;
     temp_r0 = M2C_FIELD(arg0, s32 *, 0x398);
     if (temp_r0 == 6) {
-        TBoss4Type2__sub_80054F6C();
+        create_all_tenchu_furu__11TBoss4Type2Fi();
     } else if (temp_r0 == 1) {
         TBoss4Type2__sub_80054DA8();
     }

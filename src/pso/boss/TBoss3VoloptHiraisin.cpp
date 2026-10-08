@@ -834,7 +834,7 @@ void obj_setFlags30(void *, u32);
 void TBoss3VoloptHiraisin__sub_80041B64(u8 *arg0);
 s32 spawn_directional_particle(void *, void *, int);
 s32 spawn_particle_effect(void *, int);
-void TBoss3VoloptHiraisin__sub_80041BB4(u8 *arg0);
+void spawn_effects__20TBoss3VoloptHiraisinFPv(u8 *arg0);
 s32 TObjEnemyCustom__ct(void *);
 extern s32 lbl_805D2738;
 u8 *TBoss3VoloptHiraisin__sub_80041AA0(u8 *arg0, M2C_UNK arg1, s32 arg2);
@@ -853,7 +853,7 @@ void set_animation__10TObjPlayerFPvs(void *, s16);
 void init_collision_body_parts(void *, void *, s32);
 void init_params__20TBoss3VoloptHiraisinFPv(Hira_800418C8 *self);
 void TBoss3VoloptHiraisin__sub_80041B64(u8 *arg0);
-void TBoss3VoloptHiraisin__sub_80041BB4(u8 *arg0);
+void spawn_effects__20TBoss3VoloptHiraisinFPv(u8 *arg0);
 void damage_player_if_aligned__20TBoss3VoloptHiraisinFPv(void *arg0);
 u8 *find_entity_by_id(u16);
 extern s8 lbl_804FEED0[];
@@ -1001,7 +1001,7 @@ void TBoss3VoloptHiraisin__sub_80041B64(u8 *arg0) {
     ((VObj_18_8712ff *)(arg0))->m61();
 }
 
-void TBoss3VoloptHiraisin__sub_80041BB4(u8 *arg0) {
+void spawn_effects__20TBoss3VoloptHiraisinFPv(u8 *arg0) {
     typedef char sp8_offset[(offsetof(Stack_80041BB4, sp8) == 0x0) ? 1 : -1];
     typedef char spC_offset[(offsetof(Stack_80041BB4, spC) == 0x4) ? 1 : -1];
     typedef char sp10_offset[(offsetof(Stack_80041BB4, sp10) == 0x8) ? 1 : -1];
@@ -1062,7 +1062,7 @@ void TBoss3VoloptHiraisin__sub_80041D3C(Hira_80041D3C *self) {
     case 0:
         play_sound_effect(0x4003A804, self->pos, 0, 0);
         damage_player_if_aligned__20TBoss3VoloptHiraisinFPv(self);
-        TBoss3VoloptHiraisin__sub_80041BB4((u8 *)self);
+        spawn_effects__20TBoss3VoloptHiraisinFPv((u8 *)self);
         lbl_804FEED0[self->idx] = 1;
         if (self->idx % 4 > 0) {
             all = 1;

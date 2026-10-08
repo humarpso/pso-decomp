@@ -15,7 +15,7 @@ int TObjPlayer__sub_800A1808(void *p);
 s32 TObjPlayer__sub_800A06B4(Obj_800A06B4 *self);
 void *get_enemy_entity(int);
 void trigger_action_if_not_flagged__10TObjPlayerFPv(void *arg0);
-void TObjPlayer__sub_800A0728(Obj_800A0728 *self);
+void trigger_targets_action__10TObjPlayerFPv(Obj_800A0728 *self);
 }
 
 extern "C" {
@@ -47,7 +47,7 @@ s32 TObjPlayer__sub_800A06B4(Obj_800A06B4 *self) {
     }
     return 1;
 }
-void TObjPlayer__sub_800A0728(Obj_800A0728 *self) {
+void trigger_targets_action__10TObjPlayerFPv(Obj_800A0728 *self) {
     s32 i;
     self->timer = 0x78;
     self->mode = 6;

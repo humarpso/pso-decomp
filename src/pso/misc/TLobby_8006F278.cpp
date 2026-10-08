@@ -67,7 +67,7 @@ void TLobby__sub_8006F848(s32 arg0);
 s32 decode_slot__6TLobbyFUi(u32 id);
 s32 is_id_out_of_range__6TLobbyFi(s32 arg0);
 s32 get_valid_slot__6TLobbyFi(int id);
-void TLobby__sub_8006F910(u8 *dst, u8 *src, s32 n);
+void encode_name_xor__6TLobbyFPvPvi(u8 *dst, u8 *src, s32 n);
 s32 resolve_player_slot__20TWindowSubStatusDispFi(int);
 s16 TLobby__sub_80071640(int);
 u32 get_card_window__17TWindowSubComCardFUi(int);
@@ -242,7 +242,7 @@ void decode_obfuscated_string__6TLobbyFPvPvi(void *arg0, void *arg1, int arg2) {
     *dst = 0;
 }
 
-void TLobby__sub_8006F910(u8 *dst, u8 *src, s32 n) {
+void encode_name_xor__6TLobbyFPvPvi(u8 *dst, u8 *src, s32 n) {
     u8 c;
     s32 i;
     if (n < 1) {

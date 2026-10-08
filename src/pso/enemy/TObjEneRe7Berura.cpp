@@ -494,7 +494,7 @@ void TObjEneRe7Berura__vt85(s32 arg0, u32 arg1, s32 arg2);
 s32 check_death_trigger__16TObjEneRe7BeruraFPv(void *arg0);
 void play_band_sound__16TObjEneRe7BeruraFPv(u8 *arg0);
 void TObjEneRe7Berura__sub_80094CD0(void *self);
-void TObjEneRe7Berura__sub_80094D3C(Obj_80094D3C *self);
+void destroy_parts__16TObjEneRe7BeruraFPv(Obj_80094D3C *self);
 void TObjEneRe7Berura__sub_80094D98(u8 *arg0);
 s32 TObjEneRe7Berura__sub_80094DB4(void *arg0);
 u8 is_over_limit__16TObjEneRe7BeruraFPv(void *arg0);
@@ -921,7 +921,7 @@ void TObjEneRe7Berura__sub_80094CD0(void *self) {
                             ((void * *)TObjEneRe7Berura__data_805D4F5C)[TObjEneRe7Berura__data_80439DB8[1]]);
 }
 
-void TObjEneRe7Berura__sub_80094D3C(Obj_80094D3C *self) {
+void destroy_parts__16TObjEneRe7BeruraFPv(Obj_80094D3C *self) {
     s32 i;
     for (i = 0; i < 2; i++) {
         if (self->parts[i] != 0) {
@@ -1187,7 +1187,7 @@ Berura_800954E8 *__dt__16TObjEneRe7BeruraFv(Berura_800954E8 *self, s16 flag) {
     s32 i;
     if (self != 0) {
         self->vtbl = ((s32 *)&*__vt__16TObjEneRe7Berura);
-        ((void (*)(void *))TObjEneRe7Berura__sub_80094D3C)(self);
+        ((void (*)(void *))destroy_parts__16TObjEneRe7BeruraFPv)(self);
         for (i = 0; i < 2; i++) {
             if (self->parts[i] != 0) {
                 delete self->parts[i];

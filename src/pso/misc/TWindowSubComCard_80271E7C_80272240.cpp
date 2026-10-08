@@ -15,7 +15,7 @@ extern "C" {
 s32 send_and_handle__6TLobbyFPvii(s32, s32, s32);
 int get_message_10__20TWindowSubStatusDispFPv(void*);
 extern const RecoveredGlobal_8034CC68_lbl_80478C3C lbl_8044F6D4;
-void TWindowSubComCard__sub_80272340(u8 *arg0, s32 arg1);
+void set_help_message__17TWindowSubComCardFPvi(u8 *arg0, s32 arg1);
 s32 get_shared_text_buffer();
 Rec_80272290 *get_com_count__17TWindowSubComCardFv();
 void text_builder_append(void *);
@@ -34,7 +34,7 @@ extern "C" {
 
 s32 create_card_list__17TWindowSubComCardFiiii(s32 a0 = 0, s32 a1 = 0, s32 a2 = 0, s32 a3 = 0);
 s32 create__14TWindowComCardFPvPv(s32 a0 = 0, s32 a1 = 0);
-s32 TWindowComCard__sub_80249980(s32 a0 = 0, s32 a1 = 0, s32 a2 = 0);
+s32 create_for_card__14TWindowComCardFiii(s32 a0 = 0, s32 a1 = 0, s32 a2 = 0);
 s32 get_card_slot__17TWindowSubComCardFi(s32 a0 = 0);
 s32 TWindowSubComCard__sub_8007A860(s32);
 s32 send_and_handle__6TLobbyFPvii(s32, s32, s32);
@@ -76,7 +76,7 @@ void set_selected_card__17TWindowSubComCardFPvi(u8 *arg0, s32 arg1) {
     }
 }
 
-void TWindowSubComCard__sub_80272340(u8 *arg0, s32 arg1) {
+void set_help_message__17TWindowSubComCardFPvi(u8 *arg0, s32 arg1) {
     if ((s32) M2C_FIELD(arg0, s32 *, 0x28) != arg1) {
         M2C_FIELD(arg0, s32 *, 0x28) = arg1;
         send_and_handle__6TLobbyFPvii((s32)((s32)(M2C_FIELD(arg0, u8 **, 0x6c))), (s32)((s32)(((s32)get_message_10__20TWindowSubStatusDispFPv((void*)((int) (M2C_FIELD(&lbl_8044F6D4.value, M2C_UNK *, (arg1 * 4)))))))), (s32)((M2C_UNK)(0x80)));

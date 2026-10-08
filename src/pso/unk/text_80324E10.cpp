@@ -6,13 +6,13 @@ u8 *__ct__25TBoss5GryphonLightningEffFv(void *, M2C_UNK, s32, s32, f32, f32, f32
 u8 *__nw__7TObjectFUl(M2C_UNK);
 M2C_UNK TBoss5GryphonLightningEff__sub_80325064(int);
 extern s32 tl_07;
-void fn_80324E10(u8 *arg0);
+void spawn_gryphon_lightning(u8 *arg0);
 }
 
 extern "C" {
 
 #pragma fp_contract on
-void fn_80324E10(u8 *arg0) {
+void spawn_gryphon_lightning(u8 *arg0) {
   unsigned char temp_r3;
   u32 temp_r4;
   u8 *temp_r3_2;

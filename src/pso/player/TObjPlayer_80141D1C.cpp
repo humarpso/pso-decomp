@@ -21,7 +21,7 @@ extern const f64 lbl_8043F2C0;
 void direction_to_rotation_xy(u8 *arg0, s32 *arg1, s32 *arg2);
 f32 sin_table_lookup();
 f32 cos_table_lookup(s32);
-void TObjPlayer__sub_80141DCC(s32 arg0, void *arg1, void *arg2, f32 farg0);
+void calc_circle_offset_pos__10TObjPlayerFiPvPvf(s32 arg0, void *arg1, void *arg2, f32 farg0);
 f32 TObjPlayer__sub_8014241C(u8 *arg0, u8 *arg1);
 u16 approach_angle_adaptive(s32 a0, s32 b0);
 f32 TAdSinglePlyChrSelectGC__sub_80141EA0(s32 v);
@@ -29,7 +29,7 @@ s32 TAdSinglePlyChrSelectGC__sub_80141E8C(f32 v);
 u16 angle_difference_abs(s32 a, s32 b);
 s16 angle_diff_s16(s32 a, s32 b);
 void getDateStamp__FP9DateStamp(DS_80142108 *);
-void TAdSinglePlyChrSelectGC__sub_80142108(DS_80142108 *arg0);
+void get_current_date_stamp__23TAdSinglePlyChrSelectGCFPv(DS_80142108 *arg0);
 u16 approach_angle_limited(s32 arg0, s32 arg1, s32 arg2);
 }
 
@@ -77,7 +77,7 @@ extern const f64 lbl_8043F2C0;
 
 #pragma push
 #pragma fp_contract on
-void TObjPlayer__sub_80141DCC(s32 arg0, void *arg1, void *arg2, f32 farg0) {
+void calc_circle_offset_pos__10TObjPlayerFiPvPvf(s32 arg0, void *arg1, void *arg2, f32 farg0) {
     M2C_FIELD(arg2, f32 *, 0) = (f32) ((farg0 * sin_table_lookup()) + M2C_FIELD(arg1, f32 *, 0));
     M2C_FIELD(arg2, f32 *, 4) = (f32) M2C_FIELD(arg1, f32 *, 4);
     M2C_FIELD(arg2, f32 *, 8) = (f32) ((farg0 * cos_table_lookup((s32)(arg0))) + M2C_FIELD(arg1, f32 *, 8));
@@ -131,7 +131,7 @@ s32 clamp_s32__10TObjPlayerFiii(s32 arg0, s32 arg1, s32 arg2) {
     return var_r3;
 }
 
-void TAdSinglePlyChrSelectGC__sub_80142108(DS_80142108 *arg0) {
+void get_current_date_stamp__23TAdSinglePlyChrSelectGCFPv(DS_80142108 *arg0) {
     DS_80142108 d;
     getDateStamp__FP9DateStamp(&d);
     arg0->y = d.y;

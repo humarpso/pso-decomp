@@ -28,7 +28,7 @@ void refresh_player_lobby_headers__10TObjPlayerFv(void);
 extern RecoveredGlobal_801BDCF8_TObjPlayer__data_8050EA70 TObjPlayer__data_8050EA70;
 s32 check_flag_at_428__10TObjPlayerFPv(void *);
 void create__10TObjPlayerFUii(u16, void *);
-void TObjPlayer__sub_801BDC98(void);
+void create_active_players__10TObjPlayerFv(void);
 }
 
 extern "C" {
@@ -40,7 +40,7 @@ typedef struct VObj_18_dac7f3 VObj_18_dac7f3;
 typedef char RecoveredGlobal_801BDCF8_TObjPlayer__data_8050EA70_size[((sizeof(RecoveredGlobal_801BDCF8_TObjPlayer__data_8050EA70)) == 0x3210) ? (1) : (-1)];
 #define PSO_VCALL_VObj_18_dac7f3_m0(_self, _arg0) (((VObj_18_dac7f3 *)(_self))->m0((_arg0)))
 
-void TObjPlayer__sub_801BDC98(void) {
+void create_active_players__10TObjPlayerFv(void) {
     s32 i;
     E_801BDC98 *p;
     i = 0;

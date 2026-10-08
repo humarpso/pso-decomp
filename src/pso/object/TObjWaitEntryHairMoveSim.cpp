@@ -42,7 +42,7 @@ extern "C" {
 s32 is_move_done__24TObjWaitEntryHairMoveSimFv(void *);
 s32 create__24TObjWaitEntryHairMoveSimFPv(void *);
 void *__ct__24TObjWaitEntryHairMoveSimFv(void *arg0, void *arg1);
-s32 TObjTailsTailsMove__sub_800FFDBC(void *);
+s32 create__18TObjTailsTailsMoveFPv(void *);
 s32 __nw__7TObjectFUl(int);
 s32 get_display_index__12TCharaMakingFPv(void *);
 s32 TObjWaitEntryHairMoveSim__sub_800FE73C(s32 arg0);
@@ -678,7 +678,7 @@ s32 TObjWaitEntryHairMoveSim__sub_800FE73C(s32 arg0) {
     s32 temp_r3;
     s32 var_r0;
     if (get_display_index__12TCharaMakingFPv((void *) (arg0 + 0x85C)) == 0xE) {
-        TObjTailsTailsMove__sub_800FFDBC((void *) (arg0));
+        create__18TObjTailsTailsMoveFPv((void *) (arg0));
         return 0;
     }
     if (is_move_done__24TObjWaitEntryHairMoveSimFv((void *) (arg0)) != 0) {

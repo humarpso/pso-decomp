@@ -15,7 +15,7 @@ extern "C" {
 s32 __nw__7TObjectFUl(int);
 extern void *lbl_805D4DD8;
 extern s32 tl_02;
-s32 TObjBoss5PillarDemo__sub_8028AC8C(void);
+s32 create__19TObjBoss5PillarDemoFv(void);
 s32 TObjBoss5Pillar__ct(void *, void *, void *);
 extern M2C_UNK __vt__19TObjBoss5PillarDemo[];
 extern s32 lbl_805D3B28;
@@ -92,7 +92,7 @@ u8 *TObjBoss5PillarDemo__ct(u8 *arg0, s32 arg1, s32 arg2) {
     return arg0;
 }
 
-s32 TObjBoss5PillarDemo__sub_8028AC8C(void) {
+s32 create__19TObjBoss5PillarDemoFv(void) {
     s32 temp_r31;
     s32 temp_r3;
     s32 var_r0;

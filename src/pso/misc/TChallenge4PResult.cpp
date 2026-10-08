@@ -64,7 +64,7 @@ void update_entries__18TChallenge4PResultFii(s32 arg0, s32 arg1);
 void update_input__18TChallenge4PResultFPv(void *arg0);
 s32 get_localized_text_entry(s32, s32);
 M2C_UNK TChallenge4PResult__ct(void *, s32, int, s32);
-void TChallenge4PResult__sub_8034B694(W_8034B694 *arg0, void *arg1, s32 arg2);
+void set_entry_item__18TChallenge4PResultFPvPvi(W_8034B694 *arg0, void *arg1, s32 arg2);
 void copy_item_data__6TLobbyFPvPv(void *, void *);
 s32 TChallenge4PResult__sub_8034B720(void *, s32);
 s32 is_message_window_ready(u32);
@@ -89,7 +89,7 @@ void update_entries__18TChallenge4PResultFii(s32 arg0, s32 arg1) {
     do {
         u32 v = (u32)var_r30[var_r31];
         if (v != 0U) {
-            TChallenge4PResult__sub_8034B694((W_8034B694 *)v, (void *)arg0, arg1);
+            set_entry_item__18TChallenge4PResultFPvPvi((W_8034B694 *)v, (void *)arg0, arg1);
         }
         var_r29 += 1;
         var_r31 += 1;
@@ -116,7 +116,7 @@ void TChallenge4PResult__sub_8034B66C(void) {
     }
 }
 
-void TChallenge4PResult__sub_8034B694(W_8034B694 *arg0, void *arg1, s32 arg2) {
+void set_entry_item__18TChallenge4PResultFPvPvi(W_8034B694 *arg0, void *arg1, s32 arg2) {
     copy_item_data__6TLobbyFPvPv(&arg0->e[arg2], arg1);
     arg0->f[arg2].v = 1;
 }

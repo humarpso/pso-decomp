@@ -14,7 +14,7 @@ extern "C" {
 s32 acquire_balloon_slot__11TWindowCtrlFPviiPv(s32, u16, s32, s32);
 void open__15TWindowFukidasiFPvPvi(void *, void *, s32);
 extern u32 TWindowCtrl__data_805D63F8;
-s32 TWindowCtrl__sub_8024B4E8(u16 arg0, u8 *arg1, s32 arg2, s32 arg3);
+s32 open_balloon__11TWindowCtrlFUsPvii(u16 arg0, u8 *arg1, s32 arg2, s32 arg3);
 s32 all_parents_unqueued_for_destruction__7TObjectFv(void *);
 u16 get_flags__11TWindowCtrlFPv(void *);
 void TWindow__close(void *);
@@ -75,7 +75,7 @@ s32 is_actor_speech_balloon_done(u16 arg0) {
     return 1;
 }
 
-s32 TWindowCtrl__sub_8024B4E8(u16 arg0, u8 *arg1, s32 arg2, s32 arg3) {
+s32 open_balloon__11TWindowCtrlFUsPvii(u16 arg0, u8 *arg1, s32 arg2, s32 arg3) {
     s32 temp_r3;
     if ((u32) TWindowCtrl__data_805D63F8 == 0U) {
         return 0;

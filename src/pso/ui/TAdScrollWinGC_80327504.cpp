@@ -30,7 +30,7 @@ void complete_reveal__14TWindowMessageFPv(s32);
 void send_and_handle__6TLobbyFPvii(s32, s32, M2C_UNK);
 void update_scroll_position__17TWindowMessageLogFPv(s32);
 void TAdScrollWinGC__sub_8026A5F8(s32);
-s32 fn_8026A9D8(void *, void *, M2C_UNK);
+s32 create_message_log_window(void *, void *, M2C_UNK);
 s32 TAdMultiPlyChrSelectGC__sub_802C6FA8(void);
 s32 TAdScrollWinGC__sub_8032745C(void *);
 extern u8 lbl_80476770[];
@@ -114,7 +114,7 @@ void *TAdScrollWinGC__ct(void *arg0, void *arg1, s32 arg2, s32 arg3) {
     M2C_FIELD(arg0, s32 *, 0x4C) = 0;
     M2C_FIELD(arg0, s32 *, 0x50) = 0;
     base = TAdScrollWinGC__sub_8032745C(arg0);
-    M2C_FIELD(arg0, s32 *, 0x40) = fn_8026A9D8(lbl_80476770, lbl_80476778, 0);
+    M2C_FIELD(arg0, s32 *, 0x40) = create_message_log_window(lbl_80476770, lbl_80476778, 0);
     switch (M2C_FIELD(arg0, s32 *, 0x44)) {
     case 0:
     case 1:

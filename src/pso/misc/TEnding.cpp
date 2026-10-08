@@ -17,7 +17,7 @@ void __ct__10TEndingPicFv(void *, TObject *);
 void __ct__9TEndingABFv(void *, TObject *);
 void __ct__8TEndingCFv(void *, TObject *);
 TAdRicoRingCtrl *TAdRicoRingCtrl__ct(void *, TObject *);
-void TAdRicoRingCtrl__sub_8001B534(TAdRicoRingCtrl *, f32);
+void start_fade_all__15TAdRicoRingCtrlFPvf(TAdRicoRingCtrl *, f32);
 void __ct__10TAdEndTextFv(void *, TObject *);
 extern u32 lbl_805D4F08;
 extern s32 lbl_805D4F0C;
@@ -90,7 +90,7 @@ TEnding::TEnding() : TObject(tl_window) {
     if (ring != NULL) ring = TAdRicoRingCtrl__ct(ring, this);
     ring_controller = ring;
     if (ring_controller != NULL)
-        TAdRicoRingCtrl__sub_8001B534(ring_controller, lbl_805D9578 * (f32)timing_rate);
+        start_fade_all__15TAdRicoRingCtrlFPvf(ring_controller, lbl_805D9578 * (f32)timing_rate);
     void *text = TObject::operator new(0x197C);
     if (text != NULL) __ct__10TAdEndTextFv(text, this);
 }

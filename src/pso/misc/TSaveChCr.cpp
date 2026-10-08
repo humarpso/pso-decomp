@@ -17,7 +17,7 @@ struct RecoveredGlobal_80339F98_lbl_80477CBC {
 extern "C" {
 s32 get_localized_text_entry(s32, s32);
 extern RecoveredGlobal_80339F98_lbl_80477CBC lbl_80477CBC;
-void TSaveChCr__sub_80339F98(s32 arg0, s32 arg1);
+void set_message_by_index__9TSaveChCrFii(s32 arg0, s32 arg1);
 M2C_UNK complete_reveal__14TWindowMessageFPv(u32);
 M2C_UNK send_and_handle__6TLobbyFPvii(u32, u32, M2C_UNK);
 u32 update_window_mode_from_progress__6TLobbyFiPv(M2C_UNK *, M2C_UNK *);
@@ -79,9 +79,9 @@ s32 TSaveChCr__sub_80339F30(void) {
     return TObjCMProportion__sub_8029916C(4) ? 1 : 0;
 }
 
-void close_and_advance__9TSaveChCrFPvPv(void* p, void* a1) { close_window__9TSaveChCrFPv(p); TSaveChCr__sub_80339F98((s32)(p), (s32)(a1)); }
+void close_and_advance__9TSaveChCrFPvPv(void* p, void* a1) { close_window__9TSaveChCrFPv(p); set_message_by_index__9TSaveChCrFii((s32)(p), (s32)(a1)); }
 typedef char RecoveredGlobal_80339F98_lbl_80477CBC_size[sizeof(RecoveredGlobal_80339F98_lbl_80477CBC) == 0x24 ? 1 : -1];
-void TSaveChCr__sub_80339F98(s32 arg0, s32 arg1) {
+void set_message_by_index__9TSaveChCrFii(s32 arg0, s32 arg1) {
     M2CCopy_20 sp8;
     u8 *temp_r4;
     sp8 = *(const M2CCopy_20 *)((s32) ((u8 *)(&lbl_80477CBC.value) + -4) + 4);

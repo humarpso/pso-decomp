@@ -47,7 +47,7 @@ s32 check_demo_mode__10TObjPlayerFv(void);
 void TObjPlayer__sub_800A0654(void *);
 s32 TObjPlayer__sub_800A06B4(void *);
 void fn_800A0798(void *);
-void TObjEneDarkGunCenter__sub_800A0814(void *);
+void hide_linked_enemies__20TObjEneDarkGunCenterFPv(void *);
 void fn_800A0884(void *);
 void TObjEneDarkGunner__ct(void *);
 void TObjEneDarkGunCenter__sub_800A0B18(void);
@@ -280,7 +280,7 @@ void run_task__20TObjEneDarkGunCenterFv(Gun_800A0B20 *self) {
     case 1:
         self->timer--;
         if (self->timer <= 0) {
-            TObjEneDarkGunCenter__sub_800A0814(self);
+            hide_linked_enemies__20TObjEneDarkGunCenterFPv(self);
             self->timer = 0xd2;
             self->state = 2;
         }
@@ -293,7 +293,7 @@ void run_task__20TObjEneDarkGunCenterFv(Gun_800A0B20 *self) {
         break;
     case 3:
         if (find_nearest_visible_player(self, 0, lbl_805D9970) != 0xFFFF) {
-            TObjEneDarkGunCenter__sub_800A0814(self);
+            hide_linked_enemies__20TObjEneDarkGunCenterFPv(self);
             fn_800A0884(self);
         } else {
             self->state = 0;

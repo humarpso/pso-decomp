@@ -395,7 +395,7 @@ void __ct__7TObjectFP7TObject(void *);
 void __dl__7TObjectFPv(void *);
 void __dt__7TObjectFv(void *, int);
 M2C_UNK bswap_packet_header__6TLobbyFPv();
-int fn_801C23A8(void*, void*);
+int show_duel_result_window(void*, void*);
 M2C_UNK memcpy(M2C_UNK *, s32, M2C_UNK);
 M2C_UNK queue_destruction__7TObjectFv(void *);
 M2C_UNK set_battle_mode__19TPlayerBattleCtrl4PFPvi(s32, s32);
@@ -449,7 +449,7 @@ s32 assign_player_id__6TLobbyFv(void) {
     return temp_r3;
 }
 
-void send_neg50__6TLobbyFPvPv(void* p, void* a1) { play_cue_stream_file(p); fn_801C23A8((void*)-50, a1); }
+void send_neg50__6TLobbyFPvPv(void* p, void* a1) { play_cue_stream_file(p); show_duel_result_window((void*)-50, a1); }
 
 #define TBL_801C343C ((Rank_801C343C *)TLobby__data_80511C80)
 #define PLAYER_801C343C(k) ((u32 (*)(s32))get_player_by_client_id)(k)

@@ -50,7 +50,7 @@ void *__nw__7TObjectFUl(int);
 void __ct__7TObjectFP7TObject(void *, void *);
 void *TWindowChat__ct(void *, void *, void *);
 void TWindowCtrl__sub_8024ADAC(void *);
-s32 fn_8026A9D8(void *, void *, void *);
+s32 create_message_log_window(void *, void *, void *);
 void set_flag4c_bit8__13TWindowSubLogFPv(void* p);
 int fn_8027B288(void* p);
 void fn_8027B2A8(void* p);
@@ -139,7 +139,7 @@ Lg_8027B194 *TWindowSubLog__ct(Lg_8027B194 *arg0, void *arg1, void *arg2) {
     TWindowCtrl__sub_8024ADAC(arg0->f1c);
     fn_8027B288((void*)(arg0->f20));
     set_flag4c_bit8__13TWindowSubLogFPv((void*)(arg0->f20));
-    arg0->f24 = fn_8026A9D8(lbl_8044F9C8, lbl_8044F9D0, arg0->f1c);
+    arg0->f24 = create_message_log_window(lbl_8044F9C8, lbl_8044F9D0, arg0->f1c);
     w = __nw__7TObjectFUl(0x3C);
     if (w != NULL) {
         w = TWindowChat__ct(w, arg0, arg0->f2c);

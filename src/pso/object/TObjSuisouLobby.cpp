@@ -38,7 +38,7 @@ s32 get_lobby_type__6TLobbyFv(void);
 extern RecoveredGlobal_80369DF0_lbl_804F33E0 lbl_804F33E0;
 extern u32 TObjSuisouLobby__data_805D6FF0;
 extern s32 lbl_805D6FF4;
-void TObjSuisouLobby__sub_80369DF0(void);
+void load_resources__15TObjSuisouLobbyFv(void);
 s32 check_demo_mode__10TObjPlayerFv();
 s32 is_connected__6TLobbyFv();
 s32 is_lobby_obj_active__6TLobbyFv();
@@ -189,7 +189,7 @@ void destroy_instance__15TObjSuisouLobbyFv(void) {
 
 extern M2C_UNK __vt__15TObjSuisouLobby[];
 
-void TObjSuisouLobby__sub_80369DF0(void) {
+void load_resources__15TObjSuisouLobbyFv(void) {
     s32 temp_r3;
     s32 var_r0;
     temp_r3 = alloc__23TAdSinglePlyChrSelectGCFPv((void *)0x440);

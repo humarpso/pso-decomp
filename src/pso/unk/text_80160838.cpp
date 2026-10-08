@@ -12,12 +12,12 @@ void copy_short_fields__6TLobbyFPvPv(void *, void *);
 s32 access_object_saved_state(u8 *arg0, s32 arg1, s16 arg2);
 void init__17TOBarrierEnergy01FPv(void *);
 void update_and_send_60__6TLobbyFPv(void *);
-void fn_80160838(Self_80160838 *self, State_80160838 *src);
+void door_ancient09_sync_state(Self_80160838 *self, State_80160838 *src);
 }
 
 extern "C" {
 
-void fn_80160838(Self_80160838 *self, State_80160838 *src) {
+void door_ancient09_sync_state(Self_80160838 *self, State_80160838 *src) {
     State_80160838 st;
     Obj_80160838 *obj;
     if (src != 0) {

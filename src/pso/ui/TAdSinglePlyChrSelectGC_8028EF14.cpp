@@ -51,7 +51,7 @@ extern Slot_8028F150 lbl_8051D288[];
 Slot_8028F150 *TAdSinglePlyChrSelectGC__sub_8028F150(void);
 extern Slot_8028F150 lbl_8051D288[];
 s32 TAdSinglePlyChrSelectGC__sub_8028EC70(void *, void *);
-s32 TAdSinglePlyChrSelectGC__sub_8028F198(void *arg0);
+s32 has_matching_entry__23TAdSinglePlyChrSelectGCFPv(void *arg0);
 void set_field_b8__14TObjEnePanarmsFPvs(void *, s16);
 s32 creation_motion_group(u32);
 extern u32 lbl_805D6520;
@@ -1197,7 +1197,7 @@ Slot_8028F150 *TAdSinglePlyChrSelectGC__sub_8028F150(void) {
     return 0;
 }
 
-s32 TAdSinglePlyChrSelectGC__sub_8028F198(void *arg0) {
+s32 has_matching_entry__23TAdSinglePlyChrSelectGCFPv(void *arg0) {
     Slot_8028F198 *p;
     Slot_8028F198 *end;
     end = (Slot_8028F198 *)((u8 *)((Slot_8028F198 *)&lbl_8051D288) + 0x23600);

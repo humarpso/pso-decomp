@@ -212,7 +212,7 @@ void create_map_csn_ctrl__6TLobbyFv();
 M2C_UNK TLobby__sub_80141038(void *, int, int);
 M2C_UNK init_limits__6TLobbyFv();
 M2C_UNK refresh_player_lobby_headers__10TObjPlayerFv();
-M2C_UNK TObjPlayer__sub_801BDC98();
+M2C_UNK create_active_players__10TObjPlayerFv();
 M2C_UNK set_enemy_mode_flag__6TLobbyFv();
 M2C_UNK clear_quest_floor_designations();
 M2C_UNK setup_quest_list__6TLobbyFv();
@@ -465,7 +465,7 @@ void rebuild_area_keep_players__6TLobbyFv(void) {
     render_tick__Fv();
     render_tick__Fv();
     refresh_player_lobby_headers__10TObjPlayerFv();
-    TObjPlayer__sub_801BDC98();
+    create_active_players__10TObjPlayerFv();
     for (i = 0; i < get_game_mode__6TLobbyFv(); i++) {
         void *q = get_player_data__10TObjPlayerFi(i);
         if (q != NULL) {

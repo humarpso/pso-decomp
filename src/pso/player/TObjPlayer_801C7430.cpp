@@ -1333,7 +1333,7 @@ u8 TMainCursor__sub_8013E900(void *);
 s32 is_cursor_clear__11TMainCursorFPv(void *);
 s32 get_target__13TLockOnCursorFPv(void* p);
 void calc_direction_vector__10TObjPlayerFiPvf(s32, void *, f32);
-M2C_UNK TObjPlayer__sub_80141DCC(int, void *, void *, f32);
+M2C_UNK calc_circle_offset_pos__10TObjPlayerFiPvPvf(int, void *, void *, f32);
 s32 calc_angle_to__10TObjPlayerFPvPv(void *, void *);
 s32 approach_angle_adaptive(s32, s32);
 s32 lerp_angle_half__10TObjPlayerFUsUs(s32, s32);
@@ -1964,10 +1964,10 @@ int start_photon_blast_action__10TObjPlayerFPv(void* p);
 f32 get_dist__10TObjPlayerFPv(void* p);
 void* get_element__10TObjPlayerFPvi(void* a0, int a1);
 int is_alt_photon_blast_bank_empty__10TObjPlayerFPv(void* p);
-void TObjPlayer__sub_801D2B2C(Obj_801D2B2C *arg0);
+void bswap_u16_pair_list__10TObjPlayerFPv(Obj_801D2B2C *arg0);
 void bswap_u16_pair__10TObjPlayerFPv(void* p);
 s32 TObjPlayer__sub_801D2BB8(s32 arg0, s32 arg1);
-void TObjPlayer__sub_801D2C18(Obj_801D2C18 *arg0);
+void bswap_entry_list__10TObjPlayerFPv(Obj_801D2C18 *arg0);
 void set_technique_state__10TObjPlayerFPvi(void* p, s32 v);
 void set_technique_id__10TObjPlayerFPvUc(void* p, u8 v);
 int test_bit1_at_10__10TObjPlayerFPv(void* p);
@@ -3005,7 +3005,7 @@ void update_warp_relocation__10TObjPlayerFv(u8 *arg0) {
                 ((M2C_UNK (*)(void *, int))send_field_state_if_active__10TObjPlayerFii)(arg0, 0x40003206);
             }
             if (is_locally_controlled__10TObjPlayerFPv(arg0) != 0) {
-                TObjPlayer__sub_80141DCC(M2C_FIELD(arg0, s32 *, 0x60) + 0x8000, (void *)((s32 (*)(void *))get_position_ptr__10TObjPlayerFPv)(arg0), &sp8, 10.0f);
+                calc_circle_offset_pos__10TObjPlayerFiPvPvf(M2C_FIELD(arg0, s32 *, 0x60) + 0x8000, (void *)((s32 (*)(void *))get_position_ptr__10TObjPlayerFPv)(arg0), &sp8, 10.0f);
                 TNpcPlayer__sub_8034E64C(&sp8, M2C_FIELD(arg0, s32 *, 0x60));
                 reset_cameras_to_actor(arg0, 1);
             }
@@ -7124,7 +7124,7 @@ void *TObjPlayer__sub_801D2348(void *arg0, void *arg1) {
     return arg0;
 }
 
-void bswap_field4_sub__10TObjPlayerFPv(void* p) { read_be16_field2__10TObjPlayerFPv(p); ((int (*)(void*))TObjPlayer__sub_801D2B2C)((char*)p + 0x4); }
+void bswap_field4_sub__10TObjPlayerFPv(void* p) { read_be16_field2__10TObjPlayerFPv(p); ((int (*)(void*))bswap_u16_pair_list__10TObjPlayerFPv)((char*)p + 0x4); }
 
 void* build_packet_header__10TObjPlayerFPv(void* p) { TObjPlayer__sub_8012AF00((char*)p + 0x4); *(unsigned char*)(p) = 70; *(unsigned char*)((char*)p + 0x1) = 12; return p; }
 
@@ -7134,7 +7134,7 @@ void send_6x46_attack_finished(u8 *arg0) {
     TLobby__send_and_handle_60((void*)((void *) (arg0)));
 }
 
-void TObjPlayer__sub_801D2448(void* p) { read_be16_field2__10TObjPlayerFPv(p); ((int (*)(void*))TObjPlayer__sub_801D2C18)((char*)p + 0x4); }
+void TObjPlayer__sub_801D2448(void* p) { read_be16_field2__10TObjPlayerFPv(p); ((int (*)(void*))bswap_entry_list__10TObjPlayerFPv)((char*)p + 0x4); }
 
 #pragma push
 #pragma inline_depth(1)
@@ -7780,7 +7780,7 @@ int is_alt_photon_blast_bank_empty__10TObjPlayerFPv(void* p) { return is_pb_pale
 #pragma inline_depth(1)
 #pragma auto_inline off
 #pragma dont_inline off
-void TObjPlayer__sub_801D2B2C(Obj_801D2B2C *arg0) {
+void bswap_u16_pair_list__10TObjPlayerFPv(Obj_801D2B2C *arg0) {
     s32 i;
     bswap_32__FPUl((void*)(arg0));
     for (i = 0; i < arg0->n; i++) {
@@ -7832,7 +7832,7 @@ extern int fold_flush_26;
 #pragma inline_depth(1)
 #pragma auto_inline off
 #pragma dont_inline off
-void TObjPlayer__sub_801D2C18(Obj_801D2C18 *arg0) {
+void bswap_entry_list__10TObjPlayerFPv(Obj_801D2C18 *arg0) {
     s32 i;
     for (i = 0; i < arg0->n; i++) {
         bswap_u16_pair__10TObjPlayerFPv((void*)(&arg0->e[i]));

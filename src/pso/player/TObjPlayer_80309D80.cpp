@@ -41,10 +41,10 @@ extern "C" {
 int spawn_particle_effect(void*, void*);
 void *__nw__7TObjectFUl(int);
 void *TPlyPtclObjectRightHand__ct(void *, void *);
-void TObjPlayer__sub_8030A030(void *arg0, void *arg1);
+void create_right_hand_ptcl__10TObjPlayerFPvPv(void *arg0, void *arg1);
 void *__nw__7TObjectFUl(int);
 void *TPlyPtclObjectLeftHand__ct(void *, void *);
-void TObjPlayer__sub_8030A07C(void *arg0, void *arg1);
+void create_left_hand_ptcl__10TObjPlayerFPvPv(void *arg0, void *arg1);
 void *get_player_by_client_id(u16);
 u16 get_lifetime__22TPlyFollowParticleCtrlFPv();
 s32 get_position_ptr__10TObjPlayerFPv(s32);
@@ -104,8 +104,8 @@ void clear_foot_stamp__10TObjPlayerFii(s32 arg0, s32 arg1) {
 
 void update_child__10TObjPlayerFPvPv(void *arg0, void *arg1) {
     struct VOff_80309DD0_arg0_80309dd0_80309D80 *self = (struct VOff_80309DD0_arg0_80309dd0_80309D80 *)arg0;
-    TObjPlayer__sub_8030A07C((void *)((void *)(self->f_4)), (void *)(arg1));
-    TObjPlayer__sub_8030A030((void *)((void *)(self->f_4)), (void *)((void *)(arg1)));
+    create_left_hand_ptcl__10TObjPlayerFPvPv((void *)((void *)(self->f_4)), (void *)(arg1));
+    create_right_hand_ptcl__10TObjPlayerFPvPv((void *)((void *)(self->f_4)), (void *)((void *)(arg1)));
 }
 
 void update_follow_particle__10TObjPlayerFii(s32 arg0, s32 arg1) {
@@ -156,7 +156,7 @@ void emit_water_step_particles(s32 arg0, s32 arg1) {
     emit_player_particle((void*)((void *) (arg0)), (void*)((void *) (arg1)), (void*)((int) (0x238)));
 }
 
-void TObjPlayer__sub_8030A030(void *arg0, void *arg1) {
+void create_right_hand_ptcl__10TObjPlayerFPvPv(void *arg0, void *arg1) {
     void *o;
     o = __nw__7TObjectFUl(0xB0);
     if (o != NULL) {
@@ -165,7 +165,7 @@ void TObjPlayer__sub_8030A030(void *arg0, void *arg1) {
     M2C_FIELD(arg0, void **, 0x4) = o;
 }
 
-void TObjPlayer__sub_8030A07C(void *arg0, void *arg1) {
+void create_left_hand_ptcl__10TObjPlayerFPvPv(void *arg0, void *arg1) {
     void *o;
     o = __nw__7TObjectFUl(0xB0);
     if (o != NULL) {

@@ -16,7 +16,7 @@ struct Self_80119DA0 {
 
 void queue_destruction__7TObjectFv(void *);
 void TAdRicoRingCtrl__sub_8001B4A0(void *, f32);
-void TAdRicoRingCtrl__sub_8001B534(void *, f32);
+void start_fade_all__15TAdRicoRingCtrlFPvf(void *, f32);
 void *TAdRicoRingCtrl__ct(void *, void *);
 void *__nw__7TObjectFUl(int);
 
@@ -35,7 +35,7 @@ void TItemReverseTechPart1::run_task() {
             }
             self->ring = p;
             if (self->ring != NULL) {
-                TAdRicoRingCtrl__sub_8001B534(self->ring, self->t1);
+                start_fade_all__15TAdRicoRingCtrlFPvf(self->ring, self->t1);
             }
         }
         if (self->timer == self->t1) {

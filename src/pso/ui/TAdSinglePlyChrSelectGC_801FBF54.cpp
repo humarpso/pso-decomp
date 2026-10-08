@@ -53,7 +53,7 @@ s32 alloc__23TAdSinglePlyChrSelectGCFPv(M2C_UNK);
 s32 init_char_slots__23TAdSinglePlyChrSelectGCFi(s32 allocation);
 extern u32 lbl_805D5F5C;
 extern u32 lbl_805D5F70;
-void TAdSinglePlyChrSelectGC__sub_802028EC(void);
+void alloc_char_buffers__23TAdSinglePlyChrSelectGCFv(void);
 M2C_UNK DateToSeconds__FP9DateStampPi(M2C_UNK *, s32 *);
 M2C_UNK getDateStamp__FP9DateStamp(M2C_UNK *);
 extern M2C_UNK lbl_80513904[];
@@ -62,7 +62,7 @@ s32 update_play_time__23TAdSinglePlyChrSelectGCFv(void);
 u8 * __dt__12TPlyCharDataFv(void *, short);
 void __dl__FPv(void*);
 void register_callback__23TAdSinglePlyChrSelectGCFis(void*, int);
-s32 TAdSinglePlyChrSelectGC__sub_801FCBA0(void *);
+s32 free_char_data_slots__23TAdSinglePlyChrSelectGCFPv(void *);
 s32 free_buffer__23TAdSinglePlyChrSelectGCFv(void);
 s32 free_data__23TAdSinglePlyChrSelectGCFv(void);
 s32 free__23TAdSinglePlyChrSelectGCFv(void);
@@ -524,7 +524,7 @@ void run_save_load_sequence__23TAdSinglePlyChrSelectGCFv(void) {
 }
 
 void release_all__23TAdSinglePlyChrSelectGCFv(void) {
-    TAdSinglePlyChrSelectGC__sub_801FCBA0((void *) (&lbl_805137D8.value));
+    free_char_data_slots__23TAdSinglePlyChrSelectGCFPv((void *) (&lbl_805137D8.value));
     TAdSinglePlyChrSelectGC__sub_80202C08((void *) (&lbl_805137F8.value));
     if ((void *) lbl_805D5F60 != NULL) {
         __dt__12TPlyCharDataFv(lbl_805D5F60, 1);
@@ -554,7 +554,7 @@ void free_callbacks__23TAdSinglePlyChrSelectGCFv(void) {
     }
 }
 
-void TAdSinglePlyChrSelectGC__sub_802028EC(void) {
+void alloc_char_buffers__23TAdSinglePlyChrSelectGCFv(void) {
     s32 temp_r3;
     s32 var_r0;
     s32 var_r3;

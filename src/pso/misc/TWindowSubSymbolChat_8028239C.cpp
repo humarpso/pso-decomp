@@ -65,7 +65,7 @@ s32 queue_destruction__7TObjectFv(int);
 M2C_UNK copy_vec2__28TWindowSubSymbolChatPartsSetFPvPv(void *, int);
 s32 is_visible__17TWindowSubComCardFPv(int);
 s32 get_status_flag__17TWindowSubComCardFPv(int);
-M2C_UNK TWindowSubSymbolChat__sub_80076FEC(int, int);
+M2C_UNK set_entry_name__20TWindowSubSymbolChatFPvPv(int, int);
 s32 TWindowSubSymbolChat__sub_80077034(int, int);
 M2C_UNK TWindowSubSymbolChat__sub_8007706C(int, int);
 M2C_UNK TWindowSubSymbolChat__sub_800772D8(int, int, int);
@@ -74,7 +74,7 @@ M2C_UNK update_symbol_chat_result__20TWindowSubSymbolChatFv(int);
 M2C_UNK update_selected_symbol__20TWindowSubSymbolChatFPv(int);
 M2C_UNK play_symbol_sound__20TWindowSubSymbolChatFi();
 s32 TWindowSubSymbolChat__sub_80077480(s32);
-M2C_UNK TWindowSubSymbolChat__sub_800774E4(int);
+M2C_UNK clear_entries__20TWindowSubSymbolChatFPv(int);
 u32 get_instance__20TWindowSubSymbolChatFv();
 s32 get_message_10__20TWindowSubStatusDispFPv(M2C_UNK);
 s32 realloc_buffer__17TWindowSubComCardFPv(int);
@@ -665,7 +665,7 @@ void run_task__20TWindowSubSymbolChatFv(u8 *arg0) {
     case 28:
         M2C_FIELD(arg0, u8 *, 0x1C) = 0x1DU;
     case 29:
-        TWindowSubSymbolChat__sub_800774E4((int) (M2C_FIELD(arg0, u32 *, 0x28)));
+        clear_entries__20TWindowSubSymbolChatFPv((int) (M2C_FIELD(arg0, u32 *, 0x28)));
         set_flag_bit2__20TWindowSubSymbolChatFPv((int) (M2C_FIELD(arg0, u32 *, 0x28)));
         update_visibility__20TWindowSubSymbolChatFPv((void *) (M2C_FIELD(arg0, u8 **, 0x30)));
         M2C_FIELD(arg0, u8 *, 0x1C) = 4U;
@@ -705,7 +705,7 @@ void run_task__20TWindowSubSymbolChatFv(u8 *arg0) {
         commit__20TWindowSubSymbolChatFi((int) (M2C_FIELD(arg0, u32 *, 0x28)), (int) (((s32)TWindowSubSymbolChat__sub_8028379C())));
         set_flag_bit1__20TWindowSubSymbolChatFPv((int) (M2C_FIELD(arg0, u32 *, 0x28)));
         set_flag_bit2__20TWindowSubSymbolChatFPv((int) (M2C_FIELD(arg0, u32 *, 0x28)));
-        TWindowSubSymbolChat__sub_80076FEC((int) (M2C_FIELD(arg0, u32 *, 0x28)), (int) (get_message_10__20TWindowSubStatusDispFPv((M2C_UNK)((int) (0xB5)))));
+        set_entry_name__20TWindowSubSymbolChatFPvPv((int) (M2C_FIELD(arg0, u32 *, 0x28)), (int) (get_message_10__20TWindowSubStatusDispFPv((M2C_UNK)((int) (0xB5)))));
         update_visibility__20TWindowSubSymbolChatFPv((void *) (M2C_FIELD(arg0, u8 **, 0x30)));
         M2C_FIELD(arg0, u8 *, 0x1C) = 4U;
         return;
@@ -781,7 +781,7 @@ void run_task__20TWindowSubSymbolChatFv(u8 *arg0) {
         }
         if (update_keyboard__17TWindowSubComCardFPv((int) (M2C_FIELD(arg0, u32 *, 0x58))) != 0) {
             temp_r3_2 = realloc_buffer__17TWindowSubComCardFPv((int) (M2C_FIELD(arg0, u32 *, 0x58)));
-            TWindowSubSymbolChat__sub_80076FEC((int) (M2C_FIELD(arg0, u32 *, 0x28)), (int) (temp_r3_2));
+            set_entry_name__20TWindowSubSymbolChatFPvPv((int) (M2C_FIELD(arg0, u32 *, 0x28)), (int) (temp_r3_2));
             free__11TOBoss4RockFUi((int) (temp_r3_2));
             M2C_FIELD(arg0, u8 *, 0x1C) = 4U;
         }

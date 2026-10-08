@@ -35,7 +35,7 @@ void TQuestVmDownLoadServer__sub_801F6C74(u8 *arg0);
 M2C_UNK return_to_main_menu__6TLobbyFv();
 s32 TWindowShortListCtrl__check_controller_button(int, int);
 extern RecoveredGlobal_801F6C74_lbl_8050E208 lbl_8050E208;
-void TQuestVmDownLoadServer__sub_801F6C0C(u8 *arg0);
+void check_cancel_input__22TQuestVmDownLoadServerFPv(u8 *arg0);
 s32 get_localized_text_entry(int, int);
 s32 TWindowShortListCtrl__check_controller_button(int, int);
 M2C_UNK show_status_message__22TQuestVmDownLoadServerFPvii(void *, int, int);
@@ -67,7 +67,7 @@ void create__22TQuestVmDownLoadServerFv(void) {
 typedef char RecoveredGlobal_801F6C74_lbl_8050E208_size[sizeof(RecoveredGlobal_801F6C74_lbl_8050E208) == 0x1B0 ? 1 : -1];
 
 typedef char RecoveredGlobal_801F6C0C_lbl_8050E208_size[sizeof(RecoveredGlobal_801F6C0C_lbl_8050E208) == 0x1B0 ? 1 : -1];
-void TQuestVmDownLoadServer__sub_801F6C0C(u8 *arg0) {
+void check_cancel_input__22TQuestVmDownLoadServerFPv(u8 *arg0) {
     u8 *temp_r31;
     temp_r31 = (u8 *)&(*(RecoveredGlobal_801F6C0C_lbl_8050E208 *)&lbl_8050E208).value + 0x20;
     if ((TWindowShortListCtrl__check_controller_button((int) (temp_r31), (int) (4)) != 0) || (TWindowShortListCtrl__check_controller_button((int) (temp_r31), (int) (2)) != 0)) {

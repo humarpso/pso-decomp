@@ -58,7 +58,7 @@ u16 TBoss6Type2__sub_802BB694();
 s32 TBoss6Type2__sub_802BB768();
 s32 TBoss6Type2__sub_802BB7C0(void *);
 s32 set_action_state__11TBoss6Type2FPvPv(void * a0 = 0, s32 a1 = 0);
-s32 TBoss6Type2__sub_802BD76C(void *);
+s32 choose_next_index__11TBoss6Type2FPv(void *);
 s32 TBoss6Type2__sub_802BD7EC(void *);
 int TBoss6Type2__sub_802BDC5C(void*);
 int send_action_packet__11TBoss6Type2FPvc(void*, void*);
@@ -286,7 +286,7 @@ void select_attack_state__11TBoss6Type2FPv(void *arg0) {
         }
         if (get_phase__11TBoss6Type2FPv(arg0) == 0xD) {
             M2C_FIELD(arg0, s32 *, 0x428) = TBoss6Type2__sub_802BD7EC(arg0);
-            M2C_FIELD(arg0, s32 *, 0x430) = TBoss6Type2__sub_802BD76C(arg0);
+            M2C_FIELD(arg0, s32 *, 0x430) = choose_next_index__11TBoss6Type2FPv(arg0);
             send_action_packet__11TBoss6Type2FPvc((void*)(arg0), (void*)(1));
             return;
         }

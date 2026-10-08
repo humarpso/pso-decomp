@@ -8,7 +8,7 @@ extern "C" {
 
 void init_slots__23TAdSinglePlyChrSelectGCFv(void);
 void reset_state__23TAdSinglePlyChrSelectGCFPv(void* a0);
-M2C_UNK TAdSinglePlyChrSelectGC__sub_80243070(M2C_UNK);
+M2C_UNK reset_all_slots__23TAdSinglePlyChrSelectGCFs(M2C_UNK);
 M2C_UNK PADControlMotor(s32, M2C_UNK);
 
     extern const float lbl_805DCA04;
@@ -17,7 +17,7 @@ void reset_state__23TAdSinglePlyChrSelectGCFPv(void* a0) { *(unsigned char*)((ch
 void init_slots__23TAdSinglePlyChrSelectGCFv(void) {
     s32 var_r31;
 
-    TAdSinglePlyChrSelectGC__sub_80243070(2);
+    reset_all_slots__23TAdSinglePlyChrSelectGCFs(2);
     var_r31 = 0;
     do {
         PADControlMotor(var_r31, 0);

@@ -18,7 +18,7 @@ extern "C" {
 void set_state4_if_ready__14TBoss6PlotFalzFPv(void* p);
 s32 set_state__14TBoss6PlotFalzFPvi(void *, s32);
 s32 TBoss6PlotFalz__sub_802ABADC();
-int TBoss6PlotFalz__sub_802ABCDC(void*);
+int spawn_type1__14TBoss6PlotFalzFPv(void*);
 int refresh_players_equipment__14TBoss6PlotFalzFPv(void);
 int end_cutscene_camera__14TBoss6PlotFalzFPv(void*);
 int send_6xA3_action__14TBoss6PlotFalzFPvc(void*, void*);

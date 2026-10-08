@@ -26,7 +26,7 @@ extern u8 lbl_8044F738[];
 void TWindowSubCustomEquip__sub_80275F08(u8 *arg0, void *arg1);
 void TWindowSubCustomEquip__sub_80275F08(u8 *arg0, void *arg1);
 extern const f32 lbl_805DD564;
-void TWindowSubCustomEquip__sub_80275F90(Win_80275F90 *arg0, u8 *arg1);
+void draw_cursor__21TWindowSubCustomEquipFPvPv(Win_80275F90 *arg0, u8 *arg1);
 void reset_transform_state__10TObjPlayerFv();
 void init_xyz_limits__10TObjPlayerFv();
 s32 try_open__19TWindowKeyBoardSoftFii(void *, void *);
@@ -99,7 +99,7 @@ void TWindowSubCustomEquip__sub_80275F08(u8 *arg0, void *arg1) {
     set_relative_pos__21TWindowSubCustomEquipFPvPv(arg1, e);
 }
 
-void TWindowSubCustomEquip__sub_80275F90(Win_80275F90 *arg0, u8 *arg1) {
+void draw_cursor__21TWindowSubCustomEquipFPvPv(Win_80275F90 *arg0, u8 *arg1) {
     Vec2_80275DE8 pos;
     TWindowSubCustomEquip__sub_80275F08((u8 *)arg0, &pos);
     ((void (*)(f32, u8 *, Vec2_80275DE8 *, s32))draw_cursor_sprite__21TWindowSubCustomEquipFPvPvif)(lbl_805DD564, arg1, &pos, arg0->f66);

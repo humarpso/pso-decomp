@@ -122,7 +122,7 @@ M2C_UNK cleanup__17TWindowSubComCardFPv();
 M2C_UNK TWindowSubComCard__sub_802721D8(void *);
 M2C_UNK set_card_index__17TWindowSubComCardFPvi(void *, int);
 M2C_UNK set_selected_card__17TWindowSubComCardFPvi(void *, int);
-M2C_UNK TWindowSubComCard__sub_80272340(void *, int);
+M2C_UNK set_help_message__17TWindowSubComCardFPvi(void *, int);
 M2C_UNK update_selection__17TWindowSubComCardFiii(int, int, void *);
 M2C_UNK update_display_value__17TWindowSubComCardFUiUiPv(int, int, void *);
 u32 create_keyboard__17TWindowSubComCardFii(void *, int);
@@ -383,7 +383,7 @@ void run_task__17TWindowSubComCardFv(u8 *arg0) {
         clear_flag_and_release__17TWindowSubComCardFPv((int) (M2C_FIELD(arg0, u32 *, 0x60)));
         M2C_FIELD(arg0, u8 *, 0x1C) = 2U;
     case 0x2:
-        TWindowSubComCard__sub_80272340((void *) (arg0), (int) (get_cursor_pos__20TWindowShortListCtrlFPv((int) (M2C_FIELD(arg0, u32 *, 0x60)))));
+        set_help_message__17TWindowSubComCardFPvi((void *) (arg0), (int) (get_cursor_pos__20TWindowShortListCtrlFPv((int) (M2C_FIELD(arg0, u32 *, 0x60)))));
         if (get_status_flag__17TWindowSubComCardFPv((int) (M2C_FIELD(arg0, u32 *, 0x60))) != 0) {
             temp_r3 = (u8 *)(M2C_FIELD(arg0, u8 **, 0x5C));
             ((VObj_18_204a81 *)(temp_r3))->m7();

@@ -26,7 +26,7 @@ struct Ent_80136FA0 { u8 pad[0xA]; char name[0x12]; };
 extern "C" {
 void copy_header_struct__6TLobbyFPvPv(void *, void *);
 void open_udp_socket_for_player__6TLobbyFi(s32 arg0);
-void TLobby__sub_80135458(s32 arg0);
+void send_6x71_to_player__6TLobbyFi(s32 arg0);
 void send_6x70_player_data__6TLobbyFi(s32 arg0);
 void TLobby__sub_80135974(s32 arg0);
 void send_6x6E_sync_game_state__6TLobbyFi(s32 arg0);
@@ -51,7 +51,7 @@ void render__9TMainTaskFv(void *);
 void render_screen_overlay__9TMainTaskFv(void *);
 void run_all_lists__9TMainTaskFv(void *);
 void render_tick__Fv(void);
-void TLobby__sub_8013A5D4(void *, void *);
+void copy_member_record__6TLobbyFPvPv(void *, void *);
 void TLobby__sub_8013A5C0(void *);
 void send_packet_60__6TLobbyFi(void *);
 extern char TLobby__data_8043EF38[];
@@ -329,7 +329,7 @@ void send_game_character__6TLobbyFv(void);
 void update_idle_timeout__6TLobbyFPv(u8 *arg0);
 u8 * TLobby__sub_80135198(u8 *arg0, s32 arg1);
 void open_udp_socket_for_player__6TLobbyFi(s32 arg0);
-void TLobby__sub_80135458(s32 arg0);
+void send_6x71_to_player__6TLobbyFi(s32 arg0);
 void handle_6x70_sync_player_disp_and_inventory(Pkt_801354AC *arg0);
 void send_6x70_player_data__6TLobbyFi(s32 arg0);
 void handle_6x6F_set_quest_flags_v2(s32 arg0);
@@ -383,7 +383,7 @@ s32 TObjPlayer__sub_801B4FD8(void *);
 s32 get_player_by_client_id(void *);
 Plr_801354AC * create_remote_player_object(void *);
 u8 * create_player_object(s32, s32, void *);
-void TLobby__sub_801DB554(void *);
+void send_6F_burst_done__6TLobbyFPv(void *);
 void send_player_data_98__9TProtocolFPvPvPvPvPvPvPv(void *, void *, void *, void *, void *, void *, void *);
 s32 DateToSeconds__FP9DateStampPi(void *, void *);
 s32 getDateStamp__FP9DateStamp(void *);
@@ -661,13 +661,13 @@ void handle_6x71_unblock_game_join(void) {
             }
             pend[i] = 0;
         }
-        TLobby__sub_801DB554(TLobby__data_805D5580);
+        send_6F_burst_done__6TLobbyFPv(TLobby__data_805D5580);
         TAdSinglePlyChrSelectGC__sub_801FF5E4(0);
         TLobby__data_805D5594 = 0xF;
     }
 }
 
-void TLobby__sub_80135458(s32 arg0) {
+void send_6x71_to_player__6TLobbyFi(s32 arg0) {
     Stack_80135458 stack;
     stack.sp8 = 0x71;
     stack.sp9 = 1;
@@ -1115,7 +1115,7 @@ void on_game_player_add__6TLobbyFiii(s32 arg0, s32 arg1, s32 arg2) {
         send_compressed_packet_6c__6TLobbyFi(e.client_id);
         send_6x6E_sync_game_state__6TLobbyFi(e.client_id);
         TLobby__sub_80135974(e.client_id);
-        TLobby__sub_80135458(e.client_id);
+        send_6x71_to_player__6TLobbyFi(e.client_id);
     }
     if (((u8 *(*)(void *))get_player_by_client_id)((void *)lbl_805D53A0) != NULL) {
         send_6x70_player_data__6TLobbyFi(e.client_id);
@@ -1128,7 +1128,7 @@ void on_game_player_add__6TLobbyFiii(s32 arg0, s32 arg1, s32 arg2) {
         }
     } else {
         lbl_8050ABA8[e.client_id] = 1;
-        TLobby__sub_8013A5D4(&((Entry_8013634C *)TLobby__data_80506A6C)[e.client_id], &e);
+        copy_member_record__6TLobbyFPvPv(&((Entry_8013634C *)TLobby__data_80506A6C)[e.client_id], &e);
     }
     if (lbl_805D53A0 == TLobby__data_805D53AC) {
         TLobby__sub_8013A5C0(&pkt);
@@ -1193,7 +1193,7 @@ void make_players__6TLobbyFv(void) {
         p->m6();
         strncpy(TLobby__data_8050AAE8[lbl_805D53A0], p->m10(), 0x10);
         TLobby__sub_8013A170(lbl_8043EE48, lbl_805D53A0);
-        TLobby__sub_801DB554((*(void * *)&TLobby__data_805D5580));
+        send_6F_burst_done__6TLobbyFPv((*(void * *)&TLobby__data_805D5580));
         TLobby__data_805D5594 = 0xF;
         p = (Ply_80136A8C *)create_player_object(1 - lbl_805D53A0, 4, get_char_index__23TAdSinglePlyChrSelectGCFUi(0));
         if (p != NULL) {
@@ -1214,7 +1214,7 @@ void make_players__6TLobbyFv(void) {
         p->m6();
         strncpy(TLobby__data_8050AAE8[lbl_805D53A0], p->m10(), 0x10);
         TLobby__sub_8013A170(lbl_8043EE48, lbl_805D53A0);
-        TLobby__sub_801DB554((*(void * *)&TLobby__data_805D5580));
+        send_6F_burst_done__6TLobbyFPv((*(void * *)&TLobby__data_805D5580));
         TLobby__data_805D5594 = 0xF;
     }
 }

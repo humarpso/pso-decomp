@@ -202,7 +202,7 @@ void * TObjItemNameEntry__ct(void *arg0);
 s32 create_instance__17TQuestThreadBoardFi(s32 arg0);
 u8 * TQuestThreadBoard__ct(u8 *arg0, s32 arg1, s32 arg2);
 void copy_quest_script_context(u8 *arg0, u8 *arg1);
-void fn_801F57B4(Node_801F57B4* arg0);
+void destroy_children_with_tag(Node_801F57B4* arg0);
 u8 * create_floor_quest_thread(void);
 u32 create__12TQuestThreadFi(s32 arg0);
 u8 * create_quest_thread(s32 arg0);
@@ -629,7 +629,7 @@ extern int fold_flush_0;
 #pragma inline_depth(1)
 #pragma auto_inline off
 #pragma dont_inline off
-void fn_801F57B4(Node_801F57B4* arg0) {
+void destroy_children_with_tag(Node_801F57B4* arg0) {
     Node_801F57B4* n = arg0->child;
     while (arg0->child != 0 && n != 0) {
         Node_801F57B4* cur = n;
@@ -637,7 +637,7 @@ void fn_801F57B4(Node_801F57B4* arg0) {
         if (check_value_equals__13TQuestColCtrlFPvi(cur, lbl_805D35D0) != 0) {
             ((void (*)(void*))queue_destruction__7TObjectFv)(cur);
         } else {
-            fn_801F57B4(cur);
+            destroy_children_with_tag(cur);
         }
     }
 }

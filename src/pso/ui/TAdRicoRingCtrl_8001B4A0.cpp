@@ -59,7 +59,7 @@ u8 *__dt__15TAdRicoRingCtrlFv(u8 *self, s16 flag);
 void start_fade__15TAdRicoRingCtrlFPvf(u8 *arg0, f32 farg0);
 extern const f32 lbl_805D7E4C;
 extern const f32 lbl_805D7E54;
-void TAdRicoRingCtrl__sub_8001B534(Obj_8001B534 *self, f32 x);
+void start_fade_all__15TAdRicoRingCtrlFPvf(Obj_8001B534 *self, f32 x);
 }
 
 extern "C" {
@@ -89,7 +89,7 @@ void TAdRicoRingCtrl__sub_8001B4A0(Obj_8001B4A0 *self, f32 x) {
     }
 }
 
-void TAdRicoRingCtrl__sub_8001B534(Obj_8001B534 *self, f32 x) {
+void start_fade_all__15TAdRicoRingCtrlFPvf(Obj_8001B534 *self, f32 x) {
     s32 i;
     for (i = 0; i != 2; i++) {
         if (self->slot[i] != 0) {

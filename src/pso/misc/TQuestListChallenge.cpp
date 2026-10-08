@@ -127,7 +127,7 @@ s32 select_cursor_entry__6TLobbyFPv(s32);
 s32 lbl_805D64A8;
 s32 lbl_805D64AC;
 s32 TQuestListChallenge__data_805D64B0;
-s32 TQuestListChallenge__sub_80288B04(void);
+s32 get_selected_quest_text__19TQuestListChallengeFv(void);
 s32 get_game_play_mode();
 M2C_UNK __ct__15TShopWindowBaseFv();
 s32 calc_min_challenge_progress__6TLobbyFv();
@@ -189,7 +189,7 @@ M2C_UNK set_field_20__12TQuestListVMFPvi(void *, M2C_UNK);
 
 #pragma push
 #pragma opt_common_subs off
-s32 TQuestListChallenge__sub_80288B04(void) {
+s32 get_selected_quest_text__19TQuestListChallengeFv(void) {
     u32 temp_r3;
     if ((void *) (*(u8 * *)&TQuestListChallenge__data_805D64B0) != NULL) {
         temp_r3 = M2C_FIELD((*(u8 * *)&TQuestListChallenge__data_805D64B0), u32 *, 0x38);

@@ -57,7 +57,7 @@ extern "C" {
 void *item_equip_variant_deleting_dtor_80326520(void *arg0, s16 arg1);
 void render__26TBoss5GryphonLightningHornFv(void);
 void run_task__26TBoss5GryphonLightningHornFv(void* p);
-int fn_80324E10(void*);
+int spawn_gryphon_lightning(void*);
 int fn_80325F7C(void*);
 int rebuild_lightning_segments(void*);
 void free_obj_heap__10TObjPlayerFPv(void *);
@@ -65,7 +65,7 @@ void item_equip_variant_deleting_dtor_80120CF8(void *, int);
 void *item_equip_variant_deleting_dtor_80326520(void *arg0, s16 arg1);
 
 void render__26TBoss5GryphonLightningHornFv(void) {  }
-void run_task__26TBoss5GryphonLightningHornFv(void* p) { rebuild_lightning_segments(p); fn_80325F7C(p); fn_80324E10(p); }
+void run_task__26TBoss5GryphonLightningHornFv(void* p) { rebuild_lightning_segments(p); fn_80325F7C(p); spawn_gryphon_lightning(p); }
 TBoss5GryphonLightningHorn::~TBoss5GryphonLightningHorn() {}
 u8 *__ct__26TBoss5GryphonLightningHornFv(u8 *arg0, s32 arg1, s32 arg2, s32 arg3) {
     f32 temp_f1;

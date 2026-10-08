@@ -28,7 +28,7 @@ s32 TLobby__sub_8030A770(void);
 M2C_UNK TCameraCtrl__sub_8006B324();
 u32 get_player_by_client_id(s32);
 s32 setup_player_battle_ctrls__23TAdSinglePlyChrSelectGCFv(void);
-M2C_UNK TWindowSubComCard__sub_8007A9C0(int, int);
+M2C_UNK copy_card__17TWindowSubComCardFiPv(int, int);
 s32 TAdSinglePlyChrSelectGC__sub_801FFCFC(s32 arg0, s32 arg1);
 void *memset(void *, int, unsigned long);
 extern u32 lbl_805D5F58;
@@ -180,7 +180,7 @@ s32 TAdSinglePlyChrSelectGC__sub_801FFCFC(s32 arg0, s32 arg1) {
   var_r29 = arg1 + 0xC0;
   do
   {
-    TWindowSubComCard__sub_8007A9C0((int) var_r30, (int) var_r29);
+    copy_card__17TWindowSubComCardFiPv((int) var_r30, (int) var_r29);
     var_r30 += 0x100;
     var_r29 += 0x100;
   }
