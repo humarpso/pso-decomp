@@ -501,6 +501,7 @@ force_active:
   - controller_default_pad_state
   - copy_character_to_slot__23TAdSinglePlyChrSelectGCFUiiUii
   - copy_chat_entry__20TWindowSubSymbolChatFPvPv
+  - copy_debris_params__8TObjChipFPvPv
   - copy_gauge_warn_vec__10TObjPlayerFv
   - copy_matrix3x3_to_global__10TObjPlayerFPv
   - copy_motion_pair

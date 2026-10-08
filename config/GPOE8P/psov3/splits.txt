@@ -6369,13 +6369,14 @@ pso/object/TObjCamera_8017F80C.cpp:
 	.rodata     start:0x80443AC8 end:0x80443AD0
 
 pso/object/TObjChip.cpp:
-	.text       start:0x8017FE58 end:0x80180E70
-	.rodata     start:0x80443B10 end:0x80443B18
-	.data       start:0x804B58D0 end:0x804B58E8
-	.sdata2     start:0x805DBB7C end:0x805DBB94
+	.text       start:0x8017FE58 end:0x80180D18
+	.rodata     start:0x80443AD0 end:0x80443B18
+	.data       start:0x804B58D0 end:0x804B5908
+	.sdata      start:0x805D3240 end:0x805D3244
+	.sdata2     start:0x805DBB78 end:0x805DBB9C
 
-pso/unk/text_80180E70.cpp:
-	.text       start:0x80180E70 end:0x801811FC
+pso/unk/text_80180D18.cpp:
+	.text       start:0x80180D18 end:0x801811FC
 
 pso/unk/text_801811FC.cpp:
 	.text       start:0x801811FC end:0x80181278
@@ -12398,11 +12399,11 @@ pso/enemy/TObjEneMe3SinowZoaReal_8031B220.cpp:
 	.text       start:0x8031B220 end:0x8031B240
 
 pso/unk/text_8031B240.cpp:
-	.text       start:0x8031B240 end:0x8031B6A8
+	.text       start:0x8031B240 end:0x8031B618
 
 pso/enemy/TObjEneReconBomb.cpp:
-	.text       start:0x8031B6A8 end:0x8031BC38
-	.sdata2     start:0x805DF394 end:0x805DF3AC
+	.text       start:0x8031B618 end:0x8031BC38
+	.sdata2     start:0x805DF390 end:0x805DF3AC
 
 pso/enemy/TObjEneRecon_8031BC38.cpp:
 	.text       start:0x8031BC38 end:0x8031BCB8
