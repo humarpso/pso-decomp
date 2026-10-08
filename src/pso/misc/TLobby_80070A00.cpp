@@ -109,7 +109,7 @@ s32 get_player_by_client_id(u32);
 extern M2C_UNK lbl_8048C9D8[];
 extern s32 lbl_805D4E38;
 extern s8 lbl_805D4E3C;
-s32 TLobby__sub_80070DCC(void);
+s32 get_max_challenge_time__6TLobbyFv(void);
 }
 
 extern "C" {
@@ -164,7 +164,7 @@ s32 TLobby__sub_80070DA8(void) {
 
 typedef char RecoveredGlobal_80070EE4_lbl_8048C9D8_size[sizeof(RecoveredGlobal_80070EE4_lbl_8048C9D8) == 0x748 ? 1 : -1];
 
-s32 TLobby__sub_80070DCC(void) {
+s32 get_max_challenge_time__6TLobbyFv(void) {
     s32 times[4];
     s32 i;
     s32 best;

@@ -988,7 +988,7 @@ s32 select_melee_contact_body__10TObjPlayerFv(Actor_80016454 *target, Actor_8001
 s32 update_flag30_timer__10TObjPlayerFPv(u8 *arg0);
 s32 update_action_timer__10TObjPlayerFPv(u8 *arg0);
 s32 is_target_in_attack_range__10TObjPlayerFv(Player_8001745C *p);
-f32 TObjPlayer__sub_80017804(Obj_80017804 *arg0, Vec_800180E8 *arg1, f32 farg0);
+f32 step_toward_destination__10TObjPlayerFPvPvf(Obj_80017804 *arg0, Vec_800180E8 *arg1, f32 farg0);
 f32 enemy_pursue_point(u8 *arg0, s32 arg1, Vec_800180E8 arg2, f32 farg0, f32 farg1);
 f32 enemy_backstep_from_point(Obj_80017ABC *arg0, Vec_800180E8 arg1, f32 farg0);
 f32 enemy_wander_home(u8 *arg0, s32 arg1, f32 farg0, f32 farg1, f32 farg2);
@@ -4210,7 +4210,7 @@ f32 enemy_move_toward(u8 *arg0, s32 arg1, Vec_800180E8 arg2, s32 arg3, f32 farg0
     return horizontal_distance_squared(&arg2, arg0 + 0x38);
 }
 
-f32 TObjPlayer__sub_80017804(Obj_80017804 *arg0, Vec_800180E8 *arg1, f32 farg0) {
+f32 step_toward_destination__10TObjPlayerFPvPvf(Obj_80017804 *arg0, Vec_800180E8 *arg1, f32 farg0) {
     VecCopy__FP3VecPC3Vec((s32) &arg0->dest, (s32) arg1);
     VecCopy__FP3VecPC3Vec((s32) &arg0->home, (s32) &arg0->cur);
     ((void (*)(void *, Vec_800180E8, Vec_800180E8, f32)) calc_velocity_toward_destination)(arg0, arg0->home, arg0->dest, farg0);

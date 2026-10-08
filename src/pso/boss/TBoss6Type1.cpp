@@ -1232,7 +1232,7 @@ s32 approach_angle_limited(int, int, int);
 extern const f64 TBoss6Type1__data_80471038;
 extern const f32 TBoss6Type1__data_805DE2D0;
 extern const f32 TBoss6Type1__data_805DE310;
-void TBoss6Type1__sub_802B7D74(u8 *arg0);
+void update_turn_to_center__11TBoss6Type1FPv(u8 *arg0);
 void set_sync_data__11TBoss6Type1FPvPv(void *arg0, void *arg1);
 int is_idle__11TBoss6Type1FPv(void* p);
 void step_and_send_60__11TBoss6Type1FPv(void* p);
@@ -1836,7 +1836,7 @@ void TBoss6Type1__sub_802B7D50(u8 *arg0) {
     M2C_FIELD(arg0, s32 *, 0x4F4) = (s32) lbl_805DE3B0;
 }
 
-void TBoss6Type1__sub_802B7D74(u8 *arg0) {
+void update_turn_to_center__11TBoss6Type1FPv(u8 *arg0) {
   Stack_802B7D74_boss6_1 stack;
   M2C_UNK var_r5;
   int new_var;

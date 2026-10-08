@@ -46,7 +46,7 @@ f32 TObjTombstone__sub_8007598C(void *);
 int format_date_text__13TObjTombstoneFPv(void*);
 int TObjTombstone__sub_80075AE8(void*);
 int TObjTombstone__sub_80075B5C(void*);
-int TObjTombstone__sub_80075BE0(void*);
+int build_name_text__13TObjTombstoneFPv(void*);
 int TObjTombstone__sub_80075C60(void*);
 int format_player_name__13TObjTombstoneFPv(void*);
 M2C_UNK TObjTombstone__sub_80075DFC(void *);
@@ -55,7 +55,7 @@ s32 check_owner__13TObjTombstoneFPv();
 void destroy_particle_controller__10TObjPlayerFPvs(void *, int);
 M2C_UNK queue_destruction__7TObjectFv(void *);
 
-void init_parts__13TObjTombstoneFPv(void* p) { format_player_name__13TObjTombstoneFPv(p); TObjTombstone__sub_80075C60(p); TObjTombstone__sub_80075BE0(p); TObjTombstone__sub_80075B5C(p); TObjTombstone__sub_80075AE8(p); format_date_text__13TObjTombstoneFPv(p); }
+void init_parts__13TObjTombstoneFPv(void* p) { format_player_name__13TObjTombstoneFPv(p); TObjTombstone__sub_80075C60(p); build_name_text__13TObjTombstoneFPv(p); TObjTombstone__sub_80075B5C(p); TObjTombstone__sub_80075AE8(p); format_date_text__13TObjTombstoneFPv(p); }
 
 extern s32 lbl_805D4E4C;
 

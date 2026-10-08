@@ -27,7 +27,7 @@ s32 get_keyboard_mode__17TWindowSubComCardFv(void);
 M2C_UNK clear_and_init__17TWindowSubComCardFPvPv(int, void *);
 void *__nw__7TObjectFUl(int);
 extern s32 lbl_805D53A0;
-s32 TWindowSubComCard__sub_80249A48(s32 arg0);
+s32 create_com_card_window__17TWindowSubComCardFi(s32 arg0);
 void *__nw__7TObjectFUl(int);
 u8 *TWindowComCard__sub_80249980(s32 arg0, s32 arg1, s32 arg2);
 u8 * construct_base__9TWindowDDFPvPvsPv(void *, s32, s16, s32);
@@ -114,7 +114,7 @@ void * create__14TWindowComCardFPvPv(void *arg0, void *arg1) {
 }
 extern "C" {
 
-s32 TWindowSubComCard__sub_80249A48(s32 arg0) {
+s32 create_com_card_window__17TWindowSubComCardFi(s32 arg0) {
     s32 temp_r3;
     s32 temp_r3_2;
     s32 var_r0;

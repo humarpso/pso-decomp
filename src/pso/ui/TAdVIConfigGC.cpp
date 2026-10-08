@@ -56,7 +56,7 @@ void set_flag_4__9TObjLukerFPv(void *);
 s32 allow_rendering__7TObjectFv(u32);
 void disallow_rendering__7TObjectFv(void *);
 s32 clear_flag4_bit4__22TQuestVmDownLoadServerFPv(void *);
-s32 TLobby__sub_801B0974();
+s32 count_members__6TLobbyFv();
 M2C_UNK fn_80307BE8(void *);
 void update_visibility__13TAdVIConfigGCFPv(u8 *arg0);
 void set_close_flag__19TWindowSubTradeMainFPv(u32);
@@ -87,7 +87,7 @@ int OSSetProgressiveMode(void*);
 int get_localized_text_entry(void*, void*);
 void TAdYesNoBaseGC__ct(void *);
 void TAdYesNoBaseGC__vt0(void *, int);
-s32 TLobby__sub_801B0974();
+s32 count_members__6TLobbyFv();
 s32 TWindow__close(u32);
 M2C_UNK VecCopy__FP3VecPC3Vec(void *);
 void __dl__7TObjectFPv(void *);
@@ -130,7 +130,7 @@ s32 get_field_14__13TAdVIConfigGCFPv(void* p) { return *(s32*)((char*)p + 0x14);
 void update_visibility__13TAdVIConfigGCFPv(u8 *arg0) {
     s32 temp_r3;
     u8 *temp_r3_2;
-    temp_r3 = TLobby__sub_801B0974();
+    temp_r3 = count_members__6TLobbyFv();
     if ((s32) M2C_FIELD(arg0, s32 *, 4) != temp_r3) {
         M2C_FIELD(arg0, s32 *, 4) = temp_r3;
         open_player_names_window__13TAdVIConfigGCFPv((Cfg_80307D00 *)((void *) (arg0)));
@@ -171,7 +171,7 @@ u8 *init__13TAdVIConfigGCFPvf(u8 *arg0, f32 farg0) {
     M2C_FIELD(arg0, f32 *, 0) = (f32) (farg0 * farg0);
     M2C_FIELD(arg0, s32 *, 0x24) = 0;
     memset((void *) (arg0 + 0x28), (int) (0), (int) (0x60));
-    M2C_FIELD(arg0, s32 *, 4) = TLobby__sub_801B0974();
+    M2C_FIELD(arg0, s32 *, 4) = count_members__6TLobbyFv();
     M2C_FIELD(arg0, s32 *, 0x14) = 0;
     M2C_FIELD(arg0, s32 *, 0x18) = 0;
     open_player_names_window__13TAdVIConfigGCFPv((Cfg_80307D00 *)((void *) (arg0)));

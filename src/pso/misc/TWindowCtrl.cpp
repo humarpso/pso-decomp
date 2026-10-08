@@ -1052,7 +1052,7 @@ void spawn_palette_slot_light__15TWindowCtrlMainFPv(void* p);
 void update_field28__15TWindowCtrlMainFPv(void* p);
 void free_member__15TWindowCtrlMainFPv(void* p);
 int spawn_action_palette_slot_light(void*);
-int TWindowCtrlMain__sub_8024D7C0(void*);
+int reset_all__15TWindowCtrlMainFPv(void*);
 int open_submenu__15TWindowSubEquipFii(void*);
 int try_open_battle_menu__15TWindowMainMenuFPvs(void*);
 int send_and_handle__6TLobbyFPvii(void*);

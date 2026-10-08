@@ -51,7 +51,7 @@ s32 is_active__14TBoss6PlotFalzFPv(void *);
 f32 xyz_distance(void *, void *);
 extern u8 TBoss6Thanks__data_80479BA8[];
 extern const f32 lbl_805E0198;
-int TBoss6Thanks__sub_8035CCD0(void *arg0);
+int is_player_near__12TBoss6ThanksFPv(void *arg0);
 }
 
 extern "C" {
@@ -121,7 +121,7 @@ void TBoss6Thanks__sub_8035CCAC(s32 arg0) {
     }
 }
 
-int TBoss6Thanks__sub_8035CCD0(void *arg0) {
+int is_player_near__12TBoss6ThanksFPv(void *arg0) {
     s32 i;
     s32 n;
     u8 *p;
@@ -164,7 +164,7 @@ void advance_thanks_state__12TBoss6ThanksFPv(void *arg0) {
     }
 }
 
-void mark_done__12TBoss6ThanksFPv(void* p) { if (TBoss6Thanks__sub_8035CCD0((void *)(p)) != 0) { *(int*)((char*)p + 0x24) = 1; *(int*)((char*)p + 0x1c) = 1; } }
+void mark_done__12TBoss6ThanksFPv(void* p) { if (is_player_near__12TBoss6ThanksFPv((void *)(p)) != 0) { *(int*)((char*)p + 0x24) = 1; *(int*)((char*)p + 0x1c) = 1; } }
 
 u8 *__dt__12TBoss6ThanksFv(u8 *arg0, s16 arg1) {
     if (arg0 != NULL) {

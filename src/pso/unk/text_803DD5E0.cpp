@@ -119,7 +119,7 @@ s32 DVDClose(FileInfo_803DD784 *);
 s32 Dolphin_DVDReadPrio(FileInfo_803DD784 *, void *, s32, s32, s32);
 u32 find_gvrt_texture_chunk(Desc_803DDA68 *, s32 *, u32);
 s32 TObjPlayer__sub_803D9E38(Obj_803DDA68 *, s32, s32 *, s32 *);
-void TAdSinglePlyChrSelectGC__sub_803DA038(char *, Info_803DDA68 *, void *);
+void append_extension_if_missing__23TAdSinglePlyChrSelectGCFPvPvPv(char *, Info_803DDA68 *, void *);
 M2C_UNK TObjPlayer__sub_803DA7E0();
 s32 TObjPlayer__sub_803DAC48(Obj_803DDA68 *, s32, s32, s32, Desc_803DDA68 *, s32 *);
 extern S_803DA7E0 lbl_8058D470;
@@ -188,7 +188,7 @@ s32 TObjPlayer__sub_803DD784(Obj_803DDA68 *obj, s32 idx) {
     if (r != 0) {
         return r;
     }
-    TAdSinglePlyChrSelectGC__sub_803DA038(name, obj->ents[idx].info, lbl_805D46D8);
+    append_extension_if_missing__23TAdSinglePlyChrSelectGCFPvPvPv(name, obj->ents[idx].info, lbl_805D46D8);
     pfi = &fi;
     if (DVDOpen(name, pfi) == 0) {
         lbl_8058D470.c = 2;

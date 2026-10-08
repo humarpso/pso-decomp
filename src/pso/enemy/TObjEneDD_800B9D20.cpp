@@ -47,7 +47,7 @@ int update_player_state__9TObjEneDDFPv(void* p);
 int update_primary_light__9TObjEneDDFPv(void* p);
 int update_secondary_light__9TObjEneDDFPv(void* p);
 int transform_to_view__11TCameraCtrlFii(void*);
-int TCameraCtrl__sub_800691C8(void*);
+int apply_split_screen_view_matrix__11TCameraCtrlFv(void*);
 int TLobby__sub_800C6C10(void*);
 int restore_scene_lighting(void*);
 int select_actor_lighting(void*);
@@ -105,7 +105,7 @@ void reload_stats_keep_hp_tp__9TObjEneDDFPv(Obj_800B9E84 *self) {
 
 void reset_hp__9TObjEneDDFPv(void* p) { bind_enemy_combat_stats(p); *(short*)((char*)p + 0x33e) = *(short*)((char*)p + 0x32c); }
 int get_camera_ctrl__9TObjEneDDFPv(void* p) { return transform_to_view__11TCameraCtrlFii(p); }
-int update_camera_sequence__9TObjEneDDFPv(void* p) { return TCameraCtrl__sub_800691C8(p); }
+int update_camera_sequence__9TObjEneDDFPv(void* p) { return apply_split_screen_view_matrix__11TCameraCtrlFv(p); }
 int initialize_enemy_state__9TObjEneDDFPv(void* p) { return set_param__12TObjEneLappyFPvi(p); }
 
 }

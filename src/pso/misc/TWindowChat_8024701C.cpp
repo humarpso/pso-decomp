@@ -19,7 +19,7 @@ M2C_UNK set_active_flag__11TWindowChatFPv(void *);
 M2C_UNK set_input_active__11TWindowChatFPv(void *);
 s32 is_mode_bit6__11TWindowChatFPv(void *);
 M2C_UNK export_keyboard_text(int, void *);
-M2C_UNK TWindowChat__sub_8025CB70(int);
+M2C_UNK reset_input__11TWindowChatFPv(int);
 s32 submit_keyboard_input__11TWindowChatFPv(u8 *arg0);
 int forward_card_at_1c__11TWindowChatFPv(void *);
 int get_subcard_field1c__11TWindowChatFPv(void *);
@@ -109,7 +109,7 @@ s32 submit_keyboard_input__11TWindowChatFPv(u8 *arg0) {
         return 0;
     }
     if (is_active__16TKeyBoardControlFPv((int) kb) != 0) {
-        TWindowChat__sub_8025CB70((int) (M2C_FIELD(arg0, u32 *, 0x20)));
+        reset_input__11TWindowChatFPv((int) (M2C_FIELD(arg0, u32 *, 0x20)));
         set_input_active__11TWindowChatFPv((void *) (arg0));
         return 1;
     }
@@ -126,7 +126,7 @@ s32 submit_keyboard_input__11TWindowChatFPv(u8 *arg0) {
     } else {
         export_keyboard_text((int) (M2C_FIELD(arg0, u32 *, 0x20)), (void *) ((u8 *) M2C_FIELD(arg0, u32 **, 0x38) + 4));
     }
-    TWindowChat__sub_8025CB70((int) (M2C_FIELD(arg0, u32 *, 0x20)));
+    reset_input__11TWindowChatFPv((int) (M2C_FIELD(arg0, u32 *, 0x20)));
     return 1;
 }
 

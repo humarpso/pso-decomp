@@ -71,7 +71,7 @@ extern s32 lbl_805D54E8;
 void set_boss_buf_entry__6TLobbyFii(s32 v, u16 idx);
 void observe_item_id__6TLobbyFi(int id);
 void bswap_pick_up_item_request__6TLobbyFi(Msg_8011A9D8 *msg);
-void *TLobby__sub_80103D10(s16 a, u32 b);
+void *find_item_condition_entry__6TLobbyFii(s16 a, u32 b);
 void TLobby__sub_80103044(Cmd_8011A9D8 *cmd);
 void send_pick_up_item__6TLobbyFi(Cmd_8011A9D8 *cmd);
 void handle_6x5A_pick_up_item_request(Msg_8011A9D8 *msg);
@@ -161,7 +161,7 @@ void handle_6x5C_destroy_floor_item(void *arg0) {
 
 void handle_6x5A_pick_up_item_request(Msg_8011A9D8 *msg) {
     bswap_pick_up_item_request__6TLobbyFi(msg);
-    if (TLobby__sub_80103D10(msg->s8, msg->u4) != 0) {
+    if (find_item_condition_entry__6TLobbyFii(msg->s8, msg->u4) != 0) {
         Cmd_8011A9D8 cmd;
         TLobby__sub_80103044(&cmd);
         cmd.a = msg->u2;

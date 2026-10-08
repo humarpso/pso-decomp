@@ -113,10 +113,10 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 extern "C" {
 
 void add_menu_item__17TWindowOptionCtrlFiii(s32 arg1, s32 arg2, s32 arg3);
-M2C_UNK TWindowSubStatusDisp__sub_802673A8(M2C_UNK, s32, s32, s32, M2C_UNK, M2C_UNK);
+M2C_UNK append_entry__20TWindowSubStatusDispFPviiiii(M2C_UNK, s32, s32, s32, M2C_UNK, M2C_UNK);
 
 void add_menu_item__17TWindowOptionCtrlFiii(s32 arg1, s32 arg2, s32 arg3) {
-    TWindowSubStatusDisp__sub_802673A8(arg1, 0, arg2, arg3, 1, 0);
+    append_entry__20TWindowSubStatusDispFPviiiii(arg1, 0, arg2, arg3, 1, 0);
 }
 
 }
@@ -630,7 +630,7 @@ void set_option_and_confirm__17TWindowOptionCtrlFPvii(void *arg0, s32 arg1, s32 
 void TWindowOptionCtrl__sub_8034C4C4(void* p);
 s32 get_localized_text_entry(M2C_UNK);
 int TLobby__sub_80338534(void);
-int TLobby__sub_80338608(void*);
+int update_pulse_colors__6TLobbyFi(void*);
 M2C_UNK open_confirm_dialog__17TWindowOptionCtrlFPvii(void *, s32, s32);
 
 void set_option_and_confirm__17TWindowOptionCtrlFPvii(void *arg0, s32 arg1, s32 arg2) {
@@ -640,7 +640,7 @@ void set_option_and_confirm__17TWindowOptionCtrlFPvii(void *arg0, s32 arg1, s32 
     }
 }
 
-void TWindowOptionCtrl__sub_8034C4C4(void* p) { if (*(int*)((char*)p + 0x1c) == 6) { TLobby__sub_80338608((void*)1); TLobby__sub_80338534(); } }
+void TWindowOptionCtrl__sub_8034C4C4(void* p) { if (*(int*)((char*)p + 0x1c) == 6) { update_pulse_colors__6TLobbyFi((void*)1); TLobby__sub_80338534(); } }
 
 }
 #endif

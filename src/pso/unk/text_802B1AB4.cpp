@@ -56,7 +56,7 @@ M2C_UNK send_and_handle__6TLobbyFPvii(int, int, int);
 s32 create_message_window__6TLobbyFiiUis(s32, void *, int, int);
 s32 get_window_layout_position(int);
 extern u8 lbl_80470AA8[];
-s32 fn_802B1B80(u8 *arg0, s32 arg1, s32 arg2);
+s32 open_player_message_window(u8 *arg0, s32 arg1, s32 arg2);
 }
 
 extern "C" {
@@ -78,7 +78,7 @@ s32 open_trade_confirm_prompt(u8 *arg0, s32 arg1) {
     notify_warp_flag70__19TWindowSubShortMailFPv((int) (temp_r29));
     return temp_r29;
 }
-s32 fn_802B1B80(u8 *arg0, s32 arg1, s32 arg2) {
+s32 open_player_message_window(u8 *arg0, s32 arg1, s32 arg2) {
     s32 r;
     VObj_802B1B80 *p;
     p = (VObj_802B1B80 *)get_player_by_client_id(arg1);

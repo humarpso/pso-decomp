@@ -64,7 +64,7 @@ void initialize_option_dialog(void *, s32, s32, f32);
 u8 * create__19TWindowMessageYesNoFPvPvPvPv(void *, void *, void *, void *);
 s32 get_window_layout_position(s32);
 extern f32 TWindowSubTradeMain__data_805DF858;
-u8 *TWindowSubTradeMain__sub_803312BC(u8 *arg0, s32 arg1);
+u8 *open_option_dialog__19TWindowSubTradeMainFPvi(u8 *arg0, s32 arg1);
 M2C_UNK TWindowSubTradeMain__sub_802448E4(void *, void *);
 void TWindowSubTradeMain__sub_80330B84(M2C_UNK arg0, u8 *arg1, u8 *arg2);
 void set_flag_40__16TAdChrSelASlotGCFPv(void *);
@@ -390,13 +390,13 @@ u8 *TWindowSubTradeMain__sub_80331238(u8 *arg0) {
     return w;
 }
 
-u8 *TWindowSubTradeMain__sub_803312BC(u8 *arg0, s32 arg1) {
+u8 *open_option_dialog__19TWindowSubTradeMainFPvi(u8 *arg0, s32 arg1) {
     u8 *temp_r31;
     temp_r31 = (u8 *)(create__19TWindowMessageYesNoFPvPvPvPv(arg0, M2C_FIELD(arg0, u8 **, 0x28), NULL, NULL));
     initialize_option_dialog(temp_r31, arg1, get_window_layout_position((s32)((int) (0x5F))), TWindowSubTradeMain__data_805DF858);
     return temp_r31;
 }
 
-u8 * TWindowSubTradeMain__sub_8033131C(void* p, void* _w1) { return TWindowSubTradeMain__sub_803312BC((u8 *)((void*)(p)), (s32)((void*)(_w1))); }
+u8 * TWindowSubTradeMain__sub_8033131C(void* p, void* _w1) { return open_option_dialog__19TWindowSubTradeMainFPvi((u8 *)((void*)(p)), (s32)((void*)(_w1))); }
 
 }

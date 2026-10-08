@@ -24,7 +24,7 @@ M2C_UNK begin_render__20TWindowSubStatusDispFv();
 M2C_UNK decode_font_data__9TLanguageFPvPvii(void *, void *, int, int);
 M2C_UNK draw_string__9TLanguageFPvPvi(void *, void *, int);
 struct Outer_80132A5C *load_gvm_texture_file(void *);
-M2C_UNK TLanguage__sub_803DAF70(int, int);
+M2C_UNK set_entry_index__9TLanguageFii(int, int);
 extern M2C_UNK lbl_8043EAE8[];
 extern M2C_UNK lbl_8043EAF4[];
 extern M2C_UNK lbl_8043EB08[];
@@ -119,11 +119,11 @@ void TLanguage__ct(s32 arg0) {
         break;
     }
     begin_render__20TWindowSubStatusDispFv();
-    TLanguage__sub_803DAF70((int) (0), (int) (0x48));
-    TLanguage__sub_803DAF70((int) (2), (int) (0x4B));
-    TLanguage__sub_803DAF70((int) (1), (int) (0x49));
-    TLanguage__sub_803DAF70((int) (3), (int) (2));
-    TLanguage__sub_803DAF70((int) (4), (int) (3));
+    set_entry_index__9TLanguageFii((int) (0), (int) (0x48));
+    set_entry_index__9TLanguageFii((int) (2), (int) (0x4B));
+    set_entry_index__9TLanguageFii((int) (1), (int) (0x49));
+    set_entry_index__9TLanguageFii((int) (3), (int) (2));
+    set_entry_index__9TLanguageFii((int) (4), (int) (3));
 }
 
 void select_language_text_resources(s32 arg0) {

@@ -78,7 +78,7 @@ s32 TWindowCtrl__sub_8024A314(void);
 extern void *TWindowCtrl__data_805D63F8;
 void TLobby__sub_8024AAA0(s32 arg0, s32 arg1);
 M2C_UNK TWindow__close(void *);
-void TWindowCtrl__sub_8024A4EC(void);
+void close_timer_window__11TWindowCtrlFv(void);
 s32 set_time__12TWindowTimerFPvUi(int, void *);
 extern void *TWindowCtrl__data_805D63F8;
 void set_timer_window_time__11TWindowCtrlFi(s32 arg0);
@@ -282,7 +282,7 @@ void set_timer_window_time__11TWindowCtrlFi(s32 arg0) {
     }
 }
 
-void TWindowCtrl__sub_8024A4EC(void) {
+void close_timer_window__11TWindowCtrlFv(void) {
     if (((void *) TWindowCtrl__data_805D63F8 != NULL) && ((u32) M2C_FIELD(TWindowCtrl__data_805D63F8, u32 *, 0x30) != 0U)) {
         TWindow__close(M2C_FIELD(TWindowCtrl__data_805D63F8, void **, 0x30));
         M2C_FIELD(TWindowCtrl__data_805D63F8, u32 *, 0x30) = 0U;

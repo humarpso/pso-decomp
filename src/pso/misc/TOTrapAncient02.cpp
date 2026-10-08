@@ -463,7 +463,7 @@ void draw_effect_chain__15TOTrapAncient02FPv(u8 *arg0);
 void draw_model__15TOTrapAncient02FPv(void *arg0);
 void * create__15TOTrapAncient02FPv(void *arg0);
 void destroy_instance__15TOTrapAncient02Fv(void);
-void TOTrapAncient02__sub_8017B4EC(void);
+void load_resources__15TOTrapAncient02Fv(void);
 void * __dt__15TOTrapAncient02Fv(void *arg0, s16 arg1);
 void * TOTrapAncient02__ct(void *arg0, void *arg1, void *arg2);
 void TOTrapAncient02R__vt78(void *arg0);
@@ -1033,7 +1033,7 @@ void destroy_instance__15TOTrapAncient02Fv(void) {
     }
 }
 
-void TOTrapAncient02__sub_8017B4EC(void) {
+void load_resources__15TOTrapAncient02Fv(void) {
     char *base = lbl_804B4AD8;
     void *obj;
     switch (((s32 (*)()) get_global_state__14TOKeyMachine01Fv)()) {

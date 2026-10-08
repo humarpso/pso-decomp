@@ -130,7 +130,7 @@ extern u32 TObjNpcARW00__data_805D5730;
 extern u32 TObjNpcARW00__data_805D5734;
 extern char lbl_8043F4A8[];
 extern char lbl_8043F4BC[];
-void TObjNpcARW00__sub_80147FA4(void);
+void load_resources__12TObjNpcARW00Fv(void);
 void set_global_count__12TObjNpcEnemyFi(s32);
 void debug_printf_at(s32, const char *, ...);
 extern char lbl_8043F4DC[];
@@ -170,7 +170,7 @@ void free_resources__12TObjNpcARW00Fv(void) {
 
 extern M2C_UNK __vt__12TObjNpcARW00[];
 
-void TObjNpcARW00__sub_80147FA4(void) {
+void load_resources__12TObjNpcARW00Fv(void) {
     TObjNpcARW00__data_805D5730 = (u32)create_named_object(lbl_8043F4A8);
     TObjNpcARW00__data_805D5734 = (u32)load_gvm_texture_file(lbl_8043F4BC);
 }

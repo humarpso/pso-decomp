@@ -1216,7 +1216,7 @@ void exec__16TObjEneMe3StelthFPvi(u8 *arg0, s32 arg1);
 M2C_UNK set_field_378__9TObjEneDDFPvi(void *, M2C_UNK);
 M2C_UNK transition_enemy_state(void *, M2C_UNK);
 s32 get_flag_b4__21TObjEneMe3ShinowaRealFPv(void *);
-s32 TObjEneMe3SinowZoa__sub_800D7310(void *, f32);
+s32 advance_timer__18TObjEneMe3SinowZoaFPvf(void *, f32);
 M2C_UNK advance_animation_playback();
 M2C_UNK play_sound_effect(M2C_UNK, void *, M2C_UNK, M2C_UNK, s32);
 s32 objInBand__FP7GameObjf(void *, f32);
@@ -1295,7 +1295,7 @@ void exec__16TObjEneMe3StelthFPvi(u8 *arg0, s32 arg1) {
                 }
                 break;
             case 1:
-                if (TObjEneMe3SinowZoa__sub_800D7310(arg0 + 0x404, lbl_805DA830) != 0) {
+                if (advance_timer__18TObjEneMe3SinowZoaFPvf(arg0 + 0x404, lbl_805DA830) != 0) {
                     M2C_FIELD(arg0, s32 *, 0x3CC) = (s32) (M2C_FIELD(arg0, s32 *, 0x3CC) & 0xFFFFFFF7);
                     M2C_FIELD(arg0, s32 *, 0x3C0) = 0;
                     M2C_FIELD(arg0, s32 *, 0x424) = 2;

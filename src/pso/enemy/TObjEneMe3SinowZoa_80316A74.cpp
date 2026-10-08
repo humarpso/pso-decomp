@@ -352,7 +352,7 @@ s32 TObjEneMe3SinowZoa__sub_8031A4D0(void *);
 f32 get_node_height__18TObjEneMe3SinowZoaFPv(void *);
 M2C_UNK end_effect_render__13TParticleCtrlFv();
 M2C_UNK queue_debug_text__13TObjEneMe1GeeFiPv(s32, const char *);
-M2C_UNK fn_803D81D0(s32, s32, f32);
+M2C_UNK print_float_padded(s32, s32, f32);
 void debug_printf_at(s32 id, const char *fmt, ...);
 M2C_UNK scale_matrix(int, f32, f32, f32);
 M2C_UNK rotate_matrix_y(int, int);
@@ -396,7 +396,7 @@ void VecCopy__FP3VecPC3Vec(void *, void *);
 void subtract_vector(void *, void *);
 s32 update_angle__10TObjPlayerFPviPv(void *, s32, void *);
 void set_field_10__18TObjEneMe3SinowZoaFPvf(void *, f32);
-s32 TObjEneMe3SinowZoa__sub_800D7310(void *, f32);
+s32 advance_timer__18TObjEneMe3SinowZoaFPvf(void *, f32);
 s32 objInBand__FP7GameObjf(void *, f32);
 s32 push_matrix_from(void *);
 M2C_UNK post_translate_matrix(void *);
@@ -551,7 +551,7 @@ void TObjEneMe3SinowZoa__sub_80316C3C(Obj_80316C3C *arg0, s32 arg1) {
             break;
         case 1:
             advance_animation_playback(arg0);
-            if (TObjEneMe3SinowZoa__sub_800D7310(&arg0->sub, TObjEneMe3SinowZoa__data_805DF310) != 0) {
+            if (advance_timer__18TObjEneMe3SinowZoaFPvf(&arg0->sub, TObjEneMe3SinowZoa__data_805DF310) != 0) {
                 arg0->state = 2;
             }
         case 2:
@@ -755,7 +755,7 @@ void render_with_stealth_debug__18TObjEneMe3SinowZoaFPv(Obj_803173D0 *arg0) {
             arg0->fF8 = motion;
             arg0->fc0 = frame;
             frame = get_node_height__18TObjEneMe3SinowZoaFPv(arg0);
-            fn_803D81D0(TObjEneDD__sub_800BB878(0, 7), 5, frame);
+            print_float_padded(TObjEneDD__sub_800BB878(0, 7), 5, frame);
         } else {
             some_id_805c6f74 &= ~0x400;
         }

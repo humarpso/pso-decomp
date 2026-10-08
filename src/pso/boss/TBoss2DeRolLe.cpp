@@ -765,7 +765,7 @@ void set_position_index__13TBoss2DeRolLeFPvi(void *, s32);
 void set_state_and_send__13TBoss2DeRolLeFPvi(Obj_80034034 *self, s32 mode);
 void swap_endian__13TBoss2DeRolLeFPv(void *);
 void swap_6x13_fields__13TBoss2DeRolLeFPv(void *);
-M2C_UNK TBoss2Mine__sub_80037AEC(s32, void *, s32, s32);
+M2C_UNK init_launch__10TBoss2MineFPvPvii(s32, void *, s32, s32);
 M2C_UNK TBoss2Mine__sub_800380B8(s32, void *, void *);
 M2C_UNK create_particle__17TObjBoss2CeilJunkFv(s32, M2C_UNK);
 M2C_UNK TObjBoss2Tunnel__sub_8003B1D8(void *);
@@ -1411,7 +1411,7 @@ void TBoss2DeRolLe__sub_80030720(Obj_80030720 *self, u32 arg1, s32 arg2) {
                 }
             } else if (enemy_has_live_target(self) != 0) {
                 for (j = 0; j < 3; j++) {
-                    TBoss2Mine__sub_80037AEC(self->f644[j], pos, self->f390, j);
+                    init_launch__10TBoss2MineFPvPvii(self->f644[j], pos, self->f390, j);
                 }
             }
             ((int (*)(int, void *))play_sound)(0x4003A303, self->f524);

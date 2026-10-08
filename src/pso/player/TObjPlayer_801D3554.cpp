@@ -27,7 +27,7 @@ u8 *fn_801D36B4(u8 *arg0, u8 *arg1);
 
 extern "C" {
 
-void TItemList__sub_801D35FC(void *arg0, void *arg1, void *arg2, Rec_801D35FC *arg3, s32 arg4);
+void create_drop_nodes__9TItemListFPvPvPvPvi(void *arg0, void *arg1, void *arg2, Rec_801D35FC *arg3, s32 arg4);
 void fn_801D371C(void* p, void* q);
 void insert_item_node__10TObjPlayerFiiiii(s32 arg0, s32 arg1, s32 arg2, s32 arg3, s32 arg4);
 int TItemList__sub_801D3B00(void*, void*, void*, void*);
@@ -57,7 +57,7 @@ void insert_item_node__10TObjPlayerFiiiii(s32 arg0, s32 arg1, s32 arg2, s32 arg3
     }
 }
 
-void TItemList__sub_801D35FC(void *arg0, void *arg1, void *arg2, Rec_801D35FC *arg3, s32 arg4) {
+void create_drop_nodes__9TItemListFPvPvPvPvi(void *arg0, void *arg1, void *arg2, Rec_801D35FC *arg3, s32 arg4) {
     s32 i;
     u8 *p;
     Rec_801D35FC *q;

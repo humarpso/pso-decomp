@@ -21,7 +21,7 @@ void reset_transform_state__10TObjPlayerFv(void);
 void restore_full_screen_view__11TCameraCtrlFv(void);
 void TCameraCtrl__sub_80068EF0(void);
 void fn_8007F27C(TDLGraph_8007F66C *self, void *a, void *b);
-void fn_8007F0E4(TDLGraph_8007F66C *self, f32 x, f32 y);
+void draw_countdown_timer(TDLGraph_8007F66C *self, f32 x, f32 y);
 void draw_percent_text(void *arg0, f32 farg0, f32 farg1);
 M2C_UNK fn_8007F5A4(TDLGraph_8007F66C *self);
 extern u8 lbl_80438AA4[];
@@ -52,7 +52,7 @@ void render__8TDLGraphFv(TDLGraph_8007F66C *self) {
     reset_transform_state__10TObjPlayerFv();
     restore_full_screen_view__11TCameraCtrlFv();
     fn_8007F27C(self, lbl_80438AA4, lbl_80438AAC);
-    fn_8007F0E4(self, lbl_805D92CC, lbl_805D92D0);
+    draw_countdown_timer(self, lbl_805D92CC, lbl_805D92D0);
     draw_percent_text(self, lbl_805D92D4, lbl_805D92D0);
     TCameraCtrl__sub_80068EF0();
     fn_8007F5A4((TDLGraph_8007F66C *)(self));

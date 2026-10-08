@@ -108,7 +108,7 @@ void copy_vec2__28TWindowSubSymbolChatPartsSetFPvPv(void *, void *);
 f32 TChCrTagName__sub_802A265C(Tag_802A265C *arg0);
 f32 sin_table_lookup(s32);
 extern vec2f lbl_80466430[];
-int TChCrTagName__sub_802A208C(void *p);
+int draw_tag_sprites__12TChCrTagNameFPv(void *p);
 }
 
 extern "C" {
@@ -135,7 +135,7 @@ void draw_ui_sprite_shaded(s32 sprite_id, const vec2f *position, const vec2f *sc
 #pragma fp_contract on
 void draw_ui_sprite_shaded(s32 sprite_id, const vec2f *position, const vec2f *scale,
                            f32 depth, f32 alpha, f32 brightness);
-int TChCrTagName__sub_802A208C(void *p) {
+int draw_tag_sprites__12TChCrTagNameFPv(void *p) {
     s32 id;
     TChCrTagName_802A208C *self = (TChCrTagName_802A208C *)p;
     f32 s;
@@ -261,7 +261,7 @@ __declspec(section ".rodata") vec2f lbl_80466420[1] = {{1.0f, 1.75f}};
 __declspec(section ".rodata") vec2f lbl_80466428[1] = {{1.0f, 3.75f}};
 __declspec(section ".rodata") vec2f lbl_80466430[1] = {{1.0f, 1.0f}};
 
-void render__12TChCrTagNameFv(void* p) { TChCrTagName__sub_802A2500((TChCrTagName_802A2500 *)(p)); TChCrTagName__sub_802A226C((TChCrTagName_802A226C *)((TChCrTagName_802A226C *)(p))); TChCrTagName__sub_802A208C((void *)(p)); }
+void render__12TChCrTagNameFv(void* p) { TChCrTagName__sub_802A2500((TChCrTagName_802A2500 *)(p)); TChCrTagName__sub_802A226C((TChCrTagName_802A226C *)((TChCrTagName_802A226C *)(p))); draw_tag_sprites__12TChCrTagNameFPv((void *)(p)); }
 
 #pragma fp_contract on
 

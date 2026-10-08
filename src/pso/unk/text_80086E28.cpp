@@ -9,7 +9,7 @@ void *__nw__7TObjectFUl(int);
 extern s32 lbl_805D2948;
 extern Rec_80086E28 *lbl_805D4EF8;
 extern Rec_80086E28 *lbl_805D4EFC;
-void *TAdLoadQuestPrtTxtGC__sub_80086E28(void *arg0, s32 arg1, s32 arg2);
+void *create_particle__20TAdLoadQuestPrtTxtGCFPvii(void *arg0, s32 arg1, s32 arg2);
 void *__ct__13TParticleCtrlFv(void *, void *, void *, void *, s32, s32, s32, s32, u16);
 void *__nw__7TObjectFUl(int);
 extern s32 lbl_805D2948;
@@ -20,7 +20,7 @@ void *create_particle_controller_with_angles(void *arg0, void *arg1, s32 arg2, s
 
 extern "C" {
 
-void *TAdLoadQuestPrtTxtGC__sub_80086E28(void *arg0, s32 arg1, s32 arg2) {
+void *create_particle__20TAdLoadQuestPrtTxtGCFPvii(void *arg0, s32 arg1, s32 arg2) {
     void *o;
     if (lbl_805D2948 > arg1) {
         o = __nw__7TObjectFUl(0x78);

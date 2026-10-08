@@ -22,7 +22,7 @@ M2C_UNK set_item_count__6TLobbyFPvs(s32, s32);
 M2C_UNK TLobby__sub_80103B04();
 M2C_UNK set_indexed_flags(void *, int, int);
 M2C_UNK unregister_object_by_id(void *);
-void TItem__sub_80101514(s32 arg0);
+void unregister_from_world__5TItemFi(s32 arg0);
 void copy_to_item_data__5TItemFPvPv(void *, void *);
 u32 test_item_flags__10TObjPlayerFPvUi(void *, int);
 s32 has_flag_128__10TObjPlayerFPv(void *);
@@ -96,7 +96,7 @@ u32 get_usable_action_flags__5TItemFPvUiUi(Player_8010147C *p, u32 mask, u32 kin
     return r & mask;
 }
 
-void TItem__sub_80101514(s32 arg0) {
+void unregister_from_world__5TItemFi(s32 arg0) {
   if (obj_getField1c((void *)((void *) arg0)) != ((-1U) & 0xFFFF))
   {
     if ((!arg0) && (!arg0))
@@ -128,7 +128,7 @@ void set_mode__5TItemFPvc(void *arg0, s8 arg1) {
         M2C_FIELD(arg0, s32 *, 0xF0) = 0;
         claim_ownership__5TItemFii((s32)(arg0), (s32)(0));
     } else {
-        TItem__sub_80101514((s32)(arg0));
+        unregister_from_world__5TItemFi((s32)(arg0));
     }
     M2C_FIELD(arg0, s8 *, 0xEB) = arg1;
 }

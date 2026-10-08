@@ -312,12 +312,12 @@ void handle_split_flag__14TObjEnePanarmsFPv(void *arg0);
 void init_split__14TObjEnePanarmsFPv(void *arg0);
 void TObjEnePanarms__sub_800E152C(u8 *arg0);
 void reset_state__14TObjEnePanarmsFPv(void* a0);
-void TObjEnePanarms__sub_800E15B4(u8 *arg0);
+void spawn_periodic_particle__14TObjEnePanarmsFPv(u8 *arg0);
 void attack_target_player__14TObjEnePanarmsFPvi(u8 *arg0, s32 arg1);
 s32 try_move_with_detour__14TObjEnePanarmsFPvPv(u8 *arg0, Vec_800E18B0 *arg1);
 void TObjEnePanarms__sub_800E1A44(u8 *arg0);
 void TObjEnePanarms__sub_800E1B50(u8 *arg0);
-void TObjEnePanarms__sub_800E1B78(u8 *arg0, u8 *arg1, s32 *arg2);
+void calc_part_position__14TObjEnePanarmsFPvPvPv(u8 *arg0, u8 *arg1, s32 *arg2);
 void TObjEnePanarms__sub_800E1C8C(void *arg0, s32 arg1, s32 arg2);
 M2C_UNK TObjEnePanarms__sub_800E1C98(void *, M2C_UNK);
 void TObjEnePanarms__sub_800E1D38(void *arg0);
@@ -614,7 +614,7 @@ void TObjEnePanarms__sub_800E0048(u8 *arg0) {
         TObjEnePanarms__sub_800E1C98(arg0, 0xE);
         return;
     }
-    ((M2C_UNK (*)(void *))TObjEnePanarms__sub_800E15B4)(arg0);
+    ((M2C_UNK (*)(void *))spawn_periodic_particle__14TObjEnePanarmsFPv)(arg0);
 }
 
 void TObjEnePanarms__sub_800E01AC(u8 *arg0) {
@@ -654,7 +654,7 @@ void TObjEnePanarms__sub_800E0214(u8 *arg0) {
     if (!(M2C_FIELD(arg0, s32 *, 0x3B4) & 0x3F)) {
         play_sound_effect(copy_target_state__14TObjEnePanarmsFPvPv(arg0, 0x4003BC2D), arg0 + 0x38, 0, 0);
     }
-    TObjEnePanarms__sub_800E15B4(arg0);
+    spawn_periodic_particle__14TObjEnePanarmsFPv(arg0);
 }
 extern int fold_flush_1;
 #pragma pop
@@ -741,7 +741,7 @@ void TObjEnePanarms__sub_800E055C(u8 *arg0) {
         TObjEnePanarms__sub_800E1C98(arg0, 0x10);
         return;
     }
-    TObjEnePanarms__sub_800E15B4(arg0);
+    spawn_periodic_particle__14TObjEnePanarmsFPv(arg0);
 }
 
 void init_action__14TObjEnePanarmsFPv(void* a0) {
@@ -806,7 +806,7 @@ void update_chase_target__14TObjEnePanarmsFPv(u8 *arg0) {
         TObjEnePanarms__sub_800E1C98(arg0, 0x10);
         return;
     }
-    ((M2C_UNK (*)(void *))TObjEnePanarms__sub_800E15B4)(arg0);
+    ((M2C_UNK (*)(void *))spawn_periodic_particle__14TObjEnePanarmsFPv)(arg0);
 }
 
 void TObjEnePanarms__sub_800E08D8(u8 *arg0) {
@@ -1187,7 +1187,7 @@ void reset_state__14TObjEnePanarmsFPv(void* a0) { *(int*)((char*)*(int*)((char*)
 #pragma inline_depth(1)
 #pragma auto_inline off
 #pragma dont_inline off
-void TObjEnePanarms__sub_800E15B4(u8 *arg0) {
+void spawn_periodic_particle__14TObjEnePanarmsFPv(u8 *arg0) {
     Vec position;
     if (!(M2C_FIELD(arg0, s32 *, 0x45C) & 7)) {
         VecCopy__FP3VecPC3Vec((void *) (&position.x), (void *) (arg0 + 0x3A4));
@@ -1320,7 +1320,7 @@ extern int fold_flush_7;
 #pragma auto_inline off
 #pragma dont_inline off
 void TObjEnePanarms__sub_800E1B50(u8 *arg0) {
-    TObjEnePanarms__sub_800E1B78(arg0, arg0 + 0x38, (s32 *)(arg0 + 0x60));
+    calc_part_position__14TObjEnePanarmsFPvPvPv(arg0, arg0 + 0x38, (s32 *)(arg0 + 0x60));
 }
 extern int fold_flush_8;
 #pragma pop
@@ -1330,7 +1330,7 @@ extern int fold_flush_8;
 #pragma auto_inline off
 #pragma dont_inline off
 #pragma fp_contract on
-void TObjEnePanarms__sub_800E1B78(u8 *arg0, u8 *arg1, s32 *arg2) {
+void calc_part_position__14TObjEnePanarmsFPvPvPv(u8 *arg0, u8 *arg1, s32 *arg2) {
     f32 x;
     f32 z;
     f32 s;
@@ -1561,7 +1561,7 @@ void run_state_machine__14TObjEnePanarmsFPv(Panarms_800E2200 *self) {
             break;
         case 1:
             s = self->fC0 / lbl_805DA598;
-            ((void (*)(void *, void *, s32, f32))TObjEnePanarms__sub_800E1B78)(self, &a, 0, self->fC0);
+            ((void (*)(void *, void *, s32, f32))calc_part_position__14TObjEnePanarmsFPvPvPv)(self, &a, 0, self->fC0);
             ((void (*)(void *, void *))subtract_vector)(&a, &self->pos);
             a.x *= s;
             a.z *= s;

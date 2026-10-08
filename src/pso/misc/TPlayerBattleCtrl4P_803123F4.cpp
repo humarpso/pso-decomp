@@ -32,7 +32,7 @@ int init_battle__19TPlayerBattleCtrl4PFPv(void*);
 void send_and_handle__6TLobbyFPvii(void *, void *, int);
 void set_score__19TPlayerBattleCtrl4PFPvi(void *, int);
 void *__dt__19TPlayerBattleCtrl4PFPvs(void *arg0, s16 arg1);
-M2C_UNK TPlayerBattleCtrl4P__sub_803101D4(void *);
+M2C_UNK close_player_windows__19TPlayerBattleCtrl4PFPv(void *);
 M2C_UNK TWindow__close(void *);
 M2C_UNK __dl__7TObjectFPv(void *);
 M2C_UNK __dt__7TObjectFv(void *, M2C_UNK);
@@ -185,7 +185,7 @@ void *__dt__19TPlayerBattleCtrl4PFPvs(void *arg0, s16 arg1) {
             TWindow__close(M2C_FIELD(arg0, void **, 0x24));
             M2C_FIELD(arg0, u32 *, 0x24) = 0U;
         }
-        TPlayerBattleCtrl4P__sub_803101D4(arg0);
+        close_player_windows__19TPlayerBattleCtrl4PFPv(arg0);
         TPlayerBattleCtrl4P__data_805D6AA8 = 0;
         __dt__7TObjectFv(arg0, 0);
         if (arg1 > 0) {

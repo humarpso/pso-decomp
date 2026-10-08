@@ -14,7 +14,7 @@ void *TQuestVmDownLoadServer__sub_8006EF6C(s32);
 s32 send_and_handle__6TLobbyFPvii(void *, void *, s32);
 extern char lbl_8048D1D0[];
 extern const f32 lbl_805D9168;
-void TObjSoloPlayWin__sub_8007483C(Obj_8007483C *self);
+void open_result_window__15TObjSoloPlayWinFPv(Obj_8007483C *self);
 }
 
 extern "C" {
@@ -41,7 +41,7 @@ s32 can_start_win_timer__15TObjSoloPlayWinFi(s32 arg0) {
     return 0;
 }
 
-void TObjSoloPlayWin__sub_8007483C(Obj_8007483C *self) {
+void open_result_window__15TObjSoloPlayWinFPv(Obj_8007483C *self) {
     self->win = set_window_mode_4__6TLobbyFPvii(get_window_layout_position(0x3E), lbl_8048D1D0, 1);
     if (self->win != 0) {
         set_field_1c__6TLobbyFPvf(self->win, lbl_805D9168);

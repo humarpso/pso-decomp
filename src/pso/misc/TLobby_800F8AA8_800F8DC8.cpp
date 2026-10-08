@@ -21,7 +21,7 @@ void draw_textured_quad_at_depth(void *, f32);
 void set_draw_texture_and_color(void *, int);
 extern u8 lbl_8049C61C[];
 extern const f32 lbl_805DA930;
-void TLobby__sub_800F8DE4(void *arg0);
+void draw_fullscreen_texture_quad__6TLobbyFPv(void *arg0);
 }
 
 extern "C" {
@@ -40,7 +40,7 @@ void TLobby__sub_800F8DD8(void) { lbl_805D534C = 1; }
 
     extern unsigned char lbl_805D5358;
 
-void TLobby__sub_800F8DE4(void *arg0) {
+void draw_fullscreen_texture_quad__6TLobbyFPv(void *arg0) {
     f32 v[8];
     v[0] = 128.0f;
     v[1] = 48.0f;

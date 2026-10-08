@@ -49,7 +49,7 @@ f32 TWindowSubStatusDisp__sub_802877A4(f32 farg0);
 void set_entry_state__20TWindowSubStatusDispFPvc(void *arg0, s8 arg1);
 u32 calc_text_width(void *);
 f32 get_card_window_scale__20TWindowSubStatusDispFi(void *);
-u8 *TWindowSubStatusDisp__sub_80287A00(u8 *arg0, u8 *arg1, s32 arg2, s8 arg3, s32 arg4);
+u8 *init_heading_entry__20TWindowSubStatusDispFPvPvici(u8 *arg0, u8 *arg1, s32 arg2, s8 arg3, s32 arg4);
 u8 TWindowSubStatusDisp__sub_80287AC4(u8 *arg0);
 void TWindowSubStatusDisp__sub_802877C8(void *arg0);
 void TWindowSubStatusDisp__sub_80287860(void *arg0, void *arg1);
@@ -211,7 +211,7 @@ s32 deleting_destructor__20TWindowSubStatusDispFis(s32 arg0, s16 arg1) {
     return arg0;
 }
 
-u8 *TWindowSubStatusDisp__sub_80287A00(u8 *arg0, u8 *arg1, s32 arg2, s8 arg3, s32 arg4) {
+u8 *init_heading_entry__20TWindowSubStatusDispFPvPvici(u8 *arg0, u8 *arg1, s32 arg2, s8 arg3, s32 arg4) {
     M2C_FIELD(arg0, f32 *, 4) = (f32) M2C_FIELD(arg1, f32 *, 0);
     M2C_FIELD(arg0, f32 *, 8) = (f32) M2C_FIELD(arg1, f32 *, 4);
     M2C_FIELD(arg0, f32 *, 0x10) = (f32) calc_text_width((void *) (arg2));

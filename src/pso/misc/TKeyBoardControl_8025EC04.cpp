@@ -61,7 +61,7 @@ u8 get_key_state_2__16TKeyBoardControlFPv(void *);
 s32 TKeyBoardControl__sub_801323C8(void *, int);
 s32 TKeyBoardControl__sub_801A58B0(void);
 extern M2C_UNK TKeyBoardControl__data_80506270[];
-s32 TKeyBoardControl__sub_8025EC54(void);
+s32 has_non_modifier_key__16TKeyBoardControlFv(void);
 extern u8 lbl_8049DD78[];
 extern u8 lbl_8049DDF8[];
 extern u16 lbl_8049DE78[];
@@ -126,7 +126,7 @@ bool TKeyBoardControl__sub_8025EC1C(M2C_UNK arg0, u8 arg1) {
     return arg1 <= 0x29U;
 }
 
-s32 TKeyBoardControl__sub_8025EC54(void) {
+s32 has_non_modifier_key__16TKeyBoardControlFv(void) {
     u32 i;
     u32 n;
     u8 c;

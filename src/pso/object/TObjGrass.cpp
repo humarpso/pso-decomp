@@ -374,7 +374,7 @@ s32 __dl__7TObjectFPv(void *);
 extern u8 __vt__9TObjGrass[];
 Obj_800BF880 *__dt__9TObjGrassFv(Obj_800BF880 *arg0, s16 arg1);
 M2C_UNK apply_actor_gravity(void *, M2C_UNK, f32);
-f32 TObjPlayer__sub_80017804(void *, Vec_800BE75C, f32);
+f32 step_toward_destination__10TObjPlayerFPvPvf(void *, Vec_800BE75C, f32);
 M2C_UNK obj_setFlags30(void *, u32);
 M2C_UNK copy_target_state__14TObjEnePanarmsFPvPv(void *, M2C_UNK);
 M2C_UNK advance_animation_playback(void *);
@@ -1542,7 +1542,7 @@ M2C_UNK TObjGrass__sub_800BE75C(Grass_800BE75C *o) {
     rotate_vector_by_matrix(0, &v, &v);
     pop_matrices(1);
     vec3_add_to(&v, o->mtx50);
-    d = TObjPlayer__sub_80017804(o, v, (2.0f) * o->range->hi);
+    d = step_toward_destination__10TObjPlayerFPvPvf(o, v, (2.0f) * o->range->hi);
     lo2 = o->range->lo * o->range->lo;
     hi2 = o->range->hi * o->range->hi;
     if (lo2 < d || d < hi2) {

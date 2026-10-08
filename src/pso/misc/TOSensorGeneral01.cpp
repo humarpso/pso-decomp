@@ -57,7 +57,7 @@ extern RecoveredGlobal_80176308_lbl_80442A80 lbl_80442A80;
 extern RecoveredGlobal_80176308_lbl_804B4278 lbl_804B4278;
 extern u32 lbl_805D5AA0;
 extern s32 *TOSensorGeneral01__data_805D5AA4;
-void TOSensorGeneral01__sub_80176308(void);
+void load_assets__17TOSensorGeneral01Fv(void);
 M2C_UNK begin_effect_render__13TParticleCtrlFv();
 M2C_UNK end_effect_render__13TParticleCtrlFv();
 M2C_UNK rotate_matrix_y(int, int);
@@ -198,7 +198,7 @@ extern M2C_UNK __vt__17TOSensorGeneral01[];
 
 typedef char RecoveredGlobal_80176308_lbl_80442A80_size[sizeof(RecoveredGlobal_80176308_lbl_80442A80) == 0x14 ? 1 : -1];
 typedef char RecoveredGlobal_80176308_lbl_804B4278_size[sizeof(RecoveredGlobal_80176308_lbl_804B4278) == 0x10 ? 1 : -1];
-void TOSensorGeneral01__sub_80176308(void) {
+void load_assets__17TOSensorGeneral01Fv(void) {
     s32 *temp_r3_2;
     u8 *temp_r3;
     u8 *var_r0;

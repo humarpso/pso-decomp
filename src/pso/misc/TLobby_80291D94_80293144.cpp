@@ -146,7 +146,7 @@ void TLobby__sub_80074E48(void);
 void create_tombstone__6TLobbyFPvPvPv(s32, s32, Tag_802932EC *);
 u32 get_player_by_client_id(u32);
 extern s32 tl_07;
-void TLobby__sub_802932EC();
+void spawn_player_tombstones2__6TLobbyFv();
 }
 
 extern "C" {
@@ -454,7 +454,7 @@ void TLobby__sub_802932B0(u8 *arg0, u8 *arg1) {
     *(M2CCopy_C *)((s32) arg0 + 4) = *(const M2CCopy_C *)((s32) arg1 + 4);
 }
 
-void TLobby__sub_802932EC() {
+void spawn_player_tombstones2__6TLobbyFv() {
     s32 i;
     Rec_802932EC *r;
     Tag_802932EC *t;
@@ -473,7 +473,7 @@ void TLobby__sub_802932EC() {
 }
 
 void create_time_window2__6TLobbyFv(void * _w0) {
-    TLobby__sub_802932EC();
+    spawn_player_tombstones2__6TLobbyFv();
     create_ch_time_win(tl_07);
     create_new_floor_windows__6TLobbyFi(tl_07);
     if ((s32) M2C_FIELD(lbl_804DB1F0, s32 *, 0x30) == 0) {

@@ -182,7 +182,7 @@ void create_quad_sprites__13TParticleCtrlFv();
 M2C_UNK backup_story_select__6TLobbyFv();
 M2C_UNK TLobby__sub_80207E48();
 M2C_UNK get_team_state__6TLobbyFPv();
-M2C_UNK TLobby__sub_8020901C();
+M2C_UNK load_set_event_gsl__6TLobbyFv();
 M2C_UNK load_set_gsl_files__6TLobbyFv();
 M2C_UNK TLobby__sub_8020DC78();
 void load_area_scene_and_init(void *);
@@ -427,7 +427,7 @@ void reload_offline_area__6TLobbyFv(void) {
     start_loading__9TLoadCtrlFUi(1);
     init_limits__6TLobbyFv();
     load_set_gsl_files__6TLobbyFv();
-    TLobby__sub_8020901C();
+    load_set_event_gsl__6TLobbyFv();
     load_battle_param_entry();
     TLobby__sub_80141038(&lbl_80515BA0, 0, 0);
     load_area_scene_and_init(&lbl_80515BA0);

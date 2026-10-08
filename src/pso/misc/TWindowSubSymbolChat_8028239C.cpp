@@ -100,7 +100,7 @@ M2C_UNK TWindowSubSymbolChat__sub_80281C60(void *);
 M2C_UNK TWindowSubSymbolChat__sub_80281CC4(void *);
 u32 create_keyboard_control__20TWindowSubSymbolChatFPv(void *);
 u32 create_confirm_window__20TWindowSubSymbolChatFPv(void *);
-u32 TWindowSubSymbolChat__sub_80281EA8();
+u32 open_confirm_prompt__20TWindowSubSymbolChatFPv();
 u32 create_menu__20TWindowSubSymbolChatFv(void *);
 u32 create_menu__20TWindowSubSymbolChatFPv(void *);
 u32 create_parts_set__20TWindowSubSymbolChatFPv(void *);
@@ -733,7 +733,7 @@ void run_task__20TWindowSubSymbolChatFv(u8 *arg0) {
         }
         break;
     case 36:
-        M2C_FIELD(arg0, u32 *, 0x40) = ((u32 (*)(void *))TWindowSubSymbolChat__sub_80281EA8)(arg0);
+        M2C_FIELD(arg0, u32 *, 0x40) = ((u32 (*)(void *))open_confirm_prompt__20TWindowSubSymbolChatFPv)(arg0);
         M2C_FIELD(arg0, u8 *, 0x1C) = 0x25U;
     case 37:
         if (get_card_data__17TWindowSubComCardFPv((int) (M2C_FIELD(arg0, u32 *, 0x40))) != 0) {

@@ -32,7 +32,7 @@ void load_obj_lobby_main(void);
 s32 run_load_callback_table(void *, int);
 extern RecoveredGlobal_8007BA98_lbl_8048D4C0 lbl_8048D4C0;
 extern RecoveredGlobal_8007BA98_lbl_8048D5A8 lbl_8048D5A8;
-s32 TLobby__sub_8007BA98(void);
+s32 run_lobby_load_tables__6TLobbyFv(void);
 void call_funcs_reverse__6TLobbyFPvUi(s32, u32);
 void fn_80198E84(void);
 s32 get_global_state__14TOKeyMachine01Fv();
@@ -169,7 +169,7 @@ void clear_session_buffers__6TLobbyFv(void) {
     call_funcs_reverse__6TLobbyFPvUi((s32) &(*(RecoveredGlobal_8007BA20_lbl_8048D4C0 *)&lbl_8048D4C0).value, 0xE8U);
 }
 
-s32 TLobby__sub_8007BA98(void) {
+s32 run_lobby_load_tables__6TLobbyFv(void) {
     s32 temp_r3;
     s32 temp_r3_2;
     temp_r3_2 = run_load_callback_table((void *) (&lbl_8048D4C0.value), (int) (0xE8));

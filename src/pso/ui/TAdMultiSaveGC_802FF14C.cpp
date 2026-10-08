@@ -45,7 +45,7 @@ s32 check_memcard_status__15TAdPlayerLoadGCFi(int);
 s32 verify_system_file__23TAdSinglePlyChrSelectGCFPv();
 s32 load_save_from_card__23TAdSinglePlyChrSelectGCFv();
 M2C_UNK TAdSinglePlyChrSelectGC__sub_801FDAAC();
-M2C_UNK TAdSinglePlyChrSelectGC__sub_8020051C();
+M2C_UNK write_encrypted_save__23TAdSinglePlyChrSelectGCFv();
 void *__nw__7TObjectFUl(u32);
 M2C_UNK TWindow__close(void *);
 s32 get_selected_menu_value(int);
@@ -172,7 +172,7 @@ void run_task__14TAdMultiSaveGCFv(u8 *arg0) {
         }
         break;
     case 4:
-        TAdSinglePlyChrSelectGC__sub_8020051C();
+        write_encrypted_save__23TAdSinglePlyChrSelectGCFv();
         M2C_FIELD(arg0, u32 *, 0x28) = ((s32 (*)(void *))TAdMultiSaveGC__sub_802FF1F4)((void *) (arg0));
         M2C_FIELD(arg0, u32 *, 0x1C) = 5U;
         return;

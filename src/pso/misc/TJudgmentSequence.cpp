@@ -98,7 +98,7 @@ s32 set_service_counter_camera(void *, int);
 s32 get_window_layout_position(int, f32);
 extern const f32 lbl_805DC680;
 extern const f32 lbl_805DC684;
-void TJudgmentSequence__sub_80215DA0(u8 *arg0);
+void setup_counter_camera__17TJudgmentSequenceFPv(u8 *arg0);
 M2C_UNK queue_destruction__7TObjectFv(void *);
 M2C_UNK close_message_window__13TShopSequenceFPv(void *);
 M2C_UNK __dt__13TShopSequenceFv(void *, int);
@@ -117,7 +117,7 @@ void TJudgmentSequence__sub_80215BA0(void *arg0);
 void TJudgmentSequence__sub_80215BF8(void *arg0);
 extern void *tl_05;
 void TJudgmentSequence__sub_80215CB8(Seq_80215CB8 *self);
-void TJudgmentSequence__sub_80215DA0(u8 *arg0);
+void setup_counter_camera__17TJudgmentSequenceFPv(u8 *arg0);
 void TJudgmentSequence__sub_80215CB8(Seq_80215CB8 *self);
 void handle_close_input__17TJudgmentSequenceFPv(void *arg0);
 void handle_confirm__17TJudgmentSequenceFPv(void *arg0);
@@ -185,7 +185,7 @@ typedef struct Stack_80215DA0 Stack_80215DA0;
 typedef struct VBase_18_4a2792 VBase_18_4a2792;
 typedef struct VObj_18_4a2792 VObj_18_4a2792;
 #define PSO_VCALL_VObj_18_4a2792_m6(_self, _arg0, _arg1) (((VObj_18_4a2792 *)(_self))->m6((_arg0), (_arg1)))
-void TJudgmentSequence__sub_80215DA0(u8 *arg0) {
+void setup_counter_camera__17TJudgmentSequenceFPv(u8 *arg0) {
   Stack_80215DA0 stack;
   f32 new_var;
   stack.sp8 = lbl_805DC680;
@@ -209,7 +209,7 @@ void TJudgmentSequence__vt9(void *arg0) {
         ((VtObj80215E74*)arg0)->m10();
         break;
     case 1:
-        TJudgmentSequence__sub_80215DA0((u8 *)arg0);
+        setup_counter_camera__17TJudgmentSequenceFPv((u8 *)arg0);
         break;
     case 2:
         handle_confirm__17TJudgmentSequenceFPv(arg0);

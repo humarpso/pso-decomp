@@ -797,7 +797,7 @@ void update_breakup__15TBoss3VoloptP01FPv(u8 *arg0);
 void update_state__15TBoss3VoloptP01FPv(u8 *arg0);
 void render__15TBoss3VoloptP01Fv(u8 *arg0);
 void TBoss3VoloptP01__sub_80043CA8(void * _w0);
-void TBoss3VoloptP01__sub_80043CAC(Obj_80043CAC *arg0);
+void dispatch_state__15TBoss3VoloptP01FPv(Obj_80043CAC *arg0);
 void run_task__15TBoss3VoloptP01Fv(u8 *arg0);
 void destroy__15TBoss3VoloptP01Fv(void);
 void init_breakup_effect__15TBoss3VoloptP01Fv(void);
@@ -1520,7 +1520,7 @@ void render__15TBoss3VoloptP01Fv(u8 *arg0) {
 
 void TBoss3VoloptP01__sub_80043CA8(void * _w0) {  }
 
-void TBoss3VoloptP01__sub_80043CAC(Obj_80043CAC *arg0) {
+void dispatch_state__15TBoss3VoloptP01FPv(Obj_80043CAC *arg0) {
     switch (arg0->state) {
     case 0: TBoss3VoloptP01__sub_80043758(arg0); return;
     case 2: TBoss3VoloptP01__sub_800430D0(arg0); return;
@@ -1552,12 +1552,12 @@ void run_task__15TBoss3VoloptP01Fv(u8 *arg0) {
         if ((s16) M2C_FIELD(arg0, s16 *, 0x326) != (s32) M2C_FIELD(arg0, s32 *, 0x374)) {
             if ((s32) M2C_FIELD(arg0, s32 *, 0x37C) != -1) {
                 M2C_FIELD(arg0, s32 *, 0x37C) = -1;
-                TBoss3VoloptP01__sub_80043CAC((Obj_80043CAC *)((void *) (arg0)));
+                dispatch_state__15TBoss3VoloptP01FPv((Obj_80043CAC *)((void *) (arg0)));
             }
             M2C_FIELD(arg0, s16 *, 0x326) = (s16) M2C_FIELD(arg0, s32 *, 0x374);
             M2C_FIELD(arg0, s32 *, 0x37C) = 0;
         }
-        TBoss3VoloptP01__sub_80043CAC((Obj_80043CAC *)((void *) (arg0)));
+        dispatch_state__15TBoss3VoloptP01FPv((Obj_80043CAC *)((void *) (arg0)));
         VecCopy__FP3VecPC3Vec((void *) (arg0 + 0x2FC), (void *) (arg0 + 0x38));
         temp_f2 = M2C_FIELD(arg0, f32 *, 0x300);
         M2C_FIELD(arg0, f32 *, 0x300) = (f32) (temp_f2 + ((18.0f) + M2C_FIELD(arg0, f32 *, 0x38C)));

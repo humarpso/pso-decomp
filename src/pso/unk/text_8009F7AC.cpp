@@ -23,7 +23,7 @@ struct Trail_8009F7AC {
 extern "C" {
 void VecCopy__FP3VecPC3Vec(void *, void *);
 void init_xyz_limits__10TObjPlayerFv(void);
-void TObjPlayer__sub_803DF578(void *, s32, s32);
+void draw_trail_strip__10TObjPlayerFPvPvi(void *, s32, s32);
 extern Vec_8009F7AC lbl_804FF61C;
 extern const f32 lbl_805D9938;
 void TCameraCtrl__sub_8009F7AC(Trail_8009F7AC *o);
@@ -101,7 +101,7 @@ void TCameraCtrl__sub_8009F7AC(Trail_8009F7AC *o) {
         }
     }
     init_xyz_limits__10TObjPlayerFv();
-    TObjPlayer__sub_803DF578(o->verts, n * 2, 1);
+    draw_trail_strip__10TObjPlayerFPvPvi(o->verts, n * 2, 1);
 }
 #pragma pop
 

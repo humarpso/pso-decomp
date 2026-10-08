@@ -29,7 +29,7 @@ M2C_UNK VecCopy__FP3VecPC3Vec(void *, void *);
 u8 *csnVecterUnder(M2C_UNK *, M2C_UNK);
 extern const f32 TObjEneRe7BeruraPunch__data_805D97A0;
 extern const f32 lbl_805D97B8;
-void TObjEneRe7BeruraPunch__sub_80096300(u8 *arg0);
+void snap_to_ground__21TObjEneRe7BeruraPunchFPv(u8 *arg0);
 u16 obj_getField1c(void *);
 void init__21TObjEneRe7BeruraPunchFPv(u8 *arg0);
 s32 init_vtable_and_field18__10TObjPlayerFPv(void *);
@@ -91,7 +91,7 @@ extern const f32 lbl_805D9794;
 extern const f32 lbl_805D9798;
 
 typedef struct Stack_80096300 Stack_80096300;
-void TObjEneRe7BeruraPunch__sub_80096300(u8 *arg0) {
+void snap_to_ground__21TObjEneRe7BeruraPunchFPv(u8 *arg0) {
   Stack_80096300 stack;
   f32 new_var;
   u8 *temp_r3;

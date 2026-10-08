@@ -240,7 +240,7 @@ M2C_UNK queue_destruction__7TObjectFv(void *);
 M2C_UNK TLobby__sub_800F6510(void *, void *);
 s32 exchange_object_state__6TLobbyFPvis(void *, void *, int);
 s32 set_flag8__6TLobbyFPv(void *);
-void TOCtrlDubchik__sub_8015CB4C(u8 *arg0);
+void complete_and_destroy__13TOCtrlDubchikFPv(u8 *arg0);
 u8 * load_resource_from_descriptor(void *, s32, void *, s32, s32, s32);
 int alloc__23TAdSinglePlyChrSelectGCFPv(void *);
 extern RecoveredGlobal_8015D314_lbl_804B0A10 lbl_804B0A10;
@@ -303,7 +303,7 @@ s32 obj_testFlags30(void *, s32);
 s32 check_demo_mode__10TObjPlayerFv(void);
 s32 refresh_collision_body_centers(void *);
 void TOCtrlDubchik__sub_8015C9D0(u8 *);
-void TOCtrlDubchik__sub_8015CB4C(u8 *arg0);
+void complete_and_destroy__13TOCtrlDubchikFPv(u8 *arg0);
 void TOCtrlDubchik__sub_8015CBDC(u8 *arg0);
 void TOCtrlDubchik__sub_8015CC30(u8 *arg0);
 void update_spin__13TOCtrlDubchikFPv(u8 *arg0);
@@ -368,7 +368,7 @@ void TOCtrlDubchik__sub_8015CA74(void *arg0_) {
     }
 }
 
-void TOCtrlDubchik__sub_8015CB4C(u8 *arg0) {
+void complete_and_destroy__13TOCtrlDubchikFPv(u8 *arg0) {
     s32 sp8;
     if (exchange_object_state__6TLobbyFPvis((void *) (arg0), (void *) (&sp8), (int) (1)) != 0) {
         sp8 = 1;
@@ -509,7 +509,7 @@ void run_task__13TOCtrlDubchikFv(u8 *arg0) {
         TOCtrlDubchik__sub_8015CBDC(arg0);
         break;
     case 6:
-        TOCtrlDubchik__sub_8015CB4C(arg0);
+        complete_and_destroy__13TOCtrlDubchikFPv(arg0);
         break;
     }
     VecCopy__FP3VecPC3Vec(arg0 + 0x2FC, arg0 + 0x38);

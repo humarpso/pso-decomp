@@ -7,7 +7,7 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 struct Obj_800A6B14;
 extern "C" {
 void step_angle_clamped__10TObjPlayerFPvi(void*, s32);
-void TObjPlayer__sub_800A6B14(Obj_800A6B14*);
+void turn_toward_target__10TObjPlayerFPv(Obj_800A6B14*);
 void TObjPlayer__sub_800A62D4(u8*);
 }
 
@@ -518,12 +518,12 @@ extern const f64 lbl_8043A8D0[];
 extern s32 *lbl_805D5044;
 extern const f32 lbl_805D9A70;
 extern const f32 lbl_805D9A74;
-s32 TObjPlayer__sub_800A5BBC(u8 *arg0);
+s32 is_target_in_attack_arc__10TObjPlayerFPv(u8 *arg0);
 M2C_UNK apply_actor_gravity(void *, int, f32);
 M2C_UNK enemy_move_toward(void *, s32, Vec_800A5DC4 *, int, f32 *, f32);
 s32 select_enemy_destination(void *, Vec_800A5DC4 *, int);
 M2C_UNK copy_position_if_valid__10TObjPlayerFii(void *, Vec_800A5DC4 *);
-#define TObjPlayer__sub_800A6B14 ((s32 (*)(void*))(TObjPlayer__sub_800A6B14))
+#define turn_toward_target__10TObjPlayerFPv ((s32 (*)(void*))(turn_toward_target__10TObjPlayerFPv))
 M2C_UNK TObjPlayer__sub_800A7798(void *, f32);
 f32 horizontal_distance_squared(int, void *);
 
@@ -1079,7 +1079,7 @@ void TObjPlayer__sub_800A5A68(Obj_800A5A68 *self) {
     self->f30 |= 0x200000;
 }
 
-s32 TObjPlayer__sub_800A5BBC(u8 *arg0) {
+s32 is_target_in_attack_arc__10TObjPlayerFPv(u8 *arg0) {
     Vec_800A5BBC v;
     f32 var_f29;
     f32 r;
@@ -1167,7 +1167,7 @@ void update_move_toward_target__10TObjPlayerFPv(u8 *arg0) {
             break;
         }
         ((M2C_UNK (*)(void *)) advance_animation_playback)((void *) (arg0));
-        TObjPlayer__sub_800A6B14((void *) (arg0));
+        turn_toward_target__10TObjPlayerFPv((void *) (arg0));
         check_object_collisions__10TObjPlayerFPv((void *) (arg0));
         check_enemy_body_collisions((void *) (arg0));
         minimap_render_dot((void *) (arg0 + 0x38), (int) (-0x5DB4), (int) (1), (int) (0));
@@ -1233,7 +1233,7 @@ void advance_motion_state__10TObjPlayerFPv(u8 *arg0) {
 
 #undef advance_animation_playback
 #undef get_ad_end_text_start__10TObjPlayerFv
-#undef TObjPlayer__sub_800A6B14
+#undef turn_toward_target__10TObjPlayerFPv
 #undef step_angle_clamped__10TObjPlayerFPvi
 #undef copy_target_state__14TObjEnePanarmsFPvPv
 #undef get_player_by_client_id
@@ -1330,7 +1330,7 @@ f64 get_ad_end_text_start__10TObjPlayerFv(f32, f32);
 s32 angle_diff_s16(s32, s32);
 void step_angle_clamped__10TObjPlayerFPvi(void *arg0, s32 arg1);
 #define lbl_8043A8D0 (*(const f64 *)&lbl_8043A8D0)
-void TObjPlayer__sub_800A6B14(Obj_800A6B14 *self);
+void turn_toward_target__10TObjPlayerFPv(Obj_800A6B14 *self);
 M2C_UNK copy_position__20TBoss3VoloptHiraisinFi(void *);
 s32 check_demo_mode__10TObjPlayerFv();
 #define TObjPlayer__sub_800A42C0 ((s32 (*)(void*))(TObjPlayer__sub_800A42C0))
@@ -1722,7 +1722,7 @@ void find_nearest_target__10TObjPlayerFPv(Obj_800A677C *self) {
     }
 }
 
-void TObjPlayer__sub_800A6B14(Obj_800A6B14 *self) {
+void turn_toward_target__10TObjPlayerFPv(Obj_800A6B14 *self) {
     Vec_800A6B14 d;
     VecCopy__FP3VecPC3Vec(&d, &self->target->pos);
     subtract_vector(&d, &self->pos);

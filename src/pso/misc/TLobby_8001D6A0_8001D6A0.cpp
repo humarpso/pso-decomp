@@ -40,7 +40,7 @@ void TLobby__sub_8001D6E0(Pool_8001D6E0 *pool);
 s32 get_card_window_area__6TLobbyFv(void);
 s32 get_flag_bit0__6TLobbyFv(void);
 void send_disable_auto_reply__9TProtocolFv(s32);
-void TLobby__sub_801DA734(s32, s32);
+void send_text_packet_c7__6TLobbyFPvPv(s32, s32);
 extern s32 TLobby__data_805D4A98;
 extern s32 TLobby__data_805D5580;
 void TLobby__sub_8001DA00(void);
@@ -195,7 +195,7 @@ void TLobby__sub_8001D9E8(void* p) { *(s32*)((char*)p + 0x4) = 0; *(s32*)((char*
 void TLobby__sub_8001DA00(void) {
     if ((TLobby__data_805D4A98 & 4) || (TLobby__data_805D4A98 & 1) != ((TLobby__data_805D4A98 >> 1) & 1)) {
         if (get_flag_bit0__6TLobbyFv() != 0) {
-            TLobby__sub_801DA734(TLobby__data_805D5580, get_card_window_area__6TLobbyFv());
+            send_text_packet_c7__6TLobbyFPvPv(TLobby__data_805D5580, get_card_window_area__6TLobbyFv());
         } else {
             send_disable_auto_reply__9TProtocolFv(TLobby__data_805D5580);
         }

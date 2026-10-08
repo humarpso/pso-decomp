@@ -36,7 +36,7 @@ s32 TObjEneMe3Stelth__sub_800F4850(void *);
 f32 get_node_world_y__16TObjEneMe3StelthFPv(void *);
 M2C_UNK end_effect_render__13TParticleCtrlFv();
 M2C_UNK queue_debug_text__13TObjEneMe1GeeFiPv(s32, const char *);
-M2C_UNK fn_803D81D0(s32, s32, f32);
+M2C_UNK print_float_padded(s32, s32, f32);
 void debug_printf_at(s32 id, const char *fmt, ...);
 M2C_UNK scale_matrix(int, f32, f32, f32);
 M2C_UNK rotate_matrix_y(int, int);
@@ -143,7 +143,7 @@ void draw_with_debug_info__16TObjEneMe3StelthFPv(Obj_800F18C8 *arg0) {
             arg0->fF8 = motion;
             arg0->fc0 = frame;
             frame = get_node_world_y__16TObjEneMe3StelthFPv(arg0);
-            fn_803D81D0(TObjEneDD__sub_800BB878(0, 7), 5, frame);
+            print_float_padded(TObjEneDD__sub_800BB878(0, 7), 5, frame);
         } else {
             some_id_805c6f74 &= ~0x400;
         }

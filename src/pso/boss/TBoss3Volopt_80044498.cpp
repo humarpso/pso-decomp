@@ -704,7 +704,7 @@ s32 play_sound_effect(s32, u32, s16, s32);
 extern RecoveredGlobal_80045628_TBoss3Volopt__data_804845E8 TBoss3Volopt__data_804845E8;
 extern RecoveredGlobal_80045628_TBoss3Volopt__data_804FF038 TBoss3Volopt__data_804FF038;
 extern RecoveredGlobal_80045628_lbl_804FF14C lbl_804FF14C;
-void TBoss3Volopt__sub_80045628(u8 *arg0);
+void trigger_breakup__12TBoss3VoloptFPv(u8 *arg0);
 void set_flag8_list__12TBoss3VoloptFPv(void *);
 void render_anim_model_at_pos__12TBoss3VoloptFPv(void *);
 void create_breakup_mdl__12TBoss3VoloptFiiiii(s32, s32, s32, s32, s32);
@@ -841,7 +841,7 @@ M2C_UNK trigger_dell_biter_events__10TObjPlayerFPv(void *);
 M2C_UNK refresh_lobby_state__10TObjPlayerFPv(void *);
 void advance_animation_playback(void *);
 M2C_UNK TObjPlayer__sub_801BA42C();
-M2C_UNK TObjPlayer__sub_801BA494();
+M2C_UNK freeze_all_players__10TObjPlayerFv();
 M2C_UNK send_entity_set_flags__6TLobbyFPv(void *);
 s32 play_persistent_sound(s32, s32, u32, s16, s32);
 s32 play_sound_effect(s32, u32, s16, s32);
@@ -900,7 +900,7 @@ void update_and_send_60__12TBoss3VoloptFPv(void *);
 void TBoss3Volopt__sub_800481B4(void *);
 s32 rand(void);
 extern const f32 lbl_805D87BC;
-void TBoss3Volopt__sub_80044CE4(void);
+void send_random_params__12TBoss3VoloptFv(void);
 }
 
 extern "C" {
@@ -1000,7 +1000,7 @@ void TBoss3Volopt__sub_80044CB8(O_80044CB8 *self) {
 }
 
 #pragma fp_contract on
-void TBoss3Volopt__sub_80044CE4(void) {
+void send_random_params__12TBoss3VoloptFv(void) {
     Msg_80044CE4 msg;
     s32 i;
     f32 base;
@@ -1227,7 +1227,7 @@ s16 collect_targets_in_front__12TBoss3VoloptFPv(Volopt_8004550C *self) {
     return self->count;
 }
 
-void TBoss3Volopt__sub_80045628(u8 *arg0) {
+void trigger_breakup__12TBoss3VoloptFPv(u8 *arg0) {
     M2C_UNK sp8;
     s32 temp_r4;
     u8 *temp_r5;
@@ -1373,7 +1373,7 @@ void update_death_sequence__12TBoss3VoloptFPv(void *arg0_) {
         cache_target_and_forward__11TCameraCtrlFii(&cam, 0x160A);
         M2C_FIELD(arg0, s32 *, 0x60) = 0;
         set_scripted_camera_pose(lbl_804FEE68, lbl_804FEE68, arg0 + 0x5C);
-        TObjPlayer__sub_801BA494();
+        freeze_all_players__10TObjPlayerFv();
         init_all_slots__11TWindowCtrlFv();
         M2C_FIELD(arg0, s32 *, 0x37C) = 2;
         break;

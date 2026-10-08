@@ -36,7 +36,7 @@ extern const f32 lbl_805D8838;
 extern const f32 lbl_805D883C;
 extern const f32 lbl_805D8840;
 extern const f32 lbl_805D8844;
-void TBoss3Volopt__sub_80048674(u8 *arg0);
+void update_particle_emitter__12TBoss3VoloptFPv(u8 *arg0);
 }
 
 extern "C" {
@@ -79,7 +79,7 @@ extern M2C_UNK lbl_80484888[];
 
 #pragma push
 #pragma fp_contract on
-void TBoss3Volopt__sub_80048674(u8 *arg0) {
+void update_particle_emitter__12TBoss3VoloptFPv(u8 *arg0) {
     Raw_80048674 v;
     s32 ang;
     f32 d;

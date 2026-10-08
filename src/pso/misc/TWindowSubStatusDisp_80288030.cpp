@@ -21,7 +21,7 @@ u8 *get_sub_obj__17TWindowSubComCardFPv(s32);
 s32 strcmp(void *, int);
 extern u8 lbl_805DD898;
 void fill_card_text_entries__20TWindowSubStatusDispFPvi(u8 *arg0, s32 arg1);
-u8 *TWindowSubStatusDisp__sub_80287A00(u8 *arg0, u8 *arg1, s32 arg2, s8 arg3, s32 arg4);
+u8 *init_heading_entry__20TWindowSubStatusDispFPvPvici(u8 *arg0, u8 *arg1, s32 arg2, s8 arg3, s32 arg4);
 extern u8 lbl_8044FCF0[];
 u8 *construct_type1_heading__20TWindowSubStatusDispFPvii(u8 *arg0, s32 arg1, s32 arg2);
 }
@@ -49,7 +49,7 @@ s32 destroy_status_display__20TWindowSubStatusDispFis(s32 arg0, s16 arg1) {
 }
 
 u8 *construct_type1_heading__20TWindowSubStatusDispFPvii(u8 *arg0, s32 arg1, s32 arg2) {
-    TWindowSubStatusDisp__sub_80287A00(arg0, lbl_8044FCF0, arg1, 1, arg2);
+    init_heading_entry__20TWindowSubStatusDispFPvPvici(arg0, lbl_8044FCF0, arg1, 1, arg2);
     return arg0;
 }
 

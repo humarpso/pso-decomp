@@ -24,7 +24,7 @@ int query_teammate_state__9TObjEneDDFPv(void* p);
 int update_lobby_state__9TObjEneDDFPv(void* p);
 int TLobby__sub_800C6C10(void*);
 int TObjPlayer__sub_801BA42C(void*);
-int TObjPlayer__sub_801BA494(void*);
+int freeze_all_players__10TObjPlayerFv(void*);
 s32 get_main_phase();
 int is_any_teammate_in_state__10TObjPlayerFv(void*);
 
@@ -39,7 +39,7 @@ s32 check_v2_mode__9TObjEneDDFv(void) {
 }
 
 int get_target_state_a__9TObjEneDDFPv(void* p) { return TObjPlayer__sub_801BA42C(p); }
-int get_target_state_b__9TObjEneDDFPv(void* p) { return TObjPlayer__sub_801BA494(p); }
+int get_target_state_b__9TObjEneDDFPv(void* p) { return freeze_all_players__10TObjPlayerFv(p); }
 
 void project_sound_origin_from_camera(s32 arg0, u8 *arg1, f32 farg0) {
     f32 temp_f1;

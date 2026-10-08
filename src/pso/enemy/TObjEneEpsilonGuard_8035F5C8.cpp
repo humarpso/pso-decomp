@@ -898,7 +898,7 @@ u32 find_entity_by_id(s32);
 s32 TObjEneEpsilonGuard__sub_8035DD74(u32);
 void set_target__19TObjEneEpsilonGuardFPviii(u32, V3_8035F970 *, s32, s32);
 extern const f64 lbl_80479E88;
-s32 TObjEneEpsilonGuard__sub_8035F970(Guard_8035F970 *o);
+s32 assign_guard_targets__19TObjEneEpsilonGuardFPv(Guard_8035F970 *o);
 f32 calc_boss4_scale__10TObjPlayerFi(void *);
 void TObjEneEpsilonGuard__sub_8035F844(W_8035F844 *arg0, s32 arg1);
 s32 TObjEneEpsilonGuard__sub_8035FC20(W_8035FC20 *arg0);
@@ -920,7 +920,7 @@ M2C_UNK set_field_378__9TObjEneDDFPvi(void *, M2C_UNK);
 M2C_UNK transition_enemy_state(void *, M2C_UNK);
 M2C_UNK advance_animation_playback(void *);
 void play_sound_effect(s32, void *, s32, s32);
-s32 TObjEneEpsilonGuard__sub_8035F970(Guard_8035F970 *o);
+s32 assign_guard_targets__19TObjEneEpsilonGuardFPv(Guard_8035F970 *o);
 void TObjEneEpsilonGuard__sub_8035FA50(W_8035FA50 *arg0);
 s32 TObjEneEpsilonGuard__sub_8035FBBC(W_8035FBBC *arg0);
 void set_guard_state__19TObjEneEpsilonGuardFPv(void *arg0, s32 _w1);
@@ -1153,7 +1153,7 @@ int TObjEneEpsilonGuard__sub_8035F950(void* p) { return (*(u32*)((char*)p + 0x43
 int TObjEneEpsilonGuard__sub_8035F95C(void* p) { return (*(u32*)((char*)p + 0x438) >> 5) & 0x1; }
 int TObjEneEpsilonGuard__sub_8035F968(void) { return 0; }
 
-s32 TObjEneEpsilonGuard__sub_8035F970(Guard_8035F970 *o) {
+s32 assign_guard_targets__19TObjEneEpsilonGuardFPv(Guard_8035F970 *o) {
     s32 i;
     s32 near;
     u32 p;
@@ -1861,7 +1861,7 @@ void handle_guard_action_state__19TObjEneEpsilonGuardFPvi(W_80361508 *self, s32 
         switch (self->state) {
         case 0:
             self->timer--;
-            if (TObjEneEpsilonGuard__sub_8035F970((Guard_8035F970 *)self) == 1) {
+            if (assign_guard_targets__19TObjEneEpsilonGuardFPv((Guard_8035F970 *)self) == 1) {
                 self->flags &= ~2;
                 ((void (*)(void *))set_guard_state__19TObjEneEpsilonGuardFPv)(self);
                 self->state = 1;

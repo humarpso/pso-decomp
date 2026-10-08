@@ -24,7 +24,7 @@ u32 __nw__7TObjectFUl(int);
 extern s32 TOVS2Wall01__data_805D5AE8;
 extern RecoveredGlobal_8017BC10_lbl_8044311C lbl_8044311C;
 extern s32 tl_05;
-void TOVS2Wall01__sub_8017BC10(u8 *arg0, s32 arg1);
+void spawn_debris__11TOVS2Wall01FPvi(u8 *arg0, s32 arg1);
 }
 
 extern "C" {
@@ -51,7 +51,7 @@ void TOVS2Wall01__vt4(void *arg0, s16 *arg1, s32 arg2) {
     }
 }
 typedef char RecoveredGlobal_8017BC10_lbl_8044311C_size[sizeof(RecoveredGlobal_8017BC10_lbl_8044311C) == 0x4C ? 1 : -1];
-void TOVS2Wall01__sub_8017BC10(u8 *arg0, s32 arg1) {
+void spawn_debris__11TOVS2Wall01FPvi(u8 *arg0, s32 arg1) {
     struct CopyStack_8017BC10 { u8 bytes[0x4C]; };
     CopyStack_8017BC10 copy_storage_8017BC10;
     u8 *temp_r5;

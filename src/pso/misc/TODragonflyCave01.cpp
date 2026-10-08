@@ -174,7 +174,7 @@ extern const f32 lbl_805DB578;
 extern const f32 lbl_805DB57C;
 extern const f32 lbl_805DB58C;
 extern const f32 lbl_805DB590;
-void TODragonfly__sub_80164B34(s32 arg0);
+void update_idle__11TODragonflyFi(s32 arg0);
 f32 get_ad_end_text_start__10TObjPlayerFv(f64, f64);
 s32 VecCopy__FP3VecPC3Vec(void *, void *);
 s32 check_camera_distance__10TObjPlayerFi(void *);
@@ -361,7 +361,7 @@ void TODragonfly__sub_80164A90(O_80164A90 *arg0) {
 
 #pragma push
 #pragma fp_contract on
-void TODragonfly__sub_80164B34(s32 arg0) {
+void update_idle__11TODragonflyFi(s32 arg0) {
     s32 temp_r4;
     if (is_any_player_within_radius_xz(arg0, lbl_805DB590) == 1) {
         if (pick_random_destination__11TODragonflyFPvf((u8 *)((void *) arg0), lbl_805DB578 + M2C_FIELD(arg0, f32 *, 0x6C)) == 1) {
@@ -404,7 +404,7 @@ void update__11TODragonflyFPv(void *arg0) {
     temp_r0 = M2C_FIELD(arg0, s32 *, 0xAC);
     switch (temp_r0) {
     case 0:
-        TODragonfly__sub_80164B34((s32)(arg0));
+        update_idle__11TODragonflyFi((s32)(arg0));
         return;
     case 1:
         TODragonfly__sub_80164A90((O_80164A90 *)(arg0));

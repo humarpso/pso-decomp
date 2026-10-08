@@ -165,7 +165,7 @@ s32 TWindowDD__sub_80348398(u8 *arg0);
 extern u8 *TWindowDD__data_805D6E30;
 s16 TWindowDD__sub_80346434(u8 *arg0, u32 arg1, s32 arg2, s32 arg3);
 void set_pos_and_data__9TWindowDDFPvf(void *, f32);
-M2C_UNK TWindowDD__sub_80346FE4();
+M2C_UNK build_player_word_lists__9TWindowDDFv();
 M2C_UNK TWindowDD__sub_80347A4C(void *, int);
 u8 *TWindowDD__sub_80347AD4(void *, M2C_UNK, s32);
 void setup_entry__9TWindowDDFPvi(void *, s32);
@@ -405,7 +405,7 @@ void TWindowDD__sub_803435A0(u8 *arg0) {
     u8 *temp_r3_4;
     temp_r0 = M2C_FIELD(arg0, s32 *, 0xB4);
     if ((temp_r0 == 0x14) || (temp_r0 == 0xC)) {
-        TWindowDD__sub_80346FE4();
+        build_player_word_lists__9TWindowDDFv();
     }
     M2C_FIELD(arg0, s32 *, 0xB8) = 0;
     if (M2C_FIELD(arg0, s32 *, 0xB4) == 1 || M2C_FIELD(arg0, s32 *, 0xB4) == 2 || M2C_FIELD(arg0, s32 *, 0xB4) == 8 || M2C_FIELD(arg0, s32 *, 0xB4) == 0xF || M2C_FIELD(arg0, s32 *, 0xB4) == 0x11) {

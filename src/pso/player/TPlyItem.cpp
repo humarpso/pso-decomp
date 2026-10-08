@@ -125,7 +125,7 @@ void *get_owner_if_alive__10TObjPlayerFPv(void *);
 s32 is_item_valid__9TItemListFi(void *);
 extern s32 *lbl_805D5DEC;
 extern s32 lbl_805D5DF4;
-void TObjPlayer__sub_801D51A0(void *arg0);
+void collect_owner_fields_recursive__10TObjPlayerFPv(void *arg0);
 }
 
 extern "C" {
@@ -199,7 +199,7 @@ void reduce_child_item_amounts__6TLobbyFPv(void *arg0) {
         reduce_child_item_amounts__6TLobbyFPv(it);
     }
 }
-void TObjPlayer__sub_801D51A0(void *arg0) {
+void collect_owner_fields_recursive__10TObjPlayerFPv(void *arg0) {
     Item_801D51A0 *self = (Item_801D51A0 *)arg0;
     Item_801D51A0 *it;
     void *owner;
@@ -208,7 +208,7 @@ void TObjPlayer__sub_801D51A0(void *arg0) {
             *lbl_805D5DEC++ = get_field_d8__10TObjPlayerFPv(owner);
             lbl_805D5DF4++;
         }
-        TObjPlayer__sub_801D51A0(it);
+        collect_owner_fields_recursive__10TObjPlayerFPv(it);
     }
 }
 

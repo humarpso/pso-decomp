@@ -160,7 +160,7 @@ s32 is_area_attack_target_eligible(void *, int);
 s32 attack_target_history_add(void *, void *);
 M2C_UNK init_all_slots__10TObjPlayerFv();
 M2C_UNK mark_enemy_body_contacts(void *);
-M2C_UNK TObjPlayer__sub_801561C4(void *, f32);
+M2C_UNK update_body_contact_flag__10TObjPlayerFPvf(void *, f32);
 s32 area_attack_deliver_physical(P_800BC080 *arg0, Arg_800BC080 *arg1, void *arg2, f32 farg0);
 s32 obj_is_hit_receivable();
 Tgt_800BC080 *get_battle_param__10TObjPlayerFi(s32);
@@ -168,7 +168,7 @@ s32 is_area_attack_target_eligible(void *, int);
 s32 attack_target_history_add(void *, void *);
 M2C_UNK init_all_slots__10TObjPlayerFv();
 M2C_UNK mark_enemy_body_contacts(void *);
-M2C_UNK TObjPlayer__sub_801561C4(void *, f32);
+M2C_UNK update_body_contact_flag__10TObjPlayerFPvf(void *, f32);
 s32 area_attack_deliver_direct(P_800BC250 *arg0, Arg_800BC250 *arg1, s32 arg2, void *arg3, f32 farg0);
 }
 
@@ -257,7 +257,7 @@ s32 area_attack_deliver_physical(P_800BC080 *arg0, Arg_800BC080 *arg1, void *arg
     }
     init_all_slots__10TObjPlayerFv();
     if (arg1->flags & 1) {
-        TObjPlayer__sub_801561C4(arg0, farg0);
+        update_body_contact_flag__10TObjPlayerFPvf(arg0, farg0);
         mask |= 0x80000;
     }
     if (arg1->flags & 2) {
@@ -312,7 +312,7 @@ s32 area_attack_deliver_direct(P_800BC250 *arg0, Arg_800BC250 *arg1, s32 arg2, v
     }
     init_all_slots__10TObjPlayerFv();
     if (arg1->flags & 1) {
-        TObjPlayer__sub_801561C4(arg0, farg0);
+        update_body_contact_flag__10TObjPlayerFPvf(arg0, farg0);
         mask |= 0x80000;
     }
     if (arg1->flags & 2) {

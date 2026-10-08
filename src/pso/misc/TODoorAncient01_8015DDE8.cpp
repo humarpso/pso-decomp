@@ -106,7 +106,7 @@ extern RecoveredGlobal_8016BC84_lbl_80441ACC lbl_804409EC;
 extern RecoveredGlobal_8016BC84_lbl_804B2B30 lbl_804B0D58;
 extern u32 lbl_805D5900;
 extern void *TODoorAncient01__data_805D5904;
-void TODoorAncient01__sub_8015E09C(void);
+void load_assets__15TODoorAncient01Fv(void);
 s32 reset_photon_effect__10TObjPlayerFPv(void *);
 s32 refresh_collision_body_centers(void *);
 s32 init_collision_body_parts(void *, void *, int);
@@ -230,7 +230,7 @@ extern M2C_UNK __vt__15TODoorAncient01[];
 
 typedef char RecoveredGlobal_8016BC84_lbl_80441ACC_size[sizeof(RecoveredGlobal_8016BC84_lbl_80441ACC) == 0x18 ? 1 : -1];
 typedef char RecoveredGlobal_8016BC84_lbl_804B2B30_size[sizeof(RecoveredGlobal_8016BC84_lbl_804B2B30) == 0x10 ? 1 : -1];
-void TODoorAncient01__sub_8015E09C(void) {
+void load_assets__15TODoorAncient01Fv(void) {
     s32 *temp_r3_2;
     u8 *temp_r3;
     u8 *var_r0;

@@ -52,7 +52,7 @@ s32 TWindowSubComCard__sub_8007B0D0(Card_8007B0D0 *self, Card_8007B0D0 *cards, s
 
 extern "C" {
 
-int TLobby__sub_8007B458(void*, void*);
+int fill_guild_card_from_char__6TLobbyFPvi(void*, void*);
 int clear(void* p);
 int memset(void*, int, int);
 

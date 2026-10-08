@@ -175,7 +175,7 @@ void TOContainerAncientItemCommon__vt4(void *arg0, s16 *arg1, s32 arg2);
 void *__dt__28TOContainerAncientItemCommonFv(void *arg0, s16 arg1);
 void __dl__7TObjectFPv(void *);
 void destroy_ancient_container__10TObjPlayerFPvs(void *, int);
-void fn_8015C534(void *, void *);
+void init_ancient_container(void *, void *);
 M2C_UNK queue_destruction__7TObjectFv(void *);
 M2C_UNK set_flag8__6TLobbyFPv(void *);
 M2C_UNK spawn_item__17TObjContainerItemFPvi(void *, void *);
@@ -230,7 +230,7 @@ extern M2C_UNK __vt__28TOContainerAncientItemCommon[];
 extern void *lbl_805D2EFC;
 
 void *TOContainerAncientItemCommon__ct(void *arg0, void * _w1) {
-    fn_8015C534(arg0, _w1);
+    init_ancient_container(arg0, _w1);
     M2C_FIELD(arg0, M2C_UNK **, 0x18) = __vt__28TOContainerAncientItemCommon;
     M2C_FIELD(arg0, void **, 0x0) = lbl_805D2EFC;
     return arg0;

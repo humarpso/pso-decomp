@@ -179,7 +179,7 @@ void free_shared_data__15TObjEneDelDepthFv(void) {
     }
 }
 
-void TObjEneDelDepth__sub_80315B10(void) {
+void load_assets__15TObjEneDelDepthFv(void) {
     extern Obj_80315B10 *TObjEneDelDepth__data_805D6AC4;
     Sub_80315B10 *g;
 

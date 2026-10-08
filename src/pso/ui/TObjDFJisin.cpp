@@ -66,7 +66,7 @@ void queue_destruction__7TObjectFv(void *);
 s32 is_boss_active__13TObjDFHormingFv();
 s32 TBoss4DarkFalz__sub_8004C1AC();
 M2C_UNK check_attack_trigger__11TBoss4Type3FPv(void *);
-M2C_UNK fn_8005063C(void *);
+M2C_UNK steer_homing_direction(void *);
 M2C_UNK fn_8005076C(void *);
 int queue_destruction__13TObjDFHormingFPv(void* p);
 M2C_UNK copy_vec3__11TBoss4Type2FPvPv(void *, void *);
@@ -276,7 +276,7 @@ void run_task__13TObjDFHormingFv(u8 *arg0) {
         fn_8005076C(arg0);
         break;
     case 1:
-        fn_8005063C(arg0);
+        steer_homing_direction(arg0);
         break;
     case 2:
         check_attack_trigger__11TBoss4Type3FPv(arg0);

@@ -30,7 +30,7 @@ void TWindow__close(void *);
 int close__17TWindowSubComCardFPv(void *);
 int get_data__23TAdSinglePlyChrSelectGCFv(void);
 extern const f32 lbl_805DE780;
-void TAdSinglePlyChrSelectGC__sub_802D3D5C(u8 *arg0);
+void close_and_change_scene__23TAdSinglePlyChrSelectGCFPv(u8 *arg0);
 s32 test_flag_4c__23TAdSinglePlyChrSelectGCFPv(void *, int);
 s32 TWindowShortListCtrl__check_controller_button(void *, int);
 s32 TAdPlayerLoadGC__sub_801E1B50(int);
@@ -215,7 +215,7 @@ void finish_character_selection_transition(void *arg0) {
     }
 }
 
-void TAdSinglePlyChrSelectGC__sub_802D3D5C(u8 *arg0) {
+void close_and_change_scene__23TAdSinglePlyChrSelectGCFPv(u8 *arg0) {
     s32 temp_r3_3;
     s32 temp_r4;
     u8 *temp_r3;

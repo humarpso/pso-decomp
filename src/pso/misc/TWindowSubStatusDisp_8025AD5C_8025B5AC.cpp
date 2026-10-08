@@ -20,7 +20,7 @@ extern const f32 lbl_805DD01C;
 extern const f32 lbl_805DD020;
 extern M2C_UNK lbl_805DD024;
 extern const f32 lbl_805DD028;
-void TWindowSubStatusDisp__sub_8025B660(u8 *arg0, u8 *arg1);
+void draw_label_value__20TWindowSubStatusDispFPvPv(u8 *arg0, u8 *arg1);
 int is_flag_4_set__17TWindowSubComCardFPv(void *);
 void TWindowSubStatusDisp__sub_8025B760(void *p);
 }
@@ -53,7 +53,7 @@ void set_text__20TWindowSubStatusDispFPvUii(void *arg0, u32 arg1, s32 arg2) {
     M2C_FIELD(arg0, u16 *, 0) = (u16) (M2C_FIELD(arg0, u16 *, 0) | 0x15);
     M2C_FIELD(arg0, f32 *, 8) = lbl_805DD00C - (lbl_805DD010 * (f32) calc_text_width(arg1));
 }
-void TWindowSubStatusDisp__sub_8025B660(u8 *arg0, u8 *arg1) {
+void draw_label_value__20TWindowSubStatusDispFPvPv(u8 *arg0, u8 *arg1) {
     Stack_8025B660 stack;
     if ((is_flag_4_set__17TWindowSubComCardFPv(arg0) != 0) && ((s32) M2C_FIELD(arg1, s32 *, 0x30) >= 0)) {
         stack.sp8 = M2C_FIELD(arg1, f32 *, 0x10) + M2C_FIELD(arg0, f32 *, 8);

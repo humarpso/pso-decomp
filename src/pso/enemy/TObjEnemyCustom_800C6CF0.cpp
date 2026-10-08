@@ -40,23 +40,23 @@ u8 *find_active_entity_by_id(int);
 f32 xz_distance_squared(void *, void *);
 extern s32 lbl_805D586C;
 extern s32 lbl_805D5870;
-void TObjPlayer__sub_800C6E34(Plr_800C6E34 *arg0, f32 radius);
+void target_nearest_player__10TObjPlayerFPvf(Plr_800C6E34 *arg0, f32 radius);
 f32 calc_xz_distance_sq__10TObjPlayerFiUiPv(void *, void *, Vec_800C6EF8 *);
 void VecCopy__FP3VecPC3Vec(Vec_800C6EF8 *, Vec_800C6EF8 *);
 u8 *get_player_data__10TObjPlayerFi(int);
 u16 obj_getField1c(void *);
 extern s32 lbl_805D586C;
 extern s32 lbl_805D5870;
-u16 TObjPlayer__sub_800C6EF8(Obj_800C6EF8 *arg0, Vec_800C6EF8 *out, f32 radius);
+u16 find_nearest_enemy__10TObjPlayerFPvPvf(Obj_800C6EF8 *arg0, Vec_800C6EF8 *out, f32 radius);
 f32 calc_boss4_scale__10TObjPlayerFi(void *);
 u8 *get_player_data__10TObjPlayerFi(int);
 s32 obj_testFlags30(void *, int);
 f32 xz_distance_squared(void *, void *);
 extern s32 lbl_805D586C;
 extern s32 lbl_805D5870;
-u16 TObjPlayer__sub_800C6D24(u8 *arg0, f32 radius);
+u16 pick_random_nearby_player__10TObjPlayerFPvf(u8 *arg0, f32 radius);
 s32 find_nearest_visible_player(void *, void *, f32);
-u16 TObjPlayer__sub_800C6EF8(Obj_800C6EF8 *arg0, Vec_800C6EF8 *out, f32 radius);
+u16 find_nearest_enemy__10TObjPlayerFPvPvf(Obj_800C6EF8 *arg0, Vec_800C6EF8 *out, f32 radius);
 u8 *find_active_entity_by_id(int);
 f32 xz_distance_squared(void *, void *);
 Obj_800C6FFC *find_entity_by_id(int);
@@ -76,7 +76,7 @@ void call_player_preserving_field__15TObjEnemyCustomFPv(void *arg0) {
     M2C_FIELD(arg0, s16 *, 0x326) = temp_r31;
 }
 
-u16 TObjPlayer__sub_800C6D24(u8 *arg0, f32 radius) {
+u16 pick_random_nearby_player__10TObjPlayerFPvf(u8 *arg0, f32 radius) {
     u16 list[32];
     s32 count;
     s32 n;
@@ -111,7 +111,7 @@ u16 TObjPlayer__sub_800C6D24(u8 *arg0, f32 radius) {
     return list[(s32)((f32)count * calc_boss4_scale__10TObjPlayerFi(arg0))];
 }
 
-void TObjPlayer__sub_800C6E34(Plr_800C6E34 *arg0, f32 radius) {
+void target_nearest_player__10TObjPlayerFPvf(Plr_800C6E34 *arg0, f32 radius) {
     s32 n;
     u16 best;
     s32 i;
@@ -138,7 +138,7 @@ void TObjPlayer__sub_800C6E34(Plr_800C6E34 *arg0, f32 radius) {
     arg0->targetIdx = best;
     arg0->target = find_active_entity_by_id(arg0->targetIdx);
 }
-u16 TObjPlayer__sub_800C6EF8(Obj_800C6EF8 *arg0, Vec_800C6EF8 *out, f32 radius) {
+u16 find_nearest_enemy__10TObjPlayerFPvPvf(Obj_800C6EF8 *arg0, Vec_800C6EF8 *out, f32 radius) {
     Vec_800C6EF8 v;
     u16 best;
     s32 i;
@@ -181,7 +181,7 @@ BOOL select_nearest_target__10TObjPlayerFPvf(Obj_800C6FFC *arg0, f32 radius) {
     s32 b;
     f32 da;
     a = find_nearest_visible_player(arg0, NULL, radius);
-    b = ((s32 (*)(void *, void *, f32))TObjPlayer__sub_800C6EF8)(arg0, NULL, radius);
+    b = ((s32 (*)(void *, void *, f32))find_nearest_enemy__10TObjPlayerFPvPvf)(arg0, NULL, radius);
     if ((u16)a == 0xFFFF) {
         arg0->targetIdx = 0xFFFF;
     } else if ((u16)b == 0xFFFF) {

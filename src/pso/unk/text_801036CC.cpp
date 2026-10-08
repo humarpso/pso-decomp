@@ -106,7 +106,7 @@ void debug_print__6TLobbyFii(const char *, ...);
 extern char lbl_8043E048[];
 extern Ent_801037A0 **lbl_805D541C;
 extern s32 lbl_805D5420;
-Ent_801037A0 *TLobby__sub_80103D10(s32 n, s32 val);
+Ent_801037A0 *find_item_condition_entry__6TLobbyFii(s32 n, s32 val);
 void TLobby__sub_801037A0(s32 n);
 s32 TLobby__sub_8010385C(s32 arg0);
 s32 TLobby__sub_80103B44(s32 arg0);
@@ -341,7 +341,7 @@ s32 remove_item_condition__6TLobbyFii(s32 n, s32 val) {
     debug_print__6TLobbyFii(lbl_8043E048);
     return 0;
 }
-Ent_801037A0 *TLobby__sub_80103D10(s32 n, s32 val) {
+Ent_801037A0 *find_item_condition_entry__6TLobbyFii(s32 n, s32 val) {
     Ent_801037A0 *list;
     s32 count;
     s32 lo;

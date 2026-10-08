@@ -34,7 +34,7 @@ M2C_UNK play_area_music(M2C_UNK *);
 M2C_UNK load_floor_sound_bank(M2C_UNK);
 void *__nw__7TObjectFUl(M2C_UNK);
 M2C_UNK TWindowCtrlMain__ct(void *);
-M2C_UNK TWindowCtrlMain__sub_8024D7C0(M2C_UNK);
+M2C_UNK reset_all__15TWindowCtrlMainFPv(M2C_UNK);
 M2C_UNK fn_8028D940();
 M2C_UNK TObjCMMainMenu__sub_8028D9F8();
 M2C_UNK select_char_menu__14TObjCMMainMenuFv();
@@ -85,7 +85,7 @@ void init_creation_menu_scene(void) {
     update_keyboard_menu__6TLobbyFv();
     set_ending_callback__6TLobbyFv();
     TKeyBoardControl__sub_80131F60();
-    TWindowCtrlMain__sub_8024D7C0(1);
+    reset_all__15TWindowCtrlMainFPv(1);
     p = __nw__7TObjectFUl(0x1C);
     if (p != NULL) {
         TWindowCtrlMain__ct(p);

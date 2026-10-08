@@ -17,7 +17,7 @@ extern Vec_80198E84 lbl_8050DDAC[];
 void send_gogo_ball__12TWindowTimerFi(s32);
 void TWindowTimer__sub_8019A6F8(void*);
 extern RecoveredGlobal_80198DCC_lbl_8050E208 lbl_8050E208;
-void TWindowTimer__sub_80198DCC(u8*,s32,s32);
+void throw_gogo_ball__12TWindowTimerFPvii(u8*,s32,s32);
 u8* TWindowTimer__sub_80199410(u8*,u8*);
 void __dl__7TObjectFPv(void*);
 void* __nw__7TObjectFUl(M2C_UNK);
@@ -175,7 +175,7 @@ extern "C" {
 s32 is_on_current_screen__11TCameraCtrlFPv(void *, int);
 M2C_UNK play_sound_effect(int, void *, int, int);
 extern RecoveredGlobal_80198DCC_lbl_8050E208 lbl_8050E208;
-void TWindowTimer__sub_80198DCC(u8 *arg0, s32 arg1, s32 arg2);
+void throw_gogo_ball__12TWindowTimerFPvii(u8 *arg0, s32 arg1, s32 arg2);
 void __ct__7TObjectFP7TObject(void *, void *);
 extern M2C_UNK lbl_804B8DE8[];
 u8 *TWindowTimer__sub_80198CF8(u8 *arg0, u8 *arg1, s32 arg2, s32 arg3, s32 arg4, u8 *arg5);
@@ -230,7 +230,7 @@ void TWindowTimer__sub_80198D98(void) {
         TWindowTimer__sub_80199410(obj, tl_03);
     }
 }
-void TWindowTimer__sub_80198DCC(u8 *arg0, s32 arg1, s32 arg2) {
+void throw_gogo_ball__12TWindowTimerFPvii(u8 *arg0, s32 arg1, s32 arg2) {
     typedef char sp8_offset[(offsetof(Stack_80198DCC, sp8) == 0x0) ? 1 : -1];
     typedef char spC_offset[(offsetof(Stack_80198DCC, spC) == 0x4) ? 1 : -1];
     typedef char sp10_offset[(offsetof(Stack_80198DCC, sp10) == 0x8) ? 1 : -1];
@@ -1032,7 +1032,7 @@ void draw_model__8TObjFishFPv(u8 *arg0) {
 #define spawn_particle_effect_with_flags ((void (*)(void*,int,int))spawn_particle_effect_with_flags)
 #define lbl_8050DD58 (*(RecoveredGlobal_8019A574_lbl_8050DD58 *)&lbl_8050DD58)
 #define lbl_8050DDAC (*(M2C_UNK (*)[1])&lbl_8050DDAC)
-#define TWindowTimer__sub_80198DCC ((void (*)(void*,s32,s32))TWindowTimer__sub_80198DCC)
+#define throw_gogo_ball__12TWindowTimerFPvii ((void (*)(void*,s32,s32))throw_gogo_ball__12TWindowTimerFPvii)
 #define __dl__7TObjectFPv ((M2C_UNK (*)(void*))__dl__7TObjectFPv)
 #define lbl_8050DD50 (*(int (*)[1])&lbl_8050DD50)
 #define xyz_distance ((f32 (*)(void*,void*))xyz_distance)
@@ -1111,7 +1111,7 @@ s32 read_be16_field2__10TObjPlayerFPv();
 void bswap_6x79_gogo_ball__12TWindowTimerFi(s32 arg0);
 void TWindowTimer__sub_8019A6F8(void* p);
 int set_timer_value__12TWindowTimerFii(int a0, int a1);
-int TWindowCtrl__sub_8024A4EC(void*);
+int close_timer_window__11TWindowCtrlFv(void*);
 int TWindowTimer__sub_8019A770(void* p);
 u8 * construct_actor_base__10TObjPlayerFPvPv(void *);
 void reset_photon_effect__10TObjPlayerFPv(s32);
@@ -1289,7 +1289,7 @@ void update_goal_checks__12TWindowTimerFPvUs(void *arg0, u16 id) {
         self->f30 = 1;
         ang = lbl_80446150[0] * get_ad_end_text_start__10TObjPlayerFv(self->pos.x - p->pos.x, self->pos.z - p->pos.z);
         if ((0.0f) == len) {
-            TWindowTimer__sub_80198DCC(&self->pos, ang, self->time);
+            throw_gogo_ball__12TWindowTimerFPvii(&self->pos, ang, self->time);
             ((void (*)(void *))TWindowTimer__sub_8019A098)(self);
         }
     }
@@ -1400,7 +1400,7 @@ void TWindowTimer__sub_8019A754(s32 i) {
     ((s32 *)&lbl_8050DD50)[i] += 1;
 }
 
-int TWindowTimer__sub_8019A770(void* p) { return TWindowCtrl__sub_8024A4EC(p); }
+int TWindowTimer__sub_8019A770(void* p) { return close_timer_window__11TWindowCtrlFv(p); }
 
 }
 
@@ -1411,7 +1411,7 @@ int TWindowTimer__sub_8019A770(void* p) { return TWindowCtrl__sub_8024A4EC(p); }
 #undef spawn_particle_effect_with_flags
 #undef lbl_8050DD58
 #undef lbl_8050DDAC
-#undef TWindowTimer__sub_80198DCC
+#undef throw_gogo_ball__12TWindowTimerFPvii
 #undef __dl__7TObjectFPv
 #undef lbl_8050DD50
 #undef xyz_distance

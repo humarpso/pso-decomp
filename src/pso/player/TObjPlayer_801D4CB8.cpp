@@ -16,7 +16,7 @@ extern "C" {
 void *get_owner_if_alive__10TObjPlayerFPv(void *);
 s32 is_item_valid__9TItemListFi(void *);
 s32 all_parents_unqueued_for_destruction__7TObjectFv();
-void TObjPlayer__sub_801D4E94(void *arg0);
+void destroy_subobjects_recursive__10TObjPlayerFPv(void *arg0);
 }
 
 extern "C" {
@@ -39,12 +39,12 @@ void set_mode_and_refresh_object__10TObjPlayerFPvi(void* a0, int a1) { lbl_805D5
 
     extern int lbl_805D5DE0;
     extern int lbl_805D5DF0;
-void destroy_subobjects__10TObjPlayerFPvi(void* a0, int a1) { lbl_805D5DE0 = a1; lbl_805D5DF0 = 0; TObjPlayer__sub_801D4E94((void *)((void*)(*(int*)((char*)a0 + 0x1c4)))); queue_destruction__7TObjectFv((void*)(*(int*)((char*)a0 + 0x1c4))); run_tasks__7TObjectFv((void*)(*(int*)((char*)a0 + 0x1c8))); run_tasks__7TObjectFv((void*)(*(int*)((char*)a0 + 0x1c8))); queue_destruction__7TObjectFv((void*)(*(int*)((char*)a0 + 0x1c8))); }
+void destroy_subobjects__10TObjPlayerFPvi(void* a0, int a1) { lbl_805D5DE0 = a1; lbl_805D5DF0 = 0; destroy_subobjects_recursive__10TObjPlayerFPv((void *)((void*)(*(int*)((char*)a0 + 0x1c4)))); queue_destruction__7TObjectFv((void*)(*(int*)((char*)a0 + 0x1c4))); run_tasks__7TObjectFv((void*)(*(int*)((char*)a0 + 0x1c8))); run_tasks__7TObjectFv((void*)(*(int*)((char*)a0 + 0x1c8))); queue_destruction__7TObjectFv((void*)(*(int*)((char*)a0 + 0x1c8))); }
 
     extern int lbl_805D5DE8;
     extern int lbl_805D5DF0;
 
-void TObjPlayer__sub_801D4E94(void *arg0) {
+void destroy_subobjects_recursive__10TObjPlayerFPv(void *arg0) {
     u8 *p;
     V_801D4E94 *o;
     p = *(u8 **)((u8 *)arg0 + 0x14);
@@ -55,7 +55,7 @@ void TObjPlayer__sub_801D4E94(void *arg0) {
                 o->m27();
             }
         }
-        TObjPlayer__sub_801D4E94(p);
+        destroy_subobjects_recursive__10TObjPlayerFPv(p);
         p = *(u8 **)(p + 0xC);
     }
 }

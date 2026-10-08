@@ -368,8 +368,8 @@ void TObjPlayer__sub_800AA334(u8 *arg0);
 f32 calc_boss4_scale__10TObjPlayerFi(void *);
 f32 get_pos_x__10TObjPlayerFPv(int);
 M2C_UNK update_if_active__15TObjEneMe1GiGueFPv(void *, s32);
-u16 TObjPlayer__sub_800C6D24(void *, f32);
-M2C_UNK TObjPlayer__sub_800C6E34(void *, f32);
+u16 pick_random_nearby_player__10TObjPlayerFPvf(void *, f32);
+M2C_UNK target_nearest_player__10TObjPlayerFPvf(void *, f32);
 s32 find_target_in_range__10TObjPlayerFPvf(void *, f32);
 s32 find_active_entity_by_id(u16);
 f32 xz_distance_squared(void *, void *);
@@ -1068,7 +1068,7 @@ void TObjPlayer__sub_800AA10C(u8 *arg0) {
         if (M2C_FIELD(arg0, f32 *, 0x3A4) >= lbl_805D9B14) {
             M2C_FIELD(arg0, f32 *, 0x3A4) = (f32) lbl_805D9AE0;
             if ((M2C_FIELD(arg0, f32 *, 0x354) >= lbl_805D9AE0) && (calc_boss4_scale__10TObjPlayerFi((void *) (arg0)) < lbl_805D9B18)) {
-                M2C_FIELD(arg0, u16 *, 0x338) = TObjPlayer__sub_800C6D24((void *) (arg0), (f32) (lbl_805D9B1C));
+                M2C_FIELD(arg0, u16 *, 0x338) = pick_random_nearby_player__10TObjPlayerFPvf((void *) (arg0), (f32) (lbl_805D9B1C));
                 if (M2C_FIELD(arg0, u16 *, 0x338) != 0xFFFF) {
                     M2C_FIELD(arg0, u32 *, 0x2A8) = find_active_entity_by_id(M2C_FIELD(arg0, u16 *, 0x338));
                     update_if_active__15TObjEneMe1GiGueFPv((void *) (arg0), (int) (9));
@@ -1083,7 +1083,7 @@ void TObjPlayer__sub_800AA10C(u8 *arg0) {
                 M2C_FIELD(arg0, s16 *, 0x390) = (s16) (M2C_FIELD(arg0, s16 *, 0x390) + 1);
                 if ((s16) M2C_FIELD(arg0, s16 *, 0x390) > 3) {
                     M2C_FIELD(arg0, s16 *, 0x390) = 0;
-                    TObjPlayer__sub_800C6E34((void *) (arg0), (f32) (lbl_805D9B20));
+                    target_nearest_player__10TObjPlayerFPvf((void *) (arg0), (f32) (lbl_805D9B20));
                 }
                 update_if_active__15TObjEneMe1GiGueFPv((void *) (arg0), (int) (2));
                 return;

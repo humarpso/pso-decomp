@@ -31,7 +31,7 @@ void TWindowSubComCard__sub_8033C10C(u8 *arg0);
 void TWindow__close(void *);
 void TWindowSubComCard__sub_8033BF90(u8 *arg0);
 extern RecoveredGlobal_8033C024_lbl_804EF940 lbl_804EF940;
-void TWindowSubComCard__sub_8033C024(u8 *arg0, s32 arg1);
+void set_state__17TWindowSubComCardFPvi(u8 *arg0, s32 arg1);
 u32 get_message_10__20TWindowSubStatusDispFPv(M2C_UNK);
 void reparent_to_main_ctrl__17TWindowSubComCardFi(s32);
 M2C_UNK set_selected_index__17TWindowSubComCardFPvs(u32, s16);
@@ -152,7 +152,7 @@ void TWindowSubComCard__sub_8033BF90(u8 *arg0) {
 
 typedef char MemberActionStorage_8033C024_size[sizeof(MemberActionStorage_8033C024) == 12 ? 1 : -1];
 typedef char RecoveredGlobal_8033C024_lbl_804EF940_size[sizeof(RecoveredGlobal_8033C024_lbl_804EF940) == 0x60 ? 1 : -1];
-void TWindowSubComCard__sub_8033C024(u8 *arg0, s32 arg1) {
+void set_state__17TWindowSubComCardFPvi(u8 *arg0, s32 arg1) {
     MemberActionStorage_8033C024 member_action;
     typedef char sp8_offset[(offsetof(Stack_8033C024, sp8) == 0x0) ? 1 : -1];
     typedef char spC_offset[(offsetof(Stack_8033C024, spC) == 0x4) ? 1 : -1];
@@ -181,7 +181,7 @@ void reset__17TWindowSubComCardFPv(void *arg0) {
     M2C_FIELD(arg0, s32 *, 0x3C) = 0;
     M2C_FIELD(arg0, s32 *, 0x40) = 0;
     M2C_FIELD(arg0, s32 *, 0x44) = 0;
-    TWindowSubComCard__sub_8033C024((u8 *)(arg0), (s32)(0));
+    set_state__17TWindowSubComCardFPvi((u8 *)(arg0), (s32)(0));
 }
 
 void TWindowSubComCard__sub_8033C10C(u8 *arg0) {
@@ -190,7 +190,7 @@ void TWindowSubComCard__sub_8033C10C(u8 *arg0) {
         M2C_FIELD(arg0, s32 *, 0x2C) = 0;
         M2C_FIELD(arg0, s32 *, 0x28) = poll_memcard_status__15TAdPlayerLoadGCFPv((void *)(arg0));
         if ((s32) M2C_FIELD(arg0, s32 *, 0x28) != 0) {
-            TWindowSubComCard__sub_8033C024((u8 *)((void *)((void *) (arg0))), (s32)((s32)((int) (1))));
+            set_state__17TWindowSubComCardFPvi((u8 *)((void *)((void *) (arg0))), (s32)((s32)((int) (1))));
             return;
         }
         M2C_FIELD(arg0, s32 *, 0x3C) = 1;

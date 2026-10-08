@@ -54,7 +54,7 @@ u8 *get_array_entry__20TWindowSubStatusDispFPvi(void *, M2C_UNK);
 void init_window_layout_entries(void *, const void *, s16);
 s32 reset_float_field__15TWindowHelpItemFPv(void *);
 s32 set_text_entry_string(void *, void *, s32);
-void TWindowHelpItem__sub_802531A4(u8 *arg0, void *arg1);
+void init_text__15TWindowHelpItemFPvPv(u8 *arg0, void *arg1);
 extern u8 lbl_804CF5AC[];
 extern V3_802534B0 lbl_804CF88C;
 s32 get_shared_text_buffer();
@@ -96,7 +96,7 @@ s32 get_shared_text_buffer();
 
 void TWindowHelpItem__sub_802531A0(void) {  }
 
-void TWindowHelpItem__sub_802531A4(u8 *arg0, void *arg1) {
+void init_text__15TWindowHelpItemFPvPv(u8 *arg0, void *arg1) {
     u8 *e;
     init_window_layout_entries(arg0 + 0x24, lbl_804CF6BC, *(s16 *)(arg0 + 0x20));
     *(V3_802531A4 *)(arg0 + 0xB0) = lbl_804CF8A4;
@@ -107,7 +107,7 @@ void TWindowHelpItem__sub_802531A4(u8 *arg0, void *arg1) {
 
 void update_displayed_item__15TWindowHelpItemFi(s32 arg0) {
     format_description_with_price__15TWindowHelpItemFPv((void *)(arg0));
-    TWindowHelpItem__sub_802531A4((u8 *)(arg0), (void *)(get_shared_text_buffer()));
+    init_text__15TWindowHelpItemFPvPv((u8 *)(arg0), (void *)(get_shared_text_buffer()));
 }
 void TWindowHelpItem__sub_80253268(u8 *arg0) {
     typedef char sp8_offset[(offsetof(Stack_80253268, sp8) == 0x0) ? 1 : -1];

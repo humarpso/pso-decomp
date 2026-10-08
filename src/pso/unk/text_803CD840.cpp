@@ -107,7 +107,7 @@ void restore_interrupts_nested__6TLobbyFv(void);
 void lock_enter__6TLobbyFv(void);
 void TLobby__sub_803D3130(Chunk_803CDB0C *, s32, Chunk_803CDB0C *, Chunk_803CDB0C *);
 void *memcpy(void *, const void *, u32);
-s32 TLobby__sub_803CDB0C(Obj_803CDB0C *o);
+s32 demux_stream_chunks__6TLobbyFPv(Obj_803CDB0C *o);
 }
 
 extern "C" {
@@ -187,7 +187,7 @@ static inline s32 parse_803CDB0C(u8 *data, u32 len, Hdr_803CDB0C *h) {
     }
     return 0x10;
 }
-s32 TLobby__sub_803CDB0C(Obj_803CDB0C *o) {
+s32 demux_stream_chunks__6TLobbyFPv(Obj_803CDB0C *o) {
     Stream_803CDB0C *s;
     Stream_803CDB0C **ch;
     s32 n;

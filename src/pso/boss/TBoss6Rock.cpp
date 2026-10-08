@@ -59,7 +59,7 @@ extern "C" {
 void release_object__10TBoss6RockFPv(void* p);
 void TBoss6Rock__sub_803542E8(void *, s32);
 void spawn_crush_rocks__10TBoss6RockFPvi(void *, s32);
-void TBoss6Rock__sub_80354494(u8 *arg0);
+void break_and_release__10TBoss6RockFPv(u8 *arg0);
 extern const f32 TBoss6Rock__data_805DFF48;
 extern const f32 TBoss6Rock__data_805DFF4C;
 extern const f32 lbl_805DFF98;
@@ -444,7 +444,7 @@ u8 *TBoss6Rock__sub_80354148(s32 arg0) {
 }
 #pragma pop
 
-void TBoss6Rock__sub_80354494(u8 *arg0) {
+void break_and_release__10TBoss6RockFPv(u8 *arg0) {
     TBoss6Rock__sub_803542E8(arg0, 0);
     if ((s32) M2C_FIELD(arg0, s32 *, 0xBC) == 1) {
         M2C_FIELD(arg0, s32 *, 0xC8) = 0;

@@ -40,7 +40,7 @@ s32 notify_warp_flag70__19TWindowSubShortMailFPv(int);
 s32 open_yes_no_prompt(int, int, int, int, f32);
 s32 create__19TWindowMessageYesNoFPvPvPvPv(void *, s32, M2C_UNK, M2C_UNK);
 extern const f32 lbl_805DD738;
-s32 TWindowSubSymbolChat__sub_80281EA8(Win_80281EA8 *arg0);
+s32 open_confirm_prompt__20TWindowSubSymbolChatFPv(Win_80281EA8 *arg0);
 s32 get_message_10__20TWindowSubStatusDispFPv(M2C_UNK);
 s32 draw_card_icon__17TWindowSubComCardFiii(s32, M2C_UNK, s32);
 s32 get_window_layout_position(M2C_UNK);
@@ -322,7 +322,7 @@ extern const f32 lbl_805DD73C;
 extern const f32 lbl_805DD740;
 
 typedef s32 M2C_UNK;
-s32 TWindowSubSymbolChat__sub_80281EA8(Win_80281EA8 *arg0) {
+s32 open_confirm_prompt__20TWindowSubSymbolChatFPv(Win_80281EA8 *arg0) {
     s32 r = create__19TWindowMessageYesNoFPvPvPvPv(arg0, arg0->f24, 0, 0);
     open_yes_no_prompt(r, get_message_10__20TWindowSubStatusDispFPv((M2C_UNK)(0x20)), get_message_10__20TWindowSubStatusDispFPv((M2C_UNK)(0x44)), get_window_layout_position((M2C_UNK)(0x7A)), lbl_805DD738);
     notify_warp_flag70__19TWindowSubShortMailFPv(r);

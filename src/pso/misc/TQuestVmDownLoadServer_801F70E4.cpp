@@ -1204,7 +1204,7 @@ void begin_file_download__22TQuestVmDownLoadServerFPv(u8 *arg0) {
     }
 }
 
-void TQuestVmDownLoadServer__sub_801F8D30(void) {
+void free_buffers__22TQuestVmDownLoadServerFv(void) {
     Slot_801F8D30 *s;
 
     if (TQuestVmDownLoadServer__data_805D5F14 != 0U) {

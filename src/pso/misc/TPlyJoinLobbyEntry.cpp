@@ -317,7 +317,7 @@ void copy_header_struct__6TLobbyFPvPv(void *, void *);
 void clear_header_struct__10TObjPlayerFPv(void *);
 void TLobby__sub_80077798(void *, void *);
 void set_ip_address__7TSocketFUl(void*, u32);
-void TLobby__sub_8007BC5C(void *);
+void collect_active_card_ids__6TLobbyFPv(void *);
 void __dl__FPv(void *);
 void * alloc__23TAdSinglePlyChrSelectGCFPv(s32);
 int bswap_packet_header__6TLobbyFPv(void *);
@@ -531,7 +531,7 @@ void send_game_character__6TLobbyFv(void) {
     memset(c, 0, sizeof(c));
     strncpy(c, get_card_window_field__6TLobbyFv(), 0xAC);
     memset(b, 0, sizeof(b));
-    TLobby__sub_8007BC5C(b);
+    collect_active_card_ids__6TLobbyFPv(b);
     memset(e, 0, sizeof(e));
     if (get_flag_bit0__6TLobbyFv() != 0) {
         e[1] = 1;

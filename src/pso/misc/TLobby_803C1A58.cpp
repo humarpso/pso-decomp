@@ -37,8 +37,8 @@ struct S_803C8678 {
 };
 
 extern "C" {
-s32 TLobby__sub_803CEEB8(u32);
-s32 TLobby__sub_803CF058(u32, s32, s32);
+s32 cv_fs_get_stat__6TLobbyFPv(u32);
+s32 cv_fs_req_rd__6TLobbyFPvii(u32, s32, s32);
 M2C_UNK TLobby__sub_803D3130(void *, s32, Pair_803C8678 *, Pair_803C8678 *);
 extern s32 lbl_805D7554;
 extern s32 lbl_805D7558;
@@ -145,7 +145,7 @@ void release_ref__6TLobbyFv(void);
 void init_once__6TLobbyFv(void);
 void TLobby__sub_803C9DB4(void *);
 void TLobby__sub_803CA0C8(void *, s32);
-void TLobby__sub_803D0FD0(void *, s32);
+void set_lsc_min__6TLobbyFPvi(void *, s32);
 void reset_lsc_state__6TLobbyFPv(void *);
 void TLobby__sub_803C5D24(u8 *arg0);
 s32 TLobby__sub_803C7748(void *);
@@ -340,7 +340,7 @@ void TLobby__sub_803C5D24(u8 *arg0) {
     temp_r4 = (u8 *)(*temp_r3);
     M2C_FIELD(temp_r4, M2C_UNK (**)(void **, void *), 0x14)(temp_r3, temp_r4);
     ((Fields_arg0*)arg0)->field_2 = 4;
-    TLobby__sub_803D0FD0(temp_r31, ((Fields_arg0*)arg0)->field_3E << 0xB);
+    set_lsc_min__6TLobbyFPvi(temp_r31, ((Fields_arg0*)arg0)->field_3E << 0xB);
     reset_lsc_state__6TLobbyFPv(temp_r31);
     ((Fields_arg0*)arg0)->field_98 = 1;
     release_ref__6TLobbyFv();
@@ -541,7 +541,7 @@ inline s32 pos_803C8678(S_803C8678 *s) {
     return 0;
 }
 
-void TLobby__sub_803C8678(S_803C8678 *s) {
+void update_stream_read__6TLobbyFPv(S_803C8678 *s) {
     Pair_803C8678 a;
     Pair_803C8678 b;
     Strm_803C8678 *st = s->strm;
@@ -550,7 +550,7 @@ void TLobby__sub_803C8678(S_803C8678 *s) {
     s32 r;
 
     if (s->busy == 1) {
-        r = TLobby__sub_803CEEB8(s->h);
+        r = cv_fs_get_stat__6TLobbyFPv(s->h);
         if (r == 1) {
             n = s->nread << 11;
             TLobby__sub_803D3130(&s->buf, n, &a, &b);
@@ -600,10 +600,10 @@ void TLobby__sub_803C8678(S_803C8678 *s) {
                 st->vt->release(st, 0, &s->buf);
                 return;
             }
-            s->nread = TLobby__sub_803CF058(s->h, c, s->buf);
+            s->nread = cv_fs_req_rd__6TLobbyFPvii(s->h, c, s->buf);
             if (s->nread <= 0) {
                 st->vt->release(st, 0, &s->buf);
-                if (TLobby__sub_803CEEB8(s->h) == 3 && lbl_805D7554 >= 0) {
+                if (cv_fs_get_stat__6TLobbyFPv(s->h) == 3 && lbl_805D7554 >= 0) {
                     if (s->retry >= lbl_805D7554) {
                         s->state = 4;
                     } else {

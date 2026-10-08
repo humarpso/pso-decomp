@@ -9,7 +9,7 @@ struct RecoveredGlobal_8015C048___vt__26TOContainerAncientItemRare {
 };
 
 extern "C" {
-u8 * fn_8015C534(void *, s32);
+u8 * init_ancient_container(void *, s32);
 extern RecoveredGlobal_8015C048___vt__26TOContainerAncientItemRare __vt__26TOContainerAncientItemRare;
 extern s32 lbl_805D2F00;
 extern s32 *lbl_805D58EC;
@@ -20,7 +20,7 @@ extern "C" {
 
 typedef char RecoveredGlobal_8015C048___vt__26TOContainerAncientItemRare_size[sizeof(RecoveredGlobal_8015C048___vt__26TOContainerAncientItemRare) == 0x14C ? 1 : -1];
 u8 *TOContainerAncientItemRare__ct(u8 *arg0, s32 arg1) {
-    fn_8015C534(arg0, arg1);
+    init_ancient_container(arg0, arg1);
     M2C_FIELD(arg0, M2C_UNK **, 0x18) = &__vt__26TOContainerAncientItemRare.value;
     M2C_FIELD(arg0, s32 *, 0) = (s32) lbl_805D2F00;
     M2C_FIELD(arg0, s32 *, 0x24) = (s32) *lbl_805D58EC;

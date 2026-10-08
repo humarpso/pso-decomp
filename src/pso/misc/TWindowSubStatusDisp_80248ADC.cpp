@@ -9,15 +9,15 @@ extern "C" {
 void dispatch_without_flags__20TWindowSubStatusDispFiii(s32 arg1, s32 arg2, s32 arg3);
 void draw_status__20TWindowSubStatusDispFiii(s32 arg1, s32 arg2, s32 arg3);
 void sync_level_field__20TWindowSubStatusDispFPv(void *arg0);
-M2C_UNK TWindowSubStatusDisp__sub_802671F0(void *, M2C_UNK);
-M2C_UNK TWindowSubStatusDisp__sub_802673A8(M2C_UNK, s32, s32, s32, M2C_UNK, M2C_UNK);
+M2C_UNK advance_all_entries__20TWindowSubStatusDispFPvi(void *, M2C_UNK);
+M2C_UNK append_entry__20TWindowSubStatusDispFPviiiii(M2C_UNK, s32, s32, s32, M2C_UNK, M2C_UNK);
 
 void draw_status__20TWindowSubStatusDispFiii(s32 arg1, s32 arg2, s32 arg3) {
-    TWindowSubStatusDisp__sub_802673A8(arg1, 0, arg2, arg3, 0, 1);
+    append_entry__20TWindowSubStatusDispFPviiiii(arg1, 0, arg2, arg3, 0, 1);
 }
 
 void dispatch_without_flags__20TWindowSubStatusDispFiii(s32 arg1, s32 arg2, s32 arg3) {
-    TWindowSubStatusDisp__sub_802673A8(arg1, 0, arg2, arg3, 0, 0);
+    append_entry__20TWindowSubStatusDispFPviiiii(arg1, 0, arg2, arg3, 0, 0);
 }
 
 void sync_level_field__20TWindowSubStatusDispFPv(void *arg0) {
@@ -25,7 +25,7 @@ void sync_level_field__20TWindowSubStatusDispFPv(void *arg0) {
 
     if (M2C_FIELD(arg0, s16 *, 0x88) != (temp_r4 = M2C_FIELD(arg0, s16 *, 0x74))) {
         M2C_FIELD(arg0, s16 *, 0x88) = temp_r4;
-        TWindowSubStatusDisp__sub_802671F0(arg0, 1);
+        advance_all_entries__20TWindowSubStatusDispFPvi(arg0, 1);
     }
 }
 

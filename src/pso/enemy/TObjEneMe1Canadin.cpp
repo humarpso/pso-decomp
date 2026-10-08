@@ -522,7 +522,7 @@ void enemy_copy_target_destination(void *);
 s32 update_linked_position__14TObjEneEpsilonFPv(void *, f32);
 M2C_UNK update_velocity__9TObjEneDDFPv(void *);
 f32 calc_elapsed_scaled__9TObjEneDDFv(void *);
-M2C_UNK TObjEneDD__sub_800BABCC(void *, f32, f32, f32);
+M2C_UNK move_to_wall_clamped_destination__9TObjEneDDFPvfff(void *, f32, f32, f32);
 M2C_UNK set_field_378__9TObjEneDDFPvi(void *, s32);
 M2C_UNK advance_animation_playback();
 f32 subtract_vector(void *, void *);
@@ -4110,7 +4110,7 @@ void TObjEneMe1Canadin__sub_8009C91C(void *arg0, s32 arg1) {
                     v.z = dir->z * o->dist + o->base.z;
                     subtract_vector(&v, &o->pos38);
                     c = clamp_velocity__15TObjBoss2TunnelFPv(&v);
-                    TObjEneDD__sub_800BABCC(o, v.x, v.z, c);
+                    move_to_wall_clamped_destination__9TObjEneDDFPvfff(o, v.x, v.z, c);
                 }
                 o->angle = (s32)(lbl_8043A3C8 * get_ad_end_text_start__10TObjPlayerFv(dir->x, dir->z)) + 0x8000;
                 TObjEneMe1Canadin__sub_8009FADC(o->f408, TObjEneMe1Canadin__data_805D98B4, o->f414, o->f4B4);

@@ -48,7 +48,7 @@ f32 vector_length(void *);
 void subtract_vector(void *, void *);
 void normalize_vector(void *);
 s32 project_actor_to_ground(void *, void *, int);
-int TBoss6GravBall__sub_803231D0(void*, void*);
+int destroy_part__14TBoss6GravBallFii(void*, void*);
 M2C_UNK create_emitter__14TBoss6GravBallFii(void *, int);
 u16 obj_getField1c(void *);
 s32 is_active__14TBoss6PlotFalzFPv(void *);
@@ -69,7 +69,7 @@ f32 vector_length(void *);
 void subtract_vector(void *, void *);
 void normalize_vector(void *);
 s32 project_actor_to_ground(void *, void *, int);
-int TBoss6GravBall__sub_803231D0(void*, void*);
+int destroy_part__14TBoss6GravBallFii(void*, void*);
 M2C_UNK create_emitter__14TBoss6GravBallFii(void *, int);
 u16 obj_getField1c(void *);
 s32 is_active__14TBoss6PlotFalzFPv(void *);
@@ -89,7 +89,7 @@ void TBoss6GravBall__sub_80323544(u8 *self);
 extern "C" {
 
 void update_lifetime__14TBoss6GravBallFPv(void *arg0);
-int TBoss6GravBall__sub_803231D0(void*, void*);
+int destroy_part__14TBoss6GravBallFii(void*, void*);
 void init_parts__14TBoss6GravBallFPv(void* p);
 void render__14TBoss6GravBallFv(void);
 
@@ -119,7 +119,7 @@ void TBoss6GravBall__sub_803233AC(u8 *self) {
         pl = (PL_803233AC *)get_player_data__10TObjPlayerFi(i);
         id = obj_getField1c(pl) + 5;
         if (is_active__14TBoss6PlotFalzFPv(pl) == 0) {
-            TBoss6GravBall__sub_803231D0(self, (void *)id);
+            destroy_part__14TBoss6GravBallFii(self, (void *)id);
             continue;
         }
         flag = 0;
@@ -128,7 +128,7 @@ void TBoss6GravBall__sub_803233AC(u8 *self) {
         v.y = TBoss6GravBall__data_805DF550;
         d = vector_length(&v);
         if (d > lbl_805DF554) {
-            TBoss6GravBall__sub_803231D0(self, (void *)id);
+            destroy_part__14TBoss6GravBallFii(self, (void *)id);
             continue;
         }
         if (d <= TBoss6GravBall__data_805DF558) {
@@ -169,7 +169,7 @@ void TBoss6GravBall__sub_80323544(u8 *self) {
         pl = (PL_80323544 *)get_player_data__10TObjPlayerFi(i);
         id = obj_getField1c(pl) + 5;
         if (is_active__14TBoss6PlotFalzFPv(pl) == 0) {
-            TBoss6GravBall__sub_803231D0(self, (void *)id);
+            destroy_part__14TBoss6GravBallFii(self, (void *)id);
             continue;
         }
         flag = 1;
@@ -185,7 +185,7 @@ void TBoss6GravBall__sub_80323544(u8 *self) {
         if (d > TBoss6GravBall__data_805DF558) {
             f32 s;
             if (*(u32 *)(self + 0xC0) & 1) {
-                TBoss6GravBall__sub_803231D0(self, (void *)id);
+                destroy_part__14TBoss6GravBallFii(self, (void *)id);
                 continue;
             }
             s = lbl_805DF564 * (*(f32 *)(self + 0xBC) * (lbl_805DF568 - d / lbl_805DF56C));

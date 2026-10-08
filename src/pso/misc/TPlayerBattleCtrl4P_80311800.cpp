@@ -25,7 +25,7 @@ void TPlayerBattleCtrl4P__vt23(u8 *arg0);
 u32 get_player_by_client_id(s32);
 s32 check_player_flag1__6TLobbyFPv();
 M2C_UNK release_attached_resource__10TObjPlayerFPv(int);
-int TPlayerBattleCtrl4P__sub_803101D4(void*);
+int close_player_windows__19TPlayerBattleCtrl4PFPv(void*);
 M2C_UNK TPlayerBattleCtrl4P__sub_80310230(void *);
 M2C_UNK remove_player__19TPlayerBattleCtrl4PFPvUsi(void *, int, int);
 int set_score__19TPlayerBattleCtrl4PFPvi(void*, void*);
@@ -55,7 +55,7 @@ M2C_UNK send_and_handle__6TLobbyFPvii(void *, s32, int);
 void *set_window_mode_4__6TLobbyFPvii(void *, void *, int);
 void *get_window_layout_position(int);
 M2C_UNK TPlayerBattleCtrl4P__sub_803112AC(void *, int);
-M2C_UNK TPlayerBattleCtrl4P__sub_80311400(void *);
+M2C_UNK shuffle_order__19TPlayerBattleCtrl4PFPv(void *);
 extern u8 lbl_80475B70[];
 extern s32 lbl_805D53A0;
 void TPlayerBattleCtrl4P__vt22(O_80311C2C *o);
@@ -72,8 +72,8 @@ void TPlayerBattleCtrl4P__vt31(void *arg0);
 void obj_clear_flag30_20000(u32);
 u32 get_player_by_client_id(s32);
 M2C_UNK TWindow__close(void *);
-void TWindowCtrl__sub_8024A4EC();
-int TPlayerBattleCtrl4P__sub_803101D4(void*);
+void close_timer_window__11TWindowCtrlFv();
+int close_player_windows__19TPlayerBattleCtrl4PFPv(void*);
 M2C_UNK remove_player__19TPlayerBattleCtrl4PFPvUsi(void *, int, int);
 void TPlayerBattleCtrl4P__vt26(Ctl_803119BC *arg0);
 }
@@ -91,7 +91,7 @@ void TPlayerBattleCtrl4P__vt33(void);
 void reset_random_enemies_mode__19TPlayerBattleCtrl4PFv(void);
 int TKeyBoardControl__sub_8000F950(void);
 u32 get_player_by_client_id(s32);
-int TPlayerBattleCtrl4P__sub_8031012C(void*);
+int close_windows_on_button__19TPlayerBattleCtrl4PFPv(void*);
 M2C_UNK reset_players__19TPlayerBattleCtrl4PFPv();
 s32 TWindowShortListCtrl__check_controller_button(void *, M2C_UNK);
 void *__nw__7TObjectFUl(int);
@@ -182,14 +182,14 @@ void TPlayerBattleCtrl4P__vt26(Ctl_803119BC *arg0) {
         TWindow__close(arg0->w24);
         arg0->w24 = NULL;
     }
-    TPlayerBattleCtrl4P__sub_803101D4((void*)(arg0));
+    close_player_windows__19TPlayerBattleCtrl4PFPv((void*)(arg0));
     for (i = 0; i < 4; i++) {
         p = get_player_by_client_id(i);
         if (p != 0) {
             obj_clear_flag30_20000(p);
         }
     }
-    TWindowCtrl__sub_8024A4EC();
+    close_timer_window__11TWindowCtrlFv();
     for (i = 0; i < 4; i++) {
         ((s32 (*)(void *, u16, int))remove_player__19TPlayerBattleCtrl4PFPvUsi)(arg0, i, 1);
     }
@@ -262,7 +262,7 @@ void TPlayerBattleCtrl4P__vt22(O_80311C2C *o) {
             if (is_visible__17TWindowSubComCardFPv(o->w1) != 0) {
                 switch (get_selected_menu_value(o->w1)) {
                 case 1:
-                    TPlayerBattleCtrl4P__sub_80311400(o);
+                    shuffle_order__19TPlayerBattleCtrl4PFPv(o);
                     break;
                 case 2:
                     break;
@@ -277,7 +277,7 @@ void TPlayerBattleCtrl4P__vt22(O_80311C2C *o) {
     }
 }
 
-void TPlayerBattleCtrl4P__vt21(void* p) { if (TPlayerBattleCtrl4P__sub_8031012C(p) != 0) { TPlayerBattleCtrl4P__sub_803101D4((void*)(p)); update_players__19TPlayerBattleCtrl4PFv(p); set_score__19TPlayerBattleCtrl4PFPvi((void*)(p), (void*)((void*)5)); } }
+void TPlayerBattleCtrl4P__vt21(void* p) { if (close_windows_on_button__19TPlayerBattleCtrl4PFPv(p) != 0) { close_player_windows__19TPlayerBattleCtrl4PFPv((void*)(p)); update_players__19TPlayerBattleCtrl4PFv(p); set_score__19TPlayerBattleCtrl4PFPvi((void*)(p), (void*)((void*)5)); } }
 #pragma scheduling off
 void TPlayerBattleCtrl4P__vt20(s32 arg0) {
   u32 var_r31;
@@ -285,7 +285,7 @@ void TPlayerBattleCtrl4P__vt20(s32 arg0) {
   if (!arg0)
   {
   }
-  TPlayerBattleCtrl4P__sub_803101D4((void*)(arg0));
+  close_player_windows__19TPlayerBattleCtrl4PFPv((void*)(arg0));
   TPlayerBattleCtrl4P__sub_80310230((void *) arg0);
   var_r31 = 0;
   do

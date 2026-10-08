@@ -13,7 +13,7 @@ M2C_UNK draw_textured_quad_at_depth(void *, f32);
 M2C_UNK set_draw_texture_and_color(s32, M2C_UNK);
 extern s32 TEndingAB__data_805D4F10;
 extern const f32 lbl_805D9580;
-void TEndingAB__sub_8008CB54(u8 *arg0);
+void draw_overlay__9TEndingABFPv(u8 *arg0);
 extern s32 lbl_805D5550;
 extern s32 lbl_805D4F14;
 s32 set_global_param__8TObjFishFi(s32);
@@ -89,7 +89,7 @@ void advance_fade_sequence__9TEndingABFPv(void *arg0) {
 }
 #pragma push
 #pragma fp_contract on
-void TEndingAB__sub_8008CB54(u8 *arg0) {
+void draw_overlay__9TEndingABFPv(u8 *arg0) {
     switch ((s32) TEndingAB__data_805D4F10) {
     case 1:
     case 3:

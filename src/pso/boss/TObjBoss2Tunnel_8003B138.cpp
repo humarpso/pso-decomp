@@ -40,7 +40,7 @@ struct Tunnel_8003B2EC {
 
 extern "C" {
 void TObjBoss2Tunnel__sub_8003B250(u32, f32);
-s32 TAdLoadQuestPrtTxtGC__sub_80086E28(void *, s32, s32);
+s32 create_particle__20TAdLoadQuestPrtTxtGCFPvii(void *, s32, s32);
 void enable__13TParticleCtrlFPv(void *);
 extern Rec_8003C108 lbl_80483590[];
 extern const f32 lbl_805D85B0;
@@ -196,7 +196,7 @@ void TObjBoss2Tunnel__sub_8003C108(S_8003C108 *o) {
     for (i = 0; i < 4; i++) {
         p = o->ptr[i];
         if (p == 0) {
-            r = TAdLoadQuestPrtTxtGC__sub_80086E28(&lbl_80483590[i], 0x171, 1);
+            r = create_particle__20TAdLoadQuestPrtTxtGCFPvii(&lbl_80483590[i], 0x171, 1);
             if (r != 0) {
                 enable__13TParticleCtrlFPv((void *)r);
                 o->ptr[i] = r;

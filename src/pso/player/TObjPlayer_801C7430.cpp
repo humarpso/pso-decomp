@@ -1376,7 +1376,7 @@ void set__10TObjRoomIdFPvs(void *, s16);
 s16 get_stat_by_key_state__10TObjPlayerFPv(void *);
 s32 TKeyBoardControl__sub_801A58B0();
 s32 TKeyBoardControl__sub_801A58D8();
-s32 TKeyBoardControl__sub_801A5998(int);
+s32 is_key_down__16TKeyBoardControlFi(int);
 s32 check_input_angle__16TKeyBoardControlFPv(void *);
 void init_stick_escape_detector(void *, s32);
 M2C_UNK admit_photon_blast_sequence(s32, s32);
@@ -1540,14 +1540,14 @@ void TObjPlayer__sub_801C8A24(void);
 void TObjPlayer__sub_801C8A28(s32 arg0, s16 arg1);
 void start_action_21__10TObjPlayerFPv(void *arg0);
 void handle_6x56_set_player_position_and_angle(void *arg0);
-void TObjPlayer__sub_801C8BE8(u8 *arg0);
+void send_position_update__10TObjPlayerFPv(u8 *arg0);
 void TObjPlayer__sub_801C8C50(s32 arg0, s16 arg1);
 void send_6x55_intra_map_warp(u16 id, void *pos, s32 c);
 void init_flags_vec4__10TObjPlayerFPv(void* p);
 void update_warp_relocation__10TObjPlayerFv(u8 *arg0);
 void set_dead_state__10TObjPlayerFPv(void *arg0);
 void handle_6x55_intra_map_warp(s32 arg0);
-void TObjPlayer__sub_801C9084(u8 *arg0);
+void send_warp_position__10TObjPlayerFPv(u8 *arg0);
 void TObjPlayer__sub_801C90F8(void);
 void check_state_dead__10TObjPlayerFPv(void* p);
 void TObjPlayer__sub_801C9128(void);
@@ -2032,7 +2032,7 @@ s16 get_section_clamped__10TObjPlayerFPv(void *techs);
 s16 get_or_init_field_4__10TObjPlayerFPv(void *techs);
 void split_capped_value__10TObjPlayerFUcPvPv(u8 v, void *a, void *b);
 s32 get_valid_technique__10TObjPlayerFPv(void *);
-u8 TObjPlayer__sub_801D96CC(void *techs);
+u8 get_castable_technique_level__10TObjPlayerFPv(void *techs);
 u8 get_cast_technique_level(void *techs, s16 tech);
 M2C_UNK set_technique_level_entry(s32, s32, u8);
 s32 validate_and_clear_slot__10TObjPlayerFPv(void *techs, s16 tech);
@@ -2062,7 +2062,7 @@ s32 check_hit_by_id__10TObjPlayerFiii(s32, s32, s32);
 M2C_UNK release_photon_blast_requests(u32);
 u8 * TObjPlayer__sub_80312CCC(void *, int);
 void create_party_effects__10TObjPlayerFPvi(void *, s32);
-s32 TObjPlayer__sub_80312E0C(void*);
+s32 find_first_valid_target_id__10TObjPlayerFPv(void*);
 void TObjPlayer__sub_80312E98(void *, s32);
 M2C_UNK TObjPlayer__sub_80312F0C(void*);
 M2C_UNK append_photon_blast_request(u32, s32, s32);
@@ -2288,8 +2288,8 @@ void TObjPlayer__sub_801C7874(u8 *arg0) {
     f32 amount;
     if (check_flag_100__10TObjPlayerFPv(arg0) == 0 && ((Player_801C7874 *)arg0)->f328 != 0 &&
         (check_action_usable__10TObjPlayerFPvi(arg0 + 0x550, 2) != 0 ||
-         (((s32 (*)(void *))is_action_flag_28__10TObjPlayerFPv)(arg0) == 0 && TKeyBoardControl__sub_801A58B0() != 0 && TKeyBoardControl__sub_801A5998(0x24) != 0) ||
-         (((s32 (*)(void *))is_action_flag_28__10TObjPlayerFPv)(arg0) != 0 && TKeyBoardControl__sub_801A58B0() != 0 && TKeyBoardControl__sub_801A5998(0x18) != 0))) {
+         (((s32 (*)(void *))is_action_flag_28__10TObjPlayerFPv)(arg0) == 0 && TKeyBoardControl__sub_801A58B0() != 0 && is_key_down__16TKeyBoardControlFi(0x24) != 0) ||
+         (((s32 (*)(void *))is_action_flag_28__10TObjPlayerFPv)(arg0) != 0 && TKeyBoardControl__sub_801A58B0() != 0 && is_key_down__16TKeyBoardControlFi(0x18) != 0))) {
         ((M2C_UNK (*)(void *, int, int))run_action_state_phase__10TObjPlayerFisi)(arg0, 1, 5);
         return;
     }
@@ -2413,196 +2413,196 @@ s16 select_idle_action__10TObjPlayerFv(u8 *arg0) {
         return -1;
     }
     if ((get_hold_effect_count__10TObjPlayerFv() == 0) && (is_lobby_floor_15__15TFontSmallLobbyFv() != 0)) {
-        if (((TKeyBoardControl__sub_801A58B0() != 0) && (TKeyBoardControl__sub_801A5998((int) (0x24)) != 0)) || ((check_flag_100__10TObjPlayerFPv((void *) (arg0)) == 0) && (try_ground_action__10TObjPlayerFPvi((void *) (arg0 + 0x550), (int) (0x400)) != 0) && (check_action_usable__10TObjPlayerFPvi((void *) (arg0 + 0x550), (int) (4)) != 0))) {
+        if (((TKeyBoardControl__sub_801A58B0() != 0) && (is_key_down__16TKeyBoardControlFi((int) (0x24)) != 0)) || ((check_flag_100__10TObjPlayerFPv((void *) (arg0)) == 0) && (try_ground_action__10TObjPlayerFPvi((void *) (arg0 + 0x550), (int) (0x400)) != 0) && (check_action_usable__10TObjPlayerFPvi((void *) (arg0 + 0x550), (int) (4)) != 0))) {
             temp_r3_48 = (u8 *)(M2C_FIELD(arg0, u8 **, 0x380));
             return ((VObj_8_1cc697 *)(temp_r3_48))->m65();
         }
-        if (((TKeyBoardControl__sub_801A58B0() != 0) && (TKeyBoardControl__sub_801A5998((int) (0x18)) != 0)) || ((check_flag_100__10TObjPlayerFPv((void *) (arg0)) == 0) && (try_ground_action__10TObjPlayerFPvi((void *) (arg0 + 0x550), (int) (0x400)) != 0) && (check_action_usable__10TObjPlayerFPvi((void *) (arg0 + 0x550), (int) (2)) != 0))) {
+        if (((TKeyBoardControl__sub_801A58B0() != 0) && (is_key_down__16TKeyBoardControlFi((int) (0x18)) != 0)) || ((check_flag_100__10TObjPlayerFPv((void *) (arg0)) == 0) && (try_ground_action__10TObjPlayerFPvi((void *) (arg0 + 0x550), (int) (0x400)) != 0) && (check_action_usable__10TObjPlayerFPvi((void *) (arg0 + 0x550), (int) (2)) != 0))) {
             temp_r3_47 = (u8 *)(M2C_FIELD(arg0, u8 **, 0x380));
             return ((VObj_8_1cc697 *)(temp_r3_47))->m66();
         }
         if (TKeyBoardControl__sub_801A58B0() != 0) {
-            if (TKeyBoardControl__sub_801A5998((int) (0x40)) != 0) {
+            if (is_key_down__16TKeyBoardControlFi((int) (0x40)) != 0) {
                 temp_r3_46 = (u8 *)(M2C_FIELD(arg0, u8 **, 0x380));
                 return ((VObj_8_1cc697 *)(temp_r3_46))->m22();
             }
-            if (TKeyBoardControl__sub_801A5998((int) (0x41)) != 0) {
+            if (is_key_down__16TKeyBoardControlFi((int) (0x41)) != 0) {
                 temp_r3_45 = (u8 *)(M2C_FIELD(arg0, u8 **, 0x380));
                 return ((VObj_8_1cc697 *)(temp_r3_45))->m24();
             }
-            if (TKeyBoardControl__sub_801A5998((int) (0x42)) != 0) {
+            if (is_key_down__16TKeyBoardControlFi((int) (0x42)) != 0) {
                 temp_r3_44 = (u8 *)(M2C_FIELD(arg0, u8 **, 0x380));
                 return ((VObj_8_1cc697 *)(temp_r3_44))->m26();
             }
-            if (TKeyBoardControl__sub_801A5998((int) (0x43)) != 0) {
+            if (is_key_down__16TKeyBoardControlFi((int) (0x43)) != 0) {
                 temp_r3_43 = (u8 *)(M2C_FIELD(arg0, u8 **, 0x380));
                 return ((VObj_8_1cc697 *)(temp_r3_43))->m19();
             }
-            if (TKeyBoardControl__sub_801A5998((int) (0x44)) != 0) {
+            if (is_key_down__16TKeyBoardControlFi((int) (0x44)) != 0) {
                 temp_r3_42 = (u8 *)(M2C_FIELD(arg0, u8 **, 0x380));
                 return ((VObj_8_1cc697 *)(temp_r3_42))->m29();
             }
-            if (TKeyBoardControl__sub_801A5998((int) (0x45)) != 0) {
+            if (is_key_down__16TKeyBoardControlFi((int) (0x45)) != 0) {
                 temp_r3_41 = (u8 *)(M2C_FIELD(arg0, u8 **, 0x380));
                 return ((VObj_8_1cc697 *)(temp_r3_41))->m30();
             }
-            if (TKeyBoardControl__sub_801A5998((int) (0x46)) != 0) {
+            if (is_key_down__16TKeyBoardControlFi((int) (0x46)) != 0) {
                 temp_r3_40 = (u8 *)(M2C_FIELD(arg0, u8 **, 0x380));
                 return ((VObj_8_1cc697 *)(temp_r3_40))->m31();
             }
-            if (TKeyBoardControl__sub_801A5998((int) (0x47)) != 0) {
+            if (is_key_down__16TKeyBoardControlFi((int) (0x47)) != 0) {
                 temp_r3_39 = (u8 *)(M2C_FIELD(arg0, u8 **, 0x380));
                 return ((VObj_8_1cc697 *)(temp_r3_39))->m32();
             }
-            if (TKeyBoardControl__sub_801A5998((int) (0x48)) != 0) {
+            if (is_key_down__16TKeyBoardControlFi((int) (0x48)) != 0) {
                 temp_r3_38 = (u8 *)(M2C_FIELD(arg0, u8 **, 0x380));
                 return ((VObj_8_1cc697 *)(temp_r3_38))->m33();
             }
-            if (TKeyBoardControl__sub_801A5998((int) (0x49)) != 0) {
+            if (is_key_down__16TKeyBoardControlFi((int) (0x49)) != 0) {
                 temp_r3_37 = (u8 *)(M2C_FIELD(arg0, u8 **, 0x380));
                 return ((VObj_8_1cc697 *)(temp_r3_37))->m34();
             }
-            if (TKeyBoardControl__sub_801A5998((int) (0x4A)) != 0) {
+            if (is_key_down__16TKeyBoardControlFi((int) (0x4A)) != 0) {
                 temp_r3_36 = (u8 *)(M2C_FIELD(arg0, u8 **, 0x380));
                 return ((VObj_8_1cc697 *)(temp_r3_36))->m35();
             }
-            if (TKeyBoardControl__sub_801A5998((int) (0x4B)) != 0) {
+            if (is_key_down__16TKeyBoardControlFi((int) (0x4B)) != 0) {
                 temp_r3_35 = (u8 *)(M2C_FIELD(arg0, u8 **, 0x380));
                 return ((VObj_8_1cc697 *)(temp_r3_35))->m36();
             }
-            if (TKeyBoardControl__sub_801A5998((int) (0x1C)) != 0) {
+            if (is_key_down__16TKeyBoardControlFi((int) (0x1C)) != 0) {
                 temp_r3_34 = (u8 *)(M2C_FIELD(arg0, u8 **, 0x380));
                 return ((VObj_8_1cc697 *)(temp_r3_34))->m25();
             }
-            if (TKeyBoardControl__sub_801A5998((int) (0x2E)) != 0) {
+            if (is_key_down__16TKeyBoardControlFi((int) (0x2E)) != 0) {
                 temp_r3_33 = (u8 *)(M2C_FIELD(arg0, u8 **, 0x380));
                 return ((VObj_8_1cc697 *)(temp_r3_33))->m18();
             }
-            if (TKeyBoardControl__sub_801A5998((int) (0x2F)) != 0) {
+            if (is_key_down__16TKeyBoardControlFi((int) (0x2F)) != 0) {
                 temp_r3_32 = (u8 *)(M2C_FIELD(arg0, u8 **, 0x380));
                 return ((VObj_8_1cc697 *)(temp_r3_32))->m37();
             }
-            if (TKeyBoardControl__sub_801A5998((int) (0x30)) != 0) {
+            if (is_key_down__16TKeyBoardControlFi((int) (0x30)) != 0) {
                 temp_r3_31 = (u8 *)(M2C_FIELD(arg0, u8 **, 0x380));
                 return ((VObj_8_1cc697 *)(temp_r3_31))->m38();
             }
-            if (TKeyBoardControl__sub_801A5998((int) (0x31)) != 0) {
+            if (is_key_down__16TKeyBoardControlFi((int) (0x31)) != 0) {
                 temp_r3_30 = (u8 *)(M2C_FIELD(arg0, u8 **, 0x380));
                 return ((VObj_8_1cc697 *)(temp_r3_30))->m39();
             }
-            if (TKeyBoardControl__sub_801A5998((int) (0x32)) != 0) {
+            if (is_key_down__16TKeyBoardControlFi((int) (0x32)) != 0) {
                 temp_r3_29 = (u8 *)(M2C_FIELD(arg0, u8 **, 0x380));
                 return ((VObj_8_1cc697 *)(temp_r3_29))->m40();
             }
-            if (TKeyBoardControl__sub_801A5998((int) (0x33)) != 0) {
+            if (is_key_down__16TKeyBoardControlFi((int) (0x33)) != 0) {
                 temp_r3_28 = (u8 *)(M2C_FIELD(arg0, u8 **, 0x380));
                 return ((VObj_8_1cc697 *)(temp_r3_28))->m41();
             }
-            if (TKeyBoardControl__sub_801A5998((int) (0x17)) != 0) {
+            if (is_key_down__16TKeyBoardControlFi((int) (0x17)) != 0) {
                 temp_r3_27 = (u8 *)(M2C_FIELD(arg0, u8 **, 0x380));
                 return ((VObj_8_1cc697 *)(temp_r3_27))->m42();
             }
-            if (TKeyBoardControl__sub_801A5998((int) (0x11)) != 0) {
+            if (is_key_down__16TKeyBoardControlFi((int) (0x11)) != 0) {
                 temp_r3_26 = (u8 *)(M2C_FIELD(arg0, u8 **, 0x380));
                 return ((VObj_8_1cc697 *)(temp_r3_26))->m43();
             }
-            if (TKeyBoardControl__sub_801A5998((int) (0x1E)) != 0) {
+            if (is_key_down__16TKeyBoardControlFi((int) (0x1E)) != 0) {
                 temp_r3_25 = (u8 *)(M2C_FIELD(arg0, u8 **, 0x380));
                 return ((VObj_8_1cc697 *)(temp_r3_25))->m44();
             }
-            if (TKeyBoardControl__sub_801A5998((int) (0x1D)) != 0) {
+            if (is_key_down__16TKeyBoardControlFi((int) (0x1D)) != 0) {
                 temp_r3_24 = (u8 *)(M2C_FIELD(arg0, u8 **, 0x380));
                 return ((VObj_8_1cc697 *)(temp_r3_24))->m45();
             }
-            if (TKeyBoardControl__sub_801A5998((int) (0x20)) != 0) {
+            if (is_key_down__16TKeyBoardControlFi((int) (0x20)) != 0) {
                 temp_r3_23 = (u8 *)(M2C_FIELD(arg0, u8 **, 0x380));
                 return ((VObj_8_1cc697 *)(temp_r3_23))->m46();
             }
-            if (TKeyBoardControl__sub_801A5998((int) (0x19)) != 0) {
+            if (is_key_down__16TKeyBoardControlFi((int) (0x19)) != 0) {
                 temp_r3_22 = (u8 *)(M2C_FIELD(arg0, u8 **, 0x380));
                 return ((VObj_8_1cc697 *)(temp_r3_22))->m47();
             }
-            if (TKeyBoardControl__sub_801A5998((int) (0x21)) != 0) {
+            if (is_key_down__16TKeyBoardControlFi((int) (0x21)) != 0) {
                 temp_r3_21 = (u8 *)(M2C_FIELD(arg0, u8 **, 0x380));
                 return ((VObj_8_1cc697 *)(temp_r3_21))->m48();
             }
-            if (TKeyBoardControl__sub_801A5998((int) (0x1A)) != 0) {
+            if (is_key_down__16TKeyBoardControlFi((int) (0x1A)) != 0) {
                 temp_r3_20 = (u8 *)(M2C_FIELD(arg0, u8 **, 0x380));
                 return ((VObj_8_1cc697 *)(temp_r3_20))->m49();
             }
-            if (TKeyBoardControl__sub_801A5998((int) (0x26)) != 0) {
+            if (is_key_down__16TKeyBoardControlFi((int) (0x26)) != 0) {
                 temp_r3_19 = (u8 *)(M2C_FIELD(arg0, u8 **, 0x380));
                 return ((VObj_8_1cc697 *)(temp_r3_19))->m50();
             }
-            if (TKeyBoardControl__sub_801A5998((int) (0x22)) != 0) {
+            if (is_key_down__16TKeyBoardControlFi((int) (0x22)) != 0) {
                 temp_r3_18 = (u8 *)(M2C_FIELD(arg0, u8 **, 0x380));
                 return ((VObj_8_1cc697 *)(temp_r3_18))->m51();
             }
-            if (TKeyBoardControl__sub_801A5998((int) (0x23)) != 0) {
+            if (is_key_down__16TKeyBoardControlFi((int) (0x23)) != 0) {
                 temp_r3_17 = (u8 *)(M2C_FIELD(arg0, u8 **, 0x380));
                 return ((VObj_8_1cc697 *)(temp_r3_17))->m52();
             }
-            if (TKeyBoardControl__sub_801A5998((int) (0x12)) != 0) {
+            if (is_key_down__16TKeyBoardControlFi((int) (0x12)) != 0) {
                 temp_r3_16 = (u8 *)(M2C_FIELD(arg0, u8 **, 0x380));
                 return ((VObj_8_1cc697 *)(temp_r3_16))->m53();
             }
-            if (TKeyBoardControl__sub_801A5998((int) (0x13)) != 0) {
+            if (is_key_down__16TKeyBoardControlFi((int) (0x13)) != 0) {
                 temp_r3_15 = (u8 *)(M2C_FIELD(arg0, u8 **, 0x380));
                 return ((VObj_8_1cc697 *)(temp_r3_15))->m54();
             }
-            if (TKeyBoardControl__sub_801A5998((int) (0x15)) != 0) {
+            if (is_key_down__16TKeyBoardControlFi((int) (0x15)) != 0) {
                 temp_r3_14 = (u8 *)(M2C_FIELD(arg0, u8 **, 0x380));
                 return ((VObj_8_1cc697 *)(temp_r3_14))->m55();
             }
-            if (TKeyBoardControl__sub_801A5998((int) (0x16)) != 0) {
+            if (is_key_down__16TKeyBoardControlFi((int) (0x16)) != 0) {
                 temp_r3_13 = (u8 *)(M2C_FIELD(arg0, u8 **, 0x380));
                 return ((VObj_8_1cc697 *)(temp_r3_13))->m56();
             }
-            if (TKeyBoardControl__sub_801A5998((int) (0x28)) != 0) {
+            if (is_key_down__16TKeyBoardControlFi((int) (0x28)) != 0) {
                 temp_r3_12 = (u8 *)(M2C_FIELD(arg0, u8 **, 0x380));
                 return ((VObj_8_1cc697 *)(temp_r3_12))->m57();
             }
-            if (TKeyBoardControl__sub_801A5998((int) (0x1F)) != 0) {
+            if (is_key_down__16TKeyBoardControlFi((int) (0x1F)) != 0) {
                 temp_r3_11 = (u8 *)(M2C_FIELD(arg0, u8 **, 0x380));
                 return ((VObj_8_1cc697 *)(temp_r3_11))->m58();
             }
-            if (TKeyBoardControl__sub_801A5998((int) (0x10)) != 0) {
+            if (is_key_down__16TKeyBoardControlFi((int) (0x10)) != 0) {
                 temp_r3_10 = (u8 *)(M2C_FIELD(arg0, u8 **, 0x380));
                 return ((VObj_8_1cc697 *)(temp_r3_10))->m59();
             }
-            if (TKeyBoardControl__sub_801A5998((int) (0x14)) != 0) {
+            if (is_key_down__16TKeyBoardControlFi((int) (0x14)) != 0) {
                 temp_r3_9 = (u8 *)(M2C_FIELD(arg0, u8 **, 0x380));
                 return ((VObj_8_1cc697 *)(temp_r3_9))->m60();
             }
-            if (TKeyBoardControl__sub_801A5998((int) (0x29)) != 0) {
+            if (is_key_down__16TKeyBoardControlFi((int) (0x29)) != 0) {
                 temp_r3_8 = (u8 *)(M2C_FIELD(arg0, u8 **, 0x380));
                 return ((VObj_8_1cc697 *)(temp_r3_8))->m61();
             }
-            if (TKeyBoardControl__sub_801A5998((int) (0x27)) != 0) {
+            if (is_key_down__16TKeyBoardControlFi((int) (0x27)) != 0) {
                 temp_r3_7 = (u8 *)(M2C_FIELD(arg0, u8 **, 0x380));
                 return ((VObj_8_1cc697 *)(temp_r3_7))->m62();
             }
-            if (TKeyBoardControl__sub_801A5998((int) (0x25)) != 0) {
+            if (is_key_down__16TKeyBoardControlFi((int) (0x25)) != 0) {
                 temp_r3_6 = (u8 *)(M2C_FIELD(arg0, u8 **, 0x380));
                 return ((VObj_8_1cc697 *)(temp_r3_6))->m63();
             }
-            if (TKeyBoardControl__sub_801A5998((int) (0x1B)) != 0) {
+            if (is_key_down__16TKeyBoardControlFi((int) (0x1B)) != 0) {
                 temp_r3_5 = (u8 *)(M2C_FIELD(arg0, u8 **, 0x380));
                 return ((VObj_8_1cc697 *)(temp_r3_5))->m64();
             }
-            if (TKeyBoardControl__sub_801A5998((int) (0x2A)) != 0) {
+            if (is_key_down__16TKeyBoardControlFi((int) (0x2A)) != 0) {
                 temp_r3_4 = (u8 *)(M2C_FIELD(arg0, u8 **, 0x380));
                 return ((VObj_8_1cc697 *)(temp_r3_4))->m67();
             }
-            if (TKeyBoardControl__sub_801A5998((int) (0x2B)) != 0) {
+            if (is_key_down__16TKeyBoardControlFi((int) (0x2B)) != 0) {
                 temp_r3_3 = (u8 *)(M2C_FIELD(arg0, u8 **, 0x380));
                 return ((VObj_8_1cc697 *)(temp_r3_3))->m68();
             }
-            if (TKeyBoardControl__sub_801A5998((int) (0x2C)) != 0) {
+            if (is_key_down__16TKeyBoardControlFi((int) (0x2C)) != 0) {
                 temp_r3_2 = (u8 *)(M2C_FIELD(arg0, u8 **, 0x380));
                 return ((VObj_8_1cc697 *)(temp_r3_2))->m69();
             }
-            if (TKeyBoardControl__sub_801A5998((int) (0x2D)) != 0) {
+            if (is_key_down__16TKeyBoardControlFi((int) (0x2D)) != 0) {
                 temp_r3 = (u8 *)(M2C_FIELD(arg0, u8 **, 0x380));
                 return ((VObj_8_1cc697 *)(temp_r3))->m70();
             }
@@ -2924,7 +2924,7 @@ void handle_6x56_set_player_position_and_angle(void *arg0) {
     }
 }
 
-void TObjPlayer__sub_801C8BE8(u8 *arg0) {
+void send_position_update__10TObjPlayerFPv(u8 *arg0) {
     struct Pkt_801C8BE8 pkt;
     if (arg0 == NULL || ((s32 (*)(void))obj_isState2_324)() == 0) {
         init_position_packet__10TObjPlayerFPv(&pkt);
@@ -2952,7 +2952,7 @@ void TObjPlayer__sub_801C8C50(s32 arg0, s16 arg1) {
         ((s32 (*)(void))TObjPlayer__sub_801C90F8)();
         return;
       case 5:
-        TObjPlayer__sub_801C8BE8((u8 *)((void *) arg0));
+        send_position_update__10TObjPlayerFPv((u8 *)((void *) arg0));
         return;
       case 0:
         ((s32 (*)(void *))start_action_21__10TObjPlayerFPv)((void *) arg0);
@@ -3072,7 +3072,7 @@ void handle_6x55_intra_map_warp(s32 arg0) {
     }
 }
 
-void TObjPlayer__sub_801C9084(u8 *arg0) {
+void send_warp_position__10TObjPlayerFPv(u8 *arg0) {
     struct Pkt_801C9084 pkt;
     if (arg0 == NULL || ((s32 (*)(void))obj_isState2_324)() == 0) {
         TObjPlayer__sub_801D1658(&pkt);
@@ -3111,7 +3111,7 @@ void run_warp_action_phase__10TObjPlayerFis(s32 arg0, s16 arg1) {
         ((s32 (*)(void))TObjPlayer__sub_801C90F8)();
         return;
       case 5:
-        ((s32 (*)(void *))TObjPlayer__sub_801C9084)((void *) new_var);
+        ((s32 (*)(void *))send_warp_position__10TObjPlayerFPv)((void *) new_var);
         return;
       case 0:
         ((s32 (*)(void *))set_dead_state__10TObjPlayerFPv)((void *) arg0);
@@ -4495,7 +4495,7 @@ u8 *TObjPlayer__sub_801CBCC4(s32 arg0) {
 
 s32 get_current_target_id__10TObjPlayerFv(void) {
     if ((u32) (*(u32 *)&lbl_805D5D68) != 0U) {
-        return TObjPlayer__sub_80312E0C((void*)(*(u32 *)&lbl_805D5D68));
+        return find_first_valid_target_id__10TObjPlayerFPv((void*)(*(u32 *)&lbl_805D5D68));
     }
     return 0xFFFF;
 }
@@ -5020,11 +5020,11 @@ void pay_tp_and_send_6x48_cast__10TObjPlayerFPv(Player_801CCEDC *self) {
             Pkt_801CCEDC pkt;
             self->f328 = 4;
             tech = get_or_init_field_4__10TObjPlayerFPv(self->techs);
-            self->tp -= calc_technique_parameters(tech, TObjPlayer__sub_801D96CC(self->techs), ((s32 (*)(void *))obj_getField1c)(self))->cost;
+            self->tp -= calc_technique_parameters(tech, get_castable_technique_level__10TObjPlayerFPv(self->techs), ((s32 (*)(void *))obj_getField1c)(self))->cost;
             if (self->tp < 0) {
                 self->tp = 0;
             }
-            split_capped_value__10TObjPlayerFUcPvPv(TObjPlayer__sub_801D96CC(self->techs), &hi, &lo);
+            split_capped_value__10TObjPlayerFUcPvPv(get_castable_technique_level__10TObjPlayerFPv(self->techs), &hi, &lo);
             ((void (*)(void *))TObjPlayer__sub_801D2178)(&pkt);
             pkt.id = ((s32 (*)(void *))obj_getField1c)(self);
             pkt.tech = tech;
@@ -5088,7 +5088,7 @@ void update_technique_cast__10TObjPlayerFPv(u8 *arg0) {
         M2C_FIELD(arg0, s16 *, 0x328) = 1;
         set_state_flags__10TObjPlayerFPvUi((void *) (arg0), (int) (0x80));
         create_technique_charge_light((s16) (get_or_init_field_4__10TObjPlayerFPv((void *) (arg0 + 0x428))), (void *) (arg0));
-        ((M2C_UNK (*)(void *, int))set_technique_state__10TObjPlayerFPvi)((void *) (arg0 + 0x428), (int) (M2C_FIELD(((Rec_801CD078 * (*)(s32, s32, s32))calc_technique_parameters)(get_or_init_field_4__10TObjPlayerFPv((void *) (arg0 + 0x428)), TObjPlayer__sub_801D96CC((void *) (arg0 + 0x428)), ((s32 (*)(void *))obj_getField1c)((void *) (arg0))), s16 *, 0x12)));
+        ((M2C_UNK (*)(void *, int))set_technique_state__10TObjPlayerFPvi)((void *) (arg0 + 0x428), (int) (M2C_FIELD(((Rec_801CD078 * (*)(s32, s32, s32))calc_technique_parameters)(get_or_init_field_4__10TObjPlayerFPv((void *) (arg0 + 0x428)), get_castable_technique_level__10TObjPlayerFPv((void *) (arg0 + 0x428)), ((s32 (*)(void *))obj_getField1c)((void *) (arg0))), s16 *, 0x12)));
         ((M2C_UNK (*)(void *, f32))TObjPlayer__sub_801D2CC4)((void *) (arg0 + 0x428), (f32) (lbl_805DC3A0));
         break;
     case 1:

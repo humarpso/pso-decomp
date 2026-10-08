@@ -2198,7 +2198,7 @@ void disable_drop_weapon_on_death__10TObjPlayerFPv(void *arg0);
 void handle_6x81_disable_drop_weapon_on_death(void *arg0);
 s32 TLobby__sub_801B08F0(s32 arg0, void * _w1);
 void send_font_state__6TLobbyFi(s32 arg0);
-s32 TLobby__sub_801B0974(void);
+s32 count_members__6TLobbyFv(void);
 void TLobby__sub_801B09A4(void);
 s32 check_switch_available__6TLobbyFPvi(void *arg0, s32 arg1);
 void apply_battle_rules_to_players__6TLobbyFv(void);
@@ -2295,7 +2295,7 @@ int try_use_item_by_type__10TObjPlayerFPviii(void *arg0, int arg1, int arg2, int
 s32 check_can_add_item__10TObjPlayerFPvcc(void *arg0, s8 arg1, s8 arg2);
 s32 can_use_item__10TObjPlayerFPvPv(u8 *arg0, void *arg1);
 s32 can_use_camera_field__10TObjPlayerFi(s32 arg0);
-s32 TObjPlayer__sub_801B3A18(s32 arg0, u32 arg1);
+s32 dispatch_palette_action__10TObjPlayerFiUi(s32 arg0, u32 arg1);
 int get_result_entry__18TChallenge4PResultFPv(void* p);
 int get_player_rank__18TChallenge4PResultFPv(void* p);
 int get_field_340__18TChallenge4PResultFPv(void* p);
@@ -2460,7 +2460,7 @@ void send_6x25_equip_item(void *arg0, s32 arg1, s32 arg2);
 void handle_state2_transitions__10TObjPlayerFPv(u8 *arg0);
 void TObjPlayer__sub_801BA42C(void);
 s32 end_camera_pan__10TObjPlayerFPv(void *arg0);
-void TObjPlayer__sub_801BA494(void);
+void freeze_all_players__10TObjPlayerFv(void);
 s32 start_camera_pan__10TObjPlayerFPvs(u8 *arg0, s16 arg1);
 s32 init_photon_blast__10TObjPlayerFPvi(u8 *arg0, s32 arg1);
 s32 start_freeze__10TObjPlayerFPv(u8 *arg0);
@@ -2851,7 +2851,7 @@ s32 get_idle_animation__10TObjPlayerFPv(void *);
 M2C_UNK update_position_from_target__10TObjPlayerFPv(void *);
 void run_action_state_phase__10TObjPlayerFisi(void *, s32, s32);
 s32 insert_item_node__10TObjPlayerFiiiii(int, void *, void *, void *, int);
-void TItemList__sub_801D35FC(u8*,DeathItemPosition*,TObjPlayer*,DeathDropRecord*,s32);
+void create_drop_nodes__9TItemListFPvPvPvPvi(u8*,DeathItemPosition*,TObjPlayer*,DeathDropRecord*,s32);
 s32 check_player_action_allowed();
 s32 TObjPlayer__sub_801D4368(void * a0 = 0);
 void TObjPlayer__sub_801D47EC(void *, s32, s32);
@@ -3021,7 +3021,7 @@ void rotate_matrix_z(int, s32);
 M2C_UNK TObjPlayer__sub_803D9324(int, void *);
 void translate_matrix(int, f32, f32, f32);
 void rotate_matrix_x(int, s32);
-M2C_UNK TCameraCtrl__sub_803D976C(int, int);
+M2C_UNK concat_matrix__11TCameraCtrlFUiUi(int, int);
 M2C_UNK push_matrix_from(int);
 M2C_UNK push_matrix();
 M2C_UNK pop_matrix();
@@ -3724,7 +3724,7 @@ void send_font_state__6TLobbyFi(s32 arg0) {
     }
 }
 
-s32 TLobby__sub_801B0974(void) {
+s32 count_members__6TLobbyFv(void) {
     void **p = lbl_8050EA10;
     s32 n = 0;
     s32 i;
@@ -5096,7 +5096,7 @@ s32 can_use_camera_field__10TObjPlayerFi(s32 arg0) {
     return 1;
 }
 
-s32 TObjPlayer__sub_801B3A18(s32 arg0, u32 arg1) {
+s32 dispatch_palette_action__10TObjPlayerFiUi(s32 arg0, u32 arg1) {
     switch (arg1) {
     case 0:
         return ((s32)try_use_item_by_type__10TObjPlayerFPviii((void *)((void *)((void *) (arg0))), (int)((int)((int) (3))), (int)((int)((int) (0))), (int)((int)((int) (0)))));
@@ -5216,7 +5216,7 @@ s32 execute_palette_action__10TObjPlayerFPviPv(void *arg0, s32 arg1, void *arg2)
         }
         break;
     case 4:
-        if (((s32 (*)(void *))can_use_camera_field__10TObjPlayerFi)(arg0) != 0 && ((s32 (*)(void *, s16))TObjPlayer__sub_801B3A18)(arg0, act) != 0) {
+        if (((s32 (*)(void *))can_use_camera_field__10TObjPlayerFi)(arg0) != 0 && ((s32 (*)(void *, s16))dispatch_palette_action__10TObjPlayerFiUi)(arg0, act) != 0) {
             return 1;
         }
         break;
@@ -6870,7 +6870,7 @@ void drop_items_on_death__10TObjPlayerFPv(TObjPlayer* player) {
         lbl_8050BF60.x=fields->position.x;
         lbl_8050BF60.y=TObjPlayer__data_805DC2BC+fields->position.y;
         lbl_8050BF60.z=fields->position.z;
-        TItemList__sub_801D35FC(fields->inventory_owner+0x20,&lbl_8050BF60,player,records,count);
+        create_drop_nodes__9TItemListFPvPvPvPvi(fields->inventory_owner+0x20,&lbl_8050BF60,player,records,count);
         set_action_flag_2__10TObjPlayerFPv(player);
     }
 }
@@ -7275,7 +7275,7 @@ void TObjPlayer__vt63(s32 arg0, s32 arg1, s32 arg2) {
     stack.sp8 = TObjPlayer__data_805DC278;
     push_matrix_from((int) (0));
     TObjPlayer__sub_803D9324((int) (0), (void *) (get_item_ptr__10TObjPlayerFPvi((void *) (arg0), (void *) (arg1))));
-    TCameraCtrl__sub_803D976C((int) (0), (int) (get_view_matrix__11TCameraCtrlFv()));
+    concat_matrix__11TCameraCtrlFUiUi((int) (0), (int) (get_view_matrix__11TCameraCtrlFv()));
     matrix_mult_vec((int) (0), (void *) (&stack.sp8), (void *) (arg2));
     pop_matrix();
 }
@@ -7506,7 +7506,7 @@ s32 end_camera_pan__10TObjPlayerFPv(void *arg0) {
     return 1;
 }
 
-void TObjPlayer__sub_801BA494(void) {
+void freeze_all_players__10TObjPlayerFv(void) {
     ((M2C_UNK (*)(M2C_UNK *))foreach_player__10TObjPlayerFv)((M2C_UNK *)(&start_freeze_self__10TObjPlayerFPv.value));
 }
 

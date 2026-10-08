@@ -15,7 +15,7 @@ struct Target_8013B70C {
 
 extern "C" {
 s32 is_split_screen();
-s32 TCameraCtrl__sub_800688D0();
+s32 get_split_screen_view_index__11TCameraCtrlFUs();
 s32 get_mode__11TCameraCtrlFPv(void *);
 M2C_UNK render__11TMainCursorFPv(void *);
 M2C_UNK update_position__11TMainCursorFi(void *);
@@ -187,7 +187,7 @@ void render__11TMainCursorFv(u8 *arg0) {
     }
     if (is_split_screen() != 0) {
         get_render_flag__11TMainCursorFPv(arg0);
-        cam = TCameraCtrl__sub_800688D0();
+        cam = get_split_screen_view_index__11TCameraCtrlFUs();
         no = get_camera_no__11TCameraCtrlFv();
         if (no != cam) {
             return;

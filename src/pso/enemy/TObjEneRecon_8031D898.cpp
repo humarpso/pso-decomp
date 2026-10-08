@@ -44,7 +44,7 @@ void enemy_set_target_id(void *, u16);
 s32 collect_enemy_target_candidates(void *, void *, f32);
 void transition_enemy_state(void *, s32);
 void *find_entity_by_id(u16);
-s32 TObjEneRecon__sub_8031F0F0(void *, u16);
+s32 is_below_child_limit__12TObjEneReconFPvUs(void *, u16);
 extern const f32 lbl_805DF420;
 void retarget__12TObjEneReconFPv(Recon_8031D898 *o);
 void queue_destruction__7TObjectFv(void *);
@@ -52,7 +52,7 @@ void enemy_set_target_id(void *, u16);
 s32 collect_enemy_target_candidates(void *, void *, f32);
 void transition_enemy_state(void *, s32);
 void *find_entity_by_id(u16);
-s32 TObjEneRecon__sub_8031F0F0(void *, u16);
+s32 is_below_child_limit__12TObjEneReconFPvUs(void *, u16);
 extern const f32 lbl_805DF420;
 void select_next_target__12TObjEneReconFPv(Recon_8031D994 *o);
 }
@@ -70,7 +70,7 @@ void retarget__12TObjEneReconFPv(Recon_8031D898 *o) {
         queue_destruction__7TObjectFv(o);
         return;
     }
-    if (TObjEneRecon__sub_8031F0F0(p, o->target) != 0) {
+    if (is_below_child_limit__12TObjEneReconFPvUs(p, o->target) != 0) {
         o->f470 = 0;
         transition_enemy_state(o, 3);
         return;
@@ -78,7 +78,7 @@ void retarget__12TObjEneReconFPv(Recon_8031D898 *o) {
     n = collect_enemy_target_candidates(o, hits, lbl_805DF420);
     for (i = 0; i < n; i++) {
         id = hits[i].id;
-        if (id != o->target && TObjEneRecon__sub_8031F0F0(p, id) != 0) {
+        if (id != o->target && is_below_child_limit__12TObjEneReconFPvUs(p, id) != 0) {
             o->f470 = 0;
             enemy_set_target_id(o, id);
             transition_enemy_state(o, 3);
@@ -100,7 +100,7 @@ void select_next_target__12TObjEneReconFPv(Recon_8031D994 *o) {
         queue_destruction__7TObjectFv(o);
         return;
     }
-    if (TObjEneRecon__sub_8031F0F0(p, o->target) != 0) {
+    if (is_below_child_limit__12TObjEneReconFPvUs(p, o->target) != 0) {
         o->f46C = 0;
         transition_enemy_state(o, 2);
         return;
@@ -108,7 +108,7 @@ void select_next_target__12TObjEneReconFPv(Recon_8031D994 *o) {
     n = collect_enemy_target_candidates(o, hits, lbl_805DF420);
     for (i = 0; i < n; i++) {
         id = hits[i].id;
-        if (id != o->target && TObjEneRecon__sub_8031F0F0(p, id) != 0) {
+        if (id != o->target && is_below_child_limit__12TObjEneReconFPvUs(p, id) != 0) {
             o->f46C = 0;
             enemy_set_target_id(o, id);
             transition_enemy_state(o, 2);

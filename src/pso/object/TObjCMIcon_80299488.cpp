@@ -60,7 +60,7 @@ extern f32 TObjCMIcon__data_805D65A8;
 void set_depth_buffer_settings_1__Fv(void);
 void set_depth_buffer_settings_id__FUl(u32);
 f32 get_scale__14TObjCMMainMenuFv(void);
-s32 TObjCMMainMenu__sub_80290DEC(s32);
+s32 get_creation_sprite_id__14TObjCMMainMenuFi(s32);
 void draw_ui_sprite(s32, void *, f32, f32);
 void restore_saved_depth_alpha_state(void);
 extern f32 lbl_804DBE6C[];
@@ -165,7 +165,7 @@ void render__10TObjCMIconFv(M2C_UNK self) {
         for (n = 0; n < g->n; n++) {
             s = TObjCMIcon__sub_80299598(self, g->ids[n]);
             draw_ui_sprite(s, &pos, z, depth);
-            pos.x += (f32)(TObjCMMainMenu__sub_80290DEC(s) + 4);
+            pos.x += (f32)(get_creation_sprite_id__14TObjCMMainMenuFi(s) + 4);
         }
     }
     restore_saved_depth_alpha_state();

@@ -32,7 +32,7 @@ extern u32 lbl_805D7774;
 void concat_matrix__10TObjPlayerFUiUi(u32 arg0, u32 arg1);
 f32 PSMTXConcat(int, int, int);
 extern u32 lbl_805D7774;
-void TCameraCtrl__sub_803D976C(u32 arg0, u32 arg1);
+void concat_matrix__11TCameraCtrlFUiUi(u32 arg0, u32 arg1);
 s32 TObjPlayer__sub_803DB244();
 s32 TObjPlayer__sub_803D9E04(void);
 void move_data__6TLobbyFv(void *, void *, int);
@@ -100,7 +100,7 @@ void concat_matrix__10TObjPlayerFUiUi(u32 arg0, u32 arg1) {
 #pragma push
 #pragma peephole off
 #pragma fp_contract on
-void TCameraCtrl__sub_803D976C(u32 arg0, u32 arg1) {
+void concat_matrix__11TCameraCtrlFUiUi(u32 arg0, u32 arg1) {
     u32 var_r4;
     u32 var_r5;
     var_r4 = arg1;

@@ -8,7 +8,7 @@ extern "C" {
 void TBoss8Dragon__sub_8028B0DC(void *, s32, s32);
 extern u8 *lbl_805D4DE0;
 void TBoss8Dragon__sub_800670E0(s32 arg0, s32 arg1);
-s32 TBoss8Dragon__sub_80289710(int, void *, void *);
+s32 trigger_switches_in_range__12TBoss8DragonFPvPvPv(int, void *, void *);
 s32 TBoss8Dragon__sub_8028A900(int, void *, void *);
 extern u8 *lbl_805D4DE0;
 void TBoss8Dragon__sub_80067074(s32 arg0, s32 arg1);
@@ -45,7 +45,7 @@ void TBoss8Dragon__sub_80067074(s32 arg0, s32 arg1) {
         }
         temp_r3_2 = M2C_FIELD(lbl_805D4DE0, u32 *, 0x20);
         if (temp_r3_2 != 0U) {
-            TBoss8Dragon__sub_80289710((int) (temp_r3_2), (void *) (arg0), (void *) (arg1));
+            trigger_switches_in_range__12TBoss8DragonFPvPvPv((int) (temp_r3_2), (void *) (arg0), (void *) (arg1));
         }
     }
 }

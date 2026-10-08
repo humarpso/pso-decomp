@@ -56,7 +56,7 @@ s32 TAdSinglePlyChrSelectGC__sub_801FC564(s32 arg0);
 u32 CARDGetDiskID();
 M2C_UNK strncpy(M2C_UNK *, M2C_UNK *, M2C_UNK);
 extern s32 lbl_8044A7E0[];
-void TAdSinglePlyChrSelectGC__sub_801FBF90(s32 arg0);
+void set_card_disk_id__23TAdSinglePlyChrSelectGCFi(s32 arg0);
 M2C_UNK __dl__FPv(s32);
 s32 alloc__23TAdSinglePlyChrSelectGCFPv(int);
 s32 TAdPlayerLoadGC__sub_801E1B50(void *);
@@ -87,9 +87,9 @@ void safe_free__23TAdSinglePlyChrSelectGCFUi(void *);
 Buf_801FBFD0 *alloc__22TQuestVmDownLoadServerFPv(u32);
 s32 TAdPlayerLoadGC__sub_801E1B50(void *);
 s32 find_card_file__15TAdPlayerLoadGCFiPv(s32, s32);
-s32 TAdSinglePlyChrSelectGC__sub_801FBEF4(s32);
+s32 wait_for_card_load__23TAdSinglePlyChrSelectGCFi(s32);
 void copy_name__23TAdSinglePlyChrSelectGCFi(s32 arg0);
-void TAdSinglePlyChrSelectGC__sub_801FBF90(s32 arg0);
+void set_card_disk_id__23TAdSinglePlyChrSelectGCFi(s32 arg0);
 u32 TAdSinglePlyChrSelectGC__sub_80201204(void *, s32, s32);
 int load_player_slot__23TAdSinglePlyChrSelectGCFPvii(void *, int, int);
 extern u8 lbl_804C8934[];
@@ -169,7 +169,7 @@ void copy_name__23TAdSinglePlyChrSelectGCFi(s32 arg0) {
     }
 }
 
-void TAdSinglePlyChrSelectGC__sub_801FBF90(s32 arg0) {
+void set_card_disk_id__23TAdSinglePlyChrSelectGCFi(s32 arg0) {
     u32 var_r3;
     if (arg0 >= 0) {
         var_r3 = CARDGetDiskID();
@@ -192,11 +192,11 @@ s32 load_system_file__23TAdSinglePlyChrSelectGCFiPv(s32 arg0, s32 *arg1) {
         return 0;
     }
     lbl_805D49B4 = 1;
-    TAdSinglePlyChrSelectGC__sub_801FBF90(arg0);
+    set_card_disk_id__23TAdSinglePlyChrSelectGCFi(arg0);
     ok = 0;
     buf = alloc__22TQuestVmDownLoadServerFPv(0x6000);
     if (load_player_slot__23TAdSinglePlyChrSelectGCFPvii((void *)arg0, (int)lbl_804C8934, (int)buf) == 0 &&
-        TAdSinglePlyChrSelectGC__sub_801FBEF4(arg0) == 1) {
+        wait_for_card_load__23TAdSinglePlyChrSelectGCFi(arg0) == 1) {
         v = buf->f2160;
         ok = 1;
         *arg1 = v;

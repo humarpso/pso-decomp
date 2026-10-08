@@ -112,7 +112,7 @@ extern const f64 TObjEneGibbles__data_80472798;
 extern u32 TObjEneGibbles__data_805D68AC;
 extern const f32 lbl_805DE834;
 extern const f32 lbl_805DE85C;
-s32 TObjEneGibbles__sub_802D9EB4(u8 *arg0);
+s32 is_target_in_attack_range__14TObjEneGibblesFPv(u8 *arg0);
 M2C_UNK apply_actor_gravity(void *, int, f32);
 s16 get_id__10TObjPlayerFPv(void *);
 s32 get_current_floor();
@@ -552,7 +552,7 @@ void update_spawn_state__14TObjEneGibblesFPv(u8 *arg0);
 void update_wander__14TObjEneGibblesFPv(u8 *arg0);
 void init_state__14TObjEneGibblesFPv(u8 *arg0);
 void TObjEneGibbles__sub_802DAAC8(u8 *arg0);
-void TObjEneGibbles__sub_802DB0F4(Obj_800A6B14 *self);
+void turn_toward_target__14TObjEneGibblesFPv(Obj_800A6B14 *self);
 void clamp_angle__14TObjEneGibblesFPvi(void *arg0, s32 arg1);
 void update_spawn_timer__14TObjEneGibblesFv(void);
 void run_task__14TObjEneGibblesFPv(u8 *arg0);
@@ -665,7 +665,7 @@ void VecCopy__FP3VecPC3Vec(Vec_800A6B14 *dst, const Vec_800A6B14 *src);
 }
 
 extern "C" {
-void TObjEneGibbles__sub_802DB0F4(Obj_800A6B14 *self);
+void turn_toward_target__14TObjEneGibblesFPv(Obj_800A6B14 *self);
 }
 
 extern "C" {
@@ -995,7 +995,7 @@ void *lbl_804E29F0[83] = {
     (void *)&get_actor_level_index, (void *)&update_actor_ground_y, (void *)&TObjPlayer__sub_80018E6C, (void *)&is_actor_cadence_frame,
     (void *)&select_melee_contact_body__10TObjPlayerFv, (void *)&calc_distance_accuracy_penalty__10TObjPlayerFv, (void *)&receive_physical_attack__10TObjPlayerFv, (void *)&receive_direct_attack__10TObjPlayerFv,
     (void *)&receive_weapon_special_attack__10TObjPlayerFv, (void *)&apply_knockback_from_attacker, (void *)&try_start_action__10TObjPlayerFPvii, (void *)&roll_physical_accuracy__10TObjPlayerFv,
-    (void *)&update_target__14TObjEneGibblesFPv, (void *)&TObjPlayer__sub_8000FF3C, (void *)&TObjEneGibbles__sub_802D9EB4, (void *)&find_facing_player__14TObjEneGibblesFPv,
+    (void *)&update_target__14TObjEneGibblesFPv, (void *)&TObjPlayer__sub_8000FF3C, (void *)&is_target_in_attack_range__14TObjEneGibblesFPv, (void *)&find_facing_player__14TObjEneGibblesFPv,
     (void *)&test_flag30_512__10TObjPlayerFPv, (void *)&has_flag_0x800__10TObjPlayerFPv, (void *)&test_flag_1000__10TObjPlayerFPv, (void *)&update_poison_status__10TObjPlayerFv,
     (void *)&TObjEneGibbles__sub_802DAC90, (void *)&update_action_timer__10TObjPlayerFPv, (void *)&update_flag30_timer__10TObjPlayerFPv, (void *)&TObjEneGibbles__sub_802DABD0,
     (void *)&update_shock_clock__10TObjPlayerFPv, (void *)&update_attack_stat_status, (void *)&update_defense_stat_status, (void *)&TObjPlayer__sub_800172CC,
@@ -1841,7 +1841,7 @@ void TObjEneGibbles__sub_802D9D64(u8 *arg0) {
 }
 
 #define TGT_802D9EB4 (((void **)TObjEneGibbles__data_805D68AC)[M2C_FIELD(arg0, s16 *, 0x37C)])
-s32 TObjEneGibbles__sub_802D9EB4(u8 *arg0) {
+s32 is_target_in_attack_range__14TObjEneGibblesFPv(u8 *arg0) {
     Vec_802D9EB4 v;
     f32 rad;
     f32 dist;
@@ -1947,7 +1947,7 @@ void TObjEneGibbles__sub_802DA0BC(u8 *arg0) {
     }
     TObjEneGibbles__sub_802D7DAC((s32)arg0);
     ((void (*)(void *))advance_animation_playback)(arg0);
-    TObjEneGibbles__sub_802DB0F4((Obj_800A6B14 *)arg0);
+    turn_toward_target__14TObjEneGibblesFPv((Obj_800A6B14 *)arg0);
     check_object_collisions__10TObjPlayerFPv(arg0);
     check_enemy_body_collisions(arg0);
     update_enemy_collision_flags__10TObjPlayerFPv(arg0);
@@ -2372,7 +2372,7 @@ void update_target__14TObjEneGibblesFPv(Obj_802DAD50 *self) {
     }
 }
 
-void TObjEneGibbles__sub_802DB0F4(Obj_800A6B14 *self) {
+void turn_toward_target__14TObjEneGibblesFPv(Obj_800A6B14 *self) {
     Vec_800A6B14 d;
     VecCopy__FP3VecPC3Vec(&d, &self->target->pos);
     subtract_vector(&d, &self->pos);

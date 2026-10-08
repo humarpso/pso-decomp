@@ -1598,7 +1598,7 @@ s32 get_flag_b4__21TObjEneMe3ShinowaRealFPv(void *);
 M2C_UNK fill_value_array(int);
 s32 get_flag_bit6__12TBoss8DragonFPv();
 s32 TBoss8Dragon__sub_8005D700();
-s32 TBoss8Dragon__sub_8005D880(Obj_8005D880 *arg0, s32 arg1, s32 arg2, Vec_8005D880 *org, Vec_8005D880 *out);
+s32 get_player_pos_in_arc__12TBoss8DragonFPviiPvPv(Obj_8005D880 *arg0, s32 arg1, s32 arg2, Vec_8005D880 *org, Vec_8005D880 *out);
 void render_nodes_with_flag__12TBoss8DragonFi(s32 arg0);
 s32 TBoss8Dragon__sub_8005DC0C(Obj_8005DC0C *arg0);
 void render_with_fade__12TBoss8DragonFPvi(u8 *arg0, s32 arg1);
@@ -1626,7 +1626,7 @@ void calc_params__12TBoss8DragonFiPvi(s32 arg0, void *arg1, s32 arg2);
 void TBoss8Dragon__sub_8005ED6C(s32 arg0, u8 *arg1, s32 arg2);
 void copy_angle_state__12TBoss8DragonFPvPvPv(void *arg0, void *dst, void *src);
 void update_target_from_state__12TBoss8DragonFPv(void *arg0);
-void TBoss8Dragon__sub_8005F578(u8 *arg0, s32 arg1);
+void play_animation_index__12TBoss8DragonFPvi(u8 *arg0, s32 arg1);
 void set_animation_by_state__12TBoss8DragonFPv(void *arg0);
 void init_state_zero__12TBoss8DragonFPv(void *arg0);
 M2C_UNK TBoss8Dragon__sub_8005F684(void *, void *);
@@ -1643,7 +1643,7 @@ s32 TBoss8Dragon__sub_8005FAE0(u8 *arg0);
 void advance_motion_entry__12TBoss8DragonFPv(void *arg0);
 void advance_motion_timer__12TBoss8DragonFPv(void *arg0);
 void TBoss8Dragon__sub_8005FB90(u8 *arg0);
-void TBoss8Dragon__sub_8005FBC4(Obj_8005FBC4 *arg0);
+void apply_velocity__12TBoss8DragonFPv(Obj_8005FBC4 *arg0);
 void TBoss8Dragon__sub_8005FCE4(O_8005FCE4 *self, s32 msg);
 void state_move__12TBoss8DragonFPvi(Obj_80060F4C *arg0, s32 arg1);
 void TBoss8Dragon__sub_80062550(Obj_80062550 *arg0, s32 arg1);
@@ -1772,7 +1772,7 @@ M2C_UNK init_all_slots2__11TWindowCtrlFv();
 M2C_UNK copy_position__12TBoss8DragonFii(u32, void *);
 M2C_UNK TBoss5GryphonLightningEff__sub_80325064(void *);
 void * __ct__25TBoss5GryphonLightningEffFv(void *, void *, void *, s32, f32, f32, f32);
-M2C_UNK TBoss8Dragon__sub_80351CF0(void *, void *, void *, void *, s32, s32);
+M2C_UNK spawn_lightning_wing__12TBoss8DragonFiiiiii(void *, void *, void *, void *, s32, s32);
 void __destroy_arr(void *, void *, int, int);
 s32 rand();
 f32 sin_table_lookup(s32);
@@ -1894,7 +1894,7 @@ extern s32 tl_01;
 #pragma fp_contract on
 extern "C" {
 void TBoss8Dragon__sub_8005F740(O_8005F740 *self);
-void TBoss8Dragon__sub_8005FBC4(Obj_8005FBC4 *arg0);
+void apply_velocity__12TBoss8DragonFPv(Obj_8005FBC4 *arg0);
 void update_animation_by_state__12TBoss8DragonFPv(struct VObj_80065370_80062BA0 *obj);
 }
 
@@ -2630,7 +2630,7 @@ void *lbl_804882C8[107] = {
 #define lbl_804882BC ((M2C_UNK *)lbl_804882BC)
 #define lbl_804882C8 ((u8 *)lbl_804882C8)
 
-s32 TBoss8Dragon__sub_8005D880(Obj_8005D880 *arg0, s32 arg1, s32 arg2, Vec_8005D880 *org, Vec_8005D880 *out) {
+s32 get_player_pos_in_arc__12TBoss8DragonFPviiPvPv(Obj_8005D880 *arg0, s32 arg1, s32 arg2, Vec_8005D880 *org, Vec_8005D880 *out) {
     Obj_8005D880 *p;
     f32 dx;
     f32 dz;
@@ -2686,7 +2686,7 @@ void TBoss8Dragon__sub_8005D9BC(u8 *arg0, s32 arg1, s32 arg2) {
         if (M2C_FIELD(arg0, u32 *, 0x6E0) == 0) return;
         copy_position__12TBoss8DragonFii(M2C_FIELD(arg0, u32 *, 0x6E0), &pos);
     }
-    if (((s32 (*)(void *, s32, s32, void *, void *))TBoss8Dragon__sub_8005D880)(arg0, arg1, arg2, &pos, &out) == 0) {
+    if (((s32 (*)(void *, s32, s32, void *, void *))get_player_pos_in_arc__12TBoss8DragonFPviiPvPv)(arg0, arg1, arg2, &pos, &out) == 0) {
         if (arg1 != 0) {
             ang = (s32)((f32)ang + lbl_805D8D68);
         }
@@ -2704,7 +2704,7 @@ void TBoss8Dragon__sub_8005D9BC(u8 *arg0, s32 arg1, s32 arg2) {
     mid.x = lbl_805D8D74 * (pos.x + out.x);
     mid.y = lbl_805D8D78 + pos.y;
     mid.z = lbl_805D8D74 * (pos.z + out.z);
-    TBoss8Dragon__sub_80351CF0(arg0, &pos, &mid, &out, 0x14, 0x11);
+    spawn_lightning_wing__12TBoss8DragonFiiiiii(arg0, &pos, &mid, &out, 0x14, 0x11);
 }
 extern int fold_flush_1;
 #pragma pop
@@ -3250,7 +3250,7 @@ void update_target_from_state__12TBoss8DragonFPv(void *arg0) {
     }
 }
 
-void TBoss8Dragon__sub_8005F578(u8 *arg0, s32 arg1) {
+void play_animation_index__12TBoss8DragonFPvi(u8 *arg0, s32 arg1) {
     struct { u8 pad[0x30]; } sp8;
     s32 temp_r5;
     init_color__12TBoss8DragonFPv((void *) (&sp8));
@@ -3269,22 +3269,22 @@ void set_animation_by_state__12TBoss8DragonFPv(void *arg0) {
     switch (temp_r0) {
     default:
     case 0:
-        ((M2C_UNK (*)(void *, M2C_UNK))TBoss8Dragon__sub_8005F578)(arg0, 0x19);
+        ((M2C_UNK (*)(void *, M2C_UNK))play_animation_index__12TBoss8DragonFPvi)(arg0, 0x19);
         return;
     case 1:
-        ((M2C_UNK (*)(void *, M2C_UNK))TBoss8Dragon__sub_8005F578)(arg0, 0x1A);
+        ((M2C_UNK (*)(void *, M2C_UNK))play_animation_index__12TBoss8DragonFPvi)(arg0, 0x1A);
         return;
     case 3:
-        ((M2C_UNK (*)(void *, M2C_UNK))TBoss8Dragon__sub_8005F578)(arg0, 0x1B);
+        ((M2C_UNK (*)(void *, M2C_UNK))play_animation_index__12TBoss8DragonFPvi)(arg0, 0x1B);
         return;
     case 2:
-        ((M2C_UNK (*)(void *, M2C_UNK))TBoss8Dragon__sub_8005F578)(arg0, 0x1C);
+        ((M2C_UNK (*)(void *, M2C_UNK))play_animation_index__12TBoss8DragonFPvi)(arg0, 0x1C);
         return;
     }
 }
 
 void init_state_zero__12TBoss8DragonFPv(void *arg0) {
-    ((M2C_UNK (*)(void *, M2C_UNK))TBoss8Dragon__sub_8005F578)(arg0, 0);
+    ((M2C_UNK (*)(void *, M2C_UNK))play_animation_index__12TBoss8DragonFPvi)(arg0, 0);
 }
 
 void trigger_effect__12TBoss8DragonFPvi(void *arg0, s32 arg1) {
@@ -3395,7 +3395,7 @@ void TBoss8Dragon__sub_8005FB90(u8 *arg0) {
     M2C_FIELD(arg0, f32 *, 0x48C) = (f32) lbl_805D8D5C;
 }
 
-void TBoss8Dragon__sub_8005FBC4(Obj_8005FBC4 *arg0) {
+void apply_velocity__12TBoss8DragonFPv(Obj_8005FBC4 *arg0) {
     Shot_8005FBC4 shot;
     Vec_8005FBC4 v;
     f32 len;
@@ -5650,7 +5650,7 @@ void update_main__12TBoss8DragonFPv(u8 *arg0) {
         }
     }
     TObjEneDD__sub_800BBA0C((void *) (arg0));
-    TBoss8Dragon__sub_8005FBC4((Obj_8005FBC4 *) (arg0));
+    apply_velocity__12TBoss8DragonFPv((Obj_8005FBC4 *) (arg0));
     TBoss8Dragon__sub_8005FB90(arg0);
     advance_motion_timer__12TBoss8DragonFPv((void *) (arg0));
     ((VObj_18 *)(arg0))->m86();

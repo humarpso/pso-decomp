@@ -12,7 +12,7 @@ s32 TLobby__sub_801C418C(void *);
 s32 update_duel_result__6TLobbyFPv(void *);
 s32 update_timed_wait__6TLobbyFPv(void *);
 s32 update_battle_intro__6TLobbyFPv(void *);
-void fn_801C4D28(void *arg0);
+void update_player_battle_ctrl_state(void *arg0);
 M2C_UNK TLobby__sub_801C3030();
 s32 fn_801C4CE0(void *arg0);
 }
@@ -30,7 +30,7 @@ s32 fn_801C4CE0(void *arg0) {
     }
 }
 
-void fn_801C4D28(void *arg0) {
+void update_player_battle_ctrl_state(void *arg0) {
     u32 temp_r0;
     temp_r0 = M2C_FIELD(arg0, u32 *, 0x1C);
     switch (temp_r0) {
@@ -72,19 +72,19 @@ void TPlayerBattleCtrl::run_task() {
         if (state_1c != state_24) {
             if (state_20 != -1) {
                 state_20 = -1;
-                fn_801C4D28(this);
+                update_player_battle_ctrl_state(this);
             }
             state_1c = state_24;
             state_20 = 0;
         }
-        fn_801C4D28(this);
+        update_player_battle_ctrl_state(this);
     }
 }
 
 TPlayerBattleCtrl::~TPlayerBattleCtrl() {
     if (state_20 != -1) {
         state_20 = -1;
-        fn_801C4D28(this);
+        update_player_battle_ctrl_state(this);
     }
     if (window_4c != NULL) TWindow__close(window_4c);
     if (window_50 != NULL) TWindow__close(window_50);

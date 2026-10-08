@@ -458,7 +458,7 @@ extern "C" void TAdChrSelBSlotGC__sub_8030E99C();
 extern "C" void TAdChrSelBSlotGC__sub_8030EA58();
 extern "C" void TAdChrSelBSlotGC__sub_8030EB14();
 extern "C" void TAdChrSelBSlotGC__sub_8030EBD0();
-extern "C" void TAdChrSelBSlotGC__sub_8030ECB8();
+extern "C" void check_cancel_and_close__16TAdChrSelBSlotGCFPv();
 extern "C" void enter_state17__16TAdChrSelBSlotGCFPv();
 extern "C" void init__16TAdChrSelBSlotGCFPv();
 extern "C" void reset_load_state__16TAdChrSelBSlotGCFPv();
@@ -497,7 +497,7 @@ void *lbl_804E7AB4[3] = {
     (void *)0x0, (void *)0xffffffff, (void *)&update_slot_state__16TAdChrSelBSlotGCFPv,
 };
 void *lbl_804E7AC0[3] = {
-    (void *)0x0, (void *)0xffffffff, (void *)&TAdChrSelBSlotGC__sub_8030ECB8,
+    (void *)0x0, (void *)0xffffffff, (void *)&check_cancel_and_close__16TAdChrSelBSlotGCFPv,
 };
 void *lbl_804E7ACC[3] = {
     (void *)0x0, (void *)0xffffffff, (void *)&TAdChrSelBSlotGC__sub_8030EBD0,

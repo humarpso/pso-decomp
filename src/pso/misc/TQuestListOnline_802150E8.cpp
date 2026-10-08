@@ -107,7 +107,7 @@ extern int TQuestListOnline__data_805D61A4;
 extern int TQuestListOnline__data_805D61A8;
 extern int lbl_805D61AC;
 extern s32 TQuestListOnline__data_805D61E0;
-void TQuestListOnline__sub_80215498(void);
+void release_resources__16TQuestListOnlineFv(void);
 extern RecoveredGlobal_80215ABC_lbl_804CA0B8 lbl_804CA0B8;
 extern s32 lbl_805D6238;
 bool TLobby__sub_80215ABC(u8 *arg0);
@@ -324,7 +324,7 @@ typedef char RecoveredGlobal_802155B4_TQuestListOnline__data_80513E24_size[sizeo
 
 typedef char RecoveredGlobal_80215498_TQuestListOnline__data_80513DE8_size[sizeof(RecoveredGlobal_80215498_TQuestListOnline__data_80513DE8) == 0x3C ? 1 : -1];
 typedef char RecoveredGlobal_80215498_TQuestListOnline__data_80513E24_size[sizeof(RecoveredGlobal_80215498_TQuestListOnline__data_80513E24) == 0x3C ? 1 : -1];
-void TQuestListOnline__sub_80215498(void) {
+void release_resources__16TQuestListOnlineFv(void) {
     if ((u32) M2C_FIELD(&(*(RecoveredGlobal_80215498_TQuestListOnline__data_80513E24 *)&TQuestListOnline__data_80513E24).value, u32 *, 0x38) != 0U) {
         free__11TOBoss4RockFUi((int) (M2C_FIELD(&(*(RecoveredGlobal_80215498_TQuestListOnline__data_80513E24 *)&TQuestListOnline__data_80513E24).value, u32 *, 0x38)));
         M2C_FIELD(&(*(RecoveredGlobal_80215498_TQuestListOnline__data_80513E24 *)&TQuestListOnline__data_80513E24).value, u32 *, 0x38) = 0U;

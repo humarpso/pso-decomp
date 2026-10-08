@@ -50,7 +50,7 @@ void *get_player_by_client_id(s32);
 u8 * get_element__10TObjPlayerFPvi(void *, int);
 int query_field40__10TObjPlayerFPv(void* p);
 int TObjPlayer__sub_803131AC(void* a0);
-u16 TObjPlayer__sub_80312E0C(void *o);
+u16 find_first_valid_target_id__10TObjPlayerFPv(void *o);
 u8 * get_element__10TObjPlayerFPvi(void *, int);
 int TObjPlayer__sub_803131AC(void* a0);
 void *TObjPlayer__sub_803131B4(void *, int);
@@ -124,7 +124,7 @@ void create_party_effects__10TObjPlayerFPvi(void *o, s32 id) {
 }
 
 typedef u16 (*SectionFn_80312E0C)(void *);
-u16 TObjPlayer__sub_80312E0C(void *o) {
+u16 find_first_valid_target_id__10TObjPlayerFPv(void *o) {
     s32 n;
     s32 i;
     u8 *e;

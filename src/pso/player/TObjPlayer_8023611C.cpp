@@ -105,7 +105,7 @@ u32 find_actor_body_contact(void *, int, f32);
 s32 get_player_by_client_id(int);
 extern RecoveredGlobal_80236290_lbl_80516150 lbl_80516150;
 extern const f32 lbl_805DC89C;
-M2C_UNK *TObjPlayer__sub_80236290(s32 arg0, u32 arg1, s32 _w2, s32 _w3);
+M2C_UNK *gather_player_contacts__10TObjPlayerFiUiii(s32 arg0, u32 arg1, s32 _w2, s32 _w3);
 extern RecoveredGlobal_80236290_lbl_80516150 lbl_80516150;
 void resetTechniqueContactQuery();
 s32 VecCopy__FP3VecPC3Vec(void *, void *);
@@ -229,7 +229,7 @@ s32 find_support_technique_contact(void *self, int target, void *_w2, void *_w3)
     return (s32)&lbl_80516150;
 }
 
-M2C_UNK *TObjPlayer__sub_80236290(s32 arg0, u32 arg1, s32 _w2, s32 _w3) {
+M2C_UNK *gather_player_contacts__10TObjPlayerFiUiii(s32 arg0, u32 arg1, s32 _w2, s32 _w3) {
     Stack_80236290 stack;
     s32 temp_r0;
     s32 temp_r3;
@@ -362,7 +362,7 @@ void TObjPlayer__sub_80236780(u8 *arg0, s32 arg1) {
 }
 
 void TObjPlayer__sub_802367AC(u8 *arg0, s32 arg1) {
-    TObjPlayer__sub_80236290((s32)((void *) (arg0)), (u32)((int) (M2C_FIELD(arg0, s32 *, 0xdc))), (s32)((void *) (arg0 + 0xb0)), (s32)((void *) (arg1)));
+    gather_player_contacts__10TObjPlayerFiUiii((s32)((void *) (arg0)), (u32)((int) (M2C_FIELD(arg0, s32 *, 0xdc))), (s32)((void *) (arg0 + 0xb0)), (s32)((void *) (arg1)));
 }
 
 u8 *query_technique_enemy_contacts(void *self, s32 arg) {

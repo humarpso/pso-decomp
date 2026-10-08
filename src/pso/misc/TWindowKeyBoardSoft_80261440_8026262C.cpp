@@ -17,7 +17,7 @@ M2C_UNK initialize_subwindow__9TWindowDDFPv(void *);
 s32 is_player_input_active(s16);
 M2C_UNK TWindowKeyBoardSoft__sub_80260808(void *, s32);
 M2C_UNK TWindowKeyBoardSoft__sub_8026088C(void *, s32);
-M2C_UNK TWindowKeyBoardSoft__sub_80261204(void *, s32);
+M2C_UNK handle_page_cycle_input__19TWindowKeyBoardSoftFPvi(void *, s32);
 
 extern const f32 lbl_805DD0D4;
 
@@ -28,7 +28,7 @@ void TWindowKeyBoardSoft__sub_8026262C(void *arg0) {
     if ((u32) M2C_FIELD(arg0, u32 *, 0x6C) != 0U) {
         if ((fn_80244994() != 0) && (is_key_active__16TKeyBoardControlFPv(M2C_FIELD(arg0, u32 *, 0x6C)) == 0)) {
             temp_r3 = is_player_input_active(M2C_FIELD(arg0, s16 *, 0x20));
-            TWindowKeyBoardSoft__sub_80261204(arg0, temp_r3);
+            handle_page_cycle_input__19TWindowKeyBoardSoftFPvi(arg0, temp_r3);
             TWindowKeyBoardSoft__sub_80260E30(arg0, temp_r3);
             TWindowKeyBoardSoft__sub_80260904(arg0, temp_r3);
             TWindowKeyBoardSoft__sub_8026088C(arg0, temp_r3);

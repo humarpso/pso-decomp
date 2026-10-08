@@ -100,7 +100,7 @@ M2C_UNK TLobby__sub_803C8610();
 M2C_UNK TLobby__sub_803CC134();
 M2C_UNK TLobby__sub_803CC884();
 M2C_UNK TLobby__sub_803CEF60();
-M2C_UNK TLobby__sub_803D1C24();
+M2C_UNK release_and_close_all_slots__6TLobbyFv();
 M2C_UNK TLobby__sub_803D259C();
 M2C_UNK TLobby__sub_803D2E04();
 M2C_UNK TLobby__sub_803D2E94();
@@ -374,7 +374,7 @@ void dec_ref_and_shutdown__6TLobbyFv(void) {
         shutdown_cleanup__6TLobbyFv();
         TLobby__sub_803CC134();
         si_get_type_async__6TLobbyFv();
-        TLobby__sub_803D1C24();
+        release_and_close_all_slots__6TLobbyFv();
         init_once__6TLobbyFv();
         TLobby__sub_803D3678((int) (2), (void *) (1));
         TLobby__sub_803D3678((int) (2), (void *) (3));

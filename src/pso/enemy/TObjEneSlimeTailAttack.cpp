@@ -365,7 +365,7 @@ void TObjPlayer__sub_800E87FC(u8 *arg0);
 void * create__22TObjEneSlimeTailAttackFiiii(s32 arg1, s32 arg2, s32 arg3, s32 arg4);
 void * dt__22TObjEneSlimeTailAttackFPvs(void *arg0, s16 arg1);
 void * TObjEneSlimeTailAttack__ct(void *, void *, s32, s32, s32);
-s32 fn_800E8AD0(u8 *arg0);
+s32 water_bomb_hit_nearby(u8 *arg0);
 void render__21TObjEneSlimeWaterBombFv(u8 *arg0);
 void run_task__21TObjEneSlimeWaterBombFv(Bomb_800E8D4C *arg0);
 void * create__21TObjEneSlimeWaterBombFPvPv(void *arg0, void *arg1);
@@ -775,7 +775,7 @@ void *dt__22TObjEneSlimeTailAttackFPvs(void *arg0, s16 arg1) {
     return arg0;
 }
 
-s32 fn_800E8AD0(u8 *arg0) {
+s32 water_bomb_hit_nearby(u8 *arg0) {
     s32 hit;
     Ent_800E8AD0 *e;
     Ent_800E8AD0 *e2;
@@ -862,7 +862,7 @@ void run_task__21TObjEneSlimeWaterBombFv(Bomb_800E8D4C *arg0) {
     if (arg0->link != NULL) {
         copy_pos__11TNowLoadingFPvPv(arg0->link, &arg0->pos);
     }
-    if (((s32 (*)(s32))TObjEneSlimeOne__sub_800EC39C)(arg0->owner) != 0 || ((s32 (*)(void *))fn_800E8AD0)(arg0) != 0) {
+    if (((s32 (*)(s32))TObjEneSlimeOne__sub_800EC39C)(arg0->owner) != 0 || ((s32 (*)(void *))water_bomb_hit_nearby)(arg0) != 0) {
         die = 1;
     }
     {

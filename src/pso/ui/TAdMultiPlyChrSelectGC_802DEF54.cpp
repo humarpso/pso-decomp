@@ -26,7 +26,7 @@ s32 fn_802C6F20(s32, void *);
 M2C_UNK fn_802D50B8(u32, void *, void *, void *);
 s32 TAdMultiPlyChrSelectGC__sub_802E1024(void *, int, int, int);
 u32 __ct__14TAdGameStartGCFv(void *, s32);
-s32 TAdMultiPlyChrSelectGC__sub_8030E2E4(void *, int);
+s32 get_or_create_slot_window__22TAdMultiPlyChrSelectGCFii(void *, int);
 s32 create__16TAdChrSelBSlotGCFPv(void *);
 M2C_UNK get_move_effect__22TAdMultiPlyChrSelectGCFi(s32);
 extern V2_802DF9B4 lbl_804727A0[];
@@ -454,7 +454,7 @@ void create_widgets__22TAdMultiPlyChrSelectGCFPv(u8 *arg0) {
         if (p != 0) {
             __ct__10TAdTitleGCFv((void *) p, arg0, 0);
         }
-        M2C_FIELD(arg0, s32 *, 0x68) = TAdMultiPlyChrSelectGC__sub_8030E2E4(arg0, 1);
+        M2C_FIELD(arg0, s32 *, 0x68) = get_or_create_slot_window__22TAdMultiPlyChrSelectGCFii(arg0, 1);
         M2C_FIELD(arg0, s32 *, 0x60) = TAdMultiPlyChrSelectGC__sub_802E1024(arg0, 1, -1, 0);
         break;
     case 1: {
@@ -462,7 +462,7 @@ void create_widgets__22TAdMultiPlyChrSelectGCFPv(u8 *arg0) {
         if (p != 0) {
             __ct__10TAdTitleGCFv((void *) p, arg0, 8);
         }
-        M2C_FIELD(arg0, s32 *, 0x68) = TAdMultiPlyChrSelectGC__sub_8030E2E4(arg0, 2);
+        M2C_FIELD(arg0, s32 *, 0x68) = get_or_create_slot_window__22TAdMultiPlyChrSelectGCFii(arg0, 2);
         M2C_FIELD(arg0, s32 *, 0x6C) = create__16TAdChrSelBSlotGCFPv(arg0);
         I2_802DF9B4 pos = lbl_80472828[0];
         p = __nw__7TObjectFUl(0x708);

@@ -61,14 +61,14 @@ s16 get_stat_by_key_state__10TObjPlayerFPv(s32);
 M2C_UNK unequip_item__10TObjPlayerFiPv(s32, void *);
 s32 is_item_equipped(void *);
 s32 start_inventory_update__10TObjPlayerFPvi(void *, s32);
-int TObjPlayer__sub_801D51A0(void*);
+int collect_owner_fields_recursive__10TObjPlayerFPv(void*);
 int count_owned_items__10TObjPlayerFPv(void*);
 void *get_owner_if_alive__10TObjPlayerFPv();
 M2C_UNK queue_destruction__7TObjectFv(s32, s16);
 
     extern int lbl_805D5DEC;
     extern int lbl_805D5DF4;
-int run_and_get_result__10TObjPlayerFPvi(void* a0, int a1) { lbl_805D5DEC = a1; lbl_805D5DF4 = 0; TObjPlayer__sub_801D51A0((void*)(*(int*)((char*)a0 + 0x1c4))); return lbl_805D5DF4; }
+int run_and_get_result__10TObjPlayerFPvi(void* a0, int a1) { lbl_805D5DEC = a1; lbl_805D5DF4 = 0; collect_owner_fields_recursive__10TObjPlayerFPv((void*)(*(int*)((char*)a0 + 0x1c4))); return lbl_805D5DF4; }
 
     extern int lbl_805D5DF4;
     extern int lbl_805D5E00;

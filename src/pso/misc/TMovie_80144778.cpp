@@ -40,7 +40,7 @@ u8 *__ct__10TAdEndTextFv(void *, void *);
 s32 TAdEndText__sub_8001B41C();
 M2C_UNK calc_frame_buffer_size__6TMovieFii(void *, void *);
 M2C_UNK update_stop__6TMovieFPv(int);
-M2C_UNK TMovie__sub_80144184(int);
+M2C_UNK decode_frame__6TMovieFPv(int);
 s32 check_skip_input__6TMovieFPv(void *);
 M2C_UNK update_input_frame__16TKeyBoardControlFv();
 M2C_UNK controller_stuff__Fv();
@@ -88,7 +88,7 @@ void run_task__6TMovieFv(u8 *arg0) {
         func_803DCDFC__Fv();
         controller_stuff__Fv();
         update_input_frame__16TKeyBoardControlFv();
-        TMovie__sub_80144184(M2C_FIELD(arg0, u32 *, 0x20));
+        decode_frame__6TMovieFPv(M2C_FIELD(arg0, u32 *, 0x20));
         if (M2C_FIELD(arg0, s32 *, 0x48) != 0) {
             update_stop__6TMovieFPv(M2C_FIELD(arg0, u32 *, 0x20));
             run_callback__6TMovieFv();

@@ -2221,7 +2221,7 @@ s32 clamp_frame_index__9TObjEneDDFi(int);
 s32 check_v2_mode__9TObjEneDDFv(s32, s32);
 void set_field_378__9TObjEneDDFPvi(void *, s32);
 M2C_UNK transition_enemy_state(void *, int);
-s32 TObjEneMe3SinowZoa__sub_800D7310(void *, f32);
+s32 advance_timer__18TObjEneMe3SinowZoaFPvf(void *, f32);
 void set_field_10__18TObjEneMe3SinowZoaFPvf(void *, f32);
 void advance_animation_playback(void *);
 s32 clear_player_status_flag__10TObjPlayerFPviUi(void *, int, int);
@@ -2269,7 +2269,7 @@ void TObjEneMe3SinowZoa__sub_80318564(u8 *arg0, s32 arg1) {
         switch (F(s32, 0x434)) {
         case 0:
             advance_animation_playback(arg0);
-            if (TObjEneMe3SinowZoa__sub_800D7310(arg0 + 0x414, TObjEneMe3SinowZoa__data_805DF310) != 0) {
+            if (advance_timer__18TObjEneMe3SinowZoaFPvf(arg0 + 0x414, TObjEneMe3SinowZoa__data_805DF310) != 0) {
                 F(s32, 0x434) = 1;
             }
         case 1:
@@ -2649,7 +2649,7 @@ struct VObj_18_4f5f2e : VBase_18_4f5f2e {
 f64 get_ad_end_text_start__10TObjPlayerFv(f32, f32);
 s32 update_death_check__14TObjEneEpsilonFPv(void *);
 M2C_UNK move_to_shot_position__9TObjEneDDFPvfff(void *, f32 *, f32, f32, f32);
-s32 TObjEneMe3SinowZoa__sub_800D7310(void *, f32);
+s32 advance_timer__18TObjEneMe3SinowZoaFPvf(void *, f32);
 void set_field_10__18TObjEneMe3SinowZoaFPvf(void *, f32);
 s32 approach_angle_limited(int, int, int);
 extern const f64 TObjEneMe3SinowZoa__data_804760A0;
@@ -2692,7 +2692,7 @@ void TObjEneMe3SinowZoa__sub_80318C0C(void *arg0_, s32 arg1) {
     case 0:
         switch (M2C_FIELD(arg0, s32 *, 0x434)) {
         case 0:
-            if (TObjEneMe3SinowZoa__sub_800D7310(arg0 + 0x414, TObjEneMe3SinowZoa__data_805DF310) != 0) {
+            if (advance_timer__18TObjEneMe3SinowZoaFPvf(arg0 + 0x414, TObjEneMe3SinowZoa__data_805DF310) != 0) {
                 M2C_FIELD(arg0, s32 *, 0x434) = 1;
             }
         case 1:
@@ -2866,7 +2866,7 @@ M2C_UNK move_with_wall_slide_commit__9TObjEneDDFPvfff(void *, f32, f32, f32);
 M2C_UNK move_with_wall_slide_on_ground__9TObjEneDDFPvfff(void *, f32, f32, f32);
 void set_field_378__9TObjEneDDFPvi(void *, s32);
 M2C_UNK transition_enemy_state(void *, int);
-s32 TObjEneMe3SinowZoa__sub_800D7310(void *, f32);
+s32 advance_timer__18TObjEneMe3SinowZoaFPvf(void *, f32);
 void set_field_10__18TObjEneMe3SinowZoaFPvf(void *, f32);
 s32 approach_angle_limited(int, int, int);
 s32 objInBand__FP7GameObjf(void *, f32);
@@ -2983,7 +2983,7 @@ void TObjEneMe3SinowZoa__sub_80318F7C(Ene_80318F7C *self, s32 arg1) {
             self->m87();
             break;
         case 3:
-            if (TObjEneMe3SinowZoa__sub_800D7310(&self->sub, TObjEneMe3SinowZoa__data_805DF310) != 0) {
+            if (advance_timer__18TObjEneMe3SinowZoaFPvf(&self->sub, TObjEneMe3SinowZoa__data_805DF310) != 0) {
                 self->f434 = 4;
             }
         case 4:

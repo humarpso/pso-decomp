@@ -12,14 +12,14 @@ s16 get_field_20__11TWindowCtrlFPv(void *);
 extern Ctrl_8024B1A0 *TWindowCtrl__data_805D63F8;
 extern const f32 lbl_805DCBE0;
 extern const f32 lbl_805DCBE4;
-s8 TWindowCtrl__sub_8024B1A0(Win_8024B1A0 *arg0);
+s8 alloc_nearest_free_slot__11TWindowCtrlFPv(Win_8024B1A0 *arg0);
 }
 
 extern "C" {
 
 #pragma push
 #pragma fp_contract on
-s8 TWindowCtrl__sub_8024B1A0(Win_8024B1A0 *arg0) {
+s8 alloc_nearest_free_slot__11TWindowCtrlFPv(Win_8024B1A0 *arg0) {
     s32 i;
     s32 mask;
     s8 best;

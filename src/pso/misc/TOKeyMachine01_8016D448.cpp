@@ -60,7 +60,7 @@ extern RecoveredGlobal_8016D714_lbl_80441E24 lbl_80441E24;
 extern RecoveredGlobal_8016D714_lbl_804B2DD8 lbl_804B2DD8;
 extern u32 lbl_805D5A30;
 extern s32 *TOKeyMachine01__data_805D5A34;
-void TOKeyMachine01__sub_8016D714(void);
+void load_assets__14TOKeyMachine01Fv(void);
 s32 get_main_phase(void);
 s32 is_split_screen(void);
 u8 * TOKey__ct(void *);
@@ -191,7 +191,7 @@ void free_statics__14TOKeyMachine01Fv(void) {
 
 extern M2C_UNK __vt__14TOKeyMachine01[];
 
-void TOKeyMachine01__sub_8016D714(void) {
+void load_assets__14TOKeyMachine01Fv(void) {
     s32 temp_r3;
     s32 var_r0;
     temp_r3 = alloc__23TAdSinglePlyChrSelectGCFPv((void *)0x440);

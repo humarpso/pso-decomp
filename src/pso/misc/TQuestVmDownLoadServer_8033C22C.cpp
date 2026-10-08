@@ -10,7 +10,7 @@ s32 TKeyBoardControl__sub_8000F8EC();
 s32 TQuestVmDownLoadServer__sub_8006EF6C(s32);
 s32 init__22TQuestVmDownLoadServerFPvPvPvPvPv(void *, s32, s32, s32, s32);
 s32 poll_memcard_status__15TAdPlayerLoadGCFPv();
-s32 TWindowSubComCard__sub_8033C024(void *, s32);
+s32 set_state__17TWindowSubComCardFPvi(void *, s32);
 int TWindowSubComCard__sub_8033C178(void* p);
 void TWindowSubComCard__sub_8033C198(void);
 int TWindowSubComCard__sub_8033C19C(void* p);

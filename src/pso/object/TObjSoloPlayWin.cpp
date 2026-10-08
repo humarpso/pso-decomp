@@ -15,14 +15,14 @@ extern "C" {
 
 void *TObjSoloPlayWin__ct(void *arg0);
 void start_win_timer__15TObjSoloPlayWinFPv(void *arg0);
-M2C_UNK TObjSoloPlayWin__sub_8007483C(void *);
+M2C_UNK open_result_window__15TObjSoloPlayWinFPv(void *);
 void __ct__7TObjectFP7TObject(void *);
 s32 can_start_win_timer__15TObjSoloPlayWinFi();
 s32 fn_80074724(void *);
 
 void start_win_timer__15TObjSoloPlayWinFPv(void *arg0) {
     if (((u32) M2C_FIELD(arg0, u32 *, 0x20) == 0U) && (can_start_win_timer__15TObjSoloPlayWinFi() != 0) && (fn_80074724(arg0) != 0)) {
-        TObjSoloPlayWin__sub_8007483C(arg0);
+        open_result_window__15TObjSoloPlayWinFPv(arg0);
         M2C_FIELD(arg0, s32 *, 0x24) = 0x12C;
         M2C_FIELD(arg0, s32 *, 0x1C) = 1;
     }

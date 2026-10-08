@@ -13,7 +13,7 @@ struct G_803DAF70 { u8 pad[0x20]; Tbl_803DAF70 *f20; };
 extern "C" {
 extern u8 *lbl_805D774C;
 void set_index__9TLanguageFPvi(u8 *arg0, s32 arg1);
-void TLanguage__sub_803DAF70(s32 i, s32 x);
+void set_entry_index__9TLanguageFii(s32 i, s32 x);
 }
 
 extern "C" {
@@ -26,7 +26,7 @@ void set_index__9TLanguageFPvi(u8 *arg0, s32 arg1) {
 #pragma push
 #pragma scheduling off
 #pragma peephole off
-void TLanguage__sub_803DAF70(s32 i, s32 x) {
+void set_entry_index__9TLanguageFii(s32 i, s32 x) {
     set_index__9TLanguageFPvi(((G_803DAF70 *)lbl_805D774C)->f20->arr[i].p, x);
 }
 #pragma pop

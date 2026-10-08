@@ -9,7 +9,7 @@ extern "C" {
 void TKeyBoardControl__sub_8025CBC0(void* p);
 void TKeyBoardControl__sub_8025CC3C(void* p);
 M2C_UNK reset_state__19TWindowKeyBoardSoftFPv(void *);
-void TWindowChat__sub_8025CB70(u8 *arg0);
+void reset_input__11TWindowChatFPv(u8 *arg0);
 void TKeyBoardControl__sub_8025CC3C(void* p);
 void TKeyBoardControl__sub_8025CC04(u8 *arg0);
 void TKeyBoardControl__sub_8025CC3C(void* p);
@@ -28,7 +28,7 @@ int get_flag__11TWindowChatFPv(void* a0 = 0);
 void flush_if_flagged__11TWindowChatFPv(void* p);
 int is_key_state_2__19TWindowKeyBoardSoftFPv(void* p);
 
-void TWindowChat__sub_8025CB70(u8 *arg0) {
+void reset_input__11TWindowChatFPv(u8 *arg0) {
     reset_state__19TWindowKeyBoardSoftFPv((void *) (arg0 + 0x6C));
     reset_state__19TWindowKeyBoardSoftFPv((void *) (arg0 + 0x84));
     M2C_FIELD(arg0, s32 *, 0x68) = (s32) (arg0 + 0x6C);

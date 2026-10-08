@@ -74,7 +74,7 @@ s32 TKeyBoardControl__sub_8000F828(void);
 void TKeyBoardControl__sub_8000F90C(int);
 void set_flag_4__9TObjLukerFPv(void *);
 void TCameraCtrl__sub_800695A0(void *);
-s32 TAdLoadQuestPrtTxtGC__sub_80086E28(void *, int, int);
+s32 create_particle__20TAdLoadQuestPrtTxtGCFPvii(void *, int, int);
 void init_fade__6TLobbyFPvPvPv(void *, s32, void *);
 void create__20TItemReverseTechCtrlFPv(void *);
 void *__nw__7TObjectFUl(u32);
@@ -307,9 +307,9 @@ u8 *construct_title_scene__6TLobbyFPv(u8 *arg0) {
     }
     {
         V3_80336520 v = lbl_80477818;
-        M2C_FIELD(arg0, s32 *, 0x40) = TAdLoadQuestPrtTxtGC__sub_80086E28(&v, 0x1E3, 1);
-        M2C_FIELD(arg0, s32 *, 0x44) = TAdLoadQuestPrtTxtGC__sub_80086E28(&v, 0x1E4, 1);
-        M2C_FIELD(arg0, s32 *, 0x48) = TAdLoadQuestPrtTxtGC__sub_80086E28(&v, 0x1E5, 1);
+        M2C_FIELD(arg0, s32 *, 0x40) = create_particle__20TAdLoadQuestPrtTxtGCFPvii(&v, 0x1E3, 1);
+        M2C_FIELD(arg0, s32 *, 0x44) = create_particle__20TAdLoadQuestPrtTxtGCFPvii(&v, 0x1E4, 1);
+        M2C_FIELD(arg0, s32 *, 0x48) = create_particle__20TAdLoadQuestPrtTxtGCFPvii(&v, 0x1E5, 1);
     }
     p = __nw__7TObjectFUl(0x28);
     if (p != 0) {

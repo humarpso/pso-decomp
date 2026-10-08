@@ -66,7 +66,7 @@ extern s32 lbl_805D53A0;
 extern const f32 lbl_805DBCA8;
 void count_players_in_warp_radius__10TObjPlayerFPv(u8 *arg0);
 s32 TLobby__sub_800C6C10(s32);
-s32 TObjCityMainWarp__sub_80186B34(void *);
+s32 are_all_players_in_range__16TObjCityMainWarpFPv(void *);
 s32 find_local_player_in_range__16TObjCityMainWarpFif(void *, f32);
 M2C_UNK close_windows__16TObjCityMainWarpFPv();
 M2C_UNK TObjCityMainWarp__sub_80186CC8(void *, M2C_UNK);
@@ -79,7 +79,7 @@ extern void *lbl_805D5B28;
 void update_warp_sequence__16TObjCityMainWarpFPv(u8 *arg0);
 s32 get_main_phase();
 s32 TLobby__sub_800C6C10(s32);
-s32 TObjCityMainWarp__sub_80186B34(void *);
+s32 are_all_players_in_range__16TObjCityMainWarpFPv(void *);
 s32 find_local_player_in_range__16TObjCityMainWarpFif(void *, f32);
 M2C_UNK close_windows__16TObjCityMainWarpFPv();
 M2C_UNK TObjCityMainWarp__sub_80186CC8(void *, M2C_UNK);
@@ -168,7 +168,7 @@ void update_warp_sequence__16TObjCityMainWarpFPv(u8 *arg0) {
                 if (M2C_FIELD(arg0, s32 *, 0x160) <= 0) {
                     r = 1;
                 } else {
-                    r = TObjCityMainWarp__sub_80186B34(arg0);
+                    r = are_all_players_in_range__16TObjCityMainWarpFPv(arg0);
                 }
                 if (r != 0) {
                     TObjCityMainWarp__sub_80186CC8(arg0, 2);
@@ -233,7 +233,7 @@ void update_challenge_state__16TObjCityMainWarpFPv(u8 *arg0) {
             }
         }
         if (get_warp_state__19TWindowSubTradeMainFv() != 0 && get_main_phase() == 0xF &&
-            ((s32 (*)())TLobby__sub_800C6C10)() != 0 && TObjCityMainWarp__sub_80186B34(arg0) != 0) {
+            ((s32 (*)())TLobby__sub_800C6C10)() != 0 && are_all_players_in_range__16TObjCityMainWarpFPv(arg0) != 0) {
             TObjCityMainWarp__sub_80186CC8(arg0, 2);
             M2C_FIELD(arg0, s16 *, 0xE0) = 5;
         }
@@ -251,7 +251,7 @@ void update_challenge_state__16TObjCityMainWarpFPv(u8 *arg0) {
             break;
         }
         if (get_warp_state__19TWindowSubTradeMainFv() != 0 && get_main_phase() == 0xF &&
-            ((s32 (*)())TLobby__sub_800C6C10)() != 0 && TObjCityMainWarp__sub_80186B34(arg0) != 0) {
+            ((s32 (*)())TLobby__sub_800C6C10)() != 0 && are_all_players_in_range__16TObjCityMainWarpFPv(arg0) != 0) {
             TObjCityMainWarp__sub_80186CC8(arg0, 2);
             M2C_FIELD(arg0, s16 *, 0xE0) = 5;
         }

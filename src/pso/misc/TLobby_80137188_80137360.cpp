@@ -24,7 +24,7 @@ void TLobby__sub_8013A170(const char *fmt, ...);
 s32 get_option_state__6TLobbyFv(void);
 void send_login2__9TProtocolFi(void *proto, s32 opt);
 void send_regist__9TProtocolFv(void *proto);
-void TLobby__sub_8013785C(s32 ok);
+void handle_regist_check__6TLobbyFi(s32 ok);
 extern Rec_801378AC TLobby__data_80506A6C[];
 extern s32 TLobby__data_805D5590;
 extern s16 TLobby__data_805D558C;
@@ -50,7 +50,7 @@ char *strncpy(char *, const char *, u32);
 s32 open_hard_keyboard__6TLobbyFPv(void *);
 void TLobby__sub_80077798(void *, void *);
 char *get_card_window_field__6TLobbyFv(void);
-void TLobby__sub_8007BC5C(void *);
+void collect_active_card_ids__6TLobbyFPv(void *);
 s32 get_flag_bit0__6TLobbyFv(void);
 char *get_card_window_area__6TLobbyFv(void);
 void TLobby__sub_800703D0(void *, void *);
@@ -139,7 +139,7 @@ void send_selected_character__6TLobbyFv(void) {
     memset(c, 0, sizeof(c));
     strncpy(c, get_card_window_field__6TLobbyFv(), 0xAC);
     memset(b, 0, sizeof(b));
-    TLobby__sub_8007BC5C(b);
+    collect_active_card_ids__6TLobbyFPv(b);
     memset(e, 0, sizeof(e));
     if (get_flag_bit0__6TLobbyFv() != 0) {
         e[1] = 1;
@@ -291,7 +291,7 @@ void handle_verify_result__6TLobbyFUi(u32 arg0) {
     }
 }
 
-void TLobby__sub_8013785C(s32 ok) {
+void handle_regist_check__6TLobbyFi(s32 ok) {
     if (ok) {
         TLobby__sub_8013A170(lbl_8043F05C);
         send_login2__9TProtocolFi(TLobby__data_805D5580, get_option_state__6TLobbyFv());

@@ -29,8 +29,8 @@ void set_flags__11TBoss4Type2FPvUi(void *, s32);
 extern RecoveredGlobal_80323214_lbl_80476658 lbl_80476658;
 void create_emitter__14TBoss6GravBallFii(s32 arg0, s32 arg1);
 s32 request_destroy__11TBoss4Type2FUi(int);
-void TBoss6GravBall__sub_803231D0(s32 arg0, s32 arg1);
-void TBoss6GravBall__sub_803231D0(s32 arg0, s32 arg1);
+void destroy_part__14TBoss6GravBallFii(s32 arg0, s32 arg1);
+void destroy_part__14TBoss6GravBallFii(s32 arg0, s32 arg1);
 void init_parts__14TBoss6GravBallFPv(s32 arg0);
 void TBoss6GravBall__sub_80323320(T_80323320 *self);
 void VecCopy__FP3VecPC3Vec(void *, void *);
@@ -73,7 +73,7 @@ typedef char RecoveredGlobal_80323214_lbl_80476658_size[sizeof(RecoveredGlobal_8
 
 #pragma push
 #pragma opt_common_subs off
-void TBoss6GravBall__sub_803231D0(s32 arg0, s32 arg1) {
+void destroy_part__14TBoss6GravBallFii(s32 arg0, s32 arg1) {
     u32 temp_r3;
     u8 *temp_r31;
     temp_r31 = (u8 *)(arg0 + (arg1 * 4));
@@ -124,7 +124,7 @@ void init_parts__14TBoss6GravBallFPv(s32 arg0) {
     s32 var_r31;
     var_r31 = 0;
     do {
-        TBoss6GravBall__sub_803231D0(arg0, var_r31);
+        destroy_part__14TBoss6GravBallFii(arg0, var_r31);
         var_r31 += 1;
     } while (var_r31 < 9);
 }

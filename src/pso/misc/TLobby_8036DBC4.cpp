@@ -11,7 +11,7 @@ void draw_string__9TLanguageFPvPvi(void *, void *, int);
 void tmp_buf_release__6TLobbyFi(void *);
 s32 load_gvm_texture_file(void *);
 void set_global_param__8TObjFishFi();
-void TLanguage__sub_803DAF70(int, int);
+void set_entry_index__9TLanguageFii(int, int);
 extern u8 lbl_8047AD08[];
 extern u8 lbl_8047AD14[];
 extern u8 lbl_8047AD20[];
@@ -43,7 +43,7 @@ void TBGMulti__ct(void) {
         tmp_buf_release__6TLobbyFi(lbl_8047AD08);
         (*(s32 *)&lbl_805D7018) = load_gvm_texture_file(lbl_8047AD20);
         set_global_param__8TObjFishFi();
-        TLanguage__sub_803DAF70(0, 0x4D);
+        set_entry_index__9TLanguageFii(0, 0x4D);
     }
     lbl_805D701C = 0x384;
 }

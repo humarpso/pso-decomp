@@ -80,7 +80,7 @@ extern RecoveredGlobal_8016BC84_lbl_80441ACC lbl_80440CEC;
 extern RecoveredGlobal_8016BC84_lbl_804B2B30 lbl_804B1238;
 extern u32 lbl_805D5950;
 extern void *TODoorAncient09__data_805D5954;
-void TODoorAncient09__sub_801610E0(void);
+void load_resources__15TODoorAncient09Fv(void);
 s32 get_global_state__14TOKeyMachine01Fv(void);
 s32 play_sound_effect(s32, void *, s32, s32);
 void TODoorAncient09__sub_80160968(void *arg0_);
@@ -422,7 +422,7 @@ extern M2C_UNK __vt__15TODoorAncient09[];
 
 typedef char RecoveredGlobal_8016BC84_lbl_80441ACC_size[sizeof(RecoveredGlobal_8016BC84_lbl_80441ACC) == 0x18 ? 1 : -1];
 typedef char RecoveredGlobal_8016BC84_lbl_804B2B30_size[sizeof(RecoveredGlobal_8016BC84_lbl_804B2B30) == 0x10 ? 1 : -1];
-void TODoorAncient09__sub_801610E0(void) {
+void load_resources__15TODoorAncient09Fv(void) {
     s32 *temp_r3_2;
     u8 *temp_r3;
     u8 *var_r0;

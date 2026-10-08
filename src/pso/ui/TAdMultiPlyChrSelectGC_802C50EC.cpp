@@ -119,7 +119,7 @@ struct S_802C6AC8 {
 struct Pad_802C6AC8 { u8 pad[0x20]; u8 ctl[0x30]; };
 
 extern "C" {
-void TAdMultiPlyChrSelectGC__sub_802C5BCC(s32 arg0, s32 *arg1, s32 *arg2);
+void split_slot_index__22TAdMultiPlyChrSelectGCFiPvPv(s32 arg0, s32 *arg1, s32 *arg2);
 void TAdMultiPlyChrSelectGC__sub_802C65C0(s32 arg0);
 int TAdMultiPlyChrSelectGC__sub_802C6920(void);
     extern int TAdMultiPlyChrSelectGC__data_805D67D8;
@@ -181,7 +181,7 @@ M2C_UNK TAdMultiPlyChrSelectGC__sub_802C5F1C(void *, int);
 extern u8 lbl_8050E3B8[];
 extern int TAdMultiPlyChrSelectGC__data_805D67D8;
 extern s32 TAdMultiPlyChrSelectGC__data_805D67E0;
-void TAdMultiPlyChrSelectGC__sub_802C6008(S_802C6008 *self);
+void update_option_cursor__22TAdMultiPlyChrSelectGCFPv(S_802C6008 *self);
 s32 TWindowShortListCtrl__check_controller_button(void *, int);
 s32 dispatch_draw_command__22TAdMultiPlyChrSelectGCFiiii(void *, int, int, int);
 M2C_UNK TAdMultiPlyChrSelectGC__sub_802C5F1C(void *, int);
@@ -197,7 +197,7 @@ extern int TAdMultiPlyChrSelectGC__data_805D67D8;
 void TAdMultiPlyChrSelectGC__sub_802C5C84(Self_802C5C84 *self, s32 x_, s32 y_, s32 dx, s32 dy, s32 depth);
 s32 TWindowShortListCtrl__check_controller_button(void *, int);
 void TAdMultiPlyChrSelectGC__sub_802C5C28(s32 arg0, u32 *arg1);
-void TAdMultiPlyChrSelectGC__sub_802C6008(S_802C6008 *self);
+void update_option_cursor__22TAdMultiPlyChrSelectGCFPv(S_802C6008 *self);
 void handle_dpad_input__22TAdMultiPlyChrSelectGCFPv(S_802C61E4 *self);
 s32 TAdMultiPlyChrSelectGC__sub_802C64D0(s32);
 s32 count_ready__22TAdMultiPlyChrSelectGCFv(void);
@@ -353,7 +353,7 @@ void TAdMultiPlyChrSelectGC__sub_802C5B7C(void) {
     }
 }
 
-void TAdMultiPlyChrSelectGC__sub_802C5BCC(s32 arg0, s32 *arg1, s32 *arg2) {
+void split_slot_index__22TAdMultiPlyChrSelectGCFiPvPv(s32 arg0, s32 *arg1, s32 *arg2) {
     s32 var_r3;
     var_r3 = TAdMultiPlyChrSelectGC__sub_802C658C((s32)(arg0));
     *arg1 = var_r3 > 3;
@@ -469,7 +469,7 @@ void TAdMultiPlyChrSelectGC__sub_802C5C84(Self_802C5C84 *self, s32 x_, s32 y_, s
     }
 }
 
-void TAdMultiPlyChrSelectGC__sub_802C6008(S_802C6008 *self) {
+void update_option_cursor__22TAdMultiPlyChrSelectGCFPv(S_802C6008 *self) {
     TAdMultiPlyChrSelectGC__sub_802C5F1C(self, self->f1C++);
     if (self->f4DC[self->f4EC] != 0 && self->f4F8 == 0) {
         if (dispatch_draw_command__22TAdMultiPlyChrSelectGCFiiii(WIN_802C6008, 0x10, 6, 1) != 0) {
@@ -584,7 +584,7 @@ void TAdMultiPlyChrSelectGC__sub_802C65C0(s32 arg0) {
     s32 r;
     TAdMultiPlyChrSelectGC__data_804E0AE0[arg0] = 0;
     TAdMultiPlyChrSelectGC__data_804E0AF0[arg0] = TAdMultiPlyChrSelectGC__data_805DE56C;
-    TAdMultiPlyChrSelectGC__sub_802C5BCC(arg0, &c, &r);
+    split_slot_index__22TAdMultiPlyChrSelectGCFiPvPv(arg0, &c, &r);
     s32 ri = r + 1;
     s32 ci = c + 1;
     TAdMultiPlyChrSelectGC__data_804E0A68[ri][ci] = lbl_80471A88[ri][ci];
@@ -696,7 +696,7 @@ void update_selection__22TAdMultiPlyChrSelectGCFPv(S_802C6AC8 *o) {
             }
             break;
         case 1:
-            TAdMultiPlyChrSelectGC__sub_802C6008((S_802C6008 *)o);
+            update_option_cursor__22TAdMultiPlyChrSelectGCFPv((S_802C6008 *)o);
             break;
         }
     }

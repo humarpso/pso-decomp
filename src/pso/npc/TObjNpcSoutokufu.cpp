@@ -126,7 +126,7 @@ s32 TBoss8Dragon__sub_80067034(void *, void *, f32);
 f32 calc_sq_offset__12TBoss8DragonFPvf(void *, void *, f32);
 extern void *lbl_805D4DD8;
 extern const f32 lbl_805DD8E8;
-void TBoss8Dragon__sub_80289710(void *arg0, void *arg1, void *arg2);
+void trigger_switches_in_range__12TBoss8DragonFPvPvPv(void *arg0, void *arg1, void *arg2);
 }
 
 extern "C" {
@@ -190,7 +190,7 @@ u8 *TObjNpcSoutokufu__ct(u8 *arg0, M2C_UNK arg1, s32 arg2) {
     return arg0;
 }
 
-void TBoss8Dragon__sub_80289710(void *arg0, void *arg1, void *arg2) {
+void trigger_switches_in_range__12TBoss8DragonFPvPvPv(void *arg0, void *arg1, void *arg2) {
     f32 sp[3];
     f32 off;
     Ls_80289710 *list;

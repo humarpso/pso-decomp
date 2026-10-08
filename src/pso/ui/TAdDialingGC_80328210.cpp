@@ -38,7 +38,7 @@ void update_dialing_display__12TAdDialingGCFv(s32);
 void TAdDialingGC__sub_80328990(void *);
 void init_dialog__12TAdDialingGCFv(void *);
 void draw_dialing_status__12TAdDialingGCFv(void *);
-void TAdDialingGC__sub_803285C0(Obj_803285C0 *arg0);
+void update_state_display__12TAdDialingGCFPv(Obj_803285C0 *arg0);
 }
 
 extern "C" {
@@ -209,7 +209,7 @@ void update_selection__12TAdDialingGCFPv(u8 *arg0) {
     }
 }
 
-void TAdDialingGC__sub_803285C0(Obj_803285C0 *arg0) {
+void update_state_display__12TAdDialingGCFPv(Obj_803285C0 *arg0) {
     if (arg0->mode == 2) {
         switch (arg0->state) {
         case 0:
@@ -299,7 +299,7 @@ void update__12TAdDialingGCFPv(void *arg0) {
     switch (temp_r0) {
     case 0:
         if ((s32) M2C_FIELD(arg0, s32 *, 0x20) != 0) {
-            TAdDialingGC__sub_803285C0((Obj_803285C0 *)(arg0));
+            update_state_display__12TAdDialingGCFPv((Obj_803285C0 *)(arg0));
         }
         break;
     case 1:

@@ -11,7 +11,7 @@ s32 TAdSinglePlyChrSelectGC__sub_80223350(void *arg0, void *arg1);
 u32 TAdSinglePlyChrSelectGC__sub_8022338C(u8 *arg0, u8 *arg1);
 s32 TLobby__sub_802232F8(void *arg0, void *arg1);
 void swap_item_data__23TAdSinglePlyChrSelectGCFPvPv(void *, void *);
-void TLobby__sub_802231F0(Rec_802231F0 *arg0, s32 arg1, s32 arg2);
+void sort_records__6TLobbyFPvii(Rec_802231F0 *arg0, s32 arg1, s32 arg2);
 }
 
 extern "C" {
@@ -78,7 +78,7 @@ void swap_item_data__6TLobbyFPvPv(M2C_UNK *arg0, M2C_UNK *arg1) {
     copy_item_data__6TLobbyFPvPv(arg1, sp8);
 }
 
-void TLobby__sub_802231F0(Rec_802231F0 *arg0, s32 arg1, s32 arg2) {
+void sort_records__6TLobbyFPvii(Rec_802231F0 *arg0, s32 arg1, s32 arg2) {
     s32 i;
     s32 j;
     for (i = 0; i < arg1 - 1; i++) {

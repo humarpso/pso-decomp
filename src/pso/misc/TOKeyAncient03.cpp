@@ -114,7 +114,7 @@ extern RecoveredGlobal_8016BC84_lbl_80441ACC lbl_80441ACC;
 extern RecoveredGlobal_8016BC84_lbl_804B2B30 lbl_804B2B30;
 extern u32 lbl_805D5A10;
 extern void *TOKeyAncient03__data_805D5A14;
-void TOKeyAncient03__sub_8016BC84(void);
+void load_resources__14TOKeyAncient03Fv(void);
 s32 get_main_phase(void);
 s32 is_split_screen();
 u8 * TOKey__ct(void *);
@@ -291,7 +291,7 @@ extern M2C_UNK __vt__14TOKeyAncient03[];
 
 typedef char RecoveredGlobal_8016BC84_lbl_80441ACC_size[sizeof(RecoveredGlobal_8016BC84_lbl_80441ACC) == 0x18 ? 1 : -1];
 typedef char RecoveredGlobal_8016BC84_lbl_804B2B30_size[sizeof(RecoveredGlobal_8016BC84_lbl_804B2B30) == 0x10 ? 1 : -1];
-void TOKeyAncient03__sub_8016BC84(void) {
+void load_resources__14TOKeyAncient03Fv(void) {
     s32 *temp_r3_2;
     u8 *temp_r3;
     u8 *var_r0;

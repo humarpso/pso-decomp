@@ -43,7 +43,7 @@ s32 get_slot_or_neg1__17TWindowSubComCardFPv(int);
 s32 get_card_data__17TWindowSubComCardFPv(int);
 s32 is_child_visible__17TWindowSubComCardFPv(int);
 u32 open_trade_confirm_prompt(void *, int);
-u32 fn_802B1B80(void *, int, int);
+u32 open_player_message_window(void *, int, int);
 u32 TWindowSubComCard__sub_802B1C1C(void *);
 M2C_UNK cancel_trade__6TLobbyFv();
 M2C_UNK send_modify_trade_proposal__6TLobbyFi(int);
@@ -116,7 +116,7 @@ void run_task__15TWindowSubTradeFv(u8 *arg0) {
             M2C_FIELD(arg0, u32 *, 0x34) = 0U;
         }
         if ((u32) M2C_FIELD(arg0, u32 *, 0x30) == 0U) {
-            M2C_FIELD(arg0, u32 *, 0x30) = fn_802B1B80((void *) (arg0), (int) (M2C_FIELD(arg0, s32 *, 0x24)), (int) (get_message_10__20TWindowSubStatusDispFPv((int) (0xD7))));
+            M2C_FIELD(arg0, u32 *, 0x30) = open_player_message_window((void *) (arg0), (int) (M2C_FIELD(arg0, s32 *, 0x24)), (int) (get_message_10__20TWindowSubStatusDispFPv((int) (0xD7))));
         }
         send_modify_trade_proposal__6TLobbyFi((int) (M2C_FIELD(arg0, s32 *, 0x24)));
         M2C_FIELD(arg0, u8 *, 0x1C) = 6U;

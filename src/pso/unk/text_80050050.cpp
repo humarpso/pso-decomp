@@ -24,14 +24,14 @@ s32 draw_model_motion(int, int, f32);
 s32 set_global_flag__10TObjPlayerFv();
 s32 clear_global_state__10TObjPlayerFv();
 extern RecoveredGlobal_80050050_lbl_80485864 lbl_80485864;
-void fn_80050050(u8 *arg0);
+void draw_three_part_models(u8 *arg0);
 }
 
 extern "C" {
 
 typedef struct RecoveredGlobal_80050050_lbl_80485864 RecoveredGlobal_80050050_lbl_80485864;
 typedef char RecoveredGlobal_80050050_lbl_80485864_size[((sizeof(RecoveredGlobal_80050050_lbl_80485864)) == 0xC) ? (1) : (-1)];
-void fn_80050050(u8 *arg0) {
+void draw_three_part_models(u8 *arg0) {
   int var_r31;
   unsigned int temp_r4;
   u8 *temp_r30;

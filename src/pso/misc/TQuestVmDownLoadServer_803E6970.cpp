@@ -454,7 +454,7 @@ extern s32 lbl_805D78AC;
 extern M2C_UNK *lbl_805D78B0;
 void free_node_list__22TQuestVmDownLoadServerFPv(Node_803ECD54 *p);
 Node_803EB878 *TQuestVmDownLoadServer__sub_803EB878(Node_803EB878 *p);
-s32 TQuestVmDownLoadServer__sub_803EB844(Node_803EB844 *p);
+s32 count_chain_nodes__22TQuestVmDownLoadServerFPv(Node_803EB844 *p);
 extern s32 lbl_805D78AC;
 extern M2C_UNK *lbl_805D78B0;
 void TQuestVmDownLoadServer__sub_803ECD1C(Node_803ECD1C *p);
@@ -485,7 +485,7 @@ int strncmp(const char *, const char *, u32);
 extern RecoveredGlobal_803E8084_lbl_80590AC4 lbl_80590AC4;
 extern s32 lbl_805D785C;
 extern s32 lbl_805D7860;
-s32 TQuestVmDownLoadServer__sub_803E7EE4(const char *key);
+s32 find_name_index__22TQuestVmDownLoadServerFPv(const char *key);
 s32 TQuestVmDownLoadServer__sub_803F0BE0(void * _w0, void * _w1);
 extern RecoveredGlobal_803E8710_lbl_8058DE08 lbl_8058DE08;
 extern s32 lbl_805D78F8;
@@ -572,10 +572,10 @@ extern s32 lbl_805D7904;
 s32 TQuestVmDownLoadServer__sub_803EEA48(s32 arg0, s32 arg1, void *arg2, s32 *arg3);
 u8 *TQuestVmDownLoadServer__sub_803EFBDC(u8 *p, s32 key, s32 n, s32 len);
 int strncmp(const char *, const char *, u32);
-s32 TQuestVmDownLoadServer__sub_803E7EE4(const char *key);
+s32 find_name_index__22TQuestVmDownLoadServerFPv(const char *key);
 u8 *get_cached_page__22TQuestVmDownLoadServerFi(s32 page);
 s32 TQuestVmDownLoadServer__sub_803E8004(const char *, s16);
-s32 TQuestVmDownLoadServer__sub_803F0138(const char *name, s16 len, Info_803F0138 *out);
+s32 find_symbol_entry__22TQuestVmDownLoadServerFPvsPv(const char *name, s16 len, Info_803F0138 *out);
 void DCInvalidateRange(void *, u32);
 void ARQPostRequest(void *req, u32 owner, u32 type, u32 prio, u32 src, u32 dst, u32 len, void (*cb)(u8 *));
 u32 OSGetTick(void);
@@ -619,7 +619,7 @@ extern s32 lbl_805D78FC;
 extern s32 lbl_805D7904;
 s32 TQuestVmDownLoadServer__sub_803EED0C(s32 arg0, s32 arg1, s32 arg2);
 char *strncpy(char *, const char *, u32);
-s32 TQuestVmDownLoadServer__sub_803F0138(const char *name, s16 len, Info_803F0138 *out);
+s32 find_symbol_entry__22TQuestVmDownLoadServerFPvsPv(const char *name, s16 len, Info_803F0138 *out);
 s32 TQuestVmDownLoadServer__sub_803F03B4(u8 *data, Ent_803F03B4 *ents, s32 n, s32 *max);
 extern s32 lbl_805D7904;
 s32 TQuestVmDownLoadServer__sub_803F0268(const char *name, s16 len, Out_803F0268 *out);
@@ -1292,7 +1292,7 @@ s32 TQuestVmDownLoadServer__sub_803E7E3C(s32 arg0, u8 *arg1) {
 }
 #pragma pop
 
-s32 TQuestVmDownLoadServer__sub_803E7EE4(const char *key) {
+s32 find_name_index__22TQuestVmDownLoadServerFPv(const char *key) {
     s32 mid;
     s32 hi;
     s32 lo;
@@ -2369,7 +2369,7 @@ s32 TQuestVmDownLoadServer__sub_803EB7C0(Node_803EB7C0 *arg0) {
     return n + strlen(arg0->text);
 }
 
-s32 TQuestVmDownLoadServer__sub_803EB844(Node_803EB844 *p) {
+s32 count_chain_nodes__22TQuestVmDownLoadServerFPv(Node_803EB844 *p) {
     s32 n = 0;
     while (p != NULL) {
         while (p->flags & 1) {
@@ -3667,7 +3667,7 @@ s32 TQuestVmDownLoadServer__sub_803F0048(s32 id, u8 a1, u8 a2, void *dst) {
     return 1;
 }
 
-s32 TQuestVmDownLoadServer__sub_803F0138(const char *name, s16 len, Info_803F0138 *out) {
+s32 find_symbol_entry__22TQuestVmDownLoadServerFPvsPv(const char *name, s16 len, Info_803F0138 *out) {
     u8 n;
     u8 *base;
     u8 *p;
@@ -3677,7 +3677,7 @@ s32 TQuestVmDownLoadServer__sub_803F0138(const char *name, s16 len, Info_803F013
         out->off = -1;
         return 0;
     }
-    id = TQuestVmDownLoadServer__sub_803E7EE4(name);
+    id = find_name_index__22TQuestVmDownLoadServerFPv(name);
     {
         u8 *get_cached_page__22TQuestVmDownLoadServerFi(void);
         base = get_cached_page__22TQuestVmDownLoadServerFi();
@@ -3719,7 +3719,7 @@ s32 TQuestVmDownLoadServer__sub_803F0268(const char *name, s16 len, Out_803F0268
     }
     strncpy(buf, name, len);
     buf[len] = 0;
-    r1 = TQuestVmDownLoadServer__sub_803F0138(buf, len, &i1);
+    r1 = find_symbol_entry__22TQuestVmDownLoadServerFPvsPv(buf, len, &i1);
     r2 = TQuestVmDownLoadServer__sub_803E8B1C((char *)(buf), len, (Out_803E8B1C *)(&i2));
     if (r1 == 0 && r2 == 0) {
         return 0;

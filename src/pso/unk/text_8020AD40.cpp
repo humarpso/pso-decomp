@@ -32,7 +32,7 @@ M2C_UNK TLobby__sub_8020B2DC();
 extern s32 TLobby__data_805D60E4;
 extern s32 TLobby__data_805D60EC;
 extern s32 TLobby__data_805D614C;
-s32 TLobby__sub_8020AF0C(void);
+s32 load_all_floor_enemy_sets__6TLobbyFv(void);
 s32 is_area_transfer_pending();
 M2C_UNK advance_object_id_counter(int);
 s32 get_floor_map_selection(int, void *);
@@ -40,7 +40,7 @@ M2C_UNK TLobby__sub_8020B308();
 extern s32 TLobby__data_805D60E0;
 extern s32 TLobby__data_805D60E8;
 extern s32 TLobby__data_805D6148;
-s32 TLobby__sub_8020AFA4(void);
+s32 load_all_floor_object_sets__6TLobbyFv(void);
 s32 read_disc_file(void *, Rec_8020AD40 *);
 void debug_print__6TLobbyFii(void *, ...);
 void replace_file_extension__6TLobbyFPvPvPv(void *, s32, void *);
@@ -113,7 +113,7 @@ s32 load_area_object_set(s32 arg0, s32 arg1, s32 arg2, s32 arg3) {
     return 1;
 }
 
-s32 TLobby__sub_8020AF0C(void) {
+s32 load_all_floor_enemy_sets__6TLobbyFv(void) {
     Stack_8020AF0C stack;
     s32 var_r31;
     var_r31 = 0;
@@ -135,7 +135,7 @@ block_6:
     }
     goto loop_1;
 }
-s32 TLobby__sub_8020AFA4(void) {
+s32 load_all_floor_object_sets__6TLobbyFv(void) {
     Stack_8020AFA4 stack;
     s32 var_r31;
     var_r31 = 0;

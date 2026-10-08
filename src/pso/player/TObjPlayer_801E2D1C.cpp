@@ -13,7 +13,7 @@ void prepare_ginja_model(G_801E2DE4 *);
 void end_ginja_model_draw();
 void draw_ginja_model_lists();
 extern void *lbl_805D4698;
-void TObjPlayer__sub_801E2DE4(void *arg0, s32 arg1);
+void draw_ginja_model__10TObjPlayerFPvi(void *arg0, s32 arg1);
 }
 
 extern "C" {
@@ -63,7 +63,7 @@ void render_model_tree__10TObjPlayerFPv(void *arg0) {
 extern void *lbl_805D4698;
 extern s32 lbl_805D7774;
 
-void TObjPlayer__sub_801E2DE4(void *arg0, s32 arg1) {
+void draw_ginja_model__10TObjPlayerFPvi(void *arg0, s32 arg1) {
     G_801E2DE4 *g;
     bind_motion_context(arg1);
     g = (G_801E2DE4 *)lbl_805D4698;

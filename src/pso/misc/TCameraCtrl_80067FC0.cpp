@@ -72,7 +72,7 @@ extern M2C_UNK lbl_80488838[];
 O_80068018 *TCameraCtrl__sub_80068018(O_80068018 *self);
 Vec_8006835C *get_target__11TCameraCtrlFPv(void *);
 void direction_to_pitch_yaw(void *, void *, void *);
-void TCameraCtrl__sub_801E317C(s32, void *);
+void set_viewport_scissor__11TCameraCtrlFiPv(s32, void *);
 void TCameraCtrl__sub_801E32D8(f32, f32);
 void GXSetScissorBoxOffset(s32, s32);
 void set_camera_look_at(void *, void *, void *);
@@ -270,7 +270,7 @@ void post_update_view__11TCameraCtrlFv(void) {
     if (TCameraCtrl__data_804FF628.flags & 0x200) {
         GXSetScissorBoxOffset((s32)-(TCameraCtrl__data_804FF634.x - lbl_805D8F98), (s32)-(TCameraCtrl__data_804FF634.y - lbl_805D8F9C));
         TCameraCtrl__sub_801E32D8(TCameraCtrl__data_804FF634.x, TCameraCtrl__data_804FF634.y);
-        TCameraCtrl__sub_801E317C(2, TCameraCtrl__data_804FF634.f30);
+        set_viewport_scissor__11TCameraCtrlFiPv(2, TCameraCtrl__data_804FF634.f30);
     }
 }
 

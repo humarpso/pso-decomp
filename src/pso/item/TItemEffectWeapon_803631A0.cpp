@@ -23,7 +23,7 @@ extern "C" {
 void play_effect_sound__17TItemEffectWeaponFPv(void *arg0);
 void send_player_load__17TItemEffectWeaponFi(s32 arg0);
 M2C_UNK spawn_particle_effect(M2C_UNK *, M2C_UNK);
-M2C_UNK TObjPlayer__sub_8011E3E8(s32);
+M2C_UNK spawn_light_task__10TObjPlayerFPv(s32);
 M2C_UNK fire_shot_at_target__11TItemWeaponFv(s32, M2C_UNK *, M2C_UNK, M2C_UNK);
 M2C_UNK translate_matrix(M2C_UNK, f32, f32, f32);
 M2C_UNK draw_status_icon__10TObjPlayerFPvi(s32, M2C_UNK *);
@@ -53,7 +53,7 @@ void send_player_load__17TItemEffectWeaponFi(s32 arg0) {
 
     draw_status_icon__10TObjPlayerFPvi(arg0, &sp8);
     spawn_particle_effect(&sp8, 9);
-    TObjPlayer__sub_8011E3E8(arg0);
+    spawn_light_task__10TObjPlayerFPv(arg0);
     fire_shot_at_target__11TItemWeaponFv(arg0, &sp8, 0, 0);
 }
 

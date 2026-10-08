@@ -2001,7 +2001,7 @@ void update_attack_effect__16TObjEneDellBiterFi(s32 arg0);
 s32 TObjEneDellBiter__sub_80305C40(u8 *arg0);
 void TObjEneDellBiter__sub_80305E1C(u8 *arg0);
 void TObjEneDellBiter__sub_80305F58(u8 *arg0);
-void TObjEneDellBiter__sub_80305FDC(u8 *arg0);
+void update_particle_emitters__16TObjEneDellBiterFPv(u8 *arg0);
 void TObjEneDellBiter__vt86(void);
 void TObjEneDellBiter__sub_80306110(u8 *arg0);
 void TObjEneDellBiter__vt59(void);
@@ -3720,7 +3720,7 @@ void TObjEneDellBiter__sub_80305F58(u8 *arg0) {
   *((s32 *) (((s8 *) arg0) + 0x4BC)) = 0;
 }
 
-void TObjEneDellBiter__sub_80305FDC(u8 *arg0) {
+void update_particle_emitters__16TObjEneDellBiterFPv(u8 *arg0) {
     Stack_80305FDC stack;
     s32 temp_r3;
     u8 *temp_r3_2;
@@ -3809,7 +3809,7 @@ void run_task__16TObjEneDellBiterFv(u8 *arg0) {
             TObjPlayer__sub_8023DEE0((void *) (lbl_805D6A40), (int) (0xC), (int) (0), (int) (0));
         }
     }
-    TObjEneDellBiter__sub_80305FDC((u8 *)((void *) (arg0)));
+    update_particle_emitters__16TObjEneDellBiterFPv((u8 *)((void *) (arg0)));
     if (M2C_FIELD(arg0, s32 *, 0x3C4) & 0x4000) {
         set_active__12TObjEneReconFv();
     }

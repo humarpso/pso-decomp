@@ -1386,7 +1386,7 @@ int enemy_copy_target_destination(void*);
 s32 update_linked_position__14TObjEneEpsilonFPv(void *, f32);
 int update_velocity__9TObjEneDDFPv(void*);
 f32 calc_elapsed_scaled__9TObjEneDDFv(void *);
-M2C_UNK TObjEneDD__sub_800BABCC(void *, f32, f32, f32);
+M2C_UNK move_to_wall_clamped_destination__9TObjEneDDFPvfff(void *, f32, f32, f32);
 M2C_UNK set_field_378__9TObjEneDDFPvi(void *, M2C_UNK);
 s32 handle_message__13TObjEneMe1GeeFii(s32 arg0, s32 arg1);
 s32 check_death_trigger__13TObjEneMe1GeeFPv(void *arg0);
@@ -4129,7 +4129,7 @@ void TObjEneMe1Gee__sub_800C9A94(void *arg0, s32 arg1) {
                     v.z = dir->z * o->dist + o->base.z;
                     subtract_vector(&v, &o->pos38);
                     c = clamp_velocity__15TObjBoss2TunnelFPv((Vec_800C96B4 *)&v);
-                    TObjEneDD__sub_800BABCC(o, v.x, v.z, c);
+                    move_to_wall_clamped_destination__9TObjEneDDFPvfff(o, v.x, v.z, c);
                 }
                 o->angle = (s32)(lbl_8043BF28 * get_ad_end_text_start__10TObjPlayerFv(dir->x, dir->z)) + 0x8000;
                 break;
@@ -4351,7 +4351,7 @@ void TObjEneMe1Gee__sub_800C9DF8(void *o_, s32 arg1) {
                 TObjEneMe1Gee__sub_800CBC04((u8 *)o);
             }
             o->f3F8 += o->f44C;
-            TObjEneDD__sub_800BABCC(o, o->f3A0, o->f3A8, o->f448);
+            move_to_wall_clamped_destination__9TObjEneDDFPvfff(o, o->f3A0, o->f3A8, o->f448);
             break;
         case 2:
             enemy_copy_target_destination(o);

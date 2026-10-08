@@ -301,7 +301,7 @@ s32 init_map_object_base(void *, void *);
 void finalize_and_send_60__6TLobbyFPv(void *);
 void init_6x05_switch_changed__6TLobbyFPv(void *);
 s32 get_player_by_client_id(s32);
-void TObjPlayer__sub_801E2DE4(void *, void *, f32);
+void draw_ginja_model__10TObjPlayerFPvi(void *, void *, f32);
 void begin_effect_render__13TParticleCtrlFv(void);
 void end_effect_render__13TParticleCtrlFv(void);
 s32 get_global_state__14TOKeyMachine01Fv();
@@ -551,7 +551,7 @@ void TOTrapChainSawKey__vt23(void *arg0) {
     rotate_matrix_y(0, M2C_FIELD(arg0, void **, 0x60));
     rotate_matrix_y(0, M2C_FIELD(arg0, void **, 0xD4));
     set_npc_enemy_param(((M2C_UNK *)TParticleCtrl__sub_802C8464));
-    TObjPlayer__sub_801E2DE4(M2C_FIELD(arg0, void **, 0xC8), M2C_FIELD(arg0, void **, 0xBC), M2C_FIELD(arg0, f32 *, 0xB4));
+    draw_ginja_model__10TObjPlayerFPvi(M2C_FIELD(arg0, void **, 0xC8), M2C_FIELD(arg0, void **, 0xBC), M2C_FIELD(arg0, f32 *, 0xB4));
     ((void (*)(int))set_npc_enemy_param)(0);
     if (M2C_FIELD(arg0, s32 *, 0xF0) == 1) {
         begin_effect_render__13TParticleCtrlFv();

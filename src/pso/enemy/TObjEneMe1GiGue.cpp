@@ -55,7 +55,7 @@ void TObjEneMe1GiGue__sub_802CAF24(s32 arg0);
 void update_direction__15TObjEneMe1GiGueFPv(void *arg0);
 void TObjEneMe1GiGue__sub_802CB03C(u8 *arg0);
 s32 TObjEneMe1GiGue__sub_802CB10C(S_802CB10C *arg0);
-void TObjEneMe1GiGue__sub_802CB170(Gi_802CB170 *self, Tgt_802CB170 *t);
+void add_target_in_cone__15TObjEneMe1GiGueFPvPv(Gi_802CB170 *self, Tgt_802CB170 *t);
 void init__15TObjEneMe1GiGueFPv(u8 *arg0);
 void TObjEneMe1GiGue__sub_802CB378(u8 *arg0);
 void apply_hit_shake__15TObjEneMe1GiGueFPvUi(void *arg0, u32 arg1);
@@ -707,7 +707,7 @@ f64 get_ad_end_text_start__10TObjPlayerFv(f32, f32);
 s32 angle_difference_abs(s32, s32);
 void subtract_vector(Vec_802CB170 *, Vec_802CB170 *);
 extern const f64 TObjEneMe1GiGue__data_80472298;
-void TObjEneMe1GiGue__sub_802CB170(Gi_802CB170 *self, Tgt_802CB170 *t);
+void add_target_in_cone__15TObjEneMe1GiGueFPvPv(Gi_802CB170 *self, Tgt_802CB170 *t);
 }
 
 extern "C" {
@@ -838,14 +838,14 @@ s32 TObjEneMe1GiGue__sub_802CB10C(S_802CB10C *arg0) {
     arg0->f3C0 = 0;
     for (i = 0; i < lbl_805D586C; i++) {
         s32 t = get_player_data__10TObjPlayerFi(i);
-        TObjEneMe1GiGue__sub_802CB170((Gi_802CB170 *)(arg0), (Tgt_802CB170 *)(t));
+        add_target_in_cone__15TObjEneMe1GiGueFPvPv((Gi_802CB170 *)(arg0), (Tgt_802CB170 *)(t));
     }
     return arg0->f3C0;
 }
 typedef struct Gi_802CB170 Gi_802CB170;
 typedef struct Tgt_802CB170 Tgt_802CB170;
 typedef struct Vec_802CB170 Vec_802CB170;
-void TObjEneMe1GiGue__sub_802CB170(Gi_802CB170 *self, Tgt_802CB170 *t) {
+void add_target_in_cone__15TObjEneMe1GiGueFPvPv(Gi_802CB170 *self, Tgt_802CB170 *t) {
   int new_var;
   if ((((self->count < 12) && (t != 0)) && (((void *) t) != ((void *) self))) && (!(t->flags & 0x06000800)))
   {

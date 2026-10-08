@@ -357,7 +357,7 @@ extern Cfg_803CBA58 lbl_804F9D80;
 extern u8 lbl_80575E80[];
 extern s32 lbl_805D7598;
 extern s32 lbl_805D75BC;
-void TLobby__sub_803CBBD8(void);
+void adxm_goto_mwidle_border__6TLobbyFv(void);
 M2C_UNK GXFlush();
 M2C_UNK release_ref__6TLobbyFv();
 M2C_UNK init_once__6TLobbyFv();
@@ -1351,7 +1351,7 @@ void TLobby__sub_803CBBB0(void) {
     }
     lbl_805D75C4 = 1;
 }
-void TLobby__sub_803CBBD8(void) {
+void adxm_goto_mwidle_border__6TLobbyFv(void) {
     s32 i;
     if (lbl_805D75BC == 1) {
         return;

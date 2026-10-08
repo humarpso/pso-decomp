@@ -41,7 +41,7 @@ s32 copy_vec2__28TWindowSubSymbolChatPartsSetFPvPv(void *, int);
 s32 __nw__7TObjectFUl(int);
 s32 fn_80247ED8(int);
 s32 fn_80248840(int, void *);
-s32 TWindowChat__sub_8025CB70(void *);
+s32 reset_input__11TWindowChatFPv(void *);
 M2C_UNK TKeyBoardControl__sub_8025EC04(s32);
 s32 TWindowKeyBoardSoft__ct(int, void *, void *);
 s32 get_window_layout_position(int);
@@ -62,7 +62,7 @@ s32 TWindowChat__sub_80247EC0(void *);
 M2C_UNK begin_player_keyboard_hold(void *);
 M2C_UNK end_player_keyboard_hold(s32);
 s32 TWindowChat__sub_8025CB10(int);
-s32 TWindowChat__sub_8025CB70(void *);
+s32 reset_input__11TWindowChatFPv(void *);
 extern RecoveredGlobal_8024775C_lbl_8050E208 lbl_8050E208;
 extern s32 lbl_805D53A0;
 void TWindowChat__sub_8024775C(u8 *arg0);
@@ -198,7 +198,7 @@ void TWindowChat__sub_8024775C(u8 *arg0) {
     {
       if ((TWindowChat__sub_80247EC0((void *) arg0) != 0) && (TWindowShortListCtrl__check_controller_button((void *) (((u8 *) (&lbl_8050E208.value)) + 0x20), (int) 0x200) != 0))
       {
-        TWindowChat__sub_8025CB70((void *)((int) ((RecoveredFields_8024775C_arg0 *) arg0)->field_20));
+        reset_input__11TWindowChatFPv((void *)((int) ((RecoveredFields_8024775C_arg0 *) arg0)->field_20));
       }
       close_all_children__11TWindowChatFPv((void *) arg0);
       ((RecoveredFields_8024775C_arg0 *) arg0)->field_1E = (u16) (((RecoveredFields_8024775C_arg0 *) arg0)->field_1E | 2);
@@ -254,7 +254,7 @@ void open_next_input_window__11TWindowChatFPv(u8 *arg0) {
         TKeyBoardControl__sub_8025EC04((s32)((int) (((RecoveredFields_8024792C_arg0 *)arg0)->field_28)));
         return;
     case 1:
-        TWindowChat__sub_8025CB70((void *) (((RecoveredFields_8024792C_arg0 *)arg0)->field_20));
+        reset_input__11TWindowChatFPv((void *) (((RecoveredFields_8024792C_arg0 *)arg0)->field_20));
         *((RecoveredFields_8024792C_arg0 *)arg0)->field_38 = 2;
         temp_r3_2 = __nw__7TObjectFUl((int) (0x108));
         var_r0_2 = temp_r3_2;
@@ -265,7 +265,7 @@ void open_next_input_window__11TWindowChatFPv(u8 *arg0) {
         TKeyBoardControl__sub_8025EC04((s32)((int) (((RecoveredFields_8024792C_arg0 *)arg0)->field_28)));
         return;
     case 2:
-        TWindowChat__sub_8025CB70((void *) (((RecoveredFields_8024792C_arg0 *)arg0)->field_20));
+        reset_input__11TWindowChatFPv((void *) (((RecoveredFields_8024792C_arg0 *)arg0)->field_20));
         *((RecoveredFields_8024792C_arg0 *)arg0)->field_38 = 3;
         temp_r3_3 = __nw__7TObjectFUl((int) (0x24));
         var_r0_3 = temp_r3_3;

@@ -28,7 +28,7 @@ s32 rand();
 extern const f32 lbl_805E03D0;
 extern const f32 lbl_805E03D8;
 extern const f32 lbl_805E03E4;
-s32 TBoss6RockChase__sub_8036D6D4(s32 arg0, s32 arg1);
+s32 spawn__15TBoss6RockChaseFii(s32 arg0, s32 arg1);
 s32 VecCopy__FP3VecPC3Vec(void *, void *);
 s32 get_bml_model(int, int);
 s32 construct_collider_proxy__10TObjPlayerFPv(void *);
@@ -145,7 +145,7 @@ u8 *TBoss6RockChase__ct(u8 *arg0, s32 arg1, s32 arg2, s32 arg3) {
 }
 #pragma pop
 
-s32 TBoss6RockChase__sub_8036D6D4(s32 arg0, s32 arg1) {
+s32 spawn__15TBoss6RockChaseFii(s32 arg0, s32 arg1) {
     typedef char sp8_offset[(offsetof(Stack_8036D6D4, sp8) == 0x0) ? 1 : -1];
     typedef char spC_offset[(offsetof(Stack_8036D6D4, spC) == 0x4) ? 1 : -1];
     Stack_8036D6D4 stack;

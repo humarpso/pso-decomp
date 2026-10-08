@@ -242,7 +242,7 @@ s32 draw_resolved_window__15TWindowFukidasiFiiii(Fuki_80250F70 *, f32 *, f32 *, 
 void hide__15TWindowFukidasiFPv(void *);
 f32 * get_message_by_type__11TWindowCtrlFci(u8, int);
 void release_slot__11TWindowCtrlFPv(u8 *);
-u8 TWindowCtrl__sub_8024B1A0(Fuki_802504C0 *);
+u8 alloc_nearest_free_slot__11TWindowCtrlFPv(Fuki_802504C0 *);
 s32 get_flag_bit1__11TWindowCtrlFPv(Fuki_802504C0 *);
 f32 get_field_18__15TWindowCtrlMainFv(s16);
 f32 get_ctrl_field14__15TWindowCtrlMainFv(s16);
@@ -506,7 +506,7 @@ void place_rect_at_head_or_slot__15TWindowFukidasiFPv(Fuki_802504C0 *b) {
         if ((s8)b->slot == -1) {
             set_flag__15TWindowFukidasiFPv(b);
             set_flag2c_bit200__15TWindowFukidasiFPv(b);
-            b->slot = TWindowCtrl__sub_8024B1A0(b);
+            b->slot = alloc_nearest_free_slot__11TWindowCtrlFPv(b);
         }
         m = get_message_by_type__11TWindowCtrlFci(b->slot, b->viewport);
         b->rect[0] = m[0] - TWindowFukidasi__data_805DCD0C * b->anchor[0];
@@ -681,7 +681,7 @@ void refresh_rect_placement__15TWindowFukidasiFPv(Fuki_80251028 *b) {
         if ((s8)b->slot == -1) {
             set_flag__15TWindowFukidasiFPv((Fuki_802504C0 *)b);
             set_flag2c_bit200__15TWindowFukidasiFPv((Fuki_802504C0 *)b);
-            b->slot = TWindowCtrl__sub_8024B1A0((Fuki_802504C0 *)b);
+            b->slot = alloc_nearest_free_slot__11TWindowCtrlFPv((Fuki_802504C0 *)b);
         }
         m = get_message_by_type__11TWindowCtrlFci(b->slot, b->viewport);
         b->rect[0] = m[0] - TWindowFukidasi__data_805DCD0C * b->anchor[0];

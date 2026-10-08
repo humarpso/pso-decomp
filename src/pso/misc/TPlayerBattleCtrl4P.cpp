@@ -59,7 +59,7 @@ void TPlayerBattleCtrl4P__vt9(O_8031224C *o);
 void update__19TPlayerBattleCtrl4PFv(void *);
 M2C_UNK __ct__15TDuelEffectCtrlFP7TObjectUc(void *, void *, M2C_UNK);
 void *__nw__7TObjectFUl(M2C_UNK);
-void TWindowCtrl__sub_8024A4EC(void);
+void close_timer_window__11TWindowCtrlFv(void);
 void remove_player__19TPlayerBattleCtrl4PFPvUsi(void *, u16, s32);
 VObj_18_26c590 *get_player_by_client_id(s32);
 void set_type__10TObjPlayerFPvi(void *, s32);
@@ -123,7 +123,7 @@ void TPlayerBattleCtrl4P__vt17(void *arg0) {
         }
     }
     M2C_FIELD(arg0, s32 *, 0x240) = 0x1E;
-    TWindowCtrl__sub_8024A4EC();
+    close_timer_window__11TWindowCtrlFv();
     for (i = 0; i < 4; i++) {
         remove_player__19TPlayerBattleCtrl4PFPvUsi(arg0, i, 1);
     }

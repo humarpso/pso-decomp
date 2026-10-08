@@ -67,7 +67,7 @@ M2C_UNK TKeyBoardControl__sub_8025CC3C(u32);
 int fn_8025CD10(void*);
 void calc_cursor_step__19TWindowKeyBoardSoftFiPvPv(s32 arg0, s32 *arg1, s32 *arg2);
 s32 TWindowKeyBoardSoft__sub_802605DC(Win_802605DC *w);
-f32 TWindowKeyBoardSoft__sub_8026062C(s32 arg0, s32 arg1, s32 arg2);
+f32 calc_key_x__19TWindowKeyBoardSoftFiii(s32 arg0, s32 arg1, s32 arg2);
 s32 calc_key_index__19TWindowKeyBoardSoftFiii(s32 arg1, s32 arg2, s32 arg3);
 f32 TWindowKeyBoardSoft__sub_802606E0(void);
 f32 TWindowKeyBoardSoft__sub_80260728(M2C_UNK arg0, s32 arg1);
@@ -75,7 +75,7 @@ M2C_UNK TWindowKeyBoardSoft__sub_80260760(void *, int, void *, int);
 void TWindowKeyBoardSoft__sub_80260808(u8 *arg0, s32 arg1);
 M2C_UNK TWindowKeyBoardSoft__sub_80261134(void *);
 void update_focus_flags__19TWindowKeyBoardSoftFPv(void *arg0);
-void TWindowKeyBoardSoft__sub_80261204(u8 *arg0, s32 arg1);
+void handle_page_cycle_input__19TWindowKeyBoardSoftFPvi(u8 *arg0, s32 arg1);
 void close__16TKeyBoardControlFPv(void *arg0);
 void release_input__16TKeyBoardControlFPv(void *arg0);
 void TKeyBoardControl__sub_802613A4(void *arg0);
@@ -169,7 +169,7 @@ extern int fold_flush_0;
 
 #pragma push
 #pragma fp_contract on
-f32 TWindowKeyBoardSoft__sub_8026062C(s32 arg0, s32 arg1, s32 arg2) {
+f32 calc_key_x__19TWindowKeyBoardSoftFiii(s32 arg0, s32 arg1, s32 arg2) {
   f32 new_var;
   s32 sp8;
   s32 temp_r31;
@@ -254,7 +254,7 @@ extern int fold_flush_6;
 
 #pragma push
 #pragma fp_contract on
-void TWindowKeyBoardSoft__sub_80261204(u8 *arg0, s32 arg1) {
+void handle_page_cycle_input__19TWindowKeyBoardSoftFPvi(u8 *arg0, s32 arg1) {
     s32 spC;
     s32 sp8;
     u8 *temp_r30;
@@ -349,13 +349,13 @@ f32 TWindowKeyBoardSoft__sub_802614DC(u8 *arg0, u8 *arg1, f32 farg0, f32 farg1, 
 
 #pragma push
 #pragma fp_contract on
-void TWindowKeyBoardSoft__sub_802615B8(u8 *arg0, s32 arg1, s32 arg2) {
+void spawn_key_effect__19TWindowKeyBoardSoftFPvii(u8 *arg0, s32 arg1, s32 arg2) {
     s32 type;
     Vec2_802615B8 pos;
     s32 kind;
 
     ((void (*)(void *, s32, s32 *, s32))TWindowKeyBoardSoft__sub_80260760)(arg0, ((s32 (*)(void *, s32, s32))calc_key_index__19TWindowKeyBoardSoftFiii)(arg0, arg1, arg2), &type, 0);
-    pos.x = *(f32 *)(arg0 + 0x40) + ((f32 (*)(void *, s32, s32))TWindowKeyBoardSoft__sub_8026062C)(arg0, arg1, arg2);
+    pos.x = *(f32 *)(arg0 + 0x40) + ((f32 (*)(void *, s32, s32))calc_key_x__19TWindowKeyBoardSoftFiii)(arg0, arg1, arg2);
     pos.y = TWindowKeyBoardSoft__data_805DD094 + (TWindowKeyBoardSoft__data_805DD088 + (TWindowKeyBoardSoft__data_805DD07C * (f32)arg2 + *(f32 *)(arg0 + 0x44)));
     switch (type) {
     case 1:

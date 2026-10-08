@@ -21,7 +21,7 @@ void TQuestListOnline__sub_8013ACF4(s32);
 void free__11TOBoss4RockFUi(void *);
 void clear_counter__6TLobbyFv();
 void reset_download__22TQuestVmDownLoadServerFv();
-void TQuestListOnline__sub_8021786C();
+void ensure_online_quests_loaded__16TQuestListOnlineFv();
 void clear_flag3_all_tasks__9TMainTaskFv(TMainTask *);
 s32 TWindow__close(int);
 extern unsigned char TQuestListOnline__data_80513DE8[];
@@ -170,7 +170,7 @@ void close_windows_and_reset__16TQuestListOnlineFv(void) {
         TQuestListOnline__data_805D6198 = 0;
         TQuestListOnline__data_805D619C = 0;
         TQuestListOnline__sub_8013ACF4(0xB);
-        TQuestListOnline__sub_8021786C();
+        ensure_online_quests_loaded__16TQuestListOnlineFv();
         clear_flag3_all_tasks__9TMainTaskFv(&main_task);
         reset_download__22TQuestVmDownLoadServerFv();
     }

@@ -62,7 +62,7 @@ M2C_UNK TWindow__close(void *);
 s32 get_state__22TAdMultiPlyChrSelectGCFv();
 s32 get_state_result__22TAdMultiPlyChrSelectGCFPv(int);
 extern RecoveredGlobal_8030EBD0_lbl_8050E3B8 lbl_8050E3B8;
-void TAdChrSelBSlotGC__sub_8030ECB8(u8 *arg0);
+void check_cancel_and_close__16TAdChrSelBSlotGCFPv(u8 *arg0);
 M2C_UNK TAdPlyChrSelPlateGC__sub_802C4DD0(int, void *);
 s32 get_global_state__16TAdChrSelBSlotGCFv(void *);
 extern RecoveredGlobal_8030E6E0_lbl_804758E8 lbl_804758E8;
@@ -90,7 +90,7 @@ void reset_slot_state__16TAdChrSelBSlotGCFPv(void *arg0);
 void set_load_state__16TAdChrSelBSlotGCFPv(void *arg0);
 void set_state_confirm__16TAdChrSelBSlotGCFPv(void *arg0);
 void update_load_state__16TAdChrSelBSlotGCFPv(void *arg0);
-s32 TAdSinglePlyChrSelectGC__sub_802004D8();
+s32 encrypt_and_save__23TAdSinglePlyChrSelectGCFv();
 s32 get_instance__15TAdPlayerLoadGCFv();
 s32 get_load_result__15TAdPlayerLoadGCFv(s32);
 s32 get_slot_index__16TAdChrSelASlotGCFPv(void* p);
@@ -126,7 +126,7 @@ void set_load_state__16TAdChrSelBSlotGCFPv(void *arg0) {
     }
 }
 void init__16TAdChrSelBSlotGCFPv(void *arg0) {
-    TAdSinglePlyChrSelectGC__sub_802004D8();
+    encrypt_and_save__23TAdSinglePlyChrSelectGCFv();
     open_confirm_window__23TAdSinglePlyChrSelectGCFv();
     M2C_FIELD(arg0, s32 *, 0x1C) = 0x1C;
 }
@@ -152,12 +152,12 @@ void update_load_state__16TAdChrSelBSlotGCFPv(void *arg0) {
     }
 }
 void set_state_confirm__16TAdChrSelBSlotGCFPv(void *arg0) {
-    TAdSinglePlyChrSelectGC__sub_802004D8();
+    encrypt_and_save__23TAdSinglePlyChrSelectGCFv();
     open_confirm_window__23TAdSinglePlyChrSelectGCFv();
     M2C_FIELD(arg0, s32 *, 0x1C) = 0x1A;
 }
 void enter_state17__16TAdChrSelBSlotGCFPv(void *arg0) {
-    TAdSinglePlyChrSelectGC__sub_802004D8();
+    encrypt_and_save__23TAdSinglePlyChrSelectGCFv();
     open_confirm_window__23TAdSinglePlyChrSelectGCFv();
     M2C_FIELD(arg0, s32 *, 0x1C) = 0x17;
 }
@@ -338,7 +338,7 @@ void TAdChrSelBSlotGC__sub_8030EBD0(u8 *arg0) {
 }
 typedef struct RecoveredGlobal_8030ECB8_lbl_8050E3B8 RecoveredGlobal_8030ECB8_lbl_8050E3B8;
 typedef char RecoveredGlobal_8030ECB8_lbl_8050E3B8_size[((sizeof(RecoveredGlobal_8030ECB8_lbl_8050E3B8)) == 0x1B0) ? (1) : (-1)];
-void TAdChrSelBSlotGC__sub_8030ECB8(u8 *arg0) {
+void check_cancel_and_close__16TAdChrSelBSlotGCFPv(u8 *arg0) {
   u32 temp_r3;
   s32 new_var;
   u8 *temp_r31;

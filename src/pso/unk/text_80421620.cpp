@@ -266,7 +266,7 @@ extern u32 lbl_805D7B4C;
 extern u32 lbl_805D7B50;
 extern u32 lbl_805D7B58;
 extern u32 lbl_805D7B60;
-s32 TLobby__sub_80423A7C(u8 *arg0);
+s32 build_dhcp_discover_packet__6TLobbyFPv(u8 *arg0);
 u16 str_length__6TLobbyFi(void *);
 M2C_UNK TUdpSocket__sub_803F9EE4(void *, int, int);
 M2C_UNK TLobby__sub_803F9F04(void *, void *, int);
@@ -290,7 +290,7 @@ extern s32 lbl_805D7B28;
 extern u32 lbl_805D7B4C;
 extern u32 lbl_805D7B50;
 extern u32 lbl_805D7B60;
-s32 TLobby__sub_804236E8(u8 *arg0);
+s32 build_dhcp_release__6TLobbyFPv(u8 *arg0);
 }
 
 extern "C" {
@@ -870,7 +870,7 @@ s32 TLobby__sub_8042315C(s16 arg0, P_8042315C *p) {
     return r;
 }
 
-s32 TLobby__sub_804236E8(u8 *arg0) {
+s32 build_dhcp_release__6TLobbyFPv(u8 *arg0) {
     s32 m;
     u8 *p;
     u16 len;
@@ -976,7 +976,7 @@ s32 TLobby__sub_80423844(u8 *arg0) {
     return p - arg0;
 }
 
-s32 TLobby__sub_80423A7C(u8 *arg0) {
+s32 build_dhcp_discover_packet__6TLobbyFPv(u8 *arg0) {
     u32 spC;
     u8 *p;
     u16 len;

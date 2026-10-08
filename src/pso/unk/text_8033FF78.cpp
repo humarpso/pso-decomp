@@ -36,7 +36,7 @@ f32 vector_length(void *);
 M2C_UNK subtract_vector(void *, void *);
 extern const f32 lbl_805DFAF8;
 extern const f32 lbl_805DFB10;
-void fn_8033FF78(O_8033FF78 *arg0);
+void check_any_player_near(O_8033FF78 *arg0);
 M2C_UNK VecCopy__FP3VecPC3Vec(void *, void *);
 s32 create__10TObjMapCsnFi(void *);
 extern E_8034009C lbl_8047843C[];
@@ -45,7 +45,7 @@ void fn_8034009C(O_8034009C *arg0);
 
 extern "C" {
 
-void fn_8033FF78(O_8033FF78 *arg0) {
+void check_any_player_near(O_8033FF78 *arg0) {
     Vec_8033FF78 v;
     s32 n;
     s32 i;

@@ -18,7 +18,7 @@ int sprintf(char *, const char *, ...);
 extern char lbl_805D46A0[6];
 extern const f32 lbl_805E0EB8;
 extern const f32 lbl_805E0EBC;
-void fn_803D81D0(s32 arg0, s32 prec, f32 val);
+void print_float_padded(s32 arg0, s32 prec, f32 val);
 }
 
 extern "C" {
@@ -49,7 +49,7 @@ void queue_debug_text__13TObjEneMe1GeeFiPv(s32 arg0, char *arg1) {
     lbl_805D76C0 += len + 1;
 }
 
-void fn_803D81D0(s32 arg0, s32 prec, f32 val) {
+void print_float_padded(s32 arg0, s32 prec, f32 val) {
     char buf[24];
     s16 y;
     f32 scale;

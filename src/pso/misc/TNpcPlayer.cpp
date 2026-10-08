@@ -520,7 +520,7 @@ int get_registered_object_count(void);
 u16 get_action_flags__10TNpcPlayerFPv(void* p);
 void update_poison_damage__22TObjFogCollisionPoisonFPv(void *arg0);
 s32 check_switch__22TObjFogCollisionPoisonFPv(s32);
-s32 TObjFogCollisionPoison__sub_8015346C(s32, u16);
+s32 apply_poison_damage__22TObjFogCollisionPoisonFPvi(s32, u16);
 s32 TObjFogCollisionPoison__sub_801534E8(s32, u16);
 s32 TObjFogCollisionPoison__sub_80153520(s32);
 s32 TObjFogCollisionPoison__sub_801535D0(s32);
@@ -3599,7 +3599,7 @@ Npc_80152330 *construct_partner__10TNpcPlayerFPviisPv(Npc_80152330 *self, s32 a,
     return self;
 }
 
-u8 *TNpcPlayer__sub_80152674(s32 arg0) {
+u8 *build_npc_player_record__10TNpcPlayerFi(s32 arg0) {
     s32 mode;
     s32 diff;
     s32 lvl;
@@ -3842,7 +3842,7 @@ void update_poison_damage__22TObjFogCollisionPoisonFPv(void *arg0) {
             TObjFogCollisionPoison__sub_801534E8(temp_r31, M2C_FIELD(arg0, u16 *, 0x28));
             M2C_FIELD(arg0, s32 *, 0x20) = (s32) (M2C_FIELD(arg0, s32 *, 0x20) + 1);
             if ((s32) M2C_FIELD(arg0, s32 *, 0x20) >= (s32) M2C_FIELD(arg0, s32 *, 0x1C)) {
-                TObjFogCollisionPoison__sub_8015346C(temp_r31, M2C_FIELD(arg0, u16 *, 0x28));
+                apply_poison_damage__22TObjFogCollisionPoisonFPvi(temp_r31, M2C_FIELD(arg0, u16 *, 0x28));
                 M2C_FIELD(arg0, s32 *, 0x20) = 0;
                 M2C_FIELD(arg0, s32 *, 0x1C) = 0x1E;
             }

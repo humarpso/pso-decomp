@@ -41,7 +41,7 @@ M2C_UNK TWindow__close(void *);
 extern RecoveredGlobal_80329830_lbl_8050E208 lbl_8050E208;
 extern RecoveredGlobal_80329830_lbl_8050E3B8 lbl_8050E3B8;
 extern const f32 lbl_805DF710;
-void TAdAgreementBaseGC__sub_80329830(u8 *arg0);
+void update_state__18TAdAgreementBaseGCFPv(u8 *arg0);
 void create_callback__22TAdEnterSerialAccessGCFPvPvPv(void *, void *, void *);
 extern char lbl_804770BC[];
 extern char lbl_804770C4[];
@@ -115,7 +115,7 @@ void TAdAgreementBaseGC__sub_803297F8(void) {
     create_callback__22TAdEnterSerialAccessGCFPvPvPv(lbl_804770BC, lbl_804770C4, (void *)TAdAgreementBaseGC__sub_803296E8);
 }
 
-void TAdAgreementBaseGC__sub_80329830(u8 *arg0) {
+void update_state__18TAdAgreementBaseGCFPv(u8 *arg0) {
     s32 temp_r0;
     s32 temp_r3;
     s32 temp_r4;

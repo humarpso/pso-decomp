@@ -37,7 +37,7 @@ void *__nw__7TObjectFUl(u32);
 void set_render_rect__10TObjPlayerFPviiii(void *, int, int, int, int);
 void set_texture_name(void *, void *, u32, u32);
 void set_global_param__8TObjFishFi(void *);
-void TLanguage__sub_803DAF70(u32, int);
+void set_entry_index__9TLanguageFii(u32, int);
 void load_texture_list(void *);
 extern u8 lbl_8043F3D8[];
 extern TexList_80145804 lbl_804A74E8[];
@@ -96,7 +96,7 @@ void load_menu_font(void) {
     lbl_805D56B4[3] = 0x7FFF;
     set_global_param__8TObjFishFi(lbl_804A74E8);
     for (i = 0; i < 2; i++) {
-        TLanguage__sub_803DAF70(i, 0);
+        set_entry_index__9TLanguageFii(i, 0);
     }
     g = (Glyph_80145804 *)alloc_buffer__11TOBoss4RockFPv(0xB40);
     lbl_805D56BC = g;

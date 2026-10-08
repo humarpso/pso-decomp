@@ -177,7 +177,7 @@ void GXClearVtxDesc(void);
 void GXBegin(int, int, u16);
 void clear_move_state_bits__10TObjPlayerFv(void);
 extern s32 lbl_805D77F8;
-void TObjPlayer__sub_803E47E0(s16 *list, Vtx_803E47E0 *verts, u32 info);
+void draw_triangle_strips__10TObjPlayerFPvPvUi(s16 *list, Vtx_803E47E0 *verts, u32 info);
 M2C_UNK GXSetBlendMode(int, int, int, int);
 M2C_UNK GXSetZMode(int, int, int);
 M2C_UNK GXSetZCompLoc(int);
@@ -799,7 +799,7 @@ static inline void GXNormal3f32_803E47E0(f32 x, f32 y, f32 z) {
     (*(volatile WGPipe_803E47E0 *)0xCC008000).f32 = y;
     (*(volatile WGPipe_803E47E0 *)0xCC008000).f32 = z;
 }
-void TObjPlayer__sub_803E47E0(s16 *list, Vtx_803E47E0 *verts, u32 info) {
+void draw_triangle_strips__10TObjPlayerFPvPvUi(s16 *list, Vtx_803E47E0 *verts, u32 info) {
     s32 skip;
     s32 n;
     s32 draw;

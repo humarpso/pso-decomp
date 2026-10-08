@@ -11,7 +11,7 @@ bool TWindowChat__sub_8025CB10(u8 *arg0);
 extern "C" {
 
 void flush_if_flagged__11TWindowChatFPv(void* p);
-int TWindowChat__sub_8025CB70(void* a0 = 0);
+int reset_input__11TWindowChatFPv(void* a0 = 0);
 int get_flag__11TWindowChatFPv(void* a0 = 0);
 int is_key_state_2__19TWindowKeyBoardSoftFPv(void* p);
 
@@ -22,6 +22,6 @@ bool TWindowChat__sub_8025CB10(u8 *arg0) {
     return M2C_FIELD(arg0, s32 *, 0x94) != 0;
 }
 
-void flush_if_flagged__11TWindowChatFPv(void* p) { if (get_flag__11TWindowChatFPv(p) != 0) { TWindowChat__sub_8025CB70(p); } }
+void flush_if_flagged__11TWindowChatFPv(void* p) { if (get_flag__11TWindowChatFPv(p) != 0) { reset_input__11TWindowChatFPv(p); } }
 
 }

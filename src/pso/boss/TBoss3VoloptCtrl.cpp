@@ -27,7 +27,7 @@ M2C_UNK queue_destruction__7TObjectFv(void *);
 M2C_UNK TBoss3Volopt__sub_8003EA2C(int);
 void dispatch_state__16TBoss3VoloptCtrlFi(s32 arg0);
 M2C_UNK TObjPlayer__sub_801BA42C();
-M2C_UNK TObjPlayer__sub_801BA494();
+M2C_UNK freeze_all_players__10TObjPlayerFv();
 M2C_UNK play_area_music(void *);
 u8 *__nw__7TObjectFUl(M2C_UNK);
 extern RecoveredGlobal_80040D70_lbl_8043636C lbl_8043636C;
@@ -132,7 +132,7 @@ void TBoss3VoloptCtrl::run_task() {
             if ((s32) lbl_805D4C2C == 0) {
                 TBoss3Volopt__sub_8003EA2C((int) (1));
                 activate_camera_mode(9);
-                TObjPlayer__sub_801BA494();
+                freeze_all_players__10TObjPlayerFv();
                 play_area_music((void *) (&lbl_8043636C.value));
                 if (get_main_phase() != 0xF) {
                     if (is_not_split_screen__13TRaderMapCoreFv() == 1) {

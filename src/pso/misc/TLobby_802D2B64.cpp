@@ -49,7 +49,7 @@ u8 *get_quest_id__12TQuestListVMFPv(u32);
 u32 get_player_by_client_id(void *);
 s32 close_request_window__19TWindowTradeRequestFv();
 M2C_UNK TLobby__sub_8024AAA0(s32, M2C_UNK);
-s32 TLobby__sub_802D23E0();
+s32 send_trade_proposal_modify__6TLobbyFv();
 void TLobby__sub_802D30E8(s32 arg0);
 M2C_UNK prepare_and_send_trade_packet__6TLobbyFPvPv(void *, void *);
 M2C_UNK build_6xA6_modify_trade_proposal(void *);
@@ -214,7 +214,7 @@ void send_modify_trade_proposal__6TLobbyFi(s32 arg0) {
         if ((s32) (*(u8 *)&TLobby__data_805D688A) != 4) {
             close_request_window__19TWindowTradeRequestFv();
             if ((s8) (*(u8 *)&TLobby__data_805D688A) == arg0) {
-                TLobby__sub_802D23E0();
+                send_trade_proposal_modify__6TLobbyFv();
                 TLobby__sub_8024AAA0((s32)((void *) (lbl_805D53A0)), (M2C_UNK)((int) (0x1D)));
                 return;
             }

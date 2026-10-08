@@ -91,7 +91,7 @@ extern u32 lbl_805D6520;
 extern u32 lbl_805D6544;
 extern u32 lbl_805D6548;
 extern u32 lbl_805D654C;
-void TAdSinglePlyChrSelectGC__sub_8028FFC0(s32 arg0);
+void update_chara_preview__23TAdSinglePlyChrSelectGCFi(s32 arg0);
 M2C_UNK TLobby__sub_8001FE7C(void *, int);
 M2C_UNK __dt__10TObjMotionFv(void *, int);
 M2C_UNK free__11TOBoss4RockFUi(int);
@@ -155,7 +155,7 @@ extern u32 lbl_805D6548;
 extern u32 lbl_805D654C;
 extern void ***lbl_805D6550;
 extern s32 lbl_805D6554;
-void TAdSinglePlyChrSelectGC__sub_80290088(Sel_80290088 *arg0);
+void apply_character_appearance__23TAdSinglePlyChrSelectGCFPv(Sel_80290088 *arg0);
 }
 
 extern "C" {
@@ -1125,7 +1125,7 @@ void *lbl_804D3EE4[36] = {
 };
 void *lbl_804D3F74[14] = {
     (void *)0x0, (void *)0x0, (void *)0x0, (void *)0xffffffff,
-    (void *)&TAdSinglePlyChrSelectGC__sub_80290088, (void *)0x0, (void *)0xffffffff, (void *)&TAdSinglePlyChrSelectGC__sub_8028FFC0,
+    (void *)&apply_character_appearance__23TAdSinglePlyChrSelectGCFPv, (void *)0x0, (void *)0xffffffff, (void *)&update_chara_preview__23TAdSinglePlyChrSelectGCFi,
     (void *)0x0, (void *)0x0, (void *)0x0, (void *)0x0,
     (void *)0x0, (void *)0x0,
 };
@@ -1409,7 +1409,7 @@ void request_creation_motion(s32 arg0) {
     set_field_b8__14TObjEnePanarmsFPvs((void *)lbl_805D653C, arg0 * 3 + creation_motion_group(lbl_805D6520));
 }
 
-void TAdSinglePlyChrSelectGC__sub_8028FFC0(s32 arg0) {
+void update_chara_preview__23TAdSinglePlyChrSelectGCFi(s32 arg0) {
     s32 state;
     state = query_state__12TCharaMakingFv();
     TAdSinglePlyChrSelectGC__sub_8028ED54();
@@ -1432,7 +1432,7 @@ void TAdSinglePlyChrSelectGC__sub_8028FFC0(s32 arg0) {
     advance_animation_playback(arg0);
 }
 
-void TAdSinglePlyChrSelectGC__sub_80290088(Sel_80290088 *arg0) {
+void apply_character_appearance__23TAdSinglePlyChrSelectGCFPv(Sel_80290088 *arg0) {
     struct Opaque_80290088 *app;
     CharacterAppearanceFields *raw;
     s32 hair;

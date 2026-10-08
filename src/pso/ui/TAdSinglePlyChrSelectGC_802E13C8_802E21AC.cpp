@@ -9,7 +9,7 @@ s32 is_visible__17TWindowSubComCardFPv(u32);
 M2C_UNK poll_card_load__15TAdPlayerLoadGCFi(int);
 M2C_UNK TAdSinglePlyChrSelectGC__sub_801FBB1C();
 M2C_UNK TAdSinglePlyChrSelectGC__sub_801FBB7C();
-M2C_UNK TAdSinglePlyChrSelectGC__sub_801FBBDC();
+M2C_UNK try_load_system_file__23TAdSinglePlyChrSelectGCFv();
 s32 get_selected_menu_value(int);
 M2C_UNK change_state__23TAdSinglePlyChrSelectGCFPvi(void *, int);
 M2C_UNK TAdSinglePlyChrSelectGC__sub_802E1F14(void *);
@@ -54,7 +54,7 @@ void TAdSinglePlyChrSelectGC__sub_802E22A4(u8 *arg0) {
         switch (temp_r3) {
         case 0:
             if (M2C_FIELD(arg0, s32 *, 0x44) & 0x80) {
-                TAdSinglePlyChrSelectGC__sub_801FBBDC();
+                try_load_system_file__23TAdSinglePlyChrSelectGCFv();
             }
             if (M2C_FIELD(arg0, s32 *, 0x44) & 0x100) {
                 TAdSinglePlyChrSelectGC__sub_801FBB1C();

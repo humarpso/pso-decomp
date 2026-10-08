@@ -38,7 +38,7 @@ s32 __nw__7TObjectFUl(int);
 u8 *__ct__26TBoss5GryphonLightningHornFv(u8 *arg0, s32 arg1, s32 arg2, s32 arg3);
 extern const f32 lbl_805D8D48;
 extern const f32 lbl_805DF654;
-s32 TBoss8Dragon__sub_803263A4(s32 arg0, s32 arg1, s32 arg2);
+s32 spawn_ground_lightning__12TBoss8DragonFiii(s32 arg0, s32 arg1, s32 arg2);
 void init_slicer_launch_state(SlicerLaunchData_8012D9C8 *);
 u16 obj_getField1c(void *);
 u32 get_field_d8__10TObjPlayerFPv(void *);
@@ -81,7 +81,7 @@ u8 *__ct__26TBoss5GryphonLightningHornFv(u8 *arg0, s32 arg1, s32 arg2, s32 arg3)
     M2C_FIELD(arg0, s32 *, 0x90) = 4;
     return arg0;
 }
-s32 TBoss8Dragon__sub_803263A4(s32 arg0, s32 arg1, s32 arg2) {
+s32 spawn_ground_lightning__12TBoss8DragonFiii(s32 arg0, s32 arg1, s32 arg2) {
     Vec position;
     f32 ground_height;
     s32 allocation;

@@ -94,7 +94,7 @@ extern A12_8011E3E8 lbl_8043E838[];
 extern A16_8011E3E8 lbl_8043E844[];
 extern s32 tl_07;
 extern const f32 lbl_805DAC88;
-void TObjPlayer__sub_8011E3E8(Obj_8011E3E8 *arg0);
+void spawn_light_task__10TObjPlayerFPv(Obj_8011E3E8 *arg0);
 M2C_UNK VecCopy__FP3VecPC3Vec(void *, void *);
 s32 is_locally_controlled__10TObjPlayerFPv(s32);
 void restore_action_type__11TItemWeaponFPv(u8 *arg0);
@@ -476,7 +476,7 @@ s32 is_mode_two_and_ready__10TObjPlayerFPv(void *arg0) {
     return 0;
 }
 
-void TObjPlayer__sub_8011E3E8(Obj_8011E3E8 *arg0) {
+void spawn_light_task__10TObjPlayerFPv(Obj_8011E3E8 *arg0) {
     A12_8011E3E8 a = lbl_8043E838[0];
     A16_8011E3E8 b = lbl_8043E844[0];
     u32 p = __nw__7TObjectFUl(0x64);
@@ -875,7 +875,7 @@ s32 launch_shot__11TItemWeaponFPvPviii(u8 *arg0, u8 *arg1, s32 arg2, s32 arg3, s
                     spawn_land_hit_effect((int) (tl_05), (void *) (arg0), (void *) (arg1), (void *) (&endpoint.x), (int) ((s32) var_f31));
                 }
             }
-            TObjPlayer__sub_8011E3E8((Obj_8011E3E8 *)((void *) (arg0)));
+            spawn_light_task__10TObjPlayerFPv((Obj_8011E3E8 *)((void *) (arg0)));
             if ((((M2C_UNK (*)(void *, void *, f32 *, f32)) M2C_FIELD(arg0, M2C_UNK (**)(void *, void *, f32 *, f32), 0x1F0)) != NULL) && (is_mag_active__10TObjPlayerFPv((void *) (arg0)) == 1)) {
                 M2C_FIELD(arg0, M2C_UNK (**)(void *, void *, f32 *, f32), 0x1F0)(arg0, arg1, &endpoint.x, var_f31);
             }

@@ -42,7 +42,7 @@ void strncpy(s32, s32, s32);
 M2C_UNK memset(void *, int, int);
 void fn_8032B318(void *, void *);
 extern u8 lbl_804ED9F0[];
-void TAdEnterPPPPassGC__sub_80339480(s32 arg0);
+void set_password__17TAdEnterPPPPassGCFi(s32 arg0);
 s32 reset_input_state__22TAdEnterSerialAccessGCFPv(int);
 s32 add_item_rect__12TLevelSelectFPvPv(int, void *);
 s32 set_active__22TAdEnterSerialAccessGCFPv(int);
@@ -85,7 +85,7 @@ s32 add_item_rect__12TLevelSelectFPvPv(int, void *);
 s32 set_active__22TAdEnterSerialAccessGCFPv(int);
 void set_state_3__22TAdEnterSerialAccessGCFPv(int);
 s32 forward_input__22TAdEnterSerialAccessGCFPv(void *, int, char *);
-void TAdEnterPPPPassGC__sub_80339480(s32 arg0);
+void set_password__17TAdEnterPPPPassGCFi(s32 arg0);
 s32 strlen(const char *);
 extern RecoveredGlobal_803392F4_lbl_80477C20 lbl_80477C20;
 extern u8 lbl_8050E208[];
@@ -152,7 +152,7 @@ void update_password_input__17TAdEnterPPPPassGCFPv(u8 *arg0) {
     if ((M2C_FIELD(arg0, s32 *, 0x40) == 0 && TWindowShortListCtrl__check_controller_button(lbl_8050E3B8 + 0x20, 2) != 0) ||
         (M2C_FIELD(arg0, s32 *, 0x40) == 0 && test_flag_4c__23TAdSinglePlyChrSelectGCFPv(lbl_8050E208 + 0x160, 2) != 0)) {
         free__11TOBoss4RockFUi(buf);
-        TAdEnterPPPPassGC__sub_80339480((s32)&lbl_805DF9EC);
+        set_password__17TAdEnterPPPPassGCFi((s32)&lbl_805DF9EC);
         M2C_FIELD(arg0, s32 *, 0x20) = 2;
         lbl_805D6CA4 = 4;
         return;
@@ -196,7 +196,7 @@ void update_password_input__17TAdEnterPPPPassGCFPv(u8 *arg0) {
     }
     if (get_selected_slot__23TAdSinglePlyChrSelectGCFPv(M2C_FIELD(arg0, s32 *, 0x2C)) == 1 &&
         update_keyboard__17TWindowSubComCardFPv(lbl_805D6CA0) != 0) {
-        TAdEnterPPPPassGC__sub_80339480((s32)buf);
+        set_password__17TAdEnterPPPPassGCFi((s32)buf);
         M2C_FIELD(arg0, s32 *, 0x20) = 3;
         lbl_805D6CA4 = 4;
     }
@@ -237,7 +237,7 @@ void run_task__17TAdEnterPPPPassGCFv(TAdEnterPPPPassGC_80339378 *self) {
     }
 }
 
-void TAdEnterPPPPassGC__sub_80339480(s32 arg0) {
+void set_password__17TAdEnterPPPPassGCFi(s32 arg0) {
     if ((TLobby__sub_8014618C() != 0) && (is_state_active__6TLobbyFv() != 0)) {
         TLobby__sub_80146CB8(arg0);
         return;

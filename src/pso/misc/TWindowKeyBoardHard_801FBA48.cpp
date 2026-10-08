@@ -21,7 +21,7 @@ s32 TAdPlayerLoadGC__sub_801E1B50(s32);
 s32 probe_card_slot__15TAdPlayerLoadGCFi(s32);
 void render_tick__Fv();
 void render_frame__23TAdSinglePlyChrSelectGCFv();
-s32 TAdSinglePlyChrSelectGC__sub_801FBEF4(s32 arg0);
+s32 wait_for_card_load__23TAdSinglePlyChrSelectGCFi(s32 arg0);
 void apply_rng_cipher__23TAdSinglePlyChrSelectGCFPvPvi(void *, void *, s32);
 void subtractive_rng_unshuffle(void *, void *, void *, s32);
 void subtractive_rng_make_shuffle(void *);
@@ -39,9 +39,9 @@ M2C_UNK safe_free__23TAdSinglePlyChrSelectGCFUi(void *);
 void *alloc__22TQuestVmDownLoadServerFPv(s32);
 s32 find_card_file__15TAdPlayerLoadGCFiPv(s32, char *);
 void TAdSinglePlyChrSelectGC__sub_801FBC3C(void *arg0);
-s32 TAdSinglePlyChrSelectGC__sub_801FBEF4(s32 arg0);
+s32 wait_for_card_load__23TAdSinglePlyChrSelectGCFi(s32 arg0);
 void copy_name__23TAdSinglePlyChrSelectGCFi(s32);
-void TAdSinglePlyChrSelectGC__sub_801FBF90(s32);
+void set_card_disk_id__23TAdSinglePlyChrSelectGCFi(s32);
 s32 load_system_file__23TAdSinglePlyChrSelectGCFiPv(s32, s32 *);
 s32 TAdSinglePlyChrSelectGC__sub_80201204(void *, s32);
 s32 load_player_slot__23TAdSinglePlyChrSelectGCFPvii(s32, char *, void *);
@@ -65,7 +65,7 @@ s32 probe_and_check_card__15TAdPlayerLoadGCFi(s32);
 s32 find_card_file__15TAdPlayerLoadGCFiPv(s32, char *);
 void poll_load_status__15TAdPlayerLoadGCFi(s32, void *);
 extern char lbl_804C8914[];
-void TAdSinglePlyChrSelectGC__sub_801FBBDC(void);
+void try_load_system_file__23TAdSinglePlyChrSelectGCFv(void);
 }
 
 extern "C" {
@@ -130,7 +130,7 @@ void TAdSinglePlyChrSelectGC__sub_801FBB7C(void) {
     }
 }
 
-void TAdSinglePlyChrSelectGC__sub_801FBBDC(void) {
+void try_load_system_file__23TAdSinglePlyChrSelectGCFv(void) {
     s32 r;
     if (probe_and_check_card__15TAdPlayerLoadGCFi(0) != 0) {
         r = find_card_file__15TAdPlayerLoadGCFiPv(0, lbl_804C8914);
@@ -174,9 +174,9 @@ u8 load_and_verify_character_save__23TAdSinglePlyChrSelectGCFPvPv(char *name, ch
     res = find_card_file__15TAdPlayerLoadGCFiPv(0, lbl_804C8954);
     if (res == 0) {
         lbl_805D49B4 = 1;
-        TAdSinglePlyChrSelectGC__sub_801FBF90(0);
+        set_card_disk_id__23TAdSinglePlyChrSelectGCFi(0);
         res = load_player_slot__23TAdSinglePlyChrSelectGCFPvii(0, lbl_804C8954, buf);
-        TAdSinglePlyChrSelectGC__sub_801FBEF4(0);
+        wait_for_card_load__23TAdSinglePlyChrSelectGCFi(0);
         copy_name__23TAdSinglePlyChrSelectGCFi(0);
     }
     if (res != 0) {
@@ -204,7 +204,7 @@ u8 load_and_verify_character_save__23TAdSinglePlyChrSelectGCFPvPv(char *name, ch
     return saved == res;
 }
 
-s32 TAdSinglePlyChrSelectGC__sub_801FBEF4(s32 arg0) {
+s32 wait_for_card_load__23TAdSinglePlyChrSelectGCFi(s32 arg0) {
     while (TAdPlayerLoadGC__sub_801E1B50(arg0) != 0) {
         if (probe_card_slot__15TAdPlayerLoadGCFi(arg0) != 1) {
             return 0;

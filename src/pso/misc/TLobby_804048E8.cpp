@@ -534,7 +534,7 @@ M2C_UNK OSSuspendThread();
 void NetSuspendCurrentThread(void);
 M2C_UNK OSCancelThread(void *);
 s32 OSIsThreadTerminated();
-void TLobby__sub_803F9AEC(s32 arg0);
+void cancel_thread_if_running__6TLobbyFi(s32 arg0);
 M2C_UNK OSResumeThread();
 void TLobby__sub_803F9B28(void);
 void TAdSinglePlyChrSelectGC__sub_8039DC70(s32, s32);
@@ -547,7 +547,7 @@ void TLobby__sub_803F9EA4(void);
 M2C_UNK memcmp();
 M2C_UNK memset();
 M2C_UNK memcpy();
-s32 TLobby__sub_803FB634();
+s32 is_timed_out__6TLobbyFv();
 s32 TLobby__sub_803F9F24(u8 *arg0);
 s32 TLobby__sub_803F9EC4(void *, void *, int);
 void TUdpSocket__sub_803F9EE4(void *, int, int);
@@ -555,7 +555,7 @@ void TLobby__sub_803F9F04(void *, void *, int);
 s32 TLobby__sub_803FA17C(u8 *arg0, s32 arg1);
 void TLobby__sub_803FA284(s32 arg0);
 void TLobby__sub_803F7678(void);
-void TLobby__sub_803F7A30(void);
+void stop_network_thread__6TLobbyFv(void);
 void TLobby__sub_803FD0C0(void);
 void TLobby__sub_80428374(void);
 s32 TLobby__sub_803FAFDC(void);
@@ -660,7 +660,7 @@ s32 TLobby__sub_80414B54(s32 arg0, s32 arg1);
 s16 TLobby__sub_8041510C(void);
 void TLobby__sub_804150EC(void);
 void TLobby__sub_8041615C(void);
-void TLobby__sub_804162A4(void);
+void update_resend_timers__6TLobbyFv(void);
 void TLobby__sub_80415CE8(void);
 void TUdpSocket__sub_803F9EE4(void * _w0, int _w1, int _w2);
 void release_entry__10TUdpSocketFPv(void *);
@@ -739,7 +739,7 @@ void TLobby__sub_803F94A0(u32 arg0);
 void unlock_mutex__10TUdpSocketFi(int);
 void lock_mutex__6TLobbyFi(int);
 M2C_UNK TLobby__sub_803F95E4(int);
-void TLobby__sub_803F9AEC(s32 arg0);
+void cancel_thread_if_running__6TLobbyFi(s32 arg0);
 extern RecoveredGlobal_80419A00_lbl_805C1C50 lbl_805C1C50;
 s32 TLobby__sub_80419A7C(void);
 s16 TLobby__sub_8041579C(void *);
@@ -784,7 +784,7 @@ M2C_UNK TLobby__sub_803FD74C(int);
 s32 TLobby__sub_803FE658(u8 *arg0);
 extern M2C_UNK lbl_8047FEB8[];
 extern M2C_UNK lbl_8047FEC8[];
-void TLobby__sub_80403298(u8 *arg0);
+void handle_request_timeout__6TLobbyFPv(u8 *arg0);
 extern u16 lbl_805D7A60;
 extern Ent_803F8D84 *lbl_805D7A64;
 s32 TLobby__sub_803F8DBC(s32 size);
@@ -828,7 +828,7 @@ void TLobby__sub_803FF384(u8 *arg0);
 void unlock_mutex__10TUdpSocketFi(int _w0);
 void lock_mutex__6TLobbyFi(int _w0);
 void TLobby__sub_803F97E8(int);
-s32 TLobby__sub_803FB634(void);
+s32 is_timed_out__6TLobbyFv(void);
 M2C_UNK TLobby__sub_803FD74C(int);
 void process_expired_timers__6TLobbyFv(void);
 extern RecoveredGlobal_804050DC_lbl_805C18A0 lbl_805C18A0;
@@ -859,9 +859,9 @@ void lock_mutex__6TLobbyFi(int _w0);
 void TUdpSocket__sub_803F9EE4(void * _w0, int _w1, int _w2);
 extern RecoveredGlobal_80419A00_lbl_805C1C50 lbl_805C1C50;
 extern s16 lbl_805D7AF8;
-s32 TLobby__sub_804099B4(s16 arg0);
+s32 clear_table_entry_locked__6TLobbyFs(s16 arg0);
 extern s16 lbl_805D7AF8;
-s32 TLobby__sub_80409B48(s16 arg0, s32 arg1, s32 arg2, s32 arg3, s32 arg4);
+s32 call_handler_by_index__6TLobbyFsiiii(s16 arg0, s32 arg1, s32 arg2, s32 arg3, s32 arg4);
 extern s16 lbl_805D7AF8;
 s32 TLobby__sub_80409BD4(s16 arg0, s32 arg1, s32 arg2, s32 arg3);
 void TLobby__sub_803F9F04(void * _w0, void * _w1, int _w2);
@@ -1089,7 +1089,7 @@ void resume_thread__6TLobbyFv(void);
 
 void NetSuspendCurrentThread(void);
 
-void TLobby__sub_803F9AEC(s32 arg0);
+void cancel_thread_if_running__6TLobbyFi(s32 arg0);
 
 void TLobby__sub_803F9B28(void);
 
@@ -1162,7 +1162,7 @@ typedef char RecoveredGlobal_803FC178_lbl_805C02D0_size[sizeof(RecoveredGlobal_8
 struct G_803FB634 { u32 pad0; u32 pad4; u32 t8; };
 extern s16 lbl_805D7A86;
 extern s16 lbl_805D7A8A;
-s32 TLobby__sub_803FB634(void);
+s32 is_timed_out__6TLobbyFv(void);
 
 void TLobby__sub_803FC144(u16 v);
 
@@ -1454,7 +1454,7 @@ s32 TLobby__sub_80403168(u8 *arg0, u8 *arg1, u8 *arg2);
 
 void TLobby__sub_80403218(u8 *arg0);
 
-void TLobby__sub_80403298(u8 *arg0);
+void handle_request_timeout__6TLobbyFPv(u8 *arg0);
 
 s32 TLobby__sub_804036FC(u8 *arg0);
 
@@ -1619,7 +1619,7 @@ void TLobby__sub_803FB6A0(void);
 void TLobby__sub_803FB7A4(void);
 void TLobby__sub_803F97E8(int);
 void process_expired_timers__6TLobbyFv(void);
-void TLobby__sub_80405150(void);
+void run_net_thread_loop__6TLobbyFv(void);
 
 typedef struct Timer_804051CC {
     struct Timer_804051CC *next;
@@ -1908,7 +1908,7 @@ typedef struct Sock_80409130 { s16 f0; u8 pad2[4]; u16 f6; s16 f8; u8 padA[6]; }
 s32 TLobby__sub_80409130(s16 arg0, s16 arg1, s32 arg2);
 
 #define TBL_804099B4 (*(Tbl_804099B4 *)&lbl_805D7AF8)
-s32 TLobby__sub_804099B4(s16 arg0);
+s32 clear_table_entry_locked__6TLobbyFs(s16 arg0);
 
 s16 TLobby__sub_80409A3C(u8 *arg0, s16 arg1);
 
@@ -1968,7 +1968,7 @@ struct G_8040A45C {
 extern G_8040A45C lbl_805C1AF0;
 
 #define TBL_80409B48 (*(Tbl_80409B48 *)&lbl_805D7AF8)
-s32 TLobby__sub_80409B48(s16 arg0, s32 arg1, s32 arg2, s32 arg3, s32 arg4);
+s32 call_handler_by_index__6TLobbyFsiiii(s16 arg0, s32 arg1, s32 arg2, s32 arg3, s32 arg4);
 
 #define TBL_80409BD4 (*(Tbl_80409BD4 *)&lbl_805D7AF8)
 s32 TLobby__sub_80409BD4(s16 arg0, s32 arg1, s32 arg2, s32 arg3);
@@ -2477,7 +2477,7 @@ s32 TLobby__sub_80417D1C(u8 *arg0);
 s32 TLobby__sub_80417E60(u8 *arg0);
 Ent_80418670 *TLobby__sub_80418670(void *arg0);
 
-void TLobby__sub_804162A4(void);
+void update_resend_timers__6TLobbyFv(void);
 
 typedef struct Ent_80416678 { u8 pad0[0xC]; u8 fC; } Ent_80416678;
 s32 TLobby__sub_80416678(u8 *arg0, s32 n, u8 *arg2, s32 arg3, s16 *arg4, s16 arg5);

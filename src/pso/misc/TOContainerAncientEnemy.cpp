@@ -265,7 +265,7 @@ void byteswap_and_send__6TLobbyFi(void *, int);
 void init_packet_67_04__6TLobbyFPv(void *);
 extern s32 lbl_805D53A0;
 extern const f32 lbl_805DB39C;
-f32 TOContainerAncientEnemy__sub_8015BAE0(O_8015BAE0 *arg0);
+f32 open_and_send__23TOContainerAncientEnemyFPv(O_8015BAE0 *arg0);
 s32 check_value_equals__13TQuestColCtrlFPvi(void *, s32);
 M2C_UNK spawn_particle_effect(void *, int);
 M2C_UNK construct_debris__8TObjChipFPvPvPv(void *, s32, void *);
@@ -337,7 +337,7 @@ void spawn_break_debris__23TOContainerAncientEnemyFPv(Obj_8015B94C *self) {
     }
 }
 
-f32 TOContainerAncientEnemy__sub_8015BAE0(O_8015BAE0 *arg0) {
+f32 open_and_send__23TOContainerAncientEnemyFPv(O_8015BAE0 *arg0) {
     s16 sp8;
     s32 r4;
     Pk_8015BAE0 pk;

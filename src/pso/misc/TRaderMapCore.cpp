@@ -281,7 +281,7 @@ void show_radar__13TRaderMapCoreFv(void);
 extern s32 TRaderMapCore__data_805D5F3C;
 s32 TRaderMapCore__sub_801F9058(u8 *arg0);
 M2C_UNK TCameraCtrl__sub_8006AF9C(void *, int);
-M2C_UNK TObjLight__sub_80133F6C();
+M2C_UNK apply_distant_light__9TObjLightFv();
 M2C_UNK end_effect_render__13TParticleCtrlFv();
 M2C_UNK TCameraCtrl__sub_801E32D8(f32, f32);
 M2C_UNK GXSetScissorBoxOffset(int, int);
@@ -1019,7 +1019,7 @@ void setup_view__13TRaderMapCoreFii(s32 arg0, s32 arg1) {
     TCameraCtrl__sub_801E32D8((f32) (TRaderMapCore__data_805DC538), (f32) (TRaderMapCore__data_805DC53C));
     TCameraCtrl__sub_8006AF9C((void *) (lbl_805D4DF0), (int) (0));
     TRaderMapCore__sub_801F9228((void *)((void *) (arg0)), (int)((int) (0)), (void *)((void *) ((u8 *)&lbl_804C8784.value + (arg1 * 0x10))));
-    TObjLight__sub_80133F6C();
+    apply_distant_light__9TObjLightFv();
     end_effect_render__13TParticleCtrlFv();
 }
 

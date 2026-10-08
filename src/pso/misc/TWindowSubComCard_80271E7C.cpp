@@ -97,7 +97,7 @@ s32 is_com_card_active();
 M2C_UNK begin_scroll__17TWindowSubComCardFPvf(int, f32);
 M2C_UNK TWindowSubComCard__sub_80249144(int);
 s32 is_open__17TWindowSubComCardFPv(int);
-u32 TWindowSubComCard__sub_80249A48(int);
+u32 create_com_card_window__17TWindowSubComCardFi(int);
 M2C_UNK fn_8024AB54(int);
 M2C_UNK TWindowSubComCard__sub_8024AB98(int);
 s32 get_flag__17TWindowSubComCardFPv(int);
@@ -405,7 +405,7 @@ void run_task__17TWindowSubComCardFv(u8 *arg0) {
             M2C_FIELD(arg0, u32 *, 0x68) = 0U;
         }
         if ((u32) M2C_FIELD(arg0, u32 *, 0x74) == 0U) {
-            M2C_FIELD(arg0, u32 *, 0x74) = TWindowSubComCard__sub_80249A48(get_window_layout_position((int) (0x81)));
+            M2C_FIELD(arg0, u32 *, 0x74) = create_com_card_window__17TWindowSubComCardFi(get_window_layout_position((int) (0x81)));
         }
         if ((u32) M2C_FIELD(arg0, u32 *, 0x64) == 0U) {
             M2C_FIELD(arg0, u32 *, 0x64) = ((s32 (*)(void *)) TWindowSubComCard__sub_8027353C)((void *) (arg0));

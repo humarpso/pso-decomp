@@ -60,7 +60,7 @@ void refresh_label__11TChCrEffTagFPv(u8 *arg0) {
 }
 
 extern "C" {
-s32 TObjCMMainMenu__sub_80290DEC(int);
+s32 get_creation_sprite_id__14TObjCMMainMenuFi(int);
 extern const f32 lbl_805DDC98,lbl_805DDC9C,lbl_805DDCA0,lbl_805DDCA4,lbl_805DDCA8;
 }
 #pragma push
@@ -80,7 +80,7 @@ void TChCrEffTag::run_task()
   temp_r0 = heading;
   if (temp_r0 >= 0)
   {
-    targetWidth = (f32) (lbl_805DDC98 + ((f32) TObjCMMainMenu__sub_80290DEC((int) ((s32*)&lbl_804652A4)[temp_r0])));
+    targetWidth = (f32) (lbl_805DDC98 + ((f32) get_creation_sprite_id__14TObjCMMainMenuFi((int) ((s32*)&lbl_804652A4)[temp_r0])));
   }
   width = width;
   temp_f2 = width;

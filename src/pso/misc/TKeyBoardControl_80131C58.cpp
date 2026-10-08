@@ -72,7 +72,7 @@ u8 get_key_state__16TKeyBoardControlFPv(void* p);
 void reset_inactive_keys__16TKeyBoardControlFi(s32 arg0);
 void reset_keys__16TKeyBoardControlFPv(void *arg0);
 M2C_UNK TKeyBoardControl__sub_80132824(s32);
-M2C_UNK TKeyBoardControl__sub_803F0C50();
+M2C_UNK init_pad_states__16TKeyBoardControlFv();
 M2C_UNK fn_803F1864(M2C_UNK *);
 void reset_input__16TKeyBoardControlFi(s32 arg0);
 M2C_UNK TKeyBoardControl__sub_803F0E90(s32, M2C_UNK);
@@ -405,7 +405,7 @@ void TKeyBoardControl__sub_801327DC(M2C_UNK arg0, u8 arg1) {
 }
 
 void reset_input__16TKeyBoardControlFi(s32 arg0) {
-    TKeyBoardControl__sub_803F0C50();
+    init_pad_states__16TKeyBoardControlFv();
     TKeyBoardControl__sub_80132824(arg0);
     fn_803F1864(((M2C_UNK *)TKeyBoardControl__sub_801320CC));
 }

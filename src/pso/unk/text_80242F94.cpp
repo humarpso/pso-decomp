@@ -40,7 +40,7 @@ extern RecoveredGlobal_802430E8_lbl_80518580 lbl_80518580;
 extern Pt_80243070 lbl_80518700[];
 extern const f32 lbl_805DCA04;
 void TAdSinglePlyChrSelectGC__sub_80243070(s16 arg0);
-void TAdSinglePlyChrSelectGC__sub_80242938(Sp_802430F4 *, u32, s32);
+void accumulate_rumble_strength__23TAdSinglePlyChrSelectGCFPvi(Sp_802430F4 *, u32, s32);
 void TAdSinglePlyChrSelectGC__sub_80242B24(Sp_802430F4 *);
 s32 TAdSinglePlyChrSelectGC__sub_80242B30(Pt_80243070 *, Sp_802430F4 *);
 void fn_80242C54(Ent_802430F4 *);
@@ -123,7 +123,7 @@ void update_pad_rumble(void) {
             PADControlMotor(i, 0);
         } else {
             TAdSinglePlyChrSelectGC__sub_80242B24(&sp);
-            TAdSinglePlyChrSelectGC__sub_80242938(&sp, t, i);
+            accumulate_rumble_strength__23TAdSinglePlyChrSelectGCFPvi(&sp, t, i);
             if (TAdSinglePlyChrSelectGC__sub_80242B30(q, &sp) != 0) {
                 PADControlMotor(i, 1);
             } else {

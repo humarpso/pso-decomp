@@ -110,7 +110,7 @@ s32 send_atx_command__23TAdSinglePlyChrSelectGCFi(s32);
 s32 TLobby__sub_803F8044(s32 arg0);
 void TLobby__sub_803F95E4(u32);
 void TLobby__sub_803F97E8(s32);
-void TLobby__sub_803F9AEC(s32);
+void cancel_thread_if_running__6TLobbyFi(s32);
 void TLobby__sub_803F9B48(u32);
 s16 TLobby__sub_80427D0C(s16);
 s16 pppoe_recv_packet__6TLobbyFPvUsPv(void *, u16, void *);
@@ -125,10 +125,10 @@ void TLobby__sub_803F8238(void);
 M2C_UNK unlock_mutex__10TUdpSocketFi(int);
 M2C_UNK lock_mutex__6TLobbyFi(int);
 void TLobby__sub_803F95E4(u32);
-void TLobby__sub_803F9AEC(s32);
+void cancel_thread_if_running__6TLobbyFi(s32);
 void TLobby__sub_803F9B48(u32);
 extern RecoveredGlobal_803F7A30_lbl_805C18A0 lbl_805C18A0;
-void TLobby__sub_803F7A30(void);
+void stop_network_thread__6TLobbyFv(void);
 extern s32 lbl_805D7A10;
 extern s32 lbl_805D7A14;
 u32 TLobby__sub_803F8440(u8 *arg0, s32 arg1, u32 arg2);
@@ -149,7 +149,7 @@ extern E_803F7684 lbl_804FD350[];
 s32 TLobby__sub_803F9E44(void *, u32);
 s32 TLobby__sub_803F7684(void *arg0);
 extern RecoveredGlobal_803F7A30_lbl_805C18A0 lbl_805C18A0;
-extern u8 TLobby__sub_80405150[];
+extern u8 run_net_thread_loop__6TLobbyFv[];
 s16 TLobby__sub_803F96AC(void *);
 void TLobby__sub_803F9B28(s32);
 s16 TLobby__sub_803F9B94(void *, void *);
@@ -446,16 +446,16 @@ void TLobby__sub_803F79C0(u8 *arg0) {
 }
 
 typedef char RecoveredGlobal_803F7A30_lbl_805C18A0_size[sizeof(RecoveredGlobal_803F7A30_lbl_805C18A0) == 0x10 ? 1 : -1];
-void TLobby__sub_803F7A30(void) {
+void stop_network_thread__6TLobbyFv(void) {
     lock_mutex__6TLobbyFi((int) (M2C_FIELD(&lbl_805C18A0.value, s32 *, 0)));
-    TLobby__sub_803F9AEC((s32)((int) (M2C_FIELD(&lbl_805C18A0.value, s32 *, 4))));
+    cancel_thread_if_running__6TLobbyFi((s32)((int) (M2C_FIELD(&lbl_805C18A0.value, s32 *, 4))));
     TLobby__sub_803F9B48((u32)((int) (M2C_FIELD(&lbl_805C18A0.value, s32 *, 4))));
     unlock_mutex__10TUdpSocketFi((int) (M2C_FIELD(&lbl_805C18A0.value, s32 *, 0)));
     TLobby__sub_803F95E4((u32)((int) (M2C_FIELD(&lbl_805C18A0.value, s32 *, 0))));
 }
 
 void TLobby__sub_803F7A90(void) {
-    if (TLobby__sub_803F96AC(((P_803F7A90 *)&lbl_805C18A0)) < 0 || TLobby__sub_803F9B94(TLobby__sub_80405150, &((P_803F7A90 *)&lbl_805C18A0)[0].b) < 0) {
+    if (TLobby__sub_803F96AC(((P_803F7A90 *)&lbl_805C18A0)) < 0 || TLobby__sub_803F9B94(run_net_thread_loop__6TLobbyFv, &((P_803F7A90 *)&lbl_805C18A0)[0].b) < 0) {
         return;
     }
     TLobby__sub_803F9B28(((P_803F7A90 *)&lbl_805C18A0)[0].b);
@@ -743,7 +743,7 @@ loop_3:
             goto block_10;
         }
     } else {
-        TLobby__sub_803F9AEC(lbl_805D7A08);
+        cancel_thread_if_running__6TLobbyFi(lbl_805D7A08);
         TLobby__sub_803F9B48((u32) lbl_805D7A08);
         TLobby__sub_803F95E4(lbl_805D7A0C);
 block_10:

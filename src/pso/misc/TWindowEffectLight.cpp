@@ -44,7 +44,7 @@ extern const f32 lbl_805DE12C;
 extern const f32 lbl_805DE130;
 void render__18TWindowEffectLightFv(u8 *arg0);
 M2C_UNK copy_vec2__28TWindowSubSymbolChatPartsSetFPvPv(void *, void *);
-s32 TCameraCtrl__sub_800688D0(u16);
+s32 get_split_screen_view_index__11TCameraCtrlFUs(u16);
 M2C_UNK __ct__7TObjectFP7TObject(void *, int);
 M2C_UNK adjust_pos_for_split_screen__19TWindowKeyBoardSoftFPvi(void *, s32);
 extern void *__vt__18TWindowEffectLight[];
@@ -95,7 +95,7 @@ u8 *__ct__18TWindowEffectLightFv(u8 *self, void *arg1, s16 arg2, u32 arg3) {
     M2C_FIELD(self, void **, 0x18) = __vt__18TWindowEffectLight;
     M2C_FIELD(self, s32 *, 0) = lbl_805D3E60;
     copy_vec2__28TWindowSubSymbolChatPartsSetFPvPv(self + 0x1C, arg1);
-    adjust_pos_for_split_screen__19TWindowKeyBoardSoftFPvi(self + 0x1C, TCameraCtrl__sub_800688D0(arg3));
+    adjust_pos_for_split_screen__19TWindowKeyBoardSoftFPvi(self + 0x1C, get_split_screen_view_index__11TCameraCtrlFUs(arg3));
     M2C_FIELD(self, s16 *, 0x24) = arg2;
     M2C_FIELD(self, s16 *, 0x26) = -1;
     M2C_FIELD(self, u32 *, 0x28) = arg3;

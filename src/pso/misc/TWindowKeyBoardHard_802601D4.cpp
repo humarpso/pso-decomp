@@ -35,7 +35,7 @@ M2C_UNK update_fade__17TWindowSubComCardFPv(void *);
 M2C_UNK initialize_subwindow__9TWindowDDFPv(void *);
 void destroy_window_base__9TWindowDDFPvs(void *, int);
 M2C_UNK TWindowKeyBoardHard__sub_8025CC48(void *);
-s32 TKeyBoardControl__sub_8025EC54(void *);
+s32 has_non_modifier_key__16TKeyBoardControlFv(void *);
 M2C_UNK TKeyBoardControl__sub_8025FBE8(void *);
 M2C_UNK update_modifier_flags__16TKeyBoardControlFPv(void *);
 
@@ -47,7 +47,7 @@ void run_task__19TWindowKeyBoardHardFv(void *arg0) {
 
     if ((void *) M2C_FIELD(arg0, void **, 0x70) != NULL) {
         if ((is_key_active__19TWindowKeyBoardHardFPv() == 0) && (is_key_active__16TKeyBoardControlFPv(M2C_FIELD(arg0, void **, 0x70)) == 0)) {
-            if (TKeyBoardControl__sub_8025EC54(arg0) != 0) {
+            if (has_non_modifier_key__16TKeyBoardControlFv(arg0) != 0) {
                 if ((s32) lbl_805D5544 == 0) {
                     M2C_FIELD(arg0, s32 *, 0x68) = 0x3C;
                 }

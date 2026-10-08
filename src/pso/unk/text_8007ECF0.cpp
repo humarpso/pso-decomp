@@ -133,7 +133,7 @@ void draw_percent_text(void *arg0, f32 farg0, f32 farg1) {
     }
 }
 
-void fn_8007F0E4(Obj_8007F0E4 *self, f32 x, f32 y) {
+void draw_countdown_timer(Obj_8007F0E4 *self, f32 x, f32 y) {
     char buf[16];
     s32 t;
     s32 mins;

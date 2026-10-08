@@ -54,8 +54,8 @@ void fn_8024E0F0(u8 *arg0);
 s32 is_split_screen();
 s32 TKeyBoardControl__sub_801A58B0();
 s32 TKeyBoardControl__sub_801A58D8();
-s32 TKeyBoardControl__sub_801A5998(int);
-s32 TKeyBoardControl__sub_8024D994(void *arg0);
+s32 is_key_down__16TKeyBoardControlFi(int);
+s32 get_function_key_menu__16TKeyBoardControlFPv(void *arg0);
 void queue_destruction__7TObjectFv(void *);
 s32 fn_8002AE08(int);
 s32 TWindowShortListCtrl__check_controller_button(void *, int);
@@ -85,7 +85,7 @@ s32 get_active_sub__11TWindowCtrlFv();
 s32 TWindowCtrl__sub_8024C7D4(void *);
 s32 is_visible__11TWindowCtrlFPv(void *);
 s32 get_active_menu__11TWindowCtrlFPv(void *arg0);
-s32 TKeyBoardControl__sub_8024D994(void *arg0);
+s32 get_function_key_menu__16TKeyBoardControlFPv(void *arg0);
 s32 TWindowMainMenu__sub_8024E3F4(void *);
 M2C_UNK try_open_battle_menu__15TWindowMainMenuFPvs(void *, s16);
 extern Pad_8024DCE8 lbl_8050E208[];
@@ -98,7 +98,7 @@ void TWindowCtrl__sub_8024DAAC(void *arg0);
 s32 get_active_menu__11TWindowCtrlFPv(void *arg0);
 void run_all_updates__11TWindowCtrlFPv(void* p);
 void show_active_window__11TWindowCtrlFPv(void *arg0);
-int TWindowCtrlMain__sub_8024D7C0(void*);
+int reset_all__15TWindowCtrlMainFPv(void*);
 int TWindowCtrlMain__sub_8024D838(void);
 void TWindowCtrlMain__sub_8024D85C(void* p);
 void spawn_palette_slot_light__15TWindowCtrlMainFPv(void* p);
@@ -125,7 +125,7 @@ s32 get_active_menu__11TWindowCtrlFPv(void *arg0) {
     return TWindowMainMenu__sub_8024E3E0(p);
 }
 
-s32 TKeyBoardControl__sub_8024D994(void *arg0) {
+s32 get_function_key_menu__16TKeyBoardControlFPv(void *arg0) {
     if (is_split_screen() != 0) {
         return 0x1F;
     }
@@ -135,28 +135,28 @@ s32 TKeyBoardControl__sub_8024D994(void *arg0) {
     if (TKeyBoardControl__sub_801A58D8() == 0) {
         return 0x1F;
     }
-    if (TKeyBoardControl__sub_801A5998((int) (0x44)) != 0) {
+    if (is_key_down__16TKeyBoardControlFi((int) (0x44)) != 0) {
         return 0x13;
     }
-    if (TKeyBoardControl__sub_801A5998((int) (0x45)) != 0) {
+    if (is_key_down__16TKeyBoardControlFi((int) (0x45)) != 0) {
         return 0x15;
     }
-    if (TKeyBoardControl__sub_801A5998((int) (0x46)) != 0) {
+    if (is_key_down__16TKeyBoardControlFi((int) (0x46)) != 0) {
         return 0xE;
     }
-    if (TKeyBoardControl__sub_801A5998((int) (0x47)) != 0) {
+    if (is_key_down__16TKeyBoardControlFi((int) (0x47)) != 0) {
         return 0x1A;
     }
-    if (TKeyBoardControl__sub_801A5998((int) (0x48)) != 0) {
+    if (is_key_down__16TKeyBoardControlFi((int) (0x48)) != 0) {
         return 0x17;
     }
-    if (TKeyBoardControl__sub_801A5998((int) (0x49)) != 0) {
+    if (is_key_down__16TKeyBoardControlFi((int) (0x49)) != 0) {
         return 0xC;
     }
-    if (TKeyBoardControl__sub_801A5998((int) (0x4A)) != 0) {
+    if (is_key_down__16TKeyBoardControlFi((int) (0x4A)) != 0) {
         return 0xB;
     }
-    return (TKeyBoardControl__sub_801A5998((int) (0x4B)) != 0) ? 0 : 0x1F;
+    return (is_key_down__16TKeyBoardControlFi((int) (0x4B)) != 0) ? 0 : 0x1F;
 }
 
 void TWindowCtrl__sub_8024DAAC(void *arg0) {
@@ -240,7 +240,7 @@ void update_main_menu_request__11TWindowCtrlFPv(void *arg0) {
     }
     {
         s32 idx = is_player_input_active(M2C_FIELD(arg0, s32 *, 0x24));
-        key = ((s16 (*)(void *))TKeyBoardControl__sub_8024D994)(arg0);
+        key = ((s16 (*)(void *))get_function_key_menu__16TKeyBoardControlFPv)(arg0);
         if (TWindowShortListCtrl__check_controller_button(lbl_8050E208[idx].btn, 0x108) == 0 && key == 0x1F) {
             return;
         }

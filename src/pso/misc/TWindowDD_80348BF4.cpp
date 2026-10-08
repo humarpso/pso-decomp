@@ -7,7 +7,7 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 extern "C" {
 
 M2C_UNK update_selected_id__9TWindowDDFPv(void *);
-M2C_UNK TWindowDD__sub_80346FE4();
+M2C_UNK build_player_word_lists__9TWindowDDFv();
 M2C_UNK open__9TWindowDDFii(void *, int);
 M2C_UNK handle_word_select__9TWindowDDFPv();
 extern s32 lbl_805D53A0;
@@ -19,7 +19,7 @@ void handle_6x74_word_select(u8 *arg0) {
         if ((s32) M2C_FIELD(arg0, u16 *, 2) != (s32) lbl_805D53A0) {
             update_selected_id__9TWindowDDFPv((void *) (arg0 + 4));
         }
-        TWindowDD__sub_80346FE4();
+        build_player_word_lists__9TWindowDDFv();
         open__9TWindowDDFii((void *) (arg0 + 4), (int) (M2C_FIELD(arg0, u16 *, 2)));
     }
 }

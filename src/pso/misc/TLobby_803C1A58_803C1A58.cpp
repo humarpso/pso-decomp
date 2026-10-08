@@ -129,11 +129,11 @@ s32 TLobby__sub_803C40A0(void *p);
 int memcmp(const void *a, const void *b, unsigned long n);
 extern s32 lbl_805E0CC0;
 extern s32 lbl_805E0CC8;
-s32 TLobby__sub_803C2328(u8 *arg0);
+s32 is_aiff_header__6TLobbyFPv(u8 *arg0);
 int memcmp(const void *a, const void *b, unsigned long n);
 extern s32 lbl_805E0CD0;
 extern s32 lbl_805E0CD8;
-s32 TLobby__sub_803C328C(u8 *arg0);
+s32 is_snd_header__6TLobbyFPv(u8 *arg0);
 void TLobby__sub_803C0B3C(void *);
 void TLobby__sub_803C19D8(void *);
 void dispatch_network_state__6TLobbyFPv(u8 *arg0);
@@ -142,10 +142,10 @@ void TLobby__sub_803C3570(void *);
 void TLobby__sub_803C40D0(void *);
 void TLobby__sub_803C34F4(Obj_803C34F4 *arg0);
 s32 TLobby__sub_803C3ACC(Obj_803C3ACC *arg0);
-s32 TLobby__sub_803C0B88(void *);
+s32 is_riff_wave__6TLobbyFPv(void *);
 s32 DVDReadPrio(void *, void *, void *);
-s32 TLobby__sub_803C2328(u8 *arg0);
-s32 TLobby__sub_803C328C(u8 *arg0);
+s32 is_aiff_header__6TLobbyFPv(u8 *arg0);
+s32 is_snd_header__6TLobbyFPv(u8 *arg0);
 s32 TLobby__sub_803C40A0(void *p);
 s32 TLobby__sub_803C3B68(s32 arg0, u16 *arg1, s32 arg2);
 M2C_UNK memset(void *, int, int);
@@ -321,7 +321,7 @@ s32 TLobby__sub_803C2174(void *arg0, void *arg1, void *arg2) {
 #undef o
 #undef p
 
-s32 TLobby__sub_803C2328(u8 *arg0) {
+s32 is_aiff_header__6TLobbyFPv(u8 *arg0) {
     if (((s32)memcmp((const void *)(arg0), (const void *)(&lbl_805E0CC0), (unsigned long)(4))) == 0 && ((s32)memcmp((const void *)(arg0 + 8), (const void *)(&lbl_805E0CC8), (unsigned long)(4))) == 0) {
         return 1;
     }
@@ -485,7 +485,7 @@ s32 TLobby__sub_803C30E8(u8 *arg0, s32 arg1, s32 arg2) {
     return var_r31;
 }
 
-s32 TLobby__sub_803C328C(u8 *arg0) {
+s32 is_snd_header__6TLobbyFPv(u8 *arg0) {
     if (((s32)memcmp((const void *)(arg0), (const void *)(&lbl_805E0CD0), (unsigned long)(4))) == 0 || ((s32)memcmp((const void *)(arg0), (const void *)(&lbl_805E0CD8), (unsigned long)(4))) == 0) {
         return 1;
     }
@@ -643,13 +643,13 @@ s32 TLobby__sub_803C3B68(s32 arg0, u16 *arg1, s32 arg2) {
     if (TLobby__sub_803C40A0((void *) (arg1)) != 0) {
         return TLobby__sub_803C43A8((void *)((void *) (arg0)), (void *)((void *) (arg1)), (void *)((void *) (arg2)));
     }
-    if (TLobby__sub_803C0B88((void *) (arg1)) != 0) {
+    if (is_riff_wave__6TLobbyFPv((void *) (arg1)) != 0) {
         return DVDReadPrio((void *) (arg0), (void *) (arg1), (void *) (arg2));
     }
-    if (TLobby__sub_803C2328((u8 *) (arg1)) != 0) {
+    if (is_aiff_header__6TLobbyFPv((u8 *) (arg1)) != 0) {
         return TLobby__sub_803C2174((void *)((void *) (arg0)), (void *)((void *) (arg1)), (void *)((void *) (arg2)));
     }
-    if (TLobby__sub_803C328C((u8 *) (arg1)) != 0) {
+    if (is_snd_header__6TLobbyFPv((u8 *) (arg1)) != 0) {
         return TLobby__sub_803C30E8((u8 *)((u8 *) (arg0)), (s32)((s32) (arg1)), (s32)((s32) (arg2)));
     }
     return 0;

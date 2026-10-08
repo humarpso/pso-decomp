@@ -9,7 +9,7 @@ extern "C" {
 void init_float_table__9TEndingABFPv(void* a0);
 void render__9TEndingABFv(s32 arg0);
 M2C_UNK TEndingAB__sub_8008CCC0(s32);
-M2C_UNK TEndingAB__sub_8008CB54(s32);
+M2C_UNK draw_overlay__9TEndingABFPv(s32);
 M2C_UNK TEndingAB__sub_8008CC5C();
 
     extern const float lbl_805D9584;
@@ -33,7 +33,7 @@ extern s32 TEndingAB__data_805D4F10;
 void render__9TEndingABFv(s32 arg0) {
     if ((s32) TEndingAB__data_805D4F10 != 0) {
         TEndingAB__sub_8008CC5C();
-        TEndingAB__sub_8008CB54(arg0);
+        draw_overlay__9TEndingABFPv(arg0);
         TEndingAB__sub_8008CCC0(arg0);
     }
 }

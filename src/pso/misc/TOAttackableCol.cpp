@@ -108,7 +108,7 @@ s8 get_current_floor();
 M2C_UNK access_object_saved_state(void *, void *, int);
 void broadcast_state__15TOAttackableColFPv(void* p);
 void *fn_80157CA8(void *arg0);
-int TOAttackableCol__sub_801575AC(void *arg0, u16 state);
+int send_state_change__15TOAttackableColFPvUs(void *arg0, u16 state);
 }
 
 extern "C" {
@@ -184,7 +184,7 @@ void init_params__15TOAttackableColFPv(void *arg0) {
     }
 }
 
-int TOAttackableCol__sub_801575AC(void *arg0, u16 state) {
+int send_state_change__15TOAttackableColFPvUs(void *arg0, u16 state) {
     Obj_801575AC *self = (Obj_801575AC *)arg0;
     Msg_801575AC msg;
     s16 id;
@@ -258,7 +258,7 @@ f32 apply_hit__15TOAttackableColFPvi(u8 *arg0, s32 arg1) {
     if (((s32) (*((s32 *) (((s8 *) arg0) + 0x33C)))) <= 0)
     {
       *((s32 *) (((s8 *) arg0) + 0x33C)) = 0;
-      TOAttackableCol__sub_801575AC((void *)((void *)((void *) arg0)), (u16)((s32)((int) 1)));
+      send_state_change__15TOAttackableColFPvUs((void *)((void *)((void *) arg0)), (u16)((s32)((int) 1)));
       if (((s32) (*((s32 *) (((s8 *) arg0) + 0x344)))) > 0)
       {
         temp_r0_2 = *((s32 *) (((s8 *) arg0) + 0x340));
@@ -293,7 +293,7 @@ f32 apply_hit__15TOAttackableColFPvi(u8 *arg0, s32 arg1) {
     }
     else
     {
-      TOAttackableCol__sub_801575AC((void *)((void *)((void *) arg0)), (u16)((s32)((int) 0)));
+      send_state_change__15TOAttackableColFPvUs((void *)((void *)((void *) arg0)), (u16)((s32)((int) 0)));
     }
     goto block_26;
   }
@@ -311,7 +311,7 @@ void check_door_trigger__15TOAttackableColFPv(void *arg0) {
     temp_r0 = M2C_FIELD(arg0, s32 *, 0x34C);
     if (((temp_r0 < 0) || (temp_r0 >= 0x100) || (is_current_floor_switch_set((u16) temp_r0) == 1)) && ((submit_cursor_candidate(arg0, -1), (((s32) M2C_FIELD(arg0, s32 *, 0x33C) > 0) == 0)) || (((s32) M2C_FIELD(arg0, s32 *, 0x344) == 0) && (temp_r0_2 = M2C_FIELD(arg0, s32 *, 0x348), ((temp_r0_2 < 0) == 0)) && (temp_r0_2 < 0x100) && (is_current_floor_switch_set((u16) temp_r0_2) == 1)))) {
         M2C_FIELD(arg0, s32 *, 0x33C) = 0;
-        TOAttackableCol__sub_801575AC((void *)((void *)(arg0)), (u16)((s32)(1)));
+        send_state_change__15TOAttackableColFPvUs((void *)((void *)(arg0)), (u16)((s32)(1)));
     }
 }
 

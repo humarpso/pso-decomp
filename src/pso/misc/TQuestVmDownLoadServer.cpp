@@ -25,7 +25,7 @@ s32 TAdPlayerLoadGC__sub_801E1B50(s32);
 s32 probe_card_slot__15TAdPlayerLoadGCFi(s32);
 s32 get_localized_text_entry(M2C_UNK, M2C_UNK);
 s32 TQuestVmDownLoadServer__sub_8006EF6C(M2C_UNK);
-void TQuestVmDownLoadServer__sub_801F8D30(void);
+void free_buffers__22TQuestVmDownLoadServerFv(void);
 void allow_rendering__7TObjectFv(void *);
 M2C_UNK clear_flag4_bit4__22TQuestVmDownLoadServerFPv(void *);
 M2C_UNK clear_selected_and_update_entry__14TWindowSubItemFPv(void *);
@@ -116,7 +116,7 @@ void destroy__22TQuestVmDownLoadServerFPv(void *arg0) {
     if (lbl_805D55D4 != NULL) {
         allow_rendering__7TObjectFv(lbl_805D55D4);
     }
-    TQuestVmDownLoadServer__sub_801F8D30();
+    free_buffers__22TQuestVmDownLoadServerFv();
     queue_destruction__7TObjectFv(arg0);
 }
 

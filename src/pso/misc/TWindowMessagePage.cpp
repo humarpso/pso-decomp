@@ -17,7 +17,7 @@ struct Page_8026AE20 { u8 pad[0x90]; s32 flags; void *msg; };
 extern "C" {
 u8 *__nw__7TObjectFUl(M2C_UNK);
 M2C_UNK TLobby__sub_80269DA4(void *, void *);
-u8 *TWindowMessagePage__sub_8026AE7C(s32 arg0, s32 arg1, s32 arg2, s32 arg3);
+u8 *create__18TWindowMessagePageFiiii(s32 arg0, s32 arg1, s32 arg2, s32 arg3);
 s32 TWindowMessage__ct(void *, void *, void *, void *);
 extern M2C_UNK __vt__18TWindowMessagePage[];
 extern s32 lbl_805D3998;
@@ -32,7 +32,7 @@ void update_message__18TWindowMessagePageFPv(void *arg0);
 extern RecoveredGlobal_8026AF24_lbl_8050E208 lbl_8050E208;
 void run_task__18TWindowMessagePageFv(u8 *arg0);
 void update_message__18TWindowMessagePageFPv(void *arg0);
-void TWindowMessagePage__sub_8026AE20(Page_8026AE20 *self, void *msg, s32 flags);
+void set_message__18TWindowMessagePageFPvPvi(Page_8026AE20 *self, void *msg, s32 flags);
 }
 
 extern "C" {
@@ -67,7 +67,7 @@ void update_message__18TWindowMessagePageFPv(void *arg0) {
 
 extern s32 lbl_805D53A0;
 
-void TWindowMessagePage__sub_8026AE20(Page_8026AE20 *self, void *msg, s32 flags) {
+void set_message__18TWindowMessagePageFPvPvi(Page_8026AE20 *self, void *msg, s32 flags) {
     while (self->msg != NULL) {
         update_message__18TWindowMessagePageFPv(self);
     }
@@ -76,7 +76,7 @@ void TWindowMessagePage__sub_8026AE20(Page_8026AE20 *self, void *msg, s32 flags)
     update_message__18TWindowMessagePageFPv(self);
 }
 
-u8 *TWindowMessagePage__sub_8026AE7C(s32 arg0, s32 arg1, s32 arg2, s32 arg3) {
+u8 *create__18TWindowMessagePageFiiii(s32 arg0, s32 arg1, s32 arg2, s32 arg3) {
     u8 *temp_r3;
     u8 *var_r0;
     TLobby__sub_80269DA4((void *) (arg1), (void *) (arg2));
@@ -89,7 +89,7 @@ u8 *TWindowMessagePage__sub_8026AE7C(s32 arg0, s32 arg1, s32 arg2, s32 arg3) {
 }
 
 void set_text__18TWindowMessagePageFiii(s32 a, s32 b, s32 c) {
-    TWindowMessagePage__sub_8026AE7C((s32)(a), (s32)(b), (s32)(c), lbl_805D53A0);
+    create__18TWindowMessagePageFiiii((s32)(a), (s32)(b), (s32)(c), lbl_805D53A0);
 }
 
 int render__18TWindowMessagePageFv(void* p) { return render__14TWindowMessageFv(p); }

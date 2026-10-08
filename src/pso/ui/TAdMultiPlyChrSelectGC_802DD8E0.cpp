@@ -34,7 +34,7 @@ M2C_UNK queue_destruction__7TObjectFv(void *);
 s32 is_slot_active__23TAdSinglePlyChrSelectGCFUi();
 M2C_UNK TWindow__close(void *);
 M2C_UNK close__17TWindowSubComCardFPv(void *);
-M2C_UNK TAdMultiPlyChrSelectGC__sub_802C5BCC(s32, s32 *, s32 *);
+M2C_UNK split_slot_index__22TAdMultiPlyChrSelectGCFiPvPv(s32, s32 *, s32 *);
 M2C_UNK init__22TAdMultiPlyChrSelectGCFv();
 s32 TAdMultiPlyChrSelectGC__sub_802C64D0(M2C_UNK);
 s32 count_ready__22TAdMultiPlyChrSelectGCFv();
@@ -48,7 +48,7 @@ M2C_UNK set_field_4ec__22TAdMultiPlyChrSelectGCFPvi(s32, s32);
 u32 get_global_state__22TAdMultiPlyChrSelectGCFv();
 s32 get_ready_state__22TAdMultiPlyChrSelectGCFPv(s32);
 M2C_UNK create_effects__14TAdGameStartGCFPv(s32);
-s32 TAdMultiPlyChrSelectGC__sub_8030E2E4(void *, M2C_UNK);
+s32 get_or_create_slot_window__22TAdMultiPlyChrSelectGCFii(void *, M2C_UNK);
 M2C_UNK TAdChrMoveEffectGC__sub_803490AC();
 void reset_to_select__22TAdMultiPlyChrSelectGCFPv(void *arg0);
 M2C_UNK queue_destruction__7TObjectFv(void *);
@@ -299,7 +299,7 @@ void reset_to_select__22TAdMultiPlyChrSelectGCFPv(void *arg0) {
         TAdMultiPlyChrSelectGC__sub_802C6920();
         TAdMultiPlyChrSelectGC__sub_802C658C();
         if ((is_slot_active__23TAdSinglePlyChrSelectGCFUi() == 0) || ((s32) M2C_FIELD(arg0, s32 *, 0x54) == 0)) {
-            TAdMultiPlyChrSelectGC__sub_802C5BCC(TAdMultiPlyChrSelectGC__sub_802C6920(), &stack.spC, &stack.sp8);
+            split_slot_index__22TAdMultiPlyChrSelectGCFiPvPv(TAdMultiPlyChrSelectGC__sub_802C6920(), &stack.spC, &stack.sp8);
             init__22TAdMultiPlyChrSelectGCFv();
             set_field_4ec__22TAdMultiPlyChrSelectGCFPvi(M2C_FIELD(arg0, s32 *, 0x5C), stack.spC);
             TAdMultiPlyChrSelectGC__sub_802E0024(M2C_FIELD(arg0, s32 *, 0x5C), stack.sp8);
@@ -318,7 +318,7 @@ void reset_to_select__22TAdMultiPlyChrSelectGCFPv(void *arg0) {
         M2C_FIELD(arg0, u32 *, 0x88) = 0U;
     }
     M2C_FIELD(arg0, s32 *, 0x50) = 0;
-    M2C_FIELD(arg0, s32 *, 0x68) = TAdMultiPlyChrSelectGC__sub_8030E2E4(arg0, 1);
+    M2C_FIELD(arg0, s32 *, 0x68) = get_or_create_slot_window__22TAdMultiPlyChrSelectGCFii(arg0, 1);
     set_select_mode__22TAdMultiPlyChrSelectGCFii(M2C_FIELD(arg0, s32 *, 0x5C), 0);
     set_state_ready__22TAdMultiPlyChrSelectGCFPv(M2C_FIELD(arg0, s32 *, 0x5C));
     if ((get_ready_state__22TAdMultiPlyChrSelectGCFPv(M2C_FIELD(arg0, s32 *, 0x78)) == 0) && (TAdMultiPlyChrSelectGC__sub_802C6558() > 1) && (TAdMultiPlyChrSelectGC__sub_802C64D0(0) != 0)) {

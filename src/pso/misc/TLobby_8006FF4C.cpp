@@ -113,7 +113,7 @@ void cleanup_if_inactive__6TLobbyFPv(void* p);
 void update_battle_cleanup_flag__6TLobbyFPv(void *arg0);
 s32 is_quest_active();
 M2C_UNK update_card_save_info__6TLobbyFv(void *);
-M2C_UNK TLobby__sub_8006FE7C();
+M2C_UNK spawn_player_tombstones__6TLobbyFv();
 s32 TLobby__sub_80070078(void *);
 M2C_UNK TLobby__sub_800722AC(s32);
 M2C_UNK TLobby__sub_80072618();
@@ -404,7 +404,7 @@ void *lbl_8048D108[6] = {
 #define lbl_8048C9D8 (*(M2C_UNK (*)[466])lbl_8048C9D8)
 
 void create_time_window__6TLobbyFv(void * _w0) {
-    TLobby__sub_8006FE7C();
+    spawn_player_tombstones__6TLobbyFv();
     create_ch_time_win(tl_07);
     create_new_floor_windows__6TLobbyFi(tl_07);
     if ((s32) M2C_FIELD(lbl_8048C9D8, s32 *, 0x30) == 0) {

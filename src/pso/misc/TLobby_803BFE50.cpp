@@ -182,7 +182,7 @@ s32 TLobby__sub_803C07E8(Obj_803C07E8 *self);
 s32 memcmp(void *, void *, int);
 extern s32 lbl_805E0CB0;
 extern s32 lbl_805E0CB8;
-s32 TLobby__sub_803C0B88(u8 *arg0);
+s32 is_riff_wave__6TLobbyFPv(u8 *arg0);
 M2C_UNK TLobby__sub_803C3B38(int);
 s32 get_field_0x3c__6TLobbyFPv(int);
 s32 TLobby__sub_803D2638(int);
@@ -344,7 +344,7 @@ void TLobby__sub_803C0B3C(u8 *arg0) {
         TLobby__sub_803C133C((void *) (arg0));
     }
 }
-s32 TLobby__sub_803C0B88(u8 *arg0) {
+s32 is_riff_wave__6TLobbyFPv(u8 *arg0) {
     if (memcmp(arg0, &lbl_805E0CB0, 4) == 0 && memcmp(arg0 + 8, &lbl_805E0CB8, 4) == 0) {
         return 1;
     }

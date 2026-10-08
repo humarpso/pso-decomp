@@ -93,7 +93,7 @@ void draw_motion_node_tree__10TObjPlayerFPv(s32);
 void TObjPlayer__sub_803E53F8(u8 *arg0, f32 farg0);
 void TObjPlayer__sub_803E5458(s32 arg0);
 extern u8 *lbl_805D4698;
-void TObjPlayer__sub_803E4D8C(s32 arg0, s32 arg1, u8 *arg2, f32 farg0, s32 arg3);
+void draw_motion_bound__10TObjPlayerFiiPvfi(s32 arg0, s32 arg1, u8 *arg2, f32 farg0, s32 arg3);
 void compose_motion_node_matrix(Node_803E4E20 *);
 void push_matrix(void);
 void pop_matrix(void);
@@ -119,7 +119,7 @@ typedef char RecoveredGlobal_803D77C0_lbl_804FA500_size[sizeof(RecoveredGlobal_8
 typedef char RecoveredGlobal_803D77C0_lbl_804FA50C_size[sizeof(RecoveredGlobal_803D77C0_lbl_804FA50C) == 0x10 ? 1 : -1];
 typedef char RecoveredGlobal_803D77C0_lbl_804FA51C_size[sizeof(RecoveredGlobal_803D77C0_lbl_804FA51C) == 0x24 ? 1 : -1];
 
-void TObjPlayer__sub_803E4D8C(s32 arg0, s32 arg1, u8 *arg2, f32 farg0, s32 arg3) {
+void draw_motion_bound__10TObjPlayerFiiPvfi(s32 arg0, s32 arg1, u8 *arg2, f32 farg0, s32 arg3) {
     u8 *p = lbl_805D4698;
     bind_motion_context(arg1);
     *(s32 *)(p + 0xC) = arg3;

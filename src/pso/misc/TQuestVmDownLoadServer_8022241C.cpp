@@ -50,7 +50,7 @@ extern const char lbl_8044C20C[];
 extern const char lbl_8044C218[];
 extern const char lbl_8044C224[];
 extern const char lbl_8044C234[];
-void TQuestVmDownLoadServer__sub_8022256C(void *arg0);
+void parse_tag_command__22TQuestVmDownLoadServerFPv(void *arg0);
 }
 
 extern "C" {
@@ -67,7 +67,7 @@ void send_message__22TQuestVmDownLoadServerFPvii(void *arg0, s32 arg1, s32 arg2)
 M2C_UNK strcpy(s32, s32);
 s32 get_guild_text(s32);
 s32 TLobby__sub_80222CBC(s32);
-M2C_UNK TWindowMessagePage__sub_8026AE20(u32, void *, s32);
+M2C_UNK set_message__18TWindowMessagePageFPvPvi(u32, void *, s32);
 s32 is_ready__18TWindowMessagePageFPv(void *);
 M2C_UNK memset(void *, M2C_UNK, M2C_UNK);
 s32 strlen(s32);
@@ -110,7 +110,7 @@ void TQuestVmDownLoadServer__sub_8022250C(void *arg0) {
     TQuestVmDownLoadServer__sub_80222704(arg0, t);
 }
 
-void TQuestVmDownLoadServer__sub_8022256C(void *arg0) {
+void parse_tag_command__22TQuestVmDownLoadServerFPv(void *arg0) {
     Cmd_8022256C cmds[5] = {
         { lbl_8044C200, &TQVDLS_8022256C::a },
         { lbl_8044C20C, &TQVDLS_8022256C::b },
@@ -179,7 +179,7 @@ s32 parse_message_text__22TQuestVmDownLoadServerFPvii(void *arg0, s32 arg1, s32 
         b = ((s8 (*)(void *))read_byte__22TQuestVmDownLoadServerFPv)(arg0);
         switch (b) {
         case 0x3C:
-            TQuestVmDownLoadServer__sub_8022256C((void *)(arg0));
+            parse_tag_command__22TQuestVmDownLoadServerFPv((void *)(arg0));
             break;
         case 0x3E:
             for (;;) {
@@ -204,7 +204,7 @@ s32 poll_field_20c__22TQuestVmDownLoadServerFPv(void *arg0) {
 
 void send_message__22TQuestVmDownLoadServerFPvii(void *arg0, s32 arg1, s32 arg2) {
     if ((u32) M2C_FIELD(arg0, u32 *, 0x20C) != 0U) {
-        TWindowMessagePage__sub_8026AE20((u32)(M2C_FIELD(arg0, u32 *, 0x20C)), (void *)(TLobby__sub_80222CBC(arg1)), (s32)(arg2 | 0x80));
+        set_message__18TWindowMessagePageFPvPvi((u32)(M2C_FIELD(arg0, u32 *, 0x20C)), (void *)(TLobby__sub_80222CBC(arg1)), (s32)(arg2 | 0x80));
     }
 }
 
@@ -215,7 +215,7 @@ void format_and_send_message__22TQuestVmDownLoadServerFPvii(u8 *arg0, s32 arg1, 
         temp_r31 = get_guild_text(arg1);
         memset(arg0 + 4, 0, 0x200);
         parse_message_text__22TQuestVmDownLoadServerFPvii((void *)(arg0), (s32)(temp_r31), (s32)(arg0 + 4));
-        TWindowMessagePage__sub_8026AE20((u32)(M2C_FIELD(arg0, u32 *, 0x20C)), (void *)(arg0 + 4), (s32)(arg2 | 0x80));
+        set_message__18TWindowMessagePageFPvPvi((u32)(M2C_FIELD(arg0, u32 *, 0x20C)), (void *)(arg0 + 4), (s32)(arg2 | 0x80));
     }
 }
 
@@ -223,7 +223,7 @@ void display_message__22TQuestVmDownLoadServerFPvii(u8 *arg0, s32 arg1, s32 arg2
     if ((u32) M2C_FIELD(arg0, u32 *, 0x20C) != 0U) {
         memset(arg0 + 4, 0, 0x200);
         parse_message_text__22TQuestVmDownLoadServerFPvii((void *)(arg0), (s32)(arg1), (s32)(arg0 + 4));
-        TWindowMessagePage__sub_8026AE20(M2C_FIELD(arg0, u32 *, 0x20C), arg0 + 4, arg2 | 0x80);
+        set_message__18TWindowMessagePageFPvPvi(M2C_FIELD(arg0, u32 *, 0x20C), arg0 + 4, arg2 | 0x80);
     }
 }
 

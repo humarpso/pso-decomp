@@ -61,7 +61,7 @@ M2C_UNK TKeyBoardControl__sub_8000F9CC(int);
 void *create_sub_menu_window__17TWindowOptionCtrlFv(void *);
 void *create_option_menu__17TWindowOptionCtrlFv(void *);
 void set_field_value__17TWindowOptionCtrlFis(s32 arg0, s16 arg1);
-s32 TWindowOptionCtrl__sub_8026B64C(s32 arg0, s32 arg1, s32 arg2);
+s32 open_yes_no_window__17TWindowOptionCtrlFiii(s32 arg0, s32 arg1, s32 arg2);
 s32 get_card_data__17TWindowSubComCardFPv(void *);
 s32 is_child_visible__17TWindowSubComCardFPv(void *);
 s32 get_slot_or_neg1__17TWindowSubComCardFPv(void *);
@@ -288,10 +288,10 @@ void run_task__17TWindowOptionCtrlFv(Opt_8026BCC0 *self) {
         if (self->f40 == NULL) {
             switch (get_selected_menu_value(self->f2C)) {
             case 0x14:
-                self->f40 = (void *)TWindowOptionCtrl__sub_8026B64C((s32)self, 0x22, 0xD0);
+                self->f40 = (void *)open_yes_no_window__17TWindowOptionCtrlFiii((s32)self, 0x22, 0xD0);
                 break;
             case 0x15:
-                self->f40 = (void *)TWindowOptionCtrl__sub_8026B64C((s32)self, 0x24, 0xD0);
+                self->f40 = (void *)open_yes_no_window__17TWindowOptionCtrlFiii((s32)self, 0x24, 0xD0);
                 break;
             }
         }

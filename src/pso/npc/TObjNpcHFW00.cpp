@@ -109,7 +109,7 @@ extern u32 TObjNpcHFW01__data_805D57B0;
 extern u32 TObjNpcHFW01__data_805D57B4;
 extern char lbl_8043FA70[];
 extern char lbl_8043FA84[];
-void TObjNpcHFW01__sub_8014AF8C(void);
+void load_resources__12TObjNpcHFW01Fv(void);
 }
 
 extern "C" {
@@ -182,7 +182,7 @@ void free_static_resources__12TObjNpcHFW01Fv(void) {
         TObjNpcHFW01__data_805D57B0 = 0U;
     }
 }
-void TObjNpcHFW01__sub_8014AF8C(void) {
+void load_resources__12TObjNpcHFW01Fv(void) {
     TObjNpcHFW01__data_805D57B0 = (u32)create_named_object(lbl_8043FA70);
     TObjNpcHFW01__data_805D57B4 = (u32)load_gvm_texture_file(lbl_8043FA84);
 }

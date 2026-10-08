@@ -53,7 +53,7 @@ void OSPanic(char *, s32, char *, ...);
 void assert_light_id__9TObjLightFi(s32 arg0);
 void reset_player_transform(void);
 void TObjPlayer__sub_803DF768(s32 arg0);
-void TObjPlayer__sub_803DF578(void *arg0, void *arg1, s32 arg2);
+void draw_trail_strip__10TObjPlayerFPvPvi(void *arg0, void *arg1, s32 arg2);
 void GXSetChanAmbColor(s32 chan, GXColor_803DF268 color);
 void set_light_ambient_color(f32 r, f32 g, f32 b);
 void GXInitLightColor(void *, GXColor_803DF268);
@@ -155,7 +155,7 @@ void load_gx_light_slot(s32 arg0) {
 
 
 
-void TObjPlayer__sub_803DF578(void *arg0, void *arg1, s32 arg2) {
+void draw_trail_strip__10TObjPlayerFPvPvi(void *arg0, void *arg1, s32 arg2) {
     TObjPlayer__sub_803DF768(arg2);
     draw_untextured_trail_strip((void *)(arg0), (void *)(arg1));
     reset_player_transform();

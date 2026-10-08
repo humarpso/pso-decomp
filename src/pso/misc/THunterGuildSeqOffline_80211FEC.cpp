@@ -29,7 +29,7 @@ s32 get_player_count__10TObjPlayerFv();
 s32 get_field_3e0__12TBoss3VoloptFPv(int);
 s32 is_flag_set__6TLobbyFv();
 f32 xz_distance_squared(void *, void *);
-s32 TLobby__sub_801B0974();
+s32 count_members__6TLobbyFv();
 s32 get_player_by_client_id(int);
 extern s32 TLobby__data_805D53AC;
 extern f32 THunterGuildSeqOffline__data_805DC648;
@@ -103,10 +103,10 @@ s32 check_party_gathered__22THunterGuildSeqOfflineFv(void) {
     s32 me;
     f32 lim;
     s32 p;
-    if (get_player_count__10TObjPlayerFv() != 0 && TLobby__sub_801B0974() == 1) {
+    if (get_player_count__10TObjPlayerFv() != 0 && count_members__6TLobbyFv() == 1) {
         return 2;
     }
-    if (is_flag_set__6TLobbyFv() != 0 && TLobby__sub_801B0974() == 1) {
+    if (is_flag_set__6TLobbyFv() != 0 && count_members__6TLobbyFv() == 1) {
         return 2;
     }
     for (i = 0; i < 4; i++) {

@@ -281,7 +281,7 @@ M2C_UNK sync_story_select__6TLobbyFv();
 M2C_UNK set_state__16TAdStorySelectGCFi(M2C_UNK);
 M2C_UNK get_team_state__6TLobbyFPv();
 M2C_UNK TLobby__sub_8020DC78();
-M2C_UNK TQuestListOnline__sub_8021786C();
+M2C_UNK ensure_online_quests_loaded__16TQuestListOnlineFv();
 M2C_UNK update_lobby_subsystems__6TLobbyFv();
 M2C_UNK stop_audio_streams__6TLobbyFv();
 M2C_UNK load_area_scene_and_init(void *);
@@ -760,7 +760,7 @@ M2C_UNK start_quest_mission(void) {
     }
     setup_quest_list__6TLobbyFv();
     set_enemy_mode_flag__6TLobbyFv();
-    TQuestListOnline__sub_8021786C();
+    ensure_online_quests_loaded__16TQuestListOnlineFv();
     load_area_scene_and_init(lbl_80515BA0);
     get_current_floor();
     unlock_main_warp_destination();

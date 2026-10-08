@@ -13,7 +13,7 @@ M2C_UNK end_effect_render__13TParticleCtrlFv();
 M2C_UNK push_matrix();
 M2C_UNK pop_matrix();
 M2C_UNK post_translate_matrix(int);
-M2C_UNK TObjPlayer__sub_803DF578(int, int, int);
+M2C_UNK draw_trail_strip__10TObjPlayerFPvPvi(int, int, int);
 extern RecoveredGlobal_802F1200_lbl_805419E0 lbl_805419E0;
 void fn_802F1200(M2C_UNK *arg0, s32 arg1);
 }
@@ -38,7 +38,7 @@ void fn_802F1200(M2C_UNK *arg0, s32 arg1) {
     var_r4 = 6;
     var_r3 = (M2C_UNK *)((u8 *)&lbl_805419E0.value + var_r5);
     var_r5 = 0;
-    TObjPlayer__sub_803DF578((int) (var_r3), (int) (6), (int) (0));
+    draw_trail_strip__10TObjPlayerFPvPvi((int) (var_r3), (int) (6), (int) (0));
     pop_matrix();
 }
 

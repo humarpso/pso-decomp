@@ -109,7 +109,7 @@ extern u32 TObjNpcHRM01__data_805D57C8;
 extern u32 TObjNpcHRM01__data_805D57CC;
 extern char lbl_8043FB18[];
 extern char lbl_8043FB2C[];
-void TObjNpcHRM01__sub_8014B508(void);
+void load_resources__12TObjNpcHRM01Fv(void);
 }
 
 extern "C" {
@@ -144,7 +144,7 @@ void free_shared_objects__12TObjNpcHRM01Fv(void) {
 
 extern M2C_UNK __vt__12TObjNpcHRM01[];
 
-void TObjNpcHRM01__sub_8014B508(void) {
+void load_resources__12TObjNpcHRM01Fv(void) {
     TObjNpcHRM01__data_805D57C8 = (u32)create_named_object(lbl_8043FB18);
     TObjNpcHRM01__data_805D57CC = (u32)load_gvm_texture_file(lbl_8043FB2C);
 }

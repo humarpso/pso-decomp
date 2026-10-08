@@ -11,7 +11,7 @@ typedef struct { f32 sp8; f32 spC; f32 sp10; } FloatTriplet;
 s32 draw_icon__10TObjPlayerFPvii(void *arg0, s32 arg1, s32 arg2);
 void draw_status_icon__10TObjPlayerFPvi(void *arg0, s32 arg1);
 s32 get_view_matrix__11TCameraCtrlFv();
-M2C_UNK TCameraCtrl__sub_803D976C(M2C_UNK, s32);
+M2C_UNK concat_matrix__11TCameraCtrlFUiUi(M2C_UNK, s32);
 s32 get_model_joint_matrix(void *, s32);
 M2C_UNK transform_point_by_current_matrix(f32 *, s32);
 M2C_UNK push_matrix();
@@ -40,7 +40,7 @@ s32 draw_icon__10TObjPlayerFPvii(void *arg0, s32 arg1, s32 arg2) {
         floats.sp8 = lbl_805DAC98;
         push_matrix();
         TObjPlayer__sub_803D9324(0, get_model_joint_matrix(M2C_FIELD(arg0, void **, 0xF0), arg1));
-        TCameraCtrl__sub_803D976C(0, get_view_matrix__11TCameraCtrlFv());
+        concat_matrix__11TCameraCtrlFUiUi(0, get_view_matrix__11TCameraCtrlFv());
         transform_point_by_current_matrix(&floats.sp8, arg2);
         pop_matrix();
     } else {

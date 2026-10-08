@@ -31,14 +31,14 @@ extern RecoveredGlobal_8015C534_lbl_804B00C8 lbl_804B00C8;
 extern RecoveredGlobal_8015C534_lbl_804B08BC lbl_804B08BC;
 extern u32 lbl_805D58E8;
 extern s32 tl_05;
-u8 *fn_8015C534(u8 *arg0, s32 arg1);
+u8 *init_ancient_container(u8 *arg0, s32 arg1);
 }
 
 extern "C" {
 
 typedef char RecoveredGlobal_8015C534_lbl_804B00C8_size[sizeof(RecoveredGlobal_8015C534_lbl_804B00C8) == 0x2C ? 1 : -1];
 typedef char RecoveredGlobal_8015C534_lbl_804B08BC_size[sizeof(RecoveredGlobal_8015C534_lbl_804B08BC) == 0x14C ? 1 : -1];
-u8 *fn_8015C534(u8 *arg0, s32 arg1) {
+u8 *init_ancient_container(u8 *arg0, s32 arg1) {
     init_container_base((void *) (arg0), (int) (tl_05), (void *) (arg1));
     M2C_FIELD(arg0, M2C_UNK **, 0x18) = &lbl_804B08BC.value;
     M2C_FIELD(arg0, s16 *, 0x326) = 0;

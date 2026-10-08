@@ -251,7 +251,7 @@ void update_warp_boss_visibility(void *arg0);
 s32 TObjWarpBossMulti__sub_8019E418(u8 *arg0);
 s32 is_lobby_active__17TObjWarpBossMultiFv(void);
 s32 TObjWarpBossMulti__sub_8019E4B4(void);
-s32 TObjWarpBossMulti__sub_8019E4E8(Wb_8019E4E8 *arg0);
+s32 are_all_players_in_range__17TObjWarpBossMultiFPv(Wb_8019E4E8 *arg0);
 s32 TObjWarpBossMulti__sub_8019E570(s32 arg0, f32 farg0);
 void close_windows__17TObjWarpBossMultiFPv(void *arg0);
 void handle_6x6A_set_boss_warp_flags(void *arg0);
@@ -491,7 +491,7 @@ s32 TObjWarpBossMulti__sub_8019E4B4(void) {
     return ((get_main_phase() - 0xF) == 0) ? lbl_805D55C0 : 0;
 }
 
-s32 TObjWarpBossMulti__sub_8019E4E8(Wb_8019E4E8 *arg0) {
+s32 are_all_players_in_range__17TObjWarpBossMultiFPv(Wb_8019E4E8 *arg0) {
     s32 ok = 1;
     s32 i;
     for (i = 0; i < 4; i++) {
@@ -714,7 +714,7 @@ void update_warp_state__17TObjWarpBossMultiFPv(u8 *arg0) {
             if ((s32) M2C_FIELD(arg0, s32 *, 0x160) <= 0) {
                 var_r3 = 1;
             } else {
-                var_r3 = ((s32 (*)(void *))TObjWarpBossMulti__sub_8019E4E8)(arg0);
+                var_r3 = ((s32 (*)(void *))are_all_players_in_range__17TObjWarpBossMultiFPv)(arg0);
             }
             if (var_r3 != 0) {
                 ((M2C_UNK (*)(void *, M2C_UNK))TObjWarpBossMulti__sub_8019E6C0)(arg0, 2);
@@ -780,7 +780,7 @@ void TObjWarpBossMulti__sub_8019EB94(void *arg0_) {
         if (TObjWarpBossMulti__sub_8019E418(arg0) != 0) {
             M2C_FIELD(arg0, s16 *, 0xE0) = 3;
         }
-        if (get_warp_state__19TWindowSubTradeMainFv() != 0 && get_main_phase() == 0xF && TLobby__sub_800C6C10() != 0 && TObjWarpBossMulti__sub_8019E4E8((Wb_8019E4E8 *) arg0) != 0) {
+        if (get_warp_state__19TWindowSubTradeMainFv() != 0 && get_main_phase() == 0xF && TLobby__sub_800C6C10() != 0 && are_all_players_in_range__17TObjWarpBossMultiFPv((Wb_8019E4E8 *) arg0) != 0) {
             TObjWarpBossMulti__sub_8019E6C0((Obj_8019E6C0 *) arg0, 2);
             M2C_FIELD(arg0, s16 *, 0xE0) = 5;
         }
@@ -797,7 +797,7 @@ void TObjWarpBossMulti__sub_8019EB94(void *arg0_) {
             M2C_FIELD(arg0, s16 *, 0xE0) = 1;
             break;
         }
-        if (get_warp_state__19TWindowSubTradeMainFv() != 0 && get_main_phase() == 0xF && TLobby__sub_800C6C10() != 0 && TObjWarpBossMulti__sub_8019E4E8((Wb_8019E4E8 *) arg0) != 0) {
+        if (get_warp_state__19TWindowSubTradeMainFv() != 0 && get_main_phase() == 0xF && TLobby__sub_800C6C10() != 0 && are_all_players_in_range__17TObjWarpBossMultiFPv((Wb_8019E4E8 *) arg0) != 0) {
             TObjWarpBossMulti__sub_8019E6C0((Obj_8019E6C0 *) arg0, 2);
             M2C_FIELD(arg0, s16 *, 0xE0) = 5;
         }

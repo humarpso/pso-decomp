@@ -264,7 +264,7 @@ extern "C" {
 
 void set_mode__5TItemFPvc(void *arg0, s8 arg1);
 
-M2C_UNK TItem__sub_80101514(void *);
+M2C_UNK unregister_from_world__5TItemFi(void *);
 M2C_UNK claim_ownership__5TItemFii(void *, M2C_UNK);
 
 void set_mode__5TItemFPvc(void *arg0, s8 arg1) {
@@ -275,7 +275,7 @@ void set_mode__5TItemFPvc(void *arg0, s8 arg1) {
         M2C_FIELD(arg0, s32 *, 0xF0) = 0;
         claim_ownership__5TItemFii(arg0, 0);
     } else {
-        TItem__sub_80101514(arg0);
+        unregister_from_world__5TItemFi(arg0);
     }
     M2C_FIELD(arg0, s8 *, 0xEB) = arg1;
 }

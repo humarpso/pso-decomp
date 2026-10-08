@@ -138,7 +138,7 @@ u32 get_player_by_client_id(s32);
 s32 is_value_out_of_range__6TLobbyFi(s32);
 s32 is_challenge_mode_active();
 extern A_80291FC0 lbl_804DB1F0[];
-void TLobby__sub_80292164(s32 arg0);
+void store_challenge_seeds__6TLobbyFi(s32 arg0);
 extern A_80291FC0 lbl_804DB1F0[];
 s32 calc_layout_hash__20TWindowSubStatusDispFv(int);
 s32 calc_entry_offset__20TWindowSubStatusDispFv(int);
@@ -266,7 +266,7 @@ s32 TLobby__sub_8029204C(void) {
     return best;
 }
 
-void TLobby__sub_80292164(s32 arg0) {
+void store_challenge_seeds__6TLobbyFi(s32 arg0) {
     s32 i;
     if (is_challenge_mode_active() != 0) {
         for (i = 0; i < 4; i++) {
@@ -284,7 +284,7 @@ void TLobby__sub_80292164(s32 arg0) {
 void TLobby__sub_80292200(s32 arg0) {
     is_value_out_of_range__6TLobbyFi(arg0);
     get_random_float__8TObjFishFv((f32) (arg0 - M2C_FIELD(&(*(RecoveredGlobal_80292200_lbl_804DB1F0 *)&lbl_804DB1F0).value, s32 *, 0xC)));
-    TLobby__sub_80292164((s32)((void *) (arg0)));
+    store_challenge_seeds__6TLobbyFi((s32)((void *) (arg0)));
 }
 
 int TLobby__sub_80292268(void) { return 1; }

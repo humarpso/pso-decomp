@@ -122,7 +122,7 @@ extern "C" {
 extern u16 lbl_80540B28[];
 u16 TBoss6PlotFalz__sub_802AAE48(s32 i);
 s32 is_active__14TBoss6PlotFalzFPv(void *arg0);
-s32 TBoss6PlotFalz__sub_802AAE78(void);
+s32 sort_active_players__14TBoss6PlotFalzFv(void);
 s32 obj_isState2_324(void *);
 s16 obj_getS16_32C(void *);
 M2C_UNK send_6x2F_change_player_hp(int, s32, s16);
@@ -179,7 +179,7 @@ u16 TBoss6PlotFalz__sub_802AAE48(s32 i) {
     return lbl_80540B28[i];
 }
 
-s32 TBoss6PlotFalz__sub_802AAE78(void) {
+s32 sort_active_players__14TBoss6PlotFalzFv(void) {
     s32 vals[4];
     s32 i;
     s32 j;
@@ -217,7 +217,7 @@ s32 TBoss6PlotFalz__sub_802AAE78(void) {
     return n;
 }
 
-u16 TBoss6PlotFalz__sub_802AAFCC(void) {
+u16 pick_random_active_player__14TBoss6PlotFalzFv(void) {
     u16 ids[4];
     s32 n;
     s32 i;
@@ -938,7 +938,7 @@ extern "C" {
 void TBoss6PlotFalz__sub_802AC008(f32 farg0, f32 farg1);
 M2C_UNK set_chunk_blend(int);
 extern f32 TBoss6PlotFalz__data_805D3E54;
-void TBoss6PlotFalz__sub_802AC040(f32 farg0, f32 farg1, f32 farg2, f32 farg3);
+void apply_fade_material_color__14TBoss6PlotFalzFffff(f32 farg0, f32 farg1, f32 farg2, f32 farg3);
 extern s32 lbl_805D5550;
 bool TBoss6PlotFalz__sub_802AC17C(void);
 }
@@ -960,7 +960,7 @@ void update_camera_target__14TBoss6PlotFalzFv(void) {
 void TBoss6PlotFalz__sub_802AC008(f32 farg0, f32 farg1) {
     f32 temp_f3;
     temp_f3 = 0.25f * farg1;
-    TBoss6PlotFalz__sub_802AC040(farg0, ((-0.75f) * farg1) + 1.0f, temp_f3, temp_f3);
+    apply_fade_material_color__14TBoss6PlotFalzFffff(farg0, ((-0.75f) * farg1) + 1.0f, temp_f3, temp_f3);
 }
 #pragma pop
 
@@ -972,7 +972,7 @@ __declspec(section ".sdata2") const s32 lbl_805DE0C8[1] = { 0x8810 };
 #pragma opt_common_subs off
 #pragma opt_dead_assignments off
 #pragma fp_contract on
-void TBoss6PlotFalz__sub_802AC040(f32 farg0, f32 farg1, f32 farg2, f32 farg3) {
+void apply_fade_material_color__14TBoss6PlotFalzFffff(f32 farg0, f32 farg1, f32 farg2, f32 farg3) {
     typedef char sp8_offset[(offsetof(Stack_802AC040, sp8) == 0x0) ? 1 : -1];
     typedef char spC_offset[(offsetof(Stack_802AC040, spC) == 0x4) ? 1 : -1];
     typedef char sp10_offset[(offsetof(Stack_802AC040, sp10) == 0x8) ? 1 : -1];
@@ -1463,7 +1463,7 @@ M2C_UNK TItemEffOrgaFlowShot__sub_80357210();
 M2C_UNK TLobby__sub_8036DDE8();
 extern RecoveredGlobal_802ACBE4_lbl_804DE200 lbl_804DE200;
 extern int lbl_805D66E8;
-void TBoss6PlotFalz__sub_802ACBE4(void);
+void load_resources__14TBoss6PlotFalzFv(void);
 s32 restore_player_cameras();
 void __dt__9TObjEnemyFv(void *, int);
 s32 send_entity_set_flags__6TLobbyFPv(void *);
@@ -1672,7 +1672,7 @@ void free_all__14TBoss6PlotFalzFv(void) { free_global_instance__14TBoss4DarkFalz
 
 extern s32 tl_04;
 
-void TBoss6PlotFalz__sub_802ACBE4(void) {
+void load_resources__14TBoss6PlotFalzFv(void) {
     s32 temp_r3;
     s32 var_r0;
     temp_r3 = alloc__23TAdSinglePlyChrSelectGCFPv((void *)0x440);

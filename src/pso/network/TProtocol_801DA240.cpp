@@ -104,11 +104,11 @@ void handle_cmd_D3(u8 *arg0, Pkt_801DA35C *src);
 void bswap_cmd_D3_item_bank(void *);
 int sprintf(char *, const char *, ...);
 extern char lbl_804495FC[];
-void TLobby__sub_801DA4A0(VObj_18_801DA4A0 *obj, Pkt_801DA4A0 *src);
+void send_trade_list__6TLobbyFPvPv(VObj_18_801DA4A0 *obj, Pkt_801DA4A0 *src);
 int TLobby__sub_801DF024(void *);
-void TLobby__sub_801DA548(VObj_18_801DA548 *obj, char *str);
+void send_text_packet_D9__6TLobbyFPvPv(VObj_18_801DA548 *obj, char *str);
 int TLobby__sub_801DF064(void *);
-void TLobby__sub_801DA734(VObj_18_801DA734 *obj, char *str);
+void send_text_packet_c7__6TLobbyFPvPv(VObj_18_801DA734 *obj, char *str);
 }
 
 extern "C" {
@@ -173,7 +173,7 @@ void TProtocol::recv_advance_trade_state(packet &pkt) {
 
 extern "C" {
 
-void TLobby__sub_801DA4A0(VObj_18_801DA4A0 *obj, Pkt_801DA4A0 *src) {
+void send_trade_list__6TLobbyFPvPv(VObj_18_801DA4A0 *obj, Pkt_801DA4A0 *src) {
     char buf[0x80];
     Pkt_801DA4A0 pkt;
     sprintf(buf, lbl_804495FC, ((PktHdr_801DA4A0 *)src)->b, ((PktHdr_801DA4A0 *)src)->a);
@@ -185,7 +185,7 @@ void TLobby__sub_801DA4A0(VObj_18_801DA4A0 *obj, Pkt_801DA4A0 *src) {
     obj->m8(&pkt, 0x288);
 }
 
-void TLobby__sub_801DA548(VObj_18_801DA548 *obj, char *str) {
+void send_text_packet_D9__6TLobbyFPvPv(VObj_18_801DA548 *obj, char *str) {
     Pkt_801DA548 pkt;
     s32 n;
     memset(&pkt, 0, 0xB0);
@@ -228,7 +228,7 @@ void TProtocol::send_disable_auto_reply() {
     header.bswap();
     send((u8*)&header, sizeof(header));
 }
-void TLobby__sub_801DA734(VObj_18_801DA734 *obj, char *str) {
+void send_text_packet_c7__6TLobbyFPvPv(VObj_18_801DA734 *obj, char *str) {
     if (*(s32 *)((char *)obj + 0x1910) != 0) {
     Pkt_801DA734 pkt;
     s32 n;

@@ -10,7 +10,7 @@ s32 create__19TWindowMessageYesNoFPvPvPvPv(s32, s32, s32, s32);
 M2C_UNK free_member__17TWindowSubComCardFPv(int, int);
 M2C_UNK forward_slot_selection__16TAdChrSelASlotGCFPvPvPv(int, void *, int, f32);
 extern const f32 lbl_805DD268;
-s32 TWindowOptionCtrl__sub_8026B64C(s32 arg0, s32 arg1, s32 arg2);
+s32 open_yes_no_window__17TWindowOptionCtrlFiii(s32 arg0, s32 arg1, s32 arg2);
 s32 get_localized_text_entry(s32, s32);
 void *TAdEnterPasswordGC__sub_8013ADE4();
 M2C_UNK complete_reveal__14TWindowMessageFPv(s32);
@@ -47,7 +47,7 @@ s32 create_serial_info_window__17TWindowOptionCtrlFPvi(void *arg0, s32 arg1) {
     return w;
 }
 
-s32 TWindowOptionCtrl__sub_8026B64C(s32 arg0, s32 arg1, s32 arg2) {
+s32 open_yes_no_window__17TWindowOptionCtrlFiii(s32 arg0, s32 arg1, s32 arg2) {
   s32 temp_r30;
   u8 *temp_r31;
   temp_r30 = create__19TWindowMessageYesNoFPvPvPvPv(arg0, 6, arg0 * 0, 0);

@@ -156,7 +156,7 @@ s32 push_matrix_from(u32);
 M2C_UNK pop_matrix();
 extern M2C_UNK TBreakUpMdl__data_8048FA00[];
 extern RecoveredGlobal_80096F54_lbl_8058D490 lbl_8058D490;
-u8 *TBreakUpMdl__sub_80096F54(u8 *arg0, s32 arg1, s32 arg2, f32 farg0);
+u8 *setup_pieces__11TBreakUpMdlFPviif(u8 *arg0, s32 arg1, s32 arg2, f32 farg0);
 s32 collect_node_positions__11TBreakUpMdlFPvPvi(u8 *arg0, u8 *arg1, s32 arg2);
 void bind_motion_context(s32, f32);
 s32 push_matrix_from(u32);

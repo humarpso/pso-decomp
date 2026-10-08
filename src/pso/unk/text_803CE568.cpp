@@ -25,7 +25,7 @@ extern M2C_UNK lbl_8047D7AC[];
 extern M2C_UNK lbl_8047D7C8[];
 extern RecoveredCallback_4873a87e26d6 lbl_805D75F8;
 extern s32 lbl_805D75FC;
-s32 TLobby__sub_803CEEB8(u8 *arg0);
+s32 cv_fs_get_stat__6TLobbyFPv(u8 *arg0);
 extern M2C_UNK lbl_8047D7E4[];
 extern M2C_UNK lbl_8047D800[];
 extern RecoveredCallback_4873a87e26d6 lbl_805D75F8;
@@ -45,7 +45,7 @@ extern M2C_UNK lbl_8047D850[];
 extern M2C_UNK lbl_8047D86C[];
 extern RecoveredCallback_4873a87e26d6 lbl_805D75F8;
 extern s32 lbl_805D75FC;
-s32 TLobby__sub_803CF058(u8 *arg0, s32 arg1, s32 arg2);
+s32 cv_fs_req_rd__6TLobbyFPvii(u8 *arg0, s32 arg1, s32 arg2);
 extern M2C_UNK lbl_8047D884[];
 extern M2C_UNK lbl_8047D8A0[];
 extern RecoveredCallback_4873a87e26d6 lbl_805D75F8;
@@ -68,7 +68,7 @@ void SIGetTypeAsync(void);
 
 extern "C" {
 
-s32 TLobby__sub_803CEEB8(u8 *arg0) {
+s32 cv_fs_get_stat__6TLobbyFPv(u8 *arg0) {
     s32 (*temp_r12)(s32);
     s32 var_r31;
     var_r31 = 3;
@@ -104,7 +104,7 @@ void TLobby__sub_803CEFC8(u8 *arg0) {
     }
 }
 
-s32 TLobby__sub_803CF058(u8 *arg0, s32 arg1, s32 arg2) {
+s32 cv_fs_req_rd__6TLobbyFPvii(u8 *arg0, s32 arg1, s32 arg2) {
     s32 (*temp_r12)(s32, s32, s32);
     s32 var_r31;
     if (arg0 == NULL) {

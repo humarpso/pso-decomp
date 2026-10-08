@@ -1187,7 +1187,7 @@ s32 TObjEneDD__sub_800BA804(int);
 void transform_part_positions__9TObjEneDDFPv(void *);
 M2C_UNK init_model__9TObjEneDDFPv(void *, void *, int, int);
 M2C_UNK set_active__9TObjEneDDFPv(void *);
-M2C_UNK TObjEneDD__sub_800BABCC(void *, f32, f32, f32);
+M2C_UNK move_to_wall_clamped_destination__9TObjEneDDFPvfff(void *, f32, f32, f32);
 u32 TObjEneDD__vt99();
 u32 TObjEneDD__vt98();
 void calc_wall_clamped_destination(void *, Vec_800EF95C *, f32, f32, f32);
@@ -1235,7 +1235,7 @@ void turn_to_target__18TObjEneRe4SorcererFPv(void *arg0);
 void calc_orb_positions__18TObjEneRe4SorcererFPv(void *arg0);
 void apply_mylla_effect__18TObjEneRe4SorcererFPv(void *arg0);
 void set_photon_state__18TObjEneRe4SorcererFPv(void *arg0);
-s32 TObjEneRe4Sorcerer__sub_800EF6A4(u8 *arg0, s32 arg1, f32 *arg2);
+s32 update_farthest_target__18TObjEneRe4SorcererFPviPv(u8 *arg0, s32 arg1, f32 *arg2);
 s32 check_shield__18TObjEneRe4SorcererFiPv(s32 arg0, void *arg1);
 void TObjEneRe4Sorcerer__sub_800EF7C8(Obj_800EF7C8 *self);
 void TObjEneRe4Sorcerer__sub_800EF844(Obj_800EF844 *self);
@@ -1830,7 +1830,7 @@ void TObjEneRe4Sorcerer__sub_800EE0F8(u8 *arg0, s32 arg1) {
         advance_animation_playback(arg0);
         VecCopy__FP3VecPC3Vec(&v, arg0 + 0x308);
         c = clamp_velocity__15TObjBoss2TunnelFPv(&v);
-        TObjEneDD__sub_800BABCC(arg0, v.x, v.z, c);
+        move_to_wall_clamped_destination__9TObjEneDDFPvfff(arg0, v.x, v.z, c);
         M2C_FIELD(arg0, f32 *, 0x308) *= lbl_805DA79C;
         M2C_FIELD(arg0, f32 *, 0x310) *= lbl_805DA79C;
         TObjEneRe4Sorcerer__sub_800EF214((s32) arg0);
@@ -2404,7 +2404,7 @@ void set_photon_state__18TObjEneRe4SorcererFPv(void *arg0) {
     }
 }
 
-s32 TObjEneRe4Sorcerer__sub_800EF6A4(u8 *arg0, s32 arg1, f32 *arg2) {
+s32 update_farthest_target__18TObjEneRe4SorcererFPviPv(u8 *arg0, s32 arg1, f32 *arg2) {
     f32 temp_f1;
     if ((((s32 (*)(void *))is_alive__9TObjEneDDFPv)((void *) (arg1)) != 0) && (check_shield__18TObjEneRe4SorcererFiPv((s32)((void *) (arg0)), (void *)((void *) (arg1))) != 0)) {
         temp_f1 = horizontal_distance_squared((void *) (arg0 + 0x38), (void *) (arg1 + 0x38));

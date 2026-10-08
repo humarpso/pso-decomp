@@ -87,7 +87,7 @@ void TCameraCtrl__sub_801E32D8(f32 farg0, f32 farg1);
 extern f32 lbl_805D3588;
 extern f32 lbl_805D358C;
 void GXSetScissor(u32, u32, u32, u32);
-void TCameraCtrl__sub_801E317C(s32 mode, Rect_801E317C *r);
+void set_viewport_scissor__11TCameraCtrlFiPv(s32 mode, Rect_801E317C *r);
 }
 
 extern "C" {
@@ -96,7 +96,7 @@ void camera_renderer_setup_nop(void);
 int TObjPlayer__sub_803DAD28(void*);
 int draw_textured_vertices__10TObjPlayerFPvii(void*, void*, void*);
 
-void TCameraCtrl__sub_801E317C(s32 mode, Rect_801E317C *r) {
+void set_viewport_scissor__11TCameraCtrlFiPv(s32 mode, Rect_801E317C *r) {
     f32 adj;
     f32 x;
     f32 y;

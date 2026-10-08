@@ -120,7 +120,7 @@ void init__19TWindowKeyBoardSoftFPv(u8 *arg0);
 int is_key_state_2__19TWindowKeyBoardSoftFPv(void* p);
 void update_input_state2__19TWindowKeyBoardSoftFPv(void *arg0);
 void update_input_state__19TWindowKeyBoardSoftFPv(void *arg0);
-int TWindowChat__sub_8025CB70(void* a0 = 0);
+int reset_input__11TWindowChatFPv(void* a0 = 0);
 int TWindowKeyBoardSoft__sub_8008081C(void*);
 void flush_if_flagged__11TWindowChatFPv(void* p);
 int get_flag__11TWindowChatFPv(void* a0 = 0);

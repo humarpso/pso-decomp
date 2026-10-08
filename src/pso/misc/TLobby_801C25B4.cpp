@@ -188,7 +188,7 @@ extern void *TLobby__data_805D5D98;
 extern s32 lbl_805D5D9C;
 extern void *lbl_805D5DB8;
 extern s32 TLobby__data_805D5DC0;
-void TLobby__sub_801C3A7C(void);
+void init_char_slots__6TLobbyFv(void);
 void close_and_play_effect__6TLobbyFii(int arg0, s32 arg1);
 void set_slot__23TAdSinglePlyChrSelectGCFi(u16);
 u16 get_char_select_slot__23TAdSinglePlyChrSelectGCFv(void);
@@ -289,7 +289,7 @@ void handle_battle_result__6TLobbyFii(int arg0, s32 arg1);
 void close_and_play_effect__6TLobbyFii(int arg0, s32 arg1);
 u32 __nw__7TObjectFUl(M2C_UNK);
 void TWindow__close(void *);
-M2C_UNK TWindowCtrl__sub_8024A4EC();
+M2C_UNK close_timer_window__11TWindowCtrlFv();
 M2C_UNK suppress_slot__11TWindowCtrlFi(s32);
 s32 has_player_active_menu__11TWindowCtrlFi(s32);
 u32 TWindowDuelResult__ct(void *, s32);
@@ -571,7 +571,7 @@ void TLobby__sub_801C3A40(void) {
     }
 }
 
-void TLobby__sub_801C3A7C(void) {
+void init_char_slots__6TLobbyFv(void) {
     TLobby__data_805D5D98 = 0;
     lbl_805D5D9C = TKeyBoardControl__sub_8000F828() == 1 ? 0x19 : 0x1E;
     lbl_805D5DB8 = __construct_new_array(alloc_buffer__11TOBoss4RockFPv(0x3220), (void *)init_char_data__10TObjPlayerFPv, (void *)destroy_char_data__10TObjPlayerFis, 0x42C, 0xC);
@@ -737,7 +737,7 @@ void update_duel_result__6TLobbyFPv(u8 *arg0) {
             __ct__15TDuelEffectCtrlFP7TObjectUc(p, arg0, 1);
         }
         M2C_FIELD(arg0, s32 *, 0x2C) = 0x78;
-        TWindowCtrl__sub_8024A4EC();
+        close_timer_window__11TWindowCtrlFv();
         suppress_slot__11TWindowCtrlFi(lbl_805D53A0);
         M2C_FIELD(arg0, s32 *, 0x20) = 1;
         p = (void *)update_battle_controller__10TObjPlayerFv();
@@ -902,7 +902,7 @@ void update_duel_result__6TLobbyFPv(u8 *arg0) {
         if (p != NULL) {
             obj_clear_flag30_20000(p);
         }
-        TWindowCtrl__sub_8024A4EC();
+        close_timer_window__11TWindowCtrlFv();
         suppress_slot__11TWindowCtrlFi(lbl_805D53A0);
         break;
     case 9:

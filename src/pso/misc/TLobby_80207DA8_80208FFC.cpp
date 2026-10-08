@@ -17,7 +17,7 @@ extern u8 lbl_8044BAD0[];
 extern s32 lbl_805139F8[];
 extern int lbl_805D6090;
 extern s32 lbl_805D6098;
-void TLobby__sub_8020901C(void);
+void load_set_event_gsl__6TLobbyFv(void);
 }
 
 extern "C" {
@@ -32,7 +32,7 @@ int get_team_state__6TLobbyFPv(void* p) { return TLobby__sub_80208E30(p); }
 
     extern int lbl_805D6094;
 
-void TLobby__sub_8020901C(void) {
+void load_set_event_gsl__6TLobbyFv(void) {
     s32 i;
     for (i = 0; i < 0x12; i++) {
         lbl_805139F8[i] = 0;

@@ -12,7 +12,7 @@ u32 run_and_get_result__10TObjPlayerFPvi(int, void *);
 void calc_list_content_extent(void *);
 void add_list_entry__20TWindowSubStatusDispFPvi(void *, int);
 void add_list_entry__23TShopJudgmentItemWindowFPvii(void *, void *, int);
-void fn_80278DA4(Wn_80278DA4 *arg0);
+void populate_judgment_item_list(Wn_80278DA4 *arg0);
 u32 get_usable_action_flags__5TItemFPvUiUi(void *, u32, u32);
 u8 *find_item_by_id(int);
 u8 get_field_ec__12TOSwitchItemFPv();
@@ -81,7 +81,7 @@ void build_mag_item_candidates(void *arg0, u16 arg1) {
     }
 }
 
-void fn_80278DA4(Wn_80278DA4 *arg0) {
+void populate_judgment_item_list(Wn_80278DA4 *arg0) {
     s32 list[0x20];
     u8 *id;
     u32 i;

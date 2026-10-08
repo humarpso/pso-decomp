@@ -20,8 +20,8 @@ struct Grp_8020B1E4 { u8 pad[4]; s32 count; u8 pad2[0xC]; Ent_8020B1E4 *ents; };
 extern "C" {
 void TItemDrop__sub_800FDDF4(void);
 void TItemDrop__sub_800FDE7C(s32);
-s32 TLobby__sub_8020AF0C(void);
-s32 TLobby__sub_8020AFA4(void);
+s32 load_all_floor_enemy_sets__6TLobbyFv(void);
+s32 load_all_floor_object_sets__6TLobbyFv(void);
 void free_data_60F0__6TLobbyFv(void);
 s32 init_handle__6TLobbyFi(s32);
 extern RecoveredGlobal_8020B118_lbl_8044BBF0 lbl_8044BBF0;
@@ -58,7 +58,7 @@ void load_set_gsl_files__6TLobbyFv(void) {
     TLobby__data_805D6134 = 0;
     if (init_handle__6TLobbyFi(0x8000) != 0) {
         TItemDrop__sub_800FDE7C((s32) &lbl_8044BBF0.value);
-        if (TLobby__sub_8020AFA4() == 0) {
+        if (load_all_floor_object_sets__6TLobbyFv() == 0) {
             TItemDrop__sub_800FDDF4();
             free_data_60F0__6TLobbyFv();
             TLobby__data_805D6134 |= 1;
@@ -66,7 +66,7 @@ void load_set_gsl_files__6TLobbyFv(void) {
         }
         TItemDrop__sub_800FDDF4();
         TItemDrop__sub_800FDE7C((s32) &lbl_8044BC04.value);
-        if (TLobby__sub_8020AF0C() == 0) {
+        if (load_all_floor_enemy_sets__6TLobbyFv() == 0) {
             TItemDrop__sub_800FDDF4();
             free_data_60F0__6TLobbyFv();
             TLobby__data_805D6134 |= 1;

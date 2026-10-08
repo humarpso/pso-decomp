@@ -137,7 +137,7 @@ u32 __nw__7TObjectFUl(M2C_UNK);
 M2C_UNK __ct__13TObjBoss7DustFv(u32, int, void *);
 s32 rand();
 extern s32 tl_05;
-void TObjBoss2Tunnel__sub_802F25AC(u8 *arg0);
+void update_dust_spawn__15TObjBoss2TunnelFPv(u8 *arg0);
 }
 
 extern "C" {
@@ -244,12 +244,12 @@ void init_effect__15TObjBoss2TunnelFPv(void *arg0) {
         M2C_FIELD(arg0, s32 *, 0x1C) = 1;
         M2C_FIELD(arg0, s32 *, 0x70) = 0;
     }
-    TObjBoss2Tunnel__sub_802F25AC((u8 *)(arg0));
+    update_dust_spawn__15TObjBoss2TunnelFPv((u8 *)(arg0));
 }
 
 #pragma push
 #pragma fp_contract on
-void TObjBoss2Tunnel__sub_802F25AC(u8 *arg0) {
+void update_dust_spawn__15TObjBoss2TunnelFPv(u8 *arg0) {
     Vec_802F25AC v;
     u32 p;
     M2C_FIELD(arg0, s32 *, 0x74) = M2C_FIELD(arg0, s32 *, 0x74) - 1;

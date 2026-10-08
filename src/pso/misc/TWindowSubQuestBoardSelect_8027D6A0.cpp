@@ -40,13 +40,13 @@ void fn_8027D230(void *);
 s32 get_slot_flag__26TWindowSubQuestBoardSelectFic(void *, u8);
 s32 is_shortcut_active__18TWindowSubShortCutFPv();
 extern RecoveredGlobal_8027D888_lbl_8050E208 lbl_8050E208;
-s32 TWindowSubQuestBoardSelect__sub_8027D6A0(void *arg0);
+s32 handle_page_input__26TWindowSubQuestBoardSelectFPv(void *arg0);
 }
 
 extern "C" {
 
 #define TBL_8027D6A0 ((Ent_8027D6A0 *)&lbl_8050E208)
-s32 TWindowSubQuestBoardSelect__sub_8027D6A0(void *arg0) {
+s32 handle_page_input__26TWindowSubQuestBoardSelectFPv(void *arg0) {
     Win_8027D6A0 *self = (Win_8027D6A0 *)arg0;
     void *p;
     s8 d;
@@ -91,7 +91,7 @@ void run_task__26TWindowSubQuestBoardSelectFv(u8 *arg0) {
     u8 *temp_r31;
     if (is_open__20TWindowSubQuestBoardFPv((void *) (arg0)) == 0) {
         select_next__26TWindowSubQuestBoardSelectFPv((void *) (arg0));
-        TWindowSubQuestBoardSelect__sub_8027D6A0((void *)((void *) (arg0)));
+        handle_page_input__26TWindowSubQuestBoardSelectFPv((void *)((void *) (arg0)));
         temp_r31 = (u8 *)&lbl_8050E208.value + 0x20;
         if ((TWindowShortListCtrl__check_controller_button((int) (temp_r31), (int) (4)) != 0) || (test_flag_4c__23TAdSinglePlyChrSelectGCFPv((void *) ((u8 *)&lbl_8050E208.value + 0x160), (int) (4)) != 0)) {
             handle_decide__26TWindowSubQuestBoardSelectFPv((void *) (arg0));

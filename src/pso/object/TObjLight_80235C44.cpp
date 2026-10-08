@@ -45,14 +45,14 @@ extern "C" {
 s32 VecCopy__FP3VecPC3Vec(void *, void *);
 s32 obj_getField1c(int);
 s32 copy_vec4__13TRaderMapCoreFPvPv(void *, void *);
-s32 TObjLight__sub_801344A4(void *, void *, int);
+s32 find_light_params__9TObjLightFPvPvUi(void *, void *, int);
 s32 __ct__7TObjectFP7TObject(void *, void *);
 extern M2C_UNK lbl_804CCAA8[];
 u8 *construct_actor_light__9TObjLightFPviiiiifffi(u8 *arg0, s32 arg1, s32 arg2, s32 arg3, s32 arg4, s32 arg5, f32 farg0, f32 farg1, f32 farg2, M2C_UNK arg_sp0);
 s32 VecCopy__FP3VecPC3Vec(void *, void *);
 s32 obj_getField1c(int);
 s32 copy_vec4__13TRaderMapCoreFPvPv(void *, void *);
-s32 TObjLight__sub_801344A4(void *, void *, int);
+s32 find_light_params__9TObjLightFPvPvUi(void *, void *, int);
 s32 __ct__7TObjectFP7TObject(void *, void *);
 extern M2C_UNK lbl_804CCAA8[];
 extern const f32 lbl_805DC888;
@@ -61,7 +61,7 @@ s32 obj_getField1c(int);
 M2C_UNK queue_destruction__7TObjectFv(void *);
 s32 copy_vec4__13TRaderMapCoreFPvPv(void *, void *);
 M2C_UNK TObjLight__sub_800827E0(void *, void *, f32);
-s32 TObjLight__sub_801344A4(void *, void *, int);
+s32 find_light_params__9TObjLightFPvPvUi(void *, void *, int);
 M2C_UNK publish_actor_light_scalars(int, f32, f32);
 M2C_UNK publish_light_direction_color(int, void *, void *);
 M2C_UNK approach_vector_fixed_distance(void *, void *, void *, f32);
@@ -92,7 +92,7 @@ void update_actor_light_task(Light_80235C44 *arg0) {
         queue_destruction__7TObjectFv(arg0);
         return;
     }
-    TObjLight__sub_801344A4(&baseDir, &baseColor, arg0->actor);
+    find_light_params__9TObjLightFPvPvUi(&baseDir, &baseColor, arg0->actor);
     mid = lbl_805DC890 * (f32) arg0->duration;
     if (arg0->age < (s32) mid) {
         f32 amb1;
@@ -147,7 +147,7 @@ u8 *construct_actor_light__9TObjLightFPviiiiifffi(u8 *arg0, s32 arg1, s32 arg2, 
     M2C_FIELD(arg0, f32 *, 0x58) = farg1;
     M2C_FIELD(arg0, f32 *, 0x5C) = farg2;
     M2C_FIELD(arg0, u16 *, 0x60) = obj_getField1c((int) (M2C_FIELD(arg0, s32 *, 0x54)));
-    TObjLight__sub_801344A4((void *) (arg0 + 0x40), (void *) (&stack.sp8), (int) ((s32) M2C_FIELD(arg0, u16 *, 0x60)));
+    find_light_params__9TObjLightFPvPvUi((void *) (arg0 + 0x40), (void *) (&stack.sp8), (int) ((s32) M2C_FIELD(arg0, u16 *, 0x60)));
     return arg0;
 }
 typedef char RecoveredGlobal_80235F60_lbl_804CCAA8_size[sizeof(RecoveredGlobal_80235F60_lbl_804CCAA8) == 0x18 ? 1 : -1];
@@ -165,7 +165,7 @@ u8 *construct_actor_light_task(u8 *arg0, u8 *arg1, u8 *arg2, s32 arg3, u8 *arg4,
     M2C_FIELD(arg0, f32 *, 0x58) = (f32) lbl_805DC888;
     M2C_FIELD(arg0, f32 *, 0x5C) = (f32) lbl_805DC888;
     M2C_FIELD(arg0, u16 *, 0x60) = ((u16)obj_getField1c((int)(M2C_FIELD(arg0, u8 **, 0x54))));
-    TObjLight__sub_801344A4((void *)((s32) (arg0 + 0x40)), (void *)((s32) &sp8), (int)((u32) M2C_FIELD(arg0, u16 *, 0x60)));
+    find_light_params__9TObjLightFPvPvUi((void *)((s32) (arg0 + 0x40)), (void *)((s32) &sp8), (int)((u32) M2C_FIELD(arg0, u16 *, 0x60)));
     return arg0;
 }
 

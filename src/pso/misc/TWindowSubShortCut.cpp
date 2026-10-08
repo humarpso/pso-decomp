@@ -26,7 +26,7 @@ M2C_UNK notify_warp_flag70__19TWindowSubShortMailFPv(s32);
 M2C_UNK open_yes_no_prompt(s32, s32, s32, s32, f32);
 s32 create__19TWindowMessageYesNoFPvPvPvPv(void *, s32, M2C_UNK, M2C_UNK);
 extern const f32 lbl_805DD6C0;
-s32 TWindowSubShortCut__sub_8027DBB8(Win_8027DBB8 *arg0);
+s32 open_confirm_prompt__18TWindowSubShortCutFPv(Win_8027DBB8 *arg0);
 void queue_destruction__7TObjectFv(void *);
 s32 is_visible__17TWindowSubComCardFPv(int);
 s32 get_status_flag__17TWindowSubComCardFPv(int);
@@ -50,7 +50,7 @@ M2C_UNK select_cursor_entry__6TLobbyFPv(s32);
 s32 get_window_layout_position(s32 a0);
 u32 TWindowShortCut__ct(int, int, int, void *);
 s32 open_confirm_message__18TWindowSubShortCutFPv(void *arg0);
-s32 TWindowSubShortCut__sub_8027DBB8(Win_8027DBB8 *arg0);
+s32 open_confirm_prompt__18TWindowSubShortCutFPv(Win_8027DBB8 *arg0);
 s32 open_menu__18TWindowSubShortCutFPv(void *arg0);
 void open_com_card_list__18TWindowSubShortCutFPv(void *arg0);
 void set_flag1e_bit80__18TWindowSubShortCutFPv(void* p);
@@ -111,7 +111,7 @@ s32 open_confirm_message__18TWindowSubShortCutFPv(void *arg0) {
 extern const f32 lbl_805DD6C0;
 
 typedef s32 M2C_UNK;
-s32 TWindowSubShortCut__sub_8027DBB8(Win_8027DBB8 *arg0) {
+s32 open_confirm_prompt__18TWindowSubShortCutFPv(Win_8027DBB8 *arg0) {
     s32 r = create__19TWindowMessageYesNoFPvPvPvPv(arg0, arg0->f20, 0, 0);
     open_yes_no_prompt((s32)(r), (s32)(get_message_10__20TWindowSubStatusDispFPv((M2C_UNK)(0x20))), (s32)(get_message_10__20TWindowSubStatusDispFPv((M2C_UNK)(0x3D))), (s32)(get_window_layout_position(0x75)), lbl_805DD6C0);
     notify_warp_flag70__19TWindowSubShortMailFPv((s32)(r));
@@ -252,7 +252,7 @@ void run_task__18TWindowSubShortCutFv(u8 *arg0) {
             M2C_FIELD(arg0, void **, 0x3C) = var_r30;
         }
         if ((u32) M2C_FIELD(arg0, u32 *, 0x34) == 0U) {
-            M2C_FIELD(arg0, u32 *, 0x34) = TWindowSubShortCut__sub_8027DBB8((Win_8027DBB8 *) (arg0));
+            M2C_FIELD(arg0, u32 *, 0x34) = open_confirm_prompt__18TWindowSubShortCutFPv((Win_8027DBB8 *) (arg0));
         }
         M2C_FIELD(arg0, u8 *, 0x1C) = 8U;
     case 8:

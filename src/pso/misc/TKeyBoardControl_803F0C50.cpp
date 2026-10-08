@@ -132,7 +132,7 @@ void *memset(void *, int, u32);
 extern u8 lbl_804FCD38[];
 extern RecoveredGlobal_803F1548_lbl_805A2720 lbl_805A2720;
 extern s32 lbl_805D7930;
-void TKeyBoardControl__sub_803F0C50(void);
+void init_pad_states__16TKeyBoardControlFv(void);
 extern RecoveredGlobal_803F1548_lbl_805A2720 lbl_805A2720;
 s32 OSDisableInterrupts(void);
 void OSRestoreInterrupts(s32);
@@ -169,7 +169,7 @@ void TKeyBoardControl__sub_803F0E8C(void);
 
 typedef char RecoveredGlobal_803F0CF4_lbl_805A2720_size[sizeof(RecoveredGlobal_803F0CF4_lbl_805A2720) == 0x1A0 ? 1 : -1];
 
-void TKeyBoardControl__sub_803F0C50(void) {
+void init_pad_states__16TKeyBoardControlFv(void) {
     s32 i;
     for (i = 0; i < 4; i++) {
         Pad_803F0C50 *p = &((Pad_803F0C50 *)&lbl_805A2720)[i];

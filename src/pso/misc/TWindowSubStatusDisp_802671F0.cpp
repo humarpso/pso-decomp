@@ -121,7 +121,7 @@ void add_list_entry__20TWindowSubStatusDispFPvi(void *arg0, s32 arg1);
 void draw_entry__22TWindowSubShortCutListFPviUcii(void *arg0, s32 arg1, u8 arg2, s32 arg3, s32 arg4);
 void push_status_disp_entry(void *arg0, s32 arg1, s32 arg2);
 void add_battle_stat_entry(void *arg0, s32 arg1, s32 arg2, s32 arg3);
-void TWindowSubStatusDisp__sub_802671F0(u8 *arg0, s32 arg1);
+void advance_all_entries__20TWindowSubStatusDispFPvi(u8 *arg0, s32 arg1);
 void refresh_selected_entry__20TWindowSubStatusDispFPvi(void *arg0, s32 arg1);
 void add_status_entry__20TWindowSubStatusDispFPvcii(void *arg0, s8 arg1, s32 arg2, s32 arg3);
 void add_inventory_item__20TWindowSubStatusDispFPviii(void *arg0, s32 arg1, s32 arg2, s32 arg3);
@@ -252,7 +252,7 @@ void add_battle_stat_entry(void *arg0, s32 arg1, s32 arg2, s32 arg3) {
     }
 }
 
-void TWindowSubStatusDisp__sub_802671F0(u8 *arg0, s32 arg1) {
+void advance_all_entries__20TWindowSubStatusDispFPvi(u8 *arg0, s32 arg1) {
     s32 i;
     ((s32 (*)(void *, s32))get_array_entry__20TWindowSubStatusDispFPvi)(arg0, *(s16 *)(arg0 + 0x74));
     if (((s32 (*)(void))is_flag80_set__20TWindowSubStatusDispFPv)() == 0) {
@@ -307,7 +307,7 @@ void add_status_entry__20TWindowSubStatusDispFPvcii(void *arg0, s8 arg1, s32 arg
 
 void TWindowSubStatusDisp__sub_80258BB8(void *, s32, s32, s32);
 extern const f32 lbl_805DD198;
-void TWindowSubStatusDisp__sub_802673A8(u8 *arg0, s32 arg1, s32 arg2, s32 arg3, s32 arg4, s32 arg5) {
+void append_entry__20TWindowSubStatusDispFPviiiii(u8 *arg0, s32 arg1, s32 arg2, s32 arg3, s32 arg4, s32 arg5) {
     u16 *e;
     s32 i;
     f32 k;

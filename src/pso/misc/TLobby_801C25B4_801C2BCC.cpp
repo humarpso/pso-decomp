@@ -51,7 +51,7 @@ s32 check_all_players_ready__6TLobbyFv(void);
 void init__6TLobbyFPv(void *arg0);
 M2C_UNK TLobby__sub_8020BB18();
 M2C_UNK TLobby__sub_8020BCE4();
-M2C_UNK TOMineTrap__sub_8016FCC4();
+M2C_UNK destroy_matching_traps__10TOMineTrapFv();
 u32 get_player_by_client_id(s32);
 M2C_UNK close_and_play_effect__6TLobbyFii(u16, M2C_UNK);
 M2C_UNK destroy__23TAdSinglePlyChrSelectGCFv();
@@ -117,7 +117,7 @@ void init__6TLobbyFPv(void *arg0) {
         obj_set_flag_20000();
         set_type__10TObjPlayerFPvi(temp_r3 + 0x644, 0xE10);
     }
-    TOMineTrap__sub_8016FCC4();
+    destroy_matching_traps__10TOMineTrapFv();
     fn_8020910C(tl_01);
     fn_801F57B4(tl_00);
     TLobby__sub_8020BCE4();

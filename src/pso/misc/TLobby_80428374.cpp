@@ -159,7 +159,7 @@ s32 EXIImm(s32, void *, s32, u32, u32);
 s32 EXISelect(s32, u32, s32);
 s32 EXISync(s32);
 s32 EXIImmEx(s32, s32, s32, s32);
-void TLobby__sub_804295BC(s32 arg0, s32 arg1, s32 arg2);
+void exi_write__6TLobbyFiii(s32 arg0, s32 arg1, s32 arg2);
 extern s32 lbl_805D7C40;
 extern s32 lbl_805D7C54;
 extern s32 lbl_805D7C7C;
@@ -294,7 +294,7 @@ void TLobby__sub_80429AC8(s32, void *);
 extern u8 lbl_805D0B20[];
 extern s32 lbl_805D7C64;
 extern u32 lbl_805D7C68;
-void TLobby__sub_80429994(u16 arg0);
+void start_exi_dma_read__6TLobbyFUs(u16 arg0);
 s32 EXIDeselect(s32);
 s32 EXIImm(s32, void *, s32, u32, u32);
 s32 EXISelect(s32, u32, s32);
@@ -306,7 +306,7 @@ extern u32 lbl_805D7C68;
 void TLobby__sub_80429A38(s32 chan, void *ctx);
 s32 EXILock(s32, u32, u32);
 s32 EXIUnlock(s32);
-void TLobby__sub_804295BC(s32 arg0, s32 arg1, s32 arg2);
+void exi_write__6TLobbyFiii(s32 arg0, s32 arg1, s32 arg2);
 s32 TLobby__sub_8042B9C0(void *p);
 char *strcat(char *, const char *);
 char *strcpy(char *, const char *);
@@ -352,7 +352,7 @@ M2C_UNK TLobby__sub_803F97E8(int);
 extern void *lbl_805C18A0[];
 extern RecoveredGlobal_80428374_lbl_805D0A40 lbl_805D0A40;
 extern s16 lbl_805D7A86;
-s32 TLobby__sub_80428768(u8 *arg0);
+s32 wait_timeout_loop__6TLobbyFPv(u8 *arg0);
 s32 EXILock(s32, u32, u32);
 s32 EXIImm(s32, void *, s32, u32, u32);
 s32 EXISelect(s32, u32, s32);
@@ -523,7 +523,7 @@ s32 TLobby__sub_8042839C(void) {
     return 0;
 }
 
-s32 TLobby__sub_80428768(u8 *arg0) {
+s32 wait_timeout_loop__6TLobbyFPv(u8 *arg0) {
     s32 start;
     s32 now;
     s16 *p;
@@ -591,9 +591,9 @@ void reset_buffer_pool__6TLobbyFv(void) {
 
 void TLobby__sub_80429598(void);
 
-void TLobby__sub_804295BC(s32 arg0, s32 arg1, s32 arg2);
+void exi_write__6TLobbyFiii(s32 arg0, s32 arg1, s32 arg2);
 
-void TLobby__sub_80429994(u16 arg0);
+void start_exi_dma_read__6TLobbyFUs(u16 arg0);
 
 void TLobby__sub_80429A38(s32 chan, void *ctx);
 

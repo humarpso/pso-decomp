@@ -2,7 +2,7 @@
 
 extern "C" {
 
-s32 TLobby__sub_8007BA98();
+s32 run_lobby_load_tables__6TLobbyFv();
 s32 handle_disconnect_cleanup();
 s32 is_area_transfer_pending();
 s32 apply_phase_keyboard_mode();
@@ -16,7 +16,7 @@ int invoke_callback__6TLobbyFv(void);
 
 s32 check_disconnect_conditions__6TLobbyFv(void) {
     apply_phase_keyboard_mode();
-    if (TLobby__sub_8007BA98() == 0) {
+    if (run_lobby_load_tables__6TLobbyFv() == 0) {
         reset_and_invoke__6TLobbyFv();
         return 1;
     }

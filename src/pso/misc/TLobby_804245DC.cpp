@@ -160,7 +160,7 @@ s32 EXIImm(s32, void *, s32, u32, u32);
 s32 EXISelect(s32, u32, s32);
 s32 EXISync(s32);
 s32 EXIImmEx(s32, s32, s32, s32);
-void TLobby__sub_804295BC(s32 arg0, s32 arg1, s32 arg2);
+void exi_write__6TLobbyFiii(s32 arg0, s32 arg1, s32 arg2);
 extern s32 lbl_805D7C40;
 extern s32 lbl_805D7C54;
 extern s32 lbl_805D7C7C;
@@ -294,7 +294,7 @@ void TLobby__sub_80429AC8(s32, void *);
 extern u8 lbl_805D0B20[];
 extern s32 lbl_805D7C64;
 extern u32 lbl_805D7C68;
-void TLobby__sub_80429994(u16 arg0);
+void start_exi_dma_read__6TLobbyFUs(u16 arg0);
 s32 EXIDeselect(s32);
 s32 EXIImm(s32, void *, s32, u32, u32);
 s32 EXISelect(s32, u32, s32);
@@ -306,7 +306,7 @@ extern u32 lbl_805D7C68;
 void TLobby__sub_80429A38(s32 chan, void *ctx);
 s32 EXILock(s32, u32, u32);
 s32 EXIUnlock(s32);
-void TLobby__sub_804295BC(s32 arg0, s32 arg1, s32 arg2);
+void exi_write__6TLobbyFiii(s32 arg0, s32 arg1, s32 arg2);
 s32 TLobby__sub_8042B9C0(void *p);
 char *strcat(char *, const char *);
 char *strcpy(char *, const char *);
@@ -352,7 +352,7 @@ M2C_UNK TLobby__sub_803F97E8(int);
 extern void *lbl_805C18A0[];
 extern RecoveredGlobal_80428374_lbl_805D0A40 lbl_805D0A40;
 extern s16 lbl_805D7A86;
-s32 TLobby__sub_80428768(u8 *arg0);
+s32 wait_timeout_loop__6TLobbyFPv(u8 *arg0);
 s32 EXILock(s32, u32, u32);
 s32 EXIImm(s32, void *, s32, u32, u32);
 s32 EXISelect(s32, u32, s32);
@@ -396,7 +396,7 @@ M2C_UNK lock_mutex__6TLobbyFi(void *);
 u8 *TLobby__sub_80425870(s32 arg0);
 extern u32 lbl_805D7BA8;
 void TLobby__sub_804253A0(s32 a);
-void TLobby__sub_803F9AEC(void *);
+void cancel_thread_if_running__6TLobbyFi(void *);
 void TLobby__sub_803F9B48(void *);
 void TLobby__sub_80419DDC(void *);
 void TLobby__sub_80425BD0(void);
@@ -639,7 +639,7 @@ void TLobby__sub_804259F0(void) {
 
 void TLobby__sub_80425B70(void) {
     if ((u32)lbl_805D7BB4 != 0) {
-        TLobby__sub_803F9AEC((void *)lbl_805D7BB4);
+        cancel_thread_if_running__6TLobbyFi((void *)lbl_805D7BB4);
         TLobby__sub_803F9B48((void *)lbl_805D7BB4);
         lbl_805D7BB4 = 0;
     }
@@ -1021,7 +1021,7 @@ void TLobby__sub_80428374(void);
 typedef char RecoveredGlobal_8042839C_lbl_805D0A40_size[sizeof(RecoveredGlobal_8042839C_lbl_805D0A40) == 0x60 ? 1 : -1];
 s32 TLobby__sub_8042839C(void);
 
-s32 TLobby__sub_80428768(u8 *arg0);
+s32 wait_timeout_loop__6TLobbyFPv(u8 *arg0);
 
 void TLobby__sub_804294C4(void);
 
@@ -1031,9 +1031,9 @@ void reset_buffer_pool__6TLobbyFv(void);
 
 void TLobby__sub_80429598(void);
 
-void TLobby__sub_804295BC(s32 arg0, s32 arg1, s32 arg2);
+void exi_write__6TLobbyFiii(s32 arg0, s32 arg1, s32 arg2);
 
-void TLobby__sub_80429994(u16 arg0);
+void start_exi_dma_read__6TLobbyFUs(u16 arg0);
 
 void TLobby__sub_80429A38(s32 chan, void *ctx);
 

@@ -5,12 +5,12 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 #define M2C_BITWISE(type, expr) ((type)(expr))
 extern "C" {
 M2C_UNK TCharaMaking__resolve_creation_sprite_table(void *, void *);
-s16 TObjCMMainMenu__sub_80290DEC(s32 arg0);
+s16 get_creation_sprite_id__14TObjCMMainMenuFi(s32 arg0);
 }
 
 extern "C" {
 
-s16 TObjCMMainMenu__sub_80290DEC(s32 arg0) {
+s16 get_creation_sprite_id__14TObjCMMainMenuFi(s32 arg0) {
     s32 spC;
     s32 sp8;
     sp8 = arg0;

@@ -430,7 +430,7 @@ void run_attack_phase__14TObjEneIllGillFPv(u8 *arg0);
 extern const f32 TObjEneIllGill__data_805E02CC;
 void run_task__14TObjEneIllGillFv(Gill_803683BC *o);
 M2C_UNK apply_actor_gravity(void *, int, f32);
-f32 TObjPlayer__sub_80017804(void *, Vec_80367860, f32);
+f32 step_toward_destination__10TObjPlayerFPvPvf(void *, Vec_80367860, f32);
 M2C_UNK obj_setFlags30(void *, int);
 M2C_UNK advance_animation_playback(void *);
 M2C_UNK minimap_render_dot(void *, int, int, int);
@@ -1581,7 +1581,7 @@ void TObjEneIllGill__sub_80367860(u8 *arg0) {
     pop_matrices(1);
     vec3_add_to(&v, arg0 + 0x50);
     M2C_FIELD(arg0, f32 *, 0x300) += TObjEneIllGill__data_805E02DC;
-    d = TObjPlayer__sub_80017804(arg0, v, lbl_805E02B8 * M2C_FIELD(arg0, f32 **, 0x350)[1]);
+    d = step_toward_destination__10TObjPlayerFPvPvf(arg0, v, lbl_805E02B8 * M2C_FIELD(arg0, f32 **, 0x350)[1]);
     r = M2C_FIELD(arg0, f32 **, 0x350);
     a = r[0] * r[0];
     b = r[1] * r[1];

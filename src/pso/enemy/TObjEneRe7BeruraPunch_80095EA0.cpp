@@ -34,14 +34,14 @@ struct VObj_80096150 : VBase_80096150 {
 };
 
 extern "C" {
-M2C_UNK TObjEneRe7BeruraPunch__sub_80096300(void *);
+M2C_UNK snap_to_ground__21TObjEneRe7BeruraPunchFPv(void *);
 extern const f32 lbl_805D979C;
 extern const f32 TObjEneRe7BeruraPunch__data_805D97A0;
 void TObjEneRe7BeruraPunch__sub_80095FAC(u8 *arg0);
 u8 * csnVector(s32, s32, s32);
 u8 *find_entity_by_id(u16);
 M2C_UNK TObjEneRe7Berura__sub_80094D98();
-M2C_UNK TObjEneRe7BeruraPunch__sub_80096300(void *);
+M2C_UNK snap_to_ground__21TObjEneRe7BeruraPunchFPv(void *);
 extern const f32 TObjEneRe7BeruraPunch__data_805D97A0;
 extern const f32 lbl_805D97A4;
 extern const f32 lbl_805D97A8;
@@ -79,7 +79,7 @@ f32 cos_table_lookup(s32);
 M2C_UNK post_translate_matrix(void *);
 M2C_UNK scale_matrix(M2C_UNK, f32, f32, f32);
 M2C_UNK draw_oriented_shadow__9TObjEneDDFiiiUi(void *, void *, M2C_UNK, M2C_UNK);
-M2C_UNK TObjEneRe7BeruraPunch__sub_80096300(void *);
+M2C_UNK snap_to_ground__21TObjEneRe7BeruraPunchFPv(void *);
 M2C_UNK rotate_matrix_y(M2C_UNK, s32);
 M2C_UNK translate_matrix(M2C_UNK, f32, f32, f32);
 M2C_UNK push_matrix();
@@ -140,7 +140,7 @@ void TObjEneRe7BeruraPunch__sub_80095FAC(u8 *arg0) {
     }
     M2C_FIELD(arg0, f32 *, 0xDC) = (f32) ((lbl_805D979C * (TObjEneRe7BeruraPunch__data_805D97A0 * M2C_FIELD(arg0, f32 *, 0xBC))) + M2C_FIELD(arg0, f32 *, 0xDC));
     M2C_FIELD(arg0, f32 *, 0xE4) = (f32) ((lbl_805D979C * (TObjEneRe7BeruraPunch__data_805D97A0 * M2C_FIELD(arg0, f32 *, 0xC4))) + M2C_FIELD(arg0, f32 *, 0xE4));
-    TObjEneRe7BeruraPunch__sub_80096300((void *) (arg0));
+    snap_to_ground__21TObjEneRe7BeruraPunchFPv((void *) (arg0));
 }
 #pragma pop
 
@@ -173,7 +173,7 @@ void update_flight__21TObjEneRe7BeruraPunchFPv(u8 *arg0) {
         M2C_FIELD(arg0, f32 *, 0xDC) = stack.sp8;
         M2C_FIELD(arg0, f32 *, 0xE4) = stack.sp10;
     }
-    TObjEneRe7BeruraPunch__sub_80096300((void *) (arg0));
+    snap_to_ground__21TObjEneRe7BeruraPunchFPv((void *) (arg0));
     if ((var_r31 != 0) || (TObjEneRe7BeruraPunch__sub_80096150((void *)(arg0)) != 0) || (M2C_FIELD(arg0, f32 *, 0x114) > M2C_FIELD(arg0, f32 *, 0xC8))) {
         M2C_FIELD(arg0, s32 *, 0xB4) = 2;
         if (find_entity_by_id(M2C_FIELD(arg0, u16 *, 0xB0)) != NULL) {
@@ -216,7 +216,7 @@ void launch__21TObjEneRe7BeruraPunchFPvii(u8 *arg0, s32 arg1, s32 arg2) {
 
     M2C_FIELD(arg0, s32 *, 0xB8) = arg1;
     VecCopy__FP3VecPC3Vec(arg0 + 0xDC, arg2);
-    TObjEneRe7BeruraPunch__sub_80096300(arg0);
+    snap_to_ground__21TObjEneRe7BeruraPunchFPv(arg0);
     temp_r3 = find_entity_by_id(M2C_FIELD(arg0, u16 *, 0xB0));
     if (temp_r3 != NULL) {
         M2C_FIELD(arg0, s32 *, 0x60) = (s32) M2C_FIELD(temp_r3, s32 *, 0x60);

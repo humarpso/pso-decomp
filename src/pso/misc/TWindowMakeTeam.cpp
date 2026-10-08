@@ -40,7 +40,7 @@ void set_state__15TWindowMakeTeamFPvi(void *arg0, s32 arg1);
 void update_ok_button__15TWindowMakeTeamFPv(void *arg0);
 void TWindowMainMenu__sub_80264A64(void);
 void TWindowMainMenu__vt7(void);
-M2C_UNK TWindowSubComCard__sub_8026853C(s32, M2C_UNK);
+M2C_UNK mark_entry_by_id__17TWindowSubComCardFPvi(s32, M2C_UNK);
 M2C_UNK disable_entry_by_id__17TWindowSubComCardFPvi(s32, M2C_UNK);
 s32 get_message_10__20TWindowSubStatusDispFPv(s32);
 s8 get_mode__6TLobbyFPv();
@@ -93,7 +93,7 @@ void set_state__15TWindowMakeTeamFPvi(void *arg0, s32 arg1) {
 
 void send_state__15TWindowMakeTeamFPv(void *arg0) {
     if ((s32) M2C_FIELD(arg0, u8 *, 0x1E) != 1) {
-        TWindowSubComCard__sub_8026853C(M2C_FIELD(arg0, s32 *, 0x2C), 3);
+        mark_entry_by_id__17TWindowSubComCardFPvi(M2C_FIELD(arg0, s32 *, 0x2C), 3);
         return;
     }
     disable_entry_by_id__17TWindowSubComCardFPvi(M2C_FIELD(arg0, s32 *, 0x2C), 3);
@@ -104,7 +104,7 @@ void update_ok_button__15TWindowMakeTeamFPv(void *arg0) {
 
     temp_r4 = M2C_FIELD(arg0, u8 **, 0x24);
     if ((temp_r4 != NULL) && ((s8) *temp_r4 != 0)) {
-        TWindowSubComCard__sub_8026853C(M2C_FIELD(arg0, s32 *, 0x2C), 4);
+        mark_entry_by_id__17TWindowSubComCardFPvi(M2C_FIELD(arg0, s32 *, 0x2C), 4);
         return;
     }
     disable_entry_by_id__17TWindowSubComCardFPvi(M2C_FIELD(arg0, s32 *, 0x2C), 4);

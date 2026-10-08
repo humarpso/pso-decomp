@@ -305,7 +305,7 @@ s32 is_area_attack_target_eligible(void *, u32);
 s32 attack_target_history_add(s32, s32);
 M2C_UNK init_all_slots__10TObjPlayerFv();
 M2C_UNK mark_enemy_body_contacts(void *);
-M2C_UNK TObjPlayer__sub_801561C4(void *, f32);
+M2C_UNK update_body_contact_flag__10TObjPlayerFPvf(void *, f32);
 extern const f32 lbl_805DE758;
 s32 apply_area_attack_hits__10TObjPlayerFPvPviUif(u8 *arg0, u8 *arg1, s32 arg2, u32 arg3, f32 farg0);
 }
@@ -936,7 +936,7 @@ s32 apply_area_attack_hits__10TObjPlayerFPvPviUif(u8 *arg0, u8 *arg1, s32 arg2, 
     }
     init_all_slots__10TObjPlayerFv();
     if (M2C_FIELD(arg1, s32 *, 4) & 1) {
-        TObjPlayer__sub_801561C4(arg0, farg0);
+        update_body_contact_flag__10TObjPlayerFPvf(arg0, farg0);
         mask |= 0x80000;
     }
     if (M2C_FIELD(arg1, s32 *, 4) & 2) {

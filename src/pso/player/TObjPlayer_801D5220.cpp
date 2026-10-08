@@ -30,7 +30,7 @@ s32 get_owner_if_alive__10TObjPlayerFPv(void *arg0);
 s32 is_item_valid__9TItemListFi(void *);
 extern s32 lbl_805D5DF4;
 extern u32 *lbl_805D5DF8;
-void TObjPlayer__sub_801D535C(Node_801D535C *arg0);
+void collect_item_owners_recursive__10TObjPlayerFPv(Node_801D535C *arg0);
 }
 
 extern "C" {
@@ -67,7 +67,7 @@ void count_owned_items__10TObjPlayerFPv(void *arg0) {
 extern s32 lbl_805D5DF4;
 extern u32 *lbl_805D5DF8;
 
-void TObjPlayer__sub_801D535C(Node_801D535C *arg0) {
+void collect_item_owners_recursive__10TObjPlayerFPv(Node_801D535C *arg0) {
     Node_801D535C *n;
     s32 o;
     for (n = arg0->child; n != NULL; n = n->next) {
@@ -79,7 +79,7 @@ void TObjPlayer__sub_801D535C(Node_801D535C *arg0) {
                 lbl_805D5DF4 += 1;
             }
         }
-        TObjPlayer__sub_801D535C(n);
+        collect_item_owners_recursive__10TObjPlayerFPv(n);
     }
 }
 

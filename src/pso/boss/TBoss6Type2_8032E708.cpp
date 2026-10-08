@@ -1292,7 +1292,7 @@ void toggle_particle_effect__10TObjPlayerFv(void);
 void end_effect_render__13TParticleCtrlFv(void);
 void update_camera_target__14TBoss6PlotFalzFv(void);
 void TBoss6PlotFalz__sub_802AC008(f32, f32);
-void TBoss6PlotFalz__sub_802AC040(f32, f32, f32, f32);
+void apply_fade_material_color__14TBoss6PlotFalzFffff(f32, f32, f32, f32);
 s32 pop_matrix(void);
 M2C_UNK rotate_matrix_y(int, int);
 M2C_UNK rotate_matrix_x(int, int);
@@ -1332,7 +1332,7 @@ void TObjPlayer__sub_8033040C(u8 *arg0) {
     } else {
         temp_f1_2 = M2C_FIELD(arg0, f32 *, 0x400);
         if (temp_f1_2 > (0.0f)) {
-            TBoss6PlotFalz__sub_802AC040(temp_f1_2, (0.5f), (0.5f), (0.5f));
+            apply_fade_material_color__14TBoss6PlotFalzFffff(temp_f1_2, (0.5f), (0.5f), (0.5f));
             var_r31 = 1;
         }
     }

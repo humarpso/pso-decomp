@@ -37,7 +37,7 @@ void open_confirm_dialog__17TWindowOptionCtrlFPvii(void *arg0, s32 arg1, s32 arg
 void set_option_and_confirm__17TWindowOptionCtrlFPvii(void *arg0, s32 arg1, s32 arg2);
 s32 get_localized_text_entry(M2C_UNK);
 int TLobby__sub_80338534(void);
-int TLobby__sub_80338608(void*);
+int update_pulse_colors__6TLobbyFi(void*);
 u32 create__19TWindowMessageYesNoFPvPvPvPv(s32, s32, M2C_UNK, M2C_UNK);
 void __ct__7TObjectFP7TObject(void *);
 void __dl__7TObjectFPv(void *);
@@ -76,7 +76,7 @@ void set_option_and_confirm__17TWindowOptionCtrlFPvii(void *arg0, s32 arg1, s32 
     }
 }
 
-void TWindowOptionCtrl__sub_8034C4C4(void* p) { if (*(int*)((char*)p + 0x1c) == 6) { TLobby__sub_80338608((void*)1); TLobby__sub_80338534(); } }
+void TWindowOptionCtrl__sub_8034C4C4(void* p) { if (*(int*)((char*)p + 0x1c) == 6) { update_pulse_colors__6TLobbyFi((void*)1); TLobby__sub_80338534(); } }
 
 extern M2C_UNK lbl_804F01A8[];
 

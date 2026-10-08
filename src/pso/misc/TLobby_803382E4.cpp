@@ -52,7 +52,7 @@ extern const f32 lbl_805DF9A4;
 extern const f32 lbl_805DF9A8;
 extern const f32 lbl_805DF9B4;
 extern const f32 lbl_805DF9B8;
-void TLobby__sub_80338608(s32 arg0);
+void update_pulse_colors__6TLobbyFi(s32 arg0);
 void set_depth_buffer_settings_2__Fv(void);
 void restore_saved_depth_alpha_state(void);
 void draw_compass_sprite__10TObjPlayerFPviiif(void *, s32, u32, s32, f32);
@@ -212,11 +212,11 @@ void TLobby__sub_803384D4(void) {
     case 12:
     case 15:
     case 19:
-        TLobby__sub_80338608((s32)((int) (0)));
+        update_pulse_colors__6TLobbyFi((s32)((int) (0)));
         TLobby__sub_80338534();
         return;
     case 18:
-        TLobby__sub_80338608((s32)((int) (1)));
+        update_pulse_colors__6TLobbyFi((s32)((int) (1)));
         TLobby__sub_80338534();
     default:
         return;
@@ -259,7 +259,7 @@ void TLobby__sub_80338534(void) {
 
 #pragma push
 #pragma fp_contract on
-void TLobby__sub_80338608(s32 arg0) {
+void update_pulse_colors__6TLobbyFi(s32 arg0) {
     f32 t;
     u32 c0;
     u32 c1;

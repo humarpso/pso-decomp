@@ -88,7 +88,7 @@ extern RecoveredGlobal_80176308_lbl_80442A80 lbl_804410E0;
 extern RecoveredGlobal_80176308_lbl_804B4278 lbl_804B17E0;
 extern u32 lbl_805D5988;
 extern s32 *TODoorVS2Door01__data_805D598C;
-void TODoorVS2Door01__sub_80164254(void);
+void load_resources__15TODoorVS2Door01Fv(void);
 s32 reset_photon_effect__10TObjPlayerFPv(void *);
 s32 refresh_collision_body_centers(void *);
 s32 init_collision_body_parts(void *, void *, int);
@@ -295,7 +295,7 @@ extern M2C_UNK __vt__15TODoorVS2Door01[];
 
 typedef char RecoveredGlobal_80176308_lbl_80442A80_size[sizeof(RecoveredGlobal_80176308_lbl_80442A80) == 0x14 ? 1 : -1];
 typedef char RecoveredGlobal_80176308_lbl_804B4278_size[sizeof(RecoveredGlobal_80176308_lbl_804B4278) == 0x10 ? 1 : -1];
-void TODoorVS2Door01__sub_80164254(void) {
+void load_resources__15TODoorVS2Door01Fv(void) {
     s32 *temp_r3_2;
     u8 *temp_r3;
     u8 *var_r0;

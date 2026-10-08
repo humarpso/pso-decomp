@@ -51,7 +51,7 @@ void VecCopy__FP3VecPC3Vec(Vec_802E4E44 *, const Vec_802E4E44 *);
 M2C_UNK queue_destruction__7TObjectFv(void *);
 extern Vec_802E4E44 lbl_80472B9C;
 extern Vec_802E4E44 lbl_80472BA8;
-void TObjOnlineEnding__sub_802E4E44(Obj_802E4E44 *arg0);
+void update__16TObjOnlineEndingFPv(Obj_802E4E44 *arg0);
 M2C_UNK draw_player_model_by_client__10TObjPlayerFUsiff(int, int, f32, f32);
 u32 calc_text_width(void *);
 M2C_UNK render_status_line__15TAdSubPlyItemGCFPvi(void *, int, f32, f32, f32);
@@ -166,7 +166,7 @@ void draw_scene__16TObjOnlineEndingFPv(Obj_802E4C70 *arg0) {
     end_effect_render__13TParticleCtrlFv();
 }
 
-void TObjOnlineEnding__sub_802E4E44(Obj_802E4E44 *arg0) {
+void update__16TObjOnlineEndingFPv(Obj_802E4E44 *arg0) {
     s32 i;
     for (i = 0; i < arg0->count; i++) {
         if (arg0->ent[i].active != 0 && get_player_by_client_id(arg0->ent[i].id) == 0) {

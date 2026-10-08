@@ -105,7 +105,7 @@ void init_sfd_player__6TMovieFPvii(Movie_80143FB0 *o, s32 arg1, s32 arg2) {
     f->vt->f2C(f, get_lobby_data__6TLobbyFv());
 }
 
-s32 TMovie__sub_80144184(u8 *arg0) {
+s32 decode_frame__6TMovieFPv(u8 *arg0) {
     typedef char sp8_offset[(offsetof(MovieFrameInfo, field_00) == 0x0) ? 1 : -1];
     typedef char sp10_offset[(offsetof(MovieFrameInfo, field_08) == 0x8) ? 1 : -1];
     typedef char sp14_offset[(offsetof(MovieFrameInfo, field_0c) == 0xC) ? 1 : -1];

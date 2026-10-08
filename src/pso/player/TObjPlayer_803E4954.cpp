@@ -37,7 +37,7 @@ void draw_model_blend_motion(void *arg0, void *arg1, f32 farg0);
 M2C_UNK TObjPlayer__sub_803E4354();
 M2C_UNK end_chunk_draw__10TObjPlayerFv();
 void draw_chunk_vertices_cached__10TObjPlayerFPv();
-void TObjPlayer__sub_803E4D8C(void *, void *, void *, f32, void (*)(void));
+void draw_motion_bound__10TObjPlayerFiiPvfi(void *, void *, void *, f32, void (*)(void));
 void TObjEneSlimeOne__sub_803E4B54(void *arg0, void *arg1, void *arg2, f32 farg0);
 s32 apply_motion_node_transform__10TObjPlayerFPv(int);
 s32 push_matrix();
@@ -121,7 +121,7 @@ void draw_model_motion(void *arg0, void *arg1, f32 farg0) {
 
 void TObjEneSlimeOne__sub_803E4B54(void *arg0, void *arg1, void *arg2, f32 farg0) {
     TObjPlayer__sub_803E4354();
-    TObjPlayer__sub_803E4D8C(arg0, arg1, arg2, farg0, draw_chunk_vertices_cached__10TObjPlayerFPv);
+    draw_motion_bound__10TObjPlayerFiiPvfi(arg0, arg1, arg2, farg0, draw_chunk_vertices_cached__10TObjPlayerFPv);
     end_chunk_draw__10TObjPlayerFv();
 }
 

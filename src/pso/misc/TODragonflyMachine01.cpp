@@ -59,7 +59,7 @@ M2C_UNK TODragonflyMachine01__sub_80164F50(void *);
 M2C_UNK TODragonfly__sub_8016492C(void *);
 M2C_UNK TODragonfly__sub_80164990(void *);
 M2C_UNK TODragonfly__sub_80164A90(void *);
-M2C_UNK TODragonfly__sub_80164B34(void *);
+M2C_UNK update_idle__11TODragonflyFi(void *);
 M2C_UNK rotate_matrix_y(M2C_UNK, s32);
 void __dl__7TObjectFPv(void *);
 void __dt__11TODragonflyFv(void *, int);
@@ -92,7 +92,7 @@ void run_task__20TODragonflyMachine01Fv(void *arg0) {
     switch (temp_r0) {
     case 0:
         TODragonflyMachine01__sub_80164F50(arg0);
-        TODragonfly__sub_80164B34(arg0);
+        update_idle__11TODragonflyFi(arg0);
         return;
     case 1:
         TODragonfly__sub_80164A90(arg0);

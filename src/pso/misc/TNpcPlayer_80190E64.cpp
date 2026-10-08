@@ -81,7 +81,7 @@ void TLobby__sub_80190FD0(int a0);
 void TLobby__sub_80190FD8(void);
 u8 *destroy_and_materialize_player__10TNpcPlayerFPvs(u8 *arg0, s16 arg1);
 void queue_destruction_if_dead__10TNpcPlayerFPv(void* p);
-s32 TNpcPlayer__sub_80152674(s32);
+s32 build_npc_player_record__10TNpcPlayerFi(s32);
 M2C_UNK send_6x24_teleport_player(u16, void *, s32);
 u8 *create_player_object(u16, M2C_UNK, s32);
 M2C_UNK queue_player_injured_pose();
@@ -99,7 +99,7 @@ u8 *destroy_and_materialize_player__10TNpcPlayerFPvs(u8 *arg0, s16 arg1) {
 
     if (arg0 != NULL) {
         M2C_FIELD(arg0, M2C_UNK **, 0x18) = lbl_804B7C04;
-        temp_r3 = create_player_object(M2C_FIELD(arg0, u16 *, 0x30), 6, TNpcPlayer__sub_80152674(M2C_FIELD(arg0, s32 *, 0x34)));
+        temp_r3 = create_player_object(M2C_FIELD(arg0, u16 *, 0x30), 6, build_npc_player_record__10TNpcPlayerFi(M2C_FIELD(arg0, s32 *, 0x34)));
         if (temp_r3 != NULL) {
             M2C_FIELD(temp_r3, s16 *, 0x324) = 6;
             if ((s32) M2C_FIELD(arg0, s32 *, 0x38) == 1) {

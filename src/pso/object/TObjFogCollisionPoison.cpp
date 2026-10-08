@@ -67,7 +67,7 @@ s32 obj_getField1c(s32);
 s32 is_valid_target__9TObjEneDDFPv(s32);
 M2C_UNK send_6x2F_change_player_hp(M2C_UNK, s32, s16);
 s32 get_player_by_client_id(u16);
-void TObjFogCollisionPoison__sub_8015346C(void *arg0, s32 arg1);
+void apply_poison_damage__22TObjFogCollisionPoisonFPvi(void *arg0, s32 arg1);
 s32 get_global_state__14TOKeyMachine01Fv();
 M2C_UNK play_persistent_sound(M2C_UNK, s32, s32, M2C_UNK, M2C_UNK);
 void TObjFogCollisionPoison__sub_80153520(s32 arg0);
@@ -251,7 +251,7 @@ u8 check_switch__22TObjFogCollisionPoisonFPv(void *arg0) {
     return (u8) (temp_r31 == is_current_floor_switch_set((u16) M2C_FIELD(arg0, s32 *, 0x8C)));
 }
 
-void TObjFogCollisionPoison__sub_8015346C(void *arg0, s32 arg1) {
+void apply_poison_damage__22TObjFogCollisionPoisonFPvi(void *arg0, s32 arg1) {
     s32 p;
     s16 v;
     p = get_player_by_client_id(arg1);

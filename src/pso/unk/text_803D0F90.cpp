@@ -59,7 +59,7 @@ void restore_interrupts_nested__6TLobbyFv(void);
 void log_printf__6TLobbyFPvi(const char *fmt, ...);
 extern char lbl_8047DCF0[];
 extern char lbl_8047DD14[];
-void TLobby__sub_803D0FD0(S_803D0FD0 *arg0, s32 arg1);
+void set_lsc_min__6TLobbyFPvi(S_803D0FD0 *arg0, s32 arg1);
 void log_printf__6TLobbyFPvi(const char *fmt, ...);
 extern char lbl_8047DCF0[];
 s32 TLobby__sub_803D1400(S_803D1400 *arg0);
@@ -74,7 +74,7 @@ void TLobby__sub_803D198C(Ent_803D1C24 *e);
 void *memset(void *dst, int val, unsigned long n);
 extern Ent_803D1C24 lbl_80583058[];
 extern s32 lbl_805D7630;
-void TLobby__sub_803D1C24(void);
+void release_and_close_all_slots__6TLobbyFv(void);
 void log_printf__6TLobbyFPvi(const char *fmt, ...);
 extern char lbl_8047DCF0[];
 extern char lbl_8047DD34[];
@@ -82,7 +82,7 @@ s32 TLobby__sub_803D1134(Obj_803D1134 *arg0, s32 arg1);
 void log_printf__6TLobbyFPvi(const char *fmt, ...);
 extern char lbl_8047DCF0[];
 extern char lbl_8047DD34[];
-u8 *TLobby__sub_803D1234(Obj_803D1234 *arg0, s32 arg1);
+u8 *find_stream_by_id__6TLobbyFPvi(Obj_803D1234 *arg0, s32 arg1);
 void log_printf__6TLobbyFPvi(const char *fmt, ...);
 extern char lbl_8047DCF0[];
 extern char lbl_8047DD34[];
@@ -113,7 +113,7 @@ s32 TLobby__sub_803D0F90(Obj_803D0F90 *p) {
     return p->val;
 }
 
-void TLobby__sub_803D0FD0(S_803D0FD0 *arg0, s32 arg1) {
+void set_lsc_min__6TLobbyFPvi(S_803D0FD0 *arg0, s32 arg1) {
     if (arg0 == 0) {
         log_printf__6TLobbyFPvi(lbl_8047DCF0);
         return;
@@ -161,7 +161,7 @@ s32 TLobby__sub_803D1134(Obj_803D1134 *arg0, s32 arg1) {
     return arg0->recs[i].val;
 }
 
-u8 *TLobby__sub_803D1234(Obj_803D1234 *arg0, s32 arg1) {
+u8 *find_stream_by_id__6TLobbyFPvi(Obj_803D1234 *arg0, s32 arg1) {
     s32 i;
     if (arg0 == 0) {
         log_printf__6TLobbyFPvi(lbl_8047DCF0);
@@ -290,7 +290,7 @@ Obj_803D1A98 *lsc_create__6TLobbyFPv(SJ_803D1A98 *sj) {
 }
 #pragma pop
 
-void TLobby__sub_803D1C24(void) {
+void release_and_close_all_slots__6TLobbyFv(void) {
     u8 lock[8];
     s32 i;
     ((void (*)(void *))enter_lock__6TLobbyFv)(lock);

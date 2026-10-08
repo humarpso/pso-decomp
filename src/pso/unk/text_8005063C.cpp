@@ -38,13 +38,13 @@ extern const f32 lbl_805D8A48;
 extern const f32 lbl_805D8A4C;
 extern const f32 lbl_805D8A50;
 extern const f32 lbl_805D8A54;
-void fn_8005063C(Obj_8005063C *arg0);
+void steer_homing_direction(Obj_8005063C *arg0);
 }
 
 extern "C" {
 
 #pragma fp_contract on
-void fn_8005063C(Obj_8005063C *arg0) {
+void steer_homing_direction(Obj_8005063C *arg0) {
     Vec_8005063C d;
     f32 k;
     f32 inv;

@@ -71,7 +71,7 @@ extern void *TWindowCtrlMain__data_805D6410;
 extern void *TWindowCtrlMain__data_805D6414;
 extern f32 lbl_805D6418;
 extern const f32 lbl_805DCC58;
-void TWindowCtrlMain__sub_8024D7C0(void* _w0);
+void reset_all__15TWindowCtrlMainFPv(void* _w0);
 }
 
 extern "C" {
@@ -225,7 +225,7 @@ void TWindowCtrlMain__sub_8024D690(void) {
     free_window__15TWindowCtrlMainFv();
 }
 
-void TWindowCtrlMain__sub_8024D7C0(void* _w0) {
+void reset_all__15TWindowCtrlMainFPv(void* _w0) {
     s32 i;
     load_hud_palette_textures();
     TWindowCtrlMain__sub_8024EF30();
@@ -242,7 +242,7 @@ void TWindowCtrlMain__sub_8024D7C0(void* _w0) {
     }
 }
 
-void TWindowCtrlMain__sub_8024D838(void) { TWindowCtrlMain__sub_8024D7C0((void*)((void*)(0))); }
+void TWindowCtrlMain__sub_8024D838(void) { reset_all__15TWindowCtrlMainFPv((void*)((void*)(0))); }
 void TWindowCtrlMain__sub_8024D85C(void* p) { *(s16*)((char*)p + 0x20) = 60; }
 
 bool TWindowCtrlMain__sub_8024D868(u8 *arg0) {

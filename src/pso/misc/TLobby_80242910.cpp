@@ -36,7 +36,7 @@ u8 *get_player_by_client_id(s32);
 s32 is_active__12TBoss3VoloptFPv(int);
 u8 *TAdSinglePlyChrSelectGC__sub_802430E8();
 extern const f32 lbl_805DCA00;
-void TAdSinglePlyChrSelectGC__sub_80242938(s16 *arg0, s32 arg1);
+void accumulate_rumble_strength__23TAdSinglePlyChrSelectGCFPvi(s16 *arg0, s32 arg1);
 }
 
 extern "C" {
@@ -63,7 +63,7 @@ void clear_flag_bit2__6TLobbyFv(void) {
 
 #pragma push
 #pragma fp_contract on
-void TAdSinglePlyChrSelectGC__sub_80242938(s16 *arg0, s32 arg1) {
+void accumulate_rumble_strength__23TAdSinglePlyChrSelectGCFPvi(s16 *arg0, s32 arg1) {
     typedef char sp8_offset[(offsetof(Stack_80242938, sp8) == 0x0) ? 1 : -1];
     typedef char spC_offset[(offsetof(Stack_80242938, spC) == 0x4) ? 1 : -1];
     typedef char sp10_offset[(offsetof(Stack_80242938, sp10) == 0x8) ? 1 : -1];

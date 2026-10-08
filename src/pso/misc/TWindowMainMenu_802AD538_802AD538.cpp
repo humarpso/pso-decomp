@@ -155,7 +155,7 @@ void TWindowMainMenu__sub_802AE380(void *arg0);
 void handle_cancel__15TWindowMainMenuFPv(void *arg0);
 void handle_confirm__15TWindowMainMenuFPv(u8 *arg0);
 void handle_navigation_input__15TWindowMainMenuFPv(u8 *arg0);
-void TLanguage__sub_803DAF70(int, int);
+void set_entry_index__9TLanguageFii(int, int);
 void begin_screen_draw(int);
 void get_player__20TWindowSubStatusDispFv(void);
 void draw_textured_quad_at_depth(Rect_802AD538 *, f32);
@@ -206,11 +206,11 @@ void draw_item_labels__15TWindowMainMenuFv(Item_802AD538 *p, Win_802AD538 *w) {
             color = rgb | ((s32)(lbl_805DE148 * a) << 24);
             break;
         case 1:
-            TLanguage__sub_803DAF70(2, 0x4C);
+            set_entry_index__9TLanguageFii(2, 0x4C);
             color = 0xFFFF6121;
             break;
         case 2:
-            TLanguage__sub_803DAF70(2, 0x4C);
+            set_entry_index__9TLanguageFii(2, 0x4C);
             color = 0xFF51EAFF;
             break;
         }
@@ -228,7 +228,7 @@ void draw_item_labels__15TWindowMainMenuFv(Item_802AD538 *p, Win_802AD538 *w) {
             draw_textured_quad_at_depth(&r, scale);
         }
         get_player__20TWindowSubStatusDispFv();
-        TLanguage__sub_803DAF70(2, 0x4B);
+        set_entry_index__9TLanguageFii(2, 0x4B);
     }
 }
 

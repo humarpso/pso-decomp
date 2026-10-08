@@ -62,7 +62,7 @@ s32 submit_card_password__17TWindowSubComCardFi(char *);
 const char *TQuestVmDownLoadServer__sub_8006EF6C(s32);
 int sprintf(char *, const char *, ...);
 extern char lbl_80438800[];
-void TObjTombstone__sub_80075BE0(Obj_80075BE0 *self);
+void build_name_text__13TObjTombstoneFPv(Obj_80075BE0 *self);
 const char *TQuestVmDownLoadServer__sub_8006EF6C(s32);
 int sprintf(char *, const char *, ...);
 extern char lbl_80438808[];
@@ -183,7 +183,7 @@ void TObjTombstone__sub_80075B5C(Tomb_80075B5C *self) {
     text[0x2F] = 0;
 }
 
-void TObjTombstone__sub_80075BE0(Obj_80075BE0 *self) {
+void build_name_text__13TObjTombstoneFPv(Obj_80075BE0 *self) {
     char *buf = self->buf;
     if (self->name[0] == 0 || submit_card_password__17TWindowSubComCardFi(self->name) != 0) {
         buf[0] = 0;

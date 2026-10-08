@@ -72,7 +72,7 @@ s32 get_slot_or_neg1__17TWindowSubComCardFPv(void *);
 s32 get_card_data__17TWindowSubComCardFPv(void *);
 s32 is_child_visible__17TWindowSubComCardFPv(void *);
 void reset_trade__19TWindowTradeRequestFv();
-void TLobby__sub_802D23E0();
+void send_trade_proposal_modify__6TLobbyFv();
 void run_task__19TWindowTradeRequestFv(Obj_802E0174 *arg0);
 }
 
@@ -98,7 +98,7 @@ void run_task__19TWindowTradeRequestFv(Obj_802E0174 *arg0) {
         if (is_child_visible__17TWindowSubComCardFPv(arg0->card) != 0) {
             slot = get_slot_or_neg1__17TWindowSubComCardFPv(arg0->card);
             if (slot == 0) {
-                TLobby__sub_802D23E0();
+                send_trade_proposal_modify__6TLobbyFv();
                 close_request_window__19TWindowTradeRequestFv();
                 arg0->state = 2;
             }

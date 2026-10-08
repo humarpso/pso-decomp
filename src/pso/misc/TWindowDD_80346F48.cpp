@@ -23,7 +23,7 @@ char *strncpy(char *, const char *, u32);
 extern s32 lbl_805D53A0;
 extern char **TWindowDD__data_805D6E18;
 extern DD_80346FE4 *TWindowDD__data_805D6E1C;
-void TWindowDD__sub_80346FE4(void);
+void build_player_word_lists__9TWindowDDFv(void);
 }
 
 extern "C" {
@@ -50,7 +50,7 @@ s32 TWindowDD__sub_80346FC0(s16 arg0) {
     }
     return var_r3;
 }
-void TWindowDD__sub_80346FE4(void) {
+void build_player_word_lists__9TWindowDDFv(void) {
     s32 i;
     s32 n;
     s16 *list;

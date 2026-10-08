@@ -131,7 +131,7 @@ extern "C" {
 void move_mine__10TBoss2MineFPv(u8 *arg0);
 f32 sin_table_lookup(s32);
 f32 cos_table_lookup(s32);
-void TBoss2Mine__sub_80037AEC(u8 *arg0, u8 *arg1, s32 arg2, s32 arg3);
+void init_launch__10TBoss2MineFPvPvii(u8 *arg0, u8 *arg1, s32 arg2, s32 arg3);
 void move_mine__10TBoss2MineFPv(u8 *arg0);
 f32 clamp_velocity__15TObjBoss2TunnelFPv(void *);
 M2C_UNK subtract_vector(void *, void *);
@@ -287,7 +287,7 @@ void TBoss2Mine__sub_800377E8(u8 *arg0, s32 arg1) {
 }
 #pragma pop
 
-void TBoss2Mine__sub_80037AEC(u8 *arg0, u8 *arg1, s32 arg2, s32 arg3) {
+void init_launch__10TBoss2MineFPvPvii(u8 *arg0, u8 *arg1, s32 arg2, s32 arg3) {
     s32 temp_r31;
     s32 var_r31;
     M2C_FIELD(arg0, s32 *, 0x38C) = (s32) (M2C_FIELD(arg0, s32 *, 0x38C) | 0x100);

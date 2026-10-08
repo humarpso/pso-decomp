@@ -40,7 +40,7 @@ M2C_UNK play_persistent_sound(int, void *, void *, int, int);
 M2C_UNK play_sound_effect(int, void *, int, int);
 s32 get_state__14TBoss6GravBallFPv(int);
 M2C_UNK fn_80323134(void *);
-M2C_UNK TBoss6GravBall__sub_803231D0(void *, int);
+M2C_UNK destroy_part__14TBoss6GravBallFii(void *, int);
 M2C_UNK TBoss6GravBall__sub_80323214(void *, int);
 M2C_UNK create_emitter__14TBoss6GravBallFii(void *, int);
 M2C_UNK TBoss6GravBall__sub_80323544(void *);
@@ -56,7 +56,7 @@ extern "C" {
 void *__dt__14TBoss6GravBallFv(void *arg0, s16 arg1);
 void update_charge_effects__14TBoss6GravBallFPv(u8 *arg0);
 M2C_UNK play_sound_effect(int, void *, int, int);
-M2C_UNK TBoss6GravBall__sub_803231D0(void *, int);
+M2C_UNK destroy_part__14TBoss6GravBallFii(void *, int);
 M2C_UNK create_emitter__14TBoss6GravBallFii(void *, int);
 void TBoss6GravBall__sub_80323348(void *);
 M2C_UNK TBoss6GravBall__sub_803233AC();
@@ -86,14 +86,14 @@ void update_charge_effects__14TBoss6GravBallFPv(u8 *arg0) {
         if (temp_r0_2 == 0) {
             create_emitter__14TBoss6GravBallFii((void *) (arg0), (int) (3));
         } else if (temp_r0_2 == 0xE) {
-            TBoss6GravBall__sub_803231D0((void *) (arg0), (int) (3));
+            destroy_part__14TBoss6GravBallFii((void *) (arg0), (int) (3));
         }
     } else {
         temp_r0_3 = temp_r0 & 0xF;
         if (temp_r0_3 == 0) {
             create_emitter__14TBoss6GravBallFii((void *) (arg0), (int) (3));
         } else if (temp_r0_3 == 0xA) {
-            TBoss6GravBall__sub_803231D0((void *) (arg0), (int) (3));
+            destroy_part__14TBoss6GravBallFii((void *) (arg0), (int) (3));
         }
     }
     M2C_FIELD(arg0, s32 *, 0xB8) = (s32) (M2C_FIELD(arg0, s32 *, 0xB8) + 1);
@@ -110,18 +110,18 @@ void update_charge_effects__14TBoss6GravBallFPv(u8 *arg0) {
             spawn_particle_effect((void *) (arg0 + 0xC8), (int) (0x21D));
             M2C_FIELD(arg0, s32 *, 0xC4) = 1;
         }
-        TBoss6GravBall__sub_803231D0((void *) (arg0), (int) (5));
-        TBoss6GravBall__sub_803231D0((void *) (arg0), (int) (6));
-        TBoss6GravBall__sub_803231D0((void *) (arg0), (int) (7));
-        TBoss6GravBall__sub_803231D0((void *) (arg0), (int) (8));
+        destroy_part__14TBoss6GravBallFii((void *) (arg0), (int) (5));
+        destroy_part__14TBoss6GravBallFii((void *) (arg0), (int) (6));
+        destroy_part__14TBoss6GravBallFii((void *) (arg0), (int) (7));
+        destroy_part__14TBoss6GravBallFii((void *) (arg0), (int) (8));
         return;
     case 32:
-        TBoss6GravBall__sub_803231D0((void *) (arg0), (int) (4));
-        TBoss6GravBall__sub_803231D0((void *) (arg0), (int) (3));
-        TBoss6GravBall__sub_803231D0((void *) (arg0), (int) (5));
-        TBoss6GravBall__sub_803231D0((void *) (arg0), (int) (6));
-        TBoss6GravBall__sub_803231D0((void *) (arg0), (int) (7));
-        TBoss6GravBall__sub_803231D0((void *) (arg0), (int) (8));
+        destroy_part__14TBoss6GravBallFii((void *) (arg0), (int) (4));
+        destroy_part__14TBoss6GravBallFii((void *) (arg0), (int) (3));
+        destroy_part__14TBoss6GravBallFii((void *) (arg0), (int) (5));
+        destroy_part__14TBoss6GravBallFii((void *) (arg0), (int) (6));
+        destroy_part__14TBoss6GravBallFii((void *) (arg0), (int) (7));
+        destroy_part__14TBoss6GravBallFii((void *) (arg0), (int) (8));
         M2C_FIELD(arg0, s32 *, 0xB4) = 0;
         TBoss6GravBall__sub_80323348((void *)((void *) (arg0)));
         M2C_FIELD(arg0, s32 *, 0xB0) = 2;
@@ -162,9 +162,9 @@ void update_state__14TBoss6GravBallFPv(u8 *arg0) {
             break;
         case 0x1E:
         case 0x1F:
-            TBoss6GravBall__sub_803231D0((void *) (arg0), (int) (0));
-            TBoss6GravBall__sub_803231D0((void *) (arg0), (int) (1));
-            TBoss6GravBall__sub_803231D0((void *) (arg0), (int) (2));
+            destroy_part__14TBoss6GravBallFii((void *) (arg0), (int) (0));
+            destroy_part__14TBoss6GravBallFii((void *) (arg0), (int) (1));
+            destroy_part__14TBoss6GravBallFii((void *) (arg0), (int) (2));
             TBoss6GravBall__sub_80323214((void *) (arg0), (int) (4));
             M2C_FIELD(arg0, s32 *, 0xB8) = 0;
             M2C_FIELD(arg0, s32 *, 0xB4) = 0;

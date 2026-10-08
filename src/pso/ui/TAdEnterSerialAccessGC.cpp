@@ -255,7 +255,7 @@ extern const f32 lbl_805DF4F8;
 extern const f32 lbl_805DF4FC;
 extern const f32 lbl_805DF500;
 extern const f32 lbl_805DF504;
-void TAdEnterSerialAccessGC__sub_803214C4(void);
+void draw_serial_plates__22TAdEnterSerialAccessGCFv(void);
 s32 realloc_buffer__17TWindowSubComCardFPv(int);
 M2C_UNK render_status_line__15TAdSubPlyItemGCFPvi(void *, int, f32, f32, f32);
 s32 free__11TOBoss4RockFUi(int);
@@ -275,7 +275,7 @@ void draw_window_frame();
 s32 get_localized_text_entry(int, void *);
 M2C_UNK render_status_line__15TAdSubPlyItemGCFPvi(void *, int, f32, f32, f32);
 void draw_serial_chars__22TAdEnterSerialAccessGCFi(s32 arg0);
-void TAdEnterSerialAccessGC__sub_803214C4(void);
+void draw_serial_plates__22TAdEnterSerialAccessGCFv(void);
 extern V_803212F8 lbl_804EC9B0[];
 extern const f32 TAdEnterSerialAccessGC__data_805DF4DC;
 void TAdEnterSerialAccessGC__sub_803212F8(void *arg0, void *arg1);
@@ -314,7 +314,7 @@ void render__22TAdEnterSerialAccessGCFv(void *self) {
 void TAdEnterSerialAccessGC__sub_803212F8(void *arg0, void *arg1) {
     draw_window_frame();
     render_status_line__15TAdSubPlyItemGCFPvi((void *)get_localized_text_entry(0x17, (void *)4), -1, lbl_804EC9B0[0].a, lbl_804EC9B0[0].b, TAdEnterSerialAccessGC__data_805DF4DC);
-    TAdEnterSerialAccessGC__sub_803214C4();
+    draw_serial_plates__22TAdEnterSerialAccessGCFv();
     draw_serial_chars__22TAdEnterSerialAccessGCFi((s32)arg1);
 }
 
@@ -358,7 +358,7 @@ typedef char RecoveredGlobal_803216C0_lbl_805430D0_size[sizeof(RecoveredGlobal_8
 
 #pragma push
 #pragma fp_contract on
-void TAdEnterSerialAccessGC__sub_803214C4(void) {
+void draw_serial_plates__22TAdEnterSerialAccessGCFv(void) {
     Plate_803214C4 a;
     Plate_803214C4 b;
     Rect_803214C4 pa;

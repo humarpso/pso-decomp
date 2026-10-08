@@ -322,7 +322,7 @@ void queue_destruction__7TObjectFv(void *);
 M2C_UNK set_flag_4__9TObjLukerFPv(u32);
 void allow_rendering__7TObjectFv(void *);
 M2C_UNK disallow_rendering__7TObjectFv(void *);
-s32 TCameraCtrl__sub_800688D0(void *);
+s32 get_split_screen_view_index__11TCameraCtrlFUs(void *);
 s32 get_camera_id__11TCameraCtrlFv();
 u32 TLobby__sub_80070AD8(s32 arg0);
 M2C_UNK set_flag_40__16TAdChrSelASlotGCFPv(u32);
@@ -627,7 +627,7 @@ s64 fn_8019B480(void *arg0, void *arg1) {
             p = lbl_804B913C + 6;
             break;
         }
-        p += TCameraCtrl__sub_800688D0(arg1);
+        p += get_split_screen_view_index__11TCameraCtrlFUs(arg1);
     }
     return *p;
 }

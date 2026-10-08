@@ -371,7 +371,7 @@ s32 get_display_index__12TCharaMakingFPv(s32);
 s32 is_active__23TAdSinglePlyChrSelectGCFv();
 M2C_UNK fn_80290BE0();
 M2C_UNK draw_creation_ruler_lines(f32);
-s32 TObjCMMainMenu__sub_80290DEC(int);
+s32 get_creation_sprite_id__14TObjCMMainMenuFi(int);
 void draw_ui_sprite_scaled(s32, void *, void *, f32, f32);
 void draw_ui_sprite(s32, void *, f32, f32);
 void fn_802910A4(s32, void *, void *, f32);
@@ -1442,7 +1442,7 @@ void draw_root_menu__14TObjCMMainMenuFv(u8 *arg0) {
         a.y = 80.0f;
         for (i = 0; i < m->count; i++) {
             k = 0;
-            v = TObjCMMainMenu__sub_80290DEC(m->ids[i] + 0x8F) + 0x90;
+            v = get_creation_sprite_id__14TObjCMMainMenuFi(m->ids[i] + 0x8F) + 0x90;
             for (j = 0; j < 15; j++) {
                 e = lbl_80464FD0[j];
                 if (v < e) {

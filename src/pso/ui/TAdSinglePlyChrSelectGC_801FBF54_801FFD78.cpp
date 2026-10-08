@@ -85,11 +85,11 @@ void TAdSinglePlyChrSelectGC__sub_801FFF14(void);
 s32 get_serial_result__22TAdEnterSerialAccessGCFv();
 extern RecoveredGlobal_801FFF14_lbl_80513910 lbl_80513910;
 extern s32 lbl_805D5F5C;
-s32 TAdSinglePlyChrSelectGC__sub_802004D8(void);
+s32 encrypt_and_save__23TAdSinglePlyChrSelectGCFv(void);
 s32 get_field_118__22TAdEnterSerialAccessGCFv();
 extern RecoveredGlobal_801FFF14_lbl_80513910 lbl_80513910;
 extern s32 lbl_805D5F58;
-s32 TAdSinglePlyChrSelectGC__sub_8020051C(void);
+s32 write_encrypted_save__23TAdSinglePlyChrSelectGCFv(void);
 void __construct_array(void *, void *, void *, int, int);
 void reinit__17TWindowSubComCardFi();
 u8 *TAdSinglePlyChrSelectGC__sub_801FFDFC(u8 *arg0);
@@ -454,7 +454,7 @@ void prepare_save_data__23TAdSinglePlyChrSelectGCFv(void) {
     save_character_file__23TAdSinglePlyChrSelectGCFi((int)(1));
 }
 
-s32 TAdSinglePlyChrSelectGC__sub_802004D8(void) {
+s32 encrypt_and_save__23TAdSinglePlyChrSelectGCFv(void) {
     s32 temp_r3;
     temp_r3 = get_serial_result__22TAdEnterSerialAccessGCFv();
     M2C_FIELD(&(*(RecoveredGlobal_802004D8_lbl_80513910 *)&lbl_80513910).value, s32 *, 4) = temp_r3;
@@ -464,7 +464,7 @@ s32 TAdSinglePlyChrSelectGC__sub_802004D8(void) {
     return 1;
 }
 typedef char RecoveredGlobal_8020051C_lbl_80513910_size[sizeof(RecoveredGlobal_8020051C_lbl_80513910) == 0x10 ? 1 : -1];
-s32 TAdSinglePlyChrSelectGC__sub_8020051C(void) {
+s32 write_encrypted_save__23TAdSinglePlyChrSelectGCFv(void) {
     s32 temp_r3;
     temp_r3 = get_field_118__22TAdEnterSerialAccessGCFv();
     M2C_FIELD(&(*(RecoveredGlobal_8020051C_lbl_80513910 *)&lbl_80513910).value, s32 *, 4) = temp_r3;

@@ -44,8 +44,8 @@ void sndStreamARAMUpdate(u32 stid, u32 off1, u32 len1, u32 off2, u32 len2);
 void TLobby__sub_803D3130(void *, s32, void *, void *);
 void *memcpy(void *, const void *, u32);
 void *memset(void *, int, u32);
-void TLobby__sub_803D4770(Obj_803D4770 *o);
-void TLobby__sub_803D4770(Obj_803D4770 *o);
+void update_stream_buffers__6TLobbyFPv(Obj_803D4770 *o);
+void update_stream_buffers__6TLobbyFPv(Obj_803D4770 *o);
 extern S_803D4714 lbl_8058C160[];
 void TLobby__sub_803D4714(void);
 }
@@ -73,12 +73,12 @@ void TLobby__sub_803D4714(void) {
     u32 i;
     for (i = 0; i < 0x10; i++) {
         if ((s32)lbl_8058C160[i].f == 1) {
-            TLobby__sub_803D4770((Obj_803D4770 *)&lbl_8058C160[i]);
+            update_stream_buffers__6TLobbyFPv((Obj_803D4770 *)&lbl_8058C160[i]);
         }
     }
 }
 
-void TLobby__sub_803D4770(Obj_803D4770 *o) {
+void update_stream_buffers__6TLobbyFPv(Obj_803D4770 *o) {
     Pair_803D4770 f;
     Pair_803D4770 e;
     Pair_803D4770 d;

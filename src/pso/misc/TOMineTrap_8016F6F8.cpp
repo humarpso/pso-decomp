@@ -376,7 +376,7 @@ s32 queue_destruction_for_each_node__7TObjectFv(void *);
 void TOMineTrap__sub_80170768(u8 *arg0, s16 *arg1, s32 arg2);
 u16 obj_getField1c(void *);
 s32 matches_id__10TOMineTrapFPvUs(void *arg0, u16 arg1);
-s32 TOMineTrap__sub_801702C8(Self_801702C8 *self, void *obj);
+s32 is_target_in_list__10TOMineTrapFPvPv(Self_801702C8 *self, void *obj);
 void *get_player_data__10TObjPlayerFi(s32);
 s32 check_value_equals__13TQuestColCtrlFPvi(void *, s32);
 s32 queue_destruction__7TObjectFv(void *);
@@ -384,7 +384,7 @@ extern s32 TOMineTrap__data_805D3080;
 extern s32 lbl_805D586C;
 extern s32 lbl_805D5870;
 extern s32 lbl_805D5868;
-void TOMineTrap__sub_8016FCC4(void);
+void destroy_matching_traps__10TOMineTrapFv(void);
 void *get_player_data__10TObjPlayerFi(s32);
 s32 check_value_equals__13TQuestColCtrlFPvi(void *, s32);
 void update_trigger__10TOMineTrapFPv(void *arg0);
@@ -477,7 +477,7 @@ void TOMineTrap__vt84(u8 *arg0) {
     M2C_FIELD(arg0, s32 *, 0x30) = (s32) (M2C_FIELD(arg0, s32 *, 0x30) & 0xFFFBFFFF);
 }
 
-void TOMineTrap__sub_8016FCC4(void) {
+void destroy_matching_traps__10TOMineTrapFv(void) {
     void *p;
     s32 i;
     for (i = lbl_805D586C + lbl_805D5870; i < lbl_805D5868; i++) {
@@ -505,7 +505,7 @@ void *__dt__10TOMineTrapFv(void *arg0, s16 arg1) {
     return arg0;
 }
 
-s32 TOMineTrap__sub_801702C8(Self_801702C8 *self, void *obj) {
+s32 is_target_in_list__10TOMineTrapFPvPv(Self_801702C8 *self, void *obj) {
     if (obj != 0) {
         u32 id = obj_getField1c(obj);
         if (id < 4) {
@@ -525,7 +525,7 @@ int TOMineTrap__sub_80170348(void) { return 1; }
 void TOMineTrap__sub_80170350(void) {  }
 void TOMineTrap__sub_80170354(void) {  }
 s32 check_trigger__10TOMineTrapFPvUi(void *arg0, u32 arg1) {
-    if (TOMineTrap__sub_801702C8((Self_801702C8 *)(arg0), (void *)(arg1)) == 1) {
+    if (is_target_in_list__10TOMineTrapFPvPv((Self_801702C8 *)(arg0), (void *)(arg1)) == 1) {
         return 0;
     }
     if (((s32) M2C_FIELD(arg0, s32 *, 0x344) == 2) && (arg1 == (u32) M2C_FIELD(arg0, u32 *, 0x2A8))) {
@@ -537,7 +537,7 @@ s32 check_trigger__10TOMineTrapFPvUi(void *arg0, u32 arg1) {
     return 0;
 }
 s32 can_trigger__10TOMineTrapFPvUi(void *arg0, u32 arg1) {
-    if (TOMineTrap__sub_801702C8((Self_801702C8 *)(arg0), (void *)(arg1)) == 1) {
+    if (is_target_in_list__10TOMineTrapFPvPv((Self_801702C8 *)(arg0), (void *)(arg1)) == 1) {
         return 0;
     }
     if (((s32) M2C_FIELD(arg0, s32 *, 0x344) == 2) && (arg1 == (u32) M2C_FIELD(arg0, u32 *, 0x2A8))) {
@@ -633,7 +633,7 @@ f32 trigger_explosion__10TOMineTrapFPv(void *arg0) {
     return lbl_805DB85C;
 }
 f32 calc_trigger_range__10TOMineTrapFPvi(void *arg0, s32 arg1) {
-    if (TOMineTrap__sub_801702C8((Self_801702C8 *)(arg0), (void *)(arg1)) == 1) {
+    if (is_target_in_list__10TOMineTrapFPvPv((Self_801702C8 *)(arg0), (void *)(arg1)) == 1) {
         return lbl_805DB85C;
     }
     if ((is_locally_controlled__10TObjPlayerFPv((u32)(arg1)) != 0) && (obj_getS16_116(arg1) != 0)) {
@@ -652,7 +652,7 @@ f32 TOMineTrap__sub_80170924(u8 *arg0, s32 arg1, s32 *arg2) {
   {
     return (*(const f32 *)&lbl_805DB85C);
   }
-  if (TOMineTrap__sub_801702C8((Self_801702C8 *)(arg0), (void *)(arg1)) == 1)
+  if (is_target_in_list__10TOMineTrapFPvPv((Self_801702C8 *)(arg0), (void *)(arg1)) == 1)
   {
     return (*(const f32 *)&lbl_805DB85C);
   }

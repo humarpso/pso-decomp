@@ -264,7 +264,7 @@ s32 respond_to_body_contact(u8 *arg0, u32 arg1, u8 *arg2);
 u32 check_actor_body_contact(Obj_80156268 *, Obj_80156268 *, f32);
 extern s32 TObjPlayer__data_8050D460[];
 extern s32 lbl_805D586C;
-void TObjPlayer__sub_801561C4(TObjPlayer_801561C4 *self, f32 range);
+void update_body_contact_flag__10TObjPlayerFPvf(TObjPlayer_801561C4 *self, f32 range);
 void init_forward__10TObjPlayerFPv(void *);
 void TObjPlayer__sub_80156A68(void* p);
 void TObjPlayer__sub_80156A74(void* p);
@@ -1061,7 +1061,7 @@ void mark_enemy_body_contacts(P_8015610C *arg0) {
     }
 }
 
-void TObjPlayer__sub_801561C4(TObjPlayer_801561C4 *self, f32 range) {
+void update_body_contact_flag__10TObjPlayerFPvf(TObjPlayer_801561C4 *self, f32 range) {
     Hit_801561C4 *hit = self->hit;
     if (hit) {
         hit->flags &= ~0x80000;

@@ -37,8 +37,8 @@ void build_6xA6_modify_trade_proposal(void *);
 extern u32 lbl_805D53A0;
 extern s8 TLobby__data_805D688A;
 extern u8 TLobby__data_805D688B;
-void TLobby__sub_802D23E0(void);
-M2C_UNK TLobby__sub_801DA4A0(s32, M2C_UNK *);
+void send_trade_proposal_modify__6TLobbyFv(void);
+M2C_UNK send_trade_list__6TLobbyFPvPv(s32, M2C_UNK *);
 M2C_UNK clear_flag400__6TLobbyFv();
 M2C_UNK TLobby__sub_802D3134(M2C_UNK *);
 M2C_UNK TWindowSubTradeMain__sub_80330A84();
@@ -67,7 +67,7 @@ s32 TLobby__sub_802D26C8(void);
 extern "C" {
 
 typedef struct Stack_802D23E0 Stack_802D23E0;
-void TLobby__sub_802D23E0(void) {
+void send_trade_proposal_modify__6TLobbyFv(void) {
   Stack_802D23E0 stack;
   u8 *temp_r3;
   u8 *temp_r3_2;
@@ -103,7 +103,7 @@ void TLobby__sub_802D245C(void) {
         break;
     case 6:
         TLobby__sub_802D3134((M2C_UNK *)sp8);
-        TLobby__sub_801DA4A0(TLobby__data_805D5580, (M2C_UNK *)sp8);
+        send_trade_list__6TLobbyFPvPv(TLobby__data_805D5580, (M2C_UNK *)sp8);
         lbl_805D6888 |= 0x400;
         if ((u32) TLobby__data_805D6898 != 0U) {
             ((void (*)(u32))TWindowSubTradeMain__sub_80330A84)(TLobby__data_805D6898);

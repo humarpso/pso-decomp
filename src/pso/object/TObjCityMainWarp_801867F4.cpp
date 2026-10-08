@@ -22,7 +22,7 @@ s32 find_local_player_in_range__16TObjCityMainWarpFif(s32 arg0, f32 farg0);
 s32 get_main_phase();
 extern s32 lbl_805D55C0;
 s32 TObjCityMainWarp__sub_80186B00(void);
-s32 TObjCityMainWarp__sub_80186B34(Obj_80186B34 *arg0);
+s32 are_all_players_in_range__16TObjCityMainWarpFPv(Obj_80186B34 *arg0);
 extern RecoveredGlobal_80186AF4_lbl_804FF800 lbl_804FF800;
 M2C_UNK *TObjCityMainWarp__sub_80186AF4(void);
 extern const Bits_80186A3C lbl_804448CC;
@@ -161,7 +161,7 @@ s32 TObjCityMainWarp__sub_80186B00(void) {
     return ((get_main_phase() - 0xF) == 0) ? lbl_805D55C0 : 0;
 }
 
-s32 TObjCityMainWarp__sub_80186B34(Obj_80186B34 *arg0) {
+s32 are_all_players_in_range__16TObjCityMainWarpFPv(Obj_80186B34 *arg0) {
     s32 r;
     s32 i;
     u8 *p;

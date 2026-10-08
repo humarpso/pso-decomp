@@ -148,7 +148,7 @@ s32 angle_difference_abs(s32, s32);
 void subtract_vector(Vec_800D9FC4 *, Vec_800D9FC4 *);
 extern const f64 lbl_8043C900[];
 extern const f32 lbl_805DA400;
-void TObjPlayer__sub_800D9FC4(void *self, void *p);
+void add_target_in_front_arc__10TObjPlayerFPvPv(void *self, void *p);
 }
 
 extern "C" {
@@ -242,14 +242,14 @@ s32 TObjPlayer__sub_800D9F4C(Obj_800D9F4C *self) {
     for (i = 0; i < lbl_805D586C + lbl_805D5870; i++) {
         p = get_player_data__10TObjPlayerFi(i);
         if (is_valid_and_active__10TObjPlayerFUi(p) != 0) {
-            TObjPlayer__sub_800D9FC4((void *)(self), (void *)(p));
+            add_target_in_front_arc__10TObjPlayerFPvPv((void *)(self), (void *)(p));
         }
     }
     return self->f3b4;
 }
 typedef struct Obj_800D9FC4 Obj_800D9FC4;
 typedef struct Vec_800D9FC4 Vec_800D9FC4;
-void TObjPlayer__sub_800D9FC4(void *self, void *p) {
+void add_target_in_front_arc__10TObjPlayerFPvPv(void *self, void *p) {
   f32 new_var;
   int new_var2;
   if ((((((Obj_800D9FC4 *) self)->count < 12) && (p != 0)) && (p != self)) && (!(((Obj_800D9FC4 *) p)->flags & 0x6000800)))

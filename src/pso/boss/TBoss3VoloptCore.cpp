@@ -112,7 +112,7 @@ void init_all_slots__10TObjPlayerFv(void);
 void check_object_collisions__10TObjPlayerFPv(void *);
 extern const f32 lbl_805D86B0;
 extern const f32 lbl_805D86D4;
-s32 TObjPlayer__sub_8003FEEC(u8 *arg0);
+s32 check_target_collision__10TObjPlayerFPv(u8 *arg0);
 f32 cos_table_lookup(s32);
 M2C_UNK push_matrix();
 M2C_UNK pop_matrix();
@@ -136,7 +136,7 @@ extern s32 lbl_805D4C14;
 void TObjPlayer__sub_8003F9D4(void *arg0_);
 M2C_UNK update_angle__10TObjPlayerFPviPv(void *, int, void *);
 M2C_UNK VecCopy__FP3VecPC3Vec(void *, void *);
-s32 TObjPlayer__sub_8003FEEC(u8 *arg0);
+s32 check_target_collision__10TObjPlayerFPv(u8 *arg0);
 M2C_UNK TBoss3Volopt__sub_8004885C(void *, void *, int, int, void *, f32, f32);
 f32 scale_velocity__19TObjGyaranzoMissileFPvf(void *, f32);
 M2C_UNK advance_animation_playback(void *);
@@ -1328,7 +1328,7 @@ void update_state_spin__10TObjPlayerFPv(void *arg0) {
     }
 }
 
-s32 TObjPlayer__sub_8003FEEC(u8 *arg0) {
+s32 check_target_collision__10TObjPlayerFPv(u8 *arg0) {
     s32 found;
     s32 i;
     VObj_18_c44252 *obj;
@@ -1472,7 +1472,7 @@ void TObjPlayer__sub_800401CC(u8 *arg0) {
         scale_velocity__19TObjGyaranzoMissileFPvf(arg0 + 0x308, lbl_805D86E0);
         update_angle__10TObjPlayerFPviPv(arg0, 0x800, arg0 + 0x308);
         vec3_add_to(arg0 + 0x38, arg0 + 0x308);
-        if (TObjPlayer__sub_8003FEEC(arg0) != 0) {
+        if (check_target_collision__10TObjPlayerFPv(arg0) != 0) {
             M2C_FIELD(arg0, s32 *, 0x3B4) = 4;
             M2C_FIELD(arg0, s32 *, 0x37C) = 4;
         }
@@ -1487,7 +1487,7 @@ void TObjPlayer__sub_800401CC(u8 *arg0) {
         temp_f31 = scale_velocity__19TObjGyaranzoMissileFPvf(arg0 + 0x308, lbl_805D86E0);
         update_angle__10TObjPlayerFPviPv(arg0, 0x800, arg0 + 0x308);
         vec3_add_to(arg0 + 0x38, arg0 + 0x308);
-        TObjPlayer__sub_8003FEEC(arg0);
+        check_target_collision__10TObjPlayerFPv(arg0);
         if (temp_f31 < lbl_805D86E4) {
             M2C_FIELD(arg0, u16 *, 0x338) = 0xFFFF;
             ((VObj_18_8d846b *)arg0)->m57();

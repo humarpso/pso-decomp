@@ -97,11 +97,11 @@ char *strcpy(char *dst, const char *src);
 void TLobby__sub_80228A74(O_80228A74 *self, const char *src);
 void TLobby__sub_80228A74(O_80228A74 *self, const char *src);
 void clear_work_buffer(u8 *arg0);
-void TLobby__sub_802288B8(O_80228A74 *self, char *s);
+void tokenize_args__6TLobbyFPvPv(O_80228A74 *self, char *s);
 extern char lbl_805DC788[4];
 u32 strlen(const char *s);
 char *strcpy(char *dst, const char *src);
-void TLobby__sub_80228B54(char *s);
+void trim_whitespace__6TLobbyFPv(char *s);
 s32 debug_printf_at(u32, void *, ...);
 void TLobby__sub_8022884C(L_8022884C *self);
 M2C_UNK run_frame__6TLobbyFv();
@@ -346,7 +346,7 @@ void TLobby__sub_8022884C(L_8022884C *self) {
 }
 #pragma pop
 
-void TLobby__sub_802288B8(O_80228A74 *self, char *s) {
+void tokenize_args__6TLobbyFPvPv(O_80228A74 *self, char *s) {
     char *start;
     s32 quoted;
     clear_work_buffer((u8 *)self);
@@ -447,7 +447,7 @@ void *construct__6TLobbyFPvPvPvPv(void *arg0, void *arg1, void *arg2, void *arg3
     M2C_FIELD(arg0, u32 *, 0x109C) = 0;
     return arg0;
 }
-void TLobby__sub_80228B54(char *s) {
+void trim_whitespace__6TLobbyFPv(char *s) {
     s32 len = strlen(s);
     s32 i;
     for (i = 0; i <= len && ((u8 *)s)[i] <= ' '; i++) {

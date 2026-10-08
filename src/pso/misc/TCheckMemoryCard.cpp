@@ -23,7 +23,7 @@ struct RecoveredGlobal_8033C424_lbl_804EF940 {
 
 extern "C" {
 s32 poll_memcard_status__15TAdPlayerLoadGCFPv(void *);
-s32 TWindowSubComCard__sub_8033C024(void *, s32);
+s32 set_state__17TWindowSubComCardFPvi(void *, s32);
 extern RecoveredGlobal_8033C424_lbl_804EF940 lbl_804EF940;
 void run_task__16TCheckMemoryCardFv(u8 *arg0);
 }
@@ -37,7 +37,7 @@ void render__16TCheckMemoryCardFv(void);
 s32 TKeyBoardControl__sub_8000F8EC();
 s32 TQuestVmDownLoadServer__sub_8006EF6C(s32);
 int TWindowSubComCard__sub_8033BF90(void*);
-s32 TWindowSubComCard__sub_8033C024(void *, s32);
+s32 set_state__17TWindowSubComCardFPvi(void *, s32);
 int TWindowSubComCard__sub_8033C178(void* p);
 void TWindowSubComCard__sub_8033C198(void);
 int TWindowSubComCard__sub_8033C19C(void* p);
@@ -66,7 +66,7 @@ void run_task__16TCheckMemoryCardFv(u8 *arg0) {
     M2C_FIELD(arg0, s32 *, 0x3C) = 0;
     M2C_FIELD(arg0, s32 *, 0x28) = poll_memcard_status__15TAdPlayerLoadGCFPv((void *) (arg0));
     if (M2C_FIELD(arg0, s32 *, 0x28) & 1) {
-        TWindowSubComCard__sub_8033C024((void *)((void *) (arg0)), (s32)((int) (0)));
+        set_state__17TWindowSubComCardFPvi((void *)((void *) (arg0)), (s32)((int) (0)));
     }
     temp_r6 = (u8 *)&lbl_804EF940.value + (M2C_FIELD(arg0, s32 *, 0x20) * 0x18);
     member_action.words[0] = M2C_FIELD(temp_r6, s32 *, 0xC);

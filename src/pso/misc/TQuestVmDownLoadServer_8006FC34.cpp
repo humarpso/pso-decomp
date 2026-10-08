@@ -53,7 +53,7 @@ void create__13TObjTombstoneFPvPvPv(void *, void *, void *);
 void *get_player_by_client_id(s32);
 extern Table_8006FE7C lbl_8048C9D8;
 extern void *tl_07;
-void TLobby__sub_8006FE7C(void);
+void spawn_player_tombstones__6TLobbyFv(void);
 s32 get_field_2d4__10TObjPlayerFPv(Ply_8006FC7C *);
 void VecCopy__FP3VecPC3Vec(void *, void *);
 s32 get_current_floor();
@@ -168,7 +168,7 @@ void update_card_save_info__6TLobbyFv(void) {
     card->f2230 = id;
 }
 
-void TLobby__sub_8006FE7C(void) {
+void spawn_player_tombstones__6TLobbyFv(void) {
     s32 i;
     Rec_8006FE7C *rec;
     Info_8006FE7C *info;

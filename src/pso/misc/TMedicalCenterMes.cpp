@@ -13,8 +13,8 @@ void *destroy__17TMedicalCenterMesFPvs(void *arg0, s16 arg1);
 void show_message__17TMedicalCenterMesFPvii(u8 *arg0, s32 arg1, s32 arg2);
 s32 get_shop_text(s32);
 M2C_UNK parse_message_text__22TQuestVmDownLoadServerFPvii(void *, s32, void *);
-M2C_UNK TWindowMessagePage__sub_8026AE20(u32, void *, s32);
-u32 TWindowMessagePage__sub_8026AE7C(s32, s32, M2C_UNK, s32);
+M2C_UNK set_message__18TWindowMessagePageFPvPvi(u32, void *, s32);
+u32 create__18TWindowMessagePageFiiii(s32, s32, M2C_UNK, s32);
 int TWindow__close(void*);
 M2C_UNK __dl__FPv(void *);
 s32 is_camera_ctrl_active__6TLobbyFv();
@@ -29,7 +29,7 @@ void show_message__17TMedicalCenterMesFPvii(u8 *arg0, s32 arg1, s32 arg2) {
         temp_r31 = get_shop_text(arg1);
         memset(arg0 + 4, 0, 0x200);
         parse_message_text__22TQuestVmDownLoadServerFPvii(arg0, temp_r31, arg0 + 4);
-        TWindowMessagePage__sub_8026AE20(M2C_FIELD(arg0, u32 *, 0x20C), arg0 + 4, arg2 | 0x80);
+        set_message__18TWindowMessagePageFPvPvi(M2C_FIELD(arg0, u32 *, 0x20C), arg0 + 4, arg2 | 0x80);
     }
 }
 
@@ -47,7 +47,7 @@ u32 create_message_window__17TMedicalCenterMesFPviii(void *arg0, s32 arg1, s32 a
         var_f31 = lbl_805DC720;
     }
     if ((u32) M2C_FIELD(arg0, u32 *, 0x20C) == 0U) {
-        M2C_FIELD(arg0, u32 *, 0x20C) = TWindowMessagePage__sub_8026AE7C(arg1, arg2, 1, arg3);
+        M2C_FIELD(arg0, u32 *, 0x20C) = create__18TWindowMessagePageFiiii(arg1, arg2, 1, arg3);
         set_position_xy(M2C_FIELD(arg0, u32 *, 0x20C), var_f31, var_f31);
         return M2C_FIELD(arg0, u32 *, 0x20C);
     }

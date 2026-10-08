@@ -23,7 +23,7 @@ void copy_name(const char *);
 u8 *create_named_object(char *);
 void replace_file_extension__6TLobbyFPvPvPv(char *, char *, const char *);
 void init_radar_floor_flags(s32, u8 *);
-void TRaderMapCore__sub_801FB904(void);
+void load_frame_texture__13TRaderMapCoreFv(void);
 int get_status__6TSceneFv(void);
 s32 get_global_state__14TOKeyMachine01Fv(void);
 Ent_801FB798 *get_floor_scene_table(s32);
@@ -101,7 +101,7 @@ void load_map_resources__13TRaderMapCoreFv(void) {
     }
     copy_name(lbl_805DC5B0);
     lbl_805D49B4 = 0;
-    TRaderMapCore__sub_801FB904();
+    load_frame_texture__13TRaderMapCoreFv();
     e = (Ent_801FB798 *)TRaderMapCore__data_805D5F28;
     if (e != NULL) {
         init_radar_floor_flags(get_current_floor(), (u8 *)e);

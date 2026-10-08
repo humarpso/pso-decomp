@@ -41,7 +41,7 @@ void set_param_ptr__11TBoss4Type2FPvi(void *, s32);
 void set_flags__11TBoss4Type2FPvUi(void *, u16);
 void copy_pos__11TNowLoadingFPvPv(void *, void *);
 s32 TObjParticleLobby__sub_80369654(void);
-void TObjParticleLobby__sub_803697E8(void *arg0);
+void setup_emitter__17TObjParticleLobbyFPv(void *arg0);
 }
 
 extern "C" {
@@ -117,7 +117,7 @@ void run_task__17TObjParticleLobbyFv(Self_803696A0 *o) {
     }
 }
 
-void TObjParticleLobby__sub_803697E8(void *arg0) {
+void setup_emitter__17TObjParticleLobbyFPv(void *arg0) {
     u16 flags;
     u16 t;
     s32 v;
@@ -245,7 +245,7 @@ u8 *TObjParticleLobby__ct(u8 *arg0, s32 arg1, s32 arg2) {
     M2C_FIELD(arg0, s32 *, 0) = (s32) lbl_805D44B8;
     ((VObj_18_1a504b *)(arg0))->m5(arg2);
     M2C_FIELD(arg0, s32 *, 0xD4) = create_particle_emitter((void *) (arg0 + 0x38), (int) (1));
-    TObjParticleLobby__sub_803697E8((void *)((void *) (arg0)));
+    setup_emitter__17TObjParticleLobbyFPv((void *)((void *) (arg0)));
     M2C_FIELD(arg0, f32 *, 0xCC) = (f32) (1.0f);
     return arg0;
 }

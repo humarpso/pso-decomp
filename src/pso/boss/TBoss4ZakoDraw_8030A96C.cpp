@@ -27,7 +27,7 @@ struct Tbl_8030AC7C { s32 count; Ent_8030AC7C ents[96]; u8 pad[0x784 - 4 - 96 * 
 extern "C" {
 s32 is_split_screen();
 u8 *get_bml_model(s32, s32);
-s32 TCameraCtrl__sub_801E317C(int, int);
+s32 set_viewport_scissor__11TCameraCtrlFiPv(int, int);
 void TObjPlayer__sub_8030A9B0();
 extern RecoveredGlobal_8030ABF4_TCameraCtrl__data_804FF634 TCameraCtrl__data_804FF634;
 extern RecoveredGlobal_8030ABF4_lbl_80541E58 lbl_80541E58;
@@ -193,7 +193,7 @@ void TCameraCtrl__sub_8030ABF4(void) {
         if (is_split_screen() == 0) {
             var_r4 = (u8 *)(var_r31);
             var_r3 = (M2C_UNK *)((u8 *)((M2C_UNK *)2));
-            TCameraCtrl__sub_801E317C((int) (2), (int) (var_r4));
+            set_viewport_scissor__11TCameraCtrlFiPv((int) (2), (int) (var_r4));
         }
         var_r4 = (u8 *)((void *)8);
         var_r3 = (M2C_UNK *)(M2C_FIELD(get_bml_model(get_instance_count__9TBoss4UroFv(), 8), M2C_UNK **, 0x2C));

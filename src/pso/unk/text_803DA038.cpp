@@ -7,12 +7,12 @@ char *strcat(char *, const char *);
 char *strcpy(char *, const char *);
 void fn_803D9FF0(char *);
 u32 strlen(const char *);
-void TAdSinglePlyChrSelectGC__sub_803DA038(char *dst, char *name, char *ext);
+void append_extension_if_missing__23TAdSinglePlyChrSelectGCFPvPvPv(char *dst, char *name, char *ext);
 }
 
 extern "C" {
 
-void TAdSinglePlyChrSelectGC__sub_803DA038(char *dst, char *name, char *ext) {
+void append_extension_if_missing__23TAdSinglePlyChrSelectGCFPvPvPv(char *dst, char *name, char *ext) {
     char buf[8];
     s32 len;
     len = strlen(name);
