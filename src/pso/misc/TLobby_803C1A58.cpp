@@ -157,6 +157,21 @@ struct Obj_803C7C10 {
     s16 f290[12]; u8 f2a8[1][16];
 };
 
+struct Buf_803C7748 { void *data; s32 size; };
+struct Strm_803C7748;
+struct VT_803C7748 {
+    void *pad[6];
+    void (*lock)(Strm_803C7748 *, s32, s32, Buf_803C7748 *);
+    void (*unlock)(Strm_803C7748 *, s32, Buf_803C7748 *);
+    void (*commit)(Strm_803C7748 *, s32, Buf_803C7748 *);
+    s32 (*avail)(Strm_803C7748 *, s32);
+};
+struct Strm_803C7748 { VT_803C7748 *vt; };
+struct Obj_803C7748 {
+    u8 pad_0[0xC]; Strm_803C7748 *fc; u8 pad_10[0x2C - 0x10]; s32 f2c; u8 pad_30[0x50 - 0x30];
+    s32 f50; u8 pad_54[0x6C - 0x54]; s32 f6c;
+};
+
 extern "C" {
 void release_ref__6TLobbyFv(void);
 void init_once__6TLobbyFv(void);
@@ -482,6 +497,65 @@ void clear_net_buffer_1680__6TLobbyFv(void) {
 void clear_buffer_1680__6TLobbyFv(void) {
     memset((void *) (&lbl_80573AC0.value), (int) (0), (int) (0x1680));
 }
+
+#pragma push
+#pragma opt_propagation off
+#pragma inline_depth(4)
+#pragma dont_inline off
+inline void put16_803C7748(Strm_803C7748 *s, const void *src) {
+    Buf_803C7748 b;
+    s->vt->lock(s, 0, 2, &b);
+    if (b.size < 2) {
+        s->vt->unlock(s, 0, &b);
+    } else {
+        s16 *d = (s16 *)b.data;
+        *d = *(const s16 *)src;
+        s->vt->commit(s, 1, &b);
+    }
+}
+
+inline void put_803C7748(Strm_803C7748 *s, void *src, s32 n) {
+    Buf_803C7748 b;
+    s->vt->lock(s, 0, n, &b);
+    if (b.size < n) {
+        s->vt->unlock(s, 0, &b);
+    } else {
+        memcpy(b.data, src, n);
+        s->vt->commit(s, 1, &b);
+    }
+}
+
+#define arg0 ((Obj_803C7748 *)arg0p)
+s32 TLobby__sub_803C7748(void *arg0p) {
+    s32 len;
+    s32 n;
+    s32 i;
+    u16 w;
+    u8 zero;
+    Strm_803C7748 *s = arg0->fc;
+    s32 off = arg0->f2c;
+
+    if (arg0->f6c <= 0) {
+        n = arg0->f50;
+    } else {
+        n = (((off + arg0->f50 + 0x7FF) / 2048) << 11) - off;
+    }
+    len = n - 4;
+    if (s->vt->avail(s, 0) < n) {
+        return 0;
+    }
+    w = 0x8001;
+    put16_803C7748(s, &w);
+    w = len;
+    put16_803C7748(s, &w);
+    zero = 0;
+    for (i = 0; i < len; i++) {
+        put_803C7748(s, &zero, 1);
+    }
+    return n;
+}
+#undef arg0
+#pragma pop
 
 #pragma push
 #pragma inline_depth(4)

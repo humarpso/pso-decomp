@@ -2904,6 +2904,39 @@ void TQuestVmDownLoadServer__sub_803EC09C(void) {
 }
 #pragma pop
 
+#pragma push
+#pragma opt_dead_assignments off
+#pragma dont_inline off
+#pragma inline_depth(1)
+inline N_803EC09C *Detach_803EBBBC(N_803EC09C *p) {
+    N_803EC09C *next;
+    while (p->flags & 1) {
+        p = p->next;
+    }
+    next = p->next;
+    p->next = NULL;
+    return next;
+}
+N_803EC09C *TQuestVmDownLoadServer__sub_803EBBBC(Q_803EC09C *p) {
+    Q_803EC09C *best = NULL;
+    N_803EC09C *ret;
+    u32 key;
+    for (; p != NULL; p = p->next) {
+        if (p->x8 != NULL && (best == NULL || p->x4 > key)) {
+            best = p;
+            key = p->x4;
+        }
+    }
+    if (best == NULL) {
+        return NULL;
+    }
+    ret = best->x8;
+    best->x8 = Detach_803EBBBC(ret);
+    best->x4 = best->x8 == NULL ? 0 : TQuestVmDownLoadServer__sub_803ED0B4((u8 *)best->o, best->x8->xe);
+    return ret;
+}
+#pragma pop
+
 struct Tok_803EC460 { s16 x0; u8 x2; u8 x3; s32 x4; u16 x8; };
 struct Out_803EC460 {
     s16 off; u8 a; u8 b;
@@ -3475,6 +3508,27 @@ s32 calc_entry_cost__22TQuestVmDownLoadServerFPvPv(Arg_803ED63C *a, Arg_803ED63C
     }
     return extra;
 }
+
+struct N_803ED7F0 { s16 a; u8 kind; u8 pad0; N_803ED7F0 *link; u8 pad1[2]; s16 timer; N_803ED7F0 *next; };
+struct T_803ED7F0 { u8 pad[8]; N_803ED7F0 *head; u8 pad2[0x10]; };
+
+#pragma push
+#pragma opt_common_subs off
+void TQuestVmDownLoadServer__sub_803ED7F0(s32 arg0) {
+    N_803ED7F0 *n;
+    N_803ED7F0 *l;
+    T_803ED7F0 *t = &((T_803ED7F0 *)&lbl_80595998)[arg0];
+    for (n = t->head; n != NULL; n = n->next) {
+        n->timer = 0;
+        l = n->link;
+        if (l != NULL && l->kind == 0x19 && l->a == 0) {
+            n->timer = 10;
+        }
+    }
+}
+#pragma pop
+
+s32 TQuestVmDownLoadServer__sub_803ED84C(void *, s32, s32);
 
 s32 TQuestVmDownLoadServer__sub_803EDB20(u8 arg0) {
     return M2C_FIELD(((u8 *)(&lbl_8047F8B8.value) + arg0), u8 *, 0) & 0x20;

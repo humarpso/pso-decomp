@@ -5,6 +5,13 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 #define M2C_BITWISE(type, expr) ((type)(expr))
 
 extern "C" {
+M2C_UNK world_to_grid_pos__11TBoss6Type2FPvPvPv(s32, u8 *, u8 *);
+void send_6xAD_olga_flow_subordinate_boss_actions(void *);
+void TBoss6Type2__sub_803570C8(void *);
+void TBoss6Type2__sub_80356E88(u8 arg0, s32 arg1, s32 arg2);
+}
+
+extern "C" {
 
 void TBoss6Type2__sub_80356E50(s32 arg0, s32 arg1, s32 arg2);
 M2C_UNK send_subordinate_actions__11TBoss6Type2Fiiiii(M2C_UNK, s32, s32, s32, s32);
@@ -23,6 +30,28 @@ extern const u8 lbl_805E0019;
 extern const f32 lbl_805E001C;
 extern const f32 lbl_805E0020;
 extern const f32 lbl_805E0024;
+
+void TBoss6Type2__sub_80356E88(u8 arg0, s32 arg1, s32 arg2) {
+    u8 a;
+    u8 b;
+    u8 buf[0x44];
+    s32 p;
+    s32 j;
+    s32 i;
+    if (arg2 < 0 || arg2 > 3) {
+        return;
+    }
+    TBoss6Type2__sub_803570C8((void *)(buf));
+    buf[0] = arg0;
+    p = arg1;
+    j = 1;
+    for (i = 0; i < arg2; i++, p += 0xC, j += 2) {
+        world_to_grid_pos__11TBoss6Type2FPvPvPv(p, &a, &b);
+        buf[j] = a;
+        buf[j + 1] = b;
+    }
+    send_6xAD_olga_flow_subordinate_boss_actions((void *)(buf));
+}
 
 s32 send_subordinate_actions__11TBoss6Type2Fiiiii(s32 kind, s32 ids, s32 n, s32 force, s32 unused) {
     Pkt_80356F28 pkt;

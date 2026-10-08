@@ -1928,6 +1928,25 @@ void set_value_and_enable__6TLobbyFPvi(u8 *arg0, s32 arg1) {
     M2C_FIELD(arg0, s8 *, 4) = 1;
 }
 
+struct Ent_80406B14 { s16 st; u8 pad[0x9c - 2]; };
+struct Tbl_80406B14 { s16 count; Ent_80406B14 *list; };
+#pragma push
+#pragma optimization_level 3
+#pragma opt_unroll_loops off
+s32 TLobby__sub_80406B14(void) {
+    s16 n;
+    s16 i;
+    Ent_80406B14 *p;
+    TLobby__sub_803F8A0C((u8 *)&lbl_805D7AF0);
+    n = ((Tbl_80406B14 *)&lbl_805D7AF0)->count;
+    p = ((Tbl_80406B14 *)&lbl_805D7AF0)->list;
+    for (i = 0; i < n; i++, p++) {
+        p->st = 0;
+    }
+    return 0;
+}
+#pragma pop
+
 struct O_80406B6C { u32 w0; u8 b4; };
 s32 TLobby__sub_80406B6C(O_80406B6C *o) {
     if (o != 0) {
@@ -3127,6 +3146,34 @@ s32 TLobby__sub_8040A19C(s16 i) {
     if (*(s16 *)((u8 *)e + i * 0x30) == 0) { return 0; }
     e = (Ent_8040A19C *)((u8 *)e + i * 0x30);
     if (e->f2 & 0x20) { return 1; }
+    return 0;
+}
+#pragma pop
+
+struct Ent_8040A1FC { s16 f0; s16 f2; u8 pad[0x2C]; };
+struct G_8040A1FC { s16 n; Ent_8040A1FC *p; };
+#pragma push
+#pragma optimization_level 2
+#pragma dont_inline on
+s32 TLobby__sub_8040A1FC(s16 i) {
+    if (i < 0 || i > (*(G_8040A1FC *)&lbl_805D7AF8).n) { return 0; }
+    Ent_8040A1FC *e = (*(G_8040A1FC *)&lbl_805D7AF8).p;
+    if (e[i].f0 == 0) { return 0; }
+    if (e[i].f2 & 0x10) { return 1; }
+    return 0;
+}
+#pragma pop
+
+struct Ent_8040A25C { s16 f0; s16 f2; u8 pad[0x2C]; };
+struct G_8040A25C { s16 n; Ent_8040A25C *p; };
+#pragma push
+#pragma optimization_level 2
+#pragma dont_inline on
+s32 TLobby__sub_8040A25C(s16 i) {
+    if (i < 0 || i > (*(G_8040A25C *)&lbl_805D7AF8).n) { return 0; }
+    Ent_8040A25C *e = (*(G_8040A25C *)&lbl_805D7AF8).p;
+    if (e[i].f0 == 0) { return 0; }
+    if (e[i].f2 & 1) { return 1; }
     return 0;
 }
 #pragma pop
@@ -6028,6 +6075,67 @@ s32 TUdpSocket__sub_80418BD8(A_80418BD8 *a) {
         TLobby__sub_80406B6C((O_80406B6C *)&b->e[i]);
     }
     return 0;
+}
+
+struct N_80419258 { u8 pad0[4]; s16 f4; u8 pad6[2]; O_80406B6C o; u8 pad10[4]; N_80419258 *next; };
+struct E_80419258 { u8 pad0[4]; s16 f4; u8 pad6[0x1C]; u8 f22; u8 pad23; s16 f24; u8 pad26[2]; E_80419258 *next; N_80419258 *list; u8 pad30[4]; };
+struct G_80419258 { s16 count; s16 sub; u8 pad4[4]; E_80419258 *ents; u8 padC[4]; E_80419258 *head; E_80419258 *tail; };
+void TLobby__sub_80419374(E_80419258 *);
+
+void TLobby__sub_80419258(void) {
+    G_80419258 *g;
+    E_80419258 **head;
+    E_80419258 **tail;
+    s16 n;
+    s16 m;
+    N_80419258 *p;
+    N_80419258 *q;
+    E_80419258 *e;
+    E_80419258 *cur;
+    E_80419258 *prev;
+
+    g = (G_80419258 *)&lbl_805C1C38;
+    head = &g->head;
+    tail = &g->tail;
+
+    prev = NULL;
+    n = 0;
+    cur = *head;
+    while (cur != NULL && n < g->count) {
+        if (cur->f22 != 0) {
+            cur->f22--;
+        }
+        if (cur->f22 != 0) {
+            prev = cur;
+            cur = cur->next;
+        } else {
+            TLobby__sub_80419374(cur);
+            p = cur->list;
+            m = 0;
+            while (p != NULL && m < g->sub) {
+                q = p;
+                p = p->next;
+                TLobby__sub_80406B6C(&q->o);
+                q->f4 = 0;
+                m++;
+                q->next = 0;
+            }
+            if (prev != NULL) {
+                prev->next = cur->next;
+            } else {
+                *head = cur->next;
+            }
+            if (*tail == cur) {
+                *tail = prev;
+            }
+            e = cur;
+            cur = cur->next;
+            e->f4 = 0;
+            e->next = 0;
+            e->f24 = 0;
+        }
+        n++;
+    }
 }
 
 struct N_804196EC { u8 pad0[4]; s16 f4; u8 pad6[2]; O_80406B6C o; u8 pad10[4]; N_804196EC *next; };

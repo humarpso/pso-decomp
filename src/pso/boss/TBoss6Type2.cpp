@@ -689,7 +689,17 @@ s32 snap_to_ground__11TBoss6Type2FPv(Obj_802BAB80 *self);
 void TBoss6Type2__sub_802BAD04(s32 arg0);
 void request_default_follow_camera__11TBoss6Type2Fv(void);
 void init_range__11TBoss6Type2Fv(void);
-M2C_UNK TBoss6Type2__sub_802BB1E0(f32, f32);
+struct Obj_802BB1E0 { u8 pad0[0x38]; Vec_802B9A68 pos; };
+M2C_UNK TBoss6Type2__sub_802BB1E0(Obj_802BB1E0 *, f32, f32);
+f32 get_random_float__8TObjFishFv(f32);
+extern Vec_802B9A68 lbl_80471344[];
+extern const f32 lbl_805DE480;
+extern const f32 lbl_805DE484;
+extern const f32 lbl_805DE488;
+extern const f32 lbl_805DE48C;
+extern const f32 lbl_805DE494;
+extern const f32 lbl_805DE498;
+extern const f32 lbl_805DE49C;
 void TBoss6Type2__sub_802BB498(T2_802BB498 *arg0);
 int TBoss6Type2__sub_802BB4DC(void* p);
 void update_target__11TBoss6Type2FPv(void *arg0);
@@ -1532,8 +1542,87 @@ void request_default_follow_camera__11TBoss6Type2Fv(void) {
 }
 
 void init_range__11TBoss6Type2Fv(void) {
-    TBoss6Type2__sub_802BB1E0(TBoss6Type2__data_805DE460, lbl_805DE47C);
+    ((M2C_UNK (*)(f32, f32))TBoss6Type2__sub_802BB1E0)(TBoss6Type2__data_805DE460, lbl_805DE47C);
 }
+
+#pragma push
+#pragma opt_common_subs off
+#pragma fp_contract on
+M2C_UNK TBoss6Type2__sub_802BB1E0(Obj_802BB1E0 *self, f32 a, f32 b) {
+    Vec_802B9A68 pp;
+    Vec_802B9A68 me;
+    Vec_802B9A68 off;
+    Vec_802B9A68 d;
+    Vec_802B9A68 cam;
+    s32 n;
+    s32 i;
+    u8 *p;
+    s32 flag;
+    f32 step;
+    f32 t;
+    f32 dy;
+    f32 k;
+    f32 dist;
+    f32 sum;
+    f32 adj;
+    f32 lim;
+
+    n = get_game_mode__6TLobbyFv();
+    step = lbl_805DE480 * b;
+    for (i = 0; i < n; i++) {
+        lim = get_random_float__8TObjFishFv(b);
+        p = get_player_data__10TObjPlayerFi(i);
+        if (p == NULL) {
+            continue;
+        }
+        t = TBoss6Type2__data_805DE410;
+        while (get_random_float__8TObjFishFv(t) <= lim) {
+            flag = 0;
+            VecCopy__FP3VecPC3Vec(&off, lbl_80471344);
+            VecCopy__FP3VecPC3Vec(&pp, p + 0x38);
+            pp.y += off.y;
+            VecCopy__FP3VecPC3Vec(&me, &self->pos);
+            me.y += a + t;
+            VecCopy__FP3VecPC3Vec(&d, &me);
+            subtract_vector(&d, &pp);
+            dy = d.y;
+            d.y = TBoss6Type2__data_805DE410;
+            dist = off.z + vector_length(&d);
+            if (dist <= lbl_805DE484) {
+                dist = lbl_805DE484;
+            }
+            cam.x = TBoss6Type2__data_805DE410;
+            cam.z = lbl_805DE488;
+            cam.y = lbl_805DE48C - dy * lbl_805DE488 / dist;
+            if (cam.y < TBoss6Type2__data_805DE434) {
+                cam.y = TBoss6Type2__data_805DE434;
+                if (dy > TBoss6Type2__data_805DE490) {
+                    k = lbl_805DE494 * dist;
+                    cam.z = k / dy;
+                    if (cam.z < lbl_805DE498) {
+                        sum = lbl_805DE498 + dist;
+                        cam.z = lbl_805DE498;
+                        dy = lbl_805DE498 * dy - k;
+                        if (get_random_float__8TObjFishFv(sum) > TBoss6Type2__data_805DE490) {
+                            adj = dy / sum;
+                            if (adj > lbl_805DE49C) {
+                                adj = lbl_805DE49C;
+                                flag = 1;
+                            }
+                            off.y += adj;
+                        }
+                    }
+                }
+            }
+            ((void (*)(void *, void *, u16))request_follow_camera_offsets)(&off, &cam, obj_getField1c(p));
+            if (flag == 0) {
+                break;
+            }
+            t += step;
+        }
+    }
+}
+#pragma pop
 
 void TBoss6Type2__sub_802BB498(T2_802BB498 *arg0) {
     switch (arg0->f374) {

@@ -1328,6 +1328,65 @@ void TLobby__sub_803FA2A8(P_803FA2A8 *o) {
     q->h34 = q->h34 | q->h38;
 }
 
+struct Sub_803FA664 { u8 pad0[0x1C]; s16 h1C; };
+struct Obj_803FA664 { u8 pad0; u8 b1; u8 pad2[9]; u8 bB; u8 padC[0x24]; Sub_803FA664 *p30; };
+struct Msg_803FA664 { u8 pad0; u8 b1; s16 h2; };
+
+s32 TLobby__sub_803FACD8(u32 *, void *, s32);
+#pragma push
+#pragma opt_lifetimes off
+#pragma opt_dead_assignments off
+#pragma dont_inline off
+#pragma inline_depth(4)
+inline u32 first_803FA664(Sub_803FA664 *s) {
+    u32 t;
+    u32 v = 0;
+    t = v;
+    t = (u32)TLobby__sub_80401CE8(0);
+    if (t == 0) {
+        return v;
+    }
+    TLobby__sub_803FACD8(&t, &s->h1C, s->h1C);
+    v = t;
+    return v;
+}
+
+inline s32 read_803FA664(u32 *p) {
+    if (TLobby__sub_80401BCC(p, lbl_805D7A74, 1) != 1) {
+        return -1;
+    }
+    return (s16)lbl_805D7A74[0];
+}
+
+s32 TLobby__sub_803FA664(Obj_803FA664 *arg0, Msg_803FA664 *arg1, u32 arg2) {
+    s16 err;
+    s16 a;
+    s16 b;
+
+    err = 0;
+    if (arg1->b1 != arg0->b1) {
+        return -1;
+    }
+    u32 cur = first_803FA664(arg0->p30);
+    if (arg1->h2 != get_field_4__6TLobbyFPv((u8 *)cur)) {
+        err = 1;
+    } else {
+        while ((a = read_803FA664(&cur)) != -1) {
+            b = read_803FA664(&arg2);
+            if (b == -1 || b != a) {
+                err = 1;
+                break;
+            }
+        }
+    }
+    if (err != 0) {
+        return -1;
+    }
+    arg0->bB++;
+    return 0;
+}
+#pragma pop
+
 void TLobby__sub_803FADA0(B_803FADA0 **arg0, A_803FADA0 *arg1, s32 arg2, s32 arg3, void *arg4) {
     u8 *p;
     B_803FADA0 *b;

@@ -35,6 +35,58 @@ extern u32 lbl_805D5F58;
 extern u32 lbl_805D5F60;
 extern u32 lbl_805D5F64;
 void clear_load_buffers__23TAdSinglePlyChrSelectGCFv(void);
+s32 get_main_phase();
+s8 get_chr_select_state__23TAdSinglePlyChrSelectGCFv();
+s32 get_instance__15TAdPlayerLoadGCFv();
+u32 *alloc__23TAdSinglePlyChrSelectGCFPv(M2C_UNK);
+M2C_UNK safe_free__23TAdSinglePlyChrSelectGCFUi(u32);
+u32 alloc__22TQuestVmDownLoadServerFPv(u32);
+M2C_UNK disconnect_protocol__6TLobbyFv();
+s32 is_technique_ready__8TTecCtrlFv();
+s32 get_ptr_4__10TObjPlayerFPv(void *);
+s32 get_game_mode__23TAdSinglePlyChrSelectGCFv();
+u32 get_load_result__15TAdPlayerLoadGCFv(int);
+s32 TAdPlayerLoadGC__sub_801E1944(s32, void *, u32, s32);
+s32 TAdPlayerLoadGC__sub_801E1B50(s32);
+s32 probe_card_slot__15TAdPlayerLoadGCFi(s32);
+s32 find_card_file__15TAdPlayerLoadGCFiPv(s32, void *);
+M2C_UNK render_tick__Fv();
+M2C_UNK copy_card_window_data();
+M2C_UNK register_callback__23TAdSinglePlyChrSelectGCFis(u8 *, s16);
+u8 *init_char_slots__23TAdSinglePlyChrSelectGCFi();
+u8 *TAdSinglePlyChrSelectGC__sub_801FCD04(u32);
+u8 *TAdSinglePlyChrSelectGC__sub_801FCD3C(u32);
+M2C_UNK render_frame__23TAdSinglePlyChrSelectGCFv();
+s32 compare_save_headers__23TAdSinglePlyChrSelectGCFPvPvPvPv(u8 *, s32, u8 *, s32);
+s32 TAdSinglePlyChrSelectGC__sub_801FDA4C();
+M2C_UNK increment_counter__23TAdSinglePlyChrSelectGCFv();
+M2C_UNK decrypt_char_data__23TAdSinglePlyChrSelectGCFPv(u8 *);
+M2C_UNK encrypt_save_data__23TAdSinglePlyChrSelectGCFPvPv(void *, void *);
+M2C_UNK save_character_file__23TAdSinglePlyChrSelectGCFi(int);
+M2C_UNK update_play_time__23TAdSinglePlyChrSelectGCFv();
+M2C_UNK run_save_load_sequence__23TAdSinglePlyChrSelectGCFv();
+s32 get_field_118__22TAdEnterSerialAccessGCFv();
+s32 get_card_window__17TWindowSubComCardFUi(u32);
+M2C_UNK set_global_flags__23TAdSinglePlyChrSelectGCFi(int);
+s32 get_instance__23TAdSinglePlyChrSelectGCFv();
+int clear_inventory_slot__23TAdSinglePlyChrSelectGCFPv(void *);
+s32 fn_80203284();
+s32 get_global_state__14TOKeyMachine01Fv();
+M2C_UNK init_slots__23TAdSinglePlyChrSelectGCFv();
+M2C_UNK TAdSinglePlyChrSelectGC__sub_8028DC14();
+M2C_UNK sync_char_select_state__10TObjPlayerFv();
+M2C_UNK memcpy(s32, s32, u32);
+void *memset(void *, int, unsigned long);
+extern u8 lbl_804C88C0[];
+extern s32 lbl_80513910[];
+extern s32 lbl_805D55C0;
+extern u32 lbl_805D5F58;
+extern u32 lbl_805D5F60;
+extern u32 lbl_805D5F64;
+extern s32 lbl_805D5F78;
+extern s32 lbl_805D5F7C;
+extern s32 lbl_805D5F84;
+s32 TAdSinglePlyChrSelectGC__sub_801FF5E4(s32 arg0);
 }
 
 extern "C" {
@@ -120,6 +172,184 @@ void clear_load_buffers__23TAdSinglePlyChrSelectGCFv(void) {
         memset((void *)lbl_805D5F60, 0, 0x41C);
         memset((void *)lbl_805D5F64, 0, 0x2370);
     }
+}
+
+s32 TAdSinglePlyChrSelectGC__sub_801FF5E4(s32 arg0) {
+    s32 ret;
+    u8 *obj;
+    u32 buf;
+    s32 t;
+    s32 i;
+    s32 p;
+    u32 size;
+    if (get_main_phase() == 0xE || (get_global_state__14TOKeyMachine01Fv() == 0xF && arg0 != 1) ||
+        lbl_805D55C0 == 1 || is_technique_ready__8TTecCtrlFv() != 0 || fn_80203284() == 1) {
+        return 0xFFFF0000;
+    }
+    init_slots__23TAdSinglePlyChrSelectGCFv();
+    ret = 0xFFFF0000;
+    if (lbl_805D5F60 != 0 && lbl_805D5F64 != 0 && lbl_805D5F58 != 0) {
+        lbl_805D5F7C = get_chr_select_state__23TAdSinglePlyChrSelectGCFv();
+        if (probe_card_slot__15TAdPlayerLoadGCFi(lbl_805D5F7C) != 1) {
+            if (get_game_mode__23TAdSinglePlyChrSelectGCFv() == 1) {
+                disconnect_protocol__6TLobbyFv();
+            }
+            return 0xFFFF0000;
+        }
+        while (TAdPlayerLoadGC__sub_801E1B50(lbl_805D5F7C) != 0) {
+            if (probe_card_slot__15TAdPlayerLoadGCFi(lbl_805D5F7C) != 1) {
+                if (get_game_mode__23TAdSinglePlyChrSelectGCFv() == 1) {
+                    disconnect_protocol__6TLobbyFv();
+                }
+                return 0xFFFF0000;
+            }
+            render_frame__23TAdSinglePlyChrSelectGCFv();
+            render_tick__Fv();
+        }
+        if (arg0 != 1) {
+            arg0 = find_card_file__15TAdPlayerLoadGCFiPv(lbl_805D5F7C, lbl_804C88C0);
+            if (arg0 != 0) {
+                if (get_game_mode__23TAdSinglePlyChrSelectGCFv() == 1) {
+                    disconnect_protocol__6TLobbyFv();
+                }
+                return arg0;
+            }
+            size = lbl_805D5F84 << 13;
+            buf = alloc__22TQuestVmDownLoadServerFPv(size);
+            memset((void *)buf, 0, size);
+            while (TAdPlayerLoadGC__sub_801E1944(lbl_805D5F7C, lbl_804C88C0, buf, lbl_805D5F84) != 0) {
+                if (probe_card_slot__15TAdPlayerLoadGCFi(lbl_805D5F7C) != 1) {
+                    if (buf != 0) {
+                        safe_free__23TAdSinglePlyChrSelectGCFUi(buf);
+                    }
+                    if (get_game_mode__23TAdSinglePlyChrSelectGCFv() == 1) {
+                        disconnect_protocol__6TLobbyFv();
+                    }
+                    return 0xFFFF0000;
+                }
+                render_frame__23TAdSinglePlyChrSelectGCFv();
+                render_tick__Fv();
+            }
+            while (TAdPlayerLoadGC__sub_801E1B50(lbl_805D5F7C) != 0) {
+                if (probe_card_slot__15TAdPlayerLoadGCFi(lbl_805D5F7C) != 1) {
+                    if (buf != 0) {
+                        safe_free__23TAdSinglePlyChrSelectGCFUi(buf);
+                    }
+                    if (get_game_mode__23TAdSinglePlyChrSelectGCFv() == 1) {
+                        disconnect_protocol__6TLobbyFv();
+                    }
+                    return 0xFFFF0000;
+                }
+                render_frame__23TAdSinglePlyChrSelectGCFv();
+                render_tick__Fv();
+            }
+            t = get_field_118__22TAdEnterSerialAccessGCFv();
+            lbl_80513910[1] = t;
+            lbl_80513910[0] = t;
+            obj = (u8 *)alloc__23TAdSinglePlyChrSelectGCFPv(0x1156C);
+            if (obj != NULL) {
+                obj = init_char_slots__23TAdSinglePlyChrSelectGCFi();
+            }
+            memset(obj, 0, 0x1156C);
+            memcpy((s32)obj, buf + 0x2048, 0x1156C);
+            decrypt_char_data__23TAdSinglePlyChrSelectGCFPv(obj);
+            ret = compare_save_headers__23TAdSinglePlyChrSelectGCFPvPvPvPv(TAdSinglePlyChrSelectGC__sub_801FCD3C((u32)obj), get_card_window__17TWindowSubComCardFUi(0xFFFF), obj, get_instance__23TAdSinglePlyChrSelectGCFv());
+            if (ret != 7) {
+                if (buf != 0) {
+                    safe_free__23TAdSinglePlyChrSelectGCFUi(buf);
+                }
+                if (obj != NULL) {
+                    register_callback__23TAdSinglePlyChrSelectGCFis(obj, 1);
+                }
+                if (get_game_mode__23TAdSinglePlyChrSelectGCFv() == 1) {
+                    disconnect_protocol__6TLobbyFv();
+                }
+                return ret;
+            }
+            if (*(u32 *)(lbl_805D5F64 + 0x14) != *(u32 *)(TAdSinglePlyChrSelectGC__sub_801FCD3C((u32)obj) + 0x14)) {
+                if (buf != 0) {
+                    safe_free__23TAdSinglePlyChrSelectGCFUi(buf);
+                }
+                if (obj != NULL) {
+                    register_callback__23TAdSinglePlyChrSelectGCFis(obj, 1);
+                }
+                if (get_game_mode__23TAdSinglePlyChrSelectGCFv() == 1) {
+                    disconnect_protocol__6TLobbyFv();
+                }
+                return 2;
+            }
+            if (buf != 0) {
+                safe_free__23TAdSinglePlyChrSelectGCFUi(buf);
+            }
+            if (obj != NULL) {
+                register_callback__23TAdSinglePlyChrSelectGCFis(obj, 1);
+            }
+        }
+        if (get_instance__15TAdPlayerLoadGCFv() == 0 && (ret = TAdPlayerLoadGC__sub_801E1B50(lbl_805D5F7C)) == 0) {
+            sync_char_select_state__10TObjPlayerFv();
+            TAdSinglePlyChrSelectGC__sub_8028DC14();
+            update_play_time__23TAdSinglePlyChrSelectGCFv();
+            increment_counter__23TAdSinglePlyChrSelectGCFv();
+            switch (get_main_phase()) {
+            case 0xF:
+                set_global_flags__23TAdSinglePlyChrSelectGCFi(1);
+                memcpy((s32)TAdSinglePlyChrSelectGC__sub_801FCD04(lbl_805D5F58), lbl_805D5F60, 0x41C);
+                memcpy((s32)TAdSinglePlyChrSelectGC__sub_801FCD3C(lbl_805D5F58), lbl_805D5F64, 0x2370);
+                if (get_game_mode__23TAdSinglePlyChrSelectGCFv() == 0) {
+                    p = get_ptr_4__10TObjPlayerFPv(TAdSinglePlyChrSelectGC__sub_801FCD04(lbl_805D5F58));
+                    for (i = 0; i < 30; i++) {
+                        clear_inventory_slot__23TAdSinglePlyChrSelectGCFPv((void *)p);
+                        p += 0x1C;
+                    }
+                    *TAdSinglePlyChrSelectGC__sub_801FCD04(lbl_805D5F58) = 0;
+                    memset(TAdSinglePlyChrSelectGC__sub_801FCD3C(lbl_805D5F58) + 0x250, 0, 0x12C0);
+                    *(s32 *)(TAdSinglePlyChrSelectGC__sub_801FCD3C(lbl_805D5F58) + 0x248) = 0;
+                    *(s32 *)(TAdSinglePlyChrSelectGC__sub_801FCD3C(lbl_805D5F58) + 0x24C) = 0;
+                }
+                *(s32 *)(TAdSinglePlyChrSelectGC__sub_801FCD04(lbl_805D5F58) + 0x36C) = 0;
+                break;
+            default:
+                copy_card_window_data();
+                memcpy((s32)TAdSinglePlyChrSelectGC__sub_801FCD04(lbl_805D5F58), lbl_805D5F60, 0x41C);
+                memcpy((s32)TAdSinglePlyChrSelectGC__sub_801FCD3C(lbl_805D5F58), lbl_805D5F64, 0x2370);
+                break;
+            }
+            t = get_field_118__22TAdEnterSerialAccessGCFv();
+            lbl_80513910[1] = t;
+            lbl_80513910[0] = t;
+            encrypt_save_data__23TAdSinglePlyChrSelectGCFPvPv((void *)lbl_805D5F58, lbl_80513910);
+            save_character_file__23TAdSinglePlyChrSelectGCFi(1);
+            while (TAdSinglePlyChrSelectGC__sub_801FDA4C() != 0) {
+                run_save_load_sequence__23TAdSinglePlyChrSelectGCFv();
+                if (probe_card_slot__15TAdPlayerLoadGCFi(lbl_805D5F7C) != 1) {
+                    if (get_game_mode__23TAdSinglePlyChrSelectGCFv() == 1) {
+                        disconnect_protocol__6TLobbyFv();
+                    }
+                    return 0xFFFF0000;
+                }
+                render_frame__23TAdSinglePlyChrSelectGCFv();
+                render_tick__Fv();
+            }
+            lbl_805D5F78 = 6;
+            while (get_instance__15TAdPlayerLoadGCFv() != 0) {
+                run_save_load_sequence__23TAdSinglePlyChrSelectGCFv();
+                if (probe_card_slot__15TAdPlayerLoadGCFi(lbl_805D5F7C) != 1) {
+                    if (get_game_mode__23TAdSinglePlyChrSelectGCFv() == 1) {
+                        disconnect_protocol__6TLobbyFv();
+                    }
+                    return 0xFFFF0000;
+                }
+                render_frame__23TAdSinglePlyChrSelectGCFv();
+                render_tick__Fv();
+            }
+            if (get_load_result__15TAdPlayerLoadGCFv(0) == 0xFFFFFF81 || get_load_result__15TAdPlayerLoadGCFv(0) == 0xFFFFFF83) {
+                ret = 1;
+            } else {
+                ret = 7;
+            }
+        }
+    }
+    return ret;
 }
 
 s32 load_and_verify_data(s32 arg0) {

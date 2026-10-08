@@ -97,6 +97,13 @@ extern const f32 lbl_805D869C;
 extern const f32 lbl_805D86A0;
 void select_and_send_attack__12TBoss3VoloptFPv(void *arg0_);
 void TCameraCtrl__sub_8003D340(u8 *arg0);
+void fn_8003F468(void *, u16, s32);
+void TBoss3VoloptHiraisin__ct(void *, void *, u16, s32);
+void init_with_slot__19TBoss3VoloptMonitorFPvPviiii(void *, void *, u16, s32, s32, s32);
+void TBoss3VoloptP01__ct(void *, void *, s32, u16, s32);
+extern u16 lbl_805D4C18;
+extern const f32 lbl_805D866C;
+extern const f32 lbl_805D8674;
 void update_volopt_seq__11TCameraCtrlFPv(void *arg0);
 void run_intro_camera_sequence__11TCameraCtrlFPv(u8 *arg0);
 void TBoss3Volopt__sub_8003D7BC(u8 *arg0);
@@ -674,6 +681,40 @@ void set_player_targets__11TCameraCtrlFi(s32 n) {
   }
 }
 
+#pragma push
+#pragma opt_lifetimes off
+s32 TCameraCtrl__sub_8003D0A8(void *arg0) {
+    s32 count;
+    s32 i;
+    s32 a;
+    s32 b;
+    s32 t;
+#define EE74 ((s8 *)lbl_804FEE74)
+
+    count = 0;
+    for (i = 0; i < 6; i++) {
+        if (find_entity_by_id(lbl_80483770[i]) != NULL && is_photon_blast_active__11TCameraCtrlFPv() == 0) {
+            EE74[count] = i;
+            count++;
+        }
+    }
+    if (count <= 1) {
+        return count;
+    }
+    for (i = 0; i < count * 5; i++) {
+        a = (s32)((f32)count * calc_boss4_scale__10TObjPlayerFi(arg0));
+        b = (s32)((f32)count * calc_boss4_scale__10TObjPlayerFi(arg0));
+        if (a != b) {
+            t = EE74[a];
+            EE74[a] = EE74[b];
+            EE74[b] = t;
+        }
+    }
+    return count;
+#undef EE74
+}
+#pragma pop
+
 int TCameraCtrl__sub_8003D1E8(void * _w0) {  return lbl_805D4C24; }
 
 s32 is_photon_blast_active__11TCameraCtrlFv(void) {
@@ -710,6 +751,51 @@ s32 TCameraCtrl__sub_8003D2C4(void) {
     }
     return 1;
 }
+
+#pragma push
+#pragma opt_lifetimes off
+#pragma fp_contract on
+#define GPO ((u16 (*)(void *, s32))get_param_offset__11TCameraCtrlFPvi)
+#define GAA ((s32 (*)(void *, s32))get_adjusted_angle__11TCameraCtrlFPvi)
+void TCameraCtrl__sub_8003D340(u8 *arg0) {
+    s32 r;
+    void *o;
+    s32 i;
+    s32 j;
+
+    switch (M2C_FIELD(arg0, s32 *, 0x37C)) {
+    case 0:
+        for (i = 0; i < 6; i++) {
+            lbl_80483770[i] = GPO(arg0, i + 1);
+            o = (void *)__nw__7TObjectFUl(0x418);
+            if (o != NULL) {
+                TBoss3VoloptP01__ct(o, arg0, i, lbl_80483770[i], GAA(arg0, i + 1));
+            }
+        }
+        lbl_805D4C18 = GPO(arg0, 7);
+        for (j = 0; j < 0x18; j++) {
+            r = (s32)(lbl_805D8670 * (lbl_805D8674 * (lbl_805D8658 * (f32)rand())) + lbl_805D866C);
+            o = (void *)__nw__7TObjectFUl(0x394);
+            if (o != NULL) {
+                init_with_slot__19TBoss3VoloptMonitorFPvPviiii(o, arg0, lbl_805D4C18 + j, GAA(arg0, j + 7), j, r);
+            }
+        }
+        lbl_805D271C = GPO(arg0, 0x22);
+        fn_8003F468(arg0, lbl_805D271C, GAA(arg0, 0x22));
+        lbl_805D271A = GPO(arg0, 0x21);
+        if (TBoss3Volopt__sub_8003F398() == 0) {
+            o = (void *)__nw__7TObjectFUl(0x390);
+            if (o != NULL) {
+                TBoss3VoloptHiraisin__ct(o, arg0, lbl_805D271A, GAA(arg0, 0x21));
+            }
+        }
+        M2C_FIELD(arg0, s32 *, 0x374) = 1;
+        break;
+    }
+}
+#undef GPO
+#undef GAA
+#pragma pop
 
 void update_volopt_seq__11TCameraCtrlFPv(void *arg0) {
     s32 temp_r0;
