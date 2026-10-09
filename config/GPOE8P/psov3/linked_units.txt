@@ -875,8 +875,6 @@ pso/misc/TKeyBoardControl_8025CB70.cpp
 pso/misc/TKeyBoardControl_80290CB0.cpp
 pso/misc/TKeyBoardControl_802A1180.cpp
 pso/misc/TKeyBoardControl_803CBDE0.cpp
-pso/misc/TKeyBoardControl_803DD2E0.cpp
-pso/misc/TKeyBoardControl_803DD428.cpp
 pso/misc/TKeyBoardControl_803DE9C4.cpp
 pso/misc/TKomorebi.cpp
 pso/misc/TLanguage.cpp
@@ -3721,8 +3719,7 @@ pso/unk/text_803DB390.cpp
 pso/unk/text_803DC86C.cpp
 pso/unk/text_803DC88C.cpp
 pso/unk/text_803DCDB0.cpp
-pso/unk/text_803DD3C8.cpp
-pso/unk/text_803DD430.cpp
+pso/unk/text_803DCDFC.cpp
 pso/unk/text_803DE7E0.cpp
 pso/unk/text_803DE838.cpp
 pso/unk/text_803DE864.cpp

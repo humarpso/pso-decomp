@@ -14199,21 +14199,8 @@ pso/unk/text_803DCDB0.cpp:
 	.text       start:0x803DCDB0 end:0x803DCDFC
 
 pso/unk/text_803DCDFC.cpp:
-	.text       start:0x803DCDFC end:0x803DD2E0
-	.sdata2     start:0x805E0F80 end:0x805E0F90
-
-pso/misc/TKeyBoardControl_803DD2E0.cpp:
-	.text       start:0x803DD2E0 end:0x803DD3C8
-
-pso/unk/text_803DD3C8.cpp:
-	.text       start:0x803DD3C8 end:0x803DD428
-
-pso/misc/TKeyBoardControl_803DD428.cpp:
-	.text       start:0x803DD428 end:0x803DD430
-
-pso/unk/text_803DD430.cpp:
-	.text       start:0x803DD430 end:0x803DD5E0
-	.sdata2     start:0x805E0FA8 end:0x805E0FB0
+	.text       start:0x803DCDFC end:0x803DD5E0
+	.sdata2     start:0x805E0F80 end:0x805E0FB0
 
 pso/unk/text_803DD5E0.cpp:
 	.text       start:0x803DD5E0 end:0x803DE778
