@@ -5,6 +5,19 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 #define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
 #define M2C_BITWISE(type, expr) ((type)(expr))
 
+struct Self_803FD74C;
+struct Tbl_803FD74C {
+    u8 pad[0x20];
+    void (*f20)(Self_803FD74C *);
+};
+struct Self_803FD74C {
+    u8 f0; u8 f1; u8 f2; u8 f3; u8 f4; u8 f5; u8 f6; u8 f7;
+    s16 f8; u8 padA[6];
+    u8 f10[0x1C];
+    Tbl_803FD74C *tbl;
+    void *f30;
+};
+
 struct Self_803FD85C;
 struct Tbl_803FD85C {
     u8 pad[0x14];
@@ -780,7 +793,7 @@ Ent_80408718 *find_free_peer_entry__6TLobbyFv(void);
 s32 TLobby__sub_80405304(void *arg0);
 u16 TLobby__sub_80406BD8(void *, s16);
 u16 calc_ip_checksum__6TLobbyFPvs(void *, s16);
-M2C_UNK TLobby__sub_803FD74C(int);
+void TLobby__sub_803FD74C(int);
 s32 TLobby__sub_803FE658(u8 *arg0);
 extern M2C_UNK lbl_8047FEB8[];
 extern M2C_UNK lbl_8047FEC8[];
@@ -829,7 +842,7 @@ void unlock_mutex__10TUdpSocketFi(int _w0);
 void lock_mutex__6TLobbyFi(int _w0);
 void TLobby__sub_803F97E8(int);
 s32 is_timed_out__6TLobbyFv(void);
-M2C_UNK TLobby__sub_803FD74C(int);
+void TLobby__sub_803FD74C(int);
 void process_expired_timers__6TLobbyFv(void);
 extern RecoveredGlobal_804050DC_lbl_805C18A0 lbl_805C18A0;
 s32 wait_for_connection__6TLobbyFPv(Conn_804004DC *c);
@@ -1194,7 +1207,7 @@ s32 mark_sub_ready__6TLobbyFPv(Obj_803FC480 *self) {
 
 s16 TLobby__sub_803FC820(void *, void *, int);
 M2C_UNK TLobby__sub_803FCC10(void *, void *, int);
-M2C_UNK TLobby__sub_803FD74C(int);
+void TLobby__sub_803FD74C(int);
 s32 TLobby__sub_803FE8BC(u8 *, void *);
 typedef struct Hdr_803FC4B4 { u8 type; u8 flag; s16 len; } Hdr_803FC4B4;
 struct O_80400ACC;
@@ -1434,6 +1447,44 @@ void TLobby__sub_803FD694(u8 *arg0) {
     M2C_FIELD(temp_r31, u8 **, 0x14) = arg0;
     TLobby__sub_80405298((N_80405298 *) (temp_r31), (s32) (M2C_FIELD(M2C_FIELD(arg0, u8 **, 0x2C), s32 *, 0xC)));
 }
+
+#define self ((Self_803FD74C *)arg0)
+void TLobby__sub_803FD74C(int arg0) {
+    if (self->f30 == 0) {
+        return;
+    }
+    switch (self->f0) {
+    case 5:
+        self->tbl->f20(self);
+    case 4:
+        self->f3 = self->f5;
+        if (self->f3 != 0) {
+            self->f3--;
+            TLobby__sub_80405328(self->f10);
+            TLobby__sub_803FE6CC(self, 5, 0, 0);
+        }
+        self->f0 = 6;
+        break;
+    case 2:
+    case 3:
+        self->f3 = 0;
+        self->f0 = 6;
+        break;
+    case 1:
+        if (lbl_805D7A90 & 2) {
+            if (self->f3 != 0) {
+            self->f3--;
+            TLobby__sub_80405328(self->f10);
+            TLobby__sub_803FE6CC(self, 5, 0, 0);
+        }
+        }
+        self->f0 = 0;
+        break;
+    case 6:
+        break;
+    }
+}
+#undef self
 
 #define self ((Self_803FD85C *)arg0)
 void TLobby__sub_803FD85C(void *arg0) {
