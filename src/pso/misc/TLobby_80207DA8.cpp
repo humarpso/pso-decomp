@@ -1,4 +1,211 @@
 #include "types.h"
+
+typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
+typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
+#define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
+#define M2C_BITWISE(type, expr) ((type)(expr))
+struct RecoveredGlobal_80207E88_lbl_804C8FC0 {
+    M2C_UNK value;
+    u8 remaining[0x11C];
+};
+
+struct RecoveredGlobal_80207E88_lbl_804C9270 {
+    M2C_UNK value;
+    u8 remaining[0x11C];
+};
+
+extern "C" {
+s32 is_online_ready__6TLobbyFv();
+extern RecoveredGlobal_80207E88_lbl_804C8FC0 lbl_804C8FC0;
+extern RecoveredGlobal_80207E88_lbl_804C9270 lbl_804C9270;
+s32 get_floor_scene_table(s32 arg0);
+}
+
+extern "C" {
+
+void reset_story_select__6TLobbyFv(void);
+s32 is_scene_ready__6TLobbyFv(void);
+int TLobby__sub_80207E24(void* p);
+void TLobby__sub_80207E44(void);
+int TLobby__sub_80207E48(void* p);
+int lookup_scene_object__6TLobbyFPv(void* p);
+int set_state__16TAdStorySelectGCFi(void*);
+s32 get_floor_map_selection(int, void *);
+int copy_table_entries__6TLobbyFPvUi(void*);
+int randomize_adventure_maps(void*);
+s32 get_global_state__14TOKeyMachine01Fv();
+s32 get_status__6TSceneFv();
+
+    extern int lbl_805D3628;
+void reset_story_select__6TLobbyFv(void) { set_state__16TAdStorySelectGCFi((void*)0); lbl_805D3628 = -1; }
+
+s32 is_scene_ready__6TLobbyFv(void) {
+    s32 temp_r3;
+
+    if (get_global_state__14TOKeyMachine01Fv() != 0xF) {
+        return 0;
+    }
+    temp_r3 = get_status__6TSceneFv();
+    if ((temp_r3 >= 0xD) && (temp_r3 < 0xF)) {
+        return 1;
+    }
+    return 0;
+}
+int TLobby__sub_80207E24(void* p) { return copy_table_entries__6TLobbyFPvUi(p); }
+void TLobby__sub_80207E44(void) {  }
+int TLobby__sub_80207E48(void* p) { return randomize_adventure_maps(p); }
+int lookup_scene_object__6TLobbyFPv(void* p) { return ((int (*)(void*))get_floor_map_selection)(p); }
+typedef char RecoveredGlobal_80207E88_lbl_804C8FC0_size[sizeof(RecoveredGlobal_80207E88_lbl_804C8FC0) == 0x120 ? 1 : -1];
+typedef char RecoveredGlobal_80207E88_lbl_804C9270_size[sizeof(RecoveredGlobal_80207E88_lbl_804C9270) == 0x120 ? 1 : -1];
+s32 get_floor_scene_table(s32 arg0) {
+    if (arg0 > 0x23) {
+        return 0;
+    }
+    if (is_online_ready__6TLobbyFv() != 0) {
+        return M2C_FIELD(((u8 *)(&lbl_804C9270.value) + (arg0 * 8)), s32 *, 0);
+    }
+    return M2C_FIELD(((u8 *)(&lbl_804C8FC0.value) + (arg0 * 8)), s32 *, 0);
+}
+
+}
+
+extern "C" {
+
+int reset_story_select__6TLobbyFPv(void* p);
+int TLobby__sub_80207F10(void* p);
+
+int reset_story_select__6TLobbyFPv(void* p) { return ((int (*)(void*))reset_story_select__6TLobbyFv)(p); }
+int TLobby__sub_80207F10(void* p) { return ((int (*)(void*))reset_story_select__6TLobbyFv)(p); }
+
+}
+
+typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
+#define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
+
+struct R_80207F30 { s16 a; s16 b; u16 c; };
+
+extern "C" {
+s32 get_current_floor();
+void *memset(void *, int, unsigned long);
+int TLobby__sub_80207F30(R_80207F30 *arg0);
+}
+
+extern "C" {
+
+void bswap_enemy_set_row(void *arg0);
+void bswap_enemy_set_row_fields(void *arg0);
+void swap_object_row_endian(void *arg0);
+void bswap_object_row_fields(void *arg0);
+void update_current_floor__6TLobbyFv(void);
+void update_key_machine__6TLobbyFv(void);
+int TLobby__sub_80207F10(void* p);
+typedef void (*Fn_80207F80)();
+struct E_80207F80 { u32 a; Fn_80207F80 fn; };
+typedef void (*Fn_80208020)();
+struct E_80208020 { Fn_80208020 fn; u32 b; };
+s32 is_area_transfer_pending();
+extern E_80208020 *lbl_804BB118[];
+void run_floor_cleanup_callbacks__6TLobbyFi(s32 arg0);
+s32 TLobby__sub_80208020(s32 arg0);
+M2C_UNK bswap_16__FPUs(u16 *, s32);
+M2C_UNK bswap_32__FPUl(s32 *, s32);
+int reset_story_select__6TLobbyFPv(void* p);
+
+int TLobby__sub_80207F30(R_80207F30 *arg0) {
+    s32 r;
+    memset(arg0, 0, 0x3C);
+    arg0->a = -1;
+    r = get_current_floor();
+    arg0->b = r;
+    arg0->c = 0xFFFF;
+    return r;
+}
+
+void run_floor_cleanup_callbacks__6TLobbyFi(s32 arg0) {
+    E_80207F80 *p = (E_80207F80 *)lbl_804BB118[arg0];
+    s32 n;
+    s32 i;
+    if (p != 0) {
+        n = 0;
+        while (p->fn != 0) {
+            p++;
+            n++;
+        }
+        for (i = 0; i < n; i++) {
+            (p--)[-1].fn();
+        }
+    }
+}
+
+void update_current_floor__6TLobbyFv(void) { get_global_state__14TOKeyMachine01Fv(); ((void (*)(void))run_floor_cleanup_callbacks__6TLobbyFi)(); }
+s32 TLobby__sub_80208020(s32 arg0) {
+    E_80208020 *p = lbl_804BB118[arg0];
+    Fn_80208020 f;
+    if (p == 0) {
+        return 1;
+    }
+    while ((f = p->fn) != 0) {
+        if (is_area_transfer_pending() != 0) {
+            return 0;
+        }
+        f();
+        p++;
+    }
+    return 1;
+}
+
+void update_key_machine__6TLobbyFv(void) { get_global_state__14TOKeyMachine01Fv(); ((int (*)(void))TLobby__sub_80208020)(); }
+void bswap_enemy_set_row(void *arg0) {
+    ((s32 (*)(s32))bswap_16__FPUs)((s32)(arg0));
+    bswap_enemy_set_row_fields((void *)((void *)((char *)arg0 + 4)));
+}
+
+void bswap_enemy_set_row_fields(void *arg0) {
+    ((s32 (*)(s32))bswap_16__FPUs)((s32)((void *)((char *)arg0 + 2)));
+    ((s32 (*)(s32))bswap_16__FPUs)((s32)((void *)((char *)arg0 + 4)));
+    ((s32 (*)(s32))bswap_16__FPUs)((s32)((void *)((char *)arg0 + 12)));
+    ((s32 (*)(s32))bswap_16__FPUs)((s32)((void *)((char *)arg0 + 8)));
+    ((s32 (*)(s32))bswap_16__FPUs)((s32)((void *)((char *)arg0 + 10)));
+    ((s32 (*)(s32))bswap_32__FPUl)((s32)((void *)((char *)arg0 + 16)));
+    ((s32 (*)(s32))bswap_32__FPUl)((s32)((void *)((char *)arg0 + 20)));
+    ((s32 (*)(s32))bswap_32__FPUl)((s32)((void *)((char *)arg0 + 24)));
+    ((s32 (*)(s32))bswap_32__FPUl)((s32)((void *)((char *)arg0 + 28)));
+    ((s32 (*)(s32))bswap_32__FPUl)((s32)((void *)((char *)arg0 + 32)));
+    ((s32 (*)(s32))bswap_32__FPUl)((s32)((void *)((char *)arg0 + 36)));
+    ((s32 (*)(s32))bswap_32__FPUl)((s32)((void *)((char *)arg0 + 40)));
+    ((s32 (*)(s32))bswap_32__FPUl)((s32)((void *)((char *)arg0 + 44)));
+    ((s32 (*)(s32))bswap_32__FPUl)((s32)((void *)((char *)arg0 + 48)));
+    ((s32 (*)(s32))bswap_32__FPUl)((s32)((void *)((char *)arg0 + 52)));
+    ((s32 (*)(s32))bswap_32__FPUl)((s32)((void *)((char *)arg0 + 56)));
+    ((s32 (*)(s32))bswap_16__FPUs)((s32)((void *)((char *)arg0 + 60)));
+    ((s32 (*)(s32))bswap_16__FPUs)((s32)((void *)((char *)arg0 + 62)));
+}
+
+void swap_object_row_endian(void *arg0) {
+    ((s32 (*)(s32))bswap_16__FPUs)((s32)(arg0));
+    bswap_object_row_fields((void *)((void *)((char *)arg0 + 4)));
+}
+
+void bswap_object_row_fields(void *arg0) {
+    ((s32 (*)(s32))bswap_16__FPUs)((s32)((void *)((char *)arg0 + 2)));
+    ((s32 (*)(s32))bswap_16__FPUs)((s32)((void *)((char *)arg0 + 6)));
+    ((s32 (*)(s32))bswap_16__FPUs)((s32)((void *)((char *)arg0 + 8)));
+    ((s32 (*)(s32))bswap_32__FPUl)((s32)((void *)((char *)arg0 + 12)));
+    ((s32 (*)(s32))bswap_32__FPUl)((s32)((void *)((char *)arg0 + 16)));
+    ((s32 (*)(s32))bswap_32__FPUl)((s32)((void *)((char *)arg0 + 20)));
+    ((s32 (*)(s32))bswap_32__FPUl)((s32)((void *)((char *)arg0 + 24)));
+    ((s32 (*)(s32))bswap_32__FPUl)((s32)((void *)((char *)arg0 + 28)));
+    ((s32 (*)(s32))bswap_32__FPUl)((s32)((void *)((char *)arg0 + 32)));
+    ((s32 (*)(s32))bswap_32__FPUl)((s32)((void *)((char *)arg0 + 36)));
+    ((s32 (*)(s32))bswap_32__FPUl)((s32)((void *)((char *)arg0 + 40)));
+    ((s32 (*)(s32))bswap_32__FPUl)((s32)((void *)((char *)arg0 + 44)));
+    ((s32 (*)(s32))bswap_32__FPUl)((s32)((void *)((char *)arg0 + 48)));
+    ((s32 (*)(s32))bswap_32__FPUl)((s32)((void *)((char *)arg0 + 52)));
+    ((s32 (*)(s32))bswap_32__FPUl)((s32)((void *)((char *)arg0 + 56)));
+}
+
+}
+
 typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
 typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 #define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))

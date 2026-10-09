@@ -586,7 +586,6 @@ u8 *find_insert_position__22TQuestVmDownLoadServerFPviii(u8 *p, s32 key, s32 n, 
 int strncmp(const char *, const char *, u32);
 s32 find_name_index__22TQuestVmDownLoadServerFPv(const char *key);
 u8 *get_cached_page__22TQuestVmDownLoadServerFi(s32 page);
-s32 TQuestVmDownLoadServer__sub_803E8004(const char *, s16);
 s32 find_symbol_entry__22TQuestVmDownLoadServerFPvsPv(const char *name, s16 len, Info_803F0138 *out);
 void DCInvalidateRange(void *, u32);
 void ARQPostRequest(void *req, u32 owner, u32 type, u32 prio, u32 src, u32 dst, u32 len, void (*cb)(u8 *));
@@ -729,6 +728,8 @@ extern s32 lbl_805D7904;
 s32 read_quest_chunk__22TQuestVmDownLoadServerFUiUcUcPvPv(u32 id, u8 a1, u8 a2, u8 *buf, s32 *out);
 extern RecoveredGlobal_803E8084_lbl_80590AC4 quest_name_index_table;
 s32 count_matching_name_prefix__22TQuestVmDownLoadServerFiPv(s32 arg0, u8 *arg1);
+extern u8 *lbl_805D7824;
+s32 TQuestVmDownLoadServer__sub_803E8004(u8 *arg0, s16 arg1);
 }
 
 extern "C" {
@@ -1438,6 +1439,42 @@ s32 find_name_index__22TQuestVmDownLoadServerFPv(const char *key) {
         return lo - 1;
     }
     return lo;
+}
+
+s32 TQuestVmDownLoadServer__sub_803E8004(u8 *arg0, s16 arg1) {
+  int new_var;
+  u8 c = *arg0;
+  s32 bit;
+  s32 rowi;
+  u8 *p;
+  if (c < 0xA1)
+  {
+    return 0;
+  }
+  p = arg0 + 1;
+  rowi = c - 0xA1;
+  if (arg1 == 1)
+  {
+    bit = 0;
+  }
+  else
+  {
+    u8 d = *p;
+    if (1)
+    {
+      if (d < 0xA1)
+      {
+        return 0;
+      }
+    }
+    bit = d - 0xA0;
+  }
+  new_var = (rowi * 0xB) + (bit >> 3);
+  if ((1 << (bit & 7)) & lbl_805D7824[new_var])
+  {
+    return 0;
+  }
+  return 1;
 }
 
 s32 TQuestVmDownLoadServer__sub_803E8084(void) {
@@ -4107,7 +4144,7 @@ s32 find_symbol_entry__22TQuestVmDownLoadServerFPvsPv(const char *name, s16 len,
     u8 *p;
     s32 id;
     s32 c;
-    if (len <= 2 && TQuestVmDownLoadServer__sub_803E8004(name, len) != 0) {
+    if (len <= 2 && TQuestVmDownLoadServer__sub_803E8004((u8 *)(name), len) != 0) {
         out->off = -1;
         return 0;
     }

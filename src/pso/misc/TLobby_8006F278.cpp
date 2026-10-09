@@ -3,9 +3,53 @@ typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
 typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 #define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
 #define M2C_BITWISE(type, expr) ((type)(expr))
-
 struct RecoveredGlobal_8006F5B0_lbl_8048C9D8 { s32 value; u8 remaining[0x744]; };
 typedef char RecoveredGlobal_8006F5B0_lbl_8048C9D8_size[sizeof(RecoveredGlobal_8006F5B0_lbl_8048C9D8) == 0x748 ? 1 : -1];
+
+struct G_8006F2CC { u8 pad[0x28]; s32 x28; };
+
+extern "C" {
+extern RecoveredGlobal_8006F5B0_lbl_8048C9D8 lbl_8048C9D8;
+s32 is_flag_set__6TLobbyFv();
+void advance_state_if_flag_set__6TLobbyFv(void);
+}
+
+extern "C" {
+
+s32 calc_challenge_time_limit__6TLobbyFv(void);
+s32 get_valid_slot__6TLobbyFi(int);
+s32 is_flag_set__6TLobbyFv();
+
+extern RecoveredGlobal_8006F5B0_lbl_8048C9D8 lbl_8048C9D8;
+
+s32 calc_challenge_time_limit__6TLobbyFv(void) {
+    s32 var_r3;
+
+    if (is_flag_set__6TLobbyFv() == 0) {
+        return 0x12C;
+    }
+    var_r3 = get_valid_slot__6TLobbyFi(M2C_FIELD(&lbl_8048C9D8, s32 *, 0x10));
+    if ((var_r3 < 0x3C) || (var_r3 > 0xE10)) {
+        var_r3 = 0x12C;
+    }
+    return var_r3;
+}
+void advance_state_if_flag_set__6TLobbyFv(void) {
+    if (is_flag_set__6TLobbyFv() != 0) {
+        switch ((*(G_8006F2CC *)&lbl_8048C9D8).x28) {
+        case 0:
+            (*(G_8006F2CC *)&lbl_8048C9D8).x28 = 1;
+            break;
+        }
+    }
+}
+
+}
+
+typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
+typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
+#define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
+#define M2C_BITWISE(type, expr) ((type)(expr))
 
 struct RecoveredGlobal_8006F848_lbl_804FF800 {
     M2C_UNK value;
@@ -57,7 +101,7 @@ s32 get_layout_id__20TWindowSubStatusDispFv(int);
 s32 TWindowSubStatusDisp__sub_8006F0D8(void *, int);
 s32 resolve_player_slot__20TWindowSubStatusDispFi(int);
 s32 is_id_out_of_range__6TLobbyFi(s32 arg0);
-s32 mix_seed_checked__6TLobbyFi(void *);
+s32 mix_seed_checked__6TLobbyFi(s32);
 u32 get_card_window__17TWindowSubComCardFUi(int);
 extern RecoveredGlobal_8006F5B0_lbl_8048C9D8 lbl_8048C9D8;
 s32 TLobby__sub_8006F5B0(s32 arg0);
@@ -207,7 +251,7 @@ block_12:
     if (var_r28 == 0) {
         return 0;
     }
-    M2C_FIELD(temp_r3_2, M2C_UNK *, temp_r30) = mix_seed_checked__6TLobbyFi((void *) (arg0));
+    M2C_FIELD(temp_r3_2, M2C_UNK *, temp_r30) = ((s32 (*)(void *))mix_seed_checked__6TLobbyFi)((void *) (arg0));
     return 1;
 }
 typedef char RecoveredGlobal_8006F848_lbl_804FF800_size[sizeof(RecoveredGlobal_8006F848_lbl_804FF800) == 0x20 ? 1 : -1];
@@ -272,6 +316,130 @@ s32 get_valid_slot__6TLobbyFi(int id) {
     }
     slot = decode_slot__6TLobbyFUi(id);
     return is_id_out_of_range__6TLobbyFi(slot) ? 0 : slot;
+}
+
+}
+
+extern "C" {
+
+s32 mix_seed_checked__6TLobbyFi(s32 arg0);
+s32 mix_seed__6TLobbyFUs(u16);
+
+s32 mix_seed_checked__6TLobbyFi(s32 arg0) {
+    if ((arg0 == 0) || (((s32 (*)())is_id_out_of_range__6TLobbyFi)() != 0)) {
+        return 0;
+    }
+    return ((s32 (*)(s32))mix_seed__6TLobbyFUs)(arg0);
+}
+
+}
+
+extern "C" {
+
+s32 get_slot_clamped__6TLobbyFv(void);
+
+s32 get_slot_clamped__6TLobbyFv(void) {
+    s32 var_r3;
+
+    var_r3 = ((s32 (*)())decode_slot__6TLobbyFUi)();
+    if (var_r3 < 0) {
+        var_r3 = 0;
+    }
+    return var_r3;
+}
+
+}
+
+typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
+typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
+#define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
+#define M2C_BITWISE(type, expr) ((type)(expr))
+
+extern "C" {
+
+s32 decode_slot__6TLobbyFUi(u32 arg0);
+s32 count_set_bits__6TLobbyFUi(u32);
+
+s32 decode_slot__6TLobbyFUi(u32 arg0) {
+    s32 temp_r3;
+    u32 temp_r31;
+
+    temp_r31 = arg0 >> 0x10U;
+    temp_r3 = count_set_bits__6TLobbyFUi(temp_r31);
+    if ((temp_r3 < 4) || (temp_r3 > 0xC)) {
+        return -1;
+    }
+    return (u16) (temp_r31 ^ arg0);
+}
+
+}
+
+typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
+typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
+#define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
+#define M2C_BITWISE(type, expr) ((type)(expr))
+
+extern "C" {
+s32 is_flag_set__6TLobbyFv();
+extern RecoveredGlobal_8006F5B0_lbl_8048C9D8 lbl_8048C9D8;
+void mark_solo_win_closing__6TLobbyFv(void);
+}
+
+extern "C" {
+
+s32 TLobby__sub_8006FBE4(void);
+s32 mix_seed__6TLobbyFUs(u16 arg0);
+u16 TLobby__sub_8006FAE4(void);
+u32 get_player_by_client_id(s32);
+
+s32 mix_seed__6TLobbyFUs(u16 arg0) {
+    s32 temp_r3;
+
+    temp_r3 = ((s32 (*)(void))TLobby__sub_8006FAE4)();
+    return (temp_r3 << 0x10) | (temp_r3 ^ arg0);
+}
+
+s32 rand();
+extern const f32 lbl_805D9100;
+extern const f32 lbl_805D9104;
+
+u16 TLobby__sub_8006FAE4(void) {
+    f32 temp_f31;
+    f32 temp_f30;
+    s32 temp_r3;
+    u16 var_r30;
+    s32 var_r29;
+
+    var_r29 = 0;
+loop_1:
+    var_r30 = (u16) (s32) (lbl_805D9100 * (lbl_805D9104 * (f32) rand()));
+    temp_r3 = ((s32 (*)(u16))count_set_bits__6TLobbyFUi)(var_r30);
+    if ((temp_r3 < 4) || (temp_r3 > 0xC)) {
+        var_r29 += 1;
+        var_r30 = 0x3938;
+        if (var_r29 < 8) {
+            goto loop_1;
+        }
+    }
+    return var_r30;
+}
+void mark_solo_win_closing__6TLobbyFv(void) {
+    if (is_flag_set__6TLobbyFv() != 0) {
+        M2C_FIELD(&lbl_8048C9D8.value, s32 *, 0x30) = 1;
+    }
+}
+
+s32 TLobby__sub_8006FBE4(void) {
+    s32 count;
+    s32 i;
+
+    count = 0;
+    for (i = 0; i < 4; i += 1) {
+        if (get_player_by_client_id(i) != 0U) {
+            count += 1;
+        }
+    }
+    return count;
 }
 
 }

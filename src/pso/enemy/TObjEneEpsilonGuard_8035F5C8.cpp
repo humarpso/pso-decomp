@@ -2095,3 +2095,214 @@ void TObjEneEpsilonGuard__sub_80361C70(u8 *arg0, s32 arg1) {
 #pragma pop
 
 }
+
+struct Base_8035F5C8 { char pad[0x18]; };
+struct VObj_8035F5C8 : Base_8035F5C8 {
+    virtual void m0();virtual void m1();virtual void m2();virtual void m3();virtual void m4();
+    virtual void m5();virtual void m6();virtual void m7();virtual void m8();virtual void m9();
+    virtual void m10();virtual void m11();virtual void m12();virtual void m13();virtual void m14();
+    virtual void m15();virtual void m16();virtual void m17();virtual void m18();virtual void m19();
+    virtual void m20();virtual void m21();virtual void m22();virtual void m23();virtual void m24();
+    virtual void m25();virtual void m26();virtual void m27();virtual void m28();virtual void m29();
+    virtual void m30();virtual void m31();virtual void m32();virtual void m33();virtual void m34();
+    virtual void m35();virtual void m36();virtual void m37();virtual void m38();virtual void m39();
+    virtual void m40();virtual void m41();virtual void m42();virtual void m43();virtual void m44();
+    virtual void m45();virtual void m46();virtual void m47();virtual void m48();virtual void m49();
+    virtual void m50();virtual void m51();virtual void m52();virtual void m53();virtual void m54();
+    virtual void m55();virtual void m56();virtual void m57();virtual void m58();virtual void m59();
+    virtual void m60();virtual void m61();virtual void m62();virtual void m63();virtual void m64();
+    virtual void m65();virtual void m66();virtual void m67();virtual void m68();virtual void m69();
+    virtual void m70();virtual void m71();virtual void m72();virtual void m73();virtual void m74();
+    virtual void m75();virtual void m76();virtual void m77();virtual void m78();virtual void m79();
+    virtual void m80();virtual void m81();virtual void m82();virtual void m83();virtual void m84();
+    virtual void m85();virtual void m86();virtual void m87();virtual void m88();virtual void m89();
+    virtual void m90();virtual void m91();virtual void m92();virtual void m93();
+};
+
+extern "C" {
+extern const f32 lbl_805E0208;
+extern const f32 lbl_805E0210;
+extern const f32 lbl_805E0220;
+extern const f32 lbl_805E023C;
+extern const f32 lbl_805E0240;
+void init_params__19TObjEneEpsilonGuardFPv(u8 *arg0);
+}
+
+extern "C" {
+
+void TObjEneEpsilonGuard__sub_80361D4C(u8 *arg0, s32 arg1);
+void TObjEneEpsilonGuard__sub_80361E20(void);
+void update_guard_flag__19TObjEneEpsilonGuardFPv(u8 *arg0);
+#define transition_enemy_state ((M2C_UNK (*)(void *, int))transition_enemy_state)
+M2C_UNK VecCopy__FP3VecPC3Vec(void *, void *);
+#define set_field_378__9TObjEneDDFPvi ((M2C_UNK (*)(void *, int))set_field_378__9TObjEneDDFPvi)
+#define set_guard_state__19TObjEneEpsilonGuardFPv ((M2C_UNK (*)(void *))set_guard_state__19TObjEneEpsilonGuardFPv)
+s32 update_linked_position__14TObjEneEpsilonFPv(f32);
+
+void TObjEneEpsilonGuard__sub_80361D4C(u8 *arg0, s32 arg1) {
+    switch (arg1) {
+    case 4:
+        set_field_378__9TObjEneDDFPvi(arg0, 0);
+        ((VObj_8035F5C8 *)arg0)->m93();
+        M2C_FIELD(arg0, s32 *, 0x438) = (s32) (M2C_FIELD(arg0, s32 *, 0x438) | 0x43);
+        M2C_FIELD(arg0, s32 *, 0x438) = (s32) (M2C_FIELD(arg0, s32 *, 0x438) & 0xFFFFFDFF);
+        set_guard_state__19TObjEneEpsilonGuardFPv(arg0);
+        VecCopy__FP3VecPC3Vec(arg0 + 0x38, arg0 + 0x50);
+        VecCopy__FP3VecPC3Vec(arg0 + 0x44, arg0 + 0x50);
+        VecCopy__FP3VecPC3Vec(arg0 + 0x2FC, arg0 + 0x50);
+        M2C_FIELD(arg0, s32 *, 0x440) = (s32) M2C_FIELD(arg0, s32 *, 0x450);
+        M2C_FIELD(arg0, s32 *, 0x444) = (s32) M2C_FIELD(arg0, s32 *, 0x454);
+        return;
+    case 3:
+        if (!(M2C_FIELD(arg0, s32 *, 0x438) & 0x80)) {
+            transition_enemy_state(arg0, 1);
+        }
+    case 5:
+    case 0:
+        return;
+    }
+}
+
+void TObjEneEpsilonGuard__sub_80361E20(void) {  }
+
+extern const f32 lbl_805E0238;
+
+void update_guard_flag__19TObjEneEpsilonGuardFPv(u8 *arg0) {
+    if (update_linked_position__14TObjEneEpsilonFPv((f32) (lbl_805E0238)) == 1) {
+        M2C_FIELD(arg0, s32 *, 0x438) = (s32) (M2C_FIELD(arg0, s32 *, 0x438) & 0xFFFFFF7F);
+        return;
+    }
+    M2C_FIELD(arg0, s32 *, 0x438) = (s32) (M2C_FIELD(arg0, s32 *, 0x438) | 0x80);
+}
+#pragma push
+#pragma opt_common_subs off
+void init_params__19TObjEneEpsilonGuardFPv(u8 *arg0) {
+    M2C_FIELD(arg0, f32 *, 0x458) = (f32) (lbl_805E023C + M2C_FIELD(arg0, f32 *, 0x354));
+    if (M2C_FIELD(arg0, f32 *, 0x458) < lbl_805E0208) {
+        M2C_FIELD(arg0, f32 *, 0x458) = (f32) lbl_805E0208;
+    }
+    M2C_FIELD(arg0, s32 *, 0x45C) = (s32) (lbl_805E0240 + M2C_FIELD(arg0, f32 *, 0x358));
+    if (M2C_FIELD(arg0, f32 *, 0x458) <= lbl_805E0208) {
+        M2C_FIELD(arg0, f32 *, 0x458) = (f32) lbl_805E0208;
+    }
+    M2C_FIELD(arg0, s32 *, 0x450) = (s32) (lbl_805E0210 + M2C_FIELD(arg0, f32 *, 0x35C));
+    if ((s32) M2C_FIELD(arg0, s32 *, 0x450) < 5) {
+        M2C_FIELD(arg0, s32 *, 0x450) = 5;
+    }
+    M2C_FIELD(arg0, s32 *, 0x450) = (s32) ((f32) M2C_FIELD(arg0, s32 *, 0x450) * lbl_805E0220);
+    M2C_FIELD(arg0, s32 *, 0x454) = (s32) (lbl_805E0210 + M2C_FIELD(arg0, f32 *, 0x360));
+    if ((s32) M2C_FIELD(arg0, s32 *, 0x454) < 5) {
+        M2C_FIELD(arg0, s32 *, 0x454) = 5;
+    }
+    M2C_FIELD(arg0, s32 *, 0x454) = (s32) ((f32) M2C_FIELD(arg0, s32 *, 0x454) * lbl_805E0220);
+}
+#pragma pop
+
+}
+
+#undef transition_enemy_state
+#undef set_field_378__9TObjEneDDFPvi
+#undef set_guard_state__19TObjEneEpsilonGuardFPv
+
+extern "C" {
+#define action_destroy__19TObjEneEpsilonGuardFPvi ((s32 (*)(void *, void *))action_destroy__19TObjEneEpsilonGuardFPvi)
+#define update_fade__19TObjEneEpsilonGuardFPvi ((s32 (*)(void *, void *))update_fade__19TObjEneEpsilonGuardFPvi)
+#define TObjEneEpsilonGuard__sub_80360BF8 ((s32 (*)(void *, void *))TObjEneEpsilonGuard__sub_80360BF8)
+#define handle_warp_state__19TObjEneEpsilonGuardFPvi ((s32 (*)(void *, void *))handle_warp_state__19TObjEneEpsilonGuardFPvi)
+#define TObjEneEpsilonGuard__sub_803610D0 ((s32 (*)(void *, void *))TObjEneEpsilonGuard__sub_803610D0)
+#define action__19TObjEneEpsilonGuardFPvi ((s32 (*)(void *, void *))action__19TObjEneEpsilonGuardFPvi)
+#define handle_guard_action_state__19TObjEneEpsilonGuardFPvi ((s32 (*)(void *, void *))handle_guard_action_state__19TObjEneEpsilonGuardFPvi)
+#define TObjEneEpsilonGuard__sub_803616E4 ((s32 (*)(void *, void *))TObjEneEpsilonGuard__sub_803616E4)
+#define TObjEneEpsilonGuard__sub_80361C70 ((s32 (*)(void *, void *))TObjEneEpsilonGuard__sub_80361C70)
+#define TObjEneEpsilonGuard__sub_80361D4C ((s32 (*)(void *, void *))TObjEneEpsilonGuard__sub_80361D4C)
+void dispatch_state__19TObjEneEpsilonGuardFiUii(s32 arg0, u32 arg1, s32 arg2);
+}
+
+extern "C" {
+
+void TObjEneEpsilonGuard__sub_80361FE8(void);
+void TObjEneEpsilonGuard__sub_80362038(void);
+void TObjEneEpsilonGuard__sub_803620B0(void);
+void request_state8__19TObjEneEpsilonGuardFPv(void *arg0);
+void set_action_9__19TObjEneEpsilonGuardFPv(void* p);
+void update_position__19TObjEneEpsilonGuardFPv(u8 *arg0);
+void update_step__19TObjEneEpsilonGuardFPv(void* p);
+#define transition_enemy_state ((int (*)(void*, void*))transition_enemy_state)
+int TObjEneDD__vt86(void*);
+#define VecCopy__FP3VecPC3Vec ((M2C_UNK (*)(void *, void *, void *, f32))VecCopy__FP3VecPC3Vec)
+
+void update_step__19TObjEneEpsilonGuardFPv(void* p) { TObjEneDD__vt86(p); update_position__19TObjEneEpsilonGuardFPv((u8 *)(p)); }
+void TObjEneEpsilonGuard__sub_80361FE8(void) {  }
+
+extern const f32 lbl_805E0214;
+
+void update_position__19TObjEneEpsilonGuardFPv(u8 *arg0) {
+    M2C_FIELD(arg0, f32 *, 0x2FC) = (f32) M2C_FIELD(arg0, f32 *, 0x38);
+    M2C_FIELD(arg0, f32 *, 0x300) = (f32) (lbl_805E0214 + M2C_FIELD(arg0, f32 *, 0x3C));
+    M2C_FIELD(arg0, f32 *, 0x304) = (f32) M2C_FIELD(arg0, f32 *, 0x40);
+    VecCopy__FP3VecPC3Vec((void *) (arg0 + 0x74), (void *) (arg0 + 0x2FC), (void *) (arg0), (f32) (lbl_805E0214));
+}
+
+void TObjEneEpsilonGuard__sub_80362038(void) {  }
+void request_state8__19TObjEneEpsilonGuardFPv(void *arg0) {
+    s32 temp_r4;
+
+    if ((s16) M2C_FIELD(arg0, s16 *, 0x326) != 8) {
+        temp_r4 = M2C_FIELD(arg0, s32 *, 0x438);
+        if (!(temp_r4 & 2) && !(temp_r4 & 0x40)) {
+            transition_enemy_state((void*)(arg0), (void*)(8));
+        }
+    }
+}
+void set_action_9__19TObjEneEpsilonGuardFPv(void* p) { if (*(short*)((char*)p + 0x326) != 9) { transition_enemy_state(p, (void*)9); } }
+void TObjEneEpsilonGuard__sub_803620B0(void) {  }
+void dispatch_state__19TObjEneEpsilonGuardFiUii(s32 arg0, u32 arg1, s32 arg2) {
+    switch (arg1) {
+    case 0:
+        TObjEneEpsilonGuard__sub_80361D4C((void *) (arg0), (void *) (arg2));
+        return;
+    case 1:
+        TObjEneEpsilonGuard__sub_80361C70((void *) (arg0), (void *) (arg2));
+        return;
+    case 2:
+        TObjEneEpsilonGuard__sub_803616E4((void *) (arg0), (void *) (arg2));
+        return;
+    case 3:
+        handle_guard_action_state__19TObjEneEpsilonGuardFPvi((void *) (arg0), (void *) (arg2));
+        return;
+    case 4:
+        action__19TObjEneEpsilonGuardFPvi((void *) (arg0), (void *) (arg2));
+        return;
+    case 5:
+        TObjEneEpsilonGuard__sub_803610D0((void *) (arg0), (void *) (arg2));
+        return;
+    case 6:
+        handle_warp_state__19TObjEneEpsilonGuardFPvi((void *) (arg0), (void *) (arg2));
+        return;
+    case 7:
+        TObjEneEpsilonGuard__sub_80360BF8((void *) (arg0), (void *) (arg2));
+        return;
+    case 8:
+        update_fade__19TObjEneEpsilonGuardFPvi((void *) (arg0), (void *) (arg2));
+        return;
+    case 9:
+        action_destroy__19TObjEneEpsilonGuardFPvi((void *) (arg0), (void *) (arg2));
+    default:
+        return;
+    }
+}
+
+}
+
+#undef action_destroy__19TObjEneEpsilonGuardFPvi
+#undef update_fade__19TObjEneEpsilonGuardFPvi
+#undef TObjEneEpsilonGuard__sub_80360BF8
+#undef handle_warp_state__19TObjEneEpsilonGuardFPvi
+#undef TObjEneEpsilonGuard__sub_803610D0
+#undef action__19TObjEneEpsilonGuardFPvi
+#undef handle_guard_action_state__19TObjEneEpsilonGuardFPvi
+#undef TObjEneEpsilonGuard__sub_803616E4
+#undef TObjEneEpsilonGuard__sub_80361C70
+#undef TObjEneEpsilonGuard__sub_80361D4C
+#undef transition_enemy_state
+#undef VecCopy__FP3VecPC3Vec

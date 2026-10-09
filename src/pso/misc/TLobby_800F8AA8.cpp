@@ -1,6 +1,212 @@
-#pragma push
-
 #include "types.h"
+
+extern "C" {
+s32 *lbl_80499A00[4] = { 0, 0, 0, 0 };
+s32 lbl_80499A10[4] = { 0, 0, 0, 0 };
+u32 lbl_80499A20[4] = { 0, 0, 0, 0 };
+u32 lbl_80499A30[4] = { 0, 0, 0, 0 };
+}
+
+extern "C" {
+
+void reset_keyboard_state__6TLobbyFv(void);
+int reset__16TKeyBoardControlFv(void);
+
+    extern unsigned char lbl_805D535A;
+void reset_keyboard_state__6TLobbyFv(void) { lbl_805D535A = 0; reset__16TKeyBoardControlFv(); }
+
+}
+
+typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
+typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
+#define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
+#define M2C_BITWISE(type, expr) ((type)(expr))
+
+extern "C" {
+bool is_area_transfer_pending(void);
+}
+
+extern "C" {
+
+void TLobby__sub_800F8AD0(void);
+void clear_callback_and_reset_keyboard__6TLobbyFv(void);
+int TKeyBoardControl__sub_8000F92C(void);
+void TLobby__sub_800F8BD8(void);
+int reset__16TKeyBoardControlFv(void);
+void set_keyboard_mode__6TLobbyFi(int);
+
+extern u32 lbl_805D5350;
+#define lbl_805D535A (*(s8 *)&lbl_805D535A)
+
+void TLobby__sub_800F8AD0(void) {
+    if ((u32) lbl_805D5350 != 0U) {
+        lbl_805D535A = 1;
+    }
+}
+
+bool is_area_transfer_pending(void) {
+    return (*(u8 *)&lbl_805D535A) != 0;
+}
+
+void clear_callback_and_reset_keyboard__6TLobbyFv(void) { set_keyboard_mode__6TLobbyFi(0); reset__16TKeyBoardControlFv(); }
+
+}
+
+#undef lbl_805D535A
+typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
+typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
+#define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
+#define M2C_BITWISE(type, expr) ((type)(expr))
+
+extern "C" {
+s32 get_main_phase();
+s32 is_quest_active();
+void set_keyboard_mode__6TLobbyFi(int);
+void TLobby__sub_800F8BD8(void);
+void reset_keyboard_input__6TLobbyFv();
+void shutdown_keyboard_control__6TLobbyFv();
+void init_chr_select__6TLobbyFv();
+void reset_to_chr_select__6TLobbyFv();
+void apply_phase_keyboard_mode(void);
+}
+
+extern "C" {
+
+void TLobby__sub_800F8BD8(void);
+void invoke_callback__6TLobbyFv(void);
+#define lbl_805D5350 (*(M2C_UNK (**)())&lbl_805D5350)
+int TKeyBoardControl__sub_8000F92C(void);
+void clear_callback_and_reset_keyboard__6TLobbyFv(void);
+int reset__16TKeyBoardControlFv(void);
+void set_keyboard_mode__6TLobbyFi(int);
+
+void apply_phase_keyboard_mode(void) {
+    switch (get_main_phase()) {
+    case 15:
+        if (is_quest_active() != 0) {
+            set_keyboard_mode__6TLobbyFi((int)(init_chr_select__6TLobbyFv));
+        } else {
+            set_keyboard_mode__6TLobbyFi((int)(reset_to_chr_select__6TLobbyFv));
+        }
+        break;
+    case 14:
+        if (is_quest_active() != 0) {
+            set_keyboard_mode__6TLobbyFi((int)(shutdown_keyboard_control__6TLobbyFv));
+        } else {
+            set_keyboard_mode__6TLobbyFi((int)(reset_keyboard_input__6TLobbyFv));
+        }
+        break;
+    case 1:
+    case 2:
+        set_keyboard_mode__6TLobbyFi((int)(TLobby__sub_800F8BD8));
+        break;
+    default:
+        set_keyboard_mode__6TLobbyFi((int)(0));
+        break;
+    }
+}
+
+void TLobby__sub_800F8BD8(void) { reset__16TKeyBoardControlFv(); TKeyBoardControl__sub_8000F92C(); }
+
+void invoke_callback__6TLobbyFv(void) {
+    if (((M2C_UNK (*)()) lbl_805D5350) != NULL) {
+        lbl_805D5350();
+    }
+}
+
+}
+
+#undef lbl_805D5350
+
+extern "C" {
+#define lbl_805D5350 (*(int *)&lbl_805D5350)
+void set_keyboard_mode__6TLobbyFi(int a0) { lbl_805D5350 = a0; }
+}
+
+#undef lbl_805D5350
+typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
+typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
+#define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
+#define M2C_BITWISE(type, expr) ((type)(expr))
+
+extern "C" {
+
+void TLobby__sub_800F8C8C();
+M2C_UNK read_checked_align__6TLobbyFiii(s32, s32, u32);
+extern s32 *lbl_805D5340;
+extern s32 lbl_805D5344;
+extern u32 lbl_805D5348;
+extern s32 lbl_805D534C;
+
+void flush_pending__6TLobbyFv(void) {
+    u32 temp_r5;
+    s32 temp_r4;
+    if ((s32) lbl_805D534C != 0) {
+        temp_r5 = lbl_805D5348;
+        lbl_805D534C = 0;
+        if ((temp_r5 != 0U)) {
+            temp_r4 = lbl_805D5344;
+            if (temp_r4 != 0) {
+                read_checked_align__6TLobbyFiii(*lbl_805D5340, temp_r4, temp_r5);
+            }
+        }
+        TLobby__sub_800F8C8C();
+    }
+}
+
+void TLobby__sub_800F8C8C() {
+    s32 i;
+
+    for (i = 0; i < 4; i++) {
+        if (lbl_80499A00[i] != NULL && lbl_80499A10[i] != 0 && lbl_80499A20[i] != 0) {
+            read_checked_align__6TLobbyFiii(*lbl_80499A00[i], lbl_80499A10[i], lbl_80499A20[i]);
+        }
+    }
+}
+
+}
+
+extern "C" {
+void clear_player_slot_tables__6TLobbyFi(s32 n);
+}
+
+extern "C" {
+
+void reset_read_state__6TLobbyFv(void);
+
+#define lbl_805D5340 (*(int *)&lbl_805D5340)
+#define lbl_805D5344 (*(int *)&lbl_805D5344)
+#define lbl_805D5348 (*(int *)&lbl_805D5348)
+void reset_read_state__6TLobbyFv(void) { lbl_805D5340 = 0; lbl_805D5344 = 0; lbl_805D5348 = 0; }
+#undef lbl_805D5340
+#undef lbl_805D5344
+#undef lbl_805D5348
+void clear_player_slot_tables__6TLobbyFi(s32 n) {
+    s32 i;
+    if (n == -1) {
+        for (i = 0; i < 4; i++) {
+            lbl_80499A00[i] = 0;
+            lbl_80499A10[i] = 0;
+            lbl_80499A20[i] = 0;
+            lbl_80499A30[i] = 0;
+        }
+        return;
+    }
+    lbl_80499A00[n] = 0;
+    lbl_80499A10[n] = 0;
+    lbl_80499A20[n] = 0;
+    lbl_80499A30[n] = 0;
+}
+
+void set_entry_params__6TLobbyFiiii(s32 arg0, s32 arg1, s32 arg2, s32 arg3) {
+    lbl_80499A00[arg1] = (s32 *)arg0;
+    lbl_80499A10[arg1] = arg2;
+    lbl_80499A20[arg1] = arg3;
+}
+
+}
+
+#pragma push
 
 extern "C" {
 extern u8 lbl_805D533C;
@@ -31,12 +237,15 @@ void TLobby__sub_800F8DD8(void);
 void TLobby__sub_800F8F34(void);
 void set_read_params__6TLobbyFiii(int a0, int a1, int a2);
 
-    extern int lbl_805D5340;
-    extern int lbl_805D5344;
-    extern int lbl_805D5348;
+#define lbl_805D5340 (*(int *)&lbl_805D5340)
+#define lbl_805D5344 (*(int *)&lbl_805D5344)
+#define lbl_805D5348 (*(int *)&lbl_805D5348)
 void set_read_params__6TLobbyFiii(int a0, int a1, int a2) { lbl_805D5340 = a0; lbl_805D5344 = a1; lbl_805D5348 = a2; }
+#undef lbl_805D5340
+#undef lbl_805D5344
+#undef lbl_805D5348
 
-    extern int lbl_805D534C;
+#define lbl_805D534C (*(int *)&lbl_805D534C)
 void TLobby__sub_800F8DD8(void) { lbl_805D534C = 1; }
 
     extern unsigned char lbl_805D5358;
@@ -177,7 +386,6 @@ void func_803DCDFC__Fv(void);
 extern Msg_800F8FB8 lbl_80499A54[];
 extern Msg_800F8FB8 lbl_80499A90[];
 extern u8 lbl_805D533C;
-#define lbl_805D534C (*(s32 *)&lbl_805D534C)
 
 #define show_msg_800F8FB8(arr, i) ((void (*)(f32, f32, u8 *, s32))draw_string__14TObjWarpStringFPviff)(arr[i].x, arr[i].y, arr[i].str, 0x8FFFFFFF)
 

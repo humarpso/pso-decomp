@@ -1,5 +1,165 @@
 #include "types.h"
 typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
+typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
+#define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
+#define M2C_BITWISE(type, expr) ((type)(expr))
+
+#include <stddef.h>
+struct Stack_801D8664 {
+    s8 sp8;
+    s8 sp9;
+    s8 spA;
+    u8 rest[0x11];
+};
+
+extern "C" {
+void init__9TItemDataFv(void *);
+void process_trade_target__10TObjPlayerFiPv(s32 arg0, void *arg1);
+void TObjPlayer__sub_801D8664(s32 arg0, s8 arg1, s8 arg2);
+}
+
+extern "C" {
+
+struct VObj_84Base_801d859c_801D84CC { char pad[0x18]; };
+struct VObj_84_801d859c_801D84CC : VObj_84Base_801d859c_801D84CC {
+    virtual void m0(); virtual void m1(); virtual void m2(); virtual void m3();
+    virtual void m4(); virtual void m5(); virtual void m6(); virtual void m7();
+    virtual void m8(); virtual void m9(); virtual void m10(); virtual void m11();
+    virtual void m12(); virtual void m13(); virtual void m14(); virtual void m15();
+    virtual void m16(); virtual void m17(); virtual void m18(); virtual void m19();
+    virtual void m20(); virtual void m21(); virtual void m22(); virtual void m23();
+    virtual void m24(); virtual void m25(); virtual void m26(); virtual void m27();
+    virtual void m28(); virtual void m29(); virtual void m30();
+    virtual s8 m31();
+};
+
+void process_trade_target__10TObjPlayerFiPv(s32 arg0, void *arg1);
+int set_position_from__14TBoss4DarkFalzFPvPv(void*);
+s32 advance_item_id_counter();
+M2C_UNK send_6x29_delete_item__10TObjPlayerFPvii(s32, s32, M2C_UNK);
+u32 pickup_item__10TObjPlayerFv(s32, void *);
+M2C_UNK equip_item_to_slot__10TObjPlayerFPvPvi(s32, void *, M2C_UNK);
+M2C_UNK TObjPlayer__sub_801BE9A8(s32);
+M2C_UNK set_equip_slot_entry(s32, s8, M2C_UNK);
+s32 get_field_d8__10TObjPlayerFPv();
+u32 get_slot_value__10TObjPlayerFPvi(s32, s8);
+void *lookup_inventory_item__10TObjPlayerFPv(void *);
+u16 obj_getField1c(void *);
+int query_darkfalz_state__10TObjPlayerFPv(void* p);
+int set_animation__10TObjPlayerFPvs(void*);
+int set_animation_default__10TObjPlayerFPv(void* p);
+M2C_UNK set_flag_20000__10TObjPlayerFi(s32);
+
+void process_trade_target__10TObjPlayerFiPv(s32 arg0, void *arg1) {
+    void *temp_r3;
+
+    ((M2C_UNK (*)())obj_getField1c)();
+    M2C_FIELD(arg1, s32 *, 0xC) = advance_item_id_counter();
+    temp_r3 = lookup_inventory_item__10TObjPlayerFPv(arg1);
+    if (temp_r3 != NULL) {
+        s8 val = ((VObj_84_801d859c_801D84CC *)temp_r3)->m31();
+        s32 val_ext = (s32)val;
+        if (get_slot_value__10TObjPlayerFPvi(arg0 + 0xD04, val_ext) != 0U) {
+            send_6x29_delete_item__10TObjPlayerFPvii(arg0, get_field_d8__10TObjPlayerFPv(), 1);
+            set_equip_slot_entry(arg0 + 0xD04, val_ext, 0);
+        }
+        if (pickup_item__10TObjPlayerFv(arg0, temp_r3) != 0U) {
+            set_flag_20000__10TObjPlayerFi(arg0);
+            equip_item_to_slot__10TObjPlayerFPvPvi(arg0, temp_r3, 0);
+            TObjPlayer__sub_801BE9A8(arg0);
+        }
+    }
+}
+void TObjPlayer__sub_801D8664(s32 arg0, s8 arg1, s8 arg2) {
+    typedef char sp8_offset[(offsetof(Stack_801D8664, sp8) == 0x0) ? 1 : -1];
+    typedef char sp9_offset[(offsetof(Stack_801D8664, sp9) == 0x1) ? 1 : -1];
+    typedef char spA_offset[(offsetof(Stack_801D8664, spA) == 0x2) ? 1 : -1];
+    Stack_801D8664 stack;
+    init__9TItemDataFv((void *) (&stack.sp8));
+    stack.sp9 = arg1;
+    stack.sp8 = 0;
+    stack.spA = arg2;
+    process_trade_target__10TObjPlayerFiPv(arg0, (void *) (&stack.sp8));
+}
+
+}
+
+#include "types.h"
+
+typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
+typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
+#define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
+#define M2C_BITWISE(type, expr) ((type)(expr))
+extern "C" {
+s32 obj_testFlags30(void *, s32);
+s32 draw_model_with_callback__10TObjPlayerFPviif(void *, s32, s32, f32);
+void push_matrix(void);
+void pop_matrix(void);
+s32 set_global_param__8TObjFishFi(s32);
+M2C_UNK restore_scene_lighting();
+M2C_UNK select_actor_lighting(void *);
+M2C_UNK draw_model_with_callback__10TObjPlayerFPv(void *);
+M2C_UNK apply_material_color_override__10TObjPlayerFi(void *);
+M2C_UNK TObjPlayer__sub_801BAC48(void *);
+M2C_UNK draw_head_attachments__10TObjPlayerFPv(void *);
+M2C_UNK write_ids__10TObjPlayerFPv(void *);
+M2C_UNK save_render_material_state(void *);
+M2C_UNK set_position_vec3__10TObjPlayerFPvPv(int, void *);
+M2C_UNK rotate_matrix_y(int, int);
+M2C_UNK set_global_flag__10TObjPlayerFv();
+M2C_UNK clear_global_state__10TObjPlayerFv();
+void TObjPlayer__sub_801D877C(u8 *arg0);
+}
+
+extern "C" {
+
+void TObjPlayer__sub_801D8864(void);
+void free_shared_lobby_data__10TObjPlayerFv(void);
+int query_darkfalz_state__10TObjPlayerFPv(void* p);
+int set_animation_default__10TObjPlayerFPv(void* p);
+int set_position_from__14TBoss4DarkFalzFPvPv(void*);
+int free_nodes_with_id__6TLobbyFUi(void*);
+int free_shared_data__10TObjPlayerFv(void);
+int set_animation__10TObjPlayerFPvs(void*);
+
+int query_darkfalz_state__10TObjPlayerFPv(void* p) { return set_position_from__14TBoss4DarkFalzFPvPv(p); }
+int set_animation_default__10TObjPlayerFPv(void* p) { return set_animation__10TObjPlayerFPvs(p); }
+
+void TObjPlayer__sub_801D877C(u8 *arg0) {
+    if ((obj_testFlags30(arg0, 0x02000000) == 0) && ((s32) M2C_FIELD(arg0, s32 *, 0xCFC) == 0)) {
+        select_actor_lighting((void *) (arg0));
+        push_matrix();
+        set_position_vec3__10TObjPlayerFPvPv((int) (0), (void *) (arg0 + 0x38));
+        rotate_matrix_y((int) (0), (int) (M2C_FIELD(arg0, s32 *, 0x60)));
+        save_render_material_state((void *) (arg0 + 0x608));
+        apply_material_color_override__10TObjPlayerFi((void *) (arg0));
+        set_global_param__8TObjFishFi((s32) (arg0 + 0xCF4));
+        set_global_flag__10TObjPlayerFv();
+        draw_model_with_callback__10TObjPlayerFPv((void *) (arg0));
+        clear_global_state__10TObjPlayerFv();
+        write_ids__10TObjPlayerFPv((void *) (arg0 + 0x608));
+        draw_head_attachments__10TObjPlayerFPv((void *) (arg0));
+        pop_matrix();
+        TObjPlayer__sub_801BAC48((void *) (arg0));
+        restore_scene_lighting();
+        return;
+    }
+    push_matrix();
+    set_position_vec3__10TObjPlayerFPvPv((int) (0), (void *) (arg0 + 0x38));
+    rotate_matrix_y((int) (0), (int) (M2C_FIELD(arg0, s32 *, 0x60)));
+    ((s32 (*)(void *, s32, f32, s32))draw_model_with_callback__10TObjPlayerFPviif)(arg0, M2C_FIELD(arg0, s32 *, 0xF8), M2C_FIELD(arg0, f32 *, 0xC0), M2C_FIELD(arg0, s32 *, 0xE0));
+    pop_matrix();
+}
+
+void TObjPlayer__sub_801D8864(void) {  }
+
+    extern int lbl_805D5E08;
+void free_shared_lobby_data__10TObjPlayerFv(void) { free_nodes_with_id__6TLobbyFUi((void*)(lbl_805D5E08)); lbl_805D5E08 = 0; free_shared_data__10TObjPlayerFv(); }
+
+}
+
+#include "types.h"
+typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
 #define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
 typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 #define M2C_BITWISE(type, expr) ((type)(expr))
@@ -255,7 +415,6 @@ extern Vec_801D8CCC *lbl_804C49E8[];
 Vec_801D8CCC *get_guild_return_position__10TObjPlayerFPv(void *player);
 void VecCopy__FP3VecPC3Vec(void *, void *);
 u16 obj_getField1c(void *);
-void draw_model_with_callback__10TObjPlayerFPviif(void *, void *, void *, f32);
 void init_npc_animation__10TObjPlayerFPvPvPvPv(void *, s32, s32, s32);
 void select_class_action_provider__10TObjPlayerFPv(void *);
 void TObjPlayer__ct(void *, void *);
@@ -265,8 +424,8 @@ s32 get_lock_timer__10TObjPlayerFPv(void *);
 void set_action_flag_40__10TObjPlayerFPv(void *);
 void assign_lobby_slot_if_flagged__10TObjPlayerFiPv(void *, void *);
 s32 get_table_entry_by_clamped_index__10TObjPlayerFPv(u8 *arg0);
-void set_position_vec3__10TObjPlayerFPvPv(s32, void *);
-void rotate_matrix_y(s32, s32);
+M2C_UNK set_position_vec3__10TObjPlayerFPvPv(int, void *);
+M2C_UNK rotate_matrix_y(int, int);
 void push_matrix(void);
 void pop_matrix(void);
 extern M2C_UNK lbl_804C4540[];

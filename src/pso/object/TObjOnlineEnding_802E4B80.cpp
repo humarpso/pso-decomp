@@ -1,4 +1,23 @@
 #include "types.h"
+
+extern "C" {
+
+void close_window__16TObjOnlineEndingFPv(void* p);
+void* get_attack_entry__16TObjOnlineEndingFi(int a0);
+int get_instance__16TObjOnlineEndingFv(void);
+int TWindow__close(void*);
+void *__nw__7TObjectFUl(int);
+
+    extern int lbl_805D5878;
+int get_instance__16TObjOnlineEndingFv(void) {  return lbl_805D5878; }
+
+    extern unsigned char lbl_8050DAD0[];
+void* get_attack_entry__16TObjOnlineEndingFi(int a0) {  return (char*)lbl_8050DAD0 + a0 * 8; }
+
+void close_window__16TObjOnlineEndingFPv(void* p) { if (*(unsigned int*)((char*)p + 0x154) != 0) { TWindow__close(*(void**)((char*)p + 0x154)); *(int*)((char*)p + 0x154) = 0; } }
+
+}
+
 typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
 typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 #define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
@@ -90,8 +109,6 @@ s32 TLobby__sub_80070ACC();
 s32 TWindowChallengeResult__ct(s32, s32, s32, s32);
 s32 TWindowSubStatusDisp__sub_800718D0();
 M2C_UNK __dl__7TObjectFPv(void *);
-s32 __nw__7TObjectFUl(M2C_UNK);
-M2C_UNK close_window__16TObjOnlineEndingFPv(void *);
 M2C_UNK destroy_particle__13TParticleCtrlFPvs(void *, M2C_UNK);
 s32 get_card_window_value__16TObjOnlineEndingFv();
 s32 get_layout_id__20TWindowSubStatusDispFv(M2C_UNK);
@@ -109,7 +126,7 @@ void create_result_window__16TObjOnlineEndingFPv(void *arg0) {
         {
         s32 t = get_online_result_value__6TLobbyFv();
         if (t == temp_r30) {
-            var_r29 = __nw__7TObjectFUl(0x68);
+            var_r29 = (s32)__nw__7TObjectFUl(0x68);
             if (var_r29 != 0) {
                 temp_r30_2 = get_card_window_value__16TObjOnlineEndingFv();
                 temp_r31 = TWindowSubStatusDisp__sub_800718D0();
@@ -211,6 +228,32 @@ void *destroy__16TObjOnlineEndingFPvs(void *arg0, s16 arg1) {
         }
     }
     return arg0;
+}
+
+}
+
+extern "C" {
+
+void *create__16TObjOnlineEndingFPv(void *arg0);
+void free_global_instance__14TBoss4DarkFalzFv(void);
+void TLobby__sub_8001FE7C(void*, int);
+void *TObjOnlineEnding__ct(void *, void *);
+
+void *create__16TObjOnlineEndingFPv(void *arg0) {
+    void *o = __nw__7TObjectFUl(0x158);
+    if (o != NULL) {
+        o = TObjOnlineEnding__ct(o, arg0);
+    }
+    return o;
+}
+
+extern u32 lbl_805D68F4;
+
+void free_global_instance__14TBoss4DarkFalzFv(void) {
+    if ((u32) lbl_805D68F4 != 0U) {
+        TLobby__sub_8001FE7C((void*)lbl_805D68F4, 1);
+        lbl_805D68F4 = 0U;
+    }
 }
 
 }
