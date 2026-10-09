@@ -6,6 +6,13 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 #define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
 #define M2C_BITWISE(type, expr) ((type)(expr))
 
+struct Glob_801E8614
+{
+  s32 f0;
+  s32 f4;
+  u8 rest[0x18];
+};
+
 extern "C" {
 u32 get_player_by_client_id(s32);
 s16 obj_getS16_32C(u8 *);
@@ -14,6 +21,10 @@ extern int* TLobby__data_805D5E78;
 extern const f32 lbl_805DC4C4;
 extern const f32 lbl_805DC4D0;
 void qst_op_p_hpstat(void);
+f32 sin_table_lookup(int);
+f32 cos_table_lookup(int);
+extern int* TLobby__data_805D5E78;
+void TLobby__sub_801E8614(void);
 }
 
 extern "C" {
@@ -2198,6 +2209,10 @@ extern "C" {
 extern RecoveredGlobal_801F027C_TLobby__data_80512220 TLobby__data_80512220;
 }
 
+extern "C" {
+extern RecoveredGlobal_801F027C_TLobby__data_80512220 TLobby__data_80512220;
+}
+
 void request_1c38_1_7__6TLobbyFv(void) {
     ((M2C_UNK (*)(M2C_UNK, M2C_UNK))pop_stack_into_slots__6TLobbyFii)(1, 7);
 }
@@ -2753,6 +2768,17 @@ void TLobby__sub_801E85B4(void) {
 #pragma inline_depth(1)
 #pragma auto_inline off
 #pragma dont_inline off
+
+typedef struct Glob_801E8614 Glob_801E8614;
+void TLobby__sub_801E8614(void) {
+  s32 arg;
+  u8 idx;
+  idx = (*(Glob_801E8614 *)&TLobby__data_80512220).f0 & 0xFFu;
+  arg = (*(Glob_801E8614 *)&TLobby__data_80512220).f4;
+  f32 v = sin_table_lookup(arg) / cos_table_lookup(arg);
+  (*(s32 * *)&TLobby__data_805D5E78)[idx] = *((s32 *) (&v));
+}
+
 void op_cos__6TLobbyFv(void) {
     u8 idx = (*(Glob_801E8684 *)&TLobby__data_80512220).f0;
     f32 v = cos_table_lookup((*(Glob_801E8684 *)&TLobby__data_80512220).f4);

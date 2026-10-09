@@ -411,6 +411,8 @@ extern u16 lbl_805D7C6C[2];
 extern u8 *lbl_805D7C74;
 extern u16 lbl_805D7C7A;
 void TLobby__sub_80429AC8(void);
+s32 TLobby__sub_803F9F04(void *, void *, int);
+s16 TLobby__sub_80426CAC(u8 *dst, void *src, void *mac, u16 type, u8 flag, u16 a, u16 len);
 }
 
 extern "C" {
@@ -502,6 +504,35 @@ s32 TLobby__sub_80426B88(s16 arg0);
 s16 query_link_status__6TLobbyFv(void);
 
 s32 set_connect_mode__6TLobbyFi(s32 arg0);
+
+s16 TLobby__sub_80426CAC(u8 *dst, void *src, void *mac, u16 type, u8 flag, u16 a, u16 len) {
+  u8 *p;
+  u8 c;
+  u16 t;
+  u16 x;
+  u8 *new_var;
+  u16 l;
+  s16 r;
+  new_var = dst;
+  TLobby__sub_803F9F04(new_var, src, 6);
+  TLobby__sub_803F9F04(new_var + 6, mac, 6);
+  t = type;
+  TLobby__sub_803F9F04(dst + 0xC, &t, 2);
+  p = new_var + 0xE;
+  c = 0x11;
+  TLobby__sub_803F9F04(p, &c, 1);
+  TLobby__sub_803F9F04(p + 1, &flag, 1);
+  x = a;
+  TLobby__sub_803F9F04(p + 2, &x, 2);
+  l = len;
+  TLobby__sub_803F9F04(p + 4, &l, 2);
+  r = ((u32) len) + 0x14;
+  if (r < 0x3C)
+  {
+    r = 0x3C;
+  }
+  return r;
+}
 
 s32 TLobby__sub_80427240(u8 **arg0) {
     s16 a = 0;

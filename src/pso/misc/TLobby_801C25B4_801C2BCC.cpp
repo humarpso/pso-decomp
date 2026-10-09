@@ -69,6 +69,23 @@ M2C_UNK send_6x7D_set_battle_mode_data__6TLobbyFPv(void *);
 M2C_UNK send_60_sized__6TLobbyFPv(void *);
 s32 rand();
 void send_6x7D_set_battle_mode_data(void);
+M2C_UNK obj_set_flag_20000();
+M2C_UNK destroy_matching_traps__10TOMineTrapFv();
+s32 update_battle_controller__10TObjPlayerFv();
+M2C_UNK calc_player_rankings__6TLobbyFPv(void *);
+M2C_UNK apply_game_settings__6TLobbyFii(void *, M2C_UNK);
+M2C_UNK close_and_play_effect__6TLobbyFii(u16, M2C_UNK);
+s32 TLobby__sub_801C417C();
+M2C_UNK set_battle_mode__19TPlayerBattleCtrl4PFPvi(s32, M2C_UNK);
+M2C_UNK update_child_player__6TLobbyFi(s32);
+M2C_UNK set_slot__23TAdSinglePlyChrSelectGCFi(u16);
+u16 get_char_select_slot__23TAdSinglePlyChrSelectGCFv();
+M2C_UNK TAdSinglePlyChrSelectGC__sub_801FCE6C();
+M2C_UNK set_timer_window_time__11TWindowCtrlFi(s32);
+M2C_UNK create_alt_timer__11TWindowCtrlFv();
+extern s32 TLobby__data_80511CA0[];
+extern s32 lbl_805D53A0;
+void TLobby__sub_801C3030(void *arg0);
 }
 
 extern "C" {
@@ -234,6 +251,45 @@ void start_duel_battle__6TLobbyFPv(Lobby_801C2F40 *self) {
         }
     }
     self->f64 = TLobby__data_805D5DC0;
+}
+void TLobby__sub_801C3030(void *arg0) {
+  s32 temp_r0;
+  s32 temp_r3;
+  s32 var_ctr;
+  s32 var_r3;
+  s32 var_r3_2;
+  *((s32 *) (((s8 *) arg0) + 0x3C)) = TLobby__sub_801C417C();
+  create_alt_timer__11TWindowCtrlFv();
+  set_timer_window_time__11TWindowCtrlFi(*((s32 *) (((s8 *) arg0) + 0x3C)));
+  destroy_matching_traps__10TOMineTrapFv();
+  temp_r0 = get_char_select_slot__23TAdSinglePlyChrSelectGCFv();
+  temp_r0 = temp_r0 + 1;
+  var_r3 = 0xFFFF;
+  if (temp_r0 < var_r3)
+  {
+    var_r3 = temp_r0;
+  }
+  set_slot__23TAdSinglePlyChrSelectGCFi((u16) var_r3);
+  TAdSinglePlyChrSelectGC__sub_801FCE6C();
+  apply_game_settings__6TLobbyFii(arg0, 1);
+  close_and_play_effect__6TLobbyFii((u16) lbl_805D53A0, 1);
+  temp_r3 = update_battle_controller__10TObjPlayerFv();
+  if (temp_r3 != 0)
+  {
+    obj_set_flag_20000();
+    update_child_player__6TLobbyFi(temp_r3 + 0x78C);
+    update_child_player__6TLobbyFi(temp_r3 + 0x77C);
+    update_child_player__6TLobbyFi(temp_r3 + 0x75C);
+    update_child_player__6TLobbyFi(temp_r3 + 0x76C);
+    update_child_player__6TLobbyFi(temp_r3 + 0x79C);
+    set_battle_mode__19TPlayerBattleCtrl4PFPvi(temp_r3 + 0x7AC, 0);
+  }
+  *((s32 *) (((s8 *) arg0) + 0x60)) = 0x5A;
+  calc_player_rankings__6TLobbyFPv(arg0);
+  for (var_r3_2 = 0; var_r3_2 < 4; var_r3_2++)
+  {
+    TLobby__data_80511CA0[var_r3_2] = 1;
+  }
 }
 
 }

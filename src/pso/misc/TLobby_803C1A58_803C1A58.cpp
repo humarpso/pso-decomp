@@ -116,6 +116,33 @@ struct Rec_803C3E88 {
     void *f88; void *f8c; void *f90; void *f94; u8 pad_98[0xB8 - 0x98];
 };
 
+struct Snd_803C1DC4
+{
+  u8 pad0[4];
+  s32 state;
+  s32 lobby;
+  u8 pad0C[2];
+  s8 channels;
+  u8 pad0F[0x50 - 0x0F];
+  u8 *src;
+  s32 max;
+  u8 pad58[0x64 - 0x58];
+  s16 *dst;
+  s32 size;
+  s32 rofs;
+  s32 pos;
+  s32 avail;
+  s32 unk78;
+  u8 pad7C[0x88 - 0x7C];
+  void (*get)(s32, s32 *, s32 *, s32 *);
+  s32 getCtx;
+  void (*put)(s32, s32, s32);
+  s32 putCtx;
+  u8 pad98[0xA0 - 0x98];
+  s32 count;
+  s32 bytes;
+};
+
 extern "C" {
 void TLobby__sub_803C4020(u8 *arg0, s32 arg1, s32 arg2);
 s8 TLobby__sub_803C3B38(u8 *arg0);
@@ -174,6 +201,8 @@ Rec_803C3E88 *alloc_record__6TLobbyFiiii(s32 arg0, s32 arg1, s32 arg2, s32 arg3)
 u32 GXSetCopyFilter(void *, void *, void *, void *, void *, void *, void *);
 M2C_UNK memset(void *, int, int);
 s32 TLobby__sub_803C30E8(u8 *arg0, s32 arg1, s32 arg2);
+s32 get_client_count__6TLobbyFPv(int);
+void TLobby__sub_803C1DC4(Snd_803C1DC4 *arg0);
 }
 
 extern "C" {
@@ -201,7 +230,6 @@ s32 get_progress_info__6TLobbyFPvPvPvPv(u8 *arg0, s32 *arg1, s32 *arg2, s32 *arg
 s16 get_slot__6TLobbyFPv(u8 *arg0);
 void init_scroll__6TLobbyFPvii(u8 *arg0, s32 arg1, s32 arg2);
 void decode_pcm8_stream__6TLobbyFPv(Strm_803C1A8C *o);
-M2C_UNK TLobby__sub_803C1DC4();
 void decode_stream_chunk__6TLobbyFPv(Strm_803C1A8C *o);
 void TLobby__sub_803C2A00(Strm_803C1A8C *o);
 s32 get_client_count__6TLobbyFPv(int);
@@ -217,7 +245,7 @@ void dispatch_network_state__6TLobbyFPv(u8 *arg0) {
         decode_pcm8_stream__6TLobbyFPv((Strm_803C1A8C *)arg0);
         return;
     }
-    TLobby__sub_803C1DC4();
+    TLobby__sub_803C1DC4((Snd_803C1DC4 *)(arg0));
 }
 
 void decode_pcm8_stream__6TLobbyFPv(Strm_803C1A8C *o) {
@@ -259,6 +287,57 @@ void decode_pcm8_stream__6TLobbyFPv(Strm_803C1A8C *o) {
 
 #define o ((Obj_803C2174 *)arg0)
 #define p ((u8 *)arg1)
+
+typedef struct Snd_803C1DC4 Snd_803C1DC4;
+void TLobby__sub_803C1DC4(Snd_803C1DC4 *arg0) {
+  u16 *src = (u16 *) arg0->src;
+  u16 *l;
+  s32 new_var;
+  u16 *r;
+  s32 i;
+  s32 n;
+  if ((arg0->state == 1) && (get_client_count__6TLobbyFPv(arg0->lobby) == 0))
+  {
+    arg0->get(arg0->getCtx, &arg0->pos, &arg0->avail, &arg0->unk78);
+    new_var = arg0->size;
+    n = new_var - arg0->pos;
+    if (n > arg0->avail)
+    {
+      n = arg0->avail;
+    }
+    if (n > arg0->max)
+    {
+      n = arg0->max;
+    }
+    l = ((u16 *) arg0->dst) + arg0->pos;
+    if (arg0->channels == 2)
+    {
+      r = ((u16 *) arg0->dst) + (arg0->rofs + arg0->pos);
+      for (i = 0; i < n; i++)
+      {
+        new_var = src[i * 2];
+        l[i] = (src[i * 2] >> 8) | (new_var << 8);
+        r[i] = (src[(i * 2) + 1] >> 8) | (src[(i * 2) + 1] << 8);
+      }
+    }
+    else
+    {
+      for (i = 0; i < n; i++)
+      {
+        l[i] = (src[i] >> 8) | (src[i] << 8);
+      }
+    }
+    arg0->count = n;
+    arg0->bytes = arg0->channels * (n * 2);
+    arg0->state = 2;
+  }
+  if (arg0->state == 2)
+  {
+    arg0->put(arg0->putCtx, arg0->bytes, arg0->count);
+    arg0->state = 3;
+  }
+}
+
 s32 parse_stream_header__6TLobbyFPvPvPv(void *arg0, void *arg1, void *arg2) {
     s32 d;
     s32 c;

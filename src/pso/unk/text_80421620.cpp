@@ -87,6 +87,30 @@ struct T_80422E30 {
 
 struct P_8042315C { s32 type; s32 a; s32 b; s32 c; s32 pad10; s16 n; s16 m; s32 d; };
 
+struct T_80422368
+{
+  u8 pad0[0x200];
+  s32 z;
+  u8 padA[0x2A4 - 0x204];
+  u8 fl;
+  u8 pad1;
+  s16 st;
+  s32 th;
+  u8 padE[0x544 - 0x2AC];
+};
+
+struct T_8042276C
+{
+  u8 pad0[0x1FC];
+  s32 z;
+  u8 padA[0x2B4 - 0x200];
+  u8 fl;
+  u8 pad1;
+  s16 st;
+  s32 th;
+  u8 padE[0x544 - 0x2BC];
+};
+
 extern "C" {
 s32 shutdown_network_handle__6TLobbyFv(void);
 s32 TLobby__sub_80409AA8(void);
@@ -291,6 +315,12 @@ extern u32 lbl_805D7B4C;
 extern u32 lbl_805D7B50;
 extern u32 lbl_805D7B60;
 s32 build_dhcp_release__6TLobbyFPv(u8 *arg0);
+M2C_UNK resume_thread__6TLobbyFv(s32);
+extern S_804220A0 *lbl_805C1D48[];
+s32 TLobby__sub_80422368(s32 idx, void (*cb)(s16, s16), s16 arg2);
+M2C_UNK resume_thread__6TLobbyFv(s32);
+extern S_804220A0 *lbl_805C1D48[];
+s32 TLobby__sub_8042276C(s32 idx, void (*cb)(s16, s16), s16 arg2);
 }
 
 extern "C" {
@@ -595,6 +625,65 @@ s16 tcp_receive__FsPFss_vsPUc(s32 a, void *cb, s32 len, void *buf) {
     s->f2A4 &= ~1;
     unlock_mutex__10TUdpSocketFi((void *)lbl_805C1C50.value);
     return r;
+}
+
+typedef struct S_804220A0 S_804220A0;
+typedef struct T_80422368 T_80422368;
+s32 TLobby__sub_80422368(s32 idx, void (*cb)(s16, s16), s16 arg2) {
+  T_80422368 *s = (T_80422368 *) lbl_805C1D48[0];
+  s16 new_var;
+  s += (s16) idx;
+  if ((cb != 0) && (!(s->fl & 8)))
+  {
+    new_var = (s16) idx;
+    cb(arg2, new_var);
+    s->st = arg2;
+    s->fl &= ~1;
+    s->fl |= 4;
+    s->z = 0;
+  }
+  else
+    if ((s->fl & 1) && (!(s->fl & 4)))
+  {
+    if (s->fl & 2)
+    {
+      resume_thread__6TLobbyFv(s->th);
+    }
+    s->st = arg2;
+    s->fl &= ~1;
+    s->fl |= 4;
+    s->z = 0;
+  }
+  return 0;
+}
+
+typedef struct T_8042276C T_8042276C;
+s32 TLobby__sub_8042276C(s32 idx, void (*cb)(s16, s16), s16 arg2) {
+  T_8042276C *s = (T_8042276C *) lbl_805C1D48[0];
+  s16 new_var;
+  s += (s16) idx;
+  if ((cb != 0) && (!(s->fl & 8)))
+  {
+    new_var = (s16) idx;
+    cb(arg2, new_var);
+    s->st = arg2;
+    s->fl &= ~1;
+    s->fl |= 4;
+    s->z = 0;
+  }
+  else
+    if ((s->fl & 1) && (!(s->fl & 4)))
+  {
+    if (s->fl & 2)
+    {
+      resume_thread__6TLobbyFv(s->th);
+    }
+    s->st = arg2;
+    s->fl &= ~1;
+    s->fl |= 4;
+    s->z = 0;
+  }
+  return 0;
 }
 
 s32 tcp_stat__FsPsPsPUlPUl(s32 a, s16 *b, s16 *c, u32 *d, u32 *e) {

@@ -8,6 +8,13 @@ struct Obj_80113EDC { u8 pad[0x44]; u8 arr[1]; };
 
 struct MagData_80113F64 { u8 pad[0xC]; u8 flags; u8 blasts; };
 
+struct Mag_801143E8
+{
+  u8 pad[0xC];
+  u8 flags;
+  u8 blasts;
+};
+
 extern "C" {
 void copy_record__8TItemMagFPvPv(u8 *arg0, u8 *arg1);
 u8 obj_isState7_324(u8 *arg0);
@@ -28,6 +35,10 @@ extern const u8 lbl_805DABC4[3];
 extern const u8 lbl_805DABC0[2];
 s32 is_pb_registered__8TItemMagFiUc(s32 arg0, u8 arg1);
 void add_photon_blast__8TItemMagFPvUc(MagData_80113F64 *data, u8 blast);
+void *memset(void *, s32, u32);
+extern const u8 lbl_805DABC4[3];
+extern const u8 lbl_805DABC0[2];
+s32 TItemMag__sub_801143E8(Mag_801143E8 *mag, s32 slot);
 }
 
 extern "C" {
@@ -51,7 +62,6 @@ s32 is_pb_registered__8TItemMagFiUc(s32 arg0, u8 arg1);
 void set_flags__8TItemMagFPvUi(void* p, u32 v);
 int test_flags__8TItemMagFPvUi(void* p, u32 m);
 int get_mag_mind_level__9TItemDataFPv(void*);
-s32 TItemMag__sub_801143E8(s32, s32);
 int test_flags_any(void*, int);
 s16 TObjPlayer__sub_80113D90(void* p);
 int get_level__9TItemDataFPv(void*);
@@ -269,7 +279,7 @@ s32 is_pb_registered__8TItemMagFiUc(s32 arg0, u8 arg1) {
     if (arg1 < 6U) {
         var_r30 = 0;
 loop_2:
-        if ((s32) arg1 == TItemMag__sub_801143E8(arg0, var_r30)) {
+        if ((s32) arg1 == TItemMag__sub_801143E8((Mag_801143E8 *)(arg0), (s32)(var_r30))) {
             return 1;
         }
         var_r30 += 1;
@@ -280,6 +290,51 @@ loop_2:
     }
 block_5:
     return 0;
+}
+typedef struct Mag_801143E8 Mag_801143E8;
+s32 TItemMag__sub_801143E8(Mag_801143E8 *mag, s32 slot) {
+  int new_var;
+  u8 used[6];
+  s32 i;
+  u8 ord;
+  switch (slot)
+  {
+    case 0:
+      if (mag->flags & lbl_805DABC4[0])
+    {
+      return mag->blasts & lbl_805DABC0[0];
+    }
+      break;
+    case 1:
+      if (mag->flags & lbl_805DABC4[1])
+    {
+      return (mag->blasts & lbl_805DABC0[1]) >> 3;
+    }
+      break;
+    case 2:
+      if (mag->flags & lbl_805DABC4[2])
+    {
+      memset(used, 0, 6);
+      new_var = mag->blasts;
+      u8 b = new_var;
+      used[(u8) (b & lbl_805DABC0[0])] = 1;
+      used[(u8) ((b & lbl_805DABC0[1]) >> 3)] = 1;
+      ord = (b & lbl_805DABC0[2]) >> 6;
+      for (i = 0; i < 6; i++)
+      {
+        if (used[i] != 1)
+        {
+          if (ord == 0)
+          {
+            return i;
+          }
+          ord--;
+        }
+      }
+    }
+      break;
+  }
+  return -1;
 }
 
 }

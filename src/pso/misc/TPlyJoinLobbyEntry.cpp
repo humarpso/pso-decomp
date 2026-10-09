@@ -23,6 +23,22 @@ struct Tag_8013634C {
 
 struct Ent_80136FA0 { u8 pad[0xA]; char name[0x12]; };
 
+struct Pkt_8013566C
+{
+  u8 pad[4];
+  s32 len;
+  u8 data[1];
+};
+
+struct Hdr_8013566C
+{
+  u16 f0;
+  u16 f2;
+  u16 f4;
+  u16 f6;
+  u8 data[1];
+};
+
 extern "C" {
 void copy_header_struct__6TLobbyFPvPv(void *, void *);
 void open_udp_socket_for_player__6TLobbyFi(s32 arg0);
@@ -71,6 +87,19 @@ void * open_default__23TShopJudgmentItemWindowFi(void *);
 extern char lbl_8043EFF8[];
 extern void *TLobby__data_805D55D0;
 void open_information_list__6TLobbyFiPv(s32 arg0, Ent_80136FA0 *arg1);
+void __dl__FPv(void *);
+void * alloc__23TAdSinglePlyChrSelectGCFPv(s32);
+void TLobby__sub_8013A170(const char *fmt, ...);
+s32 TLobby__sub_8013F810(void *, void *, s32, void *);
+void bswap_6x6E_sync_game_state__6TLobbyFPv(void *p);
+void sync_game_state__6TLobbyFPv(void *, u16);
+void import_sync_records__6TLobbyFPv(void *, u16);
+void activate_triggered_floor_events(void);
+void restore_switch_table(void *, u16);
+extern char lbl_8043EE90[];
+extern s32 TLobby__data_805D5594;
+extern s16 TLobby__data_805D5CE8;
+void handle_6x6E_sync_game_state(Pkt_8013566C *arg0);
 }
 
 extern "C" {
@@ -721,6 +750,43 @@ void handle_6x6F_set_quest_flags_v2(s32 arg0) {
 }
 extern int fold_flush_0;
 #pragma pop
+
+typedef struct Hdr_8013566C Hdr_8013566C;
+typedef struct Pkt_8013566C Pkt_8013566C;
+void handle_6x6E_sync_game_state(Pkt_8013566C *arg0) {
+  u8 *new_var;
+  u8 *new_var2;
+  void *tmp;
+  Hdr_8013566C *buf;
+  s32 n;
+  if ((TLobby__data_805D5CE8 == 0) && ((TLobby__data_805D5594 == 0xE) || (TLobby__data_805D5594 == 0xF)))
+  {
+    TLobby__sub_8013A170(lbl_8043EE90, arg0->len);
+    buf = (Hdr_8013566C *) alloc__23TAdSinglePlyChrSelectGCFPv(0x4008);
+    if (buf != 0)
+    {
+      tmp = alloc__23TAdSinglePlyChrSelectGCFPv(0x7230);
+      if (tmp != 0)
+      {
+        new_var2 = buf->data;
+        new_var = new_var2;
+        TLobby__sub_8013F810(tmp, arg0->data, arg0->len, buf);
+        __dl__FPv(tmp);
+        bswap_6x6E_sync_game_state__6TLobbyFPv(buf);
+        sync_game_state__6TLobbyFPv(new_var, buf->f2);
+        n = buf->f2;
+        import_sync_records__6TLobbyFPv(&buf->data[n], buf->f4);
+        if ((buf->f4 && buf->f4) && buf->f4)
+        {
+        }
+        n += buf->f4;
+        restore_switch_table(&buf->data[n], buf->f6);
+        activate_triggered_floor_events();
+      }
+      __dl__FPv((0, buf));
+    }
+  }
+}
 
 void handle_6x6D_sync_game_state(Pkt_8013574C *arg0) {
     s32 len;

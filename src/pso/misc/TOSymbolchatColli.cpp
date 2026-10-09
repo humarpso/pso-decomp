@@ -24,6 +24,39 @@ struct Obj_80178890 { u8 pad[0x38]; f32 pos[3]; u8 pad44[0x334 - 0x44]; f32 radi
 
 struct Player_80178890 { u8 pad[0x38]; f32 pos[3]; };
 
+struct Obj_8017873C
+{
+  u8 pad[0x3C];
+  f32 y3c;
+  u8 pad40[0x68 - 0x40];
+  f32 radius;
+  u8 pad6c[0x84 - 0x6C];
+  u32 ids[3];
+  u8 pad90[0x334 - 0x90];
+  f32 radiusSq;
+  u8 pad338[0x348 - 0x338];
+  u8 coll[0x10];
+  f32 y358;
+  u8 pad35c[0x36C - 0x35C];
+  u32 ptrs[3];
+  u16 hi[3];
+  u16 lo[3];
+};
+
+struct HL_8017873C
+{
+  u8 pad[0x378];
+  u16 hi;
+  u16 pad37a[2];
+  u16 lo;
+};
+
+struct Ent_8017873C
+{
+  u8 pad[0x1C];
+  u8 f1c[0x3C];
+};
+
 extern "C" {
 M2C_UNK newton_sqrtf(f32);
 s32 check_demo_mode__10TObjPlayerFv();
@@ -34,7 +67,6 @@ void render__17TOSymbolchatColliFv(u8 *arg0);
 void construct_actor_base__10TObjPlayerFPvPv(void *);
 void reset_photon_effect__10TObjPlayerFPv(void *);
 void init_collision_body_parts(void *, void *, int);
-void TOSymbolchatColli__sub_8017873C(void *);
 extern u8 lbl_804B4550[];
 extern M2C_UNK __vt__17TOSymbolchatColli[];
 extern s32 lbl_805D3194;
@@ -54,6 +86,12 @@ extern u32 lbl_8050DB70[];
 extern s32 lbl_805D3190;
 extern int lbl_805D5AC8;
 void load_symbol_chat_data__17TOSymbolchatColliFv(void);
+void set_motion_params__10TObjPlayerFPvPv(void *, void *);
+void *memset(void *, int, u32);
+extern u32 lbl_8050DB70[];
+extern int lbl_805D5AC8;
+extern const f32 lbl_805DBA28;
+void TOSymbolchatColli__sub_8017873C(void *arg0);
 }
 
 extern "C" {
@@ -81,6 +119,54 @@ s32 get_state__17TOSymbolchatColliFPv(void *arg0) {
 }
 
 extern void *tl_05;
+
+typedef struct Ent_8017873C Ent_8017873C;
+typedef struct HL_8017873C HL_8017873C;
+typedef struct Obj_8017873C Obj_8017873C;
+void TOSymbolchatColli__sub_8017873C(void *arg0) {
+  Obj_8017873C *self = (Obj_8017873C *) arg0;
+  s32 i;
+  self->radiusSq = self->radius * self->radius;
+  memset(self->coll, 0, 0x24);
+  self->y358 = self->y3c / lbl_805DBA28;
+  set_motion_params__10TObjPlayerFPvPv(self, self->coll);
+  for (i = 0; i < 3; i++)
+  {
+    u32 v = self->ids[i];
+    u32 hi;
+    u32 lo;
+    hi = v >> 16;
+    lo = (u16) v;
+    if (lbl_8050DB70[i] == 0)
+    {
+      hi = v >> 16;
+      if (lo < 0x18)
+      {
+        self->ptrs[i] = (u32) (&((Ent_8017873C *) lbl_805D5AC8)[lo].f1c);
+      }
+      else
+      {
+        self->ptrs[i] = 0;
+      }
+    }
+    else
+    {
+      self->ptrs[i] = lbl_8050DB70[i];
+    }
+    {
+      HL_8017873C *h = (HL_8017873C *) (((u8 *) self) + (i * 2));
+      if (hi < 0x100)
+      {
+        h->hi = hi;
+      }
+      else
+      {
+        h->hi = 0xFFFF;
+      }
+      h->lo = lo;
+    }
+  }
+}
 
 void render__17TOSymbolchatColliFv(u8 *arg0) {
     Stack_80178830 stack;
@@ -165,7 +251,7 @@ Obj_80178AD4 *TOSymbolchatColli__ct(Obj_80178AD4 *arg0, void *arg1, s32 arg2) {
     arg0->v5(arg2);
     init_collision_body_parts(arg0, lbl_804B4550, 1);
     reset_photon_effect__10TObjPlayerFPv(arg0);
-    TOSymbolchatColli__sub_8017873C(arg0);
+    TOSymbolchatColli__sub_8017873C((void *)(arg0));
     for (i = 0; i < 4; i++) {
         arg0->arr[i] = 0;
     }

@@ -90,6 +90,61 @@ struct Win_803438C4 {
 
 struct R_80343BC0 { s16 a; s16 b; u32 w[6]; };
 
+struct V2_80343C64
+{
+  f32 x;
+  f32 y;
+};
+
+struct Win_80343C64
+{
+  u8 pad0[0x30];
+  f32 f30;
+  f32 f34;
+  f32 f38;
+  u8 pad3C[4];
+  f32 f40;
+  f32 f44;
+  f32 f48;
+};
+
+struct Obj_80343C64
+{
+  s32 f0;
+  u8 pad4[0x14];
+  void *vt;
+  s16 f1C;
+  u8 pad1E[2];
+  s32 f20;
+  s32 a24[8];
+  s32 a44[8];
+  s32 a64[6];
+  s32 f7C;
+  s32 f80;
+  s32 f84;
+  s32 f88;
+  s32 f8C;
+  s32 f90;
+  s32 f94;
+  s32 f98;
+  s32 f9C;
+  s32 fA0;
+  s32 fA4;
+  s32 fA8;
+  s32 fAC;
+  s32 fB0;
+  s32 fB4;
+  s32 fB8;
+  s32 fBC;
+  void *fC0;
+  u8 fC4[0x1C];
+  u8 fE0[0x1C];
+  s16 fFC;
+  u8 padFE[2];
+  s32 f100;
+  s32 f104;
+};
+
 extern "C" {
 M2C_UNK free_child__9TWindowDDFPv(int);
 M2C_UNK apply_input__9TWindowDDFPvPv(int, int);
@@ -245,6 +300,56 @@ M2C_UNK set_state__9TWindowDDFPv(void *);
 M2C_UNK TWindowDD__sub_803484C4(void *);
 void run_task__9TWindowDDFv(u8 *arg0);
 void copy_chat_entry__9TWindowDDFPvPv(R_80343BC0 *arg0, R_80343BC0 *arg1);
+void __ct__7TObjectFP7TObject(void *);
+void build_item_list__9TWindowDDFPv(u8 *arg0);
+void *get_player_by_client_id(s32);
+s32 get_current_floor(void);
+s16 get_stat_by_key_state__10TObjPlayerFPv(void *);
+s32 is_boss_area(void);
+s32 check_all_ready__9TWindowDDFi(s32);
+s32 is_room_free_of_active_enemies(s32, s32);
+M2C_UNK build_player_word_lists__9TWindowDDFv();
+void init_item_slots__9TWindowDDFPv(void *);
+s32 TWindowDD__sub_80340F70(void);
+s32 TWindowDD__sub_80346DB8(s32 arg0);
+s32 TWindowDD__sub_80342384(s32 arg0, s32 arg1);
+void set_default_positions__9TWindowDDFiPv(void *, s32);
+void init_layout__9TWindowDDFiPv(void *, s32);
+s32 TWindowDD__sub_8034146C(V2_80343C64 *arg0, V2_80343C64 *arg1, s32 arg2, s32 arg3, f32 farg0);
+s32 TWindowDD__sub_80348B70(s16 arg0);
+void TWindowDD__sub_803412A0(s32);
+void update_state__9TWindowDDFv(void);
+void update_position__9TWindowDDFPvi(u8 *arg0, s32 arg1);
+s32 create__9TWindowDDFv(void);
+extern char lbl_8047863C[];
+extern char lbl_80478644[];
+extern M2C_UNK __vt__9TWindowDD[];
+extern s32 lbl_805D42E8;
+extern s32 lbl_805D53A0;
+extern u32 TWindowDD__data_805D6E0C;
+extern s16 lbl_805D6E24;
+extern char *lbl_805D6E64;
+extern s8 lbl_805D6E68;
+extern char *lbl_805D6E6C;
+extern s8 lbl_805D6E70;
+extern const f32 lbl_805DFB54;
+extern const f32 lbl_805DFB60;
+extern const f32 lbl_805DFB64;
+extern const f32 lbl_805DFB68;
+extern const f32 lbl_805DFBA4;
+extern const f32 lbl_805DFBA8;
+extern const f32 lbl_805DFBAC;
+extern const f32 lbl_805DFBB0;
+extern const f32 lbl_805DFBB4;
+extern const f32 lbl_805DFBB8;
+extern const f32 lbl_805DFBD0;
+extern const f32 lbl_805DFBD4;
+extern const f32 lbl_805DFBD8;
+extern const f32 lbl_805DFBF0;
+extern const f32 lbl_805DFBF4;
+extern const f32 lbl_805DFBF8;
+extern const f32 lbl_805DFCB8;
+Obj_80343C64 *TWindowDD__ct(Obj_80343C64 *self, void *parent, void *arg2);
 }
 
 extern "C" {
@@ -666,6 +771,157 @@ extern u32 lbl_805D6E54;
 extern u32 lbl_805D6E58;
 extern u32 lbl_805D6E5C;
 extern u32 TWindowDD__ws_data_buffer;
+
+typedef struct Obj_80343C64 Obj_80343C64;
+typedef struct V2_80343C64 V2_80343C64;
+typedef struct Win_80343C64 Win_80343C64;
+#pragma opt_common_subs off
+Obj_80343C64 *TWindowDD__ct(Obj_80343C64 *self, void *parent, void *arg2) {
+  V2_80343C64 a;
+  V2_80343C64 b;
+  u8 *p;
+  s32 floor;
+  s32 v;
+  __ct__7TObjectFP7TObject(self);
+  self->vt = ((void * *)&__vt__9TWindowDD);
+  self->f0 = lbl_805D42E8;
+  self->f1C = (floor = lbl_805D6E24);
+  build_item_list__9TWindowDDFPv((u8 *)(self));
+  *((u8 *) TWindowDD__data_805D6E0C) = 0;
+  self->fA0 = 0;
+  {
+    p = (u8 *) get_player_by_client_id(lbl_805D53A0);
+    if (p != 0)
+    {
+      floor = get_current_floor();
+      s32 r;
+      v = get_stat_by_key_state__10TObjPlayerFPv(p);
+      if (is_boss_area() != 0)
+      {
+        r = check_all_ready__9TWindowDDFi(floor);
+      }
+      else
+      {
+        r = is_room_free_of_active_enemies(floor, v);
+      }
+      if (r == 0)
+      {
+        self->fA0 = 1;
+      }
+    }
+  }
+  build_player_word_lists__9TWindowDDFv();
+  self->fC0 = arg2;
+  init_item_slots__9TWindowDDFPv(self->fC4);
+  init_item_slots__9TWindowDDFPv(self->fE0);
+  self->f7C = TWindowDD__sub_80340F70();
+  {
+    s32 i;
+    for (i = 0; i < 8; i++)
+    {
+      self->a24[i] = 0;
+      self->a44[i] = 0;
+    }
+  }
+  self->f20 = 0;
+  self->f88 = TWindowDD__sub_80346DB8((s32) self);
+  self->f8C = -1;
+  self->f90 = -1;
+  {
+    s32 w = TWindowDD__sub_80342384(self->f88, (s32) lbl_805DFB54);
+    if (w != 0)
+    {
+      set_default_positions__9TWindowDDFiPv(self, w);
+      self->a24[0] = w;
+    }
+  }
+  self->a44[0] = 0;
+  p = (u8 *) TWindowDD__sub_80342384(self->f8C, (s32) lbl_805DFB54);
+  if (p != 0)
+  {
+    init_layout__9TWindowDDFiPv(self, (s32) p);
+    self->a24[1] = (s32) p;
+  }
+  if (!lbl_805D6E68)
+  {
+    lbl_805D6E64 = lbl_8047863C;
+    lbl_805D6E68 = 1;
+  }
+  if (!lbl_805D6E70)
+  {
+    lbl_805D6E6C = lbl_80478644;
+    lbl_805D6E70 = 1;
+  }
+  {
+    s32 i;
+    for (i = 0; i < 6; i++)
+    {
+      self->a64[i] = 0;
+    }
+  }
+  {
+    a.x = lbl_805DFBA4;
+    a.y = lbl_805DFBA8;
+    b.x = lbl_805DFB60;
+    b.y = lbl_805DFBA8;
+    self->a64[0] = ((s32 (*)(f32, V2_80343C64 *, V2_80343C64 *, s32, s32)) TWindowDD__sub_8034146C)(lbl_805DFBAC, &a, &b, (s32) lbl_805D6E64, 4);
+  }
+  {
+    a.x = lbl_805DFBB0;
+    a.y = lbl_805DFBB4;
+    b.x = lbl_805DFB64;
+    b.y = lbl_805DFBB4;
+    self->a64[1] = ((s32 (*)(f32, V2_80343C64 *, V2_80343C64 *, s32, s32)) TWindowDD__sub_8034146C)(lbl_805DFBB8, &a, &b, (s32) lbl_805D6E6C, 4);
+  }
+  {
+    a.x = lbl_805DFBD0;
+    a.y = lbl_805DFBD4;
+    b.x = lbl_805DFBD0;
+    b.y = lbl_805DFB68;
+    void *q = (void *) ((s32 (*)(f32, V2_80343C64 *, V2_80343C64 *, s32, s32)) TWindowDD__sub_8034146C)(lbl_805DFBD8, &a, &b, TWindowDD__sub_80348B70(0x687), 5);
+    self->a64[2] = (s32) q;
+    if (q != 0)
+    {
+      TWindowDD__sub_803412A0((s32) q);
+    }
+  }
+  ((void (*)(void *, u32, u16)) update_state__9TWindowDDFv)(self->fC4, TWindowDD__data_805D6E0C, lbl_805D53A0);
+  {
+    a.x = lbl_805DFBF0;
+    a.y = lbl_805DFBF4;
+    b.x = lbl_805DFB60;
+    b.y = lbl_805DFBF4;
+    p = (u8 *) ((s32 (*)(f32, V2_80343C64 *, V2_80343C64 *, s32, s32)) TWindowDD__sub_8034146C)(lbl_805DFBF8, &a, &b, TWindowDD__data_805D6E0C, 0);
+    self->a64[3] = (s32) p;
+    if (p != 0)
+    {
+      TWindowDD__sub_803412A0((s32) p);
+      update_position__9TWindowDDFPvi(p, 0);
+      ((Win_80343C64 *) p)->f30 = lbl_805DFB60;
+      ((Win_80343C64 *) p)->f40 = lbl_805DFB60;
+      ((Win_80343C64 *) p)->f34 = lbl_805DFBF4;
+      ((Win_80343C64 *) p)->f44 = lbl_805DFBF4;
+      ((Win_80343C64 *) p)->f38 = lbl_805DFCB8;
+      ((Win_80343C64 *) p)->f48 = lbl_805DFCB8;
+    }
+  }
+  self->f80 = create__9TWindowDDFv();
+  self->f84 = 0;
+  self->fA8 = 0;
+  self->fAC = 0;
+  self->fB0 = 0;
+  self->fB4 = 0;
+  self->fB8 = 0;
+  self->fBC = 0;
+  self->fFC = 0x37;
+  self->f100 = 0;
+  self->f94 = 0;
+  self->f98 = 0;
+  self->f9C = -1;
+  self->fA4 = 0;
+  self->f104 = 0;
+  return self;
+}
 
 void free_buffers__9TWindowDDFv(void) {
     fn_8034AF18();

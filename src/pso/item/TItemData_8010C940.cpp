@@ -15,12 +15,13 @@ s32 is_custom_name_srank__9TItemDataFPv(u8 *arg0);
 s8 TItemData__sub_8010CACC(void *self, s8 c);
 s8 TItemData__sub_8010CACC(void *self, s8 c);
 void pack_three_colors__9TItemDataFPvPv(u8 *self, u8 *in);
+s32 TItemData__sub_8010CAB0(M2C_UNK arg0, s8 arg1);
+void TItemData__sub_8010CB10(u8 *self, s8 *out);
 }
 
 extern "C" {
 
 u32 find_item_by_id(u32);
-int TItemData__sub_8010CB10(void);
 void TItemData__sub_8010CCB0(void);
 void normalize__9TItemDataFv(void);
 u8 get_entry_field16__9TItemDataFv(void);
@@ -88,7 +89,29 @@ s8 TItemData__sub_8010CACC(void *self, s8 c) {
     return r;
 }
 
-int TItemData__sub_8010CB10(void) { return 0; }
+void TItemData__sub_8010CB10(u8 *self, s8 *out) {
+  u16 h;
+  s8 *p;
+  s32 i;
+  if (out != 0)
+  {
+    p = out;
+    i = 0;
+    do
+    {
+      u8 *q = &self[i * 2];
+      u8 hi = q[6] & 0xFFFFFFFFFFFFFFFFu;
+      u8 lo = q[7];
+      h = lo | ((hi << 8) & 0x7F00);
+      p[0] = ((s8 (*)(void *, s8)) TItemData__sub_8010CAB0)(self, (h >> 10) & 0x3F);
+      p[1] = ((s8 (*)(void *, s8)) TItemData__sub_8010CAB0)(self, (h >> 5) & 0x1F);
+      p[2] = ((s8 (*)(void *, s8)) TItemData__sub_8010CAB0)(self, h & 0x1F);
+      i++;
+      p += 3;
+    }
+    while (i != 3);
+  }
+}
 
 void pack_three_colors__9TItemDataFPvPv(u8 *self, u8 *in) {
   s32 i;
