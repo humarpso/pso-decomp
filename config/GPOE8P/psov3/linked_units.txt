@@ -2709,6 +2709,7 @@ pso/ui/TAdMultiPlyChrSelectGC_802DE094.cpp
 pso/ui/TAdMultiPlyChrSelectGC_802DEC44.cpp
 pso/ui/TAdMultiPlyChrSelectGC_802DEF54.cpp
 pso/ui/TAdMultiPlyChrSelectGC_802E0064.cpp
+pso/ui/TAdMultiPlyChrSelectGC_802E011C.cpp
 pso/ui/TAdMultiPlyChrSelectGC_802E0FC8.cpp
 pso/ui/TAdMultiPlyChrSelectGC_803495B4.cpp
 pso/ui/TAdMultiSaveGC.cpp
@@ -3673,6 +3674,7 @@ pso/unk/text_803D2434.cpp
 pso/unk/text_803D2624.cpp
 pso/unk/text_803D2640.cpp
 pso/unk/text_803D2C84.cpp
+pso/unk/text_803D2F1C.cpp
 pso/unk/text_803D31A4.cpp
 pso/unk/text_803D39F8.cpp
 pso/unk/text_803D43A8.cpp

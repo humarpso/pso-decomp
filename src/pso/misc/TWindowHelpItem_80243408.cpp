@@ -16,6 +16,18 @@ struct VObj_80243464 : Base_80243464 {
     virtual void m32();  virtual void m33();  virtual s32 m34();
 };
 
+struct Icon_80243630 {
+    u8 pad0[0x1C];
+    f32 u0;
+    f32 v0;
+    f32 u1;
+    f32 v1;
+    u8 pad2c[0x34 - 0x2C];
+    s32 kind;
+};
+
+struct UV_80243630 { f32 u; f32 v; };
+
 extern "C" {
 u32 get_player_by_client_id(s32);
 s8 clamp_char_at__10TObjPlayerFPvi(u32, s32);
@@ -27,6 +39,12 @@ extern const f32 lbl_805DCA28;
 extern const f32 lbl_805DCA2C;
 extern const f32 lbl_805DCA30;
 void update_palette_item_count_label(u8 *arg0, u8 *arg1, u16 arg2, u16 arg3, s32 arg4);
+extern const f32 lbl_805DCA34;
+extern const f32 lbl_805DCA38;
+extern const f32 lbl_805DCA3C;
+extern const f32 lbl_805DCA40;
+extern const f32 lbl_805DCA44;
+void draw_action_palette_icon(Icon_80243630 *icon, u16 group, u16 index);
 }
 
 extern "C" {
@@ -93,5 +111,86 @@ void update_palette_item_count_label(u8 *arg0, u8 *arg1, u16 arg2, u16 arg3, s32
     M2C_FIELD(arg0, f32 *, 0xC) = M2C_FIELD(arg1, f32 *, 0xC) - lbl_805DCA30;
 }
 #pragma pop
+
+#define TB(x) (x)
+UV_80243630 lbl_804CDCA8[19] = {
+    {50.0f, 0.0f}, {50.0f, 43.0f}, {50.0f, 86.0f}, {100.0f, 0.0f},
+    {100.0f, 43.0f}, {100.0f, 86.0f}, {0.0f, 0.0f}, {0.0f, 43.0f},
+    {0.0f, 86.0f}, {200.0f, 0.0f}, {0.0f, 129.0f}, {50.0f, 172.0f},
+    {0.0f, 172.0f}, {50.0f, 129.0f}, {200.0f, 86.0f}, {150.0f, 0.0f},
+    {150.0f, 86.0f}, {150.0f, 43.0f}, {200.0f, 43.0f},
+};
+UV_80243630 lbl_804CDD40[17] = {
+    {0.0f, 0.0f}, {0.0f, 43.0f}, {0.0f, 86.0f}, {50.0f, 0.0f},
+    {50.0f, 43.0f}, {50.0f, 86.0f}, {100.0f, 0.0f}, {50.0f, 129.0f},
+    {100.0f, 43.0f}, {0.0f, 172.0f}, {0.0f, 129.0f}, {150.0f, 43.0f},
+    {50.0f, 172.0f}, {0.0f, 129.0f}, {0.0f, 0.0f}, {0.0f, 86.0f},
+    {0.0f, 43.0f},
+};
+UV_80243630 lbl_804CDDC8[6] = {
+    {200.0f, 172.0f}, {150.0f, 129.0f}, {150.0f, 172.0f}, {200.0f, 129.0f},
+    {100.0f, 172.0f}, {100.0f, 129.0f},
+};
+UV_80243630 lbl_804CDDF8[3] = {
+    {200.0f, 43.0f}, {200.0f, 0.0f}, {200.0f, 86.0f},
+};
+UV_80243630 lbl_804CDE10[8] = {
+    {0.0f, 0.0f}, {100.0f, 129.0f}, {100.0f, 172.0f}, {200.0f, 129.0f},
+    {200.0f, 172.0f}, {100.0f, 86.0f}, {100.0f, 86.0f}, {50.0f, 0.0f},
+};
+void draw_action_palette_icon(Icon_80243630 *icon, u16 group, u16 index) {
+    UV_80243630 *row;
+    switch (group) {
+    case 0:
+        icon->kind = 4;
+        icon->u0 = lbl_805DCA34;
+        icon->v0 = lbl_805DCA38;
+        break;
+    case 2:
+        icon->kind = 4;
+        row = TB(lbl_804CDDF8);
+        icon->u0 = row[index].u;
+        icon->v0 = row[index].v;
+        break;
+    case 3:
+        icon->kind = 3;
+        row = TB(lbl_804CDCA8);
+        icon->u0 = row[index].u;
+        icon->v0 = row[index].v;
+        break;
+    case 4:
+        if (index >= 13) {
+            icon->kind = 5;
+        } else {
+            icon->kind = 4;
+        }
+        row = TB(lbl_804CDD40);
+        icon->u0 = row[index].u;
+        icon->v0 = row[index].v;
+        break;
+    case 5:
+        icon->kind = 3;
+        row = TB(lbl_804CDDC8);
+        icon->u0 = row[index].u;
+        icon->v0 = row[index].v;
+        break;
+    case 7:
+        if (index >= 7) {
+            icon->kind = 5;
+        } else {
+            icon->kind = 4;
+        }
+        row = TB(lbl_804CDE10);
+        icon->u0 = row[index].u;
+        icon->v0 = row[index].v;
+        break;
+    }
+    icon->u1 = lbl_805DCA3C + icon->u0;
+    icon->v1 = lbl_805DCA40 + icon->v0;
+    icon->u0 = icon->u0 * lbl_805DCA44;
+    icon->v0 = icon->v0 * lbl_805DCA44;
+    icon->u1 = icon->u1 * lbl_805DCA44;
+    icon->v1 = icon->v1 * lbl_805DCA44;
+}
 
 }

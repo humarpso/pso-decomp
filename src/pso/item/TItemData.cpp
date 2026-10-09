@@ -67,6 +67,17 @@ struct VObj_18_38db83 : VBase_18_38db83 {
     virtual u8 m37();
 };
 
+struct Parm_8010C320
+{
+  u8 pad[0xA];
+  u16 atp_min;
+  u16 atp_max;
+  u8 padE[6];
+  u16 x14;
+  u8 pad16[3];
+  u8 x19;
+};
+
 extern "C" {
 s32 obj_getArrWord_254(void *, int);
 s32 obj_getField1c(void *);
@@ -97,6 +108,13 @@ void *calc_technique_parameters(u8, u8, s32);
 s32 is_challenge_mode_active();
 extern s32 lbl_805D53A0;
 s32 calc_action_flags__9TItemDataFv(u8 *item, s32 mask, u8 *player);
+void add_accuracy__9TItemDataFPvi(void *arg0, s32 arg1);
+void add_s16__9TItemDataFPvi(s16 *arg0, s32 arg1);
+void add_stat__9TItemDataFPvi(void *arg0, s32 arg1);
+f32 calc_clock_bonus__9TItemDataFPv(u8 *arg0);
+f32 get_set_bonus_multiplier__9TItemDataFPvi(void *self, s32 player);
+void *lookup_item_pmt_record(u8 *item);
+void add_weapon_stat_bonuses__9TItemDataFv(u8 *self, s32 player, s16 *out, s32 unused, s16 *out2, s32 _w5);
 }
 
 extern "C" {
@@ -453,6 +471,43 @@ void add_armor_stat_contribution__9TItemDataFPviiPv(u8 *self, s32 player, s32 un
             add_quantity__9TItemDataFPvi(out, parm->x14);
         }
     }
+}
+#pragma pop
+
+#pragma push
+#pragma fp_contract on
+typedef struct Parm_8010C1E0 Parm_8010C1E0;
+typedef struct Parm_8010C320 Parm_8010C320;
+void add_weapon_stat_bonuses__9TItemDataFv(u8 *self, s32 player, s16 *out, s32 unused, s16 *out2, s32 _w5) {
+  s16 hi;
+  s32 i;
+  Parm_8010C320 *parm;
+  f32 mult = get_set_bonus_multiplier__9TItemDataFPvi(self, player);
+  f32 add = ((f32 (*)(u8 *, s32)) calc_clock_bonus__9TItemDataFPv)(self, player);
+  parm = (Parm_8010C320 *) ((Parm_8010C1E0 *)lookup_item_pmt_record((u8 *)(self)));
+  if (parm != 0)
+  {
+    if (out != 0)
+    {
+      s16 grind = ((u8) (hi = ((s8 *) self)[3])) * 2;
+      s16 lo = (mult * ((f32) (parm->atp_min + grind))) + add;
+      hi = (mult * ((f32) (parm->atp_max + grind))) + add;
+      add_s16__9TItemDataFPvi(out, lo);
+      add_stat__9TItemDataFPvi(out, hi);
+      add_accuracy__9TItemDataFPvi(out, (s16) (parm->x19 * 10));
+      for (i = 0; i != 3; i++)
+      {
+        if (self[6 + (i * 2)] == 5)
+        {
+          add_accuracy__9TItemDataFPvi(out, (s16) (((s8) self[7 + (i * 2)]) * 10));
+        }
+      }
+    }
+    if (out2 != 0)
+    {
+      out2[1] += parm->x14;
+    }
+  }
 }
 #pragma pop
 
@@ -955,7 +1010,6 @@ s32 check_item_flags__9TItemDataFPv(void *arg0);
 s16 get_technique_level__9TItemDataFPv(void *arg0);
 M2C_UNK apply_custom_shield_bonus__9TItemDataFv(void *, s32, s32, s32, s32, s32);
 M2C_UNK add_mag_stat_bonuses__9TItemDataFv(void *, s32, s32, s32, s32, s32);
-M2C_UNK add_weapon_stat_bonuses__9TItemDataFv(void *, s32, s32, s32, s32, s32);
 void TItemData__sub_8010CCB0(void);
 void normalize__9TItemDataFv(void);
 s32 get_item_description_text(s32);
@@ -1562,7 +1616,7 @@ void apply_equip_effects__9TItemDataFPviiiii(void *arg0, s32 arg1, s32 arg2, s32
         temp_r0 = M2C_FIELD(arg0, u8 *, 0);
         switch ((s32) temp_r0) {
         case 0:
-            add_weapon_stat_bonuses__9TItemDataFv(arg0, arg1, arg2, arg3, arg4, arg5);
+            add_weapon_stat_bonuses__9TItemDataFv((u8 *)(arg0), (s32)(arg1), (s16 *)(arg2), (s32)(arg3), (s16 *)(arg4), (s32)(arg5));
             break;
         case 1:
             temp_r0_2 = M2C_FIELD(arg0, u8 *, 1);
