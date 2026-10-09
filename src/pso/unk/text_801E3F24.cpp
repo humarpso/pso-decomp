@@ -23,7 +23,7 @@ void debug_print__FPCc(const char *);
 s32 get_global_state__14TOKeyMachine01Fv();
 int sprintf(char *, const char *, ...);
 extern char lbl_80449748[];
-extern u8 key_machine_state_mask_table[];
+extern u8 subcommand_area_masks[];
 extern Ent_801E3FA4 pso_command_dispatch_table[];
 void dispatch_6x_subcommand(Msg_801E3FA4 *arg0);
 }
@@ -75,7 +75,7 @@ void dispatch_6x_subcommand(Msg_801E3FA4 *arg0) {
     char buf[0x80];
     s32 key = arg0->a;
     for (i = 0; pso_command_dispatch_table[i].id != 0; i++) {
-        if (key == pso_command_dispatch_table[i].id && (pso_command_dispatch_table[i].mask & key_machine_state_mask_table[get_global_state__14TOKeyMachine01Fv()])) {
+        if (key == pso_command_dispatch_table[i].id && (pso_command_dispatch_table[i].mask & subcommand_area_masks[get_global_state__14TOKeyMachine01Fv()])) {
             sprintf(buf, lbl_80449748, arg0->a, arg0->b);
             debug_print__FPCc(buf);
             pso_command_dispatch_table[i].fn(arg0);

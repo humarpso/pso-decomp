@@ -30,6 +30,7 @@ s32 validate_6x8D_set_technique_level_override(G_ClientIDHeader *packet);
 s32 validate_technique_parameters(void *parameters);
 s32 validate_cast_target_entry(void *parameters);
 s32 validate_6x46_attack_finished(G_ClientIDHeader *packet);
+s32 validate_attack_target_list(s32 *list);
 s32 validate_attack_target_entry(void *parameters);
 s32 validate_6x45_attack(G_ClientIDHeader *packet);
 s32 validate_6x44_attack(G_ClientIDHeader *packet);

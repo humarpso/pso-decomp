@@ -193,7 +193,7 @@ extern "C" void handle_6xAF_turn_or_move_lobby_chair();
 extern "C" void handle_6xB0_turn_or_move_lobby_chair();
 extern "C" void handle_6xB1();
 extern "C" void handle_6xB2_play_sound_from_player();
-u8 key_machine_state_mask_table[36] = {
+u8 subcommand_area_masks[36] = {
     2, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4,
     4, 4, 4, 1, 4, 4, 2, 4, 4, 4, 4, 4,
     4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4,
