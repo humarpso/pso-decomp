@@ -139,3 +139,259 @@ Obj_8009FC44 *TObjEneMe1Canadin__sub_8009FC44(Obj_8009FC44 *self, void *parent, 
 }
 
 }
+
+#include "types.h"
+
+extern "C" {
+
+void TObjEneMe1Canadin__sub_8009FD2C(void);
+
+void TObjEneMe1Canadin__sub_8009FD2C(void) {  }
+
+}
+
+#include "types.h"
+typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
+typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
+#define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
+#define M2C_BITWISE(type, expr) ((type)(expr))
+
+#pragma fp_contract on
+extern "C" {
+
+#define VC_B ((M2C_UNK (*)(void *, void *))VecCopy__FP3VecPC3Vec)
+M2C_UNK queue_destruction__7TObjectFv(void *);
+f32 update_scale__15TObjBoss2TunnelFPv(void *);
+M2C_UNK fn_8009E1D4(s32, void *);
+u32 __nw__7TObjectFUl(M2C_UNK);
+M2C_UNK construct__12TTecZondeEffFPvPvPvPvf(void *, s32, void *, void *, f32);
+void subtract_vector(void *, void *);
+extern s32 tl_05;
+extern const f32 lbl_805D9948;
+
+void update_zonde_projectile(u8 *arg0) {
+    M2C_UNK sp8;
+    f32 temp_f0;
+    f32 temp_f1;
+    f32 temp_f2;
+    f32 temp_f31;
+    s32 var_r31;
+
+    var_r31 = 0;
+    M2C_FIELD(arg0, f32 *, 0x28) = (f32) (M2C_FIELD(arg0, f32 *, 0x28) + lbl_805D9948);
+    temp_f1 = M2C_FIELD(arg0, f32 *, 0x28);
+    if (temp_f1 > M2C_FIELD(arg0, f32 *, 0x34)) {
+        VC_B(arg0 + 0x50, arg0 + 0x44);
+        var_r31 = 1;
+    } else {
+        temp_f0 = M2C_FIELD(arg0, f32 *, 0x30);
+        if (temp_f1 < temp_f0) {
+            M2C_FIELD(arg0, f32 *, 0x54) = (f32) M2C_FIELD(arg0, f32 *, 0x24);
+        } else {
+            temp_f2 = temp_f1 - temp_f0;
+            M2C_FIELD(arg0, f32 *, 0x54) = (f32) (temp_f2 * (M2C_FIELD(arg0, f32 *, 0x20) * temp_f2) + M2C_FIELD(arg0, f32 *, 0x24));
+        }
+        M2C_FIELD(arg0, f32 *, 0x50) = (f32) (M2C_FIELD(arg0, f32 *, 0x50) + M2C_FIELD(arg0, f32 *, 0x5C));
+        M2C_FIELD(arg0, f32 *, 0x58) = (f32) (M2C_FIELD(arg0, f32 *, 0x58) + M2C_FIELD(arg0, f32 *, 0x64));
+    }
+    VC_B(&sp8, arg0 + 0x50);
+    subtract_vector(&sp8, arg0 + 0x38);
+    temp_f31 = update_scale__15TObjBoss2TunnelFPv(&sp8);
+    M2C_UNK nw_ret = __nw__7TObjectFUl(0x260);
+    if (nw_ret != 0U) {
+        construct__12TTecZondeEffFPvPvPvPvf((void *)nw_ret, tl_05, arg0 + 0x38, &sp8, temp_f31);
+    }
+    VC_B(arg0 + 0x38, arg0 + 0x50);
+    if (var_r31 != 0) {
+        fn_8009E1D4(M2C_FIELD(arg0, s32 *, 0x1C), arg0 + 0x44);
+        queue_destruction__7TObjectFv(arg0);
+    }
+}
+
+}
+
+#include "types.h"
+typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
+#define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
+
+typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
+#define M2C_BITWISE(type, expr) ((type)(expr))
+struct Stack_8009FFD8 {
+    s32 sp8;
+    s32 spC;
+    s32 sp10;
+    s32 sp14;
+};
+
+struct Vec_8009FEB8 { f32 x, y, z; };
+
+struct Obj_8009FEB8 {
+    s32 descriptor;
+    u8 pad4[0x18 - 4];
+    void *vtbl;
+    void *parent;
+    f32 accel;
+    f32 y0;
+    f32 time;
+    f32 duration;
+    f32 remain;
+    f32 dist;
+    Vec_8009FEB8 start;
+    Vec_8009FEB8 end;
+    Vec_8009FEB8 pos;
+    Vec_8009FEB8 dir;
+};
+
+extern "C" {
+void init_xyz_limits__10TObjPlayerFv(void);
+M2C_UNK draw_line_list(void *, int, int);
+void draw_debug_line__17TObjEneMe1CanadinFi(s32 arg0);
+#define VC_C ((void (*)(void *, const void *))VecCopy__FP3VecPC3Vec)
+f32 clamp_velocity__15TObjBoss2TunnelFPv(void *);
+void __ct__7TObjectFP7TObject(void *, void *);
+void subtract_vector(void *, void *);
+extern M2C_UNK lbl_80490428[];
+extern s32 lbl_805D29C0;
+extern const f32 lbl_805D993C;
+extern const f32 lbl_805D9948;
+Obj_8009FEB8 *TObjEneMe1Canadin__sub_8009FEB8(Obj_8009FEB8 *self, void *parent, Vec_8009FEB8 *from, Vec_8009FEB8 *to);
+}
+
+extern "C" {
+
+void *TObjEneMe1Canadin__sub_8009FE60(void *arg0, s16 arg1);
+void __dl__7TObjectFPv(void *);
+void __dt__7TObjectFv(void *, int);
+
+extern M2C_UNK lbl_80490428[];
+
+void *TObjEneMe1Canadin__sub_8009FE60(void *arg0, s16 arg1) {
+    if (arg0 != NULL) {
+        M2C_FIELD(arg0, M2C_UNK **, 0x18) = lbl_80490428;
+        __dt__7TObjectFv(arg0, 0);
+        if (arg1 > 0) {
+            __dl__7TObjectFPv(arg0);
+        }
+    }
+    return arg0;
+}
+
+Obj_8009FEB8 *TObjEneMe1Canadin__sub_8009FEB8(Obj_8009FEB8 *self, void *parent, Vec_8009FEB8 *from, Vec_8009FEB8 *to) {
+    __ct__7TObjectFP7TObject(self, parent);
+    self->vtbl = ((s32 *)&lbl_80490428);
+    self->descriptor = lbl_805D29C0;
+    self->parent = parent;
+    VC_C(&self->start, from);
+    VC_C(&self->end, to);
+    VC_C(&self->dir, &self->end);
+    subtract_vector(&self->dir, &self->start);
+    self->dir.y = lbl_805D993C;
+    self->dist = clamp_velocity__15TObjBoss2TunnelFPv(&self->dir);
+    if (self->dist > lbl_805D9948) {
+        self->duration = lbl_805D9948;
+        self->remain = self->dist - self->duration;
+    } else {
+        self->duration = self->dist;
+        self->remain = lbl_805D993C;
+    }
+    self->y0 = self->start.y;
+    self->accel = (self->end.y - self->start.y) / (self->duration * self->duration);
+    self->time = lbl_805D993C;
+    self->dir.x *= lbl_805D9948;
+    self->dir.z *= lbl_805D9948;
+    VC_C(&self->pos, &self->start);
+    return self;
+}
+
+void draw_debug_line__17TObjEneMe1CanadinFi(s32 arg0) {
+    Stack_8009FFD8 stack;
+    stack.sp8 = arg0 + 0x28;
+    stack.spC = arg0 + 0x40;
+    stack.sp10 = 0;
+    stack.sp14 = 2;
+    init_xyz_limits__10TObjPlayerFv();
+    draw_line_list((void *) (&stack.sp8), (int) (1), (int) (5));
+}
+
+}
+
+#include "types.h"
+typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
+typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
+#define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
+#define M2C_BITWISE(type, expr) ((type)(expr))
+
+extern "C" {
+
+void spawn_periodic_effect__17TObjEneMe1CanadinFPv(u8 *arg0);
+void *TObjEneMe1Canadin__sub_800A00A8(void *arg0, s16 arg1);
+#define VC_D ((M2C_UNK (*)(void *, s32))VecCopy__FP3VecPC3Vec)
+void __dl__7TObjectFPv(void *);
+void __dt__7TObjectFv(void *, int);
+u32 __nw__7TObjectFUl(M2C_UNK);
+M2C_UNK fn_800A02AC(void *, s32, void *, void *);
+
+void spawn_periodic_effect__17TObjEneMe1CanadinFPv(u8 *arg0) {
+    VC_D(arg0 + 0x28, M2C_FIELD(arg0, s32 *, 0x20));
+    VC_D(arg0 + 0x34, M2C_FIELD(arg0, s32 *, 0x24));
+    M2C_FIELD(arg0, s32 *, 0x1C) = (s32) (M2C_FIELD(arg0, s32 *, 0x1C) + 1);
+    if ((s32) M2C_FIELD(arg0, s32 *, 0x1C) > 5) {
+        M2C_FIELD(arg0, s32 *, 0x1C) = 0;
+        u32 newp = __nw__7TObjectFUl(0x3C);
+        if (newp != 0U) {
+            fn_800A02AC((void*)newp, M2C_FIELD(arg0, s32 *, 0x10), arg0 + 0x28, arg0 + 0x34);
+        }
+    }
+}
+
+extern M2C_UNK lbl_80490440[];
+
+void *TObjEneMe1Canadin__sub_800A00A8(void *arg0, s16 arg1) {
+    if (arg0 != NULL) {
+        M2C_FIELD(arg0, M2C_UNK **, 0x18) = lbl_80490440;
+        __dt__7TObjectFv(arg0, 0);
+        if (arg1 > 0) {
+            __dl__7TObjectFPv(arg0);
+        }
+    }
+    return arg0;
+}
+
+}
+
+#include "types.h"
+typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
+typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
+#define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
+#define M2C_BITWISE(type, expr) ((type)(expr))
+
+extern "C" {
+
+u8 *init__17TObjEneMe1CanadinFPviii(u8 *arg0, s32 arg1, s32 arg2, s32 arg3);
+s32 rand(M2C_UNK);
+
+extern const f64 lbl_8043A460;
+extern M2C_UNK lbl_80490440[];
+extern s32 lbl_805D29BC;
+extern const f32 lbl_805D994C;
+extern const f32 lbl_805D9950;
+
+#pragma opt_propagation off
+u8 *init__17TObjEneMe1CanadinFPviii(u8 *arg0, s32 arg1, s32 arg2, s32 arg3) {
+    ((M2C_UNK (*)(u8 *, s32))__ct__7TObjectFP7TObject)(arg0, arg1);
+    M2C_FIELD(arg0, M2C_UNK **, 0x18) = lbl_80490440;
+    M2C_FIELD(arg0, s32 *, 0) = (s32) lbl_805D29BC;
+    M2C_FIELD(arg0, s32 *, 0x20) = arg2;
+    M2C_FIELD(arg0, s32 *, 0x24) = arg3;
+    VC_D(arg0 + 0x28, M2C_FIELD(arg0, s32 *, 0x20));
+    VC_D(arg0 + 0x34, M2C_FIELD(arg0, s32 *, 0x24));
+    {
+        s32 k = (s32) 0xFFFF0000;
+        M2C_FIELD(arg0, s32 *, 0x40) = k + 0x33;
+        M2C_FIELD(arg0, s32 *, 0x44) = k + 0x33;
+        M2C_FIELD(arg0, s32 *, 0x1C) = (s32) (lbl_805D994C * (lbl_805D9950 * (f32) rand(k)));
+    }
+    return arg0;
+}
+
+}

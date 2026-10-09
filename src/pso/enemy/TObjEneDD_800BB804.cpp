@@ -521,3 +521,116 @@ void init_position_vectors__9TObjEneDDFPv(u8 *arg0) {
 }
 
 }
+
+#include "types.h"
+typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
+#define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
+
+extern "C" {
+
+void *TObjEneDD__ct(void *arg0);
+void *TObjEneDD__vt0(void *arg0, s16 arg1);
+void initialize__9TObjEnemyFPv(void *);
+void __dl__7TObjectFPv(void *);
+void __dt__9TObjEnemyFv(void *, int);
+
+extern M2C_UNK __vt__9TObjEneDD[];
+
+void *TObjEneDD__vt0(void *arg0, s16 arg1) {
+    if (arg0 != NULL) {
+        M2C_FIELD(arg0, M2C_UNK **, 0x18) = __vt__9TObjEneDD;
+        __dt__9TObjEnemyFv(arg0, 0);
+        if (arg1 > 0) {
+            __dl__7TObjectFPv(arg0);
+        }
+    }
+    return arg0;
+}
+
+extern M2C_UNK __vt__9TObjEneDD[];
+extern const f32 lbl_805D9EA8;
+extern void *lbl_805D2A30;
+
+void *TObjEneDD__ct(void *arg0) {
+    initialize__9TObjEnemyFPv(arg0);
+    M2C_FIELD(arg0, M2C_UNK **, 0x18) = __vt__9TObjEneDD;
+    M2C_FIELD(arg0, void **, 0x0) = lbl_805D2A30;
+    M2C_FIELD(arg0, u32 *, 0x374) = 0;
+    M2C_FIELD(arg0, u32 *, 0x378) = 0;
+    M2C_FIELD(arg0, f32 *, 0x37C) = lbl_805D9EA8;
+    M2C_FIELD(arg0, u32 *, 0x380) = 0;
+    M2C_FIELD(arg0, u32 *, 0x384) = 0;
+    M2C_FIELD(arg0, u32 *, 0x388) = 0;
+    return arg0;
+}
+
+}
+
+#include "types.h"
+typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
+typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
+#define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
+#define M2C_BITWISE(type, expr) ((type)(expr))
+
+extern "C" {
+
+struct Base_800BBDD4 { char pad[0x18]; };
+struct VObj_800BBDD4 : Base_800BBDD4 {
+    virtual void m0(int);
+};
+
+void release_resource__9TObjEneDDFv(void);
+
+extern struct VObj_800BBDD4 *obj_ene_dd_instance;
+
+void release_resource__9TObjEneDDFv(void) {
+    if (obj_ene_dd_instance != NULL) {
+        if (obj_ene_dd_instance != NULL) {
+            obj_ene_dd_instance->m0(1);
+        }
+        obj_ene_dd_instance = NULL;
+    }
+}
+
+}
+
+#include "types.h"
+typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
+#define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
+
+typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
+#define M2C_BITWISE(type, expr) ((type)(expr))
+extern "C" {
+s32 tick_period_counter(M2C_UNK arg0, s32 *arg1, s32 arg2);
+}
+
+extern "C" {
+
+void create_instance__9TObjEneDDFv(void);
+int get_enemy_count__9TObjEneDDFv(void);
+void *__nw__7TObjectFUl(int);
+void *construct_collision_body(void *, int, int);
+
+void create_instance__9TObjEneDDFv(void) {
+    void *o;
+    o = __nw__7TObjectFUl(0xB0);
+    if (o != NULL) {
+        o = construct_collision_body(o, 0, 0);
+    }
+    obj_ene_dd_instance = (struct VObj_800BBDD4 *)o;
+}
+
+    extern int lbl_805D5870;
+int get_enemy_count__9TObjEneDDFv(void) {  return lbl_805D5870; }
+s32 tick_period_counter(M2C_UNK arg0, s32 *arg1, s32 arg2) {
+    s32 temp_r3;
+    temp_r3 = *arg1;
+    if (temp_r3 >= arg2) {
+        *arg1 = 0;
+        return 1;
+    }
+    *arg1 = temp_r3 + 1;
+    return 0;
+}
+
+}

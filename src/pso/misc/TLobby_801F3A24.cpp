@@ -1,5 +1,126 @@
 #include "types.h"
 
+struct QuestObjRow_801F3AD8 {
+    u8 pad0[2];
+    s16 flags;
+    u8 pad1[0x40];
+};
+
+struct Ent_801F3A80 {
+    u16 a;
+    s16 b;
+    u8 rest[0x44];
+};
+
+typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
+typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
+#define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
+#define M2C_BITWISE(type, expr) ((type)(expr))
+
+extern "C" {
+void swap_object_row_endian(void *arg0);
+void convert_quest_object_rows(struct QuestObjRow_801F3AD8 *rows, u32 byte_size);
+void bswap_enemy_set_row(void*);
+void bswap_enemy_set_rows__6TLobbyFPvUi(u8* arg0, u32 arg1);
+bool load_quest_encounter_section(s32 arg0);
+s32 handle_msg_type2__6TLobbyFi(s32 arg0);
+M2C_UNK init_buffers__6TLobbyFii(s32, s32);
+extern s16 TLobby__data_805127D0[];
+extern s32 TLobby__data_805D5EE0;
+void init_floor_encounter_sections__6TLobbyFv(void);
+s32 handle_msg_type1__6TLobbyFi(s32 arg0);
+extern s16 TLobby__data_805127D0[];
+void handle_msg_type1_for_idle_slots__6TLobbyFv(void);
+}
+
+extern "C" {
+
+void refresh_quest_list__6TLobbyFi(s32 arg0);
+s32 TLobby__send_and_handle_60(s32);
+s32 read_disc_file(s32, s32);
+s32 alloc__22TQuestVmDownLoadServerFPv();
+s32 bswap_16__FPUs(s32);
+void build_6x75_update_quest_flag_dc(void* p);
+s32 read_be16_field2__10TObjPlayerFPv();
+void rebuild_all__6TLobbyFi(int a0);
+s32 safe_free__23TAdSinglePlyChrSelectGCFUi(s32);
+s32 update_lobby_scene__6TSceneFPv();
+
+void refresh_quest_list__6TLobbyFi(s32 arg0) {
+    s32 temp_r3;
+
+    if (update_lobby_scene__6TSceneFPv() >= 0) {
+        temp_r3 = alloc__22TQuestVmDownLoadServerFPv();
+        if (temp_r3 != 0) {
+            read_disc_file(arg0, temp_r3);
+            rebuild_all__6TLobbyFi(temp_r3);
+            safe_free__23TAdSinglePlyChrSelectGCFUi(temp_r3);
+        }
+    }
+}
+
+void bswap_enemy_set_rows__6TLobbyFPvUi(u8* arg0, u32 arg1) {
+    Ent_801F3A80* p = (Ent_801F3A80*)arg0;
+    u32 n = arg1 / sizeof(Ent_801F3A80);
+    u32 i;
+    for (i = 0; i < n; i++, p++) {
+        bswap_enemy_set_row(p);
+        p->b = 0;
+    }
+}
+
+void convert_quest_object_rows(struct QuestObjRow_801F3AD8 *rows, u32 byte_size) {
+    struct QuestObjRow_801F3AD8 *p = rows;
+    u32 count = byte_size / 68;
+    u32 i;
+    for (i = 0; i < count; ++i, p++) {
+        swap_object_row_endian(p);
+        p->flags = 0;
+    }
+}
+void init_floor_encounter_sections__6TLobbyFv(void) {
+    s32 i;
+    s32 ok;
+    for (i = 0; i < 0x12; i++) {
+        ok = 0;
+        switch (TLobby__data_805127D0[i]) {
+        case 0:
+            if (handle_msg_type2__6TLobbyFi(i) != 0) {
+                ok = 1;
+            }
+            if (ok == 1) {
+                load_quest_encounter_section(i);
+            }
+            break;
+        case 1:
+        case 2:
+        case 3:
+            break;
+        }
+        if (ok == 0) {
+            init_buffers__6TLobbyFii(i, TLobby__data_805D5EE0);
+        }
+    }
+}
+void handle_msg_type1_for_idle_slots__6TLobbyFv(void) {
+    s32 i;
+    for (i = 0; i < 0x12; i++) {
+        switch (TLobby__data_805127D0[i]) {
+        case 0:
+            handle_msg_type1__6TLobbyFi(i);
+            break;
+        case 1:
+        case 2:
+        case 3:
+            break;
+        }
+    }
+}
+
+}
+
+#include "types.h"
+
 typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
 typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 #define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
@@ -14,13 +135,11 @@ struct Sel_801F3E1C { s32 area; s32 terrain; s32 entities; };
 struct RecoveredGlobal_801F3DEC_TLobby__data_805127D0;
 extern "C" {
 M2C_UNK memset(void *, int, int);
-extern RecoveredGlobal_801F3DEC_TLobby__data_805127D0 TLobby__data_805127D0;
 void clear_quest_floor_designations(void);
 s32 add_player__6TLobbyFiii(s32, s32, s32);
 M2C_UNK bswap_32__FPUl(void *);
-extern int TLobby__data_805D5EE0;
+extern s32 TLobby__data_805D5EE0;
 bool load_quest_encounter_section(s32 arg0);
-extern RecoveredGlobal_801F3DEC_TLobby__data_805127D0 TLobby__data_805127D0;
 extern u8 lbl_80449D08[];
 extern u8 lbl_80449D1C[];
 extern u8 lbl_80449D30[];
@@ -32,32 +151,30 @@ void load_area_event_set(s32, s32, s32, s32);
 void load_area_enemy_set(s32, s32, s32, s32);
 void load_area_object_set(s32, s32, s32, s32);
 void free_data_60F0__6TLobbyFv(void);
-void handle_msg_type1__6TLobbyFi(s32);
-void handle_msg_type2__6TLobbyFi(s32);
+s32 handle_msg_type1__6TLobbyFi(s32 arg0);
+s32 handle_msg_type2__6TLobbyFi(s32 arg0);
 void init_handle__6TLobbyFi(s32);
 int init_sub_state__6TLobbyFPv(void);
 int rebuild_entry__6TLobbyFPv(void);
 void populate_quest_floor_sets(void);
-extern RecoveredGlobal_801F3DEC_TLobby__data_805127D0 TLobby__data_805127D0;
 void set_floor_map_selection(s32, s32, s32, s32);
 void set_quest_floor_designation(s16 mode, s32 floor, s32 terrain, s32 unused);
 void set_floor_map_selection(s32, s32, s32, s32);
-extern RecoveredGlobal_801F3DEC_TLobby__data_805127D0 TLobby__data_805127D0;
 void set_quest_floor_designation_ex(s16 mode, s32 floor, s32 area, s32 layout, s32 entities);
 }
 
 extern "C" {
 
 void rebuild_all__6TLobbyFi(int a0);
-int init_floor_encounter_sections__6TLobbyFv(void);
-int handle_msg_type1_for_idle_slots__6TLobbyFv(void);
-int init_id_tables__6TLobbyFv(void);
+void init_floor_encounter_sections__6TLobbyFv(void);
+void handle_msg_type1_for_idle_slots__6TLobbyFv(void);
+void init_id_tables__6TLobbyFv(void);
 int free_boss4rock__6TLobbyFv(void);
 int TLobby__sub_8020A2AC(void);
 int rebuild_entry__6TLobbyFPv(void);
 int init_sub_state__6TLobbyFPv(void);
 
-    extern int TLobby__data_805D5EE0;
+    extern s32 TLobby__data_805D5EE0;
     extern short TLobby__data_805D6134;
 void rebuild_all__6TLobbyFi(int a0) { TLobby__data_805D5EE0 = a0; handle_msg_type1_for_idle_slots__6TLobbyFv(); init_sub_state__6TLobbyFPv(); TLobby__sub_8020A2AC(); init_floor_encounter_sections__6TLobbyFv(); free_boss4rock__6TLobbyFv(); rebuild_entry__6TLobbyFPv(); init_id_tables__6TLobbyFv(); TLobby__data_805D6134 = 1; TLobby__data_805D5EE0 = 0; }
 typedef char RecoveredGlobal_801F3DEC_TLobby__data_805127D0_size[sizeof(RecoveredGlobal_801F3DEC_TLobby__data_805127D0) == 0x28 ? 1 : -1];
@@ -105,7 +222,7 @@ void set_quest_floor_designation(s16 mode, s32 floor, s32 terrain, s32 unused) {
 }
 
 void clear_quest_floor_designations(void) {
-    memset((void *) (&TLobby__data_805127D0.value), (int) (0), (int) (0x24));
+    memset((void *) (&TLobby__data_805127D0), (int) (0), (int) (0x24));
 }
 
 void populate_quest_floor_sets(void) {
@@ -170,6 +287,237 @@ loop_1:
     }
 block_6:
     return 0;
+}
+
+}
+
+#include "types.h"
+typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
+typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
+#define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
+#define M2C_BITWISE(type, expr) ((type)(expr))
+
+extern "C" {
+
+s32 handle_msg_type2__6TLobbyFi(s32 arg0);
+void bswap_enemy_set_rows__6TLobbyFPvUi(u8* arg0, u32 arg1);
+s32 get_player_floor__6TLobbyFi(s32);
+M2C_UNK reserve_enemy_set_actor_ids(void *, u32, s32);
+M2C_UNK init_floor_enemy_count__6TLobbyFiPvUi(s32, void *, s32);
+
+s32 handle_msg_type2__6TLobbyFi(s32 arg0) {
+    s32 sp14;
+    s32 sp10;
+    s32 spC;
+    s32 sp8;
+    u8 *temp_r31;
+    u8 *var_r31;
+
+    if ((var_r31 = (u8 *)TLobby__data_805D5EE0) != NULL) {
+loop_1:
+        sp14 = M2C_FIELD(var_r31, s32 *, 0);
+        sp10 = M2C_FIELD(var_r31, s32 *, 4);
+        spC = M2C_FIELD(var_r31, s32 *, 8);
+        sp8 = M2C_FIELD(var_r31, s32 *, 0xC);
+        bswap_32__FPUl(&sp14);
+        bswap_32__FPUl(&sp10);
+        bswap_32__FPUl(&spC);
+        bswap_32__FPUl(&sp8);
+        if ((sp14 == 2) && (spC == arg0)) {
+            temp_r31 = var_r31 + 0x10;
+            bswap_enemy_set_rows__6TLobbyFPvUi(temp_r31, sp8);
+            reserve_enemy_set_actor_ids(temp_r31, (u32) sp8 / 72U, get_player_floor__6TLobbyFi(spC));
+            init_floor_enemy_count__6TLobbyFiPvUi(spC, temp_r31, sp8);
+            return 1;
+        }
+        if (sp14 != 0) {
+            var_r31 += sp10;
+            goto loop_1;
+        }
+        goto block_6;
+    }
+block_6:
+    return 0;
+}
+
+}
+
+#include "types.h"
+typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
+typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
+#define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
+#define M2C_BITWISE(type, expr) ((type)(expr))
+
+extern "C" {
+
+s32 handle_msg_type1__6TLobbyFi(s32 arg0);
+void setup_quest_list__6TLobbyFv(void);
+M2C_UNK advance_enemy_id_counter(u16);
+M2C_UNK advance_object_id_counter(u16);
+void convert_quest_object_rows(struct QuestObjRow_801F3AD8 *rows, u32 byte_size);
+M2C_UNK assign_object_ids__6TLobbyFPviPv(void *, u32, s32);
+M2C_UNK sum_floor_enemy_counts__6TLobbyFv();
+M2C_UNK TLobby__sub_8020B308(s32);
+M2C_UNK load_object_set_entries__6TLobbyFiPvUi(s32, void *, s32);
+M2C_UNK fn_801F43A8();
+M2C_UNK get_data__12TQuestListVMFv();
+s32 get_player_floor__6TLobbyFi(s32);
+M2C_UNK get_quest_list_flag__16TQuestListOnlineFv();
+void open_session__6TLobbyFi(s32 arg0);
+void rebuild_all__6TLobbyFi(int a0);
+void refresh_quest_list__6TLobbyFi(s32 arg0);
+void update_and_reset__6TLobbyFi(int a0);
+
+s32 handle_msg_type1__6TLobbyFi(s32 arg0) {
+    s32 sp14;
+    s32 sp10;
+    s32 spC;
+    s32 sp8;
+    u8 *temp_r31;
+    u8 *var_r31;
+
+    if ((var_r31 = (u8 *)TLobby__data_805D5EE0) != NULL) {
+loop_1:
+        sp14 = M2C_FIELD(var_r31, s32 *, 0);
+        sp10 = M2C_FIELD(var_r31, s32 *, 4);
+        spC = M2C_FIELD(var_r31, s32 *, 8);
+        sp8 = M2C_FIELD(var_r31, s32 *, 0xC);
+        bswap_32__FPUl(&sp14);
+        bswap_32__FPUl(&sp10);
+        bswap_32__FPUl(&spC);
+        bswap_32__FPUl(&sp8);
+        if ((sp14 == 1) && (spC == arg0)) {
+            temp_r31 = var_r31 + 0x10;
+            convert_quest_object_rows((struct QuestObjRow_801F3AD8 *)temp_r31, sp8);
+            assign_object_ids__6TLobbyFPviPv(temp_r31, (u32) sp8 / 68U, get_player_floor__6TLobbyFi(spC));
+            load_object_set_entries__6TLobbyFiPvUi(spC, temp_r31, sp8);
+            return 1;
+        }
+        if (sp14 != 0) {
+            var_r31 += sp10;
+            goto loop_1;
+        }
+        goto block_6;
+    }
+block_6:
+    return 0;
+}
+
+extern s32 evt2_random_enemies_mode;
+extern s32 TLobby__data_805D60E0;
+extern s32 TLobby__data_805D60E4;
+extern s32 TLobby__data_805D60E8;
+extern s32 TLobby__data_805D60EC;
+extern s32 TLobby__data_805D6148;
+extern s32 TLobby__data_805D614C;
+
+void setup_quest_list__6TLobbyFv(void) {
+    TLobby__data_805D60E0 = 0;
+    TLobby__data_805D60E4 = 0;
+    TLobby__data_805D60E8 = 0;
+    TLobby__data_805D60EC = 0;
+    switch ((s32) evt2_random_enemies_mode) {
+    case 1:
+        fn_801F43A8();
+        ((void (*)())open_session__6TLobbyFi)();
+        break;
+    case 2:
+        get_quest_list_flag__16TQuestListOnlineFv();
+        ((void (*)())update_and_reset__6TLobbyFi)();
+        break;
+    case 3:
+        get_data__12TQuestListVMFv();
+        ((void (*)())update_and_reset__6TLobbyFi)();
+        break;
+    case 4:
+        get_quest_list_flag__16TQuestListOnlineFv();
+        ((void (*)())rebuild_all__6TLobbyFi)();
+        break;
+    case 5:
+        fn_801F43A8();
+        ((void (*)())refresh_quest_list__6TLobbyFi)();
+        break;
+    }
+    advance_object_id_counter((u16) TLobby__data_805D60E8);
+    advance_enemy_id_counter((u16) TLobby__data_805D60EC);
+    TLobby__data_805D6148 = TLobby__data_805D60E0;
+    TLobby__data_805D614C = TLobby__data_805D60E4;
+    TLobby__sub_8020B308(TLobby__data_805D60E0);
+    sum_floor_enemy_counts__6TLobbyFv();
+}
+
+}
+
+#include "types.h"
+
+extern "C" {
+
+void update_and_reset__6TLobbyFi(int a0);
+void populate_quest_floor_sets(void);
+void init_id_tables__6TLobbyFv(void);
+
+    extern s32 TLobby__data_805D5EE0;
+    extern short TLobby__data_805D6134;
+void update_and_reset__6TLobbyFi(int a0) { TLobby__data_805D5EE0 = a0; populate_quest_floor_sets(); init_id_tables__6TLobbyFv(); TLobby__data_805D6134 = 1; TLobby__data_805D5EE0 = 0; }
+
+}
+
+#include "types.h"
+typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
+typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
+#define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
+#define M2C_BITWISE(type, expr) ((type)(expr))
+
+struct A_801F4340 { s16 a; s16 b; };
+
+struct B_801F4340 { s32 a; s16 b; u8 rest[6]; };
+
+extern "C" {
+extern A_801F4340* TLobby__data_805D6140;
+extern B_801F4340* TLobby__data_805D6144;
+void init_id_tables__6TLobbyFv(void);
+}
+
+extern "C" {
+
+void open_session__6TLobbyFi(s32 arg0);
+void populate_quest_floor_sets(void);
+M2C_UNK safe_free__23TAdSinglePlyChrSelectGCFUi(s32);
+s32 alloc__22TQuestVmDownLoadServerFPv();
+s32 update_lobby_scene__6TSceneFPv();
+M2C_UNK read_disc_file(s32, s32);
+
+extern s32 TLobby__data_805D5EE0;
+extern s16 TLobby__data_805D6134;
+
+void open_session__6TLobbyFi(s32 arg0) {
+    s32 t;
+
+    if (update_lobby_scene__6TSceneFPv() >= 0) {
+        t = (TLobby__data_805D5EE0 = alloc__22TQuestVmDownLoadServerFPv());
+        if (t != 0) {
+            read_disc_file(arg0, t);
+            populate_quest_floor_sets();
+            init_id_tables__6TLobbyFv();
+            TLobby__data_805D6134 = 1;
+            safe_free__23TAdSinglePlyChrSelectGCFUi(TLobby__data_805D5EE0);
+            TLobby__data_805D5EE0 = 0;
+        }
+    }
+}
+void init_id_tables__6TLobbyFv(void) {
+    s32 i;
+    s32 n = 0;
+    for (i = 0; i < 0xBA0; i++) {
+        s16 v = n + 0x100;
+        n++;
+        TLobby__data_805D6140[i].b = v;
+    }
+    for (i = 0; i < 0xB50; i++) {
+        s16 v = n + 0x100;
+        n++;
+        TLobby__data_805D6144[i].b = v;
+    }
 }
 
 }

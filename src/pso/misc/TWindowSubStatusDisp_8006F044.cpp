@@ -1,4 +1,22 @@
 #include "types.h"
+
+extern "C" {
+
+s32 get_layout_id__20TWindowSubStatusDispFv();
+
+s32 calc_layout_hash__20TWindowSubStatusDispFv(void) {
+    return get_layout_id__20TWindowSubStatusDispFv() * 0x8C9F;
+}
+
+s32 get_layout_id__20TWindowSubStatusDispFv();
+
+s32 calc_entry_offset__20TWindowSubStatusDispFv(void) {
+    return get_layout_id__20TWindowSubStatusDispFv() * 0x12C;
+}
+
+}
+
+#include "types.h"
 #pragma fp_contract on
 typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
 typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;

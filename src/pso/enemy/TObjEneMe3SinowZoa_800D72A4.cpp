@@ -90,3 +90,125 @@ void copy_position_vector__18TObjEneMe3SinowZoaFPvPv(void* p, void* q) { *(f32*)
 void TObjEneMe3SinowZoa__sub_800D74A4(void* a0) { *(float*)((char*)a0 + 0x18) = lbl_805DA348; *(float*)((char*)a0 + 0x0) = lbl_805DA350; *(float*)((char*)a0 + 0x4) = lbl_805DA348; *(float*)((char*)a0 + 0x8) = lbl_805DA348; *(float*)((char*)a0 + 0xc) = lbl_805DA348; }
 
 }
+
+#include "types.h"
+
+extern "C" {
+
+void TObjEneMe3SinowZoa__sub_800D74C4(void* a0);
+void set_field_10__18TObjEneMe3SinowZoaFPvf(void* p, f32 v);
+
+    extern const float lbl_805DA348;
+    extern const float lbl_805DA34C;
+void TObjEneMe3SinowZoa__sub_800D74C4(void* a0) { *(float*)((char*)a0 + 0x18) = lbl_805DA34C; *(float*)((char*)a0 + 0x0) = lbl_805DA348; *(float*)((char*)a0 + 0x4) = lbl_805DA348; *(float*)((char*)a0 + 0x8) = lbl_805DA348; *(float*)((char*)a0 + 0xc) = lbl_805DA348; }
+
+void set_field_10__18TObjEneMe3SinowZoaFPvf(void* p, f32 v) { *(f32*)((char*)p + 0x10) = v; }
+
+}
+
+#include "types.h"
+typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
+typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
+#define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
+#define M2C_BITWISE(type, expr) ((type)(expr))
+
+struct B_800D758C { f32 f0; f32 f4; f32 f8; f32 fc; f32 f10; };
+
+struct V_800D758C : B_800D758C {
+    virtual void m0();
+    virtual void m1(s32 x);
+    f32 f18;
+};
+
+struct B_800D7524 { f32 f0; f32 f4; f32 f8; f32 fc; f32 f10; };
+
+struct V_800D7524 : B_800D7524 {
+    virtual void m0();
+    virtual void m1(s32 x);
+    f32 f18;
+};
+
+extern "C" {
+extern const f32 lbl_805DA360;
+extern const f32 lbl_805DA350;
+extern const f32 lbl_805DA348;
+void TObjEneMe3SinowZoa__sub_800D758C(V_800D758C *self);
+extern const f32 lbl_805DA35C;
+extern const f32 lbl_805DA34C;
+extern const f32 lbl_805DA354;
+extern const f32 lbl_805DA348;
+void init_death_params__18TObjEneMe3SinowZoaFPv(V_800D7524 *self);
+}
+
+extern "C" {
+
+void set_speed_scale__18TObjEneMe3SinowZoaFPvi(void *arg0, s32 arg1);
+
+extern const f64 lbl_8043C6F8;
+extern const f32 lbl_805DA34C;
+
+void set_speed_scale__18TObjEneMe3SinowZoaFPvi(void *arg0, s32 arg1) {
+    M2C_FIELD(arg0, f32 *, 0x10) = (f32) (lbl_805DA34C / (f32) arg1);
+}
+
+#pragma push
+#pragma fp_contract on
+void init_death_params__18TObjEneMe3SinowZoaFPv(V_800D7524 *self) {
+    self->m1(10);
+    self->f18 = lbl_805DA35C * self->f10 + lbl_805DA34C;
+    self->f0 = lbl_805DA354;
+    self->f4 = lbl_805DA348;
+    self->f8 = lbl_805DA348;
+    self->fc = lbl_805DA348;
+}
+#pragma pop
+
+void TObjEneMe3SinowZoa__sub_800D758C(V_800D758C *self) {
+    self->m1(10);
+    self->f18 = -(lbl_805DA360 * self->f10);
+    self->f0 = lbl_805DA350;
+    self->f4 = lbl_805DA348;
+    self->f8 = lbl_805DA348;
+    self->fc = lbl_805DA348;
+}
+
+}
+
+#include "types.h"
+typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
+typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
+#define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
+#define M2C_BITWISE(type, expr) ((type)(expr))
+
+extern "C" {
+
+void *__dt__18TObjEneMe3SinowZoaFPvs(void *arg0, s16 arg1);
+M2C_UNK TObjPlayer__sub_800D96D0(void *, s16);
+M2C_UNK __dl__FPv(void *);
+
+extern M2C_UNK lbl_80494938[];
+
+void *__dt__18TObjEneMe3SinowZoaFPvs(void *arg0, s16 arg1) {
+    if (arg0 != NULL) {
+        M2C_FIELD(arg0, M2C_UNK **, 0x14) = lbl_80494938;
+        TObjPlayer__sub_800D96D0(arg0, 0);
+        if (arg1 > 0) {
+            __dl__FPv(arg0);
+        }
+    }
+    return arg0;
+}
+
+}
+
+#include "types.h"
+
+extern "C" {
+
+void* init_common__18TObjEneMe3SinowZoaFPv(void* a0);
+int TObjPlayer__sub_800D9718(void);
+
+    extern const float lbl_805DA348;
+void* init_common__18TObjEneMe3SinowZoaFPv(void* a0) { TObjPlayer__sub_800D9718(); *(int*)((char*)a0 + 0x14) = (int)lbl_80494938; *(float*)((char*)a0 + 0x18) = lbl_805DA348; return a0; }
+
+}

@@ -524,6 +524,7 @@ force_active:
   - copy_state__16TKeyBoardControlFPvPv
   - copy_state_block__6TLobbyFv
   - copy_struct28__17TWindowSubComCardFii
+  - copy_struct__17TWindowSubComCardFPvPv
   - copy_struct_f8__6TLobbyFii
   - copy_vec4_forward__15TPlyPhotonChairFi
   - copy_vec4_reverse__15TPlyPhotonChairFi
@@ -739,6 +740,7 @@ force_active:
   - handle_equip_offer__20TShopArmorListWindowFv
   - handle_equip_offer__24TShopEquipmentListWindowFv
   - handle_grid_navigation__22TWindowSubCustomSelectFPv
+  - handle_msg_type1_for_idle_slots__6TLobbyFv
   - handle_page_input__24TWindowSubSymbolChatHelpFPv
   - handle_selection__20TShopArmorListWindowFv
   - handle_selection__24TShopEquipmentListWindowFv
@@ -773,6 +775,7 @@ force_active:
   - init_cursor_record__15TBoss3VoloptP01FPv
   - init_default_fields__6TLobbyFPv
   - init_effect_flags__13TItemProArmorFPv
+  - init_floor_encounter_sections__6TLobbyFv
   - init_forward__19TItemDisconnectCtrlFv
   - init_forward_default__10TObjPlayerFv
   - init_fresh_character_slot
@@ -1367,6 +1370,7 @@ force_active:
   - set_mode_index_from_state__13TObjLobbyMainFPv
   - set_node_offsets__10TBoss2MineFPv
   - set_num_tex_gens_zero__10TObjPlayerFv
+  - set_orbit_destination__19TObjEneEpsilonGuardFPvi
   - set_particle_draw_scale
   - set_particle_tint_color
   - set_player_room_control_flag
