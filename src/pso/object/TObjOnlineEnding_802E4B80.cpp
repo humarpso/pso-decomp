@@ -9,6 +9,156 @@ int TWindow__close(void*);
 void *__nw__7TObjectFUl(int);
 
     extern int lbl_805D5878;
+extern "C" void TLobby__sub_801A1FD8();
+extern "C" void TObjRoomId__sub_801A1E2C();
+extern "C" void TParticleCtrl__sub_801A2124();
+extern "C" void apply_object_set_data();
+extern "C" void classify_actor_view_detail();
+extern "C" u8 lbl_804729C8[];
+extern "C" u8 lbl_804729DC[];
+extern "C" u8 lbl_804729EC[];
+extern "C" u8 lbl_804729FC[];
+extern "C" u8 lbl_80472A0C[];
+extern "C" u8 lbl_80472A1C[];
+extern "C" u8 lbl_80472A2C[];
+extern "C" u8 lbl_80472A3C[];
+extern "C" u8 lbl_80472A4C[];
+extern "C" u8 lbl_80472A5C[];
+extern "C" u8 lbl_80472A6C[];
+extern "C" u8 lbl_80472A7C[];
+extern "C" u8 lbl_80472A8C[];
+extern "C" u8 lbl_80472A9C[];
+extern "C" u8 lbl_80472AAC[];
+extern "C" u8 lbl_80472ABC[];
+extern "C" u8 lbl_80472ACC[];
+extern "C" u8 lbl_80472ADC[];
+extern "C" u8 lbl_80472AEC[];
+extern "C" u8 lbl_80472AFC[];
+extern "C" u8 lbl_80472B0C[];
+extern "C" u8 lbl_80472B1C[];
+extern "C" u8 lbl_80472B2C[];
+extern "C" u8 lbl_80472B3C[];
+extern "C" u8 lbl_80472B4C[];
+extern "C" u8 lbl_80472B5C[];
+extern "C" u8 lbl_80472B70[];
+extern "C" void render_shadows__7TObjectFv();
+extern "C" void reset_motion_fields__10TObjPlayerFPv();
+extern "C" void update_object_view_visibility();
+struct Obj_802E4E44;
+struct Obj_802E4C70;
+void *destroy__16TObjOnlineEndingFPvs(void *arg0, s16 arg1);
+void update__16TObjOnlineEndingFPv(Obj_802E4E44 *arg0);
+void draw_scene__16TObjOnlineEndingFPv(Obj_802E4C70 *arg0);
+extern void *lbl_804E3578[2];
+extern void *lbl_804E3580[26];
+__declspec(section ".data") void *lbl_804E3578[2] = {
+    (void *)&lbl_804729C8, (void *)0x0,
+};
+void *lbl_804E3580[26] = {
+    (void *)&lbl_804729DC, (void *)&lbl_804729EC, (void *)&lbl_804729FC, (void *)&lbl_80472A0C,
+    (void *)&lbl_80472A1C, (void *)&lbl_80472A2C, (void *)&lbl_80472A3C, (void *)&lbl_80472A4C,
+    (void *)&lbl_80472A5C, (void *)&lbl_80472A6C, (void *)&lbl_80472A7C, (void *)&lbl_80472A8C,
+    (void *)&lbl_80472A9C, (void *)&lbl_80472AAC, (void *)&lbl_80472ABC, (void *)&lbl_80472ACC,
+    (void *)&lbl_80472ADC, (void *)&lbl_80472AEC, (void *)&lbl_80472AFC, (void *)&lbl_80472B0C,
+    (void *)&lbl_80472B1C, (void *)&lbl_80472B2C, (void *)&lbl_80472B3C, (void *)&lbl_80472B4C,
+    (void *)&lbl_80472B5C, (void *)0x0,
+};
+void *lbl_804E35E8[4] = {
+    (void *)&lbl_80472B70, (void *)&lbl_804E3578, (void *)&lbl_804E3580, (void *)0x10019,
+};
+void *lbl_804E35F8[240] = {
+    (void *)0xc1973333, (void *)0xc1000000, (void *)0xc1100000, (void *)0x24fa,
+    (void *)0x3fa00000, (void *)0x40bb3333, (void *)0xc1000000, (void *)0xc1100000,
+    (void *)0x0, (void *)0x3fa00000, (void *)0xc0bb3333, (void *)0xc1500000,
+    (void *)0xc1100000, (void *)0x717, (void *)0x3fa00000, (void *)0x419acccd,
+    (void *)0xc1500000, (void *)0xc1100000, (void *)0x2b12, (void *)0x3fa00000,
+    (void *)0xc1900000, (void *)0xc0c00000, (void *)0xc1200000, (void *)0x14b4f,
+    (void *)0x3fa00000, (void *)0x40d80000, (void *)0xc0c00000, (void *)0xc1200000,
+    (void *)0x8342, (void *)0x3fa00000, (void *)0xc0c99999, (void *)0xc1280000,
+    (void *)0xc1200000, (void *)0xffffef4c, (void *)0x3fa00000, (void *)0x419e6666,
+    (void *)0xc1300000, (void *)0xc1200000, (void *)0xffffccaa, (void *)0x3fa00000,
+    (void *)0xc1939999, (void *)0xc0d00000, (void *)0xc10fffe6, (void *)0x163e,
+    (void *)0x3f99999a, (void *)0x40c99999, (void *)0xc0d00000, (void *)0xc10fffe6,
+    (void *)0xffffe92f, (void *)0x3f99999a, (void *)0xc0bb3333, (void *)0xc1400000,
+    (void *)0xc0afffcc, (void *)0xca1, (void *)0x3f99999a, (void *)0x41819999,
+    (void *)0xc1580000, (void *)0xc0afffcc, (void *)0xfffff639, (void *)0x3f99999a,
+    (void *)0xc1900000, (void *)0xc0f00000, (void *)0xc1080000, (void *)0x303,
+    (void *)0x3fa00000, (void *)0x40bb3333, (void *)0xc0f00000, (void *)0xc1080000,
+    (void *)0xffffe063, (void *)0x3fa00000, (void *)0xc0d80000, (void *)0xc1600000,
+    (void *)0xc1280000, (void *)0xffffcc42, (void *)0x3fa00000, (void *)0x419acccd,
+    (void *)0xc1600000, (void *)0xc1280000, (void *)0x1bb4, (void *)0x3fa00000,
+    (void *)0xc19acccd, (void *)0xc0e00000, (void *)0xc1100000, (void *)0xffffd6d7,
+    (void *)0x3f800000, (void *)0x40d80000, (void *)0xc0d00000, (void *)0xc1100000,
+    (void *)0xfffffcbb, (void *)0x3f800000, (void *)0xc0900000, (void *)0xc1600000,
+    (void *)0xc1100000, (void *)0x2913, (void *)0x3f800000, (void *)0x41939999,
+    (void *)0xc1680000, (void *)0xc1100000, (void *)0xffffe984, (void *)0x3f800000,
+    (void *)0xc1939999, (void *)0xc0c00000, (void *)0xc1100000, (void *)0x1fc7,
+    (void *)0x3fa00000, (void *)0x40c99999, (void *)0xc0b00000, (void *)0xc1100000,
+    (void *)0x0, (void *)0x3fa00000, (void *)0xc0c99999, (void *)0xc1400000,
+    (void *)0xc1100000, (void *)0xffffe37b, (void *)0x3fa00000, (void *)0x419e6666,
+    (void *)0xc1380000, (void *)0xc1100000, (void *)0x54b, (void *)0x3fa00000,
+    (void *)0xc1939999, (void *)0xc0b00000, (void *)0xc1200000, (void *)0xffffcf1c,
+    (void *)0x3fa00000, (void *)0x40d80000, (void *)0xc0c00000, (void *)0xc1200000,
+    (void *)0xffffe5ed, (void *)0x3fa00000, (void *)0xc0d80000, (void *)0xc1400000,
+    (void *)0xc1200000, (void *)0x0, (void *)0x3fa00000, (void *)0x41939999,
+    (void *)0xc1480000, (void *)0xc1200000, (void *)0xffffd813, (void *)0x3fa00000,
+    (void *)0xc19e6666, (void *)0xc1000000, (void *)0xc1200000, (void *)0x1e8e,
+    (void *)0x3fa00000, (void *)0x40bb3333, (void *)0xc0f00000, (void *)0xc1200000,
+    (void *)0xfffff2f7, (void *)0x3fa00000, (void *)0xc0f4cccc, (void *)0xc18c0000,
+    (void *)0xc1200000, (void *)0x3488, (void *)0x3fa00000, (void *)0x41939999,
+    (void *)0xc1840000, (void *)0xc1200000, (void *)0xffff1208, (void *)0x3fa00000,
+    (void *)0xc1973333, (void *)0xc1080000, (void *)0xc1180000, (void *)0x3013,
+    (void *)0x3fa00000, (void *)0x40bb3333, (void *)0xc0d00000, (void *)0xc1180000,
+    (void *)0x14c7, (void *)0x3fa00000, (void *)0xc0bb3333, (void *)0xc1400000,
+    (void *)0xc1180000, (void *)0x138e, (void *)0x3fa00000, (void *)0x419acccd,
+    (void *)0xc1500000, (void *)0xc1180000, (void *)0xffffed43, (void *)0x3fa00000,
+    (void *)0xc18c9c21, (void *)0xc0800000, (void *)0xc0630da6, (void *)0x6d,
+    (void *)0x3fa00000, (void *)0x40b6df66, (void *)0xc0800000, (void *)0xc0630da6,
+    (void *)0xffffd4a0, (void *)0x3fa00000, (void *)0xc0c8f15a, (void *)0xc1480000,
+    (void *)0xc048c4ce, (void *)0x0, (void *)0x3fa00000, (void *)0x41865c5c,
+    (void *)0xc1480000, (void *)0xc048c4ce, (void *)0xffffe71d, (void *)0x3fa00000,
+    (void *)0xc19ee664, (void *)0xc0e00000, (void *)0xc16238fa, (void *)0xffff8aab,
+    (void *)0x3fa00000, (void *)0x40c99999, (void *)0xc0e00000, (void *)0xc16238fa,
+    (void *)0xffffddde, (void *)0x3fa00000, (void *)0xc0d3a8e0, (void *)0xc1480000,
+    (void *)0xc15a4b1f, (void *)0xffffd1c8, (void *)0x3fa00000, (void *)0x41a05878,
+    (void *)0xc1480000, (void *)0xc15a4b1f, (void *)0xffffb334, (void *)0x3fa00000,
+    (void *)0xc198c6f3, (void *)0xc075318c, (void *)0xc0fb0279, (void *)0x1c71,
+    (void *)0x3fa00000, (void *)0x40ba0de5, (void *)0xc075318c, (void *)0xc0fb0279,
+    (void *)0x555, (void *)0x3fa00000, (void *)0xc0ca1e2a, (void *)0xc144c54e,
+    (void *)0xc0ee567a, (void *)0xffffc9f5, (void *)0x3fa00000, (void *)0x4192ecab,
+    (void *)0xc144c54e, (void *)0xc0ee567a, (void *)0xffffde94, (void *)0x3fa00000,
+};
+void *lbl_804E39B8[24] = {
+    (void *)0x0, (void *)0x1, (void *)0x2, (void *)0x3,
+    (void *)0x4, (void *)0x5, (void *)0x6, (void *)0x7,
+    (void *)0x8, (void *)0x9, (void *)0xa, (void *)0xb,
+    (void *)0xc, (void *)0xd, (void *)0xe, (void *)0xf,
+    (void *)0x10, (void *)0x11, (void *)0x12, (void *)0x13,
+    (void *)0x14, (void *)0x15, (void *)0x16, (void *)0x17,
+};
+void *lbl_804E3A18[4] = {
+    (void *)0x2, (void *)0x1, (void *)0x0, (void *)0x3,
+};
+void *lbl_804E3A28[4] = {
+    (void *)0x1, (void *)0x0, (void *)0x0, (void *)0x1,
+};
+void *lbl_804E3A38[3] = {
+    (void *)0x469c4000, (void *)0x0, (void *)0x0,
+};
+void *online_ending_quad_vertices[8] = {
+    (void *)0x43800000, (void *)0x0, (void *)0x43c00000, (void *)0x0,
+    (void *)0x43000000, (void *)0x0, (void *)0x44008000, (void *)0x0,
+};
+void *lbl_804E3A64[13] = {
+    (void *)0x0, (void *)0x0, (void *)&destroy__16TObjOnlineEndingFPvs, (void *)&update__16TObjOnlineEndingFPv,
+    (void *)&draw_scene__16TObjOnlineEndingFPv, (void *)&render_shadows__7TObjectFv, (void *)&TLobby__sub_801A1FD8, (void *)&apply_object_set_data,
+    (void *)&reset_motion_fields__10TObjPlayerFPv, (void *)&TParticleCtrl__sub_801A2124, (void *)&update_object_view_visibility, (void *)&classify_actor_view_detail,
+    (void *)&TObjRoomId__sub_801A1E2C,
+};
+#define lbl_804E3A38 ((f32 *)lbl_804E3A38)
+#define online_ending_quad_vertices ((V2_802E4C70 *)online_ending_quad_vertices)
+#define lbl_804E3A64 ((const M2C_UNK *)lbl_804E3A64)
+
 int get_instance__16TObjOnlineEndingFv(void) {  return lbl_805D5878; }
 
     extern unsigned char lbl_8050DAD0[];
@@ -83,8 +233,6 @@ M2C_UNK pop_matrix();
 M2C_UNK post_translate_matrix(void *);
 M2C_UNK set_global_param__8TObjFishFi(int);
 M2C_UNK draw_model_motion(int, int, f32);
-extern f32 lbl_804E3A38[];
-extern V2_802E4C70 online_ending_quad_vertices[];
 extern const f32 online_ending_scene_scale;
 extern f32 online_ending_quad_y_offset;
 extern f32 lbl_805D68F0;
@@ -137,8 +285,6 @@ void create_result_window__16TObjOnlineEndingFPv(void *arg0) {
         }
     }
 }
-
-extern const M2C_UNK lbl_804E3A64[];
 
 void draw_scene__16TObjOnlineEndingFPv(Obj_802E4C70 *arg0) {
     s32 i;
@@ -229,6 +375,117 @@ void *destroy__16TObjOnlineEndingFPvs(void *arg0, s16 arg1) {
     }
     return arg0;
 }
+
+struct TObject_802E4FFC;
+struct Tbl_802E4FFC { u8 pad[0xC]; s32 fC; f32 f10; };
+struct Ent_802E4FFC { s32 active; s16 id; char name[0x12]; Tbl_802E4FFC *f18; s32 f1C; f32 f20; s32 f24; };
+struct Obj_802E4FFC {
+    void *f0;
+    u8 pad4[0x14];
+    void *vt;
+    u8 pad1C[0x90 - 0x1C];
+    s32 f90;
+    s32 f94;
+    s32 f98;
+    s32 f9C;
+    s32 fA0;
+    s32 fA4;
+    Ent_802E4FFC ent[4];
+    s32 count;
+    s32 f14C;
+    f32 f150;
+};
+
+M2C_UNK queue_destruction__7TObjectFv(void *);
+s32 get_bml_motion(s32, s32);
+s32 TObjFish__sub_8001EDB0(s32, s32);
+s32 get_bml_model(s32, s32);
+s32 get_field_3e0__12TBoss3VoloptFPv(void *);
+void TPhotonMagicSquare__sub_801A2640(void *, void *);
+s32 get_global_state__14TOKeyMachine01Fv();
+void play_area_music(void *);
+void fn_802E6218(void *);
+void fn_802E6260();
+char *strncpy(char *, const char *, unsigned long);
+extern u8 lbl_80472BC0[];
+extern u8 lbl_80472BD0[];
+extern void *lbl_805D3F90;
+extern u32 lbl_805D68F4;
+extern const f32 lbl_805DE950;
+#pragma push
+#pragma opt_common_subs off
+#define SELF ((Obj_802E4FFC *)arg0)
+void *TObjOnlineEnding__ct(void *arg0, void *parent) {
+    s32 i;
+    u8 *pl;
+    Ent_802E4FFC *e;
+    TObject_802E4FFC *obj;
+
+    TPhotonMagicSquare__sub_801A2640(arg0, parent);
+    SELF->vt = (void *)lbl_804E3A64;
+    SELF->f0 = lbl_805D3F90;
+    SELF->fA0 = get_global_state__14TOKeyMachine01Fv();
+    SELF->f9C = 0;
+    obj = (TObject_802E4FFC *)arg0;
+    switch (SELF->fA0) {
+    case 14:
+        SELF->f9C = 0;
+        break;
+    case 31:
+        SELF->f9C = 1;
+        break;
+    default:
+        queue_destruction__7TObjectFv(obj);
+        return arg0;
+    }
+    SELF->f90 = get_bml_model(lbl_805D68F4, 0);
+    SELF->f94 = TObjFish__sub_8001EDB0(lbl_805D68F4, 0);
+    SELF->f98 = get_bml_motion(lbl_805D68F4, 0x18);
+    SELF->count = 0;
+    for (i = 0; i < 4; i++) {
+        SELF->ent[i].active = 0;
+        SELF->ent[i].name[0] = 0;
+    }
+    for (i = 0; i < 4; i++) {
+        pl = (u8 *)((u32 (*)(s32))get_player_by_client_id)(i);
+        if (pl != 0 && SELF->fA0 == get_field_3e0__12TBoss3VoloptFPv(pl)) {
+            s32 c;
+            e = &SELF->ent[SELF->count];
+            e->active = 1;
+            e->id = i;
+            strncpy(e->name, (char *)(pl + 0x85C), 0x10);
+            c = *(s8 *)(pl + 0x88D);
+            {
+                Tbl_802E4FFC *t = &((Tbl_802E4FFC *)lbl_804E35F8)[((s32 *)lbl_804E3A18)[SELF->count] + c * 4];
+                e->f18 = t;
+                e->f1C = t->fC;
+                e->f20 = t->f10;
+            }
+            e->f24 = get_bml_motion(lbl_805D68F4, ((s32 *)lbl_804E39B8)[((s32 *)lbl_804E3A28)[SELF->count] + c * 2]);
+            SELF->count++;
+        }
+    }
+    SELF->f150 = lbl_805DE950;
+    restore_player_cameras();
+    switch (SELF->f9C) {
+    case 0:
+        play_area_music(lbl_80472BC0);
+        break;
+    default:
+    case 1:
+        play_area_music(lbl_80472BD0);
+        break;
+    }
+    fn_802E6260();
+    fn_802E6218(arg0);
+    create_result_window__16TObjOnlineEndingFPv(arg0);
+    SELF->f14C = 0;
+    SELF->fA4 = 0;
+    return arg0;
+}
+
+#pragma pop
+#undef SELF
 
 }
 

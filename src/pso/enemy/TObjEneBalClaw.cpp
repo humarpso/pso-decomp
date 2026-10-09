@@ -13,6 +13,8 @@ struct V_8008D700 { f32 x, y, z; };
 
 struct O_8008D700 { u8 pad0[0x30]; u32 flags; u8 pad34[0x378]; f32 f3ac; f32 f3b0; f32 f3b4; u8 pad3b8[4]; f32 f3bc; };
 
+struct Obj_8008D79C { u8 pad0[0x388]; s32 flags; u8 pad38C[0x3B8 - 0x38C]; s32 f3B8; f32 f3BC; };
+
 extern "C" {
 void set_state__15TObjEneMe1GiGueFPvi(void *, s32);
 void TObjEneBalClaw__vt60(u8 *arg0);
@@ -34,6 +36,9 @@ extern V_8008D700 lbl_80439B34;
 extern f32 lbl_805D9600;
 extern const f32 lbl_805D9604;
 void render_scaled__14TObjEneBalClawFPvi(O_8008D700 *arg0, s32 arg1);
+f32 sin_table_lookup(s32);
+extern const f32 lbl_805D9608;
+void TObjEneBalClaw__sub_8008D79C(Obj_8008D79C *arg0);
 }
 
 extern "C" {
@@ -76,6 +81,15 @@ void render_scaled__14TObjEneBalClawFPvi(O_8008D700 *arg0, s32 arg1) {
         v.z = t;
         render_with_position_override__10TObjPlayerFPvPvi(arg0, &v, 0);
     }
+}
+
+void TObjEneBalClaw__sub_8008D79C(Obj_8008D79C *arg0) {
+    if (arg0->flags & 0x20000) {
+        arg0->f3B8 = arg0->f3B8 + 0x200;
+        arg0->f3BC = lbl_805D9608 * sin_table_lookup(arg0->f3B8);
+        return;
+    }
+    arg0->f3BC = (arg0->f3BC - 0.2f > 0.0f) ? arg0->f3BC - 0.2f : 0.0f;
 }
 
 void update_claw_angle__14TObjEneBalClawFPv(void *arg0) {

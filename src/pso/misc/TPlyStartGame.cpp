@@ -52,6 +52,30 @@ u8 *__ct__13TPlyStartGameFRC13TPlyStartGame(u8 *arg0, u8 *arg1) {
     return arg0;
 }
 
+}
+
+struct GameListEntry {
+    u8 data[0x1C];
+};
+
+template <class T, int N, int M> struct TMenuList;
+template <> struct TMenuList<GameListEntry, 64, 1> {
+    u32 header;
+    GameListEntry head[1];
+    GameListEntry entries[64];
+    void bswap();
+};
+
+void TMenuList<GameListEntry, 64, 1>::bswap() {
+    bswap__13packet_headerFv(this);
+    bswap_game_list_entry(&head[0]);
+    for (int i = 0; i < 64; i++) {
+        bswap_game_list_entry(&entries[i]);
+    }
+}
+
+extern "C" {
+
 int bswap_game_list_entry(void* p) { return bswap__16TPlyGuildCardTagFv(p); }
 
 }

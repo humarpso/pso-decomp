@@ -34,6 +34,9 @@ extern s32 gba_joyboot_send_buffer;
 extern u8 *TLobby__gba_joyboot_send_buffer;
 extern u8 gba_joyboot_status;
 void set_send_buffer__6TLobbyFPvi(u8 *arg0, s32 arg1);
+extern u8 *TLobby__gba_joyboot_send_buffer;
+extern const u8 lbl_805DF7A0[4];
+void TLobby__sub_8032CAAC(void);
 }
 
 extern "C" {
@@ -71,6 +74,25 @@ void TLobby__sub_8032C9A8(s32 arg0, s32 arg1) {
     }
 }
 #pragma pop
+
+void TLobby__sub_8032CAAC(void) {
+    u8 *q;
+    s32 i;
+    u8 *data = TLobby__gba_joyboot_send_buffer;
+    s32 k;
+    u8 c;
+    for (i = 0; i < 4; i++) {
+        data[0xAC + i] = lbl_805DF7A0[i];
+    }
+    q = data + 0xA0;
+    c = 0xE7;
+    k = 0xA0;
+    for (i = 0; i < 0x1D; i++) {
+        k++;
+        c -= *q++;
+    }
+    data[k] = c;
+}
 
 s32 start_gba_joyboot__6TLobbyFv(void) {
     if (GBAJoyBootAsync(3, 0, 4, TLobby__gba_joyboot_send_buffer, gba_joyboot_send_buffer, &gba_joyboot_status, TLobby__sub_8032C7A8) == 0) {

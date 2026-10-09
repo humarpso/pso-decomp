@@ -40,3 +40,20 @@ TUserAns_801E0198 *__ct__8TUserAnsFRC8TUserAns(TUserAns_801E0198 *dst, TUserAns_
 }
 
 }
+
+struct packet_header { u8 command; u8 flags; u16 size; void bswap(); };
+class TPlyGuildCardTag { public: static void bswap_lobby_entry(void *); };
+class LobbyListEntry { public: u8 tag[8]; u32 smth; };
+template <typename T, int num_entries, int num_pad_entries> class TMenuList;
+template <> class TMenuList<LobbyListEntry, 16, 0> {
+public:
+    void bswap();
+    packet_header header;
+    LobbyListEntry entries[16];
+};
+void TMenuList<LobbyListEntry, 16, 0>::bswap() {
+    header.bswap();
+    for (int i = 0; i < 16; i++) {
+        TPlyGuildCardTag::bswap_lobby_entry(&entries[i]);
+    }
+}

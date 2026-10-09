@@ -29,6 +29,16 @@ struct TAdGuideTxtGC_802B19E8 {
     s32 c[2];
 };
 
+typedef struct Pos_802B1878 { f32 x; f32 y; } Pos_802B1878;
+
+typedef struct TAdGuideTxtGC_802B1878 {
+    u8 pad0[0x1C];
+    s32 txt[2];
+    u8 pad24[0x2C - 0x24];
+    Pos_802B1878 pos[2];
+    u32 alpha[2];
+} TAdGuideTxtGC_802B1878;
+
 extern "C" {
 void create_draw_line_ctrl__13TAdMcSelectGCFiif(void *, int, f32);
 void __ct__7TObjectFP7TObject(void *);
@@ -37,11 +47,34 @@ extern s32 lbl_805D3EA0;
 extern s32 lbl_805DE290;
 extern const f32 lbl_805DE294;
 TAdGuideTxtGC_802B19E8 *__ct__13TAdGuideTxtGCFv(TAdGuideTxtGC_802B19E8 *o);
+u32 calc_text_width(int);
+extern const f32 lbl_805DE280;
+extern const f32 lbl_805DE284;
+extern const f32 lbl_805DE288;
+extern const f32 lbl_805DE28C;
+void run_task__13TAdGuideTxtGCFv(TAdGuideTxtGC_802B1878 *o);
 }
 
 extern "C" {
 
 void reset__15TLobby_802D2F7CFPv(u8 *arg0);
+
+#pragma push
+#pragma fp_contract on
+void run_task__13TAdGuideTxtGCFv(TAdGuideTxtGC_802B1878 *o) {
+    u32 i;
+    f32 t;
+    for (i = 0; i < 2; i++) {
+        o->alpha[i] += 25;
+        if (o->alpha[i] > 255) {
+            o->alpha[i] = 255;
+        }
+        t = lbl_805DE280 - (f32)calc_text_width(o->txt[i]);
+        o->pos[i].x = t * lbl_805DE284;
+        o->pos[i].y = lbl_805DE28C * (f32)i + lbl_805DE288;
+    }
+}
+#pragma pop
 
 #pragma push
 #pragma opt_common_subs off

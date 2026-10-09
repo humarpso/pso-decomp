@@ -1,4 +1,5 @@
 #include "types.h"
+
 extern "C" {
 void TAdTrialModemChkGC__sub_8042EC14(int, int);
 void fn_8042ED98(int, void *);
@@ -14,6 +15,20 @@ extern s16 lbl_805D4EBE;
 extern s32 lbl_805D4EC0;
 extern s32 lbl_805D4EC4;
 void init_disc_error_messages(void);
+s32 update_lobby_scene__6TSceneFPv(void *);
+void read_disc_file(void *, s32);
+void VIWaitForRetrace(void);
+void VIFlush(void);
+void VISetBlack(s32);
+void GXDrawDone(void);
+char *strcpy(char *, const char *);
+void fn_8042EAD4(void *, s32);
+void fn_8042EBA4(s32, s32);
+void *memset(void *, s32, u32);
+u32 strlen(const char *);
+extern u8 lbl_80438D20[];
+extern s32 lbl_805D49B0;
+s32 fn_8007F970(const char *arg0);
 }
 
 extern "C" {
@@ -39,5 +54,25 @@ void init_disc_error_messages(void) {
     fn_8042ED98(3, lbl_80438CB0);
 }
 #pragma pop
+
+s32 fn_8007F970(const char *arg0) {
+    char buf[0x100];
+    s32 r;
+    s32 v;
+    r = update_lobby_scene__6TSceneFPv(lbl_80438D20);
+    read_disc_file(lbl_80438D20, v = lbl_805D49B0);
+    VISetBlack(1);
+    VIFlush();
+    VIWaitForRetrace();
+    VIWaitForRetrace();
+    VIWaitForRetrace();
+    VIWaitForRetrace();
+    GXDrawDone();
+    memset(buf, 0, 0xFF);
+    strcpy(buf, arg0);
+    fn_8042EAD4(buf, strlen(buf) + 1);
+    fn_8042EBA4(v, r);
+    return 1;
+}
 
 }

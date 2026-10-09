@@ -327,8 +327,6 @@ pso/enemy/TObjEneBalClawClaw.cpp
 pso/enemy/TObjEneBalClawClaw_8008DC18.cpp
 pso/enemy/TObjEneBm3Fly.cpp
 pso/enemy/TObjEneBm3FlyNest.cpp
-pso/enemy/TObjEneBm5Wolf_800B4820.cpp
-pso/enemy/TObjEneBm5Wolf_800B7B14.cpp
 pso/enemy/TObjEneBm9Mericarol_802CECE0.cpp
 pso/enemy/TObjEneBm9Mericarol_802D04C0.cpp
 pso/enemy/TObjEneBm9Mericarol_802D05BC.cpp
@@ -489,10 +487,8 @@ pso/item/TItem.cpp
 pso/item/TItemAttackCol_802E4798.cpp
 pso/item/TItemAttacker.cpp
 pso/item/TItemBuff.cpp
-pso/item/TItemData.cpp
 pso/item/TItemData_80104D0C.cpp
 pso/item/TItemData_80105934.cpp
-pso/item/TItemData_8010C940.cpp
 pso/item/TItemData_8010EDA8.cpp
 pso/item/TItemData_801146A4.cpp
 pso/item/TItemDisconnectCtrl.cpp
@@ -1454,6 +1450,7 @@ pso/misc/TQuestListOnline_80217464.cpp
 pso/misc/TQuestListOnline_8021824C.cpp
 pso/misc/TQuestListOnline_80218310.cpp
 pso/misc/TQuestListVM.cpp
+pso/misc/TQuestListVM_80073DC4.cpp
 pso/misc/TQuestListVM_8007EAF8.cpp
 pso/misc/TQuestListVM_800F95F4.cpp
 pso/misc/TQuestListVM_801F4398.cpp
@@ -1579,6 +1576,7 @@ pso/misc/TTecZarua.cpp
 pso/misc/TTecZonde.cpp
 pso/misc/TUdpSocket.cpp
 pso/misc/TUserAns.cpp
+pso/misc/TUserAns_801E0198.cpp
 pso/misc/TWindow.cpp
 pso/misc/TWindowActionPalette.cpp
 pso/misc/TWindowActionPalette_8013DF4C.cpp
@@ -2871,6 +2869,7 @@ pso/unk/text_8007B370.cpp
 pso/unk/text_8007C0CC.cpp
 pso/unk/text_8007F4B8.cpp
 pso/unk/text_8007F574.cpp
+pso/unk/text_8007F8D0.cpp
 pso/unk/text_8007FA24.cpp
 pso/unk/text_8007FA94.cpp
 pso/unk/text_8008197C.cpp

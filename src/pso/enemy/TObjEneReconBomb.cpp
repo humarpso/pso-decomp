@@ -12,6 +12,90 @@ struct Ctrl_8031B618 { u8 pad[0xA4]; Sub_8031B618 *sub; u8 pad2[0x2FC - 0xA8]; V
 
 struct Obj_8031B618 { u8 pad[0x38]; Vec_8031B618 pos; u8 pad2[0x2FC - 0x44]; Vec_8031B618 pos2; };
 
+typedef s32 M2C_UNK;
+struct Obj_8031B618;
+struct Vec_8031B808 { f32 x, y, z; };
+
+struct P_8031B808 { s32 a; f32 b; };
+
+struct VBase_8031B808 { char pad[0x18]; };
+
+struct VObj_8031B808 : VBase_8031B808 {
+    virtual void m0();
+    virtual void m1();
+    virtual void m2();
+    virtual void m3();
+    virtual void m4();
+    virtual void m5();
+    virtual void m6();
+    virtual void m7();
+    virtual void m8();
+    virtual void m9();
+    virtual void m10();
+    virtual void m11();
+    virtual void m12();
+    virtual void m13();
+    virtual void m14();
+    virtual void m15();
+    virtual void m16();
+    virtual void m17();
+    virtual void m18();
+    virtual void m19();
+    virtual void m20();
+    virtual void m21(u32, P_8031B808, s32, s32, s32);
+    virtual void m22();
+    virtual void m23(u32);
+    virtual void m24();
+    virtual void m25();
+    virtual void m26();
+    virtual void m27();
+    virtual void m28();
+    virtual void m29();
+    virtual void m30();
+    virtual s32 m31();
+};
+
+struct Obj_8031B808 {
+    u8 pad0[0x38];
+    Vec_8031B808 pos;
+    u8 pad44[0x248 - 0x44];
+    u8 f248[0x2FC - 0x248];
+    Vec_8031B808 pos2;
+    u8 pad308[0x334 - 0x308];
+    u32 target;
+    u8 pad338[4];
+    Vec_8031B808 vel;
+    f32 f348;
+    f32 range;
+    f32 f350;
+    u8 pad354[4];
+    s32 f358;
+    s32 state;
+    s32 f360;
+};
+
+extern "C" {
+M2C_UNK queue_destruction__7TObjectFv(void *);
+M2C_UNK VecCopy__FP3VecPC3Vec(void *, void *, int);
+s16 obj_getField1c(int);
+f32 horizontal_distance_squared(void *, void *);
+s32 fn_8031B618(Obj_8031B618 *arg0);
+VObj_8031B808 *get_player_data__10TObjPlayerFi(s32);
+s32 is_valid_and_active__10TObjPlayerFUi(void *);
+u32 csnVector(void *, void *, int);
+M2C_UNK spawn_particle_effect_with_flags(void *, int, int);
+s32 project_actor_to_ground(void *, void *, void *);
+M2C_UNK play_sound_effect(s32, void *, int, int);
+s32 TObjEneRecon__sub_8031C250(u32);
+s32 remap_area_sound_id__14TObjEneRecoboxFUi(u32);
+M2C_UNK vec3_add_to(void *, void *);
+extern s32 lbl_805D5868;
+extern const f32 lbl_805DF3AC;
+extern const f32 lbl_805DF3B0;
+extern const f32 lbl_805DF3B4;
+void run_task__16TObjEneReconBombFv(Obj_8031B808 *arg0);
+}
+
 extern "C" {
 M2C_UNK queue_destruction__7TObjectFv(void *);
 s32 TObjFish__sub_8001EDB0(void *, int);
@@ -110,6 +194,73 @@ void render__16TObjEneReconBombFv(u8 *arg0) {
     pop_matrix();
 }
 #pragma pop
+
+void run_task__16TObjEneReconBombFv(Obj_8031B808 *arg0) {
+    Vec_8031B808 pos;
+    s32 i;
+    VObj_8031B808 *pl;
+    if (arg0->target == 0) {
+        queue_destruction__7TObjectFv(arg0);
+        return;
+    }
+    if (++arg0->f360 > arg0->f358 || TObjEneRecon__sub_8031C250(arg0->target) != 0) {
+        arg0->state = 3;
+    }
+    switch (arg0->state) {
+    case 0:
+    case 1: {
+        arg0->vel.x *= lbl_805DF3AC;
+        arg0->vel.y += lbl_805DF3B0;
+        arg0->vel.z *= lbl_805DF3AC;
+        ((void (*)(void *, void *))VecCopy__FP3VecPC3Vec)(&pos, &arg0->pos);
+        vec3_add_to(&pos, &arg0->vel);
+        Vec_8031B808 g = pos;
+        if (project_actor_to_ground(arg0, &g, arg0->f248) != 0) {
+            arg0->f348 = g.y;
+            if (pos.y <= g.y) {
+                pos.y = arg0->f348;
+                if (arg0->state == 0) {
+                    arg0->vel.y *= lbl_805DF3B4;
+                    arg0->state = 1;
+                } else {
+                    arg0->state = 2;
+                }
+            } else if (csnVector(&arg0->pos, &pos, 0x100) != 0) {
+                ((void (*)(void *, void *))VecCopy__FP3VecPC3Vec)(&pos, &arg0->pos);
+                arg0->state = 3;
+            }
+        } else {
+            arg0->state = 3;
+        }
+        ((void (*)(void *, void *))VecCopy__FP3VecPC3Vec)(&arg0->pos, &pos);
+        break;
+    }
+    case 2:
+        if (fn_8031B618((Obj_8031B618 *)arg0) != 0) {
+            arg0->state = 3;
+        }
+        break;
+    case 3:
+    default:
+        play_sound_effect(remap_area_sound_id__14TObjEneRecoboxFUi(0x4003A80B), &arg0->pos, 0, 0);
+        spawn_particle_effect_with_flags(&arg0->pos, 0x45, 0x40);
+        spawn_particle_effect_with_flags(&arg0->pos, 0x46, 0x40);
+        for (i = 0; i < lbl_805D5868; i++) {
+            pl = get_player_data__10TObjPlayerFi(i);
+            if (is_valid_and_active__10TObjPlayerFUi(pl) != 0 && pl != 0 && (u16)obj_getField1c((int)pl) < 0x1000 && pl->m31() == 0) {
+                if (horizontal_distance_squared((u8 *)pl + 0x2FC, &arg0->pos2) <= arg0->range * arg0->range) {
+                    P_8031B808 d;
+                    d.a = 0;
+                    d.b = arg0->f350;
+                    pl->m21(arg0->target, d, 0, -1, -1);
+                    pl->m23(arg0->target);
+                }
+            }
+        }
+        queue_destruction__7TObjectFv(arg0);
+        break;
+    }
+}
 
 void *__dt__16TObjEneReconBombFv(void *arg0, s16 arg1) {
     if (arg0 != NULL) {

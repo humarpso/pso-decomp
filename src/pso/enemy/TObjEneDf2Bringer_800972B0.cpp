@@ -3537,6 +3537,160 @@ void *create__17TObjEneDf2BringerFPv(void *arg0) {
     return o;
 }
 
+typedef struct Ent_80099BD4 Ent_80099BD4;
+typedef struct Path_80099BD4 Path_80099BD4;
+typedef struct Seg_80099BD4 Seg_80099BD4;
+typedef struct Sp_80099BD4 Sp_80099BD4;
+typedef struct Vec_80099BD4 Vec_80099BD4;
+struct Vec_80099BD4
+{
+  f32 x;
+  f32 y;
+  f32 z;
+};
+struct Ent_80099BD4
+{
+  s32 k;
+  s32 v;
+};
+struct Sp_80099BD4
+{
+  s32 a;
+  s32 b;
+  s32 c;
+  s32 d;
+};
+struct Seg_80099BD4
+{
+  Vec_80099BD4 p0;
+  Vec_80099BD4 p1;
+  Vec_80099BD4 p2;
+  Vec_80099BD4 p3;
+};
+struct Path_80099BD4
+{
+  Seg_80099BD4 *segs;
+  s32 pad;
+  s32 n;
+};
+u8 *dispatch_shared_handler_a__6TLobbyFPv(s32);
+s32 register_object__6TLobbyFPv(int);
+s32 dispatch_shared_handler_b__6TLobbyFPv(int);
+s32 register_boss__6TLobbyFPv(int);
+f32 update_scale__15TObjBoss2TunnelFPv(void *);
+M2C_UNK TObjEneMe1CanadinLeader__sub_8009A7A4();
+u32 load_enemy_bml_resource_named(void *, void *);
+u32 load_enemy_bml_resource(void *);
+M2C_UNK draw_motion_trail__11TBoss4Type3FPviiii(void *, s32, s32, s32 *, Vec_80099BD4 *);
+void *init_trail_buffer__11TBoss4Type3FPvifff(void *, s32, f32, f32, f32);
+void *alloc_tables__6TLobbyFPvii(void *, s32, s32);
+M2C_UNK spawn_npc_enemy__6TLobbyFsiiiff(int, int, int, void *, f32, f32);
+extern Sp_80099BD4 lbl_8043A0BC[];
+extern u8 lbl_8043A108[];
+extern const f32 lbl_805D9848;
+extern const f32 lbl_805D984C;
+#define lbl_805008A8 (*(Vec_80099BD4 *)&lbl_805008A8)
+#define TObjEneDf2Bringer__data_805D4FB4 (*(u8 **)&TObjEneDf2Bringer__data_805D4FB4)
+#pragma push
+#pragma fp_contract on
+void TObjEneDf2Bringer__sub_80099BD4(void) {
+  Vec_80099BD4 offs[4];
+  s32 ids[4];
+  Vec_80099BD4 a;
+  Vec_80099BD4 d;
+  void *o;
+  Vec_80099BD4 *p3;
+  s32 n;
+  Seg_80099BD4 *seg;
+  Vec_80099BD4 *p1;
+  s32 i;
+  f32 k1;
+  f32 len;
+  f32 s2;
+  f32 k2;
+  f32 s1;
+  s32 j;
+  lbl_805008A8.x = TObjEneDf2Bringer__data_805D97E0;
+  lbl_805008A8.y = TObjEneDf2Bringer__data_805D97E0;
+  lbl_805008A8.z = TObjEneDf2Bringer__data_805D97E0;
+  if (check_v2_mode__9TObjEneDDFv() != 0)
+  {
+    TObjEneDf2Bringer__data_805D4FB8 = load_enemy_bml_resource_named(lbl_8048FAE8, lbl_8043A108);
+  }
+  else
+  {
+    TObjEneDf2Bringer__data_805D4FB8 = load_enemy_bml_resource(lbl_8048FAE8);
+  }
+  lbl_805D4FA8 = register_boss__6TLobbyFPv(0xD);
+  lbl_805D4FAC = dispatch_shared_handler_b__6TLobbyFPv(0xD);
+  lbl_805D4FB0 = register_object__6TLobbyFPv(0xD);
+  TObjEneDf2Bringer__data_805D4FB4 = dispatch_shared_handler_a__6TLobbyFPv(0xD);
+  TObjEneDf2Bringer__data_805D4FBC = 0;
+  TObjEneDf2Bringer__data_805D4FC0 = 0;
+  TObjEneDf2Bringer__data_805D4FC4 = 0;
+  set_entry_value_clamped__17TObjEneDf2BringerFif(4, *((f32 *) (TObjEneDf2Bringer__data_805D4FB4 + 8)));
+  set_entry_value_clamped__17TObjEneDf2BringerFif(5, *((f32 *) (TObjEneDf2Bringer__data_805D4FB4 + 0xC)));
+  o = alloc__23TAdSinglePlyChrSelectGCFPv(0x18);
+  if (o != 0)
+  {
+    o = init_trail_buffer__11TBoss4Type3FPvifff(o, 4, TObjEneDf2Bringer__data_805D9808, lbl_805D97FC, *((f32 *) (((u8 *) (&lbl_8048FAF8)) + 0x48)));
+  }
+  TObjEneDf2Bringer__data_805D4FC8 = (u32) o;
+  {
+    ids[0] = 0x1A;
+    ids[1] = 0x1A;
+    ids[2] = 0x1E;
+    ids[3] = 0x1E;
+    for (i = 0; i < 4; i++)
+    {
+      offs[i].x = TObjEneDf2Bringer__data_805D97E0;
+      offs[i].y = TObjEneDf2Bringer__data_805D97E0;
+      offs[i].z = TObjEneDf2Bringer__data_805D97E0;
+    }
+
+    draw_motion_trail__11TBoss4Type3FPviiii(o, *((s32 *) ((*((u8 **) (((u8 *) TObjEneDf2Bringer__data_805D4FB8) + 0x42C))) + 8)), (*((Ent_80099BD4 **) (((u8 *) TObjEneDf2Bringer__data_805D4FB8) + 0x430)))[*((s32 *) (((u8 *) (&lbl_8048FAF8)) + 0x44))].v, ids, offs);
+  }
+  k1 = lbl_805D9848;
+  n = ((Path_80099BD4 *) TObjEneDf2Bringer__data_805D4FC8)->n;
+  seg = ((Path_80099BD4 *) TObjEneDf2Bringer__data_805D4FC8)->segs;
+  k2 = lbl_805D984C;
+  for (j = 0; j < n; seg++, j++)
+  {
+    VecCopy__FP3VecPC3Vec(&a, &seg->p0);
+    VecCopy__FP3VecPC3Vec(&d, &seg->p2);
+    subtract_vector(&d, &a);
+    len = update_scale__15TObjBoss2TunnelFPv(&d);
+    p1 = &seg->p1;
+    s1 = k1 * len;
+    VecCopy__FP3VecPC3Vec(p1, &a);
+    p3 = &seg->p3;
+    s2 = k2 * len;
+    p1->x = (d.x * s1) + p1->x;
+    p1->y = (d.y * s1) + p1->y;
+    p1->z = (d.z * s1) + p1->z;
+    VecCopy__FP3VecPC3Vec(p3, &a);
+    p3->x = (d.x * s2) + p3->x;
+    p3->y = (d.y * s2) + p3->y;
+    p3->z = (d.z * s2) + p3->z;
+  }
+
+  o = alloc__23TAdSinglePlyChrSelectGCFPv(0x14);
+  if (o != 0)
+  {
+    o = alloc_tables__6TLobbyFPvii(o, *((s32 *) ((*((u8 **) (((u8 *) TObjEneDf2Bringer__data_805D4FB8) + 0x42C))) + 8)), 1);
+  }
+  TObjEneDf2Bringer__data_805D4FCC = (u32) o;
+  TObjEneMe1CanadinLeader__sub_8009A7A4();
+  {
+    Sp_80099BD4 sp = lbl_8043A0BC[0];
+    sp.a = *((s32 *) (((u8 *) TObjEneDf2Bringer__data_805D4FB8) + 0x430));
+    spawn_npc_enemy__6TLobbyFsiiiff(0x16, *((s32 *) ((*((u8 **) (((u8 *) TObjEneDf2Bringer__data_805D4FB8) + 0x42C))) + 8)), *((s32 *) ((*((u8 **) (((u8 *) TObjEneDf2Bringer__data_805D4FB8) + 0x42C))) + 0xC)), &sp, TObjEneDf2Bringer__data_805D9808, TObjEneDf2Bringer__data_805D97E0);
+  }
+}
+#pragma pop
+#undef lbl_805008A8
+#undef TObjEneDf2Bringer__data_805D4FB4
+
 }
 
 #undef TObjEneDf2Bringer__data_805D4FCC

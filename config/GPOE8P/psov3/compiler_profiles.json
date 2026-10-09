@@ -988,5 +988,12 @@
     "inline": "auto",
     "use_lmw_stmw": "on",
     "sdata2": 8
+  },
+  "pso/unk/text_803D619C.cpp": {
+    "mw_version": "GC/2.6",
+    "optimization": "-O4,s",
+    "inline": "off",
+    "use_lmw_stmw": "on",
+    "sdata2": 8
   }
 }

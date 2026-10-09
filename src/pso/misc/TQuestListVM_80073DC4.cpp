@@ -4,6 +4,9 @@ typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
 typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 #define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
 #define M2C_BITWISE(type, expr) ((type)(expr))
+
+struct TObjNewFloorWin_80073DCC { u8 pad[0x1C]; s32 state; void *window; s32 timer24; s32 timer28; };
+
 extern "C" {
 s32 TQuestVmDownLoadServer__sub_8006EF6C(M2C_UNK);
 M2C_UNK fn_800740DC();
@@ -19,17 +22,53 @@ M2C_UNK get_window_layout_position(M2C_UNK);
 s32 sprintf(void *, const char *, ...);
 extern char lbl_80438660[];
 void open_window__15TObjNewFloorWinFPv(u8 *arg0);
+void queue_destruction__7TObjectFv(void *);
+void open_window__15TObjNewFloorWinFPv(u8 *arg0);
+void TWindow__close(void *);
+s32 TWindowCtrlMain__sub_8024CE58();
+void run_task__15TObjNewFloorWinFv(TObjNewFloorWin_80073DCC *self);
 }
 
 extern "C" {
 
-int run_task__15TObjNewFloorWinFv(void);
 void set_field_20__12TQuestListVMFPvi(void* p, s32 v);
 int get_status_flag__17TWindowSubComCardFPv(void* p);
 
 void set_field_20__12TQuestListVMFPvi(void* p, s32 v) { *(s32*)((char*)p + 0x20) = v; }
 
-int run_task__15TObjNewFloorWinFv(void) { return 0; }
+void run_task__15TObjNewFloorWinFv(TObjNewFloorWin_80073DCC *self) {
+    switch (self->state) {
+    case 0:
+        if (self->window == NULL) {
+            if (TWindowCtrlMain__sub_8024CE58() == 0) {
+                if (--self->timer24 <= 0) {
+                    queue_destruction__7TObjectFv(self);
+                    return;
+                }
+                return;
+            } else {
+                open_window__15TObjNewFloorWinFPv((u8 *)self);
+                self->state = 1;
+            }
+        }
+        break;
+    case 1:
+        if (--self->timer28 == 0x3C) {
+            if (self->window != NULL) {
+                TWindow__close(self->window);
+                self->window = NULL;
+            }
+            self->state = 2;
+        }
+        break;
+    case 2:
+        if (--self->timer28 <= 0) {
+            queue_destruction__7TObjectFv(self);
+        }
+        break;
+    }
+}
+
 void open_window__15TObjNewFloorWinFPv(u8 *arg0) {
     M2C_UNK pos;
     pos = get_window_layout_position(0x3D);
