@@ -2061,7 +2061,6 @@ pso/object/TObjEZRopeBase.cpp
 pso/object/TObjEnvSound.cpp
 pso/object/TObjEnvSoundGlobal.cpp
 pso/object/TObjEvtCollision.cpp
-pso/object/TObjFish.cpp
 pso/object/TObjFish_8001ED90.cpp
 pso/object/TObjFish_800E2FFC.cpp
 pso/object/TObjFish_8033DD4C.cpp
@@ -2464,6 +2463,7 @@ pso/player/TObjPlayer_8015C8D8.cpp
 pso/player/TObjPlayer_80166970.cpp
 pso/player/TObjPlayer_80178150.cpp
 pso/player/TObjPlayer_8017E4EC.cpp
+pso/player/TObjPlayer_80181B60.cpp
 pso/player/TObjPlayer_801A2570.cpp
 pso/player/TObjPlayer_801A5AEC.cpp
 pso/player/TObjPlayer_801A7080.cpp

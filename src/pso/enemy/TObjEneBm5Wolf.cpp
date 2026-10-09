@@ -3443,6 +3443,19 @@ void TObjEneBm5Wolf::choose_roaming_destination() {
 }
 #pragma pop
 
+void turn_pose_to_target__14TObjEneBm5WolfFv(void *arg0) {
+    f32 x;
+    f32 z;
+    sin_table_lookup(M2C_FIELD(arg0, s32 *, 0x60));
+    x = M2C_FIELD(arg0, f32 *, 0x38) + TObjEneBm5Wolf__data_805D9D78;
+    cos_table_lookup(M2C_FIELD(arg0, s32 *, 0x60));
+    z = M2C_FIELD(arg0, f32 *, 0x40) + TObjEneBm5Wolf__data_805D9D78;
+    f32 dx = M2C_FIELD(M2C_FIELD(arg0, u8 **, 0x390), f32 *, 0x38) - x;
+    f32 dz = M2C_FIELD(M2C_FIELD(arg0, u8 **, 0x390), f32 *, 0x40) - z;
+    z = get_ad_end_text_start__10TObjPlayerFv((0, dx), dz);
+    advance_pose_turn__14TObjEneBm5WolfFPvi((Wolf_800B7DDC *)arg0, (s32) (TObjEneBm5Wolf__data_8043B5B0 * z));
+}
+
 void advance_pose_turn__14TObjEneBm5WolfFPvi(Wolf_800B7DDC *s, s32 target) {
     s32 d;
     d = angle_diff_s16(s->facing, target);
