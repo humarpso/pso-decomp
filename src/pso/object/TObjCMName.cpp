@@ -70,6 +70,37 @@ typedef void (Menu_802987AC::*MenuFn_802987AC)();
 
 struct M_802983A0 { u8 pad[0x40]; f32 f40; };
 
+struct Making_802952E0
+{
+  u8 pad0[0x38];
+  s16 sel[5];
+  s16 color[3];
+  f32 shape[2];
+};
+
+struct Limits_802952E0
+{
+  s16 lim[22];
+};
+
+struct Icons_802952E0
+{
+  s32 a;
+  s32 b;
+};
+
+struct Auto_802952E0
+{
+  u8 pad0[0x1C];
+  Making_802952E0 *app;
+  s32 state;
+  s32 ticks;
+  s16 color[3];
+  u8 pad2E[2];
+  f32 shape[2];
+  f32 fade;
+};
+
 extern "C" {
 M2C_UNK queue_destruction__7TObjectFv(void *);
 s32 play_sound_effect(s32, s32, s32, s32);
@@ -130,6 +161,28 @@ extern const f32 lbl_805DDA90;
 extern const f32 lbl_805DDBFC;
 extern const f32 TObjCMMainMenu__data_805DDC00;
 void update_slide_offset__14TObjCMMainMenuFPv(M_802983A0 *arg0);
+f32 get_proportion__14TObjCMMainMenuFv(void);
+M2C_UNK set_creation_projection_center(f32);
+M2C_UNK queue_destruction__7TObjectFv(void *);
+void TObjCMIcon__sub_802994C8(s32 arg0, s32 *arg1);
+void reset_icon_flags__10TObjCMIconFv(void);
+s32 TObjCMProportion__sub_8029916C(M2C_UNK);
+s32 play_sound_effect(s32, s32, s32, s32);
+void clear_task_state__14TObjCMMainMenuFv(void);
+s32 get_display_index__12TCharaMakingFPv(s32);
+M2C_UNK rand();
+extern const Icons_802952E0 lbl_80465118;
+extern s32 creation_resource_ready_state;
+extern const f32 lbl_805DDAA8;
+extern const f32 lbl_805DDAAC;
+extern const f32 lbl_805DDAC8;
+extern const f32 lbl_805DDAE0;
+extern const f32 lbl_805DDAF0;
+extern const f32 lbl_805DDAF4;
+extern const f32 lbl_805DDAF8;
+extern const f32 lbl_805DDAFC;
+extern const f32 lbl_805DDB00;
+void run_task__16TObjCMAutoMkDataFv(Auto_802952E0 *self);
 }
 
 extern "C" {
@@ -587,6 +640,10 @@ void *__vt__14TObjCMMainMenu[12] = {
 #define TObjCMMainMenu__data_804DB9C8 (*(RecoveredGlobal_8029756C_TObjCMMainMenu__data_804DB9C8 *)TObjCMMainMenu__data_804DB9C8)
 #define __vt__14TObjCMMainMenu ((Pair_80298B70 *)__vt__14TObjCMMainMenu)
 
+extern "C" {
+extern Ent_802964B0 class_appearance_table[];
+}
+
 int TObjCMName__sub_802948F4(void) { return 0; }
 
 void *create__10TObjCMNameFPv(void *arg0) {
@@ -749,6 +806,143 @@ void *TObjCMProportion__ct(void *arg0) {
 void render__16TObjCMAutoMkDataFv(void *arg0) {
     draw_creation_ruler_lines(M2C_FIELD(arg0, f32 *, 0x38));
 }
+
+#pragma push
+#pragma fp_contract on
+typedef struct Auto_802952E0 Auto_802952E0;
+typedef struct Icons_802952E0 Icons_802952E0;
+typedef struct Limits_802952E0 Limits_802952E0;
+typedef struct Making_802952E0 Making_802952E0;
+void run_task__16TObjCMAutoMkDataFv(Auto_802952E0 *self) {
+  f32 x;
+  f32 t;
+  s16 *lim;
+  s16 *sel;
+  s32 i;
+  s32 v;
+  Making_802952E0 **new_var;
+  x = get_proportion__14TObjCMMainMenuFv();
+  if (self->state != 2)
+  {
+    if (1.0f == self->fade)
+    {
+      x += lbl_805DDAE0;
+      if (x < 0.0f)
+      {
+        x = 0.0f;
+      }
+    }
+  }
+  else
+  {
+    x = (x > (1.0f - self->fade)) ? (x) : (1.0f - self->fade);
+  }
+  set_creation_projection_center(x);
+  new_var = &self->app;
+  if (self->state == 2)
+  {
+    if ((self->fade += lbl_805DDAA8) <= 0.0f)
+    {
+      self->fade = 0.0f;
+      queue_destruction__7TObjectFv(self);
+    }
+    return;
+  }
+  if ((self->fade += lbl_805DDAAC) > 1.0f)
+  {
+    self->fade = 1.0f;
+  }
+  switch (self->state)
+  {
+    case 1:
+    {
+      Icons_802952E0 icons = lbl_80465118;
+      TObjCMIcon__sub_802994C8(2, &icons.a);
+      break;
+    }
+    case 2:
+      break;
+    case 3:
+      reset_icon_flags__10TObjCMIconFv();
+      break;
+  }
+  switch (self->state)
+  {
+    case 0:
+      self->state = 1;
+      break;
+    case 1:
+      if (TObjCMProportion__sub_8029916C((M2C_UNK)(2)) != 0)
+    {
+      play_sound_effect(0x53704, 0, 0, 0);
+      clear_task_state__14TObjCMMainMenuFv();
+      self->state = 2;
+      break;
+    }
+      if (TObjCMProportion__sub_8029916C((M2C_UNK)(4)) == 0)
+    {
+      break;
+    }
+      lim = ((Limits_802952E0 *)&class_appearance_table)[get_display_index__12TCharaMakingFPv((s32)(self->app))].lim;
+      sel = (*new_var)->sel;
+      for (i = 0; i <= 4; i++, lim++, sel++)
+    {
+      if ((*lim) >= 2)
+      {
+        v = (s16) ((lbl_805DDAF0 * ((f32) (*lim))) * (lbl_805DDAF4 * ((f32) ((int)rand()))));
+        while (v == (*sel))
+        {
+          v++;
+          if (v >= (*lim))
+          {
+            v = 0;
+          }
+        }
+        *sel = v;
+      }
+    }
+      self->color[0] = (u8) ((s32) ((lbl_805DDAF8 * (lbl_805DDAF4 * ((f32) ((int)rand())))) + ((f32) (self->color[0] + 0x40))));
+      self->color[1] = (u8) ((s32) ((lbl_805DDAF8 * (lbl_805DDAF4 * ((f32) ((int)rand())))) + ((f32) (self->color[1] + 0x40))));
+      self->color[2] = (u8) ((s32) ((lbl_805DDAF8 * (lbl_805DDAF4 * ((f32) ((int)rand())))) + ((f32) (self->color[2] + 0x40))));
+      if ((self->shape[0] += (lbl_805DDAC8 * (lbl_805DDAF4 * ((f32) ((int)rand())))) + lbl_805DDAFC) >= 1.0f)
+    {
+      self->shape[0] -= 1.0f;
+    }
+      if ((self->shape[1] += (lbl_805DDAC8 * (lbl_805DDAF4 * ((f32) ((int)rand())))) + lbl_805DDAFC) >= 1.0f)
+    {
+      self->shape[1] -= 1.0f;
+    }
+      play_sound_effect(0x52D01, 0, 0, 0);
+      self->ticks = 0;
+      self->state = 3;
+      break;
+    case 2:
+      break;
+    case 3:
+      self->ticks++;
+      t = ((f32) self->ticks) / lbl_805DDB00;
+      (*new_var)->color[0] = (s32) (((f32) self->app->color[0]) + (t * ((f32) (self->color[0] - (*new_var)->color[0]))));
+      self->app->color[1] = (s32) (((f32) (*new_var)->color[1]) + (t * ((f32) (self->color[1] - self->app->color[1]))));
+      self->app->color[2] = (s32) (((f32) self->app->color[2]) + (t * ((f32) (self->color[2] - (*new_var)->color[2]))));
+      (*new_var)->shape[0] = (t * (self->shape[0] - self->app->shape[0])) + self->app->shape[0];
+      self->app->shape[1] = (t * (self->shape[1] - (*new_var)->shape[1])) + self->app->shape[1];
+      if (self->ticks >= 30)
+    {
+      if (creation_resource_ready_state == 2)
+      {
+        play_sound_effect(0x52802, 0, 0, 0);
+        self->state = 1;
+      }
+      else
+        if (self->ticks >= 150)
+      {
+        return;
+      }
+    }
+      break;
+  }
+}
+#pragma pop
 
 void *create__16TObjCMAutoMkDataFPv(void *arg0) {
     void *o = __nw__7TObjectFUl(0x3C);

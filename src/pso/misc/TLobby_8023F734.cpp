@@ -32,6 +32,27 @@ typedef struct Owner_8023FBBC {
     s32 kind;
 } Owner_8023FBBC;
 
+typedef struct Entry_8024220C
+{
+  s32 id;
+  s32 f4;
+  char name[0x11];
+  char s19[0x11];
+  char s2A[0x11];
+  char s3B[0x11];
+  u8 f4C[0xC];
+  u8 ext[0x64];
+} Entry_8024220C;
+
+typedef struct Src_8024220C
+{
+  s32 id;
+  char name[0x30];
+  char list[0x30];
+  u8 f64[0xC];
+  u8 ext[0x64];
+} Src_8024220C;
+
 extern "C" {
 extern RecoveredGlobal_8023F880_lbl_805162EC lbl_805162EC;
 s32 TLobby__sub_8023F880(s32 arg0);
@@ -46,6 +67,14 @@ s32 set_voice_pitch_slide(u8 *arg0, s32 arg1, s32 arg2);
 void set_sound_slot_pitch(s32 slot, s32 pitch, s32 duration);
 extern Tables_8023FBBC sound_effect_bank_table;
 s32 resolve_sound_effect_bank(Owner_8023FBBC *owner, s32 kind, s32 bank, s32 index);
+M2C_UNK __as__21TPlyMeetUserExtensionFRC21TPlyMeetUserExtension(void *, void *);
+void TLobby__sub_802422EC(void *arg0, void *arg1);
+char *parse_csv_token__6TLobbyFPvPv(char *src, char *dst);
+char *build_text_from_comma_list__6TLobbyFPv(char *list);
+M2C_UNK strncpy(void *, void *, int);
+M2C_UNK memset(void *, int, int);
+extern u8 lbl_80517EE0[];
+void TLobby__sub_8024220C(Src_8024220C *arg0);
 }
 
 extern "C" {
@@ -1191,6 +1220,27 @@ void send_find_user_self_tag__6TLobbyFi(s32 arg0) {
         Tag_802421C4 tag = *(Tag_802421C4 *)((u8 *)TLobby__protocol_instance + 0x1900);
         send_find_user__9TProtocolFR16TPlyGuildCardTagUl((void *)TLobby__protocol_instance, &tag, arg0);
     }
+}
+
+typedef struct Entry_8024220C Entry_8024220C;
+typedef struct Src_8024220C Src_8024220C;
+void TLobby__sub_8024220C(Src_8024220C *arg0) {
+  char *new_var;
+  void *p;
+  (*(Entry_8024220C *)&lbl_80517EE0).id = arg0->id;
+  (*(Entry_8024220C *)&lbl_80517EE0).f4 = 0;
+  memset((*(Entry_8024220C *)&lbl_80517EE0).name, 0, 0x11);
+  strncpy((*(Entry_8024220C *)&lbl_80517EE0).name, arg0->name, 0x10);
+  (*(Entry_8024220C *)&lbl_80517EE0).name[0x10] = 0;
+  new_var = arg0->list;
+  new_var = build_text_from_comma_list__6TLobbyFPv(new_var);
+  p = new_var;
+  p = ((void *)parse_csv_token__6TLobbyFPvPv((char *)(p), (char *)((*(Entry_8024220C *)&lbl_80517EE0).s19)));
+  p = ((void *)parse_csv_token__6TLobbyFPvPv((char *)(p), (char *)((*(Entry_8024220C *)&lbl_80517EE0).s2A)));
+  p = ((void *)parse_csv_token__6TLobbyFPvPv((char *)(p), (char *)((*(Entry_8024220C *)&lbl_80517EE0).s2A)));
+  parse_csv_token__6TLobbyFPvPv((char *)(p), (char *)((*(Entry_8024220C *)&lbl_80517EE0).s3B));
+  TLobby__sub_802422EC((*(Entry_8024220C *)&lbl_80517EE0).f4C, arg0->f64);
+  __as__21TPlyMeetUserExtensionFRC21TPlyMeetUserExtension((*(Entry_8024220C *)&lbl_80517EE0).ext, arg0->ext);
 }
 
 void TLobby__sub_802422EC(void *arg0, void *arg1) {

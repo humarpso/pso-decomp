@@ -6,6 +6,10 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 
 struct Vec2_8007DD28 { f32 x; f32 y; f32 z; };
 
+struct Vtx_8007D828 { f32 x; f32 y; f32 z; u32 color; };
+
+struct Quad_8007D828 { f32 x0; f32 y0; f32 x1; f32 y1; f32 u0; f32 v0; f32 u1; f32 v1; };
+
 extern "C" {
 extern Vec2_8007DD28 TObjBoss2Tunnel__data_8048DF2C;
 extern const f32 lbl_805D9280;
@@ -16,6 +20,20 @@ extern u32 TObjBoss2Tunnel__snapshot_buffer;
 extern s32 TObjBoss2Tunnel__snapshot_saved_flag;
 void reset__12TQuestListVMFv(void);
 void reset_state__15TObjBoss2TunnelFv(void);
+void set_depth_buffer_settings_1__Fv(void);
+void restore_saved_depth_alpha_state(void);
+void reset_transform_state__10TObjPlayerFv(void);
+void set_global_param__8TObjFishFi(s32);
+void begin_screen_draw(s32);
+void get_player__20TWindowSubStatusDispFv(void);
+s32 draw_textured_quad_at_depth(void *, f32);
+void set_draw_texture_and_color(s32, s32);
+void reset_player_state__15TObjBoss2TunnelFv(void);
+void draw_projected_quads__15TObjBoss2TunnelFPvi(Vtx_8007D828 *, s32);
+void TObjBoss2Tunnel__sub_803E2D10(s32);
+extern Vec2_8007DD28 TObjBoss2Tunnel__data_8048DF2C;
+extern s32 lbl_805D63F0;
+void TObjBoss2Tunnel__sub_8007D828(void);
 }
 
 extern "C" {
@@ -146,6 +164,111 @@ s32 memcard_check_snapshot(s32 arg0, s32 *arg1) {
         *arg1 = 0;
     }
     return 1;
+}
+
+void TObjBoss2Tunnel__sub_8007D828(void) {
+    Quad_8007D828 q;
+    Vtx_8007D828 v[4];
+    s32 i;
+    reset_transform_state__10TObjPlayerFv();
+    for (i = 0; i < 4; i++) {
+        v[i].z = 0.25f;
+        v[i].color = 0x8F000000;
+    }
+    set_depth_buffer_settings_1__Fv();
+    v[0].x = 0.0f;
+    v[0].y = 0.0f;
+    v[1].x = 640.0f;
+    v[1].y = 0.0f;
+    v[2].x = 0.0f;
+    v[2].y = TObjBoss2Tunnel__data_8048DF2C.y - 96.0f;
+    v[3].x = 640.0f;
+    v[3].y = TObjBoss2Tunnel__data_8048DF2C.y - 96.0f;
+    TObjBoss2Tunnel__sub_803E2D10(1);
+    draw_projected_quads__15TObjBoss2TunnelFPvi(v, 4);
+    reset_player_state__15TObjBoss2TunnelFv();
+    v[0].x = 0.0f;
+    v[0].y = TObjBoss2Tunnel__data_8048DF2C.y - 96.0f;
+    v[1].x = TObjBoss2Tunnel__data_8048DF2C.x - 128.0f;
+    v[1].y = TObjBoss2Tunnel__data_8048DF2C.y - 96.0f;
+    v[2].x = 0.0f;
+    v[2].y = 480.0f;
+    v[3].x = TObjBoss2Tunnel__data_8048DF2C.x - 128.0f;
+    v[3].y = 480.0f;
+    TObjBoss2Tunnel__sub_803E2D10(1);
+    draw_projected_quads__15TObjBoss2TunnelFPvi(v, 4);
+    reset_player_state__15TObjBoss2TunnelFv();
+    v[0].x = 128.0f + TObjBoss2Tunnel__data_8048DF2C.x;
+    v[0].y = TObjBoss2Tunnel__data_8048DF2C.y - 96.0f;
+    v[1].x = 640.0f;
+    v[1].y = TObjBoss2Tunnel__data_8048DF2C.y - 96.0f;
+    v[2].x = 128.0f + TObjBoss2Tunnel__data_8048DF2C.x;
+    v[2].y = 96.0f + TObjBoss2Tunnel__data_8048DF2C.y;
+    v[3].x = 640.0f;
+    v[3].y = 96.0f + TObjBoss2Tunnel__data_8048DF2C.y;
+    TObjBoss2Tunnel__sub_803E2D10(1);
+    draw_projected_quads__15TObjBoss2TunnelFPvi(v, 4);
+    reset_player_state__15TObjBoss2TunnelFv();
+    v[0].x = TObjBoss2Tunnel__data_8048DF2C.x - 128.0f;
+    v[0].y = 96.0f + TObjBoss2Tunnel__data_8048DF2C.y;
+    v[1].x = 640.0f;
+    v[1].y = 96.0f + TObjBoss2Tunnel__data_8048DF2C.y;
+    v[2].x = TObjBoss2Tunnel__data_8048DF2C.x - 128.0f;
+    v[2].y = 480.0f;
+    v[3].x = 640.0f;
+    v[3].y = 480.0f;
+    TObjBoss2Tunnel__sub_803E2D10(1);
+    draw_projected_quads__15TObjBoss2TunnelFPvi(v, 4);
+    reset_player_state__15TObjBoss2TunnelFv();
+    set_global_param__8TObjFishFi(lbl_805D63F0);
+    set_draw_texture_and_color(1, -1);
+    begin_screen_draw(1);
+    q.x0 = TObjBoss2Tunnel__data_8048DF2C.x - 27.0f;
+    q.y0 = TObjBoss2Tunnel__data_8048DF2C.y - 27.0f;
+    q.x1 = TObjBoss2Tunnel__data_8048DF2C.x;
+    q.y1 = TObjBoss2Tunnel__data_8048DF2C.y;
+    q.u0 = 0.31764707f;
+    q.v0 = 0.494117647f;
+    q.u1 = 0.423529416f;
+    q.v1 = 0.600000024f;
+    draw_textured_quad_at_depth(&q, 0.5f);
+    q.x0 = TObjBoss2Tunnel__data_8048DF2C.x;
+    q.y0 = TObjBoss2Tunnel__data_8048DF2C.y - 27.0f;
+    q.x1 = 27.0f + TObjBoss2Tunnel__data_8048DF2C.x;
+    q.y1 = TObjBoss2Tunnel__data_8048DF2C.y;
+    q.u0 = 0.31764707f;
+    q.v0 = 0.494117647f;
+    q.u1 = 0.423529416f;
+    q.v1 = 0.600000024f;
+    q.u0 = 0.423529416f;
+    q.u1 = 0.31764707f;
+    draw_textured_quad_at_depth(&q, 0.5f);
+    q.x0 = TObjBoss2Tunnel__data_8048DF2C.x - 27.0f;
+    q.y0 = TObjBoss2Tunnel__data_8048DF2C.y;
+    q.x1 = TObjBoss2Tunnel__data_8048DF2C.x;
+    q.y1 = 27.0f + TObjBoss2Tunnel__data_8048DF2C.y;
+    q.u0 = 0.31764707f;
+    q.v0 = 0.494117647f;
+    q.u1 = 0.423529416f;
+    q.v1 = 0.600000024f;
+    q.v0 = 0.600000024f;
+    q.v1 = 0.494117647f;
+    draw_textured_quad_at_depth(&q, 0.5f);
+    q.x0 = TObjBoss2Tunnel__data_8048DF2C.x;
+    q.y0 = TObjBoss2Tunnel__data_8048DF2C.y;
+    q.x1 = 27.0f + TObjBoss2Tunnel__data_8048DF2C.x;
+    q.y1 = 27.0f + TObjBoss2Tunnel__data_8048DF2C.y;
+    q.u0 = 0.31764707f;
+    q.v0 = 0.494117647f;
+    q.u1 = 0.423529416f;
+    q.v1 = 0.600000024f;
+    q.v0 = 0.600000024f;
+    q.v1 = 0.494117647f;
+    q.u0 = 0.423529416f;
+    q.u1 = 0.31764707f;
+    draw_textured_quad_at_depth(&q, 0.5f);
+    get_player__20TWindowSubStatusDispFv();
+    restore_saved_depth_alpha_state();
 }
 
 void TObjBoss2Tunnel__sub_8007DD24(void) {  }

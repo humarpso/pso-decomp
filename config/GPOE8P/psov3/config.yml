@@ -81,6 +81,7 @@ force_active:
   - TAdChrSelBSlotGC__sub_8030F228
   - TAdChrSelBSlotGC__sub_8030F2E4
   - TAdChrSelBSlotGC__sub_8030F3A0
+  - TAdPlyStatusGC__is_shown
   - TAdSinglePlyChrSelectGC__sub_80133530
   - TAdSinglePlyChrSelectGC__sub_801FBC3C
   - TAdSinglePlyChrSelectGC__sub_8028EE20
@@ -111,7 +112,6 @@ force_active:
   - TLobby__sub_803CBE40
   - TLobby__sub_803D0F1C
   - TLobby__sub_803D2E90
-  - find_archive_entry__6TLobbyFPvPvPvPv
   - TLobby__sub_803D346C
   - TLockOnCursor__sub_8013EBBC
   - TLockOnCursor__sub_8013EBE8
@@ -137,6 +137,7 @@ force_active:
   - TObjDFDemoF__bml_model_id_table
   - TObjDoor__collision_desc
   - TObjDoor__label_color_table
+  - TObjDoor__resource_param
   - TObjEneDelDepth_motion_file_list
   - TObjEneDelDepth_motion_names
   - TObjEneEpsilonGuard__model_desc
@@ -440,13 +441,17 @@ force_active:
   - bm3_fly_nest_resource_desc
   - bm3_flynest_collider_params
   - bm5_wolf_decision_row
+  - boss2_dust_output_table
+  - boss2_dust_points
   - boss2_dust_random_angles
+  - boss2_dust_rotation_table
   - boss2_mine_params
   - boss2_tunnel_color
   - boss2_tunnel_color_table
   - boss2_tunnel_model_index_table
   - boss2_tunnel_model_order_table
   - boss3_volopt_core_hit_table
+  - boss8_collision_segment_desc
   - break_apart__15TObjEneMe1GiGueFPv
   - break_rocks_in_wave__15TBoss6SwordWaveFPv
   - bswap_enemy_set_row_fields
@@ -619,6 +624,7 @@ force_active:
   - create_particles__11TTecGiBartaFv
   - create_quest_list_window__19TQuestListChallengeFv
   - create_rafoie_explosion
+  - create_result_windows__23TShopJudgmentItemWindowFPv
   - create_right_hand_ptcl__10TObjPlayerFPvPv
   - create_sphere_chain__17TBoss1DragonColliFiPviPvf
   - create_symbol_list_card__20TWindowSubSymbolChatFPv
@@ -626,6 +632,7 @@ force_active:
   - ct_init_placement_ring__9TItemListFPvPviPvPvc
   - curvecmp
   - damage_players_in_radius
+  - damage_players_in_range__15TBoss6RockChaseFPv
   - damage_players_near_point
   - deallocate_from_fixed_pools
   - debug_print_ranges__8TOKurageFPv
@@ -660,6 +667,7 @@ force_active:
   - do_src2
   - do_warp__16TObjCityAreaWarpFPv
   - door_resource_descriptor
+  - door_resource_handle
   - draw_active_beam__11TObjDoorKeyFPv
   - draw_agreement_text__18TAdAgreementBaseGCFv
   - draw_animated_beam__18TObjLazerFenceNormFPv
@@ -746,6 +754,7 @@ force_active:
   - explode__22TObjEneMe1GiGueMissileFPvPv
   - fade_alpha_step__17TObjEneMe1CanadinFPvif
   - fill_range__15TBoss6SwordWaveFPvPvPv
+  - find_archive_entry__6TLobbyFPvPvPvPv
   - find_area_technique_contact
   - find_cached_glyph__20TWindowSubStatusDispFUs
   - find_chain_targets__11TTecGiZondeFv
@@ -1154,7 +1163,6 @@ force_active:
   - lbl_804F2BF0
   - lbl_804F2BF8
   - lbl_804F33D8
-  - boss2_dust_rotation_table
   - lbl_80500B0C
   - lbl_80500B24
   - lbl_80500B2C
@@ -1198,6 +1206,7 @@ force_active:
   - lobby_checked_read_ptr_table
   - lobby_font_texture_prs_data
   - lobby_pulse_color_table
+  - lobby_suisou_resource_descriptor
   - logo_load_callback_table
   - lookup_attack_marker
   - lookup_item_category__9TWindowDDFi
@@ -1773,6 +1782,7 @@ force_active:
   - update_rush_attack__15TObjEneMe1GiGueFPv
   - update_scroll_offset__20TWindowSubStatusDispFPv
   - update_scroll_target_position__17TWindowSubComCardFPv
+  - update_scroll_value__17TWindowSubComCardFPv
   - update_segments__20TItemEffOrgaFlowShotFPv
   - update_selected_char__19TChCrTagInformationFPv
   - update_selected_help__19TWindowSubTechniqueFPvi

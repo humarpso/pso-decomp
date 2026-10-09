@@ -682,6 +682,7 @@ pso/item/TItemProArmor_80364300.cpp
 pso/item/TItemProShield.cpp
 pso/item/TItemProShield_80076B5C.cpp
 pso/item/TItemProShield_8010A650.cpp
+pso/item/TItemProShield_80116634.cpp
 pso/item/TItemProShield_801181D0.cpp
 pso/item/TItemProUnit.cpp
 pso/item/TItemReverseTech.cpp

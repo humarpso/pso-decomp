@@ -938,6 +938,8 @@ B_803FADA0 *init_net_buffer_entry__6TLobbyFUs(u16);
 u8 *TLobby__sub_80402B3C(u8 *p, u32 v);
 extern u8 lbl_805D7A74[1];
 void TLobby__sub_803FADA0(B_803FADA0 **arg0, A_803FADA0 *arg1, s32 arg2, s32 arg3, void *arg4);
+s32 TLobby__sub_803F812C(int, u8 *, u16 *);
+s32 TLobby__sub_80403730(u8 *dst, unsigned short n);
 }
 
 extern "C" {
@@ -2509,6 +2511,21 @@ s32 TLobby__sub_804036FC(u8 *arg0) {
 }
 
 typedef char RecoveredGlobal_80403D28_lbl_805C0638_size[sizeof(RecoveredGlobal_80403D28_lbl_805C0638) == 0xA0 ? 1 : -1];
+
+s32 TLobby__sub_80403730(u8 *dst, unsigned short n) {
+  u8 buf;
+  u16 st;
+  while (((u16) n) != 0)
+  {
+    if ((TLobby__sub_803F812C(1, &buf, &st) != 0) && (st != 1))
+    {
+      return -1;
+    }
+    *(dst++) = buf;
+    n--;
+  }
+  return 0;
+}
 
 #pragma push
 #pragma opt_common_subs on
