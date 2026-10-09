@@ -84,12 +84,12 @@ s32 set_stream_and_load_file__6TLobbyFi(s32);
 s32 alloc_buffer__11TOBoss4RockFPv(s32);
 extern u32 symbolchat_colli_param_table[];
 extern s32 lbl_805D3190;
-extern int lbl_805D5AC8;
+extern int symbol_chat_colli_entries;
 void load_symbol_chat_data__17TOSymbolchatColliFv(void);
 void set_motion_params__10TObjPlayerFPvPv(void *, void *);
 void *memset(void *, int, u32);
 extern u32 symbolchat_colli_param_table[];
-extern int lbl_805D5AC8;
+extern int symbol_chat_colli_entries;
 extern const f32 lbl_805DBA28;
 void init_collision_params__17TOSymbolchatColliFPv(void *arg0);
 }
@@ -142,7 +142,7 @@ void init_collision_params__17TOSymbolchatColliFPv(void *arg0) {
       hi = v >> 16;
       if (lo < 0x18)
       {
-        self->ptrs[i] = (u32) (&((Ent_8017873C *) lbl_805D5AC8)[lo].f1c);
+        self->ptrs[i] = (u32) (&((Ent_8017873C *) symbol_chat_colli_entries)[lo].f1c);
       }
       else
       {
@@ -209,22 +209,22 @@ void *create__17TOSymbolchatColliFPv(void *arg0) {
     return o;
 }
 
-    extern int lbl_805D5AC8;
-void free_rock__17TOSymbolchatColliFv(void) { free__11TOBoss4RockFUi((void*)(lbl_805D5AC8)); lbl_805D5AC8 = 0; }
+    extern int symbol_chat_colli_entries;
+void free_rock__17TOSymbolchatColliFv(void) { free__11TOBoss4RockFUi((void*)(symbol_chat_colli_entries)); symbol_chat_colli_entries = 0; }
 
 extern M2C_UNK __vt__17TOSymbolchatColli[];
 
 void load_symbol_chat_data__17TOSymbolchatColliFv(void) {
     s32 h;
     s32 i;
-    lbl_805D5AC8 = alloc_buffer__11TOBoss4RockFPv(0x840);
+    symbol_chat_colli_entries = alloc_buffer__11TOBoss4RockFPv(0x840);
     h = set_stream_and_load_file__6TLobbyFi(lbl_805D3190);
     if (h != 0) {
-        prs_decompress_buffer(h, lbl_805D5AC8);
+        prs_decompress_buffer(h, symbol_chat_colli_entries);
     }
     safe_free__23TAdSinglePlyChrSelectGCFUi(h);
     for (i = 0; i < 0x18; i++) {
-        bswap_entry__20TWindowSubSymbolChatFPv((u8 *)lbl_805D5AC8 + i * 0x58);
+        bswap_entry__20TWindowSubSymbolChatFPv((u8 *)symbol_chat_colli_entries + i * 0x58);
     }
     for (i = 0; i < 3; i++) {
         symbolchat_colli_param_table[i] = 0;

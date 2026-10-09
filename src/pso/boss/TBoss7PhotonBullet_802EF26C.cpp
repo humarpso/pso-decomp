@@ -183,7 +183,7 @@ extern "C" {
 M2C_UNK VecCopy__FP3VecPC3Vec(void *, void *);
 M2C_UNK rotate_xz_pair_by_angle(void *, void *, int);
 M2C_UNK __ct__7TObjectFP7TObject(void *, M2C_UNK);
-extern Ent_802EF74C lbl_80474008[];
+extern Ent_802EF74C boss7_photon_bullet_level_table[];
 extern void *__vt__15TBoss7PhotonPad[];
 extern s32 lbl_805D3FD0;
 
@@ -213,11 +213,11 @@ void run_task__15TBoss7PhotonPadFv(Pad_802EF604 *self) {
         if (st != 0) {
             p = __nw__7TObjectFUl(0xF8);
             if (p != 0) {
-                ((M2C_UNK (*)(void *, void *, s32, s32, void *, f32))TBoss7PhotonBullet__ct)((void *)p, self->parent, st, self->unk1C, self->pos, 1.5f * lbl_80474008[self->level].d);
+                ((M2C_UNK (*)(void *, void *, s32, s32, void *, f32))TBoss7PhotonBullet__ct)((void *)p, self->parent, st, self->unk1C, self->pos, 1.5f * boss7_photon_bullet_level_table[self->level].d);
             }
         }
-        self->timer = lbl_80474008[self->level].b;
-        rotate_xz_pair_by_angle(self->pos, self->unk28, lbl_80474008[self->level].c / lbl_80474008[self->level].a);
+        self->timer = boss7_photon_bullet_level_table[self->level].b;
+        rotate_xz_pair_by_angle(self->pos, self->unk28, boss7_photon_bullet_level_table[self->level].c / boss7_photon_bullet_level_table[self->level].a);
         self->shots--;
         if (self->shots == 0) {
             queue_destruction__7TObjectFv(self);
@@ -241,8 +241,8 @@ u8 *__ct__15TBoss7PhotonPadFv(u8 *arg0, M2C_UNK arg1, s32 arg2, s32 arg3, s32 ar
     M2C_FIELD(arg0, s32 *, 0x1C) = arg2;
     M2C_FIELD(arg0, s32 *, 0x2C) = arg4;
     VecCopy__FP3VecPC3Vec(arg0 + 0x20, (void *)arg3);
-    rotate_xz_pair_by_angle(arg0 + 0x20, arg0 + 0x28, -(lbl_80474008[M2C_FIELD(arg0, s32 *, 0x2C)].c / 2));
-    M2C_FIELD(arg0, s32 *, 0x30) = lbl_80474008[M2C_FIELD(arg0, s32 *, 0x2C)].a;
+    rotate_xz_pair_by_angle(arg0 + 0x20, arg0 + 0x28, -(boss7_photon_bullet_level_table[M2C_FIELD(arg0, s32 *, 0x2C)].c / 2));
+    M2C_FIELD(arg0, s32 *, 0x30) = boss7_photon_bullet_level_table[M2C_FIELD(arg0, s32 *, 0x2C)].a;
     M2C_FIELD(arg0, s32 *, 0x34) = 0;
     return arg0;
 }

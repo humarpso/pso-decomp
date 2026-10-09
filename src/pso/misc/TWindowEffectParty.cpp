@@ -9,7 +9,7 @@ struct Obj_8024FB80 { u8 pad[0x78]; void *arr[1]; };
 struct Pos_8024FAD8 { s32 a, b, c; };
 
 extern "C" {
-extern Obj_8024FB80 *TWindowCtrl__data_805D63F8;
+extern Obj_8024FB80 *TWindowCtrl__active_window;
 void *TWindowCtrl__sub_8024FB80(s8 i);
 void *__ct__7TObjectFP7TObject(void *);
 void set_slot_position__18TWindowEffectPartyFiiPv(void *, s32, void *);
@@ -107,8 +107,8 @@ u8 *TWindowEffectParty__ct(u8 *arg0, void *arg1, s8 arg2, s8 arg3, void *arg4) {
 }
 
 void *TWindowCtrl__sub_8024FB80(s8 i) {
-    if (TWindowCtrl__data_805D63F8 == 0) return 0;
-    return TWindowCtrl__data_805D63F8->arr[i];
+    if (TWindowCtrl__active_window == 0) return 0;
+    return TWindowCtrl__active_window->arr[i];
 }
 
 }

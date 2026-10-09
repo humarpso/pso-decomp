@@ -9,14 +9,14 @@ void __ct__7TObjectFP7TObject(void *);
 
 extern M2C_UNK __vt__14TObjBgmColCtrl[];
 extern void *lbl_805D322C;
-extern u32 TObjBgmColCtrl__data_805D5B0C;
+extern u32 TObjBgmColCtrl__current_theme_id;
 
 void *TObjBgmColCtrl__ct(void *arg0) {
     __ct__7TObjectFP7TObject(arg0);
     M2C_FIELD(arg0, M2C_UNK **, 0x18) = __vt__14TObjBgmColCtrl;
     M2C_FIELD(arg0, void **, 0x0) = lbl_805D322C;
     M2C_FIELD(arg0, u32 *, 0x1C) = 3;
-    TObjBgmColCtrl__data_805D5B0C = 0;
+    TObjBgmColCtrl__current_theme_id = 0;
     return arg0;
 }
 

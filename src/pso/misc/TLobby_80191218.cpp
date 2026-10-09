@@ -26,11 +26,11 @@ void *create_npc__6TLobbyFPv(void *arg0) {
     return o;
 }
 
-    extern int lbl_805D3360;
-void TLobby__sub_80191264(void) { lbl_805D3360 = -1; }
+    extern int npc_proximity_target_id;
+void TLobby__sub_80191264(void) { npc_proximity_target_id = -1; }
 
-    extern int lbl_805D3360;
-void TLobby__sub_80191270(void) { lbl_805D3360 = -1; }
+    extern int npc_proximity_target_id;
+void TLobby__sub_80191270(void) { npc_proximity_target_id = -1; }
 
 void set_player_quest_control_flag(register M2C_UNK r3) {
     set_state_flags__10TObjPlayerFPvUi(r3, 0x8000);

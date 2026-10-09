@@ -27,7 +27,7 @@ void fn_8042EBA4(s32, s32);
 void *memset(void *, s32, u32);
 u32 strlen(const char *);
 extern u8 lbl_80438D20[];
-extern s32 lbl_805D49B0;
+extern s32 resource_decompress_buffer;
 s32 fn_8007F970(const char *arg0);
 }
 
@@ -60,7 +60,7 @@ s32 fn_8007F970(const char *arg0) {
     s32 r;
     s32 v;
     r = update_lobby_scene__6TSceneFPv(lbl_80438D20);
-    read_disc_file(lbl_80438D20, v = lbl_805D49B0);
+    read_disc_file(lbl_80438D20, v = resource_decompress_buffer);
     VISetBlack(1);
     VIFlush();
     VIWaitForRetrace();

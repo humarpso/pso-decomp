@@ -37,16 +37,16 @@ typedef void (C_803362A4::*PMF_803362A4)();
 
 extern "C" {
 int TKeyBoardControl__sub_8000F9CC(void*);
-    extern int lbl_805D6D44;
+    extern int lobby_game_mode_state;
 void open_keyboard__6TLobbyFv(void);
 int set_mode_change_state__21TAdMultiChgGameModeGCFv(void);
-extern int lbl_805D6D44;
+extern int lobby_game_mode_state;
 void request_change_game_mode__6TLobbyFv(void);
 int set_game_mode_state__21TAdMultiChgGameModeGCFv(void);
-extern int lbl_805D6D44;
+extern int lobby_game_mode_state;
 void enter_game_mode_change__6TLobbyFv(void);
 int set_mode_0x15__21TAdMultiChgGameModeGCFv(void);
-extern int lbl_805D6D44;
+extern int lobby_game_mode_state;
 void enter_chg_game_mode__6TLobbyFv(void);
 void TLobby__sub_8033633C(void);
 M2C_UNK queue_destruction__7TObjectFv(void*);
@@ -65,7 +65,7 @@ void TAdMultiPlyChrSelectGC__sub_803367E8(void);
 s32 TLobby__sub_803DA16C(void *, M2C_UNK);
 u64 call_funcs_reverse__6TLobbyFPvUi(void *, int);
 extern RecoveredGlobal_8033670C_lbl_804EE58C lobby_load_callback_table;
-extern u8 *lbl_805D6D48;
+extern u8 *lobby_title_texture_list;
 void destroy_global_object__6TLobbyFv(void);
 M2C_UNK queue_destruction__7TObjectFv(void*);
 s32 disallow_rendering__7TObjectFv(void *);
@@ -124,7 +124,7 @@ extern u8 title_texture_list[];
 extern RecoveredGlobal_8033670C_lbl_804EE58C lobby_load_callback_table;
 extern const s32 current_language;
 extern u32 lbl_805D6D40;
-extern u8 *lbl_805D6D48;
+extern u8 *lobby_title_texture_list;
 void TLobby__sub_80336750(void);
 s32 TAdTrialAgreementGC__sub_80335958(int);
 s32 TLobby__sub_80336030(void *);
@@ -185,10 +185,10 @@ void set_flag_and_clear_download__6TLobbyFPv(void *arg0) {
 }
 
 void TLobby__sub_803361FC(void) {  }
-void open_keyboard__6TLobbyFv(void) { lbl_805D6D44 = 3; TKeyBoardControl__sub_8000F9CC((void*)19); }
-void request_change_game_mode__6TLobbyFv(void) { lbl_805D6D44 = 2; set_mode_change_state__21TAdMultiChgGameModeGCFv(); }
-void enter_game_mode_change__6TLobbyFv(void) { lbl_805D6D44 = 1; set_game_mode_state__21TAdMultiChgGameModeGCFv(); }
-void enter_chg_game_mode__6TLobbyFv(void) { lbl_805D6D44 = 0; set_mode_0x15__21TAdMultiChgGameModeGCFv(); }
+void open_keyboard__6TLobbyFv(void) { lobby_game_mode_state = 3; TKeyBoardControl__sub_8000F9CC((void*)19); }
+void request_change_game_mode__6TLobbyFv(void) { lobby_game_mode_state = 2; set_mode_change_state__21TAdMultiChgGameModeGCFv(); }
+void enter_game_mode_change__6TLobbyFv(void) { lobby_game_mode_state = 1; set_game_mode_state__21TAdMultiChgGameModeGCFv(); }
+void enter_chg_game_mode__6TLobbyFv(void) { lobby_game_mode_state = 0; set_mode_0x15__21TAdMultiChgGameModeGCFv(); }
 void TLobby__sub_803362A4(void *arg0_) {
     u8 *arg0 = (u8 *)arg0_;
     if (TAdTrialAgreementGC__sub_80335958(*(s32 *)(arg0 + 0x24)) != 0) {
@@ -266,7 +266,7 @@ u8 *construct_title_scene__6TLobbyFPv(u8 *arg0) {
     reset_slot_selections__22TAdMultiPlyChrSelectGCFv();
     reset_count__14TObjEneDolmOlmFv();
     TAdMultiPlyChrSelectGC__sub_803367E8();
-    lbl_805D6D44 = 0;
+    lobby_game_mode_state = 0;
     if (TKeyBoardControl__sub_8000F828() == 0) {
         M2C_FIELD(arg0, s32 *, 0x38) = 0x4B0;
     } else {
@@ -323,9 +323,9 @@ typedef char RecoveredGlobal_8033670C_lbl_804EE58C_size[sizeof(RecoveredGlobal_8
 void destroy_global_object__6TLobbyFv(void) {
     u32 temp_r4;
     temp_r4 = (u32) call_funcs_reverse__6TLobbyFPvUi((void *) (&lobby_load_callback_table.value), (int) (0x20));
-    if ((void *) lbl_805D6D48 != NULL) {
-        TLobby__sub_803DA16C(lbl_805D6D48, (s32) temp_r4);
-        lbl_805D6D48 = NULL;
+    if ((void *) lobby_title_texture_list != NULL) {
+        TLobby__sub_803DA16C(lobby_title_texture_list, (s32) temp_r4);
+        lobby_title_texture_list = NULL;
     }
 }
 
@@ -333,7 +333,7 @@ void TLobby__sub_80336750(void) {
     lbl_805D6D40 = 0;
     update_menu_cursor__6TLobbyFv();
     Tbl_80336750 t = lbl_80477804;
-    lbl_805D6D48 = title_texture_list;
+    lobby_title_texture_list = title_texture_list;
     TLobby__sub_8023E4B4((void *)t.s[current_language], title_texture_list);
     run_load_callback_table(&lobby_load_callback_table, 0x20);
     reset_counter__6TLobbyFv();

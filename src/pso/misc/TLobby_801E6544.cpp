@@ -2912,7 +2912,7 @@ extern f32 lbl_805D353C;
 extern f32 lbl_805D3540;
 extern f32 lbl_805D3544;
 extern f32 lbl_805D3548;
-extern s32 lbl_805D49B0;
+extern s32 resource_decompress_buffer;
 extern s32 volopt_death_active;
 extern s32 local_client_id;
 extern s32 current_language;
@@ -5538,8 +5538,8 @@ void decompress_indexed_resource__6TLobbyFv(void) {
     temp_r31 = M2C_FIELD(&(*(RecoveredGlobal_801EB5AC_TLobby__data_80512220 *)&TLobby__data_80512220).value, s32 *, 0);
     temp_r3 = ((int)((u32 (*)(void *))get_indexed_offset__6TLobbyFi)((void *)((s32) (u16) M2C_FIELD(&(*(RecoveredGlobal_801EB5AC_TLobby__data_80512220 *)&TLobby__data_80512220).value, s32 *, 4))));
     if (temp_r3 != 0U) {
-        prs_decompress_buffer((s32) temp_r3, lbl_805D49B0);
-        fn_80197FD0((void *) (lbl_805D49B0), (int) (temp_r31));
+        prs_decompress_buffer((s32) temp_r3, resource_decompress_buffer);
+        fn_80197FD0((void *) (resource_decompress_buffer), (int) (temp_r31));
     }
 }
 #pragma pop

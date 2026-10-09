@@ -13,7 +13,7 @@ int alloc__23TAdSinglePlyChrSelectGCFPv(void *);
 u8 * load_buffer__9TItemLoadFPvUii(void *, u32, s32);
 extern RecoveredGlobal_80019E60_lbl_804340D8 lbl_804340D8;
 extern s32 lbl_805D49D8;
-extern u32 lbl_805D49DC;
+extern u32 item_loader_instance;
 void load_draw_line_task__6TLobbyFv(void);
 }
 
@@ -23,12 +23,12 @@ void free_item_loader__6TLobbyFv(void);
 void __dt__9TItemLoadFPvs(void*, int);
 
 extern s32 lbl_805D49D8;
-extern u32 lbl_805D49DC;
+extern u32 item_loader_instance;
 
 void free_item_loader__6TLobbyFv(void) {
-    if ((u32) lbl_805D49DC != 0U) {
-        __dt__9TItemLoadFPvs((void*)lbl_805D49DC, 1);
-        lbl_805D49DC = 0U;
+    if ((u32) item_loader_instance != 0U) {
+        __dt__9TItemLoadFPvs((void*)item_loader_instance, 1);
+        item_loader_instance = 0U;
         lbl_805D49D8 = 0;
     }
 }
@@ -40,7 +40,7 @@ void load_draw_line_task__6TLobbyFv(void) {
     if (var_r0 != 0) {
         var_r0 = (long) (load_buffer__9TItemLoadFPvUii((void *) temp_r3, (u32) &lbl_804340D8.value, 0x4800));
     }
-    (*(u8 * *)&lbl_805D49DC) = (unsigned char *) ((void *) var_r0);
+    (*(u8 * *)&item_loader_instance) = (unsigned char *) ((void *) var_r0);
     if ((u32) var_r0 != 0U) {
         lbl_805D49D8 = get_type__8TItemMagFPv((void *) var_r0);
     }

@@ -270,8 +270,8 @@ void *__ct__15TAdPlayerLoadGCFv(void *arg0, void *arg1, void *arg2) {
     return arg0;
 }
 
-    extern int lbl_805D63D0;
-int fn_802D6BDC(void) {  return lbl_805D63D0; }
+    extern int TAdPlayerLoadGC__load_state;
+int fn_802D6BDC(void) {  return TAdPlayerLoadGC__load_state; }
 
     extern int TAdChrSelBSlotGC__global_state;
 void fn_802D6BE4(int a0) { TAdChrSelBSlotGC__global_state = a0; }

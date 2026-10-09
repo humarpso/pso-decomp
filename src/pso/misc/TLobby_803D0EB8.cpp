@@ -12,17 +12,17 @@ void enter_lock__6TLobbyFv(void);
 M2C_UNK restore_interrupts_nested__6TLobbyFv();
 M2C_UNK lock_enter__6TLobbyFv();
 
-extern u32 lbl_805D7618;
-extern s32 lbl_805D761C;
+extern u32 log_printf_callback;
+extern s32 lobby_log_callback_arg;
 
 void set_callback__6TLobbyFUii(u32 arg0, s32 arg1) {
     if (arg0 == 0U) {
-        lbl_805D7618 = 0U;
-        lbl_805D761C = 0;
+        log_printf_callback = 0U;
+        lobby_log_callback_arg = 0;
         return;
     }
-    lbl_805D7618 = arg0;
-    lbl_805D761C = arg1;
+    log_printf_callback = arg0;
+    lobby_log_callback_arg = arg1;
 }
 
 void notify_dvd_read__6TLobbyFv(void) {

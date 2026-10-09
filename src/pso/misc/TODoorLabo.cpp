@@ -53,7 +53,7 @@ void TODoorFourLightBase__ct(void *);
 s32 count_linked_switches__23TObjSeabedSuisoBrakableFUii(u32, s32);
 extern Tbl_8029F7E0 lbl_80466014;
 extern Tbl_8029FAE4 door_labo_link_table;
-extern u8 lbl_804DC864[];
+extern u8 labo_door_collision_body_parts[];
 extern M2C_UNK __vt__16TODoorLaboNormal[];
 extern M2C_UNK __vt__10TODoorLabo[];
 extern s32 door_labo_normal_class_name;
@@ -67,7 +67,7 @@ s32 alloc__23TAdSinglePlyChrSelectGCFPv(int);
 s32 load_gvm_texture_file(void *);
 extern u8 lbl_80466040[];
 extern u8 lbl_8046605C[];
-extern u8 lbl_804DC854[];
+extern u8 labo_door_resource_descriptor_2[];
 extern u32 lbl_805D6624;
 extern u32 lbl_805D6628;
 extern u32 lbl_805D662C;
@@ -123,7 +123,7 @@ Self_8029F7E0 *TODoorLaboNormal__ct(Self_8029F7E0 *self) {
     TODoorFourLightBase__ct(self);
     self->vt = ((s32 *)&__vt__16TODoorLaboNormal);
     self->f0 = door_labo_normal_class_name;
-    init_collision_body_parts(self, lbl_804DC864, 1);
+    init_collision_body_parts(self, labo_door_collision_body_parts, 1);
     refresh_collision_body_centers(self);
     reset_photon_effect__10TObjPlayerFPv(self);
     init_field_d4__16TODoorLaboNormalFPv((void*)(self));
@@ -165,7 +165,7 @@ extern s32 lbl_805D661C;
 void load_resources__10TODoorLaboFv(void) {
     s32 r = alloc__23TAdSinglePlyChrSelectGCFPv(0x440);
     if (r != 0) {
-        r = load_resource_from_descriptor(r, 5, lbl_804DC854, 0, 0, 0);
+        r = load_resource_from_descriptor(r, 5, labo_door_resource_descriptor_2, 0, 0, 0);
     }
     (*(s32 *)&lbl_805D6624) = r;
     (*(s32 *)&lbl_805D6628) = load_gvm_texture_file(lbl_80466040);
@@ -215,7 +215,7 @@ Door_8029FAE4 *TODoorLabo__ct(Door_8029FAE4 *arg0) {
     TODoorFourLightBase__ct(arg0);
     arg0->vt = __vt__10TODoorLabo;
     arg0->f0 = odoor_labo_class_name;
-    init_collision_body_parts(arg0, lbl_804DC864, 1);
+    init_collision_body_parts(arg0, labo_door_collision_body_parts, 1);
     refresh_collision_body_centers(arg0);
     reset_photon_effect__10TObjPlayerFPv(arg0);
     init_model_by_type__10TODoorLaboFPv(arg0);
@@ -274,7 +274,7 @@ s32 alloc__23TAdSinglePlyChrSelectGCFPv(int);
 s32 load_gvm_texture_file(void *);
 extern u8 lbl_80466074[];
 extern u8 lbl_80466090[];
-extern u8 lbl_804DC834[];
+extern u8 labo_door_resource_descriptor[];
 extern s32 lbl_805D6618;
 extern s32 lbl_805D661C;
 extern s32 lbl_805D6620;
@@ -286,7 +286,7 @@ extern "C" {
 void load_labo_door_resources(void) {
     s32 r = alloc__23TAdSinglePlyChrSelectGCFPv(0x440);
     if (r != 0) {
-        r = load_resource_from_descriptor(r, 5, lbl_804DC834, 0, 0, 0);
+        r = load_resource_from_descriptor(r, 5, labo_door_resource_descriptor, 0, 0, 0);
     }
     lbl_805D6618 = r;
     lbl_805D661C = load_gvm_texture_file(lbl_80466074);
@@ -380,7 +380,7 @@ u8 *TODoorFourLightSeabedU__ct(u8 *arg0) {
     TODoorFourLightBase__ct(arg0);
     self->vt18 = __vt__22TODoorFourLightSeabedU;
     self->f0 = odoor_four_light_seabed_u_class_name;
-    init_collision_body_parts(arg0, lbl_804DC864, 1);
+    init_collision_body_parts(arg0, labo_door_collision_body_parts, 1);
     refresh_collision_body_centers(arg0);
     reset_photon_effect__10TObjPlayerFPv(arg0);
     self->fD4 = get_bml_model((s32)lbl_805D660C, 0);
@@ -559,7 +559,7 @@ u8 *TODoorFourLightSeabed__ct(u8 *arg0) {
     TODoorFourLightBase__ct(arg0);
     self->vt18 = __vt__21TODoorFourLightSeabed;
     self->f0 = TODoorFourLightSeabed__class_name;
-    init_collision_body_parts(arg0, lbl_804DC864, 1);
+    init_collision_body_parts(arg0, labo_door_collision_body_parts, 1);
     refresh_collision_body_centers(arg0);
     reset_photon_effect__10TObjPlayerFPv(arg0);
     self->fD4 = get_bml_model(door_labo_bml_resource, 0);

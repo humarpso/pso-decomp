@@ -425,7 +425,7 @@ s32 get_camera_id__11TCameraCtrlFv();
 void request_follow_camera_offsets(void *arg0, void *arg1, u16 arg2);
 s32 get_global_state__14TOKeyMachine01Fv();
 void get_camera_offsets__12TBoss8DragonFPvPv(Vec_8006D9F0 *, Vec_8006D9F0 *);
-extern Vec_8006D9F0 lbl_80488DD0;
+extern Vec_8006D9F0 follow_camera_offset_default;
 void select_follow_camera_offsets(Cam_8006D9F0 *arg0);
 FollowVector *get_position_ptr__10TObjPlayerFPv(void *);
 FollowVector *get_target_ptr__11TCameraCtrlFPv(void *);
@@ -904,9 +904,9 @@ void select_follow_camera_offsets(Cam_8006D9F0 *arg0) {
             arg0->fE8 = (0.0f);
             arg0->fEC = (19.8f);
             arg0->fF0 = (-5.0f);
-            arg0->pos.x = lbl_80488DD0.x;
-            arg0->pos.y = lbl_80488DD0.y;
-            arg0->pos.z = lbl_80488DD0.z;
+            arg0->pos.x = follow_camera_offset_default.x;
+            arg0->pos.y = follow_camera_offset_default.y;
+            arg0->pos.z = follow_camera_offset_default.z;
             if (is_split_screen() != 0 && get_camera_id__11TCameraCtrlFv() == 2) {
                 arg0->pos.z *= (1.4f);
                 arg0->pos.y *= (0.9f);

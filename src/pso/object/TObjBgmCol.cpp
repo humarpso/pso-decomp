@@ -12,7 +12,7 @@ s32 check__10TObjBgmColFPv(void *arg0);
 s32 get_bgm_object__13TQuestBgmCtrlFv();
 void play_area_music(s32);
 extern s32 lbl_804B5780[];
-extern s32 lbl_805D5B00;
+extern s32 bgm_zone_category;
 extern s32 lbl_805D5B04;
 void run_task__10TObjBgmColFv(Zone_8017E748 *zone);
 }
@@ -44,13 +44,13 @@ void run_task__10TObjBgmColFv(Zone_8017E748 *zone) {
     if (get_bgm_object__13TQuestBgmCtrlFv() == 0) {
         switch (check__10TObjBgmColFPv(zone)) {
         case 1:
-            if (lbl_805D5B00 != zone->category) {
+            if (bgm_zone_category != zone->category) {
                 if (zone->category == 4) {
                     play_lobby_theme_music__14TObjBgmColCtrlFv();
                 } else {
                     play_area_music(lbl_804B5780[zone->category]);
                 }
-                lbl_805D5B00 = zone->category;
+                bgm_zone_category = zone->category;
             }
             lbl_805D5B04 = 1;
             return;

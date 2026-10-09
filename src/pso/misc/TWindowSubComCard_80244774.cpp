@@ -77,7 +77,7 @@ M2C_UNK reset_line_width();
 M2C_UNK set_line_width(s32);
 void TWindowSubComCard__sub_80245A10(u8 *arg0, s32 arg1, void *r, f32 len);
 f32 trunc_float__17TWindowSubComCardFf(f32);
-extern u16 lbl_805D63F4;
+extern u16 window_ui_theme_index;
 extern s16 lbl_805D63F6;
 void draw_window_scanlines(u8 *arg0, u8 *arg1);
 M2C_UNK reset_transform_state__10TObjPlayerFv();
@@ -584,7 +584,7 @@ void draw_window_scanlines(u8 *arg0, u8 *arg1) {
     s32 n2;
     f32 step;
     f32 y;
-    switch (lbl_805D63F4) {
+    switch (window_ui_theme_index) {
     case 0:
     case 1:
         return;

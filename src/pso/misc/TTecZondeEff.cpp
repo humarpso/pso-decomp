@@ -84,6 +84,33 @@ struct Zonde_8023D6B0 {
     s16 active;
 };
 
+struct Vec_8023D128
+{
+  f32 x;
+  f32 y;
+  f32 z;
+};
+
+struct Cam_8023D128
+{
+  u8 pad0[8];
+  f32 cx;
+  f32 cy;
+  u8 pad10[8];
+  f32 sx;
+  f32 sy;
+};
+
+struct Obj_8023D128
+{
+  u8 pad0[0x38];
+  s32 count;
+  u8 pad3c[0xD8 - 0x3C];
+  Vec_8023D128 pts[16];
+  u8 pad198[0x244 - 0x198];
+  f32 f244;
+};
+
 extern "C" {
 void __ct__7TObjectFP7TObject(void *, void *);
 extern RecoveredGlobal_8023D988___vt__12TTecZondeEff __vt__12TTecZondeEff;
@@ -103,7 +130,7 @@ u8 *construct_bolt_effect__9TTecZondeFPvPvPvPviiff(u8 *arg0, u8 *arg1, u8 *arg2,
 extern P_8023DBB4 lbl_805161D8;
 extern char lbl_804CC8C8[];
 extern A_8023DBB4 *lbl_8048E5A0[];
-extern s32 TTecZondeEff__data_805D63B8;
+extern s32 TTecZondeEff__beam_vertex_data;
 void init_resources__12TTecZondeEffFv(void);
 f32 rand_signed_unit();
 void calc_lightning_scatter_direction(void *, s32, void *);
@@ -116,7 +143,7 @@ void spawn_particle_effect(Rec_8023D568 *, s32);
 void init_bolt_points__12TTecZondeEffFPv(void *arg0);
 void queue_destruction__7TObjectFv(void *);
 extern P_8023DBB4 lbl_805161D8;
-extern s32 TTecZondeEff__data_805D63B8;
+extern s32 TTecZondeEff__beam_vertex_data;
 extern const f32 TTecZondeEff__data_805DC990;
 void run_task__12TTecZondeEffFv(Zonde_8023D7A0 *arg0);
 void set_depth_buffer_settings_1__Fv();
@@ -129,13 +156,18 @@ void draw_transformed_primitive__9TWindowDDFPvPvPvPv(void *, s32, s32, s32);
 s32 get_global_state__14TOKeyMachine01Fv();
 s32 all_parents_unqueued_for_destruction__7TObjectFv(void *);
 s32 build_lightning_strip(void *, void *, void *, void *, void *);
-s32 project_lightning_points(void *, void *, void *, void *);
 void set_chunk_material_color(f32 *argb);
 extern f32 chunk_material_color_half_alpha_f32[];
 extern u32 lbl_805D5660;
-extern s32 TTecZondeEff__data_805D63B8;
+extern s32 TTecZondeEff__beam_vertex_data;
 extern u32 some_id_805c6f74;
 void render__12TTecZondeEffFv(Zonde_8023D6B0 *self);
+void matrix_mult_vec(s32, Vec_8023D128 *, Vec_8023D128 *);
+extern Cam_8023D128 lbl_8058D4F8;
+extern const f32 TTecZondeEff__data_805DC994;
+extern const f32 lbl_805DC998;
+extern const f32 lbl_805DC99C;
+s32 project_lightning_points(Obj_8023D128 *self, Vec_8023D128 *out, f32 *a, f32 *b);
 }
 
 extern "C" {
@@ -152,6 +184,47 @@ f32 rand_signed_unit();
 void update_scale__15TObjBoss2TunnelFPv(void *);
 extern const f32 TTecZondeEff__data_805DC994;
 extern const f32 lbl_805DC9A0;
+
+#pragma push
+#pragma fp_contract on
+typedef struct Cam_8023D128 Cam_8023D128;
+typedef struct Obj_8023D128 Obj_8023D128;
+typedef struct Vec_8023D128 Vec_8023D128;
+s32 project_lightning_points(Obj_8023D128 *self, Vec_8023D128 *out, f32 *a, f32 *b) {
+  f32 sy0;
+  f32 sx0;
+  f32 cx;
+  f32 cy;
+  s32 i;
+  sy0 = lbl_8058D4F8.sx;
+  sx0 = lbl_8058D4F8.sx * (lbl_805DC998 / (lbl_805DC998 * lbl_8058D4F8.sy));
+  cx = lbl_8058D4F8.cx;
+  cy = lbl_8058D4F8.cy;
+  for (i = 0; i < self->count; i++)
+  {
+    Vec_8023D128 v;
+    f32 w;
+    f32 sx;
+    f32 sy;
+    matrix_mult_vec(0, &self->pts[i], &v);
+    if (v.z >= TTecZondeEff__data_805DC994)
+    {
+      self->f244 = self->f244;
+      v.z = TTecZondeEff__data_805DC994;
+    }
+    w = TTecZondeEff__data_805DC994 / (-v.z);
+    v.y = -v.y;
+    sx = sx0 * w;
+    sy = sy0 * w;
+    out[i].x = (v.x * sx) + cx;
+    out[i].y = (v.y * sy) + cy;
+    out[i].z = w;
+    a[i] = sx * self->f244;
+    b[i] = lbl_805DC99C * sy;
+  }
+  return 1;
+}
+#pragma pop
 
 #pragma push
 #pragma fp_contract on
@@ -225,7 +298,7 @@ s32 calc_dominant_axis__12TTecZondeEffFPv(void *arg0) {
     return 2;
 }
 
-extern s32 TTecZondeEff__data_805D63B8;
+extern s32 TTecZondeEff__beam_vertex_data;
 
 typedef char RecoveredGlobal_8023D988___vt__12TTecZondeEff_size[sizeof(RecoveredGlobal_8023D988___vt__12TTecZondeEff) == 0x18 ? 1 : -1];
 
@@ -287,9 +360,9 @@ void render__12TTecZondeEffFv(Zonde_8023D6B0 *self) {
     some_id_805c6f74 = id | 0x10;
     begin_effect_render__13TParticleCtrlFv();
     set_depth_buffer_settings_1__Fv();
-    if (project_lightning_points(self, m70, m3c, m8) != 0 && build_lightning_strip(self, verts, m70, m3c, m8) != 0) {
+    if (project_lightning_points((Obj_8023D128 *)(self), (Vec_8023D128 *)(m70), (f32 *)(m3c), (f32 *)(m8)) != 0 && build_lightning_strip(self, verts, m70, m3c, m8) != 0) {
         init_xyz_limits__10TObjPlayerFv();
-        draw_transformed_primitive__9TWindowDDFPvPvPvPv(verts, self->count * 2, TTecZondeEff__data_805D63B8, 1);
+        draw_transformed_primitive__9TWindowDDFPvPvPvPv(verts, self->count * 2, TTecZondeEff__beam_vertex_data, 1);
         reset_transform_state__10TObjPlayerFv();
     }
     end_effect_render__13TParticleCtrlFv();
@@ -306,7 +379,7 @@ void run_task__12TTecZondeEffFv(Zonde_8023D7A0 *arg0) {
     E_8023D7A0 *e;
     e = (E_8023D7A0 *)lbl_805161D8.vt;
     e += arg0->idx;
-    TTecZondeEff__data_805D63B8 = e->b->c->v;
+    TTecZondeEff__beam_vertex_data = e->b->c->v;
     if (arg0->timer > 0x78) {
         queue_destruction__7TObjectFv(arg0);
         return;
@@ -401,12 +474,12 @@ u8 *construct__12TTecZondeEffFPvPvPvPvf(u8 *arg0, u8 *arg1, u8 *arg2, u8 *arg3, 
 }
 
 void TTecZondeEff__sub_8023DBA8(void) {
-    TTecZondeEff__data_805D63B8 = 0;
+    TTecZondeEff__beam_vertex_data = 0;
 }
 void init_resources__12TTecZondeEffFv(void) {
     lbl_805161D8.vt = lbl_804CC8C8;
     lbl_805161D8.n = 0x10;
-    TTecZondeEff__data_805D63B8 = lbl_8048E5A0[0]->b->c->v;
+    TTecZondeEff__beam_vertex_data = lbl_8048E5A0[0]->b->c->v;
 }
 
 }

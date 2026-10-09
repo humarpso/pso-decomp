@@ -29,8 +29,8 @@ void VecCopy__FP3VecPC3Vec(void *, void *);
 void TBoss2Tentacle__sub_80039DB0(void* p);
 void start_attack_at_target__14TBoss2TentacleFPvPvi(u8 *arg0, u8 *arg1, s32 arg2);
 void VecCopy__FP3VecPC3Vec(void *, void *);
-extern V3_80039DE0 TBoss2Tentacle__data_804FE8E8[];
-extern s32 lbl_804FE990[];
+extern V3_80039DE0 TBoss2Tentacle__segment_points[];
+extern s32 TBoss2Tentacle__segment_point_defaults[];
 void reset_segment_points__14TBoss2TentacleFPv(Obj_80039DE0 *self);
 extern G_80039C44 *TBoss2Tentacle__motion_data;
 void advance_motion_position__14TBoss2TentacleFPv(Obj_80039C44 *self);
@@ -82,7 +82,7 @@ M2C_UNK pop_matrix();
 extern int TBoss2Tentacle__data_80435B78[];
 extern s32 lbl_80435B88[];
 extern const f64 lbl_80435BA8[];
-extern V3_80039DE0 TBoss2Tentacle__data_804FE8E8[];
+extern V3_80039DE0 TBoss2Tentacle__segment_points[];
 extern const f32 lbl_805D852C;
 extern const float TBoss2Tentacle__data_805D8530;
 extern const float TBoss2Tentacle__data_805D8534;
@@ -236,7 +236,7 @@ void run_task__14TBoss2TentacleFv(u8 *arg0) {
                 F(s32, 0x24) = 1;
             }
             for (i = 2; i < 12; i++) {
-                ((Ten_800394DC *)arg0)->pts[i].x = F(f32, 0x150) * TBoss2Tentacle__data_804FE8E8[i].x;
+                ((Ten_800394DC *)arg0)->pts[i].x = F(f32, 0x150) * TBoss2Tentacle__segment_points[i].x;
             }
             F(s32, 0xE0) = 0x4000;
             break;
@@ -346,8 +346,8 @@ void TBoss2Tentacle__sub_80039DD4(void* p) { *(s32*)((char*)p + 0x20) = 0; }
 void reset_segment_points__14TBoss2TentacleFPv(Obj_80039DE0 *self) {
     s32 i;
     for (i = 0; i < 14; i++) {
-        VecCopy__FP3VecPC3Vec(&self->pts[i], &TBoss2Tentacle__data_804FE8E8[i]);
-        self->vals[i] = lbl_804FE990[i];
+        VecCopy__FP3VecPC3Vec(&self->pts[i], &TBoss2Tentacle__segment_points[i]);
+        self->vals[i] = TBoss2Tentacle__segment_point_defaults[i];
     }
 }
 

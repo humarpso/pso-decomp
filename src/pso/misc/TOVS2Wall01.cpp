@@ -21,7 +21,7 @@ M2C_UNK construct_debris__8TObjChipFPvPvPv(void *, int, void *);
 s32 TObjFish__sub_8001EDB0(int, void *);
 s32 get_bml_model(int, void *);
 u32 __nw__7TObjectFUl(int);
-extern s32 TOVS2Wall01__data_805D5AE8;
+extern s32 TOVS2Wall01__bml_resource;
 extern RecoveredGlobal_8017BC10_lbl_8044311C lbl_8044311C;
 extern s32 tl_05;
 void spawn_debris__11TOVS2Wall01FPvi(u8 *arg0, s32 arg1);
@@ -62,8 +62,8 @@ void spawn_debris__11TOVS2Wall01FPvi(u8 *arg0, s32 arg1) {
     (*(f32 *)(copy_storage_8017BC10.bytes + 0x10)) = M2C_FIELD(arg0, f32 *, 0x300);
     (*(f32 *)(copy_storage_8017BC10.bytes + 0x14)) = M2C_FIELD(arg0, f32 *, 0x304);
     (*(f32 *)(copy_storage_8017BC10.bytes + 0x38)) = M2C_FIELD(arg0, f32 *, 0x3C);
-    (*(s32 *)(copy_storage_8017BC10.bytes + 0x40)) = get_bml_model((int) (TOVS2Wall01__data_805D5AE8), (void *) (arg1));
-    (*(s32 *)(copy_storage_8017BC10.bytes + 0x44)) = TObjFish__sub_8001EDB0((int) (TOVS2Wall01__data_805D5AE8), (void *) (arg1));
+    (*(s32 *)(copy_storage_8017BC10.bytes + 0x40)) = get_bml_model((int) (TOVS2Wall01__bml_resource), (void *) (arg1));
+    (*(s32 *)(copy_storage_8017BC10.bytes + 0x44)) = TObjFish__sub_8001EDB0((int) (TOVS2Wall01__bml_resource), (void *) (arg1));
     chip = (u8 *) __nw__7TObjectFUl((int) (0x234));
     if (chip != NULL) {
         construct_debris__8TObjChipFPvPvPv((void *) chip, (int) (tl_05), (void *) ((copy_storage_8017BC10.bytes)));

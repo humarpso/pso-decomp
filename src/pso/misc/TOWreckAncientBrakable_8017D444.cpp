@@ -34,7 +34,7 @@ void pop_matrix(void);
 extern Arr_8017D448 TOWreckAncientBrakable__debris_table;
 extern Param_8017D448 TOWreckAncientBrakable__debris_param_table;
 extern u8 lbl_8058D490[];
-extern void *lbl_805D5AFC;
+extern void *wreck_ancient_brakable_bml_resource;
 extern s32 tl_05;
 void spawn_debris__22TOWreckAncientBrakableFPv(u8 *arg0);
 }
@@ -62,8 +62,8 @@ void spawn_debris__22TOWreckAncientBrakableFPv(u8 *arg0) {
         pop_matrix();
         VecCopy__FP3VecPC3Vec(&p.pos, (Vec_8017D448 *)(arg0 + 0x38));
         vec3_add_to(&p.pos, &tmp);
-        p.f40 = get_bml_model(lbl_805D5AFC, i);
-        p.f44 = TObjFish__sub_8001EDB0(lbl_805D5AFC, i);
+        p.f40 = get_bml_model(wreck_ancient_brakable_bml_resource, i);
+        p.f44 = TObjFish__sub_8001EDB0(wreck_ancient_brakable_bml_resource, i);
         obj = __nw__7TObjectFUl(0x234);
         if (obj != 0) {
             construct_debris__8TObjChipFPvPvPv(obj, tl_05, &p);

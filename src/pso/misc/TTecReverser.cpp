@@ -75,7 +75,7 @@ void __ct__7TObjectFP7TObject(void *self, void *parent);
 void VecCopy__FP3VecPC3Vec(Vec_80239E44 *, Vec_80239E44 *);
 void *create_timed_particle_emitter(void *owner, s32 idx, s32 b, s32 c);
 extern M2C_UNK lbl_804CCC28[];
-extern Entry_80239E44 lbl_804CCBF8[];
+extern Entry_80239E44 revival_particle_table[];
 extern const f32 lbl_805DC910;
 Obj_80239E44 *construct_revival_particle_effect(Obj_80239E44 *self, Player_80239E44 *player, void *parent);
 void debug_printf_at(s32 id, const char *fmt, ...);
@@ -151,9 +151,9 @@ Obj_80239E44 *construct_revival_particle_effect(Obj_80239E44 *self, Player_80239
             Vec_80239E44 v;
             VecCopy__FP3VecPC3Vec(&v, &self->pos);
             v.y += lbl_805DC910;
-            self->parts[i] = create_timed_particle_emitter(&v, lbl_804CCBF8[i].c, lbl_804CCBF8[i].a, lbl_804CCBF8[i].b);
+            self->parts[i] = create_timed_particle_emitter(&v, revival_particle_table[i].c, revival_particle_table[i].a, revival_particle_table[i].b);
         } else {
-            self->parts[i] = create_timed_particle_emitter(&self->pos, lbl_804CCBF8[i].c, lbl_804CCBF8[i].a, lbl_804CCBF8[i].b);
+            self->parts[i] = create_timed_particle_emitter(&self->pos, revival_particle_table[i].c, revival_particle_table[i].a, revival_particle_table[i].b);
         }
     }
     return self;

@@ -213,19 +213,19 @@ void TWindowReturnCity__sub_8026D4BC(void) {  }
     extern int TWindowReturnCity__client_scan_index;
 void TWindowReturnCity__sub_8026D4C0(void) { TWindowReturnCity__client_scan_index = 4; }
 
-extern void *TWindowCtrl__data_805D63F8;
+extern void *TWindowCtrl__active_window;
 
 void clear_flag_bit5__17TWindowReturnCityFv(void) {
-    if ((void *) TWindowCtrl__data_805D63F8 != NULL) {
-        M2C_FIELD(TWindowCtrl__data_805D63F8, u16 *, 0x1C) = (u16) (M2C_FIELD(TWindowCtrl__data_805D63F8, u16 *, 0x1C) & 0xFFFFFFDF);
+    if ((void *) TWindowCtrl__active_window != NULL) {
+        M2C_FIELD(TWindowCtrl__active_window, u16 *, 0x1C) = (u16) (M2C_FIELD(TWindowCtrl__active_window, u16 *, 0x1C) & 0xFFFFFFDF);
     }
 }
 
-extern void *TWindowCtrl__data_805D63F8;
+extern void *TWindowCtrl__active_window;
 
 void TWindowCtrl__sub_8026D4E8(void) {
-    if ((void *) TWindowCtrl__data_805D63F8 != NULL) {
-        M2C_FIELD(TWindowCtrl__data_805D63F8, u16 *, 0x1C) = (u16) (M2C_FIELD(TWindowCtrl__data_805D63F8, u16 *, 0x1C) | 0x20);
+    if ((void *) TWindowCtrl__active_window != NULL) {
+        M2C_FIELD(TWindowCtrl__active_window, u16 *, 0x1C) = (u16) (M2C_FIELD(TWindowCtrl__active_window, u16 *, 0x1C) | 0x20);
     }
 }
 

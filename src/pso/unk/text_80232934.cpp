@@ -38,7 +38,7 @@ extern Quad_80232934 lbl_8044D5B4;
 extern u8 lbl_804CC868[];
 extern u8 technique_ringwave_texture_list[];
 extern s32 lbl_805D5660;
-extern s32 lbl_805D63AC;
+extern s32 technique_effect_bml;
 extern s32 some_id_805c6f74;
 extern const f32 lbl_805DC840;
 extern const f32 lbl_805DC844;
@@ -72,7 +72,7 @@ void grants_flash_render(Obj_80232934 *arg0) {
     scale_matrix(0, arg0->pos.x, arg0->pos.y, arg0->pos.z);
     translate_matrix(0, lbl_805DC844, lbl_805DC848, lbl_805DC844);
     set_global_param__8TObjFishFi(lbl_804CC868);
-    get_bml_model(lbl_805D63AC, 10);
+    get_bml_model(technique_effect_bml, 10);
     draw_ginja_object();
     pop_matrix();
     copy_slot_to_anim_frame(&ctx);

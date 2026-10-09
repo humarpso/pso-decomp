@@ -31,9 +31,9 @@ s32 stop_audio_streams__6TLobbyFv();
 s32 refresh_render_state__6TLobbyFv();
 s32 delete_all_task_children__9TMainTaskFv(void *);
 extern RecoveredGlobal_8023F1B8_lbl_804CCDA8 lbl_804CCDA8;
-extern RecoveredGlobal_8023F1B8_lbl_804CCE60 lbl_804CCE60;
+extern RecoveredGlobal_8023F1B8_lbl_804CCE60 lobby_scene_release_callback_table;
 extern RecoveredGlobal_8023F1B8_main_task main_task;
-extern u32 lbl_805D63CC;
+extern u32 game_mode_scene_instance;
 void release_scene_resources__6TLobbyFv(void);
 void set_active_camera_pose(Vec_8023F22C *, Vec_8023F22C *);
 void select_active_controller__11TCameraCtrlFc(s32);
@@ -59,11 +59,11 @@ void set_screen_size(f32, f32);
 extern Vec_8023F22C lbl_8044DCE8;
 extern Vec_8023F22C lbl_8044DCF4;
 extern RecoveredGlobal_8023F1B8_lbl_804CCDA8 lbl_804CCDA8;
-extern RecoveredGlobal_8023F1B8_lbl_804CCE60 lbl_804CCE60;
+extern RecoveredGlobal_8023F1B8_lbl_804CCE60 lobby_scene_release_callback_table;
 extern u8 default_scene_light_config[];
 extern Vec_8023F22C TObjLight__scene_light_state;
 extern void *tl_camera;
-extern u32 lbl_805D63CC;
+extern u32 game_mode_scene_instance;
 extern const f32 lbl_805DC9B8;
 extern const f32 lbl_805DC9BC;
 void init_game_mode_select_scene(void);
@@ -77,12 +77,12 @@ typedef char RecoveredGlobal_8023F1B8_main_task_size[sizeof(RecoveredGlobal_8023
 void release_scene_resources__6TLobbyFv(void) {
     refresh_render_state__6TLobbyFv();
     stop_audio_streams__6TLobbyFv();
-    if ((u32) lbl_805D63CC != 0U) {
-        queue_destruction__7TObjectFv((void *) (lbl_805D63CC));
-        lbl_805D63CC = 0U;
+    if ((u32) game_mode_scene_instance != 0U) {
+        queue_destruction__7TObjectFv((void *) (game_mode_scene_instance));
+        game_mode_scene_instance = 0U;
     }
     delete_all_task_children__9TMainTaskFv((void *) (&main_task.value));
-    call_funcs_reverse__6TLobbyFPvUi((void *) (&lbl_804CCE60.value), (int) (0x38));
+    call_funcs_reverse__6TLobbyFPvUi((void *) (&lobby_scene_release_callback_table.value), (int) (0x38));
     call_funcs_reverse__6TLobbyFPvUi((void *) (&lbl_804CCDA8.value), (int) (0xB8));
     free_heap__13TParticleCtrlFv();
     clear_resource_load_tasks();
@@ -107,7 +107,7 @@ void init_game_mode_select_scene(void) {
         reset_keyboard_state__6TLobbyFv();
         return;
     }
-    run_load_callback_table(&lbl_804CCE60.value, 0x38);
+    run_load_callback_table(&lobby_scene_release_callback_table.value, 0x38);
     if (is_area_transfer_pending() != 0) {
         invoke_callback__6TLobbyFv();
         clear_callback_and_reset_keyboard__6TLobbyFv();
@@ -136,7 +136,7 @@ void init_game_mode_select_scene(void) {
     if (p != NULL) {
         TWindowCtrlMain__ct(p);
     }
-    lbl_805D63CC = 0;
+    game_mode_scene_instance = 0;
     load_floor_sound_bank(0);
 }
 

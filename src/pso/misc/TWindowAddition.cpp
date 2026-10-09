@@ -12,7 +12,7 @@ s32 append_padded_number(void *, int);
 s32 text_builder_append(void *);
 s32 text_builder_reset();
 s32 set_entry_display_value__20TWindowSubStatusDispFPvi(void *, int);
-extern s32 lbl_805D63E8;
+extern s32 TWindowSubStatusDisp__count_ratio_value;
 extern M2C_UNK lbl_805DCAB8;
 void set_count_ratio_text__20TWindowSubStatusDispFiii(s32 arg0, s32 arg1, s32 arg2);
 }
@@ -55,7 +55,7 @@ void set_count_ratio_text__20TWindowSubStatusDispFiii(s32 arg0, s32 arg1, s32 ar
     text_builder_append((void *) (&lbl_805DCAB8));
     append_padded_number((void *) (arg2), (int) (2U));
     set_entry_display_value__20TWindowSubStatusDispFPvi((void *) (arg0), (int) (get_shared_text_buffer()));
-    lbl_805D63E8 = arg1;
+    TWindowSubStatusDisp__count_ratio_value = arg1;
 }
 
 }

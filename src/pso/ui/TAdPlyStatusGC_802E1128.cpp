@@ -56,11 +56,11 @@ void* get_status_data__14TAdPlyStatusGCFPv(void* p) { return (char*)p + 0x324; }
 s32 get_field_4a4__14TAdPlyStatusGCFPv(void* p) { return *(s32*)((char*)p + 0x4a4); }
 void* get_status_sub__14TAdPlyStatusGCFPv(void* p) { return (char*)p + 0x490; }
 
-    extern int lbl_805D6DAC;
-void set_status_param__14TAdPlyStatusGCFii(int a0, int a1) { lbl_805D6DAC = a1; }
+    extern int ply_status_chcr_load_afs;
+void set_status_param__14TAdPlyStatusGCFii(int a0, int a1) { ply_status_chcr_load_afs = a1; }
 
-    extern int lbl_805D6DA8;
-int get_index__14TAdPlyStatusGCFv(void) {  return lbl_805D6DA8; }
+    extern int ply_status_gc_instance;
+int get_index__14TAdPlyStatusGCFv(void) {  return ply_status_gc_instance; }
 
     extern int ply_status_index;
 void set_status_index__14TAdPlyStatusGCFii(int a0, int a1) { ply_status_index = a1; }

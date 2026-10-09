@@ -108,7 +108,7 @@ extern const f32 lbl_805DAC9C;
 WeaponArgb get_weapon_color__11TItemWeaponFPv(void *weapon);
 void copy_entry_bytes__10TObjPlayerFPvPv(void *, void *);
 extern u8 lbl_805DACA4;
-void TObjPlayer__sub_80120454(Src_80120454 *arg0, Dst_80120454 *arg1);
+void TItemWeapon__sub_80120454(Src_80120454 *arg0, Dst_80120454 *arg1);
 }
 
 extern "C" {
@@ -185,7 +185,7 @@ WeaponArgb get_weapon_color__11TItemWeaponFPv(void *weapon) {
 }
 #pragma pop
 
-void TObjPlayer__sub_80120454(Src_80120454 *arg0, Dst_80120454 *arg1) {
+void TItemWeapon__sub_80120454(Src_80120454 *arg0, Dst_80120454 *arg1) {
     s32 off;
     u32 i;
     u8 t;

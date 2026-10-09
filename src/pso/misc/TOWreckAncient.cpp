@@ -26,15 +26,15 @@ u8 * load_resource_from_descriptor(void *, s32, void *, s32, s32, s32);
 int alloc__23TAdSinglePlyChrSelectGCFPv(void *);
 extern RecoveredGlobal_8017DDA8_lbl_804B53D0 lbl_804B53D0;
 extern RecoveredGlobal_8017DDA8_lbl_804B5408 lbl_804B5408;
-extern u32 lbl_805D5AF8;
-extern u32 lbl_805D5AFC;
+extern u32 wreck_ancient_bml_resource;
+extern u32 wreck_ancient_brakable_bml_resource;
 void load_resources__14TOWreckAncientFv(void);
 s32 construct_collider_proxy__10TObjPlayerFPv(void *, int);
 s32 TObjFish__sub_8001EDB0(void *, void *);
 s32 get_bml_model(void *, void *);
 extern M2C_UNK __vt__14TOWreckAncient[];
 extern s32 lbl_805D31F8;
-extern u32 lbl_805D5AF8;
+extern u32 wreck_ancient_bml_resource;
 extern s32 tl_05;
 extern const f32 lbl_805DBAD0;
 extern const f32 lbl_805DBAD4;
@@ -70,17 +70,17 @@ void draw_model__14TOWreckAncientFPv(u8 *arg0) {
     }
 }
 
-extern u32 lbl_805D5AF8;
-extern u32 lbl_805D5AFC;
+extern u32 wreck_ancient_bml_resource;
+extern u32 wreck_ancient_brakable_bml_resource;
 
 void free_statics__14TOWreckAncientFv(void) {
-    if ((u32) lbl_805D5AF8 != 0U) {
-        TLobby__sub_8001FE7C((void*)lbl_805D5AF8, 1);
-        lbl_805D5AF8 = 0U;
+    if ((u32) wreck_ancient_bml_resource != 0U) {
+        TLobby__sub_8001FE7C((void*)wreck_ancient_bml_resource, 1);
+        wreck_ancient_bml_resource = 0U;
     }
-    if ((u32) lbl_805D5AFC != 0U) {
-        TLobby__sub_8001FE7C((void*)lbl_805D5AFC, 1);
-        lbl_805D5AFC = 0U;
+    if ((u32) wreck_ancient_brakable_bml_resource != 0U) {
+        TLobby__sub_8001FE7C((void*)wreck_ancient_brakable_bml_resource, 1);
+        wreck_ancient_brakable_bml_resource = 0U;
     }
 }
 
@@ -96,13 +96,13 @@ void load_resources__14TOWreckAncientFv(void) {
     if (var_r0 != 0) {
         var_r0 = (long) (load_resource_from_descriptor((void *) temp_r3, 1, &lbl_804B53D0.value, 0, 0, 0));
     }
-    (*(s32 *)&lbl_805D5AF8) = var_r0;
+    (*(s32 *)&wreck_ancient_bml_resource) = var_r0;
     temp_r3_2 = alloc__23TAdSinglePlyChrSelectGCFPv((void *)0x440);
     var_r0_2 = temp_r3_2;
     if (var_r0_2 != 0) {
         var_r0_2 = (long) (load_resource_from_descriptor((void *) temp_r3_2, 1, &lbl_804B5408.value, 0, 0, 0));
     }
-    (*(s32 *)&lbl_805D5AFC) = var_r0_2;
+    (*(s32 *)&wreck_ancient_brakable_bml_resource) = var_r0_2;
 }
 
 void *__dt__14TOWreckAncientFv(void *arg0, s16 arg1) {
@@ -122,8 +122,8 @@ u8 *TOWreckAncient__ct(u8 *arg0, s32 arg1) {
     construct_collider_proxy__10TObjPlayerFPv((void *) (arg0), (int) (tl_05));
     M2C_FIELD(arg0, M2C_UNK **, 0x18) = &(*(RecoveredGlobal_8017DE94___vt__14TOWreckAncient *)&__vt__14TOWreckAncient).value;
     M2C_FIELD(arg0, s32 *, 0) = (s32) lbl_805D31F8;
-    M2C_FIELD(arg0, s32 *, 0x34) = get_bml_model((void *) ((*(s32 *)&lbl_805D5AF8)), (void *) (arg1));
-    M2C_FIELD(arg0, s32 *, 0x24) = TObjFish__sub_8001EDB0((void *) ((*(s32 *)&lbl_805D5AF8)), (void *) (arg1));
+    M2C_FIELD(arg0, s32 *, 0x34) = get_bml_model((void *) ((*(s32 *)&wreck_ancient_bml_resource)), (void *) (arg1));
+    M2C_FIELD(arg0, s32 *, 0x24) = TObjFish__sub_8001EDB0((void *) ((*(s32 *)&wreck_ancient_bml_resource)), (void *) (arg1));
     M2C_FIELD(arg0, f32 *, 0xAC) = (f32) lbl_805DBAD0;
     M2C_FIELD(arg0, f32 *, 0xB0) = (f32) lbl_805DBAD4;
     return arg0;

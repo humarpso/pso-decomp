@@ -8,13 +8,13 @@ extern "C" {
 
 s32 get_flag_bit0__11TWindowCtrlFv(void);
 
-extern void *TWindowCtrl__data_805D63F8;
+extern void *TWindowCtrl__active_window;
 
 s32 get_flag_bit0__11TWindowCtrlFv(void) {
-    if ((void *) TWindowCtrl__data_805D63F8 == NULL) {
+    if ((void *) TWindowCtrl__active_window == NULL) {
         return 0;
     }
-    return M2C_FIELD(TWindowCtrl__data_805D63F8, u16 *, 0x1C) & 1;
+    return M2C_FIELD(TWindowCtrl__active_window, u16 *, 0x1C) & 1;
 }
 
 }

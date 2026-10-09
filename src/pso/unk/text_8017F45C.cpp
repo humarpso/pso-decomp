@@ -29,7 +29,7 @@ void fn_8017F5F0(u8 *arg0, u8 *arg1);
 u8 * load_resource_from_descriptor(void *, s32, void *, s32, s32, s32);
 int alloc__23TAdSinglePlyChrSelectGCFPv(void *);
 extern RecoveredGlobal_8017F45C_lbl_804B5830 lbl_804B5830;
-extern s32 lbl_805D5B10;
+extern s32 butterfly_bml_resource;
 void fn_8017F45C(void);
 void fn_8017F52C(O_8017F52C *self);
 M2C_UNK play_sound_effect(M2C_UNK, void *, M2C_UNK, M2C_UNK);
@@ -55,7 +55,7 @@ void fn_8017F45C(void) {
     if (var_r0 != 0) {
         var_r0 = (long) (load_resource_from_descriptor((void *) temp_r3, 1, &lbl_804B5830.value, 0, 0, 0));
     }
-    lbl_805D5B10 = var_r0;
+    butterfly_bml_resource = var_r0;
 }
 
 void fn_8017F4AC(Self_8017F4AC *self) {

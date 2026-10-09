@@ -14,7 +14,7 @@ extern "C" {
 void fn_8022BE64(u8 *arg0, u8 *arg1, s32 arg2);
 void approach_vector_in_place(void *, void *, f32);
 void TObjRoomId__sub_80141CF4(void *, void *, f32);
-extern V3_8022BEAC lbl_8044CDE0;
+extern V3_8022BEAC TTecLuker__render_scale_vec;
 extern const f32 lbl_805DC7B0;
 void render__9TTecLukerFv(T_8022BEAC *self);
 }
@@ -65,7 +65,7 @@ void fn_8022BE64(u8 *arg0, u8 *arg1, s32 arg2) {
 }
 
 void render__9TTecLukerFv(T_8022BEAC *self) {
-    V3_8022BEAC v = lbl_8044CDE0;
+    V3_8022BEAC v = TTecLuker__render_scale_vec;
     switch (self->state) {
     case 0:
         break;

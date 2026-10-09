@@ -21,13 +21,13 @@ s32 is_level_capped__23TAdSinglePlyChrSelectGCFPv();
 s32 is_not_split_screen__13TRaderMapCoreFv();
 s32 obj_getField1c();
 
-extern void *TWindowCtrl__data_805D63F8;
+extern void *TWindowCtrl__active_window;
 
 s32 get_flag_bit3__11TWindowCtrlFv(void) {
-    if ((void *) TWindowCtrl__data_805D63F8 == NULL) {
+    if ((void *) TWindowCtrl__active_window == NULL) {
         return 0;
     }
-    return ((u16) M2C_FIELD(TWindowCtrl__data_805D63F8, u16 *, 0x1C) >> 3U) & 1;
+    return ((u16) M2C_FIELD(TWindowCtrl__active_window, u16 *, 0x1C) >> 3U) & 1;
 }
 
 int is_player_flag_4000_set__11TWindowCtrlFPv(void* p) { return check_flag__10TObjPlayerFPvi(p, 16384); }

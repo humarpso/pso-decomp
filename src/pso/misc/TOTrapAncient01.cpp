@@ -305,7 +305,7 @@ u8 *load_resource_from_descriptor(void *, s32, void *, s32, s32, s32);
 int alloc__23TAdSinglePlyChrSelectGCFPv(void *);
 M2C_UNK add_entry__11TMotorcycleFsiiff(int, int, int, f32, f32);
 extern RecoveredGlobal_80179E34_lbl_804B4834 lbl_804B4834;
-extern u32 TOTrapAncient01__data_805D5AD0;
+extern u32 TOTrapAncient01__bml_resource;
 extern const f32 TOTrapAncient01__data_805DBA4C;
 extern const f32 lbl_805DBA5C;
 void load_resources__15TOTrapAncient01Fv(void);
@@ -335,7 +335,7 @@ void init_and_activate__10TObjPlayerFPv(void *);
 extern M2C_UNK lbl_804B4844[];
 extern M2C_UNK __vt__15TOTrapAncient01[];
 extern s32 TOTrapAncient01__class_name;
-extern u32 TOTrapAncient01__data_805D5AD0;
+extern u32 TOTrapAncient01__bml_resource;
 extern const f32 lbl_805DBA54;
 extern const f32 lbl_805DBA6C;
 extern const f32 lbl_805DBA74;
@@ -596,12 +596,12 @@ void *create__15TOTrapAncient01FPv(void *arg0) {
     return o;
 }
 
-extern u32 TOTrapAncient01__data_805D5AD0;
+extern u32 TOTrapAncient01__bml_resource;
 
 void release_static_resource__15TOTrapAncient01Fv(void) {
-    if ((u32) TOTrapAncient01__data_805D5AD0 != 0U) {
-        TLobby__sub_8001FE7C((void*)TOTrapAncient01__data_805D5AD0, 1);
-        TOTrapAncient01__data_805D5AD0 = 0U;
+    if ((u32) TOTrapAncient01__bml_resource != 0U) {
+        TLobby__sub_8001FE7C((void*)TOTrapAncient01__bml_resource, 1);
+        TOTrapAncient01__bml_resource = 0U;
     }
 }
 
@@ -622,9 +622,9 @@ void load_resources__15TOTrapAncient01Fv(void) {
   {
     var_r0 = (long) load_resource_from_descriptor((void *) temp_r3, 1, &lbl_804B4834.value, 0, 0, 0);
   }
-  (*(u8 * *)&TOTrapAncient01__data_805D5AD0) = (unsigned char *) ((void *) var_r0);
+  (*(u8 * *)&TOTrapAncient01__bml_resource) = (unsigned char *) ((void *) var_r0);
   temp_r31 = TObjFish__sub_8001EDB0((void *) var_r0, 3);
-  add_entry__11TMotorcycleFsiiff((int) 0x39, (int) get_bml_model((*(u8 * *)&TOTrapAncient01__data_805D5AD0), 3), (int) temp_r31, (f32) lbl_805DBA5C, (f32) TOTrapAncient01__data_805DBA4C);
+  add_entry__11TMotorcycleFsiiff((int) 0x39, (int) get_bml_model((*(u8 * *)&TOTrapAncient01__bml_resource), 3), (int) temp_r31, (f32) lbl_805DBA5C, (f32) TOTrapAncient01__data_805DBA4C);
 }
 
 Self_80179EC0 *__dt__15TOTrapAncient01Fv(Self_80179EC0 *self, s16 flag) {
@@ -653,8 +653,8 @@ void *TOTrapAncient01__ct(void *arg0, void *arg1, void *arg2) {
     ((VObj_18_a8c792 *)arg0)->m5((s32)arg2);
     init_position_vectors__10TObjPlayerFi(arg0);
     calc_attach_pos__10TObjPlayerFPv(arg0);
-    M2C_FIELD(self, s32 *, 0x34) = get_bml_model((void *)TOTrapAncient01__data_805D5AD0, 3);
-    M2C_FIELD(self, s32 *, 0x24) = TObjFish__sub_8001EDB0((void *)TOTrapAncient01__data_805D5AD0, 3);
+    M2C_FIELD(self, s32 *, 0x34) = get_bml_model((void *)TOTrapAncient01__bml_resource, 3);
+    M2C_FIELD(self, s32 *, 0x24) = TObjFish__sub_8001EDB0((void *)TOTrapAncient01__bml_resource, 3);
     M2C_FIELD(self, s16 *, 0x326) = 0;
     M2C_FIELD(self, f32 *, 0x334) = 0.5f * M2C_FIELD(self, f32 *, 0x68) + 30.0f;
     if (M2C_FIELD(self, f32 *, 0x6C) < 0.0f) {

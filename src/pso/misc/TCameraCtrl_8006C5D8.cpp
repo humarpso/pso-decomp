@@ -26,7 +26,7 @@ s32 load_relocatable_file(s32, void *);
 s32 update_lobby_scene__6TSceneFPv(s32);
 s32 get_global_state__14TOKeyMachine01Fv();
 void *xmalloc__FUl(s32);
-extern Bank_8006C6CC lbl_80488C50[];
+extern Bank_8006C6CC camera_path_bank_table[];
 extern G_8006C668 TCameraCtrl__data_804FF7C0;
 void load_camera_banks__11TCameraCtrlFv(void);
 }
@@ -71,7 +71,7 @@ void load_camera_banks__11TCameraCtrlFv(void) {
     for (i = 0; i < 8; i++) {
         TCameraCtrl__data_804FF7C0.e[i].p = 0;
     }
-    b = &lbl_80488C50[get_global_state__14TOKeyMachine01Fv()];
+    b = &camera_path_bank_table[get_global_state__14TOKeyMachine01Fv()];
     if (b->entries == 0) {
         return;
     }

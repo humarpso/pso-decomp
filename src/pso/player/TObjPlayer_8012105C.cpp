@@ -5,7 +5,7 @@ extern "C" {
 int obj_testFlags30(void*, void*);
 void TObjPlayer__sub_8012105C(void);
 void TObjPlayer__sub_80121060(void);
-u8 TObjPlayer__sub_80121064(void* p);
+u8 TItemWeapon__sub_80121064(void* p);
 void set_status_flags__10TObjPlayerFPvUi(void* p, u32 v);
 void clear_equip_flags__10TObjPlayerFPvUi(void* p, u32 v);
 void set_flag_8__10TObjPlayerFPv(void* p);
@@ -21,7 +21,7 @@ int TObjPlayer__sub_801D2F4C(void*);
 
 void TObjPlayer__sub_8012105C(void) {  }
 void TObjPlayer__sub_80121060(void) {  }
-u8 TObjPlayer__sub_80121064(void* p) { return *(u8*)((char*)p + 0x1d3); }
+u8 TItemWeapon__sub_80121064(void* p) { return *(u8*)((char*)p + 0x1d3); }
 void set_status_flags__10TObjPlayerFPvUi(void* p, u32 v) { *(u32*)((char*)p + 0x1b8) |= v; }
 void clear_equip_flags__10TObjPlayerFPvUi(void* p, u32 v) { *(u32*)((char*)p + 0x1b8) &= ~v; }
 void set_flag_8__10TObjPlayerFPv(void* p) { set_status_flags__10TObjPlayerFPvUi(p, 8); }
@@ -43,7 +43,7 @@ extern "C" {
 int obj_testFlags30(void*, void*);
 void TObjPlayer__sub_8012105C(void);
 void TObjPlayer__sub_80121060(void);
-u8 TObjPlayer__sub_80121064(void* p);
+u8 TItemWeapon__sub_80121064(void* p);
 void set_status_flags__10TObjPlayerFPvUi(void* p, u32 v);
 void clear_equip_flags__10TObjPlayerFPvUi(void* p, u32 v);
 void set_flag_8__10TObjPlayerFPv(void* p);
@@ -73,7 +73,7 @@ extern "C" {
 int obj_testFlags30(void*, void*);
 void TObjPlayer__sub_8012105C(void);
 void TObjPlayer__sub_80121060(void);
-u8 TObjPlayer__sub_80121064(void* p);
+u8 TItemWeapon__sub_80121064(void* p);
 void set_status_flags__10TObjPlayerFPvUi(void* p, u32 v);
 void clear_equip_flags__10TObjPlayerFPvUi(void* p, u32 v);
 void set_flag_8__10TObjPlayerFPv(void* p);

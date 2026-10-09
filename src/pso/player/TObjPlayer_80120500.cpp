@@ -6,12 +6,12 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 
 extern "C" {
 
-void reset_entries__10TObjPlayerFPv(void *arg0);
+void reset_entries__11TItemWeaponFPv(void *arg0);
 void *get_attribute_entry__10TObjPlayerFPvi(s32, s32);
 M2C_UNK set_model_param__10TObjPlayerFPvs(s32, M2C_UNK);
 M2C_UNK set_model_id__10TObjPlayerFPvs(s32, M2C_UNK);
 
-void reset_entries__10TObjPlayerFPv(void *arg0) {
+void reset_entries__11TItemWeaponFPv(void *arg0) {
     s32 var_r30;
     void *temp_r3;
 

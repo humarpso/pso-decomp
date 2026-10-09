@@ -10,12 +10,12 @@ void close__11TWindowCtrlFv(void);
 M2C_UNK TWindowMainMenu__sub_8024E3D0();
 M2C_UNK TLobby__sub_8026ACDC();
 
-extern s32 TWindowCtrl__data_805D63F8;
+extern s32 TWindowCtrl__active_window;
 
 void close__11TWindowCtrlFv(void) {
     TWindowMainMenu__sub_8024E3D0();
     TLobby__sub_8026ACDC();
-    TWindowCtrl__data_805D63F8 = 0;
+    TWindowCtrl__active_window = 0;
 }
 
 }

@@ -65,8 +65,8 @@ M2C_UNK queue_destruction__7TObjectFv(void *);
 M2C_UNK run_task__14TFontSmallHelpFv(void *);
 M2C_UNK set_help_text__14TFontSmallHelpFPvUi(void *, u32);
 
-    extern int TWindowCtrlMain__data_805D6404;
-int get_instance__15TWindowCtrlMainFv(void) {  return TWindowCtrlMain__data_805D6404; }
+    extern int TWindowCtrlMain__instance;
+int get_instance__15TWindowCtrlMainFv(void) {  return TWindowCtrlMain__instance; }
 
 void advance_card_status__15TWindowCtrlMainFi(s32 arg0) {
     s32 var_r4;

@@ -423,7 +423,7 @@ void *lbl_804B6D70[3] = {
 void *lbl_804B6D7C[3] = {
     (void *)&lbl_80444FC4, (void *)&lbl_80444FDC, (void *)0x0,
 };
-void *lbl_804B6D88[4] = {
+void *TContainerAncient01__resource_descriptor[4] = {
     (void *)&lbl_80444FF4, (void *)&lbl_804B6D70, (void *)&lbl_804B6D7C, (void *)0x20002,
 };
 void *lbl_804B6D98[3] = {
@@ -432,15 +432,15 @@ void *lbl_804B6D98[3] = {
 void *lbl_804B6DA4[3] = {
     (void *)&lbl_80445034, (void *)&lbl_80445048, (void *)0x0,
 };
-void *lbl_804B6DB0[4] = {
+void *TContainerAncient01__resource_descriptor_2[4] = {
     (void *)&lbl_8044505C, (void *)&lbl_804B6D98, (void *)&lbl_804B6DA4, (void *)0x20002,
 };
-void *TContainerAncient01__data_804B6DC0[11] = {
+void *TContainerAncient01__collision_body_parts[11] = {
     (void *)0x0, (void *)0x41000000, (void *)0x0, (void *)0x41200000,
     (void *)0x41200000, (void *)0x0, (void *)0x38003, (void *)0x0,
     (void *)0x0, (void *)0x0, (void *)0x0,
 };
-void *lbl_804B6DEC[12] = {
+void *TContainerAncient01__anim_table[12] = {
     (void *)0x10000, (void *)0x0, (void *)0x3f800000, (void *)0x1,
     (void *)0x10000, (void *)0x0, (void *)0x40c00000, (void *)0x1,
     (void *)0x20000, (void *)0x1, (void *)0x3f800000, (void *)0x4,
@@ -467,7 +467,7 @@ void *lbl_804B6E1C[79] = {
     (void *)&enemy_spawn_zalure_effect, (void *)&TObjPlayer__sub_80010A80, (void *)&TObjPlayer__sub_80010A78, (void *)&fn_80010EC8,
     (void *)&fn_80010EC4, (void *)&fn_80010EC0, (void *)&fn_80010EBC,
 };
-#define TContainerAncient01__data_804B6DC0 (*(RecoveredGlobal_8018A9D8_TContainerAncient01__data_804B6DC0 *)TContainerAncient01__data_804B6DC0)
+#define TContainerAncient01__collision_body_parts (*(RecoveredGlobal_8018A9D8_TContainerAncient01__data_804B6DC0 *)TContainerAncient01__collision_body_parts)
 #define lbl_804B6E1C ((M2C_UNK *)lbl_804B6E1C)
 
 void TContainerAncient01__sub_8018A584(Obj_8018A584 *self, f32 range) {
@@ -588,9 +588,9 @@ void init_positions__19TContainerAncient01FPv(u8 *arg0) {
     M2C_FIELD(arg0, f32 *, 0x344) = (f32) (TContainerAncient01__data_805DBD44 + (M2C_FIELD(arg0, f32 *, 0x70) - (*(const f32 *)&TContainerAncient01__data_805DBD10)));
     M2C_FIELD(arg0, s32 *, 0x370) = (s32) (M2C_FIELD(arg0, s32 *, 0x8C) + 4);
     VecCopy__FP3VecPC3Vec(arg0 + 0x348, arg0 + 0x38);
-    M2C_FIELD(arg0, f32 *, 0x34C) = (f32) (M2C_FIELD(arg0, f32 *, 0x34C) + M2C_FIELD(&TContainerAncient01__data_804B6DC0.value, f32 *, 4));
+    M2C_FIELD(arg0, f32 *, 0x34C) = (f32) (M2C_FIELD(arg0, f32 *, 0x34C) + M2C_FIELD(&TContainerAncient01__collision_body_parts.value, f32 *, 4));
     VecCopy__FP3VecPC3Vec(arg0 + 0x354, arg0 + 0x348);
-    M2C_FIELD(arg0, f32 *, 0x358) = (f32) ((lbl_805DBD48 * M2C_FIELD(&TContainerAncient01__data_804B6DC0.value, f32 *, 4)) + M2C_FIELD(arg0, f32 *, 0x358));
+    M2C_FIELD(arg0, f32 *, 0x358) = (f32) ((lbl_805DBD48 * M2C_FIELD(&TContainerAncient01__collision_body_parts.value, f32 *, 4)) + M2C_FIELD(arg0, f32 *, 0x358));
     M2C_FIELD(arg0, s32 *, 0x360) = 0;
     M2C_FIELD(arg0, f32 *, 0x364) = (f32) (*(const f32 *)&TContainerAncient01__data_805DBD10);
     M2C_FIELD(arg0, f32 *, 0x368) = (f32) (*(const f32 *)&TContainerAncient01__data_805DBD10);
@@ -774,17 +774,17 @@ void *TContainerAncient01R__ct(Obj_8018B030 *self, void *arg1, void *arg2) {
     self->m5(arg2);
     self->x34 = get_bml_model(TContainerAncient01R__data_805D5B94, 0);
     self->x24 = TObjFish__sub_8001EDB0(TContainerAncient01R__data_805D5B94, 0);
-    self->animTbl = (void *)lbl_804B6DEC;
+    self->animTbl = (void *)TContainerAncient01__anim_table;
     set_field_d8__10TObjPlayerFPvi(self, self->animTbl);
     self->xdc = ((Res_8018B030 *)TContainerAncient01R__data_805D5B94)->x430;
     self->anim = 0;
     set_animation__10TObjPlayerFPvs(self, self->anim);
     set_field_b8__14TObjEnePanarmsFPvs(self, self->anim);
     self->flags |= 0x60000000;
-    init_collision_body_parts(self, (void *)&TContainerAncient01__data_804B6DC0, 1);
+    init_collision_body_parts(self, (void *)&TContainerAncient01__collision_body_parts, 1);
     reset_photon_effect__10TObjPlayerFPv(self);
     VecCopy__FP3VecPC3Vec(&self->pos74, &self->pos);
-    c = (Coll_8018B030 *)&TContainerAncient01__data_804B6DC0;
+    c = (Coll_8018B030 *)&TContainerAncient01__collision_body_parts;
     self->pos74.y = c->y * lbl_805DBD5C + self->pos74.y;
     VecCopy__FP3VecPC3Vec(&self->pos2fc, &self->pos74);
     self->state = 0;
@@ -915,9 +915,9 @@ void init_state_vectors__19TContainerAncient01FPv(u8 *arg0) {
     M2C_FIELD(arg0, f32 *, 0x340) = (f32) (TContainerAncient01__data_805DBD44 + (M2C_FIELD(arg0, f32 *, 0x70) - TContainerAncient01__data_805DBD10));
     M2C_FIELD(arg0, s32 *, 0x36C) = (s32) (M2C_FIELD(arg0, s32 *, 0x8C) + 4);
     VecCopy__FP3VecPC3Vec(arg0 + 0x344, arg0 + 0x38);
-    M2C_FIELD(arg0, f32 *, 0x348) = (f32) (M2C_FIELD(arg0, f32 *, 0x348) + M2C_FIELD(&TContainerAncient01__data_804B6DC0.value, f32 *, 4));
+    M2C_FIELD(arg0, f32 *, 0x348) = (f32) (M2C_FIELD(arg0, f32 *, 0x348) + M2C_FIELD(&TContainerAncient01__collision_body_parts.value, f32 *, 4));
     VecCopy__FP3VecPC3Vec(arg0 + 0x350, arg0 + 0x344);
-    M2C_FIELD(arg0, f32 *, 0x354) = (f32) ((lbl_805DBD48 * M2C_FIELD(&TContainerAncient01__data_804B6DC0.value, f32 *, 4)) + M2C_FIELD(arg0, f32 *, 0x354));
+    M2C_FIELD(arg0, f32 *, 0x354) = (f32) ((lbl_805DBD48 * M2C_FIELD(&TContainerAncient01__collision_body_parts.value, f32 *, 4)) + M2C_FIELD(arg0, f32 *, 0x354));
     M2C_FIELD(arg0, s32 *, 0x35C) = 0;
     M2C_FIELD(arg0, f32 *, 0x360) = (f32) TContainerAncient01__data_805DBD10;
     M2C_FIELD(arg0, f32 *, 0x364) = (f32) TContainerAncient01__data_805DBD10;

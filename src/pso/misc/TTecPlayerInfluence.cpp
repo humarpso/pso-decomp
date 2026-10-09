@@ -180,7 +180,7 @@ void *create_particle_emitter(void *, int);
 void **alloc_buffer__11TOBoss4RockFPv(int);
 extern Profile_80237494 rabarta_band_emitter_table[];
 extern Emitter_80237494 lbl_8044DA28;
-extern void *lbl_805D63AC;
+extern void *technique_effect_bml;
 extern void *lbl_805D63B0;
 extern const f32 lbl_805DC8C0;
 extern const f32 lbl_805DC8C4;

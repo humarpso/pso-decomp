@@ -937,7 +937,7 @@ struct Stack_802AC040 {
 extern "C" {
 void TBoss6PlotFalz__sub_802AC008(f32 farg0, f32 farg1);
 M2C_UNK set_chunk_blend(int);
-extern f32 TBoss6PlotFalz__data_805D3E54;
+extern f32 TBoss6PlotFalz__fade_amount;
 void apply_fade_material_color__14TBoss6PlotFalzFffff(f32 farg0, f32 farg1, f32 farg2, f32 farg3);
 extern s32 game_difficulty_selection;
 bool TBoss6PlotFalz__sub_802AC17C(void);
@@ -948,12 +948,12 @@ extern "C" {
 void update_camera_target__14TBoss6PlotFalzFv(void);
 
 void update_camera_target__14TBoss6PlotFalzFv(void) {
-    if (TBoss6PlotFalz__data_805D3E54 > 0.0f) {
+    if (TBoss6PlotFalz__fade_amount > 0.0f) {
         lbl_805D7784 = lbl_805D5664;
         lbl_805D7780 = lbl_805D5668;
         some_id_805c6f74 = lbl_805D5660;
     }
-    TBoss6PlotFalz__data_805D3E54 = (-1.0f);
+    TBoss6PlotFalz__fade_amount = (-1.0f);
 }
 #pragma push
 #pragma fp_contract on
@@ -984,10 +984,10 @@ void apply_fade_material_color__14TBoss6PlotFalzFffff(f32 farg0, f32 farg1, f32 
     s32 temp_r5;
     s32 temp_r8;
     var_f1 = farg0;
-    if (((-1.0f) != TBoss6PlotFalz__data_805D3E54) || (var_f1 < 0.0f) || (var_f1 > 1.0f) || (farg1 < 0.0f) || (farg1 > 1.0f) || (farg2 < 0.0f) || (farg2 > 1.0f) || (farg3 < 0.0f) || (farg3 > 1.0f)) {
+    if (((-1.0f) != TBoss6PlotFalz__fade_amount) || (var_f1 < 0.0f) || (var_f1 > 1.0f) || (farg1 < 0.0f) || (farg1 > 1.0f) || (farg2 < 0.0f) || (farg2 > 1.0f) || (farg3 < 0.0f) || (farg3 > 1.0f)) {
         var_f1 = 0.0f;
     }
-    TBoss6PlotFalz__data_805D3E54 = var_f1;
+    TBoss6PlotFalz__fade_amount = var_f1;
     if (0.0f != var_f1) {
         temp_r8 = some_id_805c6f74;
         temp_r5 = temp_r8 & 0xFFFFFFDF;
@@ -999,12 +999,12 @@ void apply_fade_material_color__14TBoss6PlotFalzFffff(f32 farg0, f32 farg1, f32 
         set_chunk_material_override_pair((int) (0), (int) (0x800), (int) (temp_r5), (void *) (lbl_805D7780), (void *) (lbl_805D7784), (int) (temp_r8));
         set_chunk_blend((int) (0x2500));
         stack.sp8 = 1.0f;
-        temp_f2 = -((TBoss6PlotFalz__data_805D3E54 * (1.0f - farg1)) - 1.0f);
-        temp_f1 = -((TBoss6PlotFalz__data_805D3E54 * (1.0f - farg2)) - 1.0f);
+        temp_f2 = -((TBoss6PlotFalz__fade_amount * (1.0f - farg1)) - 1.0f);
+        temp_f1 = -((TBoss6PlotFalz__fade_amount * (1.0f - farg2)) - 1.0f);
         stack.spC = temp_f2;
         stack.sp10 = temp_f1;
-        stack.sp14 = -((TBoss6PlotFalz__data_805D3E54 * (1.0f - farg3)) - 1.0f);
-        set_chunk_material_color((void *) (&stack.sp8), (f32) (temp_f1), (f32) (temp_f2), (f32) (1.0f), (f32) (TBoss6PlotFalz__data_805D3E54));
+        stack.sp14 = -((TBoss6PlotFalz__fade_amount * (1.0f - farg3)) - 1.0f);
+        set_chunk_material_color((void *) (&stack.sp8), (f32) (temp_f1), (f32) (temp_f2), (f32) (1.0f), (f32) (TBoss6PlotFalz__fade_amount));
     }
 }
 #pragma pop
@@ -1603,7 +1603,7 @@ u8 *__dt__14TBoss6PlotFalzFv(u8 *arg0, s16 arg1) {
     queue_instance_destruction__14TBoss6PlotFalzFv((void *) arg0);
     destroy_static_instance__14TBoss6PlotFalzFv((void *) arg0);
     TBoss6PlotFalz__data_805D66EC = 0;
-    TBoss6PlotFalz__data_805D3E54 = (-1.0f);
+    TBoss6PlotFalz__fade_amount = (-1.0f);
     __dt__9TObjEnemyFv((void *) arg0, (int) 0);
     if (arg1 > 0)
     {
@@ -1659,7 +1659,7 @@ s32 TBoss6PlotFalz__ct(s32 self, s32 arg1, s32 arg2) {
     TBoss6PlotFalz__data_805D66F0 = 0;
     TBoss6PlotFalz__data_805D66F4 = 0;
     M2C_FIELD(arg0, s32 *, 0x3DC) = 0;
-    TBoss6PlotFalz__data_805D3E54 = (-1.0f);
+    TBoss6PlotFalz__fade_amount = (-1.0f);
     M2C_FIELD(arg0, s8 *, 0x37C) = 0;
     M2C_FIELD(arg0, s32 *, 0x378) = -1;
     set_state__14TBoss6PlotFalzFPvi(arg0, 0);

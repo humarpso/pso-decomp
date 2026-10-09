@@ -860,8 +860,8 @@ extern s32 lbl_805D2A78;
 extern s32 lbl_805D51E0;
 extern s32 lbl_805D51E4;
 extern s32 lbl_805D51E8;
-extern s32 lbl_805D51EC;
-extern u32 lbl_805D51FC;
+extern s32 gyaranzo_missile_param_table;
+extern u32 gyaranzo_bml_resource;
 extern u32 *lbl_805D5200;
 extern u32 *lbl_805D5204;
 extern s32 gyaranzo_breakup_model_obj;
@@ -1669,9 +1669,9 @@ void * create__15TObjEneGyaranzoFPv(void *arg0) {
 }
 
 void free_static_instances__15TObjEneGyaranzoFv(void) {
-    if (lbl_805D51FC != 0U) {
-        TLobby__sub_8001FE7C(lbl_805D51FC, 1);
-        lbl_805D51FC = 0U;
+    if (gyaranzo_bml_resource != 0U) {
+        TLobby__sub_8001FE7C(gyaranzo_bml_resource, 1);
+        gyaranzo_bml_resource = 0U;
     }
     if ((*(struct VObj_800D3BA0_800D3B38 * *)&gyaranzo_breakup_model_obj) != 0) {
         if ((*(struct VObj_800D3BA0_800D3B38 * *)&gyaranzo_breakup_model_obj) != 0) {
@@ -1681,19 +1681,19 @@ void free_static_instances__15TObjEneGyaranzoFv(void) {
     }
 }
 
-#define AREA ((Area_800D3C04 *)lbl_805D51FC)
+#define AREA ((Area_800D3C04 *)gyaranzo_bml_resource)
 void load_gyaranzo_resources__6TLobbyFv(void) {
     s32 i;
     void *p;
 
     if (check_v2_mode__9TObjEneDDFv() != 0) {
-        lbl_805D51FC = load_enemy_bml_resource_named(lbl_8049414C, lbl_8043C428);
+        gyaranzo_bml_resource = load_enemy_bml_resource_named(lbl_8049414C, lbl_8043C428);
     } else {
         p = alloc__23TAdSinglePlyChrSelectGCFPv(0x440);
         if (p != NULL) {
             p = (void *)load_resource_from_descriptor(p, 5, lbl_8049414C, 0, 0, 0);
         }
-        lbl_805D51FC = (u32)p;
+        gyaranzo_bml_resource = (u32)p;
     }
     for (i = 0; i < 0x16; i++) {
         ((s32 *)gyaranzo_model_resources)[i] = collect_and_count__12TBoss3VoloptFUii(AREA->res->r38, lbl_80494224[i]);
@@ -1708,13 +1708,13 @@ void load_gyaranzo_resources__6TLobbyFv(void) {
     (*(s32 *)&lbl_805D5204) = collect_and_count__12TBoss3VoloptFUii(AREA->res->r38, 0xD);
     p = alloc__23TAdSinglePlyChrSelectGCFPv(0x10);
     if (p != NULL) {
-        p = init__11TBreakUpMdlFPviif(p, AREA->res->r38, get_bml_motion(lbl_805D51FC, 3), lbl_805DA294);
+        p = init__11TBreakUpMdlFPviif(p, AREA->res->r38, get_bml_motion(gyaranzo_bml_resource, 3), lbl_805DA294);
     }
     (*(struct VObj_800D3BA0_800D3B38 * *)&gyaranzo_breakup_model_obj) = (VObj_800D3BA0_800D3B38 *)p;
     lbl_805D51E0 = register_boss__6TLobbyFPv(0x1D);
     lbl_805D51E4 = dispatch_shared_handler_b__6TLobbyFPv(0x1D);
     lbl_805D51E8 = register_object__6TLobbyFPv(0x1D);
-    lbl_805D51EC = dispatch_shared_handler_a__6TLobbyFPv(0x1D);
+    gyaranzo_missile_param_table = dispatch_shared_handler_a__6TLobbyFPv(0x1D);
     {
         Pos_800D3C04 pos = lbl_8043C25C;
         pos.w[0] = AREA->f430;
@@ -1751,7 +1751,7 @@ u8 *TObjEneGyaranzo__ct(u8 *arg0, M2C_UNK arg1, u8 *arg2) {
     M2C_FIELD(arg0, s32 *, 0) = (s32) lbl_805D2A78;
     ((VObj_18_fe72f9 *)(arg0))->m79(arg2);
     VecCopy__FP3VecPC3Vec((u8 *)(arg0) + 0x290, VecCopy__FP3VecPC3Vec((u8 *)(arg0) + 0x29C, (u8 *)(arg0) + 0x38));
-    M2C_FIELD(arg0, s32 *, 0xDC) = (s32) M2C_FIELD((*(u8 * *)&lbl_805D51FC), s32 *, 0x430);
+    M2C_FIELD(arg0, s32 *, 0xDC) = (s32) M2C_FIELD((*(u8 * *)&gyaranzo_bml_resource), s32 *, 0x430);
     M2C_FIELD(arg0, u8 **, 0xD8) = (u8 *) lbl_8049415C;
     set_field_d8__10TObjPlayerFPvi((void *) (arg0), (void *) (M2C_FIELD(arg0, u8 **, 0xD8)));
     init_collision_body_parts((void *) (arg0), (void *) lbl_804941F8, (int) (1));
@@ -1778,8 +1778,8 @@ u8 *TObjEneGyaranzo__ct(u8 *arg0, M2C_UNK arg1, u8 *arg2) {
     update_prev_position__10TObjPlayerFPv((void *) (arg0));
     initialize_enemy_photon_effect((void *) (arg0));
     M2C_FIELD(arg0, s32 *, 0x30) = (s32) (M2C_FIELD(arg0, s32 *, 0x30) | 0x40000);
-    M2C_FIELD(arg0, s32 *, 0x34) = (s32) M2C_FIELD(M2C_FIELD((*(u8 * *)&lbl_805D51FC), u8 **, 0x42C), s32 *, 0x38);
-    M2C_FIELD(arg0, s32 *, 0x24) = (s32) M2C_FIELD(M2C_FIELD((*(u8 * *)&lbl_805D51FC), u8 **, 0x42C), s32 *, 0x3C);
+    M2C_FIELD(arg0, s32 *, 0x34) = (s32) M2C_FIELD(M2C_FIELD((*(u8 * *)&gyaranzo_bml_resource), u8 **, 0x42C), s32 *, 0x38);
+    M2C_FIELD(arg0, s32 *, 0x24) = (s32) M2C_FIELD(M2C_FIELD((*(u8 * *)&gyaranzo_bml_resource), u8 **, 0x42C), s32 *, 0x3C);
     if (M2C_FIELD(arg2, s16 *, 0xA) != 0) {
         TObjEnemyCustom__sub_800C7860((void *) (arg0));
     }

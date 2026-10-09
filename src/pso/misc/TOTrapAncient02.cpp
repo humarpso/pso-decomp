@@ -490,7 +490,7 @@ M2C_UNK post_translate_matrix(void *);
 M2C_UNK set_global_param__8TObjFishFi(int);
 M2C_UNK draw_ginja_model(int);
 
-extern u32 TOTrapAncient02__data_805D5AD8;
+extern u32 TOTrapAncient02__shared_resource;
 extern M2C_UNK __vt__15TOTrapAncient02[];
 extern M2C_UNK __vt__16TOTrapAncient02R[];
 extern char lbl_804B4AD8[];
@@ -777,8 +777,8 @@ void *TOTrapAncient02R__ct(void *arg0, void *arg1, void *arg2) {
     ((VObj_8017AB30 *)arg0)->m5(arg2);
     init_position_vectors__10TObjPlayerFi(arg0);
     calc_attach_pos__10TObjPlayerFPv(arg0);
-    M2C_FIELD(arg0, s32 *, 0x34) = (s32) M2C_FIELD(M2C_FIELD((*(void * *)&TOTrapAncient02__data_805D5AD8), void **, 0x42C), s32 *, 8);
-    M2C_FIELD(arg0, s32 *, 0x24) = (s32) M2C_FIELD(M2C_FIELD((*(void * *)&TOTrapAncient02__data_805D5AD8), void **, 0x42C), s32 *, 0xC);
+    M2C_FIELD(arg0, s32 *, 0x34) = (s32) M2C_FIELD(M2C_FIELD((*(void * *)&TOTrapAncient02__shared_resource), void **, 0x42C), s32 *, 8);
+    M2C_FIELD(arg0, s32 *, 0x24) = (s32) M2C_FIELD(M2C_FIELD((*(void * *)&TOTrapAncient02__shared_resource), void **, 0x42C), s32 *, 0xC);
     M2C_FIELD(arg0, s16 *, 0x326) = 0;
     M2C_FIELD(arg0, s16 *, 0x328) = 0;
     M2C_FIELD(arg0, f32 *, 0x334) = lbl_805DBAA0 * M2C_FIELD(arg0, f32 *, 0x68) + lbl_805DBA9C;
@@ -1027,9 +1027,9 @@ void *create__15TOTrapAncient02FPv(void *arg0) {
 }
 
 void destroy_instance__15TOTrapAncient02Fv(void) {
-    if ((u32) TOTrapAncient02__data_805D5AD8 != 0U) {
-        TLobby__sub_8001FE7C((void*)TOTrapAncient02__data_805D5AD8, 1);
-        TOTrapAncient02__data_805D5AD8 = 0U;
+    if ((u32) TOTrapAncient02__shared_resource != 0U) {
+        TLobby__sub_8001FE7C((void*)TOTrapAncient02__shared_resource, 1);
+        TOTrapAncient02__shared_resource = 0U;
     }
 }
 
@@ -1043,7 +1043,7 @@ void load_resources__15TOTrapAncient02Fv(void) {
         if (obj != 0) {
             obj = load_resource_from_descriptor(obj, 1, base + 0x20, 0, 0, 0);
         }
-        TOTrapAncient02__data_805D5AD8 = (u32) obj;
+        TOTrapAncient02__shared_resource = (u32) obj;
         lbl_805D5AE0 = *(u32 *)(count_linked_switches__23TObjSeabedSuisoBrakableFUii(get_bml_model(obj, 0), 2) + 4);
         lbl_805D5AE4 = 2;
         lbl_805D5ADC = 0;
@@ -1061,7 +1061,7 @@ void load_resources__15TOTrapAncient02Fv(void) {
         if (obj != 0) {
             obj = load_resource_from_descriptor(obj, 1, base + 0x38, 0, 0, 0);
         }
-        TOTrapAncient02__data_805D5AD8 = (u32) obj;
+        TOTrapAncient02__shared_resource = (u32) obj;
         lbl_805D5AE0 = *(u32 *)(count_linked_switches__23TObjSeabedSuisoBrakableFUii(get_bml_model(obj, 0), 2) + 4);
         lbl_805D5AE4 = 1;
         lbl_805D5ADC = 0;
@@ -1071,7 +1071,7 @@ void load_resources__15TOTrapAncient02Fv(void) {
         if (obj != 0) {
             obj = load_resource_from_descriptor(obj, 1, base + 8, 0, 0, 0);
         }
-        TOTrapAncient02__data_805D5AD8 = (u32) obj;
+        TOTrapAncient02__shared_resource = (u32) obj;
         lbl_805D5AE0 = *(u32 *)(*(u8 **)(*(u8 **)(*(u8 **)(*(u8 **)((u8 *)obj + 0x42C) + 8) + 0x2C) + 0x2C) + 4);
         lbl_805D5AE4 = 1;
         lbl_805D5ADC = 0;
@@ -1101,8 +1101,8 @@ void *TOTrapAncient02__ct(void *arg0, void *arg1, void *arg2) {
     ((V_8017B6D8 *)((Trap_8017B6D8 *)arg0))->init(arg2);
     ((void (*)(void *))init_position_vectors__10TObjPlayerFi)(((Trap_8017B6D8 *)arg0));
     calc_attach_pos__10TObjPlayerFPv(((Trap_8017B6D8 *)arg0));
-    ((Trap_8017B6D8 *)arg0)->f34 = *(void **)(*(u8 **)(TOTrapAncient02__data_805D5AD8 + 0x42C) + 8);
-    ((Trap_8017B6D8 *)arg0)->f24 = *(s32 *)(*(u8 **)(TOTrapAncient02__data_805D5AD8 + 0x42C) + 0xC);
+    ((Trap_8017B6D8 *)arg0)->f34 = *(void **)(*(u8 **)(TOTrapAncient02__shared_resource + 0x42C) + 8);
+    ((Trap_8017B6D8 *)arg0)->f24 = *(s32 *)(*(u8 **)(TOTrapAncient02__shared_resource + 0x42C) + 0xC);
     ((Trap_8017B6D8 *)arg0)->mode = 0;
     ((Trap_8017B6D8 *)arg0)->state = 0;
     ((Trap_8017B6D8 *)arg0)->range = lbl_805DBAA0 * ((Trap_8017B6D8 *)arg0)->f68 + lbl_805DBA9C;

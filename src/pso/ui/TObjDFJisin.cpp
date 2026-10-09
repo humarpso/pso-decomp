@@ -943,7 +943,7 @@ extern s32 lbl_805D27B4;
 extern const f32 lbl_805D8AA0;
 u8 *TObjDFTenchuFuru__ct(u8 *arg0, u8 *arg1, u8 *arg2);
 M2C_UNK get_current_matrix(void *);
-extern RecoveredGlobal_80051A18_lbl_804FF240 lbl_804FF240;
+extern RecoveredGlobal_80051A18_lbl_804FF240 df_captured_matrix_pair;
 extern int lbl_805D4D78;
 void capture_matrix_by_frame__16TObjDFTenchuFuruFv(void);
 s32 matrix_mult_vec(int, void *, void *);
@@ -1032,10 +1032,10 @@ typedef char RecoveredGlobal_80051A18_lbl_804FF240_size[sizeof(RecoveredGlobal_8
 void capture_matrix_by_frame__16TObjDFTenchuFuruFv(void) {
     switch ((s32) (*(s32 *)&lbl_805D4D78)) {
     case 0x3B:
-        get_current_matrix((void *) (&lbl_804FF240.value));
+        get_current_matrix((void *) (&df_captured_matrix_pair.value));
         break;
     case 0x3A:
-        get_current_matrix((void *) ((u8 *)&lbl_804FF240.value + 0x30));
+        get_current_matrix((void *) ((u8 *)&df_captured_matrix_pair.value + 0x30));
         break;
     }
     (*(s32 *)&lbl_805D4D78) += 1;

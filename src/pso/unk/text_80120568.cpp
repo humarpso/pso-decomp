@@ -170,7 +170,7 @@ void bind_attribute_entries__11TItemWeaponFPv(Self_801205F4 *self);
 void TItemEquipBase__sub_8010A82C(void *);
 void clear_equip_flags__10TObjPlayerFPvUi(void *, u32);
 void set_action_provider_variant__10TObjPlayerFPvs(void *, s32);
-void TObjPlayer__sub_80120568(Pl_80120568 *arg0);
+void TItemWeapon__sub_80120568(Pl_80120568 *arg0);
 s32 obj_getField1c(s32);
 s32 test_flags_any(void *, s32);
 s32 get_flag_40__8TItemMagFPv(void *);
@@ -192,7 +192,7 @@ void apply_equip__11TItemWeaponFPv(Player_8012065C *arg0);
 
 extern "C" {
 
-void TObjPlayer__sub_80120568(Pl_80120568 *arg0) {
+void TItemWeapon__sub_80120568(Pl_80120568 *arg0) {
     if (arg0->ctl->m64(arg0->m31()) == 0) {
         set_action_provider_variant__10TObjPlayerFPvs(arg0->ctl, 0);
     }

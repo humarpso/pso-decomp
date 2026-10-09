@@ -82,7 +82,7 @@ extern s32 lbl_805D5254;
 f32 TObjPlayer__sub_800DC434(M2C_UNK arg0, s32 arg1);
 extern s32 lbl_805D5254;
 s32 TObjPlayer__sub_800DC420(void *self, s32 i);
-extern D_800DC448 *lbl_805D5258;
+extern D_800DC448 *nano_drago_entry_params_resource;
 void load_entry_params_nanodrago__10TObjPlayerFPvi(O_800DC448 *self, s32 i);
 u16 obj_getField1c(void *);
 s32 is_split_screen();
@@ -167,8 +167,8 @@ void TObjPlayer__sub_800DC444(void) {  }
 extern M2C_UNK lbl_80494E10[];
 
 void load_entry_params_nanodrago__10TObjPlayerFPvi(O_800DC448 *self, s32 i) {
-    self->f34 = lbl_805D5258->entries[i].f8;
-    self->f24 = lbl_805D5258->entries[i].fc;
+    self->f34 = nano_drago_entry_params_resource->entries[i].f8;
+    self->f24 = nano_drago_entry_params_resource->entries[i].fc;
 }
 
 s32 TObjPlayer__sub_800DC478(u8 *arg0, s32 arg1, f32 farg0) {

@@ -389,7 +389,7 @@ extern Vec_800530C0 lbl_80437604;
 extern Vec_800530C0 lbl_80437610;
 extern const f64 lbl_80437620[];
 extern const f64 lbl_80437630;
-extern RecoveredGlobal_80054F6C_lbl_804FF2A0 lbl_804FF2A0;
+extern RecoveredGlobal_80054F6C_lbl_804FF2A0 TBoss4Type2__tenchu_furu_array;
 extern s32 lbl_805D586C;
 extern const f32 lbl_805D8AF8;
 extern const f32 lbl_805D8AFC;
@@ -1858,7 +1858,7 @@ void create_all_tenchu_furu__11TBoss4Type2Fi(s32 arg0) {
     M2C_UNK *var_r31;
     s32 var_r30;
     var_r30 = 0;
-    var_r31 = (M2C_UNK *)(&lbl_804FF2A0.value);
+    var_r31 = (M2C_UNK *)(&TBoss4Type2__tenchu_furu_array.value);
     do {
         create__16TObjDFTenchuFuruFPvPv(arg0, (s32) var_r31);
         var_r30 += 1;

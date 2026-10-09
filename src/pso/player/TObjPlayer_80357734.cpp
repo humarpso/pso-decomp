@@ -771,7 +771,7 @@ void dispatch_by_type__10TObjPlayerFiPvii(s32 arg0, void *arg1, s32 arg2, s32 ar
     }
 }
 
-extern s32 lbl_805D63AC;
+extern s32 technique_effect_bml;
 extern s32 lbl_805D63B0;
 extern f32 lbl_805E0084;
 
@@ -805,12 +805,12 @@ void spawn_effect_by_type__10TObjPlayerFiiii(s32 arg0, s32 arg1, s32 arg2, s32 a
     if (arg3 == 1) {
         temp_a = create_timed_particle_emitter(arg2, 0xBF, 0, 0xF);
         if (temp_a != 0) {
-            attach_particle_model(temp_a, get_bml_model(lbl_805D63AC, 0), lbl_805D63B0, get_bml_motion(lbl_805D63AC, 0), 0, lbl_805E0084);
+            attach_particle_model(temp_a, get_bml_model(technique_effect_bml, 0), lbl_805D63B0, get_bml_motion(technique_effect_bml, 0), 0, lbl_805E0084);
         }
     }
 }
 
-extern s32 lbl_805D63AC;
+extern s32 technique_effect_bml;
 extern s32 lbl_805D63B0;
 extern f32 lbl_805E0084;
 
@@ -823,7 +823,7 @@ void spawn_hit_effect__10TObjPlayerFiiii(s32 arg0, s32 arg1, s32 arg2, s32 arg3)
     if (arg3 == 1) {
         temp_r30 = create_timed_particle_emitter(arg2, 0x9A, 0, 0xF);
         if (temp_r30 != 0) {
-            attach_particle_model(temp_r30, get_bml_model(lbl_805D63AC, 0), lbl_805D63B0, get_bml_motion(lbl_805D63AC, 0), 0, lbl_805E0084);
+            attach_particle_model(temp_r30, get_bml_model(technique_effect_bml, 0), lbl_805D63B0, get_bml_motion(technique_effect_bml, 0), 0, lbl_805E0084);
         }
     }
 }

@@ -36,7 +36,7 @@ extern M2C_UNK lbl_8044E748[];
 extern M2C_UNK lbl_8044E758[];
 extern M2C_UNK lbl_804D2F3C[];
 extern u32 lbl_805D63F0;
-extern s16 lbl_805D63F4;
+extern s16 window_ui_theme_index;
 void load_hud_palette_textures(void);
 }
 
@@ -87,7 +87,7 @@ void load_hud_palette_textures(void) {
     set_entry_index__9TLanguageFii((int) (8), (int) (1));
     set_entry_index__9TLanguageFii((int) (9), (int) (1));
     set_entry_index__9TLanguageFii((int) (0xA), (int) (1));
-    lbl_805D63F4 = 0;
+    window_ui_theme_index = 0;
 }
 
 u8 TWindowSubAreaMapDisp__sub_80246948(Obj_80246948 *self) {

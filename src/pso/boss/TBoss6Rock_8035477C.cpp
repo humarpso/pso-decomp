@@ -30,7 +30,7 @@ s32 construct_collider_proxy__10TObjPlayerFPv(void *);
 s32 create__10TBoss6RockFv();
 s32 randomize_motion__10TBoss6RockFPv(void *);
 extern RecoveredGlobal_80354948___vt__10TBoss6Rock __vt__10TBoss6Rock;
-extern RecoveredGlobal_80354948_TBoss6Rock__data_805437F8 TBoss6Rock__data_805437F8;
+extern RecoveredGlobal_80354948_TBoss6Rock__data_805437F8 TBoss6Rock__rock_point_table;
 extern s32 lbl_805D438C;
 u8 *TBoss6Rock__ct(u8 *arg0, M2C_UNK arg1, s32 arg2);
 u8 * destroy_particle_controller__10TObjPlayerFPvs(void *, s16);
@@ -38,7 +38,7 @@ void __dl__7TObjectFPv(s32);
 void release_object__10TBoss6RockFPv(void *);
 void spawn_crush_rocks__10TBoss6RockFPvi(void *, s32);
 extern RecoveredGlobal_80354948___vt__10TBoss6Rock __vt__10TBoss6Rock;
-extern RecoveredGlobal_803548B4_TBoss6Rock__data_80543778 TBoss6Rock__data_80543778;
+extern RecoveredGlobal_803548B4_TBoss6Rock__data_80543778 TBoss6Rock__instance_table;
 u8 *__dt__10TBoss6RockFv(u8 *arg0, s16 arg1);
 }
 
@@ -66,7 +66,7 @@ u8 *__dt__10TBoss6RockFv(u8 *arg0, s16 arg1) {
             spawn_crush_rocks__10TBoss6RockFPvi(arg0 + 0xD4, M2C_FIELD(arg0, s32 *, 0xB4));
         }
         release_object__10TBoss6RockFPv(arg0);
-        M2C_FIELD(&TBoss6Rock__data_80543778.value, M2C_UNK *, (M2C_FIELD(arg0, s32 *, 0xAC) * 4)) = 0;
+        M2C_FIELD(&TBoss6Rock__instance_table.value, M2C_UNK *, (M2C_FIELD(arg0, s32 *, 0xAC) * 4)) = 0;
         destroy_particle_controller__10TObjPlayerFPvs(arg0, 0);
         if (arg1 > 0) {
             __dl__7TObjectFPv((s32) arg0);
@@ -80,7 +80,7 @@ u8 *TBoss6Rock__ct(u8 *arg0, M2C_UNK arg1, s32 arg2) {
     M2C_FIELD(arg0, M2C_UNK **, 0x18) = &__vt__10TBoss6Rock.value;
     M2C_FIELD(arg0, s32 *, 0) = (s32) lbl_805D438C;
     M2C_FIELD(arg0, s32 *, 0xAC) = arg2;
-    VecCopy__FP3VecPC3Vec((void *) (arg0 + 0xD4), (int) ((u8 *)&TBoss6Rock__data_805437F8.value + (M2C_FIELD(arg0, s32 *, 0xAC) * 0xC)));
+    VecCopy__FP3VecPC3Vec((void *) (arg0 + 0xD4), (int) ((u8 *)&TBoss6Rock__rock_point_table.value + (M2C_FIELD(arg0, s32 *, 0xAC) * 0xC)));
     M2C_FIELD(arg0, s32 *, 0xB8) = 0;
     M2C_FIELD(arg0, s32 *, 0xB4) = 0;
     M2C_FIELD(arg0, s32 *, 0xC0) = 0;

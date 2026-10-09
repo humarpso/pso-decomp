@@ -386,23 +386,23 @@ s32 is_mode_two_and_ready__10TObjPlayerFPv(void *arg0);
 void restore_action_type__11TItemWeaponFPv(u8 *arg0);
 void remap_extra_attack_type(u8 *arg0);
 void TObjPlayer__sub_8011E56C(u8 *arg0, u8 *arg1);
-void TObjPlayer__sub_8011E5C0(void);
-void TObjPlayer__sub_8011E5C4(void);
-void TObjPlayer__sub_8011E5C8(void);
-void TObjPlayer__sub_8011E5CC(void);
-void TObjPlayer__sub_8011E5D0(void);
-void TObjPlayer__sub_8011E5D4(void);
-void TObjPlayer__sub_8011E5D8(void);
-void TObjPlayer__sub_8011E5DC(void);
+void TItemWeapon__sub_8011E5C0(void);
+void TItemWeapon__sub_8011E5C4(void);
+void TItemWeapon__sub_8011E5C8(void);
+void TItemWeapon__sub_8011E5CC(void);
+void TItemWeapon__sub_8011E5D0(void);
+void TItemWeapon__sub_8011E5D4(void);
+void TItemWeapon__sub_8011E5D8(void);
+void TItemWeapon__sub_8011E5DC(void);
 void weapon_prepare_marker_noop(void);
-void TObjPlayer__sub_8011E610(void* p, s32 v);
+void TItemWeapon__sub_8011E610(void* p, s32 v);
 void TObjPlayer__sub_8011E618(u8 *arg0);
 void set_flag_8_if_check_passes__10TObjPlayerFPv(u8 *arg0);
-u8 * get_motion_ptr__10TObjPlayerFPv(u8 *arg0);
+u8 * get_motion_ptr__11TItemWeaponFPv(u8 *arg0);
 void call_callback_1ec__10TObjPlayerFPvii(void *arg0, s32 arg1, s32 arg2);
 void apply_model_params__10TObjPlayerFPv(void *arg0);
-void copy_item_to_data__10TObjPlayerFi(s32 arg0);
-void update_model_flags__10TObjPlayerFPv(struct VObj_8011E828 *o);
+void copy_item_to_data__11TItemWeaponFi(s32 arg0);
+void update_model_flags__11TItemWeaponFPv(struct VObj_8011E828 *o);
 void update_trail_slot__11TItemWeaponFPvi(Pl_8011E87C *self, s32 slot);
 void create_weapon_trail_effects(Pl_8011E950 *arg0);
 u32 pack_weapon_trail_color(void *arg0);
@@ -510,27 +510,27 @@ void TObjPlayer__sub_8011E56C(u8 *arg0, u8 *arg1) {
     ((M2C_UNK (*)(void *, void *, int))csnVector)((void *) (&stack.sp8), (void *) (arg1), (int) (0x8100));
 }
 
-void TObjPlayer__sub_8011E5C0(void) {  }
+void TItemWeapon__sub_8011E5C0(void) {  }
 
-void TObjPlayer__sub_8011E5C4(void) {  }
+void TItemWeapon__sub_8011E5C4(void) {  }
 
-void TObjPlayer__sub_8011E5C8(void) {  }
+void TItemWeapon__sub_8011E5C8(void) {  }
 
-void TObjPlayer__sub_8011E5CC(void) {  }
+void TItemWeapon__sub_8011E5CC(void) {  }
 
-void TObjPlayer__sub_8011E5D0(void) {  }
+void TItemWeapon__sub_8011E5D0(void) {  }
 
-void TObjPlayer__sub_8011E5D4(void) {  }
+void TItemWeapon__sub_8011E5D4(void) {  }
 
-void TObjPlayer__sub_8011E5D8(void) {  }
+void TItemWeapon__sub_8011E5D8(void) {  }
 
-void TObjPlayer__sub_8011E5DC(void) {  }
+void TItemWeapon__sub_8011E5DC(void) {  }
 
 void weapon_prepare_marker_noop(void) {  }
 
 void copy_field6_from__10TObjPlayerFPvPv(void* p, void* a1) { memcpy((char*)p + 0x6, (char*)a1 + 0x1a4, (void*)6); }
 
-void TObjPlayer__sub_8011E610(void* p, s32 v) { *(s32*)((char*)p + 0x1bc) = v; }
+void TItemWeapon__sub_8011E610(void* p, s32 v) { *(s32*)((char*)p + 0x1bc) = v; }
 
 void TObjPlayer__sub_8011E618(u8 *arg0) {
     M2C_FIELD(arg0, s32 *, 0x1C0) = (s32) M2C_FIELD(arg0, s32 *, 0x1BC);
@@ -549,7 +549,7 @@ void set_flag_8_if_check_passes__10TObjPlayerFPv(u8 *arg0) {
     }
 }
 
-u8 *get_motion_ptr__10TObjPlayerFPv(u8 *arg0) {
+u8 *get_motion_ptr__11TItemWeaponFPv(u8 *arg0) {
     u8 *temp_r3;
 
     temp_r3 = (unsigned char *) (M2C_FIELD(arg0, void **, 0xF0));
@@ -580,7 +580,7 @@ void apply_model_params__10TObjPlayerFPv(void *arg0) {
     ((VObj_8011E77C *)temp_r3)->m71();
 }
 
-void copy_item_to_data__10TObjPlayerFi(s32 arg0) {
+void copy_item_to_data__11TItemWeaponFi(s32 arg0) {
     M2C_UNK sp8[5];
 
     init__9TItemDataFv(sp8);
@@ -588,7 +588,7 @@ void copy_item_to_data__10TObjPlayerFi(s32 arg0) {
     check_item_flags__9TItemDataFPv(sp8);
 }
 
-void update_model_flags__10TObjPlayerFPv(struct VObj_8011E828 *o) {
+void update_model_flags__11TItemWeaponFPv(struct VObj_8011E828 *o) {
     if (o->m33() == 0) {
         M2C_FIELD(o, u8 *, 0x1D2) = M2C_FIELD(o, u8 *, 0x1D2) & 0x7F;
     }

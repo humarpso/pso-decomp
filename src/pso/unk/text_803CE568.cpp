@@ -25,32 +25,32 @@ struct V_803CEF60 { void (*fn)(); };
 extern "C" {
 extern M2C_UNK lbl_8047D7AC[];
 extern M2C_UNK lbl_8047D7C8[];
-extern RecoveredCallback_4873a87e26d6 lbl_805D75F8;
+extern RecoveredCallback_4873a87e26d6 cvfs_completion_callback;
 extern s32 lbl_805D75FC;
 s32 cv_fs_get_stat__6TLobbyFPv(u8 *arg0);
 extern M2C_UNK lbl_8047D7E4[];
 extern M2C_UNK lbl_8047D800[];
-extern RecoveredCallback_4873a87e26d6 lbl_805D75F8;
+extern RecoveredCallback_4873a87e26d6 cvfs_completion_callback;
 extern s32 lbl_805D75FC;
 void cvfs_stop_tr__6TLobbyFPv(u8 *arg0);
 extern M2C_UNK lbl_8047D8B8[];
 extern M2C_UNK lbl_8047D8D4[];
-extern RecoveredCallback_4873a87e26d6 lbl_805D75F8;
+extern RecoveredCallback_4873a87e26d6 cvfs_completion_callback;
 extern s32 lbl_805D75FC;
 s32 cv_fs_tell__6TLobbyFPv(u8 *arg0);
 extern M2C_UNK lbl_8047D8EC[];
 extern M2C_UNK lbl_8047D908[];
-extern RecoveredCallback_4873a87e26d6 lbl_805D75F8;
+extern RecoveredCallback_4873a87e26d6 cvfs_completion_callback;
 extern s32 lbl_805D75FC;
 void cv_fs_close__6TLobbyFPv(u8 *arg0);
 extern M2C_UNK lbl_8047D850[];
 extern M2C_UNK lbl_8047D86C[];
-extern RecoveredCallback_4873a87e26d6 lbl_805D75F8;
+extern RecoveredCallback_4873a87e26d6 cvfs_completion_callback;
 extern s32 lbl_805D75FC;
 s32 cv_fs_req_rd__6TLobbyFPvii(u8 *arg0, s32 arg1, s32 arg2);
 extern M2C_UNK lbl_8047D884[];
 extern M2C_UNK lbl_8047D8A0[];
-extern RecoveredCallback_4873a87e26d6 lbl_805D75F8;
+extern RecoveredCallback_4873a87e26d6 cvfs_completion_callback;
 extern s32 lbl_805D75FC;
 s32 cv_fs_seek__6TLobbyFPvii(u8 *arg0, s32 arg1, s32 arg2);
 s32 strncmp(void *, void *, int);
@@ -60,7 +60,7 @@ extern s32 lbl_8047D9D4[];
 extern s32 lbl_8047D9FC[];
 extern s8 fs_default_device_name[];
 extern Ent_803CF958 cvfs_entry_table[];
-extern RecoveredCallback_4873a87e26d6 lbl_805D75F8;
+extern RecoveredCallback_4873a87e26d6 cvfs_completion_callback;
 extern s32 lbl_805D75FC;
 void cvFsSetDefDev__6TLobbyFPv(char *arg0);
 void *memset(void *, s32, u32);
@@ -77,16 +77,16 @@ s32 cv_fs_get_stat__6TLobbyFPv(u8 *arg0) {
     s32 var_r31;
     var_r31 = 3;
     if (arg0 == NULL) {
-        if (((M2C_UNK (*)(s32, M2C_UNK *, M2C_UNK)) lbl_805D75F8) != NULL) {
-            lbl_805D75F8(lbl_805D75FC, lbl_8047D7AC, 0);
+        if (((M2C_UNK (*)(s32, M2C_UNK *, M2C_UNK)) cvfs_completion_callback) != NULL) {
+            cvfs_completion_callback(lbl_805D75FC, lbl_8047D7AC, 0);
         }
         return 3;
     }
     temp_r12 = M2C_FIELD(M2C_FIELD(arg0, u8 **, 0), s32 (**)(s32), 0x2C);
     if (temp_r12 != NULL) {
         var_r31 = temp_r12(M2C_FIELD(arg0, s32 *, 4));
-    } else if (((M2C_UNK (*)(s32, M2C_UNK *, M2C_UNK)) lbl_805D75F8) != NULL) {
-        lbl_805D75F8(lbl_805D75FC, lbl_8047D7C8, 0);
+    } else if (((M2C_UNK (*)(s32, M2C_UNK *, M2C_UNK)) cvfs_completion_callback) != NULL) {
+        cvfs_completion_callback(lbl_805D75FC, lbl_8047D7C8, 0);
     }
     return var_r31;
 }
@@ -105,8 +105,8 @@ void TLobby__sub_803CEF60(void) {
 void cvfs_stop_tr__6TLobbyFPv(u8 *arg0) {
     M2C_UNK (*temp_r12)(s32);
     if (arg0 == NULL) {
-        if (((M2C_UNK (*)(s32, M2C_UNK *, M2C_UNK)) lbl_805D75F8) != NULL) {
-            lbl_805D75F8(lbl_805D75FC, lbl_8047D7E4, 0);
+        if (((M2C_UNK (*)(s32, M2C_UNK *, M2C_UNK)) cvfs_completion_callback) != NULL) {
+            cvfs_completion_callback(lbl_805D75FC, lbl_8047D7E4, 0);
         }
     } else {
         temp_r12 = M2C_FIELD(M2C_FIELD(arg0, u8 **, 0), M2C_UNK (**)(s32), 0x28);
@@ -114,8 +114,8 @@ void cvfs_stop_tr__6TLobbyFPv(u8 *arg0) {
             temp_r12(M2C_FIELD(arg0, s32 *, 4));
             return;
         }
-        if (((M2C_UNK (*)(s32, M2C_UNK *, M2C_UNK)) lbl_805D75F8) != NULL) {
-            lbl_805D75F8(lbl_805D75FC, lbl_8047D800, 0);
+        if (((M2C_UNK (*)(s32, M2C_UNK *, M2C_UNK)) cvfs_completion_callback) != NULL) {
+            cvfs_completion_callback(lbl_805D75FC, lbl_8047D800, 0);
         }
     }
 }
@@ -124,8 +124,8 @@ s32 cv_fs_req_rd__6TLobbyFPvii(u8 *arg0, s32 arg1, s32 arg2) {
     s32 (*temp_r12)(s32, s32, s32);
     s32 var_r31;
     if (arg0 == NULL) {
-        if (((M2C_UNK (*)(s32, M2C_UNK *, M2C_UNK)) lbl_805D75F8) != NULL) {
-            lbl_805D75F8(lbl_805D75FC, lbl_8047D850, 0);
+        if (((M2C_UNK (*)(s32, M2C_UNK *, M2C_UNK)) cvfs_completion_callback) != NULL) {
+            cvfs_completion_callback(lbl_805D75FC, lbl_8047D850, 0);
         }
         return 0;
     }
@@ -134,8 +134,8 @@ s32 cv_fs_req_rd__6TLobbyFPvii(u8 *arg0, s32 arg1, s32 arg2) {
         var_r31 = temp_r12(M2C_FIELD(arg0, s32 *, 4), arg1, arg2);
     } else {
         var_r31 = 0;
-        if (((M2C_UNK (*)(s32, M2C_UNK *, M2C_UNK)) lbl_805D75F8) != NULL) {
-            lbl_805D75F8(lbl_805D75FC, lbl_8047D86C, 0);
+        if (((M2C_UNK (*)(s32, M2C_UNK *, M2C_UNK)) cvfs_completion_callback) != NULL) {
+            cvfs_completion_callback(lbl_805D75FC, lbl_8047D86C, 0);
         }
     }
     return var_r31;
@@ -145,8 +145,8 @@ s32 cv_fs_seek__6TLobbyFPvii(u8 *arg0, s32 arg1, s32 arg2) {
     s32 (*temp_r12)(s32, s32, s32);
     s32 var_r31;
     if (arg0 == NULL) {
-        if (((M2C_UNK (*)(s32, M2C_UNK *, M2C_UNK)) lbl_805D75F8) != NULL) {
-            lbl_805D75F8(lbl_805D75FC, lbl_8047D884, 0);
+        if (((M2C_UNK (*)(s32, M2C_UNK *, M2C_UNK)) cvfs_completion_callback) != NULL) {
+            cvfs_completion_callback(lbl_805D75FC, lbl_8047D884, 0);
         }
         return 0;
     }
@@ -155,8 +155,8 @@ s32 cv_fs_seek__6TLobbyFPvii(u8 *arg0, s32 arg1, s32 arg2) {
         var_r31 = temp_r12(M2C_FIELD(arg0, s32 *, 4), arg1, arg2);
     } else {
         var_r31 = 0;
-        if (((M2C_UNK (*)(s32, M2C_UNK *, M2C_UNK)) lbl_805D75F8) != NULL) {
-            lbl_805D75F8(lbl_805D75FC, lbl_8047D8A0, 0);
+        if (((M2C_UNK (*)(s32, M2C_UNK *, M2C_UNK)) cvfs_completion_callback) != NULL) {
+            cvfs_completion_callback(lbl_805D75FC, lbl_8047D8A0, 0);
         }
     }
     return var_r31;
@@ -166,8 +166,8 @@ s32 cv_fs_tell__6TLobbyFPv(u8 *arg0) {
     s32 (*temp_r12)(s32);
     s32 var_r31;
     if (arg0 == NULL) {
-        if (((M2C_UNK (*)(s32, M2C_UNK *, M2C_UNK)) lbl_805D75F8) != NULL) {
-            lbl_805D75F8(lbl_805D75FC, lbl_8047D8B8, 0);
+        if (((M2C_UNK (*)(s32, M2C_UNK *, M2C_UNK)) cvfs_completion_callback) != NULL) {
+            cvfs_completion_callback(lbl_805D75FC, lbl_8047D8B8, 0);
         }
         return 0;
     }
@@ -176,8 +176,8 @@ s32 cv_fs_tell__6TLobbyFPv(u8 *arg0) {
         var_r31 = temp_r12(M2C_FIELD(arg0, s32 *, 4));
     } else {
         var_r31 = 0;
-        if (((M2C_UNK (*)(s32, M2C_UNK *, M2C_UNK)) lbl_805D75F8) != NULL) {
-            lbl_805D75F8(lbl_805D75FC, lbl_8047D8D4, 0);
+        if (((M2C_UNK (*)(s32, M2C_UNK *, M2C_UNK)) cvfs_completion_callback) != NULL) {
+            cvfs_completion_callback(lbl_805D75FC, lbl_8047D8D4, 0);
         }
     }
     return var_r31;
@@ -185,8 +185,8 @@ s32 cv_fs_tell__6TLobbyFPv(u8 *arg0) {
 void cv_fs_close__6TLobbyFPv(u8 *arg0) {
     M2C_UNK (*temp_r12)(s32);
     if (arg0 == NULL) {
-        if (((M2C_UNK (*)(s32, M2C_UNK *, M2C_UNK)) lbl_805D75F8) != NULL) {
-            lbl_805D75F8(lbl_805D75FC, lbl_8047D8EC, 0);
+        if (((M2C_UNK (*)(s32, M2C_UNK *, M2C_UNK)) cvfs_completion_callback) != NULL) {
+            cvfs_completion_callback(lbl_805D75FC, lbl_8047D8EC, 0);
         }
     } else {
         temp_r12 = M2C_FIELD(M2C_FIELD(arg0, u8 **, 0), M2C_UNK (**)(s32), 0x14);
@@ -196,8 +196,8 @@ void cv_fs_close__6TLobbyFPv(u8 *arg0) {
             M2C_FIELD(arg0, u8 **, 0) = NULL;
             return;
         }
-        if (((M2C_UNK (*)(s32, M2C_UNK *, M2C_UNK)) lbl_805D75F8) != NULL) {
-            lbl_805D75F8(lbl_805D75FC, lbl_8047D908, 0);
+        if (((M2C_UNK (*)(s32, M2C_UNK *, M2C_UNK)) cvfs_completion_callback) != NULL) {
+            cvfs_completion_callback(lbl_805D75FC, lbl_8047D908, 0);
         }
     }
 }
@@ -219,8 +219,8 @@ void cvFsSetDefDev__6TLobbyFPv(char *arg0) {
     u32 j;
     u32 n;
     if (arg0 == NULL) {
-        if (lbl_805D75F8 != NULL) {
-            lbl_805D75F8(lbl_805D75FC, lbl_8047D9D4, 0);
+        if (cvfs_completion_callback != NULL) {
+            cvfs_completion_callback(lbl_805D75FC, lbl_8047D9D4, 0);
         }
         return;
     }
@@ -239,8 +239,8 @@ void cvFsSetDefDev__6TLobbyFPv(char *arg0) {
         memcpy(fs_default_device_name, arg0, len + 1);
         return;
     }
-    if (lbl_805D75F8 != NULL) {
-        lbl_805D75F8(lbl_805D75FC, lbl_8047D9FC, 0);
+    if (cvfs_completion_callback != NULL) {
+        cvfs_completion_callback(lbl_805D75FC, lbl_8047D9FC, 0);
     }
 }
 

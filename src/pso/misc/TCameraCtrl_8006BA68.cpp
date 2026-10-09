@@ -193,7 +193,7 @@ extern void *camera_ctrl_instance;
 void apply_look_at_from_target__11TCameraCtrlFPv(u8 *arg0);
 s32 get_global_state__14TOKeyMachine01Fv();
 extern void* camera_controller_registry[];
-extern RecoveredGlobal_8006C140_lbl_80488C50 lbl_80488C50;
+extern RecoveredGlobal_8006C140_lbl_80488C50 camera_path_bank_table;
 extern RecoveredGlobal_8006C140_TCameraCtrl__data_804FF7C0 TCameraCtrl__data_804FF7C0;
 }
 
@@ -407,7 +407,7 @@ void configure_scripted_camera_playback(u8* playback_data, s32 unused) {
         camera->playback.flags = playback->flags;
         camera->playback.frame = playback->frame;
         camera->playback.frame_step = playback->frame_step;
-        const PathBank* paths = (const PathBank*)&lbl_80488C50.value;
+        const PathBank* paths = (const PathBank*)&camera_path_bank_table.value;
         const MotionBank* motions = (const MotionBank*)&TCameraCtrl__data_804FF7C0.value;
         camera->mode = &paths[get_global_state__14TOKeyMachine01Fv()].modes[camera->playback.bank];
         camera->motion_data = motions[playback->bank].directory->entries[camera->playback.index];

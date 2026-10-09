@@ -44,7 +44,7 @@ void fade_out_sound_slot(s32 slot, s32 step);
 extern RecoveredGlobal_8023F880_lbl_805162EC lbl_805162EC;
 s32 set_voice_pitch_slide(u8 *arg0, s32 arg1, s32 arg2);
 void set_sound_slot_pitch(s32 slot, s32 pitch, s32 duration);
-extern Tables_8023FBBC lbl_804CCFB8;
+extern Tables_8023FBBC sound_effect_bank_table;
 s32 resolve_sound_effect_bank(Owner_8023FBBC *owner, s32 kind, s32 bank, s32 index);
 }
 
@@ -144,7 +144,7 @@ void set_sound_slot_pitch(s32 slot, s32 pitch, s32 duration) {
 #pragma opt_propagation off
 #pragma opt_dead_assignments off
 s32 resolve_sound_effect_bank(Owner_8023FBBC *owner, s32 kind, s32 bank, s32 index) {
-    u8 *t = (u8 *)&lbl_804CCFB8;
+    u8 *t = (u8 *)&sound_effect_bank_table;
     s32 result = -1;
     Range_8023FBBC *r = NULL;
     switch (kind) {
@@ -217,7 +217,7 @@ void read_checked_align__6TLobbyFiii(void *, int, u32);
 void *adxf_open_afs__6TLobbyFii(int, int);
 void *xmalloc__FUl(u32 bytes);
 void xfree__FPv(void *allocation);
-#define lbl_804CCFB8 ((s32 *)&lbl_804CCFB8)
+#define sound_effect_bank_table ((s32 *)&sound_effect_bank_table)
 extern u16 lbl_804CD804[][4];
 s32 TLobby__sub_8023FFB8(Obj_8023FCC0 *self, int id);
 }
@@ -261,7 +261,7 @@ s32 TLobby__sub_8023FFB8(Obj_8023FCC0 *self, int id) {
         self->ents[id].h[0] = 0;
     }
     for (i = 0; i < 4; i++) {
-        self->fC24[i] = lbl_804CCFB8[lbl_804CD804[id][i]];
+        self->fC24[i] = sound_effect_bank_table[lbl_804CD804[id][i]];
         self->fC24[i] = (self->fC24[i] + 0x7FF) & ~0x7FF;
         self->ents[id].h[i] = (u32)xmalloc__FUl(self->fC24[i]);
         if (self->ents[id].h[i] == 0) {
@@ -303,7 +303,7 @@ fail:
 }
 
 #undef lbl_805162EC
-#undef lbl_804CCFB8
+#undef sound_effect_bank_table
 
 #include "types.h"
 
@@ -1320,7 +1320,7 @@ struct RecoveredGlobal_8024287C_lbl_80517F9C {
 extern "C" {
 M2C_UNK move_words__6TLobbyFPvPvi(int, void *, void *);
 #define lbl_80517F9C (*(RecoveredGlobal_802426E8_lbl_80517F9C *)lbl_80517F9C)
-extern int lbl_805D63DC;
+extern int com_card_entry_count;
 void remove_com_card_entry__6TLobbyFi(s32 arg0);
 void* TLobby__sub_802428C4(void* p);
 #define lbl_80517EE0 (*(RecoveredGlobal_8024287C_lbl_80517EE0 *)lbl_80517EE0)
@@ -1375,7 +1375,7 @@ void init_player_entry__6TLobbyFPvPv(u8 *arg0, u8 *arg1) {
     ((void* (*)(void*, void*))parse_csv_token__6TLobbyFPvPv)(p, (void *) (arg0 + 0x3B));
 }
 
-    extern int lbl_805D63DC;
+    extern int com_card_entry_count;
 
 typedef char RecoveredGlobal_802426E8_lbl_80517F9C_size[sizeof(RecoveredGlobal_802426E8_lbl_80517F9C) == 0x5E4 ? 1 : -1];
 void remove_com_card_entry__6TLobbyFi(s32 arg0) {
@@ -1384,7 +1384,7 @@ void remove_com_card_entry__6TLobbyFi(s32 arg0) {
         temp_r3 = (u8 *)&lbl_80517F9C.value + (arg0 * 0xBC);
         move_words__6TLobbyFPvPvi((int) (temp_r3), (void *) (temp_r3 + 0xBC), (void *) ((u32) ((7 - arg0) * 0xBC) >> 2U));
     }
-    (*(s32 *)&lbl_805D63DC) -= 1;
+    (*(s32 *)&com_card_entry_count) -= 1;
 }
 
 s32 remove_com_card_by_id__6TLobbyFUi(u32 arg0) {
@@ -1404,7 +1404,7 @@ s32 remove_com_card_by_id__6TLobbyFUi(u32 arg0) {
     return 7;
 }
 
-void reset_state_805D63DC__6TLobbyFv(void*) { lbl_805D63DC = 0; clear_flag_bit2__6TLobbyFv(); }
+void reset_state_805D63DC__6TLobbyFv(void*) { com_card_entry_count = 0; clear_flag_bit2__6TLobbyFv(); }
 
 void reset_state__6TLobbyFPv(void* p) { reset_state_805D63DC__6TLobbyFv((void*)((void*)(p))); }
 void TLobby__sub_8024285C(void* p) { reset_state_805D63DC__6TLobbyFv((void*)((void*)(p))); }
@@ -1419,8 +1419,8 @@ void construct_entry_arrays__6TLobbyFv(void) {
 void* TLobby__sub_802428C4(void* p) { fn_80077AA4((char*)p + 0x58); return p; }
 s32 TLobby__sub_802428F8(void* p) { return *(s32*)((char*)p + 0x4); }
 
-    extern int lbl_805D63DC;
-int get_com_card_data__6TLobbyFv(void) {  return lbl_805D63DC; }
+    extern int com_card_entry_count;
+int get_com_card_data__6TLobbyFv(void) {  return com_card_entry_count; }
 
 }
 #undef lbl_80517F9C

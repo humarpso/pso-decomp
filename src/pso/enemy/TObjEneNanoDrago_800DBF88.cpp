@@ -255,7 +255,7 @@ extern s32 lbl_805D5248;
 extern s32 lbl_805D524C;
 extern s32 lbl_805D5250;
 extern s32 lbl_805D5254;
-extern u32 lbl_805D5258;
+extern u32 nano_drago_entry_params_resource;
 extern const f32 lbl_805DA3F8;
 extern const f32 lbl_805DA408;
 extern const f32 lbl_805DA41C;
@@ -798,9 +798,9 @@ void * create__16TObjEneNanoDragoFPv(void *arg0) {
 }
 
 void free_global_window__6TLobbyFv(void) {
-    if ((u32) lbl_805D5258 != 0U) {
-        TLobby__sub_8001FE7C((void*)lbl_805D5258, 1);
-        lbl_805D5258 = 0U;
+    if ((u32) nano_drago_entry_params_resource != 0U) {
+        TLobby__sub_8001FE7C((void*)nano_drago_entry_params_resource, 1);
+        nano_drago_entry_params_resource = 0U;
     }
 }
 
@@ -816,7 +816,7 @@ void TLobby__sub_800DC028(void) {
     if (var_r0 != NULL) {
         var_r0 = (u8 *)(load_resource_from_descriptor(temp_r3, 1, &lbl_80494B4C.value, 0, 0, 0));
     }
-    lbl_805D5258 = (u32) var_r0;
+    nano_drago_entry_params_resource = (u32) var_r0;
     lbl_805D5248 = register_boss__6TLobbyFPv((int) (0x1A));
     lbl_805D524C = dispatch_shared_handler_b__6TLobbyFPv((int) (0x1A));
     lbl_805D5250 = register_object__6TLobbyFPv((int) (0x1A));
@@ -825,8 +825,8 @@ void TLobby__sub_800DC028(void) {
     stack.spC = M2C_FIELD(&lbl_8043C8D4.value, s32 *, 4);
     stack.sp10 = M2C_FIELD(&lbl_8043C8D4.value, s32 *, 8);
     stack.sp14 = M2C_FIELD(&lbl_8043C8D4.value, s32 *, 0xC);
-    stack.sp8 = M2C_FIELD(lbl_805D5258, s32 *, 0x430);
-    temp_r5 = (u8 *)(M2C_FIELD(lbl_805D5258, u8 **, 0x42C));
+    stack.sp8 = M2C_FIELD(nano_drago_entry_params_resource, s32 *, 0x430);
+    temp_r5 = (u8 *)(M2C_FIELD(nano_drago_entry_params_resource, u8 **, 0x42C));
     spawn_npc_enemy__6TLobbyFsiiiff((int) (0x22), (int) (M2C_FIELD(temp_r5, s32 *, 8)), (int) (M2C_FIELD(temp_r5, s32 *, 0xC)), (void *) (&stack.sp8), (f32) (lbl_805DA448), (f32) (lbl_805DA3F8));
 }
 
@@ -853,7 +853,7 @@ u8 *TObjEneNanoDrago__ct(u8 *arg0, s32 arg1, u8 *arg2) {
     M2C_FIELD(arg0, s32 *, 0) = lbl_805D2AA8;
     ((VObj_18_fe72f9 *)arg0)->m79(arg2);
     ((void * (*)(void *, void *))VecCopy__FP3VecPC3Vec)(arg0 + 0x290, ((void * (*)(void *, void *))VecCopy__FP3VecPC3Vec)(arg0 + 0x29C, arg0 + 0x38));
-    M2C_FIELD(arg0, s32 *, 0xDC) = M2C_FIELD((*(u8 * *)&lbl_805D5258), s32 *, 0x430);
+    M2C_FIELD(arg0, s32 *, 0xDC) = M2C_FIELD((*(u8 * *)&nano_drago_entry_params_resource), s32 *, 0x430);
     M2C_FIELD(arg0, s32 *, 0x368) = 0;
     add_flags_2e4__10TObjPlayerFPvUi(arg0, 2);
     M2C_FIELD(arg0, s32 *, 0x36C) = M2C_FIELD(arg2, s16 *, 0x3E);

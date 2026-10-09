@@ -145,7 +145,7 @@ TechniqueHitRecipient *find_entity_by_id(u16);
 void dispatch_all_technique_contacts(TTecBarta *);
 void advance_lifetime_or_destroy(TTecBarta *);
 void move_ground_technique_projectile(TTecBarta *);
-extern s32 lbl_805D63AC;
+extern s32 technique_effect_bml;
 extern s32 lbl_805D63B0;
 extern const f32 lbl_805DC7A0;
 extern const f32 lbl_805DC7A4;
@@ -158,7 +158,7 @@ TechniqueParticleEmitter *spawn_continuous_particle_with_direction(f32 *, s32 *,
 TechniqueParticleEmitter *create_particle_emitter(f32 *, u32);
 TechniqueParticleEmitter **alloc_buffer__11TOBoss4RockFPv(u32);
 extern TechniqueEmitterSourceTable TTecBarta__data_8044CD98[];
-extern s32 lbl_805D63AC;
+extern s32 technique_effect_bml;
 extern s32 lbl_805D63B0;
 extern const f32 lbl_805DC7A0;
 void create_particle_emitters__9TTecBartaFPv(void *arg);
@@ -252,7 +252,7 @@ void create_particle_emitters__9TTecBartaFPv(void *arg) {
         if (self->emitters[i] != NULL) {
             row = &TTecBarta__data_8044CD98[self->band].rows[i];
             if (row->flags & 0x20) {
-                attach_particle_model(self->emitters[i], get_bml_model(lbl_805D63AC, 0), lbl_805D63B0, get_bml_motion(lbl_805D63AC, 0), 0, lbl_805DC7A0);
+                attach_particle_model(self->emitters[i], get_bml_model(technique_effect_bml, 0), lbl_805D63B0, get_bml_motion(technique_effect_bml, 0), 0, lbl_805DC7A0);
             } else {
                 set_position_xy__10TObjPlayerFPvff(self->emitters[i], row->scale, row->scale);
             }
@@ -357,7 +357,7 @@ void run_task__9TTecBartaFv(TTecBarta *self) {
     if (self->band == 5) {
         TechniqueParticleEmitter *e = create_timed_particle_emitter(self->position, 0x18A, 0x14, 1);
         if (e != NULL) {
-            attach_particle_model(e, get_bml_model(lbl_805D63AC, 5), lbl_805D63B0, 0, 0, lbl_805DC7A0);
+            attach_particle_model(e, get_bml_model(technique_effect_bml, 5), lbl_805D63B0, 0, 0, lbl_805DC7A0);
         }
     }
     move_ground_technique_projectile(self);

@@ -22,7 +22,7 @@ s32 TWindowCtrlMain__sub_8024CDD0(int);
 s32 is_window_display_enabled();
 s32 draw_menu_backdrop_gradients(int);
 s32 TWindowCtrlMain__sub_8024D2A4(int);
-extern s32 TWindowCtrlMain__data_805D6404;
+extern s32 TWindowCtrlMain__instance;
 void render__17TWindowCtrlScreenFv(void);
 u8 * __dt__7TObjectFv(void *, s16);
 void __dl__7TObjectFPv(s32);
@@ -39,7 +39,7 @@ void render__17TWindowCtrlScreenFv(void) {
         temp_r31 = get_nth_view_player_id__11TCameraCtrlFi((int) (get_camera_no__11TCameraCtrlFv()));
         reset_transform_state__10TObjPlayerFv();
         begin_effect_render__13TParticleCtrlFv();
-        render_nodes__7TObjectFv((int) (TWindowCtrlMain__data_805D6404));
+        render_nodes__7TObjectFv((int) (TWindowCtrlMain__instance));
         TWindowCtrlMain__sub_8024D2A4((int) ((s32) temp_r31));
         restore_full_screen_view__11TCameraCtrlFv();
         draw_menu_backdrop_gradients((int) ((s32) temp_r31));

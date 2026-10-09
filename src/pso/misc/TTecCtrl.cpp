@@ -19,11 +19,11 @@ void safe_free__23TAdSinglePlyChrSelectGCFUi(u32);
 void TTecZondeEff__sub_8023DBA8(void);
 s32 TLobby__sub_803DA16C(void *, M2C_UNK);
 extern RecoveredGlobal_8022F068_lbl_804CC934 technique_ringwave_texture_list;
-extern u8 *lbl_805D63AC;
+extern u8 *technique_effect_bml;
 extern void **lbl_805D63B0;
 void TLobby__sub_8022F068(void);
 s32 clamp_nonnegative_int(s32 x);
-extern u8 *lbl_805D63AC;
+extern u8 *technique_effect_bml;
 extern void **lbl_805D63B0;
 extern u8 technique_resource_descriptor[];
 extern u8 lbl_8044D088[];
@@ -91,17 +91,17 @@ void TLobby__sub_8022F068(void) {
         safe_free__23TAdSinglePlyChrSelectGCFUi((u32) lbl_805D63B0);
         lbl_805D63B0 = NULL;
     }
-    if ((void *) lbl_805D63AC != NULL) {
-        TLobby__sub_8001FE7C(lbl_805D63AC, 1);
+    if ((void *) technique_effect_bml != NULL) {
+        TLobby__sub_8001FE7C(technique_effect_bml, 1);
     }
-    lbl_805D63AC = NULL;
+    technique_effect_bml = NULL;
 }
 void load_technique_resources(void) {
     u8 *p = alloc__23TAdSinglePlyChrSelectGCFPv(0x440);
     if (p != 0) {
         p = load_resource_from_descriptor(p, 1, technique_resource_descriptor, 0, 0, 0);
     }
-    lbl_805D63AC = p;
+    technique_effect_bml = p;
     lbl_805D63B0 = load_gvm_texture_file(lbl_8044D088);
     bind_gvm_texture_list(lbl_8044D094, ((u8 *)&technique_ringwave_texture_list));
     init_resources__12TTecZondeEffFv();

@@ -34,16 +34,16 @@ void update_scroll__6TLobbyFPv(u8 *arg0) {
     }
 }
 
-extern u32 lbl_805D75F8;
+extern u32 cvfs_completion_callback;
 extern s32 lbl_805D75FC;
 
 void TLobby__sub_803CE544(u32 arg0, s32 arg1) {
     if (arg0 == 0U) {
-        lbl_805D75F8 = 0U;
+        cvfs_completion_callback = 0U;
         lbl_805D75FC = 0;
         return;
     }
-    lbl_805D75F8 = arg0;
+    cvfs_completion_callback = arg0;
     lbl_805D75FC = arg1;
 }
 

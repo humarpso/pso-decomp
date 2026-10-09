@@ -105,7 +105,7 @@ M2C_UNK pop_matrix();
 extern RecoveredGlobal_800D4668_lbl_80494400 lbl_80494400;
 extern M2C_UNK lbl_8049442C[];
 extern RecoveredGlobal_800D4668_lbl_8058D490 lbl_8058D490;
-extern s32 lbl_805D51FC;
+extern s32 gyaranzo_bml_resource;
 extern s32 tl_04;
 extern const f32 lbl_805DA2A4;
 extern const f32 lbl_805DA2A8;
@@ -205,7 +205,7 @@ void *destroy__19TObjGyaranzoMissileFPvs(void *arg0, s16 arg1) {
     return arg0;
 }
 
-extern s32 lbl_805D51FC;
+extern s32 gyaranzo_bml_resource;
 extern s32 some_id_805c6f74;
 extern const f32 lbl_805DA2C4;
 
@@ -220,8 +220,8 @@ u8 *TObjGyaranzoMissile__sub_800D4668(u8 *arg0, u8 *arg1, u8 *arg2, s32 arg3, s3
     VecCopy__FP3VecPC3Vec((void *) (arg0 + 0xE0), (void *) (arg0 + 0x38));
     M2C_FIELD(arg0, f32 *, 0xE4) = (f32) (M2C_FIELD(arg0, f32 *, 0xE4) + lbl_805DA2A8);
     M2C_FIELD(arg0, s32 *, 0xDC) = arg4;
-    M2C_FIELD(arg0, s32 *, 0xC4) = (s32) M2C_FIELD(M2C_FIELD((*(u8 * *)&lbl_805D51FC), u8 **, 0x42C), s32 *, 0x58);
-    M2C_FIELD(arg0, s32 *, 0xC8) = (s32) M2C_FIELD(M2C_FIELD((*(u8 * *)&lbl_805D51FC), u8 **, 0x42C), s32 *, 0x5C);
+    M2C_FIELD(arg0, s32 *, 0xC4) = (s32) M2C_FIELD(M2C_FIELD((*(u8 * *)&gyaranzo_bml_resource), u8 **, 0x42C), s32 *, 0x58);
+    M2C_FIELD(arg0, s32 *, 0xC8) = (s32) M2C_FIELD(M2C_FIELD((*(u8 * *)&gyaranzo_bml_resource), u8 **, 0x42C), s32 *, 0x5C);
     M2C_FIELD(arg0, s16 *, 0x28) = (s16) M2C_FIELD(arg1, s16 *, 0x28);
     M2C_FIELD(arg0, u16 *, 0xD8) = obj_getField1c((void *) (arg1));
     M2C_FIELD(arg0, s32 *, 0xB8) = 0;
@@ -273,7 +273,7 @@ void TObjGyaranzoMissile__sub_800D47B4(Missile_800D47B4 *arg0) {
 }
 
 void render__19TObjGyaranzoMissileFv(u8 *arg0) {
-    TObjFish__sub_8001EDB0((void *) (lbl_805D51FC), (int) (6));
+    TObjFish__sub_8001EDB0((void *) (gyaranzo_bml_resource), (int) (6));
     set_global_param__8TObjFishFi();
     push_matrix();
     post_translate_matrix((void *) (arg0 + 0x38));
@@ -281,7 +281,7 @@ void render__19TObjGyaranzoMissileFv(u8 *arg0) {
     rotate_matrix_y((int) (0), (int) (M2C_FIELD(arg0, s32 *, 0x60)));
     translate_matrix((int) (0), (f32) (lbl_805DA2C4), (f32) (M2C_FIELD(arg0, f32 *, 0xD4) * sin_table_lookup((int) (M2C_FIELD(arg0, s32 *, 0xCC)))), (f32) (lbl_805DA2C4));
     some_id_805c6f74 &= 0xFFFFFBFF;
-    get_bml_model((void *) (lbl_805D51FC), (int) (6));
+    get_bml_model((void *) (gyaranzo_bml_resource), (int) (6));
     draw_chunk_object();
     pop_matrix();
 }

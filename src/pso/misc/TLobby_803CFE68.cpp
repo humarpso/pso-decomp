@@ -8,13 +8,13 @@ extern "C" {
 
 void call_callback__6TLobbyFv(void);
 void TLobby__sub_803CFE9C(void);
-extern M2C_UNK (*lbl_805D75F8)(s32);
+extern M2C_UNK (*cvfs_completion_callback)(s32);
 
 extern s32 lbl_805D75FC;
 
 void call_callback__6TLobbyFv(void) {
-    if (((M2C_UNK (*)(s32)) lbl_805D75F8) != NULL) {
-        lbl_805D75F8(lbl_805D75FC);
+    if (((M2C_UNK (*)(s32)) cvfs_completion_callback) != NULL) {
+        cvfs_completion_callback(lbl_805D75FC);
     }
 }
 

@@ -15,10 +15,10 @@ struct RecoveredGlobal_8023F18C_lbl_804CCE60 {
 
 extern "C" {
 void call_funcs_reverse__6TLobbyFPvUi(s32, u32);
-extern RecoveredGlobal_8023F160_lbl_804CCE60 lbl_804CCE60;
+extern RecoveredGlobal_8023F160_lbl_804CCE60 lobby_scene_release_callback_table;
 void fn_8023F160(void);
 M2C_UNK run_load_callback_table(void *, int);
-extern RecoveredGlobal_8023F160_lbl_804CCE60 lbl_804CCE60;
+extern RecoveredGlobal_8023F160_lbl_804CCE60 lobby_scene_release_callback_table;
 void fn_8023F18C(void);
 }
 
@@ -26,11 +26,11 @@ extern "C" {
 
 typedef char RecoveredGlobal_8023F160_lbl_804CCE60_size[sizeof(RecoveredGlobal_8023F160_lbl_804CCE60) == 0x38 ? 1 : -1];
 void fn_8023F160(void) {
-    call_funcs_reverse__6TLobbyFPvUi((s32) &lbl_804CCE60.value, 0x38U);
+    call_funcs_reverse__6TLobbyFPvUi((s32) &lobby_scene_release_callback_table.value, 0x38U);
 }
 typedef char RecoveredGlobal_8023F18C_lbl_804CCE60_size[sizeof(RecoveredGlobal_8023F18C_lbl_804CCE60) == 0x38 ? 1 : -1];
 void fn_8023F18C(void) {
-    run_load_callback_table((void *) (&(*(RecoveredGlobal_8023F18C_lbl_804CCE60 *)&lbl_804CCE60).value), (int) (0x38));
+    run_load_callback_table((void *) (&(*(RecoveredGlobal_8023F18C_lbl_804CCE60 *)&lobby_scene_release_callback_table).value), (int) (0x38));
 }
 
 }

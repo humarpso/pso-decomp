@@ -394,7 +394,7 @@ int set_global_param__8TObjFishFi(void*);
 int set_global_state__16TObjEneRe7BeruraFi(void*);
 
 extern const f64 TObjEnePanarms__data_8043CDD0;
-extern u8 *TObjEnePanarms__data_805D5278;
+extern u8 *TObjEnePanarms__entry_params_resource;
 extern const f32 TObjEnePanarms__data_805DA524;
 extern const f32 TObjEnePanarms__data_805DA52C;
 extern const f32 TObjEnePanarms__data_805DA530;
@@ -465,7 +465,7 @@ void spawn_npc_pair__14TObjEnePanarmsFv(void) {
   stack.sp1C = *((s32 *) (((s8 *) (&lbl_8043CDA8.value)) + 4));
   stack.sp20 = *((s32 *) (((s8 *) (&lbl_8043CDA8.value)) + 8));
   stack.sp24 = *((s32 *) (((s8 *) (&lbl_8043CDA8.value)) + 0xC));
-  temp_r8 = *((s32 *) ((new_var = (s8 *) TObjEnePanarms__data_805D5278) + 0x430));
+  temp_r8 = *((s32 *) ((new_var = (s8 *) TObjEnePanarms__entry_params_resource) + 0x430));
   stack.sp8 = *((s32 *) (((s8 *) (&lbl_8043CDB8.value)) + 0));
   stack.sp18 = temp_r8;
   stack.spC = *((s32 *) (((s8 *) (&lbl_8043CDB8.value)) + 4));
@@ -474,7 +474,7 @@ void spawn_npc_pair__14TObjEnePanarmsFv(void) {
   stack.sp8 = temp_r8;
   temp_r5 = (u8 *) (*((u8 **) (new_var + 0x42C)));
   spawn_npc_enemy__6TLobbyFsiiiff((int) 0x24, (int) (*((s32 *) (((s8 *) temp_r5) + 0x18))), (int) (*((s32 *) (((s8 *) temp_r5) + 0x1C))), (void *) (&stack.sp18), (f32) lbl_805DA520, (f32) TObjEnePanarms__data_805DA524);
-  temp_r5_2 = (u8 *) (*((u8 **) (((s8 *) TObjEnePanarms__data_805D5278) + 0x42C)));
+  temp_r5_2 = (u8 *) (*((u8 **) (((s8 *) TObjEnePanarms__entry_params_resource) + 0x42C)));
   spawn_npc_enemy__6TLobbyFsiiiff((int) 0x25, (int) (*((s32 *) (((s8 *) temp_r5_2) + 0x28))), (int) (*((s32 *) (((s8 *) temp_r5_2) + 0x2C))), (void *) (&stack.sp8), (f32) lbl_805DA520, (f32) TObjEnePanarms__data_805DA524);
 }
 extern int fold_flush_0;

@@ -176,7 +176,7 @@ void send_state_60__10TNpcPlayerFPv(void* p);
 void build_6x69_npc_control(void* p);
 void create_companion__10TNpcPlayerFUsUsiPvi(u16 leader, u16 slot, s32 appearance, f32 *p, s32 heading);
 void clear_partner_dialogue_flags(void);
-extern struct Slot_8034EDC4 lbl_805436B8[];
+extern struct Slot_8034EDC4 partner_dialogue_table[];
 extern s32 TNpcPlayer__data_805D5864;
 extern int lbl_805D6EA0;
 void init_partner_dialogue(void);
@@ -689,8 +689,8 @@ void init_partner_dialogue(void) {
     TNpcPlayer__data_805D5864 = 0;
     for (i = 0; i < 4; i++) {
         for (j = 0; j < 6; j++) {
-            lbl_805436B8[i].a[j] = 0;
-            lbl_805436B8[i].b[j] = 0x19;
+            partner_dialogue_table[i].a[j] = 0;
+            partner_dialogue_table[i].b[j] = 0x19;
         }
     }
 }

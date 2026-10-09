@@ -9,16 +9,16 @@ extern "C" {
 s32 get_display_flag__11TWindowCtrlFv(void);
 
 s32 is_split_screen();
-extern void *TWindowCtrl__data_805D63F8;
+extern void *TWindowCtrl__active_window;
 
 s32 get_display_flag__11TWindowCtrlFv(void) {
     if (is_split_screen() != 0) {
         return 0;
     }
-    if ((void *) TWindowCtrl__data_805D63F8 == NULL) {
+    if ((void *) TWindowCtrl__active_window == NULL) {
         return 0;
     }
-    return ((u16) M2C_FIELD(TWindowCtrl__data_805D63F8, u16 *, 0x1C) >> 1U) & 1;
+    return ((u16) M2C_FIELD(TWindowCtrl__active_window, u16 *, 0x1C) >> 1U) & 1;
 }
 
 }

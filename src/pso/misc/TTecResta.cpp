@@ -130,7 +130,7 @@ s32 is_technique_ready__8TTecCtrlFv(int);
 extern RecoveredGlobal_802394B0_lbl_804CC55C lbl_804CC55C;
 f32 calc_heal_amount__9TTecRestaFi(s32 arg0);
 extern M2C_UNK lbl_804CCBC0[];
-extern Row_8023967C lbl_804CCB90[];
+extern Row_8023967C TTecResta__self_recovery_effect_table[];
 extern const f32 TTecResta__data_805DC908;
 void __ct__7TObjectFP7TObject(void *, void *);
 Vec_8023967C *VecCopy__FP3VecPC3Vec(Vec_8023967C *, const Vec_8023967C *);
@@ -253,7 +253,7 @@ Resta_8023967C *construct_self_recovery__9TTecRestaFPvPviPv(Resta_8023967C *self
     self->owner = owner;
     for (i = 0; i < 3; i++) {
         VecCopy__FP3VecPC3Vec(&v, pos);
-        row = &lbl_804CCB90[i];
+        row = &TTecResta__self_recovery_effect_table[i];
         if (row->flags & 1) {
             v.y -= TTecResta__data_805DC908;
         }

@@ -295,7 +295,7 @@ void *spawn_particle_effect_with_rotation(void *, void *, u32, u16);
 void *spawn_continuous_particle_effect_with_flags(void *, u32, u16);
 void **alloc_buffer__11TOBoss4RockFPv(u32, s32);
 extern TTecGiBartaData_80230B48 TTecMegid__data_8044D874[];
-extern s32 lbl_805D63AC;
+extern s32 technique_effect_bml;
 extern s32 lbl_805D63B0;
 extern const f32 lbl_805DC880;
 void spawn_particle_emitters__9TTecMegidFPv(void *arg0);
@@ -401,7 +401,7 @@ void spawn_particle_emitters__9TTecMegidFPv(void *arg0) {
       if (((Data_802351B4 *) TTecMegid__data_8044D874)[self->band].rows[i].flags & 0x20)
       {
         new_var = ((Data_802351B4 *) TTecMegid__data_8044D874)[self->band].rows[i].flags >> 16;
-        attach_particle_model(self->emitters[i], get_bml_model(lbl_805D63AC, new_var), lbl_805D63B0, 0, 1, lbl_805DC880);
+        attach_particle_model(self->emitters[i], get_bml_model(technique_effect_bml, new_var), lbl_805D63B0, 0, 1, lbl_805DC880);
       }
     }
   }

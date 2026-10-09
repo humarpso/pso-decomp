@@ -20,8 +20,8 @@ extern "C" {
 s32 TLoadCtrl__sub_800F9F00(void);
 void set_state__15TAdPlayerLoadGCFi(int a0);
 
-    extern int lbl_805D63D0;
-void set_state__15TAdPlayerLoadGCFi(int a0) { lbl_805D63D0 = a0; }
+    extern int TAdPlayerLoadGC__load_state;
+void set_state__15TAdPlayerLoadGCFi(int a0) { TAdPlayerLoadGC__load_state = a0; }
 
 extern s32 TLoadCtrl__data_805D4A88;
 

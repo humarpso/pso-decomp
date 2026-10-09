@@ -6,7 +6,7 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 
 extern "C" {
 s32 create__10TBoss6RockFPv(s32);
-extern s32 TBoss6Rock__data_80543778[];
+extern s32 TBoss6Rock__instance_table[];
 extern u32 TBoss6Rock__data_805D6EF0;
 extern u32 TBoss6Rock__data_805D6EF4;
 extern int TBoss6Rock__data_805D6EF8;
@@ -18,7 +18,7 @@ u32 load_gvm_texture_file(void *);
 void TBoss6Rock__sub_80354188(void);
 extern u8 lbl_80479298[];
 extern u8 lbl_804F1250[];
-extern s32 TBoss6Rock__data_80543778[];
+extern s32 TBoss6Rock__instance_table[];
 extern u32 TBoss6Rock__data_805D6EF0;
 extern u32 TBoss6Rock__data_805D6EF4;
 extern s32 lbl_805D6EFC;
@@ -46,7 +46,7 @@ void create_rock_pool__10TBoss6RockFi(s32 arg0) {
     }
     (*(s32 *)&TBoss6Rock__data_805D6EF8) = arg0;
     for (i = 0; i < 0x20; i++) {
-        TBoss6Rock__data_80543778[i] = create__10TBoss6RockFPv(i);
+        TBoss6Rock__instance_table[i] = create__10TBoss6RockFPv(i);
     }
 }
 
@@ -75,7 +75,7 @@ void load_resources__10TBoss6RockFv(void) {
     }
     TBoss6Rock__sub_80354188();
     for (i = 0; i < 0x20; i++) {
-        TBoss6Rock__data_80543778[i] = 0;
+        TBoss6Rock__instance_table[i] = 0;
     }
     lbl_805D6EFC = (s32)*(f32 *)((u8 *)dispatch_shared_handler_a__6TLobbyFPv(0x2C) + 0xC);
     if (lbl_805D6EFC < 1) {

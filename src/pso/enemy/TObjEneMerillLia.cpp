@@ -505,7 +505,7 @@ extern const f32 lbl_805DA328;
 extern const f32 lbl_805DA32C;
 extern const f32 lbl_805DA330;
 void render__16TObjEneMerillLiaFPv(u8 *arg0);
-extern u32 TObjEneMerillLia__data_805D5220;
+extern u32 TObjEneMerillLia__entry_params_resource;
 void load_entry_params__16TObjEneMerillLiaFPvi(O_800D7274 *self, s32 i);
 extern s32 game_difficulty_selection;
 s32 get_clamped_level__16TObjEneMerillLiaFPv(Obj_800D5100 *self);
@@ -557,7 +557,7 @@ s32 pop_matrix();
 f32 post_translate_matrix(void *);
 extern Vec_800D57C8 lbl_8043C6D0;
 extern RecoveredGlobal_800D5060_lbl_8058D490 lbl_8058D490;
-extern u32 TObjEneMerillLia__data_805D521C;
+extern u32 TObjEneMerillLia__rock_param_table;
 extern s32 anim_model_matrix_array;
 extern const f32 lbl_805DA30C;
 extern const f32 lbl_805DA310;
@@ -1228,7 +1228,7 @@ M2C_UNK update_kafun_attack__16TObjEneMerillLiaFPv(void *p) {
                 matrix_mult_vec(0, &sp8, &sp14);
             }
             pop_matrix();
-            create__9TTecKafunFiiiiiff((void *) (arg0), &sp14, 0xF, 0xD3, get_clamped_level__16TObjEneMerillLiaFPv((Obj_800D5100 *) (arg0)), M2C_FIELD(((void **) TObjEneMerillLia__data_805D521C)[M2C_FIELD(arg0, s32 *, 0x334)], f32 *, 0x10), lbl_805DA310);
+            create__9TTecKafunFiiiiiff((void *) (arg0), &sp14, 0xF, 0xD3, get_clamped_level__16TObjEneMerillLiaFPv((Obj_800D5100 *) (arg0)), M2C_FIELD(((void **) TObjEneMerillLia__rock_param_table)[M2C_FIELD(arg0, s32 *, 0x334)], f32 *, 0x10), lbl_805DA310);
             TObjEneMerillLia__sub_800D4EC8((s32) (arg0));
         }
         if ((u32) M2C_FIELD(arg0, u32 *, 0xB4) != 4U) {
@@ -1745,32 +1745,32 @@ void * TObjEneMerillLia__create(void *arg0) {
     return o2;
 }
 
-extern u32 lbl_805D5210;
-extern u32 lbl_805D5214;
-extern u32 lbl_805D5218;
-extern u32 TObjEneMerillLia__data_805D521C;
-extern u32 TObjEneMerillLia__data_805D5220;
+extern u32 TObjEneMerillLia__rock_stats_table;
+extern u32 merill_lia_rock_buffer;
+extern u32 merill_lia_rock_aux_buffer;
+extern u32 TObjEneMerillLia__rock_param_table;
+extern u32 TObjEneMerillLia__entry_params_resource;
 
 void destroy_rocks__16TObjEneMerillLiaFv(void) {
-    if ((u32) lbl_805D5210 != 0U) {
-        free__11TOBoss4RockFUi((void*)lbl_805D5210);
-        lbl_805D5210 = 0U;
+    if ((u32) TObjEneMerillLia__rock_stats_table != 0U) {
+        free__11TOBoss4RockFUi((void*)TObjEneMerillLia__rock_stats_table);
+        TObjEneMerillLia__rock_stats_table = 0U;
     }
-    if ((u32) lbl_805D5214 != 0U) {
-        free__11TOBoss4RockFUi((void*)lbl_805D5214);
-        lbl_805D5214 = 0U;
+    if ((u32) merill_lia_rock_buffer != 0U) {
+        free__11TOBoss4RockFUi((void*)merill_lia_rock_buffer);
+        merill_lia_rock_buffer = 0U;
     }
-    if ((u32) lbl_805D5218 != 0U) {
-        free__11TOBoss4RockFUi((void*)lbl_805D5218);
-        lbl_805D5218 = 0U;
+    if ((u32) merill_lia_rock_aux_buffer != 0U) {
+        free__11TOBoss4RockFUi((void*)merill_lia_rock_aux_buffer);
+        merill_lia_rock_aux_buffer = 0U;
     }
-    if ((u32) TObjEneMerillLia__data_805D521C != 0U) {
-        free__11TOBoss4RockFUi((void*)TObjEneMerillLia__data_805D521C);
-        TObjEneMerillLia__data_805D521C = 0U;
+    if ((u32) TObjEneMerillLia__rock_param_table != 0U) {
+        free__11TOBoss4RockFUi((void*)TObjEneMerillLia__rock_param_table);
+        TObjEneMerillLia__rock_param_table = 0U;
     }
-    if ((u32) TObjEneMerillLia__data_805D5220 != 0U) {
-        TLobby__sub_8001FE7C((void*)TObjEneMerillLia__data_805D5220, 1);
-        TObjEneMerillLia__data_805D5220 = 0U;
+    if ((u32) TObjEneMerillLia__entry_params_resource != 0U) {
+        TLobby__sub_8001FE7C((void*)TObjEneMerillLia__entry_params_resource, 1);
+        TObjEneMerillLia__entry_params_resource = 0U;
     }
 }
 
@@ -1807,11 +1807,11 @@ M2C_UNK set_animation__10TObjPlayerFPvs(void *, int);
 M2C_UNK reset_photon_effect__10TObjPlayerFPv(void *);
 M2C_UNK init_collision_body_parts(void *, void *, int);
 extern s32 lbl_805D2A88;
-extern u32 lbl_805D5210;
-extern u32 lbl_805D5214;
-extern u32 lbl_805D5218;
-extern u32 TObjEneMerillLia__data_805D521C;
-extern u32 TObjEneMerillLia__data_805D5220;
+extern u32 TObjEneMerillLia__rock_stats_table;
+extern u32 merill_lia_rock_buffer;
+extern u32 merill_lia_rock_aux_buffer;
+extern u32 TObjEneMerillLia__rock_param_table;
+extern u32 TObjEneMerillLia__entry_params_resource;
 extern const f32 TObjEneMerillLia__data_805DA300;
 extern const f32 lbl_805DA338;
 extern const f32 lbl_805DA340;
@@ -1834,13 +1834,13 @@ void *TObjEneMerillLia__ct(void *arg0v, void *arg1, void *arg2) {
     load_entry_params__16TObjEneMerillLiaFPvi((O_800D7274 *) arg0, M2C_FIELD(arg0, s32 *, 0x368));
     M2C_FIELD(arg0, void **, 0xD8) = lbl_80494570;
     set_field_d8__10TObjPlayerFPvi(arg0, M2C_FIELD(arg0, void **, 0xD8));
-    M2C_FIELD(arg0, s32 *, 0xDC) = M2C_FIELD(TObjEneMerillLia__data_805D5220, s32 *, 0x430);
+    M2C_FIELD(arg0, s32 *, 0xDC) = M2C_FIELD(TObjEneMerillLia__entry_params_resource, s32 *, 0x430);
     M2C_FIELD(arg0, s16 *, 0xB8) = 0;
     set_animation__10TObjPlayerFPvs(arg0, M2C_FIELD(arg0, s16 *, 0xB8));
     set_field_b8__14TObjEnePanarmsFPvs(arg0, M2C_FIELD(arg0, s16 *, 0xB8));
     init_collision_body_parts(arg0, (u8 *) lbl_804946A4 + M2C_FIELD(arg0, s32 *, 0x334) * 0x2C, 1);
-    bind_enemy_combat_stats(arg0, ((s32 *) lbl_805D5210)[M2C_FIELD(arg0, s32 *, 0x334)],
-        ((s32 *) lbl_805D5214)[M2C_FIELD(arg0, s32 *, 0x334)], ((s32 *) lbl_805D5218)[M2C_FIELD(arg0, s32 *, 0x334)]);
+    bind_enemy_combat_stats(arg0, ((s32 *) TObjEneMerillLia__rock_stats_table)[M2C_FIELD(arg0, s32 *, 0x334)],
+        ((s32 *) merill_lia_rock_buffer)[M2C_FIELD(arg0, s32 *, 0x334)], ((s32 *) merill_lia_rock_aux_buffer)[M2C_FIELD(arg0, s32 *, 0x334)]);
     M2C_FIELD(arg0, u8 **, 0x350) = (u8 *) lbl_80494650 + M2C_FIELD(arg0, s32 *, 0x334) * 0x1C;
     M2C_FIELD(arg0, s16 *, 0x33E) = M2C_FIELD(arg0, s16 *, 0x32C);
     update_prev_position__10TObjPlayerFPv(arg0);
@@ -1857,12 +1857,12 @@ void *TObjEneMerillLia__ct(void *arg0v, void *arg1, void *arg2) {
     add_flags_2e4__10TObjPlayerFPvUi(arg0, 2);
     obj_setFlags30(arg0, 0x40000);
     M2C_FIELD(arg0, f32 *, 0x380) = TObjEneMerillLia__data_805DA300;
-    M2C_FIELD(arg0, f32 *, 0x398) = ((f32 **) TObjEneMerillLia__data_805D521C)[M2C_FIELD(arg0, s32 *, 0x334)][0];
-    M2C_FIELD(arg0, f32 *, 0x3A0) = ((f32 **) TObjEneMerillLia__data_805D521C)[M2C_FIELD(arg0, s32 *, 0x334)][1];
-    M2C_FIELD(arg0, f32 *, 0x39C) = ((f32 **) TObjEneMerillLia__data_805D521C)[M2C_FIELD(arg0, s32 *, 0x334)][2];
-    M2C_FIELD(arg0, f32 *, 0x3A4) = ((f32 **) TObjEneMerillLia__data_805D521C)[M2C_FIELD(arg0, s32 *, 0x334)][3];
-    M2C_FIELD(arg0, f32 *, 0x3D4) = ((f32 **) TObjEneMerillLia__data_805D521C)[M2C_FIELD(arg0, s32 *, 0x334)][5];
-    M2C_FIELD(arg0, f32 *, 0x3CC) = ((s32 **) TObjEneMerillLia__data_805D521C)[M2C_FIELD(arg0, s32 *, 0x334)][6] / lbl_805DA338;
+    M2C_FIELD(arg0, f32 *, 0x398) = ((f32 **) TObjEneMerillLia__rock_param_table)[M2C_FIELD(arg0, s32 *, 0x334)][0];
+    M2C_FIELD(arg0, f32 *, 0x3A0) = ((f32 **) TObjEneMerillLia__rock_param_table)[M2C_FIELD(arg0, s32 *, 0x334)][1];
+    M2C_FIELD(arg0, f32 *, 0x39C) = ((f32 **) TObjEneMerillLia__rock_param_table)[M2C_FIELD(arg0, s32 *, 0x334)][2];
+    M2C_FIELD(arg0, f32 *, 0x3A4) = ((f32 **) TObjEneMerillLia__rock_param_table)[M2C_FIELD(arg0, s32 *, 0x334)][3];
+    M2C_FIELD(arg0, f32 *, 0x3D4) = ((f32 **) TObjEneMerillLia__rock_param_table)[M2C_FIELD(arg0, s32 *, 0x334)][5];
+    M2C_FIELD(arg0, f32 *, 0x3CC) = ((s32 **) TObjEneMerillLia__rock_param_table)[M2C_FIELD(arg0, s32 *, 0x334)][6] / lbl_805DA338;
     M2C_FIELD(arg0, s32 *, 0x390) = 1;
     M2C_FIELD(arg0, s16 *, 0x326) = 0xD;
     M2C_FIELD(arg0, s16 *, 0xB8) = 1;
@@ -1872,8 +1872,8 @@ void *TObjEneMerillLia__ct(void *arg0v, void *arg1, void *arg2) {
 #undef arg0
 
 void load_entry_params__16TObjEneMerillLiaFPvi(O_800D7274 *self, s32 i) {
-    self->f34 = (*(D_800D7274 * *)&TObjEneMerillLia__data_805D5220)->entries[i].f8;
-    self->f24 = (*(D_800D7274 * *)&TObjEneMerillLia__data_805D5220)->entries[i].fc;
+    self->f34 = (*(D_800D7274 * *)&TObjEneMerillLia__entry_params_resource)->entries[i].f8;
+    self->f24 = (*(D_800D7274 * *)&TObjEneMerillLia__entry_params_resource)->entries[i].fc;
 }
 
 }

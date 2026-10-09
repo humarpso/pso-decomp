@@ -65,9 +65,9 @@ extern const f32 TBoss6Rock__data_805DFF4C;
 extern const f32 lbl_805DFF98;
 extern const f32 lbl_805DFFA4;
 void init_spin_params__10TBoss6RockFPv(void *arg0);
-extern RecoveredGlobal_80353E10_TBoss6Rock__data_80543778 TBoss6Rock__data_80543778;
+extern RecoveredGlobal_80353E10_TBoss6Rock__data_80543778 TBoss6Rock__instance_table;
 s32 is_rock_valid__10TBoss6RockFi(s32 arg0);
-extern RecoveredGlobal_80353E10_TBoss6Rock__data_80543778 TBoss6Rock__data_80543778;
+extern RecoveredGlobal_80353E10_TBoss6Rock__data_80543778 TBoss6Rock__instance_table;
 u8 is_rock_state_2__10TBoss6RockFi(s32 arg0);
 s32 rand();
 extern const f32 TBoss6Rock__data_805DFF4C;
@@ -90,18 +90,18 @@ extern const f32 lbl_805DFF9C;
 extern const f32 lbl_805DFFA0;
 void update_fall__10TBoss6RockFPv(u8 *arg0);
 extern RecoveredGlobal_80354148_TBoss6Rock__data_80479258 TBoss6Rock__data_80479258;
-extern RecoveredGlobal_80353E10_TBoss6Rock__data_80543778 TBoss6Rock__data_80543778;
+extern RecoveredGlobal_80353E10_TBoss6Rock__data_80543778 TBoss6Rock__instance_table;
 u8 *get_rock_entry__10TBoss6RockFi(s32 arg0);
 s32 is_rock_valid__10TBoss6RockFi(s32 arg0);
 u8 *get_rock_entry__10TBoss6RockFi(s32 arg0);
 void VecCopy__FP3VecPC3Vec(void *, const void *);
-extern u8 TBoss6Rock__data_805437F8[];
+extern u8 TBoss6Rock__rock_point_table[];
 s32 get_point__10TBoss6RockFiPvPv(s32 arg0, s32 arg1, f32 *arg2);
-extern RecoveredGlobal_80353E10_TBoss6Rock__data_80543778 TBoss6Rock__data_80543778;
+extern RecoveredGlobal_80353E10_TBoss6Rock__data_80543778 TBoss6Rock__instance_table;
 void set_rock_target__10TBoss6RockFiii(s32 i, s32 a, s32 b);
-extern RecoveredGlobal_80353E10_TBoss6Rock__data_80543778 TBoss6Rock__data_80543778;
+extern RecoveredGlobal_80353E10_TBoss6Rock__data_80543778 TBoss6Rock__instance_table;
 void clear_rock_state__10TBoss6RockFi(s32 i);
-extern RecoveredGlobal_80353E10_TBoss6Rock__data_80543778 TBoss6Rock__data_80543778;
+extern RecoveredGlobal_80353E10_TBoss6Rock__data_80543778 TBoss6Rock__instance_table;
 void reset_rock_state__10TBoss6RockFi(s32 arg0);
 u8 is_rock_state_2__10TBoss6RockFi(s32 arg0);
 void clear_rock_state__10TBoss6RockFi(s32 i);
@@ -109,7 +109,7 @@ u8 *get_rock_entry__10TBoss6RockFi(s32 arg0);
 void VecCopy__FP3VecPC3Vec(void *, const void *);
 f32 vector_length(void *);
 void subtract_vector(void *, void *);
-extern u8 TBoss6Rock__data_805437F8[];
+extern u8 TBoss6Rock__rock_point_table[];
 extern const f32 TBoss6Rock__data_805DFF50;
 void break_rocks_in_radius__10TBoss6RockFPvf(Vec_80353B7C *arg0, f32 r);
 void VecCopy__FP3VecPC3Vec(void *, const void *);
@@ -117,7 +117,7 @@ void vec3_add_to(void *, void *);
 f32 vector_length(void *);
 void subtract_vector(void *, void *);
 void normalize_vector(void *);
-extern u8 TBoss6Rock__data_805437F8[];
+extern u8 TBoss6Rock__rock_point_table[];
 extern const f32 TBoss6Rock__data_805DFF50;
 extern const f32 TBoss6Rock__data_805DFF5C;
 extern const f32 lbl_805DFF60;
@@ -130,7 +130,7 @@ void vec3_add_to(void *, void *);
 f32 vector_length(void *);
 void subtract_vector(void *, void *);
 void normalize_vector(void *);
-extern u8 TBoss6Rock__data_805437F8[];
+extern u8 TBoss6Rock__rock_point_table[];
 extern u8 *TBoss6Rock__data_805D6EF8;
 extern const f32 TBoss6Rock__data_805DFF50;
 extern const f32 lbl_805DFF54;
@@ -252,7 +252,7 @@ int TBoss6Rock__sub_80353A04(void) {  return TBoss6Rock__data_805D6EF4; }
     extern int TBoss6Rock__data_805D6EF0;
 int TBoss6Rock__sub_80353A0C(void) {  return TBoss6Rock__data_805D6EF0; }
 
-extern u8 TBoss6Rock__data_805437F8[];
+extern u8 TBoss6Rock__rock_point_table[];
 
 typedef char RecoveredGlobal_80353E10_TBoss6Rock__data_80543778_size[sizeof(RecoveredGlobal_80353E10_TBoss6Rock__data_80543778) == 0x80 ? 1 : -1];
 
@@ -281,7 +281,7 @@ s32 TBoss6Rock__sub_80353A14(s32 arg0, Vec_80353A14 *out, f32 *outR) {
     r = *(f32 *)(rec + 4);
     VecCopy__FP3VecPC3Vec(&a, TBoss6Rock__data_805D6EF8 + 0x38);
     a.y = TBoss6Rock__data_805DFF50;
-    VecCopy__FP3VecPC3Vec(&b, &((Vec_80353A14 *)TBoss6Rock__data_805437F8)[arg0]);
+    VecCopy__FP3VecPC3Vec(&b, &((Vec_80353A14 *)TBoss6Rock__rock_point_table)[arg0]);
     VecCopy__FP3VecPC3Vec(&c, &b);
     subtract_vector(&c, &a);
     d = vector_length(&c);
@@ -310,7 +310,7 @@ void break_rocks_in_radius__10TBoss6RockFPvf(Vec_80353B7C *arg0, f32 r) {
         p = (R_80353B7C *)get_rock_entry__10TBoss6RockFi(i);
         if (p != NULL && ((s32 (*)(s32))is_rock_state_2__10TBoss6RockFi)(i) != 0 && !(arg0->y > r + p->f8)) {
             f32 lim = r + p->f4;
-            VecCopy__FP3VecPC3Vec(&v, &((Vec_80353B7C *)TBoss6Rock__data_805437F8)[i]);
+            VecCopy__FP3VecPC3Vec(&v, &((Vec_80353B7C *)TBoss6Rock__rock_point_table)[i]);
             subtract_vector(&v, arg0);
             v.y = TBoss6Rock__data_805DFF50;
             if (vector_length(&v) <= lim) {
@@ -330,7 +330,7 @@ s32 push_out_of_rocks__10TBoss6RockFPvf(Vec_80353C60 *arg0, f32 r) {
     for (i = 0; i < 0x20; i++) {
         f32 d;
         VecCopy__FP3VecPC3Vec(&v, arg0);
-        subtract_vector(&v, &((Vec_80353C60 *)TBoss6Rock__data_805437F8)[i]);
+        subtract_vector(&v, &((Vec_80353C60 *)TBoss6Rock__rock_point_table)[i]);
         v.y = y;
         d = vector_length(&v);
         if (!(d >= lim)) {
@@ -353,7 +353,7 @@ s32 get_point__10TBoss6RockFiPvPv(s32 arg0, s32 arg1, f32 *arg2) {
         return 0;
     }
     temp_r5 = arg0 * 0xC;
-    VecCopy__FP3VecPC3Vec((void *)((void *) (arg1)), (const void *)((void *) ((u8 *)(&TBoss6Rock__data_805437F8) + temp_r5)));
+    VecCopy__FP3VecPC3Vec((void *)((void *) (arg1)), (const void *)((void *) ((u8 *)(&TBoss6Rock__rock_point_table) + temp_r5)));
     M2C_FIELD(arg2, f32 *, 0) = M2C_FIELD(get_rock_entry__10TBoss6RockFi(arg0), f32 *, 4);
     return 1;
 }
@@ -363,7 +363,7 @@ u8 is_rock_state_2__10TBoss6RockFi(s32 arg0) {
     if ((arg0 < 0) || (arg0 >= 0x20)) {
         return 0U;
     }
-    temp_r3 = (u8 *)(M2C_FIELD(&(*(RecoveredGlobal_80353DC4_TBoss6Rock__data_80543778 *)&TBoss6Rock__data_80543778).value, M2C_UNK *, (arg0 * 4)));
+    temp_r3 = (u8 *)(M2C_FIELD(&(*(RecoveredGlobal_80353DC4_TBoss6Rock__data_80543778 *)&TBoss6Rock__instance_table).value, M2C_UNK *, (arg0 * 4)));
     if (temp_r3 == NULL) {
         return 0U;
     }
@@ -375,7 +375,7 @@ s32 is_rock_valid__10TBoss6RockFi(s32 arg0) {
     if ((arg0 < 0) || (arg0 >= 0x20)) {
         return 0U;
     }
-    temp_r3 = (u8 *)(M2C_FIELD(&TBoss6Rock__data_80543778.value, M2C_UNK *, (arg0 * 4)));
+    temp_r3 = (u8 *)(M2C_FIELD(&TBoss6Rock__instance_table.value, M2C_UNK *, (arg0 * 4)));
     if (temp_r3 == NULL) {
         return 0U;
     }
@@ -387,7 +387,7 @@ void reset_rock_state__10TBoss6RockFi(s32 arg0) {
     if (arg0 < 0 || arg0 >= 0x20) {
         return;
     }
-    r = ((R_80353E5C * *)&TBoss6Rock__data_80543778)[arg0];
+    r = ((R_80353E5C * *)&TBoss6Rock__instance_table)[arg0];
     if (r == NULL || r->fC4 != 2) {
         return;
     }
@@ -399,7 +399,7 @@ void clear_rock_state__10TBoss6RockFi(s32 i) {
     if (i < 0 || i >= 0x20) {
         return;
     }
-    p = ((Rock_80353EA4 **)&TBoss6Rock__data_80543778)[i];
+    p = ((Rock_80353EA4 **)&TBoss6Rock__instance_table)[i];
     if (p != NULL) {
         p->state = 0;
     }
@@ -410,7 +410,7 @@ void set_rock_target__10TBoss6RockFiii(s32 i, s32 a, s32 b) {
     if (i < 0 || i >= 0x20) {
         return;
     }
-    p = ((Rock_80353EDC **)&TBoss6Rock__data_80543778)[i];
+    p = ((Rock_80353EDC **)&TBoss6Rock__instance_table)[i];
     if (p != NULL) {
         p->state = 2;
         p->b8 = a;
@@ -440,7 +440,7 @@ u8 *get_rock_entry__10TBoss6RockFi(s32 arg0) {
     if ((arg0 < 0) || (arg0 >= 0x20)) {
         return NULL;
     }
-    return (u8 *)(&TBoss6Rock__data_80479258.value) + (M2C_FIELD(M2C_FIELD(((u8 *)(&(*(RecoveredGlobal_80354148_TBoss6Rock__data_80543778 *)&TBoss6Rock__data_80543778).value) + (arg0 * 4)), u8 **, 0), s32 *, 0xB4) * 0x14);
+    return (u8 *)(&TBoss6Rock__data_80479258.value) + (M2C_FIELD(M2C_FIELD(((u8 *)(&(*(RecoveredGlobal_80354148_TBoss6Rock__data_80543778 *)&TBoss6Rock__instance_table).value) + (arg0 * 4)), u8 **, 0), s32 *, 0xB4) * 0x14);
 }
 #pragma pop
 

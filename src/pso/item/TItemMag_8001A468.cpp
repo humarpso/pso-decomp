@@ -109,7 +109,7 @@ s32 __ct__7TObjectFP7TObject(void *, void *);
 extern RecoveredGlobal_8001A8F0_lbl_8043455C lbl_8043455C;
 extern M2C_UNK lbl_80480938[];
 extern s32 lbl_805D49E0;
-extern s8 lbl_805D49E4;
+extern s8 player_light_index;
 u8 *TObjPlayer__sub_8001A8F0(u8 *arg0, s32 arg1);
 void VecCopy__FP3VecPC3Vec(void *, void *);
 void set_active_camera_pose_from_params(void *);
@@ -120,7 +120,7 @@ int TObjPlayer__sub_8001A77C(void *p);
 M2C_UNK publish_light_direction_color(int, void *, void *);
 extern Color_8001A6A8 player_light_color_rgba_table[];
 extern Light_8001A6A8 player_light_direction_color_table[];
-extern s8 lbl_805D49E4;
+extern s8 player_light_index;
 int publish_light_color__10TObjPlayerFPv(void *p);
 }
 
@@ -154,17 +154,17 @@ s32 get_flag890_state__10TObjPlayerFPv(void *arg0) {
 }
 
 extern s32 lbl_805D49E0;
-extern s8 lbl_805D49E4;
+extern s8 player_light_index;
 extern s32 lbl_805D49E8;
 extern s32 game_difficulty_selection;
 
 int publish_light_color__10TObjPlayerFPv(void *p) {
     ColorF_8001A6A8 c;
-    c.r = player_light_color_rgba_table[lbl_805D49E4].r / 255.0f;
-    c.g = player_light_color_rgba_table[lbl_805D49E4].g / 255.0f;
-    c.b = player_light_color_rgba_table[lbl_805D49E4].b / 255.0f;
-    c.a = player_light_color_rgba_table[lbl_805D49E4].a / 255.0f;
-    return publish_light_direction_color(0, &player_light_direction_color_table[lbl_805D49E4], &c);
+    c.r = player_light_color_rgba_table[player_light_index].r / 255.0f;
+    c.g = player_light_color_rgba_table[player_light_index].g / 255.0f;
+    c.b = player_light_color_rgba_table[player_light_index].b / 255.0f;
+    c.a = player_light_color_rgba_table[player_light_index].a / 255.0f;
+    return publish_light_direction_color(0, &player_light_direction_color_table[player_light_index], &c);
 }
 
 int TObjPlayer__sub_8001A77C(void *p) {
@@ -181,7 +181,7 @@ int TObjPlayer__sub_8001A77C(void *p) {
 void update_flag890_state__10TObjPlayerFi(s32 arg0) {
     if (((s32) game_difficulty_selection != 3) && (fn_8001A988() == 0)) {
         s32 temp;
-        lbl_805D49E4 = (s8) arg0;
+        player_light_index = (s8) arg0;
         temp = get_flag890_state__10TObjPlayerFPv((void *)(lbl_805D49E0));
         lbl_805D49E8 = temp;
         TObjPlayer__sub_8001A4CC(temp, (s8) arg0);
@@ -215,7 +215,7 @@ u8 *TObjPlayer__sub_8001A8F0(u8 *arg0, s32 arg1) {
     s32 temp_r3;
     __ct__7TObjectFP7TObject((void *) (arg0), (void *) (arg1));
     M2C_FIELD(arg0, M2C_UNK **, 0x18) = &(*(RecoveredGlobal_8001A8F0_lbl_80480938 *)&lbl_80480938).value;
-    lbl_805D49E4 = 0;
+    player_light_index = 0;
     stack.sp8 = M2C_FIELD(&lbl_8043455C.value, s32 *, 0);
     stack.spC = M2C_FIELD(&lbl_8043455C.value, s32 *, 4);
     stack.sp10 = M2C_FIELD(&lbl_8043455C.value, s32 *, 8);

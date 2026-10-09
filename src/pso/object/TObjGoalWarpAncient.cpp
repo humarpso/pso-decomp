@@ -39,8 +39,8 @@ struct VObj : Base {
 };
 
 extern "C" {
-extern int lbl_805D5AF0;
-extern s32 lbl_805D5AF4;
+extern int ancient_warp_shared_resource;
+extern s32 goal_warp_ancient_gvm_texture;
 u8 * load_resource_from_descriptor(void *, s32, void *, s32, s32, s32);
 int alloc__23TAdSinglePlyChrSelectGCFPv(void *);
 u8 * load_gvm_texture_file(s32);
@@ -59,7 +59,7 @@ int get_bml_motion(void*, void*);
 int TObjFish__sub_8001EDB0(void*, void*);
 int get_bml_model(void*, void*);
 
-    extern int lbl_805D5AF0;
+    extern int ancient_warp_shared_resource;
 
 typedef char RecoveredGlobal_8019A880_lbl_804B8F70_size[sizeof(RecoveredGlobal_8019A880_lbl_804B8F70) == 0x2C ? 1 : -1];
 typedef char RecoveredGlobal_8019A880___vt__8TObjTank_size[sizeof(RecoveredGlobal_8019A880___vt__8TObjTank) == 0x3C ? 1 : -1];
@@ -73,22 +73,22 @@ void load_resources__19TObjGoalWarpAncientFv(void) {
     if (var_r0 != 0) {
         var_r0 = (long) (load_resource_from_descriptor((void *) temp_r3, 0x1, &lbl_804B52F4.value, 0, 0, 0));
     }
-    (*(s32 *)&lbl_805D5AF0) = var_r0;
-    (*(u8 * *)&lbl_805D5AF4) = load_gvm_texture_file((s32) &lbl_80443308.value);
+    (*(s32 *)&ancient_warp_shared_resource) = var_r0;
+    (*(u8 * *)&goal_warp_ancient_gvm_texture) = load_gvm_texture_file((s32) &lbl_80443308.value);
 }
 
-void register_warp_object__19TObjGoalWarpAncientFPv(void* a0) { TObjFish__sub_8001EDB0((void*)(lbl_805D5AF0), a0); }
+void register_warp_object__19TObjGoalWarpAncientFPv(void* a0) { TObjFish__sub_8001EDB0((void*)(ancient_warp_shared_resource), a0); }
 
-extern s32 lbl_805D5AF4;
+extern s32 goal_warp_ancient_gvm_texture;
 
 s32 get_instance__19TObjGoalWarpAncientFv(void) {
-    return lbl_805D5AF4;
+    return goal_warp_ancient_gvm_texture;
 }
 
-    extern int lbl_805D5AF0;
-void register_warp__19TObjGoalWarpAncientFPv(void* a0) { get_bml_motion((void*)(lbl_805D5AF0), a0); }
+    extern int ancient_warp_shared_resource;
+void register_warp__19TObjGoalWarpAncientFPv(void* a0) { get_bml_motion((void*)(ancient_warp_shared_resource), a0); }
 
-    extern int lbl_805D5AF0;
-void TObjGoalWarpAncient__sub_8017D2D4(void* a0) { get_bml_model((void*)(lbl_805D5AF0), a0); }
+    extern int ancient_warp_shared_resource;
+void TObjGoalWarpAncient__sub_8017D2D4(void* a0) { get_bml_model((void*)(ancient_warp_shared_resource), a0); }
 
 }

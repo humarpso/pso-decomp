@@ -44,7 +44,7 @@ void queue_destruction__7TObjectFv(void *);
 void __dl__7TObjectFPv(void *);
 void TWindow__close(void *);
 extern u8 __vt__11TWindowCtrl[];
-extern void *TWindowCtrl__data_805D63F8;
+extern void *TWindowCtrl__active_window;
 TWindowCtrl_8024C160 *__dt__11TWindowCtrlFv(TWindowCtrl_8024C160 *self, s16 flag);
 s32 is_split_screen();
 s32 get_player_count__10TObjPlayerFv();
@@ -63,7 +63,7 @@ extern u8 __vt__11TWindowCtrl[];
 extern s32 lbl_805D38C8;
 extern s32 local_client_id;
 extern s32 tl_00;
-extern void *TWindowCtrl__data_805D63F8;
+extern void *TWindowCtrl__active_window;
 TWindowCtrl_8024C308 *TWindowCtrl__ct(TWindowCtrl_8024C308 *self);
 }
 
@@ -119,8 +119,8 @@ TWindowCtrl_8024C160 *__dt__11TWindowCtrlFv(TWindowCtrl_8024C160 *self, s16 flag
             TWindow__close(self->f2C);
             self->f2C = NULL;
         }
-        if (TWindowCtrl__data_805D63F8 == self) {
-            TWindowCtrl__data_805D63F8 = NULL;
+        if (TWindowCtrl__active_window == self) {
+            TWindowCtrl__active_window = NULL;
         }
         __dt__7TObjectFv(self, 0);
         if (flag > 0) {
@@ -135,10 +135,10 @@ TWindowCtrl_8024C308 *TWindowCtrl__ct(TWindowCtrl_8024C308 *self) {
     __ct__7TObjectFP7TObject(self);
     self->vt = __vt__11TWindowCtrl;
     self->f0 = lbl_805D38C8;
-    if (TWindowCtrl__data_805D63F8 != NULL) {
-        queue_destruction__7TObjectFv(TWindowCtrl__data_805D63F8);
+    if (TWindowCtrl__active_window != NULL) {
+        queue_destruction__7TObjectFv(TWindowCtrl__active_window);
     }
-    TWindowCtrl__data_805D63F8 = self;
+    TWindowCtrl__active_window = self;
     self->f1C = 0;
     self->f1E = 0;
     self->f20 = 0;

@@ -189,7 +189,7 @@ void *spawn_particle_effect(void *, int);
 
 void *create_particle_emitter(void *, int);
 void **alloc_buffer__11TOBoss4RockFPv(int);
-extern void *lbl_805D63AC;
+extern void *technique_effect_bml;
 extern void *lbl_805D63B0;
 void TTecRaBarta__vt6(Rabarta_80237494 *self, void *pos);
 s32 is_technique_ready__8TTecCtrlFv();
@@ -274,7 +274,7 @@ void TTecRaBarta__vt6(Rabarta_80237494 *self, void *pos) {
       if (self && self)
       {
       }
-      attach_particle_model(self->emitters[i], get_bml_model(lbl_805D63AC, mid), lbl_805D63B0, 0, 0, (1.0f));
+      attach_particle_model(self->emitters[i], get_bml_model(technique_effect_bml, mid), lbl_805D63B0, 0, 0, (1.0f));
     }
   }
   if (self->band == 5)
@@ -297,7 +297,7 @@ void TTecRaBarta__vt6(Rabarta_80237494 *self, void *pos) {
     id = b2->flags >> 16;
     if (emitter != 0)
     {
-      attach_particle_model(emitter, get_bml_model(lbl_805D63AC, id), lbl_805D63B0, get_bml_motion(lbl_805D63AC, 1), 0, (1.0f));
+      attach_particle_model(emitter, get_bml_model(technique_effect_bml, id), lbl_805D63B0, get_bml_motion(technique_effect_bml, 1), 0, (1.0f));
     }
   }
 }
@@ -504,7 +504,7 @@ void attach_particle_model(void *, void *, void *, int, int, f32);
 u32 find_entity_by_id(int);
 s32 is_parents_unqueued__9TTecLukerFUi();
 s32 is_valid_and_active__10TObjPlayerFUi(TObjPlayer_80237FB8 *);
-extern void *lbl_805D63AC;
+extern void *technique_effect_bml;
 extern void *lbl_805D63B0;
 extern const f32 TTecRaFoie__data_805DC8CC;
 void TTecRaFoie__vt6(TTecRaFoie_80237FB8 *self);

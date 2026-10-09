@@ -76,7 +76,7 @@ u8 * __dt__7TObjectFv(void *, s16);
 void queue_destruction__7TObjectFv(void *);
 void __dl__7TObjectFPv(s32);
 extern RecoveredGlobal_8033FB8C___vt__14TAdPlyStatusGC __vt__14TAdPlyStatusGC;
-extern u32 lbl_805D6DA8;
+extern u32 ply_status_gc_instance;
 u8 *__dt__14TAdPlyStatusGCFv(u8 *arg0, s16 arg1);
 M2C_UNK allow_rendering__7TObjectFv();
 s32 TWindowShortListCtrl__check_controller_button(void *, int, int);
@@ -104,7 +104,7 @@ void *__construct_array(void *, void *, void *, u32, u32);
 void *init_guide_button_params(void *);
 extern RecoveredGlobal_8033FB8C___vt__14TAdPlyStatusGC __vt__14TAdPlyStatusGC;
 extern s32 lbl_805D42C0;
-extern s32 lbl_805D6DAC;
+extern s32 ply_status_chcr_load_afs;
 extern s32 TAdPlyStatusGC__window_offset_index;
 extern s32 TAdPlyStatusGC__is_shown;
 extern const f32 lbl_805DFAF0;
@@ -129,8 +129,8 @@ extern char lbl_805DFAE8[4];
 void format_status_strings__14TAdPlyStatusGCFPv(char *buf);
 }
 extern "C" {
-u32 lbl_805D6DA8;
-s32 lbl_805D6DAC;
+u32 ply_status_gc_instance;
+s32 ply_status_chcr_load_afs;
 s32 TAdPlyStatusGC__window_offset_index;
 u32 ply_status_index;
 s32 TAdPlyStatusGC__is_shown;
@@ -202,14 +202,14 @@ void draw_status_window__14TAdPlyStatusGCFPvPv(void *arg0, void *arg1) {
     s32 i;
 
     draw_window_frame(arg0);
-    if ((u32)lbl_805D6DAC != 0 && is_unloaded__12TChCrLoadAfsFPv(lbl_805D6DAC) != 0 && TAdPlyStatusGC__is_shown != 0 &&
-        (*get_status_sub__14TAdPlyStatusGCFPv(lbl_805D6DAC))->f8 != 0) {
+    if ((u32)ply_status_chcr_load_afs != 0 && is_unloaded__12TChCrLoadAfsFPv(ply_status_chcr_load_afs) != 0 && TAdPlyStatusGC__is_shown != 0 &&
+        (*get_status_sub__14TAdPlyStatusGCFPv(ply_status_chcr_load_afs))->f8 != 0) {
         box = lbl_804EFAC0;
         box.v[0] = lbl_804EFAC0.v[0] + OFF_8033F3D8.x;
         box.v[2] = lbl_804EFAC0.v[2] + OFF_8033F3D8.x;
         box.v[1] = lbl_804EFAC0.v[1] + OFF_8033F3D8.y;
         box.v[3] = lbl_804EFAC0.v[3] + OFF_8033F3D8.y;
-        set_global_param__8TObjFishFi(get_status_sub__14TAdPlyStatusGCFPv(lbl_805D6DAC));
+        set_global_param__8TObjFishFi(get_status_sub__14TAdPlyStatusGCFPv(ply_status_chcr_load_afs));
         begin_screen_draw(1);
         set_draw_texture_and_color(0, -1);
         draw_textured_quad_at_depth(&box, lbl_805DFAE0);
@@ -406,8 +406,8 @@ u8 *__dt__14TAdPlyStatusGCFv(u8 *arg0, s16 arg1) {
             queue_destruction__7TObjectFv(temp_r3);
             M2C_FIELD(arg0, u8 **, 0x6C) = NULL;
         }
-        if ((u32) lbl_805D6DA8 != 0U) {
-            lbl_805D6DA8 = 0U;
+        if ((u32) ply_status_gc_instance != 0U) {
+            ply_status_gc_instance = 0U;
         }
         __dt__7TObjectFv(arg0, 0);
         if (arg1 > 0) {
@@ -424,7 +424,7 @@ TAdPlyStatusGC_8033FC14 *TAdPlyStatusGC__ct(TAdPlyStatusGC_8033FC14 *self, void 
     self->f1C = 0;
     self->f20 = self->f1C;
     self->f6C = 0;
-    lbl_805D6DAC = 0;
+    ply_status_chcr_load_afs = 0;
     TAdPlyStatusGC__window_offset_index = arg2;
     TAdPlyStatusGC__is_shown = 1;
     self->elems[0].mode = 2;

@@ -117,7 +117,7 @@ u32 find_entity_by_id(int);
 s32 is_parents_unqueued__9TTecLukerFUi();
 s32 is_valid_and_active__10TObjPlayerFUi(int);
 #define is_valid_and_active__10TObjPlayerFUi ((s32 (*)(TObjPlayer_80237FB8 *))is_valid_and_active__10TObjPlayerFUi)
-extern void *lbl_805D63AC;
+extern void *technique_effect_bml;
 extern void *lbl_805D63B0;
 void TTecRaFoie__vt6(TTecRaFoie_80237FB8 *self);
 struct Profile_80237A94 { void *entries; u32 count; };
@@ -265,7 +265,7 @@ void TTecRaFoie__vt6(TTecRaFoie_80237FB8 *self) {
         } else {
             emitter = spawn_particle_effect(&self->target, 0x1A);
             if (emitter != NULL) {
-                attach_particle_model(emitter, get_bml_model(lbl_805D63AC, 9), lbl_805D63B0, 0, 1, (1.0f));
+                attach_particle_model(emitter, get_bml_model(technique_effect_bml, 9), lbl_805D63B0, 0, 1, (1.0f));
             }
         }
         spawn_particle_effect(&self->target, 0x3A);
@@ -279,7 +279,7 @@ void TTecRaFoie__vt6(TTecRaFoie_80237FB8 *self) {
             spawn_particle_effect(&point, 0x39);
             emitter = spawn_particle_effect(&point, 0x1A);
             if (emitter != NULL) {
-                attach_particle_model(emitter, get_bml_model(lbl_805D63AC, 9), lbl_805D63B0, 0, 1, (1.0f));
+                attach_particle_model(emitter, get_bml_model(technique_effect_bml, 9), lbl_805D63B0, 0, 1, (1.0f));
             }
         }
     }
@@ -419,7 +419,7 @@ void draw_ginja_object(void);
 void set_chunk_material_color(void *, s32);
 extern u8 *camera_ctrl_instance;
 extern s32 lbl_805D5660;
-extern void *lbl_805D63AC;
+extern void *technique_effect_bml;
 extern void *lbl_805D63B0;
 extern s32 some_id_805c6f74;
 void render_rafoie_explosion(RaFoie_802381F8 *o);
@@ -506,7 +506,7 @@ void render_rafoie_explosion(RaFoie_802381F8 *o) {
     set_global_param__8TObjFishFi(lbl_805D63B0);
     set_cull_back__8TObjFishFv();
     set_depth_buffer_settings_id__FUl(3);
-    get_bml_model(lbl_805D63AC, 0xB);
+    get_bml_model(technique_effect_bml, 0xB);
     draw_ginja_object();
     func_80141618__Fv();
     set_cull_none__8TObjFishFv();

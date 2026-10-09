@@ -69,7 +69,7 @@ void set_indexed_flags(void *, s32, s32);
 Npc_80190F3C *TNpcPlayer__sub_80190F3C(Npc_80190F3C *arg0, void *arg1, s32 arg2, s32 arg3, s32 arg4, s32 arg5, void *arg6);
 Ctrl_801910F4 *get_player_by_client_id(u32);
 void *__nw__7TObjectFUl(int);
-extern int lbl_805D3360;
+extern int npc_proximity_target_id;
 extern s32 local_client_id;
 extern void *tl_07;
 void update_npc_proximity__6TLobbyFPv(Npc_80190FDC *arg0);
@@ -116,7 +116,7 @@ u8 *destroy_and_materialize_player__10TNpcPlayerFPvs(u8 *arg0, s16 arg1) {
     return arg0;
 }
 
-    extern int lbl_805D3360;
+    extern int npc_proximity_target_id;
 
 Npc_80190F3C *TNpcPlayer__sub_80190F3C(Npc_80190F3C *arg0, void *arg1, s32 arg2, s32 arg3, s32 arg4, s32 arg5, void *arg6) {
     __ct__7TObjectFP7TObject(arg0, arg6);
@@ -132,7 +132,7 @@ Npc_80190F3C *TNpcPlayer__sub_80190F3C(Npc_80190F3C *arg0, void *arg1, s32 arg2,
     return arg0;
 }
 
-void TLobby__sub_80190FD0(int a0) { lbl_805D3360 = a0; }
+void TLobby__sub_80190FD0(int a0) { npc_proximity_target_id = a0; }
 
 void TLobby__sub_80190FD8(void) {  }
 typedef char RecoveredGlobal_8019118C_lbl_804B7BD8_size[sizeof(RecoveredGlobal_8019118C_lbl_804B7BD8) == 0x2C ? 1 : -1];
@@ -141,7 +141,7 @@ typedef char RecoveredGlobal_8019118C_lbl_804B7C1C_size[sizeof(RecoveredGlobal_8
 void update_npc_proximity__6TLobbyFPv(Npc_80190FDC *arg0) {
     Ply_80190FDC *p;
     void *o;
-    if (lbl_805D3360 == arg0->f8C) {
+    if (npc_proximity_target_id == arg0->f8C) {
         queue_destruction__7TObjectFv((void*)(arg0));
         return;
     }

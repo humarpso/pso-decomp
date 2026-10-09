@@ -33,8 +33,8 @@ extern s32 lbl_805D4690;
 void TLobby__sub_803D0DE4(s32 arg0, s32 arg1, s32 arg2, s32 arg3);
 int vsprintf(char *s, const char *fmt, va_list ap);
 extern u8 log_printf_buffer[];
-extern RecoveredCallback_c88e8900640a lbl_805D7618;
-extern s32 lbl_805D761C;
+extern RecoveredCallback_c88e8900640a log_printf_callback;
+extern s32 lobby_log_callback_arg;
 void log_printf__6TLobbyFPvi(const char *fmt, ...);
 void DCInvalidateRange(void *, u32);
 s32 DVDGetTransferredSize(void *);
@@ -92,8 +92,8 @@ void log_printf__6TLobbyFPvi(const char *fmt, ...) {
     va_list ap;
     va_start(ap, fmt);
     vsprintf((char *)log_printf_buffer, fmt, ap);
-    if (lbl_805D7618 != 0) {
-        lbl_805D7618(lbl_805D761C, log_printf_buffer);
+    if (log_printf_callback != 0) {
+        log_printf_callback(lobby_log_callback_arg, log_printf_buffer);
     }
 }
 

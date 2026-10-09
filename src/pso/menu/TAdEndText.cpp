@@ -102,9 +102,9 @@ s32 TAdEndText__sub_8001B404(u8 arg0);
 extern char TAdEndText__ending_font_texture_list[];
 extern char lbl_804347B0[];
 extern char lbl_804347C0[];
-extern u32 TAdEndText__data_805D49F4;
+extern u32 TAdEndText__loaded_font_texture_list;
 extern u32 TAdEndText__data_805D49F8;
-extern s32 TAdEndText__data_805D49F0;
+extern s32 TAdEndText__font_loaded_flag;
 void bind_gvm_texture_list(const char *name, void *data);
 void *create_named_object(const char *name);
 void load_ending_font__10TAdEndTextFv(void);
@@ -116,7 +116,7 @@ M2C_UNK begin_screen_draw(int);
 M2C_UNK get_player__20TWindowSubStatusDispFv();
 M2C_UNK draw_textured_quad_at_depth(void *, f32);
 M2C_UNK set_draw_texture_and_color(int, int);
-extern u32 TAdEndText__data_805D49F4;
+extern u32 TAdEndText__loaded_font_texture_list;
 extern u32 TAdEndText__data_805D49F8;
 extern const f32 lbl_805D7E04;
 extern const f32 lbl_805D7E08;
@@ -126,7 +126,7 @@ extern const f32 lbl_805D7E14;
 extern const f32 lbl_805D7E18;
 void render__10TAdEndTextFv(u8 *arg0);
 extern const f32 lbl_804345D8[];
-extern s32 TAdEndText__data_805D49F0;
+extern s32 TAdEndText__font_loaded_flag;
 extern u32 TAdEndText__data_805D49F8;
 extern const f32 TAdEndText__data_805D7DF8;
 extern const f32 lbl_805D7E1C;
@@ -144,7 +144,7 @@ s32 TAdEndText__sub_8001B41C(void);
 M2C_UNK __ct__7TObjectFP7TObject(void *);
 extern u8 __vt__10TAdEndText[];
 extern s32 lbl_805D2610;
-extern s32 TAdEndText__data_805D49F0;
+extern s32 TAdEndText__font_loaded_flag;
 extern u32 TAdEndText__data_805D49F8;
 extern const f32 lbl_805D7DF0;
 extern const f32 TAdEndText__data_805D7DF8;
@@ -171,13 +171,13 @@ s32 fn_8001A988(void) {
     return lbl_805D4F0C;
 }
 
-extern s32 TAdEndText__data_805D49F0;
+extern s32 TAdEndText__font_loaded_flag;
 
 s32 TAdEndText__sub_8001A990(void) {
-    return TAdEndText__data_805D49F0;
+    return TAdEndText__font_loaded_flag;
 }
 
-extern u32 TAdEndText__data_805D49F4;
+extern u32 TAdEndText__loaded_font_texture_list;
 extern u32 TAdEndText__data_805D49F8;
 
 void render__10TAdEndTextFv(u8 *arg0) {
@@ -208,14 +208,14 @@ void render__10TAdEndTextFv(u8 *arg0) {
             }
             break;
         case 0x21:
-            set_global_param__8TObjFishFi(TAdEndText__data_805D49F4);
+            set_global_param__8TObjFishFi(TAdEndText__loaded_font_texture_list);
             begin_screen_draw(1);
             set_draw_texture_and_color(3, -1);
             draw_textured_quad_at_depth(&self->box1, lbl_805D7E18);
             get_player__20TWindowSubStatusDispFv();
             break;
         case 0x40:
-            set_global_param__8TObjFishFi(TAdEndText__data_805D49F4);
+            set_global_param__8TObjFishFi(TAdEndText__loaded_font_texture_list);
             begin_screen_draw(1);
             set_draw_texture_and_color(4, -1);
             draw_textured_quad_at_depth(&self->box2, lbl_805D7E18);
@@ -237,7 +237,7 @@ void run_task__10TAdEndTextFv(u8 *arg0) {
     u32 count;
     u32 i;
     count = self->count;
-    if (TAdEndText__data_805D49F0 == 1) {
+    if (TAdEndText__font_loaded_flag == 1) {
         count -= 9;
     }
     self->pos[0].y = lbl_805D7E1C - (lbl_805D7E20 / (lbl_804345D8[self->sizeIdx] / lbl_804345D8[0])) * ((self->scale / lbl_805D7E24) * (self->scroll / lbl_805D7E28));
@@ -271,7 +271,7 @@ void run_task__10TAdEndTextFv(u8 *arg0) {
     }
     self->scroll = self->scroll + self->speed;
     if (self->pos[self->count].y < lbl_805D7E3C) {
-        TAdEndText__data_805D49F0 = 1;
+        TAdEndText__font_loaded_flag = 1;
     }
 }
 #pragma pop
@@ -286,7 +286,7 @@ u8 *__ct__10TAdEndTextFv(u8 *arg0) {
   self->name = lbl_805D2610;
   self->f1C = 0;
   self->scroll = lbl_805D7DFC;
-  TAdEndText__data_805D49F0 = 0;
+  TAdEndText__font_loaded_flag = 0;
   self->box1.x0 = lbl_805D7DFC;
   self->box1.y0 = lbl_805D7DFC;
   self->box1.x1 = lbl_805D7DFC;
@@ -332,9 +332,9 @@ u8 *__ct__10TAdEndTextFv(u8 *arg0) {
 }
 
 void free_resources__10TAdEndTextFv(void) {
-    if ((u32) TAdEndText__data_805D49F4 != 0U) {
-        TLobby__sub_803DA16C((void*)TAdEndText__data_805D49F4);
-        TAdEndText__data_805D49F4 = 0U;
+    if ((u32) TAdEndText__loaded_font_texture_list != 0U) {
+        TLobby__sub_803DA16C((void*)TAdEndText__loaded_font_texture_list);
+        TAdEndText__loaded_font_texture_list = 0U;
     }
     if ((u32) TAdEndText__data_805D49F8 != 0U) {
         free_nodes_with_id__6TLobbyFUi((void*)TAdEndText__data_805D49F8);
@@ -347,10 +347,10 @@ extern s32 lbl_805D6A58;
 typedef char RecoveredGlobal_8001B3BC_lbl_804F5800_size[sizeof(RecoveredGlobal_8001B3BC_lbl_804F5800) == 0x100 ? 1 : -1];
 
 void load_ending_font__10TAdEndTextFv(void) {
-    TAdEndText__data_805D49F4 = (u32)TAdEndText__ending_font_texture_list;
+    TAdEndText__loaded_font_texture_list = (u32)TAdEndText__ending_font_texture_list;
     bind_gvm_texture_list(lbl_804347B0, TAdEndText__ending_font_texture_list);
     TAdEndText__data_805D49F8 = (u32)create_named_object(lbl_804347C0);
-    TAdEndText__data_805D49F0 = 0;
+    TAdEndText__font_loaded_flag = 0;
 }
 
 s32 TAdEndText__sub_8001B3BC(u8 arg0) {

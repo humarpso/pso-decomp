@@ -51,7 +51,7 @@ s32 create__10TObjMapCsnFi(void *);
 extern RecoveredGlobal_8017C8EC_lbl_804B4ECC ovs2wall01_collision_parts;
 extern M2C_UNK lbl_804B528C[];
 extern s32 lbl_805D31C4;
-extern u32 TOVS2Wall01__data_805D5AE8;
+extern u32 TOVS2Wall01__bml_resource;
 extern void *tl_05;
 extern const f32 lbl_805DBAB0;
 u8 *init_wreck_object__11TOVS2Wall01FPvii(u8 *arg0, s32 arg1, s32 arg2);
@@ -61,7 +61,7 @@ u8 *get_bml_model(s32, s32);
 s32 load_resource_from_descriptor(int, int, void *, int, int, int);
 s32 alloc__23TAdSinglePlyChrSelectGCFPv(int);
 extern RecoveredGlobal_8017C7DC_lbl_804B4EBC lbl_804B4EBC;
-extern u32 TOVS2Wall01__data_805D5AE8;
+extern u32 TOVS2Wall01__bml_resource;
 extern const f32 lbl_805DBAA8;
 extern const f32 lbl_805DBAB4;
 void load_resources__11TOVS2Wall01Fv(void);
@@ -91,12 +91,12 @@ void destroy_key_base__5TOKeyFPvs(void *, int);
 int init__17TOBarrierEnergy01FPv(void*);
 void queue_destruction__7TObjectFv(void *);
 
-extern u32 TOVS2Wall01__data_805D5AE8;
+extern u32 TOVS2Wall01__bml_resource;
 
 void release_model__11TOVS2Wall01Fv(void) {
-    if ((u32) TOVS2Wall01__data_805D5AE8 != 0U) {
-        TLobby__sub_8001FE7C((void*)TOVS2Wall01__data_805D5AE8, 1);
-        TOVS2Wall01__data_805D5AE8 = 0U;
+    if ((u32) TOVS2Wall01__bml_resource != 0U) {
+        TLobby__sub_8001FE7C((void*)TOVS2Wall01__bml_resource, 1);
+        TOVS2Wall01__bml_resource = 0U;
     }
 }
 
@@ -113,9 +113,9 @@ void load_resources__11TOVS2Wall01Fv(void) {
   {
     var_r0 = load_resource_from_descriptor((int) temp_r3, (int) 1, (void *) (&lbl_804B4EBC.value), (int) 0, (int) 0, (int) 0);
   }
-  (*(s32 *)&TOVS2Wall01__data_805D5AE8) = var_r0;
+  (*(s32 *)&TOVS2Wall01__bml_resource) = var_r0;
   ;
-  add_entry__11TMotorcycleFsiiff((int) 0x3A, (int) ((s32)get_bml_model((s32)((int) (*(s32 *)&TOVS2Wall01__data_805D5AE8)), (s32)((int) 5))), (int) TObjFish__sub_8001EDB0((int)((int) var_r0), (void *)((int) 5)), (f32) lbl_805DBAB4, (f32) lbl_805DBAA8);
+  add_entry__11TMotorcycleFsiiff((int) 0x3A, (int) ((s32)get_bml_model((s32)((int) (*(s32 *)&TOVS2Wall01__bml_resource)), (s32)((int) 5))), (int) TObjFish__sub_8001EDB0((int)((int) var_r0), (void *)((int) 5)), (f32) lbl_805DBAB4, (f32) lbl_805DBAA8);
 }
 
 void *destroy__11TOVS2Wall01FPvs(void *arg0, s16 arg1) {
@@ -139,9 +139,9 @@ u8 *init_wreck_object__11TOVS2Wall01FPvii(u8 *arg0, s32 arg1, s32 arg2) {
     M2C_FIELD(arg0, M2C_UNK **, 0x18) = &(*(RecoveredGlobal_8017C8EC_lbl_804B528C *)&lbl_804B528C).value;
     M2C_FIELD(arg0, s32 *, 0) = (s32) lbl_805D31C4;
     ((VObj_18_1a504b *)(arg0))->m5(arg1);
-    M2C_FIELD(arg0, u8 **, 0x34) = get_bml_model((*(s32 *)&TOVS2Wall01__data_805D5AE8), arg2);
+    M2C_FIELD(arg0, u8 **, 0x34) = get_bml_model((*(s32 *)&TOVS2Wall01__bml_resource), arg2);
     M2C_FIELD(arg0, f32 *, 0xC4) = (f32) (lbl_805DBAB0 + M2C_FIELD(M2C_FIELD(M2C_FIELD(arg0, u8 **, 0x34), void **, 4), f32 *, 0x14));
-    M2C_FIELD(arg0, s32 *, 0x24) = TObjFish__sub_8001EDB0((int) ((*(s32 *)&TOVS2Wall01__data_805D5AE8)), (void *) (arg2));
+    M2C_FIELD(arg0, s32 *, 0x24) = TObjFish__sub_8001EDB0((int) ((*(s32 *)&TOVS2Wall01__bml_resource)), (void *) (arg2));
     init_collision_body_parts((void *) (arg0), (void *) ((u8 *)&ovs2wall01_collision_parts.value + (arg2 * 0x2C)), (int) (1));
     reset_photon_effect__10TObjPlayerFPv((void *) (arg0));
     M2C_FIELD(arg0, s32 *, 0xC8) = create__10TObjMapCsnFi((void *) (arg1));

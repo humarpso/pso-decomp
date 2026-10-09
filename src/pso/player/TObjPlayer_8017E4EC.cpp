@@ -26,8 +26,8 @@ void TLobby__sub_80207F30(Set_8017E550 *);
 void *__nw__7TObjectFUl(u32);
 extern Row_8017E550 lbl_80443690[];
 extern Row_8017E550 lbl_80443780[];
-extern s32 lbl_805D5B00;
-extern s32 TObjBgmColCtrl__data_805D5B08;
+extern s32 bgm_zone_category;
+extern s32 TObjBgmColCtrl__instance;
 void create_bgm_col_zones(void);
 }
 
@@ -39,11 +39,11 @@ s32 get_bgm_object__13TQuestBgmCtrlFv();
 M2C_UNK play_area_music(s32);
 
 extern M2C_UNK lbl_804B5780[];
-extern s32 lbl_805D5B00;
+extern s32 bgm_zone_category;
 
 void set_camera_mode__10TObjPlayerFi(s32 arg0) {
-    if ((get_bgm_object__13TQuestBgmCtrlFv() == 0) && (is_not_split_screen__13TRaderMapCoreFv() != 1) && (arg0 != (s32) lbl_805D5B00)) {
-        lbl_805D5B00 = arg0;
+    if ((get_bgm_object__13TQuestBgmCtrlFv() == 0) && (is_not_split_screen__13TRaderMapCoreFv() != 1) && (arg0 != (s32) bgm_zone_category)) {
+        bgm_zone_category = arg0;
         play_area_music(lbl_804B5780[arg0]);
     }
 }
@@ -51,7 +51,7 @@ void create_bgm_col_zones(void) {
     Set_8017E550 set;
     s32 i;
     void *p;
-    lbl_805D5B00 = 4;
+    bgm_zone_category = 4;
     TLobby__sub_80207F30(&set);
     switch (get_global_state__14TOKeyMachine01Fv()) {
     case 0:
@@ -61,7 +61,7 @@ void create_bgm_col_zones(void) {
             set.category = lbl_80443690[i].category;
             p = __nw__7TObjectFUl(0xA0);
             if (p != NULL) {
-                TObjBgmCol__ct(p, TObjBgmColCtrl__data_805D5B08, &set);
+                TObjBgmCol__ct(p, TObjBgmColCtrl__instance, &set);
             }
         }
         break;
@@ -72,7 +72,7 @@ void create_bgm_col_zones(void) {
             set.category = lbl_80443780[i].category;
             p = __nw__7TObjectFUl(0xA0);
             if (p != NULL) {
-                TObjBgmCol__ct(p, TObjBgmColCtrl__data_805D5B08, &set);
+                TObjBgmCol__ct(p, TObjBgmColCtrl__instance, &set);
             }
         }
         break;

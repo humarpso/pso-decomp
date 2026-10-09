@@ -52,12 +52,12 @@ s32 draw_ginja_model(int);
 u8 * load_resource_from_descriptor(void *, s32, void *, s32, s32, s32);
 int alloc__23TAdSinglePlyChrSelectGCFPv(void *);
 extern RecoveredGlobal_80176F50_lbl_804B43A0 lbl_804B43A0;
-extern u32 TOSignCave03__data_805D5AB8;
+extern u32 TOSignCave03__shared_resource;
 void load_shared_resource__12TOSignCave03Fv(void);
 s32 init_map_object_base(void *, void *);
 extern M2C_UNK __vt__12TOSignCave03[];
 extern s32 lbl_805D316C;
-extern u32 TOSignCave03__data_805D5AB8;
+extern u32 TOSignCave03__shared_resource;
 extern const f32 lbl_805DB9E0;
 extern const f32 lbl_805DB9E4;
 u8 *TOSignCave03__ct(u8 *arg0, s32 arg1, s32 arg2);
@@ -175,12 +175,12 @@ void *create__12TOSignCave03FPv(void *arg0) {
     return o;
 }
 
-extern u32 TOSignCave03__data_805D5AB8;
+extern u32 TOSignCave03__shared_resource;
 
 void close_dialog_window__12TOSignCave03Fv(void) {
-    if ((u32) TOSignCave03__data_805D5AB8 != 0U) {
-        TLobby__sub_8001FE7C((void*)TOSignCave03__data_805D5AB8, 1);
-        TOSignCave03__data_805D5AB8 = 0U;
+    if ((u32) TOSignCave03__shared_resource != 0U) {
+        TLobby__sub_8001FE7C((void*)TOSignCave03__shared_resource, 1);
+        TOSignCave03__shared_resource = 0U;
     }
 }
 
@@ -194,7 +194,7 @@ void load_shared_resource__12TOSignCave03Fv(void) {
     if (var_r0 != 0) {
         var_r0 = (long) (load_resource_from_descriptor((void *) temp_r3, 1, &lbl_804B43A0.value, 0, 0, 0));
     }
-    (*(s32 *)&TOSignCave03__data_805D5AB8) = var_r0;
+    (*(s32 *)&TOSignCave03__shared_resource) = var_r0;
 }
 
 void *__dt__12TOSignCave03Fv(void *arg0, s16 arg1) {
@@ -213,8 +213,8 @@ u8 *TOSignCave03__ct(u8 *arg0, s32 arg1, s32 arg2) {
     M2C_FIELD(arg0, M2C_UNK **, 0x18) = &(*(RecoveredGlobal_80176FF8___vt__12TOSignCave03 *)&__vt__12TOSignCave03).value;
     M2C_FIELD(arg0, s32 *, 0) = (s32) lbl_805D316C;
     ((VObj_18_1a504b *)(arg0))->m5(arg2);
-    M2C_FIELD(arg0, s32 *, 0x34) = (s32) M2C_FIELD(M2C_FIELD((*(u8 * *)&TOSignCave03__data_805D5AB8), u8 **, 0x42C), s32 *, 8);
-    M2C_FIELD(arg0, s32 *, 0x24) = (s32) M2C_FIELD(M2C_FIELD((*(u8 * *)&TOSignCave03__data_805D5AB8), u8 **, 0x42C), s32 *, 0xC);
+    M2C_FIELD(arg0, s32 *, 0x34) = (s32) M2C_FIELD(M2C_FIELD((*(u8 * *)&TOSignCave03__shared_resource), u8 **, 0x42C), s32 *, 8);
+    M2C_FIELD(arg0, s32 *, 0x24) = (s32) M2C_FIELD(M2C_FIELD((*(u8 * *)&TOSignCave03__shared_resource), u8 **, 0x42C), s32 *, 0xC);
     M2C_FIELD(arg0, f32 *, 0xC0) = (f32) lbl_805DB9E0;
     M2C_FIELD(arg0, f32 *, 0xC4) = (f32) lbl_805DB9E4;
     return arg0;

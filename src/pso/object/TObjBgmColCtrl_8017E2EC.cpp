@@ -13,13 +13,13 @@ s32 TObjBgmColCtrl__ct(int, int);
 s32 create_bgm_col_zones();
 u32 __nw__7TObjectFUl(int);
 u32 __ct__7TObjectFP7TObject(int, int);
-extern u32 TObjBgmColCtrl__data_805D5B08;
+extern u32 TObjBgmColCtrl__instance;
 extern s32 tl_05;
 void create_controller__14TObjBgmColCtrlFv(void);
 M2C_UNK __dt__7TObjectFv(void *, M2C_UNK);
 M2C_UNK __dl__7TObjectFPv(void *);
 extern void *__vt__14TObjBgmColCtrl[];
-extern u32 TObjBgmColCtrl__data_805D5B08;
+extern u32 TObjBgmColCtrl__instance;
 void *__dt__14TObjBgmColCtrlFv(void *arg0, s16 arg1);
 }
 
@@ -37,8 +37,8 @@ M2C_UNK run_tasks__7TObjectFv(void *);
 extern s32 local_client_id;
 extern s32 TLobby__event_theme_id;
 extern s32 lbl_805D5B04;
-extern u32 TObjBgmColCtrl__data_805D5B08;
-extern s32 TObjBgmColCtrl__data_805D5B0C;
+extern u32 TObjBgmColCtrl__instance;
+extern s32 TObjBgmColCtrl__current_theme_id;
 
 void run_task__14TObjBgmColCtrlFv(void *arg0) {
     s32 temp_r4;
@@ -52,7 +52,7 @@ void run_task__14TObjBgmColCtrlFv(void *arg0) {
             }
         } else {
             lbl_805D5B04 = 0;
-            void *thisObj = (void *)(u32)TObjBgmColCtrl__data_805D5B08;
+            void *thisObj = (void *)(u32)TObjBgmColCtrl__instance;
             if (thisObj != NULL) {
                 run_tasks__7TObjectFv(thisObj);
             }
@@ -60,7 +60,7 @@ void run_task__14TObjBgmColCtrlFv(void *arg0) {
                 if (is_active__14TObjBgmColCtrlFv() == 0) {
                     play_lobby_theme_music__14TObjBgmColCtrlFv();
                 }
-                if ((get_global_state__14TOKeyMachine01Fv() == 0xF) && ((s32) TLobby__event_theme_id != (s32) TObjBgmColCtrl__data_805D5B0C)) {
+                if ((get_global_state__14TOKeyMachine01Fv() == 0xF) && ((s32) TLobby__event_theme_id != (s32) TObjBgmColCtrl__current_theme_id)) {
                     play_lobby_theme_music__14TObjBgmColCtrlFv();
                 }
             }
@@ -76,7 +76,7 @@ void create_controller__14TObjBgmColCtrlFv(void) {
     if (var_r0 != 0U) {
         var_r0 = __ct__7TObjectFP7TObject((int) (temp_r3), (int) (0));
     }
-    TObjBgmColCtrl__data_805D5B08 = var_r0;
+    TObjBgmColCtrl__instance = var_r0;
     temp_r3_2 = __nw__7TObjectFUl((int) (0x20));
     if (temp_r3_2 != 0U) {
         TObjBgmColCtrl__ct((int) (temp_r3_2), (int) (tl_05));
@@ -86,9 +86,9 @@ void create_controller__14TObjBgmColCtrlFv(void) {
 void *__dt__14TObjBgmColCtrlFv(void *arg0, s16 arg1) {
     if (arg0 != NULL) {
         M2C_FIELD(arg0, void ***, 0x18) = __vt__14TObjBgmColCtrl;
-        if (TObjBgmColCtrl__data_805D5B08 != 0) {
-            delete (V_8017E410 *)TObjBgmColCtrl__data_805D5B08;
-            TObjBgmColCtrl__data_805D5B08 = 0;
+        if (TObjBgmColCtrl__instance != 0) {
+            delete (V_8017E410 *)TObjBgmColCtrl__instance;
+            TObjBgmColCtrl__instance = 0;
         }
         __dt__7TObjectFv(arg0, 0);
         if (arg1 > 0) {

@@ -21,7 +21,7 @@ struct RecoveredGlobal_8024CE34_TWindowCtrlMain__data_80518730 {
 
 extern "C" {
 s32 is_split_screen(void);
-extern s32 TWindowCtrlMain__data_805D6400;
+extern s32 TWindowCtrlMain__display_flags;
 extern s32 TWindowCtrlMain__data_805D6408;
 extern WindowControlState TWindowCtrlMain__data_80518730[6];
 void update_fade_alphas__15TWindowCtrlMainFv(void);
@@ -66,11 +66,11 @@ extern const f32 lbl_805DCC50;
 extern const f32 lbl_805DCC54;
 
 void TWindowCtrlMain__sub_8024CB7C() {
-    TWindowCtrlMain__data_805D6400 |= 1;
+    TWindowCtrlMain__display_flags |= 1;
 }
 
 void TWindowCtrlMain__sub_8024CB8C() {
-    TWindowCtrlMain__data_805D6400 &= ~1;
+    TWindowCtrlMain__display_flags &= ~1;
 }
 
 f32 get_field_18__15TWindowCtrlMainFv(s32 viewport_index) {
@@ -148,7 +148,7 @@ s32 TWindowCtrlMain__sub_8024CE34(void) {
 #undef TWindowCtrlMain__data_80518730
 
 s32 is_window_display_enabled(void) {
-    if (TWindowCtrlMain__data_805D6400 & 1) return 0;
+    if (TWindowCtrlMain__display_flags & 1) return 0;
     return 1;
 }
 

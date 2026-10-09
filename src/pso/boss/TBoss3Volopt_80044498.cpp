@@ -737,9 +737,9 @@ void render_anim_model_at_pos__12TBoss3VoloptFPv(void *);
 void create_breakup_mdl__12TBoss3VoloptFiiiii(s32, s32, s32, s32, s32);
 extern RecoveredGlobal_80045628_TBoss3Volopt__data_804845E8 TBoss3Volopt__data_804845E8;
 extern RecoveredGlobal_80045628_TBoss3Volopt__data_804FF038 TBoss3Volopt__breakup_model_ids;
-extern RecoveredGlobal_8004585C_lbl_804FF04C lbl_804FF04C;
+extern RecoveredGlobal_8004585C_lbl_804FF04C TBoss3Volopt__breakup_flag_list;
 void spawn_breakup_models__12TBoss3VoloptFPv(u8 *arg0);
-extern s16 lbl_804FF030[];
+extern s16 TBoss3Volopt__phase2_position_table[];
 void copy_phase2_positions_to_global__12TBoss3VoloptFPv(O_80044CB8 *self);
 void dispatch_state__12TBoss3VoloptFPv(V_80047408 *self);
 f32 receive_physical_attack__10TObjPlayerFv(void *, void *, f32);
@@ -890,7 +890,7 @@ M2C_UNK rotate_matrix_y(M2C_UNK, s32);
 M2C_UNK push_matrix_from(void *);
 M2C_UNK pop_matrix();
 extern Vec_80046CB8 lbl_80436660[];
-extern s16 lbl_804FF030[];
+extern s16 TBoss3Volopt__phase2_position_table[];
 extern u8 lbl_8058D490[];
 extern const f32 lbl_805D87A4;
 extern const f32 TBoss3Volopt__data_805D87A8;
@@ -995,7 +995,7 @@ void apply_hit_reaction__12TBoss3VoloptFPvf(void *arg0, f32 farg0) {
 void copy_phase2_positions_to_global__12TBoss3VoloptFPv(O_80044CB8 *self) {
     s32 i;
     for (i = 0; i < 3; i++) {
-        lbl_804FF030[i] = self->arr[i];
+        TBoss3Volopt__phase2_position_table[i] = self->arr[i];
     }
 }
 
@@ -1302,7 +1302,7 @@ void spawn_breakup_models__12TBoss3VoloptFPv(u8 *arg0) {
         create_breakup_mdl__12TBoss3VoloptFiiiii((s32)((int) (M2C_FIELD(&(*(RecoveredGlobal_8004585C_TBoss3Volopt__data_804FF038 *)&TBoss3Volopt__breakup_model_ids).value, s32 *, 0))), (s32)((void *) (&(*(RecoveredGlobal_8004585C_TBoss3Volopt__data_804845E8 *)&TBoss3Volopt__data_804845E8).value)), (s32)((int) (M2C_FIELD(arg0, s32 *, 0x24))), (s32)((void *) (&sp8)), (s32)((int) (M2C_FIELD(arg0, s32 *, 0x60))));
         ((VObj_18_f1aa6a *)(arg0))->m63(0x12, &sp8);
         create_breakup_mdl__12TBoss3VoloptFiiiii((s32)((int) (M2C_FIELD(&(*(RecoveredGlobal_8004585C_TBoss3Volopt__data_804FF038 *)&TBoss3Volopt__breakup_model_ids).value, s32 *, 4))), (s32)((void *) (&(*(RecoveredGlobal_8004585C_TBoss3Volopt__data_804845E8 *)&TBoss3Volopt__data_804845E8).value)), (s32)((int) (M2C_FIELD(arg0, s32 *, 0x24))), (s32)((void *) (&sp8)), (s32)((int) (M2C_FIELD(arg0, s32 *, 0x60))));
-        set_flag8_list__12TBoss3VoloptFPv((void *) (&lbl_804FF04C.value));
+        set_flag8_list__12TBoss3VoloptFPv((void *) (&TBoss3Volopt__breakup_flag_list.value));
     }
 }
 #pragma pop
@@ -1796,7 +1796,7 @@ void TBoss3Volopt__sub_80046CB8(void *arg0_) {
         if (--M2C_FIELD(arg0, s16 *, 0x33C) <= 0) {
             destroy_children__12TBoss3VoloptFPv(arg0);
             if (TBoss3Volopt__sub_8003F398() != 0) {
-                M2C_FIELD(arg0, s16 *, 0x33C) = lbl_804FF030[M2C_FIELD(arg0, s16 *, 0x39A)];
+                M2C_FIELD(arg0, s16 *, 0x33C) = TBoss3Volopt__phase2_position_table[M2C_FIELD(arg0, s16 *, 0x39A)];
             } else {
                 M2C_FIELD(arg0, s16 *, 0x33C) = 0x14;
             }

@@ -389,7 +389,7 @@ u8 *TObjLaboDesignBase__ct(u8 *arg0, M2C_UNK arg1, s32 arg2, s32 arg3) {
 
 void* fn_80365320(int a0) {  return (char*)labo_design_entry_table + a0 * 44; }
 
-    extern int lbl_80543A48[];
-int fn_80365334(int a0) {  return lbl_80543A48[a0]; }
+    extern int labo_design_object_table[];
+int fn_80365334(int a0) {  return labo_design_object_table[a0]; }
 
 }

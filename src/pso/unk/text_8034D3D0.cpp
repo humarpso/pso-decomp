@@ -119,9 +119,9 @@ struct PartnerText_8034DA38
 };
 
 extern "C" {
-extern struct PartnerText_8034D9E0 lbl_805436B8[];
+extern struct PartnerText_8034D9E0 partner_dialogue_table[];
 const char *get_partner_custom_text(s32 kind, u16 player);
-extern struct PartnerText_8034D9E0 lbl_805436B8[];
+extern struct PartnerText_8034D9E0 partner_dialogue_table[];
 void set_partner_dialogue_override(const char *text, s32 kind, u16 player);
 }
 
@@ -205,8 +205,8 @@ const char *get_partner_custom_text(s32 kind, u16 player) {
         return NULL;
     }
     for (i = 0; i < 6; i++) {
-        if (kind == lbl_805436B8[player].kind[i]) {
-            return lbl_805436B8[player].text[i];
+        if (kind == partner_dialogue_table[player].kind[i]) {
+            return partner_dialogue_table[player].text[i];
         }
     }
     return NULL;
@@ -222,10 +222,10 @@ void set_partner_dialogue_override(const char *text, s32 kind, u16 player) {
   off = player * 0x30;
   for (i = 0; i < 6; i++)
   {
-    if ((((struct PartnerText_8034DA38 *)&lbl_805436B8)[player].kind[i] == 25) || (kind == ((struct PartnerText_8034DA38 *)&lbl_805436B8)[player].kind[i]))
+    if ((((struct PartnerText_8034DA38 *)&partner_dialogue_table)[player].kind[i] == 25) || (kind == ((struct PartnerText_8034DA38 *)&partner_dialogue_table)[player].kind[i]))
     {
-      ((struct PartnerText_8034DA38 *) (((u8 *) ((struct PartnerText_8034DA38 *)&lbl_805436B8)) + off))->kind[i] = kind;
-      ((struct PartnerText_8034DA38 *)&lbl_805436B8)[player].text[i] = text;
+      ((struct PartnerText_8034DA38 *) (((u8 *) ((struct PartnerText_8034DA38 *)&partner_dialogue_table)) + off))->kind[i] = kind;
+      ((struct PartnerText_8034DA38 *)&partner_dialogue_table)[player].text[i] = text;
       return;
     }
   }

@@ -563,7 +563,7 @@ s32 play_sound_effect(s32, void *, s32, s32);
 void * __nw__7TObjectFUl(int);
 f32 subtract_vector(void *, void *);
 extern const M2C_UNK canadin_formation_reset_vec4[];
-extern u8 TObjEneMe1Canadin__data_8043A290[];
+extern u8 TObjEneMe1Canadin__map_core_default_vec4[];
 extern const f32 TObjEneMe1Canadin__data_805D988C;
 extern const f32 TObjEneMe1Canadin__data_805D98BC;
 extern const f32 lbl_805D9910;
@@ -2769,7 +2769,7 @@ f32 subtract_vector(void *, void *);
 M2C_UNK push_matrix();
 M2C_UNK pop_matrix();
 
-extern u8 TObjEneMe1Canadin__data_8043A290[];
+extern u8 TObjEneMe1Canadin__map_core_default_vec4[];
 extern const f32 TObjEneMe1Canadin__data_805D988C;
 extern const f32 TObjEneMe1Canadin__data_805D98AC;
 extern const f32 TObjEneMe1Canadin__data_805D98B4;
@@ -4328,7 +4328,7 @@ void TObjEneMe1Canadin__sub_8009D320(void *arg0, s32 arg1) {
             if (o->fB8 == 1) {
                 void *p;
                 o->mode = 3;
-                reset_map_core__17TObjEneMe1CanadinFPv(o, TObjEneMe1Canadin__data_8043A290);
+                reset_map_core__17TObjEneMe1CanadinFPv(o, TObjEneMe1Canadin__map_core_default_vec4);
                 VecCopy__FP3VecPC3Vec(pos, &o->base);
                 p = __nw__7TObjectFUl(0x48);
                 if (p != 0) {
@@ -5231,7 +5231,7 @@ void setup_enemy__17TObjEneMe1CanadinFPv(u8 *arg0) {
     M2C_FIELD(arg0, f32 *, 0x498) = lbl_805D9898;
     M2C_FIELD(arg0, s32 *, 0x49C) = 0;
     M2C_FIELD(arg0, s32 *, 0x4A0) = 0;
-    ((void (*)(void *, void *))copy_vec4__13TRaderMapCoreFPvPv)(arg0 + 0x4A4, TObjEneMe1Canadin__data_8043A290);
+    ((void (*)(void *, void *))copy_vec4__13TRaderMapCoreFPvPv)(arg0 + 0x4A4, TObjEneMe1Canadin__map_core_default_vec4);
     M2C_FIELD(arg0, f32 *, 0x4A4) = lbl_805D9898;
     M2C_FIELD(arg0, s32 *, 0x4B8) = 0;
     M2C_FIELD(arg0, s32 *, 0x4B4) = 0;

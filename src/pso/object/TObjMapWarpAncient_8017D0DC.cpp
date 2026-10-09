@@ -50,15 +50,15 @@ u8 *TObjMapWarpAncient__ct(u8 *arg0) {
     return arg0;
 }
 
-extern u32 lbl_805D5AF0;
-extern s32 lbl_805D5AF4;
+extern u32 ancient_warp_shared_resource;
+extern s32 goal_warp_ancient_gvm_texture;
 
 void free_globals__18TObjMapWarpAncientFv(void) {
-    free_if_valid__10TObjPlayerFi(lbl_805D5AF4);
-    lbl_805D5AF4 = 0;
-    if ((u32) lbl_805D5AF0 != 0U) {
-        TLobby__sub_8001FE7C((void*)lbl_805D5AF0, 1);
-        lbl_805D5AF0 = 0U;
+    free_if_valid__10TObjPlayerFi(goal_warp_ancient_gvm_texture);
+    goal_warp_ancient_gvm_texture = 0;
+    if ((u32) ancient_warp_shared_resource != 0U) {
+        TLobby__sub_8001FE7C((void*)ancient_warp_shared_resource, 1);
+        ancient_warp_shared_resource = 0U;
     }
 }
 

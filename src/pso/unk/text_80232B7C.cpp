@@ -71,7 +71,7 @@ Obj_80232B7C *construct_grants_flash(Obj_80232B7C *self, s32 id, void *parent, V
 M2C_UNK construct_timed_sound_voice(void *, void *, int, int, int, void *);
 extern SGrp_80232C50 lbl_8044D56C[];
 extern void *tl_07;
-extern s32 lbl_805D63AC;
+extern s32 technique_effect_bml;
 extern s32 lbl_805D63B0;
 extern const f32 lbl_805DC854;
 void grants_presentation_update(Ctl_80232C50 *arg0);
@@ -126,7 +126,7 @@ void grants_presentation_update(Ctl_80232C50 *arg0) {
                 if (e->flags & 0x20) {
                     r = spawn_particle_effect(obj + 0x38, e->a);
                     if (r != 0) {
-                        attach_particle_model(r, get_bml_model(lbl_805D63AC, lbl_8044D56C[arg0->kind].ents[i].flags >> 16), lbl_805D63B0, 0, 1, lbl_805DC854);
+                        attach_particle_model(r, get_bml_model(technique_effect_bml, lbl_8044D56C[arg0->kind].ents[i].flags >> 16), lbl_805D63B0, 0, 1, lbl_805DC854);
                     }
                 } else {
                     spawn_particle_effect(obj + 0x38, e->a);

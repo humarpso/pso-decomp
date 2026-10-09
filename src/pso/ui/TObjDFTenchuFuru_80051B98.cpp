@@ -18,7 +18,7 @@ int pop_matrix(void);
 M2C_UNK set_global_param__8TObjFishFi(void *);
 M2C_UNK draw_chunk_object(int);
 M2C_UNK draw_model_motion(int, void *, f32);
-extern M2C_UNK lbl_804FF240[];
+extern M2C_UNK df_captured_matrix_pair[];
 extern const f32 lbl_805D8A30;
 extern const f32 lbl_805D8A34;
 void draw_player_model_by_client__10TObjPlayerFUsiff(u16 arg0, s32 arg1, f32 farg0, f32 farg1);
@@ -68,14 +68,14 @@ void draw_player_model_by_client__10TObjPlayerFUsiff(u16 arg0, s32 arg1, f32 far
     draw_model_motion(f, (void *)arg1, farg0);
     TObjDFTenchuFuru__sub_80051A7C();
     if (d != 0) {
-        push_matrix_from((u8 *)lbl_804FF240 + 0x30);
+        push_matrix_from((u8 *)df_captured_matrix_pair + 0x30);
         set_global_param__8TObjFishFi(e);
         draw_chunk_object(d);
         pop_matrix();
     }
     if (a != 0) {
         enable_making__12TCharaMakingFv();
-        push_matrix_from(lbl_804FF240);
+        push_matrix_from(df_captured_matrix_pair);
         set_global_param__8TObjFishFi(c);
         draw_chunk_object(a);
         pop_matrix();
@@ -86,7 +86,7 @@ void draw_player_model_by_client__10TObjPlayerFUsiff(u16 arg0, s32 arg1, f32 far
     }
     if (b != 0) {
         enable_making__12TCharaMakingFv();
-        push_matrix_from(lbl_804FF240);
+        push_matrix_from(df_captured_matrix_pair);
         set_global_param__8TObjFishFi(c);
         TCharaMaking__draw_colored_hair(b, p + 0x85C, 0, farg1);
         pop_matrix();

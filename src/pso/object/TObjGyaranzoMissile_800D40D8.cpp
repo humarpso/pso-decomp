@@ -71,9 +71,9 @@ s32 project_actor_to_ground(void *, void *, int);
 extern const f32 lbl_805DA2A0;
 extern const f32 lbl_805DA2A4;
 void update_ground_fall__19TObjGyaranzoMissileFPvPvf(u8 *arg0, M2C_UNK *arg1, f32 farg0);
-extern s32 lbl_805D51EC;
+extern s32 gyaranzo_missile_param_table;
 f32 TObjGyaranzoMissile__sub_800D40EC(s32 arg0);
-extern s32 lbl_805D51EC;
+extern s32 gyaranzo_missile_param_table;
 s32 TObjGyaranzoMissile__sub_800D40FC(s32 i);
 s32 obj_is_hit_receivable();
 M2C_UNK queue_destruction__7TObjectFv(void *);
@@ -130,11 +130,11 @@ void TObjGyaranzoMissile__sub_800D40E8(void) {  }
 extern s32 some_id_805c6f74;
 
 f32 TObjGyaranzoMissile__sub_800D40EC(s32 arg0) {
-    return M2C_FIELD((lbl_805D51EC + (arg0 * 4)), f32 *, 0);
+    return M2C_FIELD((gyaranzo_missile_param_table + (arg0 * 4)), f32 *, 0);
 }
 
 s32 TObjGyaranzoMissile__sub_800D40FC(s32 i) {
-    return (*(D_800D40FC * *)&lbl_805D51EC)->arr[i];
+    return (*(D_800D40FC * *)&gyaranzo_missile_param_table)->arr[i];
 }
 
 void update_ground_fall__19TObjGyaranzoMissileFPvPvf(u8 *arg0, M2C_UNK *arg1, f32 farg0) {

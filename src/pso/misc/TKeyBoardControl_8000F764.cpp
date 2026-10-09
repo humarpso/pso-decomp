@@ -64,13 +64,13 @@ extern s32 lbl_805D49C0;
 void TKeyBoardControl__sub_8000F950(void);
 extern s32 lbl_805D49C0;
 void TKeyBoardControl__sub_8000F95C(void);
-extern s32 lbl_805D49BC;
+extern s32 keyboard_active_flag;
 void TKeyBoardControl__sub_8000F978(void);
-extern s32 lbl_805D49BC;
+extern s32 keyboard_active_flag;
 void TKeyBoardControl__sub_8000F984(void);
-extern s32 lbl_805D49B8;
+extern s32 keyboard_key_state;
 void mark_area_change_pending(void);
-extern s32 lbl_805D49B8;
+extern s32 keyboard_key_state;
 void TKeyBoardControl__sub_8000F9A4(void);
 s32 flush_input__16TKeyBoardControlFv(void);
 M2C_UNK reset_state_byte__6TLobbyFv();
@@ -94,7 +94,7 @@ extern RecoveredGlobal_8000F9E4_lbl_804FE120 main_phase_state;
 s32 TKeyBoardControl__sub_8000F8EC(void);
 extern RecoveredGlobal_8000F9E4_lbl_804FE120 main_phase_state;
 void TKeyBoardControl__sub_8000F91C(s32 arg0);
-extern s32 lbl_805D49BC;
+extern s32 keyboard_active_flag;
 bool TKeyBoardControl__sub_8000F968(void);
 extern RecoveredGlobal_8000F9E4_lbl_804FE120 main_phase_state;
 s32 TKeyBoardControl__sub_8000F92C(void);
@@ -191,9 +191,9 @@ extern RecoveredGlobal_8000F764_TKeyBoardControl__data_80506270 TKeyBoardControl
 extern u8 main_task[];
 extern int lbl_805D49A0;
 extern int lbl_805D49A4;
-extern int lbl_805D49A8;
-extern s32 lbl_805D49AC;
-extern int lbl_805D49B0;
+extern int player_matrix_stack_buffer;
+extern s32 keyboard_input_buffer;
+extern int resource_decompress_buffer;
 extern int anim_model_matrix_array;
 extern int lbl_805D5680;
 void init_game_systems(void);
@@ -272,11 +272,11 @@ int TKeyBoardControl__sub_8000F828(void) { return 0; }
 
     extern int lbl_805D49A0;
     extern int lbl_805D49A4;
-    extern int lbl_805D49A8;
-    extern int lbl_805D49B0;
+    extern int player_matrix_stack_buffer;
+    extern int resource_decompress_buffer;
     extern int anim_model_matrix_array;
     extern int lbl_805D5680;
-void shutdown_and_reset_system(void) { TLobby__sub_802433A8(); TObjTailsTailsMove__sub_800FFE0C(); init_default_config__10TObjPlayerFv(); destroy_resources__16TObjEneMe3StelthFv(); TAdPlayerLoadGC__sub_801E1350(); free_system__13TParticleCtrlFv(); reset_emitter_table__13TParticleCtrlFv(); fn_80082A6C(); free_resources__23TAdSinglePlyChrSelectGCFv(); TObjPlayer__sub_801D92A4(); TLobby__sub_8020E3BC(); TWindowSnapShot__sub_802A7DA0(); TAdWarningBaseGC__sub_8032D188(); destroy_game_heap__6TLobbyFv(); TLobby__sub_8022809C(); shutdown_buffers__6TLobbyFv(); release_all__23TAdSinglePlyChrSelectGCFv(); TWindowSubStatusDisp__sub_803386F0(); TObjBoss2Tunnel__sub_8036EF4C(); TLobby__sub_80147978(); xfree__FPv((void*)(lbl_805D49A0)); xfree__FPv((void*)(lbl_805D49A4)); xfree__FPv((void*)(lbl_805D49B0)); xfree__FPv((void*)(lbl_805D5680)); xfree__FPv((void*)(anim_model_matrix_array)); xfree__FPv((void*)(lbl_805D49A8)); VISetBlack((void*)1); VIFlush(); VIWaitForRetrace(); OSResetSystem((void*)1, (void*)0, (void*)1); }
+void shutdown_and_reset_system(void) { TLobby__sub_802433A8(); TObjTailsTailsMove__sub_800FFE0C(); init_default_config__10TObjPlayerFv(); destroy_resources__16TObjEneMe3StelthFv(); TAdPlayerLoadGC__sub_801E1350(); free_system__13TParticleCtrlFv(); reset_emitter_table__13TParticleCtrlFv(); fn_80082A6C(); free_resources__23TAdSinglePlyChrSelectGCFv(); TObjPlayer__sub_801D92A4(); TLobby__sub_8020E3BC(); TWindowSnapShot__sub_802A7DA0(); TAdWarningBaseGC__sub_8032D188(); destroy_game_heap__6TLobbyFv(); TLobby__sub_8022809C(); shutdown_buffers__6TLobbyFv(); release_all__23TAdSinglePlyChrSelectGCFv(); TWindowSubStatusDisp__sub_803386F0(); TObjBoss2Tunnel__sub_8036EF4C(); TLobby__sub_80147978(); xfree__FPv((void*)(lbl_805D49A0)); xfree__FPv((void*)(lbl_805D49A4)); xfree__FPv((void*)(resource_decompress_buffer)); xfree__FPv((void*)(lbl_805D5680)); xfree__FPv((void*)(anim_model_matrix_array)); xfree__FPv((void*)(player_matrix_stack_buffer)); VISetBlack((void*)1); VIFlush(); VIWaitForRetrace(); OSResetSystem((void*)1, (void*)0, (void*)1); }
 
 extern s32 lbl_805D49C0;
 
@@ -311,7 +311,7 @@ s32 get_input__16TKeyBoardControlFv(void) {
     return lbl_805D49C0;
 }
 
-extern s32 lbl_805D49B8;
+extern s32 keyboard_key_state;
 
 void TKeyBoardControl__sub_8000F950(void) {
     lbl_805D49C0 = 1;
@@ -322,27 +322,27 @@ void TKeyBoardControl__sub_8000F95C(void) {
 }
 
 bool TKeyBoardControl__sub_8000F968(void) {
-    return lbl_805D49BC != 0;
+    return keyboard_active_flag != 0;
 }
 
 void TKeyBoardControl__sub_8000F978(void) {
-    lbl_805D49BC = 1;
+    keyboard_active_flag = 1;
 }
 
 void TKeyBoardControl__sub_8000F984(void) {
-    lbl_805D49BC = 0;
+    keyboard_active_flag = 0;
 }
 
 s32 get_key_state__16TKeyBoardControlFv(void) {
-    return lbl_805D49B8;
+    return keyboard_key_state;
 }
 
 void mark_area_change_pending(void) {
-    lbl_805D49B8 = 1;
+    keyboard_key_state = 1;
 }
 
 void TKeyBoardControl__sub_8000F9A4(void) {
-    lbl_805D49B8 = 0;
+    keyboard_key_state = 0;
 }
 typedef char RecoveredGlobal_8000F9E4_lbl_804FE120_size[sizeof(RecoveredGlobal_8000F9E4_lbl_804FE120) == 0x18 ? 1 : -1];
 
@@ -413,21 +413,21 @@ void init_game_systems(void) {
     fn_803DA754((*(s32 *)&lbl_805D49A0), 0x2E4, (*(s32 *)&lbl_805D49A4), 0x2E4);
     init_light_globals((int) (0), (int) (0));
     set_some_id__FUl(0x100000);
-    (*(s32 *)&lbl_805D49B0) = xmalloc__FUl(0x80000);
+    (*(s32 *)&resource_decompress_buffer) = xmalloc__FUl(0x80000);
     (*(s32 *)&lbl_805D5680) = xmalloc__FUl(0x6000);
     (*(s32 *)&anim_model_matrix_array) = xmalloc__FUl(0x14A0);
-    TObjPlayer__sub_803E492C((void *) ((*(s32 *)&lbl_805D49B0)), (int) (0x2000));
+    TObjPlayer__sub_803E492C((void *) ((*(s32 *)&resource_decompress_buffer)), (int) (0x2000));
     set_key_state__16TKeyBoardControlFi(TKeyBoardControl__sub_8000F764);
-    (*(s32 *)&lbl_805D49A8) = xmalloc__FUl(0x600);
-    init_matrix_stack__10TObjPlayerFii((*(s32 *)&lbl_805D49A8), 0x20);
+    (*(s32 *)&player_matrix_stack_buffer) = xmalloc__FUl(0x600);
+    init_matrix_stack__10TObjPlayerFii((*(s32 *)&player_matrix_stack_buffer), 0x20);
     set_matrix_identity__10TObjPlayerFPv(0);
     init_pad_slots_and_read__16TKeyBoardControlFv((int) (0), (int) (0), (int) (0));
     enable_and_trigger__15TObjBoss2TunnelFv();
     TAdSinglePlyChrSelectGC__sub_802431D0();
     init_pad_state__16TKeyBoardControlFv();
     set_global_7778__10TObjPlayerFi((void *)(*(s32 *)&lbl_805D5680));
-    lbl_805D49AC = xmalloc__FUl(0x1000);
-    fn_803D8030(lbl_805D49AC, 0x80, 0x800);
+    keyboard_input_buffer = xmalloc__FUl(0x1000);
+    fn_803D8030(keyboard_input_buffer, 0x80, 0x800);
     set_global_count__12TObjNpcEnemyFi(-1);
     fn_803D8064(0xC);
     init_gx_lighting_defaults();

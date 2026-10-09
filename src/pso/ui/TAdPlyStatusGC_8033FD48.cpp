@@ -30,19 +30,19 @@ int get_player_index__14TAdPlyStatusGCFv(void);
 u32 TAdPlyStatusGC__ct(u32, s32, s32);
 u32 __nw__7TObjectFUl(M2C_UNK);
 
-extern u32 lbl_805D6DA8;
+extern u32 ply_status_gc_instance;
 
 u32 get_instance__14TAdPlyStatusGCFii(s32 arg0, s32 arg1) {
     u32 var_r0;
 
-    if ((u32) lbl_805D6DA8 == 0U) {
+    if ((u32) ply_status_gc_instance == 0U) {
         var_r0 = __nw__7TObjectFUl(0x70);
         if (var_r0 != 0U) {
             var_r0 = TAdPlyStatusGC__ct(var_r0, arg0, arg1);
         }
-        lbl_805D6DA8 = var_r0;
+        ply_status_gc_instance = var_r0;
     }
-    return lbl_805D6DA8;
+    return ply_status_gc_instance;
 }
 
     extern int lbl_805D6D04;

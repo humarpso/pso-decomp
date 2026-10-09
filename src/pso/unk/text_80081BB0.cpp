@@ -55,7 +55,7 @@ M2C_UNK set_position_xy__10TObjPlayerFPvff(s32, f32, f32);
 s32 spawn_particle_effect(void *, M2C_UNK);
 u32 find_active_entity_by_id(u16);
 extern s32 lbl_805D4ED0;
-extern s32 lbl_805D63AC;
+extern s32 technique_effect_bml;
 extern s32 lbl_805D63B0;
 extern const f32 lbl_805D9378;
 extern const f32 lbl_805D9384;
@@ -98,7 +98,7 @@ M2C_UNK freeze_shell_hold(void *arg0) {
     M2C_FIELD(arg0, s32 *, 0x334) = 2;
     p = spawn_particle_effect((u8 *)arg0 + 0x35C, 0x153);
     if (p != 0) {
-        attach_particle_model(p, get_bml_model(lbl_805D63AC, 5), lbl_805D63B0, 0, 0, lbl_805D9384);
+        attach_particle_model(p, get_bml_model(technique_effect_bml, 5), lbl_805D63B0, 0, 0, lbl_805D9384);
     }
     p = spawn_particle_effect((u8 *)arg0 + 0x38, 0x33);
     if (p != 0) {

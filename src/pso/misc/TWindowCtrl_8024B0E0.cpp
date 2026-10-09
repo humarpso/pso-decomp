@@ -31,15 +31,15 @@ s32 get_message_by_type__11TWindowCtrlFci(s8 arg0, s32 arg1) {
     return get_window_layout_position(var_r3 + arg0);
 }
 
-extern void *TWindowCtrl__data_805D63F8;
+extern void *TWindowCtrl__active_window;
 
 void release_slot__11TWindowCtrlFPv(s8 *arg0) {
     s8 temp_r4;
 
-    if ((void *) TWindowCtrl__data_805D63F8 != NULL) {
+    if ((void *) TWindowCtrl__active_window != NULL) {
         temp_r4 = *arg0;
         if ((temp_r4 >= 0) && (temp_r4 < 4)) {
-            M2C_FIELD(TWindowCtrl__data_805D63F8, u16 *, 0x1C) = (u16) (M2C_FIELD(TWindowCtrl__data_805D63F8, u16 *, 0x1C) & ~(0x40 << temp_r4));
+            M2C_FIELD(TWindowCtrl__active_window, u16 *, 0x1C) = (u16) (M2C_FIELD(TWindowCtrl__active_window, u16 *, 0x1C) & ~(0x40 << temp_r4));
             *arg0 = -1;
         }
     }

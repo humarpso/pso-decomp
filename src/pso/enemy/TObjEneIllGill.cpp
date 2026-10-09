@@ -648,7 +648,7 @@ extern void *TObjEneIllGill_motion_name_table[11];
 struct Vec_803664C0 { f32 x, y, z; };
 typedef Vec_803664C0 V_80368208;
 typedef Vec_803664C0 Vec_80368818;
-Vec_803664C0 TObjEneIllGill__data_80543A60;
+Vec_803664C0 TObjEneIllGill__camera_vec_table;
 Vec_803664C0 lbl_80543A6C;
 Vec_803664C0 lbl_80543A78;
 Vec_803664C0 lbl_80543A84;
@@ -1009,7 +1009,7 @@ void advance_camera_vec_stage__14TObjEneIllGillFv(void) {
     Vec_803664C0 *v;
     switch (TObjEneIllGill__data_805D6FE0) {
     case 50:
-        v = &TObjEneIllGill__data_80543A60;
+        v = &TObjEneIllGill__camera_vec_table;
         v->x = TObjEneIllGill__data_805E02BC;
         v->y = TObjEneIllGill__data_805E02BC;
         v->z = TObjEneIllGill__data_805E02BC;
@@ -1881,7 +1881,7 @@ void render__14TObjEneIllGillFv(u8 *arg0) {
             render_world_model__10TObjPlayerFPv(arg0);
         }
         set_global_state__16TObjEneRe7BeruraFi(NULL);
-        VecCopy__FP3VecPC3Vec(arg0 + 0x3B0, &TObjEneIllGill__data_80543A60);
+        VecCopy__FP3VecPC3Vec(arg0 + 0x3B0, &TObjEneIllGill__camera_vec_table);
         VecCopy__FP3VecPC3Vec(arg0 + 0x3BC, &lbl_80543A6C);
         VecCopy__FP3VecPC3Vec(arg0 + 0x3C8, &lbl_80543A78);
         VecCopy__FP3VecPC3Vec(arg0 + 0x3D4, &lbl_80543A84);
@@ -2066,7 +2066,7 @@ void load_shared_resources__14TObjEneIllGillFv(void) {
     lbl_805D6FD8 = register_object__6TLobbyFPv(0x26);
     TObjEneIllGill__data_805D6FDC = (u8 *)dispatch_shared_handler_a__6TLobbyFPv(0x26);
     TObjEneIllGill__data_805D6FE0 = 0;
-    q = &TObjEneIllGill__data_80543A60;
+    q = &TObjEneIllGill__camera_vec_table;
     q->x = q->y = q->z = TObjEneIllGill__data_805E02BC;
     q = &lbl_80543A6C;
     q->x = q->y = q->z = TObjEneIllGill__data_805E02BC;

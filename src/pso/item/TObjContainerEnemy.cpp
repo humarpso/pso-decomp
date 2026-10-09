@@ -131,7 +131,7 @@ s32 reset_photon_effect__10TObjPlayerFPv(void *);
 s32 init_collision_body_parts(void *, void *, int);
 s32 init_container_base(void *, void *, void *);
 s32 get_container_param(int);
-extern RecoveredGlobal_801897A4_lbl_804B63BC lbl_804B63BC;
+extern RecoveredGlobal_801897A4_lbl_804B63BC forest_box_collision_body_parts;
 extern M2C_UNK __vt__18TObjContainerEnemy[];
 extern s32 lbl_805D32F0;
 u8 *TObjContainerEnemy__ct(u8 *arg0, s32 arg1, s32 arg2);
@@ -219,11 +219,11 @@ u8 *TObjContainerEnemy__ct(u8 *arg0, s32 arg1, s32 arg2) {
     M2C_FIELD(arg0, s32 *, 0x34) = get_container_param((int) (1));
     M2C_FIELD(arg0, s16 *, 0x326) = 0;
     M2C_FIELD(arg0, s32 *, 0x30) = (s32) (M2C_FIELD(arg0, s32 *, 0x30) | 0x60000000);
-    init_collision_body_parts((void *) (arg0), (void *) (&lbl_804B63BC.value), (int) (1));
+    init_collision_body_parts((void *) (arg0), (void *) (&forest_box_collision_body_parts.value), (int) (1));
     reset_photon_effect__10TObjPlayerFPv((void *) (arg0));
     VecCopy__FP3VecPC3Vec((void *) (arg0 + 0x74), (void *) (arg0 + 0x38));
     VecCopy__FP3VecPC3Vec((void *) (arg0 + 0x2FC), (void *) (arg0 + 0x38));
-    M2C_FIELD(arg0, f32 *, 0x78) = (f32) (M2C_FIELD(arg0, f32 *, 0x78) + M2C_FIELD(&lbl_804B63BC.value, f32 *, 4));
+    M2C_FIELD(arg0, f32 *, 0x78) = (f32) (M2C_FIELD(arg0, f32 *, 0x78) + M2C_FIELD(&forest_box_collision_body_parts.value, f32 *, 4));
     return arg0;
 }
 

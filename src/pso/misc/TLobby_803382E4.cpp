@@ -24,7 +24,7 @@ M2C_UNK prs_decompress_buffer(int, int);
 M2C_UNK set_stream_state__6TLobbyFi(void *, int);
 M2C_UNK load_gvm_texture_archive(int, void *);
 extern M2C_UNK lbl_80477BC4[];
-extern s32 lbl_805D6D58;
+extern s32 lobby_request_flags;
 void load_now_loading_texture__6TLobbyFv(void);
 void TCameraCtrl__sub_80068EF0(void);
 void restore_full_screen_view__11TCameraCtrlFv(void);
@@ -41,12 +41,12 @@ void reset_player_state__6TLobbyFv(void);
 void draw_projected_textured_strip(void *, s32);
 void TLobby__sub_803E2EE4(s32);
 extern s32 lbl_805D63F0;
-extern s32 lbl_805D6D58;
-extern int lbl_805D6D5C;
+extern s32 lobby_request_flags;
+extern int info_icon_texture;
 void TLobby__sub_80338534(void);
 f32 cos_table_lookup(s32);
-extern s32 lbl_805D6D58;
-extern s32 lbl_805D6D60;
+extern s32 lobby_request_flags;
+extern s32 lobby_pulse_color_phase;
 extern const f32 lbl_805DF9A0;
 extern const f32 lbl_805DF9A4;
 extern const f32 lbl_805DF9A8;
@@ -147,7 +147,7 @@ void TLobby__sub_803382E4(void) {
     f32 v;
     f32 alpha;
 
-    if (lbl_805D6D58 & 2) {
+    if (lobby_request_flags & 2) {
         fx = (Fx_803382E4 *)(lbl_804EF3E0);
         fx->angle += 0x16C;
         v = lbl_805DF9A4 + cos_table_lookup(fx->angle);
@@ -176,21 +176,21 @@ void TLobby__sub_803382E4(void) {
 }
 #pragma pop
 
-extern s32 lbl_805D6D58;
+extern s32 lobby_request_flags;
 
 void handle_flag2_request__6TLobbyFv(void) {
-    if (lbl_805D6D58 & 2) {
+    if (lobby_request_flags & 2) {
         TLobby__sub_803DA16C(lbl_804EF1DC);
-        lbl_805D6D58 &= 0xFFFFFFFD;
+        lobby_request_flags &= 0xFFFFFFFD;
     }
 }
 
-    extern int lbl_805D6D5C;
+    extern int info_icon_texture;
 
 void load_now_loading_texture__6TLobbyFv(void) {
     s32 temp_r31;
     s32 temp_r3;
-    if (!(lbl_805D6D58 & 2)) {
+    if (!(lobby_request_flags & 2)) {
         temp_r31 = alloc__22TQuestVmDownLoadServerFPv((int) (0x11000));
         temp_r3 = alloc__22TQuestVmDownLoadServerFPv((int) (0x2000));
         set_stream_state__6TLobbyFi((void *) (lbl_80477BC4), (int) (temp_r3));
@@ -198,7 +198,7 @@ void load_now_loading_texture__6TLobbyFv(void) {
         load_gvm_texture_archive((int) (temp_r31), (void *) (lbl_804EF1DC));
         safe_free__23TAdSinglePlyChrSelectGCFUi((int) (temp_r3));
         safe_free__23TAdSinglePlyChrSelectGCFUi((int) (temp_r31));
-        lbl_805D6D58 |= 2;
+        lobby_request_flags |= 2;
     }
 }
 
@@ -233,9 +233,9 @@ void TLobby__sub_80338534(void) {
     TObjBoss2Tunnel__sub_803E2D10(1);
     draw_projected_quads__15TObjBoss2TunnelFPvi(t->a, 4);
     reset_player_state__15TObjBoss2TunnelFv();
-    if ((u32)lbl_805D6D5C != 0) {
-        set_global_param__8TObjFishFi(lbl_805D6D5C);
-        if (lbl_805D6D58 & 4) {
+    if ((u32)info_icon_texture != 0) {
+        set_global_param__8TObjFishFi(info_icon_texture);
+        if (lobby_request_flags & 4) {
             set_texture_num(1);
         } else {
             set_texture_num(0);
@@ -266,9 +266,9 @@ void update_pulse_colors__6TLobbyFi(s32 arg0) {
     s32 i;
     B_80338608 *b;
     A_80338608 *a;
-    f32 s = lbl_805DF9A4 + cos_table_lookup(lbl_805D6D60);
+    f32 s = lbl_805DF9A4 + cos_table_lookup(lobby_pulse_color_phase);
     t = s * lbl_805DF9A8 + lbl_805DF9A0;
-    lbl_805D6D60 += 0xCCC;
+    lobby_pulse_color_phase += 0xCCC;
     c0 = ((u32)(lbl_805DF9B4 * t) << 24) | 0xFFFFFF;
     c1 = (u32)(lbl_805DF9B8 * t) << 24;
     a = lobby_pulse_color_table;
@@ -281,19 +281,19 @@ void update_pulse_colors__6TLobbyFi(s32 arg0) {
     }
     switch (arg0) {
     case 0:
-        lbl_805D6D58 &= ~4;
+        lobby_request_flags &= ~4;
         break;
     case 1:
-        lbl_805D6D58 |= 4;
+        lobby_request_flags |= 4;
         break;
     }
 }
 #pragma pop
 
-void TWindowSubStatusDisp__sub_803386F0(void) { free_if_valid__10TObjPlayerFi((void*)(lbl_805D6D5C)); }
+void TWindowSubStatusDisp__sub_803386F0(void) { free_if_valid__10TObjPlayerFi((void*)(info_icon_texture)); }
 
     extern unsigned char lbl_80477BD4[];
-    extern int lbl_805D6D5C;
-void load_info_icon(void) { lbl_805D6D5C = load_gvm_texture_file(lbl_80477BD4); }
+    extern int info_icon_texture;
+void load_info_icon(void) { info_icon_texture = load_gvm_texture_file(lbl_80477BD4); }
 
 }

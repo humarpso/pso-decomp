@@ -128,7 +128,7 @@ void draw_ginja_object(void);
 void set_chunk_material_color(void *, s32);
 extern u8 *camera_ctrl_instance;
 extern s32 lbl_805D5660;
-extern void *lbl_805D63AC;
+extern void *technique_effect_bml;
 extern void *lbl_805D63B0;
 extern s32 some_id_805c6f74;
 extern const f32 lbl_805DC8D0;

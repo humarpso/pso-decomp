@@ -9,10 +9,10 @@ extern "C" {
 void alloc_buffer__16TKeyBoardControlFv(void);
 s32 xmalloc__FUl(M2C_UNK);
 
-extern s32 lbl_805D63E0;
+extern s32 player_data_load_buffer;
 
 void alloc_buffer__16TKeyBoardControlFv(void) {
-    lbl_805D63E0 = xmalloc__FUl(0x14000);
+    player_data_load_buffer = xmalloc__FUl(0x14000);
 }
 
 }

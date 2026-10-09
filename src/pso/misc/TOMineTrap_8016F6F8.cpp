@@ -326,11 +326,11 @@ s32 get_main_phase();
 void update_state__10TOMineTrapFPv(void *arg0);
 M2C_UNK play_sound_effect(s32, s32, M2C_UNK, M2C_UNK);
 s32 get_global_state__14TOKeyMachine01Fv();
-extern s8 lbl_804420A8[];
+extern s8 mine_trap_effect_table[];
 void spawn_effect__10TOMineTrapFi(s32 arg0);
 M2C_UNK play_sound_effect(s32, s32, M2C_UNK, M2C_UNK);
 s32 get_global_state__14TOKeyMachine01Fv();
-extern s8 lbl_80442018[];
+extern s8 mine_trap_keymachine_table[];
 void attach_to_keymachine__10TOMineTrapFi(s32 arg0);
 u32 spawn_particle_effect(s32, M2C_UNK);
 M2C_UNK set_position_xy__10TObjPlayerFPvff(f32, f32);
@@ -639,14 +639,14 @@ void update_state__10TOMineTrapFPv(void *arg0) {
 }
 void spawn_effect__10TOMineTrapFi(s32 arg0) {
     s32 idx = get_global_state__14TOKeyMachine01Fv();
-    s32 elem = *(s32 *)(lbl_804420A8 + idx * 4);
+    s32 elem = *(s32 *)(mine_trap_effect_table + idx * 4);
     if (elem != -1) {
         play_sound_effect(elem, arg0 + 0x38, 0, 0);
     }
 }
 void attach_to_keymachine__10TOMineTrapFi(s32 arg0) {
     s32 idx = get_global_state__14TOKeyMachine01Fv();
-    s32 elem = *(s32 *)(lbl_80442018 + idx * 4);
+    s32 elem = *(s32 *)(mine_trap_keymachine_table + idx * 4);
     if (elem != -1) {
         play_sound_effect(elem, arg0 + 0x38, 0, 0);
     }

@@ -74,12 +74,12 @@ void run_task__16TOSparkMachine01Fv(u8 *arg0);
 u8 * load_resource_from_descriptor(void *, s32, void *, s32, s32, s32);
 int alloc__23TAdSinglePlyChrSelectGCFPv(void *);
 extern RecoveredGlobal_80177330_lbl_804B43F0 lbl_804B43F0;
-extern u32 TOSparkMachine01__data_805D5AC0;
+extern u32 TOSparkMachine01__static_resource;
 void load_static_resource__16TOSparkMachine01Fv(void);
 void TPhotonMagicSquare__sub_801A2640(void *, s32);
 extern M2C_UNK __vt__16TOSparkMachine01[];
 extern s32 lbl_805D3174;
-extern u32 TOSparkMachine01__data_805D5AC0;
+extern u32 TOSparkMachine01__static_resource;
 extern s32 tl_05;
 extern const f32 TOSparkMachine01__data_805DB9EC;
 extern const f32 lbl_805DB9F0;
@@ -183,12 +183,12 @@ void *create__16TOSparkMachine01FPv(void *arg0) {
     return o;
 }
 
-extern u32 TOSparkMachine01__data_805D5AC0;
+extern u32 TOSparkMachine01__static_resource;
 
 void destroy_static_instance__16TOSparkMachine01Fv(void) {
-    if ((u32) TOSparkMachine01__data_805D5AC0 != 0U) {
-        TLobby__sub_8001FE7C((void*)TOSparkMachine01__data_805D5AC0, 1);
-        TOSparkMachine01__data_805D5AC0 = 0U;
+    if ((u32) TOSparkMachine01__static_resource != 0U) {
+        TLobby__sub_8001FE7C((void*)TOSparkMachine01__static_resource, 1);
+        TOSparkMachine01__static_resource = 0U;
     }
 }
 
@@ -202,7 +202,7 @@ void load_static_resource__16TOSparkMachine01Fv(void) {
     if (var_r0 != 0) {
         var_r0 = (long) (load_resource_from_descriptor((void *) temp_r3, 1, &lbl_804B43F0.value, 0, 0, 0));
     }
-    (*(s32 *)&TOSparkMachine01__data_805D5AC0) = var_r0;
+    (*(s32 *)&TOSparkMachine01__static_resource) = var_r0;
 }
 
 void *__dt__16TOSparkMachine01Fv(void *arg0, s16 arg1) {
@@ -222,8 +222,8 @@ void *TOSparkMachine01__ct(void *arg0, void *arg1) {
     *(void **)((u8 *)self + 0x18) = ((s32 *)&__vt__16TOSparkMachine01);
     *(s32 *)self = lbl_805D3174;
     self->m5(arg1);
-    self->unk34 = ((Res_801773D8 *)TOSparkMachine01__data_805D5AC0)->model->a;
-    self->unk24 = ((Res_801773D8 *)TOSparkMachine01__data_805D5AC0)->model->b;
+    self->unk34 = ((Res_801773D8 *)TOSparkMachine01__static_resource)->model->a;
+    self->unk24 = ((Res_801773D8 *)TOSparkMachine01__static_resource)->model->b;
     self->unka8 = lbl_805DB9F0;
     self->unkac = lbl_805DB9F4;
     self->flags |= 0x40000000;

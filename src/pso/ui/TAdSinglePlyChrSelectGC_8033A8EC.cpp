@@ -30,12 +30,12 @@ struct V3_8033B2AC { s32 x, y, z; };
 struct V3_8033B39C { f32 x, y, z; };
 
 extern "C" {
-extern s32 lbl_805D6D8C;
+extern s32 single_ply_quest_download_server;
 void set_quest_download_server__23TAdSinglePlyChrSelectGCFi(int a0);
 extern s32 lbl_805D6D80;
 extern s32 lbl_805D6D84;
 extern s32 lbl_805D6D88;
-extern s32 lbl_805D6D8C;
+extern s32 single_ply_quest_download_server;
 void init_logo_state__23TAdSinglePlyChrSelectGCFi(s32 arg0);
 void noop__23TAdSinglePlyChrSelectGCFv(void);
 int safe_free__23TAdSinglePlyChrSelectGCFUi(void*);
@@ -220,17 +220,17 @@ extern "C" {
 
 void reset_quest_id__23TAdSinglePlyChrSelectGCFv(void);
 
-extern s32 lbl_805D6D8C;
+extern s32 single_ply_quest_download_server;
 
 void reset_quest_id__23TAdSinglePlyChrSelectGCFv(void) {
-    lbl_805D6D8C = 0xFFFF;
+    single_ply_quest_download_server = 0xFFFF;
 }
-void set_quest_download_server__23TAdSinglePlyChrSelectGCFi(int a0) { (*(int *)&lbl_805D6D8C) = a0; }
+void set_quest_download_server__23TAdSinglePlyChrSelectGCFi(int a0) { (*(int *)&single_ply_quest_download_server) = a0; }
 void init_logo_state__23TAdSinglePlyChrSelectGCFi(s32 arg0) {
     lbl_805D6D88 = 0;
     lbl_805D6D84 = 0;
     lbl_805D6D80 = arg0;
-    lbl_805D6D8C = 0xFFFF;
+    single_ply_quest_download_server = 0xFFFF;
 }
 void noop__23TAdSinglePlyChrSelectGCFv(void) {  }
 void free_buffer__23TAdSinglePlyChrSelectGCFPv(void* p) { if (*(unsigned int*)((char*)p + 0x20) != 0) { safe_free__23TAdSinglePlyChrSelectGCFUi(*(void**)((char*)p + 0x20)); *(int*)((char*)p + 0x20) = 0; *(int*)((char*)p + 0x1c) = 0; } }

@@ -90,11 +90,23 @@ struct VObj_801161A4_80115D6C : Base_801161A4_80115D6C {
     virtual void m32(); virtual void m33(); virtual int m34();
 };
 
+struct Obj_80116634
+{
+  u8 pad0[0xF0];
+  s32 f0;
+};
+
 extern "C" {
 void * TItemProShield__sub_80116708(void *arg0, void *arg1, void *arg2);
 u8 *alloc_from_obj_heap__10TObjPlayerFPv(M2C_UNK);
 extern s32 tl_05;
 u8 *TItemProShield__sub_80116744(u8 *arg0);
+void add_actor_hp(s32, s16);
+s16 get_field_2b8__14TItemProShieldFPv(s32);
+s32 get_slot_count__14TItemProShieldFPv(void *);
+u8 get_tool_pmt_amount_byte(void *);
+extern s32 game_difficulty_selection;
+void apply_mate_hp_recovery(Obj_80116634 *arg0);
 }
 
 extern "C" {
@@ -110,6 +122,25 @@ void free_obj_heap__10TObjPlayerFPv(void *);
 s32 get_slot_count__14TItemProShieldFPv(void *);
 
 extern M2C_UNK lbl_8049F770[];
+
+typedef struct Obj_80116634 Obj_80116634;
+void apply_mate_hp_recovery(Obj_80116634 *arg0) {
+  u8 (*new_var2)(void *);
+  s32 t;
+  new_var2 = (u8 (*)(void *)) get_slot_count__14TItemProShieldFPv;
+  if (new_var2(arg0) != 2)
+  {
+    int new_var;
+    t = get_tool_pmt_amount_byte(arg0);
+    new_var = game_difficulty_selection;
+    new_var = t + (new_var * (t / 2));
+    add_actor_hp(arg0->f0, new_var);
+  }
+  else
+  {
+    add_actor_hp(arg0->f0, get_field_2b8__14TItemProShieldFPv(arg0->f0));
+  }
+}
 
 void *TItemProShield__sub_801166B0(void *arg0, s16 arg1) {
     if (arg0 != NULL) {

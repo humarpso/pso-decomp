@@ -40,12 +40,12 @@ void *TButterfly__create(void *arg0) {
     return o;
 }
 
-extern u32 lbl_805D5B10;
+extern u32 butterfly_bml_resource;
 
 void destroy_instance__10TButterflyFv(void) {
-    if ((u32) lbl_805D5B10 != 0U) {
-        TLobby__sub_8001FE7C((void*)lbl_805D5B10, 1);
-        lbl_805D5B10 = 0U;
+    if ((u32) butterfly_bml_resource != 0U) {
+        TLobby__sub_8001FE7C((void*)butterfly_bml_resource, 1);
+        butterfly_bml_resource = 0U;
     }
 }
 

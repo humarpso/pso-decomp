@@ -102,9 +102,9 @@ void *init_from_owner__10TTecSlicerFPvii(void *, void *, s32);
 void *construct_resta_charge_sound(void *, void *, s32);
 void *init_6e6c__9TObjLightFPvii(void *, void *, s32);
 void *init_from_source__9TObjLightFPvii(void *, void *, s32);
-extern Col_8022C738 lbl_8044CF7C;
+extern Col_8022C738 technique_charge_light_color;
 extern Vec_8022C738 lbl_8044CF8C;
-extern Col_8022C738 lbl_8044CF98;
+extern Col_8022C738 technique_charge_light_params;
 extern Vec_8022C738 lbl_8044CFA8;
 extern Col_8022C738 lbl_8044CFB4;
 extern Vec_8022C738 lbl_8044CFC4;
@@ -212,11 +212,11 @@ void create_technique_charge_light(u32 kind, void *owner) {
     s32 base = p->f12 + p->f20 + 50;
     switch (kind) {
     case 1:
-        CHARGE_LIGHT_8022C738(lbl_8044CF7C, lbl_8044CF8C, initialize__9TObjLightFPvii)
+        CHARGE_LIGHT_8022C738(technique_charge_light_color, lbl_8044CF8C, initialize__9TObjLightFPvii)
         break;
     case 0:
     case 2:
-        CHARGE_LIGHT_8022C738(lbl_8044CF98, lbl_8044CFA8, initialize__9TObjLightFPvii)
+        CHARGE_LIGHT_8022C738(technique_charge_light_params, lbl_8044CFA8, initialize__9TObjLightFPvii)
         break;
     case 3:
     case 4:

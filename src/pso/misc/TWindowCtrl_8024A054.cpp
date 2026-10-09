@@ -6,7 +6,7 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 
 extern "C" {
 void queue_destruction__7TObjectFv(void *);
-extern struct Obj054_8024A054 *TWindowCtrl__data_805D63F8;
+extern struct Obj054_8024A054 *TWindowCtrl__active_window;
 extern u16 lbl_805D63FC;
 void TWindowCtrl__sub_8024A08C(void);
 }
@@ -23,22 +23,22 @@ u32 get_player_by_client_id(s32);
 M2C_UNK clear_flag1e_bit8__11TWindowCtrlFPv(void*);
 s32 get_map_id__13TRaderMapCoreFPv();
 
-extern struct Obj054_8024A054 *TWindowCtrl__data_805D63F8;
+extern struct Obj054_8024A054 *TWindowCtrl__active_window;
 
 void clear_flag__11TWindowCtrlFv(void) {
-    if ((TWindowCtrl__data_805D63F8 != NULL) && (TWindowCtrl__data_805D63F8->field38 != 0U)) {
-        clear_flag1e_bit8__11TWindowCtrlFPv((void*)TWindowCtrl__data_805D63F8->field38);
+    if ((TWindowCtrl__active_window != NULL) && (TWindowCtrl__active_window->field38 != 0U)) {
+        clear_flag1e_bit8__11TWindowCtrlFPv((void*)TWindowCtrl__active_window->field38);
     }
 }
 
 void TWindowCtrl__sub_8024A08C(void) {
     u8 *temp_r3;
     lbl_805D63FC &= 0xFFFFFFFD;
-    if ((void *) (*(u8 * *)&TWindowCtrl__data_805D63F8) != NULL) {
-        temp_r3 = (u8 *)(M2C_FIELD((*(u8 * *)&TWindowCtrl__data_805D63F8), u8 **, 0x3C));
+    if ((void *) (*(u8 * *)&TWindowCtrl__active_window) != NULL) {
+        temp_r3 = (u8 *)(M2C_FIELD((*(u8 * *)&TWindowCtrl__active_window), u8 **, 0x3C));
         if (temp_r3 != NULL) {
             queue_destruction__7TObjectFv(temp_r3);
-            M2C_FIELD((*(u8 * *)&TWindowCtrl__data_805D63F8), u8 **, 0x3C) = NULL;
+            M2C_FIELD((*(u8 * *)&TWindowCtrl__active_window), u8 **, 0x3C) = NULL;
         }
     }
 }

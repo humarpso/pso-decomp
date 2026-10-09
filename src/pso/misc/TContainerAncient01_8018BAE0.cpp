@@ -16,8 +16,8 @@ void *alloc__23TAdSinglePlyChrSelectGCFPv(s32);
 s32 is_global_state_in_table__19TContainerAncient01Fv();
 void spawn_attack__16TObjEneMe3StelthFsiiiff(s16, s32, s32, Param_8018BB64 *, f32, f32);
 extern Param_8018BB64 lbl_80445084[];
-extern u8 lbl_804B6D88[];
-extern u8 lbl_804B6DB0[];
+extern u8 TContainerAncient01__resource_descriptor[];
+extern u8 TContainerAncient01__resource_descriptor_2[];
 extern s32 TContainerAncient01__effect_id_table[];
 extern u32 TContainerAncient01__data_805D5B90;
 extern const f32 TContainerAncient01__data_805DBD14;
@@ -57,7 +57,7 @@ void load_resources__19TContainerAncient01Fv(void) {
     if (is_global_state_in_table__19TContainerAncient01Fv() != 0) {
         p = alloc__23TAdSinglePlyChrSelectGCFPv(0x440);
         if (p != NULL) {
-            p = load_resource_from_descriptor(p, 5, lbl_804B6DB0, 0, 0, 0);
+            p = load_resource_from_descriptor(p, 5, TContainerAncient01__resource_descriptor_2, 0, 0, 0);
         }
         TContainerAncient01__effect_id_table[0] = 0x230;
         TContainerAncient01__data_805D5B90 = (u32)p;
@@ -65,7 +65,7 @@ void load_resources__19TContainerAncient01Fv(void) {
     } else {
         p = alloc__23TAdSinglePlyChrSelectGCFPv(0x440);
         if (p != NULL) {
-            p = load_resource_from_descriptor(p, 5, lbl_804B6D88, 0, 0, 0);
+            p = load_resource_from_descriptor(p, 5, TContainerAncient01__resource_descriptor, 0, 0, 0);
         }
         TContainerAncient01__effect_id_table[0] = 0x45;
         TContainerAncient01__data_805D5B90 = (u32)p;

@@ -15,7 +15,7 @@ extern char lbl_804438EC[];
 extern char lbl_804438F8[];
 extern char lbl_80443904[];
 extern u32 TLobby__event_theme_id;
-extern u32 TObjBgmColCtrl__data_805D5B0C;
+extern u32 TObjBgmColCtrl__current_theme_id;
 void play_lobby_theme_music__14TObjBgmColCtrlFv(void);
 }
 
@@ -28,12 +28,12 @@ void play_lobby_theme_music__14TObjBgmColCtrlFv(void) {
     const char *name;
     if (get_global_state__14TOKeyMachine01Fv() == 0xF) {
         name = names.name[1];
-        TObjBgmColCtrl__data_805D5B0C = TLobby__event_theme_id;
+        TObjBgmColCtrl__current_theme_id = TLobby__event_theme_id;
     } else {
         name = names.name[0];
-        TObjBgmColCtrl__data_805D5B0C = 0;
+        TObjBgmColCtrl__current_theme_id = 0;
     }
-    switch (TObjBgmColCtrl__data_805D5B0C) {
+    switch (TObjBgmColCtrl__current_theme_id) {
     case 1:
         play_area_music(lbl_804438A0);
         break;

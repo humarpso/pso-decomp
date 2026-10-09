@@ -12,8 +12,8 @@ s32 start_offline_seq__23TAdSinglePlyChrSelectGCFPv(void *arg0);
 u32 __nw__7TObjectFUl(M2C_UNK);
 M2C_UNK init__22THunterGuildSeqOfflineFPvPvPv(s32, M2C_UNK, M2C_UNK *);
 
-    extern int lbl_805D6D44;
-int get_data__23TAdSinglePlyChrSelectGCFv(void) {  return lbl_805D6D44; }
+    extern int lobby_game_mode_state;
+int get_data__23TAdSinglePlyChrSelectGCFv(void) {  return lobby_game_mode_state; }
 
 int TAdSinglePlyChrSelectGC__sub_8033605C(void) { return 0; }
 

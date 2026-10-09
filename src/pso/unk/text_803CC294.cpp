@@ -109,7 +109,7 @@ extern M2C_UNK lbl_8047CB7C[];
 extern LogHdr_803CD16C lbl_8057B7B0;
 extern LogEnt_803CD16C lbl_8057B7D0[];
 extern Slot_803CD16C lbl_8057CBD0[];
-extern s32 lbl_805D75E0;
+extern s32 adxf_log_write_index;
 Slot_803CD16C *adxf_open_afs__6TLobbyFii(s32 arg0, s32 arg1);
 M2C_UNK release_ref__6TLobbyFv();
 M2C_UNK init_once__6TLobbyFv();
@@ -121,7 +121,7 @@ extern M2C_UNK lbl_8047CBD8[];
 extern LogHdr_803CD16C lbl_8057B7B0;
 extern LogEnt_803CD16C lbl_8057B7D0[];
 extern Slot_803CD16C lbl_8057CBD0[];
-extern s32 lbl_805D75E0;
+extern s32 adxf_log_write_index;
 Slot_803CD16C *adxf_open__6TLobbyFUii(u32 arg0, s32 arg1);
 M2C_UNK release_ref__6TLobbyFv();
 M2C_UNK init_once__6TLobbyFv();
@@ -133,7 +133,7 @@ extern M2C_UNK lbl_8047C9B0[];
 extern M2C_UNK lbl_8047C9D4[];
 extern LogHdr_803CD16C lbl_8057B7B0;
 extern LogEnt_803CD16C lbl_8057B7D0[];
-extern s32 lbl_805D75E0;
+extern s32 adxf_log_write_index;
 extern s32 lbl_805D75E4;
 s32 adxf_stop__6TLobbyFPv(Snd_803CC980 *arg0);
 M2C_UNK release_ref__6TLobbyFv();
@@ -158,7 +158,7 @@ extern M2C_UNK lbl_8047C9B0[];
 extern M2C_UNK lbl_8047C9D4[];
 extern LogHdr_803CD16C lbl_8057B7B0;
 extern LogEnt_803CD16C lbl_8057B7D0[];
-extern s32 lbl_805D75E0;
+extern s32 adxf_log_write_index;
 extern s32 lbl_805D75E4;
 void close_adxf_handle__6TLobbyFPv(Slot_803CD16C *s);
 }
@@ -285,10 +285,10 @@ s32 adxf_stop__6TLobbyFPv(Snd_803CC980 *arg0) {
     s32 sp8;
     {
         LogEnt_803CD16C *e;
-        s32 i = lbl_805D75E0 % 256;
+        s32 i = adxf_log_write_index % 256;
         u16 seq;
         e = &lbl_8057B7D0[i];
-        lbl_805D75E0 = i;
+        adxf_log_write_index = i;
         seq = ++((LogHdr_803CC980 *)&lbl_8057B7B0)->seq;
         e->type = 5;
         e->phase = 0;
@@ -296,7 +296,7 @@ s32 adxf_stop__6TLobbyFPv(Snd_803CC980 *arg0) {
         e->a = (s32)arg0;
         e->b = -1;
         e->c = -1;
-        lbl_805D75E0 = i + 1;
+        adxf_log_write_index = i + 1;
     }
     if (arg0 == NULL) {
         notify_error__6TLobbyFPv(lbl_8047C9B0);
@@ -327,15 +327,15 @@ s32 adxf_stop__6TLobbyFPv(Snd_803CC980 *arg0) {
     arg0->state = 1;
     release_ref__6TLobbyFv();
     {
-        s32 i = lbl_805D75E0 % 256;
-        LogEnt_803CD16C *e = &lbl_8057B7D0[lbl_805D75E0 = i];
+        s32 i = adxf_log_write_index % 256;
+        LogEnt_803CD16C *e = &lbl_8057B7D0[adxf_log_write_index = i];
         e->type = 5;
         e->phase = 1;
         e->seq = ((LogHdr_803CC980 *)&lbl_8057B7B0)->seq;
         e->a = (s32)arg0;
         e->b = -1;
         e->c = -1;
-        lbl_805D75E0 = i + 1;
+        adxf_log_write_index = i + 1;
     }
     return arg0->f14;
 }
@@ -432,10 +432,10 @@ inline s32 close_803CCE9C(Snd_803CC980 *arg0) {
     s32 sp8;
     {
         LogEnt_803CD16C *e;
-        s32 i = lbl_805D75E0 % 256;
+        s32 i = adxf_log_write_index % 256;
         u16 seq;
         e = &lbl_8057B7D0[i];
-        lbl_805D75E0 = i;
+        adxf_log_write_index = i;
         seq = ((LogHdr_803CC980 *)&lbl_8057B7B0)->seq + 1;
         e->type = 5;
         e->phase = 0;
@@ -444,7 +444,7 @@ inline s32 close_803CCE9C(Snd_803CC980 *arg0) {
         e->b = -1;
         ((LogHdr_803CC980 *)&lbl_8057B7B0)->seq = seq;
         e->c = -1;
-        lbl_805D75E0 = i + 1;
+        adxf_log_write_index = i + 1;
     }
     if (arg0 == NULL) {
         notify_error__6TLobbyFPv(lbl_8047C9B0);
@@ -475,25 +475,25 @@ inline s32 close_803CCE9C(Snd_803CC980 *arg0) {
     arg0->state = 1;
     release_ref__6TLobbyFv();
     {
-        s32 i = lbl_805D75E0 % 256;
-        LogEnt_803CD16C *e = &lbl_8057B7D0[lbl_805D75E0 = i];
+        s32 i = adxf_log_write_index % 256;
+        LogEnt_803CD16C *e = &lbl_8057B7D0[adxf_log_write_index = i];
         e->type = 5;
         e->phase = 1;
         e->seq = ((LogHdr_803CC980 *)&lbl_8057B7B0)->seq;
         e->a = (s32)arg0;
         e->b = -1;
         e->c = -1;
-        lbl_805D75E0 = i + 1;
+        adxf_log_write_index = i + 1;
     }
     return arg0->f14;
 }
 void close_adxf_handle__6TLobbyFPv(Slot_803CD16C *s) {
     {
         LogEnt_803CD16C *e;
-        s32 i = lbl_805D75E0 % 256;
+        s32 i = adxf_log_write_index % 256;
         u16 seq;
         e = &lbl_8057B7D0[i];
-        lbl_805D75E0 = i;
+        adxf_log_write_index = i;
         seq = ++((LogHdr_803CCE9C *)&lbl_8057B7B0)->seq;
         e->type = 3;
         e->phase = 0;
@@ -501,7 +501,7 @@ void close_adxf_handle__6TLobbyFPv(Slot_803CD16C *s) {
         e->a = (s32)s;
         e->b = -1;
         e->c = -1;
-        lbl_805D75E0 = i + 1;
+        adxf_log_write_index = i + 1;
     }
     if (s != NULL) {
         init_once__6TLobbyFv();
@@ -514,15 +514,15 @@ void close_adxf_handle__6TLobbyFPv(Slot_803CD16C *s) {
         memset(s, 0, 0x138);
         release_ref__6TLobbyFv();
         {
-            s32 i = lbl_805D75E0 % 256;
-            LogEnt_803CD16C *e = &lbl_8057B7D0[lbl_805D75E0 = i];
+            s32 i = adxf_log_write_index % 256;
+            LogEnt_803CD16C *e = &lbl_8057B7D0[adxf_log_write_index = i];
             e->type = 3;
             e->phase = 1;
             e->seq = ((LogHdr_803CCE9C *)&lbl_8057B7B0)->seq;
             e->a = (s32)s;
             e->b = -1;
             e->c = -1;
-            lbl_805D75E0 = i + 1;
+            adxf_log_write_index = i + 1;
         }
     }
 }
@@ -532,10 +532,10 @@ Slot_803CD16C *adxf_open_afs__6TLobbyFii(s32 arg0, s32 arg1) {
     Slot_803CD16C *s;
     {
         LogEnt_803CD16C *e;
-        s32 i = lbl_805D75E0 % 256;
+        s32 i = adxf_log_write_index % 256;
         u16 seq;
         e = &lbl_8057B7D0[i];
-        lbl_805D75E0 = i;
+        adxf_log_write_index = i;
         seq = lbl_8057B7B0.seq + 1;
         e->type = 2;
         e->phase = 0;
@@ -544,7 +544,7 @@ Slot_803CD16C *adxf_open_afs__6TLobbyFii(s32 arg0, s32 arg1) {
         e->b = arg1;
         lbl_8057B7B0.seq = seq;
         e->c = -1;
-        lbl_805D75E0 = i + 1;
+        adxf_log_write_index = i + 1;
     }
     init_once__6TLobbyFv();
     s = alloc_803CD16C();
@@ -556,15 +556,15 @@ Slot_803CD16C *adxf_open_afs__6TLobbyFii(s32 arg0, s32 arg1) {
     }
     release_ref__6TLobbyFv();
     {
-        s32 i = lbl_805D75E0 % 256;
-        LogEnt_803CD16C *e = &lbl_8057B7D0[lbl_805D75E0 = i];
+        s32 i = adxf_log_write_index % 256;
+        LogEnt_803CD16C *e = &lbl_8057B7D0[adxf_log_write_index = i];
         e->type = 2;
         e->phase = 1;
         e->seq = lbl_8057B7B0.seq;
         e->a = arg0;
         e->b = arg1;
         e->c = -1;
-        lbl_805D75E0 = i + 1;
+        adxf_log_write_index = i + 1;
     }
     return s;
 }
@@ -622,10 +622,10 @@ Slot_803CD16C *adxf_open__6TLobbyFUii(u32 arg0, s32 arg1) {
     Slot_803CD16C *s;
     {
         LogEnt_803CD16C *e;
-        s32 i = lbl_805D75E0 % 256;
+        s32 i = adxf_log_write_index % 256;
         u16 seq;
         e = &lbl_8057B7D0[i];
-        lbl_805D75E0 = i;
+        adxf_log_write_index = i;
         seq = ((LogHdr_803CD3A8 *)&lbl_8057B7B0)->seq + 1;
         e->type = 1;
         e->phase = 0;
@@ -634,7 +634,7 @@ Slot_803CD16C *adxf_open__6TLobbyFUii(u32 arg0, s32 arg1) {
         e->b = arg1;
         ((LogHdr_803CD3A8 *)&lbl_8057B7B0)->seq = seq;
         e->c = -1;
-        lbl_805D75E0 = i + 1;
+        adxf_log_write_index = i + 1;
     }
     init_once__6TLobbyFv();
     s = alloc_803CD3A8();
@@ -646,15 +646,15 @@ Slot_803CD16C *adxf_open__6TLobbyFUii(u32 arg0, s32 arg1) {
     }
     release_ref__6TLobbyFv();
     {
-        s32 i = lbl_805D75E0 % 256;
-        LogEnt_803CD16C *e = &lbl_8057B7D0[lbl_805D75E0 = i];
+        s32 i = adxf_log_write_index % 256;
+        LogEnt_803CD16C *e = &lbl_8057B7D0[adxf_log_write_index = i];
         e->type = 1;
         e->phase = 1;
         e->seq = ((LogHdr_803CD3A8 *)&lbl_8057B7B0)->seq;
         e->a = arg0;
         e->b = arg1;
         e->c = -1;
-        lbl_805D75E0 = i + 1;
+        adxf_log_write_index = i + 1;
     }
     return s;
 }

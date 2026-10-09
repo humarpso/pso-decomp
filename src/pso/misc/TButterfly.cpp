@@ -67,11 +67,11 @@ void init_motion__10TButterflyFPv(u8 *arg0) {
     M2C_FIELD(arg0, s16 *, 0xB6) = 0;
 }
 
-extern s32 lbl_805D5B10;
+extern s32 butterfly_bml_resource;
 
 void render__10TButterflyFv(void *arg0) {
     if (((VObj_8017E978*)arg0)->m8((4e+02f), (2e+01f)) != 0) {
-        TObjFish__sub_8001EDB0(lbl_805D5B10, 0);
+        TObjFish__sub_8001EDB0(butterfly_bml_resource, 0);
         set_global_param__8TObjFishFi();
         draw_model__10TButterflyFPv(arg0);
     }

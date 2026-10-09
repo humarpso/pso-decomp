@@ -38,9 +38,9 @@ void translate_matrix(s32, f32, f32, f32);
 void rotate_matrix_x(s32, s32);
 void push_matrix(void);
 void pop_matrix(void);
-Vec_8003AB7C lbl_804FE9E8[6];
-s32 lbl_804FEA30[20];
-Out_8003AD54 lbl_804FEA80[60];
+Vec_8003AB7C boss2_dust_points[6];
+s32 boss2_dust_rotation_table[20];
+Out_8003AD54 boss2_dust_output_table[60];
 s32 boss2_dust_random_angles[10];
 extern const f32 lbl_805D85B8;
 extern const f32 lbl_805D85BC;
@@ -85,9 +85,9 @@ void boss2_dust_draw_at(M2C_UNK *arg0, s32 arg1) {
     var_r3 = (M2C_UNK *)(var_r30);
     post_translate_matrix((int) (var_r3));
     var_r5 = var_r31 * 0x60;
-    var_r3 = (M2C_UNK *)((M2C_UNK *)lbl_804FEA80);
+    var_r3 = (M2C_UNK *)((M2C_UNK *)boss2_dust_output_table);
     var_r4 = 6;
-    var_r3 = (M2C_UNK *)((u8 *)(M2C_UNK *)lbl_804FEA80 + var_r5);
+    var_r3 = (M2C_UNK *)((u8 *)(M2C_UNK *)boss2_dust_output_table + var_r5);
     var_r5 = 0;
     draw_trail_strip__10TObjPlayerFPvPvi((int) (var_r3), (int) (6), (int) (0));
     pop_matrix();
@@ -116,8 +116,8 @@ void TObjBoss2DustCtrl::run_task() {
     s32 i;
     s32 j;
 
-    rot = lbl_804FEA30;
-    out = (Out_8003AB7C *)lbl_804FEA80;
+    rot = boss2_dust_rotation_table;
+    out = (Out_8003AB7C *)boss2_dust_output_table;
     push_matrix();
     scale = lbl_805D85BC;
     ang = boss2_dust_random_angles;
@@ -135,7 +135,7 @@ void TObjBoss2DustCtrl::run_task() {
         *rot += 0x555;
         rotate_matrix_x(0, *rot++);
         for (j = 0; j < 6; j++) {
-            matrix_mult_vec(0, &lbl_804FE9E8[j], out++);
+            matrix_mult_vec(0, &boss2_dust_points[j], out++);
         }
     }
     pop_matrix();
@@ -171,18 +171,18 @@ void fn_8003AD54(void) {
     for (i = 0; i < 6; i++) {
         s32 a = (s32)(lbl_805D85C0 * (f32)i);
         f32 s = lbl_805D85C4 * sin_table_lookup(a);
-        lbl_804FE9E8[i].x = s;
-        lbl_804FE9E8[i].y = lbl_805D85C8 * (f32)i;
-        lbl_804FE9E8[i].z = lbl_805D85C4 * cos_table_lookup(a, s);
+        boss2_dust_points[i].x = s;
+        boss2_dust_points[i].y = lbl_805D85C8 * (f32)i;
+        boss2_dust_points[i].z = lbl_805D85C4 * cos_table_lookup(a, s);
     }
     {
-        s32 *p = lbl_804FEA30;
+        s32 *p = boss2_dust_rotation_table;
         for (i = 0; i < 20; i++) {
             *p++ = calc_random_scaled__10TObjPlayerFv();
         }
     }
     {
-        Out_8003AD54 *o = lbl_804FEA80;
+        Out_8003AD54 *o = boss2_dust_output_table;
         for (i = 0; i < 60; i++) {
             o->x = lbl_805D85B8;
             o->y = lbl_805D85B8;
