@@ -495,7 +495,7 @@ extern s32 lbl_805D3474;
 extern s32 lbl_805D3478;
 extern s32 lbl_805D347C;
 extern s32 lbl_805D3480;
-extern s32 lbl_805D53A0;
+extern s32 local_client_id;
 extern s32 lbl_805D5C80;
 extern Colors_8019C604 lbl_805DBFC8;
 extern Colors_8019C250 lbl_805DBFCC;
@@ -1188,10 +1188,10 @@ void handle_6x94_inter_level_warp(Pkt_8019C988 *arg0) {
     if (arg0->f4 != get_current_floor()) {
         set_area__6TLobbyFPvi(((u8 *)&lbl_80515BA0), arg0->f4, get_floor_map_terrain(arg0->f4));
         mark_area_change_pending();
-        suppress_slot__11TWindowCtrlFi(lbl_805D53A0);
+        suppress_slot__11TWindowCtrlFi(local_client_id);
         get_dest_area__17TObjAreaWarpQuestFPv(((u8 *)&lbl_80515BA0));
         send_inter_level_warp_all__10TNpcPlayerFi();
-        void *p = get_player_by_client_id(lbl_805D53A0);
+        void *p = get_player_by_client_id(local_client_id);
         if (p != 0) {
             send_6x21_inter_level_warp(p, get_dest_area__17TObjAreaWarpQuestFPv(((u8 *)&lbl_80515BA0)));
         }
@@ -1250,9 +1250,9 @@ void handle_area_selection__12TObjAreaWarpFPv(VObj_8019CAB0 *self) {
                 self->m12();
             }
         } else {
-            void *t2 = find_warp_player_in_range(self, lbl_805D53A0, d->fAC);
+            void *t2 = find_warp_player_in_range(self, local_client_id, d->fAC);
             if (t2 != NULL) {
-                self->m13(lbl_805D53A0);
+                self->m13(local_client_id);
                 if (self->m16(get_map_id__13TRaderMapCoreFPv(t2)) != 0) {
                     self->m12();
                     self->m17(t2);
@@ -1446,9 +1446,9 @@ void process_player_warps__11TObjMapWarpFPv(VObj_8019D250 *self) {
             clear_flag4_bit4__22TQuestVmDownLoadServerFPv(d->fB0);
             allow_rendering__7TObjectFv(d->fB0);
         }
-        t2 = find_warp_player_in_range(self, lbl_805D53A0, d->fAC);
+        t2 = find_warp_player_in_range(self, local_client_id, d->fAC);
         if (t2 != NULL) {
-            self->m13(lbl_805D53A0);
+            self->m13(local_client_id);
             if (is_target_valid__10TObjPlayerFPv(t2) != 0 && self->m16(get_map_id__13TRaderMapCoreFPv(t2)) != 0) {
                 for (j2 = 0; j2 < 4; j2++) {
                     if (test_player_body_overlap_at(self, t2, &d->ends[j2]) == 0) {

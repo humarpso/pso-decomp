@@ -97,7 +97,7 @@ s32 TShopGenerator__sub_80222DAC(s32);
 s32 is_not_split_screen__13TRaderMapCoreFv(void);
 extern Tbl_8021E1FC TShopGenerator__service_dispatch_table;
 extern u8 lbl_8050E208[];
-extern s32 lbl_805D53A0;
+extern s32 local_client_id;
 extern s32 lbl_805D55C0;
 extern const f32 lbl_805DC6EC;
 void run_task__14TShopGeneratorFv(u8 *self);
@@ -200,7 +200,7 @@ void run_task__14TShopGeneratorFv(u8 *self) {
     } else {
         s32 q;
         s32 (*fn2)(u16);
-        q = get_player_by_client_id(lbl_805D53A0);
+        q = get_player_by_client_id(local_client_id);
         if (q == 0) return;
         if (((s32 (*)(s32))is_slot_active__14TShopGeneratorFi)(obj_getField1c(q)) == 1) return;
         if (get_slot_flag__17TMedicalCenterMesFi(obj_getField1c(q)) == 1) return;

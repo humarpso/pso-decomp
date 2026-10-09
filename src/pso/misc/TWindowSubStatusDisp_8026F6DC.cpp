@@ -141,7 +141,7 @@ M2C_UNK draw_textured_quad_at_depth(Rect_80270394 *, f32);
 M2C_UNK set_draw_texture_and_color(s32, s32);
 
 extern M2C_UNK lbl_8044F5E4[];
-extern M2C_UNK lbl_8050EA40[];
+extern M2C_UNK lobby_rule_settings[];
 extern s32 lbl_805D63F0;
 extern const f32 lbl_805DD388;
 extern const f32 lbl_805DD38C;
@@ -439,7 +439,7 @@ M2C_UNK update_photon_blast_player_marker(s32 arg0, s32 arg1) {
             set_sprite_uv_from_pixels(arg0, lbl_805DD3C0, lbl_805DD3AC);
             break;
         default:
-            if (get_rule_field_a__6TLobbyFPv(lbl_8050EA40) == 1 && (p = ((u8 * (*)(u32))get_player_by_client_id)(key)) != 0) {
+            if (get_rule_field_a__6TLobbyFPv(lobby_rule_settings) == 1 && (p = ((u8 * (*)(u32))get_player_by_client_id)(key)) != 0) {
                 key = TLobby__sub_801C19D0(p + 0x828) - 1;
             }
             set_sprite_uv_from_pixels(arg0, lbl_805DD3B0 * key, lbl_805DD3C4);

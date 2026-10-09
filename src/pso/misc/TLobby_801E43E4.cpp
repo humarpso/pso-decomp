@@ -15,7 +15,7 @@ extern u32 TLobby__protocol_instance;
 void send_60_sized__6TLobbyFPv(u8 *arg0);
 M2C_UNK TProtocol__sub_801DC084(u32, s32, void *, s32);
 M2C_UNK dispatch_6x_subcommand(void *);
-extern u32 lbl_805D53A0;
+extern u32 local_client_id;
 extern u32 TLobby__protocol_instance;
 extern s32 lbl_805D5E50;
 void send_subcommand_to_client__6TLobbyFPvUi(void *arg0, u32 arg1);
@@ -59,7 +59,7 @@ s32 get_main_phase();
 int read_be16_field2__10TObjPlayerFPv(void*);
 M2C_UNK send_pso_data_long2__9TProtocolFcR17long_game_commandUl(void*, u32, void *, s32);
 
-extern u32 lbl_805D53A0;
+extern u32 local_client_id;
 extern u32 TLobby__protocol_instance;
 extern s32 lbl_805D5E50;
 
@@ -68,7 +68,7 @@ void send_command__6TLobbyFPvUi(void *arg0, u32 arg1) {
 
     sp8 = M2C_FIELD(arg0, s32 *, 4);
     bswap_32__FPUl(&sp8);
-    if ((u32) lbl_805D53A0 == arg1) {
+    if ((u32) local_client_id == arg1) {
         lbl_805D5E50 = 1;
         dispatch_6x_subcommand((void *)(arg0));
         lbl_805D5E50 = 0;
@@ -79,7 +79,7 @@ void send_command__6TLobbyFPvUi(void *arg0, u32 arg1) {
     }
 }
 
-extern s32 TLobby__data_805D53AC;
+extern s32 TLobby__designated_client_id;
 extern u32 TLobby__protocol_instance;
 extern s32 lbl_805D5E50;
 
@@ -94,7 +94,7 @@ void dispatch_packet__6TLobbyFPv(void *arg0) {
         return;
     }
     if ((u32) TLobby__protocol_instance != 0U) {
-        TProtocol__sub_801DC084(TLobby__protocol_instance, TLobby__data_805D53AC, arg0, temp_r31);
+        TProtocol__sub_801DC084(TLobby__protocol_instance, TLobby__designated_client_id, arg0, temp_r31);
     }
 }
 
@@ -107,7 +107,7 @@ typedef s32 M2C_UNK;
 void send_subcommand_to_client__6TLobbyFPvUi(void *arg0, u32 arg1) {
     s32 size;
     size = M2C_FIELD(arg0, u8 *, 1) * 4;
-    if ((u32) lbl_805D53A0 == arg1) {
+    if ((u32) local_client_id == arg1) {
         lbl_805D5E50 = 1;
         dispatch_6x_subcommand(arg0);
         lbl_805D5E50 = 0;

@@ -2128,7 +2128,7 @@ void TObjEneBm5GibonU__sub_800CFE30(u8 *arg0, s32 arg1);
 void TObjEneBm5GibonU__sub_800D00F0(u8 *arg0, s32 arg1);
 void TObjEneBm5GibonU__sub_800CFFBC(u8 *arg0, s32 arg1);
 void TObjEneBm5GibonU__sub_800CFA48(u8 *arg0, s32 arg1);
-void TObjEneBm5GibonU__sub_800CEEE8(u8 *arg0, s32 arg1);
+void run_idle_state__16TObjEneBm5GibonUFPvi(u8 *arg0, s32 arg1);
 void action__16TObjEneBm5GibonUFPvi(u8 *arg0, s32 arg1);
 void handle_message__16TObjEneBm5GibonUFPvi(void *self, s32 msg);
 s32 enemy_validate_retained_target(void *);
@@ -3632,7 +3632,7 @@ void select_attack_by_range__16TObjEneBm5GibonUFPv(void *arg0);
 f32 calc_xz_direction_to__16TObjEneBm5GibonUFPvPvPv(Obj_800D0BD8 *arg0, Vec_800D0BD8 *arg1, Vec_800D0BD8 *arg2);
 #pragma push
 #pragma fp_contract on
-void TObjEneBm5GibonU__sub_800CEEE8(u8 *arg0_, s32 arg1) {
+void run_idle_state__16TObjEneBm5GibonUFPvi(u8 *arg0_, s32 arg1) {
   s32 ang;
   Vec_800CEEE8 *a = &((Ene_800CEEE8 *) arg0_)->v540;
   Vec_800CEEE8 *b = &((Ene_800CEEE8 *) arg0_)->v54C;
@@ -4361,7 +4361,7 @@ void TObjEneBm5GibonU__sub_800D0738(u8 *arg0, u32 arg1, s32 arg2) {
         TObjEneBm5GibonU__sub_800CF4BC((u8 *)(arg0), (s32)(arg2));
         break;
     case 11:
-        TObjEneBm5GibonU__sub_800CEEE8(arg0, arg2);
+        run_idle_state__16TObjEneBm5GibonUFPvi(arg0, arg2);
         break;
     case 12:
         TObjEneBm5GibonU__sub_800CEBD8((u8 *)(arg0), (s32)(arg2));

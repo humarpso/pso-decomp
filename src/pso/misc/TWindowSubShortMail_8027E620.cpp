@@ -197,7 +197,7 @@ s32 create_window__19TWindowSubShortMailFv(void) {
     return temp_r31;
 }
 
-extern s32 lbl_805D53A0;
+extern s32 local_client_id;
 extern s32 tl_00;
 
 s32 create_confirm_menu_window__19TWindowSubShortMailFv(void) {
@@ -224,7 +224,7 @@ s32 create_keyboard__19TWindowSubShortMailFv(void) {
 
     var_r31 = __nw__7TObjectFUl(0x2C);
     if (var_r31 != 0) {
-        var_r31 = TKeyBoardControl__ct(var_r31, tl_00, 0xC6, 5, 4, lbl_805D53A0);
+        var_r31 = TKeyBoardControl__ct(var_r31, tl_00, 0xC6, 5, 4, local_client_id);
     }
     update_chat_window(var_r31);
     set_sub_position__15TWindowMakeTeamFPvPv(var_r31, get_window_layout_position((M2C_UNK)(0xBB)));

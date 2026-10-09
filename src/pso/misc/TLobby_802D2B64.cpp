@@ -25,7 +25,7 @@ extern u8 TLobby__data_805D688A;
 extern u8 TLobby__data_805D688B;
 void handle_6xA6_modify_trade_proposal(u8 *arg0);
 void init_owner__5TItemFPvUs(void *, u16);
-extern s32 lbl_805D53A0;
+extern s32 local_client_id;
 extern u8 TLobby__data_805D688B;
 void TLobby__sub_802D2BC0(S_802D2BC0 *arg0);
 M2C_UNK send_cancel_trade__9TProtocolFv(s32);
@@ -69,7 +69,7 @@ void TLobby__sub_802D2BC0(S_802D2BC0 *arg0) {
     if ((s32)TLobby__data_805D688B == 8 && arg0 != 0) {
         p = arg0->e;
         for (i = 0; i < arg0->count; i++, p++) {
-            init_owner__5TItemFPvUs(p, lbl_805D53A0);
+            init_owner__5TItemFPvUs(p, local_client_id);
         }
         TLobby__data_805D688B = 9;
     }
@@ -173,10 +173,10 @@ M2C_UNK refresh_player_status__6TLobbyFv(s32);
 M2C_UNK reset__15TLobby_802D2F7CFPv(s32);
 M2C_UNK reset_impl__15TLobby_802D2F7CFPv(s32);
 
-extern s32 lbl_805D53A0;
+extern s32 local_client_id;
 
 void update_sub_status_disp__6TLobbyFi(s32 arg0) {
-    if ((s32) lbl_805D53A0 == arg0) {
+    if ((s32) local_client_id == arg0) {
         ((s32 (*)(M2C_UNK))get_message_10__20TWindowSubStatusDispFPv)((M2C_UNK)(0xF0));
         return;
     }
@@ -187,7 +187,7 @@ void update_sub_status_disp__6TLobbyFi(s32 arg0) {
     get_shared_text_buffer();
 }
 
-extern s32 lbl_805D53A0;
+extern s32 local_client_id;
 
 s32 show_event_message__6TLobbyFiii(s32 arg0, s32 arg1, s32 arg2) {
     void *temp_r3;
@@ -196,7 +196,7 @@ s32 show_event_message__6TLobbyFiii(s32 arg0, s32 arg1, s32 arg2) {
     case 0:
         return 0;
     case 1:
-        if (arg0 == (s32) lbl_805D53A0) {
+        if (arg0 == (s32) local_client_id) {
             return ((s32 (*)(M2C_UNK))get_message_10__20TWindowSubStatusDispFPv)((M2C_UNK)(0xF4));
         }
         text_builder_reset();
@@ -210,7 +210,7 @@ s32 show_event_message__6TLobbyFiii(s32 arg0, s32 arg1, s32 arg2) {
             return 0;
         }
         text_builder_reset();
-        if (arg0 == (s32) lbl_805D53A0) {
+        if (arg0 == (s32) local_client_id) {
             ((s32 (*)(M2C_UNK))get_message_10__20TWindowSubStatusDispFPv)((M2C_UNK)(0xF3));
             text_builder_append();
         } else {
@@ -224,7 +224,7 @@ s32 show_event_message__6TLobbyFiii(s32 arg0, s32 arg1, s32 arg2) {
         text_builder_append();
         return get_shared_text_buffer();
     case 3:
-        if (arg0 == (s32) lbl_805D53A0) {
+        if (arg0 == (s32) local_client_id) {
             return ((s32 (*)(M2C_UNK))get_message_10__20TWindowSubStatusDispFPv)((M2C_UNK)(0xF2));
         }
         text_builder_reset();
@@ -329,7 +329,7 @@ s32 send_trade_proposal_modify__6TLobbyFv();
 void TLobby__sub_802D30E8(s32 arg0);
 M2C_UNK prepare_and_send_trade_packet__6TLobbyFPvPv(void *, void *);
 M2C_UNK build_6xA6_modify_trade_proposal(void *);
-extern s32 lbl_805D53A0;
+extern s32 local_client_id;
 
 #define TLobby__data_805D688B (*(s8 *)&TLobby__data_805D688B)
 void send_modify_trade_proposal__6TLobbyFi(s32 arg0);
@@ -372,7 +372,7 @@ M2C_UNK TLobby_802D2F7C__sub_80339910(u32, s32);
 M2C_UNK TLobby__sub_8024AAA0(s32, M2C_UNK);
 s32 is_trade_active();
 
-extern s32 lbl_805D53A0;
+extern s32 local_client_id;
 extern u16 lbl_805D6888;
 
 extern s32 TLobby__data_805D688C;
@@ -386,7 +386,7 @@ void reset__6TLobbyFi(s32 arg0) {
         TLobby__data_805D688C = 0;
         lbl_805D6890 = 0;
         lbl_805D6888 &= 0xFFFFF80F;
-        TLobby__sub_8024AAA0(lbl_805D53A0, 0x1E);
+        TLobby__sub_8024AAA0(local_client_id, 0x1E);
         u32 temp_r3 = TLobby__data_805D689C;
         if (temp_r3 != 0U) {
             TLobby_802D2F7C__sub_80339910(temp_r3, arg0);
@@ -482,13 +482,13 @@ void send_modify_trade_proposal__6TLobbyFi(s32 arg0) {
     u32 temp_r3;
     u8 *temp_r3_2;
     build_6xA6_modify_trade_proposal((void *) (&packet.header));
-    temp_r3 = get_player_by_client_id((void *) (lbl_805D53A0));
+    temp_r3 = get_player_by_client_id((void *) (local_client_id));
     if ((temp_r3 != 0U) && (temp_r3_2 = get_quest_id__12TQuestListVMFPv(temp_r3), ((temp_r3_2 == NULL) == 0))) {
         if ((s32) (*(u8 *)&TLobby__data_805D688A) != 4) {
             close_request_window__19TWindowTradeRequestFv();
             if ((s8) (*(u8 *)&TLobby__data_805D688A) == arg0) {
                 send_trade_proposal_modify__6TLobbyFv();
-                TLobby__sub_8024AAA0((s32)((void *) (lbl_805D53A0)), (M2C_UNK)((int) (0x1D)));
+                TLobby__sub_8024AAA0((s32)((void *) (local_client_id)), (M2C_UNK)((int) (0x1D)));
                 return;
             }
             TLobby__sub_802D30E8((s32)((int) ((s32) (s8) (*(u8 *)&TLobby__data_805D688A))));
@@ -589,7 +589,7 @@ M2C_UNK text_builder_append();
 M2C_UNK text_builder_reset();
 M2C_UNK TLobby__sub_8024AAA0(s32, M2C_UNK);
 
-extern s32 lbl_805D53A0;
+extern s32 local_client_id;
 #define TLobby__data_805D688A (*(s8 *)&TLobby__data_805D688A)
 #define TLobby__data_805D688B (*(s8 *)&TLobby__data_805D688B)
 extern s32 TLobby__data_805D688C;
@@ -756,7 +756,7 @@ void TLobby__sub_802D36E0(void *arg0) {
     switch ((s32) temp_r0) {
     case 2:
         TLobby__data_805D688C = M2C_FIELD(arg0, s32 *, 0xC);
-        TLobby__sub_8024AAA0(lbl_805D53A0, 0x1D);
+        TLobby__sub_8024AAA0(local_client_id, 0x1D);
         TLobby__data_805D688B = 3;
         return;
     case 3:
@@ -826,17 +826,17 @@ void update_battle_mode__6TLobbyFv(void);
 
 s32 TWindowSubTradeMain__sub_802D3924(s32);
 
-extern s32 lbl_805D53A0;
+extern s32 local_client_id;
 extern u8 TLobby__data_805D688B;
 
 void update_battle_mode__6TLobbyFv(void) {
     if ((s8) TLobby__data_805D688B != 0) {
-        if (((u32 (*)(s32))get_player_by_client_id)(lbl_805D53A0) == 0U) {
+        if (((u32 (*)(s32))get_player_by_client_id)(local_client_id) == 0U) {
             ((M2C_UNK (*)())cancel_trade__6TLobbyFv)();
             return;
         }
-        if (TWindowSubTradeMain__sub_802D3924(lbl_805D53A0) == 0) {
-            ((M2C_UNK (*)(s32))TLobby__sub_802D3070)(lbl_805D53A0);
+        if (TWindowSubTradeMain__sub_802D3924(local_client_id) == 0) {
+            ((M2C_UNK (*)(s32))TLobby__sub_802D3070)(local_client_id);
         }
     }
 }

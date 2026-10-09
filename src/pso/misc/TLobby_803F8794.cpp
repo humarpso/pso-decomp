@@ -507,7 +507,7 @@ extern RecoveredGlobal_803FB110_lbl_805BFF68 lbl_805BFF68;
 u8 *TLobby__sub_803FB110(void);
 extern RecoveredGlobal_804050DC_lbl_805C18A0 lbl_805C18A0;
 void TLobby__sub_804050DC(s16 arg0);
-extern RecoveredGlobal_803FD520_lbl_805C0310 lbl_805C0310;
+extern RecoveredGlobal_803FD520_lbl_805C0310 lobby_net_buffer_desc_b;
 extern s16 lbl_805D7A7A;
 s16 get_checked_status_value__6TLobbyFs(s16 arg0);
 void apply_default_params__6TLobbyFPv(u8 *arg0);
@@ -813,7 +813,7 @@ s32 OSSendMessage(void *, void *, s32);
 void cancel_alarm_a__6TLobbyFv(void);
 void TLobby__sub_80428358(void);
 void cancel_alarm_b__6TLobbyFv(void);
-extern Slot_803F8E08 lbl_805BE070[0x40];
+extern Slot_803F8E08 lobby_alarm_slot_table[0x40];
 s32 cancel_pending_alarms__6TLobbyFv(void);
 void TLobby__sub_80405000(u32 arg0);
 s32 init_net_list__6TLobbyFss(s16, s16);
@@ -974,8 +974,8 @@ s32 set_target_index__6TLobbyFPvi(u8 *arg0, s32 arg1);
 s32 set_target_slot__6TLobbyFPvi(u8 *arg0, s32 arg1);
 void set_value_and_enable__6TLobbyFPvi(u8 *arg0, s32 arg1);
 
-u32 lbl_805AEEB0[4722];
-u32 lbl_805B3878[10];
+u32 lobby_net_config_block[4722];
+u32 ipv6_interface_config[10];
 u32 lbl_805B38A0[13];
 u32 lbl_805B38D4[50];
 u32 lbl_805B399C[99];
@@ -988,9 +988,9 @@ u32 lbl_805B54BC[4096];
 u32 lbl_805B94BC[30];
 u32 lbl_805B9534[1059];
 u32 lbl_805BA5C0[3115];
-u32 lbl_805BD66C[641];
-#define lbl_805AEEB0 (*(RecoveredGlobal_803F895C_lbl_805AEEB0 *)lbl_805AEEB0)
-#define lbl_805B3878 (*(Cfg_803F87E0 *)lbl_805B3878)
+u32 lobby_net_recv_desc[641];
+#define lobby_net_config_block (*(RecoveredGlobal_803F895C_lbl_805AEEB0 *)lobby_net_config_block)
+#define ipv6_interface_config (*(Cfg_803F87E0 *)ipv6_interface_config)
 #define lbl_805B38A0 ((u8 *)lbl_805B38A0)
 #define lbl_805B4F84 (*(RecoveredGlobal_803F8930_lbl_805B4F84 *)lbl_805B4F84)
 #define lbl_805B52D4 (*(RecoveredGlobal_803F89A4_lbl_805B52D4 *)lbl_805B52D4)
@@ -999,7 +999,7 @@ u32 lbl_805BD66C[641];
 #define lbl_805B94BC (*(RecoveredGlobal_803F89DC_lbl_805B94BC *)lbl_805B94BC)
 #define lbl_805B9534 (*(RecoveredGlobal_803F8A0C_lbl_805B9534 *)lbl_805B9534)
 #define lbl_805BA5C0 (*(RecoveredGlobal_803F8AA0_lbl_805BA5C0 *)lbl_805BA5C0)
-#define lbl_805BD66C (*(RecoveredGlobal_803F8B7C_lbl_805BD66C *)lbl_805BD66C)
+#define lobby_net_recv_desc (*(RecoveredGlobal_803F8B7C_lbl_805BD66C *)lobby_net_recv_desc)
 
 void TLobby__sub_803F8794(void *) {
 
@@ -1039,7 +1039,7 @@ void init_ipv6_interface_config__6TLobbyFPv(Obj_803F87E0 *arg0) {
     arg0->x10 = 0;
     arg0->x14 = 0x40;
     arg0->x4 = lbl_805B38A0;
-    arg0->cfg = lbl_805B3878;
+    arg0->cfg = ipv6_interface_config;
 }
 
 void TLobby__sub_803F8864(void *) {
@@ -1075,14 +1075,14 @@ typedef char RecoveredGlobal_803F88E4_lbl_805AEEB0_size[((sizeof(RecoveredGlobal
 void init_buffer_descriptor_b__6TLobbyFPv(RecoveredFields_803F88E4_arg0 *arg0) {
   u8 *new_var;
   arg0->field_0 = 2;
-  new_var = (u8 *) (&(*(RecoveredGlobal_803F88E4_lbl_805AEEB0 *)&lbl_805AEEB0).value);
+  new_var = (u8 *) (&(*(RecoveredGlobal_803F88E4_lbl_805AEEB0 *)&lobby_net_config_block).value);
   arg0->field_2 = 8;
   arg0->field_4 = 8;
   arg0->field_14 = 0x5DC;
   arg0->field_8 = new_var + 0x6064;
   arg0->field_C = new_var + 0x5E24;
   arg0->field_10 = new_var + 0x5D04;
-  arg0->field_18 = ((u8 *) (&(*(RecoveredGlobal_803F88E4_lbl_805AEEB0 *)&lbl_805AEEB0).value)) + 0x514C;
+  arg0->field_18 = ((u8 *) (&(*(RecoveredGlobal_803F88E4_lbl_805AEEB0 *)&lobby_net_config_block).value)) + 0x514C;
 }
 
 void TLobby__sub_803F892C(void * _w0) {
@@ -1111,9 +1111,9 @@ void init_buffer_descriptor_a__6TLobbyFPv(u8 *arg0) {
     ((Fields_arg0*)arg0)->field_2 = 3;
     ((Fields_arg0*)arg0)->field_4 = 9;
     ((Fields_arg0*)arg0)->field_6 = 0x240;
-    ((Fields_arg0*)arg0)->field_8 = (unsigned char *) ((void *) ((u8 *)&lbl_805AEEB0.value + 0x621C));
-    ((Fields_arg0*)arg0)->field_C = (unsigned char *) ((void *) ((u8 *)&lbl_805AEEB0.value + 0x61C8));
-    ((Fields_arg0*)arg0)->field_10 = (unsigned char *) ((void *) ((u8 *)&lbl_805AEEB0.value + 0x60F0));
+    ((Fields_arg0*)arg0)->field_8 = (unsigned char *) ((void *) ((u8 *)&lobby_net_config_block.value + 0x621C));
+    ((Fields_arg0*)arg0)->field_C = (unsigned char *) ((void *) ((u8 *)&lobby_net_config_block.value + 0x61C8));
+    ((Fields_arg0*)arg0)->field_10 = (unsigned char *) ((void *) ((u8 *)&lobby_net_config_block.value + 0x60F0));
 }
 
 void TLobby__sub_803F89A0(void *) {
@@ -1169,12 +1169,12 @@ void init_net_buffer_config__6TLobbyFPv(u8 *arg0) {
     ((Fields_arg0*)arg0)->field_8 = 9;
     ((Fields_arg0*)arg0)->field_A = 0x14;
     ((Fields_arg0*)arg0)->field_C = 3;
-    ((Fields_arg0*)arg0)->field_10 = (u8 *)(&(*(RecoveredGlobal_803F8A28_lbl_805AEEB0 *)&lbl_805AEEB0).value) + 0xB650;
-    ((Fields_arg0*)arg0)->field_14 = (u8 *)(&(*(RecoveredGlobal_803F8A28_lbl_805AEEB0 *)&lbl_805AEEB0).value) + 0xB5F0;
-    ((Fields_arg0*)arg0)->field_1C = (u8 *)(&(*(RecoveredGlobal_803F8A28_lbl_805AEEB0 *)&lbl_805AEEB0).value) + 0xB5D0;
-    ((Fields_arg0*)arg0)->field_18 = (u8 *)(&(*(RecoveredGlobal_803F8A28_lbl_805AEEB0 *)&lbl_805AEEB0).value) + 0xB564;
-    ((Fields_arg0*)arg0)->field_20 = (u8 *)(&(*(RecoveredGlobal_803F8A28_lbl_805AEEB0 *)&lbl_805AEEB0).value) + 0xA9AC;
-    ((Fields_arg0*)arg0)->field_24 = (u8 *)(&(*(RecoveredGlobal_803F8A28_lbl_805AEEB0 *)&lbl_805AEEB0).value) + 0xA990;
+    ((Fields_arg0*)arg0)->field_10 = (u8 *)(&(*(RecoveredGlobal_803F8A28_lbl_805AEEB0 *)&lobby_net_config_block).value) + 0xB650;
+    ((Fields_arg0*)arg0)->field_14 = (u8 *)(&(*(RecoveredGlobal_803F8A28_lbl_805AEEB0 *)&lobby_net_config_block).value) + 0xB5F0;
+    ((Fields_arg0*)arg0)->field_1C = (u8 *)(&(*(RecoveredGlobal_803F8A28_lbl_805AEEB0 *)&lobby_net_config_block).value) + 0xB5D0;
+    ((Fields_arg0*)arg0)->field_18 = (u8 *)(&(*(RecoveredGlobal_803F8A28_lbl_805AEEB0 *)&lobby_net_config_block).value) + 0xB564;
+    ((Fields_arg0*)arg0)->field_20 = (u8 *)(&(*(RecoveredGlobal_803F8A28_lbl_805AEEB0 *)&lobby_net_config_block).value) + 0xA9AC;
+    ((Fields_arg0*)arg0)->field_24 = (u8 *)(&(*(RecoveredGlobal_803F8A28_lbl_805AEEB0 *)&lobby_net_config_block).value) + 0xA990;
 }
 
 void TLobby__sub_803F8A9C(void * _w0) {
@@ -1192,7 +1192,7 @@ void TLobby__sub_803F8AB8(void) {
 }
 
 void init_net_func_table__6TLobbyFPv(Desc_803F8AD8 *arg0) {
-    Big_803F8AD8 *g = (Big_803F8AD8 *)&lbl_805AEEB0;
+    Big_803F8AD8 *g = (Big_803F8AD8 *)&lobby_net_config_block;
     g->funcs[0] = (void *)TLobby__sub_80426B88;
     g->funcs[1] = (void *)open_channel_checked__6TLobbyFsUs;
     g->funcs[2] = (void *)remove_rec_by_handle__6TLobbyFsUs;
@@ -1221,7 +1221,7 @@ void init_net_recv_desc__6TLobbyFPv(u8 *arg0) {
     M2C_FIELD(arg0, s16 *, 0xA) = 0x500;
     M2C_FIELD(arg0, s16 *, 0xC) = 2;
     M2C_FIELD(arg0, M2C_UNK **, 0x10) = &lbl_805D7A58;
-    M2C_FIELD(arg0, M2C_UNK **, 0x14) = &lbl_805BD66C.value;
+    M2C_FIELD(arg0, M2C_UNK **, 0x14) = &lobby_net_recv_desc.value;
 }
 
 u8 *layout_buffers__6TLobbyFPvPvPv(H_803F8BA4 *h, u8 *p, u8 *end) {

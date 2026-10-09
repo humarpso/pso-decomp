@@ -12,8 +12,8 @@ struct RecoveredGlobal_803D6140_lbl_8058C960 {
 extern "C" {
 M2C_UNK strncpy(void *, void *, int);
 extern RecoveredGlobal_803D6140_lbl_8058C960 lbl_8058C960;
-extern RecoveredCallback_1d0cc8904da3 lbl_805D76A0;
-extern s32 lbl_805D76A4;
+extern RecoveredCallback_1d0cc8904da3 net_error_callback;
+extern s32 net_error_callback_arg;
 void report_error_message__6TLobbyFi(s32 arg0);
 void report_error_message__6TLobbyFi(s32 arg0);
 extern u8 lbl_8047E220[];
@@ -50,8 +50,8 @@ void set_buffer_params_checked__6TLobbyFUiUii(u32 arg0, u32 arg1, s32 arg2) {
 
 void report_error_message__6TLobbyFi(s32 arg0) {
     strncpy((void *) (&lbl_8058C960.value), (void *) (arg0), (int) (0xFF));
-    if (((M2C_UNK (*)(s32, M2C_UNK *)) lbl_805D76A0) != NULL) {
-        lbl_805D76A0(lbl_805D76A4, &lbl_8058C960.value);
+    if (((M2C_UNK (*)(s32, M2C_UNK *)) net_error_callback) != NULL) {
+        net_error_callback(net_error_callback_arg, &lbl_8058C960.value);
     }
 }
 

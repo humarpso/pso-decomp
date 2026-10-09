@@ -56,14 +56,14 @@ void finalize_and_send_60__6TLobbyFPv(void *);
 void init_6x05_switch_changed__6TLobbyFPv(void *);
 void TOSensor__sub_8017546C(u8 *arg0);
 void TOSensor__sub_80175514(u8 *arg0);
-extern s32 lbl_805D53A0;
+extern s32 local_client_id;
 extern const f32 lbl_805DB980;
 void update_switch_state__8TOSensorFPv(Obj_801755BC *self);
 s32 obj_testFlags30(void *, s32);
 f32 horizontal_distance_squared(void *, void *);
 Player_801756C4 *get_player_by_client_id(s32);
 u16 get_window_id__11TWindowCtrlFv();
-extern s32 lbl_805D53A0;
+extern s32 local_client_id;
 s32 check_player_in_range__8TOSensorFPv(Obj_801756C4 *self);
 }
 
@@ -166,7 +166,7 @@ void update_switch_state__8TOSensorFPv(Obj_801755BC *self) {
             self->m16();
             init_6x05_switch_changed__6TLobbyFPv(&pkt);
             pkt.object = self->id;
-            pkt.zero = lbl_805D53A0;
+            pkt.zero = local_client_id;
             pkt.switchId = self->switchId;
             pkt.area = get_current_floor();
             pkt.flags = 1;
@@ -184,7 +184,7 @@ void update_switch_state__8TOSensorFPv(Obj_801755BC *self) {
 s32 check_player_in_range__8TOSensorFPv(Obj_801756C4 *self) {
     Player_801756C4 *pl;
     if (self->state != 1) {
-        pl = get_player_by_client_id(lbl_805D53A0);
+        pl = get_player_by_client_id(local_client_id);
         switch (self->mode) {
         case 1:
             if (pl != NULL && obj_testFlags30(pl, 0x400000) != 0) {
@@ -194,7 +194,7 @@ s32 check_player_in_range__8TOSensorFPv(Obj_801756C4 *self) {
             }
             break;
         case 2:
-            if (lbl_805D53A0 == get_window_id__11TWindowCtrlFv() && pl != NULL) {
+            if (local_client_id == get_window_id__11TWindowCtrlFv() && pl != NULL) {
                 if (horizontal_distance_squared(pl->pos, self->pos) < self->range * self->range) {
                     self->state = 1;
                 }

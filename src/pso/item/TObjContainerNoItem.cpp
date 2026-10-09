@@ -177,7 +177,7 @@ void send_object_state_update(void *, void *);
 s32 access_object_saved_state(void *, void *, int);
 void byteswap_and_send__6TLobbyFi(void *);
 void init_packet_67_04__6TLobbyFPv(void *);
-extern s32 lbl_805D53A0;
+extern s32 local_client_id;
 extern const f32 lbl_805DBCF4;
 f32 TObjContainerEnemy__vt20(Obj_801894F8 *arg0);
 s32 VecCopy__FP3VecPC3Vec(void *, void *);
@@ -329,7 +329,7 @@ f32 TObjContainerEnemy__vt20(Obj_801894F8 *arg0) {
         pkt.b = arg0->f1C;
         pkt.c = get_current_floor();
         pkt.d = arg0->f84;
-        pkt.e = lbl_805D53A0;
+        pkt.e = local_client_id;
         byteswap_and_send__6TLobbyFi(&pkt);
     }
     return lbl_805DBCF4;

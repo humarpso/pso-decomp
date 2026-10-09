@@ -50,7 +50,7 @@ extern "C" {
 void reset_entries_and_format_name__13TObjTombstoneFPv(O_80075D68 *self);
 void subtract_vector(Vec_8007598C *, Vec_8007598C *);
 f32 vector_length(Vec_8007598C *);
-extern s32 lbl_805D53A0;
+extern s32 local_client_id;
 extern const f32 lbl_805D91A8;
 extern const f32 TObjTombstone__data_805D9174;
 f32 get_distance_to_local_player_xz__13TObjTombstoneFPvPv(Obj_8007598C *self, void * _w1);
@@ -76,7 +76,7 @@ void format_player_name__13TObjTombstoneFPv(Obj_80075CB4 *self);
 int sprintf(char *, const char *, ...);
 extern char lbl_804387C8[];
 extern char lbl_804387E0[];
-extern s32 lbl_805D53A0;
+extern s32 local_client_id;
 extern s32 current_language;
 void format_date_text__13TObjTombstoneFPv(Tomb_80075A00 *self);
 const char *TQuestVmDownLoadServer__sub_8006EF6C(s32);
@@ -114,7 +114,7 @@ void render__13TObjTombstoneFv(s32 arg0) {
 }
 
 f32 get_distance_to_local_player_xz__13TObjTombstoneFPvPv(Obj_8007598C *self, void * _w1) {
-    Ply_8007598C *p = get_player_by_client_id((s32)(lbl_805D53A0), (void *)(_w1));
+    Ply_8007598C *p = get_player_by_client_id((s32)(local_client_id), (void *)(_w1));
     if (p == 0) {
         return lbl_805D91A8;
     }
@@ -134,7 +134,7 @@ void format_date_text__13TObjTombstoneFPv(Tomb_80075A00 *self) {
     u32 d;
     text = self->text;
     text[0] = 0;
-    if (self->owner != lbl_805D53A0) {
+    if (self->owner != local_client_id) {
         return;
     }
     d = self->date;

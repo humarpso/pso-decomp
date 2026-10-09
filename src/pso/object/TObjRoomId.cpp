@@ -238,7 +238,7 @@ void set_player_room_control_flag(void *arg0) {
     set_state_flags__10TObjPlayerFPvUi(arg0, 0x02000000);
 }
 
-extern s32 lbl_805D53A0;
+extern s32 local_client_id;
 
 u16 TObjRoomId__sub_801A1DB8(u16 x) {
     u16 r;
@@ -254,7 +254,7 @@ u8 is_current_room__10TObjRoomIdFPv(void *arg0) {
     if (is_split_screen() != 0) {
         return 1U;
     }
-    return (u8) (M2C_FIELD(arg0, u16 *, 0x1C) == lbl_805D53A0);
+    return (u8) (M2C_FIELD(arg0, u16 *, 0x1C) == local_client_id);
 }
 
 int TObjRoomId__sub_801A1E2C(void) { return 0; }

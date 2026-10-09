@@ -20,7 +20,7 @@ f32 vec_squared_length(void *);
 void reflect_matrix_in_plane(s32, void *);
 Hit_8029EC3C *csnVecterUnder(void *, s32);
 Hit_8029EC3C *csnVector(void *, void *, s32);
-extern s32 lbl_805D53A0;
+extern s32 local_client_id;
 extern Vec_8029EC3C lbl_804DC7B8;
 extern const f32 lbl_805DDD88;
 extern const f32 lbl_805DDD8C;
@@ -42,7 +42,7 @@ s32 fn_8029EC3C(Vec_8029EC3C *pos, s32 arg1) {
     Hit_8029EC3C *r;
     Hit_8029EC3C::HitE_8029EC3C *e;
     f32 scale;
-    p = get_player_by_client_id(lbl_805D53A0);
+    p = get_player_by_client_id(local_client_id);
     if (p == 0) return 0;
     scale = lbl_805DDD98;
     if (get_global_state__14TOKeyMachine01Fv() == 0x1C) {

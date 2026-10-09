@@ -24,7 +24,7 @@ extern "C" {
 
 int get_stat_table_entry__9TObjLukerFi(int a0);
 
-    extern int lbl_804A6EE0[];
+    extern int luker_stat_entry_ptr_table[];
 
 typedef char RecoveredGlobal_801329B0_lbl_8043EA58_size[sizeof(RecoveredGlobal_801329B0_lbl_8043EA58) == 0x90 ? 1 : -1];
 void get_floor_destination_name(u32 arg0) {
@@ -36,7 +36,7 @@ void get_floor_destination_name(u32 arg0) {
     get_localized_text_entry(9, M2C_FIELD(&floor_destination_text_id_table.value, M2C_UNK *, (var_r3 * 4)));
 }
 
-int get_stat_table_entry__9TObjLukerFi(int a0) {  return lbl_804A6EE0[a0]; }
+int get_stat_table_entry__9TObjLukerFi(int a0) {  return luker_stat_entry_ptr_table[a0]; }
 s32 enemy_name_for_rt_index(s32 arg0) {
     s32 var_r3;
     var_r3 = arg0;

@@ -75,12 +75,12 @@ s32 get_field_3e4__10TObjPlayerFPv(void *);
 s32 get_photon_blast_chain(void *, s32);
 void *get_player_by_client_id(u32);
 
-extern s32 lbl_8050E880[];
+extern s32 photon_blast_donation_flags[];
 void clear_photon_blast_donations(void);
 s32 is_split_screen();
 s32 get_stat_by_key_state__10TObjPlayerFPv(void *);
 u16 get_section_id__10TObjPlayerFPv(void *);
-extern s32 lbl_805D53A0;
+extern s32 local_client_id;
 s32 is_photon_blast_presentation_admitted(u32 owner_id, void *records);
 u16 obj_getField1c(void *);
 M2C_UNK TObjPlayer__sub_801A9E10(void *, int, void *, void *, int, int);
@@ -92,7 +92,7 @@ void *TObjPlayer__sub_801AA66C(void *, void *);
 void *__nw__7TObjectFUl(int);
 s16 TObjPlayer__sub_80313114(void *);
 extern Counts_801A8868 lbl_80446CB8;
-extern Rec_801A8868 lbl_8050E890[];
+extern Rec_801A8868 photon_blast_sequence_table[];
 void admit_photon_blast_sequence(u8 *players, void *self);
 
 int get_player_data__10TObjPlayerFi(int);
@@ -198,10 +198,10 @@ s32 is_photon_blast_presentation_admitted(u32 owner_id, void *records) {
     if (is_split_screen() != 0) {
         return 1;
     }
-    if (lbl_805D53A0 == get_section_id__10TObjPlayerFPv(records)) {
+    if (local_client_id == get_section_id__10TObjPlayerFPv(records)) {
         return 1;
     }
-    local = get_player_by_client_id(lbl_805D53A0);
+    local = get_player_by_client_id(local_client_id);
     if (local == NULL) {
         return 0;
     }
@@ -244,7 +244,7 @@ void apply_photon_blast_action_hold(M2C_UNK arg0, s32 arg1, s32 arg2) {
 void clear_photon_blast_donations(void) {
     s32 i;
     for (i = 0; i < 4; i++) {
-        lbl_8050E880[i] = 0;
+        photon_blast_donation_flags[i] = 0;
     }
 }
 #define GET_STAT ((s16 (*)(void *))get_stat_by_key_state__10TObjPlayerFPv)
@@ -310,7 +310,7 @@ void admit_photon_blast_sequence(u8 *players, void *self) {
         if (i != obj_getField1c(self)) {
             q = get_player_by_client_id(i);
             if (q != NULL && GET_STAT(q) == GET_STAT(self)
-                && lbl_8050E890[obj_getField1c(q)].f20 != 0) {
+                && photon_blast_sequence_table[obj_getField1c(q)].f20 != 0) {
                 flag = 1;
             }
         }

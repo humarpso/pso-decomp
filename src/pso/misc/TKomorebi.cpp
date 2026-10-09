@@ -71,7 +71,7 @@ f32 xz_distance_squared(void *, s32);
 M2C_UNK set_global_param__8TObjFishFi(s32);
 
 extern s32 camera_ctrl_instance;
-extern s32 lbl_805D53A4;
+extern s32 actor_frame_tick;
 extern s32 lbl_805D5C24;
 extern const f32 lbl_805DBE48;
 extern const f32 lbl_805DBE4C;
@@ -82,9 +82,9 @@ void render__9TKomorebiFv(u8 *arg0) {
 
     if ((((VObj_80192174*)arg0)->m8(lbl_805DBE48, lbl_805DBE4C) != 0) && !(xz_distance_squared(arg0 + 0x38, camera_ctrl_instance + 0x178) < lbl_805DBE50)) {
         begin_effect_render__13TParticleCtrlFv();
-        if ((s32) lbl_805D53A4 != (s32) lbl_805D5C24) {
+        if ((s32) actor_frame_tick != (s32) lbl_805D5C24) {
             scroll_ginja_mesh_uvs(M2C_FIELD(M2C_FIELD(arg0, void **, 0x34), s32 *, 4), 0, (s32) M2C_FIELD(arg0, f32 *, 0x68), 0, 1);
-            lbl_805D5C24 = lbl_805D53A4;
+            lbl_805D5C24 = actor_frame_tick;
         }
         push_matrix();
         set_global_param__8TObjFishFi(M2C_FIELD(arg0, s32 *, 0x24));

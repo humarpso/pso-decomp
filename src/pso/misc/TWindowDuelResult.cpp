@@ -73,7 +73,7 @@ void refresh_status_display__9TWindowDDFv(void *);
 void init_window_layout_entries(void *, void *, int);
 void set_text_entry_string(void *, void *, int);
 void set_default_status__17TWindowDuelResultFPvi(void *, int);
-extern u8 lbl_8050EA40[];
+extern u8 lobby_rule_settings[];
 void sub_8024F094__17TWindowDuelResultFv(Win_8024F094 *self);
 }
 
@@ -240,7 +240,7 @@ void sub_8024F094__17TWindowDuelResultFv(Win_8024F094 *self) {
         } else {
             if (none) {
                 set_default_status__17TWindowDuelResultFPvi(a, get_localized_text_entry(0x10, 0xA));
-            } else if (get_rule_field_a__6TLobbyFPv(lbl_8050EA40) == 1) {
+            } else if (get_rule_field_a__6TLobbyFPv(lobby_rule_settings) == 1) {
                 if (e->rank == 0) {
                     set_default_status__17TWindowDuelResultFPvi(a, get_localized_text_entry(0x10, 0xB));
                 } else {

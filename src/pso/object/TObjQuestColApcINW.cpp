@@ -12,7 +12,7 @@ f32 xz_distance_squared(void *, void *);
 s32 update_trigger_state__12TObjQuestColFPvf(void *, f32);
 Pl_801960F8 *get_player_by_client_id(s32);
 extern u8 lbl_8050DD08[];
-extern s32 lbl_805D53A0;
+extern s32 local_client_id;
 extern s32 lbl_805D5C4C;
 s32 TObjQuestColApcINW__vt13(Col_801960F8 *arg0);
 }
@@ -33,13 +33,13 @@ extern void *lbl_805D3400;
 
 s32 TObjQuestColApcINW__vt13(Col_801960F8 *arg0) {
     if (update_trigger_state__12TObjQuestColFPvf(arg0, arg0->fAC) == 1) {
-        Pl_801960F8 *p = get_player_by_client_id(lbl_805D53A0);
+        Pl_801960F8 *p = get_player_by_client_id(local_client_id);
         if (p == 0) {
             return 0;
         }
         s32 i;
         for (i = 0; i < 12; i++) {
-            if (i != lbl_805D53A0) {
+            if (i != local_client_id) {
                 Pl_801960F8 *q = get_player_by_client_id(i);
                 if (q != 0) {
                     if (xz_distance_squared(q->pos, p->pos) > arg0->fBC * arg0->fBC) {

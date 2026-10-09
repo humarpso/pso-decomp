@@ -52,7 +52,7 @@ M2C_UNK clear_shop_armor_flags();
 M2C_UNK clear_shop_tool_flags();
 M2C_UNK clear_shop_weapon_flags();
 extern M2C_UNK TLobby__data_805011D8[];
-extern s32 lbl_805D53A0;
+extern s32 local_client_id;
 extern s32 game_difficulty_selection;
 extern s32 lbl_805D6238;
 extern s32 shop_world_player_level;
@@ -70,7 +70,7 @@ s32 is_not_split_screen__13TRaderMapCoreFv();
 
 s16 get_cursor_index__18TShopGetItemWindowFPv(void* p) { return *(s16*)((char*)p + 0x74); }
 
-extern s32 lbl_805D53A0;
+extern s32 local_client_id;
 
 void calc_item_count__18TShopGetItemWindowFPvPv(void *arg0, s32 *arg1) {
     s32 var_r31;
@@ -80,7 +80,7 @@ void calc_item_count__18TShopGetItemWindowFPvPv(void *arg0, s32 *arg1) {
     if (is_not_split_screen__13TRaderMapCoreFv() == 1) {
         var_r31 = ((VObj_8021EEEC_8021EEE4 *)arg0)->m14() + 1;
     } else {
-        temp_r3 = get_player_by_client_id(lbl_805D53A0);
+        temp_r3 = get_player_by_client_id(local_client_id);
         if (temp_r3 != NULL) {
             var_r31 = ((VObj_8021EEEC_8021EEE4 *)temp_r3)->m14() + 1;
         }
@@ -99,7 +99,7 @@ void init_shop_world_context(void) {
     s32 temp_r3_2;
     s32 temp_r3_3;
     void *temp_r3;
-    temp_r3 = get_player_by_client_id(lbl_805D53A0);
+    temp_r3 = get_player_by_client_id(local_client_id);
     if (temp_r3 != NULL) {
         shop_world_player_level = ((ShopPlayerLevel*)temp_r3)->levelIndex();
         shop_world_player_level++;

@@ -265,7 +265,7 @@ void destroy_particle__13TParticleCtrlFPvs(void *, int);
 M2C_UNK get_object__13TParticleCtrlFPv(M2C_UNK);
 
 extern s32 lbl_805D2930;
-extern s32 lbl_805D53A0;
+extern s32 local_client_id;
 extern const f32 lbl_805D947C;
 extern const f32 lbl_805D9480;
 
@@ -279,7 +279,7 @@ void apply_demo_mode_color__13TParticleCtrlFPv(Obj_80085798 *self) {
 void check_player_proximity__13TParticleCtrlFPv(u8 *arg0) {
     u32 temp_r3;
 
-    temp_r3 = get_player_by_client_id((void *) (lbl_805D53A0));
+    temp_r3 = get_player_by_client_id((void *) (local_client_id));
     if ((temp_r3 != 0U) && (horizontal_distance_squared((void *) (temp_r3 + 0x38), (void *) (arg0 + 0x38)) < lbl_805D947C)) {
         if (M2C_FIELD(arg0, f32 *, 0x68) > lbl_805D9480) {
             lbl_805D2930 = 1;

@@ -425,7 +425,7 @@ u16 get_card_field_21a8__23TAdSinglePlyChrSelectGCFi(int arg0) {
 s32 *TAdSinglePlyChrSelectGC__sub_80202B38(void *self, s32 i);
 void clear_inventory_slot_by_index__23TAdSinglePlyChrSelectGCFPvi(void *self, s32 i);
 
-s32 TAdSinglePlyChrSelectGC__sub_801FC4F4(void *arg0_, s32 arg1) {
+s32 append_inventory_item__23TAdSinglePlyChrSelectGCFPvi(void *arg0_, s32 arg1) {
 #define arg0 ((u8 *)arg0_)
     u8 n = *arg0;
 
@@ -695,7 +695,7 @@ struct Ent_801FD6B4 { u8 pad[0x420]; u8 sub[8]; u32 f428; u8 pad2[0x2790 - 0x42C
 extern "C" {
 void TAdSinglePlyChrSelectGC__sub_801FCCB4(u8 *arg0, s32 arg1);
 s32 TAdSinglePlyChrSelectGC__sub_801FCCC0(u8 *arg0);
-s32 TAdSinglePlyChrSelectGC__sub_801FC4F4(void *, s32);
+s32 append_inventory_item__23TAdSinglePlyChrSelectGCFPvi(void *, s32);
 extern u8 *lbl_805D5F60;
 s32 forward_to_global_instance__23TAdSinglePlyChrSelectGCFi(s32 arg0);
 s32 __ct__12TPlyCharDataFv(s32);
@@ -980,7 +980,7 @@ void render_frame__23TAdSinglePlyChrSelectGCFv(void) {
 
 s32 forward_to_global_instance__23TAdSinglePlyChrSelectGCFi(s32 arg0) {
     if ((void *) lbl_805D5F60 != NULL) {
-        TAdSinglePlyChrSelectGC__sub_801FC4F4(lbl_805D5F60, arg0);
+        append_inventory_item__23TAdSinglePlyChrSelectGCFPvi(lbl_805D5F60, arg0);
         return 1;
     }
     return 0;
@@ -2743,7 +2743,7 @@ s32 is_technique_ready__8TTecCtrlFv();
 M2C_UNK memcpy(s32, s32, u32);
 M2C_UNK set_save_slot__23TAdSinglePlyChrSelectGCFi(M2C_UNK);
 
-extern s32 lbl_805D53A0;
+extern s32 local_client_id;
 extern u32 lbl_805D5F58;
 extern u32 lbl_805D5F60;
 extern u32 lbl_805D5F64;
@@ -2751,7 +2751,7 @@ extern u32 lbl_805D5F64;
 s32 init__23TAdSinglePlyChrSelectGCFv(void) {
     init_slots__23TAdSinglePlyChrSelectGCFv();
     if (((u32) lbl_805D5F60 != 0U) && ((u32) lbl_805D5F64 != 0U) && ((u32) lbl_805D5F58 != 0U)) {
-        if ((get_player_by_client_id(lbl_805D53A0) != 0U) && (is_technique_ready__8TTecCtrlFv() == 0) && (fn_80203284() != 1)) {
+        if ((get_player_by_client_id(local_client_id) != 0U) && (is_technique_ready__8TTecCtrlFv() == 0) && (fn_80203284() != 1)) {
             init_battle_selection__10TObjPlayerFv();
             TAdSinglePlyChrSelectGC__sub_8028DC14();
         }
@@ -4463,7 +4463,7 @@ extern s32 lbl_805D5F90;
 extern s32 lbl_805D5FA8;
 extern M2C_UNK lbl_805D5FB0;
 
-void TAdSinglePlyChrSelectGC__sub_802019F8(void) {
+void init_char_select_globals__23TAdSinglePlyChrSelectGCFv(void) {
     M2C_UNK sp10;
     M2C_UNK sp11;
     M2C_UNK spD;

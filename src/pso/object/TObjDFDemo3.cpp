@@ -55,7 +55,7 @@ void set_scripted_camera_pose(void *, void *, void *);
 void cache_target_and_forward__11TCameraCtrlFii(void *, int);
 s32 TPhotonMagicSquare__sub_801A2640(void *, void *);
 extern Pose_8004EB78 lbl_80437384;
-extern s32 lbl_804867C0[];
+extern s32 boss4_zanzo_bml_index_table[];
 extern s32 lbl_805D2788;
 extern const f32 lbl_805D89CC;
 }

@@ -194,7 +194,7 @@ M2C_UNK construct_traffic_manager(void *, s32);
 M2C_UNK get_global_state__14TOKeyMachine01Fv();
 M2C_UNK reset_settings_to_default__6TLobbyFPv(M2C_UNK *);
 extern M2C_UNK TLobby_scene_load_callback_table[];
-extern M2C_UNK lbl_8050EA40[];
+extern M2C_UNK lobby_rule_settings[];
 extern s32 tl_05;
 extern s32 tl_07;
 s32 setup_scene__6TLobbyFv(void);
@@ -253,7 +253,7 @@ M2C_UNK reset_download_state__22TQuestVmDownLoadServerFv();
 M2C_UNK get_global_state__14TOKeyMachine01Fv();
 M2C_UNK load_floor_sound_bank();
 extern M2C_UNK lobby_floor_scene_callbacks[];
-extern M2C_UNK lbl_8050EA40[];
+extern M2C_UNK lobby_rule_settings[];
 s32 init_lobby_floor_scene__6TLobbyFv(void);
 int clear_session_buffers__6TLobbyFv(void);
 int stop_audio_streams__6TLobbyFv(void);
@@ -642,7 +642,7 @@ s32 setup_scene__6TLobbyFv(void) {
     init_area_lights();
     init_shop_world_context();
     run_load_callback_table(TLobby_scene_load_callback_table, 0x60);
-    reset_settings_to_default__6TLobbyFPv(lbl_8050EA40);
+    reset_settings_to_default__6TLobbyFPv(lobby_rule_settings);
     create_tasks__6TLobbyFv();
     create_controller__14TObjBgmColCtrlFv();
     if (((s32)get_global_state__14TOKeyMachine01Fv()) == 0) {
@@ -714,7 +714,7 @@ s32 init_lobby_floor_scene__6TLobbyFv(void) {
     }
     init_area_lights();
     reset_download_state__22TQuestVmDownLoadServerFv();
-    reset_settings_to_default__6TLobbyFPv((M2C_UNK *)((void *) (&(*(RecoveredGlobal_80140A6C_lbl_8050EA40 *)&lbl_8050EA40).value)));
+    reset_settings_to_default__6TLobbyFPv((M2C_UNK *)((void *) (&(*(RecoveredGlobal_80140A6C_lbl_8050EA40 *)&lobby_rule_settings).value)));
     create_tasks__6TLobbyFv();
     create_controller__14TObjBgmColCtrlFv();
     TLobby__sub_801403B4((M2C_UNK)((int) (0)));

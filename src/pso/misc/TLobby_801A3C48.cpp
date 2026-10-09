@@ -109,7 +109,7 @@ void free_objects__6TLobbyFv(void);
 s32 is_quest_active();
 void update_camera_state__6TLobbyFv(void);
 M2C_UNK send_keepalive(void*);
-extern s32 lbl_805D53A4;
+extern s32 actor_frame_tick;
 extern u32 TLobby__protocol_instance;
 extern s32 TLobby__lobby_state_flags;
 void update_periodic_tick__6TLobbyFv(void);
@@ -209,7 +209,7 @@ extern RecoveredGlobal_801A4610_lbl_804C20E8 online_lobby_scene_callback_table;
 extern RecoveredGlobal_801A4610_lbl_804C2240 lobby_area_reload_callbacks;
 extern unsigned char lbl_80515BA0[];
 extern RecoveredGlobal_801A4820_main_task main_task;
-extern s32 lbl_805D53A0;
+extern s32 local_client_id;
 extern s32 online_lobby_scene_handle;
 extern s32 TLobby__lobby_state_flags;
 extern M2C_UNK *tl_su;
@@ -248,8 +248,8 @@ void *memset(void *, int, u32);
 extern char lbl_80446918[];
 extern char lbl_80446924[];
 extern Pair_801A3CFC lobby_udp_test_game_entries[];
-extern s32 lbl_805D53A0;
-extern s32 TLobby__data_805D53AC;
+extern s32 local_client_id;
+extern s32 TLobby__designated_client_id;
 extern s32 game_protocol_instance;
 void start_udp_test_game__6TLobbyFv(void);
 M2C_UNK __dt__7TObjectFv(void *, M2C_UNK);
@@ -296,7 +296,7 @@ M2C_UNK __ct__7TObjectFP7TObject(void *, M2C_UNK);
 extern u8 TLobby__data_805011D8[];
 extern unsigned char lbl_80515BA0[];
 extern RecoveredGlobal_801A4820_main_task main_task;
-extern s32 TLobby__data_805D53AC;
+extern s32 TLobby__designated_client_id;
 extern u32 quest_mission_manager;
 extern void *tl_03;
 M2C_UNK start_quest_mission(void);
@@ -347,7 +347,7 @@ extern u8 TLobby__data_805011D8[];
 extern u8 game_variations[];
 extern unsigned char lbl_80515BA0[];
 extern RecoveredGlobal_801A4820_main_task main_task;
-extern s32 TLobby__data_805D53AC;
+extern s32 TLobby__designated_client_id;
 extern int TLobby__new_game_setup_flags;
 extern u32 quest_area_manager;
 extern void *tl_03;
@@ -371,7 +371,7 @@ M2C_UNK run_load_callback_table(void *, M2C_UNK);
 M2C_UNK init_range__6TLobbyFPvi(void *, int);
 M2C_UNK process_deferred_player_setup__6TLobbyFv();
 M2C_UNK reset_state_flags__6TLobbyFv();
-M2C_UNK TLobby__sub_801399B8(void *);
+M2C_UNK run_join_lobby_connect__6TLobbyFi(void *);
 void *TLobby__ct(void *, void *);
 M2C_UNK create_map_csn_ctrl__6TLobbyFv();
 s32 TLobby__sub_80146908();
@@ -411,7 +411,7 @@ M2C_UNK func_803DCDFC__Fv();
 extern RecoveredGlobal_801A4610_lbl_804C20E8 online_lobby_scene_callback_table;
 extern unsigned char lbl_80515BA0[];
 extern RecoveredGlobal_801A4820_main_task main_task;
-extern s32 lbl_805D53A4;
+extern s32 actor_frame_tick;
 extern s16 TLobby__data_805D5CE8;
 extern int TLobby__new_game_setup_flags;
 extern s32 online_lobby_scene_handle;
@@ -464,7 +464,7 @@ M2C_UNK init_key_slots__15TOKeyJungleMainFPv();
 extern u8 TLobby__data_805011D8[];
 extern unsigned char lbl_80515BA0[];
 extern RecoveredGlobal_801A4820_main_task main_task;
-extern s32 TLobby__data_805D53AC;
+extern s32 TLobby__designated_client_id;
 extern s32 TLobby__lobby_number;
 extern s16 TLobby__data_805D5CE8;
 void reload_lobby_floor_scene(void);
@@ -535,8 +535,8 @@ void start_udp_test_game__6TLobbyFv(void) {
     bswap_udp_test_header__6TLobbyFPv((u8 *)&lobby_udp_test_game_entries[1]);
     construct_entry_array__6TLobbyFi((s32)&msg);
     memset(&msg, 0, 0x114);
-    msg.f104 = lbl_805D53A0;
-    msg.f105 = TLobby__data_805D53AC;
+    msg.f104 = local_client_id;
+    msg.f105 = TLobby__designated_client_id;
     msg.f106 = 0;
     msg.entries[0].f2 = 1;
     msg.entries[0].f4 = 0x013158B7;
@@ -550,7 +550,7 @@ void start_udp_test_game__6TLobbyFv(void) {
     strcpy(msg.entries[1].name, lbl_80446924);
     handle_game_join__6TLobbyFPv(&msg);
     delete_children__7TObjectFv(game_protocol_instance);
-    open_udp_socket_for_player__6TLobbyFi(1 - lbl_805D53A0);
+    open_udp_socket_for_player__6TLobbyFi(1 - local_client_id);
 }
 
 s32 construct_entry_array__6TLobbyFi(s32 arg0) {
@@ -578,7 +578,7 @@ void reload_lobby_floor_scene(void) {
     send_game_character__6TLobbyFv();
     render_tick__Fv();
     render_tick__Fv();
-    find_leader_section_id(TLobby__data_805011D8, TLobby__data_805D53AC);
+    find_leader_section_id(TLobby__data_805011D8, TLobby__designated_client_id);
     free_objects__6TLobbyFv();
     delete_all_task_children__9TMainTaskFv(&main_task);
     clear_flag3_all_tasks__9TMainTaskFv(&main_task);
@@ -730,7 +730,7 @@ M2C_UNK start_quest_mission(void) {
     reset_controller_input_state();
     render_tick__Fv();
     render_tick__Fv();
-    find_leader_section_id(TLobby__data_805011D8, TLobby__data_805D53AC);
+    find_leader_section_id(TLobby__data_805011D8, TLobby__designated_client_id);
     for (i = 0; i < 12; i++) {
         p = (VObj_18_801A4268 *) get_player_by_client_id(i);
         if (p != NULL) {
@@ -796,7 +796,7 @@ M2C_UNK change_floor_reload_area(void) {
     reset_controller_input_state();
     render_tick__Fv();
     render_tick__Fv();
-    find_leader_section_id(TLobby__data_805011D8, TLobby__data_805D53AC);
+    find_leader_section_id(TLobby__data_805011D8, TLobby__designated_client_id);
     for (i = 0; i < 12; i++) {
         p = (VObj_18_801A441C *) get_player_by_client_id(i);
         if (p != NULL) {
@@ -895,7 +895,7 @@ void cleanup_online_lobby_scene(void) {
     var_r4 = 0x158;
     var_r3 = (M2C_UNK *)(&online_lobby_scene_callback_table.value);
     call_funcs_reverse__6TLobbyFPvUi((void *) (&online_lobby_scene_callback_table.value), (int) (0x158));
-    lbl_805D53A0 = 0;
+    local_client_id = 0;
     TLobby__lobby_state_flags = 0;
     clear_resource_load_tasks();
     update__16TKeyBoardControlFv();
@@ -1098,17 +1098,17 @@ void run_online_lobby_scene(void) {
         if (TLobby__sub_801A3E8C() != 0) {
             start_udp_test_game__6TLobbyFv();
         } else {
-            TLobby__sub_801399B8(lobby);
+            run_join_lobby_connect__6TLobbyFi(lobby);
         }
     }
-    lbl_805D53A4 = 0;
+    actor_frame_tick = 0;
     TLobby__data_805D5CE8 = 0;
     TLobby__online_lobby_frame_counter = 0;
     render_tick__Fv();
 }
 
 void update_periodic_tick__6TLobbyFv(void) {
-    if ((TLobby__lobby_state_flags & 1) && ((lbl_805D53A4 % 900) == 0) && ((u32) TLobby__protocol_instance != 0U)) {
+    if ((TLobby__lobby_state_flags & 1) && ((actor_frame_tick % 900) == 0) && ((u32) TLobby__protocol_instance != 0U)) {
         send_keepalive((void*)TLobby__protocol_instance);
     }
 }

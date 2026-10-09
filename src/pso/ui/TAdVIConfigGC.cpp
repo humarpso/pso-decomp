@@ -68,7 +68,7 @@ u32 draw_with_layer__13TAdVIConfigGCFiii(s32, void *, s32);
 s32 get_window_layout_position(s32);
 char *strncpy(char *, const char *, u32);
 extern u8 player_names_window_pos[];
-extern s32 lbl_805D53A0;
+extern s32 local_client_id;
 void open_player_names_window__13TAdVIConfigGCFPv(Cfg_80307D00 *arg0);
 }
 
@@ -107,7 +107,7 @@ void open_player_names_window__13TAdVIConfigGCFPv(Cfg_80307D00 *arg0) {
         TWindow__close(arg0->win);
         arg0->win = 0;
     }
-    arg0->win = draw_with_layer__13TAdVIConfigGCFiii(get_window_layout_position(0x5A), player_names_window_pos, lbl_805D53A0);
+    arg0->win = draw_with_layer__13TAdVIConfigGCFiii(get_window_layout_position(0x5A), player_names_window_pos, local_client_id);
     if (arg0->win != 0) {
         set_visible__19TWindowSubTradeMainFPv(arg0->win);
         set_close_flag__19TWindowSubTradeMainFPv(arg0->win);

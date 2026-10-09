@@ -85,7 +85,7 @@ extern Vec_8029EFFC lbl_80465E08;
 extern u8 main_task[];
 extern s32 TSceneSora__sky_active_flag;
 extern u32 camera_ctrl_instance;
-extern s32 lbl_805D53A0;
+extern s32 local_client_id;
 extern u32 TSceneSora__data_805D6050;
 extern s16 scene_sora_reflect_active;
 extern u8 scene_sora_recon_active_flag;
@@ -159,7 +159,7 @@ void render_reflections__10TSceneSoraFPv(Sora_8029EFFC *o) {
     if (camera_ctrl_instance == 0 || o->f1C == 0) {
         return;
     }
-    p = get_player_by_client_id(lbl_805D53A0);
+    p = get_player_by_client_id(local_client_id);
     if (p == NULL) {
         return;
     }

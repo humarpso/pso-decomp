@@ -208,7 +208,7 @@ u32 get_table0_entry__23TObjSeabedSuisoBrakableFi(M2C_UNK);
 s32 *get_table1_entry__23TObjSeabedSuisoBrakableFi(M2C_UNK);
 int update_anim_phase__17TOBarrierEnergy01FPv(void*);
 
-extern s32 lbl_805D53A4;
+extern s32 actor_frame_tick;
 extern s32 lbl_805D667C;
 
 void TObjSeabedSuisoBrakable__vt12(void *arg0) {
@@ -219,26 +219,26 @@ void TObjSeabedSuisoBrakable__vt12(void *arg0) {
 
     if ((s32) M2C_FIELD(arg0, s32 *, 0xBC) == 2) {
         temp_r31 = count_linked_switches__23TObjSeabedSuisoBrakableFUii(M2C_FIELD(arg0, s32 *, 0x34), 2);
-        if ((s32) lbl_805D667C != (s32) lbl_805D53A4) {
+        if ((s32) lbl_805D667C != (s32) actor_frame_tick) {
             if ((temp_r31 != NULL) && ((u32) M2C_FIELD(temp_r31, u32 *, 4) != 0U)) {
                 temp_r3 = get_break_data__23TObjSeabedSuisoBrakableFi(1);
                 if (temp_r3 != -1) {
                     scroll_ginja_mesh_uvs((s32)(M2C_FIELD(temp_r31, u32 *, 4)), (M2C_UNK)(0), (M2C_UNK)(1), (u16)((u16) temp_r3), (M2C_UNK)(1));
                 }
             }
-            lbl_805D667C = lbl_805D53A4;
+            lbl_805D667C = actor_frame_tick;
         }
     }
     if ((s32) M2C_FIELD(arg0, s32 *, 0xBC) == 0) {
         temp_r31_2 = count_linked_switches__23TObjSeabedSuisoBrakableFUii(M2C_FIELD(arg0, s32 *, 0x34), 8);
-        if ((s32) lbl_805D667C != (s32) lbl_805D53A4) {
+        if ((s32) lbl_805D667C != (s32) actor_frame_tick) {
             if ((temp_r31_2 != NULL) && ((u32) M2C_FIELD(temp_r31_2, u32 *, 4) != 0U)) {
                 temp_r3_2 = get_break_data__23TObjSeabedSuisoBrakableFi(2);
                 if (temp_r3_2 != -1) {
                     scroll_ginja_mesh_uvs((s32)(M2C_FIELD(temp_r31_2, u32 *, 4)), (M2C_UNK)(0), (M2C_UNK)(1), (u16)((u16) temp_r3_2), (M2C_UNK)(1));
                 }
             }
-            lbl_805D667C = lbl_805D53A4;
+            lbl_805D667C = actor_frame_tick;
         }
     }
 }
@@ -371,7 +371,7 @@ void *create__23TObjSeabedSuisoBrakableFPv(void *arg0) {
 
 void update_anim_if_active__23TObjSeabedSuisoBrakableFPv(void* p) { if (*(unsigned int*)((char*)p + 0xbc) != 0) { update_anim_phase__17TOBarrierEnergy01FPv(p); } }
 
-extern s32 lbl_805D53A4;
+extern s32 actor_frame_tick;
 extern s32 lbl_805D6678;
 
 void update_switch_lock__23TObjSeabedSuisoBrakableFPv(void *arg0) {
@@ -415,7 +415,7 @@ void update_switch_lock__23TObjSeabedSuisoBrakableFPv(void *arg0) {
             *temp_r3_4 |= 8;
         }
     }
-    if ((s32) lbl_805D6678 != (s32) lbl_805D53A4) {
+    if ((s32) lbl_805D6678 != (s32) actor_frame_tick) {
         temp_r31 = get_break_data__23TObjSeabedSuisoBrakableFi(4);
         temp_r3_5 = get_table1_entry__23TObjSeabedSuisoBrakableFi(2);
         if ((temp_r3_5 != NULL) && (temp_r31 != -1)) {
@@ -426,7 +426,7 @@ void update_switch_lock__23TObjSeabedSuisoBrakableFPv(void *arg0) {
         if ((temp_r3_6 != NULL) && (temp_r31_2 != -1)) {
             scroll_ginja_mesh_uvs((s32)(M2C_FIELD(temp_r3_6, s32 *, 4)), (M2C_UNK)(0), (M2C_UNK)(3), (u16)((u16) temp_r31_2), (M2C_UNK)(1));
         }
-        lbl_805D6678 = lbl_805D53A4;
+        lbl_805D6678 = actor_frame_tick;
     }
 }
 
@@ -439,7 +439,7 @@ s32 get_break_data__23TObjSeabedSuisoBrakableFi(M2C_UNK);
 void *count_linked_switches__23TObjSeabedSuisoBrakableFUii(s32, M2C_UNK);
 M2C_UNK set_npc_enemy_param(M2C_UNK *);
 
-extern s32 lbl_805D53A4;
+extern s32 actor_frame_tick;
 extern s32 lbl_805D6678;
 
 void notify_break__23TObjSeabedSuisoBrakableFPv(void *arg0) {
@@ -447,14 +447,14 @@ void notify_break__23TObjSeabedSuisoBrakableFPv(void *arg0) {
     void *temp_r31;
 
     temp_r31 = count_linked_switches__23TObjSeabedSuisoBrakableFUii(M2C_FIELD(arg0, s32 *, 0xD4), 4);
-    if ((s32) lbl_805D6678 != (s32) lbl_805D53A4) {
+    if ((s32) lbl_805D6678 != (s32) actor_frame_tick) {
         if ((temp_r31 != NULL) && ((u32) M2C_FIELD(temp_r31, u32 *, 4) != 0U)) {
             temp_r3 = get_break_data__23TObjSeabedSuisoBrakableFi(0);
             if (temp_r3 != -1) {
                 ((M2C_UNK (*)(u32, M2C_UNK, M2C_UNK, u16, M2C_UNK))scroll_ginja_mesh_uvs)(M2C_FIELD(temp_r31, u32 *, 4), 1, 0, (u16) temp_r3, 1);
             }
         }
-        lbl_805D6678 = lbl_805D53A4;
+        lbl_805D6678 = actor_frame_tick;
     }
     set_npc_enemy_param((M2C_UNK *)notify_break__23TObjSeabedSuisoBrakableFUi);
 }

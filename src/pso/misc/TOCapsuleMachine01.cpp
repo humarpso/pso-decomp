@@ -97,13 +97,13 @@ void *__nw__7TObjectFUl(int);
 M2C_UNK destroy_key_base__5TOKeyFPvs(void *, M2C_UNK);
 M2C_UNK set_global_param__8TObjFishFi(s32);
 
-extern s32 lbl_805D53A4;
+extern s32 actor_frame_tick;
 extern s32 TOCapsuleMachine01__data_805D58C8;
 extern s32 lbl_805D58CC;
 
 void run_task__18TOCapsuleMachine01Fv(void) {
-    if ((s32) TOCapsuleMachine01__data_805D58C8 != (s32) lbl_805D53A4) {
-        TOCapsuleMachine01__data_805D58C8 = lbl_805D53A4;
+    if ((s32) TOCapsuleMachine01__data_805D58C8 != (s32) actor_frame_tick) {
+        TOCapsuleMachine01__data_805D58C8 = actor_frame_tick;
         scroll_ginja_mesh_uvs(lbl_805D58CC, 0, 5, 4, 1);
         PPCSync();
     }

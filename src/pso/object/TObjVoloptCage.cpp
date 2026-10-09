@@ -171,7 +171,7 @@ void update_state__14TObjVoloptCageFPv(void *arg0) {
     }
 }
 
-    extern int lbl_805D4C3C;
+    extern int boss3_volopt_cage_flag;
 
 void run_task__14TObjVoloptCageFv(u8 *arg0) {
     if (check_demo_mode__10TObjPlayerFv() == 1) {
@@ -252,7 +252,7 @@ Obj_80049430 *TObjVoloptCage__ct(Obj_80049430 *arg0, Obj_80049430 *arg1, u16 arg
     return arg0;
 }
 
-void TLobby__sub_80049568(void) { lbl_805D4C3C = 1; }
+void TLobby__sub_80049568(void) { boss3_volopt_cage_flag = 1; }
 
 void obj_set_flag_20000(void *arg0) {
     obj_setFlags30(arg0, 0x20000);

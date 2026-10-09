@@ -227,10 +227,10 @@ void *create_item_list_window(int, int, u16);
 s32 is_camera_ctrl_active__6TLobbyFv();
 extern u8 lbl_8044C1C0[];
 extern u8 lbl_8044C1CC[];
-extern s32 lbl_805D53A0;
+extern s32 local_client_id;
 extern s32 current_language;
 extern const f32 lbl_805DC708;
-void TShopJudgmentItemWindow__sub_80220F68(u8 *arg0);
+void create_result_windows__23TShopJudgmentItemWindowFPv(u8 *arg0);
 }
 
 extern "C" {
@@ -523,7 +523,7 @@ block_19:
     }
 }
 
-void TShopJudgmentItemWindow__sub_80220F68(u8 *arg0) {
+void create_result_windows__23TShopJudgmentItemWindowFPv(u8 *arg0) {
     s32 temp_r0;
     u16 temp_r30;
     u16 temp_r30_2;
@@ -545,7 +545,7 @@ void TShopJudgmentItemWindow__sub_80220F68(u8 *arg0) {
                 break;
             }
             TItemData__sub_8010EC6C((void *) (arg0 + 0x28));
-            M2C_FIELD(arg0, s32 *, 0x34) = advance_item_id_counter((void *) ((u16) lbl_805D53A0));
+            M2C_FIELD(arg0, s32 *, 0x34) = advance_item_id_counter((void *) ((u16) local_client_id));
             M2C_FIELD(arg0, s32 *, 0x50) = dispatch_item_by_type__6TLobbyFPv((void *) (arg0 + 0x28));
             add_list_entry__23TShopJudgmentItemWindowFPvii((void *) (M2C_FIELD(arg0, u32 *, 0x154)), (int) (M2C_FIELD(arg0, s32 *, 0x50)), (int) (0));
             set_flag70_bit10__20TWindowShortListCtrlFPv((int) (M2C_FIELD(arg0, u32 *, 0x154)));
@@ -711,7 +711,7 @@ void TShopJudgmentItemWindow__vt9(u8 *arg0) {
         handle_judge_confirm__23TShopJudgmentItemWindowFPv((u8 *)(arg0));
         return;
     case 3:
-        TShopJudgmentItemWindow__sub_80220F68((u8 *)(arg0));
+        create_result_windows__23TShopJudgmentItemWindowFPv((u8 *)(arg0));
         return;
     case 4:
         update_judge_confirm__23TShopJudgmentItemWindowFPv((u8 *)(arg0));

@@ -15,7 +15,7 @@ void *get_player_by_client_id(s32);
 void send_chat__9TProtocolFR16TPlyGuildCardTagPc(void *, TPlyGuildCardTag *, u8 *);
 void capture_chat_sensor__6TLobbyFi(u8 *);
 void open__11TWindowCtrlFiii(void *, u8 *, int);
-extern s32 lbl_805D53A0;
+extern s32 local_client_id;
 extern void *TLobby__protocol_instance;
 void submit_chat_text(u8 *arg0);
 }
@@ -27,7 +27,7 @@ void fn_80076BC4(void);
 void fn_80076BC4(void) {  }
 void submit_chat_text(u8 *arg0) {
     void *player;
-    player = get_player_by_client_id(lbl_805D53A0);
+    player = get_player_by_client_id(local_client_id);
     if (player != NULL && (s8) *arg0 != 0) {
         capture_chat_sensor__6TLobbyFi(arg0);
         if (get_main_phase() == 0xF) {

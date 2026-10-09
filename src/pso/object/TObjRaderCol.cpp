@@ -36,7 +36,7 @@ int test_flag_2000000__10TObjPlayerFPv(void *);
 Ply_8019750C *get_player_by_client_id(s32);
 void reveal_region_by_id__13TRaderMapCoreFs(s16);
 void check_any_player_in_range__12TObjRaderColFPv(Col_8019750C *arg0);
-extern s32 lbl_805D53A0;
+extern s32 local_client_id;
 }
 
 extern "C" {
@@ -82,7 +82,7 @@ void check_any_player_in_range__12TObjRaderColFPv(Col_8019750C *arg0) {
 
 #define arg0 ((Col_8019750C *)arg0_)
 void check_local_player_in_range__12TObjRaderColFPv(void *arg0_) {
-    Ply_8019750C *p = get_player_by_client_id(lbl_805D53A0);
+    Ply_8019750C *p = get_player_by_client_id(local_client_id);
     if (p != 0) {
         if (test_flag_2000000__10TObjPlayerFPv(p) != 0) {
             return;

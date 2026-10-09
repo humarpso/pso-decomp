@@ -19,20 +19,20 @@ struct Cam_80291784 {
 
 extern "C" {
 s32 TObjCMProportion__sub_8029916C(M2C_UNK);
-extern s32 lbl_805D6570;
+extern s32 creation_camera_mode;
 extern const f32 lbl_805DD990;
 extern const f32 lbl_805DD994;
 void update_creation_camera_idle(void *arg0);
 f32 calc_character_height(void *);
 extern RecoveredGlobal_802916D4_lbl_804DAA18 lbl_804DAA18;
 extern u8 *creation_player_character;
-extern s32 lbl_805D6570;
+extern s32 creation_camera_mode;
 extern const f32 lbl_805DD978;
 extern const f32 lbl_805DD99C;
 extern const f32 lbl_805DD9A0;
 void begin_creation_review_camera(u8 *arg0);
 f32 cos_table_lookup(s32);
-extern s32 lbl_805D6570;
+extern s32 creation_camera_mode;
 extern const f32 lbl_805DD96C,lbl_805DD978,lbl_805DD998;
 void advance_creation_review_camera(CreationCameraFields* camera);
 f32 calc_character_height(void *);
@@ -57,7 +57,7 @@ void update_creation_camera_idle(void *arg0) {
     s32 temp_r0_2;
     if (TObjCMProportion__sub_8029916C(0x6F0) != 0) {
         M2C_FIELD(arg0, u32 *, 0x84) = 0U;
-        lbl_805D6570 = 4;
+        creation_camera_mode = 4;
         return;
     }
     M2C_FIELD(arg0, u32 *, 0x84) = (u32) (M2C_FIELD(arg0, u32 *, 0x84) + 1);
@@ -99,7 +99,7 @@ typedef char RecoveredGlobal_802916D4_lbl_804DAA18_size[sizeof(RecoveredGlobal_8
 #pragma push
 #pragma fp_contract on
 void advance_creation_review_camera(CreationCameraFields* camera) {
- if(--camera->ticks<=0) {camera->ticks=0;lbl_805D6570=3;return;}
+ if(--camera->ticks<=0) {camera->ticks=0;creation_camera_mode=3;return;}
  const f32 weight=lbl_805DD96C*(lbl_805DD978+cos_table_lookup((camera->ticks<<15)/120));
  const f32 start=camera->startDistance;
  camera->distance=weight*(lbl_805DD998-start)+start;
@@ -117,7 +117,7 @@ void begin_creation_review_camera(u8 *arg0) {
         M2C_FIELD(arg0, f32 *, 0x4C) = (f32) (lbl_805DD9A0 * (((lbl_805DD978 - M2C_FIELD(creation_player_character, f32 *, 0x4C)) * (M2C_FIELD(((u8 *)(&lbl_804DAA18.value) + temp_r7), f32 *, 4) - temp_f2)) + temp_f2));
         M2C_FIELD(arg0, s32 *, 0x74) = 0;
         M2C_FIELD(arg0, s32 *, 0x70) = 0;
-        lbl_805D6570 = 2;
+        creation_camera_mode = 2;
         M2C_FIELD(arg0, s32 *, 0x84) = 0x78;
     }
 }

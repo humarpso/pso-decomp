@@ -21,7 +21,7 @@ M2C_UNK get_weapon_special_type_amount(u8, s16 *, s16 *);
 s32 get_player_by_client_id(s32);
 s32 is_split_screen();
 
-extern s32 lbl_805D53A0;
+extern s32 local_client_id;
 
 s32 is_active_battle_player__10TObjPlayerFv(void) {
     s32 temp_r31;
@@ -30,7 +30,7 @@ s32 is_active_battle_player__10TObjPlayerFv(void) {
     if (is_split_screen() != 0) {
         return 0;
     }
-    temp_r3 = get_player_by_client_id(lbl_805D53A0);
+    temp_r3 = get_player_by_client_id(local_client_id);
     if (temp_r3 != 0) {
         temp_r31 = get_current_floor();
         return temp_r31 - get_field_3e4__10TObjPlayerFPv(temp_r3) ? 1 : 0;

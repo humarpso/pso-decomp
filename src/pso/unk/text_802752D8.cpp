@@ -4,7 +4,7 @@ s32 get_array_entry__20TWindowSubStatusDispFPvi(void *, s32);
 void draw_selection_bar(void *, void *, s32);
 volatile char get_type__20TWindowSubStatusDispFPv(void *);
 s16 get_selected_index__20TWindowShortListCtrlFPv(void *);
-extern s32 lbl_805D53A4;
+extern s32 actor_frame_tick;
 void draw_card_list_selection(u8 *arg0, u8 *arg1);
 }
 
@@ -14,7 +14,7 @@ void draw_card_list_selection(u8 *arg0, u8 *arg1) {
   s16 temp_r0;
   s16 temp_r31;
   u16 *temp_r3;
-  if (!(lbl_805D53A4 & 0x10))
+  if (!(actor_frame_tick & 0x10))
   {
     temp_r31 = get_selected_index__20TWindowShortListCtrlFPv(arg0);
     temp_r0 = temp_r31 - (get_type__20TWindowSubStatusDispFPv(*((u8 **) (((s8 *) arg0) + 0x8C))) * 7);

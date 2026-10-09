@@ -62,13 +62,13 @@ void set_status_param__14TAdPlyStatusGCFii(int a0, int a1) { lbl_805D6DAC = a1; 
     extern int lbl_805D6DA8;
 int get_index__14TAdPlyStatusGCFv(void) {  return lbl_805D6DA8; }
 
-    extern int lbl_805D6DB4;
-void set_status_index__14TAdPlyStatusGCFii(int a0, int a1) { lbl_805D6DB4 = a1; }
+    extern int ply_status_index;
+void set_status_index__14TAdPlyStatusGCFii(int a0, int a1) { ply_status_index = a1; }
 
-extern s32 TAdPlyStatusGC__data_805D6DB0;
+extern s32 TAdPlyStatusGC__window_offset_index;
 
 void close_window__14TAdPlyStatusGCFPvi(void *arg0, s32 arg1) {
-    TAdPlyStatusGC__data_805D6DB0 = arg1;
+    TAdPlyStatusGC__window_offset_index = arg1;
     if ((u32) M2C_FIELD(arg0, u32 *, 0x6C) != 0U) {
         TWindow__close(M2C_FIELD(arg0, void **, 0x6C));
         M2C_FIELD(arg0, u32 *, 0x6C) = 0U;

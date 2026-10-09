@@ -91,7 +91,7 @@ struct Pair_801C5FCC { f32 a; f32 b; };
 struct Obj_801C5FCC { s32 n; Pair_801C5FCC e[16]; };
 
 extern "C" {
-extern Arrival_801C5F84 TObjPlayer__data_8050E920[12];
+extern Arrival_801C5F84 TObjPlayer__arrival_override_table[12];
 void set_arrival_override_coords(u16 arg0, s32 arg1, f32 farg0, f32 farg1, f32 farg2);
 M2C_UNK VecCopy__FP3VecPC3Vec(void *, void *);
 void set_arrival_override_pos(u16 idx, s32 yaw, void *pos);
@@ -130,8 +130,8 @@ void set_arrival_override_coords(u16 arg0, s32 arg1, f32 farg0, f32 farg1, f32 f
     s32 temp_r5;
     u8 *temp_r3;
     temp_r5 = arg0 * 0x14;
-    M2C_FIELD(((u8 *)TObjPlayer__data_8050E920 + temp_r5), s32 *, 0) = 1;
-    temp_r3 = (u8 *)TObjPlayer__data_8050E920 + temp_r5;
+    M2C_FIELD(((u8 *)TObjPlayer__arrival_override_table + temp_r5), s32 *, 0) = 1;
+    temp_r3 = (u8 *)TObjPlayer__arrival_override_table + temp_r5;
     M2C_FIELD(temp_r3, s32 *, 4) = arg1;
     M2C_FIELD(temp_r3, f32 *, 8) = farg0;
     M2C_FIELD(temp_r3, f32 *, 0xC) = farg1;
@@ -140,9 +140,9 @@ void set_arrival_override_coords(u16 arg0, s32 arg1, f32 farg0, f32 farg1, f32 f
 #pragma pop
 
 void set_arrival_override_pos(u16 idx, s32 yaw, void *pos) {
-    TObjPlayer__data_8050E920[idx].active = 1;
-    TObjPlayer__data_8050E920[idx].yaw = yaw;
-    VecCopy__FP3VecPC3Vec(&TObjPlayer__data_8050E920[idx].pos, pos);
+    TObjPlayer__arrival_override_table[idx].active = 1;
+    TObjPlayer__arrival_override_table[idx].yaw = yaw;
+    VecCopy__FP3VecPC3Vec(&TObjPlayer__arrival_override_table[idx].pos, pos);
 }
 void clear_movement_history(Obj_801C5FCC *p) {
     s32 i;

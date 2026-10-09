@@ -544,14 +544,14 @@ s32 exchange_object_state__6TLobbyFPvis(void *, void *, int);
 void TLobby__sub_800F6510(void *, void *);
 void distribute_experience(void *);
 s32 send_entity_set_flags__6TLobbyFPv(void *);
-extern s32 lbl_805D53A0;
+extern s32 local_client_id;
 
 void award_exp_and_destroy__14TBoss6PlotFalzFPv(u8 *arg0) {
     spawn_player_hit_effects__14TBoss6PlotFalzFv();
     if (is_split_screen() != 0) {
         distribute_experience(arg0);
     } else {
-        u8 *pl = ((u8 *(*)(s32))get_player_by_client_id)(lbl_805D53A0);
+        u8 *pl = ((u8 *(*)(s32))get_player_by_client_id)(local_client_id);
         if (pl != NULL) {
             V3_802AB490 saved = *(V3_802AB490 *)(arg0 + 0x2FC);
             VecCopy__FP3VecPC3Vec(arg0 + 0x2FC, pl + 0x2FC);

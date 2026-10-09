@@ -140,7 +140,7 @@ void update_angle__10TObjPlayerFPviPv(void *arg0, s32 arg1, void *arg2);
 void VecCopy__FP3VecPC3Vec(void *, const void *);
 void update_move_to_target__18TObjEneBalClawClawFPv(Claw_80090850 *self);
 int update_if_active__15TObjEneMe1GiGueFPv(void*, int);
-void TObjPlayer__sub_800C7168(void *, Vec_80090504, void *, f32, f32);
+void move_along_ground_avoiding_walls__10TObjPlayerFPviff(void *, Vec_80090504, void *, f32, f32);
 s32 update_collisions__10TObjPlayerFPv(void *);
 void update_chase_state__18TObjEneBalClawClawFPv(u8 *arg0);
 }
@@ -170,7 +170,7 @@ void update_chase_state__18TObjEneBalClawClawFPv(u8 *arg0) {
             break;
         }
         M2C_FIELD(arg0, f32 *, 0x30C) = (0.0f);
-        TObjPlayer__sub_800C7168(arg0, M2C_FIELD(M2C_FIELD(arg0, u8 **, 0x2A8), Vec_80090504 *, 0x2FC), M2C_FIELD(arg0, u8 **, 0xA4), (-0.6f), M2C_FIELD(M2C_FIELD(arg0, u8 **, 0xA4), f32 *, 0xC));
+        move_along_ground_avoiding_walls__10TObjPlayerFPviff(arg0, M2C_FIELD(M2C_FIELD(arg0, u8 **, 0x2A8), Vec_80090504 *, 0x2FC), M2C_FIELD(arg0, u8 **, 0xA4), (-0.6f), M2C_FIELD(M2C_FIELD(arg0, u8 **, 0xA4), f32 *, 0xC));
         update_angle__10TObjPlayerFPviPv(arg0, M2C_FIELD(M2C_FIELD(arg0, void **, 0x350), s32 *, 8), arg0 + 0x308);
         advance_animation_playback(arg0);
         apply_actor_gravity(arg0, 0, (0.0f));
@@ -1240,7 +1240,7 @@ extern const f32 lbl_805D96F8;
 extern const f32 lbl_805D96FC;
 
 M2C_UNK TObjEneBalClaw__sub_8008D68C();
-M2C_UNK TObjEneBalClaw__sub_8008D79C(void *);
+M2C_UNK update_wobble__14TObjEneBalClawFPv(void *);
 M2C_UNK update_claw_angle__14TObjEneBalClawFPv(void *);
 void update_attack_distance_state__18TObjEneBalClawClawFPv(u8 *arg0);
 M2C_UNK release_destroyed_target__10TObjPlayerFPv(void *);
@@ -1592,7 +1592,7 @@ void TObjEneBalClawClaw__sub_8009173C(u8 *arg0) {
         if (temp_r3_2 & 0x20000000) {
             M2C_FIELD(arg0, f32 *, 0x3BC) = (0.2f + M2C_FIELD(arg0, f32 *, 0x3BC) < 10.0f) ? 0.2f + M2C_FIELD(arg0, f32 *, 0x3BC) : 10.0f;
         } else {
-            TObjEneBalClaw__sub_8008D79C((void *) (arg0));
+            update_wobble__14TObjEneBalClawFPv((void *) (arg0));
         }
         update_claw_angle__14TObjEneBalClawFPv((void *) (arg0));
         VecCopy__FP3VecPC3Vec((void *) (arg0 + 0x2FC), (void *) (arg0 + 0x38));

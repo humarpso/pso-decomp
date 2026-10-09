@@ -191,7 +191,7 @@ void init_map_lights(u8 *arg0);
 void bswap_data__9TObjLightFPv(void* p);
 s32 get_global_state__14TOKeyMachine01Fv(void);
 s32 is_online_ready__6TLobbyFv();
-extern RecoveredGlobal_80133D78_lbl_804A6F34 lbl_804A6F34;
+extern RecoveredGlobal_80133D78_lbl_804A6F34 default_scene_light_config;
 extern u32 TObjLight__light_entry_data;
 extern const f32 lbl_805DB0A4;
 void init_area_lights(void);
@@ -284,7 +284,7 @@ void __dt__7TObjectFv(void *, int);
 int bswap_32__FPUl(void*);
 void safe_free__23TAdSinglePlyChrSelectGCFUi(void*);
 
-    extern int lbl_804A6F28[];
+    extern int light_type_id_table[];
     extern const float TObjLight__data_805DB088;
     extern const float lbl_805DB08C;
     extern const float lbl_805DB090;
@@ -296,7 +296,7 @@ Light_801347A4 TObjLight__data_805068FC[8];
 __declspec(section ".data") u32 TObjLight__data_80506A5C;
 #define TObjLight__scene_light_state (*(RecoveredGlobal_801336E0_TObjLight__data_80506320 *)TObjLight__scene_light_state)
 
-void* init_light__9TObjLightFPvi(void* a0, int a1) { *(int*)((char*)a0 + 0x0) = lbl_804A6F28[a1]; *(float*)((char*)a0 + 0x10) = TObjLight__data_805DB088; *(float*)((char*)a0 + 0xc) = TObjLight__data_805DB088; *(float*)((char*)a0 + 0x8) = TObjLight__data_805DB088; TAdSinglePlyChrSelectGC__sub_80133548(); *(float*)((char*)a0 + 0x14) = lbl_805DB08C; *(float*)((char*)a0 + 0x18) = lbl_805DB090; TAdSinglePlyChrSelectGC__sub_80133544(a0); *(float*)((char*)a0 + 0x20) = lbl_805DB094; *(float*)((char*)a0 + 0x24) = lbl_805DB094; *(float*)((char*)a0 + 0x28) = lbl_805DB094; TAdSinglePlyChrSelectGC__sub_801334E4(a0); return a0; }
+void* init_light__9TObjLightFPvi(void* a0, int a1) { *(int*)((char*)a0 + 0x0) = light_type_id_table[a1]; *(float*)((char*)a0 + 0x10) = TObjLight__data_805DB088; *(float*)((char*)a0 + 0xc) = TObjLight__data_805DB088; *(float*)((char*)a0 + 0x8) = TObjLight__data_805DB088; TAdSinglePlyChrSelectGC__sub_80133548(); *(float*)((char*)a0 + 0x14) = lbl_805DB08C; *(float*)((char*)a0 + 0x18) = lbl_805DB090; TAdSinglePlyChrSelectGC__sub_80133544(a0); *(float*)((char*)a0 + 0x20) = lbl_805DB094; *(float*)((char*)a0 + 0x24) = lbl_805DB094; *(float*)((char*)a0 + 0x28) = lbl_805DB094; TAdSinglePlyChrSelectGC__sub_801334E4(a0); return a0; }
 
 void TObjLight__sub_801335EC(void) {  }
 
@@ -580,7 +580,7 @@ void init_area_lights(void) {
         init_map_lights((u8 *)((void *) ((copy_storage_80133D78.bytes))));
         return;
     }
-    init_map_lights((u8 *)((void *) (&lbl_804A6F34.value)));
+    init_map_lights((u8 *)((void *) (&default_scene_light_config.value)));
 }
 
 void free_shared_data__9TObjLightFv(void) {

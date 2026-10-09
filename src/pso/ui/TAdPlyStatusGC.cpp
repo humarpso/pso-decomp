@@ -69,8 +69,8 @@ s32 get_status__22TAdMultiPlyChrSelectGCFv();
 M2C_UNK setup_button__16TAdGuideButtonGCFPvPv(int, void *);
 u32 get_player_index__14TAdPlyStatusGCFv();
 extern RecoveredGlobal_8033F93C_lbl_8050E3B8 lbl_8050E3B8;
-extern s32 TAdPlyStatusGC__data_805D6DB0;
-extern s32 TAdPlyStatusGC__data_805D6DB8;
+extern s32 TAdPlyStatusGC__window_offset_index;
+extern s32 TAdPlyStatusGC__is_shown;
 void update_hidden__14TAdPlyStatusGCFv(u8 *arg0);
 u8 * __dt__7TObjectFv(void *, s16);
 void queue_destruction__7TObjectFv(void *);
@@ -84,10 +84,10 @@ s32 get_status__22TAdMultiPlyChrSelectGCFv();
 M2C_UNK setup_button__16TAdGuideButtonGCFPvPv(int, void *);
 u32 get_player_index__14TAdPlyStatusGCFv();
 extern RecoveredGlobal_8033F93C_lbl_8050E3B8 lbl_8050E3B8;
-extern s32 TAdPlyStatusGC__data_805D6DB0;
-extern s32 TAdPlyStatusGC__data_805D6DB8;
+extern s32 TAdPlyStatusGC__window_offset_index;
+extern s32 TAdPlyStatusGC__is_shown;
 void update_shown__14TAdPlyStatusGCFv(struct RecoveredFields_8033F9DC_arg0 *arg0);
-extern s32 TAdPlyStatusGC__data_805D6DB8;
+extern s32 TAdPlyStatusGC__is_shown;
 void set_load_state__14TAdPlyStatusGCFPvi(u8 *arg0, s32 arg1);
 void set_field_1c__6TLobbyFPvf(f32);
 s32 create_callback__22TAdEnterSerialAccessGCFPvPvPv(void *, void *, void *);
@@ -105,8 +105,8 @@ void *init_guide_button_params(void *);
 extern RecoveredGlobal_8033FB8C___vt__14TAdPlyStatusGC __vt__14TAdPlyStatusGC;
 extern s32 lbl_805D42C0;
 extern s32 lbl_805D6DAC;
-extern s32 TAdPlyStatusGC__data_805D6DB0;
-extern s32 TAdPlyStatusGC__data_805D6DB8;
+extern s32 TAdPlyStatusGC__window_offset_index;
+extern s32 TAdPlyStatusGC__is_shown;
 extern const f32 lbl_805DFAF0;
 extern const f32 lbl_805DFAF4;
 TAdPlyStatusGC_8033FC14 *TAdPlyStatusGC__ct(TAdPlyStatusGC_8033FC14 *self, void *parent, s32 arg2);
@@ -123,17 +123,17 @@ s32 get_card_instance__22TAdMultiPlyChrSelectGCFv();
 int sprintf(char *, const char *, ...);
 void *memset(void *, int, u32);
 extern char lbl_80478408[];
-extern s32 TAdPlyStatusGC__data_805D6DB0;
-extern u32 lbl_805D6DB4;
+extern s32 TAdPlyStatusGC__window_offset_index;
+extern u32 ply_status_index;
 extern char lbl_805DFAE8[4];
 void format_status_strings__14TAdPlyStatusGCFPv(char *buf);
 }
 extern "C" {
 u32 lbl_805D6DA8;
 s32 lbl_805D6DAC;
-s32 TAdPlyStatusGC__data_805D6DB0;
-u32 lbl_805D6DB4;
-s32 TAdPlyStatusGC__data_805D6DB8;
+s32 TAdPlyStatusGC__window_offset_index;
+u32 ply_status_index;
+s32 TAdPlyStatusGC__is_shown;
 }
 
 extern "C" {
@@ -165,7 +165,7 @@ typedef char RecoveredGlobal_8033F93C_lbl_8050E3B8_size[sizeof(RecoveredGlobal_8
 #define lbl_804EFAC0 (*(Box_8033F3D8 *)lbl_804EFAC0)
 #define lbl_804EFAE0 ((Vec2_8033F3D8 *)lbl_804EFAE0)
 #define lbl_804EFAF8 ((Vec2_8033F3D8 *)lbl_804EFAF8)
-#define OFF_8033F3D8 (ply_status_window_offset_table[TAdPlyStatusGC__data_805D6DB0])
+#define OFF_8033F3D8 (ply_status_window_offset_table[TAdPlyStatusGC__window_offset_index])
 #pragma push
 #pragma inline_depth(1)
 #pragma auto_inline off
@@ -202,7 +202,7 @@ void draw_status_window__14TAdPlyStatusGCFPvPv(void *arg0, void *arg1) {
     s32 i;
 
     draw_window_frame(arg0);
-    if ((u32)lbl_805D6DAC != 0 && is_unloaded__12TChCrLoadAfsFPv(lbl_805D6DAC) != 0 && TAdPlyStatusGC__data_805D6DB8 != 0 &&
+    if ((u32)lbl_805D6DAC != 0 && is_unloaded__12TChCrLoadAfsFPv(lbl_805D6DAC) != 0 && TAdPlyStatusGC__is_shown != 0 &&
         (*get_status_sub__14TAdPlyStatusGCFPv(lbl_805D6DAC))->f8 != 0) {
         box = lbl_804EFAC0;
         box.v[0] = lbl_804EFAC0.v[0] + OFF_8033F3D8.x;
@@ -254,7 +254,7 @@ void format_status_strings__14TAdPlyStatusGCFPv(char *buf) {
     memset(buf + 0x10, 0, 0x10);
     memset(buf + 0x20, 0, 0x10);
     c = 0;
-    switch (TAdPlyStatusGC__data_805D6DB0) {
+    switch (TAdPlyStatusGC__window_offset_index) {
     case 0:
     case 2:
         p = get_card_window__17TWindowSubComCardFUi(0xFFFF);
@@ -264,7 +264,7 @@ void format_status_strings__14TAdPlyStatusGCFPv(char *buf) {
         c = get_char_index__23TAdSinglePlyChrSelectGCFUi(0xFFFF);
         break;
     case 1:
-        p = TAdSinglePlyChrSelectGC__sub_801FE3E4(lbl_805D6DB4);
+        p = TAdSinglePlyChrSelectGC__sub_801FE3E4(ply_status_index);
         if (p != 0) {
             time = p->fC;
         }
@@ -317,7 +317,7 @@ void set_load_state__14TAdPlyStatusGCFPvi(u8 *arg0, s32 arg1) {
     if (arg1 > 0) {
         if ((s32) M2C_FIELD(arg0, s32 *, 0x1C) == 0) {
             var_r4 = 2;
-            if ((s32) TAdPlyStatusGC__data_805D6DB8 != 0) {
+            if ((s32) TAdPlyStatusGC__is_shown != 0) {
                 var_r4 = 1;
             }
             M2C_FIELD(arg0, s32 *, 0x1C) = var_r4;
@@ -330,12 +330,12 @@ void set_load_state__14TAdPlyStatusGCFPvi(u8 *arg0, s32 arg1) {
 void update_hidden__14TAdPlyStatusGCFv(u8 *arg0) {
     s32 temp_r3;
     s32 temp_r5;
-    TAdPlyStatusGC__data_805D6DB8 = 0;
+    TAdPlyStatusGC__is_shown = 0;
     if ((u32) M2C_FIELD(arg0, u32 *, 0x6C) != 0U) {
         TWindow__close(M2C_FIELD(arg0, void **, 0x6C));
         M2C_FIELD(arg0, u32 *, 0x6C) = 0U;
     }
-    if ((s32) TAdPlyStatusGC__data_805D6DB0 < 3) {
+    if ((s32) TAdPlyStatusGC__window_offset_index < 3) {
         temp_r3 = ((s32)get_player_index__14TAdPlyStatusGCFv());
         if (temp_r3 != 0) {
             allow_rendering__7TObjectFv();
@@ -353,10 +353,10 @@ typedef char RecoveredGlobal_8033F9DC_lbl_8050E3B8_size[sizeof(RecoveredGlobal_8
 void update_shown__14TAdPlyStatusGCFv(struct RecoveredFields_8033F9DC_arg0 *arg0) {
     s32 temp_r3;
     s32 temp_r5;
-    TAdPlyStatusGC__data_805D6DB8 = 1;
-    if ((s32) TAdPlyStatusGC__data_805D6DB0 < 3) {
+    TAdPlyStatusGC__is_shown = 1;
+    if ((s32) TAdPlyStatusGC__window_offset_index < 3) {
         if ((u32) arg0->field_6C == 0) {
-            arg0->field_6C = TAdPlyStatusGC__sub_8033F8B0((void *)(arg0), (void *)((s32) ((u8 *)(&ply_status_window_offset_table.value) + (TAdPlyStatusGC__data_805D6DB0 * 8))));
+            arg0->field_6C = TAdPlyStatusGC__sub_8033F8B0((void *)(arg0), (void *)((s32) ((u8 *)(&ply_status_window_offset_table.value) + (TAdPlyStatusGC__window_offset_index * 8))));
         }
         temp_r3 = ((s32)get_player_index__14TAdPlyStatusGCFv());
         if (temp_r3 != 0) {
@@ -425,8 +425,8 @@ TAdPlyStatusGC_8033FC14 *TAdPlyStatusGC__ct(TAdPlyStatusGC_8033FC14 *self, void 
     self->f20 = self->f1C;
     self->f6C = 0;
     lbl_805D6DAC = 0;
-    TAdPlyStatusGC__data_805D6DB0 = arg2;
-    TAdPlyStatusGC__data_805D6DB8 = 1;
+    TAdPlyStatusGC__window_offset_index = arg2;
+    TAdPlyStatusGC__is_shown = 1;
     self->elems[0].mode = 2;
     self->elems[0].a = lbl_805DFAF0;
     self->elems[0].b = lbl_805DFAF4;

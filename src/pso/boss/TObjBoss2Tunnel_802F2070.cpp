@@ -41,7 +41,7 @@ s32 TObjBoss2Tunnel__sub_802F22F4(void);
 void TObjBoss2Tunnel__sub_802F23FC(void);
 s32 queue_destruction__7TObjectFv(int);
 s32 approach_value__20TItemEffOrgaFlowShotFPvff(void *, f32, f32);
-extern RecoveredGlobal_802F2400_lbl_804E4A1C lbl_804E4A1C;
+extern RecoveredGlobal_802F2400_lbl_804E4A1C boss2_tunnel_spawn_timer_table_b;
 extern u32 boss2_tunnel_state_flags;
 extern const f32 lbl_805DEC68;
 extern const f32 lbl_805DEC98;
@@ -61,7 +61,7 @@ extern const f32 lbl_805DECE0;
 extern const f32 lbl_805DECE4;
 void TObjBoss2Tunnel__sub_802F2400(u8 *arg0);
 extern u32 boss2_tunnel_state_flags;
-extern M2C_UNK lbl_804E49A0[];
+extern M2C_UNK boss2_tunnel_spawn_timer_table[];
 void init_effect__15TObjBoss2TunnelFPv(void *arg0);
 extern const f32 lbl_805DEC9C;
 void spawn__15TObjBoss2TunnelFPvii(void *arg0, s32 arg1, s32 arg2);
@@ -205,7 +205,7 @@ void TObjBoss2Tunnel__sub_802F23FC(void) {  }
 void TObjBoss2Tunnel__sub_802F2400(u8 *arg0) {
     f32 temp_f1;
     u32 temp_r3;
-    update_spawn_timer__15TObjBoss2TunnelFPviii((u8 *)((u8 *)((void *)((void *) (arg0)))), (s32)((s32)((M2C_UNK *)((void *) (&lbl_804E4A1C.value)))), (s32)((s32)((M2C_UNK)((int) (0xA)))), (s32)((s32)((M2C_UNK)((int) (1)))));
+    update_spawn_timer__15TObjBoss2TunnelFPviii((u8 *)((u8 *)((void *)((void *) (arg0)))), (s32)((s32)((M2C_UNK *)((void *) (&boss2_tunnel_spawn_timer_table_b.value)))), (s32)((s32)((M2C_UNK)((int) (0xA)))), (s32)((s32)((M2C_UNK)((int) (1)))));
     if ((*(s32 *)&boss2_tunnel_state_flags) & 8) {
         temp_f1 = M2C_FIELD(arg0, f32 *, 0x80);
         if (temp_f1 < lbl_805DEC98) {
@@ -238,7 +238,7 @@ void TObjBoss2Tunnel__sub_802F2400(u8 *arg0) {
 }
 void init_effect__15TObjBoss2TunnelFPv(void *arg0) {
     advance_effect_timer__15TObjBoss2TunnelFPv((void *)(arg0));
-    update_spawn_timer__15TObjBoss2TunnelFPviii((u8 *)((u8 *)(arg0)), (s32)((s32)(lbl_804E49A0)), (s32)((s32)(0x1F)), (s32)((s32)(0)));
+    update_spawn_timer__15TObjBoss2TunnelFPviii((u8 *)((u8 *)(arg0)), (s32)((s32)(boss2_tunnel_spawn_timer_table)), (s32)((s32)(0x1F)), (s32)((s32)(0)));
     if ((*(s32 *)&boss2_tunnel_state_flags) & 0x200) {
         (*(s32 *)&boss2_tunnel_state_flags) &= 0xFFFFFDFF;
         M2C_FIELD(arg0, s32 *, 0x1C) = 1;

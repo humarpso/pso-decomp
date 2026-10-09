@@ -672,7 +672,7 @@ s32 play_persistent_sound(s32, s32, u32, s16, s32);
 s32 rand(void);
 f32 sin_table_lookup(s32);
 f32 cos_table_lookup(s32);
-extern s32 lbl_805D53A4;
+extern s32 actor_frame_tick;
 extern const f32 lbl_805D87BC;
 extern const f32 lbl_805D87C8;
 extern const f32 lbl_805D87CC;
@@ -849,7 +849,7 @@ M2C_UNK init_all_slots__11TWindowCtrlFv();
 M2C_UNK init_all_slots2__11TWindowCtrlFv();
 extern u8 lbl_804845CC[];
 extern u8 boss3_volopt_spawn_pos[];
-extern s32 lbl_805D4C24;
+extern s32 volopt_death_active;
 extern s32 TBoss3Volopt__data_805D4CE8;
 extern u32 *TBoss3Volopt__data_805D4CEC;
 extern u32 *TBoss3Volopt__data_805D4CFC;
@@ -1338,7 +1338,7 @@ void spawn_ambient_particles__12TBoss3VoloptFPv(u8 *arg0) {
     Stack_80045A04 stack;
     f32 temp_f31;
     s32 temp_r31;
-    if (lbl_805D53A4 & 1) {
+    if (actor_frame_tick & 1) {
         temp_f31 = (lbl_805D87CC * (lbl_805D87BC * (f32) rand())) + lbl_805D87C8;
         temp_r31 = (s32) (lbl_805D87D0 * (lbl_805D87D4 * (lbl_805D87BC * (f32) rand())));
         stack.sp8 = (temp_f31 * cos_table_lookup(temp_r31)) + M2C_FIELD(arg0, f32 *, 0x38);
@@ -1398,7 +1398,7 @@ void update_death_sequence__12TBoss3VoloptFPv(void *arg0_) {
             create_breakup_mdl__12TBoss3VoloptFiiiii(TBoss3Volopt__data_805D4CE8, (s32)lbl_804845CC, M2C_FIELD(arg0, s32 *, 0x24), (s32)(arg0 + 0x2FC), M2C_FIELD(arg0, s32 *, 0x60));
             trigger_dell_biter_events__10TObjPlayerFPv(arg0 + 0x2FC);
             refresh_lobby_state__10TObjPlayerFPv(arg0);
-            lbl_805D4C24 = 1;
+            volopt_death_active = 1;
             if (TBoss3Volopt__sub_8003CB94() != 0) {
                 send_entity_set_flags__6TLobbyFPv(arg0);
             }

@@ -92,7 +92,7 @@ void set_flag_20000__10TObjPlayerFPv(void *);
 f32 xyz_distance_squared(void *, void *);
 extern const f32 lbl_805D525C;
 extern s32 lbl_805D526C;
-extern s32 lbl_805D53A0;
+extern s32 local_client_id;
 void hit_object_in_radius__10TObjPlayerFPvPvPv(Src_800DC4B4 *arg0, Obj_800DC4B4 *obj, void *attacker);
 M2C_UNK VecCopy__FP3VecPC3Vec(void *, int);
 void *get_player_data__10TObjPlayerFi(s32);
@@ -143,7 +143,7 @@ M2C_UNK subtract_vector(void *, void *);
 extern const f32 lbl_805D5260;
 extern const f32 lbl_805D5268;
 extern s32 lbl_805D5270;
-extern s32 lbl_805D53A0;
+extern s32 local_client_id;
 }
 
 extern "C" {
@@ -202,7 +202,7 @@ void hit_object_in_radius__10TObjPlayerFPvPvPv(Src_800DC4B4 *arg0, Obj_800DC4B4 
         if (obj->flags & 0x800) {
             set_flag_20000__10TObjPlayerFPv(attacker);
         }
-        if (is_split_screen() == 0 && lbl_805D53A0 == obj_getField1c(obj)) {
+        if (is_split_screen() == 0 && local_client_id == obj_getField1c(obj)) {
             trigger_hit_camera_shake__10TObjPlayerFPvUi(attacker, obj);
         }
     }

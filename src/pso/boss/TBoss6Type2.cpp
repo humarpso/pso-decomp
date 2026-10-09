@@ -812,7 +812,7 @@ extern s32 lbl_804713A8[];
 extern RecoveredGlobal_802BB180_lbl_804DFAC4 lbl_804DFAC4;
 extern RecoveredGlobal_802BB180_lbl_804DFAD0 lbl_804DFAD0;
 extern Tb_802BD014 lbl_804E00DC[];
-extern s32 lbl_805D53A0;
+extern s32 local_client_id;
 extern s32 game_difficulty_selection;
 extern f32 lbl_805D6740;
 extern u8 lbl_805D6744;
@@ -1941,7 +1941,7 @@ s32 is_target_valid__11TBoss6Type2FPv(void *arg0) {
     if (is_split_screen() != 0) {
         return 0;
     }
-    return (lbl_805D53A0 - (s32) M2C_FIELD(arg0, u16 *, 0x55C)) != 0 ? 1 : 0;
+    return (local_client_id - (s32) M2C_FIELD(arg0, u16 *, 0x55C)) != 0 ? 1 : 0;
 }
 
 void update_attack_switch__11TBoss6Type2FPv(u8 *arg0) {

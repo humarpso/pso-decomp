@@ -55,16 +55,16 @@ s32 TLobby__sub_800703D0(void *, void *);
 s32 send_6x7C_packet__6TLobbyFi(void *);
 s32 init_pkt_cmd_7C__6TLobbyFPv(void *);
 s32 get_card_window__17TWindowSubComCardFUi(int);
-extern s32 lbl_805D53A0;
+extern s32 local_client_id;
 s32 mix_seed_checked__6TLobbyFi(void *);
 s32 send_state__6TLobbyFPv(void *);
 s32 TLobby__sub_80072880(void *);
-extern s32 lbl_805D53A0;
+extern s32 local_client_id;
 void send_seed_state__6TLobbyFi(s32 arg0);
 s32 is_flag_set__6TLobbyFv();
 s32 send_and_handle_60_wrapper__6TLobbyFPv(void *);
 s32 TLobby__sub_800727EC(void *);
-extern s32 lbl_805D53A0;
+extern s32 local_client_id;
 void send_challenge_retry_cmd__6TLobbyFi(s32 arg0);
 s32 init_pkt_cmd_7C__6TLobbyFPv(void *);
 s32 send_6x7C_packet__6TLobbyFi(void *);
@@ -84,7 +84,7 @@ void send_challenge_records__6TLobbyFUi(u32);
 s32 get_card_window__17TWindowSubComCardFUi(int);
 extern M2C_UNK challenge_mode_state[];
 extern void *lbl_805D4E28;
-extern s32 lbl_805D53A0;
+extern s32 local_client_id;
 void TLobby__sub_80072618(void);
 s32 TLobby__sub_800703D0(void *, void *);
 s32 is_flag_set__6TLobbyFv();
@@ -92,7 +92,7 @@ void send_challenge_records__6TLobbyFUi(u32 _w0);
 M2C_UNK bswap_6x7C_packet__6TLobbyFi(void *);
 extern M2C_UNK challenge_mode_state[];
 extern void *lbl_805D4E28;
-extern s32 lbl_805D53A0;
+extern s32 local_client_id;
 void handle_6x7C_set_challenge_records(Pkt7C_80072230 *pkt);
 s32 is_flag_set__6TLobbyFv();
 M2C_UNK bswap_challenge_dead_flag__6TLobbyFPv(void *);
@@ -150,7 +150,7 @@ void send_challenge_retry_cmd__6TLobbyFi(s32 arg0) {
     if (is_flag_set__6TLobbyFv() != 0) {
         TLobby__sub_800727EC((void *) (&stack.sp8));
         stack.sp10 = arg0;
-        stack.spC = lbl_805D53A0;
+        stack.spC = local_client_id;
         send_and_handle_60_wrapper__6TLobbyFPv((void *) (&stack.sp8));
     }
 }
@@ -195,7 +195,7 @@ void send_seed_state__6TLobbyFi(s32 arg0) {
     Stack_80072448 stack;
     TLobby__sub_80072880((void *) (&stack.sp8));
     stack.sp10 = mix_seed_checked__6TLobbyFi((void *) (arg0));
-    stack.spC = lbl_805D53A0;
+    stack.spC = local_client_id;
     send_state__6TLobbyFPv((void *) (&stack.sp8));
 }
 
@@ -227,7 +227,7 @@ void handle_6x7C_set_challenge_records(Pkt7C_80072230 *pkt) {
     }
     bswap_6x7C_packet__6TLobbyFi(pkt);
     id = pkt->id;
-    if (id == lbl_805D53A0) {
+    if (id == local_client_id) {
         return;
     }
     if (id == 0xFFFF) {
@@ -255,7 +255,7 @@ void send_6x7c_reset__6TLobbyFv(void) {
 void TLobby__sub_80072618(void) {
     s32 *q;
     if (is_flag_set__6TLobbyFv() != 0) {
-        q = (s32 *)(((u8 *)&challenge_mode_state) + lbl_805D53A0 * 0x104 + 0x270);
+        q = (s32 *)(((u8 *)&challenge_mode_state) + local_client_id * 0x104 + 0x270);
         if (((u32)get_card_window__17TWindowSubComCardFUi((int)(0xFFFF))) != 0) {
             TLobby__sub_800703D0(q + 1, (void *)(((u32)get_card_window__17TWindowSubComCardFUi((int)(0xFFFF))) + 0x21C4));
             if ((*(u32 *)&lbl_805D4E28) != 0) {
@@ -268,7 +268,7 @@ void TLobby__sub_80072618(void) {
 void send_challenge_records__6TLobbyFUi(u32 _w0) {
     G_SetChallengeRecords_V3_6x7C packet;
     init_pkt_cmd_7C__6TLobbyFPv((void *) (&packet.__base_G_SetChallengeRecordsBase_6x7C.header));
-    packet.__base_G_SetChallengeRecordsBase_6x7C.client_id = (s16) lbl_805D53A0;
+    packet.__base_G_SetChallengeRecordsBase_6x7C.client_id = (s16) local_client_id;
     TLobby__sub_800703D0((void *) (&packet.records[0]), (void *) (get_card_window__17TWindowSubComCardFUi((int) (0xFFFF)) + 0x21C4));
     send_6x7C_packet__6TLobbyFi((void *) (&packet.__base_G_SetChallengeRecordsBase_6x7C.header));
 }

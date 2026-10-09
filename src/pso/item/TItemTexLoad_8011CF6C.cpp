@@ -7,7 +7,7 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 extern "C" {
 
 void unload_texture__12TItemTexLoadFPv(u8 *arg0);
-M2C_UNK TLobby__sub_803CCE9C(s32);
+M2C_UNK close_adxf_handle__6TLobbyFPv(s32);
 M2C_UNK free_texture_if_valid(void *);
 
 void unload_texture__12TItemTexLoadFPv(u8 *arg0) {
@@ -15,7 +15,7 @@ void unload_texture__12TItemTexLoadFPv(u8 *arg0) {
         free_texture_if_valid(arg0 + 0x2C);
     }
     if ((s32) M2C_FIELD(arg0, s32 *, 0x20) == 1) {
-        TLobby__sub_803CCE9C(M2C_FIELD(arg0, s32 *, 0x28));
+        close_adxf_handle__6TLobbyFPv(M2C_FIELD(arg0, s32 *, 0x28));
     }
     M2C_FIELD(arg0, s32 *, 0x20) = 0;
     M2C_FIELD(arg0, s32 *, 0x24) = -1;

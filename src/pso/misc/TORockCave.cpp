@@ -34,7 +34,7 @@ void draw_model__10TORockCaveFPv(u8 *arg0);
 u32 load_resource_from_descriptor(void *, s32, void *, s32, s32, s32);
 void *alloc__23TAdSinglePlyChrSelectGCFPv(u32);
 s32 get_global_state__14TOKeyMachine01Fv(void);
-extern u8 lbl_804B3AB8[];
+extern u8 rock_cave_resource_table[];
 extern u32 lbl_805D5A80;
 extern u32 lbl_805D5A84;
 void load_resources__10TORockCaveFv(void);
@@ -92,7 +92,7 @@ extern M2C_UNK __vt__10TORockCave[];
         dst = r;                                                                \
     }
 void load_resources__10TORockCaveFv(void) {
-    u8 *tbl = lbl_804B3AB8;
+    u8 *tbl = rock_cave_resource_table;
     switch (get_global_state__14TOKeyMachine01Fv()) {
     case 3:
         MK_80175224(lbl_805D5A80, 0x10)

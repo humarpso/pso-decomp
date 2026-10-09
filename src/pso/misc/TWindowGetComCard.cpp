@@ -39,7 +39,7 @@ extern M2C_UNK lbl_8044ED94[];
 extern M2C_UNK lbl_8044ED9C[];
 extern void *__vt__17TWindowGetComCard[];
 extern s32 lbl_805D3908;
-extern s32 lbl_805D53A0;
+extern s32 local_client_id;
 u8 *TWindowGetComCard__ct(u8 *arg0);
 void queue_destruction__7TObjectFv(void *);
 s32 is_visible__17TWindowSubComCardFPv(void *);
@@ -60,7 +60,7 @@ s32 is_message_window_ready(void *);
 void complete_reveal__14TWindowMessageFPv(void *);
 extern u8 TWindowGetComCard__window_rect[];
 extern Pad_80252CCC lbl_8050E208[];
-extern s32 lbl_805D53A0;
+extern s32 local_client_id;
 void run_task__17TWindowGetComCardFv(GetCard_80252CCC *self);
 }
 
@@ -104,10 +104,10 @@ int fn_80252CBC(void* p) { return *(u16*)((char*)p + 0x0) & 0x10; }
 void render__17TWindowGetComCardFv(void) {  }
 
 extern void *__vt__17TWindowGetComCard[];
-extern s32 lbl_805D53A0;
+extern s32 local_client_id;
 
 void run_task__17TWindowGetComCardFv(GetCard_80252CCC *self) {
-    s32 port = is_player_input_active(lbl_805D53A0);
+    s32 port = is_player_input_active(local_client_id);
     switch (self->state) {
     case 0:
     case 1:
@@ -183,9 +183,9 @@ void *__dt__17TWindowGetComCardFv(void *arg0, s16 arg1) {
             TWindow__close(M2C_FIELD(arg0, void **, 0x1C));
             M2C_FIELD(arg0, u32 *, 0x1C) = 0U;
         }
-        TWindowReturnCity__sub_8024ACA8(lbl_805D53A0);
-        TLobby__sub_8024AC20(lbl_805D53A0);
-        if ((TWindowCtrl__sub_8024A314() == 0) && (get_player_by_client_id(lbl_805D53A0) != 0U)) {
+        TWindowReturnCity__sub_8024ACA8(local_client_id);
+        TLobby__sub_8024AC20(local_client_id);
+        if ((TWindowCtrl__sub_8024A314() == 0) && (get_player_by_client_id(local_client_id) != 0U)) {
             init_parts__10TObjPlayerFPv();
         }
         __dt__7TObjectFv(arg0, 0);
@@ -216,11 +216,11 @@ u8 *TWindowGetComCard__ct(u8 *arg0) {
         send_and_handle__6TLobbyFPvii((int) (M2C_FIELD(arg0, s32 *, 0x1C)), (int) (get_message_10__20TWindowSubStatusDispFPv((int) (0x37))), (int) (0));
         M2C_FIELD(arg0, s32 *, 0x28) = 0x384;
     }
-    if (get_player_by_client_id((s32)((void *) (lbl_805D53A0))) != 0U) {
+    if (get_player_by_client_id((s32)((void *) (local_client_id))) != 0U) {
         reset_equip_slots__10TObjPlayerFPv();
     }
-    TObjPlayer__sub_8024ABDC((void *) (lbl_805D53A0));
-    fn_8024AC64((void *) (lbl_805D53A0));
+    TObjPlayer__sub_8024ABDC((void *) (local_client_id));
+    fn_8024AC64((void *) (local_client_id));
     M2C_FIELD(arg0, s32 *, 0x24) = 0;
     return arg0;
 }

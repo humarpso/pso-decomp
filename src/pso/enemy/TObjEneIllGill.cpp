@@ -191,7 +191,7 @@ s32 is_split_screen();
 M2C_UNK set_shake_preset__11TCameraCtrlFi(int);
 extern int enable_v2_features;
 extern s32 game_difficulty_selection;
-extern s32 lbl_805D53A0;
+extern s32 local_client_id;
 extern u8 *TObjEneIllGill__data_805D6FDC;
 extern const f64 TObjEneIllGill__data_8047A348;
 extern const f32 lbl_805E02B8;
@@ -840,7 +840,7 @@ void update_ai__14TObjEneIllGillFPv(void *arg0_) {
                     obj_setFlags30(p, 0x400);
                     p->m23(o, lbl_805E02B8 * dmg);
                     *(VObj_18_80365688 **)((u8 *)o + k) = p;
-                    if (is_split_screen() == 0 && lbl_805D53A0 == obj_getField1c(p)) {
+                    if (is_split_screen() == 0 && local_client_id == obj_getField1c(p)) {
                         set_shake_preset__11TCameraCtrlFi(1);
                     }
                 }

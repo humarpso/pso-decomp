@@ -217,7 +217,7 @@ void TPlayerBattleCtrl4P__vt10(void *arg0) {
     }
 }
 
-extern M2C_UNK lbl_8050EA40[];
+extern M2C_UNK lobby_rule_settings[];
 
 void TPlayerBattleCtrl4P__vt9(O_8031224C *o) {
     Cnt_8031224C cnt = lbl_80475B68[0];
@@ -250,7 +250,7 @@ void TPlayerBattleCtrl4P__vt8(void *arg0) {
     temp_r0 = M2C_FIELD(arg0, s32 *, 0x240) - 1;
     M2C_FIELD(arg0, s32 *, 0x240) = temp_r0;
     if (temp_r0 <= 0) {
-        if (get_rule_field_a__6TLobbyFPv(lbl_8050EA40) == 1) {
+        if (get_rule_field_a__6TLobbyFPv(lobby_rule_settings) == 1) {
             set_score__19TPlayerBattleCtrl4PFPvi((void*)(arg0), (void*)(3));
             return;
         }

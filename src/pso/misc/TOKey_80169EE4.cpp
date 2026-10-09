@@ -38,7 +38,7 @@ s32 get_player_by_client_id(u32);
 s32 get_current_floor();
 s32 get_field_3e4__10TObjPlayerFPv(void *);
 f32 xyz_distance_squared(void *, void *);
-extern s32 lbl_805D53A0;
+extern s32 local_client_id;
 s32 is_local_player_in_range__5TOKeyFPv(Self_8016A310 *self);
 s32 get_player_data__10TObjPlayerFi(int);
 s32 get_current_floor();
@@ -201,7 +201,7 @@ s32 is_any_player_in_range__5TOKeyFPv(Obj_8016A280 *arg0) {
 }
 
 s32 is_local_player_in_range__5TOKeyFPv(Self_8016A310 *self) {
-    u8 *p = (u8 *)((void *)get_player_by_client_id(lbl_805D53A0));
+    u8 *p = (u8 *)((void *)get_player_by_client_id(local_client_id));
     if (p != 0) {
         if (get_field_3e4__10TObjPlayerFPv(p) == get_current_floor()) {
             if (xyz_distance_squared(p + 0x38, self->pos) < self->range * self->range) {

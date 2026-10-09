@@ -86,7 +86,7 @@ extern RecoveredGlobal_80286824_lbl_8050E208 lbl_8050E208;
 extern const f32 lbl_805DD820;
 void run_task__28TWindowSubSymbolChatPartsSetFv(u8 *arg0);
 void set_pos__28TWindowSubSymbolChatPartsSetFPvss(void *, s16, s16);
-void TWindowSubSymbolChatPartsSet__sub_80247F68(void *, s16, s32, s32);
+void set_part_sprite__28TWindowSubSymbolChatPartsSetFPvsii(void *, s16, s32, s32);
 u16 *get_entry_offset_d__28TWindowSubSymbolChatPartsSetFPvi(void *, s32);
 void setup_part_sprites__28TWindowSubSymbolChatPartsSetFPvPvPvUsiiii(void *, void *, void *, u16, s32, s32, s32, s32);
 void *TWindowSubSymbolChatPartsSet__sub_802482B8(void *, s32);
@@ -191,12 +191,12 @@ void TWindowSubSymbolChatPartsSet__sub_8028625C(Set_8028625C *arg0) {
     case 2:
         e = get_entry_offset_d__28TWindowSubSymbolChatPartsSetFPvi(arg0, arg0->cur);
         set_pos__28TWindowSubSymbolChatPartsSetFPvss(e, arg0->x, arg0->y);
-        TWindowSubSymbolChatPartsSet__sub_80247F68(e, arg0->color, *arg0->p7C, *arg0->p80);
+        set_part_sprite__28TWindowSubSymbolChatPartsSetFPvsii(e, arg0->color, *arg0->p7C, *arg0->p80);
         if (*arg0->p84 != 0) {
             e2 = get_entry_offset_d__28TWindowSubSymbolChatPartsSetFPvi(arg0, arg0->sel);
             *e2 &= ~2;
             set_pos__28TWindowSubSymbolChatPartsSetFPvss(e2, (s16)(0x40 - arg0->x), arg0->y);
-            TWindowSubSymbolChatPartsSet__sub_80247F68(e2, arg0->color, *arg0->p7C == 0, *arg0->p80);
+            set_part_sprite__28TWindowSubSymbolChatPartsSetFPvsii(e2, arg0->color, *arg0->p7C == 0, *arg0->p80);
         } else if (arg0->sel < 0xC) {
             *get_entry_offset_d__28TWindowSubSymbolChatPartsSetFPvi(arg0, arg0->sel) |= 2;
         }

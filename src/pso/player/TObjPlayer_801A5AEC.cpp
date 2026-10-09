@@ -89,7 +89,7 @@ M2C_UNK PADRecalibrate(u32);
 extern Masks_801A5C4C pad_recalibration_bit_masks;
 extern const f64 lbl_804469E8[];
 extern RecoveredGlobal_801A5EC4_lbl_8050E208 lbl_8050E208;
-extern u32 lbl_8050E568[];
+extern u32 pad_recalibration_counters[];
 extern u8 lbl_805D5D09;
 extern s8 pad_recalibration_hold_frames[4];
 extern const f32 lbl_805DC0B4;
@@ -238,13 +238,13 @@ void update_pad_recalibration(void) {
     }
     for (i = 0; i < 4; i++) {
         if ((((Pad_801A5C4C *)&lbl_8050E208)[i].hold & 0x608) == 0x608) {
-            lbl_8050E568[i]++;
-            if ((f32)lbl_8050E568[i] >= lbl_805DC0B4) {
-                lbl_8050E568[i] = 0;
+            pad_recalibration_counters[i]++;
+            if ((f32)pad_recalibration_counters[i] >= lbl_805DC0B4) {
+                pad_recalibration_counters[i] = 0;
                 PADRecalibrate(masks.m[i]);
             }
         } else {
-            lbl_8050E568[i] = 0;
+            pad_recalibration_counters[i] = 0;
         }
     }
     if (check_reset_button__16TKeyBoardControlFv() != 0) {
@@ -433,7 +433,7 @@ void controller_stuff__Fv(void) {
 #pragma push
 #define lbl_8050E208 ((s32 *)&lbl_8050E208)
 #define lbl_8050E3B8 ((s32 *)lbl_8050E3B8)
-#define lbl_8050E568 ((s32 *)lbl_8050E568)
+#define pad_recalibration_counters ((s32 *)pad_recalibration_counters)
 #define lbl_805D5D09 (*(s8 *)&lbl_805D5D09)
 #define TKeyBoardControl__global_key_state ((u8 *)&TKeyBoardControl__global_key_state)
 
@@ -640,7 +640,7 @@ void copy_state__16TKeyBoardControlFPvPv(Rec_801A67A4 *arg0, Rec_801A67A4 *arg1)
 void init_pad_state__16TKeyBoardControlFv(void) {
     s32 i;
     for (i = 0; i < 4; i++) {
-        lbl_8050E568[i] = 0;
+        pad_recalibration_counters[i] = 0;
     }
     lbl_8050E208[0] = TKeyBoardControl__sub_803DEB74(0);
     lbl_8050E208[1] = TKeyBoardControl__sub_803DEB74(6);
@@ -678,7 +678,7 @@ s32 poll_key_state__16TKeyBoardControlFPv(Kb_801A6910 *self) {
 
 #undef lbl_8050E208
 #undef lbl_8050E3B8
-#undef lbl_8050E568
+#undef pad_recalibration_counters
 #undef lbl_805D5D09
 #undef TKeyBoardControl__global_key_state
 #pragma pop

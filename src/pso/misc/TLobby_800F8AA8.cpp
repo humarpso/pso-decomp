@@ -861,7 +861,7 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 
 extern "C" {
 
-void TLobby__sub_800F8C8C();
+void flush_checked_reads__6TLobbyFv();
 M2C_UNK read_checked_align__6TLobbyFiii(s32, s32, u32);
 extern s32 *lbl_805D5340;
 extern s32 lbl_805D5344;
@@ -880,11 +880,11 @@ void flush_pending__6TLobbyFv(void) {
                 read_checked_align__6TLobbyFiii(*lbl_805D5340, temp_r4, temp_r5);
             }
         }
-        TLobby__sub_800F8C8C();
+        flush_checked_reads__6TLobbyFv();
     }
 }
 
-void TLobby__sub_800F8C8C() {
+void flush_checked_reads__6TLobbyFv() {
     s32 i;
 
     for (i = 0; i < 4; i++) {

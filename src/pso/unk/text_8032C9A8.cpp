@@ -36,7 +36,7 @@ extern u8 gba_joyboot_status;
 void set_send_buffer__6TLobbyFPvi(u8 *arg0, s32 arg1);
 extern u8 *TLobby__gba_joyboot_send_buffer;
 extern const u8 lbl_805DF7A0[4];
-void TLobby__sub_8032CAAC(void);
+void calc_joyboot_checksum__6TLobbyFv(void);
 }
 
 extern "C" {
@@ -75,7 +75,7 @@ void TLobby__sub_8032C9A8(s32 arg0, s32 arg1) {
 }
 #pragma pop
 
-void TLobby__sub_8032CAAC(void) {
+void calc_joyboot_checksum__6TLobbyFv(void) {
     u8 *q;
     s32 i;
     u8 *data = TLobby__gba_joyboot_send_buffer;

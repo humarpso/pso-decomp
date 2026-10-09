@@ -30,7 +30,7 @@ extern "C" {
 void VecCopy__FP3VecPC3Vec(Vec_80181F10 *, const Vec_80181F10 *);
 u32 get_map_count__10TObjMapCsnFv();
 void register_slot(u32, void *);
-void TObjPlayer__sub_80181BAC(void *);
+void build_door_collision_triangles__10TObjPlayerFi(void *);
 s32 is_phase_e__9TObjEneDDFPv(void *);
 void TPhotonMagicSquare__sub_801A2640(void *, void *);
 extern s32 lbl_804B5A00[];
@@ -56,7 +56,7 @@ Obj_80181F10 *TObjCityDoor_Lobby__ct(Obj_80181F10 *self, void *arg1, s32 arg2) {
     self->xac = self->buf1d8;
     self->x250 = 0;
     if (is_phase_e__9TObjEneDDFPv(self) != 0) {
-        TObjPlayer__sub_80181BAC(self);
+        build_door_collision_triangles__10TObjPlayerFi(self);
         if (get_map_count__10TObjMapCsnFv() != 0) {
             register_slot(get_map_count__10TObjMapCsnFv(), &self->x90);
             self->x250 = 1;

@@ -53,7 +53,7 @@ void refresh_collision_body_centers(void *);
 void init_collision_body_parts(void *, void *, s32);
 void update_state__10TOMineTrapFPv(void *);
 void TOMine__ct(void *, void *, void *);
-extern u8 lbl_804B2F3C[];
+extern u8 mine_collision_body_parts[];
 extern M2C_UNK __vt__12TOMineIcon02[];
 extern s32 lbl_805D3098;
 extern s32 game_difficulty_selection;
@@ -138,7 +138,7 @@ void *TOMineIcon02__ct(void *arg0, void *arg1, void *arg2) {
     update_state__10TOMineTrapFPv(self);
     self->f35C = 0xFFFF;
     self->f30 |= 0x60000000;
-    init_collision_body_parts(self, lbl_804B2F3C, 1);
+    init_collision_body_parts(self, mine_collision_body_parts, 1);
     refresh_collision_body_centers(self);
     reset_photon_effect__10TObjPlayerFPv(self);
     return self;

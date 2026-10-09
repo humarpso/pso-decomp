@@ -3593,7 +3593,7 @@ extern const f32 lbl_805D984C;
 #define TObjEneDf2Bringer__data_805D4FB4 (*(u8 **)&TObjEneDf2Bringer__data_805D4FB4)
 #pragma push
 #pragma fp_contract on
-void TObjEneDf2Bringer__sub_80099BD4(void) {
+void load_resources__17TObjEneDf2BringerFv(void) {
   Vec_80099BD4 offs[4];
   s32 ids[4];
   Vec_80099BD4 a;

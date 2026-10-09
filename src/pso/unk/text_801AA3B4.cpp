@@ -11,10 +11,10 @@ extern "C" {
 void TLobby__sub_8001FE7C(u32, int);
 void call_funcs_reverse__6TLobbyFPvUi(void *, int);
 extern u8 photon_blast_load_callback_table[];
-extern u32 lbl_8050E880[];
+extern u32 photon_blast_donation_flags[];
 extern u32 photon_blast_shared_resource;
 void TObjPlayer__sub_801AA3B4(void);
-extern struct PhotonBlastChain_801AA424 lbl_8050E890[];
+extern struct PhotonBlastChain_801AA424 photon_blast_sequence_table[];
 void clear_photon_blast_slots__10TObjPlayerFv(void);
 u8 *load_resource_from_descriptor(u8 *, int, void *, int, int, int);
 u8 *alloc__23TAdSinglePlyChrSelectGCFPv(int);
@@ -22,7 +22,7 @@ M2C_UNK run_load_callback_table(void *, int);
 void clear_photon_blast_slots__10TObjPlayerFv(void);
 extern u8 photon_blast_resource_descriptor[];
 extern u8 photon_blast_load_callback_table[];
-extern u32 lbl_8050E880[];
+extern u32 photon_blast_donation_flags[];
 extern u32 photon_blast_shared_resource;
 void load_photon_blast_resources(void);
 }
@@ -37,7 +37,7 @@ void TObjPlayer__sub_801AA3B4(void) {
         photon_blast_shared_resource = 0U;
     }
     for (i = 0; i < 4; i++) {
-        lbl_8050E880[i] = 0;
+        photon_blast_donation_flags[i] = 0;
     }
     clear_photon_blast_slots__10TObjPlayerFv();
 }
@@ -46,10 +46,10 @@ void clear_photon_blast_slots__10TObjPlayerFv(void) {
     s32 j;
     for (i = 0; i < 4; i++) {
         for (j = 0; j < 4; j++) {
-            lbl_8050E890[i].kinds[j] = -1;
-            lbl_8050E890[i].participants[j] = 0xFFFF;
+            photon_blast_sequence_table[i].kinds[j] = -1;
+            photon_blast_sequence_table[i].participants[j] = 0xFFFF;
         }
-        lbl_8050E890[i].state = 0;
+        photon_blast_sequence_table[i].state = 0;
     }
 }
 void load_photon_blast_resources(void) {
@@ -62,7 +62,7 @@ void load_photon_blast_resources(void) {
     photon_blast_shared_resource = (u32) p;
     run_load_callback_table(photon_blast_load_callback_table, 0x50);
     for (i = 0; i < 4; i++) {
-        lbl_8050E880[i] = 0;
+        photon_blast_donation_flags[i] = 0;
     }
     clear_photon_blast_slots__10TObjPlayerFv();
 }

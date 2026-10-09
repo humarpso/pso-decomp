@@ -29,12 +29,12 @@ s32 fn_80074758(s32);
 s32 obj_testFlags30(u32, M2C_UNK);
 M2C_UNK queue_destruction__7TObjectFv(void *);
 
-extern s32 lbl_805D53A0;
+extern s32 local_client_id;
 
 s32 can_start_win_timer__15TObjSoloPlayWinFi(s32 arg0) {
     u32 temp_r31;
 
-    temp_r31 = get_player_by_client_id(lbl_805D53A0);
+    temp_r31 = get_player_by_client_id(local_client_id);
     if ((TWindowCtrlMain__sub_8024CE58() == 1) && (fn_80074758(arg0) != 0) && (temp_r31 != 0U) && (obj_testFlags30(temp_r31, 0x02000000) == 0)) {
         return 1;
     }

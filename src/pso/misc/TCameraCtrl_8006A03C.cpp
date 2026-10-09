@@ -27,7 +27,7 @@ u32 get_player_by_client_id(s32);
 s32 get_global_state__14TOKeyMachine01Fv();
 extern Sel_8006A13C TCameraCtrl__data_804FF628;
 extern Big_8006A13C lbl_8050E208;
-extern s32 lbl_805D53A0;
+extern s32 local_client_id;
 void cycle_spectate_target__11TCameraCtrlFv(void);
 }
 
@@ -94,7 +94,7 @@ void cycle_spectate_target__11TCameraCtrlFv(void) {
     if (is_on_current_screen__11TCameraCtrlFPv(pad, 0x20000) == 0 ||
         TWindowShortListCtrl__check_controller_button(pad, 0x10) == 0 ||
         is_on_current_screen__11TCameraCtrlFPv(pad, 0x10000) == 0 ||
-        (pl = get_player_by_client_id(lbl_805D53A0)) == 0 ||
+        (pl = get_player_by_client_id(local_client_id)) == 0 ||
         (tries = 0, TCameraCtrl__data_804FF628.busy != 0) ||
         get_global_state__14TOKeyMachine01Fv() == 0xB ||
         get_global_state__14TOKeyMachine01Fv() == 0xC ||

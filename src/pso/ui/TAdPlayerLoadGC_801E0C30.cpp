@@ -78,11 +78,11 @@ s32 CARDProbeEx(s32, M2C_UNK *, s32 *);
 extern s32 TAdPlayerLoadGC__card_slot_state_flags;
 extern s32 TAdPlayerLoadGC__card_result_code;
 s32 probe_and_check_card__15TAdPlayerLoadGCFi(s32 arg0);
-extern RecoveredGlobal_801E14E8_TAdPlayerLoadGC__data_80511ED0 TAdPlayerLoadGC__data_80511ED0;
+extern RecoveredGlobal_801E14E8_TAdPlayerLoadGC__data_80511ED0 TAdPlayerLoadGC__banner_buffers;
 extern s32 TAdPlayerLoadGC__banner_file_buf;
 void TAdPlayerLoadGC__sub_801E14E8(u8 *arg0, s32 arg1);
 void xfree__FPv(void *);
-extern RecoveredGlobal_801E14E8_TAdPlayerLoadGC__data_80511ED0 TAdPlayerLoadGC__data_80511ED0;
+extern RecoveredGlobal_801E14E8_TAdPlayerLoadGC__data_80511ED0 TAdPlayerLoadGC__banner_buffers;
 extern s32 TAdPlayerLoadGC__banner_file_buf;
 void TAdPlayerLoadGC__sub_801E1350(void);
 s32 CARDGetResultCode(void *);
@@ -95,7 +95,7 @@ s32 read_disc_file(const char*, void*);
 void* xmalloc__FUl(u32);
 extern Names_801E13C4 lbl_80449690;
 extern char lbl_804496A8[];
-extern RecoveredGlobal_801E14E8_TAdPlayerLoadGC__data_80511ED0 TAdPlayerLoadGC__data_80511ED0;
+extern RecoveredGlobal_801E14E8_TAdPlayerLoadGC__data_80511ED0 TAdPlayerLoadGC__banner_buffers;
 extern s32 TAdPlayerLoadGC__banner_file_buf;
 void load_banner_files__15TAdPlayerLoadGCFv(void);
 void __dl__FPv(void *);
@@ -292,9 +292,9 @@ void TAdPlayerLoadGC__sub_801E1350(void) {
         (*(void * *)&TAdPlayerLoadGC__banner_file_buf) = NULL;
     }
     for (i = 0; i < 6; i++) {
-        if (((void * *)&TAdPlayerLoadGC__data_80511ED0)[i] != NULL) {
-            xfree__FPv(((void * *)&TAdPlayerLoadGC__data_80511ED0)[i]);
-            ((void * *)&TAdPlayerLoadGC__data_80511ED0)[i] = NULL;
+        if (((void * *)&TAdPlayerLoadGC__banner_buffers)[i] != NULL) {
+            xfree__FPv(((void * *)&TAdPlayerLoadGC__banner_buffers)[i]);
+            ((void * *)&TAdPlayerLoadGC__banner_buffers)[i] = NULL;
         }
     }
 }
@@ -304,7 +304,7 @@ void load_banner_files__15TAdPlayerLoadGCFv(void) {
     const char* path = lbl_804496A8;
     s32 i;
     for (i = 0; i < 6; i++) {
-        ((void**)&TAdPlayerLoadGC__data_80511ED0)[i] = NULL;
+        ((void**)&TAdPlayerLoadGC__banner_buffers)[i] = NULL;
     }
     *(void**)&TAdPlayerLoadGC__banner_file_buf = NULL;
     *(void**)&TAdPlayerLoadGC__banner_file_buf = xmalloc__FUl(0x1800);
@@ -312,8 +312,8 @@ void load_banner_files__15TAdPlayerLoadGCFv(void) {
         return;
     }
     for (i = 0; i < 6; i++) {
-        ((void**)&TAdPlayerLoadGC__data_80511ED0)[i] = xmalloc__FUl(0x800);
-        if (((void**)&TAdPlayerLoadGC__data_80511ED0)[i] == NULL) {
+        ((void**)&TAdPlayerLoadGC__banner_buffers)[i] = xmalloc__FUl(0x800);
+        if (((void**)&TAdPlayerLoadGC__banner_buffers)[i] == NULL) {
             return;
         }
     }
@@ -321,7 +321,7 @@ void load_banner_files__15TAdPlayerLoadGCFv(void) {
         return;
     }
     for (i = 0; i < 6; i++) {
-        if (read_disc_file(names.p[i], ((void**)&TAdPlayerLoadGC__data_80511ED0)[i]) <= 0) {
+        if (read_disc_file(names.p[i], ((void**)&TAdPlayerLoadGC__banner_buffers)[i]) <= 0) {
             return;
         }
     }
@@ -335,7 +335,7 @@ typedef char RecoveredGlobal_801E14E8_TAdPlayerLoadGC__data_80511ED0_size[sizeof
 void TAdPlayerLoadGC__sub_801E14E8(u8 *arg0, s32 arg1) {
     if (arg1 < 6) {
         M2C_FIELD(arg0, s32 *, 0x44) = (s32) TAdPlayerLoadGC__banner_file_buf;
-        M2C_FIELD(arg0, s32 *, 0x48) = (s32) M2C_FIELD(((u8 *)(&TAdPlayerLoadGC__data_80511ED0.value) + (arg1 * 4)), s32 *, 0);
+        M2C_FIELD(arg0, s32 *, 0x48) = (s32) M2C_FIELD(((u8 *)(&TAdPlayerLoadGC__banner_buffers.value) + (arg1 * 4)), s32 *, 0);
     }
 }
 

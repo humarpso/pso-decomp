@@ -96,7 +96,7 @@ __declspec(section ".data") void *lbl_804F33D8[2] = { (void *)"lobby_suisou_s_wa
 #pragma explicit_zero_data on
 void *lbl_805D44C0 = (void *)0;
 #pragma explicit_zero_data reset
-void *lbl_804F33E0[4] = { (void *)"bm_obj_lobby_suisou.bml", (void *)lbl_804F33D8, (void *)&lbl_805D44C0, (void *)0x10000 };
+void *lobby_suisou_resource_descriptor[4] = { (void *)"bm_obj_lobby_suisou.bml", (void *)lbl_804F33D8, (void *)&lbl_805D44C0, (void *)0x10000 };
 char *lbl_805D44C4 = "TObjSuisouLobby";
 void *__vt__15TObjSuisouLobby[14] = {
     0, 0, (void *)__dt__15TObjSuisouLobbyFv, (void *)run_task__15TObjSuisouLobbyFv, (void *)render__15TObjSuisouLobbyFv,
@@ -106,7 +106,7 @@ void *__vt__15TObjSuisouLobby[14] = {
 };
 const f32 lbl_8047A3D0[1][3] = { { 0.0f, 0.0f, 60.0f } };
 const f32 lbl_8047A3DC[1][3] = { { 0.0f, 0.0f, -60.0f } };
-#define lbl_804F33E0 (*(RecoveredGlobal_80369DF0_lbl_804F33E0 *)lbl_804F33E0)
+#define lobby_suisou_resource_descriptor (*(RecoveredGlobal_80369DF0_lbl_804F33E0 *)lobby_suisou_resource_descriptor)
 #define lbl_8047A3D0 ((const Vec_80369ED4 *)lbl_8047A3D0)
 #define lbl_8047A3DC ((const Vec_80369ED4 *)lbl_8047A3DC)
 void TObjSuisouLobby__sub_80369B5C(void) {  }
@@ -208,7 +208,7 @@ void load_resources__15TObjSuisouLobbyFv(void) {
     temp_r3 = alloc__23TAdSinglePlyChrSelectGCFPv((void *)0x440);
     var_r0 = temp_r3;
     if (var_r0 != 0) {
-        var_r0 = (long) (load_resource_from_descriptor((void *) temp_r3, 5, &lbl_804F33E0.value, 0, 0, 0));
+        var_r0 = (long) (load_resource_from_descriptor((void *) temp_r3, 5, &lobby_suisou_resource_descriptor.value, 0, 0, 0));
     }
     (*(s32 *)&TObjSuisouLobby__instance) = var_r0;
     TObjSuisouLobby__lobby_type = get_lobby_type__6TLobbyFv();

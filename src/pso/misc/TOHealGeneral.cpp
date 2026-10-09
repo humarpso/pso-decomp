@@ -107,7 +107,7 @@ extern const f32 lbl_805DB6D0;
 void *TOHealGeneral__ct(void *arg0, void *arg1);
 void play_effect_default__10TObjPlayerFii(void *, s32);
 void *get_player_by_client_id(s32);
-extern s32 lbl_805D53A0;
+extern s32 local_client_id;
 void accept_player__13TOHealGeneralFPvUs(void *arg0, u16 arg1);
 }
 
@@ -322,7 +322,7 @@ void TOHealGeneral__sub_801699F8(u8 *arg0, s16 *arg1) {
 void accept_player__13TOHealGeneralFPvUs(void *arg0, u16 arg1) {
     void *p;
     if (M2C_FIELD(arg0, s32 *, 0xD8) > 0) {
-        if (arg1 == lbl_805D53A0) {
+        if (arg1 == local_client_id) {
             p = get_player_by_client_id(arg1);
             if (p == NULL || M2C_FIELD(arg0, s32 *, 0xAC) != 1) {
                 return;

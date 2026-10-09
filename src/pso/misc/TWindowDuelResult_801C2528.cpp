@@ -12,7 +12,7 @@ struct RecoveredGlobal_801C257C_TLobby__data_80511C80 {
 extern "C" {
 s32 is_not_split_screen__13TRaderMapCoreFv(void);
 u8 * TPlayerBattleCtrl4P__sub_80310300(void);
-extern RecoveredGlobal_801C257C_TLobby__data_80511C80 TLobby__data_80511C80;
+extern RecoveredGlobal_801C257C_TLobby__data_80511C80 TLobby__duel_result_table;
 M2C_UNK *TWindowDuelResult__sub_801C257C(void);
 }
 
@@ -37,7 +37,7 @@ M2C_UNK *TWindowDuelResult__sub_801C257C(void) {
     if (is_not_split_screen__13TRaderMapCoreFv() == 1) {
         return (long *) (TPlayerBattleCtrl4P__sub_80310300());
     }
-    return &TLobby__data_80511C80.value;
+    return &TLobby__duel_result_table.value;
 }
 
 }

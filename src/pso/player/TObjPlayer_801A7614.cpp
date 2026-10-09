@@ -34,7 +34,7 @@ struct Self_801A7680 {
 
 extern "C" {
 extern s32 photon_blast_joint_index;
-extern PhotonDrawContext_801A7638 lbl_8050E578[];
+extern PhotonDrawContext_801A7638 photon_blast_joint_origins[];
 void publish_photon_blast_joint_origins();
 int set_global_state__16TObjEneRe7BeruraFi(void*);
 void set_photon_blast_joint_callback__10TObjPlayerFPv(PhotonDrawOwner_801A7638 *self);
@@ -58,8 +58,8 @@ int clear_render_context__10TObjPlayerFv(void) { return set_global_state__16TObj
 
 void set_photon_blast_joint_callback__10TObjPlayerFPv(PhotonDrawOwner_801A7638 *self) {
     photon_blast_joint_index=0;
-    lbl_8050E578[0].bindings=self->bindings;
-    lbl_8050E578[0].binding_count=self->binding_count;
+    photon_blast_joint_origins[0].bindings=self->bindings;
+    photon_blast_joint_origins[0].binding_count=self->binding_count;
     set_global_state__16TObjEneRe7BeruraFi((void*)publish_photon_blast_joint_origins);
 }
 

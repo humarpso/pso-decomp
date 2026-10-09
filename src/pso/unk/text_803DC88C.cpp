@@ -75,7 +75,7 @@ s32 compose_motion_node_matrix(int);
 s32 push_matrix();
 s32 pop_matrix();
 extern struct MotionCtx_803DC894 * const lbl_805D4698;
-extern RecoveredCallback_1268626c296b lbl_805D76B8;
+extern RecoveredCallback_1268626c296b motion_node_draw_callback;
 void draw_motion_node_tree__10TObjPlayerFPv(struct Node_803DCB40 *arg0);
 extern const Tbl_803DCC34 gx_blend_mode_table;
 extern u8 *lbl_805D774C;
@@ -202,8 +202,8 @@ void draw_motion_node_tree__10TObjPlayerFPv(struct Node_803DCB40 *arg0) {
     do {
         push_matrix();
         compose_motion_node_matrix((int) arg0);
-        if (lbl_805D76B8 != NULL) {
-            lbl_805D76B8(arg0);
+        if (motion_node_draw_callback != NULL) {
+            motion_node_draw_callback(arg0);
         }
         t = arg0->f4;
         if (t != 0 && (arg0->flags & 8) == 0) {

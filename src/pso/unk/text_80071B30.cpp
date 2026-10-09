@@ -57,7 +57,7 @@ void send_command__10TNpcPlayerFiciiPv(u8, s32, s32, s32, TPlyCharData *);
 extern Tbl_80071BC0 lbl_8048A088[];
 extern Tbl_80071BC0 lbl_8048B0F4[];
 extern Tbl_80071BC0 lobby_stage_table[];
-extern s32 lbl_805D53A0;
+extern s32 local_client_id;
 void rebuild_players_for_stage__10TObjPlayerFi(s32 arg0);
 }
 
@@ -123,7 +123,7 @@ void rebuild_players_for_stage__10TObjPlayerFi(s32 arg0) {
                 copy_player_visual_record(&cd.chr, &chr);
                 begin_action_state__10TObjPlayerFPv(&cd);
                 send_command__10TNpcPlayerFiciiPv(chr.f31, t->b, t->c, t->a, &cd);
-                if (i == lbl_805D53A0) {
+                if (i == local_client_id) {
                     p = create_player_object(i, 0, &cd);
                 } else {
                     p = create_player_object(i, 4, &cd);

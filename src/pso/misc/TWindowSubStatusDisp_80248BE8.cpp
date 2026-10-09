@@ -51,7 +51,7 @@ void destroy_item_list_resources__20TWindowSubStatusDispFPvs(void *, int);
 M2C_UNK draw_selected_list_entry(void *, s32);
 M2C_UNK forward_render__20TWindowSubStatusDispFPv(s32, s32);
 
-extern s32 lbl_805D53A0;
+extern s32 local_client_id;
 
 u8 *TWindowSubStatusDisp__sub_80248BE8(s32 arg0, s32 arg1, s32 arg2) {
     u8 *temp_r3;
@@ -66,7 +66,7 @@ u8 *TWindowSubStatusDisp__sub_80248BE8(s32 arg0, s32 arg1, s32 arg2) {
 }
 
 void refresh_with_default_list__20TWindowSubStatusDispFii(s32 a, s32 b) {
-    TWindowSubStatusDisp__sub_80248BE8((s32)(a), (s32)(b), lbl_805D53A0);
+    TWindowSubStatusDisp__sub_80248BE8((s32)(a), (s32)(b), local_client_id);
 }
 
 void render_status_and_children__20TWindowSubStatusDispFPv(u8 *arg0) {

@@ -44,7 +44,7 @@ M2C_UNK VecCopy__FP3VecPC3Vec(s32, s32);
 u32 __nw__7TObjectFUl(M2C_UNK);
 s32 is_split_screen();
 
-extern s32 lbl_805D53A0;
+extern s32 local_client_id;
 
 typedef char RecoveredGlobal_8016F1C0___vt__10TOMineDisp_size[sizeof(RecoveredGlobal_8016F1C0___vt__10TOMineDisp) == 0x34 ? 1 : -1];
 u8 *TOMineDisp__ct(u8 *arg0, M2C_UNK arg1, s16 arg2) {
@@ -68,7 +68,7 @@ void TOMineTrap__vt81(s32 arg0) {
     if (is_split_screen() == 0) {
         var_r31 = __nw__7TObjectFUl(0xB0);
         if (var_r31 != 0U) {
-            var_r31 = TOMineTrapDisp__ct(var_r31, arg0, (u16) lbl_805D53A0, get_trap_type__10TOMineTrapFPv(arg0));
+            var_r31 = TOMineTrapDisp__ct(var_r31, arg0, (u16) local_client_id, get_trap_type__10TOMineTrapFPv(arg0));
         }
         if (var_r31 != 0U) {
             VecCopy__FP3VecPC3Vec(var_r31 + 0x50, arg0 + 0x50);

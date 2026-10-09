@@ -118,7 +118,7 @@ void update_state_from_input__16TKeyBoardControlFPv(void *arg0) {
     TKeyBoardControl__sub_801323C8(TKeyBoardControl__global_key_state, arg0);
 }
 
-extern s32 lbl_805D53A4;
+extern s32 actor_frame_tick;
 extern const f32 lbl_805DC0B0;
 
 s32 check_input_angle__16TKeyBoardControlFPv(void *arg0) {
@@ -139,7 +139,7 @@ s32 check_input_angle__16TKeyBoardControlFPv(void *arg0) {
     temp_r0 = temp_r5 - M2C_FIELD(arg0, s32 *, 0);
     if (((s32) temp_r0 > 0x5000) && ((s32) temp_r0 < 0xB000)) {
         temp_r4_2 = M2C_FIELD(arg0, s32 *, 4);
-        M2C_FIELD(arg0, s32 *, 4) = (s32) lbl_805D53A4;
+        M2C_FIELD(arg0, s32 *, 4) = (s32) actor_frame_tick;
         if ((s32) (M2C_FIELD(arg0, s32 *, 4) - temp_r4_2) < 8) {
             return 1;
         }
@@ -147,13 +147,13 @@ s32 check_input_angle__16TKeyBoardControlFPv(void *arg0) {
     return 0;
 }
 
-extern s32 lbl_805D53A4;
+extern s32 actor_frame_tick;
 
 void init_stick_escape_detector(void *arg0, void *arg1) {
     if (arg1 != NULL) {
         M2C_FIELD(arg0, void **, 8) = arg1;
         M2C_FIELD(arg0, s32 *, 0) = (s32) M2C_FIELD(M2C_FIELD(arg0, void **, 8), s32 *, 0x1C);
-        M2C_FIELD(arg0, s32 *, 4) = (s32) lbl_805D53A4;
+        M2C_FIELD(arg0, s32 *, 4) = (s32) actor_frame_tick;
     }
 }
 

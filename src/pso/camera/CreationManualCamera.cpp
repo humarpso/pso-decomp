@@ -10,7 +10,7 @@ void get_creation_pad_stick(void*,void*);
 s32 TObjCMProportion__sub_8029914C(s32);
 f32 sin_table_lookup(s32),cos_table_lookup(s32);
 extern CharacterAppearanceFields *creation_player_character;
-extern s32 lbl_805D6570;
+extern s32 creation_camera_mode;
 extern const f32 lbl_805DD974,lbl_805DD978,lbl_805DD9B4,lbl_805DD9B8,lbl_805DD9BC,lbl_805DD9C0;
 }
 
@@ -117,7 +117,7 @@ void advance_creation_manual_camera(CreationCameraFields *arg0) {
   arg0->ticks = temp_r0_2;
   if (temp_r0_2 > 0x96)
   {
-    lbl_805D6570 = 3;
+    creation_camera_mode = 3;
   }
 }
 #pragma pop

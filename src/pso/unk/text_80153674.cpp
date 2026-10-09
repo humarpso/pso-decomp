@@ -26,7 +26,7 @@ M2C_UNK TObjFogCollisionSwitch__ct(void *, void *, void *);
 void *__nw__7TObjectFUl(int);
 extern M2C_UNK __vt__22TObjFogCollisionPoison[];
 extern s32 lbl_805D2E80;
-extern s32 lbl_805D53A0;
+extern s32 local_client_id;
 void *TObjFogCollisionPoison__ct(void *arg0, void *arg1, void *arg2);
 s32 TObjFogCollisionSwitch__sub_80153A0C(u8 *arg0);
 void TObjFogCollision__vt12(O_801538D4 *);
@@ -124,7 +124,7 @@ void *TObjFogCollisionPoison__ct(void *arg0, void *arg1, void *arg2) {
     } else {
         o = __nw__7TObjectFUl(0x2C);
         if (o != NULL) {
-            init_base__22TObjFogCollisionPoisonFPvPvs(o, arg0, lbl_805D53A0);
+            init_base__22TObjFogCollisionPoisonFPvPvs(o, arg0, local_client_id);
         }
     }
     return arg0;

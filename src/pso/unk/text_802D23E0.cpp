@@ -34,7 +34,7 @@ s32 get_quest_id__12TQuestListVMFPv(void *);
 s32 get_player_by_client_id(u32);
 void prepare_and_send_trade_packet__6TLobbyFPvPv(s32, s32);
 void build_6xA6_modify_trade_proposal(void *);
-extern u32 lbl_805D53A0;
+extern u32 local_client_id;
 extern s8 TLobby__data_805D688A;
 extern u8 TLobby__data_805D688B;
 void send_trade_proposal_modify__6TLobbyFv(void);
@@ -59,7 +59,7 @@ M2C_UNK update_both_halves__6TLobbyFPv(void *);
 u8 * copy_struct_f8__6TLobbyFii(s32 arg0, s32 arg1);
 s32 show_event_message__6TLobbyFiii(void *, int, int);
 extern Half_802D26C8 TLobby__trade_window_state[4];
-extern u32 lbl_805D53A0;
+extern u32 local_client_id;
 extern s8 TLobby__data_805D688A;
 s32 check_trade_items_and_show_error__6TLobbyFv(void);
 }
@@ -74,7 +74,7 @@ void send_trade_proposal_modify__6TLobbyFv(void) {
   build_6xA6_modify_trade_proposal(&stack.sp8);
   if (((s32) TLobby__data_805D688B) == 2)
   {
-    temp_r3 = (u8 *) get_player_by_client_id(lbl_805D53A0);
+    temp_r3 = (u8 *) get_player_by_client_id(local_client_id);
     if (temp_r3)
     {
       temp_r3_2 = (u8 *) get_quest_id__12TQuestListVMFPv(temp_r3);
@@ -186,7 +186,7 @@ s32 check_trade_items_and_show_error__6TLobbyFv(void) {
     if (r == 4) {
         flag = 1;
     } else if (r != 0) {
-        return show_event_message__6TLobbyFiii((void *)lbl_805D53A0, r, code);
+        return show_event_message__6TLobbyFiii((void *)local_client_id, r, code);
     }
     update_both_halves__6TLobbyFPv(&buf);
     ((u8 *(*)(void *, void *))copy_struct_f8__6TLobbyFii)(&buf.h[0], &TLobby__trade_window_state[0]);

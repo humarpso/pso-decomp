@@ -28,7 +28,7 @@ extern const f32 lbl_805D960C;
 u8 *TObjEneBalClaw__ct(u8 *arg0);
 extern Ent_8008D68C lbl_8048EC1C[];
 extern s32 lbl_805D4F24;
-extern s32 lbl_805D53A4;
+extern s32 actor_frame_tick;
 void TObjPlayer__sub_8023DEE0(void *obj, s32 a, s32 b, u16 c);
 void TObjEneBalClaw__sub_8008D68C(void);
 void render_with_position_override__10TObjPlayerFPvPvi(void *, void *, int);
@@ -38,7 +38,7 @@ extern const f32 lbl_805D9604;
 void render_scaled__14TObjEneBalClawFPvi(O_8008D700 *arg0, s32 arg1);
 f32 sin_table_lookup(s32);
 extern const f32 lbl_805D9608;
-void TObjEneBalClaw__sub_8008D79C(Obj_8008D79C *arg0);
+void update_wobble__14TObjEneBalClawFPv(Obj_8008D79C *arg0);
 }
 
 extern "C" {
@@ -60,8 +60,8 @@ extern f32 lbl_805D9600;
 
 void TObjEneBalClaw__sub_8008D68C(void) {
     s32 i;
-    if (lbl_805D4F24 != lbl_805D53A4) {
-        lbl_805D4F24 = lbl_805D53A4;
+    if (lbl_805D4F24 != actor_frame_tick) {
+        lbl_805D4F24 = actor_frame_tick;
         for (i = 0; i < 7; i++) {
             Ent_8008D68C *e = &lbl_8048EC1C[i];
             TObjPlayer__sub_8023DEE0(e->obj, e->a, e->b, e->c);
@@ -83,7 +83,7 @@ void render_scaled__14TObjEneBalClawFPvi(O_8008D700 *arg0, s32 arg1) {
     }
 }
 
-void TObjEneBalClaw__sub_8008D79C(Obj_8008D79C *arg0) {
+void update_wobble__14TObjEneBalClawFPv(Obj_8008D79C *arg0) {
     if (arg0->flags & 0x20000) {
         arg0->f3B8 = arg0->f3B8 + 0x200;
         arg0->f3BC = lbl_805D9608 * sin_table_lookup(arg0->f3B8);

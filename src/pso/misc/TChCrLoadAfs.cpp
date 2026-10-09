@@ -55,7 +55,7 @@ struct L_8028B948 { u8 pad[0x1c]; s32 f1c; u8 pad2[0xc]; s32 f2c; };
 
 extern "C" {
 s32 TLobby__sub_803CC4C0(int);
-void TLobby__sub_803CCE9C(int);
+void close_adxf_handle__6TLobbyFPv(int);
 void poll_load__12TChCrLoadAfsFv(L_8028B948 *arg0);
 }
 
@@ -75,7 +75,7 @@ void poll_load__12TChCrLoadAfsFv(L_8028B948 *arg0) {
     case 2:
         return;
     case 3:
-        TLobby__sub_803CCE9C(arg0->f1c);
+        close_adxf_handle__6TLobbyFPv(arg0->f1c);
         arg0->f1c = 0;
         break;
     case 1:
@@ -94,7 +94,7 @@ void poll_load__12TChCrLoadAfsFv(L_8028B948 *arg0) {
 
 #define try_begin_load__12TChCrLoadAfsFPv (*(s32 (*)())&try_begin_load__12TChCrLoadAfsFPv)
 #define release_load_slot__12TChCrLoadAfsFPv (*(int (*)(void *))&release_load_slot__12TChCrLoadAfsFPv)
-#define TLobby__sub_803CCE9C (*(int (*)(int))&TLobby__sub_803CCE9C)
+#define close_adxf_handle__6TLobbyFPv (*(int (*)(int))&close_adxf_handle__6TLobbyFPv)
 #define TLobby__sub_803CC4C0 (*(int (*)(int))&TLobby__sub_803CC4C0)
 
 #include "pso/TChCrLoadAfs.h"
@@ -231,7 +231,7 @@ TChCrLoadAfs::~TChCrLoadAfs() {
     u32 handle = load_handle;
     if (handle != 0) {
         if (TLobby__sub_803CC4C0((int)handle) == 2) adxf_stop__6TLobbyFPv((int)load_handle);
-        TLobby__sub_803CCE9C((int)load_handle);
+        close_adxf_handle__6TLobbyFPv((int)load_handle);
         load_handle = 0;
     }
     u32 buffer = buffer_address;
@@ -335,14 +335,14 @@ void update_loading__22TChCrLoadAfsTextureReqFPv(Ld_8028BE00 *arg0) {
         return;
     }
     if (retry != 0) {
-        TLobby__sub_803CCE9C(arg0->f60);
+        close_adxf_handle__6TLobbyFPv(arg0->f60);
         arg0->f60 = 0;
         safe_free__23TAdSinglePlyChrSelectGCFUi(arg0->bufs[arg0->f5c]);
         arg0->bufs[arg0->f5c] = 0;
         arg0->f2c = 1;
         return;
     }
-    TLobby__sub_803CCE9C(arg0->f60);
+    close_adxf_handle__6TLobbyFPv(arg0->f60);
     arg0->f60 = 0;
     if (++arg0->f5c != arg0->f58) {
         arg0->f2c = 1;
@@ -380,6 +380,6 @@ void start_read__22TChCrLoadAfsTextureReqFPv(Cl_8028BFA4 *arg0) {
 }
 
 #undef TLobby__sub_803CC4C0
-#undef TLobby__sub_803CCE9C
+#undef close_adxf_handle__6TLobbyFPv
 #undef release_load_slot__12TChCrLoadAfsFPv
 #undef try_begin_load__12TChCrLoadAfsFPv

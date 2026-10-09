@@ -11,11 +11,11 @@ int TLobby__sub_800FA464();
 int heap_alloc__5THeapFUl(void*, void*);
 int heap_free__5THeapFPv(void*, void*);
 
-    extern int lbl_805D537C;
-void free_static_buffer__6TLobbyFPv(void* a0) { heap_free__5THeapFPv((void*)(lbl_805D537C), a0); }
+    extern int game_heap;
+void free_static_buffer__6TLobbyFPv(void* a0) { heap_free__5THeapFPv((void*)(game_heap), a0); }
 
-    extern int lbl_805D537C;
-void alloc_from_heap__6TLobbyFPv(void* a0) { heap_alloc__5THeapFUl((void*)(lbl_805D537C), a0); }
+    extern int game_heap;
+void alloc_from_heap__6TLobbyFPv(void* a0) { heap_alloc__5THeapFUl((void*)(game_heap), a0); }
 
 void pump_frames__6TLobbyFv(void) {
 loop_1:

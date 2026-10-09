@@ -118,7 +118,7 @@ f32 cos_table_lookup(s32);
 f32 vector_length(void *);
 M2C_UNK normalize_vector(void *);
 extern const f64 TBoss4Type2__data_80437750;
-extern s32 lbl_80486904[];
+extern s32 boss4_type2_attack_pattern_table[];
 extern s32 game_difficulty_selection;
 extern const f32 TBoss4Type2__data_805D8BAC;
 extern const f32 lbl_805D8BB4;
@@ -745,7 +745,7 @@ extern u8 TBoss4DarkFalz__data_804FF1E8[];
 extern const f64 TBoss4Type2__data_80437750;
 extern const f32 TBoss4Type2__data_805D8BAC;
 extern const f32 TBoss4Type2__data_805D8BD8;
-extern RecoveredGlobal_8005A678_TBoss4Type3__data_80486FC8 TBoss4Type3__data_80486FC8;
+extern RecoveredGlobal_8005A678_TBoss4Type3__data_80486FC8 TBoss4Type3__anim_state_table;
 extern const f32 TBoss4Type3__data_805D8C34;
 extern const f32 TBoss4Type3__data_805D8C40;
 extern M2C_UNK __vt__11TBoss4Zanzo[];
@@ -756,19 +756,19 @@ extern RecoveredGlobal_80059450_lbl_80437860 lbl_80437860;
 extern RecoveredGlobal_80059450_lbl_8043786C lbl_8043786C;
 extern RecoveredGlobal_80059450_lbl_80437878 lbl_80437878;
 extern const f64 lbl_80437890[];
-extern Ofs_8005683C lbl_804868EC[];
+extern Ofs_8005683C bishi_spawn_offset_table[];
 extern u8 lbl_80486924[];
 extern Row_8005A398 lbl_80486C98[];
 extern u8 lbl_80486FB0[];
-extern u8 lbl_80486FBC[];
-extern Vec_80059C20 lbl_8048715C;
+extern u8 boss4_type3_index_table[];
+extern Vec_80059C20 boss4_type3_default_position;
 extern Vec_80059C20 lbl_80487168;
 extern u8 lbl_80487184[];
 extern void *lbl_805D27DC;
 extern s32 lbl_805D27E0;
 extern s32 lbl_805D4D80;
 extern u8 lbl_805D4D84;
-extern s32 lbl_805D53A0;
+extern s32 local_client_id;
 extern s32 game_difficulty_selection;
 extern s32 lbl_805D586C;
 extern "C" {
@@ -913,10 +913,10 @@ void *lbl_80486794[11] = {
     (void *)0x0, (void *)0x0, (void *)0x8003, (void *)0x0,
     (void *)0x0, (void *)0x0, (void *)0x0,
 };
-__declspec(section ".data") s32 lbl_804867C0[2] = {
+__declspec(section ".data") s32 boss4_zanzo_bml_index_table[2] = {
     0xb, 0xa,
 };
-Def_804867C8 TBoss4Type2__data_804867C8 = {
+Def_804867C8 TBoss4Type2__attack_pattern_table = {
     0x0, {
         0x0, 0x52, 0x51, 0x2, 0x0, 0xd, 0xc, 0x1, 0x0, 0x12, 0x11, 0x2, 0x5, 0x31, 0x30, 0x2, 0x0, 0x33, 0x32, 0x2, 0x0, 0x3f, 0x3e, 0x2, 0x0, 0x3, 0x2, 0x2, 0x0, 0x7, 0x6, 0x2, 0x9, 0x52, 0x44, 0x2, 0x0, 0x52, 0x3e,
     },
@@ -1349,7 +1349,7 @@ void TBoss4Type2__vt15(u8 *arg0) {
     u32 h;
     f32 t;
     if (M2C_FIELD(arg0, s32 *, 0x398) == 0x4B) {
-        set_attack_pattern_by_index__11TBoss4Type2FPvi(arg0, lbl_80486904[idx]);
+        set_attack_pattern_by_index__11TBoss4Type2FPvi(arg0, boss4_type2_attack_pattern_table[idx]);
     }
     if (M2C_FIELD(arg0, s32 *, 0x3C8) == 6 || M2C_FIELD(arg0, s32 *, 0x3C8) == 7) {
         t = M2C_FIELD(arg0, f32 *, 0x3D0);
@@ -1570,9 +1570,9 @@ void spawn_afterimages__11TBoss4Type2FPv(Obj_8005676C *arg0) {
     z.f24 = TBoss4Type2__data_805D8BAC;
     z.f28 = 10;
     for (i = 0; i < 2; i++) {
-        z.f10 = TObjFish__sub_8001EDB0(arg0->f390, lbl_804867C0[i]);
-        z.f14 = get_bml_model(arg0->f390, lbl_804867C0[i]);
-        z.f18 = get_bml_motion(arg0->f390, ((Row_8005676C *)&TBoss4Type2__data_804867C8)[arg0->f3c8].c[i]);
+        z.f10 = TObjFish__sub_8001EDB0(arg0->f390, boss4_zanzo_bml_index_table[i]);
+        z.f14 = get_bml_model(arg0->f390, boss4_zanzo_bml_index_table[i]);
+        z.f18 = get_bml_motion(arg0->f390, ((Row_8005676C *)&TBoss4Type2__attack_pattern_table)[arg0->f3c8].c[i]);
         ((void (*)(void *, void *))create_zanzo__11TBoss4Type2FPvPv)(arg0, &z);
     }
 }
@@ -1591,8 +1591,8 @@ void spawn_bishi_around_players__11TBoss4Type2FPv(Obj_8005683C *arg0) {
             for (j = 0; j < 3; j++) {
                 if (TBoss4DarkFalz__sub_8004AF5C(arg0->f38c, &b.id, &b.id2) != 0) {
                     VecCopy__FP3VecPC3Vec(&b.pos, pl + 0x38);
-                    b.pos.x += lbl_804868EC[j].x;
-                    b.pos.z += lbl_804868EC[j].z;
+                    b.pos.x += bishi_spawn_offset_table[j].x;
+                    b.pos.z += bishi_spawn_offset_table[j].z;
                     create__11TBoss4BishiFi(&b);
                 }
             }
@@ -1786,22 +1786,22 @@ void draw_hanger__11TBoss4Type2FPv(Obj_80057270 *arg0) {
     s32 i;
     set_global_flag__10TObjPlayerFv();
     for (i = 0; i < 2; i++) {
-        ((M2C_UNK (*)(s32))set_global_param__8TObjFishFi)(TObjFish__sub_8001EDB0(arg0->f390, lbl_804867C0[i]));
+        ((M2C_UNK (*)(s32))set_global_param__8TObjFishFi)(TObjFish__sub_8001EDB0(arg0->f390, boss4_zanzo_bml_index_table[i]));
         switch (i) {
         case 1:
             some_id_805c6f74 |= 0x20000;
             TObjEneRe4Sorcerer__sub_801E3F1C(TBoss4Type2__data_805D8BAC, arg0->f3c0);
             set_draw_callback_list__8TObjFishFPv(arg0->f44c);
-            ((M2C_UNK (*)(s32, s32, f32))draw_model_motion)(get_bml_model(arg0->f390, lbl_804867C0[i]),
-                get_bml_motion((s32)(arg0->f390), (s32)(((Row_80057270 *)&TBoss4Type2__data_804867C8)[arg0->f3c8].c[i])),
+            ((M2C_UNK (*)(s32, s32, f32))draw_model_motion)(get_bml_model(arg0->f390, boss4_zanzo_bml_index_table[i]),
+                get_bml_motion((s32)(arg0->f390), (s32)(((Row_80057270 *)&TBoss4Type2__attack_pattern_table)[arg0->f3c8].c[i])),
                 arg0->f3d0);
             clear_render_callback__8TObjFishFv(arg0->f44c);
             some_id_805c6f74 &= ~0x20000;
             break;
         default:
             TBoss6PlotFalz__sub_802AC008(arg0->f3f0, arg0->f3f4);
-            ((M2C_UNK (*)(s32, s32, f32))draw_model_motion)(get_bml_model(arg0->f390, lbl_804867C0[i]),
-                get_bml_motion((s32)(arg0->f390), (s32)(((Row_80057270 *)&TBoss4Type2__data_804867C8)[arg0->f3c8].c[i])),
+            ((M2C_UNK (*)(s32, s32, f32))draw_model_motion)(get_bml_model(arg0->f390, boss4_zanzo_bml_index_table[i]),
+                get_bml_motion((s32)(arg0->f390), (s32)(((Row_80057270 *)&TBoss4Type2__attack_pattern_table)[arg0->f3c8].c[i])),
                 arg0->f3d0);
             update_camera_target__14TBoss6PlotFalzFv();
             break;
@@ -1815,7 +1815,7 @@ void set_attack_pattern_by_index__11TBoss4Type2FPvi(u8 *arg0, s32 arg1) {
     if (arg1 != -1) {
         M2C_FIELD(arg0, s32 *, 0x3c8) = arg1;
         M2C_FIELD(arg0, f32 *, 0x3d0) = (f32) (*(const f32 *)&TBoss4Type2__data_805D8BAC);
-        M2C_FIELD(arg0, s32 *, 0x3dc) = (s32) M2C_FIELD(((u8 *)(&TBoss4Type2__data_804867C8.value) + (arg1 << 0x4)), s32 *, 0);
+        M2C_FIELD(arg0, s32 *, 0x3dc) = (s32) M2C_FIELD(((u8 *)(&TBoss4Type2__attack_pattern_table.value) + (arg1 << 0x4)), s32 *, 0);
     }
 }
 
@@ -1844,8 +1844,8 @@ void update_phase_timer__11TBoss4Type2FPv(u8 *arg0) {
         break;
     case 2:
         if (M2C_FIELD(arg0, f32 *, 0x3d0) >= lbl_805D8C14) {
-            M2C_FIELD(arg0, s32 *, 0x3c8) = (s32) M2C_FIELD(((u8 *)&(*(RecoveredGlobal_8005455C_lbl_80485EC8 *)&TBoss4Type2__data_804867C8).value + (M2C_FIELD(arg0, s32 *, 0x3c8) << 0x4)), s32 *, 4);
-            M2C_FIELD(arg0, s32 *, 0x3dc) = (s32) M2C_FIELD(&(*(RecoveredGlobal_8005455C_lbl_80485EC8 *)&TBoss4Type2__data_804867C8).value, M2C_UNK *, (M2C_FIELD(arg0, s32 *, 0x3c8) << 0x4));
+            M2C_FIELD(arg0, s32 *, 0x3c8) = (s32) M2C_FIELD(((u8 *)&(*(RecoveredGlobal_8005455C_lbl_80485EC8 *)&TBoss4Type2__attack_pattern_table).value + (M2C_FIELD(arg0, s32 *, 0x3c8) << 0x4)), s32 *, 4);
+            M2C_FIELD(arg0, s32 *, 0x3dc) = (s32) M2C_FIELD(&(*(RecoveredGlobal_8005455C_lbl_80485EC8 *)&TBoss4Type2__attack_pattern_table).value, M2C_UNK *, (M2C_FIELD(arg0, s32 *, 0x3c8) << 0x4));
             M2C_FIELD(arg0, f32 *, 0x3d0) = (f32) TBoss4Type2__data_805D8BAC;
             M2C_FIELD(arg0, s32 *, 0x3d8) = 1;
         }

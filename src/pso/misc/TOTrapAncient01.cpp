@@ -297,7 +297,7 @@ s32 check_player_flag1__6TLobbyFPv();
 M2C_UNK send_code_45_1__10TObjPlayerFi(int);
 s32 get_player_by_client_id(void *);
 s32 is_not_split_screen__13TRaderMapCoreFv();
-extern s32 lbl_805D53A0;
+extern s32 local_client_id;
 void release_trapped_player__15TOTrapAncient01FPv(u8 *arg0);
 s32 TObjFish__sub_8001EDB0(void *, s32);
 s32 get_bml_model(void *, s32);
@@ -431,8 +431,8 @@ void release_trapped_player__15TOTrapAncient01FPv(u8 *arg0) {
                 obj_clear_flag30_20000((int) (temp_r3));
             }
         }
-    } else if ((M2C_FIELD(arg0, void **, 0x2A8) != NULL) && ((s32) lbl_805D53A0 == (s32) obj_getField1c(M2C_FIELD(arg0, void **, 0x2A8)))) {
-        temp_r3_2 = get_player_by_client_id((void *) lbl_805D53A0);
+    } else if ((M2C_FIELD(arg0, void **, 0x2A8) != NULL) && ((s32) local_client_id == (s32) obj_getField1c(M2C_FIELD(arg0, void **, 0x2A8)))) {
+        temp_r3_2 = get_player_by_client_id((void *) local_client_id);
         if (temp_r3_2 != 0) {
             if (check_player_flag1__6TLobbyFPv() != 0) {
                 send_code_45_1__10TObjPlayerFi((int) (temp_r3_2));

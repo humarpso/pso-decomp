@@ -20,7 +20,7 @@ void fn_802683F4(void *, void *, s32, s16);
 void *init__21TWindowSubComCardListFPviii(void *, s8, s32, s32);
 extern M2C_UNK __vt__22TWindowSubShortCutList[];
 extern s32 lbl_805D3A90;
-extern s32 lbl_805D53A0;
+extern s32 local_client_id;
 void *TWindowSubShortCutList__ct(void *arg0, void *arg1, void *arg2);
 s32 get_shared_text_buffer();
 s32 fn_80076BC4(s32 *);
@@ -33,7 +33,7 @@ M2C_UNK save_cursor_selection__20TShopArmorListWindowFPv();
 M2C_UNK reset_list__20TShopArmorListWindowFPv(void *);
 void draw_entry__22TWindowSubShortCutListFPviUcii(void *, s32, u8, s32, s32);
 M2C_UNK update_state__9TWindowDDFv(s32 *, s32, u16);
-extern s32 lbl_805D53A0;
+extern s32 local_client_id;
 void refresh_entries__22TWindowSubShortCutListFPv(void *arg0);
 }
 
@@ -76,7 +76,7 @@ void refresh_entries__22TWindowSubShortCutListFPv(void *arg0) {
             draw_entry__22TWindowSubShortCutListFPviUcii(arg0, var_r29, 0x12, temp_r0, var_r29);
             break;
         case 2:
-            update_state__9TWindowDDFv(temp_r3 + 1, get_shared_text_buffer(), (u16) lbl_805D53A0);
+            update_state__9TWindowDDFv(temp_r3 + 1, get_shared_text_buffer(), (u16) local_client_id);
             draw_entry__22TWindowSubShortCutListFPviUcii(arg0, var_r29, 0x10, get_shared_text_buffer(), var_r29);
             break;
         case 3:
@@ -142,7 +142,7 @@ void *TWindowSubShortCutList__ct(void *arg0, void *arg1, void *arg2) {
     s32 row;
     s32 col;
     void *p;
-    fn_802683F4(arg0, arg1, 4, lbl_805D53A0);
+    fn_802683F4(arg0, arg1, 4, local_client_id);
     ((Obj_8027E558 *)arg0)->vt = ((s32 *)&__vt__22TWindowSubShortCutList);
     ((Obj_8027E558 *)arg0)->f0 = lbl_805D3A90;
     row = (s32)arg2 / 4;
@@ -150,7 +150,7 @@ void *TWindowSubShortCutList__ct(void *arg0, void *arg1, void *arg2) {
     ensure_status_display__20TWindowSubStatusDispFPvi(arg0, get_message_10__20TWindowSubStatusDispFPv(0x2D));
     p = alloc__23TAdSinglePlyChrSelectGCFPv(0xC);
     if (p != NULL) {
-        p = init__21TWindowSubComCardListFPviii(p, row, 5, lbl_805D53A0);
+        p = init__21TWindowSubComCardListFPviii(p, row, 5, local_client_id);
     }
     ((Obj_8027E558 *)arg0)->list = p;
     set_flag70_bit10__20TWindowShortListCtrlFPv(arg0);

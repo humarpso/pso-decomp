@@ -58,7 +58,7 @@ s32 TLobby__sub_803DF1CC(void);
 s32 calc_delta__6TLobbyFii(s32, s32);
 s32 fn_803DF204(s32);
 extern char lbl_8043F168[];
-s32 TLobby__sub_8013F99C(Lz_8013F99C *lz, void *src, s32 size, s32 *hdr);
+s32 lz_compress_packet__6TLobbyFPvPviPv(Lz_8013F99C *lz, void *src, s32 size, s32 *hdr);
 }
 
 extern "C" {
@@ -75,7 +75,7 @@ int refresh_render_state__6TLobbyFv(void);
 #define EOF_8013F99C(c) (((s32 (*)(u8 *))TLobby__sub_8013FF78)(c))
 #define PUT_8013F99C(c, v) (((void (*)(u8 *, s32))TLobby__sub_8013FF64)(c, v))
 #define GET_8013F99C(c) (((s32 (*)(u8 *))TLobby__sub_8013FF94)(c))
-s32 TLobby__sub_8013F99C(Lz_8013F99C *lz, void *src, s32 size, s32 *hdr) {
+s32 lz_compress_packet__6TLobbyFPvPviPv(Lz_8013F99C *lz, void *src, s32 size, s32 *hdr) {
     u8 code_buf[17];
     char msg[256];
     s32 t0;

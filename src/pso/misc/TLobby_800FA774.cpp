@@ -17,9 +17,9 @@ extern s32 lbl_805D5364;
 extern s32 lbl_805D5368;
 extern s32 lbl_805D536C;
 extern s32 lbl_805D5370;
-extern s32 lbl_805D5374;
-extern s32 lbl_805D5378;
-extern s32 lbl_805D537C;
+extern s32 lobby_download_state_ptr;
+extern s32 lobby_list_next_id;
+extern s32 game_heap;
 
 void init_download_state__6TLobbyFv(void) {
     s32 var_r0;
@@ -28,15 +28,15 @@ void init_download_state__6TLobbyFv(void) {
     lbl_805D5370 = alloc__22TQuestVmDownLoadServerFPv(0x800);
     lbl_805D5364 = 0;
     lbl_805D5360 = 0;
-    lbl_805D5374 = 0;
+    lobby_download_state_ptr = 0;
     lbl_805D536C = 0;
     lbl_805D5368 = 0;
-    lbl_805D5378 = 0;
+    lobby_list_next_id = 0;
     var_r0 = __nw__5THeapFUl(0x14);
     if (var_r0 != 0) {
         var_r0 = __ct__5THeapFUli(var_r0, 0x4000, 0x20);
     }
-    lbl_805D537C = var_r0;
+    game_heap = var_r0;
 }
 
 }

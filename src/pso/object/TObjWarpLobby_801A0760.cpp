@@ -39,7 +39,7 @@ void open_lobby_menu__13TObjWarpLobbyFPv(void *arg0);
 M2C_UNK TWindow__close(void *);
 M2C_UNK clear_flag__11TWindowCtrlFv();
 s32 get_selected_menu_value(u32);
-extern s32 lbl_805D53A0;
+extern s32 local_client_id;
 extern const f32 lbl_805DC068;
 extern const f32 lbl_805DC06C;
 extern const f32 lbl_805DC070;
@@ -103,7 +103,7 @@ void run_task__13TObjWarpLobbyFv(VO_801A0894 *arg0) {
         M2C_FIELD(arg0, f32 *, 0xC8) = (f32) lbl_805DC06C;
     }
     M2C_FIELD(arg0, f32 *, 0xC4) = (f32) (M2C_FIELD(arg0, f32 *, 0xC4) + lbl_805DC070);
-    if ((find_warp_player_in_range(arg0, (u16) lbl_805D53A0, M2C_FIELD(arg0, f32 *, 0xAC)) != 0U) && (arg0->m14() != 0)) {
+    if ((find_warp_player_in_range(arg0, (u16) local_client_id, M2C_FIELD(arg0, f32 *, 0xAC)) != 0U) && (arg0->m14() != 0)) {
         if (((u32) M2C_FIELD(arg0, u32 *, 0xB0) == 0U) && (is_idle__6TLobbyFv() != 0)) {
             open_lobby_menu__13TObjWarpLobbyFPv(arg0);
         }

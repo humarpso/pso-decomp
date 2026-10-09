@@ -9,7 +9,7 @@ extern "C" {
 s32 create_named_entry__6TLobbyFiiUiiPv(s32 arg0, s32 arg1, u32 arg2, s32 arg3, void **arg4);
 s32 adxf_get_fsize_byte__6TLobbyFPv(int);
 s32 TLobby__sub_803CC53C(int);
-M2C_UNK TLobby__sub_803CCE9C(int);
+M2C_UNK close_adxf_handle__6TLobbyFPv(int);
 s32 adxf_open__6TLobbyFUii(void *, int);
 M2C_UNK move_words__6TLobbyFPvPvi(void *, void *, int);
 u8 *alloc_from_heap__6TLobbyFPv(M2C_UNK);
@@ -36,7 +36,7 @@ s32 create_named_entry__6TLobbyFiiUiiPv(s32 arg0, s32 arg1, u32 arg2, s32 arg3, 
     M2C_FIELD(var_r31, s32 *, 0x28) = arg1;
     M2C_FIELD(var_r31, s32 *, 0x2C) = adxf_get_fsize_byte__6TLobbyFPv((int) (temp_r3));
     M2C_FIELD(var_r31, s32 *, 0x30) = TLobby__sub_803CC53C((int) (temp_r3));
-    TLobby__sub_803CCE9C((int) (temp_r3));
+    close_adxf_handle__6TLobbyFPv((int) (temp_r3));
     M2C_FIELD(var_r31, s32 *, 0x34) = 0;
     M2C_FIELD(var_r31, u32 *, 0x40) = arg2;
     if (arg2 != 0U) {

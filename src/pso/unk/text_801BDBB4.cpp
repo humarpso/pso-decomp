@@ -23,9 +23,9 @@ s32 is_locally_controlled__10TObjPlayerFPv();
 u8 *get_player_by_client_id(s32);
 M2C_UNK init_select_txt__10TObjPlayerFPv(int);
 M2C_UNK copy_lobby_header__10TObjPlayerFPvi(int, int);
-extern RecoveredGlobal_801BDCF8_TObjPlayer__data_8050EA70 TObjPlayer__data_8050EA70;
+extern RecoveredGlobal_801BDCF8_TObjPlayer__data_8050EA70 TObjPlayer__char_data_array;
 void refresh_player_lobby_headers__10TObjPlayerFv(void);
-extern RecoveredGlobal_801BDCF8_TObjPlayer__data_8050EA70 TObjPlayer__data_8050EA70;
+extern RecoveredGlobal_801BDCF8_TObjPlayer__data_8050EA70 TObjPlayer__char_data_array;
 s32 check_flag_at_428__10TObjPlayerFPv(void *);
 void create__10TObjPlayerFUii(u16, void *);
 void create_active_players__10TObjPlayerFv(void);
@@ -44,7 +44,7 @@ void create_active_players__10TObjPlayerFv(void) {
     s32 i;
     E_801BDC98 *p;
     i = 0;
-    p = ((E_801BDC98 *)&TObjPlayer__data_8050EA70);
+    p = ((E_801BDC98 *)&TObjPlayer__char_data_array);
     do {
         if (check_flag_at_428__10TObjPlayerFPv(p) != 0) {
             create__10TObjPlayerFUii(i, p);
@@ -59,7 +59,7 @@ void refresh_player_lobby_headers__10TObjPlayerFv(void) {
   u8 *temp_r3;
   M2C_UNK *var_r29;
   var_r31 = 0;
-  var_r29 = &TObjPlayer__data_8050EA70.value;
+  var_r29 = &TObjPlayer__char_data_array.value;
   do
   {
     init_select_txt__10TObjPlayerFPv((int) var_r29);

@@ -388,9 +388,9 @@ M2C_UNK create__20TObjChallenge4PRetryFPv(void*);
 #define is_multi_ready__6TLobbyFv ((s32 (*)())is_multi_ready__6TLobbyFv)
 
 void draw_if_ready2__6TLobbyFv(void) {
-    extern u32 lbl_805D6580;
-    if ((is_challenge_mode_active() != 0) && (is_multi_ready__6TLobbyFv() != 0) && ((u32) lbl_805D6580 != 0U)) {
-        create__20TObjChallenge4PRetryFPv((void*)lbl_805D6580);
+    extern u32 challenge_retry_object;
+    if ((is_challenge_mode_active() != 0) && (is_multi_ready__6TLobbyFv() != 0) && ((u32) challenge_retry_object != 0U)) {
+        create__20TObjChallenge4PRetryFPv((void*)challenge_retry_object);
     }
 }
 
@@ -416,9 +416,9 @@ s32 TLobby__sub_80291F9C(void) {
 }
 
 #define G_A lbl_804DB1F0
-#define G_B lbl_805D6580
+#define G_B challenge_retry_object
 void reset_menu_state_globals__6TLobbyFv(void) {
-    extern B_80291FC0 *lbl_805D6580;
+    extern B_80291FC0 *challenge_retry_object;
     s32 i;
     s32 z;
     B_80291FC0 *q;
@@ -789,13 +789,13 @@ struct Ent_80292AB4 { s32 id; s32 mask; u8 pad[0x14]; };
 extern "C" {
 #define get_player_by_client_id ((u32 (*)(int))get_player_by_client_id)
 #define lbl_804DB1F0 (*(s32 (*)[1])&lbl_804DB1F0)
-extern u32 lbl_805D6580;
+extern u32 challenge_retry_object;
 s32 check_player_state_flag_2__6TLobbyFPv(void *);
 void TLobby__sub_80293218(s32);
-extern u32 lbl_805D6580;
+extern u32 challenge_retry_object;
 s32 TLobby__sub_8029299C(void);
 s32 check_player_state_flag_2__6TLobbyFPv(void *);
-extern u32 lbl_805D6580;
+extern u32 challenge_retry_object;
 s32 TLobby__sub_80292A34(void);
 s32 get_layout_id__20TWindowSubStatusDispFv(M2C_UNK);
 s32 *TWindowSubStatusDisp__sub_8006F0D8(void *, s32);
@@ -837,7 +837,7 @@ s32 TLobby__sub_8029299C(void) {
     s32 var_r31;
     u32 var_r30;
     u8 *temp_r3;
-    if ((u32) lbl_805D6580 == 0U) {
+    if ((u32) challenge_retry_object == 0U) {
         return 0;
     }
     var_r31 = 0;
@@ -859,7 +859,7 @@ s32 TLobby__sub_8029299C(void) {
 s32 TLobby__sub_80292A34(void) {
     s32 var_r31;
     u8 *temp_r3;
-    if ((u32) lbl_805D6580 == 0U) {
+    if ((u32) challenge_retry_object == 0U) {
         return 0;
     }
     var_r31 = 0;
@@ -1170,11 +1170,11 @@ void set_retry_selection__6TLobbyFi(s32 arg0) {
     }
 }
 
-extern u32 lbl_805D6580;
+extern u32 challenge_retry_object;
 
 void destroy_global__6TLobbyFv(void) {
-    if ((u32) lbl_805D6580 != 0U) {
-        queue_destruction__7TObjectFv((void*)lbl_805D6580);
+    if ((u32) challenge_retry_object != 0U) {
+        queue_destruction__7TObjectFv((void*)challenge_retry_object);
     }
 }
 
@@ -1187,11 +1187,11 @@ extern "C" {
 
 s32 is_challenge_mode_active(void);
 
-extern u32 lbl_805D6580;
-extern s32 lbl_805D658C;
+extern u32 challenge_retry_object;
+extern s32 challenge_mode_active_flag;
 
 s32 is_challenge_mode_active(void) {
-    if (((s32) lbl_805D658C == 1) || ((u32) lbl_805D6580 != 0U)) {
+    if (((s32) challenge_mode_active_flag == 1) || ((u32) challenge_retry_object != 0U)) {
         return 1;
     }
     return 0;
@@ -1204,16 +1204,16 @@ extern "C" {
 void TLobby__sub_802930A8(void);
 void TLobby__sub_802930B8(void);
 
-    extern int lbl_805D6588;
-#define lbl_805D658C (*(int *)&lbl_805D658C)
-void TLobby__sub_802930A8(void) { lbl_805D658C = 0; lbl_805D6588 = 0; }
+    extern int split_screen_flag;
+#define challenge_mode_active_flag (*(int *)&challenge_mode_active_flag)
+void TLobby__sub_802930A8(void) { challenge_mode_active_flag = 0; split_screen_flag = 0; }
 
-    extern int lbl_805D6588;
-void TLobby__sub_802930B8(void) { lbl_805D658C = 1; lbl_805D6588 = 1; }
+    extern int split_screen_flag;
+void TLobby__sub_802930B8(void) { challenge_mode_active_flag = 1; split_screen_flag = 1; }
 
 }
 
-#undef lbl_805D658C
+#undef challenge_mode_active_flag
 
 extern "C" {
 
@@ -1402,9 +1402,9 @@ s32 is_split_screen();
 M2C_UNK queue_destruction__7TObjectFv(void *);
 
 extern s32 lbl_80464E58[];
-extern u32 lbl_805D6580;
+extern u32 challenge_retry_object;
 extern s32 lbl_805D6584;
-#define lbl_805D6588 (*(s32 *)&lbl_805D6588)
+#define split_screen_flag (*(s32 *)&split_screen_flag)
 
 extern "C" void *TLobby__sub_802936AC(void *arg0, s16 arg1);
 extern "C" void render__7TObjectFv();
@@ -1417,20 +1417,20 @@ void setup_split_screen(void) {
     u32 temp_r30;
     u32 temp_r4;
 
-    lbl_805D6588 = 1;
+    split_screen_flag = 1;
     lbl_805D6584 = 0;
-    if ((u32) lbl_805D6580 != 0U) {
-        lbl_805D6588 = 0;
+    if ((u32) challenge_retry_object != 0U) {
+        split_screen_flag = 0;
         return;
     }
     if (is_split_screen() == 0) {
-        lbl_805D6588 = 0;
+        split_screen_flag = 0;
         return;
     }
-    if ((s32) lbl_805D6588 != 0) {
-        lbl_805D6580 = create_challenge4p__6TLobbyFv();
+    if ((s32) split_screen_flag != 0) {
+        challenge_retry_object = create_challenge4p__6TLobbyFv();
         lbl_805D6584 = 1;
-        lbl_805D6588 = 0;
+        split_screen_flag = 0;
         set_split_screen_name__6TLobbyFi(lbl_80464E58);
         var_r31 = 0U;
         do {
@@ -1578,7 +1578,7 @@ void *TLobby__sub_802936AC(void *arg0, s16 arg1) {
     if (arg0 != NULL) {
         *(void **)((u8 *)arg0 + 0x18) = (void *)lbl_804DB888;
         copy_challenge_settings__6TLobbyFPvPv(lbl_804DB1F0, &lbl_804DAB60);
-        lbl_805D6580 = 0;
+        challenge_retry_object = 0;
         __dt__7TObjectFv(arg0, 0);
         if (arg1 > 0) {
             __dl__7TObjectFPv(arg0);
@@ -1616,5 +1616,5 @@ void copy_global_value_block__6TLobbyFv(void) {
 #undef get_card_window__17TWindowSubComCardFUi
 #undef set_split_screen_name__6TLobbyFi
 #undef create_challenge4p__6TLobbyFv
-#undef lbl_805D6588
+#undef split_screen_flag
 __declspec(section ".ctors") static void *const __sinit_TLobby_80291D94_cpp_ref = (void *)copy_global_value_block__6TLobbyFv;

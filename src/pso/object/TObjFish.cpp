@@ -22,7 +22,7 @@ int alloc__23TAdSinglePlyChrSelectGCFPv(void *);
 void * __nw__7TObjectFUl(int);
 s32 get_global_state__14TOKeyMachine01Fv();
 void render__8TObjFishFv(u8 *arg0);
-s32 TObjFish__sub_8029E170(u8 *arg0, Vec_8029E170 *arg1, s32 arg2, s32 arg3);
+s32 init_fish_school__8TObjFishFPvPvii(u8 *arg0, Vec_8029E170 *arg1, s32 arg2, s32 arg3);
 extern void* tl_05;
 extern s32 TObjFish__area_bml_resource;
 extern void* __vt__8TObjFish[];
@@ -617,7 +617,7 @@ extern const f32 lbl_805DDD7C;
 
 #pragma push
 #pragma fp_contract on
-s32 TObjFish__sub_8029E170(u8 *arg0, Vec_8029E170 *arg1, s32 arg2, s32 arg3) {
+s32 init_fish_school__8TObjFishFPvPvii(u8 *arg0, Vec_8029E170 *arg1, s32 arg2, s32 arg3) {
     Ent_8029E170 *p;
     s32 i;
 
@@ -676,7 +676,7 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 #define __nw__7TObjectFUl ((u8 * (*)(M2C_UNK))__nw__7TObjectFUl)
 #define get_global_state__14TOKeyMachine01Fv ((s32 (*)(void))get_global_state__14TOKeyMachine01Fv)
 #define render__8TObjFishFv ((void (*)())render__8TObjFishFv)
-#define TObjFish__sub_8029E170 ((s32 (*)(void *, void *, int, int))TObjFish__sub_8029E170)
+#define init_fish_school__8TObjFishFPvPvii ((s32 (*)(void *, void *, int, int))init_fish_school__8TObjFishFPvPvii)
 #define tl_05 (*(s32 *)&tl_05)
 #define TObjFish__area_bml_resource (*(u32 *)&TObjFish__area_bml_resource)
 
@@ -739,7 +739,7 @@ u8 *TObjFish__ct(u8 *arg0, M2C_UNK arg1, u8 *arg2) {
     if ((s32) M2C_FIELD(arg0, s32 *, 0x94) < 1) {
         M2C_FIELD(arg0, s32 *, 0x94) = 1;
     }
-    if (TObjFish__sub_8029E170((void *) (arg0), (void *) (arg0 + 0x68), (int) (M2C_FIELD(arg2, s32 *, 0x30)), (int) (M2C_FIELD(arg2, s32 *, 0x34))) == 0) {
+    if (init_fish_school__8TObjFishFPvPvii((void *) (arg0), (void *) (arg0 + 0x68), (int) (M2C_FIELD(arg2, s32 *, 0x30)), (int) (M2C_FIELD(arg2, s32 *, 0x34))) == 0) {
         queue_destruction__7TObjectFv((void *) (arg0));
     }
     return arg0;
@@ -909,6 +909,6 @@ void load_area_resource__8TObjFishFv(void) {
 #undef __nw__7TObjectFUl
 #undef get_global_state__14TOKeyMachine01Fv
 #undef render__8TObjFishFv
-#undef TObjFish__sub_8029E170
+#undef init_fish_school__8TObjFishFPvPvii
 #undef tl_05
 #undef TObjFish__area_bml_resource

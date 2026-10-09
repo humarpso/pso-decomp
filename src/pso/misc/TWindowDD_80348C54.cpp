@@ -3,7 +3,7 @@
 struct Pkt_80348C78 { u8 hdr[2]; u16 player; u8 body[0x1c]; };
 
 extern "C" {
-extern s32 lbl_805D53A0;
+extern s32 local_client_id;
 void init_header__9TWindowDDFPv(void* p);
 void copy_chat_entry__9TWindowDDFPvPv(void *, void *);
 void update_and_send_lobby__9TWindowDDFPv(void* p);
@@ -26,7 +26,7 @@ int handle_word_select__9TWindowDDFPv(void* p) { return bswap_word_select__9TWin
 void send_chat_packet__9TWindowDDFPv(void *data) {
     Pkt_80348C78 pkt;
     init_header__9TWindowDDFPv((void*)(&pkt));
-    pkt.player = lbl_805D53A0;
+    pkt.player = local_client_id;
     copy_chat_entry__9TWindowDDFPvPv(pkt.body, data);
     update_and_send_lobby__9TWindowDDFPv((void*)(&pkt));
 }

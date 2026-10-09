@@ -175,7 +175,7 @@ extern Pair_802150E8 lbl_8044BCC0[];
 extern unsigned char TQuestListOnline__data_80513DE8[];
 extern unsigned char TQuestListOnline__data_80513E24[];
 extern u8 main_task[];
-extern s32 lbl_805D53A0;
+extern s32 local_client_id;
 extern int TQuestListOnline__data_805D6198;
 extern int TQuestListOnline__data_805D619C;
 extern int TQuestListOnline__data_805D61A0;
@@ -200,7 +200,7 @@ int create_message_window__6TLobbyFiiUis(s32, Pair_80215380 *, s32, s32);
 s32 get_window_layout_position(s32);
 M2C_UNK memcpy(int, void *, int);
 extern Pair_80215380 lbl_8044BCB8[];
-extern s32 lbl_805D53A0;
+extern s32 local_client_id;
 extern s32 TQuestListOnline__data_805D6194;
 extern int TQuestListOnline__data_805D61A4;
 extern const f32 lbl_805DC664;
@@ -248,7 +248,7 @@ void begin_file_download__16TQuestListOnlineFPv(Ent_802150E8 *arg0) {
         render__9TMainTaskFv(main_task);
         render_screen_overlay__9TMainTaskFv(main_task);
         render_tick__Fv();
-        suppress_slot__11TWindowCtrlFi(lbl_805D53A0);
+        suppress_slot__11TWindowCtrlFi(local_client_id);
         run_all_lists__9TMainTaskFv(main_task);
         lbl_805D61AC = 1;
         lbl_805D61B0 = 0;
@@ -295,14 +295,14 @@ void receive_quest_info__16TQuestListOnlineFPv(void *arg0) {
         memcpy(TQuestListOnline__data_805D6194, arg0, 0x124);
         TQuestListOnline__sub_8013ACF4(2);
         if (THunterGuildSeqOffline__sub_80212074() != 0) {
-            suppress_slot__11TWindowCtrlFi(lbl_805D53A0);
+            suppress_slot__11TWindowCtrlFi(local_client_id);
             if ((u32) TQuestListOnline__data_805D61A4 != 0U) {
                 TWindow__close(TQuestListOnline__data_805D61A4);
                 TQuestListOnline__data_805D61A4 = 0;
             }
             p.a = lbl_8044BCB8[0].a;
             p.b = lbl_8044BCB8[0].b;
-            TQuestListOnline__data_805D61A4 = create_message_window__6TLobbyFiiUis(get_window_layout_position(0x2E), &p, 1, lbl_805D53A0);
+            TQuestListOnline__data_805D61A4 = create_message_window__6TLobbyFiiUis(get_window_layout_position(0x2E), &p, 1, local_client_id);
             set_field_1c__6TLobbyFPvf(TQuestListOnline__data_805D61A4, lbl_805DC664);
             send_and_handle__6TLobbyFPvii(TQuestListOnline__data_805D61A4, TQuestListOnline__data_805D6194 + 4, 0x80);
             if (get_camera_id__11TCameraCtrlFv() >= 2) {

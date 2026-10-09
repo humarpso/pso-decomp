@@ -10,10 +10,10 @@ void draw_debug_line__10TObjRoomIdFUiiii(u32 arg0, s32 arg1, s32 arg2, s32 arg3)
 M2C_UNK set_global_count__12TObjNpcEnemyFi(M2C_UNK);
 M2C_UNK debug_printf_at(s32, s32, ...);
 
-extern u32 lbl_805D53BC;
+extern u32 current_room_id;
 
 void draw_debug_line__10TObjRoomIdFUiiii(u32 arg0, s32 arg1, s32 arg2, s32 arg3) {
-    if (arg0 == (u32) lbl_805D53BC) {
+    if (arg0 == (u32) current_room_id) {
         set_global_count__12TObjNpcEnemyFi(0xFF00FF);
         debug_printf_at((arg1 << 0x10) | arg2, arg3);
         set_global_count__12TObjNpcEnemyFi(0xF0F0F0FF);

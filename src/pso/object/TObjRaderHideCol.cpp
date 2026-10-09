@@ -34,7 +34,7 @@ f32 xyz_distance_squared(void *, void *);
 Pl_801973B0 *get_player_by_client_id(s32);
 void hide_radar__13TRaderMapCoreFv();
 void show_radar__13TRaderMapCoreFv();
-extern s32 lbl_805D53A0;
+extern s32 local_client_id;
 void run_task__16TObjRaderHideColFv(Hide_801973B0 *arg0);
 }
 
@@ -50,7 +50,7 @@ void render__16TObjRaderHideColFv(void) {  }
 extern M2C_UNK __vt__16TObjRaderHideCol[];
 
 void run_task__16TObjRaderHideColFv(Hide_801973B0 *arg0) {
-    Pl_801973B0 *p = get_player_by_client_id(lbl_805D53A0);
+    Pl_801973B0 *p = get_player_by_client_id(local_client_id);
     if (p != 0) {
         if (xyz_distance_squared(arg0->pos, p->pos) < arg0->f90 * arg0->f90) {
             if (!(arg0->f94 & 1)) {

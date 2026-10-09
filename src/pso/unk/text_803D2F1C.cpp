@@ -14,7 +14,7 @@ extern "C" {
 void TLobby__sub_803D3130(s32 arg0, s32 arg1, u8 *arg2, u8 *arg3);
 int strncmp(const char *, const char *, u32);
 extern u32 lbl_804F9E60[];
-u8 *TLobby__sub_803D2F1C(Buf_803D2F1C *arc, const char *name, const char *stop, Buf_803D2F1C *out);
+u8 *find_archive_entry__6TLobbyFPvPvPvPv(Buf_803D2F1C *arc, const char *name, const char *stop, Buf_803D2F1C *out);
 }
 
 extern "C" {
@@ -34,7 +34,7 @@ inline s32 size_803D2F1C(u8 *p) {
     v = (v << 4) + HEX_803D2F1C(p, 14);
     return v;
 }
-u8 *TLobby__sub_803D2F1C(Buf_803D2F1C *arc, const char *name, const char *stop, Buf_803D2F1C *out) {
+u8 *find_archive_entry__6TLobbyFPvPvPvPv(Buf_803D2F1C *arc, const char *name, const char *stop, Buf_803D2F1C *out) {
     u8 *p;
     u8 *end;
     out->data = NULL;

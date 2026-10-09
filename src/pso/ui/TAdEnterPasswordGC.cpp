@@ -83,7 +83,7 @@ M2C_UNK reset_input_state__22TAdEnterSerialAccessGCFPv(void *);
 M2C_UNK add_item_rect__12TLevelSelectFPvPv(int, void *);
 M2C_UNK set_active__22TAdEnterSerialAccessGCFPv(int);
 s32 create_default_callback__22TAdEnterSerialAccessGCFv(void *);
-extern RecoveredGlobal_8032B904_lbl_80477278 lbl_80477278;
+extern RecoveredGlobal_8032B904_lbl_80477278 enter_password_item_rect_table;
 extern u8 *lbl_805D6CA0;
 extern s32 lbl_805D6CA4;
 void open_keyboard_window__18TAdEnterPasswordGCFPv(s32 arg0);
@@ -127,7 +127,7 @@ s32 forward_input__22TAdEnterSerialAccessGCFPv(void *, int, s32);
 void strncpy(s32, s32, s32);
 M2C_UNK memset(void *, int, int);
 s32 strlen(s32);
-extern RecoveredGlobal_8032B904_lbl_80477278 lbl_80477278;
+extern RecoveredGlobal_8032B904_lbl_80477278 enter_password_item_rect_table;
 extern RecoveredGlobal_8032BA8C_TAdEnterPasswordGC__data_804EDA20 TAdEnterPasswordGC__data_804EDA20;
 extern u8 lbl_8050E208[];
 extern u8 lbl_8050E3B8[];
@@ -245,14 +245,14 @@ void update_password_input__18TAdEnterPasswordGCFPv(Pw_8032B6A0 *self) {
       if (self->serial != 0)
       {
         reset_input_state__22TAdEnterSerialAccessGCFPv((void *) self->serial);
-        add_item_rect__12TLevelSelectFPvPv(self->serial, ((u8 *) (&lbl_80477278.value)) + 8);
+        add_item_rect__12TLevelSelectFPvPv(self->serial, ((u8 *) (&enter_password_item_rect_table.value)) + 8);
       }
     }
     else
       if (self->serial != 0)
     {
       reset_input_state__22TAdEnterSerialAccessGCFPv((void *) self->serial);
-      add_item_rect__12TLevelSelectFPvPv(self->serial, &lbl_80477278.value);
+      add_item_rect__12TLevelSelectFPvPv(self->serial, &enter_password_item_rect_table.value);
     }
   }
   if ((get_selected_slot__23TAdSinglePlyChrSelectGCFPv(self->serial) == 1) && (update_keyboard__17TWindowSubComCardFPv(lbl_805D6CA0) != 0))
@@ -271,7 +271,7 @@ void open_keyboard_window__18TAdEnterPasswordGCFPv(s32 arg0) {
     M2C_FIELD(arg0, s32 *, 0x34) = create_default_callback__22TAdEnterSerialAccessGCFv((void *) (arg0));
     if ((u32) M2C_FIELD(arg0, u32 *, 0x2C) != 0U) {
         reset_input_state__22TAdEnterSerialAccessGCFPv(M2C_FIELD(arg0, void **, 0x2C));
-        add_item_rect__12TLevelSelectFPvPv((int) (M2C_FIELD(arg0, u32 *, 0x2C)), (void *) (&lbl_80477278.value));
+        add_item_rect__12TLevelSelectFPvPv((int) (M2C_FIELD(arg0, u32 *, 0x2C)), (void *) (&enter_password_item_rect_table.value));
         set_active__22TAdEnterSerialAccessGCFPv((int) (M2C_FIELD(arg0, u32 *, 0x2C)));
     }
     (*(u32 *)&lbl_805D6CA0) = create_keyboard_control__22TAdEnterSerialAccessGCFii(arg0, 2);

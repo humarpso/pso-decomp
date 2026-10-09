@@ -68,7 +68,7 @@ void set_sprite_uv_from_pixels(void *, f32, f32);
 extern const Vec2_80247F68 lbl_8044E82C[];
 extern const Vec2_80247F68 lbl_8044EA5C[];
 extern const f32 lbl_805DCB7C;
-void TWindowSubSymbolChatPartsSet__sub_80247F68(void *arg0, s16 id, s32 a, s32 b);
+void set_part_sprite__28TWindowSubSymbolChatPartsSetFPvsii(void *arg0, s16 id, s32 a, s32 b);
 void set_sprite_uv_from_pixels(void *, f32, f32);
 int get_parts_entry__28TWindowSubSymbolChatPartsSetFi(int a0);
 extern const V2_80248374 lbl_8044E7EC[];
@@ -129,7 +129,7 @@ void set_pos__28TWindowSubSymbolChatPartsSetFPvss(u8 *arg0, s16 arg1, s16 arg2) 
 #pragma push
 #pragma fp_contract on
 #define o ((Win_80247F68 *)arg0)
-void TWindowSubSymbolChatPartsSet__sub_80247F68(void *arg0, s16 id, s32 a, s32 b) {
+void set_part_sprite__28TWindowSubSymbolChatPartsSetFPvsii(void *arg0, s16 id, s32 a, s32 b) {
     const Vec2_80247F68 *e;
     const Vec2_80247F68 *size;
     f32 h;
@@ -176,7 +176,7 @@ void apply_part_to_window__28TWindowSubSymbolChatPartsSetFPvPvi(Obj_80248088 *ar
     w = arg0->tbl->win[arg2];
     set_pos__28TWindowSubSymbolChatPartsSetFPvss((u8 *)(w), (s16)(arg1->a), (s16)(arg1->b));
     f = arg1->flags;
-    TWindowSubSymbolChatPartsSet__sub_80247F68((void *)(w), (s16)(arg1->id), (s32)(f & 1), (s32)((f >> 1) & 1));
+    set_part_sprite__28TWindowSubSymbolChatPartsSetFPvsii((void *)(w), (s16)(arg1->id), (s32)(f & 1), (s32)((f >> 1) & 1));
 }
 
 void setup_part_sprites__28TWindowSubSymbolChatPartsSetFPvPvPvUsiiii(Part_802480EC *arg0, Part_802480EC *arg1, Part_802480EC *arg2, u16 arg3, s32 arg4, s32 arg5, s32 arg6, s32 arg7) {

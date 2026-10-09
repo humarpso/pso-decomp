@@ -189,7 +189,7 @@ void *__dt__17TOHangerMachine01Fv(void *arg0, s16 arg1) {
     return arg0;
 }
 
-extern s32 lbl_805D53A0;
+extern s32 local_client_id;
 
 typedef char RecoveredGlobal_8016904C_lbl_804B26D8_size[sizeof(RecoveredGlobal_8016904C_lbl_804B26D8) == 0x2C ? 1 : -1];
 typedef char RecoveredGlobal_8016904C___vt__17TOHangerMachine01_size[sizeof(RecoveredGlobal_8016904C___vt__17TOHangerMachine01) == 0x3C ? 1 : -1];
@@ -214,7 +214,7 @@ s32 is_valid_slot__17TOHangerMachine01FiUs(int arg0, u16 arg1) {
     if (is_not_split_screen__13TRaderMapCoreFv() == 1) {
         return 1;
     }
-    return (u32)__cntlzw((u32)(lbl_805D53A0 - (u16)arg1)) >> 5;
+    return (u32)__cntlzw((u32)(local_client_id - (u16)arg1)) >> 5;
 }
 
 void TOHangerMachine01__sub_80169168(void) {  }

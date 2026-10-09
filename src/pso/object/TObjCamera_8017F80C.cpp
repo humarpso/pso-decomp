@@ -109,7 +109,7 @@ void fn_8017F4AC(void *);
 void fn_8017F52C();
 Obj_8017F910 *get_player_by_client_id(s32);
 f32 vec_squared_length(Vec_8017F910 *);
-extern s32 lbl_805D53A0;
+extern s32 local_client_id;
 extern const f32 TObjCamera__data_805DBB58;
 extern const f32 lbl_805DBB68;
 extern const f32 lbl_805DBB6C;
@@ -195,7 +195,7 @@ void run_task__10TObjCameraFv(Obj_8017F910 *self) {
     if (self->visible != 0) {
         fn_8017F4AC(self);
     }
-    pl = get_player_by_client_id(lbl_805D53A0);
+    pl = get_player_by_client_id(local_client_id);
     if (pl != NULL) {
         d.x = pl->pos.x - self->pos.x;
         d.z = pl->pos.z - self->pos.z;

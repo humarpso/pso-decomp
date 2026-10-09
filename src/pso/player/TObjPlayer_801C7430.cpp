@@ -2118,7 +2118,7 @@ extern RecoveredGlobal_801D2CF4_lbl_804C43CC lbl_804C43CC;
 extern RecoveredGlobal_801D2CF4_lbl_804C43D8 lbl_804C43D8;
 extern f32 lbl_8050BEE0[];
 extern f32 lbl_8050BFE0[];
-extern void *lbl_8050EA10[];
+extern void *player_slot_table[];
 extern u8 *lbl_805D3530;
 extern s32 TWindowReturnCity__class_name;
 extern u8 *TObjPlayer__shared_photon_blast_state;
@@ -4579,7 +4579,7 @@ void freeze_players_for_photon_blast(s16 arg0, u16 *arg1) {
     s32 i;
     void *obj;
     void **tbl;
-    tbl = lbl_8050EA10;
+    tbl = player_slot_table;
     i = 0;
     do {
         obj = *tbl;

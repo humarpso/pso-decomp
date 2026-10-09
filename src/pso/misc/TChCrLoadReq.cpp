@@ -7,7 +7,7 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 struct RecoveredGlobal_8028D360___vt__12TChCrLoadReq { M2C_UNK value; u8 remaining[0x14]; };
 typedef char RecoveredGlobal_8028D360___vt__12TChCrLoadReq_size[sizeof(RecoveredGlobal_8028D360___vt__12TChCrLoadReq) == 0x18 ? 1 : -1];
 
-extern "C" { s32 lbl_805D6510; }
+extern "C" { s32 chr_select_load_slot_count; }
 
 class TChCrLoadReq {
 public:

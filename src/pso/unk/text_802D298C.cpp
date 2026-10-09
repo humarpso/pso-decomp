@@ -37,7 +37,7 @@ s32 fn_801D4270(s32);
 M2C_UNK send_trade_ready__9TProtocolFv(s32);
 s32 load_character_from_card__23TAdSinglePlyChrSelectGCFv();
 M2C_UNK *TLobby__sub_802D29AC(void);
-extern s32 lbl_805D53A0;
+extern s32 local_client_id;
 extern s32 TLobby__protocol_instance;
 extern u8 TLobby__data_805D688B;
 void apply_trade_items__6TLobbyFv(void);
@@ -121,7 +121,7 @@ void apply_trade_items__6TLobbyFv(void) {
     s32 count;
     s32 flag;
     if ((s32) TLobby__data_805D688B == 7) {
-        player = get_player_by_client_id(lbl_805D53A0);
+        player = get_player_by_client_id(local_client_id);
         if (player != 0) {
             list = (struct E_802D2A70 *)((s32 *)TLobby__sub_802D29AC());
             if (list != NULL) {

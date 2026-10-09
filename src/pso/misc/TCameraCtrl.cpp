@@ -27,7 +27,7 @@ extern const f32 TCameraCtrl__data_805D8FA8;
 extern const f32 TCameraCtrl__data_805D8FAC;
 extern const f32 TCameraCtrl__data_805D8FDC;
 extern const f32 TCameraCtrl__data_805D8FE0;
-void TCameraCtrl__sub_8006AF9C(Obj_8006AF9C *arg0, Vec_8006AF9C *arg1);
+void setup_default_view__11TCameraCtrlFPvPv(Obj_8006AF9C *arg0, Vec_8006AF9C *arg1);
 }
 
 extern "C" {
@@ -520,7 +520,7 @@ extern "C" {
 void update_target_from_state__11TCameraCtrlFPv(void *arg0);
 u32 get_player_by_client_id(s32);
 
-extern s32 lbl_805D53A0;
+extern s32 local_client_id;
 
 void update_target_from_state__11TCameraCtrlFPv(void *arg0) {
     if ((!(M2C_FIELD(TCameraCtrl__data_804FF628, s32 *, 8) & 4) && !(M2C_FIELD(TCameraCtrl__data_804FF628, s32 *, 8) & 8)) || (M2C_FIELD(TCameraCtrl__data_804FF628, s32 *, 8) & 0x20) || (M2C_FIELD(TCameraCtrl__data_804FF628, s32 *, 8) & 0x80) || (M2C_FIELD(TCameraCtrl__data_804FF628, s32 *, 8) & 0x800)) {
@@ -530,7 +530,7 @@ void update_target_from_state__11TCameraCtrlFPv(void *arg0) {
         }
         if ((M2C_FIELD(TCameraCtrl__data_804FF628, s32 *, 8) & 0x20) || (M2C_FIELD(TCameraCtrl__data_804FF628, s32 *, 8) & 0x80)) {
             select_camera_controller(M2C_FIELD(TCameraCtrl__data_804FF628, u8 *, 1));
-            u32 temp = get_player_by_client_id(lbl_805D53A0);
+            u32 temp = get_player_by_client_id(local_client_id);
             if (temp != 0U) {
                 reset_cameras_to_actor(temp, 0);
             }
@@ -810,7 +810,7 @@ void *lbl_80488AC0[6] = {
 void reset_split_flag__11TCameraCtrlFPv(void *arg0) {
     if ((is_split_screen() == 0) && (get_state_flag__9TMainTaskFv() != 1)) {
         if ((u8) M2C_FIELD(arg0, u8 *, 0x1C) == 0) {
-            TCameraCtrl__sub_8006AF9C((Obj_8006AF9C *)(arg0), (Vec_8006AF9C *)(0));
+            setup_default_view__11TCameraCtrlFPvPv((Obj_8006AF9C *)(arg0), (Vec_8006AF9C *)(0));
         }
         M2C_FIELD(arg0, u8 *, 0x1C) = 0U;
     }
@@ -949,7 +949,7 @@ u8 * copy_view_params__11TCameraCtrlFii(s32 arg0, s32 arg1) {
 
 #define self ((Cam_8006B0D4 *)arg0)
 
-void TCameraCtrl__sub_8006AF9C(Obj_8006AF9C *arg0, Vec_8006AF9C *arg1) {
+void setup_default_view__11TCameraCtrlFPvPv(Obj_8006AF9C *arg0, Vec_8006AF9C *arg1) {
     Vec_8006AF9C eye;
     Vec_8006AF9C at;
     Vec_8006AF9C d;

@@ -19,7 +19,7 @@ M2C_UNK __ct__7TObjectFP7TObject();
 M2C_UNK update_collision__18TObjBoss7TunnelColFPv(void *);
 M2C_UNK TObjBoss2Tunnel__sub_802F2278();
 M2C_UNK copy_position__16TBoss8DragonDemoFPv(int, void *);
-extern RecoveredGlobal_802F1FB0_lbl_804E4978 lbl_804E4978;
+extern RecoveredGlobal_802F1FB0_lbl_804E4978 boss2_tunnel_effect_name_table;
 extern RecoveredGlobal_802F1FB0_lbl_804E4B24 lbl_804E4B24;
 u8 *fn_802F1FB0(u8 *arg0, u8 *arg1, s32 arg2, s32 arg3, f32 farg0);
 }
@@ -36,7 +36,7 @@ u8 *fn_802F1FB0(u8 *arg0, u8 *arg1, s32 arg2, s32 arg3, f32 farg0) {
     temp_r5 = arg2 * 8;
     M2C_FIELD(arg0, M2C_UNK **, 0x18) = &lbl_804E4B24.value;
     temp_r6 = M2C_FIELD(arg1, s32 *, 0x10);
-    temp_r31 = (u8 *)&lbl_804E4978.value + temp_r5;
+    temp_r31 = (u8 *)&boss2_tunnel_effect_name_table.value + temp_r5;
     M2C_FIELD(arg0, s32 *, 0x34) = temp_r6;
     VecCopy__FP3VecPC3Vec((void *) (arg0 + 0x1C), (void *) (arg3), (int) (temp_r5), (int) (temp_r6));
     M2C_FIELD(arg0, s32 *, 0x28) = 0;

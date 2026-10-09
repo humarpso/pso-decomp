@@ -31,7 +31,7 @@ void use_combination_recipe__5TItemFPv(void *arg0);
 s32 get_main_phase();
 u32 build_item_id(u16);
 s32 advance_item_id_counter(u16);
-extern s32 lbl_805D53A0;
+extern s32 local_client_id;
 extern s32 lbl_805D5450;
 extern s32 *TLobby__data_805D6140;
 void assign_item_id__6TLobbyFPv(Obj_800FFF68 *o);
@@ -89,7 +89,7 @@ void assign_item_id__6TLobbyFPv(Obj_800FFF68 *o) {
         }
     } else if (o->handle == -1) {
         lbl_805D5450 = 1;
-        o->handle = advance_item_id_counter(lbl_805D53A0);
+        o->handle = advance_item_id_counter(local_client_id);
     }
 }
 

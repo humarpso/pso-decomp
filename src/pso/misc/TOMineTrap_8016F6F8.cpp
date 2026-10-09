@@ -14,7 +14,7 @@ f32 horizontal_distance_squared(void *, void *);
 u16 get_trap_type__10TOMineTrapFPv(void *);
 s32 get_trap_count__10TOMineTrapFv(void);
 u8 get_rule_field_0__6TLobbyFPv(void *);
-extern u8 lbl_8050EA40[];
+extern u8 lobby_rule_settings[];
 s32 find_target_in_range__10TOMineTrapFPv(Trap_8016F704 *self);
 u16 obj_getField1c(void *);
 s32 get_current_floor(void);
@@ -30,7 +30,7 @@ M2C_UNK VecCopy__FP3VecPC3Vec(void *, void *);
 s32 is_split_screen();
 void *TOMineDisp__ct(void *, void *, u16);
 void *__nw__7TObjectFUl(u32);
-extern s32 lbl_805D53A0;
+extern s32 local_client_id;
 void spawn_disp_objects__10TOMineTrapFPv(u8 *arg0);
 }
 
@@ -459,7 +459,7 @@ s32 find_target_in_range__10TOMineTrapFPv(Trap_8016F704 *self) {
             continue;
         }
         if (id == get_trap_type__10TOMineTrapFPv(self) && get_trap_count__10TOMineTrapFv() != 1 &&
-            get_rule_field_0__6TLobbyFPv(lbl_8050EA40) != 0) {
+            get_rule_field_0__6TLobbyFPv(lobby_rule_settings) != 0) {
             continue;
         }
         if (id < 0x1000) {
@@ -591,7 +591,7 @@ void spawn_disp_objects__10TOMineTrapFPv(u8 *arg0) {
     if (is_split_screen() == 0) {
         obj = (u8 *)__nw__7TObjectFUl(0xAC);
         if (obj != NULL) {
-            obj = (u8 *)TOMineDisp__ct(obj, arg0, (u16)lbl_805D53A0);
+            obj = (u8 *)TOMineDisp__ct(obj, arg0, (u16)local_client_id);
         }
         if (obj != NULL) {
             VecCopy__FP3VecPC3Vec(obj + 0x50, arg0 + 0x50);

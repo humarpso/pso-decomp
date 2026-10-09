@@ -3,9 +3,9 @@
 extern "C" {
 
 void destroy_instance__6TLobbyFv(void);
-int TLobby__sub_803CCE9C(void*);
+int close_adxf_handle__6TLobbyFPv(void*);
 
-    extern int lbl_805D5374;
-void destroy_instance__6TLobbyFv(void) { TLobby__sub_803CCE9C((void*)(lbl_805D5374)); lbl_805D5374 = 0; }
+    extern int lobby_download_state_ptr;
+void destroy_instance__6TLobbyFv(void) { close_adxf_handle__6TLobbyFPv((void*)(lobby_download_state_ptr)); lobby_download_state_ptr = 0; }
 
 }

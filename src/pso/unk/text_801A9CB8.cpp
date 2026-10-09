@@ -21,7 +21,7 @@ struct Obj_801A9CB8 {
 };
 
 extern "C" {
-extern struct Rec_801AA17C lbl_8050E890[];
+extern struct Rec_801AA17C photon_blast_sequence_table[];
 s32 get_photon_blast_chain(struct Rec_801AA17C *output, s32 player);
 void __dt__7TObjectFv(void *, int);
 void release_photon_blast_camera__11TCameraCtrlFv(void);
@@ -34,8 +34,8 @@ void set_and_notify_default__6TLobbyFv(void);
 void __dl__7TObjectFPv(void *);
 void TLobby__sub_8024AC20(s32);
 extern u8 lbl_804C349C[];
-extern struct Rec_801AA17C lbl_8050E890[];
-extern s32 lbl_805D53A0;
+extern struct Rec_801AA17C photon_blast_sequence_table[];
+extern s32 local_client_id;
 Obj_801A9CB8 *destroy_photon_blast_sequence(Obj_801A9CB8 *self, s16 flag);
 }
 
@@ -49,11 +49,11 @@ Obj_801A9CB8 *destroy_photon_blast_sequence(Obj_801A9CB8 *self, s16 flag) {
         if (self->active != 0) {
             set_and_notify_default__6TLobbyFv();
             release_photon_blast_player_holds((u8 *)self + 0x90);
-            if (get_player_by_client_id(lbl_805D53A0) != NULL) {
-                TLobby__sub_8024AC20(lbl_805D53A0);
+            if (get_player_by_client_id(local_client_id) != NULL) {
+                TLobby__sub_8024AC20(local_client_id);
                 release_photon_blast_camera__11TCameraCtrlFv();
                 restore_player_cameras();
-                reset_cameras_to_actor(get_player_by_client_id(lbl_805D53A0), 0);
+                reset_cameras_to_actor(get_player_by_client_id(local_client_id), 0);
             }
         } else {
             restore_fog_for_player__8TFogCtrlFii(self->id, 0);
@@ -62,10 +62,10 @@ Obj_801A9CB8 *destroy_photon_blast_sequence(Obj_801A9CB8 *self, s16 flag) {
             for (i = 0; i < 4; i++) {
                 if (self->ids[i] < 4) {
                     for (j = 0; j < 4; j++) {
-                        lbl_8050E890[self->ids[i]].kinds[j] = -1;
-                        lbl_8050E890[self->ids[i]].participants[j] = 0xFFFF;
+                        photon_blast_sequence_table[self->ids[i]].kinds[j] = -1;
+                        photon_blast_sequence_table[self->ids[i]].participants[j] = 0xFFFF;
                     }
-                    lbl_8050E890[self->ids[i]].state = 0;
+                    photon_blast_sequence_table[self->ids[i]].state = 0;
                 }
             }
         }
@@ -79,20 +79,20 @@ Obj_801A9CB8 *destroy_photon_blast_sequence(Obj_801A9CB8 *self, s16 flag) {
 
 s32 get_photon_blast_chain(struct Rec_801AA17C *output, s32 player) {
     s32 i;
-    if (lbl_8050E890[player].state == 0) {
+    if (photon_blast_sequence_table[player].state == 0) {
         return 0;
     }
-    if (lbl_8050E890[player].state == 2) {
+    if (photon_blast_sequence_table[player].state == 2) {
         for (i = 0; i < 4; i++) {
-            output->kinds[i] = lbl_8050E890[player].kinds[i];
-            output->participants[i] = lbl_8050E890[player].participants[i];
+            output->kinds[i] = photon_blast_sequence_table[player].kinds[i];
+            output->participants[i] = photon_blast_sequence_table[player].participants[i];
         }
         return 2;
     }
-    if (lbl_8050E890[player].state == 1) {
+    if (photon_blast_sequence_table[player].state == 1) {
         for (i = 0; i < 4; i++) {
-            output->kinds[i] = lbl_8050E890[player].kinds[i];
-            output->participants[i] = lbl_8050E890[player].participants[i];
+            output->kinds[i] = photon_blast_sequence_table[player].kinds[i];
+            output->participants[i] = photon_blast_sequence_table[player].participants[i];
         }
         return 1;
     }

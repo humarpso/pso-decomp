@@ -14,7 +14,7 @@ extern const f32 lbl_805DCCBC;
 s32 step_toward_target__18TWindowEffectPartyFPvff(u8 *arg0, f32 farg0, f32 farg1);
 void *__nw__7TObjectFUl(u32);
 void *TWindowEffectParty__ct(void *, void *, u16, u16, s32);
-extern s32 lbl_805D53A0;
+extern s32 local_client_id;
 void *create__18TWindowEffectPartyFPviiUi(void *owner, s32 from, s32 to, u32 kind);
 }
 
@@ -27,7 +27,7 @@ s32 get_window_layout_position(M2C_UNK);
 M2C_UNK copy_vec2__28TWindowSubSymbolChatPartsSetFPvPv(void *, s32);
 f32 get_scale__15TWindowCtrlMainFv(s32);
 
-extern s32 lbl_805D53A0;
+extern s32 local_client_id;
 extern f32 lbl_805DCCC0;
 
 #pragma fp_contract on
@@ -52,7 +52,7 @@ s32 step_toward_target__18TWindowEffectPartyFPvff(u8 *arg0, f32 farg0, f32 farg1
 void calc_effect_position__18TWindowEffectPartyFPvPv(void *arg0, void *arg1) {
     M2C_FIELD(arg1, f32 *, 0) = (f32) M2C_FIELD(arg0, f32 *, 0x20);
     M2C_FIELD(arg1, f32 *, 4) = (f32) M2C_FIELD(arg0, f32 *, 0x24);
-    M2C_FIELD(arg1, f32 *, 8) = (f32) (lbl_805DCCC0 / get_scale__15TWindowCtrlMainFv(lbl_805D53A0));
+    M2C_FIELD(arg1, f32 *, 8) = (f32) (lbl_805DCCC0 / get_scale__15TWindowCtrlMainFv(local_client_id));
 }
 
 extern const f32 lbl_805DCCC4;
@@ -110,11 +110,11 @@ void *create__18TWindowEffectPartyFPviiUi(void *owner, s32 from, s32 to, u32 kin
     default:
         return 0;
     }
-    a = from - lbl_805D53A0;
+    a = from - local_client_id;
     if (a & 0xFFFC) {
         a += 4;
     }
-    b = to - lbl_805D53A0;
+    b = to - local_client_id;
     if (b & 0xFFFC) {
         b += 4;
     }

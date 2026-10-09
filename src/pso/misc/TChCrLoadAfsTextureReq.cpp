@@ -78,7 +78,7 @@ void __dl__7TObjectFPv(void *);
 void finish_request__22TChCrLoadAfsTextureReqFPv(void *arg0);
 s32 TLobby__sub_803CC4C0(s32);
 void adxf_stop__6TLobbyFPv(s32);
-void TLobby__sub_803CCE9C(s32);
+void close_adxf_handle__6TLobbyFPv(s32);
 extern M2C_UNK __vt__22TChCrLoadAfsTextureReq[];
 Req_8028C1F0 *__dt__22TChCrLoadAfsTextureReqFv(Req_8028C1F0 *arg0, s16 arg1);
 }
@@ -162,7 +162,7 @@ Req_8028C1F0 *__dt__22TChCrLoadAfsTextureReqFv(Req_8028C1F0 *arg0, s16 arg1) {
             if (TLobby__sub_803CC4C0(arg0->handle) == 2) {
                 adxf_stop__6TLobbyFPv(arg0->handle);
             }
-            TLobby__sub_803CCE9C(arg0->handle);
+            close_adxf_handle__6TLobbyFPv(arg0->handle);
             arg0->handle = 0;
         }
         finish_request__22TChCrLoadAfsTextureReqFPv(arg0);

@@ -109,7 +109,7 @@ void clamp_velocity__15TObjBoss2TunnelFPv(void *);
 extern const f64 TObjEneDelDepth__data_80475DD0;
 extern u8 *TObjEneDelDepth__tune_params;
 extern M2C_UNK TObjEneDelDepth_collision_body_parts[];
-extern s32 lbl_805D53A4;
+extern s32 actor_frame_tick;
 extern const float TObjEneDelDepth__data_805DF258;
 extern const f32 TObjEneDelDepth__data_805DF260;
 extern const f32 TObjEneDelDepth__data_805DF268;
@@ -671,7 +671,7 @@ extern Ent_803154A8 lbl_804E836C[];
 extern M2C_UNK lbl_8058D490[];
 extern s32 lbl_805D4118;
 extern s32 lbl_805D411C;
-extern s32 lbl_805D53A4;
+extern s32 actor_frame_tick;
 extern s32 game_difficulty_selection;
 extern s32 anim_model_matrix_array;
 extern const f32 lbl_805DF250;
@@ -841,7 +841,7 @@ u8 *TObjEneDelDepthBomb__ct(u8 *arg0, M2C_UNK arg1, s32 arg2, s32 arg3, s32 arg4
 void update_ground_check__15TObjEneDelDepthFPv(u8 *arg0) {
     Stack_80313694 stack;
     u8 *temp_r3;
-    if ((lbl_805D53A4 % 5) == 0) {
+    if ((actor_frame_tick % 5) == 0) {
         ((void (*)(void *, void *))VecCopy__FP3VecPC3Vec)(&stack.sp8, arg0 + 0x38);
         stack.spC += TObjEneDelDepth__data_805DF270;
         temp_r3 = (u8 *)(csnVectorUnder((s32) &stack.sp8, arg0 + 0x120, 0x4000));
@@ -1250,7 +1250,7 @@ void update_movement__15TObjEneDelDepthFPv(Obj_80314758 *arg0) {
     s32 k;
     s32 ang;
     s32 rot;
-    if ((lbl_805D53A4 % 5) == 0) {
+    if ((actor_frame_tick % 5) == 0) {
         init_all_slots__10TObjPlayerFv();
         check_object_collisions__10TObjPlayerFPv(arg0);
         for (i = 0; i < 16; i++) {

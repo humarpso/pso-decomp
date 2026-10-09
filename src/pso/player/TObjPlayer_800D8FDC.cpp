@@ -220,7 +220,7 @@ extern "C" {
 extern const f32 lbl_805DA3D8;
 s32 TObjPlayer__sub_800D9560(f32 *arg0);
 extern s32 player_particle_effect_enabled;
-extern u8 lbl_80494A48[];
+extern u8 corpse_mark_resource_descriptor[];
 int alloc__23TAdSinglePlyChrSelectGCFPv(void *);
 u8 *load_resource_from_descriptor(void *, s32, void *, s32, s32, s32);
 void load_corpse_mark_resource(void);
@@ -246,7 +246,7 @@ extern s32 some_id_805c6f74;
 void load_corpse_mark_resource(void) {
     u8 *p = (u8 *)alloc__23TAdSinglePlyChrSelectGCFPv((void *)0x440);
     if (p != 0) {
-        p = load_resource_from_descriptor(p, 1, lbl_80494A48, 0, 0, 0);
+        p = load_resource_from_descriptor(p, 1, corpse_mark_resource_descriptor, 0, 0, 0);
     }
     player_corpse_mark_resource = (u32)p;
     player_particle_effect_enabled = 1;

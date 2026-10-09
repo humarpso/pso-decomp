@@ -74,7 +74,7 @@ M2C_UNK VecCopy__FP3VecPC3Vec(void *, void *);
 M2C_UNK queue_destruction__7TObjectFv(void *);
 u8 *csnVectorUnder(void *, void *, int);
 M2C_UNK vec3_add_to(void *, void *);
-extern s32 lbl_805D53A4;
+extern s32 actor_frame_tick;
 extern const f32 lbl_805D9E60;
 extern const f32 TObjCGrass__data_805D9E64;
 void run_task__10TObjCGrassFv(u8 *arg0);
@@ -182,7 +182,7 @@ void run_task__10TObjCGrassFv(u8 *arg0) {
         VecCopy__FP3VecPC3Vec(&b, &self->recs[i].v2);
         VecCopy__FP3VecPC3Vec(&self->f44, &a);
         vec3_add_to(&a, &b);
-        if (i == lbl_805D53A4 % self->count) {
+        if (i == actor_frame_tick % self->count) {
             hit = (Hit_800B8BB4 *)csnVectorUnder(&a, self->f10C, 1);
             if (hit != NULL) {
                 VecCopy__FP3VecPC3Vec(&a, hit->pos);

@@ -21,11 +21,11 @@ s32 fn_8002AE08(s32);
 M2C_UNK advance_card_status__15TWindowCtrlMainFi(s32);
 M2C_UNK window_request_show(u32);
 
-extern s32 lbl_805D53A0;
+extern s32 local_client_id;
 
 void TWindowCtrl__sub_8024B9C0(void *arg0) {
     if ((u32) M2C_FIELD(arg0, u32 *, 0x30) != 0U) {
-        if (is_slot_visible__11TWindowCtrlFi(lbl_805D53A0) != 0) {
+        if (is_slot_visible__11TWindowCtrlFi(local_client_id) != 0) {
             request_close__19TWindowSubTradeMainFPv(M2C_FIELD(arg0, u32 *, 0x30));
             return;
         }
@@ -33,11 +33,11 @@ void TWindowCtrl__sub_8024B9C0(void *arg0) {
     }
 }
 
-extern s32 lbl_805D53A0;
+extern s32 local_client_id;
 
 void update_trade_window__11TWindowCtrlFPv(void *arg0) {
     if ((u32) M2C_FIELD(arg0, u32 *, 0x34) != 0U) {
-        if ((is_slot_visible__11TWindowCtrlFi(lbl_805D53A0) != 0) || (TWindowCtrl__sub_8024B000((void *)(arg0), (s32)(lbl_805D53A0)) != 0) || ((is_split_screen() != 0) && (is_active__13TRaderMapCoreFv() == 0))) {
+        if ((is_slot_visible__11TWindowCtrlFi(local_client_id) != 0) || (TWindowCtrl__sub_8024B000((void *)(arg0), (s32)(local_client_id)) != 0) || ((is_split_screen() != 0) && (is_active__13TRaderMapCoreFv() == 0))) {
             request_close__19TWindowSubTradeMainFPv(M2C_FIELD(arg0, u32 *, 0x34));
             return;
         }
@@ -46,11 +46,11 @@ void update_trade_window__11TWindowCtrlFPv(void *arg0) {
 }
 
 extern u8 lbl_8050E208[];
-extern s32 lbl_805D53A0;
+extern s32 local_client_id;
 
 void handle_controller__11TWindowCtrlFi(s32 arg0) {
-    if ((get_global_state__14TOKeyMachine01Fv() == 0xF) && (is_slot_visible__11TWindowCtrlFi(lbl_805D53A0) == 0) && (TWindowCtrl__sub_8024B000((void *)(arg0), (s32)(lbl_805D53A0)) == 0) && (has_player_active_menu__11TWindowCtrlFi(lbl_805D53A0) == 0) && (TWindowShortListCtrl__check_controller_button(lbl_8050E208 + 0x20, fn_8002AE08(lbl_805D53A0), (M2C_UNK *)lbl_8050E208) != 0)) {
-        advance_card_status__15TWindowCtrlMainFi(lbl_805D53A0);
+    if ((get_global_state__14TOKeyMachine01Fv() == 0xF) && (is_slot_visible__11TWindowCtrlFi(local_client_id) == 0) && (TWindowCtrl__sub_8024B000((void *)(arg0), (s32)(local_client_id)) == 0) && (has_player_active_menu__11TWindowCtrlFi(local_client_id) == 0) && (TWindowShortListCtrl__check_controller_button(lbl_8050E208 + 0x20, fn_8002AE08(local_client_id), (M2C_UNK *)lbl_8050E208) != 0)) {
+        advance_card_status__15TWindowCtrlMainFi(local_client_id);
     }
 }
 

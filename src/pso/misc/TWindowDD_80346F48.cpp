@@ -20,7 +20,7 @@ extern "C" {
 s32 TWindowDD__sub_80346FC0(s16 arg0);
 u32 get_player_by_client_id(int);
 char *strncpy(char *, const char *, u32);
-extern s32 lbl_805D53A0;
+extern s32 local_client_id;
 extern char **TWindowDD__player_name_buffers;
 extern DD_80346FE4 *TWindowDD__word_select_lists;
 void build_player_word_lists__9TWindowDDFv(void);
@@ -69,7 +69,7 @@ void build_player_word_lists__9TWindowDDFv(void) {
         p = get_player_by_client_id(i);
         if (p != 0) {
             strncpy(TWindowDD__player_name_buffers[i], (char *)(p + 0x85c), 0x18);
-            if (i != lbl_805D53A0) {
+            if (i != local_client_id) {
                 list[n++] = i + 0x68c;
                 if (n >= 16) {
                     break;

@@ -33,7 +33,7 @@ M2C_UNK create_quad_sprites__13TParticleCtrlFv();
 M2C_UNK TWindowCtrlMain__ct(u32);
 extern V3_8013F6C4 lbl_8043F138;
 extern V3_8013F6C4 lbl_8043F144;
-extern u8 lbl_804A6F34[];
+extern u8 default_scene_light_config[];
 }
 
 extern "C" {
@@ -277,7 +277,7 @@ void init_logo_scene__5TLogoFv(void) {
     reset_controller_input_state();
     for (i = 0; i < 0x80; i++) {
     }
-    init_menu_scene_lights(lbl_804A6F34, 4);
+    init_menu_scene_lights(default_scene_light_config, 4);
     p = __nw__7TObjectFUl(0x1D4);
     if (p != 0) {
         TCameraCtrl__ct(p, tl_camera);

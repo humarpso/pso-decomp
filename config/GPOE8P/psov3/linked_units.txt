@@ -394,22 +394,9 @@ pso/enemy/TObjEneMe3SinowZoa_80317788.cpp
 pso/enemy/TObjEneMe3SinowZoa_80317828.cpp
 pso/enemy/TObjEneMe3SinowZoa_8031B124.cpp
 pso/enemy/TObjEneMe3SinowZoa_8031B170.cpp
-pso/enemy/TObjEneMe3Stelth.cpp
 pso/enemy/TObjEneMe3StelthReal.cpp
 pso/enemy/TObjEneMe3Stelth_800F0AE4.cpp
 pso/enemy/TObjEneMe3Stelth_800F0EC4.cpp
-pso/enemy/TObjEneMe3Stelth_800F169C.cpp
-pso/enemy/TObjEneMe3Stelth_800F1C90.cpp
-pso/enemy/TObjEneMe3Stelth_800F1CD4.cpp
-pso/enemy/TObjEneMe3Stelth_800F2240.cpp
-pso/enemy/TObjEneMe3Stelth_800F2270.cpp
-pso/enemy/TObjEneMe3Stelth_800F2A48.cpp
-pso/enemy/TObjEneMe3Stelth_800F2B8C.cpp
-pso/enemy/TObjEneMe3Stelth_800F4424.cpp
-pso/enemy/TObjEneMe3Stelth_800F52B0.cpp
-pso/enemy/TObjEneMe3Stelth_800F52FC.cpp
-pso/enemy/TObjEneMe3Stelth_800F53C8.cpp
-pso/enemy/TObjEneMe3Stelth_800F5864.cpp
 pso/enemy/TObjEneMe3Stelth_802D70AC.cpp
 pso/enemy/TObjEneMe3Stelth_803DC82C.cpp
 pso/enemy/TObjEneMoja.cpp
@@ -427,6 +414,7 @@ pso/enemy/TObjEneRe2Flower_800C3B8C.cpp
 pso/enemy/TObjEneRe2Flower_800C3BA8.cpp
 pso/enemy/TObjEneRe2Flower_800C4B78.cpp
 pso/enemy/TObjEneRe4Bit.cpp
+pso/enemy/TObjEneRe4Sorcerer_800EDB98.cpp
 pso/enemy/TObjEneRe4Sorcerer_801E3F14.cpp
 pso/enemy/TObjEneRe7BeruraPunch.cpp
 pso/enemy/TObjEneRe7BeruraPunch_80095E18.cpp
@@ -976,6 +964,7 @@ pso/misc/TLobby_801A3B84.cpp
 pso/misc/TLobby_801A3BF4.cpp
 pso/misc/TLobby_801A3C18.cpp
 pso/misc/TLobby_801A3C48.cpp
+pso/misc/TLobby_801C25B4.cpp
 pso/misc/TLobby_801C4F80.cpp
 pso/misc/TLobby_801D3518.cpp
 pso/misc/TLobby_801D4AEC.cpp
@@ -1683,8 +1672,6 @@ pso/misc/TWindowDD_8020C2DC.cpp
 pso/misc/TWindowDD_8024662C.cpp
 pso/misc/TWindowDD_80246F8C.cpp
 pso/misc/TWindowDD_803411E8.cpp
-pso/misc/TWindowDD_80341A08.cpp
-pso/misc/TWindowDD_80341AC0.cpp
 pso/misc/TWindowDD_803424EC.cpp
 pso/misc/TWindowDD_80342554.cpp
 pso/misc/TWindowDD_803426CC.cpp

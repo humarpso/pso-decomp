@@ -21,14 +21,14 @@ s32 bswap_16__FPUs(s32);
 int bswap__9TItemDataFv(void*);
 s32 read_be16_field2__10TObjPlayerFPv();
 
-extern s32 lbl_805D53A0;
+extern s32 local_client_id;
 extern s32 lbl_805D5E50;
 
 u8 is_matching_id__6TLobbyFiUs(s32 arg0, u16 arg1) {
     int var_r5;
 
     var_r5 = 0;
-    if (((s32) lbl_805D5E50 == 0) && ((s32) arg1 == (s32) lbl_805D53A0)) {
+    if (((s32) lbl_805D5E50 == 0) && ((s32) arg1 == (s32) local_client_id)) {
         var_r5 = 1;
     }
     return (u8) var_r5;

@@ -77,7 +77,7 @@ u32 get_player_by_client_id(int);
 f32 vector_length(void *);
 void subtract_vector(void *, void *);
 extern V_80075070 lbl_804FF938[];
-extern s32 lbl_805D53A0;
+extern s32 local_client_id;
 extern const f32 lbl_805D9170;
 extern const f32 TObjTombstone__data_805D9174;
 extern f32 TObjTombstone__data_805D917C;
@@ -162,7 +162,7 @@ s32 is_other_tombstone_closer__13TObjTombstoneFPv(Obj_80075070 *arg0) {
     void *ppos;
     s32 i;
     best = TObjTombstone__data_805D917C;
-    pl = get_player_by_client_id(lbl_805D53A0);
+    pl = get_player_by_client_id(local_client_id);
     if (pl == 0) {
         return 0;
     }
@@ -185,7 +185,7 @@ s32 is_other_tombstone_closer__13TObjTombstoneFPv(Obj_80075070 *arg0) {
     subtract_vector(&w, ppos);
     w.y = TObjTombstone__data_805D9174;
     d = vector_length(&w);
-    if (d < best || (d == best && arg0->fac == lbl_805D53A0)) {
+    if (d < best || (d == best && arg0->fac == local_client_id)) {
         return 0;
     }
     return 1;

@@ -25,7 +25,7 @@ s32 update_selected_entry__17TWindowSubComCardFPv(void *);
 void set_state__15TWindowMakeTeamFPvi(void *, s32);
 void *__nw__7TObjectFUl(u32);
 void *TKeyBoardControl__ct(void *, void *, s32, s32, s32, s32);
-extern s32 lbl_805D53A0;
+extern s32 local_client_id;
 void *get_window_layout_position(s32);
 void set_sub_position__15TWindowMakeTeamFPvPv(void *, void *);
 extern const f32 lbl_805DD144;
@@ -99,7 +99,7 @@ void run_task__15TWindowMakeTeamFv(Self_80264EB8 *self) {
     case 3: {
         void *kb = __nw__7TObjectFUl(0x2C);
         if (kb != NULL) {
-            kb = TKeyBoardControl__ct(kb, self, 0xE, 0, 4, lbl_805D53A0);
+            kb = TKeyBoardControl__ct(kb, self, 0xE, 0, 4, local_client_id);
         }
         self->keyboard = kb;
         set_sub_position__15TWindowMakeTeamFPvPv(self->keyboard, get_window_layout_position(0xCB));
@@ -128,7 +128,7 @@ void run_task__15TWindowMakeTeamFv(Self_80264EB8 *self) {
     case 5: {
         void *kb = __nw__7TObjectFUl(0x2C);
         if (kb != NULL) {
-            kb = TKeyBoardControl__ct(kb, self, 0x10, 0, 0, lbl_805D53A0);
+            kb = TKeyBoardControl__ct(kb, self, 0x10, 0, 0, local_client_id);
         }
         self->keyboard = kb;
         set_sub_position__15TWindowMakeTeamFPvPv(self->keyboard, get_window_layout_position(0xCC));

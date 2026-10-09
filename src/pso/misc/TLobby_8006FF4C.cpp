@@ -87,7 +87,7 @@ struct Q_80070078 { u8 pad[0x48]; s32 x48; };
 struct L_80070078 { u8 pad[0x2C]; s32 x2C; };
 extern "C" {
 s32 get_card_window__17TWindowSubComCardFUi(u32);
-extern s32 lbl_805D53A0;
+extern s32 local_client_id;
 void TLobby__sub_80070358(void);
 void clear_four_slots__6TLobbyFv(void);
 void TLobby__sub_800738F4(void *, s32);
@@ -114,7 +114,7 @@ void copy_challenge_settings__6TLobbyFPvPv(u8 *arg0, u8 *arg1);
 M2C_UNK send_6x7c_reset__6TLobbyFv(void *);
 u32 get_player_by_client_id(s32);
 extern void *challenge_mode_state[];
-extern s32 lbl_805D53A0;
+extern s32 local_client_id;
 void TLobby__sub_80070254(L_80070254 *arg0);
 }
 
@@ -411,17 +411,17 @@ void create_time_window__6TLobbyFv(void * _w0) {
     }
 }
 
-extern s32 lbl_805D53A0;
+extern s32 local_client_id;
 
 void update_battle_cleanup_flag__6TLobbyFPv(void *arg0) {
-    if (get_player_by_client_id(lbl_805D53A0) == 0U) {
+    if (get_player_by_client_id(local_client_id) == 0U) {
         M2C_FIELD(arg0, s32 *, 0x28) = 0;
         return;
     }
     if (check_player_state_flag_2__6TLobbyFPv() != 0) {
         if (((s32) M2C_FIELD(arg0, s32 *, 0x28) != 0) && ((s32) M2C_FIELD(&challenge_mode_state, s32 *, 0x34) == 0)) {
             update_card_save_info__6TLobbyFv(arg0);
-            TLobby__sub_800722AC(lbl_805D53A0);
+            TLobby__sub_800722AC(local_client_id);
             TLobby__sub_80072618();
         }
         M2C_FIELD(arg0, s32 *, 0x28) = 0;
@@ -443,7 +443,7 @@ void set_challenge_record_page__6TLobbyFPvi(void *self, s32 v) {
 M2C_UNK send_challenge_with_value__6TLobbyFii(void *, s32);
 s32 get_selected_quest_id__6TLobbyFPv();
 s32 get_list_state__16TQuestListOnlineFv();
-extern s32 TLobby__data_805D53AC;
+extern s32 TLobby__designated_client_id;
 
 #define arg0 ((L_80070078 *)arg0_)
 void update_quest_challenge_state__6TLobbyFPv(void *arg0_) {
@@ -451,7 +451,7 @@ void update_quest_challenge_state__6TLobbyFPv(void *arg0_) {
     s32 n;
 
     n = 0;
-    if (lbl_805D53A0 == TLobby__data_805D53AC) {
+    if (local_client_id == TLobby__designated_client_id) {
         switch (get_list_state__16TQuestListOnlineFv()) {
         case 1:
             break;
@@ -522,7 +522,7 @@ void TLobby__sub_80070254(L_80070254 *arg0) {
     s32 *p;
     found = 0;
     for (i = 0; i < 4; i++) {
-        if (i != lbl_805D53A0) {
+        if (i != local_client_id) {
             p = (s32 *)&((G_80070254 *)challenge_mode_state)->e[i];
             if (get_player_by_client_id(i) == 0) {
                 if (*p != 0) {
@@ -553,7 +553,7 @@ void clear_four_slots__6TLobbyFv(void) {
 void TLobby__sub_80070358(void) {
     s32 *temp_r31;
     clear_four_slots__6TLobbyFv();
-    temp_r31 = (s32 *)((u8 *)(((u8 *)(&(*(RecoveredGlobal_80070358_lbl_8048C9D8 *)&challenge_mode_state).value) + (lbl_805D53A0 * 0x104))) + 0x270);
+    temp_r31 = (s32 *)((u8 *)(((u8 *)(&(*(RecoveredGlobal_80070358_lbl_8048C9D8 *)&challenge_mode_state).value) + (local_client_id * 0x104))) + 0x270);
     if (get_card_window__17TWindowSubComCardFUi(0xFFFFU) != 0U) {
         M2C_FIELD(temp_r31, s32 *, 0) = 1;
         TLobby__sub_800703D0((Info_800703D0 *)((void *)((void *) ((u8 *)(temp_r31) + 4))), (Info_800703D0 *)((void *)((void *) (get_card_window__17TWindowSubComCardFUi(0xFFFFU) + 0x21C4))));

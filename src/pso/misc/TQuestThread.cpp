@@ -284,7 +284,7 @@ extern s32 lbl_805D35D0;
 extern s32 lbl_805D35D4;
 extern s32 lbl_805D35D8;
 extern const char *lbl_805D35DC;
-extern s32 lbl_805D53A0;
+extern s32 local_client_id;
 extern s32 current_language;
 extern s32 game_difficulty_selection;
 extern u32 quest_mission_manager;
@@ -387,7 +387,7 @@ void *TObjItemNameEntry__ct(void *arg0) {
     M2C_FIELD(arg0, void ***, 0x18) = __vt__17TObjItemNameEntry;
     M2C_FIELD(arg0, s32 *, 0) = lbl_805D35D8;
     if ((var_r0 = __nw__7TObjectFUl(0x2C)) != 0U) {
-        var_r0 = TKeyBoardControl__ct((void*)var_r0, arg0, 8, 0, 1, lbl_805D53A0);
+        var_r0 = TKeyBoardControl__ct((void*)var_r0, arg0, 8, 0, 1, local_client_id);
     }
     M2C_FIELD(arg0, u32 *, 0x1C) = var_r0;
     if ((u32) M2C_FIELD(arg0, u32 *, 0x1C) != 0U) {
@@ -436,7 +436,7 @@ void run_task__17TQuestThreadBoardFv(Board_801F526C *o) {
         ((void (*)(void *))queue_destruction__12TQuestThreadFPv)(thread);
         break;
     case 4: {
-        void *p = get_player_by_client_id(lbl_805D53A0);
+        void *p = get_player_by_client_id(local_client_id);
         if (p != NULL && check_flag_100__10TObjPlayerFPv(p) == 0 &&
             TWindowShortListCtrl__check_controller_button(lbl_8050E208 + 0x20, 4) != 0) {
             s32 id = get_window_id__11TWindowCtrlFv();
@@ -449,12 +449,12 @@ void run_task__17TQuestThreadBoardFv(Board_801F526C *o) {
         break;
     }
     case 5:
-        if (get_player_by_client_id(lbl_805D53A0) != NULL &&
+        if (get_player_by_client_id(local_client_id) != NULL &&
             TWindowShortListCtrl__check_controller_button(lbl_8050E208 + 0x20, 4) != 0) {
             o->state = 0;
         }
         if (TWindowShortListCtrl__check_controller_button(lbl_8050E208 + 0x20, 8) != 0 ||
-            has_player_active_menu__11TWindowCtrlFi(lbl_805D53A0) == 0) {
+            has_player_active_menu__11TWindowCtrlFi(local_client_id) == 0) {
             clear_flag__11TWindowCtrlFv();
             clear_flag_2__11TWindowCtrlFv();
             close_windows__6TLobbyFv();
@@ -469,12 +469,12 @@ void run_task__17TQuestThreadBoardFv(Board_801F526C *o) {
             TWindow__close(o->win2C);
             o->win2C = NULL;
             o->state = 0;
-            TLobby__sub_8024AC20(lbl_805D53A0);
+            TLobby__sub_8024AC20(local_client_id);
             clear_flag__11TWindowCtrlFv();
             clear_flag_2__11TWindowCtrlFv();
         }
         if (TWindowShortListCtrl__check_controller_button(lbl_8050E208 + 0x20, 8) != 0 ||
-            has_player_active_menu__11TWindowCtrlFi(lbl_805D53A0) == 0) {
+            has_player_active_menu__11TWindowCtrlFi(local_client_id) == 0) {
             if (o->win28 != NULL) {
                 TWindow__close(o->win28);
                 o->win28 = NULL;
@@ -531,7 +531,7 @@ void run_task__17TQuestThreadBoardFv(Board_801F526C *o) {
             TWindow__close(o->win188);
             o->win188 = NULL;
             o->state = 0;
-            TLobby__sub_8024AC20(lbl_805D53A0);
+            TLobby__sub_8024AC20(local_client_id);
             clear_flag_bit2__11TWindowCtrlFv();
         }
         break;
@@ -661,7 +661,7 @@ void run_task__12TQuestThreadFv(TQuestThread_801F5828 *t) {
         ((void (*)(void *))queue_destruction__12TQuestThreadFPv)(p);
         break;
     case 4:
-        if (((u32 (*)(void *))get_player_by_client_id)((*(void * *)&lbl_805D53A0)) != 0 && ((s32 (*)(void))check_flag_100__10TObjPlayerFPv)() == 0 &&
+        if (((u32 (*)(void *))get_player_by_client_id)((*(void * *)&local_client_id)) != 0 && ((s32 (*)(void))check_flag_100__10TObjPlayerFPv)() == 0 &&
             ((s32 (*)(void *, int))TWindowShortListCtrl__check_controller_button)(lbl_8050E208 + 0x20, 4) != 0) {
             s32 id = get_window_id__11TWindowCtrlFv();
             if (((s32 (*)(void))is_actor_speech_balloon_done)() == 0) {
@@ -672,7 +672,7 @@ void run_task__12TQuestThreadFv(TQuestThread_801F5828 *t) {
         }
         break;
     case 5:
-        if (((u32 (*)(void *))get_player_by_client_id)((*(void * *)&lbl_805D53A0)) != 0) {
+        if (((u32 (*)(void *))get_player_by_client_id)((*(void * *)&local_client_id)) != 0) {
             void *pad = lbl_8050E208 + 0x20;
             if (((s32 (*)(void *, int))TWindowShortListCtrl__check_controller_button)(pad, 4) != 0) {
                 t->state = 0;
@@ -689,7 +689,7 @@ void run_task__12TQuestThreadFv(TQuestThread_801F5828 *t) {
             TWindow__close(t->comCard);
             t->comCard = 0;
             t->state = 0;
-            ((void (*)(void *))TLobby__sub_8024AC20)((*(void * *)&lbl_805D53A0));
+            ((void (*)(void *))TLobby__sub_8024AC20)((*(void * *)&local_client_id));
             clear_flag__11TWindowCtrlFv();
             clear_flag_2__11TWindowCtrlFv();
         }
@@ -737,7 +737,7 @@ void run_task__12TQuestThreadFv(TQuestThread_801F5828 *t) {
             TWindow__close(t->help);
             t->help = 0;
             t->state = 0;
-            ((void (*)(void *))TLobby__sub_8024AC20)((*(void * *)&lbl_805D53A0));
+            ((void (*)(void *))TLobby__sub_8024AC20)((*(void * *)&local_client_id));
             clear_flag_bit2__11TWindowCtrlFv();
             clear_flag__11TWindowCtrlFv();
             clear_flag_2__11TWindowCtrlFv();

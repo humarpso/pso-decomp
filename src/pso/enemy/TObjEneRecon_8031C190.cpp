@@ -12,7 +12,7 @@ extern "C" {
 void VecCopy__FP3VecPC3Vec(void *, void *);
 u8 * csnVectorUnder(s32, void *, s32);
 void set_active__12TObjEneReconFv(void);
-extern s32 lbl_805D53A4;
+extern s32 actor_frame_tick;
 extern const f32 TObjEneRecon__data_805DF3C0;
 void update_ground_probe__12TObjEneReconFPv(u8 *arg0);
 }
@@ -22,7 +22,7 @@ extern "C" {
 void update_ground_probe__12TObjEneReconFPv(u8 *arg0) {
     Stack_8031C190 stack;
     u8 *temp_r3;
-    if ((lbl_805D53A4 % 5) == 0) {
+    if ((actor_frame_tick % 5) == 0) {
         VecCopy__FP3VecPC3Vec(&stack.sp8, arg0 + 0x38);
         stack.spC += TObjEneRecon__data_805DF3C0;
         temp_r3 = (u8 *)(csnVectorUnder((s32) &stack.sp8, arg0 + 0x120, 0x4000));

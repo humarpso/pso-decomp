@@ -89,7 +89,7 @@ M2C_UNK replace_file_extension__6TLobbyFPvPvPv(char *, char *, char *);
 s32 lookup_scene_object__6TLobbyFPv(void *, Ref_80207478 *);
 Ent_80207478 *get_floor_scene_table(s32);
 s32 is_not_split_screen__13TRaderMapCoreFv();
-M2C_UNK TLobby__sub_803CCE9C(void *);
+M2C_UNK close_adxf_handle__6TLobbyFPv(void *);
 void *adxf_open__6TLobbyFUii(char *, int);
 extern char lbl_8044A9D0[];
 extern char lbl_8044A9D8[];
@@ -225,7 +225,7 @@ void load_sky_resources__10TSceneSoraFv(void) {
         p = adxf_open__6TLobbyFUii(name2, 0);
         if (p != NULL) {
             b.buf = name2;
-            TLobby__sub_803CCE9C(p);
+            close_adxf_handle__6TLobbyFPv(p);
         } else {
             return;
         }
@@ -233,7 +233,7 @@ void load_sky_resources__10TSceneSoraFv(void) {
         if (p != NULL) {
             a.buf = name1;
             lbl_805D6058 = 1;
-            TLobby__sub_803CCE9C(p);
+            close_adxf_handle__6TLobbyFPv(p);
         } else {
             a.buf = NULL;
         }

@@ -2,7 +2,7 @@
 
 extern "C" {
 extern u32 lbl_805D5F5C;
-u8 TAdSinglePlyChrSelectGC__sub_802E012C(s32 arg0, u32 arg1);
+u8 check_slot_flags__23TAdSinglePlyChrSelectGCFiUi(s32 arg0, u32 arg1);
 }
 
 extern "C" {
@@ -14,7 +14,7 @@ s32 get_ready_state__22TAdMultiPlyChrSelectGCFPv(void* p);
 int get_chr_select_state__22TAdMultiPlyChrSelectGCFv(void) {  return lbl_805D69E8; }
 
 s32 get_ready_state__22TAdMultiPlyChrSelectGCFPv(void* p) { return *(s32*)((char*)p + 0xa0); }
-u8 TAdSinglePlyChrSelectGC__sub_802E012C(s32 arg0, u32 arg1) {
+u8 check_slot_flags__23TAdSinglePlyChrSelectGCFiUi(s32 arg0, u32 arg1) {
     u32 flags;
     if (lbl_805D5F5C != 0) {
         if (arg0 >= 7) {

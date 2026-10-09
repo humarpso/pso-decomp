@@ -346,7 +346,7 @@ s32 get_current_floor();
 void byteswap_and_send__6TLobbyFi(void *);
 void init_packet_67_04__6TLobbyFPv(void *);
 void set_destroy_event__6TLobbyFi(int a0);
-extern s32 lbl_805D53A0;
+extern s32 local_client_id;
 extern s32 lbl_805D6084;
 void send_6x67_wave_trigger_event(s32 arg0);
 s32 get_current_floor();
@@ -411,7 +411,7 @@ void send_6x67_wave_trigger_event(s32 arg0) {
     pkt.a = 0xFFFF;
     pkt.b = get_current_floor();
     pkt.c = arg0;
-    pkt.d = lbl_805D53A0;
+    pkt.d = local_client_id;
     byteswap_and_send__6TLobbyFi(&pkt);
 }
 

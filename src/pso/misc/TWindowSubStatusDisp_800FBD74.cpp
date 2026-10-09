@@ -276,10 +276,10 @@ extern RecoveredGlobal_800FBB68_lbl_8049C670 area_fog_row_table;
 extern u8 fog_default_entry[];
 extern u8 lbl_8058CA60[];
 extern s32 lbl_805D2B18;
-extern u32 lbl_805D5388;
-extern s32 lbl_805D538C;
-extern E_800FC220 *lbl_805D5398;
-extern s32 lbl_805D53A4;
+extern u32 fog_entry_array;
+extern s32 fog_update_flags;
+extern E_800FC220 *small_font_metrics_table_ptr;
+extern s32 actor_frame_tick;
 extern M2C_UNK *tl_02;
 
 #pragma push
@@ -393,7 +393,7 @@ u32 calc_small_font_text_width(const char *s) {
 }
 
 s32 get_small_font_glyph_width(u8 c) {
-    return (s32)lbl_805D5398[c - 0x20].w;
+    return (s32)small_font_metrics_table_ptr[c - 0x20].w;
 }
 
 void TWindowSubStatusDisp__sub_800FC248(void) {  }
@@ -401,7 +401,7 @@ void TWindowSubStatusDisp__sub_800FC248(void) {  }
 void calc_plain_glyph_quad(u8 c, Quad_800FC24C *q) {
     f32 a = (f32)((c & 0xF) << 4);
     f32 b = 109.0f + (f32)(c & 0xF0);
-    E_800FC220 *g = &lbl_805D5398[c - 0x20];
+    E_800FC220 *g = &small_font_metrics_table_ptr[c - 0x20];
     q->y0 = q->y0 + g->x;
     q->x1 = q->x0 + g->w;
     q->y1 = 13.0f + q->y0;
@@ -414,7 +414,7 @@ void calc_plain_glyph_quad(u8 c, Quad_800FC24C *q) {
 void build_small_font_glyph_quad(u8 c, Quad_800FC310 *q) {
     f32 a = (f32)((c << 4) & 0xF0);
     f32 b = (f32)(c & 0xF0);
-    E_800FC220 *g = &lbl_805D5398[c - 0x20];
+    E_800FC220 *g = &small_font_metrics_table_ptr[c - 0x20];
     q->y0 = q->y0 + g->x;
     q->x1 = q->x0 + g->w;
     q->y1 = 13.0f + q->y0;

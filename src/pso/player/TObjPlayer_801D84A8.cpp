@@ -402,11 +402,11 @@ void set_animation_from_data__10TObjPlayerFii(s32 arg0, s32 arg1) {
     set_animation_default__10TObjPlayerFPv(arg0, arg1);
 }
 
-extern s32 lbl_805D53A0;
+extern s32 local_client_id;
 
 void assign_lobby_slot_if_flagged__10TObjPlayerFiPv(s32 arg0, void *arg1) {
     if (M2C_FIELD(arg1, s32 *, 4) & 8) {
-        M2C_FIELD(arg1, s32 *, 0x14) = advance_item_id_counter((u16) lbl_805D53A0);
+        M2C_FIELD(arg1, s32 *, 0x14) = advance_item_id_counter((u16) local_client_id);
         equip_saved_item_if_slot_empty__10TObjPlayerFPvPv(arg0, arg1);
     }
 }

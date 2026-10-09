@@ -114,7 +114,7 @@ extern u8 *lbl_805D4698;
 void draw_motion_node_list__10TObjPlayerFi(s32 arg0);
 void find_motion_key_interval(void *, s32, s32 count, f32 t, void *, void *, void *);
 extern u32 *lbl_805D7778;
-void TObjPlayer__sub_803E4F14(u32 **src, u32 **dst);
+void resolve_render_keys__10TObjPlayerFPvPv(u32 **src, u32 **dst);
 extern const f32 lbl_805E10B8;
 void TObjPlayer__sub_803E500C(void *motA, s32 keyA, void *motB, s32 keyB, f32 t, u32 *src, u32 **out);
 }
@@ -181,7 +181,7 @@ void draw_motion_node_list__10TObjPlayerFi(s32 arg0) {
 #pragma push
 #pragma optimize_for_size off
 #pragma opt_common_subs on
-void TObjPlayer__sub_803E4F14(u32 **src, u32 **dst) {
+void resolve_render_keys__10TObjPlayerFPvPv(u32 **src, u32 **dst) {
     s32 bi;
     s32 ai;
     void *a;

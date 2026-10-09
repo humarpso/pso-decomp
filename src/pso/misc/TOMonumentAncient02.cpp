@@ -75,7 +75,7 @@ M2C_UNK queue_destruction__7TObjectFv(void *);
 M2C_UNK reset_photon_effect__10TObjPlayerFPv(void *);
 M2C_UNK refresh_collision_body_centers(void *);
 M2C_UNK set_type__14TOKeyAncient01FPv(void *);
-extern RecoveredGlobal_80172EA0_lbl_804B39A8 lbl_804B39A8;
+extern RecoveredGlobal_80172EA0_lbl_804B39A8 monument_ancient02_collision_parts;
 extern M2C_UNK __vt__19TOMonumentAncient02[];
 extern s32 enable_v2_features;
 extern s32 lbl_805D30CC;
@@ -87,7 +87,7 @@ u8 *TOMonumentAncient02__ct(u8 *arg0, M2C_UNK arg1, s32 arg2);
 u8 *load_resource_from_descriptor(void *, s32, void *, s32, s32, s32);
 u8 *alloc__23TAdSinglePlyChrSelectGCFPv(s32);
 s32 get_global_state__14TOKeyMachine01Fv(void);
-extern u8 lbl_804B3960[];
+extern u8 monument_ancient02_resource_table[];
 extern u32 TOMonumentAncient02__data_805D5A68;
 void load_resources__19TOMonumentAncient02Fv(void);
 s32 rand(void);
@@ -230,7 +230,7 @@ void free_shared_data__19TOMonumentAncient02Fv(void) {
 extern M2C_UNK __vt__19TOMonumentAncient02[];
 
 void load_resources__19TOMonumentAncient02Fv(void) {
-    u8 *tbl = lbl_804B3960;
+    u8 *tbl = monument_ancient02_resource_table;
     u8 *p;
     switch (get_global_state__14TOKeyMachine01Fv()) {
     default:
@@ -280,7 +280,7 @@ u8 *TOMonumentAncient02__ct(u8 *arg0, M2C_UNK arg1, s32 arg2) {
     ((VObj_18_1a504b *)(arg0))->m5(arg2);
     M2C_FIELD(arg0, s32 *, 0x34) = (s32) M2C_FIELD(M2C_FIELD((*(u8 * *)&TOMonumentAncient02__data_805D5A68), u8 **, 0x42C), s32 *, 8);
     M2C_FIELD(arg0, s32 *, 0x24) = (s32) M2C_FIELD(M2C_FIELD((*(u8 * *)&TOMonumentAncient02__data_805D5A68), u8 **, 0x42C), s32 *, 0xC);
-    init_collision_body_parts(arg0, (s32) &lbl_804B39A8.value, 1);
+    init_collision_body_parts(arg0, (s32) &monument_ancient02_collision_parts.value, 1);
     refresh_collision_body_centers((void *) (arg0));
     reset_photon_effect__10TObjPlayerFPv((void *) (arg0));
     temp_r3 = get_global_state__14TOKeyMachine01Fv();

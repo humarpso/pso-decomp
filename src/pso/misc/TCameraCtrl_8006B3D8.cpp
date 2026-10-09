@@ -66,7 +66,7 @@ struct Cam_8006B6A8 {
 extern "C" {
 s32 is_split_screen(void);
 void *__nw__7TObjectFUl(int);
-extern s32 lbl_805D53A0;
+extern s32 local_client_id;
 extern s32 tl_07;
 u8 *create_conversation_camera(s32 arg0);
 u8 * TCameraCtrl__sub_800686BC(void *, s16);
@@ -129,18 +129,18 @@ void __dt__7TObjectFv(void *, int);
 void *__nw__7TObjectFUl(int);
 void *get_params__11TCameraCtrlFPv(u32);
 
-extern s32 lbl_805D53A0;
+extern s32 local_client_id;
 
 void update_active_player__11TCameraCtrlFv(void) {
-    if (get_player_by_client_id(lbl_805D53A0) != 0U) {
+    if (get_player_by_client_id(local_client_id) != 0U) {
         activate_body_collision__10TObjPlayerFPv();
     }
 }
 
-extern s32 lbl_805D53A0;
+extern s32 local_client_id;
 
 void update_battle_camera__11TCameraCtrlFv(void) {
-    if (get_player_by_client_id(lbl_805D53A0) != 0U) {
+    if (get_player_by_client_id(local_client_id) != 0U) {
         deactivate_body_collision__10TObjPlayerFPv();
     }
 }
@@ -155,7 +155,7 @@ u8 *create_conversation_camera(s32 arg0) {
     if (is_split_screen() != 0) {
         return NULL;
     }
-    temp_r31 = lbl_805D53A0;
+    temp_r31 = local_client_id;
     temp_r3 = (u8 *)(((u8 *)__nw__7TObjectFUl((int)(0x38))));
     var_r0 = (u8 *)(temp_r3);
     if (var_r0 != NULL) {

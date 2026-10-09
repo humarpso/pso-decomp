@@ -21,7 +21,7 @@ extern "C" {
 u8 * load_resource_from_descriptor(void *, s32, void *, s32, s32, s32);
 int alloc__23TAdSinglePlyChrSelectGCFPv(void *);
 extern RecoveredGlobal_80191730_lbl_804B7C60 lbl_804B7C60;
-extern u32 TObjHashi__data_805D5C10;
+extern u32 TObjHashi__bml_resource;
 void load_shared_resource__9TObjHashiFv(void);
 s32 TObjFish__sub_8001EDB0(void *, s32);
 s32 get_bml_model(void *, s32);
@@ -31,7 +31,7 @@ u8 * TObjHashiBase__ct(void *, s32);
 extern RecoveredGlobal_801917E8_lbl_804B7CA0 lbl_804B7CA0;
 extern M2C_UNK __vt__9TObjHashi[];
 extern s32 lbl_805D3378;
-extern u32 TObjHashi__data_805D5C10;
+extern u32 TObjHashi__bml_resource;
 u8 *TObjHashi__ct(u8 *arg0, s32 arg1, s32 _w2);
 }
 
@@ -57,12 +57,12 @@ void *TObjHashi__create(void *arg0) {
     return o;
 }
 
-extern u32 TObjHashi__data_805D5C10;
+extern u32 TObjHashi__bml_resource;
 
 void unload_static_data__9TObjHashiFv(void) {
-    if ((u32) TObjHashi__data_805D5C10 != 0U) {
-        TLobby__sub_8001FE7C((void*)TObjHashi__data_805D5C10, 1);
-        TObjHashi__data_805D5C10 = 0U;
+    if ((u32) TObjHashi__bml_resource != 0U) {
+        TLobby__sub_8001FE7C((void*)TObjHashi__bml_resource, 1);
+        TObjHashi__bml_resource = 0U;
     }
 }
 
@@ -76,7 +76,7 @@ void load_shared_resource__9TObjHashiFv(void) {
     if (var_r0 != 0) {
         var_r0 = (long) (load_resource_from_descriptor((void *) temp_r3, 1, &lbl_804B7C60.value, 0, 0, 0));
     }
-    (*(s32 *)&TObjHashi__data_805D5C10) = var_r0;
+    (*(s32 *)&TObjHashi__bml_resource) = var_r0;
 }
 
 void *__dt__9TObjHashiFv(void *arg0, s16 arg1) {
@@ -97,8 +97,8 @@ u8 *TObjHashi__ct(u8 *arg0, s32 arg1, s32 _w2) {
     TObjHashiBase__ct(arg0, arg1);
     M2C_FIELD(arg0, M2C_UNK **, 0x18) = &(*(RecoveredGlobal_801917E8___vt__9TObjHashi *)&__vt__9TObjHashi).value;
     M2C_FIELD(arg0, s32 *, 0) = (s32) lbl_805D3378;
-    M2C_FIELD(arg0, s32 *, 0x34) = get_bml_model((*(u8 * *)&TObjHashi__data_805D5C10), 0);
-    M2C_FIELD(arg0, s32 *, 0x24) = TObjFish__sub_8001EDB0((*(u8 * *)&TObjHashi__data_805D5C10), 0);
+    M2C_FIELD(arg0, s32 *, 0x34) = get_bml_model((*(u8 * *)&TObjHashi__bml_resource), 0);
+    M2C_FIELD(arg0, s32 *, 0x24) = TObjFish__sub_8001EDB0((*(u8 * *)&TObjHashi__bml_resource), 0);
     init_collision_body_parts(arg0, (s32) &lbl_804B7CA0.value, 1);
     M2C_FIELD(arg0, s32 *, 0x30) = (s32) (M2C_FIELD(arg0, s32 *, 0x30) | 0x40000000);
     reset_photon_effect__10TObjPlayerFPv((s32) arg0);

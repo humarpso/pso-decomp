@@ -61,7 +61,7 @@ void *TWindowCtrlPlayer__ct(void *, void *, s32);
 void *create_party_status_window(s32);
 extern u8 __vt__11TWindowCtrl[];
 extern s32 lbl_805D38C8;
-extern s32 lbl_805D53A0;
+extern s32 local_client_id;
 extern s32 tl_00;
 extern void *TWindowCtrl__data_805D63F8;
 TWindowCtrl_8024C308 *TWindowCtrl__ct(TWindowCtrl_8024C308 *self);
@@ -186,9 +186,9 @@ TWindowCtrl_8024C308 *TWindowCtrl__ct(TWindowCtrl_8024C308 *self) {
     } else {
         p = __nw__7TObjectFUl(0x40);
         if (p != NULL) {
-            p = TWindowCtrlPlayer__ct(p, self, lbl_805D53A0);
+            p = TWindowCtrlPlayer__ct(p, self, local_client_id);
         }
-        self->objs[lbl_805D53A0] = p;
+        self->objs[local_client_id] = p;
         for (i = 0; i < 3; i++) {
             if (get_global_state__14TOKeyMachine01Fv() != 0xF && is_split_screen() == 0) {
                 self->wins78[i] = create_party_status_window(i);

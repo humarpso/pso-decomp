@@ -17,7 +17,7 @@ extern "C" {
 
 void open_default__23TShopJudgmentItemWindowFi(s32 a);
 
-extern s32 lbl_805D53A0;
+extern s32 local_client_id;
 
 u8 *create_item_list_window(s32 arg0, s32 arg1, s32 arg2) {
     s32 temp_r3;
@@ -43,7 +43,7 @@ u8 *create_item_list_window(s32 arg0, s32 arg1, s32 arg2) {
 }
 
 void open_default__23TShopJudgmentItemWindowFi(s32 a) {
-    create_item_list_window((s32)(a), (s32)(0x40), (s32)(lbl_805D53A0));
+    create_item_list_window((s32)(a), (s32)(0x40), (s32)(local_client_id));
 }
 
 }

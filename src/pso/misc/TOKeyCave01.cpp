@@ -107,7 +107,7 @@ u8 *TOKeyCave01__ct(u8 *arg0, M2C_UNK arg1, s32 arg2);
 void init_6x05_switch_changed__6TLobbyFPv(void *);
 void finalize_and_send_60__6TLobbyFPv(void *);
 s32 get_current_floor();
-extern s32 lbl_805D53A0;
+extern s32 local_client_id;
 void send_switch_changed__8TOKeyColFPvi(Self_8016C79C *self, s32 flags);
 M2C_UNK begin_effect_render__13TParticleCtrlFv();
 M2C_UNK end_effect_render__13TParticleCtrlFv();
@@ -361,7 +361,7 @@ void send_switch_changed__8TOKeyColFPvi(Self_8016C79C *self, s32 flags) {
     Pkt_8016C79C pkt;
     init_6x05_switch_changed__6TLobbyFPv(&pkt);
     pkt.object = self->id;
-    pkt.zero = lbl_805D53A0;
+    pkt.zero = local_client_id;
     pkt.switchId = self->switchId;
     pkt.area = get_current_floor();
     pkt.flags = flags;

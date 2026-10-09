@@ -17,7 +17,7 @@ s32 get_current_floor();
 s32 get_field_3e4__10TObjPlayerFPv(s32);
 f32 xz_distance_squared(s32, s32);
 s32 get_player_by_client_id(s32);
-extern s32 lbl_805D53A0;
+extern s32 local_client_id;
 s32 find_local_player_in_range__16TObjCityMainWarpFif(s32 arg0, f32 farg0);
 s32 get_main_phase();
 extern s32 lbl_805D55C0;
@@ -25,7 +25,7 @@ s32 get_phase_flag__16TObjCityMainWarpFv(void);
 s32 are_all_players_in_range__16TObjCityMainWarpFPv(Obj_80186B34 *arg0);
 extern RecoveredGlobal_80186AF4_lbl_804FF800 lbl_804FF800;
 M2C_UNK *TObjCityMainWarp__sub_80186AF4(void);
-extern const Bits_80186A3C lbl_804448CC;
+extern const Bits_80186A3C city_main_warp_floor_bit_table;
 s32 get_player_floor__6TLobbyFi(s32);
 s32 is_warp_excluded_area(s32);
 s32 get_floor_warp_bit__16TObjCityMainWarpFi(s32 floor);
@@ -141,7 +141,7 @@ void set_active_bit__16TObjCityMainWarpFv(s32 _w0) {
 
 s32 get_floor_warp_bit__16TObjCityMainWarpFi(s32 floor) {
     s32 bit = -1;
-    Bits_80186A3C bits = lbl_804448CC;
+    Bits_80186A3C bits = city_main_warp_floor_bit_table;
     if (is_warp_excluded_area(get_player_floor__6TLobbyFi(floor)) == 0) {
         bit = bits.v[floor];
     }
@@ -183,7 +183,7 @@ s32 find_local_player_in_range__16TObjCityMainWarpFif(s32 arg0, f32 farg0) {
     s32 temp_r3;
     s32 temp_r31;
     s32 temp_r3b;
-    temp_r3 = get_player_by_client_id(lbl_805D53A0);
+    temp_r3 = get_player_by_client_id(local_client_id);
     if (temp_r3 != 0) {
         temp_r31 = get_current_floor();
         temp_r3b = get_field_3e4__10TObjPlayerFPv(temp_r3);

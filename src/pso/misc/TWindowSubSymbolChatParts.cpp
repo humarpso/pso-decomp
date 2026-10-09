@@ -32,7 +32,7 @@ extern "C" {
 void TWindowSubSymbolChatFaceType__sub_80283C84(void *, void *, f32, f32);
 void fn_80285274(u8 *arg0, u8 *arg1);
 void *get_array_entry__20TWindowSubStatusDispFPvi(void *, s32);
-void TWindowSubSymbolChatPartsSet__sub_80247F68(void *, s16, s32, s32);
+void set_part_sprite__28TWindowSubSymbolChatPartsSetFPvsii(void *, s16, s32, s32);
 void draw_visible_window_entries(void *, void *, void *);
 extern const f32 lbl_805DD7D4;
 extern const f32 lbl_805DD7D8;
@@ -344,7 +344,7 @@ void fn_802857C4(Win_802857C4 *arg0, Rect_802857C4 *arg1) {
                 e0[3] = x;
                 e1[2] = lbl_805DD7D8 + e0[2];
                 e1[3] = lbl_805DD7D8 + e0[3];
-                TWindowSubSymbolChatPartsSet__sub_80247F68(e1, (s16)i, *arg0->p7C, *arg0->p80);
+                set_part_sprite__28TWindowSubSymbolChatPartsSetFPvsii(e1, (s16)i, *arg0->p7C, *arg0->p80);
                 draw_visible_window_entries(arg0, arg0->sub, arg1);
             }
         }

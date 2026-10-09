@@ -30,8 +30,8 @@ void subtract_vector(void *, void *);
 f32 vector_length(void *);
 s32 check_all_players_active__13TObjTombstoneFv(void *);
 u8 *get_player_by_client_id(s32);
-extern s32 lbl_805D53A0;
-extern s32 TLobby__data_805D53AC;
+extern s32 local_client_id;
+extern s32 TLobby__designated_client_id;
 extern const f32 TObjTombstone__data_805D9184;
 extern const f32 TObjTombstone__data_805D9174;
 s32 is_player_nearby__13TObjTombstoneFPv(void *arg0);
@@ -68,7 +68,7 @@ s32 is_player_nearby__13TObjTombstoneFPv(void *arg0) {
     u8 *player;
     if (self->done != 0) {
         return 0;
-    } else if (lbl_805D53A0 != TLobby__data_805D53AC) {
+    } else if (local_client_id != TLobby__designated_client_id) {
         self->done = 1;
         return 0;
     }

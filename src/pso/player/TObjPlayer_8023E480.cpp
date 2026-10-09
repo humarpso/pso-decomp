@@ -30,7 +30,7 @@ s32 update_lobby_scene__6TSceneFPv(void *);
 s32 read_disc_file(void *, s32);
 s32 sprintf(char *, const char *, ...);
 s32 TLobby__sub_803CC53C();
-void TLobby__sub_803CCE9C(s32);
+void close_adxf_handle__6TLobbyFPv(s32);
 s32 adxf_open__6TLobbyFUii(void *, s32);
 void load_gvm_texture_archive(s32, s32);
 s32 xmalloc__FUl(M2C_UNK);
@@ -91,7 +91,7 @@ s32 TLobby__sub_8023E554(s32 arg0, s32 arg1) {
     if (update_lobby_scene__6TSceneFPv(lbl_805161E0) != -1) {
         a = adxf_open__6TLobbyFUii(lbl_805161E0, 0);
         b = TLobby__sub_803CC53C();
-        TLobby__sub_803CCE9C(a);
+        close_adxf_handle__6TLobbyFPv(a);
         b = xmalloc__FUl((M2C_UNK)(b << 11));
         if (read_disc_file(lbl_805161E0, b) != -1) {
             c = xmalloc__FUl((M2C_UNK)(0x200000));

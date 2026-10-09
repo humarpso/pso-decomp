@@ -497,8 +497,8 @@ extern char lbl_804B4AD8[];
 extern u8 lbl_804B4B20[];
 extern u32 lbl_805D31B4;
 extern s32 lbl_805D31B8;
-extern s32 lbl_805D53A0;
-extern s32 lbl_805D53A4;
+extern s32 local_client_id;
+extern s32 actor_frame_tick;
 extern s32 game_difficulty_selection;
 extern s32 lbl_805D5ADC;
 extern u32 lbl_805D5AE0;
@@ -812,8 +812,8 @@ void TOTrapAncient02__vt84(void) {  }
 void TOTrapAncient02__vt86(void) {  }
 
 void TOTrapAncient02__sub_8017ACA0(Obj_8017ACA0 *self) {
-    if (lbl_805D5ADC != lbl_805D53A4 && lbl_805D5AE0 != 0) {
-        lbl_805D5ADC = lbl_805D53A4;
+    if (lbl_805D5ADC != actor_frame_tick && lbl_805D5AE0 != 0) {
+        lbl_805D5ADC = actor_frame_tick;
         scroll_ginja_mesh_uvs(lbl_805D5AE0, 0, 0xE, lbl_805D5AE4, 1);
     }
     self->angle += 0x888;
@@ -886,8 +886,8 @@ void TOTrapAncient02__vt80(Trap_8017ADC4 *self) {
             if (self->timer < 0) {
                 self->state = 3;
                 self->timer = self->reset;
-                if (self->target != NULL && lbl_805D53A0 == obj_getField1c(self->target)) {
-                    p = ((s32 (*)(s32))get_player_by_client_id)(lbl_805D53A0);
+                if (self->target != NULL && local_client_id == obj_getField1c(self->target)) {
+                    p = ((s32 (*)(s32))get_player_by_client_id)(local_client_id);
                     if (p != 0 && check_player_flag1__6TLobbyFPv() != 0) {
                         send_code_45_1__10TObjPlayerFi(p);
                     }

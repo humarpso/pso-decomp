@@ -34,7 +34,7 @@ int set_global_param__8TObjFishFi(void*);
 M2C_UNK draw_ginja_object(s32);
 M2C_UNK draw_ginja_model_with_motion(s32, s32, f32);
 extern s32 lbl_8050DDC8[];
-extern s32 lbl_805D53A4;
+extern s32 actor_frame_tick;
 extern s32 TObjWarpJung__beam_bml_resource;
 extern void *warp_jung_beam_motion;
 extern int warp_jung_model_handle;
@@ -187,8 +187,8 @@ extern void *tl_05;
 void render__16TObjWarpJungMainFv(VObj_18_8019FB8C *arg0) {
     s32 i;
     if (arg0->m8(lbl_805DC040, lbl_805DC044) != 0) {
-        if (lbl_805D53A4 != lbl_805D5CB4) {
-            lbl_805D5CB4 = lbl_805D53A4;
+        if (actor_frame_tick != lbl_805D5CB4) {
+            lbl_805D5CB4 = actor_frame_tick;
             if (lbl_805D5CC4 >= 0) {
                 scroll_ginja_mesh_uvs(warp_jung_beam_mesh_node, 0, 5, lbl_805D5CC4, 1);
             }

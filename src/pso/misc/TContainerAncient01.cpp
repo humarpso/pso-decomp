@@ -545,7 +545,7 @@ void send_object_state_update(void *, void *);
 s32 access_object_saved_state(void *, void *, int);
 void byteswap_and_send__6TLobbyFi(void *);
 void init_packet_67_04__6TLobbyFPv(void *);
-extern s32 lbl_805D53A0;
+extern s32 local_client_id;
 extern const f32 lbl_805DBD98;
 f32 TObjContainerJungEnemy__vt20(Obj_8018CB44 *arg0);
 void activate_and_dispatch__10TObjPlayerFPv(void *);
@@ -762,7 +762,7 @@ f32 TObjContainerJungEnemy__vt20(Obj_8018CB44 *arg0) {
         pkt.b = arg0->f1C;
         pkt.c = get_current_floor();
         pkt.d = arg0->f84;
-        pkt.e = lbl_805D53A0;
+        pkt.e = local_client_id;
         byteswap_and_send__6TLobbyFi(&pkt);
     }
     return lbl_805DBD98;

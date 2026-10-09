@@ -26,7 +26,7 @@ s32 TWindowSubComCard__sub_8007B070(s32);
 s32 get_keyboard_mode__17TWindowSubComCardFv(void);
 M2C_UNK clear_and_init__17TWindowSubComCardFPvPv(int, void *);
 void *__nw__7TObjectFUl(int);
-extern s32 lbl_805D53A0;
+extern s32 local_client_id;
 s32 create_com_card_window__17TWindowSubComCardFi(s32 arg0);
 void *__nw__7TObjectFUl(int);
 u8 *create_for_card__14TWindowComCardFiii(s32 arg0, s32 arg1, s32 arg2);
@@ -178,7 +178,7 @@ s32 create_com_card_window__17TWindowSubComCardFi(s32 arg0) {
         return 0;
     }
     if (TWindowSubComCard__sub_8007B070(temp_r3) != 0) {
-        clear_and_init__17TWindowSubComCardFPvPv((int) (temp_r3), (void *) (lbl_805D53A0));
+        clear_and_init__17TWindowSubComCardFPvPv((int) (temp_r3), (void *) (local_client_id));
     }
     temp_r3_2 = ((s32)__nw__7TObjectFUl((int) (0x60)));
     var_r0 = temp_r3_2;

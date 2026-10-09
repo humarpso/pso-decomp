@@ -42,7 +42,7 @@ E_802D2334 *TLobby__sub_802D2334(E_802D2334 *p, u32 key) {
     return 0;
 }
 
-    extern int lbl_805D53A0;
+    extern int local_client_id;
 
 void TLobby__sub_802D2358(E_802D2358 *p) {
     s32 i;
@@ -52,6 +52,6 @@ void TLobby__sub_802D2358(E_802D2358 *p) {
     }
 }
 
-void prepare_trade_packet__6TLobbyFPv(void* a0) { *(short*)((char*)a0 + 0x2) = lbl_805D53A0; byteswap_trade_packet__6TLobbyFPv(); }
+void prepare_trade_packet__6TLobbyFPv(void* a0) { *(short*)((char*)a0 + 0x2) = local_client_id; byteswap_trade_packet__6TLobbyFPv(); }
 
 }

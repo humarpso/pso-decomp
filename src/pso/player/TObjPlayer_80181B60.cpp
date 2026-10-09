@@ -5,13 +5,13 @@ extern "C" {
 void TObjPlayer__sub_80181B60(void);
 void dispatch_lobby_action__10TObjPlayerFi(s32 arg0);
 s32 process_lobby_action_14__6TLobbyFPv(s32);
-s32 TObjPlayer__sub_80181BAC(s32);
+s32 build_door_collision_triangles__10TObjPlayerFi(s32);
 s32 is_phase_e__9TObjEneDDFPv();
 
 void TObjPlayer__sub_80181B60(void) {  }
 void dispatch_lobby_action__10TObjPlayerFi(s32 arg0) {
     if (is_phase_e__9TObjEneDDFPv() != 0) {
-        TObjPlayer__sub_80181BAC(arg0);
+        build_door_collision_triangles__10TObjPlayerFi(arg0);
         return;
     }
     process_lobby_action_14__6TLobbyFPv(arg0);
@@ -57,7 +57,7 @@ extern const f32 lbl_805DBBEC;
 
 #define self ((Obj_80181BAC *)arg0)
 
-s32 TObjPlayer__sub_80181BAC(s32 arg0) {
+s32 build_door_collision_triangles__10TObjPlayerFi(s32 arg0) {
     Vec_80181BAC v[3];
     Vec_80181BAC sum;
     Tri_80181BAC *t1;

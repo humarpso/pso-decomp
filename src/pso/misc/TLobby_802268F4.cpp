@@ -116,7 +116,7 @@ s32 TLobby__sub_8023F880(int);
 extern Ent_802269B4 lbl_805145F0[];
 extern f32 lbl_80514C50[];
 extern u32 camera_ctrl_instance;
-extern s32 lbl_805D53A0;
+extern s32 local_client_id;
 extern s8 lbl_805D6279;
 extern int lbl_805D62B0;
 extern const f32 lbl_805DC74C;
@@ -156,7 +156,7 @@ void update_sound_request_slots(void) {
     Ent_802269B4 *e;
     s16 *t;
     if (lbl_805D62B0 != 0) {
-        p = get_player_by_client_id((void *) (lbl_805D53A0));
+        p = get_player_by_client_id((void *) (local_client_id));
         if (p != 0U) {
             VecCopy__FP3VecPC3Vec(lbl_80514C50, (void *) (p + 0x38));
         } else if (camera_ctrl_instance != 0U) {

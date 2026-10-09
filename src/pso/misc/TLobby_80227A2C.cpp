@@ -296,7 +296,7 @@ M2C_UNK set_mode__6TLobbyFPvi(M2C_UNK *, s32);
 
 int TLobby__sub_80227AF8(void* p) { return TLobby__sub_8023F754(p); }
 
-extern s32 lbl_805D53A0;
+extern s32 local_client_id;
 
 typedef char RecoveredGlobal_8000F764_TKeyBoardControl__data_80506270_size[sizeof(RecoveredGlobal_8000F764_TKeyBoardControl__data_80506270) == 0xB0 ? 1 : -1];
 typedef char RecoveredGlobal_8000F7FC_lbl_80515F48_size[sizeof(RecoveredGlobal_8000F7FC_lbl_80515F48) == 0x28 ? 1 : -1];
@@ -329,7 +329,7 @@ void handle_6xB2_play_sound_from_player(void *arg0) {
             play_sound_effect(M2C_FIELD(arg0, s32 *, 8), 0, 0, 0);
             return;
         }
-        temp_r3 = get_player_by_client_id(lbl_805D53A0);
+        temp_r3 = get_player_by_client_id(local_client_id);
         if (temp_r3 != 0) {
             play_sound_effect(M2C_FIELD(arg0, s32 *, 8), temp_r3 + 0x38, 0, 0);
         }
@@ -593,8 +593,8 @@ s32 debug_printf_at(u32, void *, ...);
 void TLobby__sub_8022884C(L_8022884C *self);
 M2C_UNK run_frame__6TLobbyFv();
 M2C_UNK TLobby__sub_80226B64(int);
-extern M2C_UNK lbl_8044C8D0[];
-extern M2C_UNK lbl_8044C960[];
+extern M2C_UNK floor_sound_bank_table[];
+extern M2C_UNK floor_sound_bank_volume_table[];
 void load_floor_sound_bank(s32 arg0);
 void add_token__6TLobbyFPvPv(O_80228A74 *self, const char *src);
 void clear_work_buffer(u8 *arg0);
@@ -627,10 +627,10 @@ void load_floor_sound_bank(s32 arg0) {
 
     if (arg0 >= 0) {
         temp_r0 = arg0 * 4;
-        temp_r31 = M2C_FIELD(((u8 *)(lbl_8044C8D0) + temp_r0), s32 *, 0);
+        temp_r31 = M2C_FIELD(((u8 *)(floor_sound_bank_table) + temp_r0), s32 *, 0);
         if (temp_r31 >= 0) {
             if (arg0 < 0x24) {
-                ((M2C_UNK (*)(void *, f32))apply_clamped_field_27c__6TLobbyFv)((void *) (lbl_8044C960), (f32) (M2C_FIELD(((u8 *)(lbl_8044C960) + temp_r0), f32 *, 0)));
+                ((M2C_UNK (*)(void *, f32))apply_clamped_field_27c__6TLobbyFv)((void *) (floor_sound_bank_volume_table), (f32) (M2C_FIELD(((u8 *)(floor_sound_bank_volume_table) + temp_r0), f32 *, 0)));
             }
             validate_and_set_selection__6TLobbyFPvi((void *) (lbl_80514F64), (int) (temp_r31));
             do {

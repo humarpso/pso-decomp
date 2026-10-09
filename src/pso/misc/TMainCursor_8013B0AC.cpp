@@ -24,7 +24,7 @@ M2C_UNK reset_nearest_target_record(void *);
 s32 test_flag_2000000__10TObjPlayerFPv(Pl_8013B0F0 *);
 M2C_UNK submit_cursor_candidate(Pl_8013B0F0 *, int);
 Pl_8013B0F0 *get_player_by_client_id(u16);
-extern Pl_8013B0F0 *lbl_8050EA10[12];
+extern Pl_8013B0F0 *player_slot_table[12];
 void run_cursor_reset_task(s32 arg0);
 }
 
@@ -55,7 +55,7 @@ void run_cursor_reset_task(s32 arg0) {
     bind_action_channels__11TMainCursorFv(cur);
     if (get_main_phase() == 0xF) {
         for (i = 0; i < 12; i++) {
-            Pl_8013B0F0 *p = lbl_8050EA10[i];
+            Pl_8013B0F0 *p = player_slot_table[i];
             if (p != NULL && test_flag_2000000__10TObjPlayerFPv(p) == 0) {
                 submit_cursor_candidate(p, -1);
             }

@@ -141,7 +141,7 @@ M2C_UNK init_pad_state__16TKeyBoardControlFv();
 M2C_UNK load_ply_level_tbl();
 M2C_UNK load_banner_files__15TAdPlayerLoadGCFv();
 M2C_UNK init_particle_sprite_atlas();
-M2C_UNK TAdSinglePlyChrSelectGC__sub_802019F8();
+M2C_UNK init_char_select_globals__23TAdSinglePlyChrSelectGCFv();
 M2C_UNK reset_story_select__6TLobbyFv();
 M2C_UNK TLobby__sub_8020E3C0();
 M2C_UNK TLobby__sub_80226BA4();
@@ -443,7 +443,7 @@ void init_game_systems(void) {
     load_menu_font();
     load_now_loading_texture__6TLobbyFv();
     TCharaMaking__sub_8028E790();
-    TAdSinglePlyChrSelectGC__sub_802019F8();
+    init_char_select_globals__23TAdSinglePlyChrSelectGCFv();
     TLobby__sub_80226BA4();
     wait_for_sound_init__6TLobbyFv();
     load_info_icon();

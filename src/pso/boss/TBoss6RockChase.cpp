@@ -124,7 +124,7 @@ int subtract_vector(void *, void *);
 extern RecoveredGlobal_8036D4E0_lbl_8047ACE8 lbl_8047ACE8;
 extern const f32 TBoss6RockChase__data_805E03B8;
 extern const f32 lbl_805E03BC;
-M2C_UNK TBoss6RockChase__sub_8036D1B4(void *arg0);
+M2C_UNK damage_players_in_range__15TBoss6RockChaseFPv(void *arg0);
 }
 
 extern "C" {
@@ -144,7 +144,7 @@ int set_global_param__8TObjFishFi(void*);
 
 #pragma push
 #pragma opt_propagation off
-M2C_UNK TBoss6RockChase__sub_8036D1B4(void *arg0) {
+M2C_UNK damage_players_in_range__15TBoss6RockChaseFPv(void *arg0) {
     Chase_8036D1B4 *self = (Chase_8036D1B4 *)arg0;
     Vec_8036D1B4 d;
     s32 n;
@@ -204,7 +204,7 @@ void run_task__15TBoss6RockChaseFv(u8 *arg0) {
         if (M2C_FIELD(arg0, f32 *, 0x3C) <= TBoss6RockChase__data_805E03B8) {
             M2C_FIELD(arg0, f32 *, 0x3C) = (f32) TBoss6RockChase__data_805E03B8;
             M2C_FIELD(arg0, f32 *, 0xB8) = (f32) TBoss6RockChase__data_805E03B8;
-            TBoss6RockChase__sub_8036D1B4((void *)((void *) (arg0)));
+            damage_players_in_range__15TBoss6RockChaseFPv((void *)((void *) (arg0)));
             play_sound_effect((int) (0x4006B51E), (void *) (arg0 + 0x38), (int) (0), (int) (0));
             spawn_particle_effect((void *) (arg0 + 0x38), (int) (0x220));
             spawn_particle_effect((void *) (arg0 + 0x38), (int) (0x222));

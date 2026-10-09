@@ -227,7 +227,7 @@ u32 layout_buffers__6TLobbyFPvPvPv(u8 *, u32, u32);
 extern u32 lbl_805D7A40;
 extern u32 lbl_805D7A44;
 s32 TLobby__sub_803F8470(u8 *data, s32 size);
-extern u8 lbl_805AEEB0[];
+extern u8 lobby_net_config_block[];
 extern T_803F86C0 lbl_805D7A50;
 void init_net_config__6TLobbyFPv(Cfg_803F86C0 *c);
 u32 str_length__6TLobbyFi(int);
@@ -926,7 +926,7 @@ void TLobby__sub_803F86BC(void) {
 #pragma push
 #pragma optimization_level 2
 void init_net_config__6TLobbyFPv(Cfg_803F86C0 *c) {
-    u8 *buf = lbl_805AEEB0;
+    u8 *buf = lobby_net_config_block;
     c->f0 = 0;
     c->f2 = 0x3F;
     c->f4 = 0xFF;

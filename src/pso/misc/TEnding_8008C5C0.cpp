@@ -24,7 +24,7 @@ extern Vec_8008C5E8 lbl_80439570;
 extern Vec_8008C5E8 lbl_8043957C;
 extern u8 lbl_80439588[];
 extern u8 ending_scene_callbacks[];
-extern u8 lbl_804A6F34[];
+extern u8 default_scene_light_config[];
 extern void *tl_camera;
 extern const f32 lbl_805D9570;
 extern const f32 lbl_805D9574;
@@ -44,7 +44,7 @@ int start_ending_scene__7TEndingFv() {
     set_screen_size(lbl_805D9570, lbl_805D9574);
     set_copy_clear_color_argb(0, 0, 0);
     reset_controller_input_state();
-    init_map_lights(lbl_804A6F34);
+    init_map_lights(default_scene_light_config);
     p = __nw__7TObjectFUl(0x1D4);
     if (p != 0) {
         TCameraCtrl__ct(p, tl_camera);

@@ -85,10 +85,10 @@ void set_symbol_index__20TWindowSubSymbolChatFPvi(u8 *arg0, s32 arg1);
 int TWindowSubSymbolChat__sub_80076FE0(void* p);
 M2C_UNK strncpy(void *, void *, int);
 void set_entry_name__20TWindowSubSymbolChatFPvPv(u8 *arg0, void *arg1);
-s32 TLobby__sub_80076F48(void *, void *);
+s32 copy_symbol_chat_entry__6TLobbyFPvPv(void *, void *);
 s32 send_symbol_chat__20TWindowSubSymbolChatFPv(void *);
 s32 TWindowSubSymbolChat__sub_80077704(void *);
-extern s32 lbl_805D53A0;
+extern s32 local_client_id;
 void send_selected_symbol_chat__20TWindowSubSymbolChatFPv(s32 *arg0);
 s32 play_sound_effect(s32, u32, s16, s32);
 extern RecoveredGlobal_800773BC_lbl_80438830 lbl_80438830;
@@ -166,8 +166,8 @@ void send_selected_symbol_chat__20TWindowSubSymbolChatFPv(s32 *arg0) {
     s32 temp_r4;
     TWindowSubSymbolChat__sub_80077704((void *) (&packet.header));
     temp_r4 = ((s32)((int)TWindowSubSymbolChat__sub_80077480((s32)((void *)((void *) (*arg0))))));
-    packet.client_id = lbl_805D53A0;
-    TLobby__sub_80076F48((void *) (&packet.data[0]), (void *) (temp_r4 + 0x1C));
+    packet.client_id = local_client_id;
+    copy_symbol_chat_entry__6TLobbyFPvPv((void *) (&packet.data[0]), (void *) (temp_r4 + 0x1C));
     send_symbol_chat__20TWindowSubSymbolChatFPv((void *) (&packet.header));
 }
 

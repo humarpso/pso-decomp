@@ -170,7 +170,7 @@ M2C_UNK send_6x2C_impose_hold(int, void *, int, int, f32);
 u32 get_player_by_client_id(u32);
 M2C_UNK fn_802C9C18(void *, int);
 s32 is_not_split_screen__13TRaderMapCoreFv();
-extern s32 lbl_805D53A0;
+extern s32 local_client_id;
 void check_hold_player__14TOTrapSeabed01FPv(u8 *arg0);
 void calc_attach_pos__10TObjPlayerFPv(void *);
 void obj_clearFlags30(void *, u32);
@@ -284,7 +284,7 @@ void check_hold_player__14TOTrapSeabed01FPv(u8 *arg0) {
         if (temp_f31 < (temp_f0 * temp_f0)) {
             if (is_not_split_screen__13TRaderMapCoreFv() == 1) {
                 send_6x2C_impose_hold((int) (temp_r3), (void *) (arg0 + 0x38), (int) (-1), (int) (0), (f32) (M2C_FIELD(arg0, f32 *, 0x338)));
-            } else if ((s32) M2C_FIELD(arg0, u16 *, 0x33C) == (s32) lbl_805D53A0) {
+            } else if ((s32) M2C_FIELD(arg0, u16 *, 0x33C) == (s32) local_client_id) {
                 send_6x2C_impose_hold((int) (temp_r3), (void *) (arg0 + 0x38), (int) (-1), (int) (0), (f32) (M2C_FIELD(arg0, f32 *, 0x338)));
             }
             fn_802C9C18((void *) (arg0), (int) (0));
@@ -404,7 +404,7 @@ M2C_UNK set_global_param__8TObjFishFi(void *);
 M2C_UNK set_npc_enemy_param(void *);
 
 #define trigger_by_id__14TOTrapSeabed01FUi (*(M2C_UNK (*)[1])&trigger_by_id__14TOTrapSeabed01FUi)
-extern s32 lbl_805D53A4;
+extern s32 actor_frame_tick;
 extern s32 TOTrapSeabed01__texture_file;
 #define TOTrapSeabed01__ginja_model (*(u8 * *)&TOTrapSeabed01__ginja_model)
 extern s32 lbl_805D681C;
@@ -412,12 +412,12 @@ extern s32 seabed01_ginja_mesh_index;
 
 void render_effect_layers__14TOTrapSeabed01FPv(u8 *arg0) {
     set_global_param__8TObjFishFi((void *)((void *) (TOTrapSeabed01__texture_file)));
-    if ((s32) lbl_805D53A4 != (s32) lbl_805D681C) {
+    if ((s32) actor_frame_tick != (s32) lbl_805D681C) {
         if (((void *) TOTrapSeabed01__ginja_model != NULL) && ((s32) seabed01_ginja_mesh_index != -1)) {
             scroll_ginja_mesh_uvs((int) (M2C_FIELD(TOTrapSeabed01__ginja_model, s32 *, 4)), (int) (0), (int) (-0x14), (void *) ((u16) seabed01_ginja_mesh_index), (int) (1));
             PPCSync();
         }
-        lbl_805D681C = lbl_805D53A4;
+        lbl_805D681C = actor_frame_tick;
     }
     set_npc_enemy_param((void *) (trigger_by_id__14TOTrapSeabed01FUi));
     push_matrix();

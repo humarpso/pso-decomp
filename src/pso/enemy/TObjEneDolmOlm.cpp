@@ -559,7 +559,7 @@ s32 get_particle_model__13TParticleCtrlFi(s32);
 s32 get_instance__13TParticleCtrlFv(void);
 s32 spawn_particle_effect(void *, int);
 void fn_800D88E4(void *);
-extern s32 lbl_805D53A4;
+extern s32 actor_frame_tick;
 extern const f32 lbl_805DEF4C;
 extern const f32 TObjEneDolmOlm__data_805DEF50;
 void spawn_ground_effects__14TObjEneDolmOlmFPvPv(u8 *arg0, Vec_80300D00 *arg1);
@@ -1134,7 +1134,7 @@ void spawn_ground_effects__14TObjEneDolmOlmFPvPv(u8 *arg0, Vec_80300D00 *arg1) {
     hit = csnVectorUnder(&v, arg0 + 0x120, 0x4007, y);
     if (hit != NULL) {
         if (hit->flags & 4) {
-            if (lbl_805D53A4 % 5 == 0) {
+            if (actor_frame_tick % 5 == 0) {
                 fn_800D88E4(arg0 + 0x38);
             }
             e = spawn_particle_effect(hit->obj + 0x38, 0x49);
@@ -1143,7 +1143,7 @@ void spawn_ground_effects__14TObjEneDolmOlmFPvPv(u8 *arg0, Vec_80300D00 *arg1) {
             }
             spawn_particle_effect(hit->obj + 0x38, 0xA4);
         } else if (hit->flags & 2) {
-            if (lbl_805D53A4 % 10 == 0) {
+            if (actor_frame_tick % 10 == 0) {
                 fn_800D88E4(arg0 + 0x38);
             }
             e = spawn_particle_effect(hit->obj + 0x54, 0x49);

@@ -44,7 +44,7 @@ extern "C" {
 void VecCopy__FP3VecPC3Vec(void *, void *);
 u8 * csnVectorUnder(s32, void *, s32);
 void set_active__12TObjEneReconFv(void);
-extern s32 lbl_805D53A4;
+extern s32 actor_frame_tick;
 extern const f32 TObjEneMorfos__data_805DF870;
 void update_ground_probe__13TObjEneMorfosFPv(u8 *arg0);
 int get_target_info__9TObjEneDDFPv(void*);
@@ -123,7 +123,7 @@ void TObjEneMorfos__vt103(void* p) { if (get_target_info__9TObjEneDDFPv(p) != 0)
 void update_ground_probe__13TObjEneMorfosFPv(u8 *arg0) {
     Stack_80332594 stack;
     u8 *temp_r3;
-    if ((lbl_805D53A4 % 5) == 0) {
+    if ((actor_frame_tick % 5) == 0) {
         VecCopy__FP3VecPC3Vec(&stack.sp8, arg0 + 0x38);
         stack.spC += TObjEneMorfos__data_805DF870;
         temp_r3 = (u8 *)(csnVectorUnder((s32) &stack.sp8, arg0 + 0x120, 0x4000));

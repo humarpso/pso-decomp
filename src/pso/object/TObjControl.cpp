@@ -487,7 +487,7 @@ s32 is_challenge_mode_active();
 
 extern Hdr_800F6464 *TLobby__data_805D6144;
 extern M2C_UNK __vt__11TObjControl[];
-extern u8 lbl_8050EA40[];
+extern u8 lobby_rule_settings[];
 extern void *lbl_805D2B04;
 extern s32 lbl_805D5328;
 extern s32 game_difficulty_selection;
@@ -797,7 +797,7 @@ void award_enemy_experience(u8 *arg0, s32 arg1) {
     }
     val = M2C_FIELD(M2C_FIELD(arg0, void **, 0x2B0), s32 *, 0x1C);
     if ((u16)arg1 == M2C_FIELD(arg0, u16 *, 0x2D4)) {
-        if (get_rule_field_0__6TLobbyFPv(lbl_8050EA40) == 1) {
+        if (get_rule_field_0__6TLobbyFPv(lobby_rule_settings) == 1) {
             fn_801B0480(p, arg0, 1);
             draw_player_status(p, p, &lbl_805DA8CC);
             draw_player_status(p, arg0, &lbl_805DA8D0);

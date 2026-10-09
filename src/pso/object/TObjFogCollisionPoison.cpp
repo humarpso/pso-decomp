@@ -177,7 +177,7 @@ void record_hit__22TObjFogCollisionPoisonFPvii(void *arg0, s32 arg1, s32 arg2) {
 }
 
 extern s32 tl_05;
-extern s32 lbl_805D53A0;
+extern s32 local_client_id;
 
 typedef char RecoveredGlobal_801532C8_lbl_804AF7C8_size[sizeof(RecoveredGlobal_801532C8_lbl_804AF7C8) == 0x18 ? 1 : -1];
 typedef char RecoveredGlobal_801532C8_TObjFogCollisionPoison__data_8050D430_size[sizeof(RecoveredGlobal_801532C8_TObjFogCollisionPoison__data_8050D430) == 0x30 ? 1 : -1];
@@ -216,7 +216,7 @@ void create__22TObjFogCollisionPoisonFv(void) {
     if (is_split_screen() == 0) {
         obj = __nw__7TObjectFUl(0x30);
         if (obj != NULL) {
-            construct_with_index__22TObjFogCollisionPoisonFPvPvi((u8 *)(obj), (u8 *)(tl_05), (s32)(lbl_805D53A0));
+            construct_with_index__22TObjFogCollisionPoisonFPvPvi((u8 *)(obj), (u8 *)(tl_05), (s32)(local_client_id));
         }
     } else {
         var_r31 = 0;

@@ -103,7 +103,7 @@ typedef struct Light_8001A6A8 { u8 bytes[0xC]; } Light_8001A6A8;
 
 extern "C" {
 s32 init__9TItemDataFv(void *);
-s32 TObjPlayer__sub_801D86F8(int);
+s32 create_ending_player__10TObjPlayerFPv(int);
 s32 get_char_index__23TAdSinglePlyChrSelectGCFUi(int);
 s32 __ct__7TObjectFP7TObject(void *, void *);
 extern RecoveredGlobal_8001A8F0_lbl_8043455C lbl_8043455C;
@@ -219,7 +219,7 @@ u8 *TObjPlayer__sub_8001A8F0(u8 *arg0, s32 arg1) {
     stack.sp8 = M2C_FIELD(&lbl_8043455C.value, s32 *, 0);
     stack.spC = M2C_FIELD(&lbl_8043455C.value, s32 *, 4);
     stack.sp10 = M2C_FIELD(&lbl_8043455C.value, s32 *, 8);
-    temp_r3 = TObjPlayer__sub_801D86F8((int) (get_char_index__23TAdSinglePlyChrSelectGCFUi((int) (0xFFFF))));
+    temp_r3 = create_ending_player__10TObjPlayerFPv((int) (get_char_index__23TAdSinglePlyChrSelectGCFUi((int) (0xFFFF))));
     lbl_805D49E0 = temp_r3;
     query_darkfalz_state__10TObjPlayerFPv((int) (temp_r3), (void *) (&stack.sp8));
     init__9TItemDataFv((void *) (&stack.sp14));

@@ -111,7 +111,7 @@ force_active:
   - TLobby__sub_803CBE40
   - TLobby__sub_803D0F1C
   - TLobby__sub_803D2E90
-  - TLobby__sub_803D2F1C
+  - find_archive_entry__6TLobbyFPvPvPvPv
   - TLobby__sub_803D346C
   - TLockOnCursor__sub_8013EBBC
   - TLockOnCursor__sub_8013EBE8
@@ -489,6 +489,7 @@ force_active:
   - capture_attachment__17TObjEneBm3FlyNestFv
   - capture_matrix_by_frame__16TObjDFTenchuFuruFv
   - cast_tech_on_players__10TObjPlayerFPv
+  - cast_technique__18TObjEneRe4SorcererFPv
   - challenge_retry_cmd_table
   - challenge_retry_window_pos
   - change_floor_reload_area
@@ -499,6 +500,7 @@ force_active:
   - chcr_load_afs_busy_flag
   - check_any_player_in_range__12TObjRaderColFPv
   - check_attack_hits__19TObjEneBm9MericarolFPv
+  - check_battle_end__6TLobbyFv
   - check_beam_player_hits__13TBoss6KakusanFPv
   - check_destruction_by_phase__6TLobbyFPv
   - check_flag_or_state__15TObjBoss2TunnelFi
@@ -513,6 +515,7 @@ force_active:
   - check_purchase_eligibility__24TShopEquipmentListWindowFPv
   - check_system_file_status__23TAdSinglePlyChrSelectGCFv
   - check_target_collision__10TObjPlayerFPv
+  - check_team_balance__6TLobbyFPvi
   - circling_state__14TObjEneBm5WolfFv
   - clamp_hp_value__10TObjPlayerFPvPv
   - clamp_min_player_distance__9TBoss4UroFPv
@@ -576,7 +579,6 @@ force_active:
   - copy_motion_pair
   - copy_node_record__10TObjPlayerFii
   - copy_origin_with_y_offset__8TObjFishFv
-  - copy_pos_with_height_offset__16TObjEneMe3StelthFPv
   - copy_record__13TObjResultWinFPvPv
   - copy_record__13TObjTombstoneFPvi
   - copy_resource_desc__9TObjEneDDFPvPv
@@ -637,6 +639,7 @@ force_active:
   - destroy_arrays__14TPlyDispConfigFii
   - destroy_char_data_array__10TObjPlayerFv
   - destroy_free_buffers__20TWindowSubStatusDispFPvs
+  - destroy_matching_children__6TLobbyFPv
   - destroy_static_array__10TObjPlayerFv
   - destroy_subobjects_recursive__10TObjPlayerFPv
   - detect_device_type__16TKeyBoardControlFi
@@ -755,6 +758,7 @@ force_active:
   - find_support_technique_contact
   - find_table_entry_id
   - find_target_player__6TOMineFPv
+  - finish_chr_select_scene_init__6TLobbyFv
   - fire_zonde_at_players__10TObjPlayerFPv
   - flanking_state__14TObjEneBm5WolfFPvi
   - fn_80010F4C
@@ -827,6 +831,7 @@ force_active:
   - handle_confirm_window__12TQuestListVMFPv
   - handle_cursor_input__19TAdTrialAgreementGCFPv
   - handle_cursor_input__28TWindowSubSymbolChatPartsSetFPv
+  - handle_death_state__18TObjEneRe4SorcererFPvi
   - handle_equip_offer__20TShopArmorListWindowFv
   - handle_equip_offer__24TShopEquipmentListWindowFv
   - handle_equip_prompt__23TShopJudgmentItemWindowFPv
@@ -869,6 +874,7 @@ force_active:
   - init_cursor_record__15TBoss3VoloptP01FPv
   - init_default_fields__6TLobbyFPv
   - init_effect_flags__13TItemProArmorFPv
+  - init_enemy__18TObjEneRe4SorcererFPv
   - init_floor_encounter_sections__6TLobbyFv
   - init_forward__19TItemDisconnectCtrlFv
   - init_forward_default__10TObjPlayerFv
@@ -1020,10 +1026,8 @@ force_active:
   - lbl_80496C90
   - lbl_80496CB8
   - lbl_80496CC0
-  - lbl_80497710
-  - lbl_80497718
-  - lbl_80497758
-  - lbl_80497760
+  - lbl_80496F28
+  - lbl_80496F34
   - lbl_8049C5E0
   - lbl_8049CBA8
   - lbl_8049CBE8
@@ -1532,7 +1536,10 @@ force_active:
   - scale_by_level__14TOTrapChainSawFf
   - scan_memcard_quest_files__12TQuestListVMFPv
   - schedule_pack_reaction__14TObjEneBm5WolfFPvis
+  - select_attack_target__18TObjEneRe4SorcererFiff
   - select_death_direction__14TObjEneBm5WolfFPvPv
+  - send_battle_mode_params__6TLobbyFcii
+  - send_battle_mode_state__6TLobbyFPv
   - send_obj_position_event__10TEndingPicFPvi
   - send_partner_attack_stage_request
   - send_state__12TODoorCave01FPvPv
@@ -1621,6 +1628,7 @@ force_active:
   - standing_state__14TObjEneBm5WolfFPvi
   - start_bone_rot_player__24TObjWaitEntryHairMoveSimFPv
   - start_download__12TChCrLoadAfsFv
+  - start_duel_battle__6TLobbyFPv
   - start_entry_timer__6TLobbyFPvUsi
   - start_fade__9TAdFadeGCFPvPv
   - start_get_type_async__16TKeyBoardControlFiiii
@@ -1630,6 +1638,7 @@ force_active:
   - state_dying__17TObjEneBm3FlyNestFPvi
   - state_initial_emit__17TObjEneBm3FlyNestFPvi
   - step_camera_scalar
+  - step_effect_sequence__18TObjEneRe4SorcererFv
   - step_fade_opacity_decrease
   - step_fade_opacity_increase
   - step_ground_technique_projectile
@@ -1682,6 +1691,7 @@ force_active:
   - update_approach_state__11TObjEneMojaFPv
   - update_attack_jump__11TObjEneMojaFv
   - update_backdrop_transition__17TWindowMainMenu1PFPv
+  - update_battle_sync__6TLobbyFPvi
   - update_blink_state__16TOCakeshopCave01FPvPv
   - update_breakup__15TBoss3VoloptP01FPv
   - update_button_hold_counter
@@ -1713,6 +1723,7 @@ force_active:
   - update_fade__18TObjButterflyLobbyFPv
   - update_fade_in__13TObjLobbyMainFPv
   - update_falling_projectile__10TObjPlayerFPv
+  - update_farthest_target__18TObjEneRe4SorcererFPviPv
   - update_floor_name_windows__9TObjLukerFPv
   - update_follow__11TItemMagSubFv
   - update_follow_parent__18TObjEneBalClawClawFPv
@@ -1748,6 +1759,7 @@ force_active:
   - update_password_input__18TAdEnterPasswordGCFPv
   - update_path_follow_rotation__10TObjPlayerFPvPvf
   - update_path_steering__10TObjPlayerFPv
+  - update_player_battle_ctrl_state
   - update_player_hp_ratios
   - update_position_from_velocity__20TItemEffOrgaFlowShotFPv
   - update_position_if_changed__19TWindowSubTradeMainFiPvPv
@@ -1784,6 +1796,7 @@ force_active:
   - update_state__8TObjDoorFPv
   - update_state_display__12TAdDialingGCFPv
   - update_state_from_input__16TKeyBoardControlFPv
+  - update_state_machine__18TObjEneRe4SorcererFPvPv
   - update_state_machine__19TContainerAncient01FPv
   - update_stream_buffers__6TLobbyFPv
   - update_target_follow__11TCameraCtrlFPv

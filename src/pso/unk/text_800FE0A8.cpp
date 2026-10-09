@@ -9,7 +9,7 @@ extern s32 lbl_805D53DC;
 s32 fn_800FE0A8(void);
 void read_data_sync__6TLobbyFiii(s32, s32, s32);
 s32 fn_800FE0A8(void);
-extern s32 lbl_805D53C0;
+extern s32 gstream_tmp_buffer;
 extern s32 lbl_805D53D4;
 extern s32 lbl_805D53D8;
 extern s32 lbl_805D53DC;
@@ -42,7 +42,7 @@ s32 fn_800FE0C8(s32 arg0) {
         if (var_r5 > 0) {
             lbl_805D53DC = var_r5;
             lbl_805D53D8 = 0;
-            read_data_sync__6TLobbyFiii(arg0, (s32) (var_r5 + 0x7FF) / 2048, lbl_805D53C0);
+            read_data_sync__6TLobbyFiii(arg0, (s32) (var_r5 + 0x7FF) / 2048, gstream_tmp_buffer);
         }
     }
     return fn_800FE0A8();

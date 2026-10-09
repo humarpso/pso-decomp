@@ -2092,15 +2092,15 @@ pso/enemy/TObjEneSlimeOne_800EC394.cpp:
 	.data       start:0x80496C50 end:0x80496CD0
 
 pso/enemy/TObjEneRe4Bit.cpp:
-	.text       start:0x800ECA40 end:0x800EDCCC
+	.text       start:0x800ECA40 end:0x800EDB98
 	.data       start:0x80496CD0 end:0x80496EE0
 	.bss        start:0x80501050 end:0x80501070
 
-pso/enemy/TObjEneRe4Sorcerer_800EDCCC.cpp:
-	.text       start:0x800EDCCC end:0x800F0810
+pso/enemy/TObjEneRe4Sorcerer_800EDB98.cpp:
+	.text       start:0x800EDB98 end:0x800F0810
 	.rodata     start:0x8043D410 end:0x8043D418
 	.data       start:0x80496EE0 end:0x804971BC
-	.sdata2     start:0x805DA798 end:0x805DA7D4
+	.sdata2     start:0x805DA788 end:0x805DA7F0
 
 pso/player/TObjPlayer_800F0810.cpp:
 	.text       start:0x800F0810 end:0x800F0AE4
@@ -2114,56 +2114,12 @@ pso/enemy/TObjEneMe3StelthReal.cpp:
 pso/enemy/TObjEneMe3Stelth_800F0EC4.cpp:
 	.text       start:0x800F0EC4 end:0x800F169C
 
-pso/enemy/TObjEneMe3Stelth_800F169C.cpp:
-	.text       start:0x800F169C end:0x800F18C8
-
-pso/enemy/TObjEneMe3Stelth_800F18C8.cpp:
-	.text       start:0x800F18C8 end:0x800F1C90
-	.rodata     start:0x8043D750 end:0x8043D758
-
-pso/enemy/TObjEneMe3Stelth_800F1C90.cpp:
-	.text       start:0x800F1C90 end:0x800F1CD4
-
-pso/enemy/TObjEneMe3Stelth_800F1CD4.cpp:
-	.text       start:0x800F1CD4 end:0x800F2240
-
-pso/enemy/TObjEneMe3Stelth_800F2240.cpp:
-	.text       start:0x800F2240 end:0x800F2270
-
-pso/enemy/TObjEneMe3Stelth_800F2270.cpp:
-	.text       start:0x800F2270 end:0x800F2A48
-
-pso/enemy/TObjEneMe3Stelth_800F2A48.cpp:
-	.text       start:0x800F2A48 end:0x800F2B8C
-
-pso/enemy/TObjEneMe3Stelth_800F2B8C.cpp:
-	.text       start:0x800F2B8C end:0x800F2C8C
-
-pso/enemy/TObjEneMe3Stelth_800F2C8C.cpp:
-	.text       start:0x800F2C8C end:0x800F4424
-	.sdata2     start:0x805DA834 end:0x805DA838
-
-pso/enemy/TObjEneMe3Stelth_800F4424.cpp:
-	.text       start:0x800F4424 end:0x800F4598
-
 pso/enemy/TObjEneMe3Stelth.cpp:
-	.text       start:0x800F4598 end:0x800F52B0
+	.text       start:0x800F169C end:0x800F58A4
+	.rodata     start:0x8043D750 end:0x8043D758
 	.data       start:0x804976C8 end:0x80497A8C
-
-pso/enemy/TObjEneMe3Stelth_800F52B0.cpp:
-	.text       start:0x800F52B0 end:0x800F52FC
-
-pso/enemy/TObjEneMe3Stelth_800F52FC.cpp:
-	.text       start:0x800F52FC end:0x800F53C8
-
-pso/enemy/TObjEneMe3Stelth_800F53C8.cpp:
-	.text       start:0x800F53C8 end:0x800F53E8
-
-pso/enemy/TObjEneMe3Stelth_800F53E8.cpp:
-	.text       start:0x800F53E8 end:0x800F5864
-
-pso/enemy/TObjEneMe3Stelth_800F5864.cpp:
-	.text       start:0x800F5864 end:0x800F58A4
+	.bss        start:0x805010E0 end:0x80501130
+	.sdata2     start:0x805DA834 end:0x805DA838
 
 pso/unk/text_800F591C.cpp:
 	.text       start:0x800F58A4 end:0x800F5BC0
@@ -12175,13 +12131,7 @@ pso/misc/TWindowDD_80341334.cpp:
 	.ctors      start:0x80434008 end:0x8043400C
 
 pso/misc/TWindowDD_80341A08.cpp:
-	.text       start:0x80341A08 end:0x80341AC0
-
-pso/misc/TWindowDD_80341AC0.cpp:
-	.text       start:0x80341AC0 end:0x80341B10
-
-pso/misc/TWindowDD_80341B10.cpp:
-	.text       start:0x80341B10 end:0x80342254
+	.text       start:0x80341A08 end:0x80342254
 	.rodata     start:0x80478610 end:0x80478618
 
 pso/misc/TWindowDD_80342254.cpp:

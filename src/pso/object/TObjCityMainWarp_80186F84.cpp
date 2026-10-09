@@ -62,7 +62,7 @@ M2C_UNK check_technique_flag__10TObjPlayerFPv(void *);
 Player_80187438 *get_player_by_client_id(s32);
 M2C_UNK TWindow__close(u32);
 char *strcpy(char *, const char *);
-extern s32 lbl_805D53A0;
+extern s32 local_client_id;
 extern const f32 lbl_805DBCA8;
 void count_players_in_warp_radius__10TObjPlayerFPv(u8 *arg0);
 s32 TLobby__sub_800C6C10(s32);
@@ -74,7 +74,7 @@ M2C_UNK trigger_warp_effect__16TObjCityMainWarpFPvi(void *, s32);
 M2C_UNK TObjCityMainWarp__sub_801875F8(void *);
 s32 get_warp_state__19TWindowSubTradeMainFv();
 M2C_UNK play_sound_effect(M2C_UNK, void *, M2C_UNK, M2C_UNK);
-extern s32 lbl_805D53A0;
+extern s32 local_client_id;
 extern void *lbl_805D5B28;
 void update_warp_sequence__16TObjCityMainWarpFPv(u8 *arg0);
 s32 get_main_phase();
@@ -91,7 +91,7 @@ M2C_UNK TWindow__close(u32);
 s32 get_slot_or_neg1__17TWindowSubComCardFPv(u32);
 s32 get_card_data__17TWindowSubComCardFPv(u32);
 s32 is_child_visible__17TWindowSubComCardFPv(u32);
-extern s32 lbl_805D53A0;
+extern s32 local_client_id;
 extern void *lbl_805D5B28;
 void update_challenge_state__16TObjCityMainWarpFPv(u8 *arg0);
 }
@@ -103,7 +103,7 @@ s32 get_phase_flag__16TObjCityMainWarpFv();
 s32 find_local_player_in_range__16TObjCityMainWarpFif(void *, f32);
 M2C_UNK notify_player_warp__16TObjCityMainWarpFPvi(void *, s32);
 
-extern s32 lbl_805D53A0;
+extern s32 local_client_id;
 extern void *lbl_805D5B28;
 extern s32 lbl_805D5B60;
 
@@ -125,7 +125,7 @@ void update_state__16TObjCityMainWarpFPv(void *arg0) {
         if (get_phase_flag__16TObjCityMainWarpFv() == 0) {
             temp_r3 = find_local_player_in_range__16TObjCityMainWarpFif(arg0, M2C_FIELD(arg0, f32 *, 0xAC));
             if (temp_r3 != 0) {
-                notify_player_warp__16TObjCityMainWarpFPvi(arg0, lbl_805D53A0);
+                notify_player_warp__16TObjCityMainWarpFPvi(arg0, local_client_id);
                 M2C_FIELD(arg0, s32 *, 0xBC) = (s32) lbl_805D5B60;
                 ((F_V_80186f84 *) arg0)->m17(temp_r3);
                 M2C_FIELD(arg0, s16 *, 0xE0) = 2;
@@ -159,7 +159,7 @@ void update_warp_sequence__16TObjCityMainWarpFPv(u8 *arg0) {
         if (((u32 (*)(f32))find_local_player_in_range__16TObjCityMainWarpFif)(M2C_FIELD(arg0, f32 *, 0xAC)) != 0) {
             TObjCityMainWarp__sub_801875F8(arg0);
             if (M2C_FIELD(arg0, s32 *, 0x170) == 0) {
-                trigger_warp_effect__16TObjCityMainWarpFPvi(arg0, lbl_805D53A0);
+                trigger_warp_effect__16TObjCityMainWarpFPvi(arg0, local_client_id);
                 M2C_FIELD(arg0, s32 *, 0x170) = 1;
             }
         }
@@ -202,7 +202,7 @@ void update_challenge_state__16TObjCityMainWarpFPv(u8 *arg0) {
     case 1:
         if (((u32 (*)(f32))find_local_player_in_range__16TObjCityMainWarpFif)(M2C_FIELD(arg0, f32 *, 0xAC)) != 0) {
             TObjCityMainWarp__sub_801875F8(arg0);
-            trigger_warp_effect__16TObjCityMainWarpFPvi(arg0, lbl_805D53A0);
+            trigger_warp_effect__16TObjCityMainWarpFPvi(arg0, local_client_id);
             M2C_FIELD(arg0, s16 *, 0xE0) = 2;
             break;
         }
@@ -223,7 +223,7 @@ void update_challenge_state__16TObjCityMainWarpFPv(u8 *arg0) {
             } else if (is_child_visible__17TWindowSubComCardFPv(M2C_FIELD(arg0, u32 *, 0x168)) != 0) {
                 r = get_slot_or_neg1__17TWindowSubComCardFPv(M2C_FIELD(arg0, u32 *, 0x168));
                 if (r == 0) {
-                    trigger_warp_effect__16TObjCityMainWarpFPvi(arg0, lbl_805D53A0);
+                    trigger_warp_effect__16TObjCityMainWarpFPvi(arg0, local_client_id);
                     M2C_FIELD(arg0, s32 *, 0x170) = 1;
                     send_6x6A_set_boss_warp_flags__16TObjCityMainWarpFPvUs(arg0, 1);
                     M2C_FIELD(arg0, s16 *, 0xE0) = 5;
@@ -242,7 +242,7 @@ void update_challenge_state__16TObjCityMainWarpFPv(u8 *arg0) {
         }
         break;
     case 3:
-        notify_player_warp__16TObjCityMainWarpFPvi(arg0, lbl_805D53A0);
+        notify_player_warp__16TObjCityMainWarpFPvi(arg0, local_client_id);
         M2C_FIELD(arg0, s16 *, 0xE0) = 4;
         break;
     case 4:
@@ -302,7 +302,7 @@ void count_players_in_warp_radius__10TObjPlayerFPv(u8 *arg0) {
         TWindow__close(self->window);
         self->window = 0;
     }
-    pl2 = get_player_by_client_id(lbl_805D53A0);
+    pl2 = get_player_by_client_id(local_client_id);
     if (pl2 != NULL && get_field_3e4__10TObjPlayerFPv(pl2) == get_current_floor()) {
         if (xz_distance_squared(pl2->pos, self->pos) <= (lbl_805DBCA8 + self->radius) * (lbl_805DBCA8 + self->radius)) {
             if (is_flag_clear__17TObjWarpBossMultiFPv(pl2) != 0) {

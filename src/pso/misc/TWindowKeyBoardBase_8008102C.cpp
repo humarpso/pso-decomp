@@ -64,7 +64,7 @@ u32 *destroy__19TWindowKeyBoardBaseFPvs(u32 *arg0, s16 arg1) {
     return arg0;
 }
 
-extern s32 lbl_805D53A0;
+extern s32 local_client_id;
 
 s32 *init_text_buffer_holder__19TWindowKeyBoardBaseFPv(s32 *arg0) {
     *arg0 = 0;
@@ -75,7 +75,7 @@ s32 *init_text_buffer_holder__19TWindowKeyBoardBaseFPv(s32 *arg0) {
 int is_player_near__13TEF_LensFlareFif(s32 arg0, f32 farg0) {
     u32 temp_r3;
 
-    temp_r3 = get_player_by_client_id(lbl_805D53A0);
+    temp_r3 = get_player_by_client_id(local_client_id);
     if (temp_r3 == 0U) {
         return 0;
     }

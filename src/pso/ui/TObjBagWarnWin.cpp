@@ -28,7 +28,7 @@ s32 fn_8006EF80();
 Ctrl_8006EC20 *get_player_by_client_id(s32);
 s32 get_global_state__14TOKeyMachine01Fv();
 s32 TLobby__sub_80211C3C();
-extern s32 lbl_805D53A0;
+extern s32 local_client_id;
 extern const f32 lbl_805D90B8;
 extern const f32 lbl_805D90BC;
 extern const f32 lbl_805D90C0;
@@ -58,7 +58,7 @@ s32 should_show_warning__14TObjBagWarnWinFPv(void *arg0) {
     if (fn_8006EF80() != 0) {
         return 0;
     }
-    ctrl = get_player_by_client_id(lbl_805D53A0);
+    ctrl = get_player_by_client_id(local_client_id);
     if (ctrl == NULL) {
         return 0;
     }
@@ -74,7 +74,7 @@ s32 should_show_warning__14TObjBagWarnWinFPv(void *arg0) {
         }
         break;
     }
-    ctrl = get_player_by_client_id(lbl_805D53A0);
+    ctrl = get_player_by_client_id(local_client_id);
     if (ctrl == NULL || ctrl->pD00->v1C < 30) {
         return 0;
     }

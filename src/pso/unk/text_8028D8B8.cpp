@@ -25,7 +25,7 @@ s32 queue_destruction__7TObjectFv(int);
 extern RecoveredGlobal_8028D940_lbl_8051C070 lbl_8051C070;
 void fn_8028D8F4(void);
 void *alloc__22TQuestVmDownLoadServerFPv(u32 size);
-extern void *lbl_805D6518;
+extern void *chr_select_load_buffer_base;
 void alloc_quest_download_buffer(void);
 }
 
@@ -36,8 +36,8 @@ typedef char RecoveredGlobal_8028D940_lbl_8051C070_size[sizeof(RecoveredGlobal_8
 typedef char RecoveredGlobal_8028D8F4_lbl_8051C070_size[sizeof(RecoveredGlobal_8028D8F4_lbl_8051C070) == 0xC ? 1 : -1];
 
 void alloc_quest_download_buffer(void) {
-    if (lbl_805D6518 == 0) {
-        if ((lbl_805D6518 = alloc__22TQuestVmDownLoadServerFPv(0x28000)) == 0) return;
+    if (chr_select_load_buffer_base == 0) {
+        if ((chr_select_load_buffer_base = alloc__22TQuestVmDownLoadServerFPv(0x28000)) == 0) return;
     }
 }
 

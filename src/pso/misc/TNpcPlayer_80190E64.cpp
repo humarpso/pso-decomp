@@ -70,7 +70,7 @@ Npc_80190F3C *TNpcPlayer__sub_80190F3C(Npc_80190F3C *arg0, void *arg1, s32 arg2,
 Ctrl_801910F4 *get_player_by_client_id(u32);
 void *__nw__7TObjectFUl(int);
 extern int lbl_805D3360;
-extern s32 lbl_805D53A0;
+extern s32 local_client_id;
 extern void *tl_07;
 void update_npc_proximity__6TLobbyFPv(Npc_80190FDC *arg0);
 }
@@ -145,7 +145,7 @@ void update_npc_proximity__6TLobbyFPv(Npc_80190FDC *arg0) {
         queue_destruction__7TObjectFv((void*)(arg0));
         return;
     }
-    p = (Ply_80190FDC *)get_player_by_client_id(lbl_805D53A0);
+    p = (Ply_80190FDC *)get_player_by_client_id(local_client_id);
     if (p == 0) {
         return;
     }

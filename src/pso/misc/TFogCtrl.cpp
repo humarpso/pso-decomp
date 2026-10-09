@@ -276,10 +276,10 @@ extern RecoveredGlobal_800FBB68_lbl_8049C670 area_fog_row_table;
 extern u8 fog_default_entry[];
 extern u8 lbl_8058CA60[];
 extern s32 lbl_805D2B18;
-extern u32 lbl_805D5388;
-extern s32 lbl_805D538C;
-extern E_800FC220 *lbl_805D5398;
-extern s32 lbl_805D53A4;
+extern u32 fog_entry_array;
+extern s32 fog_update_flags;
+extern E_800FC220 *small_font_metrics_table_ptr;
+extern s32 actor_frame_tick;
 extern M2C_UNK *tl_02;
 
 extern const f32 TFogCtrl__data_805DA948 = 0.0f;
@@ -360,7 +360,7 @@ extern int fold_flush_2;
 #pragma inline_depth(1)
 #pragma auto_inline off
 #pragma dont_inline off
-void* get_entry__8TFogCtrlFi(int a0) {  return (char*)((*(int *)&lbl_805D5388)) + a0 * 64; }
+void* get_entry__8TFogCtrlFi(int a0) {  return (char*)((*(int *)&fog_entry_array)) + a0 * 64; }
 #pragma pop
 
 #pragma push
@@ -577,15 +577,15 @@ void apply_slot_params__8TFogCtrlFPvi(FogCtrl_800FB134 *self, s32 idx) {
     self->start = row->start;
     self->width = FOG_MAX;
     if (FOG_ZERO != row->end_amplitude) {
-        t = row->end_amplitude * sin_table_lookup((s32)((182.04445f) * ((f32)lbl_805D53A4 * row->speed + (f32)row->phases[2])));
+        t = row->end_amplitude * sin_table_lookup((s32)((182.04445f) * ((f32)actor_frame_tick * row->speed + (f32)row->phases[2])));
         self->end += t;
     }
     if (FOG_ZERO != row->start_amplitude) {
-        t = row->start_amplitude * sin_table_lookup((s32)((182.04445f) * ((f32)lbl_805D53A4 * row->speed + (f32)row->phases[4])));
+        t = row->start_amplitude * sin_table_lookup((s32)((182.04445f) * ((f32)actor_frame_tick * row->speed + (f32)row->phases[4])));
         self->start += t;
     }
     if (FOG_ZERO != row->width) {
-        self->width = (f32)row->phases[6] * sin_table_lookup((s32)((182.04445f) * ((f32)lbl_805D53A4 * row->speed))) + row->width;
+        self->width = (f32)row->phases[6] * sin_table_lookup((s32)((182.04445f) * ((f32)actor_frame_tick * row->speed))) + row->width;
     }
     self->dirty |= 1;
 }
@@ -820,13 +820,13 @@ void update_fog_entries__8TFogCtrlFv(void) {
     s32 j;
     M2C_UNK v;
     if (is_online_ready__6TLobbyFv() != 0) {
-        if (!(lbl_805D538C & 2)) {
-            read_disc_file(lbl_8043DA30, (void *)lbl_805D5388);
-            lbl_805D538C |= 2;
+        if (!(fog_update_flags & 2)) {
+            read_disc_file(lbl_8043DA30, (void *)fog_entry_array);
+            fog_update_flags |= 2;
         }
-    } else if (lbl_805D538C & 2) {
-        read_disc_file(lbl_8043DA20, (void *)lbl_805D5388);
-        lbl_805D538C &= ~2;
+    } else if (fog_update_flags & 2) {
+        read_disc_file(lbl_8043DA20, (void *)fog_entry_array);
+        fog_update_flags &= ~2;
     }
     i = 0;
     j = 0;
@@ -880,10 +880,10 @@ void create_area_fog_ctrl(void) {
 void reset__8TFogCtrlFv(void) {
     TObjFogCollisionPoison__sub_801533BC();
     destroy_instance__22TQuestVmDownLoadServerFv();
-    if ((u32) lbl_805D5388 != 0U) {
-        free__11TOBoss4RockFUi((void*)lbl_805D5388);
+    if ((u32) fog_entry_array != 0U) {
+        free__11TOBoss4RockFUi((void*)fog_entry_array);
     }
-    lbl_805D5388 = 0U;
+    fog_entry_array = 0U;
     ((M2C_UNK (*)(M2C_UNK))fn_803E1FC8)(-1);
     ((M2C_UNK (*)(f32, f32))fn_803E1FFC)((1e+03f), (1e+04f));
     ((M2C_UNK (*)(void))reset_scene_fog)();
@@ -892,7 +892,7 @@ void reset__8TFogCtrlFv(void) {
 
 void init_scene_fog_system(void) {
     s32 i;
-    lbl_805D538C = 0;
+    fog_update_flags = 0;
     (*(FogParam_800FBC5C *)&fog_default_entry).f0 = 1;
     (*(FogParam_800FBC5C *)&fog_default_entry).f4 = 0;
     (*(FogParam_800FBC5C *)&fog_default_entry).f8 = 4000.0f;
@@ -904,11 +904,11 @@ void init_scene_fog_system(void) {
         (*(FogParam_800FBC5C *)&fog_default_entry).f38[i] = 0;
     }
     (*(FogParam_800FBC5C *)&fog_default_entry).f18[6] = FOG_MAX;
-    lbl_805D5388 = (u32)alloc_buffer__11TOBoss4RockFPv(0x2000);
+    fog_entry_array = (u32)alloc_buffer__11TOBoss4RockFPv(0x2000);
     for (i = 0; i < 0x80; i++) {
-        copy_fog_entry((u8 *)&((FogParam_800FBC5C *)lbl_805D5388)[i], (u8 *)&fog_default_entry);
+        copy_fog_entry((u8 *)&((FogParam_800FBC5C *)fog_entry_array)[i], (u8 *)&fog_default_entry);
     }
-    read_disc_file(lbl_8043DA20, (void *)lbl_805D5388);
+    read_disc_file(lbl_8043DA20, (void *)fog_entry_array);
     for (i = 0; i < 4; i++) {
         TFogCtrl__fog_instance_table[i] = 0;
     }

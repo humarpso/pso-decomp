@@ -65,7 +65,7 @@ void update_message__18TWindowMessagePageFPv(void *arg0) {
     }
 }
 
-extern s32 lbl_805D53A0;
+extern s32 local_client_id;
 
 void set_message__18TWindowMessagePageFPvPvi(Page_8026AE20 *self, void *msg, s32 flags) {
     while (self->msg != NULL) {
@@ -89,7 +89,7 @@ u8 *create__18TWindowMessagePageFiiii(s32 arg0, s32 arg1, s32 arg2, s32 arg3) {
 }
 
 void set_text__18TWindowMessagePageFiii(s32 a, s32 b, s32 c) {
-    create__18TWindowMessagePageFiiii((s32)(a), (s32)(b), (s32)(c), lbl_805D53A0);
+    create__18TWindowMessagePageFiiii((s32)(a), (s32)(b), (s32)(c), local_client_id);
 }
 
 int render__18TWindowMessagePageFv(void* p) { return render__14TWindowMessageFv(p); }

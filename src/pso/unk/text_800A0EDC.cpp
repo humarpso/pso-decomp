@@ -124,7 +124,7 @@ M2C_UNK update_collisions__10TObjPlayerFPv(void *);
 M2C_UNK submit_cursor_candidate(void *, M2C_UNK);
 M2C_UNK minimap_render_dot(void *, M2C_UNK, M2C_UNK, M2C_UNK);
 M2C_UNK play_persistent_sound(int, void *, void *, int, int);
-extern s32 lbl_805D53A4;
+extern s32 actor_frame_tick;
 extern const f32 lbl_805D9984;
 extern const f32 lbl_805D99B4;
 extern const f32 lbl_805D99B8;
@@ -1456,7 +1456,7 @@ s32 TObjPlayer__sub_800A2390(void *arg0_) {
                 arg0->f3AC = 5;
             }
         }
-        if (!(lbl_805D53A4 & 2)) {
+        if (!(actor_frame_tick & 2)) {
             spawn_hamon_effects__10TObjPlayerFPviif((Obj_800A1814 *)arg0, 0xF, 0, lbl_805D99C4);
         }
         apply_actor_gravity(arg0, 0, lbl_805D9984);

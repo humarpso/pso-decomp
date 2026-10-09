@@ -93,7 +93,7 @@ extern s32 *boss2_tunnel_snapshot_buffer;
 extern s32 TObjBoss2Tunnel__snapshot_buffer;
 s32 save_snapshot_to_card__15TObjBoss2TunnelFv(void);
 s32 get_main_phase(void);
-void TCameraCtrl__sub_8006AF9C(u32, s32);
+void setup_default_view__11TCameraCtrlFPvPv(u32, s32);
 void TObjBoss2Tunnel__sub_8007D828(void);
 void set_graph_param__8TDLGraphFPvi(void *, s32);
 void update_graph__8TDLGraphFii(s32, s32);
@@ -129,7 +129,7 @@ extern const f32 lbl_805D9218;
 extern const f32 lbl_805D921C;
 s32 run_confirm_message_loop__15TObjBoss2TunnelFv(void);
 s32 get_main_phase(void);
-void TCameraCtrl__sub_8006AF9C(u32, s32);
+void setup_default_view__11TCameraCtrlFPvPv(u32, s32);
 void wait_ready_loop__6TLobbyFv(void);
 s32 get_localized_text_entry(s32, s32);
 void process_deferred_player_setup__6TLobbyFv(void);
@@ -203,7 +203,7 @@ s32 run_confirm_message_loop__15TObjBoss2TunnelFv(void) {
         func_803DCDFC__Fv();
         controller_stuff__Fv();
         if (camera_ctrl_instance != 0U) {
-            TCameraCtrl__sub_8006AF9C(camera_ctrl_instance, 0);
+            setup_default_view__11TCameraCtrlFPvPv(camera_ctrl_instance, 0);
         }
         render__9TMainTaskFv(main_task);
         TObjBoss2Tunnel__sub_8007D828();
@@ -285,7 +285,7 @@ void show_message_and_wait__15TObjBoss2TunnelFi(s32 arg0) {
         func_803DCDFC__Fv();
         controller_stuff__Fv();
         if (camera_ctrl_instance != 0U) {
-            TCameraCtrl__sub_8006AF9C(camera_ctrl_instance, 0);
+            setup_default_view__11TCameraCtrlFPvPv(camera_ctrl_instance, 0);
         }
         render__9TMainTaskFv(main_task);
         if ((f32)frames >= lbl_805D9220) {

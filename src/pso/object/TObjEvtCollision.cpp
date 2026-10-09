@@ -36,7 +36,7 @@ void byteswap_and_send__6TLobbyFi(void *);
 void init_packet_67_04__6TLobbyFPv(void *);
 s32 is_any_player_in_range__16TObjEvtCollisionFif(s32 arg0, f32 farg0);
 M2C_UNK set_event_source_flag(void *, M2C_UNK);
-extern s32 lbl_805D53A0;
+extern s32 local_client_id;
 void run_task__16TObjEvtCollisionFv(Obj_80190CFC *arg0);
 }
 
@@ -53,7 +53,7 @@ void destroy_particle_controller__10TObjPlayerFPvs(void *, int);
 f32 xyz_distance_squared(s32, s32);
 s32 is_split_screen();
 
-extern s32 lbl_805D53A0;
+extern s32 local_client_id;
 
 s32 is_any_player_in_range__16TObjEvtCollisionFif(s32 arg0, f32 farg0) {
     s32 var_r31;
@@ -69,7 +69,7 @@ s32 is_any_player_in_range__16TObjEvtCollisionFif(s32 arg0, f32 farg0) {
         }
         goto block_10;
     }
-    temp_r3_2 = get_player_by_client_id(lbl_805D53A0);
+    temp_r3_2 = get_player_by_client_id(local_client_id);
     if ((temp_r3_2 != 0U) && (xyz_distance_squared(temp_r3_2 + 0x38, arg0 + 0x38) < farg0)) {
         return 1;
     }
@@ -99,7 +99,7 @@ void run_task__16TObjEvtCollisionFv(Obj_80190CFC *arg0) {
             pkt.id = arg0->id;
             pkt.player = get_current_floor();
             pkt.x10 = arg0->x84;
-            pkt.x14 = lbl_805D53A0;
+            pkt.x14 = local_client_id;
             byteswap_and_send__6TLobbyFi(&pkt);
             set_event_source_flag(arg0, 8);
             queue_destruction__7TObjectFv(arg0);

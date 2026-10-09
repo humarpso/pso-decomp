@@ -52,7 +52,7 @@ int TLobby__sub_8034C384(void* p) { return reset_info_board__6TLobbyFv(p); }
 int TLobby__sub_8034C3A4(void* p) { return reset_info_board__6TLobbyFv(p); }
 s32 get_field_24__17TWindowOptionCtrlFPv(void* p) { return *(s32*)((char*)p + 0x24); }
 
-extern s32 lbl_805D53A0;
+extern s32 local_client_id;
 extern s32 tl_01;
 extern const f32 lbl_805DFDD0;
 
@@ -61,7 +61,7 @@ void open_confirm_dialog__17TWindowOptionCtrlFPvii(void *arg0, s32 arg1, s32 arg
         close__17TWindowSubComCardFPv((void *)(M2C_FIELD(arg0, void **, 0x2C)));
         M2C_FIELD(arg0, u32 *, 0x2C) = 0U;
     }
-    M2C_FIELD(arg0, u32 *, 0x2C) = create__19TWindowMessageYesNoFPvPvPvPv(tl_01, lbl_805D53A0, 0, 0);
+    M2C_FIELD(arg0, u32 *, 0x2C) = create__19TWindowMessageYesNoFPvPvPvPv(tl_01, local_client_id, 0, 0);
     if (arg2 != 0) {
         forward_slot_selection__16TAdChrSelASlotGCFPvPvPv(M2C_FIELD(arg0, u32 *, 0x2C), arg1, get_option_entry__17TWindowOptionCtrlFi(0xCF), lbl_805DFDD0);
         return;

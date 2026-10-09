@@ -394,7 +394,7 @@ short get_vobj_state_28__10TObjPlayerFPv(void *arg0) {
     return o->m28();
 }
 
-    extern int lbl_805D53A0;
-void update_battle_controller__10TObjPlayerFv(void) { get_player_by_client_id((void*)(lbl_805D53A0)); }
+    extern int local_client_id;
+void update_battle_controller__10TObjPlayerFv(void) { get_player_by_client_id((void*)(local_client_id)); }
 
 }

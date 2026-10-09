@@ -291,7 +291,7 @@ s32 rand();
 extern s32 lbl_804FEEC0[];
 extern s32 lbl_805D4C14;
 extern s32 lbl_805D4CA8;
-extern s32 lbl_805D53A4;
+extern s32 actor_frame_tick;
 extern const f32 lbl_805D8740;
 extern const f32 lbl_805D8744;
 void run_task__19TBoss3VoloptMonitorFv(u8 *arg0);
@@ -559,8 +559,8 @@ void run_task__19TBoss3VoloptMonitorFv(u8 *arg0) {
             }
         }
     }
-    if ((s32) lbl_805D4CA8 != (s32) lbl_805D53A4) {
-        lbl_805D4CA8 = lbl_805D53A4;
+    if ((s32) lbl_805D4CA8 != (s32) actor_frame_tick) {
+        lbl_805D4CA8 = actor_frame_tick;
         for (var_r28 = 0; var_r28 < 4; var_r28++) {
             scroll_ginja_mesh_uvs(lbl_804FEEC0[var_r28], 0, 0x20, 0, 1);
             PPCSync();

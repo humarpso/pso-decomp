@@ -263,7 +263,7 @@ void send_object_state_update(void *, void *);
 s32 access_object_saved_state(void *, void *, int);
 void byteswap_and_send__6TLobbyFi(void *, int);
 void init_packet_67_04__6TLobbyFPv(void *);
-extern s32 lbl_805D53A0;
+extern s32 local_client_id;
 extern const f32 lbl_805DB39C;
 f32 open_and_send__23TOContainerAncientEnemyFPv(O_8015BAE0 *arg0);
 s32 check_value_equals__13TQuestColCtrlFPvi(void *, s32);
@@ -350,7 +350,7 @@ f32 open_and_send__23TOContainerAncientEnemyFPv(O_8015BAE0 *arg0) {
         pk.a = get_current_floor();
         r4 = arg0->f84;
         pk.b = r4;
-        pk.c = lbl_805D53A0;
+        pk.c = local_client_id;
         byteswap_and_send__6TLobbyFi(&pk, r4);
     }
     return lbl_805DB39C;

@@ -83,7 +83,7 @@ void unsuppress_slot__11TWindowCtrlFi(u16);
 s32 get_window_layout_position(s32);
 extern Pair_802160B4 lbl_8044BD94[];
 extern Map_802160B4 lbl_8050E208[];
-extern s32 lbl_805D53A0;
+extern s32 local_client_id;
 void TMedicalCenterMes__vt1(Med_802160B4 *self);
 }
 
@@ -130,7 +130,7 @@ void TMedicalCenterMes__vt1(Med_802160B4 *self) {
     switch (self->f230) {
     case 0: {
         if (self->f22c == NULL) {
-            self->f22c = get_player_by_client_id(lbl_805D53A0);
+            self->f22c = get_player_by_client_id(local_client_id);
         }
         THunterGuildSeqOffline__sub_8021E180((s32)obj_getField1c(self->f22c));
         suppress_slot__11TWindowCtrlFi((u16)(s32)obj_getField1c(self->f22c));

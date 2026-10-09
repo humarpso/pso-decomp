@@ -208,7 +208,7 @@ M2C_UNK TLobby__sub_800F6510(void *, void *);
 M2C_UNK distribute_experience(void *);
 s32 get_player_by_client_id(void *);
 M2C_UNK send_entity_set_flags__6TLobbyFPv(void *);
-extern s32 lbl_805D53A0;
+extern s32 local_client_id;
 s32 rand();
 extern const f64 lbl_804371D8;
 extern const f32 lbl_805D8918;
@@ -574,7 +574,7 @@ void handle_defeat__14TBoss4DarkFalzFPv(u8 *arg0) {
     if (is_split_screen() != 0) {
         distribute_experience((void *) (arg0));
     } else {
-        p = get_player_by_client_id((void *) ((u16) lbl_805D53A0));
+        p = get_player_by_client_id((void *) ((u16) local_client_id));
         if (p != 0) {
             save = *(struct V3_8004B654 *)(arg0 + 0x2FC);
             VecCopy__FP3VecPC3Vec(arg0 + 0x2FC, (void *)(p + 0x2FC));

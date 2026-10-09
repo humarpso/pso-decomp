@@ -2071,7 +2071,7 @@ extern M2C_UNK lbl_804E6FA8[];
 extern RecoveredGlobal_80303894_lbl_80541E48 lbl_80541E48;
 extern s32 lbl_805D4070;
 extern void *lbl_805D4078;
-extern s32 lbl_805D53A4;
+extern s32 actor_frame_tick;
 extern s32 game_difficulty_selection;
 extern s32 lbl_805D6A40;
 extern s32 lbl_805D6A44;
@@ -3804,8 +3804,8 @@ void run_task__16TObjEneDellBiterFv(u8 *arg0) {
     }
     if (((VObj_18 *)(arg0))->m81() != 4) {
         ((VObj_18 *)(arg0))->m83();
-        if ((s32) lbl_805D6A44 != (s32) lbl_805D53A4) {
-            lbl_805D6A44 = lbl_805D53A4;
+        if ((s32) lbl_805D6A44 != (s32) actor_frame_tick) {
+            lbl_805D6A44 = actor_frame_tick;
             TObjPlayer__sub_8023DEE0((void *) (lbl_805D6A40), (int) (0xC), (int) (0), (int) (0));
         }
     }

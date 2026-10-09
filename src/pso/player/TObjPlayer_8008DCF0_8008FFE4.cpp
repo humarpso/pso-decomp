@@ -9,7 +9,7 @@ extern "C" {
 void update_control_state__10TObjPlayerFPv(u8 *arg0);
 M2C_UNK TObjEneBalClawClaw__sub_8008DC90(void *);
 M2C_UNK TObjEneBalClaw__sub_8008D68C();
-M2C_UNK TObjEneBalClaw__sub_8008D79C(void *);
+M2C_UNK update_wobble__14TObjEneBalClawFPv(void *);
 M2C_UNK TObjEneMe1GiGue__sub_8008FC0C(void *);
 M2C_UNK TObjEneMe1GiGue__sub_8008FC10(void *);
 M2C_UNK TObjPlayer__sub_8008FF50(void *);
@@ -46,7 +46,7 @@ void update_control_state__10TObjPlayerFPv(u8 *arg0) {
         M2C_FIELD(arg0, s32 *, 0x37C) = 0;
     }
     TObjPlayer__sub_8008FF50((void *) (arg0));
-    TObjEneBalClaw__sub_8008D79C((void *) (arg0));
+    update_wobble__14TObjEneBalClawFPv((void *) (arg0));
     update_claw_angle__14TObjEneBalClawFPv((void *) (arg0));
     VecCopy__FP3VecPC3Vec((void *) (arg0 + 0x2FC), (void *) (arg0 + 0x38));
     temp_f2 = M2C_FIELD(arg0, f32 *, 0x300);

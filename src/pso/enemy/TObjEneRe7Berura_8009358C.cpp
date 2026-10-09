@@ -789,7 +789,7 @@ s32 copy_target_state__14TObjEnePanarmsFPvPv(void *, int);
 M2C_UNK advance_animation_playback();
 void update_technique_slot__10TTecRaFoieFi(s32);
 M2C_UNK play_persistent_sound(s32, void *, void *, M2C_UNK, M2C_UNK);
-void TObjEneRe7Berura__sub_800936A8(u8 *arg0, s32 arg1);
+void run_flash_warning_state__16TObjEneRe7BeruraFPvi(u8 *arg0, s32 arg1);
 }
 
 extern "C" {
@@ -950,7 +950,7 @@ extern "C" {
 
 #pragma push
 #pragma opt_propagation off
-void TObjEneRe7Berura__sub_800936A8(u8 *arg0, s32 arg1) {
+void run_flash_warning_state__16TObjEneRe7BeruraFPvi(u8 *arg0, s32 arg1) {
     s32 t;
     s32 v;
     switch (arg1) {

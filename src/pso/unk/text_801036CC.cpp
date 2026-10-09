@@ -77,8 +77,8 @@ extern void *tl_05;
 void TLobby__sub_801036CC(void);
 void update_and_send__6TLobbyFPv(void *);
 void TLobby__sub_801041BC(void *, void *);
-extern s32 lbl_805D53A0;
-extern s32 TLobby__data_805D53AC;
+extern s32 local_client_id;
+extern s32 TLobby__designated_client_id;
 extern Ent_801037A0 **lbl_805D541C;
 extern s32 lbl_805D5420;
 void TLobby__sub_801037A0(s32 n);
@@ -166,7 +166,7 @@ void TLobby__sub_801037A0(s32 n) {
     u16 bestKey;
     s32 i;
     s32 v;
-    if (lbl_805D53A0 == TLobby__data_805D53AC) {
+    if (local_client_id == TLobby__designated_client_id) {
         bestKey = 0xFFFF;
         best = 0;
         for (i = 0; i != (*(s32 * *)&lbl_805D5420)[n]; i++) {

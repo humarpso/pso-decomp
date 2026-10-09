@@ -59,7 +59,7 @@ struct Obj_80171278 { s32 f00; u8 pad0[0x14]; u32 vptr; u8 pad1[0x14]; u32 flags
 extern "C" {
 u8 * load_resource_from_descriptor(void *, s32, void *, s32, s32, s32);
 int alloc__23TAdSinglePlyChrSelectGCFPv(void *);
-extern RecoveredGlobal_801711D0_lbl_804B2F2C lbl_804B2F2C;
+extern RecoveredGlobal_801711D0_lbl_804B2F2C mine_resource_desc;
 extern u32 lbl_805D5A50;
 void load_static_resource__6TOMineFv(void);
 u16 find_nearest_visible_player(void *, int, f32);
@@ -213,7 +213,7 @@ void load_static_resource__6TOMineFv(void) {
     temp_r3 = alloc__23TAdSinglePlyChrSelectGCFPv((void *)0x440);
     var_r0 = temp_r3;
     if (var_r0 != 0) {
-        var_r0 = (long) (load_resource_from_descriptor((void *) temp_r3, 1, &lbl_804B2F2C.value, 0, 0, 0));
+        var_r0 = (long) (load_resource_from_descriptor((void *) temp_r3, 1, &mine_resource_desc.value, 0, 0, 0));
     }
     (*(s32 *)&lbl_805D5A50) = var_r0;
 }

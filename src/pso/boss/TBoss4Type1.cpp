@@ -550,7 +550,7 @@ void *lbl_804860A8[6] = {
     (void *)0x42960000, (void *)0x42700000, (void *)0x42700000, (void *)0x42700000,
     (void *)0x42200000, (void *)0x41f00000,
 };
-void *lbl_804860C0[12] = {
+void *boss4_type1_xz_offset_table[12] = {
     (void *)0x0, (void *)0x0, (void *)0x42480000, (void *)0x0,
     (void *)0x0, (void *)0x42480000, (void *)0xc2480000, (void *)0x0,
     (void *)0x0, (void *)0xc2a00000, (void *)0x0, (void *)0x0,
@@ -574,12 +574,12 @@ void *lbl_8048615C[14] = {
     (void *)0x9, (void *)0xa, (void *)0x3f000000, (void *)0x3f000000,
     (void *)0x8, (void *)0x9,
 };
-void *lbl_80486194[12] = {
+void *boss4_type1_vec_table[12] = {
     (void *)0x42480000, (void *)0x41200000, (void *)0x0, (void *)0xc2480000,
     (void *)0x41200000, (void *)0x0, (void *)0x0, (void *)0x41200000,
     (void *)0x42480000, (void *)0x0, (void *)0x41200000, (void *)0xc2480000,
 };
-void *lbl_804861C4[12] = {
+void *boss4_type2_motion_vec_table[12] = {
     (void *)0x0, (void *)0x0, (void *)0xc32f0000, (void *)0x432f0000,
     (void *)0x0, (void *)0x0, (void *)0x0, (void *)0x0,
     (void *)0x432f0000, (void *)0xc32f0000, (void *)0x0, (void *)0x0,
@@ -668,7 +668,7 @@ extern "C" void update_object_view_visibility();
 extern "C" void update_poison_status__10TObjPlayerFv();
 extern "C" void update_shock_clock__10TObjPlayerFPv();
 void TBoss4Type2__sub_80054738(Obj_80054738 *self);
-void *lbl_80486218[3] = {
+void *boss4_type2_state_motion_index_table[3] = {
     (void *)0x4, (void *)0x7, (void *)0xa,
 };
 void *lbl_80486224[83] = {
@@ -698,11 +698,11 @@ void *lbl_80486224[83] = {
 #define lbl_80485EB0 ((s32 *)lbl_80485EB0)
 #define lbl_80485EC8 (*(RecoveredGlobal_80054530_lbl_80485EC8 *)lbl_80485EC8)
 #define lbl_804860A8 ((f32 *)lbl_804860A8)
-#define lbl_804860C0 ((XZ_80053E40 *)lbl_804860C0)
+#define boss4_type1_xz_offset_table ((XZ_80053E40 *)boss4_type1_xz_offset_table)
 #define lbl_8048615C ((u8 * *)lbl_8048615C)
-#define lbl_80486194 ((Vec_80053440 *)lbl_80486194)
-#define lbl_804861C4 ((Vec_80052EF8 *)lbl_804861C4)
-#define lbl_80486218 (*(RecoveredGlobal_80052C58_lbl_80486218 *)lbl_80486218)
+#define boss4_type1_vec_table ((Vec_80053440 *)boss4_type1_vec_table)
+#define boss4_type2_motion_vec_table ((Vec_80052EF8 *)boss4_type2_motion_vec_table)
+#define boss4_type2_state_motion_index_table (*(RecoveredGlobal_80052C58_lbl_80486218 *)boss4_type2_state_motion_index_table)
 #define lbl_80486224 ((u8 *)lbl_80486224)
 
 void TBoss4Type2__sub_800525AC(u8 *arg0) {
@@ -954,7 +954,7 @@ void update_state__11TBoss4Type2FPv(void *arg0) {
 }
 
 void set_motion_for_state__11TBoss4Type2FPv(u8 *arg0) {
-    ((void (*)(void *, s32))set_motion_index__11TBoss4Type2FPvi)(arg0, M2C_FIELD(&lbl_80486218.value, M2C_UNK *, (M2C_FIELD(arg0, s32 *, 0x3A8) * 4)));
+    ((void (*)(void *, s32))set_motion_index__11TBoss4Type2FPvi)(arg0, M2C_FIELD(&boss4_type2_state_motion_index_table.value, M2C_UNK *, (M2C_FIELD(arg0, s32 *, 0x3A8) * 4)));
     M2C_FIELD(arg0, s32 *, 0x398) = 0x3C;
 }
 
@@ -1000,7 +1000,7 @@ void update_spawn_uro__14TBoss4DarkFalzFPv(Obj_80052CDC *arg0) {
 void start_motion_for_index__11TBoss4Type2FPv(S_80052E10 *o) {
     set_motion_index__11TBoss4Type2FPvi((u8 *)o, ((s32 *)lbl_804861F4)[o->idx]);
     o->f3c8 = 0;
-    copy_vec2__28TWindowSubSymbolChatPartsSetFPvPv((u8 *)lbl_804860C0 + 0x28, &((P2_80052E10 *)lbl_80486200)[o->idx]);
+    copy_vec2__28TWindowSubSymbolChatPartsSetFPvPv((u8 *)boss4_type1_xz_offset_table + 0x28, &((P2_80052E10 *)lbl_80486200)[o->idx]);
     o->f3d0 = 6;
     if (o->f374 == 5) {
         o->f398 = 0x12C;
@@ -1029,8 +1029,8 @@ void TBoss4Type2__sub_80052EF8(O_80052EF8 *o) {
 
     o->f39c = ((f32 (*)(void *, f32))calc_wave_offset__11TBoss4Type2Ff)(o, lbl_805D8B18 - (f32)o->f398 / (f32)o->f3cc);
     {
-        Vec_80052EF8 a = lbl_804861C4[o->f3a4];
-        Vec_80052EF8 b = lbl_804861C4[o->f3a0];
+        Vec_80052EF8 a = boss4_type2_motion_vec_table[o->f3a4];
+        Vec_80052EF8 b = boss4_type2_motion_vec_table[o->f3a0];
         ((M2C_UNK (*)(void *, Vec_80052EF8 *, Vec_80052EF8 *))set_pos_from_scaled_offset__11TBoss4Type2FPvPvPv)(o, &a, &b);
     }
     ((M2C_UNK (*)(void *, s32, s32))calc_scaled_field__11TBoss4Type2FPvii)(o, ((s32 (*)(void *, s32, s32))TBoss4Type2__sub_80054384)(o, o->f3a4, o->f3ac), ((s32 (*)(void *, s32, s32))TBoss4Type2__sub_80054384)(o, o->f3a0, o->f3a8));
@@ -1085,9 +1085,9 @@ void update_follow_camera_offsets__10TObjPlayerFPv(Obj_80053E40 *o) {
     set_position_vec3__10TObjPlayerFPvPv(0, &o->pos);
     rotate_matrix_y(0, o->x60);
     for (i = 0; i < o->count; i++) {
-        in.x = lbl_804860C0[i].x;
+        in.x = boss4_type1_xz_offset_table[i].x;
         in.y = lbl_805D8B20;
-        in.z = lbl_804860C0[i].z;
+        in.z = boss4_type1_xz_offset_table[i].z;
         matrix_mult_vec(0, &in, &out);
         pts[i].x = out.x;
         pts[i].z = out.z;
@@ -1138,7 +1138,7 @@ void fn_80053440(Obj_80053440 *arg0) {
     }
     for (i = 0; i < 4; i++) {
         VecCopy__FP3VecPC3Vec(&v, &arg0->pos);
-        vec3_add_to(&v, &lbl_80486194[i]);
+        vec3_add_to(&v, &boss4_type1_vec_table[i]);
         if (arg0->a[i] != NULL) {
             copy_pos__11TNowLoadingFPvPv(arg0->a[i], &v);
         }
@@ -1394,9 +1394,9 @@ void push_players_out_of_colliders__10TObjPlayerFPv(Obj_80053E40 *o) {
     set_position_vec3__10TObjPlayerFPvPv(0, &o->pos);
     rotate_matrix_y(0, o->x60);
     for (i = 0; i < o->count; i++) {
-        in.x = lbl_804860C0[i].x;
+        in.x = boss4_type1_xz_offset_table[i].x;
         in.y = lbl_805D8B20;
-        in.z = lbl_804860C0[i].z;
+        in.z = boss4_type1_xz_offset_table[i].z;
         matrix_mult_vec(0, &in, &out);
         pts[i].x = out.x;
         pts[i].z = out.z;

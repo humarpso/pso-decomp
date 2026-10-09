@@ -50,7 +50,7 @@ void set_active_flag__11TWindowChatFPv(void* p);
 void set_input_active__11TWindowChatFPv(void* p);
 
 extern M2C_UNK __vt__11TWindowChat[];
-extern s32 lbl_805D53A0;
+extern s32 local_client_id;
 
 void run_task__11TWindowChatFv(u8 *arg0) {
     if ((is_open__11TWindowChatFPv((void*)arg0) == 0) && (is_mode_bit4__11TWindowChatFPv((void*)((void *) (arg0))) == 0) && (is_visible__11TWindowChatFPv((void*)((void *) (arg0))) == 0)) {
@@ -69,12 +69,12 @@ void *__dt__11TWindowChatFv(void *arg0, s16 arg1) {
 
     if (arg0 != NULL) {
         M2C_FIELD(arg0, M2C_UNK **, 0x18) = __vt__11TWindowChat;
-        temp_r3 = get_player_by_client_id(lbl_805D53A0);
+        temp_r3 = get_player_by_client_id(local_client_id);
         if (temp_r3 != 0) {
             if (!(M2C_FIELD(arg0, u16 *, 0x1E) & 2)) {
                 if (is_mode_bit6__11TWindowChatFPv((void *)(arg0)) != 0) {
                     init_parts__10TObjPlayerFPv(temp_r3);
-                    end_player_keyboard_hold(lbl_805D53A0);
+                    end_player_keyboard_hold(local_client_id);
                 }
             }
         }

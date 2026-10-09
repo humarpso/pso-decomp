@@ -587,7 +587,7 @@ s32 spawn_particle_effect(s32, s32);
 void fn_800D88E4(s32);
 s32 objInBand__FP7GameObjf(void *, f32);
 s32 rand(void);
-extern s32 lbl_805D53A4;
+extern s32 actor_frame_tick;
 extern const f32 lbl_805DA2EC;
 extern const f32 lbl_805DA2F0;
 extern const f32 TObjEneMerillLia__data_805DA2F4;
@@ -879,7 +879,7 @@ void spawn_ground_effect__16TObjEneMerillLiaFPv(u8 *arg0) {
     stack.spC += lbl_805DA2EC;
     temp_r3 = (u8 *)(csnVectorUnder((s32) &stack.sp8, arg0 + 0x120, 5));
     if ((temp_r3 != NULL) && (M2C_FIELD(temp_r3, s32 *, 0) & 4)) {
-        if (((s32) ((f32) lbl_805D53A4 * (lbl_805DA2F0 * (f32) rand())) % 5) == 0) {
+        if (((s32) ((f32) actor_frame_tick * (lbl_805DA2F0 * (f32) rand())) % 5) == 0) {
             temp_r3_2 = spawn_particle_effect(M2C_FIELD(temp_r3, s32 *, 4) + 0x38, 0x49);
             if (temp_r3_2 != 0) {
                 attach_particle_model((void *) temp_r3_2, get_particle_model__13TParticleCtrlFi(2), get_instance__13TParticleCtrlFv(), 0, 1, TObjEneMerillLia__data_805DA2F4);

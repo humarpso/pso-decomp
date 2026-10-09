@@ -52,7 +52,7 @@ u16 obj_getField1c(void *);
 M2C_UNK create_ex__8TTecFoieFPvPvPvPv(void *, void *, void *, int);
 M2C_UNK create__11TTecGiBartaFPvPvPvPv(void *, void *, void *, int);
 M2C_UNK create__11TTecGiZondeFPvPvPvPv(void *, void *, void *, int);
-extern s32 lbl_805D4C44;
+extern s32 volopt_active_player_id;
 extern s32 lbl_805D586C;
 void cast_tech_on_players__10TObjPlayerFPv(u8 *arg0);
 }
@@ -68,7 +68,7 @@ void cast_tech_on_players__10TObjPlayerFPv(u8 *arg0) {
     u8 *q;
     s32 k;
     TObjPlayer__sub_80042ED0(arg0, 0xC, &sp8);
-    switch (lbl_805D4C44) {
+    switch (volopt_active_player_id) {
     case 0:
         fn_80044330(arg0 + 0x3BC);
         n = 0;
@@ -852,7 +852,7 @@ M2C_UNK draw_chunk_object(void *);
 
 extern RecoveredGlobal_80044174_lbl_804FEE68 boss3_volopt_spawn_pos;
 extern void *boss3_volopt_resources;
-extern s32 lbl_805D4C28;
+extern s32 volopt_breakup_flag;
 extern s32 lbl_805D4CB0;
 extern s32 lbl_805D4CB4;
 extern s32 lbl_805D4CB8;
@@ -1392,7 +1392,7 @@ void update_breakup__15TBoss3VoloptP01FPv(u8 *arg0) {
         M2C_FIELD(arg0, s16 *, 0x33C) = 0x5A;
         spawn_effect_f8__10TObjPlayerFii(arg0 + 0x2FC, M2C_FIELD(arg0, s16 *, 0x33C));
         if (M2C_FIELD(arg0, s32 *, 0x3A8) != 0) {
-            lbl_805D4C28 = 1;
+            volopt_breakup_flag = 1;
             link_photon__10TObjPlayerFUs(M2C_FIELD(arg0, u16 *, 0x2D4), 0);
             set_grabbed_state__10TObjPlayerFi(0x12C);
         }
@@ -1428,7 +1428,7 @@ void update_state__15TBoss3VoloptP01FPv(u8 *arg0) {
         M2C_FIELD(arg0, s32 *, 0x30) = (s32) (M2C_FIELD(arg0, s32 *, 0x30) & 0xFFDFFDFF);
         M2C_FIELD(arg0, s16 *, 0x33E) = (s16) M2C_FIELD(arg0, s16 *, 0x32C);
         if ((s32) M2C_FIELD(arg0, s32 *, 0x3A8) != 0) {
-            lbl_805D4C28 = 1;
+            volopt_breakup_flag = 1;
             link_photon__10TObjPlayerFUs(M2C_FIELD(arg0, u16 *, 0x2D4), 0);
             set_grabbed_state__10TObjPlayerFi(0x12C);
         }

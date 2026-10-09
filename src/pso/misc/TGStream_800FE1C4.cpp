@@ -11,9 +11,9 @@ struct RecoveredGlobal_800FE2DC_TItemDrop__data_805041E0 {
 
 extern "C" {
 extern RecoveredGlobal_800FE2DC_TItemDrop__data_805041E0 TItemDrop__file_name_buf;
-extern s32 lbl_805D53C0;
-extern s32 TItemDrop__data_805D53C4;
-extern s32 TItemDrop__data_805D53C8;
+extern s32 gstream_tmp_buffer;
+extern s32 TItemDrop__gsl_adxf_handle;
+extern s32 TItemDrop__gsl_entry_count;
 extern s32 TItemDrop__data_805D53CC;
 extern s32 TItemDrop__data_805D53D0;
 void TItemDrop__sub_800FE2DC(void);
@@ -34,8 +34,8 @@ M2C_UNK reset__8TGStreamFv();
 M2C_UNK strncpy(void *, void *, M2C_UNK);
 
 extern M2C_UNK lbl_8043DAF8[];
-extern s32 lbl_805D53C0;
-extern s32 TItemDrop__data_805D53C4;
+extern s32 gstream_tmp_buffer;
+extern s32 TItemDrop__gsl_adxf_handle;
 extern s32 lbl_805D53E0;
 
 void *open__8TGStreamFPvPvi(void *arg0, void *arg1, s32 arg2) {
@@ -46,7 +46,7 @@ void *open__8TGStreamFPvPvi(void *arg0, void *arg1, s32 arg2) {
     reset__8TGStreamFv();
     M2C_FIELD(arg0, void **, 0x28) = find_gsl_entry(arg1, 1);
     if ((void *) M2C_FIELD(arg0, void **, 0x28) != NULL) {
-        M2C_FIELD(arg0, s32 *, 0x20) = (s32) TItemDrop__data_805D53C4;
+        M2C_FIELD(arg0, s32 *, 0x20) = (s32) TItemDrop__gsl_adxf_handle;
         TLobby__sub_803CC578(M2C_FIELD(arg0, s32 *, 0x20), M2C_FIELD(M2C_FIELD(arg0, void **, 0x28), s32 *, 0x20), 0);
         lbl_805D53E0 = M2C_FIELD(M2C_FIELD(arg0, void **, 0x28), s32 *, 0x24);
         strncpy(arg0, M2C_FIELD(arg0, void **, 0x28), 0x20);
@@ -66,7 +66,7 @@ void *open__8TGStreamFPvPvi(void *arg0, void *arg1, s32 arg2) {
         while (TLobby__sub_8001EEF4() == 0) {
             pump_frames__6TLobbyFv();
         }
-        lbl_805D53C0 = tmp_buf_use_req__6TLobbyFPv(lbl_8043DAF8);
+        gstream_tmp_buffer = tmp_buf_use_req__6TLobbyFPv(lbl_8043DAF8);
     }
     return arg0;
 }
@@ -74,12 +74,12 @@ void *open__8TGStreamFPvPvi(void *arg0, void *arg1, s32 arg2) {
 void TItemDrop__sub_800FE2D8(void) {  }
 typedef char RecoveredGlobal_800FE2DC_TItemDrop__data_805041E0_size[sizeof(RecoveredGlobal_800FE2DC_TItemDrop__data_805041E0) == 0x20 ? 1 : -1];
 void TItemDrop__sub_800FE2DC(void) {
-    lbl_805D53C0 = 0;
-    TItemDrop__data_805D53C4 = 0;
+    gstream_tmp_buffer = 0;
+    TItemDrop__gsl_adxf_handle = 0;
     TItemDrop__file_name_buf.value = 0;
     TItemDrop__data_805D53CC = 0;
     TItemDrop__data_805D53D0 = 0;
-    TItemDrop__data_805D53C8 = 0;
+    TItemDrop__gsl_entry_count = 0;
 }
 
 }

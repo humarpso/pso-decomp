@@ -570,7 +570,7 @@ void enemy_turn_toward_dest(void *, s32);
 #define VecCopy__FP3VecPC3Vec ((u8 * (*)(void *, void *))VecCopy__FP3VecPC3Vec)
 void TBoss3VoloptMonitor__sub_8004292C(u8 *arg0);
 M2C_UNK spawn_particle_effect(void *, int);
-void TObjPlayer__sub_800C7168(void *, Vec_800D3314, void *, f32, f32);
+void move_along_ground_avoiding_walls__10TObjPlayerFPviff(void *, Vec_800D3314, void *, f32, f32);
 #define render_anim_model_at_pos__12TBoss3VoloptFPv ((void (*)(void *))render_anim_model_at_pos__12TBoss3VoloptFPv)
 void fn_800D2C24(void *);
 #define TObjGyaranzoMissile__sub_800D40EC ((f32 (*)(int))TObjGyaranzoMissile__sub_800D40EC)
@@ -579,7 +579,7 @@ u8 *find_active_entity_by_id(u16);
 s32 advance_animation_playback(void *);
 void update_collisions__10TObjPlayerFPv(void *);
 #define play_sound_effect ((s32 (*)(void *, void *, int, int))play_sound_effect)
-extern s32 lbl_805D53A4;
+extern s32 actor_frame_tick;
 extern const f32 lbl_805DA258;
 extern const f32 lbl_805DA270;
 void TObjPlayer__sub_800D3314(u8 *arg0);
@@ -1437,7 +1437,7 @@ void TObjPlayer__sub_800D3314(u8 *arg0) {
             return;
         }
         enemy_turn_toward_dest(arg0, M2C_FIELD(M2C_FIELD(arg0, u8 **, 0x350), s32 *, 8));
-        ((void (*)(void *, Vec_800D3314, f32, f32))TObjPlayer__sub_800C7168)(arg0, M2C_FIELD(arg0, Vec_800D3314 *, 0x390), M2C_FIELD(M2C_FIELD(arg0, u8 **, 0x350), f32 *, 4), M2C_FIELD(M2C_FIELD(arg0, u8 **, 0xA4), f32 *, 0xC));
+        ((void (*)(void *, Vec_800D3314, f32, f32))move_along_ground_avoiding_walls__10TObjPlayerFPviff)(arg0, M2C_FIELD(arg0, Vec_800D3314 *, 0x390), M2C_FIELD(M2C_FIELD(arg0, u8 **, 0x350), f32 *, 4), M2C_FIELD(M2C_FIELD(arg0, u8 **, 0xA4), f32 *, 0xC));
         M2C_FIELD(arg0, f32 *, 0x39C) += M2C_FIELD(M2C_FIELD(arg0, u8 **, 0x350), f32 *, 4);
         advance_animation_playback(arg0);
         apply_actor_gravity(arg0, 0, lbl_805DA258);
@@ -1448,7 +1448,7 @@ void TObjPlayer__sub_800D3314(u8 *arg0) {
                 fn_800D2C24(arg0);
             }
         }
-        if (!(lbl_805D53A4 & 3)) {
+        if (!(actor_frame_tick & 3)) {
             render_anim_model_at_pos__12TBoss3VoloptFPv(arg0);
             ((VObj_800D3314 *)arg0)->m63(0x1F, &v);
             spawn_particle_effect(&v, 0xF3);

@@ -10,7 +10,7 @@ void TLobby__sub_800FDFEC(void *self, s32 n);
 s32 fn_800FE0A8();
 s32 fn_800FE0C8(s32);
 M2C_UNK move_data__6TLobbyFv(s32, s32, s32);
-extern s32 lbl_805D53C0;
+extern s32 gstream_tmp_buffer;
 extern s32 lbl_805D53D8;
 s32 read_data__8TGStreamFPvii(void *arg0, s32 dst, s32 size);
 }
@@ -56,7 +56,7 @@ s32 read_data__8TGStreamFPvii(void *arg0, s32 dst, s32 size) {
         } else {
             n = fn_800FE0A8();
         }
-        move_data__6TLobbyFv(dst, lbl_805D53C0 + lbl_805D53D8, n);
+        move_data__6TLobbyFv(dst, gstream_tmp_buffer + lbl_805D53D8, n);
         dst += n;
         size -= n;
         total += n;

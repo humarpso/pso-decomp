@@ -90,9 +90,9 @@ void build_6x06_guild_card_packet__6TLobbyFPv(void *);
 s32 get_field_3e4__10TObjPlayerFPv(void *);
 s32 get_global_state__14TOKeyMachine01Fv();
 void process_and_dispatch_packet__6TLobbyFPv(void *);
-extern s32 TLobby__data_805D53AC;
+extern s32 TLobby__designated_client_id;
 extern Entry_8010567C *TLobby__data_805D6140;
-extern s32 lbl_805D53A0;
+extern s32 local_client_id;
 void request_box_item_drop(Obj_8010567C *self, void *unused, s16 arg2);
 int check_class_equip_permission(Player_80105348 *player, s32 perm);
 void *get_player_by_client_id(s32);
@@ -103,8 +103,8 @@ u32 csnVecterUnder(Vec_80105538 *, s32);
 s32 is_valid_drop_floor();
 void dispatch_packet_wrapper__6TLobbyFPv(void *);
 void build_6x06_send_guild_card(void *);
-extern s32 lbl_805D53A0;
-extern s32 TLobby__data_805D53AC;
+extern s32 local_client_id;
+extern s32 TLobby__designated_client_id;
 extern Rec_80105538 *TLobby__data_805D6144;
 extern const f32 lbl_805DAAB4;
 void send_6x60_standard_drop_item_request(Obj_80105538 *self);
@@ -173,13 +173,13 @@ void send_6x60_standard_drop_item_request(Obj_80105538 *self) {
     void *p1;
     void *p2;
     if (self != 0) {
-        p1 = get_player_by_client_id(TLobby__data_805D53AC);
-        p2 = get_player_by_client_id(lbl_805D53A0);
+        p1 = get_player_by_client_id(TLobby__designated_client_id);
+        p2 = get_player_by_client_id(local_client_id);
         if (p1 != 0 && p2 != 0) {
             get_current_floor();
             if (is_valid_drop_floor() != 0 &&
                 (get_field_3e4__10TObjPlayerFPv(p1) != get_field_3e4__10TObjPlayerFPv(p2) ||
-                 TLobby__data_805D53AC == lbl_805D53A0)) {
+                 TLobby__designated_client_id == local_client_id)) {
                 if (self->f2c != -1) {
                     Rec_80105538 e = TLobby__data_805D6144[self->f2c];
                     if (e.b != 0xFFFF) {
@@ -210,11 +210,11 @@ void request_box_item_drop(Obj_8010567C *self, void *unused, s16 arg2) {
     void *p1;
     void *p2;
     if (self != 0) {
-        p1 = get_player_by_client_id(TLobby__data_805D53AC);
-        p2 = get_player_by_client_id(lbl_805D53A0);
+        p1 = get_player_by_client_id(TLobby__designated_client_id);
+        p2 = get_player_by_client_id(local_client_id);
         if (p1 != 0 && p2 != 0 && TObjPlayer__sub_80104840(get_global_state__14TOKeyMachine01Fv()) != 0 &&
             (get_field_3e4__10TObjPlayerFPv(p1) != get_field_3e4__10TObjPlayerFPv(p2) ||
-             TLobby__data_805D53AC == lbl_805D53A0)) {
+             TLobby__designated_client_id == local_client_id)) {
             if (self->f2c != -1) {
                 Entry_8010567C e = TLobby__data_805D6140[self->f2c];
                 if (e.b != 0xFFFF) {

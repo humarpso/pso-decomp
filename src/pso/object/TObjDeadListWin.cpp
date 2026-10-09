@@ -35,7 +35,7 @@ extern "C" {
 M2C_UNK queue_destruction__7TObjectFv(void *);
 void update_countdown__15TObjDeadListWinFPv(void *arg0);
 s32 get_player_by_client_id(s32);
-extern s32 lbl_805D53A0;
+extern s32 local_client_id;
 void run_task__15TObjDeadListWinFv(u8 *arg0);
 void *__ct__7TObjectFP7TObject(void *, void *);
 extern char __vt__15TObjDeadListWin[];
@@ -48,7 +48,7 @@ s32 get_player_by_client_id(s32);
 s32 get_global_state__14TOKeyMachine01Fv(void);
 s32 TWindowCtrlMain__sub_8024CE58(void);
 M2C_UNK strncpy(void *, void *, int);
-extern s32 lbl_805D53A0;
+extern s32 local_client_id;
 M2C_UNK refresh_names__15TObjDeadListWinFPv(Win_80073B38 *self);
 }
 
@@ -99,13 +99,13 @@ void build_dead_list_window__15TObjDeadListWinFPv(u8 *arg0) {
     }
 }
 
-extern s32 lbl_805D53A0;
+extern s32 local_client_id;
 
 void update_countdown__15TObjDeadListWinFPv(void *arg0) {
     s32 temp_r0;
     s32 temp_r3;
 
-    temp_r3 = get_player_by_client_id(lbl_805D53A0);
+    temp_r3 = get_player_by_client_id(local_client_id);
     if ((temp_r3 == 0) || (obj_testFlags30(temp_r3, 0x02000000) != 0)) {
         queue_destruction__7TObjectFv(arg0);
         return;
@@ -135,7 +135,7 @@ M2C_UNK refresh_names__15TObjDeadListWinFPv(Win_80073B38 *self) {
             self->names[i].term = 0;
         }
     }
-    me = ((u8 *)get_player_by_client_id(lbl_805D53A0));
+    me = ((u8 *)get_player_by_client_id(local_client_id));
     if ((get_global_state__14TOKeyMachine01Fv() == 0 || get_global_state__14TOKeyMachine01Fv() == 0x12)
         && TWindowCtrlMain__sub_8024CE58() != 0 && me != NULL
         && obj_testFlags30((M2C_UNK)me, 0x02000000) == 0) {
@@ -146,7 +146,7 @@ M2C_UNK refresh_names__15TObjDeadListWinFPv(Win_80073B38 *self) {
 
 void run_task__15TObjDeadListWinFv(u8 *arg0) {
     s32 temp_r0;
-    if (get_player_by_client_id((s32)((void *) (lbl_805D53A0))) == 0U) {
+    if (get_player_by_client_id((s32)((void *) (local_client_id))) == 0U) {
         queue_destruction__7TObjectFv((void *) (arg0));
         return;
     }

@@ -8,12 +8,12 @@ extern "C" {
 
 void TLobby__sub_803D6190(s32 arg0, s32 arg1);
 
-extern s32 lbl_805D76A0;
-extern s32 lbl_805D76A4;
+extern s32 net_error_callback;
+extern s32 net_error_callback_arg;
 
 void TLobby__sub_803D6190(s32 arg0, s32 arg1) {
-    lbl_805D76A0 = arg0;
-    lbl_805D76A4 = arg1;
+    net_error_callback = arg0;
+    net_error_callback_arg = arg1;
 }
 
 }

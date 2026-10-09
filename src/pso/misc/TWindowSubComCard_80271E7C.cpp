@@ -356,7 +356,7 @@ M2C_UNK draw_text_gray__17TWindowSubComCardFiiii(s32, s32, M2C_UNK, M2C_UNK);
 M2C_UNK forward_trade_action_default__16TObjCityMainWarpFPviii(int, void *, int, int);
 s32 draw_card_icon__17TWindowSubComCardFiii(int, int, void *);
 s16 get_field_72__17TWindowSubComCardFPv(void* p);
-extern s32 lbl_805D53A0;
+extern s32 local_client_id;
 extern const f32 TWindowSubComCard__data_805DD500;
 extern const f32 lbl_805DD504;
 s32 create_player_select_window__17TWindowSubComCardFv(void);
@@ -413,14 +413,14 @@ void update_display_value__17TWindowSubComCardFUiUiPv(u32 arg0, u32 arg1, s32 *a
     }
 }
 
-extern s32 lbl_805D53A0;
+extern s32 local_client_id;
 
 s32 create_keyboard__17TWindowSubComCardFii(s32 arg0, s32 arg1) {
     s32 var_r31;
 
     var_r31 = __nw__7TObjectFUl(0x2C);
     if (var_r31 != 0) {
-        var_r31 = TKeyBoardControl__ct(var_r31, arg0, 0xC6, 3, 4, lbl_805D53A0);
+        var_r31 = TKeyBoardControl__ct(var_r31, arg0, 0xC6, 3, 4, local_client_id);
     }
     get_keyboard_field_6c__15TWindowMakeTeamFPv(var_r31, get_card_entry_data__17TWindowSubComCardFPv(arg1));
     set_sub_position__15TWindowMakeTeamFPvPv(var_r31, get_window_layout_position((M2C_UNK)(0xBB)));
@@ -429,7 +429,7 @@ s32 create_keyboard__17TWindowSubComCardFii(s32 arg0, s32 arg1) {
     return var_r31;
 }
 
-extern s32 lbl_805D53A0;
+extern s32 local_client_id;
 
 s32 create_keyboard__17TWindowSubComCardFi(s32 arg0) {
     s32 temp_r31;
@@ -438,7 +438,7 @@ s32 create_keyboard__17TWindowSubComCardFi(s32 arg0) {
     var_r30 = get_keyboard_mode__17TWindowSubComCardFv();
     temp_r31 = __nw__7TObjectFUl(0x2C);
     if (temp_r31 != 0) {
-        temp_r31 = TKeyBoardControl__ct(temp_r31, arg0, 0xC6, 3, 4, lbl_805D53A0);
+        temp_r31 = TKeyBoardControl__ct(temp_r31, arg0, 0xC6, 3, 4, local_client_id);
     }
     get_keyboard_field_6c__15TWindowMakeTeamFPv(temp_r31, get_kbd_ptr__14TWindowComCardFPv(var_r30));
     set_sub_position__15TWindowMakeTeamFPvPv(temp_r31, get_window_layout_position((M2C_UNK)(0xBB)));
@@ -470,7 +470,7 @@ s32 create_player_select_window__17TWindowSubComCardFv(void) {
     w = draw_card_icon__17TWindowSubComCardFiii(get_window_layout_position(0x94), 0xC, ((void* (*)(int))get_message_10__20TWindowSubStatusDispFPv)(0x2D));
     i = 0;
     do {
-        if (i != lbl_805D53A0 && (p = get_player_by_client_id(i)) != NULL &&
+        if (i != local_client_id && (p = get_player_by_client_id(i)) != NULL &&
             is_script_controlled__10TObjPlayerFPv(p) == 0 && obj_isState3_324(p) == 0) {
             forward_trade_action_default__16TObjCityMainWarpFPviii(w, p->m10(), 7, i);
         }

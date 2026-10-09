@@ -70,7 +70,7 @@ char *strcpy(char *, const char *);
 u32 strlen(const char *);
 extern char lbl_8043857C[];
 extern Table_8006FE7C challenge_mode_state;
-extern s32 lbl_805D53A0;
+extern s32 local_client_id;
 void update_card_save_info__6TLobbyFv(void);
 }
 
@@ -105,7 +105,7 @@ void update_card_save_info__6TLobbyFv(void) {
         return;
     }
     card = get_card_window__17TWindowSubComCardFUi(0xFFFF);
-    ply = (Ply_8006FC7C *)get_player_by_client_id(lbl_805D53A0);
+    ply = (Ply_8006FC7C *)get_player_by_client_id(local_client_id);
     if (ply == NULL) {
         return;
     }

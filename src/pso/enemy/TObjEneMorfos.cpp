@@ -1614,7 +1614,7 @@ extern M2C_UNK TObjPlayer__sub_800D7C58[];
 extern M2C_UNK init_and_activate__10TObjPlayerFPv[];
 extern RecoveredGlobal_80332B7C_lbl_804775D8 lbl_804775D8;
 extern void *lbl_805D4230;
-extern s32 lbl_805D53A4;
+extern s32 actor_frame_tick;
 extern u8 *lbl_805D6D20;
 extern u8 *lbl_805D6D24;
 extern s32 lbl_805D6D28;
@@ -2979,12 +2979,12 @@ void run_task__13TObjEneMorfosFv(u8 *arg0) {
     }
     if (((VObj_18_6eb1ad *)(arg0))->m81() != 4) {
         ((VObj_18_6eb1ad *)(arg0))->m83();
-        if ((s32) lbl_805D6D28 != (s32) lbl_805D53A4) {
-            lbl_805D6D28 = lbl_805D53A4;
+        if ((s32) lbl_805D6D28 != (s32) actor_frame_tick) {
+            lbl_805D6D28 = actor_frame_tick;
             TObjPlayer__sub_8023DEE0(lbl_805D6D20, (s16) M2C_FIELD(arg0, s32 *, 0x3D4), 0, 2U);
         }
-        if ((s32) lbl_805D6D2C != (s32) lbl_805D53A4) {
-            lbl_805D6D2C = lbl_805D53A4;
+        if ((s32) lbl_805D6D2C != (s32) actor_frame_tick) {
+            lbl_805D6D2C = actor_frame_tick;
             TObjPlayer__sub_8023DEE0(lbl_805D6D24, 0, (s16) ((f32) M2C_FIELD(arg0, s32 *, 0x3D4) * lbl_805DF894), 0U);
         }
     }

@@ -19,7 +19,7 @@ extern "C" {
 
 void *get_card_window__17TWindowSubComCardFUi(s32);
 
-extern s32 lbl_805D53A0;
+extern s32 local_client_id;
 
 typedef char RecoveredGlobal_801A5228_lbl_80446970_size[sizeof(RecoveredGlobal_801A5228_lbl_80446970) == 0x10 ? 1 : -1];
 f32 get_card_window_scale__20TWindowSubStatusDispFi(s32 _w0) {
@@ -32,7 +32,7 @@ s32 get_card_window_flags__20TWindowSubStatusDispFi(s32 arg0) {
 
     var_r3 = arg0;
     if (var_r3 >= 4) {
-        var_r3 = lbl_805D53A0;
+        var_r3 = local_client_id;
     }
     temp_r3 = get_card_window__17TWindowSubComCardFUi(var_r3);
     if (temp_r3 == NULL) {

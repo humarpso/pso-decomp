@@ -142,7 +142,7 @@ M2C_UNK offset_point_toward_camera(void *, void *, f32);
 M2C_UNK init_all_slots__11TWindowCtrlFv();
 M2C_UNK init_all_slots2__11TWindowCtrlFv();
 extern Pad_801A0F34 lbl_8050E208[];
-extern s32 lbl_805D53A0;
+extern s32 local_client_id;
 extern s32 tl_07;
 extern const f32 lbl_805DC080;
 void run_task__9TObjLukerFv(u8 *arg0);
@@ -154,7 +154,7 @@ void show_part__9TObjLukerFii(s32 arg0, s32 arg1);
 void close_windows__9TObjLukerFPv(Obj_801A0DB4 *self);
 s32 check_flag_100__10TObjPlayerFPv(void *);
 Ctrl_801A0E38 *get_player_by_client_id(u16 id);
-extern s32 lbl_805D53A0;
+extern s32 local_client_id;
 s32 is_player_in_range__9TObjLukerFv(s32 arg0, f32 farg0);
 s32 get_main_phase();
 M2C_UNK mark_area_change_pending();
@@ -170,7 +170,7 @@ M2C_UNK set_area__6TLobbyFPvi(void *, int, int);
 M2C_UNK init_fields__9TTecLukerFPvs(void *, int);
 M2C_UNK send_telepipe_packet__9TTecLukerFPv(void *);
 extern M2C_UNK lbl_80515BA0[];
-extern s32 lbl_805D53A0;
+extern s32 local_client_id;
 extern s32 lbl_805D55C0;
 void transfer_to_town__9TObjLukerFv(u8 *arg0_);
 }
@@ -345,7 +345,7 @@ s32 is_player_in_range__9TObjLukerFv(s32 arg0, f32 farg0) {
             }
         }
     } else {
-        p = PBC_801A10A0((void *) (lbl_805D53A0));
+        p = PBC_801A10A0((void *) (local_client_id));
         if ((p != 0U) && (horizontal_distance_squared((void *) (p + 0x38), (void *) (arg0 + 0x38)) < (farg0 * farg0))) {
             found = 1;
         }
@@ -380,7 +380,7 @@ void transfer_to_town__9TObjLukerFv(u8 *arg0_) {
   u8 *p;
   s32 flag;
   self = (u8 *) ((Ctrl_801A0E38 *(*)(s32)) get_player_by_client_id)(arg0->owner);
-  local = (u8 *) ((Ctrl_801A0E38 *(*)(s32)) get_player_by_client_id)(lbl_805D53A0);
+  local = (u8 *) ((Ctrl_801A0E38 *(*)(s32)) get_player_by_client_id)(local_client_id);
   if ((((get_main_phase() == 0xF) && (lbl_805D55C0 != 0)) || (self == 0)) || (local == 0))
   {
     return;
@@ -429,7 +429,7 @@ void transfer_to_town__9TObjLukerFv(u8 *arg0_) {
     }
   }
   else
-    if (lbl_805D53A0 == arg0->owner)
+    if (local_client_id == arg0->owner)
   {
     init_fields__9TTecLukerFPvs(local + 0x830, arg0->owner);
     send_telepipe_packet__9TTecLukerFPv(local + 0x830);
@@ -484,7 +484,7 @@ void run_task__9TObjLukerFv(u8 *arg0) {
                             M2C_FIELD(arg0, u16 *, 0xAA) = M2C_FIELD(arg0, u16 *, 0xA8);
                         }
                     } else {
-                        p = PBC_801A1418(lbl_805D53A0);
+                        p = PBC_801A1418(local_client_id);
                         if (p != NULL && check_flag_100__10TObjPlayerFPv(p) == 0 &&
                             TWindowShortListCtrl__check_controller_button(lbl_8050E208[sp8].btn, 4) != 0) {
                             flag = 1;
@@ -494,7 +494,7 @@ void run_task__9TObjLukerFv(u8 *arg0) {
                         M2C_FIELD(arg0, s16 *, 0xB0) = 1;
                         offset_point_toward_camera(arg0 + 0x38, spC, lbl_805DC080);
                         spawn_particle_effect(spC, 0xB3);
-                        p = PBC_801A1418(lbl_805D53A0);
+                        p = PBC_801A1418(local_client_id);
                         if (p != NULL) {
                             play_effect_default__10TObjPlayerFii(p, 0xA);
                             play_sound_effect(0x40022D1A, (u32) (arg0 + 0x38), 0, 0);

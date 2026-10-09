@@ -50,8 +50,8 @@ M2C_UNK create_fade_effect__14TObjCMMainMenuFPvPv(M2C_UNK, M2C_UNK);
 M2C_UNK register_texture_f256_ad_pic_2();
 M2C_UNK register_texture_f256_backtext();
 extern M2C_UNK lbl_80451290[];
-extern M2C_UNK lbl_804A6F34[];
-extern M2C_UNK lbl_804D3900[];
+extern M2C_UNK default_scene_light_config[];
+extern M2C_UNK creation_menu_resource_descriptor[];
 extern s32 tl_camera;
 extern s32 tl_03;
 extern void *creation_menu_main_obj;
@@ -71,7 +71,7 @@ typedef char RecoveredGlobal_8028EBCC_TObjCMMainMenu__data_804DB9C8_size[sizeof(
 
 void init_creation_menu_scene(void) {
     void *p;
-    init_menu_scene_lights(lbl_804A6F34, 4);
+    init_menu_scene_lights(default_scene_light_config, 4);
     reset_view_state__11TCameraCtrlFv();
     init_default_view__11TCameraCtrlFv();
     p = __nw__7TObjectFUl(0x1D4);
@@ -92,7 +92,7 @@ void init_creation_menu_scene(void) {
     }
     p = alloc__23TAdSinglePlyChrSelectGCFPv(0x440);
     if (p != NULL) {
-        p = load_resource_from_descriptor(p, 1, lbl_804D3900, 0, 0, 0);
+        p = load_resource_from_descriptor(p, 1, creation_menu_resource_descriptor, 0, 0, 0);
     }
     creation_menu_main_obj = p;
     if (p != NULL) {

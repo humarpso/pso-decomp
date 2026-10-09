@@ -25,7 +25,7 @@ s32 is_slot_visible__11TWindowCtrlFi(s32);
 s32 is_flag_2_set__11TWindowCtrlFPv(void *);
 s32 get_width__11TWindowCtrlFPv(void *);
 f32 get_target_distance__13TWindowLockOnFv(s32);
-extern s32 lbl_805D53A0;
+extern s32 local_client_id;
 extern const f32 lbl_805DCC14;
 void update_party_status_rows__11TWindowCtrlFPv(Ctrl_8024BE80 *self);
 }
@@ -42,8 +42,8 @@ void update_party_status_rows__11TWindowCtrlFPv(Ctrl_8024BE80 *self) {
         w = self->slots[i];
         if (w != NULL && is_flag_2_set__11TWindowCtrlFPv(w) == 0) {
             pl = get_player_by_client_id(get_width__11TWindowCtrlFPv(w));
-            if (pl == NULL || has_player_active_menu__11TWindowCtrlFi(lbl_805D53A0) != 0 ||
-                is_slot_visible__11TWindowCtrlFi(lbl_805D53A0) != 0 || TWindowCtrl__sub_8024B048(self) != 0 ||
+            if (pl == NULL || has_player_active_menu__11TWindowCtrlFi(local_client_id) != 0 ||
+                is_slot_visible__11TWindowCtrlFi(local_client_id) != 0 || TWindowCtrl__sub_8024B048(self) != 0 ||
                 is_script_controlled__10TObjPlayerFPv(pl) != 0 ||
                 (obj_isState3_324(pl) != 0 &&
                  (get_field_828__10TObjPlayerFPv(pl) != 0 || get_action_flags__10TNpcPlayerFPv(pl) == 0xFFFF))) {

@@ -88,7 +88,7 @@ char *strncpy(char *, const char *, u32);
 void *memset(void *, s32, u32);
 void notify_error__6TLobbyFPv(const char *);
 s32 TLobby__sub_803CCB98(void *, int, int);
-void TLobby__sub_803CCE9C(void *);
+void close_adxf_handle__6TLobbyFPv(void *);
 void *adxf_open__6TLobbyFUii(const char *, s32);
 extern char lbl_8047C818[];
 extern Ent_803CD840 *lbl_8057C7D0[256];
@@ -155,7 +155,7 @@ s32 adxf_open_file__6TLobbyFiPviPv(s32 id, const char *name, s32 arg2, Ent_803CD
     lbl_805D75EC = aligned;
     r = TLobby__sub_803CCB98(lobby_adxf_open_file_handle, 1, aligned);
     if (r < 0) {
-        TLobby__sub_803CCE9C(lobby_adxf_open_file_handle);
+        close_adxf_handle__6TLobbyFPv(lobby_adxf_open_file_handle);
         return r;
     }
     e->f8 = 0;

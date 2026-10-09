@@ -1361,7 +1361,7 @@ M2C_UNK update_prev_position__10TObjPlayerFPv(void *);
 M2C_UNK TObjPlayer__sub_8023DEE0(void *, int, int, int);
 extern s32 lbl_805D5054;
 extern s32 lbl_805D5058;
-extern s32 lbl_805D53A4;
+extern s32 actor_frame_tick;
 extern const f32 lbl_805D9A40;
 void TObjPlayer__sub_800A6EC0(u8 *arg0);
 M2C_UNK render_with_position_override__10TObjPlayerFPvPvi(void *, int, int);
@@ -1892,8 +1892,8 @@ void TObjPlayer__sub_800A6C54(u8 *arg0) {
 void TObjPlayer__sub_800A6EC0(u8 *arg0) {
     s16 temp_r0;
     u8 *temp_r4;
-    if ((s32) lbl_805D5058 != (s32) lbl_805D53A4) {
-        lbl_805D5058 = lbl_805D53A4;
+    if ((s32) lbl_805D5058 != (s32) actor_frame_tick) {
+        lbl_805D5058 = actor_frame_tick;
         TObjPlayer__sub_8023DEE0((void *) (lbl_805D5054), (int) (0xE), (int) (0), (int) (0));
     }
     if (check_demo_mode__10TObjPlayerFv() == 1) {

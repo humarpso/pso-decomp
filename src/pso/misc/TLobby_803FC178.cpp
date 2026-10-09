@@ -514,11 +514,11 @@ extern RecoveredGlobal_803FB110_lbl_805BFF68 lbl_805BFF68;
 u8 *TLobby__sub_803FB110(void);
 extern RecoveredGlobal_804050DC_lbl_805C18A0 lbl_805C18A0;
 void TLobby__sub_804050DC(s16 arg0);
-extern RecoveredGlobal_803FD520_lbl_805C0310 lbl_805C0310;
+extern RecoveredGlobal_803FD520_lbl_805C0310 lobby_net_buffer_desc_b;
 extern s16 lbl_805D7A7A;
 s16 get_checked_status_value__6TLobbyFs(s16 arg0);
 void apply_default_params__6TLobbyFPv(u8 *arg0);
-extern RecoveredGlobal_803F895C_lbl_805AEEB0 lbl_805AEEB0;
+extern RecoveredGlobal_803F895C_lbl_805AEEB0 lobby_net_config_block;
 void init_buffer_descriptor_a__6TLobbyFPv(u8 *arg0);
 extern RecoveredGlobal_803F89A4_lbl_805B52D4 lbl_805B52D4;
 extern RecoveredGlobal_803F89A4_lbl_805B5454 lbl_805B5454;
@@ -526,7 +526,7 @@ void TLobby__sub_803F89A4(u8 *arg0);
 extern RecoveredGlobal_803F89DC_lbl_805B54BC lbl_805B54BC;
 extern RecoveredGlobal_803F89DC_lbl_805B94BC lbl_805B94BC;
 void init_buffer_desc_a__6TLobbyFPv(u8 *arg0);
-extern RecoveredGlobal_803F895C_lbl_805AEEB0 lbl_805AEEB0;
+extern RecoveredGlobal_803F895C_lbl_805AEEB0 lobby_net_config_block;
 void init_net_buffer_config__6TLobbyFPv(u8 *arg0);
 void reset_message_thread__6TLobbyFv(void);
 void TLobby__sub_803F8AB8(void);
@@ -713,7 +713,7 @@ extern RecoveredGlobal_8040EF00_lbl_805C1B60 lbl_805C1B60;
 s32 TLobby__sub_8040FE40(s16 arg0);
 extern RecoveredGlobal_803F8930_lbl_805B4F84 lbl_805B4F84;
 void TLobby__sub_803F8930(u8 *arg0);
-extern RecoveredGlobal_803F8B7C_lbl_805BD66C lbl_805BD66C;
+extern RecoveredGlobal_803F8B7C_lbl_805BD66C lobby_net_recv_desc;
 extern M2C_UNK lbl_805D7A58;
 void init_net_recv_desc__6TLobbyFPv(u8 *arg0);
 s32 TLobby__sub_803FE6CC(void *, int, int, void *);
@@ -764,7 +764,7 @@ void lock_mutex__6TLobbyFi(int _w0);
 s16 TLobby__sub_8040A2BC(void *, s16);
 extern RecoveredGlobal_80419A00_lbl_805C1C50 lbl_805C1C50;
 s16 TLobby__sub_80409A3C(u8 *arg0, s16 arg1);
-extern RecoveredGlobal_803F895C_lbl_805AEEB0 lbl_805AEEB0;
+extern RecoveredGlobal_803F895C_lbl_805AEEB0 lobby_net_config_block;
 void init_buffer_descriptor_b__6TLobbyFPv(RecoveredFields_803F88E4_arg0 *arg0);
 void init_msg__6TLobbyFPvi(u8 *arg0, s32 arg1);
 void set_value_and_enable__6TLobbyFPvi(u8 *arg0, s32 arg1);
@@ -813,7 +813,7 @@ extern Ent_803F9B48 *lbl_805D7A6C;
 s32 OSGetCurrentThread();
 s32 run_current_thread_callback__6TLobbyFv(void);
 void TLobby__sub_803FA2A8(P_803FA2A8 *o);
-extern Cfg_803F87E0 lbl_805B3878;
+extern Cfg_803F87E0 ipv6_interface_config;
 extern u8 lbl_805B38A0[];
 void init_ipv6_interface_config__6TLobbyFPv(Obj_803F87E0 *arg0);
 void queue_timeout_message__6TLobbyFsis(void);
@@ -823,7 +823,7 @@ void add_multicast_address__6TLobbyFsPv(void);
 void remove_rec_by_handle__6TLobbyFsUs(void);
 void open_channel_checked__6TLobbyFsUs(void);
 void TLobby__sub_80426B88(void);
-extern RecoveredGlobal_803F895C_lbl_805AEEB0 lbl_805AEEB0;
+extern RecoveredGlobal_803F895C_lbl_805AEEB0 lobby_net_config_block;
 void init_net_func_table__6TLobbyFPv(Desc_803F8AD8 *arg0);
 s32 OSDisableInterrupts(void);
 s32 OSRestoreInterrupts(s32);
@@ -832,7 +832,7 @@ s32 OSSendMessage(void *, void *, s32);
 void cancel_alarm_a__6TLobbyFv(void);
 void TLobby__sub_80428358(void);
 void cancel_alarm_b__6TLobbyFv(void);
-extern Slot_803F8E08 lbl_805BE070[0x40];
+extern Slot_803F8E08 lobby_alarm_slot_table[0x40];
 s32 cancel_pending_alarms__6TLobbyFv(void);
 void TLobby__sub_80405000(u32 arg0);
 s32 init_net_list__6TLobbyFss(s16, s16);
@@ -1316,7 +1316,7 @@ s32 set_flags_and_state__6TLobbyFPv(u8 *arg0) {
 
 void TLobby__sub_803F7980(void *);
 void TLobby__sub_803FD0C0(void) {
-    RecoveredGlobal_803FD520_lbl_805C0310 *g = &lbl_805C0310;
+    RecoveredGlobal_803FD520_lbl_805C0310 *g = &lobby_net_buffer_desc_b;
     clear_table_entry_locked__6TLobbyFs((s16)(g->h0));
     g->h0 = -1;
     g->h16 = 0;
@@ -1338,7 +1338,7 @@ s16 TLobby__sub_803FD10C(void) {
     s16 i;
     s16 *p;
 
-    init_buffer_desc_b__6TLobbyFPv(&lbl_805C0310);
+    init_buffer_desc_b__6TLobbyFPv(&lobby_net_buffer_desc_b);
     fns[0] = TLobby__sub_803FD60C;
     fns[1] = TLobby__sub_803FD5A4;
     fns[2] = (Fn_803FD10C)clear_socket_slot__6TLobbyFs;
@@ -1354,14 +1354,14 @@ s16 TLobby__sub_803FD10C(void) {
     if (r < 0) {
         return r;
     }
-    lbl_805C0310.h0 = r;
-    lbl_805C0310.h2 = 0;
-    lbl_805C0310.h4 = 0;
-    lbl_805C0310.h6 = 0;
-    lbl_805C0310.h8 = 0;
-    p = lbl_805C0310.buf;
+    lobby_net_buffer_desc_b.h0 = r;
+    lobby_net_buffer_desc_b.h2 = 0;
+    lobby_net_buffer_desc_b.h4 = 0;
+    lobby_net_buffer_desc_b.h6 = 0;
+    lobby_net_buffer_desc_b.h8 = 0;
+    p = lobby_net_buffer_desc_b.buf;
     i = 0;
-    while (i < lbl_805C0310.h16) {
+    while (i < lobby_net_buffer_desc_b.h16) {
         *p = 0;
         i++;
         p++;
@@ -1405,7 +1405,7 @@ s16 get_checked_status_value__6TLobbyFs(s16 arg0) {
     if (lbl_805D7A7A != 0) {
         return 0x5AE;
     }
-    return M2C_FIELD(&lbl_805C0310.h0, s16 *, 0x14);
+    return M2C_FIELD(&lobby_net_buffer_desc_b.h0, s16 *, 0x14);
 }
 
 struct E_803FD560 { s16 a; s16 b; };
@@ -1414,7 +1414,7 @@ s32 clear_socket_slot__6TLobbyFs(s16 i) {
     if (i != 0 && i != 1) {
         return -0x112;
     }
-    G_803FD560 *g = (G_803FD560 *)&lbl_805C0310;
+    G_803FD560 *g = (G_803FD560 *)&lobby_net_buffer_desc_b;
     g->e[i].a = 0;
     g->e[i].b = 0;
     return 0;

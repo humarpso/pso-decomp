@@ -240,7 +240,7 @@ void TWindow__close(void *);
 s32 get_selected_menu_value(void *);
 M2C_UNK save_cursor_selection__20TShopArmorListWindowFPv(void *);
 s32 select_cursor_entry__6TLobbyFPv(void *);
-extern const s32 lbl_805D53A0;
+extern const s32 local_client_id;
 void handle_buy_confirm__24TShopEquipmentListWindowFPv(Win_8021BC18 *w);
 s32 obj_getField1c(s32);
 s32 is_visible__17TWindowSubComCardFPv(void *);
@@ -260,7 +260,7 @@ s32 get_selected_menu_value(void *);
 u32 create_yes_no_window(int, u16, int, int);
 s32 select_cursor_entry__6TLobbyFPv(void *);
 s32 get_window_layout_position(s32);
-extern const s32 lbl_805D53A0;
+extern const s32 local_client_id;
 void handle_equip_offer__24TShopEquipmentListWindowFv(void *p);
 int set_field_20__12TQuestListVMFPvi(void*, int);
 void update_list__24TShopEquipmentListWindowFPvPv(void *arg0, void *arg1);
@@ -342,7 +342,7 @@ void handle_equip_offer__24TShopEquipmentListWindowFv(void *p) {
                 Rec_8021BA1C c;
                 i = select_cursor_entry__6TLobbyFPv(w->list);
                 c = w->recs[i];
-                c.w[3] = advance_item_id_counter(lbl_805D53A0);
+                c.w[3] = advance_item_id_counter(local_client_id);
                 set_stack_count__24TShopEquipmentListWindowFPvc(&c, 1);
                 try_buy_item((void *)(w->player), (void *)(&c));
                 update_list__24TShopEquipmentListWindowFPvPv(w, &w->recs[i]);
@@ -377,7 +377,7 @@ void handle_buy_confirm__24TShopEquipmentListWindowFPv(Win_8021BC18 *w) {
                 Rec_8021BC18 it = w->recs[i];
                 VObj_18_b34251 *item;
                 u32 e;
-                it.id = advance_item_id_counter(lbl_805D53A0);
+                it.id = advance_item_id_counter(local_client_id);
                 set_stack_count__24TShopEquipmentListWindowFPvc((void *)(&it), (s8)(1));
                 try_buy_item(w->player, &it);
                 item = find_item_by_id(it.id);
@@ -399,7 +399,7 @@ void handle_buy_confirm__24TShopEquipmentListWindowFPv(Win_8021BC18 *w) {
             if (w->list != NULL) {
                 s32 i = select_cursor_entry__6TLobbyFPv(w->list);
                 Rec_8021BC18 it = w->recs[i];
-                it.id = advance_item_id_counter(lbl_805D53A0);
+                it.id = advance_item_id_counter(local_client_id);
                 set_stack_count__24TShopEquipmentListWindowFPvc((void *)(&it), (s8)(1));
                 try_buy_item(w->player, &it);
                 update_list__24TShopEquipmentListWindowFPvPv(w, &w->recs[i]);
@@ -417,7 +417,7 @@ void handle_buy_confirm__24TShopEquipmentListWindowFPv(Win_8021BC18 *w) {
         if (w->list != NULL) {
             s32 i = select_cursor_entry__6TLobbyFPv(w->list);
             Rec_8021BC18 it = w->recs[i];
-            it.id = advance_item_id_counter(lbl_805D53A0);
+            it.id = advance_item_id_counter(local_client_id);
             set_stack_count__24TShopEquipmentListWindowFPvc((void *)(&it), (s8)(1));
             try_buy_item(w->player, &it);
             update_list__24TShopEquipmentListWindowFPvPv(w, &w->recs[i]);

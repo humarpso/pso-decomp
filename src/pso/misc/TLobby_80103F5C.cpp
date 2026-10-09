@@ -87,8 +87,8 @@ s32 get_player_by_client_id(u16);
 s32 is_script_controlled__10TObjPlayerFPv(s32);
 M2C_UNK fn_801B849C(s32, void *);
 s32 obj_isState3_324(s32);
-extern s32 lbl_805D53A0;
-extern s32 TLobby__data_805D53AC;
+extern s32 local_client_id;
+extern s32 TLobby__designated_client_id;
 void forward_to_player__6TLobbyFiPv(int arg0, void *arg1);
 s32 is_locally_controlled__10TObjPlayerFPv();
 M2C_UNK send_6x26_unequip_item__10TObjPlayerFPvPv(s32, s32);
@@ -101,8 +101,8 @@ u32 get_item_field_2__9TItemDataFPv(s32);
 u32 get_item_field_6__10TObjPlayerFPv(s32);
 s32 obj_isState3_324(s32);
 u32 test_flag3__9TItemDataFPv(s32);
-extern s32 lbl_805D53A0;
-extern s32 TLobby__data_805D53AC;
+extern s32 local_client_id;
+extern s32 TLobby__designated_client_id;
 void handle_player_event__6TLobbyFii(s32 arg0, s32 arg1);
 extern void *item_tool_factory_table[];
 void create__11TItemObjectFPv();
@@ -282,7 +282,7 @@ void forward_to_player__6TLobbyFiPv(int arg0, void *arg1) {
     s32 temp_r3;
     if (arg1 != NULL) {
         temp_r3 = get_player_by_client_id(arg0);
-        if ((temp_r3 != 0) && ((is_locally_controlled__10TObjPlayerFPv() == 1) || ((obj_isState3_324(temp_r3) == 1) && ((s32) lbl_805D53A0 == (s32) TLobby__data_805D53AC)) || ((is_script_controlled__10TObjPlayerFPv(temp_r3) == 1) && ((s32) lbl_805D53A0 == (s32) TLobby__data_805D53AC)))) {
+        if ((temp_r3 != 0) && ((is_locally_controlled__10TObjPlayerFPv() == 1) || ((obj_isState3_324(temp_r3) == 1) && ((s32) local_client_id == (s32) TLobby__designated_client_id)) || ((is_script_controlled__10TObjPlayerFPv(temp_r3) == 1) && ((s32) local_client_id == (s32) TLobby__designated_client_id)))) {
             fn_801B849C(temp_r3, arg1);
             send_6x25_equip_item(temp_r3, M2C_FIELD(arg1, s32 *, 0xC), 0);
         }
@@ -292,7 +292,7 @@ void handle_player_event__6TLobbyFii(s32 arg0, s32 arg1) {
     s32 temp_r3;
     u32 var_r3;
     temp_r3 = get_player_by_client_id((u16)arg0);
-    if ((temp_r3 != 0) && ((is_locally_controlled__10TObjPlayerFPv() == 1) || ((obj_isState3_324(temp_r3) == 1) && ((s32) lbl_805D53A0 == (s32) TLobby__data_805D53AC)) || ((is_script_controlled__10TObjPlayerFPv(temp_r3) == 1) && ((s32) lbl_805D53A0 == (s32) TLobby__data_805D53AC)))) {
+    if ((temp_r3 != 0) && ((is_locally_controlled__10TObjPlayerFPv() == 1) || ((obj_isState3_324(temp_r3) == 1) && ((s32) local_client_id == (s32) TLobby__designated_client_id)) || ((is_script_controlled__10TObjPlayerFPv(temp_r3) == 1) && ((s32) local_client_id == (s32) TLobby__designated_client_id)))) {
         var_r3 = 0U;
         switch (arg1) {
         case 0:

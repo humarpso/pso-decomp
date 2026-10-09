@@ -103,7 +103,7 @@ extern const f32 TWindowKeyBoardSoft__data_805DD080;
 extern const f32 TWindowKeyBoardSoft__data_805DD088;
 extern const f32 TWindowKeyBoardSoft__data_805DD094;
 extern RecoveredGlobal_80260808_lbl_8050E208 lbl_8050E208;
-extern void *lbl_805D53A0;
+extern void *local_client_id;
 extern s32 current_language;
 extern const f32 lbl_805DD084;
 extern const f32 lbl_805DD08C;
@@ -371,7 +371,7 @@ void spawn_key_effect__19TWindowKeyBoardSoftFPvii(u8 *arg0, s32 arg1, s32 arg2) 
         kind = 6;
         break;
     }
-    create__18TWindowEffectLightFPvPvPv(&pos, kind, lbl_805D53A0);
+    create__18TWindowEffectLightFPvPvPv(&pos, kind, local_client_id);
 }
 extern int fold_flush_8;
 #pragma pop

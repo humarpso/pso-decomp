@@ -32,7 +32,7 @@ extern u32 lbl_805D77F8;
 
 void set_global_7778__10TObjPlayerFi(s32 arg0);
 void update_render_state__10TObjPlayerFv(void);
-M2C_UNK TObjPlayer__sub_803E4F14();
+M2C_UNK resolve_render_keys__10TObjPlayerFPvPv();
 M2C_UNK advance_render_counters__10TObjPlayerFv();
 
 extern s32 lbl_805D7778;
@@ -42,7 +42,7 @@ void set_global_7778__10TObjPlayerFi(s32 arg0) {
 }
 
 void update_render_state__10TObjPlayerFv(void) {
-    TObjPlayer__sub_803E4F14();
+    resolve_render_keys__10TObjPlayerFPvPv();
     advance_render_counters__10TObjPlayerFv();
 }
 

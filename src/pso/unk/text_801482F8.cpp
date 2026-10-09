@@ -338,7 +338,7 @@ s32 all_parents_unqueued_for_destruction__7TObjectFv(u32);
 s32 is_not_split_screen__13TRaderMapCoreFv(void);
 M2C_UNK subtract_vector(void *, void *);
 extern const f64 lbl_8043F550[];
-extern s32 lbl_805D53A0;
+extern s32 local_client_id;
 extern u32 quest_mission_manager;
 extern u32 quest_area_manager;
 void update_conversation__11TObjNpcBaseFPv(u8 *arg0);
@@ -362,13 +362,13 @@ void handle_message_event__17TObjNpcFemaleBaseFPvUs(void *arg0, u16 arg1);
 u32 get_player_by_client_id();
 M2C_UNK play_effect_default__10TObjPlayerFii(u32, s32);
 
-extern s32 lbl_805D53A0;
+extern s32 local_client_id;
 
 void handle_message_event__17TObjNpcFemaleBaseFPvUs(void *arg0, u16 arg1) {
     u32 temp_r3;
 
     if ((s32) M2C_FIELD(arg0, s32 *, 0x3A8) > 0) {
-        if ((s32) arg1 == (s32) lbl_805D53A0) {
+        if ((s32) arg1 == (s32) local_client_id) {
             temp_r3 = get_player_by_client_id();
             if ((temp_r3 != 0U) && ((s16) M2C_FIELD(arg0, s16 *, 0x326) != 3)) {
                 M2C_FIELD(arg0, s16 *, 0x326) = 3;
@@ -376,7 +376,7 @@ void handle_message_event__17TObjNpcFemaleBaseFPvUs(void *arg0, u16 arg1) {
                 M2C_FIELD(arg0, u16 *, 0x94) = arg1;
                 M2C_FIELD(arg0, u16 *, 0x338) = arg1;
                 M2C_FIELD(arg0, u32 *, 0x2A8) = temp_r3;
-                if ((s32) M2C_FIELD(arg0, u16 *, 0x338) == (s32) lbl_805D53A0) {
+                if ((s32) M2C_FIELD(arg0, u16 *, 0x338) == (s32) local_client_id) {
                     play_effect_default__10TObjPlayerFii(temp_r3, -1);
                 }
                 ((VObj18_801482f8 *) arg0)->vf160(1);
@@ -434,7 +434,7 @@ void update_conversation__11TObjNpcBaseFPv(u8 *arg0) {
     s32 ang;
     void *m;
     u32 p;
-    if (F(u16, 0x94) != lbl_805D53A0 || F(void *, 0x2A8) == 0 || F(s32, 0x3A8) <= 0) {
+    if (F(u16, 0x94) != local_client_id || F(void *, 0x2A8) == 0 || F(s32, 0x3A8) <= 0) {
         F(s16, 0x328) = 3;
     }
     switch (F(s16, 0x328)) {
@@ -541,8 +541,8 @@ void update_conversation__11TObjNpcBaseFPv(u8 *arg0) {
                 end_conversation_camera();
                 break;
             }
-            if (F(void *, 0x2A8) != 0 && lbl_805D53A0 == obj_getField1c(F(void *, 0x2A8))) {
-                p = ((u32 (*)(s32))get_player_by_client_id)(lbl_805D53A0);
+            if (F(void *, 0x2A8) != 0 && local_client_id == obj_getField1c(F(void *, 0x2A8))) {
+                p = ((u32 (*)(s32))get_player_by_client_id)(local_client_id);
                 if (p != 0 && check_player_flag1__6TLobbyFPv((void *)p) != 0) {
                     send_code_45_1__10TObjPlayerFi((void *)p);
                 }

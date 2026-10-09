@@ -24,7 +24,7 @@ extern "C" {
 M2C_UNK TLobby__sub_8028D7D0();
 extern u32 lbl_80518850[4];
 extern u32 chr_select_load_buffer_table[4];
-extern u32 lbl_805D6518;
+extern u32 chr_select_load_buffer_base;
 extern u32 chr_select_load_buffer;
 u32 alloc_load_buffer__6TLobbyFii(s32 arg0, s32 arg1);
 }
@@ -41,7 +41,7 @@ s32 get_result__23TAdSinglePlyChrSelectGCFPv(void *arg0) {
 }
 u32 alloc_load_buffer__6TLobbyFii(s32 arg0, s32 arg1) {
     u32 p;
-    if (lbl_805D6518 == 0U) {
+    if (chr_select_load_buffer_base == 0U) {
         return 0U;
     }
     TLobby__sub_8028D7D0();
@@ -52,7 +52,7 @@ u32 alloc_load_buffer__6TLobbyFii(s32 arg0, s32 arg1) {
     if (arg0 < 4) {
         p = lbl_80518850[arg0];
         p += arg1;
-        if (p >= lbl_805D6518 + (arg0 + 1) * 0xA000) {
+        if (p >= chr_select_load_buffer_base + (arg0 + 1) * 0xA000) {
             return 0U;
         }
         lbl_80518850[arg0] = p;

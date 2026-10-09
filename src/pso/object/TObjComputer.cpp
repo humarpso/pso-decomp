@@ -196,7 +196,7 @@ s32 pop_matrix();
 s32 post_translate_matrix(void *);
 s32 set_global_param__8TObjFishFi(s32);
 M2C_UNK draw_ginja_object(void *);
-extern u32 lbl_805D53A4;
+extern u32 actor_frame_tick;
 extern u32 lbl_805D5B6C;
 extern s16 lbl_805D5B70;
 extern s16 TObjComputer__data_805DBCD8[2];
@@ -207,7 +207,7 @@ void send_object_state_update(void *, void *);
 s32 access_object_saved_state(void *, void *, int);
 void byteswap_and_send__6TLobbyFi(void *);
 void init_packet_67_04__6TLobbyFPv(void *);
-extern s32 lbl_805D53A0;
+extern s32 local_client_id;
 extern const f32 lbl_805DBCF4;
 f32 TObjContainerAbeEnemy__vt20(Obj_80188768 *arg0);
 }
@@ -245,7 +245,7 @@ M2C_UNK draw_model__12TObjComputerFPv(void *arg0) {
     post_translate_matrix(self->pos38);
     rotate_matrix_y(0, self->yaw60);
     if (TObjComputer__data_805DBCD8[self->kind88] == 1) {
-        u32 tick = lbl_805D53A4;
+        u32 tick = actor_frame_tick;
         if (tick != self->tick_c4 && self->time_c0 >= lbl_805DBCE4) {
             self->tick_c4 = tick;
             scroll_ginja_mesh_uvs(M2C_FIELD(self->model->sub2c, void **, 4), 0, (s32)self->time_c0, (*(u16 *)&lbl_805D5B70), 1);
@@ -407,7 +407,7 @@ f32 TObjContainerAbeEnemy__vt20(Obj_80188768 *arg0) {
         pkt.b = arg0->f1C;
         pkt.c = get_current_floor();
         pkt.d = arg0->f84;
-        pkt.e = lbl_805D53A0;
+        pkt.e = local_client_id;
         byteswap_and_send__6TLobbyFi(&pkt);
     }
     return lbl_805DBCF4;

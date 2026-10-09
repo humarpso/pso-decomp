@@ -8,7 +8,7 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 extern "C" {
 extern const f32 lbl_805DD160;
 s32 get_selected_entry__17TWindowSubComCardFPv(u8 *arg0);
-void TWindowSubComCard__sub_80265B5C(u8 *arg0);
+void update_scroll_value__17TWindowSubComCardFPv(u8 *arg0);
 }
 
 extern "C" {
@@ -190,7 +190,7 @@ extern RecoveredGlobal_80266378_lbl_804D05A8 lbl_804D05A8;
 extern u8 lbl_804D05CC[];
 extern s8 lbl_8050E208[];
 extern s32 lbl_805D3960;
-extern s32 lbl_805D53A4;
+extern s32 actor_frame_tick;
 extern const f32 lbl_805DD148;
 extern const f32 lbl_805DD14C;
 extern const f32 lbl_805DD154;
@@ -456,7 +456,7 @@ void advance_past_disabled_menu_rows(Card_80265AA4 *arg0) {
 }
 
 #pragma fp_contract on
-void TWindowSubComCard__sub_80265B5C(u8 *arg0) {
+void update_scroll_value__17TWindowSubComCardFPv(u8 *arg0) {
   u8 *new_var2;
   f32 v;
   u32 *new_var;
@@ -768,7 +768,7 @@ void draw_card_icon__17TWindowSubComCardFiii(s32 arg0, s32 arg1, s32 arg2) {
 void draw_selected_bar__17TWindowSubComCardFPvPv(u8 *arg0, u8 *arg1) {
     s16 temp_r4;
     u16 *temp_r3;
-    if (!(lbl_805D53A4 & 0x10)) {
+    if (!(actor_frame_tick & 0x10)) {
         temp_r4 = M2C_FIELD(arg0, s16 *, 0x7A);
         if (temp_r4 >= 0) {
             temp_r3 = (u16 *)(((s32)((u16 * (*)(void *, int))get_array_entry__20TWindowSubStatusDispFPvi)(arg0, (s32) temp_r4)));
@@ -852,7 +852,7 @@ void run_task__11TWindowMenuFv(u8 *arg0) {
         }
     }
     initialize_subwindow__9TWindowDDFPv((void *) (arg0));
-    TWindowSubComCard__sub_80265B5C((u8 *)((void *) (arg0)));
+    update_scroll_value__17TWindowSubComCardFPv((u8 *)((void *) (arg0)));
     step_window_tween((void *) (arg0));
     ((M2C_UNK (*)(void *))update_target_y__17TWindowSubComCardFPv)((void *) (arg0));
     ((M2C_UNK (*)(void *))clamp_menu_choice_scroll)((void *) (arg0));

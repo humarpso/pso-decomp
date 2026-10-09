@@ -92,12 +92,12 @@ void __dl__7TObjectFPv(void *);
 void *__nw__7TObjectFUl(int);
 void destroy_key_base__5TOKeyFPvs(void *, int);
 
-extern s32 lbl_805D53A0;
+extern s32 local_client_id;
 
 s32 is_player_in_range__15TORainbowCave01Fif(s32 arg0, f32 farg0) {
     s32 temp_r3;
 
-    temp_r3 = find_entity_by_id((u16) lbl_805D53A0);
+    temp_r3 = find_entity_by_id((u16) local_client_id);
     if ((temp_r3 != 0) && (horizontal_distance_squared(arg0 + 0x38, temp_r3 + 0x38) < farg0)) {
         return 1;
     }

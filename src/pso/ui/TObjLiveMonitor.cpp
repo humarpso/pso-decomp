@@ -315,8 +315,8 @@ s32 TBoss8Dragon__sub_802F3638();
 M2C_UNK TObjPlayer__sub_80082CBC(void *);
 M2C_UNK TObjPlayer__sub_80082CCC(void *);
 
-    extern int lbl_805D53A0;
-int TBoss8Dragon__sub_8030B80C(void) {  return (lbl_805D53A0 & 0xffff); }
+    extern int local_client_id;
+int TBoss8Dragon__sub_8030B80C(void) {  return (local_client_id & 0xffff); }
 
 void TBoss8Dragon__sub_8030B818(u8 *arg0, int _w1) {
   s32 temp_r0;

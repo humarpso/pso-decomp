@@ -3,6 +3,155 @@ typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
 typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 #define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
 #define M2C_BITWISE(type, expr) ((type)(expr))
+
+extern "C" {
+
+void TObjEneRe4Sorcerer__vt104(u8 *arg0);
+M2C_UNK post_translate_matrix(void *);
+M2C_UNK update_player_state__9TObjEneDDFPv(void *, int, int);
+M2C_UNK TObjEneRe4Sorcerer__sub_801E3F1C(f32, f32);
+M2C_UNK get_target_info__9TObjEneDDFPv();
+M2C_UNK toggle_particle_effect__10TObjPlayerFv();
+M2C_UNK scroll_strip_uvs(int, int, int);
+M2C_UNK end_effect_render__13TParticleCtrlFv();
+M2C_UNK rotate_matrix_y(int, int);
+M2C_UNK translate_matrix(int, f32, f32, f32);
+M2C_UNK push_matrix();
+M2C_UNK pop_matrix();
+M2C_UNK set_global_param__8TObjFishFi(int);
+M2C_UNK draw_chunk_object(s32);
+
+extern u32 TObjEneRe4Sorcerer__data_805D52F4;
+extern s32 some_id_805c6f74;
+
+struct Base { u8 pad[0x18]; };
+struct VObj : Base {
+    virtual void m0() = 0;
+    virtual void m1() = 0;
+    virtual void m2() = 0;
+    virtual void m3() = 0;
+    virtual void m4() = 0;
+    virtual void m5() = 0;
+    virtual void m6() = 0;
+    virtual void m7() = 0;
+    virtual s32 m8(f32, f32) = 0;
+};
+
+extern "C" {
+__declspec(section ".sdata2") extern void *const lbl_805DA788[1] = {
+    (void *)0x43c80000,
+};
+__declspec(section ".sdata2") extern void *const TObjEneRe4Sorcerer__data_805DA78C[1] = {
+    (void *)0x41700000,
+};
+__declspec(section ".sdata2") extern void *const TObjEneRe4Sorcerer__data_805DA790[1] = {
+    (void *)0x0,
+};
+__declspec(section ".sdata2") extern void *const TObjEneRe4Sorcerer__data_805DA794[1] = {
+    (void *)0x41b00000,
+};
+}
+#define lbl_805DA788 (*(const f32 *)lbl_805DA788)
+#define TObjEneRe4Sorcerer__data_805DA78C (*(const f32 *)TObjEneRe4Sorcerer__data_805DA78C)
+#define TObjEneRe4Sorcerer__data_805DA790 (*(const f32 *)TObjEneRe4Sorcerer__data_805DA790)
+#define TObjEneRe4Sorcerer__data_805DA794 (*(const f32 *)TObjEneRe4Sorcerer__data_805DA794)
+
+void TObjEneRe4Sorcerer__vt104(u8 *arg0) {
+    get_target_info__9TObjEneDDFPv();
+    if (((VObj *)arg0)->m8(lbl_805DA788, TObjEneRe4Sorcerer__data_805DA78C) != 0) {
+        update_player_state__9TObjEneDDFPv(arg0, 0, 0);
+        ((M2C_UNK (*)(s32))set_global_param__8TObjFishFi)(M2C_FIELD(arg0, s32 *, 0x24));
+        ((M2C_UNK (*)())push_matrix)();
+        ((M2C_UNK (*)(void *))post_translate_matrix)(arg0 + 0x38);
+        ((M2C_UNK (*)(M2C_UNK, f32, f32, f32))translate_matrix)(0, TObjEneRe4Sorcerer__data_805DA790, TObjEneRe4Sorcerer__data_805DA794, TObjEneRe4Sorcerer__data_805DA790);
+        ((M2C_UNK (*)(M2C_UNK, s32))rotate_matrix_y)(0, M2C_FIELD(arg0, s32 *, 0x60));
+        M2C_FIELD(arg0, s16 *, 0x3C0) = (s16) (M2C_FIELD(arg0, s16 *, 0x3C0) + 5);
+        ((M2C_UNK (*)(s32, s16, M2C_UNK))scroll_strip_uvs)(TObjEneRe4Sorcerer__data_805D52F4, M2C_FIELD(arg0, s16 *, 0x3C0), 0);
+        M2C_FIELD(arg0, f32 *, 0x3C4) += 0.01f;
+        some_id_805c6f74 |= 0x20000;
+        TObjEneRe4Sorcerer__sub_801E3F1C(TObjEneRe4Sorcerer__data_805DA790, M2C_FIELD(arg0, f32 *, 0x3C4));
+        ((M2C_UNK (*)())toggle_particle_effect__10TObjPlayerFv)();
+        ((M2C_UNK (*)(s32))draw_chunk_object)(M2C_FIELD(arg0, s32 *, 0x34));
+        ((M2C_UNK (*)())end_effect_render__13TParticleCtrlFv)();
+        some_id_805c6f74 &= 0xFFFDFFFF;
+        ((M2C_UNK (*)())pop_matrix)();
+    }
+}
+
+}
+
+extern "C" {
+__declspec(section ".sdata2") extern void *const lbl_805DA79C[1] = {
+    (void *)0x3f4ccccd,
+};
+__declspec(section ".sdata2") extern void *const lbl_805DA7A0[1] = {
+    (void *)0x42c80000,
+};
+__declspec(section ".sdata2") extern void *const lbl_805DA7A4[1] = {
+    (void *)0x43700000,
+};
+__declspec(section ".sdata2") extern void *const lbl_805DA7A8[1] = {
+    (void *)0x42b40000,
+};
+__declspec(section ".sdata2") extern void *const lbl_805DA7AC[1] = {
+    (void *)0x41300000,
+};
+__declspec(section ".sdata2") extern void *const lbl_805DA7B0[1] = {
+    (void *)0x42700000,
+};
+__declspec(section ".sdata2") extern void *const lbl_805DA7B4[1] = {
+    (void *)0x41a00000,
+};
+__declspec(section ".sdata2") extern void *const lbl_805DA7B8[1] = {
+    (void *)0x43200000,
+};
+__declspec(section ".sdata2") extern void *const lbl_805DA7BC[1] = {
+    (void *)0x461c4000,
+};
+__declspec(section ".sdata2") extern void *const lbl_805DA7C0[1] = {
+    (void *)0x481c4000,
+};
+__declspec(section ".sdata2") extern void *const lbl_805DA7C4[1] = {
+    (void *)0x42a00000,
+};
+__declspec(section ".sdata2") extern void *const lbl_805DA7C8[1] = {
+    (void *)0x41f00000,
+};
+__declspec(section ".sdata2") extern void *const lbl_805DA7CC[1] = {
+    (void *)0x3e4ccccd,
+};
+}
+#define lbl_805DA79C (*(const f32 *)lbl_805DA79C)
+#define lbl_805DA7A0 (*(const f32 *)lbl_805DA7A0)
+#define lbl_805DA7A4 (*(const f32 *)lbl_805DA7A4)
+#define lbl_805DA7A8 (*(const f32 *)lbl_805DA7A8)
+#define lbl_805DA7AC (*(const f32 *)lbl_805DA7AC)
+#define lbl_805DA7B0 (*(const f32 *)lbl_805DA7B0)
+#define lbl_805DA7B4 (*(const f32 *)lbl_805DA7B4)
+#define lbl_805DA7B8 (*(const f32 *)lbl_805DA7B8)
+#define lbl_805DA7BC (*(const f32 *)lbl_805DA7BC)
+#define lbl_805DA7C0 (*(const f32 *)lbl_805DA7C0)
+#define lbl_805DA7C4 (*(const f32 *)lbl_805DA7C4)
+#define lbl_805DA7C8 (*(const f32 *)lbl_805DA7C8)
+#define lbl_805DA7CC (*(const f32 *)lbl_805DA7CC)
+
+#include "types.h"
+
+extern "C" {
+
+void TObjEneRe4Sorcerer__vt103(void* p);
+
+void TObjEneRe4Sorcerer__sub_800EFE30(void);
+
+void TObjEneRe4Sorcerer__vt103(void* p) { if (((int (*)(void*))get_target_info__9TObjEneDDFPv)(p) != 0) { ((int (*)(void*))TObjEneRe4Sorcerer__sub_800EFE30)(p); } }
+
+}
+
+#include "types.h"
+typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
+typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
+#define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
+#define M2C_BITWISE(type, expr) ((type)(expr))
 #define CAT2(a,b) a##b
 #define CAT(a,b) CAT2(a,b)
 #define PSO_VCALL_VObj_18_aab587_m93(_self) (((VObj_18_aab587 *)(_self))->m93())
@@ -353,9 +502,6 @@ s32 try_attack__18TObjEneRe4SorcererFiff(s32 arg0, f32 farg0, f32 farg1);
 s32 advance_animation_playback(void *);
 u32 find_entity_by_id(u16);
 extern const f64 TObjEneRe4Sorcerer__data_8043D408;
-extern const f32 lbl_805DA7A0;
-extern const f32 lbl_805DA7AC;
-extern const f32 lbl_805DA7BC;
 void TObjEneRe4Sorcerer__sub_800EE7DC(u8 *arg0, s32 arg1);
 s32 is_split_screen();
 s32 get_camera_mode__11TCameraCtrlFv();
@@ -390,10 +536,6 @@ extern s32 lbl_805D5660;
 extern s32 some_id_805c6f74;
 extern const f32 lbl_805D9E84;
 extern const f32 lbl_805D9E88;
-extern const f32 lbl_805DA788;
-extern const f32 TObjEneRe4Sorcerer__data_805DA78C;
-extern const f32 TObjEneRe4Sorcerer__data_805DA790;
-extern const f32 TObjEneRe4Sorcerer__data_805DA794;
 void render__18TObjEneRe4SorcererFv(u8 *arg0);
 u8 *get_player_data__10TObjPlayerFi(s32);
 s16 obj_getField1c(void *);
@@ -1304,10 +1446,6 @@ extern s32 TObjEneRe4Sorcerer__data_805D52E4;
 extern s32 TObjEneRe4Sorcerer__data_805D52E8;
 extern f32 TObjEneRe4Sorcerer__data_805D52EC;
 extern u32 TObjEneRe4Sorcerer__data_805D52F4;
-extern const f32 TObjEneRe4Sorcerer__data_805DA78C;
-extern const f32 TObjEneRe4Sorcerer__data_805DA790;
-extern const f32 TObjEneRe4Sorcerer__data_805DA794;
-extern const f32 TObjEneRe4Sorcerer__data_805DA7D0;
 extern M2C_UNK TObjPlayer__sub_800D7C58[];
 extern M2C_UNK init_and_activate__10TObjPlayerFPv[];
 extern Params_800F0464 lbl_8043D3F8;
@@ -1322,19 +1460,6 @@ extern s32 lbl_805D52D8;
 extern u8 *lbl_805D52DC;
 extern u32 lbl_805D52E0;
 extern s32 lbl_805D52F0;
-extern const f32 lbl_805DA79C;
-extern const f32 lbl_805DA7C0;
-extern const f32 lbl_805DA7B4;
-extern const f32 lbl_805DA7B8;
-extern const f32 lbl_805DA7C4;
-extern const f32 lbl_805DA7C8;
-extern const f32 lbl_805DA7CC;
-extern const f32 lbl_805DA7D4;
-extern const f32 lbl_805DA7D8;
-extern const f32 lbl_805DA7DC;
-extern const f32 lbl_805DA7E0;
-extern const f32 lbl_805DA7E4;
-extern const f32 lbl_805DA7E8;
 extern void *tl_04;
 
 extern "C" {
@@ -1398,10 +1523,8 @@ extern "C" {
 void TObjEneEpsilon__vt81();
 }
 extern "C" {
-void TObjEneRe4Sorcerer__vt103();
 }
 extern "C" {
-void TObjEneRe4Sorcerer__vt104();
 }
 extern "C" {
 void TObjPlayer__sub_8000FF3C();
@@ -1878,9 +2001,6 @@ void TObjEneRe4Sorcerer__sub_800EE0F8(u8 *arg0, s32 arg1) {
     }
 }
 
-extern const f32 lbl_805DA7A4;
-extern const f32 lbl_805DA7A8;
-extern const f32 lbl_805DA7B0;
 void TObjEneRe4Sorcerer__sub_800EE1CC(u8 *arg0, s32 arg1) {
     s32 temp_r0;
     s32 var_r3;
@@ -2301,10 +2421,37 @@ s32 TObjEneRe4Sorcerer__sub_800EEC00(void *arg0p, void *arg1p) {
         break;
     case 5:
         M2C_FIELD(arg0, s32 *, 0x3C8) = (s32) (M2C_FIELD(arg0, s32 *, 0x3C8) & 0xFFFFFFFB);
-        M2C_FIELD(arg0, f32 *, 0x3F8) = (f32) TObjEneRe4Sorcerer__data_805DA7D0;
+        M2C_FIELD(arg0, f32 *, 0x3F8) = (f32) 1.0f;
         break;
     }
 }
+
+extern "C" {
+__declspec(section ".sdata2") extern void *const lbl_805DA7D4[1] = {
+    (void *)0xbf400000,
+};
+__declspec(section ".sdata2") extern void *const lbl_805DA7D8[1] = {
+    (void *)0x47742400,
+};
+__declspec(section ".sdata2") extern void *const lbl_805DA7DC[1] = {
+    (void *)0x42480000,
+};
+__declspec(section ".sdata2") extern void *const lbl_805DA7E0[1] = {
+    (void *)0x41900000,
+};
+__declspec(section ".sdata2") extern void *const lbl_805DA7E4[1] = {
+    (void *)0x471c4000,
+};
+__declspec(section ".sdata2") extern void *const lbl_805DA7E8[2] = {
+    (void *)0x41200000, (void *)0x0,
+};
+}
+#define lbl_805DA7D4 (*(const f32 *)lbl_805DA7D4)
+#define lbl_805DA7D8 (*(const f32 *)lbl_805DA7D8)
+#define lbl_805DA7DC (*(const f32 *)lbl_805DA7DC)
+#define lbl_805DA7E0 (*(const f32 *)lbl_805DA7E0)
+#define lbl_805DA7E4 (*(const f32 *)lbl_805DA7E4)
+#define lbl_805DA7E8 (*(const f32 *)lbl_805DA7E8)
 
 #define arg0 ((u8 *)arg0p)
 #pragma push
@@ -2353,7 +2500,7 @@ s32 TObjEneRe4Sorcerer__sub_800EEDE4(void *arg0p, void *arg1p) {
             break;
         case 1:
             M2C_FIELD(arg0, s32 *, 0x4E4) += 1;
-            if (M2C_FIELD(arg0, f32 *, 0x3F8) < TObjEneRe4Sorcerer__data_805DA7D0) {
+            if (M2C_FIELD(arg0, f32 *, 0x3F8) < 1.0f) {
                 M2C_FIELD(arg0, f32 *, 0x3F8) += lbl_805DA7CC;
             }
             ((VObj_18_9c7b63 *)(arg0))->m87();
@@ -2363,7 +2510,7 @@ s32 TObjEneRe4Sorcerer__sub_800EEDE4(void *arg0p, void *arg1p) {
         TObjEneRe4Sorcerer__sub_800EF214((s32)arg0);
         break;
     case 5:
-        M2C_FIELD(arg0, f32 *, 0x3F8) = TObjEneRe4Sorcerer__data_805DA7D0;
+        M2C_FIELD(arg0, f32 *, 0x3F8) = 1.0f;
         M2C_FIELD(arg0, s32 *, 0x3C8) &= ~4;
         break;
     }
@@ -2884,7 +3031,7 @@ void init_enemy__18TObjEneRe4SorcererFPv(u8 *arg0) {
     M2C_FIELD(arg0, s32 *, 0x3EC) = 0;
     M2C_FIELD(arg0, s32 *, 0x3F0) = 0;
     M2C_FIELD(arg0, s32 *, 0x3F4) = M2C_FIELD(arg0, s16 *, 0x2CC);
-    M2C_FIELD(arg0, f32 *, 0x3F8) = TObjEneRe4Sorcerer__data_805DA7D0;
+    M2C_FIELD(arg0, f32 *, 0x3F8) = 1.0f;
     ((VObj_14_fa0828 *)((u8 *)(arg0) + (1020)))->m3();
     ((M2C_UNK (*)(void *))fn_80044330)((void *) ((u8 *)(arg0) + 0x418));
     for (i = 0; i < 4; i++) {

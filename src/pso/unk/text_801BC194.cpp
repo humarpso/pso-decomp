@@ -39,8 +39,8 @@ s32 TObjPlayer__sub_801D8C3C(void *);
 u8 *get_lobby_entry_ptr__10TObjPlayerFv(void *);
 void *__nw__7TObjectFUl(u32);
 void *consume_telepipe_arrival(u16, void *);
-extern Ent_801BC194 TObjPlayer__data_8050E920[];
-extern s32 lbl_805D53A0;
+extern Ent_801BC194 TObjPlayer__arrival_override_table[];
+extern s32 local_client_id;
 extern s32 tl_02;
 extern const f32 TObjPlayer__data_805DC278;
 
@@ -67,7 +67,7 @@ void place_on_area_entry__10TObjPlayerFPv(u8 *arg0) {
         if (p != NULL) {
             set_position_from__14TBoss4DarkFalzFPvPv(arg0, p);
         } else {
-            e = &TObjPlayer__data_8050E920[obj_getField1c(arg0)];
+            e = &TObjPlayer__arrival_override_table[obj_getField1c(arg0)];
             if (obj_isState2_324(arg0) == 0 && TObjPlayer__sub_801BF95C(e) == 1) {
                 TObjPlayer__sub_801BF954(e, 0);
                 M2C_FIELD(arg0, s32 *, 0x60) = get_lock_timer__10TObjPlayerFPv(e);
@@ -91,7 +91,7 @@ void place_on_area_entry__10TObjPlayerFPv(u8 *arg0) {
     if (is_single_screen__10TObjPlayerFv() != 0) {
         reset_cameras_to_actor(arg0, 0);
     } else if (is_current_room__10TObjRoomIdFPv(arg0) != 0) {
-        if (is_locally_controlled__10TObjPlayerFPv(arg0) == 0 && (p = get_player_by_client_id(lbl_805D53A0)) != NULL) {
+        if (is_locally_controlled__10TObjPlayerFPv(arg0) == 0 && (p = get_player_by_client_id(local_client_id)) != NULL) {
             reset_cameras_to_actor(p, 0);
         } else {
             reset_cameras_to_actor(arg0, 0);

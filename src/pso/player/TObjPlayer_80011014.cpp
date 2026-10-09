@@ -1146,10 +1146,10 @@ extern SceneEntry_8000FD54 main_phase_table[];
 extern void *lbl_804806E8[];
 extern SceneState_8000FD54 main_phase_state;
 extern Vec_800182A0 lbl_8050BEE0;
-extern RecoveredGlobal_80010E44_lbl_8050EA40 lbl_8050EA40;
+extern RecoveredGlobal_80010E44_lbl_8050EA40 lobby_rule_settings;
 extern RecoveredGlobal_8001806C_lbl_8058D490 lbl_8058D490;
 extern s32 camera_split_screen_selector;
-extern s32 lbl_805D53A4;
+extern s32 actor_frame_tick;
 extern s32 game_difficulty_selection;
 extern s32 lbl_805D586C;
 extern s32 lobby_player_count;
@@ -1214,7 +1214,7 @@ void main(void) {
         update = main_phase_table[main_phase_state.cur].update;
         while (main_phase_state.result == 0 && update != NULL) {
             update();
-            lbl_805D53A4++;
+            actor_frame_tick++;
         }
         fn = main_phase_table[main_phase_state.cur].exit;
         if (fn != NULL) {
@@ -1646,7 +1646,7 @@ void empty_post_damage_hook(void *defender, void *attacker) {  }
 #pragma push
 #pragma opt_pointer_analysis on
 void record_local_damage_if_enabled(void *arg0, void *arg1, s32 arg2) {
-  if ((((get_rule_field_0__6TLobbyFPv(&lbl_8050EA40.value) == 1) && (((int (*)(void *))is_locally_controlled__10TObjPlayerFPv)(arg0) != 0)) && (arg2 > 0)) && (arg1 != NULL))
+  if ((((get_rule_field_0__6TLobbyFPv(&lobby_rule_settings.value) == 1) && (((int (*)(void *))is_locally_controlled__10TObjPlayerFPv)(arg0) != 0)) && (arg2 > 0)) && (arg1 != NULL))
   {
     record_damage_stats__10TOMineTrapFUiUis((void *) arg0, (void *) arg1, (void *) arg2);
   }
@@ -1989,7 +1989,7 @@ u16 find_nearest_visible_player(u8 *arg0, Vec_800115C4 *arg1, f32 farg0) {
 }
 
 s32 is_actor_cadence_frame(O_80011704 *self, s32 x) {
-    s32 g = lbl_805D53A4 % x;
+    s32 g = actor_frame_tick % x;
     if ((self->f1c % x) == g) {
         return 1;
     }

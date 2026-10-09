@@ -88,7 +88,7 @@ void rotate_matrix_y(int, int);
 void push_matrix_from(void *);
 void pop_matrices(int);
 extern u8 lbl_8058D490[];
-extern s32 lbl_805D53A0;
+extern s32 local_client_id;
 extern const f32 lbl_805DC7D8;
 extern const f32 lbl_805DC7E4;
 void launch_technique__10TObjPlayerFv(s32 tech, s32 unused, Player_8022D27C *pl);
@@ -480,7 +480,7 @@ void launch_technique__10TObjPlayerFv(s32 tech, s32 unused, Player_8022D27C *pl)
     case 14:
         if (is_split_screen() != 0) {
             create__9TTecLukerFPvPvPvPv(pl, &hand, &ofs, 0);
-        } else if (lbl_805D53A0 == obj_getField1c(pl)) {
+        } else if (local_client_id == obj_getField1c(pl)) {
             create__9TTecLukerFPvPvPvPv(pl, &hand, &ofs, 0);
         }
         break;

@@ -481,7 +481,7 @@ s32 check_demo_mode__10TObjPlayerFv();
 s32 update_death_state__16TObjEneRe7BeruraFPvi(void *, void *);
 s32 TObjEneRe7Berura__sub_80093470(void *, void *);
 s32 state_patrol__16TObjEneRe7BeruraFPvi(void *, void *);
-s32 TObjEneRe7Berura__sub_800936A8(void *, void *);
+s32 run_flash_warning_state__16TObjEneRe7BeruraFPvi(void *, void *);
 s32 TObjEneRe7Berura__sub_80093888(void *, void *);
 s32 TObjEneRe7Berura__sub_80093C80(void *, void *);
 s32 TObjEneRe7Berura__sub_800940E8(void *, void *);
@@ -881,7 +881,7 @@ void TObjEneRe7Berura__vt85(s32 arg0, u32 arg1, s32 arg2) {
         TObjEneRe7Berura__sub_80093888((void *) (arg0), (void *) (arg2));
         return;
     case 7:
-        TObjEneRe7Berura__sub_800936A8((void *) (arg0), (void *) (arg2));
+        run_flash_warning_state__16TObjEneRe7BeruraFPvi((void *) (arg0), (void *) (arg2));
         return;
     case 9:
         state_patrol__16TObjEneRe7BeruraFPvi((void *) (arg0), (void *) (arg2));

@@ -36,10 +36,10 @@ void set_player_quest_control_flag(register M2C_UNK r3) {
     set_state_flags__10TObjPlayerFPvUi(r3, 0x8000);
 }
 
-    extern int lbl_805D5C08;
-void TObjHashiVersus2__sub_801912A4(void) { lbl_805D5C08 = 1; }
+    extern int hashi_versus2_flag;
+void TObjHashiVersus2__sub_801912A4(void) { hashi_versus2_flag = 1; }
 
-    extern int lbl_805D5C08;
-void TObjHashiVersus2__sub_801912B0(void) { lbl_805D5C08 = 0; }
+    extern int hashi_versus2_flag;
+void TObjHashiVersus2__sub_801912B0(void) { hashi_versus2_flag = 0; }
 
 }

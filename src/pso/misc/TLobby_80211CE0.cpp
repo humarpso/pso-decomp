@@ -12,15 +12,15 @@ s32 create_tl05_object__6TLobbyFPv(s32);
 s32 create__22THunterGuildSeqOfflineFPv(s32);
 
 s32 get_main_phase();
-extern s32 lbl_805D53A0;
-extern s32 TLobby__data_805D53AC;
+extern s32 local_client_id;
+extern s32 TLobby__designated_client_id;
 
 s32 handle_main_phase__6TLobbyFi(s32 arg0) {
     if (get_main_phase() == 0xE) {
         return create__22THunterGuildSeqOfflineFPv(arg0);
     }
     if (get_main_phase() == 0xF) {
-        if ((s32) lbl_805D53A0 == (s32) TLobby__data_805D53AC) {
+        if ((s32) local_client_id == (s32) TLobby__designated_client_id) {
             return create_tl05_object__6TLobbyFPv(arg0);
         }
         return create_lobby_object_05(arg0);

@@ -24,7 +24,7 @@ extern "C" {
 void VecCopy__FP3VecPC3Vec(void *, void *);
 u8 * csnVectorUnder(s32, void *, s32);
 void set_active__12TObjEneReconFv(void);
-extern s32 lbl_805D53A4;
+extern s32 actor_frame_tick;
 extern const f32 lbl_805DF448;
 void update_floor_probe__12TObjEneReconFPv(u8 *arg0);
 void remove_tracked_id__12TObjEneReconFPvi(T_8031EDBC *self, s32 id);
@@ -67,7 +67,7 @@ u16 alloc_child_id__12TObjEneReconFPv(Rec_8031EDF8 *o) {
 void update_floor_probe__12TObjEneReconFPv(u8 *arg0) {
     Stack_8031EE54 stack;
     u8 *temp_r3;
-    if ((lbl_805D53A4 % 5) == 0) {
+    if ((actor_frame_tick % 5) == 0) {
         VecCopy__FP3VecPC3Vec(&stack.sp8, arg0 + 0x38);
         stack.spC += lbl_805DF448;
         temp_r3 = (u8 *)(csnVectorUnder((s32) &stack.sp8, arg0 + 0x120, 0x4000));

@@ -43,7 +43,7 @@ M2C_UNK obj_set_flag_20000(s32);
 M2C_UNK play_effect_default__10TObjPlayerFii(s32, s32);
 M2C_UNK send_code_45_1__10TObjPlayerFi();
 
-extern s32 lbl_805D53A0;
+extern s32 local_client_id;
 
 void close_windows__16TObjCityMainWarpFPv(void *arg0) {
     if ((u32) M2C_FIELD(arg0, u32 *, 0x168) != 0U) {
@@ -58,9 +58,9 @@ void close_windows__16TObjCityMainWarpFPv(void *arg0) {
         TWindow__close(M2C_FIELD(arg0, void **, 0x164));
         M2C_FIELD(arg0, u32 *, 0x164) = 0U;
     }
-    end_player_keyboard_hold(lbl_805D53A0);
+    end_player_keyboard_hold(local_client_id);
     clear_flag__11TWindowCtrlFv();
-    unsuppress_slot__11TWindowCtrlFi(lbl_805D53A0);
+    unsuppress_slot__11TWindowCtrlFi(local_client_id);
 }
 
 void send_6x6A_set_boss_warp_flags__16TObjCityMainWarpFPvUs(Obj_80186CC8 *self, u16 value) {

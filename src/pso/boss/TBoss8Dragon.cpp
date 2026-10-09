@@ -252,7 +252,7 @@ void freeze_player_at_self__12TBoss8DragonFPv(u8 *arg0);
 s32 is_health_low__12TBoss8DragonFPv(void *arg0);
 void store_position__12TBoss8DragonFi(s32 arg0);
 void check_death__12TBoss8DragonFPv(void *arg0);
-extern s32 lbl_805D53A0;
+extern s32 local_client_id;
 extern s32 TBoss8Dragon__data_805D69B8;
 extern const f32 lbl_805DEEE4;
 void TBoss8Dragon__sub_802FCF00(u8 *arg0);
@@ -1910,7 +1910,7 @@ extern const f32 TBoss8Dragon__data_805DEE28;
 extern const f32 TBoss8Dragon__data_805DEE38;
 extern const f32 TBoss8Dragon__data_805DEE9C;
 extern const f32 TBoss8Dragon__data_805DEEA4;
-extern s32 TLobby__data_805D53AC;
+extern s32 TLobby__designated_client_id;
 extern RecoveredGlobal_802FB778_lbl_804744B4 lbl_804744B4;
 extern M2C_UNK lbl_804744DC[];
 extern RecoveredGlobal_802F45A0_lbl_80474580 lbl_80474580;
@@ -1926,7 +1926,7 @@ extern RecoveredGlobal_802F45A0_lbl_80541DE8 lbl_80541DE8;
 extern RecoveredGlobal_802F45A0_lbl_80541DF4 lbl_80541DF4;
 extern RecoveredGlobal_802F4760_lbl_80541E30 lbl_80541E30;
 extern RecoveredGlobal_802F4760_lbl_80541E3C lbl_80541E3C;
-extern s32 lbl_805D53A0;
+extern s32 local_client_id;
 extern s32 lbl_805D6990;
 extern const f32 lbl_805D69B0;
 extern const float lbl_805DED70;
@@ -2406,7 +2406,7 @@ extern void *lbl_804E4D9C[27];
 void TBoss8Dragon__sub_802F4B90(u8 *arg0, u32 arg1);
 void update_colliders__12TBoss8DragonFPv(u8 *arg0);
 u8 *__dt__12TBoss8DragonFPvs(u8 *arg0, s16 arg1);
-void *TBoss8Dragon__data_804E4C08[5] = {
+void *TBoss8Dragon__camera_offset_index_table[5] = {
     (void *)0x12, (void *)0x14, (void *)0x15, (void *)0x16,
     (void *)0x17,
 };
@@ -2573,13 +2573,13 @@ void *lbl_804E5014[288] = {
     (void *)0x0, (void *)0x0, (void *)0x0, (void *)0x0,
     (void *)0x0, (void *)0x0, (void *)0x0, (void *)0x0,
 };
-void *lbl_804E5494[16] = {
+void *boss8_dragon_bezier_points[16] = {
     (void *)0x0, (void *)0x0, (void *)0x0, (void *)0x0,
     (void *)0x0, (void *)0x438c0000, (void *)0x0, (void *)0x0,
     (void *)0x0, (void *)0x433e0000, (void *)0x0, (void *)0x0,
     (void *)0x0, (void *)0x43340000, (void *)0x0, (void *)0x0,
 };
-void *lbl_804E54D4[12] = {
+void *boss8_dragon_bezier_points_3[12] = {
     (void *)0x0, (void *)0x43340000, (void *)0x0, (void *)0x0,
     (void *)0x0, (void *)0x43fa0000, (void *)0x0, (void *)0x0,
     (void *)0x0, (void *)0x0, (void *)0x0, (void *)0x0,
@@ -2619,7 +2619,7 @@ void *lbl_804E5534[107] = {
     (void *)&TObjEneEpsilon__vt101, (void *)&TBoss8Dragon__sub_802F4360, (void *)&draw_motion_model__12TBoss8DragonFPv,
 };
 #define TBoss8Dragon__data_804E4C28 ((s32 *)TBoss8Dragon__data_804E4C28)
-#define lbl_804E5494 ((M2C_UNK *)lbl_804E5494)
+#define boss8_dragon_bezier_points ((M2C_UNK *)boss8_dragon_bezier_points)
 #define lbl_804E5534 ((M2C_UNK *)lbl_804E5534)
 
 struct Self_802F87EC { u8 pad[0x6DC]; VObj_14_f8ef8c arr[4]; };
@@ -5174,7 +5174,7 @@ void TBoss8Dragon__sub_802F8578(Dragon_802F8578 *arg0, u32 arg1) {
         advance_animation_playback();
         switch (arg0->field_84C) {
         case 0:
-            eval_bezier_curve__12TBoss8DragonFPviiPvf(lbl_804E54D4, 3, 0, &out,
+            eval_bezier_curve__12TBoss8DragonFPviiPvf(boss8_dragon_bezier_points_3, 3, 0, &out,
                 ((f32 (*)(void *))get_speed_or_default__10TObjPlayerFPv)(arg0) / TBoss8Dragon__data_805DEE30);
             arg0->pos.y = out.b;
             if (objInBand__FP7GameObjf(arg0, TBoss8Dragon__data_805DED60) != 0) {
@@ -5714,7 +5714,7 @@ void TBoss8Dragon__sub_802F9850(void *arg0p, u32 arg1) {
             break;
         case 1:
             M2C_FIELD(((u8 *)arg0p), s32 *, 0x850) = (s32) (M2C_FIELD(((u8 *)arg0p), s32 *, 0x850) + 1);
-            eval_bezier_curve__12TBoss8DragonFPviiPvf((void *) (lbl_804E5494), (int) (4), (int) (0), (void *) (&sp8), (f32) M2C_FIELD(((u8 *)arg0p), s32 *, 0x850) / lbl_805DEDF0);
+            eval_bezier_curve__12TBoss8DragonFPviiPvf((void *) (boss8_dragon_bezier_points), (int) (4), (int) (0), (void *) (&sp8), (f32) M2C_FIELD(((u8 *)arg0p), s32 *, 0x850) / lbl_805DEDF0);
             M2C_FIELD(((u8 *)arg0p), f32 *, 0x3C) = sp8.y;
             break;
         }
@@ -6080,7 +6080,7 @@ s32 mask_flags__12TBoss8DragonFiii(s32 arg1, s32 arg2, s32 arg3) {
     s32 var_r31;
 
     var_r31 = arg3;
-    if ((get_player_by_client_id(lbl_805D53A0) == 0U) || (check_flag_100__10TObjPlayerFPv() != 0)) {
+    if ((get_player_by_client_id(local_client_id) == 0U) || (check_flag_100__10TObjPlayerFPv() != 0)) {
         arg2 &= 0xFFFCF9F9;
     }
     return arg2 & var_r31;
@@ -6139,7 +6139,7 @@ void release_grabbed_player__12TBoss8DragonFPv(u8 *arg0) {
         reset_lobby_model__10TObjPlayerFPv((void *) ((u8 *)(temp_r3) + 0x644));
         M2C_FIELD(temp_r3, f32 *, 0x3C) = (f32) TBoss8Dragon__data_805DED50;
         temp_r4 = M2C_FIELD(arg0, u16 *, 0x750);
-        if (((s32) temp_r4 == (s32) lbl_805D53A0) && ((s16) M2C_FIELD(arg0, s16 *, 0x326) == 0x15)) {
+        if (((s32) temp_r4 == (s32) local_client_id) && ((s16) M2C_FIELD(arg0, s16 *, 0x326) == 0x15)) {
             send_6x2F_change_player_hp((int) (0xFFFFU), (int) (temp_r4), (int) (0));
         }
     }
@@ -6267,7 +6267,7 @@ void select_freeze_target__12TBoss8DragonFPv(u8 *arg0) {
             var_r31 = TBoss8Dragon__data_805D69BC;
         }
     } else {
-        var_r31 = (u16)lbl_805D53A0;
+        var_r31 = (u16)local_client_id;
     }
     if (((u8 * (*)(s32))get_player_by_client_id)(var_r31) != NULL) {
         ((M2C_UNK (*)(void))start_freeze__10TObjPlayerFPv)();
@@ -6279,14 +6279,14 @@ u16 find_player_on_floor__12TBoss8DragonFPv(void *arg0) {
     u8 *p;
     u16 idx;
     u16 i;
-    p = ((u8 * (*)(s32))get_player_by_client_id)(TLobby__data_805D53AC);
+    p = ((u8 * (*)(s32))get_player_by_client_id)(TLobby__designated_client_id);
     if (p != NULL) {
         if (get_field_3e4__10TObjPlayerFPv((int)p) == get_current_floor()) {
-            return TLobby__data_805D53AC;
+            return TLobby__designated_client_id;
         }
     }
     for (i = 0; i < 4; i++) {
-        idx = (TLobby__data_805D53AC + i + 1) % 4;
+        idx = (TLobby__designated_client_id + i + 1) % 4;
         p = ((u8 * (*)(s32))get_player_by_client_id)(idx);
         if (p != NULL) {
             if (get_field_3e4__10TObjPlayerFPv((int)p) == get_current_floor()) {
@@ -7060,7 +7060,7 @@ void TBoss8Dragon__sub_802FCF00(u8 *arg0) {
             M2C_FIELD(arg0, s32 *, 0x30) = (s32) (M2C_FIELD(arg0, s32 *, 0x30) & 0xFFFFF7FF);
         }
         if ((s32) M2C_FIELD(arg0, s32 *, 0x74C) != 0) {
-            if ((s32) M2C_FIELD(arg0, u16 *, 0x750) == (s32) lbl_805D53A0) {
+            if ((s32) M2C_FIELD(arg0, u16 *, 0x750) == (s32) local_client_id) {
                 if ((((VObj_18 *)(arg0))->m30() != 0) && (is_health_low__12TBoss8DragonFPv((void *) (arg0)) != 0)) {
                     if ((s16) M2C_FIELD(arg0, s16 *, 0x32C) < (s16) M2C_FIELD(arg0, s16 *, 0x67A)) {
                         M2C_FIELD(arg0, s16 *, 0x32C) = M2C_FIELD(arg0, s16 *, 0x67A);

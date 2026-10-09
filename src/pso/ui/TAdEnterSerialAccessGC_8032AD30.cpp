@@ -36,8 +36,8 @@ extern u8 lbl_805DF77C[4];
 s32 TAdEndText__sub_8001B3BC(int);
 s32 TAdEndText__sub_8001B3EC(int);
 u32 strlen(const char *);
-extern Lim_8032B1A4 lbl_80477238;
-extern Lim_8032B1A4 lbl_80477248;
+extern Lim_8032B1A4 serial_input_max_length_table;
+extern Lim_8032B1A4 serial_access_input_limits;
 s32 TKeyBoardControl__ct(void *, s32, s32, s32, s32, s32);
 void *__nw__7TObjectFUl(s32);
 void update_chat_window(void *);
@@ -45,9 +45,9 @@ void set_sub_position__15TWindowMakeTeamFPvPv(u8 *arg0, u8 *arg1);
 int get_keyboard_field_6c__15TWindowMakeTeamFPv(void* p);
 s32 has_serial_input__22TAdEnterSerialAccessGCFv(void);
 u8 *get_serial_text__22TAdEnterSerialAccessGCFii(s32 arg0, s32 arg1);
-extern s32 lbl_804771C8[];
-extern u8 lbl_804771E0[][8];
-extern s32 lbl_805D53A0;
+extern s32 serial_keyboard_field_width_table[];
+extern u8 serial_keyboard_position_table[][8];
+extern s32 local_client_id;
 extern B4_8032AD30 lbl_805DF770;
 u32 create_keyboard_control__22TAdEnterSerialAccessGCFii(s32 arg0, s32 arg1);
 }
@@ -74,12 +74,12 @@ u32 create_keyboard_control__22TAdEnterSerialAccessGCFii(s32 arg0, s32 arg1) {
     B4_8032AD30 sp8 = lbl_805DF770;
     kb = (u8 *)__nw__7TObjectFUl(0x2C);
     if (kb != NULL) {
-        kb = (u8 *)TKeyBoardControl__ct(kb, arg0, lbl_804771C8[arg1], 0, sp8.b[arg1], lbl_805D53A0);
+        kb = (u8 *)TKeyBoardControl__ct(kb, arg0, serial_keyboard_field_width_table[arg1], 0, sp8.b[arg1], local_client_id);
     }
     if (kb == NULL) {
         return 0;
     }
-    set_sub_position__15TWindowMakeTeamFPvPv(kb, lbl_804771E0[arg1]);
+    set_sub_position__15TWindowMakeTeamFPvPv(kb, serial_keyboard_position_table[arg1]);
     if (((s32 (*)(s32, s32))has_serial_input__22TAdEnterSerialAccessGCFv)(arg0, arg1) != 0) {
         ((int (*)(void *, u8 *))get_keyboard_field_6c__15TWindowMakeTeamFPv)(kb, get_serial_text__22TAdEnterSerialAccessGCFii(arg0, arg1));
     }
@@ -179,10 +179,10 @@ int validate_input__22TAdEnterSerialAccessGCFPviPv(void *arg0, s32 arg1, char *a
     s32 i;
     s32 n;
 
-    Lim_8032B1A4 max = lbl_80477238;
+    Lim_8032B1A4 max = serial_input_max_length_table;
     max.n[2] = strlen(arg2);
     max.n[3] = strlen(arg2);
-    Lim_8032B1A4 min = lbl_80477248;
+    Lim_8032B1A4 min = serial_access_input_limits;
     if (strlen(arg2) < min.n[arg1]) {
         return 0;
     }

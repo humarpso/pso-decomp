@@ -632,7 +632,7 @@ f32 newton_sqrtf(f32);
 M2C_UNK set_shake_preset__11TCameraCtrlFi(int);
 
 f32 get_pos_x__14TObjEneGibblesFPv(s32);
-extern s32 lbl_805D53A0;
+extern s32 local_client_id;
 extern s32 lbl_805D5868;
 extern const f32 lbl_805D9BF8;
 extern const f32 lbl_805D9C00;
@@ -662,7 +662,7 @@ M2C_UNK set_shake_preset__11TCameraCtrlFi(int);
 
 extern u8 lbl_8058D490[];
 extern s32 lbl_805D5868;
-extern s32 lbl_805D53A0;
+extern s32 local_client_id;
 extern const f32 lbl_805D9BD8;
 extern const f32 lbl_805D9C00;
 extern const f32 lbl_805D9C04;
@@ -728,7 +728,7 @@ M2C_UNK play_effect_if_v2__10TObjPlayerFi(int);
 M2C_UNK subtract_vector(void *, void *);
 extern const f64 lbl_8043B0C8[];
 extern Vec_800AE450 lbl_8050BEE0;
-extern s32 lbl_805D53A0;
+extern s32 local_client_id;
 extern s32 lbl_805D5868;
 extern const f32 lbl_805D9BD8;
 extern const f32 lbl_805D9C00;
@@ -936,7 +936,7 @@ void update_attack_jump__11TObjEneMojaFv(Obj_800ACFE8 *arg0) {
                         ((VObj_800ACFE8 *)p)->m21(arg0, hit, 0, -1, -1);
                         ((VObj_800ACFE8 *)p)->m23(arg0);
                     }
-                    if (d <= lbl_805D9C0C && is_split_screen() == 0 && lbl_805D53A0 == (u16)obj_getField1c(p)) {
+                    if (d <= lbl_805D9C0C && is_split_screen() == 0 && local_client_id == (u16)obj_getField1c(p)) {
                         set_shake_preset__11TCameraCtrlFi(0);
                     }
                 }
@@ -1457,7 +1457,7 @@ void update_appearance_drop__11TObjEneMojaFv(Moja_800AE450 *self) {
                     p->m21(self, Hit_800AE450(lbl_805D9C40), 0, -1, -1);
                     p->m23(self);
                 }
-                if (dist <= lbl_805D9C0C && !is_split_screen() && lbl_805D53A0 == (u16)obj_getField1c(p)) {
+                if (dist <= lbl_805D9C0C && !is_split_screen() && local_client_id == (u16)obj_getField1c(p)) {
                     set_shake_preset__11TCameraCtrlFi((int)(0));
                 }
             }
@@ -1542,7 +1542,7 @@ void update_appearance_jump__11TObjEneMojaFv(Moja_800AE7F4 *self) {
                     p->m21(self, Hit_800AE7F4(lbl_805D9C40), 0, -1, -1);
                     p->m23(self);
                 }
-                if (dist <= lbl_805D9C0C && !is_split_screen() && lbl_805D53A0 == (u16)obj_getField1c(p)) {
+                if (dist <= lbl_805D9C0C && !is_split_screen() && local_client_id == (u16)obj_getField1c(p)) {
                     set_shake_preset__11TCameraCtrlFi((int)(0));
                 }
             }

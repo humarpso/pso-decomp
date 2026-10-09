@@ -58,7 +58,7 @@ void TOKeyMachine01__vt14(Obj_8016D428 *self);
 void init_6x05_switch_changed__6TLobbyFPv(void *);
 void finalize_and_send_60__6TLobbyFPv(void *);
 s32 get_current_floor();
-extern s32 lbl_805D53A0;
+extern s32 local_client_id;
 void send_switch_changed__14TOKeyMachine01FPvi(Self_8016D148 *self, s32 flags);
 void reset_photon_effect__10TObjPlayerFPv(void *);
 M2C_UNK refresh_collision_body_centers(void *);
@@ -143,7 +143,7 @@ void send_switch_changed__14TOKeyMachine01FPvi(Self_8016D148 *self, s32 flags) {
     Pkt_8016D148 pkt;
     init_6x05_switch_changed__6TLobbyFPv(&pkt);
     pkt.object = self->id;
-    pkt.zero = lbl_805D53A0;
+    pkt.zero = local_client_id;
     pkt.switchId = self->switchId;
     pkt.area = get_current_floor();
     pkt.flags = flags;

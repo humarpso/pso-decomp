@@ -16,7 +16,7 @@ M2C_UNK TLobby__sub_800F8F34();
 int get_resource_file_size__6TLobbyFPv(void*);
 M2C_UNK TLobby__sub_803382E4();
 s32 adxf_get_fsize_byte__6TLobbyFPv();
-s32 TLobby__sub_803CCE9C(s32);
+s32 close_adxf_handle__6TLobbyFPv(s32);
 s32 adxf_open__6TLobbyFUii(s32, s32);
 s32 all_parents_unqueued_for_destruction__7TObjectFv();
 M2C_UNK empty_func2__7TObjectFv(s32);
@@ -43,7 +43,7 @@ s32 get_file_size__6TLobbyFv(void) {
         return -1;
     }
     temp_r31 = adxf_get_fsize_byte__6TLobbyFPv();
-    TLobby__sub_803CCE9C(temp_r3);
+    close_adxf_handle__6TLobbyFPv(temp_r3);
     return temp_r31;
 }
 

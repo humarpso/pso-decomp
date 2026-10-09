@@ -22,10 +22,10 @@ int free_instance__16TPlayerFootStampFv(void);
 int load_player_footstamp(void);
 int TObjPlayer__sub_80354E7C(void);
 
-    extern unsigned char lbl_8050EA40[];
+    extern unsigned char lobby_rule_settings[];
     extern int lbl_805D5D7C;
     extern int shared_state_flags;
-void finalize_shared__10TObjPlayerFv(void) { set_player_count__6TLobbyFi((void*)0); set_shared_count__10TObjPlayerFi((void*)0); set_shared_flag__10TObjPlayerFi((void*)0); lbl_805D5D7C = 0; reset_settings_to_default__6TLobbyFPv(lbl_8050EA40); shared_state_flags = 0; free_cursor_resources__13TLockOnCursorFv(); TLobby__sub_802A7BD8(); free_instance__16TPlayerFootStampFv(); free_shared_data__10TObjPlayerFv(); }
+void finalize_shared__10TObjPlayerFv(void) { set_player_count__6TLobbyFi((void*)0); set_shared_count__10TObjPlayerFi((void*)0); set_shared_flag__10TObjPlayerFi((void*)0); lbl_805D5D7C = 0; reset_settings_to_default__6TLobbyFPv(lobby_rule_settings); shared_state_flags = 0; free_cursor_resources__13TLockOnCursorFv(); TLobby__sub_802A7BD8(); free_instance__16TPlayerFootStampFv(); free_shared_data__10TObjPlayerFv(); }
 
     extern int lbl_805D5D7C;
     extern int shared_state_flags;

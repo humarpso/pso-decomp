@@ -485,7 +485,7 @@ extern RecoveredGlobal_800695E8_TCameraCtrl__data_804FF628 TCameraCtrl__data_804
 s32 activate_camera_mode(s32 arg0);
 extern s16 TCameraCtrl__data_805D4E0A;
 bool TCameraCtrl__sub_800689F4(void);
-extern s32 lbl_805D53A0;
+extern s32 local_client_id;
 s32 is_split_screen();
 Cam_80068958 *TCameraCtrl__sub_8006B324(void);
 u16 get_nth_view_player_id__11TCameraCtrlFi(s32 n);
@@ -503,7 +503,7 @@ u8 *get_player_by_client_id(s32);
 extern RecoveredGlobal_800695E8_TCameraCtrl__data_804FF628 TCameraCtrl__data_804FF628;
 extern RecoveredGlobal_80069094_camera_controller_registry camera_controller_registry;
 extern s32 lbl_805D4E18;
-extern s32 lbl_805D53A0;
+extern s32 local_client_id;
 s32 restore_player_cameras(void);
 M2C_UNK VecCopy__FP3VecPC3Vec(void *, int);
 u16 get_nth_view_player_id__11TCameraCtrlFi(s32 n);
@@ -618,7 +618,7 @@ u16 get_nth_view_player_id__11TCameraCtrlFi(s32 n) {
     s32 i;
     s32 v;
     if (is_split_screen() == 0) {
-        return lbl_805D53A0;
+        return local_client_id;
     }
     cam = TCameraCtrl__sub_8006B324();
     for (i = 0; i < 4; i++) {
@@ -1245,7 +1245,7 @@ s32 restore_player_cameras(void) {
             }
         }
     } else {
-        player = get_player_by_client_id(lbl_805D53A0);
+        player = get_player_by_client_id(local_client_id);
         if (player != NULL) {
             reset_cameras_to_actor(player, 0);
         }

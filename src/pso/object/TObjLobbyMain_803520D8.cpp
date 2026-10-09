@@ -215,7 +215,7 @@ void update_particles__13TObjLobbyMainFPv(void *arg0) {
     }
 }
 
-extern s32 lbl_805D53A4;
+extern s32 actor_frame_tick;
 extern s32 lbl_805D6ED0;
 extern s32 lbl_805D6ED4;
 extern s32 lbl_805D6ED8;
@@ -245,8 +245,8 @@ void render__13TObjLobbyMainFv(u8 *arg0) {
 }
 
 void update_computer_machines__13TObjLobbyMainFv(void) {
-    if ((s32) lbl_805D6ED8 != (s32) lbl_805D53A4) {
-        lbl_805D6ED8 = lbl_805D53A4;
+    if ((s32) lbl_805D6ED8 != (s32) actor_frame_tick) {
+        lbl_805D6ED8 = actor_frame_tick;
         scroll_ginja_mesh_uvs(lbl_805D6ED0, 1, 1, 0xA, 1);
         scroll_ginja_mesh_uvs(lbl_805D6ED4, 0, -0x14, 0x1A, 1);
         PPCSync();

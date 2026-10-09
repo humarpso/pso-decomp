@@ -81,7 +81,7 @@ s32 activate_camera_mode(int);
 void set_scripted_camera_pose(void *, void *, void *);
 void cache_target_and_forward__11TCameraCtrlFii(void *, int);
 s32 TPhotonMagicSquare__sub_801A2640(void *, void *);
-extern s32 lbl_804867C0[];
+extern s32 boss4_zanzo_bml_index_table[];
 }
 
 extern "C" {
@@ -204,7 +204,7 @@ void *TObjDFDemo2__ct(void *arg0, void *arg1, void *arg2, void *arg3, void *arg4
     self->a8 = arg4;
     cnt = get_instance_count__9TBoss4UroFv();
     for (i = 0; i < 2; i++) {
-        s32 t = lbl_804867C0[i];
+        s32 t = boss4_zanzo_bml_index_table[i];
         k = t;
         ((s32 *)self)[i * 3 + 0x24] = get_bml_model(cnt, t);
         ((s32 *)self)[i * 3 + 0x25] = TObjFish__sub_8001EDB0(cnt, k);

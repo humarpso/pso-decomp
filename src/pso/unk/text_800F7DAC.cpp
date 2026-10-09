@@ -100,7 +100,7 @@ extern M2C_UNK lbl_804999A0[];
 extern M2C_UNK lbl_804999B8[];
 extern M2C_UNK lbl_804999D0[];
 extern void *lbl_805D5330;
-extern s32 lbl_805D53A0;
+extern s32 local_client_id;
 extern void *tl_fade;
 
 #pragma push
@@ -316,7 +316,7 @@ extern int fold_flush_4;
 
 void TLobby__sub_800F838C(u8 *arg0) {
     s32 temp_r3;
-    set_value__15TWindowCtrlMainFii(lbl_805D53A0, TLobby__sub_800F8250(arg0, (f32) M2C_FIELD(arg0, s32 *, 0x20) / (f32) M2C_FIELD(arg0, s32 *, 0x24)));
+    set_value__15TWindowCtrlMainFii(local_client_id, TLobby__sub_800F8250(arg0, (f32) M2C_FIELD(arg0, s32 *, 0x20) / (f32) M2C_FIELD(arg0, s32 *, 0x24)));
     temp_r3 = M2C_FIELD(arg0, s32 *, 0x20) + 1;
     M2C_FIELD(arg0, s32 *, 0x20) = temp_r3;
     if (temp_r3 > (s32) M2C_FIELD(arg0, s32 *, 0x24)) {
@@ -327,7 +327,7 @@ void TLobby__sub_800F838C(u8 *arg0) {
 u8 *TLobby__sub_800F8428(u8 *arg0, s16 arg1) {
     if (arg0 != NULL) {
         M2C_FIELD(arg0, M2C_UNK **, 0x18) = &lbl_80499988.value;
-        set_value__15TWindowCtrlMainFii(lbl_805D53A0, TLobby__sub_800F8250(arg0, (1.0f)));
+        set_value__15TWindowCtrlMainFii(local_client_id, TLobby__sub_800F8250(arg0, (1.0f)));
         ((u8 * (*)(void *, s16))__dt__7TObjectFv)(arg0, 0);
         if (arg1 > 0) {
             ((void (*)(s32))__dl__7TObjectFPv)((s32) arg0);
@@ -343,7 +343,7 @@ void *TLobby__sub_800F8498(void *arg0, void *arg1, s32 arg2, s32 arg3, u8 arg4, 
     M2C_FIELD(arg0, s32 *, 0x1C) = arg2;
     M2C_FIELD(arg0, s32 *, 0x20) = 0;
     M2C_FIELD(arg0, s32 *, 0x24) = arg3;
-    c = TWindowCtrlMain__sub_8024CD5C(lbl_805D53A0);
+    c = TWindowCtrlMain__sub_8024CD5C(local_client_id);
     M2C_FIELD(arg0, u8 *, 0x2B) = c;
     M2C_FIELD(arg0, u8 *, 0x2A) = c >> 8;
     M2C_FIELD(arg0, u8 *, 0x29) = c >> 16;

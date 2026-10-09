@@ -173,9 +173,9 @@ void *construct__23TAdSinglePlyChrSelectGCFPv(void *arg0);
 extern V3_8033B39C lbl_80477D60[];
 extern V3_8033B39C lbl_80477D6C[];
 extern u8 lbl_80477D90[];
-extern u8 lbl_804A6F34[];
+extern u8 default_scene_light_config[];
 
-extern u8 lbl_8050EA40[];
+extern u8 lobby_rule_settings[];
 extern s32 tl_camera;
 extern s32 lbl_805D6D90;
 void init_single_player_char_select_scene(void);
@@ -507,7 +507,7 @@ void init_single_player_char_select_scene(void) {
     set_copy_clear_color_argb(0, 0, 0);
     reset_controller_input_state();
     run_load_callback_table(&lbl_804EF728, 0x30);
-    init_menu_scene_lights(lbl_804A6F34, 4);
+    init_menu_scene_lights(default_scene_light_config, 4);
     p = __nw__7TObjectFUl(0x1D4);
     if (p != 0) {
         TCameraCtrl__ct(p, tl_camera);
@@ -528,7 +528,7 @@ void init_single_player_char_select_scene(void) {
     lbl_805D6D90 = 0;
     play_area_music(lbl_80477D90);
     set_and_notify__6TLobbyFi(-900);
-    reset_settings_to_default__6TLobbyFPv(lbl_8050EA40);
+    reset_settings_to_default__6TLobbyFPv(lobby_rule_settings);
     render_tick__Fv();
 }
 

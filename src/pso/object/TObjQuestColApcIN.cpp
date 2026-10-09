@@ -9,7 +9,7 @@ struct Col_801962B4 { u8 pad0[0x38]; f32 pos[3]; u8 pad44[0x68]; f32 fAC; u8 pad
 extern "C" {
 f32 xyz_distance_squared(void *, void *);
 Pl_801962B4 *get_player_by_client_id(s32);
-extern s32 lbl_805D53A0;
+extern s32 local_client_id;
 s32 TObjQuestColApcIN__vt13(Col_801962B4 *arg0);
 }
 
@@ -27,12 +27,12 @@ extern M2C_UNK __vt__17TObjQuestColApcIN[];
 extern void *lbl_805D33FC;
 
 s32 TObjQuestColApcIN__vt13(Col_801962B4 *arg0) {
-    Pl_801962B4 *p = get_player_by_client_id(lbl_805D53A0);
+    Pl_801962B4 *p = get_player_by_client_id(local_client_id);
     if (p != 0) {
         if (xyz_distance_squared(p->pos, arg0->pos) < arg0->fAC * arg0->fAC) {
             s32 i;
             for (i = 0; i < 12; i++) {
-                if (i != lbl_805D53A0) {
+                if (i != local_client_id) {
                     Pl_801962B4 *q = get_player_by_client_id(i);
                     if (q != 0) {
                         if (xyz_distance_squared(p->pos, q->pos) < arg0->fBC * arg0->fBC) {

@@ -74,12 +74,12 @@ M2C_UNK post_translate_matrix(void *);
 M2C_UNK set_global_param__8TObjFishFi(void *);
 M2C_UNK draw_ginja_object(void *);
 extern s32 TObjDoorJung__child_table[];
-extern s32 lbl_805D53A4;
-extern void *TObjDoorJung__data_805D5BD0;
+extern s32 actor_frame_tick;
+extern void *TObjDoorJung__resource_handle;
 extern s32 lbl_805D5BD4;
-extern s32 lbl_805D5BD8;
+extern s32 door_jung_child_list;
 extern s32 lbl_805D5BDC;
-extern void *TObjDoorJung__data_805D5BE0;
+extern void *TObjDoorJung__door_scene_buffer;
 extern s32 lbl_805D5BE4;
 extern s32 lbl_805D5BE8;
 extern s32 lbl_805D5BEC;
@@ -121,17 +121,17 @@ M2C_UNK clear_player_status_flag__10TObjPlayerFPviUi(M2C_UNK, M2C_UNK, M2C_UNK);
 M2C_UNK destroy_ancient_door_base__15TODoorAncient01FPvs(void *, M2C_UNK);
 M2C_UNK destroy_buffers__6TSceneFPvs(void *, s16);
 
-extern void *TObjDoorJung__data_805D5BD0;
-extern void *TObjDoorJung__data_805D5BE0;
+extern void *TObjDoorJung__resource_handle;
+extern void *TObjDoorJung__door_scene_buffer;
 
 void free_buffers__12TObjDoorJungFv(void) {
-    if (TObjDoorJung__data_805D5BE0 != NULL) {
-        destroy_buffers__6TSceneFPvs(TObjDoorJung__data_805D5BE0, 1);
-        TObjDoorJung__data_805D5BE0 = NULL;
+    if (TObjDoorJung__door_scene_buffer != NULL) {
+        destroy_buffers__6TSceneFPvs(TObjDoorJung__door_scene_buffer, 1);
+        TObjDoorJung__door_scene_buffer = NULL;
     }
-    if (TObjDoorJung__data_805D5BD0 != NULL) {
-        TLobby__sub_8001FE7C(TObjDoorJung__data_805D5BD0, 1);
-        TObjDoorJung__data_805D5BD0 = NULL;
+    if (TObjDoorJung__resource_handle != NULL) {
+        TLobby__sub_8001FE7C(TObjDoorJung__resource_handle, 1);
+        TObjDoorJung__resource_handle = NULL;
     }
 }
 
@@ -152,16 +152,16 @@ void render__12TObjDoorJungFv(u8 *arg0) {
     if (((VObj_8018F644 *)arg0)->m8(lbl_805DBDF8, lbl_805DBDFC) != 0) {
         if (M2C_FIELD(arg0, s32 *, 0xD0) & 1) {
             if (lbl_805D5BF0 >= 0) {
-                free_children__12TObjDoorJungFPvPv(lbl_805D5BD8, lbl_805D5BF0);
+                free_children__12TObjDoorJungFPvPv(door_jung_child_list, lbl_805D5BF0);
             }
         } else if (lbl_805D5BEC >= 0) {
-            free_children__12TObjDoorJungFPvPv(lbl_805D5BD8, lbl_805D5BEC);
+            free_children__12TObjDoorJungFPvPv(door_jung_child_list, lbl_805D5BEC);
         }
-        if (lbl_805D53A4 != lbl_805D5BDC) {
-            if (TObjDoorJung__data_805D5BE0 != NULL) {
-                offset_position__6TSceneFPvii(TObjDoorJung__data_805D5BE0, 0, -0xA);
+        if (actor_frame_tick != lbl_805D5BDC) {
+            if (TObjDoorJung__door_scene_buffer != NULL) {
+                offset_position__6TSceneFPvii(TObjDoorJung__door_scene_buffer, 0, -0xA);
             }
-            lbl_805D5BDC = lbl_805D53A4;
+            lbl_805D5BDC = actor_frame_tick;
             PPCSync();
         }
         for (i = 0; i < M2C_FIELD(arg0, s32 *, 0xD4); i++) {
@@ -182,9 +182,9 @@ void render__12TObjDoorJungFv(u8 *arg0) {
         push_matrix();
         post_translate_matrix(arg0 + 0x38);
         rotate_matrix_y(0, M2C_FIELD(arg0, s32 *, 0x60));
-        draw_ginja_object(get_bml_model(TObjDoorJung__data_805D5BD0, 0));
+        draw_ginja_object(get_bml_model(TObjDoorJung__resource_handle, 0));
         begin_effect_render__13TParticleCtrlFv();
-        draw_ginja_object(get_bml_model(TObjDoorJung__data_805D5BD0, 1));
+        draw_ginja_object(get_bml_model(TObjDoorJung__resource_handle, 1));
         end_effect_render__13TParticleCtrlFv();
         pop_matrix();
     }

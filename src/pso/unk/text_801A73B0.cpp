@@ -70,7 +70,7 @@ extern const f32 lbl_805DC0DC;
 void update_photon_blast_camera_pose(struct PbCamera_801A73B0 *self);
 void get_camera_ctrl__9TObjEneDDFPv(Vec_801A7578 *, Vec_801A7578 *);
 extern Vec_801A7578 lbl_80446A44;
-extern struct Reg_801A7578 lbl_8050E578[];
+extern struct Reg_801A7578 photon_blast_joint_origins[];
 extern s32 photon_blast_joint_index;
 void publish_photon_blast_joint_origins(void);
 void create_timed_particle_emitter(Vec_801A7428 *, s32, s32, s32);
@@ -138,8 +138,8 @@ void copy_effect_params(u8 *arg0, u8 *arg1) {
 }
 void publish_photon_blast_joint_origins(void) {
     s32 i;
-    for (i = 0; i < lbl_8050E578->count; i++) {
-        struct Node_801A7578 *node = &lbl_8050E578->list[i];
+    for (i = 0; i < photon_blast_joint_origins->count; i++) {
+        struct Node_801A7578 *node = &photon_blast_joint_origins->list[i];
         if (photon_blast_joint_index == node->id) {
             Vec_801A7578 origin = lbl_80446A44;
             get_camera_ctrl__9TObjEneDDFPv(&origin, &node->pos);

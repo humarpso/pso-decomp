@@ -39,7 +39,7 @@ u8 fn_801D71D0(void *);
 u8 fn_801D7204(void *);
 u8 get_rule_field_0__6TLobbyFPv(void *);
 s32 get_game_play_mode();
-extern M2C_UNK lbl_8050EA40[];
+extern M2C_UNK lobby_rule_settings[];
 void apply_drop_restrictions(M2C_UNK arg0, Item_80105EA4 *it);
 s32 sprintf(void *, void *, ...);
 extern Names_80105DB0 item_drop_difficulty_name_table;
@@ -153,8 +153,8 @@ void apply_drop_restrictions(M2C_UNK arg0, Item_80105EA4 *it) {
             init__9TItemDataFv(it);
         }
     }
-    p = lbl_8050EA40;
-    if (get_rule_field_0__6TLobbyFPv(lbl_8050EA40) == TItemDrop__sub_80107B04(p)) {
+    p = lobby_rule_settings;
+    if (get_rule_field_0__6TLobbyFPv(lobby_rule_settings) == TItemDrop__sub_80107B04(p)) {
         return;
     }
     if (it->type == 0 || it->type == 1) {

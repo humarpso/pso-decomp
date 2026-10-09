@@ -95,7 +95,7 @@ int get_instance__15TObjEneSlimeOneFv(void);
 extern const f32 lbl_805DA764;
 extern void *lbl_80496C68[10];
 extern void *lbl_80496C90[10];
-void TObjEneSlimeOne__sub_800EC7F4(Slime_800EC7F4 *arg0, s32 arg1);
+void set_motion_state__15TObjEneSlimeOneFPvi(Slime_800EC7F4 *arg0, s32 arg1);
 }
 
 extern "C" {
@@ -283,7 +283,7 @@ __declspec(section ".data") void *lbl_80496CC0[2] = {
     (void *)0x4, (void *)0x5,
 };
 __declspec(section ".data") s32 lbl_80496CC8[2] = { 0, 2 };
-void TObjEneSlimeOne__sub_800EC7F4(Slime_800EC7F4 *arg0, s32 arg1) {
+void set_motion_state__15TObjEneSlimeOneFPvi(Slime_800EC7F4 *arg0, s32 arg1) {
   s32 flag;
   flag = arg0->state & 0x1000;
   arg0->state = arg1 & (~0x1000);

@@ -16,7 +16,7 @@ struct RecoveredGlobal_800FA95C_lbl_80515F48 {
 
 extern "C" {
 void *__nw__7TObjectFUl(int);
-extern u32 lbl_805D5390;
+extern u32 fog_ctrl_instance;
 void create_instance__8TFogCtrlFv(void);
 M2C_UNK request_fog__8TFogCtrlFPvii(u32, s32, s32);
 extern M2C_UNK TFogCtrl__fog_instance_table[];
@@ -67,7 +67,7 @@ void *TQuestVmDownLoadServer__sub_800FA904(void *arg0, s16 arg1) {
     return arg0;
 }
 
-extern u32 lbl_805D5390;
+extern u32 fog_ctrl_instance;
 
 typedef char RecoveredGlobal_800FA95C_lbl_8049C700_size[sizeof(RecoveredGlobal_800FA95C_lbl_8049C700) == 0x18 ? 1 : -1];
 typedef char RecoveredGlobal_800FA95C_lbl_80515F48_size[sizeof(RecoveredGlobal_800FA95C_lbl_80515F48) == 0x28 ? 1 : -1];
@@ -79,10 +79,10 @@ u8 *init_object__22TQuestVmDownLoadServerFPv(u8 *arg0) {
 }
 
 void destroy_instance__22TQuestVmDownLoadServerFv(void) {
-    if ((u32) lbl_805D5390 != 0U) {
-        queue_destruction__7TObjectFv((void*)lbl_805D5390);
+    if ((u32) fog_ctrl_instance != 0U) {
+        queue_destruction__7TObjectFv((void*)fog_ctrl_instance);
     }
-    lbl_805D5390 = 0U;
+    fog_ctrl_instance = 0U;
 }
 void create_instance__8TFogCtrlFv(void) {
     void *o;
@@ -90,7 +90,7 @@ void create_instance__8TFogCtrlFv(void) {
     if (o != NULL) {
         o = init_object__22TQuestVmDownLoadServerFPv((u8 *)(o));
     }
-    (*(void * *)&lbl_805D5390) = o;
+    (*(void * *)&fog_ctrl_instance) = o;
 }
 s32 update_all__8TFogCtrlFii(s32 arg0, s32 arg1) {
     s32 var_r29 = 0;

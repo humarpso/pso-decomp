@@ -587,7 +587,7 @@ extern const f32 TObjEneGibbles__data_805DE81C;
 extern const f32 TObjEneGibbles__data_805DE830;
 extern RecoveredGlobal_802D7ED4_lbl_80472780 lbl_80472780;
 extern RecoveredGlobal_802D7ED4_lbl_8058D490 lbl_8058D490;
-extern s32 lbl_805D53A0;
+extern s32 local_client_id;
 extern s32 anim_model_matrix_array;
 extern s32 lbl_805D5868;
 extern s32 lbl_805D586C;
@@ -1034,7 +1034,7 @@ void TObjEneGibbles__sub_802D7A54(void *arg0) {
     s16 t;
     s16 u;
     u32 r;
-    if ((get_main_phase() == 0xF || is_split_screen() == 0) && (r = get_player_by_client_id((void *)lbl_805D53A0)) != 0) {
+    if ((get_main_phase() == 0xF || is_split_screen() == 0) && (r = get_player_by_client_id((void *)local_client_id)) != 0) {
         t = get_stat_by_key_state__10TObjPlayerFPv((void *)r);
         u = get_stat_by_key_state__10TObjPlayerFPv(arg0);
         if (u == t) {

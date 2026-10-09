@@ -729,7 +729,7 @@ s32 read_quest_chunk__22TQuestVmDownLoadServerFUiUcUcPvPv(u32 id, u8 a1, u8 a2, 
 extern RecoveredGlobal_803E8084_lbl_80590AC4 quest_name_index_table;
 s32 count_matching_name_prefix__22TQuestVmDownLoadServerFiPv(s32 arg0, u8 *arg1);
 extern u8 *lbl_805D7824;
-s32 TQuestVmDownLoadServer__sub_803E8004(u8 *arg0, s16 arg1);
+s32 is_char_allowed__22TQuestVmDownLoadServerFPvs(u8 *arg0, s16 arg1);
 }
 
 extern "C" {
@@ -1441,7 +1441,7 @@ s32 find_name_index__22TQuestVmDownLoadServerFPv(const char *key) {
     return lo;
 }
 
-s32 TQuestVmDownLoadServer__sub_803E8004(u8 *arg0, s16 arg1) {
+s32 is_char_allowed__22TQuestVmDownLoadServerFPvs(u8 *arg0, s16 arg1) {
   int new_var;
   u8 c = *arg0;
   s32 bit;
@@ -4144,7 +4144,7 @@ s32 find_symbol_entry__22TQuestVmDownLoadServerFPvsPv(const char *name, s16 len,
     u8 *p;
     s32 id;
     s32 c;
-    if (len <= 2 && TQuestVmDownLoadServer__sub_803E8004((u8 *)(name), len) != 0) {
+    if (len <= 2 && is_char_allowed__22TQuestVmDownLoadServerFPvs((u8 *)(name), len) != 0) {
         out->off = -1;
         return 0;
     }

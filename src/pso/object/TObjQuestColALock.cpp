@@ -49,13 +49,13 @@ s32 update_trigger_state__12TObjQuestColFPvf(void *, f32);
 void TObjQuestColALock__vt14(void* p) { destroy_board__17TQuestThreadBoardFv(p); create__12TQuestThreadFi(*(void**)((char*)p + 0xb0)); }
 
 extern M2C_UNK lbl_8050E208[];
-extern s32 lbl_805D53A0;
+extern s32 local_client_id;
 
 s32 TObjQuestColALock__vt13(void *arg0) {
     s32 temp_r3;
     s32 temp_r3_2;
 
-    temp_r3 = get_player_by_client_id(lbl_805D53A0);
+    temp_r3 = get_player_by_client_id(local_client_id);
     if (temp_r3 != 0) {
         if (check_flag_100__10TObjPlayerFPv() != 0) {
             enable_action_input__10TObjPlayerFPv(temp_r3);

@@ -255,7 +255,7 @@ s32 telepipe_record_differs(Rec_8023402C *r, s16 floor, Vec_8023402C *p, u16 unu
 s32 is_split_screen();
 u8 *find_entity_by_id(u16);
 s32 get_field_3e4__10TObjPlayerFPv(u32);
-extern s32 lbl_805D53A0;
+extern s32 local_client_id;
 void handle_6x68_set_telepipe_state(Pkt_802341B0 *pkt);
 void VecCopy__FP3VecPC3Vec(void *, void *);
 s32 obj_getField1c(void *);
@@ -274,7 +274,7 @@ extern Vec_80234D50 lbl_8044D72C;
 extern void* __vt__9TTecLuker[];
 extern u8 lbl_8058D490[];
 extern s32 lbl_805D37E4;
-extern s32 lbl_805D53A0;
+extern s32 local_client_id;
 extern const f32 lbl_805DC878;
 void *TTecLuker__ct(void *arg0, void *arg1, void *arg2, void *arg3, void *arg4);
 M2C_UNK mark_area_change_pending();
@@ -608,11 +608,11 @@ void handle_6x68_set_telepipe_state(Pkt_802341B0 *pkt) {
         return;
     }
     write_telepipe_record((u8 *)rec, pkt->rec.owner, pkt->rec.floor, (u8 *)&pkt->rec.pos, pkt->rec.section);
-    if (is_split_screen() == 0 && pkt->rec.owner == lbl_805D53A0) {
+    if (is_split_screen() == 0 && pkt->rec.owner == local_client_id) {
         return;
     }
     other = get_player_by_client_id(pkt->rec.owner);
-    local = get_player_by_client_id(lbl_805D53A0);
+    local = get_player_by_client_id(local_client_id);
     if (other != 0 && local != 0) {
         if (get_field_3e4__10TObjPlayerFPv(other) == get_field_3e4__10TObjPlayerFPv(local)) {
             create__9TTecLukerFPvPvPvPv(player, player + 0x38, player + 0x38, 0);
@@ -1035,8 +1035,8 @@ void *TTecLuker__ct(void *arg0, void *arg1, void *arg2, void *arg3, void *arg4) 
     if (L->owner != NULL) {
         L->owner_id = obj_getField1c(L->owner);
     }
-    L->fF6 = lbl_805D53A0;
-    if (is_split_screen() == 0 && L->owner_id != lbl_805D53A0) {
+    L->fF6 = local_client_id;
+    if (is_split_screen() == 0 && L->owner_id != local_client_id) {
         VecCopy__FP3VecPC3Vec(&L->pos, &L->owner->pipe_pos);
     } else {
         L->fF6 = L->owner_id;

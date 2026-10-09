@@ -11,7 +11,7 @@ void link_into_list__6TLobbyFPv(void *arg0);
 extern void *lbl_805D5360;
 extern void *lbl_805D5364;
 extern s32 lbl_805D5368;
-extern s32 lbl_805D5378;
+extern s32 lobby_list_next_id;
 
 void link_into_list__6TLobbyFPv(void *arg0) {
     if ((void *) lbl_805D5360 == NULL) {
@@ -27,7 +27,7 @@ void link_into_list__6TLobbyFPv(void *arg0) {
     M2C_FIELD(arg0, s32 *, 0x30) = 0;
     M2C_FIELD(arg0, s32 *, 0x2C) = 0;
     lbl_805D5368 += 1;
-    M2C_FIELD(arg0, s32 *, 4) = lbl_805D5378++;
+    M2C_FIELD(arg0, s32 *, 4) = lobby_list_next_id++;
 }
 
 }

@@ -227,7 +227,7 @@ void update_state__20TWindowSubSymbolChatFPv(void *arg0) {
     }
 }
 
-extern s32 lbl_805D53A0;
+extern s32 local_client_id;
 
 void draw_selected_entry__20TWindowSubSymbolChatFPv(u8 *arg0) {
     Data_80281B18 *data;
@@ -290,7 +290,7 @@ s32 create_keyboard_control__20TWindowSubSymbolChatFPv(void *arg0) {
 
     var_r31 = __nw__7TObjectFUl(0x2C);
     if (var_r31 != 0) {
-        var_r31 = TKeyBoardControl__ct(var_r31, arg0, 0x90, 1, 4, lbl_805D53A0);
+        var_r31 = TKeyBoardControl__ct(var_r31, arg0, 0x90, 1, 4, local_client_id);
     }
     update_chat_window(var_r31);
     get_keyboard_field_6c__15TWindowMakeTeamFPv(var_r31, get_keyboard_ptr__20TWindowSubSymbolChatFPv(M2C_FIELD(arg0, s32 *, 0x28)));

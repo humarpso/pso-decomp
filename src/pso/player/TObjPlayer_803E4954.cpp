@@ -25,7 +25,7 @@ void draw_motion_tree__10TObjPlayerFPvPvi(void *arg0, void *arg1, s32 arg2);
 void bind_motion_context(void *);
 extern s32 lbl_804FA50C[];
 extern A_803E4BDC *lbl_805D4698;
-extern B_803E4BDC *lbl_805D76BC;
+extern B_803E4BDC *current_motion_context;
 void draw_model_motion(void *arg0, void *arg1, f32 farg0);
 M2C_UNK setup_model_draw_state__10TObjPlayerFPv();
 M2C_UNK end_chunk_draw__10TObjPlayerFv();
@@ -78,9 +78,9 @@ void draw_blend_motion_tree__10TObjPlayerFiii(s32 arg0, s32 arg1, s32 arg2) {
     bind_motion_blend_channels((void *) (arg1));
     if ((s32) lbl_805D7808 != 0) {
         select_motion_context((int) (1));
-        M2C_FIELD(lbl_805D76BC, s32 *, 0x28) = (s32) M2C_FIELD(lbl_804FA50C, s32 *, 0xC);
+        M2C_FIELD(current_motion_context, s32 *, 0x28) = (s32) M2C_FIELD(lbl_804FA50C, s32 *, 0xC);
         select_motion_context((int) (0));
-        M2C_FIELD(lbl_805D76BC, s32 *, 0x28) = (s32) M2C_FIELD(lbl_804FA50C, s32 *, 0xC);
+        M2C_FIELD(current_motion_context, s32 *, 0x28) = (s32) M2C_FIELD(lbl_804FA50C, s32 *, 0xC);
     }
     M2C_FIELD(lbl_805D4698, s32 *, 0xC) = arg2;
     draw_object_tree_recursive((void *)((void *) (arg0)));
@@ -138,7 +138,7 @@ void draw_motion_tree__10TObjPlayerFPvPvi(void *arg0, void *arg1, s32 arg2) {
     bind_motion_context(arg1);
     lbl_805D4698->fc = arg2;
     if (lbl_805D7808 != 0) {
-        lbl_805D76BC->f28 = lbl_804FA50C[3];
+        current_motion_context->f28 = lbl_804FA50C[3];
     }
     traverse_animated_node_tree((void *)(arg0));
 }

@@ -59,7 +59,7 @@ void mark_shop_tool_sold_out(s32 a, s32 b);
 void copy_item_data__6TLobbyFPvPv(void *, void *);
 void init__9TItemDataFv(void *);
 s32 classify_tool_shop_level_bracket(s32 arg0);
-extern Pair_802242F8 lbl_8044C398[];
+extern Pair_802242F8 shop_tool_group_subtype_table[];
 extern s32 lbl_80513EF0[];
 extern RecoveredGlobal_80224404_lbl_80513F20 lbl_80513F20;
 extern Tbl_802242F8 **lobby_tool_random_rel;
@@ -82,7 +82,7 @@ void roll_shop_technique_level(Obj_80223EE0 *arg0, s32 arg1);
 s32 TLobby__sub_80223DD8(Item_802242F8 *, s32);
 extern RecoveredGlobal_80224404_lbl_80513F20 lbl_80513F20;
 extern s32 lbl_80513EF0[];
-extern s32 lbl_8044C418[];
+extern s32 shop_technique_pool_table[];
 extern Tbl_802242F8 **lobby_tool_random_rel;
 extern s32 lbl_805D6264;
 void generate_shop_technique_pool(s32 arg0);
@@ -97,7 +97,7 @@ void copy_item_data__6TLobbyFPvPv(void *, void *);
 s32 TLobby__sub_80223E64(Item_802242F8 *, s32);
 extern RecoveredGlobal_80224404_lbl_80513F20 lbl_80513F20;
 extern s32 lbl_80513EF0[];
-extern Pair_802242F8 lbl_8044C398[];
+extern Pair_802242F8 shop_tool_group_subtype_table[];
 extern Tbl_802242F8 **lobby_tool_random_rel;
 extern s32 lbl_805D6264;
 void generate_shop_rare_tool_pool(s32 arg0);
@@ -276,7 +276,7 @@ void generate_shop_technique_pool(s32 arg0) {
                 init__9TItemDataFv(&it);
                 it.b[0] = 3;
                 it.b[1] = 2;
-                it.b[4] = lbl_8044C418[b];
+                it.b[4] = shop_technique_pool_table[b];
                 roll_shop_technique_level((Obj_80223EE0 *)&it, b);
                 if (TLobby__sub_80223DD8(&it, arg0) == 1) {
                     copy_item_data__6TLobbyFPvPv(&arr[lbl_80513EF0[arg0]++], &it);
@@ -328,8 +328,8 @@ void generate_shop_rare_tool_pool(s32 arg0) {
                 } else if (b != -1) {
                     init__9TItemDataFv(&it);
                     it.b[0] = 3;
-                    it.b[1] = lbl_8044C398[b].a;
-                    it.b[2] = lbl_8044C398[b].b;
+                    it.b[1] = shop_tool_group_subtype_table[b].a;
+                    it.b[2] = shop_tool_group_subtype_table[b].b;
                     if (TLobby__sub_80223E64(&it, arg0) == 1) {
                         copy_item_data__6TLobbyFPvPv(&arr[lbl_80513EF0[arg0]++], &it);
                         j++;
@@ -357,8 +357,8 @@ void generate_shop_common_tool_pool(s32 arg0) {
             if (*p != 0xf) {
                 init__9TItemDataFv(&it);
                 it.b[0] = 3;
-                it.b[1] = lbl_8044C398[*p].a;
-                it.b[2] = lbl_8044C398[*p].b;
+                it.b[1] = shop_tool_group_subtype_table[*p].a;
+                it.b[2] = shop_tool_group_subtype_table[*p].b;
                 copy_item_data__6TLobbyFPvPv(&arr[lbl_80513EF0[arg0]++], &it);
             }
         }

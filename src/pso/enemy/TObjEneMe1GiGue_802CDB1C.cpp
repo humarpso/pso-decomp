@@ -98,7 +98,7 @@ M2C_UNK apply_hit_shake__15TObjEneMe1GiGueFPvUi(void *, void *);
 M2C_UNK vec3_add_to(void *, void *);
 M2C_UNK subtract_vector(void *, void *);
 extern Hit_802CDB1C lbl_804722B4[];
-extern s32 lbl_805D53A0;
+extern s32 local_client_id;
 extern f32 lbl_805D6844;
 extern const f32 lbl_805D684C;
 extern s32 lbl_805D6854;
@@ -196,7 +196,7 @@ void TObjPlayer__sub_802CDB1C(u8 *arg0) {
                 tgt->m21(src, &h2, 0, -1, -1);
             }
             spawn_particle_effect((u8 *)tgt + 0x2FC, 0x8E);
-            if (lbl_805D53A0 == self->target_id) {
+            if (local_client_id == self->target_id) {
                 apply_hit_shake__15TObjEneMe1GiGueFPvUi(src, tgt);
             }
             queue_destruction__7TObjectFv(self);

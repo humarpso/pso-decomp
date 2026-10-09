@@ -63,7 +63,7 @@ void build_appearance_texture_names__12TCharaMakingFv(void *, struct Appearance 
 void TCharaMaking__bind_appearance_texture_lists(s32 *arg0, s32 *arg1, s32 *arg2, struct Appearance *arg3);
 s32 TCharaMaking__sub_8028E3A0(f32 *arg0);
 s32 TCharaMaking__sub_8028E3A0(f32 *arg0);
-extern s32 lbl_804D395C[];
+extern s32 player_class_trait_table[];
 extern struct ClassAppearance class_appearance_table[19];
 M2C_UNK validate_player_visual_record(void *arg0);
 }
@@ -91,7 +91,7 @@ extern s32 some_id_805c6f74;
 extern s32 lbl_805DD930;
 extern const f32 lbl_805DD934;
 s32 calc_section_id_from_name(s8 *arg0);
-extern P_8028DCCC lbl_804D398C[];
+extern P_8028DCCC character_proportion_height_table[];
 f32 calc_character_height(void *p);
 }
 
@@ -135,8 +135,8 @@ f32 calc_character_height(void *p) {
     f32 b;
     f32 v = arg0->f4c;
     s32 k = arg0->f31;
-    a = lbl_804D398C[k].a;
-    b = lbl_804D398C[k].b;
+    a = character_proportion_height_table[k].a;
+    b = character_proportion_height_table[k].b;
     if (v < 0.0f || v > 1.0f) {
         v = 0.0f;
     }
@@ -304,8 +304,8 @@ M2C_UNK validate_player_visual_record(void *arg0) {
         d->f31 = 0;
         ok = 0;
     }
-    if (d->f34 != lbl_804D395C[d->f31]) {
-        d->f34 = lbl_804D395C[d->f31];
+    if (d->f34 != player_class_trait_table[d->f31]) {
+        d->f34 = player_class_trait_table[d->f31];
         flags |= 4;
         ok = 0;
     }

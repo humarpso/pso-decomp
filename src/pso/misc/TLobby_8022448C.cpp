@@ -172,7 +172,7 @@ s32 classify_level_bracket_wide__6TLobbyFi(s32 arg0);
 s32 rand();
 extern u32 lobby_weapon_random_tables_ptr;
 extern int shop_weapon_stock_level;
-extern s32 lbl_8044C768[];
+extern s32 shop_weapon_bonus_table[];
 void roll_shop_weapon_second_bonus(Obj_80224C68 *obj);
 s32 pop_byte__6TLobbyFPv(void *);
 void shuffle_shop_pool_n_times(void *, s32);
@@ -182,7 +182,7 @@ s32 get_level_bracket__6TLobbyFi(s32 arg0);
 s32 rand();
 extern u32 lobby_weapon_random_tables_ptr;
 extern int shop_weapon_stock_level;
-extern s32 lbl_8044C768[];
+extern s32 shop_weapon_bonus_table[];
 void roll_shop_weapon_first_bonus(Obj_80224DF0 *obj);
 void sort_shop_items(s32, s32, s32);
 void generate_shop_technique_pool(s32);
@@ -543,7 +543,7 @@ void roll_shop_weapon_second_bonus(Obj_80224C68 *obj) {
         if (x < lo) {
             x = lo;
         }
-        obj->b9 = lbl_8044C768[x];
+        obj->b9 = shop_weapon_bonus_table[x];
         break;
     }
 }
@@ -597,7 +597,7 @@ void roll_shop_weapon_first_bonus(Obj_80224DF0 *obj) {
         if (x < lo) {
             x = lo;
         }
-        obj->b7 = lbl_8044C768[x];
+        obj->b7 = shop_weapon_bonus_table[x];
         break;
     }
 }

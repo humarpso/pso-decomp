@@ -1815,7 +1815,7 @@ s32 advance_air_turn__12TBoss1DragonFv(Obj_800288EC *self);
 s32 get_current_floor();
 s32 get_field_3e4__10TObjPlayerFPv(void *);
 u32 get_player_by_client_id(s32);
-extern s32 TLobby__data_805D53AC;
+extern s32 TLobby__designated_client_id;
 u16 find_player_on_floor__12TBoss1DragonFPv(void *arg0);
 M2C_UNK clearState__12TBoss1DragonFv(void *);
 M2C_UNK advance_animation_playback();
@@ -2094,7 +2094,7 @@ M2C_UNK add_radar_scaled_marker(void *, int, int, int, f32);
 M2C_UNK send_entity_set_flags__6TLobbyFPv(void *);
 M2C_UNK run_tasks__7TObjectFv(void *);
 extern s32 TBoss1Dragon__data_805D4B38;
-extern s32 lbl_805D53A0;
+extern s32 local_client_id;
 extern const f32 TBoss1Dragon__data_805D7F24;
 extern const f32 lbl_805D80C0;
 void run_task__12TBoss1DragonFPv(u8 *arg0);
@@ -2188,7 +2188,7 @@ s32 reset_lobby_model__10TObjPlayerFPv(void *);
 s32 send_6x2F_change_player_hp(int, int, int);
 s32 end_camera_pan__10TObjPlayerFPv(int);
 u32 get_player_by_client_id(s32);
-extern s32 lbl_805D53A0;
+extern s32 local_client_id;
 extern const f32 TBoss1Dragon__data_805D7F28;
 void release_held_player__12TBoss1DragonFPv(u8 *arg0);
 s32 isV2Mode__12TBoss1DragonFv(void);
@@ -2804,7 +2804,7 @@ extern u32 TBoss1Dragon__data_805D4B28;
 extern const f32 TBoss1Dragon__data_805D7F24;
 extern const f32 TBoss1Dragon__data_805D7F28;
 extern const f32 lbl_805D7F44;
-extern s32 lbl_805D53A0;
+extern s32 local_client_id;
 extern f32 lbl_805D8088;
 extern const f32 TBoss1Dragon__data_805D7F84;
 extern const f32 TBoss1Dragon__data_805D8010;
@@ -6092,7 +6092,7 @@ s32 filter_input_flags__12TBoss1DragonFiii(s32 arg1, s32 arg2, s32 arg3) {
     s32 var_r31;
 
     var_r31 = arg3;
-    if ((get_player_by_client_id((s32)(lbl_805D53A0)) == 0U) || (check_flag_100__10TObjPlayerFPv() != 0)) {
+    if ((get_player_by_client_id((s32)(local_client_id)) == 0U) || (check_flag_100__10TObjPlayerFPv() != 0)) {
         arg2 &= 0xFFFCF9F9;
     }
     return arg2 & var_r31;
@@ -6154,7 +6154,7 @@ void release_held_player__12TBoss1DragonFPv(u8 *arg0) {
         reset_lobby_model__10TObjPlayerFPv((void *) ((u8 *)(temp_r3) + 0x644));
         M2C_FIELD(temp_r3, f32 *, 0x3C) = (f32) TBoss1Dragon__data_805D7F28;
         temp_r4 = M2C_FIELD(arg0, u16 *, 0x764);
-        if (((s32) temp_r4 == (s32) lbl_805D53A0) && ((s16) M2C_FIELD(arg0, s16 *, 0x326) == 0x15)) {
+        if (((s32) temp_r4 == (s32) local_client_id) && ((s16) M2C_FIELD(arg0, s16 *, 0x326) == 0x15)) {
             send_6x2F_change_player_hp((int) (0xFFFFU), (int) (temp_r4), (int) (0));
         }
     }
@@ -6285,7 +6285,7 @@ void init_control_mode__12TBoss1DragonFPv(Obj_80027320 *self) {
             id = TBoss1Dragon__data_805D4B3C;
         }
     } else {
-        id = lbl_805D53A0;
+        id = local_client_id;
     }
     {
         u32 r = get_player_by_client_id(id);
@@ -6302,14 +6302,14 @@ u16 find_player_on_floor__12TBoss1DragonFPv(void *arg0) {
     u8 *p;
     u16 idx;
     u16 i;
-    p = ((u8 *)get_player_by_client_id(TLobby__data_805D53AC));
+    p = ((u8 *)get_player_by_client_id(TLobby__designated_client_id));
     if (p != NULL) {
         if (get_field_3e4__10TObjPlayerFPv((void *)((int)p)) == get_current_floor()) {
-            return TLobby__data_805D53AC;
+            return TLobby__designated_client_id;
         }
     }
     for (i = 0; i < 4; i++) {
-        idx = (TLobby__data_805D53AC + i + 1) % 4;
+        idx = (TLobby__designated_client_id + i + 1) % 4;
         p = ((u8 *)get_player_by_client_id(idx));
         if (p != NULL) {
             if (get_field_3e4__10TObjPlayerFPv((void *)((int)p)) == get_current_floor()) {
@@ -7590,7 +7590,7 @@ void run_task__12TBoss1DragonFPv(u8 *arg0) {
             M2C_FIELD(arg0, s32 *, 0x30) = (s32) (M2C_FIELD(arg0, s32 *, 0x30) & 0xFFFFF7FF);
         }
         if ((s32) M2C_FIELD(arg0, s32 *, 0x760) != 0) {
-            if ((s32) M2C_FIELD(arg0, u16 *, 0x764) == (s32) lbl_805D53A0) {
+            if ((s32) M2C_FIELD(arg0, u16 *, 0x764) == (s32) local_client_id) {
                 if ((((VObj_18_8002985C *)(arg0))->m30() != 0) && (isHpPhasePending__12TBoss1DragonFv((void *) (arg0)) != 0)) {
                     ;
                     if ((s16) M2C_FIELD(arg0, s16 *, 0x32C) < (s16) M2C_FIELD(arg0, s16 *, 0x682)) {

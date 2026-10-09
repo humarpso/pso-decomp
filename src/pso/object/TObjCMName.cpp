@@ -491,7 +491,7 @@ extern s32 creation_dressing_room_mode_flag;
 extern int creation_figure_rotation_y;
 extern void *creation_figure_object;
 extern s32 creation_resource_ready_state;
-extern int lbl_805D6570;
+extern int creation_camera_mode;
 extern s32 lbl_805D6598;
 extern const f32 lbl_805DDA70;
 extern const f32 lbl_805DDA74;
@@ -1995,7 +1995,7 @@ f32 get_proportion__14TObjCMMainMenuFv(void) {
     return lbl_805D3CA0;
 }
 
-void set_selection__14TObjCMMainMenuFi(int a0) { lbl_805D6570 = a0; }
+void set_selection__14TObjCMMainMenuFi(int a0) { creation_camera_mode = a0; }
 
 void TObjCMMainMenu__sub_80298DA0(int a0) { creation_figure_rotation_y = (creation_figure_rotation_y + a0); }
 

@@ -325,7 +325,7 @@ extern char lbl_8047863C[];
 extern char lbl_80478644[];
 extern M2C_UNK __vt__9TWindowDD[];
 extern s32 lbl_805D42E8;
-extern s32 lbl_805D53A0;
+extern s32 local_client_id;
 extern u32 TWindowDD__work_buffer;
 extern s16 lbl_805D6E24;
 extern char *lbl_805D6E64;
@@ -790,7 +790,7 @@ Obj_80343C64 *TWindowDD__ct(Obj_80343C64 *self, void *parent, void *arg2) {
   *((u8 *) TWindowDD__work_buffer) = 0;
   self->fA0 = 0;
   {
-    p = (u8 *) get_player_by_client_id(lbl_805D53A0);
+    p = (u8 *) get_player_by_client_id(local_client_id);
     if (p != 0)
     {
       floor = get_current_floor();
@@ -885,7 +885,7 @@ Obj_80343C64 *TWindowDD__ct(Obj_80343C64 *self, void *parent, void *arg2) {
       TWindowDD__sub_803412A0((s32) q);
     }
   }
-  ((void (*)(void *, u32, u16)) update_state__9TWindowDDFv)(self->fC4, TWindowDD__work_buffer, lbl_805D53A0);
+  ((void (*)(void *, u32, u16)) update_state__9TWindowDDFv)(self->fC4, TWindowDD__work_buffer, local_client_id);
   {
     a.x = lbl_805DFBF0;
     a.y = lbl_805DFBF4;

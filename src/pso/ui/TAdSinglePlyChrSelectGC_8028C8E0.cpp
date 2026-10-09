@@ -116,19 +116,19 @@ void try_advance_state__12TChCrLoadReqFv(void* p);
 s32 try_claim_load_slot__23TAdSinglePlyChrSelectGCFPv(void *arg0);
 M2C_UNK queue_destruction__7TObjectFv(void *);
 
-extern s32 lbl_805D64E8;
+extern s32 chr_select_slot_state;
 
 s32 try_acquire_slot__23TAdSinglePlyChrSelectGCFPv(void *arg0) {
-    if (((s32) lbl_805D64E8 < 0) || ((s32) lbl_805D64E8 > 1)) {
+    if (((s32) chr_select_slot_state < 0) || ((s32) chr_select_slot_state > 1)) {
         return 0;
     }
     if ((s32) M2C_FIELD(arg0, s32 *, 0x6C) != 0) {
         return 0;
     }
-    if ((s32) lbl_805D64E8 >= 1) {
+    if ((s32) chr_select_slot_state >= 1) {
         return 0;
     }
-    lbl_805D64E8 += 1;
+    chr_select_slot_state += 1;
     M2C_FIELD(arg0, s32 *, 0x6C) = 1;
     return 1;
 }
@@ -150,7 +150,7 @@ s32 TAdSinglePlyChrSelectGC__sub_8028C998(void *arg0) {
     return (u32) __cntlzw((u32) (*M2C_FIELD(arg0, s32 **, 0x3C) & 0x7F)) >> 5;
 }
 
-extern s32 lbl_805D6510;
+extern s32 chr_select_load_slot_count;
 
 M2C_UNK load_preview_models__23TAdSinglePlyChrSelectGCFPv(void *arg0) {
     s32 len;
@@ -294,38 +294,38 @@ void request_model_loads__23TAdSinglePlyChrSelectGCFPv(Sel_8028CD18 *self) {
 }
 
 void TAdSinglePlyChrSelectGC__sub_8028CEEC(void *arg0, s32 *) {
-    if (((s32) lbl_805D6510 <= 1) && ((s32) M2C_FIELD(arg0, s32 *, 0x8C) != 0)) {
+    if (((s32) chr_select_load_slot_count <= 1) && ((s32) M2C_FIELD(arg0, s32 *, 0x8C) != 0)) {
         M2C_FIELD(arg0, s32 *, 0x8C) = 0;
-        if (--lbl_805D6510 == 0) {
+        if (--chr_select_load_slot_count == 0) {
             return;
         }
     }
 }
 
-extern s32 lbl_805D6510;
+extern s32 chr_select_load_slot_count;
 
 s32 try_claim_load_slot__23TAdSinglePlyChrSelectGCFPv(void *arg0) {
-    if (((s32) M2C_FIELD(arg0, s32 *, 0x8C) != 0) || ((s32) lbl_805D6510 < 0) || ((s32) lbl_805D6510 > 1)) {
+    if (((s32) M2C_FIELD(arg0, s32 *, 0x8C) != 0) || ((s32) chr_select_load_slot_count < 0) || ((s32) chr_select_load_slot_count > 1)) {
         return 0;
     }
-    if ((s32) lbl_805D6510 >= 1) {
+    if ((s32) chr_select_load_slot_count >= 1) {
         return 0;
     }
     M2C_FIELD(arg0, s32 *, 0x8C) = 1;
-    lbl_805D6510 += 1;
+    chr_select_load_slot_count += 1;
     return 1;
 }
 
-extern s32 lbl_805D6510;
+extern s32 chr_select_load_slot_count;
 
 s32 TAdSinglePlyChrSelectGC__sub_8028CF6C(void) {
-    return lbl_805D6510 < 1;
+    return chr_select_load_slot_count < 1;
 }
 
-extern s32 lbl_804D3788[];
-extern s32 lbl_804D37D4[];
+extern s32 chr_select_preview_stride_table[];
+extern s32 chr_select_preview_base_offset_table[];
 void *calc_preview_offset__23TAdSinglePlyChrSelectGCFPviii(void *arg0, s32 arg1, s32 arg2, s32 arg3) {
-    return (void *)(arg2 + (arg3 * lbl_804D3788[arg1] + lbl_804D37D4[arg1]));
+    return (void *)(arg2 + (arg3 * chr_select_preview_stride_table[arg1] + chr_select_preview_base_offset_table[arg1]));
 }
 
 void close_and_destroy__12TChCrLoadReqFv(void *arg0) {

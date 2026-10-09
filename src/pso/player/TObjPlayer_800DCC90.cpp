@@ -60,7 +60,7 @@ void trigger_hit_camera_shake__10TObjPlayerFPvUi(void *, void *);
 extern const f32 lbl_805D5260;
 extern const f32 lbl_805D5268;
 extern s32 lbl_805D5270;
-extern s32 lbl_805D53A0;
+extern s32 local_client_id;
 void update_homing_shot__10TObjPlayerFPv(Me_800DC9EC *arg0);
 void update_homing_shot__10TObjPlayerFPv(Me_800DC9EC *arg0) {
     Vec_800DC9EC dir;
@@ -124,7 +124,7 @@ void update_homing_shot__10TObjPlayerFPv(Me_800DC9EC *arg0) {
             }
             spawn_particle_effect(obj->pos, 0xFB);
             spawn_particle_effect(obj->pos, 0xFC);
-            if (is_split_screen() == 0 && lbl_805D53A0 == arg0->owner) {
+            if (is_split_screen() == 0 && local_client_id == arg0->owner) {
                 trigger_hit_camera_shake__10TObjPlayerFPvUi(att, obj);
             }
             queue_destruction__7TObjectFv(arg0);

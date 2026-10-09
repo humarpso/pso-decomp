@@ -222,7 +222,7 @@ u32 create_yes_no_window(int, u16, int, int);
 M2C_UNK save_cursor_selection__20TShopArmorListWindowFPv(void *);
 s32 select_cursor_entry__6TLobbyFPv(void *);
 s32 get_window_layout_position(s32);
-extern const s32 lbl_805D53A0;
+extern const s32 local_client_id;
 void handle_equip_offer__20TShopArmorListWindowFv(void *p);
 int set_field_20__12TQuestListVMFPvi(void*, int);
 void update_selection__20TShopArmorListWindowFPvPv(void *arg0, void *arg1);
@@ -251,7 +251,7 @@ void TWindow__close(void *);
 s32 get_selected_menu_value(void *);
 M2C_UNK save_cursor_selection__20TShopArmorListWindowFPv(void *);
 s32 select_cursor_entry__6TLobbyFPv(void *);
-extern const s32 lbl_805D53A0;
+extern const s32 local_client_id;
 void handle_buy_confirm__20TShopArmorListWindowFv(Win_8021A634 *w);
 s32 obj_getField1c(s32);
 M2C_UNK copy_item_data__6TLobbyFPvPv(void *, void *);
@@ -347,7 +347,7 @@ void handle_equip_offer__20TShopArmorListWindowFv(void *p) {
                 Rec_8021A43C c;
                 i = select_cursor_entry__6TLobbyFPv(w->list);
                 c = w->recs[i];
-                c.w[3] = advance_item_id_counter(lbl_805D53A0);
+                c.w[3] = advance_item_id_counter(local_client_id);
                 try_buy_item(w->player, &c);
                 update_selection__20TShopArmorListWindowFPvPv(w, &w->recs[i]);
                 if (is_single_purchase_shop_item(&w->recs[i]) != 0) {
@@ -383,7 +383,7 @@ void handle_buy_confirm__20TShopArmorListWindowFv(Win_8021A634 *w) {
                 Rec_8021A634 it = w->recs[i];
                 VObj_18_b34251 *item;
                 u32 e;
-                it.id = advance_item_id_counter(lbl_805D53A0);
+                it.id = advance_item_id_counter(local_client_id);
                 try_buy_item(w->player, &it);
                 item = find_item_by_id(it.id);
                 if (item != NULL && (e = get_equip_field_d04__10TObjPlayerFPv(w->player, item->m31())) != 0) {
@@ -404,7 +404,7 @@ void handle_buy_confirm__20TShopArmorListWindowFv(Win_8021A634 *w) {
             if (w->list != NULL) {
                 s32 i = select_cursor_entry__6TLobbyFPv(w->list);
                 Rec_8021A634 it = w->recs[i];
-                it.id = advance_item_id_counter(lbl_805D53A0);
+                it.id = advance_item_id_counter(local_client_id);
                 try_buy_item(w->player, &it);
                 update_selection__20TShopArmorListWindowFPvPv(w, &w->recs[i]);
                 if (is_single_purchase_shop_item(&w->recs[i]) != 0) {
@@ -421,7 +421,7 @@ void handle_buy_confirm__20TShopArmorListWindowFv(Win_8021A634 *w) {
         if (w->list != NULL) {
             s32 i = select_cursor_entry__6TLobbyFPv(w->list);
             Rec_8021A634 it = w->recs[i];
-            it.id = advance_item_id_counter(lbl_805D53A0);
+            it.id = advance_item_id_counter(local_client_id);
             try_buy_item(w->player, &it);
             update_selection__20TShopArmorListWindowFPvPv(w, &w->recs[i]);
             if (is_single_purchase_shop_item(&w->recs[i]) != 0) {

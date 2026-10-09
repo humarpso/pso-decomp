@@ -46,7 +46,7 @@ M2C_UNK TLobby__sub_8024AC20(void *);
 M2C_UNK TWindowReturnCity__sub_8024ACA8(void *);
 M2C_UNK close__17TWindowSubComCardFPv(void *);
 extern RecoveredGlobal_802E0224___vt__19TWindowTradeRequest __vt__19TWindowTradeRequest;
-extern s32 lbl_805D53A0;
+extern s32 local_client_id;
 u8 *__dt__19TWindowTradeRequestFv(u8 *arg0, s16 arg1);
 u8 *get_shared_text_buffer(void);
 u32 get_player_by_client_id(void *);
@@ -64,7 +64,7 @@ M2C_UNK notify_warp_flag70__19TWindowSubShortMailFPv(int);
 M2C_UNK forward_slot_selection__16TAdChrSelASlotGCFPvPvPv(int, int, int, f32);
 extern RecoveredGlobal_802E0224___vt__19TWindowTradeRequest __vt__19TWindowTradeRequest;
 extern s32 lbl_805D3F70;
-extern s32 lbl_805D53A0;
+extern s32 local_client_id;
 extern const f32 lbl_805DE8A0;
 u8 *TWindowTradeRequest__ct(u8 *arg0);
 void close_request_window__19TWindowTradeRequestFv();
@@ -123,13 +123,13 @@ u8 *__dt__19TWindowTradeRequestFv(u8 *arg0, s16 arg1) {
             close__17TWindowSubComCardFPv(M2C_FIELD(arg0, void **, 0x20));
             M2C_FIELD(arg0, u32 *, 0x20) = 0U;
         }
-        TWindowReturnCity__sub_8024ACA8((void *) (lbl_805D53A0));
-        TLobby__sub_8024AC20((void *) (lbl_805D53A0));
-        if (get_player_by_client_id((void *) (lbl_805D53A0)) != 0U) {
+        TWindowReturnCity__sub_8024ACA8((void *) (local_client_id));
+        TLobby__sub_8024AC20((void *) (local_client_id));
+        if (get_player_by_client_id((void *) (local_client_id)) != 0U) {
             init_parts__10TObjPlayerFPv();
         }
         if ((u32) M2C_FIELD(arg0, u32 *, 0x1C) == 2U) {
-            fn_8024AADC((void *) (lbl_805D53A0), (int) (0x1D));
+            fn_8024AADC((void *) (local_client_id), (int) (0x1D));
         }
         __dt__7TObjectFv((void *) (arg0), (int) (0));
         if (arg1 > 0) {
@@ -161,17 +161,17 @@ u8 *TWindowTradeRequest__ct(u8 *arg0) {
   }
   get_message_10__20TWindowSubStatusDispFPv((int) 0xD9);
   text_builder_append();
-  *((s32 *) (((s8 *) arg0) + 0x20)) = create__19TWindowMessageYesNoFPvPvPvPv((s32) arg0, lbl_805D53A0, 0, 0);
+  *((s32 *) (((s8 *) arg0) + 0x20)) = create__19TWindowMessageYesNoFPvPvPvPv((s32) arg0, local_client_id, 0, 0);
   temp_r31_2 = (u8 *) get_window_layout_position(0xB2);
   forward_slot_selection__16TAdChrSelASlotGCFPvPvPv((int) (*((s32 *) (((s8 *) arg0) + 0x20))), (int) get_shared_text_buffer(), (int) temp_r31_2, (f32) lbl_805DE8A0);
   new_var2 = ((s8 *) arg0) + 0x1C;
   notify_warp_flag70__19TWindowSubShortMailFPv((int) (*((s32 *) (((s8 *) arg0) + 0x20))));
-  if (((s32)get_player_by_client_id((void *)((u32) lbl_805D53A0))) != 0U)
+  if (((s32)get_player_by_client_id((void *)((u32) local_client_id))) != 0U)
   {
     reset_equip_slots__10TObjPlayerFPv();
   }
-  TObjPlayer__sub_8024ABDC((void *) lbl_805D53A0);
-  fn_8024AC64((void *) lbl_805D53A0);
+  TObjPlayer__sub_8024ABDC((void *) local_client_id);
+  fn_8024AC64((void *) local_client_id);
   *((s32 *) new_var2) = 0;
   return arg0;
 }

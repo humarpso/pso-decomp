@@ -293,7 +293,7 @@ void *TShopKeepItemWindow__ct(void *arg0, void *arg1, void *arg2, void *arg3) {
 }
 
 extern M2C_UNK lbl_8044C290[];
-extern s32 lbl_805D53A0;
+extern s32 local_client_id;
 
 void TQuestVmDownLoadServer__sub_8022236C(s32 arg0) {
     char buf[0x20];
@@ -305,7 +305,7 @@ void TQuestVmDownLoadServer__sub_8022236C(s32 arg0) {
 void show_message_or_error(s32 arg0) {
     M2C_UNK *temp_r3;
 
-    temp_r3 = get_status_window__20TWindowSubStatusDispFi((u16) lbl_805D53A0);
+    temp_r3 = get_status_window__20TWindowSubStatusDispFi((u16) local_client_id);
     if (temp_r3 != NULL) {
         TQuestVmDownLoadServer__sub_80222704(arg0, temp_r3);
         return;

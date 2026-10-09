@@ -34,7 +34,7 @@ s32 is_not_split_screen__13TRaderMapCoreFv();
 s32 get_bgm_object__13TQuestBgmCtrlFv();
 M2C_UNK run_tasks__7TObjectFv(void *);
 
-extern s32 lbl_805D53A0;
+extern s32 local_client_id;
 extern s32 TLobby__event_theme_id;
 extern s32 lbl_805D5B04;
 extern u32 TObjBgmColCtrl__data_805D5B08;
@@ -45,7 +45,7 @@ void run_task__14TObjBgmColCtrlFv(void *arg0) {
 
     temp_r4 = M2C_FIELD(arg0, s32 *, 0x1C);
     M2C_FIELD(arg0, s32 *, 0x1C) = (s32) (temp_r4 - 1);
-    if ((temp_r4 <= 0) && ((get_global_state__14TOKeyMachine01Fv() == 0xF) || (get_player_by_client_id(lbl_805D53A0) != 0U)) && (get_bgm_object__13TQuestBgmCtrlFv() == 0)) {
+    if ((temp_r4 <= 0) && ((get_global_state__14TOKeyMachine01Fv() == 0xF) || (get_player_by_client_id(local_client_id) != 0U)) && (get_bgm_object__13TQuestBgmCtrlFv() == 0)) {
         if (is_not_split_screen__13TRaderMapCoreFv() == 1) {
             if (is_active__14TObjBgmColCtrlFv() == 0) {
                 play_lobby_theme_music__14TObjBgmColCtrlFv();

@@ -4,14 +4,14 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 #define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
 #define M2C_BITWISE(type, expr) ((type)(expr))
 extern "C" {
-extern u8 lbl_805D53B8;
+extern u8 item_light_interaction_blocked_flag;
 bool is_item_light_interaction_blocked(void);
 }
 
 extern "C" {
 
 bool is_item_light_interaction_blocked(void) {
-    return (s8) lbl_805D53B8 != 0;
+    return (s8) item_light_interaction_blocked_flag != 0;
 }
 
 }

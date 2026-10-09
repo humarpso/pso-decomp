@@ -63,17 +63,17 @@ s32 get_player_by_client_id(s32);
 M2C_UNK unsuppress_slot__11TWindowCtrlFi(s32);
 s32 check_player_flag1__6TLobbyFPv();
 M2C_UNK send_code_45_1__10TObjPlayerFi(s32);
-extern s32 lbl_805D53A0;
+extern s32 local_client_id;
 int suppress_slot__11TWindowCtrlFi(void*);
-extern s32 lbl_805D53A0;
+extern s32 local_client_id;
 int TObjPlayer__sub_8024ABDC(void*);
-extern s32 lbl_805D53A0;
+extern s32 local_client_id;
 s32 get_player_by_client_id(s32);
 s32 check_player_flag1__6TLobbyFPv();
 M2C_UNK play_effect_default__10TObjPlayerFii(s32, M2C_UNK);
-extern s32 lbl_805D53A0;
-extern s32 lbl_805D53A0;
-extern s32 TLobby__data_805D53AC;
+extern s32 local_client_id;
+extern s32 local_client_id;
+extern s32 TLobby__designated_client_id;
 u8 is_challenge_lobby__6TLobbyFv(void);
 M2C_UNK advance_state_if_flag_set__6TLobbyFv();
 void TLobby__sub_80072B70(u8 *arg0);
@@ -111,7 +111,7 @@ s32 TWindowShortListCtrl__check_controller_button(void *, M2C_UNK);
 s32 check_flag_100__10TObjPlayerFPv();
 s32 get_player_by_client_id(s32);
 extern s8 lbl_8050E208[];
-extern s32 lbl_805D53A0;
+extern s32 local_client_id;
 void handle_challenge_retry_confirm(void *arg0);
 void bswap_fields_0_4__6TLobbyFPv(void *arg0);
 void bswap_fields_4_8_12__6TLobbyFPv(void *arg0);
@@ -298,24 +298,24 @@ void open_loss_menu__6TLobbyFPv(void *arg0) {
 }
 void send_45_and_close_windows__6TLobbyFv(void * _w0) {
     s32 temp_r3;
-    temp_r3 = get_player_by_client_id(lbl_805D53A0);
+    temp_r3 = get_player_by_client_id(local_client_id);
     if ((temp_r3 != 0) && (check_player_flag1__6TLobbyFPv() != 0)) {
         send_code_45_1__10TObjPlayerFi(temp_r3);
     }
-    unsuppress_slot__11TWindowCtrlFi(lbl_805D53A0);
-    TLobby__sub_8024AC20(lbl_805D53A0);
+    unsuppress_slot__11TWindowCtrlFi(local_client_id);
+    TLobby__sub_8024AC20(local_client_id);
 }
-void show_ctrl_and_play_effect__6TLobbyFPv(void* a0) { suppress_slot__11TWindowCtrlFi((void*)((*(int *)&lbl_805D53A0))); play_player_default_effect__6TLobbyFv((s32)(a0)); }
-void play_default_effect__6TLobbyFPv(void* a0) { TObjPlayer__sub_8024ABDC((void*)((*(int *)&lbl_805D53A0))); play_player_default_effect__6TLobbyFv((s32)(a0)); }
+void show_ctrl_and_play_effect__6TLobbyFPv(void* a0) { suppress_slot__11TWindowCtrlFi((void*)((*(int *)&local_client_id))); play_player_default_effect__6TLobbyFv((s32)(a0)); }
+void play_default_effect__6TLobbyFPv(void* a0) { TObjPlayer__sub_8024ABDC((void*)((*(int *)&local_client_id))); play_player_default_effect__6TLobbyFv((s32)(a0)); }
 void play_player_default_effect__6TLobbyFv(s32 _w0) {
     s32 temp_r3;
-    temp_r3 = get_player_by_client_id(lbl_805D53A0);
+    temp_r3 = get_player_by_client_id(local_client_id);
     if ((temp_r3 != 0) && (check_player_flag1__6TLobbyFPv() == 0)) {
         play_effect_default__10TObjPlayerFii(temp_r3, -1);
     }
 }
 u8 is_challenge_lobby__6TLobbyFv(void) {
-    return (u8) (lbl_805D53A0 == TLobby__data_805D53AC);
+    return (u8) (local_client_id == TLobby__designated_client_id);
 }
 void update_destroy_countdown__6TLobbyFPv(void *arg0) {
     s32 temp_r0;
@@ -393,7 +393,7 @@ block_6:
 }
 void handle_challenge_retry_confirm(void *arg0) {
     play_default_effect__6TLobbyFPv((void*)(arg0));
-    if ((((u32)get_player_by_client_id(lbl_805D53A0)) != 0U) && (check_flag_100__10TObjPlayerFPv() == 0) && (TWindowShortListCtrl__check_controller_button(lbl_8050E208 + 0x20, 4) != 0)) {
+    if ((((u32)get_player_by_client_id(local_client_id)) != 0U) && (check_flag_100__10TObjPlayerFPv() == 0) && (TWindowShortListCtrl__check_controller_button(lbl_8050E208 + 0x20, 4) != 0)) {
         send_45_and_close_windows__6TLobbyFv(arg0);
         show_ctrl_and_play_effect__6TLobbyFPv((void*)(arg0));
         M2C_FIELD(arg0, s32 *, 0x1C) = 2;

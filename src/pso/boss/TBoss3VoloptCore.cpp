@@ -723,11 +723,11 @@ extern u16 lbl_805D4C18;
 extern int lbl_805D4C50;
 extern int lbl_805D4C54;
 extern int lbl_805D4C58;
-extern int lbl_805D4C5C;
-extern int lbl_805D4C60;
-extern s32 lbl_805D4C64;
-extern s32 lbl_805D4C68;
-extern s32 lbl_805D53A0;
+extern int volopt_array_resource_ptr;
+extern int volopt_resource_table_ptr;
+extern s32 boss3_volopt_core_active_flag;
+extern s32 boss3_volopt_turn_angle_limit;
+extern s32 local_client_id;
 extern const f32 lbl_805D86B0;
 extern const f32 lbl_805D86B4;
 extern const f32 lbl_805D86B8;
@@ -1037,7 +1037,7 @@ void update_topple_state__10TObjPlayerFPv(u8 *arg0) {
     case 0:
         M2C_FIELD(arg0, s32 *, 0x388) = (s32) (M2C_FIELD(arg0, s32 *, 0x388) | 0x10000);
         M2C_FIELD(arg0, s16 *, 0xB8) = 0;
-        if (angle_difference_abs(M2C_FIELD(arg0, s32 *, 0x60), M2C_FIELD(arg0, s32 *, 0x398) - 0x4000) <= (s32) lbl_805D4C68) {
+        if (angle_difference_abs(M2C_FIELD(arg0, s32 *, 0x60), M2C_FIELD(arg0, s32 *, 0x398) - 0x4000) <= (s32) boss3_volopt_turn_angle_limit) {
             M2C_FIELD(arg0, s32 *, 0x37C) = 3;
         } else {
             M2C_FIELD(arg0, s32 *, 0x37C) = 1;
@@ -1051,8 +1051,8 @@ void update_topple_state__10TObjPlayerFPv(u8 *arg0) {
         }
         break;
     case 2:
-        M2C_FIELD(arg0, s32 *, 0x60) = approach_angle_limited(M2C_FIELD(arg0, s32 *, 0x60), M2C_FIELD(arg0, s32 *, 0x398) - 0x4000, lbl_805D4C68);
-        if (angle_difference_abs(M2C_FIELD(arg0, s32 *, 0x60), M2C_FIELD(arg0, s32 *, 0x398) - 0x4000) <= (s32) lbl_805D4C68) {
+        M2C_FIELD(arg0, s32 *, 0x60) = approach_angle_limited(M2C_FIELD(arg0, s32 *, 0x60), M2C_FIELD(arg0, s32 *, 0x398) - 0x4000, boss3_volopt_turn_angle_limit);
+        if (angle_difference_abs(M2C_FIELD(arg0, s32 *, 0x60), M2C_FIELD(arg0, s32 *, 0x398) - 0x4000) <= (s32) boss3_volopt_turn_angle_limit) {
             M2C_FIELD(arg0, s32 *, 0x37C) = 3;
         }
         break;
@@ -1102,7 +1102,7 @@ s32 alloc_boss_target_slot__10TObjPlayerFPvi(Obj_8003F730 *self, s32 _w1) {
         }
     }
     if (i == 6) {
-        lbl_805D4C64 = 1;
+        boss3_volopt_core_active_flag = 1;
         self->m56();
         return 0;
     }
@@ -1130,8 +1130,8 @@ void TObjPlayer__sub_8003F81C(u8 *arg0) {
         M2C_FIELD(arg0, u32 *, 0x3CC) = 0U;
         M2C_FIELD(arg0, s32 *, 0x37C) = 1;
     case 1:
-        M2C_FIELD(arg0, s32 *, 0x60) = approach_angle_limited((int) (M2C_FIELD(arg0, s32 *, 0x60)), (int) (M2C_FIELD(arg0, s32 *, 0x398) - 0x8000), lbl_805D4C68);
-        if (angle_difference_abs((int) (M2C_FIELD(arg0, s32 *, 0x60)), (int) (M2C_FIELD(arg0, s32 *, 0x398) - 0x8000)) <= (s32) lbl_805D4C68) {
+        M2C_FIELD(arg0, s32 *, 0x60) = approach_angle_limited((int) (M2C_FIELD(arg0, s32 *, 0x60)), (int) (M2C_FIELD(arg0, s32 *, 0x398) - 0x8000), boss3_volopt_turn_angle_limit);
+        if (angle_difference_abs((int) (M2C_FIELD(arg0, s32 *, 0x60)), (int) (M2C_FIELD(arg0, s32 *, 0x398) - 0x8000)) <= (s32) boss3_volopt_turn_angle_limit) {
             M2C_FIELD(arg0, s16 *, 0x33C) = (TBoss3Volopt__sub_8003F398() != 0) ? 5 : 0x1E;
             M2C_FIELD(arg0, s32 *, 0x37C) = 2;
         }
@@ -1147,7 +1147,7 @@ void TObjPlayer__sub_8003F81C(u8 *arg0) {
         break;
     case 3:
         if (--M2C_FIELD(arg0, s16 *, 0x33C) < 0) {
-            lbl_805D4C64 = 1;
+            boss3_volopt_core_active_flag = 1;
             ((VObj_18_62ff9d *)(arg0))->m56();
         }
         break;
@@ -1225,7 +1225,7 @@ void set_boss_target_pos__10TObjPlayerFPviii(void *arg0, s32 arg1, s32 arg2, s32
         M2C_FIELD(arg0, s32 *, 0x3BC) = arg1;
         M2C_FIELD(arg0, s32 *, 0x3C0) = arg2;
         M2C_FIELD(arg0, s32 *, 0x3C4) = arg3;
-        lbl_805D4C64 = 0;
+        boss3_volopt_core_active_flag = 0;
         alloc_boss_target_slot__10TObjPlayerFPvi((Obj_8003F730 *)(arg0), (s32)(temp_r4));
         M2C_FIELD(arg0, s32 *, 0x388) = (s32) (M2C_FIELD(arg0, s32 *, 0x388) & 0xFFFFFFFE);
         ((VObj_8003FB3C_8003F4C0 *)arg0)->m57();
@@ -1362,7 +1362,7 @@ void run_freeze_state__10TObjPlayerFPv(void *arg0) {
     Obj_8003FFE4 *self = (Obj_8003FFE4 *)arg0;
     switch (self->state) {
     case 0:
-        lbl_805D4C64 = 1;
+        boss3_volopt_core_active_flag = 1;
         self->flags |= 0x02040000;
         self->state = 1;
         break;
@@ -1401,7 +1401,7 @@ void update_grabbed_state__10TObjPlayerFPv(void *arg0) {
         M2C_FIELD(arg0, s16 *, 0xB8) = 3;
         play_sound_effect(0x4003A81F, 0, 0, 0);
         play_sound_effect(0x4003BC20, 0, 0, 0);
-        if ((s32) lbl_805D53A0 == (s32) M2C_FIELD(arg0, u16 *, 0x2D4)) {
+        if ((s32) local_client_id == (s32) M2C_FIELD(arg0, u16 *, 0x2D4)) {
             TCameraCtrl__sub_8006A044(0x1E, lbl_805D86D8);
         }
         M2C_FIELD(arg0, s32 *, 0x3C8) = 0x14;
@@ -1608,7 +1608,7 @@ void TObjPlayer__sub_800405D8(u8 *arg0) {
 
 void TBoss3VoloptCore__sub_80040788(void) {  }
 
-void cache_volopt_resource_ptrs(void) { lbl_805D4C60 = boss3_volopt_resources; lbl_805D4C50 = register_boss__6TLobbyFPv((void*)33); lbl_805D4C54 = dispatch_shared_handler_b__6TLobbyFPv((void*)33); lbl_805D4C58 = register_object__6TLobbyFPv((void*)33); lbl_805D4C5C = dispatch_shared_handler_a__6TLobbyFPv((void*)33); }
+void cache_volopt_resource_ptrs(void) { volopt_resource_table_ptr = boss3_volopt_resources; lbl_805D4C50 = register_boss__6TLobbyFPv((void*)33); lbl_805D4C54 = dispatch_shared_handler_b__6TLobbyFPv((void*)33); lbl_805D4C58 = register_object__6TLobbyFPv((void*)33); volopt_array_resource_ptr = dispatch_shared_handler_a__6TLobbyFPv((void*)33); }
 
 void *TBoss3VoloptCore__sub_800407E0(void *arg0) {
     void *o = __nw__7TObjectFUl(0x3D4);
@@ -1635,7 +1635,7 @@ void TBoss3VoloptCore__ct(VObj_80040894 *arg0) {
     void *temp_r4;
 
     M2C_FIELD(arg0, s32 *, 0) = lbl_805D2728;
-    M2C_FIELD(arg0, s32 *, 0xDC) = M2C_FIELD((*(void * *)&lbl_805D4C60), s32 *, 0x430);
+    M2C_FIELD(arg0, s32 *, 0xDC) = M2C_FIELD((*(void * *)&volopt_resource_table_ptr), s32 *, 0x430);
     M2C_FIELD(arg0, void **, 0xD8) = boss3_volopt_core_hit_table;
     set_field_d8__10TObjPlayerFPvi(arg0, M2C_FIELD(arg0, void **, 0xD8));
     init_collision_body_parts(arg0, lbl_804839E4, 1);
@@ -1661,9 +1661,9 @@ void TBoss3VoloptCore__ct(VObj_80040894 *arg0) {
     M2C_FIELD(arg0, s32 *, 0x3C8) = 0;
     obj_setFlags30(arg0, 0x8000);
     if (TBoss3Volopt__sub_8003F398() != 0) {
-        lbl_805D4C68 = 0xA00;
+        boss3_volopt_turn_angle_limit = 0xA00;
     } else {
-        lbl_805D4C68 = 0x200;
+        boss3_volopt_turn_angle_limit = 0x200;
     }
     arg0->m80();
 }
@@ -1691,12 +1691,12 @@ void *TBoss3VoloptCore__sub_80040A7C(void *arg0, void *arg1, void *arg2) {
 int TObjPlayer__sub_80040ADC(void) { return 0; }
 
 s32 TObjPlayer__sub_80040AE4(s32 i) {
-    return (*(G_80040AE4 * *)&lbl_805D4C5C)->arr[i];
+    return (*(G_80040AE4 * *)&volopt_array_resource_ptr)->arr[i];
 }
 
 void load_entry_params_volopt__10TObjPlayerFPvi(O_80040AF8 *self, s32 i) {
-    self->f34 = (*(G_80040AF8 * *)&lbl_805D4C60)->entries[i].f8;
-    self->f24 = (*(G_80040AF8 * *)&lbl_805D4C60)->entries[i].fc;
+    self->f34 = (*(G_80040AF8 * *)&volopt_resource_table_ptr)->entries[i].f8;
+    self->f24 = (*(G_80040AF8 * *)&volopt_resource_table_ptr)->entries[i].fc;
 }
 
 }

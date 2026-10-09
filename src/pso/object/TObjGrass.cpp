@@ -604,7 +604,7 @@ M2C_UNK set_shake_preset__11TCameraCtrlFi(int);
 extern u8 lbl_8058D490[];
 extern s32 enable_v2_features;
 extern s32 game_difficulty_selection;
-extern s32 lbl_805D53A0;
+extern s32 local_client_id;
 void TObjGrass__sub_800BD4D8(void *arg0_);
 M2C_UNK apply_actor_gravity(void *, M2C_UNK, f32);
 M2C_UNK add_flags_2e4__10TObjPlayerFPvUi(void *, int);
@@ -1197,7 +1197,7 @@ void TObjGrass__sub_800BD4D8(void *arg0_) {
                     f32 dmg = p->m20(o, (1.0f));
                     obj_setFlags30(p, 0x400);
                     p->m23(o, (2.0f) * dmg);
-                    if (is_split_screen() == 0 && lbl_805D53A0 == (u16)obj_getField1c(p)) {
+                    if (is_split_screen() == 0 && local_client_id == (u16)obj_getField1c(p)) {
                         set_shake_preset__11TCameraCtrlFi(1);
                     }
                     *(VObj_18_800BD4D8 **)((u8 *)o + k) = p;

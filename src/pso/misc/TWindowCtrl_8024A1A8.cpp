@@ -104,7 +104,7 @@ void *show_chat_balloon__11TWindowCtrlFPviiPvPv(Ctrl_8024A928 *self, s32 player,
 char *skip_name_prefix__11TWindowCtrlFPvPv(void *self, char *s);
 s32 count_balloon_slots__11TWindowCtrlFPv(Obj_8024A7CC *self);
 void *get_player_by_client_id(s32);
-extern s32 lbl_805D53A0;
+extern s32 local_client_id;
 s32 find_farthest_balloon_slot__11TWindowCtrlFPvUs(Ctrl_8024A714 *ctrl, u16 speaker);
 void *__nw__7TObjectFUl(u32);
 s32 all_parents_unqueued_for_destruction__7TObjectFv(void *);
@@ -374,7 +374,7 @@ s32 find_farthest_balloon_slot__11TWindowCtrlFPvUs(Ctrl_8024A714 *ctrl, u16 spea
     void *b;
     u16 id;
 
-    local = (RecoveredFields_8024A688_arg1 *)get_player_by_client_id(lbl_805D53A0);
+    local = (RecoveredFields_8024A688_arg1 *)get_player_by_client_id(local_client_id);
     if (local == NULL) {
         return 4;
     }

@@ -12,7 +12,7 @@ struct RecoveredFields_8028D490_arg0 {
 };
 
 extern "C" {
-extern u32 lbl_805D64F0;
+extern u32 node_tree_range_start;
 extern u8 lbl_805D64F4;
 extern u32 lbl_805D64F8;
 extern u8 lbl_805D64FC;
@@ -34,7 +34,7 @@ s32 is_node_tree_valid(struct RecoveredFields_8028D490_arg0 *arg0) {
         return 0;
     }
     if ((s8) lbl_805D64F4 == 0) {
-        lbl_805D64F0 = 0U;
+        node_tree_range_start = 0U;
         lbl_805D64F4 = 1;
     }
     if ((s8) lbl_805D64FC == 0) {
@@ -50,7 +50,7 @@ s32 is_node_tree_valid(struct RecoveredFields_8028D490_arg0 *arg0) {
         lbl_805D650C = 1;
     }
     temp_r3 = arg0->field_2C;
-    if (((temp_r3 > (u32) lbl_805D64F0) && (temp_r3 < (u32) lbl_805D64F8)) || ((temp_r5 = arg0->field_30, ((temp_r5 > (u32) lbl_805D64F0) != 0)) && (temp_r5 < (u32) lbl_805D64F8)) || ((temp_r4 = arg0->field_4, ((temp_r4 > (u32) lbl_805D6500) != 0)) && (temp_r4 < (u32) lbl_805D6508))) {
+    if (((temp_r3 > (u32) node_tree_range_start) && (temp_r3 < (u32) lbl_805D64F8)) || ((temp_r5 = arg0->field_30, ((temp_r5 > (u32) node_tree_range_start) != 0)) && (temp_r5 < (u32) lbl_805D64F8)) || ((temp_r4 = arg0->field_4, ((temp_r4 > (u32) lbl_805D6500) != 0)) && (temp_r4 < (u32) lbl_805D6508))) {
         return 0;
     }
     if ((temp_r3 != 0) && (is_node_tree_valid((struct RecoveredFields_8028D490_arg0 *) temp_r3) == 0)) {

@@ -98,7 +98,7 @@ extern const f32 lbl_805DA070;
 extern const f32 lbl_805DA074;
 extern const f32 lbl_805DA078;
 extern const f32 lbl_805DA07C;
-void TObjPlayer__sub_800C7168(Pl_800C7168 *self, Vec_800C7168 arg1, f32 farg0, f32 farg1);
+void move_along_ground_avoiding_walls__10TObjPlayerFPviff(Pl_800C7168 *self, Vec_800C7168 arg1, f32 farg0, f32 farg1);
 }
 
 extern "C" {
@@ -324,7 +324,7 @@ u8 find_target_in_range__10TObjPlayerFPvf(void *arg0, f32 farg0) {
     return (u8) (M2C_FIELD(arg0, s32 *, 0x2A8) != 0);
 }
 
-void TObjPlayer__sub_800C7168(Pl_800C7168 *self, Vec_800C7168 arg1, f32 farg0, f32 farg1) {
+void move_along_ground_avoiding_walls__10TObjPlayerFPviff(Pl_800C7168 *self, Vec_800C7168 arg1, f32 farg0, f32 farg1) {
     Vec_800C7168 a;
     Hit_800C7168 *hit;
     s32 ang;

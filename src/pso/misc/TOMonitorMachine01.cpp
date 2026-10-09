@@ -93,7 +93,7 @@ void reset_static_state__18TOMonitorMachine01Fv(void);
 void scroll_ginja_mesh_uvs(s32, s32, s32, s32, s32);
 extern s32 TOMonitorMachine01__scroll_mesh_ptrs[];
 extern s32 TOMonitorMachine01__data_805D5A5C;
-extern s32 lbl_805D53A4;
+extern s32 actor_frame_tick;
 extern const f32 lbl_805DB8F0;
 extern const f32 lbl_805DB8F4;
 extern const f32 TOMonitorMachine01__data_805DB8F8;
@@ -117,7 +117,7 @@ extern const f32 TOMonitorMachine01__data_805DB8F8;
 void render__18TOMonitorMachine01Fv(Mon_80172220 *self);
 u32 load_resource_from_descriptor(void *, int, void *, int, int, int);
 void *alloc__23TAdSinglePlyChrSelectGCFPv(M2C_UNK);
-extern u8 lbl_804B3888[];
+extern u8 monitor_machine01_resource_desc[];
 extern s32 TOMonitorMachine01__scroll_mesh_ptrs[];
 extern void *TOMonitorMachine01__data_805D5A58;
 extern s32 TOMonitorMachine01__data_805D5A5C;
@@ -144,8 +144,8 @@ void *__nw__7TObjectFUl(int);
 void destroy_key_base__5TOKeyFPvs(void *, int);
 
 void run_task__18TOMonitorMachine01Fv(Mon_8017205C *self) {
-    if (TOMonitorMachine01__data_805D5A5C != lbl_805D53A4) {
-        TOMonitorMachine01__data_805D5A5C = lbl_805D53A4;
+    if (TOMonitorMachine01__data_805D5A5C != actor_frame_tick) {
+        TOMonitorMachine01__data_805D5A5C = actor_frame_tick;
         scroll_ginja_mesh_uvs(TOMonitorMachine01__scroll_mesh_ptrs[0], 1, 0, 1, 1);
         scroll_ginja_mesh_uvs(TOMonitorMachine01__scroll_mesh_ptrs[1], 1, 0, 1, 1);
     }
@@ -269,7 +269,7 @@ void load_resources__18TOMonitorMachine01Fv(void) {
     void *p;
     p = alloc__23TAdSinglePlyChrSelectGCFPv(0x440);
     if (p != NULL) {
-        p = (void *)load_resource_from_descriptor(p, 1, lbl_804B3888, 0, 0, 0);
+        p = (void *)load_resource_from_descriptor(p, 1, monitor_machine01_resource_desc, 0, 0, 0);
     }
     TOMonitorMachine01__data_805D5A58 = p;
     temp_r5 = M2C_FIELD(M2C_FIELD(M2C_FIELD(M2C_FIELD(M2C_FIELD(p, void **, 0x42C), void **, 8), void **, 0x2C), void **, 0x30), void **, 0x30);

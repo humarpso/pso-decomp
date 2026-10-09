@@ -174,11 +174,11 @@ M2C_UNK free_member__17TWindowSubComCardFPv(void *, int);
 M2C_UNK initialize_option_dialog(void *, s32, s32, f32);
 M2C_UNK forward_slot_selection__16TAdChrSelASlotGCFPvPvPv(void *, s32, s32, f32);
 void *create__19TWindowMessageYesNoFPvPvPvPv(void *, s32, int, int);
-extern s32 lbl_805D53A0;
+extern s32 local_client_id;
 extern const f32 lbl_805DC020;
 extern const f32 lbl_805DC024;
 extern const f32 lbl_805DC028;
-void TObjWarpBossMulti__sub_8019EFF0(u8 *arg0);
+void update_warp_dialogs__17TObjWarpBossMultiFPv(u8 *arg0);
 }
 
 extern "C" {
@@ -189,10 +189,10 @@ struct VObj2_8019f358_8019F22C : Base2_8019f358_8019F22C { virtual void m0(); vi
 extern u8 lbl_8044663C[];
 extern u8 lbl_80446650[];
 extern RecoveredGlobal_8019E418_lbl_8050E208 lbl_8050E208;
-extern u32 lbl_8050EA10[];
+extern u32 player_slot_table[];
 extern s32 lbl_805D348C;
 extern s32 camera_ctrl_instance;
-extern s32 lbl_805D53A0;
+extern s32 local_client_id;
 extern s32 lbl_805D55C0;
 extern s32 lbl_805D5C8C;
 extern s32 warp_boss_model;
@@ -399,7 +399,7 @@ void run_task__17TObjWarpBossMultiFv(Obj_8019DFE8 *self) {
     f32 r;
 
     for (i = 0; i < 4; i++) {
-        pl = lbl_8050EA10[i];
+        pl = player_slot_table[i];
         if (pl != 0U && is_locally_controlled__10TObjPlayerFPv(pl) != 0) {
             if (((s32 (*)(u32))get_field_3e4__10TObjPlayerFPv)(pl) == get_current_floor()) {
                 if (xz_distance_squared(pl + 0x38, self->f38) <= (r = lbl_805DC014 + self->fAC) * r) {
@@ -482,7 +482,7 @@ void update_warp_boss_visibility(void *arg0) {
     void *temp_r3;
     s32 var_r30;
 
-    temp_r3 = ((void *(*)(s32))get_player_by_client_id)(lbl_805D53A0);
+    temp_r3 = ((void *(*)(s32))get_player_by_client_id)(local_client_id);
     var_r30 = 1;
     if ((temp_r3 != NULL) && (((P_V_8019DD34 *) temp_r3)->m31() != 0)) {
         var_r30 = 0;
@@ -558,7 +558,7 @@ s32 TObjWarpBossMulti__sub_8019E570(s32 arg0, f32 farg0) {
     s32 temp_r31;
     s32 temp_r3b;
     s32 temp_r3;
-    temp_r3 = get_player_by_client_id(lbl_805D53A0);
+    temp_r3 = get_player_by_client_id(local_client_id);
     if (temp_r3 != 0) {
         temp_r31 = get_current_floor();
         temp_r3b = ((s32 (*)(s32))get_field_3e4__10TObjPlayerFPv)(temp_r3);
@@ -583,9 +583,9 @@ void close_windows__17TObjWarpBossMultiFPv(void *arg0) {
         TWindow__close(M2C_FIELD(arg0, void **, 0x164));
         M2C_FIELD(arg0, u32 *, 0x164) = 0U;
     }
-    end_player_keyboard_hold(lbl_805D53A0);
+    end_player_keyboard_hold(local_client_id);
     clear_flag__11TWindowCtrlFv();
-    unsuppress_slot__11TWindowCtrlFi(lbl_805D53A0);
+    unsuppress_slot__11TWindowCtrlFi(local_client_id);
 }
 
 void handle_6x6A_set_boss_warp_flags(void *arg0) {
@@ -666,18 +666,18 @@ void warp_boss_handle_window(void *arg0) {
                     calc_window_size__17TWindowSubComCardFPv(M2C_FIELD(arg0, u32 *, 0xB0));
                     align_menu_entry_positions(M2C_FIELD(arg0, u32 *, 0xB0));
                 }
-                begin_player_keyboard_hold(lbl_805D53A0);
+                begin_player_keyboard_hold(local_client_id);
                 request_active_window_close();
-                suppress_slot__11TWindowCtrlFi(lbl_805D53A0);
+                suppress_slot__11TWindowCtrlFi(local_client_id);
             }
         } else {
             if ((u32) M2C_FIELD(arg0, u32 *, 0xB0) != 0U) {
                 TWindow__close(M2C_FIELD(arg0, void **, 0xB0));
                 M2C_FIELD(arg0, u32 *, 0xB0) = 0U;
             }
-            end_player_keyboard_hold(lbl_805D53A0);
+            end_player_keyboard_hold(local_client_id);
             clear_flag__11TWindowCtrlFv();
-            unsuppress_slot__11TWindowCtrlFi(lbl_805D53A0);
+            unsuppress_slot__11TWindowCtrlFi(local_client_id);
         }
         if ((s32) M2C_FIELD(arg0, s32 *, 0x15C) == 0) {
             M2C_FIELD(arg0, s16 *, 0xDC) = 0;
@@ -688,9 +688,9 @@ void warp_boss_handle_window(void *arg0) {
             TWindow__close(M2C_FIELD(arg0, void **, 0xB0));
             M2C_FIELD(arg0, u32 *, 0xB0) = 0U;
         }
-        end_player_keyboard_hold(lbl_805D53A0);
+        end_player_keyboard_hold(local_client_id);
         clear_flag__11TWindowCtrlFv();
-        unsuppress_slot__11TWindowCtrlFi(lbl_805D53A0);
+        unsuppress_slot__11TWindowCtrlFi(local_client_id);
         break;
     }
 }
@@ -713,7 +713,7 @@ void update_state__17TObjWarpBossMultiFPv(void *arg0) {
         if (get_boss_warp_flag__17TObjWarpBossMultiFv() == 0) {
             temp_r3 = ((s32 (*)(void *, f32))TObjWarpBossMulti__sub_8019E570)(arg0, M2C_FIELD(arg0, f32 *, 0xAC));
             if (temp_r3 != 0) {
-                ((M2C_UNK (*)(void *, s32))notify_player__17TObjWarpBossMultiFPvi)(arg0, lbl_805D53A0);
+                ((M2C_UNK (*)(void *, s32))notify_player__17TObjWarpBossMultiFPvi)(arg0, local_client_id);
                 ((V_A_8019e97c *)arg0)->m17(temp_r3);
                 M2C_FIELD(arg0, s16 *, 0xE0) = 2;
             }
@@ -750,9 +750,9 @@ void update_warp_state__17TObjWarpBossMultiFPv(u8 *arg0) {
         return;
     case 1:
         if (((u32 (*)(f32))TObjWarpBossMulti__sub_8019E570)(M2C_FIELD(arg0, f32 *, 0xAC)) != 0U) {
-            TObjWarpBossMulti__sub_8019EFF0((u8 *)(arg0));
+            update_warp_dialogs__17TObjWarpBossMultiFPv((u8 *)(arg0));
             if ((s32) M2C_FIELD(arg0, s32 *, 0x170) == 0) {
-                ((M2C_UNK (*)(void *, s32))warp_player__17TObjWarpBossMultiFPvi)(arg0, lbl_805D53A0);
+                ((M2C_UNK (*)(void *, s32))warp_player__17TObjWarpBossMultiFPvi)(arg0, local_client_id);
                 M2C_FIELD(arg0, s32 *, 0x170) = 1;
             }
         }
@@ -793,8 +793,8 @@ void TObjWarpBossMulti__sub_8019EB94(void *arg0_) {
         break;
     case 1:
         if (TObjWarpBossMulti__sub_8019E418(arg0) == 0 && (u32) TObjWarpBossMulti__sub_8019E570((s32) arg0, M2C_FIELD(arg0, f32 *, 0xAC)) != 0) {
-            TObjWarpBossMulti__sub_8019EFF0((u8 *)(arg0));
-            warp_player__17TObjWarpBossMultiFPvi(arg0, lbl_805D53A0);
+            update_warp_dialogs__17TObjWarpBossMultiFPv((u8 *)(arg0));
+            warp_player__17TObjWarpBossMultiFPvi(arg0, local_client_id);
             M2C_FIELD(arg0, s16 *, 0xE0) = 2;
             break;
         }
@@ -808,14 +808,14 @@ void TObjWarpBossMulti__sub_8019EB94(void *arg0_) {
         }
         break;
     case 2:
-        TObjWarpBossMulti__sub_8019EFF0((u8 *)(arg0));
+        update_warp_dialogs__17TObjWarpBossMultiFPv((u8 *)(arg0));
         if (M2C_FIELD(arg0, void **, 0x168) != NULL) {
             if (get_card_data__17TWindowSubComCardFPv(M2C_FIELD(arg0, void **, 0x168)) != 0) {
                 M2C_FIELD(arg0, s16 *, 0xE0) = 3;
             } else if (is_child_visible__17TWindowSubComCardFPv(M2C_FIELD(arg0, void **, 0x168)) != 0) {
                 r = get_slot_or_neg1__17TWindowSubComCardFPv(M2C_FIELD(arg0, void **, 0x168));
                 if (r == 0) {
-                    warp_player__17TObjWarpBossMultiFPvi(arg0, lbl_805D53A0);
+                    warp_player__17TObjWarpBossMultiFPvi(arg0, local_client_id);
                     M2C_FIELD(arg0, s32 *, 0x170) = 1;
                     send_cmd_6A__17TObjWarpBossMultiFPvUs((Obj_8019E6C0 *) arg0, 1);
                     M2C_FIELD(arg0, s16 *, 0xE0) = 5;
@@ -836,7 +836,7 @@ void TObjWarpBossMulti__sub_8019EB94(void *arg0_) {
         }
         break;
     case 3:
-        notify_player__17TObjWarpBossMultiFPvi(arg0, lbl_805D53A0);
+        notify_player__17TObjWarpBossMultiFPvi(arg0, local_client_id);
         M2C_FIELD(arg0, s16 *, 0xE0) = 4;
         break;
     case 4:
@@ -896,7 +896,7 @@ void update_warp_occupants__10TObjPlayerFPv(u8 *arg0) {
         ((M2C_UNK (*)(u32))TWindow__close)(self->window);
         self->window = 0;
     }
-    pl2 = ((Player_8019EE14 *(*)(s32))get_player_by_client_id)(lbl_805D53A0);
+    pl2 = ((Player_8019EE14 *(*)(s32))get_player_by_client_id)(local_client_id);
     if (pl2 != NULL && get_field_3e4__10TObjPlayerFPv(pl2) == get_current_floor()) {
         if (((f32 (*)(void *, void *))xz_distance_squared)(pl2->pos, self->pos) <= (lbl_805DC014 + self->radius) * (lbl_805DC014 + self->radius)) {
             if (is_flag_clear__17TObjWarpBossMultiFPv(pl2) != 0) {
@@ -912,7 +912,7 @@ void update_warp_occupants__10TObjPlayerFPv(u8 *arg0) {
 
 typedef struct Pos_8019EFF0 Pos_8019EFF0;
 typedef struct Warp_8019EFF0 Warp_8019EFF0;
-void TObjWarpBossMulti__sub_8019EFF0(u8 *arg0) {
+void update_warp_dialogs__17TObjWarpBossMultiFPv(u8 *arg0) {
   s32 i;
   int j;
   Warp_8019EFF0 *self = (Warp_8019EFF0 *) arg0;
@@ -923,15 +923,15 @@ void TObjWarpBossMulti__sub_8019EFF0(u8 *arg0) {
     case 0:
       if ((is_lobby_active__17TObjWarpBossMultiFv() == 0) && (self->dialog == 0))
     {
-      self->dialog = create__19TWindowMessageYesNoFPvPvPvPv(self, lbl_805D53A0, 0, 0);
+      self->dialog = create__19TWindowMessageYesNoFPvPvPvPv(self, local_client_id, 0, 0);
       if (self->dialog != 0)
       {
         forward_slot_selection__16TAdChrSelASlotGCFPvPvPv(self->dialog, get_message_10__20TWindowSubStatusDispFPv((M2C_UNK)(0x41)), ((s32)get_window_layout_position((M2C_UNK)(0x36))), lbl_805DC020);
         free_member__17TWindowSubComCardFPv(self->dialog, 1);
         notify_warp_flag70__19TWindowSubShortMailFPv(self->dialog);
-        begin_player_keyboard_hold(lbl_805D53A0);
+        begin_player_keyboard_hold(local_client_id);
         request_active_window_close();
-        suppress_slot__11TWindowCtrlFi(lbl_805D53A0);
+        suppress_slot__11TWindowCtrlFi(local_client_id);
       }
     }
       break;
@@ -939,7 +939,7 @@ void TObjWarpBossMulti__sub_8019EFF0(u8 *arg0) {
       if (self->dialog == 0)
     {
       i = 0x36;
-      self->dialog = create__19TWindowMessageYesNoFPvPvPvPv(self, lbl_805D53A0, 0, 0);
+      self->dialog = create__19TWindowMessageYesNoFPvPvPvPv(self, local_client_id, 0, 0);
       if (self->dialog != 0)
       {
         initialize_option_dialog(self->dialog, get_message_10__20TWindowSubStatusDispFPv((M2C_UNK)(0x42)), ((s32)get_window_layout_position((M2C_UNK)(i))), lbl_805DC020);

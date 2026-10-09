@@ -370,7 +370,7 @@ extern M2C_UNK __vt__18TOTrapChainSawEdge[];
 extern M2C_UNK __vt__20TOTrapChainSawDamage[];
 extern u32 seabed_suiso_linked_switch_counts[5];
 extern u32 seabed_suiso_switch_counts[5];
-extern s32 lbl_805D53A0;
+extern s32 local_client_id;
 extern s32 game_difficulty_selection;
 extern void *tl_05;
 void *lbl_804E0BD0[6] = {
@@ -933,7 +933,7 @@ int check_player_contact__14TOTrapChainSawFPv(void *arg0) {
     } else {
         s32 q;
         s32 t2;
-        q = get_player_by_client_id(lbl_805D53A0);
+        q = get_player_by_client_id(local_client_id);
         if (q != 0 && ((VObj_802C91DC *)arg0)->m17(q) == 0) {
             if (get_field_3e4__10TObjPlayerFPv(q) == ((s32 (*)(void))get_current_floor)()) {
                 t2 = M2C_FIELD(((VObj_802C91DC *)arg0), s32 *, 0x60);

@@ -254,7 +254,7 @@ M2C_UNK change_file_extension__6TLobbyFPvPvPv(void *, void *, void *);
 s32 TLobby__sub_803CC4C0(u32);
 s32 TLobby__sub_803CC53C(void);
 void read_checked_align__6TLobbyFiii(u32, s32, void *);
-void TLobby__sub_803CCE9C(u32);
+void close_adxf_handle__6TLobbyFPv(u32);
 u32 adxf_open__6TLobbyFUii(void *, s32);
 M2C_UNK load_gvm_texture_archive(s32, s32);
 extern char lbl_80434B44[];
@@ -369,7 +369,7 @@ s32 load_bml_exec__6TLobbyFPvPv(u8 *arg0, u8 *arg1) {
     case 1:
         if (self->flags & 0x200) {
             reset_read_state__6TLobbyFv();
-            TLobby__sub_803CCE9C(lobby_bml_file_handle);
+            close_adxf_handle__6TLobbyFPv(lobby_bml_file_handle);
             self->state = 9;
         } else if (TLobby__sub_803CC4C0(lobby_bml_file_handle) == 3) {
             reset_read_state__6TLobbyFv();
@@ -387,7 +387,7 @@ s32 load_bml_exec__6TLobbyFPvPv(u8 *arg0, u8 *arg1) {
     case 2:
         if (self->flags & 0x200) {
             reset_read_state__6TLobbyFv();
-            TLobby__sub_803CCE9C(lobby_bml_file_handle);
+            close_adxf_handle__6TLobbyFPv(lobby_bml_file_handle);
             self->state = 9;
         } else if (self->nmodel < self->f434) {
             n = (bml_header_record_ptr->size + 0x7FF) / 2048;
@@ -409,7 +409,7 @@ s32 load_bml_exec__6TLobbyFPvPv(u8 *arg0, u8 *arg1) {
     case 3:
         if (self->flags & 0x200) {
             reset_read_state__6TLobbyFv();
-            TLobby__sub_803CCE9C(lobby_bml_file_handle);
+            close_adxf_handle__6TLobbyFPv(lobby_bml_file_handle);
             self->state = 9;
         } else if (TLobby__sub_803CC4C0(lobby_bml_file_handle) == 3) {
             reset_read_state__6TLobbyFv();
@@ -436,7 +436,7 @@ s32 load_bml_exec__6TLobbyFPvPv(u8 *arg0, u8 *arg1) {
     case 4:
         if (self->flags & 0x200) {
             reset_read_state__6TLobbyFv();
-            TLobby__sub_803CCE9C(lobby_bml_file_handle);
+            close_adxf_handle__6TLobbyFPv(lobby_bml_file_handle);
             self->state = 9;
         } else if (self->nmotion < self->f438) {
             n = (bml_header_record_ptr->size + 0x7FF) / 2048;
@@ -453,7 +453,7 @@ s32 load_bml_exec__6TLobbyFPvPv(u8 *arg0, u8 *arg1) {
             self->state = 5;
         } else {
             reset_read_state__6TLobbyFv();
-            TLobby__sub_803CCE9C(lobby_bml_file_handle);
+            close_adxf_handle__6TLobbyFPv(lobby_bml_file_handle);
             bml_header_record_ptr = (Rec_8001F128 *) (lbl_805D4AE0 + 0x40);
             self->state = 6;
         }
@@ -461,7 +461,7 @@ s32 load_bml_exec__6TLobbyFPvPv(u8 *arg0, u8 *arg1) {
     case 5:
         if (self->flags & 0x200) {
             reset_read_state__6TLobbyFv();
-            TLobby__sub_803CCE9C(lobby_bml_file_handle);
+            close_adxf_handle__6TLobbyFPv(lobby_bml_file_handle);
             self->state = 9;
         } else if (TLobby__sub_803CC4C0(lobby_bml_file_handle) == 3) {
             reset_read_state__6TLobbyFv();
@@ -524,7 +524,7 @@ s32 load_bml_exec__6TLobbyFPvPv(u8 *arg0, u8 *arg1) {
     case 7:
         if (self->flags & 0x200) {
             reset_read_state__6TLobbyFv();
-            TLobby__sub_803CCE9C(lobby_bml_file_handle);
+            close_adxf_handle__6TLobbyFPv(lobby_bml_file_handle);
             self->state = 9;
         } else if (TLobby__sub_803CC4C0(lobby_bml_file_handle) == 3) {
             reset_read_state__6TLobbyFv();

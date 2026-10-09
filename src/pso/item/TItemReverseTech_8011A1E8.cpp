@@ -83,7 +83,7 @@ void set_screen_size(f32, f32);
 extern const Vec_8011A43C lbl_8043E68C[];
 extern const Vec_8011A43C lbl_8043E698[];
 extern RecoveredGlobal_8011A3D8_lbl_804A03A8 lbl_804A03A8;
-extern u8 lbl_804A6F34[];
+extern u8 default_scene_light_config[];
 extern s32 tl_camera;
 extern const float lbl_805DAC4C;
 extern const f32 lbl_805DAC50;
@@ -228,7 +228,7 @@ void init_scene__16TItemReverseTechFv(void) {
             fn();
         }
     }
-    init_map_lights(lbl_804A6F34);
+    init_map_lights(default_scene_light_config);
     cam = __nw__7TObjectFUl((M2C_UNK)(0x1D4));
     if (cam != NULL) {
         TCameraCtrl__ct(cam, tl_camera);

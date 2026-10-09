@@ -31,11 +31,11 @@ extern RecoveredGlobal_801A7310_TCameraCtrl__data_804FF628 TCameraCtrl__data_804
 extern const f32 lbl_805DC0D0;
 extern const f32 lbl_805DC0D4;
 void begin_photon_summon_camera(u8 *arg0, s8 arg1);
-extern struct Ent_801A70C8 lbl_8050E700[32];
+extern struct Ent_801A70C8 deferred_photon_blast_hit_queue[32];
 extern s32 deferred_photon_blast_hit_count;
 extern const f32 lbl_805DC0D0;
 void clear_deferred_photon_blast_hits(void);
-extern struct Ent_801A710C lbl_8050E580[32];
+extern struct Ent_801A710C photon_blast_hit_queue[32];
 extern s32 photon_blast_hit_count;
 extern const f32 lbl_805DC0D0;
 void clear_photon_blast_hits(void);
@@ -61,9 +61,9 @@ void clear_deferred_photon_blast_hits(void) {
     s32 i;
     deferred_photon_blast_hit_count = 0;
     for (i = 0; i < 32; i++) {
-        lbl_8050E700[i].a = 0xFFFF;
-        lbl_8050E700[i].b = lbl_805DC0D0;
-        lbl_8050E700[i].c = -1;
+        deferred_photon_blast_hit_queue[i].a = 0xFFFF;
+        deferred_photon_blast_hit_queue[i].b = lbl_805DC0D0;
+        deferred_photon_blast_hit_queue[i].c = -1;
     }
 }
 
@@ -71,9 +71,9 @@ void clear_photon_blast_hits(void) {
     s32 i;
     photon_blast_hit_count = 0;
     for (i = 0; i < 32; i++) {
-        lbl_8050E580[i].a = 0xFFFF;
-        lbl_8050E580[i].b = lbl_805DC0D0;
-        lbl_8050E580[i].c = -1;
+        photon_blast_hit_queue[i].a = 0xFFFF;
+        photon_blast_hit_queue[i].b = lbl_805DC0D0;
+        photon_blast_hit_queue[i].c = -1;
     }
 }
 
@@ -84,15 +84,15 @@ void queue_deferred_photon_blast_hit(u32 arg0, s32 arg1, s32 arg2) {
         if (arg2 == 0) {
             s32 i;
             for (i = 0; i < deferred_photon_blast_hit_count; i++) {
-                if (arg0 == (u32)lbl_8050E700[i].a) {
+                if (arg0 == (u32)deferred_photon_blast_hit_queue[i].a) {
                     found = 1;
                 }
             }
         }
         if (found == 0) {
-            lbl_8050E700[deferred_photon_blast_hit_count].c = arg1;
-            lbl_8050E700[deferred_photon_blast_hit_count].b = e[0];
-            lbl_8050E700[deferred_photon_blast_hit_count].a = arg0;
+            deferred_photon_blast_hit_queue[deferred_photon_blast_hit_count].c = arg1;
+            deferred_photon_blast_hit_queue[deferred_photon_blast_hit_count].b = e[0];
+            deferred_photon_blast_hit_queue[deferred_photon_blast_hit_count].a = arg0;
             lbl_805D5D20 = arg0;
             deferred_photon_blast_hit_count++;
         }
@@ -109,15 +109,15 @@ void queue_photon_blast_hit(u32 identity, s32 kind, s32 allow_duplicate) {
     entry = get_photon_blast_entry__10TObjPlayerFi(kind);
     if (allow_duplicate == 0) {
         for (i = 0; i < photon_blast_hit_count; i++) {
-            if (lbl_8050E580[i].a == identity) {
+            if (photon_blast_hit_queue[i].a == identity) {
                 duplicate = 1;
             }
         }
     }
     if (duplicate == 0) {
-        lbl_8050E580[photon_blast_hit_count].c = kind;
-        lbl_8050E580[photon_blast_hit_count].b = *entry;
-        lbl_8050E580[photon_blast_hit_count].a = identity;
+        photon_blast_hit_queue[photon_blast_hit_count].c = kind;
+        photon_blast_hit_queue[photon_blast_hit_count].b = *entry;
+        photon_blast_hit_queue[photon_blast_hit_count].a = identity;
         lbl_805D5D18 = identity;
         photon_blast_hit_count = photon_blast_hit_count + 1;
     }

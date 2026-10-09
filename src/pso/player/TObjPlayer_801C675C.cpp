@@ -94,7 +94,7 @@ TObjPlayer* get_player_by_client_id(int);
 int obj_isState2_324(TObjPlayer*);
 void init_shrink_effect__10TObjPlayerFPv(PlayerShrinkPacket*);
 void update_and_send_60__10TObjPlayerFPv(PlayerShrinkPacket*);
-extern s32 lbl_805D53A0;
+extern s32 local_client_id;
 void request_player_shrink(PlayerScaleState* state);
 TObjPlayer* get_player_by_client_id(int);
 int obj_isState2_324(TObjPlayer*);
@@ -194,7 +194,7 @@ void handle_6x87_shrink__10TObjPlayerFPvf(u8 *arg0, f32 farg0) {
 void request_player_shrink(PlayerScaleState* state) {
     TObjPlayer* player = get_player_by_client_id(get_obj_type__10TObjPlayerFPv(state));
     if (!player || !obj_isState2_324(player)) {
-        if (lbl_805D53A0 == get_obj_type__10TObjPlayerFPv(state))
+        if (local_client_id == get_obj_type__10TObjPlayerFPv(state))
             update_player_scale_camera((PlayerScaleState *)(state));
         PlayerShrinkPacket packet;
         init_shrink_effect__10TObjPlayerFPv(&packet);

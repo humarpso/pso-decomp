@@ -1125,17 +1125,17 @@ void TNpcPlayer__sub_80152E74(void *cmd);
 Player_8019A098 *get_player_by_client_id(s32);
 void calc_movement_target__10TObjPlayerFPviPvPv(void *arg0, s32 arg1, f32 *arg2, f32 *arg3);
 void sync_from_lobby__10TNpcPlayerFPv(void *p);
-extern s32 lbl_805D53A0;
+extern s32 local_client_id;
 void TWindowTimer__sub_8019A098(void);
 void rotate_vec_xz(void *, void *, s32);
 void TWindowTimer__sub_8019A44C(Win_8019A44C *arg0, s32 arg1);
 s32 obj_getField1c(void *);
-s32 TLobby__sub_8001E8FC();
+s32 get_time_of_day_seconds__6TLobbyFv();
 void update_best_time__12TWindowTimerFPv(void *arg0);
 void open__11TWindowCtrlFiii(s32, void *, int);
 void vec3_add_to(void *, void *);
 extern u8 lbl_8044613C[];
-extern s32 lbl_805D53A0;
+extern s32 local_client_id;
 void update_motion__12TWindowTimerFPv(Timer_80199F14 *self);
 s32 obj_getField1c(void *);
 void TWindowTimer__sub_8019A098(void);
@@ -1179,7 +1179,7 @@ void update_motion__12TWindowTimerFPv(Timer_80199F14 *self) {
     Vec_80199F14 q;
     Vec_80199F14 p;
     i = 0;
-    self->time = TLobby__sub_8001E8FC() % 2592;
+    self->time = get_time_of_day_seconds__6TLobbyFv() % 2592;
     if (self->time >= ((Tbl_80199F14 *)&lbl_8050DD58)->limit) {
         VecCopy__FP3VecPC3Vec(&p, &self->pos);
         p.y += ((Tbl_80199F14 *)&lbl_8050DD58)->yofs;
@@ -1189,7 +1189,7 @@ void update_motion__12TWindowTimerFPv(Timer_80199F14 *self) {
         queue_destruction__7TObjectFv(self);
         return;
     }
-    update_goal_checks__12TWindowTimerFPvUs((void *)(self), (u16)(lbl_805D53A0));
+    update_goal_checks__12TWindowTimerFPvUs((void *)(self), (u16)(local_client_id));
     update_best_time__12TWindowTimerFPv(self);
     if (self->pos.y <= (-5e+02f)) {
         queue_destruction__7TObjectFv(self);
@@ -1214,9 +1214,9 @@ void TWindowTimer__sub_8019A098(void) {
     f32 z;
     Player_8019A098 *p;
     TNpcPlayer__sub_80152E74(&pkt);
-    p = get_player_by_client_id(lbl_805D53A0);
+    p = get_player_by_client_id(local_client_id);
     if (p != 0) {
-        pkt.id = lbl_805D53A0;
+        pkt.id = local_client_id;
         calc_movement_target__10TObjPlayerFPviPvPv(p, p->area, &x, &z);
         pkt.x = x;
         pkt.z = z;

@@ -45,7 +45,7 @@ void set_page__26TWindowSubInformationBoardFPvi(void *arg0, s32 arg1) {
     }
 }
 
-extern s32 lbl_805D53A0;
+extern s32 local_client_id;
 
 typedef char RecoveredGlobal_8034CC68_lbl_80478C3C_size[sizeof(RecoveredGlobal_8034CC68_lbl_80478C3C) == 0xC ? 1 : -1];
 void set_message_index__26TWindowSubInformationBoardFPvi(u8 *arg0, s32 arg1) {
@@ -60,7 +60,7 @@ s32 open_keyboard__26TWindowSubInformationBoardFi(s32 arg0) {
 
     var_r31 = __nw__7TObjectFUl(0x2C);
     if (var_r31 != 0) {
-        var_r31 = TKeyBoardControl__ct(var_r31, arg0, 0xC6, 5, 4, lbl_805D53A0);
+        var_r31 = TKeyBoardControl__ct(var_r31, arg0, 0xC6, 5, 4, local_client_id);
     }
     get_keyboard_field_6c__15TWindowMakeTeamFPv(var_r31, get_card_window_field__6TLobbyFv());
     set_sub_position__15TWindowMakeTeamFPvPv(var_r31, get_window_layout_position((M2C_UNK)(0xBB)));

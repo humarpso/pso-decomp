@@ -92,7 +92,7 @@ void *TObjQuestColALock2__create(void *arg0) {
 }
 
 extern M2C_UNK lbl_8050E208[];
-extern s32 lbl_805D53A0;
+extern s32 local_client_id;
 
 typedef char RecoveredGlobal_801959A0_lbl_804A7428_size[sizeof(RecoveredGlobal_801959A0_lbl_804A7428) == 0x10 ? 1 : -1];
 typedef char RecoveredGlobal_801959A0_lbl_804A7438_size[sizeof(RecoveredGlobal_801959A0_lbl_804A7438) == 0x10 ? 1 : -1];
@@ -129,7 +129,7 @@ s32 TObjQuestColALock2__vt13(void *arg0) {
     s32 temp_r3;
     s32 temp_r3_2;
 
-    temp_r3 = get_player_by_client_id(lbl_805D53A0);
+    temp_r3 = get_player_by_client_id(local_client_id);
     if (temp_r3 != 0) {
         if (check_flag_100__10TObjPlayerFPv() != 0) {
             enable_action_input__10TObjPlayerFPv(temp_r3);

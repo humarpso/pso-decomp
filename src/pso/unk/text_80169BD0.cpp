@@ -59,7 +59,7 @@ u32 __ct__12TQuestThreadFv(int, void *, int);
 u32 __nw__7TObjectFUl(int);
 s32 all_parents_unqueued_for_destruction__7TObjectFv(void *);
 s32 set_parent__7TObjectFP7TObject(int, int);
-extern s32 lbl_805D53A0;
+extern s32 local_client_id;
 extern u32 quest_mission_manager;
 extern u32 quest_area_manager;
 extern s32 tl_00;
@@ -98,7 +98,7 @@ void run_script_object_task(u8 *arg0) {
         submit_cursor_candidate((void *) (arg0), (int) (-1));
         break;
     case 2:
-        if ((s32) M2C_FIELD(arg0, u16 *, 0x94) == (s32) lbl_805D53A0) {
+        if ((s32) M2C_FIELD(arg0, u16 *, 0x94) == (s32) local_client_id) {
             M2C_FIELD(arg0, s32 *, 0xAC) = 3;
             begin_conversation_camera();
             temp_r0_2 = M2C_FIELD(arg0, s32 *, 0xD4);
@@ -136,8 +136,8 @@ void run_script_object_task(u8 *arg0) {
             M2C_FIELD(arg0, s32 *, 0xAC) = 0;
             M2C_FIELD(arg0, u32 *, 0xDC) = 0U;
             end_conversation_camera();
-            if ((s32) M2C_FIELD(arg0, u16 *, 0x94) == (s32) lbl_805D53A0) {
-                temp_r3_6 = get_player_by_client_id((void *) (lbl_805D53A0));
+            if ((s32) M2C_FIELD(arg0, u16 *, 0x94) == (s32) local_client_id) {
+                temp_r3_6 = get_player_by_client_id((void *) (local_client_id));
                 if ((temp_r3_6 != 0) && (check_player_flag1__6TLobbyFPv() != 0)) {
                     send_code_45_1__10TObjPlayerFi((int) (temp_r3_6));
                 }

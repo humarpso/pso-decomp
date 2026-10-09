@@ -280,7 +280,7 @@ extern void *TRaderMapCore__data_805D5F40;
 void show_radar__13TRaderMapCoreFv(void);
 extern s32 TRaderMapCore__data_805D5F3C;
 s32 is_render_admitted_default__13TRaderMapCoreFPv(u8 *arg0);
-M2C_UNK TCameraCtrl__sub_8006AF9C(void *, int);
+M2C_UNK setup_default_view__11TCameraCtrlFPvPv(void *, int);
 M2C_UNK apply_distant_light__9TObjLightFv();
 M2C_UNK end_effect_render__13TParticleCtrlFv();
 M2C_UNK TCameraCtrl__sub_801E32D8(f32, f32);
@@ -454,7 +454,7 @@ s32 TLobby__sub_801C19D0(void *);
 s32 should_show_map__13TRaderMapCoreFv(void);
 void reset__13TRaderMapCoreFPv(void *);
 extern Vec4_801F9E9C radar_player_slot_color_table[];
-extern s32 lbl_805D53A0;
+extern s32 local_client_id;
 extern const f32 lbl_805DC560;
 extern const f32 lbl_805DC570;
 extern const f32 lbl_805DC578;
@@ -855,7 +855,7 @@ void gather_player_markers__13TRaderMapCoreFv(Core_801F9E9C *self) {
     team = 0;
     floor = get_current_floor();
     self->unk134 = -1;
-    p = (Player_801F9E9C *)get_player_by_client_id(lbl_805D53A0);
+    p = (Player_801F9E9C *)get_player_by_client_id(local_client_id);
     me = &self->e[0];
     if (p != NULL) {
         team = TLobby__sub_801C19D0(p->sub828);
@@ -863,7 +863,7 @@ void gather_player_markers__13TRaderMapCoreFv(Core_801F9E9C *self) {
             VecCopy__FP3VecPC3Vec(me, p->pos);
             me->y = lbl_805DC570;
             me->unkC = p->unk60;
-            me->id = lbl_805D53A0;
+            me->id = local_client_id;
             self->unk134 = 0;
             if (SHOW(self) != 0) {
                 if (team == 1) {
@@ -884,7 +884,7 @@ void gather_player_markers__13TRaderMapCoreFv(Core_801F9E9C *self) {
     }
     e = &self->e[1];
     for (i = 0; i < 4; i++) {
-        if (i == lbl_805D53A0) {
+        if (i == local_client_id) {
             continue;
         }
         if (SHOW(self) == 0) {
@@ -1010,14 +1010,14 @@ void draw_player_markers__13TRaderMapCoreFv(u8 *arg0) {
 
 void copy_transform__13TRaderMapCoreFPvPv(void* p, void* q) { *(f32*)((char*)p + 0x0) = *(f32*)((char*)q + 0x0); *(f32*)((char*)p + 0x4) = *(f32*)((char*)q + 0x4); *(f32*)((char*)p + 0x8) = *(f32*)((char*)q + 0x8); *(f32*)((char*)p + 0xc) = *(f32*)((char*)q + 0xc); *(f32*)((char*)p + 0x10) = *(f32*)((char*)q + 0x10); *(f32*)((char*)p + 0x14) = *(f32*)((char*)q + 0x14); *(u32*)((char*)p + 0x18) = *(u32*)((char*)q + 0x18); *(u32*)((char*)p + 0x1c) = *(u32*)((char*)q + 0x1c); *(f32*)((char*)p + 0x20) = *(f32*)((char*)q + 0x20); *(f32*)((char*)p + 0x24) = *(f32*)((char*)q + 0x24); }
 
-extern s32 lbl_805D53A0;
+extern s32 local_client_id;
 extern s32 lbl_805DC56C;
 
 typedef char RecoveredGlobal_801FA964_lbl_804C8784_size[sizeof(RecoveredGlobal_801FA964_lbl_804C8784) == 0x30 ? 1 : -1];
 void setup_view__13TRaderMapCoreFii(s32 arg0, s32 arg1) {
     GXSetScissorBoxOffset((int) (0), (int) (0));
     TCameraCtrl__sub_801E32D8((f32) (TRaderMapCore__data_805DC538), (f32) (TRaderMapCore__data_805DC53C));
-    TCameraCtrl__sub_8006AF9C((void *) (camera_ctrl_instance), (int) (0));
+    setup_default_view__11TCameraCtrlFPvPv((void *) (camera_ctrl_instance), (int) (0));
     set_view_scissor__13TRaderMapCoreFPviPv((void *)((void *) (arg0)), (int)((int) (0)), (void *)((void *) ((u8 *)&radar_map_view_scissor_table.value + (arg1 * 0x10))));
     apply_distant_light__9TObjLightFv();
     end_effect_render__13TParticleCtrlFv();
@@ -1254,7 +1254,7 @@ void update_pan_zoom_input__13TRaderMapCoreFPv(u8 *arg0) {
 void update_target__13TRaderMapCoreFPv(void *arg0) {
     u32 temp_r3;
 
-    temp_r3 = get_player_by_client_id(lbl_805D53A0);
+    temp_r3 = get_player_by_client_id(local_client_id);
     if (temp_r3 != 0U) {
         M2C_FIELD(arg0, u32 *, 0x184) = temp_r3;
     }

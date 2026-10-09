@@ -12,13 +12,13 @@ M2C_UNK export_state_to_record__10TObjPlayerFPvPv(u32, s32);
 M2C_UNK create__13TPlyOnCreatedFPvPv(u16, M2C_UNK *);
 
 int fn_802C4748(void* p);
-extern s32 lbl_805D53A0;
+extern s32 local_client_id;
 
 s32 sync_state__10TObjPlayerFi(s32 arg0) {
     u32 temp_r3;
     temp_r3 = update_battle_controller__10TObjPlayerFv();
     if (temp_r3 == 0U) {
-        create__13TPlyOnCreatedFPvPv((u16) lbl_805D53A0, (M2C_UNK *)fn_802C4748);
+        create__13TPlyOnCreatedFPvPv((u16) local_client_id, (M2C_UNK *)fn_802C4748);
         return 0;
     }
     export_state_to_record__10TObjPlayerFPvPv(temp_r3, arg0);

@@ -54,12 +54,12 @@ void init_params__12TOChatSensorFPv(void *arg0);
 f32 horizontal_distance_squared(void *, void *);
 u32 get_player_by_client_id(void *);
 
-extern s32 lbl_805D53A0;
+extern s32 local_client_id;
 
 void check_player_proximity__12TOChatSensorFPv(u8 *arg0) {
     u32 temp_r3;
 
-    temp_r3 = get_player_by_client_id((void *) (lbl_805D53A0));
+    temp_r3 = get_player_by_client_id((void *) (local_client_id));
     if (temp_r3 != 0U) {
         if (horizontal_distance_squared((void *) (temp_r3 + 0x38), (void *) (arg0 + 0x38)) < M2C_FIELD(arg0, f32 *, 0x9C)) {
             M2C_FIELD(arg0, s32 *, 0xA0) = 1;

@@ -12,7 +12,7 @@ extern "C" {
 M2C_UNK queue_destruction__7TObjectFv(void *);
 u8 *get_player_by_client_id(s32);
 M2C_UNK init_music_sequencer(int);
-extern s32 lbl_805D53A0;
+extern s32 local_client_id;
 extern const f32 lbl_805D86F8;
 void TBoss3VoloptCtrl__sub_80040B80(s32 arg0);
 s32 get_main_phase(void);
@@ -31,7 +31,7 @@ M2C_UNK freeze_all_players__10TObjPlayerFv();
 M2C_UNK play_area_music(void *);
 u8 *__nw__7TObjectFUl(M2C_UNK);
 extern RecoveredGlobal_80040D70_lbl_8043636C lbl_8043636C;
-extern s32 lbl_805D4C2C;
+extern s32 volopt_resources_loaded;
 }
 
 extern "C" {
@@ -62,7 +62,7 @@ extern void *lbl_805D2730;
 extern "C" {
 void TBoss3VoloptCtrl__sub_80040B80(s32 arg0) {
     u8 *temp_r3;
-    temp_r3 = (u8 *)(get_player_by_client_id(lbl_805D53A0));
+    temp_r3 = (u8 *)(get_player_by_client_id(local_client_id));
     if ((temp_r3 != NULL) && (M2C_FIELD(temp_r3, f32 *, 0x40) >= lbl_805D86F8)) {
         init_music_sequencer((int) (3));
         queue_destruction__7TObjectFv((void *) (arg0));
@@ -129,7 +129,7 @@ void TBoss3VoloptCtrl::run_task() {
         break;
     case 1:
         if ((s32) countdown <= 0) {
-            if ((s32) lbl_805D4C2C == 0) {
+            if ((s32) volopt_resources_loaded == 0) {
                 TBoss3Volopt__sub_8003EA2C((int) (1));
                 activate_camera_mode(9);
                 freeze_all_players__10TObjPlayerFv();

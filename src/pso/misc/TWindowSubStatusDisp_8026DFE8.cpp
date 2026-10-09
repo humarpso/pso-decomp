@@ -27,7 +27,7 @@ void render_item_list_window(u8 *arg0);
 u8 * fn_80268384(void *, s32, s32, s16, s32);
 M2C_UNK TWindowShop__ct(void *, void *);
 extern M2C_UNK lbl_804D0948[];
-extern s32 lbl_805D53A0;
+extern s32 local_client_id;
 u8 *ct_helper__20TWindowSubStatusDispFPviiii(u8 *arg0, s32 arg1, s32 arg2, s32 arg3, s32 arg4);
 u8 * get_window_layout_position(s32);
 M2C_UNK fn_802683F4(void *, int, void *, void *);
@@ -87,7 +87,7 @@ void *deleting_dtor__20TWindowSubStatusDispFPvs(void *arg0, s16 arg1) {
 }
 typedef char RecoveredGlobal_8026E110_lbl_804D0948_size[sizeof(RecoveredGlobal_8026E110_lbl_804D0948) == 0x20 ? 1 : -1];
 u8 *ct_helper__20TWindowSubStatusDispFPviiii(u8 *arg0, s32 arg1, s32 arg2, s32 arg3, s32 arg4) {
-    fn_80268384(arg0, arg1, arg3, (s16) lbl_805D53A0, arg4);
+    fn_80268384(arg0, arg1, arg3, (s16) local_client_id, arg4);
     M2C_FIELD(arg0, M2C_UNK **, 0x18) = &(*(RecoveredGlobal_8026E110_lbl_804D0948 *)&lbl_804D0948).value;
     TWindowShop__ct((void *) (arg0), (void *) (arg2));
     return arg0;

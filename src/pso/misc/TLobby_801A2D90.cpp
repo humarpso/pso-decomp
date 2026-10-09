@@ -14,7 +14,7 @@ s32 TAdMultiPlyChrSelectGC__sub_802C64D0(s32);
 M2C_UNK create_player_object(s32, s32, u32);
 u32 get_char_index__23TAdSinglePlyChrSelectGCFUi(s32);
 s32 is_split_screen();
-extern s32 lbl_805D53A0;
+extern s32 local_client_id;
 extern s32 lbl_805D53A8;
 void apply_char_to_players__6TLobbyFv(void);
 M2C_UNK reset_quest_result_callbacks__22THunterGuildSeqOfflineFPv();
@@ -96,7 +96,7 @@ void apply_char_to_players__6TLobbyFv(void) {
         } while (var_r31 < 4);
         return;
     }
-    temp_r3_2 = get_char_index__23TAdSinglePlyChrSelectGCFUi(lbl_805D53A0);
+    temp_r3_2 = get_char_index__23TAdSinglePlyChrSelectGCFUi(local_client_id);
     if (temp_r3_2 != 0U) {
         create_player_object(0, lbl_805D53A8, temp_r3_2);
     }

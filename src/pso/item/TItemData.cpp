@@ -106,7 +106,7 @@ s32 is_boss_area();
 s32 reset_key_machine_state__10TObjPlayerFv();
 void *calc_technique_parameters(u8, u8, s32);
 s32 is_challenge_mode_active();
-extern s32 lbl_805D53A0;
+extern s32 local_client_id;
 s32 calc_action_flags__9TItemDataFv(u8 *item, s32 mask, u8 *player);
 void add_accuracy__9TItemDataFPvi(void *arg0, s32 arg1);
 void add_s16__9TItemDataFPvi(s16 *arg0, s32 arg1);
@@ -1129,8 +1129,8 @@ s32 calc_action_flags__9TItemDataFv(u8 *item, s32 mask, u8 *player) {
   result = 0;
   if (player == 0)
   {
-    player = (u8 *) get_player_by_client_id(lbl_805D53A0);
-    id = (u16) lbl_805D53A0;
+    player = (u8 *) get_player_by_client_id(local_client_id);
+    id = (u16) local_client_id;
   }
   else
   {
@@ -1368,7 +1368,7 @@ void serialize_mag__9TItemDataFPvPv(Item_8010D510 *item, const Mag_8010D510 *mag
 
 void bswap_fields__9TItemDataFPv(void* p) { bswap_16__FPUs((void*)((char*)p + 0x4)); bswap_16__FPUs((void*)((char*)p + 0x6)); bswap_16__FPUs((void*)((char*)p + 0x8)); bswap_16__FPUs((void*)((char*)p + 0xa)); }
 
-extern s32 lbl_805D53A0;
+extern s32 local_client_id;
 
 void deserialize_mag__9TItemDataFPvPv(Raw_8010D614 *src, Mag_8010D614 *dst) {
     if (dst != 0) {
@@ -1610,7 +1610,7 @@ void apply_equip_effects__9TItemDataFPviiiii(void *arg0, s32 arg1, s32 arg2, s32
     u8 temp_r0;
     u8 temp_r0_2;
 
-    if ((arg1 != 0) || (arg1 = get_player_by_client_id(lbl_805D53A0), ((arg1 == 0) == 0))) {
+    if ((arg1 != 0) || (arg1 = get_player_by_client_id(local_client_id), ((arg1 == 0) == 0))) {
         get_set_bonus_multiplier__9TItemDataFPvi((void *)(arg0), (s32)(arg1));
         calc_clock_bonus__9TItemDataFPv(arg0, arg1);
         temp_r0 = M2C_FIELD(arg0, u8 *, 0);

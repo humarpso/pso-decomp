@@ -23,7 +23,7 @@ int get_bml_model(void*, void*);
     extern int TObjWarpJung__beam_bml_resource;
 void render_warp__12TObjWarpJungFPv(void* a0) { get_bml_model((void*)(TObjWarpJung__beam_bml_resource), a0); draw_ginja_object(); }
 
-extern s32 lbl_805D53A4;
+extern s32 actor_frame_tick;
 extern s32 lbl_805D5CB4;
 extern s32 warp_jung_beam_mesh_node;
 extern s32 lbl_805D5CC4;
@@ -50,8 +50,8 @@ s32 TObjWarpJung__sub_801A0404(s32 arg0) {
 }
 
 s32 update_warp_display__12TObjWarpJungFv(void) {
-    if ((s32) lbl_805D53A4 != (s32) lbl_805D5CB4) {
-        lbl_805D5CB4 = lbl_805D53A4;
+    if ((s32) actor_frame_tick != (s32) lbl_805D5CB4) {
+        lbl_805D5CB4 = actor_frame_tick;
         if ((s32) lbl_805D5CC4 >= 0) {
             scroll_ginja_mesh_uvs(warp_jung_beam_mesh_node, 0, 5, (u16) lbl_805D5CC4, 1);
             return 1;

@@ -92,7 +92,7 @@ extern const f32 lbl_805DE988;
 extern const f32 lbl_805DE98C;
 extern V2_802E5B0C lbl_80472C00[];
 extern u8 lbl_8050E208[];
-extern s32 lbl_805D53A0;
+extern s32 local_client_id;
 extern s32 lbl_805D3FA0;
 extern M2C_UNK __vt__23TObjOnlineEndingHexMove[];
 
@@ -460,7 +460,7 @@ void TObjOnlineEndingHexMove::run_task() {
         pad = lbl_8050E208 + 0x20;
         if (is_on_current_screen__11TCameraCtrlFPv(pad, 0x30000) != 0) {
             TAdGameStartGC__sub_802E6368(&pkt);
-            pkt.idx = lbl_805D53A0 % 4;
+            pkt.idx = local_client_id % 4;
             switch (pkt.idx) {
             case 0:
             case 1:

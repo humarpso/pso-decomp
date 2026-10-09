@@ -29,8 +29,8 @@ M2C_UNK setup__13TObjTombstoneFPvii(void *, s32, s32);
 extern M2C_UNK __vt__13TObjTombstone[];
 extern s32 lbl_805D289C;
 extern u32 TObjTombstone__data_805D4E48;
-extern s32 lbl_805D53A0;
-extern s32 TLobby__data_805D53AC;
+extern s32 local_client_id;
+extern s32 TLobby__designated_client_id;
 
 void *init__13TObjTombstoneFPviii(void *arg0, s32 arg1, s32 arg2, s32 arg3) {
     construct_collider_proxy__10TObjPlayerFPv();
@@ -42,7 +42,7 @@ void *init__13TObjTombstoneFPviii(void *arg0, s32 arg1, s32 arg2, s32 arg3) {
     setup__13TObjTombstoneFPvii(arg0, arg2, arg3);
     init_parts__13TObjTombstoneFPv(arg0);
     M2C_FIELD(arg0, s32 *, 0x234) = 0;
-    if ((s32) lbl_805D53A0 != (s32) TLobby__data_805D53AC) {
+    if ((s32) local_client_id != (s32) TLobby__designated_client_id) {
         M2C_FIELD(arg0, s32 *, 0x234) = 1;
     }
     return arg0;

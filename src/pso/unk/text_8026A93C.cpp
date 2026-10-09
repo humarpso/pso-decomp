@@ -18,7 +18,7 @@ M2C_UNK append_line__17TWindowMessageLogFPvi(u32, s32);
 M2C_UNK cache_last_chat_line(M2C_UNK *);
 M2C_UNK chat_log_add_line();
 u32 get_field44__11TWindowCtrlFv();
-extern s32 lbl_805D53A0;
+extern s32 local_client_id;
 extern M2C_UNK lbl_805DD250;
 void post_chat_log_message(u16 arg0, M2C_UNK *arg1);
 }
@@ -28,7 +28,7 @@ extern "C" {
 void post_chat_log_message(u16 arg0, M2C_UNK *arg1) {
     s32 temp_r30;
     M2C_UNK *temp_r31;
-    if ((s32) arg0 == (s32) lbl_805D53A0) {
+    if ((s32) arg0 == (s32) local_client_id) {
         cache_last_chat_line(arg1);
     }
     temp_r31 = get_active_photon_object__17TWindowMessageLogFv(arg0);

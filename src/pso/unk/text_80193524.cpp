@@ -293,7 +293,7 @@ M2C_UNK begin_effect_render__13TParticleCtrlFv();
 M2C_UNK end_effect_render__13TParticleCtrlFv();
 void pop_matrix(void);
 extern u8 *lbl_805D5C38;
-extern u32 lbl_805D53A4;
+extern u32 actor_frame_tick;
 extern s32 some_id_805c6f74;
 extern const f32 lbl_805DBE78;
 extern s32 TLazerFenceSw__data_805D5C34;
@@ -305,8 +305,8 @@ void draw_laser_beam__13TLazerFenceSwFv(void *arg0) {
         free_children__12TObjDoorJungFPvPv(lbl_8050DCF8[i], self->fE8);
     }
     set_global_param__8TObjFishFi(TLazerFenceSw__data_805D5C34);
-    if (lbl_805D53A4 != self->f114 && self->f110 >= lbl_805DBE78) {
-        self->f114 = lbl_805D53A4;
+    if (actor_frame_tick != self->f114 && self->f110 >= lbl_805DBE78) {
+        self->f114 = actor_frame_tick;
         scroll_ginja_mesh_uvs(*(u32 *)(lbl_805D5C38 + 4), 0, (s32)self->f110, 5, 1);
         PPCSync();
         self->f110 = self->f110 - (f32)(s32)self->f110;

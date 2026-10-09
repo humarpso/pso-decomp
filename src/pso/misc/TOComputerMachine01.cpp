@@ -64,7 +64,7 @@ M2C_UNK post_translate_matrix(void *);
 M2C_UNK set_global_param__8TObjFishFi(int);
 M2C_UNK draw_ginja_model(void *);
 extern RecoveredGlobal_8015B350_TOComputerMachine01__data_8050DB50 TOComputerMachine01__scroll_mesh_ptrs;
-extern s32 lbl_805D53A4;
+extern s32 actor_frame_tick;
 extern s32 TOComputerMachine01__data_805D58E4;
 void render__19TOComputerMachine01Fv(u8 *arg0);
 s32 reset_photon_effect__10TObjPlayerFPv(void *);
@@ -112,8 +112,8 @@ void render__19TOComputerMachine01Fv(u8 *arg0) {
     u8 *temp_r31_4;
     M2C_FIELD(arg0, s32 *, 0xE0) = ((VObj_18_26a62c *)(arg0))->m8(M2C_FIELD(arg0, f32 *, 0xC0), M2C_FIELD(arg0, f32 *, 0xC4));
     if ((s32) M2C_FIELD(arg0, s32 *, 0xE0) == 1) {
-        if ((s32) TOComputerMachine01__data_805D58E4 != (s32) lbl_805D53A4) {
-            TOComputerMachine01__data_805D58E4 = lbl_805D53A4;
+        if ((s32) TOComputerMachine01__data_805D58E4 != (s32) actor_frame_tick) {
+            TOComputerMachine01__data_805D58E4 = actor_frame_tick;
             scroll_ginja_mesh_uvs((int) (M2C_FIELD(&TOComputerMachine01__scroll_mesh_ptrs.value, s32 *, 0)), (int) (0), (int) (2), (int) (7), (int) (1));
             scroll_ginja_mesh_uvs((int) (M2C_FIELD(&TOComputerMachine01__scroll_mesh_ptrs.value, s32 *, 4)), (int) (0), (int) (-2), (int) (7), (int) (1));
             scroll_ginja_mesh_uvs((int) (M2C_FIELD(&TOComputerMachine01__scroll_mesh_ptrs.value, s32 *, 8)), (int) (0), (int) (1), (int) (7), (int) (1));

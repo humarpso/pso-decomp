@@ -21,13 +21,13 @@ short get_screen_width__11TCameraCtrlFv(void) {  return TCameraCtrl__data_805D4D
     extern short TCameraCtrl__data_805D4DFA;
 short get_screen_height__11TCameraCtrlFv(void) {  return TCameraCtrl__data_805D4DFA; }
 
-extern s32 lbl_805D53A0;
+extern s32 local_client_id;
 
 s32 should_update__11TCameraCtrlFv(void) {
     s32 temp_r3;
 
     if (is_split_screen() == 0) {
-        if ((get_player_by_client_id(lbl_805D53A0) == 0U) || (check_player_state_flag_2__6TLobbyFPv() != 0)) {
+        if ((get_player_by_client_id(local_client_id) == 0U) || (check_player_state_flag_2__6TLobbyFPv() != 0)) {
             return 0;
         }
         if (is_quest_active() == 0) {

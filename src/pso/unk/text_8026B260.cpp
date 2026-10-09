@@ -12,7 +12,7 @@ extern "C" {
 s32 TWindowMessage__ct(void *, void *, int, void *);
 extern RecoveredGlobal_8026B260___vt__19TWindowMessageQuest __vt__19TWindowMessageQuest;
 extern s32 lbl_805D39A0;
-extern s32 lbl_805D53A0;
+extern s32 local_client_id;
 u8 *TWindowMessageQuest__ct(u8 *arg0, s32 arg1);
 }
 
@@ -20,7 +20,7 @@ extern "C" {
 
 typedef char RecoveredGlobal_8026B260___vt__19TWindowMessageQuest_size[sizeof(RecoveredGlobal_8026B260___vt__19TWindowMessageQuest) == 0x18 ? 1 : -1];
 u8 *TWindowMessageQuest__ct(u8 *arg0, s32 arg1) {
-    TWindowMessage__ct((void *) (arg0), (void *) (arg1), (int) (1), (void *) (lbl_805D53A0));
+    TWindowMessage__ct((void *) (arg0), (void *) (arg1), (int) (1), (void *) (local_client_id));
     M2C_FIELD(arg0, M2C_UNK **, 0x18) = &__vt__19TWindowMessageQuest.value;
     M2C_FIELD(arg0, s32 *, 0) = (s32) lbl_805D39A0;
     M2C_FIELD(arg0, s32 *, 0x90) = 0;

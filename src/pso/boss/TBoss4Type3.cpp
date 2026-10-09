@@ -201,7 +201,7 @@ f32 cos_table_lookup(s32);
 f32 vector_length(void *);
 M2C_UNK normalize_vector(void *);
 extern const f64 TBoss4Type2__data_80437750;
-extern s32 lbl_80486904[];
+extern s32 boss4_type2_attack_pattern_table[];
 extern s32 game_difficulty_selection;
 extern const f32 TBoss4Type2__data_805D8BAC;
 extern const f32 lbl_805D8BB4;
@@ -838,13 +838,13 @@ extern RecoveredGlobal_80059450_lbl_80437860 lbl_80437860;
 extern RecoveredGlobal_80059450_lbl_8043786C lbl_8043786C;
 extern RecoveredGlobal_80059450_lbl_80437878 lbl_80437878;
 extern const f64 lbl_80437890[];
-extern Ofs_8005683C lbl_804868EC[];
+extern Ofs_8005683C bishi_spawn_offset_table[];
 extern u8 lbl_80486924[];
 extern void *lbl_805D27DC;
 extern s32 lbl_805D27E0;
 extern s32 lbl_805D4D80;
 extern u8 lbl_805D4D84;
-extern s32 lbl_805D53A0;
+extern s32 local_client_id;
 extern s32 game_difficulty_selection;
 extern s32 lbl_805D586C;
 extern "C" {
@@ -1120,10 +1120,10 @@ void *lbl_80486F84[11] = {
 void *lbl_80486FB0[3] = {
     (void *)0xc, (void *)0xd, (void *)0xd,
 };
-void *lbl_80486FBC[3] = {
+void *boss4_type3_index_table[3] = {
     (void *)0xe, (void *)0xf, (void *)0xf,
 };
-void *TBoss4Type3__data_80486FC8[50] = {
+void *TBoss4Type3__anim_state_table[50] = {
     (void *)0x0, (void *)0x0, (void *)0x53, (void *)0x54,
     (void *)0x55, (void *)0x0, (void *)0x0, (void *)0x34,
     (void *)0x35, (void *)0x36, (void *)0x0, (void *)0x0,
@@ -1164,7 +1164,7 @@ __declspec(section ".data") void *lbl_80487148[2] = {
 void *lbl_80487150[3] = {
     (void *)0x0, (void *)0x0, (void *)0x0,
 };
-void *lbl_8048715C[3] = {
+void *boss4_type3_default_position[3] = {
     (void *)0x461c4000, (void *)0xc1200000, (void *)0x0,
 };
 void *lbl_80487168[3] = {
@@ -1197,10 +1197,10 @@ void *lbl_80487184[83] = {
     (void *)&apply_hit_message_flags__10TObjPlayerFPvPv, (void *)&TObjPlayer__sub_800F698C, (void *)&clear_lobby_object_state,
 };
 #define lbl_80486FB0 ((u8 *)lbl_80486FB0)
-#define lbl_80486FBC ((u8 *)lbl_80486FBC)
-#define TBoss4Type3__data_80486FC8 (*(RecoveredGlobal_8005A678_TBoss4Type3__data_80486FC8 *)TBoss4Type3__data_80486FC8)
+#define boss4_type3_index_table ((u8 *)boss4_type3_index_table)
+#define TBoss4Type3__anim_state_table (*(RecoveredGlobal_8005A678_TBoss4Type3__data_80486FC8 *)TBoss4Type3__anim_state_table)
 #define lbl_80487150 ((u8 *)lbl_80487150)
-#define lbl_8048715C (*(Vec_80059C20 *)lbl_8048715C)
+#define boss4_type3_default_position (*(Vec_80059C20 *)boss4_type3_default_position)
 #define lbl_80487168 (*(Vec_80059C20 *)lbl_80487168)
 #define lbl_80487174 ((u32 *)lbl_80487174)
 #define lbl_80487184 ((u8 *)lbl_80487184)
@@ -1799,7 +1799,7 @@ void update_target_effect_timer__11TBoss4Type3FPv(void *arg0) {
         if (M2C_FIELD(arg0, u16 *, 0x3BA) == 0xFFFF) {
             var_r30 = 0;
         }
-    } else if ((s32) M2C_FIELD(arg0, u16 *, 0x3BA) != (s32) lbl_805D53A0) {
+    } else if ((s32) M2C_FIELD(arg0, u16 *, 0x3BA) != (s32) local_client_id) {
         var_r30 = 0;
     }
     if (var_r30 == 0) {
@@ -1956,14 +1956,14 @@ void interp_position_between_nodes__11TBoss4Type3FPv(u8 *arg0) {
         id = ids[i];
         switch (id) {
         case 16:
-            ((void (*)(void *, void *))VecCopy__FP3VecPC3Vec)(&pts[i], &lbl_8048715C);
+            ((void (*)(void *, void *))VecCopy__FP3VecPC3Vec)(&pts[i], &boss4_type3_default_position);
             break;
         case 17:
             ((void (*)(void *, void *))VecCopy__FP3VecPC3Vec)(&pts[i], &lbl_80487168);
             break;
         default:
             p = &pts[i];
-            ((void (*)(void *, void *))VecCopy__FP3VecPC3Vec)(p, &lbl_8048715C);
+            ((void (*)(void *, void *))VecCopy__FP3VecPC3Vec)(p, &boss4_type3_default_position);
             id <<= 12;
             p->x += lbl_805D8C84 * sin_table_lookup(id);
             p->z += lbl_805D8C88 * cos_table_lookup(id);
@@ -2135,7 +2135,7 @@ void TBoss4Type3__sub_8005A438(Obj_8005A438 *self) {
     Pair_8005A438 *pb = &b;
     a.p = lbl_80486FB0;
     a.f = self->f3b0;
-    b.p = lbl_80486FBC;
+    b.p = boss4_type3_index_table;
     b.f = TBoss4Type3__data_805D8C34 - a.f;
     if (a.f < lbl_805D8C3C) {
         tmp.p = lbl_80486FB0;
@@ -2153,7 +2153,7 @@ void set_anim_state__11TBoss4Type3FPvi(u8 *arg0, s32 arg1) {
     if (arg1 != -1) {
         M2C_FIELD(arg0, s32 *, 0x3F0) = arg1;
         M2C_FIELD(arg0, f32 *, 0x3F4) = (f32) TBoss4Type3__data_805D8C40;
-        M2C_FIELD(arg0, s32 *, 0x400) = (s32) M2C_FIELD(((u8 *)(&TBoss4Type3__data_80486FC8.value) + (arg1 * 0x14)), s32 *, 0);
+        M2C_FIELD(arg0, s32 *, 0x400) = (s32) M2C_FIELD(((u8 *)(&TBoss4Type3__anim_state_table.value) + (arg1 * 0x14)), s32 *, 0);
     }
 }
 
@@ -2182,8 +2182,8 @@ void update_phase_timer__11TBoss4Type3FPv(u8 *arg0) {
         break;
     case 2:
         if (M2C_FIELD(arg0, f32 *, 0x3F4) >= lbl_805D8CA0) {
-            M2C_FIELD(arg0, s32 *, 0x3F0) = (s32) M2C_FIELD(((u8 *)&(*(RecoveredGlobal_8005A6A4_TBoss4Type3__data_80486FC8 *)&TBoss4Type3__data_80486FC8).value + (M2C_FIELD(arg0, s32 *, 0x3F0) * 0x14)), s32 *, 4);
-            M2C_FIELD(arg0, s32 *, 0x400) = (s32) M2C_FIELD(&(*(RecoveredGlobal_8005A6A4_TBoss4Type3__data_80486FC8 *)&TBoss4Type3__data_80486FC8).value, M2C_UNK *, (M2C_FIELD(arg0, s32 *, 0x3F0) * 0x14));
+            M2C_FIELD(arg0, s32 *, 0x3F0) = (s32) M2C_FIELD(((u8 *)&(*(RecoveredGlobal_8005A6A4_TBoss4Type3__data_80486FC8 *)&TBoss4Type3__anim_state_table).value + (M2C_FIELD(arg0, s32 *, 0x3F0) * 0x14)), s32 *, 4);
+            M2C_FIELD(arg0, s32 *, 0x400) = (s32) M2C_FIELD(&(*(RecoveredGlobal_8005A6A4_TBoss4Type3__data_80486FC8 *)&TBoss4Type3__anim_state_table).value, M2C_UNK *, (M2C_FIELD(arg0, s32 *, 0x3F0) * 0x14));
             M2C_FIELD(arg0, f32 *, 0x3F4) = (f32) TBoss4Type3__data_805D8C40;
             M2C_FIELD(arg0, s32 *, 0x3FC) = 1;
         }
@@ -2318,14 +2318,14 @@ Self_8005AE60 *TBoss4Type3__ct(Self_8005AE60 *self, s32 arg1, s32 *arg2) {
         p = init_trail_buffer__11TBoss4Type3FPvifff((void *)p, 2, lbl_805D8C58, lbl_805D8C5C, lbl_805D8CAC);
     }
     *(s32 *)((u8 *)self + 0x51C) = p;
-    draw_trail_with_colors(*(s32 *)((u8 *)self + 0x51C), model, get_bml_motion(self->f390, ((s32 *)&TBoss4Type3__data_80486FC8)[0x44 / 4]), 0x16, 0x17);
+    draw_trail_with_colors(*(s32 *)((u8 *)self + 0x51C), model, get_bml_motion(self->f390, ((s32 *)&TBoss4Type3__anim_state_table)[0x44 / 4]), 0x16, 0x17);
     *(s32 *)((u8 *)self + 0x524) = create__12TObjEneSaverFPvPv(0xA0303030, 0xFFFF0088);
     p = (s32)alloc__23TAdSinglePlyChrSelectGCFPv(0x18);
     if (p != 0) {
         p = init_trail_buffer__11TBoss4Type3FPvifff((void *)p, 2, lbl_805D8C58, lbl_805D8C5C, lbl_805D8CAC);
     }
     *(s32 *)((u8 *)self + 0x520) = p;
-    draw_trail_with_colors(*(s32 *)((u8 *)self + 0x520), model, get_bml_motion(self->f390, ((s32 *)&TBoss4Type3__data_80486FC8)[0x58 / 4]), 9, 10);
+    draw_trail_with_colors(*(s32 *)((u8 *)self + 0x520), model, get_bml_motion(self->f390, ((s32 *)&TBoss4Type3__anim_state_table)[0x58 / 4]), 9, 10);
     *(s32 *)((u8 *)self + 0x528) = create__12TObjEneSaverFPvPv(0xA0303030, 0xFFFF0088);
     clear_global_state__10TObjPlayerFv();
     create_particle_emitters__11TBoss4Type3FPv((Obj_8005A300 *)self);

@@ -69,7 +69,7 @@ M2C_UNK TWindowSubComCardList__sub_80275360(void *);
 f32 round_away_from_zero__20TWindowSubStatusDispFf(f32);
 extern M2C_UNK __vt__21TWindowSubComCardList[];
 extern s32 lbl_805D3A18;
-extern s32 lbl_805D53A0;
+extern s32 local_client_id;
 extern const f32 lbl_805DD540;
 extern const f32 lbl_805DD544;
 extern const f32 lbl_805DD548;
@@ -86,7 +86,7 @@ M2C_UNK TWindowSubComCardList__sub_80275360(void *);
 f32 round_away_from_zero__20TWindowSubStatusDispFf(f32);
 extern M2C_UNK __vt__21TWindowSubComCardList[];
 extern s32 lbl_805D3A18;
-extern s32 lbl_805D53A0;
+extern s32 local_client_id;
 extern const f32 lbl_805DD540;
 extern const f32 lbl_805DD544;
 extern const f32 lbl_805DD548;
@@ -180,7 +180,7 @@ u8 *TWindowSubComCardList__ct(u8 *arg0, void *arg1) {
     }
     list = alloc__23TAdSinglePlyChrSelectGCFPv(0xC);
     if (list != NULL) {
-        list = init__21TWindowSubComCardListFPviii(list, 0, n, lbl_805D53A0);
+        list = init__21TWindowSubComCardListFPviii(list, 0, n, local_client_id);
     }
     *(void **)(arg0 + 0x8C) = list;
     *(s32 *)(arg0 + 0x90) = 0;
@@ -207,7 +207,7 @@ u8 *TWindowSubComCardList__sub_802757AC(u8 *arg0, void *arg1, s32 arg2, s32 arg3
     }
     list = alloc__23TAdSinglePlyChrSelectGCFPv(0xC);
     if (list != NULL) {
-        list = init__21TWindowSubComCardListFPviii(list, 0, n, lbl_805D53A0);
+        list = init__21TWindowSubComCardListFPviii(list, 0, n, local_client_id);
     }
     *(void **)(arg0 + 0x8C) = list;
     *(s32 *)(arg0 + 0x90) = arg2;
