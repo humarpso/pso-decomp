@@ -278,6 +278,7 @@ force_active:
   - __dt__14TEnemyTaskListFv
   - __dt__14TFontSmallTaskFv
   - __dt__14TItemEffHeavenFv
+  - __dt__14TItemEffNeedleFv
   - __dt__14TItemEffShieldFv
   - __dt__14TSetEvtDestroyFv
   - __dt__14TSlicerHistoryFv

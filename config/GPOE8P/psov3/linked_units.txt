@@ -525,6 +525,7 @@ pso/item/TItemEffFlame.cpp
 pso/item/TItemEffHeaven.cpp
 pso/item/TItemEffLandHit.cpp
 pso/item/TItemEffLavis.cpp
+pso/item/TItemEffNeedle.cpp
 pso/item/TItemEffNeedleBase_80109D48.cpp
 pso/item/TItemEffNeedlePos_801097F0.cpp
 pso/item/TItemEffNeedle_80109B5C.cpp
@@ -870,9 +871,6 @@ pso/misc/THunterGuildSeqOffline_802126C4.cpp
 pso/misc/THunterGuildSeqOffline_8021277C.cpp
 pso/misc/THunterGuildSeqOffline_8021282C.cpp
 pso/misc/THunterGuildSeqOffline_80213788.cpp
-pso/misc/THunterGuildSeqOffline_80213E38.cpp
-pso/misc/THunterGuildSeqOffline_80213EBC.cpp
-pso/misc/THunterGuildSeqOffline_80213F78.cpp
 pso/misc/THunterGuildWarning.cpp
 pso/misc/THunterGuildWarning_80211648.cpp
 pso/misc/THunterGuildWarning_80211690.cpp
@@ -1557,8 +1555,6 @@ pso/misc/TShopJudgmentItemWindow.cpp
 pso/misc/TShopJudgmentItemWindow_8026DF00.cpp
 pso/misc/TShopSequence.cpp
 pso/misc/TShopWindowBase.cpp
-pso/misc/TShopWindowBase_80213FD0.cpp
-pso/misc/TShopWindowBase_802143AC.cpp
 pso/misc/TShopWindowBase_80217454.cpp
 pso/misc/TSlicerHistory.cpp
 pso/misc/TSlicerHistory_8023B220.cpp
@@ -3432,9 +3428,6 @@ pso/unk/text_8020ED44.cpp
 pso/unk/text_8020EE2C.cpp
 pso/unk/text_8020EEFC.cpp
 pso/unk/text_80211D58.cpp
-pso/unk/text_80214058.cpp
-pso/unk/text_80214104.cpp
-pso/unk/text_80214254.cpp
 pso/unk/text_80215FAC.cpp
 pso/unk/text_80219F64.cpp
 pso/unk/text_80222BCC.cpp
