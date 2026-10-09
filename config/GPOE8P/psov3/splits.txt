@@ -1849,7 +1849,7 @@ pso/player/TObjPlayer_800C4714.cpp:
 	.rodata     start:0x8043BC10 end:0x8043BC48
 	.data       start:0x804933D8 end:0x80493438
 	.sdata      start:0x805D2A50 end:0x805D2A54
-	.sdata2     start:0x805DA004 end:0x805DA020
+	.sdata2     start:0x805DA000 end:0x805DA020
 
 pso/enemy/TObjEneRe2Flower_800C4B78.cpp:
 	.text       start:0x800C4B78 end:0x800C4E08
@@ -2090,7 +2090,7 @@ pso/player/TObjPlayer_800EBE2C.cpp:
 pso/enemy/TObjEneSlimeOne_800EC394.cpp:
 	.text       start:0x800EC394 end:0x800ECA40
 	.rodata     start:0x8043D2A8 end:0x8043D2B0
-	.data       start:0x80496C50 end:0x80496C68
+	.data       start:0x80496C50 end:0x80496CD0
 
 pso/enemy/TObjEneRe4Bit.cpp:
 	.text       start:0x800ECA40 end:0x800EDCCC
@@ -4683,7 +4683,7 @@ pso/misc/TMainCursor_8013B524.cpp:
 
 pso/misc/TMainCursor_8013B690.cpp:
 	.text       start:0x8013B690 end:0x8013BBCC
-	.data       start:0x804A71DC end:0x804A71FC
+	.data       start:0x804A7130 end:0x804A71FC
 
 pso/misc/TMainCursor.cpp:
 	.text       start:0x8013BBCC end:0x8013BEB8
@@ -6064,7 +6064,7 @@ pso/unk/text_80183018.cpp:
 pso/unk/text_801830BC.cpp:
 	.text       start:0x801830BC end:0x80184C2C
 	.rodata     start:0x80444210 end:0x80444268
-	.sdata2     start:0x805DBC1C end:0x805DBC5C
+	.sdata2     start:0x805DBC18 end:0x805DBC80
 
 pso/unk/text_80184C2C.cpp:
 	.text       start:0x80184C2C end:0x80185248
@@ -8385,7 +8385,7 @@ pso/misc/TTecCtrl_8022C444.cpp:
 
 pso/player/TObjPlayer_8022C6C4.cpp:
 	.text       start:0x8022C6C4 end:0x8022DBC0
-	.data       start:0x804CC60C end:0x804CC6F0
+	.data       start:0x804CC510 end:0x804CC6F0
 
 pso/misc/TTecCtrl.cpp:
 	.text       start:0x8022DBC0 end:0x8022F164
@@ -10953,7 +10953,7 @@ pso/misc/TLobby_802E03C8.cpp:
 pso/ui/TAdMultiConfirmGC_802E03D0.cpp:
 	.text       start:0x802E03D0 end:0x802E0F58
 	.rodata     start:0x804728D0 end:0x80472920
-	.sdata2     start:0x805DE8DC end:0x805DE8E8
+	.sdata2     start:0x805DE8A8 end:0x805DE8E8
 
 pso/ui/TAdChrSelPlayerGC.cpp:
 	.text       start:0x802E0F58 end:0x802E0FC8
@@ -11729,9 +11729,9 @@ pso/ui/TAdGameStartLineGC.cpp:
 
 pso/ui/TAdEnterSerialAccessGC.cpp:
 	.text       start:0x803212D4 end:0x80322438
-	.rodata     start:0x804765D0 end:0x804765F8
-	.data       start:0x804EC9EC end:0x804ECA0C
-	.sdata2     start:0x805DF50C end:0x805DF518
+	.rodata     start:0x804764C8 end:0x804765F8
+	.data       start:0x804EC9B0 end:0x804ECA0C
+	.sdata2     start:0x805DF4D8 end:0x805DF518
 
 pso/boss/TBoss6Kakusan.cpp:
 	.text       start:0x80322438 end:0x80322B50

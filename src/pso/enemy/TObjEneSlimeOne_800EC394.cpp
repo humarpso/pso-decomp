@@ -282,6 +282,7 @@ __declspec(section ".data") void *lbl_80496CB8[2] = {
 __declspec(section ".data") void *lbl_80496CC0[2] = {
     (void *)0x4, (void *)0x5,
 };
+__declspec(section ".data") s32 lbl_80496CC8[2] = { 0, 2 };
 void TObjEneSlimeOne__sub_800EC7F4(Slime_800EC7F4 *arg0, s32 arg1) {
   s32 flag;
   flag = arg0->state & 0x1000;

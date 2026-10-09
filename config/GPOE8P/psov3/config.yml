@@ -912,6 +912,7 @@ force_active:
   - lbl_8043AD10
   - lbl_8043AD24
   - lbl_8043AD3C
+  - lbl_8043BC24
   - lbl_8044D920
   - lbl_8044D944
   - lbl_8044D968
@@ -942,6 +943,10 @@ force_active:
   - lbl_8049217C
   - lbl_80492930
   - lbl_80494B18
+  - lbl_80496C68
+  - lbl_80496C90
+  - lbl_80496CB8
+  - lbl_80496CC0
   - lbl_80497710
   - lbl_80497718
   - lbl_80497758
@@ -1028,6 +1033,7 @@ force_active:
   - lbl_8049D970
   - lbl_8049D984
   - lbl_8049DC28
+  - lbl_804A7130
   - lbl_804B6D7C
   - lbl_804B6D98
   - lbl_804B6DA4
@@ -1601,6 +1607,7 @@ force_active:
   - update_fade__13TObjLobbyMainFPv
   - update_fade__18TObjButterflyLobbyFPv
   - update_fade_in__13TObjLobbyMainFPv
+  - update_falling_projectile__10TObjPlayerFPv
   - update_floor_name_windows__9TObjLukerFPv
   - update_follow__11TItemMagSubFv
   - update_follow_parent__18TObjEneBalClawClawFPv
@@ -1685,6 +1692,7 @@ force_active:
   - upload_glyph_if_needed__20TWindowSubStatusDispFUsPvPv
   - use_selected_item__14TWindowSubItemFPv
   - validate_input__22TAdEnterSerialAccessGCFPviPv
+  - validate_target__11TMainCursorFPv
   - varGet32
   - varSet32
   - voiceRemovePriority

@@ -131,6 +131,34 @@ extern "C" {
 
 s32 get_level_tier__10TObjPlayerFi(s32 arg0);
 
+extern "C" void __dt__8TTecCtrlFv();
+extern "C" void render__8TTecCtrlFv();
+extern "C" void render_shadows__7TObjectFv();
+extern "C" void run_task__8TTecCtrlFv();
+void *tech_high_level_linear_power_table[19] = {
+    (void *)0xffab0041, (void *)0x1e002a, (void *)0x1720015, (void *)0xff83003f,
+    (void *)0x28, (void *)0x1d6000f, (void *)0x50037, (void *)0xffe20026,
+    (void *)0x2260009, (void *)0x578003c, (void *)0xa0001, (void *)0xa0001,
+    (void *)0xa0001, (void *)0xa0001, (void *)0x0, (void *)0xffec000a,
+    (void *)0x0, (void *)0x0, (void *)0x2a0002,
+};
+void *lbl_804CC55C[38] = {
+    (void *)0x3f4ccccd, (void *)0x40400000, (void *)0x3f4ccccd, (void *)0x40000000,
+    (void *)0x3f19999a, (void *)0x40000000, (void *)0x3f4ccccd, (void *)0x40400000,
+    (void *)0x3f19999a, (void *)0x40000000, (void *)0x3ecccccd, (void *)0x40000000,
+    (void *)0x3f000000, (void *)0x40800000, (void *)0x3ecccccd, (void *)0x40000000,
+    (void *)0x3ecccccd, (void *)0x40000000, (void *)0x3dcccccd, (void *)0x40000000,
+    (void *)0x3f800000, (void *)0x40a00000, (void *)0x3f800000, (void *)0x40a00000,
+    (void *)0x3f800000, (void *)0x40a00000, (void *)0x3f800000, (void *)0x40a00000,
+    (void *)0x3f800000, (void *)0x3f800000, (void *)0x3dcccccd, (void *)0x40a00000,
+    (void *)0x3f800000, (void *)0x41200000, (void *)0x3f800000, (void *)0x41f00000,
+    (void *)0x3e99999a, (void *)0x40a00000,
+};
+void *__vt__8TTecCtrl[6] = {
+    (void *)0x0, (void *)0x0, (void *)&__dt__8TTecCtrlFv, (void *)&run_task__8TTecCtrlFv,
+    (void *)&render__8TTecCtrlFv, (void *)&render_shadows__7TObjectFv,
+};
+
 s32 get_level_tier__10TObjPlayerFi(s32 arg0) {
     s32 temp_r0;
 

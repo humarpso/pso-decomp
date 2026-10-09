@@ -69,6 +69,39 @@ s32 obj_testFlags30(M2C_UNK, M2C_UNK);
 M2C_UNK queue_destruction__7TObjectFv(void *);
 s32 update__11TMainCursorFPv(void *);
 
+extern "C" void __dt__11TMainCursorFPvs();
+extern "C" u8 lbl_8043F090[];
+extern "C" u8 lbl_8043F0A4[];
+extern "C" u8 lbl_8043F0B8[];
+extern "C" u8 lbl_8043F0D0[];
+extern "C" u8 lbl_805D2CB0[];
+extern "C" void render__7TObjectFv();
+extern "C" void render_shadows__7TObjectFv();
+extern "C" void update_target_player__11TMainCursorFi();
+extern void *lbl_804A7130[4];
+void *lbl_804A7130[4] = {
+    (void *)&lbl_8043F090, (void *)&lbl_8043F0A4, (void *)&lbl_8043F0B8, (void *)0x0,
+};
+void *target_cursor_resource_descriptor[4] = {
+    (void *)&lbl_8043F0D0, (void *)&lbl_804A7130, (void *)&lbl_805D2CB0, (void *)0x30000,
+};
+void *cursor_action_priority_table[5] = {
+    (void *)0x3080b05, (void *)0xa0d0409, (void *)0xc071516, (void *)0x13140010,
+    (void *)0x110e0600,
+};
+void *target_cursor_color_table[24] = {
+    (void *)0x3f800000, (void *)0x0, (void *)0x3f47ae14, (void *)0x0,
+    (void *)0x3f800000, (void *)0x0, (void *)0x3f47ae14, (void *)0x0,
+    (void *)0x3f800000, (void *)0x3f333333, (void *)0x3f333333, (void *)0x3f333333,
+    (void *)0x3f800000, (void *)0x3f800000, (void *)0x0, (void *)0x0,
+    (void *)0x3f800000, (void *)0x0, (void *)0x3ec7ae14, (void *)0x0,
+    (void *)0x3f800000, (void *)0x0, (void *)0x0, (void *)0x0,
+};
+void *lbl_804A71C4[6] = {
+    (void *)0x0, (void *)0x0, (void *)&__dt__11TMainCursorFPvs, (void *)&update_target_player__11TMainCursorFi,
+    (void *)&render__7TObjectFv, (void *)&render_shadows__7TObjectFv,
+};
+
 s32 check_can_pickup__11TMainCursorFi(s32 arg0) {
     s32 temp_r3;
     u32 temp_r3b;

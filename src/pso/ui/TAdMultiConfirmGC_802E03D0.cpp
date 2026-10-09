@@ -40,8 +40,6 @@ extern s32 lbl_805D5668;
 extern s32 lbl_805D7780;
 extern s32 lbl_805D7784;
 extern s32 some_id_805c6f74;
-extern const f32 lbl_805DE8A8;
-extern const f32 lbl_805DE8AC;
 void TObjPlayer__sub_802E0468(long long arg1, u8 *arg2, f32 farg0);
 bool fn_802E0454(u8 *arg0);
 }
@@ -87,8 +85,6 @@ extern "C" {
 void draw_model_with_arg__10TObjPlayerFPvPv(void* p, void* a1);
 int draw_model_with_callback__10TObjPlayerFPv(void*);
 int set_motion_interpolation_flag(void*);
-
-extern const f32 lbl_805DE8A8;
 
 }
 
@@ -176,20 +172,61 @@ M2C_UNK set_status_index__14TAdPlyStatusGCFii(void *, s32);
 
 extern "C" {
 
-extern const f32 lbl_805DE8B0;
-extern const f32 lbl_805DE8B4;
-extern const f32 lbl_805DE8B8;
-extern const f32 lbl_805DE8BC;
-extern const f32 lbl_805DE8C0;
-extern const f32 lbl_805DE8C4;
-extern const f32 lbl_805DE8C8;
-extern const f32 lbl_805DE8CC;
-extern const f32 lbl_805DE8D0;
-extern const f32 lbl_805DE8D4;
-extern const f32 lbl_805DE8D8;
 extern const f32 lbl_805DE8DC;
 extern const f32 lbl_805DE8E0;
 extern const f32 lbl_805DE8E4;
+__declspec(section ".sdata2") void *const lbl_805DE8A8[1] = {
+    (void *)0x3f800000,
+};
+__declspec(section ".sdata2") void *const lbl_805DE8AC[1] = {
+    (void *)0x3b808081,
+};
+__declspec(section ".sdata2") void *const lbl_805DE8B0[1] = {
+    (void *)0x41880000,
+};
+__declspec(section ".sdata2") void *const lbl_805DE8B4[1] = {
+    (void *)0xc1280000,
+};
+__declspec(section ".sdata2") void *const lbl_805DE8B8[1] = {
+    (void *)0xc2200000,
+};
+__declspec(section ".sdata2") void *const lbl_805DE8BC[1] = {
+    (void *)0x0,
+};
+__declspec(section ".sdata2") void *const lbl_805DE8C0[1] = {
+    (void *)0xc1600000,
+};
+__declspec(section ".sdata2") void *const lbl_805DE8C4[1] = {
+    (void *)0x41e00000,
+};
+__declspec(section ".sdata2") void *const lbl_805DE8C8[1] = {
+    (void *)0xc1200000,
+};
+__declspec(section ".sdata2") void *const lbl_805DE8CC[1] = {
+    (void *)0xc2dc0000,
+};
+__declspec(section ".sdata2") void *const lbl_805DE8D0[1] = {
+    (void *)0x43360b61,
+};
+__declspec(section ".sdata2") void *const lbl_805DE8D4[1] = {
+    (void *)0x40e80000,
+};
+__declspec(section ".sdata2") void *const lbl_805DE8D8[1] = {
+    (void *)0x41680000,
+};
+#define lbl_805DE8A8 (*(const f32 *)lbl_805DE8A8)
+#define lbl_805DE8AC (*(const f32 *)lbl_805DE8AC)
+#define lbl_805DE8B0 (*(const f32 *)lbl_805DE8B0)
+#define lbl_805DE8B4 (*(const f32 *)lbl_805DE8B4)
+#define lbl_805DE8B8 (*(const f32 *)lbl_805DE8B8)
+#define lbl_805DE8BC (*(const f32 *)lbl_805DE8BC)
+#define lbl_805DE8C0 (*(const f32 *)lbl_805DE8C0)
+#define lbl_805DE8C4 (*(const f32 *)lbl_805DE8C4)
+#define lbl_805DE8C8 (*(const f32 *)lbl_805DE8C8)
+#define lbl_805DE8CC (*(const f32 *)lbl_805DE8CC)
+#define lbl_805DE8D0 (*(const f32 *)lbl_805DE8D0)
+#define lbl_805DE8D4 (*(const f32 *)lbl_805DE8D4)
+#define lbl_805DE8D8 (*(const f32 *)lbl_805DE8D8)
 
 }
 
@@ -198,6 +235,7 @@ extern "C" {
 #pragma push
 #pragma fp_contract on
 #pragma pool_data off
+
 void fn_802E0CB0(Obj_802E0CB0 *o) {
     o->f11C = 0;
     switch (o->mode) {

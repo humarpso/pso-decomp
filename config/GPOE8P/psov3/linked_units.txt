@@ -475,6 +475,7 @@ pso/enemy/TObjEneRecon_80320350.cpp
 pso/enemy/TObjEneSaver.cpp
 pso/enemy/TObjEneShark.cpp
 pso/enemy/TObjEneSlime.cpp
+pso/enemy/TObjEneSlimeOne_800EC394.cpp
 pso/enemy/TObjEneSlime_800EBBC8.cpp
 pso/enemy/TObjEneSlime_800EBD38.cpp
 pso/enemy/TObjEneSlime_802D7260.cpp
@@ -1129,6 +1130,7 @@ pso/misc/TMainCursor_8013B1CC.cpp
 pso/misc/TMainCursor_8013B260.cpp
 pso/misc/TMainCursor_8013B4B8.cpp
 pso/misc/TMainCursor_8013B524.cpp
+pso/misc/TMainCursor_8013B690.cpp
 pso/misc/TMainCursor_8013DEF8.cpp
 pso/misc/TMainCursor_8013DF5C.cpp
 pso/misc/TMainCursor_8013E17C.cpp
@@ -2238,6 +2240,7 @@ pso/player/TObjPlayer_800ACA60.cpp
 pso/player/TObjPlayer_800BBE90.cpp
 pso/player/TObjPlayer_800BC40C.cpp
 pso/player/TObjPlayer_800C25A0.cpp
+pso/player/TObjPlayer_800C4714.cpp
 pso/player/TObjPlayer_800D7690.cpp
 pso/player/TObjPlayer_800D7BFC.cpp
 pso/player/TObjPlayer_800D8A2C.cpp
@@ -2568,6 +2571,7 @@ pso/player/TObjPlayer_801E483C.cpp
 pso/player/TObjPlayer_802034EC.cpp
 pso/player/TObjPlayer_8022602C.cpp
 pso/player/TObjPlayer_8022A564.cpp
+pso/player/TObjPlayer_8022C6C4.cpp
 pso/player/TObjPlayer_8023355C.cpp
 pso/player/TObjPlayer_8023611C.cpp
 pso/player/TObjPlayer_8023A740.cpp
@@ -3244,6 +3248,7 @@ pso/unk/text_801815A0.cpp
 pso/unk/text_80181F10.cpp
 pso/unk/text_80182E90.cpp
 pso/unk/text_80183018.cpp
+pso/unk/text_801830BC.cpp
 pso/unk/text_80189E3C.cpp
 pso/unk/text_80189F24.cpp
 pso/unk/text_8018A150.cpp

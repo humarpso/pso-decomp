@@ -61,7 +61,8 @@ void spawn_particle_effect_with_flags(void *, s32, s32);
 void *spawn_continuous_particle_effect_with_flags(void *, s32, s32);
 void copy_pos__11TNowLoadingFPvPv(void *, void *);
 s32 rand(void);
-extern const f32 lbl_805DBC18;
+extern const f32 lbl_805DBC18[1];
+#define lbl_805DBC18 (*(const f32 *)&lbl_805DBC18)
 extern const f32 lbl_805DBC1C[1];
 #define lbl_805DBC1C (*(const f32 *)&lbl_805DBC1C)
 extern const f32 lbl_805DBC20[1];
@@ -559,6 +560,8 @@ void *dt__21TObjCity_Season_BoardFPvs(void *arg0, s16 arg1) {
 
 #include "types.h"
 extern "C" {
+#undef lbl_805DBC18
+__declspec(section ".sdata2") extern const f32 lbl_805DBC18[1] = { 4.0f };
 __declspec(section ".sdata2") extern const f32 lbl_805DBC1C[1] = { 0.0f };
 __declspec(section ".sdata2") extern const f32 lbl_805DBC20[1] = { 3.0517578e-05f };
 __declspec(section ".sdata2") extern const f32 lbl_805DBC24[1] = { 0.33f };
@@ -575,6 +578,27 @@ __declspec(section ".sdata2") extern const f32 lbl_805DBC4C[1] = { 20.0f };
 __declspec(section ".sdata2") extern const f32 lbl_805DBC50[1] = { 0.037f };
 __declspec(section ".sdata2") extern const f32 lbl_805DBC54[1] = { 1.0f };
 __declspec(section ".sdata2") extern const f32 lbl_805DBC58[1] = { 1.3f };
+__declspec(section ".sdata2") extern const f32 lbl_805DBC5C[1] = { 0.3f };
+__declspec(section ".sdata2") extern const f32 lbl_805DBC60[1] = { 60.0f };
+__declspec(section ".sdata2") extern const f32 lbl_805DBC64[1] = { 23.0f };
+__declspec(section ".sdata2") extern const f32 lbl_805DBC68[1] = { 80.0f };
+__declspec(section ".sdata2") extern const f32 lbl_805DBC6C[1] = { 400.0f };
+__declspec(section ".sdata2") extern const f32 lbl_805DBC70[1] = { 0.2f };
+__declspec(section ".sdata2") extern const f32 lbl_805DBC74[1] = { 22.5f };
+__declspec(section ".sdata2") extern const f32 lbl_805DBC78[1] = { 13.0f };
+__declspec(section ".sdata2") extern const f32 lbl_805DBC7C[1] = { 25.0f };
+}
+#define lbl_805DBC18 (*(const f32 *)&lbl_805DBC18)
+#define lbl_805DBC5C (*(const f32 *)&lbl_805DBC5C)
+#define lbl_805DBC60 (*(const f32 *)&lbl_805DBC60)
+#define lbl_805DBC64 (*(const f32 *)&lbl_805DBC64)
+#define lbl_805DBC68 (*(const f32 *)&lbl_805DBC68)
+#define lbl_805DBC6C (*(const f32 *)&lbl_805DBC6C)
+#define lbl_805DBC70 (*(const f32 *)&lbl_805DBC70)
+#define lbl_805DBC74 (*(const f32 *)&lbl_805DBC74)
+#define lbl_805DBC78 (*(const f32 *)&lbl_805DBC78)
+#define lbl_805DBC7C (*(const f32 *)&lbl_805DBC7C)
+extern "C" {
 }
 typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
 typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
@@ -714,7 +738,6 @@ extern "C" {
 void TObjCity_Season_SonicAdv2__sub_80183BFC(void* a0);
 struct Obj_80184A08; s32 advance_anim_time__25TObjCity_Season_EasterEggFPvif(Obj_80184A08 *arg0, s32 arg1, f32 farg0);
 
-    extern const f32 lbl_805DBC5C;
 void TObjCity_Season_SonicAdv2__sub_80183BFC(void* a0) { ((int (*)(void*, int, f32))advance_anim_time__25TObjCity_Season_EasterEggFPvif)(a0, TObjCity_Season_SonicAdv2__sub_80183C38((void *)(a0)), lbl_805DBC5C); }
 s32 TObjCity_Season_SonicAdv2__sub_80183C38(void *arg0) {
     if (M2C_FIELD(arg0, s32 *, 0x84) < 0) {
@@ -803,7 +826,6 @@ struct RecoveredGlobal_80183D00_lbl_804B5CC4 {
 
 extern "C" {
 struct Obj_80184A08; s32 advance_anim_time__25TObjCity_Season_EasterEggFPvif(Obj_80184A08 *arg0, s32 arg1, f32 farg0);
-extern const f32 lbl_805DBC5C;
 void advance_easter_egg_anim_frame(u8 *arg0);
 
 int get_anim_frame__25TObjCity_Season_EasterEggFPv(void* a0);
@@ -815,7 +837,6 @@ M2C_UNK post_translate_matrix(void *);
 #define city_season_xmas_model_table (*(RecoveredGlobal_80183D4C_lbl_8050DC50 *)&city_season_xmas_model_table)
 extern s32 lbl_805D5B34;
 #define lbl_805DBC44 (*(const f32 *)&lbl_805DBC44)
-extern const f32 lbl_805DBC60;
 void fn_80183D4C(u8 *arg0);
 u8 *init_city_season_object(u8 *arg0, M2C_UNK arg1, s32 arg2, s32 arg3, f32 farg0);
 #define lbl_804B5CC4 (*(RecoveredGlobal_80183D00_lbl_804B5CC4 *)&lbl_804B5CC4)
@@ -968,7 +989,6 @@ u8 *init_city_season_object(u8 *arg0, M2C_UNK arg1, s32 arg2, s32 arg3, f32 farg
 #define lbl_804B5D00 (*(RecoveredGlobal_80183F24_lbl_804B5D00 *)&lbl_804B5D00)
 extern s32 lbl_805D327C;
 #define lbl_805DBC4C (*(const f32 *)&lbl_805DBC4C)
-extern const f32 lbl_805DBC64;
 u8 *TObjCity_Season_21_21__ct(u8 *arg0, s32 arg1, s32 arg2);
 extern RecoveredGlobal_80184054_lbl_8050DC38 city_season_easter_egg_model_table;
 void fn_80184054(u8 *arg0);
@@ -980,7 +1000,6 @@ M2C_UNK post_translate_matrix(void *);
 extern RecoveredGlobal_80184054_lbl_8050DC38 city_season_easter_egg_model_table;
 #define city_season_xmas_model_table (*(RecoveredGlobal_80183FC0_lbl_8050DC50 *)&city_season_xmas_model_table)
 #define lbl_805DBC44 (*(const f32 *)&lbl_805DBC44)
-extern const f32 lbl_805DBC68;
 void TLobby__sub_80183FC0(u8 *arg0);
 }
 
@@ -1137,7 +1156,6 @@ M2C_UNK post_translate_matrix(void *);
 #define city_season_easter_egg_model_table (*(RecoveredGlobal_8018417C_lbl_8050DC38 *)&city_season_easter_egg_model_table)
 #define city_season_xmas_model_table (*(RecoveredGlobal_8018417C_lbl_8050DC50 *)&city_season_xmas_model_table)
 #define lbl_805DBC4C (*(const f32 *)&lbl_805DBC4C)
-extern const f32 lbl_805DBC6C;
 void TLobby__sub_8018417C(u8 *arg0);
 s32 TPhotonMagicSquare__sub_801A2640(void *, void *);
 #define lbl_804B5D38 (*(RecoveredGlobal_8018411C_lbl_804B5D38 *)&lbl_804B5D38)
@@ -1291,8 +1309,6 @@ void render_debug__26TObjCity_Season_XmasWreathFPv(u8 *arg0) {
     }
 }
 
-extern const f32 lbl_805DBC70;
-
 void TObjCity_Season_XmasTree__sub_801843E0(M2C_UNK arg0) {
     ((M2C_UNK (*)(M2C_UNK, M2C_UNK, f32))advance_anim_time__25TObjCity_Season_EasterEggFPvif)(arg0, 1, lbl_805DBC70);
 }
@@ -1329,8 +1345,6 @@ int get_anim_frame__25TObjCity_Season_EasterEggFPv(void* a0);
 u8 *init_city_season_object(u8 *arg0, M2C_UNK arg1, s32 arg2, s32 arg3, f32 farg0);
 extern M2C_UNK lbl_804B5DA0[];
 extern s32 lbl_805D3270;
-extern const f32 lbl_805DBC18;
-extern const f32 lbl_805DBC74;
 u8 *TObjCity_Season_XmasTree__ct(u8 *arg0, s32 arg1, s32 arg2);
 }
 
@@ -1418,8 +1432,6 @@ void render_tree__24TObjCity_Season_XmasTreeFPv(u8 *arg0) {
     }
 }
 
-extern const f32 lbl_805DBC70;
-
 void TObjCity_Season_ValentineHeart__sub_801845F8(M2C_UNK arg0) {
     ((M2C_UNK (*)(M2C_UNK, M2C_UNK, f32))advance_anim_time__25TObjCity_Season_EasterEggFPvif)(arg0, 1, lbl_805DBC70);
 }
@@ -1454,8 +1466,6 @@ int get_anim_frame__25TObjCity_Season_EasterEggFPv(void* a0);
 u8 *init_city_season_object(u8 *arg0, M2C_UNK arg1, s32 arg2, s32 arg3, f32 farg0);
 extern M2C_UNK lbl_804B5DD8[];
 extern s32 lbl_805D326C;
-extern const f32 lbl_805DBC18;
-extern const f32 lbl_805DBC78;
 u8 *TObjCity_Season_ValentineHeart__ct(u8 *arg0, s32 arg1, s32 arg2);
 }
 
@@ -1580,9 +1590,6 @@ int get_anim_frame__25TObjCity_Season_EasterEggFPv(void* a0);
 u8 *init_city_season_object(u8 *arg0, M2C_UNK arg1, s32 arg2, s32 arg3, f32 farg0);
 extern M2C_UNK lbl_804B5E10[];
 extern s32 lbl_805D3268;
-extern const f32 lbl_805DBC18;
-extern const f32 lbl_805DBC78;
-extern const f32 lbl_805DBC7C;
 u8 *TObjCity_Season_EasterEgg__ct(u8 *arg0, s32 arg1, s32 arg2);
 
 s32 advance_anim_time__25TObjCity_Season_EasterEggFPvif(Obj_80184A08 *arg0, s32 arg1, f32 farg0);
