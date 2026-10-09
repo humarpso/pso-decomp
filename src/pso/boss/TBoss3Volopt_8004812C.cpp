@@ -53,7 +53,7 @@ void pop_matrix(void);
 extern Vec_80048260 lbl_804366B8;
 extern Color_80048260 lbl_80484828[];
 extern u8 lbl_80484830[];
-extern Vec_80048260 lbl_804FF1B8[];
+extern Vec_80048260 boss3_volopt_direction_line_points[];
 void draw_direction_line__10TObjPlayerFPv(Obj_80048260 *self);
 }
 
@@ -95,8 +95,8 @@ void draw_direction_line__10TObjPlayerFPv(Obj_80048260 *self) {
         lbl_80484828[0].a = a;
         lbl_80484828[0].a = a;
     }
-    VecCopy__FP3VecPC3Vec(&lbl_804FF1B8[0], self->pos);
-    dst = &lbl_804FF1B8[1];
+    VecCopy__FP3VecPC3Vec(&boss3_volopt_direction_line_points[0], self->pos);
+    dst = &boss3_volopt_direction_line_points[1];
     VecCopy__FP3VecPC3Vec(dst, self->dir);
     push_matrix();
     set_matrix_identity__10TObjPlayerFPv(0);

@@ -38,9 +38,34 @@ struct RecoveredGlobal_8029C9C8___vt__15TORockJungleS01 {
 };
 
 typedef s32 M2C_UNK;
+#pragma inline_depth(1)
+#pragma auto_inline off
+#pragma dont_inline off
+struct Vec_8029C7DC { f32 x, y, z; };
+
+struct Spawn_8029C7DC {
+    u8 pad0[0xC];
+    Vec_8029C7DC pos;
+    u8 pad18[0x20];
+    f32 f38;
+    u8 pad3c[4];
+    s32 f40;
+    s32 f44;
+    u8 pad48[4];
+};
+
+struct Offs_8029C7DC { Vec_8029C7DC v[1]; };
+
+struct Rock_8029C7DC {
+    u8 pad0[0x38];
+    Vec_8029C7DC pos;
+    u8 pad44[0x60 - 0x44];
+    s32 rotY;
+};
+
 extern "C" {
 u8 * get_bml_model(void *, int);
-extern u32 lbl_805D65D0;
+extern u32 TORockJungleS01__bml_resource;
 u8 *get_model__15TORockJungleS01Fi(s32 arg0);
 s32 VecCopy__FP3VecPC3Vec(void *, void *);
 s32 reset_photon_effect__10TObjPlayerFPv(void *);
@@ -55,7 +80,7 @@ extern M2C_UNK __vt__15TORockJungleS01[];
 extern s32 lbl_805D3D3C;
 extern const f32 lbl_805DDD1C;
 u8 *TORockJungleS01__ct(u8 *arg0, s32 arg1);
-extern u32 lbl_805D65D4;
+extern u32 TORockJungleS01__texture_resource;
 s32 TORockJungleS01__sub_8029CAE8(s32 a);
 void *load_resource_from_descriptor(void *, M2C_UNK, void *, M2C_UNK, M2C_UNK, M2C_UNK);
 void *alloc__23TAdSinglePlyChrSelectGCFPv(M2C_UNK);
@@ -68,11 +93,26 @@ extern u8 lbl_804658EC[];
 extern u8 lbl_80465904[];
 extern u8 lbl_8046591C[];
 extern u8 TORockJungleS01_resource_descriptor[];
-extern u32 lbl_805D65D0;
-extern u32 lbl_805D65D4;
+extern u32 TORockJungleS01__bml_resource;
+extern u32 TORockJungleS01__texture_resource;
 extern const f32 lbl_805DDD20;
 extern const f32 lbl_805DDD24;
 void load_resources__15TORockJungleS01Fv(void);
+s32 VecCopy__FP3VecPC3Vec(void *, void *);
+M2C_UNK construct_debris__8TObjChipFPvPvPv(void *, s32, void *);
+void *__nw__7TObjectFUl(int);
+s32 TORockJungleS01__sub_8029CAE8(s32 a);
+u8 *get_model__15TORockJungleS01Fi(s32 arg0);
+M2C_UNK vec3_add_to(void *, void *);
+M2C_UNK rotate_vector_by_matrix(int, void *, void *);
+M2C_UNK rotate_matrix_y(int, int);
+M2C_UNK push_matrix_from(void *);
+M2C_UNK pop_matrix();
+extern Offs_8029C7DC lbl_8046581C;
+extern Spawn_8029C7DC lbl_80465828;
+extern u8 lbl_8058D490[];
+extern s32 tl_05;
+void TORockJungleS01__vt14(Rock_8029C7DC *self);
 }
 
 extern "C" {
@@ -94,6 +134,33 @@ M2C_UNK safe_free__23TAdSinglePlyChrSelectGCFUi(u32);
 
 void TORockJungleS01__vt16(s32 arg0) {
     play_sound_effect(0x4BC19, arg0 + 0x38, 0, 0);
+}
+
+void TORockJungleS01__vt14(Rock_8029C7DC *self) {
+    Offs_8029C7DC off = lbl_8046581C;
+    Spawn_8029C7DC p = lbl_80465828;
+    Vec_8029C7DC v;
+    s32 i;
+    void *o;
+    p.pos.x = self->pos.x;
+    p.pos.y = self->pos.y;
+    p.pos.z = self->pos.z;
+    p.f38 = p.pos.y;
+    for (i = 0; i < 1; i++) {
+        VecCopy__FP3VecPC3Vec(&v, &off.v[i]);
+        push_matrix_from(lbl_8058D490);
+        rotate_matrix_y(0, self->rotY);
+        rotate_vector_by_matrix(0, &v, &v);
+        pop_matrix();
+        VecCopy__FP3VecPC3Vec(&p.pos, &self->pos);
+        vec3_add_to(&p.pos, &v);
+        p.f40 = (s32)get_model__15TORockJungleS01Fi(1);
+        p.f44 = TORockJungleS01__sub_8029CAE8(1);
+        o = __nw__7TObjectFUl(0x234);
+        if (o != NULL) {
+            construct_debris__8TObjChipFPvPvPv(o, tl_05, &p);
+        }
+    }
 }
 
 void *create__15TORockJungleS01FPv(void *arg0) {
@@ -120,8 +187,8 @@ void *__dt__15TORockJungleS01Fv(void *arg0, s16 arg1) {
     return arg0;
 }
 
-extern u32 lbl_805D65D0;
-extern u32 lbl_805D65D4;
+extern u32 TORockJungleS01__bml_resource;
+extern u32 TORockJungleS01__texture_resource;
 
 typedef char RecoveredGlobal_8029C9C8_lbl_804DC3A0_size[sizeof(RecoveredGlobal_8029C9C8_lbl_804DC3A0) == 0x84 ? 1 : -1];
 typedef char RecoveredGlobal_8029C9C8_lbl_804DC424_size[sizeof(RecoveredGlobal_8029C9C8_lbl_804DC424) == 0x24 ? 1 : -1];
@@ -154,26 +221,26 @@ u8 *TORockJungleS01__ct(u8 *arg0, s32 arg1) {
 }
 
 s32 TORockJungleS01__sub_8029CAE8(s32 a) {
-    if ((*(void * *)&lbl_805D65D4) != 0) return (s32)(*(void * *)&lbl_805D65D4);
+    if ((*(void * *)&TORockJungleS01__texture_resource) != 0) return (s32)(*(void * *)&TORockJungleS01__texture_resource);
     return 0;
 }
 
 u8 *get_model__15TORockJungleS01Fi(s32 arg0) {
-    if ((void *) (*(u8 * *)&lbl_805D65D0) != NULL) {
-        return get_bml_model((*(u8 * *)&lbl_805D65D0), arg0);
+    if ((void *) (*(u8 * *)&TORockJungleS01__bml_resource) != NULL) {
+        return get_bml_model((*(u8 * *)&TORockJungleS01__bml_resource), arg0);
     }
     return NULL;
 }
 
 void free_globals__15TORockJungleS01Fv(void) {
-    if ((u32) lbl_805D65D4 != 0U) {
-        TLobby__sub_803DA16C((void*)lbl_805D65D4);
-        safe_free__23TAdSinglePlyChrSelectGCFUi(lbl_805D65D4);
-        lbl_805D65D4 = 0U;
+    if ((u32) TORockJungleS01__texture_resource != 0U) {
+        TLobby__sub_803DA16C((void*)TORockJungleS01__texture_resource);
+        safe_free__23TAdSinglePlyChrSelectGCFUi(TORockJungleS01__texture_resource);
+        TORockJungleS01__texture_resource = 0U;
     }
-    if ((u32) lbl_805D65D0 != 0U) {
-        TLobby__sub_8001FE7C((void*)lbl_805D65D0, 1);
-        lbl_805D65D0 = 0U;
+    if ((u32) TORockJungleS01__bml_resource != 0U) {
+        TLobby__sub_8001FE7C((void*)TORockJungleS01__bml_resource, 1);
+        TORockJungleS01__bml_resource = 0U;
     }
 }
 void load_resources__15TORockJungleS01Fv(void) {
@@ -182,17 +249,17 @@ void load_resources__15TORockJungleS01Fv(void) {
     if (o != NULL) {
         o = load_resource_from_descriptor(o, 1, TORockJungleS01_resource_descriptor, 0, 0, 0);
     }
-    lbl_805D65D0 = (u32)o;
+    TORockJungleS01__bml_resource = (u32)o;
     switch (get_global_state__14TOKeyMachine01Fv()) {
     case 27:
-        lbl_805D65D4 = load_gvm_texture_file(lbl_804658EC);
+        TORockJungleS01__texture_resource = load_gvm_texture_file(lbl_804658EC);
         break;
     case 26:
-        lbl_805D65D4 = load_gvm_texture_file(lbl_80465904);
+        TORockJungleS01__texture_resource = load_gvm_texture_file(lbl_80465904);
         break;
     case 25:
     default:
-        lbl_805D65D4 = load_gvm_texture_file(lbl_8046591C);
+        TORockJungleS01__texture_resource = load_gvm_texture_file(lbl_8046591C);
         break;
     }
     add_entry__11TMotorcycleFsiiff(0x3E, get_model__15TORockJungleS01Fi(0), TORockJungleS01__sub_8029CAE8(0), lbl_805DDD20, lbl_805DDD24);

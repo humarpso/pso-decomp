@@ -80,7 +80,7 @@ extern M2C_UNK lbl_8048E5C8[];
 void **TObjPlayer__sub_80083F04(void);
 f32 horizontal_distance_squared(void *, void *);
 extern RecoveredGlobal_80083CEC_lbl_8048E5D0 shadow_light_position;
-extern u32 lbl_805D4DF0;
+extern u32 camera_ctrl_instance;
 extern const f32 lbl_805D9434;
 s32 is_in_shadow_range(u8 *arg0, f32 farg0);
 extern G_800845F8 shared_capture_texture_list;
@@ -124,7 +124,7 @@ M2C_UNK submit_light0(int, int);
 M2C_UNK load_gx_light_slot(int);
 extern M2C_UNK lbl_8048E5C8[];
 extern M2C_UNK lbl_8058CA60[];
-extern u32 lbl_805D4DF0;
+extern u32 camera_ctrl_instance;
 extern u8 *lbl_805D7734;
 extern const f32 lbl_805D93D0;
 extern const f32 lbl_805D93D8;
@@ -152,7 +152,7 @@ void translate_current_matrix_ps(f32, f32, f32);
 void rotate_current_matrix_x_ps(s32);
 void push_identity_matrix_ps();
 extern RecoveredGlobal_80083CEC_lbl_8048E5D0 shadow_light_position;
-extern u32 lbl_805D4DF0;
+extern u32 camera_ctrl_instance;
 extern const f32 lbl_805D93C8;
 extern const f32 lbl_805D93D0;
 extern const f32 lbl_805D93D8;
@@ -248,7 +248,7 @@ typedef char RecoveredGlobal_80083CEC_lbl_8048E5D0_size[sizeof(RecoveredGlobal_8
 
 void func_80083a00__Fv(void) {
     u8 *temp_r31;
-    if ((is_split_screen() == 0) && (check_all_players_ready__10TObjPlayerFv() != 0) && ((u32) lbl_805D4DF0 != 0U)) {
+    if ((is_split_screen() == 0) && (check_all_players_ready__10TObjPlayerFv() != 0) && ((u32) camera_ctrl_instance != 0U)) {
         pop_matrix();
         pop_matrix();
         GXColor_80083B8C c = lbl_805E120C;
@@ -273,7 +273,7 @@ void func_80083a00__Fv(void) {
 }
 
 s32 is_in_shadow_range(u8 *arg0, f32 farg0) {
-    if (((u32) lbl_805D4DF0 != 0U) && (((farg0 * farg0) + horizontal_distance_squared(arg0, &shadow_light_position.value)) <= lbl_805D9434)) {
+    if (((u32) camera_ctrl_instance != 0U) && (((farg0 * farg0) + horizontal_distance_squared(arg0, &shadow_light_position.value)) <= lbl_805D9434)) {
         return 1;
     }
     return 0;
@@ -282,7 +282,7 @@ s32 is_in_shadow_range(u8 *arg0, f32 farg0) {
 
 #pragma push
 #pragma fp_contract on
-#define VIEW ((View_80083D54 *)lbl_805D4DF0)
+#define VIEW ((View_80083D54 *)camera_ctrl_instance)
 #define LIGHT (*(Vec_80083D54 *)&shadow_light_position)
 void camera_stuff__Fv(void) {
     Mtx44_80083D54 proj;
@@ -297,7 +297,7 @@ void camera_stuff__Fv(void) {
         return;
     }
     restore_full_screen_view__11TCameraCtrlFv();
-    if (lbl_805D4DF0 == 0) {
+    if (camera_ctrl_instance == 0) {
         return;
     }
     d.x = VIEW->target.x - VIEW->pos.x;

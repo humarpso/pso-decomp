@@ -39,7 +39,7 @@ u8 *collect_and_count__12TBoss3VoloptFUii(s32, s32);
 void init_all_slots__11TWindowCtrlFv();
 extern RecoveredGlobal_802EE4E0_lbl_804E3C5C lbl_804E3C5C;
 extern M2C_UNK lbl_804E3D1C[];
-extern Light_802EE574 lbl_805412C0[];
+extern Light_802EE574 boss7_derolle_light_pool[];
 extern u8 *lbl_805D6918;
 extern s32 lbl_805D691C;
 extern s32 lbl_805D6920;
@@ -99,7 +99,7 @@ void TObjPlayer__sub_802EE574(void) {
     lbl_805D693C = collect_and_count__12TBoss3VoloptFUii(M2C_FIELD(M2C_FIELD(lbl_805D6918, u8 **, 0x42C), s32 *, 8), 0x4D);
     lbl_805D6940 = M2C_FIELD(lbl_805D693C, s32 *, 0x2C);
     for (i = 0; i < 11; i++) {
-        Light_802EE574 *l = &lbl_805412C0[i];
+        Light_802EE574 *l = &boss7_derolle_light_pool[i];
         l->type = 0xF;
         l->f4 = 0;
         l->f8 = lbl_805DEA10;
@@ -115,10 +115,10 @@ void TObjPlayer__sub_802EE574(void) {
         l->f30 = 0;
     }
     for (i = 0; i < 10; i++) {
-        lbl_805412C0[i].next = &lbl_805412C0[i + 1];
+        boss7_derolle_light_pool[i].next = &boss7_derolle_light_pool[i + 1];
     }
     {
-        Light_802EE574 *t = &lbl_805412C0[10];
+        Light_802EE574 *t = &boss7_derolle_light_pool[10];
         t->type = 0x1F;
         t->next = 0;
     }

@@ -20,8 +20,8 @@ u32 TWindowSubStatusDisp__sub_80144E9C(void *);
 void render_status_disp__23TAdSinglePlyChrSelectGCFPvff(void *, f32, f32);
 void getDateStamp__FP9DateStamp(void *);
 int sprintf(char *, const char *, ...);
-extern char lbl_8047294C[];
-extern char lbl_8047295C[];
+extern char ply_status_date_format[];
+extern char ply_status_date_format_mdy[];
 extern char lbl_8047296C[];
 extern s32 current_language;
 extern const f32 lbl_805DE8E8;
@@ -94,12 +94,12 @@ void draw_date_time__23TAdSinglePlyChrSelectGCFPv(Clock_802E11D4 *self) {
         wd = date.wday + 13;
         switch (current_language) {
         case 0:
-            sprintf(buf, lbl_8047294C, date.year, date.month, date.day, get_localized_text_entry(0x1C, wd));
+            sprintf(buf, ply_status_date_format, date.year, date.month, date.day, get_localized_text_entry(0x1C, wd));
             s = buf;
             w = lbl_805DE8F0 * (f32)calc_text_width(s);
             break;
         default:
-            sprintf(buf, lbl_8047295C, date.month, date.day, date.year, get_localized_text_entry(0x1C, wd));
+            sprintf(buf, ply_status_date_format_mdy, date.month, date.day, date.year, get_localized_text_entry(0x1C, wd));
             s = buf;
             w = lbl_805DE8F0 * (f32)TWindowSubStatusDisp__sub_80144E9C(s);
             break;

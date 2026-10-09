@@ -43,7 +43,7 @@ extern "C" {
 void destroy_and_flag__21TItemReverseTechPart2Fv(void);
 M2C_UNK queue_destruction__7TObjectFv();
 
-extern void *lbl_805D54DC;
+extern void *TItemReverseTechPart1__instance;
 
 u8 *__ct__21TItemReverseTechPart2Fv(u8 *arg0, s32 arg1, s32 arg2) {
     u32 temp_r3;
@@ -135,8 +135,8 @@ u8 *__ct__21TItemReverseTechPart2Fv(u8 *arg0, s32 arg1, s32 arg2) {
 
 void destroy_and_flag__21TItemReverseTechPart2Fv(void) {
     queue_destruction__7TObjectFv();
-    if ((void *) lbl_805D54DC != NULL) {
-        M2C_FIELD(lbl_805D54DC, s32 *, 0x1C) = 1;
+    if ((void *) TItemReverseTechPart1__instance != NULL) {
+        M2C_FIELD(TItemReverseTechPart1__instance, s32 *, 0x1C) = 1;
     }
 }
 

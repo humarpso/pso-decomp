@@ -17,7 +17,7 @@ s32 get_register__12TQuestThreadFPvi(s32, s32);
 s32 check_demo_mode__10TObjPlayerFv();
 M2C_UNK clear_player_status_flag__10TObjPlayerFPviUi(void *, M2C_UNK, M2C_UNK);
 
-extern s32 lbl_805D5EE8;
+extern s32 quest_mission_manager;
 
 void TOBind__sub_8015860C(u8 *arg0) {
     f32 temp_f0;
@@ -36,7 +36,7 @@ void run_task__6TOBindFv(void *arg0) {
         return;
     }
     if ((s32) M2C_FIELD(arg0, s32 *, 0xB0) != 1) {
-        if (get_register__12TQuestThreadFPvi(lbl_805D5EE8, M2C_FIELD(arg0, s32 *, 0xB4)) != 0) {
+        if (get_register__12TQuestThreadFPvi(quest_mission_manager, M2C_FIELD(arg0, s32 *, 0xB4)) != 0) {
             M2C_FIELD(arg0, s32 *, 0xB0) = 1;
             clear_player_status_flag__10TObjPlayerFPviUi(arg0, 0, 1);
         }

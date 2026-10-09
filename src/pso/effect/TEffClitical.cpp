@@ -67,7 +67,7 @@ M2C_UNK set_chunk_material_color(void *);
 M2C_UNK draw_chunk_object(int);
 extern M2C_UNK lbl_8048E2E0[];
 extern M2C_UNK technique_ringwave_texture_list[];
-extern u8 *lbl_805D4DF0;
+extern u8 *camera_ctrl_instance;
 extern s32 *lbl_805D4ED8;
 extern s32 lbl_805D5660;
 extern s32 some_id_805c6f74;
@@ -107,7 +107,7 @@ void render__12TEffCliticalFv(u8 *arg0) {
     push_matrix();
     set_global_param__8TObjFishFi((void *) (lbl_8048E2E0));
     post_translate_matrix((void *) ((u8 *)(arg0) + 0x20));
-    rotate_matrix_y((int) (0), (int) (M2C_FIELD(lbl_805D4DF0, s32 *, 0x194)));
+    rotate_matrix_y((int) (0), (int) (M2C_FIELD(camera_ctrl_instance, s32 *, 0x194)));
     scale_matrix((int) (0), (f32) (M2C_FIELD(arg0, f32 *, 0x3C)), (f32) (M2C_FIELD(arg0, f32 *, 0x40)), (f32) (M2C_FIELD(arg0, f32 *, 0x44)));
     draw_chunk_object((int) (M2C_FIELD(lbl_805D4ED8, s32 *, 0)));
     pop_matrix();

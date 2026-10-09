@@ -67,7 +67,7 @@ s32 create__19TWindowMessageYesNoFPvPvPvPv(void *, int, int, int);
 extern u8 lbl_80472898[];
 extern const f32 lbl_805DE88C;
 s32 create_confirm_window__22TAdMultiPlyChrSelectGCFv(void);
-extern u8 lbl_80541230[];
+extern u8 player_number_text_buffer[];
 s32 get_localized_text_entry(int, int);
 void *memset(void *, int, u32);
 s32 sprintf(void *, const void *, ...);
@@ -228,9 +228,9 @@ void TAdMultiPlyChrSelectGC__sub_802DC118(u8 *arg0, s32 arg1) {
 }
 
 u8 *format_player_number_text__22TAdMultiPlyChrSelectGCFii(s32 arg0, s32 arg1) {
-    memset(lbl_80541230, 0, 0x80);
-    sprintf(lbl_80541230, (const void *)get_localized_text_entry(0x1F, 0), arg1 + 1);
-    return lbl_80541230;
+    memset(player_number_text_buffer, 0, 0x80);
+    sprintf(player_number_text_buffer, (const void *)get_localized_text_entry(0x1F, 0), arg1 + 1);
+    return player_number_text_buffer;
 }
 
 s32 TAdMultiPlyChrSelectGC__sub_802DC294(S_802DC294 *arg0, s32 arg1) {

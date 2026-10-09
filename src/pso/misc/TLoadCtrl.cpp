@@ -98,7 +98,7 @@ void render__9TLoadCtrlFv(void) {  }
 
 extern u32 TLoadCtrl__data_805D4A80;
 extern s32 TLoadCtrl__data_805D4A84;
-extern void *lbl_805D4DF0;
+extern void *camera_ctrl_instance;
 
 typedef char RecoveredGlobal_8001C828___vt__9TLoadCtrl_size[sizeof(RecoveredGlobal_8001C828___vt__9TLoadCtrl) == 0x18 ? 1 : -1];
 
@@ -213,11 +213,11 @@ void cleanup_scene__9TLoadCtrlFv(void) {
     }
     reset_default_view__11TCameraCtrlFv();
     reset__11TCameraCtrlFv();
-    if (lbl_805D4DF0 != NULL) {
-        if (lbl_805D4DF0 != NULL) {
-            ((VObj_8001C8B8_8001C61C *)lbl_805D4DF0)->m0(1);
+    if (camera_ctrl_instance != NULL) {
+        if (camera_ctrl_instance != NULL) {
+            ((VObj_8001C8B8_8001C61C *)camera_ctrl_instance)->m0(1);
         }
-        lbl_805D4DF0 = NULL;
+        camera_ctrl_instance = NULL;
     }
     reset_view_state__11TCameraCtrlFv();
     init_default_view__11TCameraCtrlFv();

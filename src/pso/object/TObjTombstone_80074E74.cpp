@@ -100,7 +100,7 @@ void push_matrix();
 void pop_matrix();
 extern V_800751BC lbl_80438780;
 extern u8 lbl_8058D490[];
-extern View_800751BC *lbl_805D4DF0;
+extern View_800751BC *camera_ctrl_instance;
 extern const f32 TObjTombstone__data_805D9174;
 s32 project_to_screen__13TObjTombstoneFPvPvPv(void *arg0, f32 *arg1, void *arg2);
 void VecCopy__FP3VecPC3Vec(void *, void *);
@@ -195,13 +195,13 @@ s32 project_to_screen__13TObjTombstoneFPvPvPv(void *arg0, f32 *arg1, void *arg2)
     V_800751BC d;
     V_800751BC v = lbl_80438780;
     push_matrix_from(lbl_8058D490);
-    rotate_matrix_y(0, lbl_805D4DF0->f194);
-    rotate_matrix_x(0, lbl_805D4DF0->f190);
-    rotate_matrix_z(0, lbl_805D4DF0->f198);
+    rotate_matrix_y(0, camera_ctrl_instance->f194);
+    rotate_matrix_x(0, camera_ctrl_instance->f190);
+    rotate_matrix_z(0, camera_ctrl_instance->f198);
     rotate_vector_by_matrix(0, &v, &v);
     pop_matrix();
     VecCopy__FP3VecPC3Vec(&d, arg2);
-    subtract_vector(&d, &lbl_805D4DF0->pos);
+    subtract_vector(&d, &camera_ctrl_instance->pos);
     if (vec3_dot(&v, &d) <= TObjTombstone__data_805D9174) {
         return 0;
     }

@@ -59,13 +59,13 @@ s32 get_state_flag__9TMainTaskFv();
 void set_global_param__8TObjFishFi(void *);
 M2C_UNK set_indexed_flags(void *, M2C_UNK, M2C_UNK);
 
-extern s32 lbl_805D4DF0;
+extern s32 camera_ctrl_instance;
 
 s16 TObjLazerFence4__vt8(u8 *arg0, f32 farg0, f32 farg1) {
     if (get_state_flag__9TMainTaskFv() == 1) {
         return M2C_FIELD(arg0, s16 *, 0x1E);
     }
-    if (xz_distance_squared(arg0 + 0x38, lbl_805D4DF0 + 0x178) < (farg1 * farg1)) {
+    if (xz_distance_squared(arg0 + 0x38, camera_ctrl_instance + 0x178) < (farg1 * farg1)) {
         M2C_FIELD(arg0, s16 *, 0x1E) = 1;
         return M2C_FIELD(arg0, s16 *, 0x1E);
     }

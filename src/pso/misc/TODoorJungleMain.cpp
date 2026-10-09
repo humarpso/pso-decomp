@@ -14,10 +14,10 @@ s32 update_object_view_visibility(s32, f32, f32);
 M2C_UNK queue_destruction__7TObjectFv(void *);
 M2C_UNK set_indexed_flags(M2C_UNK, M2C_UNK, M2C_UNK);
 
-extern s32 lbl_805D4DF0;
+extern s32 camera_ctrl_instance;
 
 s32 TODoorJungleMain__vt8(s32 arg0, f32 farg0, f32 farg1) {
-    if (xz_distance_squared(arg0 + 0x38, lbl_805D4DF0 + 0x178) < (farg1 * farg1)) {
+    if (xz_distance_squared(arg0 + 0x38, camera_ctrl_instance + 0x178) < (farg1 * farg1)) {
         return 1;
     }
     return update_object_view_visibility(arg0, farg0, farg1);
@@ -213,8 +213,8 @@ struct Ids_8029B428 {
 };
 
 extern "C" {
-extern u32 TODoorJungleMain__data_805D65B8;
-extern u32 lbl_805D65BC;
+extern u32 TODoorJungleMain__bml_resource;
+extern u32 door_jungle_main_gvm_texture;
 u8 * load_resource_from_descriptor(void *, s32, void *, s32, s32, s32);
 int alloc__23TAdSinglePlyChrSelectGCFPv(void *);
 u8 * load_gvm_texture_file(s32);
@@ -230,7 +230,7 @@ s32 create__10TObjMapCsnFi(s32);
 extern RecoveredGlobal_8029B924_lbl_804DC014 TODoorJungleMain_collision_body_parts;
 extern M2C_UNK __vt__16TODoorJungleMain[];
 extern s32 lbl_805D3D20;
-extern u32 TODoorJungleMain__data_805D65B8;
+extern u32 TODoorJungleMain__bml_resource;
 extern const f32 lbl_805DDCD8;
 extern const f32 lbl_805DDCDC;
 extern const f32 lbl_805DDCE0;
@@ -248,8 +248,8 @@ void *set_global_param__8TObjFishFi(void *);
 int draw_ginja_object(void *);
 M2C_UNK draw_ginja_model_with_motion(void *, int, f32);
 extern Ids_8029B428 door_jungle_main_ids;
-extern u32 TODoorJungleMain__data_805D65B8;
-extern u32 lbl_805D65BC;
+extern u32 TODoorJungleMain__bml_resource;
+extern u32 door_jungle_main_gvm_texture;
 void render__16TODoorJungleMainFv(Door_8029B428 *self);
 }
 
@@ -317,18 +317,18 @@ void __dl__7TObjectFPv(void *);
 void destroy_ancient_door_base__15TODoorAncient01FPvs(void *, int);
 M2C_UNK safe_free__23TAdSinglePlyChrSelectGCFUi(u32);
 
-extern u32 TODoorJungleMain__data_805D65B8;
-extern u32 lbl_805D65BC;
+extern u32 TODoorJungleMain__bml_resource;
+extern u32 door_jungle_main_gvm_texture;
 
 void free_static_resources__16TODoorJungleMainFv(void) {
-    if ((u32) lbl_805D65BC != 0U) {
-        TLobby__sub_803DA16C((void*)lbl_805D65BC);
-        safe_free__23TAdSinglePlyChrSelectGCFUi(lbl_805D65BC);
-        lbl_805D65BC = 0U;
+    if ((u32) door_jungle_main_gvm_texture != 0U) {
+        TLobby__sub_803DA16C((void*)door_jungle_main_gvm_texture);
+        safe_free__23TAdSinglePlyChrSelectGCFUi(door_jungle_main_gvm_texture);
+        door_jungle_main_gvm_texture = 0U;
     }
-    if ((u32) TODoorJungleMain__data_805D65B8 != 0U) {
-        TLobby__sub_8001FE7C((void*)TODoorJungleMain__data_805D65B8, 1);
-        TODoorJungleMain__data_805D65B8 = 0U;
+    if ((u32) TODoorJungleMain__bml_resource != 0U) {
+        TLobby__sub_8001FE7C((void*)TODoorJungleMain__bml_resource, 1);
+        TODoorJungleMain__bml_resource = 0U;
     }
 }
 
@@ -346,23 +346,23 @@ void load_resources__16TODoorJungleMainFv(void) {
     if (var_r0 != 0) {
         var_r0 = (long) (load_resource_from_descriptor((void *) temp_r3, 0x1, &lbl_804DC004.value, 0, 0, 0));
     }
-    (*(s32 *)&TODoorJungleMain__data_805D65B8) = var_r0;
-    (*(u8 * *)&lbl_805D65BC) = load_gvm_texture_file((s32) &lbl_80465418.value);
+    (*(s32 *)&TODoorJungleMain__bml_resource) = var_r0;
+    (*(u8 * *)&door_jungle_main_gvm_texture) = load_gvm_texture_file((s32) &lbl_80465418.value);
 }
 
 void render__16TODoorJungleMainFv(Door_8029B428 *self) {
     Ids_8029B428 ids = door_jungle_main_ids;
     s32 i;
     if (self->m8(self->fc0, self->fc4) == 1) {
-        push_matrix(set_global_param__8TObjFishFi((void *)lbl_805D65BC));
+        push_matrix(set_global_param__8TObjFishFi((void *)door_jungle_main_gvm_texture));
         post_translate_matrix(self->xf);
         rotate_matrix_y(0, self->f60);
         if (self->flags & 1) {
-            draw_ginja_model_with_motion(get_bml_model(TODoorJungleMain__data_805D65B8, 3), self->fbc, self->fb4);
+            draw_ginja_model_with_motion(get_bml_model(TODoorJungleMain__bml_resource, 3), self->fbc, self->fb4);
         } else {
-            draw_ginja_object(get_bml_model(TODoorJungleMain__data_805D65B8, 3));
+            draw_ginja_object(get_bml_model(TODoorJungleMain__bml_resource, 3));
             for (i = 0; i < 3 - self->count; i++) {
-                draw_ginja_object(get_bml_model(TODoorJungleMain__data_805D65B8, ids.v[i]));
+                draw_ginja_object(get_bml_model(TODoorJungleMain__bml_resource, ids.v[i]));
             }
         }
         pop_matrix();
@@ -468,7 +468,7 @@ u8 *TODoorJungleMain__ct(u8 *arg0, M2C_UNK arg1, s32 arg2) {
     M2C_FIELD(arg0, M2C_UNK **, 0x18) = &(*(RecoveredGlobal_8029B924___vt__16TODoorJungleMain *)&__vt__16TODoorJungleMain).value;
     M2C_FIELD(arg0, s32 *, 0) = (s32) lbl_805D3D20;
     ((VObj_18_1a504b *)(arg0))->m5(arg2);
-    M2C_FIELD(arg0, s32 *, 0xBC) = get_bml_motion((*(u8 * *)&TODoorJungleMain__data_805D65B8), 0);
+    M2C_FIELD(arg0, s32 *, 0xBC) = get_bml_motion((*(u8 * *)&TODoorJungleMain__bml_resource), 0);
     M2C_FIELD(arg0, f32 *, 0xB8) = (f32) lbl_805DDCD8;
     M2C_FIELD(arg0, f32 *, 0xB4) = (f32) lbl_805DDCDC;
     init_collision_body_parts(arg0, (s32) &TODoorJungleMain_collision_body_parts.value, 1);

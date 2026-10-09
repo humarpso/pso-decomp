@@ -15,14 +15,14 @@ struct D_80066DC8 { s32 f0; s32 f4; s32 f8; s32 fc; };
 extern "C" {
 s32 TBoss8Dragon__sub_8005D700(void *self);
 extern u8 lbl_80437F70[];
-extern void *TBoss5GryphonSnarl__data_805D4DD0;
+extern void *TBoss5GryphonSnarl__effect_table;
 void TBoss5GryphonSnarl__sub_80066E88(void *self);
 void VecCopy__FP3VecPC3Vec(void *, void *);
 void spawn_particle_effect_with_flags(void *, s32, s32);
 void __ct__7TObjectFP7TObject(void *, void *);
 extern u8 __vt__18TBoss5GryphonSnarl[];
 extern s32 lbl_805D2820;
-extern void *TBoss5GryphonSnarl__data_805D4DD0;
+extern void *TBoss5GryphonSnarl__effect_table;
 extern const f32 lbl_805D8F0C;
 Obj_80066DC8 *TBoss5GryphonSnarl__ct(Obj_80066DC8 *self, void *parent, void *arg2);
 }
@@ -67,8 +67,8 @@ Obj_80066DC8 *TBoss5GryphonSnarl__ct(Obj_80066DC8 *self, void *parent, void *arg
     self->pos.y = lbl_805D8F0C;
     self->f12c = 0;
     self->f1c = 0;
-    spawn_particle_effect_with_flags(&self->pos, ((D_80066DC8 *)TBoss5GryphonSnarl__data_805D4DD0)->fc, 0x40);
-    spawn_particle_effect_with_flags(&self->pos, ((D_80066DC8 *)TBoss5GryphonSnarl__data_805D4DD0)->f8, 0x40);
+    spawn_particle_effect_with_flags(&self->pos, ((D_80066DC8 *)TBoss5GryphonSnarl__effect_table)->fc, 0x40);
+    spawn_particle_effect_with_flags(&self->pos, ((D_80066DC8 *)TBoss5GryphonSnarl__effect_table)->f8, 0x40);
     for (i = 0; i < 32; i++) {
         self->c20[i] = 0;
         self->ca0[i] = 0;
@@ -80,21 +80,21 @@ Obj_80066DC8 *TBoss5GryphonSnarl__ct(Obj_80066DC8 *self, void *parent, void *arg
 void TBoss5GryphonSnarl__sub_80066E84(void) {  }
 
 extern s32 lbl_805D4DD8;
-extern u32 lbl_805D4DDC;
+extern u32 boss5_common_texture_list;
 
 void TBoss5GryphonSnarl__sub_80066E88(void *self) {
     switch (TBoss8Dragon__sub_8005D700(self)) {
     case 0:
-        TBoss5GryphonSnarl__data_805D4DD0 = lbl_80437F70;
+        TBoss5GryphonSnarl__effect_table = lbl_80437F70;
         break;
     }
 }
 
 void TLobby__sub_80066EC0(void) {
-    if ((u32) lbl_805D4DDC != 0U) {
-        TLobby__sub_803DA16C((void*)lbl_805D4DDC);
-        safe_free__23TAdSinglePlyChrSelectGCFUi(lbl_805D4DDC);
-        lbl_805D4DDC = 0U;
+    if ((u32) boss5_common_texture_list != 0U) {
+        TLobby__sub_803DA16C((void*)boss5_common_texture_list);
+        safe_free__23TAdSinglePlyChrSelectGCFUi(boss5_common_texture_list);
+        boss5_common_texture_list = 0U;
     }
     TLobby__sub_8001FE7C(lbl_805D4DD8, 1);
     lbl_805D4DD8 = 0;

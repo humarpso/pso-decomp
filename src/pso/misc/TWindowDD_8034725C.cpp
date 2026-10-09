@@ -73,7 +73,7 @@ M2C_UNK refresh_status_display__9TWindowDDFv(void *);
 M2C_UNK update_position__9TWindowDDFPvi(void *, s32);
 M2C_UNK init_and_set_field50__9TWindowDDFPvPv(u32, s32);
 extern s32 lbl_805D53A0;
-extern u32 TWindowDD__data_805D6E0C;
+extern u32 TWindowDD__work_buffer;
 extern s32 TWindowDD__data_805DFB50;
 extern const f32 TWindowDD__data_805DFB58;
 extern const f32 lbl_805DFCD0;
@@ -332,7 +332,7 @@ void TWindowDD__sub_80347CC8(W_80347CC8 *arg0, void *arg1) {
     f32 c;
     f32 max;
     f32 f10;
-    update_state__9TWindowDDFv(arg1, TWindowDD__data_805D6E0C, lbl_805D53A0);
+    update_state__9TWindowDDFv(arg1, TWindowDD__work_buffer, lbl_805D53A0);
     s = arg0->f70;
     if (s != NULL) {
         e = get_array_entry__20TWindowSubStatusDispFPvi(s, 0);

@@ -2,8 +2,8 @@
 
 extern "C" {
 
-    extern int lbl_805D5ED8;
-void clear_counter__6TLobbyFv(void) { lbl_805D5ED8 = 0; }
+    extern int quest_active_flag;
+void clear_counter__6TLobbyFv(void) { quest_active_flag = 0; }
 
     extern int camera_split_screen_selector;
 void TLobby__sub_801A3B90(int a0) { camera_split_screen_selector = a0; }

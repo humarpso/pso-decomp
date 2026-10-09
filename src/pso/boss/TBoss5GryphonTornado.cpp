@@ -52,8 +52,8 @@ void enable__13TParticleCtrlFPv(void *);
 void add_radar_scaled_marker(Vec_80355570 *, s32, s32, s32, f32);
 void play_persistent_sound(s32, void *, Vec_80355570 *, s32, s32);
 void fn_803554F0(void *, Vec_80355570 *);
-extern s32 lbl_805D4DA4;
-extern s32 lbl_805D4DA8;
+extern s32 boss5_gryphon_bml_resource;
+extern s32 boss5_gryphon_texture_list;
 extern s32 *lbl_805D6F10;
 extern const f32 lbl_805D8D48;
 extern const f32 lbl_805DFFAC;
@@ -108,7 +108,7 @@ void run_task__20TBoss5GryphonTornadoFv(Tornado_80355570 *o) {
         if (o->p54 == NULL) {
             o->p54 = spawn_continuous_particle_effect_with_flags(&o->pos, lbl_805D6F10[1], 0x40);
             if (o->p54 != NULL) {
-                attach_particle_model(o->p54, get_bml_model(lbl_805D4DA4, 0), lbl_805D4DA8, get_bml_motion(lbl_805D4DA4, 0), 0, lbl_805DFFAC);
+                attach_particle_model(o->p54, get_bml_model(boss5_gryphon_bml_resource, 0), boss5_gryphon_texture_list, get_bml_motion(boss5_gryphon_bml_resource, 0), 0, lbl_805DFFAC);
             }
         }
         if (o->p58 == NULL) {

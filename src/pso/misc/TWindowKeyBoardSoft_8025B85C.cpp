@@ -9,6 +9,22 @@ struct Field_8025C974 { u16 *buffer; s32 cursor; u32 width; u32 linePixels; s32 
 struct Base_8025C974 { u8 pad[0x6c]; Field_8025C974 field; u8 pad2[0x30]; s32 fb4; };
 
 typedef s32 M2C_UNK;
+
+struct Field_8025C804 { u16 *buffer; s32 cursor; };
+
+struct Kbd_8025C804 {
+    u8 pad0[0x60];
+    u16 flags;
+    u8 pad62[0x6C - 0x62];
+    Field_8025C804 field;
+    u8 pad74[0x84 - 0x74];
+    u16 *buf;
+    u8 pad88[0x94 - 0x88];
+    u32 len;
+    u32 max;
+    s8 *src;
+};
+
 extern "C" {
 void TWindowKeyBoardSoft__sub_8025BA44(u8 *arg0);
 s32 TWindowKeyBoardSoft__sub_80076E00(int);
@@ -83,7 +99,6 @@ M2C_UNK append_text__19TWindowKeyBoardSoftFPvPv(void *, s32);
 M2C_UNK text_builder_append(M2C_UNK *);
 M2C_UNK text_builder_reset();
 M2C_UNK *TWindowCtrl__sub_8024B7D4(s32);
-M2C_UNK TWindowKeyBoardSoft__sub_8025C804(void *);
 M2C_UNK TWindowKeyBoardSoft__sub_8025DBDC(void *, M2C_UNK);
 extern M2C_UNK lbl_805DD030;
 extern M2C_UNK lbl_805DD034;
@@ -105,10 +120,14 @@ s32 measure_char_overflow__19TWindowKeyBoardSoftFPvUsPvPvPv(Field_8025C974 *, u1
 s32 measure_text_overflow__19TWindowKeyBoardSoftFPv(Base_8025C974 *arg0);
 M2C_UNK TWindowKeyBoardSoft__sub_800808FC(int, int);
 bool is_alnum__19TWindowKeyBoardSoftFUs(u16 arg0);
-M2C_UNK TWindowKeyBoardSoft__sub_8025C804(void *);
 M2C_UNK TWindowKeyBoardSoft__sub_8025DBDC(void *, M2C_UNK);
 extern s32 current_language;
 void TWindowKeyBoardSoft__sub_8025C618(u8 *arg0, u16 arg1);
+void make_room_in_buffer__19TWindowKeyBoardSoftFPvii(void *, s32, s32);
+void check_text_overflow__19TWindowKeyBoardSoftFPvPv(void *, u16 *);
+void init__19TWindowKeyBoardSoftFPv(u8 *arg0);
+M2C_UNK TWindowKeyBoardSoft__sub_8025DBDC(void *, M2C_UNK);
+M2C_UNK TWindowKeyBoardSoft__sub_8025C804(void *self);
 }
 
 extern "C" {
@@ -568,7 +587,7 @@ void TWindowKeyBoardSoft__vt0(u8 *arg0) {
             M2C_FIELD(arg0, u16 *, 0x60) = (u16) (M2C_FIELD(arg0, u16 *, 0x60) | 1);
         }
     } else {
-        TWindowKeyBoardSoft__sub_8025C804((void *)(arg0));
+        TWindowKeyBoardSoft__sub_8025C804((void *)((void *)(arg0)));
     }
 }
 
@@ -581,7 +600,7 @@ void TWindowKeyBoardSoft__sub_8025C51C(u8 *arg0, s32 arg1) {
         if (temp_r4 & 4) {
             TWindowKeyBoardSoft__sub_8025DBDC(arg0, 1);
         }
-        TWindowKeyBoardSoft__sub_8025C804((void *)(arg0));
+        TWindowKeyBoardSoft__sub_8025C804((void *)((void *)(arg0)));
     }
     temp_r3 = TWindowCtrl__sub_8024B7D4(arg1);
     if (temp_r3 != NULL) {
@@ -619,11 +638,11 @@ void TWindowKeyBoardSoft__sub_8025C618(u8 *arg0, u16 arg1) {
             M2C_FIELD(arg0, u16 *, 0x60) |= 0x80;
         }
         if (M2C_FIELD(arg0, u8 *, 0x64) == 3 && (M2C_FIELD(arg0, u16 *, 0x60) & 2)) {
-            TWindowKeyBoardSoft__sub_8025C804(arg0);
+            TWindowKeyBoardSoft__sub_8025C804((void *)(arg0));
         }
     }
     if ((M2C_FIELD(arg0, u16 *, 0x60) & 4) || (M2C_FIELD(arg0, s32 *, 0xB4) & 0x40)) {
-        TWindowKeyBoardSoft__sub_8025C804(arg0);
+        TWindowKeyBoardSoft__sub_8025C804((void *)(arg0));
     }
     f = M2C_FIELD(arg0, s32 *, 0xB4);
     if ((f & 0x10) && arg1 >= 0x80U) {
@@ -658,6 +677,63 @@ void init__19TWindowKeyBoardSoftFPv(u8 *arg0) {
     M2C_FIELD(arg0, s32 *, 0x68) = (s32) (arg0 + 0x6C);
     M2C_FIELD(arg0, u16 *, 0x60) = (u16) (M2C_FIELD(arg0, u16 *, 0x60) & ~0x86);
 }
+
+#pragma push
+#pragma opt_propagation off
+M2C_UNK TWindowKeyBoardSoft__sub_8025C804(void *self) {
+    Kbd_8025C804 *arg0 = (Kbd_8025C804 *)self;
+    s32 n;
+    s32 nx;
+    s8 *src;
+    u16 *dst;
+    u16 c;
+    u32 cnt;
+    u32 i;
+    u16 *s;
+    u16 *d;
+    if (arg0->flags & 4) {
+        TWindowKeyBoardSoft__sub_8025DBDC(arg0, 1);
+        src = arg0->src;
+        i = 0;
+        dst = arg0->buf;
+        while (*src != 0) {
+            cnt = src[1];
+            src += 3;
+            while (cnt-- != 0 && i < arg0->max) {
+                c = *src++;
+                if ((c & 0xE0) == 0x80 || (c & 0xE0) == 0xE0) {
+                    c = (u8)c << 8;
+                    c |= *src & 0xFF;
+                    cnt--;
+                    src++;
+                }
+                *dst++ = c;
+                i++;
+            }
+        }
+        *dst = 0;
+        arg0->len = i;
+        arg0->flags &= ~4;
+    }
+    check_text_overflow__19TWindowKeyBoardSoftFPvPv(&arg0->field, arg0->buf);
+    s = arg0->buf;
+    n = 0;
+    while ((s32)*s != 0) {
+        s++;
+        n++;
+    }
+    if (n > 0) {
+        make_room_in_buffer__19TWindowKeyBoardSoftFPvii(&arg0->field, arg0->field.cursor, n);
+        s = arg0->buf;
+        d = arg0->field.buffer + arg0->field.cursor;
+        while ((s32)*s != 0) {
+            *d++ = *s++;
+        }
+        arg0->field.cursor += n;
+    }
+    init__19TWindowKeyBoardSoftFPv((u8 *)arg0);
+}
+#pragma pop
 
 void export_keyboard_text(Base_8025C974 *base, char *out) {
     u32 a = 0;

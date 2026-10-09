@@ -6,7 +6,7 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 
 extern "C" {
 f32 xyz_distance_squared(void *, void *, void *);
-extern s32 lbl_805D4DF0;
+extern s32 camera_ctrl_instance;
 s32 fn_801908F8(s32 arg0, f32 farg0);
 s32 get_global_state__14TOKeyMachine01Fv();
 s32 is_not_split_screen__13TRaderMapCoreFv();
@@ -27,7 +27,7 @@ s32 is_sound_enabled__12TObjEnvSoundFPvi(void *self, s32 cue) {
 }
 
 s32 fn_801908F8(s32 arg0, f32 farg0) {
-    return xyz_distance_squared((void *) (lbl_805D4DF0 + 0x178), (void *) (arg0 + 0x38), (void *) (arg0)) < farg0;
+    return xyz_distance_squared((void *) (camera_ctrl_instance + 0x178), (void *) (arg0 + 0x38), (void *) (arg0)) < farg0;
 }
 
 }

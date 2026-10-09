@@ -103,7 +103,7 @@ u8 *alloc__23TAdSinglePlyChrSelectGCFPv(s32);
 s32 *alloc_buffer__11TOBoss4RockFPv(s32);
 s32 load_gvm_texture_file(void *);
 extern RecoveredGlobal_8016BC84_lbl_80441ACC lbl_80440A64;
-extern RecoveredGlobal_8016BC84_lbl_804B2B30 lbl_804B0DF8;
+extern RecoveredGlobal_8016BC84_lbl_804B2B30 door_ancient03_resource_descriptor;
 extern u32 lbl_805D5908;
 extern void *TODoorAncient03__data_805D590C;
 void load_resources__15TODoorAncient03Fv(void);
@@ -111,7 +111,7 @@ s32 reset_photon_effect__10TObjPlayerFPv(void *);
 s32 refresh_collision_body_centers(void *);
 s32 init_collision_body_parts(void *, void *, int);
 s32 init_door_base(void *);
-extern RecoveredGlobal_8015E634_lbl_804B0E08 lbl_804B0E08;
+extern RecoveredGlobal_8015E634_lbl_804B0E08 door_ancient03_collision_parts;
 extern M2C_UNK __vt__15TODoorAncient03[];
 extern s32 lbl_805D2F28;
 extern u32 lbl_805D5908;
@@ -240,7 +240,7 @@ void load_resources__15TODoorAncient03Fv(void) {
     temp_r3 = (u8 *)(alloc__23TAdSinglePlyChrSelectGCFPv(0x440));
     var_r0 = (u8 *)(temp_r3);
     if (var_r0 != NULL) {
-        var_r0 = (u8 *)(load_resource_from_descriptor(temp_r3, 1, &lbl_804B0DF8.value, 0, 0, 0));
+        var_r0 = (u8 *)(load_resource_from_descriptor(temp_r3, 1, &door_ancient03_resource_descriptor.value, 0, 0, 0));
     }
     (*(u8 * *)&lbl_805D5908) = var_r0;
     temp_r3_2 = (s32 *)(alloc_buffer__11TOBoss4RockFPv(8));
@@ -275,7 +275,7 @@ u8 *TODoorAncient03__ct(u8 *arg0, M2C_UNK arg1, s32 arg2) {
     M2C_FIELD(arg0, u8 **, 0xBC) = (unsigned char *) ((void *) M2C_FIELD(M2C_FIELD((*(u8 * *)&lbl_805D5908), u8 **, 0x430), void **, 4));
     M2C_FIELD(arg0, f32 *, 0xB4) = (f32) ((f32) M2C_FIELD(M2C_FIELD(arg0, u8 **, 0xBC), u32 *, 4) - lbl_805DB3FC);
     M2C_FIELD(arg0, f32 *, 0xB8) = (f32) (M2C_FIELD(arg0, f32 *, 0xB4) / lbl_805DB3F8);
-    init_collision_body_parts((void *) (arg0), (void *) (&lbl_804B0E08.value), (int) (1));
+    init_collision_body_parts((void *) (arg0), (void *) (&door_ancient03_collision_parts.value), (int) (1));
     refresh_collision_body_centers((void *) (arg0));
     reset_photon_effect__10TObjPlayerFPv((void *) (arg0));
     ((VObj_18_4a4f5b *)(arg0))->m17();

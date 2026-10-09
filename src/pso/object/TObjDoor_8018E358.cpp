@@ -88,7 +88,7 @@ f32 sin_table_lookup(s32);
 void update_anim__8TObjDoorFPv(void *arg0);
 f32 xyz_distance_squared(void *, void *);
 M2C_UNK project_world_to_screen(int, void *, void *);
-extern s32 lbl_805D4DF0;
+extern s32 camera_ctrl_instance;
 s32 is_visible__8TObjDoorFiff(s32 arg0, f32 farg0, f32 farg1);
 M2C_UNK free_collision_body_parts(void *);
 M2C_UNK unregister_object_by_id(void *);
@@ -469,7 +469,7 @@ void update_locked_pulse__8TObjDoorFPv(TObjDoor* door) {
 s32 is_visible__8TObjDoorFiff(s32 arg0, f32 farg0, f32 farg1) {
     f32 sp8;
     f32 temp_f1;
-    temp_f1 = xyz_distance_squared((void *) (arg0 + 0x38), (void *) (lbl_805D4DF0 + 0x178));
+    temp_f1 = xyz_distance_squared((void *) (arg0 + 0x38), (void *) (camera_ctrl_instance + 0x178));
     if (temp_f1 > (farg0 * farg0)) {
         return 0;
     }

@@ -356,7 +356,7 @@ s32 init_all_slots__11TWindowCtrlFv(void);
 extern u8 lbl_804356C0[];
 extern u8 lbl_80435A18[];
 extern s32 lbl_80482280[];
-extern u8 lbl_80482398[];
+extern u8 boss2_derolle_bml_descriptor[];
 extern s32 lbl_805D26A8[1];
 extern s32 lbl_805D26AC[1];
 extern s32 lbl_805D26B0[1];
@@ -673,9 +673,9 @@ void load_resources__13TBoss2DeRolLeFv(void) {
     Node_80035D24 *m;
     Slot_80035D24 *p;
     if (check_v2_mode__9TObjEneDDFv() != 0) {
-        res = load_enemy_bml_resource_named(lbl_80482398, lbl_80435A18);
+        res = load_enemy_bml_resource_named(boss2_derolle_bml_descriptor, lbl_80435A18);
     } else {
-        res = load_enemy_bml_resource(lbl_80482398);
+        res = load_enemy_bml_resource(boss2_derolle_bml_descriptor);
     }
     (*(u8 * *)&lbl_805D4BA4) = res;
     lbl_805D4BA8 = 0;

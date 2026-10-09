@@ -6,8 +6,8 @@ void *load_resource_from_descriptor(void *, int, void *, int, int, int);
 void *alloc__23TAdSinglePlyChrSelectGCFPv(int);
 s32 count_linked_switches__23TObjSeabedSuisoBrakableFUii(s32, int);
 extern u8 lbl_804E0C00[];
-extern s32 lbl_80540B30[5];
-extern s32 lbl_80540B44[5];
+extern s32 seabed_suiso_linked_switch_counts[5];
+extern s32 seabed_suiso_switch_counts[5];
 extern void *lbl_805D6808;
 void load_shared_models__23TObjSeabedSuisoBrakableFv(void);
 }
@@ -34,25 +34,25 @@ void load_shared_models__23TObjSeabedSuisoBrakableFv(void) {
     }
     lbl_805D6808 = p;
     for (i = 0; i < 5; i++) {
-        lbl_80540B30[i] = 0;
+        seabed_suiso_linked_switch_counts[i] = 0;
     }
     for (i = 0; i < 5; i++) {
-        lbl_80540B44[i] = 0;
+        seabed_suiso_switch_counts[i] = 0;
     }
     if (p != NULL) {
         h = get_bml_model(p, 3);
         if (h != 0) {
-            lbl_80540B30[1] = count_linked_switches__23TObjSeabedSuisoBrakableFUii(h, 3);
-            lbl_80540B30[2] = count_linked_switches__23TObjSeabedSuisoBrakableFUii(h, 4);
-            lbl_80540B30[3] = count_linked_switches__23TObjSeabedSuisoBrakableFUii(h, 5);
-            lbl_80540B30[4] = count_linked_switches__23TObjSeabedSuisoBrakableFUii(h, 6);
+            seabed_suiso_linked_switch_counts[1] = count_linked_switches__23TObjSeabedSuisoBrakableFUii(h, 3);
+            seabed_suiso_linked_switch_counts[2] = count_linked_switches__23TObjSeabedSuisoBrakableFUii(h, 4);
+            seabed_suiso_linked_switch_counts[3] = count_linked_switches__23TObjSeabedSuisoBrakableFUii(h, 5);
+            seabed_suiso_linked_switch_counts[4] = count_linked_switches__23TObjSeabedSuisoBrakableFUii(h, 6);
         }
         h = get_bml_model(lbl_805D6808, 4);
         if (h != 0) {
-            lbl_80540B44[1] = count_linked_switches__23TObjSeabedSuisoBrakableFUii(h, 3);
-            lbl_80540B44[2] = count_linked_switches__23TObjSeabedSuisoBrakableFUii(h, 4);
-            lbl_80540B44[3] = count_linked_switches__23TObjSeabedSuisoBrakableFUii(h, 5);
-            lbl_80540B44[4] = count_linked_switches__23TObjSeabedSuisoBrakableFUii(h, 6);
+            seabed_suiso_switch_counts[1] = count_linked_switches__23TObjSeabedSuisoBrakableFUii(h, 3);
+            seabed_suiso_switch_counts[2] = count_linked_switches__23TObjSeabedSuisoBrakableFUii(h, 4);
+            seabed_suiso_switch_counts[3] = count_linked_switches__23TObjSeabedSuisoBrakableFUii(h, 5);
+            seabed_suiso_switch_counts[4] = count_linked_switches__23TObjSeabedSuisoBrakableFUii(h, 6);
         }
     }
 }

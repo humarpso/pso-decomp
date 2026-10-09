@@ -9,6 +9,11 @@ struct Src_80348A9C { f32 x; f32 y; };
 struct Dst_80348A9C { u8 pad[0xc]; f32 x; f32 y; u8 pad2[4]; };
 
 typedef s32 M2C_UNK;
+
+struct A_803489B8 { u8 pad0[4]; f32 f4; u8 pad8[4]; f32 fC; u8 pad10[0x1C]; f32 f2C; };
+
+struct B_803489B8 { u8 pad0[4]; f32 f4; u8 pad8[0x14]; f32 f1C; u8 pad20[0x10]; };
+
 extern "C" {
 extern f32 lbl_805DFB1C;
 extern const f32 TWindowDD__data_805DFCD8;
@@ -19,7 +24,7 @@ extern const f32 lbl_805DFCE4;
 f32 TWindowDD__sub_80348AD4(f32 farg0, f32 farg1);
 extern Src_80348A9C TWindowDD__data_805434E8[][8];
 void copy_point_table__9TWindowDDFPvi(Dst_80348A9C *self, s32 idx);
-extern s32 *TWindowDD__data_805D6E18;
+extern s32 *TWindowDD__player_name_buffers;
 extern s32 *TWindowDD__data_805D6E28;
 extern s16 *lbl_805D6E34;
 s32 TWindowDD__sub_80348B70(s16 arg0);
@@ -28,6 +33,9 @@ extern const f32 lbl_805DFB5C;
 extern const f32 lbl_805DFCD4;
 extern const f32 TWindowDD__data_805DFCD8;
 void calc_inner_rect__9TWindowDDFPvPv(u8 *arg0, u8 *arg1);
+extern const f32 TWindowDD__data_805DFB20;
+extern const f32 TWindowDD__data_805DFCD8;
+void TWindowDD__sub_803489B8(A_803489B8 *arg0, B_803489B8 *arg1, s32 arg2);
 }
 
 extern "C" {
@@ -40,7 +48,6 @@ s32 get_draw_count__9TWindowDDFPv(void **arg0);
 s32 get_entry__9TWindowDDFi(s32 arg0);
 M2C_UNK reset_entries__9TWindowDDFPvf(Buf *, M2C_UNK);
 s32 can_append_chars__9TWindowDDFiPv(s32, s32 *);
-M2C_UNK TWindowDD__sub_803489B8(s32, Buf *, M2C_UNK);
 M2C_UNK draw_transformed_primitive__9TWindowDDFPvPvPvPv(Buf *, M2C_UNK, s32, M2C_UNK);
 s32 strlen();
 M2C_UNK strncpy(s32, s32, s32);
@@ -68,9 +75,34 @@ void draw__9TWindowDDFPviif(void *arg0, s32 arg1, s32 arg2, f32 farg0) {
     reset_entries__9TWindowDDFPvf(&sp8, -1);
     copy_point_table__9TWindowDDFPvi((Dst_80348A9C *)(&sp8), (s32)(arg2));
     TWindowDD__sub_80348A2C((void *)(arg1), (void *)(&sp8));
-    TWindowDD__sub_803489B8(arg1, &sp8, 0);
+    TWindowDD__sub_803489B8((A_803489B8 *)(arg1), (B_803489B8 *)(&sp8), (s32)(0));
     draw_transformed_primitive__9TWindowDDFPvPvPvPv(&sp8, 8, temp_r31, 1);
 }
+
+#pragma push
+#pragma fp_contract on
+void TWindowDD__sub_803489B8(A_803489B8 *arg0, B_803489B8 *arg1, s32 arg2) {
+    s32 i;
+    f32 hs;
+    f32 half;
+    f32 v;
+    f32 t0;
+    f32 step;
+    f32 sc;
+    half = TWindowDD__data_805DFCD8 * arg0->fC;
+    sc = arg0->f2C;
+    t0 = arg0->f4 + half;
+    step = TWindowDD__data_805DFB20 * sc;
+    hs = half * sc;
+    v = t0 - hs;
+    v += step * (f32) arg2;
+    for (i = 0; i < 4; i++) {
+        arg1->f4 = v;
+        arg1->f1C = v + step;
+        arg1++;
+    }
+}
+#pragma pop
 
 void TWindowDD__sub_80348A2C(void *arg0, void *arg1) {
   f32 temp_f0;
@@ -166,7 +198,7 @@ void calc_inner_rect__9TWindowDDFPvPv(u8 *arg0, u8 *arg1) {
 #pragma pop
 
 s32 TWindowDD__sub_80348B70(s16 arg0) {
-    s32 *t = TWindowDD__data_805D6E18;
+    s32 *t = TWindowDD__player_name_buffers;
     if (arg0 >= 0x68C && arg0 <= 0x697) {
         return t[arg0 - 0x68C];
     }

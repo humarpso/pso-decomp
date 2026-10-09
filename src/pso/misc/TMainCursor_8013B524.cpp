@@ -35,7 +35,7 @@ void update_chair__11TMainCursorFPv(void *arg0) {
     update_parts__15TPlyPhotonChairFPv(self->f_4C);
 }
 
-extern u8 *lbl_805D4DF0;
+extern u8 *camera_ctrl_instance;
 extern const f32 TMainCursor__data_805DB0C0;
 
 void render__11TMainCursorFPv(u8 *arg0) {
@@ -47,7 +47,7 @@ void render__11TMainCursorFPv(u8 *arg0) {
     push_matrix();
     offset_point_toward_camera(arg0 + 0x40, &sp8, M2C_FIELD(arg0, f32 *, 0x2C));
     set_position_vec3__10TObjPlayerFPvPv(0, &sp8);
-    rotate_matrix_y(0, M2C_FIELD(lbl_805D4DF0, s32 *, 0x194));
+    rotate_matrix_y(0, M2C_FIELD(camera_ctrl_instance, s32 *, 0x194));
     push_matrix();
     rotate_matrix_z(0, 0x2AAA);
     translate_matrix(0, TMainCursor__data_805DB0C0, temp_f31, TMainCursor__data_805DB0C0);

@@ -287,9 +287,9 @@ extern const char *lbl_805D35DC;
 extern s32 lbl_805D53A0;
 extern s32 current_language;
 extern s32 game_difficulty_selection;
-extern u32 lbl_805D5EE8;
-extern u32 lbl_805D5EEC;
-extern s32 lbl_805D5EF0;
+extern u32 quest_mission_manager;
+extern u32 quest_area_manager;
+extern s32 quest_thread_board;
 extern int lbl_805D5EF4;
 extern Entry_801F4DFC *lbl_805D5EF8;
 extern const f32 lbl_805DC4EC;
@@ -408,10 +408,10 @@ void *TObjItemNameEntry__ct(void *arg0) {
 s32 create_instance__17TQuestThreadBoardFi(s32 arg0) {
     s32 var_r31;
 
-    if ((u32) lbl_805D5EE8 != 0U) {
+    if ((u32) quest_mission_manager != 0U) {
         var_r31 = ((s32 (*)(M2C_UNK))__nw__7TObjectFUl)(0x194);
         if (var_r31 != 0) {
-            var_r31 = ((s32)TQuestThreadBoard__ct((u8 *)(var_r31), (s32)(lbl_805D5EE8), (s32)(arg0)));
+            var_r31 = ((s32)TQuestThreadBoard__ct((u8 *)(var_r31), (s32)(quest_mission_manager), (s32)(arg0)));
         }
         set_parent__7TObjectFP7TObject(var_r31, tl_00);
         return var_r31;
@@ -550,7 +550,7 @@ TQuestThreadBoard::~TQuestThreadBoard() {
         m_2c = nullptr;
     }
     close_windows__6TLobbyFv();
-    lbl_805D5EF0 = 0;
+    quest_thread_board = 0;
 }
 
 extern "C" {
@@ -562,7 +562,7 @@ u8 *TQuestThreadBoard__ct(u8 *arg0, s32 arg1, s32 arg2) {
     ((s32 (*)(void *, void *))copy_quest_script_context)((void *) ((u8 *)(arg0) + 0x1C), (void *) (arg1 + 0x24));
     M2C_FIELD(arg0, s32 *, 0x3C) = M2C_FIELD((M2C_FIELD(arg0, s32 *, 0x20) + (arg2 * 4)), s32 *, 0);
     M2C_FIELD(arg0, s32 *, 0x190) = 0;
-    (*(u8 * *)&lbl_805D5EF0) = arg0;
+    (*(u8 * *)&quest_thread_board) = arg0;
     return arg0;
 }
 
@@ -754,11 +754,11 @@ u8 *create_floor_quest_thread(void) {
     u8 *temp_r3;
     u8 *var_r0;
     temp_r30 = get_current_floor() * 4;
-    if (((s32) M2C_FIELD(&TQuestThread__data_80512AD0.value, M2C_UNK *, temp_r30) != -1) && ((u32) lbl_805D5EE8 != 0U)) {
+    if (((s32) M2C_FIELD(&TQuestThread__data_80512AD0.value, M2C_UNK *, temp_r30) != -1) && ((u32) quest_mission_manager != 0U)) {
         temp_r3 = (u8 *)(((u8 *)__nw__7TObjectFUl(0x194)));
         var_r0 = (u8 *)(temp_r3);
         if (var_r0 != NULL) {
-            var_r0 = (u8 *)(((u8 *)((u32)__ct__12TQuestThreadFv((u8 *)((u32)(temp_r3)), (s32)((u32)((s32) lbl_805D5EE8)), (s32)((s32)(M2C_FIELD(&TQuestThread__data_80512AD0.value, M2C_UNK *, temp_r30)))))));
+            var_r0 = (u8 *)(((u8 *)((u32)__ct__12TQuestThreadFv((u8 *)((u32)(temp_r3)), (s32)((u32)((s32) quest_mission_manager)), (s32)((s32)(M2C_FIELD(&TQuestThread__data_80512AD0.value, M2C_UNK *, temp_r30)))))));
         }
         return var_r0;
     }
@@ -768,10 +768,10 @@ u8 *create_floor_quest_thread(void) {
 u32 create__12TQuestThreadFi(s32 arg0) {
     u32 var_r31;
 
-    if ((u32) lbl_805D5EE8 != 0U) {
+    if ((u32) quest_mission_manager != 0U) {
         var_r31 = __nw__7TObjectFUl(0x194);
         if (var_r31 != 0U) {
-            var_r31 = ((u32)__ct__12TQuestThreadFv((u8 *)(var_r31), (s32)(lbl_805D5EE8), (s32)(arg0)));
+            var_r31 = ((u32)__ct__12TQuestThreadFv((u8 *)(var_r31), (s32)(quest_mission_manager), (s32)(arg0)));
         }
         if (var_r31 != 0U) {
             ((M2C_UNK (*)(u32, s32))set_parent__7TObjectFP7TObject)(var_r31, tl_00);
@@ -785,11 +785,11 @@ u32 create__12TQuestThreadFi(s32 arg0) {
 u8 *create_quest_thread(s32 arg0) {
     u8 *temp_r3;
     u8 *var_r0;
-    if ((u32) lbl_805D5EE8 != 0U) {
+    if ((u32) quest_mission_manager != 0U) {
         temp_r3 = (u8 *)(((u8 *)__nw__7TObjectFUl(0x194)));
         var_r0 = (u8 *)(temp_r3);
         if (var_r0 != NULL) {
-            var_r0 = (u8 *)(((u8 *)((u32)__ct__12TQuestThreadFv((u8 *)((u32)(temp_r3)), (s32)((u32)((s32) lbl_805D5EE8)), (s32)((s32)(arg0))))));
+            var_r0 = (u8 *)(((u8 *)((u32)__ct__12TQuestThreadFv((u8 *)((u32)(temp_r3)), (s32)((u32)((s32) quest_mission_manager)), (s32)((s32)(arg0))))));
         }
         return var_r0;
     }
@@ -841,7 +841,7 @@ void handle_6x77_sync_quest_register(u8 *arg0) {
     u8 *var_r3;
     var_r31 = (u8 *)(arg0);
     bswap_header__6TLobbyFPv();
-    var_r3 = (u8 *)((*(u8 * *)&lbl_805D5EE8));
+    var_r3 = (u8 *)((*(u8 * *)&quest_mission_manager));
     if (var_r3 != NULL) {
         temp_r0 = M2C_FIELD(var_r31, u16 *, 4);
         var_r4 = M2C_FIELD(var_r3, s32 *, 0x2C);
@@ -853,8 +853,8 @@ void handle_6x77_sync_quest_register(u8 *arg0) {
 }
 
 char *get_quest_name__12TQuestThreadFv(void) {
-    if ((*(Obj_801F5E58 * *)&lbl_805D5EE8) != 0) {
-        return (*(Obj_801F5E58 * *)&lbl_805D5EE8)->inner->name;
+    if ((*(Obj_801F5E58 * *)&quest_mission_manager) != 0) {
+        return (*(Obj_801F5E58 * *)&quest_mission_manager)->inner->name;
     }
     return lbl_8044A5D0;
 }
@@ -876,10 +876,10 @@ void *destroy__12TQuestThreadFPvs(void *arg0, s16 arg1) {
     if (arg0 != NULL) {
         M2C_FIELD(arg0, M2C_UNK **, 0x18) = TQuestThread__data_804C8678;
         if ((s32) M2C_FIELD(arg0, s32 *, 0x1A0) == 0) {
-            (*(s32 *)&lbl_805D5EE8) = 0;
+            (*(s32 *)&quest_mission_manager) = 0;
             ((M2C_UNK (*)(void))clear_thread_state__12TQuestThreadFv)();
         } else {
-            (*(s32 *)&lbl_805D5EEC) = 0;
+            (*(s32 *)&quest_area_manager) = 0;
         }
         safe_free__23TAdSinglePlyChrSelectGCFUi(M2C_FIELD(arg0, s32 *, 0x198));
         __dt__7TObjectFv(arg0, 0);
@@ -891,9 +891,9 @@ void *destroy__12TQuestThreadFPvs(void *arg0, s16 arg1) {
 }
 
 void destroy_quest_obj__12TQuestThreadFv(void) {
-    if ((u32) lbl_805D5EEC != 0U) {
-        queue_destruction__7TObjectFv((void*)((void*)lbl_805D5EEC));
-        lbl_805D5EEC = 0U;
+    if ((u32) quest_area_manager != 0U) {
+        queue_destruction__7TObjectFv((void*)((void*)quest_area_manager));
+        quest_area_manager = 0U;
     }
 }
 
@@ -988,7 +988,7 @@ u8 *init_from_script__12TQuestThreadFPviii(u8 *arg0, s32 arg1, s32 arg2, s32 arg
         temp_r31 = arg3 + 0x400;
         M2C_FIELD(arg0, s32 *, 0x198) = alloc__22TQuestVmDownLoadServerFPv(temp_r31);
         memcpy(M2C_FIELD(arg0, s32 *, 0x198), arg2, temp_r31);
-        (*(u8 * *)&lbl_805D5EE8) = arg0;
+        (*(u8 * *)&quest_mission_manager) = arg0;
         init_quest_script_context(M2C_FIELD(arg0, s32 *, 0x198), arg0 + 0x24);
         M2C_FIELD(arg0, s32 *, 0x1A0) = 0;
     }
@@ -1017,7 +1017,7 @@ u8 *load_quest_root_script(u8 *arg0, void *parent, void *arg2, s32 arg3) {
             M2C_FIELD(arg0, s32 *, 0x198) = alloc__22TQuestVmDownLoadServerFPv(size + 0x400);
             read_disc_file(arg2, M2C_FIELD(arg0, s32 *, 0x198));
             copy_name(&lbl_805DC50C);
-            (*(u8 * *)&lbl_805D5EE8) = arg0;
+            (*(u8 * *)&quest_mission_manager) = arg0;
             init_quest_script_context(M2C_FIELD(arg0, s32 *, 0x198), arg0 + 0x24);
             mem = (void *)((s32 (*)(M2C_UNK))__nw__7TObjectFUl)(0x194);
             if (mem != NULL) {
@@ -1033,7 +1033,7 @@ u8 *load_quest_root_script(u8 *arg0, void *parent, void *arg2, s32 arg3) {
         } else {
             M2C_FIELD(arg0, s32 *, 0x198) = alloc__22TQuestVmDownLoadServerFPv(size + 0x400);
             read_disc_file(arg2, M2C_FIELD(arg0, s32 *, 0x198));
-            lbl_805D5EEC = (u32)arg0;
+            quest_area_manager = (u32)arg0;
             init_quest_script_context(M2C_FIELD(arg0, s32 *, 0x198), arg0 + 0x24);
         }
         break;
@@ -1056,7 +1056,7 @@ QThread_801F6418 *construct_load_quest__12TQuestThreadFPvPvPv(QThread_801F6418 *
         self->f198 = alloc__22TQuestVmDownLoadServerFPv(r + 0x400);
         read_disc_file(scene, self->f198);
         copy_name(&lbl_805DC50C);
-        (*(QThread_801F6418 * *)&lbl_805D5EE8) = self;
+        (*(QThread_801F6418 * *)&quest_mission_manager) = self;
         init_quest_script_context(self->f198, (u8 *)self + 0x24);
         self->f1A0 = 0;
     }

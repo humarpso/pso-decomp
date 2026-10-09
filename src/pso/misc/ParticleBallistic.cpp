@@ -286,7 +286,7 @@ M2C_UNK set_global_param__8TObjFishFi(u32);
 M2C_UNK draw_ginja_object(u32);
 M2C_UNK draw_ginja_model_with_motion(u32, u32, f32);
 extern RecoveredGlobal_8008C21C_TParticleCtrl__data_80511F70 TParticleCtrl__data_80511F70;
-extern u8 *lbl_805D4DF0;
+extern u8 *camera_ctrl_instance;
 extern s32 lbl_805D5660;
 extern s32 some_id_805c6f74;
 extern const f32 TParticleCtrl__data_805D9528;
@@ -320,7 +320,7 @@ M2C_UNK draw_ginja_model_with_motion(u32, u32, f32);
 extern const Ang_8008BAF8 lbl_80439540;
 extern const f64 lbl_80439560[];
 extern RecoveredGlobal_8008C21C_TParticleCtrl__data_80511F70 TParticleCtrl__data_80511F70;
-extern u8 *lbl_805D4DF0;
+extern u8 *camera_ctrl_instance;
 extern s32 lbl_805D5660;
 extern s32 some_id_805c6f74;
 extern const f32 TParticleCtrl__data_805D955C;
@@ -380,7 +380,7 @@ extern Ang_800890F4 lbl_8043950C;
 extern const f64 lbl_80439528;
 extern RecoveredGlobal_8008C21C_TParticleCtrl__data_80511F70 TParticleCtrl__data_80511F70;
 extern u8 lbl_8058D490[];
-extern u8 *lbl_805D4DF0;
+extern u8 *camera_ctrl_instance;
 extern s32 lbl_805D5660;
 extern s32 some_id_805c6f74;
 extern const f32 lbl_805D951C;
@@ -576,11 +576,11 @@ void draw_ballistic_sprite_particle(Part_800890F4 *p) {
         rotate_vector_by_current_matrix(&c, &c);
         pop_matrix();
         push_matrix_from(lbl_8058D490);
-        rotate_matrix_y(0, *(s32 *)(lbl_805D4DF0 + 0x194));
+        rotate_matrix_y(0, *(s32 *)(camera_ctrl_instance + 0x194));
         rotate_vector_by_current_matrix(&a, &a);
         pop_matrix();
         push_matrix_from(lbl_8058D490);
-        rotate_matrix_y(0, *(s32 *)(lbl_805D4DF0 + 0x190));
+        rotate_matrix_y(0, *(s32 *)(camera_ctrl_instance + 0x190));
         rotate_vector_by_current_matrix(&b, &b);
         pop_matrix();
         d1 = vec3_dot(&c, &a);
@@ -631,8 +631,8 @@ void draw_ballistic_sprite_particle(Part_800890F4 *p) {
         rotate_matrix_z(0, r.z);
         rotate_matrix_x(0, r.x);
         if (p->flags & 0x1000) {
-            if (lbl_805D4DF0 != NULL) {
-                rotate_matrix_y(0, *(s32 *)(lbl_805D4DF0 + 0x194));
+            if (camera_ctrl_instance != NULL) {
+                rotate_matrix_y(0, *(s32 *)(camera_ctrl_instance + 0x194));
             }
         } else {
             rotate_matrix_y(0, r.y);

@@ -86,7 +86,7 @@ extern const f32 lbl_805DAC98;
 extern const f32 lbl_805DAC9C;
 extern const f32 lbl_805DACA0;
 void advance_weapon_photon_phase(u8 *arg0);
-extern s16 lbl_805D5510;
+extern s16 weapon_node_material_index;
 extern s16 TObjPlayer__weapon_node_ids[];
 extern u8* lbl_805D5514;
 extern u32 lbl_805D53EC;
@@ -120,7 +120,7 @@ void apply_weapon_node_material() {
     draw_shield_particle__10TObjPlayerFPv(lbl_805D5514);
     update_screen_particle_effect__10TObjPlayerFPv(lbl_805D5514);
     ((WeaponCallbackObject*)lbl_805D5514)->materialCallback();
-    if(node == lbl_805D5510) {
+    if(node == weapon_node_material_index) {
         WeaponArgb color = get_weapon_color__11TItemWeaponFPv((void *)(lbl_805D5514));
         enable_first_time_flag__10TObjPlayerFi(&color);
     }

@@ -1,2 +1,10 @@
-#define PSO_CLASS_PACKAGE 0x8005D700
-#include "pso/boss/TBoss8Dragon.packages.inc"
+#include "types.h"
+
+extern "C" {
+
+int get_flag_bit6__12TBoss8DragonFPv(void* p);
+int TBoss8Dragon__sub_8005D700(void);
+
+int TBoss8Dragon__sub_8005D700(void) { return 0; }
+
+}

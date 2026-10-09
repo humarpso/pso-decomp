@@ -39,7 +39,7 @@ struct RecoveredGlobal_8011A00C_lbl_8043E6B0 {
 };
 typedef char RecoveredGlobal_8011A00C_lbl_8043E6B0_size[sizeof(RecoveredGlobal_8011A00C_lbl_8043E6B0) == 0xC ? 1 : -1];
 extern RecoveredGlobal_8011A00C_lbl_8043E6B0 lbl_8043E6B0;
-extern void *TItemReverseTech__data_805D54D0;
+extern void *TItemReverseTech__texture_archive;
 
 }
 
@@ -71,7 +71,7 @@ void TItemReverseTech::run_task() {
         temp_r3_2 = (u32)__nw__7TObjectFUl((int) (0x158));
         var_r0 = temp_r3_2;
         if (var_r0 != 0U) {
-            var_r0 = __ct__21TItemReverseTechPart2Fv((int) (temp_r3_2), (void *) (this), (int) (TItemReverseTech__data_805D54D0));
+            var_r0 = __ct__21TItemReverseTechPart2Fv((int) (temp_r3_2), (void *) (this), (int) (TItemReverseTech__texture_archive));
         }
         part_two = (TObject *)var_r0;
     }
@@ -103,7 +103,7 @@ void *__nw__7TObjectFUl(int);
 
 extern M2C_UNK __vt__16TItemReverseTech[];
 extern void *lbl_805D2C48;
-extern void *TItemReverseTech__data_805D54D0;
+extern void *TItemReverseTech__texture_archive;
 extern M2C_UNK lbl_8043E708[];
 
 void *TItemReverseTech__ct(void *arg0) {
@@ -114,7 +114,7 @@ void *TItemReverseTech__ct(void *arg0) {
     M2C_FIELD(arg0, void **, 0x0) = lbl_805D2C48;
     o = __nw__7TObjectFUl(0x34);
     if (o != NULL) {
-        o = TItemReverseTechPart1__ct(o, arg0, TItemReverseTech__data_805D54D0);
+        o = TItemReverseTechPart1__ct(o, arg0, TItemReverseTech__texture_archive);
     }
     M2C_FIELD(arg0, void **, 0x20) = o;
     M2C_FIELD(arg0, u32 *, 0x24) = 0;

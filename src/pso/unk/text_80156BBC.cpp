@@ -25,7 +25,7 @@ s32 fn_80156C88(f32 *arg0);
 f32 xz_distance_squared(void *, void *);
 s32 fn_80156C88(f32 *arg0);
 s32 is_not_split_screen__13TRaderMapCoreFv();
-extern u8 *lbl_805D4DF0;
+extern u8 *camera_ctrl_instance;
 s32 fn_80156BBC(O_80156BBC *arg0, void *arg1);
 s32 is_not_split_screen__13TRaderMapCoreFv();
 s32 fn_80156C38(f32 *arg0);
@@ -38,7 +38,7 @@ s32 fn_80156BBC(O_80156BBC *arg0, void *arg1) {
     if (is_not_split_screen__13TRaderMapCoreFv() == 1) {
         return 1;
     }
-    if (xz_distance_squared(lbl_805D4DF0 + 0x178, arg1) < arg0->f1c * arg0->f1c) {
+    if (xz_distance_squared(camera_ctrl_instance + 0x178, arg1) < arg0->f1c * arg0->f1c) {
         arg0->f18 = 0;
     } else {
         arg0->f18 = 1;

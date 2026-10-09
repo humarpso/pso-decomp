@@ -1,2 +1,16 @@
-#define PSO_CLASS_PACKAGE 0x8024B694
-#include "pso/misc/TWindowCtrl.cpp"
+#include "types.h"
+typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
+typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
+#define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
+#define M2C_BITWISE(type, expr) ((type)(expr))
+
+extern "C" {
+
+void set_window_flags_off__11TWindowCtrlFPvi(void *arg0, M2C_UNK arg1);
+M2C_UNK set_window_flags__11TWindowCtrlFPvii(void *, M2C_UNK, M2C_UNK);
+
+void set_window_flags_off__11TWindowCtrlFPvi(void *arg0, M2C_UNK arg1) {
+    set_window_flags__11TWindowCtrlFPvii(arg0, arg1, 0);
+}
+
+}

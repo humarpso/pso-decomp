@@ -23,7 +23,7 @@ extern s32 lbl_805D2BE8;
 extern s32 lbl_805D2BEC;
 extern void *lbl_805D549C;
 extern void *lbl_805D54A0;
-extern s32 lbl_805D54A4;
+extern s32 item_load_model_buffer;
 void TItemLoad__sub_8010F5A0(void);
 void init__9TItemLoadFPv(void *, void *, int, int);
 extern M2C_UNK lbl_8049F40C[];
@@ -67,10 +67,10 @@ M2C_UNK reset_state__9TItemLoadFPv(void *);
 
 extern void *lbl_805D549C;
 extern void *lbl_805D54A0;
-extern s32 lbl_805D54A4;
+extern s32 item_load_model_buffer;
 
 void free_all_models__9TItemLoadFv(void) {
-    free__11TOBoss4RockFUi(lbl_805D54A4);
+    free__11TOBoss4RockFUi(item_load_model_buffer);
     if (lbl_805D54A0 != NULL) {
         ((struct VObj_8010F52C *)lbl_805D54A0)->m0(1);
     }
@@ -79,7 +79,7 @@ void free_all_models__9TItemLoadFv(void) {
     }
     lbl_805D549C = NULL;
     lbl_805D54A0 = NULL;
-    lbl_805D54A4 = 0;
+    item_load_model_buffer = 0;
 }
 
 extern M2C_UNK lbl_8049F40C[];
@@ -101,7 +101,7 @@ void TItemLoad__sub_8010F5A0(void) {
         var_r0_2 = construct_with_vtable__9TItemLoadFiPvii((int)((int) (temp_r3_2)), (void *)((void *) (lbl_805D2BEC)), (int)((int) (0xB4)), (int)((int) (0x12F)));
     }
     (*(s32 *)&lbl_805D54A0) = var_r0_2;
-    lbl_805D54A4 = alloc_buffer__11TOBoss4RockFPv((int) (0x21000));
+    item_load_model_buffer = alloc_buffer__11TOBoss4RockFPv((int) (0x21000));
 }
 
 void start_load_with_id__9TItemLoadFPvii(Load_8010F61C *self, s32 id, s32 arg2) {

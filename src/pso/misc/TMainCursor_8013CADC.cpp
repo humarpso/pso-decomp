@@ -63,7 +63,7 @@ M2C_UNK set_global_param__8TObjFishFi(void *);
 M2C_UNK draw_chunk_object();
 extern u8 lbl_8048E5A0[];
 extern RecoveredGlobal_8013D7E0_lbl_804A7164 target_cursor_color_table;
-extern u8 *lbl_805D4DF0;
+extern u8 *camera_ctrl_instance;
 extern const f32 TMainCursor__data_805DB0C0;
 s32 test_action_mask__10TObjPlayerFPvi(s32, s32);
 s32 is_effect_channel_active__10TObjPlayerFii(s32, s32);
@@ -526,7 +526,7 @@ void TLockOnCursor::renderSecondaryCursor(u8 *arg1, s32 arg2, s32 arg3) {
                 push_matrix();
                 offset_point_toward_camera((void *) (arg1 + 0x1C), (void *) (&sp8), (f32) (temp_f31));
                 set_position_vec3__10TObjPlayerFPvPv((int) (0), (void *) (&sp8));
-                rotate_matrix_y((int) (0), (int) (M2C_FIELD(lbl_805D4DF0, s32 *, 0x194)));
+                rotate_matrix_y((int) (0), (int) (M2C_FIELD(camera_ctrl_instance, s32 *, 0x194)));
                 begin_effect_render__13TParticleCtrlFv();
                 push_matrix();
                 translate_matrix((int) (0), (f32) (TMainCursor__data_805DB0C0), (f32) (temp_f31), (f32) (TMainCursor__data_805DB0C0));

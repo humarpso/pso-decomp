@@ -185,14 +185,14 @@ M2C_UNK set_instance__6TSceneFi(M2C_UNK);
 
 extern M2C_UNK lbl_804DC7C4[];
 extern s32 lbl_805D65F0;
-extern s16 lbl_805D65F8;
-extern s8 lbl_805D65FA;
+extern s16 scene_sora_reflect_active;
+extern s8 scene_sora_recon_active_flag;
 
 void *destroy__10TSceneSoraFPvs(void *arg0, s16 arg1) {
     if (arg0 != NULL) {
         M2C_FIELD(arg0, M2C_UNK **, 0x18) = lbl_804DC7C4;
-        lbl_805D65F8 = 0;
-        lbl_805D65FA = 0;
+        scene_sora_reflect_active = 0;
+        scene_sora_recon_active_flag = 0;
         lbl_805D65F0 = 0;
         if ((u32) M2C_FIELD(arg0, u32 *, 0x20) != 0U) {
             queue_destruction__7TObjectFv(M2C_FIELD(arg0, void **, 0x20));
@@ -211,10 +211,10 @@ void *destroy__10TSceneSoraFPvs(void *arg0, s16 arg1) {
 
 extern M2C_UNK lbl_804DC7C4[];
 extern s32 tl_05;
-extern void *lbl_805D65F4;
-extern s16 lbl_805D65F8;
-extern s8 lbl_805D65FA;
-extern s32 lbl_805D65FC;
+extern void *scene_sora_instance;
+extern s16 scene_sora_reflect_active;
+extern s8 scene_sora_recon_active_flag;
+extern s32 scene_sora_recon_object;
 extern const f32 lbl_805DDD8C;
 extern const f32 lbl_805DDD90;
 
@@ -223,13 +223,13 @@ void *create_instance__10TSceneSoraFPv(void *arg0) {
 
     __ct__7TObjectFP7TObject();
     M2C_FIELD(arg0, M2C_UNK **, 0x18) = lbl_804DC7C4;
-    lbl_805D65F8 = 0;
-    lbl_805D65FA = 0;
-    if ((void *) lbl_805D65F4 != NULL) {
+    scene_sora_reflect_active = 0;
+    scene_sora_recon_active_flag = 0;
+    if ((void *) scene_sora_instance != NULL) {
         return arg0;
     }
-    lbl_805D65F4 = arg0;
-    M2C_FIELD(arg0, s32 *, 0x1C) = (s32) lbl_805D65FC;
+    scene_sora_instance = arg0;
+    M2C_FIELD(arg0, s32 *, 0x1C) = (s32) scene_sora_recon_object;
     obj = __nw__7TObjectFUl(0x20);
     if (obj != NULL) {
         obj = construct_indirect_effect_task(obj, 0x28, 1, tl_05);

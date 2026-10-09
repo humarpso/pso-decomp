@@ -223,7 +223,7 @@ M2C_UNK set_global_param__8TObjFishFi(u32);
 M2C_UNK draw_ginja_object(u32);
 M2C_UNK draw_ginja_model_with_motion(u32, u32, f32);
 extern RecoveredGlobal_8008C21C_TParticleCtrl__data_80511F70 TParticleCtrl__data_80511F70;
-extern u8 *lbl_805D4DF0;
+extern u8 *camera_ctrl_instance;
 extern s32 lbl_805D5660;
 extern s32 some_id_805c6f74;
 extern const f32 TParticleCtrl__data_805D9528;
@@ -259,7 +259,7 @@ M2C_UNK draw_ginja_model_with_motion(u32, u32, f32);
 extern const Ang_8008BAF8 lbl_80439540;
 extern const f64 lbl_80439560[];
 extern RecoveredGlobal_8008C21C_TParticleCtrl__data_80511F70 TParticleCtrl__data_80511F70;
-extern u8 *lbl_805D4DF0;
+extern u8 *camera_ctrl_instance;
 extern s32 lbl_805D5660;
 extern s32 some_id_805c6f74;
 extern const f32 TParticleCtrl__data_805D955C;
@@ -461,8 +461,8 @@ void draw_radial_sprite_particle(u8 *arg0) {
                 rotate_matrix_x(0, ang.x);
                 rotate_matrix_y(0, ang.y);
             }
-            if ((M2C_FIELD(arg0, u16 *, 0x24) & 0x1000) && (lbl_805D4DF0 != NULL)) {
-                rotate_matrix_y(0, M2C_FIELD(lbl_805D4DF0, s32 *, 0x194));
+            if ((M2C_FIELD(arg0, u16 *, 0x24) & 0x1000) && (camera_ctrl_instance != NULL)) {
+                rotate_matrix_y(0, M2C_FIELD(camera_ctrl_instance, s32 *, 0x194));
             }
             begin_effect_render__13TParticleCtrlFv();
             if (M2C_FIELD(arg0, u16 *, 0x24) & 0x400) {

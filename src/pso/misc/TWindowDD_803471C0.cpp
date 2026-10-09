@@ -15,11 +15,11 @@ void open__9TWindowDDFii(s32 arg0, s32 arg1);
 M2C_UNK open__11TWindowCtrlFiii(s32, s32, M2C_UNK);
 M2C_UNK update_state__9TWindowDDFv(s32, s32, s32);
 
-extern s32 lbl_805D6E10;
+extern s32 window_dd_buffer_a;
 
 void open__9TWindowDDFii(s32 arg0, s32 arg1) {
-    update_state__9TWindowDDFv(arg0, lbl_805D6E10, arg1);
-    open__11TWindowCtrlFiii(arg1, lbl_805D6E10, 0x4F);
+    update_state__9TWindowDDFv(arg0, window_dd_buffer_a, arg1);
+    open__11TWindowCtrlFiii(arg1, window_dd_buffer_a, 0x4F);
 }
 
 u8 is_id_in_special_range__9TWindowDDFs(s16 id) {

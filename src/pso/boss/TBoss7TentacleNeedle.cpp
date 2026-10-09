@@ -188,15 +188,15 @@ void set_global_flag__10TObjPlayerFv(void);
 void clear_global_state__10TObjPlayerFv(void);
 
 extern int TBoss7Tentacle__data_8047407C[];
-extern V_802F0A5C TBoss7Tentacle__data_80541838[];
+extern V_802F0A5C TBoss7Tentacle__segment_offsets[];
 extern const f32 TBoss7Tentacle__data_805DEC00;
 extern const f32 TBoss7Tentacle__data_805DEC04;
 extern M2C_UNK __vt__14TBoss7Tentacle[];
 extern M2C_UNK __vt__20TBoss7TentacleNeedle[];
 extern M2C_UNK lbl_80474070[];
 extern Node_802EFF24 lbl_80541528[];
-extern u32 lbl_805418E0[];
-extern RecoveredGlobal_802EFB1C_lbl_80541918 lbl_80541918;
+extern u32 TBoss7Tentacle__needle_offsets[];
+extern RecoveredGlobal_802EFB1C_lbl_80541918 boss7_tentacle_needle_target_state;
 extern s32 lbl_805D3FD8;
 extern s32 lbl_805D6948;
 extern const f32 lbl_805DEC08;
@@ -216,7 +216,7 @@ struct Ten_802F01D0 { u8 pad0[0x50]; V_802F0A5C v[14]; };
 
 extern "C" {
 void advance_path_position__14TBoss7TentacleFPv(Ten_802F08A8 *o);
-extern V_802F0A5C TBoss7Tentacle__data_80541838[];
+extern V_802F0A5C TBoss7Tentacle__segment_offsets[];
 }
 
 void restart_particle_effect__14TBoss7TentacleFPv(u8 *arg0) {
@@ -286,7 +286,7 @@ void damage_nearby_players__14TBoss7TentacleFPv(u8 *arg0) {
     if (*(s32 *)(arg0 + 0x3C) == 0x3C) {
         *(s32 *)(arg0 + 0x38) = 3;
         *(s32 *)(arg0 + 0x3C) = 0;
-        *(s32 *)(arg0 + 0x78) = *(s32 *)((u8 *)&lbl_80541918 + 8);
+        *(s32 *)(arg0 + 0x78) = *(s32 *)((u8 *)&boss7_tentacle_needle_target_state + 8);
         *(f32 *)(arg0 + 0x74) = TBoss7Tentacle__data_805DEC04;
     } else {
         *(s32 *)(arg0 + 0x3C) += 1;
@@ -302,7 +302,7 @@ void update_retract_state__14TBoss7TentacleFPv(u8 *arg0) {
     if (advance_toward_limit__14TBoss7TentacleFPvf(arg0, TBoss7Tentacle__data_805DEC00) != 0) {
         M2C_FIELD(arg0, s32 *, 0x38) = 2;
         M2C_FIELD(arg0, s32 *, 0x3C) = 0;
-        M2C_FIELD(arg0, s32 *, 0x78) = (s32) M2C_FIELD(&lbl_80541918.value, s32 *, 4);
+        M2C_FIELD(arg0, s32 *, 0x78) = (s32) M2C_FIELD(&boss7_tentacle_needle_target_state.value, s32 *, 4);
         M2C_FIELD(arg0, f32 *, 0x74) = (f32) TBoss7Tentacle__data_805DEC04;
     }
 }
@@ -363,17 +363,17 @@ void *__dt__20TBoss7TentacleNeedleFv(void *arg0, s16 arg1) {
 }
 
 void fn_802EFEA8(void) {
-    M2C_FIELD(&(*(RecoveredGlobal_802EFEA8_lbl_80541918 *)&lbl_80541918).value, s32 *, 0) = 0;
+    M2C_FIELD(&(*(RecoveredGlobal_802EFEA8_lbl_80541918 *)&boss7_tentacle_needle_target_state).value, s32 *, 0) = 0;
     lbl_805D6948 = 0;
-    M2C_FIELD(&(*(RecoveredGlobal_802EFEA8_lbl_80541918 *)&lbl_80541918).value, s32 *, 4) = 0;
-    M2C_FIELD(&(*(RecoveredGlobal_802EFEA8_lbl_80541918 *)&lbl_80541918).value, s32 *, 8) = 0;
+    M2C_FIELD(&(*(RecoveredGlobal_802EFEA8_lbl_80541918 *)&boss7_tentacle_needle_target_state).value, s32 *, 4) = 0;
+    M2C_FIELD(&(*(RecoveredGlobal_802EFEA8_lbl_80541918 *)&boss7_tentacle_needle_target_state).value, s32 *, 8) = 0;
 }
 
 void TObjPlayer__sub_802EFEC4(void) {
     lbl_805D6948 = queue_boss_effect__10TObjPlayerFPv((int) (5));
-    M2C_FIELD(&(*(RecoveredGlobal_802EFEC4_lbl_80541918 *)&lbl_80541918).value, s32 *, 0) = notify_fish_obj__10TObjPlayerFPv((int) (0x13));
-    M2C_FIELD(&(*(RecoveredGlobal_802EFEC4_lbl_80541918 *)&lbl_80541918).value, s32 *, 4) = notify_fish_obj__10TObjPlayerFPv((int) (0x14));
-    M2C_FIELD(&(*(RecoveredGlobal_802EFEC4_lbl_80541918 *)&lbl_80541918).value, s32 *, 8) = notify_fish_obj__10TObjPlayerFPv((int) (0x12));
+    M2C_FIELD(&(*(RecoveredGlobal_802EFEC4_lbl_80541918 *)&boss7_tentacle_needle_target_state).value, s32 *, 0) = notify_fish_obj__10TObjPlayerFPv((int) (0x13));
+    M2C_FIELD(&(*(RecoveredGlobal_802EFEC4_lbl_80541918 *)&boss7_tentacle_needle_target_state).value, s32 *, 4) = notify_fish_obj__10TObjPlayerFPv((int) (0x14));
+    M2C_FIELD(&(*(RecoveredGlobal_802EFEC4_lbl_80541918 *)&boss7_tentacle_needle_target_state).value, s32 *, 8) = notify_fish_obj__10TObjPlayerFPv((int) (0x12));
 }
 
 }
@@ -527,7 +527,7 @@ void run_task__14TBoss7TentacleFv(u8 *arg0) {
                 M2C_FIELD(arg0, s32 *, 0x38) = 1;
             }
             for (i = 2; i < 12; i++) {
-                ((Ten_802F01D0 *)arg0)->v[i].x = M2C_FIELD(arg0, f32 *, 0x160) * TBoss7Tentacle__data_80541838[i].x;
+                ((Ten_802F01D0 *)arg0)->v[i].x = M2C_FIELD(arg0, f32 *, 0x160) * TBoss7Tentacle__segment_offsets[i].x;
             }
             M2C_FIELD(arg0, s32 *, 0x100) = 0x4000;
             break;
@@ -641,8 +641,8 @@ void TBoss7Tentacle__sub_802F0A44(u8 *arg0) {
 void init_segments__14TBoss7TentacleFPv(Ten_802F0A5C *o) {
     s32 i;
     for (i = 0; i < 14; i++) {
-        VecCopy__FP3VecPC3Vec(&o->v[i], &TBoss7Tentacle__data_80541838[i]);
-        o->w[i] = lbl_805418E0[i];
+        VecCopy__FP3VecPC3Vec(&o->v[i], &TBoss7Tentacle__segment_offsets[i]);
+        o->w[i] = TBoss7Tentacle__needle_offsets[i];
     }
 }
 

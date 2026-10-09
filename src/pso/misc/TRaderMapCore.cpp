@@ -286,7 +286,7 @@ M2C_UNK end_effect_render__13TParticleCtrlFv();
 M2C_UNK TCameraCtrl__sub_801E32D8(f32, f32);
 M2C_UNK GXSetScissorBoxOffset(int, int);
 extern RecoveredGlobal_801FA964_lbl_804C8784 radar_map_view_scissor_table;
-extern s32 lbl_805D4DF0;
+extern s32 camera_ctrl_instance;
 extern const f32 TRaderMapCore__data_805DC538;
 extern const f32 TRaderMapCore__data_805DC53C;
 void setup_view__13TRaderMapCoreFii(s32 arg0, s32 arg1);
@@ -1017,7 +1017,7 @@ typedef char RecoveredGlobal_801FA964_lbl_804C8784_size[sizeof(RecoveredGlobal_8
 void setup_view__13TRaderMapCoreFii(s32 arg0, s32 arg1) {
     GXSetScissorBoxOffset((int) (0), (int) (0));
     TCameraCtrl__sub_801E32D8((f32) (TRaderMapCore__data_805DC538), (f32) (TRaderMapCore__data_805DC53C));
-    TCameraCtrl__sub_8006AF9C((void *) (lbl_805D4DF0), (int) (0));
+    TCameraCtrl__sub_8006AF9C((void *) (camera_ctrl_instance), (int) (0));
     set_view_scissor__13TRaderMapCoreFPviPv((void *)((void *) (arg0)), (int)((int) (0)), (void *)((void *) ((u8 *)&radar_map_view_scissor_table.value + (arg1 * 0x10))));
     apply_distant_light__9TObjLightFv();
     end_effect_render__13TParticleCtrlFv();

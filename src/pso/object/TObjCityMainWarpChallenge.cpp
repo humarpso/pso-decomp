@@ -87,7 +87,7 @@ void update_state__25TObjCityMainWarpChallengeFPv(void *arg0) {
     }
 }
 
-extern s32 lbl_805D4DF0;
+extern s32 camera_ctrl_instance;
 extern u8 *lbl_805D5B28;
 extern s32 lbl_805D5B2C;
 extern const f32 lbl_805DBCB8;
@@ -110,7 +110,7 @@ void TObjCityMainWarpChallenge__vt18(void *arg0) {
 
 void render__25TObjCityMainWarpChallengeFv(u8 *arg0) {
     if ((s32) M2C_FIELD(arg0, s32 *, 0xBC) == 0xE) {
-        if (xz_distance_squared(lbl_805D4DF0 + 0x178, arg0 + 0x38) > lbl_805DBCB8) {
+        if (xz_distance_squared(camera_ctrl_instance + 0x178, arg0 + 0x38) > lbl_805DBCB8) {
             return;
         }
         goto block_4;

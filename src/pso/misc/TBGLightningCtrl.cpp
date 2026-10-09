@@ -116,7 +116,7 @@ const char *lbl_805D3E38 = lbl_8046FC68;
 __declspec(section ".rodata") extern const char lbl_8046FC78[] = "TBGLightningCtrl";
 const char *lbl_805D3E3C = lbl_8046FC78;
 __declspec(section ".rodata") s32 lbl_8046FC8C[3] = { 1, 5, 0 };
-extern void *lbl_805D4DF0;
+extern void *camera_ctrl_instance;
 extern int lbl_805D66D0;
 extern void *tl_05;
 
@@ -294,7 +294,7 @@ void render__12TBGLightningFv(s32 arg0) {
     Stack_802AA0A4 stack;
     s32 temp_r31;
     if (get_state_flag__9TMainTaskFv() != 0) {
-        temp_r31 = M2C_FIELD(lbl_805D4DF0, s32 *, 0x194) + 0x4000;
+        temp_r31 = M2C_FIELD(camera_ctrl_instance, s32 *, 0x194) + 0x4000;
         stack.sp8 = sin_table_lookup(temp_r31);
         stack.spC = (-1.0f);
         stack.sp10 = cos_table_lookup(temp_r31);

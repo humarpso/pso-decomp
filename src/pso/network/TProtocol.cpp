@@ -199,37 +199,63 @@ void TProtocol::send_pso_data_long2(char flags, long_game_command &packet, size_
 	}
 }
 
-void TProtocol::send_pso_data2(u32 flags, game_command &packet, u32 size) {
-	char tmp_str[128];
-	sprintf(tmp_str, "SndPsoData2 %d %d %d", packet.header.command, size, flags);
-	if (m_connected) {
-		TRecvPsoData tmp;
-		int packet_size;
-		packet_size = (u16)(size + sizeof(packet_header));
-		tmp.header.command = 0x62;
-		tmp.header.flags = flags;
-		packet_size = (u16)(size + sizeof(packet_header));
-		tmp.header.size = packet_size;
-		memcpy(&tmp.data, &packet, size);
-		tmp.bswap();
-		send(as(u8 *, &tmp), packet_size);
-	}
+struct VBase_18_801DC084 { char pad[0x18]; };
+struct VObj_18_801DC084 : VBase_18_801DC084 {
+    virtual void m0();
+    virtual void m1();
+    virtual void m2();
+    virtual void m3();
+    virtual void m4();
+    virtual void m5();
+    virtual void m6();
+    virtual void m7();
+    virtual void m8(void *, u16);
+};
+
+struct Pkt_801DC084 {
+    u8 cmd;
+    u8 flag;
+    u16 size;
+    u8 data[0x400];
+};
+
+extern "C" {
+void bswap__12TRecvPsoDataFv(void *);
+extern char lbl_80449610[];
+extern char lbl_80449628[];
+
+void TProtocol__sub_801DC084(VObj_18_801DC084 *obj, s32 flag, s8 *src, s32 len) {
+    char buf[0x80];
+    sprintf(buf, lbl_80449610, *src, len, flag);
+    if (*(s32 *)((char *)obj + 0x1910) != 0) {
+        Pkt_801DC084 pkt;
+        int size;
+        pkt.cmd = 0x62;
+        pkt.flag = flag;
+        pkt.size = len + 4;
+        size = pkt.size;
+        memcpy(pkt.data, src, len);
+        bswap__12TRecvPsoDataFv(&pkt);
+        obj->m8(&pkt, size);
+    }
 }
 
-void TProtocol::send_pso_data(game_command &packet, u32 size) {
-	char tmp_str[128];
-	sprintf(tmp_str, "SndPsoData %d %d", packet.header.command, size);
-	if (m_connected) {
-		TRecvPsoData tmp;
-		int packet_size;
-		tmp.header.command = 0x60;
-		tmp.header.flags = 0;
-		packet_size = (u16)(size + sizeof(packet_header));
-		tmp.header.size = packet_size;
-		memcpy(&tmp.data, &packet, (u32)size);
-		tmp.bswap();
-		send(as(u8 *, &tmp), packet_size);
-	}
+void TProtocol__send_60(VObj_18_801DC084 *obj, s8 *src, u32 len) {
+    char buf[0x80];
+    sprintf(buf, lbl_80449628, *src, len);
+    if (*(s32 *)((char *)obj + 0x1910) != 0) {
+        Pkt_801DC084 pkt;
+        int size;
+        pkt.cmd = 0x60;
+        pkt.flag = 0;
+        pkt.size = len + 4;
+        size = pkt.size;
+        memcpy(pkt.data, src, len);
+        bswap__12TRecvPsoDataFv(&pkt);
+        obj->m8(&pkt, size);
+    }
+}
+
 }
 
 struct VBase_801DC1E4 { char pad[0x18]; };

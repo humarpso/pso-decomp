@@ -99,15 +99,15 @@ void *TCameraCtrl__vt10(void) {
     return o;
 }
 
-extern u32 lbl_805D4DF0;
+extern u32 camera_ctrl_instance;
 extern const f32 lbl_805D9038;
 
 void update__11TCameraCtrlFPv(void *arg0) {
     void *temp_r31;
     void *temp_r3;
 
-    if ((u32) lbl_805D4DF0 != 0U) {
-        temp_r31 = get_params__11TCameraCtrlFPv(lbl_805D4DF0);
+    if ((u32) camera_ctrl_instance != 0U) {
+        temp_r31 = get_params__11TCameraCtrlFPv(camera_ctrl_instance);
         temp_r3 = get_player_by_client_id(0);
         if (temp_r3 != NULL) {
             M2C_FIELD(arg0, f32 *, 0x48) = (f32) M2C_FIELD(temp_r3, f32 *, 0x38);

@@ -48,7 +48,7 @@ void subtract_vector(void *, void *);
 extern s32 boss8_dragon_point_index_table[];
 extern u8 lbl_80541E30[];
 extern u8 lbl_80541E3C[];
-extern u8 *lbl_805D4DF0;
+extern u8 *camera_ctrl_instance;
 extern f32 lbl_805D69B0;
 extern const f32 TBoss8Dragon__data_805DED50;
 extern const f32 TBoss8Dragon__data_805DED64;
@@ -91,7 +91,7 @@ s32 TBoss8Dragon__sub_802F3F20(u8 *arg0) {
     f32 temp_f31;
     u8 *temp_r3;
     s32 i;
-    if (lbl_805D4DF0 == 0) {
+    if (camera_ctrl_instance == 0) {
         return 0;
     }
     if (((Obj_802F3F20 *)arg0)->x326 == 30) {
@@ -114,7 +114,7 @@ s32 TBoss8Dragon__sub_802F3F20(u8 *arg0) {
     if (temp_r3 == 0) {
         return 0;
     }
-    VecCopy__FP3VecPC3Vec(&sp14, lbl_805D4DF0 + 0x178);
+    VecCopy__FP3VecPC3Vec(&sp14, camera_ctrl_instance + 0x178);
     sp14.y = TBoss8Dragon__data_805DED50;
     VecCopy__FP3VecPC3Vec(&sp8, temp_r3 + 0x38);
     subtract_vector(&sp8, &sp14);

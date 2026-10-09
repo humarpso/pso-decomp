@@ -1,7 +1,7 @@
 #include "pso/TItemMenuCtrl.h"
 
-extern s32 TItemMenuCtrl__data_805D54C0;
+extern s32 TItemMenuCtrl__instance;
 
 TItemMenuCtrl::~TItemMenuCtrl() {
-    TItemMenuCtrl__data_805D54C0 = 0;
+    TItemMenuCtrl__instance = 0;
 }

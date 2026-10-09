@@ -604,10 +604,10 @@ void *lbl_804E16C4[107] = {
     (void *)&TObjEneEpsilon__vt101, (void *)&TObjEneBm9Mericarol__sub_802CED3C, (void *)&draw_color_variant__10TObjPlayerFPv,
 };
 #define lbl_804E16C4 ((u8 *)lbl_804E16C4)
-u32 lbl_80540B58[3];
+u32 bm9_mericarol_phase_hp_table[3];
 u32 lbl_80540B64[3];
 u32 lbl_80540B70[3];
-u32 lbl_80540B7C[3];
+u32 mericarol_phase_param_table[3];
 u32 lbl_80540B88[4];
 
 void TObjEneBm9Mericarol__sub_802D073C(s32 arg0) {
@@ -806,7 +806,7 @@ Obj_802D0D3C *TObjEneBm9Mericarol__ct(Obj_802D0D3C *self, void *parent, s32 arg2
     set_animation__10TObjPlayerFPvs(self, self->fB8);
     set_field_b8__14TObjEnePanarmsFPvs(self, self->fB8);
     ph = get_phase__19TObjEneBm9MericarolFPv(self);
-    reset_hp__9TObjEneDDFPv(self, lbl_80540B58[ph], lbl_80540B64[ph], lbl_80540B70[ph]);
+    reset_hp__9TObjEneDDFPv(self, bm9_mericarol_phase_hp_table[ph], lbl_80540B64[ph], lbl_80540B70[ph]);
     self->f3C0 = create__12TObjEneSaverFPvPv(0xA0303030, lbl_80472318[ph]);
     self->f3C4 = create__12TObjEneSaverFPvPv(0xA0303030, lbl_80472318[ph]);
     add_flags_2e4__10TObjPlayerFPvUi(self, 0x12);

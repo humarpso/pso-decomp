@@ -335,7 +335,7 @@ extern Vec_80251380 lbl_8044ED58;
 extern RecoveredGlobal_80251BA0_lbl_804CF080 window_fukidasi_layout_entries;
 extern u8 lbl_8058D490[];
 extern s32 lbl_805D3900;
-extern Cam_80251380 *lbl_805D4DF0;
+extern Cam_80251380 *camera_ctrl_instance;
 extern void *lbl_805D63F0;
 extern const f32 lbl_805DCCEC;
 extern const f32 lbl_805DCCF0;
@@ -366,14 +366,14 @@ extern "C" {
 s32 draw_resolved_window__15TWindowFukidasiFiiii(Fuki_80250F70 *, f32 *, f32 *, s32);
 s32 project_anchor__15TWindowFukidasiFv(Fuki_80250F70 *arg0, f32 *pos, f32 *out);
 void get_boundary_offset__15TWindowFukidasiFPviPv(Fuki_8025181C *b, s32 angle, f32 *out);
-extern Cam_80251380 *lbl_805D4DF0;
+extern Cam_80251380 *camera_ctrl_instance;
 }
 
 extern "C" {
 s32 draw_resolved_window__15TWindowFukidasiFiiii(Fuki_80250F70 *, f32 *, f32 *, s32);
 s32 project_anchor__15TWindowFukidasiFv(Fuki_80250F70 *arg0, f32 *pos, f32 *out);
 void get_boundary_offset__15TWindowFukidasiFPviPv(Fuki_8025181C *b, s32 angle, f32 *out);
-extern Cam_80251380 *lbl_805D4DF0;
+extern Cam_80251380 *camera_ctrl_instance;
 }
 
 void complete_speech_balloon(u8 *arg0) {
@@ -549,7 +549,7 @@ s32 try_place_bubble__15TWindowFukidasiFPvPvPv(Fuki_802506E8 *b, f32 *rect, f32 
     s32 a;
     s32 angle;
     project_anchor__15TWindowFukidasiFv(F70_802506E8, world, NULL);
-    reach = TWindowFukidasi__data_805DCD08 / xyz_distance((u8 *)lbl_805D4DF0 + 0x178, world);
+    reach = TWindowFukidasi__data_805DCD08 / xyz_distance((u8 *)camera_ctrl_instance + 0x178, world);
     dx = (TWindowFukidasi__data_805DCD0C * b->rsize[0] + rect[0]) - b->center[0];
     dy = (TWindowFukidasi__data_805DCD0C * b->rsize[1] + rect[1]) - b->center[1];
     a = (s32) (TWindowFukidasi__data_8044ED70 * ((f64)get_ad_end_text_start__10TObjPlayerFv(dy, dx)));
@@ -596,7 +596,7 @@ s32 rest_balloon__15TWindowFukidasiFv(Fuki_80250A24 *b, f32 *rect, f32 *arg2) {
     s32 a;
     s32 angle;
     project_anchor__15TWindowFukidasiFv(F70_80250A24, world, NULL);
-    reach = TWindowFukidasi__data_805DCD08 / xyz_distance(lbl_805D4DF0->pos, world);
+    reach = TWindowFukidasi__data_805DCD08 / xyz_distance(camera_ctrl_instance->pos, world);
     dx = (TWindowFukidasi__data_805DCD0C * b->rsize[0] + rect[0]) - b->center[0];
     dy = (TWindowFukidasi__data_805DCD0C * b->rsize[1] + rect[1]) - b->center[1];
     dist = newton_sqrtf(dx * dx + dy * dy);
@@ -801,14 +801,14 @@ s32 is_speaker_far_or_offscreen__15TWindowFukidasiFPv(Fuki_802504C0 *arg0) {
     Vec_80251380 v = lbl_8044ED58;
     f32 d[3];
     push_matrix_from(lbl_8058D490);
-    rotate_matrix_y(0, lbl_805D4DF0->ry);
-    rotate_matrix_x(0, lbl_805D4DF0->rx);
-    rotate_matrix_z(0, lbl_805D4DF0->rz);
+    rotate_matrix_y(0, camera_ctrl_instance->ry);
+    rotate_matrix_x(0, camera_ctrl_instance->rx);
+    rotate_matrix_z(0, camera_ctrl_instance->rz);
     rotate_vector_by_matrix(0, &v, &v);
     pop_matrix();
-    d[0] = pos[0] - lbl_805D4DF0->pos[0];
-    d[1] = pos[1] - lbl_805D4DF0->pos[1];
-    d[2] = pos[2] - lbl_805D4DF0->pos[2];
+    d[0] = pos[0] - camera_ctrl_instance->pos[0];
+    d[1] = pos[1] - camera_ctrl_instance->pos[1];
+    d[2] = pos[2] - camera_ctrl_instance->pos[2];
     if (vec3_dot(&v, d) <= TWindowFukidasi__data_805DCD30) {
         return 1;
     }
@@ -1104,7 +1104,7 @@ void draw_tail__15TWindowFukidasiFPvPvUiPvf(Fuki_802521E8 *b, void *view, u32 co
         cx = b->center[0];
         cy = b->center[1];
         angle = TWindowFukidasi__data_8044ED70 * get_ad_end_text_start__10TObjPlayerFv(cy - scr[1], cx - scr[0]);
-        s = TWindowFukidasi__data_805DCD08 / xyz_distance((*(u8 * *)&lbl_805D4DF0) + 0x178, pos);
+        s = TWindowFukidasi__data_805DCD08 / xyz_distance((*(u8 * *)&camera_ctrl_instance) + 0x178, pos);
         x0 = s * cos_table_lookup(angle) + scr[0];
         y0 = s * sin_table_lookup(angle) + scr[1];
         prim.verts = verts;

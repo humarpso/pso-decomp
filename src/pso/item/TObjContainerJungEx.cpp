@@ -96,6 +96,22 @@ struct RecoveredGlobal_8018D314___vt__19TObjContainerJungEx {
     u8 remaining[0x148];
 };
 
+typedef s32 M2C_UNK;
+struct Vec_8018CFD4 { f32 x, y, z; };
+
+struct Spawn_8018CFD4 {
+    u8 pad0[0xC];
+    Vec_8018CFD4 pos;
+    u8 pad18[0x38 - 0x18];
+    f32 f38;
+    u8 pad3c[4];
+    s32 f40;
+    s32 f44;
+    u8 pad48[4];
+};
+
+struct Obj_8018CFD4 { u8 pad[0x38]; Vec_8018CFD4 pos; };
+
 extern "C" {
 M2C_UNK queue_destruction__7TObjectFv(void *);
 M2C_UNK spawn_item__17TObjContainerItemFPvi(void *, void *);
@@ -109,6 +125,16 @@ extern RecoveredGlobal_8018D314_lbl_804B7168 container_jung_collision_desc;
 extern M2C_UNK __vt__19TObjContainerJungEx[];
 extern s32 lbl_805D331C;
 u8 *TObjContainerJungEx__ct(u8 *arg0, s32 arg1, s32 _w2);
+M2C_UNK spawn_particle_effect_with_flags(void *, int, int);
+M2C_UNK construct_debris__8TObjChipFPvPvPv(void *, void *, void *);
+M2C_UNK play_container_break_sound(void *);
+M2C_UNK TObjContainerJungEx__sub_8018D900(M2C_UNK);
+M2C_UNK get_model__19TObjContainerJungExFi(M2C_UNK);
+void *__nw__7TObjectFUl(int);
+extern Spawn_8018CFD4 lbl_804452E8;
+extern Spawn_8018CFD4 lbl_80445334;
+extern void *tl_05;
+void TObjContainerJungEx__vt77(const Obj_8018CFD4 *self);
 }
 
 extern "C" {
@@ -146,6 +172,49 @@ void *create__19TObjContainerJungExFPv(void *arg0) {
 }
 
 extern const f32 lbl_805DBD9C;
+
+#pragma push
+#pragma opt_propagation off
+void TObjContainerJungEx__vt77(const Obj_8018CFD4 *self) {
+    Spawn_8018CFD4 a = lbl_804452E8;
+    f32 pz;
+    f32 py;
+    f32 px;
+    px = self->pos.x;
+    py = self->pos.y;
+    pz = self->pos.z;
+    a.pos.x = px;
+    a.pos.y = py;
+    a.pos.z = pz;
+    a.f38 = py;
+    a.f40 = get_model__19TObjContainerJungExFi(1);
+    a.f44 = TObjContainerJungEx__sub_8018D900(0);
+    Spawn_8018CFD4 b = lbl_80445334;
+    f32 qz;
+    f32 qy;
+    f32 qx;
+    qx = self->pos.x;
+    qy = self->pos.y;
+    qz = self->pos.z;
+    b.pos.x = qx;
+    b.pos.y = qy;
+    b.pos.z = qz;
+    b.f38 = qy;
+    b.f40 = get_model__19TObjContainerJungExFi(2);
+    b.f44 = TObjContainerJungEx__sub_8018D900(0);
+    spawn_particle_effect_with_flags((void *)&self->pos, 0x45, 0x40);
+    spawn_particle_effect_with_flags((void *)&self->pos, 0x46, 0x40);
+    void *o = __nw__7TObjectFUl(0x234);
+    if (o != NULL) {
+        construct_debris__8TObjChipFPvPvPv(o, tl_05, &a);
+    }
+    o = __nw__7TObjectFUl(0x234);
+    if (o != NULL) {
+        construct_debris__8TObjChipFPvPvPv(o, tl_05, &b);
+    }
+    play_container_break_sound((void *)self);
+}
+#pragma pop
 
 void TObjContainerJungEx__vt4(u8 *arg0, s16 *arg1, s32 arg2) {
     if (arg2 != 0) {

@@ -159,7 +159,7 @@ s32 get_register__12TQuestThreadFPvi(void *, s32);
 s32 TShopWindowBase__sub_802239EC(void *);
 s32 TShopWindowBase__sub_80223A48(void *);
 extern s32 THunterGuildSeqOffline__quest_result_callbacks[];
-extern u8 *lbl_805D5EE8;
+extern u8 *quest_mission_manager;
 void resolve_active_quest_result__22THunterGuildSeqOfflineFPv(u8 *arg0);
 s32 TShopSequence__ct(void *);
 s32 TShopWindowBase__sub_8022397C(void *);
@@ -265,7 +265,7 @@ void open_judgment_window__22THunterGuildSeqOfflineFPv(void *arg0) {
 void resolve_active_quest_result__22THunterGuildSeqOfflineFPv(u8 *arg0) {
     if ((((VObj_18_b54460 *)(arg0))->m8() != 0) && ((TShopWindowBase__sub_80223A48(arg0) != 0) || (TShopWindowBase__sub_802239EC(arg0) != 0))) {
         if (is_quest_active() == 1) {
-            if (get_register__12TQuestThreadFPvi(lbl_805D5EE8, 0xFF) == 1) {
+            if (get_register__12TQuestThreadFPvi(quest_mission_manager, 0xFF) == 1) {
                 ((VObj_18_b54460 *)(arg0))->m7(0xB, 1);
                 if ((s32) M2C_FIELD(&(*(RecoveredGlobal_80212F34_THunterGuildSeqOffline__data_80513DC8 *)&THunterGuildSeqOffline__quest_result_callbacks).value, s32 *, 4) != -1) {
                     M2C_FIELD(arg0, s32 *, 0x34) = create_quest_thread(M2C_FIELD(&(*(RecoveredGlobal_80212F34_THunterGuildSeqOffline__data_80513DC8 *)&THunterGuildSeqOffline__quest_result_callbacks).value, s32 *, 4));
@@ -273,7 +273,7 @@ void resolve_active_quest_result__22THunterGuildSeqOfflineFPv(u8 *arg0) {
                 set_field_20__12TQuestListVMFPvi((void*)(arg0), (void*)(7));
                 return;
             }
-            if (get_register__12TQuestThreadFPvi(lbl_805D5EE8, 0xFD) == 1) {
+            if (get_register__12TQuestThreadFPvi(quest_mission_manager, 0xFD) == 1) {
                 ((VObj_18_b54460 *)(arg0))->m7(0x12, 1);
                 if ((s32) M2C_FIELD(&(*(RecoveredGlobal_80212F34_THunterGuildSeqOffline__data_80513DC8 *)&THunterGuildSeqOffline__quest_result_callbacks).value, s32 *, 0) != -1) {
                     M2C_FIELD(arg0, s32 *, 0x34) = create_quest_thread(M2C_FIELD(&(*(RecoveredGlobal_80212F34_THunterGuildSeqOffline__data_80513DC8 *)&THunterGuildSeqOffline__quest_result_callbacks).value, s32 *, 0));

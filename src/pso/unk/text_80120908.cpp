@@ -55,7 +55,7 @@ M2C_UNK set_global_state__16TObjEneRe7BeruraFi(void *);
 void apply_weapon_node_material();
 extern s16 TObjPlayer__weapon_node_ids[];
 extern M2C_UNK lbl_805D53EC;
-extern s16 lbl_805D5510;
+extern s16 weapon_node_material_index;
 extern u8 *lbl_805D5514;
 extern s32 some_id_805c6f74;
 extern const f32 lbl_805DACA8;
@@ -83,7 +83,7 @@ s32 draw_weapon_model(void *arg0) {
         push_matrix_from();
         if ((var_r30 != 0) && (get_flag_40__8TItemMagFPv((void *) (arg0)) == 0)) {
             lbl_805D5514 = (u8 *)arg0;
-            lbl_805D5510 = M2C_FIELD(arg0, s16 *, 0x1CC);
+            weapon_node_material_index = M2C_FIELD(arg0, s16 *, 0x1CC);
             temp_r4 = (u8 *)(M2C_FIELD(arg0, u8 **, 0x1DC));
             TObjPlayer__weapon_node_ids[0] = (s16) M2C_FIELD(temp_r4, u8 *, 0x21);
             TObjPlayer__weapon_node_ids[1] = (s16) M2C_FIELD(temp_r4, u8 *, 0x22);

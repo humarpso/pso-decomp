@@ -88,7 +88,7 @@ void *init_fade__6TLobbyFPvPvPv(void *, void *, void *);
 
 extern M2C_UNK __vt__21TItemReverseTechPart1[];
 extern void *lbl_805D2C4C;
-extern void * lbl_805D54DC;
+extern void * TItemReverseTechPart1__instance;
 extern void *tl_00;
 extern M2C_UNK destroy_and_flag__21TItemReverseTechPart2Fv[];
 
@@ -103,7 +103,7 @@ void *TItemReverseTechPart1__ct(void *arg0) {
     M2C_FIELD(arg0, u32 *, 0x28) = 3900;
     M2C_FIELD(arg0, u32 *, 0x2C) = 150;
     M2C_FIELD(arg0, u32 *, 0x30) = 0;
-    lbl_805D54DC = arg0;
+    TItemReverseTechPart1__instance = arg0;
     o = __nw__7TObjectFUl(0x28);
     if (o != NULL) {
         init_fade__6TLobbyFPvPvPv(o, tl_00, destroy_and_flag__21TItemReverseTechPart2Fv);

@@ -52,7 +52,7 @@ s16 TObjLaboDesignBase__vt8(u8 *arg0, f32 farg0, f32 farg1);
 f32 xz_distance_squared(void *, s32);
 s16 update_object_view_visibility(void *, f32, f32);
 s32 get_state_flag__9TMainTaskFv();
-extern s32 lbl_805D4DF0;
+extern s32 camera_ctrl_instance;
 extern void *lbl_805D5C28;
 extern const f32 lbl_805DBE70;
 extern const f32 lbl_805DBE74;
@@ -267,7 +267,7 @@ s16 TObjLaboDesignBase__vt8(u8 *arg0, f32 farg0, f32 farg1) {
     if (get_state_flag__9TMainTaskFv() == 1) {
         return M2C_FIELD(arg0, s16 *, 0x1E);
     }
-    if (xz_distance_squared(arg0 + 0x38, lbl_805D4DF0 + 0x178) < (farg1 * farg1)) {
+    if (xz_distance_squared(arg0 + 0x38, camera_ctrl_instance + 0x178) < (farg1 * farg1)) {
         M2C_FIELD(arg0, s16 *, 0x1E) = 1;
         return M2C_FIELD(arg0, s16 *, 0x1E);
     }

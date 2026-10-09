@@ -213,7 +213,7 @@ M2C_UNK reset_particles__13TParticleCtrlFv();
 M2C_UNK TParticleCtrl__sub_803E2A1C(void *, int);
 M2C_UNK setup_particle_draw__13TParticleCtrlFi(int);
 extern Tex_80086248 lbl_804C5820[];
-extern u8 *lbl_805D4DF0;
+extern u8 *camera_ctrl_instance;
 extern const f32 lbl_805D94D8;
 void draw_particle_refraction_quad(Ctrl_80086248 *self);
 M2C_UNK VecCopy__FP3VecPC3Vec(void *, void *);
@@ -243,7 +243,7 @@ M2C_UNK push_matrix_from(void *);
 M2C_UNK pop_matrix();
 extern Vec_80085CB0 lbl_804393D0;
 extern M2C_UNK lbl_8058D490[];
-extern u8 *lbl_805D4DF0;
+extern u8 *camera_ctrl_instance;
 extern const f32 lbl_805D9480;
 extern const f32 lbl_805D9488;
 extern const f32 lbl_805D94AC;
@@ -346,16 +346,16 @@ void TParticleCtrl__sub_80085CB0(Ctrl_80085CB0 *self) {
     Vec_80085CB0 d;
     f32 v;
     f32 r;
-    if ((*(Player_80085CB0 * *)&lbl_805D4DF0) != NULL) {
-        d.x = self->pos.x - (*(Player_80085CB0 * *)&lbl_805D4DF0)->pos.x;
+    if ((*(Player_80085CB0 * *)&camera_ctrl_instance) != NULL) {
+        d.x = self->pos.x - (*(Player_80085CB0 * *)&camera_ctrl_instance)->pos.x;
         d.y = lbl_805D9480;
-        d.z = self->pos.z - (*(Player_80085CB0 * *)&lbl_805D4DF0)->pos.z;
+        d.z = self->pos.z - (*(Player_80085CB0 * *)&camera_ctrl_instance)->pos.z;
         if (lbl_805D9480 != vec_squared_length(&d)) {
             normalize_vector(&d);
         }
         push_matrix_from(lbl_8058D490);
         Vec_80085CB0 t = lbl_804393D0;
-        rotate_matrix_y((int)(0), (s32)((*(Player_80085CB0 * *)&lbl_805D4DF0)->f194));
+        rotate_matrix_y((int)(0), (s32)((*(Player_80085CB0 * *)&camera_ctrl_instance)->f194));
         rotate_vector_by_matrix(0, &t, &out);
         pop_matrix();
         self->f94 = vec3_dot(&out, &d);
@@ -369,7 +369,7 @@ void TParticleCtrl__sub_80085CB0(Ctrl_80085CB0 *self) {
             v = 0.0f;
         }
         self->f90 = lbl_805D9488 * v + lbl_805D94B8;
-        Vec_80085CB0 p = (*(Player_80085CB0 * *)&lbl_805D4DF0)->pos;
+        Vec_80085CB0 p = (*(Player_80085CB0 * *)&camera_ctrl_instance)->pos;
         if (csnVector(&p, &self->pos, 0x100) != 0) {
             self->f98 = 1;
         } else {
@@ -525,8 +525,8 @@ void draw_particle_refraction_quad(Ctrl_80086248 *self) {
     v[3].x = -10.0f * self->w; v[3].y = -10.0f * self->h; v[3].z = 0.0f; v[3].u = uv->u1; v[3].v = uv->v1; v[3].color = self->color;
     push_matrix();
     post_translate_matrix(&p);
-    rotate_matrix_y(0, *(s32 *)(lbl_805D4DF0 + 0x194));
-    rotate_matrix_x(0, *(s32 *)(lbl_805D4DF0 + 0x190));
+    rotate_matrix_y(0, *(s32 *)(camera_ctrl_instance + 0x194));
+    rotate_matrix_x(0, *(s32 *)(camera_ctrl_instance + 0x190));
     load_projected_texture_matrix(lbl_805D94D8);
     set_global_param__8TObjFishFi(*(s32 *)((u8 *)lbl_804C5820 + 0x16C));
     set_texture_num(self->tex);

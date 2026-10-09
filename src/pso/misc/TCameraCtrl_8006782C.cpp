@@ -25,7 +25,7 @@ s32 VecCopy__FP3VecPC3Vec(void *, void *);
 s32 predict_obstruction__11TCameraCtrlFPv(void *);
 f32 vector_length(void *);
 extern RecoveredGlobal_80067AB0_lbl_80438150 lbl_80438150;
-extern u8 *lbl_805D4DF0;
+extern u8 *camera_ctrl_instance;
 extern const f32 lbl_805D8F38;
 extern const f32 lbl_805D8F4C;
 extern const f32 lbl_805D8F50;
@@ -141,9 +141,9 @@ void TCameraCtrl__sub_80067AB0(u8 *arg0) {
     Stack_80067AB0 stack;
     M2C_FIELD(arg0, s32 *, 0x38) = 0x15;
     M2C_FIELD(arg0, f32 *, 0x58) = (f32) lbl_805D8F50;
-    stack.sp8 = M2C_FIELD(lbl_805D4DF0, f32 *, 0x184) - M2C_FIELD(arg0, f32 *, 0x48);
-    stack.spC = M2C_FIELD(lbl_805D4DF0, f32 *, 0x188) - M2C_FIELD(arg0, f32 *, 0x4C);
-    stack.sp10 = M2C_FIELD(lbl_805D4DF0, f32 *, 0x18C) - M2C_FIELD(arg0, f32 *, 0x50);
+    stack.sp8 = M2C_FIELD(camera_ctrl_instance, f32 *, 0x184) - M2C_FIELD(arg0, f32 *, 0x48);
+    stack.spC = M2C_FIELD(camera_ctrl_instance, f32 *, 0x188) - M2C_FIELD(arg0, f32 *, 0x4C);
+    stack.sp10 = M2C_FIELD(camera_ctrl_instance, f32 *, 0x18C) - M2C_FIELD(arg0, f32 *, 0x50);
     M2C_FIELD(arg0, f32 *, 0x5C) = (f32) ((lbl_805D8F54 * vector_length((void *) (&stack.sp8))) / lbl_805D8F4C);
     if (predict_obstruction__11TCameraCtrlFPv((void *) (arg0)) != 0) {
         M2C_FIELD(arg0, s32 *, 0xFC) = (s32) (M2C_FIELD(arg0, s32 *, 0xFC) | 1);

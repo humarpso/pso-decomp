@@ -98,6 +98,20 @@ struct RecoveredGlobal_801889B8___vt__21TObjContainerAbeEnemy {
 
 struct Obj_80188C8C { u8 pad0[0x38]; u8 pos[0x28]; s32 id; u8 pad1[0x326 - 0x64]; s16 state; };
 
+typedef s32 M2C_UNK;
+struct Spawn_80188B3C {
+    u8 pad0[0xC];
+    f32 x, y, z;
+    u8 pad18[0x38 - 0x18];
+    f32 f38;
+    u8 pad3c[4];
+    s32 f40;
+    s32 f44;
+    u8 pad48[4];
+};
+
+struct Obj_80188B3C { u8 pad[0x38]; f32 x, y, z; };
+
 extern "C" {
 M2C_UNK queue_destruction__7TObjectFv(void *);
 M2C_UNK spawn_item__17TObjContainerItemFPvi(void *, void *);
@@ -121,6 +135,16 @@ s32 pop_matrix();
 extern void *lbl_805D5B88;
 extern s32 lbl_805D5B8C;
 void TObjContainerBase__vt79(Obj_80188C8C *self);
+M2C_UNK spawn_particle_effect_with_flags(void *, int, int);
+M2C_UNK construct_debris__8TObjChipFPvPvPv(void *, void *, void *);
+M2C_UNK play_container_break_sound(void *);
+void dispatch_fish_event__6TLobbyFPv(void *a0);
+extern s32 lbl_805D5B8C;
+void *__nw__7TObjectFUl(int);
+extern Spawn_80188B3C lbl_80444DAC;
+extern Spawn_80188B3C lbl_80444DF8;
+extern void *tl_05;
+void TObjContainerBase__vt77(const Obj_80188B3C *self);
 }
 
 extern "C" {
@@ -205,6 +229,50 @@ void TObjContainerBase__vt4(u8 *arg0, s16 *arg1, s32 arg2) {
         M2C_FIELD(arg0, s16 *, 0x326) = 1;
     }
 }
+
+#pragma push
+#pragma opt_propagation off
+void TObjContainerBase__vt77(const Obj_80188B3C *self) {
+    Spawn_80188B3C a = lbl_80444DAC;
+    f32 za;
+    f32 ya;
+    f32 xa;
+    xa = self->x;
+    ya = self->y;
+    za = self->z;
+    a.x = xa;
+    a.y = ya;
+    a.z = za;
+    a.f38 = ya;
+    a.f40 = ((s32 (*)(void *))dispatch_fish_event__6TLobbyFPv)((void *)0);
+    a.f44 = lbl_805D5B8C;
+    Spawn_80188B3C b = lbl_80444DF8;
+    f32 zb;
+    f32 yb;
+    f32 xb;
+    xb = self->x;
+    yb = self->y;
+    zb = self->z;
+    b.x = xb;
+    b.y = yb;
+    b.z = zb;
+    b.f38 = yb;
+    b.f40 = ((s32 (*)(void *))dispatch_fish_event__6TLobbyFPv)((void *)1);
+    b.f44 = lbl_805D5B8C;
+    spawn_particle_effect_with_flags((void *)&self->x, 0x45, 0x40);
+    spawn_particle_effect_with_flags((void *)&self->x, 0x46, 0x40);
+    void *o = __nw__7TObjectFUl(0x234);
+    if (o != NULL) {
+        construct_debris__8TObjChipFPvPvPv(o, tl_05, &a);
+    }
+    o = __nw__7TObjectFUl(0x234);
+    if (o != NULL) {
+        construct_debris__8TObjChipFPvPvPv(o, tl_05, &b);
+    }
+    play_container_break_sound((void *)self);
+}
+#pragma pop
+
 void TObjContainerBase__vt79(Obj_80188C8C *self) {
     if (lbl_805D5B88 != 0) {
         switch (self->state) {

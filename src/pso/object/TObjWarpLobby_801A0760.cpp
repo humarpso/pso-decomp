@@ -26,7 +26,7 @@ M2C_UNK align_menu_entry_positions(s32);
 M2C_UNK calc_window_size__17TWindowSubComCardFPv(s32);
 M2C_UNK forward_trade_action_default__16TObjCityMainWarpFPviii(s32, s32, M2C_UNK, s32);
 s32 check_room_seq_4__16TAdChrSelASlotGCFii(f32 *, M2C_UNK, f32);
-extern s32 lbl_804B9710[];
+extern s32 warp_lobby_directory_label_table[];
 extern const f32 lbl_805DC058;
 extern const f32 lbl_805DC05C;
 void open_lobby_menu__13TObjWarpLobbyFPv(void *arg0);
@@ -73,7 +73,7 @@ void open_lobby_menu__13TObjWarpLobbyFPv(void *arg0) {
     sp[1] = lbl_805DC05C;
     M2C_FIELD(arg0, s32 *, 0xB0) = check_room_seq_4__16TAdChrSelASlotGCFii(sp, 0xF, lbl_805DC058);
     for (i = 0; i < 0xF; i++) {
-        forward_trade_action_default__16TObjCityMainWarpFPviii(M2C_FIELD(arg0, s32 *, 0xB0), lbl_804B9710[i], 6, i);
+        forward_trade_action_default__16TObjCityMainWarpFPviii(M2C_FIELD(arg0, s32 *, 0xB0), warp_lobby_directory_label_table[i], 6, i);
     }
     calc_window_size__17TWindowSubComCardFPv(M2C_FIELD(arg0, s32 *, 0xB0));
     align_menu_entry_positions(M2C_FIELD(arg0, s32 *, 0xB0));

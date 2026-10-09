@@ -1820,15 +1820,15 @@ extern u8 lbl_804FF5D8[];
 extern M2C_UNK lbl_805D4D98;
 extern M2C_UNK lbl_805D4D9C;
 extern u8 *lbl_805D4DA0;
-extern s32 lbl_805D4DA4;
-extern s32 lbl_805D4DA8;
-extern s32 lbl_805D4DAC;
+extern s32 boss5_gryphon_bml_resource;
+extern s32 boss5_gryphon_texture_list;
+extern s32 boss8_dragon_attack_step_counter;
 extern s32 lbl_805D4DB0;
 extern s32 lbl_805D4DB4;
 extern s32 lbl_805D4DB8;
-extern Obj_80065658 *lbl_805D4DBC;
+extern Obj_80065658 *boss8_dragon_instance;
 extern f32 lbl_805D4DC0;
-extern u8 *lbl_805D4DF0;
+extern u8 *camera_ctrl_instance;
 extern s32 current_scene_light;
 extern s32 lbl_805D5660;
 extern const f32 lbl_805D8D50;
@@ -2726,7 +2726,7 @@ s32 TBoss8Dragon__sub_8005DC0C(Obj_8005DC0C *arg0) {
     f32 len;
     u8 *pl;
     s32 i;
-    if (lbl_805D4DF0 == 0) {
+    if (camera_ctrl_instance == 0) {
         return 0;
     }
     if (arg0->f326 == 4) {
@@ -2743,7 +2743,7 @@ s32 TBoss8Dragon__sub_8005DC0C(Obj_8005DC0C *arg0) {
     if (pl == 0) {
         return 0;
     }
-    ((void (*)(void *, void *))VecCopy__FP3VecPC3Vec)(&cam, lbl_805D4DF0 + 0x178);
+    ((void (*)(void *, void *))VecCopy__FP3VecPC3Vec)(&cam, camera_ctrl_instance + 0x178);
     cam.y = lbl_805D8D5C;
     ((void (*)(void *, void *))VecCopy__FP3VecPC3Vec)(&dir, pl + 0x38);
     subtract_vector(&dir, &cam);
@@ -2827,7 +2827,7 @@ void copy_bone_positions__12TBoss8DragonFPv(Obj_8005E058 *self) {
 }
 
 void draw_body__12TBoss8DragonFPv(Obj_8005E0C0 *self) {
-    lbl_805D4DAC = 0;
+    boss8_dragon_attack_step_counter = 0;
     lbl_805D4DB0 = 0;
     lbl_805D4DB4 = (s32)self->f3c0;
     lbl_805D4DB8 = self->f4c0;
@@ -2848,13 +2848,13 @@ void draw_body__12TBoss8DragonFPv(Obj_8005E0C0 *self) {
 
 void TBoss8Dragon__sub_8005E17C(void) {
     s32 temp_r4;
-    if ((s32) lbl_805D4DAC == (s32) M2C_FIELD(&lbl_8043797C.value, M2C_UNK *, (lbl_805D4DB0 * 4))) {
+    if ((s32) boss8_dragon_attack_step_counter == (s32) M2C_FIELD(&lbl_8043797C.value, M2C_UNK *, (lbl_805D4DB0 * 4))) {
         temp_r4 = lbl_805D4DB4;
         lbl_805D4DB4 = temp_r4 + 0xC;
         get_camera_ctrl__9TObjEneDDFPv((s32) &lbl_804FF5C0.value, temp_r4);
         lbl_805D4DB0 += 1;
     }
-    lbl_805D4DAC += 1;
+    boss8_dragon_attack_step_counter += 1;
 }
 
 #pragma push
@@ -4464,7 +4464,7 @@ void spawn_switch_attack__12TBoss8DragonFPv(void *arg0) {
 
     temp_r3 = spawn_particle_effect_with_flags(arg0, 0x211, 0x40);
     if (temp_r3 != 0) {
-        attach_particle_model(temp_r3, get_bml_model(lbl_805D4DA4, 2), lbl_805D4DA8, 0, 0, lbl_805D8D88);
+        attach_particle_model(temp_r3, get_bml_model(boss5_gryphon_bml_resource, 2), boss5_gryphon_texture_list, 0, 0, lbl_805D8D88);
     }
 }
 extern int fold_flush_13;
@@ -4491,7 +4491,7 @@ void spawn_attack_effect__12TBoss8DragonFPv(void *arg0) {
 
     temp_r3 = spawn_particle_effect_with_flags(arg0, 0x210, 0x40);
     if (temp_r3 != 0) {
-        attach_particle_model(temp_r3, get_bml_model(lbl_805D4DA4, 1), lbl_805D4DA8, 0, 0, lbl_805D8D88);
+        attach_particle_model(temp_r3, get_bml_model(boss5_gryphon_bml_resource, 1), boss5_gryphon_texture_list, 0, 0, lbl_805D8D88);
     }
 }
 extern int fold_flush_14;
@@ -5780,8 +5780,8 @@ Obj_80065658 *TBoss8Dragon__sub_80065658(Obj_80065658 *o, s16 flag) {
             o->f578 = 0;
         }
         free_collision_body_parts(o);
-        if (lbl_805D4DBC == o) {
-            lbl_805D4DBC = 0;
+        if (boss8_dragon_instance == o) {
+            boss8_dragon_instance = 0;
         }
         __destroy_arr(o->f580, (void *)TObjPlayer__sub_800D7C58, 0x1c, 4);
         __dt__7TObjectFv(o->f4c4, -1);

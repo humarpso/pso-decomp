@@ -45,7 +45,7 @@ extern RecoveredGlobal_8001CAD4_lbl_804349FC lbl_804349FC;
 extern RecoveredGlobal_8001CAD4_lbl_804FF5E8 lbl_804FF5E8;
 extern RecoveredGlobal_8001CAD4_lbl_8058D490 lbl_8058D490;
 void update_camera_facing_offset(u8 *arg0);
-extern u32 lbl_805D4DF0;
+extern u32 camera_ctrl_instance;
 extern RecoveredGlobal_8001CAD4_lbl_804FF5E8 lbl_804FF5E8;
 extern const f32 lbl_805D7E90;
 Vec_8001CBC4 calc_loading_cursor_pos(Obj_8001CBC4 *o);
@@ -82,7 +82,7 @@ void update_camera_facing_offset(u8 *arg0) {
 #pragma push
 #pragma fp_contract on
 Vec_8001CBC4 calc_loading_cursor_pos(Obj_8001CBC4 *o) {
-    if (lbl_805D4DF0 != 0) {
+    if (camera_ctrl_instance != 0) {
         o->pos.x = lbl_805D7E90 * (*(Tbl_8001CBC4 *)&lbl_804FF5E8).dir.x + (*(Tbl_8001CBC4 *)&lbl_804FF5E8).base.x;
         o->pos.y = lbl_805D7E90 * (*(Tbl_8001CBC4 *)&lbl_804FF5E8).dir.y + (*(Tbl_8001CBC4 *)&lbl_804FF5E8).base.y;
         o->pos.z = lbl_805D7E90 * (*(Tbl_8001CBC4 *)&lbl_804FF5E8).dir.z + (*(Tbl_8001CBC4 *)&lbl_804FF5E8).base.z;

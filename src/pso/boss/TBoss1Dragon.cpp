@@ -1893,7 +1893,7 @@ M2C_UNK queue_event_1D__12TBoss3VoloptFss(s16, s16);
 s32 init_all_slots__11TWindowCtrlFv();
 s32 init_all_slots2__11TWindowCtrlFv();
 M2C_UNK vec3_add_to(void *, void *);
-extern u8 TBoss1Dragon__data_80434EA0[];
+extern u8 TBoss1Dragon__head_fall_effect_params[];
 extern u8 lbl_80434EC8[];
 extern u8 lbl_80434ED4[];
 extern u8 lbl_80435368[];
@@ -2006,7 +2006,7 @@ extern s32 TBoss1Dragon__data_805D4B18;
 extern s32 TBoss1Dragon__data_805D4B1C;
 extern s32 TBoss1Dragon__data_805D4B20;
 extern const f32 lbl_805D4B30;
-extern u8 *lbl_805D4DF0;
+extern u8 *camera_ctrl_instance;
 extern s32 current_scene_light;
 extern s32 lbl_805D5660;
 extern s32 some_id_805c6f74;
@@ -2103,7 +2103,7 @@ void update_camera_sequence__9TObjEneDDFPv(void);
 M2C_UNK mult_vec_array__10TObjPlayerFUii(int, void *, int, int);
 M2C_UNK push_matrix();
 M2C_UNK pop_matrix();
-extern const RecoveredGlobal_8002116C_lbl_80434F20 lbl_80434F20;
+extern const RecoveredGlobal_8002116C_lbl_80434F20 boss1_dragon_capture_node_table;
 extern RecoveredGlobal_8002116C_lbl_804FE188 lbl_804FE188;
 extern RecoveredGlobal_8002116C_lbl_804FE194 lbl_804FE194;
 extern s32 TBoss1Dragon__data_805D4B0C;
@@ -2117,7 +2117,7 @@ s32 isV2Mode__12TBoss1DragonFv(void);
 M2C_UNK TBoss1Dragon__sub_80027590(void* object, void* action);
 void reload_impact_stats__12TBoss1DragonFPv(void *arg0);
 M2C_UNK emit_effect_at_position__9TObjEneDDFPvPv(void *, void *);
-extern const RecoveredGlobal_80027AAC_lbl_80434EB4 lbl_80434EB4;
+extern const RecoveredGlobal_80027AAC_lbl_80434EB4 boss1_dragon_ground_impact_params;
 void apply_ground_impact_attack__12TBoss1DragonFi(s32 arg0);
 s32 isV2Mode__12TBoss1DragonFv(void);
 s32 update_max_hp_phase__12TBoss1DragonFPv(void *arg0);
@@ -2143,7 +2143,7 @@ void TBoss1Dragon__sub_80027A80(u8 *arg0, u8 *arg1);
 void reload_stats_for_phase__12TBoss1DragonFPvi(void *arg0, int _w1);
 void reload_difficulty_stats__12TBoss1DragonFi(s32 arg0);
 M2C_UNK emit_effect_at_position__9TObjEneDDFPvPv(void *, void *);
-extern RecoveredGlobal_80027E78_lbl_80434E8C lbl_80434E8C;
+extern RecoveredGlobal_80027E78_lbl_80434E8C boss1_dragon_attack_sphere_params;
 extern RecoveredGlobal_80027634_TBoss1Dragon__data_804FE17C TBoss1Dragon__data_804FE17C;
 void apply_landing_attack__12TBoss1DragonFi(s32 arg0);
 f32 sin_table_lookup(s32);
@@ -2153,7 +2153,7 @@ void calc_forward_point__12TBoss1DragonFPvPvPv(u8 *arg0, f32 *arg1, f32 *arg2);
 struct Obj_80027320;
 void init_control_mode__12TBoss1DragonFPv(Obj_80027320 *);
 extern u8 lbl_8050E208[];
-extern u8 TBoss1Dragon__data_80434EA0[];
+extern u8 TBoss1Dragon__head_fall_effect_params[];
 M2C_UNK request_state_change__12TBoss1DragonFPvs(void *, s16);
 void TBoss1Dragon__sub_80026C98(u8 *arg0, u32 arg1);
 void action__12TBoss1DragonFPvi(void *arg0, s32 arg1);
@@ -2309,8 +2309,8 @@ void set_animation__10TObjPlayerFPvs(void *, s16);
 void __ct__7TObjectFP7TObject(void *, void *);
 void __construct_array(void *, void *, void *, int, int);
 extern u8 init_and_activate__10TObjPlayerFPv[];
-extern u8 lbl_80434EE0[];
-extern u8 lbl_80434F00[];
+extern u8 boss1_dragon_normal_action_table[];
+extern u8 boss1_dragon_normal_particle_table[];
 extern s32 lbl_805D2650;
 
 extern "C" void TLobby__sub_801A1FD8();
@@ -2612,7 +2612,7 @@ void TBoss1Dragon__sub_80027A80(u8 *arg0, u8 *arg1);
 M2C_UNK fill_value_array(s32);
 s32 reset_hp__9TObjEneDDFPv(void *, int, int, int);
 M2C_UNK emit_enemy_effect__9TObjEneDDFiiPvi(void *, void *, void *, s32);
-extern u8 TBoss1Dragon__data_80434EA0[];
+extern u8 TBoss1Dragon__head_fall_effect_params[];
 extern RecoveredGlobal_8006435C_lbl_804FF5A0 TBoss1Dragon__part_hp_stats;
 extern const f32 TBoss1Dragon__data_805D7F38;
 extern const f32 lbl_805D7FD0;
@@ -2894,7 +2894,7 @@ void render__12TBoss1DragonFv(u8 *arg0) {
             visible = 0;
         } else {
             hit = 0;
-            if (lbl_805D4DF0 != NULL && state != 0x1D && state != 0x16 && state != 0x15 &&
+            if (camera_ctrl_instance != NULL && state != 0x1D && state != 0x16 && state != 0x15 &&
                 M2C_FIELD(arg0, s32 *, 0x3E4) == 0) {
                 ent = find_entity_by_id(get_camera_target_id__11TCameraCtrlFi(-1));
                 if (ent != NULL) {
@@ -2902,7 +2902,7 @@ void render__12TBoss1DragonFv(u8 *arg0) {
                     Vec_80020B54 delta;
                     f32 *points[4];
                     Vec_80020B54 probe;
-                    VecCopy__FP3VecPC3Vec((s32) &origin, (s32) (lbl_805D4DF0 + 0x178));
+                    VecCopy__FP3VecPC3Vec((s32) &origin, (s32) (camera_ctrl_instance + 0x178));
                     origin.y = TBoss1Dragon__data_805D7F28;
                     VecCopy__FP3VecPC3Vec((s32) &delta, (s32) (ent + 0x38));
                     subtract_vector(&delta, &origin);
@@ -3017,7 +3017,7 @@ void dragon_capture_node_points(void) {
         mult_vec_array__10TObjPlayerFUii((int) (0), (void *) (&lbl_804FE194.value), (int) (TBoss1Dragon__data_805D4B14), (int) (3));
         pop_matrix();
     }
-    if ((s32) TBoss1Dragon__data_805D4B0C == (s32) M2C_FIELD(&lbl_80434F20.value, M2C_UNK *, (TBoss1Dragon__data_805D4B18 * 4))) {
+    if ((s32) TBoss1Dragon__data_805D4B0C == (s32) M2C_FIELD(&boss1_dragon_capture_node_table.value, M2C_UNK *, (TBoss1Dragon__data_805D4B18 * 4))) {
         temp_r4 = TBoss1Dragon__data_805D4B1C;
         TBoss1Dragon__data_805D4B1C = temp_r4 + 0xC;
         get_camera_ctrl__9TObjEneDDFPv((s32) &lbl_804FE188.value, temp_r4);
@@ -4260,7 +4260,7 @@ void update_death_state__12TBoss1DragonFv(u8 *arg0, u32 arg1) {
                 F(u32, 0x8AC) = 0;
             }
             if (objInBand__FP7GameObjf(arg0, lbl_805D7FB8) != 0) {
-                eff1 = *(Eff_80022EE0 *)TBoss1Dragon__data_80434EA0;
+                eff1 = *(Eff_80022EE0 *)TBoss1Dragon__head_fall_effect_params;
                 *(f32 *)&eff1.w[2] = TBoss1Dragon__data_805D7F38;
                 ((void (*)(void *, void *))VecCopy__FP3VecPC3Vec)(&v, lbl_80434EC8);
                 rotate_xz_pair_by_angle(&v.x, &v.z, F(s32, 0x60));
@@ -4278,7 +4278,7 @@ void update_death_state__12TBoss1DragonFv(u8 *arg0, u32 arg1) {
                 spawn_particle_effect_with_flags(&v, M2C_FIELD(F(u8 *, 0x778), s32 *, 8), 0x40);
             }
             if (objInBand__FP7GameObjf(arg0, lbl_805D7FBC) != 0) {
-                eff2 = *(Eff_80022EE0 *)TBoss1Dragon__data_80434EA0;
+                eff2 = *(Eff_80022EE0 *)TBoss1Dragon__head_fall_effect_params;
                 *(f32 *)&eff2.w[2] = TBoss1Dragon__data_805D7F3C;
                 ((void (*)(void *, void *))VecCopy__FP3VecPC3Vec)(&v, lbl_80434ED4);
                 rotate_xz_pair_by_angle(&v.x, &v.z, F(s32, 0x60));
@@ -6443,7 +6443,7 @@ void sweep_death_body_attack__12TBoss1DragonFPv(u8 *arg0) {
     s32 off;
     reset_hp__9TObjEneDDFPv(arg0, 0, M2C_FIELD(&TBoss1Dragon__part_hp_stats, s32 *, 0x10), 0);
     fill_value_array(M2C_FIELD(arg0, s32 *, 0x688));
-    TBoss1Dragon__sub_80027A80((u8 *)&params, TBoss1Dragon__data_80434EA0);
+    TBoss1Dragon__sub_80027A80((u8 *)&params, TBoss1Dragon__head_fall_effect_params);
     VecCopy__FP3VecPC3Vec((s32)&pos, (s32)(arg0 + 0x4C0));
     params.scale = lbl_805D7FD0;
     switch (isV2Mode__12TBoss1DragonFv()) {
@@ -6499,10 +6499,10 @@ void apply_ground_impact_attack__12TBoss1DragonFi(s32 arg0) {
     temp_r3 = isV2Mode__12TBoss1DragonFv();
     switch (temp_r3) {
     case 0:
-        emit_effect_at_position__9TObjEneDDFPvPv((void *) (arg0), (void *) (&lbl_80434EB4.value));
+        emit_effect_at_position__9TObjEneDDFPvPv((void *) (arg0), (void *) (&boss1_dragon_ground_impact_params.value));
         break;
     case 1:
-        TBoss1Dragon__sub_80027590((void*)((void *) (arg0)), (void*)((void *) (&lbl_80434EB4.value)));
+        TBoss1Dragon__sub_80027590((void*)((void *) (arg0)), (void*)((void *) (&boss1_dragon_ground_impact_params.value)));
         break;
     }
     reload_difficulty_stats__12TBoss1DragonFi((s32)((void *) (arg0)));
@@ -6526,7 +6526,7 @@ extern const f32 lbl_805D80A4;
 void sweep_body_attack_spheres__12TBoss1DragonFv(u8 *arg0, f32 a, f32 b, f32 c) {
     Vec_80027B78 pos;
     Vec_80027B78 base;
-    Fx_80027B78 fx = *(Fx_80027B78 *)TBoss1Dragon__data_80434EA0;
+    Fx_80027B78 fx = *(Fx_80027B78 *)TBoss1Dragon__head_fall_effect_params;
     f32 s0;
     f32 s1;
     f32 d;
@@ -6620,10 +6620,10 @@ void apply_head_fall_attack__12TBoss1DragonFPv(void *self) {
     reset_hp__9TObjEneDDFPv(self, 0, M2C_FIELD(&TBoss1Dragon__part_hp_stats, s32 *, 0x10), 0);
     switch (isV2Mode__12TBoss1DragonFv()) {
     case 0:
-        emit_effect_at_position__9TObjEneDDFPvPv(self, TBoss1Dragon__data_80434EA0);
+        emit_effect_at_position__9TObjEneDDFPvPv(self, TBoss1Dragon__head_fall_effect_params);
         break;
     case 1:
-        TBoss1Dragon__sub_80027590(self, TBoss1Dragon__data_80434EA0);
+        TBoss1Dragon__sub_80027590(self, TBoss1Dragon__head_fall_effect_params);
         break;
     }
     reset_hp__9TObjEneDDFPv(self, 0, M2C_FIELD(&TBoss1Dragon__part_hp_stats, s32 *, 0), 0);
@@ -6636,7 +6636,7 @@ void apply_landing_attack__12TBoss1DragonFi(s32 arg0) {
     typedef char sp10_offset[(offsetof(Stack_80027E78, sp10) == 0x8) ? 1 : -1];
     Stack_80027E78 stack;
     s32 temp_r3;
-    TBoss1Dragon__sub_80027A80((u8 *)((void *) (&stack.sp8)), (u8 *)((void *) (&lbl_80434E8C.value)));
+    TBoss1Dragon__sub_80027A80((u8 *)((void *) (&stack.sp8)), (u8 *)((void *) (&boss1_dragon_attack_sphere_params.value)));
     stack.sp10 = M2C_FIELD((*(RecoveredGlobal_80027E78_TBoss1Dragon__data_804FE17C *)&TBoss1Dragon__data_804FE17C).value, f32 *, 0xC);
     reload_stats_for_phase__12TBoss1DragonFPvi((void *) (arg0), (int) ((*(RecoveredGlobal_80027E78_TBoss1Dragon__data_804FE17C *)&TBoss1Dragon__data_804FE17C).value));
     temp_r3 = isV2Mode__12TBoss1DragonFv();
@@ -7824,11 +7824,11 @@ u8 *TBoss1Dragon__ct(u8 *arg0, void *arg1, void *arg2) {
     switch (isV2Mode__12TBoss1DragonFv()) {
     case 0:
         F_29DE4(arg0, s32, 0x770) = 1;
-        F_29DE4(arg0, u8 *, 0x778) = lbl_80434EE0;
+        F_29DE4(arg0, u8 *, 0x778) = boss1_dragon_normal_action_table;
         break;
     case 1:
         F_29DE4(arg0, s32, 0x770) = 0x13;
-        F_29DE4(arg0, u8 *, 0x778) = lbl_80434F00;
+        F_29DE4(arg0, u8 *, 0x778) = boss1_dragon_normal_particle_table;
         break;
     }
     p = __nw__7TObjectFUl(0xB0);

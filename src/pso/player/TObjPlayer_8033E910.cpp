@@ -43,7 +43,7 @@ int TObjPlayer__sub_803DC850(void*);
 M2C_UNK load_current_pos_matrix(int);
 M2C_UNK load_current_tex_matrix(int);
 extern const f64 lbl_804783B0;
-extern u32 lbl_805D4DF0;
+extern u32 camera_ctrl_instance;
 extern s32 lbl_805D7774;
 extern const f32 lbl_805DFAC8;
 extern const f32 lbl_805DFACC;
@@ -93,7 +93,7 @@ void setup_projection_tex_matrix__10TObjPlayerFv(void) {
     f32 spC;
     f32 sp8;
     f32 temp_f31;
-    if ((u32) lbl_805D4DF0 != 0U) {
+    if ((u32) camera_ctrl_instance != 0U) {
         push_matrix();
         calc_projection_screen_offset((void *) (&spC), (void *) (&sp8));
         temp_f31 = (f32) (lbl_804783B0 * calc_camera_fov_degrees());

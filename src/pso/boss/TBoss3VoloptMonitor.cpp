@@ -250,7 +250,7 @@ M2C_UNK set_param__12TObjEneLappyFPvi(void *, s32);
 M2C_UNK update_prev_position__10TObjPlayerFPv(void *);
 s32 rand();
 extern u8 lbl_80483DB8[];
-extern s8 lbl_804FEED0[];
+extern s8 volopt_target_slot_used[];
 extern s32 lbl_805D4C90;
 extern s32 lbl_805D4C94;
 extern s32 lbl_805D4C98;
@@ -426,7 +426,7 @@ M2C_UNK set_matrix_identity__10TObjPlayerFPv(int);
 struct G44_800426EC { u8 pad[0x2C]; };
 struct V12_800426EC { f32 x, y, z; };
 struct Mon_800426EC;
-extern V12_800426EC lbl_804FEEE8[];
+extern V12_800426EC volopt_slot_positions[];
 extern const f32 lbl_805D8754;
 extern const f32 lbl_805D8758;
 extern const f32 lbl_805D875C;
@@ -627,7 +627,7 @@ void TBoss3VoloptMonitor__sub_80042510(u8 *arg0) {
     M2C_FIELD(arg0, s16 *, 0x38E) = lbl_805D874C * (lbl_805D8740 * (f32)rand());
     M2C_FIELD(arg0, s16 *, 0x390) = lbl_805D8750 * (lbl_805D8740 * (f32)rand());
     add_flags_2e4__10TObjPlayerFPvUi(arg0, 4);
-    lbl_804FEED0[M2C_FIELD(arg0, s16 *, 0x38C)] = 0;
+    volopt_target_slot_used[M2C_FIELD(arg0, s16 *, 0x38C)] = 0;
     obj_setFlags30(arg0, 0x8000);
     ((VObj_80042510 *)arg0)->m80();
 }
@@ -720,11 +720,11 @@ u8 *init_with_slot__19TBoss3VoloptMonitorFPvPviiii(u8 *arg0, u8 *arg1, s32 arg2,
     rotate_matrix_y(0, M2C_FIELD(arg0, s32 *, 0x60));
     matrix_mult_vec(0, (u8 *)lbl_80483E84 + M2C_FIELD(arg0, s32 *, 0x368) * 0xC, arg0 + 0x38);
     pop_matrix();
-    VecCopy__FP3VecPC3Vec(&lbl_804FEEE8[M2C_FIELD(arg0, s16 *, 0x38C)], arg0 + 0x38);
+    VecCopy__FP3VecPC3Vec(&volopt_slot_positions[M2C_FIELD(arg0, s16 *, 0x38C)], arg0 + 0x38);
     {
         s16 k = M2C_FIELD(arg0, s16 *, 0x38C);
         m = (Mon_800426EC *) arg0;
-        lbl_804FEEE8[k].y = (k & 3) == 0 ? lbl_805D8758 : lbl_805D875C;
+        volopt_slot_positions[k].y = (k & 3) == 0 ? lbl_805D8758 : lbl_805D875C;
         init_collision_body_parts(m, (G44_800426EC *) &lbl_80483DD4 + M2C_FIELD(m, s32 *, 0x368), 1);
     }
     M2C_FIELD(M2C_FIELD(arg0, u8 **, 0xA4), s32 *, 0x18) |= 0x500;

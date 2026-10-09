@@ -1,2 +1,22 @@
-#define PSO_CLASS_PACKAGE 0x803CE200
-#include "pso/misc/TLobby.cpp"
+#include "types.h"
+typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
+typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
+#define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
+#define M2C_BITWISE(type, expr) ((type)(expr))
+
+extern "C" {
+
+void update_scroll_impl__6TLobbyFv(void);
+void TLobby__sub_803CE220(void);
+M2C_UNK restore_interrupts_nested__6TLobbyFv();
+M2C_UNK lock_enter__6TLobbyFv();
+
+void update_scroll_impl__6TLobbyFv(void) {
+    restore_interrupts_nested__6TLobbyFv();
+}
+
+void TLobby__sub_803CE220(void) {
+    lock_enter__6TLobbyFv();
+}
+
+}

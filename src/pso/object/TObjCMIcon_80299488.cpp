@@ -39,6 +39,10 @@ struct V2_802995A0 {
     f32 y;
 };
 
+struct Icon_802997DC { s32 state; f32 a; f32 b; };
+
+struct Grp_802997DC { s32 n; s32 ids[4]; };
+
 extern "C" {
 s32 TObjCMIcon__sub_80299598(M2C_UNK arg0, s32 arg1);
 extern RecoveredGlobal_802994B0_TObjCMIcon__data_805409E0 TObjCMIcon__data_805409E0;
@@ -68,6 +72,17 @@ extern Grp_802995A0 lbl_804DBDE0[];
 extern const f32 lbl_805DDC3C;
 extern const f32 lbl_805DDC40;
 void render__10TObjCMIconFv(M2C_UNK self);
+s32 get_creation_sprite_id__14TObjCMMainMenuFi(s32);
+s32 TObjCMIcon__sub_80299598(M2C_UNK arg0, s32 arg1);
+extern Grp_802995A0 lbl_804DBDE0[];
+extern RecoveredGlobal_802994B0_TObjCMIcon__data_805409E0 TObjCMIcon__data_805409E0;
+extern f32 TObjCMIcon__data_805D65A8;
+extern const f32 lbl_805DDC44;
+extern const f32 lbl_805DDC48;
+extern const f32 lbl_805DDC4C;
+extern const f32 lbl_805DDC50;
+extern const f32 lbl_805DDC54;
+void run_task__10TObjCMIconFv(M2C_UNK arg0);
 }
 
 extern "C" {
@@ -170,5 +185,50 @@ void render__10TObjCMIconFv(M2C_UNK self) {
     }
     restore_saved_depth_alpha_state();
 }
+#pragma push
+#pragma fp_contract on
+void run_task__10TObjCMIconFv(M2C_UNK arg0) {
+    Icon_802997DC *p;
+    Grp_802997DC *g;
+    s32 i;
+    f32 v;
+    f32 x;
+    p = (Icon_802997DC *)&TObjCMIcon__data_805409E0;
+    for (i = 0; i < 7; i++, p++) {
+        if (p->state == 0) {
+            if ((p->a += lbl_805DDC44) > 1.0f) {
+                p->a = 1.0f;
+            }
+        } else {
+            if ((p->a += lbl_805DDC48) < 0.0f) {
+                p->a = 0.0f;
+            }
+        }
+    }
+    x = 0.0f;
+    g = ((Grp_802997DC *)&lbl_804DBDE0);
+    p = (Icon_802997DC *)&TObjCMIcon__data_805409E0;
+    {
+    s32 k;
+    for (k = 0; k < 7; k++, p++, g++) {
+        if (p->state == 1) {
+            v = p->b - 1.0f;
+            p->b = v;
+            if (v < 0.0f) {
+                p->b = 0.0f;
+            }
+        } else {
+            s32 j;
+            p->b += lbl_805DDC4C * (x - p->b);
+            for (j = 0; j < g->n; j++) {
+                x += (f32)(get_creation_sprite_id__14TObjCMMainMenuFi(TObjCMIcon__sub_80299598(arg0, g->ids[j])) + 4);
+            }
+            x += lbl_805DDC50;
+        }
+    }
+    }
+    TObjCMIcon__data_805D65A8 += lbl_805DDC54 * (x - TObjCMIcon__data_805D65A8);
+}
+#pragma pop
 
 }

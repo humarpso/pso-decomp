@@ -58,7 +58,7 @@ s32 TLobby__sub_802D1D48(void *, void *);
 M2C_UNK update_both_halves__6TLobbyFPv(void *);
 u8 * copy_struct_f8__6TLobbyFii(s32 arg0, s32 arg1);
 s32 show_event_message__6TLobbyFiii(void *, int, int);
-extern Half_802D26C8 TLobby__data_80540BD0[4];
+extern Half_802D26C8 TLobby__trade_window_state[4];
 extern u32 lbl_805D53A0;
 extern s8 TLobby__data_805D688A;
 s32 check_trade_items_and_show_error__6TLobbyFv(void);
@@ -180,8 +180,8 @@ s32 check_trade_items_and_show_error__6TLobbyFv(void) {
     s32 r;
     s32 flag = 0;
     update_both_halves__6TLobbyFPv(&buf);
-    ((u8 *(*)(void *, void *))copy_struct_f8__6TLobbyFii)(&buf.h[0], &TLobby__data_80540BD0[2]);
-    ((u8 *(*)(void *, void *))copy_struct_f8__6TLobbyFii)(&buf.h[1], &TLobby__data_80540BD0[1]);
+    ((u8 *(*)(void *, void *))copy_struct_f8__6TLobbyFii)(&buf.h[0], &TLobby__trade_window_state[2]);
+    ((u8 *(*)(void *, void *))copy_struct_f8__6TLobbyFii)(&buf.h[1], &TLobby__trade_window_state[1]);
     r = TLobby__sub_802D1D48(&buf, &code);
     if (r == 4) {
         flag = 1;
@@ -189,8 +189,8 @@ s32 check_trade_items_and_show_error__6TLobbyFv(void) {
         return show_event_message__6TLobbyFiii((void *)lbl_805D53A0, r, code);
     }
     update_both_halves__6TLobbyFPv(&buf);
-    ((u8 *(*)(void *, void *))copy_struct_f8__6TLobbyFii)(&buf.h[0], &TLobby__data_80540BD0[0]);
-    ((u8 *(*)(void *, void *))copy_struct_f8__6TLobbyFii)(&buf.h[1], &TLobby__data_80540BD0[3]);
+    ((u8 *(*)(void *, void *))copy_struct_f8__6TLobbyFii)(&buf.h[0], &TLobby__trade_window_state[0]);
+    ((u8 *(*)(void *, void *))copy_struct_f8__6TLobbyFii)(&buf.h[1], &TLobby__trade_window_state[3]);
     r = TLobby__sub_802D1D48(&buf, &code);
     if (r == 4) {
         if (flag) {

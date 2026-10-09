@@ -14,7 +14,7 @@ M2C_UNK __ct__7TObjectFP7TObject();
 M2C_UNK TObjPlayer__sub_803DD5E8(void *, void *, void *, int);
 extern RecoveredGlobal_8011D2B4___vt__12TItemTexLoad __vt__12TItemTexLoad;
 extern s32 lbl_805D2C80;
-extern s32 lbl_805D5504;
+extern s32 TItemTexLoad__name_buffer;
 u8 *TItemTexLoad__ct(u8 *arg0);
 }
 
@@ -25,7 +25,7 @@ u8 *TItemTexLoad__ct(u8 *arg0) {
     __ct__7TObjectFP7TObject();
     M2C_FIELD(arg0, M2C_UNK **, 0x18) = &__vt__12TItemTexLoad.value;
     M2C_FIELD(arg0, s32 *, 0) = (s32) lbl_805D2C80;
-    TObjPlayer__sub_803DD5E8((void *) (arg0 + 0x2C), (void *) (arg0 + 0x34), (void *) (lbl_805D5504), (int) (1));
+    TObjPlayer__sub_803DD5E8((void *) (arg0 + 0x2C), (void *) (arg0 + 0x34), (void *) (TItemTexLoad__name_buffer), (int) (1));
     M2C_FIELD(arg0, s32 *, 0x38) = 0;
     M2C_FIELD(arg0, s32 *, 0x30) = 1;
     M2C_FIELD(arg0, s32 *, 0x24) = -1;

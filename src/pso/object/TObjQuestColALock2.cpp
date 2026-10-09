@@ -49,8 +49,8 @@ u8 * TObjQuestColBase__ct(void *, s32);
 extern RecoveredGlobal_80195BEC_lbl_80445E84 TObjQuestColALock__collision_desc;
 extern M2C_UNK __vt__18TObjQuestColALock2[];
 extern s32 lbl_805D3408;
-extern s32 lbl_805D5EE8;
-extern s32 lbl_805D5EEC;
+extern s32 quest_mission_manager;
+extern s32 quest_area_manager;
 u8 *TObjQuestColALock2__ct(u8 *arg0, s32 arg1, s32 _w2);
 M2C_UNK fn_80141CBC(void *, void *, int, f32);
 M2C_UNK TObjRoomId__sub_80141CF4(void *, void *, f32);
@@ -196,10 +196,10 @@ u8 *TObjQuestColALock2__ct(u8 *arg0, s32 arg1, s32 _w2) {
     temp_r0 = M2C_FIELD(arg0, s32 *, 0xC0);
     switch (temp_r0) {
     case 0:
-        M2C_FIELD(arg0, s32 *, 0xBC) = (s32) lbl_805D5EE8;
+        M2C_FIELD(arg0, s32 *, 0xBC) = (s32) quest_mission_manager;
         break;
     case 1:
-        M2C_FIELD(arg0, s32 *, 0xBC) = (s32) lbl_805D5EEC;
+        M2C_FIELD(arg0, s32 *, 0xBC) = (s32) quest_area_manager;
         break;
     default:
         M2C_FIELD(arg0, s32 *, 0xBC) = 0;

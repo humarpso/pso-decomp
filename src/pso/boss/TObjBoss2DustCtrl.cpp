@@ -41,7 +41,7 @@ void pop_matrix(void);
 Vec_8003AB7C lbl_804FE9E8[6];
 s32 lbl_804FEA30[20];
 Out_8003AD54 lbl_804FEA80[60];
-s32 lbl_804FEE40[10];
+s32 boss2_dust_random_angles[10];
 extern const f32 lbl_805D85B8;
 extern const f32 lbl_805D85BC;
 extern const f32 lbl_805D85C0;
@@ -120,7 +120,7 @@ void TObjBoss2DustCtrl::run_task() {
     out = (Out_8003AB7C *)lbl_804FEA80;
     push_matrix();
     scale = lbl_805D85BC;
-    ang = lbl_804FEE40;
+    ang = boss2_dust_random_angles;
     for (i = 0; i < 10; i++) {
         set_matrix_identity__10TObjPlayerFPv(0);
         translate_matrix(0, lbl_805D85B8, scale * sin_table_lookup(ang[i]), lbl_805D85B8);
@@ -192,7 +192,7 @@ void fn_8003AD54(void) {
         }
     }
     for (j = 0; j < 10; j++) {
-        lbl_804FEE40[j] = calc_random_scaled__10TObjPlayerFv();
+        boss2_dust_random_angles[j] = calc_random_scaled__10TObjPlayerFv();
     }
     TObjBoss2DustCtrl_dust_counter = 0;
 }

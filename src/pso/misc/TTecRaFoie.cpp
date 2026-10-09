@@ -417,7 +417,7 @@ void post_translate_matrix(void *);
 void set_global_param__8TObjFishFi(void *);
 void draw_ginja_object(void);
 void set_chunk_material_color(void *, s32);
-extern u8 *lbl_805D4DF0;
+extern u8 *camera_ctrl_instance;
 extern s32 lbl_805D5660;
 extern void *lbl_805D63AC;
 extern void *lbl_805D63B0;
@@ -502,7 +502,7 @@ void render_rafoie_explosion(RaFoie_802381F8 *o) {
     push_matrix();
     post_translate_matrix(o->m28);
     scale_matrix(0, x, y, z);
-    rotate_matrix_y(0, *(s32 *)(lbl_805D4DF0 + 0x194));
+    rotate_matrix_y(0, *(s32 *)(camera_ctrl_instance + 0x194));
     set_global_param__8TObjFishFi(lbl_805D63B0);
     set_cull_back__8TObjFishFv();
     set_depth_buffer_settings_id__FUl(3);

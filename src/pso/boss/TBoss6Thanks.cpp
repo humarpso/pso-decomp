@@ -43,7 +43,7 @@ void request_destroy__11TBoss4Type2FUi(void *);
 void *create_particle_emitter(void *, int);
 void set_flags__11TBoss4Type2FPvUi(void *, int);
 extern u8 TBoss6Thanks__data_80479BA8[];
-extern Ent_8035CB88 lbl_80479BD4[];
+extern Ent_8035CB88 boss6_thanks_particle_emitter_table[];
 void update_particle_emitters__12TBoss6ThanksFPv(void *arg0);
 u8 *get_player_data__10TObjPlayerFi(s32);
 s32 get_game_mode__6TLobbyFv();
@@ -86,7 +86,7 @@ void update_particle_emitters__12TBoss6ThanksFPv(void *arg0) {
     Obj_8035CB88 *o = (Obj_8035CB88 *)arg0;
     s32 i;
     for (i = 0; i < 4; i++) {
-        Ent_8035CB88 *e = &lbl_80479BD4[i];
+        Ent_8035CB88 *e = &boss6_thanks_particle_emitter_table[i];
         if (o->x30 >= e->lo && o->x30 <= e->hi) {
             if (o->p[i] == NULL) {
                 o->p[i] = create_particle_emitter(TBoss6Thanks__data_80479BA8, e->id);

@@ -62,9 +62,9 @@ void bswap_item__6TLobbyFPv(void* p);
 M2C_UNK init_forward__10TObjPlayerFPv(M2C_UNK *);
 extern M2C_UNK lbl_805D5430;
 void TLobby__sub_80104350(void);
-    extern int* lbl_805D54E8;
+    extern int* item_sync_counter_table;
 void set_boss_buf_entry__6TLobbyFii(int a0, int a1);
-extern int* lbl_805D54E8;
+extern int* item_sync_counter_table;
 int get_sync_counter__6TLobbyFi(int a0);
 s32 get_item_icon_index();
 s32 get_item_data__6TLobbyFUi(u32 arg0);
@@ -195,8 +195,8 @@ void bswap_item__6TLobbyFPv(void* p) { bswap_16__FPUs((char*)p + 0x2); bswap_32_
 void TLobby__sub_80104350(void) {
     init_forward__10TObjPlayerFPv(&lbl_805D5430);
 }
-void set_boss_buf_entry__6TLobbyFii(int a0, int a1) { lbl_805D54E8[(unsigned short)(a1)] = a0; }
-int get_sync_counter__6TLobbyFi(int a0) {  return lbl_805D54E8[(unsigned short)(a0)]; }
+void set_boss_buf_entry__6TLobbyFii(int a0, int a1) { item_sync_counter_table[(unsigned short)(a1)] = a0; }
+int get_sync_counter__6TLobbyFi(int a0) {  return item_sync_counter_table[(unsigned short)(a0)]; }
 s32 get_item_data__6TLobbyFUi(u32 arg0) {
     if (arg0 != 0U) {
         return get_item_icon_index();

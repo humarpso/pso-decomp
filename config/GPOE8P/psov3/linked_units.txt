@@ -259,8 +259,7 @@ pso/boss/TBoss8Dragon_802F3F20.cpp
 pso/boss/TBoss8Dragon_802F42A0.cpp
 pso/boss/TBoss8Dragon_802F4324.cpp
 pso/boss/TBoss8Dragon_802F4480.cpp
-pso/boss/TBoss8Dragon_802FDE68.cpp
-pso/boss/TBoss8Dragon_802FDF10.cpp
+pso/boss/TBoss8Dragon_802FDDD4.cpp
 pso/boss/TBoss8Dragon_80324D3C.cpp
 pso/boss/TBoss8Dragon_80325D38.cpp
 pso/boss/TBoss8Dragon_80359A7C.cpp
@@ -736,12 +735,14 @@ pso/item/TItem_80102088.cpp
 pso/item/TItem_801023A8.cpp
 pso/item/TItem_80102864.cpp
 pso/item/TItem_80363AF4.cpp
+pso/item/TObjContainerAbeEnemy.cpp
 pso/item/TObjContainerBase.cpp
 pso/item/TObjContainerEnemy.cpp
 pso/item/TObjContainerIdo.cpp
 pso/item/TObjContainerIdo_801A0B94.cpp
 pso/item/TObjContainerItem.cpp
 pso/item/TObjContainerJungEnemy.cpp
+pso/item/TObjContainerJungEx.cpp
 pso/item/TObjContainerJungEx_8018D900.cpp
 pso/item/TObjContainerNoItem.cpp
 pso/item/TObjItemLight.cpp
@@ -890,6 +891,7 @@ pso/misc/TKeyBoardControl_80290CB0.cpp
 pso/misc/TKeyBoardControl_802A1180.cpp
 pso/misc/TKeyBoardControl_803CBDE0.cpp
 pso/misc/TKeyBoardControl_803DE9C4.cpp
+pso/misc/TKeyBoardControl_803F0C50.cpp
 pso/misc/TKomorebi.cpp
 pso/misc/TLanguage.cpp
 pso/misc/TLanguage_801A5694.cpp
@@ -1147,8 +1149,6 @@ pso/misc/TMainCursor_8013DEF8.cpp
 pso/misc/TMainCursor_8013DF5C.cpp
 pso/misc/TMainCursor_8013E17C.cpp
 pso/misc/TMainCursor_8013E1C8.cpp
-pso/misc/TMainCursor_8013E240.cpp
-pso/misc/TMainCursor_8013E26C.cpp
 pso/misc/TMainCursor_8013E2E4.cpp
 pso/misc/TMainCursor_8013E44C.cpp
 pso/misc/TMainCursor_8013E47C.cpp
@@ -1337,6 +1337,8 @@ pso/misc/TORockCaveSM02.cpp
 pso/misc/TORockCaveSS02.cpp
 pso/misc/TORockCaveSimple.cpp
 pso/misc/TORockJungleL01.cpp
+pso/misc/TORockJungleM01.cpp
+pso/misc/TORockJungleS01.cpp
 pso/misc/TOSensor.cpp
 pso/misc/TOSensorGeneral01.cpp
 pso/misc/TOSignCave01.cpp
@@ -1579,7 +1581,6 @@ pso/misc/TTecKafun_802A9688.cpp
 pso/misc/TTecKafun_802A9710.cpp
 pso/misc/TTecLuker.cpp
 pso/misc/TTecLuker_801A1880.cpp
-pso/misc/TTecLuker_8022BEAC_8022C03C.cpp
 pso/misc/TTecLuker_802360E4.cpp
 pso/misc/TTecMegid.cpp
 pso/misc/TTecMegid_80235B24.cpp
@@ -1699,6 +1700,7 @@ pso/misc/TWindowDD_80348100.cpp
 pso/misc/TWindowDD_80348304.cpp
 pso/misc/TWindowDD_80348738.cpp
 pso/misc/TWindowDD_80348794.cpp
+pso/misc/TWindowDD_803488A8.cpp
 pso/misc/TWindowDD_80348BF4.cpp
 pso/misc/TWindowDD_80348C54.cpp
 pso/misc/TWindowDD_80348D0C.cpp
@@ -1732,6 +1734,7 @@ pso/misc/TWindowKeyBoardSoft_80080798.cpp
 pso/misc/TWindowKeyBoardSoft_80132A5C.cpp
 pso/misc/TWindowKeyBoardSoft_80228BEC.cpp
 pso/misc/TWindowKeyBoardSoft_8024E68C.cpp
+pso/misc/TWindowKeyBoardSoft_8025B85C.cpp
 pso/misc/TWindowKeyBoardSoft_80261440.cpp
 pso/misc/TWindowKeyBoardSoft_803E6610.cpp
 pso/misc/TWindowLoadItemTexture.cpp
@@ -1917,6 +1920,7 @@ pso/misc/TWindowSubStatusDisp_803DEE6C.cpp
 pso/misc/TWindowSubSymbolChat.cpp
 pso/misc/TWindowSubSymbolChatFaceType.cpp
 pso/misc/TWindowSubSymbolChatHelp.cpp
+pso/misc/TWindowSubSymbolChatPartsSet.cpp
 pso/misc/TWindowSubSymbolChatPartsSet_80247EFC.cpp
 pso/misc/TWindowSubSymbolChat_80076F88.cpp
 pso/misc/TWindowSubSymbolChat_8007763C.cpp
@@ -2214,9 +2218,6 @@ pso/object/TObject_8022A5C8.cpp
 pso/object/TObject_8022ACA8.cpp
 pso/object/TObject_802EEE9C.cpp
 pso/object/TObject_803503D0.cpp
-pso/packages/misc/TMainCursor/8013E1FC.cpp
-pso/packages/player/TObjPlayer/80102CE0.cpp
-pso/packages/player/TObjPlayer/801BD424.cpp
 pso/player/THunterGuildSeqOnlineTask.cpp
 pso/player/THunterGuildWarning.cpp
 pso/player/TObjPlayer.cpp
@@ -2271,7 +2272,6 @@ pso/player/TObjPlayer_80100E00.cpp
 pso/player/TObjPlayer_80101824.cpp
 pso/player/TObjPlayer_80102A58.cpp
 pso/player/TObjPlayer_80102C78.cpp
-pso/player/TObjPlayer_80102D48.cpp
 pso/player/TObjPlayer_80104860.cpp
 pso/player/TObjPlayer_80105874.cpp
 pso/player/TObjPlayer_8010853C.cpp
@@ -2342,7 +2342,6 @@ pso/player/TObjPlayer_8012402C.cpp
 pso/player/TObjPlayer_801240C0.cpp
 pso/player/TObjPlayer_8012429C.cpp
 pso/player/TObjPlayer_801244C0.cpp
-pso/player/TObjPlayer_80124694.cpp
 pso/player/TObjPlayer_801249C4.cpp
 pso/player/TObjPlayer_80124B44.cpp
 pso/player/TObjPlayer_80124C0C.cpp
@@ -2533,7 +2532,6 @@ pso/player/TObjPlayer_801BCFBC.cpp
 pso/player/TObjPlayer_801BD2B8.cpp
 pso/player/TObjPlayer_801BD314.cpp
 pso/player/TObjPlayer_801BD384.cpp
-pso/player/TObjPlayer_801BD570.cpp
 pso/player/TObjPlayer_801BD928.cpp
 pso/player/TObjPlayer_801BDD8C.cpp
 pso/player/TObjPlayer_801BDDDC.cpp
@@ -2640,12 +2638,6 @@ pso/protocol/subcommand_validation_movement.cpp
 pso/protocol/subcommand_validation_photon_blast.cpp
 pso/protocol/subcommand_validation_player.cpp
 pso/protocol/subcommand_validation_technique.cpp
-pso/slices/pso_carve_80124760.cpp
-pso/slices/pso_carve_8012480c.cpp
-pso/slices/pso_carve_80124810.cpp
-pso/slices/pso_carve_8012484c.cpp
-pso/slices/pso_carve_802fddd4.cpp
-pso/slices/pso_carve_802fdefc.cpp
 pso/system/ChunkMaterialState.cpp
 pso/system/THeap.cpp
 pso/system/TMainTask.cpp
@@ -2809,8 +2801,6 @@ pso/ui/TAdSinglePlyChrSelectGC_8028D5D4.cpp
 pso/ui/TAdSinglePlyChrSelectGC_8029A914.cpp
 pso/ui/TAdSinglePlyChrSelectGC_802D3AB8.cpp
 pso/ui/TAdSinglePlyChrSelectGC_802E13C8.cpp
-pso/ui/TAdSinglePlyChrSelectGC_802E13C8_802E2158.cpp
-pso/ui/TAdSinglePlyChrSelectGC_802E1F14.cpp
 pso/ui/TAdSinglePlyChrSelectGC_802E3AE4.cpp
 pso/ui/TAdSinglePlyChrSelectGC_80336054.cpp
 pso/ui/TAdSinglePlyChrSelectGC_8033C640.cpp
@@ -3072,7 +3062,6 @@ pso/unk/text_80123EC4.cpp
 pso/unk/text_80124068.cpp
 pso/unk/text_801241D4.cpp
 pso/unk/text_8012443C.cpp
-pso/unk/text_80124708.cpp
 pso/unk/text_80124BB4.cpp
 pso/unk/text_80124C90.cpp
 pso/unk/text_801250F8.cpp
@@ -3443,7 +3432,6 @@ pso/unk/text_802264B8.cpp
 pso/unk/text_80228C54.cpp
 pso/unk/text_80228E98.cpp
 pso/unk/text_8022BE64.cpp
-pso/unk/text_8022C10C.cpp
 pso/unk/text_8022F164.cpp
 pso/unk/text_8022F258.cpp
 pso/unk/text_8022FB70.cpp

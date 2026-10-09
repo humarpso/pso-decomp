@@ -62,9 +62,9 @@ int alloc_buffer__11TOBoss4RockFPv(u32);
 char *strncpy(char *, const char *, u32);
 void load_gvm_texture_archive(int, int);
 extern Name_8011A270 lbl_8043E714;
-extern int TItemReverseTech__data_805D54D0;
-extern int lbl_805D54D4;
-extern int lbl_805D54D8;
+extern int TItemReverseTech__texture_archive;
+extern int TItemReverseTech__entry_table;
+extern int TItemReverseTech__name_buffer;
 void load_textures__16TItemReverseTechFv(void);
 void TKeyBoardControl__sub_8000F90C(s32);
 void TKeyBoardControl__sub_8000F91C(s32);
@@ -114,10 +114,10 @@ void create__16TItemReverseTechFv(void) {
     }
 }
 
-    extern int TItemReverseTech__data_805D54D0;
-    extern int lbl_805D54D4;
-    extern int lbl_805D54D8;
-void free__16TItemReverseTechFv(void) { free_texture_if_valid((void*)(TItemReverseTech__data_805D54D0)); free__11TOBoss4RockFUi((void*)(lbl_805D54D8)); lbl_805D54D8 = 0; free__11TOBoss4RockFUi((void*)(lbl_805D54D4)); lbl_805D54D4 = 0; __dl__FPv((void*)(TItemReverseTech__data_805D54D0)); TItemReverseTech__data_805D54D0 = 0; }
+    extern int TItemReverseTech__texture_archive;
+    extern int TItemReverseTech__entry_table;
+    extern int TItemReverseTech__name_buffer;
+void free__16TItemReverseTechFv(void) { free_texture_if_valid((void*)(TItemReverseTech__texture_archive)); free__11TOBoss4RockFUi((void*)(TItemReverseTech__name_buffer)); TItemReverseTech__name_buffer = 0; free__11TOBoss4RockFUi((void*)(TItemReverseTech__entry_table)); TItemReverseTech__entry_table = 0; __dl__FPv((void*)(TItemReverseTech__texture_archive)); TItemReverseTech__texture_archive = 0; }
 
     extern const float lbl_805DAC4C;
 
@@ -132,23 +132,23 @@ void load_textures__16TItemReverseTechFv(void) {
     Hdr_8011A270 *hdr;
     int file;
     int buf;
-    lbl_805D54D8 = alloc_buffer__11TOBoss4RockFPv(0x1C);
-    strncpy((char *)lbl_805D54D8, name->s, 0x1B);
+    TItemReverseTech__name_buffer = alloc_buffer__11TOBoss4RockFPv(0x1C);
+    strncpy((char *)TItemReverseTech__name_buffer, name->s, 0x1B);
     e = (Ent_8011A270 *)alloc_buffer__11TOBoss4RockFPv(0xCC);
-    lbl_805D54D4 = (int)e;
+    TItemReverseTech__entry_table = (int)e;
     for (i = 0; i < 17; i++, e++) {
-        e->name = lbl_805D54D8;
+        e->name = TItemReverseTech__name_buffer;
         e->a = 0;
         e->b = 0;
     }
     hdr = alloc__23TAdSinglePlyChrSelectGCFPv(8);
-    TItemReverseTech__data_805D54D0 = (int)hdr;
-    hdr->entries = lbl_805D54D4;
+    TItemReverseTech__texture_archive = (int)hdr;
+    hdr->entries = TItemReverseTech__entry_table;
     file = set_stream_and_load_file__6TLobbyFi(name->s);
     if (file != 0) {
         buf = alloc_buffer__11TOBoss4RockFPv(0x200000);
         if (buf != 0 && prs_decompress_alloc(file, buf, 0x200000) > 0) {
-            load_gvm_texture_archive(buf, TItemReverseTech__data_805D54D0);
+            load_gvm_texture_archive(buf, TItemReverseTech__texture_archive);
         }
         free__11TOBoss4RockFUi((void *)buf);
     }

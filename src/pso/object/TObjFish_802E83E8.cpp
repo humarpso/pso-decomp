@@ -479,7 +479,7 @@ s32 push_matrix();
 s32 pop_matrix();
 extern RecoveredGlobal_802E80F4_lbl_8050BEC0 lbl_8050BEC0;
 extern RecoveredGlobal_802E80F4_main_task main_task;
-extern RecoveredGlobal_802E80F4_lbl_805412C0 lbl_805412C0;
+extern RecoveredGlobal_802E80F4_lbl_805412C0 boss7_derolle_light_pool;
 extern RecoveredGlobal_802E80F4_lbl_8058D4C0 lbl_8058D4C0;
 extern s32 lbl_805D5660;
 extern s32 lbl_805D5664;
@@ -551,7 +551,7 @@ void TObjPlayer__sub_802E80F4(u8 *arg0) {
         push_matrix();
         if ((u32) M2C_FIELD(arg0, u32 *, 0x7AC) != 0U) {
             if (M2C_FIELD(arg0, s32 *, 0x628) & 0x40) {
-                M2C_FIELD(lbl_805D693C, M2C_UNK **, 0x2C) = &lbl_805412C0.value;
+                M2C_FIELD(lbl_805D693C, M2C_UNK **, 0x2C) = &boss7_derolle_light_pool.value;
             } else {
                 M2C_FIELD(lbl_805D693C, M2C_UNK **, 0x2C) = (M2C_UNK *) lbl_805D6940;
             }

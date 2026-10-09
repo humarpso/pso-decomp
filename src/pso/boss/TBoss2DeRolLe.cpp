@@ -333,8 +333,8 @@ void *create_particle_controller_with_angles(void *, void *, int, int, int);
 M2C_UNK set_flags__11TBoss4Type2FPvUi(void *, u32);
 M2C_UNK copy_pos__11TNowLoadingFPvPv(void *, void *);
 M2C_UNK enable__13TParticleCtrlFPv(void *);
-extern s32 lbl_804824B8[];
-extern f32 lbl_804824C4[];
+extern s32 boss2_derolle_particle_node_indices[];
+extern f32 boss2_derolle_particle_limits[];
 extern const f32 TBoss2DeRolLe__data_805D8294;
 extern const f32 TBoss2DeRolLe__data_805D82A0;
 extern const f32 TBoss2DeRolLe__data_805D82A4;
@@ -3148,9 +3148,9 @@ void update_particle_ctrls__13TBoss2DeRolLeFPv(Obj_80033AA4 *o) {
     if (ok != 0) {
         if (o->f758 == 0) {
             for (k = 0; k < 3; k++) {
-                Vec_80033AA4 *v = &o->pos[lbl_804824B8[k]];
+                Vec_80033AA4 *v = &o->pos[boss2_derolle_particle_node_indices[k]];
                 f32 r = get_random_float__8TObjFishFv(v->y - lbl_805D82E0);
-                f32 lim = lbl_804824C4[k];
+                f32 lim = boss2_derolle_particle_limits[k];
                 if (r < TBoss2DeRolLe__data_805D8328 * lim) {
                     ((M2C_UNK (*)(void *, void *))VecCopy__FP3VecPC3Vec)(&t, v);
                     lim -= r;

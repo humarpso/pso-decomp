@@ -602,13 +602,13 @@ void reset__6TLobbyFv(void);
 void handle_trade_request_state_b__6TLobbyFPv(O_802D3654 *self);
 void move_trade_item_amount__6TLobbyFPvUii(void *, s32, s32, void *);
 void update_trade_window__19TWindowSubTradeMainFPv(u32);
-extern u8 TLobby__data_80540BD0[];
+extern u8 TLobby__trade_window_state[];
 
 extern u32 TLobby__data_805D6898;
 void handle_trade_item_move__6TLobbyFPv(S_802D35B0 *arg0);
 void transfer_trade_item_amount__6TLobbyFPvUii(void *, s32, s32, void *);
 void update_trade_window__19TWindowSubTradeMainFPv(u32);
-extern u8 TLobby__data_80540BD0[];
+extern u8 TLobby__trade_window_state[];
 
 extern u32 TLobby__data_805D6898;
 void handle_trade_item_amount__6TLobbyFPv(S_802D3544 *arg0);
@@ -682,7 +682,7 @@ void handle_trade_item_amount__6TLobbyFPv(S_802D3544 *arg0) {
     switch (t) {
     case 0:
         if (arg0->f2 == TLobby__data_805D688A) {
-            transfer_trade_item_amount__6TLobbyFPvUii(TLobby__data_80540BD0 + 0x1F0, arg0->f8, arg0->fC, TLobby__data_80540BD0);
+            transfer_trade_item_amount__6TLobbyFPvUii(TLobby__trade_window_state + 0x1F0, arg0->f8, arg0->fC, TLobby__trade_window_state);
             if (TLobby__data_805D6898 != 0) {
                 update_trade_window__19TWindowSubTradeMainFPv(TLobby__data_805D6898);
             }
@@ -699,7 +699,7 @@ void handle_trade_item_move__6TLobbyFPv(S_802D35B0 *arg0) {
     switch (t) {
     case 0:
         if (arg0->f2 == TLobby__data_805D688A) {
-            move_trade_item_amount__6TLobbyFPvUii(TLobby__data_80540BD0 + 0x1F0, arg0->f8, arg0->fC, TLobby__data_80540BD0);
+            move_trade_item_amount__6TLobbyFPvUii(TLobby__trade_window_state + 0x1F0, arg0->f8, arg0->fC, TLobby__trade_window_state);
             if (TLobby__data_805D6898 != 0) {
                 update_trade_window__19TWindowSubTradeMainFPv(TLobby__data_805D6898);
             }
@@ -808,7 +808,7 @@ extern u8 TLobby__data_805D688B;
 void update_trade_partner__6TLobbyFv(void);
 void update_both_halves__6TLobbyFPv(void *);
 void close_trade_request__6TLobbyFv(void);
-#define TLobby__data_80540BD0 ((Half_802D38B4 *)TLobby__data_80540BD0)
+#define TLobby__trade_window_state ((Half_802D38B4 *)TLobby__trade_window_state)
 
 extern u8 TLobby__data_805D688B;
 extern s32 TLobby__data_805D688C;
@@ -870,7 +870,7 @@ void reset_trade_state__6TLobbyFv(void) {
     TLobby__data_805D6898 = 0;
     TLobby__data_805D689C = 0;
     for (i = 0; i < 2; i++) {
-        update_both_halves__6TLobbyFPv(&TLobby__data_80540BD0[i]);
+        update_both_halves__6TLobbyFPv(&TLobby__trade_window_state[i]);
     }
     close_trade_request__6TLobbyFv();
 }
@@ -881,4 +881,4 @@ void reset_trade_state__6TLobbyFv(void) {
 #undef TLobby__data_805D6894
 #undef TLobby__data_805D6898
 #undef TLobby__data_805D689C
-#undef TLobby__data_80540BD0
+#undef TLobby__trade_window_state

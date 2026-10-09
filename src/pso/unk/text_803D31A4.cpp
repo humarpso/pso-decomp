@@ -28,7 +28,7 @@ struct Cb_803D3678 { s32 fn; s32 arg; };
 
 extern "C" {
 M2C_UNK memset(void *, int, int);
-extern s32 lbl_805D7658;
+extern s32 lobby_callback_tables_refcount;
 extern P_803D33D4 lbl_805D7664;
 extern P_803D33E4 lbl_805D766C;
 void init_callback_tables__6TLobbyFv(void);
@@ -82,7 +82,7 @@ RecoveredGlobal_803D31A4_lbl_8058B6B8 worker_callback_flag_table;
 RecoveredGlobal_803D31A4_lbl_8058B6D4 svm_callback_counts;
 
 void init_callback_tables__6TLobbyFv(void) {
-    if ((s32) lbl_805D7658 == 0) {
+    if ((s32) lobby_callback_tables_refcount == 0) {
         memset((void *) (&worker_callback_flag_table.value), (int) (0), (int) (0x1C));
         memset((void *) (&lbl_805D766C), (int) (0), (int) (8));
         memset((void *) (&lbl_805D7664), (int) (0), (int) (8));
@@ -91,7 +91,7 @@ void init_callback_tables__6TLobbyFv(void) {
         M2C_FIELD(&svm_callback_counts.value, s32 *, 8) = 0;
         M2C_FIELD(&svm_callback_counts.value, s32 *, 0xC) = 0;
     }
-    lbl_805D7658 += 1;
+    lobby_callback_tables_refcount += 1;
 }
 struct Cb_803D3224 { s32 (*fn)(s32); s32 arg; };
 

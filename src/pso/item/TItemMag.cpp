@@ -243,7 +243,7 @@ void create__9TTecSiftaFPvPvPv(void *, void *, int);
 s32 is_challenge_mode_active();
 s32 rand();
 
-extern s32 TItemMag__data_805D54A8;
+extern s32 TItemMag__item_load_instance;
 extern const f32 TItemMag__data_805DABA4;
 extern const f32 TItemMag__data_805DABA8;
 extern s32 lbl_8043E534[];
@@ -638,7 +638,7 @@ s32 get_evolution_stage__8TItemMagFPv(void * _w0) {
         var_r31 = 0x42;
     }
     if (var_r31 <= 0x42U) {
-        return M2C_FIELD(M2C_FIELD(get_type__8TItemMagFPv(TItemMag__data_805D54A8), s32 *, 0x14), s8 *, var_r31);
+        return M2C_FIELD(M2C_FIELD(get_type__8TItemMagFPv(TItemMag__item_load_instance), s32 *, 0x14), s8 *, var_r31);
     }
     return 0;
 }
@@ -1611,8 +1611,8 @@ int fn_800F955C(void *p);
 int bswap_32__FPUl(void *);
 extern u8 lbl_8043E568[];
 extern u8 lbl_8043E57C[];
-extern int lbl_805D54AC;
-extern int lbl_805D54B0;
+extern int item_mag_type_id;
+extern int item_mag_param_table;
 void load_data_files__8TItemMagFv(void);
 }
 
@@ -1863,8 +1863,8 @@ void *__dt__8TItemMagFv(void *arg0, s16 arg1) {
     return arg0;
 }
 
-    extern int lbl_805D54AC;
-    extern int lbl_805D54B0;
+    extern int item_mag_type_id;
+    extern int item_mag_param_table;
 
 #pragma push
 #pragma opt_common_subs off
@@ -1905,7 +1905,7 @@ u8 *create__8TItemMagFi(s32 arg0) {
     return NULL;
 }
 
-void cleanup__8TItemMagFv(void) { __dt__9TItemLoadFPvs((void*)(TItemMag__data_805D54A8), (void*)1); fn_800F953C((void*)(lbl_805D54B0)); TItemMag__data_805D54A8 = 0; lbl_805D54AC = 0; lbl_805D54B0 = 0; }
+void cleanup__8TItemMagFv(void) { __dt__9TItemLoadFPvs((void*)(TItemMag__item_load_instance), (void*)1); fn_800F953C((void*)(item_mag_param_table)); TItemMag__item_load_instance = 0; item_mag_type_id = 0; item_mag_param_table = 0; }
 
 void load_data_files__8TItemMagFv(void) {
     s32 i;
@@ -1914,8 +1914,8 @@ void load_data_files__8TItemMagFv(void) {
     Grp_80113B6C *g;
     s32 *type;
     void *buf;
-    lbl_805D54B0 = fn_800F955C(lbl_8043E568);
-    rec = (Rec_80113B6C *)lbl_805D54B0;
+    item_mag_param_table = fn_800F955C(lbl_8043E568);
+    rec = (Rec_80113B6C *)item_mag_param_table;
     for (i = 0; i < 0x5A; i++, rec++) {
         bswap_32__FPUl(&rec->f0);
         bswap_32__FPUl(&rec->f8);
@@ -1941,12 +1941,12 @@ void load_data_files__8TItemMagFv(void) {
     if (buf != NULL) {
         buf = load_buffer__9TItemLoadFPvUii(buf, (u32)lbl_8043E57C, 0x1000);
     }
-    TItemMag__data_805D54A8 = (int)buf;
+    TItemMag__item_load_instance = (int)buf;
     if (buf != NULL) {
         type = ((s32 * (*)(void *))get_type__8TItemMagFPv)(buf);
     }
     if (type != NULL) {
-        lbl_805D54AC = *type;
+        item_mag_type_id = *type;
     }
 }
 

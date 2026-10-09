@@ -52,7 +52,7 @@ s32 set_camera_look_at(void *, void *, void *);
 s32 set_perspective_projection_from_fov(int, f32, f32, f32);
 extern RecoveredGlobal_800830B0_lbl_80439348 lbl_80439348;
 extern RecoveredGlobal_800830B0_main_task main_task;
-extern u8 *lbl_805D4DF0;
+extern u8 *camera_ctrl_instance;
 extern u32 lbl_805D4EE8;
 extern const f32 lbl_805D93D0;
 extern const f32 lbl_805D93D8;
@@ -137,14 +137,14 @@ void TCameraCtrl__sub_800830B0(u8 *arg0) {
         stack.sp20 = M2C_FIELD(&lbl_80439348.value, s32 *, 0);
         stack.sp24 = M2C_FIELD(&lbl_80439348.value, s32 *, 4);
         stack.sp28 = M2C_FIELD(&lbl_80439348.value, s32 *, 8);
-        set_perspective_projection_from_fov((int) (M2C_FIELD(lbl_805D4DF0, s32 *, 0x19C)), (f32) (lbl_805D940C), (f32) (lbl_805D93D8), (f32) (lbl_805D9410));
+        set_perspective_projection_from_fov((int) (M2C_FIELD(camera_ctrl_instance, s32 *, 0x19C)), (f32) (lbl_805D940C), (f32) (lbl_805D93D8), (f32) (lbl_805D9410));
         set_camera_look_at((void *) (arg0 + 0x20), (void *) (arg0 + 0x2C), (void *) (&stack.sp20));
-        if ((void *) lbl_805D4DF0 != NULL) {
+        if ((void *) camera_ctrl_instance != NULL) {
             stack.sp14 = M2C_FIELD(arg0, f32 *, 0x2C) - M2C_FIELD(arg0, f32 *, 0x20);
             stack.sp18 = M2C_FIELD(arg0, f32 *, 0x30) - M2C_FIELD(arg0, f32 *, 0x24);
             stack.sp1C = M2C_FIELD(arg0, f32 *, 0x34) - M2C_FIELD(arg0, f32 *, 0x28);
             direction_to_pitch_yaw((void *) (&stack.sp14), (void *) (&stack.sp10), (void *) (&stack.spC));
-            calc_axes_from_angles__11TCameraCtrlFiii((void *) (lbl_805D4DF0), (int) (stack.sp10), (int) (stack.spC));
+            calc_axes_from_angles__11TCameraCtrlFiii((void *) (camera_ctrl_instance), (int) (stack.sp10), (int) (stack.spC));
         }
         TObjPlayer__sub_80084754();
         render_scene_passes__9TMainTaskFv((void *) (&main_task.value));
@@ -161,8 +161,8 @@ void TCameraCtrl__sub_800830B0(u8 *arg0) {
         GXSetViewport((f32) (lbl_805D93D0), (f32) (lbl_805D93D0), (f32) (lbl_805D9404), (f32) (lbl_805D9408), (f32) (lbl_805D93D0), (f32) (lbl_805D93D8));
         GXSetScissor((int) (0), (int) (0), (int) (0x280), (int) (0x1E0));
         TCameraCtrl__sub_80068EF0();
-        calc_rotated_axes__11TCameraCtrlFPv((void *) (lbl_805D4DF0));
-        TCameraCtrl__sub_8006AF9C((void *) (lbl_805D4DF0), (int) (0));
+        calc_rotated_axes__11TCameraCtrlFPv((void *) (camera_ctrl_instance));
+        TCameraCtrl__sub_8006AF9C((void *) (camera_ctrl_instance), (int) (0));
     }
 }
 #pragma pop

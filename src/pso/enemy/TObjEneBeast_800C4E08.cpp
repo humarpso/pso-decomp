@@ -1046,7 +1046,7 @@ f32 update_scale__15TObjBoss2TunnelFPv(void *);
 s32 copy_pos__11TNowLoadingFPvPv(int, void *);
 s32 is_alive__9TObjEneDDFPv(s32);
 M2C_UNK subtract_vector(void *, void *);
-extern u8 *lbl_805D4DF0;
+extern u8 *camera_ctrl_instance;
 extern const f32 lbl_805DA020;
 extern const f32 lbl_805DA024;
 void TObjPlayer__sub_800C4B78(Obj_800C4B78 *o);

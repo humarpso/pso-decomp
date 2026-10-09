@@ -67,6 +67,12 @@ typedef struct T_802869BC {
     f32 f94;
 } T_802869BC;
 
+struct V2_80286120 { f32 x, y; };
+
+struct Pt_80286120 { u8 pad[8]; f32 f8; f32 fc; };
+
+struct Ps_80286120 { u8 pad[0x69]; s8 f69; u8 pad6a[0xA]; s32 f74; };
+
 extern "C" {
 s32 test_flag_4c__23TAdSinglePlyChrSelectGCFPv(void *, int);
 s32 TWindowShortListCtrl__check_controller_button(int, int);
@@ -110,6 +116,12 @@ extern const f32 lbl_805DD828;
 extern const f32 lbl_805DD82C;
 extern const f32 lbl_805DD830;
 T_802869BC *TWindowSubSymbolChatPartsSet__ct(T_802869BC *self, void *parent, s16 arg2, s32 arg3, s32 arg4);
+void *get_parts_entry__28TWindowSubSymbolChatPartsSetFii(void *, s32);
+void TWindowSubSymbolChatFaceType__sub_80283C84(void *, void *, f32, f32);
+extern const f32 lbl_805DD814;
+extern const f32 lbl_805DD818;
+extern const f32 lbl_805DD81C;
+M2C_UNK TWindowSubSymbolChatPartsSet__sub_80286120(void *self, int arg1);
 }
 
 extern "C" {
@@ -123,7 +135,6 @@ void render__28TWindowSubSymbolChatPartsSetFv(u8 *arg0);
 M2C_UNK play_sound_effect(M2C_UNK, M2C_UNK, M2C_UNK, M2C_UNK);
 M2C_UNK draw_quest_message_frame(void *, int);
 M2C_UNK draw_visible_window_entries(void *, void *, int, f32);
-M2C_UNK TWindowSubSymbolChatPartsSet__sub_80286120(void *, int);
 void __dl__7TObjectFPv(void *);
 void __dt__17TWindowChatSymbolFv(void *, int);
 M2C_UNK copy_vec2__28TWindowSubSymbolChatPartsSetFPvPv(void *, void *);
@@ -131,6 +142,25 @@ void destroy_status_display__20TWindowSubStatusDispFis(void *, int);
 u8 *draw_default_entry__9TWindowDDFi();
 M2C_UNK forward_render__20TWindowSubStatusDispFPv(int, int);
 M2C_UNK set_entry_state__20TWindowSubStatusDispFPvc(s32, M2C_UNK);
+
+M2C_UNK TWindowSubSymbolChatPartsSet__sub_80286120(void *self, int arg1) {
+#define arg0 ((Ps_80286120 *)self)
+    V2_80286120 sp;
+    Pt_80286120 *e;
+    switch (arg0->f69) {
+    case 1:
+    case 3:
+        e = (Pt_80286120 *)get_parts_entry__28TWindowSubSymbolChatPartsSetFii(arg0, arg0->f74);
+        sp.x = e->f8 - lbl_805DD814;
+        sp.y = e->fc - lbl_805DD814;
+        TWindowSubSymbolChatFaceType__sub_80283C84((void *)arg1, &sp, lbl_805DD818, lbl_805DD81C);
+        break;
+    case 0:
+    case 2:
+        return;
+    }
+#undef arg0
+}
 
 void handle_cancel__28TWindowSubSymbolChatPartsSetFPv(void *arg0) {
     if (is_active__20TWindowSubSymbolChatFPv((void *)(arg0)) == 0) {
@@ -281,7 +311,7 @@ void render__28TWindowSubSymbolChatPartsSetFv(u8 *arg0) {
     temp_f1 = M2C_FIELD(temp_r3, f32 *, 0x2C);
     M2C_FIELD(temp_r3, f32 *, 0x2C) = (f32) (temp_f1 * M2C_FIELD(arg0, f32 *, 0x94));
     draw_visible_window_entries((void *) (arg0), (void *) (arg0 + 0x24), (int) (temp_r3), (f32) (temp_f1));
-    TWindowSubSymbolChatPartsSet__sub_80286120((void *) (arg0), (int) (temp_r3));
+    TWindowSubSymbolChatPartsSet__sub_80286120((void *)((void *) (arg0)), (int)((int) (temp_r3)));
     copy_vec2__28TWindowSubSymbolChatPartsSetFPvPv((void *) (temp_r3 + 0x10), (void *) (&sp10));
     copy_vec2__28TWindowSubSymbolChatPartsSetFPvPv((void *) (temp_r3 + 0x28), (void *) (&sp8));
     forward_render__20TWindowSubStatusDispFPv((int) (M2C_FIELD(arg0, s32 *, 0x88)), (int) (temp_r3));

@@ -32,7 +32,7 @@ M2C_UNK get_move_effect__22TAdMultiPlyChrSelectGCFi(s32);
 extern V2_802DF9B4 lbl_804727A0[];
 extern u8 lbl_80472808[];
 extern I2_802DF9B4 lbl_80472828[];
-extern Blk_802DF9B4 lbl_80472830[];
+extern Blk_802DF9B4 multi_chr_select_layout_table[];
 extern V2_802DF9B4 lbl_80472848[];
 extern s32 tl_02;
 extern s32 tl_clipout;
@@ -485,7 +485,7 @@ void create_widgets__22TAdMultiPlyChrSelectGCFPv(u8 *arg0) {
     if (p != 0) {
         p = __ct__13TAdTitleTexGCFv((void *) p, arg0);
     }
-    Blk_802DF9B4 blk = lbl_80472830[0];
+    Blk_802DF9B4 blk = multi_chr_select_layout_table[0];
     fn_802D50B8(p, &blk.a, &blk.b, &blk.c);
     p = __nw__7TObjectFUl(0xD4);
     if (p != 0) {

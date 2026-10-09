@@ -20,14 +20,14 @@ extern "C" {
 void restore_render_scissor(s32 arg0);
 M2C_UNK GXSetScissor(M2C_UNK, M2C_UNK, M2C_UNK, M2C_UNK);
 void project_world_to_screen(s32, void *, void *);
-extern u16 lbl_805D65F8;
+extern u16 scene_sora_reflect_active;
 extern const f32 lbl_805DDD8C;
 extern const f32 lbl_805DDD94;
 s32 TObjEneRecon__sub_8029EA4C(void *arg0, M2C_UNK _w1);
 s32 TObjEneRecon__sub_8029EA4C(void *arg0, M2C_UNK _w1);
 M2C_UNK reflect_matrix_in_plane(M2C_UNK, M2C_UNK *);
 M2C_UNK push_matrix();
-extern u16 lbl_805D65F8;
+extern u16 scene_sora_reflect_active;
 extern const f32 lbl_805DDD8C;
 extern const f32 lbl_805DDD90;
 s32 push_reflect_matrix__12TObjEneReconFPv(u8 *arg0);
@@ -48,7 +48,7 @@ u32 get_state__10TSceneSoraFPv(void*);
 s32 is_state_active__14TOKeyMachine01Fv();
 M2C_UNK reset_ind_tev_stages__13TParticleCtrlFv();
 
-extern u16 lbl_805D65F8;
+extern u16 scene_sora_reflect_active;
 
 s32 render_player_marker__12TObjEneReconFUsi(u16 arg0, s32 arg1) {
     M2C_UNK sp8[8];
@@ -58,7 +58,7 @@ s32 render_player_marker__12TObjEneReconFUsi(u16 arg0, s32 arg1) {
     if (is_state_active__14TOKeyMachine01Fv() == 0) {
         return 0;
     }
-    if ((u16) lbl_805D65F8 == 0) {
+    if ((u16) scene_sora_reflect_active == 0) {
         return 1;
     }
     temp_r3 = get_player_by_client_id(arg0);
@@ -80,7 +80,7 @@ s32 render_player_marker__12TObjEneReconFUsi(u16 arg0, s32 arg1) {
     return var_r3;
 }
 
-extern u16 lbl_805D65F8;
+extern u16 scene_sora_reflect_active;
 
 s32 push_reflect_matrix__12TObjEneReconFPv(u8 *arg0) {
     typedef char sp8_offset[(offsetof(Stack_8029E960, sp8) == 0x0) ? 1 : -1];
@@ -91,7 +91,7 @@ s32 push_reflect_matrix__12TObjEneReconFPv(u8 *arg0) {
     typedef char sp1C_offset[(offsetof(Stack_8029E960, sp1C) == 0x14) ? 1 : -1];
     Stack_8029E960 stack;
     s32 temp_r3;
-    if ((u16) lbl_805D65F8 == 0) {
+    if ((u16) scene_sora_reflect_active == 0) {
         return 1;
     }
     if (arg0 == NULL) {
@@ -112,7 +112,7 @@ s32 push_reflect_matrix__12TObjEneReconFPv(u8 *arg0) {
 }
 
 void restore_render_scissor(s32 arg0) {
-    if ((u16) lbl_805D65F8 != 0) {
+    if ((u16) scene_sora_reflect_active != 0) {
         pop_matrix();
         if (arg0 != 0) {
             GXSetScissor(0, 0, 0x280, 0x1E0);
@@ -120,11 +120,11 @@ void restore_render_scissor(s32 arg0) {
     }
 }
 
-extern u32 lbl_805D65F4;
+extern u32 scene_sora_instance;
 
 s32 TObjEneRecon__sub_8029EA4C(void *arg0, M2C_UNK _w1) {
     Vec_8029EA4C v;
-    if (lbl_805D65F8 == 0) {
+    if (scene_sora_reflect_active == 0) {
         return 1;
     }
     restore_render_scissor(1);
@@ -137,7 +137,7 @@ s32 TObjEneRecon__sub_8029EA4C(void *arg0, M2C_UNK _w1) {
 }
 
 void update_particle_if_active__12TObjEneReconFv(void) {
-    if (((u32) lbl_805D65F4 != 0U) && (get_state__10TSceneSoraFPv((void*)lbl_805D65F4) != 0U)) {
+    if (((u32) scene_sora_instance != 0U) && (get_state__10TSceneSoraFPv((void*)scene_sora_instance) != 0U)) {
         reset_ind_tev_stages__13TParticleCtrlFv();
     }
 }
@@ -155,12 +155,12 @@ extern "C" {
 void notify_scene__12TObjEneReconFi(s32 arg0);
 M2C_UNK play_particle__13TParticleCtrlFPvis(u32, M2C_UNK, s32);
 
-extern u32 lbl_805D65F4;
+extern u32 scene_sora_instance;
 
 void notify_scene__12TObjEneReconFi(s32 arg0) {
     u32 temp_r31;
-    if ((u32) lbl_805D65F4 != 0U) {
-        temp_r31 = get_state__10TSceneSoraFPv((void*)lbl_805D65F4);
+    if ((u32) scene_sora_instance != 0U) {
+        temp_r31 = get_state__10TSceneSoraFPv((void*)scene_sora_instance);
         if (temp_r31 != 0U) {
             play_particle__13TParticleCtrlFPvis(temp_r31, 0, arg0);
         }
@@ -185,36 +185,36 @@ M2C_UNK init_render_target__10TObjPlayerFPv();
 s32 is_state_active__14TOKeyMachine01Fv();
 M2C_UNK reset_lobby_subobject__10TObjPlayerFPv(void*);
 
-extern u32 lbl_805D65F4;
-extern u32 lbl_805D65FC;
+extern u32 scene_sora_instance;
+extern u32 scene_sora_recon_object;
 
 void destroy_instance__12TObjEneReconFv(void) {
-    lbl_805D65F4 = 0;
+    scene_sora_instance = 0;
     if (is_state_active__14TOKeyMachine01Fv() != 0) {
-        if ((u32) lbl_805D65FC != 0U) {
-            reset_lobby_subobject__10TObjPlayerFPv((void*)lbl_805D65FC);
+        if ((u32) scene_sora_recon_object != 0U) {
+            reset_lobby_subobject__10TObjPlayerFPv((void*)scene_sora_recon_object);
         }
-        if ((u32) lbl_805D65FC != 0U) {
-            __dl__FPv((void*)lbl_805D65FC);
-            lbl_805D65FC = 0U;
+        if ((u32) scene_sora_recon_object != 0U) {
+            __dl__FPv((void*)scene_sora_recon_object);
+            scene_sora_recon_object = 0U;
         }
     }
 }
 
 extern s32 lbl_805D65F0;
-extern u32 lbl_805D65F4;
-extern u32 lbl_805D65FC;
+extern u32 scene_sora_instance;
+extern u32 scene_sora_recon_object;
 
 void alloc_if_valid_state__12TObjEneReconFv(void) {
     u32 temp_r3;
 
     if (is_state_active__14TOKeyMachine01Fv() != 0) {
-        lbl_805D65F4 = 0;
+        scene_sora_instance = 0;
         temp_r3 = alloc__23TAdSinglePlyChrSelectGCFPv(0x28);
-        lbl_805D65FC = temp_r3;
+        scene_sora_recon_object = temp_r3;
         if (temp_r3 != 0U) {
             init_render_target__10TObjPlayerFPv();
-            lbl_805D65F0 = lbl_805D65FC + 0x1C;
+            lbl_805D65F0 = scene_sora_recon_object + 0x1C;
         }
     }
 }

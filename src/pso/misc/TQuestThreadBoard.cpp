@@ -9,11 +9,11 @@ extern "C" {
 void destroy_board__17TQuestThreadBoardFv(void);
 M2C_UNK queue_destruction__7TObjectFv(void*);
 
-extern u32 lbl_805D5EF0;
+extern u32 quest_thread_board;
 
 void destroy_board__17TQuestThreadBoardFv(void) {
-    if ((u32) lbl_805D5EF0 != 0U) {
-        queue_destruction__7TObjectFv((void*)lbl_805D5EF0);
+    if ((u32) quest_thread_board != 0U) {
+        queue_destruction__7TObjectFv((void*)quest_thread_board);
     }
 }
 

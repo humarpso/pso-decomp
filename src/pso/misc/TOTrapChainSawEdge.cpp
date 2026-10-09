@@ -368,8 +368,8 @@ extern M2C_UNK __vt__14TOTrapChainSaw[];
 extern M2C_UNK __vt__17TOTrapChainSawKey[];
 extern M2C_UNK __vt__18TOTrapChainSawEdge[];
 extern M2C_UNK __vt__20TOTrapChainSawDamage[];
-extern u32 lbl_80540B30[5];
-extern u32 lbl_80540B44[5];
+extern u32 seabed_suiso_linked_switch_counts[5];
+extern u32 seabed_suiso_switch_counts[5];
 extern s32 lbl_805D53A0;
 extern s32 game_difficulty_selection;
 extern void *tl_05;
@@ -525,13 +525,13 @@ u8 *TOTrapChainSawEdge__ct(u8 *arg0) {
 void TParticleCtrl__sub_802C8464(u32 arg0) {
     s32 i;
     for (i = 0; i < 5; i++) {
-        if (arg0 == lbl_80540B30[i]) {
+        if (arg0 == seabed_suiso_linked_switch_counts[i]) {
             begin_effect_render__13TParticleCtrlFv();
             return;
         }
     }
     for (i = 0; i < 5; i++) {
-        if (arg0 == lbl_80540B44[i]) {
+        if (arg0 == seabed_suiso_switch_counts[i]) {
             begin_effect_render__13TParticleCtrlFv();
             return;
         }

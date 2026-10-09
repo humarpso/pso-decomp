@@ -253,8 +253,8 @@ M2C_UNK TWindowDD__sub_8034886C(s32, char *, s32 *);
 s32 format_entry_text__9TWindowDDFPvPv(DD_803461CC *arg0, char *arg1);
 List_803467CC *get_element_ptr__9TWindowDDFi(s16);
 List_803467CC *get_entry__9TWindowDDFi(s32, s16);
-extern s32 TWindowDD__data_805D6E08;
-extern u32 TWindowDD__data_805D6E1C;
+extern s32 TWindowDD__window_mode;
+extern u32 TWindowDD__word_select_lists;
 void build_item_list__9TWindowDDFPv(u8 *arg0);
 M2C_UNK TWindowDD__sub_8034734C(DD_803461CC *, char *, s32 *);
 M2C_UNK TWindowDD__sub_8034740C(DD_803461CC *, char *, s32 *);
@@ -326,7 +326,7 @@ extern char lbl_80478644[];
 extern M2C_UNK __vt__9TWindowDD[];
 extern s32 lbl_805D42E8;
 extern s32 lbl_805D53A0;
-extern u32 TWindowDD__data_805D6E0C;
+extern u32 TWindowDD__work_buffer;
 extern s16 lbl_805D6E24;
 extern char *lbl_805D6E64;
 extern s8 lbl_805D6E68;
@@ -760,11 +760,11 @@ void *__dt__9TWindowDDFv(void *arg0, s16 arg1) {
     return arg0;
 }
 
-extern u32 TWindowDD__data_805D6E0C;
-extern u32 lbl_805D6E10;
-extern u32 lbl_805D6E14;
-extern u32 TWindowDD__data_805D6E18;
-extern u32 TWindowDD__data_805D6E1C;
+extern u32 TWindowDD__work_buffer;
+extern u32 window_dd_buffer_a;
+extern u32 window_dd_buffer_b;
+extern u32 TWindowDD__player_name_buffers;
+extern u32 TWindowDD__word_select_lists;
 extern u32 lbl_805D6E20;
 extern u32 lbl_805D6E50;
 extern u32 lbl_805D6E54;
@@ -787,7 +787,7 @@ Obj_80343C64 *TWindowDD__ct(Obj_80343C64 *self, void *parent, void *arg2) {
   self->f0 = lbl_805D42E8;
   self->f1C = (floor = lbl_805D6E24);
   build_item_list__9TWindowDDFPv((u8 *)(self));
-  *((u8 *) TWindowDD__data_805D6E0C) = 0;
+  *((u8 *) TWindowDD__work_buffer) = 0;
   self->fA0 = 0;
   {
     p = (u8 *) get_player_by_client_id(lbl_805D53A0);
@@ -885,13 +885,13 @@ Obj_80343C64 *TWindowDD__ct(Obj_80343C64 *self, void *parent, void *arg2) {
       TWindowDD__sub_803412A0((s32) q);
     }
   }
-  ((void (*)(void *, u32, u16)) update_state__9TWindowDDFv)(self->fC4, TWindowDD__data_805D6E0C, lbl_805D53A0);
+  ((void (*)(void *, u32, u16)) update_state__9TWindowDDFv)(self->fC4, TWindowDD__work_buffer, lbl_805D53A0);
   {
     a.x = lbl_805DFBF0;
     a.y = lbl_805DFBF4;
     b.x = lbl_805DFB60;
     b.y = lbl_805DFBF4;
-    p = (u8 *) ((s32 (*)(f32, V2_80343C64 *, V2_80343C64 *, s32, s32)) TWindowDD__sub_8034146C)(lbl_805DFBF8, &a, &b, TWindowDD__data_805D6E0C, 0);
+    p = (u8 *) ((s32 (*)(f32, V2_80343C64 *, V2_80343C64 *, s32, s32)) TWindowDD__sub_8034146C)(lbl_805DFBF8, &a, &b, TWindowDD__work_buffer, 0);
     self->a64[3] = (s32) p;
     if (p != 0)
     {
@@ -925,29 +925,29 @@ Obj_80343C64 *TWindowDD__ct(Obj_80343C64 *self, void *parent, void *arg2) {
 
 void free_buffers__9TWindowDDFv(void) {
     clear_window_dd_nodes();
-    if ((u32) TWindowDD__data_805D6E1C != 0U) {
-        free__11TOBoss4RockFUi((void*)TWindowDD__data_805D6E1C);
-        TWindowDD__data_805D6E1C = 0U;
+    if ((u32) TWindowDD__word_select_lists != 0U) {
+        free__11TOBoss4RockFUi((void*)TWindowDD__word_select_lists);
+        TWindowDD__word_select_lists = 0U;
     }
     if ((u32) lbl_805D6E20 != 0U) {
         free__11TOBoss4RockFUi((void*)lbl_805D6E20);
         lbl_805D6E20 = 0U;
     }
-    if ((u32) TWindowDD__data_805D6E18 != 0U) {
-        free__11TOBoss4RockFUi((void*)TWindowDD__data_805D6E18);
-        TWindowDD__data_805D6E18 = 0U;
+    if ((u32) TWindowDD__player_name_buffers != 0U) {
+        free__11TOBoss4RockFUi((void*)TWindowDD__player_name_buffers);
+        TWindowDD__player_name_buffers = 0U;
     }
-    if ((u32) lbl_805D6E14 != 0U) {
-        free__11TOBoss4RockFUi((void*)lbl_805D6E14);
-        lbl_805D6E14 = 0U;
+    if ((u32) window_dd_buffer_b != 0U) {
+        free__11TOBoss4RockFUi((void*)window_dd_buffer_b);
+        window_dd_buffer_b = 0U;
     }
-    if ((u32) lbl_805D6E10 != 0U) {
-        free__11TOBoss4RockFUi((void*)lbl_805D6E10);
-        lbl_805D6E10 = 0U;
+    if ((u32) window_dd_buffer_a != 0U) {
+        free__11TOBoss4RockFUi((void*)window_dd_buffer_a);
+        window_dd_buffer_a = 0U;
     }
-    if ((u32) TWindowDD__data_805D6E0C != 0U) {
-        free__11TOBoss4RockFUi((void*)TWindowDD__data_805D6E0C);
-        TWindowDD__data_805D6E0C = 0U;
+    if ((u32) TWindowDD__work_buffer != 0U) {
+        free__11TOBoss4RockFUi((void*)TWindowDD__work_buffer);
+        TWindowDD__work_buffer = 0U;
     }
     if ((u32) TWindowDD__ws_data_buffer != 0U) {
         free_nodes_with_id__6TLobbyFUi((void*)TWindowDD__ws_data_buffer);
@@ -1654,7 +1654,7 @@ s32 TWindowDD__sub_80346640(u8 *arg0, u32 arg1, s32 arg2, s32 arg3) {
     }
     return var_r31;
 }
-#define BUF_803467CC ((Buf_803467CC *)TWindowDD__data_805D6E1C)
+#define BUF_803467CC ((Buf_803467CC *)TWindowDD__word_select_lists)
 void build_item_list__9TWindowDDFPv(u8 *arg0) {
     s32 kind;
     s16 id;
@@ -1667,7 +1667,7 @@ void build_item_list__9TWindowDDFPv(u8 *arg0) {
     s16 *b;
     s32 i;
     s32 j;
-    switch (TWindowDD__data_805D6E08) {
+    switch (TWindowDD__window_mode) {
     case 0:
         kind = 0x11;
         id = 0xE;

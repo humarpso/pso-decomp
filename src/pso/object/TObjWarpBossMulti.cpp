@@ -191,12 +191,12 @@ extern u8 lbl_80446650[];
 extern RecoveredGlobal_8019E418_lbl_8050E208 lbl_8050E208;
 extern u32 lbl_8050EA10[];
 extern s32 lbl_805D348C;
-extern s32 lbl_805D4DF0;
+extern s32 camera_ctrl_instance;
 extern s32 lbl_805D53A0;
 extern s32 lbl_805D55C0;
 extern s32 lbl_805D5C8C;
-extern s32 lbl_805D5C94;
-extern s32 lbl_805D5C9C;
+extern s32 warp_boss_model;
+extern s32 warp_boss_bml_motion;
 extern s32 warp_boss_model_handle;
 extern s32 lbl_805D5CA4;
 extern M2C_UNK __vt__17TObjWarpBossMulti[];
@@ -310,7 +310,7 @@ s32 get_slot_or_neg1__17TWindowSubComCardFPv(void *);
 s32 get_card_data__17TWindowSubComCardFPv(void *);
 s32 is_child_visible__17TWindowSubComCardFPv(void *);
 extern s32 lbl_805D5C90;
-extern s32 lbl_805D5C98;
+extern s32 warp_boss_motion;
 void update_floor_switch_state__17TObjWarpBossMultiFPv(u8 *arg0);
 void warp_boss_handle_window(void *arg0);
 void update_state__17TObjWarpBossMultiFPv(void *arg0);
@@ -365,7 +365,7 @@ void render__17TObjWarpBossMultiFv(u8 *arg0) {
     s32 temp_r0;
 
     if ((s32) M2C_FIELD(arg0, s32 *, 0xBC) == 0xE) {
-        if (xz_distance_squared(lbl_805D4DF0 + 0x178, arg0 + 0x38) > lbl_805DC008) {
+        if (xz_distance_squared(camera_ctrl_instance + 0x178, arg0 + 0x38) > lbl_805DC008) {
             return;
         }
         goto block_4;
@@ -706,8 +706,8 @@ void update_state__17TObjWarpBossMultiFPv(void *arg0) {
         M2C_FIELD(arg0, s32 *, 0x17C) = 0x96;
         M2C_FIELD(arg0, s16 *, 0xE0) = 1;
         M2C_FIELD(arg0, s16 *, 0xE2) = (s16) (M2C_FIELD(arg0, s16 *, 0xE2) | 1);
-        M2C_FIELD(arg0, s32 *, 0xD0) = (s32) lbl_805D5C94;
-        M2C_FIELD(arg0, s32 *, 0xD4) = (s32) lbl_805D5C9C;
+        M2C_FIELD(arg0, s32 *, 0xD0) = (s32) warp_boss_model;
+        M2C_FIELD(arg0, s32 *, 0xD4) = (s32) warp_boss_bml_motion;
         return;
     case 1:
         if (get_boss_warp_flag__17TObjWarpBossMultiFv() == 0) {
@@ -745,8 +745,8 @@ void update_warp_state__17TObjWarpBossMultiFPv(u8 *arg0) {
         M2C_FIELD(arg0, s32 *, 0x160) = 0x12C;
         play_sound_effect(0x40003205, arg0 + 0x38, 0, 0);
         M2C_FIELD(arg0, s16 *, 0xE0) = 1;
-        M2C_FIELD(arg0, s32 *, 0xD0) = (s32) lbl_805D5C94;
-        M2C_FIELD(arg0, s32 *, 0xD4) = (s32) lbl_805D5C9C;
+        M2C_FIELD(arg0, s32 *, 0xD0) = (s32) warp_boss_model;
+        M2C_FIELD(arg0, s32 *, 0xD4) = (s32) warp_boss_bml_motion;
         return;
     case 1:
         if (((u32 (*)(f32))TObjWarpBossMulti__sub_8019E570)(M2C_FIELD(arg0, f32 *, 0xAC)) != 0U) {
@@ -789,7 +789,7 @@ void TObjWarpBossMulti__sub_8019EB94(void *arg0_) {
         M2C_FIELD(arg0, s32 *, 0x174) = 0;
         M2C_FIELD(arg0, s16 *, 0xE0) = 1;
         M2C_FIELD(arg0, s32 *, 0xD0) = lbl_805D5C90;
-        M2C_FIELD(arg0, s32 *, 0xD4) = lbl_805D5C98;
+        M2C_FIELD(arg0, s32 *, 0xD4) = warp_boss_motion;
         break;
     case 1:
         if (TObjWarpBossMulti__sub_8019E418(arg0) == 0 && (u32) TObjWarpBossMulti__sub_8019E570((s32) arg0, M2C_FIELD(arg0, f32 *, 0xAC)) != 0) {
@@ -1018,7 +1018,7 @@ void TObjWarpBoss__vt18(Wb_8019F2C0 *arg0) {
 
 void render__12TObjWarpBossFv(u8 *arg0) {
     if ((s32) M2C_FIELD(arg0, s32 *, 0xBC) == 0xE) {
-        if (xz_distance_squared(lbl_805D4DF0 + 0x178, arg0 + 0x38) > lbl_805DC008) {
+        if (xz_distance_squared(camera_ctrl_instance + 0x178, arg0 + 0x38) > lbl_805DC008) {
             return;
         }
         goto block_4;

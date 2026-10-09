@@ -19,8 +19,8 @@ void render__9TWindowDDFv(void);
 void ws_data_load(void);
 void *load_encrypted_archive_data(M2C_UNK *);
 
-extern s32 TWindowDD__data_805D6E08;
-extern s32 TWindowDD__data_805D6E1C;
+extern s32 TWindowDD__window_mode;
+extern s32 TWindowDD__word_select_lists;
 extern s32 TWindowDD__ws_data_base;
 extern s32 window_dd_element_count;
 
@@ -29,7 +29,7 @@ s32 get_element_ptr__9TWindowDDFi(s32 arg0) {
         return 0;
     }
     if (arg0 == -0x32) {
-        switch ((s32) TWindowDD__data_805D6E08) {
+        switch ((s32) TWindowDD__window_mode) {
         case 0:
             return TWindowDD__ws_data_base + 0x8C0;
         default:
@@ -49,17 +49,17 @@ s32 get_element_ptr__9TWindowDDFi(s32 arg0) {
         default:
             return 0;
         case -60:
-            return TWindowDD__data_805D6E1C + 0x10;
+            return TWindowDD__word_select_lists + 0x10;
         case -70:
-            return TWindowDD__data_805D6E1C + 0x18;
+            return TWindowDD__word_select_lists + 0x18;
         case -40:
-            return TWindowDD__data_805D6E1C;
+            return TWindowDD__word_select_lists;
         case -45:
-            return TWindowDD__data_805D6E1C + 8;
+            return TWindowDD__word_select_lists + 8;
         case -80:
-            return TWindowDD__data_805D6E1C + 0x20;
+            return TWindowDD__word_select_lists + 0x20;
         case -90:
-            return TWindowDD__data_805D6E1C + 0x28;
+            return TWindowDD__word_select_lists + 0x28;
         }
     }
 }
@@ -69,7 +69,7 @@ extern M2C_UNK lbl_80478660[];
 extern M2C_UNK lbl_80478670[];
 extern M2C_UNK lbl_80478680[];
 extern M2C_UNK lbl_80478690[];
-extern s32 TWindowDD__data_805D6E08;
+extern s32 TWindowDD__window_mode;
 extern s32 TWindowDD__data_805D6E28;
 extern s32 TWindowDD__ws_data_base;
 extern s32 TWindowDD__ws_data_table;
@@ -93,7 +93,7 @@ void ws_data_load(void) {
     void *temp_r3_4;
     void *temp_r3_5;
 
-    switch ((s32) TWindowDD__data_805D6E08) {
+    switch ((s32) TWindowDD__window_mode) {
     case 0:
         temp_r3 = load_encrypted_archive_data(lbl_80478650);
         lbl_805D6E50 = temp_r3;

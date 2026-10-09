@@ -7,7 +7,7 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 extern "C" {
 s32 TBoss8Dragon__sub_8005D700(void *self);
 extern u8 lbl_80437F40[];
-extern void *lbl_805D4DC8;
+extern void *gryphon_shockwave_particle_ids_ptr;
 void set_default_on_state0__12TBoss8DragonFPv(void *self);
 void queue_destruction__7TObjectFv(void *);
 s32 get_bml_motion(s32, M2C_UNK);
@@ -22,9 +22,9 @@ M2C_UNK copy_pos__11TNowLoadingFPvPv(u32, void *);
 M2C_UNK play_sound_effect(M2C_UNK, void *, M2C_UNK, M2C_UNK);
 M2C_UNK eval_bezier_curve__12TBoss8DragonFPviiPvf(void *, M2C_UNK, M2C_UNK, void *, f32);
 M2C_UNK spawn_gryphon_tornado(s32, s32, void *, u16);
-extern s32 lbl_805D4DA4;
-extern s32 lbl_805D4DA8;
-extern void *lbl_805D4DC8;
+extern s32 boss5_gryphon_bml_resource;
+extern s32 boss5_gryphon_texture_list;
+extern void *gryphon_shockwave_particle_ids_ptr;
 extern const f32 lbl_805D8EE8;
 void run_task__22TBoss5GryphonShockWaveFv(u8 *arg0);
 }
@@ -64,7 +64,7 @@ void run_task__22TBoss5GryphonShockWaveFv(u8 *arg0) {
     case 1:
         eval_bezier_curve__12TBoss8DragonFPviiPvf(arg0 + 0x40, 3, 0, arg0 + 0x2C, (f32) M2C_FIELD(arg0, s32 *, 0x20) / (f32) M2C_FIELD(arg0, s32 *, 0x24));
         if ((u32) M2C_FIELD(arg0, u32 *, 0x3C) == 0U) {
-            M2C_FIELD(arg0, u32 *, 0x3C) = spawn_continuous_particle_effect_with_flags(arg0 + 0x2C, M2C_FIELD((*(u8 * *)&lbl_805D4DC8), s32 *, 0), 0x40);
+            M2C_FIELD(arg0, u32 *, 0x3C) = spawn_continuous_particle_effect_with_flags(arg0 + 0x2C, M2C_FIELD((*(u8 * *)&gryphon_shockwave_particle_ids_ptr), s32 *, 0), 0x40);
         }
         if ((u32) M2C_FIELD(arg0, u32 *, 0x3C) != 0U) {
             copy_pos__11TNowLoadingFPvPv(M2C_FIELD(arg0, u32 *, 0x3C), arg0 + 0x2C);
@@ -77,11 +77,11 @@ void run_task__22TBoss5GryphonShockWaveFv(u8 *arg0) {
         }
         break;
     case 2:
-        temp_r3_2 = spawn_particle_effect_with_flags(arg0 + 0x2C, M2C_FIELD((*(u8 * *)&lbl_805D4DC8), s32 *, 4), 0x40);
+        temp_r3_2 = spawn_particle_effect_with_flags(arg0 + 0x2C, M2C_FIELD((*(u8 * *)&gryphon_shockwave_particle_ids_ptr), s32 *, 4), 0x40);
         if (temp_r3_2 != 0) {
-            attach_particle_model(temp_r3_2, get_bml_model(lbl_805D4DA4, 0), lbl_805D4DA8, get_bml_motion(lbl_805D4DA4, 0), 0, lbl_805D8EE8);
+            attach_particle_model(temp_r3_2, get_bml_model(boss5_gryphon_bml_resource, 0), boss5_gryphon_texture_list, get_bml_motion(boss5_gryphon_bml_resource, 0), 0, lbl_805D8EE8);
         }
-        spawn_particle_effect_with_flags(arg0 + 0x2C, M2C_FIELD((*(u8 * *)&lbl_805D4DC8), s32 *, 8), 0x40);
+        spawn_particle_effect_with_flags(arg0 + 0x2C, M2C_FIELD((*(u8 * *)&gryphon_shockwave_particle_ids_ptr), s32 *, 8), 0x40);
         play_sound_effect(0x40033C13, arg0 + 0x2C, 0, 0);
         TBoss8Dragon__sub_80064114(get_instance_count__12TBoss8DragonFv(), arg0 + 0x2C);
         spawn_gryphon_tornado(M2C_FIELD(arg0, s32 *, 0x10), M2C_FIELD(arg0, s32 *, 0x38), arg0 + 0x2C, M2C_FIELD(arg0, u16 *, 0x28));
@@ -140,7 +140,7 @@ void TBoss8Dragon__sub_80066A4C(void) {  }
 void set_default_on_state0__12TBoss8DragonFPv(void *self) {
     switch (TBoss8Dragon__sub_8005D700(self)) {
     case 0:
-        lbl_805D4DC8 = lbl_80437F40;
+        gryphon_shockwave_particle_ids_ptr = lbl_80437F40;
         break;
     }
 }

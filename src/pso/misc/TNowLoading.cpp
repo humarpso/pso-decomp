@@ -35,7 +35,7 @@ typedef struct TNowLoading_8001D3A8 {
 extern "C" {
 s32 copy_pos__11TNowLoadingFPvPv(int, void *);
 extern RecoveredGlobal_8001D19C_lbl_804FF5E8 lbl_804FF5E8;
-extern u32 lbl_805D4DF0;
+extern u32 camera_ctrl_instance;
 extern const f32 lbl_805D7EC0;
 void run_task__11TNowLoadingFv(u8 *arg0);
 void run_frame__6TLobbyFv(void);
@@ -98,7 +98,7 @@ void run_task__11TNowLoadingFv(u8 *arg0) {
     u32 temp_r3_6;
     u32 temp_r3_7;
     u32 temp_r3_8;
-    if ((u32) lbl_805D4DF0 == 0U) {
+    if ((u32) camera_ctrl_instance == 0U) {
         M2C_FIELD(arg0, f32 *, 0x2C) = (f32) ((lbl_805D7EC0 * M2C_FIELD(&lbl_804FF5E8.value, f32 *, 0xC)) + M2C_FIELD(&lbl_804FF5E8.value, f32 *, 0));
         M2C_FIELD(arg0, f32 *, 0x30) = (f32) ((lbl_805D7EC0 * M2C_FIELD(&lbl_804FF5E8.value, f32 *, 0x10)) + M2C_FIELD(&lbl_804FF5E8.value, f32 *, 4));
         M2C_FIELD(arg0, f32 *, 0x34) = (f32) ((lbl_805D7EC0 * M2C_FIELD(&lbl_804FF5E8.value, f32 *, 0x14)) + M2C_FIELD(&lbl_804FF5E8.value, f32 *, 8));

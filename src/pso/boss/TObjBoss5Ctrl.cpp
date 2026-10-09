@@ -1,4 +1,3 @@
-#ifndef PSO_CLASS_PACKAGE
 #include "pso/TObjBoss5Ctrl.h"
 #pragma fp_contract on
 typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
@@ -7,7 +6,7 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 #define M2C_BITWISE(type, expr) ((type)(expr))
 
 extern "C" void queue_destruction__7TObjectFv(void*);
-extern s32 lbl_805D4DE0;
+extern s32 boss5_ctrl_instance;
 
 extern "C" {
 M2C_UNK play_sound_effect(int, int, int, int);
@@ -40,7 +39,7 @@ TObjBoss5Ctrl::~TObjBoss5Ctrl() {
     if (m_24 != nullptr) { queue_destruction__7TObjectFv(m_24); m_24 = nullptr; }
     if (m_20 != nullptr) { queue_destruction__7TObjectFv(m_20); m_20 = nullptr; }
     if (m_1c != nullptr) { queue_destruction__7TObjectFv(m_1c); m_1c = nullptr; }
-    lbl_805D4DE0 = 0;
+    boss5_ctrl_instance = 0;
 }
 
 extern "C" {
@@ -81,55 +80,3 @@ void *TObjBoss5Ctrl__ct(void *arg0) {
 }
 
 }
-#else
-#if PSO_CLASS_PACKAGE == 0x80067124
-#include "types.h"
-typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
-typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
-#define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
-#define M2C_BITWISE(type, expr) ((type)(expr))
-
-extern "C" {
-
-void play_pillar_sound__13TObjBoss5CtrlFv(void);
-M2C_UNK play_sound_once__19TObjBoss5PillarCtrlFPv(void*);
-
-extern void *lbl_805D4DE0;
-
-void play_pillar_sound__13TObjBoss5CtrlFv(void) {
-    void *sp4;
-    sp4 = lbl_805D4DE0;
-    if (sp4 != NULL && (u32) M2C_FIELD(sp4, u32 *, 0x28) != 0U) {
-        play_sound_once__19TObjBoss5PillarCtrlFPv(M2C_FIELD(sp4, void **, 0x28));
-    }
-}
-
-}
-#endif
-#if PSO_CLASS_PACKAGE == 0x800673D0
-#include "types.h"
-typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
-#define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
-
-extern "C" {
-
-void * create__13TObjBoss5CtrlFv(void);
-void *TObjBoss5Ctrl__ct(void *, void *);
-void *__nw__7TObjectFUl(int);
-
-extern void *tl_01;
-extern void *lbl_805D4DE0;
-
-void * create__13TObjBoss5CtrlFv(void) {
-    void *o;
-    o = __nw__7TObjectFUl(0x30);
-    if (o != NULL) {
-        o = TObjBoss5Ctrl__ct(o, tl_01);
-    }
-    lbl_805D4DE0 = o;
-    return o;
-}
-
-}
-#endif
-#endif

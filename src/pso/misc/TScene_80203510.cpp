@@ -78,15 +78,15 @@ extern const f32 lbl_805DC5D0;
 s32 find_section_at_position__6TSceneFPv(void *arg0);
 f32 vec3_dot(void *, void *);
 f32 project_point_onto_line(void *, void *, void *);
-extern Root_80204024 *lbl_805D4DF0;
+extern Root_80204024 *camera_ctrl_instance;
 extern const f32 TScene__data_805DC5D8;
 s32 TScene__sub_80204024(f32 thr, s32 unused, void *a, void *b, Vec_80204024 *c);
 f32 xz_distance_squared(void *, void *);
 bool is_in_view_depth__6TSceneFf(f32 farg0);
-extern Root_80204024 *lbl_805D4DF0;
+extern Root_80204024 *camera_ctrl_instance;
 s32 TScene__sub_802040D4(void *arg0, Obj_802040D4 *o, f32 f0, f32 f1);
 f32 xz_distance_squared(void *, void *);
-extern Root_80204024 *lbl_805D4DF0;
+extern Root_80204024 *camera_ctrl_instance;
 extern SceneMaterialRoot* TScene__data_805D5FCC;
 extern f32 TScene__data_805D5FE4;
 void update_records_in_range__6TSceneFv(void);
@@ -188,7 +188,7 @@ void pop_matrix(void);
 void subtract_vector(void *, void *);
 extern W_802043CC lbl_8044A858[];
 extern u8 lbl_8058D490[];
-extern Root_80204024 *lbl_805D4DF0;
+extern Root_80204024 *camera_ctrl_instance;
 extern SceneMaterialRoot* TScene__data_805D5FCC;
 extern Tbl_802043CC *TScene__data_805D6020;
 extern const f32 TScene__data_805DC5D8;
@@ -490,9 +490,9 @@ s32 TScene__sub_80204024(f32 thr, s32 unused, void *a, void *b, Vec_80204024 *c)
     if (vec3_dot(b, c) < TScene__data_805DC5D8) {
         return 0;
     }
-    s.p.x = lbl_805D4DF0->x;
+    s.p.x = camera_ctrl_instance->x;
     s.p.y = TScene__data_805DC5D8;
-    s.p.z = lbl_805D4DF0->z;
+    s.p.z = camera_ctrl_instance->z;
     s.q.x = c->x;
     s.q.y = c->y;
     s.q.z = c->z;
@@ -500,9 +500,9 @@ s32 TScene__sub_80204024(f32 thr, s32 unused, void *a, void *b, Vec_80204024 *c)
 }
 
 s32 TScene__sub_802040D4(void *arg0, Obj_802040D4 *o, f32 f0, f32 f1) {
-    if (o->inner != NULL && (*(u8 * *)&lbl_805D4DF0) != NULL) {
+    if (o->inner != NULL && (*(u8 * *)&camera_ctrl_instance) != NULL) {
         void *p = o->pos;
-        if (xz_distance_squared((*(u8 * *)&lbl_805D4DF0) + 0x178, p) < o->inner->radius * o->inner->radius) {
+        if (xz_distance_squared((*(u8 * *)&camera_ctrl_instance) + 0x178, p) < o->inner->radius * o->inner->radius) {
             return 1;
         }
         return ((s32 (*)(void *, void *, f32, f32))is_in_view_depth__6TSceneFf)(arg0, p, f0, f1);
@@ -551,7 +551,7 @@ void update_records_in_range__6TSceneFv(void) {
     f32 r2;
     s32 off;
     s32 i;
-    W_8020430C v = (*(Cam_8020430C * *)&lbl_805D4DF0)->pos;
+    W_8020430C v = (*(Cam_8020430C * *)&camera_ctrl_instance)->pos;
     i = 0;
     off = 0;
     r = (*(Root_8020430C * *)&TScene__data_805D5FCC)->radius + TScene__data_805D5FE4;
@@ -583,7 +583,7 @@ extern const f32 lbl_805DC5F8;
 extern const f32 lbl_805DC5FC;
 extern Vec_80204024 lbl_8044A84C[];
 extern u8 lbl_8058D490[];
-extern Root_80204024 *lbl_805D4DF0;
+extern Root_80204024 *camera_ctrl_instance;
 bool is_in_view_depth__6TSceneFf(f32 farg0);
 s32 TScene__sub_80204024(f32 thr, s32 unused, void *a, void *b, Vec_80204024 *c);
 void update_room_object_visibility__6TSceneFPvPv(void *task, SceneMaterialSection *room);
@@ -598,7 +598,7 @@ void pop_matrix(void);
 void pop_matrices(s32);
 s32 is_split_screen(void);
 
-#define CAM ((Cam_80204688 *)lbl_805D4DF0)
+#define CAM ((Cam_80204688 *)camera_ctrl_instance)
 #define TEST ((s32 (*)(f32, void *, void *, void *, Vec_80204024 *))TScene__sub_80204024)
 #define VIS ((s32 (*)(void *, void *, f32, f32))is_in_view_depth__6TSceneFf)
 
@@ -617,7 +617,7 @@ void update_room_visibility_from_camera__6TSceneFi(s32 arg0) {
     s32 sec;
     s32 i;
     f32 d;
-    sec = find_section_at_position__6TSceneFPv(&(*(Cam_802043CC * *)&lbl_805D4DF0)->pos);
+    sec = find_section_at_position__6TSceneFPv(&(*(Cam_802043CC * *)&camera_ctrl_instance)->pos);
     if (sec < 0) {
         TScene__sub_80204D7C(arg0);
         return;
@@ -641,18 +641,18 @@ void update_room_visibility_from_camera__6TSceneFi(s32 arg0) {
     for (j = 0; j < e->n; j++) {
         room = find_scene_room_by_id(ids[e->start + j]);
         if (room != NULL) {
-            d = xz_distance_squared(room->position, &(*(Cam_802043CC * *)&lbl_805D4DF0)->pos);
+            d = xz_distance_squared(room->position, &(*(Cam_802043CC * *)&camera_ctrl_instance)->pos);
             if (d < room->radius * room->radius) {
                 room->flags |= 0x10000;
             } else {
                 VecCopy__FP3VecPC3Vec(&dir, room->position);
-                subtract_vector(&dir, &(*(Cam_802043CC * *)&lbl_805D4DF0)->pos);
+                subtract_vector(&dir, &(*(Cam_802043CC * *)&camera_ctrl_instance)->pos);
                 normalize_vector((Vec_80204024 *)(&dir));
                 fwd.x = TScene__data_805DC5D8;
                 fwd.y = TScene__data_805DC5D8;
                 fwd.z = lbl_805DC5E4;
                 push_matrix_from(lbl_8058D490);
-                rotate_matrix_y(0, (*(Cam_802043CC * *)&lbl_805D4DF0)->angY);
+                rotate_matrix_y(0, (*(Cam_802043CC * *)&camera_ctrl_instance)->angY);
                 rotate_vector_by_matrix((s32)(0), (void *)(&fwd), (Vec_80204024 *)(&out));
                 pop_matrix();
                 normalize_vector((Vec_80204024 *)(&out));
@@ -672,7 +672,7 @@ void update_room_visibility_from_camera__6TSceneFi(s32 arg0) {
         SceneMaterialSection *s;
         s32 k;
         push_matrix_from(lbl_8058D490);
-        rotate_matrix_y(0, (*(Cam_802043CC * *)&lbl_805D4DF0)->angY);
+        rotate_matrix_y(0, (*(Cam_802043CC * *)&camera_ctrl_instance)->angY);
         rotate_vector_by_matrix((s32)(0), (void *)(&w), (Vec_80204024 *)(&out2));
         normalize_vector((Vec_80204024 *)(&out2));
         pop_matrix();
@@ -681,7 +681,7 @@ void update_room_visibility_from_camera__6TSceneFi(s32 arg0) {
             if (s->flags & 0x80000) {
                 update_room_object_visibility__6TSceneFPvPv((void *)arg0, s);
             } else if (s->id < 0) {
-                check_object_in_view_cone__6TSceneFiPvPvPvi((s32)(arg0), (Obj_80204B78 *)(s), (Vec_80204024 *)(&(*(Cam_802043CC * *)&lbl_805D4DF0)->pos), (void *)(&out2), (s32)((*(Cam_802043CC * *)&lbl_805D4DF0)->f19C));
+                check_object_in_view_cone__6TSceneFiPvPvPvi((s32)(arg0), (Obj_80204B78 *)(s), (Vec_80204024 *)(&(*(Cam_802043CC * *)&camera_ctrl_instance)->pos), (void *)(&out2), (s32)((*(Cam_802043CC * *)&camera_ctrl_instance)->f19C));
             }
         }
     }

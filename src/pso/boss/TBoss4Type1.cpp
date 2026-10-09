@@ -428,7 +428,7 @@ struct Cam_800531C8 { u8 pad[0x178]; Vec_80053E40 pos; };
 extern "C" {
 extern Vec_80053E40 lbl_804375EC;
 extern Vec_80053E40 lbl_804375F8;
-extern Cam_800531C8 *lbl_805D4DF0;
+extern Cam_800531C8 *camera_ctrl_instance;
 void update_follow_camera_offsets__10TObjPlayerFPv(Obj_80053E40 *o);
 }
 
@@ -1094,7 +1094,7 @@ void update_follow_camera_offsets__10TObjPlayerFPv(Obj_80053E40 *o) {
     }
     pop_matrix();
     {
-        Vec_80053E40 cam = lbl_805D4DF0->pos;
+        Vec_80053E40 cam = camera_ctrl_instance->pos;
         Vec_80053E40 d;
         for (j = 0; j < o->count; j++) {
             f32 r = lbl_805D8B24 + lbl_804860A8[j];

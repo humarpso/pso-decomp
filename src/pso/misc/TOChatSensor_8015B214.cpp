@@ -28,10 +28,10 @@ void swap_state_endian__12TOChatSensorFPv(void* p) { read_be16_field2__10TObjPla
 
 void init_packet_type__12TOChatSensorFPv(void* p) { *(u8*)((char*)p + 0x0) = 147; *(u8*)((char*)p + 0x1) = 3; }
 
-extern s32 lbl_805D4DF0;
+extern s32 camera_ctrl_instance;
 
 s32 TOComputerMachine01__vt8(s32 arg0, f32 farg0, f32 farg1) {
-    if (xz_distance_squared(arg0 + 0x38, lbl_805D4DF0 + 0x178) < (farg1 * farg1)) {
+    if (xz_distance_squared(arg0 + 0x38, camera_ctrl_instance + 0x178) < (farg1 * farg1)) {
         M2C_FIELD(arg0, s16 *, 0x1e) = 1;
         return M2C_FIELD(arg0, s16 *, 0x1e);
     }

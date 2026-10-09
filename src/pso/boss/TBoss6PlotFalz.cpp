@@ -119,7 +119,7 @@ struct VObj_18_a328de : VBase_18_a328de {
 };
 
 extern "C" {
-extern u16 lbl_80540B28[];
+extern u16 boss6_plot_falz_player_order_table[];
 u16 TBoss6PlotFalz__sub_802AAE48(s32 i);
 s32 is_active__14TBoss6PlotFalzFPv(void *arg0);
 s32 sort_active_players__14TBoss6PlotFalzFv(void);
@@ -176,7 +176,7 @@ s32 damage_player_hp__14TBoss6PlotFalzFiUi(s32 arg0, u32 arg1) {
 
 u16 TBoss6PlotFalz__sub_802AAE48(s32 i) {
     if (i < 0 || i >= 4) return 0xFFFF;
-    return lbl_80540B28[i];
+    return boss6_plot_falz_player_order_table[i];
 }
 
 s32 sort_active_players__14TBoss6PlotFalzFv(void) {
@@ -189,14 +189,14 @@ s32 sort_active_players__14TBoss6PlotFalzFv(void) {
     s32 k;
     u16 s;
     for (i = 0; i < 4; i++) {
-        lbl_80540B28[i] = 0xFFFF;
+        boss6_plot_falz_player_order_table[i] = 0xFFFF;
         vals[i] = -1;
     }
     n = 0;
     for (i = 0; i < lbl_805D586C; i++) {
         p = get_player_data__10TObjPlayerFi(i);
         if (p != NULL && is_active__14TBoss6PlotFalzFPv(p) != 0 && p->f32c != 0) {
-            lbl_80540B28[n] = obj_getField1c(p);
+            boss6_plot_falz_player_order_table[n] = obj_getField1c(p);
             vals[n] = p->f32c;
             n++;
         }
@@ -208,9 +208,9 @@ s32 sort_active_players__14TBoss6PlotFalzFv(void) {
                 t = vals[j];
                 vals[j] = vals[k];
                 vals[k] = t;
-                s = lbl_80540B28[j];
-                lbl_80540B28[j] = lbl_80540B28[k];
-                lbl_80540B28[k] = s;
+                s = boss6_plot_falz_player_order_table[j];
+                boss6_plot_falz_player_order_table[j] = boss6_plot_falz_player_order_table[k];
+                boss6_plot_falz_player_order_table[k] = s;
             }
         }
     }
@@ -417,7 +417,7 @@ M2C_UNK vec3_add_to(void *, void *);
 f32 vec3_dot(void *, void *);
 M2C_UNK normalize_vector(void *);
 extern const f64 lbl_804705E0[];
-extern u8 *lbl_805D4DF0;
+extern u8 *camera_ctrl_instance;
 s32 TBoss6PlotFalz__sub_802AB6CC(void *arg0, f32 r);
 }
 
@@ -630,7 +630,7 @@ s32 TBoss6PlotFalz__sub_802AB6CC(void *arg0, f32 r) {
         return 0;
     }
     VecCopy__FP3VecPC3Vec(&pl, player + 0x38);
-    VecCopy__FP3VecPC3Vec(&c, lbl_805D4DF0 + 0x178);
+    VecCopy__FP3VecPC3Vec(&c, camera_ctrl_instance + 0x178);
     VecCopy__FP3VecPC3Vec(&d1, &p);
     subtract_vector(&d1, &pl);
     d1.y = 0.0f;

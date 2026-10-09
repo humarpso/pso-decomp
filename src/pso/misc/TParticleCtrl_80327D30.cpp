@@ -69,7 +69,7 @@ M2C_UNK reset_particles__13TParticleCtrlFv();
 M2C_UNK TParticleCtrl__sub_803E2A1C(void *, int);
 M2C_UNK setup_particle_draw__13TParticleCtrlFi(int);
 extern u8 lbl_804C5820[];
-extern u8 *lbl_805D4DF0;
+extern u8 *camera_ctrl_instance;
 void render_marker__13TParticleCtrlFPv(Obj_80327D30 *o);
 }
 
@@ -107,8 +107,8 @@ void render_marker__13TParticleCtrlFPv(Obj_80327D30 *o) {
         begin_effect_render__13TParticleCtrlFv();
         push_matrix();
         post_translate_matrix(o->pos);
-        rotate_matrix_y(0, *(s32 *)(lbl_805D4DF0 + 0x194));
-        rotate_matrix_x(0, *(s32 *)(lbl_805D4DF0 + 0x190));
+        rotate_matrix_y(0, *(s32 *)(camera_ctrl_instance + 0x194));
+        rotate_matrix_x(0, *(s32 *)(camera_ctrl_instance + 0x190));
         load_projected_texture_matrix(1.1333334f);
         set_global_param__8TObjFishFi(*(s32 *)(lbl_804C5820 + 0x16C));
         set_texture_num(o->f31);

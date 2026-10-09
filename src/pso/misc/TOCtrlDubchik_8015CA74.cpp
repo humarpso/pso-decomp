@@ -265,7 +265,7 @@ void set_indexed_flags(void *, s32, s32);
 s32 reset_photon_effect__10TObjPlayerFPv(void *);
 s32 refresh_collision_body_centers(void *);
 s32 init_collision_body_parts(void *, void *, int);
-extern RecoveredGlobal_8015D3CC_lbl_804B0A20 lbl_804B0A20;
+extern RecoveredGlobal_8015D3CC_lbl_804B0A20 TOCtrlDubchik__collision_body;
 extern M2C_UNK __vt__13TOCtrlDubchik[];
 extern s32 lbl_805D2F1C;
 extern u32 TOCtrlDubchik__data_805D58F0;
@@ -570,7 +570,7 @@ u8 *TOCtrlDubchik__ct(u8 *arg0, M2C_UNK arg1, s32 arg2) {
     init_position_vectors__10TObjPlayerFi((void *) (arg0));
     M2C_FIELD(arg0, u8 **, 0x34) = (unsigned char *) ((void *) M2C_FIELD(M2C_FIELD((*(u8 * *)&TOCtrlDubchik__data_805D58F0), u8 **, 0x42C), void **, 8));
     M2C_FIELD(arg0, s32 *, 0x24) = (s32) M2C_FIELD(M2C_FIELD((*(u8 * *)&TOCtrlDubchik__data_805D58F0), u8 **, 0x42C), s32 *, 0xC);
-    init_collision_body_parts((void *) (arg0), (void *) (&lbl_804B0A20.value), (int) (1));
+    init_collision_body_parts((void *) (arg0), (void *) (&TOCtrlDubchik__collision_body.value), (int) (1));
     refresh_collision_body_centers((void *) (arg0));
     reset_photon_effect__10TObjPlayerFPv((void *) (arg0));
     set_indexed_flags((void *)((void *) (arg0)), (s32)((int) (0)), (s32)((int) (0x08000000)));

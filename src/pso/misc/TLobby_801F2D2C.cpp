@@ -82,12 +82,12 @@ extern u8 TLobby__data_805D5EA9;
 extern u16 TLobby__data_805D5EAA;
 extern u16 TLobby__data_805D5EAC;
 extern u32 TLobby__data_805D5EB0;
-extern u32 TLobby__data_805D5EB4;
-extern u32 TLobby__data_805D5EB8;
-extern u32 TLobby__data_805D5EBC;
-extern u32 TLobby__data_805D5EC0;
-extern u16 TLobby__data_805D5EC8;
-extern u16 TLobby__data_805D5ECA;
+extern u32 TLobby__quest_window_object;
+extern u32 TLobby__menu_state_object;
+extern u32 TLobby__quest_state_object_168;
+extern u32 TLobby__quest_state_object_16c;
+extern u16 TLobby__quest_state_word_170;
+extern u16 TLobby__quest_state_word_172;
 void load_quest_globals__6TLobbyFPv(u8 *arg0);
 M2C_UNK memcpy(void *, void *, int);
 extern RecoveredGlobal_801F301C_TLobby__data_80512220 TLobby__data_80512220;
@@ -109,12 +109,12 @@ extern u8 TLobby__data_805D5EA9;
 extern u16 TLobby__data_805D5EAA;
 extern u16 TLobby__data_805D5EAC;
 extern u32 TLobby__data_805D5EB0;
-extern u32 TLobby__data_805D5EB4;
-extern u32 TLobby__data_805D5EB8;
-extern u32 TLobby__data_805D5EBC;
-extern u32 TLobby__data_805D5EC0;
-extern u16 TLobby__data_805D5EC8;
-extern u16 TLobby__data_805D5ECA;
+extern u32 TLobby__quest_window_object;
+extern u32 TLobby__menu_state_object;
+extern u32 TLobby__quest_state_object_168;
+extern u32 TLobby__quest_state_object_16c;
+extern u16 TLobby__quest_state_word_170;
+extern u16 TLobby__quest_state_word_172;
 void save_quest_state_to_record__6TLobbyFPv(u8 *arg0);
 extern RecoveredGlobal_801F3268_lbl_80512B18 lbl_80512B18;
 M2C_UNK *TObjItemOKWindow__sub_801F3268(void);
@@ -211,10 +211,10 @@ extern u32 TLobby__quest_message_window;
 extern u32 TLobby__quest_secondary_window;
 extern u32 TLobby__quest_choice_window;
 extern u32 TLobby__data_805D5EB0;
-extern u32 TLobby__data_805D5EB4;
-extern u32 TLobby__data_805D5EB8;
-extern u32 TLobby__data_805D5EBC;
-extern u32 TLobby__data_805D5EC0;
+extern u32 TLobby__quest_window_object;
+extern u32 TLobby__menu_state_object;
+extern u32 TLobby__quest_state_object_168;
+extern u32 TLobby__quest_state_object_16c;
 
 void close_windows__6TLobbyFv(void) {
     if ((u32) TLobby__quest_message_window != 0U) {
@@ -233,25 +233,25 @@ void close_windows__6TLobbyFv(void) {
         queue_destruction__7TObjectFv(TLobby__data_805D5EB0);
         TLobby__data_805D5EB0 = 0U;
     }
-    if ((u32) TLobby__data_805D5EB4 != 0U) {
-        queue_destruction__7TObjectFv(TLobby__data_805D5EB4);
-        TLobby__data_805D5EB4 = 0U;
+    if ((u32) TLobby__quest_window_object != 0U) {
+        queue_destruction__7TObjectFv(TLobby__quest_window_object);
+        TLobby__quest_window_object = 0U;
     }
-    if ((u32) TLobby__data_805D5EB8 != 0U) {
-        queue_destruction__7TObjectFv(TLobby__data_805D5EB8);
-        TLobby__data_805D5EB8 = 0U;
+    if ((u32) TLobby__menu_state_object != 0U) {
+        queue_destruction__7TObjectFv(TLobby__menu_state_object);
+        TLobby__menu_state_object = 0U;
     }
-    if ((u32) TLobby__data_805D5EBC != 0U) {
-        queue_destruction__7TObjectFv(TLobby__data_805D5EBC);
-        TLobby__data_805D5EBC = 0U;
+    if ((u32) TLobby__quest_state_object_168 != 0U) {
+        queue_destruction__7TObjectFv(TLobby__quest_state_object_168);
+        TLobby__quest_state_object_168 = 0U;
     }
-    if ((u32) TLobby__data_805D5EC0 != 0U) {
-        queue_destruction__7TObjectFv(TLobby__data_805D5EC0);
-        TLobby__data_805D5EC0 = 0U;
+    if ((u32) TLobby__quest_state_object_16c != 0U) {
+        queue_destruction__7TObjectFv(TLobby__quest_state_object_16c);
+        TLobby__quest_state_object_16c = 0U;
     }
 }
 
-extern u32 lbl_805D5EE8;
+extern u32 quest_mission_manager;
 
 s32 dispatch_quest_opcode(void) {
     s32 op;
@@ -294,16 +294,16 @@ void save_quest_state_to_record__6TLobbyFPv(u8 *arg0) {
     M2C_FIELD(arg0, u16 *, 0x158) = (u16) TLobby__data_805D5EAC;
     M2C_FIELD(arg0, s32 *, 0x15C) = (s32) (*(s32 *)&TLobby__data_805D5EB0);
     (*(s32 *)&TLobby__data_805D5EB0) = 0;
-    M2C_FIELD(arg0, s32 *, 0x160) = (s32) (*(s32 *)&TLobby__data_805D5EB4);
-    (*(s32 *)&TLobby__data_805D5EB4) = 0;
-    M2C_FIELD(arg0, s32 *, 0x164) = (s32) (*(s32 *)&TLobby__data_805D5EB8);
-    (*(s32 *)&TLobby__data_805D5EB8) = 0;
-    M2C_FIELD(arg0, s32 *, 0x168) = (s32) (*(s32 *)&TLobby__data_805D5EBC);
-    (*(s32 *)&TLobby__data_805D5EBC) = 0;
-    M2C_FIELD(arg0, s32 *, 0x16C) = (s32) (*(s32 *)&TLobby__data_805D5EC0);
-    (*(s32 *)&TLobby__data_805D5EC0) = 0;
-    M2C_FIELD(arg0, u16 *, 0x170) = (u16) TLobby__data_805D5EC8;
-    M2C_FIELD(arg0, u16 *, 0x172) = (u16) TLobby__data_805D5ECA;
+    M2C_FIELD(arg0, s32 *, 0x160) = (s32) (*(s32 *)&TLobby__quest_window_object);
+    (*(s32 *)&TLobby__quest_window_object) = 0;
+    M2C_FIELD(arg0, s32 *, 0x164) = (s32) (*(s32 *)&TLobby__menu_state_object);
+    (*(s32 *)&TLobby__menu_state_object) = 0;
+    M2C_FIELD(arg0, s32 *, 0x168) = (s32) (*(s32 *)&TLobby__quest_state_object_168);
+    (*(s32 *)&TLobby__quest_state_object_168) = 0;
+    M2C_FIELD(arg0, s32 *, 0x16C) = (s32) (*(s32 *)&TLobby__quest_state_object_16c);
+    (*(s32 *)&TLobby__quest_state_object_16c) = 0;
+    M2C_FIELD(arg0, u16 *, 0x170) = (u16) TLobby__quest_state_word_170;
+    M2C_FIELD(arg0, u16 *, 0x172) = (u16) TLobby__quest_state_word_172;
 }
 
 void load_quest_globals__6TLobbyFPv(u8 *arg0) {
@@ -326,12 +326,12 @@ void load_quest_globals__6TLobbyFPv(u8 *arg0) {
     TLobby__data_805D5EAA = M2C_FIELD(arg0, u16 *, 0x156);
     TLobby__data_805D5EAC = M2C_FIELD(arg0, u16 *, 0x158);
     (*(s32 *)&TLobby__data_805D5EB0) = M2C_FIELD(arg0, s32 *, 0x15C);
-    (*(s32 *)&TLobby__data_805D5EB4) = M2C_FIELD(arg0, s32 *, 0x160);
-    (*(s32 *)&TLobby__data_805D5EB8) = M2C_FIELD(arg0, s32 *, 0x164);
-    (*(s32 *)&TLobby__data_805D5EBC) = M2C_FIELD(arg0, s32 *, 0x168);
-    (*(s32 *)&TLobby__data_805D5EC0) = M2C_FIELD(arg0, s32 *, 0x16C);
-    TLobby__data_805D5EC8 = M2C_FIELD(arg0, u16 *, 0x170);
-    TLobby__data_805D5ECA = M2C_FIELD(arg0, u16 *, 0x172);
+    (*(s32 *)&TLobby__quest_window_object) = M2C_FIELD(arg0, s32 *, 0x160);
+    (*(s32 *)&TLobby__menu_state_object) = M2C_FIELD(arg0, s32 *, 0x164);
+    (*(s32 *)&TLobby__quest_state_object_168) = M2C_FIELD(arg0, s32 *, 0x168);
+    (*(s32 *)&TLobby__quest_state_object_16c) = M2C_FIELD(arg0, s32 *, 0x16C);
+    TLobby__quest_state_word_170 = M2C_FIELD(arg0, u16 *, 0x170);
+    TLobby__quest_state_word_172 = M2C_FIELD(arg0, u16 *, 0x172);
 }
 
 typedef char RecoveredGlobal_801F3268_lbl_80512B18_size[sizeof(RecoveredGlobal_801F3268_lbl_80512B18) == 0x10 ? 1 : -1];
@@ -382,16 +382,16 @@ M2C_UNK *TObjItemOKWindow__sub_801F3268(void) {
 }
 
 void clear_quest_vm_flag__6TLobbyFv(void) {
-    if ((u32) lbl_805D5EE8 != 0U) {
-        clear_flag4_bit4__22TQuestVmDownLoadServerFPv((void*)lbl_805D5EE8);
+    if ((u32) quest_mission_manager != 0U) {
+        clear_flag4_bit4__22TQuestVmDownLoadServerFPv((void*)quest_mission_manager);
     }
 }
 
-extern u32 lbl_805D5EE8;
+extern u32 quest_mission_manager;
 
 void free_luker_object__6TLobbyFv(void) {
-    if ((u32) lbl_805D5EE8 != 0U) {
-        set_flag_4__9TObjLukerFPv((void*)lbl_805D5EE8);
+    if ((u32) quest_mission_manager != 0U) {
+        set_flag_4__9TObjLukerFPv((void*)quest_mission_manager);
     }
 }
 

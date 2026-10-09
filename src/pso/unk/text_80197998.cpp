@@ -29,7 +29,7 @@ extern "C" {
 int rand(void);
 f32 sin_table_lookup(s32);
 f32 cos_table_lookup(s32);
-extern Cam_80197998 *lbl_805D4DF0;
+extern Cam_80197998 *camera_ctrl_instance;
 extern const f32 lbl_805DBF18;
 extern const f32 lbl_805DBF1C;
 extern const f32 lbl_805DBF20;
@@ -58,12 +58,12 @@ void init_drops__8TObjRainFv(u8 *arg0) {
     for (i = 0; i < rain->count; i++, d++) {
         radius = lbl_805DBF18 * (lbl_805DBF1C * (f32)rand());
         angle = (s32)(lbl_805DBF20 * (lbl_805DBF24 - lbl_805DBF18 * (lbl_805DBF1C * (f32)rand())));
-        angle -= lbl_805D4DF0->yaw;
+        angle -= camera_ctrl_instance->yaw;
         x = radius * cos_table_lookup(angle);
         z = radius * sin_table_lookup(angle);
-        d->pos.x = lbl_805D4DF0->x + x;
-        d->pos.y = lbl_805DBF28 + lbl_805D4DF0->y;
-        d->pos.z = lbl_805D4DF0->z + z;
+        d->pos.x = camera_ctrl_instance->x + x;
+        d->pos.y = lbl_805DBF28 + camera_ctrl_instance->y;
+        d->pos.z = camera_ctrl_instance->z + z;
         d->vel.x = lbl_805DBF2C * (lbl_805DBF1C * (f32)rand());
         d->vel.y = -(lbl_805DBF34 * (lbl_805DBF1C * (f32)rand()) + lbl_805DBF30);
         d->vel.z = lbl_805DBF2C * (lbl_805DBF1C * (f32)rand());

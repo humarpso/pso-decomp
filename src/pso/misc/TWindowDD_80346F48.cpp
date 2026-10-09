@@ -21,8 +21,8 @@ s32 TWindowDD__sub_80346FC0(s16 arg0);
 u32 get_player_by_client_id(int);
 char *strncpy(char *, const char *, u32);
 extern s32 lbl_805D53A0;
-extern char **TWindowDD__data_805D6E18;
-extern DD_80346FE4 *TWindowDD__data_805D6E1C;
+extern char **TWindowDD__player_name_buffers;
+extern DD_80346FE4 *TWindowDD__word_select_lists;
 void build_player_word_lists__9TWindowDDFv(void);
 }
 
@@ -63,12 +63,12 @@ void build_player_word_lists__9TWindowDDFv(void) {
     u32 p;
     s16 v;
     n = 0;
-    list = TWindowDD__data_805D6E1C->list0;
+    list = TWindowDD__word_select_lists->list0;
     list[n++] = 0x2c7;
     for (i = 0; i < 12; i++) {
         p = get_player_by_client_id(i);
         if (p != 0) {
-            strncpy(TWindowDD__data_805D6E18[i], (char *)(p + 0x85c), 0x18);
+            strncpy(TWindowDD__player_name_buffers[i], (char *)(p + 0x85c), 0x18);
             if (i != lbl_805D53A0) {
                 list[n++] = i + 0x68c;
                 if (n >= 16) {
@@ -76,12 +76,12 @@ void build_player_word_lists__9TWindowDDFv(void) {
                 }
             }
         } else {
-            TWindowDD__data_805D6E18[i][0] = 0;
+            TWindowDD__player_name_buffers[i][0] = 0;
         }
     }
-    TWindowDD__data_805D6E1C->n0 = n;
+    TWindowDD__word_select_lists->n0 = n;
     j = 0;
-    l1 = TWindowDD__data_805D6E1C->list1;
+    l1 = TWindowDD__word_select_lists->list1;
     l1[j++] = 0x2c4;
     for (k = 0; k < n - 1; k++) {
         l1[j++] = list[k + 1];
@@ -89,10 +89,10 @@ void build_player_word_lists__9TWindowDDFv(void) {
     l1[j++] = 0x2c5;
     l1[j++] = 0x2c6;
     l1[j++] = 0x2c7;
-    TWindowDD__data_805D6E1C->n1 = j;
+    TWindowDD__word_select_lists->n1 = j;
     j2 = 0;
-    l2 = TWindowDD__data_805D6E1C->list2;
-    l3 = TWindowDD__data_805D6E1C->list3;
+    l2 = TWindowDD__word_select_lists->list2;
+    l3 = TWindowDD__word_select_lists->list3;
     l2[j2++] = 0x2c4;
     *l3++ = 0x2c4;
     for (k = 0; k < n - 1; k++) {
@@ -103,8 +103,8 @@ void build_player_word_lists__9TWindowDDFv(void) {
     l2[j2++] = 0x2c7;
     *l3 = 0x2c7;
     l2[j2++] = 0x2c8;
-    TWindowDD__data_805D6E1C->n2 = j2;
-    TWindowDD__data_805D6E1C->n3 = j2 - 1;
+    TWindowDD__word_select_lists->n2 = j2;
+    TWindowDD__word_select_lists->n3 = j2 - 1;
 }
 
 }

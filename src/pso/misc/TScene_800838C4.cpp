@@ -48,7 +48,7 @@ f64 get_end_text_value__10TObjPlayerFv(f32);
 f32 sin_table_lookup(int);
 f32 cos_table_lookup(int);
 extern const f64 lbl_80439360;
-extern u8 *lbl_805D4DF0;
+extern u8 *camera_ctrl_instance;
 extern const f32 lbl_805D93DC;
 extern const f32 lbl_805D940C;
 extern const f32 lbl_805D9428;
@@ -110,8 +110,8 @@ f32 calc_camera_fov_degrees(void) {
     s32 temp_r31;
     s32 temp_r4;
     var_f1 = lbl_805D9428;
-    if ((void *) lbl_805D4DF0 != NULL) {
-        temp_r4 = M2C_FIELD(lbl_805D4DF0, s32 *, 0x19C);
+    if ((void *) camera_ctrl_instance != NULL) {
+        temp_r4 = M2C_FIELD(camera_ctrl_instance, s32 *, 0x19C);
         temp_f2 = (f32) temp_r4;
         temp_f2 *= lbl_805D942C;
         temp_r31 = (s32) (temp_f2 * lbl_805D93DC);

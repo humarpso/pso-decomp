@@ -23,7 +23,7 @@ struct Slot_803D2474 {
 extern "C" {
 M2C_UNK memset(void *, int, int);
 extern RecoveredGlobal_803D259C_lbl_80587400 adx_stream_slot_table;
-extern s32 lbl_805D7640;
+extern s32 lobby_buffer_ref_count;
 void release_ref_and_clear_buffer__6TLobbyFv(void);
 M2C_UNK memset(void *, int, int);
 void TLobby__sub_803D2434(u8 *arg0);
@@ -74,8 +74,8 @@ Slot_803D2474 *alloc_adx_stream_slot__6TLobbyFii(s32 arg0, s32 arg1) {
 
 void release_ref_and_clear_buffer__6TLobbyFv(void) {
     s32 temp_r0;
-    temp_r0 = lbl_805D7640 - 1;
-    lbl_805D7640 = temp_r0;
+    temp_r0 = lobby_buffer_ref_count - 1;
+    lobby_buffer_ref_count = temp_r0;
     if (temp_r0 == 0) {
         memset((void *) (&adx_stream_slot_table.value), (int) (0), (int) (0x480));
     }

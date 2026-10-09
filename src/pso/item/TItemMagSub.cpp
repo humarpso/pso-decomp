@@ -267,8 +267,8 @@ void set_global_flag__10TObjPlayerFv();
 void clear_global_state__10TObjPlayerFv();
 void set_global_state__16TObjEneRe7BeruraFi(void (*)(void *));
 
-extern void *TItemMagSub__data_805D54B8;
-extern s32 TItemMagSub__data_805D54BC;
+extern void *TItemMagSub__oscillating_instance;
+extern s32 TItemMagSub__feed_sequence_index;
 extern const f32 TItemMagSub__data_805DABC8;
 extern const f32 TItemMagSub__data_805DABCC;
 extern const f32 TItemMagSub__data_805DABD8;
@@ -309,7 +309,7 @@ void apply_node_oscillation__11TItemMagSubFPvPv(TItemMagSub_80114AB4 *self, void
     Feed_80114AB4 *f;
     for (i = 0; i != 2; i++) {
         f = &self->feeds[i];
-        if (is_level_maxed__11TItemMagSubFPv(f) == 0 && TItemMagSub__data_805D54BC == ((s32 (*)(Feed_80114AB4 *))TItemMagSub__sub_801159B0)(f)) {
+        if (is_level_maxed__11TItemMagSubFPv(f) == 0 && TItemMagSub__feed_sequence_index == ((s32 (*)(Feed_80114AB4 *))TItemMagSub__sub_801159B0)(f)) {
             if (((s32 (*)(Feed_80114AB4 *))TItemMagSub__sub_801159A4)(f) != 0) {
                 rotate_matrix_x(0, ((s32 (*)(Feed_80114AB4 *))calc_scaled_value__11TItemMagSubFPv)(f));
             } else if (((s32 (*)(Feed_80114AB4 *))fn_80115954)(f) != 0) {
@@ -319,7 +319,7 @@ void apply_node_oscillation__11TItemMagSubFPvPv(TItemMagSub_80114AB4 *self, void
             }
         }
     }
-    if (TItemMagSub__data_805D54BC == self->ids[self->idx]) {
+    if (TItemMagSub__feed_sequence_index == self->ids[self->idx]) {
         if (test_feed_flags__11TItemMagSubFPvUi(self, 0x20) == 0) {
             some_id_805c6f74 |= 0x10;
             set_chunk_material_color(self->colorB8);
@@ -338,9 +338,9 @@ void apply_node_oscillation__11TItemMagSubFPvPv(TItemMagSub_80114AB4 *self, void
 }
 
 void update_node_oscillation__11TItemMagSubFPv(void *arg) {
-    if (TItemMagSub__data_805D54B8 != 0) {
-        apply_node_oscillation__11TItemMagSubFPvPv((TItemMagSub_80114AB4 *)(TItemMagSub__data_805D54B8), (void *)(arg));
-        TItemMagSub__data_805D54BC++;
+    if (TItemMagSub__oscillating_instance != 0) {
+        apply_node_oscillation__11TItemMagSubFPvPv((TItemMagSub_80114AB4 *)(TItemMagSub__oscillating_instance), (void *)(arg));
+        TItemMagSub__feed_sequence_index++;
     }
 }
 
@@ -425,11 +425,11 @@ void TItemMagSub__vt3(TItemMagSub_80114F0C *self) {
     lbl_805D5668 = lbl_805D7780;
     copy_vec4__13TRaderMapCoreFPvPv(lbl_8050BEC0, lbl_8058D4C0);
     if (self->model) {
-        TItemMagSub__data_805D54B8 = self;
+        TItemMagSub__oscillating_instance = self;
         notify_fish_if_valid__10TObjPlayerFUi(self->textures);
         push_matrix();
         apply_placement_matrix__11TItemMagSubFPv((u8 *)self);
-        TItemMagSub__data_805D54BC = 0;
+        TItemMagSub__feed_sequence_index = 0;
         self->selected_node = 0;
         if (self->animation) {
             set_global_state__16TObjEneRe7BeruraFi(update_node_oscillation__11TItemMagSubFPv);
@@ -444,9 +444,9 @@ void TItemMagSub__vt3(TItemMagSub_80114F0C *self) {
             draw_ginja_object(self->model);
             some_id_805c6f74 &= ~0x8011;
         }
-        TItemMagSub__data_805D54BC = 0;
+        TItemMagSub__feed_sequence_index = 0;
         pop_matrix();
-        TItemMagSub__data_805D54B8 = 0;
+        TItemMagSub__oscillating_instance = 0;
         if (test_feed_flags__11TItemMagSubFPvUi(self, 0x20)) {
             end_effect_render__13TParticleCtrlFv();
             copy_vec4__13TRaderMapCoreFPvPv(lbl_8058D4C0, lbl_8050BEC0);
@@ -463,11 +463,11 @@ void TItemMagSub__vt3(TItemMagSub_80114F0C *self) {
 
 void render_mag_child(TItemMagSub *self) {
     if (TItem__sub_80100A40(self->owner->center, lbl_805DABD0, lbl_805DABD4) && self->model) {
-        TItemMagSub__data_805D54B8 = self;
+        TItemMagSub__oscillating_instance = self;
         notify_fish_if_valid__10TObjPlayerFUi(self->textures);
         push_matrix();
         apply_placement_matrix__11TItemMagSubFPv((u8 *)(self));
-        (*(u32 *)&TItemMagSub__data_805D54BC) = 0;
+        (*(u32 *)&TItemMagSub__feed_sequence_index) = 0;
         self->selected_node = 0;
         if (self->animation) {
             set_global_state__16TObjEneRe7BeruraFi(update_node_oscillation__11TItemMagSubFPv);
@@ -478,9 +478,9 @@ void render_mag_child(TItemMagSub *self) {
         } else {
             run_with_transform_context__10TObjPlayerFiii(self->model, update_node_oscillation__11TItemMagSubFPv);
         }
-        (*(u32 *)&TItemMagSub__data_805D54BC) = 0;
+        (*(u32 *)&TItemMagSub__feed_sequence_index) = 0;
         pop_matrix();
-        TItemMagSub__data_805D54B8 = 0;
+        TItemMagSub__oscillating_instance = 0;
         if (test_feed_flags__11TItemMagSubFPvUi(self, 0x20)) {
             end_effect_render__13TParticleCtrlFv();
             copy_vec4__13TRaderMapCoreFPvPv(lbl_8058D4C0, lbl_8050BEC0);

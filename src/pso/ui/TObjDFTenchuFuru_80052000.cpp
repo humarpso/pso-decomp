@@ -19,7 +19,7 @@ typedef struct Obj_80052090 {
 extern "C" {
 f32 vector_length(Vec_80052090 *);
 void subtract_vector(Vec_80052090 *, Vec_80052090 *);
-extern u8 *lbl_805D4DF0;
+extern u8 *camera_ctrl_instance;
 extern const f32 lbl_805D8A30;
 extern const f32 lbl_805D8A34;
 extern const f32 lbl_805D8A5C;
@@ -71,7 +71,7 @@ void run_task__14TObjDFUsoTowerFv(Obj_80052090 *arg0) {
     f32 r;
     switch (arg0->state) {
     case 0: {
-        Vec_80052090 v = *(Vec_80052090 *)(lbl_805D4DF0 + 0x178);
+        Vec_80052090 v = *(Vec_80052090 *)(camera_ctrl_instance + 0x178);
         subtract_vector(&v, &arg0->pos);
         v.y = lbl_805D8A30;
         d = vector_length(&v);

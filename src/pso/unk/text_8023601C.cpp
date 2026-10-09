@@ -12,7 +12,7 @@ struct Stack_8023601C {
 extern "C" {
 f32 vec_squared_length(void *, f32);
 M2C_UNK normalize_vector(void *);
-extern u8 *lbl_805D4DF0;
+extern u8 *camera_ctrl_instance;
 extern const f32 lbl_805DC88C;
 void offset_point_toward_camera(u8 *arg0, u8 *arg1, f32 farg0);
 }
@@ -24,10 +24,10 @@ extern "C" {
 void offset_point_toward_camera(u8 *arg0, u8 *arg1, f32 farg0) {
     Stack_8023601C stack;
     f32 temp_f1;
-    if ((void *) lbl_805D4DF0 != NULL) {
-        stack.sp8 = M2C_FIELD(lbl_805D4DF0, f32 *, 0x178) - M2C_FIELD(arg0, f32 *, 0);
-        stack.spC = M2C_FIELD(lbl_805D4DF0, f32 *, 0x17C) - M2C_FIELD(arg0, f32 *, 4);
-        temp_f1 = M2C_FIELD(lbl_805D4DF0, f32 *, 0x180);
+    if ((void *) camera_ctrl_instance != NULL) {
+        stack.sp8 = M2C_FIELD(camera_ctrl_instance, f32 *, 0x178) - M2C_FIELD(arg0, f32 *, 0);
+        stack.spC = M2C_FIELD(camera_ctrl_instance, f32 *, 0x17C) - M2C_FIELD(arg0, f32 *, 4);
+        temp_f1 = M2C_FIELD(camera_ctrl_instance, f32 *, 0x180);
         stack.sp10 = temp_f1 - M2C_FIELD(arg0, f32 *, 8);
         if (lbl_805DC88C != vec_squared_length((void *) (&stack.sp8), (f32) (temp_f1))) {
             normalize_vector((void *) (&stack.sp8));

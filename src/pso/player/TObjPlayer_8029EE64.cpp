@@ -47,7 +47,7 @@ M2C_UNK TObjPlayer__sub_803DC850(M2C_UNK);
 M2C_UNK load_current_pos_matrix(int);
 M2C_UNK load_current_tex_matrix(int);
 extern const f64 lbl_80465E18;
-extern u32 lbl_805D4DF0;
+extern u32 camera_ctrl_instance;
 extern u32 lbl_805D65F0;
 extern s32 lbl_805D7774;
 extern const f32 lbl_805DDDA0;
@@ -84,11 +84,11 @@ M2C_UNK pop_matrix();
 extern Vec_8029EFFC lbl_80465E08;
 extern u8 main_task[];
 extern s32 TSceneSora__sky_active_flag;
-extern u32 lbl_805D4DF0;
+extern u32 camera_ctrl_instance;
 extern s32 lbl_805D53A0;
 extern u32 TSceneSora__data_805D6050;
-extern s16 lbl_805D65F8;
-extern u8 lbl_805D65FA;
+extern s16 scene_sora_reflect_active;
+extern u8 scene_sora_recon_active_flag;
 extern const f32 lbl_805DDD8C;
 extern const f32 lbl_805DDD90;
 extern const f32 lbl_805DDDAC;
@@ -120,7 +120,7 @@ void setup_projection_texture__10TObjPlayerFiii(s32 arg0, s32 arg1, s32 arg2) {
     f32 spC;
     f32 sp8;
     f32 temp_f31;
-    if (((u32) lbl_805D4DF0 != 0U) && ((u32) lbl_805D65F0 != 0U)) {
+    if (((u32) camera_ctrl_instance != 0U) && ((u32) lbl_805D65F0 != 0U)) {
         calc_projection_screen_offset((void *) (&spC), (void *) (&sp8));
         if (arg2 & 0x80) {
             push_matrix();
@@ -156,7 +156,7 @@ void render_reflections__10TSceneSoraFPv(Sora_8029EFFC *o) {
     f32 k;
     f32 len;
     Pl_8029EFFC *p;
-    if (lbl_805D4DF0 == 0 || o->f1C == 0) {
+    if (camera_ctrl_instance == 0 || o->f1C == 0) {
         return;
     }
     p = get_player_by_client_id(lbl_805D53A0);
@@ -169,7 +169,7 @@ void render_reflections__10TSceneSoraFPv(Sora_8029EFFC *o) {
         TSceneSora__sky_active_flag = 0;
     }
     copy_reflection_vec__10TSceneSoraFPv(&v);
-    lbl_805D65F8 = 1;
+    scene_sora_reflect_active = 1;
     {
         Vec_8029EFFC off = p->pos2FC;
         off.y += lbl_805DDDB0;
@@ -178,8 +178,8 @@ void render_reflections__10TSceneSoraFPv(Sora_8029EFFC *o) {
     if (is_boss_area() != 0) {
         hit = 1;
     }
-    if (hit != 0 || lbl_805D65FA != 0) {
-        lbl_805D65FA = 0;
+    if (hit != 0 || scene_sora_recon_active_flag != 0) {
+        scene_sora_recon_active_flag = 0;
         if (is_boss_area() != 0) {
             if (p != NULL) {
                 render_object_layers__9TMainTaskFi(main_task, 2);
@@ -224,11 +224,11 @@ void render_reflections__10TSceneSoraFPv(Sora_8029EFFC *o) {
         pop_matrix();
     }
     k = lbl_805DDD8C;
-    lbl_805D65F8 = 0;
+    scene_sora_reflect_active = 0;
     for (i = 0; i < 2; i++) {
-        v.x = p->pos38.x - ((G_8029EFFC *)lbl_805D4DF0)->x178;
+        v.x = p->pos38.x - ((G_8029EFFC *)camera_ctrl_instance)->x178;
         v.y = k;
-        v.z = p->pos38.z - ((G_8029EFFC *)lbl_805D4DF0)->z180;
+        v.z = p->pos38.z - ((G_8029EFFC *)camera_ctrl_instance)->z180;
         len = get_random_float__8TObjFishFv(v.z);
         if (get_random_float__8TObjFishFv(v.x) >= len) {
             if (i != 0) {

@@ -102,7 +102,7 @@ void draw_textured_quad_at_depth(Quad_800FCD40 *, f32);
 u8 get_small_font_glyph_width(u8);
 void get_player__20TWindowSubStatusDispFv(void);
 extern u8 lbl_8058D490[];
-extern u8 *lbl_805D4DF0;
+extern u8 *camera_ctrl_instance;
 extern const f32 lbl_805DAA04;
 extern const f32 lbl_805DAA08;
 extern const f32 lbl_805DAA0C;
@@ -142,14 +142,14 @@ void TFontSmallTask::render() {
         }
     }
     push_matrix_from(lbl_8058D490);
-    rotate_matrix_y(0, *(s32 *)(lbl_805D4DF0 + 0x194));
-    rotate_matrix_x(0, *(s32 *)(lbl_805D4DF0 + 0x190));
-    rotate_matrix_z(0, *(s32 *)(lbl_805D4DF0 + 0x198));
+    rotate_matrix_y(0, *(s32 *)(camera_ctrl_instance + 0x194));
+    rotate_matrix_x(0, *(s32 *)(camera_ctrl_instance + 0x190));
+    rotate_matrix_z(0, *(s32 *)(camera_ctrl_instance + 0x198));
     rotate_vector_by_matrix(0, &forward, &forward);
     pop_matrix();
-    diff.x = position[0] - *(f32 *)(lbl_805D4DF0 + 0x178);
-    diff.y = position[1] - *(f32 *)(lbl_805D4DF0 + 0x17C);
-    diff.z = position[2] - *(f32 *)(lbl_805D4DF0 + 0x180);
+    diff.x = position[0] - *(f32 *)(camera_ctrl_instance + 0x178);
+    diff.y = position[1] - *(f32 *)(camera_ctrl_instance + 0x17C);
+    diff.z = position[2] - *(f32 *)(camera_ctrl_instance + 0x180);
     if (is_boss_area() == 0) {
         f32 xx = diff.x * diff.x;
         f32 yy = diff.y * diff.y;

@@ -47,7 +47,7 @@ f32 xz_distance_squared(void *, void *);
 s32 matrix_mult_vec(int, void *, void *);
 s32 project_world_to_screen(int, void *, void *);
 extern RecoveredGlobal_80191874_lbl_804FF610 lbl_804FF610;
-extern s32 lbl_805D4DF0;
+extern s32 camera_ctrl_instance;
 extern const f32 lbl_805DBE2C;
 extern const f32 lbl_805DBE30;
 s16 update_visibility__13TObjHashiBaseFPvff(u8 *arg0, f32 farg0, f32 farg1);
@@ -82,7 +82,7 @@ s16 update_visibility__13TObjHashiBaseFPvff(u8 *arg0, f32 farg0, f32 farg1) {
     if (get_state_flag__9TMainTaskFv() == 1) {
         return M2C_FIELD(arg0, s16 *, 0x1E);
     }
-    if (xz_distance_squared((void *) (lbl_805D4DF0 + 0x178), (void *) (arg0 + 0x38)) < (farg1 * farg1)) {
+    if (xz_distance_squared((void *) (camera_ctrl_instance + 0x178), (void *) (arg0 + 0x38)) < (farg1 * farg1)) {
         M2C_FIELD(arg0, s16 *, 0x1E) = 1;
         return 1;
     }

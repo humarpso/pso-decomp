@@ -238,8 +238,8 @@ struct Warp_8018615C {
     s32 f10C[17];
     s32 f150;
 };
-extern s32 lbl_80444770[];
-extern s32 lbl_804447B0[];
+extern s32 city_warp_group9_text_table[];
+extern s32 city_warp_group9_text_table_b[];
 extern const f32 lbl_805DBC9C;
 extern const f32 lbl_805DBCA0;
 extern s32 TObjCityMainWarp__sub_80186AF4();
@@ -256,7 +256,7 @@ extern M2C_UNK __vt__15TObjCityMapWarp[];
 extern M2C_UNK __vt__15TObjLaboMapWarp[];
 extern M2C_UNK __vt__16TObjCityAreaWarp[];
 extern M2C_UNK __vt__16TObjCityMainWarp[];
-extern RecoveredGlobal_8018605C_lbl_804447F4 lbl_804447F4;
+extern RecoveredGlobal_8018605C_lbl_804447F4 city_warp_floor_destination_table;
 extern RecoveredGlobal_8018605C_lbl_80444834 lbl_80444834;
 extern RecoveredGlobal_80185428_lbl_80444878 lbl_80444878;
 extern V3_80185E14 lbl_80444998[];
@@ -637,11 +637,11 @@ s32 TObjCityMainWarp__vt15(u8 *arg0) {
         var_r3 = (u8 *)(M2C_FIELD(var_r31, u8 **, 0xB0));
         if ((var_r3 != NULL) && (is_visible__17TWindowSubComCardFPv(var_r3) != 0)) {
             var_r3 = (u8 *)(M2C_FIELD(var_r31, u8 **, 0xB0));
-            var_r4 = (M2C_UNK *)(&lbl_804447F4.value);
+            var_r4 = (M2C_UNK *)(&city_warp_floor_destination_table.value);
             var_r5 = (u8 *)(var_r31 + (get_selected_menu_value(var_r3) * 4));
             var_r3 = (u8 *)((void *)1U);
-            var_r4 = (M2C_UNK *)(&lbl_804447F4.value);
-            M2C_FIELD(var_r31, s32 *, 0xBC) = (s32) M2C_FIELD(&lbl_804447F4.value, M2C_UNK *, (M2C_FIELD(var_r5, s32 *, 0xC8) * 4));
+            var_r4 = (M2C_UNK *)(&city_warp_floor_destination_table.value);
+            M2C_FIELD(var_r31, s32 *, 0xBC) = (s32) M2C_FIELD(&city_warp_floor_destination_table.value, M2C_UNK *, (M2C_FIELD(var_r5, s32 *, 0xC8) * 4));
             return 1;
         }
         var_r3 = (u8 *)(NULL);
@@ -711,7 +711,7 @@ void TObjCityMainWarp__vt13(Warp_8018615C *w, s16 arg1) {
                         if (get_game_play_mode() == 1) {
                             ((void (*)(void *, int, int, int))forward_trade_action_default__16TObjCityMainWarpFPviii)(w->win, ((s32 (*)())TObjCityMainWarp__sub_80186AF4)(), 0xE, k);
                         } else {
-                            ((void (*)(void *, int, int, int))forward_trade_action_default__16TObjCityMainWarpFPviii)(w->win, get_localized_text_entry(9, lbl_80444770[j]), 0xE, k);
+                            ((void (*)(void *, int, int, int))forward_trade_action_default__16TObjCityMainWarpFPviii)(w->win, get_localized_text_entry(9, city_warp_group9_text_table[j]), 0xE, k);
                         }
                         k++;
                     }
@@ -722,7 +722,7 @@ void TObjCityMainWarp__vt13(Warp_8018615C *w, s16 arg1) {
                         if (get_game_play_mode() == 1) {
                             ((void (*)(void *, int, int, int))forward_trade_action_default__16TObjCityMainWarpFPviii)(w->win, ((s32 (*)())TObjCityMainWarp__sub_80186AF4)(), 0xE, k2);
                         } else {
-                            ((void (*)(void *, int, int, int))forward_trade_action_default__16TObjCityMainWarpFPviii)(w->win, get_localized_text_entry(9, lbl_804447B0[j2]), 0xE, k2);
+                            ((void (*)(void *, int, int, int))forward_trade_action_default__16TObjCityMainWarpFPviii)(w->win, get_localized_text_entry(9, city_warp_group9_text_table_b[j2]), 0xE, k2);
                         }
                         k2++;
                     }

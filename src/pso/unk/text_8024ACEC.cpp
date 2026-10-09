@@ -17,7 +17,7 @@ struct RecoveredGlobal_8024ACEC_lbl_804CEA34 {
 
 extern "C" {
 s32 call_window_method__11TWindowCtrlFPvi(void *, void *);
-extern RecoveredGlobal_8024ACEC_lbl_804CEA34 lbl_804CEA34;
+extern RecoveredGlobal_8024ACEC_lbl_804CEA34 player_keyboard_hold_cb;
 void begin_player_keyboard_hold(s32 arg0);
 }
 
@@ -29,9 +29,9 @@ void begin_player_keyboard_hold(s32 arg0) {
     typedef char spC_offset[(offsetof(Stack_8024ACEC, spC) == 0x4) ? 1 : -1];
     typedef char sp10_offset[(offsetof(Stack_8024ACEC, sp10) == 0x8) ? 1 : -1];
     Stack_8024ACEC stack;
-    stack.sp8 = M2C_FIELD(&lbl_804CEA34.value, s32 *, 0);
-    stack.spC = M2C_FIELD(&lbl_804CEA34.value, s32 *, 4);
-    stack.sp10 = M2C_FIELD(&lbl_804CEA34.value, s32 *, 8);
+    stack.sp8 = M2C_FIELD(&player_keyboard_hold_cb.value, s32 *, 0);
+    stack.spC = M2C_FIELD(&player_keyboard_hold_cb.value, s32 *, 4);
+    stack.sp10 = M2C_FIELD(&player_keyboard_hold_cb.value, s32 *, 8);
     call_window_method__11TWindowCtrlFPvi((void *) (arg0), (void *) (&stack.sp8));
 }
 

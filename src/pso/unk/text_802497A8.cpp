@@ -21,7 +21,7 @@ s8 TWindowComCard__sub_80249C20(void *);
 s32 get_class_name_text(int);
 void set_text_entry_string(void *, void *, int);
 void set_default_status__17TWindowDuelResultFPvi(void *, int);
-extern s32 lbl_804CE8E4[];
+extern s32 com_card_status_text_table[];
 extern const f32 lbl_805DCBCC;
 void update_com_card_display(Win_802497A8 *arg0, void *arg1);
 }
@@ -50,7 +50,7 @@ void update_com_card_display(Win_802497A8 *arg0, void *arg1) {
     if (n > 5) {
         n = 5;
     }
-    set_default_status__17TWindowDuelResultFPvi(tC, lbl_804CE8E4[n]);
+    set_default_status__17TWindowDuelResultFPvi(tC, com_card_status_text_table[n]);
     n = TWindowSubComCard__sub_8007B6EC(arg1);
     if (n > 0xC) {
         n = 0xC;

@@ -1011,7 +1011,7 @@ M2C_UNK stop_audio_streams__6TLobbyFv();
 void TLobby__sub_801C38A4(void);
 void init_and_set_flag__6TLobbyFv(void);
 extern int lbl_805D5DB4;
-extern u32 lbl_805D5EE8;
+extern u32 quest_mission_manager;
 void TLobby__sub_801C38E8(void *arg0);
 s32 get_game_mode__6TLobbyFv();
 u32 get_player_by_client_id(u16);
@@ -1026,6 +1026,16 @@ extern void *TLobby__data_805D5608;
 extern s16 TLobby__data_805D5CE8;
 extern s32 evt2_random_enemies_mode;
 void end_battle_mode_cleanup__6TLobbyFPv(void *arg0);
+typedef struct Ent_801C32B4 { u16 id; s16 slot; u32 pad; } Ent_801C32B4;
+void TAdSinglePlyChrSelectGC__sub_801C50C0(u16);
+u16 TAdSinglePlyChrSelectGC__sub_801C50CC();
+void TAdSinglePlyChrSelectGC__sub_801C50D8(u16);
+u16 TAdSinglePlyChrSelectGC__sub_801C50E4();
+void TAdSinglePlyChrSelectGC__sub_801C50F0(u16);
+u16 TAdSinglePlyChrSelectGC__sub_801C50FC();
+void TAdSinglePlyChrSelectGC__sub_801C5108(u16);
+u16 TAdSinglePlyChrSelectGC__sub_801C5114();
+M2C_UNK TAdSinglePlyChrSelectGC__sub_801FCE6C();
 }
 
 extern "C" {
@@ -1099,6 +1109,64 @@ s32 assign_player_id__6TLobbyFv(void) {
 }
 
 void send_neg50__6TLobbyFPvPv(void* p, void* a1) { play_cue_stream_file(p); show_duel_result_window((void*)-50, a1); }
+
+#define TBL_801C32B4 ((Ent_801C32B4 *)TLobby__data_80511C80)
+M2C_UNK TLobby__sub_801C32B4(void *arg0) {
+    s32 slot;
+    s32 i;
+    s32 n;
+    s32 s;
+    s32 r;
+    u32 pl;
+
+    slot = -1;
+    for (i = 0; i < 4; i++) {
+        pl = get_player_by_client_id(*(u16 *)&TLobby__data_80511C80[i * 2]);
+        if (pl != 0 && lbl_805D53A0 == (u16)obj_getField1c(pl)) {
+            slot = TBL_801C32B4[i].slot;
+            break;
+        }
+    }
+    if (TLobby__sub_801C26A8() == 0) {
+        switch (slot) {
+        case 0:
+            {
+                u16 c = TAdSinglePlyChrSelectGC__sub_801C5114();
+                s32 m = 0xFFFF;
+                if (c + 1 < m) m = c + 1;
+                TAdSinglePlyChrSelectGC__sub_801C5108(m);
+            }
+            break;
+        case 1:
+            {
+                u16 c = TAdSinglePlyChrSelectGC__sub_801C50FC();
+                s32 m = 0xFFFF;
+                if (c + 1 < m) m = c + 1;
+                TAdSinglePlyChrSelectGC__sub_801C50F0(m);
+            }
+            break;
+        case 2:
+            {
+                u16 c = TAdSinglePlyChrSelectGC__sub_801C50E4();
+                s32 m = 0xFFFF;
+                if (c + 1 < m) m = c + 1;
+                TAdSinglePlyChrSelectGC__sub_801C50D8(m);
+            }
+            break;
+        case 3:
+            {
+                u16 c = TAdSinglePlyChrSelectGC__sub_801C50CC();
+                s32 m = 0xFFFF;
+                if (c + 1 < m) m = c + 1;
+                TAdSinglePlyChrSelectGC__sub_801C50C0(m);
+            }
+            break;
+        }
+    }
+    s = get_char_select_slot__23TAdSinglePlyChrSelectGCFv() - 1;
+    set_slot__23TAdSinglePlyChrSelectGCFi(s > 0 ? s : 0);
+    TAdSinglePlyChrSelectGC__sub_801FCE6C();
+}
 
 #define TBL_801C343C ((Rank_801C343C *)TLobby__data_80511C80)
 #define PLAYER_801C343C(k) ((u32 (*)(s32))get_player_by_client_id)(k)
@@ -1248,8 +1316,8 @@ void TLobby__sub_801C38E8(void *arg0) {
         if (--*(s32 *)((u8 *)arg0 + 0x2C) <= 0) {
             TLobby__sub_8020BC50();
             TLobby__sub_801036CC();
-            if (lbl_805D5EE8 != 0) {
-                clear_buffer__12TQuestThreadFPv(lbl_805D5EE8);
+            if (quest_mission_manager != 0) {
+                clear_buffer__12TQuestThreadFPv(quest_mission_manager);
             }
             stop_audio_streams__6TLobbyFv();
             lbl_805D5DB4 = 0;

@@ -12,7 +12,7 @@ struct Big_8006A13C { u8 pad[0x70]; u8 unk70[0x10]; };
 struct Sel_8006A13C { u8 busy; u8 pad1; u16 slot; u8 pad4[0xC]; };
 
 extern "C" {
-extern void *lbl_805D4DF0;
+extern void *camera_ctrl_instance;
 M2C_UNK queue_event_1D__12TBoss3VoloptFss(M2C_UNK, M2C_UNK, void *);
 void TCameraCtrl__sub_8006A044(s32 id, f32 v);
 s32 obj_testFlags30(u32, M2C_UNK);
@@ -39,16 +39,16 @@ M2C_UNK queue_event_1D__12TBoss3VoloptFss(M2C_UNK, M2C_UNK, void *);
 
 void* get_params__11TCameraCtrlFPv(void* p) { return (char*)p + 0x20; }
 
-extern void *lbl_805D4DF0;
+extern void *camera_ctrl_instance;
 extern const f32 lbl_805D8FE8;
 extern const f32 lbl_805D8FEC;
 extern const f32 lbl_805D8FF0;
 
 void TCameraCtrl__sub_8006A044(s32 id, f32 v) {
     O_8006A044 *p;
-    if ((*(O_8006A044 * *)&lbl_805D4DF0) != 0) {
-        (*(O_8006A044 * *)&lbl_805D4DF0)->v = v;
-        p = (*(O_8006A044 * *)&lbl_805D4DF0);
+    if ((*(O_8006A044 * *)&camera_ctrl_instance) != 0) {
+        (*(O_8006A044 * *)&camera_ctrl_instance)->v = v;
+        p = (*(O_8006A044 * *)&camera_ctrl_instance);
         p->id = id;
         queue_event_1D__12TBoss3VoloptFss((M2C_UNK)(0x60), (M2C_UNK)((s16)id), (void *)(p));
     }
@@ -57,23 +57,23 @@ void TCameraCtrl__sub_8006A044(s32 id, f32 v) {
 void set_shake_preset__11TCameraCtrlFi(s32 arg0) {
     void *p;
 
-    if ((void *) lbl_805D4DF0 != NULL) {
+    if ((void *) camera_ctrl_instance != NULL) {
         switch (arg0) {
         case 0:
-            M2C_FIELD(lbl_805D4DF0, s32 *, 0x1C0) = 0x14;
-            p = lbl_805D4DF0;
+            M2C_FIELD(camera_ctrl_instance, s32 *, 0x1C0) = 0x14;
+            p = camera_ctrl_instance;
             M2C_FIELD(p, f32 *, 0x1C4) = (f32) lbl_805D8FE8;
             queue_event_1D__12TBoss3VoloptFss(0x60, 0x14, p);
             return;
         case 1:
-            M2C_FIELD(lbl_805D4DF0, s32 *, 0x1C0) = 0x1E;
-            p = lbl_805D4DF0;
+            M2C_FIELD(camera_ctrl_instance, s32 *, 0x1C0) = 0x1E;
+            p = camera_ctrl_instance;
             M2C_FIELD(p, f32 *, 0x1C4) = (f32) lbl_805D8FEC;
             queue_event_1D__12TBoss3VoloptFss(0xA0, 0x1E, p);
             return;
         case 2:
-            M2C_FIELD(lbl_805D4DF0, s32 *, 0x1C0) = 0x1E;
-            p = lbl_805D4DF0;
+            M2C_FIELD(camera_ctrl_instance, s32 *, 0x1C0) = 0x1E;
+            p = camera_ctrl_instance;
             M2C_FIELD(p, f32 *, 0x1C4) = (f32) lbl_805D8FF0;
             queue_event_1D__12TBoss3VoloptFss(0xE0, 0x1E, p);
             break;

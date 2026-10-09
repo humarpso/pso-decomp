@@ -82,7 +82,7 @@ extern Vec_8006835C lbl_804FF5E8;
 extern Flags_8006835C TCameraCtrl__data_804FF628;
 extern Scissor_8006835C TCameraCtrl__data_804FF634;
 extern u8 TCameraCtrl__data_804FF6C4[];
-extern View_8006835C *lbl_805D4DF0;
+extern View_8006835C *camera_ctrl_instance;
 extern const f32 TCameraCtrl__data_805D8F80;
 extern const f32 TCameraCtrl__data_805D8F84;
 extern const f32 lbl_805D8F94;
@@ -92,7 +92,7 @@ void post_update_view__11TCameraCtrlFv(void);
 void VecCopy__FP3VecPC3Vec(void *, void *);
 s32 get_camera_no__11TCameraCtrlFv(void);
 extern Flags_8006835C TCameraCtrl__data_804FF628;
-extern View_8006835C *lbl_805D4DF0;
+extern View_8006835C *camera_ctrl_instance;
 void apply_camera_controller_pose(Cam_80068530 *arg0);
 void VecCopy__FP3VecPC3Vec(void *, void *);
 s32 is_split_screen();
@@ -111,7 +111,7 @@ M2C_UNK pop_matrices(int);
 extern const Vec_8006835C lbl_80438168;
 extern const Vec_8006835C lbl_80438174;
 extern u8 lbl_8058D490[];
-extern View_8006835C *lbl_805D4DF0;
+extern View_8006835C *camera_ctrl_instance;
 extern const f32 TCameraCtrl__data_805D8F80;
 extern const f32 TCameraCtrl__data_805D8F84;
 extern const f32 lbl_805D8F88;
@@ -186,7 +186,7 @@ s32 predict_obstruction__11TCameraCtrlFPv(Cam_8006809C *self) {
         Vec_8006835C v1 = lbl_80438168;
         Vec_8006835C v2 = lbl_80438174;
         push_matrix_from(lbl_8058D490);
-        rotate_matrix_y(0, *(s32 *) lbl_805D4DF0->f194);
+        rotate_matrix_y(0, *(s32 *) camera_ctrl_instance->f194);
         matrix_mult_vec(0, &v1, &v1);
         pop_matrices(1);
         v1.y = TCameraCtrl__data_805D8F84;
@@ -205,14 +205,14 @@ s32 predict_obstruction__11TCameraCtrlFPv(Cam_8006809C *self) {
     }
     if (is_split_screen() != 0) {
         s32 mode = get_camera_mode__11TCameraCtrlFv();
-        View_80068530 *v = (View_80068530 *) lbl_805D4DF0;
+        View_80068530 *v = (View_80068530 *) camera_ctrl_instance;
         a = &v->eye[mode];
         b = &v->look[mode];
         probe.y = v->look[mode].y;
     } else {
-        a = &lbl_805D4DF0->pos;
-        b = &lbl_805D4DF0->target;
-        probe.y = lbl_805D4DF0->target.y;
+        a = &camera_ctrl_instance->pos;
+        b = &camera_ctrl_instance->target;
+        probe.y = camera_ctrl_instance->target.y;
     }
     dir.x = a->x - b->x;
     dir.y = a->y - b->y;
@@ -222,7 +222,7 @@ s32 predict_obstruction__11TCameraCtrlFPv(Cam_8006809C *self) {
     }
     probe.x = dist * dir.x + self->obj->x;
     probe.z = dist * dir.z + self->obj->z;
-    if (lbl_805D4DF0 == NULL) {
+    if (camera_ctrl_instance == NULL) {
         return 0;
     }
     hit = csnVector(a, &probe, 0x100);
@@ -246,27 +246,27 @@ void post_update_view__11TCameraCtrlFv(void) {
     Vec_8006835C e;
     Vec_8006835C d;
     Vec_8006835C *t;
-    d.x = lbl_805D4DF0->target.x - lbl_805D4DF0->pos.x;
-    d.y = lbl_805D4DF0->target.y - lbl_805D4DF0->pos.y;
-    d.z = lbl_805D4DF0->target.z - lbl_805D4DF0->pos.z;
+    d.x = camera_ctrl_instance->target.x - camera_ctrl_instance->pos.x;
+    d.y = camera_ctrl_instance->target.y - camera_ctrl_instance->pos.y;
+    d.z = camera_ctrl_instance->target.z - camera_ctrl_instance->pos.z;
     if (TCameraCtrl__data_805D8F84 == vector_length(&d)) {
         normalize_vector(&d);
-        lbl_805D4DF0->target.x = lbl_805D4DF0->pos.x;
-        lbl_805D4DF0->target.y = lbl_805D4DF0->pos.y;
-        lbl_805D4DF0->target.z = TCameraCtrl__data_805D8F80 + lbl_805D4DF0->pos.z;
+        camera_ctrl_instance->target.x = camera_ctrl_instance->pos.x;
+        camera_ctrl_instance->target.y = camera_ctrl_instance->pos.y;
+        camera_ctrl_instance->target.z = TCameraCtrl__data_805D8F80 + camera_ctrl_instance->pos.z;
     } else if (TCameraCtrl__data_805D8F84 == d.x && TCameraCtrl__data_805D8F84 == d.z) {
-        lbl_805D4DF0->target.z += lbl_805D8F94;
+        camera_ctrl_instance->target.z += lbl_805D8F94;
         d.z = TCameraCtrl__data_805D8F80;
     }
-    direction_to_pitch_yaw(&d, lbl_805D4DF0->f190, lbl_805D4DF0->f194);
-    t = get_target__11TCameraCtrlFPv(lbl_805D4DF0);
-    e.x = lbl_805D4DF0->target.x + t->x;
-    e.y = lbl_805D4DF0->target.y + t->y;
-    e.z = lbl_805D4DF0->target.z + t->z;
-    set_camera_look_at(&lbl_805D4DF0->pos, &e, TCameraCtrl__data_804FF6C4);
-    lbl_804FF5E8.x = lbl_805D4DF0->pos.x;
-    lbl_804FF5E8.y = lbl_805D4DF0->pos.y;
-    lbl_804FF5E8.z = lbl_805D4DF0->pos.z;
+    direction_to_pitch_yaw(&d, camera_ctrl_instance->f190, camera_ctrl_instance->f194);
+    t = get_target__11TCameraCtrlFPv(camera_ctrl_instance);
+    e.x = camera_ctrl_instance->target.x + t->x;
+    e.y = camera_ctrl_instance->target.y + t->y;
+    e.z = camera_ctrl_instance->target.z + t->z;
+    set_camera_look_at(&camera_ctrl_instance->pos, &e, TCameraCtrl__data_804FF6C4);
+    lbl_804FF5E8.x = camera_ctrl_instance->pos.x;
+    lbl_804FF5E8.y = camera_ctrl_instance->pos.y;
+    lbl_804FF5E8.z = camera_ctrl_instance->pos.z;
     if (TCameraCtrl__data_804FF628.flags & 0x200) {
         GXSetScissorBoxOffset((s32)-(TCameraCtrl__data_804FF634.x - lbl_805D8F98), (s32)-(TCameraCtrl__data_804FF634.y - lbl_805D8F9C));
         TCameraCtrl__sub_801E32D8(TCameraCtrl__data_804FF634.x, TCameraCtrl__data_804FF634.y);
@@ -274,7 +274,7 @@ void post_update_view__11TCameraCtrlFv(void) {
     }
 }
 
-#define V ((View_80068530 *)lbl_805D4DF0)
+#define V ((View_80068530 *)camera_ctrl_instance)
 void apply_camera_controller_pose(Cam_80068530 *arg0) {
     s32 no;
     s32 id;

@@ -19,22 +19,22 @@ M2C_UNK TBoss8Dragon__sub_80355A1C();
 M2C_UNK safe_free__23TAdSinglePlyChrSelectGCFUi(u32);
 
 extern u32 lbl_805D4DA0;
-extern u32 lbl_805D4DA4;
-extern u32 lbl_805D4DA8;
+extern u32 boss5_gryphon_bml_resource;
+extern u32 boss5_gryphon_texture_list;
 
 void cleanup__13TBoss5GryphonFv(void) {
     free_char_select_singleton__6TLobbyFv();
     TBoss5GryphonSnarl__sub_80066E84();
     TBoss8Dragon__sub_80355A1C();
     TBoss8Dragon__sub_80066A4C();
-    if ((u32) lbl_805D4DA8 != 0U) {
-        TLobby__sub_803DA16C((void*)lbl_805D4DA8);
-        safe_free__23TAdSinglePlyChrSelectGCFUi(lbl_805D4DA8);
-        lbl_805D4DA8 = 0U;
+    if ((u32) boss5_gryphon_texture_list != 0U) {
+        TLobby__sub_803DA16C((void*)boss5_gryphon_texture_list);
+        safe_free__23TAdSinglePlyChrSelectGCFUi(boss5_gryphon_texture_list);
+        boss5_gryphon_texture_list = 0U;
     }
-    if ((u32) lbl_805D4DA4 != 0U) {
-        TLobby__sub_8001FE7C((void*)lbl_805D4DA4, 1);
-        lbl_805D4DA4 = 0U;
+    if ((u32) boss5_gryphon_bml_resource != 0U) {
+        TLobby__sub_8001FE7C((void*)boss5_gryphon_bml_resource, 1);
+        boss5_gryphon_bml_resource = 0U;
     }
     if ((u32) lbl_805D4DA0 != 0U) {
         TLobby__sub_8001FE7C((void*)lbl_805D4DA0, 1);

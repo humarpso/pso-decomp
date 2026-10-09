@@ -85,8 +85,8 @@ u16 obj_getField1c(void *);
 s32 spawn_particle_effect(void *, int);
 u32 __ct__12TQuestThreadFv(int, void *, int);
 s32 all_parents_unqueued_for_destruction__7TObjectFv(void *);
-extern u32 lbl_805D5EE8;
-extern u32 lbl_805D5EEC;
+extern u32 quest_mission_manager;
+extern u32 quest_area_manager;
 extern s32 tl_00;
 extern const f32 lbl_805DB2C8;
 f32 apply_hit__15TOAttackableColFPvi(u8 *arg0, s32 arg1);
@@ -262,13 +262,13 @@ f32 apply_hit__15TOAttackableColFPvi(u8 *arg0, s32 arg1) {
       if (((s32) (*((s32 *) (((s8 *) arg0) + 0x344)))) > 0)
       {
         temp_r0_2 = *((s32 *) (((s8 *) arg0) + 0x340));
-        if ((((temp_r0_2 >= 0x64) && (temp_r0_2 < 0x3E8)) && (((u32) lbl_805D5EE8) != 0U)) && (all_parents_unqueued_for_destruction__7TObjectFv((void *) lbl_805D5EE8) != 0))
+        if ((((temp_r0_2 >= 0x64) && (temp_r0_2 < 0x3E8)) && (((u32) quest_mission_manager) != 0U)) && (all_parents_unqueued_for_destruction__7TObjectFv((void *) quest_mission_manager) != 0))
         {
           temp_r3 = ((u32)__nw__7TObjectFUl((int) 0x194));
           var_r0 = temp_r3;
           if (var_r0 != 0U)
           {
-            var_r0 = __ct__12TQuestThreadFv((int) temp_r3, (void *) lbl_805D5EE8, (int) (*((s32 *) (((s8 *) arg0) + 0x344))));
+            var_r0 = __ct__12TQuestThreadFv((int) temp_r3, (void *) quest_mission_manager, (int) (*((s32 *) (((s8 *) arg0) + 0x344))));
           }
           if (var_r0 != 0U)
           {
@@ -276,13 +276,13 @@ f32 apply_hit__15TOAttackableColFPvi(u8 *arg0, s32 arg1) {
           }
         }
         else
-          if ((((u32) lbl_805D5EEC) != 0U) && (all_parents_unqueued_for_destruction__7TObjectFv((void *) lbl_805D5EEC) != 0))
+          if ((((u32) quest_area_manager) != 0U) && (all_parents_unqueued_for_destruction__7TObjectFv((void *) quest_area_manager) != 0))
         {
           temp_r3_2 = ((u32)__nw__7TObjectFUl((int) 0x194));
           var_r0_2 = temp_r3_2;
           if (var_r0_2 != 0U)
           {
-            var_r0_2 = __ct__12TQuestThreadFv((int) temp_r3_2, (void *) lbl_805D5EEC, (int) (*((s32 *) (((s8 *) arg0) + 0x344))));
+            var_r0_2 = __ct__12TQuestThreadFv((int) temp_r3_2, (void *) quest_area_manager, (int) (*((s32 *) (((s8 *) arg0) + 0x344))));
           }
           if (var_r0_2 != 0U)
           {

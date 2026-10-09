@@ -12,7 +12,7 @@ u8 get_field_ec__12TOSwitchItemFPv(void *);
 u8 get_field_ed__10TObjPlayerFPv(void *);
 u8 get_slot_count__14TItemProShieldFPv(void *);
 void *get_equip_field_d04__10TObjPlayerFPv(void *, int);
-extern u8 lbl_80479BB4[][3];
+extern u8 listed_equipment_table[][3];
 s32 any_player_has_listed_equipment(void);
 void copy_vec4__13TRaderMapCoreFPvPv(void *, void *);
 void get_weapon_color__11TItemWeaponFPv(void *, void *);
@@ -30,7 +30,7 @@ s32 any_player_has_listed_equipment(void) {
         if (pl != NULL && is_active__14TBoss6PlotFalzFPv(pl) != 0) {
             s32 j;
             for (j = 0; j < 10; j++) {
-                u8 *e = lbl_80479BB4[j];
+                u8 *e = listed_equipment_table[j];
                 s32 k;
                 for (k = 0; k < 13; k++) {
                     void *it = get_equip_field_d04__10TObjPlayerFPv(pl, k);

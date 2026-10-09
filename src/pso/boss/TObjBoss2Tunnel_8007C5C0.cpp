@@ -119,7 +119,7 @@ extern f32 lbl_80438A80[];
 extern f32 lbl_8048DF4C[];
 extern u8 lbl_8050E3B8[];
 extern u8 main_task[];
-extern u32 lbl_805D4DF0;
+extern u32 camera_ctrl_instance;
 extern s8 boss2_tunnel_confirm_loop_flag;
 extern f32 lbl_805D4EA4;
 extern s8 lbl_805D4EA8;
@@ -147,7 +147,7 @@ extern f32 lbl_80438A68[];
 extern f32 lbl_80438A70[];
 extern f32 lbl_8048DF44[];
 extern u8 main_task[];
-extern u32 lbl_805D4DF0;
+extern u32 camera_ctrl_instance;
 extern s8 lbl_805D4E98;
 extern f32 lbl_805D4E9C;
 extern s8 boss2_tunnel_message_shown_flag;
@@ -202,8 +202,8 @@ s32 run_confirm_message_loop__15TObjBoss2TunnelFv(void) {
         frames++;
         func_803DCDFC__Fv();
         controller_stuff__Fv();
-        if (lbl_805D4DF0 != 0U) {
-            TCameraCtrl__sub_8006AF9C(lbl_805D4DF0, 0);
+        if (camera_ctrl_instance != 0U) {
+            TCameraCtrl__sub_8006AF9C(camera_ctrl_instance, 0);
         }
         render__9TMainTaskFv(main_task);
         TObjBoss2Tunnel__sub_8007D828();
@@ -284,8 +284,8 @@ void show_message_and_wait__15TObjBoss2TunnelFi(s32 arg0) {
         frames++;
         func_803DCDFC__Fv();
         controller_stuff__Fv();
-        if (lbl_805D4DF0 != 0U) {
-            TCameraCtrl__sub_8006AF9C(lbl_805D4DF0, 0);
+        if (camera_ctrl_instance != 0U) {
+            TCameraCtrl__sub_8006AF9C(camera_ctrl_instance, 0);
         }
         render__9TMainTaskFv(main_task);
         if ((f32)frames >= lbl_805D9220) {

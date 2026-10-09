@@ -153,7 +153,7 @@ extern u8 TLobby__data_805011D8[];
 extern RecoveredGlobal_801A3540_lbl_80515BA0 lbl_80515BA0;
 extern RecoveredGlobal_801A3540_main_task main_task;
 extern s32 TLobby__data_805D53AC;
-extern u32 lbl_805D5EEC;
+extern u32 quest_area_manager;
 extern void *tl_03;
 void run_offline_area_transfer(void);
 void __dt__7TObjectFv(void *, int);
@@ -225,7 +225,7 @@ M2C_UNK set_state__16TAdStorySelectGCFi(int);
 M2C_UNK load_vm__12TQuestListVMFv();
 void *__nw__7TObjectFUl(u32);
 M2C_UNK setup_split_screen();
-extern u32 lbl_805D5EE8;
+extern u32 quest_mission_manager;
 M2C_UNK reset_quest_state__6TLobbyFv();
 void reset_controller_input_state();
 M2C_UNK for_each_player_slot__10TObjPlayerFv(void *);
@@ -320,7 +320,7 @@ M2C_UNK TWindowCtrlMain__sub_8024CB7C();
 M2C_UNK TWindowCtrlMain__sub_8024CB8C();
 M2C_UNK draw_split_screen_hud__20TWindowSubStatusDispFv();
 extern RecoveredGlobal_801A3540_main_task main_task;
-extern Cam_801A37D0 *lbl_805D4DF0;
+extern Cam_801A37D0 *camera_ctrl_instance;
 void run_split_screen_frame(void);
 M2C_UNK update__16TKeyBoardControlFv();
 M2C_UNK TKeyBoardControl__sub_8000F90C(M2C_UNK);
@@ -372,7 +372,7 @@ extern s32 lbl_805D53A4;
 extern s32 TLobby__data_805D53AC;
 extern s32 lbl_805D5CE0;
 extern s32 TLobby__lobby_state_flags;
-extern u32 lbl_805D5EEC;
+extern u32 quest_area_manager;
 void init_offline_game_scene(void);
 }
 
@@ -500,7 +500,7 @@ void rebuild_area_keep_players__6TLobbyFv(void) {
     {
         void *t = __nw__7TObjectFUl(0x194);
         if (t != NULL) {
-            t = ((void *(*)(void *, u32, int))__ct__12TQuestThreadFv)(t, lbl_805D5EE8, 0);
+            t = ((void *(*)(void *, u32, int))__ct__12TQuestThreadFv)(t, quest_mission_manager, 0);
         }
         ((VObj_801A31D8 *)t)->m1();
     }
@@ -568,10 +568,10 @@ void run_offline_area_transfer(void) {
         }
     }
     create_floor_quest_thread();
-    if (lbl_805D5EEC != 0) {
+    if (quest_area_manager != 0) {
         p = __nw__7TObjectFUl(0x194);
         if (p != NULL) {
-            __ct__12TQuestThreadFv(p, lbl_805D5EEC, 0);
+            __ct__12TQuestThreadFv(p, quest_area_manager, 0);
         }
     }
     __dt__7TObjectFv(&holder, -1);
@@ -684,9 +684,9 @@ void run_split_screen_frame(void) {
         get_fog_ctrl__16TKeyBoardControlFPv();
         set_split_viewport__11TCameraCtrlFii(1, 0);
         render__9TMainTaskFv(&main_task);
-        if (lbl_805D4DF0 != NULL) {
-            lbl_805D4DF0->yaws[id] = lbl_805D4DF0->yaw;
-            VecCopy__FP3VecPC3Vec(&lbl_805D4DF0->poss[id], &lbl_805D4DF0->pos);
+        if (camera_ctrl_instance != NULL) {
+            camera_ctrl_instance->yaws[id] = camera_ctrl_instance->yaw;
+            VecCopy__FP3VecPC3Vec(&camera_ctrl_instance->poss[id], &camera_ctrl_instance->pos);
         }
     } else {
         for (i = 0; i < get_camera_id__11TCameraCtrlFv(); i++) {
@@ -695,8 +695,8 @@ void run_split_screen_frame(void) {
                 if (i == 0) {
                     run_task__9TMainTaskFv(&main_task);
                     draw_split_screen_hud__20TWindowSubStatusDispFv();
-                } else if (lbl_805D4DF0 != NULL) {
-                    ((VObj_801A37D0 *)lbl_805D4DF0)->m1();
+                } else if (camera_ctrl_instance != NULL) {
+                    ((VObj_801A37D0 *)camera_ctrl_instance)->m1();
                 }
                 set_split_viewport__11TCameraCtrlFii(get_camera_id__11TCameraCtrlFv(), i);
                 get_fog_ctrl__16TKeyBoardControlFPv();
@@ -781,10 +781,10 @@ void init_offline_game_scene(void) {
         }
     }
     TObjPlayer__sub_801B1BA4();
-    if (lbl_805D5EEC != 0) {
+    if (quest_area_manager != 0) {
         void *q = __nw__7TObjectFUl(0x194);
         if (q != NULL) {
-            __ct__12TQuestThreadFv(q, lbl_805D5EEC, 0);
+            __ct__12TQuestThreadFv(q, quest_area_manager, 0);
         }
     }
     if (save_character_to_card__23TAdSinglePlyChrSelectGCFv() == 0) {

@@ -219,7 +219,7 @@ void *lbl_804914C0[13] = {
 void *lbl_804914F4[4] = {
     (void *)&lbl_8043AE9C, (void *)&lbl_804914B0, (void *)&lbl_804914C0, (void *)0x3000c,
 };
-void *lbl_80491504[44] = {
+void *TObjEneShark__action_table[44] = {
     (void *)0x10000, (void *)0x9, (void *)0x3f19999a, (void *)0x1,
     (void *)0x20000, (void *)0x7, (void *)0x3f19999a, (void *)0x20,
     (void *)0x10002, (void *)0xb, (void *)0x3f800000, (void *)0x1,
@@ -280,7 +280,7 @@ void *lbl_8049168C[103] = {
     (void *)&TObjPlayer__sub_80092A7C, (void *)&TObjPlayer__sub_800AB970, (void *)&request_stand_action__12TObjEneBeastFPv,
 };
 #define lbl_804914F4 ((u8 *)lbl_804914F4)
-#define lbl_80491504 ((Act_800AC318 *)lbl_80491504)
+#define TObjEneShark__action_table ((Act_800AC318 *)TObjEneShark__action_table)
 #define lbl_8049168C ((u8 *)lbl_8049168C)
 
 void * create__12TObjEneSharkFPv(void *arg0) {
@@ -366,8 +366,8 @@ void load_shark_resources__6TLobbyFv(void) {
         p = init_trail_buffer__11TBoss4Type3FPvifff(p, 2, lbl_805D9BC8, lbl_805D9BAC, lbl_805D9BC0);
     }
     G_C0 = p;
-    draw_trail_with_colors(G_BC, RES->bodies->model, RES->motions[lbl_80491504[3].idx].b, 5, 8);
-    draw_trail_with_colors(G_C0, RES->bodies->model, RES->motions[lbl_80491504[4].idx].b, 0xA, 0xD);
+    draw_trail_with_colors(G_BC, RES->bodies->model, RES->motions[TObjEneShark__action_table[3].idx].b, 5, 8);
+    draw_trail_with_colors(G_C0, RES->bodies->model, RES->motions[TObjEneShark__action_table[4].idx].b, 0xA, 0xD);
     G_A8 = alloc_buffer__11TOBoss4RockFPv(0xC);
     G_AC = alloc_buffer__11TOBoss4RockFPv(0xC);
     G_B0 = alloc_buffer__11TOBoss4RockFPv(0xC);
@@ -387,7 +387,7 @@ void load_shark_resources__6TLobbyFv(void) {
     lbl_805D50C4 = 0;
     {
         s16 ids[3] = { 0x2F, 0x30, 0x31 };
-        Anim_800AC318 anim = { (s32)RES->motions, lbl_80491504, 2, 0xC0000 };
+        Anim_800AC318 anim = { (s32)RES->motions, TObjEneShark__action_table, 2, 0xC0000 };
         for (i = 0; i < 3; i++) {
             spawn_npc_enemy__6TLobbyFsiiiff(ids[i], RES->bodies[i].model, RES->bodies[i].textures, &anim,
                 lbl_805D9BCC, lbl_805D9BA0);
@@ -536,7 +536,7 @@ void *TObjEneShark__ct(void *arg0, void *arg1, void *arg2) {
     self->f334 = self->f368;
     apply_clamped_mode_param__10TObjPlayerFPv(self);
     TObjPlayer__sub_800AC9DC((O_800AC9DC *)self, self->f368);
-    self->fD8 = lbl_80491504;
+    self->fD8 = TObjEneShark__action_table;
     set_field_d8__10TObjPlayerFPvi(self, self->fD8);
     self->fDC = *(s32 *)(lbl_805D50B8 + 0x430);
     self->fB8 = 0;

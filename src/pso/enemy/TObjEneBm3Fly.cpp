@@ -3854,16 +3854,16 @@ extern void *tl_04;
 extern "C" void TObjEneEpsilon__vt81();
 extern "C" void render_actor_shadows_default();
 extern "C" void run_task__13TObjEneBm3FlyFv();
-void *lbl_80491B30[7] = {
+void *bm3_fly_decision_row[7] = {
     (void *)0x43610000, (void *)0x3f6d097b, (void *)0x600, (void *)0x0,
     (void *)0x0, (void *)0x0, (void *)0x0,
 };
-void *lbl_80491B4C[11] = {
+void *bm3_fly_collider_params[11] = {
     (void *)0x0, (void *)0x0, (void *)0x0, (void *)0x40e00000,
     (void *)0x0, (void *)0x0, (void *)0x8003, (void *)0x0,
     (void *)0x0, (void *)0x0, (void *)0x0,
 };
-void *lbl_80491B78[20] = {
+void *bm3_fly_action_table[20] = {
     (void *)0x10000, (void *)0xa, (void *)0x3f19999a, (void *)0x0,
     (void *)0x10001, (void *)0xc, (void *)0x3f19999a, (void *)0x0,
     (void *)0x30002, (void *)0x0, (void *)0x3f800000, (void *)0x0,
@@ -3899,7 +3899,7 @@ void *__vt__13TObjEneBm3Fly[107] = {
     (void *)&TObjEneDD__vt97, (void *)&TObjEneDD__vt98, (void *)&TObjEneDD__vt99, (void *)&TObjEneDD__vt100,
     (void *)&TObjEneBm3Fly__vt102, (void *)&TObjEneBm3Fly__vt103, (void *)&TObjEneBm3Fly__vt104,
 };
-#define lbl_80491B4C (*(RecoveredGlobal_800B22C8_lbl_80491B4C *)lbl_80491B4C)
+#define bm3_fly_collider_params (*(RecoveredGlobal_800B22C8_lbl_80491B4C *)bm3_fly_collider_params)
 #define __vt__13TObjEneBm3Fly ((M2C_UNK *)__vt__13TObjEneBm3Fly)
 
 #pragma push
@@ -4194,15 +4194,15 @@ M2C_UNK init_child_params__13TObjEneBm3FlyFv(void *arg0) {
     init_position_vectors__9TObjEneDDFPv(arg0);
     M2C_FIELD(arg0, s32 *, 0x34) = M2C_FIELD(M2C_FIELD(bm3_fly_nest_resources, u8 **, 0x42C), s32 *, 8);
     M2C_FIELD(arg0, s32 *, 0x24) = M2C_FIELD(M2C_FIELD(bm3_fly_nest_resources, u8 **, 0x42C), s32 *, 0xC);
-    init_model__9TObjEneDDFPv(arg0, &lbl_80491B4C, 1);
-    set_field_d8__10TObjPlayerFPvi(arg0, lbl_80491B78);
+    init_model__9TObjEneDDFPv(arg0, &bm3_fly_collider_params, 1);
+    set_field_d8__10TObjPlayerFPvi(arg0, bm3_fly_action_table);
     set_field_dc__10TObjPlayerFPvi(arg0, M2C_FIELD(bm3_fly_nest_resources, s32 *, 0x430));
     M2C_FIELD(arg0, s16 *, 0xB8) = 0;
     set_animation__10TObjPlayerFPvs(arg0, M2C_FIELD(arg0, s16 *, 0xB8));
     set_field_b8__14TObjEnePanarmsFPvs(arg0, M2C_FIELD(arg0, s16 *, 0xB8));
     reset_hp__9TObjEneDDFPv(arg0, lbl_805D50E0, TObjEneBm3Fly__data_805D50E4, lbl_805D50E8);
     check_state_flag_1__9TObjEneDDFPv(arg0);
-    M2C_FIELD(arg0, void **, 0x350) = lbl_80491B30;
+    M2C_FIELD(arg0, void **, 0x350) = bm3_fly_decision_row;
     initialize_enemy_state__9TObjEneDDFPv(arg0, 3);
     M2C_FIELD(arg0, f32 *, 0x37C) = (5.0f);
     enemy_init_acquire_period(arg0, 0xA);
@@ -4308,7 +4308,7 @@ void load_resources__13TObjEneBm3FlyFv(void) {
     stack.sp14 = M2C_FIELD(&lbl_8043B0FC.value, s32 *, 0xC);
     stack.sp8 = M2C_FIELD(bm3_fly_nest_resources, s32 *, 0x430);
     temp_r5 = (u8 *)(M2C_FIELD(bm3_fly_nest_resources, u8 **, 0x42C));
-    spawn_npc_enemy__6TLobbyFsiiiff((int) (7), (int) (M2C_FIELD(temp_r5, s32 *, 8)), (int) (M2C_FIELD(temp_r5, s32 *, 0xC)), (void *) (&stack.sp8), (f32) (M2C_FIELD(&lbl_80491B4C.value, f32 *, 0xC)), (f32) ((15.0f)));
+    spawn_npc_enemy__6TLobbyFsiiiff((int) (7), (int) (M2C_FIELD(temp_r5, s32 *, 8)), (int) (M2C_FIELD(temp_r5, s32 *, 0xC)), (void *) (&stack.sp8), (f32) (M2C_FIELD(&bm3_fly_collider_params.value, f32 *, 0xC)), (f32) ((15.0f)));
 }
 
 }

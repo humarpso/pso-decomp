@@ -20,7 +20,7 @@ struct Win_8024B098 { virtual s32 m0(); };
 typedef s32 (Win_8024B098::*Pmf_8024B098)();
 s32 TWindowCtrl__sub_8024B098(void *, Pmf_8024B098);
 Win_8024B098 *get_window__11TWindowCtrlFi(void *self);
-extern RecoveredGlobal_8024B054_lbl_804CE9C8 lbl_804CE9C8;
+extern RecoveredGlobal_8024B054_lbl_804CE9C8 window_ctrl_is_visible_callback_entry;
 void is_slot_visible__11TWindowCtrlFi(s32 arg0);
 }
 
@@ -32,9 +32,9 @@ void is_slot_visible__11TWindowCtrlFi(s32 arg0) {
     typedef char spC_offset[(offsetof(Stack_8024B054, spC) == 0x4) ? 1 : -1];
     typedef char sp10_offset[(offsetof(Stack_8024B054, sp10) == 0x8) ? 1 : -1];
     Stack_8024B054 stack;
-    stack.sp8 = M2C_FIELD(&lbl_804CE9C8.value, s32 *, 0);
-    stack.spC = M2C_FIELD(&lbl_804CE9C8.value, s32 *, 4);
-    stack.sp10 = M2C_FIELD(&lbl_804CE9C8.value, s32 *, 8);
+    stack.sp8 = M2C_FIELD(&window_ctrl_is_visible_callback_entry.value, s32 *, 0);
+    stack.spC = M2C_FIELD(&window_ctrl_is_visible_callback_entry.value, s32 *, 4);
+    stack.sp10 = M2C_FIELD(&window_ctrl_is_visible_callback_entry.value, s32 *, 8);
     ((s32 (*)(void *, void *))TWindowCtrl__sub_8024B098)((void *) (arg0), (void *) (&stack.sp8));
 }
 

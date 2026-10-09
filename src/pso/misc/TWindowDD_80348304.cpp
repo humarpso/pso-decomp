@@ -57,10 +57,10 @@ M2C_UNK TWindowDD__sub_80346640();
 
 int test_input_flag_4__9TWindowDDFPv(void* p) { return TWindowDD_check_input_mask((char*)p + 0x1c, 4); }
 
-extern s32 TWindowDD__data_805D6E08;
+extern s32 TWindowDD__window_mode;
 
 void dispatch_state__9TWindowDDFv(void) {
-    switch ((s32) TWindowDD__data_805D6E08) {
+    switch ((s32) TWindowDD__window_mode) {
     case 0:
         TWindowDD__sub_80346640();
         return;
@@ -152,7 +152,7 @@ void close_all_windows__9TWindowDDFPv(void *p) {
     }
 }
 
-extern s32 TWindowDD__data_805D6E08;
+extern s32 TWindowDD__window_mode;
 
 s32 can_append_chars__9TWindowDDFiPv(s32 arg0, s32 *arg1) {
     s32 t = *arg1;
@@ -160,7 +160,7 @@ s32 can_append_chars__9TWindowDDFiPv(s32 arg0, s32 *arg1) {
 }
 
 void update_state__9TWindowDDFv(void) {
-    switch ((s32) TWindowDD__data_805D6E08) {
+    switch ((s32) TWindowDD__window_mode) {
     case 0:
         format_entry_text__9TWindowDDFPvPv();
         return;

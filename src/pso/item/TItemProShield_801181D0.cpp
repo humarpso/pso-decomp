@@ -67,12 +67,12 @@ u8 get_slot_count__14TItemProShieldFPv(void *);
 M2C_UNK init_item_timer_event__10TObjPlayerFPv(int, int, void *, int);
 void TItemProShield__vt42(u8 *arg0);
 int fn_800F953C(void*);
-    extern int lbl_805D54C8;
+    extern int TItemProShield__shield_table;
 void free__14TItemProShieldFv(void);
 M2C_UNK bswap_32__FPUl(s32);
 s32 fn_800F955C(s32);
 extern s32 lbl_805D2C3C;
-extern int lbl_805D54C8;
+extern int TItemProShield__shield_table;
 void load_data__14TItemProShieldFv(void);
 void __dt__14TItemEquipBaseFv(void *, int);
 void free_obj_heap__10TObjPlayerFPv(void *);
@@ -90,7 +90,7 @@ M2C_UNK set_equip_flag__14TItemEquipBaseFPvUc(void *, int);
 M2C_UNK fn_80117FEC(void *);
 extern M2C_UNK __vt__14TItemProShield[];
 extern s32 lbl_805D2C38;
-extern int lbl_805D54C8;
+extern int TItemProShield__shield_table;
 u8 *TItemProShield__ct(u8 *arg0, M2C_UNK arg1, u8 *arg2);
 M2C_UNK add_actor_tp(u32, s32);
 M2C_UNK add_actor_hp(u32, s32);
@@ -260,7 +260,7 @@ u8 *TItemProShield__ct(u8 *arg0, M2C_UNK arg1, u8 *arg2) {
     M2C_FIELD(arg0, s32 *, 0) = (s32) lbl_805D2C38;
     ((VObj_18_1a8f71 *)(arg0))->m17(3);
     M2C_FIELD(arg0, s32 *, 0x18C) = lookup_item_pmt_record(arg2);
-    M2C_FIELD(arg0, s32 *, 0x190) = (s32) ((*(s32 *)&lbl_805D54C8) + ((s8) M2C_FIELD(M2C_FIELD(arg0, s32 *, 0x18C), u8 *, 0xD) * 0x2C));
+    M2C_FIELD(arg0, s32 *, 0x190) = (s32) ((*(s32 *)&TItemProShield__shield_table) + ((s8) M2C_FIELD(M2C_FIELD(arg0, s32 *, 0x18C), u8 *, 0xD) * 0x2C));
     M2C_FIELD(arg0, s32 *, 0x194) = get_shield_pmt_entry__10TObjPlayerFUc(M2C_FIELD(M2C_FIELD(arg0, s32 *, 0x18C), u8 *, 0x19));
     M2C_FIELD(arg0, u8 *, 0x19A) = (u8) M2C_FIELD(M2C_FIELD(arg0, s32 *, 0x18C), u8 *, 0x17);
     M2C_FIELD(arg0, u8 *, 0x19B) = (u8) M2C_FIELD(M2C_FIELD(arg0, s32 *, 0x18C), u8 *, 0x16);
@@ -286,7 +286,7 @@ u8 *create_instance__14TItemProShieldFi(s32 arg0) {
     return NULL;
 }
 
-void free__14TItemProShieldFv(void) { fn_800F953C((void*)(lbl_805D54C8)); lbl_805D54C8 = 0; }
+void free__14TItemProShieldFv(void) { fn_800F953C((void*)(TItemProShield__shield_table)); TItemProShield__shield_table = 0; }
 void load_data__14TItemProShieldFv(void) {
     s32 temp_r3;
     s32 var_r31;
@@ -294,7 +294,7 @@ void load_data__14TItemProShieldFv(void) {
     s32 var_r29;
     s32 var_r28;
     temp_r3 = fn_800F955C(lbl_805D2C3C);
-    (*(s32 *)&lbl_805D54C8) = temp_r3;
+    (*(s32 *)&TItemProShield__shield_table) = temp_r3;
     var_r31 = 0;
     var_r28 = temp_r3;
     do {

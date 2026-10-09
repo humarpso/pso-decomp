@@ -7,7 +7,7 @@ void enable__13TParticleCtrlFPv(void*);
 f32 horizontal_distance_squared(const f32*, const f32*);
 u8* get_player_by_client_id(void*);
 u8 is_current_floor_switch_set(int);
-extern u8* lbl_805D4DF0;
+extern u8* camera_ctrl_instance;
 extern void* lbl_805D53A0;
 extern const f32 lbl_805DBA00;
 }
@@ -23,9 +23,9 @@ void TOSwitchAttackSub::run_task() {
         queue_destruction__7TObjectFv(this);
         return;
     }
-    if (particle != 0 && (player = get_player_by_client_id(lbl_805D53A0)) != 0 && lbl_805D4DF0 != 0) {
-        playerDistance = horizontal_distance_squared((const f32*)(player + 0x38), (const f32*)(lbl_805D4DF0 + 0x178));
-        if (lbl_805DBA00 * horizontal_distance_squared(position, (const f32*)(lbl_805D4DF0 + 0x178)) < playerDistance) {
+    if (particle != 0 && (player = get_player_by_client_id(lbl_805D53A0)) != 0 && camera_ctrl_instance != 0) {
+        playerDistance = horizontal_distance_squared((const f32*)(player + 0x38), (const f32*)(camera_ctrl_instance + 0x178));
+        if (lbl_805DBA00 * horizontal_distance_squared(position, (const f32*)(camera_ctrl_instance + 0x178)) < playerDistance) {
             enable__13TParticleCtrlFPv(particle);
             return;
         }

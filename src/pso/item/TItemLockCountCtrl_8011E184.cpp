@@ -21,7 +21,7 @@ void set_state_flags__10TObjPlayerFPvUi(void* p, u32 v);
 
 extern unsigned char notify_if_active__15TItemTimerEventFi[];
 extern unsigned char check_battle_ctrl__15TItemTimerEventFi[];
-extern void *lbl_805D5508;
+extern void *item_timer_event_instance;
 
 void create_instance__18TItemLockCountCtrlFv(void) {
     void *o;
@@ -29,7 +29,7 @@ void create_instance__18TItemLockCountCtrlFv(void) {
     if (o != NULL) {
         o = TItemLockCountCtrl__ct(o, 0, 12, notify_if_active__15TItemTimerEventFi, check_battle_ctrl__15TItemTimerEventFi);
     }
-    lbl_805D5508 = o;
+    item_timer_event_instance = o;
 }
 
 void fn_8011E1D4(u8 *arg0) {

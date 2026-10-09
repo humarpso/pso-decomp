@@ -1,2 +1,9 @@
-#define PSO_CLASS_PACKAGE 0x8031C18C
-#include "pso/enemy/TObjEneRecon.cpp"
+#include "types.h"
+
+extern "C" {
+
+void TObjEneRecon__vt103(void);
+
+void TObjEneRecon__vt103(void) {  }
+
+}

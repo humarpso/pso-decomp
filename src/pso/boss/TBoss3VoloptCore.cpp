@@ -145,7 +145,7 @@ M2C_UNK minimap_render_dot(void *, M2C_UNK, M2C_UNK, M2C_UNK);
 void * __nw__7TObjectFUl(int);
 M2C_UNK vec3_add_to(void *, void *);
 M2C_UNK subtract_vector(void *, void *);
-extern M2C_UNK lbl_804FEEE8[];
+extern M2C_UNK volopt_slot_positions[];
 extern const f32 lbl_805D86D0;
 extern const f32 lbl_805D86DC;
 extern const f32 lbl_805D86E0;
@@ -714,7 +714,7 @@ M2C_UNK post_translate_matrix(void *);
 M2C_UNK set_global_param__8TObjFishFi(s32);
 M2C_UNK draw_chunk_object(s32);
 
-extern Slot_8003F730 lbl_804FEED0[];
+extern Slot_8003F730 volopt_target_slot_used[];
 extern u16 lbl_805D271C;
 extern s32 lbl_805D2728;
 extern int boss3_volopt_resources;
@@ -971,7 +971,7 @@ void update_object_view_visibility();
 extern "C" {
 void update_poison_status__10TObjPlayerFv();
 }
-void *lbl_80483978[20] = {
+void *boss3_volopt_core_hit_table[20] = {
     (void *)0x10000, (void *)0xe, (void *)0x3f333333, (void *)0x0,
     (void *)0x10000, (void *)0xe, (void *)0x3f333333, (void *)0x1,
     (void *)0x20000, (void *)0xe, (void *)0x3f333333, (void *)0x4,
@@ -1096,7 +1096,7 @@ s32 alloc_boss_target_slot__10TObjPlayerFPvi(Obj_8003F730 *self, s32 _w1) {
     s32 idx;
     for (i = 0; i < 6; i++) {
         idx = (self->slot + 6 - i) % 6;
-        if (lbl_804FEED0[idx].used == 0) {
+        if (volopt_target_slot_used[idx].used == 0) {
             self->slot = idx;
             break;
         }
@@ -1456,7 +1456,7 @@ void TObjPlayer__sub_800401CC(u8 *arg0) {
             sp8.c = 0x4000;
             obj = __nw__7TObjectFUl(0x48);
             if (obj != 0) {
-                TBoss3Volopt__sub_8004885C(obj, (u8 *)lbl_804FEEE8 + M2C_FIELD(arg0, s32 *, 0x3A8) * 0xC, 0x11B, 8, &sp8, lbl_805D86DC, lbl_805D86D0);
+                TBoss3Volopt__sub_8004885C(obj, (u8 *)volopt_slot_positions + M2C_FIELD(arg0, s32 *, 0x3A8) * 0xC, 0x11B, 8, &sp8, lbl_805D86DC, lbl_805D86D0);
             }
         }
         break;
@@ -1636,7 +1636,7 @@ void TBoss3VoloptCore__ct(VObj_80040894 *arg0) {
 
     M2C_FIELD(arg0, s32 *, 0) = lbl_805D2728;
     M2C_FIELD(arg0, s32 *, 0xDC) = M2C_FIELD((*(void * *)&lbl_805D4C60), s32 *, 0x430);
-    M2C_FIELD(arg0, void **, 0xD8) = lbl_80483978;
+    M2C_FIELD(arg0, void **, 0xD8) = boss3_volopt_core_hit_table;
     set_field_d8__10TObjPlayerFPvi(arg0, M2C_FIELD(arg0, void **, 0xD8));
     init_collision_body_parts(arg0, lbl_804839E4, 1);
     M2C_FIELD(arg0, s32 *, 0x368) = 0;

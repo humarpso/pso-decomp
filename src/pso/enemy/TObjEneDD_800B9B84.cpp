@@ -9,7 +9,7 @@ M2C_UNK VecCopy__FP3VecPC3Vec(void *, void *);
 f32 update_scale__15TObjBoss2TunnelFPv(void *);
 M2C_UNK vec3_add_to(void *, void *, f32);
 M2C_UNK subtract_vector(void *, void *);
-extern s32 lbl_805D4DF0;
+extern s32 camera_ctrl_instance;
 void project_sound_origin_from_camera(s32 arg0, u8 *arg1, f32 farg0);
 }
 
@@ -44,12 +44,12 @@ int get_target_state_b__9TObjEneDDFPv(void* p) { return freeze_all_players__10TO
 void project_sound_origin_from_camera(s32 arg0, u8 *arg1, f32 farg0) {
     f32 temp_f1;
     VecCopy__FP3VecPC3Vec((void *) (arg1), (void *) (arg0));
-    subtract_vector((void *) (arg1), (void *) (lbl_805D4DF0 + 0x178));
+    subtract_vector((void *) (arg1), (void *) (camera_ctrl_instance + 0x178));
     { f32 s = update_scale__15TObjBoss2TunnelFPv((void *) (arg1)); temp_f1 = s * farg0; }
     M2C_FIELD(arg1, f32 *, 0) = (f32) (M2C_FIELD(arg1, f32 *, 0) * temp_f1);
     M2C_FIELD(arg1, f32 *, 4) = (f32) (M2C_FIELD(arg1, f32 *, 4) * temp_f1);
     M2C_FIELD(arg1, f32 *, 8) = (f32) (M2C_FIELD(arg1, f32 *, 8) * temp_f1);
-    vec3_add_to((void *) (arg1), (void *) (lbl_805D4DF0 + 0x178), (f32) (temp_f1));
+    vec3_add_to((void *) (arg1), (void *) (camera_ctrl_instance + 0x178), (f32) (temp_f1));
 }
 
 int query_teammate_state__9TObjEneDDFPv(void* p) { return is_any_teammate_in_state__10TObjPlayerFv(p); }

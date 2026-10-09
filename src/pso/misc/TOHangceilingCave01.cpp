@@ -874,7 +874,7 @@ M2C_UNK spawn_particle_effect(void *, M2C_UNK);
 s32 check_demo_mode__10TObjPlayerFv();
 f32 xz_distance_squared(void *, void *);
 M2C_UNK transform_point_by_current_matrix(void *, void *);
-extern s32 lbl_805D4DF0;
+extern s32 camera_ctrl_instance;
 extern const f32 lbl_805DB664;
 extern const f32 lbl_805DB698;
 extern const f32 lbl_805DB69C;
@@ -987,7 +987,7 @@ void check_player_trigger__19TOHangceilingCave01FPv(u8 *arg0) {
 bool TOHangceilingCave01__sub_801688C0(u8 *arg0) {
     f32 sp8[3];
 
-    if (xz_distance_squared((void *) (arg0 + 0x38), (void *) (lbl_805D4DF0 + 0x178)) < lbl_805DB698) {
+    if (xz_distance_squared((void *) (arg0 + 0x38), (void *) (camera_ctrl_instance + 0x178)) < lbl_805DB698) {
         M2C_FIELD(arg0, s16 *, 0x1E) = 1;
         return 1;
     }

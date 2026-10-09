@@ -1717,12 +1717,12 @@ struct Params_80491DA0 { f32 f00; u32 w[6]; };
 struct Coll_80491DBC { u32 w0[3]; f32 radius; u32 w1[2]; u32 flags; u32 w2[4]; };
 struct Res_80491E34 { void *bml; void *models; void *motions; u16 nmodels; u16 nmotions; };
 struct Hit_80491E44 { u16 kind; u16 pad; u32 part; f32 scale; u32 zero; };
-Params_80491DA0 lbl_80491DA0 = { 225.0f, { 0x0, 0x600, 0x0, 0x0, 0x0, 0x0 } };
-Coll_80491DBC lbl_80491DBC = { { 0x0, 0x0, 0x0 }, 10.0f, { 0x0, 0x0 }, 0x8003, { 0x0, 0x0, 0x0, 0x0 } };
+Params_80491DA0 bm3_fly_nest_params = { 225.0f, { 0x0, 0x600, 0x0, 0x0, 0x0, 0x0 } };
+Coll_80491DBC bm3_flynest_collider_params = { { 0x0, 0x0, 0x0 }, 10.0f, { 0x0, 0x0 }, 0x8003, { 0x0, 0x0, 0x0, 0x0 } };
 void *lbl_80491DE8[3] = { lbl_8043B120, lbl_8043B130, 0 };
 void *lbl_80491DF4[16] = { lbl_8043B140, lbl_8043B158, lbl_8043B170, lbl_8043B184, lbl_8043B19C, lbl_8043B1B0, lbl_8043B1C4, lbl_8043B1DC, lbl_8043B1F4, lbl_8043B20C, lbl_8043B220, lbl_8043B238, lbl_8043B24C, lbl_8043B264, lbl_8043B27C, 0 };
-Res_80491E34 lbl_80491E34 = { lbl_8043B290, lbl_80491DE8, lbl_80491DF4, 0x2, 0xf };
-Hit_80491E44 lbl_80491E44[10] = { { 0x1, 0x0, 0xe, 0.30000001192092896f, 0x0 }, { 0x3, 0x0, 0x9, 0.699999988079071f, 0x0 }, { 0x3, 0x0, 0x2, 1.0f, 0x0 }, { 0x3, 0x0, 0x5, 0.5f, 0x0 }, { 0x1, 0x0, 0x8, 0.30000001192092896f, 0x0 }, { 0x3, 0x0, 0x7, 0.699999988079071f, 0x0 }, { 0x3, 0x0, 0x6, 1.0f, 0x0 }, { 0x3, 0x0, 0x4, 0.30000001192092896f, 0x0 }, { 0x1, 0x0, 0xd, 0.30000001192092896f, 0x0 }, { 0x3, 0x0, 0xb, 0.20000000298023224f, 0x0 } };
+Res_80491E34 bm3_fly_nest_resource_desc = { lbl_8043B290, lbl_80491DE8, lbl_80491DF4, 0x2, 0xf };
+Hit_80491E44 bm3_flynest_hit_action_table[10] = { { 0x1, 0x0, 0xe, 0.30000001192092896f, 0x0 }, { 0x3, 0x0, 0x9, 0.699999988079071f, 0x0 }, { 0x3, 0x0, 0x2, 1.0f, 0x0 }, { 0x3, 0x0, 0x5, 0.5f, 0x0 }, { 0x1, 0x0, 0x8, 0.30000001192092896f, 0x0 }, { 0x3, 0x0, 0x7, 0.699999988079071f, 0x0 }, { 0x3, 0x0, 0x6, 1.0f, 0x0 }, { 0x3, 0x0, 0x4, 0.30000001192092896f, 0x0 }, { 0x1, 0x0, 0xd, 0.30000001192092896f, 0x0 }, { 0x3, 0x0, 0xb, 0.20000000298023224f, 0x0 } };
 void *lbl_80491EE4[106] = {
     0, 0, (void *)TObjEneBm3FlyNest__sub_800B3E40, (void *)run_task__17TObjEneBm3FlyNestFPv,
     (void *)render__17TObjEneBm3FlyNestFPv, (void *)render_shadow__17TObjEneBm3FlyNestFv, (void *)TLobby__sub_801A1FD8, (void *)apply_object_set_data,
@@ -1768,7 +1768,7 @@ extern char lbl_8043B348[];
 extern char lbl_8043B358[];
 extern char lbl_8043B368[];
 extern const f64 lbl_8043B398[];
-extern RecoveredGlobal_800B22C8_lbl_80491B4C lbl_80491B4C;
+extern RecoveredGlobal_800B22C8_lbl_80491B4C bm3_fly_collider_params;
 extern M2C_UNK lbl_804920B4[];
 typedef struct Ctl_800B47C4 {
     f32 *pv;
@@ -2719,17 +2719,17 @@ void *TObjEneBm3FlyNest__ct(void *arg0, void *arg1, void *arg2) {
     init_position_vectors__9TObjEneDDFPv(self);
     self->f34 = *(s32 *)(*(u8 **)((int)lbl_805D5108 + 0x42C) + 0x18);
     self->f24 = *(s32 *)(*(u8 **)((int)lbl_805D5108 + 0x42C) + 0xC);
-    init_model__9TObjEneDDFPv(self, &lbl_80491DBC, 1);
+    init_model__9TObjEneDDFPv(self, &bm3_flynest_collider_params, 1);
     self->f300 = lbl_805D9D20 + self->pos.y;
     ((VObj_800B3EB8 *)self)->m86();
-    set_field_d8__10TObjPlayerFPvi(self, lbl_80491E44);
+    set_field_d8__10TObjPlayerFPvi(self, bm3_flynest_hit_action_table);
     set_field_dc__10TObjPlayerFPvi(self, *(s32 *)((int)lbl_805D5108 + 0x430));
     self->fB8 = 0;
     set_animation__10TObjPlayerFPvs(self, self->fB8);
     set_field_b8__14TObjEnePanarmsFPvs(self, self->fB8);
     reset_hp__9TObjEneDDFPv(self, lbl_805D50F8, lbl_805D50FC, lbl_805D5100);
     check_state_flag_1__9TObjEneDDFPv(self);
-    self->f350 = &lbl_80491DA0;
+    self->f350 = &bm3_fly_nest_params;
     initialize_enemy_state__9TObjEneDDFPv(self, 4);
     self->f37C = lbl_805D9D10;
     init_params__17TObjEneBm3FlyNestFPv(self);
@@ -2803,9 +2803,9 @@ void load_resources__17TObjEneBm3FlyNestFv(void) {
     lbl_805D5114 = 0;
     bm3_fly_nest_attachment_index = 0;
     if (check_v2_mode__9TObjEneDDFv() != 0) {
-        lbl_805D5108 = load_enemy_bml_resource_named(&lbl_80491E34, (void *)lbl_8043B380);
+        lbl_805D5108 = load_enemy_bml_resource_named(&bm3_fly_nest_resource_desc, (void *)lbl_8043B380);
     } else {
-        lbl_805D5108 = load_enemy_bml_resource(&lbl_80491E34);
+        lbl_805D5108 = load_enemy_bml_resource(&bm3_fly_nest_resource_desc);
     }
     lbl_805D50F8 = register_boss__6TLobbyFPv(1);
     lbl_805D50FC = dispatch_shared_handler_b__6TLobbyFPv(1);
@@ -2817,7 +2817,7 @@ void load_resources__17TObjEneBm3FlyNestFv(void) {
         Anim_800B41E8 anim = lbl_8043B2F4;
         anim.motions = ((Res_800B41E8 *)lbl_805D5108)->motions;
         bodies = (Bodies_800B41E8 *)((Res_800B41E8 *)lbl_805D5108)->bodies;
-        spawn_npc_enemy__6TLobbyFsiiiff(8, bodies->model, bodies->textures, &anim, lbl_80491DBC.radius, 0.0f);
+        spawn_npc_enemy__6TLobbyFsiiiff(8, bodies->model, bodies->textures, &anim, bm3_flynest_collider_params.radius, 0.0f);
     }
 }
 

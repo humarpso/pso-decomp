@@ -8,9 +8,9 @@ extern "C" {
 int reset_item_id_counters__6TLobbyFv(void);
 int alloc_buffer__11TOBoss4RockFPv(void*);
     extern int lbl_805D54E0;
-    extern int lbl_805D54E4;
-extern s32 lbl_805D54E8;
-extern s32 lbl_805D54EC;
+    extern int build_item_id_mode;
+extern s32 item_sync_counter_table;
+extern s32 item_id_counter_table;
 void* init_bosses__6TLobbyFPv(void* a0);
 int TLobby__send_and_handle_60(void*);
 void send_item_packet__6TLobbyFPv(void* p);
@@ -34,22 +34,22 @@ s32 free_rock_objects__6TLobbyFis(s32 arg0, s16 arg1);
 M2C_UNK __dl__FPv(s32);
 M2C_UNK free__11TOBoss4RockFUi(s32);
 
-extern s32 lbl_805D54E8;
-extern s32 lbl_805D54EC;
+extern s32 item_sync_counter_table;
+extern s32 item_id_counter_table;
 
 s32 free_rock_objects__6TLobbyFis(s32 arg0, s16 arg1) {
     if (arg0 != 0) {
-        free__11TOBoss4RockFUi(lbl_805D54E8);
-        lbl_805D54E8 = 0;
-        free__11TOBoss4RockFUi(lbl_805D54EC);
-        lbl_805D54EC = 0;
+        free__11TOBoss4RockFUi(item_sync_counter_table);
+        item_sync_counter_table = 0;
+        free__11TOBoss4RockFUi(item_id_counter_table);
+        item_id_counter_table = 0;
         if (arg1 > 0) {
             __dl__FPv(arg0);
         }
     }
     return arg0;
 }
-void* init_bosses__6TLobbyFPv(void* a0) { (*(int *)&lbl_805D54EC) = alloc_buffer__11TOBoss4RockFPv((void*)48); (*(int *)&lbl_805D54E8) = alloc_buffer__11TOBoss4RockFPv((void*)48); reset_item_id_counters__6TLobbyFv(); lbl_805D54E0 = 0; lbl_805D54E4 = 0; return a0; }
+void* init_bosses__6TLobbyFPv(void* a0) { (*(int *)&item_id_counter_table) = alloc_buffer__11TOBoss4RockFPv((void*)48); (*(int *)&item_sync_counter_table) = alloc_buffer__11TOBoss4RockFPv((void*)48); reset_item_id_counters__6TLobbyFv(); lbl_805D54E0 = 0; build_item_id_mode = 0; return a0; }
 void send_item_packet__6TLobbyFPv(void* p) { bswap_item_packet__6TLobbyFPv((void*)((void*)(p))); TLobby__send_and_handle_60(p); }
 void bswap_item_packet__6TLobbyFPv(void* p) { read_be16_field2__10TObjPlayerFPv(p); bswap_item__6TLobbyFPv((char*)p + 0x4); }
 void *init_header_packet__6TLobbyFPv(void *arg0) {

@@ -20,12 +20,12 @@ void destroy_particle__13TParticleCtrlFPvs(void *, int);
 M2C_UNK end_effect_render__13TParticleCtrlFv();
 M2C_UNK set_global_param__8TObjFishFi(s32);
 
-extern u8 *lbl_805D4DF0;
+extern u8 *camera_ctrl_instance;
 
 void render__14TPhotonRainbowFv(u8 *arg0) {
-    if ((void *) lbl_805D4DF0 != NULL) {
-        M2C_FIELD(arg0, f32 *, 0x38) = (f32) M2C_FIELD(lbl_805D4DF0, f32 *, 0x178);
-        M2C_FIELD(arg0, f32 *, 0x40) = (f32) M2C_FIELD(lbl_805D4DF0, f32 *, 0x180);
+    if ((void *) camera_ctrl_instance != NULL) {
+        M2C_FIELD(arg0, f32 *, 0x38) = (f32) M2C_FIELD(camera_ctrl_instance, f32 *, 0x178);
+        M2C_FIELD(arg0, f32 *, 0x40) = (f32) M2C_FIELD(camera_ctrl_instance, f32 *, 0x180);
     }
     begin_effect_render__13TParticleCtrlFv();
     push_matrix();

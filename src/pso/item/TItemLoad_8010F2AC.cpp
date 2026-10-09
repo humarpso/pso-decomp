@@ -16,7 +16,7 @@ s32 update_item__9TItemLoadFPv(u32);
 
 extern u32 lbl_805D549C;
 extern u32 lbl_805D54A0;
-extern s32 lbl_805D54A4;
+extern s32 item_load_model_buffer;
 
 void update_load__9TItemLoadFPv(u8 *arg0) {
     s32 temp_r0;
@@ -28,7 +28,7 @@ void update_load__9TItemLoadFPv(u8 *arg0) {
     switch (temp_r0) {
     case 1:
         if (((u32) lbl_805D54A0 != 0U) && ((u32) lbl_805D549C != 0U)) {
-            start_load_with_id__9TItemLoadFPvii(lbl_805D54A0, lbl_805D54A4 + (M2C_FIELD(arg0, s32 *, 0x1C) * 0x2C00), M2C_FIELD(arg0, s32 *, 0x24));
+            start_load_with_id__9TItemLoadFPvii(lbl_805D54A0, item_load_model_buffer + (M2C_FIELD(arg0, s32 *, 0x1C) * 0x2C00), M2C_FIELD(arg0, s32 *, 0x24));
             M2C_FIELD(arg0, s32 *, 0x20) = 2;
         }
         return;

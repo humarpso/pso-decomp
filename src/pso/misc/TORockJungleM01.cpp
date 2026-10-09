@@ -70,6 +70,30 @@ struct Rd_8029C6FC {
     s32 fading;
 };
 
+struct Vec_8029C390 { f32 x, y, z; };
+
+struct ChipParam_8029C390 {
+    u32 x00;
+    u32 x04;
+    u32 x08;
+    Vec_8029C390 pos;
+    u8 pad18[0x20];
+    f32 y2;
+    u32 pad3C;
+    s32 res;
+    s32 res2;
+    u32 x48;
+};
+
+struct Offs_8029C390 { Vec_8029C390 v[1]; };
+
+struct Rock_8029C390 {
+    u8 pad[0x38];
+    Vec_8029C390 pos;
+    u8 pad44[0x60 - 0x44];
+    s32 x60;
+};
+
 extern "C" {
 s32 VecCopy__FP3VecPC3Vec(void *, void *);
 s32 activate_and_dispatch__10TObjPlayerFPv(void *);
@@ -95,6 +119,21 @@ s32 is_not_split_screen__13TRaderMapCoreFv();
 void matrix_mult_vec(s32, void *, void *);
 extern const f32 lbl_805DDD18;
 void TORockJungleM01__vt12(Rd_8029C6FC *arg0);
+s32 VecCopy__FP3VecPC3Vec(void *, void *);
+void *construct_debris__8TObjChipFPvPvPv(void *, void *, void *);
+void *__nw__7TObjectFUl(int);
+s32 TORockJungleS01__sub_8029CAE8(int);
+u8 *get_model__15TORockJungleS01Fi(s32);
+int vec3_add_to(void *, void *);
+int rotate_vector_by_matrix(int, void *, void *);
+int rotate_matrix_y(int, int);
+int push_matrix_from(void *);
+int pop_matrix();
+extern Offs_8029C390 lbl_80465884;
+extern ChipParam_8029C390 lbl_80465890;
+extern u8 lbl_8058D490[];
+extern void *tl_05;
+void TORockJungleM01__vt14(Rock_8029C390 *self);
 }
 
 extern "C" {
@@ -120,6 +159,33 @@ void run_task__15TORockJungleM01Fv(void* p) { update_obstruction_fade((char*)p +
 
 void TORockJungleM01__vt16(s32 arg0) {
     play_sound_effect(0x4BC19, arg0 + 0x38, 0, 0);
+}
+
+void TORockJungleM01__vt14(Rock_8029C390 *self) {
+    Offs_8029C390 a = lbl_80465884;
+    ChipParam_8029C390 chip = lbl_80465890;
+    Vec_8029C390 v;
+    s32 i;
+    void *o;
+    chip.pos.x = self->pos.x;
+    chip.pos.y = self->pos.y;
+    chip.pos.z = self->pos.z;
+    chip.y2 = chip.pos.y;
+    for (i = 0; i < 1; i++) {
+        VecCopy__FP3VecPC3Vec(&v, &a.v[i]);
+        push_matrix_from(lbl_8058D490);
+        rotate_matrix_y(0, self->x60);
+        rotate_vector_by_matrix(0, &v, &v);
+        pop_matrix();
+        VecCopy__FP3VecPC3Vec(&chip.pos, &self->pos);
+        vec3_add_to(&chip.pos, &v);
+        chip.res = (s32)get_model__15TORockJungleS01Fi(3);
+        chip.res2 = TORockJungleS01__sub_8029CAE8(3);
+        o = __nw__7TObjectFUl(0x234);
+        if (o != NULL) {
+            construct_debris__8TObjChipFPvPvPv(o, tl_05, &chip);
+        }
+    }
 }
 
 void *create__15TORockJungleM01FPv(void *arg0) {

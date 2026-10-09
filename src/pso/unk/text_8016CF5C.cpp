@@ -44,12 +44,12 @@ extern const f32 lbl_805DB78C;
 void TOKeyMachine01__vt15(u8 *arg0);
 s32 get_global_state__14TOKeyMachine01Fv(void);
 s32 play_sound_effect(s32, u32, s16, s32);
-extern RecoveredGlobal_8016D1A8_lbl_80441D84 lbl_80441D84;
+extern RecoveredGlobal_8016D1A8_lbl_80441D84 key_machine01_state_table;
 extern s32 enable_v2_features;
 void TOKeyMachine01__vt17(s32 arg0);
 s32 get_global_state__14TOKeyMachine01Fv(void);
 s32 play_sound_effect(s32, u32, s16, s32);
-extern RecoveredGlobal_8016D1A8_lbl_80441D84 lbl_80441D84;
+extern RecoveredGlobal_8016D1A8_lbl_80441D84 key_machine01_state_table;
 extern s32 enable_v2_features;
 void TOKeyMachine01__vt16(s32 arg0);
 extern const f32 lbl_805DB790;
@@ -155,17 +155,17 @@ void TOKeyMachine01__vt17(s32 arg0) {
     s32 temp_r3_2;
     s32 temp_r3_3;
     if (((s32) enable_v2_features == 1) && ((get_global_state__14TOKeyMachine01Fv() == 0x10) || (get_global_state__14TOKeyMachine01Fv() == 0x11))) {
-        temp_r3 = M2C_FIELD(&lbl_80441D84.value, M2C_UNK *, (get_global_state__14TOKeyMachine01Fv() * 4));
+        temp_r3 = M2C_FIELD(&key_machine01_state_table.value, M2C_UNK *, (get_global_state__14TOKeyMachine01Fv() * 4));
         if (temp_r3 >= 0) {
             play_sound_effect(temp_r3, arg0 + 0x38, 0, 0);
         }
     } else if (((s32) enable_v2_features == 1) && ((get_global_state__14TOKeyMachine01Fv() == 1) || (get_global_state__14TOKeyMachine01Fv() == 2))) {
-        temp_r3_2 = M2C_FIELD(&lbl_80441D84.value, M2C_UNK *, (get_global_state__14TOKeyMachine01Fv() * 4));
+        temp_r3_2 = M2C_FIELD(&key_machine01_state_table.value, M2C_UNK *, (get_global_state__14TOKeyMachine01Fv() * 4));
         if (temp_r3_2 >= 0) {
             play_sound_effect(temp_r3_2, arg0 + 0x38, 0, 0);
         }
     } else {
-        temp_r3_3 = M2C_FIELD(&lbl_80441D84.value, M2C_UNK *, (get_global_state__14TOKeyMachine01Fv() * 4));
+        temp_r3_3 = M2C_FIELD(&key_machine01_state_table.value, M2C_UNK *, (get_global_state__14TOKeyMachine01Fv() * 4));
         if (temp_r3_3 >= 0) {
             play_sound_effect(temp_r3_3, arg0 + 0x38, 0, 0);
         }
@@ -178,17 +178,17 @@ void TOKeyMachine01__vt16(s32 arg0) {
     s32 temp_r3_2;
     s32 temp_r3_3;
     if (((s32) enable_v2_features == 1) && ((get_global_state__14TOKeyMachine01Fv() == 0x10) || (get_global_state__14TOKeyMachine01Fv() == 0x11))) {
-        temp_r3 = M2C_FIELD(&(*(RecoveredGlobal_8016D2A4_lbl_80441D84 *)&lbl_80441D84).value, M2C_UNK *, (get_global_state__14TOKeyMachine01Fv() * 4));
+        temp_r3 = M2C_FIELD(&(*(RecoveredGlobal_8016D2A4_lbl_80441D84 *)&key_machine01_state_table).value, M2C_UNK *, (get_global_state__14TOKeyMachine01Fv() * 4));
         if (temp_r3 >= 0) {
             play_sound_effect(temp_r3, arg0 + 0x38, 0, 0);
         }
     } else if (((s32) enable_v2_features == 1) && ((get_global_state__14TOKeyMachine01Fv() == 1) || (get_global_state__14TOKeyMachine01Fv() == 2))) {
-        temp_r3_2 = M2C_FIELD(&(*(RecoveredGlobal_8016D2A4_lbl_80441D84 *)&lbl_80441D84).value, M2C_UNK *, (get_global_state__14TOKeyMachine01Fv() * 4));
+        temp_r3_2 = M2C_FIELD(&(*(RecoveredGlobal_8016D2A4_lbl_80441D84 *)&key_machine01_state_table).value, M2C_UNK *, (get_global_state__14TOKeyMachine01Fv() * 4));
         if (temp_r3_2 >= 0) {
             play_sound_effect(temp_r3_2, arg0 + 0x38, 0, 0);
         }
     } else {
-        temp_r3_3 = M2C_FIELD(&(*(RecoveredGlobal_8016D2A4_lbl_80441D84 *)&lbl_80441D84).value, M2C_UNK *, (get_global_state__14TOKeyMachine01Fv() * 4));
+        temp_r3_3 = M2C_FIELD(&(*(RecoveredGlobal_8016D2A4_lbl_80441D84 *)&key_machine01_state_table).value, M2C_UNK *, (get_global_state__14TOKeyMachine01Fv() * 4));
         if (temp_r3_3 >= 0) {
             play_sound_effect(temp_r3_3, arg0 + 0x38, 0, 0);
         }

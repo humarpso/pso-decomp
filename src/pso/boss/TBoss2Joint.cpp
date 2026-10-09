@@ -387,7 +387,7 @@ void free_collision_body_parts(void *);
 s32 VecCopy__FP3VecPC3Vec(s32, s32);
 void __dl__7TObjectFPv(void *);
 
-__declspec(section ".data") void *lbl_80482A50[2] = {
+__declspec(section ".data") void *TBoss2Joint__param_table[2] = {
     (void *)0x10, (void *)0x10,
 };
 __declspec(section ".data") void *lbl_80482A58[2] = {
@@ -400,7 +400,7 @@ void *lbl_80482A60[20] = {
     (void *)0x42480000, (void *)0x0, (void *)0x0, (void *)0x8003,
     (void *)0x0, (void *)0x0, (void *)0x0, (void *)0x0,
 };
-#define lbl_80482A50 (*(Param_80036EA8 *)lbl_80482A50)
+#define TBoss2Joint__param_table (*(Param_80036EA8 *)TBoss2Joint__param_table)
 
 void TBoss2Joint__sub_8003688C(u8 *arg0) {
   u32 temp_r5;
@@ -454,7 +454,7 @@ void *__nw__7TObjectFUl(u32);
 void TBoss2Joint__vt102(Obj_80036ACC *self) {
     self->f38C = self->f38C | 1;
     reload_stats_keep_hp_tp__9TObjEneDDFPv(self,
-        register_boss__6TLobbyFPv(((Ent_80036ACC *)&lbl_80482A50)->b),
+        register_boss__6TLobbyFPv(((Ent_80036ACC *)&TBoss2Joint__param_table)->b),
         dispatch_shared_handler_b__6TLobbyFPv(((Ent_80036ACC *)lbl_80482A58)->b),
         register_object__6TLobbyFPv(((Ent_80036ACC *)lbl_80482A60)->b));
     self->f32C = 0x4E20;
@@ -564,7 +564,7 @@ typedef s32 M2C_UNK;
 M2C_UNK init_params__11TBoss2JointFPv(void *arg0) {
     Param_80036EA8 *prm;
     Joint_80036EA8 *self = (Joint_80036EA8 *)arg0;
-    prm = &lbl_80482A50;
+    prm = &TBoss2Joint__param_table;
     init_position_vectors__9TObjEneDDFPv(self);
     self->unk34 = 0;
     self->unk24 = 0;

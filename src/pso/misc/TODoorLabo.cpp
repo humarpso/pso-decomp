@@ -52,7 +52,7 @@ void init_field_d4__16TODoorLaboNormalFPv(void* a0);
 void TODoorFourLightBase__ct(void *);
 s32 count_linked_switches__23TObjSeabedSuisoBrakableFUii(u32, s32);
 extern Tbl_8029F7E0 lbl_80466014;
-extern Tbl_8029FAE4 lbl_80465FD8;
+extern Tbl_8029FAE4 door_labo_link_table;
 extern u8 lbl_804DC864[];
 extern M2C_UNK __vt__16TODoorLaboNormal[];
 extern M2C_UNK __vt__10TODoorLabo[];
@@ -222,7 +222,7 @@ Door_8029FAE4 *TODoorLabo__ct(Door_8029FAE4 *arg0) {
     arg0->fBC = (u8 *)get_bml_motion(lbl_805D6618, 0);
     arg0->fB4 = (f32)M2C_FIELD(arg0->fBC, u32 *, 4) - lbl_805DDDB8;
     arg0->fB8 = lbl_805DDDBC;
-    tbl = lbl_80465FD8;
+    tbl = door_labo_link_table;
     for (i = 0; i < 8; i++) {
         if (tbl.v[i] != -1) {
             arg0->sw[i] = count_linked_switches__23TObjSeabedSuisoBrakableFUii(arg0->fD4, tbl.v[i]);
@@ -367,7 +367,7 @@ struct Door_8029FD70 {
 };
 
 M2C_UNK clamp_light_index__19TODoorFourLightBaseFPv(void *);
-extern Tbl_8029FD70 lbl_80465FAC;
+extern Tbl_8029FD70 door_four_light_seabed_u_table;
 extern M2C_UNK __vt__22TODoorFourLightSeabedU[];
 extern s32 odoor_four_light_seabed_u_class_name;
 extern u32 lbl_805D660C;
@@ -388,7 +388,7 @@ u8 *TODoorFourLightSeabedU__ct(u8 *arg0) {
     self->fB4 = (f32)self->infoBC->v4 - lbl_805DDDB8;
     self->fB8 = lbl_805DDDBC;
     {
-        Tbl_8029FD70 tbl = lbl_80465FAC;
+        Tbl_8029FD70 tbl = door_four_light_seabed_u_table;
         for (i = 0; i < 8; i++) {
             self->fD8[i] = count_linked_switches__23TObjSeabedSuisoBrakableFUii(self->fD4, tbl.w[i]);
         }
@@ -549,7 +549,7 @@ M2C_UNK clamp_light_index__19TODoorFourLightBaseFPv(void *);
 extern Tbl_802A0068 lbl_80465F74;
 extern M2C_UNK __vt__21TODoorFourLightSeabed[];
 extern s32 TODoorFourLightSeabed__class_name;
-extern s32 lbl_805D6600;
+extern s32 door_labo_bml_resource;
 extern const f32 lbl_805DDDB8;
 extern const f32 lbl_805DDDBC;
 
@@ -562,8 +562,8 @@ u8 *TODoorFourLightSeabed__ct(u8 *arg0) {
     init_collision_body_parts(arg0, lbl_804DC864, 1);
     refresh_collision_body_centers(arg0);
     reset_photon_effect__10TObjPlayerFPv(arg0);
-    self->fD4 = get_bml_model(lbl_805D6600, 0);
-    self->infoBC = (Info_802A0068 *)get_bml_motion(lbl_805D6600, 0);
+    self->fD4 = get_bml_model(door_labo_bml_resource, 0);
+    self->infoBC = (Info_802A0068 *)get_bml_motion(door_labo_bml_resource, 0);
     self->fB4 = (f32)self->infoBC->v4 - lbl_805DDDB8;
     self->fB8 = lbl_805DDDBC;
     {

@@ -316,7 +316,7 @@ s32 get_global_state__14TOKeyMachine01Fv(void);
 void TTecLuker__sub_8023503C(void* p);
 void TTecLuker__sub_80235048(void* p);
 s32 is_parents_unqueued__9TTecLukerFUi(u32);
-extern s32 lbl_805D4DF0;
+extern s32 camera_ctrl_instance;
 extern const f32 lbl_805DC864;
 extern const f32 lbl_805DC868;
 void update_telepipe_visual(Obj_802342A4 *self);
@@ -678,7 +678,7 @@ void update_telepipe_visual(Obj_802342A4 *self) {
     }
     return;
   }
-  if (horizontal_distance_squared(&self->pos, (void *) (lbl_805D4DF0 + 0x178)) >= lbl_805DC868)
+  if (horizontal_distance_squared(&self->pos, (void *) (camera_ctrl_instance + 0x178)) >= lbl_805DC868)
   {
     for (i = 0; i < 3; i++)
     {

@@ -107,6 +107,21 @@ struct Kb_803F132C {
     u8 pad64[4];
 };
 
+struct Kb_803F1604 {
+    u8 type;
+    u8 pad1[6];
+    u8 resp[8];
+    u8 padF[0xD];
+    s32 err;
+    u8 pad20[0x14];
+    u8 prev[4];
+    u8 cur[4];
+    u8 queue[32];
+    u32 count;
+    u32 head;
+    u8 pad64[4];
+};
+
 extern "C" {
 extern RecoveredGlobal_803F1548_lbl_805A2720 keyboard_pad_state_table;
 u8 TKeyBoardControl__sub_803F1548(s32 arg0);
@@ -161,6 +176,18 @@ extern RecoveredGlobal_803F1548_lbl_805A2720 keyboard_pad_state_table;
 void *memset(void *, int, u32);
 void update_pressed_keys__16TKeyBoardControlFPv(Kbd_803F1210 *p);
 void update_key_events__16TKeyBoardControlFi(s32 chan);
+extern RecoveredGlobal_803F1548_lbl_805A2720 keyboard_pad_state_table;
+extern s32 lbl_805D793C;
+s32 OSDisableInterrupts(void);
+void OSRestoreInterrupts(s32);
+void *memmove(void *, const void *, u32);
+void *memcpy(void *, const void *, u32);
+void update_key_events__16TKeyBoardControlFi(s32 chan);
+s32 SIIsChanBusy(s32);
+u32 SIGetStatus(s32);
+s32 SIDisablePolling(u32);
+s32 SIGetResponse(s32, void *);
+s32 TKeyBoardControl__sub_803F1604(s32 chan, u8 *out);
 }
 
 extern "C" {
@@ -487,5 +514,77 @@ void disable_channel_polling__16TKeyBoardControlFi(s32 arg0) {
     SIDisablePolling(temp_r31);
     lbl_805D793C &= ~temp_r31;
 }
+#pragma push
+#pragma dont_inline off
+#pragma inline_depth(4)
+inline u32 kb_sum_803F1604(u32 *p) {
+    u32 sum;
+    sum = p[0] >> 24;
+    sum ^= (u8)(p[0] >> 16);
+    sum ^= (u8)(p[0] >> 8);
+    sum ^= (u8)p[0];
+    sum ^= p[1] >> 24;
+    sum ^= (u8)(p[1] >> 16);
+    sum ^= (u8)(p[1] >> 8);
+    return sum == (u8)p[1];
+}
+s32 TKeyBoardControl__sub_803F1604(s32 chan, u8 *out) {
+    u32 resp[2];
+    u8 unused[4];
+    u32 bit;
+    s32 enabled;
+    Kb_803F1604 *k;
+    s32 err;
+    s32 ret;
+    enabled = OSDisableInterrupts();
+    k = &((Kb_803F1604 *)&keyboard_pad_state_table)[chan];
+    bit = 0x80000000U >> chan;
+    if (k->type != 1 && k->type != 2) {
+        k->err = -1;
+    } else if (SIIsChanBusy(chan)) {
+        k->err = -2;
+    } else if (!(lbl_805D793C & bit)) {
+        k->err = -1;
+    } else if (SIGetStatus(chan) & 8) {
+        SIGetResponse(chan, resp);
+        SIDisablePolling(bit);
+        lbl_805D793C &= ~bit;
+        k->type = 0;
+        k->err = -1;
+    } else if (!SIGetResponse(chan, resp) || (resp[0] & 0x80000000)) {
+        k->err = -3;
+    } else {
+        if (resp[0] & 0x20000000) {
+            err = -128;
+        } else if (resp[0] & 0x10000000) {
+            err = -3;
+        } else {
+            if (!kb_sum_803F1604(resp)) {
+                err = -3;
+            } else {
+                err = 0;
+            }
+        }
+        k->err = err;
+        switch (k->err) {
+        case -128:
+            SIDisablePolling(bit);
+            lbl_805D793C &= ~bit;
+            k->type = 0;
+            break;
+        case 0:
+            memcpy(k->resp, resp, 8);
+            break;
+        }
+    }
+    update_key_events__16TKeyBoardControlFi(chan);
+    if (out != NULL) {
+        memmove(out, k->cur, 4);
+    }
+    ret = k->err;
+    OSRestoreInterrupts(enabled);
+    return ret;
+}
+#pragma pop
 
 }

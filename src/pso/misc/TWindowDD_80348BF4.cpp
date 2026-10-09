@@ -11,11 +11,11 @@ M2C_UNK build_player_word_lists__9TWindowDDFv();
 M2C_UNK open__9TWindowDDFii(void *, int);
 M2C_UNK handle_word_select__9TWindowDDFPv();
 extern s32 lbl_805D53A0;
-extern u32 TWindowDD__data_805D6E1C;
+extern u32 TWindowDD__word_select_lists;
 
 void handle_6x74_word_select(u8 *arg0) {
     handle_word_select__9TWindowDDFPv();
-    if ((u32) TWindowDD__data_805D6E1C != 0U) {
+    if ((u32) TWindowDD__word_select_lists != 0U) {
         if ((s32) M2C_FIELD(arg0, u16 *, 2) != (s32) lbl_805D53A0) {
             update_selected_id__9TWindowDDFPv((void *) (arg0 + 4));
         }

@@ -2531,13 +2531,7 @@ pso/item/TItemMag_80102C4C.cpp:
 	.text       start:0x80102C4C end:0x80102C78
 
 pso/player/TObjPlayer_80102C78.cpp:
-	.text       start:0x80102C78 end:0x80102CE0
-
-pso/packages/player/TObjPlayer/80102CE0.cpp:
-	.text       start:0x80102CE0 end:0x80102D48
-
-pso/player/TObjPlayer_80102D48.cpp:
-	.text       start:0x80102D48 end:0x80102DD4
+	.text       start:0x80102C78 end:0x80102DD4
 
 pso/misc/TLobby_80102DD4.cpp:
 	.text       start:0x80102DD4 end:0x80103368
@@ -3494,25 +3488,7 @@ pso/player/TObjPlayer_801244C0.cpp:
 	.text       start:0x801244C0 end:0x8012463C
 
 pso/item/TItemEquipVariant_8012463C.cpp:
-	.text       start:0x8012463C end:0x80124694
-
-pso/player/TObjPlayer_80124694.cpp:
-	.text       start:0x80124694 end:0x80124708
-
-pso/unk/text_80124708.cpp:
-	.text       start:0x80124708 end:0x80124760
-
-pso/slices/pso_carve_80124760.cpp:
-	.text       start:0x80124760 end:0x8012480C
-
-pso/slices/pso_carve_8012480c.cpp:
-	.text       start:0x8012480C end:0x80124810
-
-pso/slices/pso_carve_80124810.cpp:
-	.text       start:0x80124810 end:0x8012484C
-
-pso/slices/pso_carve_8012484c.cpp:
-	.text       start:0x8012484C end:0x801248E8
+	.text       start:0x8012463C end:0x801248E8
 
 pso/unk/text_801248E8.cpp:
 	.text       start:0x801248E8 end:0x801249C4
@@ -4705,16 +4681,7 @@ pso/misc/TMainCursor_8013E17C.cpp:
 	.text       start:0x8013E134 end:0x8013E1C8
 
 pso/misc/TMainCursor_8013E1C8.cpp:
-	.text       start:0x8013E1C8 end:0x8013E1FC
-
-pso/packages/misc/TMainCursor/8013E1FC.cpp:
-	.text       start:0x8013E1FC end:0x8013E240
-
-pso/misc/TMainCursor_8013E240.cpp:
-	.text       start:0x8013E240 end:0x8013E26C
-
-pso/misc/TMainCursor_8013E26C.cpp:
-	.text       start:0x8013E26C end:0x8013E2E4
+	.text       start:0x8013E1C8 end:0x8013E2E4
 
 pso/misc/TMainCursor_8013E2E4.cpp:
 	.text       start:0x8013E2E4 end:0x8013E378
@@ -6862,13 +6829,7 @@ pso/unk/text_801BD318.cpp:
 	.text       start:0x801BD318 end:0x801BD384
 
 pso/player/TObjPlayer_801BD384.cpp:
-	.text       start:0x801BD384 end:0x801BD424
-
-pso/packages/player/TObjPlayer/801BD424.cpp:
-	.text       start:0x801BD424 end:0x801BD570
-
-pso/player/TObjPlayer_801BD570.cpp:
-	.text       start:0x801BD570 end:0x801BD928
+	.text       start:0x801BD384 end:0x801BD928
 
 pso/player/TObjPlayer_801BD928.cpp:
 	.text       start:0x801BD928 end:0x801BDBB4
@@ -8334,14 +8295,8 @@ pso/misc/TTecBarta.cpp:
 	.rodata     start:0x8044CDD8 end:0x8044CDE0
 
 pso/unk/text_8022BE64.cpp:
-	.text       start:0x8022BE64 end:0x8022C03C
+	.text       start:0x8022BE64 end:0x8022C444
 	.rodata     start:0x8044CDF0 end:0x8044CDF8
-
-pso/misc/TTecLuker_8022BEAC_8022C03C.cpp:
-	.text       start:0x8022C03C end:0x8022C10C
-
-pso/unk/text_8022C10C.cpp:
-	.text       start:0x8022C10C end:0x8022C444
 
 pso/misc/TTecCtrl_8022C444.cpp:
 	.text       start:0x8022C444 end:0x8022C6C4
@@ -10082,6 +10037,7 @@ pso/unk/text_8029945C.cpp:
 pso/object/TObjCMIcon_80299488.cpp:
 	.text       start:0x80299488 end:0x8029997C
 	.rodata     start:0x80465198 end:0x804651A0
+	.sdata2     start:0x805DDC38 end:0x805DDC44
 
 pso/object/TObjCMIcon.cpp:
 	.text       start:0x8029997C end:0x802999C4
@@ -10929,13 +10885,7 @@ pso/ui/TAdPlyStatusGC_802E1128.cpp:
 	.rodata     start:0x80472980 end:0x80472988
 
 pso/ui/TAdSinglePlyChrSelectGC_802E13C8.cpp:
-	.text       start:0x802E13C8 end:0x802E1F14
-
-pso/ui/TAdSinglePlyChrSelectGC_802E1F14.cpp:
-	.text       start:0x802E1F14 end:0x802E2158
-
-pso/ui/TAdSinglePlyChrSelectGC_802E13C8_802E2158.cpp:
-	.text       start:0x802E2158 end:0x802E32E8
+	.text       start:0x802E13C8 end:0x802E32E8
 
 pso/menu/TAdTimeSetGC.cpp:
 	.text       start:0x802E32E8 end:0x802E34AC
@@ -11158,17 +11108,8 @@ pso/boss/TBoss8Dragon.cpp:
 	.data       start:0x804E4C08 end:0x804E5E78
 	.sdata2     start:0x805DED50 end:0x805DEEA0
 
-pso/slices/pso_carve_802fddd4.cpp:
-	.text       start:0x802FDDD4 end:0x802FDE68
-
-pso/boss/TBoss8Dragon_802FDE68.cpp:
-	.text       start:0x802FDE68 end:0x802FDEFC
-
-pso/slices/pso_carve_802fdefc.cpp:
-	.text       start:0x802FDEFC end:0x802FDF10
-
-pso/boss/TBoss8Dragon_802FDF10.cpp:
-	.text       start:0x802FDF10 end:0x802FDF34
+pso/boss/TBoss8Dragon_802FDDD4.cpp:
+	.text       start:0x802FDDD4 end:0x802FDF34
 	.ctors      start:0x80433FE0 end:0x80433FE4
 
 pso/boss/TBoss8DragonEffBreath.cpp:
@@ -12303,6 +12244,7 @@ pso/misc/TWindowDD_80348794.cpp:
 
 pso/misc/TWindowDD_803488A8.cpp:
 	.text       start:0x803488A8 end:0x80348BF4
+	.rodata     start:0x804786A8 end:0x804786B0
 
 pso/misc/TWindowDD_80348BF4.cpp:
 	.text       start:0x80348BF4 end:0x80348C54

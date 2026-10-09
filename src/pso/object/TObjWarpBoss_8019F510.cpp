@@ -66,9 +66,9 @@ s32 get_global_state__14TOKeyMachine01Fv();
 extern u32 lbl_805D5C88;
 extern int lbl_805D5C8C;
 extern int lbl_805D5C90;
-extern int lbl_805D5C94;
-extern int lbl_805D5C98;
-extern int lbl_805D5C9C;
+extern int warp_boss_model;
+extern int warp_boss_motion;
+extern int warp_boss_bml_motion;
 extern int warp_boss_model_handle;
 extern int lbl_805D5CA4;
 extern "C" u8 lbl_80446480[];
@@ -236,9 +236,9 @@ void load_models__8TObjFishFv(void) {
         (*(s32 *)&lbl_805D5C88) = r;
         (*(s32 *)&lbl_805D5C8C) = get_bml_model(r, 0);
         (*(s32 *)&lbl_805D5C90) = get_bml_model((*(s32 *)&lbl_805D5C88), 2);
-        (*(s32 *)&lbl_805D5C94) = get_bml_model((*(s32 *)&lbl_805D5C88), 1);
-        (*(s32 *)&lbl_805D5C98) = get_bml_motion((*(s32 *)&lbl_805D5C88), 1);
-        (*(s32 *)&lbl_805D5C9C) = get_bml_motion((*(s32 *)&lbl_805D5C88), 0);
+        (*(s32 *)&warp_boss_model) = get_bml_model((*(s32 *)&lbl_805D5C88), 1);
+        (*(s32 *)&warp_boss_motion) = get_bml_motion((*(s32 *)&lbl_805D5C88), 1);
+        (*(s32 *)&warp_boss_bml_motion) = get_bml_motion((*(s32 *)&lbl_805D5C88), 0);
         (*(s32 *)&warp_boss_model_handle) = TObjFish__sub_8001EDB0((*(s32 *)&lbl_805D5C88), 2);
         (*(s32 *)&lbl_805D5CA4) = TObjFish__sub_8001EDB0((*(s32 *)&lbl_805D5C88), 2);
         return;
@@ -251,9 +251,9 @@ void load_models__8TObjFishFv(void) {
         (*(s32 *)&lbl_805D5C88) = r;
         (*(s32 *)&lbl_805D5C8C) = get_bml_model(r, 0);
         (*(s32 *)&lbl_805D5C90) = get_bml_model((*(s32 *)&lbl_805D5C88), 1);
-        (*(s32 *)&lbl_805D5C94) = get_bml_model((*(s32 *)&lbl_805D5C88), 1);
-        (*(s32 *)&lbl_805D5C98) = get_bml_motion((*(s32 *)&lbl_805D5C88), 0);
-        (*(s32 *)&lbl_805D5C9C) = get_bml_motion((*(s32 *)&lbl_805D5C88), 0);
+        (*(s32 *)&warp_boss_model) = get_bml_model((*(s32 *)&lbl_805D5C88), 1);
+        (*(s32 *)&warp_boss_motion) = get_bml_motion((*(s32 *)&lbl_805D5C88), 0);
+        (*(s32 *)&warp_boss_bml_motion) = get_bml_motion((*(s32 *)&lbl_805D5C88), 0);
         (*(s32 *)&warp_boss_model_handle) = TObjFish__sub_8001EDB0((*(s32 *)&lbl_805D5C88), 0);
         (*(s32 *)&lbl_805D5CA4) = TObjFish__sub_8001EDB0((*(s32 *)&lbl_805D5C88), 0);
         return;
@@ -265,9 +265,9 @@ void load_models__8TObjFishFv(void) {
     (*(s32 *)&lbl_805D5C88) = r;
     (*(s32 *)&lbl_805D5C8C) = get_bml_model(r, 0);
     (*(s32 *)&lbl_805D5C90) = get_bml_model((*(s32 *)&lbl_805D5C88), 2);
-    (*(s32 *)&lbl_805D5C94) = get_bml_model((*(s32 *)&lbl_805D5C88), 1);
-    (*(s32 *)&lbl_805D5C98) = get_bml_motion((*(s32 *)&lbl_805D5C88), 1);
-    (*(s32 *)&lbl_805D5C9C) = get_bml_motion((*(s32 *)&lbl_805D5C88), 0);
+    (*(s32 *)&warp_boss_model) = get_bml_model((*(s32 *)&lbl_805D5C88), 1);
+    (*(s32 *)&warp_boss_motion) = get_bml_motion((*(s32 *)&lbl_805D5C88), 1);
+    (*(s32 *)&warp_boss_bml_motion) = get_bml_motion((*(s32 *)&lbl_805D5C88), 0);
     (*(s32 *)&warp_boss_model_handle) = TObjFish__sub_8001EDB0((*(s32 *)&lbl_805D5C88), 2);
     (*(s32 *)&lbl_805D5CA4) = TObjFish__sub_8001EDB0((*(s32 *)&lbl_805D5C88), 2);
 }
@@ -277,14 +277,14 @@ int fn_8019F9AC(void) {  return lbl_805D5CA4; }
     extern int warp_boss_model_handle;
 int fn_8019F9B4(void) {  return warp_boss_model_handle; }
 
-    extern int lbl_805D5C9C;
-int fn_8019F9BC(void) {  return lbl_805D5C9C; }
+    extern int warp_boss_bml_motion;
+int fn_8019F9BC(void) {  return warp_boss_bml_motion; }
 
-    extern int lbl_805D5C98;
-int fn_8019F9C4(void) {  return lbl_805D5C98; }
+    extern int warp_boss_motion;
+int fn_8019F9C4(void) {  return warp_boss_motion; }
 
-    extern int lbl_805D5C94;
-int fn_8019F9CC(void) {  return lbl_805D5C94; }
+    extern int warp_boss_model;
+int fn_8019F9CC(void) {  return warp_boss_model; }
 
     extern int lbl_805D5C90;
 int fn_8019F9D4(void) {  return lbl_805D5C90; }

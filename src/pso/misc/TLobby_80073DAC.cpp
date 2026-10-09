@@ -4,7 +4,7 @@ extern "C" {
 
 void set_enemy_mode_flag__6TLobbyFv(void);
 
-    extern int lbl_805D5ED8;
-void set_enemy_mode_flag__6TLobbyFv(void) { lbl_805D5ED8 = 1; }
+    extern int quest_active_flag;
+void set_enemy_mode_flag__6TLobbyFv(void) { quest_active_flag = 1; }
 
 }

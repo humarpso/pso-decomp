@@ -14,7 +14,7 @@ M2C_UNK save_position__17TWindowSubComCardFPv(void *);
 M2C_UNK construct_base__9TWindowDDFPvPvsPv(void *, void *, int, int);
 M2C_UNK init_color__15TWindowMainMenuFPv(void *);
 M2C_UNK update_scaled_position__15TWindowMainMenuFi(void *);
-extern M2C_UNK lbl_804DE3C8[];
+extern M2C_UNK window_menu_main_menu_params[];
 extern M2C_UNK __vt__19TWindowMenuMainMenu[];
 extern s32 lbl_805D3E68;
 u8 *TWindowMenuMainMenu__ct(u8 *arg0, s32 arg1, s16 arg2);
@@ -81,7 +81,7 @@ void *__dt__19TWindowMenuMainMenuFv(void *arg0, s16 arg1) {
 u8 *TWindowMenuMainMenu__ct(u8 *arg0, s32 arg1, s16 arg2) {
     s32 i;
     u8 *p;
-    construct_base__9TWindowDDFPvPvsPv(arg0, lbl_804DE3C8, arg2, arg1);
+    construct_base__9TWindowDDFPvPvsPv(arg0, window_menu_main_menu_params, arg2, arg1);
     M2C_FIELD(arg0, M2C_UNK **, 0x18) = __vt__19TWindowMenuMainMenu;
     p = arg0 + 0x64;
     i = 0;

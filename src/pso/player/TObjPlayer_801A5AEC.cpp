@@ -106,7 +106,7 @@ extern const f64 lbl_80446A00[];
 extern RecoveredGlobal_801A5EC4_lbl_8050E208 lbl_8050E208;
 extern u8 lbl_8050E3B8[];
 extern s32 lbl_805D34C8;
-extern u8 *lbl_805D4DF0;
+extern u8 *camera_ctrl_instance;
 extern const f32 lbl_805DC0B8;
 extern const f32 lbl_805DC0BC;
 extern const f32 lbl_805DC0C0;
@@ -387,13 +387,13 @@ void controller_stuff__Fv(void) {
                     pad->prev_press = pad->press &= 0xC30FFFFF;
                     map_main_stick_to_buttons((u8 *)pad, pad->sx, pad->sy, old);
                     map_c_stick_to_buttons((u8 *)pad, pad->cx, pad->cy, old);
-                    if (lbl_805D4DF0 != NULL) {
+                    if (camera_ctrl_instance != NULL) {
                         if (is_split_screen() != 0) {
-                            a = ((Obj_801A5F1C *)lbl_805D4DF0)->base[i] + (s32)(10430.38043493439 * get_ad_end_text_start__10TObjPlayerFv(fx, fy));
-                            b = ((Obj_801A5F1C *)lbl_805D4DF0)->base[i] + (s32)(10430.38043493439 * get_ad_end_text_start__10TObjPlayerFv(gx, gy));
+                            a = ((Obj_801A5F1C *)camera_ctrl_instance)->base[i] + (s32)(10430.38043493439 * get_ad_end_text_start__10TObjPlayerFv(fx, fy));
+                            b = ((Obj_801A5F1C *)camera_ctrl_instance)->base[i] + (s32)(10430.38043493439 * get_ad_end_text_start__10TObjPlayerFv(gx, gy));
                         } else {
-                            a = *(s32 *)(lbl_805D4DF0 + 0x94) + (s32)(10430.38043493439 * get_ad_end_text_start__10TObjPlayerFv(fx, fy));
-                            b = *(s32 *)(lbl_805D4DF0 + 0x94) + (s32)(10430.38043493439 * get_ad_end_text_start__10TObjPlayerFv(gx, gy));
+                            a = *(s32 *)(camera_ctrl_instance + 0x94) + (s32)(10430.38043493439 * get_ad_end_text_start__10TObjPlayerFv(fx, fy));
+                            b = *(s32 *)(camera_ctrl_instance + 0x94) + (s32)(10430.38043493439 * get_ad_end_text_start__10TObjPlayerFv(gx, gy));
                         }
                     } else {
                         a = (s32)(10430.38043493439 * get_ad_end_text_start__10TObjPlayerFv(fx, fy));

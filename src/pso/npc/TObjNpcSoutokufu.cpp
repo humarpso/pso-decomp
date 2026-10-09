@@ -175,7 +175,7 @@ void *__dt__16TObjNpcSoutokufuFv(void *arg0, s16 arg1) {
 }
 
 extern void *lbl_805D4DD8;
-extern s32 lbl_805D4DDC;
+extern s32 boss5_common_texture_list;
 
 typedef char RecoveredGlobal_80289680___vt__16TObjNpcSoutokufu_size[sizeof(RecoveredGlobal_80289680___vt__16TObjNpcSoutokufu) == 0x178 ? 1 : -1];
 u8 *TObjNpcSoutokufu__ct(u8 *arg0, M2C_UNK arg1, s32 arg2) {
@@ -213,7 +213,7 @@ void trigger_switches_in_range__12TBoss8DragonFPvPvPv(void *arg0, void *arg1, vo
 
 void render__19TObjBoss5FloorStoneFv(void) {
     if (is_any_teammate_in_state__10TObjPlayerFv() == 0) {
-        render_impl__19TObjBoss5FloorStoneFPvPv(lbl_805D4DDC, M2C_FIELD(M2C_FIELD(lbl_805D4DD8, void **, 0x42C), s32 *, 0x58));
+        render_impl__19TObjBoss5FloorStoneFPvPv(boss5_common_texture_list, M2C_FIELD(M2C_FIELD(lbl_805D4DD8, void **, 0x42C), s32 *, 0x58));
     }
 }
 

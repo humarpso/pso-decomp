@@ -339,8 +339,8 @@ s32 is_not_split_screen__13TRaderMapCoreFv(void);
 M2C_UNK subtract_vector(void *, void *);
 extern const f64 lbl_8043F550[];
 extern s32 lbl_805D53A0;
-extern u32 lbl_805D5EE8;
-extern u32 lbl_805D5EEC;
+extern u32 quest_mission_manager;
+extern u32 quest_area_manager;
 void update_conversation__11TObjNpcBaseFPv(u8 *arg0);
 void TObjNpcBase__sub_80149358(void *, s32);
 void TObjNpcBase__sub_80149360(void *, s32);
@@ -506,16 +506,16 @@ void update_conversation__11TObjNpcBaseFPv(u8 *arg0) {
                 break;
             }
         }
-        if (F(s32, 0x3AC) >= 100 && F(s32, 0x3AC) < 1000 && lbl_805D5EE8 != 0 && all_parents_unqueued_for_destruction__7TObjectFv(lbl_805D5EE8) != 0) {
+        if (F(s32, 0x3AC) >= 100 && F(s32, 0x3AC) < 1000 && quest_mission_manager != 0 && all_parents_unqueued_for_destruction__7TObjectFv(quest_mission_manager) != 0) {
             m = __nw__7TObjectFUl(0x194);
             if (m != 0) {
-                m = __ct__12TQuestThreadFv(m, lbl_805D5EE8, F(s32, 0x3A8));
+                m = __ct__12TQuestThreadFv(m, quest_mission_manager, F(s32, 0x3A8));
             }
             F(void *, 0x3B0) = m;
-        } else if (F(s32, 0x3AC) >= 1000 && lbl_805D5EEC != 0 && all_parents_unqueued_for_destruction__7TObjectFv(lbl_805D5EEC) != 0) {
+        } else if (F(s32, 0x3AC) >= 1000 && quest_area_manager != 0 && all_parents_unqueued_for_destruction__7TObjectFv(quest_area_manager) != 0) {
             m = __nw__7TObjectFUl(0x194);
             if (m != 0) {
-                m = __ct__12TQuestThreadFv(m, lbl_805D5EEC, F(s32, 0x3A8));
+                m = __ct__12TQuestThreadFv(m, quest_area_manager, F(s32, 0x3A8));
             }
             F(void *, 0x3B0) = m;
         }

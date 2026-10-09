@@ -31,7 +31,7 @@ extern "C" {
 M2C_UNK VecCopy__FP3VecPC3Vec(void *, void *);
 M2C_UNK __ct__7TObjectFP7TObject();
 void TObjBoss8PillerCtrl__sub_8035C034(void *, void *);
-extern RecoveredGlobal_8035C22C_lbl_804799DC lbl_804799DC;
+extern RecoveredGlobal_8035C22C_lbl_804799DC boss8_piller_ctrl_params;
 extern M2C_UNK __vt__19TObjBoss8PillerCtrl[];
 extern s32 lbl_805D4430;
 extern const f32 lbl_805E017C;
@@ -117,7 +117,7 @@ u8 *TObjBoss8PillerCtrl__ct(u8 *arg0, M2C_UNK arg1, s32 arg2, s16 arg3) {
     M2C_FIELD(arg0, s32 *, 0x28) = 0;
     M2C_FIELD(arg0, s16 *, 0x2C) = arg3;
     M2C_FIELD(arg0, s32 *, 0x30) = 0;
-    M2C_FIELD(arg0, M2C_UNK **, 0x34) = &lbl_804799DC.value;
+    M2C_FIELD(arg0, M2C_UNK **, 0x34) = &boss8_piller_ctrl_params.value;
     return arg0;
 }
 

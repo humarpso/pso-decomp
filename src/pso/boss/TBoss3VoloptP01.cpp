@@ -850,7 +850,7 @@ M2C_UNK set_global_param__8TObjFishFi(s32);
 M2C_UNK draw_chunk_model(s32);
 M2C_UNK draw_chunk_object(void *);
 
-extern RecoveredGlobal_80044174_lbl_804FEE68 lbl_804FEE68;
+extern RecoveredGlobal_80044174_lbl_804FEE68 boss3_volopt_spawn_pos;
 extern void *boss3_volopt_resources;
 extern s32 lbl_805D4C28;
 extern s32 lbl_805D4CB0;
@@ -1660,8 +1660,8 @@ u8 *TBoss3VoloptP01__ct(u8 *arg0, u8 *arg1, s32 arg2, s16 arg3, s16 arg4) {
     M2C_FIELD(arg0, s16 *, 0x2A) = (s16) M2C_FIELD(arg1, s16 *, 0x2A);
     ((M2C_UNK (*)(void *))init_params__15TBoss3VoloptP01FPv)((void *) (arg0));
     temp_r29 = (s32) ((182.04445f) * (f32) (arg2 * 0x3C));
-    M2C_FIELD(arg0, f32 *, 0x38) = (f32) (((76.0f) * cos_table_lookup((int) (temp_r29))) + M2C_FIELD(&lbl_804FEE68.value, f32 *, 0));
-    M2C_FIELD(arg0, f32 *, 0x40) = (f32) (((76.0f) * ((f32 (*)(int))sin_table_lookup)((int) (temp_r29))) + M2C_FIELD(&lbl_804FEE68.value, f32 *, 8));
+    M2C_FIELD(arg0, f32 *, 0x38) = (f32) (((76.0f) * cos_table_lookup((int) (temp_r29))) + M2C_FIELD(&boss3_volopt_spawn_pos.value, f32 *, 0));
+    M2C_FIELD(arg0, f32 *, 0x40) = (f32) (((76.0f) * ((f32 (*)(int))sin_table_lookup)((int) (temp_r29))) + M2C_FIELD(&boss3_volopt_spawn_pos.value, f32 *, 8));
     M2C_FIELD(arg0, f32 *, 0x3C) = (f32) (0.0f);
     M2C_FIELD(arg0, s32 *, 0x60) = (s32) (-0x4000 - temp_r29);
     temp_r3 = ((s32)__nw__7TObjectFUl((int) (0x34)));

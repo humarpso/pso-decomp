@@ -266,7 +266,7 @@ M2C_UNK set_global_param__8TObjFishFi(u32);
 M2C_UNK draw_ginja_object(u32);
 M2C_UNK draw_ginja_model_with_motion(u32, u32, f32);
 extern RecoveredGlobal_8008C21C_TParticleCtrl__data_80511F70 TParticleCtrl__data_80511F70;
-extern u8 *lbl_805D4DF0;
+extern u8 *camera_ctrl_instance;
 extern s32 lbl_805D5660;
 extern s32 some_id_805c6f74;
 extern const f32 TParticleCtrl__data_805D9528;
@@ -302,7 +302,7 @@ M2C_UNK draw_ginja_model_with_motion(u32, u32, f32);
 extern const Ang_8008BAF8 lbl_80439540;
 extern const f64 lbl_80439560[];
 extern RecoveredGlobal_8008C21C_TParticleCtrl__data_80511F70 TParticleCtrl__data_80511F70;
-extern u8 *lbl_805D4DF0;
+extern u8 *camera_ctrl_instance;
 extern s32 lbl_805D5660;
 extern s32 some_id_805c6f74;
 extern const f32 TParticleCtrl__data_805D955C;
@@ -325,7 +325,7 @@ u8 *get_player_by_client_id(s32);
 f32 sin_table_lookup(s32);
 f32 get_random_float__8TObjFishFv(f32);
 extern GenEntry_8008767C particle_ctrl_generator_table[];
-extern u8 *lbl_805D4DF0;
+extern u8 *camera_ctrl_instance;
 extern void *tl_07;
 extern void *tl_particlemodel;
 extern const f32 lbl_805D94E8;
@@ -398,7 +398,7 @@ void run_task__13TParticleCtrlFv(Ctrl_8008767C *self) {
         self->angle += (s32)(182.04445f * def->freq);
         self->accum += self->rate * (self->def->amp * get_random_float__8TObjFishFv(sin_table_lookup(self->angle)));
     }
-    if (lbl_805D4DF0 != NULL && !(self->flags & 0x40)) {
+    if (camera_ctrl_instance != NULL && !(self->flags & 0x40)) {
         if (is_split_screen() != 0) {
             if (TLoadCtrl__sub_8001C60C() == 0) {
                 f32 lim = 10000.0f;
@@ -415,7 +415,7 @@ void run_task__13TParticleCtrlFv(Ctrl_8008767C *self) {
                 }
             }
         } else if (TLoadCtrl__sub_8001C60C() == 0) {
-            if (!(horizontal_distance_squared(&self->pos, lbl_805D4DF0 + 0x178) < 40000.0f)) {
+            if (!(horizontal_distance_squared(&self->pos, camera_ctrl_instance + 0x178) < 40000.0f)) {
                 self->accum = TParticleCtrl__data_805D94E0[0];
             }
         }

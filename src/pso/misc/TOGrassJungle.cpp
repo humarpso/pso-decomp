@@ -18,8 +18,8 @@ u8 * load_gvm_texture_file(s32);
 M2C_UNK add_entry__11TMotorcycleFsiiff(int, int, int, f32, f32);
 extern RecoveredGlobal_8029CD0C_lbl_8046598C lbl_8046598C;
 extern RecoveredGlobal_8029CD0C_lbl_804DC534 ograss_jungle_resource_descriptor;
-extern u32 TOGrassJungle__data_805D65D8;
-extern u32 TOGrassJungle__data_805D65DC;
+extern u32 TOGrassJungle__bml_resource;
+extern u32 TOGrassJungle__grass_gvm_texture;
 extern const f32 lbl_805DDD28;
 extern const f32 lbl_805DDD2C;
 void load_resources__13TOGrassJungleFv(void);
@@ -45,18 +45,18 @@ void *TOGrassJungle__create(void *arg0) {
     return o;
 }
 
-extern u32 TOGrassJungle__data_805D65D8;
-extern u32 TOGrassJungle__data_805D65DC;
+extern u32 TOGrassJungle__bml_resource;
+extern u32 TOGrassJungle__grass_gvm_texture;
 
 void release_static_instance__13TOGrassJungleFv(void) {
-    if ((u32) TOGrassJungle__data_805D65DC != 0U) {
-        TLobby__sub_803DA16C((void*)TOGrassJungle__data_805D65DC);
-        safe_free__23TAdSinglePlyChrSelectGCFUi(TOGrassJungle__data_805D65DC);
-        TOGrassJungle__data_805D65DC = 0U;
+    if ((u32) TOGrassJungle__grass_gvm_texture != 0U) {
+        TLobby__sub_803DA16C((void*)TOGrassJungle__grass_gvm_texture);
+        safe_free__23TAdSinglePlyChrSelectGCFUi(TOGrassJungle__grass_gvm_texture);
+        TOGrassJungle__grass_gvm_texture = 0U;
     }
-    if ((u32) TOGrassJungle__data_805D65D8 != 0U) {
-        TLobby__sub_8001FE7C((void*)TOGrassJungle__data_805D65D8, 1);
-        TOGrassJungle__data_805D65D8 = 0U;
+    if ((u32) TOGrassJungle__bml_resource != 0U) {
+        TLobby__sub_8001FE7C((void*)TOGrassJungle__bml_resource, 1);
+        TOGrassJungle__bml_resource = 0U;
     }
 }
 void load_resources__13TOGrassJungleFv(void) {
@@ -67,9 +67,9 @@ void load_resources__13TOGrassJungleFv(void) {
     if (var_r0 != 0) {
         var_r0 = (long) (load_resource_from_descriptor((void *) temp_r3, 1, &ograss_jungle_resource_descriptor.value, 0, 0, 0));
     }
-    (*(u8 * *)&TOGrassJungle__data_805D65D8) = (unsigned char *) ((void *) var_r0);
-    (*(u8 * *)&TOGrassJungle__data_805D65DC) = load_gvm_texture_file((s32) &lbl_8046598C.value);
-    add_entry__11TMotorcycleFsiiff((int) (0x3F), (int) (get_bml_model((*(u8 * *)&TOGrassJungle__data_805D65D8), 0)), (int) ((*(u8 * *)&TOGrassJungle__data_805D65DC)), (f32) (lbl_805DDD28), (f32) (lbl_805DDD2C));
+    (*(u8 * *)&TOGrassJungle__bml_resource) = (unsigned char *) ((void *) var_r0);
+    (*(u8 * *)&TOGrassJungle__grass_gvm_texture) = load_gvm_texture_file((s32) &lbl_8046598C.value);
+    add_entry__11TMotorcycleFsiiff((int) (0x3F), (int) (get_bml_model((*(u8 * *)&TOGrassJungle__bml_resource), 0)), (int) ((*(u8 * *)&TOGrassJungle__grass_gvm_texture)), (f32) (lbl_805DDD28), (f32) (lbl_805DDD2C));
 }
 
 }

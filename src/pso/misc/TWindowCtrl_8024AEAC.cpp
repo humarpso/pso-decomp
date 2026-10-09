@@ -64,18 +64,18 @@ s32 TWindowCtrl__sub_8024B098(void *, void *);
 extern RecoveredGlobal_8024B000_lbl_804CE9D4 lbl_804CE9D4;
 void TWindowCtrl__sub_8024B000(M2C_UNK arg0, s32 arg1);
 s32 TWindowCtrl__sub_8024B098(void *, void *);
-extern RecoveredGlobal_8024AFB8_lbl_804CE9E0 lbl_804CE9E0;
+extern RecoveredGlobal_8024AFB8_lbl_804CE9E0 window_ctrl_apply_default_vec_callback_entry;
 void apply_default_vec__11TWindowCtrlFii(M2C_UNK arg0, s32 arg1);
 s32 TWindowCtrl__sub_8024B098(void *, void *);
-extern RecoveredGlobal_8024AF74_lbl_804CE9EC lbl_804CE9EC;
+extern RecoveredGlobal_8024AF74_lbl_804CE9EC TWindowCtrl__player_menu_query_cb;
 void has_player_active_menu__11TWindowCtrlFi(s32 arg0);
-extern RecoveredGlobal_8024AEF0_lbl_804CE9F8 lbl_804CE9F8;
+extern RecoveredGlobal_8024AEF0_lbl_804CE9F8 TWindowCtrl__unsuppress_slot_cb;
 void unsuppress_slot__11TWindowCtrlFi(s32 arg0);
 struct Win_8024AF34 { virtual void m0(); };
 typedef void (Win_8024AF34::*Pmf_8024AF34)();
 void call_window_method__11TWindowCtrlFPvi(void *, Pmf_8024AF34);
 Win_8024AF34 *get_window__11TWindowCtrlFi(void *self);
-extern RecoveredGlobal_8024AEAC_lbl_804CEA04 lbl_804CEA04;
+extern RecoveredGlobal_8024AEAC_lbl_804CEA04 TWindowCtrl__suppress_slot_cb;
 void suppress_slot__11TWindowCtrlFi(s32 arg0);
 }
 
@@ -95,9 +95,9 @@ void suppress_slot__11TWindowCtrlFi(s32 arg0) {
     typedef char spC_offset[(offsetof(Stack_8024AEAC, spC) == 0x4) ? 1 : -1];
     typedef char sp10_offset[(offsetof(Stack_8024AEAC, sp10) == 0x8) ? 1 : -1];
     Stack_8024AEAC stack;
-    stack.sp8 = M2C_FIELD(&lbl_804CEA04.value, s32 *, 0);
-    stack.spC = M2C_FIELD(&lbl_804CEA04.value, s32 *, 4);
-    stack.sp10 = M2C_FIELD(&lbl_804CEA04.value, s32 *, 8);
+    stack.sp8 = M2C_FIELD(&TWindowCtrl__suppress_slot_cb.value, s32 *, 0);
+    stack.spC = M2C_FIELD(&TWindowCtrl__suppress_slot_cb.value, s32 *, 4);
+    stack.sp10 = M2C_FIELD(&TWindowCtrl__suppress_slot_cb.value, s32 *, 8);
     ((void (*)(void *, void *))call_window_method__11TWindowCtrlFPvi)((void *) (arg0), (void *) (&stack.sp8));
 }
 
@@ -106,9 +106,9 @@ void unsuppress_slot__11TWindowCtrlFi(s32 arg0) {
     typedef char spC_offset[(offsetof(Stack_8024AEF0, spC) == 0x4) ? 1 : -1];
     typedef char sp10_offset[(offsetof(Stack_8024AEF0, sp10) == 0x8) ? 1 : -1];
     Stack_8024AEF0 stack;
-    stack.sp8 = M2C_FIELD(&lbl_804CE9F8.value, s32 *, 0);
-    stack.spC = M2C_FIELD(&lbl_804CE9F8.value, s32 *, 4);
-    stack.sp10 = M2C_FIELD(&lbl_804CE9F8.value, s32 *, 8);
+    stack.sp8 = M2C_FIELD(&TWindowCtrl__unsuppress_slot_cb.value, s32 *, 0);
+    stack.spC = M2C_FIELD(&TWindowCtrl__unsuppress_slot_cb.value, s32 *, 4);
+    stack.sp10 = M2C_FIELD(&TWindowCtrl__unsuppress_slot_cb.value, s32 *, 8);
     ((void (*)(void *, void *))call_window_method__11TWindowCtrlFPvi)((void *) (arg0), (void *) (&stack.sp8));
 }
 
@@ -124,9 +124,9 @@ void has_player_active_menu__11TWindowCtrlFi(s32 arg0) {
     typedef char spC_offset[(offsetof(Stack_8024AF74, spC) == 0x4) ? 1 : -1];
     typedef char sp10_offset[(offsetof(Stack_8024AF74, sp10) == 0x8) ? 1 : -1];
     Stack_8024AF74 stack;
-    stack.sp8 = M2C_FIELD(&lbl_804CE9EC.value, s32 *, 0);
-    stack.spC = M2C_FIELD(&lbl_804CE9EC.value, s32 *, 4);
-    stack.sp10 = M2C_FIELD(&lbl_804CE9EC.value, s32 *, 8);
+    stack.sp8 = M2C_FIELD(&TWindowCtrl__player_menu_query_cb.value, s32 *, 0);
+    stack.spC = M2C_FIELD(&TWindowCtrl__player_menu_query_cb.value, s32 *, 4);
+    stack.sp10 = M2C_FIELD(&TWindowCtrl__player_menu_query_cb.value, s32 *, 8);
     TWindowCtrl__sub_8024B098((void *) (arg0), (void *) (&stack.sp8));
 }
 
@@ -135,9 +135,9 @@ void apply_default_vec__11TWindowCtrlFii(M2C_UNK arg0, s32 arg1) {
     typedef char spC_offset[(offsetof(Stack_8024AFB8, spC) == 0x4) ? 1 : -1];
     typedef char sp10_offset[(offsetof(Stack_8024AFB8, sp10) == 0x8) ? 1 : -1];
     Stack_8024AFB8 stack;
-    stack.sp8 = M2C_FIELD(&lbl_804CE9E0.value, s32 *, 0);
-    stack.spC = M2C_FIELD(&lbl_804CE9E0.value, s32 *, 4);
-    stack.sp10 = M2C_FIELD(&lbl_804CE9E0.value, s32 *, 8);
+    stack.sp8 = M2C_FIELD(&window_ctrl_apply_default_vec_callback_entry.value, s32 *, 0);
+    stack.spC = M2C_FIELD(&window_ctrl_apply_default_vec_callback_entry.value, s32 *, 4);
+    stack.sp10 = M2C_FIELD(&window_ctrl_apply_default_vec_callback_entry.value, s32 *, 8);
     TWindowCtrl__sub_8024B098((void *) (arg1), (void *) (&stack.sp8));
 }
 

@@ -294,7 +294,7 @@ f32 update_scale__15TObjBoss2TunnelFPv(void *);
 s32 copy_pos__11TNowLoadingFPvPv(int, void *);
 s32 is_alive__9TObjEneDDFPv(s32);
 M2C_UNK subtract_vector(void *, void *);
-extern u8 *lbl_805D4DF0;
+extern u8 *camera_ctrl_instance;
 extern const f32 lbl_805DE778;
 extern const f32 lbl_805DE77C;
 void TObjEneBm9Mericarol__sub_802D1AB8(Obj_800C4B78 *o);
@@ -425,7 +425,7 @@ void TObjEneBm9Mericarol__sub_802D1AB8(Obj_800C4B78 *o) {
     if (is_alive__9TObjEneDDFPv((s32)o->target) != 0) {
         VecCopy__FP3VecPC3Vec(&a, &o->target->pos);
         a.y += lbl_805DE778;
-        VecCopy__FP3VecPC3Vec(&b, lbl_805D4DF0 + 0x178);
+        VecCopy__FP3VecPC3Vec(&b, camera_ctrl_instance + 0x178);
         subtract_vector(&b, &a);
         update_scale__15TObjBoss2TunnelFPv(&b);
         a.x = lbl_805DE77C * b.x + a.x;

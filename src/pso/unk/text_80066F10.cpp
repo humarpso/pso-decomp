@@ -6,7 +6,7 @@ void *load_gvm_texture_file(void *);
 extern char lbl_80488768[];
 extern char lbl_8043810C[];
 extern void *lbl_805D4DD8;
-extern void *lbl_805D4DDC;
+extern void *boss5_common_texture_list;
 void load_boss5_common_assets(void);
 }
 
@@ -16,7 +16,7 @@ void load_boss5_common_assets(void) {
     switch (TBoss8Dragon__sub_8005D700()) {
     case 0:
         lbl_805D4DD8 = load_enemy_bml_resource(lbl_80488768);
-        lbl_805D4DDC = load_gvm_texture_file(lbl_8043810C);
+        boss5_common_texture_list = load_gvm_texture_file(lbl_8043810C);
         break;
     }
 }

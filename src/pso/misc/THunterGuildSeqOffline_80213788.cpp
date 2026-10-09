@@ -155,7 +155,7 @@ s32 get_register__12TQuestThreadFPvi(s32, s32);
 s32 TShopWindowBase__sub_802239EC(void *);
 s32 TShopWindowBase__sub_80223A48(void *);
 extern s32 THunterGuildSeqOffline__quest_result_callbacks[];
-extern s32 lbl_805D5EE8;
+extern s32 quest_mission_manager;
 void THunterGuildSeqOffline__sub_80213980(Obj_80213980 *self);
 }
 
@@ -228,13 +228,13 @@ void THunterGuildSeqOffline__sub_80213980(Obj_80213980 *self) {
         return;
     case 0:
         if (is_quest_active() != 0) {
-            if (get_register__12TQuestThreadFPvi(lbl_805D5EE8, 0xFF) != 0) {
+            if (get_register__12TQuestThreadFPvi(quest_mission_manager, 0xFF) != 0) {
                 self->m7(0xB, 1);
                 if (THunterGuildSeqOffline__quest_result_callbacks[1] != -1) {
                     self->thread = create_quest_thread(THunterGuildSeqOffline__quest_result_callbacks[1]);
                 }
                 set_field_20__12TQuestListVMFPvi((void *)(self), (M2C_UNK)(4));
-            } else if (get_register__12TQuestThreadFPvi(lbl_805D5EE8, 0xFD) != 0) {
+            } else if (get_register__12TQuestThreadFPvi(quest_mission_manager, 0xFD) != 0) {
                 self->m7(0x12, 1);
                 if (THunterGuildSeqOffline__quest_result_callbacks[0] != -1) {
                     self->thread = create_quest_thread(THunterGuildSeqOffline__quest_result_callbacks[0]);
@@ -826,7 +826,7 @@ s32 check_party_gathered__22THunterGuildSeqOfflineFv();
 s32 TShopWindowBase__sub_802239EC(void *);
 s32 TShopWindowBase__sub_80223A48(void *);
 extern s32 THunterGuildSeqOffline__quest_result_callbacks[];
-extern s32 lbl_805D5EE8;
+extern s32 quest_mission_manager;
 void THunterGuildSeqOffline__sub_802145F8(u8 *arg0);
 }
 
@@ -943,7 +943,7 @@ void THunterGuildSeqOffline__sub_802145F8(u8 *arg0) {
                 break;
             case 2:
                 if (is_quest_active() != 0) {
-                    if (get_register__12TQuestThreadFPvi((void *) (lbl_805D5EE8), (int) (0xFF)) != 0) {
+                    if (get_register__12TQuestThreadFPvi((void *) (quest_mission_manager), (int) (0xFF)) != 0) {
                         ((VObj_18 *)(arg0))->m7(0xB, 1);
                         if (THunterGuildSeqOffline__quest_result_callbacks[1] != -1) {
                             M2C_FIELD(arg0, s32 *, 0x3C) = create_quest_thread(THunterGuildSeqOffline__quest_result_callbacks[1]);
@@ -951,7 +951,7 @@ void THunterGuildSeqOffline__sub_802145F8(u8 *arg0) {
                         set_field_20__12TQuestListVMFPvi((void *) (arg0), (int) (4));
                         return;
                     }
-                    if (get_register__12TQuestThreadFPvi((void *) (lbl_805D5EE8), (int) (0xFD)) != 0) {
+                    if (get_register__12TQuestThreadFPvi((void *) (quest_mission_manager), (int) (0xFD)) != 0) {
                         ((VObj_18 *)(arg0))->m7(0x12, 1);
                         if (THunterGuildSeqOffline__quest_result_callbacks[0] != -1) {
                             M2C_FIELD(arg0, s32 *, 0x3C) = create_quest_thread(THunterGuildSeqOffline__quest_result_callbacks[0]);

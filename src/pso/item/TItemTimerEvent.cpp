@@ -28,10 +28,10 @@ M2C_UNK queue_destruction__7TObjectFv(void *);
 u32 get_player_by_client_id(u16);
 void TItemTimerEvent__vt1(void *arg0);
 void fn_8011085C(void *, s32);
-extern struct VObj_8011E140_8011DA9C *lbl_805D5508;
+extern struct VObj_8011E140_8011DA9C *item_timer_event_instance;
 void clear_timer_slot__15TItemTimerEventFUs(u16 arg0);
 void fn_801108C8(void *, s32);
-extern struct VObj_8011E140_8011DA9C *lbl_805D5508;
+extern struct VObj_8011E140_8011DA9C *item_timer_event_instance;
 void start_event_by_index__15TItemTimerEventFUs(u16 arg0);
 s32 disallow_rendering__7TObjectFv(void *);
 s32 init_object__21TItemEffArmorParticleFPv(void *);
@@ -266,14 +266,14 @@ void *TItemTimerEvent__sub_8011E010(void *arg0, s16 arg1) {
 }
 
 void clear_timer_slot__15TItemTimerEventFUs(u16 arg0) {
-    if (((void *) (*(u8 * *)&lbl_805D5508) != NULL) && (arg0 < 0xCU)) {
-        fn_8011085C((*(u8 * *)&lbl_805D5508), (s32) arg0);
+    if (((void *) (*(u8 * *)&item_timer_event_instance) != NULL) && (arg0 < 0xCU)) {
+        fn_8011085C((*(u8 * *)&item_timer_event_instance), (s32) arg0);
     }
 }
 
 void start_event_by_index__15TItemTimerEventFUs(u16 arg0) {
-    if (((void *) (*(u8 * *)&lbl_805D5508) != NULL) && (arg0 < 0xCU)) {
-        fn_801108C8((*(u8 * *)&lbl_805D5508), (s32) arg0);
+    if (((void *) (*(u8 * *)&item_timer_event_instance) != NULL) && (arg0 < 0xCU)) {
+        fn_801108C8((*(u8 * *)&item_timer_event_instance), (s32) arg0);
     }
 }
 
@@ -289,13 +289,13 @@ void notify_if_active__15TItemTimerEventFi(int arg0) {
     }
 }
 
-extern struct VObj_8011E140_8011DA9C *lbl_805D5508;
+extern struct VObj_8011E140_8011DA9C *item_timer_event_instance;
 
 void clear_active__15TItemTimerEventFv(void) {
-    if (lbl_805D5508 != NULL) {
-        lbl_805D5508->m0(1);
+    if (item_timer_event_instance != NULL) {
+        item_timer_event_instance->m0(1);
     }
-    lbl_805D5508 = NULL;
+    item_timer_event_instance = NULL;
 }
 
 }

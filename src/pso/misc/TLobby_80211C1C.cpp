@@ -1,2 +1,10 @@
-#define PSO_CLASS_PACKAGE 0x80211C1C
-#include "pso/misc/TLobby.cpp"
+#include "types.h"
+
+extern "C" {
+
+int get_selected_quest_id__6TLobbyFPv(void* p);
+int get_selected_quest_id__16TQuestListOnlineFv(void*);
+
+int get_selected_quest_id__6TLobbyFPv(void* p) { return get_selected_quest_id__16TQuestListOnlineFv(p); }
+
+}

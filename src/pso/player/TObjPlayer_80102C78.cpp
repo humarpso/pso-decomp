@@ -8,23 +8,20 @@ extern "C" {
 
 s32 check_flag__10TObjPlayerFPvi(s32, s32);
 s32 is_matching_id__6TLobbyFiUs(void *, u16);
-int TObjPlayer__sub_80102BD0(void);
-int TObjPlayer__sub_80102BD8(void);
-int test_item_flags__10TObjPlayerFPvUi(void* p, u32 m);
-void clear_item_flags__10TObjPlayerFPvUi(void* p, u32 v);
-void add_item_flags__10TObjPlayerFPvUi(void* p, u32 v);
-int has_flag_128__10TObjPlayerFPv(void* p);
-u16 get_id__13TItemProArmorFPv(void* p);
-u8 get_field_ec__12TOSwitchItemFPv(void* p);
-int get_flag_40__8TItemMagFPv(void* p);
-void TObjPlayer__sub_80102C58(void* p);
-void TObjPlayer__sub_80102C68(void* p);
+int get_slot_value__10TObjPlayerFPvi(void*);
 void set_facing__10TObjPlayerFPvs(void* p, s16 v);
 s16 get_stat_bonus__10TObjPlayerFPv(void* p);
 s16 get_stat__10TObjPlayerFPv(void* p);
 int get_equip_field_d04__10TObjPlayerFPv(void* p);
 f32 get_mag_scale_f__10TObjPlayerFPv(void* p);
-int get_slot_value__10TObjPlayerFPvi(void*);
+void bswap_pkt_u32x2__10TObjPlayerFPv(void* p);
+void bswap_and_send_6x61__10TObjPlayerFPv(void* p);
+int TLobby__send_and_handle_60(void* a0 = 0);
+void read_be16_field2__10TObjPlayerFPv(void* p);
+void bswap_32__FPUl(u32* p);
+void swap_6x61_fields__10TObjPlayerFPv(void* p);
+void TObjPlayer__sub_80102D84(u8 *arg0);
+u8 is_not_matching_lobby_id__10TObjPlayerFPv(void *arg0);
 
 void set_facing__10TObjPlayerFPvs(void* p, s16 v) { *(s16*)((char*)p + 0x32e) = v; }
 s16 get_stat_bonus__10TObjPlayerFPv(void* p) { return *(s16*)((char*)p + 0x2be); }
@@ -36,7 +33,24 @@ void is_flag_20000_set__10TObjPlayerFv(void) {
 }
 f32 get_mag_scale_f__10TObjPlayerFPv(void* p) { return *(f32*)((char*)p + 0x1c); }
 
-void read_be16_field2__10TObjPlayerFPv(void* p);
-void bswap_32__FPUl(u32* p);
+void bswap_pkt_u32x2__10TObjPlayerFPv(void* p) { bswap_32__FPUl((u32*)p); bswap_32__FPUl((u32*)((char*)p + 0x4)); }
+void bswap_and_send_6x61__10TObjPlayerFPv(void* p) { swap_6x61_fields__10TObjPlayerFPv(p); TLobby__send_and_handle_60(p); }
+
+void swap_6x61_fields__10TObjPlayerFPv(void* p) {
+    read_be16_field2__10TObjPlayerFPv(p);
+    bswap_32__FPUl((u32*)((char*)p + 4));
+    bswap_32__FPUl((u32*)((char*)p + 8));
+}
+
+void TObjPlayer__sub_80102D84(u8 *arg0) {
+    M2C_FIELD(arg0, s32 *, 4) = -1;
+    M2C_FIELD(arg0, s8 *, 0) = 0x61;
+    M2C_FIELD(arg0, s32 *, 8) = 0;
+    M2C_FIELD(arg0, s8 *, 1) = 3;
+}
+
+u8 is_not_matching_lobby_id__10TObjPlayerFPv(void *arg0) {
+    return (u8) (is_matching_id__6TLobbyFiUs(arg0, M2C_FIELD(arg0, u16 *, 2)) == 0);
+}
 
 }

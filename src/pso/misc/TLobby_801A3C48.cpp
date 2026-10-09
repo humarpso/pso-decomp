@@ -104,7 +104,7 @@ M2C_UNK reset_door_state__6TLobbyFv();
 M2C_UNK reset_instance__8TObjDoorFv();
 M2C_UNK reset_quest_counter__6TLobbyFv();
 M2C_UNK set_cleanup_flag__6TLobbyFv();
-extern u32 lbl_805D5EE8;
+extern u32 quest_mission_manager;
 void free_objects__6TLobbyFv(void);
 s32 is_quest_active();
 void update_camera_state__6TLobbyFv(void);
@@ -152,7 +152,7 @@ extern RecoveredGlobal_801A4820_main_task main_task;
 extern s32 TLobby__idle_timeout_active;
 extern s32 lbl_805D55C0;
 extern s16 TLobby__data_805D5CE8;
-extern s32 TLobby__data_805D5CF4;
+extern s32 TLobby__online_lobby_frame_counter;
 void run_main_frame__6TLobbyFv(void);
 s32 get_input__16TKeyBoardControlFv();
 int TKeyBoardControl__sub_8000F95C(void);
@@ -187,7 +187,7 @@ M2C_UNK func_803DCDFC__Fv();
 extern RecoveredGlobal_801A4820_main_task main_task;
 extern s32 TLobby__idle_timeout_active;
 extern s32 lbl_805D55C0;
-extern s32 TLobby__data_805D5CF4;
+extern s32 TLobby__online_lobby_frame_counter;
 void run_lobby_frame__6TLobbyFv(void);
 M2C_UNK update__16TKeyBoardControlFv();
 M2C_UNK clear_resource_load_tasks();
@@ -210,7 +210,7 @@ extern RecoveredGlobal_801A4610_lbl_804C2240 lobby_area_reload_callbacks;
 extern unsigned char lbl_80515BA0[];
 extern RecoveredGlobal_801A4820_main_task main_task;
 extern s32 lbl_805D53A0;
-extern s32 lbl_805D5CF0;
+extern s32 online_lobby_scene_handle;
 extern s32 TLobby__lobby_state_flags;
 extern M2C_UNK *tl_su;
 void cleanup_online_lobby_scene(void);
@@ -297,7 +297,7 @@ extern u8 TLobby__data_805011D8[];
 extern unsigned char lbl_80515BA0[];
 extern RecoveredGlobal_801A4820_main_task main_task;
 extern s32 TLobby__data_805D53AC;
-extern u32 lbl_805D5EE8;
+extern u32 quest_mission_manager;
 extern void *tl_03;
 M2C_UNK start_quest_mission(void);
 M2C_UNK __dt__7TObjectFv(void *, M2C_UNK);
@@ -349,7 +349,7 @@ extern unsigned char lbl_80515BA0[];
 extern RecoveredGlobal_801A4820_main_task main_task;
 extern s32 TLobby__data_805D53AC;
 extern int TLobby__new_game_setup_flags;
-extern u32 lbl_805D5EEC;
+extern u32 quest_area_manager;
 extern void *tl_03;
 M2C_UNK change_floor_reload_area(void);
 M2C_UNK update__16TKeyBoardControlFv();
@@ -414,8 +414,8 @@ extern RecoveredGlobal_801A4820_main_task main_task;
 extern s32 lbl_805D53A4;
 extern s16 TLobby__data_805D5CE8;
 extern int TLobby__new_game_setup_flags;
-extern s32 lbl_805D5CF0;
-extern s32 TLobby__data_805D5CF4;
+extern s32 online_lobby_scene_handle;
+extern s32 TLobby__online_lobby_frame_counter;
 extern s32 TLobby__lobby_state_flags;
 extern M2C_UNK *tl_su;
 extern void *tl_window;
@@ -697,8 +697,8 @@ void free_objects__6TLobbyFv(void) {
     apply_all_players__9TTecLukerFv();
     reset_floor_items__6TLobbyFv();
     enable_all_battle_ctrl__10TNpcPlayerFv();
-    if ((u32) lbl_805D5EE8 != 0U) {
-        queue_destruction__7TObjectFv(lbl_805D5EE8);
+    if ((u32) quest_mission_manager != 0U) {
+        queue_destruction__7TObjectFv(quest_mission_manager);
     }
     clear_enabled_main_warps();
     reset_quest_result_callbacks__22THunterGuildSeqOfflineFPv();
@@ -751,10 +751,10 @@ M2C_UNK start_quest_mission(void) {
     start_loading__9TLoadCtrlFUi(1);
     create_by_mode__12TQuestThreadFv();
     clear_quest_floor_designations();
-    if (lbl_805D5EE8 != 0) {
+    if (quest_mission_manager != 0) {
         q = (VObj_18_801A4268 *) __nw__7TObjectFUl(0x194);
         if (q != NULL) {
-            q = (VObj_18_801A4268 *) __ct__12TQuestThreadFv(q, lbl_805D5EE8, 0);
+            q = (VObj_18_801A4268 *) __ct__12TQuestThreadFv(q, quest_mission_manager, 0);
         }
         q->m1();
     }
@@ -843,10 +843,10 @@ M2C_UNK change_floor_reload_area(void) {
     if (r != 0) {
         load_character_from_card__23TAdSinglePlyChrSelectGCFi(0);
     }
-    if (lbl_805D5EEC != 0) {
+    if (quest_area_manager != 0) {
         q = __nw__7TObjectFUl(0x194);
         if (q != NULL) {
-            __ct__12TQuestThreadFv(q, lbl_805D5EEC, 0);
+            __ct__12TQuestThreadFv(q, quest_area_manager, 0);
         }
     }
     if (is_area_transfer_pending() != 0) {
@@ -880,7 +880,7 @@ void cleanup_online_lobby_scene(void) {
         var_r31 += 1;
     } while (var_r31 < 0x1E);
     cleanup__6TLobbyFv();
-    if ((s32) lbl_805D5CF0 == 0) {
+    if ((s32) online_lobby_scene_handle == 0) {
         var_r3 = (M2C_UNK *)(&(*(RecoveredGlobal_801A4610_lbl_80515BA0 *)&lbl_80515BA0).value);
         var_r3 = (M2C_UNK *)(&(*(RecoveredGlobal_801A4610_lbl_80515BA0 *)&lbl_80515BA0).value);
         run_area_scene_cleanup((void *) (&(*(RecoveredGlobal_801A4610_lbl_80515BA0 *)&lbl_80515BA0).value));
@@ -919,10 +919,10 @@ void run_lobby_frame__6TLobbyFv(void) {
     TObjBoss2Tunnel__sub_8007D1D0();
     if (((s32) lbl_805D55C0 == 0) && (TAdPlayerLoadGC__sub_801E1B50((int) (get_chr_select_state__23TAdSinglePlyChrSelectGCFv())) != -1)) {
         if (probe_card_slot__15TAdPlayerLoadGCFi((int) (get_chr_select_state__23TAdSinglePlyChrSelectGCFv())) != 0) {
-            TLobby__data_805D5CF4 = 0;
+            TLobby__online_lobby_frame_counter = 0;
         } else {
-            temp_r0 = TLobby__data_805D5CF4 + 1;
-            TLobby__data_805D5CF4 = temp_r0;
+            temp_r0 = TLobby__online_lobby_frame_counter + 1;
+            TLobby__online_lobby_frame_counter = temp_r0;
             if (temp_r0 > 0xC) {
                 disconnect_protocol__6TLobbyFv();
             }
@@ -969,10 +969,10 @@ void run_main_frame__6TLobbyFv(void) {
     TLobby__sub_8006EF90();
     if (((s32) lbl_805D55C0 == 0) && (TAdPlayerLoadGC__sub_801E1B50((int) (get_chr_select_state__23TAdSinglePlyChrSelectGCFv())) != -1)) {
         if (probe_card_slot__15TAdPlayerLoadGCFi((int) (get_chr_select_state__23TAdSinglePlyChrSelectGCFv())) != 0) {
-            TLobby__data_805D5CF4 = 0;
+            TLobby__online_lobby_frame_counter = 0;
         } else {
-            temp_r0 = TLobby__data_805D5CF4 + 1;
-            TLobby__data_805D5CF4 = temp_r0;
+            temp_r0 = TLobby__online_lobby_frame_counter + 1;
+            TLobby__online_lobby_frame_counter = temp_r0;
             if (temp_r0 > 0xC) {
                 disconnect_protocol__6TLobbyFv();
             }
@@ -1043,7 +1043,7 @@ void run_online_lobby_scene(void) {
     TLobby__sub_8020A6B0(0xF);
     open__12TAdDialingGCFv();
     create__12TAdDialingGCFv(tl_window);
-    lbl_805D5CF0 = TLobby__sub_80146908();
+    online_lobby_scene_handle = TLobby__sub_80146908();
     TAdDialingGC__sub_80328730();
     set_field1C__9TLoadCtrlFi(0);
     while (TAdDialingGC__sub_801A4C9C() != 0) {
@@ -1064,7 +1064,7 @@ void run_online_lobby_scene(void) {
     }
     set_field1C__9TLoadCtrlFi(1);
     close__12TAdDialingGCFv();
-    if (lbl_805D5CF0 != 0) {
+    if (online_lobby_scene_handle != 0) {
         init__23TAdSinglePlyChrSelectGCFv();
         TKeyBoardControl__sub_8000F91C(2);
         TKeyBoardControl__sub_8000F9CC(0x12);
@@ -1103,7 +1103,7 @@ void run_online_lobby_scene(void) {
     }
     lbl_805D53A4 = 0;
     TLobby__data_805D5CE8 = 0;
-    TLobby__data_805D5CF4 = 0;
+    TLobby__online_lobby_frame_counter = 0;
     render_tick__Fv();
 }
 

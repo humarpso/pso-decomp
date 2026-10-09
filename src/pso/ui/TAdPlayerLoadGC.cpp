@@ -11,6 +11,21 @@ typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
 
 typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 #define M2C_BITWISE(type, expr) ((type)(expr))
+
+struct Vec2_802D6FD4 { f32 x, y; };
+
+struct W_802D6FD4 { s32 v; };
+
+struct Item_802D6FD4 {
+    u8 pad0[0x20];
+    char names[4][0xFF];
+    W_802D6FD4 ids[4];
+    W_802D6FD4 alpha[4];
+    W_802D6FD4 flags[4];
+    Vec2_802D6FD4 base[4];
+    Vec2_802D6FD4 pos[4];
+};
+
 extern "C" {
 s32 get_instance__15TAdPlayerLoadGCFv();
 void set_state__15TAdPlayerLoadGCFi(int);
@@ -29,6 +44,11 @@ void fn_802D6BE4(int a0);
 extern M2C_UNK lbl_804C88C0[];
 extern M2C_UNK lbl_804C8914[];
 void run_task__15TAdPlayerLoadGCFv(u8 *arg0);
+void __ct__7TObjectFP7TObject(void *);
+void *memset(void *, int, u32);
+extern void *__vt__15TAdSubPlyItemGC[6];
+extern s32 lbl_805D3F50;
+Item_802D6FD4 *__ct__15TAdSubPlyItemGCFv(Item_802D6FD4 *self);
 }
 
 extern "C" {
@@ -306,7 +326,7 @@ void run_task__15TAdSubPlyItemGCFv(Self_802D6E7C *self);
 }
 
 extern "C" {
-extern u8 lbl_80540FB0[];
+extern u8 level_text_buffer[];
 extern u8 lbl_804725E0[];
 void *memset(void *, int, u32);
 s32 sprintf(void *, const void *, ...);
@@ -333,9 +353,9 @@ void render__15TAdSubPlyItemGCFv(Item_802D6BEC *self) {
 }
 
 u8 *format_level_text__15TAdSubPlyItemGCFii(s32 arg0, s32 arg1) {
-    memset(lbl_80540FB0, 0, 0x40);
-    sprintf(lbl_80540FB0, lbl_804725E0, arg1);
-    return lbl_80540FB0;
+    memset(level_text_buffer, 0, 0x40);
+    sprintf(level_text_buffer, lbl_804725E0, arg1);
+    return level_text_buffer;
 }
 
 void TAdSubPlyItemGC__sub_802D6D88(S_802D6D88 *arg0) {
@@ -368,6 +388,22 @@ void run_task__15TAdSubPlyItemGCFv(Self_802D6E7C *self) {
         }
     }
 }
+#pragma push
+#pragma opt_common_subs off
+Item_802D6FD4 *__ct__15TAdSubPlyItemGCFv(Item_802D6FD4 *self) {
+    u32 i;
+    __ct__7TObjectFP7TObject(self);
+    M2C_FIELD(self, void **, 0x18) = __vt__15TAdSubPlyItemGC;
+    M2C_FIELD(self, s32 *, 0) = lbl_805D3F50;
+    for (i = 0; i < 4; i++) {
+        self->alpha[i].v = 0;
+        self->flags[i].v = 0;
+        memset(self->names[i], 0, 0xFF);
+        self->ids[i].v = 0;
+    }
+    return self;
+}
+#pragma pop
 
 }
 
@@ -380,18 +416,5 @@ void *__vt__15TAdSubPlyItemGC[6] = {
     0, 0, (void *)__dt__15TAdSubPlyItemGCFv, (void *)run_task__15TAdSubPlyItemGCFv,
     (void *)render__15TAdSubPlyItemGCFv, (void *)render_shadows__7TObjectFv,
 };
-Item_802D6BEC *__ct__15TAdSubPlyItemGCFv(Item_802D6BEC *self) {
-    u32 i;
-    __ct__7TObjectFP7TObject(self);
-    M2C_FIELD(self, void **, 0x18) = __vt__15TAdSubPlyItemGC;
-    M2C_FIELD(self, s32 *, 0) = lbl_805D3F50;
-    for (i = 0; i < 4; i++) {
-        self->alpha[i] = 0;
-        self->flags[i] = 0;
-        memset(self->names[i], 0, 0xFF);
-        self->ids[i] = 0;
-    }
-    return self;
-}
 
 }

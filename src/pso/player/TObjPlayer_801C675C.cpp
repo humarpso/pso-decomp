@@ -253,7 +253,7 @@ extern u8 lbl_80447020[];
 extern u8 lbl_8048E5A0[];
 extern u8 lbl_8050BEC0[];
 extern u8 lbl_8058D4C0[];
-extern void *lbl_805D4DF0;
+extern void *camera_ctrl_instance;
 extern s32 lbl_805D5660;
 extern s32 some_id_805c6f74;
 extern const f32 lbl_805DC358;
@@ -311,7 +311,7 @@ void draw_marker_model__10TObjPlayerFPv(void *arg0) {
         set_global_param__8TObjFishFi(lbl_8048E5A0);
         some_id_805c6f74 |= 0x11;
         set_position_vec3__10TObjPlayerFPvPv(0, TObjPlayer__sub_801BF914(temp_r3 + 0x84C));
-        rotate_matrix_y(0, M2C_FIELD(lbl_805D4DF0, s32 *, 0x194) + M2C_FIELD(arg0, s32 *, 0x20));
+        rotate_matrix_y(0, M2C_FIELD(camera_ctrl_instance, s32 *, 0x194) + M2C_FIELD(arg0, s32 *, 0x20));
         scale_matrix(0, lbl_805DC358, lbl_805DC358, lbl_805DC358);
         set_chunk_material_color(lbl_80447020 + TObjPlayer__sub_801C6BEC(arg0) * 0x10);
         get_cursor_state__11TMainCursorFv();

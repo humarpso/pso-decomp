@@ -88,7 +88,7 @@ s32 resolve_set_row_factory_indices(void *arg0, int arg1, int arg2);
 s32 get_instance__11TCameraCtrlFv();
 f32 xyz_distance_squared(void *, void *);
 s32 is_not_split_screen__13TRaderMapCoreFv();
-extern Obj_8020D4E8 *lbl_805D4DF0;
+extern Obj_8020D4E8 *camera_ctrl_instance;
 s32 is_within_camera_distance(void *arg0, void *arg1, f32 farg0);
 s32 get_player_count__10TObjPlayerFv();
 s32 is_quest_active();
@@ -177,15 +177,15 @@ s32 is_within_camera_distance(void *arg0, void *arg1, f32 farg0) {
     s32 n;
     s32 i;
     if (is_not_split_screen__13TRaderMapCoreFv() == 1) {
-        if (lbl_805D4DF0 != NULL) {
+        if (camera_ctrl_instance != NULL) {
             n = get_instance__11TCameraCtrlFv();
             for (i = 0; i < n; i++) {
-                if (xyz_distance_squared(arg1, &lbl_805D4DF0->ents[i]) < farg0) {
+                if (xyz_distance_squared(arg1, &camera_ctrl_instance->ents[i]) < farg0) {
                     return 1;
                 }
             }
         }
-    } else if (lbl_805D4DF0 != NULL && xyz_distance_squared(arg1, &lbl_805D4DF0->single) < farg0) {
+    } else if (camera_ctrl_instance != NULL && xyz_distance_squared(arg1, &camera_ctrl_instance->single) < farg0) {
         return 1;
     }
     return 0;

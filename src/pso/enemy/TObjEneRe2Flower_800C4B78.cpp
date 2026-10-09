@@ -1040,7 +1040,7 @@ f32 update_scale__15TObjBoss2TunnelFPv(void *);
 s32 copy_pos__11TNowLoadingFPvPv(int, void *);
 s32 is_alive__9TObjEneDDFPv(s32);
 M2C_UNK subtract_vector(void *, void *);
-extern u8 *lbl_805D4DF0;
+extern u8 *camera_ctrl_instance;
 void TObjPlayer__sub_800C4B78(Obj_800C4B78 *o);
 f32 calc_boss4_scale__10TObjPlayerFi(void *);
 s32 obj_clearFlags30(void * a0, s32 a1);
@@ -1180,7 +1180,7 @@ void TObjPlayer__sub_800C4B78(Obj_800C4B78 *o) {
     if (is_alive__9TObjEneDDFPv((s32)o->target) != 0) {
         VecCopy__FP3VecPC3Vec(&a, &o->target->pos);
         a.y += (14.0f);
-        VecCopy__FP3VecPC3Vec(&b, lbl_805D4DF0 + 0x178);
+        VecCopy__FP3VecPC3Vec(&b, camera_ctrl_instance + 0x178);
         subtract_vector(&b, &a);
         update_scale__15TObjBoss2TunnelFPv(&b);
         a.x = (2e+01f) * b.x + a.x;

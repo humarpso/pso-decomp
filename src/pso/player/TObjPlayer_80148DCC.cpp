@@ -134,8 +134,8 @@ s32 get_register__12TQuestThreadFPvi(void *, s32);
 s32 is_not_split_screen__13TRaderMapCoreFv(void);
 M2C_UNK advance_animation_playback(void *);
 M2C_UNK submit_cursor_candidate(void *, int);
-extern u8 *lbl_805D5EE8;
-extern u8 *lbl_805D5EEC;
+extern u8 *quest_mission_manager;
+extern u8 *quest_area_manager;
 void run_task__11TObjNpcBaseFPv(u8 *arg0);
 }
 
@@ -222,11 +222,11 @@ void run_task__11TObjNpcBaseFPv(u8 *arg0) {
   {
     if (((s32) (*((s32 *) (((s8 *) arg0) + 0x38C)))) == 0)
     {
-      var_r31 = (u8 *) lbl_805D5EE8;
+      var_r31 = (u8 *) quest_mission_manager;
     }
     else
     {
-      var_r31 = (u8 *) lbl_805D5EEC;
+      var_r31 = (u8 *) quest_area_manager;
     }
     temp_r4 = *((s32 *) (((s8 *) arg0) + 0x3A0));
     if (temp_r4 > 0)

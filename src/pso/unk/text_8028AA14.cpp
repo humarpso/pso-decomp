@@ -15,12 +15,12 @@ s32 is_any_teammate_in_state__10TObjPlayerFv();
 M2C_UNK set_global_param__8TObjFishFi(s32);
 
 extern void *lbl_805D4DD8;
-extern s32 lbl_805D4DDC;
+extern s32 boss5_common_texture_list;
 
 void render__19TObjBoss5FloorGrassFv(void) {
     if (is_any_teammate_in_state__10TObjPlayerFv() == 0) {
         push_matrix();
-        set_global_param__8TObjFishFi(lbl_805D4DDC);
+        set_global_param__8TObjFishFi(boss5_common_texture_list);
         draw_ginja_object(M2C_FIELD(M2C_FIELD(lbl_805D4DD8, void **, 0x42C), s32 *, 0x78));
         pop_matrix();
     }

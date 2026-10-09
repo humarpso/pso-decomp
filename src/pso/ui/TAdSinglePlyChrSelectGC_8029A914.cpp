@@ -8,7 +8,7 @@ extern "C" {
     int TLobby__sub_8023E4B4(void*, void*);
     extern unsigned char lbl_80465284[];
     extern unsigned char lbl_804DBF20[];
-extern u32 lbl_805D65B0;
+extern u32 chr_select_ad_pic_texture;
 void register_texture_f256_ad_pic_2(void);
 }
 
@@ -17,14 +17,14 @@ extern "C" {
 void free_global__23TAdSinglePlyChrSelectGCFv(void);
 void TLobby__sub_803DA16C(void*);
 
-extern u32 lbl_805D65B0;
+extern u32 chr_select_ad_pic_texture;
 
 void free_global__23TAdSinglePlyChrSelectGCFv(void) {
-    if ((u32) lbl_805D65B0 != 0U) {
-        TLobby__sub_803DA16C((void*)lbl_805D65B0);
-        lbl_805D65B0 = 0U;
+    if ((u32) chr_select_ad_pic_texture != 0U) {
+        TLobby__sub_803DA16C((void*)chr_select_ad_pic_texture);
+        chr_select_ad_pic_texture = 0U;
     }
 }
-void register_texture_f256_ad_pic_2(void) { (*(int *)&lbl_805D65B0) = (int)lbl_804DBF20; TLobby__sub_8023E4B4(lbl_80465284, lbl_804DBF20); }
+void register_texture_f256_ad_pic_2(void) { (*(int *)&chr_select_ad_pic_texture) = (int)lbl_804DBF20; TLobby__sub_8023E4B4(lbl_80465284, lbl_804DBF20); }
 
 }

@@ -17,7 +17,7 @@ void alloc_work_buffer__9TItemLoadFv();
 u32 alloc_buffer__11TOBoss4RockFPv(u32);
 void * __nw__7TObjectFUl(M2C_UNK);
 void *__ct__7TObjectFP7TObject(void *, void *);
-extern u8 lbl_8049F3E4[];
+extern u8 item_bml_resource_descriptor[];
 extern s32 TItemLoad__data_805D5480;
 extern void *TItemLoad__data_805D5484;
 extern void *TItemLoad__data_805D5488;
@@ -82,7 +82,7 @@ void init_resources__9TItemLoadFv(void) {
     TItemLoad__sub_8010F5A0();
     p = alloc__23TAdSinglePlyChrSelectGCFPv(0x440);
     if (p != NULL) {
-        p = load_resource_from_descriptor(p, 5, lbl_8049F3E4, 0, 0, 0);
+        p = load_resource_from_descriptor(p, 5, item_bml_resource_descriptor, 0, 0, 0);
     }
     TItemLoad__data_805D5480 = (s32)p;
     p = __nw__7TObjectFUl(0x1C);

@@ -104,7 +104,7 @@ s32 destroy__14TObjEneBm5WolfFis(s32 arg0, s16 arg1);
 void set_field8_from_obj__14TObjEneBm5WolfFPvi(void *arg0, s32 arg1);
 void TObjEneBm5Wolf__sub_800B8A24(O_800B8A24 *self);
 u8 * TObjEneBm5Wolf__ct(u8 *arg0, void *arg1, void *arg2);
-extern void* lbl_804920D0[];
+extern void* bm5_wolf_decision_row[];
 extern void* lbl_804920EC[];
 extern void* lbl_804921B8[];
 extern void* lbl_804921C8[];
@@ -135,7 +135,7 @@ extern u8 lbl_8043B504[];
 extern u8 lbl_8043B520[];
 extern u8 lbl_8043B538[];
 extern u8 lbl_8043B550[];
-void *lbl_804920D0[7] = {
+void *bm5_wolf_decision_row[7] = {
     (void *)0x43610000, (void *)0x0, (void *)0x600, (void *)0x0,
     (void *)0x0, (void *)0x0, (void *)0x0,
 };
@@ -3919,7 +3919,7 @@ u8 *TObjEneBm5Wolf__ct(u8 *arg0, void *arg1, void *arg2) {
     n = M2C_FIELD(arg0, s32 *, 0x3D8);
     reset_hp__9TObjEneDDFPv(arg0, TObjEneBm5Wolf__data_80500B40[n != 0], lbl_80500B48[n != 0], lbl_80500B50[n != 0], n);
     check_state_flag_1__9TObjEneDDFPv(arg0);
-    M2C_FIELD(arg0, u8 **, 0x350) = (u8 *)lbl_804920D0;
+    M2C_FIELD(arg0, u8 **, 0x350) = (u8 *)bm5_wolf_decision_row;
     if (M2C_FIELD(arg0, s32 *, 0x3D8) != 0) {
         initialize_enemy_state__9TObjEneDDFPv(arg0, 8);
     } else {

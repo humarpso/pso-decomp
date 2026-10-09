@@ -66,7 +66,7 @@ void set_chunk_material_override_pair(int, int);
 void set_chunk_material_color(void *);
 f32 xyz_distance(void *, void *);
 void draw_chunk_model(s32);
-extern u8 *lbl_805D4DF0;
+extern u8 *camera_ctrl_instance;
 extern u32 lbl_805D5660;
 extern s32 lbl_805D5664;
 extern s32 lbl_805D5668;
@@ -128,7 +128,7 @@ void TObjPlayer__sub_8030A9B0() {
     tbl = (Tbl_8030A9B0 *)((u8 *)&lbl_80541E58 + lbl_805D6A70 * 0x784);
     e = tbl->ents;
     rot = (lbl_805D6A74 << 16) / 16;
-    VecCopy__FP3VecPC3Vec(&pos, lbl_805D4DF0 + 0x178);
+    VecCopy__FP3VecPC3Vec(&pos, camera_ctrl_instance + 0x178);
     i = 0;
     M2C_FIELD(&pos, f32 *, 4) = lbl_805DF13C;
     for (; i < tbl->count; i++, e++) {

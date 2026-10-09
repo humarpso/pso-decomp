@@ -714,7 +714,7 @@ M2C_UNK some_empty_func__9TMainTaskFv(void *);
 M2C_UNK run_tl_camera_tasks__9TMainTaskFv(void *);
 M2C_UNK render__9TMainTaskFv(void *);
 extern RecoveredGlobal_801FCD74_main_task main_task;
-extern u8 *lbl_805D4DF0;
+extern u8 *camera_ctrl_instance;
 void render_frame__23TAdSinglePlyChrSelectGCFv(void);
 u8 get_chr_select_state__23TAdSinglePlyChrSelectGCFv(void);
 int draw_window_bg__23TAdSinglePlyChrSelectGCFiiii(void*, void*, void*, void*);
@@ -957,13 +957,13 @@ s32 *TAdSinglePlyChrSelectGC__sub_801FCD3C(Obj_801FCD3C *self) {
 }
 
 void render_frame__23TAdSinglePlyChrSelectGCFv(void) {
-    if ((void *) lbl_805D4DF0 != NULL) {
+    if ((void *) camera_ctrl_instance != NULL) {
         some_empty_func__9TMainTaskFv((void *) (&main_task.value));
         if (is_split_screen() != 0) {
             set_mode__11TCameraCtrlFi((int) (0));
             get_fog_ctrl__16TKeyBoardControlFPv();
-            if ((void *) lbl_805D4DF0 != NULL) {
-                ((VObj_18_4a87b2 *)(lbl_805D4DF0))->m1();
+            if ((void *) camera_ctrl_instance != NULL) {
+                ((VObj_18_4a87b2 *)(camera_ctrl_instance))->m1();
             }
             set_split_viewport__11TCameraCtrlFii((int) (1), (int) (0));
             render__9TMainTaskFv((void *) (&main_task.value));

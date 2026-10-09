@@ -39,10 +39,10 @@ struct Owner_802A8448 {
 };
 
 extern "C" {
-extern M2C_UNK lbl_80540B10[];
+extern M2C_UNK indirect_effect_ctrl_table[];
 extern u8 lbl_805D66AC;
 void TObjPlayer__sub_802A841C(void);
-extern M2C_UNK lbl_80540B10[];
+extern M2C_UNK indirect_effect_ctrl_table[];
 void TObjPlayer__sub_802A83F4(void);
 s32 DCFlushRange(s32, s32);
 s32 copy_and_flush_texture__16TEffIndirectCtrlFPvi(void *, s32);
@@ -87,30 +87,30 @@ s32 copy_and_flush_texture__16TEffIndirectCtrlFPvi(void *, s32);
 s8 find_indirect_effect_ctrl();
 void render__16TEffIndirectCtrlFv(void);
 
-extern M2C_UNK lbl_80540B10[];
+extern M2C_UNK indirect_effect_ctrl_table[];
 
 void play_particle_at_active_slot__10TObjPlayerFiiiiii(s32 arg0, s32 arg1, s32 arg2, s32 arg3, s32 arg4, s32 arg5) {
     s32 temp_r3;
 
     temp_r3 = (s32)(s8) find_indirect_effect_ctrl();
-    if ((temp_r3 != -1) && ((u32) lbl_80540B10[temp_r3] != 0U)) {
+    if ((temp_r3 != -1) && ((u32) indirect_effect_ctrl_table[temp_r3] != 0U)) {
         if (arg3 != 0) {
-            setup_indirect_tev_alternate((s32)(lbl_80540B10[temp_r3]), (s32)(arg4), (s32)(arg1), (s32)(arg2));
+            setup_indirect_tev_alternate((s32)(indirect_effect_ctrl_table[temp_r3]), (s32)(arg4), (s32)(arg1), (s32)(arg2));
             return;
         }
-        setup_indirect_tev_ordinary((s32)(lbl_80540B10[temp_r3]), (s32)(arg1), (s32)(arg2), (s32)(arg5));
+        setup_indirect_tev_ordinary((s32)(indirect_effect_ctrl_table[temp_r3]), (s32)(arg1), (s32)(arg2), (s32)(arg5));
     }
 }
 
 void TObjPlayer__sub_802A83F4(void) {
     s32 i;
-    for (i = 0; i < 6; i++) ((s32 *)&lbl_80540B10)[i] = 0;
+    for (i = 0; i < 6; i++) ((s32 *)&indirect_effect_ctrl_table)[i] = 0;
 }
 
 void TObjPlayer__sub_802A841C(void) {
     s32 i;
     lbl_805D66AC = 0;
-    for (i = 0; i < 6; i++) ((s32 *)&lbl_80540B10)[i] = 0;
+    for (i = 0; i < 6; i++) ((s32 *)&indirect_effect_ctrl_table)[i] = 0;
 }
 
 void *lbl_805D66B0;

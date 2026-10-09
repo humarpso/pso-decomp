@@ -86,7 +86,7 @@ extern RecoveredGlobal_802A7444_lbl_804DDBD8 player_motion_clip_roots_b;
 s32 player_motion_provider1_get_clip_indices(M2C_UNK arg0, s32 arg1, s32 arg2);
 int is_valid_player_motion_variant(void* a0);
 int TLobby__sub_802A7278(void* a0);
-extern RecoveredGlobal_802A74B8_lbl_804DD9F8 lbl_804DD9F8;
+extern RecoveredGlobal_802A74B8_lbl_804DD9F8 player_motion_category_table;
 s32 player_motion_provider1_get_actions(M2C_UNK arg0, s32 arg1, s32 arg2);
 M2C_UNK TLobby__sub_802A7848(void *, s32);
 s32 TLobby__sub_802A7868(void *, s32, s32);
@@ -183,7 +183,7 @@ s32 player_motion_provider1_get_actions(M2C_UNK arg0, s32 arg1, s32 arg2) {
         return 0;
     }
     if (((s32)is_valid_player_motion_variant((void*)((void *) (arg2)))) != 0) {
-        return M2C_FIELD(M2C_FIELD(&lbl_804DD9F8.value, M2C_UNK *, (arg1 * 4)), M2C_UNK *, (arg2 * 4));
+        return M2C_FIELD(M2C_FIELD(&player_motion_category_table.value, M2C_UNK *, (arg1 * 4)), M2C_UNK *, (arg2 * 4));
     }
     return 0;
 }

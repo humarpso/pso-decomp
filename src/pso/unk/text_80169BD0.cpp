@@ -60,8 +60,8 @@ u32 __nw__7TObjectFUl(int);
 s32 all_parents_unqueued_for_destruction__7TObjectFv(void *);
 s32 set_parent__7TObjectFP7TObject(int, int);
 extern s32 lbl_805D53A0;
-extern u32 lbl_805D5EE8;
-extern u32 lbl_805D5EEC;
+extern u32 quest_mission_manager;
+extern u32 quest_area_manager;
 extern s32 tl_00;
 extern const f32 lbl_805DB6D8;
 extern const f32 lbl_805DB6DC;
@@ -102,22 +102,22 @@ void run_script_object_task(u8 *arg0) {
             M2C_FIELD(arg0, s32 *, 0xAC) = 3;
             begin_conversation_camera();
             temp_r0_2 = M2C_FIELD(arg0, s32 *, 0xD4);
-            if ((temp_r0_2 >= 0x64) && (temp_r0_2 < 0x3E8) && ((u32) lbl_805D5EE8 != 0U) && (all_parents_unqueued_for_destruction__7TObjectFv((void *) (lbl_805D5EE8)) != 0)) {
+            if ((temp_r0_2 >= 0x64) && (temp_r0_2 < 0x3E8) && ((u32) quest_mission_manager != 0U) && (all_parents_unqueued_for_destruction__7TObjectFv((void *) (quest_mission_manager)) != 0)) {
                 temp_r3 = __nw__7TObjectFUl((int) (0x194));
                 var_r0 = temp_r3;
                 if (var_r0 != 0U) {
-                    var_r0 = __ct__12TQuestThreadFv((int) (temp_r3), (void *) (lbl_805D5EE8), (int) (M2C_FIELD(arg0, s32 *, 0xD8)));
+                    var_r0 = __ct__12TQuestThreadFv((int) (temp_r3), (void *) (quest_mission_manager), (int) (M2C_FIELD(arg0, s32 *, 0xD8)));
                 }
                 M2C_FIELD(arg0, u32 *, 0xDC) = var_r0;
                 temp_r3_2 = M2C_FIELD(arg0, u32 *, 0xDC);
                 if (temp_r3_2 != 0U) {
                     set_parent__7TObjectFP7TObject((int) (temp_r3_2), (int) (tl_00));
                 }
-            } else if (((u32) lbl_805D5EEC != 0U) && (all_parents_unqueued_for_destruction__7TObjectFv((void *) (lbl_805D5EEC)) != 0)) {
+            } else if (((u32) quest_area_manager != 0U) && (all_parents_unqueued_for_destruction__7TObjectFv((void *) (quest_area_manager)) != 0)) {
                 temp_r3_3 = __nw__7TObjectFUl((int) (0x194));
                 var_r0_2 = temp_r3_3;
                 if (var_r0_2 != 0U) {
-                    var_r0_2 = __ct__12TQuestThreadFv((int) (temp_r3_3), (void *) (lbl_805D5EEC), (int) (M2C_FIELD(arg0, s32 *, 0xD8)));
+                    var_r0_2 = __ct__12TQuestThreadFv((int) (temp_r3_3), (void *) (quest_area_manager), (int) (M2C_FIELD(arg0, s32 *, 0xD8)));
                 }
                 M2C_FIELD(arg0, u32 *, 0xDC) = var_r0_2;
                 temp_r3_4 = M2C_FIELD(arg0, u32 *, 0xDC);

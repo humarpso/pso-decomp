@@ -20,7 +20,7 @@ M2C_UNK push_matrix_from(void *);
 M2C_UNK pop_matrix();
 extern Vec_802AF64C lbl_804707E8;
 extern u8 lbl_8058D490[];
-extern Cam_802AF64C *lbl_805D4DF0;
+extern Cam_802AF64C *camera_ctrl_instance;
 extern const f32 lbl_805DE1F0;
 void fn_802AF64C(Obj_802AF64C *arg0);
 }
@@ -30,14 +30,14 @@ extern "C" {
 void fn_802AF64C(Obj_802AF64C *arg0) {
     Vec_802AF64C v = lbl_804707E8;
     push_matrix_from(lbl_8058D490);
-    rotate_matrix_zyx(0, lbl_805D4DF0->a, lbl_805D4DF0->b, lbl_805D4DF0->c);
+    rotate_matrix_zyx(0, camera_ctrl_instance->a, camera_ctrl_instance->b, camera_ctrl_instance->c);
     rotate_vector_by_matrix(0, &v, &v);
     pop_matrix();
     normalize_vector(&v);
     v.x *= lbl_805DE1F0;
     v.y *= lbl_805DE1F0;
     v.z *= lbl_805DE1F0;
-    vec3_add_to(&v, &lbl_805D4DF0->v178);
+    vec3_add_to(&v, &camera_ctrl_instance->v178);
     VecCopy__FP3VecPC3Vec(&arg0->pos, &v);
     if (arg0->x90 != NULL) {
         copy_pos__11TNowLoadingFPvPv(arg0->x90, &arg0->pos);

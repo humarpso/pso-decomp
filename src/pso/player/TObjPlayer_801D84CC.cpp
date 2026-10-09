@@ -358,10 +358,10 @@ s16 get_tech_level__10TObjPlayerFPv(void *);
 s32 get_move_mode__10TObjPlayerFPv(void *);
 f32 lookup_attack_marker(s32, s16, s16, s32);
 extern M2C_UNK lbl_804477F0[];
-extern M2C_UNK lbl_804478D4[];
-extern M2C_UNK lbl_804478F8[];
-extern M2C_UNK lbl_80447928[];
-extern M2C_UNK lbl_8044794C[];
+extern M2C_UNK attack_marker_table_dagger[];
+extern M2C_UNK attack_marker_table_double_saber[];
+extern M2C_UNK twin_sword_male_marker_table[];
+extern M2C_UNK twin_sword_female_marker_table[];
 void select_normal_attack_marker__10TObjPlayerFPv(u8 *arg0);
 s32 get_main_phase();
 s32 obj_isState3_324(int);
@@ -418,7 +418,7 @@ s32 get_clamped_index__10TObjPlayerFPv(void *);
 extern RecoveredGlobal_801D93F8_lbl_804471A8 lbl_804471A8;
 f32 get_class_hp_factor__10TObjPlayerFPv(void * _w0);
 s32 get_falz_phase__10TObjPlayerFPv(void* p);
-extern RecoveredGlobal_801D9004_lbl_80447970 lbl_80447970;
+extern RecoveredGlobal_801D9004_lbl_80447970 attack_recovery_count_table;
 f32 get_attack_recovery_count__10TObjPlayerFi(s32 arg0);
 int has_valid_handle__10TObjPlayerFPv(void *);
 extern RecoveredGlobal_801D8DCC_lbl_804C4998 lbl_804C4998;
@@ -725,7 +725,7 @@ f32 get_photon_blast_hold_frame__10TObjPlayerFi(s32 arg0) {
 f32 get_attack_recovery_count__10TObjPlayerFi(s32 arg0) {
     s32 temp_r31;
     temp_r31 = get_falz_phase__10TObjPlayerFPv((void*)(arg0));
-    return (f32) (s8) M2C_FIELD(((u8 *)(((u8 *)(&lbl_80447970.value) + (get_handle_value__10TObjPlayerFPv((void *)((void *) (arg0))) * 3))) + temp_r31), u8 *, 0);
+    return (f32) (s8) M2C_FIELD(((u8 *)(((u8 *)(&attack_recovery_count_table.value) + (get_handle_value__10TObjPlayerFPv((void *)((void *) (arg0))) * 3))) + temp_r31), u8 *, 0);
 }
 
 #pragma push
@@ -747,14 +747,14 @@ void select_normal_attack_marker__10TObjPlayerFPv(u8 *arg0) {
 f32 lookup_attack_marker(s32 arg0, s16 arg1, s16 arg2, s32 arg3) {
     switch (arg0) {
     case 3:
-        return M2C_FIELD(((u8 *)(((u8 *)(lbl_804478D4) + (arg2 * 0xC))) + (arg1 * 4)), f32 *, 0);
+        return M2C_FIELD(((u8 *)(((u8 *)(attack_marker_table_dagger) + (arg2 * 0xC))) + (arg1 * 4)), f32 *, 0);
     case 14:
-        return M2C_FIELD(((u8 *)(((u8 *)(lbl_804478F8) + (arg2 * 0xC))) + (arg1 * 4)), f32 *, 0);
+        return M2C_FIELD(((u8 *)(((u8 *)(attack_marker_table_double_saber) + (arg2 * 0xC))) + (arg1 * 4)), f32 *, 0);
     case 15:
         if (arg3 & 1) {
-            return M2C_FIELD(((u8 *)(((u8 *)(lbl_80447928) + (arg2 * 0xC))) + (arg1 * 4)), f32 *, 0);
+            return M2C_FIELD(((u8 *)(((u8 *)(twin_sword_male_marker_table) + (arg2 * 0xC))) + (arg1 * 4)), f32 *, 0);
         }
-        return M2C_FIELD(((u8 *)(((u8 *)(lbl_8044794C) + (arg2 * 0xC))) + (arg1 * 4)), f32 *, 0);
+        return M2C_FIELD(((u8 *)(((u8 *)(twin_sword_female_marker_table) + (arg2 * 0xC))) + (arg1 * 4)), f32 *, 0);
     default:
         return M2C_FIELD(((u8 *)(((u8 *)(lbl_804477F0) + (arg0 * 0xC))) + (arg1 * 4)), f32 *, 0);
     }

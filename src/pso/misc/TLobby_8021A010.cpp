@@ -9,7 +9,7 @@ extern "C" {
 void update_all_lobbies__6TLobbyFv(void);
 M2C_UNK clear_story_flag(s32);
 
-extern M2C_UNK lbl_8044BF58[];
+extern M2C_UNK story_quest_flag_pair_table[];
 
 void update_all_lobbies__6TLobbyFv(void) {
     s32 var_r29;
@@ -17,7 +17,7 @@ void update_all_lobbies__6TLobbyFv(void) {
     s32 var_r31;
 
     var_r29 = 0;
-    var_r30 = lbl_8044BF58;
+    var_r30 = story_quest_flag_pair_table;
     var_r31 = 0;
     do {
         clear_story_flag(var_r30[var_r31]);

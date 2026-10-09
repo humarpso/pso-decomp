@@ -66,7 +66,7 @@ void TLobby__sub_8020BC50();
 void stop_audio_streams__6TLobbyFv();
 int set_score__19TPlayerBattleCtrl4PFPvi(void*, void*);
 void init__19TPlayerBattleCtrl4PFv();
-extern void *lbl_805D5EE8;
+extern void *quest_mission_manager;
 extern s32 TPlayerBattleCtrl4P__init_flag;
 void TPlayerBattleCtrl4P__vt31(void *arg0);
 void obj_clear_flag30_20000(u32);
@@ -140,8 +140,8 @@ void TPlayerBattleCtrl4P__vt31(void *arg0) {
     if (--*(s32 *)((u8 *)arg0 + 0x240) <= 0) {
         TLobby__sub_8020BC50();
         TLobby__sub_801036CC();
-        if (lbl_805D5EE8 != NULL) {
-            clear_buffer__12TQuestThreadFPv(lbl_805D5EE8);
+        if (quest_mission_manager != NULL) {
+            clear_buffer__12TQuestThreadFPv(quest_mission_manager);
         }
         stop_audio_streams__6TLobbyFv();
         TPlayerBattleCtrl4P__init_flag = 0;

@@ -22,8 +22,8 @@ struct Pair_80194AEC { const char *s[2]; };
 struct Mes_80194AEC { u8 pad0[0x84]; s32 f84; u8 pad88[4]; s32 f8C; u8 pad90[0x24]; s32 fB4; s32 fB8; };
 
 extern "C" {
-extern void* lbl_805D5EE8;
-extern void* lbl_805D5EEC;
+extern void* quest_mission_manager;
+extern void* quest_area_manager;
 extern void* tl_00;
 void* __nw__7TObjectFUl(unsigned long);
 void* __ct__12TQuestThreadFv(void*, void*, s32);
@@ -100,8 +100,8 @@ void TObjMesBase::start_message() {
     if (label != 0) {
         void* root = 0;
         switch (messageBank) {
-        case 0: root = lbl_805D5EE8; break;
-        case 1: root = lbl_805D5EEC; break;
+        case 0: root = quest_mission_manager; break;
+        case 1: root = quest_area_manager; break;
         }
         switch (messagePhase) {
         case 0:
@@ -174,10 +174,10 @@ void *TObjMesBase__ct(void *arg0, s32 arg1, s32 arg2) {
     return arg0;
 }
 
-extern s32 lbl_805D4DF0;
+extern s32 camera_ctrl_instance;
 
 s32 TMotorcycle__vt8(s32 arg0, f32 farg0, f32 farg1) {
-    if (xz_distance_squared(lbl_805D4DF0 + 0x178, arg0 + 0x38) < (farg1 * farg1)) {
+    if (xz_distance_squared(camera_ctrl_instance + 0x178, arg0 + 0x38) < (farg1 * farg1)) {
         return 1;
     }
     return update_object_view_visibility(arg0, farg0, farg1);

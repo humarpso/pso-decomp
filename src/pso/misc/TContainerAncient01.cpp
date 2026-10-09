@@ -90,7 +90,7 @@ f32 xyz_distance_squared(void *, void *);
 void matrix_mult_vec(int, void *, void *);
 void project_world_to_screen(int, void *, void *, void *);
 extern Vec_8018BEE4 lbl_804FF610;
-extern u8 *lbl_805D4DF0;
+extern u8 *camera_ctrl_instance;
 extern const f32 lbl_805DBD60;
 extern const f32 lbl_805DBD68;
 s32 TObjContainerIdo__vt8(u8 *arg0, f32 farg0, f32 farg1);
@@ -189,7 +189,7 @@ s32 TObjContainerIdo__vt8(u8 *arg0, f32 farg0, f32 farg1) {
     Vec_8018BEE4 p;
     f32 out[2];
     matrix_mult_vec(0, arg0 + 0xC0, &p);
-    if (xyz_distance_squared(arg0 + 0x38, lbl_805D4DF0 + 0x178) < farg1 * farg1) {
+    if (xyz_distance_squared(arg0 + 0x38, camera_ctrl_instance + 0x178) < farg1 * farg1) {
         return 1;
     }
     if (p.z + farg1 * lbl_805DBD60 > 0.0f) {

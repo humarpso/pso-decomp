@@ -1,2 +1,19 @@
-#define PSO_CLASS_PACKAGE 0x80293D10
-#include "pso/menu/TChCrCharSelect.cpp"
+#include "types.h"
+typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
+#define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
+
+extern "C" {
+
+void *create__15TChCrCharSelectFPv(void *arg0);
+void *__ct__15TChCrCharSelectFv(void *, void *);
+void *__nw__7TObjectFUl(int);
+
+void *create__15TChCrCharSelectFPv(void *arg0) {
+    void *o = __nw__7TObjectFUl(0x20);
+    if (o != NULL) {
+        o = __ct__15TChCrCharSelectFv(o, arg0);
+    }
+    return o;
+}
+
+}

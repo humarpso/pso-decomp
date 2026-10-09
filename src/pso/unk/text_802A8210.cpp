@@ -18,7 +18,7 @@ s32 check_demo_mode__10TObjPlayerFv();
 void TEffIndirectCtrl__sub_802A9548(u8 *);
 u8 TEffIndirectCtrl__sub_802A9554(u8 *);
 u8 *TEffIndirectCtrl__ct(u8 *, s32, s32);
-extern u8 *lbl_80540B10[];
+extern u8 *indirect_effect_ctrl_table[];
 extern s32 tl_01;
 extern u8 lbl_805D66AC;
 void register_indirect_effect_ctrl(s32 arg0);
@@ -41,18 +41,18 @@ void register_indirect_effect_ctrl(s32 arg0) {
         if (p != NULL) {
             p = TEffIndirectCtrl__ct(p, arg0, tl_01);
         }
-        lbl_80540B10[lbl_805D66AC] = p;
+        indirect_effect_ctrl_table[lbl_805D66AC] = p;
         lbl_805D66AC++;
     }
 }
 s8 find_indirect_effect_ctrl(u8 arg0) {
     s32 i;
     for (i = 0; i < lbl_805D66AC; i++) {
-        if (lbl_80540B10[i] != 0) {
-            u8 id = TEffIndirectCtrl__sub_802A9554(lbl_80540B10[i]);
+        if (indirect_effect_ctrl_table[i] != 0) {
+            u8 id = TEffIndirectCtrl__sub_802A9554(indirect_effect_ctrl_table[i]);
             if (id == arg0) {
                 if (check_demo_mode__10TObjPlayerFv() == 0) {
-                    TEffIndirectCtrl__sub_802A9548(lbl_80540B10[i]);
+                    TEffIndirectCtrl__sub_802A9548(indirect_effect_ctrl_table[i]);
                 }
                 return i;
             }

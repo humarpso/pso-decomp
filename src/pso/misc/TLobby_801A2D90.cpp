@@ -32,7 +32,7 @@ M2C_UNK clear_switch_table();
 M2C_UNK apply_all_players__9TTecLukerFv();
 void enable_all_battle_ctrl__10TNpcPlayerFv();
 M2C_UNK queue_destruction__7TObjectFv(u32);
-extern u32 lbl_805D5EE8;
+extern u32 quest_mission_manager;
 void reset_quest_state__6TLobbyFv(void);
 void apply_char_to_players__6TLobbyFv(void);
 Ctrl_801A2E00 *get_player_by_client_id(s32);
@@ -108,8 +108,8 @@ void reset_quest_state__6TLobbyFv(void) {
     reset_item_id_counters__6TLobbyFv();
     reset_floor_items__6TLobbyFv();
     enable_all_battle_ctrl__10TNpcPlayerFv();
-    if ((u32) lbl_805D5EE8 != 0U) {
-        queue_destruction__7TObjectFv(lbl_805D5EE8);
+    if ((u32) quest_mission_manager != 0U) {
+        queue_destruction__7TObjectFv(quest_mission_manager);
     }
     clear_enabled_main_warps();
     reset_quest_result_callbacks__22THunterGuildSeqOfflineFPv();

@@ -29,7 +29,7 @@ extern H_8034AF68 *TWindowDD__ws_data_base;
 extern H_8034AF68 *TWindowDD__ws_data_table;
 void init_ws_data_tables__9TWindowDDFv(void);
 extern Ent_8034B050 lbl_804F0040[4];
-extern s32 TWindowDD__data_805D6E08;
+extern s32 TWindowDD__window_mode;
 extern s8 lbl_805D6E90;
 extern s32 lbl_805DFD84;
 extern s32 lbl_805DFD88;
@@ -99,7 +99,7 @@ s32 lookup_item_category__9TWindowDDFi(s32 arg0) {
             break;
         }
     }
-    if (r == 2 && TWindowDD__data_805D6E08 == 0) {
+    if (r == 2 && TWindowDD__window_mode == 0) {
         r = 1;
     }
     return r;

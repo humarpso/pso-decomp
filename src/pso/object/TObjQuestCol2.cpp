@@ -17,8 +17,8 @@ s32 TObjQuestCol2__vt13(void *arg0) {
 
 extern M2C_UNK __vt__13TObjQuestCol2[];
 extern s32 lbl_805D340C;
-extern s32 lbl_805D5EE8;
-extern s32 lbl_805D5EEC;
+extern s32 quest_mission_manager;
+extern s32 quest_area_manager;
 
 void *TObjQuestCol2__ct(void *arg0) {
     s32 temp_r0;
@@ -36,10 +36,10 @@ void *TObjQuestCol2__ct(void *arg0) {
     temp_r0 = M2C_FIELD(arg0, s32 *, 0xC0);
     switch (temp_r0) {
     case 0:
-        M2C_FIELD(arg0, s32 *, 0xBC) = (s32) lbl_805D5EE8;
+        M2C_FIELD(arg0, s32 *, 0xBC) = (s32) quest_mission_manager;
         break;
     case 1:
-        M2C_FIELD(arg0, s32 *, 0xBC) = (s32) lbl_805D5EEC;
+        M2C_FIELD(arg0, s32 *, 0xBC) = (s32) quest_area_manager;
         break;
     default:
         M2C_FIELD(arg0, s32 *, 0xBC) = 0;

@@ -63,7 +63,7 @@ void mask_object_set_row_flags(void *, int);
 s32 get_global_state__14TOKeyMachine01Fv();
 void queue_destruction__7TObjectFv(void *);
 
-extern s32 lbl_805D4DF0;
+extern s32 camera_ctrl_instance;
 extern const f32 lbl_805DBEE0;
 extern const f32 lbl_805DBEE4;
 extern const f32 lbl_805DBEE8;
@@ -87,7 +87,7 @@ void run_task__12TObjParticleFv(u8 *arg0) {
     if (((s32) M2C_FIELD(arg0, s32 *, 0x8C) == 1) && ((s32) M2C_FIELD(arg0, s32 *, 0x84) == 1)) {
         var_f31 = lbl_805DBEE8;
     }
-    if (xyz_distance_squared(arg0 + 0x38, lbl_805D4DF0 + 0x178) > var_f31) {
+    if (xyz_distance_squared(arg0 + 0x38, camera_ctrl_instance + 0x178) > var_f31) {
         queue_destruction__7TObjectFv((void *)(arg0));
         return;
     }

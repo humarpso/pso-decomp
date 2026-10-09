@@ -56,12 +56,12 @@ s32 is_any_teammate_in_state__10TObjPlayerFv();
 void queue_destruction__7TObjectFv(void *);
 M2C_UNK set_global_param__8TObjFishFi(void *);
 
-extern s32 lbl_805D4DDC;
+extern s32 boss5_common_texture_list;
 
 void render__15TObjBoss5PillarFPv(u8 *arg0) {
     if (is_any_teammate_in_state__10TObjPlayerFv() == 0) {
         push_matrix();
-        set_global_param__8TObjFishFi((void *) (lbl_805D4DDC));
+        set_global_param__8TObjFishFi((void *) (boss5_common_texture_list));
         post_translate_matrix((void *) (arg0 + 0x2C));
         if ((s32) M2C_FIELD(arg0, s32 *, 0x1C) != 3) {
             fn_8028ADDC((int) (M2C_FIELD(arg0, s32 *, 0x48)));

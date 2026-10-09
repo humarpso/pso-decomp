@@ -87,7 +87,7 @@ void init_collision_body_parts(void *, void *, s32);
 void construct_collider_proxy__10TObjPlayerFPv(void *, s32);
 extern u8 lbl_80484B38[];
 extern M2C_UNK __vt__16TObjVoloptPillar[];
-extern u8 lbl_804FEE68[];
+extern u8 boss3_volopt_spawn_pos[];
 extern s32 lbl_805D2760;
 extern s32 tl_04;
 extern const f32 TObjVoloptPillar__data_805D88C8;
@@ -140,7 +140,7 @@ void pop_matrix();
 extern Pair_8004A1CC lbl_80436734[];
 extern Vec_8004A1CC lbl_8043673C[];
 extern const f64 lbl_80436798[];
-extern u8 lbl_804FEE68[];
+extern u8 boss3_volopt_spawn_pos[];
 extern u8 lbl_8058D490[];
 extern const f32 lbl_805D88BC;
 extern const f32 TObjVoloptPillar__data_805D88C8;
@@ -238,7 +238,7 @@ void run_task__16TObjVoloptPillarFv(Self_8004A1CC *self) {
                             push_matrix_from(lbl_8058D490);
                             {
                                 Vec_8004A1CC v = bp->pos;
-                                subtract_vector(&v, lbl_804FEE68);
+                                subtract_vector(&v, boss3_volopt_spawn_pos);
                                 ang = lbl_80436798[0] * get_ad_end_text_start__10TObjPlayerFv(v.x, v.z);
                                 {
                                     Vec_8004A1CC w = lbl_8043673C[0];
@@ -308,7 +308,7 @@ S_8004A574 *TObjVoloptPillar__ct(S_8004A574 *o, void *pos, s32 arg2) {
     o->f0 = lbl_805D2760;
     init_collision_body_parts(o, lbl_80484B38, 1);
     VecCopy__FP3VecPC3Vec(o->v38, pos);
-    d = horizontal_distance__10TObjPlayerFPvPv(o->v38, lbl_804FEE68);
+    d = horizontal_distance__10TObjPlayerFPvPv(o->v38, boss3_volopt_spawn_pos);
     if (d < lbl_805D88E4) {
         o->f3c = TObjVoloptPillar__data_805D88C8;
     } else {

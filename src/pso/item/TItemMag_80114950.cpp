@@ -33,14 +33,14 @@ M2C_UNK reset__11TItemMagSubFPv();
 M2C_UNK reset_stats__11TItemMagSubFPv(void *, s32, s32);
 M2C_UNK set_flags64__8TItemMagFPvUi(void *, s32);
 
-extern s32 lbl_805D54B0;
+extern s32 item_mag_param_table;
 
 void set_mag_type__8TItemMagFPvi(u8 *arg0, s32 arg1) {
     u8 *temp_r5;
 
     reset__11TItemMagSubFPv();
     M2C_FIELD(arg0, s32 *, 0x68) = arg1;
-    M2C_FIELD(arg0, s32 **, 0x30) = (s32 *) (lbl_805D54B0 + (arg1 * 0x64));
+    M2C_FIELD(arg0, s32 **, 0x30) = (s32 *) (item_mag_param_table + (arg1 * 0x64));
     temp_r5 = (unsigned char *) (M2C_FIELD(arg0, void **, 0x20));
     if (temp_r5 != NULL) {
         s32 elem = *M2C_FIELD(arg0, s32 **, 0x30);
@@ -52,13 +52,13 @@ void set_mag_type__8TItemMagFPvi(u8 *arg0, s32 arg1) {
     }
 }
 
-extern s32 lbl_805D54B0;
+extern s32 item_mag_param_table;
 
 void set_type__8TItemMagFPvi(u8 *arg0, s32 arg1) {
     set_flags64__8TItemMagFPvUi(arg0, 0x18);
     reset_stats__11TItemMagSubFPv(arg0, M2C_FIELD(arg0, s32 *, 0x68), arg1);
     M2C_FIELD(arg0, s32 *, 0x68) = arg1;
-    M2C_FIELD(arg0, s32 *, 0x30) = (s32) (lbl_805D54B0 + (arg1 * 0x64));
+    M2C_FIELD(arg0, s32 *, 0x30) = (s32) (item_mag_param_table + (arg1 * 0x64));
 }
 
 }

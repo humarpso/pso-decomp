@@ -100,7 +100,7 @@ void pop_matrices(s32);
 extern const Vec_80193FE8 lbl_80445D44;
 extern RecoveredGlobal_80194528_TObjLight__data_80506320 TObjLight__scene_light_state;
 extern u8 lbl_8058D490[];
-extern u8 *lbl_805D4DF0;
+extern u8 *camera_ctrl_instance;
 void run_task__9TObjLightFv(Light_80193FE8 *self);
 }
 
@@ -120,7 +120,7 @@ extern M2C_UNK __vt__9TObjLight[];
 #pragma fp_contract on
 void run_task__9TObjLightFv(Light_80193FE8 *self) {
     s32 hi;
-    if (xyz_distance_squared(&self->pos, lbl_805D4DF0 + 0x178) > 160000.0f) {
+    if (xyz_distance_squared(&self->pos, camera_ctrl_instance + 0x178) > 160000.0f) {
         queue_destruction__7TObjectFv(self);
         return;
     }

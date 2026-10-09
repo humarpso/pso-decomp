@@ -1532,7 +1532,7 @@ void *__dt__10TBoss2MineFv(void *arg0, s16 arg1) {
     }
     return arg0;
 }
-__declspec(section ".data") void *lbl_80482C88[2] = {
+__declspec(section ".data") void *boss2_mine_params[2] = {
     (void *)0x11, (void *)0x11,
 };
 __declspec(section ".data") void *lbl_80482C90[2] = {
@@ -1561,7 +1561,7 @@ void init__10TBoss2MineFPvi(u8 *arg0, s32 arg1) {
     temp_r6 = M2C_FIELD(lbl_805D4BA4, u8 **, 0x42C);
     M2C_FIELD(arg0, s32 *, 0x24) = M2C_FIELD(temp_r6, s32 *, 0x2C);
     init_model__9TObjEneDDFPv(arg0, (u8 *)lbl_80482CD8, 1, (int)temp_r6);
-    reset_hp__9TObjEneDDFPv(arg0, register_boss__6TLobbyFPv(((s32 *)lbl_80482C88)[arg1]),
+    reset_hp__9TObjEneDDFPv(arg0, register_boss__6TLobbyFPv(((s32 *)boss2_mine_params)[arg1]),
                             dispatch_shared_handler_b__6TLobbyFPv(((s32 *)lbl_80482C90)[arg1]),
                             register_object__6TLobbyFPv(((s32 *)lbl_80482C98)[arg1]));
     check_state_flag_2__9TObjEneDDFPv(arg0);

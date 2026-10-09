@@ -829,7 +829,7 @@ struct Hira_80041D3C {
 };
 
 extern "C" {
-extern f32 lbl_804FEE68[];
+extern f32 boss3_volopt_spawn_pos[];
 void obj_setFlags30(void *, u32);
 void set_hit_flags_and_notify__20TBoss3VoloptHiraisinFPv(u8 *arg0);
 s32 spawn_directional_particle(void *, void *, int);
@@ -856,7 +856,7 @@ void set_hit_flags_and_notify__20TBoss3VoloptHiraisinFPv(u8 *arg0);
 void spawn_effects__20TBoss3VoloptHiraisinFPv(u8 *arg0);
 void damage_player_if_aligned__20TBoss3VoloptHiraisinFPv(void *arg0);
 u8 *find_entity_by_id(u16);
-extern s8 lbl_804FEED0[];
+extern s8 volopt_target_slot_used[];
 extern u16 lbl_805D4C18;
 void TBoss3VoloptHiraisin__sub_80041D3C(Hira_80041D3C *self);
 }
@@ -968,9 +968,9 @@ S_80041A08 *TBoss3VoloptHiraisin__ct(S_80041A08 *o, S_80041A08 *src, s16 a, s16 
     o->f28 = src->f28;
     o->f2a = src->f2a;
     o->f3c = (8e+01f);
-    o->f38 = lbl_804FEE68[0];
-    o->f40 = lbl_804FEE68[2];
-    ((s32 (*)(void *, void *, s32))init_params__20TBoss3VoloptHiraisinFPv)(o, lbl_804FEE68, g);
+    o->f38 = boss3_volopt_spawn_pos[0];
+    o->f40 = boss3_volopt_spawn_pos[2];
+    ((s32 (*)(void *, void *, s32))init_params__20TBoss3VoloptHiraisinFPv)(o, boss3_volopt_spawn_pos, g);
     return o;
 }
 
@@ -1063,12 +1063,12 @@ void TBoss3VoloptHiraisin__sub_80041D3C(Hira_80041D3C *self) {
         play_sound_effect(0x4003A804, self->pos, 0, 0);
         damage_player_if_aligned__20TBoss3VoloptHiraisinFPv(self);
         spawn_effects__20TBoss3VoloptHiraisinFPv((u8 *)self);
-        lbl_804FEED0[self->idx] = 1;
+        volopt_target_slot_used[self->idx] = 1;
         if (self->idx % 4 > 0) {
             all = 1;
             base = (self->idx / 4) * 4;
             for (j = base + 1; j < base + 4; j++) {
-                if (lbl_804FEED0[j] == 0) {
+                if (volopt_target_slot_used[j] == 0) {
                     all = 0;
                 }
             }

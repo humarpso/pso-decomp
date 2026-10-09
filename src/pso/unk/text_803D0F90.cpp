@@ -53,8 +53,8 @@ void log_printf__6TLobbyFPvi(const char *fmt, ...);
 extern char lbl_8047DCF0[];
 s32 TLobby__sub_803D13C0(Obj_803D13C0 *p);
 s32 OSRestoreInterrupts(s32 level);
-extern volatile s32 lbl_805D7638;
-extern s32 lbl_805D763C;
+extern volatile s32 lobby_lock_nest_count;
+extern s32 lobby_saved_interrupt_state;
 void restore_interrupts_nested__6TLobbyFv(void);
 void log_printf__6TLobbyFPvi(const char *fmt, ...);
 extern char lbl_8047DCF0[];
@@ -73,7 +73,7 @@ void enter_lock__6TLobbyFv(void);
 void TLobby__sub_803D198C(Ent_803D1C24 *e);
 void *memset(void *dst, int val, unsigned long n);
 extern Ent_803D1C24 lsc_slot_table[];
-extern s32 lbl_805D7630;
+extern s32 lobby_slot_refcount;
 void release_and_close_all_slots__6TLobbyFv(void);
 void log_printf__6TLobbyFPvi(const char *fmt, ...);
 extern char lbl_8047DCF0[];
@@ -106,7 +106,7 @@ void notify_dvd_read__6TLobbyFv(void);
 void enter_lock__6TLobbyFv(void);
 void *memset(void *dst, int val, unsigned long n);
 extern Ent_803D1C24 lsc_slot_table[];
-extern s32 lbl_805D7630;
+extern s32 lobby_slot_refcount;
 extern const char *volatile lbl_805E0DB0;
 void TLobby__sub_803D1CC0(void);
 void notify_dvd_read__6TLobbyFv(void);
@@ -319,7 +319,7 @@ void release_and_close_all_slots__6TLobbyFv(void) {
     u8 lock[8];
     s32 i;
     ((void (*)(void *))enter_lock__6TLobbyFv)(lock);
-    if (--lbl_805D7630 == 0) {
+    if (--lobby_slot_refcount == 0) {
         for (i = 0; i < 16; i++) {
             if ((s32)lsc_slot_table[i].state == 1) {
                 TLobby__sub_803D198C(&lsc_slot_table[i]);
@@ -336,18 +336,18 @@ void TLobby__sub_803D1CC0(void) {
     u8 sp8[8];
     lbl_805E0DB0;
     ((void (*)(void *))enter_lock__6TLobbyFv)(sp8);
-    if (lbl_805D7630 == 0) {
+    if (lobby_slot_refcount == 0) {
         memset((void *)(lsc_slot_table), (int)(0), (unsigned long)(0x4380));
         set_callback__6TLobbyFUii(0, 0);
     }
-    lbl_805D7630++;
+    lobby_slot_refcount++;
     ((void (*)(void *))notify_dvd_read__6TLobbyFv)(sp8);
 }
 
 void restore_interrupts_nested__6TLobbyFv(void) {
-    lbl_805D7638--;
-    if (lbl_805D7638 == 0) {
-        OSRestoreInterrupts(lbl_805D763C);
+    lobby_lock_nest_count--;
+    if (lobby_lock_nest_count == 0) {
+        OSRestoreInterrupts(lobby_saved_interrupt_state);
     }
 }
 

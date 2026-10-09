@@ -54,8 +54,8 @@ struct Req_8011AD1C {
 
 extern "C" {
 s32 get_global_state__14TOKeyMachine01Fv();
-extern s32 lbl_805D54E8;
-extern s32 lbl_805D54EC;
+extern s32 item_sync_counter_table;
+extern s32 item_id_counter_table;
 u32 advance_item_id_counter(s32 arg0);
 M2C_UNK remove_item_condition__6TLobbyFii(s32, s32);
 void TLobby__sub_8011AA44(s16 arg0, s32 _w1);
@@ -67,7 +67,7 @@ s32 drop_stacked_item_passthrough__6TLobbyFi(void *);
 s32 insert_sorted_entry__6TLobbyFPv(void *);
 void TLobby__sub_8011AED8(s8 arg0, s16 arg1, u8 *arg2, f32 farg0, f32 farg1);
 s32 get_global_state__14TOKeyMachine01Fv();
-extern s32 lbl_805D54E8;
+extern s32 item_sync_counter_table;
 void set_boss_buf_entry__6TLobbyFii(s32 v, u16 idx);
 void observe_item_id__6TLobbyFi(int id);
 void bswap_pick_up_item_request__6TLobbyFi(Msg_8011A9D8 *msg);
@@ -75,12 +75,12 @@ void *find_item_condition_entry__6TLobbyFii(s16 a, u32 b);
 void init_6x59_packet__6TLobbyFPv(Cmd_8011A9D8 *cmd);
 void send_pick_up_item__6TLobbyFi(Cmd_8011A9D8 *cmd);
 void handle_6x5A_pick_up_item_request(Msg_8011A9D8 *msg);
-extern s32 lbl_805D54E8;
-extern s32 lbl_805D54EC;
+extern s32 item_sync_counter_table;
+extern s32 item_id_counter_table;
 void reset_item_id_counters__6TLobbyFv(void);
 s32 get_main_phase();
 s32 is_quest_active();
-extern s32 lbl_805D54E4;
+extern s32 build_item_id_mode;
 u32 build_item_id(u16 arg0);
 u32 build_item_id(u16 arg0);
 s32 copy_item_data__6TLobbyFPvPv(void *, void *);
@@ -134,7 +134,7 @@ u32 build_item_id(u16 arg0) {
         } else {
             id = arg0 | 0x06010000;
         }
-    } else if (lbl_805D54E4 == 1) {
+    } else if (build_item_id_mode == 1) {
         id = arg0 | 0x06020000;
     } else {
         id = arg0 | 0x06010000;
@@ -147,7 +147,7 @@ void observe_item_id__6TLobbyFi(int id) {
         s32 lo = 0x10000;
         if (lo < id && id < 0x2010000) {
             s32 idx = id >> 21;
-            if (((s32 *)lbl_805D54E8)[(u16)idx] <= id) {
+            if (((s32 *)item_sync_counter_table)[(u16)idx] <= id) {
                 set_boss_buf_entry__6TLobbyFii(id + 1, idx);
             }
         }
@@ -318,17 +318,17 @@ void TLobby__sub_8011AED8(s8 arg0, s16 arg1, u8 *arg2, f32 farg0, f32 farg1) {
 void handle_6x62(void) {  }
 u32 advance_item_id_counter(s32 client) {
     if (get_global_state__14TOKeyMachine01Fv() == 0xF)
-        return ((u32*)lbl_805D54EC)[(u16)client]++;
-    return ((u32*)lbl_805D54E8)[(u16)client]++;
+        return ((u32*)item_id_counter_table)[(u16)client]++;
+    return ((u32*)item_sync_counter_table)[(u16)client]++;
 }
 void reset_item_id_counters__6TLobbyFv(void) {
     s32 i;
-    if ((s32 *)lbl_805D54E8 == 0 || (s32 *)lbl_805D54EC == 0) {
+    if ((s32 *)item_sync_counter_table == 0 || (s32 *)item_id_counter_table == 0) {
         return;
     }
     for (i = 0; i < 12; i++) {
-        ((s32 *)lbl_805D54E8)[i] = (i << 21) + 0x10000;
-        ((s32 *)lbl_805D54EC)[i] = (i << 21) + 0x10010000;
+        ((s32 *)item_sync_counter_table)[i] = (i << 21) + 0x10000;
+        ((s32 *)item_id_counter_table)[i] = (i << 21) + 0x10010000;
     }
 }
 
