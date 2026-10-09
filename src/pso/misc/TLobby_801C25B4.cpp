@@ -39,6 +39,17 @@ u8 check_battle_end__6TLobbyFv(void);
 u32 get_player_by_client_id(s32);
 extern Ent_801C26A8 TLobby__data_80511C80[];
 s32 TLobby__sub_801C26A8(void);
+s32 update_battle_controller__10TObjPlayerFv();
+s32 get_char_index__23TAdSinglePlyChrSelectGCFUi(M2C_UNK);
+M2C_UNK stop_audio_streams__6TLobbyFv();
+void __ct__7TObjectFP7TObject(void *);
+M2C_UNK export_character_data__10TObjPlayerFPvPv(s32, s32);
+extern u8 __vt__17TPlayerBattleCtrl[];
+extern u8 lbl_804EFA50[];
+extern u8 lbl_804EFA6C[];
+extern s32 lbl_805D3554;
+extern s32 lbl_805D5544;
+void *TPlayerBattleCtrl__ct(void *arg0, s32 _w1);
 }
 
 extern "C" {
@@ -801,7 +812,6 @@ int TLobby__sub_801B09A4(void);
 int inc_player_count__10TObjPlayerFv(void);
     extern int lbl_805D5DB4;
 void init_and_set_flag__6TLobbyFv(void);
-u32 TPlayerBattleCtrl__ct(u32, s32);
 u32 __nw__7TObjectFUl(M2C_UNK);
 void strncpy(void *, void *, int);
 extern void *TLobby__battle_mode_data_ptr;
@@ -1265,7 +1275,7 @@ void init_battle_ctrl__6TLobbyFii(s32 arg0, s32 arg1) {
     if ((u32) (*(u32 *)&TLobby__battle_mode_data_ptr) == 0U) {
         var_r3 = __nw__7TObjectFUl(0x278);
         if (var_r3 != 0U) {
-            var_r3 = TPlayerBattleCtrl__ct(var_r3, tl_00);
+            var_r3 = ((u32)TPlayerBattleCtrl__ct((void *)(var_r3), (s32)(tl_00)));
         }
         (*(u32 *)&TLobby__battle_mode_data_ptr) = var_r3;
     }
@@ -1874,6 +1884,27 @@ void update_player_battle_ctrl_state(void *arg0) {
     default:
         return;
     }
+}
+void *TPlayerBattleCtrl__ct(void *arg0, s32 _w1) {
+    s32 temp_r3;
+    __ct__7TObjectFP7TObject(arg0);
+    M2C_FIELD(arg0, u8 **, 0x18) = __vt__17TPlayerBattleCtrl;
+    M2C_FIELD(arg0, s32 *, 0) = (s32) lbl_805D3554;
+    M2C_FIELD(arg0, s32 *, 0x28) = 0;
+    M2C_FIELD(arg0, s32 *, 0x24) = 0;
+    M2C_FIELD(arg0, s32 *, 0x20) = 0;
+    M2C_FIELD(arg0, s32 *, 0x1C) = 0;
+    M2C_FIELD(arg0, s32 *, 0x4C) = 0;
+    M2C_FIELD(arg0, s32 *, 0x50) = 0;
+    M2C_FIELD(arg0, s32 *, 0x54) = 0;
+    M2C_FIELD(arg0, u8 **, 0x40) = (lbl_805D5544 == 0) ? lbl_804EFA50 : lbl_804EFA6C;
+    temp_r3 = update_battle_controller__10TObjPlayerFv();
+    if (temp_r3 != 0) {
+        export_character_data__10TObjPlayerFPvPv(temp_r3, get_char_index__23TAdSinglePlyChrSelectGCFUi(0xFFFF));
+    }
+    stop_audio_streams__6TLobbyFv();
+    M2C_FIELD(arg0, s32 *, 0x64) = 0;
+    return arg0;
 }
 
 }

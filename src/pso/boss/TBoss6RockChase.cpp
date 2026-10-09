@@ -21,6 +21,59 @@ struct RecoveredGlobal_8036D4E0___vt__15TBoss6RockChase {
     u8 remaining[0x34];
 };
 
+typedef s32 M2C_UNK;
+struct Vec_8036D1B4 { f32 x, y, z; };
+
+struct Hit_8036D1B4 {
+    s32 a;
+    s32 b;
+    s32 c;
+    f32 d;
+};
+
+struct Pair_8036D1B4 { s32 id; f32 v; };
+
+struct PBase_8036D1B4 { char pad[0x18]; };
+
+struct Player_8036D1B4 : PBase_8036D1B4 {
+    virtual void m0();
+    virtual void m1();
+    virtual void m2();
+    virtual void m3();
+    virtual void m4();
+    virtual void m5();
+    virtual void m6();
+    virtual void m7();
+    virtual void m8();
+    virtual void m9();
+    virtual void m10();
+    virtual void m11();
+    virtual void m12();
+    virtual void m13();
+    virtual void m14();
+    virtual void m15();
+    virtual void m16();
+    virtual void m17();
+    virtual void m18();
+    virtual void m19();
+    virtual void m20();
+    virtual void m21(s32, Hit_8036D1B4 *, s32, s32, s32);
+    u8 pad1C[0x38 - 0x1C];
+    Vec_8036D1B4 pos;
+};
+
+struct Ent_8036D1B4 { s32 id; f32 range; };
+
+struct Chase_8036D1B4 {
+    u8 pad0[0x38];
+    Vec_8036D1B4 pos;
+    u8 pad44[0xAC - 0x44];
+    s32 xAC;
+    s32 xB0;
+};
+
+struct Param_8036D1B4 { u8 pad[0xC]; f32 v; };
+
 extern "C" {
 s32 VecCopy__FP3VecPC3Vec(void *, void *);
 s32 __nw__7TObjectFUl(int);
@@ -52,12 +105,23 @@ M2C_UNK spawn_particle_effect(void *, int);
 M2C_UNK play_sound_effect(int, void *, int, int);
 M2C_UNK apply_radial_effect_to_players__14TBoss6PlotFalzFPvssf(void *, int, int, f32);
 M2C_UNK spawn_crush_rocks__10TBoss6RockFPvi(void *, int);
-M2C_UNK TBoss6RockChase__sub_8036D1B4(void *);
 extern const f32 TBoss6RockChase__data_805E03B8;
 extern const f32 lbl_805E03C0;
 extern const f32 lbl_805E03C4;
 extern const f32 lbl_805E03C8;
 void run_task__15TBoss6RockChaseFv(u8 *arg0);
+s32 VecCopy__FP3VecPC3Vec(void *, void *);
+Player_8036D1B4 *get_player_data__10TObjPlayerFi(s32);
+Param_8036D1B4 *dispatch_shared_handler_a__6TLobbyFPv(s32);
+s32 get_game_mode__6TLobbyFv();
+s32 is_active__14TBoss6PlotFalzFPv(void *);
+s32 rand_vary_count__14TBoss6PlotFalzFif(s32, f32);
+f32 vector_length(void *);
+int subtract_vector(void *, void *);
+extern RecoveredGlobal_8036D4E0_lbl_8047ACE8 lbl_8047ACE8;
+extern const f32 TBoss6RockChase__data_805E03B8;
+extern const f32 lbl_805E03BC;
+M2C_UNK TBoss6RockChase__sub_8036D1B4(void *arg0);
 }
 
 extern "C" {
@@ -74,6 +138,45 @@ int pop_matrix(void);
 void __dl__7TObjectFPv(void *);
 void destroy_particle_controller__10TObjPlayerFPvs(void *, int);
 int set_global_param__8TObjFishFi(void*);
+
+#pragma push
+#pragma opt_propagation off
+M2C_UNK TBoss6RockChase__sub_8036D1B4(void *arg0) {
+    Chase_8036D1B4 *self = (Chase_8036D1B4 *)arg0;
+    Vec_8036D1B4 d;
+    s32 n;
+    s32 dmg;
+    s32 i;
+    Player_8036D1B4 *pl;
+    f32 range;
+    n = get_game_mode__6TLobbyFv();
+    {
+        Ent_8036D1B4 *tbl = (Ent_8036D1B4 *)&lbl_8047ACE8;
+        range = tbl[self->xB0].range;
+    }
+    dmg = dispatch_shared_handler_a__6TLobbyFPv(0x2C)->v;
+    if (dmg < 1) {
+        dmg = 20;
+    }
+    for (i = 0; i < n; i++) {
+        pl = get_player_data__10TObjPlayerFi(i);
+        if (is_active__14TBoss6PlotFalzFPv(pl) != 0) {
+            VecCopy__FP3VecPC3Vec(&d, &pl->pos);
+            subtract_vector(&d, &self->pos);
+            d.y = TBoss6RockChase__data_805E03B8;
+            if (!(vector_length(&d) > range)) {
+                Hit_8036D1B4 h;
+                h.d = (f32)rand_vary_count__14TBoss6PlotFalzFif(dmg, lbl_805E03BC);
+                s32 z = 0;
+                h.a = z;
+                h.c = z;
+                h.b = *(s32 *)&h.d;
+                pl->m21(self->xAC, &h, 0, -1, -1);
+            }
+        }
+    }
+}
+#pragma pop
 
 void render__15TBoss6RockChaseFv(void* p) { push_matrix(p); post_translate_matrix((char*)p + 0x38); rotate_matrix_y((void*)0, *(void**)((char*)p + 0x60)); rotate_matrix_x((void*)0, *(void**)((char*)p + 0x5c)); rotate_matrix_z((void*)0, *(void**)((char*)p + 0x64)); set_global_param__8TObjFishFi(*(void**)((char*)p + 0xc4)); draw_ginja_object(*(void**)((char*)p + 0xc0)); pop_matrix(); }
 
@@ -98,7 +201,7 @@ void run_task__15TBoss6RockChaseFv(u8 *arg0) {
         if (M2C_FIELD(arg0, f32 *, 0x3C) <= TBoss6RockChase__data_805E03B8) {
             M2C_FIELD(arg0, f32 *, 0x3C) = (f32) TBoss6RockChase__data_805E03B8;
             M2C_FIELD(arg0, f32 *, 0xB8) = (f32) TBoss6RockChase__data_805E03B8;
-            TBoss6RockChase__sub_8036D1B4((void *) (arg0));
+            TBoss6RockChase__sub_8036D1B4((void *)((void *) (arg0)));
             play_sound_effect((int) (0x4006B51E), (void *) (arg0 + 0x38), (int) (0), (int) (0));
             spawn_particle_effect((void *) (arg0 + 0x38), (int) (0x220));
             spawn_particle_effect((void *) (arg0 + 0x38), (int) (0x222));

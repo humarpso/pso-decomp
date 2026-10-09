@@ -7698,7 +7698,8 @@ pso/misc/TWindowKeyBoardHard_801FBA48.cpp:
 
 pso/ui/TAdSinglePlyChrSelectGC_801FBF54.cpp:
 	.text       start:0x801FBF54 end:0x80202978
-	.data       start:0x804C8A4C end:0x804C8AA8
+	.data       start:0x804C8A4C end:0x804C8B08
+	.bss        start:0x805137C8 end:0x80513920
 
 pso/ui/TAdEnterSerialAccessGC_80202978.cpp:
 	.text       start:0x80202978 end:0x80202990
