@@ -8980,7 +8980,7 @@ pso/misc/TWindowArea.cpp:
 pso/misc/TWindowSubComCard_80244774.cpp:
 	.text       start:0x80244774 end:0x8024662C
 	.rodata     start:0x8044E678 end:0x8044E688
-	.sdata2     start:0x805DCAC8 end:0x805DCB48
+	.sdata2     start:0x805DCAC8 end:0x805DCB4C
 
 pso/misc/TWindowDD_8024662C.cpp:
 	.text       start:0x8024662C end:0x8024674C

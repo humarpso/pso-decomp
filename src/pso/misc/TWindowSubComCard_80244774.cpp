@@ -9,6 +9,33 @@ struct UV_8024503C { f32 u, v; };
 
 struct UVPair_8024503C { UV_8024503C e[2]; };
 
+struct Quad_80245D64
+{
+  f32 x0;
+  f32 y0;
+  f32 x1;
+  f32 y1;
+  f32 u0;
+  f32 v0;
+  f32 u1;
+  f32 v1;
+};
+
+struct Rect_80245D64
+{
+  f32 x;
+  f32 y;
+  f32 w;
+  f32 h;
+  u8 pad10[0x20 - 0x10];
+  f32 px;
+  f32 py;
+  f32 sx;
+  f32 sy;
+  u8 pad30[0x38 - 0x30];
+  f32 depth;
+};
+
 extern "C" {
 M2C_UNK reset_transform_state__10TObjPlayerFv();
 M2C_UNK init_xyz_limits__10TObjPlayerFv();
@@ -31,6 +58,13 @@ extern s32 lbl_805D63F0;
 extern const f32 lbl_805DCAE4;
 extern const f32 lbl_805DCAE8;
 void draw_selection_bar(u8 *arg0, u8 *arg1, s32 arg2);
+extern const f32 lbl_805DCB48;
+extern const f32 lbl_805DCB30;
+extern const f32 lbl_805DCB28;
+extern const f32 lbl_805DCB2C;
+M2C_UNK draw_textured_quad_at_depth(void *, f32);
+extern const f32 lbl_805DCB48;
+void draw_window_frame_strips(u8 *a, Quad_80245D64 *q, Rect_80245D64 *r);
 }
 
 extern "C" {
@@ -530,6 +564,60 @@ void draw_window_scanlines(u8 *arg0, u8 *arg1) {
     }
     reset_transform_state__10TObjPlayerFv();
     reset_line_width();
+}
+#pragma pop
+
+typedef struct Quad_80245D64 Quad_80245D64;
+typedef struct Rect_80245D64 Rect_80245D64;
+#pragma push
+#pragma fp_contract on
+void draw_window_frame_strips(u8 *a, Quad_80245D64 *q, Rect_80245D64 *r) {
+  f32 rem;
+  f32 t;
+  f32 z;
+  f32 w;
+  z = (-1.0f) / r->depth;
+  w = 0.5f * (*((f32 *) (((s8 *) a) + 0x48)));
+  if (w > 32.0f)
+  {
+    w = 32.0f;
+  }
+  q->x0 = r->x;
+  q->x1 = r->x + w;
+  q->u0 = 0.0f;
+  q->u1 = w / 256.0f;
+  q->x0 = (r->sx * (q->x0 - r->px)) + r->px;
+  q->x1 = (r->sx * (q->x1 - r->px)) + r->px;
+  ((void (*)(void *, f32))draw_textured_quad_at_depth)(q, z);
+  q->x0 = (r->x + (*((f32 *) (((s8 *) a) + 0x48)))) - w;
+  q->x1 = r->x + (*((f32 *) (((s8 *) a) + 0x48)));
+  q->u0 = (lbl_805DCB48 - w) / 256.0f;
+  q->u1 = 0.375f;
+  q->x0 = (r->sx * (q->x0 - r->px)) + r->px;
+  q->x1 = (r->sx * (q->x1 - r->px)) + r->px;
+  ((void (*)(void *, f32))draw_textured_quad_at_depth)(q, z);
+  q->x0 = 32.0f + r->x;
+  q->u0 = 0.125f;
+  q->u1 = 0.25f;
+  rem = r->sx * ((*((f32 *) (((s8 *) a) + 0x48))) - 64.0f);
+  q->x0 = (r->sx * (q->x0 - r->px)) + r->px;
+  while (rem >= lbl_805DCAD4)
+  {
+    if (rem < 32.0f)
+    {
+      q->x1 = q->x0 + rem;
+      t = 32.0f + rem;
+      q->u1 = t * lbl_805DCAF4;
+    }
+    else
+    {
+      q->x1 = 32.0f + q->x0;
+    }
+    ((void (*)(void *, f32))draw_textured_quad_at_depth)(q, z);
+    rem -= 32.0f;
+    q->x0 += 32.0f;
+  }
+
 }
 #pragma pop
 
