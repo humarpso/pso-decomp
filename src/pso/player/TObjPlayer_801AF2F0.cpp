@@ -18,6 +18,54 @@ struct VObj_801AF2F0 : Base_801AF2F0 {
     virtual s32 m14();
 };
 
+typedef s32 M2C_UNK;
+struct Base_801B9954 {
+    s16 field[18];
+};
+
+struct Attack_801B9954 {
+    s16 minimum;
+    s16 maximum;
+    s16 accuracy;
+    u8 rest[42];
+};
+
+struct Defense_801B9954 {
+    s16 evasion;
+    s16 resistance[5];
+    u8 rest[16];
+    s32 defense;
+};
+
+struct ItemBase_801B9954 { char pad[0x18]; };
+
+struct Item_801B9954 : ItemBase_801B9954 {
+    virtual void m0();
+    virtual void m1();
+    virtual void m2();
+    virtual void m3();
+    virtual void m4();
+    virtual void m5();
+    virtual void m6();
+    virtual void m7();
+    virtual void m8();
+    virtual void m9();
+    virtual void m10();
+    virtual void m11();
+    virtual void m12();
+    virtual void m13();
+    virtual void m14();
+    virtual void m15();
+    virtual void m16();
+    virtual void m17();
+    virtual void m18();
+    virtual void m19();
+    virtual void m20();
+    virtual void m21();
+    virtual void m22();
+    virtual void subtract_applied(Attack_801B9954 *, Defense_801B9954 *, Base_801B9954 *);
+};
+
 extern "C" {
 void add_to_field_2ce__10TObjPlayerFPvi(void *, int);
 s16 get_atp__10TObjPlayerFPv(void *);
@@ -33,6 +81,23 @@ s32 TObjPlayer__sub_801BE2D0(void *);
 extern const f64 lbl_80446F38;
 extern const f64 lbl_80446F40;
 s32 calc_stat_threshold__10TObjPlayerFPv(void *arg0);
+f32 TObjPlayer__sub_800192C4(void *, int);
+s16 get_id__10TObjPlayerFPv(void *);
+s16 get_level__10TObjPlayerFPv(void *);
+u8 get_field_ed__10TObjPlayerFPv(void *);
+void copy_entry__6TLobbyFPvPv(void *, void *);
+void copy_from__6TLobbyFPvPv(void *, void *);
+void copy_data__6TLobbyFPvPv(void *, s32);
+u8 get_field_ec__12TOSwitchItemFPv(void *);
+u8 * activate_d04_slot__10TObjPlayerFPv(void *);
+void * test_flag3__9TItemDataFPv(void *);
+Item_801B9954 *get_item_field_2__9TItemDataFPv(void *);
+void apply_equip_effects__9TItemDataFPviiiii(void *, void *, void *, void *, void *, int);
+s16 clamp_s32__10TObjPlayerFiii(int, int, int);
+M2C_UNK set_params__10TObjPlayerFPvPvPviPv(void *, void *, void *, int, int);
+u8 * get_slot_value__10TObjPlayerFPvi(void *, s32);
+s32 get_class_stat_entry__10TObjPlayerFPv(void *);
+s32 preview_equip_stats__10TObjPlayerFv(u8 *arg0, s16 *out, u8 *incoming);
 }
 
 extern "C" {
@@ -2070,8 +2135,6 @@ s16 get_stat__10TObjPlayerFPv(void *);
 Equip_801B4CE4 * get_equip_field_d04__10TObjPlayerFPv(void *, s32);
 f32 get_mag_scale_f__10TObjPlayerFPv(void *);
 s32 is_script_controlled__10TObjPlayerFPv(TObjPlayer*);
-u8 * activate_d04_slot__10TObjPlayerFPv();
-void * test_flag3__9TItemDataFPv();
 u8 get_slot_count__14TItemProShieldFPv(void *);
 M2C_UNK TItemData__sub_8010C740(void *, int);
 M2C_UNK TItemData__sub_8010CCB0(void *);
@@ -2205,7 +2268,7 @@ void apply_battle_rules_to_players__6TLobbyFv(void);
 u8 is_technique_ready__8TTecCtrlFv(void);
 s32 TObjPlayer__vt12(void *arg0, s32 arg1);
 void update_photon_chair__10TObjPlayerFi(s32 arg0);
-void refresh_equipment_slot__10TObjPlayerFv(void);
+void refresh_equipment_slot__10TObjPlayerFv(void * _w0);
 void check_flag_800000__10TObjPlayerFPv(void *arg0);
 void clear_stealth_suit_flags__10TObjPlayerFPv(u8 *arg0);
 void handle_6x7B_disable_stealth_suit_effect(void *arg0);
@@ -3087,6 +3150,10 @@ void cancel_status_effects__10TObjPlayerFPv(Pl_801B0B88 *p_);
 extern "C" {
 s32 TObjPlayer__sub_801BE2C8(void *);
 void TObjPlayer__sub_801BE2C0(void *, s32);
+extern "C" {
+s32 get_item_field_6__10TObjPlayerFPv(Pl_801B0B88 *);
+}
+
 s32 TObjPlayer__sub_801AF290(void *p) {
     s32 v;
     s32 r = 0;
@@ -3944,9 +4011,9 @@ void update_photon_chair__10TObjPlayerFi(s32 arg0) {
     }
 }
 
-void refresh_equipment_slot__10TObjPlayerFv(void) {
+void refresh_equipment_slot__10TObjPlayerFv(void * _w0) {
     u8 *temp_r3;
-    temp_r3 = activate_d04_slot__10TObjPlayerFPv();
+    temp_r3 = activate_d04_slot__10TObjPlayerFPv((void *)(_w0));
     if (temp_r3 != NULL) {
         ((VObj_18 *)(temp_r3))->m40();
     }
@@ -7297,7 +7364,7 @@ void use_current_item__10TObjPlayerFPv(void *arg0) {
     M2C_UNK sp8;
     void *temp_r3;
 
-    temp_r3 = test_flag3__9TItemDataFPv();
+    temp_r3 = test_flag3__9TItemDataFPv((void *)(arg0));
     if (temp_r3 != NULL) {
         ((VObj_801B95C8*)temp_r3)->m28();
         return;
@@ -7317,6 +7384,74 @@ void send_unequip_held_item__10TObjPlayerFUi(u32 arg0) {
         bswap_body_dwords4_and_send__10TObjPlayerFPv(&cmd);
     }
 }
+
+#pragma push
+#pragma fp_contract on
+s32 preview_equip_stats__10TObjPlayerFv(u8 *arg0, s16 *out, u8 *incoming) {
+    Base_801B9954 b;
+    Attack_801B9954 a;
+    Defense_801B9954 d;
+    Item_801B9954 *prev;
+    s32 slot;
+    s32 atp;
+    f32 rate;
+    if (incoming != NULL && out != NULL) {
+    prev = NULL;
+    copy_data__6TLobbyFPvPv((void *)(&b), (s32)(*(void **)(arg0 + 0x2B0)));
+    copy_from__6TLobbyFPvPv(&a, *(void **)(arg0 + 0x318));
+    copy_entry__6TLobbyFPvPv(&d, *(void **)(arg0 + 0x31C));
+    switch (incoming[0]) {
+    case 0:
+        prev = ((Item_801B9954 *)get_item_field_6__10TObjPlayerFPv((Pl_801B0B88 *)(arg0)));
+        break;
+    case 1:
+        if (incoming[1] == 1) {
+            prev = get_item_field_2__9TItemDataFPv(arg0);
+        } else if (incoming[1] == 2) {
+            prev = ((Item_801B9954 *)test_flag3__9TItemDataFPv((void *)(arg0)));
+        }
+        break;
+    case 2:
+        prev = ((Item_801B9954 *)activate_d04_slot__10TObjPlayerFPv((void *)(arg0)));
+        break;
+    }
+    if (prev != NULL) {
+        prev->subtract_applied(&a, &d, &b);
+        if (get_field_ec__12TOSwitchItemFPv(prev) == 1 && get_field_ed__10TObjPlayerFPv(prev) == 1) {
+            for (slot = 9; slot <= 12; slot++) {
+                Item_801B9954 *unit = ((Item_801B9954 *)get_slot_value__10TObjPlayerFPvi(arg0 + 0xD04, slot));
+                if (unit != NULL) {
+                    unit->subtract_applied(&a, &d, &b);
+                }
+            }
+        }
+    }
+    apply_equip_effects__9TItemDataFPviiiii(incoming, arg0, &a, &d, &b, 0);
+    b.field[0] = clamp_s32__10TObjPlayerFiii(b.field[0], 0, ((s16 *)get_class_stat_entry__10TObjPlayerFPv(arg0))[0]);
+    b.field[1] = clamp_s32__10TObjPlayerFiii(b.field[1], 0, ((s16 *)get_class_stat_entry__10TObjPlayerFPv(arg0))[1]);
+    b.field[2] = clamp_s32__10TObjPlayerFiii(b.field[2], 0, ((s16 *)get_class_stat_entry__10TObjPlayerFPv(arg0))[2]);
+    b.field[4] = clamp_s32__10TObjPlayerFiii(b.field[4], 0, ((s16 *)get_class_stat_entry__10TObjPlayerFPv(arg0))[4]);
+    b.field[5] = clamp_s32__10TObjPlayerFiii(b.field[5], 0, ((s16 *)get_class_stat_entry__10TObjPlayerFPv(arg0))[5]);
+    b.field[6] = clamp_s32__10TObjPlayerFiii(b.field[6], 0, ((s16 *)get_class_stat_entry__10TObjPlayerFPv(arg0))[6]);
+    set_params__10TObjPlayerFPvPvPviPv((void *)(out), (void *)(arg0), (void *)(&b), (int)(&a), (int)(&d));
+    rate = TObjPlayer__sub_800192C4(arg0, 2);
+    {
+        s16 range;
+        slot = b.field[0];
+        {
+        s16 sl = slot;
+        atp = (s32)((f32)sl * rate + (f32)(sl + get_id__10TObjPlayerFPv(&a)));
+        }
+        range = get_level__10TObjPlayerFPv(&a) - get_id__10TObjPlayerFPv(&a);
+        out[0] = atp + (s32)((f32)range * rate + (f32)range);
+    }
+    rate = TObjPlayer__sub_800192C4(arg0, 3);
+    out[1] = (s32)((f32)out[1] * rate + (f32)out[1]);
+    return 1;
+    }
+    return 0;
+}
+#pragma pop
 
 void unequip_all_units__10TObjPlayerFi(s32 arg0) {
     s32 var_r31;

@@ -2026,6 +2026,7 @@ pso/player/TObjPlayer_800D7BFC.cpp:
 
 pso/misc/TDeadSpot.cpp:
 	.text       start:0x800D7CF4 end:0x800D87A8
+	.rodata     start:0x8043C720 end:0x8043C728
 
 pso/misc/TNpcPlayer_800D87A8.cpp:
 	.text       start:0x800D87A8 end:0x800D8830

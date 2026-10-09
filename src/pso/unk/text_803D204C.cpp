@@ -36,6 +36,14 @@ struct Buf_803D2104
   s32 len;
 };
 
+struct Obj_803D204C {
+    u8 pad[0xC];
+    s32 avail;
+    u8 pad2[0xC];
+    void (*cb)(s32, s32);
+    s32 cbArg;
+};
+
 extern "C" {
 void restore_interrupts_nested__6TLobbyFv(void);
 void lock_enter__6TLobbyFv(void);
@@ -46,12 +54,34 @@ void read_stream_chunk__6TLobbyFPviiPv(Obj_803D22C8 *arg0, s32 arg1, s32 arg2, B
 void restore_interrupts_nested__6TLobbyFv(void);
 void lock_enter__6TLobbyFv(void);
 void advance_ring_buffer__6TLobbyFPviPv(Obj_803D2104 *arg0, s32 arg1, Buf_803D2104 *arg2);
+void restore_interrupts_nested__6TLobbyFv(void);
+void lock_enter__6TLobbyFv(void);
+s32 TLobby__sub_803D204C(Obj_803D204C *arg0, s32 arg1, s32 arg2, s32 *arg3);
 }
 
 extern "C" {
 
 typedef struct Buf_803D2104 Buf_803D2104;
 typedef struct Obj_803D2104 Obj_803D2104;
+
+s32 TLobby__sub_803D204C(Obj_803D204C *arg0, s32 arg1, s32 arg2, s32 *arg3) {
+    s32 n;
+    lock_enter__6TLobbyFv();
+    if (arg1 == 0) {
+        n = 0;
+    } else if (arg1 == 1) {
+        n = arg0->avail < arg2 ? arg0->avail : arg2;
+    } else {
+        n = 0;
+        if (arg0->cb != 0) {
+            arg0->cb(arg0->cbArg, -3);
+        }
+    }
+    *arg3 = n;
+    restore_interrupts_nested__6TLobbyFv();
+    { u32 r = (u32)__cntlzw(arg2 - n) >> 5; return r; }
+}
+
 void advance_ring_buffer__6TLobbyFPviPv(Obj_803D2104 *arg0, s32 arg1, Buf_803D2104 *arg2) {
   s32 d;
   s32 len;

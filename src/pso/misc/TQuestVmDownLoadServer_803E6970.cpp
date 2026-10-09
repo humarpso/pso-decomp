@@ -721,6 +721,8 @@ u8 *get_buffer_ptr__22TQuestVmDownLoadServerFi(s32 arg0);
 void TQuestVmDownLoadServer__sub_803EFCB4(u8 *data, s32 a1, s32 a2, s32 *cnt, s32 *total, u8 *buf, s32 flags);
 extern s32 lbl_805D7904;
 s32 read_quest_chunk__22TQuestVmDownLoadServerFUiUcUcPvPv(u32 id, u8 a1, u8 a2, u8 *buf, s32 *out);
+extern RecoveredGlobal_803E8084_lbl_80590AC4 quest_name_index_table;
+s32 TQuestVmDownLoadServer__sub_803E7D98(s32 arg0, u8 *arg1);
 }
 
 extern "C" {
@@ -1375,6 +1377,29 @@ static inline s32 match_803E7E3C(u8 *p, u8 *q) {
     }
     return i;
 }
+
+#pragma push
+#pragma opt_common_subs off
+typedef u8 Name_803E7D98[4];
+s32 TQuestVmDownLoadServer__sub_803E7D98(s32 arg0, u8 *arg1) {
+    u8 *p;
+    u8 *q;
+    s32 i;
+    q = arg1;
+    p = ((Name_803E7D98 *)&quest_name_index_table)[arg0];
+    for (i = 0; i < 4; i++, p++, q++) {
+        u8 c = *p;
+        if (c != *q || c == 0) {
+            break;
+        }
+    }
+    if (i < 4 && arg1[i] != 0) {
+        i++;
+    }
+    return i;
+}
+#pragma pop
+
 s32 has_name_mismatch__22TQuestVmDownLoadServerFiPv(s32 arg0, u8 *arg1) {
     s32 i = match_803E7E3C(((Name_803E7E3C *)&quest_name_index_table)[arg0 + 1], arg1);
     if (arg1[i] == 0) {

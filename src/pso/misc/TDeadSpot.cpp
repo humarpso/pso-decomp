@@ -51,6 +51,28 @@ struct E_800D8228 { V3_800D8228 v; u8 pad[8]; u32 col; };
 
 struct Obj_800D8228 { u8 pad0[0x18]; void *vt; E_800D8228 e[4]; V3_800D8228 base; V3_800D8228 dir[4]; u8 padb8[8]; f32 sc; f32 t; f32 c8; };
 
+typedef s32 M2C_UNK;
+struct Vec_800D8314 { f32 x, y, z; };
+
+struct Vtx_800D8314 { Vec_800D8314 pos; f32 u; f32 v; s32 color; };
+
+struct Plane_800D8314 { Vec_800D8314 point; Vec_800D8314 normal; };
+
+struct Ground_800D8314 { u32 unk; Plane_800D8314 *plane; };
+
+struct Mark_800D8314 {
+    s32 name;
+    u8 pad4[0x18 - 0x4];
+    void *vtable;
+    Vtx_800D8314 vtx[4];
+    Vec_800D8314 center;
+    Vec_800D8314 corners[4];
+    void *texture;
+    s32 selector;
+    f32 maxScale;
+    f32 scale;
+};
+
 extern "C" {
 s32 calc_random_scaled__10TObjPlayerFv();
 s32 copy_pos__11TNowLoadingFPvPv(int, void *);
@@ -78,13 +100,40 @@ extern const f32 lbl_805DA390;
 extern const f32 lbl_805DA394;
 extern const f32 lbl_805DA398;
 void TDeadSpot__sub_800D7FD4(Obj_800D7FD4 *arg0);
-void __ct__9TDeadSpotFv(void *);
 extern M2C_UNK lbl_80494A10[];
 extern const f32 TDeadSpot__data_805DA38C;
-Obj_800D80E4 *init_corner_vertices__9TDeadSpotFPv(Obj_800D80E4 *arg0);
+Obj_800D80E4 *init_corner_vertices__9TDeadSpotFPv(Obj_800D80E4 *arg0, void * _w1, Vec_800D8314 * _w2, void * _w3, s32 _w4, s32 _w5, f32 _w6);
 extern const f32 TDeadSpot__data_805DA388;
 extern const f32 TDeadSpot__data_805DA38C;
 void run_task__9TDeadSpotFv(Obj_800D8228 *arg0);
+void VecCopy__FP3VecPC3Vec(void *, void *);
+void __ct__7TObjectFP7TObject(void *, void *);
+M2C_UNK queue_destruction__7TObjectFv(void *);
+f32 lerp__9TDeadSpotFff(f32, f32);
+s32 calc_random_scaled__10TObjPlayerFv();
+Ground_800D8314 *csnVecterUnder(void *, s32);
+M2C_UNK direction_to_rotation_yx(void *, s32 *, s32 *);
+s32 rand();
+M2C_UNK set_matrix_identity__10TObjPlayerFPv(int);
+M2C_UNK fn_803D8DE0(int, void *, void *, int);
+M2C_UNK rotate_matrix_y(int, int);
+M2C_UNK rotate_matrix_z(int, int);
+M2C_UNK rotate_matrix_x(int, int);
+M2C_UNK push_matrix();
+M2C_UNK pop_matrix();
+extern void *__vt__9TDeadSpot[];
+extern s32 lbl_805D2A98;
+extern const f32 TDeadSpot__data_805DA388;
+extern const f32 TDeadSpot__data_805DA38C;
+extern const f32 lbl_805DA390;
+extern const f32 lbl_805DA3A0;
+extern const f32 lbl_805DA3A4;
+extern const f32 lbl_805DA3A8;
+extern const f32 lbl_805DA3AC;
+extern const f32 lbl_805DA3B0;
+extern const f32 lbl_805DA3B4;
+extern const f32 lbl_805DA3B8;
+Mark_800D8314 *__ct__9TDeadSpotFv(Mark_800D8314 *self, void *parent, Vec_800D8314 *point, void *texture, s32 selector, s32 delay, f32 maxScale);
 }
 
 extern "C" {
@@ -251,11 +300,11 @@ extern const f32 lbl_805DA39C;
 
 #pragma push
 #pragma fp_contract on
-Obj_800D80E4 *init_corner_vertices__9TDeadSpotFPv(Obj_800D80E4 *arg0) {
+Obj_800D80E4 *init_corner_vertices__9TDeadSpotFPv(Obj_800D80E4 *arg0, void * _w1, Vec_800D8314 * _w2, void * _w3, s32 _w4, s32 _w5, f32 _w6) {
     E_800D80E4 *p;
     s32 i;
     f32 bx, by, bz, s;
-    __ct__9TDeadSpotFv(arg0);
+    __ct__9TDeadSpotFv((Mark_800D8314 *)(arg0), (void *)(_w1), (Vec_800D8314 *)(_w2), (void *)(_w3), (s32)(_w4), (s32)(_w5), _w6);
     arg0->vt = ((u8 *)&lbl_80494A10);
     p = arg0->e;
     arg0->c8 = TDeadSpot__data_805DA38C;
@@ -308,5 +357,124 @@ void run_task__9TDeadSpotFv(Obj_800D8228 *arg0) {
         }
     }
 }
+#pragma push
+#pragma fp_contract on
+#pragma opt_common_subs off
+Mark_800D8314 *__ct__9TDeadSpotFv(Mark_800D8314 *self, void *parent, Vec_800D8314 *point, void *texture, s32 selector, s32 delay, f32 maxScale) {
+    Vec_800D8314 basis[2];
+    Vec_800D8314 probe;
+    Vec_800D8314 tmp;
+    s32 yaw;
+    s32 pitch;
+    Ground_800D8314 *ground;
+    f32 n1x, n1y, n1z;
+    f32 scale;
+    f32 first;
+    f32 second;
+    f32 b0x, b0y, b0z, b1x, b1y, b1z;
+    s32 bad;
+    s32 i;
+    __ct__7TObjectFP7TObject(self, parent);
+    self->vtable = __vt__9TDeadSpot;
+    self->name = lbl_805D2A98;
+    self->texture = texture;
+    self->selector = selector;
+    self->maxScale = maxScale;
+    self->scale = -(TDeadSpot__data_805DA388 * (f32)delay);
+    self->vtx[0].u = TDeadSpot__data_805DA38C;
+    self->vtx[0].v = TDeadSpot__data_805DA38C;
+    self->vtx[0].color = -1;
+    self->vtx[1].u = TDeadSpot__data_805DA38C;
+    self->vtx[1].v = lbl_805DA390;
+    self->vtx[1].color = -1;
+    self->vtx[2].u = lbl_805DA390;
+    self->vtx[2].v = TDeadSpot__data_805DA38C;
+    self->vtx[2].color = -1;
+    self->vtx[3].u = lbl_805DA390;
+    self->vtx[3].v = lbl_805DA390;
+    self->vtx[3].color = -1;
+    VecCopy__FP3VecPC3Vec(&probe, point);
+    probe.y += lbl_805DA3A0;
+    ground = csnVecterUnder(&probe, 0x16EF);
+    if (ground == NULL) {
+        queue_destruction__7TObjectFv(self);
+        return self;
+    }
+    VecCopy__FP3VecPC3Vec(&self->center, &ground->plane->point);
+    self->center.y += lbl_805DA3A8 * (lbl_805DA3AC * (f32)rand()) + lbl_805DA3A4;
+    basis[0].x = TDeadSpot__data_805DA38C;
+    basis[0].y = TDeadSpot__data_805DA38C;
+    basis[0].z = lbl_805DA390;
+    basis[1].x = TDeadSpot__data_805DA38C;
+    basis[1].y = lbl_805DA390;
+    basis[1].z = TDeadSpot__data_805DA38C;
+    direction_to_rotation_yx(&ground->plane->normal, &yaw, &pitch);
+    if (pitch < 0x3000 || pitch > 0x5000) {
+        queue_destruction__7TObjectFv(self);
+        return self;
+    }
+    push_matrix();
+    set_matrix_identity__10TObjPlayerFPv(0);
+    rotate_matrix_y(0, yaw);
+    rotate_matrix_z(0, pitch);
+    rotate_matrix_x(0, calc_random_scaled__10TObjPlayerFv());
+    fn_803D8DE0(0, basis, basis, 2);
+    pop_matrix();
+    b0x = basis[0].x;
+    b0y = basis[0].y;
+    b0z = basis[0].z;
+    b1x = basis[1].x;
+    b1y = basis[1].y;
+    b1z = basis[1].z;
+    first = lerp__9TDeadSpotFff(lbl_805DA3B0, lbl_805DA3B4);
+    second = lerp__9TDeadSpotFff(lbl_805DA3B0, lbl_805DA3B4);
+    self->corners[0].x = b1x * second + b0x * first;
+    self->corners[0].y = b1y * second + b0y * first;
+    self->corners[0].z = b1z * second + b0z * first;
+    first = lerp__9TDeadSpotFff(lbl_805DA3B0, lbl_805DA3B4);
+    second = lerp__9TDeadSpotFff(lbl_805DA3B0, lbl_805DA3B4);
+    self->corners[1].x = b1x * second - b0x * first;
+    self->corners[1].y = b1y * second - b0y * first;
+    self->corners[1].z = b1z * second - b0z * first;
+    first = lerp__9TDeadSpotFff(lbl_805DA3B0, lbl_805DA3B4);
+    second = lerp__9TDeadSpotFff(lbl_805DA3B0, lbl_805DA3B4);
+    n1x = -b1x;
+    n1y = -b1y;
+    n1z = -b1z;
+    self->corners[2].x = n1x * second + b0x * first;
+    self->corners[2].y = n1y * second + b0y * first;
+    self->corners[2].z = n1z * second + b0z * first;
+    first = lerp__9TDeadSpotFff(lbl_805DA3B0, lbl_805DA3B4);
+    second = lerp__9TDeadSpotFff(lbl_805DA3B0, lbl_805DA3B4);
+    self->corners[3].x = n1x * second - b0x * first;
+    self->corners[3].y = n1y * second - b0y * first;
+    self->corners[3].z = n1z * second - b0z * first;
+    scale = self->maxScale;
+    if (scale > lbl_805DA3A0) {
+        for (i = 0; i < 4; i++) {
+            VecCopy__FP3VecPC3Vec(&tmp, &self->center);
+            Mark_800D8314 *c = (Mark_800D8314 *)((u8 *)self + i * 12);
+            tmp.x += c->corners[0].x * scale;
+            tmp.y += c->corners[0].y * scale;
+            tmp.z += self->corners[i].z * scale;
+            bad = 0;
+            ground = csnVecterUnder(&tmp, 0x16EF);
+            if (ground != NULL) {
+                if (ground->plane->point.y - tmp.y < lbl_805DA3B8) {
+                    bad = 1;
+                }
+            } else {
+                bad = 1;
+            }
+            if (bad != 0) {
+                self->corners[i].x *= TDeadSpot__data_805DA388;
+                self->corners[i].y *= TDeadSpot__data_805DA388;
+                self->corners[i].z *= TDeadSpot__data_805DA388;
+            }
+        }
+    }
+    return self;
+}
+#pragma pop
 
 }
