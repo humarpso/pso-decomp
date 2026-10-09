@@ -60,3 +60,51 @@ void *__dt__15TBoss6EmptyWarpFv(void *arg0, s16 arg1) {
 }
 
 }
+
+extern "C" {
+
+void *TBoss6EmptyWarp__ct(void *arg0);
+void __ct__7TObjectFP7TObject(void *);
+void freeze_all_players__14TBoss6PlotFalzFv(void);
+
+extern M2C_UNK __vt__15TBoss6EmptyWarp[];
+extern void *lbl_805D3E90;
+
+void *TBoss6EmptyWarp__ct(void *arg0) {
+    __ct__7TObjectFP7TObject(arg0);
+    M2C_FIELD(arg0, M2C_UNK **, 0x18) = __vt__15TBoss6EmptyWarp;
+    M2C_FIELD(arg0, void **, 0x0) = lbl_805D3E90;
+    freeze_all_players__14TBoss6PlotFalzFv();
+    M2C_FIELD(arg0, u32 *, 0x1C) = 0;
+    return arg0;
+}
+
+}
+
+extern "C" {
+
+void *create__15TBoss6EmptyWarpFv(void);
+void activate_warp__15TBoss6EmptyWarpFPv(void *arg0);
+void TBoss6EmptyWarp__sub_802B1004(void* p);
+int TBoss6EmptyWarp__sub_802B1018(void);
+s32 play_sound_effect(s32, s32, s32, s32);
+void *__nw__7TObjectFUl(int);
+
+extern void *tl_02;
+
+void *create__15TBoss6EmptyWarpFv(void) {
+    void *o = __nw__7TObjectFUl(0x20);
+    if (o != NULL) {
+        o = ((void *(*)(void *, void *))TBoss6EmptyWarp__ct)(o, tl_02);
+    }
+    return o;
+}
+
+void activate_warp__15TBoss6EmptyWarpFPv(void *arg0) {
+    M2C_FIELD(arg0, s32 *, 0x1C) = 1;
+    play_sound_effect(0x4003351F, 0, 0, 0);
+}
+void TBoss6EmptyWarp__sub_802B1004(void* p) { *(s32*)((char*)p + 0x20) = 0; *(s32*)((char*)p + 0x1c) = 2; }
+int TBoss6EmptyWarp__sub_802B1018(void) { return 0; }
+
+}

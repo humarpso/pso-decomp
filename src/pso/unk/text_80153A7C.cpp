@@ -1,6 +1,45 @@
 #include "types.h"
 typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
 #define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
+
+extern "C" {
+
+void *__dt__22TObjFogCollisionSwitchFv(void *arg0, s16 arg1);
+void __dl__7TObjectFPv(void *);
+void __dt__16TObjFogCollisionFv(void *, int);
+
+extern M2C_UNK __vt__22TObjFogCollisionSwitch[];
+
+void *__dt__22TObjFogCollisionSwitchFv(void *arg0, s16 arg1) {
+    if (arg0 != NULL) {
+        M2C_FIELD(arg0, M2C_UNK **, 0x18) = __vt__22TObjFogCollisionSwitch;
+        __dt__16TObjFogCollisionFv(arg0, 0);
+        if (arg1 > 0) {
+            __dl__7TObjectFPv(arg0);
+        }
+    }
+    return arg0;
+}
+
+}
+
+extern "C" {
+
+void *TObjFogCollisionSwitch__ct(void *arg0);
+void TObjFogCollision__ct(void *);
+
+extern M2C_UNK __vt__22TObjFogCollisionSwitch[];
+extern void *lbl_805D2E7C;
+
+void *TObjFogCollisionSwitch__ct(void *arg0) {
+    TObjFogCollision__ct(arg0);
+    M2C_FIELD(arg0, M2C_UNK **, 0x18) = __vt__22TObjFogCollisionSwitch;
+    M2C_FIELD(arg0, void **, 0x0) = lbl_805D2E7C;
+    return arg0;
+}
+
+}
+
 typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 #define M2C_BITWISE(type, expr) ((type)(expr))
 
@@ -87,7 +126,6 @@ void *TObjFogCollisionSwitch__create(void *arg0);
 int TObjFogCollision__sub_80153F70(void);
 void TObjFogCollision__vt11(u8 *arg0);
 s32 check_collision__16TObjFogCollisionFPvUs(u8 *arg0, u16 arg1);
-void *TObjFogCollisionSwitch__ct(void *, void *, void *);
 f32 horizontal_distance_squared(void *, s32);
 s32 get_player_by_client_id(u16);
 void *__nw__7TObjectFUl(int);
@@ -97,7 +135,7 @@ extern void *tl_05;
 void *TObjFogCollisionSwitch__create(void *arg0) {
     void *o = __nw__7TObjectFUl(0x98);
     if (o != NULL) {
-        o = TObjFogCollisionSwitch__ct(o, tl_05, arg0);
+        o = ((void *(*)(void *, void *, void *))TObjFogCollisionSwitch__ct)(o, tl_05, arg0);
     }
     return o;
 }

@@ -57,3 +57,32 @@ void spawn_weapon_impact_effect(M2C_UNK arg0, M2C_UNK arg1, M2C_UNK arg2, s32 ar
 }
 
 }
+
+extern "C" {
+
+void invoke_menu_callback__10TObjPlayerFPv(void *arg0);
+void *find_item_by_id(void *);
+void call_callback_1ec__10TObjPlayerFPvii(void *, void *, void *);
+
+void invoke_menu_callback__10TObjPlayerFPv(void *arg0) {
+    void *x;
+    x = find_item_by_id(M2C_FIELD(arg0, void **, 0x34));
+    if (x != NULL) {
+        call_callback_1ec__10TObjPlayerFPvii(x, (void *)((char *)arg0 + 28), (void *)((char *)arg0 + 40));
+    }
+    M2C_FIELD(arg0, u32 *, 0x38) = 1;
+}
+
+}
+
+extern "C" {
+
+void invoke_menu_callback_if_set__10TObjPlayerFUi(u32 arg0);
+
+void invoke_menu_callback_if_set__10TObjPlayerFUi(u32 arg0) {
+    if (arg0 != 0U) {
+        ((M2C_UNK (*)())invoke_menu_callback__10TObjPlayerFPv)();
+    }
+}
+
+}

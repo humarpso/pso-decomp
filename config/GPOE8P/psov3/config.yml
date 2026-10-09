@@ -808,6 +808,7 @@ force_active:
   - init_slot_entries__14TAdSelectTxtGCFPvPvPv
   - init_sound_params__14TObjEnvSoundExFPv
   - init_text_window_layout
+  - init_timer__13TObjCHTimeWinFv
   - init_timer_event_value__10TObjPlayerFPvUiiif
   - init_vertex_table__17TObjEneBm3FlyNestFv
   - initialize__16TItemWeaponRifleFlPUc
@@ -1207,6 +1208,7 @@ force_active:
   - reset_leader_selection_static__6TLobbyFv
   - reset_placement_search_ring
   - reset_state__13TObjWarnChimeFPv
+  - reset_state__15TFontSmallLobbyFPv
   - reset_state_fields__9TObjEneDDFPv
   - reset_windows__16TAdChrSelBSlotGCFPv
   - resolve_active_quest_result__22THunterGuildSeqOfflineFPv

@@ -55,9 +55,9 @@ extern const f32 lbl_805D95F4;
 extern const f32 lbl_805D95F8;
 u8 *__ct__8TEndingCFv(u8 *arg0, u8 *arg1);
 s32 TEndingC__sub_8008C6F4();
-M2C_UNK TEndingAB__sub_8008D5A0();
-M2C_UNK TEndingPic__sub_8008D5AC();
-u32 TEnding__sub_8008D5B8();
+void TEndingAB__sub_8008D5A0(void);
+void TEndingPic__sub_8008D5AC(void);
+int TEnding__sub_8008D5B8(void);
 extern const f32 lbl_805D95CC;
 extern const f32 lbl_805D95D0;
 extern const f32 lbl_805D95D4;
@@ -125,7 +125,7 @@ void TEndingC::run_task() {
     switch (temp_r0) {
     case 0:
         temp_r30 = timing_rate * TEndingC__sub_8008C6F4();
-        if (TEnding__sub_8008D5B8() > temp_r30) {
+        if (((u32 (*)())TEnding__sub_8008D5B8)() > temp_r30) {
             phase = 1U;
             break;
         }
@@ -288,6 +288,165 @@ u8 *__ct__8TEndingCFv(u8 *arg0, u8 *arg1) {
     M2C_FIELD(arg0, f32 *, 0x94) = (f32) (lbl_805D95F8 * (f32) M2C_FIELD(arg0, s32 *, 0x90));
     M2C_FIELD(arg0, f32 *, 0x98) = (f32) (lbl_805D95F8 * (f32) M2C_FIELD(arg0, s32 *, 0x90));
     return arg0;
+}
+
+}
+
+typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
+typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
+#define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
+#define M2C_BITWISE(type, expr) ((type)(expr))
+
+extern "C" {
+
+void release_lobby__8TEndingCFv(void);
+void TLobby__sub_803DA16C(void*);
+
+extern u32 lbl_805D4F18;
+
+void release_lobby__8TEndingCFv(void) {
+    if ((u32) lbl_805D4F18 != 0U) {
+        TLobby__sub_803DA16C((void*)lbl_805D4F18);
+        lbl_805D4F18 = 0U;
+    }
+}
+
+}
+
+extern "C" {
+    int bind_gvm_texture_list(void*, void*);
+    extern unsigned char lbl_804398EC[];
+void register_texture_ed_512kabe_c(void) { lbl_805D4F18 = (int)lbl_8048EB30; bind_gvm_texture_list(lbl_804398EC, lbl_8048EB30); }
+}
+
+typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
+typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
+#define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
+#define M2C_BITWISE(type, expr) ((type)(expr))
+
+#define CAT2(a, b) a##b
+#define CAT(a, b) CAT2(a, b)
+#define PADV virtual void CAT(pv, __LINE__)();
+#define PADV4 virtual void CAT(pa, __LINE__)(); virtual void CAT(pb, __LINE__)(); virtual void CAT(pc, __LINE__)(); virtual void CAT(pd, __LINE__)();
+struct Base_Sub { char pad[0x14]; };
+
+struct V_Sub : Base_Sub {
+    PADV4
+    PADV
+    virtual s32 m5();
+};
+
+struct VBase_18 { char pad[0x18]; };
+
+struct VObj_18 : VBase_18 {
+    virtual void m0();
+    virtual void m1();
+    virtual void m2();
+    virtual void m3();
+    virtual void m4();
+    virtual void m5();
+    virtual void m6();
+    virtual void m7();
+    virtual void m8();
+    virtual void m9();
+    virtual void m10();
+    virtual void m11();
+    virtual void m12();
+    virtual void m13();
+    virtual void m14();
+    virtual void m15();
+    virtual void m16();
+    virtual void m17();
+    virtual void m18();
+    virtual void m19();
+    virtual void m20();
+    virtual void m21();
+    virtual void m22();
+    virtual void m23();
+    virtual void m24();
+    virtual void m25();
+    virtual void m26();
+    virtual void m27();
+    virtual void m28();
+    virtual void m29();
+    virtual void m30();
+    virtual void m31();
+    virtual void m32();
+    virtual void m33();
+    virtual void m34();
+    virtual void m35();
+    virtual void m36();
+    virtual void m37();
+    virtual void m38();
+    virtual void m39();
+    virtual void m40();
+    virtual void m41();
+    virtual void m42();
+    virtual void m43();
+    virtual void m44();
+    virtual void m45();
+    virtual void m46();
+    virtual void m47();
+    virtual void m48();
+    virtual void m49();
+    virtual void m50();
+    virtual void m51();
+    virtual void m52();
+    virtual void m53();
+    virtual void m54();
+    virtual void m55();
+    virtual void m56();
+    virtual void m57();
+    virtual void m58();
+    virtual void m59();
+    virtual void m60();
+    virtual void m61();
+    virtual void m62();
+    virtual M2C_UNK m63(M2C_UNK, void *);
+};
+
+extern "C" {
+M2C_UNK update_if_active__15TObjEneMe1GiGueFPv(void *, s32);
+void clear_flag_in_state7__14TObjEneBalClawFPv(u8 *arg0);
+}
+
+extern "C" {
+
+s32 TObjEneBalClaw__vt34(s32 arg0);
+s32 TObjEneBalClaw__vt37(s32 arg0);
+s32 update_movement_status__10TObjPlayerFv();
+s32 update_action_hold_status__10TObjPlayerFv();
+
+    extern int TEndingAB__data_805D4F10;
+void TEndingAB__sub_8008D5A0(void) { TEndingAB__data_805D4F10 = 1; }
+
+    extern int TEndingPic__data_805D6EE0;
+void TEndingPic__sub_8008D5AC(void) { TEndingPic__data_805D6EE0 = 1; }
+
+    extern int lbl_805D4F08;
+int TEnding__sub_8008D5B8(void) {  return lbl_805D4F08; }
+
+void clear_flag_in_state7__14TObjEneBalClawFPv(u8 *arg0) {
+    if ((s32) M2C_FIELD(arg0, s32 *, 0x374) == 7) {
+        M2C_FIELD(arg0, s32 *, 0x388) = (s32) (M2C_FIELD(arg0, s32 *, 0x388) & 0xFFFFFFFE);
+        update_if_active__15TObjEneMe1GiGueFPv(arg0, 0);
+    }
+}
+
+s32 TObjEneBalClaw__vt37(s32 arg0) {
+    if (update_movement_status__10TObjPlayerFv() != 0) {
+        clear_flag_in_state7__14TObjEneBalClawFPv((u8 *)(arg0));
+        return 1;
+    }
+    return 0;
+}
+
+s32 TObjEneBalClaw__vt34(s32 arg0) {
+    if (update_action_hold_status__10TObjPlayerFv() != 0) {
+        clear_flag_in_state7__14TObjEneBalClawFPv((u8 *)(arg0));
+        return 1;
+    }
+    return 0;
 }
 
 }
