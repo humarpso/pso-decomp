@@ -36,7 +36,7 @@ void TAdMultiConfirmGC__sub_802E03D0(void *);
 void TAdMultiConfirmGC__sub_802E0448(void *);
 s32 fn_802E0454(void *);
 s32 TAdMultiConfirmGC__sub_80306ABC(s32);
-s32 fn_80306AC8(s32);
+s32 are_all_entries_finished(s32);
 void run_task__17TAdMultiConfirmGCFv(Obj_802FF87C *arg0);
 void *get_localized_text_entry(s32, s32);
 void *__nw__7TObjectFUl(u32);
@@ -106,7 +106,7 @@ void run_task__17TAdMultiConfirmGCFv(Obj_802FF87C *arg0) {
     case 3:
         if (TAdMultiConfirmGC__sub_80306ABC(arg0->x48) != 0) {
             set_change_game_mode__21TAdMultiChgGameModeGCFv();
-        } else if (fn_80306AC8(arg0->x48) != 0) {
+        } else if (are_all_entries_finished(arg0->x48) != 0) {
             set_state_0xc__21TAdMultiChgGameModeGCFv();
         }
         break;

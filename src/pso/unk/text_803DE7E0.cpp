@@ -2,7 +2,7 @@
 
 extern "C" {
 void *memset(void *dst, s32 c, u32 n);
-void fn_803DE7E0(void *p, u8 c, u32 n);
+void fill_memory(void *p, u8 c, u32 n);
 void *OSCreateHeap(void *start, void *end);
 extern void *sys_heap_handle;
 extern void *global_allocator;
@@ -15,7 +15,7 @@ extern "C" {
 #pragma push
 #pragma scheduling off
 #pragma peephole off
-void fn_803DE7E0(void *p, u8 c, u32 n) {
+void fill_memory(void *p, u8 c, u32 n) {
     memset(p, c, n);
 }
 #pragma pop

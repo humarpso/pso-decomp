@@ -1,8 +1,8 @@
 #include "types.h"
 extern "C" __declspec(section ".data") s32 lbl_80500BF8[2];
 #define lbl_80500BF8 ((f32 * *)lbl_80500BF8)
-extern "C" void * lbl_80492E18[40];
-#define lbl_80492E18 (*(G_800BFCD4 *)&lbl_80492E18)
+extern "C" void * rappy_variant_speed_table[40];
+#define rappy_variant_speed_table (*(G_800BFCD4 *)&rappy_variant_speed_table)
 typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
 typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 #define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
@@ -452,8 +452,8 @@ void apply_variant_speeds__12TObjEneLappyFPv(Obj_800BFCD4 *self) {
     }
     self->fa4->fc = lbl_80500BF8[self->f368][0];
     p = lbl_80500BF8[self->f368];
-    lbl_80492E18.f68 = p[1];
-    lbl_80492E18.f88 = p[2];
+    rappy_variant_speed_table.f68 = p[1];
+    rappy_variant_speed_table.f88 = p[2];
 }
 
 s32 TObjEneLappy::advance_flee_step() {
@@ -1172,7 +1172,7 @@ void run_task__12TObjEneLappyFPv(u8 *arg0) {
 #undef set_speed_params__12TObjEneLappyFPvi
 #undef fn_800C20C0
 
-#undef lbl_80492E18
+#undef rappy_variant_speed_table
 #undef lbl_80500BF8
 
 #include "types.h"
@@ -1648,7 +1648,7 @@ extern "C" void fn_80010EBC();
 extern "C" void fn_80010EC0();
 extern "C" void fn_80010EC4();
 extern "C" void fn_80010EC8();
-extern "C" void fn_800F5D80();
+extern "C" void clear_lobby_object_state();
 extern "C" void get_actor_body_center();
 extern "C" void get_actor_level_index();
 extern "C" void get_enemy_name__14TObjEnePanarmsFPv();
@@ -1710,9 +1710,9 @@ extern void *lbl_80492C74[11];
 extern void *lbl_80492CB0[3];
 extern void *lbl_80492CBC[11];
 extern void *lbl_80492CF8[3];
-extern void *lbl_80492D04[11];
+extern void *TObjEneLappy__resource_name_table[11];
 extern void *lbl_80492D40[3];
-extern void *lbl_80492D4C[11];
+extern void *TObjEneLappy__resource_list[11];
 extern void *lbl_80492D88[3];
 extern void *lbl_80492D94[11];
 extern void *lbl_80492DD0[3];
@@ -1764,24 +1764,24 @@ void *lbl_80492CE8[4] = {
 void *lbl_80492CF8[3] = {
     (void *)&lbl_8043B7D8, (void *)&lbl_8043B948, (void *)0x0,
 };
-void *lbl_80492D04[11] = {
+void *TObjEneLappy__resource_name_table[11] = {
     (void *)&lbl_8043B800, (void *)&lbl_8043B818, (void *)&lbl_8043B830, (void *)&lbl_8043B844,
     (void *)&lbl_8043B858, (void *)&lbl_8043B870, (void *)&lbl_8043B888, (void *)&lbl_8043B89C,
     (void *)&lbl_8043B8B4, (void *)&lbl_8043B8C8, (void *)0x0,
 };
 void *lbl_80492D30[4] = {
-    (void *)&lbl_8043B960, (void *)&lbl_80492CF8, (void *)&lbl_80492D04, (void *)0x2000a,
+    (void *)&lbl_8043B960, (void *)&lbl_80492CF8, (void *)&TObjEneLappy__resource_name_table, (void *)0x2000a,
 };
 void *lbl_80492D40[3] = {
     (void *)&lbl_8043B7D8, (void *)&lbl_8043B948, (void *)0x0,
 };
-void *lbl_80492D4C[11] = {
+void *TObjEneLappy__resource_list[11] = {
     (void *)&lbl_8043B800, (void *)&lbl_8043B818, (void *)&lbl_8043B830, (void *)&lbl_8043B844,
     (void *)&lbl_8043B858, (void *)&lbl_8043B870, (void *)&lbl_8043B888, (void *)&lbl_8043B89C,
     (void *)&lbl_8043B8B4, (void *)&lbl_8043B8C8, (void *)0x0,
 };
 void *lbl_80492D78[4] = {
-    (void *)&lbl_8043B974, (void *)&lbl_80492D40, (void *)&lbl_80492D4C, (void *)0x2000a,
+    (void *)&lbl_8043B974, (void *)&lbl_80492D40, (void *)&TObjEneLappy__resource_list, (void *)0x2000a,
 };
 void *lbl_80492D88[3] = {
     (void *)&lbl_8043B7D8, (void *)&lbl_8043B98C, (void *)0x0,
@@ -1805,7 +1805,7 @@ void *lbl_80492DDC[11] = {
 void *lbl_80492E08[4] = {
     (void *)&lbl_8043B9B8, (void *)&lbl_80492DD0, (void *)&lbl_80492DDC, (void *)0x2000a,
 };
-void *lbl_80492E18[40] = {
+void *rappy_variant_speed_table[40] = {
     (void *)0x10000, (void *)0x6, (void *)0x3f666666, (void *)0x0,
     (void *)0x10001, (void *)0x5, (void *)0x3f333333, (void *)0x0,
     (void *)0x20003, (void *)0x8, (void *)0x3f333333, (void *)0x0,
@@ -1852,7 +1852,7 @@ void *lbl_80492F28[84] = {
     (void *)&get_pos__10TObjPlayerFii, (void *)&apply_switch_attack__10TObjPlayerFi, (void *)&enemy_spawn_jellen_effect, (void *)&trigger_switch_attack__10TObjPlayerFi,
     (void *)&enemy_spawn_zalure_effect, (void *)&TObjPlayer__sub_80010A80, (void *)&TObjPlayer__sub_800F65D0, (void *)&fn_80010EC8,
     (void *)&fn_80010EC4, (void *)&fn_80010EC0, (void *)&fn_80010EBC, (void *)&call_vt78__10TObjPlayerFPv,
-    (void *)&apply_hit_message_flags__10TObjPlayerFPvPv, (void *)&apply_set_data__9TObjEnemyFPvPv, (void *)&fn_800F5D80, (void *)0x0,
+    (void *)&apply_hit_message_flags__10TObjPlayerFPvPv, (void *)&apply_set_data__9TObjEnemyFPvPv, (void *)&clear_lobby_object_state, (void *)0x0,
 };
 
 __declspec(section ".data") s32 lbl_80500BE0[2];
@@ -2124,7 +2124,7 @@ u8 *TObjEneLappy__ct(u8 *self, s32 arg1, Set_800C1C4C *set) {
     *(s16 *)(self + 0x37E) = lbl_805D9F2C * scale;
     add_flags_2e4__10TObjPlayerFPvUi(self, 1, scale, lbl_805D9F84);
     *(u32 *)(self + 0x30) |= 0x40000;
-    *(void **)(self + 0xD8) = (u8 *)lbl_80492E18;
+    *(void **)(self + 0xD8) = (u8 *)rappy_variant_speed_table;
     set_field_d8__10TObjPlayerFPvi(self, *(void **)(self + 0xD8));
     *(s16 *)(self + 0xB8) = 0;
     set_animation__10TObjPlayerFPvs(self, *(s16 *)(self + 0xB8));

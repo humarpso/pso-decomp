@@ -55,16 +55,16 @@ s32 get_instance__6TLobbyFv();
 s32 get_player_floor__6TLobbyFi(s32);
 s32 select_area_entrance(void *arg0);
 s32 lookup_scene_object__6TLobbyFPv(s32, void *);
-extern RecoveredGlobal_80228634_lbl_804CBE98 lbl_804CBE98;
+extern RecoveredGlobal_80228634_lbl_804CBE98 area_initializer_dispatch_table;
 void run_area_scene_cleanup(u8 *arg0);
 s32 lookup_scene_object__6TLobbyFPv(s32, void *);
 M2C_UNK reset_story_select_state__6TLobbyFv();
-extern RecoveredGlobal_80228634_lbl_804CBE98 lbl_804CBE98;
+extern RecoveredGlobal_80228634_lbl_804CBE98 area_initializer_dispatch_table;
 void promote_area_floor(u8 *arg0);
 s32 lookup_scene_object__6TLobbyFPv(s32, void *);
 M2C_UNK set_scene__6TSceneFi(int);
 M2C_UNK set_current_floor_area(int);
-extern RecoveredGlobal_80228634_lbl_804CBE98 lbl_804CBE98;
+extern RecoveredGlobal_80228634_lbl_804CBE98 area_initializer_dispatch_table;
 void load_area_scene_and_init(u8 *arg0);
 M2C_UNK TLobby__sub_802401C8(void *);
 extern unsigned char lbl_80514F64[];
@@ -243,14 +243,14 @@ void run_area_scene_cleanup(u8 *arg0) {
     var_r31 = (u8 *)(arg0);
     var_r3 = M2C_FIELD(arg0, s32 *, 4);
     if (lookup_scene_object__6TLobbyFPv(var_r3, var_r4) != 0) {
-        var_r3 = (s32) &lbl_804CBE98.value;
-        var_r3 = (s32) &lbl_804CBE98.value;
+        var_r3 = (s32) &area_initializer_dispatch_table.value;
+        var_r3 = (s32) &area_initializer_dispatch_table.value;
         var_r3 += sp8 * 0xC;
         var_r12 = M2C_FIELD(var_r3, M2C_UNK (**)(s32), 8);
         var_r12(var_r3);
     } else {
-        var_r3 = (s32) &lbl_804CBE98.value;
-        var_r3 = (s32) &lbl_804CBE98.value;
+        var_r3 = (s32) &area_initializer_dispatch_table.value;
+        var_r3 = (s32) &area_initializer_dispatch_table.value;
         var_r3 += M2C_FIELD(var_r31, s32 *, 4) * 0xC;
         var_r12 = M2C_FIELD(var_r3, M2C_UNK (**)(s32), 8);
         var_r12(var_r3);
@@ -277,15 +277,15 @@ void load_area_scene_and_init(u8 *arg0) {
     var_r3 = M2C_FIELD(var_r31, s32 *, 4);
     var_r4 = (s32 *)(&sp8);
     if (lookup_scene_object__6TLobbyFPv(var_r3, var_r4) != 0) {
-        var_r3 = (s32) &(*(RecoveredGlobal_802286C4_lbl_804CBE98 *)&lbl_804CBE98).value;
-        var_r3 = (s32) &(*(RecoveredGlobal_802286C4_lbl_804CBE98 *)&lbl_804CBE98).value;
+        var_r3 = (s32) &(*(RecoveredGlobal_802286C4_lbl_804CBE98 *)&area_initializer_dispatch_table).value;
+        var_r3 = (s32) &(*(RecoveredGlobal_802286C4_lbl_804CBE98 *)&area_initializer_dispatch_table).value;
         var_r3 += sp8 * 0xC;
         var_r12 = M2C_FIELD(var_r3, M2C_UNK (**)(s32), 4);
         var_r12(var_r3);
         return;
     }
-    var_r3 = (s32) &(*(RecoveredGlobal_802286C4_lbl_804CBE98 *)&lbl_804CBE98).value;
-    var_r3 = (s32) &(*(RecoveredGlobal_802286C4_lbl_804CBE98 *)&lbl_804CBE98).value;
+    var_r3 = (s32) &(*(RecoveredGlobal_802286C4_lbl_804CBE98 *)&area_initializer_dispatch_table).value;
+    var_r3 = (s32) &(*(RecoveredGlobal_802286C4_lbl_804CBE98 *)&area_initializer_dispatch_table).value;
     var_r3 += M2C_FIELD(var_r31, s32 *, 4) * 0xC;
     var_r12 = M2C_FIELD(var_r3, M2C_UNK (**)(s32), 4);
     var_r12(var_r3);
@@ -301,14 +301,14 @@ void promote_area_floor(u8 *arg0) {
     var_r31 = (u8 *)(arg0);
     var_r3 = M2C_FIELD(arg0, s32 *, 4);
     if (lookup_scene_object__6TLobbyFPv(var_r3, var_r4) != 0) {
-        var_r3 = (s32) &(*(RecoveredGlobal_80228754_lbl_804CBE98 *)&lbl_804CBE98).value;
-        var_r3 = (s32) &(*(RecoveredGlobal_80228754_lbl_804CBE98 *)&lbl_804CBE98).value;
+        var_r3 = (s32) &(*(RecoveredGlobal_80228754_lbl_804CBE98 *)&area_initializer_dispatch_table).value;
+        var_r3 = (s32) &(*(RecoveredGlobal_80228754_lbl_804CBE98 *)&area_initializer_dispatch_table).value;
         var_r3 += sp8 * 0xC;
         var_r12 = M2C_FIELD(var_r3, M2C_UNK (**)(s32), 8);
         var_r12(var_r3);
     } else {
-        var_r3 = (s32) &(*(RecoveredGlobal_80228754_lbl_804CBE98 *)&lbl_804CBE98).value;
-        var_r3 = (s32) &(*(RecoveredGlobal_80228754_lbl_804CBE98 *)&lbl_804CBE98).value;
+        var_r3 = (s32) &(*(RecoveredGlobal_80228754_lbl_804CBE98 *)&area_initializer_dispatch_table).value;
+        var_r3 = (s32) &(*(RecoveredGlobal_80228754_lbl_804CBE98 *)&area_initializer_dispatch_table).value;
         var_r3 += M2C_FIELD(var_r31, s32 *, 4) * 0xC;
         var_r12 = M2C_FIELD(var_r3, M2C_UNK (**)(s32), 8);
         var_r12(var_r3);

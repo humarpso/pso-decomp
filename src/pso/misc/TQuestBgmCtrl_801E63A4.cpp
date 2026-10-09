@@ -9,21 +9,21 @@ struct VObj_18 : VBase_18 {
     virtual M2C_UNK m1();
 };
 extern "C" {
-extern s32 TQuestBgmCtrl__data_805D5E60;
-extern s32 TQuestBgmCtrl__data_805D5E64;
-extern s32 TQuestBgmCtrl__data_805D5E68;
-extern u8 *TQuestBgmCtrl__data_805D5E6C;
+extern s32 TQuestBgmCtrl__bgm_issued_flag;
+extern s32 TQuestBgmCtrl__bgm_forced_flag;
+extern s32 TQuestBgmCtrl__area_bgm_index;
+extern u8 *TQuestBgmCtrl__instance;
 void force_bgm__13TQuestBgmCtrlFi(s32 arg0);
 }
 
 extern "C" {
 
 void force_bgm__13TQuestBgmCtrlFi(s32 arg0) {
-    TQuestBgmCtrl__data_805D5E68 = arg0;
-    TQuestBgmCtrl__data_805D5E60 = 0;
-    TQuestBgmCtrl__data_805D5E64 = 1;
-    if ((void *) TQuestBgmCtrl__data_805D5E6C != NULL) {
-        ((VObj_18 *)(TQuestBgmCtrl__data_805D5E6C))->m1();
+    TQuestBgmCtrl__area_bgm_index = arg0;
+    TQuestBgmCtrl__bgm_issued_flag = 0;
+    TQuestBgmCtrl__bgm_forced_flag = 1;
+    if ((void *) TQuestBgmCtrl__instance != NULL) {
+        ((VObj_18 *)(TQuestBgmCtrl__instance))->m1();
     }
 }
 

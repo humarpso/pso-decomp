@@ -55,7 +55,7 @@ extern M2C_UNK __vt__25TBoss5GryphonLightningEff[];
 extern s32 lbl_805D4188;
 Self_8032537C *__ct__25TBoss5GryphonLightningEffFv(Self_8032537C *self, void *parent, void *a, void *b, f32 x0, f32 x1, f32 scale);
 extern L1_80325070 **lbl_805D6C50;
-s32 TBoss5GryphonLightningEff__sub_80325070(void *self_, void *p_);
+s32 calc_segment_uvs__25TBoss5GryphonLightningEffFPvPv(void *self_, void *p_);
 }
 
 extern "C" {
@@ -79,7 +79,7 @@ extern u8 chunk_material_color_half_alpha_f32[];
 extern s32 lbl_805D5660;
 extern s32 some_id_805c6f74;
 
-s32 TBoss5GryphonLightningEff__sub_80325070(void *self_, void *p_) {
+s32 calc_segment_uvs__25TBoss5GryphonLightningEffFPvPv(void *self_, void *p_) {
 #define arg0 ((Obj_80325070 *)self_)
     Seg_80325070 *p = (Seg_80325070 *)p_;
     s32 i;
@@ -124,10 +124,10 @@ void render__25TBoss5GryphonLightningEffFv(void *arg0) {
     init_xyz_limits__10TObjPlayerFv();
     project_lightning_points(arg0, sp70, sp3C, sp8);
     build_lightning_strip(arg0, sp10C, sp70, sp3C, sp8);
-    draw_transformed_primitive__9TWindowDDFPvPvPvPv(sp10C, M2C_FIELD(arg0, s32 *, 0x38) * 2, TBoss5GryphonLightningEff__sub_80325070((void *)(arg0), (void *)(sp10C)), 1);
+    draw_transformed_primitive__9TWindowDDFPvPvPvPv(sp10C, M2C_FIELD(arg0, s32 *, 0x38) * 2, calc_segment_uvs__25TBoss5GryphonLightningEffFPvPv((void *)(arg0), (void *)(sp10C)), 1);
     if ((u8) M2C_FIELD(arg0, u8 *, 0x260) == 1) {
         build_lightning_strip(arg0, sp10C, sp70, sp8, sp3C);
-        draw_transformed_primitive__9TWindowDDFPvPvPvPv(sp10C, M2C_FIELD(arg0, s32 *, 0x38) * 2, TBoss5GryphonLightningEff__sub_80325070((void *)(arg0), (void *)(sp10C)), 1);
+        draw_transformed_primitive__9TWindowDDFPvPvPvPv(sp10C, M2C_FIELD(arg0, s32 *, 0x38) * 2, calc_segment_uvs__25TBoss5GryphonLightningEffFPvPv((void *)(arg0), (void *)(sp10C)), 1);
     }
     reset_transform_state__10TObjPlayerFv();
     end_effect_render__13TParticleCtrlFv();

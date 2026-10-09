@@ -51,7 +51,7 @@ s32 TKeyBoardControl__sub_80132274(void *);
 s32 is_key_57_pressed__16TKeyBoardControlFi(void *);
 s32 TKeyBoardControl__sub_801323C8(void *, int);
 u8 get_key_state__16TKeyBoardControlFPv(M2C_UNK *);
-extern M2C_UNK TKeyBoardControl__data_80506270[];
+extern M2C_UNK TKeyBoardControl__global_key_state[];
 void update_modifier_flags__16TKeyBoardControlFPv(struct RecoveredFields_8025FC60_arg0 *arg0);
 bool is_printable_key__16TKeyBoardControlFiUc(M2C_UNK arg0, u8 arg1);
 extern s32 lbl_805D5544;
@@ -60,7 +60,7 @@ u8 TKeyBoardControl__sub_8013239C(void *, u8);
 u8 get_key_state_2__16TKeyBoardControlFPv(void *);
 s32 TKeyBoardControl__sub_801323C8(void *, int);
 s32 TKeyBoardControl__sub_801A58B0(void);
-extern M2C_UNK TKeyBoardControl__data_80506270[];
+extern M2C_UNK TKeyBoardControl__global_key_state[];
 s32 has_non_modifier_key__16TKeyBoardControlFv(void);
 extern u8 lbl_8049DD78[];
 extern u8 lbl_8049DDF8[];
@@ -69,15 +69,15 @@ extern u16 lbl_8049DF78[];
 extern u16 lbl_8049E078[];
 extern u8 lbl_8049E378[];
 extern u8 lbl_8049E3F8[];
-extern u8 lbl_8049E478[];
-extern u8 lbl_8049E4F8[];
+extern u8 TKeyBoardControl__lowercase_char_table[];
+extern u8 keyboard_key_char_table[];
 extern u8 lbl_8049E578[];
-extern u8 lbl_8049E5F8[];
-extern u8 lbl_8049E678[];
+extern u8 keyboard_scancode_char_table[];
+extern u8 keyboard_scancode_to_char_table[];
 extern u8 lbl_8049E6F8[];
-extern u8 lbl_8049E778[];
-extern u8 lbl_8049E7F8[];
-extern u8 lbl_8049E878[];
+extern u8 TKeyBoardControl__key_char_table[];
+extern u8 TKeyBoardControl__uppercase_char_table[];
+extern u8 keyboard_scancode_char_table_alt[];
 }
 
 extern "C" {
@@ -111,7 +111,7 @@ void TKeyBoardControl__sub_8025EC04(u8 *arg0) {
     M2C_FIELD(arg0, s32 *, 0x60) = (s32) (M2C_FIELD(arg0, s32 *, 0x60) | 0x100);
 }
 
-extern M2C_UNK TKeyBoardControl__data_80506270[];
+extern M2C_UNK TKeyBoardControl__global_key_state[];
 
 typedef char RecoveredGlobal_8025ED80_lbl_8049E178_size[sizeof(RecoveredGlobal_8025ED80_lbl_8049E178) == 0x100 ? 1 : -1];
 typedef char RecoveredGlobal_8025ED80_lbl_8049E278_size[sizeof(RecoveredGlobal_8025ED80_lbl_8049E278) == 0x100 ? 1 : -1];
@@ -133,23 +133,23 @@ s32 has_non_modifier_key__16TKeyBoardControlFv(void) {
     if (TKeyBoardControl__sub_801A58B0() != 0) {
         return 0;
     }
-    n = get_key_state_2__16TKeyBoardControlFPv(TKeyBoardControl__data_80506270);
+    n = get_key_state_2__16TKeyBoardControlFPv(TKeyBoardControl__global_key_state);
     for (i = 0; i < n; i++) {
-        c = TKeyBoardControl__sub_8013239C(TKeyBoardControl__data_80506270, i);
+        c = TKeyBoardControl__sub_8013239C(TKeyBoardControl__global_key_state, i);
         if (c != 0x61 && c != 0x4C && c != 0x50 && c != 0x5E && c != 0x5D && c != 0x5C && c != 0x5F) {
             return 1;
         }
     }
-    if (TKeyBoardControl__sub_801323C8(TKeyBoardControl__data_80506270, 0x55) != 0) {
+    if (TKeyBoardControl__sub_801323C8(TKeyBoardControl__global_key_state, 0x55) != 0) {
         return 1;
     }
-    if (TKeyBoardControl__sub_801323C8(TKeyBoardControl__data_80506270, 0x54) != 0) {
+    if (TKeyBoardControl__sub_801323C8(TKeyBoardControl__global_key_state, 0x54) != 0) {
         return 1;
     }
-    if (TKeyBoardControl__sub_801323C8(TKeyBoardControl__data_80506270, 0x56) != 0) {
+    if (TKeyBoardControl__sub_801323C8(TKeyBoardControl__global_key_state, 0x56) != 0) {
         return 1;
     }
-    return TKeyBoardControl__sub_801323C8(TKeyBoardControl__data_80506270, 0x57) != 0 ? 1 : 0;
+    return TKeyBoardControl__sub_801323C8(TKeyBoardControl__global_key_state, 0x57) != 0 ? 1 : 0;
 }
 
 u16 lookup_key_char__16TKeyBoardControlFPvi(u8 *arg0, s32 arg1) {
@@ -173,8 +173,8 @@ s32 translate_key_char__16TKeyBoardControlFPviPv(void *arg0_, s32 arg1, u16 *arg
     } else {
         shift = arg0->flags & 0x80;
     }
-    if (!(arg0->sub->flags & 1) || get_key_state__16TKeyBoardControlFPv(TKeyBoardControl__data_80506270) != 0) {
-        switch (get_key_state__16TKeyBoardControlFPv(TKeyBoardControl__data_80506270)) {
+    if (!(arg0->sub->flags & 1) || get_key_state__16TKeyBoardControlFPv(TKeyBoardControl__global_key_state) != 0) {
+        switch (get_key_state__16TKeyBoardControlFPv(TKeyBoardControl__global_key_state)) {
         case 0:
             if ((arg0->flags & 4) && lbl_805D5544 == 0) {
                 *arg2 = lbl_8049E078[(u8)arg1];
@@ -188,27 +188,27 @@ s32 translate_key_char__16TKeyBoardControlFPviPv(void *arg0_, s32 arg1, u16 *arg
             if (arg0->flags & 8) {
                 *arg2 = lbl_8049E578[(u8)arg1];
             } else if (shift != 0) {
-                *arg2 = lbl_8049E4F8[(u8)arg1];
+                *arg2 = keyboard_key_char_table[(u8)arg1];
             } else {
-                *arg2 = lbl_8049E478[(u8)arg1];
+                *arg2 = TKeyBoardControl__lowercase_char_table[(u8)arg1];
             }
             break;
         case 4:
             if (arg0->flags & 8) {
-                *arg2 = lbl_8049E878[(u8)arg1];
+                *arg2 = keyboard_scancode_char_table_alt[(u8)arg1];
             } else if (shift != 0) {
-                *arg2 = lbl_8049E7F8[(u8)arg1];
+                *arg2 = TKeyBoardControl__uppercase_char_table[(u8)arg1];
             } else {
-                *arg2 = lbl_8049E778[(u8)arg1];
+                *arg2 = TKeyBoardControl__key_char_table[(u8)arg1];
             }
             break;
         case 3:
             if (arg0->flags & 8) {
                 *arg2 = lbl_8049E6F8[(u8)arg1];
             } else if (shift != 0) {
-                *arg2 = lbl_8049E678[(u8)arg1];
+                *arg2 = keyboard_scancode_to_char_table[(u8)arg1];
             } else {
-                *arg2 = lbl_8049E5F8[(u8)arg1];
+                *arg2 = keyboard_scancode_char_table[(u8)arg1];
             }
             break;
         default:
@@ -297,7 +297,7 @@ s32 poll_input__16TKeyBoardControlFPv(void *arg0) {
     if (M2C_FIELD(arg0, s32 *, 0x60) & 0x40) {
         return 3;
     }
-    temp_r3 = get_key_state__16TKeyBoardControlFPv(TKeyBoardControl__data_80506270);
+    temp_r3 = get_key_state__16TKeyBoardControlFPv(TKeyBoardControl__global_key_state);
     switch ((s32) temp_r3) {
     case 4:
         return 1;
@@ -368,9 +368,9 @@ void process_all_key_states__16TKeyBoardControlFPv(Ctl_8025F21C *c) {
     s32 i;
     s32 n;
     if (!(c->f60 & 2)) {
-        n = get_key_state_2__16TKeyBoardControlFPv(TKeyBoardControl__data_80506270);
+        n = get_key_state_2__16TKeyBoardControlFPv(TKeyBoardControl__global_key_state);
         for (i = 0; i < n; i++) {
-            process_key_input__16TKeyBoardControlFPvi(c, ((s32 (*)(void *, u8))TKeyBoardControl__sub_8013239C)(TKeyBoardControl__data_80506270, i));
+            process_key_input__16TKeyBoardControlFPvi(c, ((s32 (*)(void *, u8))TKeyBoardControl__sub_8013239C)(TKeyBoardControl__global_key_state, i));
         }
     }
 }
@@ -382,34 +382,34 @@ void update_modifier_flags__16TKeyBoardControlFPv(struct RecoveredFields_8025FC6
     u32 temp_r4;
     u8 *temp_r3_3;
     u8 *temp_r3_4;
-    if (get_key_state__16TKeyBoardControlFPv((M2C_UNK *)(&(*(RecoveredGlobal_8025FC60_TKeyBoardControl__data_80506270 *)&TKeyBoardControl__data_80506270).value)) != 0) {
-        if ((TKeyBoardControl__sub_801323C8(&(*(RecoveredGlobal_8025FC60_TKeyBoardControl__data_80506270 *)&TKeyBoardControl__data_80506270).value, 0x56) != 0) || (TKeyBoardControl__sub_801323C8(&(*(RecoveredGlobal_8025FC60_TKeyBoardControl__data_80506270 *)&TKeyBoardControl__data_80506270).value, 0x5B) != 0)) {
+    if (get_key_state__16TKeyBoardControlFPv((M2C_UNK *)(&(*(RecoveredGlobal_8025FC60_TKeyBoardControl__data_80506270 *)&TKeyBoardControl__global_key_state).value)) != 0) {
+        if ((TKeyBoardControl__sub_801323C8(&(*(RecoveredGlobal_8025FC60_TKeyBoardControl__data_80506270 *)&TKeyBoardControl__global_key_state).value, 0x56) != 0) || (TKeyBoardControl__sub_801323C8(&(*(RecoveredGlobal_8025FC60_TKeyBoardControl__data_80506270 *)&TKeyBoardControl__global_key_state).value, 0x5B) != 0)) {
             arg0->field_60 |= 2;
         } else {
             arg0->field_60 &= 0xFFFFFFFD;
         }
     }
-    if (TKeyBoardControl__sub_801321B4(&(*(RecoveredGlobal_8025FC60_TKeyBoardControl__data_80506270 *)&TKeyBoardControl__data_80506270).value) != 0) {
+    if (TKeyBoardControl__sub_801321B4(&(*(RecoveredGlobal_8025FC60_TKeyBoardControl__data_80506270 *)&TKeyBoardControl__global_key_state).value) != 0) {
         arg0->field_60 |= 2;
     } else {
         arg0->field_60 &= 0xFFFFFFFD;
     }
-    if (is_key_57_pressed__16TKeyBoardControlFi(&(*(RecoveredGlobal_8025FC60_TKeyBoardControl__data_80506270 *)&TKeyBoardControl__data_80506270).value) != 0) {
+    if (is_key_57_pressed__16TKeyBoardControlFi(&(*(RecoveredGlobal_8025FC60_TKeyBoardControl__data_80506270 *)&TKeyBoardControl__global_key_state).value) != 0) {
         arg0->field_60 |= 4;
     } else {
         arg0->field_60 &= 0xFFFFFFFB;
     }
-    if (TKeyBoardControl__sub_80132274(&(*(RecoveredGlobal_8025FC60_TKeyBoardControl__data_80506270 *)&TKeyBoardControl__data_80506270).value) != 0) {
+    if (TKeyBoardControl__sub_80132274(&(*(RecoveredGlobal_8025FC60_TKeyBoardControl__data_80506270 *)&TKeyBoardControl__global_key_state).value) != 0) {
         arg0->field_60 |= 8;
     } else {
         arg0->field_60 &= 0xFFFFFFF7;
     }
-    if ((get_key_state__16TKeyBoardControlFPv((M2C_UNK *)(&(*(RecoveredGlobal_8025FC60_TKeyBoardControl__data_80506270 *)&TKeyBoardControl__data_80506270).value)) == 2) || (get_key_state__16TKeyBoardControlFPv((M2C_UNK *)(&(*(RecoveredGlobal_8025FC60_TKeyBoardControl__data_80506270 *)&TKeyBoardControl__data_80506270).value)) == 3)) {
+    if ((get_key_state__16TKeyBoardControlFPv((M2C_UNK *)(&(*(RecoveredGlobal_8025FC60_TKeyBoardControl__data_80506270 *)&TKeyBoardControl__global_key_state).value)) == 2) || (get_key_state__16TKeyBoardControlFPv((M2C_UNK *)(&(*(RecoveredGlobal_8025FC60_TKeyBoardControl__data_80506270 *)&TKeyBoardControl__global_key_state).value)) == 3)) {
         arg0->field_60 |= 1;
     } else {
         arg0->field_60 &= 0xFFFFFFFE;
     }
-    if ((TKeyBoardControl__sub_801323C8(&(*(RecoveredGlobal_8025FC60_TKeyBoardControl__data_80506270 *)&TKeyBoardControl__data_80506270).value, 0x54) != 0) || (TKeyBoardControl__sub_801323C8(&(*(RecoveredGlobal_8025FC60_TKeyBoardControl__data_80506270 *)&TKeyBoardControl__data_80506270).value, 0x55) != 0)) {
+    if ((TKeyBoardControl__sub_801323C8(&(*(RecoveredGlobal_8025FC60_TKeyBoardControl__data_80506270 *)&TKeyBoardControl__global_key_state).value, 0x54) != 0) || (TKeyBoardControl__sub_801323C8(&(*(RecoveredGlobal_8025FC60_TKeyBoardControl__data_80506270 *)&TKeyBoardControl__global_key_state).value, 0x55) != 0)) {
         arg0->field_60 |= 0x80;
     } else {
         arg0->field_60 &= 0xFFFFFF7F;

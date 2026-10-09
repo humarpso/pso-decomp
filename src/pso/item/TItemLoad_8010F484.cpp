@@ -8,7 +8,7 @@ extern "C" {
 
 void *init__9TItemLoadFPvPvPvPvPv(void *arg0, void *arg1, void *arg2, void *arg3, void *arg4);
 void update_all__9TItemLoadFv(void);
-void TItemLoad__sub_80110788(void *);
+void clear_slots__9TItemLoadFPv(void *);
 void __ct__7TObjectFP7TObject(void *);
 M2C_UNK update_state__9TItemLoadFPv(void *);
 
@@ -21,7 +21,7 @@ void *init__9TItemLoadFPvPvPvPvPv(void *arg0, void *arg1, void *arg2, void *arg3
     M2C_FIELD(arg0, u32 *, 0x20) = 0;
     M2C_FIELD(arg0, void **, 0x24) = arg3;
     M2C_FIELD(arg0, void **, 0x28) = arg4;
-    TItemLoad__sub_80110788((void *)((char *)arg0 + 44));
+    clear_slots__9TItemLoadFPv((void *)((char *)arg0 + 44));
     M2C_FIELD(arg0, u32 *, 0x20) = 1;
     return arg0;
 }

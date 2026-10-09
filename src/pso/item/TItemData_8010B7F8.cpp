@@ -29,7 +29,7 @@ struct Stats_8010BA9C { u8 pad0[2]; s16 x2; u8 pad4[2]; s16 x6; u8 pad8[4]; s16 
 
 extern "C" {
 void set_present_color__9TItemDataFPvi(u8 *arg0, s32 arg1);
-s32 TItemData__sub_8010B8B0(u8 *arg0);
+s32 get_type_nibble__9TItemDataFPv(u8 *arg0);
 s32 get_minutes__6TLobbyFv(void);
 extern M2C_UNK lbl_8043E348;
 extern const f32 lbl_805DAB6C;
@@ -136,7 +136,7 @@ void set_present_color__9TItemDataFPvi(u8 *arg0, s32 arg1) {
     }
 }
 
-s32 TItemData__sub_8010B8B0(u8 *arg0) {
+s32 get_type_nibble__9TItemDataFPv(u8 *arg0) {
     u8 temp_r0;
     temp_r0 = M2C_FIELD(arg0, u8 *, 0);
     switch ((s32) temp_r0) {

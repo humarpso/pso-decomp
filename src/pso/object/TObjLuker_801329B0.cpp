@@ -15,7 +15,7 @@ extern u8 *lbl_805D553C;
 extern s32 lbl_805D5550;
 s32 enemy_name_for_rt_index(s32 arg0);
 s32 get_localized_text_entry(s32, s32);
-extern RecoveredGlobal_801329B0_lbl_8043EA58 lbl_8043EA58;
+extern RecoveredGlobal_801329B0_lbl_8043EA58 floor_destination_text_id_table;
 extern s32 lbl_805D5550;
 void get_floor_destination_name(u32 arg0);
 }
@@ -33,7 +33,7 @@ void get_floor_destination_name(u32 arg0) {
     if ((var_r3 == 0xB) && ((s32) lbl_805D5550 >= 3)) {
         var_r3 = 0xE;
     }
-    get_localized_text_entry(9, M2C_FIELD(&lbl_8043EA58.value, M2C_UNK *, (var_r3 * 4)));
+    get_localized_text_entry(9, M2C_FIELD(&floor_destination_text_id_table.value, M2C_UNK *, (var_r3 * 4)));
 }
 
 int get_stat_table_entry__9TObjLukerFi(int a0) {  return lbl_804A6EE0[a0]; }

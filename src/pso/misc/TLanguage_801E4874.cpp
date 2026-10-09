@@ -17,9 +17,9 @@ struct Ent_801E4874 {
 };
 
 extern "C" {
-extern s32 lbl_805D5E58;
+extern s32 TLanguage__read_cursor;
 s32 read_u16_le__9TLanguageFv(void);
-extern s32 lbl_805D5E58;
+extern s32 TLanguage__read_cursor;
 s32 read_u32_le__9TLanguageFv(void);
 void tmp_buf_release__6TLobbyFi(void *);
 u32 tmp_buf_use_req__6TLobbyFPv(void *);
@@ -35,7 +35,7 @@ void read_into_buffer__9TLanguageFii(s32 arg0, s32 arg1);
 void load_gvm_texture_archive(u32, u8 *);
 extern u8 lbl_8044981C[];
 extern u8 lbl_8044983C[];
-extern s32 lbl_805D5E58;
+extern s32 TLanguage__read_cursor;
 u8 *load_gvm_texture_file(s32 arg0);
 }
 
@@ -57,7 +57,7 @@ s32 is_split_screen();
 M2C_UNK move_data__6TLobbyFv(s32, s32, s32);
 M2C_UNK set_global_param__8TObjFishFi(s32);
 
-extern s32 lbl_805D5E58;
+extern s32 TLanguage__read_cursor;
 
 u8 *load_gvm_texture_file(s32 arg0) {
     s32 count;
@@ -100,19 +100,19 @@ u8 *load_gvm_texture_file(s32 arg0) {
     str = (u8 *)(ent + count);
     for (; i < count; i++, ent++, str += 0x20) {
         ent->name = str;
-        lbl_805D5E58 += 2;
+        TLanguage__read_cursor += 2;
         if (hdr.flags & 1) {
             read_into_buffer__9TLanguageFii((s32)str, 0x1C);
             str[0x1C] = 0;
         }
         if (hdr.flags & 2) {
-            lbl_805D5E58 += 2;
+            TLanguage__read_cursor += 2;
         }
         if (hdr.flags & 4) {
-            lbl_805D5E58 += 2;
+            TLanguage__read_cursor += 2;
         }
         if (hdr.flags & 8) {
-            lbl_805D5E58 += 4;
+            TLanguage__read_cursor += 4;
         }
     }
     load_gvm_texture_archive(buf, res);
@@ -125,7 +125,7 @@ u8 *load_gvm_texture_file(s32 arg0) {
 }
 
 u16 read_file_header__9TLanguageFiPv(s32 arg0, u8 *arg1) {
-    lbl_805D5E58 = arg0;
+    TLanguage__read_cursor = arg0;
     read_into_buffer__9TLanguageFii((s32)((s32)(arg1)), (s32)((s32)(4)));
     M2C_FIELD(arg1, s32 *, 4) = read_u32_le__9TLanguageFv();
     M2C_FIELD(arg1, u16 *, 8) = read_u16_le__9TLanguageFv();
@@ -136,24 +136,24 @@ u16 read_file_header__9TLanguageFiPv(s32 arg0, u8 *arg1) {
     return M2C_FIELD(arg1, u16 *, 0xA);
 }
 
-extern s32 lbl_805D5E58;
+extern s32 TLanguage__read_cursor;
 
 void read_into_buffer__9TLanguageFii(s32 arg0, s32 arg1) {
-    move_data__6TLobbyFv(arg0, lbl_805D5E58, arg1);
-    lbl_805D5E58 += arg1;
+    move_data__6TLobbyFv(arg0, TLanguage__read_cursor, arg1);
+    TLanguage__read_cursor += arg1;
 }
 
 s32 read_u32_le__9TLanguageFv(void) {
-    s32 v = *(u8 *)lbl_805D5E58++;
-    v |= *(u8 *)lbl_805D5E58++ << 8;
-    v |= *(u8 *)lbl_805D5E58++ << 16;
-    v |= *(u8 *)lbl_805D5E58++ << 24;
+    s32 v = *(u8 *)TLanguage__read_cursor++;
+    v |= *(u8 *)TLanguage__read_cursor++ << 8;
+    v |= *(u8 *)TLanguage__read_cursor++ << 16;
+    v |= *(u8 *)TLanguage__read_cursor++ << 24;
     return v;
 }
 
 s32 read_u16_le__9TLanguageFv(void) {
-    s32 lo = *(u8 *)lbl_805D5E58++;
-    lo |= *(u8 *)lbl_805D5E58++ << 8;
+    s32 lo = *(u8 *)TLanguage__read_cursor++;
+    lo |= *(u8 *)TLanguage__read_cursor++ << 8;
     return lo;
 }
 

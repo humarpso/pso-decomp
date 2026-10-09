@@ -10,7 +10,7 @@ void free_all_and_init__9TItemBuffFv(void);
 M2C_UNK TItemBuff__ct();
 M2C_UNK free__11TOBoss4RockFUi(s32);
 
-extern M2C_UNK lbl_80506200[];
+extern M2C_UNK item_nj_chunk_buffer_table[];
 
 void free_all_and_init__9TItemBuffFv(void) {
     s32 var_r28;
@@ -22,7 +22,7 @@ void free_all_and_init__9TItemBuffFv(void) {
     var_r31 = 0;
     var_r30 = var_r31;
     var_r28 = 0;
-    var_r29 = lbl_80506200;
+    var_r29 = item_nj_chunk_buffer_table;
     do {
         free__11TOBoss4RockFUi(var_r29[var_r31]);
         var_r28 += 1;

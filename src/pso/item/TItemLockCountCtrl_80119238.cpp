@@ -11,9 +11,9 @@ struct VObj_801193D8 : Base_801193D8 {
 };
 
 extern "C" {
-extern VObj_801193D8 *lbl_80506228[7];
+extern VObj_801193D8 *item_effect_object_table[7];
 void free_all__18TItemLockCountCtrlFv(void);
-extern VObj_801193D8 *lbl_80506228[7];
+extern VObj_801193D8 *item_effect_object_table[7];
 void *TItemLockCountCtrl__ct(void *, s32, s32, void (*)(int), void (*)(int));
 void *__nw__7TObjectFUl(u32);
 void TItemEquipBase__sub_80119100(int arg0);
@@ -106,10 +106,10 @@ void set_battle_ctrl_flag30__18TItemLockCountCtrlFi(int arg0) {
 void free_all__18TItemLockCountCtrlFv(void) {
     s32 i;
     for (i = 0; i != 7; i++) {
-        if (lbl_80506228[i] != 0) {
-            lbl_80506228[i]->m0(1);
+        if (item_effect_object_table[i] != 0) {
+            item_effect_object_table[i]->m0(1);
         }
-        lbl_80506228[i] = 0;
+        item_effect_object_table[i] = 0;
     }
 }
 #define MK_80119444(idx, a, b)                                   \
@@ -117,7 +117,7 @@ void free_all__18TItemLockCountCtrlFv(void) {
     if (p != 0) {                                                \
         p = TItemLockCountCtrl__ct(p, 0, 0xC, a, b);             \
     }                                                            \
-    lbl_80506228[idx] = (VObj_801193D8 *)p;
+    item_effect_object_table[idx] = (VObj_801193D8 *)p;
 void init_effect_table__18TItemLockCountCtrlFv(void) {
     void *p;
     MK_80119444(0, set_battle_ctrl_flag30__18TItemLockCountCtrlFi, TItemLockCountCtrl__sub_80119238)

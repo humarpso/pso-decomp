@@ -5,7 +5,7 @@ typedef struct Ent_803653A4 { s32 id; s32 arg; } Ent_803653A4;
 extern "C" {
 void TLobby__sub_8001FE7C(void *, int);
 extern u32 lbl_80543A48[];
-void fn_80365348(void);
+void free_object_table(void);
 void *load_resource_from_descriptor(void *, s32, s32, s32, s32, s32);
 void *alloc__23TAdSinglePlyChrSelectGCFPv(s32);
 extern Ent_803653A4 lbl_804F2C08[];
@@ -15,7 +15,7 @@ void fn_803653A4(void);
 
 extern "C" {
 
-void fn_80365348(void) {
+void free_object_table(void) {
     s32 i;
     for (i = 5; i >= 0; i--) {
         if (lbl_80543A48[i] != 0) {

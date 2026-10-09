@@ -16,7 +16,7 @@ void clear_id__10TObjPlayerFPv(void *);
 void fn_80103674(void);
 s32 fn_8010F210(s32);
 void init_resources__9TItemLoadFv(void);
-extern RecoveredGlobal_801058AC_lbl_8049EE60 lbl_8049EE60;
+extern RecoveredGlobal_801058AC_lbl_8049EE60 item_class_load_unload_table;
 extern M2C_UNK lbl_805D5440;
 extern int lbl_805D5444;
 void init_game_resources__10TObjPlayerFv(void);
@@ -43,7 +43,7 @@ typedef char RecoveredGlobal_801058AC_lbl_8049EE60_size[sizeof(RecoveredGlobal_8
 void init_game_resources__10TObjPlayerFv(void) {
     fn_80103674();
     init_resources__9TItemLoadFv();
-    (*(s32 *)&lbl_805D5444) = fn_8010F210((s32) &lbl_8049EE60.value);
+    (*(s32 *)&lbl_805D5444) = fn_8010F210((s32) &item_class_load_unload_table.value);
     clear_id__10TObjPlayerFPv(&lbl_805D5440);
 }
 

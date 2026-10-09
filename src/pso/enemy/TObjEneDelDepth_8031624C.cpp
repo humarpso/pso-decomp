@@ -83,7 +83,7 @@ int find_nearest_enemy_with_flag__15TObjEneDelDepthFPvif(u8 *arg0, s32 arg1, f32
 s32 get_type__15TObjEneDelDepthFPv(void* p) { return *(s32*)((char*)p + 0x4); }
 
 extern f32 lbl_805D6AC8;
-extern u8 lbl_805D6ACC;
+extern u8 TObjEneDelDepth__state_complete_flag;
 extern f32 lbl_805DF2E8;
 
 #pragma push
@@ -147,9 +147,9 @@ s32 is_state_complete__15TObjEneDelDepthFPv(void *arg0) {
     if (temp_r0 < 6) {
         return 0;
     }
-    if ((s8) lbl_805D6ACC == 0) {
+    if ((s8) TObjEneDelDepth__state_complete_flag == 0) {
         f32 temp_f1 = M2C_FIELD(arg0, f32 *, 0x24);
-        lbl_805D6ACC = 1;
+        TObjEneDelDepth__state_complete_flag = 1;
         lbl_805D6AC8 = temp_f1 - lbl_805DF2E8;
     }
     if (M2C_FIELD(arg0, f32 *, 0x28) == lbl_805D6AC8) {

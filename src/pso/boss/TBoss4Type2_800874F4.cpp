@@ -11,7 +11,7 @@ struct Ent_800874F4 { u8 data[0x98]; };
 extern "C" {
 void set_tint_color__13TParticleCtrlFPvi(u8 *arg0, s32 arg1);
 void set_owner_id__13TParticleCtrlFPvUs(O_80087638 *self, u16 x);
-extern s32 lbl_805D2948;
+extern s32 particle_pool_limit;
 extern s32 lbl_805D4EF8;
 extern s32 lbl_805D4EFC;
 void *__nw__7TObjectFUl(int);
@@ -33,14 +33,14 @@ extern const f32 TParticleCtrl__data_805D94E4;
 
 void *create_particle_emitter(void *pos, s32 id) {
     void *p;
-    if (lbl_805D2948 > id) {
+    if (particle_pool_limit > id) {
         p = __nw__7TObjectFUl(0x78);
         if (p != 0) {
             p = initialize__13TParticleCtrlFPvPviiiii(p, pos, &(*(Ent_800874F4 * *)&lbl_805D4EF8)[id], 0, 0, 0, 0);
         }
         return p;
     }
-    if (lbl_805D2948 + 0x40 > id) {
+    if (particle_pool_limit + 0x40 > id) {
         s32 idx = id - 0x200;
         p = __nw__7TObjectFUl(0x78);
         if (p != 0) {

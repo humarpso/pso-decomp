@@ -33,7 +33,7 @@ u8 *alloc__23TAdSinglePlyChrSelectGCFPv(s32);
 u8 *load_resource_from_descriptor(u8 *, s32, void *, s32, s32, s32);
 void **load_gvm_texture_file(void *);
 void bind_gvm_texture_list(void *, void *);
-void TTecZondeEff__sub_8023DBB4(void);
+void init_resources__12TTecZondeEffFv(void);
 void load_technique_resources(void);
 }
 
@@ -48,7 +48,7 @@ void __ct__7TObjectFP7TObject(void *);
 
 void render__8TTecCtrlFv(void) {  }
 
-    extern unsigned char lbl_804CC1CC[];
+    extern unsigned char technique_param_table[];
 
 s32 clamp_nonnegative_int(s32 x) {
     if (x <= 0) {
@@ -57,7 +57,7 @@ s32 clamp_nonnegative_int(s32 x) {
     return x;
 }
 
-void* get_technique_base_params(int a0) {  return (char*)lbl_804CC1CC + a0 * 44; }
+void* get_technique_base_params(int a0) {  return (char*)technique_param_table + a0 * 44; }
 
 extern s8 lbl_805D63A8;
 
@@ -104,7 +104,7 @@ void load_technique_resources(void) {
     lbl_805D63AC = p;
     lbl_805D63B0 = load_gvm_texture_file(lbl_8044D088);
     bind_gvm_texture_list(lbl_8044D094, ((u8 *)&technique_ringwave_texture_list));
-    TTecZondeEff__sub_8023DBB4();
+    init_resources__12TTecZondeEffFv();
 }
 
 }

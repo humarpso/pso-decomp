@@ -250,7 +250,7 @@ extern char lbl_80446924[];
 extern Pair_801A3CFC lobby_udp_test_game_entries[];
 extern s32 lbl_805D53A0;
 extern s32 TLobby__data_805D53AC;
-extern s32 lbl_805D5E48;
+extern s32 game_protocol_instance;
 void start_udp_test_game__6TLobbyFv(void);
 M2C_UNK __dt__7TObjectFv(void *, M2C_UNK);
 M2C_UNK update__16TKeyBoardControlFv();
@@ -549,7 +549,7 @@ void start_udp_test_game__6TLobbyFv(void) {
     msg.entries[1].fC = 1;
     strcpy(msg.entries[1].name, lbl_80446924);
     handle_game_join__6TLobbyFPv(&msg);
-    delete_children__7TObjectFv(lbl_805D5E48);
+    delete_children__7TObjectFv(game_protocol_instance);
     open_udp_socket_for_player__6TLobbyFi(1 - lbl_805D53A0);
 }
 

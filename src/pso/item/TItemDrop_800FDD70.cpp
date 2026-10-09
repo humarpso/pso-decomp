@@ -8,7 +8,7 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 
 extern "C" {
 s32 strcmp(void *, void *);
-extern Ent_800FDD70 TItemDrop__data_805011E0[];
+extern Ent_800FDD70 TItemDrop__gsl_entry_table[];
 extern u32 TItemDrop__data_805D53C4;
 extern s32 TItemDrop__data_805D53C8;
 Ent_800FDD70 *find_gsl_entry(void *name);
@@ -16,8 +16,8 @@ M2C_UNK fn_800F93B4(void *, Ent_800FDD70 *, s32);
 M2C_UNK change_file_extension__6TLobbyFPvPvPv(void *, void *, const void *);
 M2C_UNK TLobby__sub_803CCE9C(u32);
 s32 strlen(char *);
-extern Ent_800FDD70 TItemDrop__data_805011E0[];
-extern char TItemDrop__data_805041E0[];
+extern Ent_800FDD70 TItemDrop__gsl_entry_table[];
+extern char TItemDrop__file_name_buf[];
 extern char *lbl_805D2B38;
 extern u32 TItemDrop__data_805D53C4;
 extern s32 TItemDrop__data_805D53CC;
@@ -32,8 +32,8 @@ M2C_UNK strncpy(char *, char *, s32);
 s32 TLobby__sub_803CC4C0(u32);
 M2C_UNK read_checked_align__6TLobbyFiii(u32, s32, Ent_800FDD70 *);
 u32 adxf_open__6TLobbyFUii(char *, s32);
-extern Ent_800FDD70 TItemDrop__data_805011E0[];
-extern char TItemDrop__data_805041E0[];
+extern Ent_800FDD70 TItemDrop__gsl_entry_table[];
+extern char TItemDrop__file_name_buf[];
 extern char *lbl_805D2B38;
 extern u32 TItemDrop__data_805D53C4;
 extern s32 TItemDrop__data_805D53C8;
@@ -50,7 +50,7 @@ Ent_800FDD70 *find_gsl_entry(void *name) {
     if (TItemDrop__data_805D53C4 == 0) {
         return 0;
     }
-    e = TItemDrop__data_805011E0;
+    e = TItemDrop__gsl_entry_table;
     for (i = 0; i < TItemDrop__data_805D53C8; i++, e++) {
         if (strcmp(e, name) == 0) {
             return e;
@@ -67,8 +67,8 @@ void TItemDrop__sub_800FDDF4(void) {
     } else {
         n = strlen(lbl_805D2B38);
         if (n > 0) {
-            change_file_extension__6TLobbyFPvPvPv(buf, TItemDrop__data_805041E0, lbl_805DAA3C);
-            fn_800F93B4(buf, TItemDrop__data_805011E0, n);
+            change_file_extension__6TLobbyFPvPvPv(buf, TItemDrop__file_name_buf, lbl_805DAA3C);
+            fn_800F93B4(buf, TItemDrop__gsl_entry_table, n);
         }
         TItemDrop__data_805D53D0 = 0;
         TItemDrop__data_805D53CC = 0;
@@ -77,13 +77,13 @@ void TItemDrop__sub_800FDDF4(void) {
 void TItemDrop__sub_800FDE7C(char *name) {
     Ent_800FDD70 *e;
     s32 i;
-    strncpy(TItemDrop__data_805041E0, name, 0x20);
+    strncpy(TItemDrop__file_name_buf, name, 0x20);
     if (TItemDrop__data_805D53CC == 0) {
         TItemDrop__data_805D53C4 = adxf_open__6TLobbyFUii(name, 0);
         if (TItemDrop__data_805D53C4 != 0) {
             reset__8TGStreamFv();
-            read_checked_align__6TLobbyFiii(TItemDrop__data_805D53C4, 6, TItemDrop__data_805011E0);
-            set_read_params__6TLobbyFiii(&TItemDrop__data_805D53C4, 6, TItemDrop__data_805011E0);
+            read_checked_align__6TLobbyFiii(TItemDrop__data_805D53C4, 6, TItemDrop__gsl_entry_table);
+            set_read_params__6TLobbyFiii(&TItemDrop__data_805D53C4, 6, TItemDrop__gsl_entry_table);
             for (;;) {
                 if (TLobby__sub_803CC4C0(TItemDrop__data_805D53C4) == 3) {
                     break;
@@ -92,7 +92,7 @@ void TItemDrop__sub_800FDE7C(char *name) {
             }
             reset_read_state__6TLobbyFv();
             TItemDrop__data_805D53C8 = 0;
-            e = TItemDrop__data_805011E0;
+            e = TItemDrop__gsl_entry_table;
             for (i = 0; i < 0xFF; i++, e++) {
                 if ((s8)e->pad[0] == 0) {
                     TItemDrop__data_805D53C8 = i;

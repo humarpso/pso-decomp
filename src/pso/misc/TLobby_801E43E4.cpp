@@ -54,7 +54,7 @@ M2C_UNK dispatch_6x_subcommand(void *);
 M2C_UNK TProtocol__sub_801DC084(u32, s32, void *, s32);
 int bswap_16__FPUs(void*);
 M2C_UNK bswap_32__FPUl(s32 *);
-M2C_UNK fn_801A5544(void *, s32);
+M2C_UNK append_command_to_batch_buffer(void *, s32);
 s32 get_main_phase();
 int read_be16_field2__10TObjPlayerFPv(void*);
 M2C_UNK send_pso_data_long2__9TProtocolFcR17long_game_commandUl(void*, u32, void *, s32);
@@ -99,7 +99,7 @@ void dispatch_packet__6TLobbyFPv(void *arg0) {
 }
 
 extern s32 TLobby__data_805D5598;
-extern void *lbl_805D5E48;
+extern void *game_protocol_instance;
 extern s32 lbl_805D5E50;
 
 typedef s32 M2C_UNK;
@@ -151,10 +151,10 @@ void update_players__6TLobbyFi(s32 arg0) {
         TLobby__send_and_handle_60((u8 *)(arg0));
         return;
     }
-    if ((void *) lbl_805D5E48 != NULL) {
-        var_r31 = M2C_FIELD(lbl_805D5E48, void **, 0x14);
+    if ((void *) game_protocol_instance != NULL) {
+        var_r31 = M2C_FIELD(game_protocol_instance, void **, 0x14);
         while (var_r31 != NULL) {
-            fn_801A5544(var_r31, arg0);
+            append_command_to_batch_buffer(var_r31, arg0);
             var_r31 = M2C_FIELD(var_r31, void **, 0xC);
         }
     }

@@ -129,7 +129,7 @@ extern const f32 lbl_805DDA70;
 extern const f32 lbl_805DDA90;
 extern const f32 lbl_805DDBFC;
 extern const f32 TObjCMMainMenu__data_805DDC00;
-void TObjCMMainMenu__sub_802983A0(M_802983A0 *arg0);
+void update_slide_offset__14TObjCMMainMenuFPv(M_802983A0 *arg0);
 }
 
 extern "C" {
@@ -471,7 +471,7 @@ extern u8 lbl_80465050[];
 extern u8 lbl_80465058[];
 extern s32 lbl_80465060[];
 extern s32 lbl_8046507C[];
-extern Ent_802964B0 lbl_804D8E20[];
+extern Ent_802964B0 class_appearance_table[];
 extern Cols_80297DB8 lbl_804DBC68[2];
 extern Quad_80297DB8 lbl_804DBC88[2];
 extern u8 lbl_804DBCC8[];
@@ -890,7 +890,7 @@ Hair_802964B0 *__ct__14TObjCMHairMenuFv(Hair_802964B0 *arg0, void *arg1) {
     arg0->f1c = (*(s32 *)&lbl_805D6520);
     arg0->f20 = 0;
     arg0->f24 = 0;
-    arg0->f28 = lbl_804D8E20[get_display_index__12TCharaMakingFPv(arg0->f1c)].f8;
+    arg0->f28 = class_appearance_table[get_display_index__12TCharaMakingFPv(arg0->f1c)].f8;
     arg0->f30 = 1;
     arg0->f34 = lbl_805DDA90;
     for (i = 0; i < 3; i++) {
@@ -1311,7 +1311,7 @@ void *__ct__16TObjCMAssignMenuFv(void *arg0, void *parent, void *kind) {
     ((Menu_80297128 *)arg0)->chara = (*(Chara_80297128 * *)&lbl_805D6520);
     ((Menu_80297128 *)arg0)->f20 = 0;
     ((Menu_80297128 *)arg0)->kind = (s32)kind;
-    ((Menu_80297128 *)arg0)->count = ((Row_80297128 *)&lbl_804D8E20)[((s32 (*)(void *))get_display_index__12TCharaMakingFPv)(((Menu_80297128 *)arg0)->chara)].v[((Menu_80297128 *)arg0)->kind];
+    ((Menu_80297128 *)arg0)->count = ((Row_80297128 *)&class_appearance_table)[((s32 (*)(void *))get_display_index__12TCharaMakingFPv)(((Menu_80297128 *)arg0)->chara)].v[((Menu_80297128 *)arg0)->kind];
     ((Menu_80297128 *)arg0)->f28 = ((Menu_80297128 *)arg0)->chara->f38[((Menu_80297128 *)arg0)->kind];
     ((Menu_80297128 *)arg0)->n = 0;
     ((Menu_80297128 *)arg0)->mask = 0;
@@ -1657,7 +1657,7 @@ void update_random_proportion_action__14TObjCMMainMenuFPv(void * _w0) {
 
 #pragma push
 #pragma opt_common_subs off
-void TObjCMMainMenu__sub_802983A0(M_802983A0 *arg0) {
+void update_slide_offset__14TObjCMMainMenuFPv(M_802983A0 *arg0) {
     f32 v;
     switch (TObjCMMainMenu__data_805D659C) {
     case 1:
@@ -1840,7 +1840,7 @@ void run_task__14TObjCMMainMenuFv(Menu_802987AC *arg0) {
     rand();
     ((void (*)(void *, int))update_menu_reveal__14TObjCMMainMenuFv)(arg0, arg0->f34++);
     ((void (*)(void *))update_submenu_fade__14TObjCMMainMenuFv)(arg0);
-    TObjCMMainMenu__sub_802983A0((M_802983A0 *)(arg0));
+    update_slide_offset__14TObjCMMainMenuFPv((M_802983A0 *)(arg0));
     static MenuFn_802987AC table[7] = {
         &Menu_802987AC::s0, &Menu_802987AC::s1, &Menu_802987AC::s2,
         &Menu_802987AC::s3, &Menu_802987AC::s4, &Menu_802987AC::s5,

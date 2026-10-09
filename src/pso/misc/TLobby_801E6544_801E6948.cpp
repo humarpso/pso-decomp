@@ -25,7 +25,7 @@ struct VObj_18_f23ffb : VBase_18_f23ffb {
 extern "C" {
 int sprintf(char *, const char *, ...);
 void append_string(s32 arg0);
-extern s32 *TLobby__data_805D5E78;
+extern s32 *TLobby__script_reg_array;
 extern char lbl_805DC4B4[4];
 void append_int_param__6TLobbyFi(s32 arg0);
 int sprintf(char *, const char *, ...);
@@ -34,7 +34,7 @@ extern char lbl_80449C90[];
 void TLobby__sub_801E6AE0(void);
 int sprintf(char *, const char *, ...);
 void append_string(s32 arg0);
-extern s32 *TLobby__data_805D5E78;
+extern s32 *TLobby__script_reg_array;
 extern char lbl_805DC4B0[4];
 void append_float_value__6TLobbyFi(s32 arg0);
 int sprintf(char *, const char *, ...);
@@ -109,13 +109,13 @@ void TLobby__sub_801E6A04(void) {
 
 void append_float_value__6TLobbyFi(s32 arg0) {
     char buf[64];
-    sprintf(buf, lbl_805DC4B0, ((f32 *)TLobby__data_805D5E78)[arg0]);
+    sprintf(buf, lbl_805DC4B0, ((f32 *)TLobby__script_reg_array)[arg0]);
     append_string((s32)buf);
 }
 
 void append_int_param__6TLobbyFi(s32 arg0) {
     char buf[64];
-    sprintf(buf, lbl_805DC4B4, TLobby__data_805D5E78[arg0]);
+    sprintf(buf, lbl_805DC4B4, TLobby__script_reg_array[arg0]);
     append_string((s32)buf);
 }
 

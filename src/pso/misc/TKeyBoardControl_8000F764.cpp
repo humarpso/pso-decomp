@@ -77,7 +77,7 @@ M2C_UNK reset_state_byte__6TLobbyFv();
 M2C_UNK disable_disconnected_ports__16TKeyBoardControlFv(void *);
 M2C_UNK update_pad_rumble();
 M2C_UNK read_pads__16TKeyBoardControlFv();
-extern RecoveredGlobal_8000F764_TKeyBoardControl__data_80506270 TKeyBoardControl__data_80506270;
+extern RecoveredGlobal_8000F764_TKeyBoardControl__data_80506270 TKeyBoardControl__global_key_state;
 void TKeyBoardControl__sub_8000F764(void);
 M2C_UNK run_tasks__7TObjectFv(M2C_UNK *);
 extern RecoveredGlobal_8000F7FC_lbl_80515F48 lbl_80515F48;
@@ -126,7 +126,7 @@ M2C_UNK OSSetArenaLo(u32);
 void TKeyBoardControl__sub_8000F9E4(void);
 void init_gx_lighting_defaults(void);
 M2C_UNK TLobby__sub_8007EB70();
-M2C_UNK fn_8007F8D0();
+M2C_UNK init_disc_error_messages();
 M2C_UNK load_critical_effect_resources();
 M2C_UNK init_particle_buffer__13TParticleCtrlFv();
 M2C_UNK load_ha_u032_kage();
@@ -187,7 +187,7 @@ M2C_UNK TObjPlayer__sub_803E492C(void *, int);
 M2C_UNK set_global_7778__10TObjPlayerFi(void *);
 void TKeyBoardControl__sub_8000F764(void);
 extern u8 GXNtsc480IntDf[];
-extern RecoveredGlobal_8000F764_TKeyBoardControl__data_80506270 TKeyBoardControl__data_80506270;
+extern RecoveredGlobal_8000F764_TKeyBoardControl__data_80506270 TKeyBoardControl__global_key_state;
 extern u8 main_task[];
 extern int lbl_805D49A0;
 extern int lbl_805D49A4;
@@ -225,7 +225,7 @@ M2C_UNK TObjPlayer__sub_80083FB0();
 int init_default_config__10TObjPlayerFv(void);
 int TObjPlayer__sub_801D92A4(void);
 int TObjTailsTailsMove__sub_800FFE0C(void);
-int TParticleCtrl__sub_801E5330(void);
+int reset_emitter_table__13TParticleCtrlFv(void);
 int TWindowSnapShot__sub_802A7DA0(void);
 int TWindowSubStatusDisp__sub_803386F0(void);
 int destroy_game_heap__6TLobbyFv(void);
@@ -245,7 +245,7 @@ extern s32 lbl_805D62B0;
 typedef char RecoveredGlobal_8000F764_TKeyBoardControl__data_80506270_size[sizeof(RecoveredGlobal_8000F764_TKeyBoardControl__data_80506270) == 0xB0 ? 1 : -1];
 void TKeyBoardControl__sub_8000F764(void) {
     read_pads__16TKeyBoardControlFv();
-    disable_disconnected_ports__16TKeyBoardControlFv((void *) (&TKeyBoardControl__data_80506270.value));
+    disable_disconnected_ports__16TKeyBoardControlFv((void *) (&TKeyBoardControl__global_key_state.value));
     flush_input__16TKeyBoardControlFv();
     update_pad_rumble();
     reset_state_byte__6TLobbyFv();
@@ -276,7 +276,7 @@ int TKeyBoardControl__sub_8000F828(void) { return 0; }
     extern int lbl_805D49B0;
     extern int anim_model_matrix_array;
     extern int lbl_805D5680;
-void shutdown_and_reset_system(void) { TLobby__sub_802433A8(); TObjTailsTailsMove__sub_800FFE0C(); init_default_config__10TObjPlayerFv(); destroy_resources__16TObjEneMe3StelthFv(); TAdPlayerLoadGC__sub_801E1350(); free_system__13TParticleCtrlFv(); TParticleCtrl__sub_801E5330(); fn_80082A6C(); free_resources__23TAdSinglePlyChrSelectGCFv(); TObjPlayer__sub_801D92A4(); TLobby__sub_8020E3BC(); TWindowSnapShot__sub_802A7DA0(); TAdWarningBaseGC__sub_8032D188(); destroy_game_heap__6TLobbyFv(); TLobby__sub_8022809C(); shutdown_buffers__6TLobbyFv(); release_all__23TAdSinglePlyChrSelectGCFv(); TWindowSubStatusDisp__sub_803386F0(); TObjBoss2Tunnel__sub_8036EF4C(); TLobby__sub_80147978(); xfree__FPv((void*)(lbl_805D49A0)); xfree__FPv((void*)(lbl_805D49A4)); xfree__FPv((void*)(lbl_805D49B0)); xfree__FPv((void*)(lbl_805D5680)); xfree__FPv((void*)(anim_model_matrix_array)); xfree__FPv((void*)(lbl_805D49A8)); VISetBlack((void*)1); VIFlush(); VIWaitForRetrace(); OSResetSystem((void*)1, (void*)0, (void*)1); }
+void shutdown_and_reset_system(void) { TLobby__sub_802433A8(); TObjTailsTailsMove__sub_800FFE0C(); init_default_config__10TObjPlayerFv(); destroy_resources__16TObjEneMe3StelthFv(); TAdPlayerLoadGC__sub_801E1350(); free_system__13TParticleCtrlFv(); reset_emitter_table__13TParticleCtrlFv(); fn_80082A6C(); free_resources__23TAdSinglePlyChrSelectGCFv(); TObjPlayer__sub_801D92A4(); TLobby__sub_8020E3BC(); TWindowSnapShot__sub_802A7DA0(); TAdWarningBaseGC__sub_8032D188(); destroy_game_heap__6TLobbyFv(); TLobby__sub_8022809C(); shutdown_buffers__6TLobbyFv(); release_all__23TAdSinglePlyChrSelectGCFv(); TWindowSubStatusDisp__sub_803386F0(); TObjBoss2Tunnel__sub_8036EF4C(); TLobby__sub_80147978(); xfree__FPv((void*)(lbl_805D49A0)); xfree__FPv((void*)(lbl_805D49A4)); xfree__FPv((void*)(lbl_805D49B0)); xfree__FPv((void*)(lbl_805D5680)); xfree__FPv((void*)(anim_model_matrix_array)); xfree__FPv((void*)(lbl_805D49A8)); VISetBlack((void*)1); VIFlush(); VIWaitForRetrace(); OSResetSystem((void*)1, (void*)0, (void*)1); }
 
 extern s32 lbl_805D49C0;
 
@@ -434,7 +434,7 @@ void init_game_systems(void) {
     TObjPlayer__sub_801416AC();
     alloc_buffer__16TKeyBoardControlFv();
     TKeyBoardControl__sub_8000F9E4();
-    reset_input__16TKeyBoardControlFi(&TKeyBoardControl__data_80506270);
+    reset_input__16TKeyBoardControlFi(&TKeyBoardControl__global_key_state);
     init_buffers();
     init_main_task__9TMainTaskFv(main_task);
     TLobby__sub_8007EB70();
@@ -456,7 +456,7 @@ void init_game_systems(void) {
     init_particle_sprite_atlas();
     init_particle_buffer__13TParticleCtrlFv();
     GXSetPixelFmt((int) (1), (int) (0));
-    fn_8007F8D0();
+    init_disc_error_messages();
     init_keyboard_buffer__6TLobbyFv();
     load_banner_files__15TAdPlayerLoadGCFv();
     load_player_data__6TLobbyFv();

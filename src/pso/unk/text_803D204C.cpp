@@ -56,7 +56,7 @@ void lock_enter__6TLobbyFv(void);
 void advance_ring_buffer__6TLobbyFPviPv(Obj_803D2104 *arg0, s32 arg1, Buf_803D2104 *arg2);
 void restore_interrupts_nested__6TLobbyFv(void);
 void lock_enter__6TLobbyFv(void);
-s32 TLobby__sub_803D204C(Obj_803D204C *arg0, s32 arg1, s32 arg2, s32 *arg3);
+s32 calc_readable_count_locked__6TLobbyFPviiPv(Obj_803D204C *arg0, s32 arg1, s32 arg2, s32 *arg3);
 }
 
 extern "C" {
@@ -64,7 +64,7 @@ extern "C" {
 typedef struct Buf_803D2104 Buf_803D2104;
 typedef struct Obj_803D2104 Obj_803D2104;
 
-s32 TLobby__sub_803D204C(Obj_803D204C *arg0, s32 arg1, s32 arg2, s32 *arg3) {
+s32 calc_readable_count_locked__6TLobbyFPviiPv(Obj_803D204C *arg0, s32 arg1, s32 arg2, s32 *arg3) {
     s32 n;
     lock_enter__6TLobbyFv();
     if (arg1 == 0) {

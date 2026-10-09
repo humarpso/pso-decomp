@@ -1141,7 +1141,7 @@ void set_state__14TObjEnePanarmsFPvi(Obj_800DED30 *arg0, s32 arg1) {
 #pragma push
 #pragma fp_contract on
 #pragma opt_common_subs off
-void TObjEnePanarms__sub_800DEDC4(u8 *arg0) {
+void draw_shadow__14TObjEnePanarmsFPv(u8 *arg0) {
     Vec_800DEDC4 v;
     s32 spC;
     s32 sp8;

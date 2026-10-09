@@ -41,7 +41,7 @@ u8 *get_array_entry__20TWindowSubStatusDispFPvi(void *, M2C_UNK);
 void TWindowHelpItem__sub_80253268(u8 *arg0);
 void initialize_mag_data__9TItemDataFPv(MagData_80253564 *);
 void deserialize_mag__9TItemDataFPvPv(void *, MagData_80253564 *);
-s32 TItemMag__sub_801143E8(MagData_80253564 *, int);
+s32 get_photon_blast_at_slot__8TItemMagFPvi(MagData_80253564 *, int);
 u8 *get_array_entry__20TWindowSubStatusDispFPvi(void *, M2C_UNK);
 void draw_action_palette_icon(void *, int, u16);
 void init_window_layout_entries(void *, const void *, s16);
@@ -199,7 +199,7 @@ void TWindowHelpItem__vt11(u8 *window) {
     *(Callback_80253564 *) (window + 0xB0) = lbl_804CF880;
     deserialize_mag__9TItemDataFPvPv(M2C_FIELD(window, void **, 0x68), &mag);
     for (slot = 0; slot < 3; slot++) {
-        blast = TItemMag__sub_801143E8(&mag, slot);
+        blast = get_photon_blast_at_slot__8TItemMagFPvi(&mag, slot);
         if (blast != -1) {
             draw_action_palette_icon(((void *)get_array_entry__20TWindowSubStatusDispFPvi((void *)(window), (M2C_UNK)(slot + 1))), 5, (u16) blast);
         } else {

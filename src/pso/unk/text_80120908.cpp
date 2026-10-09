@@ -53,7 +53,7 @@ M2C_UNK set_global_flag__10TObjPlayerFv();
 M2C_UNK clear_global_state__10TObjPlayerFv();
 M2C_UNK set_global_state__16TObjEneRe7BeruraFi(void *);
 void apply_weapon_node_material();
-extern s16 lbl_80506248[];
+extern s16 TObjPlayer__weapon_node_ids[];
 extern M2C_UNK lbl_805D53EC;
 extern s16 lbl_805D5510;
 extern u8 *lbl_805D5514;
@@ -85,9 +85,9 @@ s32 draw_weapon_model(void *arg0) {
             lbl_805D5514 = (u8 *)arg0;
             lbl_805D5510 = M2C_FIELD(arg0, s16 *, 0x1CC);
             temp_r4 = (u8 *)(M2C_FIELD(arg0, u8 **, 0x1DC));
-            lbl_80506248[0] = (s16) M2C_FIELD(temp_r4, u8 *, 0x21);
-            lbl_80506248[1] = (s16) M2C_FIELD(temp_r4, u8 *, 0x22);
-            lbl_80506248[2] = (s16) M2C_FIELD(temp_r4, u8 *, 0x23);
+            TObjPlayer__weapon_node_ids[0] = (s16) M2C_FIELD(temp_r4, u8 *, 0x21);
+            TObjPlayer__weapon_node_ids[1] = (s16) M2C_FIELD(temp_r4, u8 *, 0x22);
+            TObjPlayer__weapon_node_ids[2] = (s16) M2C_FIELD(temp_r4, u8 *, 0x23);
             if ((u32) M2C_FIELD(arg0, u32 *, 0x17C) == 0U) {
                 TObjPlayer__sub_80121208((void *) (arg0), (void *) (apply_weapon_node_material));
             } else {

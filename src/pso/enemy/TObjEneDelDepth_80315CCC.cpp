@@ -51,7 +51,7 @@ void reset_globals__15TObjEneDelDepthFv(void) {
     some_id_805c6f74 = lbl_805D5660;
 }
 
-    extern int TObjEneDelDepth__data_805D6AC4;
+    extern int TObjEneDelDepth__shared_resource;
 
 void setup_draw_material_default__15TObjEneDelDepthFf(f32 farg0) {
     setup_draw_material__15TObjEneDelDepthFffff(farg0, TObjEneDelDepth__data_805DF258, TObjEneDelDepth__data_805DF258, TObjEneDelDepth__data_805DF258);
@@ -72,6 +72,6 @@ void setup_draw_material__15TObjEneDelDepthFffff(f32 farg0, f32 farg1, f32 farg2
     set_chunk_material_color((void *) (&stack.sp8));
 }
 
-int get_data__15TObjEneDelDepthFv(void) {  return TObjEneDelDepth__data_805D6AC4; }
+int get_data__15TObjEneDelDepthFv(void) {  return TObjEneDelDepth__shared_resource; }
 
 }

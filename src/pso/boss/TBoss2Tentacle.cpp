@@ -33,7 +33,7 @@ extern V3_80039DE0 TBoss2Tentacle__data_804FE8E8[];
 extern s32 lbl_804FE990[];
 void reset_segment_points__14TBoss2TentacleFPv(Obj_80039DE0 *self);
 extern G_80039C44 *TBoss2Tentacle__motion_data;
-void TBoss2Tentacle__sub_80039C44(Obj_80039C44 *self);
+void advance_motion_position__14TBoss2TentacleFPv(Obj_80039C44 *self);
 M2C_UNK scale_matrix(int, f32, f32, f32);
 M2C_UNK rotate_matrix_y(int, int);
 M2C_UNK rotate_matrix_z(int, int);
@@ -59,7 +59,7 @@ M2C_UNK emit_effect_and_step__13TBoss2DeRolLeFPvPv(void *, void *);
 void *get_instance__13TBoss2DeRolLeFv(void);
 void TBoss2Tentacle__sub_8003998C(void);
 M2C_UNK TBoss2Tentacle__sub_80039994(void *, f32);
-void TBoss2Tentacle__sub_80039C44(Obj_80039C44 *self);
+void advance_motion_position__14TBoss2TentacleFPv(Obj_80039C44 *self);
 void TBoss2Tentacle__sub_80039CB4(void* p);
 void TBoss2Tentacle__sub_80039D50(void* p);
 void TBoss2Tentacle__sub_80039D64(void* a0);
@@ -194,7 +194,7 @@ void run_task__14TBoss2TentacleFv(u8 *arg0) {
     }
     switch (F(s32, 0x1C)) {
     case 0:
-        TBoss2Tentacle__sub_80039C44((Obj_80039C44 *)arg0);
+        advance_motion_position__14TBoss2TentacleFPv((Obj_80039C44 *)arg0);
         F(s32, 0x128) += F(s32, 0x124);
         F(s32, 0x11C) = lbl_805D852C * ((*(const f32 *)&TBoss2Tentacle__data_805D8530) + sin_table_lookup(F(s32, 0x128)));
         if (!(F(s32, 0x2C) & 1)) {
@@ -202,7 +202,7 @@ void run_task__14TBoss2TentacleFv(u8 *arg0) {
         }
         break;
     case 1:
-        TBoss2Tentacle__sub_80039C44((Obj_80039C44 *)arg0);
+        advance_motion_position__14TBoss2TentacleFPv((Obj_80039C44 *)arg0);
         F(s32, 0x120) = approach_angle_limited(F(s32, 0x120), 0x4000, 0x280);
         break;
     case 2:
@@ -290,11 +290,11 @@ void run_task__14TBoss2TentacleFv(u8 *arg0) {
         break;
     }
     case 4:
-        TBoss2Tentacle__sub_80039C44((Obj_80039C44 *)arg0);
+        advance_motion_position__14TBoss2TentacleFPv((Obj_80039C44 *)arg0);
         F(s32, 0x11C) = approach_angle_limited(F(s32, 0x11C), ((s32 *)&TBoss2Tentacle__data_80435B78)[F(s32, 0x2C)], 0x80);
         break;
     case 5:
-        TBoss2Tentacle__sub_80039C44((Obj_80039C44 *)arg0);
+        advance_motion_position__14TBoss2TentacleFPv((Obj_80039C44 *)arg0);
         F(s32, 0x120) = approach_angle_limited(F(s32, 0x120), 0, 0x280);
         if (F(s32, 0x120) == 0) {
             TBoss2Tentacle__sub_80039DD4(arg0);
@@ -306,7 +306,7 @@ void run_task__14TBoss2TentacleFv(u8 *arg0) {
 void TBoss2Tentacle__sub_8003998C(void) {  }
 void TBoss2Tentacle__sub_80039990(void) {  }
 
-void TBoss2Tentacle__sub_80039C44(Obj_80039C44 *self) {
+void advance_motion_position__14TBoss2TentacleFPv(Obj_80039C44 *self) {
     f32 n = (f32)(TBoss2Tentacle__motion_data->count - 1);
     self->pos += self->speed;
     if (self->pos >= n) {

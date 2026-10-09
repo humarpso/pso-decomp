@@ -136,14 +136,14 @@ extern char lbl_805D47E4[4];
 extern char lbl_805D47E8[4];
 extern char lbl_805D47EC[4];
 extern s32 lbl_805D79E8;
-extern u32 lbl_805D79EC;
+extern u32 download_server_config_length;
 s32 parse_config_line__22TQuestVmDownLoadServerFPvUiPv(char *s, u32 n, Q_803F63F0 *q);
 char *strncpy(char *, const char *, unsigned long);
 int atoi(const char *);
 extern s32 lbl_805D79E8;
 s32 parse_config_int__22TQuestVmDownLoadServerFPvUi(char *s, u32 n);
 char *strncpy(char *, const char *, unsigned long);
-s32 fn_803F71BC(char *);
+s32 parse_hex_string(char *);
 extern s32 lbl_805D79E8;
 s32 get_config_line__22TQuestVmDownLoadServerFPvUi(char *s, u32 n);
 char *strncpy(char *, const char *, unsigned long);
@@ -285,17 +285,17 @@ s32 parse_config_line__22TQuestVmDownLoadServerFPvUiPv(char *s, u32 n, Q_803F63F
             CPY(q->d[i].s64, 0x20);
         }
     }
-    if (lbl_805D79E8 == 0 && lbl_805D79EC + n < 0x400) {
+    if (lbl_805D79E8 == 0 && download_server_config_length + n < 0x400) {
         if (strncmp(s, lbl_805D47E8, 3) == 0) {
             CPY(q->e[i].s, 0x190);
         } else if (strncmp(s, lbl_805D47EC, 3) == 0) {
             CPY(q->f[i].s, 0x100);
         }
     }
-    if (lbl_805D79E8 == 0 && lbl_805D79EC + n < 0x400) {
-        strncpy(lbl_805A8C08 + lbl_805D79EC, s, n + 2);
-        lbl_805D79EC += n + 2;
-        lbl_805A8C08[lbl_805D79EC] = 0;
+    if (lbl_805D79E8 == 0 && download_server_config_length + n < 0x400) {
+        strncpy(lbl_805A8C08 + download_server_config_length, s, n + 2);
+        download_server_config_length += n + 2;
+        lbl_805A8C08[download_server_config_length] = 0;
     }
     return 0;
 }
@@ -329,7 +329,7 @@ s32 get_config_line__22TQuestVmDownLoadServerFPvUi(char *s, u32 n) {
     }
     strncpy(buf, s, n);
     buf[n] = 0;
-    r = fn_803F71BC(&buf[5]);
+    r = parse_hex_string(&buf[5]);
     lbl_805D79E8 = 1;
     return r;
 }

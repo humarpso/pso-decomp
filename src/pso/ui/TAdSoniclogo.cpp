@@ -15,8 +15,8 @@ void init_logo_state__23TAdSinglePlyChrSelectGCFi(int);
 
 extern M2C_UNK __vt__12TAdSoniclogo[];
 extern void *lbl_805D2628;
-extern u32 TAdSoniclogo__data_805D4A4C;
-extern u32 lbl_805D4A50;
+extern u32 TAdSoniclogo__state;
+extern u32 TLogo__exit_requested_flag;
 extern void *tl_00;
 extern M2C_UNK request_destroy__12TAdSoniclogoFv[];
 
@@ -26,8 +26,8 @@ void *__ct__12TAdSoniclogoFv(void *arg0) {
     M2C_FIELD(arg0, M2C_UNK **, 0x18) = __vt__12TAdSoniclogo;
     M2C_FIELD(arg0, void **, 0x0) = lbl_805D2628;
     M2C_FIELD(arg0, u32 *, 0x1C) = 0;
-    TAdSoniclogo__data_805D4A4C = 0;
-    lbl_805D4A50 = 0;
+    TAdSoniclogo__state = 0;
+    TLogo__exit_requested_flag = 0;
     init_logo_state__23TAdSinglePlyChrSelectGCFi(1);
     o = __nw__7TObjectFUl(0x28);
     if (o != NULL) {
@@ -38,7 +38,7 @@ void *__ct__12TAdSoniclogoFv(void *arg0) {
 
 void TLogo__sub_8001C360(void) {  }
 
-    extern int lbl_805D4A48;
-void TLogo__sub_8001C364(void) { lbl_805D4A48 = TObject__sub_80019A60(); }
+    extern int sonic_logo_object;
+void TLogo__sub_8001C364(void) { sonic_logo_object = TObject__sub_80019A60(); }
 
 }

@@ -5,12 +5,12 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 #define M2C_BITWISE(type, expr) ((type)(expr))
 extern "C" {
 M2C_UNK DateToSeconds__FP9DateStampPi(M2C_UNK *, u32 *);
-u8 fn_801E2A44(M2C_UNK *date);
+u8 calc_day_in_cycle(M2C_UNK *date);
 }
 
 extern "C" {
 
-u8 fn_801E2A44(M2C_UNK *date) {
+u8 calc_day_in_cycle(M2C_UNK *date) {
     u32 sp8;
     u32 var_r4;
     DateToSeconds__FP9DateStampPi(date, &sp8);

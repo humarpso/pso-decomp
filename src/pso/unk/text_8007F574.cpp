@@ -16,14 +16,14 @@ extern const f32 lbl_805D92C4;
 extern const f32 lbl_805D92C8;
 void fn_8007F5A4(u8 *arg0);
 extern const f32 lbl_805D92B8;
-void fn_8007F574(O_8007F574 *self);
+void init_dl_graph_entries(O_8007F574 *self);
 }
 
 extern "C" {
 
 #pragma fp_contract on
 
-void fn_8007F574(O_8007F574 *self) {
+void init_dl_graph_entries(O_8007F574 *self) {
     s32 i;
     self->x40 = 0;
     for (i = 0; i < 4; i++) {

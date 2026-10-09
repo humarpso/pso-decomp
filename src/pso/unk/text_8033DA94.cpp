@@ -38,7 +38,7 @@ extern s32 lbl_804EFA14[];
 extern M2C_UNK lbl_804EFA1C[];
 extern s32 lbl_805D42A8;
 extern const f32 lbl_805DFA70;
-u8 *TObjFish__sub_8033DA94(u8 *arg0, s32 arg1);
+u8 *construct_scene_object__8TObjFishFPvi(u8 *arg0, s32 arg1);
 }
 
 extern "C" {
@@ -67,7 +67,7 @@ typedef struct {
     s32 arr[9];
     Trip_8033DA94 t[5];
 } Fish_8033DA94;
-u8 *TObjFish__sub_8033DA94(u8 *arg0, s32 arg1) {
+u8 *construct_scene_object__8TObjFishFPvi(u8 *arg0, s32 arg1) {
     Fish_8033DA94 *self = (Fish_8033DA94 *)arg0;
     s32 v;
     s32 count;
@@ -112,7 +112,7 @@ u8 *TObjFish__sub_8033DA94(u8 *arg0, s32 arg1) {
 void *create_variant__8TObjFishFPv(void *arg0) {
     void *o = __nw__7TObjectFUl(0xF0);
     if (o != NULL) {
-        o = TObjFish__sub_8033DA94((u8 *)(o), (s32)(arg0));
+        o = construct_scene_object__8TObjFishFPvi((u8 *)(o), (s32)(arg0));
     }
     return o;
 }

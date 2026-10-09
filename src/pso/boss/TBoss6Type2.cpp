@@ -690,7 +690,7 @@ void TBoss6Type2__sub_802BAD04(s32 arg0);
 void request_default_follow_camera__11TBoss6Type2Fv(void);
 void init_range__11TBoss6Type2Fv(void);
 struct Obj_802BB1E0 { u8 pad0[0x38]; Vec_802B9A68 pos; };
-M2C_UNK TBoss6Type2__sub_802BB1E0(Obj_802BB1E0 *, f32, f32);
+M2C_UNK request_player_camera_offsets__11TBoss6Type2FPvff(Obj_802BB1E0 *, f32, f32);
 f32 get_random_float__8TObjFishFv(f32);
 extern Vec_802B9A68 lbl_80471344[];
 extern const f32 lbl_805DE480;
@@ -1542,13 +1542,13 @@ void request_default_follow_camera__11TBoss6Type2Fv(void) {
 }
 
 void init_range__11TBoss6Type2Fv(void) {
-    ((M2C_UNK (*)(f32, f32))TBoss6Type2__sub_802BB1E0)(TBoss6Type2__data_805DE460, lbl_805DE47C);
+    ((M2C_UNK (*)(f32, f32))request_player_camera_offsets__11TBoss6Type2FPvff)(TBoss6Type2__data_805DE460, lbl_805DE47C);
 }
 
 #pragma push
 #pragma opt_common_subs off
 #pragma fp_contract on
-M2C_UNK TBoss6Type2__sub_802BB1E0(Obj_802BB1E0 *self, f32 a, f32 b) {
+M2C_UNK request_player_camera_offsets__11TBoss6Type2FPvff(Obj_802BB1E0 *self, f32 a, f32 b) {
     Vec_802B9A68 pp;
     Vec_802B9A68 me;
     Vec_802B9A68 off;

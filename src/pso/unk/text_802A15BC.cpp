@@ -15,12 +15,12 @@ struct O_802A15BC {
 
 extern "C" {
 extern const f32 lbl_805DDDF8;
-void fn_802A15BC(O_802A15BC *arg0);
+void clear_player_data_block(O_802A15BC *arg0);
 }
 
 extern "C" {
 
-void fn_802A15BC(O_802A15BC *arg0) {
+void clear_player_data_block(O_802A15BC *arg0) {
     s32 i;
     for (i = 0; i < 0x10; i++) {
         arg0->a[i] = 0;

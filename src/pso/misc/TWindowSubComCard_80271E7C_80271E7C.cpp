@@ -27,7 +27,7 @@ s32 get_id__6TLobbyFPv(void *);
 u8 *TWindowSubComCard__sub_80275228(void);
 void TWindowSubComCard__sub_802721D8(u8 *arg0);
 u8 *find_entry_rest__17TWindowSubComCardFPvPvi(Win_80272034 *arg0, Key_80272034 *arg1, s32 arg2);
-void fn_80077814(void *, u16, s32);
+void set_value_by_key(void *, u16, s32);
 s32 find_value_by_key__17TWindowSubComCardFPvUs(void *, u16);
 s32 open_hard_keyboard__6TLobbyFPv(void *);
 void *get_field_20__17TWindowSubComCardFPv(void *);
@@ -104,7 +104,7 @@ void TWindowSubComCard__sub_80271F04(u8 *arg0, Ent_80271F04 *arg1, s32 arg2, s32
         }
     } else if (arg3 != find_value_by_key__17TWindowSubComCardFPvUs(arg1, arg2)) {
         arg0[0x1D] |= 1;
-        fn_80077814(arg1, arg2, arg3);
+        set_value_by_key(arg1, arg2, arg3);
         set_entry_string_by_id__15TWindowMakeTeamFPvPvi(*(void **)(arg0 + 0x7C), get_field_20__17TWindowSubComCardFPv(get_selected_entry__17TWindowSubComCardFPv(*(void **)(arg0 + 0x64))), arg2);
     }
 }

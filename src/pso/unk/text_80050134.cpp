@@ -51,18 +51,18 @@ void TParticleCtrl__sub_801A2124();
 void apply_object_set_data();
 void classify_actor_view_detail();
 void draw_three_part_models();
-void fn_800500DC();
+void update_fade_and_expire();
 void render_shadows__7TObjectFv();
 void reset_motion_fields__10TObjPlayerFPv();
 void update_object_view_visibility();
 
-s32 lbl_80485828[3] = {0x0, 0x10, 0x11};
+s32 TObjDFDemoF__bml_model_id_table[3] = {0x0, 0x10, 0x11};
 s32 lbl_80485834[3] = {-1, 0x26, 0x27};
 void *lbl_80485840[3] = {(void *) 0xc69c4000, (void *) 0x0, (void *) 0x0};
 void *lbl_8048584C[3] = {(void *) 0x0, (void *) 0x0, (void *) 0x0};
 void *lbl_80485858[3] = {(void *) 0x50000, (void *) 0x0, (void *) 0x3f000000};
-void *lbl_80485864[3] = {(void *) 0xc69c4000, (void *) 0x0, (void *) 0x0};
-void *lbl_80485870[14] = {(void *) 0x0, (void *) 0x0, (void *) (&__dt__11TObjDFDemoFFPvs), (void *) (&fn_800500DC), (void *) (&draw_three_part_models), (void *) (&render_shadows__7TObjectFv), (void *) (&TLobby__sub_801A1FD8), (void *) (&apply_object_set_data), (void *) (&reset_motion_fields__10TObjPlayerFPv), (void *) (&TParticleCtrl__sub_801A2124), (void *) (&update_object_view_visibility), (void *) (&classify_actor_view_detail), (void *) (&TObjRoomId__sub_801A1E2C), (void *) 0x0};
+void *three_part_model_translate_offset[3] = {(void *) 0xc69c4000, (void *) 0x0, (void *) 0x0};
+void *lbl_80485870[14] = {(void *) 0x0, (void *) 0x0, (void *) (&__dt__11TObjDFDemoFFPvs), (void *) (&update_fade_and_expire), (void *) (&draw_three_part_models), (void *) (&render_shadows__7TObjectFv), (void *) (&TLobby__sub_801A1FD8), (void *) (&apply_object_set_data), (void *) (&reset_motion_fields__10TObjPlayerFPv), (void *) (&TParticleCtrl__sub_801A2124), (void *) (&update_object_view_visibility), (void *) (&classify_actor_view_detail), (void *) (&TObjRoomId__sub_801A1E2C), (void *) 0x0};
 
 void *__dt__11TObjDFDemoFFPvs(void *arg0, s16 arg1) {
     if (arg0 != NULL) {
@@ -91,7 +91,7 @@ Obj_80050194 *TObjDFDemoF__ct(Obj_80050194 *arg0, void *arg1) {
   h = get_instance_count__9TBoss4UroFv();
   for (i = 0; i < 3; i++)
   {
-    s32 t = lbl_80485828[i];
+    s32 t = TObjDFDemoF__bml_model_id_table[i];
     ids2 = lbl_80485834;
     {
       k = t;

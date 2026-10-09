@@ -99,7 +99,7 @@ extern const f32 TDeadSpot__data_805DA38C;
 extern const f32 lbl_805DA390;
 extern const f32 lbl_805DA394;
 extern const f32 lbl_805DA398;
-void TDeadSpot__sub_800D7FD4(Obj_800D7FD4 *arg0);
+void update_fade_in_alpha__9TDeadSpotFPv(Obj_800D7FD4 *arg0);
 extern M2C_UNK lbl_80494A10[];
 extern const f32 TDeadSpot__data_805DA38C;
 Obj_800D80E4 *init_corner_vertices__9TDeadSpotFPv(Obj_800D80E4 *arg0, void * _w1, Vec_800D8314 * _w2, void * _w3, s32 _w4, s32 _w5, f32 _w6);
@@ -257,7 +257,7 @@ u8 *construct_fire_base__9TDeadSpotFPvPvPvif(u8 *arg0, u8 *arg1, u8 *arg2, s32 a
 }
 #pragma pop
 
-void TDeadSpot__sub_800D7FD4(Obj_800D7FD4 *arg0) {
+void update_fade_in_alpha__9TDeadSpotFPv(Obj_800D7FD4 *arg0) {
     E_800D7FD4 *p;
     s32 i;
     u32 c;

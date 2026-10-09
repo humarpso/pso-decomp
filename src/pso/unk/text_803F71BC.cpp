@@ -14,7 +14,7 @@ extern u32 *lbl_805D79F0;
 void fn_803F7424(void);
 extern u32 *lbl_805D79F0;
 void fn_803F7404(u32 *p, s32 n);
-s32 fn_803F71BC(char *s);
+s32 parse_hex_string(char *s);
 s32 parse_netinfo(u8 *, u32, s32);
 void fn_803F7404(u32 *p, s32 n);
 void fn_803F7424(void);
@@ -37,7 +37,7 @@ extern "C" {
 #pragma scheduling off
 #pragma peephole off
 #pragma optimization_level 2
-s32 fn_803F71BC(char *s) {
+s32 parse_hex_string(char *s) {
     char c;
     s32 i;
     s32 v;

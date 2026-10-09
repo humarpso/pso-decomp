@@ -101,7 +101,7 @@ void __ct__7TObjectFP7TObject(void *, void *);
 void create_guide_button(void *, void *);
 u32 get_player_index__14TAdPlyStatusGCFv();
 void *__construct_array(void *, void *, void *, u32, u32);
-void *fn_8032DA28(void *);
+void *init_guide_button_params(void *);
 extern RecoveredGlobal_8033FB8C___vt__14TAdPlyStatusGC __vt__14TAdPlyStatusGC;
 extern s32 lbl_805D42C0;
 extern s32 lbl_805D6DAC;
@@ -419,7 +419,7 @@ u8 *__dt__14TAdPlyStatusGCFv(u8 *arg0, s16 arg1) {
 TAdPlyStatusGC_8033FC14 *TAdPlyStatusGC__ct(TAdPlyStatusGC_8033FC14 *self, void *parent, s32 arg2) {
     __ct__7TObjectFP7TObject(self, parent);
     self->vt = &__vt__14TAdPlyStatusGC;
-    __construct_array(self->elems, (void *) fn_8032DA28, 0, 0x24, 2);
+    __construct_array(self->elems, (void *) init_guide_button_params, 0, 0x24, 2);
     self->f0 = lbl_805D42C0;
     self->f1C = 0;
     self->f20 = self->f1C;

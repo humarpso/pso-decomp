@@ -191,7 +191,7 @@ f32 fn_801D6AB4(void *, s32, s32);
 s32 accumulate_damage_stats(u8 *arg0, s32 arg1, s32 arg2);
 int is_valid_index__15TFontSmallLobbyFs(s16 arg0);
 void TFontSmallLobby__sub_801D698C(Pkt_801D698C *p);
-void fn_801D6A18(Obj_801D6A18 *p);
+void clear_player_sub_object_slots(Obj_801D6A18 *p);
 M2C_UNK init_forward__10TObjPlayerFPv(void *);
 void* init_reset_fields__15TFontSmallLobbyFPv(void* p);
 M2C_UNK __construct_array(void *, void *, int, int, int);
@@ -304,7 +304,7 @@ void TFontSmallLobby__sub_801D698C(Pkt_801D698C *p) {
 void send_state__15TFontSmallLobbyFPv(void* p) { bswap_fields__15TFontSmallLobbyFPv((void*)((void*)(p))); TLobby__send_and_handle_60(p); }
 void* handle_photon_blast_ready__15TFontSmallLobbyFPv(void* p) { TFontSmallLobby__sub_801C0228(p); return p; }
 
-void fn_801D6A18(Obj_801D6A18 *p) {
+void clear_player_sub_object_slots(Obj_801D6A18 *p) {
     s32 i;
     for (i = 0; i < 4; i++) {
         p->a[i] = 0;

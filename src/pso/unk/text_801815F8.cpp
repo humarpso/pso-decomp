@@ -14,7 +14,7 @@ struct V3_80181698 { f32 x; f32 y; f32 z; };
 extern "C" {
 M2C_UNK destroy_buffer_pair(void *, M2C_UNK);
 extern void *lbl_8050DC08[];
-void fn_80181750(void);
+void free_buffer_pair_table(void);
 void __ct__7TObjectFP7TObject(void *);
 extern u8 lbl_804B593C[];
 extern s32 lbl_805D3248;
@@ -77,7 +77,7 @@ s32 sample_aircar_path_position(s32 arg0, void *arg1, f32 farg0) {
     return r;
 }
 
-void fn_80181750(void) {
+void free_buffer_pair_table(void) {
     s32 i;
     for (i = 4; i >= 0; i--) {
         if (lbl_8050DC08[i] != 0) {

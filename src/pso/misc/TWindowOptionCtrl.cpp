@@ -349,7 +349,7 @@ M2C_UNK get_option_entry__17TWindowOptionCtrlFi(M2C_UNK);
 M2C_UNK fn_8036A514(M2C_UNK);
 s32 check_flag_index_set(s32);
 s32 fn_8036A620(s32);
-s32 fn_8036A67C(s32);
+s32 get_option_table_entry(s32);
 
 extern M2C_UNK lbl_8044F4AC[];
 extern const f32 lbl_805DD268;
@@ -368,7 +368,7 @@ s32 create_list_window__17TWindowOptionCtrlFv(void) {
             if (check_flag_index_set(var_r31) == 0) {
                 draw_text_gray__17TWindowSubComCardFiiii(temp_r30, lbl_8044F4AC, 0x26, var_r31);
             } else {
-                forward_trade_action_default__16TObjCityMainWarpFPviii(temp_r30, fn_8036A67C(var_r31), 0x26, var_r31);
+                forward_trade_action_default__16TObjCityMainWarpFPviii(temp_r30, get_option_table_entry(var_r31), 0x26, var_r31);
             }
         }
         var_r31 += 1;

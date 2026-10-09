@@ -129,7 +129,7 @@ int bswap_32__FPUl(void* a0);
 int bswap__13packet_headerFv(void* a0);
 void bswap_save_packet(s32 arg0);
 void* fn_801DF3F0(void* p, void* a1);
-s32 *fn_801DF394(s32 *arg0, s32 *arg1);
+s32 *copy_entry_table(s32 *arg0, s32 *arg1);
 s32 *fn_801DF4FC(s32 *arg0, s32 *arg1);
 Blk_801DF774 *TProtocol__sub_801DF774(Blk_801DF774 *d, const Blk_801DF774 *s);
 int fn_801DF558(int arg0, int arg1);
@@ -172,7 +172,7 @@ void fn_801DF360(void* p) { bswap__16TPlyGuildCardTagFv((s32)(p)); bswap_32__FPU
 
 typedef struct RecoveredFields_801DF394_arg0 RecoveredFields_801DF394_arg0;
 typedef struct RecoveredFields_801DF394_arg1 RecoveredFields_801DF394_arg1;
-s32 *fn_801DF394(s32 *arg0, s32 *arg1) {
+s32 *copy_entry_table(s32 *arg0, s32 *arg1) {
   u32 var_r30;
   s32 var_r29;
   var_r30 = (unsigned long) (((u8 *) arg0) + 4);

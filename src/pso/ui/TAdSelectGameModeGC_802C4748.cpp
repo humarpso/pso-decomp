@@ -26,7 +26,7 @@ struct S24_802C4944 { T12_802C4944 t[2]; };
 
 extern "C" {
 void render__19TAdSelectGameModeGCFv(void);
-int TAdSelectGameModeGC__sub_802C476C(void* p);
+int call_enable_camera__19TAdSelectGameModeGCFPv(void* p);
 int enable_camera__19TAdSelectGameModeGCFv(void);
 s32 get_main_phase();
 s32 get_mode_data__19TAdSelectGameModeGCFv();
@@ -107,7 +107,7 @@ int fn_802C4748(void* p) { return sync_char_select_state__10TObjPlayerFv(p); }
 
 void render__19TAdSelectGameModeGCFv(void) {  }
 
-int TAdSelectGameModeGC__sub_802C476C(void* p) { return enable_camera__19TAdSelectGameModeGCFv(); }
+int call_enable_camera__19TAdSelectGameModeGCFPv(void* p) { return enable_camera__19TAdSelectGameModeGCFv(); }
 void TAdSelectGameModeGC__sub_802C478C(void) {
     s32 temp_r3;
     if (get_main_phase() == 0xE) {

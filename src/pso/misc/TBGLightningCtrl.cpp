@@ -90,7 +90,7 @@ void * __dt__16TBGLightningCtrlFv(void *arg0, s16 arg1);
 u8 * TBGLightningCtrl__ct(u8 *arg0, s32 arg1, s32 arg2);
 void * TBGLightningCtrl__create(void *arg0);
 void destroy_instance__16TBGLightningCtrlFv(void);
-void fn_802A9D40(void *arg0, f32 *p, f32 *d, s32 c);
+void submit_particle_quad(void *arg0, f32 *p, f32 *d, s32 c);
 void fn_802A9DF4(Obj_802A9DF4 *self, Vec_802A9DF4 *dir);
 void fn_802A9F48(Obj_802A9F48 *self, Vec_802A9F48 *dir);
 void render__12TBGLightningFv(s32 arg0);
@@ -199,7 +199,7 @@ void load_bg_lightning(void) { lbl_805D66D0 = load_gvm_texture_file(lbl_8046FCA0
 __declspec(section ".rodata") extern unsigned char lbl_8046FCA0[] = "bg_lightning.gvm";
 
 extern const f32 lbl_805DE040 = 0.0f;
-void fn_802A9D40(void *arg0, f32 *p, f32 *d, s32 c) {
+void submit_particle_quad(void *arg0, f32 *p, f32 *d, s32 c) {
     Vtx_802A9D40 r[4];
     f32 x;
     f32 lo;
@@ -250,7 +250,7 @@ void fn_802A9DF4(Obj_802A9DF4 *self, Vec_802A9DF4 *dir) {
     TBGLightningCtrl__sub_802A9A08();
     set_texture_num(idx + lbl_8046FC8C[self->f1c]);
     setup_particle_draw__13TParticleCtrlFi(1);
-    fn_802A9D40((void *)(self), (f32 *)(&p), (f32 *)(&d), (s32)(__cvt_fp2unsigned(4278190080.0f * scale) | 0xFFFFFF));
+    submit_particle_quad((void *)(self), (f32 *)(&p), (f32 *)(&d), (s32)(__cvt_fp2unsigned(4278190080.0f * scale) | 0xFFFFFF));
     reset_particles__13TParticleCtrlFv();
 }
 extern int fold_flush_2;
@@ -284,7 +284,7 @@ void fn_802A9F48(Obj_802A9F48 *self, Vec_802A9F48 *dir) {
     TBGLightningCtrl__sub_802A9A08();
     set_texture_num(0);
     setup_particle_draw__13TParticleCtrlFi(1);
-    fn_802A9D40((void *)(self), (f32 *)(&p), (f32 *)(&d), (s32)(__cvt_fp2unsigned(4278190080.0f * scale) | 0xFFFFFF));
+    submit_particle_quad((void *)(self), (f32 *)(&p), (f32 *)(&d), (s32)(__cvt_fp2unsigned(4278190080.0f * scale) | 0xFFFFFF));
     reset_particles__13TParticleCtrlFv();
 }
 extern int fold_flush_3;

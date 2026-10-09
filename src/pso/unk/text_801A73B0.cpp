@@ -61,7 +61,7 @@ struct Obj_801A7428 {
 };
 
 extern "C" {
-void fn_801A753C(u8 *arg0, u8 *arg1);
+void copy_effect_params(u8 *arg0, u8 *arg1);
 void VecCopy__FP3VecPC3Vec(Vec_801A73B0 *, const Vec_801A73B0 *);
 void set_active_camera_pose_from_params(struct PbCameraParams_801A73B0 *);
 void approach_vector_fixed_distance(Vec_801A73B0 *, Vec_801A73B0 *, Vec_801A73B0 *, f32);
@@ -75,7 +75,7 @@ extern s32 photon_blast_joint_index;
 void publish_photon_blast_joint_origins(void);
 void create_timed_particle_emitter(Vec_801A7428 *, s32, s32, s32);
 Obj_801A7428 *find_entity_by_id(u16);
-void fn_801A753C(u8 *arg0, u8 *arg1);
+void copy_effect_params(u8 *arg0, u8 *arg1);
 void matrix_mult_vec(s32, Vec_801A7428 *, Vec_801A7428 *);
 void rotate_matrix_y(s32, s32);
 void push_matrix_from(void *);
@@ -117,7 +117,7 @@ void spawn_photon_blast_opening_effects(s32 arg0, s32 arg1) {
     }
     entries = g->entries;
     for (i = 0; i < count; i++) {
-        fn_801A753C((u8 *)&rec, entries[i].bytes);
+        copy_effect_params((u8 *)&rec, entries[i].bytes);
         push_matrix_from(lbl_8058D490);
         rotate_matrix_y(0, obj->f60);
         matrix_mult_vec(0, &rec.v, &pos);
@@ -129,7 +129,7 @@ void spawn_photon_blast_opening_effects(s32 arg0, s32 arg1) {
     }
 }
 
-void fn_801A753C(u8 *arg0, u8 *arg1) {
+void copy_effect_params(u8 *arg0, u8 *arg1) {
     M2C_FIELD(arg0, s32 *, 0) = (s32) M2C_FIELD(arg1, s32 *, 0);
     M2C_FIELD(arg0, s32 *, 4) = (s32) M2C_FIELD(arg1, s32 *, 4);
     M2C_FIELD(arg0, s32 *, 8) = (s32) M2C_FIELD(arg1, s32 *, 8);

@@ -92,8 +92,8 @@ void TItemAttacker__sub_8010349C(u32 arg0) {
 TItemAttacker::~TItemAttacker() {}
 void run_task__13TItemAttackerFv(void* p) { if (*(int*)((char*)p + 0x34) != 0) { queue_destruction__7TObjectFv(p); } }
 
-    extern int lbl_80506200[];
-int TItemAttacker__sub_80103548(int a0) {  return lbl_80506200[a0]; }
+    extern int item_nj_chunk_buffer_table[];
+int TItemAttacker__sub_80103548(int a0) {  return item_nj_chunk_buffer_table[a0]; }
 
 extern M2C_UNK lbl_8043E038[];
 extern s32 lbl_805D5410;

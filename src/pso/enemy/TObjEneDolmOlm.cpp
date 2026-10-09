@@ -900,7 +900,7 @@ extern "C" {
 void fn_80010EC8();
 }
 extern "C" {
-void fn_800F5D80();
+void clear_lobby_object_state();
 }
 extern "C" {
 void get_actor_body_center();
@@ -1056,7 +1056,7 @@ void *lbl_804E6790[10] = {
 void *lbl_804E67B8[4] = {
     (void *)&lbl_80475084, (void *)&lbl_804E6784, (void *)&lbl_804E6790, (void *)0x20009,
 };
-s32 lbl_804E67C8[52] = {
+s32 TObjEneDolmOlm__param_table[52] = {
     0x10000, 0x5, 0x3f4ccccd, 0x1,
     0x10000, 0x6, 0x3f19999a, 0x20,
     0x10002, 0x8, 0x3f4ccccd, 0x1,
@@ -1106,7 +1106,7 @@ void *lbl_804E6928[103] = {
     (void *)&get_pos__10TObjPlayerFii, (void *)&apply_switch_attack__10TObjPlayerFi, (void *)&enemy_spawn_jellen_effect, (void *)&trigger_switch_attack__10TObjPlayerFi,
     (void *)&enemy_spawn_zalure_effect, (void *)&TObjPlayer__sub_80010A80, (void *)&TObjPlayer__sub_800F65D0, (void *)&fn_80010EC8,
     (void *)&fn_80010EC4, (void *)&fn_80010EC0, (void *)&fn_80010EBC, (void *)&call_vt78__10TObjPlayerFPv,
-    (void *)&apply_hit_message_flags__10TObjPlayerFPvPv, (void *)&apply_set_data__9TObjEnemyFPvPv, (void *)&fn_800F5D80, (void *)&TObjEneDolmOlm__sub_80302004,
+    (void *)&apply_hit_message_flags__10TObjPlayerFPvPv, (void *)&apply_set_data__9TObjEnemyFPvPv, (void *)&clear_lobby_object_state, (void *)&TObjEneDolmOlm__sub_80302004,
     (void *)&beast_idle_update, (void *)&update_turn_toward_target__10TObjPlayerFPv, (void *)&beast_update_approach, (void *)&beast_update_group_chase,
     (void *)&beast_update_attack, (void *)&TObjPlayer__sub_800C53B4, (void *)&beast_update_hurt, (void *)&beast_update_dead,
     (void *)&beast_retire_corpse, (void *)&update_effect_joint_pos__14TObjEneDolmOlmFPv, (void *)&spawn_front_ground_effect__14TObjEneDolmOlmFPv, (void *)&play_sound_4003AD00__14TObjEneDolmOlmFi,
@@ -1249,10 +1249,10 @@ void TObjEneDolmOlm__sub_80301148(u8 *arg0) {
     set_global_flag__10TObjPlayerFv();
     draw_trail_with_colors(TObjEneDolmOlm__data_805D6A14,
         ((T_80301148 *)TObjEneDolmOlm__data_805D6A10)->a[M2C_FIELD(arg0, s32 *, 0x368)].v,
-        ((T_80301148 *)TObjEneDolmOlm__data_805D6A10)->b[lbl_804E67C8[13]].v, 0x1C, 0x1D);
+        ((T_80301148 *)TObjEneDolmOlm__data_805D6A10)->b[TObjEneDolmOlm__param_table[13]].v, 0x1C, 0x1D);
     draw_trail_with_colors(TObjEneDolmOlm__data_805D6A18,
         ((T_80301148 *)TObjEneDolmOlm__data_805D6A10)->a[M2C_FIELD(arg0, s32 *, 0x368)].v,
-        ((T_80301148 *)TObjEneDolmOlm__data_805D6A10)->b[lbl_804E67C8[17]].v, 0x14, 0x15);
+        ((T_80301148 *)TObjEneDolmOlm__data_805D6A10)->b[TObjEneDolmOlm__param_table[17]].v, 0x14, 0x15);
     clear_global_state__10TObjPlayerFv();
     M2C_FIELD(arg0, f32 *, 0x3CC) = lbl_805DEF64 + M2C_FIELD(arg0, f32 *, 0x35C);
     M2C_FIELD(arg0, f32 *, 0x3D0) = lbl_805DEF64 + M2C_FIELD(arg0, f32 *, 0x360);
@@ -1937,7 +1937,7 @@ u8 *TObjEneDolmOlm__ct(u8 *arg0, M2C_UNK arg1, s32 arg2) {
     ((VObj_18_c99286 *) arg0)->m79(arg2);
     init_position_vectors__10TObjPlayerFi(arg0);
     TObjEneDolmOlm__sub_80301148(arg0);
-    M2C_FIELD(arg0, void **, 0xD8) = lbl_804E67C8;
+    M2C_FIELD(arg0, void **, 0xD8) = TObjEneDolmOlm__param_table;
     set_field_d8__10TObjPlayerFPvi(arg0, M2C_FIELD(arg0, void **, 0xD8));
     M2C_FIELD(arg0, s32 *, 0xDC) = M2C_FIELD(TObjEneDolmOlm__data_805D6A10, s32 *, 0x430);
     M2C_FIELD(arg0, s16 *, 0xB8) = 0;

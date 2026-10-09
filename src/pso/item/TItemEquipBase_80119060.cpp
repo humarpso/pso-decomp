@@ -16,10 +16,10 @@ struct RecoveredGlobal_801190B0_lbl_80506228 {
 
 extern "C" {
 s32 fn_8011085C(int, void *);
-extern RecoveredGlobal_80119060_lbl_80506228 lbl_80506228;
+extern RecoveredGlobal_80119060_lbl_80506228 item_effect_object_table;
 void apply_equip_effect_slot__14TItemEquipBaseFUsUi(u16 arg0, u32 arg1);
 s32 fn_801108C8(int, void *);
-extern RecoveredGlobal_80119060_lbl_80506228 lbl_80506228;
+extern RecoveredGlobal_80119060_lbl_80506228 item_effect_object_table;
 void apply_equip_slot_effect__14TItemEquipBaseFUsUi(u16 arg0, u32 arg1);
 }
 
@@ -38,7 +38,7 @@ typedef char RecoveredGlobal_80119060_lbl_80506228_size[sizeof(RecoveredGlobal_8
 void apply_equip_effect_slot__14TItemEquipBaseFUsUi(u16 arg0, u32 arg1) {
     u32 temp_r3;
     if ((arg0 < 0xCU) && (arg1 < 7U)) {
-        temp_r3 = M2C_FIELD(&lbl_80506228.value, M2C_UNK *, (arg1 * 4));
+        temp_r3 = M2C_FIELD(&item_effect_object_table.value, M2C_UNK *, (arg1 * 4));
         if (temp_r3 != 0U) {
             fn_8011085C((int) (temp_r3), (void *) ((s32) arg0));
         }
@@ -49,7 +49,7 @@ typedef char RecoveredGlobal_801190B0_lbl_80506228_size[sizeof(RecoveredGlobal_8
 void apply_equip_slot_effect__14TItemEquipBaseFUsUi(u16 arg0, u32 arg1) {
     u32 temp_r3;
     if ((arg0 < 0xCU) && (arg1 < 7U)) {
-        temp_r3 = M2C_FIELD(&(*(RecoveredGlobal_801190B0_lbl_80506228 *)&lbl_80506228).value, M2C_UNK *, (arg1 * 4));
+        temp_r3 = M2C_FIELD(&(*(RecoveredGlobal_801190B0_lbl_80506228 *)&item_effect_object_table).value, M2C_UNK *, (arg1 * 4));
         if (temp_r3 != 0U) {
             fn_801108C8((int) (temp_r3), (void *) ((s32) arg0));
         }

@@ -24,11 +24,11 @@ void *create__16TAdChrSelBSlotGCFPv(void *arg0) {
     return o;
 }
 
-    extern int lbl_805D6AA0;
-int get_global_state__16TAdChrSelBSlotGCFv(void) {  return lbl_805D6AA0; }
+    extern int TAdChrSelBSlotGC__global_state;
+int get_global_state__16TAdChrSelBSlotGCFv(void) {  return TAdChrSelBSlotGC__global_state; }
 
-    extern int lbl_805D6A98;
-int get_global_slot_data__16TAdChrSelBSlotGCFv(void) {  return lbl_805D6A98; }
+    extern int TAdChrSel__global_slot_data;
+int get_global_slot_data__16TAdChrSelBSlotGCFv(void) {  return TAdChrSel__global_slot_data; }
 s32 get_battle_ctrl_default__6TLobbyFPv(void *self) {
     return TPlayerBattleCtrl4P__sub_8031030C(self) != 0 ? 0 : TLobby__data_805D5DC0;
 }

@@ -33,8 +33,8 @@ void render__21TWindowSubCustomEquipFv(u8 *arg0);
 s32 get_array_entry__20TWindowSubStatusDispFPvi(void *, s32);
 f32 sin_table_lookup(s32);
 f32 cos_table_lookup(s32);
-extern f32 lbl_805D6470;
-extern u8 lbl_805D6474;
+extern f32 TWindowSubCustomEquip__ring_scale;
+extern u8 TWindowSubCustomEquip__bank_ring_init_done;
 extern f32 lbl_805D6478;
 extern u8 lbl_805D647C;
 extern const f32 lbl_805DD578;
@@ -87,7 +87,7 @@ extern const Vec2_802766C8 lbl_8044F748[];
 extern const f32 lbl_805DD578;
 extern const f32 lbl_805DD57C;
 extern const f32 lbl_805DD580;
-void TWindowSubCustomEquip__sub_802766C8(void *arg0, void *arg1);
+void layout_entry_group__21TWindowSubCustomEquipFPvPv(void *arg0, void *arg1);
 }
 
 extern "C" {
@@ -148,7 +148,7 @@ int layout_selection_parts__21TWindowSubCustomEquipFPvPv(void *arg0, void *arg1)
 }
 
 typedef struct Vec2_802766C8 Vec2_802766C8;
-void TWindowSubCustomEquip__sub_802766C8(void *arg0, void *arg1) {
+void layout_entry_group__21TWindowSubCustomEquipFPvPv(void *arg0, void *arg1) {
   u8 *base;
   u8 *e1;
   u8 *e2;
@@ -171,7 +171,7 @@ void TWindowSubCustomEquip__sub_802766C8(void *arg0, void *arg1) {
   }
 }
 
-void reset_selection__21TWindowSubCustomEquipFPv(void* p) { TWindowSubCustomEquip__sub_802766C8((void *)(p), (void *)((void*)9)); TWindowSubCustomEquip__sub_802766C8((void *)(p), (void *)((void*)0)); layout_selection_parts__21TWindowSubCustomEquipFPvPv((void *)(p), (void *)((void*)9)); }
+void reset_selection__21TWindowSubCustomEquipFPv(void* p) { layout_entry_group__21TWindowSubCustomEquipFPvPv((void *)(p), (void *)((void*)9)); layout_entry_group__21TWindowSubCustomEquipFPvPv((void *)(p), (void *)((void*)0)); layout_selection_parts__21TWindowSubCustomEquipFPvPv((void *)(p), (void *)((void*)9)); }
 
 s32 refresh_palette_slots__21TWindowSubCustomEquipFPv(void *arg0) {
     u8 *player;
@@ -208,9 +208,9 @@ void place_bank_slot_on_ring__21TWindowSubCustomEquipFPvii(u8 *arg0, s32 arg1, s
     f32 temp_f31;
     s32 temp_r4;
     u8 *temp_r3;
-    if ((s8) lbl_805D6474 == 0) {
-        lbl_805D6474 = 1;
-        lbl_805D6470 = lbl_805DD584;
+    if ((s8) TWindowSubCustomEquip__bank_ring_init_done == 0) {
+        TWindowSubCustomEquip__bank_ring_init_done = 1;
+        TWindowSubCustomEquip__ring_scale = lbl_805DD584;
     }
     if ((s8) lbl_805D647C == 0) {
         lbl_805D647C = 1;
@@ -219,7 +219,7 @@ void place_bank_slot_on_ring__21TWindowSubCustomEquipFPvii(u8 *arg0, s32 arg1, s
     temp_f30 = sin_table_lookup(arg1);
     temp_f31 = cos_table_lookup(arg1);
     temp_r3 = (u8 *)(get_array_entry__20TWindowSubStatusDispFPvi(arg0, arg2));
-    M2C_FIELD(temp_r3, f32 *, 8) = (f32) ((lbl_805D6470 * temp_f31) + lbl_805DD58C);
+    M2C_FIELD(temp_r3, f32 *, 8) = (f32) ((TWindowSubCustomEquip__ring_scale * temp_f31) + lbl_805DD58C);
     M2C_FIELD(temp_r3, f32 *, 0xC) = (f32) ((lbl_805D6478 * temp_f30) + lbl_805DD590);
     if ((arg1 - 0x7200) & 0x8000) {
         temp_f1 = (lbl_805DD598 * cos_table_lookup(arg1 + 0xFFFF4E00)) + lbl_805DD594;

@@ -49,9 +49,9 @@ struct VObj_8017B9B0 : VBase_8017B9B0 {
 };
 
 extern "C" {
-void fn_8017B908(u8 *arg0);
-void fn_8017B950(u8 *arg0);
-void fn_8017B984(u8 *arg0);
+void init_trap_param_clamped(u8 *arg0);
+void clamp_trap_level_param(u8 *arg0);
+void init_trap_object_id(u8 *arg0);
 extern const f32 lbl_805DBA78;
 void TOTrapAncient02R__vt21(Obj_8017B8A0 *self);
 extern const f32 lbl_805DBA78;
@@ -85,7 +85,7 @@ void TOTrapAncient02R__vt22(V_8017B8D4 *self) {
     self->m20(0, lbl_805DBA78);
 }
 
-void fn_8017B908(u8 *arg0) {
+void init_trap_param_clamped(u8 *arg0) {
     s32 temp_r0;
     M2C_FIELD(arg0, s32 *, 0x368) = (s32) M2C_FIELD(arg0, f32 *, 0x6C);
     temp_r0 = M2C_FIELD(arg0, s32 *, 0x368);
@@ -98,7 +98,7 @@ void fn_8017B908(u8 *arg0) {
     }
 }
 
-void fn_8017B950(u8 *arg0) {
+void clamp_trap_level_param(u8 *arg0) {
     s32 temp_r0;
     M2C_FIELD(arg0, s32 *, 0x35C) = (s32) M2C_FIELD(arg0, s32 *, 0x8C);
     temp_r0 = M2C_FIELD(arg0, s32 *, 0x35C);
@@ -111,7 +111,7 @@ void fn_8017B950(u8 *arg0) {
     }
 }
 
-void fn_8017B984(u8 *arg0) {
+void init_trap_object_id(u8 *arg0) {
     s32 temp_r0;
     M2C_FIELD(arg0, s32 *, 0x364) = (s32) M2C_FIELD(arg0, s32 *, 0x88);
     temp_r0 = M2C_FIELD(arg0, s32 *, 0x364);

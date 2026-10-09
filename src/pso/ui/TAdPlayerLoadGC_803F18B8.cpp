@@ -30,7 +30,7 @@ M2C_UNK TLobby__sub_803F4B10(int);
 M2C_UNK TLobby__sub_803F4B2C(int);
 extern s32 __OSCurrHeap;
 extern s32 lbl_805D79B0;
-extern u32 lbl_805D79C0;
+extern u32 lobby_net_config_buffer;
 extern s32 lbl_805D7940;
 s32 TAdPlayerLoadGC__sub_803F31BC(void);
 s32 CARDUnmount(s32 chan);

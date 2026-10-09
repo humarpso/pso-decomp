@@ -13,7 +13,7 @@ extern s16 lbl_805D4EBC;
 extern s16 lbl_805D4EBE;
 extern s32 lbl_805D4EC0;
 extern s32 lbl_805D4EC4;
-void fn_8007F8D0(void);
+void init_disc_error_messages(void);
 }
 
 extern "C" {
@@ -21,7 +21,7 @@ extern "C" {
 #pragma push
 #pragma optimization_level 1
 #pragma dont_inline on
-void fn_8007F8D0(void) {
+void init_disc_error_messages(void) {
     s32 z = 0;
     u8 *p = (u8 *)0x80010000;
     lbl_805D4EB8 = z;

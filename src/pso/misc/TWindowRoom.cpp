@@ -26,7 +26,7 @@ s32 set_text_entry_string(s32, s32, s32);
 s32 get_window_layout_position(int);
 extern RecoveredGlobal_8026D674_lbl_804D08DC lbl_804D08DC;
 extern M2C_UNK __vt__11TWindowRoom[];
-extern s32 lbl_805D39C0;
+extern s32 TWindowRoom__class_name;
 extern const f32 lbl_805DD2F0;
 extern const f32 lbl_805DD2F4;
 u8 *TWindowRoom__ct(u8 *arg0, s32 arg1);
@@ -86,7 +86,7 @@ u8 *TWindowRoom__ct(u8 *arg0, s32 arg1) {
     u8 *temp_r3;
     construct_base__9TWindowDDFPvPvsPv((void *) (arg0), (void *) (&lbl_804D08DC.value), (int) (4), (int) (get_window_layout_position((int) (0xAF))));
     M2C_FIELD(arg0, M2C_UNK **, 0x18) = &(*(RecoveredGlobal_8026D674___vt__11TWindowRoom *)&__vt__11TWindowRoom).value;
-    M2C_FIELD(arg0, s32 *, 0) = (s32) lbl_805D39C0;
+    M2C_FIELD(arg0, s32 *, 0) = (s32) TWindowRoom__class_name;
     temp_r3 = (u8 *)(((u8 *)get_array_entry__20TWindowSubStatusDispFPvi((void*)(arg0), (int)(0))));
     set_text_entry_string((s32)((int) (temp_r3)), (s32)((void *) (arg1)), (s32)((int) (0x60)));
     refresh_status_display__9TWindowDDFv((int) (temp_r3));

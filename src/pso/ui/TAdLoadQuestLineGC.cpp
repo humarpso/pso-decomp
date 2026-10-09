@@ -21,7 +21,7 @@ void *TAdLoadQuestLineGC__ct(void *arg0, void *arg1, void *arg2);
 void render_by_state__18TAdLoadQuestLineGCFPv(void *arg0);
 
 void __ct__7TObjectFP7TObject(void *);
-s32 fn_80349DC8();
+s32 init_quest_line_draw_colors();
 s32 fn_80349E5C();
 
 void render_by_state__18TAdLoadQuestLineGCFPv(void *arg0) {
@@ -33,7 +33,7 @@ void render_by_state__18TAdLoadQuestLineGCFPv(void *arg0) {
         fn_80349E5C();
         return;
     case 1:
-        fn_80349DC8();
+        init_quest_line_draw_colors();
         return;
     }
 }

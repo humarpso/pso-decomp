@@ -12,11 +12,11 @@ M2C_UNK memset(s8 *, M2C_UNK, M2C_UNK);
 void TItemData__sub_8010CA08(void *arg0, u32 arg1, u8 arg2);
 s32 TItemData__sub_8010CAB0(M2C_UNK arg0, s8 arg1);
 s32 is_custom_name_srank__9TItemDataFPv(u8 *arg0);
-s8 TItemData__sub_8010CACC(void *self, s8 c);
-s8 TItemData__sub_8010CACC(void *self, s8 c);
+s8 char_to_letter_index__9TItemDataFPvc(void *self, s8 c);
+s8 char_to_letter_index__9TItemDataFPvc(void *self, s8 c);
 void pack_three_colors__9TItemDataFPvPv(u8 *self, u8 *in);
 s32 TItemData__sub_8010CAB0(M2C_UNK arg0, s8 arg1);
-void TItemData__sub_8010CB10(u8 *self, s8 *out);
+void decode_packed_name_chars__9TItemDataFPvPv(u8 *self, s8 *out);
 }
 
 extern "C" {
@@ -79,7 +79,7 @@ s32 TItemData__sub_8010CAB0(M2C_UNK arg0, s8 arg1) {
     return (arg1 != 0) ? (s8) (arg1 + 0x40) : 0;
 }
 
-s8 TItemData__sub_8010CACC(void *self, s8 c) {
+s8 char_to_letter_index__9TItemDataFPvc(void *self, s8 c) {
     s8 r = 0;
     if (c >= 'a' && c <= 'z') {
         r = c - 0x60;
@@ -89,7 +89,7 @@ s8 TItemData__sub_8010CACC(void *self, s8 c) {
     return r;
 }
 
-void TItemData__sub_8010CB10(u8 *self, s8 *out) {
+void decode_packed_name_chars__9TItemDataFPvPv(u8 *self, s8 *out) {
   u16 h;
   s8 *p;
   s32 i;
@@ -119,9 +119,9 @@ void pack_three_colors__9TItemDataFPvPv(u8 *self, u8 *in) {
   {
     for (i = 0; i != 3; i++)
     {
-      s8 a = TItemData__sub_8010CACC(self, (s8) in[(i * 3) + 0]);
-      s8 b = TItemData__sub_8010CACC(self, (s8) in[(i * 3) + 1]);
-      s8 c = TItemData__sub_8010CACC(self, (s8) in[(i * 3) + 2]);
+      s8 a = char_to_letter_index__9TItemDataFPvc(self, (s8) in[(i * 3) + 0]);
+      s8 b = char_to_letter_index__9TItemDataFPvc(self, (s8) in[(i * 3) + 1]);
+      s8 c = char_to_letter_index__9TItemDataFPvc(self, (s8) in[(i * 3) + 2]);
       u32 v = c | (((a << 1) << 9) | (b << 5));
       u8 *o = &self[i * 2];
       a = ((u8) (v >> 8)) | 0x80;

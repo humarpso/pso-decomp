@@ -211,7 +211,7 @@ virtual void closeSound();virtual void openSound();virtual void tick();virtual s
 
 extern "C" {
 
-void fn_801822D8(u8 *arg0);
+void refresh_radar_map_flags(u8 *arg0);
 extern s32 lbl_805D5B2C;
 M2C_UNK draw_ginja_model_with_motion(s32, s32, f32);
 void render_door__17TObjCityDoor_WarpFPv(void* o);
@@ -232,7 +232,7 @@ void render_door__17TObjCityDoor_WarpFPv(void* o) {
  }
 }
 
-void fn_801822D8(u8 *arg0) {
+void refresh_radar_map_flags(u8 *arg0) {
     u8 *temp_r3;
     if (((s32 (*)(void *))is_rader_map_active)((void *) (arg0)) == 0) {
         M2C_FIELD(arg0, s32 *, 0xAC) = 0;

@@ -22,7 +22,7 @@ void *TAdDrawLineCtrl__ct(void *arg0, void *arg1, void *arg2, f32 farg0);
 void render__15TAdDrawLineCtrlFv(void *arg0);
 void __ct__7TObjectFP7TObject(void *);
 void *__nw__7TObjectFUl(int);
-void fn_80019AB0(void *, f32);
+void set_draw_line_param_all_nodes(void *, f32);
 void fn_80019B08(void *, int);
 M2C_UNK restore_saved_depth_alpha_state();
 s32 get_main_phase();
@@ -82,7 +82,7 @@ void *TAdDrawLineCtrl__ct(void *arg0, void *arg1, void *arg2, f32 farg0) {
     }
     M2C_FIELD(arg0, void **, 0x20) = o;
     M2C_FIELD(arg0, u32 *, 0x28) = 1;
-    fn_80019AB0(arg0, farg0);
+    set_draw_line_param_all_nodes(arg0, farg0);
     fn_80019B08(arg0, -1);
     return arg0;
 }

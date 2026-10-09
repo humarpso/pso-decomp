@@ -94,7 +94,7 @@ extern char lbl_804FCEF4[];
 extern char lbl_804FCF04[];
 extern char lbl_804FCF18[];
 extern u32 lbl_805D7980;
-extern Big_803F47BC *lbl_805D79C0;
+extern Big_803F47BC *lobby_net_config_buffer;
 extern void *lbl_805D79E0;
 void init_net_config_defaults__23TAdSinglePlyChrSelectGCFv(void);
 void *OSAllocFromHeap(s32 heap, u32 size);
@@ -116,7 +116,7 @@ s32 TLobby__sub_803F4AEC(void);
 s32 TAdPlayerLoadGC__sub_803F4B24(void);
 s32 TAdPlayerLoadGC__sub_803F4B80(void);
 s32 get_card_serial_and_code__15TAdPlayerLoadGCFiPv(int chan, u8 *out);
-u32 fn_803F4D4C(Save_803F3F64 *arg0, s32 arg1);
+u32 calc_crc32(Save_803F3F64 *arg0, s32 arg1);
 s32 fn_803F7254(u8 *arg0, u8 *arg1, u32 arg2, void *arg3);
 
 extern u8 lbl_805A5F00[];
@@ -125,7 +125,7 @@ extern u8 lbl_805A82E4[];
 extern u8 lbl_805A86E4[];
 extern u32 lbl_805D7980;
 extern Save_803F3F64 *lbl_805D79A0;
-extern Big_803F47BC *lbl_805D79C0;
+extern Big_803F47BC *lobby_net_config_buffer;
 extern void *lbl_805D79E0;
 void update_network_info_load__15TAdPlayerLoadGCFv(void);
 }
@@ -249,7 +249,7 @@ void update_network_info_load__15TAdPlayerLoadGCFv(void) {
                 } else {
                     crc = lbl_805D79A0->crc;
                     lbl_805D79A0->crc = 0;
-                    sum = fn_803F4D4C(lbl_805D79A0, 0x8000);
+                    sum = calc_crc32(lbl_805D79A0, 0x8000);
                     if (sum != crc) {
                         init_net_config_defaults__23TAdSinglePlyChrSelectGCFv();
                         close_card_slot__15TAdPlayerLoadGCFi(lbl_805A82C0.x10);
@@ -259,8 +259,8 @@ void update_network_info_load__15TAdPlayerLoadGCFv(void) {
                         s->x8 = 27;
                     } else {
                         memcpy(lbl_805A5F00, lbl_805D79A0->data, 0x23B8);
-                        memset((*(s16 * *)&lbl_805D79C0), 0, 0x19D4);
-                        lbl_805A82C0.a = fn_803F7254(key, lbl_805A5F00, lbl_805D79A0->size, (*(s16 * *)&lbl_805D79C0));
+                        memset((*(s16 * *)&lobby_net_config_buffer), 0, 0x19D4);
+                        lbl_805A82C0.a = fn_803F7254(key, lbl_805A5F00, lbl_805D79A0->size, (*(s16 * *)&lobby_net_config_buffer));
                         if (lbl_805A82C0.a != 0) {
                             init_net_config_defaults__23TAdSinglePlyChrSelectGCFv();
                             close_card_slot__15TAdPlayerLoadGCFi(lbl_805A82C0.x10);
@@ -270,13 +270,13 @@ void update_network_info_load__15TAdPlayerLoadGCFv(void) {
                             s->x8 = 27;
                         } else {
                             if (lbl_805D7980 != 4) {
-                                (*(s16 * *)&lbl_805D79C0)[1] = (*(s16 * *)&lbl_805D79C0)[2];
+                                (*(s16 * *)&lobby_net_config_buffer)[1] = (*(s16 * *)&lobby_net_config_buffer)[2];
                             } else {
-                                (*(s16 * *)&lbl_805D79C0)[1] = (*(s16 * *)&lbl_805D79C0)[3];
+                                (*(s16 * *)&lobby_net_config_buffer)[1] = (*(s16 * *)&lobby_net_config_buffer)[3];
                             }
                             memcpy(lbl_805A82E4, lbl_805D79A0->tail, 0x400);
                             if (TLobby__sub_803F4AEC() == 1) {
-                                memcpy(lbl_805D79E0, (*(s16 * *)&lbl_805D79C0), 0x19D4);
+                                memcpy(lbl_805D79E0, (*(s16 * *)&lobby_net_config_buffer), 0x19D4);
                                 memcpy(lbl_805A86E4, lbl_805A82E4, 0x400);
                             }
                             lbl_805A82C0.result = 0;
@@ -405,60 +405,60 @@ void poll_network_info_load__15TAdPlayerLoadGCFv(void) {
 #pragma optimization_level 2
 void init_net_config_defaults__23TAdSinglePlyChrSelectGCFv(void) {
     s16 i;
-    memset(lbl_805D79C0, 0, 0x19D4);
-    lbl_805D79C0->cur = -1;
+    memset(lobby_net_config_buffer, 0, 0x19D4);
+    lobby_net_config_buffer->cur = -1;
     for (i = 0; i < 6; i++) {
-        lbl_805D79C0->ent[i].id = i;
-        lbl_805D79C0->ent[i].a = -1;
-        lbl_805D79C0->ent[i].b = -1;
-        lbl_805D79C0->ent[i].c = -1;
+        lobby_net_config_buffer->ent[i].id = i;
+        lobby_net_config_buffer->ent[i].a = -1;
+        lobby_net_config_buffer->ent[i].b = -1;
+        lobby_net_config_buffer->ent[i].c = -1;
         switch (i) {
         case 0:
-            strcpy(lbl_805D79C0->ent[i].name, lbl_804FCEA4);
-            strcpy(lbl_805D79C0->rec[i].name, lbl_804FCEA4);
+            strcpy(lobby_net_config_buffer->ent[i].name, lbl_804FCEA4);
+            strcpy(lobby_net_config_buffer->rec[i].name, lbl_804FCEA4);
             break;
         case 1:
-            strcpy(lbl_805D79C0->ent[i].name, lbl_804FCEB4);
-            strcpy(lbl_805D79C0->rec[i].name, lbl_804FCEB4);
+            strcpy(lobby_net_config_buffer->ent[i].name, lbl_804FCEB4);
+            strcpy(lobby_net_config_buffer->rec[i].name, lbl_804FCEB4);
             break;
         case 2:
-            strcpy(lbl_805D79C0->ent[i].name, lbl_804FCEC4);
-            strcpy(lbl_805D79C0->rec[i].name, lbl_804FCEC4);
+            strcpy(lobby_net_config_buffer->ent[i].name, lbl_804FCEC4);
+            strcpy(lobby_net_config_buffer->rec[i].name, lbl_804FCEC4);
             break;
         case 3:
-            strcpy(lbl_805D79C0->ent[i].name, default_player_name);
-            strcpy(lbl_805D79C0->rec[i].name, default_player_name);
+            strcpy(lobby_net_config_buffer->ent[i].name, default_player_name);
+            strcpy(lobby_net_config_buffer->rec[i].name, default_player_name);
             break;
         case 4:
-            strcpy(lbl_805D79C0->ent[i].name, lbl_804FCEE4);
-            strcpy(lbl_805D79C0->rec[i].name, lbl_804FCEE4);
+            strcpy(lobby_net_config_buffer->ent[i].name, lbl_804FCEE4);
+            strcpy(lobby_net_config_buffer->rec[i].name, lbl_804FCEE4);
             break;
         case 5:
-            strcpy(lbl_805D79C0->ent[i].name, lbl_804FCEF4);
-            strcpy(lbl_805D79C0->rec[i].name, lbl_804FCEF4);
+            strcpy(lobby_net_config_buffer->ent[i].name, lbl_804FCEF4);
+            strcpy(lobby_net_config_buffer->rec[i].name, lbl_804FCEF4);
             break;
         }
     }
-    lbl_805D79C0->ent[0].id = 0;
-    lbl_805D79C0->ent[0].a = 0;
-    strcpy(lbl_805D79C0->ent[0].name, lbl_804FCF04);
-    strcpy(lbl_805D79C0->rec[0].name, lbl_804FCF04);
-    strcpy(lbl_805D79C0->strE5C, lbl_804FCF18);
-    lbl_805D79C0->rec[0].kind = 1;
-    lbl_805D79C0->rec[1].kind = 1;
-    lbl_805D79C0->rec[2].kind = 1;
-    lbl_805D79C0->rec[3].kind = 1;
-    lbl_805D79C0->rec[4].kind = 4;
-    lbl_805D79C0->rec[5].kind = 4;
-    lbl_805D79C0->x4 = 1;
-    lbl_805D79C0->x6 = 4;
+    lobby_net_config_buffer->ent[0].id = 0;
+    lobby_net_config_buffer->ent[0].a = 0;
+    strcpy(lobby_net_config_buffer->ent[0].name, lbl_804FCF04);
+    strcpy(lobby_net_config_buffer->rec[0].name, lbl_804FCF04);
+    strcpy(lobby_net_config_buffer->strE5C, lbl_804FCF18);
+    lobby_net_config_buffer->rec[0].kind = 1;
+    lobby_net_config_buffer->rec[1].kind = 1;
+    lobby_net_config_buffer->rec[2].kind = 1;
+    lobby_net_config_buffer->rec[3].kind = 1;
+    lobby_net_config_buffer->rec[4].kind = 4;
+    lobby_net_config_buffer->rec[5].kind = 4;
+    lobby_net_config_buffer->x4 = 1;
+    lobby_net_config_buffer->x6 = 4;
     if (lbl_805D7980 != 4) {
-        lbl_805D79C0->cur = lbl_805D79C0->x4;
+        lobby_net_config_buffer->cur = lobby_net_config_buffer->x4;
     } else {
-        lbl_805D79C0->cur = lbl_805D79C0->x6;
+        lobby_net_config_buffer->cur = lobby_net_config_buffer->x6;
     }
     if (TLobby__sub_803F4AEC() == 1) {
-        memcpy(lbl_805D79E0, lbl_805D79C0, 0x19D4);
+        memcpy(lbl_805D79E0, lobby_net_config_buffer, 0x19D4);
     }
 }
 
@@ -471,15 +471,15 @@ s32 TLobby__sub_803F4AD8(s32 arg0) {
     return lbl_805D79A4;
 }
 
-extern s32 lbl_805D79A8;
+extern s32 TAdPlayerLoadGC__player_load_value;
 
 s32 TLobby__sub_803F4AEC(void) { return TLobby__sub_803F4B10(2); }
 
 s32 TLobby__sub_803F4B10(s32 arg0) {
     if (arg0 < 2) {
-        lbl_805D79A8 = arg0;
+        TAdPlayerLoadGC__player_load_value = arg0;
     }
-    return lbl_805D79A8;
+    return TAdPlayerLoadGC__player_load_value;
 }
 
 extern s32 lbl_805D4708;

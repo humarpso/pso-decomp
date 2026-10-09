@@ -99,8 +99,8 @@ M2C_UNK draw_chunk_object(s32);
 extern u8 chunk_material_color_half_alpha_f32[];
 extern u8 lbl_8050BEC0[];
 extern u8 lbl_8058D4C0[];
-extern int lbl_805D5030;
-extern int lbl_805D5034;
+extern int TEneEffHamon__fish_model;
+extern int TEneEffHamon__fish_effect_param;
 extern s32 lbl_805D5660;
 extern s32 lbl_805D5664;
 extern s32 lbl_805D5668;
@@ -111,7 +111,7 @@ void render__12TEneEffHamonFv(Hamon_800A36A8 *o);
 void build_beam_points__12TTecZondeEffFPv(struct Obj_800A39A8 *);
 f32 sin_table_lookup(s32);
 extern Entry_800A4064 *lbl_80500970[];
-extern s32 lbl_805D5038;
+extern s32 TObjPlayer__effect_count;
 extern const f32 lbl_805D99F8;
 extern const f32 lbl_805D9A04;
 extern const f32 lbl_805D9A08;
@@ -123,7 +123,7 @@ s32 matrix_mult_vec(int, void *, void *);
 M2C_UNK set_chunk_material_color(void *);
 extern u8 chunk_material_color_half_alpha_f32[];
 extern Cam_800A3D1C lbl_8058D4F8;
-extern s32 lbl_805D5038;
+extern s32 TObjPlayer__effect_count;
 extern s32 lbl_805D5660;
 extern s32 some_id_805c6f74;
 extern const f32 lbl_805D99F0;
@@ -153,13 +153,13 @@ void render__12TEneEffHamonFv(Hamon_800A36A8 *o) {
     lbl_805D5668 = lbl_805D7780;
     some_id_805c6f74 |= 0x810;
     set_chunk_material_override_pair(0xFFFF00FF, 0x800);
-    set_global_param__8TObjFishFi(lbl_805D5034);
+    set_global_param__8TObjFishFi(TEneEffHamon__fish_effect_param);
     set_chunk_material_color(o->color50);
     push_matrix();
     post_translate_matrix(o->mtx1C);
     s = o->f40 * o->scale;
     scale_matrix(0, s, s, s);
-    draw_chunk_object(lbl_805D5030);
+    draw_chunk_object(TEneEffHamon__fish_model);
     pop_matrix();
     set_chunk_material_color(chunk_material_color_half_alpha_f32);
     lbl_805D7784 = lbl_805D5664;
@@ -184,10 +184,10 @@ void run_task__12TEneEffHamonFv(u8 *arg0) {
 
 void TEneEffHamon__sub_800A380C(void) {  }
 
-    extern int lbl_805D500C;
-    extern int lbl_805D5030;
-    extern int lbl_805D5034;
-void init_fish_effects__12TEneEffHamonFv(void) { lbl_805D5030 = get_bml_model((void*)(lbl_805D500C), (void*)3); lbl_805D5034 = TObjFish__sub_8001EDB0((void*)(lbl_805D500C), (void*)3); }
+    extern int player_effect_bml_resource;
+    extern int TEneEffHamon__fish_model;
+    extern int TEneEffHamon__fish_effect_param;
+void init_fish_effects__12TEneEffHamonFv(void) { TEneEffHamon__fish_model = get_bml_model((void*)(player_effect_bml_resource), (void*)3); TEneEffHamon__fish_effect_param = TObjFish__sub_8001EDB0((void*)(player_effect_bml_resource), (void*)3); }
 
 extern M2C_UNK lbl_80490A18[];
 

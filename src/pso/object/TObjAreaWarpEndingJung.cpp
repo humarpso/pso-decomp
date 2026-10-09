@@ -347,7 +347,7 @@ void * create_TObjWarpString(void *arg0, void *arg1);
 s64 fn_8019B480(void *arg0, void *arg1);
 void fade_and_destroy__14TObjWarpStringFPv(u8 *arg0);
 void TObjWarpString__sub_8019B728(void *arg0);
-void TObjWarpString__sub_8019B744(u8 *arg0);
+void update_fade_in__14TObjWarpStringFPv(u8 *arg0);
 void TObjWarpString__sub_8019B77C(void *arg0);
 void run_task__14TObjWarpStringFv(void *arg0);
 u8 * __ct__14TObjWarpStringFv(u8 *arg0, u8 *arg1, s32 arg2, s16 arg3);
@@ -654,7 +654,7 @@ void TObjWarpString__sub_8019B728(void *arg0) {
 
 #pragma push
 #pragma opt_common_subs off
-void TObjWarpString__sub_8019B744(u8 *arg0) {
+void update_fade_in__14TObjWarpStringFPv(u8 *arg0) {
     M2C_FIELD(arg0, f32 *, 0x44) = (f32) (M2C_FIELD(arg0, f32 *, 0x44) + lbl_805DBFEC);
     if (M2C_FIELD(arg0, f32 *, 0x44) > lbl_805DBFF0) {
         M2C_FIELD(arg0, f32 *, 0x44) = (f32) lbl_805DBFF0;
@@ -683,7 +683,7 @@ void run_task__14TObjWarpStringFv(void *arg0) {
         ((M2C_UNK (*)(void))TObjWarpString__sub_8019B77C)();
         return;
     case 1:
-        ((M2C_UNK (*)(void))TObjWarpString__sub_8019B744)();
+        ((M2C_UNK (*)(void))update_fade_in__14TObjWarpStringFPv)();
         return;
     case 2:
         ((M2C_UNK (*)(void))TObjWarpString__sub_8019B728)();

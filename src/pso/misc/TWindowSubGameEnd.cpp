@@ -27,7 +27,7 @@ s32 get_card_data__17TWindowSubComCardFPv(int);
 s32 is_child_visible__17TWindowSubComCardFPv(int);
 void init_char_select__16TKeyBoardControlFv(void);
 extern s32 tl_00;
-extern int lbl_805D6480;
+extern int window_sub_game_end_active_flag;
 void run_task__17TWindowSubGameEndFv(u8 *arg0);
 s32 get_main_phase();
 s32 is_split_screen();
@@ -88,14 +88,14 @@ void run_task__17TWindowSubGameEndFv(u8 *arg0) {
         if (is_child_visible__17TWindowSubComCardFPv(M2C_FIELD(arg0, s32 *, 0x28)) != 0) {
             slot = get_slot_or_neg1__17TWindowSubComCardFPv(M2C_FIELD(arg0, s32 *, 0x28));
             if (slot == 0) {
-                if (lbl_805D6480 != 1) {
+                if (window_sub_game_end_active_flag != 1) {
                     obj = (void *)__nw__7TObjectFUl(0x28);
                     if (obj != NULL) {
                         init__22THunterGuildSeqOfflineFPvPvPv(obj, tl_00, (void *)init_char_select__16TKeyBoardControlFv);
                     }
                     fn_8024AB54(M2C_FIELD(arg0, s32 *, 0x20));
                     send_logout__6TLobbyFv();
-                    lbl_805D6480 = 1;
+                    window_sub_game_end_active_flag = 1;
                 }
                 M2C_FIELD(arg0, s32 *, 0x1C) = 2;
             }
@@ -121,7 +121,7 @@ void *__dt__17TWindowSubGameEndFv(void *arg0, s16 arg1) {
     return arg0;
 }
 
-    extern int lbl_805D6480;
+    extern int window_sub_game_end_active_flag;
 
 void *TWindowSubGameEnd__ct(void *arg0, s32 arg1, s32 arg2) {
     f32 var_f31;
@@ -149,9 +149,9 @@ void *TWindowSubGameEnd__ct(void *arg0, s32 arg1, s32 arg2) {
     return arg0;
 }
 
-void TLobby__sub_802796FC(void) { lbl_805D6480 = 0; }
+void TLobby__sub_802796FC(void) { window_sub_game_end_active_flag = 0; }
 
-    extern int lbl_805D6480;
-void TLobby__sub_80279708(void) { lbl_805D6480 = 0; }
+    extern int window_sub_game_end_active_flag;
+void TLobby__sub_80279708(void) { window_sub_game_end_active_flag = 0; }
 
 }

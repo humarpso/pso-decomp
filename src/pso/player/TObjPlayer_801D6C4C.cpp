@@ -13,7 +13,7 @@ void reset_particle_ctrl__10TObjPlayerFPv(s32 *arg0);
 void set_level__10TObjPlayerFPvi(u8 *arg0, s32 arg1);
 M2C_UNK __dl__FPv(s32);
 M2C_UNK destroy_particle__13TParticleCtrlFPv();
-int fn_801D6A18(void*);
+int clear_player_sub_object_slots(void*);
 int init_sub_object__10TObjPlayerFi(void*);
 
 void reset_particle_ctrl__10TObjPlayerFPv(s32 *arg0) {
@@ -31,7 +31,7 @@ s32 destroy__10TObjPlayerFis(s32 arg0, s16 arg1) {
     return arg0;
 }
 
-void* init_sub_objects__10TObjPlayerFPv(void* p) { init_sub_object__10TObjPlayerFi((char*)p + 0x8); init_sub_object__10TObjPlayerFi((char*)p + 0x18); init_sub_object__10TObjPlayerFi((char*)p + 0x28); init_sub_object__10TObjPlayerFi((char*)p + 0x38); init_sub_object__10TObjPlayerFi((char*)p + 0x48); fn_801D6A18((char*)p + 0x58); *(int*)((char*)p + 0x4) = 0; reset_particle_ctrl__10TObjPlayerFPv((s32 *)(p)); return p; }
+void* init_sub_objects__10TObjPlayerFPv(void* p) { init_sub_object__10TObjPlayerFi((char*)p + 0x8); init_sub_object__10TObjPlayerFi((char*)p + 0x18); init_sub_object__10TObjPlayerFi((char*)p + 0x28); init_sub_object__10TObjPlayerFi((char*)p + 0x38); init_sub_object__10TObjPlayerFi((char*)p + 0x48); clear_player_sub_object_slots((char*)p + 0x58); *(int*)((char*)p + 0x4) = 0; reset_particle_ctrl__10TObjPlayerFPv((s32 *)(p)); return p; }
 
 s8 TObjPlayer__sub_801D6D28(void *arg0) {
     s32 temp_r3 = M2C_FIELD(arg0, s8 *, 0x13);

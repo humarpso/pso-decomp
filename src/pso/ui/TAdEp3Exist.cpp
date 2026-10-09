@@ -102,7 +102,7 @@ void __OSEnableBarnacle(Ep3_8036F10C *o);
 u8 TAdEp3Exist__sub_8036F590(u8 *arg0);
 int prs_read_control_bit(Obj_8036F4DC *arg0);
 void TAdEp3Exist__sub_8036F5A4(void* p);
-u8 fn_8036F764(void *, s32);
+u8 prs_read_byte_at(void *, s32);
 u8 *prs_next_output_byte(void *);
 void *memmove(void *, const void *, u32);
 s32 prs_decompress(Prs_8036F5B0 *c, u8 *src, s32 arg2, s32 arg3);
@@ -347,7 +347,7 @@ s32 prs_decompress(Prs_8036F5B0 *c, u8 *src, s32 arg2, s32 arg3) {
         off += n;
         while (size-- != 0) {
             p = prs_next_output_byte(c);
-            *p = fn_8036F764(c, off);
+            *p = prs_read_byte_at(c, off);
             n++;
             off++;
         }

@@ -1129,7 +1129,7 @@ void *lbl_804D3F74[14] = {
     (void *)0x0, (void *)0x0, (void *)0x0, (void *)0x0,
     (void *)0x0, (void *)0x0,
 };
-void *lbl_804D3FAC[24] = {
+void *creation_region_sample_index_table[24] = {
     (void *)0x1, (void *)0x3, (void *)0x0, (void *)0x0,
     (void *)0x4, (void *)0x3, (void *)0x3, (void *)0x5,
     (void *)0x4, (void *)0x1, (void *)0x3, (void *)0x2,
@@ -1153,7 +1153,7 @@ void *lbl_804D4054[21] = {
     (void *)0x0,
 };
 #define lbl_804D3F74 (*(RecoveredGlobal_8029057C_lbl_804D3F74 *)lbl_804D3F74)
-#define lbl_804D3FAC ((s32 *)lbl_804D3FAC)
+#define creation_region_sample_index_table ((s32 *)creation_region_sample_index_table)
 #define lbl_804D4054 ((M2C_UNK *)lbl_804D4054)
 
 void update_char_panels__23TAdSinglePlyChrSelectGCFPv(u8 *arg0) {
@@ -1275,7 +1275,7 @@ void get_sorted_region_samples__23TAdSinglePlyChrSelectGCFPvPv(void *arg0, s32 *
 void map_shape_region_samples(s32 region, s32 *samples) {
     s32 i;
     for (i = 0; i < 3; i++) {
-        s32 sample = lbl_804D3FAC[i + region * 3];
+        s32 sample = creation_region_sample_index_table[i + region * 3];
         if (sample == 7) {
             sample = 4;
         } else if (sample == 8) {

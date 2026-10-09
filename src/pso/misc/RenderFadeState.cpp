@@ -13,7 +13,7 @@ extern "C" {
 extern const f32 lbl_805DA368;
 extern const f32 lbl_805DA36C;
 extern const f32 lbl_805DA370;
-void fn_800D7AD0(Fade_800D7AD0 *arg0);
+void update_fade_value(Fade_800D7AD0 *arg0);
 }
 
 extern "C" {
@@ -58,7 +58,7 @@ extern "C" {
 
 #pragma push
 #pragma opt_common_subs off
-void fn_800D7AD0(Fade_800D7AD0 *arg0) {
+void update_fade_value(Fade_800D7AD0 *arg0) {
     f32 v = arg0->value;
     if (arg0->mode == 0) {
         v -= lbl_805DA368;

@@ -20,12 +20,12 @@ extern u32 lbl_805D6500;
 extern u8 lbl_805D6504;
 extern u32 lbl_805D6508;
 extern u8 lbl_805D650C;
-s32 fn_8028D490(struct RecoveredFields_8028D490_arg0 *arg0);
+s32 is_node_tree_valid(struct RecoveredFields_8028D490_arg0 *arg0);
 }
 
 extern "C" {
 
-s32 fn_8028D490(struct RecoveredFields_8028D490_arg0 *arg0) {
+s32 is_node_tree_valid(struct RecoveredFields_8028D490_arg0 *arg0) {
     u32 temp_r3;
     u32 temp_r3_2;
     u32 temp_r4;
@@ -53,11 +53,11 @@ s32 fn_8028D490(struct RecoveredFields_8028D490_arg0 *arg0) {
     if (((temp_r3 > (u32) lbl_805D64F0) && (temp_r3 < (u32) lbl_805D64F8)) || ((temp_r5 = arg0->field_30, ((temp_r5 > (u32) lbl_805D64F0) != 0)) && (temp_r5 < (u32) lbl_805D64F8)) || ((temp_r4 = arg0->field_4, ((temp_r4 > (u32) lbl_805D6500) != 0)) && (temp_r4 < (u32) lbl_805D6508))) {
         return 0;
     }
-    if ((temp_r3 != 0) && (fn_8028D490((struct RecoveredFields_8028D490_arg0 *) temp_r3) == 0)) {
+    if ((temp_r3 != 0) && (is_node_tree_valid((struct RecoveredFields_8028D490_arg0 *) temp_r3) == 0)) {
         return 0;
     }
     temp_r3_2 = arg0->field_30;
-    if ((temp_r3_2 != 0) && (fn_8028D490((struct RecoveredFields_8028D490_arg0 *) temp_r3_2) == 0)) {
+    if ((temp_r3_2 != 0) && (is_node_tree_valid((struct RecoveredFields_8028D490_arg0 *) temp_r3_2) == 0)) {
         return 0;
     }
     return 1;

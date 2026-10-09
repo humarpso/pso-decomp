@@ -17,7 +17,7 @@ extern const f32 lbl_805E00E8;
 u8 *fn_8035A860(u8 *arg0, s32 arg1, s32 arg2);
 extern const f32 lbl_805DE9F0;
 extern const f32 lbl_805E00F0;
-void fn_8035A8E0(u8 *arg0, u8 *arg1);
+void calc_laser_ray_hit_point(u8 *arg0, u8 *arg1);
 }
 
 extern "C" {
@@ -38,7 +38,7 @@ u8 *fn_8035A860(u8 *arg0, s32 arg1, s32 arg2) {
 }
 #pragma push
 #pragma fp_contract on
-void fn_8035A8E0(u8 *arg0, u8 *arg1) {
+void calc_laser_ray_hit_point(u8 *arg0, u8 *arg1) {
     f32 temp_f2;
     f32 temp_f2_2;
     if (arg1 != NULL) {

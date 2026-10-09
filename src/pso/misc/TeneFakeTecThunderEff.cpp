@@ -97,8 +97,8 @@ M2C_UNK draw_chunk_object(s32);
 extern u8 chunk_material_color_half_alpha_f32[];
 extern u8 lbl_8050BEC0[];
 extern u8 lbl_8058D4C0[];
-extern int lbl_805D5030;
-extern int lbl_805D5034;
+extern int TEneEffHamon__fish_model;
+extern int TEneEffHamon__fish_effect_param;
 extern s32 lbl_805D5660;
 extern s32 lbl_805D5664;
 extern s32 lbl_805D5668;
@@ -109,7 +109,7 @@ void render__12TEneEffHamonFv(Hamon_800A36A8 *o);
 void build_beam_points__12TTecZondeEffFPv(struct Obj_800A39A8 *);
 f32 sin_table_lookup(s32);
 extern Entry_800A4064 *lbl_80500970[];
-extern s32 lbl_805D5038;
+extern s32 TObjPlayer__effect_count;
 extern const f32 lbl_805D99F8;
 extern const f32 lbl_805D9A04;
 extern const f32 lbl_805D9A08;
@@ -121,7 +121,7 @@ s32 matrix_mult_vec(int, void *, void *);
 M2C_UNK set_chunk_material_color(void *);
 extern u8 chunk_material_color_half_alpha_f32[];
 extern Cam_800A3D1C lbl_8058D4F8;
-extern s32 lbl_805D5038;
+extern s32 TObjPlayer__effect_count;
 extern s32 lbl_805D5660;
 extern s32 some_id_805c6f74;
 extern const f32 lbl_805D99F0;
@@ -403,7 +403,7 @@ void draw_ribbon_strip__10TObjPlayerFPv(Obj_800A3D1C *o) {
     p[1].v = vv;
     p[1].color = color;
     init_xyz_limits__10TObjPlayerFv();
-    draw_transformed_primitive__9TWindowDDFPvPvPvPv(verts, o->count * 2, lbl_805D5038, 1);
+    draw_transformed_primitive__9TWindowDDFPvPvPvPv(verts, o->count * 2, TObjPlayer__effect_count, 1);
     set_chunk_material_color(chunk_material_color_half_alpha_f32);
     some_id_805c6f74 = lbl_805D5660;
 }
@@ -415,7 +415,7 @@ void TObjPlayer__sub_800A4064(Obj_800A4064 *self) {
     s32 i;
     if (self->active != 0) {
         build_beam_points__12TTecZondeEffFPv((Obj_800A39A8 *)self);
-        lbl_805D5038 = *lbl_80500970[0][self->type].inner->p;
+        TObjPlayer__effect_count = *lbl_80500970[0][self->type].inner->p;
         for (i = 0; i < self->count; i++) {
             self->scale[i] = lbl_805D99F8 * (lbl_805D9A08 * sin_table_lookup(self->timer * 0x1800) + lbl_805D9A04);
         }

@@ -189,8 +189,8 @@ extern u32 TParticleCtrl__data_805D4F04;
 void free_all__13TParticleCtrlFv(void);
 s32 read_disc_file(s32, s32);
 s32 alloc_buffer__11TOBoss4RockFPv(M2C_UNK);
-extern s32 lbl_805D2944;
-extern u32 lbl_805D2948;
+extern s32 TParticleCtrl__particle_entry_path;
+extern u32 particle_pool_limit;
 extern int lbl_805D4EF8;
 void init_particle_buffer__13TParticleCtrlFv(void);
 extern s32 lbl_805D4EFC;
@@ -410,7 +410,7 @@ void __ct__7TObjectFP7TObject(void *, void *);
 void VecCopy__FP3VecPC3Vec(void *, const void *);
 
 extern void *__vt__13TParticleCtrl[];
-extern s32 TParticleCtrl__data_805D2938;
+extern s32 TParticleCtrl__class_name_descriptor;
 extern void *tl_07;
 extern void *tl_clipout;
 extern const f32 TParticleCtrl__data_805D94E0;
@@ -436,7 +436,7 @@ extern const f32 TParticleCtrl__data_805D94E4;
                             direction_action, direction_source) do {           \
     __ct__7TObjectFP7TObject(particle, tl_07);                                 \
     particle->vtable = __vt__13TParticleCtrl;                                  \
-    particle->descriptor = TParticleCtrl__data_805D2938;                       \
+    particle->descriptor = TParticleCtrl__class_name_descriptor;                       \
     particle->field4C = 0;                                                     \
     particle->field50 = 0;                                                     \
     particle->field54 = 0;                                                     \

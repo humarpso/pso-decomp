@@ -44,7 +44,7 @@ extern "C" {
 s32 get_bml_model(void *, s32);
 u8 * load_resource_from_descriptor(void *, s32, void *, s32, s32, s32);
 int alloc__23TAdSinglePlyChrSelectGCFPv(void *);
-extern RecoveredGlobal_8018E1E0_lbl_804B7588 lbl_804B7588;
+extern RecoveredGlobal_8018E1E0_lbl_804B7588 TObjDoaEx01__resource_descriptor;
 extern u32 TObjDoaEx01__data_805D5BB0;
 extern u8 *TObjDoaEx01__data_805D5BB4;
 extern s32 TObjDoaEx01__data_805D5BB8;
@@ -54,7 +54,7 @@ s32 reset_photon_effect__10TObjPlayerFPv(void *);
 s32 refresh_collision_body_centers(void *);
 s32 init_collision_body_parts(void *, void *, int);
 s32 init_door_base(void *);
-extern RecoveredGlobal_8018E064_lbl_804B7598 lbl_804B7598;
+extern RecoveredGlobal_8018E064_lbl_804B7598 TObjDoaEx01__collision_body_parts;
 extern M2C_UNK __vt__11TObjDoaEx01[];
 extern s32 lbl_805D3328;
 extern u32 TObjDoaEx01__data_805D5BB0;
@@ -101,7 +101,7 @@ u8 *TObjDoaEx01__ct(u8 *arg0, M2C_UNK arg1, s32 arg2) {
     M2C_FIELD(arg0, s32 *, 0) = (s32) lbl_805D3328;
     ((VObj_18_4a4f5b *)(arg0))->m5(arg2);
     ((VObj_18_4a4f5b *)(arg0))->m17();
-    init_collision_body_parts((void *) (arg0), (void *) (&lbl_804B7598.value), (int) (1));
+    init_collision_body_parts((void *) (arg0), (void *) (&TObjDoaEx01__collision_body_parts.value), (int) (1));
     refresh_collision_body_centers((void *) (arg0));
     reset_photon_effect__10TObjPlayerFPv((void *) (arg0));
     M2C_FIELD(arg0, f32 *, 0xB0) = (f32) TObjDoaEx01__data_805DBDA0;
@@ -138,7 +138,7 @@ void load_resources__11TObjDoaEx01Fv(void) {
     temp_r3 = alloc__23TAdSinglePlyChrSelectGCFPv((void *)0x440);
     var_r0 = temp_r3;
     if (var_r0 != 0) {
-        var_r0 = (long) (load_resource_from_descriptor((void *) temp_r3, 1, &lbl_804B7588.value, 0, 0, 0));
+        var_r0 = (long) (load_resource_from_descriptor((void *) temp_r3, 1, &TObjDoaEx01__resource_descriptor.value, 0, 0, 0));
     }
     (*(u8 * *)&TObjDoaEx01__data_805D5BB0) = (unsigned char *) ((void *) var_r0);
     temp_r3_2 = (u8 *)(M2C_FIELD(M2C_FIELD(M2C_FIELD(M2C_FIELD(get_bml_model((void *) var_r0, 0), void **, 0x2C), void **, 0x30), void **, 0x2C), void **, 0x2C));

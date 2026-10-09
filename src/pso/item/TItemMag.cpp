@@ -222,7 +222,7 @@ M2C_UNK mag_feed_add_mind(void *, int);
 M2C_UNK TItemMag__sub_80114198(void *, int);
 M2C_UNK add_stat_level_capped__8TItemMagFPvs(void *, int);
 M2C_UNK mag_feed_add_def(void *, int);
-s32 TItemMag__sub_801143E8(void *, s32);
+s32 get_photon_blast_at_slot__8TItemMagFPvi(void *, s32);
 s16 get_total_level__11TItemMagSubFPv(void *);
 void set_type__8TItemMagFPvi(u8 *arg0, s32 arg1);
 void clear_flag2__11TItemMagSubFPv(void *arg0);
@@ -457,7 +457,7 @@ void register_photon_blasts__8TItemMagFPv(u8 *arg0) {
     assign_default_photon_blast_palette_slots(M2C_FIELD(arg0, s32 *, 0xF0) + 0x500);
     var_r30 = 0;
     do {
-        temp_r3 = TItemMag__sub_801143E8(arg0 + 0x198, var_r30);
+        temp_r3 = get_photon_blast_at_slot__8TItemMagFPvi(arg0 + 0x198, var_r30);
         if (temp_r3 != -1) {
             TItemMag__sub_80113EDC(M2C_FIELD(arg0, s32 *, 0xF0) + 0x4AC, (s16) temp_r3, ((u8 (*)(void *)) get_slot_count__14TItemProShieldFPv)(arg0));
             assign_photon_blast_palette_slot(M2C_FIELD(arg0, u8 **, 0xF0) + 0x500, (s16) temp_r3);
@@ -1551,7 +1551,7 @@ s16 obj_getS16_32E(void *);
 s32 test_flags_any(void *, int);
 s32 obj_isState7_324(void *);
 void TItemMag__vt42(u8 *arg0);
-s32 TItemMag__sub_801143E8(void *, s32);
+s32 get_photon_blast_at_slot__8TItemMagFPvi(void *, s32);
 s32 is_flag_20000_set__10TObjPlayerFv(void *);
 M2C_UNK init_feed_timer__8TItemMagFPv(void *);
 M2C_UNK send_6x3A_clear_photon_blast_ready_flag(void *);
@@ -1785,7 +1785,7 @@ void TItemMag__vt43(u8 *arg0) {
     var_r31 = 0;
     do
     {
-      temp_r3 = TItemMag__sub_801143E8(arg0 + 0x198, var_r31);
+      temp_r3 = get_photon_blast_at_slot__8TItemMagFPvi(arg0 + 0x198, var_r31);
       if (temp_r3 != (-1))
       {
         new_var = arg0;

@@ -24,14 +24,14 @@ extern const f32 lbl_805DF60C;
 extern const f32 lbl_805DF610;
 extern const f32 lbl_805DF614;
 extern const f32 lbl_805DF618;
-void TAdChrSelMovePlateGC__sub_803257E8(T_803257E8 *self);
+void init_plate_rects__20TAdChrSelMovePlateGCFPv(T_803257E8 *self);
 void run_task__20TAdChrSelMovePlateGCFv(O_80325824 *arg0);
 extern const f32 lbl_805DF604;
 extern const f32 lbl_805DF608;
 void add_plate_rect__20TAdChrSelMovePlateGCFPvPv(Obj_80325764 *arg0, V2_80325764 *arg1);
 void __ct__7TObjectFP7TObject(void *);
 s32 TAdMultiPlyChrSelectGC__sub_802C6FA8();
-void TAdChrSelMovePlateGC__sub_803257E8(T_803257E8 *self);
+void init_plate_rects__20TAdChrSelMovePlateGCFPv(T_803257E8 *self);
 extern u8 __vt__20TAdChrSelMovePlateGC[];
 extern s32 lbl_805D4190;
 extern s32 lbl_805D6C58;
@@ -62,7 +62,7 @@ void add_plate_rect__20TAdChrSelMovePlateGCFPvPv(Obj_80325764 *arg0, V2_80325764
     arg0->count++;
 }
 
-void TAdChrSelMovePlateGC__sub_803257E8(T_803257E8 *self) {
+void init_plate_rects__20TAdChrSelMovePlateGCFPv(T_803257E8 *self) {
     s32 i;
     for (i = 0; i < 12; i++) {
         self->r[i].a = lbl_805DF60C;
@@ -92,7 +92,7 @@ Obj_803258C4 *__ct__20TAdChrSelMovePlateGCFv(Obj_803258C4 *arg0) {
     lbl_805D6C58 = TAdMultiPlyChrSelectGC__sub_802C6FA8();
     arg0->f24 = -1;
     arg0->f20 = 0;
-    TAdChrSelMovePlateGC__sub_803257E8((T_803257E8 *)(arg0));
+    init_plate_rects__20TAdChrSelMovePlateGCFPv((T_803257E8 *)(arg0));
     for (i = 0; i < 12; i++) {
         arg0->b[i] = 0;
         arg0->a[i] = 0;

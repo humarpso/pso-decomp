@@ -416,7 +416,7 @@ extern s32 TObjEneRe4Sorcerer__data_805D52E4;
 extern s32 TObjEneRe4Sorcerer__data_805D52E8;
 extern f32 TObjEneRe4Sorcerer__data_805D52EC;
 extern s32 some_id_805c6f74;
-void TObjEneRe4Sorcerer__sub_800EDF94(void);
+void step_effect_sequence__18TObjEneRe4SorcererFv(void);
 }
 
 extern "C" {
@@ -1227,7 +1227,7 @@ void TObjEneRe4Bit__sub_800EDAB4();
 void handle_death_state__18TObjEneRe4SorcererFPvi(u8 *arg0, s32 arg1);
 void TObjEneRe4Sorcerer__sub_800EE0F8(u8 *arg0, s32 arg1);
 void TObjEneRe4Sorcerer__sub_800EE1CC(u8 *arg0, s32 arg1);
-void TObjEneRe4Sorcerer__sub_800EE598(void *, void *);
+void update_state_machine__18TObjEneRe4SorcererFPvPv(void *, void *);
 M2C_UNK init_float_params__9TObjEneDDFPv(void *);
 void state_wait__18TObjEneRe4SorcererFPvi(void *arg0, s32 arg1);
 s32 TObjEneRe4Sorcerer__sub_800EEC00(void *arg0p, void *arg1p);
@@ -1530,7 +1530,7 @@ extern "C" {
 void fn_80010EC8();
 }
 extern "C" {
-void fn_800F5D80();
+void clear_lobby_object_state();
 }
 extern "C" {
 void get_actor_body_center();
@@ -1707,7 +1707,7 @@ void *__vt__18TObjEneRe4Sorcerer[107] = {
     (void *)&get_pos__10TObjPlayerFii, (void *)&apply_switch_attack__10TObjPlayerFi, (void *)&enemy_spawn_jellen_effect, (void *)&trigger_switch_attack__10TObjPlayerFi,
     (void *)&enemy_spawn_zalure_effect, (void *)&TObjPlayer__sub_80010A80, (void *)&TObjPlayer__sub_800F65D0, (void *)&fn_80010EC8,
     (void *)&fn_80010EC4, (void *)&fn_80010EC0, (void *)&fn_80010EBC, (void *)&TObjEneDD__vt77,
-    (void *)&apply_hit_message_flags__10TObjPlayerFPvPv, (void *)&apply_set_data__9TObjEnemyFPvPv, (void *)&fn_800F5D80, (void *)&TObjEneEpsilon__vt81,
+    (void *)&apply_hit_message_flags__10TObjPlayerFPvPv, (void *)&apply_set_data__9TObjEnemyFPvPv, (void *)&clear_lobby_object_state, (void *)&TObjEneEpsilon__vt81,
     (void *)&TObjEneDD__vt82, (void *)&TObjEneDD__vt83, (void *)&TObjEneDD__vt84, (void *)&TObjEneRe4Sorcerer__vt85,
     (void *)&TObjEneRe4Sorcerer__vt86, (void *)&TObjEneDD__vt86, (void *)&TObjEneDD__vt87, (void *)&TObjEneDD__vt88,
     (void *)&TObjEneDD__vt89, (void *)&TObjEneDD__vt90, (void *)&TObjEneDD__vt91, (void *)&TObjEneDD__vt92,
@@ -1777,7 +1777,7 @@ void render__18TObjEneRe4SorcererFv(u8 *arg0) {
             TObjEneRe4Sorcerer__data_805D52E8 = 0;
             TObjEneRe4Sorcerer__data_805D52EC = M2C_FIELD(arg0, f32 *, 0x3F8);
             (*(u8 * *)&lbl_805D52F0) = arg0 + 0x3CC;
-            set_global_state__16TObjEneRe7BeruraFi((void *)TObjEneRe4Sorcerer__sub_800EDF94);
+            set_global_state__16TObjEneRe7BeruraFi((void *)step_effect_sequence__18TObjEneRe4SorcererFv);
             some_id_805c6f74 |= 0x01000000;
             if (var_r28 == 1) {
                 draw__16TObjEneRe7BeruraFPv((void *) (arg0));
@@ -1801,7 +1801,7 @@ void render__18TObjEneRe4SorcererFv(u8 *arg0) {
 
 #pragma push
 #pragma opt_propagation off
-void TObjEneRe4Sorcerer__sub_800EDF94(void) {
+void step_effect_sequence__18TObjEneRe4SorcererFv(void) {
     s32 t;
     switch (TObjEneRe4Sorcerer__data_805D52E4) {
     case 0:
@@ -1991,7 +1991,7 @@ void TObjEneRe4Sorcerer__sub_800EE1CC(u8 *arg0, s32 arg1) {
     }
 }
 
-void TObjEneRe4Sorcerer__sub_800EE598(void *arg0p, void *arg1p) {
+void update_state_machine__18TObjEneRe4SorcererFPvPv(void *arg0p, void *arg1p) {
   f32 *t = (f32 *) (((u8 *) arg0p) + 0x4EC);
   s32 mask;
   s32 n;
@@ -2439,7 +2439,7 @@ void TObjEneRe4Sorcerer__vt85(s32 arg0, u32 arg1, s32 arg2) {
         TObjEneRe4Sorcerer__sub_800EE7DC((u8 *)((void *) (arg0)), (s32)((void *) (arg2)));
         return;
     case 6:
-        TObjEneRe4Sorcerer__sub_800EE598((void *) (arg0), (void *) (arg2));
+        update_state_machine__18TObjEneRe4SorcererFPvPv((void *) (arg0), (void *) (arg2));
         return;
     case 7:
         TObjEneRe4Sorcerer__sub_800EE1CC((u8 *)((void *) (arg0)), (s32)((void *) (arg2)));

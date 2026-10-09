@@ -7,7 +7,7 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 extern "C" {
 u8 is_valid_player_motion_variant(u32 arg0);
 u8 TLobby__sub_802A7278(u32 arg0);
-int fn_802A7238(u8 *arg0, s32 arg1, s32 arg2);
+int match_coordinate_pair(u8 *arg0, s32 arg1, s32 arg2);
 }
 
 extern "C" {
@@ -130,7 +130,7 @@ int get_table1_entry__23TObjSeabedSuisoBrakableFi(int a0) {  return lbl_80540AE0
 
 void TObjSeabedSuisoBrakable__vt17(void) {  }
 
-int fn_802A7238(u8 *arg0, s32 arg1, s32 arg2) {
+int match_coordinate_pair(u8 *arg0, s32 arg1, s32 arg2) {
     u8 var_r6;
     var_r6 = 0;
     if ((arg1 == (s32) M2C_FIELD(arg0, s32 *, 0)) && (arg2 == (s32) M2C_FIELD(arg0, s32 *, 4))) {

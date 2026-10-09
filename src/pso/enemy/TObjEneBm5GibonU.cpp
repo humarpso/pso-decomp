@@ -222,7 +222,7 @@ extern const s32 lbl_8043BF30[];
 extern const s32 lbl_8043BF38[];
 extern const s32 lbl_8043BF40[];
 extern const s32 lbl_8043BF48[];
-extern const Spawn_800D1990 lbl_8043C06C;
+extern const Spawn_800D1990 TObjEneBm5GibonU__spawn_params;
 void load_resources__16TObjEneBm5GibonUFv(void);
 }
 
@@ -604,7 +604,7 @@ extern "C" {
 void fn_80010EC8();
 }
 extern "C" {
-void fn_800F5D80();
+void clear_lobby_object_state();
 }
 extern "C" {
 void get_actor_body_center();
@@ -814,7 +814,7 @@ void *lbl_80493F04[107] = {
     (void *)get_pos__10TObjPlayerFii, (void *)apply_switch_attack__10TObjPlayerFi, (void *)enemy_spawn_jellen_effect, (void *)trigger_switch_attack__10TObjPlayerFi,
     (void *)enemy_spawn_zalure_effect, (void *)TObjPlayer__sub_80010A80, (void *)TObjPlayer__sub_800F65D0, (void *)fn_80010EC8,
     (void *)fn_80010EC4, (void *)fn_80010EC0, (void *)fn_80010EBC, (void *)TObjEneDD__vt77,
-    (void *)apply_hit_message_flags__10TObjPlayerFPvPv, (void *)apply_set_data__9TObjEnemyFPvPv, (void *)fn_800F5D80, (void *)TObjEneEpsilon__vt81,
+    (void *)apply_hit_message_flags__10TObjPlayerFPvPv, (void *)apply_set_data__9TObjEnemyFPvPv, (void *)clear_lobby_object_state, (void *)TObjEneEpsilon__vt81,
     (void *)TObjEneDD__vt82, (void *)TObjEneDD__vt83, (void *)TObjEneDD__vt84, (void *)TObjEneBm5GibonU__sub_800D0738,
     (void *)TObjEneBm5GibonU__sub_800D119C, (void *)TObjEneDD__vt86, (void *)TObjEneDD__vt87, (void *)TObjEneDD__vt88,
     (void *)TObjEneDD__vt89, (void *)TObjEneDD__vt90, (void *)TObjEneDD__vt91, (void *)TObjEneDD__vt92,
@@ -5058,10 +5058,10 @@ void load_resources__16TObjEneBm5GibonUFv(void) {
         lbl_80500E88[i] = register_object__6TLobbyFPv(lbl_8043BF40[i]);
         lbl_80500E90[i] = dispatch_shared_handler_a__6TLobbyFPv(lbl_8043BF48[i]);
     }
-    sp.a = lbl_8043C06C.a;
-    sp.b = lbl_8043C06C.b;
-    sp.c = lbl_8043C06C.c;
-    sp.d = lbl_8043C06C.d;
+    sp.a = TObjEneBm5GibonU__spawn_params.a;
+    sp.b = TObjEneBm5GibonU__spawn_params.b;
+    sp.c = TObjEneBm5GibonU__spawn_params.c;
+    sp.d = TObjEneBm5GibonU__spawn_params.d;
     m = (u8 *)TObjEneBm5GibonU__data_805D51D0;
     sp.a = M2C_FIELD(m, s32 *, 0x430);
     spawn_npc_enemy__6TLobbyFsiiiff(0xE, M2C_FIELD(M2C_FIELD(m, u8 **, 0x42C), s32 *, 8), M2C_FIELD(M2C_FIELD(m, u8 **, 0x42C), s32 *, 0xC), &sp, M2C_FIELD(lbl_80493CBC, f32 *, 0xC), 0.0f);

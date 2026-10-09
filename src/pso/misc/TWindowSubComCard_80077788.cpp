@@ -42,14 +42,14 @@ extern s32 lbl_805D4E58;
 s32 get_chr_select__17TWindowSubComCardFv(void);
 u8 * copy_struct28__17TWindowSubComCardFii(s32 arg0, s32 arg1);
 s32 find_value_by_key__17TWindowSubComCardFPvUs(S_80077840 *arr, u16 key);
-void fn_80077814(S_80077814 *arr, u16 key, s32 val);
+void set_value_by_key(S_80077814 *arr, u16 key, s32 val);
 void TLobby__sub_80077798(S_80077798 *src, DO_80077798 *dst);
 void TWindowSubComCard__sub_80077980(S_80077980 *arr);
-u32 fn_800777C4(Tbl_800777C4 *t, u16 a, u32 b);
+u32 find_table_entry_id(Tbl_800777C4 *t, u16 a, u32 b);
 u8 * copy_struct28__17TWindowSubComCardFii(s32 arg0, s32 arg1);
 s32 find_value_by_key__17TWindowSubComCardFPvUs(S_80077840 *arr, u16 key);
 void TWindowSubComCard__sub_80077980(S_80077980 *arr);
-u32 fn_800777C4(Tbl_800777C4 *t, u16 a, u32 b);
+u32 find_table_entry_id(Tbl_800777C4 *t, u16 a, u32 b);
 void TWindowSubComCard__sub_800778B4(Out_800778B4 *arg0, Tbl_800777C4 *arg1);
 }
 
@@ -79,7 +79,7 @@ void TLobby__sub_80077798(S_80077798 *src, DO_80077798 *dst) {
 
 extern s32 lbl_805D4E5C;
 
-u32 fn_800777C4(Tbl_800777C4 *t, u16 a, u32 b) {
+u32 find_table_entry_id(Tbl_800777C4 *t, u16 a, u32 b) {
     s32 i;
     Ent_800777C4 *e;
     if (b == 0) {
@@ -95,7 +95,7 @@ u32 fn_800777C4(Tbl_800777C4 *t, u16 a, u32 b) {
     return 0;
 }
 
-void fn_80077814(S_80077814 *arr, u16 key, s32 val) {
+void set_value_by_key(S_80077814 *arr, u16 key, s32 val) {
     s32 i;
     for (i = 0; i < 5; i++) {
         if (arr->key == key) {
@@ -148,7 +148,7 @@ void TWindowSubComCard__sub_800778B4(Out_800778B4 *arg0, Tbl_800777C4 *arg1) {
         if (e->a == 0) {
             id = dst->a = e->b;
             k = find_value_by_key__17TWindowSubComCardFPvUs(tmp, id);
-            dst->b = (u16) fn_800777C4(arg1, id, k);
+            dst->b = (u16) find_table_entry_id(arg1, id, k);
             dst++;
         }
         i++;

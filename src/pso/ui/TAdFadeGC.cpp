@@ -18,7 +18,7 @@ s32 get_field_3e4__10TObjPlayerFPv(void *);
 s32 get_player_by_client_id(u32);
 f32 xz_distance_squared(void *, void *);
 bool is_player_outside_trade_radius(u8 *arg0, u32 arg1);
-void TAdFadeGC__sub_802C7DBC(void *arg0, void *arg1);
+void start_fade__9TAdFadeGCFPvPv(void *arg0, void *arg1);
 M2C_UNK queue_destruction__7TObjectFv(void *);
 int all_parents_unqueued_for_destruction__7TObjectFv(void*);
 void run_task__9TAdFadeGCFv(void *arg0);
@@ -149,7 +149,7 @@ void run_task__9TAdFadeGCFv(void *arg0) {
     }
 }
 
-void TAdFadeGC__sub_802C7DBC(void *arg0, void *arg1) {
+void start_fade__9TAdFadeGCFPvPv(void *arg0, void *arg1) {
     switch ((s32)arg1) {
     case 0:
         break;
@@ -173,7 +173,7 @@ void *__ct__9TAdFadeGCFv(void *arg0, void *arg1, void *arg2) {
     M2C_FIELD(arg0, u32 *, 0x1C) = -1;
     M2C_FIELD(arg0, f32 *, 0x20) = (0.0f);
     M2C_FIELD(arg0, void **, 0x28) = arg2;
-    TAdFadeGC__sub_802C7DBC((void *)(arg0), (void *)(M2C_FIELD(arg0, void **, 0x28)));
+    start_fade__9TAdFadeGCFPvPv((void *)(arg0), (void *)(M2C_FIELD(arg0, void **, 0x28)));
     return arg0;
 }
 #pragma push

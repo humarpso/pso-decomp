@@ -68,7 +68,7 @@ u8 *TLoadingCur__ct(u8 *arg0, s32 arg1);
 void VecCopy__FP3VecPC3Vec(void *, void *);
 s32 is_split_screen(void);
 void update_camera_facing_offset(void *);
-void fn_8001CBC4(void *, void *);
+void calc_loading_cursor_pos(void *, void *);
 s32 is_flag_set__11TLoadingCurFPv(void *, s32);
 M2C_UNK play_persistent_sound(int, void *, void *, int, int);
 extern Pad_8001CD90 lbl_8050E208;
@@ -198,7 +198,7 @@ void run_task__11TLoadingCurFv(void *arg0) {
     self->f38 *= lbl_805D7EBC;
     self->f3C *= lbl_805D7EBC;
     self->f40 *= lbl_805D7EBC;
-    fn_8001CBC4(sp8, arg0);
+    calc_loading_cursor_pos(sp8, arg0);
     VecCopy__FP3VecPC3Vec(self->f44, sp8);
     update_camera_facing_offset(arg0);
     if (TLoadingCur__data_805D7E9C != x || TLoadingCur__data_805D7E9C != y) {

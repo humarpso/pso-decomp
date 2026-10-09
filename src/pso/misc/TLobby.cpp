@@ -117,7 +117,7 @@ void TLobby__sub_80134C44(Obj_80134C44 *o) {
     }
 }
 
-extern s32 lbl_805D5704;
+extern s32 TLobby__net_session_mode;
 
 s32 get_option_state__6TLobbyFv(void) {
     s32 temp_r3;
@@ -125,7 +125,7 @@ s32 get_option_state__6TLobbyFv(void) {
     temp_r3 = get_option_field_C__17TWindowOptionCtrlFv();
     switch (temp_r3) {
     case 0:
-        return lbl_805D5704;
+        return TLobby__net_session_mode;
     case 1:
         return 0;
     case 2:

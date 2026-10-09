@@ -33,12 +33,12 @@ void fn_8009A598(Obj_8009A598 *arg0);
 void queue_destruction__7TObjectFv(void *);
 void fn_8009A598(Obj_8009A598 *arg0);
 void fn_8009A640(Obj_8009A640 *self);
-void fn_8009A4B8(Obj_8009A4B8 *self);
+void update_expanding_fade_effect(Obj_8009A4B8 *self);
 }
 
 extern "C" {
 
-void fn_8009A4B8(Obj_8009A4B8 *self) {
+void update_expanding_fade_effect(Obj_8009A4B8 *self) {
     switch (self->state) {
     case 0:
         self->scale += 7.0f;

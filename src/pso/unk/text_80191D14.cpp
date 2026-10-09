@@ -24,7 +24,7 @@ void fn_80191D14(u16 arg0, s32 arg1);
 extern RecoveredGlobal_80191D14_lbl_8050DCB8 lbl_8050DCB8;
 void fn_80191D5C(u16 arg0);
 extern RecoveredGlobal_80191D14_lbl_8050DCB8 lbl_8050DCB8;
-s32 fn_80191D34(u16 arg0);
+s32 get_handle_6x78_entry(u16 arg0);
 }
 
 extern "C" {
@@ -38,7 +38,7 @@ void fn_80191D14(u16 arg0, s32 arg1) {
 typedef char RecoveredGlobal_80191D5C_lbl_8050DCB8_size[sizeof(RecoveredGlobal_80191D5C_lbl_8050DCB8) == 0x30 ? 1 : -1];
 
 typedef char RecoveredGlobal_80191D34_lbl_8050DCB8_size[sizeof(RecoveredGlobal_80191D34_lbl_8050DCB8) == 0x30 ? 1 : -1];
-s32 fn_80191D34(u16 arg0) {
+s32 get_handle_6x78_entry(u16 arg0) {
     if (arg0 >= 0xCU) {
         return 0;
     }

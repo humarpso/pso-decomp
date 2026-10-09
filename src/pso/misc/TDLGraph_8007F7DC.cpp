@@ -7,7 +7,7 @@ extern "C" {
 void *TDLGraph__ct(void *arg0);
 void reset__8TDLGraphFPv(void *);
 void __ct__7TObjectFP7TObject(void *);
-void fn_8007F574(void *);
+void init_dl_graph_entries(void *);
 
 extern const f32 lbl_805D9298;
 extern M2C_UNK __vt__8TDLGraph[];
@@ -24,7 +24,7 @@ void *TDLGraph__ct(void *arg0) {
     M2C_FIELD(arg0, u32 *, 0x2C) = -1;
     M2C_FIELD(arg0, u32 *, 0x30) = -1;
     reset__8TDLGraphFPv(arg0);
-    fn_8007F574(arg0);
+    init_dl_graph_entries(arg0);
     M2C_FIELD(arg0, u32 *, 0x20) = 3;
     TDLGraph__data_805D4EB0 = arg0;
     return arg0;

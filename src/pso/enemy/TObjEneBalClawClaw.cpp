@@ -26,14 +26,14 @@ s32 spawn_npc_enemy__6TLobbyFsiiiff(int, int, int, void *, f32, f32);
 extern RecoveredGlobal_8009048C_lbl_80439B8C lbl_80439B8C;
 extern void *lbl_8048F11C[11];
 extern u8 *lbl_805D4F20;
-void fn_8009048C(void);
+void spawn_lobby_npc_enemy(void);
 }
 
 extern "C" {
 
 typedef char RecoveredGlobal_8009048C_lbl_80439B8C_size[sizeof(RecoveredGlobal_8009048C_lbl_80439B8C) == 0x14 ? 1 : -1];
 
-void fn_8009048C(void) {
+void spawn_lobby_npc_enemy(void) {
     typedef char sp8_offset[(offsetof(Stack_8009048C, sp8) == 0x0) ? 1 : -1];
     typedef char spC_offset[(offsetof(Stack_8009048C, spC) == 0x4) ? 1 : -1];
     typedef char sp10_offset[(offsetof(Stack_8009048C, sp10) == 0x8) ? 1 : -1];
@@ -1359,7 +1359,7 @@ extern "C" void fn_80010EBC();
 extern "C" void fn_80010EC0();
 extern "C" void fn_80010EC4();
 extern "C" void fn_80010EC8();
-extern "C" void fn_800F5D80();
+extern "C" void clear_lobby_object_state();
 extern "C" void get_actor_body_center();
 extern "C" void get_actor_level_index();
 extern "C" void get_enemy_name__14TObjEnePanarmsFPv();
@@ -1426,7 +1426,7 @@ void *lbl_8048F148[83] = {
     (void *)&get_pos__10TObjPlayerFii, (void *)&apply_switch_attack__10TObjPlayerFi, (void *)&enemy_spawn_jellen_effect, (void *)&trigger_switch_attack__10TObjPlayerFi,
     (void *)&enemy_spawn_zalure_effect, (void *)&TObjPlayer__sub_80010A80, (void *)&TObjPlayer__sub_800F65D0, (void *)&fn_80010EC8,
     (void *)&fn_80010EC4, (void *)&fn_80010EC0, (void *)&fn_80010EBC, (void *)&call_player_preserving_field__15TObjEnemyCustomFPv,
-    (void *)&apply_hit_message_flags__10TObjPlayerFPvPv, (void *)&apply_set_data__9TObjEnemyFPvPv, (void *)&fn_800F5D80,
+    (void *)&apply_hit_message_flags__10TObjPlayerFPvPv, (void *)&apply_set_data__9TObjEnemyFPvPv, (void *)&clear_lobby_object_state,
 };
 #define lbl_8048F148 ((M2C_UNK *)lbl_8048F148)
 

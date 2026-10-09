@@ -116,8 +116,8 @@ u8 is_flag_set__6TLobbyFv(void) {
     return (u8) (lbl_805D4E28 != 0);
 }
 
-    extern int lbl_805D6464;
-int get_unit_list__6TLobbyFv(void) {  return lbl_805D6464; }
+    extern int chat_last_line_buffer;
+int get_unit_list__6TLobbyFv(void) {  return chat_last_line_buffer; }
 typedef char RecoveredGlobal_80070ACC_lbl_8048D208_size[sizeof(RecoveredGlobal_80070ACC_lbl_8048D208) == 0x18 ? 1 : -1];
 M2C_UNK *TLobby__sub_80070ACC(void) {
     return &lbl_8048D208.value;

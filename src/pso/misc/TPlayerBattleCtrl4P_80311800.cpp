@@ -67,7 +67,7 @@ void stop_audio_streams__6TLobbyFv();
 int set_score__19TPlayerBattleCtrl4PFPvi(void*, void*);
 void init__19TPlayerBattleCtrl4PFv();
 extern void *lbl_805D5EE8;
-extern s32 lbl_805D6AAC;
+extern s32 TPlayerBattleCtrl4P__init_flag;
 void TPlayerBattleCtrl4P__vt31(void *arg0);
 void obj_clear_flag30_20000(u32);
 u32 get_player_by_client_id(s32);
@@ -126,10 +126,10 @@ void TPlayerBattleCtrl4P__vt27(void *arg0) {
 void TPlayerBattleCtrl4P__vt33(void) {  }
 
 extern M2C_UNK reset_ctrl_to_default__19TPlayerBattleCtrl4PFv[];
-extern s32 lbl_805D6AAC;
+extern s32 TPlayerBattleCtrl4P__init_flag;
 
 void TPlayerBattleCtrl4P__vt32(s32 arg0) {
-    if ((s32) lbl_805D6AAC != 0) {
+    if ((s32) TPlayerBattleCtrl4P__init_flag != 0) {
         reset_players__19TPlayerBattleCtrl4PFPv();
         set_fade_params__6TLobbyFi(reset_ctrl_to_default__19TPlayerBattleCtrl4PFv);
         set_score__19TPlayerBattleCtrl4PFPvi((void*)(arg0), (void*)(3));
@@ -144,7 +144,7 @@ void TPlayerBattleCtrl4P__vt31(void *arg0) {
             clear_buffer__12TQuestThreadFPv(lbl_805D5EE8);
         }
         stop_audio_streams__6TLobbyFv();
-        lbl_805D6AAC = 0;
+        TPlayerBattleCtrl4P__init_flag = 0;
         init_fadeout_state__6TLobbyFi(init__19TPlayerBattleCtrl4PFv);
         set_score__19TPlayerBattleCtrl4PFPvi((void*)(arg0), (void*)((void *)2));
     }

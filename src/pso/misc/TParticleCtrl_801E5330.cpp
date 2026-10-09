@@ -22,7 +22,7 @@ extern s32 lbl_805D35A0[2];
 extern const f32 lbl_805DC458;
 extern const f32 lbl_805DC45C;
 
-void TParticleCtrl__sub_801E5330(void) {
+void reset_emitter_table__13TParticleCtrlFv(void) {
     s32 i;
     for (i = 0; i < 0x6C; i++) {
         *(s32 *)(lbl_804C5820[i].data + 4) = 0;

@@ -63,7 +63,7 @@ void __dl__7TObjectFPv(void *);
 M2C_UNK bswap_6x78__11TObjInfoColFPv();
 void destroy_key_base__5TOKeyFPvs(void *, int);
 M2C_UNK fn_80191D14(u16, M2C_UNK);
-s32 fn_80191D34(u16);
+s32 get_handle_6x78_entry(u16);
 M2C_UNK fn_80191D5C(u16);
 M2C_UNK init_map_object_base();
 
@@ -214,7 +214,7 @@ void *TObjHashiBase__ct(void *arg0, s32 arg1, s32 arg2) {
 
 void handle_6x78(void *arg0) {
     bswap_6x78__11TObjInfoColFPv();
-    if (fn_80191D34(M2C_FIELD(arg0, u16 *, 4)) != 0) {
+    if (get_handle_6x78_entry(M2C_FIELD(arg0, u16 *, 4)) != 0) {
         fn_80191D14(M2C_FIELD(arg0, u16 *, 4), 0);
         return;
     }

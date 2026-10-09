@@ -95,7 +95,7 @@ s32 get_display_index__12TCharaMakingFPv(void *);
 void request_texture_loads__23TAdSinglePlyChrSelectGCFPv(Sel_8028CC28 *arg0);
 void safe_free__23TAdSinglePlyChrSelectGCFUi(u32);
 u32 TLobby__sub_801E38A0(void *, s32 *, s32 *, s32, s32);
-s32 fn_8028D490(u32, s32);
+s32 is_node_tree_valid(u32, s32);
 void *get_result__23TAdSinglePlyChrSelectGCFPv(void *);
 void blend_creation_proportion_shapes(void *);
 void reset_creation_parts__23TAdSinglePlyChrSelectGCFPv(void *);
@@ -171,7 +171,7 @@ M2C_UNK load_preview_models__23TAdSinglePlyChrSelectGCFPv(void *arg0) {
             for (i = 0; i < 6; i++) safe_free__23TAdSinglePlyChrSelectGCFUi(bufs[i]);
             return;
         }
-        if (fn_8028D490(bufs[i], tag) == 0) {
+        if (is_node_tree_valid(bufs[i], tag) == 0) {
             for (i = 0; i < 6; i++) safe_free__23TAdSinglePlyChrSelectGCFUi(bufs[i]);
             return;
         }

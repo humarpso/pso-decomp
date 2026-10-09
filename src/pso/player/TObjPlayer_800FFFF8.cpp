@@ -40,7 +40,7 @@ M2C_UNK pop_matrix();
 M2C_UNK post_translate_matrix(void *);
 s32 draw_ginja_model(void *);
 s32 set_chunk_material_color(int);
-extern RecoveredGlobal_80100070_lbl_8049E8F8 lbl_8049E8F8;
+extern RecoveredGlobal_80100070_lbl_8049E8F8 player_chunk_material_color_table;
 extern RecoveredGlobal_80100070_lbl_8049E958 lbl_8049E958;
 extern RecoveredGlobal_80100070_lbl_8050BEC0 lbl_8050BEC0;
 extern RecoveredGlobal_80100070_lbl_8058D4C0 lbl_8058D4C0;
@@ -123,7 +123,7 @@ void TObjPlayer__sub_80100070(u8 *arg0) {
         push_matrix();
         post_translate_matrix((void *) (arg0 + 0x38));
         rotate_matrix_y((M2C_UNK)((int) (0)), (s32)((int) (M2C_FIELD(arg0, s32 *, 0x60))));
-        set_chunk_material_color((int) ((u8 *)&lbl_8049E8F8.value + ((s8) M2C_FIELD(arg0, u8 *, 0xEA) * 0x10)));
+        set_chunk_material_color((int) ((u8 *)&player_chunk_material_color_table.value + ((s8) M2C_FIELD(arg0, u8 *, 0xEA) * 0x10)));
         draw_ginja_model((void *) (M2C_FIELD(spC, s32 *, 4)));
         set_chunk_material_color((int) ((u8 *)&lbl_8049E958.value + ((s8) M2C_FIELD(arg0, u8 *, 0xEA) * 0x10)));
         draw_ginja_model((void *) (M2C_FIELD(M2C_FIELD(spC, u8 **, 0x2C), s32 *, 4)));

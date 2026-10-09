@@ -20,13 +20,13 @@ u8 *heap_alloc__5THeapFUl(s32, s32);
 s32 measure_string_len__20TWindowSubStatusDispFPv(void *);
 M2C_UNK strncpy(int, void *, int);
 extern s32 lbl_805D5544;
-extern s32 lbl_805D6460;
-extern u8 *lbl_805D6464;
+extern s32 TAdScrollWinGC__chat_log_heap;
+extern u8 *chat_last_line_buffer;
 void cache_last_chat_line(u32 arg0);
 M2C_UNK heap_free__5THeapFPv(s32, void *);
 s32 move_words__6TLobbyFPvPvi(int, void *, void *);
 extern RecoveredGlobal_8026A6DC_lbl_805187D8 lbl_805187D8;
-extern s32 lbl_805D6460;
+extern s32 TAdScrollWinGC__chat_log_heap;
 void chat_log_remove_line(s32 arg0);
 extern RecoveredGlobal_8026A6DC_lbl_805187D8 lbl_805187D8;
 void chat_log_remove_line(s32 arg0);
@@ -80,7 +80,7 @@ void chat_log_remove_line(s32 arg0) {
     temp_r31 = (u32 *)((u8 *)&lbl_805187D8.value + (arg0 * 4));
     temp_r4 = *temp_r31;
     if (temp_r4 != 0U) {
-        heap_free__5THeapFPv((s32)((void *) (lbl_805D6460)), (void *)((int) (temp_r4)));
+        heap_free__5THeapFPv((s32)((void *) (TAdScrollWinGC__chat_log_heap)), (void *)((int) (temp_r4)));
         *temp_r31 = 0U;
         if (arg0 < 0x1D) {
             move_words__6TLobbyFPvPvi((int) (temp_r31), (void *) ((u8 *)&lbl_805187D8.value + ((arg0 + 1) * 4)), (void *) ((0x1D - arg0) & 0x3FFFFFFF));
@@ -105,9 +105,9 @@ void cache_last_chat_line(u32 arg0) {
     s32 temp_r31;
     s32 var_r30;
     u8 *var_r3;
-    if ((void *) lbl_805D6464 != NULL) {
-        heap_free__5THeapFPv(lbl_805D6460, (void *) lbl_805D6464);
-        lbl_805D6464 = NULL;
+    if ((void *) chat_last_line_buffer != NULL) {
+        heap_free__5THeapFPv(TAdScrollWinGC__chat_log_heap, (void *) chat_last_line_buffer);
+        chat_last_line_buffer = NULL;
     }
     if (arg0 != 0U) {
         temp_r31 = chat_text_lacks_language_tag((const char *)((void *) (arg0)));
@@ -115,14 +115,14 @@ void cache_last_chat_line(u32 arg0) {
         if (temp_r31 != 0) {
             var_r30 += 2;
         }
-        var_r3 = heap_alloc__5THeapFUl(lbl_805D6460, var_r30);
+        var_r3 = heap_alloc__5THeapFUl(TAdScrollWinGC__chat_log_heap, var_r30);
         if (var_r3 == NULL) {
             do {
                 chat_log_remove_line((s32)((int) (0)));
-                var_r3 = heap_alloc__5THeapFUl(lbl_805D6460, var_r30);
+                var_r3 = heap_alloc__5THeapFUl(TAdScrollWinGC__chat_log_heap, var_r30);
             } while (var_r3 == NULL);
         }
-        lbl_805D6464 = var_r3;
+        chat_last_line_buffer = var_r3;
         if (temp_r31 != 0) {
             M2C_FIELD(var_r3, s8 *, 0) = 9;
             if ((s32) lbl_805D5544 == 0) {
@@ -145,11 +145,11 @@ void chat_log_add_line(s32 arg0) {
     s32 var_r30;
     temp_r29 = strlen();
     var_r30 = find_free_chat_log_slot__6TLobbyFv();
-    var_r28 = (s32) heap_alloc__5THeapFUl(lbl_805D6460, temp_r29 + 1);
+    var_r28 = (s32) heap_alloc__5THeapFUl(TAdScrollWinGC__chat_log_heap, temp_r29 + 1);
     if (var_r28 == 0) {
         do {
             chat_log_remove_line((s32) (0));
-            var_r28 = (s32) heap_alloc__5THeapFUl(lbl_805D6460, temp_r29 + 1);
+            var_r28 = (s32) heap_alloc__5THeapFUl(TAdScrollWinGC__chat_log_heap, temp_r29 + 1);
         } while (var_r28 == 0);
         var_r30 = find_free_chat_log_slot__6TLobbyFv();
     }

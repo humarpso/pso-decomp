@@ -113,7 +113,7 @@ extern const f32 TBoss6Kakusan__data_805DF51C;
 extern const f32 lbl_805DF520;
 extern const f32 lbl_805DF524;
 extern const f32 lbl_805DF528;
-void TBoss6Kakusan__sub_80322438(u8 *arg0);
+void check_beam_player_hits__13TBoss6KakusanFPv(u8 *arg0);
 }
 
 extern "C" {
@@ -133,7 +133,7 @@ typedef struct Hit_80322438 Hit_80322438;
 typedef struct VObj_80322438 VObj_80322438;
 typedef struct Vec_80322438 Vec_80322438;
 #define PSO_VCALL_VObj_80322438_m21(_self, _arg0, _arg1, _arg2, _arg3, _arg4) (((VObj_80322438 *)(_self))->m21((_arg0), (_arg1), (_arg2), (_arg3), (_arg4)))
-void TBoss6Kakusan__sub_80322438(u8 *arg0) {
+void check_beam_player_hits__13TBoss6KakusanFPv(u8 *arg0) {
   Vec_80322438 dir;
   Vec_80322438 p;
   Vec_80322438 q;
@@ -274,7 +274,7 @@ void run_task__13TBoss6KakusanFv(u8 *arg0) {
         queue_destruction__7TObjectFv(arg0);
         return;
     }
-    TBoss6Kakusan__sub_80322438((u8 *)(arg0));
+    check_beam_player_hits__13TBoss6KakusanFPv((u8 *)(arg0));
     M2C_FIELD(arg0, s32 *, 0x2C) += 1;
 }
 

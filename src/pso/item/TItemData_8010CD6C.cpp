@@ -108,7 +108,7 @@ s16 getS16_06__9TItemDataFPv(void *arg0);
 s32 has_bonus_stats__9TItemDataFPv(TItemData_8010E344 *item);
 char *get_technique_name();
 s32 is_wrapped__9TItemDataFPv();
-void TItemData__sub_8010CB10(void *, s8 *);
+void decode_packed_name_chars__9TItemDataFPvPv(void *, s8 *);
 s32 is_custom_name_srank__9TItemDataFPv(void *);
 s16 get_field6_bswap__9TItemDataFPv(void *arg0);
 s32 is_rare_item__9TItemDataFPv(u8 *item);
@@ -664,7 +664,7 @@ void format_item_name__9TItemDataFv(u8 *arg0, char *buf) {
     if (t == 0) {
         if (is_custom_name_srank__9TItemDataFPv(arg0) != 0) {
             memset(tmp, 0, 10);
-            TItemData__sub_8010CB10(arg0, tmp);
+            decode_packed_name_chars__9TItemDataFPvPv(arg0, tmp);
             if (tmp[0] - 0x41 == 1) {
                 if (item->grind != 0) {
                     sprintf(buf, lbl_8043E360, &tmp[1], item->grind);

@@ -575,7 +575,7 @@ s32 flush_input__16TKeyBoardControlFv();
 s32 read_afs_toc__6TLobbyFi(void *);
 s32 adxf_open_file__6TLobbyFiPviPv(void *, void *, int, void *);
 s32 read_pads__16TKeyBoardControlFv();
-extern RecoveredGlobal_801E3E24_TKeyBoardControl__data_80506270 TKeyBoardControl__data_80506270;
+extern RecoveredGlobal_801E3E24_TKeyBoardControl__data_80506270 TKeyBoardControl__global_key_state;
 s32 TKeyBoardControl__sub_801E3E24(s32 arg0, s32 arg1, s32 arg2);
 void bswap_16__FPUs(u16 *p);
 void bswap_32__FPUl(u32 *p);
@@ -647,7 +647,7 @@ loop_2:
             flush_input__16TKeyBoardControlFv();
             update_global_sound_frame();
             read_pads__16TKeyBoardControlFv();
-            disable_disconnected_ports__16TKeyBoardControlFv((void *) (&TKeyBoardControl__data_80506270.value));
+            disable_disconnected_ports__16TKeyBoardControlFv((void *) (&TKeyBoardControl__global_key_state.value));
             reset_state_byte__6TLobbyFv();
             goto loop_2;
         }

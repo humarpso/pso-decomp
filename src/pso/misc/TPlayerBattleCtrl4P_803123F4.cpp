@@ -65,7 +65,7 @@ M2C_UNK TWindow__close(void *);
 M2C_UNK __dl__7TObjectFPv(void *);
 M2C_UNK __dt__7TObjectFv(void *, M2C_UNK);
 void dispatch_mode_action__19TPlayerBattleCtrl4PFPv(Self_80312994 *self);
-extern s32 TPlayerBattleCtrl4P__data_805D6AA8;
+extern s32 TPlayerBattleCtrl4P__instance;
 extern u8 lbl_80475930[];
 extern u8 lbl_8047595C[];
 extern u8 lbl_80475964[];
@@ -205,7 +205,7 @@ void *__dt__19TPlayerBattleCtrl4PFPvs(void *arg0, s16 arg1) {
             M2C_FIELD(arg0, u32 *, 0x24) = 0U;
         }
         close_player_windows__19TPlayerBattleCtrl4PFPv(arg0);
-        TPlayerBattleCtrl4P__data_805D6AA8 = 0;
+        TPlayerBattleCtrl4P__instance = 0;
         __dt__7TObjectFv(arg0, 0);
         if (arg1 > 0) {
             __dl__7TObjectFPv(arg0);
@@ -244,7 +244,7 @@ void *TPlayerBattleCtrl4P__ct(void *arg0, void *parent) {
             export_character_data__10TObjPlayerFPvPv(pl, get_char_index__23TAdSinglePlyChrSelectGCFUi(i));
         }
     }
-    TPlayerBattleCtrl4P__data_805D6AA8 = (s32)arg0;
+    TPlayerBattleCtrl4P__instance = (s32)arg0;
     M2C_FIELD(arg0, s32 *, 0x1C) = 0;
     return arg0;
 }

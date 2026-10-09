@@ -16,7 +16,7 @@ extern s32 lbl_805D2B4C;
 u8 * __ct__19TObjEZBoneRotPlayerFv(u8 *arg0, s32 arg1, u8 *arg2, void *);
 void *__nw__7TObjectFUl(int);
 void * create__19TObjEZBoneRotPlayerFPvPvPv(void *arg0, void *arg1, void *arg2);
-M2C_UNK fn_800FEBBC(void*, s32);
+M2C_UNK start_bone_rotation_sequence(void*, s32);
 extern const f32 lbl_805DAA4C;
 void advance_bone_rotation__19TObjEZBoneRotPlayerFPv(void *arg0);
 }
@@ -74,7 +74,7 @@ void * create__19TObjEZBoneRotPlayerFPvPvPv(void *arg0, void *arg1, void *arg2) 
     return o;
 }
 void advance_bone_rotation__19TObjEZBoneRotPlayerFPv(void *arg0) {
-    fn_800FEBBC(arg0, M2C_FIELD(arg0, s32 *, 0x84));
+    start_bone_rotation_sequence(arg0, M2C_FIELD(arg0, s32 *, 0x84));
     if (M2C_FIELD(arg0, f32 *, 0x94) > (*(f32 *)&lbl_805DAA4C)) {
         M2C_FIELD(arg0, s32 *, 0x84) = (s32) (M2C_FIELD(arg0, s32 *, 0x84) + M2C_FIELD(M2C_FIELD(arg0, void **, 0x20), s32 *, 4));
     }

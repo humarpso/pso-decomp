@@ -467,9 +467,9 @@ void load_resources__15TOTrapAncient02Fv(void);
 void * __dt__15TOTrapAncient02Fv(void *arg0, s16 arg1);
 void * TOTrapAncient02__ct(void *arg0, void *arg1, void *arg2);
 void TOTrapAncient02R__vt78(void *arg0);
-M2C_UNK fn_8017B908(void *);
-M2C_UNK fn_8017B950(void *);
-M2C_UNK fn_8017B984(void *);
+M2C_UNK init_trap_param_clamped(void *);
+M2C_UNK clamp_trap_level_param(void *);
+M2C_UNK init_trap_object_id(void *);
 void submit_cursor_candidate(void *, s32);
 void send_code_45_1__10TObjPlayerFi(s32);
 s32 get_player_by_client_id(u32);
@@ -788,10 +788,10 @@ void *TOTrapAncient02R__ct(void *arg0, void *arg1, void *arg2) {
         M2C_FIELD(arg0, s32 *, 0x350) = 0;
     }
     M2C_FIELD(arg0, s32 *, 0x354) = M2C_FIELD(arg0, s32 *, 0x350);
-    fn_8017B984(arg0);
-    fn_8017B950(arg0);
+    init_trap_object_id(arg0);
+    clamp_trap_level_param(arg0);
     calc_trap_count__16TOTrapAncient02RFPv(arg0);
-    fn_8017B908(arg0);
+    init_trap_param_clamped(arg0);
     M2C_FIELD(arg0, u16 *, 0x33C) = 0xFFFF;
     M2C_FIELD(arg0, s32 *, 0x2A8) = 0;
     M2C_FIELD(arg0, f32 *, 0x348) = lbl_805DBA80;

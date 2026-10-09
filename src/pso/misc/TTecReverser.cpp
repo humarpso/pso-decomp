@@ -67,7 +67,7 @@ s32 copy_params__8TTecAntiFPvPv(void *, void *);
 s32 copy_technique_target_list(void *, void *);
 s32 fn_8022BE64(void *, void *, void *);
 s32 init_technique_effect_base(void *, void *, void *, void *);
-extern RecoveredGlobal_8023A094_lbl_804CC1CC lbl_804CC1CC;
+extern RecoveredGlobal_8023A094_lbl_804CC1CC technique_param_table;
 extern M2C_UNK __vt__12TTecReverser[];
 extern s32 lbl_805D3818;
 u8 *TTecReverser__ct(u8 *arg0, s32 arg1, s32 arg2, s32 arg3, s32 arg4);
@@ -205,7 +205,7 @@ u8 *TTecReverser__ct(u8 *arg0, s32 arg1, s32 arg2, s32 arg3, s32 arg4) {
     M2C_FIELD(arg0, M2C_UNK **, 0x18) = &(*(RecoveredGlobal_8023A094___vt__12TTecReverser *)&__vt__12TTecReverser).value;
     construct_target_cursor_records__10TObjPlayerFi((void *) (arg0 + 0xEC));
     M2C_FIELD(arg0, s32 *, 0) = (s32) lbl_805D3818;
-    copy_params__8TTecAntiFPvPv((void *) (arg0 + 0x88), (void *) ((u8 *)&lbl_804CC1CC.value + 0x2EC));
+    copy_params__8TTecAntiFPvPv((void *) (arg0 + 0x88), (void *) ((u8 *)&technique_param_table.value + 0x2EC));
     fn_8022BE64((void *) (arg0), (void *) (arg0 + 0x88), (void *) (arg4));
     copy_technique_target_list((void *) (arg0 + 0xEC), (void *) (arg3));
     play_sound_effect((int) (0x4002A812), (void *) (arg0 + 0x20), (int) (0), (int) (0));

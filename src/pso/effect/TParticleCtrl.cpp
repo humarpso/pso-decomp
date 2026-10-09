@@ -14,10 +14,10 @@ extern "C" {
 u32 validate_ctrl__13TParticleCtrlFPv(void *arg0);
 s32 check_value_equals__13TQuestColCtrlFPvi(s32, s32);
 
-extern s32 TParticleCtrl__data_805D2938;
+extern s32 TParticleCtrl__class_name_descriptor;
 
 u32 validate_ctrl__13TParticleCtrlFPv(void *arg0) {
-    if (((u32) M2C_FIELD(arg0, u32 *, 4) != 0U) && (check_value_equals__13TQuestColCtrlFPvi(M2C_FIELD(arg0, s32 *, 4), TParticleCtrl__data_805D2938) == 0)) {
+    if (((u32) M2C_FIELD(arg0, u32 *, 4) != 0U) && (check_value_equals__13TQuestColCtrlFPvi(M2C_FIELD(arg0, s32 *, 4), TParticleCtrl__class_name_descriptor) == 0)) {
         M2C_FIELD(arg0, u32 *, 4) = 0U;
     }
     return M2C_FIELD(arg0, u32 *, 4);

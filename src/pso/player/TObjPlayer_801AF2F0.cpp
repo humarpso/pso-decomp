@@ -2943,7 +2943,7 @@ s32 accumulate_damage_stats(s32, s32, s32);
 s32 decrement_timer__10TObjPlayerFPv(void *);
 void update_all_children__6TLobbyFPv(void *);
 s32 TObjPlayer__sub_801D6D28(M2C_UNK *);
-s32 fn_801D6D60(M2C_UNK *, s32);
+s32 get_validated_array_value(M2C_UNK *, s32);
 u8 fn_801D6DB0(M2C_UNK *);
 s8 TLobby__sub_801D6DDC(M2C_UNK *);
 s16 clamp_player_index__6TLobbyFPv(M2C_UNK *);
@@ -3921,7 +3921,7 @@ void apply_battle_rules_to_players__6TLobbyFv(void) {
         }
         if (fn_801D7134(q) == 1) {
             for (j = 0; j < 4; j++) {
-                TObjPlayer__sub_801C5780(p->f7C4, fn_801D6D60(q, j), j);
+                TObjPlayer__sub_801C5780(p->f7C4, get_validated_array_value(q, j), j);
             }
         }
         switch (TLobby__sub_801D7100(q)) {

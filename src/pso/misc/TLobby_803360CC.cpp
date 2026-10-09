@@ -112,7 +112,7 @@ M2C_UNK request_scene_change__21TAdMultiChgGameModeGCFv();
 M2C_UNK set_opening_movie_purpose(int);
 s32 start_offline_seq__23TAdSinglePlyChrSelectGCFPv(void *);
 void TLobby__sub_803362A4(void *);
-extern RecoveredGlobal_80336340_TKeyBoardControl__data_80506270 TKeyBoardControl__data_80506270;
+extern RecoveredGlobal_80336340_TKeyBoardControl__data_80506270 TKeyBoardControl__global_key_state;
 void update_title_idle_transition(Obj_80336340 *arg0);
 s32 run_load_callback_table(void *, int);
 s32 update_menu_cursor__6TLobbyFv();
@@ -217,7 +217,7 @@ void update_title_idle_transition(Obj_80336340 *arg0) {
         return;
     }
     if ((s32) M2C_FIELD(arg0, s32 *, 0x34) < (s32) M2C_FIELD(arg0, s32 *, 0x38)) {
-        if ((has_any_key_pressed__16TKeyBoardControlFPv((void *) (&TKeyBoardControl__data_80506270.value)) != 0) || (any_pad_input_active__16TKeyBoardControlFv() != 0)) {
+        if ((has_any_key_pressed__16TKeyBoardControlFPv((void *) (&TKeyBoardControl__global_key_state.value)) != 0) || (any_pad_input_active__16TKeyBoardControlFv() != 0)) {
             M2C_FIELD(arg0, s32 *, 0x34) = 0;
         }
         TLobby__sub_803362A4((void *) (arg0));

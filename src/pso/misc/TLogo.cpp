@@ -309,11 +309,11 @@ void init_logo_scene__5TLogoFv(void) {
 
 int TLogo__sub_8013F7E8(int _w0) {  return lbl_805D49D0; }
 
-    extern int lbl_805D4A50;
-int TLogo__sub_8013F7F0(int _w0) {  return lbl_805D4A50; }
+    extern int TLogo__exit_requested_flag;
+int TLogo__sub_8013F7F0(int _w0) {  return TLogo__exit_requested_flag; }
 
-    extern int lbl_805D4A40;
-int TLogo__sub_8013F7F8(int _w0) {  return lbl_805D4A40; }
+    extern int sega_logo_done_flag;
+int TLogo__sub_8013F7F8(int _w0) {  return sega_logo_done_flag; }
 
 s32 TLogo__sub_8013F800(void* p) { return *(s32*)((char*)p + 0x48); }
 

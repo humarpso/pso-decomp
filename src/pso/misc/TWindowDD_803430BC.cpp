@@ -363,7 +363,7 @@ void close_all_windows__9TWindowDDFPv(void *);
 void __dl__7TObjectFPv(void *);
 void __dt__7TObjectFv(void *, int);
 s32 classify_id__9TWindowDDFs();
-M2C_UNK fn_8034AF18();
+M2C_UNK clear_window_dd_nodes();
 void free__11TOBoss4RockFUi(void*);
 
 s32 update_close_flag__9TWindowDDFPv(void *arg0) {
@@ -924,7 +924,7 @@ Obj_80343C64 *TWindowDD__ct(Obj_80343C64 *self, void *parent, void *arg2) {
 }
 
 void free_buffers__9TWindowDDFv(void) {
-    fn_8034AF18();
+    clear_window_dd_nodes();
     if ((u32) TWindowDD__data_805D6E1C != 0U) {
         free__11TOBoss4RockFUi((void*)TWindowDD__data_805D6E1C);
         TWindowDD__data_805D6E1C = 0U;

@@ -810,7 +810,7 @@ void fn_80044330(void* p);
 int construct_target_cursor_records__10TObjPlayerFi(s32 _w0);
 void* fn_8004438C(void* p);
 void init_cursor_record__15TBoss3VoloptP01FPv(O_800443BC *self);
-void fn_800443F0(void *, s32);
+void load_volopt_param_entry(void *, s32);
 void reset_look_state__11TCameraCtrlFPv(void *);
 void set_mode__11TCameraCtrlFPv(void *);
 u8 * __ct__17TObjVoloptShutterFv(void *, s32);
@@ -909,7 +909,7 @@ extern "C" void fn_80010EBC();
 extern "C" void fn_80010EC0();
 extern "C" void fn_80010EC4();
 extern "C" void fn_80010EC8();
-extern "C" void fn_800F5D80();
+extern "C" void clear_lobby_object_state();
 extern "C" void get_actor_body_center();
 extern "C" void get_actor_level_index();
 extern "C" void get_enemy_name__14TObjEnePanarmsFPv();
@@ -983,7 +983,7 @@ void *__vt__15TBoss3VoloptP01[83] = {
     (void *)&get_pos__10TObjPlayerFii, (void *)&apply_switch_attack__10TObjPlayerFi, (void *)&enemy_spawn_jellen_effect, (void *)&trigger_switch_attack__10TObjPlayerFi,
     (void *)&enemy_spawn_zalure_effect, (void *)&TObjPlayer__sub_80010A80, (void *)&TObjPlayer__sub_800F65D0, (void *)&fn_80010EC8,
     (void *)&fn_80010EC4, (void *)&fn_80010EC0, (void *)&fn_80010EBC, (void *)&call_player_preserving_field__15TObjEnemyCustomFPv,
-    (void *)&apply_hit_message_flags__10TObjPlayerFPvPv, (void *)&apply_set_data__9TObjEnemyFPvPv, (void *)&fn_800F5D80,
+    (void *)&apply_hit_message_flags__10TObjPlayerFPvPv, (void *)&apply_set_data__9TObjEnemyFPvPv, (void *)&clear_lobby_object_state,
 };
 #define lbl_80484218 ((u8 *)lbl_80484218)
 #define __vt__15TBoss3VoloptP01 ((M2C_UNK *)__vt__15TBoss3VoloptP01)
@@ -1632,7 +1632,7 @@ void init_params__15TBoss3VoloptP01FPv(VObj_80044038 *arg0) {
     set_param__12TObjEneLappyFPvi(arg0, 0x2E);
     update_prev_position__10TObjPlayerFPv(arg0);
     reset_photon_effect__12TBoss3VoloptFPv(arg0);
-    fn_800443F0(arg0, 0x11);
+    load_volopt_param_entry(arg0, 0x11);
     reset_state__15TBoss3VoloptP01FPv(arg0);
     p = F(arg0, void *, 0xA4);
     F(p, u32, 0x18) &= ~1;

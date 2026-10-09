@@ -65,11 +65,11 @@ void bswap_entry_words__6TLobbyFi(s32 arg0);
 M2C_UNK memcpy(void *, void *, int);
 extern RecoveredGlobal_801F301C_TLobby__data_80512220 TLobby__data_80512220;
 extern RecoveredGlobal_801F301C_TLobby__data_80512240 TLobby__data_80512240;
-extern unsigned char* TLobby__data_805D5E70;
+extern unsigned char* TLobby__quest_data_base;
 extern s32 TLobby__data_805D5E74;
-extern s32 TLobby__data_805D5E78;
-extern u32 TLobby__data_805D5E7C;
-extern u32 TLobby__data_805D5E84;
+extern s32 TLobby__script_reg_array;
+extern u32 TLobby__quest_message_window;
+extern u32 TLobby__quest_choice_window;
 extern u8 TLobby__data_805D5E88;
 extern s32 TLobby__data_805D5E8C;
 extern int TLobby__data_805D5E90;
@@ -92,11 +92,11 @@ void load_quest_globals__6TLobbyFPv(u8 *arg0);
 M2C_UNK memcpy(void *, void *, int);
 extern RecoveredGlobal_801F301C_TLobby__data_80512220 TLobby__data_80512220;
 extern RecoveredGlobal_801F301C_TLobby__data_80512240 TLobby__data_80512240;
-extern unsigned char* TLobby__data_805D5E70;
+extern unsigned char* TLobby__quest_data_base;
 extern s32 TLobby__data_805D5E74;
-extern s32 TLobby__data_805D5E78;
-extern u32 TLobby__data_805D5E7C;
-extern u32 TLobby__data_805D5E84;
+extern s32 TLobby__script_reg_array;
+extern u32 TLobby__quest_message_window;
+extern u32 TLobby__quest_choice_window;
 extern u8 TLobby__data_805D5E88;
 extern s32 TLobby__data_805D5E8C;
 extern int TLobby__data_805D5E90;
@@ -194,9 +194,9 @@ int read_be16_field2__10TObjPlayerFPv(void*);
 M2C_UNK set_flag_4__9TObjLukerFPv(void*);
 int set_flags__10TObjPlayerFPvUi(void*, int);
 
-    extern unsigned char* TLobby__data_805D5E70;
+    extern unsigned char* TLobby__quest_data_base;
     extern int TLobby__data_805D5E90;
-unsigned char read_packet_byte__6TLobbyFv(void) { return TLobby__data_805D5E70[TLobby__data_805D5E90++]; }
+unsigned char read_packet_byte__6TLobbyFv(void) { return TLobby__quest_data_base[TLobby__data_805D5E90++]; }
 
 s32 dispatch_quest__6TLobbyFi(s32 arg0) {
     s32 temp_r31;
@@ -207,9 +207,9 @@ s32 dispatch_quest__6TLobbyFi(s32 arg0) {
     return temp_r31;
 }
 
-extern u32 TLobby__data_805D5E7C;
-extern u32 TLobby__data_805D5E80;
-extern u32 TLobby__data_805D5E84;
+extern u32 TLobby__quest_message_window;
+extern u32 TLobby__quest_secondary_window;
+extern u32 TLobby__quest_choice_window;
 extern u32 TLobby__data_805D5EB0;
 extern u32 TLobby__data_805D5EB4;
 extern u32 TLobby__data_805D5EB8;
@@ -217,17 +217,17 @@ extern u32 TLobby__data_805D5EBC;
 extern u32 TLobby__data_805D5EC0;
 
 void close_windows__6TLobbyFv(void) {
-    if ((u32) TLobby__data_805D5E7C != 0U) {
-        TWindow__close(TLobby__data_805D5E7C);
-        TLobby__data_805D5E7C = 0U;
+    if ((u32) TLobby__quest_message_window != 0U) {
+        TWindow__close(TLobby__quest_message_window);
+        TLobby__quest_message_window = 0U;
     }
-    if ((u32) TLobby__data_805D5E80 != 0U) {
-        TWindow__close(TLobby__data_805D5E80);
-        TLobby__data_805D5E80 = 0U;
+    if ((u32) TLobby__quest_secondary_window != 0U) {
+        TWindow__close(TLobby__quest_secondary_window);
+        TLobby__quest_secondary_window = 0U;
     }
-    if ((u32) TLobby__data_805D5E84 != 0U) {
-        TWindow__close(TLobby__data_805D5E84);
-        TLobby__data_805D5E84 = 0U;
+    if ((u32) TLobby__quest_choice_window != 0U) {
+        TWindow__close(TLobby__quest_choice_window);
+        TLobby__quest_choice_window = 0U;
     }
     if ((u32) TLobby__data_805D5EB0 != 0U) {
         queue_destruction__7TObjectFv(TLobby__data_805D5EB0);
@@ -272,11 +272,11 @@ s32 dispatch_quest_opcode(void) {
 }
 
 void save_quest_state_to_record__6TLobbyFPv(u8 *arg0) {
-    M2C_FIELD(arg0, s32 *, 0) = (s32) (*(s32 *)&TLobby__data_805D5E70);
+    M2C_FIELD(arg0, s32 *, 0) = (s32) (*(s32 *)&TLobby__quest_data_base);
     M2C_FIELD(arg0, s32 *, 4) = (s32) TLobby__data_805D5E74;
-    M2C_FIELD(arg0, s32 *, 8) = (s32) TLobby__data_805D5E78;
-    M2C_FIELD(arg0, s32 *, 0xC) = (s32) (*(s32 *)&TLobby__data_805D5E7C);
-    M2C_FIELD(arg0, s32 *, 0x10) = (s32) (*(s32 *)&TLobby__data_805D5E84);
+    M2C_FIELD(arg0, s32 *, 8) = (s32) TLobby__script_reg_array;
+    M2C_FIELD(arg0, s32 *, 0xC) = (s32) (*(s32 *)&TLobby__quest_message_window);
+    M2C_FIELD(arg0, s32 *, 0x10) = (s32) (*(s32 *)&TLobby__quest_choice_window);
     M2C_FIELD(arg0, u8 *, 0x14) = (u8) TLobby__data_805D5E88;
     M2C_FIELD(arg0, s32 *, 0x1C) = (s32) TLobby__data_805D5E8C;
     M2C_FIELD(arg0, s32 *, 0x20) = (s32) (*(s32 *)&TLobby__data_805D5E90);
@@ -286,8 +286,8 @@ void save_quest_state_to_record__6TLobbyFPv(u8 *arg0) {
     M2C_FIELD(arg0, s32 *, 0x30) = (s32) TLobby__data_805D5EA4;
     memcpy((void *) (arg0 + 0x34), (void *) (&TLobby__data_80512220.value), (int) (0x20));
     memcpy((void *) (arg0 + 0x54), (void *) (&TLobby__data_80512240.value), (int) (0x100));
-    (*(s32 *)&TLobby__data_805D5E7C) = 0;
-    (*(s32 *)&TLobby__data_805D5E84) = 0;
+    (*(s32 *)&TLobby__quest_message_window) = 0;
+    (*(s32 *)&TLobby__quest_choice_window) = 0;
     M2C_FIELD(arg0, u8 *, 0x154) = (u8) TLobby__data_805D5EA8;
     M2C_FIELD(arg0, u8 *, 0x155) = (u8) TLobby__data_805D5EA9;
     M2C_FIELD(arg0, u16 *, 0x156) = (u16) TLobby__data_805D5EAA;
@@ -307,11 +307,11 @@ void save_quest_state_to_record__6TLobbyFPv(u8 *arg0) {
 }
 
 void load_quest_globals__6TLobbyFPv(u8 *arg0) {
-    (*(s32 *)&TLobby__data_805D5E70) = M2C_FIELD(arg0, s32 *, 0);
+    (*(s32 *)&TLobby__quest_data_base) = M2C_FIELD(arg0, s32 *, 0);
     TLobby__data_805D5E74 = M2C_FIELD(arg0, s32 *, 4);
-    TLobby__data_805D5E78 = M2C_FIELD(arg0, s32 *, 8);
-    (*(s32 *)&TLobby__data_805D5E7C) = M2C_FIELD(arg0, s32 *, 0xC);
-    (*(s32 *)&TLobby__data_805D5E84) = M2C_FIELD(arg0, s32 *, 0x10);
+    TLobby__script_reg_array = M2C_FIELD(arg0, s32 *, 8);
+    (*(s32 *)&TLobby__quest_message_window) = M2C_FIELD(arg0, s32 *, 0xC);
+    (*(s32 *)&TLobby__quest_choice_window) = M2C_FIELD(arg0, s32 *, 0x10);
     TLobby__data_805D5E88 = M2C_FIELD(arg0, u8 *, 0x14);
     TLobby__data_805D5E8C = M2C_FIELD(arg0, s32 *, 0x1C);
     (*(s32 *)&TLobby__data_805D5E90) = M2C_FIELD(arg0, s32 *, 0x20);

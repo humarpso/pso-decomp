@@ -23,7 +23,7 @@ int init_action_config__10TObjPlayerFPv(void*);
 M2C_UNK export_character_data__10TObjPlayerFPvPv(void *, void *);
 int clear_id__10TObjPlayerFPv(void*);
 M2C_UNK copy_header_struct__6TLobbyFPvPv(void *, void *);
-int fn_802A15BC(void*);
+int clear_player_data_block(void*);
 int init_inventory_items__12TPlyCharDataFPv(void*);
 int reset_state__14TAdSelectTxtGCFPv(void*);
 M2C_UNK set_flags__10TObjPlayerFPvUi(void *, int);
@@ -37,7 +37,7 @@ void copy_lobby_header__10TObjPlayerFPvi(s32 *arg0, s32 arg1) {
     export_character_data__10TObjPlayerFPvPv((void *) (arg1), (void *) ((s8 *)arg0 + 0xC));
 }
 
-void initialize_player_data__10TObjPlayerFPv(void* p) { *(unsigned char*)((char*)p + 0x3) = 0; *(unsigned char*)((char*)p + 0x2) = 0; *(unsigned char*)((char*)p + 0x1) = 0; *(unsigned char*)(p) = 0; init_inventory_items__12TPlyCharDataFPv(p); reset_state__14TAdSelectTxtGCFPv((char*)p + 0x34c); fn_802A15BC((char*)p + 0x370); TObjPlayer__sub_802A1588((void*)((char*)p + 0x3c0)); init_item_counts_max__10TObjPlayerFPv((P_802A1544 *)(p)); }
+void initialize_player_data__10TObjPlayerFPv(void* p) { *(unsigned char*)((char*)p + 0x3) = 0; *(unsigned char*)((char*)p + 0x2) = 0; *(unsigned char*)((char*)p + 0x1) = 0; *(unsigned char*)(p) = 0; init_inventory_items__12TPlyCharDataFPv(p); reset_state__14TAdSelectTxtGCFPv((char*)p + 0x34c); clear_player_data_block((char*)p + 0x370); TObjPlayer__sub_802A1588((void*)((char*)p + 0x3c0)); init_item_counts_max__10TObjPlayerFPv((P_802A1544 *)(p)); }
 
 void init_item_counts_max__10TObjPlayerFPv(P_802A1544 *arg0) {
     s32 i;

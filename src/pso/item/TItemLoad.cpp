@@ -8,7 +8,7 @@ struct O_80110788 { s32 arr[4]; s32 f10; s32 f14; };
 
 extern "C" {
 s32 TItemLoad__sub_80110750(O_80110750 *self, s32 i);
-void TItemLoad__sub_80110788(O_80110788 *self);
+void clear_slots__9TItemLoadFPv(O_80110788 *self);
 }
 
 extern "C" {
@@ -31,7 +31,7 @@ s32 TItemLoad__sub_80110750(O_80110750 *self, s32 i) {
 
 int update_item__9TItemLoadFPv(void* p) { return test_flags_any((char*)p + 0x1c, 2); }
 
-void TItemLoad__sub_80110788(O_80110788 *self) {
+void clear_slots__9TItemLoadFPv(O_80110788 *self) {
     s32 i;
     for (i = 0; i < 4; i++) {
         self->arr[i] = 0;

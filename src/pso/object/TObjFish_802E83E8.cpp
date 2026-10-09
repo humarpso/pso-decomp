@@ -989,7 +989,7 @@ void set_state_and_send__8TObjFishFPvi(u8 *arg0, s32 arg1);
 #define set_state_and_send__8TObjFishFPvi ((s32 (*)(void *, int))set_state_and_send__8TObjFishFPvi)
 M2C_UNK push_ring_point__15TBoss7LaserPtclFPvPv(void *, void *);
 u32 construct_with_params__16TBoss7LaserLightFPviii(void *, void *, int, int);
-M2C_UNK fn_8035A8E0(int, void *);
+M2C_UNK calc_laser_ray_hit_point(int, void *);
 M2C_UNK calc_world_position__15TBoss7LaserPtclFPvPv(int, int);
 s32 is_state_2__15TBoss7LaserPtclFPv(void *);
 M2C_UNK init_laser__15TBoss7LaserPtclFPv(void *);
@@ -2030,7 +2030,7 @@ void TBoss7LaserPtcl__sub_802E8FCC(u8 *arg0, u32 arg1) {
             if ((u32) M2C_FIELD(arg0, u32 *, 0x7A8) != 0U) {
                 calc_position__15TBoss7LaserPtclFPvPvPv(M2C_FIELD(arg0, void **, 0x7A8), (void *) ((u8 *)(arg0) + 0x4DC), (void *) ((u8 *)(arg0) + 0x4E8));
                 calc_world_position__15TBoss7LaserPtclFPvPv((int) (M2C_FIELD(arg0, u32 *, 0x7A8)), (int) (temp_r30_2));
-                fn_8035A8E0((int) (M2C_FIELD(arg0, u32 *, 0x7A8)), (void *) (&sp8));
+                calc_laser_ray_hit_point((int) (M2C_FIELD(arg0, u32 *, 0x7A8)), (void *) (&sp8));
             }
             temp_r3 = (u8 *)(csnVector((M2C_UNK *)&sp8, temp_r30_2, 0x16EF));
             if (temp_r3 != NULL) {

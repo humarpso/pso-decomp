@@ -31,7 +31,7 @@ s32 get_instance__8TGStreamFv(M2C_UNK *);
 M2C_UNK TGStream__ct(M2C_UNK *, M2C_UNK);
 M2C_UNK open__8TGStreamFPvPvi(M2C_UNK *, s32, M2C_UNK);
 M2C_UNK move_data__6TLobbyFv(void *, M2C_UNK *, s32);
-extern u8 lbl_80504200[];
+extern u8 gstream_sector_buffer[];
 s32 read_whole_file__8TGStreamFiPv(s32 arg0, u8 *arg1);
 }
 
@@ -85,8 +85,8 @@ s32 read_whole_file__8TGStreamFiPv(s32 arg0, u8 *arg1) {
     }
     rem = size % 2048;
     if (rem > 0) {
-        read_sectors_sync__8TGStreamFPvii((M2C_UNK *)&s, 1, (s32)lbl_80504200);
-        move_data__6TLobbyFv(arg1 + n * 2048, (M2C_UNK *)lbl_80504200, rem);
+        read_sectors_sync__8TGStreamFPvii((M2C_UNK *)&s, 1, (s32)gstream_sector_buffer);
+        move_data__6TLobbyFv(arg1 + n * 2048, (M2C_UNK *)gstream_sector_buffer, rem);
     }
     TGStream__ct((M2C_UNK *)&s, -1);
     return size;

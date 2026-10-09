@@ -412,7 +412,7 @@ extern u8 *lbl_805D7C74;
 extern u16 lbl_805D7C7A;
 void TLobby__sub_80429AC8(void);
 s32 TLobby__sub_803F9F04(void *, void *, int);
-s16 TLobby__sub_80426CAC(u8 *dst, void *src, void *mac, u16 type, u8 flag, u16 a, u16 len);
+s16 build_ethernet_frame_header__6TLobbyFPvPvPvUsUcUsUs(u8 *dst, void *src, void *mac, u16 type, u8 flag, u16 a, u16 len);
 }
 
 extern "C" {
@@ -505,7 +505,7 @@ s16 query_link_status__6TLobbyFv(void);
 
 s32 set_connect_mode__6TLobbyFi(s32 arg0);
 
-s16 TLobby__sub_80426CAC(u8 *dst, void *src, void *mac, u16 type, u8 flag, u16 a, u16 len) {
+s16 build_ethernet_frame_header__6TLobbyFPvPvPvUsUcUsUs(u8 *dst, void *src, void *mac, u16 type, u8 flag, u16 a, u16 len) {
   u8 *p;
   u8 c;
   u16 t;

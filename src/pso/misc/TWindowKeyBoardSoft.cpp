@@ -40,7 +40,7 @@ extern const f32 lbl_805DD058;
 void draw_text_glyphs__20TWindowSubStatusDispFPvPvPv(void *arg0, void *arg1, void *arg2);
 s32 measure_string_len__20TWindowSubStatusDispFPv(void *);
 M2C_UNK strncpy(M2C_UNK *, u8 *, M2C_UNK);
-void TWindowKeyBoardSoft__sub_8025D264(KbSoft_8025D264 *self, char *src);
+void insert_string__19TWindowKeyBoardSoftFPvPv(KbSoft_8025D264 *self, char *src);
 }
 
 extern "C" {
@@ -242,7 +242,7 @@ void TWindowKeyBoardSoft__sub_8025CFA8(void *arg0, M2C_UNK *arg1) {
 
 #pragma push
 #pragma opt_propagation off
-void TWindowKeyBoardSoft__sub_8025D264(KbSoft_8025D264 *self, char *src) {
+void insert_string__19TWindowKeyBoardSoftFPvPv(KbSoft_8025D264 *self, char *src) {
     s32 n;
     u8 *p = self->buf;
     s8 len = measure_string_len__20TWindowSubStatusDispFPv(src);
@@ -276,7 +276,7 @@ void TWindowKeyBoardSoft__sub_8025D264(KbSoft_8025D264 *self, char *src) {
 }
 #pragma pop
 
-void update_input__19TWindowKeyBoardSoftFPvPv(void* p, void* a1) { TWindowKeyBoardSoft__sub_8025D1C8(p, *(void**)((char*)p + 0xa0)); TWindowKeyBoardSoft__sub_8025D264((KbSoft_8025D264 *)(p), (char *)(a1)); }
+void update_input__19TWindowKeyBoardSoftFPvPv(void* p, void* a1) { TWindowKeyBoardSoft__sub_8025D1C8(p, *(void**)((char*)p + 0xa0)); insert_string__19TWindowKeyBoardSoftFPvPv((KbSoft_8025D264 *)(p), (char *)(a1)); }
 
 typedef s32 M2C_UNK;
 void append_text_entry__19TWindowKeyBoardSoftFPvPv(u8 *arg0, u8 *arg1) {

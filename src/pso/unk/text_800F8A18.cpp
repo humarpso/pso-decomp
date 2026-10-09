@@ -10,11 +10,11 @@ M2C_UNK fn_800F8A78();
 s32 strncmp(s32, M2C_UNK *, M2C_UNK);
 M2C_UNK strncpy(M2C_UNK *, s32, M2C_UNK);
 M2C_UNK fn_803DEE48(s32);
-extern M2C_UNK lbl_80501178[];
+extern M2C_UNK player_name_copy_buffer[];
 extern M2C_UNK lbl_805DA914;
 
 void copy_name(s32 arg0) {
-    strncpy(lbl_80501178, arg0, 0x10);
+    strncpy(player_name_copy_buffer, arg0, 0x10);
     if (strncmp(arg0, &lbl_805DA914, 0x10) == 0) {
         fn_800F8A78();
     }

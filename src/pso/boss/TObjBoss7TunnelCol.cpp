@@ -47,7 +47,7 @@ void *__dt__18TObjBoss7TunnelColFv(void *arg0, s16 arg1) {
 }
 
 extern M2C_UNK __vt__18TObjBoss7TunnelCol[];
-extern M2C_UNK lbl_80474420[];
+extern M2C_UNK TObjBoss7TunnelCol__col_desc[];
 extern void *lbl_805D3FF0;
 extern const f32 lbl_805DECA0;
 extern const f32 lbl_805DEC9C;
@@ -57,7 +57,7 @@ void *TObjBoss7TunnelCol__ct(void *arg0) {
     construct_collider_proxy__10TObjPlayerFPv(arg0);
     M2C_FIELD(arg0, M2C_UNK **, 0x18) = __vt__18TObjBoss7TunnelCol;
     M2C_FIELD(arg0, void **, 0x0) = lbl_805D3FF0;
-    fn_8002B630(self->f_AC, lbl_80474420);
+    fn_8002B630(self->f_AC, TObjBoss7TunnelCol__col_desc);
     M2C_FIELD(arg0, f32 *, 0x38) = lbl_805DECA0;
     M2C_FIELD(arg0, f32 *, 0x3C) = lbl_805DEC9C;
     M2C_FIELD(arg0, f32 *, 0x40) = lbl_805DEC9C;

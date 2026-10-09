@@ -36,7 +36,7 @@ s32 get_scroll_delay_for_mode__14TAdScrollWinGCFPv(void *);
 extern u8 lbl_80476770[];
 extern u8 lbl_80476778[];
 extern RecoveredGlobal_80327698___vt__14TAdScrollWinGC __vt__14TAdScrollWinGC;
-extern s32 lbl_805D41A8;
+extern s32 TAdScrollWinGC__class_name;
 extern s32 lbl_805D6C68;
 extern const f32 lbl_805DF6B4;
 extern const f32 lbl_805DF6B8;
@@ -105,7 +105,7 @@ void *TAdScrollWinGC__ct(void *arg0, void *arg1, s32 arg2, s32 arg3) {
     s32 i;
     __ct__7TObjectFP7TObject(arg0, arg1);
     M2C_FIELD(arg0, M2C_UNK **, 0x18) = &__vt__14TAdScrollWinGC.value;
-    M2C_FIELD(arg0, s32 *, 0) = (s32) lbl_805D41A8;
+    M2C_FIELD(arg0, s32 *, 0) = (s32) TAdScrollWinGC__class_name;
     lbl_805D6C68 = TAdMultiPlyChrSelectGC__sub_802C6FA8();
     M2C_FIELD(arg0, s32 *, 0x3C) = 0;
     M2C_FIELD(arg0, s32 *, 0x40) = 0;

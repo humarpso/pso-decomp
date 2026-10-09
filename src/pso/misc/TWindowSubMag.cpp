@@ -72,7 +72,7 @@ s32 get_camera_id__11TCameraCtrlFv();
 s32 get_message_10__20TWindowSubStatusDispFPv(M2C_UNK);
 M2C_UNK initialize_mag_data__9TItemDataFPv(M2C_UNK *);
 M2C_UNK deserialize_mag__9TItemDataFPvPv(s32, M2C_UNK *);
-s32 TItemMag__sub_801143E8(M2C_UNK *, s32);
+s32 get_photon_blast_at_slot__8TItemMagFPvi(M2C_UNK *, s32);
 s32 calc_text_width();
 M2C_UNK append_text_space();
 M2C_UNK text_builder_append();
@@ -160,7 +160,7 @@ s32 setup_list__13TWindowSubMagFPv(void *arg0);
 void update_displayed_item__13TWindowSubMagFPv(void *arg0);
 void update_mag_help__13TWindowSubMagFPv(void *arg0);
 M2C_UNK deserialize_mag__9TItemDataFPvPv(s32, M2C_UNK *);
-s32 TItemMag__sub_801143E8(M2C_UNK *, s32);
+s32 get_photon_blast_at_slot__8TItemMagFPvi(M2C_UNK *, s32);
 void *create_message_window__6TLobbyFiiUis(M2C_UNK, M2C_UNK *, s32, M2C_UNK);
 M2C_UNK TWindowHelpItem__set_displayed_item_by_id(s32, s32);
 M2C_UNK *get_help_text_string(s32);
@@ -223,7 +223,7 @@ s32 count_slots__13TWindowSubMagFPv(void *arg0) {
     deserialize_mag__9TItemDataFPvPv(M2C_FIELD(arg0, s32 *, 0x2C), &sp8);
     var_r31 = 0;
 loop_1:
-    if (TItemMag__sub_801143E8(&sp8, var_r31) == -1) {
+    if (get_photon_blast_at_slot__8TItemMagFPvi(&sp8, var_r31) == -1) {
         return var_r31;
     }
     var_r31 += 1;
@@ -257,7 +257,7 @@ void *create_learned_blast_toast__13TWindowSubMagFPv(u8 *arg0) {
     void *win;
     initialize_mag_data__9TItemDataFPv((M2C_UNK *)&item);
     deserialize_mag__9TItemDataFPvPv(M2C_FIELD(arg0, s32 *, 0x2C), (M2C_UNK *)&item);
-    n = TItemMag__sub_801143E8((M2C_UNK *)&item, M2C_FIELD(arg0, s8 *, 0x1E));
+    n = get_photon_blast_at_slot__8TItemMagFPvi((M2C_UNK *)&item, M2C_FIELD(arg0, s8 *, 0x1E));
     if (n == -1) {
         return 0;
     }
@@ -319,7 +319,7 @@ void *create_action_menu__13TWindowSubMagFPvi(TWindowSubMag_8027B62C *menu, s32 
         forward_trade_action_default__16TObjCityMainWarpFPviii(window, get_message_10__20TWindowSubStatusDispFPv(0x65), 6, 1);
     }
     deserialize_mag__9TItemDataFPvPv(menu->field_0x2c, mag);
-    if (TItemMag__sub_801143E8(mag, 0) != -1) {
+    if (get_photon_blast_at_slot__8TItemMagFPvi(mag, 0) != -1) {
         forward_trade_action_default__16TObjCityMainWarpFPviii(window, get_message_10__20TWindowSubStatusDispFPv(0x64), 6, 0);
     } else {
         draw_text_gray__17TWindowSubComCardFiiii(window, get_message_10__20TWindowSubStatusDispFPv(0x64), 6, 0);

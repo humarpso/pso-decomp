@@ -370,7 +370,7 @@ M2C_UNK copy_pos__11TNowLoadingFPvPv(void *, void *);
 void * TObjPlayer__sub_800A05B8(void *, s16);
 M2C_UNK trigger_targets_action__10TObjPlayerFPv();
 u8 * TObjEneDarkGunCenter__ct(u8 *arg0, M2C_UNK arg1, s32 arg2);
-void fn_800A0FAC(u8 *arg0);
+void clear_lappy_flag_set_param(u8 *arg0);
 void fn_800A0FDC(u8 *arg0);
 void TObjPlayer__sub_800A100C(s32 _w0);
 s32 update_movement_and_notify__10TObjPlayerFi(s32 arg0);
@@ -611,7 +611,7 @@ extern "C" {
 void fn_80010EC8();
 }
 extern "C" {
-void fn_800F5D80();
+void clear_lobby_object_state();
 }
 extern "C" {
 void get_actor_body_center();
@@ -821,7 +821,7 @@ void *lbl_804907EC[83] = {
     (void *)&get_pos__10TObjPlayerFii, (void *)&apply_switch_attack__10TObjPlayerFi, (void *)&enemy_spawn_jellen_effect, (void *)&trigger_switch_attack__10TObjPlayerFi,
     (void *)&enemy_spawn_zalure_effect, (void *)&TObjPlayer__sub_80010A80, (void *)&TObjPlayer__sub_800F65D0, (void *)&fn_80010EC8,
     (void *)&fn_80010EC4, (void *)&fn_80010EC0, (void *)&fn_80010EBC, (void *)&call_player_preserving_field__15TObjEnemyCustomFPv,
-    (void *)&apply_hit_message_flags__10TObjPlayerFPvPv, (void *)&apply_set_data__9TObjEnemyFPvPv, (void *)&fn_800F5D80,
+    (void *)&apply_hit_message_flags__10TObjPlayerFPvPv, (void *)&apply_set_data__9TObjEnemyFPvPv, (void *)&clear_lobby_object_state,
 };
 
 extern M2C_UNK lbl_804909C4[];
@@ -829,11 +829,11 @@ extern u8 lbl_8058D490[];
 extern s32 lbl_805D29C8;
 extern s32 lbl_805D5004;
 extern f32 lbl_805D5008;
-extern u32 lbl_805D500C;
-extern u32 lbl_805D5010;
+extern u32 player_effect_bml_resource;
+extern u32 TObjPlayer__effect_resource;
 extern s32 lbl_805D5014;
 extern s32 lbl_805D5018;
-extern s32 lbl_805D501C;
+extern s32 TObjPlayer__shadow_chunk_object;
 extern const f32 lbl_805D9978;
 extern const f32 lbl_805D997C;
 extern const f32 lbl_805D9980;
@@ -875,7 +875,7 @@ u8 *TObjEneDarkGunCenter__ct(u8 *arg0, M2C_UNK arg1, s32 arg2) {
     return arg0;
 }
 
-void fn_800A0FAC(u8 *arg0) {
+void clear_lappy_flag_set_param(u8 *arg0) {
     M2C_FIELD(arg0, s32 *, 0x388) = (s32) (M2C_FIELD(arg0, s32 *, 0x388) & 0xFBFFFFFF);
     set_param__12TObjEneLappyFPvi(arg0, 0x22);
 }
@@ -1160,7 +1160,7 @@ void render_shadow__10TObjPlayerFi(s32 arg0) {
         }
         push_matrix();
         post_translate_matrix(arg0 + 0x3B4);
-        draw_chunk_object(lbl_805D501C);
+        draw_chunk_object(TObjPlayer__shadow_chunk_object);
         pop_matrix();
     }
 }
@@ -1496,13 +1496,13 @@ void *create_instance__10TObjPlayerFPv(void *arg0) {
 }
 
 void cleanup_effects__10TObjPlayerFv(void) {
-    if ((u32) lbl_805D500C != 0U) {
-        TLobby__sub_8001FE7C((void*)lbl_805D500C, 1);
-        lbl_805D500C = 0U;
+    if ((u32) player_effect_bml_resource != 0U) {
+        TLobby__sub_8001FE7C((void*)player_effect_bml_resource, 1);
+        player_effect_bml_resource = 0U;
     }
-    if ((u32) lbl_805D5010 != 0U) {
-        free_if_valid__10TObjPlayerFi((void*)lbl_805D5010);
-        lbl_805D5010 = 0U;
+    if ((u32) TObjPlayer__effect_resource != 0U) {
+        free_if_valid__10TObjPlayerFi((void*)TObjPlayer__effect_resource);
+        TObjPlayer__effect_resource = 0U;
     }
     reset_effect_count__10TObjPlayerFv();
     TEneEffHamon__sub_800A380C();
@@ -1534,7 +1534,7 @@ Obj_800A2EDC *TObjPlayer__sub_800A2EDC(Obj_800A2EDC *arg0, s16 arg1) {
 }
 
 #define F(T, o) (*(T *)((u8 *)self + (o)))
-#define G500C ((u8 *)lbl_805D500C)
+#define G500C ((u8 *)player_effect_bml_resource)
 u8 *TObjPlayer__sub_800A2F94(u8 *self, s32 arg1, u8 *arg2) {
     s32 i;
 
@@ -1610,7 +1610,7 @@ s32 TObjPlayer__sub_800A3210(s32 i, s32 _w1, s32 _w2) {
 
 int is_flag_set_388_bit26__10TObjPlayerFPv(void* p) { return (*(u32*)((char*)p + 0x388) >> 26) & 0x1; }
 
-void set_fields_24_34_from_global__10TObjPlayerFPvPv(void* a0, void* a1) { *(int*)((char*)a0 + 0x34) = get_bml_model((void*)((*(int *)&lbl_805D500C))); *(int*)((char*)a0 + 0x24) = TObjFish__sub_8001EDB0((void*)((*(int *)&lbl_805D500C)), a1); }
+void set_fields_24_34_from_global__10TObjPlayerFPvPv(void* a0, void* a1) { *(int*)((char*)a0 + 0x34) = get_bml_model((void*)((*(int *)&player_effect_bml_resource))); *(int*)((char*)a0 + 0x24) = TObjFish__sub_8001EDB0((void*)((*(int *)&player_effect_bml_resource)), a1); }
 
 void clear_counter__10TObjPlayerFPv(void* p) { *(s32*)((char*)p + 0x340) = 0; }
 

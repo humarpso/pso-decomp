@@ -57,7 +57,7 @@ Vec2_8024EC34 *get_viewport_offset__19TWindowKeyBoardSoftFi(s32);
 void adjust_pos_for_split_screen__19TWindowKeyBoardSoftFPvi(Vec2_8024EC34 *arg0, s32 arg1);
 s32 get_camera_id__11TCameraCtrlFv();
 Vec2_8024EC34 *get_zero_vec2();
-extern Vec2_8024EC34 lbl_8044EC70[];
+extern Vec2_8024EC34 keyboard_soft_viewport_offset_table[];
 extern Vec2_8024EC34 lbl_8044EC80[];
 extern Vec2_8024EC34 lbl_8044EC98[];
 extern const float lbl_805DCC78;
@@ -283,7 +283,7 @@ Vec2_8024EC34 *get_viewport_offset__19TWindowKeyBoardSoftFi(s32 i) {
         break;
     case 2:
         if (i >= 0 && i <= 2) {
-            return &lbl_8044EC70[i];
+            return &keyboard_soft_viewport_offset_table[i];
         }
         break;
     case 3:

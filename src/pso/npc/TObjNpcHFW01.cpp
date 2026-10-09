@@ -100,7 +100,7 @@ s32 setup_common__11TObjNpcBaseFv(void *);
 s32 fn_8014AAC4(void *);
 extern M2C_UNK __vt__12TObjNpcHFW01[];
 extern s32 lbl_805D2DB8;
-extern s32 *TObjNpcHFW01__data_805D57B0;
+extern s32 *TObjNpcHFW01__resource_node;
 extern s32 TObjNpcHFW01__data_805D57B4;
 u8 *TObjNpcHFW01__ct(u8 *arg0, M2C_UNK arg1, s32 arg2);
 }
@@ -137,7 +137,7 @@ u8 *TObjNpcHFW01__ct(u8 *arg0, M2C_UNK arg1, s32 arg2) {
     M2C_FIELD(arg0, s32 *, 0) = (s32) lbl_805D2DB8;
     ((VObj_18_aa4667 *)(arg0))->m79(arg2);
     init_position_vectors__10TObjPlayerFi((void *) (arg0));
-    M2C_FIELD(arg0, s32 *, 0x34) = (s32) *TObjNpcHFW01__data_805D57B0;
+    M2C_FIELD(arg0, s32 *, 0x34) = (s32) *TObjNpcHFW01__resource_node;
     M2C_FIELD(arg0, s32 *, 0x24) = (s32) TObjNpcHFW01__data_805D57B4;
     setup_common__11TObjNpcBaseFv((void *) (arg0));
     return arg0;

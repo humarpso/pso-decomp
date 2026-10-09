@@ -10,7 +10,7 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 extern "C" {
 extern const f32 TParticleCtrl__data_805D94E0[1] = {0.0f};
 extern const f32 TParticleCtrl__data_805D94E4[1] = {1.0f};
-const char *TParticleCtrl__data_805D2938[2] = {"TParticleCtrl", 0};
+const char *TParticleCtrl__class_name_descriptor[2] = {"TParticleCtrl", 0};
 }
 #pragma inline_depth(1)
 #pragma auto_inline off
@@ -151,7 +151,7 @@ extern u32 TParticleCtrl__data_805D4F04;
 void free_all__13TParticleCtrlFv(void);
 s32 read_disc_file(s32, s32);
 s32 alloc_buffer__11TOBoss4RockFPv(M2C_UNK);
-extern u32 lbl_805D2948;
+extern u32 particle_pool_limit;
 extern int lbl_805D4EF8;
 void init_particle_buffer__13TParticleCtrlFv(void);
 extern s32 lbl_805D4EFC;
@@ -492,7 +492,7 @@ extern "C" {
 extern u32 lbl_805D2940[1];
 extern const char *lbl_8048E758[4];
 extern void *particle_regular_bml_descriptor[4];
-extern const char *lbl_805D2944;
+extern const char *TParticleCtrl__particle_entry_path;
 }
 
 void clear_active_flag__13TParticleCtrlFPv(void* p) { *(u16*)((char*)p + 0x2c) &= 0xfffe; }
@@ -526,7 +526,7 @@ extern "C" {
 u32 lbl_805D2940[1] = {0};
 const char *lbl_8048E758[4] = {"eff_f_foie.gj", "eff_sinowahamon.gj", "jungle_hamon.gj", 0};
 void *particle_regular_bml_descriptor[4] = {(void *)"bm_tec_regurar.bml", lbl_8048E758, lbl_805D2940, (void *)0x30000};
-const char *lbl_805D2944 = "particleentry.dat";
+const char *TParticleCtrl__particle_entry_path = "particleentry.dat";
 }
 
 extern "C" {
@@ -590,7 +590,7 @@ extern void *tl_clipout;
                             direction_action, direction_source) do {           \
     __ct__7TObjectFP7TObject(particle, tl_07);                                 \
     particle->vtable = __vt__13TParticleCtrl;                                  \
-    particle->descriptor = (s32)TParticleCtrl__data_805D2938[0];                       \
+    particle->descriptor = (s32)TParticleCtrl__class_name_descriptor[0];                       \
     particle->field4C = 0;                                                     \
     particle->field50 = 0;                                                     \
     particle->field54 = 0;                                                     \
@@ -635,7 +635,7 @@ void *__ct__13TParticleCtrlFv(
 {
     __ct__7TObjectFP7TObject(particle, tl_07);
     particle->vtable = __vt__13TParticleCtrl;
-    particle->descriptor = (s32)TParticleCtrl__data_805D2938[0];
+    particle->descriptor = (s32)TParticleCtrl__class_name_descriptor[0];
     particle->field4C = 0;
     particle->field50 = 0;
     particle->field54 = 0;
@@ -688,7 +688,7 @@ void *initialize_with_direction__13TParticleCtrlFPvPvPviiiii(
 {
     __ct__7TObjectFP7TObject(particle, tl_07);
     particle->vtable = __vt__13TParticleCtrl;
-    particle->descriptor = (s32)TParticleCtrl__data_805D2938[0];
+    particle->descriptor = (s32)TParticleCtrl__class_name_descriptor[0];
     particle->field4C = 0;
     particle->field50 = 0;
     particle->field54 = 0;
@@ -799,10 +799,10 @@ void free_all__13TParticleCtrlFv(void) {
 }
 void init_particle_buffer__13TParticleCtrlFv(void) {
     s32 temp_r3;
-    temp_r3 = read_disc_file((s32)lbl_805D2944, ((*(s32 *)&lbl_805D4EF8) = alloc_buffer__11TOBoss4RockFPv(0x13000)));
-    lbl_805D2948 = 0;
+    temp_r3 = read_disc_file((s32)TParticleCtrl__particle_entry_path, ((*(s32 *)&lbl_805D4EF8) = alloc_buffer__11TOBoss4RockFPv(0x13000)));
+    particle_pool_limit = 0;
     if (temp_r3 >= 0) {
-        lbl_805D2948 = (u32) temp_r3 / 152U;
+        particle_pool_limit = (u32) temp_r3 / 152U;
     }
 }
 s32 get_particle_by_index__13TParticleCtrlFi(s32 arg0) {

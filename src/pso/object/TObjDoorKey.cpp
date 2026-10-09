@@ -63,7 +63,7 @@ s32 load_resource_from_descriptor(s32, int, void *, int, int, int);
 s32 alloc__23TAdSinglePlyChrSelectGCFPv(int);
 s32 load_gvm_texture_file(void *);
 extern u8 lbl_804456D8[];
-extern u8 lbl_804B7920[];
+extern u8 TObjDoorKey__resource_descriptor[];
 extern s32 TObjDoorKey__data_8050DCA8[];
 extern u32 lbl_805D5BF8;
 extern s32 TObjDoorKey__data_805D5BFC;
@@ -117,7 +117,7 @@ s32 init_collision_body_parts(void *, void *, int);
 M2C_UNK init_key__5TOKeyFPv(void *, void *);
 u8 *TOKey__ct(void *);
 void set_type__14TOKeyAncient01FPv(void *);
-extern u8 lbl_804B7930[];
+extern u8 TObjDoorKey__collision_body_parts[];
 extern M2C_UNK __vt__11TObjDoorKey[];
 extern s32 lbl_805D3344;
 extern s16 lbl_805D5C00;
@@ -325,7 +325,7 @@ void *TObjDoorKey__ct(void *arg0, void *arg1, void *arg2) {
     if (M2C_FIELD(arg0, s32 *, 0x8C) > 9) {
         M2C_FIELD(arg0, s32 *, 0x8C) = 9;
     }
-    init_collision_body_parts(arg0, lbl_804B7930, 1);
+    init_collision_body_parts(arg0, TObjDoorKey__collision_body_parts, 1);
     M2C_FIELD(arg0, s32 *, 0x30) |= 0x40000000;
     reset_photon_effect__10TObjPlayerFPv(arg0);
     Vec_80190020 pos = M2C_FIELD(arg0, Vec_80190020 *, 0x38);
@@ -362,7 +362,7 @@ extern void *tl_05;
 void load_resources__11TObjDoorKeyFv(void) {
     s32 r = alloc__23TAdSinglePlyChrSelectGCFPv(0x440);
     if (r != 0) {
-        r = load_resource_from_descriptor(r, 5, lbl_804B7920, 0, 0, 0);
+        r = load_resource_from_descriptor(r, 5, TObjDoorKey__resource_descriptor, 0, 0, 0);
     }
     (*(s32 *)&lbl_805D5BF8) = r;
     TObjDoorKey__data_805D5BFC = load_gvm_texture_file(lbl_804456D8);

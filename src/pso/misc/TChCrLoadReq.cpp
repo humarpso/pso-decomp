@@ -31,7 +31,7 @@ extern void *lbl_805D3B60;
 u8 *TChCrLoadReq__sub_8028D360(u8 *arg0, s32 arg1);
 void TLobby__sub_8028D738(s32, s32);
 s32 get_display_index__12TCharaMakingFPv(void *);
-extern u8 lbl_804D8E20[];
+extern u8 class_appearance_table[];
 void reset_request__12TChCrLoadReqFPv(Rq_8028D214 *arg0);
 }
 
@@ -103,7 +103,7 @@ void reset_request__12TChCrLoadReqFPv(Rq_8028D214 *arg0) {
     s32 t;
     arg0->f58 = (s32)((u8 *)arg0->f48 + 8);
     t = get_display_index__12TCharaMakingFPv(arg0->f38) * 0x2C;
-    arg0->f5c = lbl_804D8E20 + t;
+    arg0->f5c = class_appearance_table + t;
     TLobby__sub_8028D738(arg0->f40, t);
     arg0->f44[0] = 0;
     arg0->f48->a4 = 0;

@@ -72,7 +72,7 @@ extern const f32 lbl_805DD1BC;
 extern char lbl_805DD1C0[2];
 void draw_item_list_capacity(void *arg0, Win_80267714 *arg1, s32 arg2, s32 arg3);
 s32 get_array_entry__20TWindowSubStatusDispFPvi(void *, s16);
-void TWindowSubStatusDisp__sub_80267D80(void *arg0);
+void update_scroll_offset__20TWindowSubStatusDispFPv(void *arg0);
 }
 
 extern "C" {
@@ -647,7 +647,7 @@ void clamp_item_list_scroll(u8 *arg0) {
 }
 
 #pragma fp_contract on
-void TWindowSubStatusDisp__sub_80267D80(void *arg0) {
+void update_scroll_offset__20TWindowSubStatusDispFPv(void *arg0) {
   s8 *new_var;
   f32 var_f4;
   u32 n;
@@ -781,7 +781,7 @@ void update_item_list_window(u8 *arg0) {
         }
     }
     initialize_subwindow__9TWindowDDFPv((void *) (arg0));
-    TWindowSubStatusDisp__sub_80267D80((void *)((void *) (arg0)));
+    update_scroll_offset__20TWindowSubStatusDispFPv((void *)((void *) (arg0)));
     step_window_tween((void *) (arg0));
     ((s32 (*)(void *))center_list_selection)((void *) (arg0));
     ((s32 (*)(void *))clamp_item_list_scroll)((void *) (arg0));

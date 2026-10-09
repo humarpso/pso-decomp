@@ -48,7 +48,7 @@ M2C_UNK restore_player_cameras();
 u8 *get_scripted_camera_playback();
 void run_task__17TBoss5GryphonDemoFv(u8 *arg0);
 void clear_entry_flags__17TBoss5GryphonDemoFPv(O_80066304 *self);
-void TBoss5GryphonDemo__sub_8006633C(O_8006633C *self);
+void set_all_entry_flags__17TBoss5GryphonDemoFPv(O_8006633C *self);
 M2C_UNK VecCopy__FP3VecPC3Vec(void *, void *);
 void fn_8002B630(void *, void *);
 void clear_entry_flags__17TBoss5GryphonDemoFPv(O_80066304 *self);
@@ -94,7 +94,7 @@ M2C_UNK destroy_particle_controller__10TObjPlayerFPvs(void *, M2C_UNK);
 
 void TBoss5GryphonDemo__sub_80066268(void) {  }
 void TBoss5GryphonDemo__sub_8006626C(void* p) { clear_entry_flags__17TBoss5GryphonDemoFPv((O_80066304 *)((void*)(p))); }
-void draw_model__17TBoss5GryphonDemoFPvPvPv(void* p, void* a1, void* a2) { push_matrix(p); set_matrix_identity__10TObjPlayerFPv((void*)0); post_translate_matrix(a1); rotate_matrix_y((void*)0, a2); matrix_mult_vec((void*)0, (char*)p + 0xac, (char*)p + 0x38); pop_matrix(); *(void**)((char*)p + 0x60) = a2; refresh_collision_body_centers(p); TBoss5GryphonDemo__sub_8006633C((O_8006633C *)((void*)(p))); }
+void draw_model__17TBoss5GryphonDemoFPvPvPv(void* p, void* a1, void* a2) { push_matrix(p); set_matrix_identity__10TObjPlayerFPv((void*)0); post_translate_matrix(a1); rotate_matrix_y((void*)0, a2); matrix_mult_vec((void*)0, (char*)p + 0xac, (char*)p + 0x38); pop_matrix(); *(void**)((char*)p + 0x60) = a2; refresh_collision_body_centers(p); set_all_entry_flags__17TBoss5GryphonDemoFPv((O_8006633C *)((void*)(p))); }
 
 void clear_entry_flags__17TBoss5GryphonDemoFPv(O_80066304 *self) {
     s32 i;
@@ -105,7 +105,7 @@ void clear_entry_flags__17TBoss5GryphonDemoFPv(O_80066304 *self) {
 
 extern M2C_UNK lbl_804886AC[];
 
-void TBoss5GryphonDemo__sub_8006633C(O_8006633C *self) {
+void set_all_entry_flags__17TBoss5GryphonDemoFPv(O_8006633C *self) {
     s32 i;
     for (i = 0; i < self->count; i++) {
         self->entries[i].flags |= 1;

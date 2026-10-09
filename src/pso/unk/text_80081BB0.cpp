@@ -31,7 +31,7 @@ extern "C" {
 M2C_UNK queue_destruction__7TObjectFv(void *);
 M2C_UNK disallow_rendering__7TObjectFv(void *);
 M2C_UNK queue_destruction__10TObjPlayerFPv(void *);
-M2C_UNK fn_80081B7C(void *);
+M2C_UNK update_freeze_shell_timer(void *);
 u32 find_active_entity_by_id(u16);
 s32 all_parents_unqueued_for_destruction__7TObjectFv();
 void freeze_shell_update(void *arg0);
@@ -164,7 +164,7 @@ void freeze_shell_update(void *arg0) {
         freeze_shell_hold((void *)(arg0));
         return;
     case 2:
-        fn_80081B7C(arg0);
+        update_freeze_shell_timer(arg0);
         return;
     case 3:
         queue_destruction__10TObjPlayerFPv(arg0);

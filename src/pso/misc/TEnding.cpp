@@ -24,7 +24,7 @@ extern s32 lbl_805D4F0C;
 extern TObject *tl_fade;
 extern TObject *tl_window;
 extern TObject *tl_01;
-extern const char *lbl_805D2950;
+extern const char *TEnding__class_name;
 extern const f32 lbl_805D9578;
 }
 
@@ -69,7 +69,7 @@ TEnding::~TEnding() {
 }
 
 TEnding::TEnding() : TObject(tl_window) {
-    m_name = lbl_805D2950;
+    m_name = TEnding__class_name;
     TEnding__sub_8008C9F8();
     cleanup_game_objects__9TMainTaskFv();
     set_current_floor_area(1);

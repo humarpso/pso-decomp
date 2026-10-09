@@ -114,7 +114,7 @@ void TTecAnti__sub_8022AD94(void *);
 void copy_params__8TTecAntiFPvPv(u8 *arg0, u8 *arg1);
 s32 TTecPlayerInfluence__ct(void *, void *, void *, void *);
 extern M2C_UNK __vt__8TTecAnti[];
-extern RecoveredGlobal_8022B288_lbl_804CC1CC lbl_804CC1CC;
+extern RecoveredGlobal_8022B288_lbl_804CC1CC technique_param_table;
 extern s32 lbl_805D3790;
 extern const f32 lbl_805DC798;
 u8 *TTecAnti__ct(u8 *arg0, s32 arg1, s32 arg2, s32 arg3, s32 arg4);
@@ -298,7 +298,7 @@ u8 *TTecAnti__ct(u8 *arg0, s32 arg1, s32 arg2, s32 arg3, s32 arg4) {
     M2C_FIELD(arg0, s32 *, 0) = (s32) lbl_805D3790;
     M2C_FIELD(arg0, s32 *, 0x13C) = 1;
     copy_technique_target_list((S_8022B3E8 *)((void *)((void *) (arg0 + 0xE0))), (S_8022B3E8 *)((void *)((void *) (arg3))));
-    copy_params__8TTecAntiFPvPv((u8 *)((void *) (arg0 + 0x74)), (u8 *)((void *) ((u8 *)&lbl_804CC1CC.value + 0x2C0)));
+    copy_params__8TTecAntiFPvPv((u8 *)((void *) (arg0 + 0x74)), (u8 *)((void *) ((u8 *)&technique_param_table.value + 0x2C0)));
     TTecAnti__sub_8022AD94((void *)((void *) (arg0)));
     temp_r3 = (u8 *)(M2C_FIELD(arg0, u8 **, 0xDC));
     if (temp_r3 != NULL) {

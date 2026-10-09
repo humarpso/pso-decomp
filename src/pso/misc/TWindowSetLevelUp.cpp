@@ -79,7 +79,7 @@ void draw_window_scrollbar(Scroll_8026D790 *scroll, Ctx_8026D790 *c, f32 *offset
 void update_stat_messages__17TWindowSetLevelUpFv(LvUp_8026DA44 *self);
 void render__17TWindowSetLevelUpFv(void);
 void * __ct__17TWindowSetLevelUpFv(void *arg0, void *arg1, void *arg2, void *arg3);
-void TWindowSetLevelUp__sub_8026DDE0(s32 arg0, s32 arg1);
+void copy_stat_block__17TWindowSetLevelUpFii(s32 arg0, s32 arg1);
 void TWindowSetLevelUp__sub_8026DE28(void* p, s32 v);
 void set_global_param__8TObjFishFi(void *);
 void begin_screen_draw(int);
@@ -325,7 +325,7 @@ void *__ct__17TWindowSetLevelUpFv(void *arg0, void *arg1, void *arg2, void *arg3
     M2C_FIELD(arg0, M2C_UNK **, 0x18) = (M2C_UNK *)__vt__17TWindowSetLevelUp;
     reset_sub_status_disp__10TObjPlayerFPv(self->f_24);
     M2C_FIELD(arg0, void **, 0x0) = lbl_805D39C8;
-    TWindowSetLevelUp__sub_8026DDE0((s32)((void *)(self->f_24)), (s32)((void *)(arg2)));
+    copy_stat_block__17TWindowSetLevelUpFii((s32)((void *)(self->f_24)), (s32)((void *)(arg2)));
     M2C_FIELD(arg0, u16 *, 0x1E) = 0;
     M2C_FIELD(arg0, void **, 0x20) = arg3;
     M2C_FIELD(arg0, u8 *, 0x1C) = 0;
@@ -338,7 +338,7 @@ extern int fold_flush_1;
 #pragma inline_depth(1)
 #pragma auto_inline on
 #pragma dont_inline off
-void TWindowSetLevelUp__sub_8026DDE0(s32 arg0, s32 arg1) {
+void copy_stat_block__17TWindowSetLevelUpFii(s32 arg0, s32 arg1) {
     *(M2CCopy_16 *)(arg0) = *(const M2CCopy_16 *)(arg1);
     M2C_FIELD(arg0, s16 *, 0x16) = (s16) M2C_FIELD(arg1, s16 *, 0x16);
     M2C_FIELD(arg0, s16 *, 0x18) = (s16) M2C_FIELD(arg1, s16 *, 0x18);

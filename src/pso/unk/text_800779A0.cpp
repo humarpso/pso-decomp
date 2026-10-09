@@ -15,7 +15,7 @@ void fn_800779A0(u8 *arg0);
 u32 *fn_800779FC(u32 *dst, u32 *src);
 void *__construct_array(void *, void *, void *, u32, u32);
 void fn_80077A70(void);
-Obj_80077A28 *fn_80077A28(Obj_80077A28 *self);
+Obj_80077A28 *construct_entry_array(Obj_80077A28 *self);
 }
 
 extern "C" {
@@ -27,7 +27,7 @@ void fn_800779A0(u8 *arg0) {
         temp_r3 = alloc__23TAdSinglePlyChrSelectGCFPv((void *)0x1A84);
         var_r0 = temp_r3;
         if (var_r0 != 0) {
-            var_r0 = ((s32)fn_80077A28((Obj_80077A28 *)(temp_r3)));
+            var_r0 = ((s32)construct_entry_array((Obj_80077A28 *)(temp_r3)));
         }
         lbl_805D4E5C = (unsigned char *) ((void *) var_r0);
     }
@@ -47,7 +47,7 @@ u32 *fn_800779FC(u32 *dst, u32 *src) {
     }
     return dst;
 }
-Obj_80077A28 *fn_80077A28(Obj_80077A28 *self) {
+Obj_80077A28 *construct_entry_array(Obj_80077A28 *self) {
     __construct_array(self->e, (void *)fn_80077A70, 0, 0xD4, 0x20);
     return self;
 }

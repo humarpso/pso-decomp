@@ -53,7 +53,7 @@ extern const f32 lbl_805DF20C;
 s32 TAdChrSelASlotGC__sub_8030C978(void *arg0, s32 arg1, s32 arg2);
 void *TAdChrSelASlotGC__ct(void *arg0, void *arg1, void *arg2);
 u8 *__nw__7TObjectFUl(M2C_UNK);
-extern u32 lbl_805D6A98;
+extern u32 TAdChrSel__global_slot_data;
 u8 *get_or_create_slot_window__22TAdMultiPlyChrSelectGCFii(s32 arg0, s32 arg1);
 u8 *__nw__7TObjectFUl(M2C_UNK);
 s32 __ct__19TAdPlyChrSelPlateGCFv(int, void *, void *);
@@ -818,7 +818,7 @@ void init__16TAdChrSelASlotGCFPvi(void *arg0, s32 arg1) {
 }
 
 extern M2C_UNK __vt__16TAdChrSelASlotGC[];
-extern u32 lbl_805D6A98;
+extern u32 TAdChrSel__global_slot_data;
 
 void *__dt__16TAdChrSelASlotGCFv(void *arg0, s16 arg1) {
     if (arg0 != NULL) {
@@ -867,8 +867,8 @@ void *__dt__16TAdChrSelASlotGCFv(void *arg0, s16 arg1) {
             queue_destruction__7TObjectFv(M2C_FIELD(arg0, void **, 0x7C));
             M2C_FIELD(arg0, u32 *, 0x7C) = 0U;
         }
-        if ((u32) lbl_805D6A98 != 0U) {
-            lbl_805D6A98 = 0U;
+        if ((u32) TAdChrSel__global_slot_data != 0U) {
+            TAdChrSel__global_slot_data = 0U;
         }
         __dt__7TObjectFv(arg0, 0);
         if (arg1 > 0) {
@@ -893,15 +893,15 @@ void *TAdChrSelASlotGC__ct(void *arg0, void *arg1, void *arg2) {
 u8 *get_or_create_slot_window__22TAdMultiPlyChrSelectGCFii(s32 arg0, s32 arg1) {
     u8 *temp_r3;
     u8 *var_r0;
-    if ((void *) (*(u8 * *)&lbl_805D6A98) != NULL) {
-        return (*(u8 * *)&lbl_805D6A98);
+    if ((void *) (*(u8 * *)&TAdChrSel__global_slot_data) != NULL) {
+        return (*(u8 * *)&TAdChrSel__global_slot_data);
     }
     temp_r3 = (u8 *)(__nw__7TObjectFUl(0x80));
     var_r0 = (u8 *)(temp_r3);
     if (var_r0 != NULL) {
         var_r0 = (u8 *)(((u8 *)TAdChrSelASlotGC__ct((void *)(temp_r3), (void *)(arg0), (void *)(arg1))));
     }
-    (*(u8 * *)&lbl_805D6A98) = var_r0;
+    (*(u8 * *)&TAdChrSel__global_slot_data) = var_r0;
     return var_r0;
 }
 

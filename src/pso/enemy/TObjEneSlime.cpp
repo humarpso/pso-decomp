@@ -136,7 +136,7 @@ void run_task__12TObjEneSlimeFv(void *arg0);
 M2C_UNK exchange_object_state__6TLobbyFPvis(void *, s32 *, M2C_UNK);
 M2C_UNK TLobby__sub_800F6510(void *, s32 *);
 s32 check_demo_mode__10TObjPlayerFv();
-s32 fn_800EB8DC(void *);
+s32 has_no_active_slot(void *);
 M2C_UNK queue_destruction__7TObjectFv(void *);
 M2C_UNK send_entity_set_flags__6TLobbyFPv(void *);
 
@@ -204,7 +204,7 @@ void render__12TObjEneSlimeFv(u8 *arg0) {
 void run_task__12TObjEneSlimeFv(void *arg0) {
     s32 sp8;
 
-    if ((check_demo_mode__10TObjPlayerFv() == 0) && (fn_800EB8DC(arg0) != 0)) {
+    if ((check_demo_mode__10TObjPlayerFv() == 0) && (has_no_active_slot(arg0) != 0)) {
         sp8 = 0x800;
         TLobby__sub_800F6510(arg0, &sp8);
         exchange_object_state__6TLobbyFPvis(arg0, &sp8, 0);

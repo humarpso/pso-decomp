@@ -5,7 +5,7 @@ s32 TObjPlayer__sub_803DA104(u8 x);
 s32 strcmp(const char *, const char *);
 char *strcat(char *, const char *);
 char *strcpy(char *, const char *);
-void fn_803D9FF0(char *);
+void convert_string_chars_via_table(char *);
 u32 strlen(const char *);
 void append_extension_if_missing__23TAdSinglePlyChrSelectGCFPvPvPv(char *dst, char *name, char *ext);
 }
@@ -17,7 +17,7 @@ void append_extension_if_missing__23TAdSinglePlyChrSelectGCFPvPvPv(char *dst, ch
     s32 len;
     len = strlen(name);
     strcpy(buf, &name[len - 4]);
-    fn_803D9FF0(buf);
+    convert_string_chars_via_table(buf);
     if (buf[0] == '.') {
         if (strcmp(buf, ext) != 0) {
             strcpy(dst, name);

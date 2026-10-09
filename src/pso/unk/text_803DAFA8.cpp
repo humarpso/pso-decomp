@@ -34,7 +34,7 @@ s32 GXGetTexBufferSize(u16, u16, u32, u8, u8);
 void fn_803DB15C(Tex_803DB15C *arg0);
 extern void *lbl_805D7754;
 void *OSAllocFromHeap(void *, u32);
-s32 fn_803DB1B4(Buf_803DB1B4 *arg0);
+s32 alloc_buffer_from_heap(Buf_803DB1B4 *arg0);
 void TObjPlayer__sub_803DA7E0(void);
 void fn_803DAF30(u32 *p);
 void move_data__6TLobbyFv(void *, void *, int);
@@ -106,7 +106,7 @@ void fn_803DB15C(Tex_803DB15C *arg0) {
     GXGetTexBufferSize(arg0->w, arg0->h, arg0->fmt, mip, 100);
 }
 
-s32 fn_803DB1B4(Buf_803DB1B4 *arg0) {
+s32 alloc_buffer_from_heap(Buf_803DB1B4 *arg0) {
     s32 ret = 0;
     void *p = OSAllocFromHeap(lbl_805D7754, arg0->size);
     if (p == 0) {

@@ -123,7 +123,7 @@ s16 get_field_72__17TWindowSubComCardFPv(int);
 extern s32 lbl_805D53A0;
 extern const f32 TWindowSubComCard__data_805DD500;
 extern const f32 lbl_805DD504;
-s32 TWindowSubComCard__sub_80272714(void);
+s32 create_player_select_window__17TWindowSubComCardFv(void);
 void *get_message_10__20TWindowSubStatusDispFPv(int);
 void *get_com_card_entry__6TLobbyFi(s32);
 u32 TLobby__sub_802428F8(void *);
@@ -138,7 +138,7 @@ M2C_UNK forward_trade_action_default__16TObjCityMainWarpFPviii(int, void *, int,
 s16 get_cursor_pos__20TWindowShortListCtrlFPv(s32);
 void *get_sub_obj__17TWindowSubComCardFPv(void *);
 extern const f32 lbl_805DD51C;
-void TWindowSubComCard__sub_80272EF0(M2C_UNK arg0, s32 arg1);
+void rebuild_com_card_list__17TWindowSubComCardFii(M2C_UNK arg0, s32 arg1);
 }
 
 extern "C" {
@@ -235,7 +235,7 @@ s32 create__17TWindowSubComCardFv(void) {
 #pragma push
 #pragma opt_common_subs off
 #pragma opt_loop_invariants off
-s32 TWindowSubComCard__sub_80272714(void) {
+s32 create_player_select_window__17TWindowSubComCardFv(void) {
     s32 i;
     VObj_18_80272714 *p;
     s32 w;
@@ -393,7 +393,7 @@ void open_layout_window__17TWindowSubComCardFv(void) {
 
 #pragma push
 #pragma opt_loop_invariants off
-void TWindowSubComCard__sub_80272EF0(M2C_UNK arg0, s32 arg1) {
+void rebuild_com_card_list__17TWindowSubComCardFii(M2C_UNK arg0, s32 arg1) {
     s32 n;
     u32 cur;
     s32 i;

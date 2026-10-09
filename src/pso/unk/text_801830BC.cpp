@@ -804,7 +804,7 @@ struct RecoveredGlobal_80183D00_lbl_804B5CC4 {
 extern "C" {
 struct Obj_80184A08; s32 advance_anim_time__25TObjCity_Season_EasterEggFPvif(Obj_80184A08 *arg0, s32 arg1, f32 farg0);
 extern const f32 lbl_805DBC5C;
-void fn_80183E08(u8 *arg0);
+void advance_easter_egg_anim_frame(u8 *arg0);
 
 int get_anim_frame__25TObjCity_Season_EasterEggFPv(void* a0);
 
@@ -851,7 +851,7 @@ void fn_80183D4C(u8 *arg0) {
     }
 }
 
-void fn_80183E08(u8 *arg0) {
+void advance_easter_egg_anim_frame(u8 *arg0) {
     s32 temp_r3;
     if (((s32 (*)(void *, s32, f32))advance_anim_time__25TObjCity_Season_EasterEggFPvif)(arg0, 0, lbl_805DBC5C) != 0) {
         M2C_FIELD(arg0, s32 *, 0xB4) = (s32) (M2C_FIELD(arg0, s32 *, 0xB4) + 2);

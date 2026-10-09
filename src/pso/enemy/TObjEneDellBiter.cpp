@@ -2292,7 +2292,7 @@ extern "C" void fn_80010EBC();
 extern "C" void fn_80010EC0();
 extern "C" void fn_80010EC4();
 extern "C" void fn_80010EC8();
-extern "C" void fn_800F5D80();
+extern "C" void clear_lobby_object_state();
 extern "C" void get_actor_body_center();
 extern "C" void get_actor_level_index();
 extern "C" void get_enemy_name__14TObjEnePanarmsFPv();
@@ -2337,7 +2337,7 @@ extern "C" void update_movement_status__10TObjPlayerFv();
 extern "C" void update_object_view_visibility();
 extern "C" void update_poison_status__10TObjPlayerFv();
 extern void *lbl_804E6C3C[2];
-extern void *lbl_804E6C44[11];
+extern void *TObjEneDellBiter__resource_descriptor[11];
 extern void *lbl_804E6C80[2];
 extern void *lbl_804E6C88[11];
 void render__16TObjEneDellBiterFv(u8 *arg0);
@@ -2361,7 +2361,7 @@ s32 spawn_npc_enemy__6TLobbyFsiiiff(int, int, int, void *, f32, f32);
 extern S16_80306858 lbl_8047527C;
 void load_resources__16TObjEneDellBiterFv(void);
 }
-void *lbl_804E6B70[7] = {
+void *TObjEneDellBiter__param_table[7] = {
     (void *)0x43610000, (void *)0x0, (void *)0x600, (void *)0x0,
     (void *)0x0, (void *)0x0, (void *)0x0,
 };
@@ -2381,13 +2381,13 @@ void *lbl_804E6B8C[44] = {
 __declspec(section ".data") void *lbl_804E6C3C[2] = {
     (void *)&lbl_80475138, (void *)0x0,
 };
-void *lbl_804E6C44[11] = {
+void *TObjEneDellBiter__resource_descriptor[11] = {
     (void *)&lbl_80475148, (void *)&lbl_80475160, (void *)&lbl_80475174, (void *)&lbl_8047518C,
     (void *)&lbl_804751A0, (void *)&lbl_804751B8, (void *)&lbl_804751CC, (void *)&lbl_804751E0,
     (void *)&lbl_804751F8, (void *)&lbl_8047520C, (void *)0x0,
 };
 void *lbl_804E6C70[4] = {
-    (void *)&lbl_80475220, (void *)&lbl_804E6C3C, (void *)&lbl_804E6C44, (void *)0x1000a,
+    (void *)&lbl_80475220, (void *)&lbl_804E6C3C, (void *)&TObjEneDellBiter__resource_descriptor, (void *)0x1000a,
 };
 __declspec(section ".data") void *lbl_804E6C80[2] = {
     (void *)&lbl_80475238, (void *)0x0,
@@ -2433,7 +2433,7 @@ void *__vt__16TObjEneDellBiter[107] = {
     (void *)&get_pos__10TObjPlayerFii, (void *)&apply_switch_attack__10TObjPlayerFi, (void *)&enemy_spawn_jellen_effect, (void *)&trigger_switch_attack__10TObjPlayerFi,
     (void *)&enemy_spawn_zalure_effect, (void *)&TObjPlayer__sub_80010A80, (void *)&TObjPlayer__sub_800F65D0, (void *)&fn_80010EC8,
     (void *)&fn_80010EC4, (void *)&fn_80010EC0, (void *)&fn_80010EBC, (void *)&TObjEneDD__vt77,
-    (void *)&apply_hit_message_flags__10TObjPlayerFPvPv, (void *)&apply_set_data__9TObjEnemyFPvPv, (void *)&fn_800F5D80, (void *)&TObjEneEpsilon__vt81,
+    (void *)&apply_hit_message_flags__10TObjPlayerFPvPv, (void *)&apply_set_data__9TObjEnemyFPvPv, (void *)&clear_lobby_object_state, (void *)&TObjEneEpsilon__vt81,
     (void *)&TObjEneDD__vt82, (void *)&TObjEneDD__vt83, (void *)&TObjEneDD__vt84, (void *)&TObjEneDellBiter__vt85,
     (void *)&TObjEneDellBiter__vt86, (void *)&TObjEneDD__vt86, (void *)&TObjEneDD__vt87, (void *)&TObjEneDD__vt88,
     (void *)&TObjEneDD__vt89, (void *)&TObjEneDD__vt90, (void *)&TObjEneDD__vt91, (void *)&TObjEneDD__vt92,
@@ -3885,7 +3885,7 @@ void init_params__16TObjEneDellBiterFPv(void *arg0_) {
     set_field_b8__14TObjEnePanarmsFPvs(self, self->fB8);
     reset_hp__9TObjEneDDFPv(self, lbl_805D6A20, TObjEneDellBiter__data_805D6A24, lbl_805D6A28);
     set_state_8__9TObjEneDDFPv(self);
-    self->f350 = lbl_804E6B70;
+    self->f350 = TObjEneDellBiter__param_table;
     initialize_enemy_state__9TObjEneDDFPv(self, 0x48);
     self->f37C = lbl_805DF038;
     enemy_init_acquire_period(self, 30);

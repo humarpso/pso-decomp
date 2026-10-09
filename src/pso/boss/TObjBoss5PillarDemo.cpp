@@ -40,8 +40,8 @@ void *__dt__19TObjBoss5PillarDemoFv(void *arg0, s16 arg1);
 void update_active_pillar__19TObjBoss5PillarDemoFv(void);
 void __dl__7TObjectFPv(void *);
 void __dt__15TObjBoss5PillarFv(void *, int);
-M2C_UNK fn_8028A998(s32, s32);
-M2C_UNK fn_8028A9CC(s32, s32);
+M2C_UNK clear_child_target_refs(s32, s32);
+M2C_UNK clear_chain_flags(s32, s32);
 M2C_UNK set_npc_enemy_param(M2C_UNK);
 
 extern void *lbl_805D4DD8;
@@ -51,7 +51,7 @@ void TObjBoss5PillarDemo__sub_8028AB38(void) {
 
     if ((void *) lbl_805D4DD8 != NULL) {
         temp_r4 = M2C_FIELD(lbl_805D4DD8, void **, 0x42C);
-        fn_8028A998(M2C_FIELD(temp_r4, s32 *, 0x78), M2C_FIELD(temp_r4, s32 *, 0x68));
+        clear_child_target_refs(M2C_FIELD(temp_r4, s32 *, 0x78), M2C_FIELD(temp_r4, s32 *, 0x68));
     }
 }
 
@@ -62,7 +62,7 @@ void update_active_pillar__19TObjBoss5PillarDemoFv(void) {
 
     if ((void *) lbl_805D4DD8 != NULL) {
         temp_r4 = M2C_FIELD(lbl_805D4DD8, void **, 0x42C);
-        fn_8028A9CC(M2C_FIELD(temp_r4, s32 *, 0x78), M2C_FIELD(temp_r4, s32 *, 0x68));
+        clear_chain_flags(M2C_FIELD(temp_r4, s32 *, 0x78), M2C_FIELD(temp_r4, s32 *, 0x68));
     }
 }
 

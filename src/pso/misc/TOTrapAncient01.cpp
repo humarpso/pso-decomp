@@ -334,7 +334,7 @@ void TObjPlayer__sub_800D7C58(void);
 void init_and_activate__10TObjPlayerFPv(void *);
 extern M2C_UNK lbl_804B4844[];
 extern M2C_UNK __vt__15TOTrapAncient01[];
-extern s32 lbl_805D31A4;
+extern s32 TOTrapAncient01__class_name;
 extern u32 TOTrapAncient01__data_805D5AD0;
 extern const f32 lbl_805DBA54;
 extern const f32 lbl_805DBA6C;
@@ -649,7 +649,7 @@ void *TOTrapAncient01__ct(void *arg0, void *arg1, void *arg2) {
     TOTrap__ct(arg0, arg1, arg2);
     M2C_FIELD(self, M2C_UNK **, 0x18) = __vt__15TOTrapAncient01;
     __construct_array(self + 0x358, (void *)init_and_activate__10TObjPlayerFPv, (void *)TObjPlayer__sub_800D7C58, 0x1C, 4);
-    M2C_FIELD(self, s32 *, 0) = lbl_805D31A4;
+    M2C_FIELD(self, s32 *, 0) = TOTrapAncient01__class_name;
     ((VObj_18_a8c792 *)arg0)->m5((s32)arg2);
     init_position_vectors__10TObjPlayerFi(arg0);
     calc_attach_pos__10TObjPlayerFPv(arg0);

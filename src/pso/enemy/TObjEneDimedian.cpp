@@ -73,7 +73,7 @@ void copy_position__20TBoss3VoloptHiraisinFi(void *);
 void init_position_vectors__10TObjPlayerFi(void *);
 void init_vtable_and_field18__10TObjPlayerFPv(void *);
 void TObjPlayer__sub_800A7B54(void *);
-void fn_800A884C(void *, s32);
+void load_dimedian_param_entry(void *, s32);
 void init_enemy_base__10TObjPlayerFPv(void *);
 void activate_and_dispatch__10TObjPlayerFPv(void *);
 s32 create__12TObjEneSaverFPvPv(s32, s32);
@@ -180,7 +180,7 @@ extern "C" void fn_80010EBC();
 extern "C" void fn_80010EC0();
 extern "C" void fn_80010EC4();
 extern "C" void fn_80010EC8();
-extern "C" void fn_800F5D80();
+extern "C" void clear_lobby_object_state();
 extern "C" void get_actor_body_center();
 extern "C" void get_actor_level_index();
 extern "C" void get_enemy_name__14TObjEnePanarmsFPv();
@@ -298,7 +298,7 @@ void *lbl_80490EEC[103] = {
     (void *)&get_pos__10TObjPlayerFii, (void *)&apply_switch_attack__10TObjPlayerFi, (void *)&enemy_spawn_jellen_effect, (void *)&trigger_switch_attack__10TObjPlayerFi,
     (void *)&enemy_spawn_zalure_effect, (void *)&TObjPlayer__sub_80010A80, (void *)&TObjPlayer__sub_800F65D0, (void *)&fn_80010EC8,
     (void *)&fn_80010EC4, (void *)&fn_80010EC0, (void *)&fn_80010EBC, (void *)&call_vt78__10TObjPlayerFPv,
-    (void *)&apply_hit_message_flags__10TObjPlayerFPvPv, (void *)&apply_set_data__9TObjEnemyFPvPv, (void *)&fn_800F5D80, (void *)&TObjPlayer__sub_800A7BEC,
+    (void *)&apply_hit_message_flags__10TObjPlayerFPvPv, (void *)&apply_set_data__9TObjEnemyFPvPv, (void *)&clear_lobby_object_state, (void *)&TObjPlayer__sub_800A7BEC,
     (void *)&beast_idle_update, (void *)&update_turn_toward_target__10TObjPlayerFPv, (void *)&beast_update_approach, (void *)&beast_update_group_chase,
     (void *)&beast_update_attack, (void *)&TObjPlayer__sub_800C53B4, (void *)&beast_update_hurt, (void *)&beast_update_dead,
     (void *)&set_dead_and_check_destroy__10TObjPlayerFPv, (void *)&TObjPlayer__sub_800A7A14, (void *)&TObjPlayer__sub_800A7988, (void *)&play_hit_sound__10TObjPlayerFi,
@@ -484,7 +484,7 @@ void *TObjEneDimedian__ct(void *arg0_, void *arg1_, void *arg2_) {
     init_position_vectors__10TObjPlayerFi(arg0);
     M2C_FIELD(arg0, s32 *, 0x334) = M2C_FIELD(arg0, s32 *, 0x368);
     TObjPlayer__sub_800A7B54(arg0);
-    fn_800A884C(arg0, M2C_FIELD(arg0, s32 *, 0x368));
+    load_dimedian_param_entry(arg0, M2C_FIELD(arg0, s32 *, 0x368));
     M2C_FIELD(arg0, u8 **, 0xD8) = lbl_80490D64;
     set_field_d8__10TObjPlayerFPvi(arg0, M2C_FIELD(arg0, u8 **, 0xD8));
     M2C_FIELD(arg0, s32 *, 0xDC) = M2C_FIELD(dimedian_resource_ptr, s32 *, 0x430);

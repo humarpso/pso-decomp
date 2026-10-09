@@ -36,7 +36,7 @@ void run_vm_helper_with_regs__6TLobbyFv(void);
 void push_op_arg__6TLobbyFi(s32);
 extern int TLobby__data_80512220[];
 extern s32 TLobby__data_805D5E74;
-extern u8 *TLobby__data_805D5E78;
+extern u8 *TLobby__script_reg_array;
 extern s32 TLobby__data_805D5E90;
 extern int TLobby__data_805D5EA4;
 void load_op_arg_window__6TLobbyFi(s32 arg0);
@@ -47,7 +47,7 @@ extern int TLobby__data_80512220[];
 extern int TLobby__data_805D5EA4;
 void TLobby__sub_801E7014(u8 a0);
 extern int TLobby__data_80512220[];
-extern u8 *TLobby__data_805D5E78;
+extern u8 *TLobby__script_reg_array;
 extern int TLobby__data_805D5EA4;
 void push_reg_ref_by_index__6TLobbyFUc(u8 a0);
 extern int TLobby__data_80512220[];
@@ -55,7 +55,7 @@ extern s32 TLobby__data_805D5E74;
 extern int TLobby__data_805D5EA4;
 void push_table_ref_by_index__6TLobbyFUs(u16 a0);
 extern int TLobby__data_80512220[];
-extern u8 *TLobby__data_805D5E78;
+extern u8 *TLobby__script_reg_array;
 extern int TLobby__data_805D5EA4;
 void op_push_reg_to_stack__6TLobbyFUc(u8 a0);
 }
@@ -93,7 +93,7 @@ void push_table_ref_by_index__6TLobbyFUs(u16 a0) {
 }
 
 void push_reg_ref_by_index__6TLobbyFUc(u8 a0) {
-    TLobby__data_80512220[TLobby__data_805D5EA4++] = (int)(TLobby__data_805D5E78 + a0 * 4);
+    TLobby__data_80512220[TLobby__data_805D5EA4++] = (int)(TLobby__script_reg_array + a0 * 4);
 }
 
 void TLobby__sub_801E6FF0(u16 a0) {
@@ -116,7 +116,7 @@ void qst_op_arg_pushl(int a0)
   TLobby__data_80512220[new_var] = new_var3;
 }
 void op_push_reg_to_stack__6TLobbyFUc(u8 a0) {
-    int v = *(int *)(TLobby__data_805D5E78 + a0 * 4);
+    int v = *(int *)(TLobby__script_reg_array + a0 * 4);
     int old = TLobby__data_805D5EA4;
     TLobby__data_805D5EA4 = old + 1;
     TLobby__data_80512220[old] = v;
@@ -125,13 +125,13 @@ void op_push_reg_to_stack__6TLobbyFUc(u8 a0) {
 void load_op_arg_window__6TLobbyFi(s32 arg0) {
   int new_var;
   (*(s32 *)&TLobby__data_805D5EA4) = 0;
-  *((s32 *) (((s8 *) TLobby__data_805D5E78) + 4)) = (s32) (*((s32 *) (((s8 *) (&(*(RecoveredGlobal_801E7084_TLobby__data_80512220 *)&TLobby__data_80512220).value)) + 0)));
-  *((s32 *) (((s8 *) TLobby__data_805D5E78) + 8)) = (s32) (*((s32 *) (((s8 *) (&(*(RecoveredGlobal_801E7084_TLobby__data_80512220 *)&TLobby__data_80512220).value)) + 4)));
-  *((s32 *) (((s8 *) TLobby__data_805D5E78) + 0xC)) = (s32) (*((s32 *) (((s8 *) (&(*(RecoveredGlobal_801E7084_TLobby__data_80512220 *)&TLobby__data_80512220).value)) + 8)));
-  *((s32 *) (((s8 *) TLobby__data_805D5E78) + 0x10)) = (s32) (*((s32 *) (((s8 *) (&(*(RecoveredGlobal_801E7084_TLobby__data_80512220 *)&TLobby__data_80512220).value)) + 0xC)));
-  *((s32 *) (((s8 *) TLobby__data_805D5E78) + 0x14)) = (s32) (*((s32 *) (((s8 *) (&(*(RecoveredGlobal_801E7084_TLobby__data_80512220 *)&TLobby__data_80512220).value)) + 0x10)));
-  *((s32 *) (((s8 *) TLobby__data_805D5E78) + 0x18)) = (s32) (*((s32 *) (((s8 *) (&(*(RecoveredGlobal_801E7084_TLobby__data_80512220 *)&TLobby__data_80512220).value)) + 0x14)));
-  *((s32 *) (((s8 *) TLobby__data_805D5E78) + 0x1C)) = (s32) (*((s32 *) (((s8 *) (&(*(RecoveredGlobal_801E7084_TLobby__data_80512220 *)&TLobby__data_80512220).value)) + 0x18)));
+  *((s32 *) (((s8 *) TLobby__script_reg_array) + 4)) = (s32) (*((s32 *) (((s8 *) (&(*(RecoveredGlobal_801E7084_TLobby__data_80512220 *)&TLobby__data_80512220).value)) + 0)));
+  *((s32 *) (((s8 *) TLobby__script_reg_array) + 8)) = (s32) (*((s32 *) (((s8 *) (&(*(RecoveredGlobal_801E7084_TLobby__data_80512220 *)&TLobby__data_80512220).value)) + 4)));
+  *((s32 *) (((s8 *) TLobby__script_reg_array) + 0xC)) = (s32) (*((s32 *) (((s8 *) (&(*(RecoveredGlobal_801E7084_TLobby__data_80512220 *)&TLobby__data_80512220).value)) + 8)));
+  *((s32 *) (((s8 *) TLobby__script_reg_array) + 0x10)) = (s32) (*((s32 *) (((s8 *) (&(*(RecoveredGlobal_801E7084_TLobby__data_80512220 *)&TLobby__data_80512220).value)) + 0xC)));
+  *((s32 *) (((s8 *) TLobby__script_reg_array) + 0x14)) = (s32) (*((s32 *) (((s8 *) (&(*(RecoveredGlobal_801E7084_TLobby__data_80512220 *)&TLobby__data_80512220).value)) + 0x10)));
+  *((s32 *) (((s8 *) TLobby__script_reg_array) + 0x18)) = (s32) (*((s32 *) (((s8 *) (&(*(RecoveredGlobal_801E7084_TLobby__data_80512220 *)&TLobby__data_80512220).value)) + 0x14)));
+  *((s32 *) (((s8 *) TLobby__script_reg_array) + 0x1C)) = (s32) (*((s32 *) (((s8 *) (&(*(RecoveredGlobal_801E7084_TLobby__data_80512220 *)&TLobby__data_80512220).value)) + 0x18)));
   push_op_arg__6TLobbyFi(TLobby__data_805D5E90);
   new_var = arg0 * 4;
   TLobby__data_805D5E90 = *((s32 *) (((s8 *) (TLobby__data_805D5E74 + (new_var & 0x3FFFC))) + 0));

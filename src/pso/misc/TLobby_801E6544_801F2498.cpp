@@ -58,7 +58,7 @@ void qst_op_grev(s32 arg0) {
     dispatch_by_main_phase__14TBoss4DarkFalzFUs(v);
 }
 
-    extern int* TLobby__data_805D5E78;
+    extern int* TLobby__script_reg_array;
 
 #include "types.h"
 #define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
@@ -77,32 +77,32 @@ void qst_op_gset(u16 arg0) {
 void qst_op_rev(s32 arg0) {
     s32 temp_r3;
     temp_r3 = (arg0 * 4) & 0x3FC;
-    M2C_FIELD((*(s32 *)&TLobby__data_805D5E78), M2C_UNK *, temp_r3) = (s32) (u8) (M2C_FIELD((*(s32 *)&TLobby__data_805D5E78), M2C_UNK *, temp_r3) == 0);
+    M2C_FIELD((*(s32 *)&TLobby__script_reg_array), M2C_UNK *, temp_r3) = (s32) (u8) (M2C_FIELD((*(s32 *)&TLobby__script_reg_array), M2C_UNK *, temp_r3) == 0);
 }
 
 void qst_op_clear(s32 arg0) {
-    M2C_FIELD((*(s32 *)&TLobby__data_805D5E78), M2C_UNK *, ((arg0 * 4) & 0x3FC)) = 0;
+    M2C_FIELD((*(s32 *)&TLobby__script_reg_array), M2C_UNK *, ((arg0 * 4) & 0x3FC)) = 0;
 }
 
 void qst_op_set(s32 arg0) {
-    M2C_FIELD((*(s32 *)&TLobby__data_805D5E78), M2C_UNK *, ((arg0 * 4) & 0x3FC)) = 1;
+    M2C_FIELD((*(s32 *)&TLobby__script_reg_array), M2C_UNK *, ((arg0 * 4) & 0x3FC)) = 1;
 }
 
 void TLobby__sub_801F2570(s32 arg0, s32 arg1) {
-    M2C_FIELD((*(s32 *)&TLobby__data_805D5E78), M2C_UNK *, ((arg0 * 4) & 0x3FC)) = TLobby__data_805D5E74 + ((arg1 * 4) & 0x3FFFC);
+    M2C_FIELD((*(s32 *)&TLobby__script_reg_array), M2C_UNK *, ((arg0 * 4) & 0x3FC)) = TLobby__data_805D5E74 + ((arg1 * 4) & 0x3FFFC);
 }
 
 void TLobby__sub_801F258C(s32 arg0, s32 arg1) {
-    M2C_FIELD((*(s32 *)&TLobby__data_805D5E78), M2C_UNK *, ((arg0 * 4) & 0x3FC)) = (*(s32 *)&TLobby__data_805D5E78) + ((arg1 * 4) & 0x3FC);
+    M2C_FIELD((*(s32 *)&TLobby__script_reg_array), M2C_UNK *, ((arg0 * 4) & 0x3FC)) = (*(s32 *)&TLobby__script_reg_array) + ((arg1 * 4) & 0x3FC);
 }
 
-void TLobby__sub_801F25A4(int a0, int a1) { TLobby__data_805D5E78[(unsigned char)(a0)] = (a1 & 0xffff); }
+void TLobby__sub_801F25A4(int a0, int a1) { TLobby__script_reg_array[(unsigned char)(a0)] = (a1 & 0xffff); }
 
-    extern int* TLobby__data_805D5E78;
-void qst_op_leta_letb(int a0, int a1) { TLobby__data_805D5E78[(unsigned char)(a0)] = (a1 & 0xff); }
+    extern int* TLobby__script_reg_array;
+void qst_op_leta_letb(int a0, int a1) { TLobby__script_reg_array[(unsigned char)(a0)] = (a1 & 0xff); }
 
-    extern int* TLobby__data_805D5E78;
-void qst_op_leti(int a0, int a1) { TLobby__data_805D5E78[(unsigned char)(a0)] = a1; }
+    extern int* TLobby__script_reg_array;
+void qst_op_leti(int a0, int a1) { TLobby__script_reg_array[(unsigned char)(a0)] = a1; }
 
 extern s32 TLobby__data_805D5E98;
 
@@ -111,7 +111,7 @@ extern s32 TLobby__data_805D5E98;
 #define M2C_BITWISE(type, expr) ((type)(expr))
 
 void qst_op_let(s32 arg0, s32 arg1) {
-    M2C_FIELD((*(s32 *)&TLobby__data_805D5E78), M2C_UNK *, ((arg0 * 4) & 0x3FC)) = M2C_FIELD((*(s32 *)&TLobby__data_805D5E78), M2C_UNK *, ((arg1 * 4) & 0x3FC));
+    M2C_FIELD((*(s32 *)&TLobby__script_reg_array), M2C_UNK *, ((arg0 * 4) & 0x3FC)) = M2C_FIELD((*(s32 *)&TLobby__script_reg_array), M2C_UNK *, ((arg1 * 4) & 0x3FC));
 }
 
 void qst_op_thread_stg(u16 arg0) {

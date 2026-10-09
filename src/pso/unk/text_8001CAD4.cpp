@@ -48,7 +48,7 @@ void update_camera_facing_offset(u8 *arg0);
 extern u32 lbl_805D4DF0;
 extern RecoveredGlobal_8001CAD4_lbl_804FF5E8 lbl_804FF5E8;
 extern const f32 lbl_805D7E90;
-Vec_8001CBC4 fn_8001CBC4(Obj_8001CBC4 *o);
+Vec_8001CBC4 calc_loading_cursor_pos(Obj_8001CBC4 *o);
 }
 
 extern "C" {
@@ -81,7 +81,7 @@ void update_camera_facing_offset(u8 *arg0) {
 }
 #pragma push
 #pragma fp_contract on
-Vec_8001CBC4 fn_8001CBC4(Obj_8001CBC4 *o) {
+Vec_8001CBC4 calc_loading_cursor_pos(Obj_8001CBC4 *o) {
     if (lbl_805D4DF0 != 0) {
         o->pos.x = lbl_805D7E90 * (*(Tbl_8001CBC4 *)&lbl_804FF5E8).dir.x + (*(Tbl_8001CBC4 *)&lbl_804FF5E8).base.x;
         o->pos.y = lbl_805D7E90 * (*(Tbl_8001CBC4 *)&lbl_804FF5E8).dir.y + (*(Tbl_8001CBC4 *)&lbl_804FF5E8).base.y;

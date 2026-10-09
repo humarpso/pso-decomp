@@ -1,6 +1,6 @@
 #include "pso/TGameProtocol.h"
 
-extern s32 lbl_805D5E48;
+extern s32 game_protocol_instance;
 
 struct VBase_18_801E4260 { char pad[0x18]; };
 struct Node_801E4260 : VBase_18_801E4260 {
@@ -287,7 +287,7 @@ void *pso_command_dispatch_table[336] = {
 
 void TGameProtocol::run_task() {
     Node_801E4260 *n;
-    for (n = ((Head_801E4260 *)lbl_805D5E48)->first; n != 0; n = *(Node_801E4260 **)((u8 *)n + 0xC)) {
+    for (n = ((Head_801E4260 *)game_protocol_instance)->first; n != 0; n = *(Node_801E4260 **)((u8 *)n + 0xC)) {
         TLobby__sub_8007EB20(lbl_80449784, *(s32 *)n, n);
         if (*(s8 *)((u8 *)n + 0x2B) == 0) {
             dispatch_pso_data_commands(n);
@@ -302,5 +302,5 @@ void TGameProtocol::run_task() {
 }
 
 TGameProtocol::~TGameProtocol() {
-    lbl_805D5E48 = 0;
+    game_protocol_instance = 0;
 }

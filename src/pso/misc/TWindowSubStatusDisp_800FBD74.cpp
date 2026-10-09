@@ -268,12 +268,12 @@ void fn_803E1FFC(f32, f32);
 void TParticleCtrl__sub_803E2008(s32);
 void reset_scene_fog(void);
 
-extern M2C_UNK TFogCtrl__data_80501188[];
+extern M2C_UNK TFogCtrl__fog_instance_table[];
 extern RecoveredGlobal_800FB8A0___vt__8TFogCtrl __vt__8TFogCtrl;
 extern u8 lbl_8043DA20[];
 extern u8 lbl_8043DA30[];
 extern RecoveredGlobal_800FBB68_lbl_8049C670 lbl_8049C670;
-extern u8 lbl_80501198[];
+extern u8 fog_default_entry[];
 extern u8 lbl_8058CA60[];
 extern s32 lbl_805D2B18;
 extern u32 lbl_805D5388;

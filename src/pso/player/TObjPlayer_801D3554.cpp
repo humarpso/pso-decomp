@@ -22,7 +22,7 @@ int TItemList__sub_801D5804(void*);
 int TItemList__sub_801D5838(void* a0);
 void start_placement_search(s32 arg0, s32 arg1, s32 arg2);
 void fn_801D371C(void* p, void* q);
-u8 *fn_801D36B4(u8 *arg0, u8 *arg1);
+u8 *copy_drop_node(u8 *arg0, u8 *arg1);
 }
 
 extern "C" {
@@ -67,7 +67,7 @@ void create_drop_nodes__9TItemListFPvPvPvPvi(void *arg0, void *arg1, void *arg2,
     for (i = 0; i < arg4; i++) {
         if (((s32 (*)(void *))TItemList__sub_801D5844)(p) != 0) {
             TItemList__sub_801D5838(p);
-            ((void (*)(void *, void *))fn_801D36B4)(q, arg3);
+            ((void (*)(void *, void *))copy_drop_node)(q, arg3);
             ((void (*)(void *, void *, void *, s32))create_node__9TItemListFPvPvPvPv)(arg0, arg2, arg1, i);
             TItemList__sub_801D5804(arg0);
             p += 4;
@@ -77,7 +77,7 @@ void create_drop_nodes__9TItemListFPvPvPvPvi(void *arg0, void *arg1, void *arg2,
     }
 }
 
-u8 *fn_801D36B4(u8 *arg0, u8 *arg1) {
+u8 *copy_drop_node(u8 *arg0, u8 *arg1) {
     u8 *temp_r4;
     u8 *temp_r5;
     fn_801D371C((void*)((void *) (arg0)), (void*)((void *) (arg1)));

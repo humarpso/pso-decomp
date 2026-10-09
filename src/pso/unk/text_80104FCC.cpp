@@ -77,11 +77,11 @@ void TItemData__sub_8010CCB0(void *);
 s32 isValidGroundDrop__9TItemDataFv(void *);
 void observe_item_id__6TLobbyFi(s32);
 typedef s32 (*Fn_8010542C)(void *);
-extern Fn_8010542C lbl_8049EEE8[];
+extern Fn_8010542C item_create_fn_table[];
 struct In_801054E0 { u8 pad0; u8 idx; };
 typedef s32 (*Fn_801054E0)(In_801054E0 *);
 struct E_801054E0 { Fn_801054E0 fn; };
-extern E_801054E0 lbl_8049EED8[];
+extern E_801054E0 item_pro_create_fn_table[];
 s32 TLobby__sub_801054E0(In_801054E0 *arg0);
 void *get_player_by_client_id(s32);
 s8 get_current_floor();
@@ -147,7 +147,7 @@ s32 dispatch_item_by_type__6TLobbyFPv(Item_8010542C *src) {
         TItemData__sub_8010CCB0(&item);
         if (isValidGroundDrop__9TItemDataFv(&item) != 0) {
             if (*(u8 *)src < 5) {
-                fn = lbl_8049EEE8[*(u8 *)src];
+                fn = item_create_fn_table[*(u8 *)src];
                 if (fn != 0) {
                     observe_item_id__6TLobbyFi(item.b.w[2]);
                     return fn(&item);
@@ -161,8 +161,8 @@ s32 dispatch_item_by_type__6TLobbyFPv(Item_8010542C *src) {
 s32 TLobby__sub_801054E0(In_801054E0 *arg0) {
     if (arg0 != 0) {
         if (arg0->idx < 4) {
-            if (lbl_8049EED8[arg0->idx].fn != 0) {
-                return lbl_8049EED8[arg0->idx].fn(arg0);
+            if (item_pro_create_fn_table[arg0->idx].fn != 0) {
+                return item_pro_create_fn_table[arg0->idx].fn(arg0);
             }
         }
     }

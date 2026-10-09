@@ -22,10 +22,10 @@ extern void *lbl_805D2CB4;
 s32 delete_buffer__12TBoss8DragonFis(s32 arg0, s16 arg1);
 s32 fn_800BC758(u8 *arg0);
 s32 attack_target_history_add(s32 arg0, s32 arg1);
-s32 fn_800BC6E4(u8 *arg0, s32 arg1);
+s32 push_attack_target_entry(u8 *arg0, s32 arg1);
 void *init_buffer__12TBoss8DragonFPvii(void *arg0, s32 arg1, s32 arg2);
 u8 *TBoss8Dragon__sub_800BC5EC(u8 *arg0, s32 arg1);
-int fn_800BC71C(void* object, void* target);
+int attack_target_history_contains(void* object, void* target);
 }
 
 extern "C" {
@@ -42,8 +42,8 @@ int queue_destruction__7TObjectFv(void*);
 struct VOff_8013DE3C_arg0_8013D91C { char pad_0[0x1C]; char f_1C[1]; };
 
 s32 attack_target_history_add(s32 arg0, s32 arg1) {
-    if ((fn_800BC758((u8 *)(arg0)) != 0) && (((s32)fn_800BC71C((void*)((void *)((void *) (arg0))), (void*)((void *)((void *) (arg1))))) == 0)) {
-        ((M2C_UNK)fn_800BC6E4((u8 *)((void *)((void *) (arg0))), (s32)((void *)((void *) (arg1)))));
+    if ((fn_800BC758((u8 *)(arg0)) != 0) && (((s32)attack_target_history_contains((void*)((void *)((void *) (arg0))), (void*)((void *)((void *) (arg1))))) == 0)) {
+        ((M2C_UNK)push_attack_target_entry((u8 *)((void *)((void *) (arg0))), (s32)((void *)((void *) (arg1)))));
         return 1;
     }
     return 0;
@@ -89,7 +89,7 @@ u32 *free_buffer__12TBoss8DragonFPvs(u32 *arg0, s16 arg1) {
     return arg0;
 }
 
-s32 fn_800BC6E4(u8 *arg0, s32 arg1) {
+s32 push_attack_target_entry(u8 *arg0, s32 arg1) {
     s32 temp_r4;
     s32 temp_r6;
     temp_r6 = M2C_FIELD(arg0, s32 *, 8);
@@ -102,7 +102,7 @@ s32 fn_800BC6E4(u8 *arg0, s32 arg1) {
     return -1;
 }
 
-int fn_800BC71C(void* object, void* target) {
+int attack_target_history_contains(void* object, void* target) {
     AreaAttackHistory* history = static_cast<AreaAttackHistory*>(object);
     for (s32 i = 0; i < history->count; ++i) {
         if (history->entries[i] == target) return 1;

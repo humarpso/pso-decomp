@@ -6,15 +6,15 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 
 extern "C" {
 void fn_800FED0C(u8 *arg0);
-void fn_800FEBBC(u8 *arg0, s32 arg1);
+void start_bone_rotation_sequence(u8 *arg0, s32 arg1);
 void fn_800FEC40(u8 *arg0, u8 *arg1);
 f32 sin_table_lookup(s32);
-void fn_800FEA34(void *arg0, void *arg1, s32 arg2, s32 arg3);
+void calc_bone_offsets_recursive(void *arg0, void *arg1, s32 arg2, s32 arg3);
 }
 
 extern "C" {
 
-void fn_800FEA34(void *arg0, void *arg1, s32 arg2, s32 arg3) {
+void calc_bone_offsets_recursive(void *arg0, void *arg1, s32 arg2, s32 arg3) {
     s32 k;
     f32 t;
     do {
@@ -35,17 +35,17 @@ void fn_800FEA34(void *arg0, void *arg1, s32 arg2, s32 arg3) {
         }
         M2C_FIELD(arg0, s32 *, 0x88) = M2C_FIELD(arg0, s32 *, 0x88) + 1;
         if (M2C_FIELD(arg1, void **, 0x2C) != NULL) {
-            fn_800FEA34(arg0, M2C_FIELD(arg1, void **, 0x2C), arg2 + M2C_FIELD(M2C_FIELD(arg0, u8 **, 0x20), s32 *, 8), (s32) (M2C_FIELD(M2C_FIELD(arg0, u8 **, 0x20), f32 *, 0xC) * (f32) arg3));
+            calc_bone_offsets_recursive(arg0, M2C_FIELD(arg1, void **, 0x2C), arg2 + M2C_FIELD(M2C_FIELD(arg0, u8 **, 0x20), s32 *, 8), (s32) (M2C_FIELD(M2C_FIELD(arg0, u8 **, 0x20), f32 *, 0xC) * (f32) arg3));
         }
         arg1 = M2C_FIELD(arg1, void **, 0x30);
     } while (arg1 != NULL);
 }
 
-void fn_800FEBBC(u8 *arg0, s32 arg1) {
+void start_bone_rotation_sequence(u8 *arg0, s32 arg1) {
     M2C_FIELD(arg0, s32 *, 0x88) = 0;
     M2C_FIELD(arg0, s32 *, 0x8C) = (s32) M2C_FIELD(M2C_FIELD(arg0, u8 **, 0x20), s32 *, 0x10);
     M2C_FIELD(arg0, s32 *, 0x90) = (s32) (arg0 + 0x24);
-    fn_800FEA34((void *)(arg0), (void *)(M2C_FIELD(arg0, u8 **, 0x1C)), (s32)(arg1), (s32)((s32) ((f32) M2C_FIELD(M2C_FIELD(arg0, u8 **, 0x20), s32 *, 0) * M2C_FIELD(arg0, f32 *, 0x94))));
+    calc_bone_offsets_recursive((void *)(arg0), (void *)(M2C_FIELD(arg0, u8 **, 0x1C)), (s32)(arg1), (s32)((s32) ((f32) M2C_FIELD(M2C_FIELD(arg0, u8 **, 0x20), s32 *, 0) * M2C_FIELD(arg0, f32 *, 0x94))));
 }
 
 void fn_800FEC40(u8 *arg0, u8 *arg1) {

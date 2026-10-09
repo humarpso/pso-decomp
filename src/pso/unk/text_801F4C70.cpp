@@ -14,12 +14,12 @@ extern M2C_UNK lbl_805DC4FC;
 M2C_UNK *fn_801F4C98(void);
 extern s32 lbl_805D5EF4;
 extern s32 lbl_805D5EF8;
-s32 fn_801F4C70(void);
+s32 get_selected_entry_value(void);
 }
 
 extern "C" {
 
-s32 fn_801F4C70(void) {
+s32 get_selected_entry_value(void) {
     if (lbl_805D5EF4 >= 0) {
         return (*(E_801F4C70 * *)&lbl_805D5EF8)[lbl_805D5EF4].b;
     }

@@ -74,7 +74,7 @@ s32 disallow_rendering__7TObjectFv(void *);
 s32 copy_vec4__13TRaderMapCoreFPvPv(void *, void *);
 s32 TPhotonMagicSquare__sub_801A2640(void *);
 extern M2C_UNK __vt__9TObjLight[];
-extern RecoveredGlobal_80194528_TObjLight__data_80506320 TObjLight__data_80506320;
+extern RecoveredGlobal_80194528_TObjLight__data_80506320 TObjLight__scene_light_state;
 extern s32 lbl_805D33B8;
 u8 *TObjLight__ct(u8 *arg0, M2C_UNK arg1, u8 *arg2);
 s32 VecCopy__FP3VecPC3Vec(void *, void *);
@@ -98,7 +98,7 @@ void normalize_vector(void *);
 void push_matrix_from(void *);
 void pop_matrices(s32);
 extern const Vec_80193FE8 lbl_80445D44;
-extern RecoveredGlobal_80194528_TObjLight__data_80506320 TObjLight__data_80506320;
+extern RecoveredGlobal_80194528_TObjLight__data_80506320 TObjLight__scene_light_state;
 extern u8 lbl_8058D490[];
 extern u8 *lbl_805D4DF0;
 void run_task__9TObjLightFv(Light_80193FE8 *self);
@@ -126,7 +126,7 @@ void run_task__9TObjLightFv(Light_80193FE8 *self) {
     }
     {
     Vec_80193FE8 fwd = lbl_80445D44;
-    VecCopy__FP3VecPC3Vec(&self->base_dir, ((u8 *)&TObjLight__data_80506320) + 0xC);
+    VecCopy__FP3VecPC3Vec(&self->base_dir, ((u8 *)&TObjLight__scene_light_state) + 0xC);
     self->flags = 0;
     if (self->param[0] >= 10000.0f) {
         self->color.x = self->param[0] - 10000.0f;
@@ -247,8 +247,8 @@ u8 *TObjLight__ct(u8 *arg0, M2C_UNK arg1, u8 *arg2) {
     M2C_FIELD(arg0, f32 *, 0xE8) = (f32) (0.0f);
     M2C_FIELD(arg0, f32 *, 0xEC) = (f32) (0.0f);
     M2C_FIELD(arg0, s32 *, 0x9C) = 0;
-    copy_vec4__13TRaderMapCoreFPvPv((void *) (arg0 + 0xBC), (void *) ((u8 *)&TObjLight__data_80506320.value + 0x24));
-    VecCopy__FP3VecPC3Vec((void *) (arg0 + 0xD8), (void *) ((u8 *)&TObjLight__data_80506320.value + 0xC));
+    copy_vec4__13TRaderMapCoreFPvPv((void *) (arg0 + 0xBC), (void *) ((u8 *)&TObjLight__scene_light_state.value + 0x24));
+    VecCopy__FP3VecPC3Vec((void *) (arg0 + 0xD8), (void *) ((u8 *)&TObjLight__scene_light_state.value + 0xC));
     M2C_FIELD(arg0, f32 *, 0xF0) = (f32) 0.5f;
     M2C_FIELD(arg0, f32 *, 0xF4) = (f32) (0.0f);
     M2C_FIELD(arg0, f32 *, 0xF8) = (f32) (0.0f);

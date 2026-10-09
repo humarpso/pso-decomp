@@ -47,20 +47,20 @@ void *__ct__20TObjLiveMonitorSmallFv(void *arg0, void *arg1, void *arg2) {
 }
 
 extern s32 lbl_805D6A80;
-extern s32 lbl_805D6A8C;
-extern u8 lbl_805D6A90;
+extern s32 live_monitor_small_spawned_flag;
+extern u8 TObjLiveMonitorSmall__fish_spawned_flag;
 
 s32 spawn_for_each_fish__20TObjLiveMonitorSmallFi(s32 arg0) {
     void *var_r31;
     void *obj;
 
-    if ((s8) lbl_805D6A90 == 0) {
-        lbl_805D6A8C = 1;
-        lbl_805D6A90 = 1;
+    if ((s8) TObjLiveMonitorSmall__fish_spawned_flag == 0) {
+        live_monitor_small_spawned_flag = 1;
+        TObjLiveMonitorSmall__fish_spawned_flag = 1;
     }
     var_r31 = M2C_FIELD(get_bml_model(lbl_805D6A80, 0), void **, 0x2C);
     while (var_r31 != NULL) {
-        if (lbl_805D6A8C != 0) {
+        if (live_monitor_small_spawned_flag != 0) {
             obj = __nw__7TObjectFUl(0x2C);
             if (obj != NULL) {
                 __ct__20TObjLiveMonitorSmallFv((void *)(obj), (void *)(arg0), (void *)(var_r31));

@@ -10,7 +10,7 @@ void TLobby__sub_803CBE20(void);
 void TLobby__sub_803CBE40(u8 *arg0);
 void TLobby__sub_803CBE64(u8 *arg0);
 void flush_input__16TKeyBoardControlFv(void);
-void fn_803CBE00(void);
+void wait_for_vi_retrace(void);
 M2C_UNK TLobby__sub_803CBEC8(int);
 M2C_UNK run_worker_callbacks_slot4__6TLobbyFv();
 M2C_UNK apply_field__6TLobbyFv(int);
@@ -21,7 +21,7 @@ void flush_input__16TKeyBoardControlFv(void) {
     run_worker_callbacks_slot4__6TLobbyFv();
 }
 
-void fn_803CBE00(void) {
+void wait_for_vi_retrace(void) {
     VIWaitForRetrace();
 }
 

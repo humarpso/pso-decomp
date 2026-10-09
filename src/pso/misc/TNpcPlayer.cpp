@@ -686,7 +686,7 @@ extern void *lbl_804AF074[35];
 extern void *lbl_804AF100[35];
 extern void *lbl_804AF18C[35];
 extern void *lbl_804AF218[35];
-extern void *lbl_804AF2A4[35];
+extern void *npc_player_template_table[35];
 struct Row_80152674 { u16 f0; u16 f2; u32 w[9]; };
 Row_80152674 TNpcPlayer__data_804ABC90[64] = {
     {0x0, 0x4, {0x40, 0x42c80000, 0x41200000, 0x41500000, 0x41f00000, 0x41f00000, 0x42c80000, 0x90f00, 0x42480000}},
@@ -1631,7 +1631,7 @@ void *lbl_804AF218[35] = {
     (void *)0x1000000, (void *)0x0, (void *)0x3010200, (void *)0xa0000,
     (void *)0x0, (void *)0xffffffff, (void *)0x0,
 };
-void *lbl_804AF2A4[35] = {
+void *npc_player_template_table[35] = {
     (void *)0x1000000, (void *)0x8, (void *)0x890300, (void *)0x0,
     (void *)0x0, (void *)0xffffffff, (void *)0x0, (void *)0x1000000,
     (void *)0x8, (void *)0x1011900, (void *)0x0, (void *)0x0,
@@ -1651,7 +1651,7 @@ void *lbl_804AF330[64] = {
     (void *)&lbl_804ACD04, (void *)&lbl_804AD4AC, (void *)&lbl_804AD768, (void *)&lbl_804AD1F0,
     (void *)&lbl_804AD1F0, (void *)&lbl_804ACEA8, (void *)&lbl_804AC71C, (void *)&lbl_804AC690,
     (void *)&lbl_804AC8C0, (void *)&lbl_804AC834, (void *)&lbl_804AD164, (void *)&lbl_804AD7F4,
-    (void *)&lbl_804ACE1C, (void *)&lbl_804ACE1C, (void *)&lbl_804AF2A4, (void *)&lbl_804AD880,
+    (void *)&lbl_804ACE1C, (void *)&lbl_804ACE1C, (void *)&npc_player_template_table, (void *)&lbl_804AD880,
     (void *)&lbl_804ADA24, (void *)&lbl_804AF074, (void *)&lbl_804ACBEC, (void *)&lbl_804ACC78,
     (void *)&lbl_804AC94C, (void *)&lbl_804AD308, (void *)&lbl_804ACFC0, (void *)&lbl_804AD394,
     (void *)&lbl_804AD308, (void *)&lbl_804AD04C, (void *)&lbl_804AD90C, (void *)&lbl_804AD650,
@@ -1669,7 +1669,7 @@ void *lbl_804AF430[64] = {
     (void *)&lbl_804AE124, (void *)&lbl_804AE8CC, (void *)&lbl_804AEB88, (void *)&lbl_804AE610,
     (void *)&lbl_804AE610, (void *)&lbl_804AE2C8, (void *)&lbl_804ADB3C, (void *)&lbl_804ADAB0,
     (void *)&lbl_804ADCE0, (void *)&lbl_804ADC54, (void *)&lbl_804AE584, (void *)&lbl_804AEC14,
-    (void *)&lbl_804AE23C, (void *)&lbl_804AE23C, (void *)&lbl_804AF2A4, (void *)&lbl_804AECA0,
+    (void *)&lbl_804AE23C, (void *)&lbl_804AE23C, (void *)&npc_player_template_table, (void *)&lbl_804AECA0,
     (void *)&lbl_804AEE44, (void *)&lbl_804AF074, (void *)&lbl_804AE00C, (void *)&lbl_804AE098,
     (void *)&lbl_804ADD6C, (void *)&lbl_804AE728, (void *)&lbl_804AE3E0, (void *)&lbl_804AE7B4,
     (void *)&lbl_804AE728, (void *)&lbl_804AE46C, (void *)&lbl_804AED2C, (void *)&lbl_804AEA70,
@@ -1687,7 +1687,7 @@ void *lbl_804AF530[64] = {
     (void *)&lbl_804AE124, (void *)&lbl_804AE8CC, (void *)&lbl_804AEB88, (void *)&lbl_804AE610,
     (void *)&lbl_804AE610, (void *)&lbl_804AE2C8, (void *)&lbl_804ADB3C, (void *)&lbl_804ADAB0,
     (void *)&lbl_804ADCE0, (void *)&lbl_804ADC54, (void *)&lbl_804AE584, (void *)&lbl_804AEC14,
-    (void *)&lbl_804AE23C, (void *)&lbl_804AE23C, (void *)&lbl_804AF2A4, (void *)&lbl_804AF18C,
+    (void *)&lbl_804AE23C, (void *)&lbl_804AE23C, (void *)&npc_player_template_table, (void *)&lbl_804AF18C,
     (void *)&lbl_804AEE44, (void *)&lbl_804AF074, (void *)&lbl_804AE00C, (void *)&lbl_804AF100,
     (void *)&lbl_804ADD6C, (void *)&lbl_804AE728, (void *)&lbl_804AE3E0, (void *)&lbl_804AE7B4,
     (void *)&lbl_804AE728, (void *)&lbl_804AE46C, (void *)&lbl_804AED2C, (void *)&lbl_804AEA70,
@@ -1705,7 +1705,7 @@ void *lbl_804AF630[64] = {
     (void *)&lbl_804AE124, (void *)&lbl_804AE8CC, (void *)&lbl_804AEB88, (void *)&lbl_804AE610,
     (void *)&lbl_804AE610, (void *)&lbl_804AE2C8, (void *)&lbl_804ADB3C, (void *)&lbl_804ADAB0,
     (void *)&lbl_804ADCE0, (void *)&lbl_804ADC54, (void *)&lbl_804AE584, (void *)&lbl_804AEC14,
-    (void *)&lbl_804AE23C, (void *)&lbl_804AE23C, (void *)&lbl_804AF2A4, (void *)&lbl_804AF18C,
+    (void *)&lbl_804AE23C, (void *)&lbl_804AE23C, (void *)&npc_player_template_table, (void *)&lbl_804AF18C,
     (void *)&lbl_804AEE44, (void *)&lbl_804AF074, (void *)&lbl_804AE00C, (void *)&lbl_804AF100,
     (void *)&lbl_804ADD6C, (void *)&lbl_804AE728, (void *)&lbl_804AE3E0, (void *)&lbl_804AE7B4,
     (void *)&lbl_804AE728, (void *)&lbl_804AE46C, (void *)&lbl_804AED2C, (void *)&lbl_804AEA70,

@@ -57,14 +57,14 @@ struct CharData_8028DF98 {
 };
 
 extern "C" {
-extern struct ClassAppearance lbl_804D8E20[19];
+extern struct ClassAppearance class_appearance_table[19];
 s32 get_display_index__12TCharaMakingFPv(struct Appearance *);
 void build_appearance_texture_names__12TCharaMakingFv(void *, struct Appearance *, struct ClassAppearance *, struct TextureList *);
 void TCharaMaking__bind_appearance_texture_lists(s32 *arg0, s32 *arg1, s32 *arg2, struct Appearance *arg3);
 s32 TCharaMaking__sub_8028E3A0(f32 *arg0);
 s32 TCharaMaking__sub_8028E3A0(f32 *arg0);
 extern s32 lbl_804D395C[];
-extern struct ClassAppearance lbl_804D8E20[19];
+extern struct ClassAppearance class_appearance_table[19];
 M2C_UNK validate_player_visual_record(void *arg0);
 }
 
@@ -78,7 +78,7 @@ struct C_8028DCCC { u8 pad0[0x31]; s8 f31; u8 pad32[0x1a]; f32 f4c; };
 struct P_8028DCCC { f32 a; f32 b; };
 
 extern "C" {
-extern RecoveredGlobal_8028DE78_lbl_804D9164 lbl_804D9164;
+extern RecoveredGlobal_8028DE78_lbl_804D9164 class_appearance_preset_table;
 u8 *get_class_appearance_preset(s32 arg0);
 M2C_UNK set_shadow_material_state();
 M2C_UNK draw_chunk_object(void *);
@@ -192,7 +192,7 @@ u8 *get_class_appearance_preset(s32 arg0) {
     if ((var_r3 < 0) || (var_r3 >= 0xD)) {
         var_r3 = 0;
     }
-    return (u8 *)&lbl_804D9164.value + (var_r3 * 0x50);
+    return (u8 *)&class_appearance_preset_table.value + (var_r3 * 0x50);
 }
 
 void free_loaded_buffers__12TCharaMakingFPv(u8 *arg0) {
@@ -309,7 +309,7 @@ M2C_UNK validate_player_visual_record(void *arg0) {
         flags |= 4;
         ok = 0;
     }
-    row = &lbl_804D8E20[d->f31];
+    row = &class_appearance_table[d->f31];
     for (i = 0; i < 5; i++) {
         lim = row->counts[i];
         v = d->f38[i];
@@ -349,7 +349,7 @@ void TCharaMaking__bind_appearance_texture_lists(s32 *arg0, s32 *arg1, s32 *arg2
   ClassAppearance *new_var;
   struct TextureList *temp_r6_2;
   temp_r4 = get_display_index__12TCharaMakingFPv(arg3) * 0x2C;
-  new_var = (ClassAppearance *) (((u8 *) lbl_804D8E20) + temp_r4);
+  new_var = (ClassAppearance *) (((u8 *) class_appearance_table) + temp_r4);
   *arg0 = 0;
   temp_r28 = new_var;
   temp_r3 = temp_r28->hairTextures;

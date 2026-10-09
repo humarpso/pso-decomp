@@ -202,7 +202,7 @@ u32 GXSetCopyFilter(void *, void *, void *, void *, void *, void *, void *);
 M2C_UNK memset(void *, int, int);
 s32 TLobby__sub_803C30E8(u8 *arg0, s32 arg1, s32 arg2);
 s32 get_client_count__6TLobbyFPv(int);
-void TLobby__sub_803C1DC4(Snd_803C1DC4 *arg0);
+void copy_byteswapped_pcm_samples__6TLobbyFPv(Snd_803C1DC4 *arg0);
 }
 
 extern "C" {
@@ -245,7 +245,7 @@ void dispatch_network_state__6TLobbyFPv(u8 *arg0) {
         decode_pcm8_stream__6TLobbyFPv((Strm_803C1A8C *)arg0);
         return;
     }
-    TLobby__sub_803C1DC4((Snd_803C1DC4 *)(arg0));
+    copy_byteswapped_pcm_samples__6TLobbyFPv((Snd_803C1DC4 *)(arg0));
 }
 
 void decode_pcm8_stream__6TLobbyFPv(Strm_803C1A8C *o) {
@@ -289,7 +289,7 @@ void decode_pcm8_stream__6TLobbyFPv(Strm_803C1A8C *o) {
 #define p ((u8 *)arg1)
 
 typedef struct Snd_803C1DC4 Snd_803C1DC4;
-void TLobby__sub_803C1DC4(Snd_803C1DC4 *arg0) {
+void copy_byteswapped_pcm_samples__6TLobbyFPv(Snd_803C1DC4 *arg0) {
   u16 *src = (u16 *) arg0->src;
   u16 *l;
   s32 new_var;

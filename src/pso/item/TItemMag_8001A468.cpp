@@ -14,7 +14,7 @@ typedef struct Plr_8001A4CC { u8 pad[0x60]; s32 f60; } Plr_8001A4CC;
 
 extern "C" {
 s32 query_darkfalz_state__10TObjPlayerFPv(int, void *);
-void fn_8001A470(Rec_8001A470 *d, Rec_8001A470 *s);
+void copy_draw_line_record(Rec_8001A470 *d, Rec_8001A470 *s);
 void set_animation_from_data__10TObjPlayerFii(void *, s32);
 extern Rec_8001A4CC lbl_80434118[];
 extern Rec_8001A4CC lbl_804341A8[];
@@ -32,7 +32,7 @@ extern "C" {
 s32 get_type__8TItemMagFPv(void* p);
 
 s32 get_type__8TItemMagFPv(void* p) { return *(s32*)((char*)p + 0x4); }
-void fn_8001A470(Rec_8001A470 *d, Rec_8001A470 *s) {
+void copy_draw_line_record(Rec_8001A470 *d, Rec_8001A470 *s) {
     d->f0 = s->f0;
     d->a = s->a;
     d->b = s->b;

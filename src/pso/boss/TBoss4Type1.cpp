@@ -323,7 +323,7 @@ void set_state__11TBoss4Type2FPvi(Boss_800542B0 *arg0, s32 arg1);
 u8 * TBoss4Type2__sub_80054384(void *self, s32 i, s32 j);
 void draw_parts__8TObjFishFPv(u8 *arg0);
 void set_motion_index__11TBoss4Type2FPvi(u8 *arg0, s32 arg1);
-void fn_8005455C(u8 *arg0);
+void update_boss4_phase_timer(u8 *arg0);
 void render_effects__10TObjPlayerFPv(void* p);
 void snapshot_position__10TObjPlayerFPv(u8 *arg0);
 void render_and_update_effects__10TObjPlayerFPv(void* p);
@@ -636,7 +636,7 @@ extern "C" void fn_80010EBC();
 extern "C" void fn_80010EC0();
 extern "C" void fn_80010EC4();
 extern "C" void fn_80010EC8();
-extern "C" void fn_800F5D80();
+extern "C" void clear_lobby_object_state();
 extern "C" void get_actor_body_center();
 extern "C" void get_actor_level_index();
 extern "C" void get_enemy_name__14TObjEnePanarmsFPv();
@@ -692,7 +692,7 @@ void *lbl_80486224[83] = {
     (void *)&get_pos__10TObjPlayerFii, (void *)&apply_switch_attack__10TObjPlayerFi, (void *)&enemy_spawn_jellen_effect, (void *)&trigger_switch_attack__10TObjPlayerFi,
     (void *)&enemy_spawn_zalure_effect, (void *)&TObjPlayer__sub_80010A80, (void *)&TObjPlayer__sub_800F65D0, (void *)&fn_80010EC8,
     (void *)&fn_80010EC4, (void *)&fn_80010EC0, (void *)&fn_80010EBC, (void *)&call_vt78__10TObjPlayerFPv,
-    (void *)&apply_hit_message_flags__10TObjPlayerFPvPv, (void *)&apply_set_data__9TObjEnemyFPvPv, (void *)&fn_800F5D80,
+    (void *)&apply_hit_message_flags__10TObjPlayerFPvPv, (void *)&apply_set_data__9TObjEnemyFPvPv, (void *)&clear_lobby_object_state,
 };
 #define lbl_80485AE0 ((u8 *)lbl_80485AE0)
 #define lbl_80485EB0 ((s32 *)lbl_80485EB0)
@@ -1550,7 +1550,7 @@ void set_motion_index__11TBoss4Type2FPvi(u8 *arg0, s32 arg1) {
 
 #pragma push
 #pragma opt_common_subs off
-void fn_8005455C(u8 *arg0) {
+void update_boss4_phase_timer(u8 *arg0) {
     f32 temp_f1;
     f32 temp_f1_2;
     s32 temp_r0;
@@ -1611,7 +1611,7 @@ void TBoss4Type2__sub_80054738(Obj_80054738 *self) {
     if (act) {
         (((Boss_800542B0 *)self)->*act)();
     }
-    ((M2C_UNK (*)(void *))fn_8005455C)(self);
+    ((M2C_UNK (*)(void *))update_boss4_phase_timer)(self);
     ((M2C_UNK (*)(void *))snapshot_position__10TObjPlayerFPv)(self);
     ((M2C_UNK (*)(void *))fn_80053D4C)(self);
     update_collisions__10TObjPlayerFPv(self);

@@ -225,7 +225,7 @@ void render__5TItemFPv(u8 *arg0) {
     }
 }
 
-void *lbl_8049E8F8[24] = {
+void *player_chunk_material_color_table[24] = {
     (void *)0x3f800000, (void *)0x3f800000, (void *)0x3f800000, (void *)0x3f800000,
     (void *)0x3f800000, (void *)0x3f800000, (void *)0x3f800000, (void *)0x0,
     (void *)0x3f800000, (void *)0x3e989899, (void *)0x3e989899, (void *)0x3e989899,

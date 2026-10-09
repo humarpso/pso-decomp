@@ -104,7 +104,7 @@ extern P_8023DBB4 lbl_805161D8;
 extern char lbl_804CC8C8[];
 extern A_8023DBB4 *lbl_8048E5A0[];
 extern s32 TTecZondeEff__data_805D63B8;
-void TTecZondeEff__sub_8023DBB4(void);
+void init_resources__12TTecZondeEffFv(void);
 f32 rand_signed_unit();
 void calc_lightning_scatter_direction(void *, s32, void *);
 s32 calc_dominant_axis__12TTecZondeEffFPv(void *arg0);
@@ -403,7 +403,7 @@ u8 *construct__12TTecZondeEffFPvPvPvPvf(u8 *arg0, u8 *arg1, u8 *arg2, u8 *arg3, 
 void TTecZondeEff__sub_8023DBA8(void) {
     TTecZondeEff__data_805D63B8 = 0;
 }
-void TTecZondeEff__sub_8023DBB4(void) {
+void init_resources__12TTecZondeEffFv(void) {
     lbl_805161D8.vt = lbl_804CC8C8;
     lbl_805161D8.n = 0x10;
     TTecZondeEff__data_805D63B8 = lbl_8048E5A0[0]->b->c->v;

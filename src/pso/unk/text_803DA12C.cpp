@@ -1,7 +1,7 @@
 #include "types.h"
 extern "C" {
 s32 init_ginja_texture_header(void *p);
-void fn_803DB1B4(void *p);
+void alloc_buffer_from_heap(void *p);
 void fn_803DA12C(void *p);
 }
 
@@ -13,7 +13,7 @@ extern "C" {
 void fn_803DA12C(void *p) {
     switch (init_ginja_texture_header(p)) {
     case 0:
-        fn_803DB1B4(p);
+        alloc_buffer_from_heap(p);
         break;
     }
 }

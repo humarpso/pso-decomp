@@ -39,7 +39,7 @@ struct Obj_800EB7BC {
 };
 
 extern "C" {
-s32 fn_800EB8DC(O_800EB8DC *self);
+s32 has_no_active_slot(O_800EB8DC *self);
 void fn_800EB778(Obj_800EB778 *self, s32 id);
 s32 VecCopy__FP3VecPC3Vec(void *, void *);
 u32 create__15TObjEneSlimeOneFiii(void *, void *, u32);
@@ -88,7 +88,7 @@ s32 spawn_slime_in_slot(Obj_800EB7BC *arg0, s32 arg1, Vec_800EB7BC *arg2, u32 ar
     return 1;
 }
 
-s32 fn_800EB8DC(O_800EB8DC *self) {
+s32 has_no_active_slot(O_800EB8DC *self) {
     s32 i;
     for (i = 0; i < 4; i++) {
         if (self->arr[i].f0 == 1) {

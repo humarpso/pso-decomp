@@ -172,7 +172,7 @@ s32 create__18TObjTailsTailsMoveFPv(void *);
 
 s32 get_display_index__12TCharaMakingFPv(void *);
 s32 TObjWaitEntryHairMoveSim__sub_800FE73C(s32 arg0);
-s32 TObjWaitEntryHairMoveSim__sub_800FE698(Obj_800FE698 *o);
+s32 is_level_in_table__24TObjWaitEntryHairMoveSimFPv(Obj_800FE698 *o);
 
 void create_hairmove__10TObjPlayerFPvPvPv(void *, void *, s32);
 void create_hair_effects__24TObjWaitEntryHairMoveSimFPv(void *arg0);
@@ -786,7 +786,7 @@ void create_hair_effects__24TObjWaitEntryHairMoveSimFPv(void *arg0) {
     }
 }
 
-s32 TObjWaitEntryHairMoveSim__sub_800FE698(Obj_800FE698 *o) {
+s32 is_level_in_table__24TObjWaitEntryHairMoveSimFPv(Obj_800FE698 *o) {
     Ent_800FE698 *e;
     if (o->flags & 0xA) {
         return 0;
@@ -810,7 +810,7 @@ s32 TObjWaitEntryHairMoveSim__sub_800FE73C(s32 arg0) {
         ((s32 (*)(void *))create__24TObjWaitEntryHairMoveSimFPv)((void *) (arg0));
         return 0;
     }
-    if (TObjWaitEntryHairMoveSim__sub_800FE698((Obj_800FE698 *)((void *) (arg0))) != 0) {
+    if (is_level_in_table__24TObjWaitEntryHairMoveSimFPv((Obj_800FE698 *)((void *) (arg0))) != 0) {
         temp_r3 = ((s32 (*)(int))__nw__7TObjectFUl)((int) (0x20));
         var_r0 = temp_r3;
         if (var_r0 != 0) {

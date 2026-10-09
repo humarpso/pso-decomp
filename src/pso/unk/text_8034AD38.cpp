@@ -33,7 +33,7 @@ void __dl__7TObjectFPv(void *);
 extern void *__vt__17TAdFloorLoadPrtGC[];
 TAdFloorLoadPrtGC_8034AD38 *__dt__17TAdFloorLoadPrtGCFv(TAdFloorLoadPrtGC_8034AD38 *self, s16 deleting);
 extern s16 lbl_804F0070[];
-void fn_8034AED4(s16 arg0);
+void push_recent_id(s16 arg0);
 M2C_UNK VecCopy__FP3VecPC3Vec(void *, void *);
 M2C_UNK copy_xyz__10TObjPlayerFPvPv(void *, void *);
 void *create_particle_controller_with_angles(void *, void *, int, int, int);
@@ -47,7 +47,7 @@ extern void *__vt__17TAdFloorLoadPrtGC[];
 extern s32 lbl_805D4330;
 Prt_8034ADE0 *TAdFloorLoadPrtGC__ct(Prt_8034ADE0 *arg0);
 extern s16 lbl_804F0070[];
-void fn_8034AF18(void);
+void clear_window_dd_nodes(void);
 }
 
 extern "C" {
@@ -93,7 +93,7 @@ Prt_8034ADE0 *TAdFloorLoadPrtGC__ct(Prt_8034ADE0 *arg0) {
 }
 #pragma pop
 
-void fn_8034AED4(s16 arg0) {
+void push_recent_id(s16 arg0) {
     s32 i;
     if (arg0 != lbl_804F0070[0]) {
         for (i = 15; i > 0; i--) {
@@ -102,7 +102,7 @@ void fn_8034AED4(s16 arg0) {
         lbl_804F0070[0] = arg0;
     }
 }
-void fn_8034AF18(void) {
+void clear_window_dd_nodes(void) {
     if (M2C_FIELD(lbl_804F0070, Node_8034AF18 **, 0x20) == NULL || M2C_FIELD(lbl_804F0070, Node_8034AF18 **, 0x24) == NULL) {
         return;
     }

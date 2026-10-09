@@ -13,7 +13,7 @@ s32 update_duel_result__6TLobbyFPv(void *);
 s32 update_timed_wait__6TLobbyFPv(void *);
 s32 update_battle_intro__6TLobbyFPv(void *);
 void update_player_battle_ctrl_state(void *arg0);
-M2C_UNK TLobby__sub_801C3030();
+M2C_UNK init_battle_round__6TLobbyFPv();
 s32 fn_801C4CE0(void *arg0);
 }
 
@@ -24,7 +24,7 @@ s32 fn_801C4CE0(void *arg0) {
     case -1:
         break;
     case 0:
-        TLobby__sub_801C3030();
+        init_battle_round__6TLobbyFPv();
         M2C_FIELD(arg0, s32 *, 0x24) = 1;
         break;
     }

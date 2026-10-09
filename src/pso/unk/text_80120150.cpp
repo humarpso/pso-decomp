@@ -87,7 +87,7 @@ extern const f32 lbl_805DAC9C;
 extern const f32 lbl_805DACA0;
 void advance_weapon_photon_phase(u8 *arg0);
 extern s16 lbl_805D5510;
-extern s16 lbl_80506248[];
+extern s16 TObjPlayer__weapon_node_ids[];
 extern u8* lbl_805D5514;
 extern u32 lbl_805D53EC;
 s32 get_player_list__10TObjPlayerFv();
@@ -124,7 +124,7 @@ void apply_weapon_node_material() {
         WeaponArgb color = get_weapon_color__11TItemWeaponFPv((void *)(lbl_805D5514));
         enable_first_time_flag__10TObjPlayerFi(&color);
     }
-    if(node == lbl_80506248[0] || node == lbl_80506248[1] || node == lbl_80506248[2]) {
+    if(node == TObjPlayer__weapon_node_ids[0] || node == TObjPlayer__weapon_node_ids[1] || node == TObjPlayer__weapon_node_ids[2]) {
         play_particle_effect_once__10TObjPlayerFv();
         if(test_flags_any(&lbl_805D53EC,4)) {
             WeaponArgb color = get_weapon_color__11TItemWeaponFPv((void *)(lbl_805D5514));

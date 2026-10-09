@@ -33,7 +33,7 @@ extern s32 TLobby__data_805D6CCC;
 extern s32 lbl_805D6CD0;
 extern u8 *TLobby__data_805D6CD4;
 extern u8 lbl_805D6CD8;
-void TLobby__sub_8032CD7C(u8 *arg0, s32 arg1);
+void set_send_buffer__6TLobbyFPvi(u8 *arg0, s32 arg1);
 }
 
 extern "C" {
@@ -84,7 +84,7 @@ s32 start_gba_joyboot__6TLobbyFv(void) {
 #pragma push
 #pragma optimization_level 1
 #pragma dont_inline on
-void TLobby__sub_8032CD7C(u8 *arg0, s32 arg1) {
+void set_send_buffer__6TLobbyFPvi(u8 *arg0, s32 arg1) {
     TLobby__data_805D6CD4 = arg0;
     lbl_805D6CD0 = arg1;
     lbl_805D6CD8 = 0;

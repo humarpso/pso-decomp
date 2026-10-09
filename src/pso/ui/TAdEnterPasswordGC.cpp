@@ -96,7 +96,7 @@ s32 reset__14TAdEnterBaseGCFPvi(void *, int);
 s32 TAdEnterBaseGC__ct(void *);
 void set_password__18TAdEnterPasswordGCFi(s32 arg0);
 extern M2C_UNK __vt__18TAdEnterPasswordGC[];
-extern s32 lbl_805D41E8;
+extern s32 TAdEnterPasswordGC__class_name;
 extern s32 lbl_805D6CA4;
 u8 *TAdEnterPasswordGC__ct(u8 *arg0);
 s32 get_state_flag__9TMainTaskFv();
@@ -310,7 +310,7 @@ u8 *TAdEnterPasswordGC__ct(u8 *arg0) {
     u32 temp_r3;
     TAdEnterBaseGC__ct((void *) (arg0));
     M2C_FIELD(arg0, M2C_UNK **, 0x18) = &(*(RecoveredGlobal_8032BB34___vt__18TAdEnterPasswordGC *)&__vt__18TAdEnterPasswordGC).value;
-    M2C_FIELD(arg0, s32 *, 0) = (s32) lbl_805D41E8;
+    M2C_FIELD(arg0, s32 *, 0) = (s32) TAdEnterPasswordGC__class_name;
     reset__14TAdEnterBaseGCFPvi((void *) (arg0), (int) (2));
     lbl_805D6CA4 = 0;
     M2C_FIELD(arg0, s32 *, 0x40) = 0;

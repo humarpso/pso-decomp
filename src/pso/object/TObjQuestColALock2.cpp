@@ -46,7 +46,7 @@ void reset_photon_effect__10TObjPlayerFPv(s32);
 void refresh_collision_body_centers(void *);
 u32 init_collision_body_parts(void *, s32, s32);
 u8 * TObjQuestColBase__ct(void *, s32);
-extern RecoveredGlobal_80195BEC_lbl_80445E84 lbl_80445E84;
+extern RecoveredGlobal_80195BEC_lbl_80445E84 TObjQuestColALock__collision_desc;
 extern M2C_UNK __vt__18TObjQuestColALock2[];
 extern s32 lbl_805D3408;
 extern s32 lbl_805D5EE8;
@@ -179,7 +179,7 @@ u8 *TObjQuestColALock2__ct(u8 *arg0, s32 arg1, s32 _w2) {
     TObjQuestColBase__ct(arg0, arg1);
     M2C_FIELD(arg0, M2C_UNK **, 0x18) = &(*(RecoveredGlobal_80195BEC___vt__18TObjQuestColALock2 *)&__vt__18TObjQuestColALock2).value;
     M2C_FIELD(arg0, s32 *, 0) = (s32) lbl_805D3408;
-    init_collision_body_parts(arg0, (s32) &lbl_80445E84.value, 1);
+    init_collision_body_parts(arg0, (s32) &TObjQuestColALock__collision_desc.value, 1);
     set_indexed_flags(arg0, 0, 0xF0);
     temp_r4 = (u8 *)(M2C_FIELD(arg0, u8 **, 0xA4));
     M2C_FIELD(temp_r4, f32 *, 4) = (f32) (M2C_FIELD(temp_r4, f32 *, 4) + M2C_FIELD(arg0, f32 *, 0x6C));

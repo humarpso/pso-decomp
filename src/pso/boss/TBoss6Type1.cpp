@@ -428,7 +428,7 @@ extern RecoveredGlobal_802B5970_lbl_80470FE4 lbl_80470FE4;
 extern RecoveredGlobal_802B5970_lbl_80470FF0 lbl_80470FF0;
 void TBoss6Type1__sub_802B5970(s32 arg0);
 u8 *dispatch_shared_handler_a__6TLobbyFPv(s32);
-extern RecoveredGlobal_802B7E88_lbl_80470CEC lbl_80470CEC;
+extern RecoveredGlobal_802B7E88_lbl_80470CEC TBoss6Type1__param_table;
 extern const f32 TBoss6Type1__data_805DE2D0;
 void load_params_from_table__11TBoss6Type1FPv(u8 *arg0);
 extern const f32 TBoss6Type1__data_805DE2D0;
@@ -477,7 +477,7 @@ Blk_802B8624 *copy_block__11TBoss6Type1FPvPv(Blk_802B8624 *d, Blk_802B8624 *s);
 void TBoss6Type1__sub_802B5DD4(Obj_802B5DD4 *self);
 u32 create_particle_emitter(void *, int);
 void set_flags__11TBoss4Type2FPvUi(u32, int);
-extern Tbl_802B4BA8 lbl_80470D28[];
+extern Tbl_802B4BA8 TBoss6Type1__effect_slot_table[];
 s32 copy_vec3__11TBoss4Type2FPvPv(int, void *);
 s32 copy_pos__11TNowLoadingFPvPv(int, void *);
 extern u8 lbl_80471014[];
@@ -677,7 +677,7 @@ void spawn_effect_slot__11TBoss6Type1FPvi(u8 *arg0, s32 arg1) {
     u8 *p = arg0 + arg1 * 4;
     if (*(u32 *)(p + 0x4F8) == 0U) {
         V3_802B4BA8 v = ((T1_802B4BA8 *)arg0)->pos;
-        *(u32 *)(p + 0x4F8) = create_particle_emitter(&v, lbl_80470D28[arg1].a);
+        *(u32 *)(p + 0x4F8) = create_particle_emitter(&v, TBoss6Type1__effect_slot_table[arg1].a);
         if (*(u32 *)(p + 0x4F8) != 0U) {
             set_flags__11TBoss4Type2FPvUi(*(u32 *)(p + 0x4F8), 0x40);
         }
@@ -689,7 +689,7 @@ void spawn_effect_slot__11TBoss6Type1FPvi(u8 *arg0, s32 arg1) {
 #pragma opt_propagation on
 void TBoss6Type1__sub_802B4C28(Obj_802B4C28 *o) {
     s32 i;
-    Tbl_802B4BA8 *t = lbl_80470D28;
+    Tbl_802B4BA8 *t = TBoss6Type1__effect_slot_table;
     for (i = 0; i < 4; i++) {
         Vec_802B4C28 v = o->pos;
         Tbl_802B4BA8 *e = &t[i];
@@ -1911,51 +1911,51 @@ void load_params_from_table__11TBoss6Type1FPv(u8 *arg0) {
     temp_r3 = (u8 *)(dispatch_shared_handler_a__6TLobbyFPv(0x2B));
     M2C_FIELD(arg0, s32 *, 0x47C) = (s32) M2C_FIELD(temp_r3, f32 *, 0);
     if ((f32) M2C_FIELD(arg0, s32 *, 0x47C) <= TBoss6Type1__data_805DE2D0) {
-        M2C_FIELD(arg0, s32 *, 0x47C) = (s32) M2C_FIELD(&lbl_80470CEC.value, s32 *, 0);
+        M2C_FIELD(arg0, s32 *, 0x47C) = (s32) M2C_FIELD(&TBoss6Type1__param_table.value, s32 *, 0);
     }
     M2C_FIELD(arg0, s32 *, 0x480) = (s32) M2C_FIELD(temp_r3, f32 *, 8);
     if ((f32) M2C_FIELD(arg0, s32 *, 0x480) <= TBoss6Type1__data_805DE2D0) {
-        M2C_FIELD(arg0, s32 *, 0x480) = (s32) M2C_FIELD(&lbl_80470CEC.value, s32 *, 4);
+        M2C_FIELD(arg0, s32 *, 0x480) = (s32) M2C_FIELD(&TBoss6Type1__param_table.value, s32 *, 4);
     }
     M2C_FIELD(arg0, s32 *, 0x484) = (s32) M2C_FIELD(temp_r3, f32 *, 0xC);
     if ((f32) M2C_FIELD(arg0, s32 *, 0x484) <= TBoss6Type1__data_805DE2D0) {
-        M2C_FIELD(arg0, s32 *, 0x484) = (s32) M2C_FIELD(&lbl_80470CEC.value, s32 *, 8);
+        M2C_FIELD(arg0, s32 *, 0x484) = (s32) M2C_FIELD(&TBoss6Type1__param_table.value, s32 *, 8);
     }
     M2C_FIELD(arg0, s32 *, 0x488) = (s32) M2C_FIELD(temp_r3, f32 *, 0x10);
     if ((f32) M2C_FIELD(arg0, s32 *, 0x488) <= TBoss6Type1__data_805DE2D0) {
-        M2C_FIELD(arg0, s32 *, 0x488) = (s32) M2C_FIELD(&lbl_80470CEC.value, s32 *, 0xC);
+        M2C_FIELD(arg0, s32 *, 0x488) = (s32) M2C_FIELD(&TBoss6Type1__param_table.value, s32 *, 0xC);
     }
     M2C_FIELD(arg0, s32 *, 0x4A4) = (s32) M2C_FIELD(temp_r3, f32 *, 0x14);
     if ((f32) M2C_FIELD(arg0, s32 *, 0x4A4) <= TBoss6Type1__data_805DE2D0) {
-        M2C_FIELD(arg0, s32 *, 0x4A4) = (s32) M2C_FIELD(&lbl_80470CEC.value, s32 *, 0x28);
+        M2C_FIELD(arg0, s32 *, 0x4A4) = (s32) M2C_FIELD(&TBoss6Type1__param_table.value, s32 *, 0x28);
     }
     M2C_FIELD(arg0, s32 *, 0x48C) = (s32) M2C_FIELD(temp_r3, s32 *, 0x18);
     if ((s32) M2C_FIELD(arg0, s32 *, 0x48C) <= 0) {
-        M2C_FIELD(arg0, s32 *, 0x48C) = (s32) M2C_FIELD(&lbl_80470CEC.value, s32 *, 0x10);
+        M2C_FIELD(arg0, s32 *, 0x48C) = (s32) M2C_FIELD(&TBoss6Type1__param_table.value, s32 *, 0x10);
     }
     M2C_FIELD(arg0, s32 *, 0x490) = (s32) M2C_FIELD(temp_r3, s32 *, 0x1C);
     if ((s32) M2C_FIELD(arg0, s32 *, 0x490) <= 0) {
-        M2C_FIELD(arg0, s32 *, 0x490) = (s32) M2C_FIELD(&lbl_80470CEC.value, s32 *, 0x14);
+        M2C_FIELD(arg0, s32 *, 0x490) = (s32) M2C_FIELD(&TBoss6Type1__param_table.value, s32 *, 0x14);
     }
     M2C_FIELD(arg0, s32 *, 0x494) = (s32) M2C_FIELD(temp_r3, s32 *, 0x20);
     if ((s32) M2C_FIELD(arg0, s32 *, 0x494) <= 0) {
-        M2C_FIELD(arg0, s32 *, 0x494) = (s32) M2C_FIELD(&lbl_80470CEC.value, s32 *, 0x18);
+        M2C_FIELD(arg0, s32 *, 0x494) = (s32) M2C_FIELD(&TBoss6Type1__param_table.value, s32 *, 0x18);
     }
     M2C_FIELD(arg0, s32 *, 0x498) = (s32) M2C_FIELD(temp_r3, s32 *, 0x24);
     if ((s32) M2C_FIELD(arg0, s32 *, 0x498) <= 0) {
-        M2C_FIELD(arg0, s32 *, 0x498) = (s32) M2C_FIELD(&lbl_80470CEC.value, s32 *, 0x1C);
+        M2C_FIELD(arg0, s32 *, 0x498) = (s32) M2C_FIELD(&TBoss6Type1__param_table.value, s32 *, 0x1C);
     }
     M2C_FIELD(arg0, s32 *, 0x49C) = (s32) M2C_FIELD(temp_r3, s32 *, 0x28);
     if ((s32) M2C_FIELD(arg0, s32 *, 0x49C) <= 0) {
-        M2C_FIELD(arg0, s32 *, 0x49C) = (s32) M2C_FIELD(&lbl_80470CEC.value, s32 *, 0x20);
+        M2C_FIELD(arg0, s32 *, 0x49C) = (s32) M2C_FIELD(&TBoss6Type1__param_table.value, s32 *, 0x20);
     }
     M2C_FIELD(arg0, s32 *, 0x4A0) = (s32) M2C_FIELD(temp_r3, s32 *, 0x2C);
     if ((s32) M2C_FIELD(arg0, s32 *, 0x4A0) <= 0) {
-        M2C_FIELD(arg0, s32 *, 0x4A0) = (s32) M2C_FIELD(&lbl_80470CEC.value, s32 *, 0x24);
+        M2C_FIELD(arg0, s32 *, 0x4A0) = (s32) M2C_FIELD(&TBoss6Type1__param_table.value, s32 *, 0x24);
     }
     M2C_FIELD(arg0, s32 *, 0x4A8) = (s32) M2C_FIELD(dispatch_shared_handler_a__6TLobbyFPv(0x2F), f32 *, 0x14);
     if ((f32) M2C_FIELD(arg0, s32 *, 0x4A8) <= TBoss6Type1__data_805DE2D0) {
-        M2C_FIELD(arg0, s32 *, 0x4A8) = (s32) M2C_FIELD(&lbl_80470CEC.value, s32 *, 0x2C);
+        M2C_FIELD(arg0, s32 *, 0x4A8) = (s32) M2C_FIELD(&TBoss6Type1__param_table.value, s32 *, 0x2C);
     }
 }
 

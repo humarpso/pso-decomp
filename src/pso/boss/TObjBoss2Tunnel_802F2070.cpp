@@ -120,7 +120,7 @@ M2C_UNK TObjBoss2Tunnel__sub_802F1AE0(void *, u32, int);
 u32 TObjBoss7TunnelCol__ct(void *, void *);
 M2C_UNK TObjBoss2Tunnel__sub_802F207C(void *);
 M2C_UNK TObjBoss2Tunnel__sub_802F2150(void *);
-extern u8 lbl_804743F4[];
+extern u8 TObjBoss2Tunnel__raft_splash_offset_table[];
 extern u8 lbl_804E4A44[];
 extern M2C_UNK lbl_804E4B3C[];
 extern u32 boss2_tunnel_state_flags;
@@ -401,7 +401,7 @@ void *TObjBoss2Tunnel__sub_802F2A2C(void *arg0p, s32 parent) {
     for (i = 0; i < 2; i++) {
         p = __nw__7TObjectFUl(0x40);
         if (p != 0) {
-            TObjBoss7RaftSplash__ct((void *) p, arg0, lbl_804E4A44 + i * 0xC, lbl_804743F4 + i * 0xC, arg0 + 0x5C);
+            TObjBoss7RaftSplash__ct((void *) p, arg0, lbl_804E4A44 + i * 0xC, TObjBoss2Tunnel__raft_splash_offset_table + i * 0xC, arg0 + 0x5C);
         }
     }
     p = __nw__7TObjectFUl(0x2C);

@@ -7,7 +7,7 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 extern "C" {
 extern const f32 lbl_805DF7D0;
 extern M2C_UNK lbl_805DF7D4;
-void fn_8032DA28(u8 *arg0);
+void init_guide_button_params(u8 *arg0);
 u32 __nw__7TObjectFUl(int);
 s32 setup_button__16TAdGuideButtonGCFPvPv(int, void *);
 u32 TAdGuideButtonGC__ct(int, void *);
@@ -33,7 +33,7 @@ void create_guide_button(s32 arg0, s32 arg1) {
     }
 }
 
-void fn_8032DA28(u8 *arg0) {
+void init_guide_button_params(u8 *arg0) {
     M2C_FIELD(arg0, s32 *, 0) = 0;
     M2C_FIELD(arg0, f32 *, 4) = (f32) lbl_805DF7D0;
     M2C_FIELD(arg0, f32 *, 8) = (f32) lbl_805DF7D0;

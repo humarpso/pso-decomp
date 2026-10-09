@@ -268,12 +268,12 @@ void fn_803E1FFC(f32, f32);
 void TParticleCtrl__sub_803E2008(s32);
 void reset_scene_fog(void);
 
-extern M2C_UNK TFogCtrl__data_80501188[];
+extern M2C_UNK TFogCtrl__fog_instance_table[];
 extern RecoveredGlobal_800FB8A0___vt__8TFogCtrl __vt__8TFogCtrl;
 extern u8 lbl_8043DA20[];
 extern u8 lbl_8043DA30[];
 extern RecoveredGlobal_800FBB68_lbl_8049C670 lbl_8049C670;
-extern u8 lbl_80501198[];
+extern u8 fog_default_entry[];
 extern u8 lbl_8058CA60[];
 extern s32 lbl_805D2B18;
 extern u32 lbl_805D5388;
@@ -295,8 +295,8 @@ s32 select_fog_for_viewport__8TFogCtrlFiii(s32 arg0, s32 arg1, s32 arg2) {
     if (is_split_screen() == 0) {
         arg0 = 0;
     }
-    if ((arg0 >= 0) && (arg0 < 4) && ((u32) TFogCtrl__data_80501188[arg0] != 0U)) {
-        return ((s32)select_fog__8TFogCtrlFPvii((u8 *)((s32)(TFogCtrl__data_80501188[arg0])), (s32)((s32)(arg1)), (s32)((s32)(arg2))));
+    if ((arg0 >= 0) && (arg0 < 4) && ((u32) TFogCtrl__fog_instance_table[arg0] != 0U)) {
+        return ((s32)select_fog__8TFogCtrlFPvii((u8 *)((s32)(TFogCtrl__fog_instance_table[arg0])), (s32)((s32)(arg1)), (s32)((s32)(arg2))));
     }
     return 0;
 }
@@ -312,7 +312,7 @@ s32 restore_fog_for_player__8TFogCtrlFii(s32 arg1, s32 arg0) {
         arg1 = 0;
     }
     if ((arg1 >= 0) && (arg1 < 4)) {
-        s32 elem = *(s32 *)(((s8 *)&TFogCtrl__data_80501188) + arg1 * 4);
+        s32 elem = *(s32 *)(((s8 *)&TFogCtrl__fog_instance_table) + arg1 * 4);
         if ((u32) elem != 0U) {
             return restore_fog__8TFogCtrlFPvi((u8 *)(elem), (s32)(arg0));
         }
@@ -370,7 +370,7 @@ void* get_entry__8TFogCtrlFi(int a0) {  return (char*)((*(int *)&lbl_805D5388)) 
 void clear_split_screen_fog__8TFogCtrlFv(void) {
     u32 temp_r3;
     if (is_split_screen() == 1) {
-        temp_r3 = M2C_FIELD(&(*(RecoveredGlobal_800FAD08_TFogCtrl__data_80501188 *)&TFogCtrl__data_80501188).value, M2C_UNK *, ((get_nth_view_player_id__11TCameraCtrlFi((int) (get_camera_mode__11TCameraCtrlFv())) * 4) & 0x3FFFC));
+        temp_r3 = M2C_FIELD(&(*(RecoveredGlobal_800FAD08_TFogCtrl__data_80501188 *)&TFogCtrl__fog_instance_table).value, M2C_UNK *, ((get_nth_view_player_id__11TCameraCtrlFi((int) (get_camera_mode__11TCameraCtrlFv())) * 4) & 0x3FFFC));
         if (temp_r3 != 0U) {
             clear_active_flag__8TFogCtrlFPv((void *)((int) (temp_r3)));
         }
@@ -392,7 +392,7 @@ void update_all__8TFogCtrlFv(void) {
         var_r29 = 0;
         var_r31 = 0;
         do {
-            temp_r3 = *(TFogCtrl__data_80501188 + var_r31);
+            temp_r3 = *(TFogCtrl__fog_instance_table + var_r31);
             if ((u32)temp_r3 != 0U) {
                 clear_active_flag__8TFogCtrlFPv((void *)(temp_r3));
             }
@@ -745,7 +745,7 @@ u8 *__dt__8TFogCtrlFv(u8 *arg0, s16 arg1) {
         end_effect_render__13TParticleCtrlFv();
         temp_r0 = M2C_FIELD(arg0, s32 *, 0x1C4);
         if ((temp_r0 >= 0) && (temp_r0 < 4)) {
-            M2C_FIELD(&(*(RecoveredGlobal_800FB8A0_TFogCtrl__data_80501188 *)&TFogCtrl__data_80501188).value, M2C_UNK *, (temp_r0 * 4)) = 0;
+            M2C_FIELD(&(*(RecoveredGlobal_800FB8A0_TFogCtrl__data_80501188 *)&TFogCtrl__fog_instance_table).value, M2C_UNK *, (temp_r0 * 4)) = 0;
         }
         __dt__7TObjectFv(arg0, 0);
         if (arg1 > 0) {
@@ -765,13 +765,13 @@ TFogCtrl_800FB92C *TFogCtrl__ct(TFogCtrl_800FB92C *self, void *parent, s32 index
     self->f0 = lbl_805D2B18;
     self->index = index;
     if (self->index >= 0 && self->index < 4) {
-        ((TFogCtrl_800FB92C **)&TFogCtrl__data_80501188)[self->index] = self;
+        ((TFogCtrl_800FB92C **)&TFogCtrl__fog_instance_table)[self->index] = self;
     }
     self->f20 = 0;
     one = FOG_ZERO;
     for (i = 0; i < 4; i++) {
         self->fogs[i].entry = 0;
-        copy_fog_entry((u8 *)&self->fogs[i], lbl_80501198);
+        copy_fog_entry((u8 *)&self->fogs[i], fog_default_entry);
         self->fogs[i].f44 = one;
         self->ptrs[i] = &self->fogs[i];
     }
@@ -804,7 +804,7 @@ void TFogCtrl__sub_800FBA58(void) {
     var_r29 = 0;
     var_r31 = 0;
     do {
-        temp_r3 = *(TFogCtrl__data_80501188 + var_r31);
+        temp_r3 = *(TFogCtrl__fog_instance_table + var_r31);
         if ((u32) temp_r3 != 0U) {
             ((M2C_UNK (*)(M2C_UNK))TFogCtrl__sub_800FBA54)(temp_r3);
         }
@@ -831,7 +831,7 @@ void update_fog_entries__8TFogCtrlFv(void) {
     i = 0;
     j = 0;
     do {
-        v = *(TFogCtrl__data_80501188 + j);
+        v = *(TFogCtrl__fog_instance_table + j);
         if ((u32)v != 0U) {
             ((void (*)(M2C_UNK))TFogCtrl__sub_800FBAAC)(v);
         }
@@ -893,24 +893,24 @@ void reset__8TFogCtrlFv(void) {
 void init_scene_fog_system(void) {
     s32 i;
     lbl_805D538C = 0;
-    (*(FogParam_800FBC5C *)&lbl_80501198).f0 = 1;
-    (*(FogParam_800FBC5C *)&lbl_80501198).f4 = 0;
-    (*(FogParam_800FBC5C *)&lbl_80501198).f8 = 4000.0f;
-    (*(FogParam_800FBC5C *)&lbl_80501198).fC = 100.0f;
-    (*(FogParam_800FBC5C *)&lbl_80501198).f10 = 0.01f;
-    (*(FogParam_800FBC5C *)&lbl_80501198).f14 = 0;
+    (*(FogParam_800FBC5C *)&fog_default_entry).f0 = 1;
+    (*(FogParam_800FBC5C *)&fog_default_entry).f4 = 0;
+    (*(FogParam_800FBC5C *)&fog_default_entry).f8 = 4000.0f;
+    (*(FogParam_800FBC5C *)&fog_default_entry).fC = 100.0f;
+    (*(FogParam_800FBC5C *)&fog_default_entry).f10 = 0.01f;
+    (*(FogParam_800FBC5C *)&fog_default_entry).f14 = 0;
     for (i = 0; i < 8; i++) {
-        (*(FogParam_800FBC5C *)&lbl_80501198).f18[i] = FOG_ZERO;
-        (*(FogParam_800FBC5C *)&lbl_80501198).f38[i] = 0;
+        (*(FogParam_800FBC5C *)&fog_default_entry).f18[i] = FOG_ZERO;
+        (*(FogParam_800FBC5C *)&fog_default_entry).f38[i] = 0;
     }
-    (*(FogParam_800FBC5C *)&lbl_80501198).f18[6] = FOG_MAX;
+    (*(FogParam_800FBC5C *)&fog_default_entry).f18[6] = FOG_MAX;
     lbl_805D5388 = (u32)alloc_buffer__11TOBoss4RockFPv(0x2000);
     for (i = 0; i < 0x80; i++) {
-        copy_fog_entry((u8 *)&((FogParam_800FBC5C *)lbl_805D5388)[i], (u8 *)&lbl_80501198);
+        copy_fog_entry((u8 *)&((FogParam_800FBC5C *)lbl_805D5388)[i], (u8 *)&fog_default_entry);
     }
     read_disc_file(lbl_8043DA20, (void *)lbl_805D5388);
     for (i = 0; i < 4; i++) {
-        TFogCtrl__data_80501188[i] = 0;
+        TFogCtrl__fog_instance_table[i] = 0;
     }
     ((M2C_UNK (*)(void))end_effect_render__13TParticleCtrlFv)();
     create_instance__8TFogCtrlFv();

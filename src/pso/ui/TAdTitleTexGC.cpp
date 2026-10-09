@@ -26,7 +26,7 @@ extern const f32 lbl_805DDF8C;
 extern const f32 lbl_805DDF90;
 extern const f32 lbl_805DDF94;
 extern const f32 lbl_805DDF98;
-void TAdTitleTexGC__sub_802A4EF4(Obj_802A4EF4 *arg0);
+void update_title_tex_positions__13TAdTitleTexGCFPv(Obj_802A4EF4 *arg0);
 }
 
 extern "C" {
@@ -49,7 +49,7 @@ void render__13TAdTitleTexGCFv(void *arg0) {
     }
 }
 
-void TAdTitleTexGC__sub_802A4EF4(Obj_802A4EF4 *arg0) {
+void update_title_tex_positions__13TAdTitleTexGCFPv(Obj_802A4EF4 *arg0) {
     V_802A4EF4 sp[3];
     s32 i;
     for (i = 0; i < 3; i++) {
@@ -78,7 +78,7 @@ void run_task__13TAdTitleTexGCFv(void *arg0) {
     }
     temp_r4_3 = M2C_FIELD(arg0, u32 *, 0x7C);
     M2C_FIELD(arg0, u32 *, 0x7C) = (temp_r4_3 <= 0xFFU) ? temp_r4_3 : 0xFFU;
-    TAdTitleTexGC__sub_802A4EF4((Obj_802A4EF4 *)(arg0));
+    update_title_tex_positions__13TAdTitleTexGCFPv((Obj_802A4EF4 *)(arg0));
 }
 
 extern M2C_UNK __vt__13TAdTitleTexGC[];

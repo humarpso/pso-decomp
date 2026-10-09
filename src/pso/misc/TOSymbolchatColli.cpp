@@ -91,7 +91,7 @@ void *memset(void *, int, u32);
 extern u32 lbl_8050DB70[];
 extern int lbl_805D5AC8;
 extern const f32 lbl_805DBA28;
-void TOSymbolchatColli__sub_8017873C(void *arg0);
+void init_collision_params__17TOSymbolchatColliFPv(void *arg0);
 }
 
 extern "C" {
@@ -123,7 +123,7 @@ extern void *tl_05;
 typedef struct Ent_8017873C Ent_8017873C;
 typedef struct HL_8017873C HL_8017873C;
 typedef struct Obj_8017873C Obj_8017873C;
-void TOSymbolchatColli__sub_8017873C(void *arg0) {
+void init_collision_params__17TOSymbolchatColliFPv(void *arg0) {
   Obj_8017873C *self = (Obj_8017873C *) arg0;
   s32 i;
   self->radiusSq = self->radius * self->radius;
@@ -251,7 +251,7 @@ Obj_80178AD4 *TOSymbolchatColli__ct(Obj_80178AD4 *arg0, void *arg1, s32 arg2) {
     arg0->v5(arg2);
     init_collision_body_parts(arg0, lbl_804B4550, 1);
     reset_photon_effect__10TObjPlayerFPv(arg0);
-    TOSymbolchatColli__sub_8017873C((void *)(arg0));
+    init_collision_params__17TOSymbolchatColliFPv((void *)(arg0));
     for (i = 0; i < 4; i++) {
         arg0->arr[i] = 0;
     }

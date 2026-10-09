@@ -85,7 +85,7 @@ M2C_UNK set_timer_window_time__11TWindowCtrlFi(s32);
 M2C_UNK create_alt_timer__11TWindowCtrlFv();
 extern s32 TLobby__data_80511CA0[];
 extern s32 lbl_805D53A0;
-void TLobby__sub_801C3030(void *arg0);
+void init_battle_round__6TLobbyFPv(void *arg0);
 }
 
 extern "C" {
@@ -252,7 +252,7 @@ void start_duel_battle__6TLobbyFPv(Lobby_801C2F40 *self) {
     }
     self->f64 = TLobby__data_805D5DC0;
 }
-void TLobby__sub_801C3030(void *arg0) {
+void init_battle_round__6TLobbyFPv(void *arg0) {
   s32 temp_r0;
   s32 temp_r3;
   s32 var_ctr;

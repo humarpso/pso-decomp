@@ -3,8 +3,8 @@
 extern "C" {
 void heap_free__5THeapFPv(void *, void *);
 extern void *lbl_805187D8[];
-extern void *lbl_805D6460;
-extern void *lbl_805D6464;
+extern void *TAdScrollWinGC__chat_log_heap;
+extern void *chat_last_line_buffer;
 void fn_8026A14C(void);
 char *parse_text_control_codes(char *, s32 *, s32);
 char *strncpy(char *, const char *, u32);
@@ -19,13 +19,13 @@ void fn_8026A14C(void) {
     s32 i;
     for (i = 0x1D; i >= 0; i--) {
         if (lbl_805187D8[i] != NULL) {
-            heap_free__5THeapFPv(lbl_805D6460, lbl_805187D8[i]);
+            heap_free__5THeapFPv(TAdScrollWinGC__chat_log_heap, lbl_805187D8[i]);
             lbl_805187D8[i] = NULL;
         }
     }
-    if (lbl_805D6464 != NULL) {
-        heap_free__5THeapFPv(lbl_805D6460, lbl_805D6464);
-        lbl_805D6464 = NULL;
+    if (chat_last_line_buffer != NULL) {
+        heap_free__5THeapFPv(TAdScrollWinGC__chat_log_heap, chat_last_line_buffer);
+        chat_last_line_buffer = NULL;
     }
 }
 void fn_8026A1C4(char *dst, char *src, s32 size) {

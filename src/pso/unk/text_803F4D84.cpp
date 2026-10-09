@@ -609,121 +609,121 @@ s32 TLobby__sub_803F4AEC();
 void *memset(void *, int, u32);
 char *strncpy(char *, const char *, u32);
 u32 strlen(const char *);
-extern Big_803F4D84 *lbl_805D79C0;
+extern Big_803F4D84 *lobby_net_config_buffer;
 s32 copy_current_entry_name__6TLobbyFPvi(char *dst, s32 len);
 s32 TLobby__sub_803F4AB4();
 s32 TLobby__sub_803F4AEC();
 void *memset(void *, int, u32);
 char *strncpy(char *, const char *, u32);
 u32 strlen(const char *);
-extern Big_803F4D84 *lbl_805D79C0;
+extern Big_803F4D84 *lobby_net_config_buffer;
 s32 TLobby__sub_803F4EBC(char *dst, s32 len);
 s32 TLobby__sub_803F4AB4();
 s32 TLobby__sub_803F4AEC();
 void *memcpy(void *, const void *, u32);
-extern Big_803F4D84 *lbl_805D79C0;
+extern Big_803F4D84 *lobby_net_config_buffer;
 s32 TLobby__sub_803F4FF4(void *dst);
 s32 TLobby__sub_803F4AB4();
 s32 TLobby__sub_803F4AEC();
 void *memcpy(void *, const void *, u32);
-extern Big_803F4D84 *lbl_805D79C0;
+extern Big_803F4D84 *lobby_net_config_buffer;
 s32 TLobby__sub_803F50B8(void *dst);
 s32 TLobby__sub_803F4AB4();
 s32 TLobby__sub_803F4AEC();
-extern Big_803F4D84 *lbl_805D79C0;
+extern Big_803F4D84 *lobby_net_config_buffer;
 s32 TLobby__sub_803F517C(u8 *dst);
 s32 TLobby__sub_803F4AB4();
 s32 TLobby__sub_803F4AEC();
 void *memset(void *, int, u32);
 char *strncpy(char *, const char *, u32);
 u32 strlen(const char *);
-extern Big_803F4D84 *lbl_805D79C0;
+extern Big_803F4D84 *lobby_net_config_buffer;
 s32 TLobby__sub_803F524C(char *dst, s32 len);
 s32 TLobby__sub_803F4AB4();
 s32 TLobby__sub_803F4AEC();
 void *memset(void *, int, u32);
 char *strncpy(char *, const char *, u32);
 u32 strlen(const char *);
-extern Big_803F4D84 *lbl_805D79C0;
+extern Big_803F4D84 *lobby_net_config_buffer;
 s32 TLobby__sub_803F5524(char *dst, s32 len);
 s32 TLobby__sub_803F4AB4();
 s32 TLobby__sub_803F4AEC();
-extern Big_803F4D84 *lbl_805D79C0;
+extern Big_803F4D84 *lobby_net_config_buffer;
 s32 TLobby__sub_803F5678(u8 *dst);
 s32 TLobby__sub_803F4AB4();
 s32 TLobby__sub_803F4AEC();
 void *memcpy(void *, const void *, u32);
-extern Big_803F4D84 *lbl_805D79C0;
+extern Big_803F4D84 *lobby_net_config_buffer;
 s32 TLobby__sub_803F5748(void *dst);
 s32 TLobby__sub_803F4AB4();
 s32 TLobby__sub_803F4AEC();
 void *memcpy(void *, const void *, u32);
-extern Big_803F4D84 *lbl_805D79C0;
+extern Big_803F4D84 *lobby_net_config_buffer;
 s32 TLobby__sub_803F5824(void *arg0);
 s32 TLobby__sub_803F4AB4();
 s32 TLobby__sub_803F4AEC();
 void *memcpy(void *, const void *, u32);
-extern Big_803F4D84 *lbl_805D79C0;
+extern Big_803F4D84 *lobby_net_config_buffer;
 s32 TLobby__sub_803F5900(void *arg0);
 s32 TLobby__sub_803F4AB4();
 s32 TLobby__sub_803F4AEC();
 void *memset(void *, int, u32);
 char *strncpy(char *, const char *, u32);
 u32 strlen(const char *);
-extern Big_803F4D84 *lbl_805D79C0;
+extern Big_803F4D84 *lobby_net_config_buffer;
 s32 TLobby__sub_803F59DC(char *buf, u32 n);
 s32 TLobby__sub_803F4AB4();
 s32 TLobby__sub_803F4AEC();
 void *memset(void *, int, u32);
 char *strncpy(char *, const char *, u32);
 u32 strlen(const char *);
-extern Big_803F4D84 *lbl_805D79C0;
+extern Big_803F4D84 *lobby_net_config_buffer;
 s32 TLobby__sub_803F5B20(char *buf, s32 n);
 s32 TLobby__sub_803F4AB4();
 s32 TLobby__sub_803F4AEC();
 void *memset(void *, int, u32);
 char *strncpy(char *, const char *, u32);
 u32 strlen(const char *);
-extern Big_803F4D84 *lbl_805D79C0;
+extern Big_803F4D84 *lobby_net_config_buffer;
 s32 TLobby__sub_803F5C58(char *buf, s32 n);
 s32 TLobby__sub_803F4AB4();
 s32 TLobby__sub_803F4AEC();
 void *memset(void *, int, u32);
 char *strncpy(char *, const char *, u32);
 u32 strlen(const char *);
-extern Big_803F4D84 *lbl_805D79C0;
+extern Big_803F4D84 *lobby_net_config_buffer;
 s32 TLobby__sub_803F5D90(char *buf, s32 n);
 s32 TLobby__sub_803F4AB4();
 s32 TLobby__sub_803F4AEC();
 void *memset(void *, int, u32);
 char *strncpy(char *, const char *, u32);
 u32 strlen(const char *);
-extern Big_803F4D84 *lbl_805D79C0;
+extern Big_803F4D84 *lobby_net_config_buffer;
 s32 TLobby__sub_803F5EC8(char *buf, s32 n);
 s32 TLobby__sub_803F4AB4();
 s32 TLobby__sub_803F4AEC();
 void *memset(void *, int, u32);
 char *strncpy(char *, const char *, u32);
 u32 strlen(const char *);
-extern Big_803F4D84 *lbl_805D79C0;
+extern Big_803F4D84 *lobby_net_config_buffer;
 s32 TLobby__sub_803F6000(char *buf, s32 n);
 s32 TLobby__sub_803F4AB4();
 s32 TLobby__sub_803F4AEC();
 void *memset(void *, int, u32);
 char *strncpy(char *, const char *, u32);
 u32 strlen(const char *);
-extern Big_803F4D84 *lbl_805D79C0;
+extern Big_803F4D84 *lobby_net_config_buffer;
 s32 TLobby__sub_803F6138(char *buf, s32 n);
 s32 TLobby__sub_803F4AB4();
 s32 TLobby__sub_803F4AEC();
-extern Big_803F4D84 *lbl_805D79C0;
+extern Big_803F4D84 *lobby_net_config_buffer;
 s32 TLobby__sub_803F6270(u16 *arg0);
 s32 TLobby__sub_803F4AB4();
 s32 TLobby__sub_803F4AEC();
 void *memset(void *, int, u32);
 char *strncpy(char *, const char *, u32);
 u32 strlen(const char *);
-extern Big_803F4D84 *lbl_805D79C0;
+extern Big_803F4D84 *lobby_net_config_buffer;
 s32 TLobby__sub_803F53A0(s32 n, char *dst, s32 len);
 }
 
@@ -740,11 +740,11 @@ s32 copy_current_entry_name__6TLobbyFPvi(char *dst, s32 len) {
     if (TLobby__sub_803F4AEC() == 0 && TLobby__sub_803F4AB4() == 1) {
         return -5;
     }
-    i = lbl_805D79C0->cur;
+    i = lobby_net_config_buffer->cur;
     if (i < 0 || i >= 6) {
         return -3;
     }
-    i = lbl_805D79C0->ent[i].v;
+    i = lobby_net_config_buffer->ent[i].v;
     if (i < 0 || i >= 6) {
         return -3;
     }
@@ -752,8 +752,8 @@ s32 copy_current_entry_name__6TLobbyFPvi(char *dst, s32 len) {
         return -2;
     }
     memset(dst, 0, len);
-    strncpy(dst, lbl_805D79C0->rec[lbl_805D79C0->ent[lbl_805D79C0->cur].v].name, len - 1);
-    if ((u32)len <= strlen(lbl_805D79C0->rec[lbl_805D79C0->ent[lbl_805D79C0->cur].v].name)) {
+    strncpy(dst, lobby_net_config_buffer->rec[lobby_net_config_buffer->ent[lobby_net_config_buffer->cur].v].name, len - 1);
+    if ((u32)len <= strlen(lobby_net_config_buffer->rec[lobby_net_config_buffer->ent[lobby_net_config_buffer->cur].v].name)) {
         return -2;
     }
     return 0;
@@ -771,11 +771,11 @@ s32 TLobby__sub_803F4EBC(char *dst, s32 len) {
     if (TLobby__sub_803F4AEC() == 0 && TLobby__sub_803F4AB4() == 1) {
         return -5;
     }
-    i = (*(Big_803F4EBC * *)&lbl_805D79C0)->cur;
+    i = (*(Big_803F4EBC * *)&lobby_net_config_buffer)->cur;
     if (i < 0 || i >= 6) {
         return -3;
     }
-    i = (*(Big_803F4EBC * *)&lbl_805D79C0)->ent[i].v;
+    i = (*(Big_803F4EBC * *)&lobby_net_config_buffer)->ent[i].v;
     if (i < 0 || i >= 6) {
         return -3;
     }
@@ -783,8 +783,8 @@ s32 TLobby__sub_803F4EBC(char *dst, s32 len) {
         return -2;
     }
     memset(dst, 0, len);
-    strncpy(dst, (*(Big_803F4EBC * *)&lbl_805D79C0)->rec[(*(Big_803F4EBC * *)&lbl_805D79C0)->ent[(*(Big_803F4EBC * *)&lbl_805D79C0)->cur].v].name2, len - 1);
-    if ((u32)len <= strlen((*(Big_803F4EBC * *)&lbl_805D79C0)->rec[(*(Big_803F4EBC * *)&lbl_805D79C0)->ent[(*(Big_803F4EBC * *)&lbl_805D79C0)->cur].v].name2)) {
+    strncpy(dst, (*(Big_803F4EBC * *)&lobby_net_config_buffer)->rec[(*(Big_803F4EBC * *)&lobby_net_config_buffer)->ent[(*(Big_803F4EBC * *)&lobby_net_config_buffer)->cur].v].name2, len - 1);
+    if ((u32)len <= strlen((*(Big_803F4EBC * *)&lobby_net_config_buffer)->rec[(*(Big_803F4EBC * *)&lobby_net_config_buffer)->ent[(*(Big_803F4EBC * *)&lobby_net_config_buffer)->cur].v].name2)) {
         return -2;
     }
     return 0;
@@ -803,7 +803,7 @@ s32 TLobby__sub_803F4FF4(void *dst) {
     if (TLobby__sub_803F4AEC() == 0 && TLobby__sub_803F4AB4() == 1) {
         return -5;
     }
-    b = (*(Big_803F4FF4 * *)&lbl_805D79C0);
+    b = (*(Big_803F4FF4 * *)&lobby_net_config_buffer);
     i = b->cur;
     if (i < 0 || i >= 6) {
         return -3;
@@ -829,7 +829,7 @@ s32 TLobby__sub_803F50B8(void *dst) {
     if (TLobby__sub_803F4AEC() == 0 && TLobby__sub_803F4AB4() == 1) {
         return -5;
     }
-    b = (*(Big_803F50B8 * *)&lbl_805D79C0);
+    b = (*(Big_803F50B8 * *)&lobby_net_config_buffer);
     i = b->cur;
     if (i < 0 || i >= 6) {
         return -3;
@@ -855,7 +855,7 @@ s32 TLobby__sub_803F517C(u8 *dst) {
     if (TLobby__sub_803F4AEC() == 0 && TLobby__sub_803F4AB4() == 1) {
         return -5;
     }
-    b = (*(Big_803F517C * *)&lbl_805D79C0);
+    b = (*(Big_803F517C * *)&lobby_net_config_buffer);
     i = b->cur;
     if (i < 0 || i >= 6) {
         return -3;
@@ -883,23 +883,23 @@ s32 TLobby__sub_803F524C(char *dst, s32 len) {
     if (TLobby__sub_803F4AEC() == 0 && TLobby__sub_803F4AB4() == 1) {
         return -5;
     }
-    i = (*(Big_803F524C * *)&lbl_805D79C0)->cur;
+    i = (*(Big_803F524C * *)&lobby_net_config_buffer)->cur;
     if (i < 0 || i >= 6) {
         return -3;
     }
-    i = (*(Big_803F524C * *)&lbl_805D79C0)->ent[i].v;
+    i = (*(Big_803F524C * *)&lobby_net_config_buffer)->ent[i].v;
     if (i < 0 || i >= 6) {
         return -3;
     }
-    if ((*(Big_803F524C * *)&lbl_805D79C0)->rec[i].kind != 1) {
+    if ((*(Big_803F524C * *)&lobby_net_config_buffer)->rec[i].kind != 1) {
         return -3;
     }
     if (len <= 0) {
         return -2;
     }
     memset(dst, 0, len);
-    strncpy(dst, (*(Big_803F524C * *)&lbl_805D79C0)->rec[(*(Big_803F524C * *)&lbl_805D79C0)->ent[(*(Big_803F524C * *)&lbl_805D79C0)->cur].v].str20C, len - 1);
-    if ((u32)len <= strlen((*(Big_803F524C * *)&lbl_805D79C0)->rec[(*(Big_803F524C * *)&lbl_805D79C0)->ent[(*(Big_803F524C * *)&lbl_805D79C0)->cur].v].str20C)) {
+    strncpy(dst, (*(Big_803F524C * *)&lobby_net_config_buffer)->rec[(*(Big_803F524C * *)&lobby_net_config_buffer)->ent[(*(Big_803F524C * *)&lobby_net_config_buffer)->cur].v].str20C, len - 1);
+    if ((u32)len <= strlen((*(Big_803F524C * *)&lobby_net_config_buffer)->rec[(*(Big_803F524C * *)&lobby_net_config_buffer)->ent[(*(Big_803F524C * *)&lobby_net_config_buffer)->cur].v].str20C)) {
         return -2;
     }
     return 0;
@@ -917,26 +917,26 @@ s32 TLobby__sub_803F53A0(s32 n, char *dst, s32 len) {
     if (TLobby__sub_803F4AEC() == 0 && TLobby__sub_803F4AB4() == 1) {
         return -5;
     }
-    i = (*(Big_803F53A0 * *)&lbl_805D79C0)->cur;
+    i = (*(Big_803F53A0 * *)&lobby_net_config_buffer)->cur;
     if (i < 0 || i >= 6) {
         return -3;
     }
-    i = (*(Big_803F53A0 * *)&lbl_805D79C0)->ent[i].v;
+    i = (*(Big_803F53A0 * *)&lobby_net_config_buffer)->ent[i].v;
     if (i < 0 || i >= 6) {
         return -3;
     }
     if (n < 0 || n >= 3) {
         return -2;
     }
-    if ((*(Big_803F53A0 * *)&lbl_805D79C0)->rec[i].kind != 1) {
+    if ((*(Big_803F53A0 * *)&lobby_net_config_buffer)->rec[i].kind != 1) {
         return -3;
     }
     if (len <= 0) {
         return -2;
     }
     memset(dst, 0, len);
-    strncpy(dst, (*(Big_803F53A0 * *)&lbl_805D79C0)->rec[(*(Big_803F53A0 * *)&lbl_805D79C0)->ent[(*(Big_803F53A0 * *)&lbl_805D79C0)->cur].v].strs[0] + (n *= 0x20), len - 1);
-    if ((u32)len <= strlen((*(Big_803F53A0 * *)&lbl_805D79C0)->rec[(*(Big_803F53A0 * *)&lbl_805D79C0)->ent[(*(Big_803F53A0 * *)&lbl_805D79C0)->cur].v].strs[0] + n)) {
+    strncpy(dst, (*(Big_803F53A0 * *)&lobby_net_config_buffer)->rec[(*(Big_803F53A0 * *)&lobby_net_config_buffer)->ent[(*(Big_803F53A0 * *)&lobby_net_config_buffer)->cur].v].strs[0] + (n *= 0x20), len - 1);
+    if ((u32)len <= strlen((*(Big_803F53A0 * *)&lobby_net_config_buffer)->rec[(*(Big_803F53A0 * *)&lobby_net_config_buffer)->ent[(*(Big_803F53A0 * *)&lobby_net_config_buffer)->cur].v].strs[0] + n)) {
         return -2;
     }
     return 0;
@@ -954,23 +954,23 @@ s32 TLobby__sub_803F5524(char *dst, s32 len) {
     if (TLobby__sub_803F4AEC() == 0 && TLobby__sub_803F4AB4() == 1) {
         return -5;
     }
-    i = (*(Big_803F5524 * *)&lbl_805D79C0)->cur;
+    i = (*(Big_803F5524 * *)&lobby_net_config_buffer)->cur;
     if (i < 0 || i >= 6) {
         return -3;
     }
-    i = (*(Big_803F5524 * *)&lbl_805D79C0)->ent[i].v;
+    i = (*(Big_803F5524 * *)&lobby_net_config_buffer)->ent[i].v;
     if (i < 0 || i >= 6) {
         return -3;
     }
-    if ((*(Big_803F5524 * *)&lbl_805D79C0)->rec[i].kind != 1) {
+    if ((*(Big_803F5524 * *)&lobby_net_config_buffer)->rec[i].kind != 1) {
         return -3;
     }
     if (len <= 0) {
         return -2;
     }
     memset(dst, 0, len);
-    strncpy(dst, (*(Big_803F5524 * *)&lbl_805D79C0)->rec[(*(Big_803F5524 * *)&lbl_805D79C0)->ent[(*(Big_803F5524 * *)&lbl_805D79C0)->cur].v].str290, len - 1);
-    if ((u32)len <= strlen((*(Big_803F5524 * *)&lbl_805D79C0)->rec[(*(Big_803F5524 * *)&lbl_805D79C0)->ent[(*(Big_803F5524 * *)&lbl_805D79C0)->cur].v].str290)) {
+    strncpy(dst, (*(Big_803F5524 * *)&lobby_net_config_buffer)->rec[(*(Big_803F5524 * *)&lobby_net_config_buffer)->ent[(*(Big_803F5524 * *)&lobby_net_config_buffer)->cur].v].str290, len - 1);
+    if ((u32)len <= strlen((*(Big_803F5524 * *)&lobby_net_config_buffer)->rec[(*(Big_803F5524 * *)&lobby_net_config_buffer)->ent[(*(Big_803F5524 * *)&lobby_net_config_buffer)->cur].v].str290)) {
         return -2;
     }
     return 0;
@@ -989,7 +989,7 @@ s32 TLobby__sub_803F5678(u8 *dst) {
     if (TLobby__sub_803F4AEC() == 0 && TLobby__sub_803F4AB4() == 1) {
         return -5;
     }
-    b = (*(Big_803F5678 * *)&lbl_805D79C0);
+    b = (*(Big_803F5678 * *)&lobby_net_config_buffer);
     i = b->cur;
     if (i < 0 || i >= 6) {
         return -3;
@@ -1018,7 +1018,7 @@ s32 TLobby__sub_803F5748(void *dst) {
     if (TLobby__sub_803F4AEC() == 0 && TLobby__sub_803F4AB4() == 1) {
         return -5;
     }
-    b = (*(Big_803F5748 * *)&lbl_805D79C0);
+    b = (*(Big_803F5748 * *)&lobby_net_config_buffer);
     i = b->cur;
     if (i < 0 || i >= 6) {
         return -3;
@@ -1041,7 +1041,7 @@ s32 TLobby__sub_803F5748(void *dst) {
 s32 TLobby__sub_803F5824(void *arg0) {
     if (TLobby__sub_803F4AB4() == 0) return -1;
     if (TLobby__sub_803F4AEC() == 0 && TLobby__sub_803F4AB4() == 1) return -5;
-    S_803F5824 *s = (*(S_803F5824 * *)&lbl_805D79C0); s16 i;
+    S_803F5824 *s = (*(S_803F5824 * *)&lobby_net_config_buffer); s16 i;
     i = s->cur;
     if (i < 0 || i >= 6) return -3;
     i = s->recs[i].v;
@@ -1064,7 +1064,7 @@ s32 TLobby__sub_803F5900(void *arg0) {
     if (TLobby__sub_803F4AEC() == 0 && TLobby__sub_803F4AB4() == 1) {
         return -5;
     }
-    s = (*(S_803F5900 * *)&lbl_805D79C0);
+    s = (*(S_803F5900 * *)&lobby_net_config_buffer);
     i = s->cur;
     if (i < 0 || i >= 6) {
         return -3;
@@ -1093,7 +1093,7 @@ s32 TLobby__sub_803F59DC(char *buf, u32 n) {
     if (TLobby__sub_803F4AEC() == 0 && TLobby__sub_803F4AB4() == 1) {
         return -5;
     }
-    s = (*(S_803F59DC * *)&lbl_805D79C0);
+    s = (*(S_803F59DC * *)&lobby_net_config_buffer);
     i = s->cur;
     if (i < 0 || i >= 6) {
         return -3;
@@ -1106,8 +1106,8 @@ s32 TLobby__sub_803F59DC(char *buf, u32 n) {
         return -3;
     }
     memset(buf, 0, n);
-    strncpy(buf, (*(S_803F59DC * *)&lbl_805D79C0)->u.ents[(*(S_803F59DC * *)&lbl_805D79C0)->recs[(*(S_803F59DC * *)&lbl_805D79C0)->cur].v].name, n - 1);
-    if (n <= strlen((*(S_803F59DC * *)&lbl_805D79C0)->u.ents[(*(S_803F59DC * *)&lbl_805D79C0)->recs[(*(S_803F59DC * *)&lbl_805D79C0)->cur].v].name)) {
+    strncpy(buf, (*(S_803F59DC * *)&lobby_net_config_buffer)->u.ents[(*(S_803F59DC * *)&lobby_net_config_buffer)->recs[(*(S_803F59DC * *)&lobby_net_config_buffer)->cur].v].name, n - 1);
+    if (n <= strlen((*(S_803F59DC * *)&lobby_net_config_buffer)->u.ents[(*(S_803F59DC * *)&lobby_net_config_buffer)->recs[(*(S_803F59DC * *)&lobby_net_config_buffer)->cur].v].name)) {
         return -2;
     }
     return 0;
@@ -1125,11 +1125,11 @@ s32 TLobby__sub_803F5B20(char *buf, s32 n) {
     if (TLobby__sub_803F4AEC() == 0 && TLobby__sub_803F4AB4() == 1) {
         return -5;
     }
-    i = (*(S_803F5B20 * *)&lbl_805D79C0)->cur;
+    i = (*(S_803F5B20 * *)&lobby_net_config_buffer)->cur;
     if (i < 0 || i >= 6) {
         return -3;
     }
-    i = (*(S_803F5B20 * *)&lbl_805D79C0)->recs[i].w;
+    i = (*(S_803F5B20 * *)&lobby_net_config_buffer)->recs[i].w;
     if (i < 0 || i >= 6) {
         return -3;
     }
@@ -1137,8 +1137,8 @@ s32 TLobby__sub_803F5B20(char *buf, s32 n) {
         return -2;
     }
     memset(buf, 0, n);
-    strncpy(buf, (*(S_803F5B20 * *)&lbl_805D79C0)->u.b.ents2[(*(S_803F5B20 * *)&lbl_805D79C0)->recs[(*(S_803F5B20 * *)&lbl_805D79C0)->cur].w].s5, n - 1);
-    if ((u32)n <= strlen((*(S_803F5B20 * *)&lbl_805D79C0)->u.b.ents2[(*(S_803F5B20 * *)&lbl_805D79C0)->recs[(*(S_803F5B20 * *)&lbl_805D79C0)->cur].w].s5)) {
+    strncpy(buf, (*(S_803F5B20 * *)&lobby_net_config_buffer)->u.b.ents2[(*(S_803F5B20 * *)&lobby_net_config_buffer)->recs[(*(S_803F5B20 * *)&lobby_net_config_buffer)->cur].w].s5, n - 1);
+    if ((u32)n <= strlen((*(S_803F5B20 * *)&lobby_net_config_buffer)->u.b.ents2[(*(S_803F5B20 * *)&lobby_net_config_buffer)->recs[(*(S_803F5B20 * *)&lobby_net_config_buffer)->cur].w].s5)) {
         return -2;
     }
     return 0;
@@ -1156,11 +1156,11 @@ s32 TLobby__sub_803F5C58(char *buf, s32 n) {
     if (TLobby__sub_803F4AEC() == 0 && TLobby__sub_803F4AB4() == 1) {
         return -5;
     }
-    i = (*(S_803F5C58 * *)&lbl_805D79C0)->cur;
+    i = (*(S_803F5C58 * *)&lobby_net_config_buffer)->cur;
     if (i < 0 || i >= 6) {
         return -3;
     }
-    i = (*(S_803F5C58 * *)&lbl_805D79C0)->recs[i].w;
+    i = (*(S_803F5C58 * *)&lobby_net_config_buffer)->recs[i].w;
     if (i < 0 || i >= 6) {
         return -3;
     }
@@ -1168,8 +1168,8 @@ s32 TLobby__sub_803F5C58(char *buf, s32 n) {
         return -2;
     }
     memset(buf, 0, n);
-    strncpy(buf, (*(S_803F5C58 * *)&lbl_805D79C0)->u.b.ents2[(*(S_803F5C58 * *)&lbl_805D79C0)->recs[(*(S_803F5C58 * *)&lbl_805D79C0)->cur].w].s0, n - 1);
-    if ((u32)n <= strlen((*(S_803F5C58 * *)&lbl_805D79C0)->u.b.ents2[(*(S_803F5C58 * *)&lbl_805D79C0)->recs[(*(S_803F5C58 * *)&lbl_805D79C0)->cur].w].s0)) {
+    strncpy(buf, (*(S_803F5C58 * *)&lobby_net_config_buffer)->u.b.ents2[(*(S_803F5C58 * *)&lobby_net_config_buffer)->recs[(*(S_803F5C58 * *)&lobby_net_config_buffer)->cur].w].s0, n - 1);
+    if ((u32)n <= strlen((*(S_803F5C58 * *)&lobby_net_config_buffer)->u.b.ents2[(*(S_803F5C58 * *)&lobby_net_config_buffer)->recs[(*(S_803F5C58 * *)&lobby_net_config_buffer)->cur].w].s0)) {
         return -2;
     }
     return 0;
@@ -1187,11 +1187,11 @@ s32 TLobby__sub_803F5D90(char *buf, s32 n) {
     if (TLobby__sub_803F4AEC() == 0 && TLobby__sub_803F4AB4() == 1) {
         return -5;
     }
-    i = (*(S_803F5D90 * *)&lbl_805D79C0)->cur;
+    i = (*(S_803F5D90 * *)&lobby_net_config_buffer)->cur;
     if (i < 0 || i >= 6) {
         return -3;
     }
-    i = (*(S_803F5D90 * *)&lbl_805D79C0)->recs[i].w;
+    i = (*(S_803F5D90 * *)&lobby_net_config_buffer)->recs[i].w;
     if (i < 0 || i >= 6) {
         return -3;
     }
@@ -1199,8 +1199,8 @@ s32 TLobby__sub_803F5D90(char *buf, s32 n) {
         return -2;
     }
     memset(buf, 0, n);
-    strncpy(buf, (*(S_803F5D90 * *)&lbl_805D79C0)->u.b.ents2[(*(S_803F5D90 * *)&lbl_805D79C0)->recs[(*(S_803F5D90 * *)&lbl_805D79C0)->cur].w].s1, n - 1);
-    if ((u32)n <= strlen((*(S_803F5D90 * *)&lbl_805D79C0)->u.b.ents2[(*(S_803F5D90 * *)&lbl_805D79C0)->recs[(*(S_803F5D90 * *)&lbl_805D79C0)->cur].w].s1)) {
+    strncpy(buf, (*(S_803F5D90 * *)&lobby_net_config_buffer)->u.b.ents2[(*(S_803F5D90 * *)&lobby_net_config_buffer)->recs[(*(S_803F5D90 * *)&lobby_net_config_buffer)->cur].w].s1, n - 1);
+    if ((u32)n <= strlen((*(S_803F5D90 * *)&lobby_net_config_buffer)->u.b.ents2[(*(S_803F5D90 * *)&lobby_net_config_buffer)->recs[(*(S_803F5D90 * *)&lobby_net_config_buffer)->cur].w].s1)) {
         return -2;
     }
     return 0;
@@ -1218,11 +1218,11 @@ s32 TLobby__sub_803F5EC8(char *buf, s32 n) {
     if (TLobby__sub_803F4AEC() == 0 && TLobby__sub_803F4AB4() == 1) {
         return -5;
     }
-    i = (*(S_803F5EC8 * *)&lbl_805D79C0)->cur;
+    i = (*(S_803F5EC8 * *)&lobby_net_config_buffer)->cur;
     if (i < 0 || i >= 6) {
         return -3;
     }
-    i = (*(S_803F5EC8 * *)&lbl_805D79C0)->recs[i].w;
+    i = (*(S_803F5EC8 * *)&lobby_net_config_buffer)->recs[i].w;
     if (i < 0 || i >= 6) {
         return -3;
     }
@@ -1230,8 +1230,8 @@ s32 TLobby__sub_803F5EC8(char *buf, s32 n) {
         return -2;
     }
     memset(buf, 0, n);
-    strncpy(buf, (*(S_803F5EC8 * *)&lbl_805D79C0)->u.b.ents2[(*(S_803F5EC8 * *)&lbl_805D79C0)->recs[(*(S_803F5EC8 * *)&lbl_805D79C0)->cur].w].s2, n - 1);
-    if ((u32)n <= strlen((*(S_803F5EC8 * *)&lbl_805D79C0)->u.b.ents2[(*(S_803F5EC8 * *)&lbl_805D79C0)->recs[(*(S_803F5EC8 * *)&lbl_805D79C0)->cur].w].s2)) {
+    strncpy(buf, (*(S_803F5EC8 * *)&lobby_net_config_buffer)->u.b.ents2[(*(S_803F5EC8 * *)&lobby_net_config_buffer)->recs[(*(S_803F5EC8 * *)&lobby_net_config_buffer)->cur].w].s2, n - 1);
+    if ((u32)n <= strlen((*(S_803F5EC8 * *)&lobby_net_config_buffer)->u.b.ents2[(*(S_803F5EC8 * *)&lobby_net_config_buffer)->recs[(*(S_803F5EC8 * *)&lobby_net_config_buffer)->cur].w].s2)) {
         return -2;
     }
     return 0;
@@ -1249,11 +1249,11 @@ s32 TLobby__sub_803F6000(char *buf, s32 n) {
     if (TLobby__sub_803F4AEC() == 0 && TLobby__sub_803F4AB4() == 1) {
         return -5;
     }
-    i = (*(S_803F6000 * *)&lbl_805D79C0)->cur;
+    i = (*(S_803F6000 * *)&lobby_net_config_buffer)->cur;
     if (i < 0 || i >= 6) {
         return -3;
     }
-    i = (*(S_803F6000 * *)&lbl_805D79C0)->recs[i].w;
+    i = (*(S_803F6000 * *)&lobby_net_config_buffer)->recs[i].w;
     if (i < 0 || i >= 6) {
         return -3;
     }
@@ -1261,8 +1261,8 @@ s32 TLobby__sub_803F6000(char *buf, s32 n) {
         return -2;
     }
     memset(buf, 0, n);
-    strncpy(buf, (*(S_803F6000 * *)&lbl_805D79C0)->u.b.ents2[(*(S_803F6000 * *)&lbl_805D79C0)->recs[(*(S_803F6000 * *)&lbl_805D79C0)->cur].w].s3, n - 1);
-    if ((u32)n <= strlen((*(S_803F6000 * *)&lbl_805D79C0)->u.b.ents2[(*(S_803F6000 * *)&lbl_805D79C0)->recs[(*(S_803F6000 * *)&lbl_805D79C0)->cur].w].s3)) {
+    strncpy(buf, (*(S_803F6000 * *)&lobby_net_config_buffer)->u.b.ents2[(*(S_803F6000 * *)&lobby_net_config_buffer)->recs[(*(S_803F6000 * *)&lobby_net_config_buffer)->cur].w].s3, n - 1);
+    if ((u32)n <= strlen((*(S_803F6000 * *)&lobby_net_config_buffer)->u.b.ents2[(*(S_803F6000 * *)&lobby_net_config_buffer)->recs[(*(S_803F6000 * *)&lobby_net_config_buffer)->cur].w].s3)) {
         return -2;
     }
     return 0;
@@ -1280,11 +1280,11 @@ s32 TLobby__sub_803F6138(char *buf, s32 n) {
     if (TLobby__sub_803F4AEC() == 0 && TLobby__sub_803F4AB4() == 1) {
         return -5;
     }
-    i = (*(S_803F6138 * *)&lbl_805D79C0)->cur;
+    i = (*(S_803F6138 * *)&lobby_net_config_buffer)->cur;
     if (i < 0 || i >= 6) {
         return -3;
     }
-    i = (*(S_803F6138 * *)&lbl_805D79C0)->recs[i].w;
+    i = (*(S_803F6138 * *)&lobby_net_config_buffer)->recs[i].w;
     if (i < 0 || i >= 6) {
         return -3;
     }
@@ -1292,8 +1292,8 @@ s32 TLobby__sub_803F6138(char *buf, s32 n) {
         return -2;
     }
     memset(buf, 0, n);
-    strncpy(buf, (*(S_803F6138 * *)&lbl_805D79C0)->u.b.ents2[(*(S_803F6138 * *)&lbl_805D79C0)->recs[(*(S_803F6138 * *)&lbl_805D79C0)->cur].w].s4, n - 1);
-    if ((u32)n <= strlen((*(S_803F6138 * *)&lbl_805D79C0)->u.b.ents2[(*(S_803F6138 * *)&lbl_805D79C0)->recs[(*(S_803F6138 * *)&lbl_805D79C0)->cur].w].s4)) {
+    strncpy(buf, (*(S_803F6138 * *)&lobby_net_config_buffer)->u.b.ents2[(*(S_803F6138 * *)&lobby_net_config_buffer)->recs[(*(S_803F6138 * *)&lobby_net_config_buffer)->cur].w].s4, n - 1);
+    if ((u32)n <= strlen((*(S_803F6138 * *)&lobby_net_config_buffer)->u.b.ents2[(*(S_803F6138 * *)&lobby_net_config_buffer)->recs[(*(S_803F6138 * *)&lobby_net_config_buffer)->cur].w].s4)) {
         return -2;
     }
     return 0;
@@ -1312,7 +1312,7 @@ s32 TLobby__sub_803F6270(u16 *arg0) {
     if (TLobby__sub_803F4AEC() == 0 && TLobby__sub_803F4AB4() == 1) {
         return -5;
     }
-    s = (*(S_803F6270 * *)&lbl_805D79C0);
+    s = (*(S_803F6270 * *)&lobby_net_config_buffer);
     i = s->cur;
     if (i < 0 || i >= 6) {
         return -3;

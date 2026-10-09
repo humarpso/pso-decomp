@@ -34,7 +34,7 @@ s32 get_meseta_value__13TWindowMesetaFPv();
 f32 TWindowSubStatusDisp__sub_802877A4(f32);
 extern M2C_UNK lbl_804D06CC[];
 extern M2C_UNK __vt__13TWindowMeseta[];
-extern s32 lbl_805D3978;
+extern s32 TWindowMeseta__class_name;
 extern const f32 lbl_805DD204;
 extern const f32 lbl_805DD208;
 extern const f32 lbl_805DD20C;
@@ -86,7 +86,7 @@ void *TWindowMeseta__ct(void *arg0, s32 arg1, s32 arg2, s32 arg3) {
     Sub_80269244 *b;
     construct_base__9TWindowDDFPvPvsPv(arg0, lbl_804D06CC, arg2, arg1);
     self->vt = __vt__13TWindowMeseta;
-    self->name = lbl_805D3978;
+    self->name = TWindowMeseta__class_name;
     self->x64 = arg2;
     self->meseta = ((s32 (*)(void *))get_meseta_value__13TWindowMesetaFPv)(arg0);
     a = (Sub_80269244 *)get_array_entry__20TWindowSubStatusDispFPvi(arg0, 0);

@@ -10,7 +10,7 @@ void TQuestListOnline__sub_80217C1C(void *);
 void handle_quest_confirm__16TQuestListOnlineFPv(void *);
 int run_task__16TQuestListOnlineFPv(void *);
 void request_quest_list__16TQuestListOnlineFi(s32);
-void TQuestListOnline__sub_80217B30(void *);
+void decompress_quest_list_buffers__16TQuestListOnlineFPv(void *);
 void invoke_callback_28_and_queue_destruction__16TQuestListOnlineFPv(void *);
 void invoke_callback_2c_and_queue_destruction__16TQuestListOnlineFPv(void *);
 void invoke_callback_30_and_queue_destruction__16TQuestListOnlineFPv(void *);
@@ -39,7 +39,7 @@ void TQuestListOnline__vt9(Obj_802181B0 *arg0) {
     case 4: handle_quest_confirm__16TQuestListOnlineFPv(arg0); break;
     case 5: run_task__16TQuestListOnlineFPv(arg0); break;
     case 6: request_quest_list__16TQuestListOnlineFi((s32)arg0); break;
-    case 7: TQuestListOnline__sub_80217B30(arg0); break;
+    case 7: decompress_quest_list_buffers__16TQuestListOnlineFPv(arg0); break;
     case 8: invoke_callback_28_and_queue_destruction__16TQuestListOnlineFPv(arg0); break;
     case 9: invoke_callback_2c_and_queue_destruction__16TQuestListOnlineFPv(arg0); break;
     case 10: invoke_callback_30_and_queue_destruction__16TQuestListOnlineFPv(arg0); break;

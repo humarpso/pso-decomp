@@ -48,7 +48,7 @@ extern RecoveredGlobal_8029951C_lbl_8046518C lbl_8046518C;
 extern RecoveredGlobal_802994B0_TObjCMIcon__data_805409E0 TObjCMIcon__data_805409E0;
 extern f32 TObjCMIcon__data_805D65A8;
 extern const f32 lbl_805DDC38;
-void TObjCMIcon__sub_8029951C(void);
+void init_icon_table__10TObjCMIconFv(void);
 extern RecoveredGlobal_802994B0_TObjCMIcon__data_805409E0 TObjCMIcon__data_805409E0;
 void reset_icon_flags__10TObjCMIconFv(void);
 void reset_icon_flags__10TObjCMIconFv(void);
@@ -100,7 +100,7 @@ void TObjCMIcon__sub_802994C8(s32 arg0, s32 *arg1) {
     }
 }
 
-void TObjCMIcon__sub_8029951C(void) {
+void init_icon_table__10TObjCMIconFv(void) {
     M2C_UNK *var_r30;
     s32 var_r29;
     var_r29 = 0;

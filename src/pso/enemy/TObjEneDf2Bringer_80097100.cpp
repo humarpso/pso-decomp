@@ -209,7 +209,7 @@ M2C_UNK post_translate_matrix(void *);
 extern u8 lbl_80439F30[];
 extern M2C_UNK __vt__11TBreakUpMdl[];
 extern RecoveredGlobal_80096F54_lbl_8058D490 lbl_8058D490;
-extern s32 lbl_805D2998;
+extern s32 TBreakUpMdl__class_name;
 extern const f32 lbl_805D97D0;
 extern const f32 lbl_805D97D4;
 u8 *TBreakUpMdl__ct(u8 *arg0, void *arg1, Model_80096AD8 *arg2, void *arg3, s32 arg4, void *arg5, s32 arg6);

@@ -87,7 +87,7 @@ extern "C" {
 extern RecoveredGlobal_80310300_TPlayerBattleCtrl4P__data_80542E90 TPlayerBattleCtrl4P__data_80542E90;
 M2C_UNK *TPlayerBattleCtrl4P__sub_80310300(void);
 void TPlayerBattleCtrl4P__sub_803102A4(T_803102A4 *self);
-extern void *TPlayerBattleCtrl4P__data_805D6AA8;
+extern void *TPlayerBattleCtrl4P__instance;
 u8 is_battle_mode_active__19TPlayerBattleCtrl4PFv(void);
 void TWindow__close(void *);
 void close_player_windows__19TPlayerBattleCtrl4PFPv(Ctl_803101D4 *o);
@@ -287,7 +287,7 @@ void TPlayerBattleCtrl4P__sub_803102A4(T_803102A4 *self) {
 }
 
 u8 is_battle_mode_active__19TPlayerBattleCtrl4PFv(void) {
-    T_803102C8 *p = (*(T_803102C8 * *)&TPlayerBattleCtrl4P__data_805D6AA8);
+    T_803102C8 *p = (*(T_803102C8 * *)&TPlayerBattleCtrl4P__instance);
     if (p != 0) {
         return p->mode == 1 || p->mode == 2;
     }
@@ -350,22 +350,22 @@ void update_player_alive_flags__19TPlayerBattleCtrl4PFPv(Ctl_803104CC *self) {
 
 void TPlayerBattleCtrl4P__sub_8031058C(void* p) { update_player_alive_flags__19TPlayerBattleCtrl4PFPv((Ctl_803104CC *)(p)); }
 
-extern void *TPlayerBattleCtrl4P__data_805D6AA8;
+extern void *TPlayerBattleCtrl4P__instance;
 
 void reset_ctrl_to_default__19TPlayerBattleCtrl4PFv(void) {
     void *temp_r3;
-    temp_r3 = TPlayerBattleCtrl4P__data_805D6AA8;
+    temp_r3 = TPlayerBattleCtrl4P__instance;
     if (temp_r3 != NULL) {
         init_ctrl_default__19TPlayerBattleCtrl4PFPv((void*)(temp_r3));
     }
 }
 
-extern s32 lbl_805D6AAC;
+extern s32 TPlayerBattleCtrl4P__init_flag;
 
 void init__19TPlayerBattleCtrl4PFv(void) {
     TLobby__sub_801B09A4();
     inc_player_count__10TObjPlayerFv();
-    lbl_805D6AAC = 1;
+    TPlayerBattleCtrl4P__init_flag = 1;
 }
 
 int init_ctrl_default__19TPlayerBattleCtrl4PFPv(void* p) { return ((int (*)(void*, int))TPlayerBattleCtrl4P__sub_803112AC)(p, 0); }

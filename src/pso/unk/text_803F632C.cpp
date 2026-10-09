@@ -4,7 +4,7 @@ int strncmp(const char *, const char *, u32);
 u32 strlen(const char *);
 void parse_config_line__22TQuestVmDownLoadServerFPvUiPv(char *, int, void *);
 extern char lbl_804FD338[];
-extern s32 lbl_805D79EC;
+extern s32 download_server_config_length;
 s32 parse_netinfo(char *buf, u32 len, void *arg2);
 }
 
@@ -19,7 +19,7 @@ s32 parse_netinfo(char *buf, u32 len, void *arg2) {
     u32 i;
     u32 start;
     start = 0;
-    lbl_805D79EC = 0;
+    download_server_config_length = 0;
     if (strncmp(buf, lbl_804FD338, strlen(lbl_804FD338)) != 0) {
         return -1;
     }

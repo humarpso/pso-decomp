@@ -93,7 +93,7 @@ force_active:
   - TChCrTagOccupation__vt4
   - TFontSmallLobby__sub_801C0258
   - TItemData__sub_8010CAB0
-  - TItemData__sub_8010CACC
+  - char_to_letter_index__9TItemDataFPvc
   - TItemEquipBase__sub_8022F1F4
   - TItemObject__vt42
   - TItemProArmor__sub_80117730
@@ -171,7 +171,7 @@ force_active:
   - TObjPlayer__sub_803DA84C
   - TObjPlayer__sub_803DAA70
   - TObjPlayer__sub_803DAD84
-  - TObjResultWin__sub_80074664
+  - copy_record__13TObjResultWinFPvPv
   - TObjSeabedSuisoBrakable__vt12
   - TObjSeabedSuisoBrakable__vt14
   - TObjSeabedSuisoBrakable__vt15
@@ -184,7 +184,7 @@ force_active:
   - TWindowHelpItem__sub_8025A900
   - TWindowHelpItem__sub_8025A904
   - TWindowKeyBoardSoft__sub_80080B34
-  - TWindowSetLevelUp__sub_8026DDE0
+  - copy_stat_block__17TWindowSetLevelUpFii
   - TWindowSubStatusDisp__sub_8025AF0C
   - TWindowSubStatusDisp__sub_8025B0D0
   - TWindowSubStatusDisp__sub_8025B2DC
@@ -681,12 +681,12 @@ force_active:
   - fn_8013F288
   - fn_8016AD3C
   - fn_801A3BB8
-  - fn_801A753C
+  - copy_effect_params
   - fn_801C1E98
   - fn_801C1EE8
   - fn_801C1F40
   - fn_801D34E0
-  - fn_801D36B4
+  - copy_drop_node
   - fn_801D371C
   - fn_801DF360
   - fn_801DF3F0
@@ -700,8 +700,8 @@ force_active:
   - fn_8022F164
   - fn_8026D564
   - fn_802E62A4
-  - fn_80349C54
-  - fn_803CBE00
+  - draw_filled_rects_2d
+  - wait_for_vi_retrace
   - fn_spawn_particle_f3_with_flags
   - format_challenge_stage_times__23TAdSinglePlyChrSelectGCFii
   - free_item_pmt

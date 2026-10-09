@@ -186,7 +186,7 @@ u8 *init_from_model__11TBreakUpMdlFPvi(void *, void *);
 M2C_UNK TObjPlayer__sub_800F0928(void *);
 s32 spawn_npc_enemy__6TLobbyFsiiiff(int, int, int, void *, f32, f32);
 extern Quad_803627DC lbl_80479FAC;
-extern u8 lbl_804F251C[];
+extern u8 TObjEneEpsilonGuard__resource_descriptor[];
 extern f32 lbl_80543A18[3];
 extern s32 lbl_80543A24[9];
 extern s32 lbl_805D6F68;
@@ -272,7 +272,7 @@ void load_assets__19TObjEneEpsilonGuardFv(void) {
     lbl_80543A18[2] = lbl_805E0248;
     p = alloc__23TAdSinglePlyChrSelectGCFPv(0x440);
     if (p != NULL) {
-        p = load_resource_from_descriptor(p, 1, lbl_804F251C, 0, 0, 0);
+        p = load_resource_from_descriptor(p, 1, TObjEneEpsilonGuard__resource_descriptor, 0, 0, 0);
     }
     lbl_805D6FA0 = p;
     p = alloc__23TAdSinglePlyChrSelectGCFPv(0x10);

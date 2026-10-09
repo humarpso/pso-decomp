@@ -9,7 +9,7 @@ extern "C" {
 void handle_cmd_88(void *arg0);
 void handle_cmd_C4(void *arg0);
 M2C_UNK bswap_cmd_88_body(M2C_UNK *);
-M2C_UNK fn_801DF394(M2C_UNK *);
+M2C_UNK copy_entry_table(M2C_UNK *);
 M2C_UNK fn_801DF42C(M2C_UNK *);
 M2C_UNK fn_801DF4FC(M2C_UNK *);
 
@@ -17,7 +17,7 @@ void handle_cmd_88(void *arg0) {
     char sp8[0xC4];
     M2C_UNK (*temp_r12)(M2C_UNK *);
 
-    fn_801DF394((M2C_UNK *) sp8);
+    copy_entry_table((M2C_UNK *) sp8);
     bswap_cmd_88_body((M2C_UNK *) sp8);
     temp_r12 = M2C_FIELD(arg0, M2C_UNK (**)(M2C_UNK *), 0xBC84);
     if (temp_r12 != NULL) {

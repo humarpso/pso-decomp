@@ -330,7 +330,7 @@ extern const f32 TWindowFukidasi__data_805DCD1C;
 extern const f32 TWindowFukidasi__data_805DCD28;
 extern const f32 TWindowFukidasi__data_805DCD30;
 extern const f32 TWindowFukidasi__data_805DCD4C;
-extern M2C_UNK lbl_8044ED18[];
+extern M2C_UNK TWindowFukidasi__balloon_color_table[];
 extern Vec_80251380 lbl_8044ED58;
 extern RecoveredGlobal_80251BA0_lbl_804CF080 lbl_804CF080;
 extern u8 lbl_8058D490[];
@@ -912,7 +912,7 @@ extern int fold_flush_5;
 void set_color__15TWindowFukidasiFPvUs(void *arg0, u16 arg1) {
     M2C_FIELD(arg0, s32 *, 0x84) = 0xFFF8F8F8;
     if (((u32)arg1 < 0xCU) && (get_player_by_client_id((u32)arg1) != 0U) && (obj_isState3_324() == 0)) {
-        M2C_FIELD(arg0, s32 *, 0x84) = (s32) lbl_8044ED18[(u16)arg1];
+        M2C_FIELD(arg0, s32 *, 0x84) = (s32) TWindowFukidasi__balloon_color_table[(u16)arg1];
     }
 }
 

@@ -37,7 +37,7 @@ M2C_UNK set_area__6TLobbyFPvi(void *, int, int);
 M2C_UNK send_inter_level_warp_all__10TNpcPlayerFi();
 extern RecoveredGlobal_8026D18C_lbl_80515BA0 lbl_80515BA0;
 extern s32 lbl_805D55C0;
-extern int TWindowReturnCity__data_805D6468;
+extern int TWindowReturnCity__client_scan_index;
 void return_to_city_after_defeat(void);
 s32 get_message_10__20TWindowSubStatusDispFPv(int);
 s32 set_close_flag__11TWindowCtrlFv();
@@ -49,7 +49,7 @@ s32 free_member__17TWindowSubComCardFPv(int, int);
 s32 forward_slot_selection__16TAdChrSelASlotGCFPvPvPv(int, int, int, f32);
 s32 create__19TWindowMessageYesNoFPvPvPvPv(void *, int, int, int);
 extern M2C_UNK __vt__17TWindowReturnCity[];
-extern s32 lbl_805D39B8;
+extern s32 TWindowReturnCity__class_name;
 extern const f32 lbl_805DD2E8;
 u8 *TWindowReturnCity__ct(u8 *arg0, s32 arg1, s32 arg2);
 M2C_UNK queue_destruction__7TObjectFv(void *);
@@ -65,7 +65,7 @@ s32 is_child_visible__17TWindowSubComCardFPv(s32);
 void return_to_city_after_defeat(void);
 extern s32 lbl_805D55C0;
 extern s32 tl_00;
-extern int TWindowReturnCity__data_805D6468;
+extern int TWindowReturnCity__client_scan_index;
 M2C_UNK queue_destruction__7TObjectFv(void *);
 M2C_UNK init__22THunterGuildSeqOfflineFPvPvPv(u32, s32, void (*)());
 M2C_UNK clear_flag_2__11TWindowCtrlFv();
@@ -79,7 +79,7 @@ s32 is_child_visible__17TWindowSubComCardFPv(s32);
 void return_to_city_after_defeat(void);
 extern s32 lbl_805D55C0;
 extern s32 tl_00;
-extern int TWindowReturnCity__data_805D6468;
+extern int TWindowReturnCity__client_scan_index;
 void run_task__17TWindowReturnCityFv(void *arg0);
 }
 
@@ -99,15 +99,15 @@ void close__17TWindowSubComCardFPv(void *);
 
 typedef char RecoveredGlobal_8026D18C_lbl_80515BA0_size[sizeof(RecoveredGlobal_8026D18C_lbl_80515BA0) == 0x28 ? 1 : -1];
 void return_to_city_after_defeat(void) {
-    if (((s32) lbl_805D55C0 != 1) && ((s32) (*(s32 *)&TWindowReturnCity__data_805D6468) < 4)) {
-        if (((s32)get_player_by_client_id((s32)((u32) (*(s32 *)&TWindowReturnCity__data_805D6468)))) != 0U) {
+    if (((s32) lbl_805D55C0 != 1) && ((s32) (*(s32 *)&TWindowReturnCity__client_scan_index) < 4)) {
+        if (((s32)get_player_by_client_id((s32)((u32) (*(s32 *)&TWindowReturnCity__client_scan_index)))) != 0U) {
             prepare_hospital_return__10TObjPlayerFi();
         }
         set_area__6TLobbyFPvi((void *) (&lbl_80515BA0.value), (int) (0), (int) (get_floor_map_terrain(0)));
         mark_area_change_pending();
         get_dest_area__17TObjAreaWarpQuestFPv(&lbl_80515BA0.value);
         send_inter_level_warp_all__10TNpcPlayerFi();
-        (*(s32 *)&TWindowReturnCity__data_805D6468) = 4;
+        (*(s32 *)&TWindowReturnCity__client_scan_index) = 4;
     }
 }
 
@@ -134,7 +134,7 @@ void run_task__17TWindowReturnCityFv(void *arg0) {
         case 0:
             M2C_FIELD(arg0, s32 *, 0x20) = 1;
         case 1:
-            if ((query_battle_state__17TWindowReturnCityFPv(arg0) == 0) || ((s32) TWindowReturnCity__data_805D6468 != 4)) {
+            if ((query_battle_state__17TWindowReturnCityFPv(arg0) == 0) || ((s32) TWindowReturnCity__client_scan_index != 4)) {
                 clear_flag_bit5__17TWindowReturnCityFv();
                 TWindowReturnCity__sub_8024ACA8(M2C_FIELD(arg0, s32 *, 0x24));
                 clear_flag_2__11TWindowCtrlFv();
@@ -153,7 +153,7 @@ void run_task__17TWindowReturnCityFv(void *arg0) {
             if (is_child_visible__17TWindowSubComCardFPv(M2C_FIELD(arg0, s32 *, 0x1C)) != 0) {
                 temp_r3 = get_slot_or_neg1__17TWindowSubComCardFPv(M2C_FIELD(arg0, s32 *, 0x1C));
                 if (temp_r3 == 0) {
-                    TWindowReturnCity__data_805D6468 = M2C_FIELD(arg0, s32 *, 0x24);
+                    TWindowReturnCity__client_scan_index = M2C_FIELD(arg0, s32 *, 0x24);
                     u32 task = __nw__7TObjectFUl(0x28);
                     if (task != 0U) {
                         init__22THunterGuildSeqOfflineFPvPvPv(task, tl_00, return_to_city_after_defeat);
@@ -191,7 +191,7 @@ u8 *TWindowReturnCity__ct(u8 *arg0, s32 arg1, s32 arg2) {
   s32 temp_r31;
   __ct__7TObjectFP7TObject((void *) arg0, (void *) arg1);
   *((M2C_UNK **) (((s8 *) arg0) + 0x18)) = &(*(RecoveredGlobal_8026D40C___vt__17TWindowReturnCity *)&__vt__17TWindowReturnCity).value;
-  *((s32 *) (((s8 *) arg0) + 0)) = (s32) lbl_805D39B8;
+  *((s32 *) (((s8 *) arg0) + 0)) = (s32) TWindowReturnCity__class_name;
   *((s32 *) (((s8 *) arg0) + 0x24)) = arg2;
   temp_r31 = create__19TWindowMessageYesNoFPvPvPvPv((void *) arg0, (int) (*((s32 *) (((s8 *) arg0) + 0x24))), (int) 0, (int) 0);
   *((s32 *) (((s8 *) arg0) + 0x1C)) = temp_r31;
@@ -210,8 +210,8 @@ u8 *TWindowReturnCity__ct(u8 *arg0, s32 arg1, s32 arg2) {
 
 void TWindowReturnCity__sub_8026D4BC(void) {  }
 
-    extern int TWindowReturnCity__data_805D6468;
-void TWindowReturnCity__sub_8026D4C0(void) { TWindowReturnCity__data_805D6468 = 4; }
+    extern int TWindowReturnCity__client_scan_index;
+void TWindowReturnCity__sub_8026D4C0(void) { TWindowReturnCity__client_scan_index = 4; }
 
 extern void *TWindowCtrl__data_805D63F8;
 

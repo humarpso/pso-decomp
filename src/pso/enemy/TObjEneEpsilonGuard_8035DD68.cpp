@@ -494,7 +494,7 @@ u32 find_entity_by_id(u16);
 M2C_UNK init_all_slots__10TObjPlayerFv();
 M2C_UNK check_object_collisions__10TObjPlayerFPv(void *);
 s16 get_table_value_by_index__19TObjEneEpsilonGuardFPv(u32);
-extern void *lbl_804F2034[];
+extern void *TObjEneEpsilonGuard__model_desc[];
 extern void *TObjEneEpsilonGuard__data_805D6F74;
 extern const f32 TObjEneEpsilonGuard__data_805E01D8;
 extern const f32 lbl_805E01F4;
@@ -1045,7 +1045,7 @@ void TObjEneEpsilonGuard__sub_8035EA90(u8 *arg0) {
         if (lim < M2C_FIELD(arg0, f32 *, 0x454)) {
             M2C_FIELD(arg0, f32 *, 0x454) -= lim;
         }
-        M2C_FIELD((u8 *)lbl_804F2034, f32 *, 0x38) = lbl_805E0200 * M2C_FIELD(arg0, f32 *, 0x458);
+        M2C_FIELD((u8 *)TObjEneEpsilonGuard__model_desc, f32 *, 0x38) = lbl_805E0200 * M2C_FIELD(arg0, f32 *, 0x458);
         ((M2C_UNK (*)(void *, void *))VecCopy__FP3VecPC3Vec)(M2C_FIELD(arg0, u8 **, 0x45C) + 0x38, arg0 + 0x38);
         init_all_slots__10TObjPlayerFv();
         check_object_collisions__10TObjPlayerFPv(M2C_FIELD(arg0, void **, 0x45C));
@@ -1520,7 +1520,7 @@ extern "C" void fn_80010EBC();
 extern "C" void fn_80010EC0();
 extern "C" void fn_80010EC4();
 extern "C" void fn_80010EC8();
-extern "C" void fn_800F5D80();
+extern "C" void clear_lobby_object_state();
 extern "C" void get_actor_body_center();
 extern "C" void get_actor_level_index();
 extern "C" void get_enemy_name__14TObjEnePanarmsFPv();
@@ -1552,7 +1552,7 @@ void *lbl_804F2008[7] = {
 void *lbl_804F2024[4] = {
     (void *)0x10000, (void *)0x2, (void *)0x3f800000, (void *)0x0,
 };
-void *lbl_804F2034[22] = {
+void *TObjEneEpsilonGuard__model_desc[22] = {
     (void *)0x0, (void *)0x41400000, (void *)0x0, (void *)0x40000000,
     (void *)0x0, (void *)0x0, (void *)0x8003, (void *)0x0,
     (void *)0x0, (void *)0x0, (void *)0x0, (void *)0x0,
@@ -1581,7 +1581,7 @@ void *__vt__19TObjEneEpsilonGuard[105] = {
     (void *)&get_pos__10TObjPlayerFii, (void *)&apply_switch_attack__10TObjPlayerFi, (void *)&enemy_spawn_jellen_effect, (void *)&trigger_switch_attack__10TObjPlayerFi,
     (void *)&enemy_spawn_zalure_effect, (void *)&TObjPlayer__sub_80010A80, (void *)&TObjPlayer__sub_800F65D0, (void *)&fn_80010EC8,
     (void *)&fn_80010EC4, (void *)&fn_80010EC0, (void *)&fn_80010EBC, (void *)&TObjEneDD__vt77,
-    (void *)&apply_hit_message_flags__10TObjPlayerFPvPv, (void *)&apply_set_data__9TObjEnemyFPvPv, (void *)&fn_800F5D80, (void *)&TObjEneEpsilon__vt81,
+    (void *)&apply_hit_message_flags__10TObjPlayerFPvPv, (void *)&apply_set_data__9TObjEnemyFPvPv, (void *)&clear_lobby_object_state, (void *)&TObjEneEpsilon__vt81,
     (void *)&TObjEneDD__vt82, (void *)&TObjEneDD__vt83, (void *)&TObjEneDD__vt84, (void *)&TObjEneEpsilonGuard__vt85,
     (void *)&TObjEneEpsilonGuard__vt86, (void *)&TObjEneEpsilonGuard__vt87, (void *)&TObjEneDD__vt87, (void *)&TObjEneDD__vt88,
     (void *)&TObjEneDD__vt89, (void *)&TObjEneDD__vt90, (void *)&TObjEneDD__vt91, (void *)&TObjEneDD__vt92,
@@ -1703,7 +1703,7 @@ void init_model_and_state__19TObjEneEpsilonGuardFPv(void *arg0_) {
     init_position_vectors__9TObjEneDDFPv(arg0);
     M2C_FIELD(arg0, s32 *, 0x34) = get_bml_model(lbl_805D6FA0, 2);
     M2C_FIELD(arg0, s32 *, 0x24) = TObjFish__sub_8001EDB0(lbl_805D6FA0, 0);
-    init_model__9TObjEneDDFPv(arg0, lbl_804F2034, 1);
+    init_model__9TObjEneDDFPv(arg0, TObjEneEpsilonGuard__model_desc, 1);
     set_field_d8__10TObjPlayerFPvi(arg0, lbl_804F2024);
     set_field_dc__10TObjPlayerFPvi(arg0, M2C_FIELD(lbl_805D6FA0, s32 *, 0x430));
     M2C_FIELD(arg0, s16 *, 0xB8) = 0;
@@ -1733,7 +1733,7 @@ void init_model_and_state__19TObjEneEpsilonGuardFPv(void *arg0_) {
         o = construct_collider_proxy__10TObjPlayerFPv(o, 0);
     }
     M2C_FIELD(arg0, void **, 0x45C) = o;
-    init_collision_body_parts(M2C_FIELD(arg0, void **, 0x45C), (u8 *) lbl_804F2034 + 0x2C, 1);
+    init_collision_body_parts(M2C_FIELD(arg0, void **, 0x45C), (u8 *) TObjEneEpsilonGuard__model_desc + 0x2C, 1);
     M2C_FIELD(arg0, s32 *, 0x440) = 0;
     TObjEneMe3Stelth__sub_800F5874(arg0, 0x3F);
 #undef arg0

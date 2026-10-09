@@ -70,13 +70,13 @@ void read_key_checked__16TKeyBoardControlFUc(u8 arg0);
 s32 is_split_screen();
 M2C_UNK TKeyBoardControl__sub_80132650(void *);
 M2C_UNK update_button_hold_counters(int);
-extern RecoveredGlobal_801A5EC4_TKeyBoardControl__data_80506270 TKeyBoardControl__data_80506270;
+extern RecoveredGlobal_801A5EC4_TKeyBoardControl__data_80506270 TKeyBoardControl__global_key_state;
 extern RecoveredGlobal_801A5EC4_lbl_8050E208 lbl_8050E208;
 void update_input_frame__16TKeyBoardControlFv(void);
 s32 TKeyBoardControl__sub_80132310(s32);
 u8 get_key_state_2__16TKeyBoardControlFPv(void *);
 u8 TKeyBoardControl__sub_8013239C(void *, int);
-extern RecoveredGlobal_801A5EC4_TKeyBoardControl__data_80506270 TKeyBoardControl__data_80506270;
+extern RecoveredGlobal_801A5EC4_TKeyBoardControl__data_80506270 TKeyBoardControl__global_key_state;
 s32 get_ascii_key__16TKeyBoardControlFv(void);
 s32 check_reset_button__16TKeyBoardControlFv();
 void reset_system();
@@ -126,7 +126,7 @@ struct Kb_801A6910 {
 struct Def_804C2308 { u32 w[13]; };
 extern "C" {
 s32 poll_key_state__16TKeyBoardControlFPv(Kb_801A6910 *self);
-void fn_801A69E4(s32 arg0, s32 *arg1);
+void accumulate_key_bits(s32 arg0, s32 *arg1);
 Def_804C2308 controller_default_pad_state = { 0, 0, 0, 0xFFFFFFFF, 0, 0, 0, 0, 0, 0, 0, 0, 0 };
 u32 TKeyBoardControl_key_bit_table[6] = { 16, 32, 64, 128, 4, 2 };
 u32 keyboard_poll_key_codes[6] = { 94, 93, 92, 95, 97, 76 };
@@ -146,13 +146,13 @@ s32 get_ascii_key__16TKeyBoardControlFv(void) {
   s32 temp_r3;
   s32 var_r3;
   u8 temp_r31;
-  if (get_key_state_2__16TKeyBoardControlFPv(&(*(RecoveredGlobal_801A5B00_TKeyBoardControl__data_80506270 *)&TKeyBoardControl__data_80506270).value) == 0)
+  if (get_key_state_2__16TKeyBoardControlFPv(&(*(RecoveredGlobal_801A5B00_TKeyBoardControl__data_80506270 *)&TKeyBoardControl__global_key_state).value) == 0)
   {
     return 0;
   }
-  var_r3 = TKeyBoardControl__sub_8013239C((void *) (&(*(RecoveredGlobal_801A5B00_TKeyBoardControl__data_80506270 *)&TKeyBoardControl__data_80506270).value), (int) 0);
+  var_r3 = TKeyBoardControl__sub_8013239C((void *) (&(*(RecoveredGlobal_801A5B00_TKeyBoardControl__data_80506270 *)&TKeyBoardControl__global_key_state).value), (int) 0);
   temp_r31 = var_r3;
-  temp_r3 = TKeyBoardControl__sub_80132310((s32) (&(*(RecoveredGlobal_801A5B00_TKeyBoardControl__data_80506270 *)&TKeyBoardControl__data_80506270).value));
+  temp_r3 = TKeyBoardControl__sub_80132310((s32) (&(*(RecoveredGlobal_801A5B00_TKeyBoardControl__data_80506270 *)&TKeyBoardControl__global_key_state).value));
   if ((((s32) temp_r31) >= 0x2A) && (((s32) temp_r31) <= 0x32))
   {
     return temp_r31 + 7;
@@ -269,7 +269,7 @@ typedef char RecoveredGlobal_801A5EC4_TKeyBoardControl__data_80506270_size[sizeo
 typedef char RecoveredGlobal_801A5EC4_lbl_8050E208_size[sizeof(RecoveredGlobal_801A5EC4_lbl_8050E208) == 0x1B0 ? 1 : -1];
 void update_input_frame__16TKeyBoardControlFv(void) {
     u8 *temp_r31;
-    TKeyBoardControl__sub_80132650((void *) (&TKeyBoardControl__data_80506270.value));
+    TKeyBoardControl__sub_80132650((void *) (&TKeyBoardControl__global_key_state.value));
     if (is_split_screen() == 0) {
         temp_r31 = (u8 *)&lbl_8050E208.value + 0x160;
         ((M2C_UNK (*)(int))poll_key_state__16TKeyBoardControlFPv)((int) (temp_r31));
@@ -435,7 +435,7 @@ void controller_stuff__Fv(void) {
 #define lbl_8050E3B8 ((s32 *)lbl_8050E3B8)
 #define lbl_8050E568 ((s32 *)lbl_8050E568)
 #define lbl_805D5D09 (*(s8 *)&lbl_805D5D09)
-#define TKeyBoardControl__data_80506270 ((u8 *)&TKeyBoardControl__data_80506270)
+#define TKeyBoardControl__global_key_state ((u8 *)&TKeyBoardControl__global_key_state)
 
 struct Sub_801A67A4
 {
@@ -665,9 +665,9 @@ s32 poll_key_state__16TKeyBoardControlFPv(Kb_801A6910 *self) {
             self->f0 |= TKeyBoardControl_key_bit_table[i];
         }
     }
-    n = get_key_state_2__16TKeyBoardControlFPv(TKeyBoardControl__data_80506270);
+    n = get_key_state_2__16TKeyBoardControlFPv(TKeyBoardControl__global_key_state);
     for (j = 0; j < n; j++) {
-        ((void (*)(u8, u32 *))fn_801A69E4)(((s32 (*)(void *, u8))TKeyBoardControl__sub_8013239C)(TKeyBoardControl__data_80506270, j), &self->f8);
+        ((void (*)(u8, u32 *))accumulate_key_bits)(((s32 (*)(void *, u8))TKeyBoardControl__sub_8013239C)(TKeyBoardControl__global_key_state, j), &self->f8);
     }
     self->f48 = self->f0;
     self->f4C = self->f8;
@@ -680,7 +680,7 @@ s32 poll_key_state__16TKeyBoardControlFPv(Kb_801A6910 *self) {
 #undef lbl_8050E3B8
 #undef lbl_8050E568
 #undef lbl_805D5D09
-#undef TKeyBoardControl__data_80506270
+#undef TKeyBoardControl__global_key_state
 #pragma pop
 
 extern "C" {
@@ -688,7 +688,7 @@ extern "C" {
 
 extern "C" {
 
-void fn_801A69E4(s32 arg0, s32 *arg1) {
+void accumulate_key_bits(s32 arg0, s32 *arg1) {
     s32 i;
     for (i = 0; i < 6; i++) {
         if (arg0 == ((s32 *)keyboard_poll_key_codes)[i]) {

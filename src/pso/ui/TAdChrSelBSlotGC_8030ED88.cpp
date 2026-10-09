@@ -582,7 +582,7 @@ void *lbl_804E7BB0[90] = {
     (void *)0x0, (void *)0x0,
 };
 
-int lbl_805D6AA0;
+int TAdChrSelBSlotGC__global_state;
 
 void run_task__16TAdChrSelBSlotGCFv(C_8030F874 *self) {
     static s8 init;

@@ -76,7 +76,7 @@ u8 TWindowChat__sub_80247EC0(u8 *arg0) {
 
 void fn_80247ED8(void* p) { *(u32*)((char*)p + 0x60) |= 0x2; }
 
-    extern int lbl_8044EA94[];
-int TWindowSubSymbolChatHelp__sub_80247EE8(int a0) {  return lbl_8044EA94[a0]; }
+    extern int chat_help_color_table[];
+int TWindowSubSymbolChatHelp__sub_80247EE8(int a0) {  return chat_help_color_table[a0]; }
 
 }

@@ -235,15 +235,15 @@ void *lbl_804B7618[6] = {
 void *lbl_804B7630[3] = {
     (void *)&lbl_80445524, (void *)&lbl_80445538, (void *)0x0,
 };
-void *lbl_804B763C[4] = {
+void *door_resource_descriptor[4] = {
     (void *)&lbl_80445558, (void *)&lbl_804B7618, (void *)&lbl_804B7630, (void *)0x50002,
 };
-void *lbl_804B764C[11] = {
+void *TObjDoor__collision_desc[11] = {
     (void *)0x0, (void *)0x0, (void *)0x0, (void *)0x41200000,
     (void *)0x42200000, (void *)0x1, (void *)0x10003, (void *)0x0,
     (void *)0x0, (void *)0x0, (void *)0x0,
 };
-void *TObjDoor__data_804B7678[40] = {
+void *TObjDoor__label_color_table[40] = {
     (void *)0x3f800000, (void *)0x3f52d2d3, (void *)0x3dc8c8c9, (void *)0x3dc8c8c9,
     (void *)0x3f800000, (void *)0x3dc8c8c9, (void *)0x3dc8c8c9, (void *)0x3f52d2d3,
     (void *)0x3f800000, (void *)0x3f52d2d3, (void *)0x3f52d2d3, (void *)0x3dc8c8c9,
@@ -305,9 +305,9 @@ void *lbl_804B77F0[18] = {
     (void *)0x0, (void *)0x0, (void *)0x0, (void *)0x0,
     (void *)0x0, (void *)0x0,
 };
-#define lbl_804B763C ((u8 *)lbl_804B763C)
-#define lbl_804B764C ((u8 *)lbl_804B764C)
-#define TObjDoor__data_804B7678 ((Color_8018E40C *)TObjDoor__data_804B7678)
+#define door_resource_descriptor ((u8 *)door_resource_descriptor)
+#define TObjDoor__collision_desc ((u8 *)TObjDoor__collision_desc)
+#define TObjDoor__label_color_table ((Color_8018E40C *)TObjDoor__label_color_table)
 
 void draw_model__8TObjDoorFPv(Door_8018E358 *arg0) {
     set_global_param__8TObjFishFi(TObjDoor__data_805D5BC0);
@@ -335,7 +335,7 @@ void render__8TObjDoorFPv(Door_8018E40C *arg0) {
     begin_effect_render__13TParticleCtrlFv();
     lbl_805D5660 = some_id_805c6f74;
     some_id_805c6f74 |= 0x10;
-    Color_8018E40C color = TObjDoor__data_804B7678[arg0->fD0];
+    Color_8018E40C color = TObjDoor__label_color_table[arg0->fD0];
     color.a = arg0->fC4;
     set_chunk_material_color(&color);
     Glob_8018E40C *g0 = ((Glob_8018E40C *)&TObjDoor__data_8050DC80);
@@ -378,7 +378,7 @@ M2C_UNK draw_closed__8TObjDoorFPv(Door_8018E5F4 *arg0) {
     begin_effect_render__13TParticleCtrlFv();
     lbl_805D5660 = some_id_805c6f74;
     some_id_805c6f74 |= 0x10;
-    Color_8018E5F4 color = ((Color_8018E5F4 *)TObjDoor__data_804B7678)[arg0->fD0];
+    Color_8018E5F4 color = ((Color_8018E5F4 *)TObjDoor__label_color_table)[arg0->fD0];
     color.a = arg0->fC4;
     set_chunk_material_color((Color_8018E40C *)(&color));
     Glob_8018E5F4 *g0 = ((Glob_8018E5F4 *)&TObjDoor__data_8050DC80);
@@ -413,7 +413,7 @@ M2C_UNK draw_locked__8TObjDoorFPv(Door_8018E74C *arg0) {
     draw_ginja_model_with_motion(((Glob_8018E74C *)&TObjDoor__data_8050DC80)->f4, (int) ((DoorMotionHeader * *)&TObjDoor__data_8050DC78)[1], TObjDoor__data_8050DC80, arg0->fB8);
     lbl_805D5660 = some_id_805c6f74;
     some_id_805c6f74 |= 0x10;
-    Color_8018E74C color = ((Color_8018E74C *)TObjDoor__data_804B7678)[arg0->fD0];
+    Color_8018E74C color = ((Color_8018E74C *)TObjDoor__label_color_table)[arg0->fD0];
     color.a = arg0->fC4;
     set_chunk_material_color((Color_8018E40C *)(&color));
     Glob_8018E74C *g0 = ((Glob_8018E74C *)&TObjDoor__data_8050DC80);
@@ -652,7 +652,7 @@ void *TObjDoor__ct(void *arg0, void *arg1, void *arg2) {
     if (d->fBC > 1) {
         d->fBC = 1;
     }
-    init_collision_body_parts(d, lbl_804B764C, 1);
+    init_collision_body_parts(d, TObjDoor__collision_desc, 1);
     d->f30 |= 0x40000000;
     reset_photon_effect__10TObjPlayerFPv(d);
     return d;
@@ -678,7 +678,7 @@ extern "C" const char lbl_80445588[] = "fe_obj_door.gvm";
 void load_resources__8TObjDoorFv(void) {
     s32 p = alloc__23TAdSinglePlyChrSelectGCFPv((void *)0x440);
     if (p != 0) {
-        p = (s32)load_resource_from_descriptor((void *)p, 5, lbl_804B763C, 0, 0, 0);
+        p = (s32)load_resource_from_descriptor((void *)p, 5, door_resource_descriptor, 0, 0, 0);
     }
     lbl_805D5BC4 = p;
     TObjDoor__data_805D5BC0 = load_gvm_texture_file((void *)lbl_80445588);

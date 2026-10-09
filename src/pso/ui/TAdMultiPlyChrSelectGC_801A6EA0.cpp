@@ -7,7 +7,7 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 extern "C" {
 void apply_packed_flags__13TRaderMapCoreFiiii(s32 arg0, s32 arg1, s32 arg2, s32 arg3);
 s32 pack_flags__13TRaderMapCoreFii();
-M2C_UNK fn_801A6F84(s32, s32, s32, s32);
+M2C_UNK check_packed_flag_match(s32, s32, s32, s32);
 void apply_packed_flags__13TRaderMapCoreFiiii(s32 arg0, s32 arg1, s32 arg2, s32 arg3);
 }
 
@@ -24,7 +24,7 @@ void dispatch_draw_command__22TAdMultiPlyChrSelectGCFiiii(s32 arg0, s32 arg1, s3
 
 void apply_packed_flags__13TRaderMapCoreFiiii(s32 arg0, s32 arg1, s32 arg2, s32 arg3) {
     u32 t = pack_flags__13TRaderMapCoreFii();
-    fn_801A6F84(arg0, t, arg2, arg3);
+    check_packed_flag_match(arg0, t, arg2, arg3);
 }
 
 }

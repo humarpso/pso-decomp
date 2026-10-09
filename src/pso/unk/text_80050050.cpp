@@ -14,7 +14,7 @@ extern "C" {
 M2C_UNK queue_destruction__7TObjectFv();
 extern const f32 lbl_805D8A20;
 extern const f32 lbl_805D8A24;
-void fn_800500DC(u8 *arg0);
+void update_fade_and_expire(u8 *arg0);
 s32 push_matrix();
 s32 pop_matrix();
 f32 post_translate_matrix(void *);
@@ -23,7 +23,7 @@ s32 draw_chunk_object(int);
 s32 draw_model_motion(int, int, f32);
 s32 set_global_flag__10TObjPlayerFv();
 s32 clear_global_state__10TObjPlayerFv();
-extern RecoveredGlobal_80050050_lbl_80485864 lbl_80485864;
+extern RecoveredGlobal_80050050_lbl_80485864 three_part_model_translate_offset;
 void draw_three_part_models(u8 *arg0);
 }
 
@@ -38,7 +38,7 @@ void draw_three_part_models(u8 *arg0) {
   int var_r29;
   push_matrix();
   set_global_flag__10TObjPlayerFv();
-  post_translate_matrix((void *) (&lbl_80485864.value));
+  post_translate_matrix((void *) (&three_part_model_translate_offset.value));
   var_r29 = 0;
   var_r31 = 0;
   do
@@ -64,7 +64,7 @@ void draw_three_part_models(u8 *arg0) {
 
 #pragma push
 #pragma opt_common_subs off
-void fn_800500DC(u8 *arg0) {
+void update_fade_and_expire(u8 *arg0) {
     f32 temp_f1;
     s32 temp_r0;
     temp_f1 = M2C_FIELD(arg0, f32 *, 0xB8) + lbl_805D8A20;

@@ -104,10 +104,10 @@ u32 test_flag3__9TItemDataFPv(s32);
 extern s32 lbl_805D53A0;
 extern s32 TLobby__data_805D53AC;
 void handle_player_event__6TLobbyFii(s32 arg0, s32 arg1);
-extern void *lbl_8049EE00[];
+extern void *item_tool_factory_table[];
 void create__11TItemObjectFPv();
 void *TLobby__sub_8010440C(In_8010440C *arg0);
-extern void *lbl_8049EB58[];
+extern void *weapon_factory_table[];
 void create_common_weapon();
 void *get_weapon_factory_for_item(In_80104438 *arg0);
 void init_floor_item_entry__6TLobbyFPv(Ent_80103F68 *);
@@ -214,7 +214,7 @@ int get_drop_flag__6TLobbyFv(void) {  return lbl_805D5448; }
 void *TLobby__sub_8010440C(In_8010440C *arg0) {
     u8 i = arg0->idx;
     if (i < 0x18) {
-        return lbl_8049EE00[i];
+        return item_tool_factory_table[i];
     }
     return (void *)create__11TItemObjectFPv;
 }
@@ -222,7 +222,7 @@ void *TLobby__sub_8010440C(In_8010440C *arg0) {
 void *get_weapon_factory_for_item(In_80104438 *arg0) {
     u8 i = arg0->idx;
     if (i < 0xAA) {
-        return lbl_8049EB58[i];
+        return weapon_factory_table[i];
     }
     return (void *)create_common_weapon;
 }

@@ -26,7 +26,7 @@ M2C_UNK TWindow__close(int);
 s32 TWindowCtrlMain__sub_8024CE58();
 extern RecoveredGlobal_8007445C_lbl_8050E208 lbl_8050E208;
 void run_task__13TObjResultWinFv(u8 *arg0);
-Rec_80074664 *TObjResultWin__sub_80074664(Rec_80074664 *d, Rec_80074664 *s);
+Rec_80074664 *copy_record__13TObjResultWinFPvPv(Rec_80074664 *d, Rec_80074664 *s);
 }
 
 extern "C" {
@@ -91,7 +91,7 @@ void *__ct__13TObjResultWinFv(void *arg0, void *arg1, void *arg2) {
     M2C_FIELD(arg0, M2C_UNK **, 0x18) = __vt__13TObjResultWin;
     M2C_FIELD(arg0, void **, 0x0) = lbl_805D2878;
     M2C_FIELD(arg0, u32 *, 0x1C) = 0;
-    TObjResultWin__sub_80074664((Rec_80074664 *)((void *)((char *)arg0 + 296)), (Rec_80074664 *)(arg2));
+    copy_record__13TObjResultWinFPvPv((Rec_80074664 *)((void *)((char *)arg0 + 296)), (Rec_80074664 *)(arg2));
     M2C_FIELD(arg0, u32 *, 0x24) = 60;
     M2C_FIELD(arg0, u32 *, 0x20) = 0;
     build_result_text__22TQuestVmDownLoadServerFPv(arg0);
@@ -100,7 +100,7 @@ void *__ct__13TObjResultWinFv(void *arg0, void *arg1, void *arg2) {
 
 extern void *tl_07;
 
-Rec_80074664 *TObjResultWin__sub_80074664(Rec_80074664 *d, Rec_80074664 *s) {
+Rec_80074664 *copy_record__13TObjResultWinFPvPv(Rec_80074664 *d, Rec_80074664 *s) {
     d->v = s->v;
     d->a = s->a;
     d->b = s->b;

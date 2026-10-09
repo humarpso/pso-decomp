@@ -414,7 +414,7 @@ void TObjPlayer__sub_800E9090(Bomb_800E9090 *self);
 void fn_800E9238(s32 arg0);
 void copy_position__15TObjEneSlimeOneFi(s32 arg0);
 void fn_800E9538(u8 *arg0);
-void fn_800E95A4(u8 *arg0);
+void update_effect_fade_lifetime(u8 *arg0);
 void fn_800E95F4(u8 *arg0);
 void TObjEneSlimeOne__sub_800E969C(void *arg0);
 void init_split_effect__15TObjEneSlimeOneFPv(u8 *arg0);
@@ -1041,7 +1041,7 @@ void fn_800E9538(u8 *arg0) {
 #pragma push
 #pragma opt_common_subs off
 #pragma opt_propagation off
-void fn_800E95A4(u8 *arg0) {
+void update_effect_fade_lifetime(u8 *arg0) {
     f32 temp_f1;
     s32 temp_r0;
     temp_f1 = M2C_FIELD(arg0, f32 *, 0x3A0) + lbl_805DA70C;

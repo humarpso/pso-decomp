@@ -39,7 +39,7 @@ void copy_slot_data__23TAdSinglePlyChrSelectGCFPvPv(Dst_8028ED24 *d, Src_8028ED2
 void copy_player_visual_record(void *, void *);
 s32 get_display_index__12TCharaMakingFPv(void *);
 s32 has_matching_entry__23TAdSinglePlyChrSelectGCFPv(void *);
-extern Row_8028EE20 lbl_804D8E20[];
+extern Row_8028EE20 class_appearance_table[];
 s32 TAdSinglePlyChrSelectGC__sub_8028EE20(void *arg0, void *arg1_);
 s32 is_entry_equal__23TAdSinglePlyChrSelectGCFPvPv(A_8028EC70 *a, B_8028EC70 *b);
 s32 count_char_diffs__23TAdSinglePlyChrSelectGCFPvPv(A_8028ECCC *a, B_8028ECCC *b);
@@ -114,7 +114,7 @@ s32 TAdSinglePlyChrSelectGC__sub_8028EE20(void *arg0, void *arg1_) {
     s32 max;
     s32 cur;
     s32 v;
-    max = lbl_804D8E20[get_display_index__12TCharaMakingFPv(&c)].max[arg1];
+    max = class_appearance_table[get_display_index__12TCharaMakingFPv(&c)].max[arg1];
     cur = c.sel[arg1];
     v = cur;
     do {

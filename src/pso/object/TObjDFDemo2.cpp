@@ -104,7 +104,7 @@ void update_object_view_visibility();
 
 const char *lbl_805D2788 = "TObjDFDemo2";
 __declspec(section ".rodata") Pose_8004EB78 lbl_80437384 = {0, 0, 0};
-__declspec(section ".data") void *lbl_80485678[2] = {
+__declspec(section ".data") void *TObjDFDemo2__motion_index_table[2] = {
     (void *)0x12, (void *)0x11,
 };
 void *lbl_80485680[3] = {
@@ -208,7 +208,7 @@ void *TObjDFDemo2__ct(void *arg0, void *arg1, void *arg2, void *arg3, void *arg4
         k = t;
         ((s32 *)self)[i * 3 + 0x24] = get_bml_model(cnt, t);
         ((s32 *)self)[i * 3 + 0x25] = TObjFish__sub_8001EDB0(cnt, k);
-        ((s32 *)self)[i * 3 + 0x26] = get_bml_motion(cnt, ((s32 *)lbl_80485678)[i]);
+        ((s32 *)self)[i * 3 + 0x26] = get_bml_motion(cnt, ((s32 *)TObjDFDemo2__motion_index_table)[i]);
     }
     self->c0 = -0.5f;
     activate_camera_mode(5);

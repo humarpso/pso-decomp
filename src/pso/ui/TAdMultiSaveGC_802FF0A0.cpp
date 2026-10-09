@@ -10,7 +10,7 @@ typedef char RecoveredGlobal_802FF0D8_lbl_804E6570_size[sizeof(RecoveredGlobal_8
 extern "C" {
 u8 * load_resource_from_descriptor(void *, s32, void *, s32, s32, s32);
 int alloc__23TAdSinglePlyChrSelectGCFPv(void *);
-extern RecoveredGlobal_802FF0D8_lbl_804E6570 lbl_804E6570;
+extern RecoveredGlobal_802FF0D8_lbl_804E6570 TAdMultiSaveGC__shared_resource_desc;
 extern u32 lbl_805D69E0;
 void load_shared_resource__14TAdMultiSaveGCFv(void);
 s32 get_state_flag__9TMainTaskFv(void);
@@ -40,7 +40,7 @@ void load_shared_resource__14TAdMultiSaveGCFv(void) {
     temp_r3 = alloc__23TAdSinglePlyChrSelectGCFPv((void *)0x440);
     var_r0 = temp_r3;
     if (var_r0 != 0) {
-        var_r0 = (long) (load_resource_from_descriptor((void *) temp_r3, 1, &lbl_804E6570.value, 0, 0, 0));
+        var_r0 = (long) (load_resource_from_descriptor((void *) temp_r3, 1, &TAdMultiSaveGC__shared_resource_desc.value, 0, 0, 0));
     }
     (*(s32 *)&lbl_805D69E0) = var_r0;
 }

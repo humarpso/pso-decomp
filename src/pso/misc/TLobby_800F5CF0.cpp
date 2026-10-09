@@ -13,7 +13,7 @@ struct Stack_800F5D80 {
 
 extern "C" {
 s32 exchange_object_state__6TLobbyFPvis(void *, void *, int);
-void fn_800F5D80(s32 arg0);
+void clear_lobby_object_state(s32 arg0);
 }
 
 extern "C" {
@@ -47,7 +47,7 @@ void *alloc_tables__6TLobbyFPvii(void *arg0, s32 arg1, s32 arg2) {
     collect_model_strips_by_texture(arg0, arg1, arg2, temp_r6);
     return arg0;
 }
-void fn_800F5D80(s32 arg0) {
+void clear_lobby_object_state(s32 arg0) {
     typedef char sp8_offset[(offsetof(Stack_800F5D80, sp8) == 0x0) ? 1 : -1];
     typedef char spE_offset[(offsetof(Stack_800F5D80, spE) == 0x6) ? 1 : -1];
     Stack_800F5D80 stack;

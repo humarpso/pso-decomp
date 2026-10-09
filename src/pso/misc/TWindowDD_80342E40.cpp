@@ -46,7 +46,7 @@ s32 test_input_flag_4__9TWindowDDFPv(void *);
 s32 TWindowDD__sub_80348424(void *, s16);
 s16 TWindowDD__sub_80348448(void *, s32);
 M2C_UNK set_state__9TWindowDDFPv(void *);
-M2C_UNK fn_8034AED4(s32);
+M2C_UNK push_recent_id(s32);
 void handle_confirm_input__9TWindowDDFPv(W_80342ED0 *arg0);
 }
 
@@ -89,7 +89,7 @@ void handle_confirm_input__9TWindowDDFPv(W_80342ED0 *arg0) {
         id = TWindowDD__sub_80342158(arg0->ids[arg0->idx]);
         arg0->fc6 = TWindowDD__sub_80348448(arg0, id);
         arg0->fb4 = TWindowDD__sub_80348424(arg0, id);
-        fn_8034AED4(id);
+        push_recent_id(id);
         arg0->f104 = 0;
         TWindowDD__sub_803435A0(arg0);
         return;

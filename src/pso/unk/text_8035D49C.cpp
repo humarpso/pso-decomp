@@ -12,7 +12,7 @@ struct RecoveredGlobal_8035D49C_lbl_804F1EC8 {
 extern "C" {
 u8 *alloc_from_obj_heap__10TObjPlayerFPv(M2C_UNK);
 extern s32 tl_05;
-u8 *fn_8035D4E8(u8 *arg0);
+u8 *alloc_and_init_obj_effect(u8 *arg0);
 u8 * TItemWeapon__ct(void *, void *);
 void set_status_flags__10TObjPlayerFPvUi(void *, s32);
 extern RecoveredGlobal_8035D49C_lbl_804F1EC8 lbl_804F1EC8;
@@ -29,7 +29,7 @@ u8 *fn_8035D49C(u8 *arg0, u8 *arg1, s32 _w2) {
     return arg0;
 }
 
-u8 *fn_8035D4E8(u8 *arg0) {
+u8 *alloc_and_init_obj_effect(u8 *arg0) {
     u8 *temp_r3;
     u8 *var_r0;
     if (arg0 != NULL) {

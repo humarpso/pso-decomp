@@ -58,7 +58,7 @@ extern u8 __vt__10TAdTitleGC[];
 extern s32 lbl_805D3D78;
 TAdTitleGC_802A0E08 *__ct__10TAdTitleGCFv(TAdTitleGC_802A0E08 *self, void *parent, s32 idx);
 extern f32 lbl_8046620C[];
-M2C_UNK TAdTitleGC__sub_802A0C84(void *p);
+M2C_UNK update_title_rects__10TAdTitleGCFPv(void *p);
 }
 
 extern "C" {
@@ -114,7 +114,7 @@ void calc_text_pos__10TAdTitleGCFiPvi(M2C_UNK arg0, u8 *arg1, s32 arg2) {
 }
 #pragma pop
 
-M2C_UNK TAdTitleGC__sub_802A0C84(void *p) {
+M2C_UNK update_title_rects__10TAdTitleGCFPv(void *p) {
     Title_802A0C84 *arg0 = (Title_802A0C84 *)p;
     s32 i;
     for (i = 0; i < 8; i++) {
@@ -137,7 +137,7 @@ void run_task__10TAdTitleGCFv(u8 *arg0) {
     if ((s32) M2C_FIELD(arg0, s32 *, 0x12C) > 0xFF) {
         M2C_FIELD(arg0, s32 *, 0x12C) = 0xFF;
     }
-    TAdTitleGC__sub_802A0C84((void *)(arg0));
+    update_title_rects__10TAdTitleGCFPv((void *)(arg0));
     calc_text_pos__10TAdTitleGCFiPvi((M2C_UNK)(arg0), (u8 *)(arg0 + 0x120), (s32)(get_localized_text_entry(0x13, M2C_FIELD(arg0, s32 *, 0x1C))));
 }
 #pragma push

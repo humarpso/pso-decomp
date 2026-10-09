@@ -101,11 +101,11 @@ s32 fn_8014AAC4(void *);
 extern M2C_UNK __vt__12TObjNpcHFW00[];
 extern s32 lbl_805D2DB0;
 extern s32 *TObjNpcHFW00__shared_resource_obj;
-extern s32 TObjNpcHFW00__data_805D57AC;
+extern s32 TObjNpcHFW00__texture_handle;
 u8 *TObjNpcHFW00__ct(u8 *arg0, M2C_UNK arg1, s32 arg2);
 void *create_named_object(const char *name);
 void *load_gvm_texture_file(const char *name);
-extern u32 TObjNpcHFW01__data_805D57B0;
+extern u32 TObjNpcHFW01__resource_node;
 extern u32 TObjNpcHFW01__data_805D57B4;
 extern char lbl_8043FA70[];
 extern char lbl_8043FA84[];
@@ -149,7 +149,7 @@ u8 *TObjNpcHFW00__ct(u8 *arg0, M2C_UNK arg1, s32 arg2) {
     ((VObj_18_aa4667 *)(arg0))->m79(arg2);
     init_position_vectors__10TObjPlayerFi((void *) (arg0));
     M2C_FIELD(arg0, s32 *, 0x34) = (s32) *TObjNpcHFW00__shared_resource_obj;
-    M2C_FIELD(arg0, s32 *, 0x24) = (s32) TObjNpcHFW00__data_805D57AC;
+    M2C_FIELD(arg0, s32 *, 0x24) = (s32) TObjNpcHFW00__texture_handle;
     setup_common__11TObjNpcBaseFv((void *) (arg0));
     return arg0;
 }
@@ -168,7 +168,7 @@ void * TObjNpcHFW01__create(void *arg0) {
     return o2;
 }
 
-extern u32 TObjNpcHFW01__data_805D57B0;
+extern u32 TObjNpcHFW01__resource_node;
 extern u32 TObjNpcHFW01__data_805D57B4;
 
 void free_static_resources__12TObjNpcHFW01Fv(void) {
@@ -177,13 +177,13 @@ void free_static_resources__12TObjNpcHFW01Fv(void) {
         safe_free__23TAdSinglePlyChrSelectGCFUi(TObjNpcHFW01__data_805D57B4);
         TObjNpcHFW01__data_805D57B4 = 0U;
     }
-    if ((u32) TObjNpcHFW01__data_805D57B0 != 0U) {
-        free_nodes_with_id__6TLobbyFUi((void*)TObjNpcHFW01__data_805D57B0);
-        TObjNpcHFW01__data_805D57B0 = 0U;
+    if ((u32) TObjNpcHFW01__resource_node != 0U) {
+        free_nodes_with_id__6TLobbyFUi((void*)TObjNpcHFW01__resource_node);
+        TObjNpcHFW01__resource_node = 0U;
     }
 }
 void load_resources__12TObjNpcHFW01Fv(void) {
-    TObjNpcHFW01__data_805D57B0 = (u32)create_named_object(lbl_8043FA70);
+    TObjNpcHFW01__resource_node = (u32)create_named_object(lbl_8043FA70);
     TObjNpcHFW01__data_805D57B4 = (u32)load_gvm_texture_file(lbl_8043FA84);
 }
 

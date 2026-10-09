@@ -61,10 +61,10 @@ void spawn_npc_enemy__6TLobbyFsiiiff(int, int, int, void *, f32, f32);
 extern u8 lbl_8043AEDC[];
 extern u8 lbl_804914F4[];
 extern Act_800AC318 lbl_80491504[];
-extern u32 lbl_805D50A8;
-extern u32 lbl_805D50AC;
-extern u32 lbl_805D50B0;
-extern u32 lbl_805D50B4;
+extern u32 TObjEneShark__resource_node;
+extern u32 TObjEneShark__resource_buf;
+extern u32 shark_resource_data;
+extern u32 shark_resource_buffer;
 extern u32 lbl_805D50B8;
 extern u32 lbl_805D50BC;
 extern u32 lbl_805D50C0;
@@ -106,30 +106,30 @@ void * create__12TObjEneSharkFPv(void *arg0) {
     return o2;
 }
 
-extern u32 lbl_805D50A8;
-extern u32 lbl_805D50AC;
-extern u32 lbl_805D50B0;
-extern u32 lbl_805D50B4;
+extern u32 TObjEneShark__resource_node;
+extern u32 TObjEneShark__resource_buf;
+extern u32 shark_resource_data;
+extern u32 shark_resource_buffer;
 extern u32 lbl_805D50B8;
 extern u32 lbl_805D50BC;
 extern u32 lbl_805D50C0;
 
 void free_resources__12TObjEneSharkFv(void) {
-    if ((u32) lbl_805D50A8 != 0U) {
-        free__11TOBoss4RockFUi((void*)lbl_805D50A8);
-        lbl_805D50A8 = 0U;
+    if ((u32) TObjEneShark__resource_node != 0U) {
+        free__11TOBoss4RockFUi((void*)TObjEneShark__resource_node);
+        TObjEneShark__resource_node = 0U;
     }
-    if ((u32) lbl_805D50AC != 0U) {
-        free__11TOBoss4RockFUi((void*)lbl_805D50AC);
-        lbl_805D50AC = 0U;
+    if ((u32) TObjEneShark__resource_buf != 0U) {
+        free__11TOBoss4RockFUi((void*)TObjEneShark__resource_buf);
+        TObjEneShark__resource_buf = 0U;
     }
-    if ((u32) lbl_805D50B0 != 0U) {
-        free__11TOBoss4RockFUi((void*)lbl_805D50B0);
-        lbl_805D50B0 = 0U;
+    if ((u32) shark_resource_data != 0U) {
+        free__11TOBoss4RockFUi((void*)shark_resource_data);
+        shark_resource_data = 0U;
     }
-    if ((u32) lbl_805D50B4 != 0U) {
-        free__11TOBoss4RockFUi((void*)lbl_805D50B4);
-        lbl_805D50B4 = 0U;
+    if ((u32) shark_resource_buffer != 0U) {
+        free__11TOBoss4RockFUi((void*)shark_resource_buffer);
+        shark_resource_buffer = 0U;
     }
     if ((u32) lbl_805D50C0 != 0U) {
         __dt__11TBoss4Type3FPvs((void*)lbl_805D50C0, 1);
@@ -145,10 +145,10 @@ void free_resources__12TObjEneSharkFv(void) {
     }
 }
 
-#define G_A8 (*(s32 **)&lbl_805D50A8)
-#define G_AC (*(s32 **)&lbl_805D50AC)
-#define G_B0 (*(s32 **)&lbl_805D50B0)
-#define G_B4 (*(s32 **)&lbl_805D50B4)
+#define G_A8 (*(s32 **)&TObjEneShark__resource_node)
+#define G_AC (*(s32 **)&TObjEneShark__resource_buf)
+#define G_B0 (*(s32 **)&shark_resource_data)
+#define G_B4 (*(s32 **)&shark_resource_buffer)
 #define G_B8 (*(u8 **)&lbl_805D50B8)
 #define G_BC (*(void **)&lbl_805D50BC)
 #define G_C0 (*(void **)&lbl_805D50C0)

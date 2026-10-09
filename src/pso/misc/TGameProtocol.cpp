@@ -10,21 +10,21 @@ void *__nw__7TObjectFUl(int);
 
 extern M2C_UNK __vt__13TGameProtocol[];
 extern void *lbl_805D3590;
-extern void * lbl_805D5E4C;
-extern void *lbl_805D5E48;
+extern void * TGameProtocol__instance;
+extern void *game_protocol_instance;
 
 void *TGameProtocol__ct(void *arg0) {
     void *o;
     __ct__7TObjectFP7TObject(arg0);
     M2C_FIELD(arg0, M2C_UNK **, 0x18) = __vt__13TGameProtocol;
     M2C_FIELD(arg0, void **, 0x0) = lbl_805D3590;
-    lbl_805D5E4C = arg0;
+    TGameProtocol__instance = arg0;
     M2C_FIELD(arg0, u32 *, 0x1C) = 0;
     o = __nw__7TObjectFUl(0x1C);
     if (o != NULL) {
         o = ((void * (*)(void *, void *))__ct__7TObjectFP7TObject)(o, arg0);
     }
-    lbl_805D5E48 = o;
+    game_protocol_instance = o;
     return arg0;
 }
 

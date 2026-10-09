@@ -38,7 +38,7 @@ extern const f32 lbl_805DF058;
 extern const f32 lbl_805DF05C;
 extern const f32 lbl_805DF060;
 extern const f32 lbl_805DF064;
-void TAdMultiOkGC__sub_80306C70(void *arg0, int arg1);
+void update_entry_animation__12TAdMultiOkGCFPvi(void *arg0, int arg1);
 s32 TWindowShortListCtrl__check_controller_button(void *, int);
 M2C_UNK play_sound_effect(int, void *, int, int);
 extern Ports_80306DF4 lbl_80475410;
@@ -95,7 +95,7 @@ void render__12TAdMultiOkGCFv(Ok_80306C10 *o) {
 
 #pragma push
 #pragma fp_contract on
-void TAdMultiOkGC__sub_80306C70(void *arg0, int arg1) {
+void update_entry_animation__12TAdMultiOkGCFPvi(void *arg0, int arg1) {
     E_80306C70 *e;
     s32 i;
     s32 d;
@@ -157,7 +157,7 @@ void run_task__12TAdMultiOkGCFv(Ok_80306F84 *o) {
     s32 i;
     for (i = 0; i < o->count; i++) {
         handle_player_buttons__12TAdMultiOkGCFPvi((void *)(o), (int)(i));
-        TAdMultiOkGC__sub_80306C70((void *)(o), (int)(i));
+        update_entry_animation__12TAdMultiOkGCFPvi((void *)(o), (int)(i));
     }
 }
 

@@ -239,7 +239,7 @@ void start_stream_playback__6TLobbyFPvi(struct Stream_803CA0C8 *self, s32 arg1);
 void set_lsc_min__6TLobbyFPvi(void *, s32);
 void reset_lsc_state__6TLobbyFPv(void *);
 void TLobby__sub_803C5D24(u8 *arg0);
-s32 TLobby__sub_803C7748(void *);
+s32 write_zero_padded_block__6TLobbyFPv(void *);
 s32 DVDLowRead(void *);
 void TLobby__sub_803C6064(u8 *arg0);
 s32 cv_fs_tell__6TLobbyFPv(int);
@@ -477,7 +477,7 @@ loop_2:
             }
             goto loop_2;
         }
-    } else if (TLobby__sub_803C7748(arg0) > 0) {
+    } else if (write_zero_padded_block__6TLobbyFPv(arg0) > 0) {
         ((Fields_arg0*)arg0)->field_1 = 3;
     }
 }
@@ -591,7 +591,7 @@ inline s32 putn_803C6860(Strm_803C6860 *s, void *src, s32 n) {
     return n;
 }
 
-s32 TLobby__sub_803C6860(Obj_803C6860 *o, Strm_803C6860 *s) {
+s32 write_adx_header__6TLobbyFPvPv(Obj_803C6860 *o, Strm_803C6860 *s) {
     u8 c;
     u16 h;
     u16 h2;
@@ -751,7 +751,7 @@ inline void put_803C7748(Strm_803C7748 *s, void *src, s32 n) {
 }
 
 #define arg0 ((Obj_803C7748 *)arg0p)
-s32 TLobby__sub_803C7748(void *arg0p) {
+s32 write_zero_padded_block__6TLobbyFPv(void *arg0p) {
     s32 len;
     s32 n;
     s32 i;

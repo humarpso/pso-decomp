@@ -6,12 +6,12 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 extern "C" {
 extern const f32 lbl_805D937C;
 extern const f32 lbl_805D9380;
-void fn_80081B7C(u8 *arg0);
+void update_freeze_shell_timer(u8 *arg0);
 }
 
 extern "C" {
 
-void fn_80081B7C(u8 *arg0) {
+void update_freeze_shell_timer(u8 *arg0) {
     M2C_FIELD(arg0, f32 *, 0x340) = (f32) (M2C_FIELD(arg0, f32 *, 0x340) - lbl_805D937C);
     if (M2C_FIELD(arg0, f32 *, 0x340) <= lbl_805D9380) {
         M2C_FIELD(arg0, s32 *, 0x334) = 3;

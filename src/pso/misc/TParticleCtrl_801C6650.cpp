@@ -13,10 +13,10 @@ M2C_UNK __dt__7TObjectFv(void *, M2C_UNK);
 s32 check_value_equals__13TQuestColCtrlFPvi(s32, s32);
 M2C_UNK queue_destruction__7TObjectFv();
 
-extern s32 TParticleCtrl__data_805D2938;
+extern s32 TParticleCtrl__class_name_descriptor;
 
 u32 free_handle__13TParticleCtrlFPv(void *arg0) {
-    if (((u32) M2C_FIELD(arg0, u32 *, 0x20) != 0U) && (check_value_equals__13TQuestColCtrlFPvi(M2C_FIELD(arg0, s32 *, 0x20), TParticleCtrl__data_805D2938) == 0)) {
+    if (((u32) M2C_FIELD(arg0, u32 *, 0x20) != 0U) && (check_value_equals__13TQuestColCtrlFPvi(M2C_FIELD(arg0, s32 *, 0x20), TParticleCtrl__class_name_descriptor) == 0)) {
         M2C_FIELD(arg0, u32 *, 0x20) = 0U;
     }
     return M2C_FIELD(arg0, u32 *, 0x20);

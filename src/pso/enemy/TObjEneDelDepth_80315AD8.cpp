@@ -17,7 +17,7 @@ void *alloc__23TAdSinglePlyChrSelectGCFPv(s32);
 s32 spawn_npc_enemy__6TLobbyFsiiiff(int, int, int, void *, f32, f32);
 extern Info_80315B10 lbl_80475D84;
 extern Info_80315B10 lbl_80475D94;
-extern s32 TObjEneDelDepth__data_805D6AC0;
+extern s32 TObjEneDelDepth__tune_params;
 extern const f32 TObjEneDelDepth__data_805DF258;
 }
 
@@ -172,15 +172,15 @@ void *lbl_804E836C[90] = {
 };
 
 void free_shared_data__15TObjEneDelDepthFv(void) {
-    extern u32 TObjEneDelDepth__data_805D6AC4;
-    if ((u32) TObjEneDelDepth__data_805D6AC4 != 0U) {
-        TLobby__sub_8001FE7C((void*)TObjEneDelDepth__data_805D6AC4, 1);
-        TObjEneDelDepth__data_805D6AC4 = 0U;
+    extern u32 TObjEneDelDepth__shared_resource;
+    if ((u32) TObjEneDelDepth__shared_resource != 0U) {
+        TLobby__sub_8001FE7C((void*)TObjEneDelDepth__shared_resource, 1);
+        TObjEneDelDepth__shared_resource = 0U;
     }
 }
 
 void load_assets__15TObjEneDelDepthFv(void) {
-    extern Obj_80315B10 *TObjEneDelDepth__data_805D6AC4;
+    extern Obj_80315B10 *TObjEneDelDepth__shared_resource;
     Sub_80315B10 *g;
 
     if (is_split_screen() != 0) {
@@ -188,26 +188,26 @@ void load_assets__15TObjEneDelDepthFv(void) {
         if (p != NULL) {
             p = load_resource_from_descriptor(p, 1, lbl_804E8158, 0, 0, 0);
         }
-        TObjEneDelDepth__data_805D6AC4 = p;
+        TObjEneDelDepth__shared_resource = p;
     } else {
         Obj_80315B10 *p = (Obj_80315B10 *)alloc__23TAdSinglePlyChrSelectGCFPv(0x440);
         if (p != NULL) {
             p = load_resource_from_descriptor(p, 1, lbl_804E8104, 0, 0, 0);
         }
-        TObjEneDelDepth__data_805D6AC4 = p;
+        TObjEneDelDepth__shared_resource = p;
     }
     g = (Sub_80315B10 *)TObjEneDelDepth_collision_body_parts;
     {
         Info_80315B10 info = lbl_80475D84;
-        info.a = TObjEneDelDepth__data_805D6AC4->f430;
-        spawn_npc_enemy__6TLobbyFsiiiff(0x47, TObjEneDelDepth__data_805D6AC4->rec->f8, TObjEneDelDepth__data_805D6AC4->rec->fC, &info, g->fC, TObjEneDelDepth__data_805DF258);
+        info.a = TObjEneDelDepth__shared_resource->f430;
+        spawn_npc_enemy__6TLobbyFsiiiff(0x47, TObjEneDelDepth__shared_resource->rec->f8, TObjEneDelDepth__shared_resource->rec->fC, &info, g->fC, TObjEneDelDepth__data_805DF258);
     }
     {
         Info_80315B10 info = lbl_80475D94;
-        info.a = TObjEneDelDepth__data_805D6AC4->f430;
-        spawn_npc_enemy__6TLobbyFsiiiff(0x48, TObjEneDelDepth__data_805D6AC4->rec->f18, TObjEneDelDepth__data_805D6AC4->rec->f1C, &info, g->fC, TObjEneDelDepth__data_805DF258);
+        info.a = TObjEneDelDepth__shared_resource->f430;
+        spawn_npc_enemy__6TLobbyFsiiiff(0x48, TObjEneDelDepth__shared_resource->rec->f18, TObjEneDelDepth__shared_resource->rec->f1C, &info, g->fC, TObjEneDelDepth__data_805DF258);
     }
-    TObjEneDelDepth__data_805D6AC0 = dispatch_shared_handler_a__6TLobbyFPv(0x30);
+    TObjEneDelDepth__tune_params = dispatch_shared_handler_a__6TLobbyFPv(0x30);
 }
 
 extern s32 tl_04;

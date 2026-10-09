@@ -18,11 +18,11 @@ extern const f32 lbl_805D88F0;
 extern const f32 lbl_805D88F8;
 extern const f32 lbl_805D88FC;
 extern const f32 lbl_805D8900;
-void TObjVoloptShutter__sub_8004A6B4(u8 *arg0);
+void update_shutter_state__17TObjVoloptShutterFPv(u8 *arg0);
 extern const f32 lbl_805D88F0;
 extern const f32 TObjVoloptShutter__data_805D88F4;
 extern const f32 lbl_805D88F8;
-void TObjVoloptShutter__sub_8004A634(u8 *arg0);
+void update_shutter_slide__17TObjVoloptShutterFPv(u8 *arg0);
 void __ct__7TObjectFP7TObject(void *, void *);
 extern RecoveredGlobal_8004A86C___vt__17TObjVoloptShutter __vt__17TObjVoloptShutter;
 extern s32 lbl_805D2768;
@@ -30,8 +30,8 @@ extern u8 *tl_04;
 extern const f32 TObjVoloptShutter__data_805D88F4;
 extern const f32 lbl_805D8904;
 u8 *__ct__17TObjVoloptShutterFv(u8 *arg0, s32 arg1);
-void TObjVoloptShutter__sub_8004A634(u8 *arg0);
-void TObjVoloptShutter__sub_8004A6B4(u8 *arg0);
+void update_shutter_slide__17TObjVoloptShutterFPv(u8 *arg0);
+void update_shutter_state__17TObjVoloptShutterFPv(u8 *arg0);
 void run_task__17TObjVoloptShutterFv(Obj_8004A7CC *self);
 }
 
@@ -55,7 +55,7 @@ extern const f32 TObjVoloptShutter__data_805D88F4;
 
 #pragma push
 #pragma opt_common_subs off
-void TObjVoloptShutter__sub_8004A634(u8 *arg0) {
+void update_shutter_slide__17TObjVoloptShutterFPv(u8 *arg0) {
     s32 temp_r0;
     temp_r0 = M2C_FIELD(arg0, s32 *, 0x24);
     if (temp_r0 != 1) {
@@ -81,7 +81,7 @@ void TObjVoloptShutter__sub_8004A634(u8 *arg0) {
 #pragma push
 #pragma opt_common_subs off
 #pragma opt_propagation off
-void TObjVoloptShutter__sub_8004A6B4(u8 *arg0) {
+void update_shutter_state__17TObjVoloptShutterFPv(u8 *arg0) {
     s32 temp_r0;
     temp_r0 = M2C_FIELD(arg0, s32 *, 0x24);
     if (temp_r0 != 1) {
@@ -126,10 +126,10 @@ void run_task__17TObjVoloptShutterFv(Obj_8004A7CC *self) {
     case 0:
         break;
     case 1:
-        TObjVoloptShutter__sub_8004A634((u8 *)self);
+        update_shutter_slide__17TObjVoloptShutterFPv((u8 *)self);
         break;
     case 2:
-        TObjVoloptShutter__sub_8004A6B4((u8 *)self);
+        update_shutter_state__17TObjVoloptShutterFPv((u8 *)self);
         break;
     }
 }

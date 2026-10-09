@@ -24,7 +24,7 @@ struct Obj_803285C0 { u8 pad[0x20]; s32 mode; u8 pad2[0xC]; s16 state; };
 extern "C" {
 s32 get_localized_text_entry(int, int);
 M2C_UNK create_guide_button(void *, void *, f32);
-M2C_UNK fn_8032DA28(void *);
+M2C_UNK init_guide_button_params(void *);
 extern const f32 lbl_805DF6E4;
 extern const f32 lbl_805DF6E8;
 void show_guide_button__12TAdDialingGCFPv(u8 *arg0);
@@ -187,7 +187,7 @@ void spawn_title_screen__12TAdDialingGCFPvi(void *arg0, s32) {
     }
 }
 
-extern s32 lbl_805D5704;
+extern s32 TLobby__net_session_mode;
 
 typedef char RecoveredGlobal_803284F8_lbl_8050E208_size[sizeof(RecoveredGlobal_803284F8_lbl_8050E208) == 0x1B0 ? 1 : -1];
 s32 TAdDialingGC__sub_803284F8(s32 _w0) {
@@ -199,7 +199,7 @@ s32 TAdDialingGC__sub_803284F8(s32 _w0) {
 
 void update_selection__12TAdDialingGCFPv(u8 *arg0) {
     M2C_FIELD(arg0, s16 *, 0x68) = (s16) M2C_FIELD(arg0, s16 *, 0x30);
-    if ((s32) lbl_805D5704 != 0) {
+    if ((s32) TLobby__net_session_mode != 0) {
         M2C_FIELD(arg0, s16 *, 0x30) = 0;
         return;
     }
@@ -256,7 +256,7 @@ void update_state_display__12TAdDialingGCFPv(Obj_803285C0 *arg0) {
 void show_guide_button__12TAdDialingGCFPv(u8 *arg0) {
     Stack_803286AC stack;
     if (!(M2C_FIELD(arg0, s32 *, 0xA4) & 2)) {
-        fn_8032DA28((void *) (&stack.sp8));
+        init_guide_button_params((void *) (&stack.sp8));
         stack.sp8 = 1;
         stack.sp28 = get_localized_text_entry((int) (0xF), (int) (0x13));
         stack.spC = lbl_805DF6E4;

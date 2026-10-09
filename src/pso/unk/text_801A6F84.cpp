@@ -7,12 +7,12 @@ extern "C" {
 extern u32 lbl_804469A0[14];
 s32 input_press_or_repeat(InputRepeatRecord* input,u32 mask,s32 delay,s32 period);
 extern u32 lbl_804469A0[14];
-s32 fn_801A6F84(S_801A6F84 *arg0, u32 arg1, s32 arg2, s32 arg3);
+s32 check_packed_flag_match(S_801A6F84 *arg0, u32 arg1, s32 arg2, s32 arg3);
 }
 
 extern "C" {
 
-s32 fn_801A6F84(S_801A6F84 *arg0, u32 arg1, s32 arg2, s32 arg3) {
+s32 check_packed_flag_match(S_801A6F84 *arg0, u32 arg1, s32 arg2, s32 arg3) {
     s32 r;
     s32 i;
     s32 d;

@@ -138,7 +138,7 @@ extern s32 lbl_805D61F0;
 extern s32 lbl_805D61F4;
 s32 prs_decompress_buffer(s32, s32);
 int set_field_20__12TQuestListVMFPvi(void*, int);
-void TQuestListOnline__sub_80217B30(void *self);
+void decompress_quest_list_buffers__16TQuestListOnlineFPv(void *self);
 }
 
 extern "C" {
@@ -241,7 +241,7 @@ void handle_quest_confirm__16TQuestListOnlineFPv(u8 *arg0) {
 #pragma push
 #pragma optimization_level 2
 #pragma dont_inline on
-void TQuestListOnline__sub_80217B30(void *self) {
+void decompress_quest_list_buffers__16TQuestListOnlineFPv(void *self) {
     lbl_805D61F0 = prs_decompress_buffer(TQuestListOnline__data_80513E24.f38, TQuestListOnline__data_805D61E4);
     lbl_805D61E8 = TQuestListOnline__data_805D61E4;
     TQuestListOnline__data_805D61E4 += lbl_805D61F0;

@@ -113,7 +113,7 @@ u8 *TObjNpcGovernorBase__ct(u8 *arg0, M2C_UNK arg1, s32 arg2);
 void *create_named_object(const char *name);
 void *load_gvm_texture_file(const char *name);
 extern u32 TObjNpcHFW00__shared_resource_obj;
-extern u32 TObjNpcHFW00__data_805D57AC;
+extern u32 TObjNpcHFW00__texture_handle;
 extern char lbl_8043FA38[];
 extern char lbl_8043FA4C[];
 void load_resources__12TObjNpcHFW00Fv(void);
@@ -198,13 +198,13 @@ void * TObjNpcHFW00__create(void *arg0) {
 }
 
 extern u32 TObjNpcHFW00__shared_resource_obj;
-extern u32 TObjNpcHFW00__data_805D57AC;
+extern u32 TObjNpcHFW00__texture_handle;
 
 void free_resources__12TObjNpcHFW00Fv(void) {
-    if ((u32) TObjNpcHFW00__data_805D57AC != 0U) {
-        TLobby__sub_803DA16C((void*)TObjNpcHFW00__data_805D57AC);
-        safe_free__23TAdSinglePlyChrSelectGCFUi(TObjNpcHFW00__data_805D57AC);
-        TObjNpcHFW00__data_805D57AC = 0U;
+    if ((u32) TObjNpcHFW00__texture_handle != 0U) {
+        TLobby__sub_803DA16C((void*)TObjNpcHFW00__texture_handle);
+        safe_free__23TAdSinglePlyChrSelectGCFUi(TObjNpcHFW00__texture_handle);
+        TObjNpcHFW00__texture_handle = 0U;
     }
     if ((u32) TObjNpcHFW00__shared_resource_obj != 0U) {
         free_nodes_with_id__6TLobbyFUi((void*)TObjNpcHFW00__shared_resource_obj);
@@ -213,7 +213,7 @@ void free_resources__12TObjNpcHFW00Fv(void) {
 }
 void load_resources__12TObjNpcHFW00Fv(void) {
     TObjNpcHFW00__shared_resource_obj = (u32)create_named_object(lbl_8043FA38);
-    TObjNpcHFW00__data_805D57AC = (u32)load_gvm_texture_file(lbl_8043FA4C);
+    TObjNpcHFW00__texture_handle = (u32)load_gvm_texture_file(lbl_8043FA4C);
 }
 
 }

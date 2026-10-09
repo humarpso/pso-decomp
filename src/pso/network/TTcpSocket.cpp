@@ -46,7 +46,7 @@ struct P_800782B8 { u16 a; u16 b; };
 struct Sock_80078264 { u8 pad[0x28]; s16 x28; };
 
 extern "C" {
-struct Rec_8007841C *fn_8007841C(struct Rec_8007841C *dst, struct Rec_8007841C *src);
+struct Rec_8007841C *copy_udp_socket_event_record(struct Rec_8007841C *dst, struct Rec_8007841C *src);
 extern RecoveredGlobal_80078378_lbl_8048D3B8 lbl_8048D3B8;
 s32 handle_socket_event__10TUdpSocketFsPv(s16 arg0, u8 *arg1);
 void TLobby__sub_8014672C(void *);
@@ -205,7 +205,7 @@ s32 handle_socket_event__10TUdpSocketFsPv(s16 arg0, u8 *arg1) {
     }
     if (arg0 == 0) {
         M2C_FIELD(arg1, s32 *, 4) = (s32) (temp_r5 + 0x74);
-        ((void (*)(void *, void *))fn_8007841C)(temp_r5 + 0x884, arg1);
+        ((void (*)(void *, void *))copy_udp_socket_event_record)(temp_r5 + 0x884, arg1);
         M2C_FIELD(arg1, s16 *, 2) = 0x800;
     } else {
         M2C_FIELD(temp_r5, s8 *, 0x2B) = 0;
@@ -233,7 +233,7 @@ struct Rec_8007841C { Pair_8007841C ab; Sub_8007841C c; Sub_8007841C d; u16 e; }
 
 extern "C" {
 
-Rec_8007841C *fn_8007841C(Rec_8007841C *dst, Rec_8007841C *src) {
+Rec_8007841C *copy_udp_socket_event_record(Rec_8007841C *dst, Rec_8007841C *src) {
     dst->ab = src->ab;
     dst->c = src->c;
     dst->d = src->d;
@@ -548,7 +548,7 @@ void render__9TMainTaskFv(void *);
 int atoi(const char *);
 void func_803DCDFC__Fv();
 s8 str_length__6TLobbyFi(char *);
-void TLobby__sub_8040A630(s16);
+void close_connection_by_index__6TLobbyFs(s16);
 s16 TLobby__sub_8040A698(s16, void *, void *, int, void *, int);
 s16 TLobby__sub_8040A8B0(char *, s32, int);
 }
@@ -651,7 +651,7 @@ int TSocket::resolve_domain(char *domain) {
                 ret = 6;
                 break;
             }
-            TLobby__sub_8040A630(handle);
+            close_connection_by_index__6TLobbyFs(handle);
         } else {
             set_ip_address(0);
             ret = 4;

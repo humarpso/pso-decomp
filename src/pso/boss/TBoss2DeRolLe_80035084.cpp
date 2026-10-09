@@ -344,7 +344,7 @@ s32 dispatch_shared_handler_b__6TLobbyFPv(int);
 s32 register_boss__6TLobbyFPv(int);
 void TObjPlayer__sub_8002E7C8(void);
 void create_breakup_model__10TObjPlayerFv(void);
-void TBoss2Fin__sub_800367C4(void);
+void init_effect_table__9TBoss2FinFv(void);
 void TBoss2Mine__sub_80038D88(void);
 void TBoss2Tentacle__sub_8003A0AC(void);
 s32 adjust_to_ground__15TObjBoss2TunnelFiPv(s32 arg0, void *arg1);
@@ -710,7 +710,7 @@ void load_resources__13TBoss2DeRolLeFv(void) {
     for (k = 0; k < 5; k++) {
         adjust_to_ground__15TObjBoss2TunnelFiPv((s32)(lbl_804356C0 + k * 0xC), (u8 *)TBoss2DeRolLe__data_804FE268 + k * 0xC);
     }
-    TBoss2Fin__sub_800367C4();
+    init_effect_table__9TBoss2FinFv();
     res = (*(u8 * *)&lbl_805D4BA4);
     n = *(Node_80035D24 **)(*(u8 **)(*(u8 **)(res + 0x42C) + 0x28) + 0x2C);
     for (i = 0; i < 10; i++) {

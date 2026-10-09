@@ -243,7 +243,7 @@ void set_help_mode__14TWindowComCardFPvi(void *arg0, s32 arg1);
 void* get_card_name_ptr__14TWindowComCardFPv(void* p);
 M2C_UNK set_sprite_uv_from_pixels(void *, f32, f32);
 
-extern u8 lbl_8044EB50[];
+extern u8 com_card_help_panel_rect_table[];
 
 void set_help_mode__14TWindowComCardFPvi(void *arg0, s32 arg1) {
     void *temp_r4;
@@ -258,7 +258,7 @@ void set_help_mode__14TWindowComCardFPvi(void *arg0, s32 arg1) {
     } else {
         M2C_FIELD(arg0, s32 *, 0x34) = 2;
     }
-    temp_r4 = lbl_8044EB50 + (arg1 * 8);
+    temp_r4 = com_card_help_panel_rect_table + (arg1 * 8);
     set_sprite_uv_from_pixels(arg0, M2C_FIELD(temp_r4, f32 *, 0), M2C_FIELD(temp_r4, f32 *, 4));
 }
 

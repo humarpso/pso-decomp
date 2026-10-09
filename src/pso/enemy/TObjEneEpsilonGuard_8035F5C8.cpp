@@ -848,7 +848,7 @@ M2C_UNK VecCopy__FP3VecPC3Vec(void *, void *);
 s32 reset_transform_state__10TObjPlayerFv();
 s32 init_xyz_limits__10TObjPlayerFv();
 s32 draw_line_list(void *, int, int);
-extern RecoveredGlobal_80360638_lbl_804F22CC lbl_804F22CC;
+extern RecoveredGlobal_80360638_lbl_804F22CC TObjEneEpsilonGuard__debug_line_list;
 extern RecoveredGlobal_80360638_lbl_805439FC lbl_805439FC;
 void draw_debug_line__19TObjEneEpsilonGuardFi(s32 arg0);
 extern RecoveredGlobal_8035F8F0_lbl_80479E6C lbl_80479E6C;
@@ -962,7 +962,7 @@ M2C_UNK draw_with_alt_model__10TObjPlayerFPvi(void *, int);
 M2C_UNK render_world_model__10TObjPlayerFPv(void *);
 M2C_UNK draw__16TObjEneRe7BeruraFPv(void *);
 M2C_UNK end_effect_render__13TParticleCtrlFv();
-M2C_UNK fn_80362638(void *, void *, void *, int);
+M2C_UNK set_guard_part_colors(void *, void *, void *, int);
 M2C_UNK rotate_matrix_y(int, int);
 M2C_UNK translate_matrix(int, f32, f32, f32);
 M2C_UNK push_matrix();
@@ -1341,7 +1341,7 @@ void draw_with_fade__19TObjEneEpsilonGuardFPvi(u8 *arg0, s32 arg1) {
     lbl_805D5660 = some_id_805c6f74;
     lbl_805D5664 = lbl_805D7784;
     lbl_805D5668 = lbl_805D7780;
-    fn_80362638((void *) (arg0), (void *) (arg0 + 0x4A0), (void *) (lbl_805D7784), (int) (some_id_805c6f74));
+    set_guard_part_colors((void *) (arg0), (void *) (arg0 + 0x4A0), (void *) (lbl_805D7784), (int) (some_id_805c6f74));
     r = (VObj_8036033C *)&((Self_8036033C *)arg0)->recs[i];
     update_obstruction_fade(r);
     if (updateFromCamera__15RenderFadeStateFPCf(r, arg0 + 0x2FC) != 0) {
@@ -1419,7 +1419,7 @@ void draw_debug_line__19TObjEneEpsilonGuardFi(s32 arg0) {
     VecCopy__FP3VecPC3Vec((void *) (&lbl_805439FC.value), (void *) (arg0 + 0x2FC));
     VecCopy__FP3VecPC3Vec((void *) ((u8 *)&lbl_805439FC.value + 0xC), (void *) (arg0 + 0x4FC));
     init_xyz_limits__10TObjPlayerFv();
-    draw_line_list((void *) (&lbl_804F22CC.value), (int) (1), (int) (5));
+    draw_line_list((void *) (&TObjEneEpsilonGuard__debug_line_list.value), (int) (1), (int) (5));
     reset_transform_state__10TObjPlayerFv();
 }
 

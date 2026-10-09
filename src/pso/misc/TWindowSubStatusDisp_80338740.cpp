@@ -234,7 +234,7 @@ s32 get_flag_or_zero__20TWindowSubStatusDispFPvc(void *arg0, s8 arg1) {
     return get_message_10__20TWindowSubStatusDispFPv((s32)(arg1 + 0x10D));
 }
 
-void TWindowSubStatusDisp__sub_80338890(Item_80338890 *arg0, Win_80338890 *arg1) {
+void draw_item_row__20TWindowSubStatusDispFPvPv(Item_80338890 *arg0, Win_80338890 *arg1) {
   f32 scale;
   f32 y;
   V2_80338890 pos;

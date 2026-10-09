@@ -2,7 +2,7 @@
 struct Ent_80086D50 { u8 data[0x98]; };
 
 extern "C" {
-extern s32 lbl_805D2948;
+extern s32 particle_pool_limit;
 extern Ent_80086D50 *lbl_805D4EF8;
 extern Ent_80086D50 *lbl_805D4EFC;
 void *__nw__7TObjectFUl(int);
@@ -17,14 +17,14 @@ extern "C" {
 void *spawn_directional_particle(void *pos, void *dir, s32 id) {
     void *p;
     s32 idx = id;
-    if (lbl_805D2948 > idx) {
+    if (particle_pool_limit > idx) {
         p = __nw__7TObjectFUl(0x78);
         if (p != 0) {
             p = initialize_with_direction__13TParticleCtrlFPvPvPviiiii(p, pos, dir, &lbl_805D4EF8[idx], 1, 0, 0, 0);
         }
         return p;
     }
-    if (lbl_805D2948 + 0x40 > idx) {
+    if (particle_pool_limit + 0x40 > idx) {
         idx -= 0x200;
         p = __nw__7TObjectFUl(0x78);
         if (p != 0) {

@@ -21,7 +21,7 @@ struct Wn_80287AD8 { u8 pad[0x60]; u32 f60; };
 
 extern "C" {
 extern const f32 lbl_805DD880;
-void fn_80287BE8(Obj_80287BE8 *o);
+void ease_window_timer_position(Obj_80287BE8 *o);
 u32 calc_text_width(char *);
 TimerChild_80287B60 *get_array_entry__20TWindowSubStatusDispFPvi(void *, s32);
 extern char lbl_8044FCD8[];
@@ -64,7 +64,7 @@ void init_timer_window_layout_alt(TWindowTimer_80287B60 *self) {
 
 #pragma push
 #pragma fp_contract on
-void fn_80287BE8(Obj_80287BE8 *o) {
+void ease_window_timer_position(Obj_80287BE8 *o) {
     o->f40 += lbl_805DD880 * (o->f30 - o->f40);
     o->f44 += lbl_805DD880 * (o->f34 - o->f44);
 }

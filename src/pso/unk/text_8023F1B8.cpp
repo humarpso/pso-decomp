@@ -61,7 +61,7 @@ extern Vec_8023F22C lbl_8044DCF4;
 extern RecoveredGlobal_8023F1B8_lbl_804CCDA8 lbl_804CCDA8;
 extern RecoveredGlobal_8023F1B8_lbl_804CCE60 lbl_804CCE60;
 extern u8 lbl_804A6F34[];
-extern Vec_8023F22C TObjLight__data_80506320;
+extern Vec_8023F22C TObjLight__scene_light_state;
 extern void *tl_camera;
 extern u32 lbl_805D63CC;
 extern const f32 lbl_805DC9B8;
@@ -117,10 +117,10 @@ void init_game_mode_select_scene(void) {
     clear_callback_and_reset_keyboard__6TLobbyFv();
     init_heap__13TParticleCtrlFPv(0x100000);
     init_menu_scene_lights(lbl_804A6F34, 4);
-    TObjLight__data_80506320.y = lbl_805DC9BC * sin_table_lookup(0x1555);
+    TObjLight__scene_light_state.y = lbl_805DC9BC * sin_table_lookup(0x1555);
     c = cos_table_lookup(0x1555);
-    TObjLight__data_80506320.x = c * sin_table_lookup(0x9000);
-    TObjLight__data_80506320.z = c * cos_table_lookup(0x9000);
+    TObjLight__scene_light_state.x = c * sin_table_lookup(0x9000);
+    TObjLight__scene_light_state.z = c * cos_table_lookup(0x9000);
     p = __nw__7TObjectFUl(0x1d4);
     if (p != NULL) {
         TCameraCtrl__ct(p, tl_camera);

@@ -19,13 +19,13 @@ void *__nw__7TObjectFUl(int);
 extern u32 lbl_805D5390;
 void create_instance__8TFogCtrlFv(void);
 M2C_UNK request_fog__8TFogCtrlFPvii(u32, s32, s32);
-extern M2C_UNK TFogCtrl__data_80501188[];
+extern M2C_UNK TFogCtrl__fog_instance_table[];
 s32 update_all__8TFogCtrlFii(s32 arg0, s32 arg1);
 M2C_UNK select_fog__8TFogCtrlFPvii(u32, s32, s32);
-extern M2C_UNK TFogCtrl__data_80501188[];
+extern M2C_UNK TFogCtrl__fog_instance_table[];
 s32 apply_all__8TFogCtrlFii(s32 arg0, s32 arg1);
 M2C_UNK restore_fog__8TFogCtrlFPvi(M2C_UNK, s32);
-extern M2C_UNK TFogCtrl__data_80501188[];
+extern M2C_UNK TFogCtrl__fog_instance_table[];
 s32 update_all__8TFogCtrlFi(s32 arg0);
 void __ct__7TObjectFP7TObject(void *, void *);
 extern M2C_UNK lbl_8049C700[];
@@ -33,7 +33,7 @@ extern RecoveredGlobal_800FA95C_lbl_80515F48 lbl_80515F48;
 extern s32 lbl_805D2B1C;
 u8 *init_object__22TQuestVmDownLoadServerFPv(u8 *arg0);
 s32 TFogCtrl__sub_800FAC84(void *p);
-extern M2C_UNK TFogCtrl__data_80501188[];
+extern M2C_UNK TFogCtrl__fog_instance_table[];
 s32 update_first_active_fog__8TFogCtrlFv(void);
 }
 
@@ -94,7 +94,7 @@ void create_instance__8TFogCtrlFv(void) {
 }
 s32 update_all__8TFogCtrlFii(s32 arg0, s32 arg1) {
     s32 var_r29 = 0;
-    M2C_UNK *var_r30 = TFogCtrl__data_80501188;
+    M2C_UNK *var_r30 = TFogCtrl__fog_instance_table;
     s32 var_r31 = 0;
     do {
         u32 v = (u32)var_r30[var_r31];
@@ -108,7 +108,7 @@ s32 update_all__8TFogCtrlFii(s32 arg0, s32 arg1) {
 }
 s32 apply_all__8TFogCtrlFii(s32 arg0, s32 arg1) {
     s32 var_r29 = 0;
-    M2C_UNK *var_r30 = TFogCtrl__data_80501188;
+    M2C_UNK *var_r30 = TFogCtrl__fog_instance_table;
     s32 var_r31 = 0;
     do {
         u32 v = (u32)var_r30[var_r31];
@@ -124,8 +124,8 @@ s32 apply_all__8TFogCtrlFii(s32 arg0, s32 arg1) {
 s32 update_first_active_fog__8TFogCtrlFv(void) {
     s32 i;
     for (i = 0; i < 4; i++) {
-        if ((void *)((s32 *)&TFogCtrl__data_80501188)[i] != NULL) {
-            return TFogCtrl__sub_800FAC84((void *)((s32 *)&TFogCtrl__data_80501188)[i]);
+        if ((void *)((s32 *)&TFogCtrl__fog_instance_table)[i] != NULL) {
+            return TFogCtrl__sub_800FAC84((void *)((s32 *)&TFogCtrl__fog_instance_table)[i]);
         }
     }
     return 0;
@@ -138,7 +138,7 @@ s32 update_all__8TFogCtrlFi(s32 arg0) {
     var_r29 = 0;
     var_r31 = 0;
     do {
-        temp_r3 = *(TFogCtrl__data_80501188 + var_r31);
+        temp_r3 = *(TFogCtrl__fog_instance_table + var_r31);
         if ((u32) temp_r3 != 0U) {
             restore_fog__8TFogCtrlFPvi(temp_r3, arg0);
         }

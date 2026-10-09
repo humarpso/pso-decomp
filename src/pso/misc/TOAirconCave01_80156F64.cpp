@@ -26,7 +26,7 @@ struct RecoveredGlobal_80157044___vt__14TOAirconCave01 {
 extern "C" {
 u8 * load_resource_from_descriptor(void *, s32, void *, s32, s32, s32);
 int alloc__23TAdSinglePlyChrSelectGCFPv(void *);
-extern RecoveredGlobal_80156F9C_lbl_804AF910 lbl_804AF910;
+extern RecoveredGlobal_80156F9C_lbl_804AF910 TOAirconCave01__shared_resource_desc;
 extern u32 TOAirconCave01__data_805D5880;
 void load_shared_resource__14TOAirconCave01Fv(void);
 s32 init_map_object_base(void *, void *);
@@ -63,7 +63,7 @@ void load_shared_resource__14TOAirconCave01Fv(void) {
     temp_r3 = alloc__23TAdSinglePlyChrSelectGCFPv((void *)0x440);
     var_r0 = temp_r3;
     if (var_r0 != 0) {
-        var_r0 = (long) (load_resource_from_descriptor((void *) temp_r3, 1, &lbl_804AF910.value, 0, 0, 0));
+        var_r0 = (long) (load_resource_from_descriptor((void *) temp_r3, 1, &TOAirconCave01__shared_resource_desc.value, 0, 0, 0));
     }
     (*(s32 *)&TOAirconCave01__data_805D5880) = var_r0;
 }

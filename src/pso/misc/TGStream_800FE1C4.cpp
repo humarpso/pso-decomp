@@ -10,7 +10,7 @@ struct RecoveredGlobal_800FE2DC_TItemDrop__data_805041E0 {
 };
 
 extern "C" {
-extern RecoveredGlobal_800FE2DC_TItemDrop__data_805041E0 TItemDrop__data_805041E0;
+extern RecoveredGlobal_800FE2DC_TItemDrop__data_805041E0 TItemDrop__file_name_buf;
 extern s32 lbl_805D53C0;
 extern s32 TItemDrop__data_805D53C4;
 extern s32 TItemDrop__data_805D53C8;
@@ -76,7 +76,7 @@ typedef char RecoveredGlobal_800FE2DC_TItemDrop__data_805041E0_size[sizeof(Recov
 void TItemDrop__sub_800FE2DC(void) {
     lbl_805D53C0 = 0;
     TItemDrop__data_805D53C4 = 0;
-    TItemDrop__data_805041E0.value = 0;
+    TItemDrop__file_name_buf.value = 0;
     TItemDrop__data_805D53CC = 0;
     TItemDrop__data_805D53D0 = 0;
     TItemDrop__data_805D53C8 = 0;

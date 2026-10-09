@@ -2120,7 +2120,7 @@ extern f32 lbl_8050BEE0[];
 extern f32 lbl_8050BFE0[];
 extern void *lbl_8050EA10[];
 extern u8 *lbl_805D3530;
-extern s32 lbl_805D39B8;
+extern s32 TWindowReturnCity__class_name;
 extern u8 *TObjPlayer__shared_photon_blast_state;
 extern const f32 lbl_805DC364;
 extern const f32 lbl_805DC370;
@@ -3866,7 +3866,7 @@ void check_reopen_return_city_window__10TObjPlayerFPv(u8 *arg0) {
   TObjPlayer__sub_8024ABDC((void *) new_var);
   temp_r3 = *((u32 *) (((s8 *) arg0) + 0x36C));
   new_var = 0U;
-  if ((temp_r3 != new_var) && ((all_parents_unqueued_for_destruction__7TObjectFv((int) temp_r3) == 0) || (check_value_equals__13TQuestColCtrlFPvi((int) (*((u32 *) (((s8 *) arg0) + 0x36C))), (void *) lbl_805D39B8) == 0)))
+  if ((temp_r3 != new_var) && ((all_parents_unqueued_for_destruction__7TObjectFv((int) temp_r3) == 0) || (check_value_equals__13TQuestColCtrlFPvi((int) (*((u32 *) (((s8 *) arg0) + 0x36C))), (void *) TWindowReturnCity__class_name) == 0)))
   {
     *((u32 *) (((s8 *) arg0) + 0x36C)) = 0U;
   }

@@ -196,7 +196,7 @@ extern S_804220A0 *lbl_805C1D48[];
 s32 complete_request_callback__6TLobbyFv(s32 idx_, void (*cb)(s16, s16, s32), s16 arg2, s32 *arg3);
 void OSReport(const char *, ...);
 s32 shutdown_network_handle__6TLobbyFv(void);
-s16 TLobby__sub_80406B14();
+s16 reset_socket_table__6TLobbyFv();
 s32 TLobby__sub_80409AA8(void);
 s16 TLobby__sub_80409AD8();
 s32 TLobby__sub_8040DD68(void);
@@ -317,10 +317,10 @@ extern u32 lbl_805D7B60;
 s32 build_dhcp_release__6TLobbyFPv(u8 *arg0);
 M2C_UNK resume_thread__6TLobbyFv(s32);
 extern S_804220A0 *lbl_805C1D48[];
-s32 TLobby__sub_80422368(s32 idx, void (*cb)(s16, s16), s16 arg2);
+s32 set_slot_state_and_resume__6TLobbyFv(s32 idx, void (*cb)(s16, s16), s16 arg2);
 M2C_UNK resume_thread__6TLobbyFv(s32);
 extern S_804220A0 *lbl_805C1D48[];
-s32 TLobby__sub_8042276C(s32 idx, void (*cb)(s16, s16), s16 arg2);
+s32 set_thread_state_and_resume__6TLobbyFv(s32 idx, void (*cb)(s16, s16), s16 arg2);
 }
 
 extern "C" {
@@ -358,7 +358,7 @@ s16 init_network_stack__6TLobbyFv(void) {
     if (var_r31 >= 0) {
         var_r31 = TLobby__sub_80415690();
         if (var_r31 >= 0) {
-            var_r31 = TLobby__sub_80406B14();
+            var_r31 = reset_socket_table__6TLobbyFv();
             if (var_r31 >= 0) {
                 var_r31 = TLobby__sub_8041A230();
                 if (var_r31 >= 0) {
@@ -629,7 +629,7 @@ s16 tcp_receive__FsPFss_vsPUc(s32 a, void *cb, s32 len, void *buf) {
 
 typedef struct S_804220A0 S_804220A0;
 typedef struct T_80422368 T_80422368;
-s32 TLobby__sub_80422368(s32 idx, void (*cb)(s16, s16), s16 arg2) {
+s32 set_slot_state_and_resume__6TLobbyFv(s32 idx, void (*cb)(s16, s16), s16 arg2) {
   T_80422368 *s = (T_80422368 *) lbl_805C1D48[0];
   s16 new_var;
   s += (s16) idx;
@@ -658,7 +658,7 @@ s32 TLobby__sub_80422368(s32 idx, void (*cb)(s16, s16), s16 arg2) {
 }
 
 typedef struct T_8042276C T_8042276C;
-s32 TLobby__sub_8042276C(s32 idx, void (*cb)(s16, s16), s16 arg2) {
+s32 set_thread_state_and_resume__6TLobbyFv(s32 idx, void (*cb)(s16, s16), s16 arg2) {
   T_8042276C *s = (T_8042276C *) lbl_805C1D48[0];
   s16 new_var;
   s += (s16) idx;

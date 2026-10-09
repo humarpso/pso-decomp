@@ -17,7 +17,7 @@ extern "C" {
 extern RecoveredGlobal_8036A648_lbl_804F351C lbl_804F351C;
 s32 fn_8036A648(s32 arg0);
 extern RecoveredGlobal_8036A67C_lbl_804F3458 lbl_804F3458;
-s32 fn_8036A67C(s32 arg0);
+s32 get_option_table_entry(s32 arg0);
 s32 check_flag_index_set(s32);
 s32 fn_8036A620(s32 idx);
 }
@@ -43,7 +43,7 @@ s32 fn_8036A648(s32 arg0) {
     return M2C_FIELD(&lbl_804F351C.value, M2C_UNK *, (arg0 * 4));
 }
 typedef char RecoveredGlobal_8036A67C_lbl_804F3458_size[sizeof(RecoveredGlobal_8036A67C_lbl_804F3458) == 0xC4 ? 1 : -1];
-s32 fn_8036A67C(s32 arg0) {
+s32 get_option_table_entry(s32 arg0) {
     if (arg0 < 0) {
         return 0;
     }

@@ -131,14 +131,14 @@ void expire_timeout_entries__6TLobbyFPv(O_8041FE44 *o);
 void TLobby__sub_8041F66C(O_8041F66C *o);
 s32 TLobby__sub_803F9F04(void *, void *, int);
 void TLobby__sub_80422E30(s16, s32, s32, s16);
-void TLobby__sub_80422368(s16, s32, s16);
+void set_slot_state_and_resume__6TLobbyFv(s16, s32, s16);
 void TLobby__sub_80406EB8(void *, u32);
 void TLobby__sub_80406FD8(void *, void *, u32);
 void TLobby__sub_8041A9AC(Obj_8041ED8C *);
 extern G_8041ED8C lbl_805C1D48;
 s32 TLobby__sub_8041ED8C(Obj_8041ED8C *self, void *data, u32 len, s32 arg3);
 void TLobby__sub_80422E30(s16, s32, s32, s16);
-void TLobby__sub_80422368(s16, s32, s16);
+void set_slot_state_and_resume__6TLobbyFv(s16, s32, s16);
 extern G_8041ED8C lbl_805C1D48;
 s32 TLobby__sub_8041F11C(Obj_8041F11C *self);
 extern RecoveredGlobal_80420C5C_lbl_805C1DF0 lbl_805C1DF0;
@@ -185,18 +185,18 @@ s32 TLobby__sub_8041ED8C(Obj_8041ED8C *self, void *data, u32 len, s32 arg3) {
         case 8:
         case 10:
             self->fE8 = m;
-            TLobby__sub_80422368(idx, self->f200, -7);
+            set_slot_state_and_resume__6TLobbyFv(idx, self->f200, -7);
             while (self->fE8 != 0) {
                 self->fE8 = m;
-                TLobby__sub_80422368(idx, self->f200, -7);
+                set_slot_state_and_resume__6TLobbyFv(idx, self->f200, -7);
             }
             return 0;
         case -1:
             self->fE8 = m;
-            TLobby__sub_80422368(idx, self->f200, -11);
+            set_slot_state_and_resume__6TLobbyFv(idx, self->f200, -11);
             while (self->fE8 != 0) {
                 self->fE8 = m;
-                TLobby__sub_80422368(idx, self->f200, -11);
+                set_slot_state_and_resume__6TLobbyFv(idx, self->f200, -11);
             }
             return 0;
         default:
@@ -225,7 +225,7 @@ s32 TLobby__sub_8041ED8C(Obj_8041ED8C *self, void *data, u32 len, s32 arg3) {
             self->fDC -= self->f534;
         }
         self->fE8 = 0;
-        TLobby__sub_80422368(idx, self->f200, self->fF0);
+        set_slot_state_and_resume__6TLobbyFv(idx, self->f200, self->fF0);
     } while (self->fE8 != 0 && self->fD8 != 0);
     if (self->f53C == 0) {
         self->fB &= ~1;
@@ -240,10 +240,10 @@ s32 TLobby__sub_8041ED8C(Obj_8041ED8C *self, void *data, u32 len, s32 arg3) {
         case 7:
         case 8:
         case 10:
-            TLobby__sub_80422368(idx, self->f200, -7);
+            set_slot_state_and_resume__6TLobbyFv(idx, self->f200, -7);
             break;
         case -1:
-            TLobby__sub_80422368(idx, self->f200, -11);
+            set_slot_state_and_resume__6TLobbyFv(idx, self->f200, -11);
             break;
         default:
             return 0;
@@ -260,7 +260,7 @@ s32 TLobby__sub_8041F11C(Obj_8041F11C *self) {
     s16 idx = self - (*(G_8041F11C *)&lbl_805C1D48).p;
     while (self->fE8 != 0) {
         self->fE8 = 0;
-        TLobby__sub_80422368(idx, self->f200, -7);
+        set_slot_state_and_resume__6TLobbyFv(idx, self->f200, -7);
     }
     if (self->fD8 == 0 && !(self->fB & 0x20)) {
         TLobby__sub_80422E30((s16)(self - (*(G_8041F11C *)&lbl_805C1D48).p), self->f2D0, 3, 3);

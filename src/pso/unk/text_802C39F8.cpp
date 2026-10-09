@@ -17,12 +17,12 @@ extern "C" {
 void copy_item_data__6TLobbyFPvPv(void *, void *);
 void copy_item_entry_array(s32 n, struct Entry_802C3A50 *src, struct Entry_802C3A50 *dst);
 M2C_UNK fn_801C1BA8(void *, void *);
-void fn_802C39F8(s32 arg0, E_802C39F8 *arg1, E_802C39F8 *arg2);
+void copy_entries(s32 arg0, E_802C39F8 *arg1, E_802C39F8 *arg2);
 }
 
 extern "C" {
 
-void fn_802C39F8(s32 arg0, E_802C39F8 *arg1, E_802C39F8 *arg2) {
+void copy_entries(s32 arg0, E_802C39F8 *arg1, E_802C39F8 *arg2) {
     s32 i;
     for (i = 0; i < arg0; i++) {
         fn_801C1BA8(arg2++, arg1++);

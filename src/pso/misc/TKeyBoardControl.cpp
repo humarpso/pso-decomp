@@ -64,7 +64,7 @@ M2C_UNK TKeyBoardControl__sub_8025CBC0(void *);
 M2C_UNK TKeyBoardControl__sub_8025CBCC(void *);
 M2C_UNK TKeyBoardControl__sub_8025CC04(void *);
 M2C_UNK TKeyBoardControl__sub_8025CC3C(u32);
-int fn_8025CD10(void*);
+int update_keyboard_close_mode(void*);
 void calc_cursor_step__19TWindowKeyBoardSoftFiPvPv(s32 arg0, s32 *arg1, s32 *arg2);
 s32 TWindowKeyBoardSoft__sub_802605DC(Win_802605DC *w);
 f32 calc_key_x__19TWindowKeyBoardSoftFiii(s32 arg0, s32 arg1, s32 arg2);
@@ -318,7 +318,7 @@ void release__16TKeyBoardControlFPv(void *arg0) {
     }
 }
 
-void close__19TWindowKeyBoardSoftFPv(void* p) { if (*(unsigned int*)((char*)p + 0x6c) != 0) { fn_8025CD10(*(void**)((char*)p + 0x6c)); ((int (*)(void*))update_focus_flags__19TWindowKeyBoardSoftFPv)(p); } }
+void close__19TWindowKeyBoardSoftFPv(void* p) { if (*(unsigned int*)((char*)p + 0x6c) != 0) { update_keyboard_close_mode(*(void**)((char*)p + 0x6c)); ((int (*)(void*))update_focus_flags__19TWindowKeyBoardSoftFPv)(p); } }
 
 s32 hit_test_relative__19TWindowKeyBoardSoftFPvPvPv(u8 *arg0, u8 *arg1, u8 *arg2) {
     f32 temp_f3;

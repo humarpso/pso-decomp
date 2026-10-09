@@ -38,7 +38,7 @@ void add_photon_blast__8TItemMagFPvUc(MagData_80113F64 *data, u8 blast);
 void *memset(void *, s32, u32);
 extern const u8 lbl_805DABC4[3];
 extern const u8 lbl_805DABC0[2];
-s32 TItemMag__sub_801143E8(Mag_801143E8 *mag, s32 slot);
+s32 get_photon_blast_at_slot__8TItemMagFPvi(Mag_801143E8 *mag, s32 slot);
 }
 
 extern "C" {
@@ -279,7 +279,7 @@ s32 is_pb_registered__8TItemMagFiUc(s32 arg0, u8 arg1) {
     if (arg1 < 6U) {
         var_r30 = 0;
 loop_2:
-        if ((s32) arg1 == TItemMag__sub_801143E8((Mag_801143E8 *)(arg0), (s32)(var_r30))) {
+        if ((s32) arg1 == get_photon_blast_at_slot__8TItemMagFPvi((Mag_801143E8 *)(arg0), (s32)(var_r30))) {
             return 1;
         }
         var_r30 += 1;
@@ -292,7 +292,7 @@ block_5:
     return 0;
 }
 typedef struct Mag_801143E8 Mag_801143E8;
-s32 TItemMag__sub_801143E8(Mag_801143E8 *mag, s32 slot) {
+s32 get_photon_blast_at_slot__8TItemMagFPvi(Mag_801143E8 *mag, s32 slot) {
   int new_var;
   u8 used[6];
   s32 i;

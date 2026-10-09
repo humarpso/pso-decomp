@@ -25,7 +25,7 @@ void fn_8007FE78(Obj_8007FF28 *self, s32 arg1, void *arg2, f32 farg0, f32 farg1,
 extern "C" {
 extern const char lbl_80438D68[] = "TDuelEffectNumber";
 extern const RecoveredGlobal_800800EC_lbl_80438D7C lbl_80438D7C = {0, {0x43, 0x2A, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x42, 0x80, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x43, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x43, 0x40, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x42, 0xAA, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00}};
-void fn_800800EC(M2C_UNK arg0, u8 *arg1, s32 arg2);
+void calc_duel_number_uv(M2C_UNK arg0, u8 *arg1, s32 arg2);
 void fn_8007FF28(Obj_8007FF28 *self, s32 arg1);
 s32 get_camera_no__11TCameraCtrlFv(void);
 f32 get_scale__15TWindowCtrlMainFv(s32);
@@ -95,7 +95,7 @@ void fn_8007FFF4(Obj_8007FF28 *self, s32 arg1) {
 #pragma push
 #pragma opt_common_subs off
 typedef char RecoveredGlobal_800800EC_lbl_80438D7C_size[sizeof(RecoveredGlobal_800800EC_lbl_80438D7C) == 0x34 ? 1 : -1];
-void fn_800800EC(M2C_UNK arg0, u8 *arg1, s32 arg2) {
+void calc_duel_number_uv(M2C_UNK arg0, u8 *arg1, s32 arg2) {
     s32 temp_r0;
     temp_r0 = arg2 * 8;
     M2C_FIELD(arg1, f32 *, 0x10) = (f32) M2C_FIELD(((u8 *)(&lbl_80438D7C.value) + temp_r0), f32 *, 0);
@@ -112,7 +112,7 @@ void fn_800800EC(M2C_UNK arg0, u8 *arg1, s32 arg2) {
 void render__17TDuelEffectNumberFv(void *arg0) {
     char sp8[0x20];
 
-    ((M2C_UNK (*)(void *, void *, s32))fn_800800EC)(arg0, &sp8, M2C_FIELD(arg0, s32 *, 0x24));
+    ((M2C_UNK (*)(void *, void *, s32))calc_duel_number_uv)(arg0, &sp8, M2C_FIELD(arg0, s32 *, 0x24));
     init_xyz_limits__10TObjPlayerFv();
     begin_screen_draw(1);
     set_global_param__8TObjFishFi(lbl_805D63F0);

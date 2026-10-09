@@ -33,7 +33,7 @@ void TWindowSubSymbolChatPartsSet__sub_8025B050(void *);
 void TWindowSubSymbolChatPartsSet__sub_8025B064(void *);
 void set_sprite_uv_from_pixels(void *, f32, f32);
 void TWindowSubSymbolChatPartsSet__sub_8025B0C4(void *, f32, f32);
-extern UV_802480EC lbl_8044E80C[];
+extern UV_802480EC TWindowSubSymbolChatPartsSet__part_uv_table[];
 extern const f32 lbl_805DCB78;
 extern const f32 lbl_805DCB80;
 extern const f32 lbl_805DCB84;
@@ -83,7 +83,7 @@ void render__17TWindowChatSymbolFv(u8 *arg0);
 M2C_UNK draw_visible_window_entries(void *, void *, void *, f32, f32, f32);
 s32 init_window_layout_entries(void *, void *, void *);
 
-extern int lbl_8044EA74[];
+extern int symbol_chat_parts_color_table[];
 extern RecoveredGlobal_80248494_lbl_804CE2E8 lbl_804CE2E8;
 extern const f32 lbl_805DCB78;
 extern const f32 lbl_805DCB7C;
@@ -91,7 +91,7 @@ extern const float lbl_805DCB94;
 extern const float lbl_805DCB98;
 extern const f32 lbl_805DCB9C;
 
-int get_parts_entry__28TWindowSubSymbolChatPartsSetFi(int a0) {  return lbl_8044EA74[a0]; }
+int get_parts_entry__28TWindowSubSymbolChatPartsSetFi(int a0) {  return symbol_chat_parts_color_table[a0]; }
 
 void set_pos__28TWindowSubSymbolChatPartsSetFPvss(u8 *arg0, s16 arg1, s16 arg2) {
     M2C_FIELD(arg0, f32 *, 8) = (f32) (lbl_805DCB78 + (f32) arg1);
@@ -129,7 +129,7 @@ void setup_part_sprites__28TWindowSubSymbolChatPartsSetFPvPvPvUsiiii(Part_802480
     arg0->kind = ((arg3 >> 6) & 3) + 7;
     arg0->entry = get_parts_entry__28TWindowSubSymbolChatPartsSetFi(arg4);
     if (arg3 <= 0x12) {
-        uv = &lbl_8044E80C[arg7];
+        uv = &TWindowSubSymbolChatPartsSet__part_uv_table[arg7];
         TWindowSubSymbolChatPartsSet__sub_8025B0C4(arg0, lbl_805DCB80, lbl_805DCB80);
         arg2->x = arg0->x - lbl_805DCB84;
         arg2->y = arg0->y;

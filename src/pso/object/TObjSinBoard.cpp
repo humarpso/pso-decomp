@@ -65,7 +65,7 @@ M2C_UNK push_matrix();
 M2C_UNK pop_matrix();
 M2C_UNK set_global_param__8TObjFishFi(int);
 void set_texture_num(int);
-extern Pos_8019806C lbl_80445FA0;
+extern Pos_8019806C TObjSinBoard__quad_position_table;
 extern Uv_8019806C lbl_80445FD0;
 extern u8 lbl_8050DD24[];
 extern u32 lbl_805D5C58;
@@ -102,7 +102,7 @@ void render__12TObjSinBoardFv(u8 *arg0) {
     Desc_8019806C d;
     s16 col[8];
     if (get_state_flag__9TMainTaskFv() != 1 && lbl_805D5C58 != 0) {
-        pos = lbl_80445FA0;
+        pos = TObjSinBoard__quad_position_table;
         uv = lbl_80445FD0;
         col[0] = 0;
         col[1] = 0;

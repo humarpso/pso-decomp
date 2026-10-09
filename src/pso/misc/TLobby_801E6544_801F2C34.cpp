@@ -13,25 +13,25 @@ M2C_UNK bswap_32__FPUl(s32 *, s32);
 M2C_UNK memcpy(s32 *, s32, M2C_UNK);
 s32 strlen(s32, s32);
 
-extern s32 TLobby__data_805D5E70;
+extern s32 TLobby__quest_data_base;
 extern s32 TLobby__data_805D5E90;
 
 void append_string_to_buffer(s32 arg0) {
     s32 temp_r31;
 
-    temp_r31 = strlen(TLobby__data_805D5E70 + TLobby__data_805D5E90, TLobby__data_805D5E70);
-    expand_message_substitutions(TLobby__data_805D5E70 + TLobby__data_805D5E90, arg0, TLobby__data_805D5E70);
+    temp_r31 = strlen(TLobby__quest_data_base + TLobby__data_805D5E90, TLobby__quest_data_base);
+    expand_message_substitutions(TLobby__quest_data_base + TLobby__data_805D5E90, arg0, TLobby__quest_data_base);
     TLobby__data_805D5E90 += temp_r31 + 1;
 }
 
-extern s32 TLobby__data_805D5E70;
+extern s32 TLobby__quest_data_base;
 extern s32 TLobby__data_805D5E90;
 
 s32 stream_read_be32(void) {
     s32 sp8;
     s32 temp_r4;
 
-    memcpy(&sp8, TLobby__data_805D5E70 + TLobby__data_805D5E90, 4);
+    memcpy(&sp8, TLobby__quest_data_base + TLobby__data_805D5E90, 4);
     temp_r4 = TLobby__data_805D5E90;
     TLobby__data_805D5E90 = temp_r4 + 4;
     bswap_32__FPUl(&sp8, temp_r4);

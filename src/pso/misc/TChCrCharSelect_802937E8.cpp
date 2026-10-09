@@ -5,16 +5,16 @@ extern "C" {
 extern Range_802937E8 lbl_80464E70[];
 extern s32 TChCrCharSelect__selected_char_index;
 extern s32 TChCrCharSelect__selected_slot_index;
-void TChCrCharSelect__sub_802937E8(void);
+void wrap_slot_index_to_range__15TChCrCharSelectFv(void);
 extern Range_802937E8 lbl_80464E70[];
 extern s32 TChCrCharSelect__selected_char_index;
 extern s32 TChCrCharSelect__selected_slot_index;
-void TChCrCharSelect__sub_80293828(void);
+void clamp_slot_index_to_range__15TChCrCharSelectFv(void);
 }
 
 extern "C" {
 
-void TChCrCharSelect__sub_802937E8(void) {
+void wrap_slot_index_to_range__15TChCrCharSelectFv(void) {
     s32 min = lbl_80464E70[TChCrCharSelect__selected_char_index].min;
     s32 max = lbl_80464E70[TChCrCharSelect__selected_char_index].max;
     if (TChCrCharSelect__selected_slot_index < min) {
@@ -23,7 +23,7 @@ void TChCrCharSelect__sub_802937E8(void) {
         TChCrCharSelect__selected_slot_index = min;
     }
 }
-void TChCrCharSelect__sub_80293828(void) {
+void clamp_slot_index_to_range__15TChCrCharSelectFv(void) {
     s32 min = lbl_80464E70[TChCrCharSelect__selected_char_index].min;
     s32 max = lbl_80464E70[TChCrCharSelect__selected_char_index].max;
     if (TChCrCharSelect__selected_slot_index < min || TChCrCharSelect__selected_slot_index > max) {

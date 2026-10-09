@@ -1,10 +1,10 @@
 #ifndef PSO_CLASS_PACKAGE
 #include "pso/TQuestBgmCtrl.h"
 
-extern s32 TQuestBgmCtrl__data_805D5E60;
-extern s32 TQuestBgmCtrl__data_805D5E64;
-extern s32 TQuestBgmCtrl__data_805D5E68;
-extern s32 TQuestBgmCtrl__data_805D5E6C;
+extern s32 TQuestBgmCtrl__bgm_issued_flag;
+extern s32 TQuestBgmCtrl__bgm_forced_flag;
+extern s32 TQuestBgmCtrl__area_bgm_index;
+extern s32 TQuestBgmCtrl__instance;
 
 extern "C" {
 s32 get_register__12TQuestThreadFPvi(void *, int);
@@ -31,9 +31,9 @@ extern "C" u8 lbl_80449970[];
 extern "C" u8 lbl_8044997C[];
 extern "C" u8 lbl_80449988[];
 void TQuestBgmCtrl::run_task() {
-    if (((s32) TQuestBgmCtrl__data_805D5E60 == 0) && ((get_register__12TQuestThreadFPvi((void *) (lbl_805D5EE8), (int) (0xFF)) != 0) || ((s32) TQuestBgmCtrl__data_805D5E64 != 0)) && ((s32) TQuestBgmCtrl__data_805D5E68 > 0) && ((s32) TQuestBgmCtrl__data_805D5E68 <= 0x11)) {
-        play_area_music((s32) lbl_804C6970[TQuestBgmCtrl__data_805D5E68 - 1]);
-        TQuestBgmCtrl__data_805D5E60 = 1;
+    if (((s32) TQuestBgmCtrl__bgm_issued_flag == 0) && ((get_register__12TQuestThreadFPvi((void *) (lbl_805D5EE8), (int) (0xFF)) != 0) || ((s32) TQuestBgmCtrl__bgm_forced_flag != 0)) && ((s32) TQuestBgmCtrl__area_bgm_index > 0) && ((s32) TQuestBgmCtrl__area_bgm_index <= 0x11)) {
+        play_area_music((s32) lbl_804C6970[TQuestBgmCtrl__area_bgm_index - 1]);
+        TQuestBgmCtrl__bgm_issued_flag = 1;
     }
 }
 
@@ -46,10 +46,10 @@ extern "C" void *lbl_804C6970[17] = {
 };
 
 TQuestBgmCtrl::~TQuestBgmCtrl() {
-    TQuestBgmCtrl__data_805D5E60 = 0;
-    TQuestBgmCtrl__data_805D5E64 = 0;
-    TQuestBgmCtrl__data_805D5E68 = 0;
-    TQuestBgmCtrl__data_805D5E6C = 0;
+    TQuestBgmCtrl__bgm_issued_flag = 0;
+    TQuestBgmCtrl__bgm_forced_flag = 0;
+    TQuestBgmCtrl__area_bgm_index = 0;
+    TQuestBgmCtrl__instance = 0;
 }
 #else
 #if PSO_CLASS_PACKAGE == 0x801E63F4
@@ -59,9 +59,9 @@ extern "C" {
 
 void TQuestBgmCtrl__sub_801E63F4(int a0);
 
-    extern int TQuestBgmCtrl__data_805D5E60;
-    extern int TQuestBgmCtrl__data_805D5E68;
-void TQuestBgmCtrl__sub_801E63F4(int a0) { TQuestBgmCtrl__data_805D5E68 = a0; TQuestBgmCtrl__data_805D5E60 = 0; }
+    extern int TQuestBgmCtrl__bgm_issued_flag;
+    extern int TQuestBgmCtrl__area_bgm_index;
+void TQuestBgmCtrl__sub_801E63F4(int a0) { TQuestBgmCtrl__area_bgm_index = a0; TQuestBgmCtrl__bgm_issued_flag = 0; }
 
 }
 #endif

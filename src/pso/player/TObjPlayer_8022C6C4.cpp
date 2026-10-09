@@ -120,7 +120,7 @@ extern Col_8022C738 lbl_8044D040;
 extern Vec_8022C738 lbl_8044D050;
 extern Col_8022C738 lbl_8044D05C;
 extern Vec_8022C738 lbl_8044D06C;
-extern LightData_8022C738 TObjLight__data_80506320;
+extern LightData_8022C738 TObjLight__scene_light_state;
 extern s32 tl_07;
 extern const f32 lbl_805DC7DC;
 extern const f32 lbl_805DC7E0;
@@ -169,7 +169,7 @@ s32 get_level_tier__10TObjPlayerFi(s32 arg0) {
         void *o = __nw__7TObjectFUl(100);                                                        \
         if (o != NULL) {                                                                         \
             ((void *(*)(f32, f32, f32, void *, Col_8022C738 *, Vec_8022C738 *, s32, void *, s32)) \
-                 construct_actor_light__9TObjLightFPviiiiifffi)(lbl_805DC7DC, lbl_805DC7E0, TObjLight__data_80506320.f1C, \
+                 construct_actor_light__9TObjLightFPviiiiifffi)(lbl_805DC7DC, lbl_805DC7E0, TObjLight__scene_light_state.f1C, \
                                           o, &c, &v, base, owner, tl_07);                        \
         }                                                                                        \
         if (is_locally_controlled__10TObjPlayerFPv(owner) != 0) {                                \

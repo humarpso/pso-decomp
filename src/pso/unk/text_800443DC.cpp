@@ -11,7 +11,7 @@ extern "C" {
 extern G_800443DC *lbl_805D4CBC;
 s32 fn_800443DC(void *self, s32 i);
 extern G_800443F0 *lbl_805D4CC0;
-void fn_800443F0(O_800443F0 *self, s32 i);
+void load_volopt_param_entry(O_800443F0 *self, s32 i);
 }
 
 extern "C" {
@@ -19,7 +19,7 @@ extern "C" {
 s32 fn_800443DC(void *self, s32 i) {
     return lbl_805D4CBC->arr[i];
 }
-void fn_800443F0(O_800443F0 *self, s32 i) {
+void load_volopt_param_entry(O_800443F0 *self, s32 i) {
     self->f34 = lbl_805D4CC0->entries[i].c;
     self->f24 = lbl_805D4CC0->entries[i].d;
 }

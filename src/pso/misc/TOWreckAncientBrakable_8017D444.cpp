@@ -31,8 +31,8 @@ void rotate_vector_by_matrix(int, Vec_8017D448 *, Vec_8017D448 *);
 void rotate_matrix_y(int, int);
 void push_matrix_from(void *);
 void pop_matrix(void);
-extern Arr_8017D448 lbl_8044355C;
-extern Param_8017D448 lbl_804435C8;
+extern Arr_8017D448 TOWreckAncientBrakable__debris_table;
+extern Param_8017D448 TOWreckAncientBrakable__debris_param_table;
 extern u8 lbl_8058D490[];
 extern void *lbl_805D5AFC;
 extern s32 tl_05;
@@ -46,8 +46,8 @@ void TOWreckAncientBrakable__sub_8017D444(void);
 void TOWreckAncientBrakable__sub_8017D444(void) {  }
 void spawn_debris__22TOWreckAncientBrakableFPv(u8 *arg0) {
     Vec_8017D448 tmp;
-    Arr_8017D448 arr = lbl_8044355C;
-    Param_8017D448 p = lbl_804435C8;
+    Arr_8017D448 arr = TOWreckAncientBrakable__debris_table;
+    Param_8017D448 p = TOWreckAncientBrakable__debris_param_table;
     s32 i;
     void *obj;
     p.pos.x = *(f32 *)(arg0 + 0x38);

@@ -2643,7 +2643,7 @@ void fn_80010EBC(void);
 void TObjEneDD__vt77(void);
 void apply_hit_message_flags__10TObjPlayerFPvPv(void);
 void apply_set_data__9TObjEnemyFPvPv(void);
-void fn_800F5D80(void);
+void clear_lobby_object_state(void);
 void TObjEneEpsilon__vt81(void);
 void TObjEneDD__vt82(void);
 void TObjEneDD__vt83(void);
@@ -2748,7 +2748,7 @@ void *lbl_804922F8[107] = {
     (void *)TObjEneDD__vt77,
     (void *)apply_hit_message_flags__10TObjPlayerFPvPv,
     (void *)apply_set_data__9TObjEnemyFPvPv,
-    (void *)fn_800F5D80,
+    (void *)clear_lobby_object_state,
     (void *)TObjEneEpsilon__vt81,
     (void *)TObjEneDD__vt82,
     (void *)TObjEneDD__vt83,
