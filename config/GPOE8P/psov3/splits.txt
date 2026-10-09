@@ -9417,6 +9417,7 @@ pso/misc/TWindowSubStatusDisp_80257784_80259838.cpp:
 pso/misc/TWindowSubStatusDisp_802598E4.cpp:
 	.text       start:0x802598E4 end:0x8025A12C
 	.rodata     start:0x8044F000 end:0x8044F018
+	.sdata2     start:0x805DCF3C end:0x805DCF68
 
 pso/misc/TWindowHelpItem_8025A12C.cpp:
 	.text       start:0x8025A12C end:0x8025A60C
@@ -9556,6 +9557,7 @@ pso/misc/TShopArmorListWindow_80266CF8.cpp:
 pso/misc/TWindowSubStatusDisp_802671F0.cpp:
 	.text       start:0x80266E0C end:0x80268384
 	.rodata     start:0x8044F378 end:0x8044F388
+	.sdata2     start:0x805DD188 end:0x805DD1C0
 
 pso/unk/text_80268384.cpp:
 	.text       start:0x80268384 end:0x80268468

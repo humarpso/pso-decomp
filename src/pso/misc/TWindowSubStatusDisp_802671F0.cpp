@@ -32,6 +32,49 @@ struct RecoveredGlobal_80268048_lbl_8050E208 {
     u8 remaining[0x1AC];
 };
 
+struct Win_80267714
+{
+  f32 x;
+  f32 y;
+  u8 pad8[0x30 - 8];
+  s32 i30;
+  u8 pad34[4];
+  f32 f38;
+};
+
+struct Pt_80267714
+{
+  f32 x;
+  f32 y;
+};
+
+extern "C" {
+s32 get_shared_text_buffer();
+u32 calc_text_width();
+u8 get_font_char_advance();
+void map_char_to_font_code(s32);
+void TWindowSubStatusDisp__sub_80228F5C(s32);
+void text_builder_append(char *);
+void text_builder_reset();
+s32 draw_window_text(void *, s32, s32, s32, f32);
+void set_text_draw_params(void *, u8, s32, f32, f32);
+void draw_window_tab(void *, void *, s32, f32);
+extern const f32 lbl_805DD180;
+extern const f32 lbl_805DD19C;
+extern const f32 lbl_805DD1A0;
+extern const f32 lbl_805DD1A4;
+extern const f32 lbl_805DD1A8;
+extern const f32 lbl_805DD1AC;
+extern const f32 lbl_805DD1B0;
+extern const f32 lbl_805DD1B4;
+extern const f32 lbl_805DD1B8;
+extern const f32 lbl_805DD1BC;
+extern char lbl_805DD1C0[2];
+void draw_item_list_capacity(void *arg0, Win_80267714 *arg1, s32 arg2, s32 arg3);
+s32 get_array_entry__20TWindowSubStatusDispFPvi(void *, s16);
+void TWindowSubStatusDisp__sub_80267D80(void *arg0);
+}
+
 extern "C" {
 
 extern const f32 lbl_805DD180;
@@ -99,7 +142,6 @@ s32 initialize_subwindow__9TWindowDDFPv(void *);
 s32 get_flag__20TWindowSubStatusDispFPv(void *);
 s32 is_player_input_active(int);
 s32 update_window_entry_list(void *, void *);
-s32 TWindowSubStatusDisp__sub_80267D80(void *);
 s32 increment_counter__20TWindowSubStatusDispFPv(int);
 s32 update_subwindow__20TWindowSubStatusDispFPv(int);
 M2C_UNK draw_window_frame(void *, s32);
@@ -399,6 +441,33 @@ void TAdVIConfigGC__sub_80267704(s32 arg0) {
     M2C_FIELD(&lbl_804D0604.value, s32 *, 0x10) = arg0;
 }
 
+typedef struct Pt_80267714 Pt_80267714;
+typedef struct Win_80267714 Win_80267714;
+#pragma fp_contract on
+void draw_item_list_capacity(void *arg0, Win_80267714 *arg1, s32 arg2, s32 arg3) {
+  u8 new_var;
+  Pt_80267714 pt;
+  if (arg1->i30 >= 0)
+  {
+    pt.x = (lbl_805DD19C + arg1->x) - lbl_805DD180;
+    pt.y = arg1->y - lbl_805DD1A0;
+    draw_window_tab(arg1, &pt, 0, lbl_805DD1A4);
+    pt.x += lbl_805DD1A8;
+    pt.y += lbl_805DD1AC;
+    set_text_draw_params(arg1, 0, 0, lbl_805DD1B0 / (lbl_805DD1B4 + arg1->f38), lbl_805DD1B8);
+    text_builder_reset();
+    TWindowSubStatusDisp__sub_80228F5C(arg2);
+    get_shared_text_buffer();
+    pt.x -= (f32) calc_text_width();
+    map_char_to_font_code(0x2F);
+    new_var = get_font_char_advance();
+    pt.x -= lbl_805DD1BC * new_var;
+    text_builder_append(lbl_805DD1C0);
+    TWindowSubStatusDisp__sub_80228F5C(arg3);
+    draw_window_text(&pt, get_shared_text_buffer(), -1, 0, lbl_805DD1B8);
+  }
+}
+
 void set_flag4__20TWindowSubStatusDispFPv(void *arg0) {
     if (!(M2C_FIELD(arg0, u16 *, 0x70) & 8) && (((s32 (*)(void))get_status_flag__6TLobbyFPv)() == 0)) {
         play_sound_effect(0x52F16, 0, 0, 0);
@@ -577,6 +646,32 @@ void clamp_item_list_scroll(u8 *arg0) {
     }
 }
 
+#pragma fp_contract on
+void TWindowSubStatusDisp__sub_80267D80(void *arg0) {
+  s8 *new_var;
+  f32 var_f4;
+  u32 n;
+  if ((*((u16 *) (((s8 *) arg0) + 0x70))) & 0x20)
+  {
+    new_var = ((s8 *) ((u16 *)get_array_entry__20TWindowSubStatusDispFPvi(arg0, *((s16 *) (((s8 *) arg0) + 0x74))))) + 0xC;
+    var_f4 = *((f32 *) new_var);
+  }
+  else
+  {
+    var_f4 = 0.0f;
+  }
+  n = *((u32 *) (((s8 *) arg0) + 0x50));
+  if (n == 0)
+  {
+    *((f32 *) (((s8 *) arg0) + 0x6C)) = var_f4;
+  }
+  else
+  {
+    var_f4 += 0.5f * ((*((f32 *) (((s8 *) arg0) + 0x3C))) - (*((f32 *) (((s8 *) arg0) + 0x4C))));
+    *((f32 *) (((s8 *) arg0) + 0x6C)) += (var_f4 - (*((f32 *) (((s8 *) arg0) + 0x6C)))) / ((f32) n);
+  }
+}
+
 void draw_selected_list_entry(void *arg0, s32 arg1) {
     u16 *temp_r3;
 
@@ -686,7 +781,7 @@ void update_item_list_window(u8 *arg0) {
         }
     }
     initialize_subwindow__9TWindowDDFPv((void *) (arg0));
-    TWindowSubStatusDisp__sub_80267D80((void *) (arg0));
+    TWindowSubStatusDisp__sub_80267D80((void *)((void *) (arg0)));
     step_window_tween((void *) (arg0));
     ((s32 (*)(void *))center_list_selection)((void *) (arg0));
     ((s32 (*)(void *))clamp_item_list_scroll)((void *) (arg0));

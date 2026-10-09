@@ -36,6 +36,40 @@ struct Rect_80245D64
   f32 depth;
 };
 
+struct Quad_80245F98
+{
+  f32 x0;
+  f32 y0;
+  f32 x1;
+  f32 y1;
+  f32 u0;
+  f32 v0;
+  f32 u1;
+  f32 v1;
+};
+
+struct Rect_80245F98
+{
+  f32 x;
+  f32 y;
+  f32 w;
+  f32 h;
+  u8 pad10[0x20 - 0x10];
+  f32 px;
+  f32 py;
+  f32 sx;
+  f32 sy;
+  s32 f30;
+  s32 f34;
+  f32 depth;
+};
+
+struct Card_80245F98
+{
+  u8 pad0[0x4C];
+  f32 f4C;
+};
+
 extern "C" {
 M2C_UNK reset_transform_state__10TObjPlayerFv();
 M2C_UNK init_xyz_limits__10TObjPlayerFv();
@@ -65,6 +99,15 @@ extern const f32 lbl_805DCB2C;
 M2C_UNK draw_textured_quad_at_depth(void *, f32);
 extern const f32 lbl_805DCB48;
 void draw_window_frame_strips(u8 *a, Quad_80245D64 *q, Rect_80245D64 *r);
+void draw_window_scanlines(u8 *arg0, u8 *arg1);
+void draw_window_frame_strips(u8 *a, Quad_80245D64 *q, Rect_80245D64 *r);
+void set_global_param__8TObjFishFi(s32);
+void begin_screen_draw(s32);
+void get_player__20TWindowSubStatusDispFv();
+void set_draw_texture_and_color(s32, s32);
+extern s32 lbl_805D63F0;
+extern const f32 lbl_805DCB10;
+void draw_window_frame(Card_80245F98 *a, Rect_80245F98 *r);
 }
 
 extern "C" {
@@ -620,6 +663,65 @@ void draw_window_frame_strips(u8 *a, Quad_80245D64 *q, Rect_80245D64 *r) {
 
 }
 #pragma pop
+
+typedef struct Card_80245F98 Card_80245F98;
+typedef struct Quad_80245F98 Quad_80245F98;
+typedef struct Rect_80245F98 Rect_80245F98;
+#pragma fp_contract on
+void draw_window_frame(Card_80245F98 *a, Rect_80245F98 *r) {
+  Quad_80245F98 q;
+  s32 n;
+  f32 h;
+  f32 dy;
+  f32 rem;
+  begin_screen_draw(1);
+  set_global_param__8TObjFishFi((s32)((*(void * *)&lbl_805D63F0)));
+  set_draw_texture_and_color(1, r->f34);
+  n = (s32) a->f4C;
+  n += (4 - (n & 3)) & 3;
+  if (((f32) n) < 64.0f)
+  {
+    h = 0.5f * n;
+  }
+  else
+  {
+    h = 32.0f;
+  }
+  q.y0 = r->y;
+  q.y1 = r->y + h;
+  q.v0 = 0.0f;
+  q.v1 = h / 256.0f;
+  q.y0 = (r->sy * (q.y0 - r->py)) + r->py;
+  q.y1 = (r->sy * (q.y1 - r->py)) + r->py;
+  draw_window_frame_strips((u8 *)(a), (Quad_80245D64 *)(&q), (Rect_80245D64 *)(r));
+  q.y0 = (r->y + n) - h;
+  q.y1 = r->y + n;
+  q.v0 = (96.0f - h) / 256.0f;
+  q.v1 = 0.375f;
+  q.y0 = (r->sy * (q.y0 - r->py)) + r->py;
+  q.y1 = (r->sy * (q.y1 - r->py)) + r->py;
+  draw_window_frame_strips((u8 *)(a), (Quad_80245D64 *)(&q), (Rect_80245D64 *)(r));
+  q.y0 = 32.0f + r->y;
+  q.v0 = 0.125f;
+  q.v1 = 0.25f;
+  rem = n - lbl_805DCB10;
+  q.y0 = (r->sy * (q.y0 - r->py)) + r->py;
+  dy = 32.0f * r->sy;
+  while (rem >= 0.0f)
+  {
+    if (rem < 32.0f)
+    {
+      dy = rem * r->sy;
+      q.v1 = (32.0f + rem) / 256.0f;
+    }
+    q.y1 = q.y0 + dy;
+    draw_window_frame_strips((u8 *)(a), (Quad_80245D64 *)(&q), (Rect_80245D64 *)(r));
+    rem -= 32.0f;
+    q.y0 += dy;
+  }
+  get_player__20TWindowSubStatusDispFv();
+  draw_window_scanlines((u8 *)(a), (u8 *)(r));
+}
 
 void update_fade__17TWindowSubComCardFPv(void *arg0) {
     u32 temp_r5;
