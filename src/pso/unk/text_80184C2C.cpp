@@ -11,7 +11,7 @@ extern int lbl_8050DC20[];
 void clear_global_array__6TLobbyFPv(void* _w0);
 extern int lbl_8050DC20[];
 extern s32 lbl_80444268[];
-extern s32 lbl_805D55A0;
+extern s32 TLobby__event_theme_id;
 void clear_global_array__6TLobbyFPv(void* _w0);
 void TLobby__sub_80184C80(void *p);
 void clamp_index__15TObjLaboMapWarpFPv(void *);
@@ -65,7 +65,7 @@ void TLobby__sub_80184C80(void *p) {
     s32 i;
     clear_global_array__6TLobbyFPv((void*)(p));
     for (i = 0; i < 6; i++) {
-        if (lbl_805D55A0 == lbl_80444268[i]) {
+        if (TLobby__event_theme_id == lbl_80444268[i]) {
             lbl_8050DC20[i] = 1;
             return;
         }

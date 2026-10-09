@@ -153,8 +153,8 @@ void TObjPlayer__sub_801D877C(u8 *arg0) {
 
 void TObjPlayer__sub_801D8864(void) {  }
 
-    extern int lbl_805D5E08;
-void free_shared_lobby_data__10TObjPlayerFv(void) { free_nodes_with_id__6TLobbyFUi((void*)(lbl_805D5E08)); lbl_805D5E08 = 0; free_shared_data__10TObjPlayerFv(); }
+    extern int player_ending_motion_object;
+void free_shared_lobby_data__10TObjPlayerFv(void) { free_nodes_with_id__6TLobbyFUi((void*)(player_ending_motion_object)); player_ending_motion_object = 0; free_shared_data__10TObjPlayerFv(); }
 
 }
 
@@ -319,7 +319,7 @@ typedef struct Rec_801D8F60 { f32 a, b, c; } Rec_801D8F60;
 extern "C" {
 s8 TObjPlayer__sub_801AFDBC(s8);
 s32 clamp_index_to_max__10TObjPlayerFi(s32);
-extern int lbl_805D5E10;
+extern int ply_level_table;
 s32 get_ply_level_table_row(s8 arg0, s32 arg1);
 s32 get_current_state_field__10TObjPlayerFv(s8 _w0, s32 _w1);
 s8 get_class_index__10TObjPlayerFPv(s32);
@@ -430,7 +430,7 @@ void push_matrix(void);
 void pop_matrix(void);
 extern M2C_UNK lbl_804C4540[];
 extern u8 *TObjPlayer__shared_model_buffer;
-extern int lbl_805D5E08;
+extern int player_ending_motion_object;
 extern const float lbl_805DC3F8;
 Player_801D88C8 *create_ending_sequence_player(Player_801D88C8 *self, void *parent, Src_801D88C8 *src);
 s32 classify_action_state__10TObjPlayerFv(void *);
@@ -473,8 +473,8 @@ int load_encrypted_archive_data(void*);
 M2C_UNK init__17TPlyInventoryItemFv(s32);
 
     extern unsigned char lbl_80447190[];
-    extern int lbl_805D5E08;
-void create_player_ending_motion(void) { alloc_shared_buffers__10TObjPlayerFv(); lbl_805D5E08 = create_named_object(lbl_80447190); }
+    extern int player_ending_motion_object;
+void create_player_ending_motion(void) { alloc_shared_buffers__10TObjPlayerFv(); player_ending_motion_object = create_named_object(lbl_80447190); }
 
 extern M2C_UNK lbl_804C4540[];
 
@@ -487,7 +487,7 @@ Player_801D88C8 *create_ending_sequence_player(Player_801D88C8 *self, void *pare
     self->ang = get_lock_timer__10TObjPlayerFPv(src->sub);
     select_class_action_provider__10TObjPlayerFPv(self);
     self->model = TObjPlayer__shared_model_buffer + obj_getField1c(self) * 0xC00;
-    init_npc_animation__10TObjPlayerFPvPvPvPv(self, get_table_entry_by_clamped_index__10TObjPlayerFPv((u8 *)self), *(s32 *)lbl_805D5E08, 1);
+    init_npc_animation__10TObjPlayerFPvPvPvPv(self, get_table_entry_by_clamped_index__10TObjPlayerFPv((u8 *)self), *(s32 *)player_ending_motion_object, 1);
     self->frame = src->frame;
     set_action_flag_40__10TObjPlayerFPv(self);
     push_matrix();
@@ -739,23 +739,23 @@ s32 get_current_state_field__10TObjPlayerFv(s8 _w0, s32 _w1) {
     return M2C_FIELD(get_ply_level_table_row(_w0, (s32)(_w1)), s32 *, 8);
 }
 
-    extern int lbl_805D5E10;
+    extern int ply_level_table;
 
 s32 get_class_state_field__10TObjPlayerFii(s32 arg0, s32 arg1) { return get_current_state_field__10TObjPlayerFv(get_class_index__10TObjPlayerFPv(arg0), arg1); }
 
 s32 get_ply_level_table_row(s8 arg0, s32 arg1) {
   s32 temp_r30;
   s32 temp_r31;
-  temp_r30 = *(*(s32 * *)&lbl_805D5E10);
+  temp_r30 = *(*(s32 * *)&ply_level_table);
   ;
   return (*((M2C_UNK *) (((s8 *) temp_r30) + (TObjPlayer__sub_801AFDBC(arg0) * 4)))) + (clamp_index_to_max__10TObjPlayerFi(arg1) * 0xC);
 }
 
-void TObjPlayer__sub_801D92A4(void) { free_nodes_with_id__6TLobbyFUi((void*)(lbl_805D5E10)); }
+void TObjPlayer__sub_801D92A4(void) { free_nodes_with_id__6TLobbyFUi((void*)(ply_level_table)); }
 
     extern unsigned char lbl_804492E8[];
-    extern int lbl_805D5E10;
-void load_ply_level_tbl(void) { lbl_805D5E10 = load_encrypted_archive_data(lbl_804492E8); }
+    extern int ply_level_table;
+void load_ply_level_tbl(void) { ply_level_table = load_encrypted_archive_data(lbl_804492E8); }
 
 typedef char RecoveredGlobal_801D9328_lbl_80447430_size[sizeof(RecoveredGlobal_801D9328_lbl_80447430) == 0x180 ? 1 : -1];
 

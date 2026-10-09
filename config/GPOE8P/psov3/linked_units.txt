@@ -197,6 +197,7 @@ pso/boss/TBoss6EmptyWarp_802B0E2C.cpp
 pso/boss/TBoss6GravBall.cpp
 pso/boss/TBoss6GravBall_80323134.cpp
 pso/boss/TBoss6GravBall_80323878.cpp
+pso/boss/TBoss6Kakusan.cpp
 pso/boss/TBoss6Mag.cpp
 pso/boss/TBoss6PlotFalz.cpp
 pso/boss/TBoss6Rock_80354A30.cpp
@@ -322,6 +323,7 @@ pso/encryption/PSOV3Encryption.cpp
 pso/encryption/PSOV3EncryptionTCP.cpp
 pso/enemy/TEnemyTaskList.cpp
 pso/enemy/TObjEneBalClawBody.cpp
+pso/enemy/TObjEneBalClawClaw.cpp
 pso/enemy/TObjEneBalClawClaw_8008DC18.cpp
 pso/enemy/TObjEneBm3Fly.cpp
 pso/enemy/TObjEneBm3FlyNest.cpp
@@ -908,6 +910,7 @@ pso/misc/TLobby_800C80FC.cpp
 pso/misc/TLobby_800F5CF0.cpp
 pso/misc/TLobby_800F7744.cpp
 pso/misc/TLobby_800F795C.cpp
+pso/misc/TLobby_800F8AA8.cpp
 pso/misc/TLobby_800F9690.cpp
 pso/misc/TLobby_800F9A60.cpp
 pso/misc/TLobby_800F9D38.cpp
@@ -1012,6 +1015,7 @@ pso/misc/TLobby_8021B268.cpp
 pso/misc/TLobby_80221820.cpp
 pso/misc/TLobby_80222D24.cpp
 pso/misc/TLobby_802230F8.cpp
+pso/misc/TLobby_80226070.cpp
 pso/misc/TLobby_80228C84.cpp
 pso/misc/TLobby_80242910.cpp
 pso/misc/TLobby_80243370.cpp
@@ -2038,6 +2042,7 @@ pso/object/TObjDFDemo3.cpp
 pso/object/TObjDFDemo4.cpp
 pso/object/TObjDFDemo5.cpp
 pso/object/TObjDFDemoF.cpp
+pso/object/TObjDFHorming.cpp
 pso/object/TObjDFUsoTower.cpp
 pso/object/TObjDeadListWin.cpp
 pso/object/TObjDoaEx01.cpp
@@ -2652,6 +2657,7 @@ pso/ui/TAdEnterSerialAccessGC_8032AD30.cpp
 pso/ui/TAdEp3Exist.cpp
 pso/ui/TAdExNetConfirmGC.cpp
 pso/ui/TAdExNetConfirmGC_8032C504.cpp
+pso/ui/TAdFadeGC.cpp
 pso/ui/TAdFloorLoadCamGC.cpp
 pso/ui/TAdFloorLoadGC.cpp
 pso/ui/TAdFloorLoadPrtGC.cpp

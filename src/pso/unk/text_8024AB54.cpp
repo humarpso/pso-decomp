@@ -17,7 +17,7 @@ struct RecoveredGlobal_8024AB54_lbl_804CEA7C {
 
 extern "C" {
 s32 call_window_method__11TWindowCtrlFPvi(void *, void *);
-extern RecoveredGlobal_8024AB54_lbl_804CEA7C lbl_804CEA7C;
+extern RecoveredGlobal_8024AB54_lbl_804CEA7C window_ctrl_init_params;
 void fn_8024AB54(s32 arg0);
 }
 
@@ -29,9 +29,9 @@ void fn_8024AB54(s32 arg0) {
     typedef char spC_offset[(offsetof(Stack_8024AB54, spC) == 0x4) ? 1 : -1];
     typedef char sp10_offset[(offsetof(Stack_8024AB54, sp10) == 0x8) ? 1 : -1];
     Stack_8024AB54 stack;
-    stack.sp8 = M2C_FIELD(&lbl_804CEA7C.value, s32 *, 0);
-    stack.spC = M2C_FIELD(&lbl_804CEA7C.value, s32 *, 4);
-    stack.sp10 = M2C_FIELD(&lbl_804CEA7C.value, s32 *, 8);
+    stack.sp8 = M2C_FIELD(&window_ctrl_init_params.value, s32 *, 0);
+    stack.spC = M2C_FIELD(&window_ctrl_init_params.value, s32 *, 4);
+    stack.sp10 = M2C_FIELD(&window_ctrl_init_params.value, s32 *, 8);
     call_window_method__11TWindowCtrlFPvi((void *) (arg0), (void *) (&stack.sp8));
 }
 

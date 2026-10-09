@@ -728,7 +728,7 @@ M2C_UNK text_builder_append(M2C_UNK *);
 
 extern M2C_UNK TLobby__data_8050AAAC[];
 extern s32 TLobby__data_805D55AC;
-extern s32 TLobby__data_805D55B0;
+extern s32 TLobby__lobby_number;
 extern M2C_UNK lbl_805D7ED8;
 extern M2C_UNK lbl_805D7EDC;
 
@@ -738,7 +738,7 @@ void close_result_windows__6TLobbyFv(void) {
     text_builder_append(&lbl_805D7ED8);
     append_padded_number(TLobby__data_805D55AC, 2);
     text_builder_append(&lbl_805D7EDC);
-    append_padded_number(TLobby__data_805D55B0 + 1, 2);
+    append_padded_number(TLobby__lobby_number + 1, 2);
 }
 
 s32 get_main_phase();

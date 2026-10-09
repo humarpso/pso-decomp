@@ -12,31 +12,31 @@ s32 try_begin_load__12TChCrLoadAfsFPv(void *arg0);
 
 int is_unloaded__12TChCrLoadAfsFPv(void* p) { return *(u32*)((char*)p + 0x4a8) == 0; }
 
-extern s32 lbl_805D64D8;
+extern s32 chcr_load_afs_busy_flag;
 
 void release_load_slot__12TChCrLoadAfsFPv(void *arg0) {
     if ((s32) M2C_FIELD(arg0, s32 *, 0x30) != 0) {
-        if ((s32) lbl_805D64D8 == 0) {
+        if ((s32) chcr_load_afs_busy_flag == 0) {
             M2C_FIELD(arg0, s32 *, 0x2C) = 3;
             return;
         }
         M2C_FIELD(arg0, s32 *, 0x30) = 0;
-        lbl_805D64D8 = 0;
+        chcr_load_afs_busy_flag = 0;
     }
 }
 
-extern s32 lbl_805D64D8;
+extern s32 chcr_load_afs_busy_flag;
 
 s32 try_begin_load__12TChCrLoadAfsFPv(void *arg0) {
     if ((s32) M2C_FIELD(arg0, s32 *, 0x30) != 0) {
         M2C_FIELD(arg0, s32 *, 0x2C) = 3;
         return 0;
     }
-    if ((s32) lbl_805D64D8 != 0) {
+    if ((s32) chcr_load_afs_busy_flag != 0) {
         return 0;
     }
     M2C_FIELD(arg0, s32 *, 0x30) = 1;
-    lbl_805D64D8 = 1;
+    chcr_load_afs_busy_flag = 1;
     return 1;
 }
 
@@ -210,7 +210,7 @@ public:
 
 typedef void (Afs_8028BA64::*Handler_8028BA64)();
 
-s32 lbl_805D64D8;
+s32 chcr_load_afs_busy_flag;
 
 extern "C" {
 

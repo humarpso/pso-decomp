@@ -10,7 +10,7 @@ typedef char RecoveredGlobal_802AA354_lbl_804DE000_size[sizeof(RecoveredGlobal_8
 extern "C" {
 u8 * load_resource_from_descriptor(void *, s32, void *, s32, s32, s32);
 int alloc__23TAdSinglePlyChrSelectGCFPv(void *);
-extern RecoveredGlobal_802AA354_lbl_804DE000 lbl_804DE000;
+extern RecoveredGlobal_802AA354_lbl_804DE000 biwamushi_resource_desc;
 extern u32 TOBiwaMushi__data_805D66E0;
 void load_resource_instance__11TOBiwaMushiFv(void);
 }
@@ -51,7 +51,7 @@ void load_resource_instance__11TOBiwaMushiFv(void) {
     temp_r3 = alloc__23TAdSinglePlyChrSelectGCFPv((void *)0x440);
     var_r0 = temp_r3;
     if (var_r0 != 0) {
-        var_r0 = (long) (load_resource_from_descriptor((void *) temp_r3, 1, &lbl_804DE000.value, 0, 0, 0));
+        var_r0 = (long) (load_resource_from_descriptor((void *) temp_r3, 1, &biwamushi_resource_desc.value, 0, 0, 0));
     }
     (*(s32 *)&TOBiwaMushi__data_805D66E0) = var_r0;
 }
@@ -156,7 +156,7 @@ typedef char RecoveredGlobal_802AA644_lbl_804DDFE0_size[sizeof(RecoveredGlobal_8
 extern "C" {
 u8 * load_resource_from_descriptor(void *, s32, void *, s32, s32, s32);
 int alloc__23TAdSinglePlyChrSelectGCFPv(void *);
-extern RecoveredGlobal_802AA644_lbl_804DDFE0 lbl_804DDFE0;
+extern RecoveredGlobal_802AA644_lbl_804DDFE0 TOMekaFish01__shared_resource_descriptor;
 extern u32 TOMekaFish01__data_805D66DC;
 void load_shared_resource__12TOMekaFish01Fv(void);
 }
@@ -197,7 +197,7 @@ void load_shared_resource__12TOMekaFish01Fv(void) {
     temp_r3 = alloc__23TAdSinglePlyChrSelectGCFPv((void *)0x440);
     var_r0 = temp_r3;
     if (var_r0 != 0) {
-        var_r0 = (long) (load_resource_from_descriptor((void *) temp_r3, 1, &lbl_804DDFE0.value, 0, 0, 0));
+        var_r0 = (long) (load_resource_from_descriptor((void *) temp_r3, 1, &TOMekaFish01__shared_resource_descriptor.value, 0, 0, 0));
     }
     (*(s32 *)&TOMekaFish01__data_805D66DC) = var_r0;
 }
@@ -336,7 +336,7 @@ struct RecoveredGlobal_802AA9DC___vt__12TOMekaFish00 { M2C_UNK value; u8 remaini
 extern "C" {
 u8 * load_resource_from_descriptor(void *, s32, void *, s32, s32, s32);
 int alloc__23TAdSinglePlyChrSelectGCFPv(void *);
-extern RecoveredGlobal_802AA934_lbl_804DDFC0 lbl_804DDFC0;
+extern RecoveredGlobal_802AA934_lbl_804DDFC0 TOMekaFish00__resource_descriptor;
 extern u32 TOMekaFish00__data_805D66D8;
 void load_shared_resource__12TOMekaFish00Fv(void);
 #define get_bml_motion ((s32 (*)(void *, s32))get_bml_motion)
@@ -386,7 +386,7 @@ void load_shared_resource__12TOMekaFish00Fv(void) {
     temp_r3 = alloc__23TAdSinglePlyChrSelectGCFPv((void *)0x440);
     var_r0 = temp_r3;
     if (var_r0 != 0) {
-        var_r0 = (long) (load_resource_from_descriptor((void *) temp_r3, 1, &lbl_804DDFC0.value, 0, 0, 0));
+        var_r0 = (long) (load_resource_from_descriptor((void *) temp_r3, 1, &TOMekaFish00__resource_descriptor.value, 0, 0, 0));
     }
     (*(s32 *)&TOMekaFish00__data_805D66D8) = var_r0;
 }

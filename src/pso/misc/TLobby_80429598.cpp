@@ -134,14 +134,14 @@ M2C_UNK TUdpSocket__sub_803F9EE4(void *, int, int);
 void TUdpSocket__sub_80419E64(int, int, void (*)(void));
 s32 TLobby__sub_8042AAA0(void *);
 extern u8 lbl_805CF240[0xA0];
-extern u8 lbl_805CF2E0[0xA0];
+extern u8 TLobby__pppoe_message_queue[0xA0];
 extern u8 lbl_805CF380[0x48];
-extern u8 lbl_805CF3C8[0x858];
-extern RecoveredGlobal_80427D0C_lbl_805CFC20 lbl_805CFC20;
-extern RecoveredGlobal_80428374_lbl_805D0A40 lbl_805D0A40;
+extern u8 lobby_net_channel_table[0x858];
+extern RecoveredGlobal_80427D0C_lbl_805CFC20 lobby_pppoe_slot_table;
+extern RecoveredGlobal_80428374_lbl_805D0A40 lobby_net_session_state;
 u8 lbl_805D0AA0[0x80];
-u8 lbl_805D0B20[0x600];
-u8 lbl_805D1120[0xC00];
+u8 exi_dma_buffer[0x600];
+u8 exi_dma_write_buffer[0xC00];
 extern s32 lobby_message_thread_handle;
 extern u32 lbl_805D7BC4;
 void TLobby__sub_803F95E4(u32);
@@ -235,7 +235,7 @@ void TLobby__sub_80425D88(u8 v);
 void TLobby__sub_80426190(Obj_80426110 *);
 s16 TLobby__sub_80426110(Obj_80426110 *o, u16 arg1, u16 arg2);
 s32 OSReceiveMessage(void *, void *, int);
-extern u8 lbl_805CF2E0[];
+extern u8 TLobby__pppoe_message_queue[];
 u16 recv_pppoe_message__6TLobbyFPvPv(s32 *arg0, u16 *arg1);
 s32 TLobby__sub_803F9F04(void *, void *, int);
 typedef struct Ent_804267F0 {
@@ -515,7 +515,7 @@ Ent_80427C6C *TLobby__sub_80427C6C(s32 arg0, u16 arg1);
 
 s16 get_slot_id__6TLobbyFs(s16 arg0);
 
-#define TBL_80427D40 ((Ent_80427D40 *)&lbl_805CFC20)
+#define TBL_80427D40 ((Ent_80427D40 *)&lobby_pppoe_slot_table)
 #pragma push
 #pragma dont_inline off
 #pragma inline_depth(4)
@@ -576,7 +576,7 @@ void start_exi_dma_read__6TLobbyFUs(u16 arg0) {
     EXISelect(0, 2, 5);
     EXIImm(0, &cmd, 4, 1, 0);
     EXISync(0);
-    EXIDma(0, lbl_805D0B20, len, 0, lbl_805D7C68 != 0 ? (void *)start_exi_dma_write__6TLobbyFiPv : (void *)TLobby__sub_80429AC8);
+    EXIDma(0, exi_dma_buffer, len, 0, lbl_805D7C68 != 0 ? (void *)start_exi_dma_write__6TLobbyFiPv : (void *)TLobby__sub_80429AC8);
 }
 
 void start_exi_dma_write__6TLobbyFiPv(s32 chan, void *ctx) {
@@ -588,20 +588,20 @@ void start_exi_dma_write__6TLobbyFiPv(s32 chan, void *ctx) {
     EXISelect(0, 2, 5);
     EXIImm(0, &cmd, 4, 1, 0);
     EXISync(0);
-    EXIDma(0, lbl_805D1120, len, 0, (void *)TLobby__sub_80429AC8);
+    EXIDma(0, exi_dma_write_buffer, len, 0, (void *)TLobby__sub_80429AC8);
 }
 
 void TLobby__sub_80429AC8(void) {
     u8 pad[8];
     EXIDeselect(0);
-    DCInvalidateRange(lbl_805D0B20, (lbl_805D7C64 + 0x1F) & ~0x1F);
+    DCInvalidateRange(exi_dma_buffer, (lbl_805D7C64 + 0x1F) & ~0x1F);
     if (lbl_805D7C68 != 0) {
-        DCInvalidateRange(lbl_805D1120, (lbl_805D7C68 + 0x1F) & ~0x1F);
+        DCInvalidateRange(exi_dma_write_buffer, (lbl_805D7C68 + 0x1F) & ~0x1F);
     }
     if ((u32)lbl_805D7C50 != 0) {
-        memcpy(lbl_805D7C74, lbl_805D0B20, lbl_805D7C64);
+        memcpy(lbl_805D7C74, exi_dma_buffer, lbl_805D7C64);
         if (lbl_805D7C68 != 0) {
-            memcpy(lbl_805D7C74 + lbl_805D7C64, lbl_805D1120, lbl_805D7C68);
+            memcpy(lbl_805D7C74 + lbl_805D7C64, exi_dma_write_buffer, lbl_805D7C68);
         }
         ((void (*)(u8 *, u16))lbl_805D7C50)(lbl_805D7C74, lbl_805D7C6C[1]);
     }

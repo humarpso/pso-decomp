@@ -402,7 +402,7 @@ void update_camera_state__11TCameraCtrlFv(f32, f32, f32);
 extern u8 lbl_8058D490[];
 extern void *lbl_805D53A0;
 extern FollowVector lbl_80438528;
-extern Preset_8006DEF8 *lbl_80488A18[];
+extern Preset_8006DEF8 *follow_camera_init_pose_table[];
 extern u8 lbl_804FF5E8[];
 void follow_camera_init_pose(Cam_8006DEF8 *self);
 s32 is_split_screen();
@@ -1027,22 +1027,22 @@ void follow_camera_init_pose(Cam_8006DEF8 *self) {
     } else {
         switch (state) {
         case 0:
-            VecCopy__FP3VecPC3Vec(&self->pos, &lbl_80488A18[0][0].pos);
-            VecCopy__FP3VecPC3Vec(&self->target, &lbl_80488A18[0][0].target);
-            self->id = lbl_80488A18[0][0].id;
-            set_clamped_offsets__11TCameraCtrlFff(lbl_80488A18[0][0].a, lbl_80488A18[0][0].b);
+            VecCopy__FP3VecPC3Vec(&self->pos, &follow_camera_init_pose_table[0][0].pos);
+            VecCopy__FP3VecPC3Vec(&self->target, &follow_camera_init_pose_table[0][0].target);
+            self->id = follow_camera_init_pose_table[0][0].id;
+            set_clamped_offsets__11TCameraCtrlFff(follow_camera_init_pose_table[0][0].a, follow_camera_init_pose_table[0][0].b);
             break;
         case 15:
-            VecCopy__FP3VecPC3Vec(&self->pos, &lbl_80488A18[0][1].pos);
-            VecCopy__FP3VecPC3Vec(&self->target, &lbl_80488A18[0][1].target);
-            self->id = lbl_80488A18[0][1].id;
-            set_clamped_offsets__11TCameraCtrlFff(lbl_80488A18[0][1].a, lbl_80488A18[0][1].b);
+            VecCopy__FP3VecPC3Vec(&self->pos, &follow_camera_init_pose_table[0][1].pos);
+            VecCopy__FP3VecPC3Vec(&self->target, &follow_camera_init_pose_table[0][1].target);
+            self->id = follow_camera_init_pose_table[0][1].id;
+            set_clamped_offsets__11TCameraCtrlFff(follow_camera_init_pose_table[0][1].a, follow_camera_init_pose_table[0][1].b);
             break;
         case 18:
-            VecCopy__FP3VecPC3Vec(&self->pos, &lbl_80488A18[0][2].pos);
-            VecCopy__FP3VecPC3Vec(&self->target, &lbl_80488A18[0][2].target);
-            self->id = lbl_80488A18[0][2].id;
-            set_clamped_offsets__11TCameraCtrlFff(lbl_80488A18[0][2].a, lbl_80488A18[0][2].b);
+            VecCopy__FP3VecPC3Vec(&self->pos, &follow_camera_init_pose_table[0][2].pos);
+            VecCopy__FP3VecPC3Vec(&self->target, &follow_camera_init_pose_table[0][2].target);
+            self->id = follow_camera_init_pose_table[0][2].id;
+            set_clamped_offsets__11TCameraCtrlFff(follow_camera_init_pose_table[0][2].a, follow_camera_init_pose_table[0][2].b);
             break;
         }
     }

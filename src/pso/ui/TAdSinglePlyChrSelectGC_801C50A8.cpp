@@ -27,14 +27,14 @@ u16 TAdSinglePlyChrSelectGC__sub_801C5114(void);
     extern int duel_result_window;
 void TAdSinglePlyChrSelectGC__sub_801C5120(void);
 M2C_UNK queue_destruction__7TObjectFv(void*);
-extern u32 lbl_805D5DD0;
+extern u32 ad_single_ply_chr_select_instance;
 void destroy__23TAdSinglePlyChrSelectGCFv(void);
-extern u32 lbl_805D5DD0;
+extern u32 ad_single_ply_chr_select_instance;
 void TAdSinglePlyChrSelectGC__sub_801C5158(void);
 s32 get_global_state__14TOKeyMachine01Fv();
 u32 __nw__7TObjectFUl(M2C_UNK);
 u32 fn_801C5380(void *, s32);
-extern u32 lbl_805D5DD0;
+extern u32 ad_single_ply_chr_select_instance;
 extern s32 tl_00;
 s32 create_if_key_pressed__23TAdSinglePlyChrSelectGCFv(void);
 }
@@ -66,11 +66,11 @@ u16 TAdSinglePlyChrSelectGC__sub_801C5114(void) {
 }
 void TAdSinglePlyChrSelectGC__sub_801C5120(void) { duel_result_window = 0; }
 void destroy__23TAdSinglePlyChrSelectGCFv(void) {
-    if ((u32) lbl_805D5DD0 != 0U) {
-        queue_destruction__7TObjectFv((void*)lbl_805D5DD0);
+    if ((u32) ad_single_ply_chr_select_instance != 0U) {
+        queue_destruction__7TObjectFv((void*)ad_single_ply_chr_select_instance);
     }
 }
-void TAdSinglePlyChrSelectGC__sub_801C5158(void) { (*(int *)&lbl_805D5DD0) = 0; }
+void TAdSinglePlyChrSelectGC__sub_801C5158(void) { (*(int *)&ad_single_ply_chr_select_instance) = 0; }
 s32 create_if_key_pressed__23TAdSinglePlyChrSelectGCFv(void) {
     s32 temp_r3;
     u32 var_r0;
@@ -78,14 +78,14 @@ s32 create_if_key_pressed__23TAdSinglePlyChrSelectGCFv(void) {
     if ((temp_r3 != 0x10) && (temp_r3 != 0x11)) {
         return 0;
     }
-    if ((u32) lbl_805D5DD0 != 0U) {
+    if ((u32) ad_single_ply_chr_select_instance != 0U) {
         return 0;
     }
     var_r0 = __nw__7TObjectFUl(0x28);
     if (var_r0 != 0U) {
         var_r0 = fn_801C5380((void *) var_r0, tl_00);
     }
-    lbl_805D5DD0 = var_r0;
+    ad_single_ply_chr_select_instance = var_r0;
     return 1;
 }
 

@@ -25,7 +25,7 @@ u8 *fn_801C5380(u8 *arg0, s32 arg1);
 u8 * __dt__7TObjectFv(void *, s16);
 void __dl__7TObjectFPv(s32);
 extern RecoveredGlobal_801C5380_lbl_804C3F48 lbl_804C3F48;
-extern s32 lbl_805D5DD0;
+extern s32 ad_single_ply_chr_select_instance;
 u8 *fn_801C5320(u8 *arg0, s16 arg1);
 f32 newton_sqrtf(f32);
 void queue_destruction__7TObjectFv(void *);
@@ -83,7 +83,7 @@ void fn_801C51D4(Self_801C51D4 *self) {
 u8 *fn_801C5320(u8 *arg0, s16 arg1) {
     if (arg0 != NULL) {
         M2C_FIELD(arg0, M2C_UNK **, 0x18) = &(*(RecoveredGlobal_801C5320_lbl_804C3F48 *)&lbl_804C3F48).value;
-        lbl_805D5DD0 = 0;
+        ad_single_ply_chr_select_instance = 0;
         __dt__7TObjectFv(arg0, 0);
         if (arg1 > 0) {
             __dl__7TObjectFPv((s32) arg0);

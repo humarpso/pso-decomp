@@ -6,11 +6,11 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 
 extern "C" {
 M2C_UNK set_ready__6TSceneFv();
-extern s32 TSceneSora__data_805D3620;
+extern s32 TSceneSora__sky_active_flag;
 extern u32 TSceneSora__data_805D6050;
 void update__10TSceneSoraFv(s32 _w0);
 M2C_UNK reset_counter__6TSceneFv();
-extern s32 TSceneSora__data_805D3620;
+extern s32 TSceneSora__sky_active_flag;
 extern u32 TSceneSora__data_805D6050;
 void reset_state__10TSceneSoraFv(s32 _w0);
 u16 TCameraCtrl__sub_8006A5DC();
@@ -62,13 +62,13 @@ void enter_scene__10TSceneSoraFi(s32 arg0) {
 void update__10TSceneSoraFv(s32 _w0) {
     set_ready__6TSceneFv();
     if ((u32) TSceneSora__data_805D6050 != 0U) {
-        TSceneSora__data_805D3620 = 1;
+        TSceneSora__sky_active_flag = 1;
     }
 }
 void reset_state__10TSceneSoraFv(s32 _w0) {
     reset_counter__6TSceneFv();
     if ((u32) TSceneSora__data_805D6050 != 0U) {
-        TSceneSora__data_805D3620 = 0;
+        TSceneSora__sky_active_flag = 0;
     }
 }
 void update_state__10TSceneSoraFPv(void *arg0) {

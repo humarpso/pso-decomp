@@ -86,7 +86,7 @@ struct Obj_800E322C { u8 pad0[0x10]; u32 f10; u8 pad1[0x38 - 0x14]; Vec_800E322C
 
 extern "C" {
 void VecCopy__FP3VecPC3Vec(void *, void *);
-extern Vec_800E31C4 lbl_80495A88;
+extern Vec_800E31C4 panarms_atk_zero_vec;
 Obj_800E31C4 *fn_800E31C4(Obj_800E31C4 *self, Entry_800E31C4 *list, Vec_800E31C4 *vecs);
 extern Pair_800E32C0 lbl_8043CDF8[];
 void fn_800E32C0(Obj_800E32C0 *arg0, V_800E32C0 *arg1);
@@ -118,7 +118,7 @@ Obj_800E31C4 *fn_800E31C4(Obj_800E31C4 *self, Entry_800E31C4 *list, Vec_800E31C4
     p = self->list;
     q = self->vecs;
     while (p->id != -1) {
-        VecCopy__FP3VecPC3Vec(q, &lbl_80495A88);
+        VecCopy__FP3VecPC3Vec(q, &panarms_atk_zero_vec);
         p++;
         q++;
     }
@@ -493,7 +493,7 @@ void set_param__12TObjEneLappyFPvi(void *, int);
 M2C_UNK copy_target_state__14TObjEnePanarmsFPvPv(void *, M2C_UNK);
 void initialize__9TObjEnemyFPv(void *, void *);
 int play_sound_effect(void *, void *, void *, void *);
-extern s32 lbl_80495A80[];
+extern s32 TObjEnePanarmsAtkColli__type_index_table[];
 extern M2C_UNK __vt__22TObjEnePanarmsAtkColli[];
 extern s32 lbl_805D2AC0;
 void *TObjEnePanarmsAtkColli__ct(Obj_800E37E4 *arg0, void *arg1, void *arg2, void *arg3, void *arg4);
@@ -571,7 +571,7 @@ void *TObjEnePanarmsAtkColli__ct(Obj_800E37E4 *arg0, void *arg1, void *arg2, voi
     self->f384 = 0;
     self->f388 = 0;
     set_param__12TObjEneLappyFPvi(self, 0x15);
-    self->f38C = ((f32 *)dispatch_shared_handler_a__6TLobbyFPv(0x31))[lbl_80495A80[self->type]];
+    self->f38C = ((f32 *)dispatch_shared_handler_a__6TLobbyFPv(0x31))[TObjEnePanarmsAtkColli__type_index_table[self->type]];
     if (self->f38C < 0.0f) {
         self->f38C = 0.0f;
     }

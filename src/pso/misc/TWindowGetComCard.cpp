@@ -58,7 +58,7 @@ s32 get_selected_menu_value(void *);
 void *init_shop_judgment_window(void *);
 s32 is_message_window_ready(void *);
 void complete_reveal__14TWindowMessageFPv(void *);
-extern u8 lbl_804CF120[];
+extern u8 TWindowGetComCard__window_rect[];
 extern Pad_80252CCC lbl_8050E208[];
 extern s32 lbl_805D53A0;
 void run_task__17TWindowGetComCardFv(GetCard_80252CCC *self);
@@ -125,7 +125,7 @@ void run_task__17TWindowGetComCardFv(GetCard_80252CCC *self) {
             break;
         }
         if (self->win == 0) {
-            self->win = init_shop_judgment_window(lbl_804CF120);
+            self->win = init_shop_judgment_window(TWindowGetComCard__window_rect);
             set_flag70_bit10__16TObjCityMainWarpFPv(self->win);
         }
         clear_flag_and_release__17TWindowSubComCardFPv(self->win);

@@ -51,10 +51,10 @@ extern s32 lbl_805D6AF0;
 extern s32 TObjEneRecon__data_805D6AF4;
 extern s32 lbl_805D6AF8;
 extern s32 TObjEneRecon__data_805D6AFC;
-extern u8 *TObjEneRecon__data_805D6B00;
-extern s32 lbl_805D6B04;
-extern s32 lbl_805D6B08;
-extern s32 lbl_805D6B0C;
+extern u8 *TObjEneRecon__recobox_static_instance;
+extern s32 boss3_volopt_instance;
+extern s32 recon_intro_stage;
+extern s32 recon_model_matrix_ptr;
 extern const f32 TObjEneRecon__data_805DF3C0;
 void load_resources__12TObjEneReconFv(void);
 }
@@ -73,15 +73,15 @@ void load_resources__12TObjEneReconFv(void) {
   s32 temp_r3;
   s32 var_r4;
   u8 *temp_r5;
-  TObjEneRecon__data_805D6B00 = TObjEneRecobox__sub_803201D0();
+  TObjEneRecon__recobox_static_instance = TObjEneRecobox__sub_803201D0();
   temp_r3 = (var_r4 = alloc__23TAdSinglePlyChrSelectGCFPv((int) 0x10));
   if (var_r4 != 0)
   {
-    var_r4 = init_from_model__11TBreakUpMdlFPvi((int) temp_r3, (void *) (*((s32 *) (((s8 *) ((RecoveredFields_8031E708_TObjEneRecon__data_805D6B00 *) TObjEneRecon__data_805D6B00)->field_42C) + 8))));
+    var_r4 = init_from_model__11TBreakUpMdlFPvi((int) temp_r3, (void *) (*((s32 *) (((s8 *) ((RecoveredFields_8031E708_TObjEneRecon__data_805D6B00 *) TObjEneRecon__recobox_static_instance)->field_42C) + 8))));
   }
-  lbl_805D6B04 = var_r4;
-  lbl_805D6B08 = 0;
-  lbl_805D6B0C = 0;
+  boss3_volopt_instance = var_r4;
+  recon_intro_stage = 0;
+  recon_model_matrix_ptr = 0;
   lbl_805D6AF0 = register_boss__6TLobbyFPv((int) 0x42);
   TObjEneRecon__data_805D6AF4 = dispatch_shared_handler_b__6TLobbyFPv((int) 0x42);
   lbl_805D6AF8 = register_object__6TLobbyFPv((int) 0x42);
@@ -91,8 +91,8 @@ void load_resources__12TObjEneReconFv(void) {
   stack.spC = *((s32 *) (((s8 *) (&lbl_804760EC.value)) + 4));
   stack.sp10 = *((s32 *) (((s8 *) (&lbl_804760EC.value)) + 8));
   stack.sp14 = *((s32 *) (((s8 *) (&lbl_804760EC.value)) + 0xC));
-  stack.sp8 = ((RecoveredFields_8031E708_TObjEneRecon__data_805D6B00 *) TObjEneRecon__data_805D6B00)->field_430;
-  temp_r5 = (u8 *) ((RecoveredFields_8031E708_TObjEneRecon__data_805D6B00 *) TObjEneRecon__data_805D6B00)->field_42C;
+  stack.sp8 = ((RecoveredFields_8031E708_TObjEneRecon__data_805D6B00 *) TObjEneRecon__recobox_static_instance)->field_430;
+  temp_r5 = (u8 *) ((RecoveredFields_8031E708_TObjEneRecon__data_805D6B00 *) TObjEneRecon__recobox_static_instance)->field_42C;
   spawn_npc_enemy__6TLobbyFsiiiff((int) 0xC, (int) ((RecoveredFields_8031E708_temp_r5 *) temp_r5)->field_8, (int) ((RecoveredFields_8031E708_temp_r5 *) temp_r5)->field_C, (void *) (&stack.sp8), (f32) (*((f32 *) (((s8 *) (&lbl_804EC40C.value)) + 0xC))), (f32) TObjEneRecon__data_805DF3C0);
 }
 

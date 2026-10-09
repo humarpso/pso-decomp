@@ -1985,7 +1985,7 @@ void *lbl_804EE118[7] = {
     (void *)&lbl_804774EC, (void *)&lbl_80477500, (void *)&lbl_80477518, (void *)&lbl_8047752C,
     (void *)&lbl_80477544, (void *)&lbl_80477558, (void *)0x0,
 };
-void *lbl_804EE134[4] = {
+void *morfos_resource_descriptor[4] = {
     (void *)&lbl_8047756C, (void *)&lbl_804EE108, (void *)&lbl_804EE118, (void *)0x30006,
 };
 void *lbl_804EE144[4] = {
@@ -1998,7 +1998,7 @@ void *lbl_804EE154[7] = {
 void *lbl_804EE170[4] = {
     (void *)&lbl_804775A0, (void *)&lbl_804EE144, (void *)&lbl_804EE154, (void *)0x30006,
 };
-void *lbl_804EE180[20] = {
+void *morfos_motion_param_table[20] = {
     (void *)0x10000, (void *)0x5, (void *)0x3f000000, (void *)0x0,
     (void *)0x30000, (void *)0x1, (void *)0x3f333333, (void *)0x0,
     (void *)0x30000, (void *)0x2, (void *)0x3f333333, (void *)0x0,
@@ -3148,7 +3148,7 @@ void init_instance__13TObjEneMorfosFPv(void *arg0) {
     M2C_FIELD(arg0, s32 *, 0x34) = ((Mgr_80334D74 *)TObjEneMorfos__data_805D6D14)->res->f18;
     M2C_FIELD(arg0, s32 *, 0x24) = ((Mgr_80334D74 *)TObjEneMorfos__data_805D6D14)->res->f1C;
     init_model__9TObjEneDDFPv(arg0, lbl_804EE0DC, 1);
-    set_field_d8__10TObjPlayerFPvi(arg0, lbl_804EE180);
+    set_field_d8__10TObjPlayerFPvi(arg0, morfos_motion_param_table);
     set_field_dc__10TObjPlayerFPvi(arg0, ((Mgr_80334D74 *)TObjEneMorfos__data_805D6D14)->f430);
     M2C_FIELD(arg0, s16 *, 0xB8) = 0;
     set_animation__10TObjPlayerFPvs(arg0, M2C_FIELD(arg0, s16 *, 0xB8));

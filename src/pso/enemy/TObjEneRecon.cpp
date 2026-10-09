@@ -305,22 +305,22 @@ M2C_UNK matrix_mult_vec(M2C_UNK, s32, s32);
 M2C_UNK push_matrix();
 M2C_UNK pop_matrix();
 
-extern s32 lbl_805D6B08;
-extern s32 lbl_805D6B0C;
+extern s32 recon_intro_stage;
+extern s32 recon_model_matrix_ptr;
 
 void advance_intro_stage__12TObjEneReconFv(void) {
-    switch ((s32) lbl_805D6B08) {
+    switch ((s32) recon_intro_stage) {
     case 0:
         push_matrix();
         update_camera_sequence__9TObjEneDDFPv();
-        matrix_mult_vec(0, lbl_805D6B0C, lbl_805D6B0C);
+        matrix_mult_vec(0, recon_model_matrix_ptr, recon_model_matrix_ptr);
         pop_matrix();
         break;
     case 10:
         begin_effect_render__13TParticleCtrlFv();
         break;
     }
-    lbl_805D6B08 += 1;
+    recon_intro_stage += 1;
 }
 
 }
@@ -850,15 +850,15 @@ extern "C" {
 void release_static_instance__12TObjEneReconFv(void);
 M2C_UNK TObjEneRecon__sub_8031BC38();
 
-extern struct VObj_8031E650 *lbl_805D6B04;
+extern struct VObj_8031E650 *boss3_volopt_instance;
 
 void release_static_instance__12TObjEneReconFv(void) {
     TObjEneRecon__sub_8031BC38();
-    if (lbl_805D6B04 != 0) {
-        if (lbl_805D6B04 != 0) {
-            lbl_805D6B04->m0(1);
+    if (boss3_volopt_instance != 0) {
+        if (boss3_volopt_instance != 0) {
+            boss3_volopt_instance->m0(1);
         }
-        lbl_805D6B04 = 0;
+        boss3_volopt_instance = 0;
     }
 }
 

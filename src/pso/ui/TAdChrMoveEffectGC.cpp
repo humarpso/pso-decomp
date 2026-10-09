@@ -101,7 +101,7 @@ void reset_effect_entries__18TAdChrMoveEffectGCFPv(void *arg0);
 void copy_vec2__28TWindowSubSymbolChatPartsSetFPvPv(void *, void *);
 void copy4__18TAdChrMoveEffectGCFPvPv(void *, void *);
 void TAdChrMoveEffectGC__sub_80349194(W_80349194 *arg0, void *arg1);
-extern V2_803490D8 lbl_804786B0[];
+extern V2_803490D8 chr_move_effect_pos_table[];
 extern C4_803490D8 lbl_804786E8[];
 extern u8 lbl_804786F0[];
 void setup_move_effect_params__18TAdChrMoveEffectGCFPvii(void *arg0, s32 arg1, s32 arg2);
@@ -149,8 +149,8 @@ void clear_entries__18TAdChrMoveEffectGCFPv(O_803490AC *self) {
 struct W_80349194;
 void setup_move_effect_params__18TAdChrMoveEffectGCFPvii(void *arg0, s32 arg1, s32 arg2) {
     P_803490D8 p;
-    copy_vec2__28TWindowSubSymbolChatPartsSetFPvPv(&p.a, &lbl_804786B0[arg1]);
-    copy_vec2__28TWindowSubSymbolChatPartsSetFPvPv(&p.b, &lbl_804786B0[arg2]);
+    copy_vec2__28TWindowSubSymbolChatPartsSetFPvPv(&p.a, &chr_move_effect_pos_table[arg1]);
+    copy_vec2__28TWindowSubSymbolChatPartsSetFPvPv(&p.b, &chr_move_effect_pos_table[arg2]);
     copy4__18TAdChrMoveEffectGCFPvPv(&p.c, arg1 < 3 ? &lbl_804786E8[0] : &lbl_804786E8[1]);
     copy4__18TAdChrMoveEffectGCFPvPv(&p.d, arg2 < 3 ? &lbl_804786E8[0] : &lbl_804786E8[1]);
     copy_vec2__28TWindowSubSymbolChatPartsSetFPvPv(&p.e, lbl_804786F0);

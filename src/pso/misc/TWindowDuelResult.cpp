@@ -96,7 +96,7 @@ M2C_UNK initialize_subwindow__9TWindowDDFPv(void *);
 
 extern "C" u8 lbl_805D63F0[];
 extern "C" const char lbl_805DCCA8[] = ":";
-void *TWindowDuelResult__data_804CEBA0[140] = {
+void *TWindowDuelResult__layout_entries[140] = {
     (void *)0x13, (void *)0x1, (void *)0x3, (void *)0x0,
     (void *)0x0, (void *)0x3f000000, (void *)0xffffffff, (void *)0x0,
     (void *)0x0, (void *)0x3, (void *)0x0, (void *)0x41a00000,
@@ -133,7 +133,7 @@ void *TWindowDuelResult__data_804CEBA0[140] = {
     (void *)0x14, (void *)0x3, (void *)0x42b00000, (void *)0x43040000,
     (void *)0x3f000000, (void *)0xffffffff, (void *)0x100, (void *)0x0,
 };
-void *lbl_804CEDD0[119] = {
+void *duel_result_window_layout_table[119] = {
     (void *)0x10, (void *)0x1, (void *)0x3, (void *)0x0,
     (void *)0x0, (void *)0x3f000000, (void *)0xffffffff, (void *)0x0,
     (void *)0x0, (void *)0x3, (void *)0x0, (void *)0x41a00000,
@@ -169,8 +169,8 @@ void *__vt__17TWindowDuelResult[5] = {
     (void *)0x43c20000, (void *)0x43240000, (void *)0x47437b00, (void *)0x0,
     (void *)0x3,
 };
-#define TWindowDuelResult__data_804CEBA0 ((u8 *)TWindowDuelResult__data_804CEBA0)
-#define lbl_804CEDD0 ((u8 *)lbl_804CEDD0)
+#define TWindowDuelResult__layout_entries ((u8 *)TWindowDuelResult__layout_entries)
+#define duel_result_window_layout_table ((u8 *)duel_result_window_layout_table)
 #define __vt__17TWindowDuelResult (*(RecoveredGlobal_8024F5B0___vt__17TWindowDuelResult *)__vt__17TWindowDuelResult)
 
 void TWindowDuelResult__vt3(void) {  }
@@ -182,7 +182,7 @@ void TWindowDuelResult__vt1(Win_8024EF40 *arg0) {
     u8 *a;
     u8 *b;
     u8 *c;
-    init_window_layout_entries(arg0->sub, lbl_804CEDD0, arg0->player);
+    init_window_layout_entries(arg0->sub, duel_result_window_layout_table, arg0->player);
     a = get_array_entry__20TWindowSubStatusDispFPvi(arg0, 0);
     set_default_status__17TWindowDuelResultFPvi(a, get_localized_text_entry(0x10, 0));
     c = get_array_entry__20TWindowSubStatusDispFPvi(arg0, 0xF);
@@ -214,7 +214,7 @@ void TWindowDuelResult__vt0(Win_8024F094 *self) {
     u8 *b;
     u8 *c;
     u8 *d;
-    init_window_layout_entries(self->sub, TWindowDuelResult__data_804CEBA0, self->player);
+    init_window_layout_entries(self->sub, TWindowDuelResult__layout_entries, self->player);
     a = get_array_entry__20TWindowSubStatusDispFPvi(self, 0);
     set_default_status__17TWindowDuelResultFPvi(a, get_localized_text_entry(0x10, 0));
     b = get_array_entry__20TWindowSubStatusDispFPvi(self, 0x12);

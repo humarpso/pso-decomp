@@ -109,7 +109,7 @@ extern "C" {
 u8 * load_resource_from_descriptor(void *, s32, void *, s32, s32, s32);
 int alloc__23TAdSinglePlyChrSelectGCFPv(void *);
 extern RecoveredGlobal_802895D8_lbl_804D3320 lbl_804D3320;
-extern u32 TObjNpcSoutokufu__data_805D64C0;
+extern u32 TObjNpcSoutokufu__shared_model_resource;
 void load_shared_resource__16TObjNpcSoutokufuFv(void);
 s32 TObjFish__sub_8001EDB0(int, int);
 s32 get_bml_model(int, int);
@@ -118,7 +118,7 @@ s32 setup_common__11TObjNpcBaseFv(void *);
 s32 construct_male_npc_base(void *);
 extern M2C_UNK __vt__16TObjNpcSoutokufu[];
 extern s32 lbl_805D3B0C;
-extern u32 TObjNpcSoutokufu__data_805D64C0;
+extern u32 TObjNpcSoutokufu__shared_model_resource;
 u8 *TObjNpcSoutokufu__ct(u8 *arg0, M2C_UNK arg1, s32 arg2);
 void spawn_switch_attack__12TBoss8DragonFPv(void *);
 void spawn_attack_effect__12TBoss8DragonFPv(void *);
@@ -141,12 +141,12 @@ void destroy_npc_lappy_base__12TObjNpcLappyFPvs(void *, int);
 s32 is_any_teammate_in_state__10TObjPlayerFv();
 M2C_UNK render_impl__19TObjBoss5FloorStoneFPvPv(s32, s32);
 
-extern u32 TObjNpcSoutokufu__data_805D64C0;
+extern u32 TObjNpcSoutokufu__shared_model_resource;
 
 void close_dialog_window__16TObjNpcSoutokufuFv(void) {
-    if ((u32) TObjNpcSoutokufu__data_805D64C0 != 0U) {
-        TLobby__sub_8001FE7C((void*)TObjNpcSoutokufu__data_805D64C0, 1);
-        TObjNpcSoutokufu__data_805D64C0 = 0U;
+    if ((u32) TObjNpcSoutokufu__shared_model_resource != 0U) {
+        TLobby__sub_8001FE7C((void*)TObjNpcSoutokufu__shared_model_resource, 1);
+        TObjNpcSoutokufu__shared_model_resource = 0U;
     }
 }
 
@@ -160,7 +160,7 @@ void load_shared_resource__16TObjNpcSoutokufuFv(void) {
     if (var_r0 != 0) {
         var_r0 = (long) (load_resource_from_descriptor((void *) temp_r3, 1, &lbl_804D3320.value, 0, 0, 0));
     }
-    (*(s32 *)&TObjNpcSoutokufu__data_805D64C0) = var_r0;
+    (*(s32 *)&TObjNpcSoutokufu__shared_model_resource) = var_r0;
 }
 
 void *__dt__16TObjNpcSoutokufuFv(void *arg0, s16 arg1) {
@@ -184,8 +184,8 @@ u8 *TObjNpcSoutokufu__ct(u8 *arg0, M2C_UNK arg1, s32 arg2) {
     M2C_FIELD(arg0, s32 *, 0) = (s32) lbl_805D3B0C;
     ((VObj_18_aa4667 *)(arg0))->m79(arg2);
     init_position_vectors__10TObjPlayerFi((void *) (arg0));
-    M2C_FIELD(arg0, s32 *, 0x34) = get_bml_model((int) ((*(s32 *)&TObjNpcSoutokufu__data_805D64C0)), (int) (0));
-    M2C_FIELD(arg0, s32 *, 0x24) = TObjFish__sub_8001EDB0((int) ((*(s32 *)&TObjNpcSoutokufu__data_805D64C0)), (int) (0));
+    M2C_FIELD(arg0, s32 *, 0x34) = get_bml_model((int) ((*(s32 *)&TObjNpcSoutokufu__shared_model_resource)), (int) (0));
+    M2C_FIELD(arg0, s32 *, 0x24) = TObjFish__sub_8001EDB0((int) ((*(s32 *)&TObjNpcSoutokufu__shared_model_resource)), (int) (0));
     setup_common__11TObjNpcBaseFv((void *) (arg0));
     return arg0;
 }

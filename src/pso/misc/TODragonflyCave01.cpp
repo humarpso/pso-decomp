@@ -67,8 +67,8 @@ void release_static_instance__17TODragonflyCave01Fv(void) {
 void *load_resource_from_descriptor(void *, s32, void *, s32, s32, s32);
 void *alloc__23TAdSinglePlyChrSelectGCFPv(s32);
 s32 get_global_state__14TOKeyMachine01Fv();
-extern u8 lbl_804B1880[];
-extern u8 lbl_804B18A0[];
+extern u8 dragonfly_cave01_resource_descriptor[];
+extern u8 TODragonflyCave01__resource_descriptor[];
 
 void load_resources__17TODragonflyCave01Fv(void) {
     void *o;
@@ -77,7 +77,7 @@ void load_resources__17TODragonflyCave01Fv(void) {
     default:
         o = alloc__23TAdSinglePlyChrSelectGCFPv(0x440);
         if (o != NULL) {
-            o = load_resource_from_descriptor(o, 1, lbl_804B1880, 0, 0, 0);
+            o = load_resource_from_descriptor(o, 1, dragonfly_cave01_resource_descriptor, 0, 0, 0);
         }
         TODragonflyCave01__data_805D5990 = (u32)o;
         break;
@@ -86,7 +86,7 @@ void load_resources__17TODragonflyCave01Fv(void) {
     case 0x16:
         o = alloc__23TAdSinglePlyChrSelectGCFPv(0x440);
         if (o != NULL) {
-            o = load_resource_from_descriptor(o, 1, lbl_804B18A0, 0, 0, 0);
+            o = load_resource_from_descriptor(o, 1, TODragonflyCave01__resource_descriptor, 0, 0, 0);
         }
         TODragonflyCave01__data_805D5990 = (u32)o;
         break;

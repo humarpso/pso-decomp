@@ -262,7 +262,7 @@ f32 sin_table_lookup(int);
 f32 cos_table_lookup(int);
 
 extern s32 TObjEneRecon__data_805D6AF4;
-extern u8 *TObjEneRecon__data_805D6B00;
+extern u8 *TObjEneRecon__recobox_static_instance;
 extern const f32 TObjEneRecon__data_805DF3C0;
 extern const f32 TObjEneRecon__data_805DF3C4;
 extern const f32 TObjEneRecon__data_805DF3D4;
@@ -550,12 +550,12 @@ void init_state__12TObjEneReconFPv(u8 *arg0) {
     u8 *temp_r6;
 
     init_position_vectors__9TObjEneDDFPv(arg0);
-    M2C_FIELD(arg0, s32 *, 0x34) = (s32) M2C_FIELD(M2C_FIELD(TObjEneRecon__data_805D6B00, u8 **, 0x42C), s32 *, 8);
-    temp_r6 = (u8 *)(M2C_FIELD(TObjEneRecon__data_805D6B00, u8 **, 0x42C));
+    M2C_FIELD(arg0, s32 *, 0x34) = (s32) M2C_FIELD(M2C_FIELD(TObjEneRecon__recobox_static_instance, u8 **, 0x42C), s32 *, 8);
+    temp_r6 = (u8 *)(M2C_FIELD(TObjEneRecon__recobox_static_instance, u8 **, 0x42C));
     M2C_FIELD(arg0, s32 *, 0x24) = (s32) M2C_FIELD(temp_r6, s32 *, 0xC);
     init_model__9TObjEneDDFPv((void *) (arg0), (void *) lbl_804EC40C, (int) (1), (int) (temp_r6));
     set_field_d8__10TObjPlayerFPvi((void *) (arg0), (void *) lbl_804EC438);
-    set_field_dc__10TObjPlayerFPvi((void *) (arg0), (int) (M2C_FIELD(TObjEneRecon__data_805D6B00, s32 *, 0x430)));
+    set_field_dc__10TObjPlayerFPvi((void *) (arg0), (int) (M2C_FIELD(TObjEneRecon__recobox_static_instance, s32 *, 0x430)));
     M2C_FIELD(arg0, s16 *, 0xB8) = 0;
     set_animation__10TObjPlayerFPvs((void *) (arg0), (int) (M2C_FIELD(arg0, s16 *, 0xB8)));
     set_field_b8__14TObjEnePanarmsFPvs((void *) (arg0), (int) (M2C_FIELD(arg0, s16 *, 0xB8)));

@@ -25,7 +25,7 @@ u8 *TObjBoss5PillarDemo__ct(u8 *arg0, s32 arg1, s32 arg2);
 void transform_to_view__11TCameraCtrlFii(void *, void *);
 void copy_pos__11TNowLoadingFPvPv(void *, void *);
 extern u8 lbl_80450CDC[];
-extern s32 lbl_805D64D0;
+extern s32 boss5_pillar_demo_index;
 void TObjBoss5PillarDemo__sub_8028ACE8(Pd_8028ACE8 *arg0, void* _w1);
 }
 
@@ -108,13 +108,13 @@ s32 create__19TObjBoss5PillarDemoFv(void) {
 void TObjBoss5PillarDemo__sub_8028ACE0(void) {  }
 void TObjBoss5PillarDemo__sub_8028ACE4(void) {  }
 
-    extern int lbl_805D64D4;
+    extern int boss5_pillar_demo_ptr;
 
 void TObjBoss5PillarDemo__sub_8028ACE8(Pd_8028ACE8 *arg0, void* _w1) {
     f32 sp[3];
     s32 idx;
-    idx = lbl_805D64D0 - 1;
-    lbl_805D64D0 += 1;
+    idx = boss5_pillar_demo_index - 1;
+    boss5_pillar_demo_index += 1;
     if (idx >= 0 && idx < arg0->count) {
         transform_to_view__11TCameraCtrlFii(lbl_80450CDC, sp);
         if (arg0->a != NULL && arg0->a[idx] != NULL) {
@@ -126,7 +126,7 @@ void TObjBoss5PillarDemo__sub_8028ACE8(Pd_8028ACE8 *arg0, void* _w1) {
     }
 }
 
-void TObjBoss5PillarDemo__sub_8028AD88(void* a0) { TObjBoss5PillarDemo__sub_8028ACE8((Pd_8028ACE8 *)((void*)(lbl_805D64D4)), (void*)(a0)); }
+void TObjBoss5PillarDemo__sub_8028AD88(void* a0) { TObjBoss5PillarDemo__sub_8028ACE8((Pd_8028ACE8 *)((void*)(boss5_pillar_demo_ptr)), (void*)(a0)); }
 
 void TObjBoss5PillarDemo__sub_8028ADB0(u32 arg0) {
     if (arg0 != 0U) {

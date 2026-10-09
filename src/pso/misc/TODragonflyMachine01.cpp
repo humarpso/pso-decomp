@@ -51,8 +51,8 @@ u8 *TODragonflyMachine01__ct(u8 *arg0, int arg1);
 O_80165434 *load_resource_from_descriptor(void *, s32, void *, s32, s32, s32);
 O_80165434 *alloc__23TAdSinglePlyChrSelectGCFPv(s32);
 void spawn_attack__16TObjEneMe3StelthFsiiiff(s16, int, int, void *, f32, f32);
-extern s32 lbl_80441214[];
-extern char lbl_804B1938[];
+extern s32 dragonfly_machine_attack_effect_params[];
+extern char TODragonflyMachine01__attack_effect_descriptor[];
 extern u32 TODragonflyMachine01__data_805D5998;
 extern s32 lbl_805D599C;
 extern s32 lbl_805D59A0;
@@ -149,15 +149,15 @@ void create_attack_effect__20TODragonflyMachine01Fv(void) {
     s32 z = 0;
     o = alloc__23TAdSinglePlyChrSelectGCFPv(0x440);
     if (o != NULL) {
-        o = load_resource_from_descriptor(o, 1, lbl_804B1938, 0, 0, 0);
+        o = load_resource_from_descriptor(o, 1, TODragonflyMachine01__attack_effect_descriptor, 0, 0, 0);
     }
     (*(O_80165434 * *)&TODragonflyMachine01__data_805D5998) = o;
     lbl_805D599C = z;
     lbl_805D59A0 = z;
-    sp8.v[0] = lbl_80441214[0];
-    sp8.v[1] = lbl_80441214[1];
-    sp8.v[2] = lbl_80441214[2];
-    sp8.v[3] = lbl_80441214[3];
+    sp8.v[0] = dragonfly_machine_attack_effect_params[0];
+    sp8.v[1] = dragonfly_machine_attack_effect_params[1];
+    sp8.v[2] = dragonfly_machine_attack_effect_params[2];
+    sp8.v[3] = dragonfly_machine_attack_effect_params[3];
     sp8.v[0] = o->f430;
     spawn_attack__16TObjEneMe3StelthFsiiiff(0x38, o->sub->a, o->sub->b, &sp8, lbl_805DB5B0, lbl_805DB5B4);
 }

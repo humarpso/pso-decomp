@@ -371,7 +371,7 @@ extern s32 lbl_805D53A0;
 extern s32 lbl_805D53A4;
 extern s32 TLobby__data_805D53AC;
 extern s32 lbl_805D5CE0;
-extern s32 TLobby__data_805D5E24;
+extern s32 TLobby__lobby_state_flags;
 extern u32 lbl_805D5EEC;
 void init_offline_game_scene(void);
 }
@@ -734,7 +734,7 @@ void init_offline_game_scene(void) {
     s32 var_r30;
     void *temp_r3;
     lbl_805D5CE0 = 0;
-    TLobby__data_805D5E24 = 0;
+    TLobby__lobby_state_flags = 0;
     set_copy_clear_color_argb(0, 0, 0);
     update__16TKeyBoardControlFv();
     reset_controller_input_state();

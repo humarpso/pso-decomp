@@ -2799,11 +2799,11 @@ void update_poison_status__10TObjPlayerFv();
 }
 extern void *lbl_80495C28[2];
 extern void *lbl_80495C30[11];
-void *lbl_80495BE0[7] = {
+void *TObjEneMe3ShinowaMirage__init_params[7] = {
     (void *)0x43610000, (void *)0x0, (void *)0x600, (void *)0x0,
     (void *)0x0, (void *)0x0, (void *)0x0,
 };
-void *lbl_80495BFC[11] = {
+void *shinowa_mirage_model_init_data[11] = {
     (void *)0x0, (void *)0x0, (void *)0x0, (void *)0x41000000,
     (void *)0x0, (void *)0x0, (void *)0x8003, (void *)0x0,
     (void *)0x0, (void *)0x0, (void *)0x0,
@@ -2816,10 +2816,10 @@ void *lbl_80495C30[11] = {
     (void *)&lbl_8043CEA4, (void *)&lbl_8043CEBC, (void *)&lbl_8043CED0, (void *)&lbl_8043CEE8,
     (void *)&lbl_8043CF00, (void *)&lbl_8043CF14, (void *)0x0,
 };
-void *lbl_80495C5C[4] = {
+void *shinowa_mirage_resource_descriptor[4] = {
     (void *)&lbl_8043CF28, (void *)&lbl_80495C28, (void *)&lbl_80495C30, (void *)0x1000a,
 };
-void *lbl_80495C6C[44] = {
+void *shinowa_mirage_motion_param_table[44] = {
     (void *)0x10000, (void *)0x7, (void *)0x3f000000, (void *)0x80000000,
     (void *)0x30000, (void *)0x0, (void *)0x3fc00000, (void *)0x80000000,
     (void *)0x30000, (void *)0x1, (void *)0x3f4ccccd, (void *)0x0,
@@ -2864,7 +2864,7 @@ void *__vt__23TObjEneMe3ShinowaMirage[119] = {
     (void *)&TObjEneMe3ShinowaMirage__vt110, (void *)&action__23TObjEneMe3ShinowaMirageFPvi, (void *)&TObjEneMe3ShinowaMirage__sub_800E4DCC, (void *)&TObjEneMe3ShinowaMirage__vt113,
     (void *)&TObjEneMe3ShinowaMirage__sub_800E4DC4, (void *)&update_mirage__23TObjEneMe3ShinowaMirageFPv, (void *)&TObjEneMe3ShinowaMirage__sub_800E47DC,
 };
-#define lbl_80495BFC ((u8 *)lbl_80495BFC)
+#define shinowa_mirage_model_init_data ((u8 *)shinowa_mirage_model_init_data)
 
 extern "C" {
 u8 check_body_collision_at__23TObjEneMe3ShinowaMirageFPvif(Obj_800E750C *arg0, s32 arg1, f32 farg0);
@@ -4153,7 +4153,7 @@ u8 check_body_collision_at__23TObjEneMe3ShinowaMirageFPvif(Obj_800E750C *arg0, s
     arg0->f60 = arg1;
     ((void (*)(void *, s32, f32, f32))check_enemy_body_collisions)(arg0, arg1, TObjEneMe3ShinowaMirage__data_805DA5B8, f2);
     res = (s->f18 & 0x380000) != 0;
-    fn_8002B630(s, lbl_80495BFC, s->f18 & 0x380000);
+    fn_8002B630(s, shinowa_mirage_model_init_data, s->f18 & 0x380000);
     s->f18 = b;
     arg0->f60 = a;
     return res;
@@ -4248,9 +4248,9 @@ void init_enemy__23TObjEneMe3ShinowaMirageFPv(Mirage_800E7884 *self) {
     init_position_vectors__9TObjEneDDFPv((u8 *)self);
     ((void (*)(void *))TObjEneMe3ShinowaMirage__sub_800E6F64)(self);
     self->f34 = *(s32 *)((*(Game_800E7884 * *)&TObjEneMe3ShinowaMirage__data_805D5298)->mdl + 8);
-    init_model__9TObjEneDDFPv(self, ((void * *)lbl_80495BFC), 1);
+    init_model__9TObjEneDDFPv(self, ((void * *)shinowa_mirage_model_init_data), 1);
     self->fB0 = 0;
-    set_field_d8__10TObjPlayerFPvi(self, lbl_80495C6C);
+    set_field_d8__10TObjPlayerFPvi(self, shinowa_mirage_motion_param_table);
     set_field_dc__10TObjPlayerFPvi(self, (*(Game_800E7884 * *)&TObjEneMe3ShinowaMirage__data_805D5298)->f430);
     self->fB8 = 0;
     set_animation__10TObjPlayerFPvs(self, self->fB8);
@@ -4263,7 +4263,7 @@ void init_enemy__23TObjEneMe3ShinowaMirageFPv(Mirage_800E7884 *self) {
         reset_hp__9TObjEneDDFPv(self, a[i], b[i], c[i]);
     }
     check_state_flag_4__9TObjEneDDFPv(self);
-    self->f350 = lbl_80495BE0;
+    self->f350 = TObjEneMe3ShinowaMirage__init_params;
     self->f37C = TObjEneMe3ShinowaMirage__data_805DA5E8;
     enemy_init_acquire_period(self, 0x1E);
     enemy_init_validate_period(self, 0x1E);

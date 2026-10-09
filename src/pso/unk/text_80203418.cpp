@@ -13,7 +13,7 @@ s32 get_floor_map_selection(void *, void *);
 extern s32 lbl_805D5FC0;
 extern s32 lbl_805D5FC4;
 void set_current_floor_area(s32 arg0);
-extern s32 lbl_8044A814[];
+extern s32 boss_area_id_table[];
 s32 get_global_state__14TOKeyMachine01Fv(void);
 s32 is_boss_area(void);
 }
@@ -23,8 +23,8 @@ extern "C" {
 s32 is_boss_area(void) {
     s32 state = get_global_state__14TOKeyMachine01Fv();
     s32 i = 0;
-    while (lbl_8044A814[i] != -1) {
-        if (state == lbl_8044A814[i++]) return 1;
+    while (boss_area_id_table[i] != -1) {
+        if (state == boss_area_id_table[i++]) return 1;
     }
     return 0;
 }

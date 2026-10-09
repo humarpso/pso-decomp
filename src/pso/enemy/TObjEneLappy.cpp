@@ -1887,7 +1887,7 @@ extern const Desc_800C17B8 lbl_8043B9F8;
 extern const f32 lbl_805D9F28;
 extern const f32 lbl_805D9F4C;
 extern s32 lbl_805D5550;
-extern s32 lbl_805D55A0;
+extern s32 TLobby__event_theme_id;
 extern s32 lbl_805D516C;
 #define lbl_805D5164 (*(u32 *)&lbl_805D5164)
 #define lbl_805D516C (*(u32 *)&lbl_805D516C)
@@ -1917,7 +1917,7 @@ void load_resources__12TObjEneLappyFv(void) {
 
     rare = lbl_805D5550 == 3;
     if (get_main_phase() == 0xF) {
-        switch (lbl_805D55A0) {
+        switch (TLobby__event_theme_id) {
         case 1:
             lbl_805D5160 = 1;
             if (rare) {

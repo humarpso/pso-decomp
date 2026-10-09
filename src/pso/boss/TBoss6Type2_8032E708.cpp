@@ -334,7 +334,7 @@ void destroy_part_object__11TBoss6Type2Fii(s32 arg0, s32 arg1);
 void update_all_parts__11TBoss6Type2FPv(s32 arg0);
 s32 is_action_ready__11TBoss6Type2FPv(u8 *arg0);
 void change_motion__11TBoss6Type2FPvi(u8 *arg0, s32 arg1);
-extern Ent_8033053C lbl_804EF028[];
+extern Ent_8033053C boss6_type2_action_table[];
 void set_action__11TBoss6Type2FPvi(u8 *arg0, s32 arg1);
 s32 is_phase_active__11TBoss6Type2FPv(T_8032E748 *self);
 void TBoss6Type2__sub_8032EA10(T_8032EA10 *self);
@@ -1220,7 +1220,7 @@ void set_action__11TBoss6Type2FPvi(u8 *arg0, s32 arg1) {
     MemberActionStorage_803301B8 member_action;
     u8 *temp_r31;
     M2C_FIELD(arg0, s32 *, 0x380) = arg1;
-    temp_r31 = (u8 *)((void *)((u8 *)(lbl_804EF028) + (M2C_FIELD(arg0, s32 *, 0x380) * 0x24)));
+    temp_r31 = (u8 *)((void *)((u8 *)(boss6_type2_action_table) + (M2C_FIELD(arg0, s32 *, 0x380) * 0x24)));
     change_motion__11TBoss6Type2FPvi((u8 *)((void *) (arg0)), (s32)((int) (M2C_FIELD(temp_r31, s32 *, 4))));
     M2C_FIELD(arg0, s32 *, 0x388) = (s32) M2C_FIELD(temp_r31, s32 *, 8);
     member_action.words[0] = M2C_FIELD(temp_r31, s32 *, 0xC);
@@ -1370,7 +1370,7 @@ void update_main__11TBoss6Type2FPv(u8 *arg0) {
         }
         VecCopy__FP3VecPC3Vec((void *) (arg0 + 0x44), (void *) (arg0 + 0x38));
         {
-            Fn_8033053C fn = lbl_804EF028[M2C_FIELD(arg0, s32 *, 0x380)].fn;
+            Fn_8033053C fn = boss6_type2_action_table[M2C_FIELD(arg0, s32 *, 0x380)].fn;
             if (fn) {
                 (((T_8033053C *)arg0)->*fn)();
             }

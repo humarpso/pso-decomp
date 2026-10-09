@@ -89,13 +89,13 @@ void reset_story_select_state__6TLobbyFv(void);
 void sync_story_select__6TLobbyFv(void);
 M2C_UNK set_state__16TAdStorySelectGCFi(void*);
 
-    extern int lbl_805D362C;
+    extern int story_select_current;
     extern int lbl_805D6060;
-void backup_story_select__6TLobbyFv(void) { lbl_805D6060 = lbl_805D362C; }
+void backup_story_select__6TLobbyFv(void) { lbl_805D6060 = story_select_current; }
 
-    extern int lbl_805D362C;
+    extern int story_select_current;
     extern int lbl_805D6060;
-void sync_story_select__6TLobbyFv(void) { lbl_805D362C = lbl_805D6060; }
+void sync_story_select__6TLobbyFv(void) { story_select_current = lbl_805D6060; }
 
 s32 get_boss_warp_destination(void) {
     Tbl_8020765C a = lbl_8044B928;
@@ -117,7 +117,7 @@ s32 get_player_floor__6TLobbyFi(s32 idx) {
     return -1;
 }
 
-extern s32 lbl_805D3628;
+extern s32 story_select_pending_state;
 
 void TLobby__sub_80207750(s32 arg0, s32 arg1) {
     if (arg0 <= 0x11) {
@@ -266,9 +266,9 @@ void init_floor_map_registry(void) {
 }
 
 void reset_story_select_state__6TLobbyFv(void) {
-    if ((s32) lbl_805D3628 != -1) {
-        set_state__16TAdStorySelectGCFi((void*)lbl_805D3628);
-        lbl_805D3628 = -1;
+    if ((s32) story_select_pending_state != -1) {
+        set_state__16TAdStorySelectGCFi((void*)story_select_pending_state);
+        story_select_pending_state = -1;
     }
 }
 

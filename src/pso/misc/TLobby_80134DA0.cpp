@@ -17,8 +17,8 @@ int TAdSinglePlyChrSelectGC__sub_80077AE8(void*);
 M2C_UNK send_server_time_accepted__9TProtocolFv(s32);
 int init_once__6TLobbyFi(void*);
 
-    extern int lbl_805D55A0;
-void TLobby__sub_80134DA0(int a0) { lbl_805D55A0 = a0; }
+    extern int TLobby__event_theme_id;
+void TLobby__sub_80134DA0(int a0) { TLobby__event_theme_id = a0; }
 
 int init_once__6TLobbyFPv(void* p) { return init_once__6TLobbyFi(p); }
 int TLobby__sub_80134DC8(void* p) { return fn_800779A0(p); }

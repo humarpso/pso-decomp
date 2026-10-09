@@ -9,7 +9,7 @@ s32 get_camera_id__11TCameraCtrlFv();
 u8 *__nw__7TObjectFUl(int);
 M2C_UNK TShopJudgmentItemWindow__sub_80267F9C(void *, int);
 u8 *construct_item_list__20TWindowSubStatusDispFPviis(u8 *, s32, s32, s32);
-extern M2C_UNK lbl_8044F55C[];
+extern M2C_UNK TShopJudgmentItemWindow__item_list_rect_table[];
 u8 *create_item_list_window(s32 arg0, s32 arg1, s32 arg2);
 }
 
@@ -25,14 +25,14 @@ u8 *create_item_list_window(s32 arg0, s32 arg1, s32 arg2) {
     temp_r3 = get_camera_id__11TCameraCtrlFv();
     switch (temp_r3) {
     case 1:
-        TShopJudgmentItemWindow__sub_80267F9C((void *) (lbl_8044F55C), arg1);
+        TShopJudgmentItemWindow__sub_80267F9C((void *) (TShopJudgmentItemWindow__item_list_rect_table), arg1);
         break;
     case 2:
-        TShopJudgmentItemWindow__sub_80267F9C((void *) ((u8 *)lbl_8044F55C + 8), arg1);
+        TShopJudgmentItemWindow__sub_80267F9C((void *) ((u8 *)TShopJudgmentItemWindow__item_list_rect_table + 8), arg1);
         break;
     case 3:
     case 4:
-        TShopJudgmentItemWindow__sub_80267F9C((void *) ((u8 *)lbl_8044F55C + 0x10), arg1);
+        TShopJudgmentItemWindow__sub_80267F9C((void *) ((u8 *)TShopJudgmentItemWindow__item_list_rect_table + 0x10), arg1);
         break;
     }
     var_r0 = __nw__7TObjectFUl((int) (0x8C));

@@ -369,7 +369,7 @@ void pop_matrix(void);
 extern Vec3_801F9314 lbl_8044A794;
 extern u8 lbl_8058D490[];
 extern f32 lbl_805D3608;
-extern f32 lbl_805D360C;
+extern f32 radar_overhead_projection_scale;
 extern const f32 TRaderMapCore__data_805DC534;
 extern const f32 lbl_805DC548;
 extern const f32 lbl_805DC54C;
@@ -453,7 +453,7 @@ u32 get_player_by_client_id(s32);
 s32 TLobby__sub_801C19D0(void *);
 s32 should_show_map__13TRaderMapCoreFv(void);
 void reset__13TRaderMapCoreFPv(void *);
-extern Vec4_801F9E9C lbl_8044A698[];
+extern Vec4_801F9E9C radar_player_slot_color_table[];
 extern s32 lbl_805D53A0;
 extern const f32 lbl_805DC560;
 extern const f32 lbl_805DC570;
@@ -577,7 +577,7 @@ void setup_overhead_projection__13TRaderMapCoreFv(s32 arg0, Cam_801F9314 *arg1) 
     rotate_matrix_y(0, 0x8000 - arg1->rot);
     rotate_vector_by_matrix(0, &up, &up);
     pop_matrix();
-    set_perspective_projection_from_fov((s32)(lbl_805DC548 * lbl_805D360C), lbl_805DC54C, TRaderMapCore__data_805DC534, lbl_805DC550);
+    set_perspective_projection_from_fov((s32)(lbl_805DC548 * radar_overhead_projection_scale), lbl_805DC54C, TRaderMapCore__data_805DC534, lbl_805DC550);
     set_camera_look_at(&eye, &at, &up);
 }
 
@@ -867,14 +867,14 @@ void gather_player_markers__13TRaderMapCoreFv(Core_801F9E9C *self) {
             self->unk134 = 0;
             if (SHOW(self) != 0) {
                 if (team == 1) {
-                    copy_vec4__13TRaderMapCoreFPvPv(&me->color, &lbl_8044A698[0]);
+                    copy_vec4__13TRaderMapCoreFPvPv(&me->color, &radar_player_slot_color_table[0]);
                 } else if (team == 2) {
-                    copy_vec4__13TRaderMapCoreFPvPv(&me->color, &lbl_8044A698[1]);
+                    copy_vec4__13TRaderMapCoreFPvPv(&me->color, &radar_player_slot_color_table[1]);
                 } else {
-                    copy_vec4__13TRaderMapCoreFPvPv(&me->color, &lbl_8044A698[2]);
+                    copy_vec4__13TRaderMapCoreFPvPv(&me->color, &radar_player_slot_color_table[2]);
                 }
             } else {
-                copy_vec4__13TRaderMapCoreFPvPv(&me->color, &lbl_8044A698[(u16)obj_getField1c((void*)(p))]);
+                copy_vec4__13TRaderMapCoreFPvPv(&me->color, &radar_player_slot_color_table[(u16)obj_getField1c((void*)(p))]);
             }
         } else {
             reset__13TRaderMapCoreFPv(me);
@@ -895,7 +895,7 @@ void gather_player_markers__13TRaderMapCoreFv(Core_801F9E9C *self) {
                 e->y = lbl_805DC570;
                 e->unkC = p->unk60;
                 e->id = i;
-                copy_vec4__13TRaderMapCoreFPvPv(&e->color, &lbl_8044A698[(u16)obj_getField1c((void*)(p))]);
+                copy_vec4__13TRaderMapCoreFPvPv(&e->color, &radar_player_slot_color_table[(u16)obj_getField1c((void*)(p))]);
             } else {
                 reset__13TRaderMapCoreFPv(e);
             }
@@ -909,11 +909,11 @@ void gather_player_markers__13TRaderMapCoreFv(Core_801F9E9C *self) {
                 e->unkC = p->unk60;
                 e->id = i;
                 if (team == 1) {
-                    copy_vec4__13TRaderMapCoreFPvPv(&e->color, &lbl_8044A698[0]);
+                    copy_vec4__13TRaderMapCoreFPvPv(&e->color, &radar_player_slot_color_table[0]);
                 } else if (team == 2) {
-                    copy_vec4__13TRaderMapCoreFPvPv(&e->color, &lbl_8044A698[1]);
+                    copy_vec4__13TRaderMapCoreFPvPv(&e->color, &radar_player_slot_color_table[1]);
                 } else {
-                    copy_vec4__13TRaderMapCoreFPvPv(&e->color, &lbl_8044A698[2]);
+                    copy_vec4__13TRaderMapCoreFPvPv(&e->color, &radar_player_slot_color_table[2]);
                 }
             } else {
                 reset__13TRaderMapCoreFPv(e);

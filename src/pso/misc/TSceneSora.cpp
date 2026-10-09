@@ -40,7 +40,7 @@ struct Res_80207478 { void *buf; s32 n; };
 
 extern "C" {
 u8 * TLobby__sub_8001FE7C(void *, s16);
-extern s32 TSceneSora__data_805D3620;
+extern s32 TSceneSora__sky_active_flag;
 extern s32 TSceneSora__data_805D6050;
 extern u32 TSceneSora__data_805D6054;
 void TSceneSora__sub_80207430(void);
@@ -75,7 +75,7 @@ M2C_UNK pop_matrix();
 M2C_UNK begin_effect_render__13TParticleCtrlFv();
 M2C_UNK end_effect_render__13TParticleCtrlFv();
 M2C_UNK set_global_param__8TObjFishFi();
-extern s32 TSceneSora__data_805D3620;
+extern s32 TSceneSora__sky_active_flag;
 extern u32 TSceneSora__data_805D6054;
 void render__10TSceneSoraFv(u8 *arg0);
 s32 get_global_state__14TOKeyMachine01Fv();
@@ -94,7 +94,7 @@ void *adxf_open__6TLobbyFUii(char *, int);
 extern char lbl_8044A9D0[];
 extern char lbl_8044A9D8[];
 extern char lbl_8044A9E0[];
-extern s32 TSceneSora__data_805D3620;
+extern s32 TSceneSora__sky_active_flag;
 extern s32 TSceneSora__data_805D6050;
 extern u32 TSceneSora__data_805D6054;
 extern s32 lbl_805D6058;
@@ -114,7 +114,7 @@ extern s32 tl_05;
 typedef char RecoveredGlobal_802072E0___vt__10TSceneSora_size[sizeof(RecoveredGlobal_802072E0___vt__10TSceneSora) == 0x38 ? 1 : -1];
 
 void render__10TSceneSoraFv(u8 *arg0) {
-    if ((s32) TSceneSora__data_805D3620 != 0) {
+    if ((s32) TSceneSora__sky_active_flag != 0) {
         begin_effect_render__13TParticleCtrlFv();
         TObjFish__sub_8001EDB0((int) ((*(s32 *)&TSceneSora__data_805D6054)), (int) (0));
         set_global_param__8TObjFishFi();
@@ -190,7 +190,7 @@ void create_instance__10TSceneSoraFv(void) {
 }
 
 void TSceneSora__sub_80207430(void) {
-    TSceneSora__data_805D3620 = 1;
+    TSceneSora__sky_active_flag = 1;
     if ((void *) (*(u8 * *)&TSceneSora__data_805D6054) != NULL) {
         TLobby__sub_8001FE7C((*(u8 * *)&TSceneSora__data_805D6054), 1);
         (*(u8 * *)&TSceneSora__data_805D6054) = NULL;
@@ -244,7 +244,7 @@ void load_sky_resources__10TSceneSoraFv(void) {
             o = TLobby__sub_8002058C((void *)o, 1, &b, &a, 0, 0, 0);
         }
         TSceneSora__data_805D6054 = o;
-        TSceneSora__data_805D3620 = 1;
+        TSceneSora__sky_active_flag = 1;
     }
 }
 

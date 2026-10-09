@@ -218,7 +218,7 @@ void TAdEnterPPPPassGC__sub_803392F4(u8 *arg0) {
     lbl_805D6CA4 = 1;
 }
 
-void *lbl_804EF500[8] = {
+void *ppp_password_buffer[8] = {
     (void *)0x0, (void *)0x0, (void *)0x0, (void *)0x0,
     (void *)0x0, (void *)0x0, (void *)0x0, (void *)0x0,
 };
@@ -242,8 +242,8 @@ void set_password__17TAdEnterPPPPassGCFi(s32 arg0) {
         set_ppp_password__6TLobbyFi(arg0);
         return;
     }
-    memset((void *) (lbl_804EF500), (int) (0), (int) (0x20));
-    strncpy((s32) lbl_804EF500, arg0, 0x1F);
+    memset((void *) (ppp_password_buffer), (int) (0), (int) (0x20));
+    strncpy((s32) ppp_password_buffer, arg0, 0x1F);
 }
 
 void *__dt__17TAdEnterPPPPassGCFv(void *arg0, s16 arg1) {

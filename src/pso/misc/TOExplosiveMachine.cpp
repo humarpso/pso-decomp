@@ -58,7 +58,7 @@ struct VObj_80166814 : VBase_80166814 {
 extern "C" {
 u8 * load_resource_from_descriptor(void *, s32, void *, s32, s32, s32);
 int alloc__23TAdSinglePlyChrSelectGCFPv(void *);
-extern RecoveredGlobal_80166614_lbl_804B1AA0 lbl_804B1AA0;
+extern RecoveredGlobal_80166614_lbl_804B1AA0 explosive_machine_resource_desc;
 extern u32 lbl_805D59A8;
 void load_shared_resource__18TOExplosiveMachineFv(void);
 void destroy_particle__13TParticleCtrlFPvs(void *, int);
@@ -127,7 +127,7 @@ void load_shared_resource__18TOExplosiveMachineFv(void) {
     temp_r3 = alloc__23TAdSinglePlyChrSelectGCFPv((void *)0x440);
     var_r0 = temp_r3;
     if (var_r0 != 0) {
-        var_r0 = (long) (load_resource_from_descriptor((void *) temp_r3, 1, &lbl_804B1AA0.value, 0, 0, 0));
+        var_r0 = (long) (load_resource_from_descriptor((void *) temp_r3, 1, &explosive_machine_resource_desc.value, 0, 0, 0));
     }
     (*(s32 *)&lbl_805D59A8) = var_r0;
 }

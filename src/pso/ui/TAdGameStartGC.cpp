@@ -51,7 +51,7 @@ u32 __ct__19TAdGameStartShineGCFv(int, void *);
 void create_effects__14TAdGameStartGCFPv(u8 *arg0);
 M2C_UNK __ct__7TObjectFP7TObject(void *);
 extern M2C_UNK __vt__14TAdGameStartGC[];
-extern void *lbl_805D3FA8[2];
+extern void *ad_game_start_name_ptr[2];
 Obj_802E6750 *__ct__14TAdGameStartGCFv(Obj_802E6750 *arg0);
 s32 queue_destruction__7TObjectFv(int);
 void destroy_windows__14TAdGameStartGCFPv(Obj_802E6380 *o);
@@ -217,7 +217,7 @@ Obj_802E6750 *__ct__14TAdGameStartGCFv(Obj_802E6750 *arg0) {
     s32 i;
     __ct__7TObjectFP7TObject(arg0);
     arg0->vt = __vt__14TAdGameStartGC;
-    arg0->g = (s32)lbl_805D3FA8[0];
+    arg0->g = (s32)ad_game_start_name_ptr[0];
     arg0->f9C = -1;
     arg0->fA0 = 0;
     arg0->fC4 = 0;
@@ -402,6 +402,6 @@ M2C_UNK __vt__17TAdGameStartSubGC[] = {
     (M2C_UNK)render__17TAdGameStartSubGCFv,
     (M2C_UNK)render_shadows__7TObjectFv,
 };
-void *lbl_805D3FA8[2] = {(void *)lbl_80472C38, 0};
+void *ad_game_start_name_ptr[2] = {(void *)lbl_80472C38, 0};
 void *lbl_805D3FB0[2] = {(void *)lbl_80472C48, 0};
 }

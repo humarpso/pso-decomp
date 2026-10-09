@@ -332,7 +332,7 @@ extern const f32 TWindowFukidasi__data_805DCD30;
 extern const f32 TWindowFukidasi__data_805DCD4C;
 extern M2C_UNK TWindowFukidasi__balloon_color_table[];
 extern Vec_80251380 lbl_8044ED58;
-extern RecoveredGlobal_80251BA0_lbl_804CF080 lbl_804CF080;
+extern RecoveredGlobal_80251BA0_lbl_804CF080 window_fukidasi_layout_entries;
 extern u8 lbl_8058D490[];
 extern s32 lbl_805D3900;
 extern Cam_80251380 *lbl_805D4DF0;
@@ -993,7 +993,7 @@ void set_text__15TWindowFukidasiFPvii(u8 *arg0, s32 arg1, s32 arg2) {
   {
     *((u8 *) (((s8 *) arg0) + 0x72)) = 0U;
     destroy_all_items__20TWindowSubStatusDispFPv((void *) (arg0 + 0x24));
-    init_window_layout_entries((void *) (arg0 + 0x24), (void *) (&lbl_804CF080.value), (int) (*((s16 *) (((s8 *) arg0) + 0x20))));
+    init_window_layout_entries((void *) (arg0 + 0x24), (void *) (&window_fukidasi_layout_entries.value), (int) (*((s16 *) (((s8 *) arg0) + 0x20))));
   }
   temp_r3 = (u8 *) ((u8 * (*)(void *, s32))get_array_entry__20TWindowSubStatusDispFPvi)(arg0, 0);
   if (arg2 & 1)

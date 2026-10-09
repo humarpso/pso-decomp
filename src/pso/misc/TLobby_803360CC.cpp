@@ -64,7 +64,7 @@ void *destroy__6TLobbyFPvs(void *arg0, s16 arg1);
 void TAdMultiPlyChrSelectGC__sub_803367E8(void);
 s32 TLobby__sub_803DA16C(void *, M2C_UNK);
 u64 call_funcs_reverse__6TLobbyFPvUi(void *, int);
-extern RecoveredGlobal_8033670C_lbl_804EE58C lbl_804EE58C;
+extern RecoveredGlobal_8033670C_lbl_804EE58C lobby_load_callback_table;
 extern u8 *lbl_805D6D48;
 void destroy_global_object__6TLobbyFv(void);
 M2C_UNK queue_destruction__7TObjectFv(void*);
@@ -121,14 +121,14 @@ s32 set_current_floor_area(int);
 s32 TLobby__sub_8023E4B4(void *, void *);
 extern const Tbl_80336750 lbl_80477804;
 extern u8 title_texture_list[];
-extern RecoveredGlobal_8033670C_lbl_804EE58C lbl_804EE58C;
+extern RecoveredGlobal_8033670C_lbl_804EE58C lobby_load_callback_table;
 extern const s32 lbl_805D5544;
 extern u32 lbl_805D6D40;
 extern u8 *lbl_805D6D48;
 void TLobby__sub_80336750(void);
 s32 TAdTrialAgreementGC__sub_80335958(int);
 s32 TLobby__sub_80336030(void *);
-extern PMF_803362A4 lbl_804EE5DC[];
+extern PMF_803362A4 TLobby__state_handler_pmf_table[];
 }
 
 extern "C" {
@@ -195,7 +195,7 @@ void TLobby__sub_803362A4(void *arg0_) {
         TKeyBoardControl__sub_8000F90C(2);
         if (start_offline_seq__23TAdSinglePlyChrSelectGCFPv(arg0) != 0) {
             ((void (*)(void *))TLobby__sub_803361FC)(arg0);
-            PMF_803362A4 m = lbl_804EE5DC[TLobby__sub_80336030(arg0)];
+            PMF_803362A4 m = TLobby__state_handler_pmf_table[TLobby__sub_80336030(arg0)];
             (((C_803362A4 *)arg0)->*m)();
         }
     }
@@ -322,7 +322,7 @@ u8 *construct_title_scene__6TLobbyFPv(u8 *arg0) {
 typedef char RecoveredGlobal_8033670C_lbl_804EE58C_size[sizeof(RecoveredGlobal_8033670C_lbl_804EE58C) == 0x50 ? 1 : -1];
 void destroy_global_object__6TLobbyFv(void) {
     u32 temp_r4;
-    temp_r4 = (u32) call_funcs_reverse__6TLobbyFPvUi((void *) (&lbl_804EE58C.value), (int) (0x20));
+    temp_r4 = (u32) call_funcs_reverse__6TLobbyFPvUi((void *) (&lobby_load_callback_table.value), (int) (0x20));
     if ((void *) lbl_805D6D48 != NULL) {
         TLobby__sub_803DA16C(lbl_805D6D48, (s32) temp_r4);
         lbl_805D6D48 = NULL;
@@ -335,7 +335,7 @@ void TLobby__sub_80336750(void) {
     Tbl_80336750 t = lbl_80477804;
     lbl_805D6D48 = title_texture_list;
     TLobby__sub_8023E4B4((void *)t.s[lbl_805D5544], title_texture_list);
-    run_load_callback_table(&lbl_804EE58C, 0x20);
+    run_load_callback_table(&lobby_load_callback_table, 0x20);
     reset_counter__6TLobbyFv();
     set_current_floor_area(0);
 }

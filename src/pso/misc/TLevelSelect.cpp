@@ -59,9 +59,9 @@ void add_item_rect__12TLevelSelectFPvPv(void *, void *);
 s32 get_localized_text_entry(s32, s32);
 void set_entry_value__22TAdMultiPlyChrSelectGCFiiUi(s32, s32, u32);
 void create_draw_line_ctrl__13TAdMcSelectGCFiif(void *, s32, f32);
-extern Ents_8013319C lbl_8043ED28;
+extern Ents_8013319C level_select_entry_table;
 extern Pos_8013319C lbl_8043ED58[];
-extern Poss_8013319C lbl_8043ED60;
+extern Poss_8013319C level_select_position_table;
 extern u8 __vt__12TLevelSelect[];
 extern s32 lbl_805D2CA0;
 extern s32 lbl_805D5550;
@@ -146,7 +146,7 @@ Self_8013319C *__ct__12TLevelSelectFv(Self_8013319C *self) {
         __ct__13TAdTitleTexGCFv(p, self);
     }
     {
-        Ents_8013319C ents = lbl_8043ED28;
+        Ents_8013319C ents = level_select_entry_table;
         for (i = 0; i < self->count + 1; i++) {
             ents.e[i].id = -1;
         }
@@ -164,7 +164,7 @@ Self_8013319C *__ct__12TLevelSelectFv(Self_8013319C *self) {
         }
         {
             Pos_8013319C pos = lbl_8043ED58[0];
-            Poss_8013319C poss = lbl_8043ED60;
+            Poss_8013319C poss = level_select_position_table;
             p = __nw__7TObjectFUl(0x708);
             if (p != NULL) {
                 p = __ct__14TAdSelectCurGCFv(p, self, &poss, &pos);

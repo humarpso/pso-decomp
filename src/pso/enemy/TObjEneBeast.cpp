@@ -265,42 +265,42 @@ void * create__12TObjEneBeastFPv(void *arg0) {
     return o2;
 }
 
-extern u32 lbl_805D4F38;
-extern u32 lbl_805D4F3C;
-extern u32 lbl_805D4F40;
-extern u32 lbl_805D4F44;
-extern u32 lbl_805D4F48;
-extern u32 lbl_805D4F4C;
-extern u32 lbl_805D4F50;
+extern u32 ene_beast_boss_id_buffer;
+extern u32 TObjEneBeast__boss4_rock_handler_ids;
+extern u32 boss4_rock_pool;
+extern u32 boss4_rock_shared_handler_ids;
+extern u32 ene_beast_bml_resource;
+extern u32 beast_claw_trail_instance;
+extern u32 boss4_type3_instance;
 
 void free_boss4_rock_pool(void) {
-    if ((u32) lbl_805D4F38 != 0U) {
-        free__11TOBoss4RockFUi((void*)lbl_805D4F38);
-        lbl_805D4F38 = 0U;
+    if ((u32) ene_beast_boss_id_buffer != 0U) {
+        free__11TOBoss4RockFUi((void*)ene_beast_boss_id_buffer);
+        ene_beast_boss_id_buffer = 0U;
     }
-    if ((u32) lbl_805D4F3C != 0U) {
-        free__11TOBoss4RockFUi((void*)lbl_805D4F3C);
-        lbl_805D4F3C = 0U;
+    if ((u32) TObjEneBeast__boss4_rock_handler_ids != 0U) {
+        free__11TOBoss4RockFUi((void*)TObjEneBeast__boss4_rock_handler_ids);
+        TObjEneBeast__boss4_rock_handler_ids = 0U;
     }
-    if ((u32) lbl_805D4F40 != 0U) {
-        free__11TOBoss4RockFUi((void*)lbl_805D4F40);
-        lbl_805D4F40 = 0U;
+    if ((u32) boss4_rock_pool != 0U) {
+        free__11TOBoss4RockFUi((void*)boss4_rock_pool);
+        boss4_rock_pool = 0U;
     }
-    if ((u32) lbl_805D4F44 != 0U) {
-        free__11TOBoss4RockFUi((void*)lbl_805D4F44);
-        lbl_805D4F44 = 0U;
+    if ((u32) boss4_rock_shared_handler_ids != 0U) {
+        free__11TOBoss4RockFUi((void*)boss4_rock_shared_handler_ids);
+        boss4_rock_shared_handler_ids = 0U;
     }
-    if ((u32) lbl_805D4F50 != 0U) {
-        __dt__11TBoss4Type3FPvs((void*)lbl_805D4F50, 1);
-        lbl_805D4F50 = 0U;
+    if ((u32) boss4_type3_instance != 0U) {
+        __dt__11TBoss4Type3FPvs((void*)boss4_type3_instance, 1);
+        boss4_type3_instance = 0U;
     }
-    if ((u32) lbl_805D4F4C != 0U) {
-        __dt__11TBoss4Type3FPvs((void*)lbl_805D4F4C, 1);
-        lbl_805D4F4C = 0U;
+    if ((u32) beast_claw_trail_instance != 0U) {
+        __dt__11TBoss4Type3FPvs((void*)beast_claw_trail_instance, 1);
+        beast_claw_trail_instance = 0U;
     }
-    if ((u32) lbl_805D4F48 != 0U) {
-        TLobby__sub_8001FE7C((void*)lbl_805D4F48, 1);
-        lbl_805D4F48 = 0U;
+    if ((u32) ene_beast_bml_resource != 0U) {
+        TLobby__sub_8001FE7C((void*)ene_beast_bml_resource, 1);
+        ene_beast_bml_resource = 0U;
     }
 }
 extern const f32 lbl_805D96D8;
@@ -318,7 +318,7 @@ void load_resources__12TObjEneBeastFv(void) {
     s32 i;
 
     if (check_v2_mode__9TObjEneDDFv() != 0) {
-        lbl_805D4F48 = (u32)load_enemy_bml_resource_named(lbl_8048F30C, lbl_80439D80);
+        ene_beast_bml_resource = (u32)load_enemy_bml_resource_named(lbl_8048F30C, lbl_80439D80);
         ((Ent_8009241C *)lbl_8048F430)[0].radius = lbl_805D96DC;
         ((Ent_8009241C *)lbl_8048F430)[1].radius = lbl_805D96DC;
         ((Ent_8009241C *)lbl_8048F430)[2].radius = lbl_805D9700;
@@ -327,7 +327,7 @@ void load_resources__12TObjEneBeastFv(void) {
         if (p != NULL) {
             p = load_resource_from_descriptor(p, 1, lbl_8048F30C, 0, 0, 0);
         }
-        lbl_805D4F48 = (u32)p;
+        ene_beast_bml_resource = (u32)p;
         ((Ent_8009241C *)lbl_8048F430)[0].radius = lbl_805D9704;
         ((Ent_8009241C *)lbl_8048F430)[1].radius = lbl_805D9704;
         ((Ent_8009241C *)lbl_8048F430)[2].radius = lbl_805D9708;
@@ -336,39 +336,39 @@ void load_resources__12TObjEneBeastFv(void) {
     if (p != NULL) {
         p = init_trail_buffer__11TBoss4Type3FPvifff(p, 2, lbl_805D9704, lbl_805D96E4, lbl_805D96F8);
     }
-    lbl_805D4F4C = (u32)p;
+    beast_claw_trail_instance = (u32)p;
     p = alloc__23TAdSinglePlyChrSelectGCFPv(0x18);
     if (p != NULL) {
         p = init_trail_buffer__11TBoss4Type3FPvifff(p, 2, lbl_805D9704, lbl_805D96E4, lbl_805D96F8);
     }
-    lbl_805D4F50 = (u32)p;
-    draw_trail_with_colors((void *)lbl_805D4F4C, ((Data_8009241C *)lbl_805D4F48)->f42c->f8,
-                           ((Data_8009241C *)lbl_805D4F48)->f430[((s32 *)lbl_8048F31C)[13]].f4, 5, 8);
-    draw_trail_with_colors((void *)lbl_805D4F50, ((Data_8009241C *)lbl_805D4F48)->f42c->f8,
-                           ((Data_8009241C *)lbl_805D4F48)->f430[((s32 *)lbl_8048F31C)[17]].f4, 10, 13);
-    lbl_805D4F38 = (u32)alloc_buffer__11TOBoss4RockFPv(0xC);
-    lbl_805D4F3C = (u32)alloc_buffer__11TOBoss4RockFPv(0xC);
-    lbl_805D4F40 = (u32)alloc_buffer__11TOBoss4RockFPv(0xC);
-    lbl_805D4F44 = (u32)alloc_buffer__11TOBoss4RockFPv(0xC);
-    ((s32 *)lbl_805D4F38)[0] = register_boss__6TLobbyFPv(0x4B);
-    ((s32 *)lbl_805D4F38)[1] = register_boss__6TLobbyFPv(0x4C);
-    ((s32 *)lbl_805D4F38)[2] = register_boss__6TLobbyFPv(0x4D);
-    ((s32 *)lbl_805D4F3C)[0] = dispatch_shared_handler_b__6TLobbyFPv(0x4E);
-    ((s32 *)lbl_805D4F3C)[1] = dispatch_shared_handler_b__6TLobbyFPv(0x4F);
-    ((s32 *)lbl_805D4F3C)[2] = dispatch_shared_handler_b__6TLobbyFPv(0x50);
-    ((s32 *)lbl_805D4F40)[0] = register_object__6TLobbyFPv(0x4A);
-    ((s32 *)lbl_805D4F40)[1] = register_object__6TLobbyFPv(0x4B);
-    ((s32 *)lbl_805D4F40)[2] = register_object__6TLobbyFPv(0x4C);
-    ((s32 *)lbl_805D4F44)[0] = dispatch_shared_handler_a__6TLobbyFPv(0x4A);
-    ((s32 *)lbl_805D4F44)[1] = dispatch_shared_handler_a__6TLobbyFPv(0x4B);
-    ((s32 *)lbl_805D4F44)[2] = dispatch_shared_handler_a__6TLobbyFPv(0x4C);
+    boss4_type3_instance = (u32)p;
+    draw_trail_with_colors((void *)beast_claw_trail_instance, ((Data_8009241C *)ene_beast_bml_resource)->f42c->f8,
+                           ((Data_8009241C *)ene_beast_bml_resource)->f430[((s32 *)lbl_8048F31C)[13]].f4, 5, 8);
+    draw_trail_with_colors((void *)boss4_type3_instance, ((Data_8009241C *)ene_beast_bml_resource)->f42c->f8,
+                           ((Data_8009241C *)ene_beast_bml_resource)->f430[((s32 *)lbl_8048F31C)[17]].f4, 10, 13);
+    ene_beast_boss_id_buffer = (u32)alloc_buffer__11TOBoss4RockFPv(0xC);
+    TObjEneBeast__boss4_rock_handler_ids = (u32)alloc_buffer__11TOBoss4RockFPv(0xC);
+    boss4_rock_pool = (u32)alloc_buffer__11TOBoss4RockFPv(0xC);
+    boss4_rock_shared_handler_ids = (u32)alloc_buffer__11TOBoss4RockFPv(0xC);
+    ((s32 *)ene_beast_boss_id_buffer)[0] = register_boss__6TLobbyFPv(0x4B);
+    ((s32 *)ene_beast_boss_id_buffer)[1] = register_boss__6TLobbyFPv(0x4C);
+    ((s32 *)ene_beast_boss_id_buffer)[2] = register_boss__6TLobbyFPv(0x4D);
+    ((s32 *)TObjEneBeast__boss4_rock_handler_ids)[0] = dispatch_shared_handler_b__6TLobbyFPv(0x4E);
+    ((s32 *)TObjEneBeast__boss4_rock_handler_ids)[1] = dispatch_shared_handler_b__6TLobbyFPv(0x4F);
+    ((s32 *)TObjEneBeast__boss4_rock_handler_ids)[2] = dispatch_shared_handler_b__6TLobbyFPv(0x50);
+    ((s32 *)boss4_rock_pool)[0] = register_object__6TLobbyFPv(0x4A);
+    ((s32 *)boss4_rock_pool)[1] = register_object__6TLobbyFPv(0x4B);
+    ((s32 *)boss4_rock_pool)[2] = register_object__6TLobbyFPv(0x4C);
+    ((s32 *)boss4_rock_shared_handler_ids)[0] = dispatch_shared_handler_a__6TLobbyFPv(0x4A);
+    ((s32 *)boss4_rock_shared_handler_ids)[1] = dispatch_shared_handler_a__6TLobbyFPv(0x4B);
+    ((s32 *)boss4_rock_shared_handler_ids)[2] = dispatch_shared_handler_a__6TLobbyFPv(0x4C);
     {
         Ids_8009241C ids = lbl_80439D68[0];
         Quad_8009241C q = lbl_80439D70[0];
-        q.a = (s32)((Data_8009241C *)lbl_805D4F48)->f430;
+        q.a = (s32)((Data_8009241C *)ene_beast_bml_resource)->f430;
         for (i = 0; i < 3; i++) {
-            spawn_npc_enemy__6TLobbyFsiiiff(ids.id[i], ((Data_8009241C *)lbl_805D4F48)->f42c[i].f8,
-                                            ((Data_8009241C *)lbl_805D4F48)->f42c[i].fC, &q,
+            spawn_npc_enemy__6TLobbyFsiiiff(ids.id[i], ((Data_8009241C *)ene_beast_bml_resource)->f42c[i].f8,
+                                            ((Data_8009241C *)ene_beast_bml_resource)->f42c[i].fC, &q,
                                             ((Ent_8009241C *)lbl_8048F430)[i].radius, lbl_805D96D8);
         }
     }
@@ -473,14 +473,14 @@ void *TObjEneBeast__ct(void *arg0v, void *arg1, void *arg2) {
     select_model_record__12TObjEneBeastFPvi(arg0, F(arg0, s32, 0x368));
     F(arg0, u8 *, 0xD8) = (u8 *)lbl_8048F31C;
     set_field_d8__10TObjPlayerFPvi(arg0, F(arg0, u8 *, 0xD8));
-    F(arg0, u32, 0xDC) = F(lbl_805D4F48, u32, 0x430);
+    F(arg0, u32, 0xDC) = F(ene_beast_bml_resource, u32, 0x430);
     F(arg0, s16, 0xB8) = 0;
     set_animation__10TObjPlayerFPvs(arg0, F(arg0, s16, 0xB8));
     set_field_b8__14TObjEnePanarmsFPvs(arg0, F(arg0, s16, 0xB8));
     init_collision_body_parts(arg0, &((Rec2C_800927DC *)lbl_8048F430)[F(arg0, s32, 0x334)], 1);
-    bind_enemy_combat_stats(arg0, ((u32 *)lbl_805D4F38)[F(arg0, s32, 0x334)],
-                            ((u32 *)lbl_805D4F3C)[F(arg0, s32, 0x334)],
-                            ((u32 *)lbl_805D4F40)[F(arg0, s32, 0x334)]);
+    bind_enemy_combat_stats(arg0, ((u32 *)ene_beast_boss_id_buffer)[F(arg0, s32, 0x334)],
+                            ((u32 *)TObjEneBeast__boss4_rock_handler_ids)[F(arg0, s32, 0x334)],
+                            ((u32 *)boss4_rock_pool)[F(arg0, s32, 0x334)]);
     F(arg0, void *, 0x350) = &((Rec1C_800927DC *)lbl_8048F3DC)[F(arg0, s32, 0x334)];
     F(arg0, s16, 0x33E) = F(arg0, s16, 0x32C);
     update_prev_position__10TObjPlayerFPv(arg0);
@@ -499,10 +499,10 @@ void *TObjEneBeast__ct(void *arg0v, void *arg1, void *arg2) {
     F(arg0, f32, 0x380) = lbl_805D96D8;
     F(arg0, void *, 0x3A8) = create__12TObjEneSaverFPvPv((void *)0xA0303030, (void *)0xFF303030);
     F(arg0, void *, 0x3AC) = create__12TObjEneSaverFPvPv((void *)0xA0303030, (void *)0xFF303030);
-    F(arg0, f32, 0x398) = ((f32 **)lbl_805D4F44)[F(arg0, s32, 0x334)][0];
-    F(arg0, f32, 0x3A0) = ((f32 **)lbl_805D4F44)[F(arg0, s32, 0x334)][1];
-    F(arg0, f32, 0x39C) = ((f32 **)lbl_805D4F44)[F(arg0, s32, 0x334)][2];
-    F(arg0, f32, 0x3A4) = ((f32 **)lbl_805D4F44)[F(arg0, s32, 0x334)][3];
+    F(arg0, f32, 0x398) = ((f32 **)boss4_rock_shared_handler_ids)[F(arg0, s32, 0x334)][0];
+    F(arg0, f32, 0x3A0) = ((f32 **)boss4_rock_shared_handler_ids)[F(arg0, s32, 0x334)][1];
+    F(arg0, f32, 0x39C) = ((f32 **)boss4_rock_shared_handler_ids)[F(arg0, s32, 0x334)][2];
+    F(arg0, f32, 0x3A4) = ((f32 **)boss4_rock_shared_handler_ids)[F(arg0, s32, 0x334)][3];
     F(arg0, s32, 0x390) = 1;
     for (i = 0; i < 4; i++) {
         activate_and_dispatch__10TObjPlayerFPv(&((Obj_800927DC *)arg0)->arr[i]);

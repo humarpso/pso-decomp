@@ -165,7 +165,7 @@ typedef char RecoveredGlobal_8033F93C_lbl_8050E3B8_size[sizeof(RecoveredGlobal_8
 #define lbl_804EFAC0 (*(Box_8033F3D8 *)lbl_804EFAC0)
 #define lbl_804EFAE0 ((Vec2_8033F3D8 *)lbl_804EFAE0)
 #define lbl_804EFAF8 ((Vec2_8033F3D8 *)lbl_804EFAF8)
-#define OFF_8033F3D8 (lbl_804783E0[TAdPlyStatusGC__data_805D6DB0])
+#define OFF_8033F3D8 (ply_status_window_offset_table[TAdPlyStatusGC__data_805D6DB0])
 #pragma push
 #pragma inline_depth(1)
 #pragma auto_inline off
@@ -193,7 +193,7 @@ void draw_textured_quad_at_depth(Box_8033F3D8 *, f32);
 void set_draw_texture_and_color(s32, s32);
 extern const f32 lbl_805DFAE0;
 extern const f32 lbl_805DFAE4;
-extern Vec2_8033F3D8 lbl_804783E0[];
+extern Vec2_8033F3D8 ply_status_window_offset_table[];
 void draw_status_window__14TAdPlyStatusGCFPvPv(void *arg0, void *arg1) {
     Item_8033F3D8 items[3];
     Box_8033F3D8 box;
@@ -236,7 +236,7 @@ void draw_status_window__14TAdPlyStatusGCFPvPv(void *arg0, void *arg1) {
     draw_window_text(&pts2[2], &items[2], -1, 0, lbl_805DFAE4);
 }
 #undef OFF_8033F3D8
-#define lbl_804783E0 (*(RecoveredGlobal_8033F9DC_lbl_804783E0 *)lbl_804783E0)
+#define ply_status_window_offset_table (*(RecoveredGlobal_8033F9DC_lbl_804783E0 *)ply_status_window_offset_table)
 #undef lbl_804EFAC0
 #undef lbl_804EFAE0
 #undef lbl_804EFAF8
@@ -356,7 +356,7 @@ void TAdPlyStatusGC__sub_8033F9DC(struct RecoveredFields_8033F9DC_arg0 *arg0) {
     TAdPlyStatusGC__data_805D6DB8 = 1;
     if ((s32) TAdPlyStatusGC__data_805D6DB0 < 3) {
         if ((u32) arg0->field_6C == 0) {
-            arg0->field_6C = TAdPlyStatusGC__sub_8033F8B0((void *)(arg0), (void *)((s32) ((u8 *)(&lbl_804783E0.value) + (TAdPlyStatusGC__data_805D6DB0 * 8))));
+            arg0->field_6C = TAdPlyStatusGC__sub_8033F8B0((void *)(arg0), (void *)((s32) ((u8 *)(&ply_status_window_offset_table.value) + (TAdPlyStatusGC__data_805D6DB0 * 8))));
         }
         temp_r3 = ((s32)get_player_index__14TAdPlyStatusGCFv());
         if (temp_r3 != 0) {
@@ -454,4 +454,4 @@ TAdPlyStatusGC_8033FC14 *TAdPlyStatusGC__ct(TAdPlyStatusGC_8033FC14 *self, void 
 
 }
 #pragma pop
-#undef lbl_804783E0
+#undef ply_status_window_offset_table

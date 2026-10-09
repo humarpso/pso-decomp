@@ -101,7 +101,7 @@ extern "C" {
 u8 * load_resource_from_descriptor(void *, s32, void *, s32, s32, s32);
 int alloc__23TAdSinglePlyChrSelectGCFPv(void *);
 extern RecoveredGlobal_80289400_lbl_804D3190 lbl_804D3190;
-extern u32 TObjNpcKenkyu__data_805D64B8;
+extern u32 TObjNpcKenkyu__static_model;
 void load_shared_resource__13TObjNpcKenkyuFv(void);
 s32 TObjFish__sub_8001EDB0(int, int);
 s32 get_bml_model(int, int);
@@ -110,7 +110,7 @@ s32 setup_common__11TObjNpcBaseFv(void *);
 s32 construct_male_npc_base(void *);
 extern M2C_UNK __vt__13TObjNpcKenkyu[];
 extern s32 lbl_805D3B04;
-extern u32 TObjNpcKenkyu__data_805D64B8;
+extern u32 TObjNpcKenkyu__static_model;
 u8 *TObjNpcKenkyu__ct(u8 *arg0, M2C_UNK arg1, s32 arg2);
 }
 
@@ -126,12 +126,12 @@ void __dl__7TObjectFPv(void *);
 void *__nw__7TObjectFUl(int);
 void destroy_npc_lappy_base__12TObjNpcLappyFPvs(void *, int);
 
-extern u32 TObjNpcKenkyu__data_805D64B8;
+extern u32 TObjNpcKenkyu__static_model;
 
 void free_static_model__13TObjNpcKenkyuFv(void) {
-    if ((u32) TObjNpcKenkyu__data_805D64B8 != 0U) {
-        TLobby__sub_8001FE7C((void*)TObjNpcKenkyu__data_805D64B8, 1);
-        TObjNpcKenkyu__data_805D64B8 = 0U;
+    if ((u32) TObjNpcKenkyu__static_model != 0U) {
+        TLobby__sub_8001FE7C((void*)TObjNpcKenkyu__static_model, 1);
+        TObjNpcKenkyu__static_model = 0U;
     }
 }
 
@@ -145,7 +145,7 @@ void load_shared_resource__13TObjNpcKenkyuFv(void) {
     if (var_r0 != 0) {
         var_r0 = (long) (load_resource_from_descriptor((void *) temp_r3, 1, &lbl_804D3190.value, 0, 0, 0));
     }
-    (*(s32 *)&TObjNpcKenkyu__data_805D64B8) = var_r0;
+    (*(s32 *)&TObjNpcKenkyu__static_model) = var_r0;
 }
 
 void *__dt__13TObjNpcKenkyuFv(void *arg0, s16 arg1) {
@@ -168,8 +168,8 @@ u8 *TObjNpcKenkyu__ct(u8 *arg0, M2C_UNK arg1, s32 arg2) {
     M2C_FIELD(arg0, s32 *, 0) = (s32) lbl_805D3B04;
     ((VObj_18_aa4667 *)(arg0))->m79(arg2);
     init_position_vectors__10TObjPlayerFi((void *) (arg0));
-    M2C_FIELD(arg0, s32 *, 0x34) = get_bml_model((int) ((*(s32 *)&TObjNpcKenkyu__data_805D64B8)), (int) (0));
-    M2C_FIELD(arg0, s32 *, 0x24) = TObjFish__sub_8001EDB0((int) ((*(s32 *)&TObjNpcKenkyu__data_805D64B8)), (int) (0));
+    M2C_FIELD(arg0, s32 *, 0x34) = get_bml_model((int) ((*(s32 *)&TObjNpcKenkyu__static_model)), (int) (0));
+    M2C_FIELD(arg0, s32 *, 0x24) = TObjFish__sub_8001EDB0((int) ((*(s32 *)&TObjNpcKenkyu__static_model)), (int) (0));
     setup_common__11TObjNpcBaseFv((void *) (arg0));
     return arg0;
 }

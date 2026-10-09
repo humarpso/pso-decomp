@@ -21,7 +21,7 @@ M2C_UNK fn_800F8A0C();
 M2C_UNK copy_name(M2C_UNK *);
 s32 strncmp(M2C_UNK, s32, M2C_UNK);
 M2C_UNK TLobby__sub_803DA16C(u32);
-extern s32 TScene__data_805D3610;
+extern s32 TScene__current_floor_name;
 extern s32 *lbl_805D4E68;
 extern void *TScene__data_805D5FCC;
 extern u32 TScene__data_805D5FFC;
@@ -66,7 +66,7 @@ s32 is_not_split_screen__13TRaderMapCoreFv();
 M2C_UNK TLobby__sub_803DA16C(u32);
 extern M2C_UNK lbl_8044A97C[];
 extern M2C_UNK lbl_8044A984[];
-extern s32 TScene__data_805D3610;
+extern s32 TScene__current_floor_name;
 extern s32 lbl_805D5FC0;
 extern s32 lbl_805D5FC8;
 extern void *TScene__data_805D5FCC;
@@ -91,7 +91,7 @@ void bind_gvm_texture_list(M2C_UNK *, u32);
 s32 is_not_split_screen__13TRaderMapCoreFv();
 extern M2C_UNK lbl_8044A97C[];
 extern M2C_UNK lbl_8044A984[];
-extern s32 TScene__data_805D3610;
+extern s32 TScene__current_floor_name;
 extern s32 lbl_805D5FC0;
 extern s32 lbl_805D5FC8;
 extern void *TScene__data_805D5FCC;
@@ -344,7 +344,7 @@ void load_floor_scene(void) {
         lbl_805D5FC8 = res.index;
         ent = tbl[res.index].idx;
     }
-    copy_name((M2C_UNK *)TScene__data_805D3610);
+    copy_name((M2C_UNK *)TScene__current_floor_name);
     load_scene_map_file(ent);
     load_scene_collision_file((s32)(ent));
     if (TScene__data_805D5FCC != NULL && M2C_FIELD(TScene__data_805D5FCC, u32 *, 0x14) != 0) {
@@ -415,7 +415,7 @@ void free_scene_resources__6TSceneFv(void) {
     }
     (*(s32 *)&lbl_805D4E68) = 0;
     TScene__data_805D5FCC = NULL;
-    if (strncmp(fn_800F8A0C(), TScene__data_805D3610, 0x10) == 0) {
+    if (strncmp(fn_800F8A0C(), TScene__current_floor_name, 0x10) == 0) {
         copy_name(&lbl_805DC604);
     }
 }
@@ -650,7 +650,7 @@ void load_current_floor__6TSceneFv(void) {
         lbl_805D5FC8 = res.index;
         ent = tbl[res.index].idx;
     }
-    copy_name((M2C_UNK *)TScene__data_805D3610);
+    copy_name((M2C_UNK *)TScene__current_floor_name);
     load_scene_rel_file__6TSceneFi((s32)(ent));
     if (TScene__data_805D5FCC != NULL && M2C_FIELD(TScene__data_805D5FCC, u32 *, 0x14) != 0) {
         found = 0;

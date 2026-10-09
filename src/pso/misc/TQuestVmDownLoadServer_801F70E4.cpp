@@ -271,7 +271,7 @@ u32 create__13TAdMcSelectGCFPv(s32);
 s32 get_localized_text_entry(M2C_UNK, M2C_UNK);
 M2C_UNK show_status_message__22TQuestVmDownLoadServerFPvii(void *, s32, M2C_UNK);
 extern RecoveredGlobal_801F7CC0_lbl_8050E208 lbl_8050E208;
-extern u32 lbl_805D55D4;
+extern u32 lobby_player_construction_window;
 extern s32 tl_03;
 void update_mc_select__22TQuestVmDownLoadServerFPv(u8 *arg0);
 s32 TQuestVmDownLoadServer__sub_8006EF6C(M2C_UNK);
@@ -621,7 +621,7 @@ block_12:
     }
 }
 
-extern u32 lbl_805D55D4;
+extern u32 lobby_player_construction_window;
 extern s32 tl_03;
 
 typedef char RecoveredGlobal_801F7CC0_lbl_8050E208_size[sizeof(RecoveredGlobal_801F7CC0_lbl_8050E208) == 0x1B0 ? 1 : -1];
@@ -698,7 +698,7 @@ void handle_confirm_input__22TQuestVmDownLoadServerFPv(u8 *arg0) {
 void open__22TQuestVmDownLoadServerFPv(void *arg0) {
     if ((u32) M2C_FIELD(arg0, u32 *, 0x29C) == 0U) {
         reset_counter__6TSceneFv();
-        u32 temp_r3 = lbl_805D55D4;
+        u32 temp_r3 = lobby_player_construction_window;
         if (temp_r3 != 0U) {
             disallow_rendering__7TObjectFv(temp_r3);
         }
@@ -713,8 +713,8 @@ void update_mc_select__22TQuestVmDownLoadServerFPv(u8 *arg0) {
     if (((u32) M2C_FIELD(arg0, u32 *, 0x294) == 0U) || (poll_field_20c__22TQuestVmDownLoadServerFPv(arg0 + 0x1C) != 0)) {
         if ((void *) M2C_FIELD(arg0, u8 **, 0x29C) == NULL) {
             reset_counter__6TSceneFv();
-            if (lbl_805D55D4 != 0) {
-                disallow_rendering__7TObjectFv(lbl_805D55D4);
+            if (lobby_player_construction_window != 0) {
+                disallow_rendering__7TObjectFv(lobby_player_construction_window);
             }
             M2C_FIELD(arg0, u32 *, 0x29C) = create__13TAdMcSelectGCFPv(tl_03);
         }

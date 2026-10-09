@@ -83,10 +83,10 @@ s32 set_time__12TWindowTimerFPvUi(int, void *);
 extern void *TWindowCtrl__data_805D63F8;
 void set_timer_window_time__11TWindowCtrlFi(s32 arg0);
 s32 TWindowCtrl__sub_8024B098(void *, void *);
-extern RecoveredGlobal_8024A228_lbl_804CEA88 lbl_804CEA88;
+extern RecoveredGlobal_8024A228_lbl_804CEA88 window_ctrl_main_callback_desc;
 void TWindowCtrl__sub_8024A228(s32 arg0);
 s32 call_window_method__11TWindowCtrlFPvi(void *, void *);
-extern RecoveredGlobal_8024A1CC_lbl_804CEA94 lbl_804CEA94;
+extern RecoveredGlobal_8024A1CC_lbl_804CEA94 window_ctrl_default_call_args;
 void call_window_method_with_default_vec__11TWindowCtrlFi(s32 arg0);
 extern void *TWindowCtrl__data_805D63F8;
 bool TWindowCtrl__sub_8024A1A8(void);
@@ -166,9 +166,9 @@ void call_window_method_with_default_vec__11TWindowCtrlFi(s32 arg0) {
     typedef char spC_offset[(offsetof(Stack_8024A1CC, spC) == 0x4) ? 1 : -1];
     typedef char sp10_offset[(offsetof(Stack_8024A1CC, sp10) == 0x8) ? 1 : -1];
     Stack_8024A1CC stack;
-    stack.sp8 = M2C_FIELD(&lbl_804CEA94.value, s32 *, 0);
-    stack.spC = M2C_FIELD(&lbl_804CEA94.value, s32 *, 4);
-    stack.sp10 = M2C_FIELD(&lbl_804CEA94.value, s32 *, 8);
+    stack.sp8 = M2C_FIELD(&window_ctrl_default_call_args.value, s32 *, 0);
+    stack.spC = M2C_FIELD(&window_ctrl_default_call_args.value, s32 *, 4);
+    stack.sp10 = M2C_FIELD(&window_ctrl_default_call_args.value, s32 *, 8);
     call_window_method__11TWindowCtrlFPvi((void *) (arg0), (void *) (&stack.sp8));
 }
 
@@ -186,9 +186,9 @@ void TWindowCtrl__sub_8024A228(s32 arg0) {
     typedef char spC_offset[(offsetof(Stack_8024A228, spC) == 0x4) ? 1 : -1];
     typedef char sp10_offset[(offsetof(Stack_8024A228, sp10) == 0x8) ? 1 : -1];
     Stack_8024A228 stack;
-    stack.sp8 = M2C_FIELD(&lbl_804CEA88.value, s32 *, 0);
-    stack.spC = M2C_FIELD(&lbl_804CEA88.value, s32 *, 4);
-    stack.sp10 = M2C_FIELD(&lbl_804CEA88.value, s32 *, 8);
+    stack.sp8 = M2C_FIELD(&window_ctrl_main_callback_desc.value, s32 *, 0);
+    stack.spC = M2C_FIELD(&window_ctrl_main_callback_desc.value, s32 *, 4);
+    stack.sp10 = M2C_FIELD(&window_ctrl_main_callback_desc.value, s32 *, 8);
     TWindowCtrl__sub_8024B098((void *) (arg0), (void *) (&stack.sp8));
 }
 

@@ -98,7 +98,7 @@ void dispatch_packet__6TLobbyFPv(void *arg0) {
     }
 }
 
-extern s32 TLobby__data_805D5598;
+extern s32 TLobby__join_state_flag;
 extern void *game_protocol_instance;
 extern s32 lbl_805D5E50;
 
@@ -147,7 +147,7 @@ void TLobby__send_and_handle_60(u8 *arg0) {
 void update_players__6TLobbyFi(s32 arg0) {
     void *var_r31;
 
-    if ((s32) TLobby__data_805D5598 == 1) {
+    if ((s32) TLobby__join_state_flag == 1) {
         TLobby__send_and_handle_60((u8 *)(arg0));
         return;
     }

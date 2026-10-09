@@ -15,7 +15,7 @@ struct VB_800E7A98 { u8 pad[0xC]; };
 struct VO_800E7A98 : VB_800E7A98 { virtual ~VO_800E7A98(); };
 
 extern "C" {
-extern RecoveredGlobal_8031B170_lbl_804E8880 lbl_80495C6C;
+extern RecoveredGlobal_8031B170_lbl_804E8880 shinowa_mirage_motion_param_table;
 extern const f32 TObjEneMe3ShinowaMirage__data_805DA5C4;
 void set_slot_min_clamped_value__23TObjEneMe3ShinowaMirageFif(s32 arg0, f32 farg0);
 M2C_UNK TLobby__sub_8001FE7C(void *, s32);
@@ -45,7 +45,7 @@ void set_slot_min_clamped_value__23TObjEneMe3ShinowaMirageFif(s32 arg0, f32 farg
   {
     var_f1 = TObjEneMe3ShinowaMirage__data_805DA5C4;
   }
-  new_var = (u8 *) (&lbl_80495C6C.value);
+  new_var = (u8 *) (&shinowa_mirage_motion_param_table.value);
   new_var = new_var + (arg0 * 0x10);
   *((f32 *) (((s8 *) new_var) + 8)) = var_f1;
 }

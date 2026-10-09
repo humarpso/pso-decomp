@@ -247,7 +247,7 @@ int post_translate_matrix(void *);
 void *set_global_param__8TObjFishFi(void *);
 int draw_ginja_object(void *);
 M2C_UNK draw_ginja_model_with_motion(void *, int, f32);
-extern Ids_8029B428 lbl_80465400;
+extern Ids_8029B428 door_jungle_main_ids;
 extern u32 TODoorJungleMain__data_805D65B8;
 extern u32 lbl_805D65BC;
 void render__16TODoorJungleMainFv(Door_8029B428 *self);
@@ -351,7 +351,7 @@ void load_resources__16TODoorJungleMainFv(void) {
 }
 
 void render__16TODoorJungleMainFv(Door_8029B428 *self) {
-    Ids_8029B428 ids = lbl_80465400;
+    Ids_8029B428 ids = door_jungle_main_ids;
     s32 i;
     if (self->m8(self->fc0, self->fc4) == 1) {
         push_matrix(set_global_param__8TObjFishFi((void *)lbl_805D65BC));

@@ -253,11 +253,11 @@ Obj_8031FE14 * fn_8031FE14(Obj_8031FE14 *arg0, s16 arg1);
 void __destroy_arr(void *, void *, int, int);
 void __construct_array(void *, void *, void *, int, int);
 
-extern u8 *TObjEneRecobox__data_805D6B20;
+extern u8 *TObjEneRecobox__static_instance;
 extern s32 lbl_805D4138;
-extern s32 lbl_805D6B10;
+extern s32 recobox_boss_register_id;
 extern s32 lbl_805D6B14;
-extern s32 lbl_805D6B18;
+extern s32 TObjEneRecobox__shared_object_handle;
 extern const f32 lbl_805DF464;
 extern const f32 lbl_805DF468;
 extern const f32 lbl_805DF46C;
@@ -530,17 +530,17 @@ u8 *TObjEneRecobox__ct(u8 *arg0, s32 arg1, u8 *arg2) {
     M2C_FIELD(arg0, s32 *, 0) = lbl_805D4138;
     invoke_initialization_hook__9TObjEneDDFPv(arg0, arg2);
     init_position_vectors__9TObjEneDDFPv(arg0);
-    M2C_FIELD(arg0, s32 *, 0x34) = M2C_FIELD(M2C_FIELD(TObjEneRecobox__data_805D6B20, u8 **, 0x42C), s32 *, 0x18);
-    M2C_FIELD(arg0, s32 *, 0x24) = M2C_FIELD(M2C_FIELD(TObjEneRecobox__data_805D6B20, u8 **, 0x42C), s32 *, 0x1C);
+    M2C_FIELD(arg0, s32 *, 0x34) = M2C_FIELD(M2C_FIELD(TObjEneRecobox__static_instance, u8 **, 0x42C), s32 *, 0x18);
+    M2C_FIELD(arg0, s32 *, 0x24) = M2C_FIELD(M2C_FIELD(TObjEneRecobox__static_instance, u8 **, 0x42C), s32 *, 0x1C);
     init_model__9TObjEneDDFPv(arg0, lbl_804EC684, 1);
     M2C_FIELD(arg0, f32 *, 0x300) = lbl_805DF464 + M2C_FIELD(arg0, f32 *, 0x3C);
     ((VObj_18_b2458f *)arg0)->m86();
     set_field_d8__10TObjPlayerFPvi(arg0, lbl_804EC760);
-    set_field_dc__10TObjPlayerFPvi(arg0, M2C_FIELD(TObjEneRecobox__data_805D6B20, s32 *, 0x430));
+    set_field_dc__10TObjPlayerFPvi(arg0, M2C_FIELD(TObjEneRecobox__static_instance, s32 *, 0x430));
     M2C_FIELD(arg0, s16 *, 0xB8) = 0;
     set_animation__10TObjPlayerFPvs(arg0, M2C_FIELD(arg0, s16 *, 0xB8));
     set_field_b8__14TObjEnePanarmsFPvs(arg0, M2C_FIELD(arg0, s16 *, 0xB8));
-    reset_hp__9TObjEneDDFPv(arg0, lbl_805D6B10, lbl_805D6B14, lbl_805D6B18);
+    reset_hp__9TObjEneDDFPv(arg0, recobox_boss_register_id, lbl_805D6B14, TObjEneRecobox__shared_object_handle);
     check_state_flag_4__9TObjEneDDFPv(arg0);
     M2C_FIELD(arg0, u8 **, 0x350) = lbl_804EC668;
     initialize_enemy_state__9TObjEneDDFPv(arg0, 0x43);
@@ -588,7 +588,7 @@ u8 *TObjEneRecobox__ct(u8 *arg0, s32 arg1, u8 *arg2) {
 
 }
 
-#define TObjEneRecobox__data_805D6B20 (*(int *)&TObjEneRecobox__data_805D6B20)
+#define TObjEneRecobox__static_instance (*(int *)&TObjEneRecobox__static_instance)
 
 extern "C" {
 s32 get_global_state__14TOKeyMachine01Fv();
@@ -619,13 +619,13 @@ u32 remap_area_sound_id__14TObjEneRecoboxFUi(u32 arg0) {
     return ret;
 }
 
-int TObjEneRecobox__sub_803201D0(void) {  return TObjEneRecobox__data_805D6B20; }
+int TObjEneRecobox__sub_803201D0(void) {  return TObjEneRecobox__static_instance; }
 
 }
 
-#undef TObjEneRecobox__data_805D6B20
+#undef TObjEneRecobox__static_instance
 
-#define TObjEneRecobox__data_805D6B20 (*(u32 *)&TObjEneRecobox__data_805D6B20)
+#define TObjEneRecobox__static_instance (*(u32 *)&TObjEneRecobox__static_instance)
 #define TObjEneRecobox__ct ((void *(*)(void *, void *, void *))TObjEneRecobox__ct)
 
 extern "C" {
@@ -638,9 +638,9 @@ M2C_UNK release_static_instance__12TObjEneReconFv();
 
 void release_static_instance__14TObjEneRecoboxFv(void) {
     release_static_instance__12TObjEneReconFv();
-    if ((u32) TObjEneRecobox__data_805D6B20 != 0U) {
-        TLobby__sub_8001FE7C((void*)TObjEneRecobox__data_805D6B20, 1);
-        TObjEneRecobox__data_805D6B20 = 0U;
+    if ((u32) TObjEneRecobox__static_instance != 0U) {
+        TLobby__sub_8001FE7C((void*)TObjEneRecobox__static_instance, 1);
+        TObjEneRecobox__static_instance = 0U;
     }
 }
 
@@ -694,9 +694,9 @@ extern "C" u8 lbl_804762AC[];
 #undef lbl_804EC684
 #define lbl_804EC684 (*(Sub_80320260 *)lbl_804EC684)
 extern V3_80320260 lbl_80543000;
-extern s32 lbl_805D6B10;
+extern s32 recobox_boss_register_id;
 extern s32 lbl_805D6B14;
-extern s32 lbl_805D6B18;
+extern s32 TObjEneRecobox__shared_object_handle;
 extern s32 lbl_805D6B1C;
 extern const f32 lbl_805DF46C;
 
@@ -716,17 +716,17 @@ void load_resources__14TObjEneRecoboxFv(void) {
         } else {
             res = load_enemy_bml_resource(lbl_804EC6F8);
         }
-        TObjEneRecobox__data_805D6B20 = res;
+        TObjEneRecobox__static_instance = res;
     }
-    lbl_805D6B10 = register_boss__6TLobbyFPv(0x41);
+    recobox_boss_register_id = register_boss__6TLobbyFPv(0x41);
     lbl_805D6B14 = dispatch_shared_handler_b__6TLobbyFPv(0x41);
-    lbl_805D6B18 = register_object__6TLobbyFPv(0x41);
+    TObjEneRecobox__shared_object_handle = register_object__6TLobbyFPv(0x41);
     lbl_805D6B1C = dispatch_shared_handler_a__6TLobbyFPv(0x41);
     load_resources__12TObjEneReconFv();
     {
         Sub_80320260 *sp = &lbl_804EC684;
         Spawn_80320260 s = lbl_804762D4;
-        box = (Box_80320260 *)TObjEneRecobox__data_805D6B20;
+        box = (Box_80320260 *)TObjEneRecobox__static_instance;
         s.a = box->f430;
         spawn_npc_enemy__6TLobbyFsiiiff(0xD, box->f42C->f18, box->f42C->f1C, &s, getf_80320260(sp), lbl_805DF46C);
     }

@@ -34,7 +34,7 @@ M2C_UNK get_current_child_index__9TWindowDDFPv();
 M2C_UNK reset_index__9TWindowDDFPv(void *);
 M2C_UNK set_field14__9TWindowDDFPvi(void *, int);
 s32 TWindowDD__sub_80348D88(void *);
-extern void *lbl_80478618[];
+extern void *window_dd_limit_value_table[];
 u8 TWindowDD__sub_80342F84(u8 *arg0);
 s32 TWindowDD__sub_80342158(s32);
 M2C_UNK TWindowDD__sub_803435A0(void *);
@@ -109,7 +109,7 @@ u8 TWindowDD__sub_80342F84(u8 *arg0) {
         get_current_child_index__9TWindowDDFPv();
         temp_r3 = classify_id__9TWindowDDFs();
         if (temp_r3 != 7) {
-            TWindowDD__sub_80343108((void *) (arg0), (int) (0), lbl_80478618[temp_r3], (void *) (TWindowDD__sub_80348D88((void *) (arg0 + 0xC4))));
+            TWindowDD__sub_80343108((void *) (arg0), (int) (0), window_dd_limit_value_table[temp_r3], (void *) (TWindowDD__sub_80348D88((void *) (arg0 + 0xC4))));
             return 0U;
         }
         return 1U;

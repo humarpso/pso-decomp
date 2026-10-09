@@ -83,7 +83,7 @@ M2C_UNK push_matrix();
 M2C_UNK pop_matrix();
 extern Vec_8029EFFC lbl_80465E08;
 extern u8 main_task[];
-extern s32 TSceneSora__data_805D3620;
+extern s32 TSceneSora__sky_active_flag;
 extern u32 lbl_805D4DF0;
 extern s32 lbl_805D53A0;
 extern u32 TSceneSora__data_805D6050;
@@ -166,7 +166,7 @@ void render_reflections__10TSceneSoraFPv(Sora_8029EFFC *o) {
     TScene__sub_8029F5EC();
     TScene__sub_8029F5E4(lbl_805DDDAC);
     if (TSceneSora__data_805D6050 != 0) {
-        TSceneSora__data_805D3620 = 0;
+        TSceneSora__sky_active_flag = 0;
     }
     copy_reflection_vec__10TSceneSoraFPv(&v);
     lbl_805D65F8 = 1;
@@ -266,7 +266,7 @@ void render_reflections__10TSceneSoraFPv(Sora_8029EFFC *o) {
     TScene__sub_8029F5D8();
     TScene__sub_8029F5E4(lbl_805DDD8C);
     if (TSceneSora__data_805D6050 != 0) {
-        TSceneSora__data_805D3620 = 1;
+        TSceneSora__sky_active_flag = 1;
     }
     copy_efb_to_texture__10TObjPlayerFPv(o->f1C);
     set_scene_flag__10TSceneSoraFi(o->f1C + 0x1C);

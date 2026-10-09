@@ -134,14 +134,14 @@ M2C_UNK TUdpSocket__sub_803F9EE4(void *, int, int);
 void TUdpSocket__sub_80419E64(int, int, void (*)(void));
 s32 TLobby__sub_8042AAA0(void *);
 extern u8 lbl_805CF240[0xA0];
-extern u8 lbl_805CF2E0[0xA0];
+extern u8 TLobby__pppoe_message_queue[0xA0];
 extern u8 lbl_805CF380[0x48];
-extern u8 lbl_805CF3C8[0x858];
-RecoveredGlobal_80427D0C_lbl_805CFC20 lbl_805CFC20;
-extern RecoveredGlobal_80428374_lbl_805D0A40 lbl_805D0A40;
+extern u8 lobby_net_channel_table[0x858];
+RecoveredGlobal_80427D0C_lbl_805CFC20 lobby_pppoe_slot_table;
+extern RecoveredGlobal_80428374_lbl_805D0A40 lobby_net_session_state;
 extern u8 lbl_805D0AA0[0x80];
-extern u8 lbl_805D0B20[0x600];
-extern u8 lbl_805D1120[0xC00];
+extern u8 exi_dma_buffer[0x600];
+extern u8 exi_dma_write_buffer[0xC00];
 extern s32 lobby_message_thread_handle;
 extern u32 lbl_805D7BC4;
 void TLobby__sub_803F95E4(u32);
@@ -235,7 +235,7 @@ void TLobby__sub_80425D88(u8 v);
 void TLobby__sub_80426190(Obj_80426110 *);
 s16 TLobby__sub_80426110(Obj_80426110 *o, u16 arg1, u16 arg2);
 s32 OSReceiveMessage(void *, void *, int);
-extern u8 lbl_805CF2E0[];
+extern u8 TLobby__pppoe_message_queue[];
 u16 recv_pppoe_message__6TLobbyFPvPv(s32 *arg0, u16 *arg1);
 s32 TLobby__sub_803F9F04(void *, void *, int);
 typedef struct Ent_804267F0 {
@@ -602,7 +602,7 @@ Ent_80427C6C *TLobby__sub_80427C6C(s32 arg0, u16 arg1) {
     i = 0;
     ret = NULL;
     while (i < 1) {
-        ret = &((Ent_80427C6C *)&lbl_805CFC20)[i];
+        ret = &((Ent_80427C6C *)&lobby_pppoe_slot_table)[i];
         if (id == ret->id) {
             break;
         }
@@ -618,10 +618,10 @@ s16 get_slot_id__6TLobbyFs(s16 arg0) {
     if ((arg0 < 0) || (arg0 >= 1)) {
         return -1;
     }
-    return M2C_FIELD(((u8 *)(&lbl_805CFC20.value) + (arg0 * 0xE14)), s16 *, 0);
+    return M2C_FIELD(((u8 *)(&lobby_pppoe_slot_table.value) + (arg0 * 0xE14)), s16 *, 0);
 }
 
-#define TBL_80427D40 ((Ent_80427D40 *)&lbl_805CFC20)
+#define TBL_80427D40 ((Ent_80427D40 *)&lobby_pppoe_slot_table)
 #pragma push
 #pragma dont_inline off
 #pragma inline_depth(4)
@@ -706,7 +706,7 @@ typedef char RecoveredGlobal_80428374_lbl_805D0A40_size[sizeof(RecoveredGlobal_8
 
 typedef char RecoveredGlobal_80428360_lbl_805CFC20_size[sizeof(RecoveredGlobal_80428360_lbl_805CFC20) == 0xE20 ? 1 : -1];
 s32 TLobby__sub_80428360(void) {
-    (*(RecoveredGlobal_80428360_lbl_805CFC20 *)&lbl_805CFC20).value = -1;
+    (*(RecoveredGlobal_80428360_lbl_805CFC20 *)&lobby_pppoe_slot_table).value = -1;
     return 0;
 }
 

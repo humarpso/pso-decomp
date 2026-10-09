@@ -6,33 +6,33 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 
 extern "C" {
 u8 * get_bml_motion(void *, int);
-extern u8 *lbl_805D64C8;
+extern u8 *green_door_bml_resource;
 u8 *fn_8028A714(s32 arg0);
 u8 * TObjFish__sub_8001EDB0(void *, int);
-extern u8 *lbl_805D64C8;
+extern u8 *green_door_bml_resource;
 u8 *fn_8028A750(s32 arg0);
 u8 * get_bml_model(void *, int);
-extern u8 *lbl_805D64C8;
+extern u8 *green_door_bml_resource;
 u8 *fn_8028A78C(s32 arg0);
 }
 
 extern "C" {
 
 u8 *fn_8028A714(s32 arg0) {
-    if ((void *) lbl_805D64C8 != NULL) {
-        return get_bml_motion(lbl_805D64C8, arg0);
+    if ((void *) green_door_bml_resource != NULL) {
+        return get_bml_motion(green_door_bml_resource, arg0);
     }
     return NULL;
 }
 u8 *fn_8028A750(s32 arg0) {
-    if ((void *) lbl_805D64C8 != NULL) {
-        return TObjFish__sub_8001EDB0(lbl_805D64C8, arg0);
+    if ((void *) green_door_bml_resource != NULL) {
+        return TObjFish__sub_8001EDB0(green_door_bml_resource, arg0);
     }
     return NULL;
 }
 u8 *fn_8028A78C(s32 arg0) {
-    if ((void *) lbl_805D64C8 != NULL) {
-        return get_bml_model(lbl_805D64C8, arg0);
+    if ((void *) green_door_bml_resource != NULL) {
+        return get_bml_model(green_door_bml_resource, arg0);
     }
     return NULL;
 }

@@ -45,7 +45,7 @@ f32 clamp_velocity__15TObjBoss2TunnelFPv(void *);
 u8 *find_entity_by_id(void);
 s32 TBoss8Dragon__sub_802F4760(void *, void *, f32);
 void subtract_vector(void *, void *);
-extern s32 lbl_80474AF4[];
+extern s32 boss8_dragon_point_index_table[];
 extern u8 lbl_80541E30[];
 extern u8 lbl_80541E3C[];
 extern u8 *lbl_805D4DF0;
@@ -124,7 +124,7 @@ s32 TBoss8Dragon__sub_802F3F20(u8 *arg0) {
     VecCopy__FP3VecPC3Vec(lbl_80541E3C, &sp8);
     lbl_805D69B0 = temp_f31;
     for (i = 0; i < 4; i++) {
-        if (TBoss8Dragon__sub_802F4760(arg0, &((Obj_802F3F20 *)arg0)->pts[lbl_80474AF4[i]], TBoss8Dragon__data_805DED64) != 0) {
+        if (TBoss8Dragon__sub_802F4760(arg0, &((Obj_802F3F20 *)arg0)->pts[boss8_dragon_point_index_table[i]], TBoss8Dragon__data_805DED64) != 0) {
             return 1;
         }
     }

@@ -55,7 +55,7 @@ void init_window_layout_entries(void *, const void *, s16);
 s32 reset_float_field__15TWindowHelpItemFPv(void *);
 s32 set_text_entry_string(void *, void *, s32);
 void init_text__15TWindowHelpItemFPvPv(u8 *arg0, void *arg1);
-extern u8 lbl_804CF5AC[];
+extern u8 window_help_item_layout_entries[];
 extern V3_802534B0 lbl_804CF88C;
 s32 get_shared_text_buffer();
 u8 calc_display_grade__9TItemDataFPv(void *);
@@ -79,7 +79,7 @@ void init_window_layout_entries(void *, const void *, s16);
 s32 reset_float_field__15TWindowHelpItemFPv(void *);
 s32 set_text_entry_string(void *, void *, s32);
 void set_sprite_uv_from_pixels(void *, f32, f32);
-extern u8 lbl_804CF5DC[];
+extern u8 help_item_tech_disk_window_layout_table[];
 extern V3_802532E8 lbl_804CF898;
 extern s32 lbl_805D5544;
 extern const f32 TWindowHelpItem__data_805DCDE4;
@@ -141,7 +141,7 @@ void update_tech_disk_details__15TWindowHelpItemFPv(u8 *arg0) {
     u8 *e6;
     temp_r3 = get_player_by_client_id(*(s16 *)(arg0 + 0x20));
     if (temp_r3 != 0) {
-        init_window_layout_entries(arg0 + 0x24, lbl_804CF5DC, *(s16 *)(arg0 + 0x20));
+        init_window_layout_entries(arg0 + 0x24, help_item_tech_disk_window_layout_table, *(s16 *)(arg0 + 0x20));
         *(V3_802532E8 *)(arg0 + 0xB0) = lbl_804CF898;
         e0 = get_array_entry__20TWindowSubStatusDispFPvi(arg0, 0);
         text_builder_reset();
@@ -180,7 +180,7 @@ void update_tech_disk_details__15TWindowHelpItemFPv(u8 *arg0) {
 void TWindowHelpItem__vt2(u8 *arg0) {
     u8 *e;
     u8 *e2;
-    init_window_layout_entries(arg0 + 0x24, lbl_804CF5AC, *(s16 *)(arg0 + 0x20));
+    init_window_layout_entries(arg0 + 0x24, window_help_item_layout_entries, *(s16 *)(arg0 + 0x20));
     *(V3_802534B0 *)(arg0 + 0xB0) = lbl_804CF88C;
     e = get_array_entry__20TWindowSubStatusDispFPvi((void *)(arg0), (M2C_UNK)(0));
     format_description_with_price__15TWindowHelpItemFPv((void *)(arg0));

@@ -1612,6 +1612,7 @@ pso/unk/text_800A0EDC.cpp:
 pso/misc/TEneEffHamon.cpp:
 	.text       start:0x800A36A8 end:0x800A39A8
 	.rodata     start:0x8043A710 end:0x8043A718
+	.data       start:0x80490A00 end:0x80490A18
 
 pso/misc/TeneFakeTecThunderEff.cpp:
 	.text       start:0x800A39A8 end:0x800A4288
@@ -1973,6 +1974,7 @@ pso/player/TObjPlayer_800D7BFC.cpp:
 pso/misc/TDeadSpot.cpp:
 	.text       start:0x800D7CF4 end:0x800D87A8
 	.rodata     start:0x8043C720 end:0x8043C728
+	.data       start:0x80494A28 end:0x80494A40
 
 pso/misc/TNpcPlayer_800D87A8.cpp:
 	.text       start:0x800D87A8 end:0x800D8830
@@ -2077,6 +2079,7 @@ pso/player/TObjPlayer_800E80A4.cpp:
 pso/enemy/TObjEneSlimeTailAttack.cpp:
 	.text       start:0x800E80C0 end:0x800EB778
 	.rodata     start:0x8043D288 end:0x8043D298
+	.data       start:0x804962F8 end:0x80496868
 	.sdata2     start:0x805DA678 end:0x805DA738
 
 pso/unk/text_800EB778.cpp:

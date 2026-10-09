@@ -6,7 +6,7 @@ void open_member_name_window__22THunterGuildSeqOfflineFPv(void*);
 void update_member_proximity__22THunterGuildSeqOfflineFPv(void*);
 void TWindow__close(s32);
 void* memset(void*, int, unsigned long);
-extern const char* lbl_805D3650;
+extern const char* member_check_name_ptr;
 extern s32 lbl_805D6180;
 }
 
@@ -26,7 +26,7 @@ TMemberCheck::~TMemberCheck() {
     }
 }
 TMemberCheck::TMemberCheck(TObject* parent) : TObject(parent) {
-    m_name = lbl_805D3650;
+    m_name = member_check_name_ptr;
     m_1C = 0;
     memset(m_20, 0, 0x60);
     lbl_805D6180 = count_members__6TLobbyFv();

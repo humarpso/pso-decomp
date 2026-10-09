@@ -39,7 +39,7 @@ struct RecoveredGlobal_8024AC20_lbl_804CEA58 {
 
 extern "C" {
 s32 call_window_method__11TWindowCtrlFPvi(void *, void *);
-extern RecoveredGlobal_8024AB98_lbl_804CEA70 lbl_804CEA70;
+extern RecoveredGlobal_8024AB98_lbl_804CEA70 TWindowSubComCard__window_ctrl_callback_pmf;
 void TWindowSubComCard__sub_8024AB98(s32 arg0);
 s32 call_window_method__11TWindowCtrlFPvi(void *, void *);
 extern RecoveredGlobal_8024ABDC_lbl_804CEA64 lbl_804CEA64;
@@ -57,9 +57,9 @@ void TWindowSubComCard__sub_8024AB98(s32 arg0) {
     typedef char spC_offset[(offsetof(Stack_8024AB98, spC) == 0x4) ? 1 : -1];
     typedef char sp10_offset[(offsetof(Stack_8024AB98, sp10) == 0x8) ? 1 : -1];
     Stack_8024AB98 stack;
-    stack.sp8 = M2C_FIELD(&lbl_804CEA70.value, s32 *, 0);
-    stack.spC = M2C_FIELD(&lbl_804CEA70.value, s32 *, 4);
-    stack.sp10 = M2C_FIELD(&lbl_804CEA70.value, s32 *, 8);
+    stack.sp8 = M2C_FIELD(&TWindowSubComCard__window_ctrl_callback_pmf.value, s32 *, 0);
+    stack.spC = M2C_FIELD(&TWindowSubComCard__window_ctrl_callback_pmf.value, s32 *, 4);
+    stack.sp10 = M2C_FIELD(&TWindowSubComCard__window_ctrl_callback_pmf.value, s32 *, 8);
     call_window_method__11TWindowCtrlFPvi((void *) (arg0), (void *) (&stack.sp8));
 }
 typedef char RecoveredGlobal_8024ABDC_lbl_804CEA64_size[sizeof(RecoveredGlobal_8024ABDC_lbl_804CEA64) == 0xC ? 1 : -1];

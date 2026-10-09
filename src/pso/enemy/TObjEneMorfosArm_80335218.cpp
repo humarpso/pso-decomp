@@ -26,7 +26,7 @@ M2C_UNK set_field_b8__14TObjEnePanarmsFPvs(void *, int);
 M2C_UNK set_field_dc__10TObjPlayerFPvi(void *, int);
 M2C_UNK set_field_d8__10TObjPlayerFPvi(void *, void *, int);
 M2C_UNK set_animation__10TObjPlayerFPvs(void *, int);
-extern RecoveredGlobal_80335354_lbl_804EE3B0 lbl_804EE3B0;
+extern RecoveredGlobal_80335354_lbl_804EE3B0 morfos_arm_motion_params;
 extern M2C_UNK __vt__16TObjEneMorfosArm[];
 extern s32 lbl_805D4238;
 extern u32 lbl_805D6D38;
@@ -104,7 +104,7 @@ u8 *TObjEneMorfosArm__ct(u8 *arg0, M2C_UNK arg1, u8 *arg2) {
     M2C_FIELD(arg0, s32 *, 0x34) = (s32) M2C_FIELD(M2C_FIELD((*(u8 * *)&lbl_805D6D38), u8 **, 0x42C), s32 *, 8);
     temp_r5 = (u8 *)(M2C_FIELD((*(u8 * *)&lbl_805D6D38), u8 **, 0x42C));
     M2C_FIELD(arg0, s32 *, 0x24) = (s32) M2C_FIELD(temp_r5, s32 *, 0xC);
-    set_field_d8__10TObjPlayerFPvi((void *) (arg0), (void *) (&lbl_804EE3B0.value), (int) (temp_r5));
+    set_field_d8__10TObjPlayerFPvi((void *) (arg0), (void *) (&morfos_arm_motion_params.value), (int) (temp_r5));
     set_field_dc__10TObjPlayerFPvi((void *) (arg0), (int) (M2C_FIELD((*(u8 * *)&lbl_805D6D38), s32 *, 0x430)));
     M2C_FIELD(arg0, s16 *, 0xB8) = 0;
     set_animation__10TObjPlayerFPvs((void *) (arg0), (int) (M2C_FIELD(arg0, s16 *, 0xB8)));

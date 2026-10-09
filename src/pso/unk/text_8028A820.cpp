@@ -8,8 +8,8 @@ extern u8 lbl_80450C50[];
 extern u8 lbl_80450C6C[];
 extern u8 lbl_804D34D0[];
 extern u8 lbl_804D34F0[];
-extern void *lbl_805D64C8;
-extern void *lbl_805D64CC;
+extern void *green_door_bml_resource;
+extern void *green_door_texture_handle;
 void load_green_door_resources(void);
 }
 
@@ -17,8 +17,8 @@ extern "C" {
 
 void load_green_door_resources(void) {
     void *p;
-    lbl_805D64C8 = 0;
-    lbl_805D64CC = 0;
+    green_door_bml_resource = 0;
+    green_door_texture_handle = 0;
     switch (get_global_state__14TOKeyMachine01Fv()) {
     case 0x13:
     case 0x14:
@@ -26,8 +26,8 @@ void load_green_door_resources(void) {
         if (p != NULL) {
             p = load_resource_from_descriptor(p, 5, lbl_804D34D0, 0, 0, 0);
         }
-        lbl_805D64C8 = p;
-        lbl_805D64CC = load_gvm_texture_file(lbl_80450C50);
+        green_door_bml_resource = p;
+        green_door_texture_handle = load_gvm_texture_file(lbl_80450C50);
         break;
     case 0x15:
     case 0x16:
@@ -35,8 +35,8 @@ void load_green_door_resources(void) {
         if (p != NULL) {
             p = load_resource_from_descriptor(p, 5, lbl_804D34F0, 0, 0, 0);
         }
-        lbl_805D64C8 = p;
-        lbl_805D64CC = load_gvm_texture_file(lbl_80450C6C);
+        green_door_bml_resource = p;
+        green_door_texture_handle = load_gvm_texture_file(lbl_80450C6C);
         break;
     }
 }

@@ -48,7 +48,7 @@ s32 TMovie__sub_80143C94(int, int, int);
 s32 flush_and_reset__6TMovieFv();
 s32 flush_framebuffer(void *, void *, void *);
 s32 copy__6TMovieFPvPv(void *, void *);
-extern M2C_UNK (*lbl_805D6B38)(void **, u32 *);
+extern M2C_UNK (*TMovie__decode_frame_callback)(void **, u32 *);
 extern M2C_UNK (*lbl_805D6B3C)(void **);
 
 s32 get_lobby_data__6TLobbyFv();
@@ -57,7 +57,7 @@ extern u8 lbl_8043F350[];
 extern u8 lbl_8043F35C[];
 extern u8 lbl_8043F368[];
 extern u8 lbl_8043F374[];
-extern s32 (*lbl_805D6B30)(Info_80143FB0 *);
+extern s32 (*movie_sfd_info_size_fn)(Info_80143FB0 *);
 extern Iface_80143FB0 *(*lbl_805D6B34)(Info_80143FB0 *);
 extern void (*lbl_805D6B9C)(Iface_80143FB0 *, void *);
 extern void (*lbl_805D6BA0)(Iface_80143FB0 *);
@@ -78,7 +78,7 @@ void init_sfd_player__6TMovieFPvii(Movie_80143FB0 *o, s32 arg1, s32 arg2) {
     info->width = 0x280;
     info->height = 0x1E0;
     info->f10 = 3;
-    info->size = lbl_805D6B30(info);
+    info->size = movie_sfd_info_size_fn(info);
     if (info->size > 0x420000) {
         return;
     }
@@ -118,7 +118,7 @@ s32 decode_frame__6TMovieFPv(u8 *arg0) {
     if ((s32) M2C_FIELD(arg0, s32 *, 0xCC) != 0) {
         flush_and_reset__6TMovieFv();
     }
-    lbl_805D6B38(M2C_FIELD(arg0, void ***, 4), &frame.field_00);
+    TMovie__decode_frame_callback(M2C_FIELD(arg0, void ***, 4), &frame.field_00);
     if (frame.field_00 != 0U) {
         if ((s32) M2C_FIELD(arg0, s32 *, 0xCC) != 0) {
             TMovie__sub_80143C94((int) (frame.field_00), (int) (frame.field_08), (int) (frame.field_0c));

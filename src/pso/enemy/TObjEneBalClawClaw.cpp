@@ -1217,8 +1217,8 @@ void update_state__18TObjEneBalClawClawFPv(u8 *arg0);
 u32 lookup_entry_by_value__10TObjPlayerFPvf(void *, f32);
 void mult_vec_array__10TObjPlayerFUii(int, u32, void *, int);
 void set_matrix_identity__10TObjPlayerFPv(void *);
-extern void *lbl_805D4F4C;
-extern void *lbl_805D4F50;
+extern void *beast_claw_trail_instance;
+extern void *boss4_type3_instance;
 extern const f32 lbl_805D96E4;
 void update_claw_trail__12TObjEneBeastFPv(Obj_80091EA4 *self);
 M2C_UNK clear_player_status_flag__10TObjPlayerFPviUi(void *, int, u32);
@@ -1725,66 +1725,6 @@ void on_attack_cooldown_expired__12TObjEneBeastFv(void) {  }
 void TObjEneBalClawClaw__sub_80091CD0(s32 arg0) {
     play_sound_effect(0x4003E431, arg0 + 0x38, 0, 0);
 }
-void render__12TObjEneBeastFPv(Obj_8009211C *o) {
-    s32 drawMode;
-    s32 fade;
-    s32 cam;
-    s32 doDraw;
-
-    cam = 0;
-    if (is_split_screen() != 0) {
-        cam = get_camera_mode__11TCameraCtrlFv();
-    }
-    drawMode = o->m9(lbl_805D96E8, lbl_805D96EC, lbl_805D96F0);
-    if (drawMode == 0) {
-        return;
-    }
-    fade = 0;
-    if (check_v2_mode__9TObjEneDDFv() != 0) {
-        fade = (s32)&o->fades[cam];
-        update_obstruction_fade((void *)fade);
-        fade = updateFromCamera__15RenderFadeStateFPCf((void *)fade, &o->f2FC);
-    }
-    lbl_805D5660 = some_id_805c6f74;
-    select_actor_lighting(o);
-    set_global_param__8TObjFishFi(o->f24);
-    push_matrix();
-    translate_matrix(0, lbl_805D96D8, o->f380, lbl_805D96D8);
-    post_translate_matrix(o->f38);
-    rotate_matrix_y(0, o->f60);
-    if (check_demo_mode__10TObjPlayerFv() == 1) {
-        draw_chunk_object(o->f34);
-    } else {
-        toggle_particle_effect__10TObjPlayerFv();
-        doDraw = 1;
-        if (fade != 0) {
-            o->fades[cam].m6();
-            if (toggle_flag_9__10TObjPlayerFPv(o) != 0) {
-                doDraw = 0;
-            }
-        }
-        if (doDraw != 0) {
-            if (drawMode == 1) {
-                draw__16TObjEneRe7BeruraFPv(o);
-            } else {
-                render_world_model__10TObjPlayerFPv(o);
-            }
-        }
-        end_effect_render__13TParticleCtrlFv();
-        if (fade != 0) {
-            o->fades[cam].m7();
-        }
-    }
-    pop_matrix();
-    restore_scene_lighting();
-    if (o->f326 >= 10 || o->f326 < 8) {
-        Vec_8009211C v;
-        v.x = lbl_805D96F4;
-        v.y = lbl_805D96F8;
-        v.z = lbl_805D96FC;
-        render_with_position_override__10TObjPlayerFPvPvi(o, &v, 0);
-    }
-}
 void play_hit_effect__18TObjEneBalClawClawFi(s32 arg0) {
     play_sound_effect(0x4003AB2D, arg0 + 0x38, 0, 0);
     play_effect_if_v2__10TObjPlayerFi(-0x200);
@@ -1828,11 +1768,11 @@ void update_claw_trail__12TObjEneBeastFPv(Obj_80091EA4 *self) {
     if (self->frame < lbl_805D96E4) {
         switch (self->state) {
         case 3:
-            entry = lookup_entry_by_value__10TObjPlayerFPvf(lbl_805D4F4C, self->frame);
+            entry = lookup_entry_by_value__10TObjPlayerFPvf(beast_claw_trail_instance, self->frame);
             idx = 0;
             break;
         case 4:
-            entry = lookup_entry_by_value__10TObjPlayerFPvf(lbl_805D4F50, self->frame);
+            entry = lookup_entry_by_value__10TObjPlayerFPvf(boss4_type3_instance, self->frame);
             idx = 1;
             break;
         default:
@@ -1909,6 +1849,66 @@ void update_appearance__12TObjEneBeastFPv(u8 *arg0) {
         break;
     }
     advance_animation_playback((void *) (arg0));
+}
+void render__12TObjEneBeastFPv(Obj_8009211C *o) {
+    s32 drawMode;
+    s32 fade;
+    s32 cam;
+    s32 doDraw;
+
+    cam = 0;
+    if (is_split_screen() != 0) {
+        cam = get_camera_mode__11TCameraCtrlFv();
+    }
+    drawMode = o->m9(lbl_805D96E8, lbl_805D96EC, lbl_805D96F0);
+    if (drawMode == 0) {
+        return;
+    }
+    fade = 0;
+    if (check_v2_mode__9TObjEneDDFv() != 0) {
+        fade = (s32)&o->fades[cam];
+        update_obstruction_fade((void *)fade);
+        fade = updateFromCamera__15RenderFadeStateFPCf((void *)fade, &o->f2FC);
+    }
+    lbl_805D5660 = some_id_805c6f74;
+    select_actor_lighting(o);
+    set_global_param__8TObjFishFi(o->f24);
+    push_matrix();
+    translate_matrix(0, lbl_805D96D8, o->f380, lbl_805D96D8);
+    post_translate_matrix(o->f38);
+    rotate_matrix_y(0, o->f60);
+    if (check_demo_mode__10TObjPlayerFv() == 1) {
+        draw_chunk_object(o->f34);
+    } else {
+        toggle_particle_effect__10TObjPlayerFv();
+        doDraw = 1;
+        if (fade != 0) {
+            o->fades[cam].m6();
+            if (toggle_flag_9__10TObjPlayerFPv(o) != 0) {
+                doDraw = 0;
+            }
+        }
+        if (doDraw != 0) {
+            if (drawMode == 1) {
+                draw__16TObjEneRe7BeruraFPv(o);
+            } else {
+                render_world_model__10TObjPlayerFPv(o);
+            }
+        }
+        end_effect_render__13TParticleCtrlFv();
+        if (fade != 0) {
+            o->fades[cam].m7();
+        }
+    }
+    pop_matrix();
+    restore_scene_lighting();
+    if (o->f326 >= 10 || o->f326 < 8) {
+        Vec_8009211C v;
+        v.x = lbl_805D96F4;
+        v.y = lbl_805D96F8;
+        v.z = lbl_805D96FC;
+        render_with_position_override__10TObjPlayerFPvPvi(o, &v, 0);
+    }
 }
 
 }

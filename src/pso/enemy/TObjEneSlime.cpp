@@ -121,7 +121,7 @@ M2C_UNK draw_chunk_object();
 M2C_UNK func_803e11e8__FUl(int);
 M2C_UNK func_803e11f0__Fv();
 extern char lbl_8043D298[];
-extern M2C_UNK lbl_80496360[];
+extern M2C_UNK slime_debug_label_table[];
 extern M2C_UNK lbl_80496368[];
 extern s32 lbl_805D52B0;
 extern u32 some_id_805c6f74;
@@ -171,7 +171,7 @@ void render__12TObjEneSlimeFv(u8 *arg0) {
     temp_r31 = toggle_flag_9__10TObjPlayerFPv();
     if (check_demo_mode__10TObjPlayerFv() != 0) {
         temp_r30 = (M2C_FIELD(arg0, s32 *, 0x36C) * 4) & 4;
-        debug_printf_at((int) (0x130020), lbl_8043D298, (int) (M2C_FIELD(((u8 *)(lbl_80496360) + temp_r30), s32 *, 0)));
+        debug_printf_at((int) (0x130020), lbl_8043D298, (int) (M2C_FIELD(((u8 *)(slime_debug_label_table) + temp_r30), s32 *, 0)));
         toggle_particle_effect__10TObjPlayerFv();
         push_matrix();
         temp_r30_2 = M2C_FIELD(((u8 *)(lbl_80496368) + temp_r30), s32 *, 0);

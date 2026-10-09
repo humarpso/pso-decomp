@@ -63,7 +63,7 @@ extern RecoveredGlobal_801FB430___vt__13TRaderMapCore __vt__13TRaderMapCore;
 extern GRec_801FB490 TRaderMapCore__map_view_state[];
 extern f32 lbl_805D35F0;
 extern f32 lbl_805D35FC;
-extern s32 lbl_805D3604;
+extern s32 rader_map_core_name_ptr;
 extern u32 TRaderMapCore__data_805D5F28;
 extern s32 TRaderMapCore__data_805D5F3C;
 extern s32 TRaderMapCore__data_805D5F40;
@@ -155,7 +155,7 @@ Core_801FB490 *TRaderMapCore__ct(Core_801FB490 *arg0, void *parent) {
     s32 t8, t6, t5, t0;
     TPhotonMagicSquare__sub_801A2640(arg0, parent);
     arg0->vt = &__vt__13TRaderMapCore.value;
-    arg0->f0 = lbl_805D3604;
+    arg0->f0 = rader_map_core_name_ptr;
     arg0->f178 = init_map_ptr__13TRaderMapCoreFv(&arg0->f90, 2);
     arg0->f17c = init_map_ptr__13TRaderMapCoreFv(&arg0->f90, 0);
     arg0->f180 = init_map_ptr__13TRaderMapCoreFv(&arg0->f90, 1);

@@ -1918,8 +1918,8 @@ extern const RecoveredGlobal_802FBA84_lbl_8047460C lbl_8047460C;
 extern RecoveredGlobal_802FBA1C_lbl_80474638 lbl_80474638;
 extern const RecoveredGlobal_802FBA84_lbl_80474658 lbl_80474658;
 extern const RecoveredGlobal_802FBA84_lbl_804746CC lbl_804746CC;
-extern Eff_802FB828 lbl_80474AA4;
-extern S_802FB290 lbl_80474AB8;
+extern Eff_802FB828 boss8_dragon_breath_eff_params;
+extern S_802FB290 TBoss8Dragon__breath_params;
 extern M2C_UNK lbl_80474B40[];
 extern u8 lbl_8050E208[];
 extern RecoveredGlobal_802F45A0_lbl_80541DE8 lbl_80541DE8;
@@ -6325,7 +6325,7 @@ int get_state_flags__12TBoss8DragonFPv(void* p) { return emit_effect_at_position
 int emit_effect__12TBoss8DragonFPv(void* p) { return emit_enemy_effect__9TObjEneDDFiiPvi(p); }
 
 void setup_breath_instance__12TBoss8DragonFPviUii(void *o, int x, u32 a, int w) {
-    S_802FB290 s = lbl_80474AB8;
+    S_802FB290 s = TBoss8Dragon__breath_params;
     s.b = (*(G_802FB290 *)&TBoss8Dragon__data_80541DDC).value->f[0];
     s.a = a;
     ((s32 (*)(void *, int, void *, int))setup_instance__12TBoss8DragonFPv)(o, x, &s, w);
@@ -6442,7 +6442,7 @@ int set_state_1__12TBoss8DragonFPv(void* p) { return ((int (*)(void*, int))TBoss
 int check_condition_default__12TBoss8DragonFPv(void* p) { return ((int (*)(void*, int))TBoss8Dragon__sub_802FB828)(p, 0); }
 
 void TBoss8Dragon__sub_802FB828(u8 *arg0, s32 arg1) {
-    Eff_802FB828 eff = lbl_80474AA4;
+    Eff_802FB828 eff = boss8_dragon_breath_eff_params;
     u8 *a;
     u8 *b;
     ((s32 (*)(s32))fill_value_array)(*(s32 *)(arg0 + 0x680));

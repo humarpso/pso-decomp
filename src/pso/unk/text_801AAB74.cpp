@@ -40,7 +40,7 @@ M2C_UNK play_cue_stream_file(void *);
 void *__nw__7TObjectFUl(int);
 extern u8 lbl_80446D10[];
 extern u8 lbl_80446D1C[];
-extern u8 lbl_804C34B8[];
+extern u8 photon_estlla_param_table[];
 extern M2C_UNK __vt__13TPhotonEstlla[];
 extern s32 lbl_805D34D8;
 extern u8 *photon_blast_shared_resource;
@@ -66,7 +66,7 @@ u8 *TPhotonEstlla__ct(u8 *arg0, u8 *arg1) {
     }
     M2C_FIELD(arg0, s32 *, 0x34) = M2C_FIELD(M2C_FIELD(photon_blast_shared_resource, u8 **, 0x42C), s32 *, 0x98);
     M2C_FIELD(arg0, s32 *, 0x24) = M2C_FIELD(M2C_FIELD(photon_blast_shared_resource, u8 **, 0x42C), s32 *, 0x9C);
-    set_field_d8__10TObjPlayerFPvi(arg0, (s32) lbl_804C34B8);
+    set_field_d8__10TObjPlayerFPvi(arg0, (s32) photon_estlla_param_table);
     set_field_dc__10TObjPlayerFPvi(arg0, M2C_FIELD(photon_blast_shared_resource, s32 *, 0x430));
     M2C_FIELD(arg0, s16 *, 0xB8) = 1;
     set_animation__10TObjPlayerFPvs(arg0, M2C_FIELD(arg0, s16 *, 0xB8));

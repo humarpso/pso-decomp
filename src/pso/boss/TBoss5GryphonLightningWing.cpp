@@ -53,7 +53,7 @@ s32 spawn_gryphon_lightning(void *);
 void apply_lightning_effect__26TBoss5GryphonLightningWingFi(s32 arg0);
 extern const f32 lbl_805DFED4;
 void run_task__26TBoss5GryphonLightningWingFv(u8 *arg0);
-extern s32 lbl_805D55A0;
+extern s32 TLobby__event_theme_id;
 s32 get_filtered_event_theme__6TLobbyFv(void);
 s32 VecCopy__FP3VecPC3Vec(void *, void *);
 s32 TBoss5GryphonLightning__ct(f32);
@@ -169,9 +169,9 @@ void fn_80351DA8(s32 arg0, u8 *arg1, u8 *arg2, s32 arg3, s32 arg4) {
 void TLobby__sub_80351DF8(void) {  }
 
 s32 get_filtered_event_theme__6TLobbyFv(void) {
-    switch (lbl_805D55A0) {
+    switch (TLobby__event_theme_id) {
     case 1: case 3: case 4: case 5: case 7: case 8: case 9: case 10: case 11: case 12: case 13:
-        return lbl_805D55A0;
+        return TLobby__event_theme_id;
     }
     return 0;
 }

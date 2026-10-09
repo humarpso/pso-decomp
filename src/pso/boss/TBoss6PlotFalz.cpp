@@ -1461,7 +1461,7 @@ M2C_UNK fn_802E52AC();
 M2C_UNK load_resources__10TBoss6RockFv();
 M2C_UNK TItemEffOrgaFlowShot__sub_80357210();
 M2C_UNK TLobby__sub_8036DDE8();
-extern RecoveredGlobal_802ACBE4_lbl_804DE200 lbl_804DE200;
+extern RecoveredGlobal_802ACBE4_lbl_804DE200 boss6_plot_falz_resource_descriptor;
 extern int lbl_805D66E8;
 void load_resources__14TBoss6PlotFalzFv(void);
 s32 restore_player_cameras();
@@ -1678,7 +1678,7 @@ void load_resources__14TBoss6PlotFalzFv(void) {
     temp_r3 = alloc__23TAdSinglePlyChrSelectGCFPv((void *)0x440);
     var_r0 = temp_r3;
     if (var_r0 != 0) {
-        var_r0 = (long) (load_resource_from_descriptor((void *) temp_r3, 5, &lbl_804DE200.value, 0, 0, 0));
+        var_r0 = (long) (load_resource_from_descriptor((void *) temp_r3, 5, &boss6_plot_falz_resource_descriptor.value, 0, 0, 0));
     }
     (*(u8 * *)&lbl_805D66E8) = (unsigned char *) ((void *) var_r0);
     if ((u32) var_r0 != 0U) {

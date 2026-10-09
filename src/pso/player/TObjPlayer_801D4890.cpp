@@ -66,13 +66,13 @@ int count_owned_items__10TObjPlayerFPv(void*);
 void *get_owner_if_alive__10TObjPlayerFPv();
 M2C_UNK queue_destruction__7TObjectFv(s32, s16);
 
-    extern int lbl_805D5DEC;
-    extern int lbl_805D5DF4;
-int run_and_get_result__10TObjPlayerFPvi(void* a0, int a1) { lbl_805D5DEC = a1; lbl_805D5DF4 = 0; collect_owner_fields_recursive__10TObjPlayerFPv((void*)(*(int*)((char*)a0 + 0x1c4))); return lbl_805D5DF4; }
+    extern int TObjPlayer__owner_field_write_cursor;
+    extern int inventory_walk_visit_count;
+int run_and_get_result__10TObjPlayerFPvi(void* a0, int a1) { TObjPlayer__owner_field_write_cursor = a1; inventory_walk_visit_count = 0; collect_owner_fields_recursive__10TObjPlayerFPv((void*)(*(int*)((char*)a0 + 0x1c4))); return inventory_walk_visit_count; }
 
-    extern int lbl_805D5DF4;
-    extern int lbl_805D5E00;
-int run_state_query__10TObjPlayerFPvi(void* a0, int a1) { lbl_805D5E00 = a1; lbl_805D5DF4 = 0; count_owned_items__10TObjPlayerFPv((void*)(*(int*)((char*)a0 + 0x1c4))); return lbl_805D5DF4; }
+    extern int inventory_walk_visit_count;
+    extern int owned_item_export_cursor;
+int run_state_query__10TObjPlayerFPvi(void* a0, int a1) { owned_item_export_cursor = a1; inventory_walk_visit_count = 0; count_owned_items__10TObjPlayerFPv((void*)(*(int*)((char*)a0 + 0x1c4))); return inventory_walk_visit_count; }
 
 s32 update_inventory_item__10TObjPlayerFPviiiii(void *arg0, s32 arg1, s32 arg2, s32 arg3, s32 arg4, s32 arg5) {
     s16 temp_r4;

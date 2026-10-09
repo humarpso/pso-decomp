@@ -77,7 +77,7 @@ void start_photon_blast__10TObjPlayerFiUs(s32 arg0, u16 arg1) {
     }
 }
 
-    extern unsigned char lbl_804C32C0[];
-void* get_photon_blast_entry__10TObjPlayerFi(int a0) {  return (char*)lbl_804C32C0 + a0 * 44; }
+    extern unsigned char photon_blast_entry_table[];
+void* get_photon_blast_entry__10TObjPlayerFi(int a0) {  return (char*)photon_blast_entry_table + a0 * 44; }
 
 }

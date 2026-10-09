@@ -397,7 +397,7 @@ s32 remap_area_sound_id__14TObjEneRecoboxFUi(s32);
 f32 sin_table_lookup(s32);
 f32 cos_table_lookup(s32);
 extern u8 lbl_804760C0[];
-extern s32 lbl_805D6B04;
+extern s32 boss3_volopt_instance;
 extern const f32 TObjEneRecon__data_805DF3C4;
 extern const f32 lbl_805DF3CC;
 extern const f32 TObjEneRecon__data_805DF3D0;
@@ -472,7 +472,7 @@ void TObjEneRecon__sub_8031C364(u8 *arg0, s32 arg1) {
             spawn_particle_effect_with_flags(arg0 + 0x38, 0x45, 0x40);
             spawn_particle_effect_with_flags(arg0 + 0x38, 0x46, 0x40);
             play_sound_effect(remap_area_sound_id__14TObjEneRecoboxFUi(0x4003A80D), arg0 + 0x38, 0, 0);
-            create_breakup_mdl__12TBoss3VoloptFiiiii(lbl_805D6B04, lbl_804760C0, F(s32, 0x24), arg0 + 0x2FC, F(s32, 0x60));
+            create_breakup_mdl__12TBoss3VoloptFiiiii(boss3_volopt_instance, lbl_804760C0, F(s32, 0x24), arg0 + 0x2FC, F(s32, 0x60));
             break;
         }
         break;

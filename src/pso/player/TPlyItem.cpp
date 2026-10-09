@@ -109,22 +109,22 @@ u8 get_field_ec__12TOSwitchItemFPv(void *);
 M2C_UNK reduce_item_amount__6TLobbyFPviii(s32, void *, void *, s32);
 void *get_owner_if_alive__10TObjPlayerFPv(void *);
 s32 is_item_valid__9TItemListFi(void *);
-extern u8 *lbl_805D5DE0;
-extern u8 lbl_805D5E04;
-extern u8 lbl_805D5E05;
+extern u8 *item_reduce_target_player;
+extern u8 item_reduce_owner_match_field_ec;
+extern u8 reduce_owner_match_id;
 void reduce_owner_matched_items__6TLobbyFPv(void *arg0);
 u8 get_field_ec__12TOSwitchItemFPv(void *);
 M2C_UNK reduce_item_amount__6TLobbyFPviii(s32, void *, void *, s32);
 void *get_owner_if_alive__10TObjPlayerFPv(void *);
 s32 is_item_valid__9TItemListFi(void *);
-extern u8 *lbl_805D5DE0;
-extern u8 lbl_805D5E04;
+extern u8 *item_reduce_target_player;
+extern u8 item_reduce_owner_match_field_ec;
 void reduce_child_item_amounts__6TLobbyFPv(void *arg0);
 s32 get_field_d8__10TObjPlayerFPv(void *);
 void *get_owner_if_alive__10TObjPlayerFPv(void *);
 s32 is_item_valid__9TItemListFi(void *);
-extern s32 *lbl_805D5DEC;
-extern s32 lbl_805D5DF4;
+extern s32 *TObjPlayer__owner_field_write_cursor;
+extern s32 inventory_walk_visit_count;
 void collect_owner_fields_recursive__10TObjPlayerFPv(void *arg0);
 }
 
@@ -166,13 +166,13 @@ void reduce_owner_matched_items__6TLobbyFPv(void *arg0) {
     for (it = self->child; it != NULL; it = it->next) {
         if (is_item_valid__9TItemListFi(it) != 0) {
             owner = (VObj_801D5004 *)get_owner_if_alive__10TObjPlayerFPv(it);
-            if (owner != NULL && lbl_805D5E04 == get_field_ec__12TOSwitchItemFPv(owner) &&
-                lbl_805D5E05 == get_field_ed__10TObjPlayerFPv(owner)) {
-                if (lbl_805D5E04 == 3) {
-                    lobby = lbl_805D5DE0;
+            if (owner != NULL && item_reduce_owner_match_field_ec == get_field_ec__12TOSwitchItemFPv(owner) &&
+                reduce_owner_match_id == get_field_ed__10TObjPlayerFPv(owner)) {
+                if (item_reduce_owner_match_field_ec == 3) {
+                    lobby = item_reduce_target_player;
                     reduce_item_amount__6TLobbyFPviii(*(s32 *)(lobby + 0xD00), lobby, it, owner->v34());
                 } else {
-                    reduce_item_amount__6TLobbyFPviii(*(s32 *)(lbl_805D5DE0 + 0xD00), lbl_805D5DE0, it, 1);
+                    reduce_item_amount__6TLobbyFPviii(*(s32 *)(item_reduce_target_player + 0xD00), item_reduce_target_player, it, 1);
                 }
             }
         }
@@ -187,12 +187,12 @@ void reduce_child_item_amounts__6TLobbyFPv(void *arg0) {
     for (it = self->child; it != NULL; it = it->next) {
         if (is_item_valid__9TItemListFi(it) != 0) {
             owner = (VObj_801D50E0 *)get_owner_if_alive__10TObjPlayerFPv(it);
-            if (owner != NULL && lbl_805D5E04 == get_field_ec__12TOSwitchItemFPv(owner)) {
-                if (lbl_805D5E04 == 3) {
-                    lobby = lbl_805D5DE0;
+            if (owner != NULL && item_reduce_owner_match_field_ec == get_field_ec__12TOSwitchItemFPv(owner)) {
+                if (item_reduce_owner_match_field_ec == 3) {
+                    lobby = item_reduce_target_player;
                     reduce_item_amount__6TLobbyFPviii(*(s32 *)(lobby + 0xD00), lobby, it, owner->v34());
                 } else {
-                    reduce_item_amount__6TLobbyFPviii(*(s32 *)(lbl_805D5DE0 + 0xD00), lbl_805D5DE0, it, 1);
+                    reduce_item_amount__6TLobbyFPviii(*(s32 *)(item_reduce_target_player + 0xD00), item_reduce_target_player, it, 1);
                 }
             }
         }
@@ -205,8 +205,8 @@ void collect_owner_fields_recursive__10TObjPlayerFPv(void *arg0) {
     void *owner;
     for (it = self->child; it != NULL; it = it->next) {
         if (is_item_valid__9TItemListFi(it) != 0 && (owner = get_owner_if_alive__10TObjPlayerFPv(it)) != NULL) {
-            *lbl_805D5DEC++ = get_field_d8__10TObjPlayerFPv(owner);
-            lbl_805D5DF4++;
+            *TObjPlayer__owner_field_write_cursor++ = get_field_d8__10TObjPlayerFPv(owner);
+            inventory_walk_visit_count++;
         }
         collect_owner_fields_recursive__10TObjPlayerFPv(it);
     }

@@ -82,7 +82,7 @@ struct VObj_802A75C8 : Base_802A75C8 {
 extern "C" {
 int is_valid_player_motion_variant(void* a0);
 int TLobby__sub_802A7278(void* a0);
-extern RecoveredGlobal_802A7444_lbl_804DDBD8 lbl_804DDBD8;
+extern RecoveredGlobal_802A7444_lbl_804DDBD8 player_motion_clip_roots_b;
 s32 player_motion_provider1_get_clip_indices(M2C_UNK arg0, s32 arg1, s32 arg2);
 int is_valid_player_motion_variant(void* a0);
 int TLobby__sub_802A7278(void* a0);
@@ -116,7 +116,7 @@ void* TLobby__sub_802A7780(void* p);
 void* TLobby__sub_802A7788(void* p);
 extern s32 lbl_805D6680;
 int TLobby__sub_802A7790(void);
-extern RecoveredGlobal_802A7444_lbl_804DDBD8 lbl_804DDBD8;
+extern RecoveredGlobal_802A7444_lbl_804DDBD8 player_motion_clip_roots_b;
 s32 TLobby__sub_802A7420(void *self, s32 a, s32 b, s32 c);
 void player_motion_provider1_set_attack_interpolation(u8 *arg0);
 s32 sub_802a7290_fwd__10TObjPlayerFPv(void *);
@@ -165,7 +165,7 @@ void player_motion_provider1_set_attack_interpolation(u8 *arg0) {
 }
 
 s32 TLobby__sub_802A7420(void *self, s32 a, s32 b, s32 c) {
-    return ((s32 ** *)&lbl_804DDBD8)[a][b][c];
+    return ((s32 ** *)&player_motion_clip_roots_b)[a][b][c];
 }
 
 s32 player_motion_provider1_get_clip_indices(M2C_UNK arg0, s32 arg1, s32 arg2) {
@@ -173,7 +173,7 @@ s32 player_motion_provider1_get_clip_indices(M2C_UNK arg0, s32 arg1, s32 arg2) {
         return 0;
     }
     if (((s32)is_valid_player_motion_variant((void*)((void *) (arg2)))) != 0) {
-        return M2C_FIELD(M2C_FIELD(&lbl_804DDBD8.value, M2C_UNK *, (arg1 * 4)), M2C_UNK *, (arg2 * 4));
+        return M2C_FIELD(M2C_FIELD(&player_motion_clip_roots_b.value, M2C_UNK *, (arg1 * 4)), M2C_UNK *, (arg2 * 4));
     }
     return 0;
 }

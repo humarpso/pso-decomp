@@ -109,12 +109,12 @@ void close__22TQuestVmDownLoadServerFPv(void *arg0) {
     TQuestVmDownLoadServer__data_805D5F18 = 0;
 }
 
-extern void *lbl_805D55D4;
+extern void *lobby_player_construction_window;
 
 void destroy__22TQuestVmDownLoadServerFPv(void *arg0) {
     set_ready__6TSceneFv(arg0);
-    if (lbl_805D55D4 != NULL) {
-        allow_rendering__7TObjectFv(lbl_805D55D4);
+    if (lobby_player_construction_window != NULL) {
+        allow_rendering__7TObjectFv(lobby_player_construction_window);
     }
     free_buffers__22TQuestVmDownLoadServerFv();
     queue_destruction__7TObjectFv(arg0);

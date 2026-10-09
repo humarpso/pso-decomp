@@ -98,17 +98,17 @@ s32 use_item__6TLobbyFiiii(s32 arg0, s32 arg1, s32 arg2, s32 arg3) {
     return 1;
 }
 
-    extern int lbl_805D5DE0;
-    extern unsigned char lbl_805D5E04;
-    extern unsigned char lbl_805D5E05;
-void TLobby__sub_801D4C28(void* a0, int a1, int a2, int a3) { lbl_805D5DE0 = a1; lbl_805D5E04 = a2; lbl_805D5E05 = a3; reduce_owner_matched_items__6TLobbyFPv((void*)(*(int*)((char*)a0 + 0x1c4))); }
+    extern int item_reduce_target_player;
+    extern unsigned char item_reduce_owner_match_field_ec;
+    extern unsigned char reduce_owner_match_id;
+void TLobby__sub_801D4C28(void* a0, int a1, int a2, int a3) { item_reduce_target_player = a1; item_reduce_owner_match_field_ec = a2; reduce_owner_match_id = a3; reduce_owner_matched_items__6TLobbyFPv((void*)(*(int*)((char*)a0 + 0x1c4))); }
 
-    extern int lbl_805D5DE0;
-    extern unsigned char lbl_805D5E04;
-void set_globals_and_update__6TLobbyFPvii(void* a0, int a1, int a2) { lbl_805D5DE0 = a1; lbl_805D5E04 = a2; reduce_child_item_amounts__6TLobbyFPv((void*)(*(int*)((char*)a0 + 0x1c4))); }
+    extern int item_reduce_target_player;
+    extern unsigned char item_reduce_owner_match_field_ec;
+void set_globals_and_update__6TLobbyFPvii(void* a0, int a1, int a2) { item_reduce_target_player = a1; item_reduce_owner_match_field_ec = a2; reduce_child_item_amounts__6TLobbyFPv((void*)(*(int*)((char*)a0 + 0x1c4))); }
 
-    extern int lbl_805D5DE4;
-    extern int lbl_805D5DF4;
-int set_globals_and_notify__6TLobbyFPvii(void* a0, int a1, int a2) { lbl_805D5DE4 = a2; lbl_805D5DF4 = 0; TObjPlayer__sub_801D52A8((void*)(*(int*)((char*)a0 + 0x1c4))); return lbl_805D5DF4; }
+    extern int player_item_collect_cursor;
+    extern int inventory_walk_visit_count;
+int set_globals_and_notify__6TLobbyFPvii(void* a0, int a1, int a2) { player_item_collect_cursor = a2; inventory_walk_visit_count = 0; TObjPlayer__sub_801D52A8((void*)(*(int*)((char*)a0 + 0x1c4))); return inventory_walk_visit_count; }
 
 }

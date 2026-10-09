@@ -15,7 +15,7 @@ s32 __nw__7TObjectFUl(M2C_UNK);
 void *alloc__23TAdSinglePlyChrSelectGCFPv(M2C_UNK);
 M2C_UNK spawn_child__12TObjEneSlimeFsiiff(M2C_UNK, s32, s32, f32, f32);
 
-extern M2C_UNK lbl_80496350[];
+extern M2C_UNK slime_pair_resource_descriptor[];
 extern void *lbl_805D52B0;
 extern f32 lbl_805DA66C;
 extern f32 lbl_805DA6B4;
@@ -27,7 +27,7 @@ void spawn_pair__12TObjEneSlimeFv(void) {
 
     temp_r4 = alloc__23TAdSinglePlyChrSelectGCFPv(0x440);
     if (temp_r4 != NULL) {
-        temp_r4 = load_resource_from_descriptor(temp_r4, 1, lbl_80496350, 0, 0, 0);
+        temp_r4 = load_resource_from_descriptor(temp_r4, 1, slime_pair_resource_descriptor, 0, 0, 0);
     }
     lbl_805D52B0 = temp_r4;
     temp_r5 = M2C_FIELD(temp_r4, void **, 0x42C);

@@ -14,7 +14,7 @@ extern char lbl_804438DC[];
 extern char lbl_804438EC[];
 extern char lbl_804438F8[];
 extern char lbl_80443904[];
-extern u32 lbl_805D55A0;
+extern u32 TLobby__event_theme_id;
 extern u32 TObjBgmColCtrl__data_805D5B0C;
 void play_lobby_theme_music__14TObjBgmColCtrlFv(void);
 }
@@ -28,7 +28,7 @@ void play_lobby_theme_music__14TObjBgmColCtrlFv(void) {
     const char *name;
     if (get_global_state__14TOKeyMachine01Fv() == 0xF) {
         name = names.name[1];
-        TObjBgmColCtrl__data_805D5B0C = lbl_805D55A0;
+        TObjBgmColCtrl__data_805D5B0C = TLobby__event_theme_id;
     } else {
         name = names.name[0];
         TObjBgmColCtrl__data_805D5B0C = 0;

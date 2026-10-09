@@ -36,8 +36,8 @@ int randomize_adventure_maps(void*);
 s32 get_global_state__14TOKeyMachine01Fv();
 s32 get_status__6TSceneFv();
 
-    extern int lbl_805D3628;
-void reset_story_select__6TLobbyFv(void) { set_state__16TAdStorySelectGCFi((void*)0); lbl_805D3628 = -1; }
+    extern int story_select_pending_state;
+void reset_story_select__6TLobbyFv(void) { set_state__16TAdStorySelectGCFi((void*)0); story_select_pending_state = -1; }
 
 s32 is_scene_ready__6TLobbyFv(void) {
     s32 temp_r3;

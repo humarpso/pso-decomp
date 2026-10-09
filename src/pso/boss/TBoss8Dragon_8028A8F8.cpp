@@ -16,8 +16,8 @@ extern "C" {
 
 int get_instance__12TBoss8DragonFv(void);
 
-    extern int lbl_805D64CC;
-int get_instance__12TBoss8DragonFv(void) {  return lbl_805D64CC; }
+    extern int green_door_texture_handle;
+int get_instance__12TBoss8DragonFv(void) {  return green_door_texture_handle; }
 void TBoss8Dragon__sub_8028A900(void *self, s32 arg1, s32 arg2) {
     f32 temp_f31;
     void *temp_r31;

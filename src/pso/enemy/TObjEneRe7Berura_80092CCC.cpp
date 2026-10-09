@@ -392,12 +392,12 @@ void advance_state__16TObjEneRe7BeruraFv(void);
 void demo_frame_callback__16TObjEneRe7BeruraFv(void);
 extern Vec_80092CCC lbl_80439EC4[];
 extern Elem_80092CCC TObjEneRe7Berura__data_805007DC[];
-extern s32 lbl_805D4F68;
+extern s32 re7_berura_demo_state;
 extern s32 lbl_805D4F6C;
-extern s32 lbl_805D4F70;
-extern s32 lbl_805D4F74;
-extern s32 lbl_805D4F78;
-extern void *lbl_805D4F7C;
+extern s32 re7_berura_demo_camera_ptr;
+extern s32 berura_demo_flag;
+extern s32 re7_berura_demo_flag;
+extern void *TObjEneRe7Berura__demo_target;
 extern s32 *lbl_805D4F84;
 extern s16 *lbl_805D4F88;
 extern s32 lbl_805D4F8C;
@@ -419,7 +419,7 @@ void advance_state__16TObjEneRe7BeruraFv(void);
 void demo_frame_callback__16TObjEneRe7BeruraFv(void);
 M2C_UNK get_camera_ctrl__9TObjEneDDFPv(s32, s32);
 
-extern s32 lbl_805D4F68;
+extern s32 re7_berura_demo_state;
 extern s32 lbl_805D4F6C;
 extern s32 some_id_805c6f74;
 
@@ -476,21 +476,21 @@ void render__16TObjEneRe7BeruraFv(Berura_80092CCC *o) {
         post_translate_matrix(&o->pos);
         rotate_matrix_y(0, o->f60);
         if (o->f326 == 5) {
-            lbl_805D4F68 = 0;
+            re7_berura_demo_state = 0;
             lbl_805D4F6C = 0;
-            (*(void * *)&lbl_805D4F70) = o->f420;
+            (*(void * *)&re7_berura_demo_camera_ptr) = o->f420;
             o->f420[0].x = lbl_805D9728;
             o->f420[0].y = TObjEneRe7Berura__data_805D972C;
             o->f420[0].z = TObjEneRe7Berura__data_805D9730;
             o->f420[1].x = lbl_805D9728;
             o->f420[1].y = TObjEneRe7Berura__data_805D972C;
             o->f420[1].z = lbl_805D9734;
-            lbl_805D4F74 = (o->f418[0] >> 2) & 1;
-            lbl_805D4F78 = (o->f418[1] >> 2) & 1;
-            lbl_805D4F7C = o->f3FC;
+            berura_demo_flag = (o->f418[0] >> 2) & 1;
+            re7_berura_demo_flag = (o->f418[1] >> 2) & 1;
+            TObjEneRe7Berura__demo_target = o->f3FC;
             if (cam != 0) {
-                lbl_805D4F78 = 0;
-                lbl_805D4F74 = 0;
+                re7_berura_demo_flag = 0;
+                berura_demo_flag = 0;
                 ((Fade_80092CCC *)fade)->v.m6();
                 f1 = 1;
                 if (toggle_flag_9__10TObjPlayerFPv(o) != 0) {
@@ -512,7 +512,7 @@ void render__16TObjEneRe7BeruraFv(Berura_80092CCC *o) {
                 set_global_state__16TObjEneRe7BeruraFi(0);
             }
         } else {
-            lbl_805D4F68 = 0;
+            re7_berura_demo_state = 0;
             lbl_805D4F6C = 0;
             if (o->f3C0 & 2) {
                 if (o->f3D8.v.m8() != 0) {
@@ -559,7 +559,7 @@ void render__16TObjEneRe7BeruraFv(Berura_80092CCC *o) {
 }
 
 void advance_state__16TObjEneRe7BeruraFv(void) {
-    switch ((s32) lbl_805D4F68) {
+    switch ((s32) re7_berura_demo_state) {
     case 25:
         lbl_805D4F6C = some_id_805c6f74;
         some_id_805c6f74 &= 0xFFFF7FFF;
@@ -568,19 +568,19 @@ void advance_state__16TObjEneRe7BeruraFv(void) {
         some_id_805c6f74 = lbl_805D4F6C;
         break;
     }
-    lbl_805D4F68 += 1;
+    re7_berura_demo_state += 1;
 }
 
-extern s32 lbl_805D4F68;
+extern s32 re7_berura_demo_state;
 extern s32 lbl_805D4F6C;
-extern s32 lbl_805D4F70;
-extern s32 lbl_805D4F74;
-extern s32 lbl_805D4F78;
-extern void *lbl_805D4F7C;
+extern s32 re7_berura_demo_camera_ptr;
+extern s32 berura_demo_flag;
+extern s32 re7_berura_demo_flag;
+extern void *TObjEneRe7Berura__demo_target;
 extern s32 some_id_805c6f74;
 
 void demo_frame_callback__16TObjEneRe7BeruraFv(void) {
-    switch ((s32) lbl_805D4F68) {
+    switch ((s32) re7_berura_demo_state) {
     case 0x2:
         lbl_805D4F6C = some_id_805c6f74;
         some_id_805c6f74 &= 0xFFFF7FFF;
@@ -590,31 +590,31 @@ void demo_frame_callback__16TObjEneRe7BeruraFv(void) {
         break;
     case 0x4C:
     case 0x50:
-        get_camera_ctrl__9TObjEneDDFPv(lbl_805D4F70, lbl_805D4F70);
-        lbl_805D4F70 += 0xC;
+        get_camera_ctrl__9TObjEneDDFPv(re7_berura_demo_camera_ptr, re7_berura_demo_camera_ptr);
+        re7_berura_demo_camera_ptr += 0xC;
         break;
     case 0x21:
-        if ((s32) lbl_805D4F74 != 0) {
-            ((BeruraV_800931C8_80093180 *)lbl_805D4F7C)->m6();
+        if ((s32) berura_demo_flag != 0) {
+            ((BeruraV_800931C8_80093180 *)TObjEneRe7Berura__demo_target)->m6();
         }
         break;
     case 0x38:
-        if ((s32) lbl_805D4F78 != 0) {
-            ((BeruraV_800931C8_80093180 *)lbl_805D4F7C)->m6();
+        if ((s32) re7_berura_demo_flag != 0) {
+            ((BeruraV_800931C8_80093180 *)TObjEneRe7Berura__demo_target)->m6();
         }
         break;
     case 0x32:
-        if ((s32) lbl_805D4F74 != 0) {
-            ((BeruraV_800931C8_80093180 *)lbl_805D4F7C)->m7();
+        if ((s32) berura_demo_flag != 0) {
+            ((BeruraV_800931C8_80093180 *)TObjEneRe7Berura__demo_target)->m7();
         }
         break;
     case 0x49:
-        if ((s32) lbl_805D4F78 != 0) {
-            ((BeruraV_800931C8_80093180 *)lbl_805D4F7C)->m7();
+        if ((s32) re7_berura_demo_flag != 0) {
+            ((BeruraV_800931C8_80093180 *)TObjEneRe7Berura__demo_target)->m7();
         }
         break;
     }
-    lbl_805D4F68 += 1;
+    re7_berura_demo_state += 1;
 }
 
 void update_death_state__16TObjEneRe7BeruraFPvi(VObj_18_444bc5 *obj, s32 mode) {

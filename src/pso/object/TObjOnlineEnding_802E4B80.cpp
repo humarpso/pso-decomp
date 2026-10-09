@@ -85,8 +85,8 @@ M2C_UNK set_global_param__8TObjFishFi(int);
 M2C_UNK draw_model_motion(int, int, f32);
 extern f32 lbl_804E3A38[];
 extern V2_802E4C70 online_ending_quad_vertices[];
-extern const f32 lbl_805D3F94;
-extern f32 lbl_805D3F98;
+extern const f32 online_ending_scene_scale;
+extern f32 online_ending_quad_y_offset;
 extern f32 lbl_805D68F0;
 extern s8 lbl_805D68F8;
 extern s8 lbl_805D68F9;
@@ -150,7 +150,7 @@ void draw_scene__16TObjOnlineEndingFPv(Obj_802E4C70 *arg0) {
     begin_effect_render__13TParticleCtrlFv();
     push_matrix();
     post_translate_matrix(lbl_804E3A38);
-    scale_matrix(0, lbl_805D3F94, lbl_805DE934, lbl_805DE934);
+    scale_matrix(0, online_ending_scene_scale, lbl_805DE934, lbl_805DE934);
     set_global_param__8TObjFishFi(arg0->f94);
     draw_model_motion(arg0->f90, arg0->f98, arg0->f150);
     pop_matrix();
@@ -158,10 +158,10 @@ void draw_scene__16TObjOnlineEndingFPv(Obj_802E4C70 *arg0) {
         e = &arg0->ent[i];
         if (e->active != 0) {
             if (lbl_805D68F9 == 0) {
-                online_ending_quad_vertices[0].y = lbl_805DE938 + lbl_805D3F98;
-                online_ending_quad_vertices[1].y = lbl_805DE93C + lbl_805D3F98;
-                online_ending_quad_vertices[2].y = lbl_805DE93C + lbl_805D3F98;
-                online_ending_quad_vertices[3].y = lbl_805DE938 + lbl_805D3F98;
+                online_ending_quad_vertices[0].y = lbl_805DE938 + online_ending_quad_y_offset;
+                online_ending_quad_vertices[1].y = lbl_805DE93C + online_ending_quad_y_offset;
+                online_ending_quad_vertices[2].y = lbl_805DE93C + online_ending_quad_y_offset;
+                online_ending_quad_vertices[3].y = lbl_805DE938 + online_ending_quad_y_offset;
                 lbl_805D68F9 = 1;
             }
             {

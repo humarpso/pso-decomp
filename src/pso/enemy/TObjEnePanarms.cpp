@@ -412,10 +412,10 @@ extern s32 lbl_8043CDA0[];
 extern RecoveredGlobal_800DFC18_lbl_8043CDA8 lbl_8043CDA8;
 extern RecoveredGlobal_800DFC18_lbl_8043CDB8 lbl_8043CDB8;
 extern RecoveredGlobal_800E0950_lbl_80495484 lbl_80495484;
-extern Ent_800E2200 lbl_8049575C[];
-extern s32 lbl_8049591C[];
-extern s32 lbl_80495924[];
-extern s32 lbl_8049592C[];
+extern Ent_800E2200 TObjEnePanarms__state_fn_table[];
+extern s32 panarms_turn_delta_table[];
+extern s32 panarms_sound_effect_pair[];
+extern s32 TObjEnePanarms__sound_ids[];
 extern u8 lbl_80495934[];
 extern s8 lbl_805D5288;
 extern s8 lbl_805D5289;
@@ -877,11 +877,11 @@ void TObjEnePanarms__sub_800E0A44(u8 *arg0) {
     }
     set_field_b8__14TObjEnePanarmsFPvs(arg0, var_r30);
     if (lbl_805D5289 == 0) {
-        lbl_8049592C[0] = copy_target_state__14TObjEnePanarmsFPvPv(arg0, 0x4003B836);
-        lbl_8049592C[1] = copy_target_state__14TObjEnePanarmsFPvPv(arg0, 0x4003BB35);
+        TObjEnePanarms__sound_ids[0] = copy_target_state__14TObjEnePanarmsFPvPv(arg0, 0x4003B836);
+        TObjEnePanarms__sound_ids[1] = copy_target_state__14TObjEnePanarmsFPvPv(arg0, 0x4003BB35);
         lbl_805D5289 = 1;
     }
-    play_sound_effect(lbl_8049592C[M2C_FIELD(arg0, s32 *, 0x380)], arg0 + 0x38, 0, 0);
+    play_sound_effect(TObjEnePanarms__sound_ids[M2C_FIELD(arg0, s32 *, 0x380)], arg0 + 0x38, 0, 0);
     M2C_FIELD(arg0, s32 *, 0x3B4) = 0xA4;
 }
 extern int fold_flush_2;
@@ -897,12 +897,12 @@ void TObjEnePanarms__sub_800E0B9C(Obj_800E0B9C *arg0) {
     arg0->f384 = 1;
     arg0->f388 = 1;
     if (lbl_805D5288 == 0) {
-        lbl_80495924[0] = ((s32)copy_target_state__14TObjEnePanarmsFPvPv((void *)(arg0), (M2C_UNK)(0x4003BC34)));
+        panarms_sound_effect_pair[0] = ((s32)copy_target_state__14TObjEnePanarmsFPvPv((void *)(arg0), (M2C_UNK)(0x4003BC34)));
         s32 t = ((s32)copy_target_state__14TObjEnePanarmsFPvPv((void *)(arg0), (M2C_UNK)(0x4003BC33)));
         lbl_805D5288 = 1;
-        lbl_80495924[1] = t;
+        panarms_sound_effect_pair[1] = t;
     }
-    play_sound_effect((M2C_UNK)(lbl_80495924[arg0->f380]), (void *)(arg0->f38), (M2C_UNK)(0), (M2C_UNK)(0));
+    play_sound_effect((M2C_UNK)(panarms_sound_effect_pair[arg0->f380]), (void *)(arg0->f38), (M2C_UNK)(0), (M2C_UNK)(0));
     arg0->fB0 &= 0xFFFFFFFE;
     set_field_b8__14TObjEnePanarmsFPvs((void*)(arg0), (int)(5));
 }
@@ -1443,7 +1443,7 @@ void TObjEnePanarms__sub_800E1ED0(u8 *arg0) {
         return;
     default:
         if (st == 0) {
-            M2C_FIELD(arg0, s32 *, 0x60) = M2C_FIELD(M2C_FIELD(arg0, u8 **, 0x39C), s32 *, 0x60) + lbl_8049591C[M2C_FIELD(arg0, s32 *, 0x380)];
+            M2C_FIELD(arg0, s32 *, 0x60) = M2C_FIELD(M2C_FIELD(arg0, u8 **, 0x39C), s32 *, 0x60) + panarms_turn_delta_table[M2C_FIELD(arg0, s32 *, 0x380)];
             VecCopy__FP3VecPC3Vec(arg0 + 0x38, M2C_FIELD(arg0, u8 **, 0x39C) + 0x38);
             M2C_FIELD(arg0, f32 *, 0x38) += lbl_805DA588 * sin_table_lookup(M2C_FIELD(arg0, s32 *, 0x60));
             M2C_FIELD(arg0, f32 *, 0x40) += lbl_805DA588 * cos_table_lookup(M2C_FIELD(arg0, s32 *, 0x60));
@@ -1537,7 +1537,7 @@ void run_state_machine__14TObjEnePanarmsFPv(Panarms_800E2200 *self) {
     self->angle = ((const f64 *)&TObjEnePanarms__data_8043CDD0)[0] * ((f32 (*)(f32, f32))get_ad_end_text_start__10TObjPlayerFv)(self->diff.x, self->diff.z);
     self->dist = vector_length(&self->diff);
     self->counter++;
-    fn = lbl_8049575C[self->state].fn;
+    fn = TObjEnePanarms__state_fn_table[self->state].fn;
     if (fn == 0) {
         return;
     }

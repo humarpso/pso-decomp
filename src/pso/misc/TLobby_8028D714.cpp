@@ -16,7 +16,7 @@ struct RecoveredGlobal_8028D738_lbl_80518860 {
 
 extern "C" {
 extern RecoveredGlobal_8028D738_lbl_80518850 lbl_80518850;
-extern RecoveredGlobal_8028D738_lbl_80518860 lbl_80518860;
+extern RecoveredGlobal_8028D738_lbl_80518860 chr_select_load_buffer_table;
 extern u32 lbl_805D6518;
 extern u32 lbl_805D651C;
 s32 TLobby__sub_8028D738(s32 arg0);
@@ -57,7 +57,7 @@ s32 TLobby__sub_8028D738(s32 arg0) {
     }
     temp_r4 = arg0 - 4;
     temp_r3 = (*(s32 *)&lbl_805D651C) + (temp_r4 * 0xA000);
-    M2C_FIELD(&lbl_80518860.value, M2C_UNK *, (temp_r4 * 4)) = temp_r3;
+    M2C_FIELD(&chr_select_load_buffer_table.value, M2C_UNK *, (temp_r4 * 4)) = temp_r3;
     return temp_r3;
 }
 

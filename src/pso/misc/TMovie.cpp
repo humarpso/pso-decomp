@@ -228,14 +228,14 @@ M2C_UNK xfree__FPv(void *);
 
 void copy__6TMovieFPvPv(void* p, void* q) { *(u32*)((char*)p + 0x0) = *(u32*)((char*)q + 0x0); *(u32*)((char*)p + 0x4) = *(u32*)((char*)q + 0x4); *(u32*)((char*)p + 0x8) = *(u32*)((char*)q + 0x8); *(u32*)((char*)p + 0xc) = *(u32*)((char*)q + 0xc); *(u32*)((char*)p + 0x10) = *(u32*)((char*)q + 0x10); *(u32*)((char*)p + 0x14) = *(u32*)((char*)q + 0x14); *(u32*)((char*)p + 0x18) = *(u32*)((char*)q + 0x18); *(u32*)((char*)p + 0x1c) = *(u32*)((char*)q + 0x1c); *(u32*)((char*)p + 0x20) = *(u32*)((char*)q + 0x20); *(u32*)((char*)p + 0x24) = *(u32*)((char*)q + 0x24); *(u32*)((char*)p + 0x28) = *(u32*)((char*)q + 0x28); *(u32*)((char*)p + 0x2c) = *(u32*)((char*)q + 0x2c); *(u32*)((char*)p + 0x30) = *(u32*)((char*)q + 0x30); *(u32*)((char*)p + 0x34) = *(u32*)((char*)q + 0x34); *(u32*)((char*)p + 0x38) = *(u32*)((char*)q + 0x38); *(u32*)((char*)p + 0x3c) = *(u32*)((char*)q + 0x3c); }
 
-extern M2C_UNK (*lbl_805D6B2C)();
+extern M2C_UNK (*movie_free_buffer_callback)();
 
 void free_buffer__6TMovieFPv(void *arg0) {
     if ((u32) M2C_FIELD(arg0, u32 *, 0x9C) != 0U) {
         xfree__FPv(M2C_FIELD(arg0, void **, 0x9C));
         M2C_FIELD(arg0, u32 *, 0x9C) = 0U;
     }
-    lbl_805D6B2C();
+    movie_free_buffer_callback();
     TObjPlayer__sub_80084614();
 }
 
