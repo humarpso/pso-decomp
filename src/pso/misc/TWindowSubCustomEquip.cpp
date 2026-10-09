@@ -17,6 +17,12 @@ struct RecoveredGlobal_80277014_lbl_8050E208 {
 typedef s32 M2C_UNK;
 struct Vec2_8027654C { f32 x; f32 y; };
 
+struct Vec2_802766C8
+{
+  f32 x;
+  f32 y;
+};
+
 extern "C" {
 s32 draw_default_entry__9TWindowDDFi();
 M2C_UNK draw_window_frame(void *, int);
@@ -76,6 +82,12 @@ s32 TWindowActionPalette__sub_801C1D7C(s32, s32, s32);
 s32 get_slot_type__20TWindowActionPaletteFiii(s32, s32, s32);
 s32 update_palette_slot__21TWindowSubCustomEquipFPviii(void *, s32, s32, s32);
 s32 refresh_palette_slots__21TWindowSubCustomEquipFPv(void *arg0);
+s32 get_array_entry__20TWindowSubStatusDispFPvi(void *, s32);
+extern const Vec2_802766C8 lbl_8044F748[];
+extern const f32 lbl_805DD578;
+extern const f32 lbl_805DD57C;
+extern const f32 lbl_805DD580;
+void TWindowSubCustomEquip__sub_802766C8(void *arg0, void *arg1);
 }
 
 extern "C" {
@@ -88,7 +100,6 @@ void reset_selection__21TWindowSubCustomEquipFPv(void* p);
 void set_relative_pos__21TWindowSubCustomEquipFPvPv(void *arg0, void *arg1);
 void update_rotate_anim__21TWindowSubCustomEquipFPv(void *arg0);
 M2C_UNK play_sound_effect(M2C_UNK, M2C_UNK, M2C_UNK, M2C_UNK);
-int TWindowSubCustomEquip__sub_802766C8(void*, void*);
 void __dl__7TObjectFPv(void *);
 void destroy_status_display__20TWindowSubStatusDispFis(void *, int);
 void destroy_window_base__9TWindowDDFPvs(void *, int);
@@ -136,7 +147,31 @@ int layout_selection_parts__21TWindowSubCustomEquipFPvPv(void *arg0, void *arg1)
     M2C_FIELD(d, u16 *, 0) |= 2;
 }
 
-void reset_selection__21TWindowSubCustomEquipFPv(void* p) { TWindowSubCustomEquip__sub_802766C8(p, (void*)9); TWindowSubCustomEquip__sub_802766C8(p, (void*)0); layout_selection_parts__21TWindowSubCustomEquipFPvPv((void *)(p), (void *)((void*)9)); }
+typedef struct Vec2_802766C8 Vec2_802766C8;
+void TWindowSubCustomEquip__sub_802766C8(void *arg0, void *arg1) {
+  u8 *base;
+  u8 *e1;
+  u8 *e2;
+  u32 i;
+  s32 idx;
+  s32 v;
+  base = (u8 *) get_array_entry__20TWindowSubStatusDispFPvi(arg0, (s32) arg1);
+  for (i = 0; i < 3; i++)
+  {
+    idx = ((s32) arg1) + i;
+    e1 = (u8 *) get_array_entry__20TWindowSubStatusDispFPvi(arg0, idx + 1);
+    e2 = (u8 *) get_array_entry__20TWindowSubStatusDispFPvi(arg0, idx + 4);
+    *((f32 *) (((s8 *) e1) + 8)) = (*((f32 *) (((s8 *) base) + 8))) + lbl_8044F748[i].x;
+    *((f32 *) (((s8 *) e1) + 0xC)) = (*((f32 *) (((s8 *) base) + 0xC))) + lbl_8044F748[i].y;
+    *((f32 *) (((s8 *) e1) + 0x18)) = lbl_805DD578 + (*((f32 *) (((s8 *) base) + 0x18)));
+    *((f32 *) (((s8 *) e2) + 0x18)) = lbl_805DD57C + (*((f32 *) (((s8 *) base) + 0x18)));
+    *((s32 *) (((s8 *) e2) + 0x1C)) = *((s32 *) (((s8 *) base) + 0x2C));
+    v = lbl_805DD580 * (((unsigned char) ((*((u32 *) (((s8 *) base) + 0x2C))) & 0xFF)) * ((*((u32 *) (((s8 *) e1) + 0x2C))) & 0xFF));
+    *((u32 *) (((s8 *) e1) + 0x2C)) = (v & 0xFF) | ((((v & 0xFF) << 16) | 0xFF000000) | ((v & 0xFF) << 8));
+  }
+}
+
+void reset_selection__21TWindowSubCustomEquipFPv(void* p) { TWindowSubCustomEquip__sub_802766C8((void *)(p), (void *)((void*)9)); TWindowSubCustomEquip__sub_802766C8((void *)(p), (void *)((void*)0)); layout_selection_parts__21TWindowSubCustomEquipFPvPv((void *)(p), (void *)((void*)9)); }
 
 s32 refresh_palette_slots__21TWindowSubCustomEquipFPv(void *arg0) {
     u8 *player;

@@ -9889,7 +9889,7 @@ pso/misc/TWindowSubCustomEquip_80276114.cpp:
 
 pso/misc/TWindowSubCustomEquip.cpp:
 	.text       start:0x80276528 end:0x802772B8
-	.rodata     start:0x8044F7E8 end:0x8044F7F0
+	.rodata     start:0x8044F7E0 end:0x8044F7F0
 
 pso/misc/TWindowSubCustomSelect.cpp:
 	.text       start:0x802772B8 end:0x80277C70
@@ -12112,6 +12112,7 @@ pso/ui/TAdEnterSerialAccessGC.cpp:
 
 pso/boss/TBoss6Kakusan.cpp:
 	.text       start:0x80322438 end:0x80322B50
+	.rodata     start:0x80476608 end:0x80476610
 
 pso/ui/TAdLdQuestPrtGC.cpp:
 	.text       start:0x80322B50 end:0x80323134
@@ -13136,7 +13137,7 @@ pso/boss/TObjBoss8PillerCtrl.cpp:
 
 pso/boss/TBoss4Thanks.cpp:
 	.text       start:0x8035C2B4 end:0x8035C8F0
-	.rodata     start:0x80479B88 end:0x80479B90
+	.rodata     start:0x80479B88 end:0x80479B98
 
 pso/boss/TBoss4Thanks_8035C8F0.cpp:
 	.text       start:0x8035C8F0 end:0x8035C9E8

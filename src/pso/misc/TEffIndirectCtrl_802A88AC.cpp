@@ -37,6 +37,12 @@ struct Ctrl_802A8B58 {
     f32 f50;
 };
 
+struct Cell_802A8FD8
+{
+  u16 idx;
+  u16 val;
+};
+
 extern "C" {
 extern RecoveredGlobal_802A9234_TEffIndirectCtrl__data_80540AF0 TEffIndirectCtrl__data_80540AF0;
 s32 get_indirect_source_pixels(u8 arg0);
@@ -62,6 +68,10 @@ extern M2C_UNK __vt__16TEffIndirectCtrl[];
 extern s32 lbl_805D3E28;
 extern const f32 lbl_805DE024;
 Ctrl_802A8B58 *TEffIndirectCtrl__ct(Ctrl_802A8B58 *self, s32 kind, void *parent);
+f32 sin_table_lookup(s32);
+u16 get_indirect_tile_coord(u8 arg0, s32 arg1);
+extern const f32 TEffIndirectCtrl__data_805DE02C;
+void deform_indirect_texture_scroll(u8 *p, u32 px, u32 py, u8 amp, u32 phase);
 }
 
 extern "C" {
@@ -195,6 +205,122 @@ s32 update_indirect_texture_wave(s32 arg0, s32 arg1, s32 arg2, s32 arg3, s32 arg
     }
 }
 #pragma pop
+
+typedef struct Cell_802A8FD8 Cell_802A8FD8;
+void deform_indirect_texture_scroll(u8 *p, u32 px, u32 py, u8 amp, u32 phase) {
+  Cell_802A8FD8 buf[64];
+  s32 pxm;
+  s32 pym;
+  s16 off16;
+  u32 first;
+  u32 flags;
+  s32 count;
+  u32 start;
+  u32 at;
+  s32 axis;
+  s32 line;
+  s32 k;
+  s32 offset;
+  s32 i;
+  s32 j;
+  s32 v;
+  u32 idx;
+  u32 w;
+  flags = 0;
+  count = 0;
+  offset = (s32) (((f32) amp) * sin_table_lookup((s32) (TEffIndirectCtrl__data_805DE02C * ((f32) phase))));
+  if (px != 0)
+  {
+    flags |= 1;
+    count = 1;
+  }
+  if (py != 0)
+  {
+    flags |= 2;
+    count++;
+  }
+  if (flags == 0)
+  {
+    for (i = 0; i < 64; i++)
+    {
+      for (j = 0; j < 64; j++)
+      {
+        v = *p;
+        if (((s16) v) != 0xFF)
+        {
+          v += offset;
+          if (((s16) v) >= 0xFF)
+          {
+            v = 0xFE;
+          }
+          if (((s16) v) <= 0)
+          {
+            v = 0;
+          }
+        }
+        *(p++) = v;
+      }
+    }
+    return;
+  }
+  pxm = px & 63;
+  pym = py & 63;
+  off16 = offset;
+  for (axis = 0; axis < count; axis++)
+  {
+    first = flags & 1;
+    start = (u32) ((first) ? (pxm) : (pym));
+    for (line = 0; line < 64; line++)
+    {
+      off16++;
+      off16--;
+      at = start;
+      for (k = 0; k < 64; k++)
+      {
+        if (first)
+        {
+          idx = ((u32 (*)(u8, u8, s32)) get_indirect_tile_coord)(at, line, 64);
+        }
+        else
+        {
+          idx = ((u32 (*)(u8, u8, s32)) get_indirect_tile_coord)(line, at, 64);
+        }
+        w = p[idx];
+        if (w != 0xFF)
+        {
+          w += off16;
+          if (w >= 0xFF)
+          {
+            w = 0xFE;
+          }
+          if (w <= 0)
+          {
+            w = 0;
+          }
+        }
+        buf[k].val = w;
+        buf[at].idx = idx;
+        at++;
+        if (at >= 64)
+        {
+          at -= 64;
+        }
+      }
+      for (k = 0; k < 64; k++)
+      {
+        p[buf[k].idx] = buf[k].val;
+      }
+    }
+    if (first)
+    {
+      flags &= ~1;
+    }
+    else
+    {
+      flags &= ~2;
+    }
+  }
+}
 
 u32 calc_i8_tiled_texel_offset(u32 x, u32 y, u32 w) {
     u32 r = (((x >> 3) & 0x1F) << 5) + (x & 7);

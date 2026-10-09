@@ -19,6 +19,23 @@ struct Ent_8035C35C { s32 id; s32 lo; s32 hi; };
 
 struct Obj_8035C35C { u8 pad[0x30]; s32 x30; u8 pad34[0x10]; void *p[4]; };
 
+struct Anim_8035C6FC
+{
+  u8 pad[4];
+  u32 frames;
+};
+
+struct Thanks_8035C6FC
+{
+  u8 pad0[0x1C];
+  s32 state;
+  s32 cur;
+  s32 next;
+  f32 frame;
+  u8 pad2c[0x10];
+  Anim_8035C6FC *anim[4];
+};
+
 extern "C" {
 s32 get_bml_motion(void *, s32);
 s32 TObjFish__sub_8001EDB0(void *, s32);
@@ -52,6 +69,12 @@ f32 xyz_distance(void *, void *);
 extern u8 TBoss4Thanks__data_80479B40[];
 extern const f32 lbl_805E0180;
 int is_player_nearby__12TBoss4ThanksFPv(void *arg0);
+void update_fade_out__12TBoss4ThanksFPv(void *arg0);
+void advance_thanks_state__12TBoss4ThanksFPv(void *arg0);
+void mark_done__12TBoss4ThanksFPv(void* p);
+extern const f32 lbl_805E018C;
+extern const f32 lbl_805E0194;
+void run_task__12TBoss4ThanksFv(void *arg0);
 }
 
 extern "C" {
@@ -165,6 +188,35 @@ void advance_thanks_state__12TBoss4ThanksFPv(void *arg0) {
 }
 
 void mark_done__12TBoss4ThanksFPv(void* p) { if (is_player_nearby__12TBoss4ThanksFPv((void *)(p)) != 0) { *(int*)((char*)p + 0x24) = 1; *(int*)((char*)p + 0x1c) = 1; } }
+
+typedef struct Anim_8035C6FC Anim_8035C6FC;
+typedef struct Thanks_8035C6FC Thanks_8035C6FC;
+void run_task__12TBoss4ThanksFv(void *arg0) {
+  Thanks_8035C6FC *o = (Thanks_8035C6FC *) arg0;
+  f32 len;
+  switch (o->state)
+  {
+    case 0:
+      mark_done__12TBoss4ThanksFPv((void*)(o));
+      break;
+    case 1:
+      advance_thanks_state__12TBoss4ThanksFPv(o);
+      break;
+    case 2:
+      update_fade_out__12TBoss4ThanksFPv(o);
+      break;
+  }
+  o->frame += lbl_805E0194;
+  len = ((f32) o->anim[o->cur]->frames) - lbl_805E018C;
+  if (o->frame >= len)
+  {
+    o->frame -= len;
+    if (((Thanks_8035C6FC *) arg0)->cur != o->next)
+    {
+      ((Thanks_8035C6FC *) arg0)->cur = ((Thanks_8035C6FC *) arg0)->next;
+    }
+  }
+}
 
 u8 *__dt__12TBoss4ThanksFv(u8 *arg0, s16 arg1) {
     if (arg0 != NULL) {

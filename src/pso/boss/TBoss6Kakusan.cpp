@@ -13,6 +13,51 @@ struct Obj_80322644 { u8 pad[0x30]; V3_80322644 pos; };
 
 struct Vec_803226C0 { f32 x, y, z; };
 
+struct Vec_80322438
+{
+  f32 x;
+  f32 y;
+  f32 z;
+};
+
+struct Hit_80322438
+{
+  s32 a;
+  s32 b;
+  s32 c;
+  f32 f;
+};
+
+struct Base_80322438
+{
+  char pad[0x18];
+};
+
+struct VObj_80322438 : Base_80322438 {
+    virtual void m0();
+    virtual void m1();
+    virtual void m2();
+    virtual void m3();
+    virtual void m4();
+    virtual void m5();
+    virtual void m6();
+    virtual void m7();
+    virtual void m8();
+    virtual void m9();
+    virtual void m10();
+    virtual void m11();
+    virtual void m12();
+    virtual void m13();
+    virtual void m14();
+    virtual void m15();
+    virtual void m16();
+    virtual void m17();
+    virtual void m18();
+    virtual void m19();
+    virtual void m20();
+    virtual void m21(s32, void *, s32, s32, s32);
+};
+
 extern "C" {
 u8 *__nw__7TObjectFUl(M2C_UNK);
 u8 *create_kakusan__11TBoss6Type1FiPvPvsf(s32 arg0, u8 *arg1, u8 *arg2, s16 arg3, f32 farg0);
@@ -43,7 +88,6 @@ s32 query_teammate_state__9TObjEneDDFPv();
 void direction_to_rotation_xz(void *, void *, void *);
 u32 get_player_by_client_id(s32);
 s32 is_active__14TBoss6PlotFalzFPv();
-void TBoss6Kakusan__sub_80322438(u8 *arg0);
 int TBoss6Kakusan__sub_8032263C(void);
 void vec3_add_to(void *, void *);
 f32 vector_length(void *);
@@ -57,6 +101,19 @@ extern const f32 TBoss6Kakusan__data_805DF51C;
 extern const f32 lbl_805DF538;
 s32 is_out_of_range__13TBoss6KakusanFPv(Obj_80322644 *arg0);
 void run_task__13TBoss6KakusanFv(u8 *arg0);
+s32 VecCopy__FP3VecPC3Vec(void *, void *);
+u8 *get_player_data__10TObjPlayerFi(s32);
+s32 get_game_mode__6TLobbyFv();
+s32 rand_vary_count__14TBoss6PlotFalzFif(int, f32);
+void vec3_add_to(void *, void *);
+f32 vector_length(void *);
+void subtract_vector(void *, void *);
+extern const f32 TBoss6Kakusan__data_805DF518;
+extern const f32 TBoss6Kakusan__data_805DF51C;
+extern const f32 lbl_805DF520;
+extern const f32 lbl_805DF524;
+extern const f32 lbl_805DF528;
+void TBoss6Kakusan__sub_80322438(u8 *arg0);
 }
 
 extern "C" {
@@ -68,6 +125,81 @@ void __dl__7TObjectFPv(void *);
 void __dt__7TObjectFv(void *, int);
 void render__15TAdLdQuestPrtGCFv(void);
 void request_destroy__11TBoss4Type2FUi(void *);
+
+#pragma push
+#pragma opt_propagation off
+typedef struct Base_80322438 Base_80322438;
+typedef struct Hit_80322438 Hit_80322438;
+typedef struct VObj_80322438 VObj_80322438;
+typedef struct Vec_80322438 Vec_80322438;
+#define PSO_VCALL_VObj_80322438_m21(_self, _arg0, _arg1, _arg2, _arg3, _arg4) (((VObj_80322438 *)(_self))->m21((_arg0), (_arg1), (_arg2), (_arg3), (_arg4)))
+void TBoss6Kakusan__sub_80322438(u8 *arg0) {
+  Vec_80322438 dir;
+  Vec_80322438 p;
+  Vec_80322438 q;
+  Hit_80322438 h;
+  s32 n;
+  s32 i;
+  u8 *pl;
+  s32 found;
+  f32 len;
+  f32 step;
+  f32 t;
+  n = get_game_mode__6TLobbyFv();
+  for (i = 0; i < n; i++)
+  {
+    pl = get_player_data__10TObjPlayerFi(i);
+    if (pl == 0)
+    {
+      continue;
+    }
+    step = *((f32 *) (((s8 *) arg0) + 0x24));
+    found = 0;
+    VecCopy__FP3VecPC3Vec(&p, arg0 + 0x30);
+    VecCopy__FP3VecPC3Vec(&dir, arg0 + 0x48);
+    subtract_vector(&dir, &p);
+    len = vector_length(&dir);
+    t = TBoss6Kakusan__data_805DF518;
+    if (len > TBoss6Kakusan__data_805DF51C)
+    {
+      f32 s = step / len;
+      dir.x *= s;
+      dir.y *= s;
+      dir.z *= s;
+    }
+    while (t <= len)
+    {
+      f32 y = *((f32 *) (((s8 *) pl) + 0x3C));
+      f32 ar = *((f32 *) (((s8 *) arg0) + 0x24));
+      f32 py = p.y;
+      f32 hi = ar + (lbl_805DF520 + y);
+      f32 lo = y - ar;
+      if ((!(py < (y - ar))) && (!(py > hi)))
+      {
+        VecCopy__FP3VecPC3Vec(&q, &p);
+        subtract_vector(&q, pl + 0x38);
+        q.y = TBoss6Kakusan__data_805DF518;
+        if (vector_length(&q) <= lbl_805DF524)
+        {
+          found = 1;
+          break;
+        }
+      }
+      t += step;
+      vec3_add_to(&p, &dir);
+    }
+    if (found != 0)
+    {
+      h.f = (f32) rand_vary_count__14TBoss6PlotFalzFif(*((s32 *) (((s8 *) arg0) + 0x1C)), lbl_805DF528);
+      s32 z = 0;
+      h.a = z;
+      h.c = z;
+      h.b = *((s32 *) (&h.f));
+      PSO_VCALL_VObj_80322438_m21(pl, *((s32 *) (((s8 *) arg0) + 0x10)), &h, 0, -1, -1);
+    }
+  }
+}
+#pragma pop
 
 int TBoss6Kakusan__sub_8032263C(void) { return 0; }
 
@@ -142,7 +274,7 @@ void run_task__13TBoss6KakusanFv(u8 *arg0) {
         queue_destruction__7TObjectFv(arg0);
         return;
     }
-    TBoss6Kakusan__sub_80322438(arg0);
+    TBoss6Kakusan__sub_80322438((u8 *)(arg0));
     M2C_FIELD(arg0, s32 *, 0x2C) += 1;
 }
 
