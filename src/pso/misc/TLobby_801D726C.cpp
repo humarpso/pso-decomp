@@ -211,3 +211,44 @@ void set_section_id__6TLobbyFPvUc(u8 *arg0, u8 arg1) {
 }
 
 }
+
+extern "C" {
+M2C_UNK set_clamped_index__6TLobbyFPvs(void *, M2C_UNK);
+M2C_UNK set_volume__6TLobbyFPvUc(void *, M2C_UNK);
+M2C_UNK set_clamped_value_1c__6TLobbyFPvi(void *, M2C_UNK);
+M2C_UNK set_validated_field_0x11__6TLobbyFPvUc(void *, M2C_UNK);
+
+void reset_settings_to_default__6TLobbyFPv(u8 *arg0);
+
+void reset_settings_to_default__6TLobbyFPv(u8 *arg0) {
+    s32 temp_r0;
+    s32 var_ctr;
+    s32 var_r4;
+
+    ((M2C_UNK (*)(void *, s32)) set_section_id__6TLobbyFPvUc)(arg0, ((s32 (*)()) TItemDrop__sub_80107B04)());
+    ((M2C_UNK (*)(void *, s32)) set_validated_field_0x1__6TLobbyFPvUc)(arg0, ((s32 (*)(void *)) ret_801D795C)(arg0));
+    ((M2C_UNK (*)(void *, s32)) set_field_2__6TLobbyFPvUc)(arg0, ((s32 (*)(void *)) ret_801D7954)(arg0));
+    ((M2C_UNK (*)(void *, s32)) set_field_3__6TLobbyFPvUc)(arg0, ((s32 (*)(void *)) ret_801D794C)(arg0));
+    ((M2C_UNK (*)(void *, s32)) set_clamped_field_4__6TLobbyFPvUc)(arg0, ((s32 (*)(void *)) ret_801D7944)(arg0));
+    ((M2C_UNK (*)(void *, s32)) set_field_5__6TLobbyFPvUc)(arg0, ((s32 (*)(void *)) ret_801D793C)(arg0));
+    ((M2C_UNK (*)(void *, s32)) set_field_0x6__6TLobbyFPvUc)(arg0, ((s32 (*)(void *)) ret_801D7934)(arg0));
+    ((M2C_UNK (*)(void *, s32)) set_field7_clamped__6TLobbyFPvUc)(arg0, ((s32 (*)(void *)) ret_801D792C)(arg0));
+    ((M2C_UNK (*)(void *, s32)) set_difficulty__6TLobbyFPvUc)(arg0, ((s32 (*)(void *)) ret_801D7924)(arg0));
+    ((M2C_UNK (*)(void *, s32)) set_byte9_clamped__6TLobbyFPvUc)(arg0, ((s32 (*)(void *)) ret_801D791C)(arg0));
+    ((M2C_UNK (*)(void *, s32)) set_field_a__6TLobbyFPvUc)(arg0, ((s32 (*)(void *)) ret_801D7914)(arg0));
+    ((M2C_UNK (*)(void *, s32)) set_field_b__6TLobbyFPvUc)(arg0, ((s32 (*)(void *)) ret_801D790C)(arg0));
+    ((M2C_UNK (*)(void *, s32)) set_clamped_field_c__6TLobbyFPvUc)(arg0, ((s32 (*)(void *)) ret_801D7904)(arg0));
+    ((M2C_UNK (*)(void *, s32)) set_field_d__6TLobbyFPvUc)(arg0, ((s32 (*)(void *)) ret_801D78FC)(arg0));
+    ((M2C_UNK (*)(void *, s32)) set_field_0xE__6TLobbyFPvUc)(arg0, ((s32 (*)(void *)) ret_801D78F4)(arg0));
+    set_volume__6TLobbyFPvUc(arg0, 0);
+    set_validated_field_0x11__6TLobbyFPvUc(arg0, 0xFF);
+    set_clamped_index__6TLobbyFPvs(arg0, 0);
+    set_clamped_value_1c__6TLobbyFPvi(arg0, 0xA);
+    M2C_FIELD(arg0, s8 *, 0x12) = 0;
+    for (var_r4 = 0; var_r4 < 4; var_r4++) {
+        *(arg0 + var_r4 + 0x20) = 0x14;
+    }
+    M2C_FIELD(arg0, s8 *, 0xF) = 0;
+}
+
+}

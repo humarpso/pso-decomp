@@ -3,11 +3,163 @@ typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
 typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 #define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
 #define M2C_BITWISE(type, expr) ((type)(expr))
+struct Base_A_80263b70 { char pad[0x18]; };
+struct V_A_80263b70 : Base_A_80263b70 {
+    virtual void m0();   virtual void m1();   virtual void m2();   virtual void m3();
+    virtual void m4();   virtual M2C_UNK m5();
+};
+struct Base_80263C24_80263B70 { char pad[0x18]; };
+struct VObj_80263C24_80263B70 : Base_80263C24_80263B70 {
+    virtual void m0();
+    virtual void m1();
+    virtual void m2();
+    virtual void m3();
+    virtual void m4();
+    virtual void m5();
+    virtual void m6();
+};
+
+extern "C" {
+
+s32 close_active_submenu__15TWindowMainMenuFPv(void *arg0);
+void try_open_battle_menu__15TWindowMainMenuFPvs(void *arg0, s16 arg1);
+s32 get_player_by_client_id(s32);
+struct Obj_80263D7C; struct Obj_80263DBC;
+void TWindowMainMenu__sub_80263D7C(Obj_80263D7C *o);
+void update_selection_value__15TWindowMainMenuFPv(Obj_80263DBC *o);
+s32 filter_menu_entry__15TWindowMainMenuFPvPvPv(u8 *arg0, s16 *arg1, s32 *arg2);
+M2C_UNK open_menu_with_entry__15TWindowMainMenuFPvs(void *, s16);
+M2C_UNK create_submenu__15TWindowMainMenuFPvUi(void *, s16);
+M2C_UNK close_submenu__15TWindowMainMenuFPvPv(void *, u32);
+void destroy_submenu__15TWindowMainMenuFPv(void* p);
+M2C_UNK reset_equip_slots__10TObjPlayerFPv(s32);
+
+void try_open_battle_menu__15TWindowMainMenuFPvs(void *arg0, s16 arg1) {
+    s32 spC;
+    s16 sp8;
+    s32 temp_r3;
+
+    sp8 = arg1;
+    temp_r3 = get_player_by_client_id(M2C_FIELD(arg0, s32 *, 0x54));
+    if ((temp_r3 != 0) && !(M2C_FIELD(arg0, s32 *, 0x4C) & 1) && (filter_menu_entry__15TWindowMainMenuFPvPvPv((u8 *)arg0, &sp8, &spC) != 0) && (spC != 0)) {
+        M2C_FIELD(arg0, s32 *, 0x4C) = (s32) (M2C_FIELD(arg0, s32 *, 0x4C) | 1);
+        M2C_FIELD(arg0, s32 *, 0x5C) = 0;
+        open_menu_with_entry__15TWindowMainMenuFPvs(arg0, sp8);
+        create_submenu__15TWindowMainMenuFPvUi(arg0, sp8);
+        reset_equip_slots__10TObjPlayerFPv(temp_r3);
+        ((V_A_80263b70 *) arg0)->m5();
+    }
+}
+
+s32 close_active_submenu__15TWindowMainMenuFPv(void *arg0) {
+    M2C_FIELD(arg0, s32 *, 0x4C) = (s32) (M2C_FIELD(arg0, s32 *, 0x4C) & 0xFFFFFFFB);
+    ((M2C_UNK (*)())destroy_submenu__15TWindowMainMenuFPv)();
+    if ((u32) M2C_FIELD(arg0, u32 *, 0x5C) == 0U) {
+        ((VObj_80263C24_80263B70 *)arg0)->m6();
+        return 0;
+    }
+    M2C_FIELD(arg0, s32 *, 0x48) = 0x1F;
+    TWindowMainMenu__sub_80263D7C((Obj_80263D7C *)arg0);
+    update_selection_value__15TWindowMainMenuFPv((Obj_80263DBC *)arg0);
+    close_submenu__15TWindowMainMenuFPvPv(arg0, M2C_FIELD(arg0, u32 *, 0x5C));
+    return 1;
+}
+
+}
+
+#include "types.h"
+typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
+typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
+#define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
+#define M2C_BITWISE(type, expr) ((type)(expr))
+struct Elt80263D94_80263d94_80263B70 { s16 f0; s16 f2; s32 f4; };
+
+struct Obj_80263D7C { u8 pad[0x50]; s16 f50; u8 pad3[0x5c - 0x52]; s32 f5c; };
+
+struct E_80263DBC { s16 a; s32 b; };
+
+struct Obj_80263DBC { u8 pad[0x28]; E_80263DBC arr[4]; u8 pad2[0x50 - 0x48]; s16 f50; s16 f52; u8 pad3[0x5c - 0x54]; u32 f5c; };
+
+extern "C" {
+void TWindowMainMenu__sub_80263D7C(Obj_80263D7C *o);
+void update_selection_value__15TWindowMainMenuFPv(Obj_80263DBC *o);
+}
+
+extern "C" {
+
+void add_menu_entry__15TWindowMainMenuFPvs(u8 *arg0, s16 arg1);
+void close_and_clear_flags__15TWindowMainMenuFPv(void *arg0);
+void open__15TWindowMainMenuFPvi(void *arg0, s32 arg1);
+s32 get_player_by_client_id(s32);
+M2C_UNK populate_menu__15TWindowMainMenuFPvPv(void *, s32);
+M2C_UNK close__15TWindowMainMenuFPv(void *);
+void close_child_window__15TWindowMainMenuFPv(void* p);
+
+M2C_UNK init_parts__10TObjPlayerFPv();
+M2C_UNK reset_equip_slots__10TObjPlayerFPv(s32);
+void update_keyboard_card_state__15TWindowMainMenuFPv(void *arg0);
+
+void close_and_clear_flags__15TWindowMainMenuFPv(void *arg0) {
+    s32 temp_r4;
+
+    temp_r4 = M2C_FIELD(arg0, s32 *, 0x4C);
+    M2C_FIELD(arg0, s32 *, 0x4C) = (s32) (temp_r4 & ~5);
+    ((M2C_UNK (*)(void *, s32))close_child_window__15TWindowMainMenuFPv)(arg0, temp_r4);
+    destroy_submenu__15TWindowMainMenuFPv(arg0);
+    close__15TWindowMainMenuFPv(arg0);
+    if (get_player_by_client_id((s32)(M2C_FIELD(arg0, s32 *, 0x54))) != 0U) {
+        init_parts__10TObjPlayerFPv();
+    }
+}
+
+void open__15TWindowMainMenuFPvi(void *arg0, s32 arg1) {
+    s32 temp_r3;
+    s32 temp_r4;
+
+    temp_r3 = get_player_by_client_id((s32)(M2C_FIELD(arg0, s32 *, 0x54)));
+    if (temp_r3 != 0) {
+        temp_r4 = M2C_FIELD(arg0, s32 *, 0x4C) | 1;
+        M2C_FIELD(arg0, s32 *, 0x4C) = temp_r4;
+        M2C_FIELD(arg0, s32 *, 0x5C) = arg1;
+        M2C_FIELD(arg0, s16 *, 0x50) = 0;
+        ((M2C_UNK (*)(void *, s32))update_keyboard_card_state__15TWindowMainMenuFPv)(arg0, temp_r4);
+        populate_menu__15TWindowMainMenuFPvPv(arg0, M2C_FIELD(arg0, s32 *, 0x5C));
+        reset_equip_slots__10TObjPlayerFPv(temp_r3);
+    }
+}
+
+void TWindowMainMenu__sub_80263D7C(Obj_80263D7C *o) {
+    o->f5c = *(s32 *)((u8 *)o + o->f50 * 8 + 0x2c);
+}
+
+void add_menu_entry__15TWindowMainMenuFPvs(u8 *arg0, s16 arg1) {
+    struct Elt80263D94_80263d94_80263B70 *arr = (struct Elt80263D94_80263d94_80263B70 *)arg0;
+    struct Elt80263D94_80263d94_80263B70 *e = (struct Elt80263D94_80263d94_80263B70 *)((char *)&arr[M2C_FIELD(arg0, s16 *, 0x50)] + 0x28);
+    e->f0 = (s16) M2C_FIELD(arg0, s16 *, 0x52);
+    e->f2 = arg1;
+    e->f4 = (s32) M2C_FIELD(arg0, s32 *, 0x5C);
+}
+void update_selection_value__15TWindowMainMenuFPv(Obj_80263DBC *o) {
+    E_80263DBC *e = &o->arr[o->f50];
+    if (e->b != o->f5c) {
+        o->f52 = 0;
+    } else {
+        o->f52 = e->a;
+    }
+}
+
+}
+
+#include "types.h"
+typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
+typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
+#define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
+#define M2C_BITWISE(type, expr) ((type)(expr))
 
 extern "C" {
 s32 get_main_phase();
 s32 is_quest_active();
-u8 *get_player_by_client_id(s32);
+
 s32 get_global_state__14TOKeyMachine01Fv();
 s32 get_short_mail_ctrl__6TLobbyFv();
 s32 TWindowSubTradeMain__sub_802D3924(s32);
@@ -23,7 +175,7 @@ void destroy_submenu__15TWindowMainMenuFPv(void* p);
 void update_description_text__15TWindowMainMenuFPvi(void *arg0, s32 arg1);
 void update_keyboard_card_state__15TWindowMainMenuFPv(void *arg0);
 u32 create_message_window__6TLobbyFiiUis(u32, M2C_UNK *, M2C_UNK, s32);
-M2C_UNK update_selection_value__15TWindowMainMenuFPv(void *);
+
 u32 get_window_layout_position(M2C_UNK);
 int TWindow__close(void*);
 M2C_UNK call_if_split_screen(u32, s32);
@@ -39,14 +191,14 @@ void update_keyboard_card_state__15TWindowMainMenuFPv(void *arg0) {
         M2C_FIELD(arg0, s16 *, 0x52) = 0;
         return;
     }
-    update_selection_value__15TWindowMainMenuFPv(arg0);
+    update_selection_value__15TWindowMainMenuFPv((Obj_80263DBC *)arg0);
 }
 
 s32 filter_menu_entry__15TWindowMainMenuFPvPvPv(u8 *arg0, s16 *arg1, s32 *arg2) {
     u8 *base;
     u8 *p;
     s32 st;
-    base = get_player_by_client_id(M2C_FIELD(arg0, s32 *, 0x54));
+    base = ((u8 *(*)(s32))get_player_by_client_id)(M2C_FIELD(arg0, s32 *, 0x54));
     if (base == NULL) {
         return 0;
     }

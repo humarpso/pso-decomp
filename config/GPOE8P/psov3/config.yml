@@ -416,6 +416,7 @@ force_active:
   - build_box_triangles__10TObjMapCsnFPv
   - build_default_save_file__23TAdSinglePlyChrSelectGCFv
   - build_download_list__12TQuestListVMFPv
+  - build_menu__19TWindowSubShortMailFv
   - build_node_records__11TBreakUpMdlFPvPvi
   - build_save_file__23TAdSinglePlyChrSelectGCFv
   - build_sell_list__24TShopEquipmentSellWindowFPv
@@ -541,6 +542,7 @@ force_active:
   - create_back_objects__21TAdMultiChgGameModeGCFPv
   - create_backgrounds__9TSaveChCrFPv
   - create_buy_list_windows__24TShopEquipmentListWindowFPv
+  - create_confirm_menu_window__19TWindowSubShortMailFv
   - create_hair_effects__24TObjWaitEntryHairMoveSimFPv
   - create_icon__10TObjPlayerFiii
   - create_inward_orbit_effect
@@ -1103,6 +1105,7 @@ force_active:
   - populate_sub_item_list
   - prepare_heavy_attack_particles
   - process_download_entry__12TQuestListVMFPv
+  - prs_read_control_bit
   - publish_light_color__10TObjPlayerFPv
   - push_model_fade_color__10TObjPlayerFPv
   - push_nearby_players__10TObjPlayerFPv
@@ -1118,6 +1121,7 @@ force_active:
   - reflect_velocity_off_collision
   - refresh_item_list__20TShopArmorListWindowFPv
   - refresh_label__11TChCrEffTagFPv
+  - refresh_mail_list__19TWindowSubShortMailFPvPv
   - refresh_names__15TObjDeadListWinFPv
   - register_global_instance_dtor__22TQuestVmDownLoadServerFv
   - reload_floor_scene__6TLobbyFv
@@ -1353,6 +1357,7 @@ force_active:
   - send_obj_position_event__10TEndingPicFPvi
   - send_partner_attack_stage_request
   - send_state__12TODoorCave01FPvPv
+  - send_subordinate_actions__11TBoss6Type2Fiiiii
   - seqCrossFade
   - seqFreeKeyOffNote
   - set_all_flags__17TBoss8DragonColliFPv
@@ -1478,6 +1483,7 @@ force_active:
   - update_chase_target__9TObjGrassFPv
   - update_child_window_visibility__11TWindowCtrlFPv
   - update_customize_help_text
+  - update_death_state__11TObjEneMojaFv
   - update_demo_if_in_range__14TOTrapChainSawFPv
   - update_detonation__10TTecRaFoieFPvPv
   - update_drop__20TBoss3VoloptHiraisinFPv

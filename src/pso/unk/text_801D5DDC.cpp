@@ -4,6 +4,35 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 #define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
 #define M2C_BITWISE(type, expr) ((type)(expr))
 
+extern "C" {
+
+s16 TAdSinglePlyChrSelectGC__sub_801D5DDC(void *arg0);
+s16 get_valid_index__15TFontSmallLobbyFPv(void *arg0);
+s32 is_valid_index__15TFontSmallLobbyFs(s16);
+void set_section_index__15TFontSmallLobbyFPvs(void *arg0, s16 arg1);
+
+s16 TAdSinglePlyChrSelectGC__sub_801D5DDC(void *arg0) {
+    s16 temp_r3;
+
+    temp_r3 = M2C_FIELD(arg0, s16 *, 4);
+    if ((temp_r3 < 0) || (temp_r3 > 0xA)) {
+        set_section_index__15TFontSmallLobbyFPvs(arg0, 0);
+    }
+    return M2C_FIELD(arg0, s16 *, 4);
+}
+
+s16 get_valid_index__15TFontSmallLobbyFPv(void *arg0) {
+    s16 var_r31;
+
+    var_r31 = M2C_FIELD(arg0, s16 *, 2);
+    if (is_valid_index__15TFontSmallLobbyFs(var_r31) == 0) {
+        var_r31 = 0;
+    }
+    return var_r31;
+}
+
+}
+
 struct Pkt_801D60B4 { s16 a; u16 b; };
 
 struct Pkt_801D5FC0 { u16 hdr; u16 id; };
@@ -52,8 +81,6 @@ void handle_6x3A_clear_photon_blast_ready_flag(s32 arg0);
 }
 
 extern "C" {
-
-void set_section_index__15TFontSmallLobbyFPvs(void *arg0, s16 arg1);
 
 void set_section_index__15TFontSmallLobbyFPvs(void *arg0, s16 arg1) {
     s16 var_r4;
@@ -140,6 +167,94 @@ void send_6x39_photon_blast_ready(u16 *p) {
     init_6x39_packet__15TFontSmallLobbyFPv(&pk);
     pk.b = *p;
     update_and_send_60__15TFontSmallLobbyFPv(&pk);
+}
+
+}
+
+struct Cmd_801D61A0 { u8 hdr[2]; u16 client; u8 body[8]; };
+
+extern "C" {
+s32 get_current_floor();
+s32 get_field_3e4__10TObjPlayerFPv(int);
+s32 get_player_by_client_id(int);
+M2C_UNK create_photon_blast_party_effects__10TObjPlayerFi(int);
+M2C_UNK bswap_fields__15TFontSmallLobbyFPv(void *);
+M2C_UNK copy_packet_header_6x38__15TFontSmallLobbyFPvPv(void *, void *);
+M2C_UNK TFontSmallLobby__sub_801D698C(void *);
+s32 reset_key_machine_state__10TObjPlayerFv();
+s32 validate_6x38_donate_to_photon_blast(void *);
+void handle_6x38_donate_to_photon_blast(s32 arg0);
+}
+
+extern "C" {
+
+s32 is_ready__15TFontSmallLobbyFPv(u8 *arg0);
+void reset_targets__15TFontSmallLobbyFi(s32 arg0);
+s32 get_state__15TFontSmallLobbyFPv(void *);
+s32 get_field_04__15TFontSmallLobbyFPv(void *);
+M2C_UNK check_flag_at_40__15TFontSmallLobbyFPv(s32);
+M2C_UNK set_target_count__15TFontSmallLobbyFPvi(s32, M2C_UNK);
+M2C_UNK set_target_index__15TFontSmallLobbyFPvi(s32, M2C_UNK);
+
+extern const f32 lbl_805DC3D8;
+
+s32 is_ready__15TFontSmallLobbyFPv(u8 *arg0) {
+    if ((get_field_04__15TFontSmallLobbyFPv(arg0 + 0x4C) < 3) && (M2C_FIELD(arg0, f32 *, 0x3C) > lbl_805DC3D8) && (get_state__15TFontSmallLobbyFPv(arg0 + 0x4C) < 0)) {
+        return 1;
+    }
+    return 0;
+}
+
+void reset_targets__15TFontSmallLobbyFi(s32 arg0) {
+    set_target_index__15TFontSmallLobbyFPvi(arg0 + 0x4C, 0);
+    set_target_count__15TFontSmallLobbyFPvi(arg0 + 0x4C, 0);
+    check_flag_at_40__15TFontSmallLobbyFPv(arg0);
+}
+void handle_6x38_donate_to_photon_blast(s32 arg0) {
+    Cmd_801D61A0 cmd;
+    s32 temp_r3;
+    TFontSmallLobby__sub_801D698C((void *) (&cmd));
+    copy_packet_header_6x38__15TFontSmallLobbyFPvPv((void *) (&cmd), (void *) (arg0));
+    bswap_fields__15TFontSmallLobbyFPv((void *) (&cmd));
+    if (validate_6x38_donate_to_photon_blast((void *) (&cmd)) != 0) {
+        temp_r3 = get_player_by_client_id(cmd.client);
+        if ((temp_r3 != 0) && (reset_key_machine_state__10TObjPlayerFv() != 0)) {
+            if (get_current_floor() == get_field_3e4__10TObjPlayerFPv((int) (temp_r3))) {
+                create_photon_blast_party_effects__10TObjPlayerFi(cmd.client);
+            }
+        }
+    }
+}
+
+}
+
+extern "C" {
+
+void draw_party_label__15TFontSmallLobbyFiUis(s32 arg0, u32 arg1, s16 arg2);
+M2C_UNK subtract_photon_blast_charge(s32, f32);
+M2C_UNK set_target_index__15TFontSmallLobbyFPvi(s32, M2C_UNK);
+M2C_UNK TFontSmallLobby__sub_801D671C(s32, M2C_UNK);
+M2C_UNK set_flag_40_bit5__15TFontSmallLobbyFPv();
+M2C_UNK send_state__15TFontSmallLobbyFPv(M2C_UNK *);
+M2C_UNK create_party_effect__11TWindowCtrlFPvPv(s16, s16);
+s16 obj_getField1c(u32);
+
+struct Sp801D6230_801d6230 { s16 f0; s16 fA; s16 fC; };
+
+void draw_party_label__15TFontSmallLobbyFiUis(s32 arg0, u32 arg1, s16 arg2) {
+    Sp801D6230_801d6230 sp8;
+
+    set_flag_40_bit5__15TFontSmallLobbyFPv();
+    subtract_photon_blast_charge(arg0, lbl_805DC3D8);
+    set_target_index__15TFontSmallLobbyFPvi(arg0 + 0x4C, 8);
+    TFontSmallLobby__sub_801D671C(arg0 + 0x4C, 1);
+    create_party_effect__11TWindowCtrlFPvPv(obj_getField1c(arg1), arg2);
+    if ((arg1 == 0U) || (((s32 (*)(u32)) obj_isState2_324)(arg1) == 0)) {
+        TFontSmallLobby__sub_801D698C((void *) &sp8);
+        sp8.fA = obj_getField1c(arg1);
+        sp8.fC = arg2;
+        send_state__15TFontSmallLobbyFPv((M2C_UNK *) &sp8);
+    }
 }
 
 }

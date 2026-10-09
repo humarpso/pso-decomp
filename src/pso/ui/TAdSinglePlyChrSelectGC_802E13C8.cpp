@@ -91,7 +91,7 @@ void apply_settings__23TAdSinglePlyChrSelectGCFi(s32 arg0);
 void close_and_dispatch__23TAdSinglePlyChrSelectGCFPvPvPvPvPv(void* p, void* a1, void* a2, void* a3, void* a4);
 void close_and_next__23TAdSinglePlyChrSelectGCFPvPvPvPvPv(void* p, void* a1, void* a2, void* a3, void* a4);
 void close_windows__23TAdSinglePlyChrSelectGCFPv(void *arg0);
-void *create__23TAdSinglePlyChrSelectGCFv(void);
+void * create__23TAdSinglePlyChrSelectGCFv(void);
 void create_backgrounds__23TAdSinglePlyChrSelectGCFPv(void *arg0);
 void *init_object__23TAdSinglePlyChrSelectGCFPvPv(void *arg0, void *);
 s32 is_load_complete__23TAdSinglePlyChrSelectGCFv(void);
@@ -104,7 +104,7 @@ M2C_UNK TAdPlyStatusGC__sub_802E11BC(void *);
 s32 load_system_file_blocking__23TAdSinglePlyChrSelectGCFv();
 s32 load_character_and_wait__23TAdSinglePlyChrSelectGCFv();
 s32 load_player_and_wait__23TAdSinglePlyChrSelectGCFv();
-s32 change_state__23TAdSinglePlyChrSelectGCFPvi(s32 a0 = 0, s32 a1 = 0);
+void change_state__23TAdSinglePlyChrSelectGCFPvi(u8 *arg0, s32 arg1);
 M2C_UNK TAdSinglePlyChrSelectGC__sub_802E1F14(void *);
 int TKeyBoardControl__sub_8000F9CC(void*);
 s32 TLobby__sub_8022614C(s32 a0 = 0);
@@ -303,7 +303,7 @@ void apply_settings__23TAdSinglePlyChrSelectGCFi(s32 arg0) {
 
     temp_r3 = get_global_state__23TAdSinglePlyChrSelectGCFv();
     if (temp_r3 == NULL) {
-        change_state__23TAdSinglePlyChrSelectGCFPvi(arg0, 1);
+        ((s32 (*)(s32, s32))change_state__23TAdSinglePlyChrSelectGCFPvi)(arg0, 1);
         return;
     }
     set_language__19TWindowKeyBoardSoftFc(M2C_FIELD(temp_r3, u8 *, 7));
@@ -409,6 +409,151 @@ void create_backgrounds__23TAdSinglePlyChrSelectGCFPv(void *arg0) {
         }
         M2C_FIELD(arg0, void **, 0x4C) = o2;
     }
+}
+
+}
+
+#include "types.h"
+typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
+typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
+#define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
+#define M2C_BITWISE(type, expr) ((type)(expr))
+
+extern "C" {
+
+s32 check_capacity__23TAdSinglePlyChrSelectGCFi(s32 arg0);
+s32 TAdPlayerLoadGC__sub_801E0FA4(M2C_UNK);
+s32 query_memcard_capacity__15TAdPlayerLoadGCFi(M2C_UNK, M2C_UNK);
+s32 count_selected_flags__23TAdSinglePlyChrSelectGCFPv(void *arg0);
+s32 count_flags__23TAdSinglePlyChrSelectGCFPv(void *arg0);
+
+s32 check_capacity__23TAdSinglePlyChrSelectGCFi(s32 arg0) {
+    s32 temp_r29;
+    s32 temp_r30;
+    s32 temp_r31;
+    s32 temp_r3;
+
+    temp_r29 = ((s32 (*)())count_flags__23TAdSinglePlyChrSelectGCFPv)();
+    temp_r30 = ((s32 (*)(s32))count_selected_flags__23TAdSinglePlyChrSelectGCFPv)(arg0);
+    temp_r31 = TAdPlayerLoadGC__sub_801E0FA4(0);
+    temp_r3 = query_memcard_capacity__15TAdPlayerLoadGCFi(0, 0);
+    if ((temp_r29 > temp_r31) || (temp_r30 > temp_r3)) {
+        return 0;
+    }
+    return 1;
+}
+
+}
+
+#include "types.h"
+typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
+typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
+#define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
+#define M2C_BITWISE(type, expr) ((type)(expr))
+
+#include "pso/ui/TAdSinglePlyChrSelectGC.h"
+union MemberActionStorage_802E1DF8 { s32 words[3]; void (TAdSinglePlyChrSelectGC::*action)(); };
+
+struct RecoveredGlobal_802E1DF8_lbl_804E32A4 {
+    M2C_UNK value;
+    u8 remaining[0x254];
+};
+
+extern "C" {
+extern RecoveredGlobal_802E1DF8_lbl_804E32A4 lbl_804E32A4;
+void change_state__23TAdSinglePlyChrSelectGCFPvi(u8 *arg0, s32 arg1);
+}
+
+extern "C" {
+
+s32 count_flags__23TAdSinglePlyChrSelectGCFPv(void *arg0);
+s32 count_selected_flags__23TAdSinglePlyChrSelectGCFPv(void *arg0);
+s32 TAdSinglePlyChrSelectGC__sub_8001C5F0();
+s32 get_flag_count__23TAdSinglePlyChrSelectGCFv();
+s32 get_selected_count__23TAdSinglePlyChrSelectGCFv();
+
+s32 count_selected_flags__23TAdSinglePlyChrSelectGCFPv(void *arg0) {
+    s32 var_r31;
+
+    var_r31 = 0;
+    if (M2C_FIELD(arg0, s32 *, 0x44) & 0x400) {
+        var_r31 = get_selected_count__23TAdSinglePlyChrSelectGCFv();
+    }
+    if (M2C_FIELD(arg0, s32 *, 0x44) & 0x800) {
+        var_r31 += get_flag_count__23TAdSinglePlyChrSelectGCFv();
+    }
+    if (M2C_FIELD(arg0, s32 *, 0x44) & 0x1000) {
+        var_r31 += TAdSinglePlyChrSelectGC__sub_8001C5F0();
+    }
+    return var_r31;
+}
+
+s32 count_flags__23TAdSinglePlyChrSelectGCFPv(void *arg0) {
+    s32 temp_r4;
+    s32 var_r3;
+
+    temp_r4 = M2C_FIELD(arg0, s32 *, 0x44);
+    var_r3 = 0;
+    if (temp_r4 & 0x400) {
+        var_r3 = 1;
+    }
+    if (temp_r4 & 0x800) {
+        var_r3 += 1;
+    }
+    if (temp_r4 & 0x1000) {
+        return var_r3 + 1;
+    }
+    return var_r3;
+}
+typedef char MemberActionStorage_802E1DF8_size[sizeof(MemberActionStorage_802E1DF8) == 12 ? 1 : -1];
+typedef char RecoveredGlobal_802E1DF8_lbl_804E32A4_size[sizeof(RecoveredGlobal_802E1DF8_lbl_804E32A4) == 0x258 ? 1 : -1];
+void change_state__23TAdSinglePlyChrSelectGCFPvi(u8 *arg0, s32 arg1) {
+    MemberActionStorage_802E1DF8 member_action;
+    u8 *temp_r6;
+    if ((s32) M2C_FIELD(arg0, s32 *, 0x1C) != arg1) {
+        M2C_FIELD(arg0, s32 *, 0x1C) = arg1;
+        temp_r6 = (u8 *)((void *)((u8 *)(&lbl_804E32A4.value) + (M2C_FIELD(arg0, s32 *, 0x1C) * 0x18)));
+        member_action.words[0] = M2C_FIELD(temp_r6, s32 *, 0);
+        member_action.words[1] = M2C_FIELD(temp_r6, s32 *, 4);
+        member_action.words[2] = M2C_FIELD(temp_r6, s32 *, 8);
+        if (member_action.action != 0) {
+            (((TAdSinglePlyChrSelectGC *)((void *) (arg0)))->*member_action.action)();
+        }
+    }
+}
+
+}
+
+#include "types.h"
+typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
+typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
+#define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
+#define M2C_BITWISE(type, expr) ((type)(expr))
+
+extern "C" {
+
+s32 poll_load_status__23TAdSinglePlyChrSelectGCFPv(void * a0 = 0);
+
+int TAdSinglePlyChrSelectGC__sub_802E1F8C(void* p);
+
+void init__23TAdSinglePlyChrSelectGCFPv(void *arg0) {
+    ((s32 (*)())TAdSinglePlyChrSelectGC__sub_802E1F14)();
+    M2C_FIELD(arg0, s32 *, 0x48) = 0;
+    M2C_FIELD(arg0, s32 *, 0x4C) = 0;
+    M2C_FIELD(arg0, s32 *, 0x50) = 0;
+    M2C_FIELD(arg0, s32 *, 0x54) = 0;
+    M2C_FIELD(arg0, s32 *, 0x58) = ((s32 (*)())create__23TAdSinglePlyChrSelectGCFv)();
+    M2C_FIELD(arg0, s32 *, 0x20) = 0;
+    M2C_FIELD(arg0, s32 *, 0x5C) = 0;
+    M2C_FIELD(arg0, s32 *, 0x60) = 0;
+    M2C_FIELD(arg0, s32 *, 0x40) = 0;
+    M2C_FIELD(arg0, s32 *, 0x44) = poll_load_status__23TAdSinglePlyChrSelectGCFPv(arg0);
+    M2C_FIELD(arg0, s32 *, 0x1C) = -1;
+    if ((s32) M2C_FIELD(arg0, s32 *, 0x44) == 0) {
+        ((s32 (*)(void *, s32))change_state__23TAdSinglePlyChrSelectGCFPvi)(arg0, 1);
+        return;
+    }
+    ((s32 (*)(void *, s32))change_state__23TAdSinglePlyChrSelectGCFPvi)(arg0, 0);
 }
 
 }

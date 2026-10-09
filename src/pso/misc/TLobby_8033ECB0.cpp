@@ -80,3 +80,15 @@ void release_indexed_entry__6TLobbyFi(s32 arg0) {
 }
 
 }
+
+#include "types.h"
+
+extern "C" {
+
+    extern s32 lbl_805D6DA0;
+void TLobby__sub_8033EDF8(void) { lbl_805D6DA0 = 0; }
+
+    extern s32 lbl_805D6DA0;
+void TLobby__sub_8033EE04(void) { lbl_805D6DA0 = 0; }
+
+}

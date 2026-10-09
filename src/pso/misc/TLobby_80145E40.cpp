@@ -5,6 +5,55 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 #define M2C_BITWISE(type, expr) ((type)(expr))
 
 extern "C" {
+s32 TLobby__sub_803F5678(void *);
+s32 TLobby__sub_80145EE4(void);
+}
+
+extern "C" {
+
+int TLobby__sub_80145E40(void);
+s32 is_state_active__6TLobbyFv(void);
+s32 is_status_zero__6TLobbyFv(void);
+s32 TLobby__sub_803F517C(u8 *);
+s32 TLobby__sub_803F5678(void *);
+
+    extern unsigned short lbl_805D56CC;
+int TLobby__sub_80145E40(void) {  return (lbl_805D56CC & 0x1); }
+
+s32 is_status_zero__6TLobbyFv(void) {
+    u8 sp8;
+
+    if ((TLobby__sub_803F517C(&sp8) == 0) && (sp8 == 0)) {
+        return 1;
+    }
+    return 0;
+}
+
+s32 is_state_active__6TLobbyFv(void) {
+    u8 sp8;
+
+    if (TLobby__sub_803F5678((void *) (&sp8)) != 0) {
+        return 0;
+    }
+    if (sp8 == 0) {
+        return 0;
+    }
+    return (u32) __cntlzw(1 - sp8) >> 5;
+}
+s32 TLobby__sub_80145EE4(void) {
+    u8 sp8;
+    if (TLobby__sub_803F5678((void *) (&sp8)) != 0) {
+        return 0;
+    }
+    if (sp8 == 0) {
+        return 1;
+    }
+    return (sp8 == 1) ? 0 : 0;
+}
+
+}
+
+extern "C" {
 
 s32 init_struct(u8 *arg0);
 s32 init_work(M2C_UNK arg0, u8 *arg1);

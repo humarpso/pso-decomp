@@ -46,7 +46,7 @@ struct V_A_801d48f8 : Base_A_801d48f8 {
 };
 
 extern "C" {
-void remove_equipped_item__10TObjPlayerFPvii(void *, void *, int);
+void remove_equipped_item__10TObjPlayerFPvii(void *, s32, s32);
 s32 start_inventory_update__10TObjPlayerFPvi(void *, s32);
 s32 TObjPlayer__sub_801D49F4(void *arg0, void *arg1, s32 *arg2, s32 arg3);
 }
@@ -112,9 +112,61 @@ s32 TObjPlayer__sub_801D49F4(void *arg0, void *arg1, s32 *arg2, s32 arg3) {
         if (r == 0) {
             return 0;
         }
-        remove_equipped_item__10TObjPlayerFPvii(arg0, arg1, r);
+        ((void (*)(void *, void *, int)) remove_equipped_item__10TObjPlayerFPvii)(arg0, arg1, r);
     }
     return 1;
+}
+
+}
+
+struct Base_801D4A6C { char pad[0x18]; };
+struct VObj_801D4A6C : Base_801D4A6C {
+    virtual void m0();
+    virtual void m1();
+    virtual void m2();
+    virtual void m3();
+    virtual void m4();
+    virtual void m5();
+    virtual void m6();
+    virtual void m7();
+    virtual void m8();
+    virtual void m9();
+    virtual void m10();
+    virtual void m11();
+    virtual void m12();
+    virtual void m13();
+    virtual void m14();
+    virtual void m15();
+    virtual void m16();
+    virtual void m17();
+    virtual void m18();
+    virtual void m19();
+    virtual void m20();
+    virtual void m21();
+    virtual void m22();
+    virtual void m23();
+    virtual void m24();
+    virtual void m25();
+    virtual void m26();
+    virtual void m27(s16);
+};
+
+extern "C" {
+
+void remove_equipped_item__10TObjPlayerFPvii(void *arg0, s32 arg1, s32 arg2) {
+    s16 temp_r4;
+    void *temp_r3;
+
+    temp_r3 = ((void *(*)(s32)) get_owner_if_alive__10TObjPlayerFPv)(arg2);
+    if (temp_r3 != NULL) {
+        if (((s32 (*)()) is_item_equipped)() != 0) {
+            unequip_item__10TObjPlayerFiPv(arg1, temp_r3);
+        }
+        temp_r4 = M2C_FIELD(arg0, s16 *, 0x1C);
+        M2C_FIELD(arg0, s16 *, 0x1C) = (s16) (temp_r4 - 1);
+        ((VObj_801D4A6C *)temp_r3)->m27(temp_r4);
+        ((M2C_UNK (*)(s32)) queue_destruction__7TObjectFv)(arg2);
+    }
 }
 
 }
