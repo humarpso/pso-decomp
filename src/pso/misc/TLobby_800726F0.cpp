@@ -101,7 +101,7 @@ void play_player_default_effect__6TLobbyFv(s32 _w0);
 s32 TWindowShortListCtrl__check_controller_button(void *, M2C_UNK);
 s32 is_visible__17TWindowSubComCardFPv(u32);
 s32 get_selected_menu_value(u32);
-M2C_UNK lbl_8048D120[3] = { 1, 0, 0 };
+M2C_UNK challenge_retry_cmd_table[3] = { 1, 0, 0 };
 extern s8 lbl_8050E208[];
 void update_challenge_retry__6TLobbyFPv(void *arg0);
 void send_45_and_close_windows__6TLobbyFv(void * _w0);
@@ -125,7 +125,7 @@ void set_field_1c__6TLobbyFPvf(u32, f32);
 void send_and_handle__6TLobbyFPvii(u32, s32, s32);
 u32 set_window_mode_4__6TLobbyFPvii(s32, void *, s32);
 M2C_UNK get_window_layout_position(M2C_UNK);
-__declspec(section ".data") f32 lbl_8048D12C[2] = { 360.0f, 125.0f };
+__declspec(section ".data") f32 challenge_retry_window_pos[2] = { 360.0f, 125.0f };
 extern const f32 lbl_805D9110;
 void TLobby__sub_80072BB0(Obj_80072BB0 *self);
 }
@@ -273,7 +273,7 @@ void TLobby__sub_80072BB0(Obj_80072BB0 *self) {
         TWindow__close((void *)self->f30);
         self->f30 = 0;
     }
-    self->f30 = set_window_mode_4__6TLobbyFPvii(get_window_layout_position(0x39), lbl_8048D12C, 1);
+    self->f30 = set_window_mode_4__6TLobbyFPvii(get_window_layout_position(0x39), challenge_retry_window_pos, 1);
     if (self->f30 != 0) {
         set_field_1c__6TLobbyFPvf(self->f30, lbl_805D9110);
         send_and_handle__6TLobbyFPvii(self->f30, TQuestVmDownLoadServer__sub_8006EF6C(0x5E), 1);
@@ -376,7 +376,7 @@ void update_challenge_retry__6TLobbyFPv(void *arg0) {
             var_r31 = 1;
             goto block_6;
         }
-        send_challenge_retry_cmd__6TLobbyFi(lbl_8048D120[temp_r3]);
+        send_challenge_retry_cmd__6TLobbyFi(challenge_retry_cmd_table[temp_r3]);
         send_45_and_close_windows__6TLobbyFv(arg0);
         play_player_default_effect__6TLobbyFv((s32)(arg0));
         M2C_FIELD(arg0, s32 *, 0x24) = 1;

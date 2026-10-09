@@ -272,7 +272,7 @@ extern M2C_UNK TFogCtrl__fog_instance_table[];
 extern RecoveredGlobal_800FB8A0___vt__8TFogCtrl __vt__8TFogCtrl;
 extern u8 lbl_8043DA20[];
 extern u8 lbl_8043DA30[];
-extern RecoveredGlobal_800FBB68_lbl_8049C670 lbl_8049C670;
+extern RecoveredGlobal_800FBB68_lbl_8049C670 area_fog_row_table;
 extern u8 fog_default_entry[];
 extern u8 lbl_8058CA60[];
 extern s32 lbl_805D2B18;
@@ -870,9 +870,9 @@ void create_area_fog_ctrl(void) {
         }
     }
     create__22TObjFogCollisionPoisonFv();
-    var_r4 = (M2C_UNK *)(&lbl_8049C670.value);
-    var_r3 = (M2C_UNK *)(&lbl_8049C670.value);
-    var_r3 = (M2C_UNK *)(M2C_FIELD(&lbl_8049C670.value, M2C_UNK *, (get_global_state__14TOKeyMachine01Fv() * 4)));
+    var_r4 = (M2C_UNK *)(&area_fog_row_table.value);
+    var_r3 = (M2C_UNK *)(&area_fog_row_table.value);
+    var_r3 = (M2C_UNK *)(M2C_FIELD(&area_fog_row_table.value, M2C_UNK *, (get_global_state__14TOKeyMachine01Fv() * 4)));
     var_r4 = (M2C_UNK *)((u8 *)((M2C_UNK *)1));
     update_all__8TFogCtrlFii((int) (var_r3), (int) (1));
 }

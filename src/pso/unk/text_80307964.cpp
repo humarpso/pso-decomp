@@ -6,7 +6,7 @@ void *__ct__7TObjectFP7TObject(void *, void *);
 void disable_keyboard_control__10TObjPlayerFv(void);
 extern u8 lbl_80475450[];
 extern u8 lbl_804E71A0[];
-extern s32 lbl_805D5550;
+extern s32 game_difficulty_selection;
 extern void *tl_00;
 extern void *tl_04;
 extern s32 lbl_805D6A5C;
@@ -20,7 +20,7 @@ u8 *init_ending_movie(u8 *arg0) {
     __ct__7TObjectFP7TObject(arg0, tl_04);
     *(void **)(arg0 + 0x18) = lbl_804E71A0;
     lbl_805D6A5C = 0;
-    switch (lbl_805D5550) {
+    switch (game_difficulty_selection) {
     case 0:
     case 1:
     case 2:

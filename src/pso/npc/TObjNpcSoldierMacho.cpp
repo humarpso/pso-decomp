@@ -100,7 +100,7 @@ struct RecoveredGlobal_8014DA4C___vt__19TObjNpcSoldierMacho {
 extern "C" {
 u8 * load_resource_from_descriptor(void *, s32, void *, s32, s32, s32);
 int alloc__23TAdSinglePlyChrSelectGCFPv(void *);
-extern RecoveredGlobal_8014D9A4_lbl_804ABB08 lbl_804ABB08;
+extern RecoveredGlobal_8014D9A4_lbl_804ABB08 TObjNpcSoldierMacho__body_resource_desc;
 extern u32 TObjNpcSoldierMacho__data_805D5858;
 void load_shared_resource__19TObjNpcSoldierMachoFv(void);
 s32 init_position_vectors__10TObjPlayerFi(void *);
@@ -137,7 +137,7 @@ void load_shared_resource__19TObjNpcSoldierMachoFv(void) {
     temp_r3 = alloc__23TAdSinglePlyChrSelectGCFPv((void *)0x440);
     var_r0 = temp_r3;
     if (var_r0 != 0) {
-        var_r0 = (long) (load_resource_from_descriptor((void *) temp_r3, 1, &lbl_804ABB08.value, 0, 0, 0));
+        var_r0 = (long) (load_resource_from_descriptor((void *) temp_r3, 1, &TObjNpcSoldierMacho__body_resource_desc.value, 0, 0, 0));
     }
     (*(s32 *)&TObjNpcSoldierMacho__data_805D5858) = var_r0;
 }

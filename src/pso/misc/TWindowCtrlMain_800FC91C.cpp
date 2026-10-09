@@ -37,7 +37,7 @@ void append_padded_number(s32, s32);
 void TWindowSubStatusDisp__sub_80228F5C(s32);
 void text_builder_append(void *);
 void text_builder_reset(void);
-extern char *lbl_8049CA40[];
+extern char *status_text_label_table[];
 extern Ent_800FC968 lbl_80509D5C[];
 extern char lbl_805DA9F4[4];
 extern char lbl_805DA9F8[4];
@@ -104,7 +104,7 @@ s32 build_status_text__20TWindowSubStatusDispFi(s32 arg0) {
     case 1:
         text_builder_append(name);
         append_text_space();
-        text_builder_append(lbl_8049CA40[idx]);
+        text_builder_append(status_text_label_table[idx]);
         append_padded_number(lvl + 1, 3);
         break;
     case 2:

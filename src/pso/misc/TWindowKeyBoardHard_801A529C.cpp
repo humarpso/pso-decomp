@@ -7,9 +7,9 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 extern "C" {
 u16 to_be_uint16_t__FUs(u16);
 void handle_command__9TProtocolFP6packet(void *, void *);
-extern void *TLobby__data_805D5580;
-extern s32 lbl_805D5CF8;
-extern s32 lbl_805D5CFC;
+extern void *TLobby__protocol_instance;
+extern s32 deferred_packet_buffer;
+extern s32 deferred_packet_buffer_used;
 extern s32 lbl_805D5D04;
 void drain_deferred_packets__6TLobbyFv(void);
 }
@@ -52,23 +52,23 @@ void set_fresh_card_flag(void *arg0) {
     }
 }
 
-extern s32 lbl_805D5CF8;
-extern s32 lbl_805D5CFC;
+extern s32 deferred_packet_buffer;
+extern s32 deferred_packet_buffer_used;
 
 void drain_deferred_packets__6TLobbyFv(void) {
-    lbl_805D5CFC = 0;
+    deferred_packet_buffer_used = 0;
     lbl_805D5D04 = 2;
     s32 i;
-    while ((i = lbl_805D5CFC) < 0x10000) {
+    while ((i = deferred_packet_buffer_used) < 0x10000) {
         u8 *p;
         u16 n;
-        p = (u8 *)(lbl_805D5CF8 + i);
+        p = (u8 *)(deferred_packet_buffer + i);
         n = (u16)to_be_uint16_t__FUs(*(u16 *)(p + 2));
         if (p[0] == 0) {
             break;
         }
-        handle_command__9TProtocolFP6packet(TLobby__data_805D5580, p);
-        lbl_805D5CFC += n;
+        handle_command__9TProtocolFP6packet(TLobby__protocol_instance, p);
+        deferred_packet_buffer_used += n;
     }
 }
 
@@ -76,21 +76,21 @@ void copy_packet__FP6packet(void *arg0) {
     s32 len;
 
     len = (u16) to_be_uint16_t__FUs(M2C_FIELD(arg0, u16 *, 2));
-    if (lbl_805D5CFC + len <= 0x10000) {
-        memcpy(lbl_805D5CF8 + lbl_805D5CFC, arg0, len);
-        lbl_805D5CFC += len;
+    if (deferred_packet_buffer_used + len <= 0x10000) {
+        memcpy(deferred_packet_buffer + deferred_packet_buffer_used, arg0, len);
+        deferred_packet_buffer_used += len;
     }
 }
 
-extern s32 lbl_805D5CF8;
-extern s32 lbl_805D5CFC;
+extern s32 deferred_packet_buffer;
+extern s32 deferred_packet_buffer_used;
 extern s32 lbl_805D5D00;
 extern s32 lbl_805D5D04;
 
 void buffer_reset(void) {
-    lbl_805D5CFC = 0;
+    deferred_packet_buffer_used = 0;
     lbl_805D5D00 = 0;
-    memset(lbl_805D5CF8, 0, 0x10000);
+    memset(deferred_packet_buffer, 0, 0x10000);
     lbl_805D5D04 = 1;
 }
 
@@ -101,8 +101,8 @@ extern "C" {
 void TLobby__sub_801A5478(void);
 int free__11TOBoss4RockFUi(void*);
 
-    extern s32 lbl_805D5CF8;
-void TLobby__sub_801A5478(void) { free__11TOBoss4RockFUi((void*)(lbl_805D5CF8)); lbl_805D5CF8 = 0; }
+    extern s32 deferred_packet_buffer;
+void TLobby__sub_801A5478(void) { free__11TOBoss4RockFUi((void*)(deferred_packet_buffer)); deferred_packet_buffer = 0; }
 
 }
 
@@ -115,17 +115,17 @@ extern "C" {
 
 s32 alloc_buffer__11TOBoss4RockFPv(M2C_UNK);
 M2C_UNK memset(M2C_UNK, M2C_UNK, M2C_UNK);
-extern s32 lbl_805D5CF8;
-extern s32 lbl_805D5CFC;
+extern s32 deferred_packet_buffer;
+extern s32 deferred_packet_buffer_used;
 extern s32 lbl_805D5D00;
 extern s32 lbl_805D5D04;
 
 void alloc_work_buffer(void) {
-    lbl_805D5CFC = 0;
+    deferred_packet_buffer_used = 0;
     lbl_805D5D00 = 0;
     lbl_805D5D04 = 0;
-    lbl_805D5CF8 = alloc_buffer__11TOBoss4RockFPv(0x10000);
-    memset(lbl_805D5CF8, 0, 0x10000);
+    deferred_packet_buffer = alloc_buffer__11TOBoss4RockFPv(0x10000);
+    memset(deferred_packet_buffer, 0, 0x10000);
 }
 
 }

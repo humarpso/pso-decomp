@@ -62,19 +62,19 @@ int freeze_all_players__14TBoss4DarkFalzFPv(void*);
 void play_area_music(void *);
 void create__11TObjDFDemo4FPvPvPv(void *, void *, void *);
 extern M2C_UNK lbl_80437298[];
-extern s32 lbl_805D5550;
+extern s32 game_difficulty_selection;
 void init_state__14TBoss4DarkFalzFPv(void *arg0);
 extern M2C_UNK lbl_80437298[];
-extern s32 lbl_805D5550;
+extern s32 game_difficulty_selection;
 void TBoss4DarkFalz__sub_8004C8A8(void);
 int freeze_all_players__14TBoss4DarkFalzFPv(void*);
 int create__11TObjDFDemo3FPvPvPv(void*, void*, void*);
 extern M2C_UNK lbl_80437298[];
-extern s32 lbl_805D5550;
+extern s32 game_difficulty_selection;
 void enter_state_142__14TBoss4DarkFalzFPv(void* p);
 void change_state__14TBoss4DarkFalzFPvi(void*, M2C_UNK);
 extern M2C_UNK lbl_80437298[];
-extern s32 lbl_805D5550;
+extern s32 game_difficulty_selection;
 void update_timer__14TBoss4DarkFalzFPv(void *arg0);
 void change_state__14TBoss4DarkFalzFPvi(void*, M2C_UNK);
 s32 TBoss4DarkFalz__sub_8004B730(void *, f32, int);
@@ -322,7 +322,7 @@ void update_timer__14TBoss4DarkFalzFPv(void *arg0) {
     temp_r0 = M2C_FIELD(arg0, s32 *, 0x380) - 1;
     M2C_FIELD(arg0, s32 *, 0x380) = temp_r0;
     if (temp_r0 < 0) {
-        if ((s32) lbl_805D5550 == 0) {
+        if ((s32) game_difficulty_selection == 0) {
             change_state__14TBoss4DarkFalzFPvi(arg0, 0xA);
             return;
         }
@@ -390,7 +390,7 @@ void update_spawn_type2_countdown__14TBoss4DarkFalzFPv(S_8004CB28 *o);
 void create_demo2__14TBoss4DarkFalzFPvPvPvPv(void *, Vec_8004C940 *, s32, s32);
 s32 stop_audio_streams__6TLobbyFv();
 void normalize_vector(Vec_8004C940 *);
-extern s32 lbl_805D5550;
+extern s32 game_difficulty_selection;
 extern const f32 lbl_805D8948;
 extern const f32 lbl_805D894C;
 void enter_demo2_phase__14TBoss4DarkFalzFPv(Obj_8004C940 *arg0);
@@ -443,7 +443,7 @@ void enter_demo2_phase__14TBoss4DarkFalzFPv(Obj_8004C940 *arg0) {
         arg0->f3a8 = 0;
     }
     flag = 0;
-    if (lbl_805D5550 != 0) {
+    if (game_difficulty_selection != 0) {
         flag = 1;
     }
     create_demo2__14TBoss4DarkFalzFPvPvPvPv(arg0, &arg0->pos, arg0->f3a8, flag);

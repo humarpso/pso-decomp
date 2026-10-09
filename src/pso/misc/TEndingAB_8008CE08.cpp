@@ -25,7 +25,7 @@ extern u8 lbl_804398B8[];
 extern u8 lbl_804398CC[];
 extern u8 ending_wall_texture_table[];
 extern u32 lbl_805D4F14;
-extern s32 lbl_805D5550;
+extern s32 game_difficulty_selection;
 void bind_ending_wall_textures__6TSceneFv(void);
 }
 
@@ -78,7 +78,7 @@ void bind_ending_wall_textures__6TSceneFv(void) {
         (*(u8 * *)&lbl_805D4F14) = t;
         bind_gvm_texture_list(lbl_8043988C, t);
     } else {
-        switch (lbl_805D5550) {
+        switch (game_difficulty_selection) {
         case 0:
         case 1:
             t = base + 0xA8;

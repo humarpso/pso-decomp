@@ -67,8 +67,8 @@ M2C_UNK get_player__20TWindowSubStatusDispFv();
 void queue_destruction__7TObjectFv(void *);
 M2C_UNK set_global_param__8TObjFishFi(u32);
 
-    extern int lbl_805D6CF4;
-void TAdWarningBaseGC__sub_8032D1E4(void) { lbl_805D6CF4 = 0; }
+    extern int aram_request_busy_flag;
+void TAdWarningBaseGC__sub_8032D1E4(void) { aram_request_busy_flag = 0; }
 
 extern M2C_UNK __vt__16TAdWarningBaseGC[];
 

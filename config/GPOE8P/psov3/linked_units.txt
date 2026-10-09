@@ -478,6 +478,7 @@ pso/enemy/TObjEneSlime_800EBD38.cpp
 pso/enemy/TObjEneSlime_802D7260.cpp
 pso/enemy/TObjEnemy.cpp
 pso/enemy/TObjEnemyCustom.cpp
+pso/enemy/TObjEnemyCustom_800C6CF0.cpp
 pso/enemy/TObjEnemyCustom_800C76F4.cpp
 pso/enemy/TObjEnemyCustom_800C7A04.cpp
 pso/enemy/TObjEnemyCustom_800C7D18.cpp
@@ -2827,6 +2828,7 @@ pso/unk/text_80048118.cpp
 pso/unk/text_800483F8.cpp
 pso/unk/text_8004AA04.cpp
 pso/unk/text_8004AB90.cpp
+pso/unk/text_8004BBC4.cpp
 pso/unk/text_8004D9A8.cpp
 pso/unk/text_8004F1FC.cpp
 pso/unk/text_8004F2A8.cpp

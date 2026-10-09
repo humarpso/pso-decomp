@@ -12,12 +12,12 @@ void TObjQuestColBase__ct(void *);
 s32 is_within_range__16TObjQuestColBaseFif(f32);
 
 extern M2C_UNK __vt__12TObjQuestCol[];
-extern void *lbl_805D33EC;
+extern void *TObjQuestCol__class_name;
 
 void *TObjQuestCol__ct(void *arg0) {
     TObjQuestColBase__ct(arg0);
     M2C_FIELD(arg0, M2C_UNK **, 0x18) = __vt__12TObjQuestCol;
-    M2C_FIELD(arg0, void **, 0x0) = lbl_805D33EC;
+    M2C_FIELD(arg0, void **, 0x0) = TObjQuestCol__class_name;
     return arg0;
 }
 

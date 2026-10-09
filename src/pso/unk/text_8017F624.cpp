@@ -15,7 +15,7 @@ extern "C" {
 void get_camera_ctrl__9TObjEneDDFPv(void *, void *);
 extern s32 camera_slot_id_table[];
 extern V3_8017F624 lbl_80443AB8[];
-extern V3_8017F624 lbl_8050DB80[];
+extern V3_8017F624 camera_slot_positions[];
 extern s32 TObjCamera__data_805D5B1C;
 void update_camera_slots__10TObjCameraFv(void);
 void matrix_mult_vec(s32, Vec_8017F6C0 *, Vec_8017F6C0 *);
@@ -33,7 +33,7 @@ void update_camera_slots__10TObjCameraFv(void) {
     for (i = 0; i < 8; i++) {
         if (TObjCamera__data_805D5B1C == camera_slot_id_table[i]) {
             V3_8017F624 v = lbl_80443AB8[0];
-            get_camera_ctrl__9TObjEneDDFPv(&v, &lbl_8050DB80[i]);
+            get_camera_ctrl__9TObjEneDDFPv(&v, &camera_slot_positions[i]);
         }
     }
     TObjCamera__data_805D5B1C += 1;

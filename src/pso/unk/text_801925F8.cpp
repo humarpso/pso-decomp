@@ -134,7 +134,7 @@ void construct_collider_proxy__10TObjPlayerFPv(void *, void *);
 void init_models__8TObjFishFPv(void *);
 extern Ent_80192874 lbl_804B7FB0[];
 extern M2C_UNK __vt__19TObjLazerFenceExtra[];
-extern s32 lbl_805D33A4;
+extern s32 lazer_fence_extra_class_name;
 extern const f32 lbl_805DBE58;
 void *TObjLazerFenceExtra__ct(void *arg0, void *arg1, void *arg2);
 }
@@ -186,7 +186,7 @@ void *TObjLazerFenceExtra__ct(void *arg0, void *arg1, void *arg2) {
     s32 i;
     construct_collider_proxy__10TObjPlayerFPv(arg0, arg1);
     M2C_FIELD(self, M2C_UNK **, 0x18) = __vt__19TObjLazerFenceExtra;
-    M2C_FIELD(self, s32 *, 0) = lbl_805D33A4;
+    M2C_FIELD(self, s32 *, 0) = lazer_fence_extra_class_name;
     ((VObj_80192874 *)self)->m5(arg2);
     M2C_FIELD(self, s32 *, 0xB4) = 0;
     M2C_FIELD(self, f32 *, 0xB8) = lbl_805DBE58;

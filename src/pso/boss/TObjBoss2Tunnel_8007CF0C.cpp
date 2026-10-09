@@ -10,10 +10,10 @@ extern "C" {
 extern Vec2_8007DD28 TObjBoss2Tunnel__data_8048DF2C;
 extern const f32 lbl_805D9280;
 extern const f32 lbl_805D9284;
-extern u8 lbl_805D4E88;
-extern s16 TObjBoss2Tunnel__data_805D4E8A;
-extern u32 TObjBoss2Tunnel__data_805D4E90;
-extern s32 TObjBoss2Tunnel__data_805D4E94;
+extern u8 boss2_tunnel_state_flag;
+extern s16 TObjBoss2Tunnel__snapshot_state;
+extern u32 TObjBoss2Tunnel__snapshot_buffer;
+extern s32 TObjBoss2Tunnel__snapshot_saved_flag;
 void reset__12TQuestListVMFv(void);
 void reset_state__15TObjBoss2TunnelFv(void);
 }
@@ -41,22 +41,22 @@ s32 update_lobby_scene__6TSceneFPv(s32);
 u32 xmalloc__FUl(M2C_UNK);
 
 extern s32 lbl_805D28C0;
-extern s16 TObjBoss2Tunnel__data_805D4E8A;
-extern u32 lbl_805D4E8C;
-extern u32 TObjBoss2Tunnel__data_805D4E90;
-extern s32 TObjBoss2Tunnel__data_805D4E94;
+extern s16 TObjBoss2Tunnel__snapshot_state;
+extern u32 boss2_tunnel_snapshot_buffer;
+extern u32 TObjBoss2Tunnel__snapshot_buffer;
+extern s32 TObjBoss2Tunnel__snapshot_saved_flag;
 
 void load_data_buffers(void) {
     s32 temp_r31;
     s32 temp_r30;
     u32 temp_r3;
 
-    TObjBoss2Tunnel__data_805D4E94 = 0;
-    TObjBoss2Tunnel__data_805D4E90 = xmalloc__FUl(0x1E000);
-    TObjBoss2Tunnel__data_805D4E8A = 0;
+    TObjBoss2Tunnel__snapshot_saved_flag = 0;
+    TObjBoss2Tunnel__snapshot_buffer = xmalloc__FUl(0x1E000);
+    TObjBoss2Tunnel__snapshot_state = 0;
     init_capture_texture(0);
     temp_r3 = xmalloc__FUl(0x1818C);
-    lbl_805D4E8C = temp_r3;
+    boss2_tunnel_snapshot_buffer = temp_r3;
     if (temp_r3 != 0U) {
         memset((void *)temp_r3, 0, 0x1818C);
     }
@@ -64,8 +64,8 @@ void load_data_buffers(void) {
     if (temp_r31 <= 0x1818C) {
         temp_r30 = set_stream_and_load_file__6TLobbyFi(lbl_805D28C0);
         if (temp_r30 != 0) {
-            if ((u32) lbl_805D4E8C != 0U) {
-                memmove((void *)lbl_805D4E8C, (void *)temp_r30, temp_r31);
+            if ((u32) boss2_tunnel_snapshot_buffer != 0U) {
+                memmove((void *)boss2_tunnel_snapshot_buffer, (void *)temp_r30, temp_r31);
             }
             safe_free__23TAdSinglePlyChrSelectGCFUi(temp_r30);
         }
@@ -151,11 +151,11 @@ s32 memcard_check_snapshot(s32 arg0, s32 *arg1) {
 void TObjBoss2Tunnel__sub_8007DD24(void) {  }
 void reset_state__15TObjBoss2TunnelFv(void) {
     TObjBoss2Tunnel__data_8048DF2C.x = lbl_805D9280;
-    lbl_805D4E88 = 0;
+    boss2_tunnel_state_flag = 0;
     TObjBoss2Tunnel__data_8048DF2C.y = lbl_805D9284;
-    TObjBoss2Tunnel__data_805D4E90 = 0;
-    TObjBoss2Tunnel__data_805D4E8A = 0;
-    TObjBoss2Tunnel__data_805D4E94 = 0;
+    TObjBoss2Tunnel__snapshot_buffer = 0;
+    TObjBoss2Tunnel__snapshot_state = 0;
+    TObjBoss2Tunnel__snapshot_saved_flag = 0;
     reset__12TQuestListVMFv();
 }
 

@@ -21,7 +21,7 @@ extern "C" {
 void TLobby__sub_800F79C4(u8 *arg0);
 extern RecoveredGlobal_800F7A6C_lbl_804DB1F0 lbl_804DB1F0;
 f32 TLobby__sub_800F7A6C(void);
-extern RecoveredGlobal_800F7A7C_lbl_8048C9D8 lbl_8048C9D8;
+extern RecoveredGlobal_800F7A7C_lbl_8048C9D8 challenge_mode_state;
 f32 TLobby__sub_800F7A7C(void);
 }
 
@@ -66,7 +66,7 @@ f32 TLobby__sub_800F7A6C(void) {
 
 typedef char RecoveredGlobal_800F7A7C_lbl_8048C9D8_size[sizeof(RecoveredGlobal_800F7A7C_lbl_8048C9D8) == 0x748 ? 1 : -1];
 f32 TLobby__sub_800F7A7C(void) {
-    return M2C_FIELD(&lbl_8048C9D8.value, f32 *, 4);
+    return M2C_FIELD(&challenge_mode_state.value, f32 *, 4);
 }
 
 void run_handler_list_reverse__6TLobbyFi(s32 arg0) {

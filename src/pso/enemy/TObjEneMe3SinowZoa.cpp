@@ -1055,7 +1055,7 @@ extern u8 lbl_80475DF0[];
 extern Tbl_8031AF88 lbl_80542FB0;
 extern RecoveredGlobal_8031A3D8_lbl_80542FDC lbl_80542FDC;
 extern u8 lbl_8058D490[];
-extern s32 lbl_805D5550;
+extern s32 game_difficulty_selection;
 extern const f32 lbl_805DF2F8;
 extern const f32 lbl_805DF300;
 extern const f32 lbl_805DF304;
@@ -3707,7 +3707,7 @@ void cast_technique__18TObjEneMe3SinowZoaFPv(u8 *arg0) {
     s32 lv;
     lv = clamp_frame_index__9TObjEneDDFi(((Param_8031A2A0 * *)TObjEneMe3SinowZoa__kind_param_tbls)[M2C_FIELD(arg0, s32 *, 0x3C8)]->level);
     if (((s32 (*)(void *))TObjEneMe3SinowZoa__sub_8031A454)(arg0) != 0) {
-        if (lbl_805D5550 == 3) {
+        if (game_difficulty_selection == 3) {
             create__9TTecSiftaFPvPvPv(arg0, arg0 + 0x38, clamp_frame_index__9TObjEneDDFi(((Param_8031A2A0 * *)TObjEneMe3SinowZoa__kind_param_tbls)[M2C_FIELD(arg0, s32 *, 0x3C8)]->level));
             create__10TTecDebandFiii(arg0, arg0 + 0x38, clamp_frame_index__9TObjEneDDFi(((Param_8031A2A0 * *)TObjEneMe3SinowZoa__kind_param_tbls)[M2C_FIELD(arg0, s32 *, 0x3C8)]->level));
         } else {

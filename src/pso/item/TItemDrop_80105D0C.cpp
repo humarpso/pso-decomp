@@ -46,7 +46,7 @@ extern Names_80105DB0 item_drop_difficulty_name_table;
 extern char lbl_8043E0E4[];
 extern s32 TItemDrop__data_805D5470;
 extern s32 TItemDrop__data_805D5474;
-extern s32 lbl_805D5550;
+extern s32 game_difficulty_selection;
 extern char lbl_805DAAC8;
 extern char lbl_805DAACC;
 extern char lbl_805DAAD0;
@@ -87,7 +87,7 @@ void TItemDrop__sub_80105D10(void) { lbl_805D5450 = 0; }
 
 void clear_item_if_player_picked_up__9TItemDropFPvPv(void* p, void* a1) { if (is_unsealable_item(a1) == 1) { set_packed_value__9TItemDataFPvUs(a1, (void*)0); } }
 
-extern s32 lbl_805D5550;
+extern s32 game_difficulty_selection;
 
 s32 get_drop_table_mode_flags(void) {
     s32 f = 0;
@@ -116,13 +116,13 @@ void format_drop_table_filename(void *out, s32 arg1) {
         s1 = &lbl_805DAACC;
         n = TItemDrop__data_805D5474;
     }
-    sprintf(out, lbl_8043E0E4, arg1, s1, (TItemDrop__data_805D5470 & 2) ? &lbl_805DAAD0 : &lbl_805DAACC, names.n[lbl_805D5550], n);
+    sprintf(out, lbl_8043E0E4, arg1, s1, (TItemDrop__data_805D5470 & 2) ? &lbl_805DAAD0 : &lbl_805DAACC, names.n[game_difficulty_selection], n);
 }
 
 s32 calc_drop_offset__9TItemDropFi(s32 arg0) {
     s32 var_r31;
 
-    var_r31 = arg0 + (lbl_805D5550 * 0xA);
+    var_r31 = arg0 + (game_difficulty_selection * 0xA);
     if (get_game_play_mode() == 1) {
         var_r31 += 0x50;
     } else if (get_instance__6TLobbyFv() == 1) {

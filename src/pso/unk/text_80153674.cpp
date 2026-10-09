@@ -55,7 +55,7 @@ void *__nw__7TObjectFUl(int);
 f32 get_random_float__21TObjEneMe3ShinowaRealFv(f32);
 
 extern const f64 lbl_80440088;
-extern s32 lbl_805D5550;
+extern s32 game_difficulty_selection;
 extern const f32 lbl_805DB250;
 extern const f32 lbl_805DB254;
 extern const f32 lbl_805DB258;
@@ -74,7 +74,7 @@ void TObjFogCollisionPoison__vt11(void *arg0) {
     f32 var_f2;
 
     M2C_FIELD(arg0, s32 *, 0x98) = (s32) get_random_float__21TObjEneMe3ShinowaRealFv(M2C_FIELD(arg0, f32 *, 0x6C));
-    switch ((s32) lbl_805D5550) {
+    switch ((s32) game_difficulty_selection) {
     default:
     case 0:
         var_f2 = lbl_805DB250;

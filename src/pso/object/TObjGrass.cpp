@@ -527,7 +527,7 @@ void *__nw__7TObjectFUl(int);
 M2C_UNK subtract_vector(void *, void *);
 extern s32 enable_v2_features;
 extern u32 TObjGrass__bml_resource;
-extern s32 lbl_805D5550;
+extern s32 game_difficulty_selection;
 extern s32 tl_05;
 M2C_UNK update_web_attack__9TObjGrassFPv(void *arg0_);
 M2C_UNK apply_actor_gravity(void *, M2C_UNK, f32);
@@ -603,7 +603,7 @@ s32 is_split_screen();
 M2C_UNK set_shake_preset__11TCameraCtrlFi(int);
 extern u8 lbl_8058D490[];
 extern s32 enable_v2_features;
-extern s32 lbl_805D5550;
+extern s32 game_difficulty_selection;
 extern s32 lbl_805D53A0;
 void TObjGrass__sub_800BD4D8(void *arg0_);
 M2C_UNK apply_actor_gravity(void *, M2C_UNK, f32);
@@ -1053,7 +1053,7 @@ M2C_UNK update_web_attack__9TObjGrassFPv(void *arg0_) {
                 ang[2] = -(s32)((10430.38043493439) * get_ad_end_text_start__10TObjPlayerFv(v2.x, v2.y));
                 spawn_directional_particle(&arg0->p380, ang, 0xCA);
                 if (arg0->fb4 != 4 && obj_testFlags30(arg0->target, 0x4000000) == 0) {
-                    if (enable_v2_features == 1 && lbl_805D5550 == 3) {
+                    if (enable_v2_features == 1 && game_difficulty_selection == 3) {
                         arg0->target->m46(0);
                     } else {
                         void *m = __nw__7TObjectFUl(0xA8);
@@ -1209,7 +1209,7 @@ void TObjGrass__sub_800BD4D8(void *arg0_) {
             f32 spd = (2.0f) * prm->speed;
             f32 d2;
             f32 t;
-            if (enable_v2_features == 1 && lbl_805D5550 == 3) {
+            if (enable_v2_features == 1 && game_difficulty_selection == 3) {
                 spd *= (2.0f);
             }
             enemy_turn_toward_dest(o, (s32)((2.0f) * (f32)prm->turn));

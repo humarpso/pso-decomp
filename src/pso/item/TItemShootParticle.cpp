@@ -20,7 +20,7 @@ TItemShootParticle_8011B77C *__dt__18TItemShootParticleFv(TItemShootParticle_801
 void __ct__10TItemShootFPvPC3VecPC3Vecf(void *self, void *a, void *b, void *c, f32 f);
 void disallow_rendering__7TObjectFv(void *self);
 extern void *__vt__18TItemShootParticle[];
-extern u32 lbl_805D2C68;
+extern u32 item_shoot_particle_class_name;
 TItemShootParticle_8011B7FC *TItemShootParticle__ct(TItemShootParticle_8011B7FC *self, void *a, void *b, void *c, f32 f);
 }
 
@@ -58,7 +58,7 @@ TItemShootParticle_8011B7FC *TItemShootParticle__ct(TItemShootParticle_8011B7FC 
     s32 i;
     __ct__10TItemShootFPvPC3VecPC3Vecf(self, a, b, c, f);
     self->vt = __vt__18TItemShootParticle;
-    self->f0 = lbl_805D2C68;
+    self->f0 = item_shoot_particle_class_name;
     self->s60 = 0;
     for (i = 0; i < 2; i++) {
         self->parts[i] = 0;

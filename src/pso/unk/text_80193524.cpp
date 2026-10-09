@@ -152,7 +152,7 @@ void init_models__15TObjLazerFence4FPv(void *);
 extern u16 lbl_80445BE0[];
 extern u8 lbl_804B8128[];
 extern M2C_UNK __vt__15TObjLazerFence4[];
-extern s32 lbl_805D33A8;
+extern s32 lazer_fence4_class_name;
 extern const f32 lbl_805DBE6C;
 void *TObjLazerFence4__ct(void *arg0, void *arg1, void *arg2);
 s32 get_global_state__14TOKeyMachine01Fv();
@@ -166,7 +166,7 @@ u8 *count_linked_switches__23TObjSeabedSuisoBrakableFUii(u32, int);
 extern void *lbl_805D5C30;
 extern s32 TLazerFenceSw__data_805D5C34;
 extern u8 *lbl_805D5C38;
-extern s32 lbl_805D5550;
+extern s32 game_difficulty_selection;
 extern u8 lbl_804B8360[];
 extern u8 lbl_804B8334[];
 extern u8 lbl_80445CF0[];
@@ -199,10 +199,10 @@ M2C_UNK destroy_particle_controller__10TObjPlayerFPvs(void *, M2C_UNK);
 M2C_UNK step_laser_fence_fade(void *);
 M2C_UNK free_if_valid__10TObjPlayerFi(s32);
 
-__declspec(section ".data") u32 lbl_8050DCE8[2];
-__declspec(section ".data") u32 lbl_8050DCF0[2];
+__declspec(section ".data") u32 lazer_fence_sw_ginja_model_table[2];
+__declspec(section ".data") u32 lazer_fence_beam_motions[2];
 __declspec(section ".data") u32 lbl_8050DCF8[3];
-#define lbl_8050DCF0 (*(RecoveredGlobal_80193A84_lbl_8050DCF0 *)lbl_8050DCF0)
+#define lazer_fence_beam_motions (*(RecoveredGlobal_80193A84_lbl_8050DCF0 *)lazer_fence_beam_motions)
 extern void *tl_05;
 
 void *create__15TObjLazerFence4FPv(void *arg0) {
@@ -235,7 +235,7 @@ void *TObjLazerFence4__ct(void *arg0, void *arg1, void *arg2) {
     s32 i;
     ((void (*)(void *, void *, void *))construct_collider_proxy__10TObjPlayerFPv)(self, arg1, arg2);
     self->vt = (void *)__vt__15TObjLazerFence4;
-    self->id = lbl_805D33A8;
+    self->id = lazer_fence4_class_name;
     ((V_801935D8 *)self)->init(arg2);
     self->fAC = 0;
     self->fB0 = lbl_805DBE6C;
@@ -316,10 +316,10 @@ void draw_laser_beam__13TLazerFenceSwFv(void *arg0) {
         push_matrix();
         post_translate_matrix(self->pos);
         rotate_matrix_y(0, self->f60);
-        draw_ginja_object(lbl_8050DCE8[1]);
+        draw_ginja_object(lazer_fence_sw_ginja_model_table[1]);
         begin_effect_render__13TParticleCtrlFv();
         some_id_805c6f74 |= 0x01000000;
-        draw_ginja_model_with_motion(lbl_8050DCE8[0], ((u32 *)&lbl_8050DCF0)[0], self->fB0);
+        draw_ginja_model_with_motion(lazer_fence_sw_ginja_model_table[0], ((u32 *)&lazer_fence_beam_motions)[0], self->fB0);
         some_id_805c6f74 &= ~0x01000000;
         end_effect_render__13TParticleCtrlFv();
         pop_matrix();
@@ -328,10 +328,10 @@ void draw_laser_beam__13TLazerFenceSwFv(void *arg0) {
         push_matrix();
         post_translate_matrix(self->pos);
         rotate_matrix_y(0, self->f60);
-        draw_ginja_model_with_motion(lbl_8050DCE8[1], ((u32 *)&lbl_8050DCF0)[1], self->fEC);
+        draw_ginja_model_with_motion(lazer_fence_sw_ginja_model_table[1], ((u32 *)&lazer_fence_beam_motions)[1], self->fEC);
         begin_effect_render__13TParticleCtrlFv();
         some_id_805c6f74 |= 0x01000000;
-        draw_ginja_model_with_motion(lbl_8050DCE8[0], ((u32 *)&lbl_8050DCF0)[0], self->fB0);
+        draw_ginja_model_with_motion(lazer_fence_sw_ginja_model_table[0], ((u32 *)&lazer_fence_beam_motions)[0], self->fB0);
         some_id_805c6f74 &= ~0x01000000;
         end_effect_render__13TParticleCtrlFv();
         pop_matrix();
@@ -392,12 +392,12 @@ void TLazerFenceSw__vt14(u8 *arg0) {
     u32 temp_r4;
     u32 temp_r4_2;
     M2C_FIELD(arg0, f32 *, 0xB0) = (f32) (M2C_FIELD(arg0, f32 *, 0xB0) + M2C_FIELD(arg0, f32 *, 0xB8));
-    temp_r4 = M2C_FIELD(M2C_FIELD(&lbl_8050DCF0.value, u8 **, 0), s32 *, 4) - 1;
+    temp_r4 = M2C_FIELD(M2C_FIELD(&lazer_fence_beam_motions.value, u8 **, 0), s32 *, 4) - 1;
     if (M2C_FIELD(arg0, f32 *, 0xB0) > (f32) temp_r4) {
         M2C_FIELD(arg0, f32 *, 0xB0) = (f32) temp_r4;
     }
     M2C_FIELD(arg0, f32 *, 0xEC) = (f32) (M2C_FIELD(arg0, f32 *, 0xEC) + M2C_FIELD(arg0, f32 *, 0xB8));
-    temp_r4_2 = M2C_FIELD(M2C_FIELD(&lbl_8050DCF0.value, u8 **, 4), s32 *, 4) - 1;
+    temp_r4_2 = M2C_FIELD(M2C_FIELD(&lazer_fence_beam_motions.value, u8 **, 4), s32 *, 4) - 1;
     if (M2C_FIELD(arg0, f32 *, 0xEC) > (f32) temp_r4_2) {
         M2C_FIELD(arg0, f32 *, 0xEC) = (f32) temp_r4_2;
     }
@@ -406,7 +406,7 @@ void TLazerFenceSw__vt14(u8 *arg0) {
 typedef char RecoveredGlobal_80193B4C_lbl_8050DCF0_size[sizeof(RecoveredGlobal_80193B4C_lbl_8050DCF0) == 0x18 ? 1 : -1];
 void TLazerFenceSw__vt15(u8 *arg0) {
     M2C_FIELD(arg0, f32 *, 0xB0) = (f32) (M2C_FIELD(arg0, f32 *, 0xB0) + M2C_FIELD(arg0, f32 *, 0xB8));
-    if (M2C_FIELD(arg0, f32 *, 0xB0) > (f32) (u32) (M2C_FIELD((*(RecoveredGlobal_80193B4C_lbl_8050DCF0 *)&lbl_8050DCF0).value, s32 *, 4) - 1)) {
+    if (M2C_FIELD(arg0, f32 *, 0xB0) > (f32) (u32) (M2C_FIELD((*(RecoveredGlobal_80193B4C_lbl_8050DCF0 *)&lazer_fence_beam_motions).value, s32 *, 4) - 1)) {
         M2C_FIELD(arg0, f32 *, 0xB0) = (f32) TLazerFenceSw__data_805DBE84;
     }
     ((VObj_18_582a4f *)(arg0))->m18();
@@ -465,21 +465,21 @@ void load_resources__13TLazerFenceSwFv(void) {
             obj = load_resource_from_descriptor(obj, 5, lbl_804B8334, 0, 0, 0);
         }
         lbl_805D5C30 = obj;
-        if (lbl_805D5550 == 3) {
+        if (game_difficulty_selection == 3) {
             TLazerFenceSw__data_805D5C34 = load_gvm_texture_file(lbl_80445D08);
         } else {
             TLazerFenceSw__data_805D5C34 = load_gvm_texture_file(lbl_80445D20);
         }
     }
-    lbl_8050DCE8[0] = get_bml_model(lbl_805D5C30, 0);
-    lbl_8050DCE8[1] = get_bml_model(lbl_805D5C30, 1);
-    ((u32 *)&lbl_8050DCF0)[0] = get_bml_motion(lbl_805D5C30, 0);
-    ((u32 *)&lbl_8050DCF0)[1] = get_bml_motion(lbl_805D5C30, 1);
+    lazer_fence_sw_ginja_model_table[0] = get_bml_model(lbl_805D5C30, 0);
+    lazer_fence_sw_ginja_model_table[1] = get_bml_model(lbl_805D5C30, 1);
+    ((u32 *)&lazer_fence_beam_motions)[0] = get_bml_motion(lbl_805D5C30, 0);
+    ((u32 *)&lazer_fence_beam_motions)[1] = get_bml_motion(lbl_805D5C30, 1);
     for (j = 0; j < 3; j++) {
         lbl_8050DCF8[j] = 0;
     }
     i = 0;
-    n = *(Node_80193CA4 **)(lbl_8050DCE8[0] + 0x2C);
+    n = *(Node_80193CA4 **)(lazer_fence_sw_ginja_model_table[0] + 0x2C);
     if (n != NULL) {
         lbl_8050DCF8[i] = n->f4;
         i++;
@@ -490,7 +490,7 @@ void load_resources__13TLazerFenceSwFv(void) {
             n = n->next;
         }
     }
-    lbl_805D5C38 = count_linked_switches__23TObjSeabedSuisoBrakableFUii(lbl_8050DCE8[1], 3);
+    lbl_805D5C38 = count_linked_switches__23TObjSeabedSuisoBrakableFUii(lazer_fence_sw_ginja_model_table[1], 3);
 }
 #pragma pop
 

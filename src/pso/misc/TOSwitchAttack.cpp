@@ -20,7 +20,7 @@ void create_sub__14TOSwitchAttackFiiiif(s32 arg0, s32 arg1, s32 arg2, s32 arg3, 
 }
 
 extern const f64 lbl_80442C78;
-extern s32 lbl_805D5550;
+extern s32 game_difficulty_selection;
 extern const f32 lbl_805DBA00;
 
 void init_params__14TOSwitchAttackFPv(void *arg0) {
@@ -29,7 +29,7 @@ void init_params__14TOSwitchAttackFPv(void *arg0) {
     M2C_FIELD(arg0, u8 *, 0xA7) = (u8) M2C_FIELD(arg0, s32 *, 0x5C);
     temp_f0 = M2C_FIELD(arg0, f32 *, 0x68);
     M2C_FIELD(arg0, f32 *, 0x94) = (f32) (temp_f0 * temp_f0);
-    M2C_FIELD(arg0, f32 *, 0x98) = (f32) (M2C_FIELD(arg0, f32 *, 0x6C) * (lbl_805DBA00 * (f32) (lbl_805D5550 + 1)));
+    M2C_FIELD(arg0, f32 *, 0x98) = (f32) (M2C_FIELD(arg0, f32 *, 0x6C) * (lbl_805DBA00 * (f32) (game_difficulty_selection + 1)));
     M2C_FIELD(arg0, f32 *, 0x90) = (f32) M2C_FIELD(arg0, f32 *, 0x70);
     if ((u8) M2C_FIELD(arg0, u8 *, 0xA7) >= 0x15U) {
         M2C_FIELD(arg0, u8 *, 0xA7) = 0U;

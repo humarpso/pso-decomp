@@ -507,7 +507,7 @@ extern const f32 lbl_805DA330;
 void render__16TObjEneMerillLiaFPv(u8 *arg0);
 extern u32 TObjEneMerillLia__data_805D5220;
 void load_entry_params__16TObjEneMerillLiaFPvi(O_800D7274 *self, s32 i);
-extern s32 lbl_805D5550;
+extern s32 game_difficulty_selection;
 s32 get_clamped_level__16TObjEneMerillLiaFPv(Obj_800D5100 *self);
 void set_param__12TObjEneLappyFPvi(void *p, s32 v);
 void clamp_and_apply_mode_param__16TObjEneMerillLiaFPv(Obj_800D5150 *self);
@@ -942,7 +942,7 @@ s32 get_clamped_level__16TObjEneMerillLiaFPv(Obj_800D5100 *self) {
         v = p->f18;
         if (v < 0) {
             v = 0;
-        } else if (lbl_805D5550 == 3) {
+        } else if (game_difficulty_selection == 3) {
             if (v > 0x1d) {
                 v = 0x1d;
             }

@@ -31,7 +31,7 @@ extern s32 tl_window;
 void on_game_player_add__6TLobbyFiii();
 void handle_game_join__6TLobbyFPv();
 
-extern s32 TLobby__data_805D5580;
+extern s32 TLobby__protocol_instance;
 
 void dispatch_by_index__6TLobbyFi(s32 arg0) {
     s32 var_r3;
@@ -45,7 +45,7 @@ void dispatch_by_index__6TLobbyFi(s32 arg0) {
         clear_state();
         return;
     case 1:
-        store_serial_access_key__22TAdEnterSerialAccessGCFiii(TLobby__data_805D5580 + 0x3F8A, TLobby__data_805D5580 + 0x3F9B, TLobby__data_805D5580 + 0x3F3A);
+        store_serial_access_key__22TAdEnterSerialAccessGCFiii(TLobby__protocol_instance + 0x3F8A, TLobby__protocol_instance + 0x3F9B, TLobby__protocol_instance + 0x3F3A);
         return;
     case 2:
         clear_serial_buffer__22TAdEnterSerialAccessGCFv();
@@ -136,8 +136,8 @@ s32 get_option_state__6TLobbyFv(void) {
 }
 
 void install_game_join_handlers__6TLobbyFv(void) {
-    *(void (**)())(TLobby__data_805D5580 + 0xBC04) = handle_game_join__6TLobbyFPv;
-    *(void (**)())(TLobby__data_805D5580 + 0xBC18) = on_game_player_add__6TLobbyFiii;
+    *(void (**)())(TLobby__protocol_instance + 0xBC04) = handle_game_join__6TLobbyFPv;
+    *(void (**)())(TLobby__protocol_instance + 0xBC18) = on_game_player_add__6TLobbyFiii;
 }
 
 }
@@ -2395,12 +2395,12 @@ extern "C" {
 void TLobby__sub_803D25DC(void);
 M2C_UNK memset(void *, int, int);
 
-extern M2C_UNK lbl_80587400[];
+extern M2C_UNK adx_stream_slot_table[];
 extern s32 lbl_805D7640;
 
 void TLobby__sub_803D25DC(void) {
     if ((s32) lbl_805D7640 == 0) {
-        memset((void *) (lbl_80587400), (int) (0), (int) (0x480));
+        memset((void *) (adx_stream_slot_table), (int) (0), (int) (0x480));
     }
     lbl_805D7640 += 1;
 }
@@ -2507,12 +2507,12 @@ extern "C" {
 void TLobby__sub_803D2ED4(void);
 M2C_UNK memset(void *, int, int);
 
-extern M2C_UNK lbl_8058A880[];
+extern M2C_UNK ref_counted_load_buffer[];
 extern s32 lbl_805D7650;
 
 void TLobby__sub_803D2ED4(void) {
     if ((s32) lbl_805D7650 == 0) {
-        memset((void *) (lbl_8058A880), (int) (0), (int) (0xC00));
+        memset((void *) (ref_counted_load_buffer), (int) (0), (int) (0xC00));
     }
     lbl_805D7650 += 1;
 }

@@ -344,7 +344,7 @@ void create_hit_effect__10TObjPlayerFPv(void *);
 void calc_photon_blast_charge__10TObjPlayerFv(void *, s32);
 s32 is_boss_area(void);
 f32 calc_technique_boost(s32, u16);
-extern s32 lbl_805D5550;
+extern s32 game_difficulty_selection;
 f32 receive_direct_attack__10TObjPlayerFv(Actor_8001311C *self, Actor_8001311C *att, Info_8001311C *arg, Coll_8001311C *coll, s32 tech, s32 arg5);
 f32 calc_xz_distance_sq__10TObjPlayerFiUiPv(s32 arg0, u32 arg1, void *arg2);
 M2C_UNK VecCopy__FP3VecPC3Vec(s32, s32);
@@ -396,7 +396,7 @@ void send_6x2F_change_player_hp(u16, u16, s16);
 void calc_photon_blast_charge__10TObjPlayerFv(void *, s32);
 s32 is_boss_area(void);
 void dispatch_weapon_special_effect(void *, void *, void *, s32);
-extern s32 lbl_805D5550;
+extern s32 game_difficulty_selection;
 f32 receive_weapon_special_attack__10TObjPlayerFv(Actor_80011824 *self, Actor_80011824 *att, Coll_80011824 *coll);
 void clear_s16_arrays__10TObjPlayerFPv(void* p);
 void reset_status_effect_row(u8 *arg0);
@@ -1150,7 +1150,7 @@ extern RecoveredGlobal_80010E44_lbl_8050EA40 lbl_8050EA40;
 extern RecoveredGlobal_8001806C_lbl_8058D490 lbl_8058D490;
 extern s32 camera_split_screen_selector;
 extern s32 lbl_805D53A4;
-extern s32 lbl_805D5550;
+extern s32 game_difficulty_selection;
 extern s32 lbl_805D586C;
 extern s32 lobby_player_count;
 extern s32 lbl_805D5FC0;
@@ -1362,7 +1362,7 @@ s32 calc_freeze_chance(TObjPlayer *arg0, TObjPlayer *arg1, TObjPlayer *arg2, f32
         if (var_f31 < 0.0f) {
             var_f31 = 0.0f;
         }
-    } else if (((s32) lbl_805D5550 == 3) && ((0.2f) < var_f31)) {
+    } else if (((s32) game_difficulty_selection == 3) && ((0.2f) < var_f31)) {
         var_f31 = (0.2f);
     } else if ((0.4f) < var_f31) {
         var_f31 = (0.4f);
@@ -1378,7 +1378,7 @@ s32 calc_shock_chance(TObjPlayer *arg0, TObjPlayer *arg1, TObjPlayer *arg2) {
         if (var_f31 < 0.0f) {
             var_f31 = 0.0f;
         }
-    } else if ((s32) lbl_805D5550 == 3) {
+    } else if ((s32) game_difficulty_selection == 3) {
         var_f31 = (0.025f);
     } else {
         var_f31 = (0.06666667f);
@@ -2251,7 +2251,7 @@ f32 receive_weapon_special_attack__10TObjPlayerFv(Actor_80011824 *self, Actor_80
     } else {
         immune = 0;
     }
-    if (lbl_805D5550 == 3 && self->f2D4 < 0x1000 && ((s32 (*)(void *, s32))obj_testFlag_2E4)(att, 4) != 0 &&
+    if (game_difficulty_selection == 3 && self->f2D4 < 0x1000 && ((s32 (*)(void *, s32))obj_testFlag_2E4)(att, 4) != 0 &&
         kind != 11 && kind != 9 && kind != 10) {
         power += 30;
     }
@@ -2285,7 +2285,7 @@ f32 receive_weapon_special_attack__10TObjPlayerFv(Actor_80011824 *self, Actor_80
     switch (kind) {
     case 1:
         dmg = (0.01f) * (f32)(power * ((s16 (*)(void *))obj_getS16_32C)(self));
-        cap = (3e+01f) * (f32)(lbl_805D5550 + 1);
+        cap = (3e+01f) * (f32)(game_difficulty_selection + 1);
         if (cap < dmg) {
             dmg = cap;
         }
@@ -2338,7 +2338,7 @@ f32 receive_weapon_special_attack__10TObjPlayerFv(Actor_80011824 *self, Actor_80
             CLEARCOLL_W24()
         } else {
             dmg = (0.01f) * (f32)(power * ((s16 (*)(void *))obj_getS16_2BA)(att));
-            cap = (25.0f) * (f32)(lbl_805D5550 + 1);
+            cap = (25.0f) * (f32)(game_difficulty_selection + 1);
             if (cap < dmg) {
                 dmg = cap;
             }
@@ -2390,7 +2390,7 @@ f32 receive_weapon_special_attack__10TObjPlayerFv(Actor_80011824 *self, Actor_80
             CLEARCOLL_W24()
         } else {
             dmg = (0.01f) * (f32)(power * ((s32 (*)(void *))obj_getPtr2B0_1C)(self));
-            cap = (2e+01f) * (f32)(lbl_805D5550 + 1);
+            cap = (2e+01f) * (f32)(game_difficulty_selection + 1);
             if (cap < dmg) {
                 dmg = cap;
             }
@@ -2861,7 +2861,7 @@ f32 receive_direct_attack__10TObjPlayerFv(Actor_8001311C *self, Actor_8001311C *
         break;
     case 5:
         if (TEST30(self, 0x10000000) == 0 || STATE2(self) == 0) {
-            if (is_boss_area() == 0 || (lbl_805D5550 == 3 && self->id >= 0x1000)) {
+            if (is_boss_area() == 0 || (game_difficulty_selection == 3 && self->id >= 0x1000)) {
                 if (TEST30(self, 0x02000000) == 0) {
                     create_hit_effect__10TObjPlayerFPv(&pos);
                 }
@@ -4103,7 +4103,7 @@ s32 update_poison_status__10TObjPlayerFv(u8 *arg0) {
             if ((s16) dmg < 1) {
                 dmg = 1;
             }
-            ((s32 (*)(u8 *, s32, void *))TObjectV8047c128_subtract_hp)(arg0, dmg + lbl_8043406C[lbl_805D5550], lbl_8043406C);
+            ((s32 (*)(u8 *, s32, void *))TObjectV8047c128_subtract_hp)(arg0, dmg + lbl_8043406C[game_difficulty_selection], lbl_8043406C);
             if (clamp_value__10TObjPlayerFPv(arg0) <= 0) {
                 if (((s32 (*)(void *, M2C_UNK))obj_testFlags30)(arg0, 0x800) == 0) {
                     ((M2C_UNK (*)(void *, int))set_hp_clamped__10TObjPlayerFPvs)(arg0, 1);

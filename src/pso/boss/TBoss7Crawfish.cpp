@@ -84,7 +84,7 @@ s32 obj_isState2_324(int);
 s32 TBoss7Crawfish__sub_80308AA8(u8 *arg0);
 int rand(void);
 extern M2C_UNK lbl_804755A8;
-extern s32 lbl_805D5550;
+extern s32 game_difficulty_selection;
 extern const f32 TBoss7Crawfish__data_805DF0DC;
 extern const f32 lbl_805DF0E0;
 extern const f32 lbl_805DF0E4;
@@ -228,7 +228,7 @@ M2C_UNK apply_hit_to_target__14TBoss7CrawfishFPvPv(void *arg0_, void *arg1_) {
                 ((VObj_18_405891 *)(temp_r31))->m20(arg0, TBoss7Crawfish__data_805DF0DC);
             }
         } else if (obj_isState2_324((int) (temp_r31)) == 0) {
-            if ((s32) lbl_805D5550 == 3) {
+            if ((s32) game_difficulty_selection == 3) {
                 if ((lbl_805DF0E0 * (f32) rand()) <= lbl_805DF0E4) {
                     p.id = 0x10;
                 } else {

@@ -72,7 +72,7 @@ void notify_dvd_read__6TLobbyFv(void);
 void enter_lock__6TLobbyFv(void);
 void TLobby__sub_803D198C(Ent_803D1C24 *e);
 void *memset(void *dst, int val, unsigned long n);
-extern Ent_803D1C24 lbl_80583058[];
+extern Ent_803D1C24 lsc_slot_table[];
 extern s32 lbl_805D7630;
 void release_and_close_all_slots__6TLobbyFv(void);
 void log_printf__6TLobbyFPvi(const char *fmt, ...);
@@ -97,7 +97,7 @@ void reset_lsc_state__6TLobbyFPv(Obj_803D158C *o);
 void log_printf__6TLobbyFPvi(const char *fmt, ...);
 void notify_dvd_read__6TLobbyFv(void);
 void enter_lock__6TLobbyFv(void);
-extern Ent_803D1C24 lbl_80583058[];
+extern Ent_803D1C24 lsc_slot_table[];
 extern char lbl_8047DDB8[];
 extern char lbl_8047DDE4[];
 Obj_803D1A98 *lsc_create__6TLobbyFPv(SJ_803D1A98 *sj);
@@ -105,14 +105,14 @@ void set_callback__6TLobbyFUii(u32 arg0, s32 arg1);
 void notify_dvd_read__6TLobbyFv(void);
 void enter_lock__6TLobbyFv(void);
 void *memset(void *dst, int val, unsigned long n);
-extern Ent_803D1C24 lbl_80583058[];
+extern Ent_803D1C24 lsc_slot_table[];
 extern s32 lbl_805D7630;
 extern const char *volatile lbl_805E0DB0;
 void TLobby__sub_803D1CC0(void);
 void notify_dvd_read__6TLobbyFv(void);
 void enter_lock__6TLobbyFv(void);
 void TLobby__sub_803D1D28(Ent_803D1C24 *);
-extern Ent_803D1C24 lbl_80583058[];
+extern Ent_803D1C24 lsc_slot_table[];
 void poll_active_connections__6TLobbyFv(void);
 }
 
@@ -225,8 +225,8 @@ void poll_active_connections__6TLobbyFv(void) {
     s32 i;
     ((void (*)(void *))enter_lock__6TLobbyFv)(sp8);
     for (i = 0; i < 16; i++) {
-        if ((s32)lbl_80583058[i].state == 1) {
-            TLobby__sub_803D1D28(&lbl_80583058[i]);
+        if ((s32)lsc_slot_table[i].state == 1) {
+            TLobby__sub_803D1D28(&lsc_slot_table[i]);
         }
     }
     ((void (*)(void *))notify_dvd_read__6TLobbyFv)(sp8);
@@ -281,8 +281,8 @@ inline Obj_803D1A98 *find_free_803D1A98(void) {
     s32 i;
     Obj_803D1A98 *o = 0;
     for (i = 0; i < 16; i++) {
-        if ((s8)lbl_80583058[i].state == 0) {
-            o = (Obj_803D1A98 *)&lbl_80583058[i];
+        if ((s8)lsc_slot_table[i].state == 0) {
+            o = (Obj_803D1A98 *)&lsc_slot_table[i];
             break;
         }
     }
@@ -321,11 +321,11 @@ void release_and_close_all_slots__6TLobbyFv(void) {
     ((void (*)(void *))enter_lock__6TLobbyFv)(lock);
     if (--lbl_805D7630 == 0) {
         for (i = 0; i < 16; i++) {
-            if ((s32)lbl_80583058[i].state == 1) {
-                TLobby__sub_803D198C(&lbl_80583058[i]);
+            if ((s32)lsc_slot_table[i].state == 1) {
+                TLobby__sub_803D198C(&lsc_slot_table[i]);
             }
         }
-        memset(lbl_80583058, 0, 0x4380);
+        memset(lsc_slot_table, 0, 0x4380);
         set_callback__6TLobbyFUii(0, 0);
     }
     ((void (*)(void *))notify_dvd_read__6TLobbyFv)(lock);
@@ -337,7 +337,7 @@ void TLobby__sub_803D1CC0(void) {
     lbl_805E0DB0;
     ((void (*)(void *))enter_lock__6TLobbyFv)(sp8);
     if (lbl_805D7630 == 0) {
-        memset((void *)(lbl_80583058), (int)(0), (unsigned long)(0x4380));
+        memset((void *)(lsc_slot_table), (int)(0), (unsigned long)(0x4380));
         set_callback__6TLobbyFUii(0, 0);
     }
     lbl_805D7630++;

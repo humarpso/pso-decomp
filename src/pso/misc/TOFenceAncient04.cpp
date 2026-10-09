@@ -332,7 +332,7 @@ extern s32 lbl_805D2FE0;
 extern void *lbl_805D2FE8;
 extern void *lbl_805D2FEC;
 extern s32 lbl_805D2FF0;
-extern s32 lbl_805D5550;
+extern s32 game_difficulty_selection;
 extern u32 lbl_805D59C8;
 extern void *lbl_805D59CC;
 extern s32 lbl_805D59D0;

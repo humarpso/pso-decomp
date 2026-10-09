@@ -226,10 +226,10 @@ u8 *create_telepipe_item(u8 *arg0) {
 
 int get_stat_value__13TItemProArmorFPv(void* p) { return obj_getS16_2BA(*(void**)((char*)p + 0xf0)); }
 
-extern s32 lbl_805D5550;
+extern s32 game_difficulty_selection;
 
 s16 calc_scaled_offset__13TItemProArmorFv(void) {
-    return (s16) ((lbl_805D5550 * 0x32) + get_tool_pmt_amount_byte());
+    return (s16) ((game_difficulty_selection * 0x32) + get_tool_pmt_amount_byte());
 }
 
 }

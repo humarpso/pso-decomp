@@ -39,7 +39,7 @@ s32 get_layout_id__20TWindowSubStatusDispFv(void *);
 s32 is_flag_set__6TLobbyFv();
 s32 TWindowSubStatusDisp__sub_80071A24(s32 arg0, u16 arg1, s32 arg2);
 u32 get_card_window__17TWindowSubComCardFUi(u32);
-extern G_800718D0 lbl_8048C9D8;
+extern G_800718D0 challenge_mode_state;
 s32 TWindowSubStatusDisp__sub_800718D0(void);
 }
 
@@ -124,7 +124,7 @@ s32 TWindowSubStatusDisp__sub_800718D0(void) {
         }
         sum += r;
     }
-    sum += lbl_8048C9D8.fc;
+    sum += challenge_mode_state.fc;
     return sum;
 }
 

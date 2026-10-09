@@ -55,7 +55,7 @@ void set_global_param__8TObjFishFi(s32);
 void draw_model_motion(s32, Anim_802F3D6C *, f32);
 void set_global_flag__10TObjPlayerFv(void);
 void clear_global_state__10TObjPlayerFv(void);
-extern s32 lbl_805D5560;
+extern s32 current_scene_light;
 extern s32 some_id_805c6f74;
 extern const f32 TBoss8Dragon__data_805DED50;
 extern const f32 lbl_805DED54;
@@ -133,7 +133,7 @@ void draw_motion_model__12TBoss8DragonFPv(u8 *arg0) {
         set_global_flag__10TObjPlayerFv();
         draw_model_motion(*(s32 *)(arg0 + 0x34), anim, f);
         clear_global_state__10TObjPlayerFv();
-        TObjLight__sub_801337F8(lbl_805D5560);
+        TObjLight__sub_801337F8(current_scene_light);
         pop_matrix();
     }
 }

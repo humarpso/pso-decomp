@@ -38,8 +38,8 @@ void bswap_guild_card__17TWindowSubComCardFPv(void* p) { read_be16_field2__10TOb
 int bswap_guild_card_tag__17TWindowSubComCardFPv(void* p) { return bswap__16TPlyGuildCardTagFv(p); }
 void init_card__17TWindowSubComCardFPvPv(void* p, void* a1) { bswap_guild_card__17TWindowSubComCardFPv((void*)(p)); send_subcommand_to_client__6TLobbyFPvUi(p, a1); }
 
-    extern int lbl_805D4E80;
-int get_keyboard_mode__17TWindowSubComCardFv(void) {  return lbl_805D4E80; }
+    extern int com_card_keyboard_mode;
+int get_keyboard_mode__17TWindowSubComCardFv(void) {  return com_card_keyboard_mode; }
 
 void *init_guild_card__17TWindowSubComCardFPv(void *arg0) {
     init_guild_card_tag__17TWindowSubComCardFi((void *)((char *)arg0 + 4));

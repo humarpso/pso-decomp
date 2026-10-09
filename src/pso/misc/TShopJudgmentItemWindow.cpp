@@ -228,7 +228,7 @@ s32 is_camera_ctrl_active__6TLobbyFv();
 extern u8 lbl_8044C1C0[];
 extern u8 lbl_8044C1CC[];
 extern s32 lbl_805D53A0;
-extern s32 lbl_805D5544;
+extern s32 current_language;
 extern const f32 lbl_805DC708;
 void TShopJudgmentItemWindow__sub_80220F68(u8 *arg0);
 }
@@ -532,7 +532,7 @@ void TShopJudgmentItemWindow__sub_80220F68(u8 *arg0) {
     M2C_FIELD(arg0, s32 *, 0x14C) = temp_r0;
     if (temp_r0 <= 0) {
         if ((u32) M2C_FIELD(arg0, u32 *, 0x154) == 0U) {
-            switch (lbl_805D5544) {
+            switch (current_language) {
             case 0:
                 M2C_FIELD(arg0, u32 *, 0x154) = (u32) ((void *(*)(int, int, int)) create_item_list_window)((int) (lbl_8044C1C0), 1, obj_getField1c(M2C_FIELD(arg0, s32 *, 0x24)));
                 break;

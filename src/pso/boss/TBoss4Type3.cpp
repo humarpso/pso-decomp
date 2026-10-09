@@ -202,7 +202,7 @@ f32 vector_length(void *);
 M2C_UNK normalize_vector(void *);
 extern const f64 TBoss4Type2__data_80437750;
 extern s32 lbl_80486904[];
-extern s32 lbl_805D5550;
+extern s32 game_difficulty_selection;
 extern const f32 TBoss4Type2__data_805D8BAC;
 extern const f32 lbl_805D8BB4;
 extern const f32 lbl_805D8BBC;
@@ -845,7 +845,7 @@ extern s32 lbl_805D27E0;
 extern s32 lbl_805D4D80;
 extern u8 lbl_805D4D84;
 extern s32 lbl_805D53A0;
-extern s32 lbl_805D5550;
+extern s32 game_difficulty_selection;
 extern s32 lbl_805D586C;
 extern "C" {
 }

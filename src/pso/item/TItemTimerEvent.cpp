@@ -36,7 +36,7 @@ void start_event_by_index__15TItemTimerEventFUs(u16 arg0);
 s32 disallow_rendering__7TObjectFv(void *);
 s32 init_object__21TItemEffArmorParticleFPv(void *);
 extern M2C_UNK __vt__15TItemTimerEvent[];
-extern s32 lbl_805D2C90;
+extern s32 TItemTimerEvent__class_name;
 u8 *TItemTimerEvent__ct(u8 *arg0, M2C_UNK arg1, s16 arg2, s32 arg3);
 }
 
@@ -128,7 +128,7 @@ typedef char RecoveredGlobal_8011DC90___vt__15TItemTimerEvent_size[sizeof(Recove
 u8 *TItemTimerEvent__ct(u8 *arg0, M2C_UNK arg1, s16 arg2, s32 arg3) {
     init_object__21TItemEffArmorParticleFPv((void *) (arg0));
     M2C_FIELD(arg0, M2C_UNK **, 0x18) = &(*(RecoveredGlobal_8011DC90___vt__15TItemTimerEvent *)&__vt__15TItemTimerEvent).value;
-    M2C_FIELD(arg0, s32 *, 0) = (s32) lbl_805D2C90;
+    M2C_FIELD(arg0, s32 *, 0) = (s32) TItemTimerEvent__class_name;
     M2C_FIELD(arg0, s16 *, 0x1C) = arg2;
     M2C_FIELD(arg0, s32 *, 0x28) = 0;
     M2C_FIELD(arg0, s32 *, 0x20) = arg3;

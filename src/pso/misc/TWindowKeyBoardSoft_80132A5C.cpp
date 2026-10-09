@@ -14,9 +14,9 @@ extern M2C_UNK lbl_8043ECE4[];
 extern M2C_UNK lbl_8043ECF0[];
 extern M2C_UNK lbl_8043ECFC[];
 extern M2C_UNK lbl_8043ED08[];
-extern int lbl_805D5538;
-extern int lbl_805D553C;
-extern int TWindowKeyBoardSoft__data_805D5548;
+extern int TWindowKeyBoardSoft__text_resource;
+extern int text_language_group_table;
+extern int TWindowKeyBoardSoft__language_text_resources;
 void select_language_text_resources(s32 arg0);
 M2C_UNK tmp_buf_release__6TLobbyFi(void *);
 s32 tmp_buf_use_req__6TLobbyFPv(void *);
@@ -46,7 +46,7 @@ extern M2C_UNK lbl_8043EC74[];
 extern M2C_UNK lbl_8043EC88[];
 extern M2C_UNK lbl_8043ECA4[];
 extern M2C_UNK lbl_8043ECC0[];
-extern struct Outer_80132A5C *lbl_805D5540;
+extern struct Outer_80132A5C *localized_alphabet_list;
 void TLanguage__ct(s32 arg0);
 }
 
@@ -58,23 +58,23 @@ int free_nodes_with_id__6TLobbyFUi(void*);
 M2C_UNK TLobby__sub_803DA16C(void *);
 M2C_UNK safe_free__23TAdSinglePlyChrSelectGCFUi(void *);
 
-extern struct Outer_80132A5C *lbl_805D5540;
+extern struct Outer_80132A5C *localized_alphabet_list;
 
 void free_instance__19TWindowKeyBoardSoftFv(void) {
-    if (lbl_805D5540 != NULL) {
-        struct Inner_80132A5C *inner = lbl_805D5540->f0;
+    if (localized_alphabet_list != NULL) {
+        struct Inner_80132A5C *inner = localized_alphabet_list->f0;
         if (inner->f8 != 0U) {
-            TLobby__sub_803DA16C(lbl_805D5540);
+            TLobby__sub_803DA16C(localized_alphabet_list);
         }
-        safe_free__23TAdSinglePlyChrSelectGCFUi(lbl_805D5540);
-        lbl_805D5540 = NULL;
+        safe_free__23TAdSinglePlyChrSelectGCFUi(localized_alphabet_list);
+        localized_alphabet_list = NULL;
     }
 }
 
-    extern int lbl_805D5538;
-    extern int lbl_805D553C;
-    extern int TWindowKeyBoardSoft__data_805D5548;
-void free_resources__19TWindowKeyBoardSoftFv(void) { free_nodes_with_id__6TLobbyFUi((void*)(lbl_805D5538)); TWindowKeyBoardSoft__data_805D5548 = 0; lbl_805D553C = 0; lbl_805D5538 = 0; }
+    extern int TWindowKeyBoardSoft__text_resource;
+    extern int text_language_group_table;
+    extern int TWindowKeyBoardSoft__language_text_resources;
+void free_resources__19TWindowKeyBoardSoftFv(void) { free_nodes_with_id__6TLobbyFUi((void*)(TWindowKeyBoardSoft__text_resource)); TWindowKeyBoardSoft__language_text_resources = 0; text_language_group_table = 0; TWindowKeyBoardSoft__text_resource = 0; }
 
 void TLanguage__ct(s32 arg0) {
     s32 sp8;
@@ -87,35 +87,35 @@ void TLanguage__ct(s32 arg0) {
         draw_string__9TLanguageFPvPvi((void *) (lbl_8043EB24), (void *) (&sp8), (int) (2));
         draw_string__9TLanguageFPvPvi((void *) (lbl_8043EB34), (void *) (&sp8), (int) (3));
         decode_font_data__9TLanguageFPvPvii((void *) (lbl_8043EB50), (void *) (&sp8), (int) (0x4B), (int) (0x4C));
-        lbl_805D5540 = load_gvm_texture_file((void *) (lbl_8043EB68));
+        localized_alphabet_list = load_gvm_texture_file((void *) (lbl_8043EB68));
         break;
     case 2:
         draw_string__9TLanguageFPvPvi((void *) (lbl_8043EB7C), (void *) (&sp8), (int) (0x49));
         draw_string__9TLanguageFPvPvi((void *) (lbl_8043EB98), (void *) (&sp8), (int) (2));
         draw_string__9TLanguageFPvPvi((void *) (lbl_8043EBA8), (void *) (&sp8), (int) (3));
         decode_font_data__9TLanguageFPvPvii((void *) (lbl_8043EBC4), (void *) (&sp8), (int) (0x4B), (int) (0x4C));
-        lbl_805D5540 = load_gvm_texture_file((void *) (lbl_8043EBDC));
+        localized_alphabet_list = load_gvm_texture_file((void *) (lbl_8043EBDC));
         break;
     case 3:
         draw_string__9TLanguageFPvPvi((void *) (lbl_8043EBF0), (void *) (&sp8), (int) (0x49));
         draw_string__9TLanguageFPvPvi((void *) (lbl_8043EB98), (void *) (&sp8), (int) (2));
         draw_string__9TLanguageFPvPvi((void *) (lbl_8043EC0C), (void *) (&sp8), (int) (3));
         decode_font_data__9TLanguageFPvPvii((void *) (lbl_8043EBC4), (void *) (&sp8), (int) (0x4B), (int) (0x4C));
-        lbl_805D5540 = load_gvm_texture_file((void *) (lbl_8043EC28));
+        localized_alphabet_list = load_gvm_texture_file((void *) (lbl_8043EC28));
         break;
     case 4:
         draw_string__9TLanguageFPvPvi((void *) (lbl_8043EC3C), (void *) (&sp8), (int) (0x49));
         draw_string__9TLanguageFPvPvi((void *) (lbl_8043EB98), (void *) (&sp8), (int) (2));
         draw_string__9TLanguageFPvPvi((void *) (lbl_8043EC58), (void *) (&sp8), (int) (3));
         decode_font_data__9TLanguageFPvPvii((void *) (lbl_8043EBC4), (void *) (&sp8), (int) (0x4B), (int) (0x4C));
-        lbl_805D5540 = load_gvm_texture_file((void *) (lbl_8043EC74));
+        localized_alphabet_list = load_gvm_texture_file((void *) (lbl_8043EC74));
         break;
     default:
         draw_string__9TLanguageFPvPvi((void *) (lbl_8043EC88), (void *) (&sp8), (int) (0x49));
         draw_string__9TLanguageFPvPvi((void *) (lbl_8043EB98), (void *) (&sp8), (int) (2));
         draw_string__9TLanguageFPvPvi((void *) (lbl_8043ECA4), (void *) (&sp8), (int) (3));
         decode_font_data__9TLanguageFPvPvii((void *) (lbl_8043EBC4), (void *) (&sp8), (int) (0x4B), (int) (0x4C));
-        lbl_805D5540 = load_gvm_texture_file((void *) (lbl_8043ECC0));
+        localized_alphabet_list = load_gvm_texture_file((void *) (lbl_8043ECC0));
         break;
     }
     begin_render__20TWindowSubStatusDispFv();
@@ -129,23 +129,23 @@ void TLanguage__ct(s32 arg0) {
 void select_language_text_resources(s32 arg0) {
     switch (arg0) {
     case 0:
-        (*(u8 * *)&lbl_805D5538) = load_text_resource_pair(lbl_8043ECD4);
+        (*(u8 * *)&TWindowKeyBoardSoft__text_resource) = load_text_resource_pair(lbl_8043ECD4);
         break;
     case 2:
-        (*(u8 * *)&lbl_805D5538) = load_text_resource_pair(lbl_8043ECE4);
+        (*(u8 * *)&TWindowKeyBoardSoft__text_resource) = load_text_resource_pair(lbl_8043ECE4);
         break;
     case 3:
-        (*(u8 * *)&lbl_805D5538) = load_text_resource_pair(lbl_8043ECF0);
+        (*(u8 * *)&TWindowKeyBoardSoft__text_resource) = load_text_resource_pair(lbl_8043ECF0);
         break;
     case 4:
-        (*(u8 * *)&lbl_805D5538) = load_text_resource_pair(lbl_8043ECFC);
+        (*(u8 * *)&TWindowKeyBoardSoft__text_resource) = load_text_resource_pair(lbl_8043ECFC);
         break;
     default:
-        (*(u8 * *)&lbl_805D5538) = load_text_resource_pair(lbl_8043ED08);
+        (*(u8 * *)&TWindowKeyBoardSoft__text_resource) = load_text_resource_pair(lbl_8043ED08);
         break;
     }
-    (*(s32 *)&TWindowKeyBoardSoft__data_805D5548) = M2C_FIELD((*(u8 * *)&lbl_805D5538), s32 *, 0);
-    (*(s32 *)&lbl_805D553C) = M2C_FIELD((*(u8 * *)&lbl_805D5538), s32 *, 4);
+    (*(s32 *)&TWindowKeyBoardSoft__language_text_resources) = M2C_FIELD((*(u8 * *)&TWindowKeyBoardSoft__text_resource), s32 *, 0);
+    (*(s32 *)&text_language_group_table) = M2C_FIELD((*(u8 * *)&TWindowKeyBoardSoft__text_resource), s32 *, 4);
 }
 
 }
@@ -162,12 +162,12 @@ int TLobby__sub_80132EC8(void);
 s32 set_language__19TWindowKeyBoardSoftFc(s8 arg0);
 void *get_global_state__23TAdSinglePlyChrSelectGCFv();
 
-extern s32 lbl_805D5544;
+extern s32 current_language;
 
 s32 set_language__19TWindowKeyBoardSoftFc(s8 arg0) {
     void *temp_r3;
 
-    if ((s32) lbl_805D5544 == arg0) {
+    if ((s32) current_language == arg0) {
         return 0;
     }
     free_instance__19TWindowKeyBoardSoftFv();
@@ -176,9 +176,9 @@ s32 set_language__19TWindowKeyBoardSoftFc(s8 arg0) {
     if (temp_r3 != NULL) {
         M2C_FIELD(temp_r3, s8 *, 7) = arg0;
     }
-    lbl_805D5544 = (s32)(s8) arg0;
-    select_language_text_resources((s8) lbl_805D5544);
-    TLanguage__ct(lbl_805D5544);
+    current_language = (s32)(s8) arg0;
+    select_language_text_resources((s8) current_language);
+    TLanguage__ct(current_language);
     return 1;
 }
 

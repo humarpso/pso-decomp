@@ -131,8 +131,8 @@ extern char lbl_805D47D0[4];
 extern char lbl_805D47D4[4];
 extern char lbl_805D47D8[4];
 extern char lbl_805D47DC[4];
-extern char lbl_805D47E0[4];
-extern char lbl_805D47E4[4];
+extern char download_server_config_prefix_cmi[4];
+extern char download_server_config_prefix_cmp[4];
 extern char lbl_805D47E8[4];
 extern char lbl_805D47EC[4];
 extern s32 lbl_805D79E8;
@@ -279,9 +279,9 @@ s32 parse_config_line__22TQuestVmDownLoadServerFPvUiPv(char *s, u32 n, Q_803F63F
             CPY(q->d[i].s04, 0x20);
         } else if (strncmp(s, lbl_805D47DC, 3) == 0) {
             CPY(q->d[i].s24, 0x20);
-        } else if (strncmp(s, lbl_805D47E0, 3) == 0) {
+        } else if (strncmp(s, download_server_config_prefix_cmi, 3) == 0) {
             CPY(q->d[i].s44, 0x20);
-        } else if (strncmp(s, lbl_805D47E4, 3) == 0) {
+        } else if (strncmp(s, download_server_config_prefix_cmp, 3) == 0) {
             CPY(q->d[i].s64, 0x20);
         }
     }

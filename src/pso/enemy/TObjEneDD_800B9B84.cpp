@@ -29,10 +29,10 @@ s32 get_main_phase();
 int is_any_teammate_in_state__10TObjPlayerFv(void*);
 
 extern s32 enable_v2_features;
-extern s32 lbl_805D5550;
+extern s32 game_difficulty_selection;
 
 s32 check_v2_mode__9TObjEneDDFv(void) {
-    if (((s32) enable_v2_features != 0) && ((s32) lbl_805D5550 == 3)) {
+    if (((s32) enable_v2_features != 0) && ((s32) game_difficulty_selection == 3)) {
         return 1;
     }
     return 0;

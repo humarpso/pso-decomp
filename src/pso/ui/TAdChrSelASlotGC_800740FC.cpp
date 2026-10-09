@@ -33,7 +33,7 @@ extern char lbl_804386C4[];
 extern char lbl_804386D8[];
 extern char lbl_804386F0[];
 extern char lbl_804386FC[];
-extern char *lbl_8048D1A8[];
+extern char *chr_sel_slot_label_table[];
 extern char lbl_805D9158[4];
 void build_result_text__22TQuestVmDownLoadServerFPv(Srv_80074114 *arg0);
 }
@@ -106,9 +106,9 @@ void build_result_text__22TQuestVmDownLoadServerFPv(Srv_80074114 *arg0) {
     if (arg0->f158 != 0) {
         n = TQuestVmDownLoadServer__sub_8006EF6C(0x58);
         if (arg0->f144 == 0 || arg0->f144 == arg0->f158) {
-            sprintf(tmp, lbl_804386F0, n, lbl_8048D1A8[arg0->f158]);
+            sprintf(tmp, lbl_804386F0, n, chr_sel_slot_label_table[arg0->f158]);
         } else {
-            sprintf(tmp, lbl_804386FC, n, lbl_8048D1A8[arg0->f144], lbl_8048D1A8[arg0->f158]);
+            sprintf(tmp, lbl_804386FC, n, chr_sel_slot_label_table[arg0->f144], chr_sel_slot_label_table[arg0->f158]);
         }
         strncat(arg0->buf, tmp, 0x30);
     }

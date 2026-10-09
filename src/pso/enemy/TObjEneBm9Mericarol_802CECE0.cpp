@@ -762,7 +762,7 @@ s32 construct__19TObjEneBm9MericarolFPvii(int, void *, int);
 void TObjEneBm9Mericarol__sub_802CF4F8(u8 *arg0, s32 arg1);
 void queue_destruction__7TObjectFv(void *self);
 void handle_state_message__19TObjEneBm9MericarolFPvi(void *self, s32 msg);
-extern s32 lbl_805D5550;
+extern s32 game_difficulty_selection;
 s32 get_clamped_level__19TObjEneBm9MericarolFPv(Obj_800ACA10 *self);
 f64 get_ad_end_text_start__10TObjPlayerFv(f32, f32);
 M2C_UNK fill_value_array(int, int, int, f32);
@@ -951,7 +951,7 @@ s32 get_clamped_level__19TObjEneBm9MericarolFPv(Obj_800ACA10 *self) {
         if (v < 0) {
             return 0;
         }
-        if (lbl_805D5550 == 3) {
+        if (game_difficulty_selection == 3) {
             if (v > 0x1D) {
                 v = 0x1D;
             }

@@ -25,7 +25,7 @@ extern const f32 lbl_805DD994;
 void update_creation_camera_idle(void *arg0);
 f32 calc_character_height(void *);
 extern RecoveredGlobal_802916D4_lbl_804DAA18 lbl_804DAA18;
-extern u8 *lbl_805D6520;
+extern u8 *creation_player_character;
 extern s32 lbl_805D6570;
 extern const f32 lbl_805DD978;
 extern const f32 lbl_805DD99C;
@@ -38,7 +38,7 @@ void advance_creation_review_camera(CreationCameraFields* camera);
 f32 calc_character_height(void *);
 void approach_creation_camera_target(void *, int, int, f32, f32);
 u32 TObjCMMainMenu__sub_80291D44();
-extern u8 *lbl_805D6520;
+extern u8 *creation_player_character;
 extern const f32 lbl_805DD96C;
 extern const f32 lbl_805DD998;
 extern const f32 lbl_805DD9A4;
@@ -109,12 +109,12 @@ void advance_creation_review_camera(CreationCameraFields* camera) {
 void begin_creation_review_camera(u8 *arg0) {
     f32 temp_f2;
     s32 temp_r7;
-    if ((void *) lbl_805D6520 != NULL) {
-        M2C_FIELD(arg0, f32 *, 0x6C) = (f32) (lbl_805DD99C * calc_character_height((void *) (lbl_805D6520)));
+    if ((void *) creation_player_character != NULL) {
+        M2C_FIELD(arg0, f32 *, 0x6C) = (f32) (lbl_805DD99C * calc_character_height((void *) (creation_player_character)));
         M2C_FIELD(arg0, f32 *, 0x80) = (f32) M2C_FIELD(arg0, f32 *, 0x6C);
-        temp_r7 = (s8) M2C_FIELD(lbl_805D6520, u8 *, 0x31) * 8;
+        temp_r7 = (s8) M2C_FIELD(creation_player_character, u8 *, 0x31) * 8;
         temp_f2 = M2C_FIELD(((u8 *)(&lbl_804DAA18.value) + temp_r7), f32 *, 0);
-        M2C_FIELD(arg0, f32 *, 0x4C) = (f32) (lbl_805DD9A0 * (((lbl_805DD978 - M2C_FIELD(lbl_805D6520, f32 *, 0x4C)) * (M2C_FIELD(((u8 *)(&lbl_804DAA18.value) + temp_r7), f32 *, 4) - temp_f2)) + temp_f2));
+        M2C_FIELD(arg0, f32 *, 0x4C) = (f32) (lbl_805DD9A0 * (((lbl_805DD978 - M2C_FIELD(creation_player_character, f32 *, 0x4C)) * (M2C_FIELD(((u8 *)(&lbl_804DAA18.value) + temp_r7), f32 *, 4) - temp_f2)) + temp_f2));
         M2C_FIELD(arg0, s32 *, 0x74) = 0;
         M2C_FIELD(arg0, s32 *, 0x70) = 0;
         lbl_805D6570 = 2;
@@ -146,8 +146,8 @@ void update_creation_camera_auto(Cam_80291784 *arg0) {
         arg0->mode = want;
         arg0->timer = 0;
     }
-    if (lbl_805D6520 != NULL) {
-        f32 s = calc_character_height(lbl_805D6520);
+    if (creation_player_character != NULL) {
+        f32 s = calc_character_height(creation_player_character);
         switch (arg0->mode) {
         case 0:
             approach_creation_camera_target(arg0, 0, 0, lbl_805DD96C * s, lbl_805DD9A4 * s);

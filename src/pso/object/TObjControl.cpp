@@ -490,7 +490,7 @@ extern M2C_UNK __vt__11TObjControl[];
 extern u8 lbl_8050EA40[];
 extern void *lbl_805D2B04;
 extern s32 lbl_805D5328;
-extern s32 lbl_805D5550;
+extern s32 game_difficulty_selection;
 extern const f32 lbl_805DA8C0;
 extern const f32 lbl_805DA8C4;
 extern const f32 lbl_805DA8C8;
@@ -599,7 +599,7 @@ void handle_6x9C_set_enemy_low_game_flags_ultimate(Msg_800F62E0 *arg0) {
     if (arg0 == NULL) {
         return;
     }
-    if (lbl_805D5550 != 3) {
+    if (game_difficulty_selection != 3) {
         return;
     }
     bswap_field__6TLobbyFPv(arg0);
@@ -658,7 +658,7 @@ void handle_6x0A_update_enemy_state(Msg_800F6464 *arg0) {
     idx = arg0->f4;
     copy_header__6TLobbyFPvPv(&sp, &TLobby__data_805D6144[idx]);
     sp.y = arg0->f6;
-    if (lbl_805D5550 == 3) {
+    if (game_difficulty_selection == 3) {
         sp.w &= 0x3F;
         sp.w = (arg0->f8 & ~0x3F) | sp.w;
     } else {
@@ -703,7 +703,7 @@ void apply_hit_message_flags__10TObjPlayerFPvPv(VObj_800F673C *arg0, Msg_800F673
     s32 flags;
     Pair_800F673C p;
     arg0->f32C = arg0->f2B8 - arg1->f6;
-    if (lbl_805D5550 == 3) {
+    if (game_difficulty_selection == 3) {
         flags = arg1->flags & ~0x3F;
     } else {
         flags = arg1->flags;

@@ -56,7 +56,7 @@ void TOMine__ct(void *, void *, void *);
 extern u8 lbl_804B2F3C[];
 extern M2C_UNK __vt__12TOMineIcon02[];
 extern s32 lbl_805D3098;
-extern s32 lbl_805D5550;
+extern s32 game_difficulty_selection;
 extern void *lbl_805D5A50;
 extern const f32 lbl_805DB8A8;
 extern const f32 lbl_805DB8AC;
@@ -128,8 +128,8 @@ void *TOMineIcon02__ct(void *arg0, void *arg1, void *arg2) {
     if (self->f8C < 0) {
         self->f8C = 0;
     }
-    self->f358 = (f32)self->f84 * (lbl_805DB8AC * (f32)lbl_805D5550 + lbl_805DB8A8);
-    if (lbl_805D5550 == 3) {
+    self->f358 = (f32)self->f84 * (lbl_805DB8AC * (f32)game_difficulty_selection + lbl_805DB8A8);
+    if (game_difficulty_selection == 3) {
         self->f358 *= lbl_805DB8AC;
     }
     self->f354 = self->f88;

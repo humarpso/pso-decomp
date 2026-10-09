@@ -33,7 +33,7 @@ struct Chal_8007369C { u8 pad[0x4C]; void *window; u8 rest[0x748 - 0x50]; };
 struct Chal_800738F4 { u8 pad[0x4C]; void *window; u8 rest[0x748 - 0x50]; };
 
 extern "C" {
-extern RecoveredGlobal_800739BC_lbl_8048C9D8 lbl_8048C9D8;
+extern RecoveredGlobal_800739BC_lbl_8048C9D8 challenge_mode_state;
 void TLobby__sub_800739BC(void);
 s32 get_camera_id__11TCameraCtrlFv();
 char *TQuestVmDownLoadServer__sub_8006EF6C(s32);
@@ -50,14 +50,14 @@ char *strcat(char *, const char *);
 extern char lbl_80438628[];
 extern char lbl_80438630[];
 extern char lbl_80438638[];
-extern RecoveredGlobal_800739BC_lbl_8048C9D8 lbl_8048C9D8;
-extern u8 lbl_8048D150[];
+extern RecoveredGlobal_800739BC_lbl_8048C9D8 challenge_mode_state;
+extern u8 challenge_window_extent[];
 extern char lbl_804FF838[];
 extern char lbl_805D912C[2];
 extern const f32 lbl_805D9134;
 extern const f32 lbl_805D9138;
 void open_challenge_progress_window__6TLobbyFPvPv(void *arg0, void *arg1);
-extern RecoveredGlobal_800739BC_lbl_8048C9D8 lbl_8048C9D8;
+extern RecoveredGlobal_800739BC_lbl_8048C9D8 challenge_mode_state;
 char *TQuestVmDownLoadServer__sub_8006EF6C(s32);
 s32 get_layout_id__20TWindowSubStatusDispFv(void *);
 s32 *TWindowSubStatusDisp__sub_8006F0D8(void *, s32);
@@ -73,7 +73,7 @@ extern char lbl_804385EC[];
 extern char lbl_804385F4[];
 extern char lbl_80438604[];
 extern char lbl_80438618[];
-extern s32 lbl_8048D158[];
+extern s32 challenge_grade_letter_table[];
 extern char lbl_804FF838[];
 extern char lbl_805D9128[2];
 extern char lbl_805D912C[2];
@@ -86,8 +86,8 @@ void set_field_1c__6TLobbyFPvf(void *, f32);
 void send_and_handle__6TLobbyFPvii(void *, char *, s32);
 void *set_window_mode_4__6TLobbyFPvii(void *, void *, s32);
 void *get_window_layout_position(s32);
-extern RecoveredGlobal_800739BC_lbl_8048C9D8 lbl_8048C9D8;
-extern u8 lbl_8048D150[];
+extern RecoveredGlobal_800739BC_lbl_8048C9D8 challenge_mode_state;
+extern u8 challenge_window_extent[];
 extern char lbl_804FF838[];
 extern const f32 lbl_805D9134;
 extern const f32 lbl_805D9138;
@@ -98,7 +98,7 @@ void open_challenge_progress_window__6TLobbyFPvPv(void *arg0, void *arg1);
 void TLobby__sub_800739BC(void);
 void TWindow__close(void *);
 s32 TWindowCtrlMain__sub_8024CE58();
-extern RecoveredGlobal_800739BC_lbl_8048C9D8 lbl_8048C9D8;
+extern RecoveredGlobal_800739BC_lbl_8048C9D8 challenge_mode_state;
 void TLobby__sub_800738F4(void *arg0, s32 arg1);
 }
 
@@ -110,9 +110,9 @@ int is_visible__17TWindowSubComCardFPv(void* p);
 int is_visible__17TWindowSubComCardFPv(void* p) { return (*(u16*)((char*)p + 0x70) >> 1) & 0x1; }
 typedef char RecoveredGlobal_800739BC_lbl_8048C9D8_size[sizeof(RecoveredGlobal_800739BC_lbl_8048C9D8) == 0x748 ? 1 : -1];
 
-#define CHAL ((Chal_80073738 *)&lbl_8048C9D8)
+#define CHAL ((Chal_80073738 *)&challenge_mode_state)
 
-#define CHAL_80073428 ((Chal_80073428 *)&lbl_8048C9D8)
+#define CHAL_80073428 ((Chal_80073428 *)&challenge_mode_state)
 void format_challenge_stage_times__23TAdSinglePlyChrSelectGCFii(M2C_UNK arg0, s32 arg1) {
     char buf2[0x18];
     char buf1[0x10];
@@ -161,7 +161,7 @@ void format_challenge_stage_times__23TAdSinglePlyChrSelectGCFii(M2C_UNK arg0, s3
                     }
                     sl = get_slot_clamped__6TLobbyFv(slot->slot);
                     split_time_hms__22TQuestVmDownLoadServerFiPvPvPv(sum, &h1, &m1, &s1);
-                    sprintf(buf2, lbl_80438604, h1, m1, s1, lbl_8048D158[sl]);
+                    sprintf(buf2, lbl_80438604, h1, m1, s1, challenge_grade_letter_table[sl]);
                     strcat(lbl_804FF838, buf2);
                 }
                 strcat(lbl_804FF838, lbl_805D9130);
@@ -175,17 +175,17 @@ void format_challenge_stage_times__23TAdSinglePlyChrSelectGCFii(M2C_UNK arg0, s3
 
 void open_challenge_window__6TLobbyFii(s32 arg0, s32 arg1) {
     void *win;
-    win = set_window_mode_4__6TLobbyFPvii(get_window_layout_position(0x3B), lbl_8048D150, 1);
-    (*(Chal_8007369C *)&lbl_8048C9D8).window = win;
+    win = set_window_mode_4__6TLobbyFPvii(get_window_layout_position(0x3B), challenge_window_extent, 1);
+    (*(Chal_8007369C *)&challenge_mode_state).window = win;
     if (win == NULL) {
         return;
     }
     set_field_1c__6TLobbyFPvf(win, lbl_805D9134);
     if (get_camera_id__11TCameraCtrlFv() >= 2) {
-        set_position_xy((*(Chal_8007369C *)&lbl_8048C9D8).window, lbl_805D9138, lbl_805D9138);
+        set_position_xy((*(Chal_8007369C *)&challenge_mode_state).window, lbl_805D9138, lbl_805D9138);
     }
     format_challenge_stage_times__23TAdSinglePlyChrSelectGCFii((M2C_UNK)(arg0), (s32)(arg1));
-    send_and_handle__6TLobbyFPvii((*(Chal_8007369C *)&lbl_8048C9D8).window, lbl_804FF838, 0);
+    send_and_handle__6TLobbyFPvii((*(Chal_8007369C *)&challenge_mode_state).window, lbl_804FF838, 0);
 }
 
 void open_challenge_progress_window__6TLobbyFPvPv(void *arg0, void *arg1) {
@@ -194,7 +194,7 @@ void open_challenge_progress_window__6TLobbyFPvPv(void *arg0, void *arg1) {
     Rec_80073738 *rec;
     s32 i;
     void *win;
-    win = set_window_mode_4__6TLobbyFPvii(get_window_layout_position(0x3B), lbl_8048D150, 1);
+    win = set_window_mode_4__6TLobbyFPvii(get_window_layout_position(0x3B), challenge_window_extent, 1);
     CHAL->window = win;
     if (win == NULL) {
         return;
@@ -229,11 +229,11 @@ void TLobby__sub_800738F4(void *arg0, s32 arg1) {
         ((void (*)(void *))TLobby__sub_800739BC)(arg0);
         return;
     }
-    if ((*(Chal_800738F4 *)&lbl_8048C9D8).window != NULL) {
+    if ((*(Chal_800738F4 *)&challenge_mode_state).window != NULL) {
         if (arg1 == 0) {
-            TWindow__close((*(Chal_800738F4 *)&lbl_8048C9D8).window);
+            TWindow__close((*(Chal_800738F4 *)&challenge_mode_state).window);
         } else {
-            queue_destruction__7TObjectFv((*(Chal_800738F4 *)&lbl_8048C9D8).window);
+            queue_destruction__7TObjectFv((*(Chal_800738F4 *)&challenge_mode_state).window);
         }
         ((void (*)(void *))TLobby__sub_800739BC)(arg0);
     }
@@ -253,8 +253,8 @@ void TLobby__sub_800738F4(void *arg0, s32 arg1) {
 }
 
 void TLobby__sub_800739BC(void) {
-    M2C_FIELD(&lbl_8048C9D8.value, s32 *, 0x48) = 0;
-    M2C_FIELD(&lbl_8048C9D8.value, s32 *, 0x4C) = 0;
+    M2C_FIELD(&challenge_mode_state.value, s32 *, 0x48) = 0;
+    M2C_FIELD(&challenge_mode_state.value, s32 *, 0x4C) = 0;
 }
 
 }

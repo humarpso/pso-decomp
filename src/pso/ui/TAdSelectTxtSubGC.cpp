@@ -39,7 +39,7 @@ M2C_UNK __ct__7TObjectFP7TObject(void *, void *);
 M2C_UNK copy_vec2__28TWindowSubSymbolChatPartsSetFPvPv(void *, void *);
 int TObjNpcHosa__sub_802A39B0(void);
 extern M2C_UNK __vt__17TAdSelectTxtSubGC[];
-extern s32 lbl_805D3DC0;
+extern s32 ad_select_txt_sub_gc_class_name;
 extern s32 lbl_805D6648;
 extern const f32 lbl_805DDF3C;
 extern const f32 lbl_805DDF44;
@@ -97,7 +97,7 @@ TAdSelectTxtSubGC::~TAdSelectTxtSubGC() {}
 Txt_802A37A0 *__ct__17TAdSelectTxtSubGCFv(Txt_802A37A0 *arg0, void *parent, Src_802A37A0 *src) {
     __ct__7TObjectFP7TObject(arg0, parent);
     arg0->vt = __vt__17TAdSelectTxtSubGC;
-    arg0->f0 = lbl_805D3DC0;
+    arg0->f0 = ad_select_txt_sub_gc_class_name;
     arg0->f7c = src->f0;
     arg0->f1c = src->f4;
     copy_vec2__28TWindowSubSymbolChatPartsSetFPvPv(&arg0->f64, src->v8);

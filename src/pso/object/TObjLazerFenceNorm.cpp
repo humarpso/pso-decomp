@@ -33,7 +33,7 @@ s32 construct_collider_proxy__10TObjPlayerFPv(void *);
 s32 select_models__18TObjLazerFenceNormFPv(void *);
 extern RecoveredGlobal_80192E70_lbl_804B7FB0 lbl_804B7FB0;
 extern M2C_UNK __vt__18TObjLazerFenceNorm[];
-extern s32 lbl_805D33A0;
+extern s32 obj_lazer_fence_norm_class_name;
 extern const f32 lbl_805DBE58;
 u8 *TObjLazerFenceNorm__ct(u8 *arg0, M2C_UNK arg1, s32 arg2);
 }
@@ -93,7 +93,7 @@ u8 *TObjLazerFenceNorm__ct(u8 *arg0, M2C_UNK arg1, s32 arg2) {
     u32 temp_r6;
     construct_collider_proxy__10TObjPlayerFPv((void *) (arg0));
     M2C_FIELD(arg0, M2C_UNK **, 0x18) = &(*(RecoveredGlobal_80192E70___vt__18TObjLazerFenceNorm *)&__vt__18TObjLazerFenceNorm).value;
-    M2C_FIELD(arg0, s32 *, 0) = (s32) lbl_805D33A0;
+    M2C_FIELD(arg0, s32 *, 0) = (s32) obj_lazer_fence_norm_class_name;
     ((VObj_18_1a504b *)(arg0))->m5(arg2);
     M2C_FIELD(arg0, s32 *, 0xB4) = 0;
     M2C_FIELD(arg0, f32 *, 0xB8) = (f32) lbl_805DBE58;

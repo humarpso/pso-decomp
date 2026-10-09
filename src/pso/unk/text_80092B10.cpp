@@ -54,7 +54,7 @@ void set_global_param__8TObjFishFi(int);
 s32 draw_model_motion(int, Motion_80092B10 *, f32);
 void set_global_flag__10TObjPlayerFv(void);
 void clear_global_state__10TObjPlayerFv(void);
-extern Vec_80092B10 lbl_80439ED0;
+extern Vec_80092B10 re7_berura_init_vec;
 extern const f32 TObjEneRe7Berura__data_805D9724;
 extern const f32 lbl_805D9728;
 extern const f32 TObjEneRe7Berura__data_805D972C;
@@ -67,7 +67,7 @@ void TObjEneRe7Berura__vt104(Ene_80092B10 *self) {
     get_target_info__9TObjEneDDFPv(self);
     if (self->v.m8(TObjEneRe7Berura__data_805D9724, lbl_805D9728) != 0) {
         if (self->f326 != 0xB) {
-            Vec_80092B10 v = lbl_80439ED0;
+            Vec_80092B10 v = re7_berura_init_vec;
             update_player_state__9TObjEneDDFPv(self, &v, 0);
         }
         toggle_particle_effect__10TObjPlayerFv();

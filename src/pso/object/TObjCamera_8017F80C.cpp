@@ -96,7 +96,7 @@ void set_global_param__8TObjFishFi();
 void set_npc_enemy_param(void *);
 void draw_ginja_model_with_motion(s32, s32, f32);
 void update_camera_slots__10TObjCameraFv(void);
-extern Vec_8017F80C lbl_8050DB80[];
+extern Vec_8017F80C camera_slot_positions[];
 extern u32 TObjCamera__data_805D5B18;
 extern s32 TObjCamera__data_805D5B1C;
 extern const f32 lbl_805DBB60;
@@ -175,7 +175,7 @@ void render__10TObjCameraFv(Obj_8017F80C *self) {
         if (self->count != 0) {
             for (i = 0; i < 8; i++) {
                 if (self->lights[i] != NULL) {
-                    copy_position__15TEffStarLight2DFPv(self->lights[i], &lbl_8050DB80[i]);
+                    copy_position__15TEffStarLight2DFPv(self->lights[i], &camera_slot_positions[i]);
                 }
             }
         }

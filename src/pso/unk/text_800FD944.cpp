@@ -68,7 +68,7 @@ s32 get_resource_file_size__6TLobbyFPv(void *name) {
     }
     return get_file_size__6TLobbyFv(name);
 }
-char *lbl_8049CA88[23] = {
+char *area_gsl_filename_table[23] = {
     lbl_8043DB04, lbl_8043DB14, lbl_8043DB28, lbl_8043DB3C, lbl_8043DB4C, lbl_8043DB5C, lbl_8043DB6C, lbl_8043DB80, lbl_8043DB94, lbl_8043DBA8, lbl_8043DBBC, lbl_805DAA38, lbl_805DAA38, lbl_805DAA38, lbl_805DAA38, lbl_805DAA38, lbl_8043DBD0, lbl_8043DBE4, lbl_8043DBF8, lbl_8043DC08, lbl_8043DC08, lbl_8043DC18, lbl_8043DC18
 };
 char *lbl_8049CAE4[23] = {
@@ -86,7 +86,7 @@ void load_area_gsl(void) {
         if (check_v2_mode__9TObjEneDDFv() != 0) {
             TItemDrop__sub_800FDE7C(lbl_8049CAE4[n]);
         } else {
-            TItemDrop__sub_800FDE7C(lbl_8049CA88[n]);
+            TItemDrop__sub_800FDE7C(area_gsl_filename_table[n]);
         }
     } else {
         if (is_split_screen() != 0) {

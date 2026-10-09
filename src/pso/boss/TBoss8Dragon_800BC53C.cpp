@@ -18,7 +18,7 @@ u32 *free_buffer__12TBoss8DragonFPvs(u32 *arg0, s16 arg1);
 extern M2C_UNK __vt__13TLockOnCursor[];
 extern M2C_UNK TLockOnCursor__sub_8013EFB8[];
 extern M2C_UNK __dt_deleting__13TLockOnCursorFis[];
-extern void *lbl_805D2CB4;
+extern void *lock_on_cursor_class_name;
 s32 delete_buffer__12TBoss8DragonFis(s32 arg0, s16 arg1);
 s32 fn_800BC758(u8 *arg0);
 s32 attack_target_history_add(s32 arg0, s32 arg1);

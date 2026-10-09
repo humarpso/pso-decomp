@@ -41,7 +41,7 @@ void *__ct__12TQuestThreadFv(void *, void *, u32);
 s32 fn_80225CD8(void *, void *, void *);
 void *__nw__7TObjectFUl(u32);
 void set_parent__7TObjectFP7TObject(void *, void *);
-extern void *lbl_805D5544;
+extern void *current_language;
 extern void *lbl_805D5EE8;
 extern void *tl_00;
 void handle_chat_message__12TOChatSensorFPvPv(u8 *arg0, void *arg1);
@@ -93,7 +93,7 @@ void handle_chat_message__12TOChatSensorFPvPv(u8 *arg0, void *arg1) {
         mode = *(u32 *)(arg0 + 0x98);
         r = -1;
         if (mode == 0) {
-            r = fn_80225CD8(arg1, arg0 + 0xA4, lbl_805D5544);
+            r = fn_80225CD8(arg1, arg0 + 0xA4, current_language);
         } else if (mode == 1) {
             r = 0;
         }

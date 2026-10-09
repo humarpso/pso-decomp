@@ -22,7 +22,7 @@ int destroy_board__17TQuestThreadBoardFv(void*);
 void TObjQuestColApc__vt14(void* p) { destroy_board__17TQuestThreadBoardFv(p); create__12TQuestThreadFi(*(void**)((char*)p + 0xb0)); }
 
 extern M2C_UNK __vt__15TObjQuestColApc[];
-extern void *lbl_805D33F8;
+extern void *obj_quest_col_apc_class_name;
 
 s32 TObjQuestColApc__vt13(Obj_80196448 *self) {
     s32 i;
@@ -41,7 +41,7 @@ s32 TObjQuestColApc__vt13(Obj_80196448 *self) {
 void *TObjQuestColApc__ct(void *arg0) {
     TObjQuestColBase__ct(arg0);
     M2C_FIELD(arg0, M2C_UNK **, 0x18) = __vt__15TObjQuestColApc;
-    M2C_FIELD(arg0, void **, 0x0) = lbl_805D33F8;
+    M2C_FIELD(arg0, void **, 0x0) = obj_quest_col_apc_class_name;
     return arg0;
 }
 

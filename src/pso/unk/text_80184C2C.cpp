@@ -27,8 +27,8 @@ extern const char *lbl_804B6028[];
 void TObjLaboMapWarp__vt17(Obj_80185160 *self);
 void TLobby__sub_8001FE7C(void *, s32);
 void destroy_buffer_pair(void *, s32);
-extern int lbl_8050DC38[];
-extern int lbl_8050DC50[];
+extern int city_season_easter_egg_model_table[];
+extern int city_season_xmas_model_table[];
 extern void *lbl_805D5B34;
 extern void *lbl_805D5B38;
 extern s32 lbl_805D5B3C;
@@ -46,11 +46,11 @@ u8 TLobby__sub_80184C54(void);
 int TLobby__sub_80184C6C(int a0);
 void TLobby__sub_80184CE0(void* p);
 
-    extern int lbl_8050DC50[];
-int TLobby__sub_80184C2C(int a0) {  return lbl_8050DC50[a0]; }
+    extern int city_season_xmas_model_table[];
+int TLobby__sub_80184C2C(int a0) {  return city_season_xmas_model_table[a0]; }
 
-    extern int lbl_8050DC38[];
-int get_season_model_resource(int a0) {  return lbl_8050DC38[a0]; }
+    extern int city_season_easter_egg_model_table[];
+int get_season_model_resource(int a0) {  return city_season_easter_egg_model_table[a0]; }
 
 extern s32 lbl_805D5B30;
 
@@ -98,11 +98,11 @@ void free_buffers__6TLobbyFv(void) {
         lbl_805D5B34 = NULL;
     }
     for (i = 5; i >= 0; i--) {
-        if ((u32)lbl_8050DC38[i] != 0) {
-            TLobby__sub_8001FE7C((void *)lbl_8050DC38[i], 1);
+        if ((u32)city_season_easter_egg_model_table[i] != 0) {
+            TLobby__sub_8001FE7C((void *)city_season_easter_egg_model_table[i], 1);
         }
-        lbl_8050DC38[i] = 0;
-        lbl_8050DC50[i] = 0;
+        city_season_easter_egg_model_table[i] = 0;
+        city_season_xmas_model_table[i] = 0;
     }
 }
 

@@ -11,7 +11,7 @@ typedef char RecoveredGlobal_8036B6D0_lbl_804F3660_size[sizeof(RecoveredGlobal_8
 extern "C" {
 u8 * load_resource_from_descriptor(void *, s32, void *, s32, s32, s32);
 int alloc__23TAdSinglePlyChrSelectGCFPv(void *);
-extern RecoveredGlobal_8036B6D0_lbl_804F3660 lbl_804F3660;
+extern RecoveredGlobal_8036B6D0_lbl_804F3660 TObjBoss8DemoRoom__resource_desc;
 extern u32 TObjBoss8DemoRoom__data_805D7010;
 void load_resource__17TObjBoss8DemoRoomFv(void);
 }
@@ -48,7 +48,7 @@ void load_resource__17TObjBoss8DemoRoomFv(void) {
     temp_r3 = alloc__23TAdSinglePlyChrSelectGCFPv((void *)0x440);
     var_r0 = temp_r3;
     if (var_r0 != 0) {
-        var_r0 = (long) (load_resource_from_descriptor((void *) temp_r3, 1, &lbl_804F3660.value, 0, 0, 0));
+        var_r0 = (long) (load_resource_from_descriptor((void *) temp_r3, 1, &TObjBoss8DemoRoom__resource_desc.value, 0, 0, 0));
     }
     (*(s32 *)&TObjBoss8DemoRoom__data_805D7010) = var_r0;
 }

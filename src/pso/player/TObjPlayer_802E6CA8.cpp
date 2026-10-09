@@ -115,7 +115,7 @@ M2C_UNK set_chunk_material_color(Col_802E6CB0 *);
 M2C_UNK set_chunk_blend(int);
 M2C_UNK draw_chunk_model(s32);
 extern Col_802E6CB0 lbl_80472C9C;
-extern s32 lbl_805D5560;
+extern s32 current_scene_light;
 extern s32 lbl_805D5660;
 extern s32 some_id_805c6f74;
 void TObjPlayer__sub_802E6CB0(u8 *arg0);
@@ -152,7 +152,7 @@ M2C_UNK set_chunk_blend(int);
 M2C_UNK draw_chunk_model(s32);
 extern Col_802E708C lbl_80472C80;
 extern Vec_802E708C lbl_80472C90;
-extern s32 lbl_805D5560;
+extern s32 current_scene_light;
 extern s32 lbl_805D5660;
 extern s32 some_id_805c6f74;
 extern const f32 lbl_805DE9F8;
@@ -243,7 +243,7 @@ void TObjPlayer__sub_802E6CB0(u8 *arg0) {
         part++;
     }
     pop_matrix();
-    TObjLight__sub_801337F8(lbl_805D5560);
+    TObjLight__sub_801337F8(current_scene_light);
 }
 
 void *TObjPlayer__sub_802E6EB8(void *arg0, s16 arg1) {
@@ -326,7 +326,7 @@ void draw_boss_effect_parts__10TObjPlayerFPv(u8 *arg0) {
         pop_matrix();
         part++;
     }
-    TObjLight__sub_801337F8(lbl_805D5560);
+    TObjLight__sub_801337F8(current_scene_light);
 }
 
 void *TObjPlayer__sub_802E7284(void *arg0, s16 arg1) {

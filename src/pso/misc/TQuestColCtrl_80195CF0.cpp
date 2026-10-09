@@ -11,20 +11,20 @@ struct Obj_80195DE0 { u8 pad0[6]; u16 f6; u8 pad8[4]; Obj_80195DE0 *next; u8 pad
 extern "C" {
 u16 obj_getField1c(void *);
 s32 check_value_equals__13TQuestColCtrlFPvi(void *, s32);
-extern s32 lbl_805D33EC;
-extern s32 lbl_805D33F0;
-extern s32 lbl_805D33F4;
-extern s32 lbl_805D33F8;
+extern s32 TObjQuestCol__class_name;
+extern s32 TObjQuestColA__class_name;
+extern s32 obj_quest_col_alock_class_name;
+extern s32 obj_quest_col_apc_class_name;
 extern s32 lbl_805D33FC;
 extern s32 lbl_805D3400;
 extern u32 lbl_805D5C50;
 Obj_80195CF0 *find_by_id__13TQuestColCtrlFUs(u16 arg0);
 void queue_destruction__7TObjectFv(void *);
 s32 check_value_equals__13TQuestColCtrlFPvi(void *, s32);
-extern s32 lbl_805D33EC;
-extern s32 lbl_805D33F0;
-extern s32 lbl_805D33F4;
-extern s32 lbl_805D33F8;
+extern s32 TObjQuestCol__class_name;
+extern s32 TObjQuestColA__class_name;
+extern s32 obj_quest_col_alock_class_name;
+extern s32 obj_quest_col_apc_class_name;
 extern s32 lbl_805D33FC;
 extern s32 lbl_805D3400;
 extern u32 lbl_805D5C50;
@@ -48,10 +48,10 @@ Obj_80195CF0 *find_by_id__13TQuestColCtrlFUs(u16 arg0) {
     while ((*(Obj_80195CF0 * *)&lbl_805D5C50)->child != 0 && next != 0) {
         cur = next;
         next = cur->next;
-        if ((check_value_equals__13TQuestColCtrlFPvi(cur, lbl_805D33EC) != 0
-             || check_value_equals__13TQuestColCtrlFPvi(cur, lbl_805D33F0) != 0
-             || check_value_equals__13TQuestColCtrlFPvi(cur, lbl_805D33F4) != 0
-             || check_value_equals__13TQuestColCtrlFPvi(cur, lbl_805D33F8) != 0
+        if ((check_value_equals__13TQuestColCtrlFPvi(cur, TObjQuestCol__class_name) != 0
+             || check_value_equals__13TQuestColCtrlFPvi(cur, TObjQuestColA__class_name) != 0
+             || check_value_equals__13TQuestColCtrlFPvi(cur, obj_quest_col_alock_class_name) != 0
+             || check_value_equals__13TQuestColCtrlFPvi(cur, obj_quest_col_apc_class_name) != 0
              || check_value_equals__13TQuestColCtrlFPvi(cur, lbl_805D33FC) != 0
              || check_value_equals__13TQuestColCtrlFPvi(cur, lbl_805D3400) != 0)
             && arg0 == obj_getField1c(cur)) {
@@ -71,10 +71,10 @@ void delete_by_param__13TQuestColCtrlFi(s32 arg0) {
     while ((*(Obj_80195DE0 * *)&lbl_805D5C50)->child != 0 && next != 0) {
         cur = next;
         next = cur->next;
-        if ((check_value_equals__13TQuestColCtrlFPvi(cur, lbl_805D33EC) != 0
-             || check_value_equals__13TQuestColCtrlFPvi(cur, lbl_805D33F0) != 0
-             || check_value_equals__13TQuestColCtrlFPvi(cur, lbl_805D33F4) != 0
-             || check_value_equals__13TQuestColCtrlFPvi(cur, lbl_805D33F8) != 0
+        if ((check_value_equals__13TQuestColCtrlFPvi(cur, TObjQuestCol__class_name) != 0
+             || check_value_equals__13TQuestColCtrlFPvi(cur, TObjQuestColA__class_name) != 0
+             || check_value_equals__13TQuestColCtrlFPvi(cur, obj_quest_col_alock_class_name) != 0
+             || check_value_equals__13TQuestColCtrlFPvi(cur, obj_quest_col_apc_class_name) != 0
              || check_value_equals__13TQuestColCtrlFPvi(cur, lbl_805D33FC) != 0
              || check_value_equals__13TQuestColCtrlFPvi(cur, lbl_805D3400) != 0)
             && cur->f6 == arg0) {

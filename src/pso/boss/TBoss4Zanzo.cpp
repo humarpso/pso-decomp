@@ -119,7 +119,7 @@ f32 vector_length(void *);
 M2C_UNK normalize_vector(void *);
 extern const f64 TBoss4Type2__data_80437750;
 extern s32 lbl_80486904[];
-extern s32 lbl_805D5550;
+extern s32 game_difficulty_selection;
 extern const f32 TBoss4Type2__data_805D8BAC;
 extern const f32 lbl_805D8BB4;
 extern const f32 lbl_805D8BBC;
@@ -769,7 +769,7 @@ extern s32 lbl_805D27E0;
 extern s32 lbl_805D4D80;
 extern u8 lbl_805D4D84;
 extern s32 lbl_805D53A0;
-extern s32 lbl_805D5550;
+extern s32 game_difficulty_selection;
 extern s32 lbl_805D586C;
 extern "C" {
 }
@@ -1411,7 +1411,7 @@ void TBoss4Type2__vt15(u8 *arg0) {
     }
     TBoss4Type2__sub_80057128(arg0);
     if (--M2C_FIELD(arg0, s32 *, 0x398) < 0) {
-        if (lbl_805D5550 == 3) {
+        if (game_difficulty_selection == 3) {
             spawn_bishi_around_players__11TBoss4Type2FPv((Obj_8005683C *)arg0);
         }
         TBoss4Type2__sub_80057048(arg0, M2C_FIELD(arg0, s32 *, 0x424));
@@ -1495,7 +1495,7 @@ void TBoss4Type2__vt9(u8 *arg0) {
         M2C_FIELD(arg0, f32 *, 0x39C) = (f32) (*(f32 *)&TBoss4Type2__data_805D8BD8);
     }
     TBoss4Type2__sub_80057128((void *) (arg0));
-    if ((s32) lbl_805D5550 == 3) {
+    if ((s32) game_difficulty_selection == 3) {
         temp_r3 = angle_diff_s16((int) (M2C_FIELD(arg0, s32 *, 0x3A4)), (int) (M2C_FIELD(arg0, s32 *, 0x3A8)));
         if (!(M2C_FIELD(arg0, s32 *, 0x398) & 3)) {
             temp_f1 = M2C_FIELD(arg0, f32 *, 0x39C);

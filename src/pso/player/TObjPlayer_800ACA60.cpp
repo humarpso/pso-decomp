@@ -778,7 +778,7 @@ void spawn_directional_particle(void *, void *, s32);
 M2C_UNK update_collisions__10TObjPlayerFPv(void *);
 extern const f64 lbl_8043B0C8[];
 extern u8 lbl_8058D490[];
-extern s32 lbl_805D5550;
+extern s32 game_difficulty_selection;
 extern s32 tl_07;
 extern const f32 lbl_805D9BD8;
 extern const f32 lbl_805D9BDC;
@@ -1035,7 +1035,7 @@ M2C_UNK update_technique_state__11TObjEneMojaFv(void *self_800AD3D8) {
             } else {
                 ang2 = get_field_0c__10TObjPlayerFPv(self->f318);
             }
-            if (lbl_805D5550 == 3) {
+            if (game_difficulty_selection == 3) {
                 switch (self->kind) {
                 case 1:
                     if (ang2 < get_field_0c__10TObjPlayerFPv(self->f318) / 2 && self->target != NULL) {

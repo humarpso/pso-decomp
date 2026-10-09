@@ -141,7 +141,7 @@ M2C_UNK set_chunk_blend(int);
 M2C_UNK draw_chunk_model(s32);
 extern Color_8002E3D4 lbl_8043560C;
 extern Holder_8002E3D4 *lbl_805D4BA4;
-extern s32 lbl_805D5560;
+extern s32 current_scene_light;
 extern s32 lbl_805D5660;
 extern s32 some_id_805c6f74;
 void draw_part_models__10TObjPlayerFPv(Obj_8002E3D4 *self);
@@ -250,7 +250,7 @@ void draw_part_models__10TObjPlayerFPv(Obj_8002E3D4 *self) {
         }
     }
     pop_matrix();
-    TObjLight__sub_801337F8(lbl_805D5560);
+    TObjLight__sub_801337F8(current_scene_light);
 }
 
 void TObjPlayer__sub_8002E53C(u8 *arg0) {

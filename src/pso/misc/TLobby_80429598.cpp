@@ -165,7 +165,7 @@ void TLobby__sub_803F95E4(u32);
 extern u32 lbl_805D7C00;
 void cancel_alarm_b__6TLobbyFv(void);
 M2C_UNK OSWakeupThread(void *);
-extern M2C_UNK lbl_805D7C38;
+extern M2C_UNK network_thread_queue;
 void wake_network_thread__6TLobbyFv(void);
 s32 EXIDeselect(s32);
 s32 EXIImm(s32, void *, s32, u32, u32);
@@ -173,19 +173,19 @@ s32 EXISelect(s32, u32, s32);
 s32 EXISync(s32);
 s32 EXIImmEx(s32, s32, s32, s32);
 void exi_write__6TLobbyFiii(s32 arg0, s32 arg1, s32 arg2);
-extern s32 lbl_805D7C40;
+extern s32 exi_send_started_flag;
 extern s32 lbl_805D7C54;
 extern s32 lbl_805D7C7C;
 extern s32 lbl_805D7C80;
 void start_exi_send__6TLobbyFiii(s32 arg0, s32 arg1, s32 arg2);
 M2C_UNK memcpy(void *, void *, int);
-extern M2C_UNK lbl_805D7C30;
+extern M2C_UNK exi_mac_address;
 void copy_mac_address__6TLobbyFi(s32 arg0);
 M2C_UNK OSDisableInterrupts();
 M2C_UNK OSRestoreInterrupts(s32);
 M2C_UNK OSSleepThread(void *);
 extern u32 lbl_805D7C4C;
-extern s32 lbl_805D7C50;
+extern s32 exi_receive_callback;
 void TLobby__sub_8042B58C(u32 arg0, s32 arg1);
 extern s32 lbl_805D7C44;
 extern s32 lbl_805D7C48;
@@ -224,7 +224,7 @@ extern RecoveredGlobal_8042E768_lbl_805D1D20 lbl_805D1D20;
 extern s32 lbl_805D7C98;
 s32 TAdSinglePlyChrSelectGC__sub_8042DD70(s32 arg0, s32 arg1, s32 arg2);
 M2C_UNK memcpy(void *, void *, int);
-extern M2C_UNK lbl_805D7C30;
+extern M2C_UNK exi_mac_address;
 void copy_6_byte_config__6TLobbyFPv(void *dst);
 void TLobby__sub_80425DC8(void *q, void *a, void *b);
 void forward_to_channel__6TLobbyFPvPv(void *a, void *b);
@@ -297,15 +297,15 @@ s32 EXIImm(s32, void *, s32, u32, u32);
 s32 EXISelect(s32, u32, s32);
 s32 EXISync(s32);
 s32 EXIDma(s32, void *, s32, u32, void *);
-extern s32 lbl_805D7C64;
-extern u32 lbl_805D7C68;
+extern s32 exi_dma_read_length;
+extern u32 exi_dma_write_length;
 void start_exi_dma_read__6TLobbyFUs(u16 arg0);
 s32 EXIDeselect(s32);
 s32 EXIImm(s32, void *, s32, u32, u32);
 s32 EXISelect(s32, u32, s32);
 s32 EXISync(s32);
 s32 EXIDma(s32, void *, s32, u32, void *);
-extern u32 lbl_805D7C68;
+extern u32 exi_dma_write_length;
 void start_exi_dma_write__6TLobbyFiPv(s32 chan, void *ctx);
 s32 EXILock(s32, u32, u32);
 s32 EXIUnlock(s32);
@@ -389,7 +389,7 @@ M2C_UNK OSDisableInterrupts();
 M2C_UNK OSRestoreInterrupts(s32);
 M2C_UNK OSSleepThread(void *);
 void wake_network_thread__6TLobbyFv(void);
-extern M2C_UNK lbl_805D7C38;
+extern M2C_UNK network_thread_queue;
 u8 exi_read_status_byte__6TLobbyFv(void);
 M2C_UNK get_time_ms__6TLobbyFPv(void *);
 s32 TLobby__sub_803F9EC4(void *, void *, int);
@@ -404,9 +404,9 @@ void DCInvalidateRange(void *, u32);
 s32 EXIDeselect(s32);
 void TLobby__sub_80429648(void);
 M2C_UNK memcpy(void *, void *, int);
-extern s32 lbl_805D7C50;
-extern s32 lbl_805D7C64;
-extern u32 lbl_805D7C68;
+extern s32 exi_receive_callback;
+extern s32 exi_dma_read_length;
+extern u32 exi_dma_write_length;
 extern u16 lbl_805D7C6C[2];
 extern u8 *lbl_805D7C74;
 extern u16 lbl_805D7C7A;
@@ -530,11 +530,11 @@ extern s32 lbl_805D7C08;
 extern s32 lbl_805D7C0C;
 extern u32 lbl_805D7C10;
 extern u32 lbl_805D7C14;
-extern u32 lbl_805D7C18;
-extern s32 lbl_805D7C1C;
+extern u32 TLobby__buffer_pool_start;
+extern s32 TLobby__buffer_pool_limit;
 extern s32 lbl_805D7C20;
 extern s32 lbl_805D7C24;
-extern s32 lbl_805D7C28;
+extern s32 lobby_buffer_pool_state;
 
 typedef char RecoveredGlobal_80428374_lbl_805D0A40_size[sizeof(RecoveredGlobal_80428374_lbl_805D0A40) == 0x60 ? 1 : -1];
 
@@ -555,7 +555,7 @@ s32 init_buffer_pool__6TLobbyFv(void);
 void reset_buffer_pool__6TLobbyFv(void);
 
 void wake_network_thread__6TLobbyFv(void) {
-    OSWakeupThread((void *) (&lbl_805D7C38));
+    OSWakeupThread((void *) (&network_thread_queue));
 }
 
 void exi_write__6TLobbyFiii(s32 arg0, s32 arg1, s32 arg2) {
@@ -571,18 +571,18 @@ void exi_write__6TLobbyFiii(s32 arg0, s32 arg1, s32 arg2) {
 void start_exi_dma_read__6TLobbyFUs(u16 arg0) {
     u32 len;
     s32 cmd;
-    len = (lbl_805D7C64 + 0x1F) & ~0x1F;
+    len = (exi_dma_read_length + 0x1F) & ~0x1F;
     cmd = ((arg0 << 8) & 0xFFFF00) | 0x80000000;
     EXISelect(0, 2, 5);
     EXIImm(0, &cmd, 4, 1, 0);
     EXISync(0);
-    EXIDma(0, exi_dma_buffer, len, 0, lbl_805D7C68 != 0 ? (void *)start_exi_dma_write__6TLobbyFiPv : (void *)TLobby__sub_80429AC8);
+    EXIDma(0, exi_dma_buffer, len, 0, exi_dma_write_length != 0 ? (void *)start_exi_dma_write__6TLobbyFiPv : (void *)TLobby__sub_80429AC8);
 }
 
 void start_exi_dma_write__6TLobbyFiPv(s32 chan, void *ctx) {
     u32 len;
     s32 cmd;
-    len = (lbl_805D7C68 + 0x1F) & ~0x1F;
+    len = (exi_dma_write_length + 0x1F) & ~0x1F;
     EXIDeselect(0);
     cmd = 0x80010000;
     EXISelect(0, 2, 5);
@@ -594,16 +594,16 @@ void start_exi_dma_write__6TLobbyFiPv(s32 chan, void *ctx) {
 void TLobby__sub_80429AC8(void) {
     u8 pad[8];
     EXIDeselect(0);
-    DCInvalidateRange(exi_dma_buffer, (lbl_805D7C64 + 0x1F) & ~0x1F);
-    if (lbl_805D7C68 != 0) {
-        DCInvalidateRange(exi_dma_write_buffer, (lbl_805D7C68 + 0x1F) & ~0x1F);
+    DCInvalidateRange(exi_dma_buffer, (exi_dma_read_length + 0x1F) & ~0x1F);
+    if (exi_dma_write_length != 0) {
+        DCInvalidateRange(exi_dma_write_buffer, (exi_dma_write_length + 0x1F) & ~0x1F);
     }
-    if ((u32)lbl_805D7C50 != 0) {
-        memcpy(lbl_805D7C74, exi_dma_buffer, lbl_805D7C64);
-        if (lbl_805D7C68 != 0) {
-            memcpy(lbl_805D7C74 + lbl_805D7C64, exi_dma_write_buffer, lbl_805D7C68);
+    if ((u32)exi_receive_callback != 0) {
+        memcpy(lbl_805D7C74, exi_dma_buffer, exi_dma_read_length);
+        if (exi_dma_write_length != 0) {
+            memcpy(lbl_805D7C74 + exi_dma_read_length, exi_dma_write_buffer, exi_dma_write_length);
         }
-        ((void (*)(u8 *, u16))lbl_805D7C50)(lbl_805D7C74, lbl_805D7C6C[1]);
+        ((void (*)(u8 *, u16))exi_receive_callback)(lbl_805D7C74, lbl_805D7C6C[1]);
     }
     lbl_805D7C7A = lbl_805D7C6C[0];
     TLobby__sub_80429648();
@@ -616,7 +616,7 @@ void start_exi_send__6TLobbyFiii(s32 arg0, s32 arg1, s32 arg2) {
     var_r3 = 0;
     lbl_805D7C80 = arg1;
     var_r4 = 0;
-    lbl_805D7C40 = 1;
+    exi_send_started_flag = 1;
     lbl_805D7C54 = arg2;
     exi_start_send_dma__6TLobbyFii((int)((int) (0)), (int)((int) (0)));
 }
@@ -640,11 +640,11 @@ M2C_UNK exi_start_send_dma__6TLobbyFii(int, int) {
 }
 
 void copy_6_byte_config__6TLobbyFPv(void *dst) {
-    memcpy(dst, &lbl_805D7C30, 6);
+    memcpy(dst, &exi_mac_address, 6);
 }
 
 void copy_mac_address__6TLobbyFi(s32 arg0) {
-    memcpy((void *) (&lbl_805D7C30), (void *) (arg0), (int) (6));
+    memcpy((void *) (&exi_mac_address), (void *) (arg0), (int) (6));
 }
 
 void TLobby__sub_8042B58C(u32 arg0, s32 arg1) {
@@ -674,11 +674,11 @@ void TLobby__sub_8042B58C(u32 arg0, s32 arg1) {
             OSRestoreInterrupts(e);
             break;
         }
-        OSSleepThread(&lbl_805D7C38);
+        OSSleepThread(&network_thread_queue);
         OSRestoreInterrupts(e);
     }
     lbl_805D7C4C = arg0;
-    lbl_805D7C50 = arg1;
+    exi_receive_callback = arg1;
     if (arg0 == 0U) {
         sp43 = 0;
         sp3C = 0xC0000800;
@@ -792,7 +792,7 @@ u8 exi_read_status_byte__6TLobbyFv(void) {
             OSRestoreInterrupts(enabled);
             break;
         }
-        OSSleepThread(&lbl_805D7C38);
+        OSSleepThread(&network_thread_queue);
         OSRestoreInterrupts(enabled);
     }
     cmd = 0x100;

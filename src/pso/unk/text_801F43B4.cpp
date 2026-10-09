@@ -13,7 +13,7 @@ M2C_UNK notify_quest_thread__22THunterGuildSeqOfflineFv();
 s32 is_not_split_screen__13TRaderMapCoreFv();
 M2C_UNK memcpy(s32, M2C_UNK *, M2C_UNK);
 extern u8 lbl_805127F8[4][128];
-extern s32 lbl_805D5550;
+extern s32 game_difficulty_selection;
 
 void copy_card_window_data(void) {
     u32 temp_r3;
@@ -55,7 +55,7 @@ s32 get_story_flag(s32 flag) {
     s32 shift;
 
     if (flag < 0 || flag > 0x3FF) return -1;
-    n = lbl_805D5550;
+    n = game_difficulty_selection;
     if (n < 0 || n >= 4) return -1;
     v = flag + 1;
     byteIdx = v / 8;

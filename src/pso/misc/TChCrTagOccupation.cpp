@@ -94,12 +94,12 @@ void *__ct__17TChCrTagOccHeaderFv(void *arg0);
 
 extern const f32 lbl_805DDECC;
 extern const f32 lbl_805DDED0;
-extern void *lbl_805D3DA8;
+extern void *chcr_tag_occ_header_class_name;
 
 void *__ct__17TChCrTagOccHeaderFv(void *arg0) {
     ((void (*)(void *))__ct__8TChCrTagFv)(arg0);
     M2C_FIELD(arg0, void ***, 0x18) = __vt__17TChCrTagOccHeader;
-    M2C_FIELD(arg0, void **, 0x0) = lbl_805D3DA8;
+    M2C_FIELD(arg0, void **, 0x0) = chcr_tag_occ_header_class_name;
     M2C_FIELD(arg0, f32 *, 0x28) = lbl_805DDECC;
     M2C_FIELD(arg0, f32 *, 0x2C) = lbl_805DDED0;
     M2C_FIELD(arg0, f32 *, 0x34) = lbl_805DDECC;
@@ -190,7 +190,7 @@ extern void *__vt__18TChCrTagOccupation[];
 void *__dt__8TChCrTagFv(void *, s16);
 void __dl__7TObjectFPv(void *);
 void *__dt__18TChCrTagOccupationFv(void *self, s16 m);
-extern s32 lbl_805D3DB0;
+extern s32 chcr_tag_occupation_class_name;
 extern const f32 lbl_805DDF00;
 extern const f32 lbl_805DDF04;
 extern const f32 lbl_805DDF08;
@@ -273,7 +273,7 @@ typedef char RecoveredGlobal_802A300C___vt__18TChCrTagOccupation_size[sizeof(Rec
 u8 *__ct__18TChCrTagOccupationFv(u8 *arg0, s32 arg1, s32 _w2) {
     __ct__8TChCrTagFv(arg0, arg1);
     M2C_FIELD(arg0, M2C_UNK **, 0x18) = (M2C_UNK *)__vt__18TChCrTagOccupation;
-    M2C_FIELD(arg0, s32 *, 0) = (s32) lbl_805D3DB0;
+    M2C_FIELD(arg0, s32 *, 0) = (s32) chcr_tag_occupation_class_name;
     M2C_FIELD(arg0, f32 *, 0x28) = (f32) lbl_805DDF00;
     M2C_FIELD(arg0, f32 *, 0x2C) = (f32) lbl_805DDF04;
     M2C_FIELD(arg0, f32 *, 0x34) = (f32) lbl_805DDF08;

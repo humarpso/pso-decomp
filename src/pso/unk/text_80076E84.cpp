@@ -7,7 +7,7 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 struct Pkt_80076E98 { u8 pad[4]; s32 f4; u32 f8; };
 
 extern "C" {
-extern u8 *lbl_805D553C;
+extern u8 *text_language_group_table;
 s32 get_technique_name(s32 arg0);
 s32 obj_getField1c(s32);
 void *TLobby__sub_80076F48(void *, void *);
@@ -25,7 +25,7 @@ void handle_6x07_symbol_chat(Pkt_80076E98 *arg0);
 extern "C" {
 
 s32 get_technique_name(s32 arg0) {
-    return M2C_FIELD(M2C_FIELD(lbl_805D553C, s32 *, 0x10), M2C_UNK *, (arg0 * 4));
+    return M2C_FIELD(M2C_FIELD(text_language_group_table, s32 *, 0x10), M2C_UNK *, (arg0 * 4));
 }
 void handle_6x07_symbol_chat(Pkt_80076E98 *arg0) {
     u32 *p;

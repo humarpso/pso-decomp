@@ -813,7 +813,7 @@ extern RecoveredGlobal_802BB180_lbl_804DFAC4 lbl_804DFAC4;
 extern RecoveredGlobal_802BB180_lbl_804DFAD0 lbl_804DFAD0;
 extern Tb_802BD014 lbl_804E00DC[];
 extern s32 lbl_805D53A0;
-extern s32 lbl_805D5550;
+extern s32 game_difficulty_selection;
 extern f32 lbl_805D6740;
 extern u8 lbl_805D6744;
 extern f32 lbl_805D6748;
@@ -1490,7 +1490,7 @@ void drop_random_rocks__11TBoss6Type2Fii(M2C_UNK arg0, s32 arg1) {
     s32 k;
 
     mult = 1;
-    cnt = lbl_805D5550;
+    cnt = game_difficulty_selection;
     if (get_phase__14TBoss6PlotFalzFv() == 1) {
         mult = 4;
     }

@@ -183,7 +183,7 @@ void send_code_45_to_window__19TPlayerBattleCtrl4PFPvii(void *arg0, s32 arg1, s3
 extern char lbl_80475BAC[];
 extern char lbl_80475BB8[];
 extern s16 lbl_80511CB0[];
-extern s32 TLobby__data_805D5DC0;
+extern s32 TLobby__battle_ctrl_default_value;
 void start_duel__19TPlayerBattleCtrl4PFPv(O_80311618 *o);
 void TPlayerBattleCtrl4P__sub_803112AC(u8 *arg0, s32 arg1);
 s32 rand();
@@ -727,7 +727,7 @@ void start_duel__19TPlayerBattleCtrl4PFPv(O_80311618 *o) {
             o->flags[j] = 0;
         }
     }
-    o->v = TLobby__data_805D5DC0;
+    o->v = TLobby__battle_ctrl_default_value;
 }
 
 void init_battle__19TPlayerBattleCtrl4PFPv(Ctl_8031171C *o) {

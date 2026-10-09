@@ -2099,7 +2099,7 @@ s32 transform_relative_position__9TObjEneDDFPvPv(void *, int);
 extern const f64 TObjEneBm5GibonU__data_8043C0F8;
 void queue_destruction__7TObjectFv(void *self);
 void handle_message__16TObjEneBm5GibonUFPvi(void *self, s32 msg);
-extern s32 lbl_805D5550;
+extern s32 game_difficulty_selection;
 s32 get_clamped_level__16TObjEneBm5GibonUFPv(Obj_800CCB24 *self);
 void damage_linked_entity__16TObjEneBm5GibonUFPv(Obj_800D086C *self);
 void damage_linked_entity_type10__16TObjEneBm5GibonUFPv(Obj_800D08E4 *self);
@@ -2296,7 +2296,7 @@ void pop_matrices(s32);
 M2C_UNK pop_matrix();
 extern const f64 TObjEneBm5GibonU__data_8043C0F8;
 extern u8 lbl_8058D490[];
-extern s32 lbl_805D5550;
+extern s32 game_difficulty_selection;
 extern s32 tl_07;
 void state_cast_technique__16TObjEneBm5GibonUFPvi(u8 *arg0, s32 arg1);
 void enemy_turn_and_move_on_ground(void *, s32, f32);
@@ -2334,7 +2334,7 @@ s32 get_clamped_level__16TObjEneBm5GibonUFPv(Obj_800CCB24 *self) {
         v = p->f18;
         if (v < 0) {
             v = 0;
-        } else if (lbl_805D5550 == 3) {
+        } else if (game_difficulty_selection == 3) {
             if (v > 0x1d) {
                 v = 0x1d;
             }
@@ -2718,7 +2718,7 @@ void state_cast_technique__16TObjEneBm5GibonUFPvi(u8 *arg0, s32 arg1) {
                 } else {
                     r = get_field_0c__10TObjPlayerFPv(F(s32, 0x318));
                 }
-                if (lbl_805D5550 == 3) {
+                if (game_difficulty_selection == 3) {
                     switch (F(s32, 0x468)) {
                     case 1:
                         if (r < get_field_0c__10TObjPlayerFPv(F(s32, 0x318)) / 2 && F(u32, 0x390) != 0) {

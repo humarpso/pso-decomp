@@ -23,9 +23,9 @@ struct Grp_8026CCA4 { u8 p0[0x14]; Node_8026CCA4 *head; };
 extern const f32 lbl_805DD2CC;
 s32 is_split_screen(void);
 s32 get_camera_id__11TCameraCtrlFv(void);
-extern V2_8026CBB8 lbl_80450490[];
+extern V2_8026CBB8 window_layout_position_table[];
 extern V2_8026CBB8 lbl_80477890[];
-extern unsigned char lbl_8044FE00[];
+extern unsigned char window_layout_rect_table[];
 V2_8026CBB8 *get_window_layout_position(s32 idx);
 s32 TWindowCtrlMain__sub_8024CE58(void);
 void get_scale__20TWindowSubStatusDispFPv(void *);
@@ -38,13 +38,13 @@ extern "C" {
 
 void* get_option_entry__17TWindowOptionCtrlFi(int a0);
 
-    extern unsigned char lbl_8044FE00[];
-void* get_option_entry__17TWindowOptionCtrlFi(int a0) {  return (char*)lbl_8044FE00 + a0 * 8; }
+    extern unsigned char window_layout_rect_table[];
+void* get_option_entry__17TWindowOptionCtrlFi(int a0) {  return (char*)window_layout_rect_table + a0 * 8; }
 V2_8026CBB8 *get_window_layout_position(s32 idx) {
     if (is_split_screen() != 0) {
-        return (get_camera_id__11TCameraCtrlFv() == 2) ? &lbl_80477890[idx] : &lbl_80450490[idx];
+        return (get_camera_id__11TCameraCtrlFv() == 2) ? &lbl_80477890[idx] : &window_layout_position_table[idx];
     }
-    return (V2_8026CBB8 *)((char *)lbl_8044FE00 + idx * 8);
+    return (V2_8026CBB8 *)((char *)window_layout_rect_table + idx * 8);
 }
 void TWindowCtrlMain__sub_8026CC28(Win_8026CC28 *w) {
     Node_8026CC28 *n;

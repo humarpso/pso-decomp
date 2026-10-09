@@ -31,23 +31,23 @@ struct Obj_803D2C84 {
 
 extern "C" {
 M2C_UNK memset(void *, int, int);
-extern RecoveredGlobal_803D2E04_lbl_80587880 lbl_80587880;
+extern RecoveredGlobal_803D2E04_lbl_80587880 lobby_ref_buffer_pool;
 extern s32 lbl_805D7648;
 void release_ref_and_clear_buffer_3000__6TLobbyFv(void);
 M2C_UNK memset(void *, int, int);
-extern RecoveredGlobal_803D2E94_lbl_8058A880 lbl_8058A880;
+extern RecoveredGlobal_803D2E94_lbl_8058A880 ref_counted_load_buffer;
 extern s32 lbl_805D7650;
 void dec_ref_and_clear_buffer__6TLobbyFv(void);
 void TLobby__sub_803D2E90(void);
 void restore_interrupts_nested__6TLobbyFv(void);
 void lock_enter__6TLobbyFv(void);
 void TLobby__sub_803D2E90(void);
-extern RecoveredGlobal_803D2E04_lbl_80587880 lbl_80587880;
+extern RecoveredGlobal_803D2E04_lbl_80587880 lobby_ref_buffer_pool;
 extern u8 lbl_804F9E30[];
 extern u8 lbl_8047DEDC[];
 Obj_803D2C84 *TLobby__sub_803D2C84(s32 data, s32 bsize, s32 x24);
 M2C_UNK memset(void *, int, int);
-extern RecoveredGlobal_803D2E04_lbl_80587880 lbl_80587880;
+extern RecoveredGlobal_803D2E04_lbl_80587880 lobby_ref_buffer_pool;
 extern s32 lbl_805D7648;
 extern const char *const volatile lbl_805E0DB8;
 void add_ref_and_clear_buffer_3000__6TLobbyFv(void);
@@ -62,14 +62,14 @@ Obj_803D2C84 *TLobby__sub_803D2C84(s32 data, s32 bsize, s32 x24) {
     s32 i;
     lock_enter__6TLobbyFv();
     for (i = 0; i < 256; i++) {
-        if (((Obj_803D2C84 *)&lbl_80587880)[i].used == 0) {
+        if (((Obj_803D2C84 *)&lobby_ref_buffer_pool)[i].used == 0) {
             break;
         }
     }
     if (i == 256) {
         s = 0;
     } else {
-        s = &((Obj_803D2C84 *)&lbl_80587880)[i];
+        s = &((Obj_803D2C84 *)&lobby_ref_buffer_pool)[i];
         s->used = 1;
         s->vt = lbl_804F9E30;
         s->data = data;
@@ -92,7 +92,7 @@ void release_ref_and_clear_buffer_3000__6TLobbyFv(void) {
     temp_r0 = lbl_805D7648 - 1;
     lbl_805D7648 = temp_r0;
     if (temp_r0 == 0) {
-        memset((void *) (&lbl_80587880.value), (int) (0), (int) (0x3000));
+        memset((void *) (&lobby_ref_buffer_pool.value), (int) (0), (int) (0x3000));
     }
 }
 typedef char RecoveredGlobal_803D2E94_lbl_8058A880_size[sizeof(RecoveredGlobal_803D2E94_lbl_8058A880) == 0xC00 ? 1 : -1];
@@ -100,7 +100,7 @@ typedef char RecoveredGlobal_803D2E94_lbl_8058A880_size[sizeof(RecoveredGlobal_8
 void add_ref_and_clear_buffer_3000__6TLobbyFv(void) {
     const char *ver = lbl_805E0DB8;
     if (lbl_805D7648 == 0) {
-        memset(&lbl_80587880, 0, 0x3000);
+        memset(&lobby_ref_buffer_pool, 0, 0x3000);
     }
     lbl_805D7648 += 1;
 }
@@ -115,7 +115,7 @@ void dec_ref_and_clear_buffer__6TLobbyFv(void) {
     temp_r0 = lbl_805D7650 - 1;
     lbl_805D7650 = temp_r0;
     if (temp_r0 == 0) {
-        memset((void *) (&lbl_8058A880.value), (int) (0), (int) (0xC00));
+        memset((void *) (&ref_counted_load_buffer.value), (int) (0), (int) (0xC00));
     }
 }
 

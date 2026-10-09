@@ -190,7 +190,7 @@ u32 find_actor_body_contact(void *, void *, f32);
 s32 is_split_screen();
 M2C_UNK set_shake_preset__11TCameraCtrlFi(int);
 extern int enable_v2_features;
-extern s32 lbl_805D5550;
+extern s32 game_difficulty_selection;
 extern s32 lbl_805D53A0;
 extern u8 *TObjEneIllGill__data_805D6FDC;
 extern const f64 TObjEneIllGill__data_8047A348;
@@ -852,7 +852,7 @@ void update_ai__14TObjEneIllGillFPv(void *arg0_) {
             f32 d2;
             f32 t;
             s32 c;
-            if (enable_v2_features == 1 && lbl_805D5550 == 3) {
+            if (enable_v2_features == 1 && game_difficulty_selection == 3) {
                 spd *= lbl_805E02B8;
             }
             enemy_turn_toward_dest(o, (s32)(lbl_805E02D0 * (f32)prm->turn));

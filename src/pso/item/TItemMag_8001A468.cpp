@@ -156,7 +156,7 @@ s32 get_flag890_state__10TObjPlayerFPv(void *arg0) {
 extern s32 lbl_805D49E0;
 extern s8 lbl_805D49E4;
 extern s32 lbl_805D49E8;
-extern s32 lbl_805D5550;
+extern s32 game_difficulty_selection;
 
 int publish_light_color__10TObjPlayerFPv(void *p) {
     ColorF_8001A6A8 c;
@@ -179,7 +179,7 @@ int TObjPlayer__sub_8001A77C(void *p) {
 }
 
 void update_flag890_state__10TObjPlayerFi(s32 arg0) {
-    if (((s32) lbl_805D5550 != 3) && (fn_8001A988() == 0)) {
+    if (((s32) game_difficulty_selection != 3) && (fn_8001A988() == 0)) {
         s32 temp;
         lbl_805D49E4 = (s8) arg0;
         temp = get_flag890_state__10TObjPlayerFPv((void *)(lbl_805D49E0));

@@ -168,9 +168,9 @@ extern M2C_UNK lbl_80500140[];
 M2C_UNK *csnLookAt(s32 arg0, s32 arg1);
 void vsub(void *, void *, void *);
 s32 intersect_wall_triangle_one_sided(void *, void *, void *, E_80079580 *, u32, s32);
-extern E_80079580 *lbl_805D4E6C;
-extern f32 lbl_805D4E74;
-extern s32 lbl_805D4E7C;
+extern E_80079580 *wall_query_scene_buffer;
+extern f32 csn_query_nearest_hit_t;
+extern s32 wall_query_hit_result;
 extern const f32 lbl_805D91F4;
 s32 query_wall_segment(void *arg0, void *arg1, void *arg2, s32 arg3);
 f32 get_random_float__8TObjFishFv(f32);
@@ -181,16 +181,16 @@ void TObjPlayer__sub_80079124(void * _w0, void * _w1);
 s32 intersect_wall_triangle_one_sided(void *, void *, void *, E_80079580 *, u32, s32);
 void vsub(void *, void *, void *);
 extern M2C_UNK lbl_80500140[];
-extern f32 lbl_805D4E74;
-extern M2C_UNK *lbl_805D4E78;
-extern s32 lbl_805D4E7C;
+extern f32 csn_query_nearest_hit_t;
+extern M2C_UNK *csn_query_hit_buffer;
+extern s32 wall_query_hit_result;
 extern const f32 lbl_805D91F4;
 s32 query_segment_wall_meshes(void *arg0, void *arg1, u32 arg2, Node_8007970C **list);
 s32 intersect_wall_triangle_one_sided(void *, void *, void *, E_80079580 *, u32, s32);
 void vsub(void *, void *, void *);
 extern M2C_UNK lbl_80500140[];
-extern M2C_UNK *lbl_805D4E78;
-extern s32 lbl_805D4E7C;
+extern M2C_UNK *csn_query_hit_buffer;
+extern s32 wall_query_hit_result;
 s32 check_line_hits_walls__10TObjPlayerFPvPviPv(void *arg0, void *arg1, int arg2, Node_800797DC **list);
 void VecCopy__FP3VecPC3Vec(void *, void *);
 f32 vec3_dot(void *, void *);
@@ -200,7 +200,7 @@ extern Vec_800798A0 lbl_8050BF00;
 extern Vec_800798A0 lbl_8050BF20;
 extern Vec_800798A0 lbl_8050BF40;
 extern Vec_800798A0 lbl_8050BF60;
-extern s32 lbl_805D4E70;
+extern s32 csn_query_hit_count;
 extern const f32 lbl_805D91F0;
 extern const f32 lbl_805D91FC;
 extern const f32 lbl_805D9208;
@@ -216,11 +216,10 @@ void copy_wall_polygon__10TObjPlayerFPvPv(u8 *arg0, u8 *arg1);
 CsnGroup **get_data_ptr__10TObjMapCsnFPv();
 void get_map_count__10TObjMapCsnFv();
 extern u32 lbl_804FFD40[];
-extern E_80079580 *lbl_805D4E6C;
+extern E_80079580 *wall_query_scene_buffer;
 s32 prepare_wall_query_polygons(void *arg0, f32 r, s32 mask);
 f32 newton_sqrtf(f32);
 void TObjPlayer__sub_80079114(void);
-s32 calc_segment_xz_distance_sq(Vec_8007A138 *, Vec_8007A138 *, Vec_8007A138 *, Vec_8007A138 *, f32, f32, f32);
 CsnGroup **get_data_ptr__10TObjMapCsnFPv();
 void get_map_count__10TObjMapCsnFv();
 void vsub(void *, void *, void *);
@@ -231,6 +230,8 @@ extern const f32 lbl_805D91F0;
 extern const f32 lbl_805D91FC;
 extern const f32 lbl_805D920C;
 Wall_8007A138 *query_collision_segment_groups(Vec_8007A138 *a, Vec_8007A138 *b, u32 mask);
+extern const f32 lbl_805D91F0;
+s32 calc_segment_xz_distance_sq(Vec_8007A138 *c, Vec_8007A138 *o, Vec_8007A138 *e, Vec_8007A138 *d, f32 radius, f32 hsq, f32 inv);
 }
 
 extern "C" {
@@ -255,14 +256,52 @@ void TObjPlayer__sub_8007911C(void) {  }
 void TObjPlayer__sub_80079120(s32 _w0) {  }
 void TObjPlayer__sub_80079124(void * _w0, void * _w1) {  }
 
+#pragma push
+#pragma fp_contract on
+s32 calc_segment_xz_distance_sq(Vec_8007A138 *c, Vec_8007A138 *o, Vec_8007A138 *e, Vec_8007A138 *d, f32 radius, f32 hsq, f32 inv) {
+    f32 x;
+    f32 z;
+    f32 cx;
+    f32 cz;
+    f32 ddx;
+    f32 ddz;
+    f32 proj;
+    f32 dx;
+    f32 dz;
+    f32 dist;
+    cz = c->z;
+    cx = c->x;
+    x = cx - o->x;
+    z = cz - o->z;
+    ddz = d->z;
+    ddx = d->x;
+    proj = ddx * x + ddz * z;
+    if (proj > lbl_805D91F0) {
+        if (proj >= hsq) {
+            dx = e->x - cx;
+            dz = e->z - cz;
+            dist = dx * dx + dz * dz;
+        } else {
+            f32 t = proj * inv;
+            dz = z - t * ddz;
+            dx = x - t * ddx;
+            dist = dx * dx + dz * dz;
+        }
+    } else {
+        dist = x * x + z * z;
+    }
+    return dist <= radius * radius;
+}
+#pragma pop
+
 s32 query_wall_segment(void *arg0, void *arg1, void *arg2, s32 arg3) {
     u8 sp8[12];
     s32 r;
-    E_80079580 *p = lbl_805D4E6C;
+    E_80079580 *p = wall_query_scene_buffer;
     vsub(arg0, arg1, sp8);
     r = 0;
-    lbl_805D4E7C = arg3;
-    lbl_805D4E74 = lbl_805D91F4;
+    wall_query_hit_result = arg3;
+    csn_query_nearest_hit_t = lbl_805D91F4;
     for (; p->f24 != 0; p = (E_80079580 *)((u8 *)p + 0x28)) {
         if (intersect_wall_triangle_one_sided(arg0, sp8, arg2, p, p->f24, 3) != 0) {
             r = 1;
@@ -314,10 +353,10 @@ s32 query_segment_wall_meshes(void *arg0, void *arg1, u32 arg2, Node_8007970C **
     u32 flags;
     Poly_8007970C *poly;
     TObjPlayer__sub_80079124(arg0, arg1);
-    lbl_805D4E78 = lbl_80500140;
-    lbl_805D4E78[0] = 0;
-    lbl_805D4E7C = lbl_805D4E78[1];
-    lbl_805D4E74 = lbl_805D91F4;
+    csn_query_hit_buffer = lbl_80500140;
+    csn_query_hit_buffer[0] = 0;
+    wall_query_hit_result = csn_query_hit_buffer[1];
+    csn_query_nearest_hit_t = lbl_805D91F4;
     vsub(arg0, arg1, dir);
     for (; *list != NULL; list++) {
         mesh = (*list)->mesh;
@@ -329,7 +368,7 @@ s32 query_segment_wall_meshes(void *arg0, void *arg1, u32 arg2, Node_8007970C **
             intersect_wall_triangle_one_sided(arg0, dir, (void *)arg2, (E_80079580 *)poly, flags, 0);
         }
     }
-    return lbl_805D4E78[0];
+    return csn_query_hit_buffer[0];
 }
 
 s32 check_line_hits_walls__10TObjPlayerFPvPviPv(void *arg0, void *arg1, int arg2, Node_800797DC **list) {
@@ -339,9 +378,9 @@ s32 check_line_hits_walls__10TObjPlayerFPvPviPv(void *arg0, void *arg1, int arg2
     s32 n;
     u32 flags;
     Poly_800797DC *poly;
-    lbl_805D4E78 = lbl_80500140;
-    lbl_805D4E78[0] = 0;
-    lbl_805D4E7C = lbl_805D4E78[1];
+    csn_query_hit_buffer = lbl_80500140;
+    csn_query_hit_buffer[0] = 0;
+    wall_query_hit_result = csn_query_hit_buffer[1];
     vsub(arg0, arg1, dir);
     for (; *list != NULL; list++) {
         mesh = (*list)->mesh;
@@ -415,37 +454,37 @@ s32 intersect_wall_triangle_one_sided(void *arg0, void *arg1, void *arg2, E_8007
     }
     switch (arg5) {
     case 0:
-        if (t < lbl_805D4E74) {
-            lbl_805D4E74 = t;
-            *lbl_805D4E78 = 1;
-            VecCopy__FP3VecPC3Vec((void *)lbl_805D4E7C, &lbl_8050BF60);
-            VecCopy__FP3VecPC3Vec((void *)(lbl_805D4E7C + 0xC), &n);
-            M2C_FIELD(lbl_805D4E7C, u32 *, 0x18) = FACE->flags;
+        if (t < csn_query_nearest_hit_t) {
+            csn_query_nearest_hit_t = t;
+            *csn_query_hit_buffer = 1;
+            VecCopy__FP3VecPC3Vec((void *)wall_query_hit_result, &lbl_8050BF60);
+            VecCopy__FP3VecPC3Vec((void *)(wall_query_hit_result + 0xC), &n);
+            M2C_FIELD(wall_query_hit_result, u32 *, 0x18) = FACE->flags;
         }
         break;
     case 1:
-        *lbl_805D4E78 = 1;
-        VecCopy__FP3VecPC3Vec((void *)lbl_805D4E7C, &lbl_8050BF60);
-        VecCopy__FP3VecPC3Vec((void *)(lbl_805D4E7C + 0xC), &n);
-        M2C_FIELD(lbl_805D4E7C, u32 *, 0x18) = FACE->flags;
+        *csn_query_hit_buffer = 1;
+        VecCopy__FP3VecPC3Vec((void *)wall_query_hit_result, &lbl_8050BF60);
+        VecCopy__FP3VecPC3Vec((void *)(wall_query_hit_result + 0xC), &n);
+        M2C_FIELD(wall_query_hit_result, u32 *, 0x18) = FACE->flags;
         break;
     case 2:
-        if (lbl_805D4E70 >= 0x20) {
+        if (csn_query_hit_count >= 0x20) {
             return 0;
         }
-        *lbl_805D4E78 = 1;
-        VecCopy__FP3VecPC3Vec((void *)lbl_805D4E7C, &lbl_8050BF60);
-        VecCopy__FP3VecPC3Vec((void *)(lbl_805D4E7C + 0xC), &n);
-        M2C_FIELD(lbl_805D4E7C, u32 *, 0x18) = FACE->flags;
-        lbl_805D4E7C += 0x1C;
-        lbl_805D4E70++;
+        *csn_query_hit_buffer = 1;
+        VecCopy__FP3VecPC3Vec((void *)wall_query_hit_result, &lbl_8050BF60);
+        VecCopy__FP3VecPC3Vec((void *)(wall_query_hit_result + 0xC), &n);
+        M2C_FIELD(wall_query_hit_result, u32 *, 0x18) = FACE->flags;
+        wall_query_hit_result += 0x1C;
+        csn_query_hit_count++;
         break;
     case 3:
-        if (t < lbl_805D4E74) {
-            lbl_805D4E74 = t;
-            VecCopy__FP3VecPC3Vec((void *)lbl_805D4E7C, &lbl_8050BF60);
-            VecCopy__FP3VecPC3Vec((void *)(lbl_805D4E7C + 0xC), &n);
-            M2C_FIELD(lbl_805D4E7C, u32 *, 0x18) = FACE->flags;
+        if (t < csn_query_nearest_hit_t) {
+            csn_query_nearest_hit_t = t;
+            VecCopy__FP3VecPC3Vec((void *)wall_query_hit_result, &lbl_8050BF60);
+            VecCopy__FP3VecPC3Vec((void *)(wall_query_hit_result + 0xC), &n);
+            M2C_FIELD(wall_query_hit_result, u32 *, 0x18) = FACE->flags;
         }
         break;
     }
@@ -571,7 +610,7 @@ s32 prepare_wall_query_polygons(void *arg0, f32 r, s32 mask) {
     }
     *dst = NULL;
     src = (Grp_80079F58 **)lbl_804FFD40;
-    out = (Out_80079F58 *)lbl_805D4E6C;
+    out = (Out_80079F58 *)wall_query_scene_buffer;
     cnt = 0;
     while ((g = *src++) != NULL) {
         mesh = g->mesh;
@@ -637,7 +676,7 @@ Wall_8007A138 *query_collision_segment_groups(Vec_8007A138 *a, Vec_8007A138 *b, 
             r = len + w->radius;
             r *= r;
             if (dsq <= r) {
-                if (calc_segment_xz_distance_sq(&w->pos, a, b, &d, w->radius, lenSq, inv) != 0) {
+                if (calc_segment_xz_distance_sq((Vec_8007A138 *)(&w->pos), (Vec_8007A138 *)(a), (Vec_8007A138 *)(b), (Vec_8007A138 *)(&d), w->radius, lenSq, inv) != 0) {
                     if (++n >= 0x100) {
                         break;
                     }

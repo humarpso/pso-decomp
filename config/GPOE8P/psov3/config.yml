@@ -87,6 +87,7 @@ force_active:
   - TBoss3VoloptP01_class_name
   - TBoss8DragonDemo__sub_802F2CC4
   - TBoss8Dragon__sub_8036AF50
+  - TChCrTagName__class_name
   - TChCrTagName__sub_802A226C
   - TChCrTagName__vt4
   - TChCrTagOccupation__vt4
@@ -100,6 +101,8 @@ force_active:
   - TItemWeaponPartisan__ct
   - TKeyBoardControl__sub_80290D10
   - TKeyBoardControl_key_bit_table
+  - TLobby__disk_error_msg_last
+  - TLobby__disk_error_msg_table
   - TLobby__sub_800F9F08
   - TLobby__sub_801037A0
   - TLobby__sub_803CBE40
@@ -123,6 +126,7 @@ force_active:
   - TOSensor__sub_80175514
   - TOTrapChainSawDamage_class_name
   - TOTrapChainSawEdge_class_name
+  - TOTrapChainSaw__level_scale_table
   - TObjDFDemo0__entry_table
   - TObjDFDemo2__motion_index_table
   - TObjDFDemoF__bml_model_id_table
@@ -406,6 +410,7 @@ force_active:
   - apply_unit_immunity__18TItemLockCountCtrlFi
   - apply_uv_offset__6TSceneFPvss
   - aramQueueCallback
+  - area_gsl_filename_table
   - attach_model__13TParticleCtrlFPviiiif
   - attack_target_history_contains
   - bind_controller_devices
@@ -455,6 +460,8 @@ force_active:
   - capture_attachment__17TObjEneBm3FlyNestFv
   - capture_matrix_by_frame__16TObjDFTenchuFuruFv
   - cast_tech_on_players__10TObjPlayerFPv
+  - challenge_retry_cmd_table
+  - challenge_retry_window_pos
   - change_floor_reload_area
   - char_to_letter_index__9TItemDataFPvc
   - chasing_state__14TObjEneBm5WolfFPvi
@@ -690,6 +697,7 @@ force_active:
   - find_chain_targets__11TTecGiZondeFv
   - find_farthest_balloon_slot__11TWindowCtrlFPvUs
   - find_free_chat_log_slot__6TLobbyFv
+  - find_nearest_enemy__10TObjPlayerFPvPvf
   - find_open_direction__15TObjEneMe1GiGueFPvPv
   - find_placement_obstruction
   - find_support_technique_contact
@@ -1066,6 +1074,8 @@ force_active:
   - load_selected_slot__12TQuestListVMFPv
   - load_supplementary_t_rel__6TSceneFv
   - load_tam_file__6TSceneFi
+  - lobby_checked_read_ptr_table
+  - lobby_font_texture_prs_data
   - lobby_pulse_color_table
   - logo_load_callback_table
   - lookup_attack_marker
@@ -1092,6 +1102,7 @@ force_active:
   - mcmdWait
   - move_around_center__15TObjEneMe1GiGueFPvPvf
   - notify__10TTcpSocketFss
+  - offline_quest_catalog_ep1
   - online_ending_hex_line_param
   - open_armor_list_window__26TShopEquipmentGearSequenceFPv
   - open_buy_window__22TShopEquipmentSequenceFPv
@@ -1408,6 +1419,7 @@ force_active:
   - set_hit_cooldown_for_player__14TOTrapChainSawFPvPv
   - set_hit_flags_and_notify__20TBoss3VoloptHiraisinFPv
   - set_launch_midpoint__10TTecSlicerFPvPvPvPv
+  - set_manager_task_pmf_table
   - set_message_by_index__9TSaveChCrFii
   - set_mode_index_from_state__13TObjLobbyMainFPv
   - set_node_offsets__10TBoss2MineFPv
@@ -1488,6 +1500,10 @@ force_active:
   - submit_particle_quad
   - submit_selected_item__22TChallenge4PItemSelectFPv
   - subtractive_rng_refill
+  - svm_callback_counts
+  - svm_callback_message_buffer
+  - svm_callback_single_table
+  - svm_callback_table
   - switch_phase_stats__13TBoss2DeRolLeFPvPv
   - teardown_render_state__10TObjPlayerFPv
   - telepipe_record_differs
@@ -1628,10 +1644,12 @@ force_active:
   - vsUpdateBuffer
   - wait_for_vi_retrace
   - warp_nearby_players__14TBoss6PlotFalzFv
+  - worker_callback_flag_table
+  - worker_callback_slots
   - write_telepipe_record
 # --- force_active (END) ---
 # False pointers: packed data words whose values happen to land on code/data
 # addresses. dtk would emit a relocation and export the target symbol.
 block_relocations:
-  # 0x8000F513 inside lbl_80499AA0; would export MusyX hardware.c's @eti_8000F50C.
+  # 0x8000F513 inside lobby_font_texture_prs_data; would export MusyX hardware.c's @eti_8000F50C.
   - source: 0x8049C198

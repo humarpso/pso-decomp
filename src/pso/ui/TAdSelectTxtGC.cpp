@@ -53,7 +53,7 @@ void update_menu_cursor__6TLobbyFv();
 void TLobby__sub_8023E4B4(s32, s32);
 extern Tbl_802A194C lbl_80466340;
 extern Tbl_802A194C lbl_80466354;
-extern const s32 lbl_805D5544;
+extern const s32 current_language;
 extern u32 lbl_805D6640;
 void TLobby__sub_802A194C(void);
 }
@@ -138,7 +138,7 @@ void TLobby__sub_802A194C(void) {
     update_menu_cursor__6TLobbyFv();
     Tbl_802A194C a = lbl_80466340;
     Tbl_802A194C b = lbl_80466354;
-    s32 i = lbl_805D5544;
+    s32 i = current_language;
     s32 v = b.v[i];
     lbl_805D6640 = v;
     TLobby__sub_8023E4B4(a.v[i], v);

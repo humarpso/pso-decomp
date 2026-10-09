@@ -96,7 +96,7 @@ void init__19TWindowKeyBoardSoftFPv(u8 *arg0);
 s32 update__19TWindowKeyBoardSoftFPv(void *);
 void handle_backspace__19TWindowKeyBoardSoftFPv(u8 *arg0);
 bool is_alnum__19TWindowKeyBoardSoftFUs(u16 arg0);
-extern s32 lbl_805D5544;
+extern s32 current_language;
 u16 map_char_to_font_code(u16);
 u8 get_font_char_advance(u16);
 s32 measure_char_overflow__19TWindowKeyBoardSoftFPvUsPvPvPv(Field_8025C974 *, u16, u32 *, u32 *, u32 *);
@@ -107,7 +107,7 @@ M2C_UNK TWindowKeyBoardSoft__sub_800808FC(int, int);
 bool is_alnum__19TWindowKeyBoardSoftFUs(u16 arg0);
 M2C_UNK TWindowKeyBoardSoft__sub_8025C804(void *);
 M2C_UNK TWindowKeyBoardSoft__sub_8025DBDC(void *, M2C_UNK);
-extern s32 lbl_805D5544;
+extern s32 current_language;
 void TWindowKeyBoardSoft__sub_8025C618(u8 *arg0, u16 arg1);
 }
 
@@ -610,7 +610,7 @@ int get_field_6c__19TWindowKeyBoardSoftFPv(void* p) { return set_text_from_strin
 
 void TWindowKeyBoardSoft__sub_8025C618(u8 *arg0, u16 arg1) {
     s32 f;
-    if (lbl_805D5544 == 0 && arg1 >= 0x80U && arg1 < 0x100U) {
+    if (current_language == 0 && arg1 >= 0x80U && arg1 < 0x100U) {
         return;
     }
     if (!(M2C_FIELD(arg0, u16 *, 0x60) & 0x80) && M2C_FIELD(arg0, u8 *, 0x64) >= 1U) {
@@ -667,7 +667,7 @@ void export_keyboard_text(Base_8025C974 *base, char *out) {
     u16 *in = base->field.buffer;
     if (!(base->fb4 & 0x10) && (s32)*in != 0) {
         out[0] = 9;
-        if (lbl_805D5544 == 0) {
+        if (current_language == 0) {
             out[1] = 'J';
             out += 2;
         } else {

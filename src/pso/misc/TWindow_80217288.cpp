@@ -90,7 +90,7 @@ extern "C" u8 lbl_8044BE80[];
 extern "C" u8 lbl_805DC690[];
 extern "C" void render__7TObjectFv();
 extern "C" void render_shadows__7TObjectFv();
-void *lbl_804C9900[196] = {
+void *offline_quest_catalog_ep1[196] = {
     (void *)0x1, (void *)0x0, (void *)0x1, (void *)0x2,
     (void *)0x6a006b, (void *)0x0, (void *)&lbl_8044BDA0, (void *)0x2,
     (void *)0x3, (void *)0x4, (void *)0x5, (void *)0x660067,
@@ -224,7 +224,7 @@ void *TQuestListOffline__ct(Win_80217344 *self, s32 arg1, s32 arg2, s32 arg3) {
     self->f2C = 0;
     self->f30 = 0;
     if (get_instance__6TLobbyFv() == 0) {
-        self->f54 = (void *)lbl_804C9900;
+        self->f54 = (void *)offline_quest_catalog_ep1;
     } else {
         self->f54 = (void *)lbl_804C9C10;
     }

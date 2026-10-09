@@ -5,7 +5,7 @@ extern "C" void*    item_pmt;
 extern "C" void*    item_pmt_tbl;
 extern "C" TObject* item_mgr;
 
-extern "C" char* const lbl_805D2C78;
+extern "C" char* const item_pmt_filename_descriptor;
 
 extern "C" void*    alloc__23TAdSinglePlyChrSelectGCFPv(int size);
 extern "C" void*    load_buffer__9TItemLoadFPvUii(void* obj, const char* file, int flags);
@@ -30,7 +30,7 @@ void unload_items() {
 void load_item_pmt() {
     void* p = alloc__23TAdSinglePlyChrSelectGCFPv(8);
     if (p != NULL) {
-        p = load_buffer__9TItemLoadFPvUii(p, lbl_805D2C78, 0x10000);
+        p = load_buffer__9TItemLoadFPvUii(p, item_pmt_filename_descriptor, 0x10000);
     }
     item_pmt = p;
     if (p != NULL) {

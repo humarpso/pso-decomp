@@ -82,7 +82,7 @@ extern "C" {
 u8 * __ct__8TChCrTagFv(void *, s32);
 extern void *__vt__12TChCrTagName[];
 __declspec(section ".rodata") extern const char lbl_804663F8[] = "TChCrTagName";
-const char *lbl_805D3DA0 = lbl_804663F8;
+const char *TChCrTagName__class_name = lbl_804663F8;
 u8 *__ct__12TChCrTagNameFv(u8 *arg0, s32 arg1, s32 _w2);
 f32 cos_table_lookup(s32);
 void update_slide_in__12TChCrTagNameFPv(u8 *arg0);
@@ -342,7 +342,7 @@ TChCrTagName::~TChCrTagName() {}
 u8 *__ct__12TChCrTagNameFv(u8 *arg0, s32 arg1, s32 _w2) {
     __ct__8TChCrTagFv(arg0, arg1);
     M2C_FIELD(arg0, M2C_UNK **, 0x18) = (M2C_UNK *)__vt__12TChCrTagName;
-    M2C_FIELD(arg0, s32 *, 0) = (s32) lbl_805D3DA0;
+    M2C_FIELD(arg0, s32 *, 0) = (s32) TChCrTagName__class_name;
     M2C_FIELD(arg0, f32 *, 0x28) = (f32) (0.033333335f);
     M2C_FIELD(arg0, f32 *, 0x2C) = (f32) (-0.022222223f);
     M2C_FIELD(arg0, f32 *, 0x34) = (f32) (0.6666667f);

@@ -1140,7 +1140,7 @@ M2C_UNK seq_jump__9TProtocolFPUcR21TPlyMeetUserExtension(int, void *, void *);
 M2C_UNK strncpy(void *, void *, int);
 M2C_UNK memset(void *, int, int);
 extern RecoveredGlobal_8024259C_TLobby__data_8050AAAC TLobby__data_8050AAAC;
-extern u32 TLobby__data_805D5580;
+extern u32 TLobby__protocol_instance;
 void TLobby__sub_8024259C(s32 arg0);
 char *skip_to_comma_field__6TLobbyFPvii(char *s, s32 a, s32 b);
 char *get_shared_text_buffer();
@@ -1150,7 +1150,7 @@ void text_builder_reset();
 char *skip_to_comma_field__6TLobbyFPvii(char *s, s32 a, s32 b);
 char *build_text_from_comma_list__6TLobbyFPv(char *list);
 s32 send_find_user__9TProtocolFR16TPlyGuildCardTagUl(void *, Tag_802421C4 *, s32);
-extern u32 TLobby__data_805D5580;
+extern u32 TLobby__protocol_instance;
 void send_find_user_self_tag__6TLobbyFi(s32 arg0);
 void* get_com_card_entry__6TLobbyFi(int a0);
 s32 TLobby__sub_802428F8(void* p);
@@ -1187,9 +1187,9 @@ s32 get_field_308__6TLobbyFPv(void* p) { return *(s32*)((char*)p + 0x308); }
 int forward_8024273C__6TLobbyFPv(void* p) { return TLobby__sub_8024273C(p); }
 
 void send_find_user_self_tag__6TLobbyFi(s32 arg0) {
-    if ((u32) TLobby__data_805D5580 != 0U) {
-        Tag_802421C4 tag = *(Tag_802421C4 *)((u8 *)TLobby__data_805D5580 + 0x1900);
-        send_find_user__9TProtocolFR16TPlyGuildCardTagUl((void *)TLobby__data_805D5580, &tag, arg0);
+    if ((u32) TLobby__protocol_instance != 0U) {
+        Tag_802421C4 tag = *(Tag_802421C4 *)((u8 *)TLobby__protocol_instance + 0x1900);
+        send_find_user__9TProtocolFR16TPlyGuildCardTagUl((void *)TLobby__protocol_instance, &tag, arg0);
     }
 }
 
@@ -1284,11 +1284,11 @@ char *build_text_from_comma_list__6TLobbyFPv(char *list) {
 }
 
 void TLobby__sub_8024259C(s32 arg0) {
-    if ((u32) TLobby__data_805D5580 != 0U) {
+    if ((u32) TLobby__protocol_instance != 0U) {
         memset((void *) (&TLobby__data_8050AAAC.value), (int) (0), (int) (0x11));
         strncpy((void *) (&TLobby__data_8050AAAC.value), (void *) (arg0 + 0x19), (int) (0x10));
         M2C_FIELD(&TLobby__data_8050AAAC.value, s8 *, 0x10) = 0;
-        seq_jump__9TProtocolFPUcR21TPlyMeetUserExtension((int) (TLobby__data_805D5580), (void *) (arg0 + 0x4C), (void *) (arg0 + 0x58));
+        seq_jump__9TProtocolFPUcR21TPlyMeetUserExtension((int) (TLobby__protocol_instance), (void *) (arg0 + 0x4C), (void *) (arg0 + 0x58));
     }
 }
 

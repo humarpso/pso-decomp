@@ -93,7 +93,7 @@ void fn_8002B630(void *, void *);
 void *alloc__23TAdSinglePlyChrSelectGCFPv(s32);
 void init_instance__16TObjEneDellBiterFPvPvPvPvPv(void *, void *, s32, void *, s32);
 void *TBoss8Dragon__sub_800BC5EC(void *, s32);
-extern u8 lbl_804E5EA8[];
+extern u8 boss8_dragon_eff_tail_init_data[];
 extern M2C_UNK __vt__19TBoss8DragonEffTail[];
 extern s32 lbl_805D4020;
 extern const f32 lbl_805DEF14;
@@ -216,9 +216,9 @@ EffTail_8002C06C *TBoss8DragonEffTail__ct(EffTail_8002C06C *arg0, s32 arg1, s32 
     void *data;
     s32 i;
     void *p;
-    init_instance__16TObjEneDellBiterFPvPvPvPvPv(arg0, 0, arg1, lbl_804E5EA8, 0x11);
+    init_instance__16TObjEneDellBiterFPvPvPvPvPv(arg0, 0, arg1, boss8_dragon_eff_tail_init_data, 0x11);
     arg0->vtbl = ((s32 *)&__vt__19TBoss8DragonEffTail);
-    data = lbl_804E5EA8;
+    data = boss8_dragon_eff_tail_init_data;
     arg0->unk0 = lbl_805D4020;
     for (i = 1; i < 0x11; i++) {
         fn_8002B630(&arg0->spheres[i], data);

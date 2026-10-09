@@ -105,13 +105,13 @@ M2C_UNK TLobby__sub_803DA16C(void *);
 s32 TObjCMMainMenu__sub_8028EBCC(void*);
 M2C_UNK create__12TChCrLoadReqFPv(void *);
 
-extern u32 lbl_805D6524;
+extern u32 creation_main_menu_obj;
 
 s32 query_state__12TCharaMakingFv(void) {
-    if ((u32) lbl_805D6524 == 0U) {
+    if ((u32) creation_main_menu_obj == 0U) {
         return -1;
     }
-    return TObjCMMainMenu__sub_8028EBCC((void*)lbl_805D6524);
+    return TObjCMMainMenu__sub_8028EBCC((void*)creation_main_menu_obj);
 }
 
 s32 calc_section_id_from_name(s8 *arg0) {

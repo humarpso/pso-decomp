@@ -262,7 +262,7 @@ f32 sin_table_lookup(s32);
 f32 cos_table_lookup(s32);
 extern u8 lbl_80484D84[];
 extern u8 TBoss4DarkFalz__data_804FF1E8[];
-extern s32 lbl_805D5550;
+extern s32 game_difficulty_selection;
 extern const f32 lbl_805D891C;
 extern const f32 lbl_805D8920;
 extern const f32 lbl_805D8924;
@@ -471,7 +471,7 @@ void spawn_zako_rings__14TBoss4DarkFalzFPv(u8 *arg0) {
     dr = lbl_805D8920;
     TBoss4DarkFalz__sub_8004B4F0(p.a, TBoss4DarkFalz__data_804FF1E8);
     p.c = 1;
-    if (lbl_805D5550 == 3) {
+    if (game_difficulty_selection == 3) {
         r *= lbl_805D8924;
         dr *= lbl_805D8924;
     }

@@ -548,7 +548,7 @@ int TBoss6Type1__sub_802B60E8(void*);
 void fn_8035648C(void *, void *, int, f32);
 f32 subtract_vector(void *, void *);
 extern f32 lbl_80470F60[];
-extern s32 lbl_805D5550;
+extern s32 game_difficulty_selection;
 extern const f32 TBoss6Type1__data_805DE2D0;
 extern const f32 TBoss6Type1__data_805DE2E4;
 extern const f32 TBoss6Type1__data_805DE310;
@@ -1558,7 +1558,7 @@ void TBoss6Type1__sub_802B73AC(Boss_802B73AC *self) {
         p.x = t * d.x + a->x;
         p.y = TBoss6Type1__data_805DE2D0;
         p.z = t * d.z + a->z;
-        idx = lbl_805D5550;
+        idx = game_difficulty_selection;
         if (idx < 0 || idx >= 4) {
             idx = 0;
         }

@@ -117,13 +117,13 @@ extern RecoveredGlobal_8036E8DC_lbl_804C8914 lbl_804C8914;
 extern RecoveredGlobal_8036E8DC_lbl_804C89BC lbl_804C89BC;
 s32 check_system_file_status__23TAdSinglePlyChrSelectGCFv(void);
 s32 TQuestVmDownLoadServer__sub_8006EF6C(void *);
-extern RecoveredGlobal_8036DE10_lbl_804F37A8 lbl_804F37A8;
-extern RecoveredGlobal_8036DE10_lbl_804F37D4 lbl_804F37D4;
+extern RecoveredGlobal_8036DE10_lbl_804F37A8 multi_chg_game_mode_text_table_a;
+extern RecoveredGlobal_8036DE10_lbl_804F37D4 multi_chg_game_mode_text_table_b;
 s32 TAdMultiChgGameModeGC__sub_8036DE10(M2C_UNK arg0, s32 arg1, s32 arg2);
 s32 check_system_file_status__23TAdSinglePlyChrSelectGCFv(void);
-extern RecoveredGlobal_8036EA24_lbl_804F3908 lbl_804F3908;
+extern RecoveredGlobal_8036EA24_lbl_804F3908 multi_chg_game_mode_entry_table;
 void check_save_file_and_dispatch__21TAdMultiChgGameModeGCFPv(u8 *arg0);
-extern RecoveredGlobal_8036EA24_lbl_804F3908 lbl_804F3908;
+extern RecoveredGlobal_8036EA24_lbl_804F3908 multi_chg_game_mode_entry_table;
 void set_state__21TAdMultiChgGameModeGCFPvi(u8 *arg0, s32 arg1);
 s32 handle_mode_selection__21TAdMultiChgGameModeGCFPv(void *arg0);
 u32 load_system_file_flag__23TAdSinglePlyChrSelectGCFv(void);
@@ -135,7 +135,7 @@ M2C_UNK send_and_handle__6TLobbyFPvii(u32, s32, M2C_UNK);
 u32 update_window_mode_from_progress__6TLobbyFiPv(void *, void *);
 s32 TAdMultiChgGameModeGC__sub_8036DE10(M2C_UNK arg0, s32 arg1, s32 arg2);
 extern M2C_UNK lbl_8047B8A0[];
-extern M2C_UNK lbl_804F3A10[];
+extern M2C_UNK multi_chg_game_mode_window_extent[];
 void TAdMultiChgGameModeGC__sub_8036E19C(u8 *arg0, s32 arg1);
 void *check_room_seq_4__16TAdChrSelASlotGCFii(void *, s32);
 s32 TAdMultiChgGameModeGC__sub_8036DE10(M2C_UNK arg0, s32 arg1, s32 arg2);
@@ -158,7 +158,7 @@ M2C_UNK TKeyBoardControl__sub_8000F90C(M2C_UNK);
 void set_state__21TAdMultiChgGameModeGCFPvi(u8 *arg0, s32 arg1);
 s32 check_system_file_status__23TAdSinglePlyChrSelectGCFv(void);
 extern M2C_UNK lbl_804F3A20[];
-extern s32 lbl_805D5544;
+extern s32 current_language;
 void *TAdMultiChgGameModeGC__sub_8036EB44(void *arg0, void *arg1);
 }
 
@@ -182,9 +182,9 @@ s32 TAdMultiChgGameModeGC__sub_8036DE10(M2C_UNK arg0, s32 arg1, s32 arg2) {
         return TQuestVmDownLoadServer__sub_8006EF6C((void *) (arg1));
     }
     if (arg2 == 0) {
-        return M2C_FIELD(((u8 *)(&lbl_804F37D4.value) + (arg1 * 4)), s32 *, 0);
+        return M2C_FIELD(((u8 *)(&multi_chg_game_mode_text_table_b.value) + (arg1 * 4)), s32 *, 0);
     }
-    return M2C_FIELD(((u8 *)(&lbl_804F37A8.value) + (arg1 * 4)), s32 *, 0);
+    return M2C_FIELD(((u8 *)(&multi_chg_game_mode_text_table_a.value) + (arg1 * 4)), s32 *, 0);
 }
 
 void close_windows_on_selection__21TAdMultiChgGameModeGCFPv(void *arg0) {
@@ -299,7 +299,7 @@ void TAdMultiChgGameModeGC__sub_8036E19C(u8 *arg0, s32 arg1) {
         TWindow__close(M2C_FIELD(arg0, void **, 0x30));
         M2C_FIELD(arg0, u32 *, 0x30) = 0U;
     }
-    M2C_FIELD(arg0, u32 *, 0x30) = update_window_mode_from_progress__6TLobbyFiPv((void *) (lbl_804F3A10), (void *) (lbl_8047B8A0));
+    M2C_FIELD(arg0, u32 *, 0x30) = update_window_mode_from_progress__6TLobbyFiPv((void *) (multi_chg_game_mode_window_extent), (void *) (lbl_8047B8A0));
     if ((u32) M2C_FIELD(arg0, u32 *, 0x30) != 0U) {
         send_and_handle__6TLobbyFPvii((u32)((int) (M2C_FIELD(arg0, u32 *, 0x30))), (s32)((int) (TAdMultiChgGameModeGC__sub_8036DE10((M2C_UNK)((void *) (arg0)), (s32)((void *) (arg1)), (s32)((int) (M2C_FIELD(arg0, s32 *, 0x24)))))), (M2C_UNK)((int) (3)));
     }
@@ -491,7 +491,7 @@ void set_state__21TAdMultiChgGameModeGCFPvi(u8 *arg0, s32 arg1) {
     u8 *temp_r6;
     if ((s32) M2C_FIELD(arg0, s32 *, 0x1C) != arg1) {
         M2C_FIELD(arg0, s32 *, 0x1C) = arg1;
-        temp_r6 = (u8 *)&(*(RecoveredGlobal_8036E858_lbl_804F3908 *)&lbl_804F3908).value + (M2C_FIELD(arg0, s32 *, 0x1C) * 0x18);
+        temp_r6 = (u8 *)&(*(RecoveredGlobal_8036E858_lbl_804F3908 *)&multi_chg_game_mode_entry_table).value + (M2C_FIELD(arg0, s32 *, 0x1C) * 0x18);
         member_action.words[0] = M2C_FIELD(temp_r6, s32 *, 0);
         member_action.words[1] = M2C_FIELD(temp_r6, s32 *, 4);
         member_action.words[2] = M2C_FIELD(temp_r6, s32 *, 8);
@@ -536,7 +536,7 @@ void check_save_file_and_dispatch__21TAdMultiChgGameModeGCFPv(u8 *arg0) {
     if (M2C_FIELD(arg0, s32 *, 0x20) & 1) {
         set_state__21TAdMultiChgGameModeGCFPvi((u8 *)((void *)((void *) (arg0))), (s32)((M2C_UNK)((int) (9))));
     }
-    temp_r6 = (u8 *)&lbl_804F3908.value + (M2C_FIELD(arg0, s32 *, 0x1C) * 0x18);
+    temp_r6 = (u8 *)&multi_chg_game_mode_entry_table.value + (M2C_FIELD(arg0, s32 *, 0x1C) * 0x18);
     member_action.words[0] = M2C_FIELD(temp_r6, s32 *, 0xC);
     member_action.words[1] = M2C_FIELD(temp_r6, s32 *, 0x10);
     member_action.words[2] = M2C_FIELD(temp_r6, s32 *, 0x14);
@@ -562,7 +562,7 @@ void *TAdMultiChgGameModeGC__sub_8036EB44(void *arg0, void *arg1) {
     M2C_FIELD(arg0, M2C_UNK **, 0x18) = lbl_804F3A20;
     M2C_FIELD(arg0, s32 *, 0x1C) = -1;
     M2C_FIELD(arg0, s32 *, 0x20) = 1;
-    M2C_FIELD(arg0, s32 *, 0x24) = lbl_805D5544;
+    M2C_FIELD(arg0, s32 *, 0x24) = current_language;
     M2C_FIELD(arg0, s32 *, 0x30) = 0;
     M2C_FIELD(arg0, s32 *, 0x34) = 0;
     M2C_FIELD(arg0, s32 *, 0x28) = 0;

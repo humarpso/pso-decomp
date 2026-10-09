@@ -74,22 +74,22 @@ extern "C" {
 
 typedef char RecoveredGlobal_803D31A4_lbl_8058B6B8_size[sizeof(RecoveredGlobal_803D31A4_lbl_8058B6B8) == 0x1C ? 1 : -1];
 typedef char RecoveredGlobal_803D31A4_lbl_8058B6D4_size[sizeof(RecoveredGlobal_803D31A4_lbl_8058B6D4) == 0x1C ? 1 : -1];
-u32 lbl_8058B480[8];
-u8 lbl_8058B4A0[0x100];
-P_803D346C lbl_8058B5A0[7];
-Cb_803D3678 lbl_8058B5D8[7][4];
-RecoveredGlobal_803D31A4_lbl_8058B6B8 lbl_8058B6B8;
-RecoveredGlobal_803D31A4_lbl_8058B6D4 lbl_8058B6D4;
+u32 worker_callback_slots[8];
+u8 svm_callback_message_buffer[0x100];
+P_803D346C svm_callback_single_table[7];
+Cb_803D3678 svm_callback_table[7][4];
+RecoveredGlobal_803D31A4_lbl_8058B6B8 worker_callback_flag_table;
+RecoveredGlobal_803D31A4_lbl_8058B6D4 svm_callback_counts;
 
 void init_callback_tables__6TLobbyFv(void) {
     if ((s32) lbl_805D7658 == 0) {
-        memset((void *) (&lbl_8058B6B8.value), (int) (0), (int) (0x1C));
+        memset((void *) (&worker_callback_flag_table.value), (int) (0), (int) (0x1C));
         memset((void *) (&lbl_805D766C), (int) (0), (int) (8));
         memset((void *) (&lbl_805D7664), (int) (0), (int) (8));
-        M2C_FIELD(&lbl_8058B6D4.value, s32 *, 0) = 0;
-        M2C_FIELD(&lbl_8058B6D4.value, s32 *, 4) = 0;
-        M2C_FIELD(&lbl_8058B6D4.value, s32 *, 8) = 0;
-        M2C_FIELD(&lbl_8058B6D4.value, s32 *, 0xC) = 0;
+        M2C_FIELD(&svm_callback_counts.value, s32 *, 0) = 0;
+        M2C_FIELD(&svm_callback_counts.value, s32 *, 4) = 0;
+        M2C_FIELD(&svm_callback_counts.value, s32 *, 8) = 0;
+        M2C_FIELD(&svm_callback_counts.value, s32 *, 0xC) = 0;
     }
     lbl_805D7658 += 1;
 }
@@ -102,16 +102,16 @@ static inline s32 run_callbacks_803D3224(s32 idx) {
     Cb_803D3224 *c;
     s32 i;
     s32 r = 0;
-    c = (Cb_803D3224 *)lbl_8058B5D8[idx];
+    c = (Cb_803D3224 *)svm_callback_table[idx];
 
     for (i = 0; i < 4; i++, c++) {
         if (c->fn != 0) {
-            ((s32 *)&lbl_8058B6B8)[idx] = 1;
+            ((s32 *)&worker_callback_flag_table)[idx] = 1;
             r |= c->fn(c->arg);
-            ((s32 *)&lbl_8058B6B8)[idx] = 0;
+            ((s32 *)&worker_callback_flag_table)[idx] = 0;
         }
     }
-    ((s32 *)&lbl_8058B6D4)[idx]++;
+    ((s32 *)&svm_callback_counts)[idx]++;
     return r;
 }
 
@@ -145,8 +145,8 @@ void set_callback_params__6TLobbyFii(s32 arg0, s32 arg1) {
     }
 }
 void TLobby__sub_803D346C(s32 arg0) {
-    if (lbl_8058B5A0[arg0].fn != 0) {
-        lbl_8058B5A0[arg0].fn(lbl_8058B5A0[arg0].arg);
+    if (svm_callback_single_table[arg0].fn != 0) {
+        svm_callback_single_table[arg0].fn(svm_callback_single_table[arg0].arg);
     }
 }
 
@@ -154,8 +154,8 @@ void TLobby__sub_803D34B0(s32 arg0, void (*arg1)(s32), s32 arg2) {
     if ((void (*)(s32))lbl_805D766C.a != 0) {
         ((void (*)(s32))lbl_805D766C.a)(lbl_805D766C.b);
     }
-    lbl_8058B5A0[arg0].fn = arg1;
-    lbl_8058B5A0[arg0].arg = arg2;
+    svm_callback_single_table[arg0].fn = arg1;
+    svm_callback_single_table[arg0].arg = arg2;
     if ((void (*)(s32))lbl_805D7664.a != 0) {
         ((void (*)(s32))lbl_805D7664.a)(lbl_805D7664.b);
     }
@@ -167,21 +167,21 @@ void TLobby__sub_803D34B0(s32 arg0, void (*arg1)(s32), s32 arg2) {
 void SVM_SetCbSvrId__6TLobbyFiiii(s32 arg0, s32 arg1, s32 fn, s32 arg) {
     Cb_803D3678 *c;
     if (arg1 < 0 || arg1 >= 4) {
-        strncpy((char *)lbl_8058B4A0, lbl_8047DEF0, 0xFF);
+        strncpy((char *)svm_callback_message_buffer, lbl_8047DEF0, 0xFF);
         if (CB765C.fn != 0) {
-            CB765C.fn(CB765C.arg, lbl_8058B4A0);
+            CB765C.fn(CB765C.arg, svm_callback_message_buffer);
         }
     }
     if (arg0 < 0 || arg1 >= 7) {
-        strncpy((char *)lbl_8058B4A0, lbl_8047DF14, 0xFF);
+        strncpy((char *)svm_callback_message_buffer, lbl_8047DF14, 0xFF);
         if (CB765C.fn != 0) {
-            CB765C.fn(CB765C.arg, lbl_8058B4A0);
+            CB765C.fn(CB765C.arg, svm_callback_message_buffer);
         }
     }
     if ((void (*)(s32))lbl_805D766C.a != 0) {
         ((void (*)(s32))lbl_805D766C.a)(lbl_805D766C.b);
     }
-    c = &lbl_8058B5D8[arg0][arg1];
+    c = &svm_callback_table[arg0][arg1];
     c->fn = fn;
     c->arg = arg;
     if ((void (*)(s32))lbl_805D7664.a != 0) {
@@ -191,16 +191,16 @@ void SVM_SetCbSvrId__6TLobbyFiiii(s32 arg0, s32 arg1, s32 fn, s32 arg) {
 
 void SVM_DelCbSvr__6TLobbyFii(s32 arg0, s32 arg1) {
     if (arg1 < 0 || arg1 >= 4) {
-        strncpy((char *)lbl_8058B4A0, lbl_8047DF3C, 0xFF);
+        strncpy((char *)svm_callback_message_buffer, lbl_8047DF3C, 0xFF);
         if (CB765C.fn != 0) {
-            CB765C.fn(CB765C.arg, lbl_8058B4A0);
+            CB765C.fn(CB765C.arg, svm_callback_message_buffer);
         }
     }
     if ((void (*)(s32))lbl_805D766C.a != 0) {
         ((void (*)(s32))lbl_805D766C.a)(lbl_805D766C.b);
     }
-    lbl_8058B5D8[arg0][arg1].fn = 0;
-    lbl_8058B5D8[arg0][arg1].arg = 0;
+    svm_callback_table[arg0][arg1].fn = 0;
+    svm_callback_table[arg0][arg1].arg = 0;
     if ((void (*)(s32))lbl_805D7664.a != 0) {
         ((void (*)(s32))lbl_805D7664.a)(lbl_805D7664.b);
     }
@@ -213,7 +213,7 @@ s32 svm_set_cb_svr__6TLobbyFiii(s32 arg0, s32 fn, s32 arg) {
     if ((void (*)(s32))lbl_805D766C.a != 0) {
         ((void (*)(s32))lbl_805D766C.a)(lbl_805D766C.b);
     }
-    c = lbl_8058B5D8[arg0];
+    c = svm_callback_table[arg0];
     for (i = 0; i < 4; c++, i++) {
         if ((void *)c->fn == 0) {
             c->fn = fn;
@@ -222,9 +222,9 @@ s32 svm_set_cb_svr__6TLobbyFiii(s32 arg0, s32 fn, s32 arg) {
         }
     }
     if (i == 4) {
-        strncpy((char *)lbl_8058B4A0, lbl_8047DF5C, 0xFF);
+        strncpy((char *)svm_callback_message_buffer, lbl_8047DF5C, 0xFF);
         if (CB765C.fn != 0) {
-            CB765C.fn(CB765C.arg, lbl_8058B4A0);
+            CB765C.fn(CB765C.arg, svm_callback_message_buffer);
         }
     }
     if ((void (*)(s32))lbl_805D7664.a != 0) {
@@ -237,19 +237,19 @@ s32 svm_set_cb_svr__6TLobbyFiii(s32 arg0, s32 fn, s32 arg) {
 }
 
 void set_message_and_notify__6TLobbyFPv(char *arg0) {
-    strncpy((char *)lbl_8058B4A0, arg0, 0xFF);
+    strncpy((char *)svm_callback_message_buffer, arg0, 0xFF);
     if ((*(P_803D3860 *)&lbl_805D765C).fn != 0) {
-        (*(P_803D3860 *)&lbl_805D765C).fn((*(P_803D3860 *)&lbl_805D765C).arg, lbl_8058B4A0);
+        (*(P_803D3860 *)&lbl_805D765C).fn((*(P_803D3860 *)&lbl_805D765C).arg, svm_callback_message_buffer);
     }
 }
 #define CB765C (*(P_803D3860 *)&lbl_805D765C)
 void TLobby__sub_803D38B4(const char *fmt, ...) {
     va_list ap;
-    memset(lbl_8058B4A0, 0, 0x100);
+    memset(svm_callback_message_buffer, 0, 0x100);
     va_start(ap, fmt);
-    vsprintf((char *)lbl_8058B4A0, fmt, ap);
+    vsprintf((char *)svm_callback_message_buffer, fmt, ap);
     if (CB765C.fn != 0) {
-        CB765C.fn(CB765C.arg, lbl_8058B4A0);
+        CB765C.fn(CB765C.arg, svm_callback_message_buffer);
     }
 }
 

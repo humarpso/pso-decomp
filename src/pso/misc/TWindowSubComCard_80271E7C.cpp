@@ -764,7 +764,7 @@ s32 get_slot_or_neg1__17TWindowSubComCardFPv(int);
 s32 get_card_data__17TWindowSubComCardFPv(int);
 s32 is_child_visible__17TWindowSubComCardFPv(int);
 extern M2C_UNK lbl_8050E208[];
-extern s32 TLobby__data_805D5580;
+extern s32 TLobby__protocol_instance;
 extern M2C_UNK lbl_805DD534;
 extern const f32 lbl_805DD538;
 extern const f32 lbl_805DD53C;
@@ -1400,7 +1400,7 @@ void run_task__17TWindowSubComCardFv(u8 *arg0) {
     case 0x27:
     case 0x33:
         if (((u32 (*)(void))get_chr_select__17TWindowSubComCardFv)() == 0U) {
-            send_choice_search_options_request__9TProtocolFv((int) (TLobby__data_805D5580));
+            send_choice_search_options_request__9TProtocolFv((int) (TLobby__protocol_instance));
         }
         if ((u8) M2C_FIELD(arg0, u8 *, 0x1C) == 0x27) {
             M2C_FIELD(arg0, u8 *, 0x1C) = 0x28U;

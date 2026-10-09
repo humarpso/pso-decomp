@@ -64,7 +64,7 @@ s32 alloc__23TAdSinglePlyChrSelectGCFPv(int);
 s32 load_gvm_texture_file(void *);
 extern u8 lbl_804456D8[];
 extern u8 TObjDoorKey__resource_descriptor[];
-extern s32 TObjDoorKey__data_8050DCA8[];
+extern s32 TObjDoorKey__ginja_model_table[];
 extern u32 lbl_805D5BF8;
 extern s32 TObjDoorKey__data_805D5BFC;
 extern s16 lbl_805D5C00;
@@ -84,7 +84,7 @@ void draw_ginja_object(void *);
 void set_chunk_material_color(void *);
 extern u8 chunk_material_color_half_alpha_f32[];
 extern u8 lbl_804B795C[][0x10];
-extern s32 TObjDoorKey__data_8050DCA8[];
+extern s32 TObjDoorKey__ginja_model_table[];
 extern s32 lbl_805D53A4;
 extern s32 lbl_805D5660;
 extern s32 TObjDoorKey__data_805D5BFC;
@@ -103,7 +103,7 @@ void draw_ginja_object(void *);
 void set_chunk_material_color(void *);
 extern u8 chunk_material_color_half_alpha_f32[];
 extern u8 lbl_804B795C[][0x10];
-extern s32 TObjDoorKey__data_8050DCA8[];
+extern s32 TObjDoorKey__ginja_model_table[];
 extern s32 lbl_805D5660;
 extern s32 TObjDoorKey__data_805D5BFC;
 extern s32 some_id_805c6f74;
@@ -191,7 +191,7 @@ void render__11TObjDoorKeyFv(void *arg0) {
 M2C_UNK draw_active_beam__11TObjDoorKeyFPv(void *arg) {
     Key_8018FBB8 *arg0 = (Key_8018FBB8 *)arg;
     if (TObjDoorKey__data_805D5C04 != lbl_805D53A4) {
-        scroll_ginja_mesh_uvs(((Node_8018FBB8 *)TObjDoorKey__data_8050DCA8[1])->f4, 0, 0x14, 0xE, 1);
+        scroll_ginja_mesh_uvs(((Node_8018FBB8 *)TObjDoorKey__ginja_model_table[1])->f4, 0, 0x14, 0xE, 1);
         PPCSync();
         TObjDoorKey__data_805D5C04 = lbl_805D53A4;
     }
@@ -199,14 +199,14 @@ M2C_UNK draw_active_beam__11TObjDoorKeyFPv(void *arg) {
     push_matrix();
     post_translate_matrix(arg0->f38);
     rotate_matrix_y(0, arg0->f60);
-    draw_ginja_object((void *)TObjDoorKey__data_8050DCA8[0]);
+    draw_ginja_object((void *)TObjDoorKey__ginja_model_table[0]);
     begin_effect_render__13TParticleCtrlFv();
     lbl_805D5660 = some_id_805c6f74;
     some_id_805c6f74 |= 0x10;
     set_chunk_material_color(lbl_804B795C[arg0->f8C]);
-    draw_ginja_object((void *)TObjDoorKey__data_8050DCA8[1]);
+    draw_ginja_object((void *)TObjDoorKey__ginja_model_table[1]);
     rotate_matrix_y(0, arg0->fF0);
-    s32 *g = TObjDoorKey__data_8050DCA8;
+    s32 *g = TObjDoorKey__ginja_model_table;
     free_children__12TObjDoorJungFPvPv(((Node_8018FBB8 *)g[2])->f4, (u16)arg0->f8C);
     draw_ginja_object((void *)g[2]);
     set_chunk_material_color(chunk_material_color_half_alpha_f32);
@@ -221,12 +221,12 @@ M2C_UNK draw_inactive_badge__11TObjDoorKeyFPv(void *arg) {
     push_matrix();
     post_translate_matrix(arg0->f38);
     rotate_matrix_y(0, arg0->f60);
-    draw_ginja_object((void *)TObjDoorKey__data_8050DCA8[0]);
+    draw_ginja_object((void *)TObjDoorKey__ginja_model_table[0]);
     begin_effect_render__13TParticleCtrlFv();
     lbl_805D5660 = some_id_805c6f74;
     some_id_805c6f74 |= 0x10;
     set_chunk_material_color(lbl_804B795C[arg0->f8C]);
-    s32 *g = TObjDoorKey__data_8050DCA8;
+    s32 *g = TObjDoorKey__ginja_model_table;
     free_children__12TObjDoorJungFPvPv(((Node_8018FCD8 *)g[2])->f4, (u16)arg0->f8C);
     draw_ginja_object((void *)g[2]);
     set_chunk_material_color(chunk_material_color_half_alpha_f32);
@@ -366,11 +366,11 @@ void load_resources__11TObjDoorKeyFv(void) {
     }
     (*(s32 *)&lbl_805D5BF8) = r;
     TObjDoorKey__data_805D5BFC = load_gvm_texture_file(lbl_804456D8);
-    TObjDoorKey__data_8050DCA8[0] = get_bml_model((*(s32 *)&lbl_805D5BF8), 1);
-    TObjDoorKey__data_8050DCA8[1] = get_bml_model((*(s32 *)&lbl_805D5BF8), 2);
+    TObjDoorKey__ginja_model_table[0] = get_bml_model((*(s32 *)&lbl_805D5BF8), 1);
+    TObjDoorKey__ginja_model_table[1] = get_bml_model((*(s32 *)&lbl_805D5BF8), 2);
     s32 t = get_bml_model((*(s32 *)&lbl_805D5BF8), 0);
     lbl_805D5C00 = 0;
-    TObjDoorKey__data_8050DCA8[2] = t;
+    TObjDoorKey__ginja_model_table[2] = t;
     TObjDoorKey__data_805D5C04 = 0;
 }
 

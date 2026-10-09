@@ -33,6 +33,22 @@ typedef struct Obj_800C6FFC {
     u16 targetIdx;
 } Obj_800C6FFC;
 
+#pragma inline_depth(1)
+#pragma auto_inline off
+#pragma dont_inline off
+struct Vec_800C7168 { f32 x, y, z; };
+
+struct Hit_800C7168 { u8 pad0[4]; u8 *obj; };
+
+struct Pl_800C7168 {
+    u8 pad0[0x38];
+    Vec_800C7168 pos;
+    Vec_800C7168 prev;
+    u8 pad50[0x2FC - 0x50];
+    Vec_800C7168 base;
+    Vec_800C7168 vel;
+};
+
 extern "C" {
 u8 *get_player_data__10TObjPlayerFi(int);
 s32 obj_testFlags30(void *, int);
@@ -61,6 +77,28 @@ u8 *find_active_entity_by_id(int);
 f32 xz_distance_squared(void *, void *);
 Obj_800C6FFC *find_entity_by_id(int);
 BOOL select_nearest_target__10TObjPlayerFPvf(Obj_800C6FFC *arg0, f32 radius);
+void calc_velocity_toward_destination(void *, Vec_800C7168, Vec_800C7168);
+void VecCopy__FP3VecPC3Vec(Vec_800C6EF8 *, Vec_800C6EF8 *);
+f32 get_scale_factor__10TObjPlayerFv(void);
+Hit_800C7168 *csnVector(void *, void *, s32);
+void scale_velocity__19TObjGyaranzoMissileFPvf(void *, f32);
+s32 project_actor_to_ground(void *, void *, int);
+s32 rand(void);
+void vec3_add_to(void *, void *);
+f32 vec3_dot(void *, void *);
+void vec3_cross(void *, void *, void *);
+void rotate_vector_by_matrix(int, void *, void *);
+void rotate_matrix_y(int, s32);
+void subtract_vector(void *, void *);
+void push_matrix_from(void *);
+void pop_matrices(int);
+extern const f64 lbl_8043BCC8;
+extern M2C_UNK lbl_8058D490[];
+extern const f32 lbl_805DA070;
+extern const f32 lbl_805DA074;
+extern const f32 lbl_805DA078;
+extern const f32 lbl_805DA07C;
+void TObjPlayer__sub_800C7168(Pl_800C7168 *self, Vec_800C7168 arg1, f32 farg0, f32 farg1);
 }
 
 extern "C" {
@@ -285,6 +323,62 @@ u8 find_target_in_range__10TObjPlayerFPvf(void *arg0, f32 farg0) {
     M2C_FIELD(arg0, s32 *, 0x2A8) = get_player_by_client_id(M2C_FIELD(arg0, u16 *, 0x338));
     return (u8) (M2C_FIELD(arg0, s32 *, 0x2A8) != 0);
 }
+
+void TObjPlayer__sub_800C7168(Pl_800C7168 *self, Vec_800C7168 arg1, f32 farg0, f32 farg1) {
+    Vec_800C7168 a;
+    Hit_800C7168 *hit;
+    s32 ang;
+    s32 i;
+    calc_velocity_toward_destination(self, self->pos, arg1);
+    VecCopy__FP3VecPC3Vec((Vec_800C6EF8 *)&self->prev, (Vec_800C6EF8 *)&self->pos);
+    VecCopy__FP3VecPC3Vec((Vec_800C6EF8 *)&a, (Vec_800C6EF8 *)&self->base);
+    Vec_800C7168 v = self->vel;
+    Vec_800C7168 up;
+    Vec_800C7168 out;
+    Vec_800C7168 dir;
+    Vec_800C7168 tmp;
+    scale_velocity__19TObjGyaranzoMissileFPvf(&v, farg0 + farg1);
+    vec3_add_to(&a, &v);
+    hit = csnVector(&self->base, &a, -1);
+    if (hit != NULL) {
+        vec3_dot(&self->vel, hit->obj + 0xC);
+        ang = (s32)(lbl_8043BCC8 * get_scale_factor__10TObjPlayerFv());
+        up.x = up.z = lbl_805DA070;
+        up.y = lbl_805DA074;
+        vec3_cross(&self->vel, hit->obj + 0xC, &out);
+        if (lbl_805DA070 > vec3_dot(&up, &out)) {
+            ang = 0x10000 - ang;
+        }
+        push_matrix_from(lbl_8058D490);
+        rotate_matrix_y(0, ang);
+        rotate_vector_by_matrix(0, &self->vel, &self->vel);
+        pop_matrices(1);
+    }
+    if (lbl_805DA078 * (f32)rand() < lbl_805DA07C) {
+        ang = -1;
+    } else {
+        ang = 1;
+    }
+    for (i = 0; i < 0xF; i++) {
+        if (i == 0) {
+            VecCopy__FP3VecPC3Vec((Vec_800C6EF8 *)&dir, (Vec_800C6EF8 *)&self->vel);
+        } else {
+            push_matrix_from(lbl_8058D490);
+            rotate_matrix_y(0, ang * (i * 0x1000));
+            rotate_vector_by_matrix(0, &self->vel, &dir);
+            pop_matrices(1);
+        }
+        VecCopy__FP3VecPC3Vec((Vec_800C6EF8 *)&tmp, (Vec_800C6EF8 *)&self->pos);
+        vec3_add_to(&tmp, &dir);
+        if (project_actor_to_ground(self, &tmp, 0) == 1) {
+            VecCopy__FP3VecPC3Vec((Vec_800C6EF8 *)&self->pos, (Vec_800C6EF8 *)&tmp);
+            VecCopy__FP3VecPC3Vec((Vec_800C6EF8 *)&self->vel, (Vec_800C6EF8 *)&self->pos);
+            subtract_vector(&self->vel, &self->prev);
+            return;
+        }
+    }
+}
+
 void TObjEneMe1GiGue__sub_800C73F4(u8 *arg0) {
     if (xz_distance_squared((void *) (arg0 + 0x38), (void *) (arg0 + 0x50)) > lbl_805DA080) {
         update_if_active__15TObjEneMe1GiGueFPv((void *) (arg0), (int) (8));

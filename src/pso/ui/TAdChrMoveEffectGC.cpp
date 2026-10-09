@@ -6,6 +6,24 @@ typedef s32 M2C_UNK;
 
 struct S_803491F8 { u32 w[8]; };
 
+struct V2_8034923C { f32 x, y; };
+
+struct E_8034923C {
+    V2_8034923C start;
+    V2_8034923C end;
+    u8 col0[4];
+    u8 col1[4];
+    u8 pad18[8];
+    V2_8034923C cur;
+    u8 curcol[4];
+    u8 f2C;
+    u8 pad2D[3];
+    u32 flags;
+    s32 cnt;
+};
+
+struct O_8034923C { u8 pad0[0x1C]; s32 n; s32 active; E_8034923C e[16]; };
+
 extern "C" {
 void copy_vec2__28TWindowSubSymbolChatPartsSetFPvPv(void *, void *);
 void draw_tri_fan_2d__14TObjCMHairMenuFPviif(void *, int, int, f32);
@@ -14,6 +32,10 @@ extern const f32 lbl_805DFCE8;
 extern const f32 lbl_805DFCEC;
 void fn_80348E34(u8 *arg0);
 void copy_effect_data__18TAdChrMoveEffectGCFPvPv(S_803491F8 *arg0, S_803491F8 *arg1);
+void reset_effect_entries__18TAdChrMoveEffectGCFPv(void *arg0);
+void copy_vec2__28TWindowSubSymbolChatPartsSetFPvPv(void *, void *);
+void copy4__18TAdChrMoveEffectGCFPvPv(void *, void *);
+void run_task__18TAdChrMoveEffectGCFv(O_8034923C *self);
 }
 
 extern "C" {
@@ -175,6 +197,62 @@ void copy_effect_data__18TAdChrMoveEffectGCFPvPv(S_803491F8 *arg0, S_803491F8 *a
     arg0->w[4] = arg1->w[4];
     arg0->w[5] = arg1->w[5];
     a = arg1->w[6]; b = arg1->w[7]; arg0->w[6] = a; arg0->w[7] = b;
+}
+#pragma pop
+
+#pragma push
+#pragma fp_contract on
+void run_task__18TAdChrMoveEffectGCFv(O_8034923C *self) {
+    s32 i;
+    f32 dx;
+    f32 dy;
+    f32 vx;
+    f32 vy;
+    s32 t;
+    f32 c0;
+    f32 c1;
+    f32 c2;
+    f32 c3;
+    if (self->active == 0) {
+        return;
+    }
+    if (++self->n < 0x11) {
+        self->e[self->n].flags |= 1;
+    } else if (self->n > 0x28) {
+        reset_effect_entries__18TAdChrMoveEffectGCFPv(self);
+    }
+    for (i = 0; i < 16; i++) {
+        if (self->e[i].flags & 1) {
+            if (self->e[i].cnt < 0x1E) {
+                dx = (self->e[i].end.x - self->e[i].start.x) / 14.4f;
+                dy = (self->e[i].end.y - self->e[i].start.y) / 14.4f;
+                vx = -dx / 30.0f * (f32)self->e[i].cnt + dx;
+                vy = -dy / 30.0f * (f32)self->e[i].cnt + dy;
+                if (self->e[i].cnt == 0) {
+                    copy_vec2__28TWindowSubSymbolChatPartsSetFPvPv(&self->e[i].cur, &self->e[i].start);
+                    copy4__18TAdChrMoveEffectGCFPvPv(self->e[i].curcol, self->e[i].col0);
+                } else {
+                    self->e[i].cur.x += vx;
+                    self->e[i].cur.y += vy;
+                    c3 = (f32)(self->e[i].col1[3] - self->e[i].col0[3]) / 30.0f;
+                    c0 = (f32)(self->e[i].col1[0] - self->e[i].col0[0]) / 30.0f;
+                    c1 = (f32)(self->e[i].col1[1] - self->e[i].col0[1]) / 30.0f;
+                    c2 = (f32)(self->e[i].col1[2] - self->e[i].col0[2]) / 30.0f;
+                    self->e[i].curcol[3] += (s32)(0.5f + c3);
+                    self->e[i].curcol[0] += (s32)(0.5f + c0);
+                    self->e[i].curcol[1] += (s32)(0.5f + c1);
+                    self->e[i].curcol[2] += (s32)(0.5f + c2);
+                }
+                self->e[i].f2C = self->e[i].curcol[3] / 5;
+                self->e[i].cnt++;
+            } else {
+                copy_vec2__28TWindowSubSymbolChatPartsSetFPvPv(&self->e[i].cur, &self->e[i].end);
+                copy4__18TAdChrMoveEffectGCFPvPv(self->e[i].curcol, self->e[i].col1);
+                t = self->e[i].col1[3] / 10;
+                self->e[i].f2C = (self->e[i].f2C > t) ? self->e[i].f2C - t : 0;
+            }
+        }
+    }
 }
 #pragma pop
 

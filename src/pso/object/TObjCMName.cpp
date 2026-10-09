@@ -96,7 +96,7 @@ void reset_icon_flags__10TObjCMIconFv(void);
 void TObjCMIcon__sub_802994C8(s32 arg0, s32 *arg1);
 f32 sin_table_lookup(s32);
 extern Pair_80297B18 lbl_80464FC8[];
-extern s32 lbl_805D6558;
+extern s32 creation_resource_ready_state;
 extern s32 TObjCMMainMenu__data_805D659C;
 extern const s32 lbl_805DDA5C;
 extern const s32 lbl_805DDA60;
@@ -486,11 +486,11 @@ extern s32 lbl_805D3CE0;
 extern s32 lbl_805D3CE4;
 extern void *lbl_805D3CE8;
 extern void *lbl_805D3CEC;
-extern void *lbl_805D6520;
-extern s32 lbl_805D652C;
-extern int lbl_805D6538;
-extern void *lbl_805D653C;
-extern s32 lbl_805D6558;
+extern void *creation_player_character;
+extern s32 creation_dressing_room_mode_flag;
+extern int creation_figure_rotation_y;
+extern void *creation_figure_object;
+extern s32 creation_resource_ready_state;
 extern int lbl_805D6570;
 extern s32 lbl_805D6598;
 extern const f32 lbl_805DDA70;
@@ -605,7 +605,7 @@ void *__ct__10TObjCMNameFv(void *arg0) {
     __ct__7TObjectFP7TObject(arg0);
     M2C_FIELD(arg0, M2C_UNK **, 0x18) = __vt__10TObjCMName;
     M2C_FIELD(arg0, void **, 0x0) = lbl_805D3CEC;
-    M2C_FIELD(arg0, void **, 0x1C) = lbl_805D6520;
+    M2C_FIELD(arg0, void **, 0x1C) = creation_player_character;
     M2C_FIELD(arg0, u32 *, 0x20) = 0;
     M2C_FIELD(arg0, u32 *, 0x28) = 0;
     M2C_FIELD(arg0, u32 *, 0x24) = 0;
@@ -738,7 +738,7 @@ void *TObjCMProportion__ct(void *arg0) {
     __ct__7TObjectFP7TObject(arg0);
     M2C_FIELD(arg0, M2C_UNK **, 0x18) = __vt__16TObjCMProportion;
     M2C_FIELD(arg0, void **, 0x0) = lbl_805D3CE8;
-    M2C_FIELD(arg0, void **, 0x1C) = lbl_805D6520;
+    M2C_FIELD(arg0, void **, 0x1C) = creation_player_character;
     M2C_FIELD(arg0, u32 *, 0x20) = 0;
     M2C_FIELD(arg0, u32 *, 0x24) = 1;
     M2C_FIELD(arg0, f32 *, 0x28) = lbl_805DDA90;
@@ -774,7 +774,7 @@ u8 *TObjCMAutoMkData__ct(u8 *arg0) {
     ((M2C_UNK (*)(void))__ct__7TObjectFP7TObject)();
     M2C_FIELD(arg0, M2C_UNK **, 0x18) = __vt__16TObjCMAutoMkData;
     M2C_FIELD(arg0, s32 *, 0) = (s32) lbl_805D3CE4;
-    M2C_FIELD(arg0, s32 *, 0x1C) = (s32) (*(s32 *)&lbl_805D6520);
+    M2C_FIELD(arg0, s32 *, 0x1C) = (s32) (*(s32 *)&creation_player_character);
     copy_vec2__28TWindowSubSymbolChatPartsSetFPvPv((void *) (arg0 + 0x30), (int) (M2C_FIELD(arg0, s32 *, 0x1C) + 0x48));
     M2C_FIELD(arg0, f32 *, 0x38) = (f32) lbl_805DDA90;
     M2C_FIELD(arg0, s32 *, 0x20) = 0;
@@ -887,7 +887,7 @@ Hair_802964B0 *__ct__14TObjCMHairMenuFv(Hair_802964B0 *arg0, void *arg1) {
     ((void * (*)(void *, void *))__ct__7TObjectFP7TObject)(arg0, arg1);
     arg0->vt = __vt__14TObjCMHairMenu;
     arg0->f0 = lbl_805D3CE0;
-    arg0->f1c = (*(s32 *)&lbl_805D6520);
+    arg0->f1c = (*(s32 *)&creation_player_character);
     arg0->f20 = 0;
     arg0->f24 = 0;
     arg0->f28 = class_appearance_table[get_display_index__12TCharaMakingFPv(arg0->f1c)].f8;
@@ -1075,7 +1075,7 @@ void render__16TObjCMAssignMenuFv(Menu_80296928 *self) {
             sprite = 0x1F;
             if (i == self->cursor) {
                 sprite = 0x20;
-                if (lbl_805D6558 != 2) {
+                if (creation_resource_ready_state != 2) {
                     s = alpha * (0.2f * get_random_float__8TObjFishFv(sin_table_lookup(self->frame << 12)) + 0.2f);
                 } else {
                     s = alpha * pulse;
@@ -1308,7 +1308,7 @@ void *__ct__16TObjCMAssignMenuFv(void *arg0, void *parent, void *kind) {
     ((void (*)(void *, void *))__ct__7TObjectFP7TObject)(arg0, parent);
     ((Menu_80297128 *)arg0)->vt = __vt__16TObjCMAssignMenu;
     ((Menu_80297128 *)arg0)->name = lbl_805D3CDC;
-    ((Menu_80297128 *)arg0)->chara = (*(Chara_80297128 * *)&lbl_805D6520);
+    ((Menu_80297128 *)arg0)->chara = (*(Chara_80297128 * *)&creation_player_character);
     ((Menu_80297128 *)arg0)->f20 = 0;
     ((Menu_80297128 *)arg0)->kind = (s32)kind;
     ((Menu_80297128 *)arg0)->count = ((Row_80297128 *)&class_appearance_table)[((s32 (*)(void *))get_display_index__12TCharaMakingFPv)(((Menu_80297128 *)arg0)->chara)].v[((Menu_80297128 *)arg0)->kind];
@@ -1591,7 +1591,7 @@ void TObjCMMainMenu__sub_80297B18(Menu_80297B18 *m) {
         }
         break;
     case 2:
-        if (m->f30 == 0 || lbl_805D6558 == 2) {
+        if (m->f30 == 0 || creation_resource_ready_state == 2) {
             v8 = lbl_805DDA68;
             TObjCMIcon__sub_802994C8(1, &v8);
         } else {
@@ -1765,7 +1765,7 @@ void TObjCMMainMenu__vt2(void *arg0) {
     if (temp_r0 < 0) {
         M2C_FIELD(arg0, s32 *, 0x30) = 0;
     }
-    if (((s32) lbl_805D6558 == 2) || ((s32) M2C_FIELD(arg0, s32 *, 0x30) == 0)) {
+    if (((s32) creation_resource_ready_state == 2) || ((s32) M2C_FIELD(arg0, s32 *, 0x30) == 0)) {
         temp_f2 = M2C_FIELD(arg0, f32 *, 0x48);
         if (temp_f2 < lbl_805DDBBC) {
             M2C_FIELD(arg0, f32 *, 0x48) = (f32) ((lbl_805DDAFC * (lbl_805DDBBC - temp_f2)) + temp_f2);
@@ -1937,7 +1937,7 @@ void *TObjCMMainMenu__ct(void *arg0, void *parent) {
     ((void * (*)(void *, void *))__ct__7TObjectFP7TObject)(arg0, parent);
     ((Menu_80298B70 *)arg0)->vt = ((u8 *)&lbl_804DBDA8);
     ((Menu_80298B70 *)arg0)->name = lbl_805D3CD0;
-    ((Menu_80298B70 *)arg0)->chara = (*(Chara_80298B70 * *)&lbl_805D6520);
+    ((Menu_80298B70 *)arg0)->chara = (*(Chara_80298B70 * *)&creation_player_character);
     if (!(((Menu_80298B70 *)arg0)->chara->f32 & 0xA) && ((Menu_80298B70 *)arg0)->chara->f31 == TObjCMMainMenu__sub_8028D9A8()->f31) {
         copy_player_visual_record(((Menu_80298B70 *)arg0)->chara, TObjCMMainMenu__sub_8028D9A8());
     }
@@ -1997,16 +1997,16 @@ f32 get_proportion__14TObjCMMainMenuFv(void) {
 
 void set_selection__14TObjCMMainMenuFi(int a0) { lbl_805D6570 = a0; }
 
-void TObjCMMainMenu__sub_80298DA0(int a0) { lbl_805D6538 = (lbl_805D6538 + a0); }
+void TObjCMMainMenu__sub_80298DA0(int a0) { creation_figure_rotation_y = (creation_figure_rotation_y + a0); }
 
 void set_speed__14TObjCMMainMenuFf(f32 farg0) {
-    if ((void *) lbl_805D653C != NULL) {
-        M2C_FIELD(lbl_805D653C, f32 *, 0x38) = farg0;
+    if ((void *) creation_figure_object != NULL) {
+        M2C_FIELD(creation_figure_object, f32 *, 0x38) = farg0;
     }
 }
 
 u8 is_not_dressing_room_mode__14TObjCMMainMenuFv(void) {
-    return (u8) (lbl_805D652C == 0);
+    return (u8) (creation_dressing_room_mode_flag == 0);
 }
 
 M2C_UNK *TObjCMMainMenu__sub_80298DD4(void) {

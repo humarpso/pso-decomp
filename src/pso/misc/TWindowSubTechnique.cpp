@@ -30,7 +30,7 @@ struct Tech_802870C4 {
 struct Pad_802870C4 { u8 pad[0x20]; u8 m20[0x30]; };
 
 extern "C" {
-extern u8 *lbl_805D553C;
+extern u8 *text_language_group_table;
 s32 TWindowSubTechnique__sub_8028753C(s32 arg0);
 u8 *calc_technique_parameters(s16, u8, M2C_UNK);
 M2C_UNK *get_shared_text_buffer();
@@ -274,7 +274,7 @@ void *TWindowSubTechnique__ct(void *arg0, s32 arg1, s32 arg2) {
 }
 
 s32 TWindowSubTechnique__sub_8028753C(s32 arg0) {
-    return M2C_FIELD(M2C_FIELD(lbl_805D553C, s32 *, 0x14), M2C_UNK *, (arg0 * 4));
+    return M2C_FIELD(M2C_FIELD(text_language_group_table, s32 *, 0x14), M2C_UNK *, (arg0 * 4));
 }
 
 void clear_flag70_bit80__19TWindowSubTechniqueFPv(void* p) { *(u16*)((char*)p + 0x70) &= 0xffffff7f; }

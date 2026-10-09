@@ -79,14 +79,14 @@ void *__dt__13TObjItemLightFv(void *arg0, s16 arg1) {
 }
 
 extern M2C_UNK __vt__13TObjItemLight[];
-extern s32 lbl_805D3390;
+extern s32 TObjItemLight__class_name;
 extern const f32 lbl_805DBE40;
 extern const f32 lbl_805DBE44;
 
 u8 *TObjItemLight__ct(u8 *arg0, M2C_UNK arg1, s32 arg2) {
     TPhotonMagicSquare__sub_801A2640();
     M2C_FIELD(arg0, M2C_UNK **, 0x18) = __vt__13TObjItemLight;
-    M2C_FIELD(arg0, s32 *, 0) = (s32) lbl_805D3390;
+    M2C_FIELD(arg0, s32 *, 0) = (s32) TObjItemLight__class_name;
     ((VObjItemLight_80192060 *)arg0)->m5(arg2);
     M2C_FIELD(arg0, s32 *, 0x94) = 0;
     M2C_FIELD(arg0, f32 *, 0x90) = (f32) M2C_FIELD(arg0, f32 *, 0x68);

@@ -502,7 +502,7 @@ void reset__14TItemEquipBaseFPv(void* p);
 s32 alloc__13TItemProArmorFi(int);
 s32 init_object__21TItemEffArmorParticleFPv(int, void *);
 extern M2C_UNK __vt__14TItemEquipBase[];
-extern s32 lbl_805D2BE0;
+extern s32 item_equip_base_class_name;
 u8 *TItemEquipBase__ct(u8 *arg0, s32 arg1, s32 arg2);
 void set_equip_flag__14TItemEquipBaseFPvUc(void* p, s32 v);
 extern RecoveredGlobal_8010AD24_lbl_804C3BA8 lbl_804C3BA8;
@@ -975,7 +975,7 @@ u8 *TItemEquipBase__ct(u8 *arg0, s32 arg1, s32 arg2) {
     TItem__ct((void *) (arg0), (void *) (arg1), (void *) (arg2));
     M2C_FIELD(arg0, M2C_UNK **, 0x18) = &(*(RecoveredGlobal_8010B684___vt__14TItemEquipBase *)&__vt__14TItemEquipBase).value;
     init_forward__10TObjPlayerFPv((void *) (arg0 + 0x178));
-    M2C_FIELD(arg0, s32 *, 0) = (s32) lbl_805D2BE0;
+    M2C_FIELD(arg0, s32 *, 0) = (s32) item_equip_base_class_name;
     M2C_FIELD(arg0, s8 *, 0x170) = 0;
     M2C_FIELD(arg0, s8 *, 0x171) = 0;
     reset__14TItemEquipBaseFPv((void*)((void *) (arg0)));

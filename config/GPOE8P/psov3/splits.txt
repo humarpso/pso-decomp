@@ -12377,6 +12377,7 @@ pso/misc/TWindowDD_80348D0C.cpp:
 pso/ui/TAdChrMoveEffectGC.cpp:
 	.text       start:0x80348E34 end:0x803495B4
 	.rodata     start:0x80478710 end:0x80478718
+	.sdata2     start:0x805DFCF0 end:0x805DFD00
 
 pso/ui/TAdMultiPlyChrSelectGC_803495B4.cpp:
 	.text       start:0x803495B4 end:0x8034960C

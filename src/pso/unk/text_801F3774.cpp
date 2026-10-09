@@ -28,7 +28,7 @@ void byteswap_6x75_packet__6TLobbyFPv(void *arg0);
 void byteswap_6x75_packet__6TLobbyFPv(void *arg0);
 s32 TLobby__send_and_handle_60(s32);
 void build_6x75_update_quest_flag_dc(void* p);
-extern s32 lbl_805D5550;
+extern s32 game_difficulty_selection;
 void send_6x75_quest_flag_cur_difficulty__6TLobbyFss(s16 arg0, s16 arg1);
 void TLobby__sub_801F3990(void *arg0);
 void build_6x75_update_quest_flag_dc(void* p);
@@ -37,7 +37,7 @@ void byteswap_6x75_packet__6TLobbyFPv(void *arg0);
 s32 fn_801F4560(int, int);
 s32 fn_801F469C(int, int);
 void handle_6x75_update_quest_flag_dc(u8 *arg0);
-extern s32 lbl_805D5544;
+extern s32 current_language;
 extern char lbl_80512790[],lbl_805127B0[];
 extern char lbl_80449CD8[],lbl_80449CE0[],lbl_80449CE8[],lbl_80449CF0[],lbl_80449CF8[],lbl_80449D00[];
 void replace_file_extension__6TLobbyFPvPvPv(char*,const char*,const char*);
@@ -73,7 +73,7 @@ void send_6x75_quest_flag_cur_difficulty__6TLobbyFss(s16 arg0, s16 arg1) {
     build_6x75_update_quest_flag_dc((void*)((void *) (&stack.sp8)));
     stack.spC = arg0;
     stack.spE = arg1;
-    stack.sp10 = (s16) lbl_805D5550;
+    stack.sp10 = (s16) game_difficulty_selection;
     stack.sp12 = 0;
     TLobby__sub_801F3990(&stack.sp8);
 }
@@ -92,7 +92,7 @@ void handle_6x75_update_quest_flag_dc(u8 *arg0) {
 }
 
 void prepare_offline_quest_filenames(const char* identity) {
- switch(lbl_805D5544) {
+ switch(current_language) {
  case 0:replace_file_extension__6TLobbyFPvPvPv(lbl_80512790,identity,lbl_80449CD8);break;
  case 1:replace_file_extension__6TLobbyFPvPvPv(lbl_80512790,identity,lbl_80449CE0);break;
  case 2:replace_file_extension__6TLobbyFPvPvPv(lbl_80512790,identity,lbl_80449CE8);break;

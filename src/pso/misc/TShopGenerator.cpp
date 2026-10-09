@@ -72,13 +72,13 @@ void clear_slot_active__14TShopGeneratorFi(s32 arg0);
 s32 TShopGenerator__sub_80222DAC(s32);
 extern RecoveredGlobal_8021E110_TShopGenerator__data_80513ED0 TShopGenerator__slot_active_table;
 void THunterGuildSeqOffline__sub_8021E180(s32 arg0);
-extern Tbl_8021E1FC TShopGenerator__data_804C9FA8;
+extern Tbl_8021E1FC TShopGenerator__service_dispatch_table;
 extern RecoveredGlobal_8021E110_TShopGenerator__data_80513ED0 TShopGenerator__slot_active_table;
 void clear_slot_flags__17TMedicalCenterMesFv(void);
 void run_fn_table_reverse__14TShopGeneratorFv(void);
 s32 obj_getField1c(s32);
 s32 TShopGenerator__sub_80222DAC(s32);
-extern Tbl_8021E1FC TShopGenerator__data_804C9FA8;
+extern Tbl_8021E1FC TShopGenerator__service_dispatch_table;
 s32 is_no_service_active__14TShopGeneratorFPvi(void *self, s32 player);
 s32 obj_getField1c(s32);
 s8 get_chr_select_state__23TAdSinglePlyChrSelectGCFv(void);
@@ -95,14 +95,14 @@ s32 is_no_service_active__14TShopGeneratorFPvi(void *self, s32 player);
 u8 is_slot_active__14TShopGeneratorFi(s32 arg0);
 s32 TShopGenerator__sub_80222DAC(s32);
 s32 is_not_split_screen__13TRaderMapCoreFv(void);
-extern Tbl_8021E1FC TShopGenerator__data_804C9FA8;
+extern Tbl_8021E1FC TShopGenerator__service_dispatch_table;
 extern u8 lbl_8050E208[];
 extern s32 lbl_805D53A0;
 extern s32 lbl_805D55C0;
 extern const f32 lbl_805DC6EC;
 void run_task__14TShopGeneratorFv(u8 *self);
 void TMedicalCenterMes__sub_80216260(void);
-extern Tbl_8021E1FC TShopGenerator__data_804C9FA8;
+extern Tbl_8021E1FC TShopGenerator__service_dispatch_table;
 extern RecoveredGlobal_8021E110_TShopGenerator__data_80513ED0 TShopGenerator__slot_active_table;
 void run_fn_table_forward__14TShopGeneratorFv(void);
 }
@@ -156,7 +156,7 @@ s32 is_no_service_active__14TShopGeneratorFPvi(void *self, s32 player) {
     s32 i;
     s32 (*fn)(u16);
     for (i = 0; i < 7; i++) {
-        fn = M2C_FIELD(&TShopGenerator__data_804C9FA8.e[i], s32 (**)(u16), 0x10);
+        fn = M2C_FIELD(&TShopGenerator__service_dispatch_table.e[i], s32 (**)(u16), 0x10);
         if (fn(TShopGenerator__sub_80222DAC(obj_getField1c(player))) == 1) {
             return 0;
         }
@@ -169,7 +169,7 @@ void run_task__14TShopGeneratorFv(u8 *self) {
     s32 i;
     s32 p;
     s32 (*fn)(u16);
-    e = (Ent_8021DDB8 *)&TShopGenerator__data_804C9FA8.e[M2C_FIELD(self, s32 *, 0x84)];
+    e = (Ent_8021DDB8 *)&TShopGenerator__service_dispatch_table.e[M2C_FIELD(self, s32 *, 0x84)];
     if (M2C_FIELD(self, s32 *, 0x94) > 0) {
         M2C_FIELD(self, s32 *, 0x94)--;
         return;
@@ -278,7 +278,7 @@ void run_fn_table_reverse__14TShopGeneratorFv(void) {
     s32 n;
     s32 i;
     clear_slot_flags__17TMedicalCenterMesFv();
-    p = &TShopGenerator__data_804C9FA8.e[7];
+    p = &TShopGenerator__service_dispatch_table.e[7];
     n = 7;
     do {
         void (*f)(void) = (p - 1)->fn;
@@ -294,7 +294,7 @@ void run_fn_table_forward__14TShopGeneratorFv(void) {
     s32 n;
     s32 i;
     n = 7;
-    p = &TShopGenerator__data_804C9FA8.e[0];
+    p = &TShopGenerator__service_dispatch_table.e[0];
     do {
         M2C_FIELD(p, void (**)(void), 4)();
         p++;

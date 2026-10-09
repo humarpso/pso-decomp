@@ -53,7 +53,7 @@ M2C_UNK clear_shop_tool_flags();
 M2C_UNK clear_shop_weapon_flags();
 extern M2C_UNK TLobby__data_805011D8[];
 extern s32 lbl_805D53A0;
-extern s32 lbl_805D5550;
+extern s32 game_difficulty_selection;
 extern s32 lbl_805D6238;
 extern s32 shop_world_player_level;
 extern s32 shop_difficulty_tier;
@@ -120,8 +120,8 @@ void init_shop_world_context(void) {
     if ((s32) lbl_805D6238 > 9) {
         lbl_805D6238 = 9;
     }
-    shop_difficulty_tier = lbl_805D5550;
-    if ((s32) lbl_805D5550 < 0) {
+    shop_difficulty_tier = game_difficulty_selection;
+    if ((s32) game_difficulty_selection < 0) {
         shop_difficulty_tier = 0;
     }
     if ((s32) shop_difficulty_tier > 3) {

@@ -272,7 +272,7 @@ extern M2C_UNK TFogCtrl__fog_instance_table[];
 extern RecoveredGlobal_800FB8A0___vt__8TFogCtrl __vt__8TFogCtrl;
 extern u8 lbl_8043DA20[];
 extern u8 lbl_8043DA30[];
-extern RecoveredGlobal_800FBB68_lbl_8049C670 lbl_8049C670;
+extern RecoveredGlobal_800FBB68_lbl_8049C670 area_fog_row_table;
 extern u8 fog_default_entry[];
 extern u8 lbl_8058CA60[];
 extern s32 lbl_805D2B18;

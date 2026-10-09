@@ -82,13 +82,13 @@ void safe_free__23TAdSinglePlyChrSelectGCFUi(s32);
 void prs_decompress_buffer(s32, s32);
 s32 set_stream_and_load_file__6TLobbyFi(s32);
 s32 alloc_buffer__11TOBoss4RockFPv(s32);
-extern u32 lbl_8050DB70[];
+extern u32 symbolchat_colli_param_table[];
 extern s32 lbl_805D3190;
 extern int lbl_805D5AC8;
 void load_symbol_chat_data__17TOSymbolchatColliFv(void);
 void set_motion_params__10TObjPlayerFPvPv(void *, void *);
 void *memset(void *, int, u32);
-extern u32 lbl_8050DB70[];
+extern u32 symbolchat_colli_param_table[];
 extern int lbl_805D5AC8;
 extern const f32 lbl_805DBA28;
 void init_collision_params__17TOSymbolchatColliFPv(void *arg0);
@@ -137,7 +137,7 @@ void init_collision_params__17TOSymbolchatColliFPv(void *arg0) {
     u32 lo;
     hi = v >> 16;
     lo = (u16) v;
-    if (lbl_8050DB70[i] == 0)
+    if (symbolchat_colli_param_table[i] == 0)
     {
       hi = v >> 16;
       if (lo < 0x18)
@@ -151,7 +151,7 @@ void init_collision_params__17TOSymbolchatColliFPv(void *arg0) {
     }
     else
     {
-      self->ptrs[i] = lbl_8050DB70[i];
+      self->ptrs[i] = symbolchat_colli_param_table[i];
     }
     {
       HL_8017873C *h = (HL_8017873C *) (((u8 *) self) + (i * 2));
@@ -227,7 +227,7 @@ void load_symbol_chat_data__17TOSymbolchatColliFv(void) {
         bswap_entry__20TWindowSubSymbolChatFPv((u8 *)lbl_805D5AC8 + i * 0x58);
     }
     for (i = 0; i < 3; i++) {
-        lbl_8050DB70[i] = 0;
+        symbolchat_colli_param_table[i] = 0;
     }
 }
 

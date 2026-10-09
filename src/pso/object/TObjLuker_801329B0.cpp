@@ -11,12 +11,12 @@ struct RecoveredGlobal_801329B0_lbl_8043EA58 {
 };
 
 extern "C" {
-extern u8 *lbl_805D553C;
-extern s32 lbl_805D5550;
+extern u8 *text_language_group_table;
+extern s32 game_difficulty_selection;
 s32 enemy_name_for_rt_index(s32 arg0);
 s32 get_localized_text_entry(s32, s32);
 extern RecoveredGlobal_801329B0_lbl_8043EA58 floor_destination_text_id_table;
-extern s32 lbl_805D5550;
+extern s32 game_difficulty_selection;
 void get_floor_destination_name(u32 arg0);
 }
 
@@ -30,7 +30,7 @@ typedef char RecoveredGlobal_801329B0_lbl_8043EA58_size[sizeof(RecoveredGlobal_8
 void get_floor_destination_name(u32 arg0) {
     u32 var_r3;
     var_r3 = arg0;
-    if ((var_r3 == 0xB) && ((s32) lbl_805D5550 >= 3)) {
+    if ((var_r3 == 0xB) && ((s32) game_difficulty_selection >= 3)) {
         var_r3 = 0xE;
     }
     get_localized_text_entry(9, M2C_FIELD(&floor_destination_text_id_table.value, M2C_UNK *, (var_r3 * 4)));
@@ -46,10 +46,10 @@ s32 enemy_name_for_rt_index(s32 arg0) {
     if (var_r3 >= 0x58) {
         var_r3 = 0;
     }
-    if ((s32) lbl_805D5550 >= 3) {
-        return M2C_FIELD(M2C_FIELD(lbl_805D553C, s32 *, 0xC), M2C_UNK *, (var_r3 * 4));
+    if ((s32) game_difficulty_selection >= 3) {
+        return M2C_FIELD(M2C_FIELD(text_language_group_table, s32 *, 0xC), M2C_UNK *, (var_r3 * 4));
     }
-    return M2C_FIELD(M2C_FIELD(lbl_805D553C, s32 *, 8), M2C_UNK *, (var_r3 * 4));
+    return M2C_FIELD(M2C_FIELD(text_language_group_table, s32 *, 8), M2C_UNK *, (var_r3 * 4));
 }
 
 }

@@ -10,7 +10,7 @@ int is_boss_phase_reached__6TLobbyFv(void);
 s32 get_phase__9TBoss4UroFPv(void*);
 
 extern void* lbl_805D4D74;
-extern s32 lbl_805D5550;
+extern s32 game_difficulty_selection;
 
 int is_boss_phase_reached__6TLobbyFv(void) {
     s32 temp_r3;
@@ -19,7 +19,7 @@ int is_boss_phase_reached__6TLobbyFv(void) {
         return 0;
     }
     temp_r3 = get_phase__9TBoss4UroFPv(lbl_805D4D74);
-    if (lbl_805D5550 == 0) {
+    if (game_difficulty_selection == 0) {
         return (temp_r3 >= 9) ? 1 : 0;
     }
     return (temp_r3 >= 0xE) ? 1 : 0;

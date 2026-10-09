@@ -97,7 +97,7 @@ s32 draw_ginja_model(int);
 void draw_node_tree__19TODoorFourLightBaseFPvPv(u8 *arg0, u8 *arg1);
 void init_door_base(void *, void *);
 extern M2C_UNK __vt__19TODoorFourLightBase[];
-extern s32 lbl_805D3D60;
+extern s32 TODoorFourLightBase__class_name;
 Door_802A0994 *TODoorFourLightBase__ct(Door_802A0994 *arg0, void *arg1, s32 arg2);
 s32 end_effect_render__13TParticleCtrlFv();
 u8 is_current_floor_switch_set(int);
@@ -349,7 +349,7 @@ Door_802A0994 *TODoorFourLightBase__ct(Door_802A0994 *arg0, void *arg1, s32 arg2
     s32 i;
     init_door_base(arg0, arg1);
     *(void **)((u8 *)arg0 + 0x18) = ((s32 *)&__vt__19TODoorFourLightBase);
-    arg0->f0 = lbl_805D3D60;
+    arg0->f0 = TODoorFourLightBase__class_name;
     arg0->m5(arg2);
     arg0->m17();
     for (i = 0; i < 8; i++) {

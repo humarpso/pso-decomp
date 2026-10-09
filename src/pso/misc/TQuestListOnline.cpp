@@ -106,7 +106,7 @@ M2C_UNK close_windows__16TQuestListOnlineFPv(void *, int);
 M2C_UNK clear_flag_and_release__17TWindowSubComCardFPv(void *);
 M2C_UNK TWindow__close(void *);
 s32 get_selected_menu_value(void *);
-extern void *TLobby__data_805D5580;
+extern void *TLobby__protocol_instance;
 extern u8 lbl_805DC6A0;
 void handle_quest_confirm__16TQuestListOnlineFPv(u8 *arg0);
 s32 obj_getField1c(int);
@@ -124,7 +124,7 @@ f32 get_scale__15TShopWindowBaseFv(void *);
 M2C_UNK TWindow__close(void *);
 u32 create_yes_no_window(int, int, int, int);
 s32 select_cursor_entry__6TLobbyFPv(u32);
-extern void *TLobby__data_805D5580;
+extern void *TLobby__protocol_instance;
 extern u8 *TQuestListOnline__data_805D6190;
 extern s32 lbl_805D61F8;
 extern u8 lbl_805DC6A0;
@@ -174,7 +174,7 @@ void handle_quest_confirm__16TQuestListOnlineFPv(u8 *arg0) {
                 if (M2C_FIELD(arg0, VObj_18_802178E4 **, 0x6C) != NULL) {
                     M2C_FIELD(arg0, VObj_18_802178E4 **, 0x6C)->m7(0x14, 1);
                 }
-                send_action__9TProtocolFR13GameListEntryUcPcPc(TLobby__data_805D5580, arg0 + 0x4C, 0, &lbl_805DC6A0, &lbl_805DC6A0);
+                send_action__9TProtocolFR13GameListEntryUcPcPc(TLobby__protocol_instance, arg0 + 0x4C, 0, &lbl_805DC6A0, &lbl_805DC6A0);
                 queue_destruction__7TObjectFv(M2C_FIELD(arg0, void **, 0x44));
                 M2C_FIELD(arg0, void **, 0x44) = NULL;
                 if (M2C_FIELD(arg0, void **, 0x40) != NULL) {
@@ -290,7 +290,7 @@ void TQuestListOnline__sub_80217C1C(Obj_80217C1C *arg0) {
                 lbl_805D61F8 = 0;
                 break;
             }
-            send_action__9TProtocolFR13GameListEntryUcPcPc(TLobby__data_805D5580, arg0->tag, get_unlocked_tier__16TQuestListOnlineFv(arg0), &lbl_805DC6A0, &lbl_805DC6A0);
+            send_action__9TProtocolFR13GameListEntryUcPcPc(TLobby__protocol_instance, arg0->tag, get_unlocked_tier__16TQuestListOnlineFv(arg0), &lbl_805DC6A0, &lbl_805DC6A0);
             if (arg0->f3C != 0) {
                 TWindow__close((void *)arg0->f3C);
                 arg0->f3C = 0;
@@ -303,7 +303,7 @@ void TQuestListOnline__sub_80217C1C(Obj_80217C1C *arg0) {
         } else if (arg0->f68 == 1) {
             s32 idx = select_cursor_entry__6TLobbyFPv(arg0->f38);
             __as__16TPlyGuildCardTagFRC16TPlyGuildCardTag(arg0->tag, &QL_80217C1C->ents[idx]);
-            send_info__9TProtocolFR16TPlyGuildCardTag(TLobby__data_805D5580, arg0->tag);
+            send_info__9TProtocolFR16TPlyGuildCardTag(TLobby__protocol_instance, arg0->tag);
             set_field_20__12TQuestListVMFPvi(arg0, 0xC);
             arg0->f68++;
             return;

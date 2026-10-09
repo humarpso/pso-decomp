@@ -61,7 +61,7 @@ M2C_UNK TObjMesBase__ct(void *, void *, void *);
 extern s32 lbl_80445DF4[];
 extern M2C_UNK lbl_804B8574[];
 extern M2C_UNK __vt__11TMotorcycle[];
-extern s32 lbl_805D33D4;
+extern s32 motorcycle_class_name;
 void *TMotorcycle__ct(void *arg0, void *arg1, void *arg2);
 }
 
@@ -155,7 +155,7 @@ void *__dt__11TMotorcycleFv(void *arg0, s16 arg1) {
 void *TMotorcycle__ct(void *arg0, void *arg1, void *arg2) {
     TObjMesBase__ct(arg0, arg1, arg2);
     M2C_FIELD(arg0, M2C_UNK **, 0x18) = __vt__11TMotorcycle;
-    self->x0 = lbl_805D33D4;
+    self->x0 = motorcycle_class_name;
     self->xBC = get_random_float__8TObjFishFv(self->x68);
     self->xBC = self->xBC % 2;
     self->xBC = lbl_80445DF4[self->xBC];

@@ -577,8 +577,8 @@ extern "C" {
 
 void* get_option_entry__17TWindowOptionCtrlFi(int a0);
 
-    extern unsigned char lbl_8044FE00[];
-void* get_option_entry__17TWindowOptionCtrlFi(int a0) {  return (char*)lbl_8044FE00 + a0 * 8; }
+    extern unsigned char window_layout_rect_table[];
+void* get_option_entry__17TWindowOptionCtrlFi(int a0) {  return (char*)window_layout_rect_table + a0 * 8; }
 
 }
 #endif

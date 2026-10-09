@@ -602,7 +602,7 @@ void copy_player_visual_record(void *, void *);
 void bswap__15disp_data_part2Fv(void *);
 void free__11TOBoss4RockFUi(void *);
 void send_command__10TNpcPlayerFiciiPv(int, int, int, int, void *);
-extern s32 lbl_805D5550;
+extern s32 game_difficulty_selection;
 extern s32 TNpcPlayer__data_805D5864;
 
 u32 lbl_8050CF68[20];
@@ -688,7 +688,7 @@ extern void *lbl_804AF18C[35];
 extern void *lbl_804AF218[35];
 extern void *npc_player_template_table[35];
 struct Row_80152674 { u16 f0; u16 f2; u32 w[9]; };
-Row_80152674 TNpcPlayer__data_804ABC90[64] = {
+Row_80152674 TNpcPlayer__template_table[64] = {
     {0x0, 0x4, {0x40, 0x42c80000, 0x41200000, 0x41500000, 0x41f00000, 0x41f00000, 0x42c80000, 0x90f00, 0x42480000}},
     {0x1, 0xc, {0x8, 0x42c80000, 0x41200000, 0x41700000, 0x420c0000, 0x41c80000, 0x42c80000, 0x9195a, 0x42480000}},
     {0x2, 0x14, {0x8, 0x42c80000, 0x41200000, 0x41700000, 0x42200000, 0x41f00000, 0x42c80000, 0x2091e50, 0x42480000}},
@@ -3539,7 +3539,7 @@ Npc_80152168 *TNpcPlayer__ct(Npc_80152168 *self, s32 a, s32 b, s16 kind, s32 arg
         p = ((void *(*)(void *, u16))init_ai_state__10TNpcPlayerFPvi)(p, b);
     }
     self->f78 = (Own_80152168 *)p;
-    copy__10TNpcPlayerFPvPv(self->f30, (u8 *)&TNpcPlayer__data_804ABC90[self->f2C]);
+    copy__10TNpcPlayerFPvPv(self->f30, (u8 *)&TNpcPlayer__template_table[self->f2C]);
     if (self->f78 != 0 && self->f78->obj != 0) {
         ((M2C_UNK (*)(void *, void *))VecCopy__FP3VecPC3Vec)(&self->fDC, self->f78->obj + 0x38);
         init_equipment__10TNpcPlayerFPv(self);
@@ -3590,7 +3590,7 @@ Npc_80152330 *construct_partner__10TNpcPlayerFPviisPv(Npc_80152330 *self, s32 a,
         p = ((void *(*)(void *, u16))init_ai_state__10TNpcPlayerFPvi)(p, b);
     }
     self->f78 = (Own_80152330 *)p;
-    copy__10TNpcPlayerFPvPv(self->f30, (u8 *)&TNpcPlayer__data_804ABC90[self->f2C]);
+    copy__10TNpcPlayerFPvPv(self->f30, (u8 *)&TNpcPlayer__template_table[self->f2C]);
     if (self->f78 != 0 && self->f78->obj != 0) {
         ((M2C_UNK (*)(void *, void *))VecCopy__FP3VecPC3Vec)(&self->fDC, self->f78->obj + 0x38);
         init_equipment__10TNpcPlayerFPv(self);
@@ -3613,14 +3613,14 @@ u8 *build_npc_player_record__10TNpcPlayerFi(s32 arg0) {
     }
     bswap__15disp_data_part2Fv(lbl_8050CF68);
     free__11TOBoss4RockFUi((void *)lbl_805D5860);
-    mode = lbl_805D5550;
+    mode = game_difficulty_selection;
     lbl_805D5860 = 0;
     if (mode >= 0 && mode <= 2) {
         diff = mode;
     } else {
         diff = 2;
     }
-    base = TNpcPlayer__data_804ABC90[arg0].f2;
+    base = TNpcPlayer__template_table[arg0].f2;
     lvl = base + diff * 25;
     if (mode == 3) {
         lvl = base + 150;

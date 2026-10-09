@@ -2007,7 +2007,7 @@ extern s32 TBoss1Dragon__data_805D4B1C;
 extern s32 TBoss1Dragon__data_805D4B20;
 extern const f32 lbl_805D4B30;
 extern u8 *lbl_805D4DF0;
-extern s32 lbl_805D5560;
+extern s32 current_scene_light;
 extern s32 lbl_805D5660;
 extern s32 some_id_805c6f74;
 extern const f32 TBoss1Dragon__data_805D7F1C;
@@ -2968,7 +2968,7 @@ void render__12TBoss1DragonFv(u8 *arg0) {
             draw__16TObjEneRe7BeruraFPv(arg0);
             end_effect_render__13TParticleCtrlFv();
             set_global_state__16TObjEneRe7BeruraFi(NULL);
-            TObjLight__sub_801337F8(lbl_805D5560);
+            TObjLight__sub_801337F8(current_scene_light);
             pop_matrix();
         }
         set_chunk_material_override_pair(0xFF00, 0);

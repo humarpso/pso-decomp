@@ -75,7 +75,7 @@ M2C_UNK post_translate_matrix(void *);
 M2C_UNK set_global_param__8TObjFishFi(int);
 M2C_UNK set_current_scene__6TSceneFi(int);
 M2C_UNK set_chunk_material_override_pair(int, int);
-extern s32 lbl_805D5560;
+extern s32 current_scene_light;
 extern s32 lbl_805D5660;
 extern u8 *TBoss8Dragon__data_805D6988;
 extern s32 some_id_805c6f74;
@@ -171,7 +171,7 @@ void draw_with_fade__12TBoss8DragonFPvii(u8 *arg0, s32 arg1, s32 arg2) {
         draw__16TObjEneRe7BeruraFPv((void *) (arg0));
         setup_tev_swap__10TObjPlayerFv();
         end_effect_render__13TParticleCtrlFv();
-        TObjLight__sub_801337F8((void *) (lbl_805D5560));
+        TObjLight__sub_801337F8((void *) (current_scene_light));
         pop_matrix();
         set_chunk_material_override_pair((int) (0xFF00), (int) (0));
         set_current_scene__6TSceneFi((int) (0xBF));

@@ -16,7 +16,7 @@ s32 get_action_data__10TObjPlayerFPv(void *);
 M2C_UNK init_new_character_stats(void *);
 M2C_UNK copy_entries(M2C_UNK, s32, s32);
 
-extern s32 lbl_805D5544;
+extern s32 current_language;
 
 s32 begin_action_state__10TObjPlayerFPv(u8 *arg0) {
     s32 temp_r31;
@@ -32,7 +32,7 @@ s32 begin_action_state__10TObjPlayerFPv(u8 *arg0) {
     init_new_character_stats(arg0);
     setup_effect_slots__10TObjPlayerFii(M2C_FIELD(arg0, s32 *, 0x3A4), arg0 + 0x3C0);
     init_technique_levels(M2C_FIELD(arg0, s32 *, 0x3A4), get_action_data__10TObjPlayerFPv(arg0));
-    M2C_FIELD(arg0, s8 *, 3) = (s8) lbl_805D5544;
+    M2C_FIELD(arg0, s8 *, 3) = (s8) current_language;
     return 1;
 }
 

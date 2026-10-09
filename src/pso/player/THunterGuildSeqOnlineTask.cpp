@@ -73,7 +73,7 @@ void *memcpy(void *, const void *, u32);
 extern Pos_80214F80 lbl_8044BCC8[];
 extern unsigned char TQuestListOnline__data_80513DE8[];
 extern unsigned char TQuestListOnline__data_80513E24[];
-extern s32 TLobby__data_805D5580;
+extern s32 TLobby__protocol_instance;
 extern int TQuestListOnline__data_805D6198;
 extern int TQuestListOnline__data_805D619C;
 extern void *TQuestListOnline__data_805D61A8;
@@ -268,7 +268,7 @@ void handle_quest_download_chunk__6TLobbyFPv(Pkt_80214F80 *p) {
             set_field_1c__6TLobbyFPvf(TQuestListOnline__data_805D61A8, lbl_805DC660);
             complete_reveal__14TWindowMessageFPv(TQuestListOnline__data_805D61A8);
         }
-        send_quest_barrier__9TProtocolFv(TLobby__data_805D5580);
+        send_quest_barrier__9TProtocolFv(TLobby__protocol_instance);
     }
 }
 

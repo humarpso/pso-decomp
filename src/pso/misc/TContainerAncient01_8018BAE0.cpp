@@ -18,7 +18,7 @@ void spawn_attack__16TObjEneMe3StelthFsiiiff(s16, s32, s32, Param_8018BB64 *, f3
 extern Param_8018BB64 lbl_80445084[];
 extern u8 lbl_804B6D88[];
 extern u8 lbl_804B6DB0[];
-extern s32 lbl_8050DC68[];
+extern s32 TContainerAncient01__effect_id_table[];
 extern u32 TContainerAncient01__data_805D5B90;
 extern const f32 TContainerAncient01__data_805DBD14;
 extern const f32 TContainerAncient01__data_805DBD20;
@@ -59,17 +59,17 @@ void load_resources__19TContainerAncient01Fv(void) {
         if (p != NULL) {
             p = load_resource_from_descriptor(p, 5, lbl_804B6DB0, 0, 0, 0);
         }
-        lbl_8050DC68[0] = 0x230;
+        TContainerAncient01__effect_id_table[0] = 0x230;
         TContainerAncient01__data_805D5B90 = (u32)p;
-        lbl_8050DC68[1] = 0x231;
+        TContainerAncient01__effect_id_table[1] = 0x231;
     } else {
         p = alloc__23TAdSinglePlyChrSelectGCFPv(0x440);
         if (p != NULL) {
             p = load_resource_from_descriptor(p, 5, lbl_804B6D88, 0, 0, 0);
         }
-        lbl_8050DC68[0] = 0x45;
+        TContainerAncient01__effect_id_table[0] = 0x45;
         TContainerAncient01__data_805D5B90 = (u32)p;
-        lbl_8050DC68[1] = 0x46;
+        TContainerAncient01__effect_id_table[1] = 0x46;
     }
     Param_8018BB64 prm = lbl_80445084[0];
     prm.a = ((Res_8018BB64 *)TContainerAncient01__data_805D5B90)->x430;

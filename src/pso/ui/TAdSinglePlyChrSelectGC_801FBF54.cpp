@@ -3189,7 +3189,7 @@ void reset_character_data__23TAdSinglePlyChrSelectGCFv(void);
 M2C_UNK init_class_starting_inventory(void *);
 void set_state__23TAdSinglePlyChrSelectGCFi(int a0);
 extern RecoveredGlobal_801FFF14_lbl_80513910 chr_select_serial_seeds;
-extern s32 lbl_805D5544;
+extern s32 current_language;
 extern s32 lbl_805D5F58;
 extern void *lbl_805D5F60;
 extern void *lbl_805D5F64;
@@ -3417,7 +3417,7 @@ void create_instance__23TAdSinglePlyChrSelectGCFv(void) {
     build_default_save_file__23TAdSinglePlyChrSelectGCFv();
 }
 
-extern s32 lbl_805D5544;
+extern s32 current_language;
 extern s32 lbl_805D5F58;
 extern void *lbl_805D5F60;
 extern void *lbl_805D5F64;
@@ -3495,7 +3495,7 @@ void game_state_load(void) {
             }
         }
     }
-    M2C_FIELD(lbl_805D5F60, s8 *, 3) = (s8) lbl_805D5544;
+    M2C_FIELD(lbl_805D5F60, s8 *, 3) = (s8) current_language;
 }
 typedef char RecoveredGlobal_802004D8_lbl_80513910_size[sizeof(RecoveredGlobal_802004D8_lbl_80513910) == 0x10 ? 1 : -1];
 
@@ -3526,7 +3526,7 @@ s32 apply_loaded_character__23TAdSinglePlyChrSelectGCFi(s32 arg0) {
             }
         }
     }
-    *((s8 *)lbl_805D5F60 + 3) = (s8)lbl_805D5544;
+    *((s8 *)lbl_805D5F60 + 3) = (s8)current_language;
     set_state__23TAdSinglePlyChrSelectGCFi(0);
     return 1;
 }

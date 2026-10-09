@@ -89,7 +89,7 @@ s32 test_aabb_overlap__10TObjPlayerFPvPvPvPv(u8 *arg0, u8 *arg1, u8 *arg2, u8 *a
 void calc_bounds_min_max__10TObjPlayerFPvPvPv(struct Vec_803E1B1C *pts, struct Vec_803E1B1C *mn, struct Vec_803E1B1C *mx);
 s32 TObjPlayer__sub_803DFB1C(Vec_803E1B1C *a, Vec_803E1B1C *b);
 s32 __SITransfer(Vec_803E1B1C *a, Vec_803E1B1C *b);
-extern const Faces_803E0ED4 lbl_8047E438;
+extern const Faces_803E0ED4 box_face_corner_index_table;
 s32 test_box_overlap__10TObjPlayerFPvPv(Vec_803E1B1C *boxA, Vec_803E1B1C *boxB);
 }
 
@@ -131,7 +131,7 @@ s32 test_aabb_overlap__10TObjPlayerFPvPvPvPv(u8 *arg0, u8 *arg1, u8 *arg2, u8 *a
 
 struct CollisionPoint { f32 x,y,z; };
 struct CollisionSphere { CollisionPoint center; f32 radius; };
-extern const s32 lbl_8047E498[6][4],lbl_8047E4F8[6][4];
+extern const s32 box_face_vertex_index_table[6][4],box_edge_adjacent_face_table[6][4];
 extern const f32 lbl_805E1000,lbl_805E1018,lbl_805E101C;
 extern const f64 lbl_805E1008,lbl_805E1010;
 static inline CollisionPoint collisionSubtract(CollisionPoint a,CollisionPoint b) {
@@ -182,7 +182,7 @@ s32 test_box_overlap__10TObjPlayerFPvPv(Vec_803E1B1C *boxA, Vec_803E1B1C *boxB) 
     calc_bounds_min_max__10TObjPlayerFPvPvPv((struct Vec_803E1B1C *)(boxA), (struct Vec_803E1B1C *)(&mnA), (struct Vec_803E1B1C *)(&mxA));
     calc_bounds_min_max__10TObjPlayerFPvPvPv((struct Vec_803E1B1C *)(boxB), (struct Vec_803E1B1C *)(&mnB), (struct Vec_803E1B1C *)(&mxB));
     if (test_aabb_overlap__10TObjPlayerFPvPvPvPv((u8 *)&mnA, (u8 *)&mxA, (u8 *)&mnB, (u8 *)&mxB) != 0) {
-    Faces_803E0ED4 faces = lbl_8047E438;
+    Faces_803E0ED4 faces = box_face_corner_index_table;
     for (i = 0; i < 6; i++) {
         fa = faces.v[i];
         qa[0].x = boxA[fa[0]].x; qa[0].y = boxA[fa[0]].y; qa[0].z = boxA[fa[0]].z;
@@ -219,14 +219,14 @@ s32 test_box_sphere_contact(CollisionPoint* box,CollisionSphere* sphere) {
     if(hi.x<c.x-radius||lo.x>c.x+radius||hi.y<c.y-radius||lo.y>c.y+radius||hi.z<c.z-radius||lo.z>c.z+radius)return 0;
     CollisionPoint normals[6];
     for(int i=0;i<6;++i) {
-        const s32* f=lbl_8047E498[i];
+        const s32* f=box_face_vertex_index_table[i];
         CollisionPoint a=collisionSubtract(box[f[1]],box[f[0]]),b=collisionSubtract(box[f[2]],box[f[0]]);
         CollisionPoint n={-(a.y*b.z-a.z*b.y),-(a.z*b.x-a.x*b.z),-(a.x*b.y-a.y*b.x)};
         normals[i]=collisionNormalize(n);
     }
     int inside=1;
     for(int i=0;i<6;++i) {
-        const s32* f=lbl_8047E498[i];CollisionPoint n=normals[i];
+        const s32* f=box_face_vertex_index_table[i];CollisionPoint n=normals[i];
         f32 t=-(-collisionDot(n,box[f[0]])+collisionDot(c,n))/collisionDot(n,n);
         CollisionPoint projected=collisionProject(c,n,t),delta=collisionSubtract(projected,c);
         f32 distance=collisionRoot(collisionDot(delta,delta));
@@ -235,7 +235,7 @@ s32 test_box_sphere_contact(CollisionPoint* box,CollisionSphere* sphere) {
             CollisionPoint a=box[f[j]],edge=collisionSubtract(a,box[f[(j+1)%4]]);
             f32 fraction=collisionDot(edge,collisionSubtract(projected,a))/collisionDot(edge,edge);
             CollisionPoint foot=collisionProject(a,edge,fraction),edgeDelta=collisionSubtract(foot,projected);
-            if(collisionNormalEquals(normals[lbl_8047E4F8[i][j]],collisionNormalize(edgeDelta))&&radius>=distance) {}
+            if(collisionNormalEquals(normals[box_edge_adjacent_face_table[i][j]],collisionNormalize(edgeDelta))&&radius>=distance) {}
             else if(distance<=radius&&collisionDot(edgeDelta,edgeDelta)<=radius*radius-distance*distance) {}
             else faceHit=0;
         }

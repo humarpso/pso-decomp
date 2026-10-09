@@ -333,7 +333,7 @@ M2C_UNK set_global_param__8TObjFishFi(s32);
 M2C_UNK draw_chunk_object(void *);
 extern const f64 lbl_80435A50[];
 extern u32 lbl_805D4BA4;
-extern s32 lbl_805D5560;
+extern s32 current_scene_light;
 extern const f32 lbl_805D8260;
 extern const f32 TBoss2Fin__data_805D8450;
 extern const f32 lbl_805D8454;
@@ -890,7 +890,7 @@ void render__9TBoss2FinFv(u8 *arg0) {
             pop_matrix();
         }
     }
-    TObjLight__sub_801337F8(lbl_805D5560);
+    TObjLight__sub_801337F8(current_scene_light);
 }
 
 void run_task__9TBoss2FinFv(s32 arg0) {

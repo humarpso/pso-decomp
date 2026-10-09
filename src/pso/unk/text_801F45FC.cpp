@@ -1,7 +1,7 @@
 #include "types.h"
 extern "C" {
 extern u8 lbl_805127F8[4][128];
-extern s32 lbl_805D5550;
+extern s32 game_difficulty_selection;
 void clear_story_flag(s32 flag);
 }
 
@@ -12,15 +12,15 @@ void clear_story_flag(s32 flag) {
     s32 bit;
     s32 byteIdx;
     if (flag < 0 || flag > 0x3FF) return;
-    if (lbl_805D5550 < 0 || lbl_805D5550 >= 4) return;
+    if (game_difficulty_selection < 0 || game_difficulty_selection >= 4) return;
     v = flag + 1;
     byteIdx = v / 8;
     bit = v % 8;
     if (bit > 0) {
-        lbl_805127F8[lbl_805D5550][byteIdx] &= ~(1 << (8 - bit));
+        lbl_805127F8[game_difficulty_selection][byteIdx] &= ~(1 << (8 - bit));
         return;
     }
-    lbl_805127F8[lbl_805D5550][byteIdx - 1] &= 0xFE;
+    lbl_805127F8[game_difficulty_selection][byteIdx - 1] &= 0xFE;
 }
 
 }

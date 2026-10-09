@@ -15,24 +15,24 @@ void getDateStamp__FP9DateStamp(DateStamp_8032C9A8 *);
 void *memmove(void *, const void *, u32);
 s32 rand();
 void *memset(void *, int, u32);
-extern s32 lbl_805D5544;
-extern u8 *TLobby__data_805D6CD4;
+extern s32 current_language;
+extern u8 *TLobby__gba_joyboot_send_buffer;
 extern const f32 lbl_805DF7A8;
 extern const f32 lbl_805DF7AC;
 void TLobby__sub_8032C9A8(s32 arg0, s32 arg1);
 s32 GBAJoyBootAsync(s32, s32, s32, u8 *, s32, u8 *, void (*)(s32, s32));
 void TLobby__sub_8032C7A8(s32, s32);
 extern s32 TLobby__data_805D6CCC;
-extern s32 lbl_805D6CD0;
-extern u8 *TLobby__data_805D6CD4;
-extern u8 lbl_805D6CD8;
+extern s32 gba_joyboot_send_buffer;
+extern u8 *TLobby__gba_joyboot_send_buffer;
+extern u8 gba_joyboot_status;
 s32 start_gba_joyboot__6TLobbyFv(void);
 void TLobby__sub_8032CDD0(void* p);
 extern u8 TLobby__data_805434A8[];
 extern s32 TLobby__data_805D6CCC;
-extern s32 lbl_805D6CD0;
-extern u8 *TLobby__data_805D6CD4;
-extern u8 lbl_805D6CD8;
+extern s32 gba_joyboot_send_buffer;
+extern u8 *TLobby__gba_joyboot_send_buffer;
+extern u8 gba_joyboot_status;
 void set_send_buffer__6TLobbyFPvi(u8 *arg0, s32 arg1);
 }
 
@@ -56,7 +56,7 @@ void TLobby__sub_8032C9A8(s32 arg0, s32 arg1) {
     u8 *obj;
     s32 st;
     memset(&rec, 0, 0xC);
-    obj = TLobby__data_805D6CD4;
+    obj = TLobby__gba_joyboot_send_buffer;
     st = get_global_state__23TAdSinglePlyChrSelectGCFv();
     if (st != 0) {
         if (arg1 != 0) {
@@ -67,13 +67,13 @@ void TLobby__sub_8032C9A8(s32 arg0, s32 arg1) {
             memmove(&rec.b, &secs, 4);
             memmove(obj + 0x2C0, &rec, 8);
         }
-        memset(obj + 0xCC, (u8) lbl_805D5544, 1);
+        memset(obj + 0xCC, (u8) current_language, 1);
     }
 }
 #pragma pop
 
 s32 start_gba_joyboot__6TLobbyFv(void) {
-    if (GBAJoyBootAsync(3, 0, 4, TLobby__data_805D6CD4, lbl_805D6CD0, &lbl_805D6CD8, TLobby__sub_8032C7A8) == 0) {
+    if (GBAJoyBootAsync(3, 0, 4, TLobby__gba_joyboot_send_buffer, gba_joyboot_send_buffer, &gba_joyboot_status, TLobby__sub_8032C7A8) == 0) {
         TLobby__data_805D6CCC = 3;
         return 1;
     }
@@ -85,9 +85,9 @@ s32 start_gba_joyboot__6TLobbyFv(void) {
 #pragma optimization_level 1
 #pragma dont_inline on
 void set_send_buffer__6TLobbyFPvi(u8 *arg0, s32 arg1) {
-    TLobby__data_805D6CD4 = arg0;
-    lbl_805D6CD0 = arg1;
-    lbl_805D6CD8 = 0;
+    TLobby__gba_joyboot_send_buffer = arg0;
+    gba_joyboot_send_buffer = arg1;
+    gba_joyboot_status = 0;
     TLobby__sub_8032CDD0(TLobby__data_805434A8);
     TLobby__data_805D6CCC = 0;
 }
@@ -97,9 +97,9 @@ void TLobby__sub_8032CDC0(void) { lbl_805D6CD9 = 0; lbl_805D6CDA = 0; }
 
 void TLobby__sub_8032CDD0(void* p) { *(s16*)((char*)p + 0x0) = 0; *(s16*)((char*)p + 0x2) = 0; *(s16*)((char*)p + 0x4) = 0; *(u8*)((char*)p + 0x6) = 0; *(u8*)((char*)p + 0x7) = 0; }
 
-    extern int lbl_805D6CE8;
-    extern int lbl_805D6CEC;
-void TLobby__sub_8032CDEC(void) { lbl_805D6CEC = 0; lbl_805D6CE8 = 0; }
+    extern int warning_aram_load_done_flag;
+    extern int TAdWarningBaseGC__aram_alloc_size;
+void TLobby__sub_8032CDEC(void) { TAdWarningBaseGC__aram_alloc_size = 0; warning_aram_load_done_flag = 0; }
 
 int TLobby__sub_8032CDFC(void* p) { return queue_destruction__7TObjectFv(p); }
 

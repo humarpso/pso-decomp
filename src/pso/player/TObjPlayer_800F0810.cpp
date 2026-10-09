@@ -71,8 +71,8 @@ int init_directional_light__9TObjLightFv(void*);
 int TObjLight__sub_801337F8(void*);
 M2C_UNK set_chunk_material_override_pair(M2C_UNK, M2C_UNK);
 
-    extern int lbl_805D5560;
-void update_lights__10TObjPlayerFv(void) { init_directional_light__9TObjLightFv((void*)(lbl_805D5560)); TObjLight__sub_801337F8((void*)(lbl_805D5560)); }
+    extern int current_scene_light;
+void update_lights__10TObjPlayerFv(void) { init_directional_light__9TObjLightFv((void*)(current_scene_light)); TObjLight__sub_801337F8((void*)(current_scene_light)); }
 
 void TObjPlayer__sub_800F083C(void) {  }
 

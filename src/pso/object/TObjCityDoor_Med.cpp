@@ -133,9 +133,9 @@ void *dt__16TObjCityDoor_MedFPvs(void *arg0, s16 arg1) {
     return arg0;
 }
 
-extern u8 lbl_80443FA0[]; extern s32 lbl_805D325C;
+extern u8 city_door_med_params[]; extern s32 lbl_805D325C;
 void *TObjCityDoor_Med__ct(void *o, void *parent, void *set) {
- init_city_door((u8*)o,(s32)parent,(s32)set,lbl_80443FA0);
+ init_city_door((u8*)o,(s32)parent,(s32)set,city_door_med_params);
  *(M2C_UNK **)((u8 *)o + 0x18)=lbl_804B5A38;*(s32 *)((u8 *)o + 0)=lbl_805D325C;
  *(f32 *)((u8 *)o + 0xB0)=(f32)(*(u32 *)((u8 *)get_city_common_motion(11) + 4)-1);
  return o;
@@ -394,9 +394,9 @@ void *dt__17TObjCityDoor_WarpFPvs(void *arg0, s16 arg1) {
     return arg0;
 }
 
-extern u8 lbl_80443F84[]; extern s32 lbl_805D3258;
+extern u8 city_door_warp_params[]; extern s32 lbl_805D3258;
 void *TObjCityDoor_Warp__ct(void *o, void *parent, void *set) {
- init_city_door((u8*)o,(s32)parent,(s32)set,lbl_80443F84);
+ init_city_door((u8*)o,(s32)parent,(s32)set,city_door_warp_params);
  FOLD_F(o,s32*,0x18)=lbl_804B5A94;FOLD_F(o,s32,0)=lbl_805D3258;
  FOLD_F(o,f32,0xB0)=(f32)(FOLD_F(get_city_common_motion(8),u32,4)-1);
  return o;
@@ -496,9 +496,9 @@ void *dt__18TObjCityDoor_GuildFPvs(void *arg0, s16 arg1) {
     return arg0;
 }
 
-extern u8 lbl_80443F68[]; extern s32 lbl_805D3254;
+extern u8 TObjCityDoor_Guild__params[]; extern s32 lbl_805D3254;
 void *TObjCityDoor_Guild__ct(void *o, void *parent, void *set) {
- init_city_door((u8*)o,(s32)parent,(s32)set,lbl_80443F68);
+ init_city_door((u8*)o,(s32)parent,(s32)set,TObjCityDoor_Guild__params);
  FOLD_F(o,s32*,0x18)=lbl_804B5AF0;FOLD_F(o,s32,0)=lbl_805D3254;
  FOLD_F(o,f32,0xB0)=(f32)(FOLD_F(get_city_common_motion(12),u32,4)-1);
  return o;
@@ -539,7 +539,7 @@ struct RecoveredGlobal_8018289C_lbl_804B5B4C
 
 extern "C" {
 u8 *init_city_door(u8 *, M2C_UNK, s32, u8 *);
-extern RecoveredGlobal_8018289C_lbl_80443F4C lbl_80443F4C;
+extern RecoveredGlobal_8018289C_lbl_80443F4C TObjCityDoor_Shop__params;
 extern RecoveredGlobal_8018289C_lbl_804B5B4C lbl_804B5B4C;
 extern s32 lbl_805D3250;
 extern u8 *lbl_805D5B28;
@@ -587,7 +587,7 @@ u8 *TObjCityDoor_Shop__ct(u8 *arg0, s32 arg1, s32 arg2) {
   unsigned int new_var2;
   M2C_UNK *new_var;
   new_var = &lbl_804B5B4C.value;
-  init_city_door(arg0, arg1, arg2, (u8 *)&lbl_80443F4C.value);
+  init_city_door(arg0, arg1, arg2, (u8 *)&TObjCityDoor_Shop__params.value);
   *((M2C_UNK **) (((s8 *) arg0) + 0x18)) = new_var;
   *((s32 *) (((s8 *) arg0) + 0)) = (s32) lbl_805D3250;
   new_var2 = 1;
@@ -709,7 +709,7 @@ void fn_80182E7C(void* a0);
 M2C_UNK reset_photon_effect__10TObjPlayerFPv(void *);
 M2C_UNK init_collision_body_parts(void *, void *, int, int);
 M2C_UNK construct_collider_proxy__10TObjPlayerFPv();
-extern RecoveredGlobal_80182D8C_lbl_80443F20 lbl_80443F20;
+extern RecoveredGlobal_80182D8C_lbl_80443F20 city_door_init_params;
 extern M2C_UNK lbl_804B5BA8[];
 u8 *init_city_door(u8 *arg0, M2C_UNK arg1, s32 arg2, u8 *arg3);
 void city_door_tick_opening(void* o);
@@ -881,7 +881,7 @@ u8 *init_city_door(u8 *arg0, M2C_UNK arg1, s32 arg2, u8 *arg3) {
     M2C_FIELD(arg0, M2C_UNK **, 0x18) = &(*(RecoveredGlobal_80182D8C_lbl_804B5BA8 *)&lbl_804B5BA8).value;
     ((VObj_18_1a504b *)(arg0))->m5(arg2);
     M2C_FIELD(arg0, s32 *, 0xAC) = 0;
-    temp_r4 = (u8 *)&lbl_80443F20.value - 4;
+    temp_r4 = (u8 *)&city_door_init_params.value - 4;
     M2C_FIELD(arg0, f32 *, 0xB0) = lbl_805DBBE8[0];
     M2C_FIELD(arg0, f32 *, 0xB4) = lbl_805DBBE8[0];
     M2C_FIELD(arg0, u8 **, 0xB8) = arg3;

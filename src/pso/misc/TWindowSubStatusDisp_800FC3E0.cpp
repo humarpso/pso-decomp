@@ -7,7 +7,7 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 
 extern "C" {
 int set_global_param__8TObjFishFi(void*);
-    extern int lbl_805D5540;
+    extern int localized_alphabet_list;
 void begin_render__20TWindowSubStatusDispFv(s32 _w0);
 void TFontSmallHelp__sub_800FC424(void *arg0, s32 arg1);
 u32 calc_small_font_text_width(void *);
@@ -21,7 +21,7 @@ extern "C" {
 void render_forward__20TWindowSubStatusDispFPv(void* p);
 
 void render_forward__20TWindowSubStatusDispFPv(void* p) { begin_render__20TWindowSubStatusDispFv((s32)(p)); }
-void begin_render__20TWindowSubStatusDispFv(s32 _w0) { set_global_param__8TObjFishFi((void*)(lbl_805D5540)); }
+void begin_render__20TWindowSubStatusDispFv(s32 _w0) { set_global_param__8TObjFishFi((void*)(localized_alphabet_list)); }
 void TFontSmallHelp__sub_800FC424(void *arg0, s32 arg1) {
     M2C_FIELD(arg0, s32 *, 0x50) = (s32) (arg1 & 0xFFFFFF);
 }

@@ -133,7 +133,7 @@ extern const f32 lbl_805DDD3C;
 void TOKeyJungleMain__vt14(u8 *arg0);
 s32 get_difficulty_flag_bit__12TLevelSelectFii(s32, s32);
 extern RecoveredGlobal_8029D238_TOKeyJungleMain__data_804653C8 TOKeyJungleMain__data_804653C8;
-extern s32 lbl_805D5550;
+extern s32 game_difficulty_selection;
 void TOKeyJungleMain__vt12(u8 *arg0);
 u8 * load_resource_from_descriptor(void *, s32, void *, s32, s32, s32);
 int alloc__23TAdSinglePlyChrSelectGCFPv(void *);
@@ -142,7 +142,7 @@ extern u32 TOKeyJungleMain__data_805D65E0;
 void load_static_resource__15TOKeyJungleMainFv(void);
 s32 dispatch_by_phase__15TOKeyJungleMainFiUs(void *, int);
 extern RecoveredGlobal_8029D238_TOKeyJungleMain__data_804653C8 TOKeyJungleMain__data_804653C8;
-extern s32 lbl_805D5550;
+extern s32 game_difficulty_selection;
 void TOKeyJungleMain__vt19(u8 *arg0);
 s32 reset_photon_effect__10TObjPlayerFPv(void *);
 s32 refresh_collision_body_centers(void *);
@@ -242,14 +242,14 @@ void render__15TOKeyJungleMainFv(u8 *arg0) {
 
 typedef char RecoveredGlobal_8029D200_TOKeyJungleMain__data_804653C8_size[sizeof(RecoveredGlobal_8029D200_TOKeyJungleMain__data_804653C8) == 0xC ? 1 : -1];
 void TOKeyJungleMain__vt19(u8 *arg0) {
-    dispatch_by_phase__15TOKeyJungleMainFiUs((void *) (lbl_805D5550), (int) (M2C_FIELD(&(*(RecoveredGlobal_8029D200_TOKeyJungleMain__data_804653C8 *)&TOKeyJungleMain__data_804653C8).value, M2C_UNK *, (M2C_FIELD(arg0, s32 *, 0xC8) * 4))));
+    dispatch_by_phase__15TOKeyJungleMainFiUs((void *) (game_difficulty_selection), (int) (M2C_FIELD(&(*(RecoveredGlobal_8029D200_TOKeyJungleMain__data_804653C8 *)&TOKeyJungleMain__data_804653C8).value, M2C_UNK *, (M2C_FIELD(arg0, s32 *, 0xC8) * 4))));
 }
 
 void TOKeyJungleMain__vt12(u8 *arg0) {
     s32 temp_r31;
     if ((s32) M2C_FIELD(arg0, s32 *, 0xD0) != 2) {
         temp_r31 = M2C_FIELD(arg0, s32 *, 0xD4);
-        if (get_difficulty_flag_bit__12TLevelSelectFii(lbl_805D5550, M2C_FIELD(&TOKeyJungleMain__data_804653C8.value, M2C_UNK *, (M2C_FIELD(arg0, s32 *, 0xC8) * 4))) != 0) {
+        if (get_difficulty_flag_bit__12TLevelSelectFii(game_difficulty_selection, M2C_FIELD(&TOKeyJungleMain__data_804653C8.value, M2C_UNK *, (M2C_FIELD(arg0, s32 *, 0xC8) * 4))) != 0) {
             M2C_FIELD(arg0, s32 *, 0xD4) = 1;
         } else {
             M2C_FIELD(arg0, s32 *, 0xD4) = 0;

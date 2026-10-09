@@ -11,7 +11,7 @@ extern "C" {
 u8 * load_resource_from_descriptor(void *, s32, void *, s32, s32, s32);
 int alloc__23TAdSinglePlyChrSelectGCFPv(void *);
 M2C_UNK reset_matrix__13TObjTombstoneFv();
-extern RecoveredGlobal_800765B4_lbl_8048D240 lbl_8048D240;
+extern RecoveredGlobal_800765B4_lbl_8048D240 tombstone_resource_descriptor;
 extern u32 TObjTombstone__data_805D4E48;
 void load_resources__13TObjTombstoneFv(void);
 }
@@ -64,7 +64,7 @@ void load_resources__13TObjTombstoneFv(void) {
         temp_r3 = alloc__23TAdSinglePlyChrSelectGCFPv((void *)0x440);
         var_r0 = temp_r3;
         if (var_r0 != 0) {
-            var_r0 = (long) (load_resource_from_descriptor((void *) temp_r3, 1, &lbl_8048D240.value, 0, 0, 0));
+            var_r0 = (long) (load_resource_from_descriptor((void *) temp_r3, 1, &tombstone_resource_descriptor.value, 0, 0, 0));
         }
         (*(u8 * *)&TObjTombstone__data_805D4E48) = (unsigned char *) ((void *) var_r0);
         reset_matrix__13TObjTombstoneFv();

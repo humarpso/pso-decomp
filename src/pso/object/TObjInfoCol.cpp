@@ -37,7 +37,7 @@ extern RecoveredGlobal_80191E28_lbl_8050E208 lbl_8050E208;
 extern s32 lbl_805D53A0;
 s32 construct_collider_proxy__10TObjPlayerFPv(void *, void *);
 extern M2C_UNK __vt__11TObjInfoCol[];
-extern s32 lbl_805D3388;
+extern s32 TObjInfoCol__class_name;
 u8 *TObjInfoCol__ct(u8 *arg0, s32 arg1, s32 arg2);
 }
 
@@ -94,7 +94,7 @@ typedef char RecoveredGlobal_80191EC0___vt__11TObjInfoCol_size[sizeof(RecoveredG
 u8 *TObjInfoCol__ct(u8 *arg0, s32 arg1, s32 arg2) {
     construct_collider_proxy__10TObjPlayerFPv((void *) (arg0), (void *) (arg1));
     M2C_FIELD(arg0, M2C_UNK **, 0x18) = &(*(RecoveredGlobal_80191EC0___vt__11TObjInfoCol *)&__vt__11TObjInfoCol).value;
-    M2C_FIELD(arg0, s32 *, 0) = (s32) lbl_805D3388;
+    M2C_FIELD(arg0, s32 *, 0) = (s32) TObjInfoCol__class_name;
     ((VObj_18_1a504b *)(arg0))->m5(arg2);
     M2C_FIELD(arg0, f32 *, 0xAC) = (f32) M2C_FIELD(arg0, f32 *, 0x68);
     return arg0;

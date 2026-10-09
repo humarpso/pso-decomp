@@ -110,7 +110,7 @@ s32 is_quest_active();
 void update_camera_state__6TLobbyFv(void);
 M2C_UNK send_keepalive(void*);
 extern s32 lbl_805D53A4;
-extern u32 TLobby__data_805D5580;
+extern u32 TLobby__protocol_instance;
 extern s32 TLobby__lobby_state_flags;
 void update_periodic_tick__6TLobbyFv(void);
 void TLobby__sub_801A4C6C(void* p);
@@ -1108,8 +1108,8 @@ void run_online_lobby_scene(void) {
 }
 
 void update_periodic_tick__6TLobbyFv(void) {
-    if ((TLobby__lobby_state_flags & 1) && ((lbl_805D53A4 % 900) == 0) && ((u32) TLobby__data_805D5580 != 0U)) {
-        send_keepalive((void*)TLobby__data_805D5580);
+    if ((TLobby__lobby_state_flags & 1) && ((lbl_805D53A4 % 900) == 0) && ((u32) TLobby__protocol_instance != 0U)) {
+        send_keepalive((void*)TLobby__protocol_instance);
     }
 }
 void TLobby__sub_801A4C6C(void* p) { *(u32*)((char*)p + 0x20) |= 0x1; }

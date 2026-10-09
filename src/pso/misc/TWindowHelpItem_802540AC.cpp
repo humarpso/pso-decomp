@@ -298,7 +298,7 @@ extern "C" void TWindowHelpItem__vt11();
 extern "C" void TWindowHelpItem__vt2();
 extern "C" u8 lbl_8044EDB8[];
 extern "C" u8 lbl_8044EDC0[];
-extern "C" u8 lbl_805D5540[];
+extern "C" u8 localized_alphabet_list[];
 extern "C" u8 lbl_805D63F0[];
 extern "C" u8 lbl_805DCDC8[];
 extern "C" u8 lbl_805DCDCC[];
@@ -314,7 +314,7 @@ void *TWindowHelpItem__item_layout_entries[67] = {
     (void *)0x42a00000, (void *)0xb, (void *)0x0, (void *)0x42c80000,
     (void *)0x6, (void *)0x0, (void *)0x42f60000, (void *)0x42fe0000,
     (void *)0x41a00000, (void *)0x0, (void *)0x43040000, (void *)0x3f000000,
-    (void *)0xffffffff, (void *)&lbl_805D5540, (void *)0x1, (void *)0x4,
+    (void *)0xffffffff, (void *)&localized_alphabet_list, (void *)0x1, (void *)0x4,
     (void *)0x3, (void *)0x42ce0000, (void *)0x42f80000, (void *)0x3f000000,
     (void *)0xffffffff, (void *)0x0, (void *)&lbl_805DCDC8, (void *)0x4,
     (void *)0x43170000, (void *)0x42f80000, (void *)0x3f000000, (void *)0xffffffff,
@@ -399,7 +399,7 @@ void *help_item_tech_disk_window_layout_table[56] = {
     (void *)0x0, (void *)0x3f000000, (void *)0xffffffff, (void *)0x0,
     (void *)0x0, (void *)0x6, (void *)0x0, (void *)0x42f60000,
     (void *)0x42fe0000, (void *)0x41a00000, (void *)0x0, (void *)0x43040000,
-    (void *)0x3f000000, (void *)0xffffffff, (void *)&lbl_805D5540, (void *)0x1,
+    (void *)0x3f000000, (void *)0xffffffff, (void *)&localized_alphabet_list, (void *)0x1,
     (void *)0x4, (void *)0x3, (void *)0x42ce0000, (void *)0x42f80000,
     (void *)0x3f000000, (void *)0xffffffff, (void *)0x0, (void *)&lbl_805DCDC8,
     (void *)0x4, (void *)0x43170000, (void *)0x42f80000, (void *)0x3f000000,

@@ -16,8 +16,8 @@ void *construct_city_air_car(void *, void *, s32, s32, f32);
 void *__nw__7TObjectFUl(u32);
 s32 all_parents_unqueued_for_destruction__7TObjectFv(void *);
 s32 rand(void);
-extern f32 lbl_8050DBE0[];
-extern f32 lbl_8050DBF4[];
+extern f32 air_car_lane_spacing_table[];
+extern f32 air_car_lane_speed_scale_table[];
 extern const f32 lbl_805DBBC0;
 extern const f32 lbl_805DBBC4;
 extern const f32 lbl_805DBBCC;
@@ -72,10 +72,10 @@ void run_task__19TObjCityAirCar_CtrlFv(Ctrl_80181310 *self) {
                     }
                 }
             }
-            speed = lbl_8050DBF4[i] * lerp__9TDeadSpotFff(lbl_805DBBC0, lbl_805DBBD4);
+            speed = air_car_lane_speed_scale_table[i] * lerp__9TDeadSpotFff(lbl_805DBBC0, lbl_805DBBD4);
             if (count > 0) {
                 last = r->objs[count - 1];
-                if (fn_80181204(last) < lbl_805DBBC4 * lbl_8050DBE0[i]) {
+                if (fn_80181204(last) < lbl_805DBBC4 * air_car_lane_spacing_table[i]) {
                     speed = fn_801811FC(last);
                 }
             }

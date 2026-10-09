@@ -68,7 +68,7 @@ M2C_UNK queue_destruction__7TObjectFv(void *);
 M2C_UNK send_and_handle__6TLobbyFPvii(u32, void *, M2C_UNK);
 u32 set_window_mode_4__6TLobbyFPvii(void *, void *, M2C_UNK);
 
-extern M2C_UNK lbl_8048D168[];
+extern M2C_UNK dead_list_window_position[];
 extern M2C_UNK lbl_805D9140;
 extern M2C_UNK lbl_805D9144;
 
@@ -78,7 +78,7 @@ void build_dead_list_window__15TObjDeadListWinFPv(u8 *arg0) {
     s32 var_r30;
     u8 *temp_r4;
 
-    M2C_FIELD(arg0, u32 *, 0x20) = set_window_mode_4__6TLobbyFPvii((void *) get_window_layout_position(0x3C), lbl_8048D168, 1);
+    M2C_FIELD(arg0, u32 *, 0x20) = set_window_mode_4__6TLobbyFPvii((void *) get_window_layout_position(0x3C), dead_list_window_position, 1);
     if ((u32) M2C_FIELD(arg0, u32 *, 0x20) != 0U) {
         sp8[0] = 0;
         strcat(sp8, &lbl_805D9140);

@@ -3097,7 +3097,7 @@ s32 set_global_flag__10TObjPlayerFv();
 s32 clear_global_state__10TObjPlayerFv();
 
 extern s32 TOMineTrap__data_805D3080;
-extern s32 TObjPlayer__data_805D33E0;
+extern s32 TObjPlayer__player_set_class_name;
 extern const f32 TObjPlayer__data_805DC278;
 extern f32 TObjPlayer__data_805DC28C;
 extern f32 TObjPlayer__data_805DC294;
@@ -3120,7 +3120,7 @@ extern s32 lbl_805D53A4;
 extern s32 lbl_805D55C0;
 extern s32 lobby_player_count;
 extern s32 shared_state_flags;
-extern Rec_801B09A4 *lbl_805D5DB8;
+extern Rec_801B09A4 *lobby_char_slot_array;
 extern M2C_UNK lbl_805DC27C;
 extern f32 lbl_805DC280;
 extern f32 lbl_805DC284;
@@ -3836,7 +3836,7 @@ void TLobby__sub_801B09A4(void) {
     }
     for (i = 0; i < 12; i++) {
         if (players[i] != NULL) {
-            create_player_instance__10TObjPlayerFii(i, &lbl_805D5DB8[i]);
+            create_player_instance__10TObjPlayerFii(i, &lobby_char_slot_array[i]);
             TLobby__sub_8024AC20(i);
         }
     }
@@ -3968,7 +3968,7 @@ void apply_battle_rules_to_players__6TLobbyFv(void) {
         ((void (*)(Pl_801B0B88 *))check_technique_flag__10TObjPlayerFPv)(p);
         ((void (*)(Pl_801B0B88 *))recover_full__10TObjPlayerFPv)(p);
         cancel_status_effects__10TObjPlayerFPv((Pl_801B0B88 *)(p));
-        copy_lobby_header__10TObjPlayerFPvi(&lbl_805D5DB8[i], p);
+        copy_lobby_header__10TObjPlayerFPvi(&lobby_char_slot_array[i], p);
     }
 }
 
@@ -8389,7 +8389,7 @@ M2C_UNK send_respawn_position__10TObjPlayerFPv(void *self) {
     c = list;
     count = 0;
     for (obj = tl_06->head; obj != NULL; obj = obj->next) {
-        if (check_value_equals__13TQuestColCtrlFPvi(obj, TObjPlayer__data_805D33E0) != 0 && obj->f84 == 0) {
+        if (check_value_equals__13TQuestColCtrlFPvi(obj, TObjPlayer__player_set_class_name) != 0 && obj->f84 == 0) {
             f32 range = lbl_805DC2C0;
             ok = 1;
             for (i = 0; i < 12; i++) {
@@ -8440,7 +8440,7 @@ void TObjPlayer__sub_801BC068(void *self, u16 id) {
     Obj_801BC068 *o;
     found = 0;
     for (o = tl_06->head; o != NULL; o = o->next) {
-        if (check_value_equals__13TQuestColCtrlFPvi(o, TObjPlayer__data_805D33E0) != 0 && o->f84 == 0 &&
+        if (check_value_equals__13TQuestColCtrlFPvi(o, TObjPlayer__player_set_class_name) != 0 && o->f84 == 0 &&
             (s32)o->f68 == id) {
             found = 1;
             break;

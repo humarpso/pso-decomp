@@ -5,7 +5,7 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 #define M2C_BITWISE(type, expr) ((type)(expr))
 extern "C" {
 M2C_UNK TKeyBoardControl__sub_8025CC3C(u32);
-extern s32 lbl_805D5544;
+extern s32 current_language;
 void fn_8025FF8C(void *arg0);
 }
 
@@ -15,7 +15,7 @@ void fn_8025FF8C(void *arg0) {
     if ((u32) M2C_FIELD(arg0, u32 *, 0x70) != 0U) {
         M2C_FIELD(arg0, s32 *, 0x60) = (s32) (M2C_FIELD(arg0, s32 *, 0x60) | 0x40);
         TKeyBoardControl__sub_8025CC3C(M2C_FIELD(arg0, u32 *, 0x70));
-        switch ((s32) lbl_805D5544) {
+        switch ((s32) current_language) {
         case 0:
         case 1:
             break;

@@ -86,7 +86,7 @@ extern u8 lbl_805D5D09;
 s32 func_801A5E54__Fv(void);
 s32 check_reset_button__16TKeyBoardControlFv();
 M2C_UNK PADRecalibrate(u32);
-extern Masks_801A5C4C lbl_804469D8;
+extern Masks_801A5C4C pad_recalibration_bit_masks;
 extern const f64 lbl_804469E8[];
 extern RecoveredGlobal_801A5EC4_lbl_8050E208 lbl_8050E208;
 extern u32 lbl_8050E568[];

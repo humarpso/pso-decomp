@@ -77,7 +77,7 @@ int sprintf(char *, const char *, ...);
 extern char lbl_804387C8[];
 extern char lbl_804387E0[];
 extern s32 lbl_805D53A0;
-extern s32 lbl_805D5544;
+extern s32 current_language;
 void format_date_text__13TObjTombstoneFPv(Tomb_80075A00 *self);
 const char *TQuestVmDownLoadServer__sub_8006EF6C(s32);
 s32 enemy_name_for_rt_index(s32);
@@ -147,7 +147,7 @@ void format_date_text__13TObjTombstoneFPv(Tomb_80075A00 *self) {
         || hour < 0 || hour >= 24 || minute < 0 || minute >= 60) {
         return;
     }
-    switch (lbl_805D5544) {
+    switch (current_language) {
     case 0:
         sprintf(text, lbl_804387C8, year + 2000, month, day, hour, minute);
         break;

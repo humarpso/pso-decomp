@@ -17,7 +17,7 @@ struct RecoveredGlobal_80207E88_lbl_804C9270 {
 extern "C" {
 s32 is_online_ready__6TLobbyFv();
 extern RecoveredGlobal_80207E88_lbl_804C8FC0 lbl_804C8FC0;
-extern RecoveredGlobal_80207E88_lbl_804C9270 lbl_804C9270;
+extern RecoveredGlobal_80207E88_lbl_804C9270 floor_scene_table;
 s32 get_floor_scene_table(s32 arg0);
 }
 
@@ -62,7 +62,7 @@ s32 get_floor_scene_table(s32 arg0) {
         return 0;
     }
     if (is_online_ready__6TLobbyFv() != 0) {
-        return M2C_FIELD(((u8 *)(&lbl_804C9270.value) + (arg0 * 8)), s32 *, 0);
+        return M2C_FIELD(((u8 *)(&floor_scene_table.value) + (arg0 * 8)), s32 *, 0);
     }
     return M2C_FIELD(((u8 *)(&lbl_804C8FC0.value) + (arg0 * 8)), s32 *, 0);
 }
@@ -218,7 +218,7 @@ s32 get_instance__6TLobbyFv();
 s32 get_main_phase();
 s32 is_split_screen();
 
-extern s32 lbl_805D5550;
+extern s32 game_difficulty_selection;
 
 s32 get_drop_item_mode__6TLobbyFv(void) {
     s32 temp_r3;
@@ -226,18 +226,18 @@ s32 get_drop_item_mode__6TLobbyFv(void) {
     temp_r3 = get_main_phase();
     switch (temp_r3) {
     case 15:
-        if ((get_instance__6TLobbyFv() == 0) && ((s32) lbl_805D5550 == 3)) {
+        if ((get_instance__6TLobbyFv() == 0) && ((s32) game_difficulty_selection == 3)) {
             return 3;
         }
         return 2;
     case 14:
         if (is_split_screen() == 1) {
-            if ((get_instance__6TLobbyFv() == 0) && ((s32) lbl_805D5550 == 3)) {
+            if ((get_instance__6TLobbyFv() == 0) && ((s32) game_difficulty_selection == 3)) {
                 return 3;
             }
             return 2;
         }
-        if ((get_instance__6TLobbyFv() == 0) && ((s32) lbl_805D5550 == 3)) {
+        if ((get_instance__6TLobbyFv() == 0) && ((s32) game_difficulty_selection == 3)) {
             return 1;
         }
         return 0;
@@ -261,7 +261,7 @@ s32 *load_relocatable_file(s32, u32);
 s32 update_lobby_scene__6TSceneFPv(s32);
 s32 get_drop_item_mode__6TLobbyFv();
 
-extern s32 lbl_804C9390[];
+extern s32 forest_rel_filename_table[];
 extern s32 TLobby__data_805D6068;
 extern s32 lbl_805D606C;
 extern s32 *lbl_805D6070;
@@ -276,8 +276,8 @@ void update_drop_item__6TLobbyFv(void) {
     lbl_805D6070 = NULL;
     if ((u32) lbl_805D6074 != 0U) {
         temp_r30 = get_drop_item_mode__6TLobbyFv();
-        if (update_lobby_scene__6TSceneFPv(lbl_804C9390[temp_r30]) <= 0x24B8) {
-            temp_r3 = load_relocatable_file(lbl_804C9390[temp_r30], lbl_805D6074);
+        if (update_lobby_scene__6TSceneFPv(forest_rel_filename_table[temp_r30]) <= 0x24B8) {
+            temp_r3 = load_relocatable_file(forest_rel_filename_table[temp_r30], lbl_805D6074);
             lbl_805D6070 = temp_r3;
             if (temp_r3 != NULL) {
                 temp_r0 = *temp_r3;
@@ -370,7 +370,7 @@ s32 get_drop_item_mode__6TLobbyFv();
 int link_matching_objects__6TLobbyFss(void);
 s32 update_lobby_scene__6TSceneFPv(s32);
 
-extern s32 lbl_804C9390[];
+extern s32 forest_rel_filename_table[];
 extern s32 TLobby__data_805D6068;
 extern s32 lbl_805D606C;
 extern s32 *lbl_805D6070;
@@ -388,8 +388,8 @@ void load_item_data__6TLobbyFv(void) {
     lbl_805D6074 = temp_r3;
     if (temp_r3 != 0U) {
         temp_r30 = get_drop_item_mode__6TLobbyFv();
-        if (update_lobby_scene__6TSceneFPv(lbl_804C9390[temp_r30]) <= 0x24B8) {
-            temp_r3_2 = load_relocatable_file(lbl_804C9390[temp_r30], lbl_805D6074);
+        if (update_lobby_scene__6TSceneFPv(forest_rel_filename_table[temp_r30]) <= 0x24B8) {
+            temp_r3_2 = load_relocatable_file(forest_rel_filename_table[temp_r30], lbl_805D6074);
             lbl_805D6070 = temp_r3_2;
             if (temp_r3_2 != NULL) {
                 temp_r0 = *temp_r3_2;
@@ -474,13 +474,13 @@ typedef struct {
 } Ent_8020864C;
 
 s32 read_be_u32(void);
-extern Ent_8020864C lbl_804C93A8[];
+extern Ent_8020864C wave_event_action_table[];
 
 void TLobby__sub_8020864C(s32 arg0) {
     Ent_8020864C *temp_r3;
     M2C_UNK (*temp_r31)(M2C_UNK);
 
-    temp_r3 = lbl_804C93A8;
+    temp_r3 = wave_event_action_table;
     temp_r3 += (u8)arg0;
     temp_r31 = temp_r3->fn;
     temp_r31(((M2C_UNK (*)(void *))read_be_u32)(temp_r3));
@@ -488,7 +488,7 @@ void TLobby__sub_8020864C(s32 arg0) {
 
 u16 read_stream_u16(void);
 void dispatch_opcode_two_u16__6TLobbyFUc(u8 arg0) {
-    void (*f)(s32, s32) = (void (*)(s32, s32))lbl_804C93A8[arg0].fn;
+    void (*f)(s32, s32) = (void (*)(s32, s32))wave_event_action_table[arg0].fn;
     s32 a = ((s32 (*)(void))read_stream_u16)();
     f(a, ((s32 (*)(void))read_stream_u16)());
 }
@@ -507,11 +507,11 @@ typedef struct Ent_ {
     s32 a;
     M2C_UNK (*fn)(M2C_UNK);
 } Ent;
-#define lbl_804C93A8 (*(Ent (*)[1])&lbl_804C93A8)
+#define wave_event_action_table (*(Ent (*)[1])&wave_event_action_table)
 void dispatch_stream_command__6TLobbyFUc(u8 arg0) {
     M2C_UNK (*temp_r31)(M2C_UNK);
     Ent *temp_r3;
-    temp_r3 = lbl_804C93A8;
+    temp_r3 = wave_event_action_table;
     temp_r3 += arg0;
     temp_r31 = temp_r3->fn;
     temp_r31(((M2C_UNK (*)(void *))read_stream_u16)(temp_r3));
@@ -519,7 +519,7 @@ void dispatch_stream_command__6TLobbyFUc(u8 arg0) {
 
 }
 
-#undef lbl_804C93A8
+#undef wave_event_action_table
 
 #include "types.h"
 typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
@@ -531,10 +531,10 @@ extern "C" {
 
 void invoke_command__6TLobbyFi(s32 arg0);
 
-#define lbl_804C93A8 (*(u8 (*)[1])&lbl_804C93A8)
+#define wave_event_action_table (*(u8 (*)[1])&wave_event_action_table)
 
 void invoke_command__6TLobbyFi(s32 arg0) {
-    u8 *temp_r3 = lbl_804C93A8;
+    u8 *temp_r3 = wave_event_action_table;
     temp_r3 += ((u8)arg0) * 8;
 
     M2C_FIELD(temp_r3, M2C_UNK (**)(void *), 4)(temp_r3);
@@ -542,7 +542,7 @@ void invoke_command__6TLobbyFi(s32 arg0) {
 
 }
 
-#undef lbl_804C93A8
+#undef wave_event_action_table
 
 #include "types.h"
 typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
@@ -603,7 +603,7 @@ extern "C" {
 unsigned char read_stream_u8(void);
 typedef void (*Fn_8020881C)();
 struct H_8020881C { Fn_8020881C fn; u32 b; };
-#define lbl_804C93A8 (*(H_8020881C (*)[1])&lbl_804C93A8)
+#define wave_event_action_table (*(H_8020881C (*)[1])&wave_event_action_table)
 #define lbl_805D6080 (*(s32 *)&lbl_805D6080)
 extern s32 lbl_805D6084;
 extern s32 lbl_805D6088;
@@ -618,14 +618,14 @@ s32 run_wave_event_actions(void) {
     lbl_805D6084 = 0;
     lbl_805D6088 = 1;
     while (lbl_805D6080 == 0) {
-        lbl_804C93A8[read_stream_u8()].fn();
+        wave_event_action_table[read_stream_u8()].fn();
     }
     return lbl_805D6084;
 }
 
 }
 
-#undef lbl_804C93A8
+#undef wave_event_action_table
 #undef lbl_805D6078
 #undef lbl_805D607C
 #undef lbl_805D6080
@@ -670,7 +670,7 @@ struct Grp_802089B0 { u8 pad[8]; s32 count; s32 pad3; Rec_802089B0 recs[1]; };
 
 extern "C" {
 s32 get_current_floor();
-extern Fn_80208BD8 lbl_804C9428[];
+extern Fn_80208BD8 floor_event_create_table[];
 void activate_triggered_floor_events(void);
 s32 activate_first_floor_event(s32 idx, s32 id);
 u8 * heap_alloc__5THeapFUl(void *, s32);
@@ -871,7 +871,7 @@ void activate_triggered_floor_events(void) {
         n = g->count;
         r = g->recs;
         i = 0;
-        tbl = lbl_804C9428;
+        tbl = floor_event_create_table;
         for (; i < n; i++, r++) {
             if (!(r->f4 & 2) && (r->f4 & 4)) {
                 tbl[r->f6](r);
@@ -891,7 +891,7 @@ s32 activate_first_floor_event(s32 idx, s32 id) {
     r = g->recs;
     for (i = g->count; i > 0; i--, r++) {
         if (r->id == id && !(r->f4 & 2)) {
-            lbl_804C9428[r->f6](r);
+            floor_event_create_table[r->f6](r);
             r->f4 |= 6;
             return 1;
         }

@@ -371,7 +371,7 @@ extern M2C_UNK __vt__20TOTrapChainSawDamage[];
 extern u32 lbl_80540B30[5];
 extern u32 lbl_80540B44[5];
 extern s32 lbl_805D53A0;
-extern s32 lbl_805D5550;
+extern s32 game_difficulty_selection;
 extern void *tl_05;
 void *lbl_804E0BD0[6] = {
     (void *)"fe_obj_nokogiri_2m.gj", (void *)"fe_obj_nokogiri_4m.gj", (void *)"fe_obj_sekigai_light_moto.gj", (void *)"fe_obj_sekigai2m_moto.gj",
@@ -385,8 +385,8 @@ void *lbl_804E0C00[4] = {
     (void *)"bm_obj_jungle_nokogiri.bml", (void *)&lbl_804E0BD0, (void *)&lbl_804E0BE8, (void *)0x50005,
 };
 const char *lbl_805D3F00 = "TOTrapChainSaw";
-__declspec(section ".rodata") F4_802C8FF8 lbl_80471EDC = { 1.0f, 2.0f, 3.0f, 6.0f };
-const T_802C8F68 lbl_80471EEC = { { { 0x4D01F, 0x4C122, 0x4BC21 }, { 0x4004D01F, 0x4004C122, 0x4004BC21 }, { 0x4004D01F, 0x4004C122, 0x4004BC21 } } };
+__declspec(section ".rodata") F4_802C8FF8 TOTrapChainSaw__level_scale_table = { 1.0f, 2.0f, 3.0f, 6.0f };
+const T_802C8F68 chainsaw_area_table_values = { { { 0x4D01F, 0x4C122, 0x4BC21 }, { 0x4004D01F, 0x4004C122, 0x4004BC21 }, { 0x4004D01F, 0x4004C122, 0x4004BC21 } } };
 const char *TOTrapChainSawDamage_class_name = "TOTrapChainSawDamage";
 const s32 lbl_80471F28[2] = { 0, 1 };
 const s32 lbl_80471F30[2] = { 0, 1 };
@@ -851,7 +851,7 @@ extern int fold_flush_7;
 #pragma dont_inline off
 #pragma inline_depth(1)
 s32 get_area_table_value__17TOTrapChainSawKeyFii(s32 arg0, s32 arg1) {
-    T_802C8F68 t = lbl_80471EEC;
+    T_802C8F68 t = chainsaw_area_table_values;
     s32 *p = t.r[0];
     switch (get_global_state__14TOKeyMachine01Fv()) {
     case 34:
@@ -867,8 +867,8 @@ extern int fold_flush_8;
 #pragma pop
 
 f32 scale_by_level__14TOTrapChainSawFf(f32 farg0) {
-    F4_802C8FF8 t = lbl_80471EDC;
-    return farg0 * t.v[lbl_805D5550];
+    F4_802C8FF8 t = TOTrapChainSaw__level_scale_table;
+    return farg0 * t.v[game_difficulty_selection];
 }
 
 void update_demo__14TOTrapChainSawFPv(void *arg0) {

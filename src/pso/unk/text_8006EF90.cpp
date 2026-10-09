@@ -22,10 +22,10 @@ struct RecoveredGlobal_8006EF98_lbl_8048C244 {
 extern "C" {
 extern RecoveredGlobal_8006EF98_lbl_8048A088 lbl_8048A088;
 extern RecoveredGlobal_8006EF98_lbl_8048B0F4 lbl_8048B0F4;
-extern RecoveredGlobal_8006EF98_lbl_8048C244 lbl_8048C244;
+extern RecoveredGlobal_8006EF98_lbl_8048C244 lobby_stage_table;
 u8 *get_stage_table_entry__6TLobbyFii(s32 arg0, s32 arg1);
 s32 is_flag_set__6TLobbyFv(void);
-extern s32 lbl_8048C9D8[];
+extern s32 challenge_mode_state[];
 s32 get_online_result_value__6TLobbyFv(void);
 }
 
@@ -42,7 +42,7 @@ u8 *get_stage_table_entry__6TLobbyFii(s32 arg0, s32 arg1) {
     case 0:
         return (u8 *)&lbl_8048B0F4.value + (arg1 * 0x10);
     case 1:
-        return (u8 *)&lbl_8048C244.value + (arg1 * 0x10);
+        return (u8 *)&lobby_stage_table.value + (arg1 * 0x10);
     case 2:
         return (u8 *)&lbl_8048A088.value + (arg1 * 0x10);
     default:
@@ -53,7 +53,7 @@ s32 get_online_result_value__6TLobbyFv(void) {
     s32 f = is_flag_set__6TLobbyFv();
     s32 r = -1;
     if (f) {
-        r = lbl_8048C9D8[0];
+        r = challenge_mode_state[0];
     }
     return r;
 }

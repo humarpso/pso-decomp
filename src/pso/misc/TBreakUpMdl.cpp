@@ -185,7 +185,7 @@ void draw_ginja_model(s32);
 void set_chunk_material_override_pair(u32, u32);
 void set_chunk_material_color(Color_8009680C *);
 void draw_chunk_model(s32);
-extern Color_8009680C lbl_80439F58;
+extern Color_8009680C breakup_default_color;
 extern u32 lbl_805D5660;
 extern u32 some_id_805c6f74;
 extern const f32 lbl_805D97C8;
@@ -206,7 +206,7 @@ void rotate_matrix_y(s32, s32);
 s32 push_matrix_from(u32);
 M2C_UNK pop_matrix();
 M2C_UNK post_translate_matrix(void *);
-extern u8 lbl_80439F30[];
+extern u8 breakup_default_param_row[];
 extern M2C_UNK __vt__11TBreakUpMdl[];
 extern RecoveredGlobal_80096F54_lbl_8058D490 lbl_8058D490;
 extern s32 TBreakUpMdl__class_name;
@@ -255,7 +255,7 @@ void render__11TBreakUpMdlFv(BreakUp_8009680C *self) {
     }
     lbl_805D5660 = some_id_805c6f74;
     if (self->alpha < lbl_805D97C8) {
-        Color_8009680C color = lbl_80439F58;
+        Color_8009680C color = breakup_default_color;
         some_id_805c6f74 |= 0x810;
         set_chunk_material_override_pair(0xFF00, 0x800);
         color.a = self->alpha;
@@ -336,7 +336,7 @@ u8 *TBreakUpMdl__ct(u8 *arg0, void *arg1, Model_80096AD8 *arg2, void *arg3, s32 
     self->f0 = TBreakUpMdl__class_name;
     self->model = arg2;
     if (arg3 == NULL) {
-        copy__11TBreakUpMdlFPvPv(&self->f38, lbl_80439F30);
+        copy__11TBreakUpMdlFPvPv(&self->f38, breakup_default_param_row);
     } else {
         copy__11TBreakUpMdlFPvPv(&self->f38, arg3);
     }

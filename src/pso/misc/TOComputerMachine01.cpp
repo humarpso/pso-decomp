@@ -63,7 +63,7 @@ M2C_UNK pop_matrix();
 M2C_UNK post_translate_matrix(void *);
 M2C_UNK set_global_param__8TObjFishFi(int);
 M2C_UNK draw_ginja_model(void *);
-extern RecoveredGlobal_8015B350_TOComputerMachine01__data_8050DB50 TOComputerMachine01__data_8050DB50;
+extern RecoveredGlobal_8015B350_TOComputerMachine01__data_8050DB50 TOComputerMachine01__scroll_mesh_ptrs;
 extern s32 lbl_805D53A4;
 extern s32 TOComputerMachine01__data_805D58E4;
 void render__19TOComputerMachine01Fv(u8 *arg0);
@@ -81,14 +81,14 @@ extern const f32 lbl_805DB390;
 extern const f32 lbl_805DB394;
 u8 *TOComputerMachine01__ct(u8 *arg0, s32 arg1);
 void TLobby__sub_8001FE7C(void *, s32);
-extern RecoveredGlobal_8015B350_TOComputerMachine01__data_8050DB50 TOComputerMachine01__data_8050DB50;
+extern RecoveredGlobal_8015B350_TOComputerMachine01__data_8050DB50 TOComputerMachine01__scroll_mesh_ptrs;
 extern s32 TOComputerMachine01__data_805D58E4;
 extern u8 *TOComputerMachine01__data_805D58E0;
 void reset_state__19TOComputerMachine01Fv(void);
 u8 * load_resource_from_descriptor(void *, s32, void *, s32, s32, s32);
 int alloc__23TAdSinglePlyChrSelectGCFPv(void *);
 extern M2C_UNK lbl_804AFFE8[];
-extern RecoveredGlobal_8015B350_TOComputerMachine01__data_8050DB50 TOComputerMachine01__data_8050DB50;
+extern RecoveredGlobal_8015B350_TOComputerMachine01__data_8050DB50 TOComputerMachine01__scroll_mesh_ptrs;
 extern s32 TOComputerMachine01__data_805D58E4;
 extern u8 *TOComputerMachine01__data_805D58E0;
 void load_model_resource__19TOComputerMachine01Fv(void);
@@ -114,10 +114,10 @@ void render__19TOComputerMachine01Fv(u8 *arg0) {
     if ((s32) M2C_FIELD(arg0, s32 *, 0xE0) == 1) {
         if ((s32) TOComputerMachine01__data_805D58E4 != (s32) lbl_805D53A4) {
             TOComputerMachine01__data_805D58E4 = lbl_805D53A4;
-            scroll_ginja_mesh_uvs((int) (M2C_FIELD(&TOComputerMachine01__data_8050DB50.value, s32 *, 0)), (int) (0), (int) (2), (int) (7), (int) (1));
-            scroll_ginja_mesh_uvs((int) (M2C_FIELD(&TOComputerMachine01__data_8050DB50.value, s32 *, 4)), (int) (0), (int) (-2), (int) (7), (int) (1));
-            scroll_ginja_mesh_uvs((int) (M2C_FIELD(&TOComputerMachine01__data_8050DB50.value, s32 *, 8)), (int) (0), (int) (1), (int) (7), (int) (1));
-            scroll_ginja_mesh_uvs((int) (M2C_FIELD(&TOComputerMachine01__data_8050DB50.value, s32 *, 0xC)), (int) (0), (int) (-1), (int) (7), (int) (1));
+            scroll_ginja_mesh_uvs((int) (M2C_FIELD(&TOComputerMachine01__scroll_mesh_ptrs.value, s32 *, 0)), (int) (0), (int) (2), (int) (7), (int) (1));
+            scroll_ginja_mesh_uvs((int) (M2C_FIELD(&TOComputerMachine01__scroll_mesh_ptrs.value, s32 *, 4)), (int) (0), (int) (-2), (int) (7), (int) (1));
+            scroll_ginja_mesh_uvs((int) (M2C_FIELD(&TOComputerMachine01__scroll_mesh_ptrs.value, s32 *, 8)), (int) (0), (int) (1), (int) (7), (int) (1));
+            scroll_ginja_mesh_uvs((int) (M2C_FIELD(&TOComputerMachine01__scroll_mesh_ptrs.value, s32 *, 0xC)), (int) (0), (int) (-1), (int) (7), (int) (1));
         }
         push_matrix();
         post_translate_matrix((void *) (arg0 + 0x38));
@@ -152,7 +152,7 @@ void reset_state__19TOComputerMachine01Fv(void) {
     s32 i;
     TOComputerMachine01__data_805D58E4 = 0;
     for (i = 0; i < 0x4; i++) {
-        ((s32 *)&TOComputerMachine01__data_8050DB50)[i] = 0;
+        ((s32 *)&TOComputerMachine01__scroll_mesh_ptrs)[i] = 0;
     }
     if ((*(void * *)&TOComputerMachine01__data_805D58E0) != 0) {
         TLobby__sub_8001FE7C((*(void * *)&TOComputerMachine01__data_805D58E0), 1);
@@ -169,10 +169,10 @@ void load_model_resource__19TOComputerMachine01Fv(void) {
     }
     TOComputerMachine01__data_805D58E0 = o;
     n = ((Obj_8015B544 *)o)->model->res->head;
-    ((s32 *)&TOComputerMachine01__data_8050DB50)[3] = n->val;
-    ((s32 *)&TOComputerMachine01__data_8050DB50)[2] = n->next->val;
-    ((s32 *)&TOComputerMachine01__data_8050DB50)[1] = n->next->next->val;
-    ((s32 *)&TOComputerMachine01__data_8050DB50)[0] = n->next->next->next->val;
+    ((s32 *)&TOComputerMachine01__scroll_mesh_ptrs)[3] = n->val;
+    ((s32 *)&TOComputerMachine01__scroll_mesh_ptrs)[2] = n->next->val;
+    ((s32 *)&TOComputerMachine01__scroll_mesh_ptrs)[1] = n->next->next->val;
+    ((s32 *)&TOComputerMachine01__scroll_mesh_ptrs)[0] = n->next->next->next->val;
     TOComputerMachine01__data_805D58E4 = 0;
 }
 

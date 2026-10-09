@@ -21,7 +21,7 @@ extern RecoveredGlobal_802290E0_lbl_80515BC8 lbl_80515BC8;
 extern u8 *lbl_805D6338;
 void text_builder_reset(void);
 s8 *parse_text_control_codes(s8 *, s32 *, s32);
-extern s32 lbl_805D5544;
+extern s32 current_language;
 extern u8 *lbl_805D6338;
 s8 *copy_message_page_text__20TWindowSubStatusDispFPv(s8 *s);
 }
@@ -36,7 +36,7 @@ s8 *copy_message_page_text__20TWindowSubStatusDispFPv(s8 *s) {
     s32 sjis;
     s8 *d;
     sjis = 0;
-    if (lbl_805D5544 == 0) {
+    if (current_language == 0) {
         sjis = 1;
     }
     d = (s8 *)lbl_805D6338;

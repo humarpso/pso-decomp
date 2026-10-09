@@ -1005,12 +1005,12 @@ void TLobby__sub_803F8794(void *) {
 
 }
 
-extern s16 lbl_805D47FC;
+extern s16 net_param_room_count;
 extern s32 lbl_805D4800;
 extern s32 lbl_805D7A44;
 
 void init_params__6TLobbyFPv(u8 *arg0) {
-    M2C_FIELD(arg0, s16 *, 4) = (s16) lbl_805D47FC;
+    M2C_FIELD(arg0, s16 *, 4) = (s16) net_param_room_count;
     M2C_FIELD(arg0, s32 *, 8) = (s32) lbl_805D4800;
     M2C_FIELD(arg0, s32 *, 0xC) = (s32) lbl_805D4800;
     M2C_FIELD(arg0, s16 *, 0xA0) = 0x64;
@@ -1021,11 +1021,11 @@ void TLobby__sub_803F87C4(void) {
 
 }
 
-extern s16 lbl_805D47FA;
+extern s16 net_param_player_count;
 extern s32 lbl_805D7A40;
 
 void TLobby__sub_803F87C8(u8 *arg0) {
-    M2C_FIELD(arg0, s16 *, 0) = (s16) lbl_805D47FA;
+    M2C_FIELD(arg0, s16 *, 0) = (s16) net_param_player_count;
     M2C_FIELD(arg0, s32 *, 8) = (s32) lbl_805D7A40;
 }
 

@@ -499,7 +499,7 @@ extern u32 lbl_805D31B4;
 extern s32 lbl_805D31B8;
 extern s32 lbl_805D53A0;
 extern s32 lbl_805D53A4;
-extern s32 lbl_805D5550;
+extern s32 game_difficulty_selection;
 extern s32 lbl_805D5ADC;
 extern u32 lbl_805D5AE0;
 extern s32 lbl_805D5AE4;
@@ -517,13 +517,13 @@ extern void *tl_05;
 void calc_trap_count__16TOTrapAncient02RFPv(void *arg0) {
     s32 temp_r4;
 
-    M2C_FIELD(arg0, s32 *, 0x360) = (s32) (M2C_FIELD(arg0, f32 *, 0x70) + ((lbl_805DBA7C * (f32) lbl_805D5550) + lbl_805DBA78));
+    M2C_FIELD(arg0, s32 *, 0x360) = (s32) (M2C_FIELD(arg0, f32 *, 0x70) + ((lbl_805DBA7C * (f32) game_difficulty_selection) + lbl_805DBA78));
     temp_r4 = M2C_FIELD(arg0, s32 *, 0x360);
     if (temp_r4 < 0) {
         M2C_FIELD(arg0, s32 *, 0x360) = 0;
         return;
     }
-    if ((s32) lbl_805D5550 == 3) {
+    if ((s32) game_difficulty_selection == 3) {
         if (temp_r4 > 0x1D) {
             M2C_FIELD(arg0, s32 *, 0x360) = 0x1D;
         }

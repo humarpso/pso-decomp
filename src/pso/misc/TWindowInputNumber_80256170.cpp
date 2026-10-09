@@ -34,13 +34,14 @@ typedef struct InNum_802561E8 {
     s8 ndigits;
 } InNum_802561E8;
 
+struct Win_80256354 { u8 p0[0x62]; s8 f62; u8 p63[5]; s32 f68; };
+
 extern "C" {
 s32 get_array_entry__20TWindowSubStatusDispFPvi(void *, int);
 void draw_right_aligned_number(void *);
 void refresh_digit_entries__18TWindowInputNumberFPv(u8 *arg0);
 u8 * construct_base__9TWindowDDFPvPvsPv(void *, s32, s16, s32);
 void refresh_digit_entries__18TWindowInputNumberFPv(u8 *arg0);
-void calc_digit_count__18TWindowInputNumberFv(void *);
 extern RecoveredGlobal_80256A60_lbl_804CF8EC lbl_804CF8EC;
 extern M2C_UNK __vt__18TWindowInputNumber[];
 extern s32 lbl_805D3918;
@@ -55,6 +56,8 @@ extern const f32 lbl_805DCE1C;
 extern const f32 lbl_805DCE20;
 extern const f32 lbl_805DCE24;
 void align_digits__18TWindowInputNumberFv(InNum_802561E8 *self);
+extern const s32 lbl_8044EE0C[];
+void calc_digit_count__18TWindowInputNumberFv(void *arg0);
 }
 
 extern "C" {
@@ -150,6 +153,20 @@ void refresh_digit_entries__18TWindowInputNumberFPv(u8 *arg0) {
     var_r30 += 1;
   }
   while (((u32) var_r30) < 6U);
+}
+
+void calc_digit_count__18TWindowInputNumberFv(void *arg0) {
+    Win_80256354 *w = (Win_80256354 *)arg0;
+    s32 i = 0;
+    w->f62 = 0;
+    while (i < 6) {
+        if (w->f68 < lbl_8044EE0C[i]) {
+            break;
+        }
+        w->f62 = i;
+        i++;
+    }
+    w->f62++;
 }
 
 void render__18TWindowInputNumberFv(u8 *arg0) {
@@ -258,7 +275,7 @@ u8 *TWindowInputNumber__ct(u8 *arg0, s32 arg1, s32 arg2, s32 arg3, s32 arg4, s16
     M2C_FIELD(arg0, s32 *, 0x70) = 0;
     M2C_FIELD(arg0, f32 *, 0x74) = (f32) lbl_805DCE2C;
     M2C_FIELD(arg0, f32 *, 0x78) = (f32) lbl_805DCE2C;
-    calc_digit_count__18TWindowInputNumberFv(arg0);
+    calc_digit_count__18TWindowInputNumberFv((void *)(arg0));
     refresh_digit_entries__18TWindowInputNumberFPv((u8 *)(arg0));
     align_digits__18TWindowInputNumberFv((InNum_802561E8 *)(arg0));
     return arg0;

@@ -1,7 +1,7 @@
 #include "types.h"
 
 extern "C" {
-s32 *lbl_80499A00[4] = { 0, 0, 0, 0 };
+s32 *lobby_checked_read_ptr_table[4] = { 0, 0, 0, 0 };
 s32 lbl_80499A10[4] = { 0, 0, 0, 0 };
 u32 lbl_80499A20[4] = { 0, 0, 0, 0 };
 u32 lbl_80499A30[4] = { 0, 0, 0, 0 };
@@ -26,16 +26,16 @@ extern "C" u8 lbl_8043D9DC[];
 extern "C" u8 lbl_8043D9E8[];
 extern void *lbl_8049C5E0[15];
 char lbl_80499A40[] = "MallocLoadFilePrc";
-void *lbl_80499A54[15] = {
+void *TLobby__disk_error_msg_table[15] = {
     (void *)&lbl_8043D7A8, (void *)0x42a00000, (void *)0x43660000, (void *)&lbl_8043D820,
     (void *)0x42a00000, (void *)0x43660000, (void *)&lbl_8043D854, (void *)0x42a00000,
     (void *)0x43660000, (void *)&lbl_8043D8AC, (void *)0x42a00000, (void *)0x43660000,
     (void *)&lbl_8043D914, (void *)0x42a00000, (void *)0x43660000,
 };
-void *lbl_80499A90[4] = {
+void *TLobby__disk_error_msg_last[4] = {
     (void *)&lbl_8043D984, (void *)0x43020000, (void *)0x43700000, (void *)0x0,
 };
-void *lbl_80499AA0[2768] = {
+void *lobby_font_texture_prs_data[2768] = {
     (void *)0x3f47564d, (void *)0x48c8001e, (void *)0xff0f0005, (void *)0xfefb6572,
     (void *)0x5f6d6573, (void *)0x30fb3100, (void *)0xf8ff130e, (void *)0x660007,
     (void *)0x1b274fc, (void *)0x7bd5fe32, (void *)0xd0fe1a75, (void *)0x27bd5,
@@ -738,9 +738,9 @@ void *lbl_8049C5E0[15] = {
 __declspec(section ".data") void *lbl_8049C61C[2] = {
     (void *)&lbl_8049C5E0, (void *)0x5,
 };
-#define lbl_80499A54 ((Msg_800F8FB8 *)lbl_80499A54)
-#define lbl_80499A90 ((Msg_800F8FB8 *)lbl_80499A90)
-#define lbl_80499AA0 ((u8 *)lbl_80499AA0)
+#define TLobby__disk_error_msg_table ((Msg_800F8FB8 *)TLobby__disk_error_msg_table)
+#define TLobby__disk_error_msg_last ((Msg_800F8FB8 *)TLobby__disk_error_msg_last)
+#define lobby_font_texture_prs_data ((u8 *)lobby_font_texture_prs_data)
 #define lbl_8049C61C ((u8 *)lbl_8049C61C)
 
 void reset_keyboard_state__6TLobbyFv(void) { lbl_805D535A = 0; reset__16TKeyBoardControlFv(); }
@@ -888,8 +888,8 @@ void TLobby__sub_800F8C8C() {
     s32 i;
 
     for (i = 0; i < 4; i++) {
-        if (lbl_80499A00[i] != NULL && lbl_80499A10[i] != 0 && lbl_80499A20[i] != 0) {
-            read_checked_align__6TLobbyFiii(*lbl_80499A00[i], lbl_80499A10[i], lbl_80499A20[i]);
+        if (lobby_checked_read_ptr_table[i] != NULL && lbl_80499A10[i] != 0 && lbl_80499A20[i] != 0) {
+            read_checked_align__6TLobbyFiii(*lobby_checked_read_ptr_table[i], lbl_80499A10[i], lbl_80499A20[i]);
         }
     }
 }
@@ -915,21 +915,21 @@ void clear_player_slot_tables__6TLobbyFi(s32 n) {
     s32 i;
     if (n == -1) {
         for (i = 0; i < 4; i++) {
-            lbl_80499A00[i] = 0;
+            lobby_checked_read_ptr_table[i] = 0;
             lbl_80499A10[i] = 0;
             lbl_80499A20[i] = 0;
             lbl_80499A30[i] = 0;
         }
         return;
     }
-    lbl_80499A00[n] = 0;
+    lobby_checked_read_ptr_table[n] = 0;
     lbl_80499A10[n] = 0;
     lbl_80499A20[n] = 0;
     lbl_80499A30[n] = 0;
 }
 
 void set_entry_params__6TLobbyFiiii(s32 arg0, s32 arg1, s32 arg2, s32 arg3) {
-    lbl_80499A00[arg1] = (s32 *)arg0;
+    lobby_checked_read_ptr_table[arg1] = (s32 *)arg0;
     lbl_80499A10[arg1] = arg2;
     lbl_80499A20[arg1] = arg3;
 }
@@ -1002,7 +1002,7 @@ void load_font_texture__6TLobbyFv(void) {
     void *file = tmp_buf_use_req__6TLobbyFPv(lbl_8043D9F4);
     if (file != 0) {
         s32 r;
-        prs_decompress_buffer(lbl_80499AA0, file);
+        prs_decompress_buffer(lobby_font_texture_prs_data, file);
         r = load_gvm_texture_archive(file, lbl_8049C61C);
         tmp_buf_release__6TLobbyFi(lbl_8043D9F4);
         lbl_805D533C = 1;
@@ -1155,7 +1155,7 @@ s32 run_disk_error_check__6TLobbyFv(void) {
         if (lbl_805D533C != 0) {
             ((void (*)(s32))draw_fullscreen_texture_quad__6TLobbyFPv)(0);
         } else {
-            show_msg_800F8FB8(lbl_80499A54, 0);
+            show_msg_800F8FB8(TLobby__disk_error_msg_table, 0);
         }
         break;
     case 1:
@@ -1171,7 +1171,7 @@ s32 run_disk_error_check__6TLobbyFv(void) {
         if (lbl_805D533C != 0) {
             ((void (*)(s32))draw_fullscreen_texture_quad__6TLobbyFPv)(1);
         } else {
-            show_msg_800F8FB8(lbl_80499A54, 1);
+            show_msg_800F8FB8(TLobby__disk_error_msg_table, 1);
         }
         if (check_reset_button__16TKeyBoardControlFv() != 0 || func_801A5E54__Fv() != 0) {
             system_reset();
@@ -1184,9 +1184,9 @@ s32 run_disk_error_check__6TLobbyFv(void) {
         if (lbl_805D533C != 0) {
             ((void (*)(s32))draw_fullscreen_texture_quad__6TLobbyFPv)(2);
         } else if (get_main_phase() == 0xF) {
-            show_msg_800F8FB8(lbl_80499A90, 0);
+            show_msg_800F8FB8(TLobby__disk_error_msg_last, 0);
         } else {
-            show_msg_800F8FB8(lbl_80499A54, 2);
+            show_msg_800F8FB8(TLobby__disk_error_msg_table, 2);
         }
         if (check_reset_button__16TKeyBoardControlFv() != 0 || func_801A5E54__Fv() != 0) {
             system_reset();
@@ -1199,7 +1199,7 @@ s32 run_disk_error_check__6TLobbyFv(void) {
         if (lbl_805D533C != 0) {
             ((void (*)(s32))draw_fullscreen_texture_quad__6TLobbyFPv)(3);
         } else {
-            show_msg_800F8FB8(lbl_80499A54, 3);
+            show_msg_800F8FB8(TLobby__disk_error_msg_table, 3);
         }
         if (check_reset_button__16TKeyBoardControlFv() != 0 || func_801A5E54__Fv() != 0) {
             system_reset();
@@ -1213,7 +1213,7 @@ s32 run_disk_error_check__6TLobbyFv(void) {
         if (lbl_805D533C != 0) {
             ((void (*)(s32))draw_fullscreen_texture_quad__6TLobbyFPv)(4);
         } else {
-            show_msg_800F8FB8(lbl_80499A54, 4);
+            show_msg_800F8FB8(TLobby__disk_error_msg_table, 4);
         }
         if (check_reset_button__16TKeyBoardControlFv() != 0 || func_801A5E54__Fv() != 0) {
             system_reset();

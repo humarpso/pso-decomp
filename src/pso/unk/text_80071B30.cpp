@@ -40,7 +40,7 @@ struct Plr_80071BC0 : PBase_80071BC0 {
 extern "C" {
 s32 get_layout_id__20TWindowSubStatusDispFv(s32);
 s32 *TWindowSubStatusDisp__sub_8006F0D8(void *);
-extern u8 lbl_8048C9D8[];
+extern u8 challenge_mode_state[];
 s32 TLobby__sub_80071B30(s32 arg0, s32 arg1);
 void VecCopy__FP3VecPC3Vec(Vec_80071BC0 *, void *);
 void save_position__14TBoss4DarkFalzFi(Plr_80071BC0 *);
@@ -56,7 +56,7 @@ void begin_action_state__10TObjPlayerFPv(TPlyCharData *);
 void send_command__10TNpcPlayerFiciiPv(u8, s32, s32, s32, TPlyCharData *);
 extern Tbl_80071BC0 lbl_8048A088[];
 extern Tbl_80071BC0 lbl_8048B0F4[];
-extern Tbl_80071BC0 lbl_8048C244[];
+extern Tbl_80071BC0 lobby_stage_table[];
 extern s32 lbl_805D53A0;
 void rebuild_players_for_stage__10TObjPlayerFi(s32 arg0);
 }
@@ -67,7 +67,7 @@ s32 TLobby__sub_80071B30(s32 arg0, s32 arg1) {
     s32 *list;
     s32 n;
     s32 i;
-    s32 *q = (s32 *)(lbl_8048C9D8 + arg0 * 0x104 + 0x270);
+    s32 *q = (s32 *)(challenge_mode_state + arg0 * 0x104 + 0x270);
     if (q[0] == 0) {
         return 0;
     }
@@ -109,7 +109,7 @@ void rebuild_players_for_stage__10TObjPlayerFi(s32 arg0) {
                 t = &lbl_8048B0F4[arg0];
                 break;
             case 0x40:
-                t = &lbl_8048C244[arg0];
+                t = &lobby_stage_table[arg0];
                 break;
             case 0x80:
                 t = &lbl_8048A088[arg0];

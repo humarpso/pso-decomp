@@ -20,11 +20,11 @@ void * create_yutai__11TBoss4Type3FPvPvPv(void *arg0, void *arg1, void *arg2) {
     return o;
 }
 
-extern s32 lbl_805D5550;
+extern s32 game_difficulty_selection;
 extern f32 lbl_805D8A44;
 
 void check_attack_trigger__11TBoss4Type3FPv(void *arg0) {
-    if (((s32) lbl_805D5550 == 3) && ((s32) M2C_FIELD(arg0, s32 *, 0x338) >= 0x78) && (M2C_FIELD(arg0, f32 *, 0x37C) > (lbl_805D8A44 * M2C_FIELD(arg0, f32 *, 0x378)))) {
+    if (((s32) game_difficulty_selection == 3) && ((s32) M2C_FIELD(arg0, s32 *, 0x338) >= 0x78) && (M2C_FIELD(arg0, f32 *, 0x37C) > (lbl_805D8A44 * M2C_FIELD(arg0, f32 *, 0x378)))) {
         M2C_FIELD(arg0, s32 *, 0x368) = 1;
     }
 }

@@ -43,10 +43,10 @@ s32 is_door_open_and_ready__12TBoss4ThanksFPv(void* self) {
 
 int TBoss4Thanks__sub_8035C96C(void* p) { return is_door_0x97_open__12TBoss4ThanksFv(p); }
 
-extern s32 lbl_805D5550;
+extern s32 game_difficulty_selection;
 
 s32 check_ready__12TBoss4ThanksFv(void) {
-    if (((s32) lbl_805D5550 == 0) || ((get_main_phase() == 0xE) && (is_split_screen() == 0)) || (any_player_has_listed_item() == 0)) {
+    if (((s32) game_difficulty_selection == 0) || ((get_main_phase() == 0xE) && (is_split_screen() == 0)) || (any_player_has_listed_item() == 0)) {
         return 0;
     }
     dispatch_main_phase__12TBoss4ThanksFv();

@@ -23,7 +23,7 @@ int sprintf(char *, const char *, ...);
 extern char lbl_8047294C[];
 extern char lbl_8047295C[];
 extern char lbl_8047296C[];
-extern s32 lbl_805D5544;
+extern s32 current_language;
 extern const f32 lbl_805DE8E8;
 extern const f32 lbl_805DE8EC;
 extern const f32 lbl_805DE8F0;
@@ -92,7 +92,7 @@ void draw_date_time__23TAdSinglePlyChrSelectGCFPv(Clock_802E11D4 *self) {
         pos.y += lbl_805DE8EC;
         getDateStamp__FP9DateStamp(&date);
         wd = date.wday + 13;
-        switch (lbl_805D5544) {
+        switch (current_language) {
         case 0:
             sprintf(buf, lbl_8047294C, date.year, date.month, date.day, get_localized_text_entry(0x1C, wd));
             s = buf;

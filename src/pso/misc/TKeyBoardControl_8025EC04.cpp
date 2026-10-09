@@ -54,7 +54,7 @@ u8 get_key_state__16TKeyBoardControlFPv(M2C_UNK *);
 extern M2C_UNK TKeyBoardControl__global_key_state[];
 void update_modifier_flags__16TKeyBoardControlFPv(struct RecoveredFields_8025FC60_arg0 *arg0);
 bool is_printable_key__16TKeyBoardControlFiUc(M2C_UNK arg0, u8 arg1);
-extern s32 lbl_805D5544;
+extern s32 current_language;
 s32 get_input_mode__16TKeyBoardControlFPv(Ctl_8025F21C *c);
 u8 TKeyBoardControl__sub_8013239C(void *, u8);
 u8 get_key_state_2__16TKeyBoardControlFPv(void *);
@@ -176,7 +176,7 @@ s32 translate_key_char__16TKeyBoardControlFPviPv(void *arg0_, s32 arg1, u16 *arg
     if (!(arg0->sub->flags & 1) || get_key_state__16TKeyBoardControlFPv(TKeyBoardControl__global_key_state) != 0) {
         switch (get_key_state__16TKeyBoardControlFPv(TKeyBoardControl__global_key_state)) {
         case 0:
-            if ((arg0->flags & 4) && lbl_805D5544 == 0) {
+            if ((arg0->flags & 4) && current_language == 0) {
                 *arg2 = lbl_8049E078[(u8)arg1];
             } else if (shift != 0) {
                 *arg2 = lbl_8049DDF8[(u8)arg1];
@@ -277,7 +277,7 @@ s32 get_input_mode__16TKeyBoardControlFPv(Ctl_8025F21C *c) {
     if (c->f60 & 0x40) {
         return 3;
     }
-    switch (lbl_805D5544) {
+    switch (current_language) {
     case 1:
     case 3:
         return 0;

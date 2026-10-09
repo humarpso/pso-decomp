@@ -6,9 +6,9 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 
 extern "C" {
 void walk_linked_switches__23TObjSeabedSuisoBrakableFPv(void *arg0);
-extern s32 lbl_805D552C;
-extern s32 lbl_805D5530;
-extern void *lbl_805D5534;
+extern s32 linked_switch_walk_index;
+extern s32 linked_switch_count;
+extern void *TObjSeabedSuisoBrakable__linked_switch_count;
 s32 count_linked_switches__23TObjSeabedSuisoBrakableFUii(u32 arg0, s32 arg1);
 extern s32 lbl_805D5520;
 extern s32 lbl_805D5524;
@@ -18,16 +18,16 @@ void collect_recursive__23TObjSeabedSuisoBrakableFPv(void *arg0);
 
 extern "C" {
 
-extern s32 lbl_805D552C;
-extern s32 lbl_805D5530;
-extern void *lbl_805D5534;
+extern s32 linked_switch_walk_index;
+extern s32 linked_switch_count;
+extern void *TObjSeabedSuisoBrakable__linked_switch_count;
 
 void walk_linked_switches__23TObjSeabedSuisoBrakableFPv(void *arg0) {
-    if ((s32) lbl_805D552C == (s32) lbl_805D5530) {
-        lbl_805D5534 = arg0;
+    if ((s32) linked_switch_walk_index == (s32) linked_switch_count) {
+        TObjSeabedSuisoBrakable__linked_switch_count = arg0;
     }
-    lbl_805D552C += 1;
-    if ((void *) lbl_805D5534 == NULL) {
+    linked_switch_walk_index += 1;
+    if ((void *) TObjSeabedSuisoBrakable__linked_switch_count == NULL) {
         if ((u32) M2C_FIELD(arg0, u32 *, 0x2C) != 0U) {
             walk_linked_switches__23TObjSeabedSuisoBrakableFPv((void *)(M2C_FIELD(arg0, void **, 0x2C)));
         }
@@ -40,11 +40,11 @@ s32 count_linked_switches__23TObjSeabedSuisoBrakableFUii(u32 arg0, s32 arg1) {
     if (arg0 == 0U) {
         return 0;
     }
-    lbl_805D5530 = arg1;
-    lbl_805D552C = 0;
-    (*(s32 *)&lbl_805D5534) = 0;
+    linked_switch_count = arg1;
+    linked_switch_walk_index = 0;
+    (*(s32 *)&TObjSeabedSuisoBrakable__linked_switch_count) = 0;
     walk_linked_switches__23TObjSeabedSuisoBrakableFPv((void *)(arg0));
-    return (*(s32 *)&lbl_805D5534);
+    return (*(s32 *)&TObjSeabedSuisoBrakable__linked_switch_count);
 }
 void collect_recursive__23TObjSeabedSuisoBrakableFPv(void *arg0) {
     if ((s32) lbl_805D5520 == (s32) lbl_805D5524) {

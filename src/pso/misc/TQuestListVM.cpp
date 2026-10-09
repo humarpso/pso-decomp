@@ -223,7 +223,7 @@ extern char lbl_8044BEE8[];
 extern char lbl_8044BF50[];
 void load_selected_slot__12TQuestListVMFPv(u8 *arg0);
 s32 strcmp(const char *, const char *);
-extern s32 lbl_805D5544;
+extern s32 current_language;
 s32 is_downloadable_new_entry__12TQuestListVMFPvPv(QL_802193F0 *q, Ent_802193F0 *e);
 int obj_getField1c(int);
 s32 get_camera_id__11TCameraCtrlFv();
@@ -292,7 +292,7 @@ u32 create_item_list_window(void *, int, u16);
 extern char lbl_8044BF04[];
 extern char lbl_8044BF14[];
 extern Pair_80218D40 lbl_8044BF40[];
-extern s32 lbl_805D5544;
+extern s32 current_language;
 M2C_UNK build_download_list__12TQuestListVMFPv(void *p);
 int set_field_20__12TQuestListVMFPvi(void*, void*);
 s32 TAdPlayerLoadGC__sub_801E1B50(s32);
@@ -721,7 +721,7 @@ M2C_UNK build_download_list__12TQuestListVMFPv(void *p) {
         if (*(u32 *)(arg0 + 0x2374) != 0U) {
             reset_list__20TShopArmorListWindowFPv(*(void **)(arg0 + 0x2374));
         } else {
-            switch (lbl_805D5544) {
+            switch (current_language) {
             case 0:
                 *(u32 *)(arg0 + 0x2374) = create_item_list_window(lbl_8044BF04, 0x40, obj_getField1c(*(s32 *)(arg0 + 0x24)));
                 break;
@@ -767,7 +767,7 @@ s32 is_downloadable_new_entry__12TQuestListVMFPvPv(QL_802193F0 *q, Ent_802193F0 
     if (e->a == -1 || e->c == -1) {
         return 0;
     }
-    if (e->a != lbl_805D5544) {
+    if (e->a != current_language) {
         return 0;
     }
     if (e->b != 0 && e->b != 2) {

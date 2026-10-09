@@ -129,7 +129,7 @@ s16 pppoe_recv_packet__6TLobbyFPvUsPv(void *, u16, void *);
 s32 TLobby__sub_80428094(s16);
 void TAdSinglePlyChrSelectGC__sub_8042D604(void);
 s32 copy_default_and_get_state__23TAdSinglePlyChrSelectGCFUi(u32);
-extern s16 lbl_805D47F0;
+extern s16 net_slot_id;
 extern s32 queue_thread_handle;
 extern u32 TLobby__send_ring_mutex;
 extern s16 lbl_805D7A34;
@@ -145,8 +145,8 @@ extern s32 send_ring_buffer_base;
 extern s32 lobby_ring_buffer_size;
 u32 compute_range_end__6TLobbyFPviUi(u8 *arg0, s32 arg1, u32 arg2);
 extern s16 lbl_805D47F8;
-extern u16 lbl_805D47FA;
-extern u16 lbl_805D47FC;
+extern u16 net_param_player_count;
+extern u16 net_param_room_count;
 extern s32 lbl_805D4800;
 extern s16 lbl_805D4804;
 extern s32 lbl_805D4808;
@@ -179,7 +179,7 @@ s32 map_state_to_code__6TLobbyFis(s32 arg0, s16 arg1);
 s16 get_slot_id__6TLobbyFs(s16);
 s16 pppoe_recv_packet__6TLobbyFPvUsPv(void *, u16, void *);
 s32 copy_default_and_get_state__23TAdSinglePlyChrSelectGCFUi(u32);
-extern s16 lbl_805D47F0;
+extern s16 net_slot_id;
 extern s16 lbl_805D7A34;
 s32 TLobby__sub_803F8090(void);
 M2C_UNK unlock_mutex__10TUdpSocketFi(int);
@@ -215,7 +215,7 @@ void TAdSinglePlyChrSelectGC__sub_8042E488(s32);
 void queue_thread_main__6TLobbyFv(void);
 extern u8 lbl_805AECB0[];
 extern RecoveredGlobal_803F7A30_lbl_805C18A0 lbl_805C18A0;
-extern s16 lbl_805D47F0;
+extern s16 net_slot_id;
 extern s32 queue_thread_handle;
 extern u32 TLobby__send_ring_mutex;
 extern s32 send_ring_buffer_base;
@@ -238,13 +238,13 @@ s32 send_at_compression_cmd__23TAdSinglePlyChrSelectGCFi(int);
 s32 TLobby__sub_803F7E50(s32 arg0, s32 arg1, s32 arg2, s32 n, s32 p);
 s16 pppoe_recv_packet__6TLobbyFPvUsPv(void *, u16, void *);
 s32 TAdSinglePlyChrSelectGC__sub_8042D7E0(void *);
-extern s16 lbl_805D47F0;
+extern s16 net_slot_id;
 extern s16 lbl_805D7A34;
 s32 TLobby__sub_803F812C(u16 arg0, void *arg1, u16 *arg2);
 s32 TLobby__sub_803F8D24(Info_803F861C *);
 extern s16 lbl_805D47F8;
-extern u16 lbl_805D47FA;
-extern u16 lbl_805D47FC;
+extern u16 net_param_player_count;
+extern u16 net_param_room_count;
 extern s32 lbl_805D4800;
 extern s16 lbl_805D4804;
 extern s32 lbl_805D4808;
@@ -701,11 +701,11 @@ void TLobby__sub_803F808C(void) {
 s32 TLobby__sub_803F8090(void) {
     u8 buf[0x20];
     if (lbl_805D7A34 != 0) {
-        if (lbl_805D47F0 < 0) {
+        if (net_slot_id < 0) {
             return 0;
         }
         pppoe_recv_packet__6TLobbyFPvUsPv(NULL, 0, NULL);
-        if (get_slot_id__6TLobbyFs(lbl_805D47F0) == 4) {
+        if (get_slot_id__6TLobbyFs(net_slot_id) == 4) {
             return 1;
         }
         return 0;
@@ -723,12 +723,12 @@ s32 TLobby__sub_803F811C(s16 *arg0) {
 
 s32 TLobby__sub_803F812C(u16 arg0, void *arg1, u16 *arg2) {
     if (lbl_805D7A34 != 0) {
-        if (lbl_805D47F0 < 0) {
+        if (net_slot_id < 0) {
             return 6;
         }
         {
             s16 v = pppoe_recv_packet__6TLobbyFPvUsPv(arg1, arg0, arg2);
-            if (v != lbl_805D47F0) {
+            if (v != net_slot_id) {
                 return 6;
             }
         }
@@ -746,21 +746,21 @@ s32 TLobby__sub_803F812C(u16 arg0, void *arg1, u16 *arg2) {
 void TLobby__sub_803F8238(void) {
     s32 var_r31;
     if ((s16) lbl_805D7A34 != 0) {
-        if ((s16) lbl_805D47F0 >= 0) {
-            TLobby__sub_80428094(lbl_805D47F0);
+        if ((s16) net_slot_id >= 0) {
+            TLobby__sub_80428094(net_slot_id);
             var_r31 = 0;
 loop_3:
             TLobby__sub_803F97E8(0xA);
-            if ((pppoe_recv_packet__6TLobbyFPvUsPv(NULL, 0U, NULL) >= 0) && (get_slot_id__6TLobbyFs(lbl_805D47F0) != -1)) {
+            if ((pppoe_recv_packet__6TLobbyFPvUsPv(NULL, 0U, NULL) >= 0) && (get_slot_id__6TLobbyFs(net_slot_id) != -1)) {
                 var_r31 += 1;
                 if (var_r31 < 0x12C) {
                     goto loop_3;
                 }
             }
-            if (get_slot_id__6TLobbyFs(lbl_805D47F0) != -1) {
-                TLobby__sub_80428094(lbl_805D47F0);
+            if (get_slot_id__6TLobbyFs(net_slot_id) != -1) {
+                TLobby__sub_80428094(net_slot_id);
             }
-            lbl_805D47F0 = -1;
+            net_slot_id = -1;
             goto block_10;
         }
     } else {
@@ -785,8 +785,8 @@ s32 TLobby__sub_803F8314(A_803F8314 *arg0) {
         lbl_805D7A34 = 1;
         buf[0] = 0;
         buf[0x100] = 0;
-        lbl_805D47F0 = TLobby__sub_804281DC(buf);
-        if (lbl_805D47F0 < 0) {
+        net_slot_id = TLobby__sub_804281DC(buf);
+        if (net_slot_id < 0) {
             return 2;
         }
     } else {
@@ -884,8 +884,8 @@ s32 validate_and_store_net_params__6TLobbyFPv(u8 *arg0) {
     }
     lbl_805D47F8 = M2C_FIELD(arg0, s16 *, 0);
     lbl_805D4804 = M2C_FIELD(arg0, s16 *, 2);
-    lbl_805D47FA = M2C_FIELD(arg0, u16 *, 4);
-    lbl_805D47FC = M2C_FIELD(arg0, u16 *, 6);
+    net_param_player_count = M2C_FIELD(arg0, u16 *, 4);
+    net_param_room_count = M2C_FIELD(arg0, u16 *, 6);
     lbl_805D4800 = M2C_FIELD(arg0, s32 *, 8);
     lbl_805D4808 = M2C_FIELD(arg0, s32 *, 0xC);
     lbl_805D480C = M2C_FIELD(arg0, s32 *, 0x10);
@@ -905,10 +905,10 @@ s32 TLobby__sub_803F861C(Info_803F861C *arg0) {
     }
     arg0->a = lbl_805D47F8;
     arg0->b = lbl_805D4804;
-    arg0->c = lbl_805D47FA;
-    x = lbl_805D47FA * 0x44;
-    arg0->d = lbl_805D47FC;
-    y = lbl_805D47FC * 0x544;
+    arg0->c = net_param_player_count;
+    x = net_param_player_count * 0x44;
+    arg0->d = net_param_room_count;
+    y = net_param_room_count * 0x544;
     arg0->g = lbl_805D480C;
     n = x + y;
     n += lbl_805D480C;

@@ -15,7 +15,7 @@ extern "C" {
 u8 * __dt__7TObjectFv(void *, s16);
 void __dl__7TObjectFPv(s32);
 extern RecoveredGlobal_8007F77C___vt__8TDLGraph __vt__8TDLGraph;
-extern s32 TDLGraph__data_805D4EB0;
+extern s32 TDLGraph__graph_object;
 u8 *__dt__8TDLGraphFv(u8 *arg0, s16 arg1);
 void reset_transform_state__10TObjPlayerFv(void);
 void restore_full_screen_view__11TCameraCtrlFv(void);
@@ -33,7 +33,7 @@ void render__8TDLGraphFv(TDLGraph_8007F66C *self);
 void queue_destruction__7TObjectFv(s32);
 void fn_8007ECF0(s32, s32, s32);
 void create__8TDLGraphFv(void);
-extern s32 TDLGraph__data_805D4EB0;
+extern s32 TDLGraph__graph_object;
 void update_graph__8TDLGraphFii(s32 arg0, s32 arg1);
 }
 
@@ -63,14 +63,14 @@ void run_task__8TDLGraphFv(void) {  }
 void set_graph_param__8TDLGraphFPvi(void* p, s32 v) { *(s32*)((char*)p + 0x20) = v; }
 typedef char RecoveredGlobal_8007F77C___vt__8TDLGraph_size[sizeof(RecoveredGlobal_8007F77C___vt__8TDLGraph) == 0x18 ? 1 : -1];
 
-#define G ((u32) TDLGraph__data_805D4EB0)
+#define G ((u32) TDLGraph__graph_object)
 void update_graph__8TDLGraphFii(s32 arg0, s32 arg1) {
     if (arg0 < 0 || arg1 <= 0) {
         return;
     }
     if (arg0 == 0) {
         if (G != 0) {
-            queue_destruction__7TObjectFv(TDLGraph__data_805D4EB0);
+            queue_destruction__7TObjectFv(TDLGraph__graph_object);
             return;
         }
         create__8TDLGraphFv();
@@ -78,7 +78,7 @@ void update_graph__8TDLGraphFii(s32 arg0, s32 arg1) {
         return;
     }
     if (G != 0) {
-        fn_8007ECF0(TDLGraph__data_805D4EB0, arg0, arg1);
+        fn_8007ECF0(TDLGraph__graph_object, arg0, arg1);
     }
 }
 #undef G
@@ -86,7 +86,7 @@ void update_graph__8TDLGraphFii(s32 arg0, s32 arg1) {
 u8 *__dt__8TDLGraphFv(u8 *arg0, s16 arg1) {
     if (arg0 != NULL) {
         M2C_FIELD(arg0, M2C_UNK **, 0x18) = &__vt__8TDLGraph.value;
-        TDLGraph__data_805D4EB0 = 0;
+        TDLGraph__graph_object = 0;
         __dt__7TObjectFv(arg0, 0);
         if (arg1 > 0) {
             __dl__7TObjectFPv((s32) arg0);

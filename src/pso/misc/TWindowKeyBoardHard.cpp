@@ -24,7 +24,7 @@ extern M2C_UNK lbl_8044F0DC[];
 extern M2C_UNK lbl_8044F0EC[];
 extern M2C_UNK lbl_8044F0FC[];
 extern M2C_UNK lbl_8044F104[];
-extern s32 lbl_805D5544;
+extern s32 current_language;
 extern const f32 lbl_805DD068;
 extern const f32 lbl_805DD06C;
 extern const f32 lbl_805DD070;
@@ -43,7 +43,7 @@ void release_keyboard__19TWindowKeyBoardHardFPv(void* p) { void* m = *(void**)((
 
 void draw_status_text__19TWindowKeyBoardHardFPvPv(Win_80260020 *self, Ctx_80260020 *ctx) {
     s32 flags;
-    if (self->state != NULL && lbl_805D5544 == 0) {
+    if (self->state != NULL && current_language == 0) {
         f32 inv = lbl_805DD068 / ctx->scale;
         Pt_80260020 pt;
         pt.x = ctx->pos.x;

@@ -20,7 +20,7 @@ M2C_UNK draw_window_frame(void *, int);
 M2C_UNK draw_visible_window_entries(void *, void *, int);
 extern M2C_UNK __vt__14TWindowMessage[];
 void render__14TWindowComCardFv(s32 arg0);
-extern u8 *lbl_805D553C;
+extern u8 *text_language_group_table;
 s32 get_class_name_text(s32 arg0);
 s32 TWindowSubComCard__sub_8007B070(s32);
 s32 get_keyboard_mode__17TWindowSubComCardFv(void);
@@ -222,7 +222,7 @@ void* get_kbd_ptr__14TWindowComCardFPv(void* p) { return (char*)p + 0x20; }
 u8 TWindowComCard__sub_80249C18(void* p) { return *(u8*)((char*)p + 0x8e); }
 u8 TWindowComCard__sub_80249C20(void* p) { return *(u8*)((char*)p + 0x8d); }
 s32 get_class_name_text(s32 arg0) {
-    return M2C_FIELD(M2C_FIELD(lbl_805D553C, s32 *, 0x1C), M2C_UNK *, (arg0 * 4));
+    return M2C_FIELD(M2C_FIELD(text_language_group_table, s32 *, 0x1C), M2C_UNK *, (arg0 * 4));
 }
 
 }

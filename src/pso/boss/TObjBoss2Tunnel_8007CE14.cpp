@@ -7,9 +7,9 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 extern "C" {
 void xfree__FPv(void *);
 M2C_UNK TObjPlayer__sub_80084694();
-extern u8 *lbl_805D4E8C;
-extern u8 *TObjBoss2Tunnel__data_805D4E90;
-extern s32 TObjBoss2Tunnel__data_805D4E94;
+extern u8 *boss2_tunnel_snapshot_buffer;
+extern u8 *TObjBoss2Tunnel__snapshot_buffer;
+extern s32 TObjBoss2Tunnel__snapshot_saved_flag;
 void free_buffers__15TObjBoss2TunnelFv(void);
 }
 
@@ -22,25 +22,25 @@ s32 load_snapshot__15TObjBoss2TunnelFv();
 
 M2C_UNK save_screen_snapshot();
 M2C_UNK memcard_check_snapshot(M2C_UNK, s32 *);
-extern s32 TObjBoss2Tunnel__data_805D4E94;
+extern s32 TObjBoss2Tunnel__snapshot_saved_flag;
 
 s32 save_snapshot__15TObjBoss2TunnelFv(void) {
     s32 sp8;
 
     memcard_check_snapshot(1, &sp8);
     if (sp8 == 1) {
-        if ((s32) TObjBoss2Tunnel__data_805D4E94 != 0) {
+        if ((s32) TObjBoss2Tunnel__snapshot_saved_flag != 0) {
             return -9;
         }
         save_screen_snapshot();
 loop_4:
         if (probe_card_slot__15TAdPlayerLoadGCFi(1) == 0) {
-            TObjBoss2Tunnel__data_805D4E94 = 0;
+            TObjBoss2Tunnel__snapshot_saved_flag = 0;
             return -5;
         }
         if (load_snapshot__15TObjBoss2TunnelFv() != 0) {
             if (verify_snapshot_checksum__15TObjBoss2TunnelFv() == 0) {
-                TObjBoss2Tunnel__data_805D4E94 = 1;
+                TObjBoss2Tunnel__snapshot_saved_flag = 1;
                 return -9;
             }
             goto block_9;
@@ -48,19 +48,19 @@ loop_4:
         goto loop_4;
     }
 block_9:
-    TObjBoss2Tunnel__data_805D4E94 = 0;
+    TObjBoss2Tunnel__snapshot_saved_flag = 0;
     return sp8;
 }
 void free_buffers__15TObjBoss2TunnelFv(void) {
-    TObjBoss2Tunnel__data_805D4E94 = 0;
-    if ((void *) lbl_805D4E8C != NULL) {
-        xfree__FPv(lbl_805D4E8C);
-        lbl_805D4E8C = NULL;
+    TObjBoss2Tunnel__snapshot_saved_flag = 0;
+    if ((void *) boss2_tunnel_snapshot_buffer != NULL) {
+        xfree__FPv(boss2_tunnel_snapshot_buffer);
+        boss2_tunnel_snapshot_buffer = NULL;
     }
     TObjPlayer__sub_80084694();
-    if ((void *) TObjBoss2Tunnel__data_805D4E90 != NULL) {
-        xfree__FPv(TObjBoss2Tunnel__data_805D4E90);
-        TObjBoss2Tunnel__data_805D4E90 = NULL;
+    if ((void *) TObjBoss2Tunnel__snapshot_buffer != NULL) {
+        xfree__FPv(TObjBoss2Tunnel__snapshot_buffer);
+        TObjBoss2Tunnel__snapshot_buffer = NULL;
     }
 }
 

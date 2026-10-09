@@ -13,7 +13,7 @@ void  rotate_matrix_by_node_angles(void*, s32);
 void  draw_ginja_object(void*);
 void  pop_matrix(void);
 void  end_effect_render__13TParticleCtrlFv(void);
-extern const char* lbl_805D2C64;
+extern const char* TItemShootModel__class_name;
 extern const f32   lbl_805DAC60;
 extern const f64   lbl_8043E7A0[];
 }
@@ -36,7 +36,7 @@ void TItemShootModel::render() {
 
 TItemShootModel::TItemShootModel(void* owner, const Vec* pos, const Vec* dir, f32 life)
     : TItemShoot(owner, pos, dir, life) {
-    this->m_name = lbl_805D2C64;
+    this->m_name = TItemShootModel__class_name;
     this->m_58 = *(void**)((u8*)owner + 0x188);
     this->m_5C = get_entity_id__10TObjPlayerFPv(owner);
     if (lbl_805DAC60 != this->m_dir.y) {

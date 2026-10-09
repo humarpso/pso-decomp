@@ -19,7 +19,7 @@ M2C_UNK heap_free__5THeapFPv(s32, void *);
 u8 *heap_alloc__5THeapFUl(s32, s32);
 s32 measure_string_len__20TWindowSubStatusDispFPv(void *);
 M2C_UNK strncpy(int, void *, int);
-extern s32 lbl_805D5544;
+extern s32 current_language;
 extern s32 TAdScrollWinGC__chat_log_heap;
 extern u8 *chat_last_line_buffer;
 void cache_last_chat_line(u32 arg0);
@@ -125,7 +125,7 @@ void cache_last_chat_line(u32 arg0) {
         chat_last_line_buffer = var_r3;
         if (temp_r31 != 0) {
             M2C_FIELD(var_r3, s8 *, 0) = 9;
-            if ((s32) lbl_805D5544 == 0) {
+            if ((s32) current_language == 0) {
                 M2C_FIELD(var_r3, s8 *, 1) = 0x4A;
                 var_r3 += 2;
             } else {

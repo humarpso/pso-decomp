@@ -183,13 +183,13 @@ M2C_UNK set_field_20__12TQuestListVMFPvi(void *, M2C_UNK);
 extern "C" {
 struct QLCStage_80289200 { s32 a; s32 b; s32 c; const char *name; };
 struct PairPad_80288DA4 { s32 a; s32 b; s32 c; };
-extern __declspec(section ".rodata") const QLCStage_80289200 lbl_8045080C[5];
+extern __declspec(section ".rodata") const QLCStage_80289200 TQuestListChallenge__stage_table[5];
 extern __declspec(section ".rodata") const QLCStage_80289200 lbl_80450910[9];
 extern __declspec(section ".rodata") const QLCStage_80289200 lbl_80450A20[8];
 extern const char *lbl_805D3AF8;
 extern __declspec(section ".rodata") const PairPad_80288DA4 lbl_80450AB4[1];
 }
-#define lbl_8045080C (*(RecoveredGlobal_80289200_lbl_8045080C *)lbl_8045080C)
+#define TQuestListChallenge__stage_table (*(RecoveredGlobal_80289200_lbl_8045080C *)TQuestListChallenge__stage_table)
 #define lbl_80450910 (*(RecoveredGlobal_80289200_lbl_80450910 *)lbl_80450910)
 #define lbl_80450A20 (*(RecoveredGlobal_80289200_lbl_80450A20 *)lbl_80450A20)
 #define lbl_805D3AF8 (*(s32 *)&lbl_805D3AF8)
@@ -437,7 +437,7 @@ u8 *TQuestListChallenge__ct(u8 *arg0, M2C_UNK arg1, s32 arg2, s32 arg3) {
         if (get_instance__6TLobbyFv() == 0) {
             M2C_FIELD(arg0, M2C_UNK **, 0x58) = &lbl_80450910.value;
         } else {
-            M2C_FIELD(arg0, M2C_UNK **, 0x58) = &lbl_8045080C.value;
+            M2C_FIELD(arg0, M2C_UNK **, 0x58) = &TQuestListChallenge__stage_table.value;
         }
         M2C_FIELD(arg0, s32 *, 0x50) = 0xF;
         M2C_FIELD(arg0, s32 *, 0x54) = (s32) (calc_min_challenge_progress__6TLobbyFv() + 1);
@@ -495,7 +495,7 @@ void * TObjNpcKenkyu__create(void *arg0) {
 
 }
 
-#undef lbl_8045080C
+#undef TQuestListChallenge__stage_table
 #undef lbl_80450910
 #undef lbl_80450A20
 #undef lbl_805D3AF8
@@ -505,7 +505,7 @@ extern "C" const char lbl_804507BC[] = "challenge2_mlt_stg2";
 extern "C" const char lbl_804507D0[] = "challenge2_mlt_stg3";
 extern "C" const char lbl_804507E4[] = "challenge2_mlt_stg4";
 extern "C" const char lbl_804507F8[] = "challenge2_mlt_stg5";
-extern "C" const QLCStage_80289200 lbl_8045080C[5] = {
+extern "C" const QLCStage_80289200 TQuestListChallenge__stage_table[5] = {
     {27, 28, 29, lbl_804507A8},
     {30, 31, 32, lbl_804507BC},
     {33, 34, 35, lbl_804507D0},

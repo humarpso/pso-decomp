@@ -15,12 +15,12 @@ extern "C" f64   get_ad_end_text_start__10TObjPlayerFv(f32, f32);
 extern "C" void  direction_to_rotation_xz(Vec*, s32*, s32*);
 extern "C" void* get_field_d8__10TObjPlayerFPv(void*);
 extern "C" TObject*    tl_05;
-extern "C" const char* lbl_805D2C60;
+extern "C" const char* TItemShoot__class_name;
 extern "C" const f64   lbl_8043E7A0[];
 
 TItemShoot::TItemShoot(void* owner, const Vec* pos, const Vec* dir, f32 life)
     : TObject(tl_05) {
-    this->m_name = lbl_805D2C60;
+    this->m_name = TItemShoot__class_name;
     VecCopy__FP3VecPC3Vec(&this->m_pos, pos);
     VecCopy__FP3VecPC3Vec(&this->m_dir, VecCopy__FP3VecPC3Vec(&this->m_44, dir));
     this->m_life = life;

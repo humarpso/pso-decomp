@@ -170,7 +170,7 @@ M2C_UNK set_global_state__16TObjEneRe7BeruraFi(void *);
 void TObjPlayer__sub_8002F61C(void);
 extern Vec_8002EFE8 lbl_804359E4;
 extern u8 lbl_8050E208[];
-extern s32 lbl_805D5560;
+extern s32 current_scene_light;
 extern s32 lbl_805D5660;
 extern s32 some_id_805c6f74;
 extern const f32 lbl_805D8278;
@@ -467,7 +467,7 @@ void render_body__13TBoss2DeRolLeFPv(u8 *arg0) {
     set_global_param__8TObjFishFi(self->x24);
     draw_model_motion(self->x34, model, frame);
     set_global_state__16TObjEneRe7BeruraFi(NULL);
-    TObjLight__sub_801337F8(lbl_805D5560);
+    TObjLight__sub_801337F8(current_scene_light);
     pop_matrix();
 }
 #pragma pop

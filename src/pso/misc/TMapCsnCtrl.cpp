@@ -17,13 +17,13 @@ void TMapCsnCtrl__sub_80140F44(void *arg0) {
 }
 
 extern M2C_UNK __vt__11TMapCsnCtrl[];
-extern void *lbl_805D33C0;
+extern void *TMapCsnCtrl__class_name;
 
 TMapCsnCtrl::~TMapCsnCtrl() {}
 void *TMapCsnCtrl__ct(void *arg0) {
     __ct__7TObjectFP7TObject(arg0);
     M2C_FIELD(arg0, M2C_UNK **, 0x18) = __vt__11TMapCsnCtrl;
-    M2C_FIELD(arg0, void **, 0x0) = lbl_805D33C0;
+    M2C_FIELD(arg0, void **, 0x0) = TMapCsnCtrl__class_name;
     TMapCsnCtrl__sub_80140F44((void *)(arg0));
     return arg0;
 }

@@ -1886,7 +1886,7 @@ extern u8 lbl_8043BA44[];
 extern const Desc_800C17B8 lbl_8043B9F8;
 extern const f32 lbl_805D9F28;
 extern const f32 lbl_805D9F4C;
-extern s32 lbl_805D5550;
+extern s32 game_difficulty_selection;
 extern s32 TLobby__event_theme_id;
 extern s32 lbl_805D516C;
 #define lbl_805D5164 (*(u32 *)&lbl_805D5164)
@@ -1915,7 +1915,7 @@ void load_resources__12TObjEneLappyFv(void) {
     s32 p;
     s32 i;
 
-    rare = lbl_805D5550 == 3;
+    rare = game_difficulty_selection == 3;
     if (get_main_phase() == 0xF) {
         switch (TLobby__event_theme_id) {
         case 1:

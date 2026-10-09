@@ -44,7 +44,7 @@ s32 TMainCursor__sub_8013E800(void *);
 s32 TMainCursor__sub_8013F1F0(void *);
 s32 __ct__7TObjectFP7TObject(void *, void *);
 extern M2C_UNK __vt__11TMainCursor[];
-extern s32 lbl_805D2CB8;
+extern s32 main_cursor_class_name;
 u8 *TMainCursor__ct(u8 *arg0, s32 arg1, s32 arg2, u8 arg3, u8 arg4, u8 arg5, s32 arg6, f32 farg0);
 M2C_UNK queue_destruction__7TObjectFv(void *);
 s32 check_can_pickup__11TMainCursorFi(void *);
@@ -146,7 +146,7 @@ u8 *TMainCursor__ct(u8 *arg0, s32 arg1, s32 arg2, u8 arg3, u8 arg4, u8 arg5, s32
     TMainCursor__sub_8013E800((void *) (arg0 + 0x24));
     TMainCursor__sub_8013F1F0((void *) (arg0 + 0x4C));
     reset__11TMainCursorFi((void *) (arg0 + 0x60));
-    M2C_FIELD(arg0, s32 *, 0) = (s32) lbl_805D2CB8;
+    M2C_FIELD(arg0, s32 *, 0) = (s32) main_cursor_class_name;
     set_target_index_at_60__11TMainCursorFPvPv((void *) (arg0), (void *) (arg2));
     set_target_id_at_60__11TMainCursorFiUc((void *) (arg0), (void *) (arg3));
     TMainCursor__sub_8013E724((void *) (arg0), (f32) (farg0));

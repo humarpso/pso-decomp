@@ -59,13 +59,13 @@ s32 begin_effect_render__13TParticleCtrlFv();
 s32 end_effect_render__13TParticleCtrlFv();
 s32 draw_ginja_model_with_motion(s32, s32, f32);
 extern s32 *TOKeyGenericSw__data_805D5A28;
-extern Map_8016CA64 *TOKeyGenericSw__data_8050DB60[];
+extern Map_8016CA64 *TOKeyGenericSw__shared_resource_ptrs[];
 void render__14TOKeyGenericSwFv(Obj_8016CA64 *self);
 void TLobby__sub_8001FE7C(void *, s32);
 void free__11TOBoss4RockFUi(void *);
 void free_if_valid__10TObjPlayerFi(s32);
 extern s32 *TOKeyGenericSw__data_805D5A28;
-extern Map_8016CA64 *TOKeyGenericSw__data_8050DB60[];
+extern Map_8016CA64 *TOKeyGenericSw__shared_resource_ptrs[];
 void free_shared_resources__14TOKeyGenericSwFv(void);
 void *load_resource_from_descriptor(void *, s32, void *, s32, s32, s32);
 void *alloc__23TAdSinglePlyChrSelectGCFPv(u32);
@@ -76,7 +76,7 @@ s32 get_global_state__14TOKeyMachine01Fv(void);
 extern char lbl_80441D04[];
 extern char lbl_80441D24[];
 extern u8 lbl_804B2CC0[];
-extern Map_8016CA64 *TOKeyGenericSw__data_8050DB60[];
+extern Map_8016CA64 *TOKeyGenericSw__shared_resource_ptrs[];
 extern s32 *TOKeyGenericSw__data_805D5A28;
 void load_resources__14TOKeyGenericSwFv(void);
 }
@@ -102,7 +102,7 @@ void render__14TOKeyGenericSwFv(Obj_8016CA64 *self) {
     if (self->m8(self->xc0, self->xc4) == 0) return;
     push_matrix();
     self->x24 = TOKeyGenericSw__data_805D5A28[0];
-    self->x34 = TOKeyGenericSw__data_8050DB60[0]->area->x8;
+    self->x34 = TOKeyGenericSw__shared_resource_ptrs[0]->area->x8;
     post_translate_matrix(self->x38);
     rotate_matrix_y(0, self->x60);
     set_global_param__8TObjFishFi(self->x24);
@@ -118,7 +118,7 @@ void render__14TOKeyGenericSwFv(Obj_8016CA64 *self) {
         self->x24 = TOKeyGenericSw__data_805D5A28[2];
         break;
     }
-    self->x34 = TOKeyGenericSw__data_8050DB60[1]->area->x8;
+    self->x34 = TOKeyGenericSw__shared_resource_ptrs[1]->area->x8;
     post_translate_matrix(self->x38);
     rotate_matrix_y(0, self->x60);
     set_global_param__8TObjFishFi(self->x24);
@@ -165,13 +165,13 @@ void free_shared_resources__14TOKeyGenericSwFv(void) {
             TOKeyGenericSw__data_805D5A28 = NULL;
         }
     }
-    if (TOKeyGenericSw__data_8050DB60[1] != NULL) {
-        TLobby__sub_8001FE7C(TOKeyGenericSw__data_8050DB60[1], 1);
-        TOKeyGenericSw__data_8050DB60[1] = NULL;
+    if (TOKeyGenericSw__shared_resource_ptrs[1] != NULL) {
+        TLobby__sub_8001FE7C(TOKeyGenericSw__shared_resource_ptrs[1], 1);
+        TOKeyGenericSw__shared_resource_ptrs[1] = NULL;
     }
-    if (TOKeyGenericSw__data_8050DB60[0] != NULL) {
-        TLobby__sub_8001FE7C(TOKeyGenericSw__data_8050DB60[0], 1);
-        TOKeyGenericSw__data_8050DB60[0] = NULL;
+    if (TOKeyGenericSw__shared_resource_ptrs[0] != NULL) {
+        TLobby__sub_8001FE7C(TOKeyGenericSw__shared_resource_ptrs[0], 1);
+        TOKeyGenericSw__shared_resource_ptrs[0] = NULL;
     }
 }
 
@@ -184,30 +184,30 @@ void load_resources__14TOKeyGenericSwFv(void) {
         if (p != NULL) {
             p = load_resource_from_descriptor(p, 1, base + 0x40, 0, 0, 0);
         }
-        TOKeyGenericSw__data_8050DB60[0] = (Map_8016CA64 *)p;
+        TOKeyGenericSw__shared_resource_ptrs[0] = (Map_8016CA64 *)p;
         p = alloc__23TAdSinglePlyChrSelectGCFPv(0x440);
         if (p != NULL) {
             p = load_resource_from_descriptor(p, 1, base + 0x60, 0, 0, 0);
         }
-        TOKeyGenericSw__data_8050DB60[1] = (Map_8016CA64 *)p;
+        TOKeyGenericSw__shared_resource_ptrs[1] = (Map_8016CA64 *)p;
         TOKeyGenericSw__data_805D5A28 = (s32 *)alloc_buffer__11TOBoss4RockFPv(0xC);
-        TOKeyGenericSw__data_805D5A28[0] = M2C_FIELD(TOKeyGenericSw__data_8050DB60[0]->area, s32 *, 0xC);
-        TOKeyGenericSw__data_805D5A28[1] = M2C_FIELD(TOKeyGenericSw__data_8050DB60[1]->area, s32 *, 0xC);
+        TOKeyGenericSw__data_805D5A28[0] = M2C_FIELD(TOKeyGenericSw__shared_resource_ptrs[0]->area, s32 *, 0xC);
+        TOKeyGenericSw__data_805D5A28[1] = M2C_FIELD(TOKeyGenericSw__shared_resource_ptrs[1]->area, s32 *, 0xC);
         TOKeyGenericSw__data_805D5A28[2] = load_gvm_texture_file(lbl_80441D04);
     } else {
         p = alloc__23TAdSinglePlyChrSelectGCFPv(0x440);
         if (p != NULL) {
             p = load_resource_from_descriptor(p, 1, base + 0x8, 0, 0, 0);
         }
-        TOKeyGenericSw__data_8050DB60[0] = (Map_8016CA64 *)p;
+        TOKeyGenericSw__shared_resource_ptrs[0] = (Map_8016CA64 *)p;
         p = alloc__23TAdSinglePlyChrSelectGCFPv(0x440);
         if (p != NULL) {
             p = load_resource_from_descriptor(p, 1, base + 0x28, 0, 0, 0);
         }
-        TOKeyGenericSw__data_8050DB60[1] = (Map_8016CA64 *)p;
+        TOKeyGenericSw__shared_resource_ptrs[1] = (Map_8016CA64 *)p;
         TOKeyGenericSw__data_805D5A28 = (s32 *)alloc_buffer__11TOBoss4RockFPv(0xC);
-        TOKeyGenericSw__data_805D5A28[0] = M2C_FIELD(TOKeyGenericSw__data_8050DB60[0]->area, s32 *, 0xC);
-        TOKeyGenericSw__data_805D5A28[1] = M2C_FIELD(TOKeyGenericSw__data_8050DB60[1]->area, s32 *, 0xC);
+        TOKeyGenericSw__data_805D5A28[0] = M2C_FIELD(TOKeyGenericSw__shared_resource_ptrs[0]->area, s32 *, 0xC);
+        TOKeyGenericSw__data_805D5A28[1] = M2C_FIELD(TOKeyGenericSw__shared_resource_ptrs[1]->area, s32 *, 0xC);
         TOKeyGenericSw__data_805D5A28[2] = load_gvm_texture_file(lbl_80441D24);
     }
 }

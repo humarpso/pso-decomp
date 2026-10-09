@@ -38,7 +38,7 @@ M2C_UNK send_trade_ready__9TProtocolFv(s32);
 s32 load_character_from_card__23TAdSinglePlyChrSelectGCFv();
 M2C_UNK *TLobby__sub_802D29AC(void);
 extern s32 lbl_805D53A0;
-extern s32 TLobby__data_805D5580;
+extern s32 TLobby__protocol_instance;
 extern u8 TLobby__data_805D688B;
 void apply_trade_items__6TLobbyFv(void);
 }
@@ -145,7 +145,7 @@ void apply_trade_items__6TLobbyFv(void) {
                 }
                 if ((flag == 0) || (load_character_from_card__23TAdSinglePlyChrSelectGCFv() == 0)) {
                     TLobby__data_805D688B = 8;
-                    send_trade_ready__9TProtocolFv(TLobby__data_805D5580);
+                    send_trade_ready__9TProtocolFv(TLobby__protocol_instance);
                 }
             }
         }

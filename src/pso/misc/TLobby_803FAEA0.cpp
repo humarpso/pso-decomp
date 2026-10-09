@@ -977,7 +977,7 @@ void set_value_and_enable__6TLobbyFPvi(u8 *arg0, s32 arg1);
 
 void TLobby__sub_803F8794(void *);
 
-extern s16 lbl_805D47FC;
+extern s16 net_param_room_count;
 extern s32 lbl_805D4800;
 extern s32 lbl_805D7A44;
 
@@ -985,7 +985,7 @@ void init_params__6TLobbyFPv(u8 *arg0);
 
 void TLobby__sub_803F87C4(void);
 
-extern s16 lbl_805D47FA;
+extern s16 net_param_player_count;
 extern s32 lbl_805D7A40;
 
 void TLobby__sub_803F87C8(u8 *arg0);

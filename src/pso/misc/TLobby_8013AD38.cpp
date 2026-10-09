@@ -16,7 +16,7 @@ struct RecoveredGlobal_8013AD80_TAdEnterSerialAccessGC__data_804EC9C4 {
 };
 
 extern "C" {
-extern u8 *lbl_805D553C;
+extern u8 *text_language_group_table;
 s32 TAdDialingGC__sub_8013ADBC(s32 arg0);
 extern RecoveredGlobal_8013ADB0_TAdEnterSerialAccessGC__data_804EC9B8 TAdEnterSerialAccessGC__data_804EC9B8;
 M2C_UNK *TAdEnterSerialAccessGC__sub_8013ADB0(void);
@@ -58,7 +58,7 @@ M2C_UNK *TAdEnterSerialAccessGC__sub_8013ADB0(void) {
 }
 
 s32 TAdDialingGC__sub_8013ADBC(s32 arg0) {
-    return M2C_FIELD(M2C_FIELD(lbl_805D553C, s32 *, 0x30), M2C_UNK *, (arg0 * 4));
+    return M2C_FIELD(M2C_FIELD(text_language_group_table, s32 *, 0x30), M2C_UNK *, (arg0 * 4));
 }
 
 }

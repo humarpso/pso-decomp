@@ -67,7 +67,7 @@ void draw_ginja_model_with_motion(void *arg0, void *arg1);
 extern s32 lbl_805D7774;
 void copy_matrix3x3_to_global__10TObjPlayerFPv(struct Mtx_803DC994 *src);
 void GXSetBlendMode(int, int, int, int);
-extern u32 lbl_8047E408[];
+extern u32 cached_blend_factor_table[];
 extern u8 *lbl_805D774C;
 void apply_cached_blend_mode(s32 arg0);
 void TObjPlayer__sub_803DCBF0(C_803DCBF0 *arg0);
@@ -77,7 +77,7 @@ s32 pop_matrix();
 extern struct MotionCtx_803DC894 * const lbl_805D4698;
 extern RecoveredCallback_1268626c296b lbl_805D76B8;
 void draw_motion_node_tree__10TObjPlayerFPv(struct Node_803DCB40 *arg0);
-extern const Tbl_803DCC34 lbl_8047E3D8;
+extern const Tbl_803DCC34 gx_blend_mode_table;
 extern u8 *lbl_805D774C;
 void abs__4cXyzCFv(s32 arg0, s32 arg1);
 M2C_UNK get_current_matrix(void *);
@@ -234,7 +234,7 @@ void TObjPlayer__sub_803DCBF0(C_803DCBF0 *arg0) {
 
 #define REG_803DCC34 ((Reg_803DCC34 *) lbl_805D774C)
 void abs__4cXyzCFv(s32 arg0, s32 arg1) {
-    Tbl_803DCC34 tbl = lbl_8047E3D8;
+    Tbl_803DCC34 tbl = gx_blend_mode_table;
     if (arg1 == 0) {
         REG_803DCC34->mode = (REG_803DCC34->mode & 0x03FFFFFF) | 0xB0000000;
     } else if (arg1 == 0) {
@@ -248,8 +248,8 @@ void abs__4cXyzCFv(s32 arg0, s32 arg1) {
 
 void apply_cached_blend_mode(s32 arg0) {
     u32 v = M2C_FIELD(lbl_805D774C, u32 *, 0xC);
-    int src = lbl_8047E408[(v & 0xE0000000) >> 29];
-    int dst = lbl_8047E408[(v & 0x1C000000) >> 26];
+    int src = cached_blend_factor_table[(v & 0xE0000000) >> 29];
+    int dst = cached_blend_factor_table[(v & 0x1C000000) >> 26];
     if (arg0 != 0) {
         GXSetBlendMode(1, src, dst, 0);
     } else {

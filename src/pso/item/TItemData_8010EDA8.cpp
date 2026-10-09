@@ -5,7 +5,7 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 #define M2C_BITWISE(type, expr) ((type)(expr))
 
 extern "C" {
-extern u8 *lbl_805D553C;
+extern u8 *text_language_group_table;
 s32 get_item_description_text(s32 arg0);
 s32 get_text_collection(s32 arg0);
 }
@@ -85,10 +85,10 @@ void update_player_field__9TItemDataFi(s32 arg0) {
     can_use_more_materials__10TObjPlayerFv(arg0 + 0x374, get_class_index__10TObjPlayerFPv());
 }
 s32 get_item_description_text(s32 arg0) {
-    return M2C_FIELD(M2C_FIELD(lbl_805D553C, s32 *, 4), M2C_UNK *, (arg0 * 4));
+    return M2C_FIELD(M2C_FIELD(text_language_group_table, s32 *, 4), M2C_UNK *, (arg0 * 4));
 }
 s32 get_text_collection(s32 arg0) {
-    return M2C_FIELD(*(*(s32 * *)&lbl_805D553C), M2C_UNK *, (arg0 * 4));
+    return M2C_FIELD(*(*(s32 * *)&text_language_group_table), M2C_UNK *, (arg0 * 4));
 }
 
 }

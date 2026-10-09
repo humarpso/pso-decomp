@@ -221,7 +221,7 @@ f32 set_triggered_state__6TOTrapFPvUi(u8 *arg0, u32 arg1);
 M2C_UNK submit_cursor_candidate(void *, M2C_UNK);
 void submit_cursor_and_notify__6TOTrapFPv(u8 *arg0);
 extern u32 lbl_80442CD0[];
-extern s32 lbl_805D5550;
+extern s32 game_difficulty_selection;
 f32 scale_by_table_value__6TOTrapFf(f32 farg0);
 s32 fn_80171314(void *);
 s32 get_stat_by_key_state__10TObjPlayerFPv(void *);
@@ -280,7 +280,7 @@ f32 scale_by_table_value__6TOTrapFf(f32 farg0) {
     v[1] = lbl_80442CD0[1];
     v[2] = lbl_80442CD0[2];
     v[3] = lbl_80442CD0[3];
-    return farg0 * ((f32*)v)[lbl_805D5550];
+    return farg0 * ((f32*)v)[game_difficulty_selection];
 }
 
 void TOTrap__sub_80178BC0(void) {  }

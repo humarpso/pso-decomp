@@ -73,7 +73,7 @@ M2C_UNK pop_matrix();
 M2C_UNK post_translate_matrix(void *);
 M2C_UNK set_global_param__8TObjFishFi(void *);
 M2C_UNK draw_ginja_object(void *);
-extern s32 lbl_8050DC98[];
+extern s32 TObjDoorJung__child_table[];
 extern s32 lbl_805D53A4;
 extern void *TObjDoorJung__data_805D5BD0;
 extern s32 lbl_805D5BD4;
@@ -167,15 +167,15 @@ void render__12TObjDoorJungFv(u8 *arg0) {
         for (i = 0; i < M2C_FIELD(arg0, s32 *, 0xD4); i++) {
             if (is_current_floor_switch_set((u16)(M2C_FIELD(arg0, s32 *, 0xC8) + i)) == 1) {
                 if (lbl_805D5BE8 >= 0) {
-                    free_children__12TObjDoorJungFPvPv(lbl_8050DC98[i], lbl_805D5BE8);
+                    free_children__12TObjDoorJungFPvPv(TObjDoorJung__child_table[i], lbl_805D5BE8);
                 }
             } else if (lbl_805D5BE4 >= 0) {
-                free_children__12TObjDoorJungFPvPv(lbl_8050DC98[i], lbl_805D5BE4);
+                free_children__12TObjDoorJungFPvPv(TObjDoorJung__child_table[i], lbl_805D5BE4);
             }
         }
         for (j = M2C_FIELD(arg0, s32 *, 0xD4); j < 4; j++) {
             if (lbl_805D5BE8 >= 0) {
-                free_children__12TObjDoorJungFPvPv(lbl_8050DC98[j], lbl_805D5BE8);
+                free_children__12TObjDoorJungFPvPv(TObjDoorJung__child_table[j], lbl_805D5BE8);
             }
         }
         set_global_param__8TObjFishFi((void *)lbl_805D5BD4);

@@ -190,7 +190,7 @@ M2C_UNK matrix_mult_vec(void *, void *, void *);
 M2C_UNK set_position_vec3__10TObjPlayerFPvPv(void *, void *);
 M2C_UNK set_matrix_identity__10TObjPlayerFPv(void *);
 M2C_UNK rotate_matrix_y(void *, int);
-extern u8 lbl_80472044[];
+extern u8 TOTrapSeabed01__transform_params[];
 extern Entry_802C9E3C lbl_804E0FE4[];
 extern s32 TOTrapSeabed01__bml_resource;
 extern s32 TOTrapSeabed01__texture_file;
@@ -225,7 +225,7 @@ void TOTrapSeabed01__vt83(Trap_802C9E3C *self) {
     s32 i;
     f32 y;
     void *o;
-    copy_transform__8TObjChipFPvPv(&p, lbl_80472044);
+    copy_transform__8TObjChipFPvPv(&p, TOTrapSeabed01__transform_params);
     y = TOTrapSeabed01__data_805DE644;
     p.f44 = TOTrapSeabed01__texture_file;
     for (i = 0; i < 6; i++) {
@@ -678,7 +678,7 @@ extern u8 lbl_804E0FA8[];
 extern s32 lbl_805D681C;
 extern s32 seabed01_ginja_mesh_index;
 void load_resources__14TOTrapSeabed01Fv(void);
-extern s32 lbl_80472090[];
+extern s32 trap_seabed01_param_index_table[];
 void clamp_params_and_init__14TOTrapSeabed01FPv(void *arg0);
 }
 
@@ -759,7 +759,7 @@ void clamp_params_and_init__14TOTrapSeabed01FPv(void *arg0) {
     }
     M2C_FIELD(arg0, f32 *, 0x354) = ((VObj_802CA5F4 *)arg0)->m85(M2C_FIELD(arg0, f32 *, 0x6C));
     M2C_FIELD(arg0, s32 *, 0x8C) = CLAMPI(M2C_FIELD(arg0, s32 *, 0x8C), 0, 5);
-    M2C_FIELD(arg0, s32 *, 0x350) = lbl_80472090[M2C_FIELD(arg0, s32 *, 0x8C)];
+    M2C_FIELD(arg0, s32 *, 0x350) = trap_seabed01_param_index_table[M2C_FIELD(arg0, s32 *, 0x8C)];
 }
 #pragma pop
 

@@ -54,7 +54,7 @@ s32 get_palette_consumable_count(u16, s32);
 void get_help_text_string(s32);
 void toggle_help_window_on_button(s32, s32);
 void send_and_handle__6TLobbyFPvii(s32, s32, s32);
-extern s32 lbl_805D5544;
+extern s32 current_language;
 void update_customize_help_text(Win_802758C8 *self, Ev_802758C8 *ev);
 s32 get_card_entry__17TWindowSubComCardFi(M2C_UNK);
 s32 count_active_cards__17TWindowSubComCardFv(void);
@@ -257,7 +257,7 @@ void update_customize_help_text(Win_802758C8 *self, Ev_802758C8 *ev) {
         text_builder_append();
         if (ev->id != 0x11 && ev->id != 0xE) {
             lvl = get_cast_technique_level(pl + 0x428, ev->id);
-            if (lbl_805D5544 != 0) {
+            if (current_language != 0) {
                 append_text_space();
             }
             get_help_text_string(0x2D);

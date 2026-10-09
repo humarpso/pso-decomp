@@ -56,8 +56,8 @@ extern Tbl_8029FAE4 lbl_80465FD8;
 extern u8 lbl_804DC864[];
 extern M2C_UNK __vt__16TODoorLaboNormal[];
 extern M2C_UNK __vt__10TODoorLabo[];
-extern s32 lbl_805D3D70;
-extern s32 lbl_805D3D6C;
+extern s32 door_labo_normal_class_name;
+extern s32 odoor_labo_class_name;
 extern const f32 lbl_805DDDB8;
 extern const f32 lbl_805DDDBC;
 extern const f32 lbl_805DDDC0;
@@ -122,7 +122,7 @@ Self_8029F7E0 *TODoorLaboNormal__ct(Self_8029F7E0 *self) {
     s32 i;
     TODoorFourLightBase__ct(self);
     self->vt = ((s32 *)&__vt__16TODoorLaboNormal);
-    self->f0 = lbl_805D3D70;
+    self->f0 = door_labo_normal_class_name;
     init_collision_body_parts(self, lbl_804DC864, 1);
     refresh_collision_body_centers(self);
     reset_photon_effect__10TObjPlayerFPv(self);
@@ -214,7 +214,7 @@ Door_8029FAE4 *TODoorLabo__ct(Door_8029FAE4 *arg0) {
 
     TODoorFourLightBase__ct(arg0);
     arg0->vt = __vt__10TODoorLabo;
-    arg0->f0 = lbl_805D3D6C;
+    arg0->f0 = odoor_labo_class_name;
     init_collision_body_parts(arg0, lbl_804DC864, 1);
     refresh_collision_body_centers(arg0);
     reset_photon_effect__10TObjPlayerFPv(arg0);
@@ -369,7 +369,7 @@ struct Door_8029FD70 {
 M2C_UNK clamp_light_index__19TODoorFourLightBaseFPv(void *);
 extern Tbl_8029FD70 lbl_80465FAC;
 extern M2C_UNK __vt__22TODoorFourLightSeabedU[];
-extern s32 lbl_805D3D68;
+extern s32 odoor_four_light_seabed_u_class_name;
 extern u32 lbl_805D660C;
 extern const f32 lbl_805DDDB8;
 extern const f32 lbl_805DDDBC;
@@ -379,7 +379,7 @@ u8 *TODoorFourLightSeabedU__ct(u8 *arg0) {
     s32 i;
     TODoorFourLightBase__ct(arg0);
     self->vt18 = __vt__22TODoorFourLightSeabedU;
-    self->f0 = lbl_805D3D68;
+    self->f0 = odoor_four_light_seabed_u_class_name;
     init_collision_body_parts(arg0, lbl_804DC864, 1);
     refresh_collision_body_centers(arg0);
     reset_photon_effect__10TObjPlayerFPv(arg0);
@@ -548,7 +548,7 @@ struct Door_802A0068 {
 M2C_UNK clamp_light_index__19TODoorFourLightBaseFPv(void *);
 extern Tbl_802A0068 lbl_80465F74;
 extern M2C_UNK __vt__21TODoorFourLightSeabed[];
-extern s32 lbl_805D3D64;
+extern s32 TODoorFourLightSeabed__class_name;
 extern s32 lbl_805D6600;
 extern const f32 lbl_805DDDB8;
 extern const f32 lbl_805DDDBC;
@@ -558,7 +558,7 @@ u8 *TODoorFourLightSeabed__ct(u8 *arg0) {
     s32 i;
     TODoorFourLightBase__ct(arg0);
     self->vt18 = __vt__21TODoorFourLightSeabed;
-    self->f0 = lbl_805D3D64;
+    self->f0 = TODoorFourLightSeabed__class_name;
     init_collision_body_parts(arg0, lbl_804DC864, 1);
     refresh_collision_body_centers(arg0);
     reset_photon_effect__10TObjPlayerFPv(arg0);

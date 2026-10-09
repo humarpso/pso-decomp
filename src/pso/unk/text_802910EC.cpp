@@ -22,7 +22,7 @@ extern "C" {
 s32 queue_destruction__7TObjectFv(void *);
 s32 TLobby__sub_803DA16C(void *);
 extern RecoveredGlobal_80291138_lbl_804D9668 lbl_804D9668;
-extern u32 lbl_805D6568;
+extern u32 cmicon_instance;
 void fn_80291138(void);
 void apply_view_params_if_flagged__11TCameraCtrlFPv(void *);
 extern RecoveredGlobal_802911E8_lbl_804DAA78 lbl_804DAA78;
@@ -32,7 +32,7 @@ extern const f32 lbl_805DD96C;
 extern const f32 lbl_805DD970;
 void set_creation_projection_center(f32 farg0);
 extern u8 lbl_804D9578[];
-extern s32 lbl_805D656C;
+extern s32 creation_sprite_table_index;
 void TCharaMaking__resolve_creation_sprite_table(u8 **table, s32 *id);
 void load_texture_pvm_file__6TLobbyFPvi(int, void *);
 void init_icon_table__10TObjCMIconFv();
@@ -40,10 +40,10 @@ s32 create__10TObjCMIconFPv(int);
 extern RecoveredGlobal_80291138_lbl_804D9668 lbl_804D9668;
 extern s32 lbl_804DA944[];
 extern f32 ui_sprite_scale;
-extern s32 lbl_805D5544;
+extern s32 current_language;
 extern s32 tl_06;
-extern u32 lbl_805D6568;
-extern s32 lbl_805D656C;
+extern u32 cmicon_instance;
+extern s32 creation_sprite_table_index;
 extern const f32 lbl_805DD964;
 void fn_80291178(void);
 }
@@ -61,7 +61,7 @@ void TCharaMaking__resolve_creation_sprite_table(u8 **table, s32 *id) {
     return;
   }
   *id = (*id) - 143;
-  if (lbl_805D656C == 0)
+  if (creation_sprite_table_index == 0)
   {
     *table = base + 0xc24;
     return;
@@ -70,10 +70,10 @@ void TCharaMaking__resolve_creation_sprite_table(u8 **table, s32 *id) {
 }
 
 void fn_80291138(void) {
-    if ((u32) lbl_805D6568 != 0U) {
-        queue_destruction__7TObjectFv((void *) (lbl_805D6568));
+    if ((u32) cmicon_instance != 0U) {
+        queue_destruction__7TObjectFv((void *) (cmicon_instance));
     }
-    lbl_805D6568 = 0U;
+    cmicon_instance = 0U;
     TLobby__sub_803DA16C((void *) (&lbl_804D9668.value));
 }
 #pragma push
@@ -81,14 +81,14 @@ void fn_80291138(void) {
 typedef char RecoveredGlobal_802911E8_lbl_804DAA78_size[sizeof(RecoveredGlobal_802911E8_lbl_804DAA78) == 0x90 ? 1 : -1];
 
 void fn_80291178(void) {
-    lbl_805D656C = 0;
+    creation_sprite_table_index = 0;
     ui_sprite_scale = lbl_805DD964;
-    if (lbl_805D5544 != 0) {
-        lbl_805D656C = 1;
+    if (current_language != 0) {
+        creation_sprite_table_index = 1;
     }
     init_icon_table__10TObjCMIconFv();
-    (*(s32 *)&lbl_805D6568) = create__10TObjCMIconFPv(tl_06);
-    load_texture_pvm_file__6TLobbyFPvi(lbl_804DA944[lbl_805D656C], ((s32 *)&lbl_804D9668));
+    (*(s32 *)&cmicon_instance) = create__10TObjCMIconFPv(tl_06);
+    load_texture_pvm_file__6TLobbyFPvi(lbl_804DA944[creation_sprite_table_index], ((s32 *)&lbl_804D9668));
 }
 
 void set_creation_projection_center(f32 farg0) {

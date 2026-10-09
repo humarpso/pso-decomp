@@ -55,7 +55,7 @@ M2C_UNK draw_title_layer__10TAdTitleGCFPvii(void *arg0, s32 arg1, M2C_UNK arg2);
 void __ct__7TObjectFP7TObject(void *, void *);
 u32 create_draw_line_ctrl__13TAdMcSelectGCFiif(void *, s32, f32);
 extern u8 __vt__10TAdTitleGC[];
-extern s32 lbl_805D3D78;
+extern s32 ad_title_gc_class_name;
 TAdTitleGC_802A0E08 *__ct__10TAdTitleGCFv(TAdTitleGC_802A0E08 *self, void *parent, s32 idx);
 extern f32 lbl_8046620C[];
 M2C_UNK update_title_rects__10TAdTitleGCFPv(void *p);
@@ -148,7 +148,7 @@ TAdTitleGC_802A0E08 *__ct__10TAdTitleGCFv(TAdTitleGC_802A0E08 *self, void *paren
     s32 i;
     __ct__7TObjectFP7TObject(self, parent);
     self->vtable = __vt__10TAdTitleGC;
-    self->name = lbl_805D3D78;
+    self->name = ad_title_gc_class_name;
     self->idx = idx;
     self->f128 = -1;
     self->f12C = 0;

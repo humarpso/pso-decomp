@@ -7,8 +7,8 @@ void set_ending_callback__6TLobbyFv(void);
 
 void TLobby__sub_800FC3CC(void) {  }
 
-    extern unsigned char lbl_8049C730[];
+    extern unsigned char status_alphabet_metrics_table[];
     extern int lbl_805D5398;
-void set_ending_callback__6TLobbyFv(void) { lbl_805D5398 = (int)lbl_8049C730; }
+void set_ending_callback__6TLobbyFv(void) { lbl_805D5398 = (int)status_alphabet_metrics_table; }
 
 }

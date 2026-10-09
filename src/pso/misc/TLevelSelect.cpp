@@ -39,7 +39,7 @@ void set_game_mode_changed__21TAdMultiChgGameModeGCFv(void);
 void set_entry_value__22TAdMultiPlyChrSelectGCFiiUi(s32, s32, u32);
 extern u8 lbl_8050E208[];
 extern u8 lbl_8050E3B8[];
-extern s32 lbl_805D5550;
+extern s32 game_difficulty_selection;
 void run_task__12TLevelSelectFv(Self_80133068 *self);
 void __ct__7TObjectFP7TObject(void *, void *);
 void TKeyBoardControl__sub_8000F90C(s32);
@@ -63,8 +63,8 @@ extern Ents_8013319C level_select_entry_table;
 extern Pos_8013319C lbl_8043ED58[];
 extern Poss_8013319C level_select_position_table;
 extern u8 __vt__12TLevelSelect[];
-extern s32 lbl_805D2CA0;
-extern s32 lbl_805D5550;
+extern s32 level_select_class_name;
+extern s32 game_difficulty_selection;
 extern void *tl_01;
 extern const f32 lbl_805DB080;
 Self_8013319C *__ct__12TLevelSelectFv(Self_8013319C *self);
@@ -97,10 +97,10 @@ int count_unlocked_difficulties__12TLevelSelectFv(void) {
 }
 void run_task__12TLevelSelectFv(Self_80133068 *self) {
     set_default_camera__21TAdMultiChgGameModeGCFv();
-    if (lbl_805D5550 != TAdSinglePlyChrSelectGC__sub_801334DC(self->f20)) {
+    if (game_difficulty_selection != TAdSinglePlyChrSelectGC__sub_801334DC(self->f20)) {
         set_entry_value__22TAdMultiPlyChrSelectGCFiiUi(self->f24, 1, get_localized_text_entry(0xD, TAdSinglePlyChrSelectGC__sub_801334DC(self->f20) + 1));
     }
-    lbl_805D5550 = TAdSinglePlyChrSelectGC__sub_801334DC(self->f20);
+    game_difficulty_selection = TAdSinglePlyChrSelectGC__sub_801334DC(self->f20);
     switch (get_selected_slot__23TAdSinglePlyChrSelectGCFPv(self->f20)) {
     case 1:
         TKeyBoardControl__sub_8000F9CC(0xE);
@@ -121,9 +121,9 @@ Self_8013319C *__ct__12TLevelSelectFv(Self_8013319C *self) {
     u32 i;
     __ct__7TObjectFP7TObject(self, tl_01);
     self->vt = __vt__12TLevelSelect;
-    self->f0 = lbl_805D2CA0;
+    self->f0 = level_select_class_name;
     TKeyBoardControl__sub_8000F90C(2);
-    lbl_805D5550 = 0;
+    game_difficulty_selection = 0;
     self->count = ((int (*)(void *))count_unlocked_difficulties__12TLevelSelectFv)(self);
     if (self->count == 0) {
         TKeyBoardControl__sub_8000F9CC(0xE);

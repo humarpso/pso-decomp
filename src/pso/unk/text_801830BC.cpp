@@ -639,7 +639,7 @@ s32 TObjCity_Season_SonicAdv2__sub_80183C38(void *arg0);
 int get_anim_frame__25TObjCity_Season_EasterEggFPv(void* a0);
 
 void draw_model_motion(s32, s32, f32);
-extern s32 lbl_8050DC50[];
+extern s32 city_season_xmas_model_table[];
 void fn_80183AF0(Obj_80183AF0 *self);
 }
 
@@ -671,7 +671,7 @@ void fn_80183AF0(Obj_80183AF0 *self) {
     Vec_80183AF0 b;
     res = ((Res_80183AF0 * (*)(void *))get_anim_frame__25TObjCity_Season_EasterEggFPv)(self);
     if (res != NULL && self->m8(lbl_805DBC44[0], lbl_805DBC4C[0]) != 0) {
-        ((void (*)(s32))set_global_param__8TObjFishFi)(lbl_8050DC50[5]);
+        ((void (*)(s32))set_global_param__8TObjFishFi)(city_season_xmas_model_table[5]);
         idx = TObjCity_Season_SonicAdv2__sub_80183C38(self);
         ((void (*)())push_matrix)();
         ((void (*)(void *))post_translate_matrix)(&self->pos);
@@ -812,7 +812,7 @@ M2C_UNK push_matrix();
 M2C_UNK pop_matrix();
 M2C_UNK post_translate_matrix(void *);
 
-#define lbl_8050DC50 (*(RecoveredGlobal_80183D4C_lbl_8050DC50 *)&lbl_8050DC50)
+#define city_season_xmas_model_table (*(RecoveredGlobal_80183D4C_lbl_8050DC50 *)&city_season_xmas_model_table)
 extern s32 lbl_805D5B34;
 #define lbl_805DBC44 (*(const f32 *)&lbl_805DBC44)
 extern const f32 lbl_805DBC60;
@@ -839,7 +839,7 @@ void fn_80183D4C(u8 *arg0) {
     temp_r3 = (u8 *)(((u8 * (*)())get_anim_frame__25TObjCity_Season_EasterEggFPv)());
     if (temp_r3 != NULL) {
         if (((VObj_18_26a62c *)(arg0))->m8(lbl_805DBC44, lbl_805DBC60) != 0) {
-            ((M2C_UNK (*)(int))set_global_param__8TObjFishFi)((int) (M2C_FIELD(&lbl_8050DC50.value, s32 *, 0x10)));
+            ((M2C_UNK (*)(int))set_global_param__8TObjFishFi)((int) (M2C_FIELD(&city_season_xmas_model_table.value, s32 *, 0x10)));
             ((M2C_UNK (*)(void *, int, int))scroll_strip_uvs)((void *) (lbl_805D5B34), (int) (0), (int) ((s16) M2C_FIELD(arg0, s32 *, 0xB4)));
             push_matrix();
             post_translate_matrix((void *) (arg0 + 0x38));
@@ -866,7 +866,7 @@ void advance_easter_egg_anim_frame(u8 *arg0) {
 
 #pragma pop
 
-#undef lbl_8050DC50
+#undef city_season_xmas_model_table
 #undef lbl_805DBC44
 #undef lbl_804B5CC4
 #undef lbl_805DBC38
@@ -970,15 +970,15 @@ extern s32 lbl_805D327C;
 #define lbl_805DBC4C (*(const f32 *)&lbl_805DBC4C)
 extern const f32 lbl_805DBC64;
 u8 *TObjCity_Season_21_21__ct(u8 *arg0, s32 arg1, s32 arg2);
-extern RecoveredGlobal_80184054_lbl_8050DC38 lbl_8050DC38;
+extern RecoveredGlobal_80184054_lbl_8050DC38 city_season_easter_egg_model_table;
 void fn_80184054(u8 *arg0);
 
 M2C_UNK push_matrix();
 M2C_UNK pop_matrix();
 M2C_UNK post_translate_matrix(void *);
 
-extern RecoveredGlobal_80184054_lbl_8050DC38 lbl_8050DC38;
-#define lbl_8050DC50 (*(RecoveredGlobal_80183FC0_lbl_8050DC50 *)&lbl_8050DC50)
+extern RecoveredGlobal_80184054_lbl_8050DC38 city_season_easter_egg_model_table;
+#define city_season_xmas_model_table (*(RecoveredGlobal_80183FC0_lbl_8050DC50 *)&city_season_xmas_model_table)
 #define lbl_805DBC44 (*(const f32 *)&lbl_805DBC44)
 extern const f32 lbl_805DBC68;
 void TLobby__sub_80183FC0(u8 *arg0);
@@ -1009,9 +1009,9 @@ typedef char RecoveredGlobal_80183FC0_lbl_8050DC38_size[sizeof(RecoveredGlobal_8
 typedef char RecoveredGlobal_80183FC0_lbl_8050DC50_size[sizeof(RecoveredGlobal_80183FC0_lbl_8050DC50) == 0x18 ? 1 : -1];
 void TLobby__sub_80183FC0(u8 *arg0) {
     u8 *temp_r31;
-    temp_r31 = (u8 *)(M2C_FIELD(&(*(RecoveredGlobal_80183FC0_lbl_8050DC38 *)&lbl_8050DC38).value, u8 **, 0xC));
+    temp_r31 = (u8 *)(M2C_FIELD(&(*(RecoveredGlobal_80183FC0_lbl_8050DC38 *)&city_season_easter_egg_model_table).value, u8 **, 0xC));
     if ((temp_r31 != NULL) && (((VObj_18_26a62c *)(arg0))->m8(lbl_805DBC44, lbl_805DBC68) != 0)) {
-        ((M2C_UNK (*)(int))set_global_param__8TObjFishFi)((int) (M2C_FIELD(&lbl_8050DC50.value, s32 *, 0xC)));
+        ((M2C_UNK (*)(int))set_global_param__8TObjFishFi)((int) (M2C_FIELD(&city_season_xmas_model_table.value, s32 *, 0xC)));
         push_matrix();
         post_translate_matrix((void *) (arg0 + 0x38));
         ((M2C_UNK (*)(int, int))rotate_matrix_y)((int) (0), (int) (M2C_FIELD(arg0, s32 *, 0x60)));
@@ -1021,7 +1021,7 @@ void TLobby__sub_80183FC0(u8 *arg0) {
 }
 
 void fn_80184054(u8 *arg0) {
-    if ((u32) M2C_FIELD(&lbl_8050DC38.value, u32 *, 0xC) != 0U) {
+    if ((u32) M2C_FIELD(&city_season_easter_egg_model_table.value, u32 *, 0xC) != 0U) {
         M2C_FIELD(arg0, s32 *, 0x60) = (s32) (M2C_FIELD(arg0, s32 *, 0x60) + 0x40);
     }
 }
@@ -1034,7 +1034,7 @@ void fn_80184054(u8 *arg0) {
 #undef VObj_18_26a62c
 #undef lbl_804B5D00
 #undef lbl_805DBC4C
-#undef lbl_8050DC50
+#undef city_season_xmas_model_table
 #undef lbl_805DBC44
 #pragma push
 #include "types.h"
@@ -1134,8 +1134,8 @@ M2C_UNK push_matrix();
 M2C_UNK pop_matrix();
 M2C_UNK post_translate_matrix(void *);
 
-#define lbl_8050DC38 (*(RecoveredGlobal_8018417C_lbl_8050DC38 *)&lbl_8050DC38)
-#define lbl_8050DC50 (*(RecoveredGlobal_8018417C_lbl_8050DC50 *)&lbl_8050DC50)
+#define city_season_easter_egg_model_table (*(RecoveredGlobal_8018417C_lbl_8050DC38 *)&city_season_easter_egg_model_table)
+#define city_season_xmas_model_table (*(RecoveredGlobal_8018417C_lbl_8050DC50 *)&city_season_xmas_model_table)
 #define lbl_805DBC4C (*(const f32 *)&lbl_805DBC4C)
 extern const f32 lbl_805DBC6C;
 void TLobby__sub_8018417C(u8 *arg0);
@@ -1161,9 +1161,9 @@ u8 *TObjCity_Season_HalloweenPumpkin__ct(u8 *arg0, s32 arg1, s32 arg2) {
 
 void TLobby__sub_8018417C(u8 *arg0) {
     u8 *temp_r31;
-    temp_r31 = (u8 *)(M2C_FIELD(&lbl_8050DC38.value, u8 **, 8));
+    temp_r31 = (u8 *)(M2C_FIELD(&city_season_easter_egg_model_table.value, u8 **, 8));
     if ((temp_r31 != NULL) && (((VObj_18_26a62c *)(arg0))->m8(lbl_805DBC6C, lbl_805DBC4C) != 0)) {
-        ((M2C_UNK (*)(int))set_global_param__8TObjFishFi)((int) (M2C_FIELD(&lbl_8050DC50.value, s32 *, 8)));
+        ((M2C_UNK (*)(int))set_global_param__8TObjFishFi)((int) (M2C_FIELD(&city_season_xmas_model_table.value, s32 *, 8)));
         push_matrix();
         post_translate_matrix((void *) (arg0 + 0x38));
         ((M2C_UNK (*)(int, int))rotate_matrix_y)((int) (0), (int) (M2C_FIELD(arg0, s32 *, 0x60)));
@@ -1180,8 +1180,8 @@ void TLobby__sub_8018417C(u8 *arg0) {
 #undef VObj_18_26a62c
 #undef VBase_18_1a504b
 #undef VObj_18_1a504b
-#undef lbl_8050DC38
-#undef lbl_8050DC50
+#undef city_season_easter_egg_model_table
+#undef city_season_xmas_model_table
 #undef lbl_805DBC4C
 #undef lbl_804B5D38
 #define VObj_18_1a504b VObj_18_1a504b_sf2p1365
@@ -1261,7 +1261,7 @@ void *dt__26TObjCity_Season_XmasWreathFPvs(void *arg0, s16 arg1) {
     return arg0;
 }
 
-extern M2C_UNK lbl_8050DC50[];
+extern M2C_UNK city_season_xmas_model_table[];
 #define lbl_805DBC40 (*(const f32 *)&lbl_805DBC40)
 #define lbl_805DBC44 (*(const f32 *)&lbl_805DBC44)
 
@@ -1279,7 +1279,7 @@ void render_debug__26TObjCity_Season_XmasWreathFPv(u8 *arg0) {
 
     temp_r3 = ((u8 * (*)())get_anim_frame__25TObjCity_Season_EasterEggFPv)();
     if ((temp_r3 != NULL) && (((VObj_80184314_80184210 *)arg0)->m8(lbl_805DBC44, lbl_805DBC40) != 0)) {
-        set_global_param__8TObjFishFi(M2C_FIELD(lbl_8050DC50, s32 *, 8));
+        set_global_param__8TObjFishFi(M2C_FIELD(city_season_xmas_model_table, s32 *, 8));
         push_matrix();
         post_translate_matrix(arg0 + 0x38);
         rotate_matrix_y(0, M2C_FIELD(arg0, s32 *, 0x60));
@@ -1383,7 +1383,7 @@ void *dt__24TObjCity_Season_XmasTreeFPvs(void *arg0, s16 arg1) {
     return arg0;
 }
 
-extern M2C_UNK lbl_8050DC50[];
+extern M2C_UNK city_season_xmas_model_table[];
 #define lbl_805DBC40 (*(const f32 *)&lbl_805DBC40)
 #define lbl_805DBC44 (*(const f32 *)&lbl_805DBC44)
 
@@ -1409,7 +1409,7 @@ void render_tree__24TObjCity_Season_XmasTreeFPv(u8 *arg0) {
 
     temp_r3 = ((u8 * (*)(void *))get_anim_frame__25TObjCity_Season_EasterEggFPv)((void *)(arg0));
     if ((temp_r3 != NULL) && (((VObj_8018455c_80184408*)arg0)->m8(lbl_805DBC44, lbl_805DBC40) != 0)) {
-        set_global_param__8TObjFishFi(M2C_FIELD(lbl_8050DC50, s32 *, 4));
+        set_global_param__8TObjFishFi(M2C_FIELD(city_season_xmas_model_table, s32 *, 4));
         push_matrix();
         post_translate_matrix(arg0 + 0x38);
         rotate_matrix_y(0, M2C_FIELD(arg0, s32 *, 0x60));
@@ -1506,7 +1506,7 @@ void *destroy__30TObjCity_Season_ValentineHeartFPvs(void *arg0, s16 arg1) {
     return arg0;
 }
 
-extern M2C_UNK lbl_8050DC50[];
+extern M2C_UNK city_season_xmas_model_table[];
 #define lbl_805DBC40 (*(const f32 *)&lbl_805DBC40)
 #define lbl_805DBC44 (*(const f32 *)&lbl_805DBC44)
 
@@ -1532,7 +1532,7 @@ void notify_fish_on_easter_egg(u8 *arg0) {
 
     temp_r3 = ((u8 * (*)(void *))get_anim_frame__25TObjCity_Season_EasterEggFPv)((void *)(arg0));
     if ((temp_r3 != NULL) && (((VObj_8018455c_80184620*)arg0)->m8(lbl_805DBC44, lbl_805DBC40) != 0)) {
-        set_global_param__8TObjFishFi(lbl_8050DC50[0]);
+        set_global_param__8TObjFishFi(city_season_xmas_model_table[0]);
         push_matrix();
         post_translate_matrix(arg0 + 0x38);
         rotate_matrix_y(0, M2C_FIELD(arg0, s32 *, 0x60));
@@ -1691,8 +1691,8 @@ M2C_UNK unregister_object_by_id(void *);
 
 M2C_UNK destroy_particle_controller__10TObjPlayerFPvs(void *, M2C_UNK);
 
-#define lbl_8050DC38 (*(int (*)[1])&lbl_8050DC38)
-int get_anim_frame__25TObjCity_Season_EasterEggFPv(void* a0) {  return lbl_8050DC38[*(int*)((char*)a0 + 0xac)]; }
+#define city_season_easter_egg_model_table (*(int (*)[1])&city_season_easter_egg_model_table)
+int get_anim_frame__25TObjCity_Season_EasterEggFPv(void* a0) {  return city_season_easter_egg_model_table[*(int*)((char*)a0 + 0xac)]; }
 
 extern M2C_UNK lbl_804B5E48[];
 
@@ -1717,7 +1717,7 @@ void *destroy_seasonal_object__25TObjCity_Season_EasterEggFPvs(void *arg0, s16 a
 
 #pragma pop
 
-#undef lbl_8050DC38
+#undef city_season_easter_egg_model_table
 #define VObj_18_1a504b VObj_18_1a504b_sf2p1995
 #define VBase_18_1a504b VBase_18_1a504b_sf2p1995
 #pragma push

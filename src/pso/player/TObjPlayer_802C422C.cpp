@@ -129,7 +129,7 @@ E_802C4698 *TObjPlayer__sub_802C4698(O_802C4698 *self, s32 i);
 void set_flag_40__10TObjPlayerFPv(void* p);
 void set_flag_524288__10TObjPlayerFPv(void* p);
 void set_flag_80000__10TObjPlayerFPv(void* p);
-extern s32 lbl_805D5544;
+extern s32 current_language;
 void export_player_record__10TObjPlayerFPvPv(u8 *arg0, u8 *arg1);
 void is_slot_within_limit__10TObjPlayerFiiUc(u8 id, s16 i, u8 v);
 void set_action_palette_slot__10TObjPlayerFPviUc(S_802C457C *self, s32 i, u8 v);
@@ -192,7 +192,7 @@ void export_player_record__10TObjPlayerFPvPv(u8 *arg0, u8 *arg1) {
         split_capped_value__10TObjPlayerFUcPvPv(TObjPlayer__sub_801C0124((void *) (arg1 + 0x428), i),
             TObjPlayer__sub_802C4688((O_802C4688 *) arg0, i), e);
     }
-    M2C_FIELD(arg0, s8 *, 3) = lbl_805D5544;
+    M2C_FIELD(arg0, s8 *, 3) = current_language;
     if (TObjPlayer__sub_802A1018() != 0) {
         set_flag_40__10TObjPlayerFPv((void *) (arg0));
     }

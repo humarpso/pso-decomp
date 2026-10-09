@@ -8,8 +8,8 @@ extern "C" {
 void __as__16TPlyGuildCardTagFRC16TPlyGuildCardTag(void *arg0, void *arg1);
 u32 get_char_index__23TAdSinglePlyChrSelectGCFUi(void *);
 M2C_UNK strncpy(void *, int, int);
-extern s32 lbl_805D5544;
-extern u8 *TLobby__data_805D5580;
+extern s32 current_language;
+extern u8 *TLobby__protocol_instance;
 void fill_guild_card_from_char__6TLobbyFPvi(u8 *arg0, s32 arg1);
 }
 
@@ -35,9 +35,9 @@ void fill_guild_card_from_char__6TLobbyFPvi(u8 *arg0, s32 arg1) {
             M2C_FIELD(arg0, s8 *, 0x1F) = 0;
             M2C_FIELD(arg0, u8 *, 0x8F) = (u8) M2C_FIELD(temp_r31, u8 *, 0x31);
             M2C_FIELD(arg0, u8 *, 0x8E) = (u8) M2C_FIELD(temp_r31, u8 *, 0x30);
-            M2C_FIELD(arg0, s8 *, 0x8D) = (s8) lbl_805D5544;
-            if ((void *) TLobby__data_805D5580 != NULL) {
-                u8 *src = TLobby__data_805D5580 + 0x1900;
+            M2C_FIELD(arg0, s8 *, 0x8D) = (s8) current_language;
+            if ((void *) TLobby__protocol_instance != NULL) {
+                u8 *src = TLobby__protocol_instance + 0x1900;
                 if ((u32) M2C_FIELD(src, u32 *, 4) != 0U) {
                     __as__16TPlyGuildCardTagFRC16TPlyGuildCardTag((void *) (arg0), (void *) src);
                 }

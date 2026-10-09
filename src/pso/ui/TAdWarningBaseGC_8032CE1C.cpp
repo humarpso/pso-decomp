@@ -26,19 +26,19 @@ void run_frame__6TLobbyFv(void);
 void ARQPostRequest(void *, u32, u32, u32, u32, u32, u32, void (*)(u32));
 void TAdWarningBaseGC__sub_8032D1E4(u32);
 extern u8 ad_warning_arq_request[];
-extern u32 lbl_805D6CE0;
-extern s32 lbl_805D6CE8;
-extern int lbl_805D6CEC;
-extern s32 lbl_805D6CF4;
+extern u32 ad_warning_aram_base;
+extern s32 warning_aram_load_done_flag;
+extern int TAdWarningBaseGC__aram_alloc_size;
+extern s32 aram_request_busy_flag;
 s32 load_from_aram_sync__16TAdWarningBaseGCFi(s32 arg0);
 void DCFlushRange(void *, u32);
 void ARQPostRequest(void *, u32, u32, u32, u32, u32, u32, void (*)(u32));
 void TAdWarningBaseGC__sub_8032D1E4(u32);
 extern u8 ad_warning_arq_request[];
-extern u32 lbl_805D6CE0;
-extern u32 lbl_805D6CE4;
-extern int lbl_805D6CEC;
-extern s32 lbl_805D6CF4;
+extern u32 ad_warning_aram_base;
+extern u32 TAdWarningBaseGC__aram_capacity;
+extern int TAdWarningBaseGC__aram_alloc_size;
+extern s32 aram_request_busy_flag;
 s32 post_aram_request__16TAdWarningBaseGCFii(s32 arg0, s32 arg1);
 }
 
@@ -54,13 +54,13 @@ void __ct__7TObjectFP7TObject(void *);
 void __dl__7TObjectFPv(void *);
 void __dt__7TObjectFv(void *, int);
 
-extern s32 lbl_805D6CE8;
-extern s32 lbl_805D6CF4;
+extern s32 warning_aram_load_done_flag;
+extern s32 aram_request_busy_flag;
 
 void TAdWarningBaseGC__sub_8032CE1C(void *arg0) {
-    if ((s32) lbl_805D6CF4 == 0) {
+    if ((s32) aram_request_busy_flag == 0) {
         M2C_FIELD(arg0, s32 *, 0x1C) = 3;
-        lbl_805D6CE8 = 1;
+        warning_aram_load_done_flag = 1;
     }
 }
 
@@ -84,7 +84,7 @@ void request_aram_load_state__16TAdWarningBaseGCFPv(u8 *arg0) {
 
 void TAdWarningBaseGC__sub_8032CEA8(void* p) { *(s32*)((char*)p + 0x1c) = 1; }
 
-    extern int lbl_805D6CEC;
+    extern int TAdWarningBaseGC__aram_alloc_size;
 
 void dispatch_state_action__16TAdWarningBaseGCFPv(TAdWarningBaseGC_8032CEB4 *self) {
     static Act_8032CEB4 tbl[4] = {
@@ -98,15 +98,15 @@ void dispatch_state_action__16TAdWarningBaseGCFPv(TAdWarningBaseGC_8032CEB4 *sel
 
 s32 load_from_aram_sync__16TAdWarningBaseGCFi(s32 arg0) {
     u32 size;
-    if (lbl_805D6CE8 == 0) {
+    if (warning_aram_load_done_flag == 0) {
         return 0;
     }
-    size = ((*(s32 *)&lbl_805D6CEC) + 0x1F) & ~0x1F;
+    size = ((*(s32 *)&TAdWarningBaseGC__aram_alloc_size) + 0x1F) & ~0x1F;
     DCInvalidateRange((void *)arg0, size);
-    lbl_805D6CF4 = 1;
-    ARQPostRequest(ad_warning_arq_request, 4, 1, 1, lbl_805D6CE0, arg0, size, TAdWarningBaseGC__sub_8032D1E4);
+    aram_request_busy_flag = 1;
+    ARQPostRequest(ad_warning_arq_request, 4, 1, 1, ad_warning_aram_base, arg0, size, TAdWarningBaseGC__sub_8032D1E4);
 loop:
-    if (lbl_805D6CF4 != 0) {
+    if (aram_request_busy_flag != 0) {
         run_frame__6TLobbyFv();
         goto loop;
     }
@@ -114,23 +114,23 @@ loop:
     return 1;
 }
 
-int get_alloc_size__16TAdWarningBaseGCFv(void) {  return lbl_805D6CEC; }
+int get_alloc_size__16TAdWarningBaseGCFv(void) {  return TAdWarningBaseGC__aram_alloc_size; }
 
-    extern int lbl_805D6CEC;
-int TAdWarningBaseGC__sub_8032D020(void) {  return ((lbl_805D6CEC + 0x1f) & 0xffffffe0); }
+    extern int TAdWarningBaseGC__aram_alloc_size;
+int TAdWarningBaseGC__sub_8032D020(void) {  return ((TAdWarningBaseGC__aram_alloc_size + 0x1f) & 0xffffffe0); }
 
 extern M2C_UNK lbl_804EDBD0[];
 
 s32 post_aram_request__16TAdWarningBaseGCFii(s32 arg0, s32 arg1) {
     u32 size;
     size = (arg1 + 0x1F) & ~0x1F;
-    (*(s32 *)&lbl_805D6CEC) = arg1;
-    if (size > lbl_805D6CE4) {
+    (*(s32 *)&TAdWarningBaseGC__aram_alloc_size) = arg1;
+    if (size > TAdWarningBaseGC__aram_capacity) {
         return 0;
     }
     DCFlushRange((void *)arg0, size);
-    lbl_805D6CF4 = 1;
-    ARQPostRequest(ad_warning_arq_request, 4, 0, 1, arg0, lbl_805D6CE0, size, TAdWarningBaseGC__sub_8032D1E4);
+    aram_request_busy_flag = 1;
+    ARQPostRequest(ad_warning_arq_request, 4, 0, 1, arg0, ad_warning_aram_base, size, TAdWarningBaseGC__sub_8032D1E4);
     return 1;
 }
 

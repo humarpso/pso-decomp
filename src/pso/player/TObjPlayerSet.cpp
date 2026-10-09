@@ -31,7 +31,7 @@ u8 *TObjQuestCol2__vt14(u8 *arg0);
 void disallow_rendering__7TObjectFv(void *);
 u8 * TPhotonMagicSquare__sub_801A2640(void *);
 extern M2C_UNK __vt__13TObjPlayerSet[];
-extern s32 TObjPlayer__data_805D33E0;
+extern s32 TObjPlayer__player_set_class_name;
 extern const f32 lbl_805DBEF0;
 u8 *TObjPlayerSet__ct(u8 *arg0, M2C_UNK arg1, s32 arg2);
 }
@@ -82,7 +82,7 @@ typedef char RecoveredGlobal_80195720___vt__13TObjPlayerSet_size[sizeof(Recovere
 u8 *TObjPlayerSet__ct(u8 *arg0, M2C_UNK arg1, s32 arg2) {
     TPhotonMagicSquare__sub_801A2640(arg0);
     M2C_FIELD(arg0, M2C_UNK **, 0x18) = &(*(RecoveredGlobal_80195720___vt__13TObjPlayerSet *)&__vt__13TObjPlayerSet).value;
-    M2C_FIELD(arg0, s32 *, 0) = (s32) TObjPlayer__data_805D33E0;
+    M2C_FIELD(arg0, s32 *, 0) = (s32) TObjPlayer__player_set_class_name;
     ((VObj_18_1a504b *)(arg0))->m5(arg2);
     if (M2C_FIELD(arg0, f32 *, 0x68) < lbl_805DBEF0) {
         M2C_FIELD(arg0, f32 *, 0x68) = (f32) lbl_805DBEF0;

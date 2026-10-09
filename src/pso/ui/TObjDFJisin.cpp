@@ -223,7 +223,7 @@ extern s32 lbl_805D27BC;
 extern void *lbl_805D27C0;
 extern s32 lbl_805D27C4;
 extern s32 lbl_805D27C8;
-extern s32 lbl_805D5550;
+extern s32 game_difficulty_selection;
 extern const f32 lbl_805D8A30;
 extern const f32 lbl_805D8A34;
 extern const f32 lbl_805D8A48;
@@ -352,7 +352,7 @@ u8 *TObjDFHorming__ct(u8 *arg0, M2C_UNK arg1, s32 arg2, u16 arg3) {
     M2C_FIELD(arg0, s32 *, 0) = lbl_805D27C8;
     M2C_FIELD(arg0, u16 *, 0x334) = arg3;
     M2C_FIELD(arg0, s32 *, 0x338) = 0x96;
-    if (lbl_805D5550 == 3) {
+    if (game_difficulty_selection == 3) {
         M2C_FIELD(arg0, s32 *, 0x338) = 0x12C;
     }
     ((void * (*)(void *, void *))VecCopy__FP3VecPC3Vec)(arg0 + 0x2FC, ((void * (*)(void *, void *))VecCopy__FP3VecPC3Vec)(arg0 + 0x44, ((void * (*)(void *, void *))VecCopy__FP3VecPC3Vec)(arg0 + 0x33C, (void *)arg2)));

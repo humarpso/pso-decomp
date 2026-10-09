@@ -42,7 +42,7 @@ M2C_UNK send_trade_list__6TLobbyFPvPv(s32, M2C_UNK *);
 M2C_UNK clear_flag400__6TLobbyFv();
 M2C_UNK build_trade_item_list__6TLobbyFPv(M2C_UNK *);
 M2C_UNK TWindowSubTradeMain__sub_80330A84();
-extern s32 TLobby__data_805D5580;
+extern s32 TLobby__protocol_instance;
 extern u16 lbl_805D6888;
 extern u8 TLobby__data_805D688B;
 extern u32 TLobby__data_805D6898;
@@ -103,7 +103,7 @@ void update_trade_list_send__6TLobbyFv(void) {
         break;
     case 6:
         build_trade_item_list__6TLobbyFPv((M2C_UNK *)sp8);
-        send_trade_list__6TLobbyFPvPv(TLobby__data_805D5580, (M2C_UNK *)sp8);
+        send_trade_list__6TLobbyFPvPv(TLobby__protocol_instance, (M2C_UNK *)sp8);
         lbl_805D6888 |= 0x400;
         if ((u32) TLobby__data_805D6898 != 0U) {
             ((void (*)(u32))TWindowSubTradeMain__sub_80330A84)(TLobby__data_805D6898);

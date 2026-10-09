@@ -54,7 +54,7 @@ extern M2C_UNK lbl_804A6F34[];
 extern M2C_UNK lbl_804D3900[];
 extern s32 tl_camera;
 extern s32 tl_03;
-extern void *lbl_805D6528;
+extern void *creation_menu_main_obj;
 void init_creation_menu_scene(void);
 }
 
@@ -94,7 +94,7 @@ void init_creation_menu_scene(void) {
     if (p != NULL) {
         p = load_resource_from_descriptor(p, 1, lbl_804D3900, 0, 0, 0);
     }
-    lbl_805D6528 = p;
+    creation_menu_main_obj = p;
     if (p != NULL) {
         fn_80291178();
         fn_8028D940();
@@ -130,16 +130,16 @@ u8 is_state_3__14TObjCMMainMenuFv(void) {
     return (u8) (TObjCMMainMenu__data_805D659C == 3);
 }
 
-    extern int lbl_805D652C;
-void TObjCMMainMenu__sub_8028EC18(void) { lbl_805D652C = 1; }
+    extern int creation_dressing_room_mode_flag;
+void TObjCMMainMenu__sub_8028EC18(void) { creation_dressing_room_mode_flag = 1; }
 
-    extern int lbl_805D652C;
+    extern int creation_dressing_room_mode_flag;
 
 typedef char RecoveredGlobal_8028EC24_lbl_8051C07C_size[sizeof(RecoveredGlobal_8028EC24_lbl_8051C07C) == 0x18 ? 1 : -1];
 void TObjCMMainMenu__sub_8028EC24(void) {
     lbl_8051C07C.value = 0;
 }
 
-void TObjCMMainMenu__sub_8028EC34(void) { lbl_805D652C = 0; }
+void TObjCMMainMenu__sub_8028EC34(void) { creation_dressing_room_mode_flag = 0; }
 
 }

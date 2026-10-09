@@ -23,10 +23,10 @@ s32 get_instance__6TLobbyFv();
 s32 get_online_ready_flag__6TLobbyFv();
 s32 is_not_split_screen__13TRaderMapCoreFv();
 
-extern s32 lbl_805D5550;
+extern s32 game_difficulty_selection;
 
 s32 is_online_ready__6TLobbyFv(void) {
-    if (((s32) lbl_805D5550 == 3) && (get_instance__6TLobbyFv() == 0)) {
+    if (((s32) game_difficulty_selection == 3) && (get_instance__6TLobbyFv() == 0)) {
         return 1;
     }
     if (get_online_ready_flag__6TLobbyFv() != 0) {

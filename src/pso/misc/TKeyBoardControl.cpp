@@ -96,7 +96,7 @@ void create__18TWindowEffectLightFPvPvPv(void *, s32, void *);
 
 extern RecoveredGlobal_8026062C_TWindowKeyBoardSoft__data_8044F124 TWindowKeyBoardSoft__data_8044F124;
 extern RecoveredGlobal_8026062C_TWindowKeyBoardSoft__data_804CB7C8 TWindowKeyBoardSoft__data_804CB7C8;
-extern u8 *TWindowKeyBoardSoft__data_805D5548;
+extern u8 *TWindowKeyBoardSoft__language_text_resources;
 extern const f32 TWindowKeyBoardSoft__data_805DD078;
 extern const f32 TWindowKeyBoardSoft__data_805DD07C;
 extern const f32 TWindowKeyBoardSoft__data_805DD080;
@@ -104,7 +104,7 @@ extern const f32 TWindowKeyBoardSoft__data_805DD088;
 extern const f32 TWindowKeyBoardSoft__data_805DD094;
 extern RecoveredGlobal_80260808_lbl_8050E208 lbl_8050E208;
 extern void *lbl_805D53A0;
-extern s32 lbl_805D5544;
+extern s32 current_language;
 extern const f32 lbl_805DD084;
 extern const f32 lbl_805DD08C;
 void apply_context_transform_to_rect(void *, void *);
@@ -115,7 +115,7 @@ extern const f32 TWindowKeyBoardSoft__data_805DD090;
 extern const f32 lbl_805DD0C8;
 
 void calc_cursor_step__19TWindowKeyBoardSoftFiPvPv(s32 arg0, s32 *arg1, s32 *arg2) {
-    switch ((s32) lbl_805D5544) {
+    switch ((s32) current_language) {
     case 0:
         if ((get_flag_bit5__13TWindowSubMagFPv() != 0) || (get_flag_bit6__13TWindowSubMagFPv(arg0) != 0) || (is_cursor_locked__13TWindowSubMagFPv(arg0) != 0)) {
             *arg1 = 4;
@@ -195,7 +195,7 @@ extern int fold_flush_2;
 #pragma fp_contract on
 #pragma fp_contract on
 f32 TWindowKeyBoardSoft__sub_802606E0(void) {
-    return -((TWindowKeyBoardSoft__data_805DD080 * (f32) (M2C_FIELD(TWindowKeyBoardSoft__data_805D5548, u8 *, 0) * M2C_FIELD(TWindowKeyBoardSoft__data_805D5548, u8 *, 1))) - lbl_805DD084);
+    return -((TWindowKeyBoardSoft__data_805DD080 * (f32) (M2C_FIELD(TWindowKeyBoardSoft__language_text_resources, u8 *, 0) * M2C_FIELD(TWindowKeyBoardSoft__language_text_resources, u8 *, 1))) - lbl_805DD084);
 }
 extern int fold_flush_3;
 #pragma pop
@@ -231,8 +231,8 @@ void update_focus_flags__19TWindowKeyBoardSoftFPv(void *arg0) {
     void *temp_r4;
     void *temp_r4_2;
 
-    if ((s32) lbl_805D5544 != 0) {
-        if ((s32) lbl_805D5544 < 0) {
+    if ((s32) current_language != 0) {
+        if ((s32) current_language < 0) {
             return;
         }
         return;

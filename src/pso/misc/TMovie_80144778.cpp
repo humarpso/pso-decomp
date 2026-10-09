@@ -138,11 +138,11 @@ TMovie_80144910 *TMovie__ct(TMovie_80144910 *self, void *parent, s8 *name, s32 a
 
 extern "C" {
 
-    extern int lbl_805D3D80;
-int get_opening_movie_selector(void) {  return lbl_805D3D80; }
+    extern int opening_movie_selector;
+int get_opening_movie_selector(void) {  return opening_movie_selector; }
 
-    extern unsigned char lbl_805D6560;
-void fn_801449E4(void) { lbl_805D6560 = 1; }
+    extern unsigned char main_menu_scene_active_flag;
+void fn_801449E4(void) { main_menu_scene_active_flag = 1; }
 
     extern int lbl_805D6A5C;
 void fn_801449F0(void) { lbl_805D6A5C = 1; }

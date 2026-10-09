@@ -59,12 +59,12 @@ block_12:
 }
 
 extern M2C_UNK __vt__13TObjQuestColA[];
-extern void *lbl_805D33F0;
+extern void *TObjQuestColA__class_name;
 
 void *TObjQuestColA__ct(void *arg0) {
     TObjQuestColBase__ct(arg0);
     M2C_FIELD(arg0, M2C_UNK **, 0x18) = __vt__13TObjQuestColA;
-    M2C_FIELD(arg0, void **, 0x0) = lbl_805D33F0;
+    M2C_FIELD(arg0, void **, 0x0) = TObjQuestColA__class_name;
     return arg0;
 }
 

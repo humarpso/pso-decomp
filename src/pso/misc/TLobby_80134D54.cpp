@@ -8,11 +8,11 @@ extern "C" {
 
 void clear_counters__6TLobbyFv(void);
 
-extern void *TLobby__data_805D5580;
+extern void *TLobby__protocol_instance;
 
 void clear_counters__6TLobbyFv(void) {
-    M2C_FIELD(TLobby__data_805D5580, s32 *, 0xBC04) = 0;
-    M2C_FIELD(TLobby__data_805D5580, s32 *, 0xBC18) = 0;
+    M2C_FIELD(TLobby__protocol_instance, s32 *, 0xBC04) = 0;
+    M2C_FIELD(TLobby__protocol_instance, s32 *, 0xBC18) = 0;
 }
 
 }

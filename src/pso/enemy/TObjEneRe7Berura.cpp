@@ -606,7 +606,7 @@ extern const f32 TObjEneRe7Berura__data_805D9764;
 extern M2C_UNK TObjPlayer__sub_800D7C58[];
 extern M2C_UNK init_and_activate__10TObjPlayerFPv[];
 extern s32 lbl_80439DA0[];
-extern Atk_800959F8 lbl_80439EB4;
+extern Atk_800959F8 ene_re7_berura_attack_def;
 extern u8 lbl_80439EF8[];
 extern M2C_UNK lbl_8058D490[];
 extern void *lbl_805D2988;
@@ -1416,7 +1416,7 @@ void load_static_resources__16TObjEneRe7BeruraFv(void) {
         TObjEneRe7Berura__handler_table_a[i] = dispatch_shared_handler_a__6TLobbyFPv(lbl_805D9720[i]);
     }
     {
-        Atk_800959F8 atk = lbl_80439EB4;
+        Atk_800959F8 atk = ene_re7_berura_attack_def;
         atk.w[0] = (s32)RES->f430;
         spawn_npc_enemy__6TLobbyFsiiiff(0x15, *(s32 *)(RES->f42C + 8), *(s32 *)(RES->f42C + 0xC), (s32)&atk, lbl_805D9788, TObjEneRe7Berura__data_805D972C);
     }

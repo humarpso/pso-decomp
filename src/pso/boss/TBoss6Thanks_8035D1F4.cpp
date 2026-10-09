@@ -43,10 +43,10 @@ s32 is_ship_door_ready__12TBoss6ThanksFPv(void* self) {
 
 int TBoss6Thanks__sub_8035D270(void* p) { return check_ship_door__12TBoss6ThanksFv(p); }
 
-extern s32 lbl_805D5550;
+extern s32 game_difficulty_selection;
 
 s32 try_dispatch_darkfalz_phase__12TBoss6ThanksFv(void) {
-    if (((s32) lbl_805D5550 == 0) || ((get_main_phase() == 0xE) && (is_split_screen() == 0)) || (any_player_has_listed_equipment() == 0)) {
+    if (((s32) game_difficulty_selection == 0) || ((get_main_phase() == 0xE) && (is_split_screen() == 0)) || (any_player_has_listed_equipment() == 0)) {
         return 0;
     }
     dispatch_darkfalz_phase__12TBoss6ThanksFv();

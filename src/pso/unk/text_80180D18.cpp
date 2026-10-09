@@ -34,7 +34,7 @@ M2C_UNK draw_chunk_object(int, void *);
 extern M2C_UNK lbl_80443B2C[];
 extern M2C_UNK lbl_80443B40[];
 extern M2C_UNK lbl_80443B54[];
-extern M2C_UNK lbl_8050DC08[];
+extern M2C_UNK air_car_buffer_pair_table[];
 extern void **lbl_805D5B24;
 extern void **lbl_805D5B2C;
 extern const f32 lbl_805DBBA0;
@@ -127,7 +127,7 @@ void render__18TObjCityAirCar_CarFPv(u8 *arg0) {
                 M2C_FIELD(temp_r3, s32 *, 0x20) = (s32) M2C_FIELD(temp_r3, s32 *, 8);
             }
             set_global_param__8TObjFishFi((int) (lbl_805D5B24));
-            scroll_strip_uvs(lbl_8050DC08[M2C_FIELD(arg0, s32 *, 0x9C)], M2C_FIELD(arg0, s32 *, 0xA0), 0);
+            scroll_strip_uvs(air_car_buffer_pair_table[M2C_FIELD(arg0, s32 *, 0x9C)], M2C_FIELD(arg0, s32 *, 0xA0), 0);
             draw_chunk_object(M2C_FIELD(lbl_805D5B20, Rec16_80180D18 **, 0x42C)[((s32 *)lbl_80443B54)[M2C_FIELD(arg0, s32 *, 0x9C)]].f8, (void *) (lbl_805D5B20));
             M2C_FIELD(M2C_FIELD(lbl_805D5B24, u8 **, 0), s32 *, 0x20) = temp_r31;
         }

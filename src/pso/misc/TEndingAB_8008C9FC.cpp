@@ -14,7 +14,7 @@ M2C_UNK set_draw_texture_and_color(s32, M2C_UNK);
 extern s32 TEndingAB__data_805D4F10;
 extern const f32 lbl_805D9580;
 void draw_overlay__9TEndingABFPv(u8 *arg0);
-extern s32 lbl_805D5550;
+extern s32 game_difficulty_selection;
 extern s32 lbl_805D4F14;
 s32 set_global_param__8TObjFishFi(s32);
 void set_fish_global_param__9TEndingABFv(void);
@@ -124,7 +124,7 @@ void draw_overlay__9TEndingABFPv(u8 *arg0) {
 #pragma pop
 
 void set_fish_global_param__9TEndingABFv(void) {
-    switch (lbl_805D5550) {
+    switch (game_difficulty_selection) {
     case 0:
     case 1:
         set_global_param__8TObjFishFi(lbl_805D4F14);

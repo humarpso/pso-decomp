@@ -128,7 +128,7 @@ void fn_801DB878(void *, void *);
 s32 init_guild_card_tag__6TLobbyFi(void *);
 void* get_com_card_list__6TLobbyFPv(void* p);
 s32 strncpy(void *, void *, int);
-extern u8 *TLobby__data_805D5580;
+extern u8 *TLobby__protocol_instance;
 void send_simple_mail__6TLobbyFiPv(s32 arg0, void *arg1);
 s32 memcmp(const void *, const void *, u32);
 extern Cnt_80224B7C lbl_80513F40[];
@@ -158,7 +158,7 @@ void load_weapon_random_tables(void);
 u8 get_entry_field16__9TItemDataFv(void *);
 s32 classify_level_bracket_narrow__6TLobbyFi(s32 arg0);
 s32 rand();
-extern s32 lbl_804CA0B8[];
+extern s32 section_id_favored_grind_table[];
 extern s32 lbl_805D6238;
 extern u32 lobby_weapon_random_tables_ptr;
 extern int shop_weapon_stock_level;
@@ -652,7 +652,7 @@ void roll_shop_weapon_grind(Item_80225064 *it) {
     hi = ((Tbl_80225064 *)lobby_weapon_random_tables_ptr)->hi;
     b = classify_level_bracket_narrow__6TLobbyFi(shop_weapon_stock_level);
     if (b != -1) {
-        if (lbl_804CA0B8[lbl_805D6238] != -1 && it->f1 == lbl_804CA0B8[lbl_805D6238]) {
+        if (section_id_favored_grind_table[lbl_805D6238] != -1 && it->f1 == section_id_favored_grind_table[lbl_805D6238]) {
             v = (f32)(hi[b].max + 1) * (lbl_805DC738 * (f32)rand());
             if (v < hi[b].min) {
                 v = hi[b].min;
@@ -762,15 +762,15 @@ void send_simple_mail__6TLobbyFiPv(s32 arg0, void *arg1) {
     Tag_80225828 t;
     s32 mode;
     init_guild_card_tag__6TLobbyFi(&t);
-    if (TLobby__data_805D5580 != 0) {
+    if (TLobby__protocol_instance != 0) {
         mode = get_keyboard_mode__17TWindowSubComCardFv();
-        __as__16TPlyGuildCardTagFRC16TPlyGuildCardTag(&t.b[4], TLobby__data_805D5580 + 0x1900);
+        __as__16TPlyGuildCardTagFRC16TPlyGuildCardTag(&t.b[4], TLobby__protocol_instance + 0x1900);
         strncpy((void *)(&t.b[0xC]), (void *)(((void *)get_com_card_list__6TLobbyFPv((void*)((void *)mode)))), (int)(0x17));
         *(s32 *)&t.b[0x1C] = arg0;
         t.b[0x23] = 0;
         strncpy((void *)(&t.b[0x20]), (void *)(arg1), (int)(0xAB));
         t.b[0xCB] = 0;
-        fn_801DB878(TLobby__data_805D5580, &t);
+        fn_801DB878(TLobby__protocol_instance, &t);
     }
 }
 

@@ -48,7 +48,7 @@ s32 get_instance__6TLobbyFv(void);
 extern RecoveredGlobal_8034DE70_lbl_80478C50 lbl_80478C50;
 u8 *get_lobby_entry_ptr__10TNpcPlayerFv(void);
 M2C_UNK copy__10TNpcPlayerFPvPv(void *, void *, int);
-extern RecoveredGlobal_8034DEA0_TNpcPlayer__data_804ABC90 TNpcPlayer__data_804ABC90;
+extern RecoveredGlobal_8034DEA0_TNpcPlayer__data_804ABC90 TNpcPlayer__template_table;
 void copy_entry_by_index__10TNpcPlayerFii(s32 arg0, s32 arg1);
 s32 get_instance__6TLobbyFv(void);
 extern RecoveredGlobal_801A51C0_lbl_80446980 lbl_80478C88;
@@ -169,7 +169,7 @@ typedef char RecoveredGlobal_8034DEA0_TNpcPlayer__data_804ABC90_size[sizeof(Reco
 void copy_entry_by_index__10TNpcPlayerFii(s32 arg0, s32 arg1) {
     s32 temp_r5;
     temp_r5 = arg1 * 0x28;
-    copy__10TNpcPlayerFPvPv((void *) ((u8 *)&TNpcPlayer__data_804ABC90.value + temp_r5), (void *) (arg0), (int) (temp_r5));
+    copy__10TNpcPlayerFPvPv((void *) ((u8 *)&TNpcPlayer__template_table.value + temp_r5), (void *) (arg0), (int) (temp_r5));
 }
 
 }

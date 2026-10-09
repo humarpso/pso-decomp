@@ -1829,7 +1829,7 @@ extern s32 lbl_805D4DB8;
 extern Obj_80065658 *lbl_805D4DBC;
 extern f32 lbl_805D4DC0;
 extern u8 *lbl_805D4DF0;
-extern s32 lbl_805D5560;
+extern s32 current_scene_light;
 extern s32 lbl_805D5660;
 extern const f32 lbl_805D8D50;
 extern const f32 lbl_805D8D54;
@@ -2784,7 +2784,7 @@ void render_with_fade__12TBoss8DragonFPvi(u8 *arg0, s32 arg1) {
     toggle_particle_effect__10TObjPlayerFv();
     draw__16TObjEneRe7BeruraFPv((void *) (arg0));
     end_effect_render__13TParticleCtrlFv();
-    TObjLight__sub_801337F8((void *) (lbl_805D5560));
+    TObjLight__sub_801337F8((void *) (current_scene_light));
     pop_matrix();
     set_chunk_material_override_pair((int) (0xFF00), (int) (0));
     set_current_scene__6TSceneFi((int) (0xBF));

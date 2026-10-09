@@ -939,7 +939,7 @@ void TBoss6PlotFalz__sub_802AC008(f32 farg0, f32 farg1);
 M2C_UNK set_chunk_blend(int);
 extern f32 TBoss6PlotFalz__data_805D3E54;
 void apply_fade_material_color__14TBoss6PlotFalzFffff(f32 farg0, f32 farg1, f32 farg2, f32 farg3);
-extern s32 lbl_805D5550;
+extern s32 game_difficulty_selection;
 bool TBoss6PlotFalz__sub_802AC17C(void);
 }
 
@@ -1010,7 +1010,7 @@ void apply_fade_material_color__14TBoss6PlotFalzFffff(f32 farg0, f32 farg1, f32 
 #pragma pop
 
 bool TBoss6PlotFalz__sub_802AC17C(void) {
-    return lbl_805D5550 == 0;
+    return game_difficulty_selection == 0;
 }
 
 }

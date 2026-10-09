@@ -34,7 +34,7 @@ s32 TWindowSubStatusDisp__sub_800FC248(u8);
 s8 *parse_text_control_codes(s8 *, s32 *, s32);
 u8 get_font_char_advance(u16);
 u16 map_char_to_font_code(u16);
-extern s32 lbl_805D5544;
+extern s32 current_language;
 void measure_message_text_width(Msg_8025A9C0 *msg, f32 maxw);
 void reset_float_field__15TWindowHelpItemFPv(void *arg0);
 int set_default_status__17TWindowDuelResultFPvi(void* p, int a1);
@@ -102,7 +102,7 @@ void measure_message_text_width(Msg_8025A9C0 *msg, f32 maxw) {
     } else {
         limit = maxw;
     }
-    sjis = (u32)__cntlzw(lbl_805D5544) >> 5;
+    sjis = (u32)__cntlzw(current_language) >> 5;
     small = (msg->flags >> 2) & 1;
     if (small) {
         lineh = K_CFB8;

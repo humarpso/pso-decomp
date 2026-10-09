@@ -27,7 +27,7 @@ void *__nw__7TObjectFUl(u32);
 s32 all_parents_unqueued_for_destruction__7TObjectFv(void *);
 void reset_random_enemies_mode(void);
 void set_random_enemies_mode(void);
-extern s32 TLobby__data_805D5580;
+extern s32 TLobby__protocol_instance;
 extern s32 tl_00;
 void handle_random_enemies_choice__6TLobbyFPv(Seq_80214104 *self);
 }
@@ -45,7 +45,7 @@ void handle_random_enemies_choice__6TLobbyFPv(Seq_80214104 *self) {
     case 0:
         if (TShopWindowBase__sub_80223A48(self) == 0 && TShopWindowBase__sub_802239EC(self) == 0) return;
         if (is_quest_active() == 0) {
-            send_quest_menu_closed__9TProtocolFv(TLobby__data_805D5580);
+            send_quest_menu_closed__9TProtocolFv(TLobby__protocol_instance);
         }
         close_window__13TShopSequenceFPv(self);
         queue_destruction__7TObjectFv(self);

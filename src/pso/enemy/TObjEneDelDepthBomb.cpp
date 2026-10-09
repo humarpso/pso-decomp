@@ -672,7 +672,7 @@ extern M2C_UNK lbl_8058D490[];
 extern s32 lbl_805D4118;
 extern s32 lbl_805D411C;
 extern s32 lbl_805D53A4;
-extern s32 lbl_805D5550;
+extern s32 game_difficulty_selection;
 extern s32 anim_model_matrix_array;
 extern const f32 lbl_805DF250;
 extern const f32 lbl_805DF264;
@@ -1039,7 +1039,7 @@ void update_attack_cast__15TObjEneDelDepthFPv(u8 *arg0) {
     M2C_FIELD(arg0, s32 *, 0x388) = (s32) (M2C_FIELD(arg0, s32 *, 0x388) - 1);
     temp_r0 = M2C_FIELD(arg0, s32 *, 0x388);
     if ((temp_r0 <= 0) && (temp_r0 == 0)) {
-        if ((s32) lbl_805D5550 == 3) {
+        if ((s32) game_difficulty_selection == 3) {
             create_ex__9TTecMegidFiiii((void *) (arg0), (void *) (arg0 + 0x38), (int) (M2C_FIELD(arg0, s32 *, 0x60)), (int) (M2C_FIELD(TObjEneDelDepth__tune_params, s32 *, 0x18)));
         } else {
             create_ex__9TTecBartaFPvPvPvPv((void *) (arg0), (void *) (arg0 + 0x38), (int) (M2C_FIELD(arg0, s32 *, 0x60)), (int) (M2C_FIELD(TObjEneDelDepth__tune_params, s32 *, 0x18)));

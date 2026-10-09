@@ -34,7 +34,7 @@ struct Act_800AC318 { s32 a; s32 idx; f32 c; s32 d; };
 extern "C" {
 extern u32 lbl_805D50B8;
 void TObjPlayer__sub_800AC9DC(O_800AC9DC *self, s32 i);
-extern s32 lbl_805D5550;
+extern s32 game_difficulty_selection;
 s32 calc_technique_level__11TObjEneMojaFPv(Obj_800ACA10 *self);
 void queue_destruction__7TObjectFv(void *);
 void TObjPlayer__sub_800C68FC(void *, int);
@@ -242,7 +242,7 @@ s32 calc_technique_level__11TObjEneMojaFPv(Obj_800ACA10 *self) {
         if (v < 0) {
             return 0;
         }
-        if (lbl_805D5550 == 3) {
+        if (game_difficulty_selection == 3) {
             if (v > 0x1D) {
                 v = 0x1D;
             }

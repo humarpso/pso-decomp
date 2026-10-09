@@ -20,7 +20,7 @@ M2C_UNK init_keyboard_text_field(void *, int, int);
 extern RecoveredGlobal_8025E9E4_lbl_804CFA70 lbl_804CFA70;
 extern M2C_UNK __vt__19TWindowKeyBoardBase[];
 extern s32 lbl_805D3920;
-extern s32 lbl_805D5544;
+extern s32 current_language;
 u8 *TWindowKeyBoardBase__ct(u8 *arg0);
 M2C_UNK aram_transfer_sync__6TLobbyFiUiii(M2C_UNK, s32, s32, s32);
 M2C_UNK safe_free__23TAdSinglePlyChrSelectGCFUi(s32);
@@ -86,7 +86,7 @@ u8 *TWindowKeyBoardBase__ct(u8 *arg0) {
     init_text_buffer_holder__19TWindowKeyBoardBaseFPv(arg0 + 0x6C);
     init_text_buffer_holder__19TWindowKeyBoardBaseFPv(arg0 + 0x84);
     M2C_FIELD(arg0, s32 *, 0) = (s32) lbl_805D3920;
-    temp_r31 = lbl_805D5544;
+    temp_r31 = current_language;
     init_keyboard_text_field((void *) (arg0), (int) (0), (int) (0));
     init_keyboard_text_buffer((void *) (arg0 + 0x84), (int) (0), (int) (0));
     M2C_FIELD(arg0, u8 **, 0x68) = (unsigned char *) ((void *) (arg0 + 0x6C));

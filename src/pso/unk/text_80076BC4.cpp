@@ -16,7 +16,7 @@ void send_chat__9TProtocolFR16TPlyGuildCardTagPc(void *, TPlyGuildCardTag *, u8 
 void capture_chat_sensor__6TLobbyFi(u8 *);
 void open__11TWindowCtrlFiii(void *, u8 *, int);
 extern s32 lbl_805D53A0;
-extern void *TLobby__data_805D5580;
+extern void *TLobby__protocol_instance;
 void submit_chat_text(u8 *arg0);
 }
 
@@ -32,7 +32,7 @@ void submit_chat_text(u8 *arg0) {
         capture_chat_sensor__6TLobbyFi(arg0);
         if (get_main_phase() == 0xF) {
             Tag_80076BC8 tmp = *(Tag_80076BC8 *)&TPlyGuildCardTag(0, 0);
-            send_chat__9TProtocolFR16TPlyGuildCardTagPc(TLobby__data_805D5580, (TPlyGuildCardTag *)&tmp, arg0);
+            send_chat__9TProtocolFR16TPlyGuildCardTagPc(TLobby__protocol_instance, (TPlyGuildCardTag *)&tmp, arg0);
         } else {
             open__11TWindowCtrlFiii(obj_getField1c(player), arg0, 0xCB);
         }

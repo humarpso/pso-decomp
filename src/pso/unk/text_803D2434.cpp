@@ -22,7 +22,7 @@ struct Slot_803D2474 {
 
 extern "C" {
 M2C_UNK memset(void *, int, int);
-extern RecoveredGlobal_803D259C_lbl_80587400 lbl_80587400;
+extern RecoveredGlobal_803D259C_lbl_80587400 adx_stream_slot_table;
 extern s32 lbl_805D7640;
 void release_ref_and_clear_buffer__6TLobbyFv(void);
 M2C_UNK memset(void *, int, int);
@@ -30,7 +30,7 @@ void TLobby__sub_803D2434(u8 *arg0);
 void TLobby__sub_803D2624(void);
 extern u8 lbl_8047DEA0[];
 extern u8 lbl_804F9E00[];
-extern RecoveredGlobal_803D259C_lbl_80587400 lbl_80587400;
+extern RecoveredGlobal_803D259C_lbl_80587400 adx_stream_slot_table;
 Slot_803D2474 *alloc_adx_stream_slot__6TLobbyFii(s32 arg0, s32 arg1);
 }
 
@@ -51,14 +51,14 @@ Slot_803D2474 *alloc_adx_stream_slot__6TLobbyFii(s32 arg0, s32 arg1) {
     s32 i;
     Slot_803D2474 *s;
     for (i = 0; i < 32; i++) {
-        if (((Slot_803D2474 *)&lbl_80587400)[i].active == 0) {
+        if (((Slot_803D2474 *)&adx_stream_slot_table)[i].active == 0) {
             break;
         }
     }
     if (i == 32) {
         return NULL;
     }
-    s = &((Slot_803D2474 *)&lbl_80587400)[i];
+    s = &((Slot_803D2474 *)&adx_stream_slot_table)[i];
     s->active = 1;
     s->vt = lbl_804F9E00;
     s->f14 = arg0;
@@ -77,7 +77,7 @@ void release_ref_and_clear_buffer__6TLobbyFv(void) {
     temp_r0 = lbl_805D7640 - 1;
     lbl_805D7640 = temp_r0;
     if (temp_r0 == 0) {
-        memset((void *) (&lbl_80587400.value), (int) (0), (int) (0x480));
+        memset((void *) (&adx_stream_slot_table.value), (int) (0), (int) (0x480));
     }
 }
 

@@ -1042,7 +1042,7 @@ void TBoss7Tentacle__sub_802F0AF0(s32);
 void start_attack_at_position__14TBoss7TentacleFPvPvi(s32, Vec_802E85E0 *, s32);
 f32 sin_table_lookup(s32);
 f32 cos_table_lookup(s32);
-extern s32 lbl_805D5550;
+extern s32 game_difficulty_selection;
 void TObjFish__sub_802E85E0(u8 *arg0, u32 arg1, s32 arg2);
 void TObjFish__sub_802E83E8(u8 *, u32);
 void TObjFish__sub_802E8528(void* o, u32 k);
@@ -1474,7 +1474,7 @@ M2C_UNK vec3_add_to(int, void *);
 
 extern Ent_802E88F8 *lbl_804E3C2C[];
 extern RecoveredGlobal_802EC468_lbl_804FF5E8 lbl_804FF5E8;
-extern s32 lbl_805D5550;
+extern s32 game_difficulty_selection;
 
 extern "C" {
 void TObjFish__sub_802ECBDC(Fish_802ECBDC *self);
@@ -1610,7 +1610,7 @@ void TObjFish__sub_802E85E0(u8 *arg0, u32 arg1, s32 arg2) {
         switch (self->state) {
         case 0:
             self->timer++;
-            if (self->timer > lbl_804E3C2C[lbl_805D5550][self->f6B4].b * 0x1E) {
+            if (self->timer > lbl_804E3C2C[game_difficulty_selection][self->f6B4].b * 0x1E) {
                 self->state = 1;
                 self->timer = 0;
                 self->fired = 0;
@@ -1677,7 +1677,7 @@ void TObjFish__sub_802E88F8(u8 *arg0, u32 arg1) {
     s32 temp_r3;
     switch (arg1) {
     case 4:
-        M2C_FIELD(arg0, s32 *, 0x728) = lbl_804E3C2C[lbl_805D5550][M2C_FIELD(arg0, s32 *, 0x6B4)].b * 0x1E;
+        M2C_FIELD(arg0, s32 *, 0x728) = lbl_804E3C2C[game_difficulty_selection][M2C_FIELD(arg0, s32 *, 0x6B4)].b * 0x1E;
         return;
     case 0:
         advance_animation_playback(arg0);
@@ -3524,7 +3524,7 @@ void advance_action_sequence__8TObjFishFPv(u8 *arg0) {
     do {
         var_r30 = 0;
         M2C_FIELD(arg0, s32 *, 0x6B4) = (s32) (M2C_FIELD(arg0, s32 *, 0x6B4) + 1);
-        var_r4 = M2C_FIELD((M2C_FIELD(((u8 *)(&(*(RecoveredGlobal_802EC7F0_lbl_804E3C2C *)&lbl_804E3C2C).value) + (lbl_805D5550 * 4)), s32 *, 0) + (M2C_FIELD(arg0, s32 *, 0x6B4) * 8)), s32 *, 0);
+        var_r4 = M2C_FIELD((M2C_FIELD(((u8 *)(&(*(RecoveredGlobal_802EC7F0_lbl_804E3C2C *)&lbl_804E3C2C).value) + (game_difficulty_selection * 4)), s32 *, 0) + (M2C_FIELD(arg0, s32 *, 0x6B4) * 8)), s32 *, 0);
         switch (var_r4) {
         case 0x1E:
             if (calc_elapsed_scaled__9TObjEneDDFv((void *) (arg0)) > lbl_805DEA10) {

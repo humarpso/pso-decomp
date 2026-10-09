@@ -8,7 +8,7 @@ struct Hit_8007A5D8 { u8 pad[0x40]; };
 
 extern "C" {
 int alloc_buffer__11TOBoss4RockFPv(void*);
-extern u32 lbl_805D4E6C;
+extern u32 wall_query_scene_buffer;
 void alloc_scene_buffer__18TObjButterflyLobbyFv(void);
 void TObjPlayer__sub_80079118(const char *);
 void TObjPlayer__sub_8007911C(void *, void *, u32);
@@ -25,7 +25,7 @@ extern "C" {
 void free_singleton_805D4E6C__18TObjButterflyLobbyFv(void);
 void free__11TOBoss4RockFUi(void*);
 
-extern u32 lbl_805D4E6C;
+extern u32 wall_query_scene_buffer;
 
 Hit_8007A5D8 *csnVector(void *from, void *to, u32 mask) {
     Hit_8007A5D8 *hit;
@@ -41,11 +41,11 @@ Hit_8007A5D8 *csnVector(void *from, void *to, u32 mask) {
 }
 
 void free_singleton_805D4E6C__18TObjButterflyLobbyFv(void) {
-    if ((u32) lbl_805D4E6C != 0U) {
-        free__11TOBoss4RockFUi((void*)lbl_805D4E6C);
-        lbl_805D4E6C = 0U;
+    if ((u32) wall_query_scene_buffer != 0U) {
+        free__11TOBoss4RockFUi((void*)wall_query_scene_buffer);
+        wall_query_scene_buffer = 0U;
     }
 }
-void alloc_scene_buffer__18TObjButterflyLobbyFv(void) { (*(int *)&lbl_805D4E6C) = alloc_buffer__11TOBoss4RockFPv((void*)20480); }
+void alloc_scene_buffer__18TObjButterflyLobbyFv(void) { (*(int *)&wall_query_scene_buffer) = alloc_buffer__11TOBoss4RockFPv((void*)20480); }
 
 }

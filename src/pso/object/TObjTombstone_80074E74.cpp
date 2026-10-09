@@ -71,7 +71,7 @@ extern f32 TObjTombstone__data_805D9184;
 void update_fade_by_distance__13TObjTombstoneFPv(u8 *arg0);
 void copy_matrix__13TObjTombstoneFPvPv(void* p, void* q);
 extern RecoveredGlobal_80074FAC_lbl_8043878C lbl_8043878C;
-extern RecoveredGlobal_80074FAC_TObjTombstone__data_8048D250 TObjTombstone__data_8048D250;
+extern RecoveredGlobal_80074FAC_TObjTombstone__data_8048D250 TObjTombstone__base_matrix;
 void reset_matrix__13TObjTombstoneFv(void);
 u32 get_player_by_client_id(int);
 f32 vector_length(void *);
@@ -137,7 +137,7 @@ typedef char RecoveredGlobal_80074FAC_TObjTombstone__data_8048D250_size[sizeof(R
 void reset_matrix__13TObjTombstoneFv(void) {
     M2CCopy_28 sp8;
     sp8 = *(const M2CCopy_28 *)((s32) ((u8 *)(&lbl_8043878C.value) + -4) + 4);
-    copy_matrix__13TObjTombstoneFPvPv((void*)(&TObjTombstone__data_8048D250.value), (void*)(&sp8));
+    copy_matrix__13TObjTombstoneFPvPv((void*)(&TObjTombstone__base_matrix.value), (void*)(&sp8));
 }
 
 void handle_6x96(void) {  }

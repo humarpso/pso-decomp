@@ -334,7 +334,7 @@ extern s32 lbl_805D2FE0;
 extern void *lbl_805D2FE8;
 extern void *lbl_805D2FEC;
 extern s32 lbl_805D2FF0;
-extern s32 lbl_805D5550;
+extern s32 game_difficulty_selection;
 extern u32 lbl_805D59C8;
 extern void *lbl_805D59CC;
 extern s32 lbl_805D59D0;
@@ -599,7 +599,7 @@ void *TOHangceilingCave01Normal__ct(void *arg0) {
 
 f32 TOHangceilingCave01Normal__sub_801681D0(f32 farg0) {
     Q_801681D0 q = lbl_804417EC;
-    return farg0 * q.w[lbl_805D5550];
+    return farg0 * q.w[game_difficulty_selection];
 }
 
 void advance_wrap_offset__25TOHangceilingCave01NormalFPv(void *arg0) {

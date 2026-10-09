@@ -230,7 +230,7 @@ void clear_player_status_flag__10TObjPlayerFPviUi(void *, int, u32);
 void trigger_spawn__19TContainerAncient01FPvPvPv(void *, void *, void *);
 s32 is_global_state_in_table__19TContainerAncient01Fv();
 void set_flag8__6TLobbyFPv(void *);
-extern s32 lbl_8050DC70[];
+extern s32 TContainerAncient01__open_effect_table[];
 void open_container__19TContainerAncient01FPv(Obj_8018AB44 *arg0);
 s32 obj_testFlags30(void *, s32);
 s32 get_current_floor();
@@ -280,7 +280,7 @@ void clear_player_status_flag__10TObjPlayerFPviUi(void *, int, u32);
 void spawn_effect__19TContainerAncient01FPvPvPv(void* p, void* a1, void* a2);
 s32 is_global_state_in_table__19TContainerAncient01Fv();
 void set_flag8__6TLobbyFPv(void *);
-extern s32 lbl_8050DC68[];
+extern s32 TContainerAncient01__effect_id_table[];
 void TContainerAncient01__sub_8018B700(Obj_8018B700 *arg0);
 s32 obj_testFlags30(void *, s32);
 s32 get_current_floor();
@@ -625,8 +625,8 @@ void open_container__19TContainerAncient01FPv(Obj_8018AB44 *arg0) {
     if (arg0->f360 == 0) {
         arg0->f360 = 1;
         clear_player_status_flag__10TObjPlayerFPviUi(arg0, 0, 1);
-        trigger_spawn__19TContainerAncient01FPvPvPv((void *)(arg0), (void *)(arg0->pos), (void *)(lbl_8050DC70[0]));
-        trigger_spawn__19TContainerAncient01FPvPvPv((void *)(arg0), (void *)(arg0->pos), (void *)(lbl_8050DC70[1]));
+        trigger_spawn__19TContainerAncient01FPvPvPv((void *)(arg0), (void *)(arg0->pos), (void *)(TContainerAncient01__open_effect_table[0]));
+        trigger_spawn__19TContainerAncient01FPvPvPv((void *)(arg0), (void *)(arg0->pos), (void *)(TContainerAncient01__open_effect_table[1]));
         if (is_global_state_in_table__19TContainerAncient01Fv() == 0) {
             request_box_item_drop(arg0, arg0->pos, 1);
         }
@@ -746,8 +746,8 @@ void TContainerAncient01R__sub_8018AF74(void) { TContainerAncient01R__data_805D5
 
 void init_table_entries__20TContainerAncient01RFv(void) {
     TContainerAncient01R__data_805D5B94 = TContainerAncient01__sub_8018BE90();
-    lbl_8050DC70[0] = get_table_entry__19TContainerAncient01Fi(0);
-    lbl_8050DC70[1] = get_table_entry__19TContainerAncient01Fi(1);
+    TContainerAncient01__open_effect_table[0] = get_table_entry__19TContainerAncient01Fi(0);
+    TContainerAncient01__open_effect_table[1] = get_table_entry__19TContainerAncient01Fi(1);
 }
 
 void *dt__20TContainerAncient01RFPvs(void *arg0, s16 arg1) {
@@ -939,8 +939,8 @@ void TContainerAncient01__sub_8018B700(Obj_8018B700 *arg0) {
     if (arg0->f35C == 0) {
         arg0->f35C = 1;
         clear_player_status_flag__10TObjPlayerFPviUi(arg0, 0, 1);
-        spawn_effect__19TContainerAncient01FPvPvPv((void*)(arg0), (void*)(arg0->pos), (void*)(lbl_8050DC68[0]));
-        spawn_effect__19TContainerAncient01FPvPvPv((void*)(arg0), (void*)(arg0->pos), (void*)(lbl_8050DC68[1]));
+        spawn_effect__19TContainerAncient01FPvPvPv((void*)(arg0), (void*)(arg0->pos), (void*)(TContainerAncient01__effect_id_table[0]));
+        spawn_effect__19TContainerAncient01FPvPvPv((void*)(arg0), (void*)(arg0->pos), (void*)(TContainerAncient01__effect_id_table[1]));
         if (is_global_state_in_table__19TContainerAncient01Fv() == 0) {
             request_box_item_drop(arg0, arg0->pos, 1);
         }

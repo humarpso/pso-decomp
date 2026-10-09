@@ -45,7 +45,7 @@ s32 spawn_particle_effect_with_rotation(void *, void *, s32, u16);
 s32 spawn_continuous_particle_with_direction(void *, void *, s32);
 M2C_UNK TPhotonMagicSquare__sub_801A2640(void *, void *);
 extern M2C_UNK __vt__12TObjParticle[];
-extern s32 lbl_805D33D8;
+extern s32 obj_particle_class_name;
 extern const f32 lbl_805DBEEC;
 Part_80195400 *TObjParticle__ct(Part_80195400 *arg0, M2C_UNK arg1, Src_80195400 *arg2);
 }
@@ -121,7 +121,7 @@ Part_80195400 *TObjParticle__ct(Part_80195400 *arg0, M2C_UNK arg1, Src_80195400 
     TPhotonMagicSquare__sub_801A2640(arg0, (void *) arg1);
     arg0->vt = __vt__12TObjParticle;
     other = 0;
-    arg0->f0 = lbl_805D33D8;
+    arg0->f0 = obj_particle_class_name;
     VecCopy__FP3VecPC3Vec(&arg0->pos, &arg2->pos);
     copy_xyz__10TObjPlayerFPvPv(&arg0->ang, &arg2->ang);
     VecCopy__FP3VecPC3Vec(arg0->params, arg2->params);

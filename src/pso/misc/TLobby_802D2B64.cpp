@@ -31,7 +31,7 @@ void TLobby__sub_802D2BC0(S_802D2BC0 *arg0);
 M2C_UNK send_cancel_trade__9TProtocolFv(s32);
 void reset__6TLobbyFv(void);
 void send_trade_proposal_result__6TLobbyFcc(s8 arg0, s8 arg1);
-extern s32 TLobby__data_805D5580;
+extern s32 TLobby__protocol_instance;
 extern u8 TLobby__data_805D688B;
 void cancel_trade__6TLobbyFv(void);
 }
@@ -77,7 +77,7 @@ void TLobby__sub_802D2BC0(S_802D2BC0 *arg0) {
 
 void handle_6xA7(void) {  }
 
-extern s32 TLobby__data_805D5580;
+extern s32 TLobby__protocol_instance;
 extern u16 lbl_805D6888;
 
 typedef char RecoveredGlobal_802D2C38_lbl_804E1920_size[sizeof(RecoveredGlobal_802D2C38_lbl_804E1920) == 0x140 ? 1 : -1];
@@ -103,7 +103,7 @@ void handle_6xA6_modify_trade_proposal(u8 *arg0) {
 
 void clear_flag400__6TLobbyFv(void) {
     if (lbl_805D6888 & 0x400) {
-        send_cancel_trade__9TProtocolFv(TLobby__data_805D5580);
+        send_cancel_trade__9TProtocolFv(TLobby__protocol_instance);
         lbl_805D6888 &= 0xFFFFFBFF;
     }
 }
@@ -128,7 +128,7 @@ void cancel_trade__6TLobbyFv(void) {
         break;
     case 7:
     case 8:
-        send_cancel_trade__9TProtocolFv(TLobby__data_805D5580);
+        send_cancel_trade__9TProtocolFv(TLobby__protocol_instance);
         break;
     case 9:
         break;
@@ -334,7 +334,7 @@ extern s32 lbl_805D53A0;
 #define TLobby__data_805D688B (*(s8 *)&TLobby__data_805D688B)
 void send_modify_trade_proposal__6TLobbyFi(s32 arg0);
 
-#define TLobby__data_805D5580 (*(void * *)&TLobby__data_805D5580)
+#define TLobby__protocol_instance (*(void * *)&TLobby__protocol_instance)
 void handle_trade_state_cancel__6TLobbyFPv(O_802D33C0 *self);
 
 void reset__6TLobbyFi(s32 arg0);
@@ -522,7 +522,7 @@ void handle_trade_state_cancel__6TLobbyFPv(O_802D33C0 *self) {
     case 3:
         break;
     case 4:
-        ((void (*)(void *))send_cancel_trade__9TProtocolFv)(TLobby__data_805D5580);
+        ((void (*)(void *))send_cancel_trade__9TProtocolFv)(TLobby__protocol_instance);
         break;
     }
 }
@@ -544,7 +544,7 @@ void TLobby__sub_802D33F8(void *arg0) {
 
 #undef TLobby__data_805D688A
 #undef TLobby__data_805D688B
-#undef TLobby__data_805D5580
+#undef TLobby__protocol_instance
 
 #include "types.h"
 typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;

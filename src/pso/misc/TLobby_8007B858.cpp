@@ -267,7 +267,7 @@ void TLobby__sub_8007BBEC(void) { lbl_805D5C48 = 0; }
     extern short lbl_805D5C48;
 void TLobby__sub_8007BBF8(void) { lbl_805D5C48 = 0; }
 
-extern s32 TLobby__data_805D5580;
+extern s32 TLobby__protocol_instance;
 
 s32 get_card_slot__17TWindowSubComCardFi(s32 arg0) {
     s32 temp_r3;
@@ -317,7 +317,7 @@ void send_status_packet__6TLobbyFv(void) {
     char sp8[0x84];
 
     collect_active_card_ids__6TLobbyFPv((L_8007BC5C *)((M2C_UNK *) sp8));
-    send_c6_packet__6TLobbyFPvPv(TLobby__data_805D5580, (M2C_UNK *) sp8);
+    send_c6_packet__6TLobbyFPvPv(TLobby__protocol_instance, (M2C_UNK *) sp8);
 }
 
 }

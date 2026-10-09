@@ -25,7 +25,7 @@ M2C_UNK TLobby__sub_8028D7D0();
 extern u32 lbl_80518850[4];
 extern u32 chr_select_load_buffer_table[4];
 extern u32 lbl_805D6518;
-extern u32 lbl_805D651C;
+extern u32 chr_select_load_buffer;
 u32 alloc_load_buffer__6TLobbyFii(s32 arg0, s32 arg1);
 }
 
@@ -62,7 +62,7 @@ u32 alloc_load_buffer__6TLobbyFii(s32 arg0, s32 arg1) {
         s32 j = arg0 - 4;
         p = chr_select_load_buffer_table[j];
         p += arg1;
-        if (p >= lbl_805D651C + (j + 1) * 0xA000) {
+        if (p >= chr_select_load_buffer + (j + 1) * 0xA000) {
             return 0U;
         }
         chr_select_load_buffer_table[j] = p;

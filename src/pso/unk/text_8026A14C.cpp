@@ -9,7 +9,7 @@ void fn_8026A14C(void);
 char *parse_text_control_codes(char *, s32 *, s32);
 char *strncpy(char *, const char *, u32);
 u32 strlen(const char *);
-extern s32 lbl_805D5544;
+extern s32 current_language;
 void fn_8026A1C4(char *dst, char *src, s32 size);
 }
 
@@ -41,7 +41,7 @@ void fn_8026A1C4(char *dst, char *src, s32 size) {
             return;
         }
         len = strlen(src) + 1;
-        if (lbl_805D5544 == 0) {
+        if (current_language == 0) {
             sjis = 1;
         }
         while (size < len) {

@@ -58,15 +58,15 @@ void *memcpy(void *, void *, u32);
 u32 strlen(void *);
 extern s32 lbl_8047D9D4[];
 extern s32 lbl_8047D9FC[];
-extern s8 lbl_80581B5C[];
-extern Ent_803CF958 lbl_80581B68[];
+extern s8 fs_default_device_name[];
+extern Ent_803CF958 cvfs_entry_table[];
 extern RecoveredCallback_4873a87e26d6 lbl_805D75F8;
 extern s32 lbl_805D75FC;
 void cvFsSetDefDev__6TLobbyFPv(char *arg0);
 void *memset(void *, s32, u32);
 extern s32 lbl_805D7600;
 void SIGetTypeAsync(void);
-extern Ent_803CF958 lbl_80581B68[];
+extern Ent_803CF958 cvfs_entry_table[];
 void TLobby__sub_803CEF60(void);
 }
 
@@ -95,7 +95,7 @@ void TLobby__sub_803CEF60(void) {
     s32 i;
     Ent_803CF958 *p;
     for (i = 0; i < 0x20; i++) {
-        p = &lbl_80581B68[i];
+        p = &cvfs_entry_table[i];
         if ((V_803CEF60 *)p->a != 0 && ((V_803CEF60 *)p->a)->fn != 0) {
             ((V_803CEF60 *)p->a)->fn();
         }
@@ -207,7 +207,7 @@ typedef s32 (*RecoveredCallback_4873a87e26d6)(s32, s32 *, s32);
 inline s32 find_803CF958(char *s, s32 len) {
     Ent_803CF958 *p;
     s32 i;
-    for (p = lbl_80581B68, i = 0; i < 32; i++, p++) {
+    for (p = cvfs_entry_table, i = 0; i < 32; i++, p++) {
         if (strncmp(s, p->name, len) == 0) {
             return 1;
         }
@@ -226,7 +226,7 @@ void cvFsSetDefDev__6TLobbyFPv(char *arg0) {
     }
     len = strlen(arg0);
     if (len == 0) {
-        lbl_80581B5C[0] = 0;
+        fs_default_device_name[0] = 0;
         return;
     }
     n = strlen(arg0) + 1;
@@ -236,7 +236,7 @@ void cvFsSetDefDev__6TLobbyFPv(char *arg0) {
         }
     }
     if (find_803CF958(arg0, len) == 1) {
-        memcpy(lbl_80581B5C, arg0, len + 1);
+        memcpy(fs_default_device_name, arg0, len + 1);
         return;
     }
     if (lbl_805D75F8 != NULL) {
@@ -245,9 +245,9 @@ void cvFsSetDefDev__6TLobbyFPv(char *arg0) {
 }
 
 u32 lbl_80581A30[75];
-s8 lbl_80581B5C[12];
-Ent_803CF958 lbl_80581B68[32];
-u32 lbl_80581D68[80];
+s8 fs_default_device_name[12];
+Ent_803CF958 cvfs_entry_table[32];
+u32 si_type_info_table[80];
 
 void SIGetTypeAsync(void) {
     Slot_803CFD2C *s;
@@ -255,7 +255,7 @@ void SIGetTypeAsync(void) {
     s32 i;
 
     if (--lbl_805D7600 == 0) {
-        for (s = (Slot_803CFD2C *)lbl_80581D68, i = 0; i < 40; i++, s++) {
+        for (s = (Slot_803CFD2C *)si_type_info_table, i = 0; i < 40; i++, s++) {
             if (s->drv != NULL) {
                 s->drv->close(s->handle);
             }
@@ -263,10 +263,10 @@ void SIGetTypeAsync(void) {
             s->handle = 0;
         }
         for (i = 0; i < 32; i++) {
-            ((Rec_803CFD2C *)lbl_80581B68)[i].used = 0;
+            ((Rec_803CFD2C *)cvfs_entry_table)[i].used = 0;
         }
-        memset(lbl_80581B5C, 0, 9);
-        ((s8 *)lbl_80581B5C)[0] = 0;
+        memset(fs_default_device_name, 0, 9);
+        ((s8 *)fs_default_device_name)[0] = 0;
     }
 }
 

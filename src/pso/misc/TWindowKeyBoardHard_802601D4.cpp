@@ -39,7 +39,7 @@ s32 has_non_modifier_key__16TKeyBoardControlFv(void *);
 M2C_UNK process_all_key_states__16TKeyBoardControlFPv(void *);
 M2C_UNK update_modifier_flags__16TKeyBoardControlFPv(void *);
 
-extern s32 lbl_805D5544;
+extern s32 current_language;
 
 void run_task__19TWindowKeyBoardHardFv(void *arg0) {
     s32 temp_r3_2;
@@ -48,7 +48,7 @@ void run_task__19TWindowKeyBoardHardFv(void *arg0) {
     if ((void *) M2C_FIELD(arg0, void **, 0x70) != NULL) {
         if ((is_key_active__19TWindowKeyBoardHardFPv() == 0) && (is_key_active__16TKeyBoardControlFPv(M2C_FIELD(arg0, void **, 0x70)) == 0)) {
             if (has_non_modifier_key__16TKeyBoardControlFv(arg0) != 0) {
-                if ((s32) lbl_805D5544 == 0) {
+                if ((s32) current_language == 0) {
                     M2C_FIELD(arg0, s32 *, 0x68) = 0x3C;
                 }
                 M2C_FIELD(arg0, s32 *, 0x60) = (s32) (M2C_FIELD(arg0, s32 *, 0x60) & 0xFFFFFEFF);

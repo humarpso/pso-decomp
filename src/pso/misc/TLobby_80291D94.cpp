@@ -694,13 +694,13 @@ s32 set_camera_height_if_valid__6TLobbyFf(f32 farg0) {
     return 1;
 }
 
-extern s32 lbl_805D5550;
+extern s32 game_difficulty_selection;
 
 s32 try_set_split_screen__6TLobbyFi(s32 arg0) {
     if (is_challenge_mode_active() == 0) {
         return 0;
     }
-    lbl_805D5550 = arg0;
+    game_difficulty_selection = arg0;
     return 1;
 }
 void rebuild_players_for_stage__6TLobbyFi(s32 arg0) {

@@ -25,7 +25,7 @@ M2C_UNK send_text_packet_D9__6TLobbyFPvPv(u32, s32);
 M2C_UNK send_info_board_request__9TProtocolFv(u32);
 s32 get_card_window__17TWindowSubComCardFUi(M2C_UNK);
 
-extern u32 TLobby__data_805D5580;
+extern u32 TLobby__protocol_instance;
 extern s32 lbl_805D6E98;
 extern u32 lbl_805D6E9C;
 
@@ -33,19 +33,19 @@ void init_once_data__6TLobbyFUi(u32 arg0) {
     if ((u32) lbl_805D6E9C == 0U) {
         lbl_805D6E9C = arg0;
         lbl_805D6E98 &= 0xFFFFFFFD;
-        if ((u32) TLobby__data_805D5580 != 0U) {
-            send_info_board_request__9TProtocolFv(TLobby__data_805D5580);
+        if ((u32) TLobby__protocol_instance != 0U) {
+            send_info_board_request__9TProtocolFv(TLobby__protocol_instance);
         }
     }
 }
 
-extern u32 TLobby__data_805D5580;
+extern u32 TLobby__protocol_instance;
 extern s32 lbl_805D6E98;
 
 void flush_pending_send__6TLobbyFv(void) {
     if (lbl_805D6E98 & 1) {
-        if ((u32) TLobby__data_805D5580 != 0U) {
-            send_text_packet_D9__6TLobbyFPvPv(TLobby__data_805D5580, get_card_window_field__6TLobbyFv());
+        if ((u32) TLobby__protocol_instance != 0U) {
+            send_text_packet_D9__6TLobbyFPvPv(TLobby__protocol_instance, get_card_window_field__6TLobbyFv());
         }
         lbl_805D6E98 &= 0xFFFFFFFE;
     }

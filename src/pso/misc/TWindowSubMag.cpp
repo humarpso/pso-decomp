@@ -48,7 +48,7 @@ struct TWindowSubMag_8027B888 {
 };
 
 extern "C" {
-extern u8 *lbl_805D553C;
+extern u8 *text_language_group_table;
 s32 TWindowSubMag__sub_8027C0B0(s32 arg0);
 bool is_mag_full(u8 *arg0);
 struct TWindowSubMag_8027B62C {
@@ -625,7 +625,7 @@ void *TWindowSubMag__ct(void *arg0, s32 arg1, s32 arg2) {
 }
 
 s32 TWindowSubMag__sub_8027C0B0(s32 arg0) {
-    return M2C_FIELD(M2C_FIELD(lbl_805D553C, s32 *, 0x20), M2C_UNK *, (arg0 * 4));
+    return M2C_FIELD(M2C_FIELD(text_language_group_table, s32 *, 0x20), M2C_UNK *, (arg0 * 4));
 }
 
 s32 get_selected_blast__13TWindowSubMagFPv(Obj_8027C0C4 *o) {

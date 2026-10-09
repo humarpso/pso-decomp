@@ -51,7 +51,7 @@ s32 resolve_player_slot__20TWindowSubStatusDispFi(int);
 void reset_tombstone_values__6TLobbyFv(void);
 void create__13TObjTombstoneFPvPvPv(void *, void *, void *);
 void *get_player_by_client_id(s32);
-extern Table_8006FE7C lbl_8048C9D8;
+extern Table_8006FE7C challenge_mode_state;
 extern void *tl_07;
 void spawn_player_tombstones__6TLobbyFv(void);
 s32 get_field_2d4__10TObjPlayerFPv(Ply_8006FC7C *);
@@ -69,7 +69,7 @@ char *strncpy(char *, const char *, u32);
 char *strcpy(char *, const char *);
 u32 strlen(const char *);
 extern char lbl_8043857C[];
-extern Table_8006FE7C lbl_8048C9D8;
+extern Table_8006FE7C challenge_mode_state;
 extern s32 lbl_805D53A0;
 void update_card_save_info__6TLobbyFv(void);
 }
@@ -110,7 +110,7 @@ void update_card_save_info__6TLobbyFv(void) {
         return;
     }
     card->f2224 = resolve_player_slot__20TWindowSubStatusDispFi(-1);
-    card->f2225 = lbl_8048C9D8.v0;
+    card->f2225 = challenge_mode_state.v0;
     card->f2226 = get_current_floor();
     if (card->f2228 < 0) {
         card->f2228 = 0x270F;
@@ -174,11 +174,11 @@ void spawn_player_tombstones__6TLobbyFv(void) {
     Info_8006FE7C *info;
     reset_tombstone_values__6TLobbyFv();
     for (i = 0; i < 4; i++) {
-        rec = &lbl_8048C9D8.recs[i];
+        rec = &challenge_mode_state.recs[i];
         if (rec->active != 0 && get_player_by_client_id(i) != NULL) {
             info = &rec->info;
             if (info->d > 0 && info->a == resolve_player_slot__20TWindowSubStatusDispFi(-1)
-                && info->b == lbl_8048C9D8.v0 && info->c == lbl_8048C9D8.v8) {
+                && info->b == challenge_mode_state.v0 && info->c == challenge_mode_state.v8) {
                 create__13TObjTombstoneFPvPvPv(tl_07, (void *)i, info);
             }
         }

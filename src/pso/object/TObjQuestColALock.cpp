@@ -22,7 +22,7 @@ u32 init_collision_body_parts(void *, s32, s32);
 u8 * TObjQuestColBase__ct(void *, s32);
 extern RecoveredGlobal_8019677C_lbl_80445E84 TObjQuestColALock__collision_desc;
 extern M2C_UNK __vt__17TObjQuestColALock[];
-extern s32 lbl_805D33F4;
+extern s32 obj_quest_col_alock_class_name;
 u8 *TObjQuestColALock__ct(u8 *arg0, s32 arg1);
 }
 
@@ -105,7 +105,7 @@ u8 *TObjQuestColALock__ct(u8 *arg0, s32 arg1) {
     u8 *temp_r4;
     TObjQuestColBase__ct(arg0, arg1);
     M2C_FIELD(arg0, M2C_UNK **, 0x18) = &(*(RecoveredGlobal_8019677C___vt__17TObjQuestColALock *)&__vt__17TObjQuestColALock).value;
-    M2C_FIELD(arg0, s32 *, 0) = (s32) lbl_805D33F4;
+    M2C_FIELD(arg0, s32 *, 0) = (s32) obj_quest_col_alock_class_name;
     init_collision_body_parts(arg0, (s32) &TObjQuestColALock__collision_desc.value, 1);
     set_indexed_flags(arg0, 0, 0xF0);
     temp_r4 = (u8 *)(M2C_FIELD(arg0, u8 **, 0xA4));

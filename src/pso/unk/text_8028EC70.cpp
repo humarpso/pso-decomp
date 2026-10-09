@@ -33,7 +33,7 @@ M2C_UNK TAdSinglePlyChrSelectGC__sub_8028F084(u32, void *);
 u32 find_free_slot__23TAdSinglePlyChrSelectGCFv();
 s32 has_matching_entry__23TAdSinglePlyChrSelectGCFPv(void *);
 s32 count_remaining_slots__23TAdSinglePlyChrSelectGCFv();
-extern s32 lbl_805D6520;
+extern s32 creation_player_character;
 void TAdSinglePlyChrSelectGC__sub_8028ED54(s32 arg0);
 void copy_slot_data__23TAdSinglePlyChrSelectGCFPvPv(Dst_8028ED24 *d, Src_8028ED24 *s);
 void copy_player_visual_record(void *, void *);
@@ -86,7 +86,7 @@ void TAdSinglePlyChrSelectGC__sub_8028ED54(s32 arg0) {
     M2CCopy_50 buf;
     u32 h;
     if (count_remaining_slots__23TAdSinglePlyChrSelectGCFv() > 0) {
-        buf = *(const M2CCopy_50 *)lbl_805D6520;
+        buf = *(const M2CCopy_50 *)creation_player_character;
         if ((arg0 < 0) || (arg0 >= 5)) {
             if (has_matching_entry__23TAdSinglePlyChrSelectGCFPv((void *) (&buf)) != 0) {
                 return;

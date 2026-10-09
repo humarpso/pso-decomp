@@ -88,7 +88,7 @@ void update_menu_cursor__6TLobbyFv();
 void TLobby__sub_8023E4B4(s32, s32);
 extern const s32 lbl_80471D3C[];
 extern const s32 lbl_80471D50[];
-extern const s32 lbl_805D5544;
+extern const s32 current_language;
 extern u32 lbl_805D67F0;
 void TLobby__sub_802C7920(void);
 M2C_UNK __ct__7TObjectFP7TObject(void *);
@@ -259,9 +259,9 @@ void TLobby__sub_802C7920(void) {
     update_menu_cursor__6TLobbyFv();
     M2CCopy_14 a = *(const M2CCopy_14 *)lbl_80471D3C;
     M2CCopy_14 b = *(const M2CCopy_14 *)lbl_80471D50;
-    s32 r4 = b.v[lbl_805D5544];
+    s32 r4 = b.v[current_language];
     lbl_805D67F0 = r4;
-    TLobby__sub_8023E4B4(a.v[lbl_805D5544], r4);
+    TLobby__sub_8023E4B4(a.v[current_language], r4);
 }
 
 }

@@ -69,7 +69,7 @@ extern Cur_8030095C lbl_80474EAC[];
 extern Pos_8030095C lbl_80474EB4;
 extern void *__vt__21TAdMultiSelGameModeGC[];
 extern s32 lbl_805D4060;
-extern s32 lbl_805D5550;
+extern s32 game_difficulty_selection;
 extern s32 TAdMultiSelGameModeGC__data_805D69F0;
 extern s32 lbl_805D69F4;
 extern const f32 lbl_805DEF44;
@@ -265,14 +265,14 @@ Obj_8030095C *__ct__21TAdMultiSelGameModeGCFv(Obj_8030095C *self, s32 parent, s3
     }
     {
         s32 max = ((s32 (*)(void *))get_max_difficulty_for_party_level)(self);
-        lbl_805D5550 = (lbl_805D5550 <= max) ? lbl_805D5550 : 0;
+        game_difficulty_selection = (game_difficulty_selection <= max) ? game_difficulty_selection : 0;
     }
     if (TAdMultiSelGameModeGC__data_805D69F0 == 2) {
-        lbl_805D5550 = 0;
+        game_difficulty_selection = 0;
     }
     p = __nw__7TObjectFUl(0xE0);
     if (p != NULL) {
-        p = __ct__14TAdSelectTxtGCFv(p, self, &lbl_80474E40[12], lbl_805D5550);
+        p = __ct__14TAdSelectTxtGCFv(p, self, &lbl_80474E40[12], game_difficulty_selection);
     }
     self->f30 = p;
     p = __nw__7TObjectFUl(0xE0);

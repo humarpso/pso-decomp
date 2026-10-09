@@ -154,12 +154,12 @@ void *__dt__11TObjMesBaseFv(void *arg0, s16 arg1) {
 }
 
 extern M2C_UNK __vt__11TObjMesBase[];
-extern s32 lbl_805D33C8;
+extern s32 TObjMesBase__class_name;
 
 void *TObjMesBase__ct(void *arg0, s32 arg1, s32 arg2) {
     construct_collider_proxy__10TObjPlayerFPv();
     M2C_FIELD(arg0, M2C_UNK **, 0x18) = __vt__11TObjMesBase;
-    M2C_FIELD(arg0, s32 *, 0) = (s32) lbl_805D33C8;
+    M2C_FIELD(arg0, s32 *, 0) = (s32) TObjMesBase__class_name;
     ((TObjMesBase80194_80194C98 *)arg0)->ct(arg2);
     M2C_FIELD(arg0, s32 *, 0xB4) = (s32) M2C_FIELD(arg0, s32 *, 0x84);
     M2C_FIELD(arg0, s32 *, 0xB8) = (s32) M2C_FIELD(arg0, s32 *, 0x8C);

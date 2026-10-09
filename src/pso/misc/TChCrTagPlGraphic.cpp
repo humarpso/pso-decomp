@@ -23,7 +23,7 @@ void copy_vec2__28TWindowSubSymbolChatPartsSetFPvPv(void *, void *);
 u8 * __ct__8TChCrTagFv(void *, s32);
 extern const TChCrTagPlGraphic__data_804664A4 TChCrTagPlGraphic__data_804664A4;
 extern RecoveredGlobal_802A3454___vt__17TChCrTagPlGraphic __vt__17TChCrTagPlGraphic;
-extern s32 lbl_805D3DB8;
+extern s32 ch_cr_tag_pl_graphic_class_name;
 extern const f32 lbl_805DDF18;
 extern const f32 lbl_805DDF2C;
 extern const f32 lbl_805DDF30;
@@ -75,7 +75,7 @@ u8 *__ct__17TChCrTagPlGraphicFv(u8 *arg0, s32 arg1, s32 _w2) {
     u8 *temp_r5;
     __ct__8TChCrTagFv(arg0, arg1);
     M2C_FIELD(arg0, M2C_UNK **, 0x18) = &__vt__17TChCrTagPlGraphic.value;
-    M2C_FIELD(arg0, s32 *, 0) = (s32) lbl_805D3DB8;
+    M2C_FIELD(arg0, s32 *, 0) = (s32) ch_cr_tag_pl_graphic_class_name;
     M2C_FIELD(arg0, f32 *, 0x28) = (f32) lbl_805DDF2C;
     M2C_FIELD(arg0, f32 *, 0x2C) = (f32) lbl_805DDF30;
     M2C_FIELD(arg0, f32 *, 0x34) = (f32) lbl_805DDF2C;

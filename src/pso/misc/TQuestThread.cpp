@@ -285,8 +285,8 @@ extern s32 lbl_805D35D4;
 extern s32 lbl_805D35D8;
 extern const char *lbl_805D35DC;
 extern s32 lbl_805D53A0;
-extern s32 lbl_805D5544;
-extern s32 lbl_805D5550;
+extern s32 current_language;
+extern s32 game_difficulty_selection;
 extern u32 lbl_805D5EE8;
 extern u32 lbl_805D5EEC;
 extern s32 lbl_805D5EF0;
@@ -914,15 +914,15 @@ void load_area_dialogue_script(void) {
     case 28: case 29: case 31: bank = 11; break;
     default: return;
     }
-    if (enable_v2_features == 1 && lbl_805D5550 == 3) {
+    if (enable_v2_features == 1 && game_difficulty_selection == 3) {
         mem = ((void *(*)(M2C_UNK))__nw__7TObjectFUl)(0x1A4);
         if (mem != NULL) {
-            load_quest_root_script((u8 *)mem, (void *)tl_04, lbl_804C8320[lbl_805D5544][bank], 1);
+            load_quest_root_script((u8 *)mem, (void *)tl_04, lbl_804C8320[current_language][bank], 1);
         }
     } else {
         mem = ((void *(*)(M2C_UNK))__nw__7TObjectFUl)(0x1A4);
         if (mem != NULL) {
-            load_quest_root_script((u8 *)mem, (void *)tl_04, lbl_804C8230[lbl_805D5544][bank], 1);
+            load_quest_root_script((u8 *)mem, (void *)tl_04, lbl_804C8230[current_language][bank], 1);
         }
     }
 }

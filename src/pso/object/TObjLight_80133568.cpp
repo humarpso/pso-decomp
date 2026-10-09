@@ -169,7 +169,7 @@ extern M2C_UNK TObjLight__data_8058D528[];
 void restore_scene_lighting(void);
 s32 VecCopy__FP3VecPC3Vec(int, void *);
 s32 copy_vec4__13TRaderMapCoreFPvPv(void *, void *);
-extern s32 TObjLight__data_805D556C;
+extern s32 TObjLight__actor_light_count;
 void register_actor_light(s32 arg0, s32 arg1);
 u8 * TObjLight__sub_80133980(u8 *arg0, int);
 void * init__9TObjLightFPv(void *arg0, int);
@@ -192,14 +192,14 @@ void bswap_data__9TObjLightFPv(void* p);
 s32 get_global_state__14TOKeyMachine01Fv(void);
 s32 is_online_ready__6TLobbyFv();
 extern RecoveredGlobal_80133D78_lbl_804A6F34 lbl_804A6F34;
-extern u32 TObjLight__data_805D5574;
+extern u32 TObjLight__light_entry_data;
 extern const f32 lbl_805DB0A4;
 void init_area_lights(void);
-extern s32 TObjLight__data_805D5568;
+extern s32 TObjLight__active_light_count;
 void __dl__FPv(void *);
 void unregister_and_free__9TObjLightFPv(void *p);
-extern u32 TObjLight__data_805D5574;
-extern s32 lbl_805D5578;
+extern u32 TObjLight__light_entry_data;
+extern s32 light_entry_file_size;
 extern char lbl_8043ED80[];
 s32 update_lobby_scene__6TSceneFPv(void *);
 u32 alloc__22TQuestVmDownLoadServerFPv(s32);
@@ -207,11 +207,11 @@ s32 read_disc_file(void *, u32);
 void load_light_entry_file(void);
 s32 VecCopy__FP3VecPC3Vec(int, void *);
 s32 copy_vec4__13TRaderMapCoreFPvPv(void *, void *);
-extern s32 TObjLight__data_805D556C;
+extern s32 TObjLight__actor_light_count;
 void find_light_params__9TObjLightFPvPvUi(f32 *dir, f32 *color, u32 id);
 void *alloc__23TAdSinglePlyChrSelectGCFPv(u32);
 void* init_light__9TObjLightFPvi(void* a0, int a1);
-extern s32 TObjLight__data_805D5568;
+extern s32 TObjLight__active_light_count;
 u32 alloc_light_slot__9TObjLightFv(void);
 void set_scene_light_diffuse(void * _w0);
 void submit_scene_light_direction(void * _w0);
@@ -229,16 +229,16 @@ extern const f32 lbl_805DB098;
 extern const f32 lbl_805DB09C;
 extern const f32 lbl_805DB0A0;
 void apply_environment_light(s32 arg0);
-extern s32 TObjLight__data_805D556C;
-extern s32 TObjLight__data_805D5570;
+extern s32 TObjLight__actor_light_count;
+extern s32 TObjLight__light_count;
 extern const float TObjLight__data_805DB088;
 void init_light_tables__9TObjLightFv(void);
-extern s32 TObjLight__data_805D556C;
-extern s32 TObjLight__data_805D5570;
+extern s32 TObjLight__actor_light_count;
+extern s32 TObjLight__light_count;
 void reset_actor_light_registries(void);
 s32 VecCopy__FP3VecPC3Vec(int, void *);
 s32 copy_vec4__13TRaderMapCoreFPvPv(void *, void *);
-extern s32 TObjLight__data_805D5570;
+extern s32 TObjLight__light_count;
 void publish_light_direction_color(u32 id, void *dir, void *color);
 void TObjLight__sub_801336DC(void);
 void submit_scene_ambient_color(void);
@@ -246,7 +246,7 @@ void TObjLight__sub_80133714(void);
 void *init_object__9TObjLightFPv(void *arg0);
 extern M2C_UNK lbl_804A6F78[];
 extern void *lbl_805D5564;
-extern s32 TObjLight__data_805D5568;
+extern s32 TObjLight__active_light_count;
 void *init_map_light__9TObjLightFPvi(void *arg0, int _w1);
 }
 
@@ -306,7 +306,7 @@ void unregister_and_free__9TObjLightFPv(void *p) {
     for (i = 0; i < 3; i++) {
         if (*q == p) {
             *q = 0;
-            TObjLight__data_805D5568--;
+            TObjLight__active_light_count--;
             break;
         }
         q++;
@@ -326,7 +326,7 @@ u32 alloc_light_slot__9TObjLightFv(void) {
                 r = ((void *)init_light__9TObjLightFPvi((void*)(r), (int)(i)));
             }
             *p = (u32)r;
-            TObjLight__data_805D5568++;
+            TObjLight__active_light_count++;
             return *p;
         }
     }
@@ -347,7 +347,7 @@ void *init_map_light__9TObjLightFPvi(void *arg0, int _w1) {
     init_object__9TObjLightFPv(arg0);
     *(void ***)((u8 *)arg0 + 0x18) = ((void * *)&lbl_804A6F78);
     lbl_805D5564 = arg0;
-    TObjLight__data_805D5568 = 1;
+    TObjLight__active_light_count = 1;
     ((void (*)(void *))submit_scene_ambient_color)(arg0);
     ((void (*)(void *))TObjLight__sub_80133714)(arg0);
     ((void (*)(void *))TObjLight__sub_801336DC)(arg0);
@@ -538,8 +538,8 @@ void reset_actor_light_registries(void) {
         ((Light_80133C1C *)TObjLight__data_805068FC)[j].f1C = 0.0f;
         ((Light_80133C1C *)TObjLight__data_805068FC)[j].f24 = 0;
     }
-    TObjLight__data_805D5570 = 0;
-    TObjLight__data_805D556C = 0;
+    TObjLight__light_count = 0;
+    TObjLight__actor_light_count = 0;
 }
 
 void *dt__9TObjLightFPvs(void *arg0, s16 arg1) {
@@ -561,7 +561,7 @@ void *init__9TObjLightFPv(void *arg0, int _w1) {
     return arg0;
 }
 
-extern u32 TObjLight__data_805D5574;
+extern u32 TObjLight__light_entry_data;
 
 typedef char RecoveredGlobal_80133D78_lbl_804A6F34_size[sizeof(RecoveredGlobal_80133D78_lbl_804A6F34) == 0x44 ? 1 : -1];
 void init_area_lights(void) {
@@ -569,12 +569,12 @@ void init_area_lights(void) {
     CopyStack_80133D78 copy_storage_80133D78;
     s32 temp_r4;
     s32 var_r31;
-    if ((u32) TObjLight__data_805D5574 != 0U) {
+    if ((u32) TObjLight__light_entry_data != 0U) {
         var_r31 = get_global_state__14TOKeyMachine01Fv();
         if (is_online_ready__6TLobbyFv() != 0) {
             var_r31 = (s32) ((f32) var_r31 + lbl_805DB0A4);
         }
-        temp_r4 = (TObjLight__data_805D5574 + (var_r31 * 0x44)) - 4;
+        temp_r4 = (TObjLight__light_entry_data + (var_r31 * 0x44)) - 4;
         *(M2CCopy_44 *)(copy_storage_80133D78.bytes) = *(const M2CCopy_44 *)(temp_r4 + 4);
         bswap_data__9TObjLightFPv((void*)((void *) ((copy_storage_80133D78.bytes))));
         init_map_lights((u8 *)((void *) ((copy_storage_80133D78.bytes))));
@@ -584,21 +584,21 @@ void init_area_lights(void) {
 }
 
 void free_shared_data__9TObjLightFv(void) {
-    if ((u32) TObjLight__data_805D5574 != 0U) {
-        safe_free__23TAdSinglePlyChrSelectGCFUi((void*)TObjLight__data_805D5574);
-        TObjLight__data_805D5574 = 0U;
+    if ((u32) TObjLight__light_entry_data != 0U) {
+        safe_free__23TAdSinglePlyChrSelectGCFUi((void*)TObjLight__light_entry_data);
+        TObjLight__light_entry_data = 0U;
     }
 }
 
 extern M2C_UNK lbl_804A6FC0[];
 
 void load_light_entry_file(void) {
-    TObjLight__data_805D5574 = 0;
-    lbl_805D5578 = update_lobby_scene__6TSceneFPv(lbl_8043ED80);
-    if (lbl_805D5578 > 0) {
-        TObjLight__data_805D5574 = alloc__22TQuestVmDownLoadServerFPv(lbl_805D5578);
-        if (TObjLight__data_805D5574) {
-            read_disc_file(lbl_8043ED80, TObjLight__data_805D5574);
+    TObjLight__light_entry_data = 0;
+    light_entry_file_size = update_lobby_scene__6TSceneFPv(lbl_8043ED80);
+    if (light_entry_file_size > 0) {
+        TObjLight__light_entry_data = alloc__22TQuestVmDownLoadServerFPv(light_entry_file_size);
+        if (TObjLight__light_entry_data) {
+            read_disc_file(lbl_8043ED80, TObjLight__light_entry_data);
         }
     }
 }
@@ -687,7 +687,7 @@ u16 obj_getField1c(s32);
 void select_actor_lighting(s32 obj) {
     s32 i;
 
-    for (i = 0; i < TObjLight__data_805D5570; i++) {
+    for (i = 0; i < TObjLight__light_count; i++) {
         if (L2_80134194[i].id == obj_getField1c(obj)) {
             if (((u32)L2_80134194[i].f24 & 1) && ((u32)L2_80134194[i].f24 & 2)) {
                 set_light_ambient_color(L2_80134194[i].f20, L2_80134194[i].f20, L2_80134194[i].f20);
@@ -715,7 +715,7 @@ void select_actor_lighting(s32 obj) {
             return;
         }
     }
-    for (i = 0; i < TObjLight__data_805D556C; i++) {
+    for (i = 0; i < TObjLight__actor_light_count; i++) {
         if (L1_80134194[i].id == obj_getField1c(obj)) {
             init_distant_light(0, L1_80134194[i].dir[0], L1_80134194[i].dir[1], L1_80134194[i].dir[2]);
             GXInitLightDir(TObjLight__data_8058D528, L1_80134194[i].dir[0], L1_80134194[i].dir[1], L1_80134194[i].dir[2]);
@@ -734,7 +734,7 @@ void select_actor_lighting(s32 obj) {
 
 void find_light_params__9TObjLightFPvPvUi(f32 *dir, f32 *color, u32 id) {
     s32 i;
-    for (i = 0; i < TObjLight__data_805D556C; i++) {
+    for (i = 0; i < TObjLight__actor_light_count; i++) {
         LightEntry_801344A4 *e = &((LightEntry_801344A4 *)&TObjLight__data_8050637C)[i];
         if (id == e->id) {
             VecCopy__FP3VecPC3Vec((int)dir, e->dir);
@@ -747,7 +747,7 @@ void find_light_params__9TObjLightFPvPvUi(f32 *dir, f32 *color, u32 id) {
 }
 
 void publish_actor_light_scalars(u32 arg0, f32 farg0, f32 farg1) {
-    s32 cnt = TObjLight__data_805D5570;
+    s32 cnt = TObjLight__light_count;
     s32 found;
     s32 n;
     Light_801347A4 *q;
@@ -772,7 +772,7 @@ void publish_actor_light_scalars(u32 arg0, f32 farg0, f32 farg1) {
             q->f1C = farg0;
             q->f20 = farg1;
             q->f24 |= 1;
-            TObjLight__data_805D5570++;
+            TObjLight__light_count++;
         }
     }
 }
@@ -782,7 +782,7 @@ void publish_light_direction_color(u32 id, void *dir, void *color) {
     s32 i;
     Light_801347A4 *e;
     add = 1;
-    if (TObjLight__data_805D5570 < 8) {
+    if (TObjLight__light_count < 8) {
         for (i = 0; i < 8; i++) {
             e = &TObjLight__data_805068FC[i];
             if (id == e->id) {
@@ -798,23 +798,23 @@ void publish_light_direction_color(u32 id, void *dir, void *color) {
             }
         }
         if (add) {
-            TObjLight__data_805068FC[TObjLight__data_805D5570].id = id;
-            VecCopy__FP3VecPC3Vec((int)&TObjLight__data_805068FC[TObjLight__data_805D5570], dir);
-            copy_vec4__13TRaderMapCoreFPvPv(TObjLight__data_805068FC[TObjLight__data_805D5570].color, color);
-            TObjLight__data_805068FC[TObjLight__data_805D5570].f24 |= 2;
-            TObjLight__data_805D5570++;
+            TObjLight__data_805068FC[TObjLight__light_count].id = id;
+            VecCopy__FP3VecPC3Vec((int)&TObjLight__data_805068FC[TObjLight__light_count], dir);
+            copy_vec4__13TRaderMapCoreFPvPv(TObjLight__data_805068FC[TObjLight__light_count].color, color);
+            TObjLight__data_805068FC[TObjLight__light_count].f24 |= 2;
+            TObjLight__light_count++;
         }
     }
 }
 
 void register_actor_light(s32 arg0, s32 arg1) {
     u8 *temp_r5;
-    if ((s32) TObjLight__data_805D556C < 0x20) {
-        temp_r5 = (u8 *)TObjLight__data_8050637C + (TObjLight__data_805D556C * 0x2C);
+    if ((s32) TObjLight__actor_light_count < 0x20) {
+        temp_r5 = (u8 *)TObjLight__data_8050637C + (TObjLight__actor_light_count * 0x2C);
         M2C_FIELD(temp_r5, s32 *, 0x28) = arg0;
         VecCopy__FP3VecPC3Vec((int) (temp_r5), (void *) (arg1 + 0xE4));
-        copy_vec4__13TRaderMapCoreFPvPv((void *) ((u8 *)TObjLight__data_8050637C + (TObjLight__data_805D556C * 0x2C) + 0xC), (void *) (arg1 + 0xF0));
-        TObjLight__data_805D556C += 1;
+        copy_vec4__13TRaderMapCoreFPvPv((void *) ((u8 *)TObjLight__data_8050637C + (TObjLight__actor_light_count * 0x2C) + 0xC), (void *) (arg1 + 0xF0));
+        TObjLight__actor_light_count += 1;
     }
 }
 
@@ -834,7 +834,7 @@ void init_light_tables__9TObjLightFv(void) {
         ((Light_801347A4 *)&TObjLight__data_8050637C)[i].f1C = TObjLight__data_805DB088;
         ((Light_801347A4 *)&TObjLight__data_8050637C)[i].f24 = 0;
     }
-    TObjLight__data_805D556C = 0;
+    TObjLight__actor_light_count = 0;
     for (j = 0; j < 8; j++) {
         TObjLight__data_805068FC[j].id = 0xFFFF;
         TObjLight__data_805068FC[j].dir[0] = TObjLight__data_805DB088;
@@ -848,7 +848,7 @@ void init_light_tables__9TObjLightFv(void) {
         TObjLight__data_805068FC[j].f1C = TObjLight__data_805DB088;
         TObjLight__data_805068FC[j].f24 = 0;
     }
-    TObjLight__data_805D5570 = 0;
+    TObjLight__light_count = 0;
 }
 
 void *TObjLight__sub_8013486C(void *arg0, s16 arg1) {

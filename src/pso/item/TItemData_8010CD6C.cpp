@@ -126,7 +126,7 @@ extern char lbl_8043E374[];
 extern char lbl_8043E37C[];
 extern char lbl_8043E384[];
 extern char lbl_8043E390[];
-extern s32 lbl_805D5544;
+extern s32 current_language;
 extern char lbl_805DAB8C;
 void format_item_name__9TItemDataFv(u8 *arg0, char *buf);
 }
@@ -708,14 +708,14 @@ void format_item_name__9TItemDataFv(u8 *arg0, char *buf) {
             switch (f) {
             case 0xE:
             case 0x11:
-                if (lbl_805D5544 == 0) {
+                if (current_language == 0) {
                     sprintf(buf, lbl_8043E37C, ((char *(*)(s32))get_technique_name)(f), name);
                 } else {
                     sprintf(buf, lbl_8043E37C, name, ((char *(*)(s32))get_technique_name)(f));
                 }
                 break;
             default:
-                if (lbl_805D5544 == 0) {
+                if (current_language == 0) {
                     sprintf(buf, lbl_8043E384, ((char *(*)(s32))get_technique_name)(f), item->b2 + 1, name);
                 } else {
                     sprintf(buf, lbl_8043E390, name, ((char *(*)(s32))get_technique_name)(f), item->b2 + 1);

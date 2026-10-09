@@ -369,7 +369,7 @@ extern RecoveredGlobal_801D8ADC_lbl_8044929C lbl_8044929C;
 extern RecoveredGlobal_801D8ADC_lbl_804492AC lbl_804492AC;
 extern RecoveredGlobal_801D8ADC_lbl_804492BC lbl_804492BC;
 extern RecoveredGlobal_801D8ADC_lbl_804492CC lbl_804492CC;
-extern s32 lbl_805D5550;
+extern s32 game_difficulty_selection;
 M2C_UNK *get_getup_protection_ticks__10TObjPlayerFPv(M2C_UNK *arg0);
 s32 get_main_phase();
 s32 obj_isState3_324(int);
@@ -377,7 +377,7 @@ extern RecoveredGlobal_801D8B8C_lbl_8044925C lbl_8044925C;
 extern RecoveredGlobal_801D8B8C_lbl_8044926C lbl_8044926C;
 extern RecoveredGlobal_801D8B8C_lbl_8044927C lbl_8044927C;
 extern RecoveredGlobal_801D8B8C_lbl_8044928C lbl_8044928C;
-extern s32 lbl_805D5550;
+extern s32 game_difficulty_selection;
 M2C_UNK *get_hurt_protection_ticks__10TObjPlayerFPv(M2C_UNK *arg0);
 s32 get_instance__6TLobbyFv(void);
 extern RecoveredGlobal_801D8C6C_lbl_8044923C lbl_8044923C;
@@ -572,24 +572,24 @@ M2C_UNK *get_getup_protection_ticks__10TObjPlayerFPv(M2C_UNK *arg0) {
         if (obj_isState3_324((int) (var_r3)) != 0) {
             var_r3 = (M2C_UNK *)(&lbl_804492CC.value);
             var_r3 = (M2C_UNK *)(&lbl_804492CC.value);
-            var_r3 = (M2C_UNK *)(M2C_FIELD(&lbl_804492CC.value, M2C_UNK *, (lbl_805D5550 * 4)));
+            var_r3 = (M2C_UNK *)(M2C_FIELD(&lbl_804492CC.value, M2C_UNK *, (game_difficulty_selection * 4)));
             return var_r3;
         }
         var_r3 = (M2C_UNK *)(&lbl_804492BC.value);
         var_r3 = (M2C_UNK *)(&lbl_804492BC.value);
-        var_r3 = (M2C_UNK *)(M2C_FIELD(&lbl_804492BC.value, M2C_UNK *, (lbl_805D5550 * 4)));
+        var_r3 = (M2C_UNK *)(M2C_FIELD(&lbl_804492BC.value, M2C_UNK *, (game_difficulty_selection * 4)));
         return var_r3;
     }
     var_r3 = (M2C_UNK *)(var_r31);
     if (obj_isState3_324((int) (var_r3)) != 0) {
         var_r3 = (M2C_UNK *)(&lbl_804492AC.value);
         var_r3 = (M2C_UNK *)(&lbl_804492AC.value);
-        var_r3 = (M2C_UNK *)(M2C_FIELD(&lbl_804492AC.value, M2C_UNK *, (lbl_805D5550 * 4)));
+        var_r3 = (M2C_UNK *)(M2C_FIELD(&lbl_804492AC.value, M2C_UNK *, (game_difficulty_selection * 4)));
         return var_r3;
     }
     var_r3 = (M2C_UNK *)(&lbl_8044929C.value);
     var_r3 = (M2C_UNK *)(&lbl_8044929C.value);
-    var_r3 = (M2C_UNK *)(M2C_FIELD(&lbl_8044929C.value, M2C_UNK *, (lbl_805D5550 * 4)));
+    var_r3 = (M2C_UNK *)(M2C_FIELD(&lbl_8044929C.value, M2C_UNK *, (game_difficulty_selection * 4)));
     return var_r3;
 }
 
@@ -606,24 +606,24 @@ M2C_UNK *get_hurt_protection_ticks__10TObjPlayerFPv(M2C_UNK *arg0) {
         if (obj_isState3_324((int) (var_r3)) != 0) {
             var_r3 = (M2C_UNK *)(&lbl_8044928C.value);
             var_r3 = (M2C_UNK *)(&lbl_8044928C.value);
-            var_r3 = (M2C_UNK *)(M2C_FIELD(&lbl_8044928C.value, M2C_UNK *, (lbl_805D5550 * 4)));
+            var_r3 = (M2C_UNK *)(M2C_FIELD(&lbl_8044928C.value, M2C_UNK *, (game_difficulty_selection * 4)));
             return var_r3;
         }
         var_r3 = (M2C_UNK *)(&lbl_8044927C.value);
         var_r3 = (M2C_UNK *)(&lbl_8044927C.value);
-        var_r3 = (M2C_UNK *)(M2C_FIELD(&lbl_8044927C.value, M2C_UNK *, (lbl_805D5550 * 4)));
+        var_r3 = (M2C_UNK *)(M2C_FIELD(&lbl_8044927C.value, M2C_UNK *, (game_difficulty_selection * 4)));
         return var_r3;
     }
     var_r3 = (M2C_UNK *)(var_r31);
     if (obj_isState3_324((int) (var_r3)) != 0) {
         var_r3 = (M2C_UNK *)(&lbl_8044926C.value);
         var_r3 = (M2C_UNK *)(&lbl_8044926C.value);
-        var_r3 = (M2C_UNK *)(M2C_FIELD(&lbl_8044926C.value, M2C_UNK *, (lbl_805D5550 * 4)));
+        var_r3 = (M2C_UNK *)(M2C_FIELD(&lbl_8044926C.value, M2C_UNK *, (game_difficulty_selection * 4)));
         return var_r3;
     }
     var_r3 = (M2C_UNK *)(&lbl_8044925C.value);
     var_r3 = (M2C_UNK *)(&lbl_8044925C.value);
-    var_r3 = (M2C_UNK *)(M2C_FIELD(&lbl_8044925C.value, M2C_UNK *, (lbl_805D5550 * 4)));
+    var_r3 = (M2C_UNK *)(M2C_FIELD(&lbl_8044925C.value, M2C_UNK *, (game_difficulty_selection * 4)));
     return var_r3;
 }
 

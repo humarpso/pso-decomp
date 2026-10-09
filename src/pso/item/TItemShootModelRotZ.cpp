@@ -10,7 +10,7 @@ void  rotate_matrix_by_node_angles(void*, s32);
 void  draw_ginja_object(void*);
 void  pop_matrix(void);
 void  end_effect_render__13TParticleCtrlFv(void);
-extern const char* lbl_805D2C70;
+extern const char* item_shoot_model_rot_z_class_name;
 }
 
 void TItemShootModelRotZ::render() {
@@ -34,5 +34,5 @@ void TItemShootModelRotZ::hook() {
 
 TItemShootModelRotZ::TItemShootModelRotZ(void* owner, const Vec* pos, const Vec* dir, f32 life)
     : TItemShootModel(owner, pos, dir, life) {
-    this->m_name = lbl_805D2C70;
+    this->m_name = item_shoot_model_rot_z_class_name;
 }

@@ -80,7 +80,7 @@ extern RecoveredGlobal_80144FCC_lbl_804A74F0 lbl_804A74F0;
 u32 get_font_char_advance(u16 arg0);
 u16 map_char_to_font_code(u16 c);
 s32 get_field24__11TWindowCtrlFv();
-extern s32 lbl_8043F390[];
+extern s32 text_control_color_palette[];
 char *parse_text_control_codes(char *p, s32 *a, s32 *b);
 u32 get_font_char_advance(u16 arg0);
 void pack_status_flags__20TWindowSubStatusDispFPvUi(void *arg0, u32 arg1);
@@ -109,7 +109,7 @@ u8 calc_gauge_scale__20TWindowSubStatusDispFPvPvi(void *arg0, void *arg1, s32 ar
 int end_render_forward__20TWindowSubStatusDispFPv(void* p);
 void reset_gauge__20TWindowSubStatusDispFPv(void* p);
 void draw_textured_quad_at_depth(void *, f32);
-extern s32 lbl_805D5544;
+extern s32 current_language;
 extern const f32 lbl_805DB1A0;
 extern const f32 lbl_805DB1A4;
 void draw_menu_font_string(const char *s, s32 arg1, u32 flags, f32 x, f32 y, f32 scale);
@@ -143,7 +143,7 @@ char *parse_text_control_codes(char *p, s32 *a, s32 *b) {
                 if (p[1] == 'G') {
                     *b = get_field24__11TWindowCtrlFv();
                 } else if (p[1] >= '0' && p[1] <= '9') {
-                    *b = lbl_8043F390[p[1] - '0'];
+                    *b = text_control_color_palette[p[1] - '0'];
                 }
             }
             p += 2;
@@ -505,7 +505,7 @@ void draw_menu_font_string(const char *s, s32 arg1, u32 flags, f32 x, f32 y, f32
   {
     return;
   }
-  if (lbl_805D5544 == 0)
+  if (current_language == 0)
   {
     mb = 1;
   }

@@ -9,7 +9,7 @@ struct Cap_8015A99C {
 extern "C" {
 s32 fn_80225CD8(s32, char *, void *);
 char *strncpy(char *dest, const char *src, size_t num);
-extern void *lbl_805D5544;
+extern void *current_language;
 extern u8 *TOChatSensorCapture__data_805D58D8;
 s32 store_player_name__19TOChatSensorCaptureFUsPv(u16 arg0, const char *arg1);
 char *strncpy(char *dest, const char *src, size_t num);
@@ -35,7 +35,7 @@ s32 store_player_name__19TOChatSensorCaptureFUsPv(u16 arg0, const char *arg1) {
                 break;
             }
         }
-        if (fn_80225CD8(((s32 *)(TOChatSensorCapture__data_805D58D8 + 0x2C))[arg0], buf, lbl_805D5544) > -1) {
+        if (fn_80225CD8(((s32 *)(TOChatSensorCapture__data_805D58D8 + 0x2C))[arg0], buf, current_language) > -1) {
             return 1;
         }
     }

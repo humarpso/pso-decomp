@@ -42,7 +42,7 @@ void dispatch_without_flags__20TWindowSubStatusDispFiii(void *, char *, s32);
 void *refresh_with_default_list__20TWindowSubStatusDispFii(void *, void *);
 void *get_window_layout_position(s32);
 char *strcpy(char *, const char *);
-extern u8 lbl_804C96B8[];
+extern u8 member_name_window_pos[];
 void open_member_name_window__22THunterGuildSeqOfflineFPv(Seq_80212304 *self);
 }
 
@@ -167,7 +167,7 @@ void open_member_name_window__22THunterGuildSeqOfflineFPv(Seq_80212304 *self) {
         TWindow__close(self->win);
         self->win = 0;
     }
-    self->win = refresh_with_default_list__20TWindowSubStatusDispFii(get_window_layout_position(0xBD), lbl_804C96B8);
+    self->win = refresh_with_default_list__20TWindowSubStatusDispFii(get_window_layout_position(0xBD), member_name_window_pos);
     if (self->win != 0) {
         set_visible__19TWindowSubTradeMainFPv(self->win);
         set_close_flag__19TWindowSubTradeMainFPv(self->win);

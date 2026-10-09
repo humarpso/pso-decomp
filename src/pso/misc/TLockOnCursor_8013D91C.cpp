@@ -273,7 +273,7 @@ s32 dt__13TLockOnCursorFis(s32 arg0, s16 arg1) {
 extern M2C_UNK __vt__13TLockOnCursor[];
 extern M2C_UNK TLockOnCursor__sub_8013EFB8[];
 extern M2C_UNK __dt_deleting__13TLockOnCursorFis[];
-extern void *lbl_805D2CB4;
+extern void *lock_on_cursor_class_name;
 
 void *TLockOnCursor__ct(void *arg0, void *arg1, void *arg2) {
     struct VOff_8013DE3C_arg0_8013D91C *self = (struct VOff_8013DE3C_arg0_8013D91C *)arg0;
@@ -288,7 +288,7 @@ void *TLockOnCursor__ct(void *arg0, void *arg1, void *arg2) {
     init_forward__13TLockOnCursorFPv((void *)((char *)arg0 + 1288));
     init_cursor__13TLockOnCursorFPv((void *)((char *)arg0 + 1296));
     init_vtable__13TLockOnCursorFPv((void *)((char *)arg0 + 1312));
-    M2C_FIELD(arg0, void **, 0x0) = lbl_805D2CB4;
+    M2C_FIELD(arg0, void **, 0x0) = lock_on_cursor_class_name;
     TLockOnCursor__sub_8013EEC0(arg0, arg2);
     clear_id__10TObjPlayerFPv(self->f_1C);
     return arg0;

@@ -58,7 +58,7 @@ void merge_adjacent_free_blocks__6TLobbyFPv(Pool_8001D6E0 *pool);
 void send_disable_auto_reply__9TProtocolFv(s32);
 void send_text_packet_c7__6TLobbyFPvPv(s32, s32);
 extern s32 TLobby__data_805D4A98;
-extern s32 TLobby__data_805D5580;
+extern s32 TLobby__protocol_instance;
 void sync_auto_reply_state__6TLobbyFv(void);
 }
 
@@ -211,9 +211,9 @@ void TLobby__sub_8001D9E8(void* p) { *(s32*)((char*)p + 0x4) = 0; *(s32*)((char*
 void sync_auto_reply_state__6TLobbyFv(void) {
     if ((TLobby__data_805D4A98 & 4) || (TLobby__data_805D4A98 & 1) != ((TLobby__data_805D4A98 >> 1) & 1)) {
         if (((s32 (*)(void))get_flag_bit0__6TLobbyFv)() != 0) {
-            send_text_packet_c7__6TLobbyFPvPv(TLobby__data_805D5580, get_card_window_area__6TLobbyFv());
+            send_text_packet_c7__6TLobbyFPvPv(TLobby__protocol_instance, get_card_window_area__6TLobbyFv());
         } else {
-            send_disable_auto_reply__9TProtocolFv(TLobby__data_805D5580);
+            send_disable_auto_reply__9TProtocolFv(TLobby__protocol_instance);
         }
         TLobby__data_805D4A98 &= ~4;
         TLobby__data_805D4A98 = ((s32 (*)(void))get_flag_bit0__6TLobbyFv)() != 0 ? (TLobby__data_805D4A98 | 2) : (TLobby__data_805D4A98 & ~2);
@@ -550,7 +550,7 @@ void clamp_difficulty__6TLobbyFi(s32 arg0);
 M2C_UNK load_battle_param_entry();
 extern u32 TLobby__data_805D4AA0;
 
-extern s32 lbl_805D5550;
+extern s32 game_difficulty_selection;
 void alloc_battle_param_tables(void);
 }
 
@@ -586,7 +586,7 @@ void clamp_difficulty__6TLobbyFi(s32 arg0) {
 }
 
 extern s32 TLobby__data_805D4AB8;
-extern s32 lbl_805D5550;
+extern s32 game_difficulty_selection;
 
 void update_difficulty__6TLobbyFv(void) {
     s32 temp_r31;
@@ -594,7 +594,7 @@ void update_difficulty__6TLobbyFv(void) {
 
     temp_r31 = TLobby__data_805D4AB4;
     temp_r30 = TLobby__data_805D4AB8;
-    clamp_difficulty__6TLobbyFi((s32)(lbl_805D5550));
+    clamp_difficulty__6TLobbyFi((s32)(game_difficulty_selection));
     ((M2C_UNK (*)(void))get_instance__6TLobbyFv)();
     ((M2C_UNK (*)(void))set_difficulty__6TLobbyFi)();
     if (((s32) TLobby__data_805D4AB4 != temp_r31) || ((s32) TLobby__data_805D4AB8 != temp_r30)) {
@@ -626,7 +626,7 @@ void alloc_battle_param_tables(void) {
     TLobby__data_805D4AA8 = (s32)(buf + 0xd80);
     TLobby__data_805D4AAC = (s32)(buf + 0x1f80);
     TLobby__data_805D4AB0 = (s32)(buf + 0x2b80);
-    clamp_difficulty__6TLobbyFi(lbl_805D5550);
+    clamp_difficulty__6TLobbyFi(game_difficulty_selection);
     ((M2C_UNK (*)(void))get_instance__6TLobbyFv)();
     ((M2C_UNK (*)(void))set_difficulty__6TLobbyFi)();
     load_battle_param_entry();

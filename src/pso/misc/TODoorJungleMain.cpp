@@ -293,7 +293,7 @@ s32 access_object_saved_state(void *, void *, int);
 s32 get_difficulty_flag_bit__12TLevelSelectFii(s32, s32);
 s32 play_sound_effect(int, void *, int, int);
 extern s32 TOKeyJungleMain__data_804653C8[3];
-extern s32 lbl_805D5550;
+extern s32 game_difficulty_selection;
 M2C_UNK spawn_particle_effect_with_flags(void *, int, int);
 M2C_UNK clear_player_status_flag__10TObjPlayerFPviUi(void *, int, int);
 M2C_UNK minimap_render_gate(void *, u32, u16, s32, s32);
@@ -376,7 +376,7 @@ void TODoorJungleMain__vt12(Door_8029B524 *self) {
     s32 i;
 
     if (!(self->flags & 1)) {
-        lvl = lbl_805D5550;
+        lvl = game_difficulty_selection;
         prev = self->count;
         self->count = 0;
         for (i = 0; i < 3; i++) {

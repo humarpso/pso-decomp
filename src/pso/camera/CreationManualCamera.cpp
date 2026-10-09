@@ -9,7 +9,7 @@ f32 get_ratio__16TObjCMProportionFv(void),get_right_trigger_ratio__16TObjCMPropo
 void get_creation_pad_stick(void*,void*);
 s32 TObjCMProportion__sub_8029914C(s32);
 f32 sin_table_lookup(s32),cos_table_lookup(s32);
-extern CharacterAppearanceFields *lbl_805D6520;
+extern CharacterAppearanceFields *creation_player_character;
 extern s32 lbl_805D6570;
 extern const f32 lbl_805DD974,lbl_805DD978,lbl_805DD9B4,lbl_805DD9B8,lbl_805DD9BC,lbl_805DD9C0;
 }
@@ -70,7 +70,7 @@ void advance_creation_manual_camera(CreationCameraFields *arg0) {
     new_var = (s32) (((lbl_805DD9BC * spC) * cos_table_lookup(sp10)) + ((f32) arg0->pitch));
     var_r4 = -0x2BBC;
     arg0->pitch = new_var;
-    if ((((void *) lbl_805D6520) != 0) && ((((s32) lbl_805D6520->classId) == 0xA) || (lbl_805D6520->classFlags & 2)))
+    if ((((void *) creation_player_character) != 0) && ((((s32) creation_player_character->classId) == 0xA) || (creation_player_character->classFlags & 2)))
     {
       var_r4 = 0;
     }

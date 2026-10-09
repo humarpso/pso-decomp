@@ -220,7 +220,7 @@ M2C_UNK __ct__7TObjectFP7TObject(void *, void *);
 M2C_UNK export_character_data__10TObjPlayerFPvPv(s32, s32);
 M2C_UNK TPlayerBattleCtrl4P__sub_803102A4(void *);
 extern s32 lbl_805D4110;
-extern s32 lbl_805D5544;
+extern s32 current_language;
 
 void *TPlayerBattleCtrl4P__ct(void *arg0, void *parent) {
     s32 i;
@@ -234,7 +234,7 @@ void *TPlayerBattleCtrl4P__ct(void *arg0, void *parent) {
     M2C_FIELD(arg0, s32 *, 0x24) = 0;
     TPlayerBattleCtrl4P__sub_803102A4(arg0);
     p = lbl_804E7D4C;
-    if (lbl_805D5544 == 0) {
+    if (current_language == 0) {
         p = __vt__19TPlayerBattleCtrl4P;
     }
     M2C_FIELD(arg0, void ***, 0x294) = p;

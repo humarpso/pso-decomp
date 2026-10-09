@@ -221,7 +221,7 @@ M2C_UNK draw_chunk_object(int, void *);
 extern M2C_UNK lbl_80443B2C[];
 extern M2C_UNK lbl_80443B40[];
 extern M2C_UNK lbl_80443B54[];
-extern M2C_UNK lbl_8050DC08[];
+extern M2C_UNK air_car_buffer_pair_table[];
 extern u8 *lbl_805D5B20;
 extern void **lbl_805D5B24;
 extern void **lbl_805D5B2C;

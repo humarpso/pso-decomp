@@ -54,7 +54,7 @@ char *strcat(char *, const char *);
 char *strcpy(char *, const char *);
 u32 strlen(const char *);
 extern char lbl_8047DAB8[];
-extern char lbl_80582E58[];
+extern char dvd_default_path_buffer[];
 extern s32 lbl_805D7608;
 extern RecoveredCallback_4873a87e26d6 lbl_805D760C;
 s32 get_dvd_file_size__6TLobbyFPv(const char *name);
@@ -133,7 +133,7 @@ s32 get_dvd_file_size__6TLobbyFPv(const char *name) {
         }
         return 0;
     }
-    strcpy(path, lbl_80582E58);
+    strcpy(path, dvd_default_path_buffer);
     strcat(path, name);
     len = strlen(path);
     for (i = 0; i < len; i++) {

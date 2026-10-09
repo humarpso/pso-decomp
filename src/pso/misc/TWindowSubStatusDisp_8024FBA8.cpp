@@ -57,7 +57,7 @@ void apply_context_transform_to_rect(s32, void *);
 s32 is_point_in_bounds__19TWindowKeyBoardSoftFPvPv(s32, void *);
 s32 clip_textured_quad__19TWindowKeyBoardSoftFPvPv(s32, void *);
 void draw_textured_quad_at_depth(void *, f32);
-extern s32 lbl_805D5544;
+extern s32 current_language;
 extern s32 lbl_805D6430;
 extern f32 lbl_805D6434;
 extern f32 lbl_805D6438;
@@ -148,7 +148,7 @@ s32 draw_window_text(f32 *pos, const char *s, s32 color, s32 mode, f32 width) {
     if (*s == 0) {
         return 1;
     }
-    if (lbl_805D5544 == 0) {
+    if (current_language == 0) {
         flag = 1;
     }
     x = pos[0];

@@ -22,7 +22,7 @@ M2C_UNK copy_name(M2C_UNK *);
 s32 strncmp(M2C_UNK, s32, M2C_UNK);
 M2C_UNK TLobby__sub_803DA16C(u32);
 extern s32 TScene__current_floor_name;
-extern s32 *lbl_805D4E68;
+extern s32 *scene_collision_data;
 extern void *TScene__data_805D5FCC;
 extern u32 TScene__data_805D5FFC;
 extern u32 TScene__data_805D6000;
@@ -126,7 +126,7 @@ u32 get_map_count__10TObjMapCsnFv();
 s32 update_lobby_scene__6TSceneFPv(char *);
 extern M2C_UNK lbl_8044A950[];
 extern M2C_UNK lbl_8044A958[];
-extern s32 *lbl_805D4E68;
+extern s32 *scene_collision_data;
 extern u32 TScene__data_805D6000;
 extern s32 lbl_805D6014;
 void load_scene_collision_file(s32 arg0);
@@ -316,16 +316,16 @@ void load_scene_collision_file(s32 arg0) {
     replace_file_extension__6TLobbyFPvPvPv((M2C_UNK *)&sp8, arg0, lbl_8044A950);
     if (update_lobby_scene__6TSceneFPv((char *)&sp8) <= lbl_805D6014) {
         if (TScene__data_805D6000 != 0U) {
-            lbl_805D4E68 = load_relocatable_file((M2C_UNK *)&sp8, TScene__data_805D6000);
-            if (lbl_805D4E68 != NULL && get_map_count__10TObjMapCsnFv() != 0U) {
+            scene_collision_data = load_relocatable_file((M2C_UNK *)&sp8, TScene__data_805D6000);
+            if (scene_collision_data != NULL && get_map_count__10TObjMapCsnFv() != 0U) {
                 u32 csn = get_map_count__10TObjMapCsnFv();
-                collect_collision_groups(csn, *lbl_805D4E68);
+                collect_collision_groups(csn, *scene_collision_data);
                 return;
             }
             debug_print__6TLobbyFii(lbl_8044A958);
             return;
         }
-        lbl_805D4E68 = NULL;
+        scene_collision_data = NULL;
     }
 }
 
@@ -413,7 +413,7 @@ void free_scene_resources__6TSceneFv(void) {
         safe_free__23TAdSinglePlyChrSelectGCFUi(temp_r3);
         TScene__data_805D5FFC = 0U;
     }
-    (*(s32 *)&lbl_805D4E68) = 0;
+    (*(s32 *)&scene_collision_data) = 0;
     TScene__data_805D5FCC = NULL;
     if (strncmp(fn_800F8A0C(), TScene__current_floor_name, 0x10) == 0) {
         copy_name(&lbl_805DC604);
@@ -523,7 +523,7 @@ void load_map_texture_archive__6TSceneFi(s32 arg0) {
 
 extern M2C_UNK lbl_8044A950[];
 extern M2C_UNK lbl_8044A958[];
-extern s32 *lbl_805D4E68;
+extern s32 *scene_collision_data;
 extern u32 TScene__data_805D6000;
 extern s32 lbl_805D6014;
 
@@ -595,7 +595,7 @@ void load_scene_data__6TSceneFi(s32 arg0) {
     u32 temp_r3_2;
 
     alloc_scene_buffer__18TObjButterflyLobbyFv();
-    lbl_805D4E68 = NULL;
+    scene_collision_data = NULL;
     TScene__data_805D6000 = 0U;
     lbl_805D6014 = 0;
     replace_file_extension__6TLobbyFPvPvPv((M2C_UNK *)((M2C_UNK *)&sp8), (s32)(arg0), (M2C_UNK *)(lbl_8044A950));
@@ -605,7 +605,7 @@ void load_scene_data__6TSceneFi(s32 arg0) {
             temp_r3 = alloc__22TQuestVmDownLoadServerFPv(0x10000);
             TScene__data_805D6000 = temp_r3;
             if (temp_r3 != 0U) {
-                lbl_805D4E68 = load_relocatable_file((M2C_UNK *)&sp8, temp_r3);
+                scene_collision_data = load_relocatable_file((M2C_UNK *)&sp8, temp_r3);
                 lbl_805D6014 = 0x10000;
             }
         }
@@ -613,13 +613,13 @@ void load_scene_data__6TSceneFi(s32 arg0) {
         temp_r3_2 = alloc__22TQuestVmDownLoadServerFPv(temp_r31);
         TScene__data_805D6000 = temp_r3_2;
         if (temp_r3_2 != 0U) {
-            lbl_805D4E68 = load_relocatable_file((M2C_UNK *)&sp8, temp_r3_2);
+            scene_collision_data = load_relocatable_file((M2C_UNK *)&sp8, temp_r3_2);
             lbl_805D6014 = temp_r31;
         }
     }
-    if (((s32 *) lbl_805D4E68 != NULL) && (get_map_count__10TObjMapCsnFv() != 0U)) {
+    if (((s32 *) scene_collision_data != NULL) && (get_map_count__10TObjMapCsnFv() != 0U)) {
         u32 temp_csn = get_map_count__10TObjMapCsnFv();
-        collect_collision_groups(temp_csn, *lbl_805D4E68);
+        collect_collision_groups(temp_csn, *scene_collision_data);
         return;
     }
     debug_print__6TLobbyFii(lbl_8044A958);

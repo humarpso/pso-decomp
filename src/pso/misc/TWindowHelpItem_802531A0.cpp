@@ -81,7 +81,7 @@ s32 set_text_entry_string(void *, void *, s32);
 void set_sprite_uv_from_pixels(void *, f32, f32);
 extern u8 help_item_tech_disk_window_layout_table[];
 extern V3_802532E8 lbl_804CF898;
-extern s32 lbl_805D5544;
+extern s32 current_language;
 extern const f32 TWindowHelpItem__data_805DCDE4;
 extern const f32 lbl_805DCDE8;
 extern const f32 lbl_805DCDEC;
@@ -147,7 +147,7 @@ void update_tech_disk_details__15TWindowHelpItemFPv(u8 *arg0) {
         text_builder_reset();
         format_item_description(*(void **)(arg0 + 0x68));
         text_builder_append();
-        if (lbl_805D5544 == 0) {
+        if (current_language == 0) {
             get_help_text_string(*(*(u8 **)(arg0 + 0x68) + 4));
             text_builder_append();
         }
