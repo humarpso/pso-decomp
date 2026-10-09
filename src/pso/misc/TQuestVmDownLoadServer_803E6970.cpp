@@ -3164,6 +3164,114 @@ void TQuestVmDownLoadServer__sub_803ECA1C(u16 *arg0, s32 arg1, s32 arg2) {
     }
 }
 
+#pragma push
+#pragma dont_inline off
+#pragma inline_depth(2)
+inline s32 IsLead_803ECAE8(u32 c) {
+  if (((c < 0x81) || (c > 0xFC)) || ((c >= 0xA0) && (c < 0xE0)))
+  {
+    return 0;
+  }
+  return 1;
+}
+
+inline s32 IsTrail_803ECAE8(u8 c) {
+  if (((c < 0x40) || (c > 0xFC)) || (c == 0x7F))
+  {
+    return 0;
+  }
+  return 1;
+}
+
+inline s32 IsSjis_803ECAE8(s32 lo, s32 hi) {
+  if (IsLead_803ECAE8(hi) == 0)
+  {
+    return 0;
+  }
+  return IsTrail_803ECAE8(lo);
+}
+
+inline s32 IsJis_803ECAE8(u8 c) {
+  s32 r = 0;
+  if ((c >= 0x21) && (c <= 0x7E))
+  {
+    r = 1;
+  }
+  return r;
+}
+
+inline s32 IsJisPair_803ECAE8(s32 lo, s32 hi) {
+  s32 r = 0;
+  if (IsJis_803ECAE8(hi) && IsJis_803ECAE8(lo))
+  {
+    r = 1;
+  }
+  return r;
+}
+
+inline s32 Kind_803ECAE8(u16 c, s32 lo) {
+  switch (c & 0xFF00)
+  {
+    case 0x8000:
+
+    case 0x8500:
+      return 1;
+
+    case 0x8600:
+      if (lo < 0x9E)
+    {
+      return 1;
+    }
+      break;
+
+  }
+
+  return 2;
+}
+
+s32 TQuestVmDownLoadServer__sub_803ECAE8(u16 *out, u16 ch, s32 attr) {
+  s32 hi;
+  u16 c;
+  s32 lo;
+  int new_var;
+  u16 a;
+  c = ch;
+  a = (attr & 0xF) << 12;
+  new_var = ch & 0xFF;
+  hi = (ch >> 8) & 0xFF;
+  lo = new_var;
+  if (IsSjis_803ECAE8(new_var, hi))
+  {
+    if (Kind_803ECAE8(c, new_var) == 1)
+    {
+      a |= 0x300;
+    }
+    else
+    {
+      a |= 0x700;
+    }
+  }
+  else
+    if (IsJisPair_803ECAE8(new_var, hi))
+  {
+    a |= 0x500;
+    if (ch == 0x2474)
+    {
+      ch = 0x2574;
+    }
+  }
+  else
+  {
+    *out = a | lo;
+    return 1;
+  }
+  *(out++) = a | (ch >> 8);
+  *out = (a + 0x100) | (ch & 0xFF);
+  return 2;
+}
+
+#pragma pop
+
 s32 TQuestVmDownLoadServer__sub_803ECC7C(u32 arg0) {
     u8 hi = (arg0 >> 8) & 0xFF;
     u8 lo = arg0;

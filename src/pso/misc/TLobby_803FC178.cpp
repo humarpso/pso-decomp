@@ -934,7 +934,7 @@ void ppp_input_packet__6TLobbyFPv(Strm_80405A74 *arg0);
 void TUdpSocket__sub_803F9EE4(void * _w0, int _w1, int _w2);
 void MD5Transform(u32 *state, u8 *block);
 s16 TLobby__sub_80401BCC(void *, void *, int);
-B_803FADA0 *TLobby__sub_80401CE8(s32);
+B_803FADA0 *TLobby__sub_80401CE8(u16);
 u8 *TLobby__sub_80402B3C(u8 *p, u32 v);
 extern u8 lbl_805D7A74[1];
 void TLobby__sub_803FADA0(B_803FADA0 **arg0, A_803FADA0 *arg1, s32 arg2, s32 arg3, void *arg4);
@@ -2214,6 +2214,22 @@ void TLobby__sub_80401CAC(Outer_80401CAC *o, u16 v) {
 u16 get_field_4__6TLobbyFPv(u8 *arg0) {
     return M2C_FIELD(arg0, u16 *, 4);
 }
+
+typedef struct B_803FADA0 Ent_80401CE8;
+struct G_80401CE8 { s32 f0; u8 *f4; u8 pad8[2]; s16 hA; };
+#pragma push
+#pragma opt_propagation off
+Ent_80401CE8 *TLobby__sub_80401CE8(u16 idx) {
+  G_80401CE8 *g = (G_80401CE8 *)&lbl_805C04A8;
+  Ent_80401CE8 *t = (Ent_80401CE8 *) (g->f4 + ((idx * g->hA) * ((((4 & 0xFFFFFFFFu) & 0xFFFFFFFFu) & 0xFFFFFFFFu) & 0xFFFFFFFFu)));
+  Ent_80401CE8 *e;
+  e = (Ent_80401CE8 *) (g->f4 + ((idx * g->hA) * ((((4 & 0xFFFFFFFFu) & 0xFFFFFFFFu) & 0xFFFFFFFFu) & 0xFFFFFFFFu)));
+  e->buf = ((u8 *) t) + ((g->f0 + 0x83) & (~3));
+  e->len = 0xFFFFFFFFu * 0;
+  return e;
+  e = t;
+}
+#pragma pop
 
 void init_md5_state__6TLobbyFPv(u8 *arg0) {
     struct Fields_arg0 { s32 field_0; s32 field_4; s32 field_8; s32 field_C; s32 field_10; s32 field_14; };
