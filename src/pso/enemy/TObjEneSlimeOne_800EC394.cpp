@@ -9,6 +9,54 @@ struct O_800EC39C { u8 pad[0x384]; s32 state; };
 struct Obj_800EC6D0 { s32 f0; s32 state; u8 pad8[0x28 - 8]; f32 f28; f32 f2C; f32 f30; };
 
 typedef s32 M2C_UNK;
+
+struct E12_800EC7F4
+{
+  s32 a;
+  s32 b;
+  f32 c;
+};
+
+struct E20_800EC7F4
+{
+  s32 a;
+  s32 b;
+  s32 c;
+  s32 d;
+  f32 e;
+};
+
+struct Tbl_800EC7F4
+{
+  E12_800EC7F4 e[2];
+  u8 pad18[0x68 - 0x18];
+  E20_800EC7F4 *ptrs[2];
+  s32 ids[2];
+};
+
+struct Res_800EC7F4
+{
+  u8 pad[4];
+  u32 n;
+};
+
+struct Slime_800EC7F4
+{
+  void *obj;
+  s32 state;
+  s32 f8;
+  s32 fC;
+  Res_800EC7F4 *f10;
+  s32 f14;
+  s32 f18;
+  s32 f1C;
+  Res_800EC7F4 *f20;
+  u8 pad24[4];
+  f32 f28;
+  f32 f2C;
+  f32 f30;
+};
+
 extern "C" {
 s32 find_nearest_hittable_enemy__10TObjPlayerFiPvf(void *, void *, f32);
 int find_nearest_enemy_with_flag__15TObjEneSlimeOneFPvif(u8 *arg0, s32 arg1, f32 farg0);
@@ -37,6 +85,17 @@ M2C_UNK clear_global_state__10TObjPlayerFv();
 extern s32 lbl_80496CC8[];
 extern s32 some_id_805c6f74;
 void draw_part__15TObjEneSlimeOneFPvi(u8 *arg0, s32 arg1);
+s32 get_bml_motion(s32, s32);
+s32 TObjFish__sub_8001EDB0(s32, s32);
+s32 get_bml_model(s32, s32);
+int set_field_b8__14TObjEnePanarmsFPvs(void *, int);
+M2C_UNK init__14TObjEnePanarmsFPvPv(void *, int);
+s32 get_attack_target__15TObjEneSlimeOneFPv(void* p);
+int get_instance__15TObjEneSlimeOneFv(void);
+extern const f32 lbl_805DA764;
+extern void *lbl_80496C68[10];
+extern void *lbl_80496C90[10];
+void TObjEneSlimeOne__sub_800EC7F4(Slime_800EC7F4 *arg0, s32 arg1);
 }
 
 extern "C" {
@@ -207,6 +266,70 @@ s32 is_reached_target_depth__15TObjEneSlimeOneFPv(void *arg0) {
         return 1;
     }
     return 0;
+}
+
+typedef struct E12_800EC7F4 E12_800EC7F4;
+typedef struct E20_800EC7F4 E20_800EC7F4;
+typedef struct Res_800EC7F4 Res_800EC7F4;
+typedef struct Slime_800EC7F4 Slime_800EC7F4;
+typedef struct Tbl_800EC7F4 Tbl_800EC7F4;
+void *lbl_80496C50[6] = {(void *) 0xb, (void *) 0xc, (void *) 0x3f333333, (void *) 0x6, (void *) 0x7, (void *) 0x3f4ccccd};
+void *lbl_80496C68[10] = {(void *) 0x4, (void *) 0x5, (void *) 0x0, (void *) 0x1, (void *) 0x3f19999a, (void *) 0x4, (void *) 0x0, (void *) 0x0, (void *) 0x4, (void *) 0x3f19999a};
+void *lbl_80496C90[10] = {(void *) 0x5, (void *) 0x5, (void *) 0x2, (void *) 0x1, (void *) 0x3f19999a, (void *) 0x5, (void *) 0x0, (void *) 0x2, (void *) 0x4, (void *) 0x3f19999a};
+__declspec(section ".data") void *lbl_80496CB8[2] = {
+    (void *)&lbl_80496C68, (void *)&lbl_80496C90,
+};
+__declspec(section ".data") void *lbl_80496CC0[2] = {
+    (void *)0x4, (void *)0x5,
+};
+void TObjEneSlimeOne__sub_800EC7F4(Slime_800EC7F4 *arg0, s32 arg1) {
+  s32 flag;
+  flag = arg0->state & 0x1000;
+  arg0->state = arg1 & (~0x1000);
+  if (arg0->state == (-1))
+  {
+    return;
+  }
+  if (arg0->state < 7)
+  {
+    if (flag != 0)
+    {
+      ((void (*)(void *, s16)) init__14TObjEnePanarmsFPvPv)(arg0->obj, arg0->state);
+    }
+    else
+    {
+      ((void (*)(void *, s16)) set_field_b8__14TObjEnePanarmsFPvs)(arg0->obj, arg0->state);
+    }
+    return;
+  }
+  if (arg0->state < 9)
+  {
+    s32 inst = get_instance__15TObjEneSlimeOneFv();
+    E12_800EC7F4 *e = (((E12_800EC7F4 *) lbl_80496C50) + arg0->state) - 7;
+    unsigned int id = (s32) lbl_80496CC0[get_attack_target__15TObjEneSlimeOneFPv((void*)(arg0->obj))];
+    arg0->f8 = get_bml_model(inst, id);
+    arg0->fC = TObjFish__sub_8001EDB0(inst, id);
+    arg0->f10 = (Res_800EC7F4 *) get_bml_motion(inst, e->a);
+    arg0->f14 = get_bml_motion(inst, e->b);
+    arg0->f2C = arg0->f10->n;
+    arg0->f28 = e->c;
+    arg0->f30 = lbl_805DA764;
+    return;
+  }
+  {
+    s32 st = arg0->state - 9;
+    s32 inst = get_instance__15TObjEneSlimeOneFv();
+    E20_800EC7F4 *f = &((E20_800EC7F4 **) lbl_80496CB8)[get_attack_target__15TObjEneSlimeOneFPv((void*)(arg0->obj))][st];
+    arg0->f8 = get_bml_model(inst, f->a);
+    arg0->fC = TObjFish__sub_8001EDB0(inst, f->a);
+    arg0->f10 = (Res_800EC7F4 *) get_bml_motion(inst, f->b);
+    arg0->f18 = get_bml_model(inst, f->c);
+    arg0->f1C = TObjFish__sub_8001EDB0(inst, f->c);
+    arg0->f20 = (Res_800EC7F4 *) get_bml_motion(inst, f->d);
+    arg0->f2C = arg0->f20->n;
+    arg0->f28 = f->e;
+    arg0->f30 = lbl_805DA764;
+  }
 }
 
 s32 __dt__15TObjEneSlimeOneFis(s32 arg0, s16 arg1) {

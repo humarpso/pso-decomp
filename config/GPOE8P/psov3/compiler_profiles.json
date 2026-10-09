@@ -5,7 +5,7 @@
     "inline": "off",
     "use_lmw_stmw": "on"
   },
-  "pso/misc/TLobby_803C1A58.cpp": {
+  "pso/misc/TLobby_803C5AA0.cpp": {
     "mw_version": "GC/1.3",
     "optimization": "-O4,p",
     "inline": "auto",
@@ -193,13 +193,13 @@
     "inline": "off",
     "use_lmw_stmw": "on"
   },
-  "pso/misc/TLobby_803C1A58_803C1A58.cpp": {
+  "pso/misc/TLobby_803C1A58.cpp": {
     "mw_version": "GC/2.6",
     "optimization": "-O4,p",
     "inline": "off",
     "use_lmw_stmw": "on"
   },
-  "pso/misc/TLobby_803C1A58_803C4698.cpp": {
+  "pso/misc/TLobby_803C4698.cpp": {
     "mw_version": "GC/2.6",
     "optimization": "-O4,p",
     "inline": "off",

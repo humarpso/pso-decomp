@@ -7,11 +7,21 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 struct Ent_80226294 { u32 flags; u8 pad4[4]; s32 f8; u8 padC[0xC]; s16 f18; u8 pad1a[0xE]; };
 
 extern "C" {
+void set_music_streams_volume(s32);
+extern s32 lbl_805D627C;
+extern int lbl_805D6280;
+extern int lbl_805D6284;
+extern s32 music_stream_base_gain;
+extern s32 lbl_805D628C;
+extern const f32 lbl_805DC744;
+void update_music_stream_gain(s32 user);
+}
+
+extern "C" {
 void reset_global__6TLobbyFv(void);
 void set_and_notify__6TLobbyFi(int a0);
 void close_option_window__6TLobbyFv(void);
 void init_layout_positions__6TLobbyFv(void);
-int update_music_stream_gain(void*);
 void TLobby__sub_8022614C(s32 arg0);
 int init_sound_mode__6TLobbyFPv(void *);
 extern int lbl_805D6280;
@@ -22,11 +32,11 @@ extern s32 lbl_805D627C;
 extern s32 lbl_805D6290;
 extern s32 lbl_805D62A4;
 
-void set_and_notify__6TLobbyFi(int a0) { lbl_805D6284 = a0; update_music_stream_gain((void*)(lbl_805D6280)); }
+void set_and_notify__6TLobbyFi(int a0) { lbl_805D6284 = a0; update_music_stream_gain((s32)((void*)(lbl_805D6280))); }
 
 void reset_global__6TLobbyFv(void) { lbl_805D6298 = 0; TLobby__sub_8022614C(lbl_805D6294); }
 
-void close_option_window__6TLobbyFv(void) { lbl_805D6284 = 0; update_music_stream_gain((void*)(lbl_805D6280)); }
+void close_option_window__6TLobbyFv(void) { lbl_805D6284 = 0; update_music_stream_gain((s32)((void*)(lbl_805D6280))); }
 
 void init_layout_positions__6TLobbyFv(void) {
     lbl_805D627C = -0x50;
@@ -86,6 +96,21 @@ void TLobby__sub_8022614C(s32 arg0) {
     lbl_805D62A8 = (s32)(lbl_805DC740 * (f32)arg0);
     lbl_805D62AC = lbl_805D62A4 + lbl_805D62A8;
     set_cue_stream_gain(lbl_805D62AC, lbl_805D62A8);
+}
+
+void update_music_stream_gain(s32 user) {
+  unsigned int new_var;
+  s32 total;
+  new_var = lbl_805D627C;
+  total = user + (*(s32 *)&lbl_805D6284);
+  if (lbl_805D627C && lbl_805D627C)
+  {
+  }
+  total = new_var + total;
+  lbl_805D6280 = user;
+  music_stream_base_gain = total;
+  lbl_805D628C = (s32) (lbl_805DC744 * ((f32) total));
+  set_music_streams_volume(total);
 }
 
 void TTecRaFoie__sub_80226254(void) {  }

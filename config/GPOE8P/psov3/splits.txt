@@ -2097,6 +2097,8 @@ pso/player/TObjPlayer_800EBE2C.cpp:
 
 pso/enemy/TObjEneSlimeOne_800EC394.cpp:
 	.text       start:0x800EC394 end:0x800ECA40
+	.rodata     start:0x8043D2A8 end:0x8043D2B0
+	.data       start:0x80496C50 end:0x80496C68
 
 pso/enemy/TObjEneRe4Bit.cpp:
 	.text       start:0x800ECA40 end:0x800EDCCC
@@ -13888,16 +13890,16 @@ pso/unk/text_803C1668.cpp:
 pso/unk/text_803C1780.cpp:
 	.text       start:0x803C1780 end:0x803C1A58
 
-pso/misc/TLobby_803C1A58_803C1A58.cpp:
+pso/misc/TLobby_803C1A58.cpp:
 	.text       start:0x803C1A58 end:0x803C45E4
 
-pso/misc/TLobby_803C1A58_803C45E4.cpp:
+pso/misc/TLobby_803C45E4.cpp:
 	.text       start:0x803C45E4 end:0x803C4698
 
-pso/misc/TLobby_803C1A58_803C4698.cpp:
+pso/misc/TLobby_803C4698.cpp:
 	.text       start:0x803C4698 end:0x803C5AA0
 
-pso/misc/TLobby_803C1A58.cpp:
+pso/misc/TLobby_803C5AA0.cpp:
 	.text       start:0x803C5AA0 end:0x803CBCA0
 	.sdata2     start:0x805E0D50 end:0x805E0D70
 
