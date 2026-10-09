@@ -496,35 +496,50 @@ void spawn_zako_rings__14TBoss4DarkFalzFPv(u8 *arg0) {
 struct C12_8004B4F0 { u32 w[3]; };
 struct C20_8004B4F0 { u32 w[5]; };
 struct S_8004B4F0 {
-    s16 a0, a2, a4;
-    u16 a6;
-    s16 a8, aa, ac, ae;
-    C12_8004B4F0 c10;
-    C12_8004B4F0 c1c;
-    C20_8004B4F0 c28;
-    s16 a3c, a3e;
+  s16 a0;
+  s16 a2;
+  s16 a4;
+  u16 a6;
+  s16 a8;
+  s16 aa;
+  s16 ac;
+  s16 ae;
+  struct C12_8004B4F0 c10;
+  struct C12_8004B4F0 c1c;
+  struct C20_8004B4F0 c28;
+  s16 a3c;
+  s16 a3e;
 };
 
 #pragma push
 #pragma cplusplus off
-void TBoss4DarkFalz__sub_8004B4F0(void *arg0, void *arg1) {
-    struct S_8004B4F0 *o = (struct S_8004B4F0 *)arg0;
-    struct S_8004B4F0 *s = (struct S_8004B4F0 *)arg1;
-    o->a0 = s->a0;
-    o->a2 = s->a2;
-    o->a4 = s->a4;
-    o->a6 = s->a6;
-    o->a8 = s->a8;
-    o->aa = s->aa;
-    o->ac = s->ac;
-    o->ae = s->ae;
-    o->c10 = s->c10;
-    o->c1c = s->c1c;
-    o->c28 = s->c28;
-    o->a3c = s->a3c;
-    o->a3e = s->a3e;
+#pragma inline_depth(1)
+#pragma auto_inline off
+#pragma dont_inline off
+void TBoss4DarkFalz__sub_8004B4F0(void *arg0p, void *arg1p) {
+#define o ((struct S_8004B4F0 *)arg0p)
+#define s ((struct S_8004B4F0 *)arg1p)
+  struct S_8004B4F0 *new_var;
+  struct S_8004B4F0 *new_var2;
+  struct C20_8004B4F0 *dc = &o->c28;
+  struct C20_8004B4F0 *sc = &s->c28;
+  o->a0 = s->a0;
+  new_var2 = (new_var = o);
+  new_var2->a2 = s->a2;
+  o->a4 = s->a4;
+  new_var->a6 = s->a6;
+  o->a8 = s->a8;
+  o->aa = s->aa;
+  new_var->ac = s->ac;
+  o->ae = s->ae;
+  new_var->c10 = s->c10;
+  o->c1c = s->c1c;
+  *dc = *sc;
+  new_var->a3c = s->a3c;
+  o->a3e = s->a3e;
 }
-
+#undef o
+#undef s
 #pragma pop
 
 void TBoss4DarkFalz__sub_8004B5A0(void) {

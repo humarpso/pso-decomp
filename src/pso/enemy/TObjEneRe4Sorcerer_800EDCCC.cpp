@@ -1227,7 +1227,8 @@ void TObjEneRe4Bit__sub_800EDAB4();
 void handle_death_state__18TObjEneRe4SorcererFPvi(u8 *arg0, s32 arg1);
 void TObjEneRe4Sorcerer__sub_800EE0F8(u8 *arg0, s32 arg1);
 void TObjEneRe4Sorcerer__sub_800EE1CC(u8 *arg0, s32 arg1);
-s32 TObjEneRe4Sorcerer__sub_800EE598(void *, void *);
+void TObjEneRe4Sorcerer__sub_800EE598(void *, void *);
+M2C_UNK init_float_params__9TObjEneDDFPv(void *);
 void state_wait__18TObjEneRe4SorcererFPvi(void *arg0, s32 arg1);
 s32 TObjEneRe4Sorcerer__sub_800EEC00(void *arg0p, void *arg1p);
 s32 TObjEneRe4Sorcerer__sub_800EEDE4(void *arg0p, void *arg1p);
@@ -1323,6 +1324,8 @@ extern u32 lbl_805D52E0;
 extern s32 lbl_805D52F0;
 extern const f32 lbl_805DA79C;
 extern const f32 lbl_805DA7C0;
+extern const f32 lbl_805DA7B4;
+extern const f32 lbl_805DA7B8;
 extern const f32 lbl_805DA7C4;
 extern const f32 lbl_805DA7C8;
 extern const f32 lbl_805DA7CC;
@@ -1986,6 +1989,124 @@ void TObjEneRe4Sorcerer__sub_800EE1CC(u8 *arg0, s32 arg1) {
         enemy_clear_target((void *) (arg0));
         break;
     }
+}
+
+void TObjEneRe4Sorcerer__sub_800EE598(void *arg0p, void *arg1p) {
+  f32 *t = (f32 *) (((u8 *) arg0p) + 0x4EC);
+  s32 mask;
+  s32 n;
+  s32 i;
+  u8 *p;
+  s32 j;
+  switch ((s32) arg1p)
+  {
+    case 4:
+      set_field_378__9TObjEneDDFPvi((u8 *) arg0p, 6);
+      ((VObj_18_9c7b63 *)arg0p)->m93();
+      *((s32 *) (((s8 *) ((u8 *) arg0p)) + 0x3C8)) &= ~2;
+      enemy_clear_target((u8 *) arg0p);
+      init_float_params__9TObjEneDDFPv((u8 *) arg0p);
+      if (((VObj_18_d3ac76 *)arg0p)->m97() != 0)
+    {
+      *((s32 *) (((s8 *) ((u8 *) arg0p)) + 0x4E4)) = 3;
+    }
+    else
+    {
+      *((s32 *) (((s8 *) ((u8 *) arg0p)) + 0x4E4)) = 0;
+    }
+      *((s32 *) (((s8 *) ((u8 *) arg0p)) + 0x4E8)) = 0;
+      *t = TObjEneRe4Sorcerer__data_805DA790;
+      break;
+
+    case 3:
+      if ((*((s32 *) (((s8 *) ((u8 *) arg0p)) + 0x4E4))) == 4)
+    {
+      transition_enemy_state((u8 *) arg0p, 2);
+    }
+      break;
+
+    case 5:
+      break;
+
+    case 0:
+      switch (*((s32 *) (((s8 *) ((u8 *) arg0p)) + 0x4E4)))
+    {
+      case 3:
+        mask = 0;
+        n = get_game_mode__6TLobbyFv();
+        *t = TObjEneRe4Sorcerer__data_805DA790;
+        for (i = 0; i < n; i++)
+      {
+        p = get_player_data__10TObjPlayerFi(i);
+        mask |= update_farthest_target__18TObjEneRe4SorcererFPviPv((u8 *) arg0p, (s32) p, t);
+      }
+
+        if (mask != 0)
+      {
+        *((s32 *) (((s8 *) ((u8 *) arg0p)) + 0x4E4)) = 2;
+      }
+      else
+      {
+        *((s32 *) (((s8 *) ((u8 *) arg0p)) + 0x4E4)) = 0;
+      }
+        break;
+
+      case 0:
+        if (check_shield__18TObjEneRe4SorcererFiPv((s32) arg0p, (u8 *) arg0p) != 0)
+      {
+        *((u8 **) (((s8 *) ((u8 *) arg0p)) + 0x390)) = (u8 *) arg0p;
+        *((s32 *) (((s8 *) ((u8 *) arg0p)) + 0x4E4)) = 2;
+      }
+      else
+      {
+        *((s32 *) (((s8 *) ((u8 *) arg0p)) + 0x4E4)) = 1;
+      }
+        break;
+
+      case 1:
+        j = get_game_mode__6TLobbyFv();
+        n = j + get_enemy_count__9TObjEneDDFv();
+        *t = TObjEneRe4Sorcerer__data_805DA790;
+        for (; j < n; j++)
+      {
+        p = get_player_data__10TObjPlayerFi(j);
+        if (p == ((u8 *) arg0p))
+        {
+          continue;
+        }
+        if (p != 0)
+        {
+          s16 a = *((s16 *) (((s8 *) p) + 0x28));
+          if (a != (*((s16 *) (((s8 *) ((u8 *) arg0p)) + 0x28))))
+          {
+            continue;
+          }
+        }
+        update_farthest_target__18TObjEneRe4SorcererFPviPv((u8 *) arg0p, (s32) p, t);
+      }
+
+        *((s32 *) (((s8 *) ((u8 *) arg0p)) + 0x4E4)) = 2;
+        break;
+
+      case 2:
+        if ((*((void **) (((s8 *) ((u8 *) arg0p)) + 0x390))) != 0)
+      {
+        ((M2C_UNK (*)(void *, f32))TObjEneRe4Sorcerer__sub_800EF95C)(arg0p, lbl_805DA7B4);
+      }
+      else
+      {
+        VecCopy__FP3VecPC3Vec(((u8 *) arg0p) + 0x394, ((u8 *) arg0p) + 0x38);
+        ((M2C_UNK (*)(void *, f32))TObjEneRe4Sorcerer__sub_800EF95C)(arg0p, lbl_805DA7B8);
+      }
+        *((s32 *) (((s8 *) ((u8 *) arg0p)) + 0x4E4)) = 4;
+        break;
+
+    }
+
+      break;
+
+  }
+
 }
 
 void TObjEneRe4Sorcerer__sub_800EE7DC(u8 *arg0, s32 arg1) {

@@ -135,6 +135,60 @@ s32 alloc_buffer__11TOBoss4RockFPv(void *);
 s32 measure_string_len__20TWindowSubStatusDispFPv(void *);
 M2C_UNK strncpy(int, void *, int);
 void TWindowSubStatusDisp__sub_80338740(u8 *arg0, s32 arg1, s32 arg2, s8 arg3, s8 arg4, s8 arg5, s8 arg6, s8 arg7, s32 arg_sp8);
+typedef struct
+{
+  f32 x;
+  f32 y;
+} V2_80338890;
+typedef struct
+{
+  u8 pad0[8];
+  f32 x8;
+  f32 xc;
+  u8 pad10[4];
+  f32 x14;
+  u8 pad18[4];
+  s8 c1c;
+  s8 c1d;
+  s8 c1e;
+  s8 c1f;
+  s8 c20;
+  s8 c21;
+  u8 pad22[2];
+  s32 x24;
+} Item_80338890;
+typedef struct
+{
+  u8 pad0[0x10];
+  f32 x10;
+  f32 x14;
+  u8 pad18[0x18];
+  s32 x30;
+  u8 pad34[4];
+  f32 x38;
+  u8 pad3c[4];
+  f32 x40;
+  u8 pad44[4];
+  f32 x48;
+} Win_80338890;
+s32 get_shared_text_buffer();
+void TWindowSubStatusDisp__sub_80228F5C(int);
+void text_builder_append(M2C_UNK *);
+void text_builder_reset();
+void draw_window_text(V2_80338890 *, s32, s32, s32, f32);
+void set_text_draw_params(Win_80338890 *, s32, s32, f32, f32);
+void draw_item_list_icon(Win_80338890 *, V2_80338890 *, s8, s32, f32);
+extern M2C_UNK *lbl_805D6D68;
+extern u8 lbl_805D6D6C;
+extern M2C_UNK lbl_805DF9C0;
+extern const f32 lbl_805DF9C4;
+extern const f32 lbl_805DF9C8;
+extern const f32 lbl_805DF9D0;
+extern const f32 lbl_805DF9D4;
+extern const f32 lbl_805DF9D8;
+extern const f32 lbl_805DF9DC;
+extern const f32 lbl_805DF9E0;
+
 }
 
 extern "C" {
@@ -178,6 +232,53 @@ s32 get_flag_or_zero__20TWindowSubStatusDispFPvc(void *arg0, s8 arg1) {
         return 0;
     }
     return get_message_10__20TWindowSubStatusDispFPv((s32)(arg1 + 0x10D));
+}
+
+void TWindowSubStatusDisp__sub_80338890(Item_80338890 *arg0, Win_80338890 *arg1) {
+  f32 scale;
+  f32 y;
+  V2_80338890 pos;
+  if (((s8) lbl_805D6D6C) == 0)
+  {
+    lbl_805D6D68 = &lbl_805DF9C0;
+    lbl_805D6D6C = 1;
+  }
+  if (TWindowSubStatusDisp__sub_80338B88(arg0) == 0)
+  {
+    return;
+  }
+  y = arg1->x14 + arg0->xc;
+  if ((arg0->x14 + y) < arg1->x40)
+  {
+    return;
+  }
+  if ((arg1->x14 + arg0->xc) > arg1->x48)
+  {
+    return;
+  }
+  if (arg1->x30 < 0)
+  {
+    return;
+  }
+  pos.x = arg1->x10 + arg0->x8;
+  pos.y = arg1->x14 + arg0->xc;
+  scale = lbl_805DF9C4 / (lbl_805DF9C8 + arg1->x38);
+  draw_item_list_icon(arg1, &pos, arg0->c1c, -1, scale);
+  pos.x += lbl_805DF9CC;
+  set_text_draw_params(arg1, 1, 1, scale, lbl_805DF9D0);
+  draw_window_text(&pos, arg0->x24, -1, 1, lbl_805DF9D0);
+  pos.x += lbl_805DF9D4;
+  draw_window_text(&pos, get_flag_or_zero__20TWindowSubStatusDispFPvc(arg0, arg0->c1d), -1, 0, lbl_805DF9D0);
+  pos.x += lbl_805DF9D8;
+  draw_window_text(&pos, query_status_field__20TWindowSubStatusDispFPvc(arg0, arg0->c1e), -1, 0, lbl_805DF9D0);
+  pos.x += lbl_805DF9DC;
+  draw_window_text(&pos, ((s32 (*)(void *, s8)) TWindowSubStatusDisp__sub_803387F8)(arg0, arg0->c1f), -1, 0, lbl_805DF9D0);
+  pos.x += lbl_805DF9E0;
+  text_builder_reset();
+  TWindowSubStatusDisp__sub_80228F5C(arg0->c20);
+  text_builder_append(lbl_805D6D68);
+  TWindowSubStatusDisp__sub_80228F5C(arg0->c21);
+  draw_window_text(&pos, get_shared_text_buffer(), -1, 0, lbl_805DF9D0);
 }
 
 void TWindowSubStatusDisp__sub_80338A9C(void) {  }
