@@ -160,22 +160,23 @@ extern "C" void has_flag_0x800__10TObjPlayerFPv();
 extern "C" void is_actor_cadence_frame();
 extern "C" void is_lying_down__12TObjEneBeastFv();
 extern "C" void is_target_in_attack_range__10TObjPlayerFv();
-extern "C" u8 lbl_8043AD10[];
-extern "C" u8 lbl_8043AD24[];
-extern "C" u8 lbl_8043AD3C[];
-extern "C" u8 lbl_8043AD50[];
-extern "C" u8 lbl_8043AD6C[];
-extern "C" u8 lbl_8043AD88[];
-extern "C" u8 lbl_8043ADA4[];
-extern "C" u8 lbl_8043ADC0[];
-extern "C" u8 lbl_8043ADDC[];
-extern "C" u8 lbl_8043ADF8[];
-extern "C" u8 lbl_8043AE14[];
-extern "C" u8 lbl_8043AE30[];
-extern "C" u8 lbl_8043AE48[];
-extern "C" u8 lbl_8043AE64[];
-extern "C" u8 lbl_8043AE80[];
-extern "C" u8 lbl_8043AE9C[];
+extern "C" __declspec(section ".rodata") u8 lbl_8043AD10[] = "bm1f_s_wala_body.nj";
+extern "C" __declspec(section ".rodata") u8 lbl_8043AD24[] = "bm1tl_s_wala_body.nj";
+extern "C" __declspec(section ".rodata") u8 lbl_8043AD3C[] = "bm1_s_wala_body.nj";
+extern "C" __declspec(section ".rodata") u8 lbl_8043AD50[] = "appear_bm1_s_wala_body.njm";
+extern "C" __declspec(section ".rodata") u8 lbl_8043AD6C[] = "atackl_bm1_s_wala_body.njm";
+extern "C" __declspec(section ".rodata") u8 lbl_8043AD88[] = "atackr_bm1_s_wala_body.njm";
+extern "C" __declspec(section ".rodata") u8 lbl_8043ADA4[] = "damage_bm1_s_wala_body.njm";
+extern "C" __declspec(section ".rodata") u8 lbl_8043ADC0[] = "deadb_bm1_s_wala_body.njm";
+extern "C" __declspec(section ".rodata") u8 lbl_8043ADDC[] = "dead_bm1_s_wala_body.njm";
+extern "C" __declspec(section ".rodata") u8 lbl_8043ADF8[] = "leader_bm1_s_wala_body.njm";
+extern "C" __declspec(section ".rodata") u8 lbl_8043AE14[] = "mihari_bm1_s_wala_body.njm";
+extern "C" __declspec(section ".rodata") u8 lbl_8043AE30[] = "run_bm1_s_wala_body.njm";
+extern "C" __declspec(section ".rodata") u8 lbl_8043AE48[] = "stund_bm1_s_wala_body.njm";
+extern "C" __declspec(section ".rodata") u8 lbl_8043AE64[] = "wakeup_bm1_s_wala_body.njm";
+extern "C" __declspec(section ".rodata") u8 lbl_8043AE80[] = "walk_bm1_s_wala_body.njm";
+extern "C" __declspec(section ".rodata") u8 lbl_8043AE9C[] = "bm_ene_bm1_shark.bml";
+extern "C" __declspec(section ".rodata") u8 lbl_8043AEB4[] = "TObjEneShark";
 extern "C" void play_sound_4003A60D__10TObjPlayerFi();
 extern "C" void receive_direct_attack__10TObjPlayerFv();
 extern "C" void receive_physical_attack__10TObjPlayerFv();
@@ -393,6 +394,8 @@ void load_shark_resources__6TLobbyFv(void) {
         }
     }
 }
+
+extern "C" __declspec(section ".rodata") u8 lbl_8043AEDC[] = "bm_ene_bm1_shark_a.bml";
 
 O_800AC5EC *TObjPlayer__sub_800AC5EC(O_800AC5EC *arg0, s16 arg1) {
     s32 i;

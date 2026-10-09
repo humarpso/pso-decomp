@@ -200,6 +200,7 @@ pso/boss/TBoss6GravBall_80323878.cpp
 pso/boss/TBoss6Kakusan.cpp
 pso/boss/TBoss6Mag.cpp
 pso/boss/TBoss6PlotFalz.cpp
+pso/boss/TBoss6RockChase.cpp
 pso/boss/TBoss6Rock_80354A30.cpp
 pso/boss/TBoss6Rock_80354A44.cpp
 pso/boss/TBoss6SwordShot.cpp
@@ -430,6 +431,7 @@ pso/enemy/TObjEneRe7Berura_8009358C.cpp
 pso/enemy/TObjEneRe7Berura_800967C0.cpp
 pso/enemy/TObjEneRe7Berura_803E4CE0.cpp
 pso/enemy/TObjEneRecon.cpp
+pso/enemy/TObjEneReconBomb.cpp
 pso/enemy/TObjEneRecon_8029E89C.cpp
 pso/enemy/TObjEneRecon_80302DB0.cpp
 pso/enemy/TObjEneRecon_8031BC38.cpp
@@ -471,6 +473,7 @@ pso/enemy/TObjEneRecon_8031FC2C.cpp
 pso/enemy/TObjEneRecon_8031FCB0.cpp
 pso/enemy/TObjEneRecon_80320350.cpp
 pso/enemy/TObjEneSaver.cpp
+pso/enemy/TObjEneShark.cpp
 pso/enemy/TObjEneSlime.cpp
 pso/enemy/TObjEneSlime_800EBBC8.cpp
 pso/enemy/TObjEneSlime_800EBD38.cpp
@@ -1877,6 +1880,7 @@ pso/misc/TWindowSubStatusDisp_80249060.cpp
 pso/misc/TWindowSubStatusDisp_8024F688.cpp
 pso/misc/TWindowSubStatusDisp_8024FBA8.cpp
 pso/misc/TWindowSubStatusDisp_80255DF4.cpp
+pso/misc/TWindowSubStatusDisp_80257BC0.cpp
 pso/misc/TWindowSubStatusDisp_8025A9B4.cpp
 pso/misc/TWindowSubStatusDisp_8025B050.cpp
 pso/misc/TWindowSubStatusDisp_8025B4A0.cpp
@@ -2095,6 +2099,7 @@ pso/object/TObjLaboMapWarp_80185248.cpp
 pso/object/TObjLazerFence4.cpp
 pso/object/TObjLazerFenceNorm.cpp
 pso/object/TObjLight.cpp
+pso/object/TObjLight_80133568.cpp
 pso/object/TObjLight_8022F34C.cpp
 pso/object/TObjLight_8022F9E8.cpp
 pso/object/TObjLight_8023347C.cpp
@@ -2180,6 +2185,7 @@ pso/object/TObjWarpJung_801A03D8.cpp
 pso/object/TObjWarpLobby.cpp
 pso/object/TObjWarpLobby_801A0760.cpp
 pso/object/TObjWarpLobby_801A0A34.cpp
+pso/object/TObjWeddingLobby.cpp
 pso/object/TObject_80019A50.cpp
 pso/object/TObject_8001A448.cpp
 pso/object/TObject_8003F3DC.cpp
@@ -2752,6 +2758,7 @@ pso/ui/TAdScrollWinGC_803274D0.cpp
 pso/ui/TAdScrollWinGC_80327504.cpp
 pso/ui/TAdSelectCurGC.cpp
 pso/ui/TAdSelectCurGC_802AEA38.cpp
+pso/ui/TAdSelectCurGC_802AED98.cpp
 pso/ui/TAdSelectGameModeGC.cpp
 pso/ui/TAdSelectGameModeGC_801A2F7C.cpp
 pso/ui/TAdSelectTxtGC.cpp
@@ -3249,6 +3256,7 @@ pso/unk/text_80192554.cpp
 pso/unk/text_801925F8.cpp
 pso/unk/text_80193018.cpp
 pso/unk/text_801930E8.cpp
+pso/unk/text_80193524.cpp
 pso/unk/text_8019608C.cpp
 pso/unk/text_80196214.cpp
 pso/unk/text_801963A8.cpp

@@ -303,4 +303,8 @@ u8 *TObjEneReconBomb__ct(u8 *arg0, s32 arg1, s32 arg2, s32 arg3) {
     return arg0;
 }
 
+__declspec(section ".sdata2") extern const f32 lbl_805DF3AC = 0.94999998807907104f;
+__declspec(section ".sdata2") extern const f32 lbl_805DF3B0 = -0.10000000149011612f;
+__declspec(section ".sdata2") extern const f32 lbl_805DF3B4 = -0.5f;
+
 }

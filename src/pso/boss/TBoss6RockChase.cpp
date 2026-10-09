@@ -88,7 +88,10 @@ s32 construct_collider_proxy__10TObjPlayerFPv(void *);
 s32 TBoss6Rock__sub_80353A04();
 s32 TBoss6Rock__sub_80353A0C();
 s32 rand();
-extern RecoveredGlobal_8036D4E0_lbl_8047ACE8 lbl_8047ACE8;
+__declspec(section ".rodata") char lbl_8047ACD8[] = "TBoss6RockChase";
+__declspec(section ".rodata") RecoveredGlobal_8036D4E0_lbl_8047ACE8 lbl_8047ACE8 = {
+    4, { 0x41, 0xA0, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x41, 0xF0, 0x00, 0x00 }
+};
 extern M2C_UNK __vt__15TBoss6RockChase[];
 extern s32 lbl_805D44F0;
 extern const f32 TBoss6RockChase__data_805E03B8;
@@ -268,5 +271,18 @@ s32 spawn__15TBoss6RockChaseFii(s32 arg0, s32 arg1) {
     }
     return var_r0;
 }
+
+__declspec(section ".sdata2") extern const f32 TBoss6RockChase__data_805E03B8 = 0.0f;
+__declspec(section ".sdata2") extern const f32 lbl_805E03BC = 0.10000000149011612f;
+__declspec(section ".sdata2") extern const f32 lbl_805E03C0 = -0.9375f;
+__declspec(section ".sdata2") extern const f32 lbl_805E03C4 = -11.25f;
+__declspec(section ".sdata2") extern const f32 lbl_805E03C8 = 100.0f;
+__declspec(section ".sdata2") extern const f32 lbl_805E03CC = 15.0f;
+__declspec(section ".sdata2") extern const f32 lbl_805E03D0 = 3.0517578125e-05f;
+__declspec(section ".sdata2") extern const f32 lbl_805E03D4 = 2048.0f;
+__declspec(section ".sdata2") extern const f32 lbl_805E03D8 = 0.5f;
+__declspec(section ".sdata2") extern const f32 lbl_805E03DC = 65535.0f;
+__declspec(section ".sdata2") extern const f32 lbl_805E03E0 = 8192.0f;
+__declspec(section ".sdata2") extern const f32 lbl_805E03E4 = 450.0f;
 
 }

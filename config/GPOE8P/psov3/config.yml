@@ -153,6 +153,7 @@ force_active:
   - TObjEneRe4Bit__vt86
   - TObjEneRe4Bit_boss_handles
   - TObjEneRecon__vt85
+  - TObjLight__data_80506A5C
   - TObjOnlineEndingHexLine__direction_table
   - TObjOnlineEndingHexLine__hex_line_params
   - TObjOnlineEndingHexLine_corner_offsets
@@ -260,6 +261,7 @@ force_active:
   - __dt__13TPlyOnCreatedFv
   - __dt__14TAdFloorLoadGCFv
   - __dt__14TAdLoadQuestGCFv
+  - __dt__14TAdSelectCurGCFv
   - __dt__14TAdSelectTxtGCFv
   - __dt__14TBoss4ZakoDrawFv
   - __dt__14TBoss6EffHyouiFv
@@ -646,6 +648,7 @@ force_active:
   - draw_help_icon__24TWindowSubSymbolChatHelpFiPvii
   - draw_inactive_badge__11TObjDoorKeyFPv
   - draw_label_value__20TWindowSubStatusDispFPvPv
+  - draw_laser_beam__13TLazerFenceSwFv
   - draw_lights__20TODoorFourLightSpaceFPv
   - draw_model__15TODoorAncient09FPv
   - draw_model__15TObjEneMe1GiGueFPv
@@ -832,7 +835,9 @@ force_active:
   - init_kind_params__23TObjSeabedSuisoBrakableFPv
   - init_launch_angles__10TTecSlicerFPvPvi
   - init_light_params__15TORainbowCave01FPviff
+  - init_light_tables__9TObjLightFv
   - init_lobby_font_entry__10TObjPlayerFPvPvsc
+  - init_map_light__9TObjLightFPvi
   - init_model_and_state__19TObjEneEpsilonGuardFPv
   - init_model_by_type__10TODoorLaboFPv
   - init_net_config_defaults__23TAdSinglePlyChrSelectGCFv
@@ -902,6 +907,11 @@ force_active:
   - language_lobby_texture_descriptor
   - layercmp
   - layout_entries__17TWindowSubComCardFPv
+  - lazer_fence_beam_motions
+  - lazer_fence_sw_ginja_model_table
+  - lbl_8043AD10
+  - lbl_8043AD24
+  - lbl_8043AD3C
   - lbl_8044D920
   - lbl_8044D944
   - lbl_8044D968
@@ -925,6 +935,7 @@ force_active:
   - lbl_80483480
   - lbl_80483EEC
   - lbl_8048E758
+  - lbl_804914C0
   - lbl_80491DE8
   - lbl_80491DF4
   - lbl_80492170
@@ -1070,6 +1081,7 @@ force_active:
   - lbl_80501060
   - lbl_80501068
   - lbl_8050C014
+  - lbl_8050DCF8
   - lbl_80540BBC
   - lbl_80541990
   - lbl_80541DA0
@@ -1334,6 +1346,7 @@ force_active:
   - run_task__13TParticleCtrlFv
   - run_task__14TAdFloorLoadGCFv
   - run_task__14TAdLoadQuestGCFv
+  - run_task__14TAdSelectCurGCFv
   - run_task__14TAdSelectTxtGCFv
   - run_task__14TBoss4ZakoDrawFv
   - run_task__14TBoss6EffHyouiFv
@@ -1451,6 +1464,7 @@ force_active:
   - set_particle_draw_scale
   - set_particle_tint_color
   - set_player_room_control_flag
+  - set_scene_light_diffuse
   - set_script_entry__13TOHealGeneralFPvi
   - set_state__21TAdMultiChgGameModeGCFPvi
   - set_tev_passclr__10TObjPlayerFv
@@ -1521,6 +1535,8 @@ force_active:
   - store_challenge_seeds__6TLobbyFi
   - strstr
   - submit_particle_quad
+  - submit_scene_ambient_color
+  - submit_scene_light_direction
   - submit_selected_item__22TChallenge4PItemSelectFPv
   - subtractive_rng_refill
   - svm_callback_counts

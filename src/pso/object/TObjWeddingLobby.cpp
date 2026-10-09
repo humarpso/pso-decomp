@@ -48,7 +48,6 @@ M2C_UNK draw_ginja_object();
 M2C_UNK draw_ginja_model_with_motion(int, int, f32);
 extern u32 TObjWeddingLobby__data_805D6F60;
 extern u32 lbl_805D6F64;
-extern const f32 TObjWeddingLobby__data_805E0158;
 void render__16TObjWeddingLobbyFv(u8 *arg0);
 u8 * load_resource_from_descriptor(void *, s32, void *, s32, s32, s32);
 int alloc__23TAdSinglePlyChrSelectGCFPv(void *);
@@ -61,8 +60,6 @@ s32 init_map_object_base(void *, void *);
 s32 get_filtered_event_theme__6TLobbyFv();
 extern M2C_UNK __vt__16TObjWeddingLobby[];
 extern s32 lbl_805D4428;
-extern const f32 TObjWeddingLobby__data_805E0158;
-extern const f32 lbl_805E0160;
 u8 *TObjWeddingLobby__ct(u8 *arg0, s32 arg1, s32 arg2);
 s32 get_bml_motion(void *, int);
 s32 check_demo_mode__10TObjPlayerFv();
@@ -99,7 +96,7 @@ void render__16TObjWeddingLobbyFv(u8 *arg0) {
         rotate_matrix_y((int) (0), (int) (M2C_FIELD(arg0, s32 *, 0x60)));
         if ((s32) M2C_FIELD(arg0, s32 *, 0xC8) != 3) {
             temp_f1 = M2C_FIELD(arg0, f32 *, 0xCC);
-            scale_matrix((int) (0), (f32) (temp_f1), (f32) (TObjWeddingLobby__data_805E0158), (f32) (temp_f1));
+            scale_matrix((int) (0), (f32) (temp_f1), (f32) (1.0f), (f32) (temp_f1));
         }
         get_bml_model((void *) ((*(s32 *)&TObjWeddingLobby__data_805D6F60)), (int) (0));
         draw_ginja_object();
@@ -202,8 +199,8 @@ u8 *TObjWeddingLobby__ct(u8 *arg0, s32 arg1, s32 arg2) {
     } else {
         M2C_FIELD(arg0, s32 *, 0xC8) = 0;
     }
-    M2C_FIELD(arg0, f32 *, 0xCC) = (f32) TObjWeddingLobby__data_805E0158;
-    M2C_FIELD(arg0, f32 *, 0xB0) = (f32) lbl_805E0160;
+    M2C_FIELD(arg0, f32 *, 0xCC) = 1.0f;
+    M2C_FIELD(arg0, f32 *, 0xB0) = 0.0f;
     return arg0;
 }
 

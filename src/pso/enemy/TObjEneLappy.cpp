@@ -253,6 +253,40 @@ struct Vec_800C0318 { f32 x, y, z; };
 struct Lappy_800C0318 { u8 pad0[0x2FC]; Vec_800C0318 pos; f32 vx; f32 vy; f32 vz; };
 
 extern "C" {
+extern const f32 lbl_805D9F24;
+extern const f32 lbl_805D9F28;
+extern const f32 lbl_805D9F2C;
+extern const f32 lbl_805D9F30;
+extern const f32 lbl_805D9F34;
+extern const f32 lbl_805D9F38;
+extern const f32 lbl_805D9F3C;
+extern const f32 lbl_805D9F40;
+extern const f32 lbl_805D9F44;
+extern const f32 lbl_805D9F48;
+extern const f32 lbl_805D9F4C;
+extern const f32 lbl_805D9F50;
+extern const f32 lbl_805D9F54;
+extern const f32 lbl_805D9F58;
+extern const f32 lbl_805D9F5C;
+extern const f32 lbl_805D9F60;
+extern const f32 lbl_805D9F64;
+extern const f32 lbl_805D9F68;
+extern const f32 lbl_805D9F6C;
+extern const f32 lbl_805D9F70;
+extern const f32 lbl_805D9F74;
+extern const f32 lbl_805D9F78;
+extern const f32 lbl_805D9F7C;
+extern const f32 lbl_805D9F80;
+extern const f32 lbl_805D9F84;
+extern const f32 lbl_805D9F88;
+extern const f32 lbl_805D9F8C;
+extern const f32 lbl_805D9F90;
+extern const f32 lbl_805D9F94;
+extern const f32 lbl_805D9F98;
+extern const f32 lbl_805D9F9C;
+}
+
+extern "C" {
 extern const f32 lbl_805D9F80;
 extern const f32 lbl_805D9F84;
 extern const f32 lbl_805D9F68;
@@ -627,11 +661,11 @@ void update_hurt__12TObjEneLappyFv(u8 *arg0) {
     if (check_path_obstructed(arg0, &v) == 0) {
         move_with_wall_slide(arg0);
     } else {
-        self->vx = self->vz = 0.0f;
+        self->vx = self->vz = lbl_805D9F4C;
     }
-    self->vx *= 0.5f;
-    self->vz *= 0.5f;
-    apply_actor_gravity(arg0, 0, 0.0f);
+    self->vx *= lbl_805D9F24;
+    self->vz *= lbl_805D9F24;
+    apply_actor_gravity(arg0, 0, lbl_805D9F4C);
     update_collisions__10TObjPlayerFPv(arg0);
     if (M2C_FIELD(arg0, u32 *, 0xB4) != 8U) {
         M2C_FIELD(arg0, s32 *, 0x30) &= ~0x200;
@@ -1548,8 +1582,6 @@ s32 TObjEneRe2Flower__sub_800C3B8C(void *);
 M2C_UNK restore_default_scene();
 M2C_UNK set_scene_override(int);
 extern Vec_800C20D0 lbl_8043BBC0[];
-extern const f32 lbl_805D9FA0;
-extern const f32 lbl_805D9FA4;
 void TObjPlayer__sub_800C20D0(Obj_800C20D0 *o);
 s32 is_main_phase_15__9TObjEneDDFv(void);
 void update_secondary_light__9TObjEneDDFPv(void *);
@@ -1567,8 +1599,6 @@ extern s32 lbl_805D517C;
 extern f32 *lbl_805D5180;
 extern const f32 lbl_805D9E84;
 extern const f32 lbl_805D9E88;
-extern const f32 lbl_805D9FA0;
-extern const f32 lbl_805D9FA4;
 extern const f32 lbl_805D9FAC;
 extern const f32 lbl_805D9FB0;
 extern const f32 lbl_805D9FB4;
@@ -2171,10 +2201,44 @@ void fn_800C20B0(void *arg0) {
 void fn_800C20C0(void *arg0) {
     M2C_FIELD(arg0, s16 *, 0x374) = (s16) (M2C_FIELD(arg0, s16 *, 0x374) | 1);
 }
+extern "C" {
+__declspec(section ".sdata2") extern const f32 lbl_805D9F24 = 0.5f;
+__declspec(section ".sdata2") extern const f32 lbl_805D9F28 = 10.0f;
+__declspec(section ".sdata2") extern const f32 lbl_805D9F2C = 30.0f;
+__declspec(section ".sdata2") extern const f32 lbl_805D9F30 = 150.0f;
+__declspec(section ".sdata2") extern const f32 lbl_805D9F34 = 400.0f;
+__declspec(section ".sdata2") extern const f32 lbl_805D9F38 = 2.0f;
+__declspec(section ".sdata2") extern const f32 lbl_805D9F3C = 1.5f;
+__declspec(section ".sdata2") extern const f32 lbl_805D9F40 = 0.66666668653488159f;
+__declspec(section ".sdata2") extern const f32 lbl_805D9F44 = 182.04444885253906f;
+__declspec(section ".sdata2") extern const f32 lbl_805D9F48 = 360.0f;
+__declspec(section ".sdata2") extern const f32 lbl_805D9F4C = 0.0f;
+__declspec(section ".sdata2") extern const f32 lbl_805D9F50 = 10000.0f;
+__declspec(section ".sdata2") extern const f32 lbl_805D9F54 = 11.0f;
+__declspec(section ".sdata2") extern const f32 lbl_805D9F58 = 0.94999998807907104f;
+__declspec(section ".sdata2") extern const f32 lbl_805D9F5C = 14.0f;
+__declspec(section ".sdata2") extern const f32 lbl_805D9F60 = 1.0f;
+__declspec(section ".sdata2") extern const f32 lbl_805D9F64 = 3.0f;
+__declspec(section ".sdata2") extern const f32 lbl_805D9F68 = 100.0f;
+__declspec(section ".sdata2") extern const f32 lbl_805D9F6C = 50.0f;
+__declspec(section ".sdata2") extern const f32 lbl_805D9F70 = 22500.0f;
+__declspec(section ".sdata2") extern const f32 lbl_805D9F74 = 3.5f;
+__declspec(section ".sdata2") extern const f32 lbl_805D9F78 = 15.0f;
+__declspec(section ".sdata2") extern const f32 lbl_805D9F7C = 300.0f;
+__declspec(section ".sdata2") extern const f32 lbl_805D9F80 = 45.0f;
+__declspec(section ".sdata2") extern const f32 lbl_805D9F84 = 6.0f;
+__declspec(section ".sdata2") extern const f32 lbl_805D9F88 = 2500.0f;
+__declspec(section ".sdata2") extern const f32 lbl_805D9F8C = -6.0f;
+__declspec(section ".sdata2") extern const f32 lbl_805D9F90 = 120.0f;
+__declspec(section ".sdata2") extern const f32 lbl_805D9F94 = 0.0020000000949949026f;
+__declspec(section ".sdata2") extern const f32 lbl_805D9F98 = 0.033333335071802139f;
+__declspec(section ".sdata2") extern const f32 lbl_805D9F9C = 0.0f;
+}
+
 void TObjPlayer__sub_800C20D0(Obj_800C20D0 *o) {
     s32 save8;
     s32 save14;
-    if (o->m8(lbl_805D9FA0, lbl_805D9FA4) == 0) {
+    if (o->m8(400.0f, 25.0f) == 0) {
         return;
     }
     Vec_800C20D0 v = lbl_8043BBC0[0];
@@ -2214,11 +2278,11 @@ void TObjPlayer__sub_800C220C(Obj_800C220C *o) {
     }
     if (is_main_phase_15__9TObjEneDDFv() != 0) {
         if (get_flag_11__16TObjEneRe2FlowerFPv(o) != 0) {
-            visible = o->m9(600.0f, 600.0f, lbl_805D9FA4);
+            visible = o->m9(600.0f, 600.0f, 25.0f);
         } else {
-            visible = o->m9(lbl_805D9E88, lbl_805D9E84, lbl_805D9FA4);
+            visible = o->m9(lbl_805D9E88, lbl_805D9E84, 25.0f);
         }
-    } else if (o->m8(lbl_805D9FA0, lbl_805D9FA4) != 0) {
+    } else if (o->m8(400.0f, 25.0f) != 0) {
         visible = 1;
     } else {
         visible = 0;

@@ -1,4 +1,14 @@
-#include "pso/TDeadSpot.h"
+#ifndef PSO_TDEADSPOT_H
+#define PSO_TDEADSPOT_H
+#include "pso/TObject.h"
+#include "types.h"
+class TDeadSpot : public TObject {
+public:
+    virtual ~TDeadSpot();
+    virtual void run_task();
+    virtual void render();
+};
+#endif
 
 TDeadSpot::~TDeadSpot() {}
 

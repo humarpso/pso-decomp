@@ -200,7 +200,7 @@ void __dl__FPv(void *);
 void unregister_and_free__9TObjLightFPv(void *p);
 extern u32 TObjLight__light_entry_data;
 extern s32 light_entry_file_size;
-extern char lbl_8043ED80[];
+__declspec(section ".rodata") char lbl_8043ED80[] = "lightentry.bin";
 s32 update_lobby_scene__6TSceneFPv(void *);
 u32 alloc__22TQuestVmDownLoadServerFPv(s32);
 s32 read_disc_file(void *, u32);
@@ -514,28 +514,28 @@ void reset_actor_light_registries(void) {
     s32 j;
     for (i = 0; i < 32; i++) {
         ((Light_80133C1C *)&TObjLight__data_8050637C)[i].f28 = 0xFFFF;
-        ((Light_80133C1C *)&TObjLight__data_8050637C)[i].f0 = 0.0f;
-        ((Light_80133C1C *)&TObjLight__data_8050637C)[i].f4 = 0.0f;
-        ((Light_80133C1C *)&TObjLight__data_8050637C)[i].f8 = 0.0f;
-        ((Light_80133C1C *)&TObjLight__data_8050637C)[i].fC = 0.0f;
-        ((Light_80133C1C *)&TObjLight__data_8050637C)[i].f10 = 0.0f;
-        ((Light_80133C1C *)&TObjLight__data_8050637C)[i].f14 = 0.0f;
-        ((Light_80133C1C *)&TObjLight__data_8050637C)[i].f18 = 0.0f;
-        ((Light_80133C1C *)&TObjLight__data_8050637C)[i].f20 = 0.0f;
-        ((Light_80133C1C *)&TObjLight__data_8050637C)[i].f1C = 0.0f;
+        ((Light_80133C1C *)&TObjLight__data_8050637C)[i].f0 = TObjLight__data_805DB088;
+        ((Light_80133C1C *)&TObjLight__data_8050637C)[i].f4 = TObjLight__data_805DB088;
+        ((Light_80133C1C *)&TObjLight__data_8050637C)[i].f8 = TObjLight__data_805DB088;
+        ((Light_80133C1C *)&TObjLight__data_8050637C)[i].fC = TObjLight__data_805DB088;
+        ((Light_80133C1C *)&TObjLight__data_8050637C)[i].f10 = TObjLight__data_805DB088;
+        ((Light_80133C1C *)&TObjLight__data_8050637C)[i].f14 = TObjLight__data_805DB088;
+        ((Light_80133C1C *)&TObjLight__data_8050637C)[i].f18 = TObjLight__data_805DB088;
+        ((Light_80133C1C *)&TObjLight__data_8050637C)[i].f20 = TObjLight__data_805DB088;
+        ((Light_80133C1C *)&TObjLight__data_8050637C)[i].f1C = TObjLight__data_805DB088;
         ((Light_80133C1C *)&TObjLight__data_8050637C)[i].f24 = 0;
     }
     for (j = 0; j < 8; j++) {
         ((Light_80133C1C *)TObjLight__data_805068FC)[j].f28 = 0xFFFF;
-        ((Light_80133C1C *)TObjLight__data_805068FC)[j].f0 = 0.0f;
-        ((Light_80133C1C *)TObjLight__data_805068FC)[j].f4 = 0.0f;
-        ((Light_80133C1C *)TObjLight__data_805068FC)[j].f8 = 0.0f;
-        ((Light_80133C1C *)TObjLight__data_805068FC)[j].fC = 0.0f;
-        ((Light_80133C1C *)TObjLight__data_805068FC)[j].f10 = 0.0f;
-        ((Light_80133C1C *)TObjLight__data_805068FC)[j].f14 = 0.0f;
-        ((Light_80133C1C *)TObjLight__data_805068FC)[j].f18 = 0.0f;
-        ((Light_80133C1C *)TObjLight__data_805068FC)[j].f20 = 0.0f;
-        ((Light_80133C1C *)TObjLight__data_805068FC)[j].f1C = 0.0f;
+        ((Light_80133C1C *)TObjLight__data_805068FC)[j].f0 = TObjLight__data_805DB088;
+        ((Light_80133C1C *)TObjLight__data_805068FC)[j].f4 = TObjLight__data_805DB088;
+        ((Light_80133C1C *)TObjLight__data_805068FC)[j].f8 = TObjLight__data_805DB088;
+        ((Light_80133C1C *)TObjLight__data_805068FC)[j].fC = TObjLight__data_805DB088;
+        ((Light_80133C1C *)TObjLight__data_805068FC)[j].f10 = TObjLight__data_805DB088;
+        ((Light_80133C1C *)TObjLight__data_805068FC)[j].f14 = TObjLight__data_805DB088;
+        ((Light_80133C1C *)TObjLight__data_805068FC)[j].f18 = TObjLight__data_805DB088;
+        ((Light_80133C1C *)TObjLight__data_805068FC)[j].f20 = TObjLight__data_805DB088;
+        ((Light_80133C1C *)TObjLight__data_805068FC)[j].f1C = TObjLight__data_805DB088;
         ((Light_80133C1C *)TObjLight__data_805068FC)[j].f24 = 0;
     }
     TObjLight__light_count = 0;
@@ -891,5 +891,14 @@ void *TLobby__sub_801349C8(void *arg0, s16 arg1) {
 }
 
 int TLobby__sub_80134A20(void* p) { return create_quest_thread(p); }
+
+__declspec(section ".sdata2") extern const float TObjLight__data_805DB088 = 0.0f;
+__declspec(section ".sdata2") extern const float lbl_805DB08C = 5.0f;
+__declspec(section ".sdata2") extern const float lbl_805DB090 = 30.0f;
+__declspec(section ".sdata2") extern const float lbl_805DB094 = 1.0f;
+__declspec(section ".sdata2") extern const f32 lbl_805DB098 = 180.0f;
+__declspec(section ".sdata2") extern const f32 lbl_805DB09C = 100000000.0f;
+__declspec(section ".sdata2") extern const f32 lbl_805DB0A0 = 0.89999997615814209f;
+__declspec(section ".sdata2") extern const f32 lbl_805DB0A4 = 48.0f;
 
 }

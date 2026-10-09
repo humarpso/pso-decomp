@@ -1670,7 +1670,7 @@ pso/player/TObjPlayer_800AAFBC.cpp:
 
 pso/enemy/TObjEneShark.cpp:
 	.text       start:0x800AC1E0 end:0x800ACA60
-	.rodata     start:0x8043AEC4 end:0x8043AEDC
+	.rodata     start:0x8043AD10 end:0x8043AEF8
 	.data       start:0x804914B0 end:0x80491828
 
 pso/player/TObjPlayer_800ACA60.cpp:
@@ -1802,7 +1802,7 @@ pso/object/TObjGrass.cpp:
 pso/enemy/TObjEneLappy.cpp:
 	.text       start:0x800BFBBC end:0x800C25A0
 	.rodata     start:0x8043BA20 end:0x8043BA28
-	.data       start:0x80492BD8 end:0x80492BE4
+	.data       start:0x80492BD8 end:0x80493078
 	.bss        start:0x80500BE0 end:0x80500C00
 	.sdata2     start:0x805D9F24 end:0x805D9FAC
 
@@ -4607,9 +4607,9 @@ pso/ui/TAdSinglePlyChrSelectGC_801334D4.cpp:
 
 pso/object/TObjLight_80133568.cpp:
 	.text       start:0x80133568 end:0x80134A40
-	.rodata     start:0x8043ED90 end:0x8043ED98
+	.rodata     start:0x8043ED80 end:0x8043ED98
 	.bss        start:0x80506320 end:0x80506A60
-	.sdata2     start:0x805DB088 end:0x805DB08C
+	.sdata2     start:0x805DB088 end:0x805DB0A8
 
 pso/misc/TLobby.cpp:
 	.text       start:0x80134A40 end:0x80134D54
@@ -6270,7 +6270,7 @@ pso/object/TObjLazerFence4.cpp:
 pso/unk/text_80193524.cpp:
 	.text       start:0x80193524 end:0x80193FE4
 	.rodata     start:0x80445CD0 end:0x80445CF0
-	.bss        start:0x8050DCE8 end:0x8050DCF0
+	.bss        start:0x8050DCE8 end:0x8050DD08
 
 pso/object/TObjLight.cpp:
 	.text       start:0x80193FE4 end:0x80194670
@@ -9111,7 +9111,7 @@ pso/misc/TWindowSubStatusDisp_80257BC0.cpp:
 	.text       start:0x80257BC0 end:0x802580B0
 	.rodata     start:0x8044EE58 end:0x8044EE60
 	.data       start:0x804CF960 end:0x804CF994
-	.sdata2     start:0x805DCEF0 end:0x805DCEF8
+	.sdata2     start:0x805DCEF0 end:0x805DCEF4
 
 pso/misc/TWindowSubStatusDisp_80257784.cpp:
 	.text       start:0x802580B0 end:0x802598E4
@@ -11573,7 +11573,7 @@ pso/unk/text_8031B240.cpp:
 
 pso/enemy/TObjEneReconBomb.cpp:
 	.text       start:0x8031B618 end:0x8031BC38
-	.sdata2     start:0x805DF390 end:0x805DF3AC
+	.sdata2     start:0x805DF390 end:0x805DF3B8
 
 pso/enemy/TObjEneRecon_8031BC38.cpp:
 	.text       start:0x8031BC38 end:0x8031BCB8
@@ -13013,7 +13013,8 @@ pso/unk/text_8036D0C0.cpp:
 
 pso/boss/TBoss6RockChase.cpp:
 	.text       start:0x8036D1B4 end:0x8036D774
-	.rodata     start:0x8047ACF8 end:0x8047AD00
+	.rodata     start:0x8047ACD8 end:0x8047AD00
+	.sdata2     start:0x805E03B8 end:0x805E03E8
 
 pso/misc/TWindowSubStatusDisp_8036D774.cpp:
 	.text       start:0x8036D774 end:0x8036DBC4
