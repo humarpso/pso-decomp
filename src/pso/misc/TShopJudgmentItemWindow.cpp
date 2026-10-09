@@ -168,7 +168,6 @@ void handle_input__23TShopJudgmentItemWindowFPv(void *arg0);
 void close__23TShopJudgmentItemWindowFPv(void* p);
 void handle_pay_confirm__23TShopJudgmentItemWindowFPv(u8 *arg0);
 void handle_equip_prompt__23TShopJudgmentItemWindowFPv(u8 *arg0);
-M2C_UNK TShopJudgmentItemWindow__sub_80220F68();
 void TShopJudgmentItemWindow__vt9(u8 *arg0);
 u16 obj_getField1c(s32);
 s32 set_field_20__12TQuestListVMFPvi(void *, s32);
@@ -207,6 +206,31 @@ s32 get_field_d8__10TObjPlayerFPv(u32);
 M2C_UNK send_6x26_unequip_item__10TObjPlayerFPvPv(int, int);
 M2C_UNK send_6x25_equip_item(int, int, int);
 M2C_UNK set_selected_index__17TWindowSubComCardFPvs(void *, int);
+u16 obj_getField1c(s32);
+s32 set_field_20__12TQuestListVMFPvi(void *, s32);
+s32 dispatch_item_by_type__6TLobbyFPv(void *);
+M2C_UNK TItemData__sub_8010EC6C(void *);
+s32 advance_item_id_counter(void *);
+M2C_UNK set_close_flag__19TWindowSubTradeMainFPv(int);
+M2C_UNK set_visible__19TWindowSubTradeMainFPv(int);
+M2C_UNK set_position__6TLobbyFPvff(int, f32, f32);
+M2C_UNK set_flag70_bit10__20TWindowShortListCtrlFPv(int);
+u32 __nw__7TObjectFUl(int);
+M2C_UNK set_displayed_item_colored__15TWindowHelpItemFPvUi(int, void *);
+u32 TWindowHelpItem__ct(int, int, u16);
+M2C_UNK set_mag_slot_state__13TWindowSubMagFPvi(int, void *);
+u32 create__22TWindowLoadItemTextureFPvPv(int, u16);
+M2C_UNK calc_list_content_extent(void *);
+M2C_UNK add_list_entry__23TShopJudgmentItemWindowFPvii(void *, s32, s32);
+s32 get_window_layout_position(M2C_UNK);
+void *create_item_list_window(int, int, u16);
+s32 is_camera_ctrl_active__6TLobbyFv();
+extern u8 lbl_8044C1C0[];
+extern u8 lbl_8044C1CC[];
+extern s32 lbl_805D53A0;
+extern s32 lbl_805D5544;
+extern const f32 lbl_805DC708;
+void TShopJudgmentItemWindow__sub_80220F68(u8 *arg0);
 }
 
 extern "C" {
@@ -499,6 +523,58 @@ block_19:
     }
 }
 
+void TShopJudgmentItemWindow__sub_80220F68(u8 *arg0) {
+    s32 temp_r0;
+    u16 temp_r30;
+    u16 temp_r30_2;
+    u32 var_r29;
+    temp_r0 = M2C_FIELD(arg0, s32 *, 0x14C) - 1;
+    M2C_FIELD(arg0, s32 *, 0x14C) = temp_r0;
+    if (temp_r0 <= 0) {
+        if ((u32) M2C_FIELD(arg0, u32 *, 0x154) == 0U) {
+            switch (lbl_805D5544) {
+            case 0:
+                M2C_FIELD(arg0, u32 *, 0x154) = (u32) ((void *(*)(int, int, int)) create_item_list_window)((int) (lbl_8044C1C0), 1, obj_getField1c(M2C_FIELD(arg0, s32 *, 0x24)));
+                break;
+            case 1:
+            case 2:
+            case 3:
+            case 4:
+            default:
+                M2C_FIELD(arg0, u32 *, 0x154) = (u32) ((void *(*)(int, int, int)) create_item_list_window)((int) (lbl_8044C1CC), 1, obj_getField1c(M2C_FIELD(arg0, s32 *, 0x24)));
+                break;
+            }
+            TItemData__sub_8010EC6C((void *) (arg0 + 0x28));
+            M2C_FIELD(arg0, s32 *, 0x34) = advance_item_id_counter((void *) ((u16) lbl_805D53A0));
+            M2C_FIELD(arg0, s32 *, 0x50) = dispatch_item_by_type__6TLobbyFPv((void *) (arg0 + 0x28));
+            add_list_entry__23TShopJudgmentItemWindowFPvii((void *) (M2C_FIELD(arg0, u32 *, 0x154)), (int) (M2C_FIELD(arg0, s32 *, 0x50)), (int) (0));
+            set_flag70_bit10__20TWindowShortListCtrlFPv((int) (M2C_FIELD(arg0, u32 *, 0x154)));
+            set_visible__19TWindowSubTradeMainFPv((int) (M2C_FIELD(arg0, u32 *, 0x154)));
+            set_close_flag__19TWindowSubTradeMainFPv((int) (M2C_FIELD(arg0, u32 *, 0x154)));
+            calc_list_content_extent((void *) (M2C_FIELD(arg0, u32 *, 0x154)));
+        }
+        if ((u32) M2C_FIELD(arg0, u32 *, 0x160) == 0U) {
+            temp_r30 = ((s32 (*)(s32))obj_getField1c)(M2C_FIELD(arg0, s32 *, 0x24));
+            M2C_FIELD(arg0, u32 *, 0x160) = create__22TWindowLoadItemTextureFPvPv(get_window_layout_position(0x30), temp_r30);
+            set_mag_slot_state__13TWindowSubMagFPvi((int) (M2C_FIELD(arg0, u32 *, 0x160)), (void *) (arg0 + 0x28));
+        }
+        if ((u32) M2C_FIELD(arg0, u32 *, 0x15C) == 0U) {
+            var_r29 = __nw__7TObjectFUl((int) (0xBC));
+            if (var_r29 != 0U) {
+                temp_r30_2 = ((s32 (*)(s32))obj_getField1c)(M2C_FIELD(arg0, s32 *, 0x24));
+                var_r29 = TWindowHelpItem__ct((int) (var_r29), (int) (get_window_layout_position((int) (0x27))), temp_r30_2);
+            }
+            M2C_FIELD(arg0, u32 *, 0x15C) = var_r29;
+            if (((u32) M2C_FIELD(arg0, u32 *, 0x15C) != 0U) && (is_camera_ctrl_active__6TLobbyFv() > 2)) {
+                set_position__6TLobbyFPvff((int) (M2C_FIELD(arg0, u32 *, 0x15C)), (f32) (lbl_805DC708), (f32) (lbl_805DC708));
+            }
+            set_displayed_item_colored__15TWindowHelpItemFPvUi((int) (M2C_FIELD(arg0, u32 *, 0x15C)), (void *) (arg0 + 0x28));
+        }
+        ((VObj_18 *)(arg0))->m6(8, 1);
+        set_field_20__12TQuestListVMFPvi((void *) (arg0), (int) (4));
+    }
+}
+
 #pragma push
 #pragma fp_contract on
 void handle_judge_confirm__23TShopJudgmentItemWindowFPv(u8 *arg0) {
@@ -635,7 +711,7 @@ void TShopJudgmentItemWindow__vt9(u8 *arg0) {
         handle_judge_confirm__23TShopJudgmentItemWindowFPv((u8 *)(arg0));
         return;
     case 3:
-        TShopJudgmentItemWindow__sub_80220F68();
+        TShopJudgmentItemWindow__sub_80220F68((u8 *)(arg0));
         return;
     case 4:
         update_judge_confirm__23TShopJudgmentItemWindowFPv((u8 *)(arg0));

@@ -132,6 +132,21 @@ struct Fx_8023453C
   V3_8023453C pos2;
 };
 
+struct P_802346F8 { s32 t; f32 v; };
+
+struct VBase_802346F8 { char pad[0x18]; };
+
+struct VObj_802346F8 : VBase_802346F8 {
+    virtual void m0(); virtual void m1(); virtual void m2(); virtual void m3(); virtual void m4();
+    virtual void m5(); virtual void m6(); virtual void m7(); virtual void m8(); virtual void m9();
+    virtual void m10(); virtual void m11(); virtual void m12(); virtual void m13(); virtual void m14();
+    virtual void m15(); virtual void m16(); virtual void m17(); virtual void m18(); virtual void m19();
+    virtual void m20();
+    virtual s32 m21(s32, P_802346F8, s32, s32, s32);
+};
+
+struct G_802346F8 { u8 pad[0x1c]; s32 f1c; };
+
 extern "C" {
 void clear_pipe_interaction_latch(void* p);
 void clear_pipe_interaction_latch(void* p);
@@ -321,6 +336,8 @@ extern const f32 lbl_805DC86C;
 extern const f32 lbl_805DC870;
 extern const f32 lbl_805DC874;
 void *create_telepipe_visual(void *self, Vec_802347B4 *pos, u32 id, s32 res);
+extern const f32 lbl_805DC858;
+void TTecLuker__vt4(G_802346F8 *self, VObj_802346F8 *o);
 }
 
 extern "C" {
@@ -784,6 +801,13 @@ void *create_telepipe_visual(void *self, Vec_802347B4 *pos, u32 id, s32 res) {
   return self;
 }
 #pragma pop
+
+void TTecLuker__vt4(G_802346F8 *self, VObj_802346F8 *o) {
+    P_802346F8 d;
+    d.t = 0xE;
+    d.v = lbl_805DC858;
+    o->m21(self->f1c, d, 0, -1, -1);
+}
 
 void create__9TTecLukerFPvPvPvPv(void *arg0, void *arg1, void *arg2, void *arg3) {
     void *o;

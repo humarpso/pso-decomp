@@ -6,6 +6,11 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 
 struct Disp_8026F9F4 { u8 p0[0x20]; s16 id; u8 p1[0x42]; void *windows[5]; };
 
+typedef s32 M2C_UNK;
+struct Vec2_80270244 { f32 x; f32 y; };
+
+struct Params_80270244 { f32 x; f32 y; u8 pad8[0x28]; s32 f30; };
+
 extern "C" {
 int obj_getArrWord_254(void *p, int i);
 void * get_player_by_client_id();
@@ -22,6 +27,16 @@ f32 get_scale__20TWindowSubStatusDispFPv(void *p);
 extern const f32 lbl_805DD38C;
 extern const f32 lbl_805DD398;
 void update_status_icons__14TWindowComCardFPvPv(Disp_8026F9F4 *arg0, void *arg1);
+M2C_UNK draw_photon_blast_fan(s32, Vec2_80270244 *, Params_80270244 *, u32, s32, s32, f32, f32);
+f32 trunc_float__17TWindowSubComCardFf(f32);
+extern u32 photon_blast_gauge_ring_color_table[];
+extern const f32 lbl_805DD388;
+extern const f32 lbl_805DD3C8;
+extern const f32 lbl_805DD3CC;
+extern const f32 lbl_805DD3D0;
+extern const f32 lbl_805DD3D4;
+extern const f32 lbl_805DD3D8;
+void draw_photon_blast_gauge_ring(s32 arg0, Params_80270244 *arg1, const Vec2_80270244 *arg2, f32 farg0, f32 farg1);
 }
 
 extern "C" {
@@ -115,7 +130,6 @@ void update_hp_tp_level__20TWindowSubStatusDispFPv(u8 *arg0);
 void update_for_player_index__13TWindowLockOnFPvi(u8 *arg0, s32 arg1);
 void update_lockon_window(u8 *arg0);
 M2C_UNK update_photon_blast_player_marker(s32 arg0, s32 arg1);
-M2C_UNK draw_photon_blast_gauge_ring(u8 *, u8 *, void *, f32, f32);
 s32 rand(void);
 s32 strcmp(s32, s32);
 f32 sin_table_lookup(s32);
@@ -444,6 +458,26 @@ void update_status_help_item(s32 arg0) {
     update_photon_blast_player_marker((s32)(((s32 (*)(s32, M2C_UNK))get_array_entry__20TWindowSubStatusDispFPvi)(arg0, 0)), (s32)(var_r31));
 }
 
+#pragma push
+#pragma fp_contract on
+#pragma opt_common_subs off
+void draw_photon_blast_gauge_ring(s32 arg0, Params_80270244 *arg1, const Vec2_80270244 *arg2, f32 farg0, f32 farg1) {
+    Vec2_80270244 p;
+    u32 n;
+    if (farg0 > lbl_805DD3C8) {
+        farg0 = lbl_805DD3C8;
+    }
+    n = trunc_float__17TWindowSubComCardFf(lbl_805DD3CC * farg0);
+    farg0 -= lbl_805DD3D0 * n;
+    if (arg1->f30 >= 0) {
+        p.x = arg1->x + arg2->x;
+        p.y = arg1->y + arg2->y;
+        draw_photon_blast_fan(arg0, &p, arg1, photon_blast_gauge_ring_color_table[n], 0, 0xD700, lbl_805DD388, farg1);
+        draw_photon_blast_fan(arg0, &p, arg1, photon_blast_gauge_ring_color_table[++n], lbl_805DD3D8 - lbl_805DD3CC * (lbl_805DD3D8 * farg0), 0xD700, lbl_805DD3D4, farg1);
+    }
+}
+#pragma pop
+
 void draw_background__19TWindowSimpleStatusFv(u8 *arg0, u8 *arg1) {
     Rect_80270394 r;
     Vec2_80270394 pos;
@@ -457,7 +491,7 @@ void draw_background__19TWindowSimpleStatusFv(u8 *arg0, u8 *arg1) {
     } else {
         f = lbl_805DD388;
     }
-    draw_photon_blast_gauge_ring(arg0, arg1, lbl_8044F5E4, f, lbl_805DD3DC);
+    draw_photon_blast_gauge_ring((s32)(arg0), (Params_80270244 *)(arg1), (const Vec2_80270244 *)(lbl_8044F5E4), f, lbl_805DD3DC);
     pos.x = lbl_805DD3E0 + M2C_FIELD(arg1, f32 *, 0x10);
     pos.y = lbl_805DD398 + M2C_FIELD(arg1, f32 *, 0x14);
     size.x = lbl_805DD3E4;

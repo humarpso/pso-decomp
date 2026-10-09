@@ -7017,17 +7017,10 @@ pso/misc/TWindowDuelResult_801C2528.cpp:
 	.text       start:0x801C2528 end:0x801C25B4
 
 pso/misc/TLobby_801C25B4.cpp:
-	.text       start:0x801C25B4 end:0x801C4CE0
-	.rodata     start:0x80446FC4 end:0x80446FF0
-	.data       start:0x804C3EA0 end:0x804C3F10
+	.text       start:0x801C25B4 end:0x801C4F70
+	.rodata     start:0x80446F80 end:0x80447020
+	.data       start:0x804C3EA0 end:0x804C3F44
 	.sdata2     start:0x805DC2F8 end:0x805DC300
-
-pso/player/TPlayerBattleCtrl.cpp:
-	.text       start:0x801C4CE0 end:0x801C4EBC
-	.data       start:0x804C3F10 end:0x804C3F44
-
-pso/unk/text_801C4EBC.cpp:
-	.text       start:0x801C4EBC end:0x801C4F70
 
 pso/misc/TPlayerBattleCtrl4P_801C4F70.cpp:
 	.text       start:0x801C4F70 end:0x801C4F80
@@ -9123,10 +9116,19 @@ pso/misc/TWindowInputNumber_80256170.cpp:
 	.rodata     start:0x8044EE38 end:0x8044EE40
 
 pso/misc/TWindowSubStatusDisp_80256B94.cpp:
-	.text       start:0x80256B94 end:0x802580B0
-	.rodata     start:0x8044EE48 end:0x8044EE60
+	.text       start:0x80256B94 end:0x8025737C
+	.sdata2     start:0x805DCE58 end:0x805DCED0
+
+pso/misc/TWindowSubStatusDisp_8025737C.cpp:
+	.text       start:0x8025737C end:0x80257BC0
+	.rodata     start:0x8044EE48 end:0x8044EE58
+	.sdata2     start:0x805DCED0 end:0x805DCED4
+
+pso/misc/TWindowSubStatusDisp_80257BC0.cpp:
+	.text       start:0x80257BC0 end:0x802580B0
+	.rodata     start:0x8044EE58 end:0x8044EE60
 	.data       start:0x804CF960 end:0x804CF994
-	.sdata2     start:0x805DCE58 end:0x805DCED4
+	.sdata2     start:0x805DCEF0 end:0x805DCEF8
 
 pso/misc/TWindowSubStatusDisp_80257784.cpp:
 	.text       start:0x802580B0 end:0x802598E4

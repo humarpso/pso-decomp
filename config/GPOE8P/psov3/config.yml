@@ -420,11 +420,13 @@ force_active:
   - build_beam_points__12TTecZondeEffFPv
   - build_box_triangles__10TObjMapCsnFPv
   - build_download_list__12TQuestListVMFPv
+  - build_item_list__23TShopJudgmentItemWindowFPv
   - build_menu__19TWindowSubShortMailFv
   - build_node_records__11TBreakUpMdlFPvPvi
   - build_sell_list__24TShopEquipmentSellWindowFPv
   - build_trade_menu__19TWindowSubTradeMainFPv
   - byteswap_6x75_packet__6TLobbyFPv
+  - byteswap_telepipe_packet__9TTecLukerFPv
   - calc_area_parameters__10TTecRaFoieFPv
   - calc_bone_offsets_recursive
   - calc_circle_offset__14TObjEneBm5WolfFPvPvPv
@@ -479,6 +481,7 @@ force_active:
   - clear_entry_flags__17TBoss5GryphonDemoFPv
   - clear_flag_in_state7__14TObjEneBalClawFPv
   - clear_photon_blast_slots__10TObjPlayerFv
+  - clear_pipe_interaction_latch
   - clear_segment_flags__17TBoss1DragonColliFPv
   - clear_segment_flags__17TBoss8DragonColliFPv
   - clear_thread_state__12TQuestThreadFv
@@ -711,6 +714,7 @@ force_active:
   - fn_801E0C08
   - fn_801F6520
   - fn_8022F164
+  - fn_80235078
   - fn_8026D564
   - fn_802E62A4
   - fn_spawn_particle_f3_with_flags
@@ -735,6 +739,7 @@ force_active:
   - get_material_limit_for_class
   - get_model__23TObjSeabedSuisoBrakableFi
   - get_move_done_result__24TObjWaitEntryHairMoveSimFPv
+  - get_pipe_interaction_latch
   - get_selected_blast__13TWindowSubMagFPv
   - get_serial_text__22TAdEnterSerialAccessGCFii
   - get_speaker_balloon_anchor__11TWindowCtrlFPviPvPv
@@ -753,9 +758,12 @@ force_active:
   - handle_cursor_input__19TAdTrialAgreementGCFPv
   - handle_equip_offer__20TShopArmorListWindowFv
   - handle_equip_offer__24TShopEquipmentListWindowFv
+  - handle_equip_prompt__23TShopJudgmentItemWindowFPv
   - handle_grid_navigation__22TWindowSubCustomSelectFPv
+  - handle_judge_confirm__23TShopJudgmentItemWindowFPv
   - handle_msg_type1_for_idle_slots__6TLobbyFv
   - handle_page_input__24TWindowSubSymbolChatHelpFPv
+  - handle_pay_confirm__23TShopJudgmentItemWindowFPv
   - handle_selection__20TShopArmorListWindowFv
   - handle_selection__24TShopEquipmentListWindowFv
   - handle_selection__24TShopEquipmentSellWindowFv
@@ -1232,6 +1240,7 @@ force_active:
   - reset_state__13TObjWarnChimeFPv
   - reset_state__15TFontSmallLobbyFPv
   - reset_state_fields__9TObjEneDDFPv
+  - reset_telepipe_record
   - reset_windows__16TAdChrSelBSlotGCFPv
   - resolve_active_quest_result__22THunterGuildSeqOfflineFPv
   - resolve_set_row_factory_indices
@@ -1375,6 +1384,7 @@ force_active:
   - send_partner_attack_stage_request
   - send_state__12TODoorCave01FPvPv
   - send_subordinate_actions__11TBoss6Type2Fiiiii
+  - send_swapped_telepipe_packet__9TTecLukerFPv
   - seqCrossFade
   - seqFreeKeyOffNote
   - set_all_entry_flags__17TBoss5GryphonDemoFPv
@@ -1411,6 +1421,7 @@ force_active:
   - setup_projection_texture__10TObjPlayerFiii
   - setup_sound__18TObjEnvSoundGlobalFPv
   - setup_state_helper__10TObjPlayerFPv
+  - setup_telepipe_field__9TTecLukerFPv
   - setup_tex_gen__10TObjPlayerFv
   - shift_queue_push_next__15TObjBoss2TunnelFPv
   - should_show_warning__14TObjBagWarnWinFPv
@@ -1470,6 +1481,7 @@ force_active:
   - subtractive_rng_refill
   - switch_phase_stats__13TBoss2DeRolLeFPvPv
   - teardown_render_state__10TObjPlayerFPv
+  - telepipe_record_differs
   - test_rock_bit__15TBoss6SwordWaveFiUc
   - texture_f512_multiplay_descriptor
   - throw_gogo_ball__12TWindowTimerFPvii
@@ -1532,6 +1544,7 @@ force_active:
   - update_idle_state__11TObjEneMojaFv
   - update_input_number__18TShopGetItemWindowFPv
   - update_inward_orbit_point
+  - update_judge_confirm__23TShopJudgmentItemWindowFPv
   - update_letterbox_hide__9TCineCtrlFPv
   - update_letterbox_show__9TCineCtrlFPv
   - update_light_direction__12TCharaMakingFPv
@@ -1550,7 +1563,6 @@ force_active:
   - update_particles__15TObjBoss2TunnelFPv
   - update_path_follow_rotation__10TObjPlayerFPvPvf
   - update_path_steering__10TObjPlayerFPv
-  - update_player_battle_ctrl_state
   - update_player_hp_ratios
   - update_position_from_velocity__20TItemEffOrgaFlowShotFPv
   - update_position_if_changed__19TWindowSubTradeMainFiPvPv
@@ -1607,6 +1619,7 @@ force_active:
   - vsUpdateBuffer
   - wait_for_vi_retrace
   - warp_nearby_players__14TBoss6PlotFalzFv
+  - write_telepipe_record
 # --- force_active (END) ---
 # False pointers: packed data words whose values happen to land on code/data
 # addresses. dtk would emit a relocation and export the target symbol.

@@ -427,6 +427,7 @@ pso/enemy/TObjEneRe7BeruraPunch.cpp
 pso/enemy/TObjEneRe7BeruraPunch_80095E18.cpp
 pso/enemy/TObjEneRe7BeruraPunch_80095EA0.cpp
 pso/enemy/TObjEneRe7Berura_80092CCC.cpp
+pso/enemy/TObjEneRe7Berura_8009358C.cpp
 pso/enemy/TObjEneRe7Berura_800967C0.cpp
 pso/enemy/TObjEneRe7Berura_803E4CE0.cpp
 pso/enemy/TObjEneRecon.cpp
@@ -1532,6 +1533,7 @@ pso/misc/TShopGetItemWindow_8021EEE4.cpp
 pso/misc/TShopGetItemWindow_8021F074.cpp
 pso/misc/TShopGetItemWindow_8021F0A4.cpp
 pso/misc/TShopItemTecSequence.cpp
+pso/misc/TShopJudgmentItemWindow.cpp
 pso/misc/TShopJudgmentItemWindow_8026DF00.cpp
 pso/misc/TShopSequence.cpp
 pso/misc/TShopWindowBase.cpp
@@ -1556,6 +1558,7 @@ pso/misc/TTecJelin.cpp
 pso/misc/TTecKafun.cpp
 pso/misc/TTecKafun_802A9688.cpp
 pso/misc/TTecKafun_802A9710.cpp
+pso/misc/TTecLuker.cpp
 pso/misc/TTecLuker_801A1880.cpp
 pso/misc/TTecLuker_8022BEAC_8022C03C.cpp
 pso/misc/TTecLuker_802360E4.cpp
@@ -2595,7 +2598,6 @@ pso/player/TObjPlayer_803DC834.cpp
 pso/player/TObjPlayer_803E21B8.cpp
 pso/player/TObjPlayer_803E4954.cpp
 pso/player/TObjPlayer_803E5470.cpp
-pso/player/TPlayerBattleCtrl.cpp
 pso/player/TPlyItem.cpp
 pso/protocol/subcommand_validation_actions.cpp
 pso/protocol/subcommand_validation_movement.cpp
