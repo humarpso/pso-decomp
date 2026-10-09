@@ -4,14 +4,15 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 #define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
 #define M2C_BITWISE(type, expr) ((type)(expr))
 
-struct TAdWarningBaseGC_8032CEB4 {
+struct TAdWarningBaseGC {
     char pad0[0x1C];
     s32 state;
-    void act0();
-    void act1();
-    void act2();
-    void act3();
+    void enter_request_state();
+    void request_aram_load_state(void *);
+    void wait_aram_request();
+    void destroy();
 };
+typedef TAdWarningBaseGC TAdWarningBaseGC_8032CEB4;
 typedef void (TAdWarningBaseGC_8032CEB4::*Act_8032CEB4)();
 
 extern "C" {
@@ -88,10 +89,10 @@ void enter_request_state__16TAdWarningBaseGCFv(void* p) { *(s32*)((char*)p + 0x1
 
 void dispatch_state_action__16TAdWarningBaseGCFPv(TAdWarningBaseGC_8032CEB4 *self) {
     static Act_8032CEB4 tbl[4] = {
-        &TAdWarningBaseGC_8032CEB4::act0,
-        &TAdWarningBaseGC_8032CEB4::act1,
-        &TAdWarningBaseGC_8032CEB4::act2,
-        &TAdWarningBaseGC_8032CEB4::act3,
+        &TAdWarningBaseGC::enter_request_state,
+        (Act_8032CEB4)&TAdWarningBaseGC::request_aram_load_state,
+        &TAdWarningBaseGC::wait_aram_request,
+        &TAdWarningBaseGC::destroy,
     };
     (self->*tbl[self->state])();
 }

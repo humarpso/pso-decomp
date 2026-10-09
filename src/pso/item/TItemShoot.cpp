@@ -18,6 +18,44 @@ extern "C" TObject*    tl_05;
 extern "C" const char* TItemShoot__class_name;
 extern "C" const f64   lbl_8043E7A0[];
 
+extern "C" {
+void __dt__19TItemShootModelRotZFv();
+void render__19TItemShootModelRotZFv();
+void hook__19TItemShootModelRotZFv();
+void __dt__13TItemShootGunFv();
+void render__13TItemShootGunFv();
+void hook__13TItemShootGunFv();
+void __dt__18TItemShootParticleFv();
+void TItemShootParticle__vt4();
+void __dt__15TItemShootModelFv();
+void render__15TItemShootModelFv();
+void run_task__10TItemShootFv();
+void hook__10TItemShootFv();
+void render__7TObjectFv();
+void render_shadows__7TObjectFv();
+
+void *__vt__19TItemShootModelRotZ[7] = {
+    0, 0, (void *)__dt__19TItemShootModelRotZFv, (void *)run_task__10TItemShootFv,
+    (void *)render__19TItemShootModelRotZFv, (void *)render_shadows__7TObjectFv,
+    (void *)hook__19TItemShootModelRotZFv,
+};
+void *__vt__13TItemShootGun[7] = {
+    0, 0, (void *)__dt__13TItemShootGunFv, (void *)run_task__10TItemShootFv,
+    (void *)render__13TItemShootGunFv, (void *)render_shadows__7TObjectFv,
+    (void *)hook__13TItemShootGunFv,
+};
+void *__vt__18TItemShootParticle[7] = {
+    0, 0, (void *)__dt__18TItemShootParticleFv, (void *)run_task__10TItemShootFv,
+    (void *)render__7TObjectFv, (void *)render_shadows__7TObjectFv,
+    (void *)TItemShootParticle__vt4,
+};
+void *__vt__15TItemShootModel[7] = {
+    0, 0, (void *)__dt__15TItemShootModelFv, (void *)run_task__10TItemShootFv,
+    (void *)render__15TItemShootModelFv, (void *)render_shadows__7TObjectFv,
+    (void *)hook__10TItemShootFv,
+};
+}
+
 TItemShoot::TItemShoot(void* owner, const Vec* pos, const Vec* dir, f32 life)
     : TObject(tl_05) {
     this->m_name = TItemShoot__class_name;

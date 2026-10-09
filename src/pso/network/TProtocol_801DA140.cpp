@@ -1,5 +1,7 @@
 #include "pso/TProtocol.h"
 
+extern "C" void bswap__17TSendDownloadHeadFv(TSendDownloadHead *);
+
 extern "C" void fn_801DA140(TProtocol *self, s8 flags, const char *filename) {
     TSendDownloadHead pkt;
     memset(&pkt, 0, sizeof(pkt));
@@ -8,7 +10,7 @@ extern "C" void fn_801DA140(TProtocol *self, s8 flags, const char *filename) {
     strncpy(pkt.filename, filename, sizeof(pkt.filename));
     pkt.header.size = sizeof(pkt);
     strncpy(pkt.filename, filename, sizeof(pkt.filename));
-    pkt.bswap();
+    bswap__17TSendDownloadHeadFv(&pkt);
     self->send((u8 *)&pkt, sizeof(pkt));
 }
 

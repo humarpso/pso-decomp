@@ -702,10 +702,12 @@ pso/item/TItemReverseTechPart1.cpp
 pso/item/TItemReverseTechPart2.cpp
 pso/item/TItemReverseTechPart2_801198F8.cpp
 pso/item/TItemReverseTech_8011A1E8.cpp
+pso/item/TItemShootGun_dtor.cpp
 pso/item/TItemShootHook.cpp
 pso/item/TItemShootModel.cpp
 pso/item/TItemShootModelRotZ.cpp
 pso/item/TItemShootModelRotZ_dtor.cpp
+pso/item/TItemShootModel_dtor.cpp
 pso/item/TItemShootParticle.cpp
 pso/item/TItemShoot_8011BD88.cpp
 pso/item/TItemShoot_8011BDC8.cpp
@@ -1433,6 +1435,7 @@ pso/misc/TPlyInventoryItem_800721D4.cpp
 pso/misc/TPlyJoinGame.cpp
 pso/misc/TPlyJoinLobby.cpp
 pso/misc/TPlyJoinLobbyEntry_801DFA18.cpp
+pso/misc/TPlyJoinLobby_801DF9C8.cpp
 pso/misc/TPlyMeetUserExtension.cpp
 pso/misc/TPlyMeetUserExtension_801DAC6C.cpp
 pso/misc/TPlyOnCountOver.cpp
@@ -1961,6 +1964,7 @@ pso/misc/pso_const_ids7.cpp
 pso/network/TGameProtocol.cpp
 pso/network/TProtocolChoiceSearch.cpp
 pso/network/TProtocol_801D9EEC.cpp
+pso/network/TProtocol_801DA140.cpp
 pso/network/TProtocol_801DA240.cpp
 pso/network/TProtocol_801DAFD0.cpp
 pso/network/TProtocol_801DB0AC.cpp
@@ -2082,6 +2086,7 @@ pso/object/TObjDoorKey.cpp
 pso/object/TObjDoor_8018E358.cpp
 pso/object/TObjDoor_801F3754.cpp
 pso/object/TObjEZBoneRotBase.cpp
+pso/object/TObjEZBoneRotPlayer.cpp
 pso/object/TObjEZBoneRotPlayer_800FE834.cpp
 pso/object/TObjEZRopeBase.cpp
 pso/object/TObjEnvSound.cpp
@@ -2640,6 +2645,7 @@ pso/slices/pso_carve_80124760.cpp
 pso/slices/pso_carve_8012480c.cpp
 pso/slices/pso_carve_80124810.cpp
 pso/slices/pso_carve_8012484c.cpp
+pso/slices/pso_carve_802fddd4.cpp
 pso/slices/pso_carve_802fdefc.cpp
 pso/system/ChunkMaterialState.cpp
 pso/system/THeap.cpp
@@ -2684,6 +2690,7 @@ pso/ui/TAdDialingMessageWindow_8036A064.cpp
 pso/ui/TAdDrawLineCtrl.cpp
 pso/ui/TAdEnterBaseGC.cpp
 pso/ui/TAdEnterBaseGC_8032B38C.cpp
+pso/ui/TAdEnterPPPPassGC.cpp
 pso/ui/TAdEnterPasswordGC.cpp
 pso/ui/TAdEnterSerialAccessGC_80202978.cpp
 pso/ui/TAdEnterSerialAccessGC_8023EA94.cpp
@@ -2824,6 +2831,7 @@ pso/ui/TAdVIConfigGC.cpp
 pso/ui/TAdVIConfigGC_80248B8C.cpp
 pso/ui/TAdVIConfigGC_80308200.cpp
 pso/ui/TAdWarningBaseGC.cpp
+pso/ui/TAdWarningBaseGC_8032CE1C.cpp
 pso/ui/TAdWarningBaseGC_8032D154.cpp
 pso/ui/TAdWarningBaseGC_8032D188.cpp
 pso/ui/TAdWarningBaseGC_8032D1A4.cpp
@@ -2838,6 +2846,7 @@ pso/ui/TObjDFTenchuFuru_80051B98.cpp
 pso/ui/TObjDFTenchuFuru_80051D5C.cpp
 pso/ui/TObjDFTenchuFuru_80052000.cpp
 pso/ui/TObjDFYutai.cpp
+pso/ui/TObjLiveCameraCtrl.cpp
 pso/ui/TObjLiveMonitor.cpp
 pso/ui/TObjNewFloorWin.cpp
 pso/ui/TWindowCtrlSub.cpp

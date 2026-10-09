@@ -71,9 +71,22 @@ void TObjLiveCameraCtrl::run_task() {
     }
 }
 
-TObjLiveCameraCtrl::~TObjLiveCameraCtrl() {
-    ((TObject **)&TObjLiveCameraCtrl__data_805D6A88)[slot_index] = NULL;
-    if (camera_object != NULL) queue_destruction__7TObjectFv(camera_object);
+extern "C" {
+void __dt__7TObjectFv(void *, s32);
+void __dl__7TObjectFPv(void *);
+
+TObjLiveCameraCtrl *__dt__18TObjLiveCameraCtrlFv(TObjLiveCameraCtrl *self, s16 flag) {
+    if (self != NULL) {
+        M2C_FIELD(self, M2C_UNK **, 0x18) = __vt__18TObjLiveCameraCtrl;
+        ((TObject **)&TObjLiveCameraCtrl__data_805D6A88)[self->slot_index] = NULL;
+        if (self->camera_object != NULL) queue_destruction__7TObjectFv(self->camera_object);
+        __dt__7TObjectFv(self, 0);
+        if (flag > 0) {
+            __dl__7TObjectFPv(self);
+        }
+    }
+    return self;
+}
 }
 
 extern "C" {

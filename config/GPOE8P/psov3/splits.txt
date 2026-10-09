@@ -3026,6 +3026,7 @@ pso/player/TObjPlayer_8011BADC.cpp:
 
 pso/item/TItemShoot.cpp:
 	.text       start:0x8011BB2C end:0x8011BD88
+	.data       start:0x804A04A8 end:0x804A0534
 
 pso/item/TItemShoot_8011BD88.cpp:
 	.text       start:0x8011BD88 end:0x8011BDC8
@@ -3041,7 +3042,6 @@ pso/unk/text_8011BEF0.cpp:
 
 pso/item/TItemShootModelRotZ_dtor.cpp:
 	.text       start:0x8011BF3C end:0x8011BF94
-	.data       start:0x804A04A8 end:0x804A04C4
 
 pso/item/TItemShoot_8011BF94.cpp:
 	.text       start:0x8011BF94 end:0x8011BF9C
@@ -3054,7 +3054,6 @@ pso/item/TItemShoot_8011BFA0.cpp:
 
 pso/item/TItemShootGun_dtor.cpp:
 	.text       start:0x8011BFA8 end:0x8011C000
-	.data       start:0x804A04C4 end:0x804A04E0
 
 pso/player/TObjPlayer_8011C000.cpp:
 	.text       start:0x8011C000 end:0x8011CC58

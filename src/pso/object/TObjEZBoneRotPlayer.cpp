@@ -1,8 +1,21 @@
-#include "pso/TObjEZBoneRotPlayer.h"
-
-TObjEZBoneRotPlayer::~TObjEZBoneRotPlayer() {}
-
 #include "types.h"
+
+extern "C" {
+extern void *__vt__19TObjEZBoneRotPlayer[];
+void __dt__17TObjEZBoneRotBaseFv(void *self, s32 flag);
+void __dl__7TObjectFPv(void *p);
+
+void *__dt__19TObjEZBoneRotPlayerFv(void *self, s16 flag) {
+    if (self != 0) {
+        *(void **)((u8 *)self + 0x18) = __vt__19TObjEZBoneRotPlayer;
+        __dt__17TObjEZBoneRotBaseFv(self, 0);
+        if (flag > 0) {
+            __dl__7TObjectFPv(self);
+        }
+    }
+    return self;
+}
+}
 
 struct RotSrc_800FEEA4 {
     s8 bone;

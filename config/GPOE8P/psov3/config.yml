@@ -333,7 +333,6 @@ force_active:
   - __dt__18TObjTailsTailsMoveFv
   - __dt__19THunterGuildWarningFv
   - __dt__19TItemDisconnectCtrlFv
-  - __dt__19TItemShootModelRotZFv
   - __dt__19TNECFontEORFunctionFv
   - __dt__19TOChatSensorCaptureFv
   - __dt__19TObjBoss2RaftSplashFv
@@ -517,6 +516,7 @@ force_active:
   - close_window_and_destroy__18TAdEnterPasswordGCFPv
   - close_windows__16TAdChrSelBSlotGCFPv
   - close_windows__9TObjLukerFPv
+  - close_windows_and_advance__17TAdEnterPPPPassGCFPv
   - collect_body_contacts__10TObjPlayerFPviPvPv
   - collect_node_positions__11TBreakUpMdlFPvPvi
   - configure_scripted_camera_playback
@@ -718,6 +718,7 @@ force_active:
   - enemy_nearest_visible_player_sq
   - enemy_tick_target_acquisition
   - enter_hit_reaction_state__15TObjEneMe1GiGueFPv
+  - enter_request_state__16TAdWarningBaseGCFv
   - enter_state_5_save_prev__15TObjEneMe1GiGueFPv
   - explode__13TBoss6MagMineFPv
   - explode__22TObjEneMe1GiGueMissileFPvPv
@@ -765,6 +766,7 @@ force_active:
   - fn_spawn_particle_f3_with_flags
   - format_challenge_stage_times__23TAdSinglePlyChrSelectGCFii
   - format_status_strings__14TAdPlyStatusGCFPv
+  - forward_chg_game_mode__17TAdEnterPPPPassGCFPv
   - free_item_pmt
   - freeze_shell_grow
   - freeze_shell_hold
@@ -1216,6 +1218,7 @@ force_active:
   - open_greeting__26TShopEquipmentGearSequenceFPv
   - open_item_list_window__20TShopItemTecSequenceFPv
   - open_judgment_window__17TJudgmentSequenceFPv
+  - open_keyboard_window__17TAdEnterPPPPassGCFPv
   - open_keyboard_window__18TAdEnterPasswordGCFPv
   - open_lobby_menu__13TObjWarpLobbyFPv
   - open_message_choice__23TAdSinglePlyChrSelectGCFPvPviPvPv
@@ -1242,6 +1245,7 @@ force_active:
   - poll_load__12TChCrLoadAfsFv
   - poll_quest_download__12TQuestListVMFPv
   - populate_sub_item_list
+  - post_aram_request__16TAdWarningBaseGCFii
   - prepare_heavy_attack_particles
   - process_download_entry__12TQuestListVMFPv
   - prs_read_control_bit
@@ -1350,6 +1354,8 @@ force_active:
   - render_with_fade__19TObjEneEpsilonGuardFPvi
   - render_with_state_debug__10TObjPlayerFPv
   - repositioning_state__14TObjEneBm5WolfFPvi
+  - request_aram_load_state__16TAdWarningBaseGCFPv
+  - request_transition__17TAdEnterPPPPassGCFPv
   - request_transition__18TAdEnterPasswordGCFPv
   - request_transition__8TFogCtrlFPvii
   - resetTechniqueContactQuery
@@ -1533,6 +1539,7 @@ force_active:
   - set_orbit_destination__19TObjEneEpsilonGuardFPvi
   - set_particle_draw_scale
   - set_particle_tint_color
+  - set_password__17TAdEnterPPPPassGCFi
   - set_password__18TAdEnterPasswordGCFi
   - set_player_room_control_flag
   - set_scene_light_diffuse
@@ -1711,6 +1718,7 @@ force_active:
   - update_pad_recalibration
   - update_palette_sprite__20TWindowSubStatusDispFv
   - update_particles__15TObjBoss2TunnelFPv
+  - update_password_input__17TAdEnterPPPPassGCFPv
   - update_password_input__18TAdEnterPasswordGCFPv
   - update_path_follow_rotation__10TObjPlayerFPvPvf
   - update_path_steering__10TObjPlayerFPv
@@ -1789,6 +1797,7 @@ force_active:
   - vt4__9TBoss4UroFv
   - vt5__9TBoss4UroFv
   - vt6__9TBoss4UroFv
+  - wait_aram_request__16TAdWarningBaseGCFv
   - wait_for_vi_retrace
   - warp_nearby_players__14TBoss6PlotFalzFv
   - worker_callback_flag_table

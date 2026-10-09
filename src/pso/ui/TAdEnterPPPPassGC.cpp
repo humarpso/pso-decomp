@@ -16,14 +16,19 @@ struct RecoveredGlobal_803392F4_lbl_80477C20 {
 };
 
 typedef s32 M2C_UNK;
-struct TAdEnterPPPPassGC_80339378 {
+struct TAdEnterPPPPassGC {
     virtual void m0();
     char pad[0x18];
     s32 state;
     s32 f20;
     s32 f24;
-    void s0(); void s1(); void s2(); void s3(); void s4();
+    void open_keyboard_window(void *);
+    void update_password_input(void *);
+    void request_transition(void *);
+    void forward_chg_game_mode(void *);
+    void close_windows_and_advance(void *);
 };
+typedef TAdEnterPPPPassGC TAdEnterPPPPassGC_80339378;
 typedef void (TAdEnterPPPPassGC_80339378::*Pmf_80339378)();
 
 struct T_8033954C { s32 f0; u8 pad[0x14]; void *vt; u8 pad2[0x40 - 0x1C]; s32 f40; };
@@ -227,9 +232,11 @@ void run_task__17TAdEnterPPPPassGCFv(TAdEnterPPPPassGC_80339378 *self) {
     fn_8032B318(self, lbl_804ED9F0);
     self->state = lbl_805D6CA4;
     static Pmf_80339378 tbl[5] = {
-        &TAdEnterPPPPassGC_80339378::s0, &TAdEnterPPPPassGC_80339378::s1,
-        &TAdEnterPPPPassGC_80339378::s2, &TAdEnterPPPPassGC_80339378::s3,
-        &TAdEnterPPPPassGC_80339378::s4,
+        (Pmf_80339378)&TAdEnterPPPPassGC::open_keyboard_window,
+        (Pmf_80339378)&TAdEnterPPPPassGC::update_password_input,
+        (Pmf_80339378)&TAdEnterPPPPassGC::request_transition,
+        (Pmf_80339378)&TAdEnterPPPPassGC::forward_chg_game_mode,
+        (Pmf_80339378)&TAdEnterPPPPassGC::close_windows_and_advance,
     };
     (self->*tbl[lbl_805D6CA4])();
     if (self->state != lbl_805D6CA4) {
