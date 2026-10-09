@@ -185,4 +185,32 @@ int VecCopy__FP3VecPC3Vec(void*);
 
 int copy_position__15TEffStarLight2DFPv(void* p) { return VecCopy__FP3VecPC3Vec((char*)p + 0x2c); }
 
+struct N_800850CC { u8 pad[0xc]; N_800850CC *next; u8 pad10[0x10]; };
+struct T_800850CC { u8 pad[0x14]; N_800850CC *head; };
+struct S_80084EBC;
+struct V2_80084EBC;
+void TEffStarLight2D__sub_80084EBC(S_80084EBC *s, V2_80084EBC *p0, V2_80084EBC *p1, V2_80084EBC *p2, V2_80084EBC *p3, s32 i);
+void reset_transform_state__10TObjPlayerFv();
+s32 all_parents_unqueued_for_destruction__7TObjectFv(void *);
+
+#pragma opt_propagation off
+void render__15TEffStarLight2DFv(T_800850CC *arg0) {
+    s32 n = 0;
+    N_800850CC *nx;
+    N_800850CC *p;
+
+    for (p = arg0->head; p != NULL; p = p->next) {
+        if (p != NULL && p->next != NULL) {
+            nx = p->next;
+            if (all_parents_unqueued_for_destruction__7TObjectFv(p) != 0 &&
+                all_parents_unqueued_for_destruction__7TObjectFv(nx) != 0) {
+                TEffStarLight2D__sub_80084EBC((S_80084EBC *)arg0, (V2_80084EBC *)((u8 *)p + 0x20), (V2_80084EBC *)((u8 *)p + 0x28), (V2_80084EBC *)((u8 *)nx + 0x28), (V2_80084EBC *)((u8 *)nx + 0x20), n);
+                n++;
+            }
+        }
+    }
+    reset_transform_state__10TObjPlayerFv();
+}
+#pragma opt_propagation reset
+
 }

@@ -21,6 +21,84 @@ struct Item_8010D510;
 struct Parm_8010EBD8;
 struct Params_8010E414;
 struct Item_8010E59C;
+struct VBase_18_38db83
+{
+  char pad[0x18];
+};
+
+struct VObj_18_38db83 : VBase_18_38db83 {
+    virtual void m0();
+    virtual void m1();
+    virtual void m2();
+    virtual void m3();
+    virtual void m4();
+    virtual void m5();
+    virtual void m6();
+    virtual void m7();
+    virtual void m8();
+    virtual void m9();
+    virtual void m10();
+    virtual void m11();
+    virtual void m12();
+    virtual void m13();
+    virtual void m14();
+    virtual void m15();
+    virtual void m16();
+    virtual void m17();
+    virtual void m18();
+    virtual void m19();
+    virtual void m20();
+    virtual void m21();
+    virtual void m22();
+    virtual void m23();
+    virtual void m24();
+    virtual void m25();
+    virtual void m26();
+    virtual void m27();
+    virtual void m28();
+    virtual void m29();
+    virtual void m30();
+    virtual void m31();
+    virtual void m32();
+    virtual void m33();
+    virtual void m34();
+    virtual void m35();
+    virtual void m36();
+    virtual u8 m37();
+};
+
+extern "C" {
+s32 obj_getArrWord_254(void *, int);
+s32 obj_getField1c(void *);
+int get_item_field_6__10TObjPlayerFPv(void *);
+s32 is_quest_active();
+s32 is_flag_set__6TLobbyFv();
+u8 *get_quest_id__12TQuestListVMFPv(void *);
+s16 calc_stat_bonus_sum__10TObjPlayerFUs(u16);
+s16 calc_equip_bonus__10TObjPlayerFUs(u16);
+M2C_UNK copy_to_item_data__5TItemFPvPv(void *, void *);
+s32 is_item_usable__9TItemDataFiPv(void *, void *);
+s32 check_equip_requirements(void *, void *, int);
+s32 check_class_equip_permission(void *, int);
+int get_item_field_2__9TItemDataFPv(void *);
+s32 query_flag__13TItemMenuCtrlFi(int);
+void *lookup_item_pmt_record(u8 *item);
+s32 update_player_field__9TItemDataFi(void *);
+s32 check_evolution_cond__8TItemMagFUii(void *, int);
+u8 get_technique_learn_limit(u8, u8);
+s32 is_flag_clear__17TObjWarpBossMultiFPv(void *);
+s32 get_player_by_client_id(s32);
+s16 *get_class_stat_entry__10TObjPlayerFPv(void *);
+u8 get_cast_technique_level(void *, int);
+s32 is_invalid_slot__10TObjPlayerFUc();
+s32 is_boss_area();
+s32 reset_key_machine_state__10TObjPlayerFv();
+void *calc_technique_parameters(u8, u8, s32);
+s32 is_challenge_mode_active();
+extern s32 lbl_805D53A0;
+s32 calc_action_flags__9TItemDataFv(u8 *item, s32 mask, u8 *player);
+}
+
 extern "C" {
 f32 calc_clock_bonus__9TItemDataFPv(u8 *arg0);
 f32 get_set_bonus_multiplier__9TItemDataFPvi(void *self, s32 player);
@@ -29,7 +107,6 @@ s16 getS16_06__9TItemDataFPv(void *arg0);
 s16 get_bswap16_field8__9TItemDataFPv(void *arg0);
 void add_armor_stat_contribution__9TItemDataFPviiPv(u8 *self, s32 player, s32 unused, s16 *out);
 void lookup_item_def__9TItemDataFPv(void *arg0);
-u8 is_wrapped__9TItemDataFPv(Item_8010C52C *it);
 void add_shield_stat_contribution__9TItemDataFPviiPv(u8 *self, s32 player, s32 unused, s16 *out);
 s16 get_field6_bswap__9TItemDataFPv(void *arg0);
 void apply_unit_stat_bonus__9TItemDataFPviiPvPvPv(void *self, s32 arg1, s32 arg2, void *res, Stats_8010BEC4 *st, Stats2_8010BEC4 *st2);
@@ -127,6 +204,10 @@ int check_flag_32__14TItemEquipBaseFPv(void* p);
 int clear_flag_c_bit5__14TItemEquipBaseFPv(void* p);
 int clear_flags__11TAdRicoRingFPvUi(void*, int);
 int set_flags__10TObjPlayerFPvUi(void*, int);
+
+extern "C" {
+u8 is_wrapped__9TItemDataFPv(Item_8010C52C *it);
+}
 
 void subtract_s16_stat(s16 *arg0, s32 arg1) {
     *arg0 -= arg1;
@@ -978,6 +1059,238 @@ s32 has_bonus_stats__9TItemDataFPv(TItemData_8010E344 *item) {
         break;
     }
     return 0;
+}
+
+typedef struct VBase_18_38db83 VBase_18_38db83;
+typedef struct VObj_18_38db83 VObj_18_38db83;
+#define PSO_VCALL_VObj_18_38db83_m37(_self) (((VObj_18_38db83 *)(_self))->m37())
+s32 calc_action_flags__9TItemDataFv(u8 *item, s32 mask, u8 *player) {
+  s32 result;
+  u16 id;
+  s32 hit;
+  u8 *rec;
+  s32 flags;
+  s32 lvl;
+  u8 buf[0x14];
+  result = 0;
+  if (player == 0)
+  {
+    player = (u8 *) get_player_by_client_id(lbl_805D53A0);
+    id = (u16) lbl_805D53A0;
+  }
+  else
+  {
+    id = ((u16 (*)(void *)) obj_getField1c)(player);
+  }
+  if (player == 0)
+  {
+    return 0;
+  }
+  if (is_item_usable__9TItemDataFiPv(player, item) != 0)
+  {
+    result |= 2;
+  }
+  if (((s32 (*)(void *)) is_wrapped__9TItemDataFPv)(item) != 0)
+  {
+    return result & mask;
+  }
+  if (item[0] != 3)
+  {
+    result |= 8;
+    if (check_equip_requirements(player, item, 0) == 0)
+    {
+      result |= 0x10000;
+    }
+  }
+  else
+  {
+    s32 perm;
+    rec = (u8 *) lookup_item_pmt_record(item);
+    perm = check_class_equip_permission(player, 0xD7);
+    if (rec != 0)
+    {
+      flags = *((s32 *) (rec + 0x10));
+      if (!(flags & 2))
+      {
+        result |= 0x10;
+      }
+      if (flags & 4)
+      {
+        result |= 4;
+      }
+      if ((!(flags & 8)) && (perm != 0))
+      {
+        result |= 0x10001;
+      }
+      if ((!(flags & 0x10)) && (reset_key_machine_state__10TObjPlayerFv() == 0))
+      {
+        result |= 1;
+      }
+      if ((!(flags & 0x20)) && (is_boss_area() != 0))
+      {
+        result |= 1;
+      }
+      if ((!(flags & 0x40)) && ((is_flag_set__6TLobbyFv() != 0) || (is_challenge_mode_active() != 0)))
+      {
+        result |= 1;
+      }
+    }
+    switch (item[1])
+    {
+      case 6:
+        switch (item[2])
+      {
+        case 0:
+          if (obj_getArrWord_254(player, 0) != 0xF)
+        {
+          result |= 1;
+        }
+          break;
+        case 1:
+          if (obj_getArrWord_254(player, 0) != 0x10)
+        {
+          result |= 1;
+        }
+          break;
+      }
+        break;
+      case 7:
+        if (is_flag_clear__17TObjWarpBossMultiFPv(player) == 0)
+      {
+        result |= 1;
+      }
+        break;
+      case 2:
+      {
+        u8 *tech;
+        u8 cur;
+        u8 lim;
+        lvl = item[2];
+        tech = (u8 *) calc_technique_parameters(item[4], lvl, 0xFFFF);
+        if (tech != 0)
+        {
+          if ((*((s16 *) (get_quest_id__12TQuestListVMFPv(player) + 2))) < (*((s16 *) (tech + 0x14))))
+          {
+            result |= 0x10001;
+          }
+          cur = get_cast_technique_level(player + 0x428, (s16) item[4]);
+          if ((is_invalid_slot__10TObjPlayerFUc() == 0) && (item[2] <= cur))
+          {
+            result |= 0x10001;
+          }
+          lim = get_technique_learn_limit(player[0x88D], (short) item[4]);
+          if ((lim == 0xFF) || (lim < lvl))
+          {
+            result |= 0x10001;
+          }
+        }
+        break;
+      }
+      case 10:
+      {
+        void *it = (void *) get_item_field_6__10TObjPlayerFPv(player);
+        if (it != 0)
+        {
+          copy_to_item_data__5TItemFPvPv(it, buf);
+          rec = (u8 *) lookup_item_pmt_record(buf);
+          if ((rec != 0) && (rec[0x16] <= buf[3]))
+          {
+            result |= 1;
+          }
+        }
+        else
+        {
+          result |= 1;
+        }
+        break;
+      }
+      case 11:
+      {
+        u8 *quest = get_quest_id__12TQuestListVMFPv(player);
+        if (quest != 0)
+        {
+          hit = 0;
+          switch (item[2])
+          {
+            case 0:
+              if ((get_class_stat_entry__10TObjPlayerFPv(player)[0 / 2] <= ((s16 *) quest)[0 / 2]) || (update_player_field__9TItemDataFi(player) != 0))
+            {
+              hit = 1;
+            }
+              break;
+            case 1:
+              if ((get_class_stat_entry__10TObjPlayerFPv(player)[2 / 2] <= ((s16 *) quest)[2 / 2]) || (update_player_field__9TItemDataFi(player) != 0))
+            {
+              hit = 1;
+            }
+              break;
+            case 2:
+              if ((get_class_stat_entry__10TObjPlayerFPv(player)[4 / 2] <= ((s16 *) quest)[4 / 2]) || (update_player_field__9TItemDataFi(player) != 0))
+            {
+              hit = 1;
+            }
+              break;
+            case 3:
+              if (calc_equip_bonus__10TObjPlayerFUs(id) >= 0xFA)
+            {
+              hit = 1;
+            }
+              break;
+            case 4:
+              if (calc_stat_bonus_sum__10TObjPlayerFUs(id) >= 0xFA)
+            {
+              hit = 1;
+            }
+              break;
+            case 5:
+              if ((get_class_stat_entry__10TObjPlayerFPv(player)[8 / 2] <= ((s16 *) quest)[8 / 2]) || (update_player_field__9TItemDataFi(player) != 0))
+            {
+              hit = 1;
+            }
+              break;
+            case 6:
+              if ((get_class_stat_entry__10TObjPlayerFPv(player)[0xC / 2] <= ((s16 *) quest)[0xC / 2]) || (update_player_field__9TItemDataFi(player) != 0))
+            {
+              hit = 1;
+            }
+              break;
+          }
+          if (hit != 0)
+          {
+            result |= 0x10001;
+          }
+        }
+        break;
+      }
+      case 12:
+        if (check_evolution_cond__8TItemMagFUii(player, item[2]) == 0)
+      {
+        result |= 1;
+      }
+        break;
+      case 15:
+      {
+        void *mag = (void *) get_item_field_2__9TItemDataFPv(player);
+        if (mag != 0)
+        {
+          if (PSO_VCALL_VObj_18_38db83_m37(mag) >= 4)
+          {
+            result |= 1;
+          }
+        }
+        else
+        {
+          result |= 1;
+        }
+        break;
+      }
+    }
+  }
+  if (((is_quest_active() != 0) && (item[0] == 3)) && (query_flag__13TItemMenuCtrlFi(6) == 1))
+  {
+    result |= 0x10001;
+  }
+  return result & mask;
 }
 
 void serialize_mag__9TItemDataFPvPv(Item_8010D510 *item, const Mag_8010D510 *mag) {

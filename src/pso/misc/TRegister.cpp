@@ -38,6 +38,41 @@ s32 __ct__9TRegisterFv(s32 arg0) {
     return arg0;
 }
 
+}
+
+struct packet_header {
+    u8 command;
+    u8 flags;
+    u16 size;
+    void bswap();
+};
+template <unsigned long size> struct TPlyText;
+template <> struct TPlyText<288> {
+    packet_header header;
+    char text[288];
+    void bswap();
+};
+void TPlyText<288>::bswap() {
+    header.bswap();
+}
+
+class QuestListEntry;
+template <typename T, int num_entries, int num_pad_entries> class TMenuList;
+template <> class TMenuList<QuestListEntry, 30, 0> {
+public:
+    void bswap();
+    packet_header header;
+    u8 entries[30][0x98];
+};
+void TMenuList<QuestListEntry, 30, 0>::bswap() {
+    header.bswap();
+    for (int i = 0; i < 30; i++) {
+        fn_801E0018(entries[i]);
+    }
+}
+
+extern "C" {
+
 int fn_801E0018(void* p) { return bswap__16TPlyGuildCardTagFv(p); }
 s32 __ct__14QuestListEntryFRC14QuestListEntry(s32 arg0, s32 arg1) {
     __ct__16TPlyGuildCardTagFRC16TPlyGuildCardTag();
