@@ -254,6 +254,7 @@ force_active:
   - __dt__12TOMineIcon04Fv
   - __dt__12TObjEneReconFv
   - __dt__12TObjRainCtrlFv
+  - __dt__13TAdGuideTxtGCFv
   - __dt__13TAdTitleTexGCFv
   - __dt__13TItemAttackerFv
   - __dt__13TItemEffFlameFv
@@ -1410,6 +1411,7 @@ force_active:
   - run_task__12TMemberCheckFv
   - run_task__12TObjEneReconFv
   - run_task__12TObjRainCtrlFv
+  - run_task__13TAdGuideTxtGCFv
   - run_task__13TAdTitleTexGCFv
   - run_task__13TItemAttackerFv
   - run_task__13TItemEffFlameFv
@@ -1494,6 +1496,7 @@ force_active:
   - run_task__8TObjRainFv
   - run_task__9TAdBackGCFv
   - run_task__9TAdFadeGCFv
+  - run_task__9TDeadSpotFv
   - run_task__9TEffGuardFv
   - run_task__9TEndingABFv
   - run_task__9TSaveChCrFv

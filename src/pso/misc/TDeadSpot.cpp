@@ -10,8 +10,6 @@ public:
 };
 #endif
 
-TDeadSpot::~TDeadSpot() {}
-
 #include "types.h"
 typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
 #define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
@@ -370,6 +368,7 @@ void run_task__9TDeadSpotFv(Obj_800D8228 *arg0) {
 #pragma push
 #pragma fp_contract on
 #pragma opt_common_subs off
+TDeadSpot::~TDeadSpot() {}
 Mark_800D8314 *__ct__9TDeadSpotFv(Mark_800D8314 *self, void *parent, Vec_800D8314 *point, void *texture, s32 selector, s32 delay, f32 maxScale) {
     Vec_800D8314 basis[2];
     Vec_800D8314 probe;

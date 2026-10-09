@@ -703,6 +703,7 @@ pso/item/TItemReverseTechPart1.cpp
 pso/item/TItemReverseTechPart2.cpp
 pso/item/TItemReverseTechPart2_801198F8.cpp
 pso/item/TItemReverseTech_8011A1E8.cpp
+pso/item/TItemShoot.cpp
 pso/item/TItemShootGun_dtor.cpp
 pso/item/TItemShootHook.cpp
 pso/item/TItemShootModel.cpp
@@ -749,6 +750,7 @@ pso/item/TObjItemOKWindow.cpp
 pso/item/TObjItemOKWindow_801F4A6C.cpp
 pso/menu/TAdEndText_80307A34.cpp
 pso/menu/TAdEndText_80399904.cpp
+pso/menu/TAdGuideTxtGC.cpp
 pso/menu/TAdPlyChrSelPlateGC.cpp
 pso/menu/TAdRicoRing.cpp
 pso/menu/TAdRicoRing_8001BEE8.cpp
@@ -835,6 +837,7 @@ pso/misc/TContainerAncient01_8018BAE0.cpp
 pso/misc/TDLGraph.cpp
 pso/misc/TDLGraph_8007F7DC.cpp
 pso/misc/TDLGraph_8007F85C.cpp
+pso/misc/TDeadSpot.cpp
 pso/misc/TDuelEffectNumber.cpp
 pso/misc/TDuelEffectNumber_80080460.cpp
 pso/misc/TEffIndirectCtrl.cpp
@@ -2729,6 +2732,7 @@ pso/ui/TAdMultiChgGameModeGC_8023EAC4.cpp
 pso/ui/TAdMultiChgGameModeGC_8023F4E4.cpp
 pso/ui/TAdMultiChgGameModeGC_8036DE10.cpp
 pso/ui/TAdMultiConfirmGC.cpp
+pso/ui/TAdMultiConfirmGC_802E03D0.cpp
 pso/ui/TAdMultiPlayerNoGC.cpp
 pso/ui/TAdMultiPlyChrSelectGC_801A6EA0.cpp
 pso/ui/TAdMultiPlyChrSelectGC_802B1850.cpp

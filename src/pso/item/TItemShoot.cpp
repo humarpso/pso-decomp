@@ -56,26 +56,6 @@ void *__vt__15TItemShootModel[7] = {
 };
 }
 
-TItemShoot::TItemShoot(void* owner, const Vec* pos, const Vec* dir, f32 life)
-    : TObject(tl_05) {
-    this->m_name = TItemShoot__class_name;
-    VecCopy__FP3VecPC3Vec(&this->m_pos, pos);
-    VecCopy__FP3VecPC3Vec(&this->m_dir, VecCopy__FP3VecPC3Vec(&this->m_44, dir));
-    this->m_life = life;
-    subtract_vector(&this->m_dir, pos);
-    f32 len = vector_length(&this->m_dir);
-    normalize_vector(&this->m_dir);
-    f32 scale = len / life;
-    this->m_dir.x *= scale;
-    this->m_dir.y *= scale;
-    this->m_dir.z *= scale;
-    this->m_count = (s32)(lbl_8043E7A0[0] * get_ad_end_text_start__10TObjPlayerFv(this->m_dir.x, this->m_dir.z));
-    direction_to_rotation_xz(&this->m_dir, &this->m_28, &this->m_30);
-    this->m_50 = NULL;
-    this->m_54 = get_field_d8__10TObjPlayerFPv(owner);
-    disallow_rendering__7TObjectFv(this);
-}
-
 extern "C" const f32 lbl_805DAC68;
 extern "C" const f32 lbl_805DAC60;
 #define kLifeDecay lbl_805DAC68
@@ -102,4 +82,23 @@ TItemShoot::~TItemShoot() {
     if (this->m_50 != nullptr) {
         queue_destruction__7TObjectFv(this->m_50);
     }
+}
+TItemShoot::TItemShoot(void* owner, const Vec* pos, const Vec* dir, f32 life)
+    : TObject(tl_05) {
+    this->m_name = TItemShoot__class_name;
+    VecCopy__FP3VecPC3Vec(&this->m_pos, pos);
+    VecCopy__FP3VecPC3Vec(&this->m_dir, VecCopy__FP3VecPC3Vec(&this->m_44, dir));
+    this->m_life = life;
+    subtract_vector(&this->m_dir, pos);
+    f32 len = vector_length(&this->m_dir);
+    normalize_vector(&this->m_dir);
+    f32 scale = len / life;
+    this->m_dir.x *= scale;
+    this->m_dir.y *= scale;
+    this->m_dir.z *= scale;
+    this->m_count = (s32)(lbl_8043E7A0[0] * get_ad_end_text_start__10TObjPlayerFv(this->m_dir.x, this->m_dir.z));
+    direction_to_rotation_xz(&this->m_dir, &this->m_28, &this->m_30);
+    this->m_50 = NULL;
+    this->m_54 = get_field_d8__10TObjPlayerFPv(owner);
+    disallow_rendering__7TObjectFv(this);
 }
