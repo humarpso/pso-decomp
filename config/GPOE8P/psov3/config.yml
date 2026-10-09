@@ -173,6 +173,10 @@ force_active:
   - TObjPlayer__sub_803DA84C
   - TObjPlayer__sub_803DAA70
   - TObjPlayer__sub_803DAD84
+  - TObjPlayer__sub_803E500C
+  - TObjPlayer__sub_803E5378
+  - TObjPlayer__sub_803E53F8
+  - TObjPlayer__sub_803E5458
   - TObjSeabedSuisoBrakable__vt12
   - TObjSeabedSuisoBrakable__vt14
   - TObjSeabedSuisoBrakable__vt15
@@ -637,6 +641,7 @@ force_active:
   - draw_model__23TObjSeabedSuisoBrakableFPv
   - draw_model__8TObjDoorFPv
   - draw_model_and_lights__20TODoorFourLightRuinsFPv
+  - draw_motion_node_list__10TObjPlayerFi
   - draw_motion_tree__10TObjPlayerFPvPvi
   - draw_node_tree__18TObjLaboDesignBaseFiPv
   - draw_node_tree__19TODoorFourLightBaseFPvPv

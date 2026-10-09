@@ -133,6 +133,54 @@ struct Player_8019EE14 {
 
 struct Wb_8019F2C0 { u8 pad0[0x88]; s32 f88; u8 pad8C[0xE0]; s32 f16C; };
 
+struct Warp_8019EFF0
+{
+  u8 pad0[0xDE];
+  s16 mode;
+  u8 pade0[0xE4 - 0xE0];
+  char names[4][0x18];
+  s32 inside[4];
+  s32 count;
+  s32 n_inside;
+  s32 f15c;
+  u8 pad160[4];
+  void *list;
+  void *dialog;
+};
+
+struct Pos_8019EFF0
+{
+  f32 x;
+  f32 y;
+};
+
+extern "C" {
+s32 check_player_flag1__6TLobbyFPv(void);
+s32 is_lobby_active__17TObjWarpBossMultiFv(void);
+s32 get_message_10__20TWindowSubStatusDispFPv(M2C_UNK);
+M2C_UNK set_close_flag__19TWindowSubTradeMainFPv(void *);
+M2C_UNK set_visible__19TWindowSubTradeMainFPv(void *);
+s32 get_player_by_client_id(s32);
+M2C_UNK fn_80248994(void *, u32, int);
+M2C_UNK advance_matching_entries__22THunterGuildSeqOfflineFPvii(void *, u8, int);
+M2C_UNK dispatch_without_flags__20TWindowSubStatusDispFiii(void *, void *, int);
+void *refresh_with_default_list__20TWindowSubStatusDispFii(s32, void *);
+M2C_UNK request_active_window_close();
+M2C_UNK begin_player_keyboard_hold(s32);
+M2C_UNK suppress_slot__11TWindowCtrlFi(s32);
+M2C_UNK get_window_layout_position(M2C_UNK);
+M2C_UNK notify_warp_flag70__19TWindowSubShortMailFPv(void *);
+M2C_UNK free_member__17TWindowSubComCardFPv(void *, int);
+M2C_UNK initialize_option_dialog(void *, s32, s32, f32);
+M2C_UNK forward_slot_selection__16TAdChrSelASlotGCFPvPvPv(void *, s32, s32, f32);
+void *create__19TWindowMessageYesNoFPvPvPvPv(void *, s32, int, int);
+extern s32 lbl_805D53A0;
+extern const f32 lbl_805DC020;
+extern const f32 lbl_805DC024;
+extern const f32 lbl_805DC028;
+void TObjWarpBossMulti__sub_8019EFF0(u8 *arg0);
+}
+
 extern "C" {
 
 struct Base2_8019f358_8019F22C { char pad[0x18]; };
@@ -233,7 +281,6 @@ M2C_UNK send_code_45_1__10TObjPlayerFi();
 M2C_UNK set_flag_40__16TAdChrSelASlotGCFPv(u32);
 M2C_UNK play_sound_effect(M2C_UNK, void *, M2C_UNK, M2C_UNK);
 void TObjWarpBossMulti__sub_8019EB94(void *);
-M2C_UNK TObjWarpBossMulti__sub_8019EFF0(void *);
 s32 get_warp_state__19TWindowSubTradeMainFv();
 char *strcpy(char *, const char *);
 s32 check_demo_mode__10TObjPlayerFv();
@@ -703,7 +750,7 @@ void update_warp_state__17TObjWarpBossMultiFPv(u8 *arg0) {
         return;
     case 1:
         if (((u32 (*)(f32))TObjWarpBossMulti__sub_8019E570)(M2C_FIELD(arg0, f32 *, 0xAC)) != 0U) {
-            TObjWarpBossMulti__sub_8019EFF0(arg0);
+            TObjWarpBossMulti__sub_8019EFF0((u8 *)(arg0));
             if ((s32) M2C_FIELD(arg0, s32 *, 0x170) == 0) {
                 ((M2C_UNK (*)(void *, s32))warp_player__17TObjWarpBossMultiFPvi)(arg0, lbl_805D53A0);
                 M2C_FIELD(arg0, s32 *, 0x170) = 1;
@@ -746,7 +793,7 @@ void TObjWarpBossMulti__sub_8019EB94(void *arg0_) {
         break;
     case 1:
         if (TObjWarpBossMulti__sub_8019E418(arg0) == 0 && (u32) TObjWarpBossMulti__sub_8019E570((s32) arg0, M2C_FIELD(arg0, f32 *, 0xAC)) != 0) {
-            TObjWarpBossMulti__sub_8019EFF0(arg0);
+            TObjWarpBossMulti__sub_8019EFF0((u8 *)(arg0));
             warp_player__17TObjWarpBossMultiFPvi(arg0, lbl_805D53A0);
             M2C_FIELD(arg0, s16 *, 0xE0) = 2;
             break;
@@ -761,7 +808,7 @@ void TObjWarpBossMulti__sub_8019EB94(void *arg0_) {
         }
         break;
     case 2:
-        TObjWarpBossMulti__sub_8019EFF0(arg0);
+        TObjWarpBossMulti__sub_8019EFF0((u8 *)(arg0));
         if (M2C_FIELD(arg0, void **, 0x168) != NULL) {
             if (get_card_data__17TWindowSubComCardFPv(M2C_FIELD(arg0, void **, 0x168)) != 0) {
                 M2C_FIELD(arg0, s16 *, 0xE0) = 3;
@@ -861,6 +908,74 @@ void update_warp_occupants__10TObjPlayerFPv(u8 *arg0) {
             has_item_flag_4096__10TObjPlayerFPv(pl2);
         }
     }
+}
+
+typedef struct Pos_8019EFF0 Pos_8019EFF0;
+typedef struct Warp_8019EFF0 Warp_8019EFF0;
+void TObjWarpBossMulti__sub_8019EFF0(u8 *arg0) {
+  s32 i;
+  int j;
+  Warp_8019EFF0 *self = (Warp_8019EFF0 *) arg0;
+  u32 color;
+  Pos_8019EFF0 pos;
+  switch (self->mode)
+  {
+    case 0:
+      if ((is_lobby_active__17TObjWarpBossMultiFv() == 0) && (self->dialog == 0))
+    {
+      self->dialog = create__19TWindowMessageYesNoFPvPvPvPv(self, lbl_805D53A0, 0, 0);
+      if (self->dialog != 0)
+      {
+        forward_slot_selection__16TAdChrSelASlotGCFPvPvPv(self->dialog, get_message_10__20TWindowSubStatusDispFPv((M2C_UNK)(0x41)), ((s32)get_window_layout_position((M2C_UNK)(0x36))), lbl_805DC020);
+        free_member__17TWindowSubComCardFPv(self->dialog, 1);
+        notify_warp_flag70__19TWindowSubShortMailFPv(self->dialog);
+        begin_player_keyboard_hold(lbl_805D53A0);
+        request_active_window_close();
+        suppress_slot__11TWindowCtrlFi(lbl_805D53A0);
+      }
+    }
+      break;
+    case 1:
+      if (self->dialog == 0)
+    {
+      i = 0x36;
+      self->dialog = create__19TWindowMessageYesNoFPvPvPvPv(self, lbl_805D53A0, 0, 0);
+      if (self->dialog != 0)
+      {
+        initialize_option_dialog(self->dialog, get_message_10__20TWindowSubStatusDispFPv((M2C_UNK)(0x42)), ((s32)get_window_layout_position((M2C_UNK)(i))), lbl_805DC020);
+      }
+    }
+      break;
+  }
+  if (self->list == 0)
+  {
+    pos.x = lbl_805DC024;
+    pos.y = lbl_805DC028;
+    self->list = refresh_with_default_list__20TWindowSubStatusDispFii(((s32)get_window_layout_position((M2C_UNK)(0x34))), &pos);
+    if (self->list != 0)
+    {
+      set_visible__19TWindowSubTradeMainFPv(self->list);
+      set_close_flag__19TWindowSubTradeMainFPv(self->list);
+      for (i = 0; i < self->count; i++)
+      {
+        dispatch_without_flags__20TWindowSubStatusDispFiii(self->list, self->names[i], i);
+      }
+    }
+    request_active_window_close();
+  }
+  if (self->list != 0)
+  {
+    for (j = 0; j < self->count; j++)
+    {
+            advance_matching_entries__22THunterGuildSeqOfflineFPvii(self->list, self->inside[j] != 0, j);
+      color = 0xF0F0F0FF;
+      if (((self->mode == 1) && (((u32)get_player_by_client_id((s32)(j))) != 0)) && (check_player_flag1__6TLobbyFPv() != 0))
+      {
+        color = 0xFFFF00FF;
+      }
+      fn_80248994(self->list, color, j);
+    }
+  }
 }
 
 void update__12TObjWarpBossFPv(void *arg0) {

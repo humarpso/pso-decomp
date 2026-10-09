@@ -76,6 +76,17 @@ struct Ctx_803E4E20 {
 };
 
 typedef s32 M2C_UNK;
+struct G_803E4F14 {
+    s32 f0;
+    s32 f4;
+    s32 f8;
+    void **keys;
+    s32 *vals;
+    f32 f14;
+    s32 f18;
+    s32 idx;
+    u32 flags;
+};
 struct Key_803E500C { u32 frame; f32 *data; };
 
 extern "C" {
@@ -103,6 +114,7 @@ extern u8 *lbl_805D4698;
 void draw_motion_node_list__10TObjPlayerFi(s32 arg0);
 void find_motion_key_interval(void *, s32, s32 count, f32 t, void *, void *, void *);
 extern u32 *lbl_805D7778;
+void TObjPlayer__sub_803E4F14(u32 **src, u32 **dst);
 extern const f32 lbl_805E10B8;
 void TObjPlayer__sub_803E500C(void *motA, s32 keyA, void *motB, s32 keyB, f32 t, u32 *src, u32 **out);
 }
@@ -164,6 +176,48 @@ void draw_motion_node_list__10TObjPlayerFi(s32 arg0) {
         n = n->next;
     } while (n != NULL);
 }
+
+#define G_4F14 ((G_803E4F14 *)lbl_805D7818)
+#pragma push
+#pragma optimize_for_size off
+#pragma opt_common_subs on
+void TObjPlayer__sub_803E4F14(u32 **src, u32 **dst) {
+    s32 bi;
+    s32 ai;
+    void *a;
+    void *b;
+
+    if (*src == 0) {
+        *dst = 0;
+        return;
+    }
+    if (G_4F14->flags & 0x10) {
+        a = G_4F14->keys[G_4F14->idx];
+        if (a != 0) {
+            ai = G_4F14->vals[G_4F14->idx];
+        }
+        G_4F14->idx++;
+    } else {
+        a = 0;
+    }
+    if (G_4F14->flags & 0x20) {
+        b = G_4F14->keys[G_4F14->idx];
+        if (b != 0) {
+            bi = G_4F14->vals[G_4F14->idx];
+        }
+        G_4F14->idx++;
+    } else {
+        b = 0;
+    }
+    if (a != 0 || b != 0) {
+        TObjPlayer__sub_803E500C(a, ai, b, bi, G_4F14->f14, *src, dst);
+        return;
+    }
+    *dst = *src;
+}
+
+#pragma pop
+#undef G_4F14
 
 #pragma push
 #pragma use_lmw_stmw off

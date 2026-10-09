@@ -219,8 +219,6 @@ M2C_UNK set_flag0_bit2__15TWindowHelpItemFPv(int);
 void init_help_texts__15TWindowHelpItemFPv(void *);
 M2C_UNK init_window_layout_entries(void *, void *, int);
 M2C_UNK set_help_text__15TWindowHelpItemFPvUi(void *, int);
-extern M2C_UNK TWindowHelpItem__item_layout_entries[];
-extern Vec3_80254F18 lbl_804CF82C;
 void TWindowHelpItem__vt9(HelpItem_80254F18 *self);
 s16 get_class_id__10TObjPlayerFPv(s32);
 s16 get_item_index__10TObjPlayerFPv(s32);
@@ -238,12 +236,9 @@ M2C_UNK init_window_layout_entries(void *, void *, int);
 void set_flag8_and_field20__15TWindowHelpItemFPvi(s32, s32);
 void set_flag4_and_field1c__15TWindowHelpItemFPvi(s32, s32);
 M2C_UNK set_help_text__15TWindowHelpItemFPvUi(void *, int);
-extern u8 TWindowHelpItem__resistance_layout_entries[];
 extern Vec3_802541E0 lbl_804CF868;
 void update_resistance_rows__15TWindowHelpItemFPv(void *arg0);
 void set_sprite_uv_from_pixels(s32, f32, f32);
-extern Vec3_8025500C lbl_804CF820;
-extern Vec3_802551C4 lbl_804CF814;
 extern const f32 TWindowHelpItem__data_805DCDE4;
 extern const f32 lbl_805DCE00;
 extern const f32 lbl_805DCE04;
@@ -285,6 +280,189 @@ s32 get_player_by_client_id(s16);
 s32 check_equip_requirements(s32, M2C_UNK, M2C_UNK *);
 M2C_UNK set_flag_0x10__15TWindowHelpItemFPvi(s32, M2C_UNK);
 s32 get_array_entry__20TWindowSubStatusDispFPvi(void *, M2C_UNK);
+
+extern "C" void TWindowHelpItem__vt1(void *arg0);
+extern "C" void TWindowHelpItem__vt0(HelpItem_802551C4 *self);
+extern "C" void TWindowHelpItem__vt3(HelpItem_8025500C *self);
+extern "C" Op_802544D8 *get_attribute_entry__10TObjPlayerFPvi(s32, s32);
+extern "C" void set_percentage_rows__15TWindowHelpItemFPvPvi(void *self, Op_802544D8 *ops, EntryFn_802544D8 fn);
+extern "C" void set_flag0_bit20__15TWindowHelpItemFPv(s32);
+extern "C" void update_visible_flags__15TWindowHelpItemFPv(s32);
+extern "C" u8 lbl_8044EDD8[];
+extern "C" u8 lbl_8044EDE0[];
+extern "C" u8 lbl_8044EDE8[];
+extern "C" u8 lbl_8044EDF0[];
+extern "C" u8 lbl_805DCDFC[4];
+extern "C" void TWindowHelpItem__vt10();
+extern "C" void TWindowHelpItem__vt11();
+extern "C" void TWindowHelpItem__vt2();
+extern "C" u8 lbl_8044EDB8[];
+extern "C" u8 lbl_8044EDC0[];
+extern "C" u8 lbl_805D5540[];
+extern "C" u8 lbl_805D63F0[];
+extern "C" u8 lbl_805DCDC8[];
+extern "C" u8 lbl_805DCDCC[];
+extern "C" u8 lbl_805DCDD0[];
+extern "C" u8 lbl_805DCDD4[];
+extern "C" u8 lbl_805DCDD8[];
+extern "C" u8 lbl_805DCDDC[];
+void *TWindowHelpItem__item_layout_entries[67] = {
+    (void *)0xc, (void *)0x1, (void *)0xb, (void *)0x0,
+    (void *)0x0, (void *)0xb, (void *)0x0, (void *)0x41a00000,
+    (void *)0xb, (void *)0x0, (void *)0x42200000, (void *)0xb,
+    (void *)0x0, (void *)0x42700000, (void *)0xb, (void *)0x0,
+    (void *)0x42a00000, (void *)0xb, (void *)0x0, (void *)0x42c80000,
+    (void *)0x6, (void *)0x0, (void *)0x42f60000, (void *)0x42fe0000,
+    (void *)0x41a00000, (void *)0x0, (void *)0x43040000, (void *)0x3f000000,
+    (void *)0xffffffff, (void *)&lbl_805D5540, (void *)0x1, (void *)0x4,
+    (void *)0x3, (void *)0x42ce0000, (void *)0x42f80000, (void *)0x3f000000,
+    (void *)0xffffffff, (void *)0x0, (void *)&lbl_805DCDC8, (void *)0x4,
+    (void *)0x43170000, (void *)0x42f80000, (void *)0x3f000000, (void *)0xffffffff,
+    (void *)0x0, (void *)0x0, (void *)0x3, (void *)0x43170000,
+    (void *)0x42f80000, (void *)0x3f000000, (void *)0xffffffff, (void *)0x0,
+    (void *)&lbl_805DCDCC, (void *)0x4, (void *)0x43500000, (void *)0x42f80000,
+    (void *)0x3f000000, (void *)0xffffffff, (void *)0x0, (void *)0x0,
+    (void *)0x3, (void *)0x43500000, (void *)0x42f80000, (void *)0x3f000000,
+    (void *)0xffffffff, (void *)0x0, (void *)&lbl_805DCDD0,
+};
+void *lbl_804CF24C[17] = {
+    (void *)0x5, (void *)0x1, (void *)0xb, (void *)0x0,
+    (void *)0x0, (void *)0xb, (void *)0x0, (void *)0x41a00000,
+    (void *)0xb, (void *)0x0, (void *)0x42200000, (void *)0xb,
+    (void *)0x0, (void *)0x42700000, (void *)0xb, (void *)0x0,
+    (void *)0x42a00000,
+};
+void *TWindowHelpItem__resistance_layout_entries[31] = {
+    (void *)0x7, (void *)0x1, (void *)0xb, (void *)0x0,
+    (void *)0x0, (void *)0xb, (void *)0x0, (void *)0x41a00000,
+    (void *)0xb, (void *)0x0, (void *)0x42200000, (void *)0xb,
+    (void *)0x0, (void *)0x42700000, (void *)0xb, (void *)0x0,
+    (void *)0x42a00000, (void *)0x3, (void *)0x425c0000, (void *)0x42f60000,
+    (void *)0x3f000000, (void *)0xffffffff, (void *)0x0, (void *)0x0,
+    (void *)0x4, (void *)0x43530000, (void *)0x42f60000, (void *)0x3f000000,
+    (void *)0xffffffff, (void *)0x0, (void *)0x0,
+};
+void *lbl_804CF30C[118] = {
+    (void *)0x10, (void *)0x1, (void *)0xb, (void *)0x0,
+    (void *)0x0, (void *)0xb, (void *)0x0, (void *)0x41a00000,
+    (void *)0xb, (void *)0x0, (void *)0x42200000, (void *)0x3,
+    (void *)0x0, (void *)0x42700000, (void *)0x3f000000, (void *)0xffffffff,
+    (void *)0x0, (void *)&lbl_805DCDD4, (void *)0x4, (void *)0x42ac0000,
+    (void *)0x42700000, (void *)0x3f000000, (void *)0xffffffff, (void *)0x0,
+    (void *)0x0, (void *)0x2, (void *)0x42c40000, (void *)0x42820000,
+    (void *)0x3f000000, (void *)0xff0034ff, (void *)0x18, (void *)0x42c80000,
+    (void *)0x42c80000, (void *)0x0, (void *)0xff00ca9e, (void *)0xffff2924,
+    (void *)0x3, (void *)0x0, (void *)0x42a00000, (void *)0x3f000000,
+    (void *)0xffffffff, (void *)0x0, (void *)&lbl_805DCDD8, (void *)0x4,
+    (void *)0x42ac0000, (void *)0x42a00000, (void *)0x3f000000, (void *)0xffffffff,
+    (void *)0x0, (void *)0x0, (void *)0x2, (void *)0x42c40000,
+    (void *)0x42aa0000, (void *)0x3f000000, (void *)0xffe1000d, (void *)0x18,
+    (void *)0x42c80000, (void *)0x42c80000, (void *)0x0, (void *)0xff00ca9e,
+    (void *)0xffff2924, (void *)0x3, (void *)0x0, (void *)0x42c80000,
+    (void *)0x3f000000, (void *)0xffffffff, (void *)0x0, (void *)&lbl_805DCDDC,
+    (void *)0x4, (void *)0x42ac0000, (void *)0x42c80000, (void *)0x3f000000,
+    (void *)0xffffffff, (void *)0x0, (void *)0x0, (void *)0x2,
+    (void *)0x42c40000, (void *)0x42d20000, (void *)0x3f000000, (void *)0xffffe000,
+    (void *)0x18, (void *)0x42c80000, (void *)0x42c80000, (void *)0x0,
+    (void *)0xff00ca9e, (void *)0xffff2924, (void *)0x3, (void *)0x0,
+    (void *)0x42f00000, (void *)0x3f000000, (void *)0xffffffff, (void *)0x0,
+    (void *)&lbl_8044EDB8, (void *)0x4, (void *)0x42ac0000, (void *)0x42f00000,
+    (void *)0x3f000000, (void *)0xffffffff, (void *)0x0, (void *)0x0,
+    (void *)0x2, (void *)0x42c40000, (void *)0x42fa0000, (void *)0x3f000000,
+    (void *)0xff00ff14, (void *)0x18, (void *)0x42c80000, (void *)0x42c80000,
+    (void *)0x0, (void *)0xff00ca9e, (void *)0xffff2924, (void *)0x3,
+    (void *)0x0, (void *)0x0, (void *)0x3f000000, (void *)0xffffff00,
+    (void *)0x0, (void *)&lbl_8044EDC0,
+};
+void *lbl_804CF4E4[50] = {
+    (void *)0x4, (void *)0x1, (void *)0x6, (void *)0x420c0000,
+    (void *)0x41900000, (void *)0x43160000, (void *)0x42d60000, (void *)0x0,
+    (void *)0x0, (void *)0x3f19999a, (void *)0xffffffff, (void *)&lbl_805D63F0,
+    (void *)0x2, (void *)0x4, (void *)0x6, (void *)0x42aa0000,
+    (void *)0x42480000, (void *)0x42480000, (void *)0x422c0000, (void *)0x43160000,
+    (void *)0x42ac0000, (void *)0x3f333333, (void *)0xffffffff, (void *)&lbl_805D63F0,
+    (void *)0x4, (void *)0x4, (void *)0x6, (void *)0x43010000,
+    (void *)0x41c00000, (void *)0x42480000, (void *)0x422c0000, (void *)0x43160000,
+    (void *)0x42ac0000, (void *)0x3f333333, (void *)0xffffffff, (void *)&lbl_805D63F0,
+    (void *)0x4, (void *)0x4, (void *)0x6, (void *)0x42240000,
+    (void *)0x42980000, (void *)0x42480000, (void *)0x422c0000, (void *)0x43160000,
+    (void *)0x42ac0000, (void *)0x3f333333, (void *)0xffffffff, (void *)&lbl_805D63F0,
+    (void *)0x4, (void *)0x4,
+};
+void *window_help_item_layout_entries[12] = {
+    (void *)0x2, (void *)0x1, (void *)0x3, (void *)0x0,
+    (void *)0x0, (void *)0x3f000000, (void *)0xffffffff, (void *)0x0,
+    (void *)0x0, (void *)0xa, (void *)0x0, (void *)0x43000000,
+};
+void *help_item_tech_disk_window_layout_table[56] = {
+    (void *)0x7, (void *)0x1, (void *)0x3, (void *)0x0,
+    (void *)0x0, (void *)0x3f000000, (void *)0xffffffff, (void *)0x0,
+    (void *)0x0, (void *)0x6, (void *)0x0, (void *)0x42f60000,
+    (void *)0x42fe0000, (void *)0x41a00000, (void *)0x0, (void *)0x43040000,
+    (void *)0x3f000000, (void *)0xffffffff, (void *)&lbl_805D5540, (void *)0x1,
+    (void *)0x4, (void *)0x3, (void *)0x42ce0000, (void *)0x42f80000,
+    (void *)0x3f000000, (void *)0xffffffff, (void *)0x0, (void *)&lbl_805DCDC8,
+    (void *)0x4, (void *)0x43170000, (void *)0x42f80000, (void *)0x3f000000,
+    (void *)0xffffffff, (void *)0x0, (void *)0x0, (void *)0x3,
+    (void *)0x43170000, (void *)0x42f80000, (void *)0x3f000000, (void *)0xffffffff,
+    (void *)0x0, (void *)&lbl_805DCDCC, (void *)0x4, (void *)0x43500000,
+    (void *)0x42f80000, (void *)0x3f000000, (void *)0xffffffff, (void *)0x0,
+    (void *)0x0, (void *)0x3, (void *)0x43500000, (void *)0x42f80000,
+    (void *)0x3f000000, (void *)0xffffffff, (void *)0x0, (void *)&lbl_805DCDD0,
+};
+void *lbl_804CF6BC[9] = {
+    (void *)0x1, (void *)0x1, (void *)0x3, (void *)0x0,
+    (void *)0x0, (void *)0x3f000000, (void *)0xffffffff, (void *)0x0,
+    (void *)0x0,
+};
+void *__vt__15TWindowHelpItem[77] = {
+    (void *)0x43640000, (void *)0x43380000, (void *)0x4717f400, (void *)0x0,
+    (void *)0x3, (void *)0x0, (void *)0xffffffff, (void *)&TWindowHelpItem__vt0,
+    (void *)0x0, (void *)0xffffffff, (void *)&TWindowHelpItem__vt1, (void *)0x0,
+    (void *)0xffffffff, (void *)&TWindowHelpItem__vt2, (void *)0x0, (void *)0x0,
+    (void *)0x0, (void *)0x0, (void *)0x0, (void *)0x0,
+    (void *)0x0, (void *)0x0, (void *)0x0, (void *)0x0,
+    (void *)0xffffffff, (void *)&TWindowHelpItem__vt3, (void *)0x0, (void *)0xffffffff,
+    (void *)&TWindowHelpItem__vt4, (void *)0x0, (void *)0xffffffff, (void *)&TWindowHelpItem__vt2,
+    (void *)0x0, (void *)0x0, (void *)0x0, (void *)0x0,
+    (void *)0x0, (void *)0x0, (void *)0x0, (void *)0x0,
+    (void *)0x0, (void *)0x0, (void *)0xffffffff, (void *)&TWindowHelpItem__vt3,
+    (void *)0x0, (void *)0xffffffff, (void *)&TWindowHelpItem__vt7, (void *)0x0,
+    (void *)0xffffffff, (void *)&TWindowHelpItem__vt2, (void *)0x0, (void *)0x0,
+    (void *)0x0, (void *)0x0, (void *)0x0, (void *)0x0,
+    (void *)0x0, (void *)0x0, (void *)0x0, (void *)0x0,
+    (void *)0xffffffff, (void *)&TWindowHelpItem__vt9, (void *)0x0, (void *)0xffffffff,
+    (void *)&TWindowHelpItem__vt10, (void *)0x0, (void *)0xffffffff, (void *)&TWindowHelpItem__vt11,
+    (void *)0x0, (void *)0x0, (void *)0x0, (void *)0x0,
+    (void *)0x0, (void *)0x0, (void *)0x0, (void *)0x0,
+    (void *)0x0,
+};
+void *lbl_804CF814[3] = {
+    (void *)0x0, (void *)0xffffffff, (void *)&update_requirements__15TWindowHelpItemFv,
+};
+void *lbl_804CF820[3] = {
+    (void *)0x0, (void *)0xffffffff, (void *)&update_level_requirement__15TWindowHelpItemFPv,
+};
+void *lbl_804CF82C[3] = {
+    (void *)0x0, (void *)0xffffffff, (void *)&update_stat_comparison__15TWindowHelpItemFv,
+};
+void *lbl_804CF838[3] = {
+    (void *)0x0, (void *)0xffffffff, (void *)&update_stat_disp2__15TWindowHelpItemFPv,
+};
+void *lbl_804CF844[3] = {
+    (void *)0x0, (void *)0xffffffff, (void *)&set_flag4_and_field1c__15TWindowHelpItemFPvi,
+};
+void *lbl_804CF850[3] = {
+    (void *)0x0, (void *)0xffffffff, (void *)&set_flag8_and_field20__15TWindowHelpItemFPvi,
+};
+void *lbl_804CF85C[3] = {
+    (void *)0x0, (void *)0xffffffff, (void *)&set_flag8_and_field20__15TWindowHelpItemFPvi,
+};
+#define TWindowHelpItem__item_layout_entries ((M2C_UNK *)TWindowHelpItem__item_layout_entries)
+#define TWindowHelpItem__resistance_layout_entries ((u8 *)TWindowHelpItem__resistance_layout_entries)
+#define lbl_804CF814 (*(Vec3_802551C4 *)lbl_804CF814)
+#define lbl_804CF820 (*(Vec3_8025500C *)lbl_804CF820)
+#define lbl_804CF82C (*(Vec3_80254F18 *)lbl_804CF82C)
 
 void update_stat_disp__15TWindowHelpItemFPv(void *arg0) {
     M2C_UNK sp8;
@@ -449,6 +627,66 @@ void update_stat_disp2__15TWindowHelpItemFPv(void *arg0) {
         set_flag_0x10__15TWindowHelpItemFPvi(temp_r27, 0);
     }
 }
+
+struct HelpItem_802547C0 {
+    u8 pad0[0x20];
+    s16 player;
+    u8 pad22[2];
+    u8 disp[0x70 - 0x24];
+    u32 item;
+    u8 pad74[0xA4 - 0x74];
+    s32 itemId;
+    u8 padA8[0xB0 - 0xA8];
+    EntryFn_802544D8 pos;
+};
+#define lbl_804CF838 (*(EntryFn_802544D8 *)lbl_804CF838)
+#define lbl_804CF844 (*(EntryFn_802544D8 *)lbl_804CF844)
+#define lbl_804CF850 (*(EntryFn_802544D8 *)lbl_804CF850)
+#define lbl_804CF85C (*(EntryFn_802544D8 *)lbl_804CF85C)
+#define self ((HelpItem_802547C0 *)arg0)
+void TWindowHelpItem__vt1(void *arg0) {
+    s32 player;
+    s32 a;
+    s32 b;
+    s32 c;
+    s32 d;
+    s32 e;
+
+    player = get_player_by_client_id(self->player);
+    if (player != 0) {
+        init_window_layout_entries(self->disp, lbl_804CF24C, self->player);
+        self->pos = lbl_804CF838;
+        a = get_array_entry__20TWindowSubStatusDispFPvi(self, 0);
+        b = get_array_entry__20TWindowSubStatusDispFPvi(self, 1);
+        c = get_array_entry__20TWindowSubStatusDispFPvi(self, 2);
+        d = get_array_entry__20TWindowSubStatusDispFPvi(self, 3);
+        e = get_array_entry__20TWindowSubStatusDispFPvi(self, 4);
+        set_help_text__15TWindowHelpItemFPvUi((void *)a, (int)lbl_8044EDD8);
+        set_help_text__15TWindowHelpItemFPvUi((void *)b, (int)lbl_8044EDE0);
+        set_help_text__15TWindowHelpItemFPvUi((void *)c, (int)lbl_8044EDE8);
+        set_help_text__15TWindowHelpItemFPvUi((void *)d, (int)lbl_8044EDF0);
+        set_help_text__15TWindowHelpItemFPvUi((void *)e, (int)lbl_805DCDFC);
+        set_flag0_bit20__15TWindowHelpItemFPv(a);
+        set_flag0_bit20__15TWindowHelpItemFPv(b);
+        set_flag0_bit20__15TWindowHelpItemFPv(c);
+        set_flag0_bit20__15TWindowHelpItemFPv(d);
+        set_flag0_bit20__15TWindowHelpItemFPv(e);
+        set_percentage_rows__15TWindowHelpItemFPvPvi(self, get_attribute_entry__10TObjPlayerFPvi(player, 0), lbl_804CF844);
+        if (self->item != 0) {
+            if (is_item_already_equipped__15TWindowHelpItemFPv(self) != 0) {
+                set_percentage_rows__15TWindowHelpItemFPvPvi(self, 0, lbl_804CF850);
+            } else {
+                set_percentage_rows__15TWindowHelpItemFPvPvi(self, (Op_802544D8 *)(self->item + 6), lbl_804CF85C);
+            }
+            update_visible_flags__15TWindowHelpItemFPv(e);
+        }
+    }
+}
+#undef self
+#undef lbl_804CF838
+#undef lbl_804CF844
+#undef lbl_804CF850
+#undef lbl_804CF85C
 
 void update_stat_comparison__15TWindowHelpItemFv(Help_802549B0 *self) {
     s32 flags;

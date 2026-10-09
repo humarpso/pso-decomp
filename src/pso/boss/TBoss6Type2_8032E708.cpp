@@ -177,7 +177,7 @@ void *fn_8033068C(void *arg0, s16 arg1);
 void update_main__11TBoss6Type2FPv(u8 *arg0);
 void TObjPlayer__sub_8033051C(void* p);
 f32 get_conditional_rate__10TObjPlayerFPv(void *arg0);
-f32 fn_80330240(O_80330240 *arg0, void *arg1, P_80330240 *arg2, void *arg3, void *arg4, void *arg5);
+f32 fn_80330240(O_80330240 *arg0, void *arg1, P_80330240 arg2, void *arg3, void *arg4, void *arg5);
 void spawn_ground_effect__10TObjPlayerFPv(u8 *arg0);
 void TObjPlayer__sub_8033030C(u8 *arg0);
 void TLobby__sub_801A1FD8();
@@ -1240,14 +1240,14 @@ extern "C" {
 f32 receive_direct_attack__10TObjPlayerFv(void *, void *, P_80330240, void *, void *, void *);
 s32 query_teammate_state__9TObjEneDDFPv();
 
-f32 fn_80330240(O_80330240 *arg0, void *arg1, P_80330240 *arg2, void *arg3, void *arg4, void *arg5) {
+f32 fn_80330240(O_80330240 *arg0, void *arg1, P_80330240 arg2, void *arg3, void *arg4, void *arg5) {
     while (arg0->f388 == 0) {
-        if (arg2->a != 0x14 && query_teammate_state__9TObjEneDDFPv() == 0) {
+        if (arg2.a != 0x14 && query_teammate_state__9TObjEneDDFPv() == 0) {
             return (0.0f);
         }
         break;
     }
-    return receive_direct_attack__10TObjPlayerFv(arg0, arg1, *arg2, arg3, arg4, arg5);
+    return receive_direct_attack__10TObjPlayerFv(arg0, arg1, arg2, arg3, arg4, arg5);
 }
 }
 extern "C" {

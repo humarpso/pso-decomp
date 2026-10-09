@@ -10,7 +10,7 @@ extern "C" {
 extern u8 *lbl_805D553C;
 s32 get_technique_name(s32 arg0);
 s32 obj_getField1c(s32);
-void TLobby__sub_80076F48(void *, void *);
+void *TLobby__sub_80076F48(void *, void *);
 void *get_data_ptr__20TWindowSubSymbolChatFPv(void *);
 void bswap_symbol_chat_packet__20TWindowSubSymbolChatFPv(Pkt_80076E98 *);
 s32 get_player_by_client_id(s32);
@@ -43,6 +43,16 @@ void handle_6x07_symbol_chat(Pkt_80076E98 *arg0) {
             TLobby__sub_80076F48(get_data_ptr__20TWindowSubSymbolChatFPv(lbl_804FF968), p);
         }
     }
+}
+#pragma inline_depth(1)
+#pragma auto_inline off
+#pragma dont_inline off
+struct SymBody_80076F48 { u32 w[12]; };
+struct SymPair_80076F48 { u32 b; u32 c; };
+struct Sym_80076F48 { u32 a; SymPair_80076F48 mid; SymBody_80076F48 body; };
+void *TLobby__sub_80076F48(void *dst, void *src) {
+    *(Sym_80076F48 *)dst = *(Sym_80076F48 *)src;
+    return dst;
 }
 
 }

@@ -59,6 +59,13 @@ struct Glyph_80145190 {
     u8 y;
 };
 
+typedef struct Pos_8014556C
+{
+  f32 x;
+  f32 y;
+  u8 pad[0x1C];
+} Pos_8014556C;
+
 extern "C" {
 extern u8 lbl_805D56C0;
 s32 upload_glyph_if_needed__20TWindowSubStatusDispFUsPvPv(u16 arg0, u8 *arg1, void **arg2);
@@ -94,6 +101,18 @@ u32 calc_text_width__20TWindowSubStatusDispFPv(char *s);
 u32 get_font_char_advance(u16 arg0);
 extern const f32 lbl_805DB19C;
 u32 TWindowSubStatusDisp__sub_80144E9C(char *s);
+void reset_transform_state__10TObjPlayerFv(void);
+char *parse_text_control_codes(char *p, s32 *a, s32 *b);
+void set_glyph_quad_extents(u8 arg0, u8 *arg1);
+u16 map_char_to_font_code(u16 c);
+u8 calc_gauge_scale__20TWindowSubStatusDispFPvPvi(void *arg0, void *arg1, s32 arg2);
+int end_render_forward__20TWindowSubStatusDispFPv(void* p);
+void reset_gauge__20TWindowSubStatusDispFPv(void* p);
+void draw_textured_quad_at_depth(void *, f32);
+extern s32 lbl_805D5544;
+extern const f32 lbl_805DB1A0;
+extern const f32 lbl_805DB1A4;
+void draw_menu_font_string(const char *s, s32 arg1, u32 flags, f32 x, f32 y, f32 scale);
 }
 
 extern "C" {
@@ -473,5 +492,76 @@ typedef char RecoveredGlobal_8000F9CC_lbl_804FE120_size[sizeof(RecoveredGlobal_8
 
 int end_render_forward__20TWindowSubStatusDispFPv(void* p) { return get_player__20TWindowSubStatusDispFv(p); }
 void reset_gauge__20TWindowSubStatusDispFPv(void* p) { begin_screen_draw((void*)1); set_gauge_param__20TWindowSubStatusDispFi((s32)(p)); set_draw_texture_and_color((void*)((void*)0), (void*)((void*)-1)); }
+typedef struct Pos_8014556C Pos_8014556C;
+void draw_menu_font_string(const char *s, s32 arg1, u32 flags, f32 x, f32 y, f32 scale) {
+  s32 mb = 0;
+  Pos_8014556C pos;
+  s32 c;
+  unsigned char hi;
+  u8 lo;
+  int code;
+  u8 w;
+  if ((*s) == 0)
+  {
+    return;
+  }
+  if (lbl_805D5544 == 0)
+  {
+    mb = 1;
+  }
+  pos.x = x;
+  pos.y = y;
+  reset_transform_state__10TObjPlayerFv();
+  reset_gauge__20TWindowSubStatusDispFPv((void*)(0));
+  flags &= 1;
+  while ((*s) != 0)
+  {
+    s = parse_text_control_codes((char *) s, &mb, 0);
+    c = *((u8 *) s);
+    if (((s8) c) == 0)
+    {
+      continue;
+    }
+    hi = c;
+    s++;
+    if (c == 10)
+    {
+      if (flags != 0)
+      {
+        pos.x += lbl_805DB1A0;
+      }
+      else
+      {
+        pos.x = x;
+        pos.y += lbl_805DB1A4;
+      }
+    }
+    else
+      if (c == 0x20)
+    {
+      pos.x += lbl_805DB1A0;
+    }
+    else
+    {
+      if ((mb != 0) && (((c & 0xE0) == 0x80) || ((c & 0xE0) == 0xE0)))
+      {
+        lo = *((u8 *) s);
+        s++;
+      }
+      else
+      {
+        lo = hi;
+        hi = 0;
+      }
+      code = (hi << 8) & 0xFF00;
+      code = code | lo;
+      w = ((u8 (*)(u16, void *, s32)) calc_gauge_scale__20TWindowSubStatusDispFPvPvi)(((u16 (*)(u32)) map_char_to_font_code)(code), &pos, arg1);
+      set_glyph_quad_extents(w, (u8 *) (&pos));
+      draw_textured_quad_at_depth(&pos, scale);
+      pos.x += (f32) w;
+    }
+  }
+  ((int (*)(void)) end_render_forward__20TWindowSubStatusDispFPv)();
+}
 
 }

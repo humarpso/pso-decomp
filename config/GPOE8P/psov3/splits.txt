@@ -9093,6 +9093,7 @@ pso/unk/text_80253974.cpp:
 
 pso/misc/TWindowHelpItem_802540AC.cpp:
 	.text       start:0x802540AC end:0x802559F8
+	.data       start:0x804CF140 end:0x804CF868
 
 pso/misc/TWindowSubMag_802559F8.cpp:
 	.text       start:0x802559F8 end:0x80255A38
@@ -9261,7 +9262,8 @@ pso/misc/TWindowMakeTeam_8026534C.cpp:
 
 pso/misc/TWindowSubComCard_80265410.cpp:
 	.text       start:0x80265410 end:0x80266BC4
-	.rodata     start:0x8044F320 end:0x8044F328
+	.rodata     start:0x8044F320 end:0x8044F330
+	.sdata2     start:0x805DD150 end:0x805DD154
 
 pso/misc/TWindowSubComCard_80266BC4.cpp:
 	.text       start:0x80266BC4 end:0x80266BD0

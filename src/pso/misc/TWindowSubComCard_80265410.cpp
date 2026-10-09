@@ -6,6 +6,12 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 #define M2C_BITWISE(type, expr) ((type)(expr))
 
 extern "C" {
+extern const f32 lbl_805DD160;
+s32 get_selected_entry__17TWindowSubComCardFPv(u8 *arg0);
+void TWindowSubComCard__sub_80265B5C(u8 *arg0);
+}
+
+extern "C" {
 
 struct Stack_80265500 {
     f32 sp8;
@@ -136,7 +142,6 @@ void move_cursor_prev__11TWindowMenuFPv(void *arg0);
 void update_target_y__17TWindowSubComCardFPv(u8 *arg0);
 void clamp_menu_choice_scroll(u8 *arg0);
 void advance_past_disabled_menu_rows(Card_80265AA4 *arg0);
-M2C_UNK TWindowSubComCard__sub_80265B5C(void *);
 u32 get_selected_menu_value(Obj_80265BF8 *o);
 void set_selected_index__17TWindowSubComCardFPvs(void *arg0, s16 arg1);
 void align_menu_entry_positions(Win_80265C30 *self);
@@ -449,6 +454,33 @@ void advance_past_disabled_menu_rows(Card_80265AA4 *arg0) {
             }
         }
     }
+}
+
+#pragma fp_contract on
+void TWindowSubComCard__sub_80265B5C(u8 *arg0) {
+  u8 *new_var2;
+  f32 v;
+  u32 *new_var;
+  u32 n;
+  new_var = (u32 *) (arg0 + 0x50);
+  if ((*((u16 *) (arg0 + 0x70))) & 0x20)
+  {
+    v = *((f32 *) (get_selected_entry__17TWindowSubComCardFPv(arg0) + 0xC));
+  }
+  else
+  {
+    v = 0.0f;
+    new_var = (u32 *) (arg0 + 0x50);
+  }
+  n = *new_var;
+  if (n == 0)
+  {
+    *((f32 *) (arg0 + 0x6C)) = v;
+    return;
+  }
+  v += lbl_805DD160 * ((*((f32 *) (arg0 + 0x3C))) - (*((f32 *) (arg0 + 0x4C))));
+  new_var2 = arg0 + 0x6C;
+  *((f32 *) new_var2) += (v - (*((f32 *) (arg0 + 0x6C)))) / ((f32) n);
 }
 
 u32 get_selected_menu_value(Obj_80265BF8 *o) {
@@ -821,7 +853,7 @@ void run_task__11TWindowMenuFv(u8 *arg0) {
         }
     }
     initialize_subwindow__9TWindowDDFPv((void *) (arg0));
-    TWindowSubComCard__sub_80265B5C((void *) (arg0));
+    TWindowSubComCard__sub_80265B5C((u8 *)((void *) (arg0)));
     step_window_tween((void *) (arg0));
     ((M2C_UNK (*)(void *))update_target_y__17TWindowSubComCardFPv)((void *) (arg0));
     ((M2C_UNK (*)(void *))clamp_menu_choice_scroll)((void *) (arg0));
