@@ -102,6 +102,13 @@ struct Fence_801935D8 {
     s16 fBA;
 };
 
+struct Node_80193CA4 {
+    u8 pad0[4];
+    u32 f4;
+    u8 pad8[0x30 - 0x8];
+    Node_80193CA4 *next;
+};
+
 extern "C" {
 void TLazerFenceSw__vt14(u8 *arg0);
 s32 get_state_flag__9TMainTaskFv();
@@ -148,6 +155,24 @@ extern M2C_UNK __vt__15TObjLazerFence4[];
 extern s32 lbl_805D33A8;
 extern const f32 lbl_805DBE6C;
 void *TObjLazerFence4__ct(void *arg0, void *arg1, void *arg2);
+s32 get_global_state__14TOKeyMachine01Fv();
+s32 is_global_state_in_table__19TContainerAncient01Fv(void);
+void *alloc__23TAdSinglePlyChrSelectGCFPv(u32);
+void *load_resource_from_descriptor(void *, s32, void *, s32, s32, s32);
+s32 load_gvm_texture_file(void *);
+s32 get_bml_model(void *, s32);
+s32 get_bml_motion(void *, s32);
+u8 *count_linked_switches__23TObjSeabedSuisoBrakableFUii(u32, int);
+extern void *lbl_805D5C30;
+extern s32 TLazerFenceSw__data_805D5C34;
+extern u8 *lbl_805D5C38;
+extern s32 lbl_805D5550;
+extern u8 lbl_804B8360[];
+extern u8 lbl_804B8334[];
+extern u8 lbl_80445CF0[];
+extern u8 lbl_80445D08[];
+extern u8 lbl_80445D20[];
+void load_resources__13TLazerFenceSwFv(void);
 }
 
 extern "C" {
@@ -416,6 +441,58 @@ void TLazerFenceSw__sub_80193C5C(void) {
 }
 
 extern M2C_UNK __vt__13TLazerFenceSw[];
+
+#pragma push
+#pragma opt_propagation off
+void load_resources__13TLazerFenceSwFv(void) {
+    s32 state;
+    void *obj;
+    s32 j;
+    s32 i;
+    Node_80193CA4 *n;
+    lbl_805D5C30 = 0;
+    state = get_global_state__14TOKeyMachine01Fv();
+    if (is_global_state_in_table__19TContainerAncient01Fv() == 1 || state == 0x1C || state == 0x1D) {
+        obj = alloc__23TAdSinglePlyChrSelectGCFPv(0x440);
+        if (obj != NULL) {
+            obj = load_resource_from_descriptor(obj, 5, lbl_804B8360, 0, 0, 0);
+        }
+        lbl_805D5C30 = obj;
+        TLazerFenceSw__data_805D5C34 = load_gvm_texture_file(lbl_80445CF0);
+    } else {
+        obj = alloc__23TAdSinglePlyChrSelectGCFPv(0x440);
+        if (obj != NULL) {
+            obj = load_resource_from_descriptor(obj, 5, lbl_804B8334, 0, 0, 0);
+        }
+        lbl_805D5C30 = obj;
+        if (lbl_805D5550 == 3) {
+            TLazerFenceSw__data_805D5C34 = load_gvm_texture_file(lbl_80445D08);
+        } else {
+            TLazerFenceSw__data_805D5C34 = load_gvm_texture_file(lbl_80445D20);
+        }
+    }
+    lbl_8050DCE8[0] = get_bml_model(lbl_805D5C30, 0);
+    lbl_8050DCE8[1] = get_bml_model(lbl_805D5C30, 1);
+    ((u32 *)&lbl_8050DCF0)[0] = get_bml_motion(lbl_805D5C30, 0);
+    ((u32 *)&lbl_8050DCF0)[1] = get_bml_motion(lbl_805D5C30, 1);
+    for (j = 0; j < 3; j++) {
+        lbl_8050DCF8[j] = 0;
+    }
+    i = 0;
+    n = *(Node_80193CA4 **)(lbl_8050DCE8[0] + 0x2C);
+    if (n != NULL) {
+        lbl_8050DCF8[i] = n->f4;
+        i++;
+        n = n->next;
+        while (n != NULL && i < 3) {
+            lbl_8050DCF8[i] = n->f4;
+            i++;
+            n = n->next;
+        }
+    }
+    lbl_805D5C38 = count_linked_switches__23TObjSeabedSuisoBrakableFUii(lbl_8050DCE8[1], 3);
+}
+#pragma pop
 
 void *__dt__13TLazerFenceSwFv(void *arg0, s16 arg1) {
     if (arg0 != NULL) {

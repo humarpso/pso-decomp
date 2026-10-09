@@ -12,10 +12,23 @@ struct Stack_801D8664 {
     u8 rest[0x11];
 };
 
+struct Player_801D88C8;
+struct Src_801D88C8;
+struct Rec_801D86F8 { s32 a[0x50 / 4]; s32 b[0x38 / 4]; s32 c[0x40 / 4]; };
+
 extern "C" {
 void init__9TItemDataFv(void *);
 void process_trade_target__10TObjPlayerFiPv(s32 arg0, void *arg1);
 void TObjPlayer__sub_801D8664(s32 arg0, s8 arg1, s8 arg2);
+M2C_UNK copy_data__6TLobbyFPvPv(void *, void *);
+M2C_UNK copy_player_visual_record(void *, void *);
+s32 get_ptr_4__10TObjPlayerFPv(void *);
+M2C_UNK fn_801D40D4(void *, void *, void *);
+Player_801D88C8 *create_ending_sequence_player(Player_801D88C8 *self, void *parent, Src_801D88C8 *src);
+void* init_inventory__10TObjPlayerFPv(void* p);
+s32 __nw__7TObjectFUl(int);
+extern s32 tl_03;
+s32 TObjPlayer__sub_801D86F8(u8 *arg0);
 }
 
 extern "C" {
@@ -124,6 +137,22 @@ int set_animation__10TObjPlayerFPvs(void*);
 
 int query_darkfalz_state__10TObjPlayerFPv(void* p) { return set_position_from__14TBoss4DarkFalzFPvPv(p); }
 int set_animation_default__10TObjPlayerFPv(void* p) { return set_animation__10TObjPlayerFPvs(p); }
+
+struct Player_801D88C8;
+struct Src_801D88C8;
+s32 TObjPlayer__sub_801D86F8(u8 *arg0) {
+    Rec_801D86F8 sp8;
+    s32 var_r0;
+    init_inventory__10TObjPlayerFPv((void*)((void *) (&sp8)));
+    copy_player_visual_record((void *) (&sp8), (void *) (arg0 + 0x370));
+    copy_data__6TLobbyFPvPv((void *) (sp8.c), (void *) (arg0 + 0x34C));
+    fn_801D40D4((void *) (*arg0), (void *) (get_ptr_4__10TObjPlayerFPv((void *) (arg0))), (void *) (sp8.b));
+    var_r0 = __nw__7TObjectFUl((int) (0xDB8));
+    if (var_r0 != 0) {
+        var_r0 = (s32)create_ending_sequence_player((Player_801D88C8 *)var_r0, (void *) (tl_03), (Src_801D88C8 *) (&sp8));
+    }
+    return var_r0;
+}
 
 void TObjPlayer__sub_801D877C(u8 *arg0) {
     if ((obj_testFlags30(arg0, 0x02000000) == 0) && ((s32) M2C_FIELD(arg0, s32 *, 0xCFC) == 0)) {

@@ -100,6 +100,25 @@ typedef struct Gauge_80262E90 {
 struct C_80263944 { void f(); };
 typedef void (C_80263944::*PMF_80263944)();
 
+struct Obj_802634E8;
+typedef void (Obj_802634E8::*Cb_802634E8)();
+struct Lock_802634E8 {
+    u8 pad0[0x20];
+    s16 player;
+    u8 pad22[2];
+    u8 sub[0x34 - 0x24];
+    f32 dist;
+    f32 w;
+    f32 h;
+    u8 pad40[0x50 - 0x40];
+    s32 i50;
+    u8 pad54[0x6C - 0x54];
+    f32 scale;
+    Cb_802634E8 cb;
+};
+
+struct Ent_802634E8 { u8 pad0[0x10]; f32 w; };
+
 extern "C" {
 u32 obj_getArrWord_254(Ent_80262E90 *, s32);
 s16 obj_getS16_2BA(Ent_80262E90 *);
@@ -110,6 +129,18 @@ void set_flag0_bit2__15TWindowHelpItemFPv(Gauge_80262E90 *);
 void set_help_mode__14TWindowComCardFPvi(s32, s32);
 s32 get_status_effect_icon_index(u32);
 void refresh_enemy_statuses__13TWindowLockOnFv(u8 *self);
+u16 obj_getField1c(void *);
+s32 get_array_entry__20TWindowSubStatusDispFPvi(void *, int);
+void refresh_status_display__9TWindowDDFv(void *);
+void init_window_layout_entries(void *, void *, int);
+M2C_UNK reset_float_field__15TWindowHelpItemFPv(int);
+f32 get_target_distance__13TWindowLockOnFv(s32);
+void update_for_player_index__13TWindowLockOnFPvi(void *, s32);
+extern Cb_802634E8 lbl_804D027C;
+extern const f32 TWindowLockOn__data_805DD110;
+extern const f32 lbl_805DD124;
+extern const f32 lbl_805DD128;
+M2C_UNK TWindowLockOn__update_for_other_player(s32 a0, s32 a1);
 }
 
 extern "C" {
@@ -168,7 +199,6 @@ void refresh_ground_item__13TWindowLockOnFv(void);
 void update_photon_blast_marker__13TWindowLockOnFPv(u8 *arg0);
 void TWindowLockOn__update_for_enemy(s32, s32);
 M2C_UNK TWindowLockOn__update_for_item(s32 a0, s32 a1);
-M2C_UNK TWindowLockOn__update_for_other_player(s32, s32);
 void update_for_target__13TWindowLockOnFii(s32 arg0, s32 arg1);
 void bind_target__13TWindowLockOnFv(Win_8026366C *w, u16 id);
 void *create_for_target__13TWindowLockOnFiUs(s32 arg0, u16 arg1);
@@ -425,10 +455,34 @@ M2C_UNK TWindowLockOn__update_for_item(s32 a0, s32 a1) {
 #undef item
 #pragma pop
 
+#pragma push
+#pragma fp_contract on
+#define arg0 ((Lock_802634E8 *)a0)
+#define arg1 ((void *)a1)
+M2C_UNK TWindowLockOn__update_for_other_player(s32 a0, s32 a1) {
+    Ent_802634E8 *w;
+    u16 id;
+    init_window_layout_entries(arg0->sub, &lock_on_window_params, arg0->player);
+    arg0->cb = lbl_804D027C;
+    w = (Ent_802634E8 *)get_array_entry__20TWindowSubStatusDispFPvi(arg0, 1);
+    id = obj_getField1c(arg1);
+    update_for_player_index__13TWindowLockOnFPvi(w, id);
+    reset_float_field__15TWindowHelpItemFPv((s32)w);
+    refresh_status_display__9TWindowDDFv(w);
+    arg0->w = lbl_805DD124 + w->w;
+    arg0->h = lbl_805DD128;
+    arg0->w += TWindowLockOn__data_805DD110;
+    arg0->dist = get_target_distance__13TWindowLockOnFv(0x1E) - arg0->h * arg0->scale;
+    arg0->i50 = 0;
+}
+#undef arg0
+#undef arg1
+#pragma pop
+
 void update_for_target__13TWindowLockOnFii(s32 arg0, s32 arg1) {
     destroy_all_items__20TWindowSubStatusDispFPv(arg0 + 0x24);
     if (obj_testFlags30(arg1, 0x10000000) != 0) {
-        TWindowLockOn__update_for_other_player(arg0, arg1);
+        TWindowLockOn__update_for_other_player((s32)(arg0), (s32)(arg1));
         return;
     }
     if (obj_testFlags30(arg1, 0x80000000) != 0) {

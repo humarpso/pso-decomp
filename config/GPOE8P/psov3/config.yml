@@ -733,6 +733,7 @@ force_active:
   - get_entity_distance_or_default__11TWindowCtrlFiPvUs
   - get_entry_by_index__12TObjNpcEnemyFs
   - get_event_theme_index__17TObjParticleLobbyFv
+  - get_floor_surface_type__10TObjPlayerFPv
   - get_floor_switch_flag
   - get_function_key_menu__16TKeyBoardControlFPv
   - get_lobby_theme_clamped__16TObjCurtainLobbyFv
@@ -745,6 +746,7 @@ force_active:
   - get_speaker_balloon_anchor__11TWindowCtrlFPviPvPv
   - get_state__19TBoss8DragonEffTailFPv
   - get_surface_contact_point
+  - get_table_entry_by_clamped_index__10TObjPlayerFPv
   - get_target_position__11TCameraCtrlFv
   - get_total_materials_used
   - get_vidlist
@@ -805,6 +807,7 @@ force_active:
   - init_gravity_globals__12TBoss1DragonFv
   - init_gx_lighting_defaults
   - init_instance__9TTecZaruaFPviiii
+  - init_inventory_items__10TObjPlayerFi
   - init_item_counts_max__10TObjPlayerFPv
   - init_kind_params__23TObjSeabedSuisoBrakableFPv
   - init_launch_angles__10TTecSlicerFPvPvi
@@ -1060,6 +1063,7 @@ force_active:
   - load_tam_file__6TSceneFi
   - lobby_pulse_color_table
   - logo_load_callback_table
+  - lookup_attack_marker
   - lookup_item_category__9TWindowDDFi
   - lookup_key_value__6TLobbyFc
   - lookup_table_value__6TLobbyFc
