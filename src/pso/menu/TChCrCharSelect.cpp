@@ -61,7 +61,7 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 
 extern "C" {
 
-void tick_and_apply_selection__15TChCrCharSelectFPv(u8 *arg0);
+void tick_and_apply_selection__15TChCrCharSelectFv(u8 *arg0);
 M2C_UNK get_char_select_class_id(void *);
 s32 get_class_appearance_preset();
 M2C_UNK create__12TCharaMakingFPvPv(void *, int);
@@ -72,7 +72,7 @@ M2C_UNK queue_destruction__7TObjectFv(void *);
 extern s32 TChCrCharSelect__selected_slot_index;
 extern s32 tl_03;
 
-void tick_and_apply_selection__15TChCrCharSelectFPv(u8 *arg0) {
+void tick_and_apply_selection__15TChCrCharSelectFv(u8 *arg0) {
     s32 temp_r0;
     u8 *temp_r31;
 
@@ -100,8 +100,8 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 
 extern "C" {
 
-void handle_menu_input__15TChCrCharSelectFPv(void *arg0);
-void handle_cursor_input__15TChCrCharSelectFi(s32 arg0);
+void handle_menu_input__15TChCrCharSelectFv(void *arg0);
+void handle_cursor_input__15TChCrCharSelectFv(s32 arg0);
 M2C_UNK wrap_slot_index_to_range__15TChCrCharSelectFv(void *);
 M2C_UNK clamp_slot_index_to_range__15TChCrCharSelectFv(s32);
 M2C_UNK play_sound_effect(M2C_UNK, M2C_UNK, M2C_UNK, M2C_UNK);
@@ -111,7 +111,7 @@ s32 TObjCMProportion__sub_8029916C(M2C_UNK);
 extern s32 TChCrCharSelect__selected_slot_index;
 extern s32 TChCrCharSelect__data_805D6590;
 
-void handle_menu_input__15TChCrCharSelectFPv(void *arg0) {
+void handle_menu_input__15TChCrCharSelectFv(void *arg0) {
     if (TChCrCharSelect__sub_80298F8C(0x20) != 0) {
         TChCrCharSelect__selected_slot_index += 1;
         play_sound_effect(0x54100, 0, 0, 0);
@@ -135,7 +135,7 @@ void handle_menu_input__15TChCrCharSelectFPv(void *arg0) {
 extern s32 TChCrCharSelect__selected_char_index;
 extern s32 TChCrCharSelect__data_805D6590;
 
-void handle_cursor_input__15TChCrCharSelectFi(s32 arg0) {
+void handle_cursor_input__15TChCrCharSelectFv(s32 arg0) {
     s32 temp_r0;
     s32 temp_r0_2;
 

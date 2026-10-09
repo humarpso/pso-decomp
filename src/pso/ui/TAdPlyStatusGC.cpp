@@ -71,7 +71,7 @@ u32 get_player_index__14TAdPlyStatusGCFv();
 extern RecoveredGlobal_8033F93C_lbl_8050E3B8 lbl_8050E3B8;
 extern s32 TAdPlyStatusGC__data_805D6DB0;
 extern s32 TAdPlyStatusGC__data_805D6DB8;
-void TAdPlyStatusGC__sub_8033F93C(u8 *arg0);
+void update_hidden__14TAdPlyStatusGCFv(u8 *arg0);
 u8 * __dt__7TObjectFv(void *, s16);
 void queue_destruction__7TObjectFv(void *);
 void __dl__7TObjectFPv(s32);
@@ -86,7 +86,7 @@ u32 get_player_index__14TAdPlyStatusGCFv();
 extern RecoveredGlobal_8033F93C_lbl_8050E3B8 lbl_8050E3B8;
 extern s32 TAdPlyStatusGC__data_805D6DB0;
 extern s32 TAdPlyStatusGC__data_805D6DB8;
-void TAdPlyStatusGC__sub_8033F9DC(struct RecoveredFields_8033F9DC_arg0 *arg0);
+void update_shown__14TAdPlyStatusGCFv(struct RecoveredFields_8033F9DC_arg0 *arg0);
 extern s32 TAdPlyStatusGC__data_805D6DB8;
 void set_load_state__14TAdPlyStatusGCFPvi(u8 *arg0, s32 arg1);
 void set_field_1c__6TLobbyFPvf(f32);
@@ -138,7 +138,7 @@ s32 TAdPlyStatusGC__data_805D6DB8;
 
 extern "C" {
 
-void close_window__14TAdPlyStatusGCFPv(void *arg0);
+void close_window__14TAdPlyStatusGCFv(void *arg0);
 void render__14TAdPlyStatusGCFv(void* p);
 M2C_UNK TWindow__close(void *);
 int abs__4cXyzCFv(void*, void*);
@@ -327,7 +327,7 @@ void set_load_state__14TAdPlyStatusGCFPvi(u8 *arg0, s32 arg1) {
     M2C_FIELD(arg0, s32 *, 0x1C) = 0;
 }
 
-void TAdPlyStatusGC__sub_8033F93C(u8 *arg0) {
+void update_hidden__14TAdPlyStatusGCFv(u8 *arg0) {
     s32 temp_r3;
     s32 temp_r5;
     TAdPlyStatusGC__data_805D6DB8 = 0;
@@ -350,7 +350,7 @@ void TAdPlyStatusGC__sub_8033F93C(u8 *arg0) {
 
 typedef char RecoveredGlobal_8033F9DC_lbl_804783E0_size[sizeof(RecoveredGlobal_8033F9DC_lbl_804783E0) == 0x18 ? 1 : -1];
 typedef char RecoveredGlobal_8033F9DC_lbl_8050E3B8_size[sizeof(RecoveredGlobal_8033F9DC_lbl_8050E3B8) == 0x1B0 ? 1 : -1];
-void TAdPlyStatusGC__sub_8033F9DC(struct RecoveredFields_8033F9DC_arg0 *arg0) {
+void update_shown__14TAdPlyStatusGCFv(struct RecoveredFields_8033F9DC_arg0 *arg0) {
     s32 temp_r3;
     s32 temp_r5;
     TAdPlyStatusGC__data_805D6DB8 = 1;
@@ -370,7 +370,7 @@ void TAdPlyStatusGC__sub_8033F9DC(struct RecoveredFields_8033F9DC_arg0 *arg0) {
     }
 }
 
-void close_window__14TAdPlyStatusGCFPv(void *arg0) {
+void close_window__14TAdPlyStatusGCFv(void *arg0) {
     void *temp_r3 = M2C_FIELD(arg0, void **, 0x6C);
     if ((u32) temp_r3 != 0U) {
         TWindow__close(temp_r3);
@@ -380,19 +380,19 @@ void close_window__14TAdPlyStatusGCFPv(void *arg0) {
         disallow_rendering__7TObjectFv();
     }
 }
-class C_8033FAD8 {
-public:
+struct TAdPlyStatusGC {
     u8 pad[0x1C];
     s32 idx;
     s32 last;
-    void m0();
-    void m1();
-    void m2();
+    void close_window();
+    void update_shown();
+    void update_hidden();
 };
+typedef TAdPlyStatusGC C_8033FAD8;
 
 void run_task__14TAdPlyStatusGCFv(C_8033FAD8 *self) {
     static void (C_8033FAD8::*tbl[3])() = {
-        &C_8033FAD8::m0, &C_8033FAD8::m1, &C_8033FAD8::m2,
+        &TAdPlyStatusGC::close_window, &TAdPlyStatusGC::update_shown, &TAdPlyStatusGC::update_hidden,
     };
     (self->*tbl[self->idx])();
     self->last = self->idx;

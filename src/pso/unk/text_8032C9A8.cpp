@@ -44,7 +44,7 @@ extern "C" {
 void TLobby__sub_8032CDC0(void);
 void TLobby__sub_8032CDD0(void* p);
 void TLobby__sub_8032CDEC(void);
-int TLobby__sub_8032CDFC(void* p);
+int destroy__16TAdWarningBaseGCFv(void* p);
 int queue_destruction__7TObjectFv(void*);
 
     extern unsigned char lbl_805D6CD9;
@@ -123,6 +123,6 @@ void TLobby__sub_8032CDD0(void* p) { *(s16*)((char*)p + 0x0) = 0; *(s16*)((char*
     extern int TAdWarningBaseGC__aram_alloc_size;
 void TLobby__sub_8032CDEC(void) { TAdWarningBaseGC__aram_alloc_size = 0; warning_aram_load_done_flag = 0; }
 
-int TLobby__sub_8032CDFC(void* p) { return queue_destruction__7TObjectFv(p); }
+int destroy__16TAdWarningBaseGCFv(void* p) { return queue_destruction__7TObjectFv(p); }
 
 }

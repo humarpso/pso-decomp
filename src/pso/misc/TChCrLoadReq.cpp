@@ -42,7 +42,7 @@ void *__dt__12TChCrLoadReqFv(void *arg0, s16 arg1);
 void copy__12TChCrLoadReqFPvPv(void* p, void* q);
 void *create__12TChCrLoadReqFPv(void *arg0);
 void * create_ch_cr_load_req(void *arg0, void *arg1);
-void update_load_progress__12TChCrLoadReqFPv(void *arg0);
+void update_load_progress__12TChCrLoadReqFv(void *arg0);
 M2C_UNK request_texture_loads__23TAdSinglePlyChrSelectGCFPv(void *);
 M2C_UNK request_model_loads__23TAdSinglePlyChrSelectGCFPv(void *);
 void TAdSinglePlyChrSelectGC__sub_8028CEEC(void *);
@@ -52,7 +52,7 @@ void __dt__7TObjectFv(void *, int);
 void *__nw__7TObjectFUl(int);
 s32 try_claim_load_slot__23TAdSinglePlyChrSelectGCFPv(void *);
 
-void update_load_progress__12TChCrLoadReqFPv(void *arg0) {
+void update_load_progress__12TChCrLoadReqFv(void *arg0) {
     if ((s32) M2C_FIELD(arg0, s32 *, 0x64) > 0x1512) {
         if (TAdSinglePlyChrSelectGC__sub_8028CF6C() == 0) {
             M2C_FIELD(arg0, s32 *, 0x64) = 0x1512;

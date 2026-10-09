@@ -110,9 +110,9 @@ extern "C" {
 s32 TAdSinglePlyChrSelectGC__sub_8028C998(void *arg0);
 void TAdSinglePlyChrSelectGC__sub_8028CEEC(void *arg0, s32 *);
 s32 TAdSinglePlyChrSelectGC__sub_8028CF6C(void);
-void close_and_destroy__23TAdSinglePlyChrSelectGCFPv(void *arg0);
+void close_and_destroy__12TChCrLoadReqFv(void *arg0);
 s32 try_acquire_slot__23TAdSinglePlyChrSelectGCFPv(void *arg0);
-void try_advance_state__23TAdSinglePlyChrSelectGCFPv(void* p);
+void try_advance_state__12TChCrLoadReqFv(void* p);
 s32 try_claim_load_slot__23TAdSinglePlyChrSelectGCFPv(void *arg0);
 M2C_UNK queue_destruction__7TObjectFv(void *);
 
@@ -328,7 +328,7 @@ void *calc_preview_offset__23TAdSinglePlyChrSelectGCFPviii(void *arg0, s32 arg1,
     return (void *)(arg2 + (arg3 * lbl_804D3788[arg1] + lbl_804D37D4[arg1]));
 }
 
-void close_and_destroy__23TAdSinglePlyChrSelectGCFPv(void *arg0) {
+void close_and_destroy__12TChCrLoadReqFv(void *arg0) {
     s32 *temp_r4;
 
     if (are_all_selections_done__23TAdSinglePlyChrSelectGCFPv((u8 *)(arg0)) != 0) {
@@ -340,6 +340,6 @@ void close_and_destroy__23TAdSinglePlyChrSelectGCFPv(void *arg0) {
     }
 }
 
-void try_advance_state__23TAdSinglePlyChrSelectGCFPv(void* p) { if (TAdSinglePlyChrSelectGC__sub_8028C998((void *)(p)) != 0) { start_preview_loads__23TAdSinglePlyChrSelectGCFPv((Gc_8028CB6C *)(p)); *(int*)((char*)p + 0x60) = 2; } }
+void try_advance_state__12TChCrLoadReqFv(void* p) { if (TAdSinglePlyChrSelectGC__sub_8028C998((void *)(p)) != 0) { start_preview_loads__23TAdSinglePlyChrSelectGCFPv((Gc_8028CB6C *)(p)); *(int*)((char*)p + 0x60) = 2; } }
 
 }

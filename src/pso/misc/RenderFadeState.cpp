@@ -1,20 +1,11 @@
 #include "types.h"
 #include "pso/misc/RenderFadeState.h"
-typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
-typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 
 typedef struct Fade_800D7AD0 {
     f32 value;
     u8 pad[0x14];
     s32 mode;
 } Fade_800D7AD0;
-
-extern "C" {
-extern const f32 lbl_805DA368;
-extern const f32 lbl_805DA36C;
-extern const f32 lbl_805DA370;
-void update_fade_value(Fade_800D7AD0 *arg0);
-}
 
 extern "C" {
 
@@ -25,16 +16,34 @@ struct RenderFadeState_800D7BB0 {
     s32 restoring;
 };
 
+void update_fade_value(Fade_800D7AD0 *arg0);
 void matrix_mult_vec(int, const f32*, f32*);
 
-extern const f32 lbl_805DA370;
-extern const f32 lbl_805DA374;
+#pragma push
+#pragma opt_common_subs off
+void update_fade_value(Fade_800D7AD0 *arg0) {
+    f32 v = arg0->value;
+    if (arg0->mode == 0) {
+        v -= 0.23333333f;
+        if (v < -0.7f) {
+            v = -0.7f;
+        }
+    } else {
+        v += 0.23333333f;
+        if (v > 0.0f) {
+            v = 0.0f;
+        }
+    }
+    arg0->value = v;
+}
+#pragma pop
 
 }
+
 s32 RenderFadeState::updateFromCamera(const f32* position) {
     f32 cameraPosition[3];
     matrix_mult_vec(0, position, cameraPosition);
-    if (-cameraPosition[2] < lbl_805DA374) {
+    if (-cameraPosition[2] < 28.0f) {
         fadeOut();
     } else {
         restore();
@@ -43,7 +52,7 @@ s32 RenderFadeState::updateFromCamera(const f32* position) {
 }
 
 s32 RenderFadeState::isFading() const {
-    return adjustment < lbl_805DA370;
+    return adjustment < 0.0f;
 }
 
 void RenderFadeState::restore() {
@@ -55,25 +64,6 @@ void RenderFadeState::fadeOut() {
 }
 
 extern "C" {
-
-#pragma push
-#pragma opt_common_subs off
-void update_fade_value(Fade_800D7AD0 *arg0) {
-    f32 v = arg0->value;
-    if (arg0->mode == 0) {
-        v -= lbl_805DA368;
-        if (v < lbl_805DA36C) {
-            v = lbl_805DA36C;
-        }
-    } else {
-        v += lbl_805DA368;
-        if (v > lbl_805DA370) {
-            v = lbl_805DA370;
-        }
-    }
-    arg0->value = v;
-}
-#pragma pop
 
 void update_obstruction_fade(RenderFadeState_800D7BB0* state) {
     f32 adjustment = state->adjustment;

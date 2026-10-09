@@ -52,7 +52,7 @@ s32 show_message_window__22TAdEnterSerialAccessGCFPvPv(void *, int);
 extern RecoveredGlobal_803392F4_lbl_80477C20 lbl_80477C20;
 extern u8 *lbl_805D6CA0;
 extern s32 lbl_805D6CA4;
-void TAdEnterPPPPassGC__sub_803392F4(u8 *arg0);
+void open_keyboard_window__17TAdEnterPPPPassGCFPv(u8 *arg0);
 s32 get_state_flag__9TMainTaskFv();
 void render__17TAdEnterPPPPassGCFv(void *self);
 void TKeyBoardControl__sub_8000F9CC(int);
@@ -204,7 +204,7 @@ void update_password_input__17TAdEnterPPPPassGCFPv(u8 *arg0) {
     free__11TOBoss4RockFUi(buf);
 }
 
-void TAdEnterPPPPassGC__sub_803392F4(u8 *arg0) {
+void open_keyboard_window__17TAdEnterPPPPassGCFPv(u8 *arg0) {
     u32 temp_r3;
     M2C_FIELD(arg0, s32 *, 0x30) = show_message_window__22TAdEnterSerialAccessGCFPvPv((void *) (arg0), (int) (3));
     M2C_FIELD(arg0, s32 *, 0x34) = create_default_callback__22TAdEnterSerialAccessGCFv((void *) (arg0));

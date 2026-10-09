@@ -1,4 +1,12 @@
-#include "pso/TObjCMIcon.h"
+#include "pso/TObject.h"
+#include "types.h"
+
+class TObjCMIcon : public TObject {
+public:
+    virtual ~TObjCMIcon();
+    virtual void run_task();
+    virtual void render();
+};
 
 s32 lbl_804DBDE0[35] = {
     2, 0x38, 0xA8, 0, 0,

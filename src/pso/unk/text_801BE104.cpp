@@ -34,3 +34,5 @@ void destroy_char_data_array__10TObjPlayerFv(void) {
 }
 
 }
+
+__declspec(section ".ctors") static void *const __sinit_text_801BE104_cpp_ref = (void *)TObjPlayer__sub_801BE104;

@@ -44,8 +44,8 @@ s32 post_aram_request__16TAdWarningBaseGCFii(s32 arg0, s32 arg1);
 
 extern "C" {
 
-void TAdWarningBaseGC__sub_8032CE1C(void *arg0);
-void TAdWarningBaseGC__sub_8032CEA8(void* p);
+void wait_aram_request__16TAdWarningBaseGCFv(void *arg0);
+void enter_request_state__16TAdWarningBaseGCFv(void* p);
 int TAdWarningBaseGC__sub_8032D020(void);
 void *TAdWarningBaseGC__sub_8032D0B8(void *arg0, s16 arg1);
 int get_alloc_size__16TAdWarningBaseGCFv(void);
@@ -57,7 +57,7 @@ void __dt__7TObjectFv(void *, int);
 extern s32 warning_aram_load_done_flag;
 extern s32 aram_request_busy_flag;
 
-void TAdWarningBaseGC__sub_8032CE1C(void *arg0) {
+void wait_aram_request__16TAdWarningBaseGCFv(void *arg0) {
     if ((s32) aram_request_busy_flag == 0) {
         M2C_FIELD(arg0, s32 *, 0x1C) = 3;
         warning_aram_load_done_flag = 1;
@@ -82,7 +82,7 @@ void request_aram_load_state__16TAdWarningBaseGCFPv(u8 *arg0) {
     M2C_FIELD(arg0, s32 *, 0x1C) = 3;
 }
 
-void TAdWarningBaseGC__sub_8032CEA8(void* p) { *(s32*)((char*)p + 0x1c) = 1; }
+void enter_request_state__16TAdWarningBaseGCFv(void* p) { *(s32*)((char*)p + 0x1c) = 1; }
 
     extern int TAdWarningBaseGC__aram_alloc_size;
 

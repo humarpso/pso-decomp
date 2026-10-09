@@ -36,6 +36,12 @@ void init_acceleration_curve(Curve_8007E210 *c, f32 a, f32 d, f32 length, f32 sp
 
 extern "C" {
 
+extern const f32 TObjBoss2Tunnel__data_805D9234;
+extern const f32 TObjBoss2Tunnel__data_805D926C;
+extern const f32 lbl_805D9288;
+extern const f32 lbl_805D928C;
+extern const f32 lbl_805D9294;
+
 int check_param_threshold__15TObjBoss2TunnelFPvf(void *arg0, f32 arg1);
 s32 dt__15TObjBoss2TunnelFis(s32 arg0, s16 arg1);
 s32 reset_floats__15TObjBoss2TunnelFi(s32 arg0);
@@ -57,11 +63,15 @@ s32 reset_floats__15TObjBoss2TunnelFi(s32 arg0) {
 #pragma push
 #pragma fp_contract on
 f32 sample_acceleration_curve(Curve_8007E16C *c, f32 t) {
-    if (t < 0.0f) {
-        return 0.0f;
+    if (t < TObjBoss2Tunnel__data_805D9234) {
+        return TObjBoss2Tunnel__data_805D9234;
     }
     if (t < c->accelEnd) {
-        return t * (0.5f * c->accel * t);
+        {
+        f32 k = TObjBoss2Tunnel__data_805D926C * c->accel;
+        k *= t;
+        return t * k;
+        }
     }
     if (t < c->decelStart) {
         t -= c->accelEnd;
@@ -69,7 +79,11 @@ f32 sample_acceleration_curve(Curve_8007E16C *c, f32 t) {
     }
     if (t < c->end) {
         t = c->end - t;
-        return t * (0.5f * c->decel * t) + c->dist;
+        {
+        f32 k = TObjBoss2Tunnel__data_805D926C * c->decel;
+        k *= t;
+        return t * k + c->dist;
+        }
     }
     return c->dist;
 }
@@ -84,23 +98,24 @@ void init_acceleration_curve(Curve_8007E210 *c, f32 a, f32 d, f32 length, f32 sp
     f32 down;
     f32 p;
     c->accel = a;
-    if (c->accel <= 0.0f) {
-        c->accel = 0.1f;
+    if (c->accel <= TObjBoss2Tunnel__data_805D9234) {
+        c->accel = lbl_805D9288;
     }
     c->decel = d;
-    if (c->decel >= 0.0f) {
-        c->decel = -0.1f;
+    if (c->decel >= TObjBoss2Tunnel__data_805D9234) {
+        c->decel = lbl_805D928C;
     }
     sq = speed * speed;
     c->dist = length;
     c->peak = speed;
-    up = (0.5f * sq) / c->accel;
-    down = (0.5f * -sq) / c->decel;
+    up = (TObjBoss2Tunnel__data_805D926C * sq) / c->accel;
+    down = (TObjBoss2Tunnel__data_805D926C * -sq) / c->decel;
     if (up + down >= c->dist) {
-        c->peak = newton_sqrtf((c->dist * (2.0f * c->accel * c->decel)) / (c->decel - c->accel));
+        f32 k2 = lbl_805D9294 * c->accel;
+        c->peak = newton_sqrtf((c->dist * (k2 *= c->decel)) / (c->decel - c->accel));
         sq = c->peak * c->peak;
         c->accelEnd = c->decelStart = c->peak / c->accel;
-        c->accelDist = c->decelPos = (0.5f * sq) / c->accel;
+        c->accelDist = c->decelPos = (TObjBoss2Tunnel__data_805D926C * sq) / c->accel;
         c->end = c->decelStart + (-c->peak / c->decel);
         return;
     }

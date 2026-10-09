@@ -86,19 +86,19 @@ void vec3_add_to(void *, void *);
 extern const f32 lbl_805D8CBC;
 extern const f32 lbl_805D8CC8;
 extern const f32 lbl_805D8CE4;
-void TBoss4Zako__vt6(u8 *arg0);
+void vt6__9TBoss4UroFv(u8 *arg0);
 M2C_UNK queue_destruction__7TObjectFv(void *);
 M2C_UNK spawn_particle_effect(void *, int);
 extern const f32 lbl_805D8CB8;
 extern const f32 lbl_805D8CBC;
 extern const f32 lbl_805D8CC0;
-void TBoss4Bishi__vt2(u8 *arg0);
+void vt2__11TBoss4BishiFv(u8 *arg0);
 M2C_UNK queue_destruction__7TObjectFv(void *);
 M2C_UNK spawn_particle_effect(void *, int);
 extern const f32 lbl_805D8CB8;
 extern const f32 lbl_805D8CBC;
 extern const f32 lbl_805D8CC0;
-void TBoss4Zako__vt5(u8 *arg0);
+void vt5__9TBoss4UroFv(u8 *arg0);
 f32 calc_boss4_scale__10TObjPlayerFi(void *);
 u16 find_nearest_visible_player(void *, M2C_UNK, f32);
 void VecCopy__FP3VecPC3Vec(void *, void *);
@@ -117,7 +117,7 @@ void vec3_add_to(void *, void *);
 f32 vector_length(void *);
 extern const f32 lbl_805D8CBC;
 extern const f32 lbl_805D8CC4;
-void TBoss4Bishi__vt1(Obj_8005BB5C *self);
+void vt1__11TBoss4BishiFv(Obj_8005BB5C *self);
 u16 find_nearest_visible_player(void *, M2C_UNK, f32);
 void VecCopy__FP3VecPC3Vec(void *, void *);
 s32 TBoss4Zako__ct(s32, s32, s32);
@@ -172,8 +172,8 @@ void TBoss4Bishi__sub_8005BAC8(void);
 void TBoss4Bishi__sub_8005BACC(void);
 void TBoss4Bishi__sub_8005BAD0(void);
 void TBoss4Bishi__sub_8005BAD4(void);
-void TBoss4Bishi__vt0(u8 *arg0);
-void TBoss4Zako__vt4(void *arg0);
+void vt0__11TBoss4BishiFv(u8 *arg0);
+void vt4__9TBoss4UroFv(void *arg0);
 void *__dt_deleting__11TBoss4BishiFPvs(void *arg0, s16 arg1);
 s32 create__11TBoss4BishiFi(s32 arg0);
 void enter_state_3__11TBoss4BishiFPv(void* p);
@@ -457,7 +457,7 @@ V2_8005BF68 __vt__11TBoss4Bishi[4] = {
     { -4.0f, -4.0f }, { 4.0f, -4.0f }, { -4.0f, 4.0f }, { 4.0f, 4.0f },
 };
 
-void TBoss4Zako__vt4(void *arg0) {
+void vt4__9TBoss4UroFv(void *arg0) {
     struct VOff_8005C450_arg0_8005BABC *self = (struct VOff_8005C450_arg0_8005BABC *)arg0;
     update_target_position__10TBoss4ZakoFPv((u8 *)(arg0));
     update_orbit_velocity__10TBoss4ZakoFPv((void *)(arg0));
@@ -531,7 +531,7 @@ void update_orbit_velocity__10TBoss4ZakoFPv(void *p) {
 }
 #pragma pop
 
-void TBoss4Zako__vt5(u8 *arg0) {
+void vt5__9TBoss4UroFv(u8 *arg0) {
     f32 temp_f1;
     M2C_FIELD(arg0, f32 *, 0x3C) = (f32) (M2C_FIELD(arg0, f32 *, 0x3C) + lbl_805D8CB8);
     temp_f1 = M2C_FIELD(arg0, f32 *, 0x3C);
@@ -544,7 +544,7 @@ void TBoss4Zako__vt5(u8 *arg0) {
     }
 }
 
-void TBoss4Zako__vt6(u8 *arg0) {
+void vt6__9TBoss4UroFv(u8 *arg0) {
     f32 temp_f1;
     temp_f1 = M2C_FIELD(arg0, f32 *, 0x390);
     M2C_FIELD(arg0, f32 *, 0x390) = (f32) (temp_f1 + lbl_805D8CE4);
@@ -665,7 +665,7 @@ void TBoss4Zako__sub_8005BC4C(TBoss4Bishi_8005BC4C *self) {
 }
 #pragma pop
 
-void TBoss4Bishi__vt0(u8 *arg0) {
+void vt0__11TBoss4BishiFv(u8 *arg0) {
     f32 temp_f0;
     f32 temp_f2;
 
@@ -681,7 +681,7 @@ void TBoss4Bishi__vt0(u8 *arg0) {
     }
 }
 
-void TBoss4Bishi__vt1(Obj_8005BB5C *self) {
+void vt1__11TBoss4BishiFv(Obj_8005BB5C *self) {
     VecCopy__FP3VecPC3Vec(&self->prev, &self->pos);
     vec3_add_to(&self->pos, (u8 *)self + 0x38C);
     V_8005BB5C v = self->pos;
@@ -691,7 +691,7 @@ void TBoss4Bishi__vt1(Obj_8005BB5C *self) {
     }
 }
 
-void TBoss4Bishi__vt2(u8 *arg0) {
+void vt2__11TBoss4BishiFv(u8 *arg0) {
     f32 temp_f1;
     M2C_FIELD(arg0, f32 *, 0x3C) = (f32) (M2C_FIELD(arg0, f32 *, 0x3C) + lbl_805D8CB8);
     temp_f1 = M2C_FIELD(arg0, f32 *, 0x3C);

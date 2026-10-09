@@ -258,6 +258,7 @@ pso/boss/TBoss8Dragon_802F3F20.cpp
 pso/boss/TBoss8Dragon_802F42A0.cpp
 pso/boss/TBoss8Dragon_802F4324.cpp
 pso/boss/TBoss8Dragon_802F4480.cpp
+pso/boss/TBoss8Dragon_802FDF10.cpp
 pso/boss/TBoss8Dragon_80324D3C.cpp
 pso/boss/TBoss8Dragon_80325D38.cpp
 pso/boss/TBoss8Dragon_80359A7C.cpp
@@ -274,6 +275,7 @@ pso/boss/TObjBoss2RaftSplash_8003B0A0.cpp
 pso/boss/TObjBoss2Tunnel_8003B138.cpp
 pso/boss/TObjBoss2Tunnel_8007CE14.cpp
 pso/boss/TObjBoss2Tunnel_8007E0CC.cpp
+pso/boss/TObjBoss2Tunnel_8007E100.cpp
 pso/boss/TObjBoss2Tunnel_8007E380.cpp
 pso/boss/TObjBoss2Tunnel_8007E3AC.cpp
 pso/boss/TObjBoss2Tunnel_8007E418.cpp
@@ -783,6 +785,7 @@ pso/misc/TChCrCharSelect_802937D4.cpp
 pso/misc/TChCrCharSelect_802937E8.cpp
 pso/misc/TChCrCharSelect_80293860.cpp
 pso/misc/TChCrCharSelect_802938E4.cpp
+pso/misc/TChCrCharSelect_80293AF4.cpp
 pso/misc/TChCrCharSelect_80293BEC.cpp
 pso/misc/TChCrCharSelect_80293D10.cpp
 pso/misc/TChCrCharSelect_80293D58.cpp
@@ -1195,6 +1198,7 @@ pso/misc/TOAirconCave01_80156F64.cpp
 pso/misc/TOAirconCave02.cpp
 pso/misc/TOAirconCave02_801571A0.cpp
 pso/misc/TOBarrierEnergy01.cpp
+pso/misc/TOBarrierEnergy01_80157CF4.cpp
 pso/misc/TOBarrierEnergy01_80157E2C.cpp
 pso/misc/TOBarrierEnergy01_80157E90.cpp
 pso/misc/TOBarrierEnergy01_80157ECC.cpp
@@ -2039,6 +2043,7 @@ pso/object/TObjCGrass.cpp
 pso/object/TObjCHTimeWin.cpp
 pso/object/TObjCHTimeWin_80074C94.cpp
 pso/object/TObjCMIcon.cpp
+pso/object/TObjCMIcon_802999C4.cpp
 pso/object/TObjCMMainMenu_8028D9A8.cpp
 pso/object/TObjCMMainMenu_8028EA88.cpp
 pso/object/TObjCMMainMenu_8029427C.cpp
@@ -2749,6 +2754,7 @@ pso/ui/TAdPlayerLoadGC_803F3F64.cpp
 pso/ui/TAdPlyPltAnimCtrlGC.cpp
 pso/ui/TAdPlyPltAnimGC.cpp
 pso/ui/TAdPlyPltAnimGC_80356190.cpp
+pso/ui/TAdPlyStatusGC.cpp
 pso/ui/TAdPlyStatusGC_802E1128.cpp
 pso/ui/TAdPlyStatusGC_8033FD48.cpp
 pso/ui/TAdPsoPassSaveGC.cpp
@@ -3183,6 +3189,7 @@ pso/unk/text_80144AC8.cpp
 pso/unk/text_80145750.cpp
 pso/unk/text_80145A44.cpp
 pso/unk/text_80145A94.cpp
+pso/unk/text_80148274.cpp
 pso/unk/text_801482F8.cpp
 pso/unk/text_8014952C.cpp
 pso/unk/text_8014AAC4.cpp
@@ -3198,6 +3205,7 @@ pso/unk/text_8015AAF8.cpp
 pso/unk/text_8015C048.cpp
 pso/unk/text_8015C534.cpp
 pso/unk/text_8015C680.cpp
+pso/unk/text_8015D5D4.cpp
 pso/unk/text_8015D6D0.cpp
 pso/unk/text_8015DAE4.cpp
 pso/unk/text_8015FC40.cpp
@@ -3278,6 +3286,7 @@ pso/unk/text_801977D4.cpp
 pso/unk/text_80197998.cpp
 pso/unk/text_80197E54.cpp
 pso/unk/text_80197F74.cpp
+pso/unk/text_80197FD0.cpp
 pso/unk/text_80198960.cpp
 pso/unk/text_80198A2C.cpp
 pso/unk/text_8019AD50.cpp
@@ -3313,6 +3322,7 @@ pso/unk/text_801BD0C0.cpp
 pso/unk/text_801BD318.cpp
 pso/unk/text_801BDE60.cpp
 pso/unk/text_801BDFC4.cpp
+pso/unk/text_801BE104.cpp
 pso/unk/text_801BE388.cpp
 pso/unk/text_801C23A8.cpp
 pso/unk/text_801C51D4.cpp
@@ -3632,6 +3642,7 @@ pso/unk/text_8033D6DC.cpp
 pso/unk/text_8033F314.cpp
 pso/unk/text_8033FE30.cpp
 pso/unk/text_8033FF78.cpp
+pso/unk/text_8034960C.cpp
 pso/unk/text_80349B8C.cpp
 pso/unk/text_8034AD38.cpp
 pso/unk/text_8034CEDC.cpp
@@ -3708,6 +3719,7 @@ pso/unk/text_803D4418.cpp
 pso/unk/text_803D4448.cpp
 pso/unk/text_803D4714.cpp
 pso/unk/text_803D60C8.cpp
+pso/unk/text_803D619C.cpp
 pso/unk/text_803D64F8.cpp
 pso/unk/text_803D8030.cpp
 pso/unk/text_803D8DE0.cpp

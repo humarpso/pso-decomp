@@ -87,6 +87,7 @@ force_active:
   - TBoss1DragonColli_sphere_chain_desc
   - TBoss3VoloptP01_class_name
   - TBoss8DragonDemo__sub_802F2CC4
+  - TBoss8Dragon__sub_802FDF10
   - TBoss8Dragon__sub_8036AF50
   - TChCrTagName__class_name
   - TChCrTagName__sub_802A226C
@@ -120,6 +121,7 @@ force_active:
   - TMainCursor__sub_8013E4A0
   - TMainCursor__sub_8013E570
   - TMainCursor__sub_8013E694
+  - TOBarrierEnergy01__vt18
   - TOMineIcon04__vt78
   - TOMineIcon04__vt80
   - TOMineIcon04__vt82
@@ -163,6 +165,7 @@ force_active:
   - TObjPlayer__sub_80040ADC
   - TObjPlayer__sub_801AA61C
   - TObjPlayer__sub_801AA6E4
+  - TObjPlayer__sub_801BE104
   - TObjPlayer__sub_801BF31C
   - TObjPlayer__sub_801BF5F0
   - TObjPlayer__sub_801BF5F8
@@ -232,6 +235,7 @@ force_active:
   - __dt__10TDPBShowerFv
   - __dt__10TEndingPicFv
   - __dt__10TItemTimerFv
+  - __dt__10TObjCMIconFv
   - __dt__11TAdRicoRingFv
   - __dt__11TChCrEffTagFv
   - __dt__11TMapCsnCtrlFv
@@ -507,6 +511,7 @@ force_active:
   - clear_segment_flags__17TBoss8DragonColliFPv
   - clear_thread_state__12TQuestThreadFv
   - close_shop_subwindows__7TWindowFPvs
+  - close_window__14TAdPlyStatusGCFv
   - close_window_and_destroy__18TAdEnterPasswordGCFPv
   - close_windows__16TAdChrSelBSlotGCFPv
   - close_windows__9TObjLukerFPv
@@ -610,6 +615,7 @@ force_active:
   - destroy__16TBoss3VoloptCoreFPvs
   - destroy__19TQuestListChallengeFv
   - destroy_arrays__14TPlyDispConfigFii
+  - destroy_char_data_array__10TObjPlayerFv
   - destroy_free_buffers__20TWindowSubStatusDispFPvs
   - destroy_static_array__10TObjPlayerFv
   - destroy_subobjects_recursive__10TObjPlayerFPv
@@ -680,6 +686,7 @@ force_active:
   - draw_shadowed_node_tree__10TObjPlayerFPv
   - draw_split_screen_dividers__20TWindowSubStatusDispFv
   - draw_status_text__19TWindowKeyBoardHardFPvPv
+  - draw_status_window__14TAdPlyStatusGCFPvPv
   - draw_status_window__15TAdMcSelectMcGCFPv
   - draw_switch_lights__15TODoorAncient08FPv
   - draw_tab__12TWindowTimerFii
@@ -753,6 +760,7 @@ force_active:
   - fn_802E62A4
   - fn_spawn_particle_f3_with_flags
   - format_challenge_stage_times__23TAdSinglePlyChrSelectGCFii
+  - format_status_strings__14TAdPlyStatusGCFPv
   - free_item_pmt
   - freeze_shell_grow
   - freeze_shell_hold
@@ -1071,6 +1079,9 @@ force_active:
   - lbl_8049D984
   - lbl_8049DC28
   - lbl_804A7130
+  - lbl_804A7CF8
+  - lbl_804AFB10
+  - lbl_804AFB1C
   - lbl_804B6D7C
   - lbl_804B6D98
   - lbl_804B6DA4
@@ -1097,6 +1108,8 @@ force_active:
   - lbl_804EC724
   - lbl_804ED9C0
   - lbl_804EF3A4
+  - lbl_804EFAE0
+  - lbl_804EFAF8
   - lbl_804F2B80
   - lbl_804F2B90
   - lbl_804F2B98
@@ -1125,6 +1138,8 @@ force_active:
   - lbl_80501068
   - lbl_8050C014
   - lbl_8050DCF8
+  - lbl_8050DD2C
+  - lbl_8050EA64
   - lbl_80540BBC
   - lbl_80541990
   - lbl_80541DA0
@@ -1664,6 +1679,7 @@ force_active:
   - update_giveup__6TLobbyFPv
   - update_goal_checks__12TWindowTimerFPvUs
   - update_ground_fall__19TObjGyaranzoMissileFPvPvf
+  - update_hidden__14TAdPlyStatusGCFv
   - update_hit_reaction__15TObjEneMe1GiGueFPv
   - update_idle_state__11TObjEneMojaFv
   - update_input_number__18TShopGetItemWindowFPv
@@ -1706,6 +1722,7 @@ force_active:
   - update_selection__19TQuestListChallengeFv
   - update_selection_input__19TWindowSubMagPhotonFPv
   - update_short_list_request__11TWindowCtrlFPv
+  - update_shown__14TAdPlyStatusGCFv
   - update_shutter_slide__17TObjVoloptShutterFPv
   - update_shutter_state__17TObjVoloptShutterFPv
   - update_slide_in__12TChCrTagNameFPv
