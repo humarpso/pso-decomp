@@ -54,19 +54,19 @@ struct RecoveredGlobal_80289200_lbl_80450A20 {
     u8 remaining[0x7C];
 };
 
-class QLC_802890AC {
+class TQuestListChallenge {
 public:
     u8 pad[0x20];
     s32 state;
-    void m0();
-    void m1();
-    void m2();
-    void m3();
-    void m4();
-    void m5();
+    void create_quest_list_window();
+    void update_selection();
+    void handle_confirm_select();
+    void invoke_callback_and_destroy();
+    void destroy();
+    void sub_80288BE4();
 };
 
-typedef void (QLC_802890AC::*Handler_802890AC)();
+typedef void (TQuestListChallenge::*Handler_802890AC)();
 
 typedef s32 M2C_UNK;
 struct VBase_80288DA4 { char pad[0x18]; };
@@ -115,7 +115,7 @@ s32 select_cursor_entry__6TLobbyFPv(s32);
 M2C_UNK send_and_handle__6TLobbyFPvii(void *, s32, s32);
 void *create_message_window__6TLobbyFiiUis(s32, Pair_80288DA4 *, s32, u16);
 s32 get_window_layout_position(s32);
-void update_selection__19TQuestListChallengeFPv(QLC_80288DA4 *self);
+void update_selection__19TQuestListChallengeFv(QLC_80288DA4 *self);
 }
 
 extern "C" {
@@ -152,18 +152,18 @@ s32 get_guild_text(s32);
 void calc_list_content_extent(u32);
 void add_list_entry__6TLobbyFPviii(u32, s32, s32, s32);
 s32 create_item_list_window(s32, s32, s32);
-void create_quest_list_window__19TQuestListChallengeFPv(QLC_80288FDC *arg0);
+void create_quest_list_window__19TQuestListChallengeFv(QLC_80288FDC *arg0);
 }
 
 extern "C" {
 
 void * TObjNpcKenkyu__create(void *arg0);
-void TQuestListChallenge__sub_80288BE4(void);
+void sub_80288BE4__19TQuestListChallengeFv(void);
 void *__dt__19TQuestListChallengeFv(void *arg0, s16 arg1);
 void close_windows__19TQuestListChallengeFPv(void *arg0);
-void destroy__19TQuestListChallengeFPv(void *arg0);
-void handle_confirm_select__19TQuestListChallengeFPv(void *arg0);
-void invoke_callback_and_destroy__19TQuestListChallengeFPv(void *arg0);
+void destroy__19TQuestListChallengeFv(void *arg0);
+void handle_confirm_select__19TQuestListChallengeFv(void *arg0);
+void invoke_callback_and_destroy__19TQuestListChallengeFv(void *arg0);
 void reset_globals2__19TQuestListChallengeFv(void);
 void reset_globals__19TQuestListChallengeFv(void);
 M2C_UNK prepare_offline_quest_filenames(s32, s32);
@@ -227,9 +227,9 @@ void close_windows__19TQuestListChallengeFPv(void *arg0) {
         M2C_FIELD(arg0, u32 *, 0x40) = 0U;
     }
 }
-void TQuestListChallenge__sub_80288BE4(void) {  }
+void sub_80288BE4__19TQuestListChallengeFv(void) {  }
 
-void invoke_callback_and_destroy__19TQuestListChallengeFPv(void *arg0) {
+void invoke_callback_and_destroy__19TQuestListChallengeFv(void *arg0) {
     M2C_UNK (*temp_r12)(s32);
 
     temp_r12 = M2C_FIELD(arg0, M2C_UNK (**)(s32), 0x2C);
@@ -239,7 +239,7 @@ void invoke_callback_and_destroy__19TQuestListChallengeFPv(void *arg0) {
     queue_destruction__7TObjectFv(arg0);
 }
 
-void destroy__19TQuestListChallengeFPv(void *arg0) {
+void destroy__19TQuestListChallengeFv(void *arg0) {
     M2C_UNK (*temp_r12)(s32);
 
     temp_r12 = M2C_FIELD(arg0, M2C_UNK (**)(s32), 0x28);
@@ -249,7 +249,7 @@ void destroy__19TQuestListChallengeFPv(void *arg0) {
     queue_destruction__7TObjectFv(arg0);
 }
 
-void handle_confirm_select__19TQuestListChallengeFPv(void *arg0) {
+void handle_confirm_select__19TQuestListChallengeFv(void *arg0) {
     s32 temp_r0;
     s32 temp_r3_2;
     Entry_80288C78_80288B5C *temp_r4;
@@ -295,7 +295,7 @@ extern void *__vt__19TQuestListChallenge[];
 extern s32 TQuestListChallenge__active_instance;
 
 #define SUB_80222C28(a, b) ((s32 (*)(s32, s32))get_quest_list_text)(a, b)
-void update_selection__19TQuestListChallengeFPv(QLC_80288DA4 *self) {
+void update_selection__19TQuestListChallengeFv(QLC_80288DA4 *self) {
     Pair_80288DA4 p;
     s32 sel;
     s32 id;
@@ -346,7 +346,7 @@ void update_selection__19TQuestListChallengeFPv(QLC_80288DA4 *self) {
     }
 }
 
-void create_quest_list_window__19TQuestListChallengeFPv(QLC_80288FDC *arg0) {
+void create_quest_list_window__19TQuestListChallengeFv(QLC_80288FDC *arg0) {
     u16 id;
     s32 i;
     s32 e;
@@ -363,14 +363,14 @@ void create_quest_list_window__19TQuestListChallengeFPv(QLC_80288FDC *arg0) {
     }
 }
 
-void TQuestListChallenge__vt9(QLC_802890AC *arg0) {
+void TQuestListChallenge__vt9(TQuestListChallenge *arg0) {
     static Handler_802890AC tbl[] = {
-        &QLC_802890AC::m0,
-        &QLC_802890AC::m1,
-        &QLC_802890AC::m2,
-        &QLC_802890AC::m3,
-        &QLC_802890AC::m4,
-        &QLC_802890AC::m5,
+        &TQuestListChallenge::create_quest_list_window,
+        &TQuestListChallenge::update_selection,
+        &TQuestListChallenge::handle_confirm_select,
+        &TQuestListChallenge::invoke_callback_and_destroy,
+        &TQuestListChallenge::destroy,
+        &TQuestListChallenge::sub_80288BE4,
     };
     (arg0->*tbl[arg0->state])();
 }

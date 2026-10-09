@@ -56,21 +56,21 @@ struct L_8028B948 { u8 pad[0x1c]; s32 f1c; u8 pad2[0xc]; s32 f2c; };
 extern "C" {
 s32 TLobby__sub_803CC4C0(int);
 void TLobby__sub_803CCE9C(int);
-void poll_load__12TChCrLoadAfsFPv(L_8028B948 *arg0);
+void poll_load__12TChCrLoadAfsFv(L_8028B948 *arg0);
 }
 
 extern "C" {
 
-void TChCrLoadAfs__sub_8028B940(void);
-void TChCrLoadAfs__sub_8028B944(void);
+void sub_8028B940__12TChCrLoadAfsFv(void);
+void sub_8028B944__12TChCrLoadAfsFv(void);
 s32 TLobby__sub_803CC53C(u32);
 s32 read_checked_align__6TLobbyFiii(u32, s32, u32);
 u32 adxf_open_afs__6TLobbyFii(s32, s32);
 u32 alloc__22TQuestVmDownLoadServerFPv(s32);
 
-void TChCrLoadAfs__sub_8028B940(void) {  }
-void TChCrLoadAfs__sub_8028B944(void) {  }
-void poll_load__12TChCrLoadAfsFPv(L_8028B948 *arg0) {
+void sub_8028B940__12TChCrLoadAfsFv(void) {  }
+void sub_8028B944__12TChCrLoadAfsFv(void) {  }
+void poll_load__12TChCrLoadAfsFv(L_8028B948 *arg0) {
     switch (TLobby__sub_803CC4C0(arg0->f1c)) {
     case 2:
         return;
@@ -165,11 +165,11 @@ extern "C" {
 
 void *TChCrLoadAfs__ct(void *arg0, void *arg1, void *arg2, void *arg3);
 void * create__12TChCrLoadAfsFPvPvPv(void *arg0, void *arg1, void *arg2);
-void start_download__12TChCrLoadAfsFPv(void *arg0);
+void start_download__12TChCrLoadAfsFv(void *arg0);
 void __ct__7TObjectFP7TObject(void *);
 void *__nw__7TObjectFUl(int);
 
-void start_download__12TChCrLoadAfsFPv(void *arg0) {
+void start_download__12TChCrLoadAfsFv(void *arg0) {
     s32 temp_r3_2;
     u32 temp_r3;
     u32 temp_r3_3;
@@ -202,13 +202,9 @@ public:
     s32 state;
     u8 pad2[0x34 - 0x30];
     s32 wait;
-    void m0();
-    void m1();
-    void m2();
-    void m3();
 };
 
-typedef void (Afs_8028BA64::*Handler_8028BA64)();
+typedef void (TChCrLoadAfs::*Handler_8028BA64)();
 
 s32 chcr_load_afs_busy_flag;
 
@@ -221,12 +217,12 @@ void TChCrLoadAfs::run_task() {
         return;
     }
     static Handler_8028BA64 tbl[] = {
-        &Afs_8028BA64::m0,
-        &Afs_8028BA64::m1,
-        &Afs_8028BA64::m2,
-        &Afs_8028BA64::m3,
+        &TChCrLoadAfs::start_download,
+        &TChCrLoadAfs::poll_load,
+        &TChCrLoadAfs::sub_8028B944,
+        &TChCrLoadAfs::sub_8028B940,
     };
-    (arg0->*tbl[arg0->state])();
+    (this->*tbl[arg0->state])();
 }
 
 }

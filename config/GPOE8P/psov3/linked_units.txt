@@ -199,6 +199,7 @@ pso/boss/TBoss6GravBall_80323134.cpp
 pso/boss/TBoss6GravBall_80323878.cpp
 pso/boss/TBoss6Kakusan.cpp
 pso/boss/TBoss6Mag.cpp
+pso/boss/TBoss6MagMine.cpp
 pso/boss/TBoss6PlotFalz.cpp
 pso/boss/TBoss6RockChase.cpp
 pso/boss/TBoss6Rock_80354A30.cpp
@@ -796,6 +797,7 @@ pso/misc/TChCrEffTagStr.cpp
 pso/misc/TChCrEffTag_8029AC44.cpp
 pso/misc/TChCrEffTag_8029ACA8.cpp
 pso/misc/TChCrEffTag_8029B098.cpp
+pso/misc/TChCrLoadAfs.cpp
 pso/misc/TChCrLoadAfsTextureReq.cpp
 pso/misc/TChCrTag.cpp
 pso/misc/TChCrTagInformation.cpp
@@ -1448,6 +1450,7 @@ pso/misc/TQuestBgmCtrl_801E63F4.cpp
 pso/misc/TQuestColCtrl.cpp
 pso/misc/TQuestColCtrl_8003F3BC.cpp
 pso/misc/TQuestColCtrl_80195CF0.cpp
+pso/misc/TQuestListChallenge.cpp
 pso/misc/TQuestListOnline.cpp
 pso/misc/TQuestListOnline_801F6530.cpp
 pso/misc/TQuestListOnline_802150E8.cpp
@@ -1688,6 +1691,7 @@ pso/misc/TWindowDD_80348C54.cpp
 pso/misc/TWindowDD_80348D0C.cpp
 pso/misc/TWindowDD_8034AF68.cpp
 pso/misc/TWindowDeposit.cpp
+pso/misc/TWindowDuelResult.cpp
 pso/misc/TWindowDuelResult_801C2528.cpp
 pso/misc/TWindowEffectParty.cpp
 pso/misc/TWindowEffectParty_8024F690.cpp
@@ -2668,6 +2672,7 @@ pso/ui/TAdDialingMessageWindow_8036A064.cpp
 pso/ui/TAdDrawLineCtrl.cpp
 pso/ui/TAdEnterBaseGC.cpp
 pso/ui/TAdEnterBaseGC_8032B38C.cpp
+pso/ui/TAdEnterPasswordGC.cpp
 pso/ui/TAdEnterSerialAccessGC_80202978.cpp
 pso/ui/TAdEnterSerialAccessGC_8023EA94.cpp
 pso/ui/TAdEnterSerialAccessGC_802ACF04.cpp

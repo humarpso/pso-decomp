@@ -29,13 +29,11 @@ typedef struct Win_8024F094 {
     u8 sub[4];
 } Win_8024F094;
 
-struct W_8024F330 {
-    void a();
-    void b();
-};
-struct W_8024F3CC {
-    void a();
-    void b();
+struct TWindowDuelResult {
+    void sub_8024F094();
+    void sub_8024EF40();
+    void sub_8024F090();
+    void sub_8024EF3C();
 };
 extern "C" {
 s8 get_type__20TWindowSubStatusDispFPv(int);
@@ -61,7 +59,7 @@ u8 *get_array_entry__20TWindowSubStatusDispFPvi(void *, s32);
 void init_window_layout_entries(void *, void *, int);
 void set_text_entry_string(void *, void *, int);
 void set_default_status__17TWindowDuelResultFPvi(void *, int);
-void TWindowDuelResult__vt1(Win_8024EF40 *arg0);
+void sub_8024EF40__17TWindowDuelResultFv(Win_8024EF40 *arg0);
 s32 get_shared_text_buffer(s32);
 s32 get_localized_text_entry(int, int);
 u8 *get_player_by_client_id(int);
@@ -76,13 +74,13 @@ void init_window_layout_entries(void *, void *, int);
 void set_text_entry_string(void *, void *, int);
 void set_default_status__17TWindowDuelResultFPvi(void *, int);
 extern u8 lbl_8050EA40[];
-void TWindowDuelResult__vt0(Win_8024F094 *self);
+void sub_8024F094__17TWindowDuelResultFv(Win_8024F094 *self);
 }
 
 extern "C" {
 
-void TWindowDuelResult__vt2(void);
-void TWindowDuelResult__vt3(void);
+void sub_8024F090__17TWindowDuelResultFv(void);
+void sub_8024EF3C__17TWindowDuelResultFv(void);
 void *destroy__17TWindowDuelResultFPvs(void *arg0, s16 arg1);
 void update__17TWindowDuelResultFPv(u8 *arg0);
 M2C_UNK TWindowDuelResult__sub_8024F330(void *);
@@ -173,9 +171,9 @@ void *__vt__17TWindowDuelResult[5] = {
 #define duel_result_window_layout_table ((u8 *)duel_result_window_layout_table)
 #define __vt__17TWindowDuelResult (*(RecoveredGlobal_8024F5B0___vt__17TWindowDuelResult *)__vt__17TWindowDuelResult)
 
-void TWindowDuelResult__vt3(void) {  }
+void sub_8024EF3C__17TWindowDuelResultFv(void) {  }
 
-void TWindowDuelResult__vt1(Win_8024EF40 *arg0) {
+void sub_8024EF40__17TWindowDuelResultFv(Win_8024EF40 *arg0) {
     s32 vals[4];
     u8 *pl;
     s32 i;
@@ -203,9 +201,9 @@ void TWindowDuelResult__vt1(Win_8024EF40 *arg0) {
     }
 }
 
-void TWindowDuelResult__vt2(void) {  }
+void sub_8024F090__17TWindowDuelResultFv(void) {  }
 
-void TWindowDuelResult__vt0(Win_8024F094 *self) {
+void sub_8024F094__17TWindowDuelResultFv(Win_8024F094 *self) {
     s32 i;
     s32 none;
     Entry_8024F094 *e;
@@ -264,9 +262,9 @@ void TWindowDuelResult__vt0(Win_8024F094 *self) {
 #pragma defer_codegen on
 s32 TWindowDuelResult__sub_8024F3CC(void *arg0_) {
     u8 *arg0 = (u8 *)arg0_;
-    typedef void (W_8024F3CC::*PT)();
-    static PT tbl[2] = { &W_8024F3CC::a, &W_8024F3CC::b };
-    W_8024F3CC *w = (W_8024F3CC *)arg0;
+    typedef void (TWindowDuelResult::*PT)();
+    static PT tbl[2] = { &TWindowDuelResult::sub_8024F094, &TWindowDuelResult::sub_8024EF40 };
+    TWindowDuelResult *w = (TWindowDuelResult *)arg0;
     destroy_all_items__20TWindowSubStatusDispFPv(arg0 + 0x24);
     s8 t = get_type__20TWindowSubStatusDispFPv(*(s32 *)(arg0 + 0x68));
     (w->*tbl[t])();
@@ -275,9 +273,9 @@ s32 TWindowDuelResult__sub_8024F3CC(void *arg0_) {
 
 s32 TWindowDuelResult__sub_8024F330(void *arg0_) {
     u8 *arg0 = (u8 *)arg0_;
-    typedef void (W_8024F330::*PT)();
-    static PT tbl[2] = { &W_8024F330::a, &W_8024F330::b };
-    W_8024F330 *w = (W_8024F330 *)arg0;
+    typedef void (TWindowDuelResult::*PT)();
+    static PT tbl[2] = { &TWindowDuelResult::sub_8024F090, &TWindowDuelResult::sub_8024EF3C };
+    TWindowDuelResult *w = (TWindowDuelResult *)arg0;
     s8 t = get_type__20TWindowSubStatusDispFPv(*(s32 *)(arg0 + 0x68));
     (w->*tbl[t])();
 }

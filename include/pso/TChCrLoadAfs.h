@@ -8,6 +8,10 @@ class TChCrLoadAfs : public TObject {
 public:
     virtual ~TChCrLoadAfs();
     virtual void run_task();
+    void start_download();
+    void poll_load();
+    void sub_8028B944();
+    void sub_8028B940();
     u32 load_handle;
     u32 source_20;
     u32 source_24;

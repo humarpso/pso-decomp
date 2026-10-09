@@ -45,14 +45,19 @@ struct Pw_8032B6A0
   s32 len;
 };
 
-struct TAdEnterPasswordGC_8032B984 {
+struct TAdEnterPasswordGC {
     virtual void m0();
     char pad[0x18];
     s32 state;
     s32 f20;
     s32 f24;
-    void s0(); void s1(); void s2(); void s3(); void s4();
+    void open_keyboard_window(void *);
+    void update_password_input(void *);
+    void request_transition(void *);
+    void set_multi_chg_game_mode_0x14(void *);
+    void close_window_and_destroy(void *);
 };
+typedef TAdEnterPasswordGC TAdEnterPasswordGC_8032B984;
 typedef void (TAdEnterPasswordGC_8032B984::*Pmf_8032B984)();
 
 extern "C" {
@@ -81,7 +86,7 @@ s32 create_default_callback__22TAdEnterSerialAccessGCFv(void *);
 extern RecoveredGlobal_8032B904_lbl_80477278 lbl_80477278;
 extern u8 *lbl_805D6CA0;
 extern s32 lbl_805D6CA4;
-void TAdEnterPasswordGC__sub_8032B904(s32 arg0);
+void open_keyboard_window__18TAdEnterPasswordGCFPv(s32 arg0);
 void strncpy(s32, s32, s32);
 M2C_UNK memset(void *, int, int);
 extern RecoveredGlobal_8032BA8C_TAdEnterPasswordGC__data_804EDA20 TAdEnterPasswordGC__data_804EDA20;
@@ -261,7 +266,7 @@ void update_password_input__18TAdEnterPasswordGCFPv(Pw_8032B6A0 *self) {
   free__11TOBoss4RockFUi(buf);
 }
 
-void TAdEnterPasswordGC__sub_8032B904(s32 arg0) {
+void open_keyboard_window__18TAdEnterPasswordGCFPv(s32 arg0) {
     M2C_FIELD(arg0, s32 *, 0x30) = show_message_window__22TAdEnterSerialAccessGCFPvPv(arg0, 2);
     M2C_FIELD(arg0, s32 *, 0x34) = create_default_callback__22TAdEnterSerialAccessGCFv((void *) (arg0));
     if ((u32) M2C_FIELD(arg0, u32 *, 0x2C) != 0U) {
@@ -277,9 +282,11 @@ void run_task__18TAdEnterPasswordGCFv(TAdEnterPasswordGC_8032B984 *self) {
     fn_8032B318(self, lbl_804ED9F0);
     self->state = lbl_805D6CA4;
     static Pmf_8032B984 tbl[5] = {
-        &TAdEnterPasswordGC_8032B984::s0, &TAdEnterPasswordGC_8032B984::s1,
-        &TAdEnterPasswordGC_8032B984::s2, &TAdEnterPasswordGC_8032B984::s3,
-        &TAdEnterPasswordGC_8032B984::s4,
+        (Pmf_8032B984)&TAdEnterPasswordGC::open_keyboard_window,
+        (Pmf_8032B984)&TAdEnterPasswordGC::update_password_input,
+        (Pmf_8032B984)&TAdEnterPasswordGC::request_transition,
+        (Pmf_8032B984)&TAdEnterPasswordGC::set_multi_chg_game_mode_0x14,
+        (Pmf_8032B984)&TAdEnterPasswordGC::close_window_and_destroy,
     };
     (self->*tbl[lbl_805D6CA4])();
     if (self->state != lbl_805D6CA4) {
