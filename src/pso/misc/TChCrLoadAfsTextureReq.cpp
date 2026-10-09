@@ -44,6 +44,13 @@ public:
 
 typedef void (Req_8028C090::*Handler_8028C090)();
 
+class TChCrLoadAfsTextureReq {
+public:
+    void try_begin_load(void *);
+    void start_read(void *);
+    void update_loading(void *);
+};
+
 extern "C" {
 
 }
@@ -100,9 +107,9 @@ void run_task__22TChCrLoadAfsTextureReqFv(Req_8028C090 *arg0) {
         return;
     }
     static Handler_8028C090 tbl[] = {
-        &Req_8028C090::m0,
-        &Req_8028C090::m1,
-        &Req_8028C090::m2,
+        reinterpret_cast<Handler_8028C090>(&TChCrLoadAfsTextureReq::try_begin_load),
+        reinterpret_cast<Handler_8028C090>(&TChCrLoadAfsTextureReq::start_read),
+        reinterpret_cast<Handler_8028C090>(&TChCrLoadAfsTextureReq::update_loading),
     };
     if (arg0->state < 0 || arg0->state >= 3) {
         ((void (*)(void *))queue_destruction__7TObjectFv)(arg0);

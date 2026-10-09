@@ -792,6 +792,7 @@ pso/misc/TChCrEffTagStr.cpp
 pso/misc/TChCrEffTag_8029AC44.cpp
 pso/misc/TChCrEffTag_8029ACA8.cpp
 pso/misc/TChCrEffTag_8029B098.cpp
+pso/misc/TChCrLoadAfsTextureReq.cpp
 pso/misc/TChCrTag.cpp
 pso/misc/TChCrTagInformation.cpp
 pso/misc/TChCrTagInformation_802A1FAC.cpp
@@ -1802,6 +1803,7 @@ pso/misc/TWindowSubComCard_80131BC4.cpp
 pso/misc/TWindowSubComCard_80202990.cpp
 pso/misc/TWindowSubComCard_80249120.cpp
 pso/misc/TWindowSubComCard_802495FC.cpp
+pso/misc/TWindowSubComCard_80265410.cpp
 pso/misc/TWindowSubComCard_80266BC4.cpp
 pso/misc/TWindowSubComCard_80268494.cpp
 pso/misc/TWindowSubComCard_80269064.cpp
@@ -1862,6 +1864,7 @@ pso/misc/TWindowSubStatusDisp_800FFE1C.cpp
 pso/misc/TWindowSubStatusDisp_80100DD0.cpp
 pso/misc/TWindowSubStatusDisp_801059B4.cpp
 pso/misc/TWindowSubStatusDisp_8010EEF0.cpp
+pso/misc/TWindowSubStatusDisp_80144B14.cpp
 pso/misc/TWindowSubStatusDisp_801A5228.cpp
 pso/misc/TWindowSubStatusDisp_80228C30.cpp
 pso/misc/TWindowSubStatusDisp_80228CC0.cpp
@@ -1877,6 +1880,7 @@ pso/misc/TWindowSubStatusDisp_80255DF4.cpp
 pso/misc/TWindowSubStatusDisp_8025A9B4.cpp
 pso/misc/TWindowSubStatusDisp_8025B050.cpp
 pso/misc/TWindowSubStatusDisp_8025B4A0.cpp
+pso/misc/TWindowSubStatusDisp_802671F0.cpp
 pso/misc/TWindowSubStatusDisp_80268488.cpp
 pso/misc/TWindowSubStatusDisp_80268738.cpp
 pso/misc/TWindowSubStatusDisp_8026CE3C.cpp
@@ -1892,6 +1896,7 @@ pso/misc/TWindowSubStatusDisp_803DEE6C.cpp
 pso/misc/TWindowSubSymbolChat.cpp
 pso/misc/TWindowSubSymbolChatFaceType.cpp
 pso/misc/TWindowSubSymbolChatHelp.cpp
+pso/misc/TWindowSubSymbolChatPartsSet_80247EFC.cpp
 pso/misc/TWindowSubSymbolChat_80076F88.cpp
 pso/misc/TWindowSubSymbolChat_8007763C.cpp
 pso/misc/TWindowSubSymbolChat_80281814.cpp
@@ -2095,6 +2100,7 @@ pso/object/TObjLight_8022F9E8.cpp
 pso/object/TObjLight_8023347C.cpp
 pso/object/TObjLight_80235C44.cpp
 pso/object/TObjLight_80236D60.cpp
+pso/object/TObjLight_803DF220.cpp
 pso/object/TObjLiveMonitorSmall.cpp
 pso/object/TObjLobbyMain_803520D8.cpp
 pso/object/TObjLuker.cpp
@@ -2111,6 +2117,7 @@ pso/object/TObjMistCtrl.cpp
 pso/object/TObjMotion.cpp
 pso/object/TObjOnlineEnding.cpp
 pso/object/TObjOnlineEndingHexLine.cpp
+pso/object/TObjOnlineEnding_802E4B80.cpp
 pso/object/TObjParticle.cpp
 pso/object/TObjParticleLobby.cpp
 pso/object/TObjQuestCol.cpp
@@ -2627,6 +2634,7 @@ pso/ui/TAdAgreementBaseGC.cpp
 pso/ui/TAdBackGC.cpp
 pso/ui/TAdBackGC_8029A7B0.cpp
 pso/ui/TAdBackTxtGC.cpp
+pso/ui/TAdChrMoveEffectGC.cpp
 pso/ui/TAdChrSelASlotGC_800740FC.cpp
 pso/ui/TAdChrSelASlotGC_802A596C.cpp
 pso/ui/TAdChrSelBSlotGC.cpp
@@ -3445,6 +3453,7 @@ pso/unk/text_8025373C.cpp
 pso/unk/text_80253974.cpp
 pso/unk/text_8025CD10.cpp
 pso/unk/text_8025FF8C.cpp
+pso/unk/text_80262C3C.cpp
 pso/unk/text_80263A20.cpp
 pso/unk/text_80268384.cpp
 pso/unk/text_80269004.cpp

@@ -193,7 +193,6 @@ extern s32 lbl_805D3960;
 extern s32 lbl_805D53A4;
 extern const f32 lbl_805DD148;
 extern const f32 lbl_805DD14C;
-extern const f32 lbl_805DD150;
 extern const f32 lbl_805DD154;
 extern const f32 lbl_805DD158;
 extern const f32 lbl_805DD15C;
@@ -231,7 +230,7 @@ void TWindowSubComCard__sub_80265500(u8 *arg0) {
     Stack_80265500 stack;
     f32 temp_f1;
     if ((u32) M2C_FIELD(arg0, u32 *, 0x84) != 0U) {
-        stack.sp8 = lbl_805DD150;
+        stack.sp8 = 0.0f;
         temp_f1 = M2C_FIELD(arg0, f32 *, 0x4C) - lbl_805DD154;
         stack.spC = temp_f1;
         if ((u32) M2C_FIELD(arg0, u32 *, 0x88) != 0U) {
@@ -252,7 +251,7 @@ void TWindowSubComCard__sub_8026556C(u8 *arg0) {
     if ((u32) M2C_FIELD(arg0, u32 *, 0x84) == 0U) {
         temp_f2 = M2C_FIELD(arg0, f32 *, 0x38);
         temp_f1 = temp_f2 - lbl_805DD15C;
-        stack.spC = lbl_805DD150;
+        stack.spC = 0.0f;
         stack.sp8 = temp_f1;
         temp_r3 = alloc__23TAdSinglePlyChrSelectGCFPv((int) (0xC), (f32) (temp_f1), (f32) (temp_f2));
         var_r0 = temp_r3;
@@ -426,7 +425,7 @@ void clamp_menu_choice_scroll(u8 *arg0) {
     Stack_80265A38 stack;
     f32 temp_f1;
     if ((u32) M2C_FIELD(arg0, u32 *, 0x84) != 0U) {
-        stack.sp8 = lbl_805DD150;
+        stack.sp8 = 0.0f;
         temp_f1 = M2C_FIELD(arg0, f32 *, 0x4C) - lbl_805DD154;
         stack.spC = temp_f1;
         if ((u32) M2C_FIELD(arg0, u32 *, 0x88) != 0U) {
@@ -504,7 +503,7 @@ void align_menu_entry_positions(Win_80265C30 *self) {
         if (get_field_20__17TWindowSubComCardFPv(e) != 0) {
             measure_message_text_width(e, left);
             if (e->h > lbl_805DD168) {
-                e->x = lbl_805DD150;
+                e->x = 0.0f;
             } else {
                 e->x = right - lbl_805DD160 * e->w;
             }
@@ -517,7 +516,7 @@ void calc_layout_height__17TWindowSubComCardFPvf(u8 *arg0, f32 farg0) {
     f32 h;
     u32 i;
     Ent_80265C30 *e;
-    h = lbl_805DD150;
+    h = 0.0f;
     for (i = 0; i < *(s16 *)(arg0 + 0x76); i++) {
         e = get_array_entry__20TWindowSubStatusDispFPvi(arg0, i);
         if (get_field_20__17TWindowSubComCardFPv(e) != 0 && !(e->h <= lbl_8044F330)) {
@@ -547,7 +546,7 @@ void set_scroll_target__17TWindowSubComCardFPvff(void *arg0, f32 farg0, f32 farg
 }
 
 void update_layout_height__17TWindowSubComCardFPvf(Win_80265E60 *self, f32 x) {
-    f32 sum = lbl_805DD150;
+    f32 sum = 0.0f;
     u32 i;
     for (i = 0; i < self->count; i++) {
         Ent_80265E60 *e = ((Ent_80265E60 *)get_array_entry__20TWindowSubStatusDispFPvi(self, i));
@@ -568,7 +567,7 @@ void update_layout_height__17TWindowSubComCardFPvf(Win_80265E60 *self, f32 x) {
 }
 
 void calc_window_size__17TWindowSubComCardFPv(Win_80265F60 *self) {
-    f32 width = lbl_805DD150;
+    f32 width = 0.0f;
     f32 sum = width;
     u32 i;
     for (i = 0; i < self->count; i++) {
@@ -599,7 +598,7 @@ void layout_entries__17TWindowSubComCardFPv(u8 *arg0) {
     u32 i;
     u8 *e;
     f32 h;
-    y = lbl_805DD150;
+    y = 0.0f;
     gap = lbl_805DD16C;
     zero = lbl_8044F330;
     for (i = 0; i < *(s16 *)(arg0 + 0x76); i++) {

@@ -59,7 +59,6 @@ void set_light_ambient_color(f32 r, f32 g, f32 b);
 void GXInitLightColor(void *, GXColor_803DF268);
 void assert_light_id__9TObjLightFi(s32 arg0);
 extern RecoveredGlobal_803DF528_TObjLight__data_8058D528 TObjLight__data_8058D528;
-extern const f32 lbl_805E0FD4;
 void set_gx_light_color(s32 idx, f32 r, f32 g, f32 b);
 M2C_UNK GXInitLightPos(void *, f32, f32, f32);
 M2C_UNK GXInitLightDir(void *, f32, f32, f32);
@@ -126,9 +125,9 @@ typedef char RecoveredGlobal_803DF528_TObjLight__data_8058D528_size[sizeof(Recov
 void set_gx_light_color(s32 idx, f32 r, f32 g, f32 b) {
     GXColor_803DF268 c;
     assert_light_id__9TObjLightFi(idx);
-    c.r = (u8)(lbl_805E0FD4 * r);
-    c.g = (u8)(lbl_805E0FD4 * g);
-    c.b = (u8)(lbl_805E0FD4 * b);
+    c.r = (u8)(255.0f * r);
+    c.g = (u8)(255.0f * g);
+    c.b = (u8)(255.0f * b);
     c.a = 0xFF;
     GXInitLightColor((u8 *)&TObjLight__data_8058D528 + (idx << 6), c);
 }

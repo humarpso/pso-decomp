@@ -192,6 +192,37 @@ void render_card_and_list__20TWindowSubStatusDispFPv(u8 *arg0);
 void update_item_list_window(u8 *arg0);
 void *destroy_item_list_resources__20TWindowSubStatusDispFPvs(void *arg0, s16 arg1);
 
+extern "C" {
+extern const f32 lbl_805DD188 = 0.0f;
+extern const f32 lbl_805DD18C = 20.0f;
+extern const f32 lbl_805DD190 = 6.0f;
+extern const f32 lbl_805DD194 = -18.0f;
+extern const f32 lbl_805DD198 = 40.0f;
+extern const f32 lbl_805DD19C = 166.0f;
+extern const f32 lbl_805DD1A0 = 13.0f;
+extern const f32 lbl_805DD1A4 = -60.0f;
+extern const f32 lbl_805DD1A8 = 50.0f;
+extern const f32 lbl_805DD1AC = 4.0f;
+extern const f32 lbl_805DD1B0 = -1.0f;
+extern const f32 lbl_805DD1B4 = 0.1794f;
+extern const f32 lbl_805DD1B8 = 100000.0f;
+extern const f32 lbl_805DD1BC = 0.5f;
+}
+#define lbl_805DD188 (*(const f32 *)&lbl_805DD188)
+#define lbl_805DD18C (*(const f32 *)&lbl_805DD18C)
+#define lbl_805DD190 (*(const f32 *)&lbl_805DD190)
+#define lbl_805DD194 (*(const f32 *)&lbl_805DD194)
+#define lbl_805DD198 (*(const f32 *)&lbl_805DD198)
+#define lbl_805DD19C (*(const f32 *)&lbl_805DD19C)
+#define lbl_805DD1A0 (*(const f32 *)&lbl_805DD1A0)
+#define lbl_805DD1A4 (*(const f32 *)&lbl_805DD1A4)
+#define lbl_805DD1A8 (*(const f32 *)&lbl_805DD1A8)
+#define lbl_805DD1AC (*(const f32 *)&lbl_805DD1AC)
+#define lbl_805DD1B0 (*(const f32 *)&lbl_805DD1B0)
+#define lbl_805DD1B4 (*(const f32 *)&lbl_805DD1B4)
+#define lbl_805DD1B8 (*(const f32 *)&lbl_805DD1B8)
+#define lbl_805DD1BC (*(const f32 *)&lbl_805DD1BC)
+
 void select_cursor_entry__6TLobbyFPv(void *arg0) {
     get_array_entry__20TWindowSubStatusDispFPvi(arg0, M2C_FIELD(arg0, s16 *, 0x74));
     get_cursor_pos__14TWindowSubItemFPv();
@@ -348,7 +379,6 @@ void add_status_entry__20TWindowSubStatusDispFPvcii(void *arg0, s8 arg1, s32 arg
 }
 
 void init_status_entry_by_flag__20TWindowSubStatusDispFPvi(void *, s32, s32, s32);
-extern const f32 lbl_805DD198;
 void append_entry__20TWindowSubStatusDispFPviiiii(u8 *arg0, s32 arg1, s32 arg2, s32 arg3, s32 arg4, s32 arg5) {
     u16 *e;
     s32 i;
@@ -658,7 +688,7 @@ void update_scroll_offset__20TWindowSubStatusDispFPv(void *arg0) {
   }
   else
   {
-    var_f4 = 0.0f;
+    var_f4 = lbl_805DD188;
   }
   n = *((u32 *) (((s8 *) arg0) + 0x50));
   if (n == 0)
@@ -667,7 +697,7 @@ void update_scroll_offset__20TWindowSubStatusDispFPv(void *arg0) {
   }
   else
   {
-    var_f4 += 0.5f * ((*((f32 *) (((s8 *) arg0) + 0x3C))) - (*((f32 *) (((s8 *) arg0) + 0x4C))));
+    var_f4 += lbl_805DD1BC * ((*((f32 *) (((s8 *) arg0) + 0x3C))) - (*((f32 *) (((s8 *) arg0) + 0x4C))));
     *((f32 *) (((s8 *) arg0) + 0x6C)) += (var_f4 - (*((f32 *) (((s8 *) arg0) + 0x6C)))) / ((f32) n);
   }
 }
