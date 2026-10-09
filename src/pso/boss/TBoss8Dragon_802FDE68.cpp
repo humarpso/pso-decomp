@@ -26,6 +26,5 @@ void TBoss8Dragon__sub_802FDE7C(void) {  }
 void TBoss8Dragon__sub_802FDE80(void) {  }
 void send_swapped_packet__12TBoss8DragonFPv(void* p) { bswap_packet__12TBoss8DragonFPv(p); TLobby__send_and_handle_60(p); }
 void bswap_packet__12TBoss8DragonFPv(void* p) { read_be16_field2__10TObjPlayerFPv(p); bswap_16__FPUs((char*)p + 0x4); bswap_16__FPUs((char*)p + 0x6); bswap_32__FPUl((char*)p + 0x8); }
-void build_6xA8_gol_dragon_boss_actions(void* p) { *(u8*)((char*)p + 0x0) = 168; *(u8*)((char*)p + 0x1) = 6; }
 
 }

@@ -1,5 +1,3 @@
-#include "pso/TChCrTagPlBack.h"
-
 #include "types.h"
 
 extern "C" {
@@ -7,10 +5,30 @@ extern "C" {
 int TChCrTagPlBack__vt4(void);
 int render__14TChCrTagPlBackFv(void* p);
 int draw_frame__16TObjCMAssignMenuFPv(void*);
+void *__dt__8TChCrTagFv(void *self, s16 arg1);
+void __dl__7TObjectFPv(void *);
+void update_fade__8TChCrTagFPv(void *);
+void render_shadows__7TObjectFv(void *);
+void *__dt__14TChCrTagPlBackFv(void *self, s16 arg1);
+extern void *__vt__14TChCrTagPlBack[6];
 
 int render__14TChCrTagPlBackFv(void* p) { return draw_frame__16TObjCMAssignMenuFPv(p); }
 int TChCrTagPlBack__vt4(void) { return 0; }
-TChCrTagPlBack::~TChCrTagPlBack() {}
+void *__dt__14TChCrTagPlBackFv(void *self, s16 arg1) {
+    if (self != NULL) {
+        *(void ***)((u8 *)self + 0x18) = __vt__14TChCrTagPlBack;
+        __dt__8TChCrTagFv(self, 0);
+        if (arg1 > 0) {
+            __dl__7TObjectFPv(self);
+        }
+    }
+    return self;
+}
+
+void *__vt__14TChCrTagPlBack[6] = {
+    0, 0, (void *)__dt__14TChCrTagPlBackFv, (void *)update_fade__8TChCrTagFPv,
+    (void *)render__14TChCrTagPlBackFv, (void *)render_shadows__7TObjectFv,
+};
 
 }
 
@@ -24,13 +42,13 @@ void *__ct__14TChCrTagPlBackFv(void *arg0);
 void __ct__8TChCrTagFv(void *);
 
 extern const f32 lbl_805DDFE4;
-extern M2C_UNK __vt__14TChCrTagPlBack[];
+extern void *__vt__14TChCrTagPlBack[6];
 extern const f32 lbl_805DDFE8;
 extern void *lbl_805D3DF0;
 
 void *__ct__14TChCrTagPlBackFv(void *arg0) {
     __ct__8TChCrTagFv(arg0);
-    M2C_FIELD(arg0, M2C_UNK **, 0x18) = __vt__14TChCrTagPlBack;
+    M2C_FIELD(arg0, void ***, 0x18) = __vt__14TChCrTagPlBack;
     M2C_FIELD(arg0, void **, 0x0) = lbl_805D3DF0;
     M2C_FIELD(arg0, f32 *, 0x28) = lbl_805DDFE4;
     M2C_FIELD(arg0, f32 *, 0x2C) = lbl_805DDFE8;

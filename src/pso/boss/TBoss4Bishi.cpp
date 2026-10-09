@@ -58,7 +58,7 @@ struct Obj_8005C218 {
 
 struct Vec_8005BC4C { f32 x, y, z; };
 
-struct TBoss4Bishi_8005BC4C {
+struct TBoss4Bishi {
     u8 pad0[0x38];
     Vec_8005BC4C pos;
     u8 pad44[0x5C - 0x44];
@@ -74,12 +74,12 @@ struct TBoss4Bishi_8005BC4C {
     s32 f3BC;
     s32 f3C0;
 
-    void act0();
-    void act2();
-    void act3();
+    void vt0();
+    void vt1();
+    void vt2();
 };
 
-typedef void (TBoss4Bishi_8005BC4C::*Act_8005BC4C)();
+typedef void (TBoss4Bishi::*Act_8005BC4C)();
 
 void VecCopy__FP3VecPC3Vec(void *, void *);
 void vec3_add_to(void *, void *);
@@ -278,7 +278,7 @@ s32 __nw__7TObjectFUl(M2C_UNK);
 
 struct Vec_8005C49C { f32 x, y, z; };
 
-struct TBoss4Uro_8005C49C {
+struct TBoss4Uro {
     u8 pad0[0x38];
     Vec_8005C49C pos;
     u8 pad44[0x5C - 0x44];
@@ -294,12 +294,12 @@ struct TBoss4Uro_8005C49C {
     s32 f3BC;
     s32 f3C0;
 
-    void act4();
-    void act5();
-    void act6();
+    void vt4();
+    void vt5();
+    void vt6();
 };
 
-typedef void (TBoss4Uro_8005C49C::*Act_8005C49C)();
+typedef void (TBoss4Uro::*Act_8005C49C)();
 
 extern "C" void TBoss4Zako__vt0();
 extern "C" void TBoss4Zako__vt1();
@@ -414,14 +414,14 @@ void clamp_min_player_distance__9TBoss4UroFPv(Obj_8005C6E4 *arg0) {
 
 #pragma push
 #pragma fp_contract on
-void run_task__9TBoss4UroFv(TBoss4Uro_8005C49C *self) {
+void run_task__9TBoss4UroFv(TBoss4Uro *self) {
     if (self->f374 != 3 && get_phase__9TBoss4UroFPv(self->f378) != 6) {
         TBoss4Uro__sub_8005D6D4(self->f378);
         self->f374 = 3;
         return;
     }
     static Act_8005C49C tbl[5] = {
-        0, 0, &TBoss4Uro_8005C49C::act4, &TBoss4Uro_8005C49C::act5, &TBoss4Uro_8005C49C::act6,
+        0, 0, &TBoss4Uro::vt4, &TBoss4Uro::vt5, &TBoss4Uro::vt6,
     };
     Act_8005C49C a = tbl[self->f374];
     if (a) {
@@ -627,13 +627,13 @@ void enter_state_3__11TBoss4BishiFPv(void* p) { if (*(int*)((char*)p + 0x374) !=
 
 #pragma push
 #pragma fp_contract on
-void TBoss4Zako__sub_8005BC4C(TBoss4Bishi_8005BC4C *self) {
+void TBoss4Zako__sub_8005BC4C(TBoss4Bishi *self) {
     if (self->f374 != 3 && get_phase__9TBoss4UroFPv(self->f378) != 8) {
         enter_state_3__11TBoss4BishiFPv(self);
         return;
     }
     static Act_8005BC4C tbl[5] = {
-        &TBoss4Bishi_8005BC4C::act0, 0, &TBoss4Bishi_8005BC4C::act2, &TBoss4Bishi_8005BC4C::act3, 0,
+        &TBoss4Bishi::vt0, 0, &TBoss4Bishi::vt1, &TBoss4Bishi::vt2, 0,
     };
     Act_8005BC4C a = tbl[self->f374];
     if (a) {

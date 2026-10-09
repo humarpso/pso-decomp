@@ -39,7 +39,6 @@ extern M2C_UNK __vt__19TObjStendGlassLobby[];
 extern s32 lbl_805D4404;
 extern u32 TObjStendGlassLobby__data_805D6F28;
 extern s32 lbl_805D6F2C;
-extern const f32 TObjStendGlassLobby__data_805E00A0;
 u8 *TObjStendGlassLobby__ct(u8 *arg0, M2C_UNK arg1, s32 arg2);
 s32 check_demo_mode__10TObjPlayerFv();
 s32 get_filtered_event_theme__6TLobbyFv();
@@ -72,8 +71,6 @@ M2C_UNK set_global_param__8TObjFishFi(int);
 
 void TObjStendGlassLobby__sub_803596C0(void) {  }
 
-extern const f32 TObjStendGlassLobby__data_805E00A0;
-
 void render__19TObjStendGlassLobbyFv(u8 *arg0) {
     f32 temp_f1;
 
@@ -85,7 +82,7 @@ void render__19TObjStendGlassLobbyFv(u8 *arg0) {
         rotate_matrix_y((int) (0), (int) (M2C_FIELD(arg0, s32 *, 0x60)));
         if ((s32) M2C_FIELD(arg0, s32 *, 0xC8) != 3) {
             temp_f1 = M2C_FIELD(arg0, f32 *, 0xCC);
-            scale_matrix((int) (0), (f32) (temp_f1), (f32) (TObjStendGlassLobby__data_805E00A0), (f32) (temp_f1));
+            scale_matrix((int) (0), (f32) (temp_f1), (f32) (1.0f), (f32) (temp_f1));
         }
         draw_ginja_object((int) (M2C_FIELD(arg0, s32 *, 0x34)));
         pop_matrix();
@@ -195,7 +192,7 @@ u8 *TObjStendGlassLobby__ct(u8 *arg0, M2C_UNK arg1, s32 arg2) {
     M2C_FIELD(arg0, s32 *, 0) = (s32) lbl_805D4404;
     ((VObj_18_1a504b *)(arg0))->m5(arg2);
     update_state__19TObjStendGlassLobbyFPv((void *) (arg0));
-    M2C_FIELD(arg0, f32 *, 0xCC) = (f32) TObjStendGlassLobby__data_805E00A0;
+    M2C_FIELD(arg0, f32 *, 0xCC) = 1.0f;
     M2C_FIELD(arg0, s32 *, 0x34) = (s32) M2C_FIELD(M2C_FIELD((*(u8 * *)&TObjStendGlassLobby__data_805D6F28), u8 **, 0x42C), s32 *, 8);
     M2C_FIELD(arg0, s32 *, 0x24) = (s32) lbl_805D6F2C;
     return arg0;

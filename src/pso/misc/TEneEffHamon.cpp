@@ -1,6 +1,10 @@
-#include "pso/TEneEffHamon.h"
-
-TEneEffHamon::~TEneEffHamon() {}
+#include "pso/TObject.h"
+class TEneEffHamon : public TObject {
+public:
+    virtual ~TEneEffHamon();
+    virtual void run_task();
+    virtual void render();
+};
 
 #include "types.h"
 typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
@@ -190,6 +194,12 @@ void TEneEffHamon__sub_800A380C(void) {  }
 void init_fish_effects__12TEneEffHamonFv(void) { TEneEffHamon__fish_model = get_bml_model((void*)(player_effect_bml_resource), (void*)3); TEneEffHamon__fish_effect_param = TObjFish__sub_8001EDB0((void*)(player_effect_bml_resource), (void*)3); }
 
 extern M2C_UNK lbl_80490A18[];
+
+}
+
+TEneEffHamon::~TEneEffHamon() {}
+
+extern "C" {
 
 typedef char RecoveredGlobal_800A38A4___vt__12TEneEffHamon_size[sizeof(RecoveredGlobal_800A38A4___vt__12TEneEffHamon) == 0x18 ? 1 : -1];
 u8 *__ct__12TEneEffHamonFv(u8 *arg0, s32 arg1, s32 arg2, s32 arg3, f32 farg0) {

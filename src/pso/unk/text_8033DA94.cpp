@@ -124,6 +124,7 @@ void copy_origin_with_y_offset__8TObjFishFv(void) {
     M2C_FIELD(&lbl_804EFA08.value, f32 *, 4) = (f32) (lbl_805DFA90 + M2C_FIELD(&lbl_80477F2C.value, f32 *, 4));
     M2C_FIELD(&lbl_804EFA08.value, f32 *, 8) = (f32) M2C_FIELD(&lbl_80477F2C.value, f32 *, 8);
 }
+__declspec(section ".ctors") static void *const __sinit_text_8033DA94_cpp_ref = (void *)copy_origin_with_y_offset__8TObjFishFv;
 
 void render_effect__8TObjFishFPv(u8 *arg0) {
     if ((s32) M2C_FIELD(arg0, s32 *, 0x50) >= 0x1AC) {

@@ -4025,7 +4025,7 @@ pso/item/TItemEquipVariant_8012A82C.cpp:
 
 pso/unk/text_8012A884.cpp:
 	.text       start:0x8012A884 end:0x8012AA0C
-	.data       start:0x804A4A44 end:0x804A4A88
+	.data       start:0x804A4948 end:0x804A4A88
 
 pso/player/TObjPlayer_8012AA0C.cpp:
 	.text       start:0x8012AA0C end:0x8012AB1C
@@ -4939,7 +4939,7 @@ pso/ui/TAdSinglePlyChrSelectGC_80145778.cpp:
 
 pso/unk/text_80145804.cpp:
 	.text       start:0x80145804 end:0x80145A28
-	.bss        start:0x8050C040 end:0x8050C090
+	.bss        start:0x8050C040 end:0x8050C0A8
 
 pso/misc/TWindowCtrl_80145A28.cpp:
 	.text       start:0x80145A28 end:0x80145A44
@@ -7926,7 +7926,7 @@ pso/misc/TLobby_8020DFD8.cpp:
 
 pso/unk/text_8020E08C.cpp:
 	.text       start:0x8020E08C end:0x8020E3BC
-	.bss        start:0x80513A40 end:0x80513AD0
+	.bss        start:0x80513A40 end:0x80513D34
 
 pso/misc/TLobby_8020E3BC.cpp:
 	.text       start:0x8020E3BC end:0x8020E400
@@ -9929,7 +9929,7 @@ pso/ui/TAdSinglePlyChrSelectGC_8028C8E0.cpp:
 pso/misc/TChCrLoadReq.cpp:
 	.text       start:0x8028D088 end:0x8028D490
 	.data       start:0x804D3740 end:0x804D3788
-	.sbss       start:0x805D6514 end:0x805D6518
+	.sbss       start:0x805D6510 end:0x805D6518
 
 pso/unk/text_8028D490.cpp:
 	.text       start:0x8028D490 end:0x8028D5D4
@@ -10591,6 +10591,7 @@ pso/ui/TAdMultiPlyChrSelectGC_802B1850.cpp:
 pso/menu/TAdGuideTxtGC.cpp:
 	.text       start:0x802B1878 end:0x802B1AB4
 	.rodata     start:0x80470A90 end:0x80470A98
+	.data       start:0x804DE8B0 end:0x804DE8C8
 
 pso/unk/text_802B1AB4.cpp:
 	.text       start:0x802B1AB4 end:0x802B1C1C
@@ -10849,7 +10850,7 @@ pso/player/TObjPlayer_802D5174.cpp:
 
 pso/unk/text_802D5F44.cpp:
 	.text       start:0x802D5F44 end:0x802D6348
-	.data       start:0x804E1DA4 end:0x804E1E08
+	.data       start:0x804E1BB0 end:0x804E1E08
 
 pso/ui/TAdPlayerLoadGC_802D6348.cpp:
 	.text       start:0x802D6348 end:0x802D645C

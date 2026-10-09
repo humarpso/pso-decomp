@@ -102,6 +102,7 @@ force_active:
   - TItemWeaponPartisan__ct
   - TKeyBoardControl__sub_80290D10
   - TKeyBoardControl_key_bit_table
+  - TLobby__data_80513D10
   - TLobby__disk_error_msg_last
   - TLobby__disk_error_msg_table
   - TLobby__sub_800F9F08
@@ -500,6 +501,7 @@ force_active:
   - check_target_collision__10TObjPlayerFPv
   - circling_state__14TObjEneBm5WolfFv
   - clamp_hp_value__10TObjPlayerFPvPv
+  - clamp_min_player_distance__9TBoss4UroFPv
   - clamp_params_and_init__14TOTrapSeabed01FPv
   - clear_bit__15TBoss6SwordWaveFPvUc
   - clear_card_status_flags__6TLobbyFv
@@ -533,6 +535,7 @@ force_active:
   - construct_handgun_weapon
   - construct_load_quest__12TQuestThreadFPvPvPv
   - construct_material__13TItemProArmorFPvPvPv
+  - construct_scene_object__8TObjFishFPvi
   - construct_self_effect__8TTecAntiFPvPvPviPv
   - construct_self_recovery__9TTecRestaFPvPviPv
   - construct_shot_weapon
@@ -556,6 +559,7 @@ force_active:
   - copy_matrix3x3_to_global__10TObjPlayerFPv
   - copy_motion_pair
   - copy_node_record__10TObjPlayerFii
+  - copy_origin_with_y_offset__8TObjFishFv
   - copy_pos_with_height_offset__16TObjEneMe3StelthFPv
   - copy_record__13TObjResultWinFPvPv
   - copy_record__13TObjTombstoneFPvi
@@ -935,6 +939,7 @@ force_active:
   - lbl_8043AD24
   - lbl_8043AD3C
   - lbl_8043BC24
+  - lbl_8043BC48
   - lbl_8044D920
   - lbl_8044D944
   - lbl_8044D968
@@ -1133,10 +1138,12 @@ force_active:
   - lbl_80500B60
   - lbl_80500B6C
   - lbl_80500BC4
+  - lbl_80500C24
   - lbl_80501058
   - lbl_80501060
   - lbl_80501068
   - lbl_8050C014
+  - lbl_8050C048
   - lbl_8050DCF8
   - lbl_8050DD2C
   - lbl_8050EA64
@@ -1352,6 +1359,7 @@ force_active:
   - reset_leader_selection
   - reset_leader_selection_static__6TLobbyFv
   - reset_placement_search_ring
+  - reset_request__12TChCrLoadReqFPv
   - reset_state__13TObjWarnChimeFPv
   - reset_state__15TFontSmallLobbyFPv
   - reset_state_fields__9TObjEneDDFPv
@@ -1690,6 +1698,7 @@ force_active:
   - update_light_direction__12TCharaMakingFPv
   - update_line_params__23TObjOnlineEndingHexLineFv
   - update_list_scroll__22TWindowSubCustomSelectFPv
+  - update_load_progress__12TChCrLoadReqFv
   - update_load_state__9TItemLoadFPv
   - update_lobby_pigeon_visibility
   - update_lobby_selection__12TQuestListVMFPv
@@ -1698,6 +1707,7 @@ force_active:
   - update_move_to_target__18TObjEneBalClawClawFPv
   - update_movement__15TObjEneMe1GiGueFPv
   - update_node_oscillation__11TItemMagSubFPv
+  - update_orbit_velocity__10TBoss4ZakoFPv
   - update_pad_recalibration
   - update_palette_sprite__20TWindowSubStatusDispFv
   - update_particles__15TObjBoss2TunnelFPv
@@ -1743,6 +1753,7 @@ force_active:
   - update_stream_buffers__6TLobbyFPv
   - update_target_follow__11TCameraCtrlFPv
   - update_target_info_window__11TWindowCtrlFPv
+  - update_target_position__10TBoss4ZakoFPv
   - update_target_y__17TWindowSubComCardFPv
   - update_technique_state__11TObjEneMojaFv
   - update_timed_effect__11TBoss4Type2FPv
@@ -1767,11 +1778,17 @@ force_active:
   - voiceRemovePriority
   - voiceResetLastStarted
   - vsUpdateBuffer
+  - vt0__11TBoss4BishiFv
   - vt0__13TBoss6MagMineFv
+  - vt1__11TBoss4BishiFv
   - vt1__13TBoss6MagMineFv
+  - vt2__11TBoss4BishiFv
   - vt2__13TBoss6MagMineFv
   - vt3__13TBoss6MagMineFv
   - vt4__13TBoss6MagMineFv
+  - vt4__9TBoss4UroFv
+  - vt5__9TBoss4UroFv
+  - vt6__9TBoss4UroFv
   - wait_for_vi_retrace
   - warp_nearby_players__14TBoss6PlotFalzFv
   - worker_callback_flag_table

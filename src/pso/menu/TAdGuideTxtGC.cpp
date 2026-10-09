@@ -1,7 +1,3 @@
-#include "pso/TAdGuideTxtGC.h"
-
-TAdGuideTxtGC::~TAdGuideTxtGC() {}
-
 #include "types.h"
 typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
 typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
@@ -42,7 +38,12 @@ typedef struct TAdGuideTxtGC_802B1878 {
 extern "C" {
 void create_draw_line_ctrl__13TAdMcSelectGCFiif(void *, int, f32);
 void __ct__7TObjectFP7TObject(void *);
-extern void *__vt__13TAdGuideTxtGC[];
+extern void *__vt__13TAdGuideTxtGC[6];
+void *__dt__13TAdGuideTxtGCFv(void *self, s16 arg1);
+void __dt__7TObjectFv(void *, s16);
+void __dl__7TObjectFPv(void *);
+void render__13TAdGuideTxtGCFv(void *);
+void render_shadows__7TObjectFv(void *);
 extern s32 lbl_805D3EA0;
 extern s32 lbl_805DE290;
 extern const f32 lbl_805DE294;
@@ -76,6 +77,17 @@ void run_task__13TAdGuideTxtGCFv(TAdGuideTxtGC_802B1878 *o) {
 }
 #pragma pop
 
+void *__dt__13TAdGuideTxtGCFv(void *self, s16 arg1) {
+    if (self != NULL) {
+        *(void ***)((u8 *)self + 0x18) = __vt__13TAdGuideTxtGC;
+        __dt__7TObjectFv(self, 0);
+        if (arg1 > 0) {
+            __dl__7TObjectFPv(self);
+        }
+    }
+    return self;
+}
+
 #pragma push
 #pragma opt_common_subs off
 TAdGuideTxtGC_802B19E8 *__ct__13TAdGuideTxtGCFv(TAdGuideTxtGC_802B19E8 *o) {
@@ -100,5 +112,10 @@ void reset__15TLobby_802D2F7CFPv(u8 *arg0) {
     ((VObj_802b1a70_802B1990 *)temp_r3)->m7();
     M2C_FIELD(arg0, s8 *, 0x1C) = 7;
 }
+
+void *__vt__13TAdGuideTxtGC[6] = {
+    0, 0, (void *)__dt__13TAdGuideTxtGCFv, (void *)run_task__13TAdGuideTxtGCFv,
+    (void *)render__13TAdGuideTxtGCFv, (void *)render_shadows__7TObjectFv,
+};
 
 }

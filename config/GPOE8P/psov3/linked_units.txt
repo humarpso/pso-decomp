@@ -157,6 +157,7 @@ pso/boss/TBoss3Volopt_80131700.cpp
 pso/boss/TBoss3Volopt_8016A47C.cpp
 pso/boss/TBoss3Volopt_80242C48.cpp
 pso/boss/TBoss3Volopt_80242D74.cpp
+pso/boss/TBoss4Bishi.cpp
 pso/boss/TBoss4CheckEmpty.cpp
 pso/boss/TBoss4CheckEmpty_8034A8B0.cpp
 pso/boss/TBoss4CheckEmpty_8034A8FC.cpp
@@ -258,6 +259,7 @@ pso/boss/TBoss8Dragon_802F3F20.cpp
 pso/boss/TBoss8Dragon_802F42A0.cpp
 pso/boss/TBoss8Dragon_802F4324.cpp
 pso/boss/TBoss8Dragon_802F4480.cpp
+pso/boss/TBoss8Dragon_802FDE68.cpp
 pso/boss/TBoss8Dragon_802FDF10.cpp
 pso/boss/TBoss8Dragon_80324D3C.cpp
 pso/boss/TBoss8Dragon_80325D38.cpp
@@ -424,6 +426,7 @@ pso/enemy/TObjEnePanarms_800F5E90.cpp
 pso/enemy/TObjEneRe2Flower.cpp
 pso/enemy/TObjEneRe2Flower_800C3B8C.cpp
 pso/enemy/TObjEneRe2Flower_800C3BA8.cpp
+pso/enemy/TObjEneRe2Flower_800C4B78.cpp
 pso/enemy/TObjEneRe4Bit.cpp
 pso/enemy/TObjEneRe4Sorcerer_801E3F14.cpp
 pso/enemy/TObjEneRe7BeruraPunch.cpp
@@ -802,12 +805,14 @@ pso/misc/TChCrEffTag_8029ACA8.cpp
 pso/misc/TChCrEffTag_8029B098.cpp
 pso/misc/TChCrLoadAfs.cpp
 pso/misc/TChCrLoadAfsTextureReq.cpp
+pso/misc/TChCrLoadReq.cpp
 pso/misc/TChCrTag.cpp
 pso/misc/TChCrTagInformation.cpp
 pso/misc/TChCrTagInformation_802A1FAC.cpp
 pso/misc/TChCrTagInformation_802A200C.cpp
 pso/misc/TChCrTagName.cpp
 pso/misc/TChCrTagOccupation.cpp
+pso/misc/TChCrTagPlBack.cpp
 pso/misc/TChallenge.cpp
 pso/misc/TChallenge4PItemSelect.cpp
 pso/misc/TCharaMaking.cpp
@@ -840,6 +845,7 @@ pso/misc/TEndingC.cpp
 pso/misc/TEndingC_8008D00C.cpp
 pso/misc/TEndingPic.cpp
 pso/misc/TEnding_8008C5C0.cpp
+pso/misc/TEneEffHamon.cpp
 pso/misc/TFogCtrl.cpp
 pso/misc/TFontSmallHelp.cpp
 pso/misc/TFontSmallLobby_801C013C.cpp
@@ -1459,6 +1465,7 @@ pso/misc/TQuestListOnline.cpp
 pso/misc/TQuestListOnline_801F6530.cpp
 pso/misc/TQuestListOnline_802150E8.cpp
 pso/misc/TQuestListOnline_80217464.cpp
+pso/misc/TQuestListOnline_80218160.cpp
 pso/misc/TQuestListOnline_8021824C.cpp
 pso/misc/TQuestListOnline_80218310.cpp
 pso/misc/TQuestListVM.cpp
@@ -3110,6 +3117,7 @@ pso/unk/text_80129F98.cpp
 pso/unk/text_8012A048.cpp
 pso/unk/text_8012A1CC.cpp
 pso/unk/text_8012A418.cpp
+pso/unk/text_8012A884.cpp
 pso/unk/text_8012AB1C.cpp
 pso/unk/text_8012ABCC.cpp
 pso/unk/text_8012AE50.cpp
@@ -3187,6 +3195,7 @@ pso/unk/text_801424DC.cpp
 pso/unk/text_80143818.cpp
 pso/unk/text_80144AC8.cpp
 pso/unk/text_80145750.cpp
+pso/unk/text_80145804.cpp
 pso/unk/text_80145A44.cpp
 pso/unk/text_80145A94.cpp
 pso/unk/text_80148274.cpp
@@ -3409,6 +3418,7 @@ pso/unk/text_8020CCF4.cpp
 pso/unk/text_8020CF40.cpp
 pso/unk/text_8020CFEC.cpp
 pso/unk/text_8020D2B4.cpp
+pso/unk/text_8020E08C.cpp
 pso/unk/text_8020ED44.cpp
 pso/unk/text_8020EE2C.cpp
 pso/unk/text_8020EEFC.cpp
@@ -3584,6 +3594,7 @@ pso/unk/text_802D1C84.cpp
 pso/unk/text_802D1D48.cpp
 pso/unk/text_802D23E0.cpp
 pso/unk/text_802D298C.cpp
+pso/unk/text_802D5F44.cpp
 pso/unk/text_802E10D8.cpp
 pso/unk/text_802E3BA8.cpp
 pso/unk/text_802E4A4C.cpp
@@ -3639,6 +3650,7 @@ pso/unk/text_8032E400.cpp
 pso/unk/text_803374F0.cpp
 pso/unk/text_80338F3C.cpp
 pso/unk/text_8033D6DC.cpp
+pso/unk/text_8033DA94.cpp
 pso/unk/text_8033F314.cpp
 pso/unk/text_8033FE30.cpp
 pso/unk/text_8033FF78.cpp

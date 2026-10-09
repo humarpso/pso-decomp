@@ -36,13 +36,13 @@ void TQuestListOnline__vt9(Obj_802181B0 *arg0) {
     case 1: build_list_window__16TQuestListOnlineFPv(arg0); break;
     case 2: show_info_window__16TQuestListOnlineFPv(arg0); break;
     case 3: TQuestListOnline__sub_80217C1C(arg0); break;
-    case 4: handle_quest_confirm__16TQuestListOnlineFPv(arg0); break;
-    case 5: run_task__16TQuestListOnlineFPv(arg0); break;
-    case 6: request_quest_list__16TQuestListOnlineFi((s32)arg0); break;
-    case 7: decompress_quest_list_buffers__16TQuestListOnlineFPv(arg0); break;
-    case 8: invoke_callback_28_and_queue_destruction__16TQuestListOnlineFPv(arg0); break;
-    case 9: invoke_callback_2c_and_queue_destruction__16TQuestListOnlineFPv(arg0); break;
-    case 10: invoke_callback_30_and_queue_destruction__16TQuestListOnlineFPv(arg0); break;
+    case 8: handle_quest_confirm__16TQuestListOnlineFPv(arg0); break;
+    case 4: run_task__16TQuestListOnlineFPv(arg0); break;
+    case 5: request_quest_list__16TQuestListOnlineFi((s32)arg0); break;
+    case 6: decompress_quest_list_buffers__16TQuestListOnlineFPv(arg0); break;
+    case 9: invoke_callback_28_and_queue_destruction__16TQuestListOnlineFPv(arg0); break;
+    case 10: invoke_callback_2c_and_queue_destruction__16TQuestListOnlineFPv(arg0); break;
+    case 7: invoke_callback_30_and_queue_destruction__16TQuestListOnlineFPv(arg0); break;
     case 11: invoke_callback_34_and_queue_destruction__16TQuestListOnlineFPv(arg0); break;
     case 12: return;
     }

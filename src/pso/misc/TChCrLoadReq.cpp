@@ -7,15 +7,17 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 struct RecoveredGlobal_8028D360___vt__12TChCrLoadReq { M2C_UNK value; u8 remaining[0x14]; };
 typedef char RecoveredGlobal_8028D360___vt__12TChCrLoadReq_size[sizeof(RecoveredGlobal_8028D360___vt__12TChCrLoadReq) == 0x18 ? 1 : -1];
 
+extern "C" { s32 lbl_805D6510; }
+
 class TChCrLoadReq {
 public:
     u8 pad[0x60];
     s32 state;
     s32 timer;
     void run_task();
-    void a();
-    void b();
-    void c();
+    void close_and_destroy();
+    void try_advance_state();
+    void update_load_progress();
 };
 
 struct B_8028D214 { s32 a0; s32 a4; s32 a8; };
@@ -42,7 +44,6 @@ void *__dt__12TChCrLoadReqFv(void *arg0, s16 arg1);
 void copy__12TChCrLoadReqFPvPv(void* p, void* q);
 void *create__12TChCrLoadReqFPv(void *arg0);
 void * create_ch_cr_load_req(void *arg0, void *arg1);
-void update_load_progress__12TChCrLoadReqFv(void *arg0);
 M2C_UNK request_texture_loads__23TAdSinglePlyChrSelectGCFPv(void *);
 M2C_UNK request_model_loads__23TAdSinglePlyChrSelectGCFPv(void *);
 void TAdSinglePlyChrSelectGC__sub_8028CEEC(void *);
@@ -52,7 +53,10 @@ void __dt__7TObjectFv(void *, int);
 void *__nw__7TObjectFUl(int);
 s32 try_claim_load_slot__23TAdSinglePlyChrSelectGCFPv(void *);
 
-void update_load_progress__12TChCrLoadReqFv(void *arg0) {
+}
+
+void TChCrLoadReq::update_load_progress() {
+    void *arg0 = this;
     if ((s32) M2C_FIELD(arg0, s32 *, 0x64) > 0x1512) {
         if (TAdSinglePlyChrSelectGC__sub_8028CF6C() == 0) {
             M2C_FIELD(arg0, s32 *, 0x64) = 0x1512;
@@ -68,14 +72,12 @@ block_3:
     }
 }
 
-}
-
 void TChCrLoadReq::run_task() {
     if (--timer <= 0) {
         queue_destruction__7TObjectFv(this);
         return;
     }
-    static void (TChCrLoadReq::*tbl[3])() = { &TChCrLoadReq::a, &TChCrLoadReq::b, &TChCrLoadReq::c };
+    static void (TChCrLoadReq::*tbl[3])() = { &TChCrLoadReq::update_load_progress, &TChCrLoadReq::try_advance_state, &TChCrLoadReq::close_and_destroy };
     (this->*tbl[state])();
 }
 
