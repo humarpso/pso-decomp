@@ -66,6 +66,14 @@ struct Item_801B9954 : ItemBase_801B9954 {
     virtual void subtract_applied(Attack_801B9954 *, Defense_801B9954 *, Base_801B9954 *);
 };
 
+struct InventoryCreatePacket_801B849C {
+    u8 command;
+    u8 size;
+    u16 actor;
+    TItemData item;
+    u32 flags;
+};
+
 extern "C" {
 void add_to_field_2ce__10TObjPlayerFPvi(void *, int);
 s16 get_atp__10TObjPlayerFPv(void *);
@@ -98,6 +106,15 @@ M2C_UNK set_params__10TObjPlayerFPvPvPviPv(void *, void *, void *, int, int);
 u8 * get_slot_value__10TObjPlayerFPvi(void *, s32);
 s32 get_class_stat_entry__10TObjPlayerFPv(void *);
 s32 preview_equip_stats__10TObjPlayerFv(u8 *arg0, s16 *out, u8 *incoming);
+u8 is_volopt_phase_final__10TObjPlayerFv(void);
+s32 advance_item_id_counter(int);
+s32 obj_isState2_324();
+s32 obj_getField1c(void * a0);
+M2C_UNK init_pkt_6x2B__10TObjPlayerFPv(void *);
+void copy_item_data__6TLobbyFPvPv(TItemData*, const TItemData*);
+void normalize__9TItemDataFv(TItemData*);
+void send_cmd_item_data__10TObjPlayerFPv(void*);
+extern u32 lbl_805D53A0;
 }
 
 extern "C" {
@@ -6886,7 +6903,26 @@ void handle_6x2B_create_inventory_item(s32 arg0) {
         }
     }
 }
+}
 
+void TObjPlayer::request_inventory_item(TItemData* item) {
+    TObjPlayer* player = this;
+    InventoryCreatePacket_801B849C packet;
+    if (((s32 (*)(void))is_volopt_phase_final__10TObjPlayerFv)() == 0) {
+        if ((s32)item->id == -1) {
+            item->id = ((u32 (*)(u16))advance_item_id_counter)((u16)lbl_805D53A0);
+        }
+        if (player == 0 || ((s32 (*)(TObjPlayer*))obj_isState2_324)(player) == 0) {
+            init_pkt_6x2B__10TObjPlayerFPv((void *)(&packet));
+            packet.actor = ((u16 (*)(TObjPlayer*))obj_getField1c)(player);
+            copy_item_data__6TLobbyFPvPv(&packet.item, item);
+            normalize__9TItemDataFv(&packet.item);
+            send_cmd_item_data__10TObjPlayerFPv(&packet);
+        }
+    }
+}
+
+extern "C" {
 int get_item_record__23TShopJudgmentItemWindowFPv(void* p) { return ((int (*)(void*))send_6x29_delete_item__10TObjPlayerFPvii)(p); }
 
 #pragma push
