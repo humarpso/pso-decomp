@@ -490,6 +490,7 @@ pso/item/TItemBuff.cpp
 pso/item/TItemData.cpp
 pso/item/TItemData_80104D0C.cpp
 pso/item/TItemData_80105934.cpp
+pso/item/TItemData_8010C940.cpp
 pso/item/TItemData_8010EDA8.cpp
 pso/item/TItemData_801146A4.cpp
 pso/item/TItemDisconnectCtrl.cpp
@@ -664,6 +665,7 @@ pso/item/TItemMagSub_80114714.cpp
 pso/item/TItemMagSub_803642D8.cpp
 pso/item/TItemMag_8001A468.cpp
 pso/item/TItemMag_80102C4C.cpp
+pso/item/TItemMag_80113E30.cpp
 pso/item/TItemMag_80114950.cpp
 pso/item/TItemMenuCtrl.cpp
 pso/item/TItemMenuCtrl_801059E8.cpp
@@ -1392,6 +1394,7 @@ pso/misc/TOSwitchAttack.cpp
 pso/misc/TOSwitchItem.cpp
 pso/misc/TOSwitchItem_80102C44.cpp
 pso/misc/TOSwitchTimer.cpp
+pso/misc/TOSymbolchatColli.cpp
 pso/misc/TOTrap.cpp
 pso/misc/TOTrapAncient01_80226534.cpp
 pso/misc/TOTrapAncient02R.cpp
@@ -1960,6 +1963,7 @@ pso/misc/TWindowSubStatusDisp_80288030.cpp
 pso/misc/TWindowSubStatusDisp_802A35B4.cpp
 pso/misc/TWindowSubStatusDisp_802A4DE8.cpp
 pso/misc/TWindowSubStatusDisp_80327390.cpp
+pso/misc/TWindowSubStatusDisp_80338740.cpp
 pso/misc/TWindowSubStatusDisp_8034A938.cpp
 pso/misc/TWindowSubStatusDisp_8036D774.cpp
 pso/misc/TWindowSubStatusDisp_803DEE6C.cpp
@@ -2160,6 +2164,7 @@ pso/object/TObjIllGillKage.cpp
 pso/object/TObjInfoCol.cpp
 pso/object/TObjKabochaLobby.cpp
 pso/object/TObjLaboDesignBase.cpp
+pso/object/TObjLaboMapWarp_80185248.cpp
 pso/object/TObjLazerFence4.cpp
 pso/object/TObjLazerFenceNorm.cpp
 pso/object/TObjLight.cpp
@@ -2929,6 +2934,7 @@ pso/unk/text_8004F2A8.cpp
 pso/unk/text_8004F5F8.cpp
 pso/unk/text_8004F904.cpp
 pso/unk/text_80050050.cpp
+pso/unk/text_80050134.cpp
 pso/unk/text_800502FC.cpp
 pso/unk/text_8005063C.cpp
 pso/unk/text_80052420.cpp
@@ -3724,6 +3730,7 @@ pso/unk/text_80355C1C.cpp
 pso/unk/text_80356E30.cpp
 pso/unk/text_80357058.cpp
 pso/unk/text_80359420.cpp
+pso/unk/text_803594EC.cpp
 pso/unk/text_8035966C.cpp
 pso/unk/text_8035A860.cpp
 pso/unk/text_8035B00C.cpp
@@ -3760,6 +3767,7 @@ pso/unk/text_803CC134.cpp
 pso/unk/text_803CE1D8.cpp
 pso/unk/text_803CE1F4.cpp
 pso/unk/text_803D0F1C.cpp
+pso/unk/text_803D204C.cpp
 pso/unk/text_803D2434.cpp
 pso/unk/text_803D2624.cpp
 pso/unk/text_803D2640.cpp

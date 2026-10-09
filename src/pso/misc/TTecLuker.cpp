@@ -109,6 +109,29 @@ struct Obj_802342A4
   Vec_802342A4 pos;
 };
 
+struct V3_8023453C
+{
+  f32 x;
+  f32 y;
+  f32 z;
+};
+
+struct Hit_8023453C
+{
+  u8 pad[4];
+  void *pos;
+};
+
+struct Fx_8023453C
+{
+  u8 pad0[0x18];
+  void *vt;
+  u32 kids[3];
+  void *f28;
+  V3_8023453C pos;
+  V3_8023453C pos2;
+};
+
 extern "C" {
 void clear_pipe_interaction_latch(void* p);
 void clear_pipe_interaction_latch(void* p);
@@ -196,7 +219,6 @@ void *__nw__7TObjectFUl(int);
 s32 obj_getField1c(void *);
 s32 get_stat_by_key_state__10TObjPlayerFPv(void *);
 s32 get_current_floor(void);
-void *create_telepipe_visual(void *self, Vec_802347B4 *pos, u16 id, s32 res);
 u8 *construct_field_collider__9TTecLukerFPviii(u8 *arg0, s32 arg1, s32 arg2, s32 arg3);
 void set_position_from__14TBoss4DarkFalzFPvPv(void *c, Vec_802347B4 *pos);
 void write_telepipe_record(u8 *arg0, u16 arg1, s16 arg2, u8 *arg3, s32 arg4);
@@ -283,6 +305,22 @@ extern s32 lbl_805D4DF0;
 extern const f32 lbl_805DC864;
 extern const f32 lbl_805DC868;
 void update_telepipe_visual(Obj_802342A4 *self);
+void VecCopy__FP3VecPC3Vec(void *, void *);
+s32 is_split_screen();
+Hit_8023453C *csnVecterUnder(void *, s32);
+u32 spawn_continuous_particle_effect_with_flags(void *, s32, s32);
+M2C_UNK set_tint_color__13TParticleCtrlFPvi(u32, s32);
+void *__nw__7TObjectFUl(int);
+s32 __ct__7TObjectFP7TObject(void *, void *);
+void *create_telepipe_marker(void *, void *, s32, s32, s32, s32, s32, f32, f32);
+extern s32 lbl_8044D660[][3];
+extern s32 lbl_8044D6F0[];
+extern u8 lbl_804CCA0C[];
+extern s32 tl_particlemodel;
+extern const f32 lbl_805DC86C;
+extern const f32 lbl_805DC870;
+extern const f32 lbl_805DC874;
+void *create_telepipe_visual(void *self, Vec_802347B4 *pos, u32 id, s32 res);
 }
 
 extern "C" {
@@ -677,6 +715,76 @@ Obj_8023448C *TTecLuker__sub_8023448C(Obj_8023448C *arg0, s16 arg1) {
     return arg0;
 }
 
+#pragma push
+#pragma opt_common_subs off
+#pragma opt_loop_invariants off
+typedef struct Fx_8023453C Fx_8023453C;
+typedef struct Hit_8023453C Hit_8023453C;
+typedef struct V3_8023453C V3_8023453C;
+typedef struct Vec_802347B4 Vec_802347B4;
+struct Vec_802347B4;
+void *create_telepipe_visual(void *self, Vec_802347B4 *pos, u32 id, s32 res) {
+  V3_8023453C v;
+  V3_8023453C v2;
+  long long off;
+  Hit_8023453C *hit;
+  void *p;
+  s32 *row;
+  s32 i;
+  u8 *pt;
+  __ct__7TObjectFP7TObject(self, (void *) res);
+  ((Fx_8023453C *) self)->vt = lbl_804CCA0C;
+  VecCopy__FP3VecPC3Vec(&((Fx_8023453C *) self)->pos, pos);
+  hit = csnVecterUnder(&((Fx_8023453C *) self)->pos, 0x100);
+  VecCopy__FP3VecPC3Vec(&((Fx_8023453C *) self)->pos2, &((Fx_8023453C *) self)->pos);
+  if (hit != 0)
+  {
+    VecCopy__FP3VecPC3Vec(&((Fx_8023453C *) self)->pos2, hit->pos);
+  }
+  row = lbl_8044D660[id];
+  off = id * 4;
+  pt = (u8 *) lbl_8044D6F0;
+  for (i = 0; i < 3; i++)
+  {
+    switch (i)
+    {
+      case 2:
+        VecCopy__FP3VecPC3Vec(&v, &((Fx_8023453C *) self)->pos2);
+        v.y += lbl_805DC86C;
+        ((Fx_8023453C *) self)->kids[i] = spawn_continuous_particle_effect_with_flags(&v, row[i], 0x40);
+        if ((((Fx_8023453C *) self)->kids[i] != 0) && (id != 3))
+      {
+        set_tint_color__13TParticleCtrlFPvi(((Fx_8023453C *) self)->kids[i], *((s32 *) (pt + off)));
+      }
+        break;
+      default:
+        ((Fx_8023453C *) self)->kids[i] = spawn_continuous_particle_effect_with_flags(&((Fx_8023453C *) self)->pos2, row[i], 0x40);
+        if ((((Fx_8023453C *) self)->kids[i] != 0) && (id != 3))
+      {
+        set_tint_color__13TParticleCtrlFPvi(((Fx_8023453C *) self)->kids[i], *((s32 *) (pt + off)));
+      }
+        break;
+    }
+  }
+  VecCopy__FP3VecPC3Vec(&v2, &((Fx_8023453C *) self)->pos);
+  v2.y += lbl_805DC870;
+  if (is_split_screen() == 0)
+  {
+    p = __nw__7TObjectFUl(0x44);
+    if (p != 0)
+    {
+      p = create_telepipe_marker(p, &v2, 0x1F, 4, tl_particlemodel, 0, 0, lbl_805DC874, lbl_805DC874);
+    }
+    ((Fx_8023453C *) self)->f28 = p;
+  }
+  else
+  {
+    ((Fx_8023453C *) self)->f28 = 0;
+  }
+  return self;
+}
+#pragma pop
+
 void create__9TTecLukerFPvPvPvPv(void *arg0, void *arg1, void *arg2, void *arg3) {
     void *o;
     o = __nw__7TObjectFUl(0x110);
@@ -692,7 +800,7 @@ void setup_telepipe_field__9TTecLukerFPv(Pipe_802347B4 *s) {
     u16 id = obj_getField1c(s->player);
     void *v = __nw__7TObjectFUl(0x44);
     if (v != 0) {
-        v = create_telepipe_visual(v, &s->pos, id, tl_07);
+        v = create_telepipe_visual((void *)(v), (Vec_802347B4 *)(&s->pos), (u32)(id), (s32)(tl_07));
     }
     s->visual = v;
     s->phase = 1;

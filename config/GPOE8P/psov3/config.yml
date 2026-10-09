@@ -92,6 +92,8 @@ force_active:
   - TChCrTagName__vt4
   - TChCrTagOccupation__vt4
   - TFontSmallLobby__sub_801C0258
+  - TItemData__sub_8010CAB0
+  - TItemData__sub_8010CACC
   - TItemEquipBase__sub_8022F1F4
   - TItemObject__vt42
   - TItemProArmor__sub_80117730
@@ -587,6 +589,7 @@ force_active:
   - dispatch_state__17TObjEneBm3FlyNestFiUii
   - do_src1
   - do_src2
+  - do_warp__16TObjCityAreaWarpFPv
   - draw_active_beam__11TObjDoorKeyFPv
   - draw_agreement_text__18TAdAgreementBaseGCFv
   - draw_animated_beam__18TObjLazerFenceNormFPv
@@ -835,6 +838,8 @@ force_active:
   - is_end__12TCharaMakingFv
   - is_entry_table_valid__8TObjFishFPv
   - is_entry_valid__6TLobbyFi
+  - is_field88_zero__15TObjCityMapWarpFPv
+  - is_field88_zero__15TObjLaboMapWarpFPv
   - is_mag_full
   - is_no_service_active__14TShopGeneratorFPvi
   - is_player_in_range__10TObjRoomIdFPvUsf
@@ -1088,6 +1093,7 @@ force_active:
   - open_sell_window__22TShopEquipmentSequenceFPv
   - open_sell_window__26TShopEquipmentGearSequenceFPv
   - open_windows__22TAdMultiPlyChrSelectGCFPv
+  - pack_three_colors__9TItemDataFPvPv
   - pack_weapon_trail_color
   - parse_color_code__6TLobbyFPv
   - parse_config_int__22TQuestVmDownLoadServerFPvUi
