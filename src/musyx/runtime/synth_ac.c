@@ -13,7 +13,7 @@
 #define macRealTime lbl_805D7428
 #define FLAGS (*(u64 *)&o->fh)
 #define HEAD (*(Voice_803B2128 **)&lbl_805D741C)
-#define synthVoice ((SYNTH_VOICE_803B2438 *)lbl_805D73B0)
+#define synthVoice ((SYNTH_VOICE_803B2438 *)synthVoice)
 #define vidCurrentId (*(u32 *)&lbl_805D7438)
 #define vidRoot (*(VID_LIST_SV **)&lbl_805D743C)
 #define vidFree (*(VID_LIST_SV **)&lbl_805D7440)
@@ -79,7 +79,7 @@ u32 sndGetPitch(u8 note, u32 r) {
     } else {
         v = (f32)(r & 0xFFFFFF);
     }
-    return 4096.0f * v / (f32)*(u32 *)lbl_80557348.pad;
+    return 4096.0f * v / (f32)synthInfo.mixFrq;
 }
 
 }

@@ -1,8 +1,36 @@
 #include "types.h"
 #include "pso/boss/TBoss4Type3.h"
 
+extern "C" {
+extern const char TObjBs4CutAtk_type_name[] = "TObjBs4CutAtk";
+extern const char TBoss4Type3_type_name[] = "TBoss4Type3";
+extern const char boss4_type3_state_name_appear[] = "APPEAR";
+extern const char boss4_type3_state_name_wait_next[] = "WAITNEXT";
+extern const char boss4_type3_state_name_wait_kill[] = "WAITKILL";
+extern const char boss4_type3_state_name_dead[] = "DEAD";
+extern const char boss4_type3_state_name_cut2[] = "CUT2";
+extern const char boss4_type3_state_name_cut3[] = "CUT3";
+extern const char boss4_type3_state_name_cut4[] = "CUT4";
+extern const char boss4_type3_state_name_cut5[] = "CUT5";
+extern const char boss4_type3_state_name_go_up[] = "GOUP";
+extern const char boss4_type3_state_name_go_down[] = "GODOWN";
+extern const char boss4_type3_state_name_homing[] = "HORMING";
+extern const char boss4_type3_state_name_light_magic[] = "LMAGIC";
+extern const char boss4_type3_state_name_dark_magic[] = "DMAGIC";
+extern const char boss4_type3_state_name_capture[] = "CAPTURE";
+extern const char boss4_type3_state_name_bura[] = "BURA";
+extern const char boss4_type3_state_name_libera[] = "LIBERA";
+extern const char boss4_type3_state_name_cut[] = "CUT";
+}
+
+extern "C" {
+extern const s32 boss4_type3_model_node_specs[2][3] = {{12,74,1},{14,74,1}};
+extern const s32 boss4_type3_effect_ids[8] = {326,326,326,326,328,327,327,323};
+const char *TObjBs4CutAtk_name = TObjBs4CutAtk_type_name;
+const char *TBoss4Type3_name = TBoss4Type3_type_name;
+}
 typedef TBoss4Type3Handler Type3Handler;
-struct Type3MotionView { s32 f0, f4, f8, fC, f10; };
+struct Type3MotionView { s32 kind, flags, motions[3]; };
 
 #include "pso/TBoss4Zanzo.h"
 #include <stddef.h>
@@ -716,7 +744,7 @@ void TBoss4Type2__sub_80058220(void);
 void request_follow_camera_default_offsets__11TBoss4Type3FPv(u8 *arg0);
 void update_target_effect_timer__11TBoss4Type3FPv(void *arg0);
 void handle_damage_taken__11TBoss4Type3FPv(O_80059618 *o);
-int TBoss4Type3__sub_800599F4(void*, void*, void*);
+void TBoss4Type3__sub_800599F4(void*, int, int);
 void calc_grid_index__11TBoss4Type3FPv(void *arg0);
 void turn_toward_player__11TBoss4Type3FPvi(Obj_80059ABC *self, s32 arg1);
 void interp_position_between_nodes__11TBoss4Type3FPv(u8 *arg0);
@@ -725,13 +753,14 @@ void TBoss4Type3__sub_80059EA8(Obj_80059EA8 *self, s32 arg1, s32 arg2);
 void send_packed_action__11TBoss4Type3FPviii(Obj_80059F04 *self, s32 arg1, s32 arg2, s32 arg3);
 void TBoss4Type3__sub_80059F64(Obj_80059F64 *self, s32 arg1);
 void update_scale_sound__11TBoss4Type3FPv(u8 *arg0);
-void TBoss4Type3__sub_8005A150(void);
+
 void destroy_parts__11TBoss4Type3FPv(Obj_8005A2A4 *self);
 void create_particle_emitters__11TBoss4Type3FPv(Obj_8005A300 *self);
+void TBoss4Type3__sub_8005A150(void);
 void set_action_from_table__11TBoss4Type3FPvi(TBoss4Type3 *self, s32 arg1);
 void TBoss4Type3__sub_8005A438(Obj_8005A438 *self);
 void copy_pair__11TBoss4Type3FPvPv(void* p, void* q);
-void TBoss4Type3__sub_8005A4F4(void *, void *, f32);
+void draw_model_set__11TBoss4Type3FPClf(void *, void *, f32);
 void set_anim_state__11TBoss4Type3FPvi(u8 *arg0, s32 arg1);
 void update_phase_timer__11TBoss4Type3FPv(u8 *arg0);
 void draw__11TBoss4Type3FPv(void *arg0);
@@ -806,7 +835,7 @@ extern const f32 TBoss4Type3__data_805D8C34;
 extern const f32 TBoss4Type3__data_805D8C40;
 extern M2C_UNK __vt__11TBoss4Zanzo[];
 extern void* __vt__13TObjBs4CutAtk[];
-extern s32 lbl_80437814[];
+
 extern RecoveredGlobal_80059450_lbl_80437854 lbl_80437854;
 extern RecoveredGlobal_80059450_lbl_80437860 lbl_80437860;
 extern RecoveredGlobal_80059450_lbl_8043786C lbl_8043786C;
@@ -815,16 +844,13 @@ extern const f64 lbl_80437890[];
 extern Ofs_8005683C bishi_spawn_offset_table[];
 extern u8 lbl_80486924[];
 extern void *lbl_805D27DC;
-extern s32 lbl_805D27E0;
+
 extern s32 lbl_805D4D80;
 extern u8 lbl_805D4D84;
 extern s32 local_client_id;
 extern s32 game_difficulty_selection;
 extern s32 lbl_805D586C;
-extern "C" {
-}
-extern "C" {
-}
+
 struct Def_804867C8 { M2C_UNK value; M2C_UNK remaining[39]; };
 void TBoss4Type2__vt9(u8 *arg0);
 
@@ -1141,57 +1167,7 @@ void get_pos__10TObjPlayerFii();
 extern "C" {
 void has_flag_0x800__10TObjPlayerFPv();
 }
-extern "C" {
-extern u8 lbl_80437774[];
-}
-extern "C" {
-extern u8 lbl_8043777C[];
-}
-extern "C" {
-extern u8 lbl_80437788[];
-}
-extern "C" {
-extern u8 lbl_80437794[];
-}
-extern "C" {
-extern u8 lbl_8043779C[];
-}
-extern "C" {
-extern u8 lbl_804377A4[];
-}
-extern "C" {
-extern u8 lbl_804377AC[];
-}
-extern "C" {
-extern u8 lbl_804377B4[];
-}
-extern "C" {
-extern u8 lbl_804377BC[];
-}
-extern "C" {
-extern u8 lbl_804377C4[];
-}
-extern "C" {
-extern u8 lbl_804377CC[];
-}
-extern "C" {
-extern u8 lbl_804377D4[];
-}
-extern "C" {
-extern u8 lbl_804377DC[];
-}
-extern "C" {
-extern u8 lbl_804377E4[];
-}
-extern "C" {
-extern u8 lbl_804377EC[];
-}
-extern "C" {
-extern u8 lbl_804377F4[];
-}
-extern "C" {
-extern const u8 lbl_805D8C30[];
-}
+
 extern "C" {
 void reset_pose__10TObjPlayerFPv();
 }
@@ -1220,23 +1196,23 @@ extern void *lbl_80487090[28];
 extern void *lbl_80487100[12];
 
 TBoss4Type3State boss4_type3_states[17] = {
-    { (const char *)lbl_80437774, 0x0, &TBoss4Type3::enter_appear, &TBoss4Type3::advance_appear, &TBoss4Type3::update_appear },
-    { (const char *)lbl_8043777C, 0x0, 0, &TBoss4Type3::advance_wait_next, 0 },
-    { (const char *)lbl_80437788, -1, 0, 0, 0 },
-    { (const char *)lbl_80437794, 0x9, &TBoss4Type3::enter_dead, &TBoss4Type3::advance_dead, &TBoss4Type3::update_dead },
-    { (const char *)lbl_805D8C30, 0x3, &TBoss4Type3::enter_cut, &TBoss4Type3::advance_cut, &TBoss4Type3::update_cut },
-    { (const char *)lbl_8043779C, 0x4, &TBoss4Type3::enter_cut, &TBoss4Type3::advance_cut, &TBoss4Type3::update_cut },
-    { (const char *)lbl_804377A4, 0x3, &TBoss4Type3::enter_cut, &TBoss4Type3::advance_cut, &TBoss4Type3::update_cut },
-    { (const char *)lbl_804377AC, 0x4, &TBoss4Type3::enter_cut, &TBoss4Type3::advance_cut, &TBoss4Type3::update_cut },
-    { (const char *)lbl_804377B4, 0x3, &TBoss4Type3::enter_cut, &TBoss4Type3::advance_cut, &TBoss4Type3::update_cut },
-    { (const char *)lbl_804377BC, 0x1, &TBoss4Type3::enter_go_up, &TBoss4Type3::advance_go_up, &TBoss4Type3::update_go_up },
-    { (const char *)lbl_804377C4, 0x2, &TBoss4Type3::enter_go_down, &TBoss4Type3::advance_go_down, &TBoss4Type3::update_go_down },
-    { (const char *)lbl_804377CC, 0x0, &TBoss4Type3::enter_homing, &TBoss4Type3::advance_homing, &TBoss4Type3::update_homing },
-    { (const char *)lbl_804377D4, 0x0, &TBoss4Type3::enter_light_magic, &TBoss4Type3::advance_light_magic, &TBoss4Type3::update_light_magic },
-    { (const char *)lbl_804377DC, 0x7, &TBoss4Type3::enter_dark_magic, &TBoss4Type3::advance_dark_magic, &TBoss4Type3::update_dark_magic },
-    { (const char *)lbl_804377E4, 0x0, &TBoss4Type3::enter_capture, &TBoss4Type3::advance_capture, &TBoss4Type3::update_capture },
-    { (const char *)lbl_804377EC, 0x0, &TBoss4Type3::enter_bura, &TBoss4Type3::advance_bura, &TBoss4Type3::update_bura },
-    { (const char *)lbl_804377F4, 0x0, &TBoss4Type3::enter_libera, &TBoss4Type3::advance_libera, &TBoss4Type3::update_libera },
+    { boss4_type3_state_name_appear, 0x0, &TBoss4Type3::enter_appear, &TBoss4Type3::advance_appear, &TBoss4Type3::update_appear },
+    { boss4_type3_state_name_wait_next, 0x0, 0, &TBoss4Type3::advance_wait_next, 0 },
+    { boss4_type3_state_name_wait_kill, -1, 0, 0, 0 },
+    { boss4_type3_state_name_dead, 0x9, &TBoss4Type3::enter_dead, &TBoss4Type3::advance_dead, &TBoss4Type3::update_dead },
+    { boss4_type3_state_name_cut, 0x3, &TBoss4Type3::enter_cut, &TBoss4Type3::advance_cut, &TBoss4Type3::update_cut },
+    { boss4_type3_state_name_cut2, 0x4, &TBoss4Type3::enter_cut, &TBoss4Type3::advance_cut, &TBoss4Type3::update_cut },
+    { boss4_type3_state_name_cut3, 0x3, &TBoss4Type3::enter_cut, &TBoss4Type3::advance_cut, &TBoss4Type3::update_cut },
+    { boss4_type3_state_name_cut4, 0x4, &TBoss4Type3::enter_cut, &TBoss4Type3::advance_cut, &TBoss4Type3::update_cut },
+    { boss4_type3_state_name_cut5, 0x3, &TBoss4Type3::enter_cut, &TBoss4Type3::advance_cut, &TBoss4Type3::update_cut },
+    { boss4_type3_state_name_go_up, 0x1, &TBoss4Type3::enter_go_up, &TBoss4Type3::advance_go_up, &TBoss4Type3::update_go_up },
+    { boss4_type3_state_name_go_down, 0x2, &TBoss4Type3::enter_go_down, &TBoss4Type3::advance_go_down, &TBoss4Type3::update_go_down },
+    { boss4_type3_state_name_homing, 0x0, &TBoss4Type3::enter_homing, &TBoss4Type3::advance_homing, &TBoss4Type3::update_homing },
+    { boss4_type3_state_name_light_magic, 0x0, &TBoss4Type3::enter_light_magic, &TBoss4Type3::advance_light_magic, &TBoss4Type3::update_light_magic },
+    { boss4_type3_state_name_dark_magic, 0x7, &TBoss4Type3::enter_dark_magic, &TBoss4Type3::advance_dark_magic, &TBoss4Type3::update_dark_magic },
+    { boss4_type3_state_name_capture, 0x0, &TBoss4Type3::enter_capture, &TBoss4Type3::advance_capture, &TBoss4Type3::update_capture },
+    { boss4_type3_state_name_bura, 0x0, &TBoss4Type3::enter_bura, &TBoss4Type3::advance_bura, &TBoss4Type3::update_bura },
+    { boss4_type3_state_name_libera, 0x0, &TBoss4Type3::enter_libera, &TBoss4Type3::advance_libera, &TBoss4Type3::update_libera },
 };
 void *lbl_80486F84[11] = {
     (void *)0x0, (void *)0x41a00000, (void *)0x0, (void *)0x42340000,
@@ -1381,17 +1357,11 @@ void TBoss4Type3::advance_libera() {
         ((void (*)(void *, s32, s32))TBoss4Type3__sub_800599F4)(o, 0, 2);
     }
 }
-extern "C" {
-
-}
 void TBoss4Type3::enter_libera() {
     u8 *arg0 = (u8 *)this;
     create_yutai__11TBoss4Type3FPvPvPv(arg0, (void *)1, (void *) M2C_FIELD(arg0, u16 *, 0x3BA));
     M2C_FIELD(arg0, s32 *, 0x52C) = 0;
     M2C_FIELD(arg0, s32 *, 0x398) = 0x62;
-}
-extern "C" {
-
 }
 void TBoss4Type3::update_bura() {
     S_80058380 *o = (S_80058380 *)this;
@@ -1405,9 +1375,6 @@ void TBoss4Type3::update_bura() {
     if (--o->f398 < 0) {
         ((void (*)(void *, s32))set_action_from_table__11TBoss4Type3FPvi)(o, 1);
     }
-}
-extern "C" {
-
 }
 void TBoss4Type3::advance_bura() {
     void *arg0 = (void *)this;
@@ -1427,9 +1394,6 @@ void TBoss4Type3::advance_bura() {
         }
         ((M2C_UNK (*)(void *))spawn_random_effect__11TBoss4Type3Fi)(arg0);
     }
-}
-extern "C" {
-
 }
 void TBoss4Type3::enter_bura() {
     void* p = (void*)this; *(s32*)((char*)p + 0x52c) = 0; *(s32*)((char*)p + 0x398) = 147; }
@@ -1522,15 +1486,12 @@ void TBoss4Type3::update_capture() {
         set_action_from_table__11TBoss4Type3FPvi((TBoss4Type3 *)arg0, 1);
     }
 }
-extern "C" {
-
-}
 void TBoss4Type3::advance_capture() {
     void *arg0 = (void *)this;
     if (TBoss4Type3__sub_8005254C(M2C_FIELD(arg0, u16 *, 0x3B8)) == 0) {
         M2C_FIELD(arg0, u16 *, 0x3B8) = 0xFFFFU;
         M2C_FIELD(arg0, u16 *, 0x3BA) = 0xFFFFU;
-        TBoss4Type3__sub_800599F4((void*)(arg0), (void*)(0), (void*)(2));
+        TBoss4Type3__sub_800599F4((void*)(arg0), 0, 2);
         return;
     }
     if ((s32) M2C_FIELD(arg0, s32 *, 0x398) == 0) {
@@ -1540,9 +1501,6 @@ void TBoss4Type3::advance_capture() {
         M2C_FIELD(arg0, s32 *, 0x3BC) = 0;
         ((M2C_UNK (*)(void *))spawn_random_effect__11TBoss4Type3Fi)(arg0);
     }
-}
-extern "C" {
-
 }
 void TBoss4Type3::enter_capture() {
     void *arg0 = (void *)this;
@@ -1597,9 +1555,6 @@ extern int fold_flush_5;
 }
 void TBoss4Type3::advance_dark_magic() {
     void* p = (void*)this; if (*(int*)((char*)p + 0x398) == 0) { ((int (*)(void*, void*))TBoss4Type3__sub_80059F64)(p, (void*)12); } }
-extern "C" {
-
-}
 void TBoss4Type3::enter_dark_magic() {
     void *arg0 = (void *)this;
     M2C_FIELD(arg0, s32 *, 0x3A0) = 0x11;
@@ -1648,14 +1603,8 @@ void TBoss4Type3::update_light_magic() {
         ((M2C_UNK (*)(void *, M2C_UNK))set_action_from_table__11TBoss4Type3FPvi)(arg0, 1);
     }
 }
-extern "C" {
-
-}
 void TBoss4Type3::advance_light_magic() {
     void* p = (void*)this; if (*(int*)((char*)p + 0x398) == 0) { ((int (*)(void*, void*))TBoss4Type3__sub_80059F64)(p, (void*)10); } }
-extern "C" {
-
-}
 void TBoss4Type3::enter_light_magic() {
     void *arg0 = (void *)this;
     M2C_FIELD(arg0, s32 *, 0x3A0) = 0x11;
@@ -1732,18 +1681,12 @@ void TBoss4Type3::update_homing() {
         ((M2C_UNK (*)(void *, M2C_UNK))set_action_from_table__11TBoss4Type3FPvi)(o, 1);
     }
 }
-extern "C" {
-
-}
 void TBoss4Type3::advance_homing() {
     O_80058D70 *self = (O_80058D70 *)this;
     if (self->f398 == 0) {
         self->f3b8 = 0xFFFF;
         ((int (*)(void*, void*))TBoss4Type3__sub_80059F64)((void*)(self), (void*)(0xc));
     }
-}
-extern "C" {
-
 }
 void TBoss4Type3::enter_homing() {
     void *arg0 = (void *)this;
@@ -1783,11 +1726,8 @@ void TBoss4Type3::advance_go_down() {
             ((void (*)(void *, s32, s32))TBoss4Type3__sub_80059EA8)(self, 14, t);
             return;
         }
-        TBoss4Type3__sub_800599F4(self, (void*)0, (void*)2);
+        TBoss4Type3__sub_800599F4(self, 0, 2);
     }
-}
-extern "C" {
-
 }
 void TBoss4Type3::enter_go_down() {
     u8 *arg0 = (u8 *)this;
@@ -1834,9 +1774,6 @@ void TBoss4Type3::advance_go_up() {
         }
     }
 }
-extern "C" {
-
-}
 void TBoss4Type3::enter_go_up() {
     u8 *arg0 = (u8 *)this;
     M2C_FIELD(arg0, s32 *, 0x3A4) = (s32) M2C_FIELD(arg0, s32 *, 0x3A0);
@@ -1845,9 +1782,6 @@ void TBoss4Type3::enter_go_up() {
     play_sound_effect((int)(0x4003B031), (void *)(arg0 + 0x38), (int)(0), (int)(1));
     M2C_FIELD(arg0, s32 *, 0x52C) = 1;
     M2C_FIELD(arg0, s32 *, 0x398) = 0x31;
-}
-extern "C" {
-
 }
 void TBoss4Type3::update_cut() {
     O_800590F4 *o = (O_800590F4 *)this;
@@ -1890,9 +1824,6 @@ void TBoss4Type3::update_cut() {
     ((M2C_UNK (*)(void *, M2C_UNK))set_action_from_table__11TBoss4Type3FPvi)(o, 1);
   }
 }
-extern "C" {
-
-}
 void TBoss4Type3::advance_cut() {
     u8 *arg0 = (u8 *)this;
     s32 temp_r3;
@@ -1905,9 +1836,6 @@ void TBoss4Type3::advance_cut() {
         temp_r3 = get_random_scaled__11TBoss4Type3Fv((void *)(arg0));
         ((void (*)(void *, s32, s32, s32))send_packed_action__11TBoss4Type3FPviii)(arg0, M2C_FIELD(arg0, s32 *, 0x374) - 1, temp_r3, temp_r3);
     }
-}
-extern "C" {
-
 }
 void TBoss4Type3::enter_cut() {
     u8 *arg0 = (u8 *)this;
@@ -1929,13 +1857,7 @@ void TBoss4Type3::update_dead() {
         ((M2C_UNK (*)(void *, M2C_UNK))set_action_from_table__11TBoss4Type3FPvi)((void *)((void *)(arg0)), (M2C_UNK)((int) (2)));
     }
 }
-extern "C" {
-
-}
 void TBoss4Type3::advance_dead() {  }
-extern "C" {
-
-}
 void TBoss4Type3::enter_dead() {
     void *arg0 = (void *)this;
     M2C_FIELD(arg0, f32 *, 0x3F8) = (f32) lbl_805D8C60;
@@ -1954,9 +1876,6 @@ void TBoss4Type3::advance_wait_next() {
         ((int (*)(void*, void*))TBoss4Type3__sub_80059F64)((void*)(self), (void*)((void *)10));
     }
 }
-extern "C" {
-
-}
 void TBoss4Type3::update_appear() {
     void *arg0 = (void *)this;
     s32 temp_r0;
@@ -1966,14 +1885,8 @@ void TBoss4Type3::update_appear() {
         ((M2C_UNK (*)(void *, M2C_UNK))set_action_from_table__11TBoss4Type3FPvi)(arg0, 1);
     }
 }
-extern "C" {
-
-}
 void TBoss4Type3::advance_appear() {
-    void* p = (void*)this; if (*(int*)((char*)p + 0x398) == 0) { TBoss4Type3__sub_800599F4(p, (void*)0, (void*)2); } }
-extern "C" {
-
-}
+    void* p = (void*)this; if (*(int*)((char*)p + 0x398) == 0) { TBoss4Type3__sub_800599F4(p, 0, 2); } }
 void TBoss4Type3::enter_appear() {
     void* p = (void*)this; *(s32*)((char*)p + 0x398) = 147; }
 extern "C" {
@@ -2146,6 +2059,10 @@ void update_radar_markers__11TBoss4Type3FPv(u8 *arg0) {
     M2C_FIELD(arg0, s32 *, 0x3C0)++;
 }
 
+}
+
+extern "C" {
+
 void calc_grid_index__11TBoss4Type3FPv(void *arg0) {
     M2C_FIELD(arg0, s32 *, 0x3AC) = (s32) (((u32) -(M2C_FIELD(arg0, s32 *, 0x60) + 0x800) >> 0xCU) & 0xF);
     M2C_FIELD(arg0, s32 *, 0x3A8) = (s32) (((u32) -(M2C_FIELD(arg0, s32 *, 0x60) + 0x800) >> 0xCU) & 0xF);
@@ -2222,6 +2139,10 @@ void interp_position_between_nodes__11TBoss4Type3FPv(u8 *arg0) {
 }
 extern int fold_flush_7;
 #pragma pop
+
+}
+
+extern "C" {
 
 void spawn_random_effect__11TBoss4Type3Fi(s32 arg0) {
     s32 temp_r5;
@@ -2316,6 +2237,10 @@ void update_scale_sound__11TBoss4Type3FPv(u8 *arg0) {
 extern int fold_flush_8;
 #pragma pop
 
+}
+
+extern "C" {
+
 void copy_positions_to_parts__11TBoss4Type3FPv(Obj_8005A1AC *arg0) {
     Vec_8005A1AC *pos[8] = {
         &arg0->f48c, &arg0->f498, &arg0->f4d4, &arg0->f4e0,
@@ -2348,7 +2273,7 @@ void destroy_parts__11TBoss4Type3FPv(Obj_8005A2A4 *self) {
 void create_particle_emitters__11TBoss4Type3FPv(Obj_8005A300 *self) {
     s32 i;
     for (i = 0; i < 8; i++) {
-        self->f404[i] = ((u32 (*)(void *, s32))create_particle_emitter)(self->f38, lbl_80437814[i]);
+        self->f404[i] = ((u32 (*)(void *, s32))create_particle_emitter)(self->f38, boss4_type3_effect_ids[i]);
         if (self->f404[i] != 0) {
             ((void (*)(u32, u32))set_flags__11TBoss4Type2FPvUi)(self->f404[i], 0x40);
         }
@@ -2384,11 +2309,61 @@ void TBoss4Type3__sub_8005A438(Obj_8005A438 *self) {
         copy_pair__11TBoss4Type3FPvPv(&a, pb);
         copy_pair__11TBoss4Type3FPvPv(pb, &tmp);
     }
-    TBoss4Type3__sub_8005A4F4(self, a.p, a.f);
-    TBoss4Type3__sub_8005A4F4(self, b.p, b.f);
+    ((TBoss4Type3 *)self)->draw_model_set((const s32 *)a.p, a.f);
+    ((TBoss4Type3 *)self)->draw_model_set((const s32 *)b.p, b.f);
 }
 
 void copy_pair__11TBoss4Type3FPvPv(void* p, void* q) { *(u32*)((char*)p + 0x0) = *(u32*)((char*)q + 0x0); *(f32*)((char*)p + 0x4) = *(f32*)((char*)q + 0x4); }
+
+}
+
+#pragma push
+#pragma opt_propagation off
+void TBoss4Type3::draw_model_set(const s32 *tbl, f32 t) {
+    f32 c;
+    s32 i;
+    f32 v;
+    s32 off;
+
+    if (this->m_3f0 < 0 || this->m_3f0 >= 0xA) {
+        return;
+    }
+    v = this->m_3f4;
+    c = TBoss4Type3__data_805D8C40;
+    if (v < c || v >= lbl_805D8C9C) {
+        return;
+    }
+    if (c == t) {
+        return;
+    }
+    if (t < TBoss4Type3__data_805D8C34) {
+        TObjPlayer__sub_80052390(t);
+    } else if (tbl == (const s32 *)lbl_80486FB0) {
+        TBoss6PlotFalz__sub_802AC008(this->m_3e8, this->m_3ec);
+    }
+    some_id_805c6f74 |= 0x20000;
+    TObjEneRe4Sorcerer__sub_801E3F1C(TBoss4Type3__data_805D8C40, this->m_3dc);
+    set_global_flag__10TObjPlayerFv();
+    for (i = 0; i < 3; i++) {
+        set_global_param__8TObjFishFi(TObjFish__sub_8001EDB0(this->m_390, tbl[i]));
+        off = i;
+        set_draw_callback_list__8TObjFishFPv((s32)this->render_lists[off]);
+        draw_model_motion(get_bml_model(this->m_390, tbl[i]), get_bml_motion(this->m_390, ((Type3MotionView *)&TBoss4Type3__anim_state_table)[this->m_3f0].motions[i]), this->m_3f4);
+        clear_render_callback__8TObjFishFv((s32)this->render_lists[off]);
+    }
+    clear_global_state__10TObjPlayerFv();
+    some_id_805c6f74 &= ~0x20000;
+    if (t < TBoss4Type3__data_805D8C34) {
+        sync_player_globals__10TObjPlayerFv();
+        return;
+    }
+    if (tbl == (const s32 *)lbl_80486FB0) {
+        update_camera_target__14TBoss6PlotFalzFv();
+    }
+}
+#pragma pop
+
+extern "C" {
 
 void set_anim_state__11TBoss4Type3FPvi(u8 *arg0, s32 arg1) {
     if (arg1 != -1) {
@@ -2573,7 +2548,7 @@ void TBoss4Type3::run_task() {
     }
     Type3Tick::set_global_flag__10TObjPlayerFv();
     Type3Tick::draw_motion_trail__11TBoss4Type3FPviiii(p, Type3Tick::get_bml_model(this->m_390, ((s32 *)lbl_80486FB0)[0]),
-        Type3Tick::get_bml_motion(this->m_390, TBoss4Type3__anim_state_table[this->m_3f0].f8),
+        Type3Tick::get_bml_motion(this->m_390, TBoss4Type3__anim_state_table[this->m_3f0].motions[0]),
         lbl_80487148, 0);
     Type3Tick::clear_global_state__10TObjPlayerFv();
     e = ((u8 *(*)(void *, f32))Type3Tick::lookup_entry_by_value__10TObjPlayerFPvf)(p, lim);
@@ -2585,11 +2560,11 @@ void TBoss4Type3::run_task() {
     Type3Tick::matrix_mult_vec(0, e + 0xC, v[1]);
     Type3Tick::pop_matrix();
     if (e != 0) {
-        if (this->m_418 != 0) {
-            Type3Tick::copy_pos__11TNowLoadingFPvPv(this->m_418, v[0]);
+        if (this->effect_parts[5] != 0) {
+            Type3Tick::copy_pos__11TNowLoadingFPvPv(this->effect_parts[5], v[0]);
         }
-        if (this->m_41c != 0) {
-            Type3Tick::copy_pos__11TNowLoadingFPvPv(this->m_41c, v[1]);
+        if (this->effect_parts[6] != 0) {
+            Type3Tick::copy_pos__11TNowLoadingFPvPv(this->effect_parts[6], v[1]);
         }
     }
     Type3Tick::__dt__11TBoss4Type3FPvs(p, 1);
@@ -2657,8 +2632,7 @@ void *alloc__23TAdSinglePlyChrSelectGCFPv(int);
 s32 create__12TObjEneSaverFPvPv(s32, s32);
 void draw_trail_with_colors(s32, s32, s32, s32, s32);
 s32 init_trail_buffer__11TBoss4Type3FPvifff(void *, s32, f32, f32, f32);
-extern u8 lbl_804377FC[];
-extern s32 lbl_805D27E4;
+
 extern const f32 lbl_805D8CAC;
 
 Self_8005AE60 *TBoss4Type3__ct(Self_8005AE60 *self, s32 arg1, s32 *arg2) {
@@ -2668,7 +2642,7 @@ Self_8005AE60 *TBoss4Type3__ct(Self_8005AE60 *self, s32 arg1, s32 *arg2) {
 
     ((void (*)(void *, s32))initialize__9TObjEnemyFPv)(self, arg1);
     self->vt = __vt__11TBoss4Type3;
-    self->f0 = lbl_805D27E4;
+    self->f0 = (s32)TBoss4Type3_name;
     add_flags_2e4__10TObjPlayerFPvUi(self, 8);
     self->f38C = arg2[0];
     ((VObj_8005AE60 *)self)->m79(arg2 + 1);
@@ -2713,7 +2687,7 @@ Self_8005AE60 *TBoss4Type3__ct(Self_8005AE60 *self, s32 arg1, s32 *arg2) {
     *(s32 *)((u8 *)self + 0x528) = create__12TObjEneSaverFPvPv(0xA0303030, 0xFFFF0088);
     clear_global_state__10TObjPlayerFv();
     create_particle_emitters__11TBoss4Type3FPv((Obj_8005A300 *)self);
-    init_model_node_tables(self->f378, lbl_804377FC, 2);
+    init_model_node_tables(self->f378, (void *)boss4_type3_model_node_specs, 2);
     self->f3D4 = self->f32C;
     self->f3CC = 0;
     self->f3D0 = *(s32 *)(dispatch_shared_handler_a__6TLobbyFPv(0x38) + 0x24);
@@ -2800,7 +2774,7 @@ extern "C" {
 void *__ct__13TObjBs4CutAtkFv(void *arg0, s32 arg1, s32 arg2, s32 arg3) {
     ((M2C_UNK (*)(void))__ct__7TObjectFP7TObject)();
     M2C_FIELD(arg0, void **, 0x18) = __vt__13TObjBs4CutAtk;
-    M2C_FIELD(arg0, s32 *, 0) = (s32) lbl_805D27E0;
+    M2C_FIELD(arg0, s32 *, 0) = (s32) TObjBs4CutAtk_name;
     if (arg3 == 0) {
         M2C_FIELD(arg0, s32 *, 0x1C) = -0x1554;
         M2C_FIELD(arg0, s32 *, 0x1C) = (s32) (M2C_FIELD(arg0, s32 *, 0x1C) + (arg2 << 0xC));

@@ -1405,7 +1405,7 @@ void *TObjEneBalClawClaw__collision_body_template[11] = {
     (void *)0x0, (void *)0x0, (void *)0x8003, (void *)0x0,
     (void *)0x0, (void *)0x0, (void *)0x0,
 };
-void *lbl_8048F148[83] = {
+void *__vt__18TObjEneBalClawClaw[83] = {
     (void *)0x0, (void *)0x0, (void *)&deleting_dtor__18TObjEneBalClawClawFPvs, (void *)&TObjEneBalClawClaw__sub_8009173C,
     (void *)&render__18TObjEneBalClawClawFPv, (void *)&render_actor_shadows_default, (void *)&TLobby__sub_801A1FD8, (void *)&apply_object_set_data,
     (void *)&reset_actor_action_state, (void *)&get_actor_body_center, (void *)&update_object_view_visibility, (void *)&classify_actor_view_detail,
@@ -1428,7 +1428,7 @@ void *lbl_8048F148[83] = {
     (void *)&fn_80010EC4, (void *)&fn_80010EC0, (void *)&fn_80010EBC, (void *)&call_player_preserving_field__15TObjEnemyCustomFPv,
     (void *)&apply_hit_message_flags__10TObjPlayerFPvPv, (void *)&apply_set_data__9TObjEnemyFPvPv, (void *)&clear_lobby_object_state,
 };
-#define lbl_8048F148 ((M2C_UNK *)lbl_8048F148)
+#define __vt__18TObjEneBalClawClaw ((M2C_UNK *)__vt__18TObjEneBalClawClaw)
 
 void update_attack_distance_state__18TObjEneBalClawClawFPv(u8 *arg0) {
     f32 temp_f1;
@@ -1643,7 +1643,7 @@ void * create__18TObjEneBalClawClawFPv(void *arg0) {
 
 void *deleting_dtor__18TObjEneBalClawClawFPvs(void *arg0, s16 arg1) {
     if (arg0 != NULL) {
-        M2C_FIELD(arg0, M2C_UNK **, 0x18) = lbl_8048F148;
+        M2C_FIELD(arg0, M2C_UNK **, 0x18) = __vt__18TObjEneBalClawClaw;
         free_collision_body_parts(arg0);
         __dt__14TObjEneBalClawFv(arg0, 0);
         if (arg1 > 0) {
@@ -1690,7 +1690,7 @@ M2C_UNK TObjEneBalClawClaw__ct(void *arg0) {
 #pragma pop
 u8 *TObjEneBalClawClaw__sub_80091B98(u8 *arg0, M2C_UNK arg1, u8 *arg2, s32 arg3, s32 arg4, u8 *arg5, s32 arg6, s32 _w7) {
     TObjEneBalClaw__ct(arg0);
-    M2C_FIELD(arg0, M2C_UNK **, 0x18) = &(*(RecoveredGlobal_80091B98_lbl_8048F148 *)lbl_8048F148).value;
+    M2C_FIELD(arg0, M2C_UNK **, 0x18) = &(*(RecoveredGlobal_80091B98_lbl_8048F148 *)__vt__18TObjEneBalClawClaw).value;
     M2C_FIELD(arg0, s16 *, 0x1C) = arg3;
     M2C_FIELD(arg0, s16 *, 0x2C) = arg4;
     M2C_FIELD(arg0, s16 *, 0x28) = (s16) M2C_FIELD(arg2, s16 *, 0x28);
@@ -1712,7 +1712,7 @@ u8 *TObjEneBalClawClaw__sub_80091B98(u8 *arg0, M2C_UNK arg1, u8 *arg2, s32 arg3,
 typedef char RecoveredGlobal_80091C58_lbl_8048F148_size[sizeof(RecoveredGlobal_80091C58_lbl_8048F148) == 0x14C ? 1 : -1];
 u8 *TObjEneBalClawClaw__sub_80091C58(u8 *arg0, M2C_UNK arg1, u8 *arg2) {
     TObjEneBalClaw__ct((void *) (arg0));
-    M2C_FIELD(arg0, M2C_UNK **, 0x18) = &(*(RecoveredGlobal_80091C58_lbl_8048F148 *)lbl_8048F148).value;
+    M2C_FIELD(arg0, M2C_UNK **, 0x18) = &(*(RecoveredGlobal_80091C58_lbl_8048F148 *)__vt__18TObjEneBalClawClaw).value;
     ((VObj_18_f05d67 *)(arg0))->m79(arg2);
     TObjEneBalClawClaw__ct((void *) (arg0));
     if (M2C_FIELD(arg2, s16 *, 0xA) != 0) {

@@ -351,7 +351,7 @@ u32 seqStartPlay(PAGE_803A49C8 *norm, PAGE_803A49C8 *drum, MIDISETUP_803A3D8C *m
 
     tracktab = (u32 *)ARR_GET_803A3D8C(arr, arr->tTab);
     for (i = 0; i < 64; ++i) {
-        lbl_80557B5C[i] = 0x7F;
+        synthTrackVolume[i] = 0x7F;
         nseq->pattern[i].addr = NULL;
         if (tracktab[i] != 0) {
             nseq->track[i].addr = nseq->track[i].base = (TENTRY_803A49C8 *)ARR_GET_803A3D8C(arr, tracktab[i]);
@@ -1392,7 +1392,7 @@ SEQ_EVENT_803A6364 *HandleEvent(SEQ_EVENT_803A6364 *event, u8 secIndex, u32 *loo
                              macId, CSEQ_5A78->prgState[midi].priority, CSEQ_5A78->prgState[midi].maxVoices,
                              key, velocity, 64, midi, lbl_805D7368, secIndex, 0, event->trackId,
                              CSEQ_5A78->trackVolGroup[event->trackId], lbl_805D736C ? -1 : 0,
-                             CSEQ_5A78->defStudio, lbl_80557C1C[CSEQ_5A78->defStudio].b0)) == 0xFFFFFFFF) {
+                             CSEQ_5A78->defStudio, synthITDDefault[CSEQ_5A78->defStudio].b0)) == 0xFFFFFFFF) {
                         FreeNote_803A5A78(note);
                     }
                 }

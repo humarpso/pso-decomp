@@ -13,7 +13,7 @@
 #define macRealTime lbl_805D7428
 #define FLAGS (*(u64 *)&o->fh)
 #define HEAD (*(Voice_803B2128 **)&lbl_805D741C)
-#define synthVoice ((SYNTH_VOICE_803B2438 *)lbl_805D73B0)
+#define synthVoice ((SYNTH_VOICE_803B2438 *)synthVoice)
 #define vidCurrentId (*(u32 *)&lbl_805D7438)
 #define vidRoot (*(VID_LIST_SV **)&lbl_805D743C)
 #define vidFree (*(VID_LIST_SV **)&lbl_805D7440)
@@ -53,7 +53,7 @@ typedef struct FX_DATA_803B50E8 {
 
 extern "C" {
 extern s16 lbl_805D7450;
-extern u8 lbl_805D7380;
+extern u8 sndActive;
 void *hwTransAddr(void *samples);
 u32 dataInsertSDir(void *sdir, void *smp_data);
 void ScanIDList(u16 *p, void *a, void *b, void *c);
@@ -222,7 +222,6 @@ void ScanIDListReverse(u16 *start, void *a, void *b, void *c) {
 
 static GSTACK_803B50E8 gs[128];
 #define sp lbl_805D7450
-#define sndActive lbl_805D7380
 struct Rec_803ADBF0;
 #pragma push
 #pragma opt_common_subs on

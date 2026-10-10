@@ -13,7 +13,7 @@
 #define macRealTime lbl_805D7428
 #define FLAGS (*(u64 *)&o->fh)
 #define HEAD (*(Voice_803B2128 **)&lbl_805D741C)
-#define synthVoice ((SYNTH_VOICE_803B2438 *)lbl_805D73B0)
+#define synthVoice ((SYNTH_VOICE_803B2438 *)synthVoice)
 
 typedef struct SYNTH_VOICELIST_V {
     u8 prev;
@@ -327,7 +327,7 @@ void voiceSetPriority(Voice_803B2128 *svoice, u8 prio) {
 #pragma pop
 
 struct Cfg_803B2CF0 { u8 pad[0x210]; u8 voiceNum; u8 maxMusic; u8 maxSFX; };
-#define synthInfo_803B2CF0 (*(Cfg_803B2CF0 *)&lbl_80557348)
+#define synthInfo_803B2CF0 (*(Cfg_803B2CF0 *)&synthInfo)
 #pragma push
 #pragma opt_common_subs on
 #pragma bool off
@@ -340,7 +340,7 @@ u32 voiceAllocate(u8 priority, u8 maxVoices, u16 allocId, u8 fxFlag) {
     u32 type_alloc;
     SYNTH_VOICELIST_V *sfv;
 
-    if (!lbl_805D73B8) {
+    if (!synthIdleWaitActive) {
         if (fxFlag) {
             type_alloc = (voiceFxRunning >= synthInfo_803B2CF0.maxSFX && synthInfo_803B2CF0.voiceNum > synthInfo_803B2CF0.maxSFX);
 
@@ -526,7 +526,7 @@ void voiceFree(Obj_803B312C *o) {
 static inline void voiceInitPrioSort_803B3210(void) {
     u32 i;
 
-    for (i = 0; i < lbl_80557348.count; ++i) {
+    for (i = 0; i < synthInfo.voiceNum; ++i) {
         voicePrioSortVoices[i].user = 0;
     }
 
@@ -540,16 +540,16 @@ static inline void voiceInitPrioSort_803B3210(void) {
 static inline void voiceInitFreeList_803B3210(void) {
     u32 i;
 
-    for (i = 0; i < lbl_80557348.count; ++i) {
+    for (i = 0; i < synthInfo.voiceNum; ++i) {
         voiceList[i].prev = i - 1;
         voiceList[i].next = i + 1;
         voiceList[i].user = 1;
     }
 
     voiceList[0].prev = 0xff;
-    voiceList[lbl_80557348.count - 1].next = 0xff;
+    voiceList[synthInfo.voiceNum - 1].next = 0xff;
     voiceListRoot = 0;
-    voiceListInsert = lbl_80557348.count - 1;
+    voiceListInsert = synthInfo.voiceNum - 1;
 }
 
 void synthInitAllocationAids(void) {
@@ -561,8 +561,8 @@ void synthInitAllocationAids(void) {
 
 #pragma pop
 
-#define svVoice (*(SYNTH_VOICE_SV **)&lbl_805D73B0)
-#define svInfo lbl_80557348
+#define svVoice (*(SYNTH_VOICE_SV **)&synthVoice)
+#define svInfo synthInfo
 #pragma push
 #pragma opt_common_subs on
 
@@ -667,7 +667,7 @@ s32 voiceKillSound(u32 voiceid) {
     s32 ret = -1;
     u32 next_voiceid;
     u32 i;
-    if (lbl_805D7380 != 0) {
+    if (sndActive != 0) {
         for (voiceid = vidGetInternalId_803B3748(voiceid); voiceid != -1; voiceid = next_voiceid) {
             i = voiceid & 0xff;
             next_voiceid = svVoice[i].child;
@@ -708,7 +708,7 @@ void synthKillVoicesByMacroReferences(u16 *ref) {
     u32 i;
     u16 id;
 
-    for (i = 0; i < svInfo.count; ++i) {
+    for (i = 0; i < svInfo.voiceNum; ++i) {
         if (svVoice[i].addr == NULL && svVoice[i].block == 0) {
             voiceKill_803B3858(i);
         }
@@ -718,7 +718,7 @@ void synthKillVoicesByMacroReferences(u16 *ref) {
         if ((*ref & 0x8000)) {
             id = *ref & 0x3fff;
             while (id <= ref[1]) {
-                for (i = 0; i < svInfo.count; ++i) {
+                for (i = 0; i < svInfo.voiceNum; ++i) {
                     if (svVoice[i].addr != NULL && id == svVoice[i].macroId) {
                         voiceKill_803B3858(i);
                     }
@@ -727,7 +727,7 @@ void synthKillVoicesByMacroReferences(u16 *ref) {
             }
             ref += 2;
         } else {
-            for (i = 0; i < svInfo.count; ++i) {
+            for (i = 0; i < svInfo.voiceNum; ++i) {
                 if (svVoice[i].addr != NULL && *ref == svVoice[i].macroId) {
                     voiceKill_803B3858(i);
                 }

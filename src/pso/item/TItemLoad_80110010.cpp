@@ -26,11 +26,11 @@ struct Load_8011006C { void *buf; s32 f4; s32 f8; s32 fC; s32 f10; void *f14; };
 
 extern "C" {
 s32 TItemLoad__sub_801107E4(void *p);
-extern u32 TItemLoad__data_805D5488;
+extern u32 TItemLoad__completed_model_load_task_root;
 s32 has_resource_id__9TItemLoadFi(s32 id);
 s32 TItemLoad__sub_801107E4(void *p);
 void *TItemLoad__sub_801107EC(void *p);
-extern u32 TItemLoad__data_805D5488;
+extern u32 TItemLoad__completed_model_load_task_root;
 void *find_node_by_id__9TItemLoadFi(s32 id);
 Parm_8011029C *lookup_item_pmt_record(void *);
 void init__9TItemLoadFPvPvPvPvPv(void *, void *, s32, s32, s32);
@@ -41,7 +41,7 @@ extern void *TItemLoad__model_load_task_root;
 extern s32 *TItemLoad__model_slot_in_use;
 s32 request_item_model_load(u8 *item);
 s32 TItemLoad__sub_801107E4(void *p);
-extern u32 TItemLoad__data_805D5488;
+extern u32 TItemLoad__completed_model_load_task_root;
 extern void *TItemLoad__model_load_task_root;
 extern s32 *TItemLoad__model_slot_in_use;
 void release_resource_by_id__9TItemLoadFi(s32 id);
@@ -99,8 +99,8 @@ Load_8011006C *init_buffer__9TItemLoadFPviii(Load_8011006C *self, s32 arg1, s32 
 
 s32 has_resource_id__9TItemLoadFi(s32 id) {
     Node_801100F0 *n;
-    if (TItemLoad__data_805D5488 != 0) {
-        for (n = ((Node_801100F0 *)TItemLoad__data_805D5488)->child; n != NULL; n = n->next) {
+    if (TItemLoad__completed_model_load_task_root != 0) {
+        for (n = ((Node_801100F0 *)TItemLoad__completed_model_load_task_root)->child; n != NULL; n = n->next) {
             if (id == TItemLoad__sub_801107E4(n)) {
                 return 1;
             }
@@ -143,7 +143,7 @@ void get_model_ids__9TItemLoadFUcPvPv(u8 arg0, s32 *arg1, s32 *arg2) {
 }
 
 extern void *TItemLoad__model_load_task_root;
-extern u32 TItemLoad__data_805D5488;
+extern u32 TItemLoad__completed_model_load_task_root;
 
 s32 request_item_model_load(u8 *item) {
     Parm_8011029C *parm;
@@ -179,8 +179,8 @@ s32 request_item_model_load(u8 *item) {
 
 void *find_node_by_id__9TItemLoadFi(s32 id) {
     Node_8011038C *n;
-    if (TItemLoad__data_805D5488 != 0) {
-        for (n = ((Node_8011038C *)TItemLoad__data_805D5488)->child; n != NULL; n = n->next) {
+    if (TItemLoad__completed_model_load_task_root != 0) {
+        for (n = ((Node_8011038C *)TItemLoad__completed_model_load_task_root)->child; n != NULL; n = n->next) {
             if (id == TItemLoad__sub_801107E4(n)) {
                 return TItemLoad__sub_801107EC(n);
             }
@@ -190,7 +190,7 @@ void *find_node_by_id__9TItemLoadFi(s32 id) {
 }
 
 void release_resource_by_id__9TItemLoadFi(s32 id) {
-    Node_801103F4 *roots[2] = { (Node_801103F4 *)TItemLoad__data_805D5488, (Node_801103F4 *)TItemLoad__model_load_task_root };
+    Node_801103F4 *roots[2] = { (Node_801103F4 *)TItemLoad__completed_model_load_task_root, (Node_801103F4 *)TItemLoad__model_load_task_root };
     s32 i;
     Node_801103F4 *n;
     for (i = 0; i != 2; i++) {
@@ -212,12 +212,12 @@ void update__9TItemLoadFv(void) {
     void *temp_r31;
 
     update_all__9TItemLoadFv();
-    if (((void *) TItemLoad__model_load_task_root != NULL) && ((u32) TItemLoad__data_805D5488 != 0U)) {
+    if (((void *) TItemLoad__model_load_task_root != NULL) && ((u32) TItemLoad__completed_model_load_task_root != 0U)) {
         temp_r31 = M2C_FIELD(TItemLoad__model_load_task_root, void **, 0x14);
         if (temp_r31 != NULL) {
             ((VObj_801104C4_80110010 *)temp_r31)->m1();
             if (TItemLoad__sub_801107F4(temp_r31) == 1) {
-                set_parent__7TObjectFP7TObject(temp_r31, TItemLoad__data_805D5488);
+                set_parent__7TObjectFP7TObject(temp_r31, TItemLoad__completed_model_load_task_root);
             }
         }
     }

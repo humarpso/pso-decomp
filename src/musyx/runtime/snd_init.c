@@ -13,7 +13,7 @@
 #define macRealTime lbl_805D7428
 #define FLAGS (*(u64 *)&o->fh)
 #define HEAD (*(Voice_803B2128 **)&lbl_805D741C)
-#define synthVoice ((SYNTH_VOICE_803B2438 *)lbl_805D73B0)
+#define synthVoice ((SYNTH_VOICE_803B2438 *)synthVoice)
 #define vidCurrentId (*(u32 *)&lbl_805D7438)
 #define vidRoot (*(VID_LIST_SV **)&lbl_805D743C)
 #define vidFree (*(VID_LIST_SV **)&lbl_805D7440)
@@ -42,9 +42,7 @@
 #define runListNum lbl_805D74B5
 extern "C" {
 
-#define synthInfo (*(SynthInfo_803BAB54 *)&lbl_80557348)
-#define sndActive lbl_805D7380
-#define synthIdleWaitActive lbl_805D73B8
+#define synthInfo (*(SynthInfo_803BAB54 *)&synthInfo)
 #pragma push
 #pragma dont_inline off
 #pragma inline_depth(4)

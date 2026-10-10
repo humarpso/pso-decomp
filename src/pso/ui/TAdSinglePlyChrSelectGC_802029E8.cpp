@@ -111,7 +111,7 @@ s32 __dl__FPv(s32);
 extern M2C_UNK lbl_805D5FB0;
 extern int card_character_save_buffer;
 extern s32 selected_character_data;
-extern s32 *lbl_805D5F64;
+extern s32 *active_character_save_record;
 extern int lbl_805D5F74;
 s32 destroy_chardata_array__23TAdSinglePlyChrSelectGCFis(s32 arg0, s16 arg1);
 void init__9TItemDataFv(void *);
@@ -227,11 +227,11 @@ void clear_inventory_slot_by_index__23TAdSinglePlyChrSelectGCFPvi(Obj_80202B4C *
 
 int get_selection__23TAdSinglePlyChrSelectGCFv(void) {  return lbl_805D5F74; }
 
-extern s32 *lbl_805D5F64;
+extern s32 *active_character_save_record;
 
 void set_global_flags__23TAdSinglePlyChrSelectGCFi(s32 arg0) {
-    if ((s32 *) lbl_805D5F64 != NULL) {
-        *lbl_805D5F64 |= arg0;
+    if ((s32 *) active_character_save_record != NULL) {
+        *active_character_save_record |= arg0;
     }
 }
 
@@ -244,19 +244,19 @@ void set_player_index__23TAdSinglePlyChrSelectGCFi(int a0) { card_load_sequence_
     extern int lbl_805D5FAC;
 void set_save_slot__23TAdSinglePlyChrSelectGCFi(int a0) { lbl_805D5FAC = a0; }
 
-extern s32 *lbl_805D5F64;
+extern s32 *active_character_save_record;
 
 void clear_flags__23TAdSinglePlyChrSelectGCFi(s32 arg0) {
-    if ((s32 *) lbl_805D5F64 != NULL) {
-        *lbl_805D5F64 &= ~arg0;
+    if ((s32 *) active_character_save_record != NULL) {
+        *active_character_save_record &= ~arg0;
     }
 }
 
-extern s32 *lbl_805D5F64;
+extern s32 *active_character_save_record;
 
 u8 check_flag__23TAdSinglePlyChrSelectGCFi(s32 arg0) {
-    if ((s32 *) lbl_805D5F64 != NULL) {
-        return (u8) ((*lbl_805D5F64 & arg0) != 0);
+    if ((s32 *) active_character_save_record != NULL) {
+        return (u8) ((*active_character_save_record & arg0) != 0);
     }
     return 0U;
 }

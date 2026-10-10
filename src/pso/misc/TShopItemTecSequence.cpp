@@ -194,8 +194,8 @@ s32 is_not_split_screen__13TRaderMapCoreFv();
 M2C_UNK queue_destruction__7TObjectFv(void *);
 M2C_UNK set_field_20__12TQuestListVMFPvi(void *, s32);
 
-    extern int lbl_80513EF0[];
-int TShopItemTecSequence__sub_8021FE6C(int a0) {  return lbl_80513EF0[a0]; }
+    extern int shop_tool_stock_counts[];
+int TShopItemTecSequence__sub_8021FE6C(int a0) {  return shop_tool_stock_counts[a0]; }
 
 extern s32 lbl_805D6248;
 extern s32 lbl_805D624C;

@@ -30,7 +30,7 @@ M2C_UNK show_status_message__22TQuestVmDownLoadServerFPvii(void *, int, int);
 M2C_UNK update_state__13TAdMcSelectGCFv();
 M2C_UNK select_if_mc_present__13TAdMcSelectGCFv();
 extern RecoveredGlobal_801F6C74_lbl_8050E208 controller_input_state;
-extern s32 TQuestVmDownLoadServer__data_805D5F18;
+extern s32 quest_download_in_progress;
 void TQuestVmDownLoadServer__sub_801F6C74(u8 *arg0);
 M2C_UNK return_to_main_menu__6TLobbyFv();
 s32 TWindowShortListCtrl__check_controller_button(int, int);
@@ -79,7 +79,7 @@ void check_cancel_input__22TQuestVmDownLoadServerFPv(u8 *arg0) {
 void TQuestVmDownLoadServer__sub_801F6C74(u8 *arg0) {
     u8 *temp_r31;
     temp_r31 = (u8 *)&controller_input_state.value + 0x20;
-    TQuestVmDownLoadServer__data_805D5F18 = 0;
+    quest_download_in_progress = 0;
     if (TWindowShortListCtrl__check_controller_button((int) (temp_r31), (int) (4)) != 0) {
         update_state__13TAdMcSelectGCFv();
         show_status_message__22TQuestVmDownLoadServerFPvii((void *) (arg0), (int) (get_localized_text_entry((int) (0x29), (int) (1))), (int) (1));

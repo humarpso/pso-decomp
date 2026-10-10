@@ -40,7 +40,7 @@ M2C_UNK update_state__13TAdMcSelectGCFv();
 void close_message__22TQuestVmDownLoadServerFPv(void* p) { if (*(unsigned int*)((char*)p + 0x294) != 0) { close__24TMessageWindowControllerFv((char*)p + 0x1c); *(int*)((char*)p + 0x294) = 0; } }
 
 extern s32 lbl_805D55C0;
-extern s32 TQuestVmDownLoadServer__data_805D5F18;
+extern s32 quest_download_in_progress;
 
 void show_status_message__22TQuestVmDownLoadServerFPvii(u8* arg0, s32 arg1, s32 arg2) {
     Pair_801F6E08 sp;
@@ -81,8 +81,8 @@ void check_client_connections__22TQuestVmDownLoadServerFPv(void *arg0) {
             temp_r3 = M2C_FIELD(arg0, s32 *, 0x234);
             if (temp_r3 != (s32) M2C_FIELD(arg0, s32 *, 0x238)) {
                 M2C_FIELD(arg0, s32 *, 0x238) = temp_r3;
-                if ((s32) TQuestVmDownLoadServer__data_805D5F18 != 0) {
-                    TQuestVmDownLoadServer__data_805D5F18 = 0;
+                if ((s32) quest_download_in_progress != 0) {
+                    quest_download_in_progress = 0;
                     show_status_message__22TQuestVmDownLoadServerFPvii((u8*)(arg0), (s32)(TQuestVmDownLoadServer__sub_8006EF6C(0xB)), (s32)(1));
                     M2C_FIELD(arg0, s32 *, 0x2A0) = 0x12;
                 } else {
@@ -93,7 +93,7 @@ void check_client_connections__22TQuestVmDownLoadServerFPv(void *arg0) {
     }
 }
 
-extern s32 TQuestVmDownLoadServer__data_805D5F18;
+extern s32 quest_download_in_progress;
 
 void close__22TQuestVmDownLoadServerFPv(void *arg0) {
     if ((u32) M2C_FIELD(arg0, u32 *, 0x260) != 0U) {
@@ -106,7 +106,7 @@ void close__22TQuestVmDownLoadServerFPv(void *arg0) {
     update_state__13TAdMcSelectGCFv();
     show_status_message__22TQuestVmDownLoadServerFPvii((u8*)(arg0), (s32)(get_localized_text_entry(0x29, 1)), (s32)(1));
     M2C_FIELD(arg0, s32 *, 0x2A0) = 4;
-    TQuestVmDownLoadServer__data_805D5F18 = 0;
+    quest_download_in_progress = 0;
 }
 
 extern void *lobby_player_construction_window;

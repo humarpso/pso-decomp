@@ -829,8 +829,8 @@ f32 get_class_hp_factor__10TObjPlayerFPv(void * _w0) {
 int get_floor_surface_type__10TObjPlayerFPv(void* p) { return get_contact_surface_type((char*)p + 0x360); }
 s32 get_falz_phase__10TObjPlayerFPv(void* p) { return TBoss4DarkFalz__sub_801D94C0((void*)((char*)p + 0x7cc)); }
 
-    extern int lbl_805D4D68;
-int get_instance_count__14TBoss4DarkFalzFv(void) {  return lbl_805D4D68; }
+    extern int dark_falz_form_index;
+int get_instance_count__14TBoss4DarkFalzFv(void) {  return dark_falz_form_index; }
 
 s32 TBoss4DarkFalz__sub_801D94C0(void* p) { return *(s32*)((char*)p + 0x14); }
 

@@ -6,23 +6,23 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 #define M2C_BITWISE(type, expr) ((type)(expr))
 
 extern "C" {
-extern int lbl_805D5F64;
+extern int active_character_save_record;
 u16 get_char_select_slot__23TAdSinglePlyChrSelectGCFv(void);
-extern int lbl_805D5F64;
+extern int active_character_save_record;
 void TAdSinglePlyChrSelectGC__sub_801C50C0(int a0);
-extern int lbl_805D5F64;
+extern int active_character_save_record;
 u16 TAdSinglePlyChrSelectGC__sub_801C50CC(void);
-extern int lbl_805D5F64;
+extern int active_character_save_record;
 void TAdSinglePlyChrSelectGC__sub_801C50D8(int a0);
-extern int lbl_805D5F64;
+extern int active_character_save_record;
 u16 TAdSinglePlyChrSelectGC__sub_801C50E4(void);
-extern int lbl_805D5F64;
+extern int active_character_save_record;
 void TAdSinglePlyChrSelectGC__sub_801C50F0(int a0);
-extern int lbl_805D5F64;
+extern int active_character_save_record;
 u16 TAdSinglePlyChrSelectGC__sub_801C50FC(void);
-extern int lbl_805D5F64;
+extern int active_character_save_record;
 void TAdSinglePlyChrSelectGC__sub_801C5108(int a0);
-extern int lbl_805D5F64;
+extern int active_character_save_record;
 u16 TAdSinglePlyChrSelectGC__sub_801C5114(void);
     extern int duel_result_window;
 void TAdSinglePlyChrSelectGC__sub_801C5120(void);
@@ -43,26 +43,26 @@ extern "C" {
 
 void set_slot__23TAdSinglePlyChrSelectGCFi(int a0);
 
-    extern int lbl_805D5F64;
-void set_slot__23TAdSinglePlyChrSelectGCFi(int a0) { *(short*)((char*)lbl_805D5F64 + 0x21b0) = a0; }
+    extern int active_character_save_record;
+void set_slot__23TAdSinglePlyChrSelectGCFi(int a0) { *(short*)((char*)active_character_save_record + 0x21b0) = a0; }
 u16 get_char_select_slot__23TAdSinglePlyChrSelectGCFv(void) {
-    return M2C_FIELD((*(u8 * *)&lbl_805D5F64), u16 *, 0x21B0);
+    return M2C_FIELD((*(u8 * *)&active_character_save_record), u16 *, 0x21B0);
 }
-void TAdSinglePlyChrSelectGC__sub_801C50C0(int a0) { *(short*)((char*)lbl_805D5F64 + 0x21ae) = a0; }
+void TAdSinglePlyChrSelectGC__sub_801C50C0(int a0) { *(short*)((char*)active_character_save_record + 0x21ae) = a0; }
 u16 TAdSinglePlyChrSelectGC__sub_801C50CC(void) {
-    return M2C_FIELD((*(u8 * *)&lbl_805D5F64), u16 *, 0x21AE);
+    return M2C_FIELD((*(u8 * *)&active_character_save_record), u16 *, 0x21AE);
 }
-void TAdSinglePlyChrSelectGC__sub_801C50D8(int a0) { *(short*)((char*)lbl_805D5F64 + 0x21ac) = a0; }
+void TAdSinglePlyChrSelectGC__sub_801C50D8(int a0) { *(short*)((char*)active_character_save_record + 0x21ac) = a0; }
 u16 TAdSinglePlyChrSelectGC__sub_801C50E4(void) {
-    return M2C_FIELD((*(u8 * *)&lbl_805D5F64), u16 *, 0x21AC);
+    return M2C_FIELD((*(u8 * *)&active_character_save_record), u16 *, 0x21AC);
 }
-void TAdSinglePlyChrSelectGC__sub_801C50F0(int a0) { *(short*)((char*)lbl_805D5F64 + 0x21aa) = a0; }
+void TAdSinglePlyChrSelectGC__sub_801C50F0(int a0) { *(short*)((char*)active_character_save_record + 0x21aa) = a0; }
 u16 TAdSinglePlyChrSelectGC__sub_801C50FC(void) {
-    return M2C_FIELD((*(u8 * *)&lbl_805D5F64), u16 *, 0x21AA);
+    return M2C_FIELD((*(u8 * *)&active_character_save_record), u16 *, 0x21AA);
 }
-void TAdSinglePlyChrSelectGC__sub_801C5108(int a0) { *(short*)((char*)lbl_805D5F64 + 0x21a8) = a0; }
+void TAdSinglePlyChrSelectGC__sub_801C5108(int a0) { *(short*)((char*)active_character_save_record + 0x21a8) = a0; }
 u16 TAdSinglePlyChrSelectGC__sub_801C5114(void) {
-    return M2C_FIELD((*(u8 * *)&lbl_805D5F64), u16 *, 0x21A8);
+    return M2C_FIELD((*(u8 * *)&active_character_save_record), u16 *, 0x21A8);
 }
 void TAdSinglePlyChrSelectGC__sub_801C5120(void) { duel_result_window = 0; }
 void destroy__23TAdSinglePlyChrSelectGCFv(void) {

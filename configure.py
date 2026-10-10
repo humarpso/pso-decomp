@@ -594,6 +594,7 @@ if args.target == "psov3":
                 NonMatching("TRK_MINNOW_DOLPHIN/targimpl.c",
                             mw_version="GC/2.6", cflags=[*cflags_native_recovered, "-sdata 0", "-sdata2 0"]),
                 NonMatching("TRK_MINNOW_DOLPHIN/targsupp.s"),
+                NonMatching("TRK_MINNOW_DOLPHIN/exception.s"),
                 NonMatching("TRK_MINNOW_DOLPHIN/dolphin_trk.c",
                             mw_version="GC/2.6", cflags=[*cflags_native_recovered, "-sdata 0", "-sdata2 0"]),
             ],

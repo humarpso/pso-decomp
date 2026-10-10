@@ -43,6 +43,7 @@ force_active:
   - Dolphin_GXLoadTexObjPreLoaded
   - EXIClearInterrupts
   - EmitterShutdown
+  - EventHandler
   - GXInitFifoLimits
   - GXInitFifoPtrs
   - GXSetTevIndirect
@@ -58,6 +59,8 @@ force_active:
   - GetStreamValue
   - HandleDepopVoice
   - HandleEvent
+  - HandleFaderTermination
+  - HandleJobQueue
   - HandleMasterTrack
   - HandleNotes
   - HandleReverb
@@ -70,6 +73,7 @@ force_active:
   - InsertGlobalEvent
   - KeyOffNotes
   - L2GlobalInvalidate
+  - LowPrecisionHandler
   - OSExitThread
   - OSNotifyLink
   - OSNotifyUnlink
@@ -83,6 +87,8 @@ force_active:
   - SetFXParameters
   - SortVoices
   - StartContinousEmitters
+  - StartKeymap
+  - StartLayer
   - StartPause
   - TAdBackTxtGC_backtext_tex_list
   - TAdChrMoveEffectGC__sub_80349194
@@ -206,6 +212,9 @@ force_active:
   - TObjPlayer__sub_800181DC
   - TObjPlayer__sub_800405D8
   - TObjPlayer__sub_80040ADC
+  - TObjPlayer__sub_800FF1FC
+  - TObjPlayer__sub_800FF220
+  - TObjPlayer__sub_800FF244
   - TObjPlayer__sub_801AA61C
   - TObjPlayer__sub_801AA6E4
   - TObjPlayer__sub_801BE104
@@ -275,6 +284,7 @@ force_active:
   - TypeAndStatusCallback
   - UnYieldMacro
   - UpdateRoomDistances
+  - ZeroOffsetHandler
   - _GetInputValue
   - _MetroTRK_Has_Framing
   - __ARQCallbackHack
@@ -474,6 +484,7 @@ force_active:
   - __vt__12TObjEneBeast
   - __vt__12T_OWEHMS_Exp
   - __vt__15TObjEneDimedian
+  - __vt__18TObjEneBalClawClaw
   - __vt__18TPlayerLobbyMarker
   - __vt__20TPlayerLevelFeedback
   - __vt__24TMessageWindowController
@@ -833,6 +844,7 @@ force_active:
   - dispatch_state__17TObjEneBm3FlyNestFiUii
   - do_src1
   - do_src2
+  - do_voice_portamento
   - do_warp__16TObjCityAreaWarpFPv
   - door_resource_descriptor
   - door_resource_handle
@@ -988,6 +1000,7 @@ force_active:
   - gWriteBuf
   - gWritePos
   - gather_player_contacts__10TObjPlayerFiUiii
+  - generate_shop_inventory__6TLobbyFi
   - generate_shop_weapon_stock
   - get_anim_entry_value__10TObjPlayerFPvs
   - get_area_table_value__17TOTrapChainSawKeyFii
@@ -1429,6 +1442,7 @@ force_active:
   - lbl_8050C048
   - lbl_8050DCF8
   - lbl_8050EA64
+  - lbl_80513F00
   - lbl_80540BBC
   - lbl_805D9F9C
   - lerp_follow_anchor
@@ -1830,6 +1844,7 @@ force_active:
   - seed_download_rng
   - select_attack_target__18TObjEneRe4SorcererFiff
   - select_death_direction__14TObjEneBm5WolfFPvPv
+  - send_and_handle_6x75
   - send_battle_mode_params__6TLobbyFcii
   - send_battle_mode_state__6TLobbyFPv
   - send_cmd_6A__17TObjWarpBossMultiFPvUs
@@ -1975,6 +1990,12 @@ force_active:
   - svm_callback_single_table
   - svm_callback_table
   - switch_phase_stats__13TBoss2DeRolLeFPvPv
+  - synthAddJob
+  - synthHWMessageHandler
+  - synthJobTableIndex
+  - synthMasterFader
+  - synthMasterFaderActiveFlags
+  - synthMasterFaderPauseActiveFlags
   - teardown_render_state__10TObjPlayerFPv
   - telepipe_record_differs
   - test_menu_flag__11TWindowMenuFPv
@@ -2195,3 +2216,153 @@ force_active:
 block_relocations:
   # 0x8000F513 inside lobby_font_texture_prs_data; would export MusyX hardware.c's @eti_8000F50C.
   - source: 0x8049C198
+
+# MetroTRK code templates are copied as data, so CFA does not discover their references.
+add_relocations:
+  - source: .init:0x8000C3FC
+    type: rel24
+    target: __TRK_reset
+  - source: .init:0x8000C534
+    type: hi
+    target: TRKInterruptHandler
+  - source: .init:0x8000C538
+    type: l
+    target: TRKInterruptHandler
+  - source: .init:0x8000C61C
+    type: hi
+    target: TRKInterruptHandler
+  - source: .init:0x8000C620
+    type: l
+    target: TRKInterruptHandler
+  - source: .init:0x8000C71C
+    type: hi
+    target: TRKInterruptHandler
+  - source: .init:0x8000C720
+    type: l
+    target: TRKInterruptHandler
+  - source: .init:0x8000C81C
+    type: hi
+    target: TRKInterruptHandler
+  - source: .init:0x8000C820
+    type: l
+    target: TRKInterruptHandler
+  - source: .init:0x8000C91C
+    type: hi
+    target: TRKInterruptHandler
+  - source: .init:0x8000C920
+    type: l
+    target: TRKInterruptHandler
+  - source: .init:0x8000CA1C
+    type: hi
+    target: TRKInterruptHandler
+  - source: .init:0x8000CA20
+    type: l
+    target: TRKInterruptHandler
+  - source: .init:0x8000CB1C
+    type: hi
+    target: TRKInterruptHandler
+  - source: .init:0x8000CB20
+    type: l
+    target: TRKInterruptHandler
+  - source: .init:0x8000CC1C
+    type: hi
+    target: TRKInterruptHandler
+  - source: .init:0x8000CC20
+    type: l
+    target: TRKInterruptHandler
+  - source: .init:0x8000CF1C
+    type: hi
+    target: TRKInterruptHandler
+  - source: .init:0x8000CF20
+    type: l
+    target: TRKInterruptHandler
+  - source: .init:0x8000D01C
+    type: hi
+    target: TRKInterruptHandler
+  - source: .init:0x8000D020
+    type: l
+    target: TRKInterruptHandler
+  - source: .init:0x8000D11C
+    type: hi
+    target: TRKInterruptHandler
+  - source: .init:0x8000D120
+    type: l
+    target: TRKInterruptHandler
+  - source: .init:0x8000D23C
+    type: hi
+    target: TRKInterruptHandler
+  - source: .init:0x8000D240
+    type: l
+    target: TRKInterruptHandler
+  - source: .init:0x8000D270
+    type: hi
+    target: TRKInterruptHandler
+  - source: .init:0x8000D274
+    type: l
+    target: TRKInterruptHandler
+  - source: .init:0x8000D358
+    type: hi
+    target: TRKInterruptHandler
+  - source: .init:0x8000D35C
+    type: l
+    target: TRKInterruptHandler
+  - source: .init:0x8000D458
+    type: hi
+    target: TRKInterruptHandler
+  - source: .init:0x8000D45C
+    type: l
+    target: TRKInterruptHandler
+  - source: .init:0x8000D558
+    type: hi
+    target: TRKInterruptHandler
+  - source: .init:0x8000D55C
+    type: l
+    target: TRKInterruptHandler
+  - source: .init:0x8000D61C
+    type: hi
+    target: TRKInterruptHandler
+  - source: .init:0x8000D620
+    type: l
+    target: TRKInterruptHandler
+  - source: .init:0x8000D71C
+    type: hi
+    target: TRKInterruptHandler
+  - source: .init:0x8000D720
+    type: l
+    target: TRKInterruptHandler
+  - source: .init:0x8000D91C
+    type: hi
+    target: TRKInterruptHandler
+  - source: .init:0x8000D920
+    type: l
+    target: TRKInterruptHandler
+  - source: .init:0x8000DA1C
+    type: hi
+    target: TRKInterruptHandler
+  - source: .init:0x8000DA20
+    type: l
+    target: TRKInterruptHandler
+  - source: .init:0x8000DF1C
+    type: hi
+    target: TRKInterruptHandler
+  - source: .init:0x8000DF20
+    type: l
+    target: TRKInterruptHandler
+  - source: .init:0x8000E01C
+    type: hi
+    target: TRKInterruptHandler
+  - source: .init:0x8000E020
+    type: l
+    target: TRKInterruptHandler
+  - source: .init:0x8000E11C
+    type: hi
+    target: TRKInterruptHandler
+  - source: .init:0x8000E120
+    type: l
+    target: TRKInterruptHandler
+  - source: .init:0x8000E21C
+    type: hi
+    target: TRKInterruptHandler
+  - source: .init:0x8000E220
+    type: l
+    target: TRKInterruptHandler

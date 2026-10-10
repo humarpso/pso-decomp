@@ -12,11 +12,6 @@ struct RecoveredGlobal_803AA0C0_lbl_80556E88 {
     u8 remaining[0xFC];
 };
 
-struct RecoveredGlobal_803A98F0_lbl_80556F88 {
-    M2C_UNK value;
-    u8 remaining[0x3BC];
-};
-
 struct Ent_803B89B4 { u8 pad0[0xC]; Ent_803B89B4 *next; Ent_803B89B4 *prev; u8 pad14[0xD8]; u8 active; u8 padED[2]; u8 idx; };
 typedef struct DSPhostDPop_SV { s32 l; s32 r; s32 s; s32 lA; s32 rA; s32 sA; s32 lB; s32 rB; s32 sB; } DSPhostDPop_SV;
 struct Rec_803B59E4 {
@@ -148,7 +143,7 @@ struct Rec_803A8D2C;
 struct Obj_803B3B80;
 #define HEAD_803B25CC (*(Node_803B25CC **)&lbl_805D743C)
 #define FREE_803B25CC (*(Node_803B25CC **)&lbl_805D7440)
-#define VOICES_803B25CC (*(Prog_803B25CC **)&lbl_805D73B0)
+#define VOICES_803B25CC (*(Prog_803B25CC **)&synthVoice)
 #define UNLINK_803B25CC(n)                         \
     {                                              \
         Node_803B25CC *q = (n)->prev;              \
@@ -498,10 +493,10 @@ typedef struct SynthBss_SV {
     SynthInfo_SV synthInfo;
     SYNTHMasterFader_SV synthMasterFader[32];
     u8 synthTrackVolume[64];
-    SND_AUX_CALLBACK_SV synthAuxACallback[8];
     void *synthAuxAUser[8];
-    SND_AUX_CALLBACK_SV synthAuxBCallback[8];
+    SND_AUX_CALLBACK_SV synthAuxACallback[8];
     void *synthAuxBUser[8];
+    SND_AUX_CALLBACK_SV synthAuxBCallback[8];
     synthITDInfo_SV synthITDDefault[8];
     s32 synthGlobalVariable[16];
     CTRL_DEST_SV inpAuxB[8][4];
@@ -510,8 +505,8 @@ typedef struct SynthBss_SV {
 
 #define CLAMP_SV(value, min, max) ((value) > (max) ? (max) : (value) < (min) ? (min) : (value))
 #define CLAMP_INV_SV(value, min, max) ((value) < (min) ? (min) : (value) > (max) ? (max) : (value))
-#define SV_VOICES ((SYNTH_VOICE_SV *)lbl_805D73B0)
-#define SV_VOICES_L (*(SYNTH_VOICE_SV **)&lbl_805D73B0)
+#define SV_VOICES ((SYNTH_VOICE_SV *)synthVoice)
+#define SV_VOICES_L (*(SYNTH_VOICE_SV **)&synthVoice)
 
 extern "C" {
 void seqStop(s32);
@@ -546,7 +541,7 @@ void hwAddInput(u8);
 void synthAddStudioInput(u8 arg0, void *in_desc);
 void hwRemoveInput(u8);
 void synthRemoveStudioInput(u8 arg0, void *in_desc);
-extern s32 lbl_805D73AC;
+extern s32 synthFlags;
 void CheckOutputMode(s8 *arg0, s8 *arg1);
 u32 adsrSetup(u8 *arg0);
 M2C_UNK DCFlushRangeNoSync(void *, int);
@@ -568,10 +563,9 @@ void s3dInit(s32 arg0);
 #pragma pack(push, 4)
 struct Obj_803A8C5C { u8 pad0[0x24]; s64 p24; s64 p2C; };
 #pragma pack(pop)
-extern s64 lbl_805D73C0;
+extern s64 synthRealTime;
 void synthKeyStateUpdate(s32 arg0, M2C_UNK arg1, M2C_UNK arg2, s32 arg3, s32 arg4, s32 arg5, s32 arg6);
-extern RecoveredGlobal_803A98F0_lbl_80556F88 lbl_80556F88;
-extern u32 lbl_805D73A8;
+extern u32 synthMasterFaderActiveFlags;
 s32 synthIsFadeOutActive(u8 arg0);
 s32 seqPlaySong(u16, u16, s32, s32, u8, s32);
 void sndSeqPlayEx(u16 arg0, u16 arg1, s32 arg2, s32 arg3, s32 arg4);
@@ -579,8 +573,8 @@ extern Rec_803B59E4 lbl_805663D8[];
 void salDeactivateStudio(u8 i);
 extern Node_803B2598 *lbl_805D743C;
 Node_803B2598 *get_vidlist(u32 key);
-extern u8 lbl_805D7380;
-extern SYNTHMasterFader_SV lbl_8055755C[];
+extern u8 sndActive;
+extern SYNTHMasterFader_SV synthMasterFader[];
 void synthSetMusicVolumeType(u8 i, u8 v);
 u32 sndFXCheck(u32 id);
 extern Program_803B1DA4 *lbl_805D7420;
@@ -607,7 +601,6 @@ extern Node_803A4964 *lbl_805D7378;
 extern Node_803A4964 *lbl_805D737C;
 void StartPause(Node_803A4964 *arg0);
 void InsertGlobalEvent(List_803A5A04 *arg0, Node_803A5A04 *arg1);
-extern RecoveredGlobal_803A98F0_lbl_80556F88 lbl_80556F88;
 void synthSetBpm(s32 arg0, u8 arg1, u8 arg2);
 void synthInitPortamento(Obj_803A6F4C *arg0);
 s32 synthGetTicksPerSecond(Obj_803A6F18 *arg0);
@@ -620,13 +613,13 @@ extern u16 lbl_805D73D6;
 extern Res_803AE6DC *lbl_805D7410;
 s32 dataGetLayer(s16 arg0, u16 *arg1);
 u16 inpGetExCtrl(void *, s32);
-extern s32 lbl_80557C2C[];
+extern s32 synthGlobalVariable[];
 s32 varGet32(Obj_803AFF38 *arg0, u32 arg1, u32 arg2);
 u16 inpGetExCtrl(void *, s32);
-extern s32 lbl_80557C2C[];
+extern s32 synthGlobalVariable[];
 s16 varGet(Obj_803AFF9C *arg0, u32 arg1, u32 arg2);
 void inpSetExCtrl(void *, s32, s16);
-extern s32 lbl_80557C2C[];
+extern s32 synthGlobalVariable[];
 void varSet32(Obj_803B0004 *arg0, u32 arg1, u32 arg2, s32 arg3);
 extern u8 lbl_80564CC8[][16];
 extern u8 lbl_80564D48[];
@@ -639,16 +632,16 @@ extern u8 lbl_80564D48[];
 void voiceResetLastStarted(Obj_803B3B80 *arg0);
 extern s32 lbl_805D749C;
 void EmitterShutdown(Node_803BA1B8 *arg0);
-extern Rec_803A8D2C *lbl_805D73B0;
+extern Rec_803A8D2C *synthVoice;
 void HandleJobQueue(Node_803A8D2C **list, void (*cb)(u8));
 u32 synthStartSound(u16 id, u8 prio, u8 max, u8 key, u8 vol, u8 panning, u8 midi, u8 midiSet, u8 section, u16 step, u16 trackid, u8 vGroup, s16 prioOffset, u8 studio, u32 itd);
 Se_803A9144 *dataGetFX(s16);
 s32 synthFXStart(s16 arg0, u8 arg1, u8 arg2, s32 arg3, s32 arg4);
-extern u8 lbl_805D7380;
-extern Rec_803A8D2C *lbl_805D73B0;
+extern u8 sndActive;
+extern Rec_803A8D2C *synthVoice;
 void macSetExternalKeyoff(Rec_803A9454 *);
 s32 synthSendKeyOff(int id);
-extern Rec_803A8D2C *lbl_805D73B0;
+extern Rec_803A8D2C *synthVoice;
 s32 hwGetVirtualSampleID(u8);
 void vsSampleEndNotify(s32);
 void macSampleEndNotify(Rec_803A996C *);
@@ -685,7 +678,7 @@ extern const f32 lbl_805E0B98;
 u32 adsrConvertTimeCents(s32 arg0);
 void voiceResetLastStarted(Obj_803B3B80 *arg0);
 void vidRemoveVoiceReferences(Prog_803B25CC *p);
-extern Tbl_803AA1E0 lbl_80557C1C[];
+extern Tbl_803AA1E0 synthITDDefault[];
 s32 synthFXStart(s16 arg0, u8 arg1, u8 arg2, s32 arg3, s32 arg4);
 s32 synthFXSetCtrl(u32 id, u8 a1, u8 a2);
 s32 synthFXSetCtrl14(u32 id, u8 a1, u16 a2);
@@ -712,13 +705,13 @@ void vsInit(void);
 void dataInitStack(void);
 void s3dInit(s32 arg0);
 s32 hwInit(u32 *frq, u32 numVoices, u32 numStudios, u32 flags);
-extern u8 lbl_805D7380;
-extern u8 lbl_805D73B8;
+extern u8 sndActive;
+extern u8 synthIdleWaitActive;
 s32 sndInit(u8 voices, u8 music, u8 sfx, u8 studios, u32 flags, u32 aramSize);
 extern s32 lbl_805D74A0;
 extern s32 lbl_805D74A4;
 void UpdateRoomDistances(void);
-extern Rec_803A8D2C *lbl_805D73B0;
+extern Rec_803A8D2C *synthVoice;
 extern Program_803B1DA4 *lbl_805D7420;
 extern u64 lbl_805D7428;
 void macInit(void);
@@ -758,20 +751,20 @@ u32 seqGetPrivateId(u32 seqId);
 void hwSetAUXProcessingCallbacks(u8 arg0, s32 arg1, s32 arg2, s32 arg3, s32 arg4);
 void hwEnableIrq(void);
 void hwDisableIrq(void);
-extern s32 lbl_80557B9C[8];
-extern void *lbl_80557BBC[8];
-extern s32 lbl_80557BDC[8];
-extern void *lbl_80557BFC[8];
-extern u8 lbl_805D7384[8];
-extern u8 lbl_805D738C[8];
-extern u8 lbl_805D7394[8];
-extern u8 lbl_805D739C[8];
+extern s32 synthAuxAUser[8];
+extern void *synthAuxACallback[8];
+extern s32 synthAuxBUser[8];
+extern void *synthAuxBCallback[8];
+extern u8 synthAuxBMIDISet[8];
+extern u8 synthAuxBMIDI[8];
+extern u8 synthAuxAMIDISet[8];
+extern u8 synthAuxAMIDI[8];
 void sndSetAuxProcessingCallbacks(u8 studio, void *auxA, s32 userA, u8 midiA, u32 seqIDA, void *auxB, s32 userB, u8 midiB, u32 seqIDB);
-extern Rec_803A8D2C *lbl_805D73B0;
-extern void *lbl_80557BBC[8];
-extern void *lbl_80557BFC[8];
-extern u8 lbl_805D738C[8];
-extern u8 lbl_805D739C[8];
+extern Rec_803A8D2C *synthVoice;
+extern void *synthAuxACallback[8];
+extern void *synthAuxBCallback[8];
+extern u8 synthAuxBMIDI[8];
+extern u8 synthAuxAMIDI[8];
 s32 voiceKillSound(u32 id);
 u32 hwIsActive(s32 i);
 void hwOff(s32 arg0);
@@ -822,8 +815,8 @@ struct Rec_803AA35C {
     u8 pad11C[0x404 - 0x11C];
 };
 #pragma pack(pop)
-struct Cfg_803AA35C { u8 pad[0x210]; u8 count; };
-extern Cfg_803AA35C lbl_80557348;
+
+extern SynthInfo_SV synthInfo;
 void hwDisableHRTF(void);
 void streamOutputModeChanged(void);
 typedef void (*Cb_803AB0E4)(s32, s32, s32, s32, s32);
@@ -958,20 +951,20 @@ s32 vidMakeRoot(u8 *arg0);
 void dataInitStack(void);
 
 extern "C" {
-extern Cfg_803AA35C lbl_80557348;
+extern SynthInfo_SV synthInfo;
 }
 
 extern "C" {
-extern Cfg_803AA35C lbl_80557348;
+extern SynthInfo_SV synthInfo;
 }
 
 extern "C" {
-extern Cfg_803AA35C lbl_80557348;
+extern SynthInfo_SV synthInfo;
 extern V_803B1F24 *lbl_805D741C;
 }
 
 extern "C" {
-extern Cfg_803AA35C lbl_80557348;
+extern SynthInfo_SV synthInfo;
 }
 
 typedef struct SeqInst_803A3C84 {
@@ -991,7 +984,7 @@ typedef struct SND_PLAYPARA_SEQ {
 typedef struct MIDI_CHANNEL_SETUP_803A3D8C { u8 program; u8 volume; u8 panning; u8 reverb; u8 chorus; } MIDI_CHANNEL_SETUP_803A3D8C;
 typedef struct MIDISETUP_803A3D8C { u16 songId; u16 reserved; MIDI_CHANNEL_SETUP_803A3D8C channel[16]; } MIDISETUP_803A3D8C;
 extern SEQ_INSTANCE_803A49C8 *lbl_805D7374;
-extern u8 lbl_80557B5C[64];
+extern u8 synthTrackVolume[64];
 
 struct Owner_803A3C24;
 
@@ -1018,9 +1011,7 @@ u16 inpGetDoppler(SYNTH_VOICE_SV *svoice);
 void hwSetPitch(u32 v, u16 speed);
 u32 adsrHandleLowPrecision(void *arg0, void *arg1, void *arg2);
 
-extern u8 lbl_805D7381;
-
-typedef char RecoveredGlobal_803A98F0_lbl_80556F88_size[sizeof(RecoveredGlobal_803A98F0_lbl_80556F88) == 0x3C0 ? 1 : -1];
+extern u8 synthJobTableIndex;
 
 typedef char RecoveredGlobal_803AA0C0_lbl_80556E88_size[sizeof(RecoveredGlobal_803AA0C0_lbl_80556E88) == 0x100 ? 1 : -1];
 
@@ -1871,7 +1862,7 @@ typedef struct Voice_803B0198 {
 typedef struct SynthInfo_803B0198 { u32 mixFrq; u32 numSamples; u8 pbInfo[0x208]; u8 voiceNum; u8 maxMusic; u8 maxSFX; u8 studioNum; } SynthInfo_803B0198;
 u32 vidGetInternalId(u32 id);
 void macMakeActive(void *arg0);
-extern void (*lbl_805D73B4)(u32, s32);
+extern void (*synthMessageCallback)(u32, s32);
 
 #pragma pack(push, 4)
 typedef struct MSTEP_803B03CC { u32 para[2]; } MSTEP_803B03CC;

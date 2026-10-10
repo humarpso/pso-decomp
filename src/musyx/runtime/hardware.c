@@ -1,7 +1,6 @@
 #include "musyx/runtime/musyx_runtime_b.h"
 
-#define synthInfo_voiceNum (((u8 *)lbl_80557348)[0x210])
-#define synthVoice lbl_805D73B0
+#define synthInfo_voiceNum (((u8 *)synthInfo)[0x210])
 #define CLAMP(value, min, max) ((value) > (max) ? (max) : (value) < (min) ? (min) : (value))
 #define CLAMP_INV(value, min, max) ((value) < (min) ? (min) : (value) > (max) ? (max) : (value))
 #define MIN(a, b) ((a) > (b) ? (b) : (a))
@@ -33,7 +32,7 @@ void snd_handle_irq(void) {
     u8 i;
     u8 v;
 
-    if (lbl_805D7380 == 0) {
+    if (sndActive == 0) {
         return;
     }
     streamCorrectLoops();
@@ -380,7 +379,7 @@ void hwTransAddr(void) {
 }
 
 u32 hwFrq2Pitch(u32 arg0) {
-    return (u32)(4096.0f * (f32)arg0 / (f32)lbl_80557348[0]);
+    return (u32)(4096.0f * (f32)arg0 / (f32)synthInfo[0]);
 }
 
 void hwInitSampleMem(void *self, void *p) {

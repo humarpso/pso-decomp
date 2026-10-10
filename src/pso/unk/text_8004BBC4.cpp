@@ -169,7 +169,7 @@ extern s32 lbl_805D2770;
 extern void *TBoss4DarkFalz__type1_instance;
 extern void *TBoss4DarkFalz__type2_instance;
 extern void *TBoss4DarkFalz__type3_instance;
-extern s32 lbl_805D4D68;
+extern s32 dark_falz_form_index;
 extern s32 lbl_805D4D6C;
 extern s32 lbl_805D4D70;
 extern s32 dark_falz_controller_instance;
@@ -298,7 +298,7 @@ s32 TBoss4DarkFalz__ct(s32 a0, s32 arg1, s32 a2) {
     M2C_FIELD(arg0, s32 *, 0x38C) = 0;
     fn_8030A83C((void *) (arg0));
     init_music_sequencer((int) (4));
-    lbl_805D4D68 = 0;
+    dark_falz_form_index = 0;
     M2C_FIELD(arg0, s32 *, 0x374) = 0;
     temp_r0 = M2C_FIELD(dispatch_shared_handler_a__6TLobbyFPv(0x36), s32 *, 0x18);
     lbl_805D4D6C = temp_r0;

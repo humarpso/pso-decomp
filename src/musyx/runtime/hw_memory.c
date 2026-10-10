@@ -1,7 +1,6 @@
 #include "musyx/runtime/musyx_runtime_b.h"
 
-#define synthInfo_voiceNum (((u8 *)lbl_80557348)[0x210])
-#define synthVoice lbl_805D73B0
+#define synthInfo_voiceNum (((u8 *)synthInfo)[0x210])
 #define CLAMP(value, min, max) ((value) > (max) ? (max) : (value) < (min) ? (min) : (value))
 #define CLAMP_INV(value, min, max) ((value) < (min) ? (min) : (value) > (max) ? (max) : (value))
 #define MIN(a, b) ((a) > (b) ? (b) : (a))

@@ -42,8 +42,7 @@ struct Rec_803A8D2C {
     u8 pad208[0x404 - 0x208];
 };
 #pragma pack(pop)
-extern Rec_803A8D2C *lbl_805D73B0;
-#define synthVoice lbl_805D73B0
+extern Rec_803A8D2C *synthVoice;
 
 u32 aramGetStreamBufferAddress(u8 i, u32 *out);
 void hwSetVirtualSampleLoopBuffer(s32 i, s32 a, s32 b);

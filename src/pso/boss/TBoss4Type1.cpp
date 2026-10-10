@@ -514,7 +514,7 @@ void *lbl_80485EB0[6] = {
     (void *)0x9, (void *)0x7, (void *)0x5, (void *)0x4,
     (void *)0x6, (void *)0x3,
 };
-void *lbl_80485EC8[120] = {
+void *boss4_type1_motion_states[120] = {
     (void *)0x0, (void *)0x0, (void *)0x50, (void *)0x4e,
     (void *)0x4d, (void *)0x4d, (void *)0x4d, (void *)0x4c,
     (void *)0x1, (void *)0x0, (void *)0x50, (void *)0x4e,
@@ -696,7 +696,7 @@ void *lbl_80486224[83] = {
 };
 #define lbl_80485AE0 ((u8 *)lbl_80485AE0)
 #define lbl_80485EB0 ((s32 *)lbl_80485EB0)
-#define lbl_80485EC8 (*(RecoveredGlobal_80054530_lbl_80485EC8 *)lbl_80485EC8)
+#define boss4_type1_motion_states (*(RecoveredGlobal_80054530_lbl_80485EC8 *)boss4_type1_motion_states)
 #define lbl_804860A8 ((f32 *)lbl_804860A8)
 #define boss4_type1_xz_offset_table ((XZ_80053E40 *)boss4_type1_xz_offset_table)
 #define lbl_8048615C ((u8 * *)lbl_8048615C)
@@ -1520,17 +1520,17 @@ void draw_parts__8TObjFishFPv(u8 *arg0) {
             off = (i - 2) * 4 + 0x42C;
             set_draw_callback_list__8TObjFishFPv(*(s32 *)(arg0 + off));
             a = get_bml_model(M2C_FIELD(arg0, s32 *, 0x390), lbl_80485EB0[i]);
-            draw_model_motion(a, get_bml_motion(M2C_FIELD(arg0, s32 *, 0x390), M2C_FIELD((u8 *)&lbl_80485EC8.value + (M2C_FIELD(arg0, s32 *, 0x3E4) << 5) + i * 4, s32 *, 8)), M2C_FIELD(arg0, f32 *, 0x3E8));
+            draw_model_motion(a, get_bml_motion(M2C_FIELD(arg0, s32 *, 0x390), M2C_FIELD((u8 *)&boss4_type1_motion_states.value + (M2C_FIELD(arg0, s32 *, 0x3E4) << 5) + i * 4, s32 *, 8)), M2C_FIELD(arg0, f32 *, 0x3E8));
             clear_render_callback__8TObjFishFv(*(s32 *)(arg0 + off));
             update_camera_target__14TBoss6PlotFalzFv();
             break;
         case 5:
             set_draw_callback_list__8TObjFishFPv(M2C_FIELD(arg0, s32 *, 0x480));
-            draw_model_motion(get_bml_model(M2C_FIELD(arg0, s32 *, 0x390), lbl_80485EB0[i]), get_bml_motion(M2C_FIELD(arg0, s32 *, 0x390), M2C_FIELD((u8 *)&lbl_80485EC8.value + (M2C_FIELD(arg0, s32 *, 0x3E4) << 5) + i * 4, s32 *, 8)), M2C_FIELD(arg0, f32 *, 0x3E8));
+            draw_model_motion(get_bml_model(M2C_FIELD(arg0, s32 *, 0x390), lbl_80485EB0[i]), get_bml_motion(M2C_FIELD(arg0, s32 *, 0x390), M2C_FIELD((u8 *)&boss4_type1_motion_states.value + (M2C_FIELD(arg0, s32 *, 0x3E4) << 5) + i * 4, s32 *, 8)), M2C_FIELD(arg0, f32 *, 0x3E8));
             clear_render_callback__8TObjFishFv(M2C_FIELD(arg0, s32 *, 0x480));
             break;
         default:
-            draw_model_motion(get_bml_model(M2C_FIELD(arg0, s32 *, 0x390), lbl_80485EB0[i]), get_bml_motion(M2C_FIELD(arg0, s32 *, 0x390), M2C_FIELD((u8 *)&lbl_80485EC8.value + (M2C_FIELD(arg0, s32 *, 0x3E4) << 5) + i * 4, s32 *, 8)), M2C_FIELD(arg0, f32 *, 0x3E8));
+            draw_model_motion(get_bml_model(M2C_FIELD(arg0, s32 *, 0x390), lbl_80485EB0[i]), get_bml_motion(M2C_FIELD(arg0, s32 *, 0x390), M2C_FIELD((u8 *)&boss4_type1_motion_states.value + (M2C_FIELD(arg0, s32 *, 0x3E4) << 5) + i * 4, s32 *, 8)), M2C_FIELD(arg0, f32 *, 0x3E8));
             break;
         }
     }
@@ -1544,7 +1544,7 @@ void set_motion_index__11TBoss4Type2FPvi(u8 *arg0, s32 arg1) {
     if (arg1 != -1) {
         M2C_FIELD(arg0, s32 *, 0x3E4) = arg1;
         M2C_FIELD(arg0, f32 *, 0x3E8) = (f32) lbl_805D8B20;
-        M2C_FIELD(arg0, s32 *, 0x3F0) = (s32) M2C_FIELD(((u8 *)(&lbl_80485EC8.value) + (arg1 << 5)), s32 *, 0);
+        M2C_FIELD(arg0, s32 *, 0x3F0) = (s32) M2C_FIELD(((u8 *)(&boss4_type1_motion_states.value) + (arg1 << 5)), s32 *, 0);
     }
 }
 
@@ -1573,8 +1573,8 @@ void update_boss4_phase_timer(u8 *arg0) {
         break;
     case 2:
         if (M2C_FIELD(arg0, f32 *, 0x3E8) >= lbl_805D8B7C) {
-            M2C_FIELD(arg0, s32 *, 0x3E4) = (s32) M2C_FIELD(((u8 *)&lbl_80485EC8.value + (M2C_FIELD(arg0, s32 *, 0x3E4) << 5)), s32 *, 4);
-            M2C_FIELD(arg0, s32 *, 0x3F0) = (s32) M2C_FIELD(&lbl_80485EC8.value, M2C_UNK *, (M2C_FIELD(arg0, s32 *, 0x3E4) << 5));
+            M2C_FIELD(arg0, s32 *, 0x3E4) = (s32) M2C_FIELD(((u8 *)&boss4_type1_motion_states.value + (M2C_FIELD(arg0, s32 *, 0x3E4) << 5)), s32 *, 4);
+            M2C_FIELD(arg0, s32 *, 0x3F0) = (s32) M2C_FIELD(&boss4_type1_motion_states.value, M2C_UNK *, (M2C_FIELD(arg0, s32 *, 0x3E4) << 5));
             M2C_FIELD(arg0, f32 *, 0x3E8) = (f32) lbl_805D8B20;
             M2C_FIELD(arg0, s32 *, 0x3F4) = 1;
         }

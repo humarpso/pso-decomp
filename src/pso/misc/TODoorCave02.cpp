@@ -57,12 +57,12 @@ M2C_UNK set_global_param__8TObjFishFi(s32);
 
 void TODoorCave02__vt18(void) {  }
 
-extern u8 *TODoorCave02__data_805D5964;
+extern u8 *cave_door02_resources;
 extern const f32 lbl_805DB4B0;
 
 void TODoorCave02__vt15(u8 *arg0) {
     if (M2C_FIELD(arg0, s32 *, 0xD0) & 1) {
-        M2C_FIELD(arg0, s32 *, 0x24) = (s32) M2C_FIELD(TODoorCave02__data_805D5964, s32 *, 4);
+        M2C_FIELD(arg0, s32 *, 0x24) = (s32) M2C_FIELD(cave_door02_resources, s32 *, 4);
         if (is_any_player_within_radius_xz(arg0, lbl_805DB4B0) != 1) {
             M2C_FIELD(arg0, s32 *, 0xAC) = 3;
             clear_player_status_flag__10TObjPlayerFPviUi(arg0, (M2C_UNK)0, (M2C_UNK)8);
@@ -70,13 +70,13 @@ void TODoorCave02__vt15(u8 *arg0) {
         }
     } else {
         M2C_FIELD(arg0, s32 *, 0xAC) = 3;
-        M2C_FIELD(arg0, s32 *, 0x24) = (s32) M2C_FIELD(TODoorCave02__data_805D5964, s32 *, 0);
+        M2C_FIELD(arg0, s32 *, 0x24) = (s32) M2C_FIELD(cave_door02_resources, s32 *, 0);
         clear_player_status_flag__10TObjPlayerFPviUi(arg0, (M2C_UNK)NULL, (M2C_UNK)8);
         play_sound_effect(0x42807, arg0 + 0x38, 0, 0);
     }
 }
 
-extern u8 *TODoorCave02__data_805D5964;
+extern u8 *cave_door02_resources;
 extern const f32 lbl_805DB4C4;
 
 void TODoorCave02__vt13(u8 *arg0) {
@@ -134,11 +134,11 @@ void render__12TODoorCave02Fv(u8 *arg0) {
         post_translate_matrix(arg0 + 0x38);
         rotate_matrix_y(0, M2C_FIELD(arg0, s32 *, 0x60));
         if ((s32) M2C_FIELD(arg0, s32 *, 0xAC) == 0) {
-            set_global_param__8TObjFishFi(*(s32 *)(TODoorCave02__data_805D5964 + ((M2C_FIELD(arg0, s32 *, 0xD0) * 4) & 4)));
+            set_global_param__8TObjFishFi(*(s32 *)(cave_door02_resources + ((M2C_FIELD(arg0, s32 *, 0xD0) * 4) & 4)));
             draw_parts__12TODoorCave02FPvPv((void *)(arg0), (void *)(M2C_FIELD(M2C_FIELD(arg0, void **, 0x34), void **, 0x2C)));
             draw_parts__12TODoorCave02FPvPv((void *)(arg0), (void *)(M2C_FIELD(M2C_FIELD(M2C_FIELD(arg0, void **, 0x34), void **, 0x2C), void **, 0x30)));
         } else {
-            set_global_param__8TObjFishFi(M2C_FIELD(TODoorCave02__data_805D5964, s32 *, 4));
+            set_global_param__8TObjFishFi(M2C_FIELD(cave_door02_resources, s32 *, 4));
             draw_ginja_model_with_motion(M2C_FIELD(arg0, void **, 0x34), M2C_FIELD(arg0, s32 *, 0xBC), M2C_FIELD(arg0, f32 *, 0xB0));
         }
         pop_matrix();

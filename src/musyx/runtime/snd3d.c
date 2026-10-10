@@ -13,7 +13,7 @@
 #define macRealTime lbl_805D7428
 #define FLAGS (*(u64 *)&o->fh)
 #define HEAD (*(Voice_803B2128 **)&lbl_805D741C)
-#define synthVoice ((SYNTH_VOICE_803B2438 *)lbl_805D73B0)
+#define synthVoice ((SYNTH_VOICE_803B2438 *)synthVoice)
 #define vidCurrentId (*(u32 *)&lbl_805D7438)
 #define vidRoot (*(VID_LIST_SV **)&lbl_805D743C)
 #define vidFree (*(VID_LIST_SV **)&lbl_805D7440)
@@ -441,7 +441,7 @@ void s3dKillEmitterByFXID(Ent_803BA228 *arg0, u32 arg1) {
         next = n->next;
         for (i = 0; i < arg1; i++) {
             if (n->id == arg0[i].id) {
-                if (lbl_805D7380 != 0) {
+                if (sndActive != 0) {
                     hwDisableIrq();
                     if (n->f10 & 0x10000) {
                         EmitterShutdown((Node_803BA1B8 *)n);

@@ -11,32 +11,31 @@ extern "C" {
 
 static u32 synthTicksPerSecond[9][16];
 static SYNTH_JOBTAB_SV synthJobTable[32];
-Cfg_803AA35C lbl_80557348;
-SYNTHMasterFader_SV lbl_8055755C[32];
-u8 lbl_80557B5C[64];
-s32 lbl_80557B9C[8];
-void *lbl_80557BBC[8];
-s32 lbl_80557BDC[8];
-void *lbl_80557BFC[8];
-Tbl_803AA1E0 lbl_80557C1C[8];
-s32 lbl_80557C2C[16];
-CTRL_DEST_SV lbl_80557C6C[8][4];
-CTRL_DEST_SV lbl_805580EC[8][4];
-u8 lbl_805D7380;
-u8 lbl_805D7381;
-u8 lbl_805D7384[8];
-u8 lbl_805D738C[8];
-u8 lbl_805D7394[8];
-u8 lbl_805D739C[8];
-u32 lbl_805D73A4;
-u32 lbl_805D73A8;
-s32 lbl_805D73AC;
-Rec_803A8D2C *lbl_805D73B0;
-void (*lbl_805D73B4)(u32, s32);
-u8 lbl_805D73B8;
-s64 lbl_805D73C0;
-#define synthInfo (*(SynthInfo_SV *)&lbl_80557348)
-#define synthMasterFader lbl_8055755C
+SynthInfo_SV synthInfo;
+SYNTHMasterFader_SV synthMasterFader[32];
+u8 synthTrackVolume[64];
+s32 synthAuxAUser[8];
+void *synthAuxACallback[8];
+s32 synthAuxBUser[8];
+void *synthAuxBCallback[8];
+Tbl_803AA1E0 synthITDDefault[8];
+s32 synthGlobalVariable[16];
+CTRL_DEST_SV inpAuxB[8][4];
+CTRL_DEST_SV inpAuxA[8][4];
+u8 sndActive;
+u8 synthJobTableIndex;
+u8 synthAuxBMIDISet[8];
+u8 synthAuxBMIDI[8];
+u8 synthAuxAMIDISet[8];
+u8 synthAuxAMIDI[8];
+u32 synthMasterFaderPauseActiveFlags;
+u32 synthMasterFaderActiveFlags;
+s32 synthFlags;
+Rec_803A8D2C *synthVoice;
+void (*synthMessageCallback)(u32, s32);
+u8 synthIdleWaitActive;
+s64 synthRealTime;
+#define synthInfo (*(SynthInfo_SV *)&synthInfo)
 
 void synthSetBpm(s32 arg0, u8 arg1, u8 arg2) {
     if (arg1 == 0xFF) {
@@ -86,7 +85,7 @@ u32 do_voice_portamento(u8 key, u8 midi, u8 midiSet, u32 isMaster, u32 *rejected
 
     i = 0;
     sv = SV_VOICES;
-    while (i < lbl_80557348.count) {
+    while (i < synthInfo.voiceNum) {
         if (sv->block == 0 && sv->id != 0xFFFFFFFF && sv->midi == midi && sv->midiSet == midiSet) {
             if ((sv->cFlags & 2) != 0) {
                 legatoVoiceIsStarting = 1;
@@ -442,8 +441,8 @@ void LowPrecisionHandler(u32 i) {
         goto end;
     }
 
-    lowDeltaTime = lbl_805D73C0 - sv->lastLowCallTime;
-    sv->lastLowCallTime = lbl_805D73C0;
+    lowDeltaTime = synthRealTime - sv->lastLowCallTime;
+    sv->lastLowCallTime = synthRealTime;
     for (j = 0; j < 2; ++j) {
         if (sv->lfo[j].period == 0) {
             continue;
@@ -609,8 +608,8 @@ void ZeroOffsetHandler(u32 i) {
         goto end;
     }
 
-    lowDeltaTime = lbl_805D73C0 - sv->lastZeroCallTime;
-    sv->lastZeroCallTime = lbl_805D73C0;
+    lowDeltaTime = synthRealTime - sv->lastZeroCallTime;
+    sv->lastZeroCallTime = synthRealTime;
 
     if ((sv->cFlags & 0x8000) != 0) {
         sv->envCurrent += sv->envDelta * (lowDeltaTime >> 8);
@@ -635,7 +634,7 @@ void ZeroOffsetHandler(u32 i) {
         synthMasterFader[sv->fxFlag ? 22 : 21].volume;
 
     if (sv->track != 0xff) {
-        vol = f * (f32)lbl_80557B5C[sv->track] * (1.f / 127.f);
+        vol = f * (f32)synthTrackVolume[sv->track] * (1.f / 127.f);
     } else {
         vol = f;
     }
@@ -665,13 +664,13 @@ void ZeroOffsetHandler(u32 i) {
         volUpdate = 1;
     }
 
-    if ((lbl_805D73AC & 1) == 0) {
+    if ((synthFlags & 1) == 0) {
         if ((sv->cFlags & 0x200000000000) != 0 || (sv->midiDirtyFlags & 0x6) != 0) {
             sv->cFlags &= ~0x200000000000;
             pan = sv->panning[0] + (inpGetPanning(sv) - 8192) * 0x200;
             sv->lastPan = CLAMP_INV_SV(pan, 0, 0x7f0000);
 
-            if ((lbl_805D73AC & 2) != 0) {
+            if ((synthFlags & 2) != 0) {
                 if ((sv->lastSPan = sv->panning[1] + inpGetSurPanning(sv) * 512) > 0x7f0000) {
                     sv->lastSPan = 0x7f0000;
                 }
@@ -680,7 +679,7 @@ void ZeroOffsetHandler(u32 i) {
             }
 
             volUpdate = 1;
-        } else if ((lbl_805D73AC & 2) == 0) {
+        } else if ((synthFlags & 2) == 0) {
             sv->lastSPan = 0;
         }
     } else {
@@ -716,7 +715,7 @@ end:
 #pragma pop
 
 void EventHandler(s32 arg0) {
-    Ch_803A897C *o = (Ch_803A897C *)&lbl_805D73B0[arg0];
+    Ch_803A897C *o = (Ch_803A897C *)&synthVoice[arg0];
 
     if (hwIsActive(arg0) != 0 || o->f34 != 0) {
         macSetPedalState((Voice_803B1C98 *)o, (u32)(0x1F80 - inpGetPedal(o)) >> 31);
@@ -746,7 +745,7 @@ void synthAddJob(SYNTH_VOICE_SV *svoice, s32 jobType, u32 deltaTime) {
     u8 jobTabIndex;
     SYNTH_JOBTAB_SV *jobTab;
 
-    jobTabIndex = ((deltaTime / 256) + lbl_805D7381) & 0x1f;
+    jobTabIndex = ((deltaTime / 256) + synthJobTableIndex) & 0x1f;
     jobTab = &synthJobTable[jobTabIndex];
 
     switch (jobType) {
@@ -805,8 +804,8 @@ void synthAddJob(SYNTH_VOICE_SV *svoice, s32 jobType, u32 deltaTime) {
 #pragma pop
 
 void synthStartSynthJobHandling(Obj_803A8C5C* voice) {
-    voice->p24 = lbl_805D73C0;
-    voice->p2C = lbl_805D73C0;
+    voice->p24 = synthRealTime;
+    voice->p2C = synthRealTime;
     synthAddJob((SYNTH_VOICE_SV *)voice, 0, 0);
     synthAddJob((SYNTH_VOICE_SV *)voice, 1, 0);
 }
@@ -826,7 +825,7 @@ void HandleJobQueue(Node_803A8D2C **list, void (*cb)(u8)) {
     for (n = *list; n != NULL; n = next) {
         next = n->next;
         n->f9 = 0xFF;
-        if (lbl_805D73B0[n->idx].busy == 0) {
+        if (synthVoice[n->idx].busy == 0) {
             cb(n->idx);
         }
     }
@@ -861,11 +860,11 @@ void hwFrameDone(void);
 #pragma bool off
 
 static inline void HandleVoices_SV(void) {
-    SYNTH_JOBTAB_SV *jTab = &synthJobTable[lbl_805D7381];
+    SYNTH_JOBTAB_SV *jTab = &synthJobTable[synthJobTableIndex];
     HandleJobQueue((Node_803A8D2C **)&jTab->lowPrecision, (void (*)(u8))LowPrecisionHandler);
     HandleJobQueue((Node_803A8D2C **)&jTab->event, (void (*)(u8))EventHandler);
     HandleJobQueue((Node_803A8D2C **)&jTab->zeroOffset, (void (*)(u8))ZeroOffsetHandler);
-    lbl_805D7381 = (lbl_805D7381 + 1) & 0x1f;
+    synthJobTableIndex = (synthJobTableIndex + 1) & 0x1f;
 }
 
 static inline void HandleFaderTermination_SV(SYNTHMasterFader_SV *smf) {
@@ -896,24 +895,24 @@ void synthHandle(u32 deltaTime) {
     HandleVoices_SV();
 
     if (hwGetTimeOffset() == 0) {
-        if ((lbl_805D73A8 | lbl_805D73A4) != 0) {
+        if ((synthMasterFaderActiveFlags | synthMasterFaderPauseActiveFlags) != 0) {
             for (i = 0, smf = synthMasterFader, testFlag = 1; i < 32; testFlag <<= 1, ++i, ++smf) {
-                if ((lbl_805D73A8 & testFlag) != 0) {
+                if ((synthMasterFaderActiveFlags & testFlag) != 0) {
                     smf->volume = smf->target - smf->time * (smf->target - smf->start);
                     if ((smf->time -= smf->deltaTime) <= 0.f) {
                         smf->volume = smf->target;
                         HandleFaderTermination_SV(smf);
-                        if ((lbl_805D73A8 &= ~testFlag) == 0 && lbl_805D73A4 == 0) {
+                        if ((synthMasterFaderActiveFlags &= ~testFlag) == 0 && synthMasterFaderPauseActiveFlags == 0) {
                             break;
                         }
                     }
                 }
 
-                if ((lbl_805D73A4 & testFlag) != 0) {
+                if ((synthMasterFaderPauseActiveFlags & testFlag) != 0) {
                     smf->pauseVol = smf->pauseTarget - smf->pauseTime * (smf->pauseTarget - smf->pauseStart);
                     if ((smf->pauseTime -= smf->pauseDeltaTime) <= 0.f) {
                         smf->pauseVol = smf->pauseTarget;
-                        if ((lbl_805D73A4 &= ~testFlag) == 0 && lbl_805D73A8 == 0) {
+                        if ((synthMasterFaderPauseActiveFlags &= ~testFlag) == 0 && synthMasterFaderActiveFlags == 0) {
                             break;
                         }
                     }
@@ -922,26 +921,26 @@ void synthHandle(u32 deltaTime) {
         }
 
         for (s = 0; s < 8; ++s) {
-            if (lbl_805D739C[s] != 0xff) {
+            if (synthAuxAMIDI[s] != 0xff) {
                 SND_AUX_INFO_SV info;
                 for (i = 0; i < 4; ++i) {
-                    info.data.parameterUpdate.para[i] = inpGetAuxA(s, i, lbl_805D739C[s], lbl_805D7394[s]);
+                    info.data.parameterUpdate.para[i] = inpGetAuxA(s, i, synthAuxAMIDI[s], synthAuxAMIDISet[s]);
                 }
-                ((SND_AUX_CALLBACK_SV)lbl_80557BBC[s])(1, &info, (void *)lbl_80557B9C[s]);
+                ((SND_AUX_CALLBACK_SV)synthAuxACallback[s])(1, &info, (void *)synthAuxAUser[s]);
             }
 
-            if (lbl_805D738C[s] != 0xff) {
+            if (synthAuxBMIDI[s] != 0xff) {
                 SND_AUX_INFO_SV info;
                 for (i = 0; i < 4; ++i) {
-                    info.data.parameterUpdate.para[i] = inpGetAuxB(s, i, lbl_805D738C[s], lbl_805D7384[s]);
+                    info.data.parameterUpdate.para[i] = inpGetAuxB(s, i, synthAuxBMIDI[s], synthAuxBMIDISet[s]);
                 }
-                ((SND_AUX_CALLBACK_SV)lbl_80557BFC[s])(1, &info, (void *)lbl_80557BDC[s]);
+                ((SND_AUX_CALLBACK_SV)synthAuxBCallback[s])(1, &info, (void *)synthAuxBUser[s]);
             }
         }
     }
 
     hwFrameDone();
-    lbl_805D73C0 += deltaTime;
+    synthRealTime += deltaTime;
 }
 #pragma pop
 
@@ -1034,15 +1033,15 @@ s32 synthSendKeyOff(int id) {
     u8 idx;
     s32 found = 0;
     u32 cur;
-    if (lbl_805D7380 != 0) {
+    if (sndActive != 0) {
         cur = vidGetInternalId((u32)(id));
         while (cur != 0xFFFFFFFF) {
             idx = cur;
-            if (cur == (*(Rec_803A9454 * *)&lbl_805D73B0)[idx].id) {
-                macSetExternalKeyoff(&(*(Rec_803A9454 * *)&lbl_805D73B0)[idx]);
+            if (cur == (*(Rec_803A9454 * *)&synthVoice)[idx].id) {
+                macSetExternalKeyoff(&(*(Rec_803A9454 * *)&synthVoice)[idx]);
                 found = 1;
             }
-            cur = (*(Rec_803A9454 * *)&lbl_805D73B0)[idx].next;
+            cur = (*(Rec_803A9454 * *)&synthVoice)[idx].next;
         }
     }
     return found;
@@ -1084,7 +1083,7 @@ void synthVolume(u8 volume, u16 time, u8 vGroup, s8 seqMode, s32 seqId) {
         for (smf = synthMasterFader, i = 0; i < 32; ++i, ++smf) {
             if (smf->type == 0 || smf->type == 1) {
                 SetupFader_803A94E0(smf, volume, ltime, seqMode, 0xFFFFFFFF);
-                lbl_805D73A8 |= 1 << i;
+                synthMasterFaderActiveFlags |= 1 << i;
             }
         }
         return;
@@ -1093,7 +1092,7 @@ void synthVolume(u8 volume, u16 time, u8 vGroup, s8 seqMode, s32 seqId) {
         for (smf = synthMasterFader, i = 0; i < 32; ++i, ++smf) {
             if (smf->type == 2 || smf->type == 3) {
                 SetupFader_803A94E0(smf, volume, ltime, seqMode, 0xFFFFFFFF);
-                lbl_805D73A8 |= 1 << i;
+                synthMasterFaderActiveFlags |= 1 << i;
             }
         }
         return;
@@ -1118,14 +1117,14 @@ void synthVolume(u8 volume, u16 time, u8 vGroup, s8 seqMode, s32 seqId) {
         for (smf = synthMasterFader, i = 0; i < 32; ++i, ++smf) {
             if (smf->type == type) {
                 SetupFader_803A94E0(smf, volume, ltime, seqMode, 0xFFFFFFFF);
-                lbl_805D73A8 |= 1 << i;
+                synthMasterFaderActiveFlags |= 1 << i;
             }
         }
         return;
 
     default:
         SetupFader_803A94E0(&synthMasterFader[vGroup], volume, ltime, seqMode, seqId);
-        lbl_805D73A8 |= 1 << vGroup;
+        synthMasterFaderActiveFlags |= 1 << vGroup;
         return;
     }
 }
@@ -1134,7 +1133,7 @@ void synthVolume(u8 volume, u16 time, u8 vGroup, s8 seqMode, s32 seqId) {
 #pragma push
 #pragma opt_common_subs on
 s32 synthIsFadeOutActive(u8 arg0) {
-    if (synthMasterFader[arg0].type != 4 && (lbl_805D73A8 & (1 << arg0)) &&
+    if (synthMasterFader[arg0].type != 4 && (synthMasterFaderActiveFlags & (1 << arg0)) &&
         synthMasterFader[arg0].start > synthMasterFader[arg0].target) {
         return 1;
     }
@@ -1143,7 +1142,7 @@ s32 synthIsFadeOutActive(u8 arg0) {
 #pragma pop
 
 void synthSetMusicVolumeType(u8 i, u8 v) {
-    if (lbl_805D7380 != 0) {
+    if (sndActive != 0) {
         synthMasterFader[i].type = v;
     }
 }
@@ -1153,10 +1152,10 @@ s32 synthHWMessageHandler(s32 op, u32 idx) {
     s32 ret = 0;
     switch (op) {
     case 0:
-        if ((*(Rec_803A996C * *)&lbl_805D73B0)[(u8)idx].busy == 0) {
+        if ((*(Rec_803A996C * *)&synthVoice)[(u8)idx].busy == 0) {
             vsSampleEndNotify(hwGetVirtualSampleID(idx));
-            if (idx == (*(Rec_803A996C * *)&lbl_805D73B0)[(u8)idx].id) {
-                macSampleEndNotify(&(*(Rec_803A996C * *)&lbl_805D73B0)[(u8)idx]);
+            if (idx == (*(Rec_803A996C * *)&synthVoice)[(u8)idx].id) {
+                macSampleEndNotify(&(*(Rec_803A996C * *)&synthVoice)[(u8)idx]);
             }
         }
         break;
@@ -1197,20 +1196,20 @@ static inline void synthInitJobQueue_SV(void) {
         synthJobTable[i].zeroOffset = NULL;
     }
 
-    lbl_805D7381 = 0;
+    synthJobTableIndex = 0;
 }
 
 void synthInit(u32 mixFrq, u32 numVoices) {
     u32 i;
 
-    lbl_805D73C0 = 0;
+    synthRealTime = 0;
     synthInfo.mixFrq = mixFrq;
     synthSetBpm_SV(120, 255, 0);
-    lbl_805D73AC = 0;
-    lbl_805D73B4 = NULL;
+    synthFlags = 0;
+    synthMessageCallback = NULL;
 
     SV_VOICES_L = (SYNTH_VOICE_SV *)salMalloc(numVoices * sizeof(SYNTH_VOICE_SV));
-    memset(lbl_805D73B0, 0, numVoices * sizeof(SYNTH_VOICE_SV));
+    memset(synthVoice, 0, numVoices * sizeof(SYNTH_VOICE_SV));
 
     for (i = 0; i < numVoices; ++i) {
         SV_VOICES[i].id = 0xffffffff;
@@ -1255,8 +1254,8 @@ void synthInit(u32 mixFrq, u32 numVoices) {
         synthMasterFader[i].type = 4;
     }
 
-    lbl_805D73A8 = 0;
-    lbl_805D73A4 = 0;
+    synthMasterFaderActiveFlags = 0;
+    synthMasterFaderPauseActiveFlags = 0;
     synthMasterFader[31].type = 1;
 
     for (i = 0; i < 8; ++i) {
@@ -1268,12 +1267,12 @@ void synthInit(u32 mixFrq, u32 numVoices) {
     inpInit(0);
 
     for (i = 0; i < 8; ++i) {
-        lbl_80557BBC[i] = NULL;
-        lbl_805D739C[i] = 0xff;
-        lbl_80557BFC[i] = NULL;
-        lbl_805D738C[i] = 0xff;
-        lbl_80557C1C[i].b1 = 0;
-        lbl_80557C1C[i].b0 = 0;
+        synthAuxACallback[i] = NULL;
+        synthAuxAMIDI[i] = 0xff;
+        synthAuxBCallback[i] = NULL;
+        synthAuxBMIDI[i] = 0xff;
+        synthITDDefault[i].b1 = 0;
+        synthITDDefault[i].b0 = 0;
     }
 
     macInit();
@@ -1281,7 +1280,7 @@ void synthInit(u32 mixFrq, u32 numVoices) {
     synthInitAllocationAids();
 
     for (i = 0; i < 16; ++i) {
-        lbl_80557C2C[i] = 0;
+        synthGlobalVariable[i] = 0;
     }
 
     voiceInitLastStarted();

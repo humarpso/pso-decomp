@@ -60,7 +60,7 @@ extern u8 TODoorCave02__resource_descriptor[];
 extern u8 TODoorCave02_resource_descriptor[];
 extern s32 enable_v2_features;
 extern u32 lbl_805D5960;
-extern s32 *TODoorCave02__data_805D5964;
+extern s32 *cave_door02_resources;
 void load_resources__12TODoorCave02Fv(void);
 }
 
@@ -89,14 +89,14 @@ void *create__12TODoorCave02FPv(void *arg0) {
 }
 
 extern u32 lbl_805D5960;
-extern s32 *TODoorCave02__data_805D5964;
+extern s32 *cave_door02_resources;
 
 void free_globals__12TODoorCave02Fv(void) {
-    if ((s32 *) TODoorCave02__data_805D5964 != NULL) {
-        free_if_valid__10TObjPlayerFi(*TODoorCave02__data_805D5964);
-        if ((s32 *) TODoorCave02__data_805D5964 != NULL) {
-            free__11TOBoss4RockFUi((void*)TODoorCave02__data_805D5964);
-            TODoorCave02__data_805D5964 = NULL;
+    if ((s32 *) cave_door02_resources != NULL) {
+        free_if_valid__10TObjPlayerFi(*cave_door02_resources);
+        if ((s32 *) cave_door02_resources != NULL) {
+            free__11TOBoss4RockFUi((void*)cave_door02_resources);
+            cave_door02_resources = NULL;
         }
     }
     if ((u32) lbl_805D5960 != 0U) {
@@ -109,23 +109,23 @@ extern M2C_UNK __vt__12TODoorCave02[];
 
 void load_resources__12TODoorCave02Fv(void) {
     void *o;
-    TODoorCave02__data_805D5964 = (s32 *)alloc_buffer__11TOBoss4RockFPv(8);
+    cave_door02_resources = (s32 *)alloc_buffer__11TOBoss4RockFPv(8);
     if (enable_v2_features == 1 && is_online_ready__6TLobbyFv() != 0) {
         o = alloc__23TAdSinglePlyChrSelectGCFPv(0x440);
         if (o != NULL) {
             o = load_resource_from_descriptor(o, 1, TODoorCave02_resource_descriptor, 0, 0, 0);
         }
         lbl_805D5960 = (u32)o;
-        TODoorCave02__data_805D5964[0] = load_gvm_texture_file(lbl_80440E24);
+        cave_door02_resources[0] = load_gvm_texture_file(lbl_80440E24);
     } else {
         o = alloc__23TAdSinglePlyChrSelectGCFPv(0x440);
         if (o != NULL) {
             o = load_resource_from_descriptor(o, 1, TODoorCave02__resource_descriptor, 0, 0, 0);
         }
         lbl_805D5960 = (u32)o;
-        TODoorCave02__data_805D5964[0] = load_gvm_texture_file(lbl_80440E3C);
+        cave_door02_resources[0] = load_gvm_texture_file(lbl_80440E3C);
     }
-    TODoorCave02__data_805D5964[1] = *(s32 *)(*(u8 **)(lbl_805D5960 + 0x42C) + 0xC);
+    cave_door02_resources[1] = *(s32 *)(*(u8 **)(lbl_805D5960 + 0x42C) + 0xC);
 }
 
 void *__dt__12TODoorCave02Fv(void *arg0, s16 arg1) {

@@ -71,9 +71,9 @@ typedef struct Voice_Stream {
     u8 padF8[0x404 - 0xF8];
 } Voice_Stream;
 
-extern SynthInfo_Stream lbl_80557348;
-extern u32 lbl_805D73AC;
-extern Voice_Stream *lbl_805D73B0;
+extern SynthInfo_Stream synthInfo;
+extern u32 synthFlags;
+extern Voice_Stream *synthVoice;
 
 void hwEnableIrq(void);
 void hwDisableIrq(void);
@@ -112,7 +112,7 @@ void streamInit(void) {
     s32 i;
     streamCallCnt = 0;
     streamCallDelay = 3;
-    for (i = 0; i < lbl_80557348.voiceNum; ++i) {
+    for (i = 0; i < synthInfo.voiceNum; ++i) {
         streamInfo[i].state = 0;
     }
     nextPublicID = 0;
@@ -144,7 +144,7 @@ void streamHandle(void) {
     }
     streamCallCnt = streamCallDelay;
     si = &streamInfo[0];
-    for (i = 0; i < lbl_80557348.voiceNum; ++i, ++si) {
+    for (i = 0; i < synthInfo.voiceNum; ++i, ++si) {
         switch (si->state) {
         case 1:
             newsmp.info = si->frq | 0x40000000;
@@ -164,8 +164,8 @@ void streamHandle(void) {
                 newsmp.compType = 4;
                 break;
             }
-            hwInitSamplePlayback(si->voice, -1, &newsmp, 1, -1, lbl_805D73B0[si->voice].id, 1, 1);
-            f = (si->frq / (float)lbl_80557348.mixFrq);
+            hwInitSamplePlayback(si->voice, -1, &newsmp, 1, -1, synthVoice[si->voice].id, 1, 1);
+            f = (si->frq / (float)synthInfo.mixFrq);
             hwSetPitch(si->voice, f * 4096.f);
             SetHWMix(si);
             hwStart(si->voice, si->studio);
@@ -380,12 +380,12 @@ void sndStreamARAMUpdate(u32 stid, u32 off1, u32 len1, u32 off2, u32 len2) {
 #pragma pop
 
 void CheckOutputMode(s8 *arg0, s8 *arg1) {
-    if (lbl_805D73AC & 1) {
+    if (synthFlags & 1) {
         *arg0 = 0x40;
         *arg1 = 0;
         return;
     }
-    if (!(lbl_805D73AC & 2)) {
+    if (!(synthFlags & 2)) {
         *arg1 = 0;
     }
 }
@@ -395,10 +395,10 @@ void CheckOutputMode(s8 *arg0, s8 *arg1) {
 #pragma inline_depth(4)
 #pragma opt_common_subs on
 static inline void CheckOutputMode_803AB5A8(u8 *pan, u8 *span) {
-    if (lbl_805D73AC & 1) {
+    if (synthFlags & 1) {
         *pan = 64;
         *span = 0;
-    } else if (!(lbl_805D73AC & 2)) {
+    } else if (!(synthFlags & 2)) {
         *span = 0;
     }
 }
@@ -411,7 +411,7 @@ void streamOutputModeChanged(void) {
     u32 i;
 
     hwDisableIrq();
-    for (i = 0; i < lbl_80557348.voiceNum; ++i) {
+    for (i = 0; i < synthInfo.voiceNum; ++i) {
         if (streamInfo[i].state != 0) {
             streamInfo[i].pan = streamInfo[i].orgPan;
             streamInfo[i].span = streamInfo[i].orgSPan;
@@ -449,10 +449,10 @@ static inline u32 GeneratePublicID_803AB6F0(void) {
 }
 
 static inline void CheckOutputMode_803AB6F0(u8 *pan, u8 *span) {
-    if (lbl_805D73AC & 1) {
+    if (synthFlags & 1) {
         *pan = 64;
         *span = 0;
-    } else if (!(lbl_805D73AC & 2)) {
+    } else if (!(synthFlags & 2)) {
         *span = 0;
     }
 }
@@ -556,10 +556,10 @@ static inline u32 GetPrivateIndex_803ABB54(u32 publicID) {
 }
 
 static inline void CheckOutputMode_803ABB54(u8 *pan, u8 *span) {
-    if (lbl_805D73AC & 1) {
+    if (synthFlags & 1) {
         *pan = 64;
         *span = 0;
-    } else if (!(lbl_805D73AC & 2)) {
+    } else if (!(synthFlags & 2)) {
         *span = 0;
     }
 }
@@ -635,10 +635,10 @@ static inline u32 GetPrivateIndex_803ABECC(u32 publicID) {
 }
 
 static inline void CheckOutputMode_803ABECC(u8 *pan, u8 *span) {
-    if (lbl_805D73AC & 1) {
+    if (synthFlags & 1) {
         *pan = 64;
         *span = 0;
-    } else if (!(lbl_805D73AC & 2)) {
+    } else if (!(synthFlags & 2)) {
         *span = 0;
     }
 }
@@ -727,7 +727,7 @@ static inline void FrqInner_803AC268(u32 stid, u32 frq) {
     if ((i = GetPrivateIndex(stid)) != -1) {
         streamInfo[i].frq = frq;
         if (streamInfo[i].state == 2) {
-            pitch = (4096.f * frq) / lbl_80557348.mixFrq;
+            pitch = (4096.f * frq) / synthInfo.mixFrq;
             hwSetPitch(streamInfo[i].voice, pitch);
         }
         if (streamInfo[i].nextStreamHandle != 0xffffffff) {
@@ -745,7 +745,7 @@ void sndStreamFrq(u32 stid, u32 frq) {
     if ((i = GetPrivateIndex_803AC268(stid)) != -1) {
         streamInfo[i].frq = frq;
         if (streamInfo[i].state == 2) {
-            pitch = (4096.f * frq) / lbl_80557348.mixFrq;
+            pitch = (4096.f * frq) / synthInfo.mixFrq;
             hwSetPitch(streamInfo[i].voice, pitch);
         }
         if (streamInfo[i].nextStreamHandle != 0xffffffff) {

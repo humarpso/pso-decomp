@@ -628,6 +628,7 @@ pso/boss/TBoss4Type3.cpp:
 	.ctors      start:0x80433F40 end:0x80433F44
 	.rodata     start:0x80437758 end:0x80437890
 	.data       start:0x80486A70 end:0x804872E8
+	.sdata      start:0x805D27E0 end:0x805D27E8
 	.sdata2     start:0x805D8C30 end:0x805D8CB8
 
 pso/boss/TBoss4Zako.cpp:
@@ -13216,6 +13217,12 @@ TRK_MINNOW_DOLPHIN/targimpl.c:
 	.data       start:0x804F54C8 end:0x804F54F8
 	.bss        start:0x80546B40 end:0x805470BC
 
+TRK_MINNOW_DOLPHIN/targsupp.s:
+	.text       start:0x80395910 end:0x80395930 align:16
+
+TRK_MINNOW_DOLPHIN/exception.s:
+	.init       start:0x8000C2FC end:0x8000E230
+
 TRK_MINNOW_DOLPHIN/dolphin_trk.c:
 	.init       start:0x8000E230 end:0x8000E334
 	.text       start:0x80395930 end:0x80395A70
@@ -14270,6 +14277,3 @@ gba/GBAKey.c:
 
 PowerPC_EABI_Support/Runtime/Src/__mem.c:
 	.init       start:0x8000E334 end:0x8000E46C
-
-TRK_MINNOW_DOLPHIN/targsupp.s:
-	.text       start:0x80395910 end:0x80395930 align:16

@@ -38,8 +38,7 @@ void inpSetGlobalMIDIDirtyFlag(u8 a, u8 b, u32 v) {
     lbl_8056DE98[b][a] |= v;
 }
 
-#define synthInfo_voiceNum (((u8 *)lbl_80557348)[0x210])
-#define synthVoice lbl_805D73B0
+#define synthInfo_voiceNum (((u8 *)synthInfo)[0x210])
 #pragma push
 #pragma dont_inline off
 #pragma inline_depth(4)
@@ -417,7 +416,7 @@ u16 _GetInputValue(Voice_803BBB30 *svoice, Inp_803BBB30 *inp, u8 midi, u8 midiSe
                 break;
             case 164:
                 if (svoice != NULL) {
-                    tmp = (lbl_805D73C0 - svoice->time) >> 8;
+                    tmp = (synthRealTime - svoice->time) >> 8;
                     if (tmp > 0x3fff) {
                         tmp = 0x3fff;
                     }
@@ -595,11 +594,11 @@ u32 lbl_804F7120[4] = {0x80000001, 0x80000002, 0x80000004, 0x80000008};
 u32 lbl_804F7130[4] = {0x80000010, 0x80000020, 0x80000040, 0x80000080};
 
 u16 inpGetAuxA(u8 studio, u8 index, u8 midi, u8 midiSet) {
-    return GetGlobalInputValue_803BC318(&lbl_805580EC[studio][index], lbl_804F7120[index], midi, midiSet);
+    return GetGlobalInputValue_803BC318(&inpAuxA[studio][index], lbl_804F7120[index], midi, midiSet);
 }
 
 u16 inpGetAuxB(u8 studio, u8 index, u8 midi, u8 midiSet) {
-    return GetGlobalInputValue_803BC318(&lbl_80557C6C[studio][index], lbl_804F7130[index], midi, midiSet);
+    return GetGlobalInputValue_803BC318(&inpAuxB[studio][index], lbl_804F7130[index], midi, midiSet);
 }
 #pragma pop
 
@@ -673,8 +672,8 @@ void inpInit(u8 *arg0) {
     } else {
     for (s = 0; s < 8; ++s) {
         for (i = 0; i < 4; ++i) {
-            lbl_805580EC[s][i].numSource = 0;
-            lbl_80557C6C[s][i].numSource = 0;
+            inpAuxA[s][i].numSource = 0;
+            inpAuxB[s][i].numSource = 0;
         }
     }
     reset_dirty_803BC490();

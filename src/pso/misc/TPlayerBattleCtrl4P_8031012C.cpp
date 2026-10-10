@@ -96,7 +96,7 @@ struct Rank_801C343C { u16 id; s16 rank; s32 score; };
 struct Team_801C343C { s32 v[2]; };
 
 extern "C" {
-extern RecoveredGlobal_80310300_TPlayerBattleCtrl4P__data_80542E90 TPlayerBattleCtrl4P__data_80542E90;
+extern RecoveredGlobal_80310300_TPlayerBattleCtrl4P__data_80542E90 split_screen_battle_rankings;
 M2C_UNK *get_split_screen_battle_rankings(void);
 void clear_split_screen_battle_window_slots(T_803102A4 *self);
 extern void *TPlayerBattleCtrl4P__instance;
@@ -127,7 +127,7 @@ extern char lbl_80475B90[];
 extern char lbl_80475B98[];
 extern char lbl_80475BA0[];
 extern char *TPlayerBattleCtrl4P_player_name_formats[];
-extern RecoveredGlobal_80310300_TPlayerBattleCtrl4P__data_80542E90 TPlayerBattleCtrl4P__data_80542E90;
+extern RecoveredGlobal_80310300_TPlayerBattleCtrl4P__data_80542E90 split_screen_battle_rankings;
 void start_match__19TPlayerBattleCtrl4PFPv(void *arg0);
 s32 set_state__19TPlayerBattleCtrl4PFPv(void *arg0);
 void start_match__19TPlayerBattleCtrl4PFPv(void *arg0);
@@ -145,13 +145,13 @@ extern P_803109D4 lbl_80475B80[];
 extern u8 lobby_rule_settings[];
 u8 is_battle_decided__19TPlayerBattleCtrl4PFPv(O_803109D4 *o);
 void *get_player_by_client_id(s32);
-extern RecoveredGlobal_80310300_TPlayerBattleCtrl4P__data_80542E90 TPlayerBattleCtrl4P__data_80542E90;
+extern RecoveredGlobal_80310300_TPlayerBattleCtrl4P__data_80542E90 split_screen_battle_rankings;
 s32 are_split_screen_battle_players_tied(void);
 void *get_player_by_client_id(s32);
 M2C_UNK TAdSinglePlyChrSelectGC__sub_801FCE6C();
 void *get_card_window__17TWindowSubComCardFUi(u16);
 s32 are_split_screen_battle_players_tied(void);
-extern RecoveredGlobal_80310300_TPlayerBattleCtrl4P__data_80542E90 TPlayerBattleCtrl4P__data_80542E90;
+extern RecoveredGlobal_80310300_TPlayerBattleCtrl4P__data_80542E90 split_screen_battle_rankings;
 void record_split_screen_battle_results(void);
 
 int obj_getPtr2B0_20(void *);
@@ -248,7 +248,7 @@ s32 TLobby__sub_801C4FC4(void *p);
 u8 get_rule_field_a__6TLobbyFPv(void *);
 extern Team_801C343C lbl_80475B78[];
 extern u8 lobby_rule_settings[];
-extern RecoveredGlobal_80310300_TPlayerBattleCtrl4P__data_80542E90 TPlayerBattleCtrl4P__data_80542E90;
+extern RecoveredGlobal_80310300_TPlayerBattleCtrl4P__data_80542E90 split_screen_battle_rankings;
 s32 calculate_split_screen_battle_rankings(void *);
 }
 
@@ -354,7 +354,7 @@ u8 is_battle_mode_active__19TPlayerBattleCtrl4PFv(void) {
 }
 
 M2C_UNK *get_split_screen_battle_rankings(void) {
-    return &TPlayerBattleCtrl4P__data_80542E90.value;
+    return &split_screen_battle_rankings.value;
 }
 
 s32 are_split_screen_battle_players_tied(void) {
@@ -363,7 +363,7 @@ s32 are_split_screen_battle_players_tied(void) {
     s32 i;
     result = 1;
     for (i = 0; i < 4; i++) {
-        e = &((Ent_8031030C *)&TPlayerBattleCtrl4P__data_80542E90)[i];
+        e = &((Ent_8031030C *)&split_screen_battle_rankings)[i];
         if (get_player_by_client_id(e->id) != NULL && e->idx != 0) {
             result = 0;
             break;
@@ -438,7 +438,7 @@ void record_split_screen_battle_results(void) {
     s32 off;
     s8 *entry;
     outer = 0;
-    base = (s8 *)&TPlayerBattleCtrl4P__data_80542E90;
+    base = (s8 *)&split_screen_battle_rankings;
     off = 0;
     do {
         entry = base + off;
@@ -522,7 +522,7 @@ void start_match__19TPlayerBattleCtrl4PFPv(void *arg0) {
     calculate_split_screen_battle_rankings((void *)(arg0));
     init_all__11TWindowCtrlFPvPv(lbl_80475B90, 0x200);
     for (i = 0; i < 4; i++) {
-        e = &((Ent_80310830 *)&TPlayerBattleCtrl4P__data_80542E90)[i];
+        e = &((Ent_80310830 *)&split_screen_battle_rankings)[i];
         p = (VObj_80310830 *)get_player_by_client_id(e->id);
         if (p != 0) {
             sprintf(buf, lbl_80475B98, TPlayerBattleCtrl4P_player_name_formats[e->idx], p->v10());
@@ -626,7 +626,7 @@ loop_1:
     goto loop_1;
 }
 
-#define TBL_801C343C ((Rank_801C343C *)&TPlayerBattleCtrl4P__data_80542E90)
+#define TBL_801C343C ((Rank_801C343C *)&split_screen_battle_rankings)
 #define PLAYER_801C343C(k) ((u32 (*)(s32))get_player_by_client_id)(k)
 s32 calculate_split_screen_battle_rankings(void *) {
     s32 n;

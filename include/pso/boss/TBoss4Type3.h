@@ -69,16 +69,10 @@ struct TBoss4Type3
     f32 m_3f4;
     u8 _pad3F8[4];
     u32 m_3fc;
-    u8 _pad400[0x18];
-    void *m_418;
-    void *m_41c;
-    u8 _pad420[4];
-    u32 m_424;
-    u32 m_428;
-    u32 m_42c;
-    u32 m_430;
-    u32 m_434;
-    u8 _pad438[0x18];
+    u8 _pad400[4];
+    void *effect_parts[13];
+    void *render_lists[3];
+    u8 _pad444[0xC];
     void* m_450;
     u8 _pad454[0x8];
     void* m_45c;
@@ -126,6 +120,8 @@ struct TBoss4Type3
     void advance_appear();
     void enter_appear();
 
+    void draw_model_set(const s32 *models, f32 weight);
+
     void run_task();
 
 };
@@ -167,8 +163,8 @@ typedef char Type3Offset_3e8[(offsetof(TBoss4Type3,m_3e8) == 0x3e8)?1:-1];
 typedef char Type3Offset_3ec[(offsetof(TBoss4Type3,m_3ec) == 0x3ec)?1:-1];
 typedef char Type3Offset_3f0[(offsetof(TBoss4Type3,m_3f0) == 0x3f0)?1:-1];
 typedef char Type3Offset_3f4[(offsetof(TBoss4Type3,m_3f4) == 0x3f4)?1:-1];
-typedef char Type3Offset_418[(offsetof(TBoss4Type3,m_418) == 0x418)?1:-1];
-typedef char Type3Offset_41c[(offsetof(TBoss4Type3,m_41c) == 0x41c)?1:-1];
+typedef char Type3Offset_418[(offsetof(TBoss4Type3,effect_parts) + 5 * sizeof(void *) == 0x418)?1:-1];
+typedef char Type3Offset_41c[(offsetof(TBoss4Type3,effect_parts) + 6 * sizeof(void *) == 0x41c)?1:-1];
 typedef char Type3Size[(sizeof(TBoss4Type3)==0x530)?1:-1];
 
 #endif

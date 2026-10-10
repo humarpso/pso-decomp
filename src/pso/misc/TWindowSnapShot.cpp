@@ -33,7 +33,7 @@ int alloc__23TAdSinglePlyChrSelectGCFPv(void *);
 u8 * init_and_reset__15TWindowSnapShotFPv(void *);
 s32 start_capture__15TWindowSnapShotFPvi(void *, s32);
 extern int lbl_805D3E10;
-extern void *lbl_805D6690;
+extern void *shared_snapshot_capture;
 s32 load_player_motion_data(void);
 M2C_UNK TObjBoss2Tunnel__sub_8007CAE8(f32 *, f32);
 s32 get_localized_text_entry(M2C_UNK, M2C_UNK);
@@ -77,22 +77,22 @@ void __dl__7TObjectFPv(void *);
 void destroy_window_base__9TWindowDDFPvs(void *, int);
 M2C_UNK update_both__15TWindowSnapShotFPv(void *);
 
-extern void *lbl_805D6690;
+extern void *shared_snapshot_capture;
 
 void free_shared_instance__15TWindowSnapShotFv(void) {
     struct VObj_802A7DDC *o;
-    update_both__15TWindowSnapShotFPv(lbl_805D6690);
-    o = (struct VObj_802A7DDC *)lbl_805D6690;
+    update_both__15TWindowSnapShotFPv(shared_snapshot_capture);
+    o = (struct VObj_802A7DDC *)shared_snapshot_capture;
     if (o != NULL) {
         o->m0(1);
     }
-    lbl_805D6690 = NULL;
+    shared_snapshot_capture = NULL;
 }
 
 s32 load_player_motion_data(void) {
     s32 temp_r3;
     s32 var_r0;
-    if ((void *) (*(u8 * *)&lbl_805D6690) != NULL) {
+    if ((void *) (*(u8 * *)&shared_snapshot_capture) != NULL) {
         return 0;
     }
     temp_r3 = alloc__23TAdSinglePlyChrSelectGCFPv((void *)0x40);
@@ -100,7 +100,7 @@ s32 load_player_motion_data(void) {
     if (var_r0 != 0) {
         var_r0 = (long) (init_and_reset__15TWindowSnapShotFPv((void *) temp_r3));
     }
-    (*(u8 * *)&lbl_805D6690) = (unsigned char *) ((void *) var_r0);
+    (*(u8 * *)&shared_snapshot_capture) = (unsigned char *) ((void *) var_r0);
     if ((u32) var_r0 == 0U) {
         return 0;
     }

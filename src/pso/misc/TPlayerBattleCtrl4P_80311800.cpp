@@ -41,7 +41,7 @@ int set_score__19TPlayerBattleCtrl4PFPvi(void*, void*);
 M2C_UNK update_all_players__19TPlayerBattleCtrl4PFv();
 extern M2C_UNK lbl_80475BC4[];
 extern M2C_UNK lbl_80475BCC[];
-extern RecoveredGlobal_80311A64_TPlayerBattleCtrl4P__data_80542E90 TPlayerBattleCtrl4P__data_80542E90;
+extern RecoveredGlobal_80311A64_TPlayerBattleCtrl4P__data_80542E90 split_screen_battle_rankings;
 extern s32 local_client_id;
 void record_battle_results_after_delay__19TPlayerBattleCtrl4PFv(u8 *arg0);
 s32 is_visible__17TWindowSubComCardFPv(void *);
@@ -223,7 +223,7 @@ void TPlayerBattleCtrl4P::record_battle_results_after_delay() {
         reset_score_counters__19TPlayerBattleCtrl4PFPv((void *) (((u8 *)this)));
         calculate_split_screen_battle_rankings((void *) (((u8 *)this)));
         record_split_screen_battle_results((void *) (((u8 *)this)));
-        if ((s32) TPlayerBattleCtrl4P__data_80542E90.value == (s32) local_client_id) {
+        if ((s32) split_screen_battle_rankings.value == (s32) local_client_id) {
             notify_lobby__19TPlayerBattleCtrl4PFPvPvPv((void *) (((u8 *)this)), (void *) (lbl_80475BC4), (int) (0x96));
         } else {
             notify_lobby__19TPlayerBattleCtrl4PFPvPvPv((void *) (((u8 *)this)), (void *) (lbl_80475BCC), (int) (0x96));

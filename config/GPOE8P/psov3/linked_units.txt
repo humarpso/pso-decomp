@@ -43,6 +43,7 @@ PowerPC_EABI_Support/Runtime/Src/ptmf.c
 PowerPC_EABI_Support/Runtime/Src/runtime.c
 TRK_MINNOW_DOLPHIN/dolphin_trk.c
 TRK_MINNOW_DOLPHIN/dolphin_trk_glue.c
+TRK_MINNOW_DOLPHIN/exception.s
 TRK_MINNOW_DOLPHIN/flush_cache.c
 TRK_MINNOW_DOLPHIN/mem_TRK.c
 TRK_MINNOW_DOLPHIN/msgbuf.c
@@ -123,6 +124,7 @@ musyx/runtime/snd_math.c
 musyx/runtime/snd_midictrl.c
 musyx/runtime/snd_service.c
 musyx/runtime/snd_synthapi.c
+musyx/runtime/synth.c
 musyx/runtime/synth_ac.c
 musyx/runtime/synth_adsr.c
 musyx/runtime/synth_vsamples.c
@@ -247,6 +249,7 @@ pso/boss/TBoss7LaserPtcl.cpp
 pso/boss/TBoss7LaserPtcl_8035A934.cpp
 pso/boss/TBoss7LaserPtcl_8035A9B8.cpp
 pso/boss/TBoss7LaserPtcl_8035AA98.cpp
+pso/boss/TBoss7LaserPtcl_8035AAE8.cpp
 pso/boss/TBoss7PhotonBullet_802EF26C.cpp
 pso/boss/TBoss8DragonColli.cpp
 pso/boss/TBoss8DragonDemo.cpp
@@ -774,6 +777,7 @@ pso/menu/TQuestBgmCtrl.cpp
 pso/misc/ChallengeMode.cpp
 pso/misc/CreationMotion.cpp
 pso/misc/RenderFadeState.cpp
+pso/misc/ShopToolStock.cpp
 pso/misc/ShopWeaponStock.cpp
 pso/misc/TAttackTrace.cpp
 pso/misc/TBGLightningCtrl.cpp
@@ -2288,6 +2292,7 @@ pso/player/TObjPlayer_800D8A2C.cpp
 pso/player/TObjPlayer_800D8FDC.cpp
 pso/player/TObjPlayer_800DCC90.cpp
 pso/player/TObjPlayer_800E80A4.cpp
+pso/player/TObjPlayer_800FEFCC.cpp
 pso/player/TObjPlayer_800FFA88.cpp
 pso/player/TObjPlayer_80100CC8.cpp
 pso/player/TObjPlayer_80100E00.cpp

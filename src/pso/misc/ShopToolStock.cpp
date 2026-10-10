@@ -152,9 +152,9 @@ s32 is_split_screen(void);
 s32 create_named_object(void *);
 s32 alloc_buffer__11TOBoss4RockFPv(s32);
 extern u8 lbl_8044C478[];
-extern M2C_UNK lbl_80513F20[];
+extern M2C_UNK shop_tool_stock_buffers[];
 extern u32 lobby_tool_random_rel;
-extern int lbl_805D6264;
+extern int shop_tool_stock_level;
 void load_tool_random_rel(void);
 M2C_UNK free_nodes_with_id__6TLobbyFUi(u32);
 M2C_UNK free__11TOBoss4RockFUi(u32);
@@ -278,35 +278,35 @@ int TLobby__sub_80225A08(void*);
 M2C_UNK free__11TOBoss4RockFUi(u32);
 
 u32 lobby_tool_random_rel;
-int lbl_805D6264;
+int shop_tool_stock_level;
 
-    extern int lbl_805D6264;
-void set_6264_and_call_2244B0__6TLobbyFii(int a0, int a1) { lbl_805D6264 = a1; generate_shop_inventory__6TLobbyFi((s32)(a0)); }
+    extern int shop_tool_stock_level;
+void set_6264_and_call_2244B0__6TLobbyFii(int a0, int a1) { shop_tool_stock_level = a1; generate_shop_inventory__6TLobbyFi((s32)(a0)); }
 
-extern M2C_UNK lbl_80513F20[];
+extern M2C_UNK shop_tool_stock_buffers[];
 extern u32 lobby_tool_random_rel;
 
-s32 lbl_80513EF0[4];
+s32 shop_tool_stock_counts[4];
 s32 lbl_80513F00[4];
 s32 shop_tool_flags[4];
-s32 lbl_80513F20[4];
+s32 shop_tool_stock_buffers[4];
 void generate_shop_inventory__6TLobbyFi(s32 idx) {
     if (lobby_tool_random_rel != 0) {
         if (shop_tool_flags[idx] == 0) {
             shop_tool_flags[idx] = 1;
-            lbl_80513EF0[idx] = 0;
+            shop_tool_stock_counts[idx] = 0;
             lbl_80513F00[idx] = 0;
             generate_shop_common_tool_pool(idx);
             generate_shop_rare_tool_pool(idx);
             generate_shop_technique_pool(idx);
-            sort_shop_items(lbl_80513F20[idx], lbl_80513EF0[idx], 2);
+            sort_shop_items(shop_tool_stock_buffers[idx], shop_tool_stock_counts[idx], 2);
         }
     }
 }
 
 void free_all_rocks__6TLobbyFv(void) {
     s32 var_r28 = 3;
-    M2C_UNK *var_r29 = lbl_80513F20;
+    M2C_UNK *var_r29 = shop_tool_stock_buffers;
     s32 var_r30 = 0;
     s32 var_r31 = 3;
     do {
@@ -328,16 +328,16 @@ void load_tool_random_rel(void) {
     s32 i;
     (*(s32 *)&lobby_tool_random_rel) = create_named_object(lbl_8044C478);
     for (i = 0; i < 4; i++) {
-        ((s32 *)&lbl_80513F20)[i] = 0;
+        ((s32 *)&shop_tool_stock_buffers)[i] = 0;
     }
     if (is_split_screen() == 1) {
         for (i = 0; i < 4; i++) {
-            ((s32 *)&lbl_80513F20)[i] = alloc_buffer__11TOBoss4RockFPv(0x168);
+            ((s32 *)&shop_tool_stock_buffers)[i] = alloc_buffer__11TOBoss4RockFPv(0x168);
         }
     } else {
-        ((s32 *)&lbl_80513F20)[0] = alloc_buffer__11TOBoss4RockFPv(0x168);
+        ((s32 *)&shop_tool_stock_buffers)[0] = alloc_buffer__11TOBoss4RockFPv(0x168);
     }
-    (*(s32 *)&lbl_805D6264) = 0;
+    (*(s32 *)&shop_tool_stock_level) = 0;
 }
 
 }

@@ -10,10 +10,13 @@ f32 lbl_8049DCF0[12] = {
     0.5f, 1.0f, 1.0f, 0.5f, 0.0f, 0.0f, 0.0f, 0.0f, 0.0f, 0.0f, 0.0f, 0.0f,
 };
 f32 TObjEZBoneRotPlayer__chain_gravity[3] = { 0.0f, -0.75f, 0.0f };
+#pragma push
+#pragma force_active on
 void *lbl_8049DD2C[6] = {
     (void *)0x0, (void *)0x0, (void *)&dt_ad_single_ply_chr_select__10TObjPlayerFPvs, (void *)&update_bone_attach_points__10TObjPlayerFPv,
     (void *)&TObjPlayer__sub_800FEE84, (void *)&render_shadows__7TObjectFv,
 };
+#pragma pop
 
 TObjEZRopeBase::~TObjEZRopeBase() {
     if (m_2c != nullptr) { safe_free__23TAdSinglePlyChrSelectGCFUi(m_2c); m_2c = nullptr; }

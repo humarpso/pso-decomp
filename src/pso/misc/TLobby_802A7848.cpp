@@ -71,7 +71,7 @@ void TLobby__sub_802A7BD8(void);
 s32 fn_802A5C3C(s32);
 s32 get_size__15TWindowSnapShotFPv(s32);
 M2C_UNK memcpy(s32, s32, s32);
-extern s32 lbl_805D6690;
+extern s32 shared_snapshot_capture;
 extern u32 snapshot_image_buffer;
 extern s32 lbl_805D6698;
 s32 copy_if_space(void);
@@ -220,10 +220,10 @@ void TLobby__sub_802A7BD8(void) {
     }
 }
 s32 copy_if_space(void) {
-    if (fn_802A5C3C(lbl_805D6690) >= 0x258) {
+    if (fn_802A5C3C(shared_snapshot_capture) >= 0x258) {
         return 0;
     }
-    memcpy((*(s32 *)&snapshot_image_buffer), get_size__15TWindowSnapShotFPv(lbl_805D6690), lbl_805D6698);
+    memcpy((*(s32 *)&snapshot_image_buffer), get_size__15TWindowSnapShotFPv(shared_snapshot_capture), lbl_805D6698);
     return 1;
 }
 

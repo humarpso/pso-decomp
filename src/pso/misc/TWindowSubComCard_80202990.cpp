@@ -10,7 +10,7 @@ s32 get_card_window__17TWindowSubComCardFUi(u32 arg0);
 s32 TAdSinglePlyChrSelectGC__sub_801FE7D4(u32);
 
 s32 is_split_screen();
-extern s32 lbl_805D5F64;
+extern s32 active_character_save_record;
 
 s32 get_card_window__17TWindowSubComCardFUi(u32 arg0) {
     if (is_split_screen() != 0) {
@@ -19,7 +19,7 @@ s32 get_card_window__17TWindowSubComCardFUi(u32 arg0) {
         }
         return TAdSinglePlyChrSelectGC__sub_801FE7D4(arg0);
     }
-    return lbl_805D5F64;
+    return active_character_save_record;
 }
 
 }

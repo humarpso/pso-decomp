@@ -1,4 +1,33 @@
-#include "types.h"
+#include "pso/boss/TBoss7LaserPtcl.h"
+#include <stddef.h>
+typedef char Laser_state_offset[offsetof(TBoss7LaserPtcl, state) == 0x1C ? 1 : -1];
+typedef char Laser_position_offset[offsetof(TBoss7LaserPtcl, position) == 0x20 ? 1 : -1];
+typedef char Laser_direction_offset[offsetof(TBoss7LaserPtcl, direction) == 0x2C ? 1 : -1];
+typedef char Laser_displacement_offset[offsetof(TBoss7LaserPtcl, displacement) == 0x38 ? 1 : -1];
+typedef char Laser_particles_offset[offsetof(TBoss7LaserPtcl, particles) == 0x44 ? 1 : -1];
+typedef char Laser_distance_offset[offsetof(TBoss7LaserPtcl, travel_distance) == 0x4C ? 1 : -1];
+typedef char Laser_last_known_offset[offsetof(TBoss7LaserPtcl, m_54) == 0x54 ? 1 : -1];
+
+extern "C" {
+
+typedef TBoss7LaserPtclVector Vec_8035AAEC;
+struct Ang_8035AAEC { s32 x, y, z; };
+
+void VecCopy__FP3VecPC3Vec(void *, void *);
+f32 atan2_float(f32 y, f32 x);
+void create_oneshot_particle_emitter(void *, void *, int, int);
+void copy_pos__11TNowLoadingFPvPv(void *, void *);
+void direction_to_rotation_xz(void *, void *, void *);
+void update_position__15TBoss7LaserPtclFPv(void *);
+void destroy_particles__15TBoss7LaserPtclFi(void *);
+void vec3_add_to(void *, void *);
+void normalize_vector(void *);
+extern const f64 lbl_804796D8[];
+extern const f32 lbl_805E0100;
+extern const f32 lbl_805E0104;
+extern const f32 lbl_805E0108;
+}
+
 typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
 #define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
 
@@ -61,6 +90,52 @@ void __dl__7TObjectFPv(void *);
 void __dt__7TObjectFv(void *, int);
 
 void render__15TBoss7LaserPtclFv(void) {  }
+
+}
+
+#pragma push
+#pragma dont_inline off
+#pragma inline_depth(4)
+void TBoss7LaserPtcl::run_task() {
+    TBoss7LaserPtcl *o = this;
+    Vec_8035AAEC v;
+    Vec_8035AAEC w;
+    Ang_8035AAEC a;
+    void **p;
+    s32 i;
+    s32 n;
+
+    p = o->particles;
+    for (i = 2; i != 0; i--) {
+        if (*p != NULL) {
+            copy_pos__11TNowLoadingFPvPv(*p++, &o->position);
+        }
+    }
+    if (o->state == 1) {
+        o->travel_distance += lbl_805E0100;
+        update_position__15TBoss7LaserPtclFPv(o);
+        VecCopy__FP3VecPC3Vec(&v, &o->displacement);
+        VecCopy__FP3VecPC3Vec(&w, &o->position);
+        normalize_vector(&v);
+        v.x *= lbl_805E0104;
+        v.y *= lbl_805E0104;
+        v.z *= lbl_805E0104;
+        a.y = (s32)(lbl_804796D8[0] * atan2_float(v.x, v.z));
+        direction_to_rotation_xz(&v, &a.x, &a.z);
+        for (n = (s32)o->travel_distance / 8; n != 0; n--) {
+            create_oneshot_particle_emitter(&w, &a, 0x206, 0x40);
+            create_oneshot_particle_emitter(&w, &a, 0x207, 0x40);
+            vec3_add_to(&w, &v);
+        }
+        if (lbl_805E0108 <= o->travel_distance) {
+            o->state = 2;
+            destroy_particles__15TBoss7LaserPtclFi(o);
+        }
+    }
+}
+#pragma pop
+
+extern "C" {
 
 extern M2C_UNK __vt__15TBoss7LaserPtcl[];
 

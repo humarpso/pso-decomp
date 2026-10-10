@@ -3,19 +3,20 @@
 
 #include "types.h"
 
-struct TBoss7LaserPtcl
-{
-    u32 m_1c;
-    void* m_20;
-    u8 _pad24[0x8];
-    void* m_2c;
-    u8 _pad30[0x8];
-    void* m_38;
-    u8 _pad3C[0x8];
-    u32 m_44;
-    u32 m_48;
-    u8 _pad4C[0x8];
+struct TBoss7LaserPtclVector { f32 x, y, z; };
+
+struct TBoss7LaserPtcl {
+    u8 unknown00[0x1C];
+    s32 state;
+    TBoss7LaserPtclVector position;
+    TBoss7LaserPtclVector direction;
+    TBoss7LaserPtclVector displacement;
+    void *particles[2];
+    f32 travel_distance;
+    u8 unknown50[4];
     u32 m_54;
+
+    void run_task();
 };
 
 #endif

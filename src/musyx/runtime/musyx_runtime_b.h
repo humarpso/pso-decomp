@@ -534,7 +534,7 @@ struct SynthVoice_803BADF8 {
     u32 midiDirtyFlags;
     u8 pad218[0x404 - 0x218];
 };
-extern SynthVoice_803BADF8 *lbl_805D73B0;
+extern SynthVoice_803BADF8 *synthVoice;
 void synthKeyStateUpdate(SynthVoice_803BADF8 *svoice);
 void inpFXCopyCtrl(u8 ctrl, SynthVoice_803BADF8 *dvoice, SynthVoice_803BADF8 *svoice);
 #define lbl_80567958 midi_lastNote
@@ -546,8 +546,8 @@ void inpFXCopyCtrl(u8 ctrl, SynthVoice_803BADF8 *dvoice, SynthVoice_803BADF8 *sv
 #define lbl_8056E118 ((u8 *)inpFXChannelDefaults)
 u8 *inpGetChannelDefaults(u8 a, u8 b);
 struct Ent_803BC490 { u8 pad[0x22]; u8 f22; u8 pad23; };
-extern Inp_803BBB30 lbl_80557C6C[8][4];
-extern Inp_803BBB30 lbl_805580EC[8][4];
+extern Inp_803BBB30 inpAuxB[8][4];
+extern Inp_803BBB30 inpAuxA[8][4];
 extern u32 lbl_804F7120[];
 extern u32 lbl_804F7130[];
 void inpSetGlobalMIDIDirtyFlag(u8 a, u8 b, u32 v);
@@ -675,7 +675,7 @@ extern s32 lbl_805D7490;
 extern u8 lbl_805D74C6;
 extern u8 lbl_805D74C7;
 extern u8 lbl_805D74C5;
-extern u8 lbl_805D7380;
+extern u8 sndActive;
 void seqHandle(s32);
 void synthHandle(s32);
 void streamHandle(void);
@@ -722,14 +722,14 @@ void hwSetVolume(s32 idx, u32 p, u32 x, s32 a3, f32 a, f32 b, f32 c);
 void do_src1(void *);
 void do_src2(void *);
 void sndAuxCallbackChorus(u8 reason, Info_803BF884 *info, Work_803BF884 *c);
-extern u32 lbl_80557348[];
+extern u32 synthInfo[];
 extern const f32 lbl_805E0C48;
 u32 hwFrq2Pitch(u32 arg0);
 extern SND_HOOKS lbl_805D74BC;
 void sndSetHooks(Pair_803BD9E4 *arg0);
 s16 varGet(Voice_803BBB30 *, u32, u32);
 u16 inpGetMidiCtrl(u8 arg0, u8 arg1, u8 arg2);
-extern u64 lbl_805D73C0;
+extern u64 synthRealTime;
 u16 _GetInputValue(Voice_803BBB30 *svoice, Inp_803BBB30 *inp, u8 midi, u8 midiSet);
 void inpSetMidiCtrl(u8 ctrl, u8 channel, u8 set, u8 value);
 void inpSetMidiCtrl14(u8 ctrl, u8 channel, u8 set, u16 value);

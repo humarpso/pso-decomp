@@ -1,7 +1,7 @@
 #include "types.h"
 
 extern "C" {
-extern u32 lbl_805D5F5C;
+extern u32 secondary_card_character_save_buffer;
 u8 check_slot_flags__23TAdSinglePlyChrSelectGCFiUi(s32 arg0, u32 arg1);
 }
 
@@ -16,11 +16,11 @@ int get_chr_select_state__22TAdMultiPlyChrSelectGCFv(void) {  return lbl_805D69E
 s32 get_ready_state__22TAdMultiPlyChrSelectGCFPv(void* p) { return *(s32*)((char*)p + 0xa0); }
 u8 check_slot_flags__23TAdSinglePlyChrSelectGCFiUi(s32 arg0, u32 arg1) {
     u32 flags;
-    if (lbl_805D5F5C != 0) {
+    if (secondary_card_character_save_buffer != 0) {
         if (arg0 >= 7) {
             return 0;
         }
-        flags = *(u32 *)((u8 *)lbl_805D5F5C + arg0 * 0x2798 + 0x420);
+        flags = *(u32 *)((u8 *)secondary_card_character_save_buffer + arg0 * 0x2798 + 0x420);
         return (flags & arg1) != 0;
     }
     return 0;

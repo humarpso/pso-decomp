@@ -20,7 +20,7 @@ void *__ct__7TObjectFP7TObject(void *, void *);
 extern u8 item_bml_resource_descriptor[];
 extern s32 TItemLoad__bml_resource;
 extern void *TItemLoad__model_load_task_root;
-extern void *TItemLoad__data_805D5488;
+extern void *TItemLoad__completed_model_load_task_root;
 extern s32 TItemLoad__model_slot_in_use;
 extern s32 lbl_805D5490;
 void init_resources__9TItemLoadFv(void);
@@ -50,7 +50,7 @@ int update_item__9TItemLoadFPv(void* p);
 
 extern s32 TItemLoad__bml_resource;
 extern void *TItemLoad__model_load_task_root;
-extern void *TItemLoad__data_805D5488;
+extern void *TItemLoad__completed_model_load_task_root;
 extern s32 TItemLoad__model_slot_in_use;
 extern s32 lbl_805D5490;
 
@@ -59,14 +59,14 @@ void free_all__9TItemLoadFv(void) {
     if ((void *) TItemLoad__model_load_task_root != NULL) {
         ((VObj_801105AC *)TItemLoad__model_load_task_root)->m0(1);
     }
-    if ((void *) TItemLoad__data_805D5488 != NULL) {
-        ((VObj_801105AC *)TItemLoad__data_805D5488)->m0(1);
+    if ((void *) TItemLoad__completed_model_load_task_root != NULL) {
+        ((VObj_801105AC *)TItemLoad__completed_model_load_task_root)->m0(1);
     }
     TLobby__sub_8001FE7C(TItemLoad__bml_resource, 1);
     lbl_805D5490 = 0;
     TItemLoad__bml_resource = 0;
     TItemLoad__model_load_task_root = NULL;
-    TItemLoad__data_805D5488 = NULL;
+    TItemLoad__completed_model_load_task_root = NULL;
     TItemLoad__model_slot_in_use = 0;
     free_all_models__9TItemLoadFv();
     free_boss4_rock__9TItemLoadFv();
@@ -89,7 +89,7 @@ void init_resources__9TItemLoadFv(void) {
     if (p != NULL) {
         p = __ct__7TObjectFP7TObject(p, NULL);
     }
-    TItemLoad__data_805D5488 = p;
+    TItemLoad__completed_model_load_task_root = p;
     p = __nw__7TObjectFUl(0x1C);
     if (p != NULL) {
         p = __ct__7TObjectFP7TObject(p, NULL);
