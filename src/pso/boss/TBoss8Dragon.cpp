@@ -475,6 +475,14 @@ extern const f32 TBoss8Dragon__data_805DEDB0;
 extern const f32 lbl_805DEED8;
 s32 TBoss8Dragon__sub_802FC674(Obj_802FC674 *self, f32 *out);
 s32 TBoss8Dragon__sub_802F46F4(s32 arg0);
+void spawn_effect__12TBoss8DragonFi(s32 arg0);
+M2C_UNK copy_pos_to_field688__12TBoss8DragonFPv(void* p);
+M2C_UNK restore_target_pos__12TBoss8DragonFPv(void* p);
+void send_action_packet__12TBoss8DragonFPvi(u8 *arg0, s32 arg1);
+void reset_action__12TBoss8DragonFPv(void* a0);
+void set_action_state__12TBoss8DragonFPv(void* p);
+extern const f32 TBoss8Dragon__data_805DEDD4;
+void TBoss8Dragon__sub_802F5BA0(u8 *arg0, u32 arg1);
 }
 
 extern "C" {
@@ -2005,7 +2013,6 @@ void handle_walk_state__12TBoss8DragonFPvUi(u8 *arg0, u32 arg1);
 f32 horizontal_distance_squared(void *, void *);
 }
 extern "C" {
-void TBoss8Dragon__sub_802F5BA0();
 }
 extern "C" {
 void TBoss8Dragon__sub_802F5CC8(u8 *, u32);
@@ -3426,6 +3433,49 @@ void handle_walk_state__12TBoss8DragonFPvUi(u8 *arg0, u32 arg1) {
 #pragma pop
 
 M2C_UNK move_with_wall_stop__9TObjEneDDFPvfff(void *, f32, f32, f32);
+
+void TBoss8Dragon__sub_802F5BA0(u8 *arg0, u32 arg1) {
+    u8 *temp_r3;
+    switch (arg1) {
+    case 4:
+        ((VObj_18_2fe63c *)(arg0))->m94();
+        set_action_state__12TBoss8DragonFPv((void*)((void *) (arg0)));
+        reset_action__12TBoss8DragonFPv((void*)((void *) (arg0)));
+        M2C_FIELD(arg0, s32 *, 0x3C0) = (s32) (M2C_FIELD(arg0, s32 *, 0x3C0) | 0x30);
+        M2C_FIELD(arg0, s32 *, 0x3C0) = (s32) (M2C_FIELD(arg0, s32 *, 0x3C0) & 0xFFFFFFF8);
+        ((VObj_18_2fe63c *)(arg0))->m89();
+        ((VObj_18_2fe63c *)(arg0))->m92();
+        M2C_FIELD(arg0, s32 *, 0x84C) = 0;
+        break;
+    case 2:
+    case 11:
+        temp_r3 = (u8 *)(M2C_FIELD(arg0, u8 **, 0x6D8));
+        if (M2C_FIELD(temp_r3, f32 *, 0x24) > TBoss8Dragon__data_805DEDD4) {
+            send_action_packet__12TBoss8DragonFPvi((u8 *)((void *) (arg0)), (s32)((int) (0x1D)));
+            break;
+        }
+        if (M2C_FIELD(temp_r3, s32 *, 8) & 2) {
+            send_action_packet__12TBoss8DragonFPvi((u8 *)((void *) (arg0)), (s32)((int) (0x13)));
+            break;
+        }
+    default:
+        break;
+    case 7:
+        ((s32)restore_target_pos__12TBoss8DragonFPv((void*)((void *) (arg0))));
+        break;
+    case 6:
+        ((s32)copy_pos_to_field688__12TBoss8DragonFPv((void*)((void *) (arg0))));
+        break;
+    case 0:
+        M2C_FIELD(arg0, s32 *, 0x84C) = (s32) (M2C_FIELD(arg0, s32 *, 0x84C) + 1);
+        if ((s32) M2C_FIELD(arg0, s32 *, 0x84C) > 0xA) {
+            spawn_effect__12TBoss8DragonFi((s32)((void *) (arg0)));
+            M2C_FIELD(arg0, s32 *, 0x84C) = 0;
+        }
+        break;
+    }
+}
+
 void TBoss8Dragon__sub_802F5CC8(u8 *arg0, u32 arg1) {
     extern const f32 TBoss8Dragon__data_805DED60;
     s32 *p = (s32 *)(arg0 + 0x85C);

@@ -249,7 +249,7 @@ s32 TLobby__sub_80427240(u8 **arg0);
 s32 TLobby__sub_803F9F04(void *, void *, int);
 s32 parse_tlv_records__6TLobbyFiPvUs(s32 arg0, u8 *arg1, u16 arg2);
 u8 find_dhcp_option__6TLobbyFPvUcPv(u8 *p, u8 tag, u8 **out);
-void TLobby__sub_80419DDC(void *);
+void NetUnregisterTimer(void *);
 s32 TLobby__sub_80421B3C(s32);
 s32 TLobby__sub_804250A8(s32);
 extern u8 TLobby__sub_80423298[];
@@ -394,7 +394,7 @@ extern u32 lbl_805D7BA8;
 void clear_message_entry__6TLobbyFi(s32 a);
 void cancel_thread_if_running__6TLobbyFi(void *);
 void deactivate_entry_by_key__6TLobbyFUi(void *);
-void TLobby__sub_80419DDC(void *);
+void NetUnregisterTimer(void *);
 void update_exi_status__6TLobbyFv(void);
 extern s16 network_link_status_cache;
 extern s32 lbl_805D7BB0;
@@ -572,7 +572,7 @@ s32 dhcp_handle_reply__6TLobbyFsPv(s16 arg0, Arg_804249F0 *arg1) {
 #pragma pop
 
 void TLobby__sub_80424CA8(void) {
-    TLobby__sub_80419DDC(TLobby__sub_80423298);
+    NetUnregisterTimer(TLobby__sub_80423298);
     if (lbl_805D7B18 != -1) {
         TLobby__sub_80421B3C(lbl_805D7B18);
         lbl_805D7B18 = -1;

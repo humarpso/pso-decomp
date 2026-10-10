@@ -260,7 +260,7 @@ s32 TLobby__sub_80427240(u8 **arg0);
 s32 TLobby__sub_803F9F04(void *, void *, int);
 s32 parse_tlv_records__6TLobbyFiPvUs(s32 arg0, u8 *arg1, u16 arg2);
 u8 find_dhcp_option__6TLobbyFPvUcPv(u8 *p, u8 tag, u8 **out);
-void TLobby__sub_80419DDC(void *);
+void NetUnregisterTimer(void *);
 s32 TLobby__sub_80421B3C(s32);
 s32 TLobby__sub_804250A8(s32);
 extern u8 TLobby__sub_80423298[];

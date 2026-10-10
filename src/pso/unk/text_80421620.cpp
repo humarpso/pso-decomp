@@ -134,7 +134,7 @@ extern RecoveredGlobal_804217E4_lbl_805C1C50 network_dispatch_state;
 s32 TLobby__sub_80421814(void);
 M2C_UNK unlock_mutex__10TUdpSocketFi(void *);
 M2C_UNK lock_mutex__6TLobbyFi(void *);
-s32 TLobby__sub_80419DDC(void *);
+s32 NetUnregisterTimer(void *);
 extern RecoveredGlobal_804217E4_lbl_805C1C50 network_dispatch_state;
 s32 TLobby__sub_80421844(s32 arg0);
 M2C_UNK TLobby__sub_80421FB8(void *, void *, void *);
@@ -215,7 +215,7 @@ s32 TLobby__sub_80418A7C(void);
 s16 init_packet_fragment_pools__6TLobbyFv();
 void TLobby__sub_80419A00(void);
 s16 TLobby__sub_80419A34(int);
-s16 TLobby__sub_80419B04();
+s16 NetInitializeDispatcher();
 s32 TLobby__sub_8041A1D8(void);
 s16 NetTCPInit();
 s32 reset_stack_module__6TLobbyFv(void);
@@ -378,7 +378,7 @@ s16 init_network_stack__6TLobbyFv(void) {
                                             if (var_r31 >= 0) {
                                                 var_r31 = TLobby__sub_80409AD8();
                                                 if (var_r31 >= 0) {
-                                                    var_r31 = TLobby__sub_80419B04();
+                                                    var_r31 = NetInitializeDispatcher();
                                                     if (var_r31 >= 0) {
                                                         return 0;
                                                     }
@@ -449,7 +449,7 @@ s32 TLobby__sub_80421844(s32 arg0) {
         return -2;
     }
     lock_mutex__6TLobbyFi((void *) ((*(RecoveredGlobal_80421844_lbl_805C1C50 *)&network_dispatch_state).value));
-    temp_r31 = TLobby__sub_80419DDC((void *) (arg0));
+    temp_r31 = NetUnregisterTimer((void *) (arg0));
     unlock_mutex__10TUdpSocketFi((void *) ((*(RecoveredGlobal_80421844_lbl_805C1C50 *)&network_dispatch_state).value));
     return temp_r31;
 }

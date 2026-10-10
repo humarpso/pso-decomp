@@ -1842,7 +1842,7 @@ struct Ent_80407310 { s16 st; u8 pad[0x9c - 2]; };
 struct Tbl_80407310 { s16 count; Ent_80407310 *list; };
 u8 *alloc_free_entry__6TLobbyFv();
 
-void TLobby__sub_80419DDC(void *);
+void NetUnregisterTimer(void *);
 void TLobby__sub_804078B4(void);
 s32 TLobby__sub_80407358(void);
 
@@ -2430,7 +2430,7 @@ s32 NetIPv6Init(void);
 
 #pragma push
 #pragma opt_common_subs on
-void TLobby__sub_80419DDC(void *);
+void NetUnregisterTimer(void *);
 void TLobby__sub_80411334(void);
 void tick_entry_timers__6TLobbyFv(void);
 s32 TLobby__sub_8041112C(void);
@@ -2526,7 +2526,7 @@ typedef char RecoveredGlobal_80415650_lbl_805C1BF8_size[sizeof(RecoveredGlobal_8
 s32 reset_net_value__6TLobbyFv(void);
 
 struct G_80415AEC { s16 a; s16 b; s16 c; };
-void TLobby__sub_80419DDC(void *);
+void NetUnregisterTimer(void *);
 struct A_80415B38 { s8 c0; s8 c1; s8 c2; s8 c3; u8 pad4[0x30]; s32 off; };
 struct C_80415B38 { s8 c0; s8 c1; s8 c2; s8 c3; u8 pad4[2]; s16 f6; u8 pad8[0x1C]; };
 struct B_80415B38 {
@@ -2765,7 +2765,7 @@ struct G_80418ACC {
     s32 f10;
     s32 f14;
 };
-void TLobby__sub_80419DDC(void *);
+void NetUnregisterTimer(void *);
 void update_timeout_entries__6TLobbyFv(void);
 extern G_80418ACC packet_fragment_pool_state;
 s32 TLobby__sub_80418A7C(void);
@@ -2804,7 +2804,7 @@ s32 release_slot_by_id__6TLobbyFUs(u16 a);
 s32 register_protocol_handler__6TLobbyFUsi(u16 type, Handler_8041A130 fn);
 
 struct G_8041A1D8 { u8 pad[4]; s16 n; };
-void TLobby__sub_80419DDC(void *);
+void NetUnregisterTimer(void *);
 void TLobby__sub_8041A3CC(void);
 void TLobby__sub_8041A5B4(void);
 s32 TLobby__sub_8041A1D8(void);
