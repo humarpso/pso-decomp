@@ -5,28 +5,37 @@
 
 struct TOTrapAncient02
 {
+    u8 _base[0x1C];
     u8 _pad1C[0x8];
     u32 m_24;
     u8 _pad28[0x8];
     u32 m_30;
     u32 m_34;
-    void* m_38;
-    u8 _pad3C[0x28];
+    f32 position[3];
+    u8 _pad44[0x20];
     u32 m_64;
     u8 _pad68[0x1C];
     u32 m_84;
     u8 _pad88[0x220];
-    u32 m_2a8;
+    void *target;
     u8 _pad2AC[0x7A];
-    u16 m_326;
-    s16 m_328;
-    u8 _pad32A[0x12];
-    u16 m_33c;
-    u8 _pad33E[0xE];
+    s16 mode;
+    s16 state;
+    u8 _pad32A[0xA];
+    f32 range;
+    f32 dist;
+    u16 player;
+    u8 _pad33E[0x6];
+    f32 h344;
+    f32 h348;
     u32 m_34c;
-    u32 m_350;
-    u32 m_354;
+    s32 reset;
+    s32 timer;
     u32 m_358;
+
+    void update_hold_trigger();
 };
+
+typedef char TOTrapAncient02_size_check[(sizeof(TOTrapAncient02) == 0x35C) ? 1 : -1];
 
 #endif

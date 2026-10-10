@@ -1,4 +1,36 @@
 #include "types.h"
+#include "pso/boss/TBoss6Thanks.h"
+#include <stddef.h>
+typedef s32 M2C_UNK;
+
+typedef char Thanks_current_motion[offsetof(TBoss6Thanks,current_motion)==0x20?1:-1];
+typedef char Thanks_frame0[offsetof(TBoss6Thanks,frame0)==0x28?1:-1];
+typedef char Thanks_frame1[offsetof(TBoss6Thanks,frame1)==0x2c?1:-1];
+typedef char Thanks_opacity[offsetof(TBoss6Thanks,opacity)==0x30?1:-1];
+typedef char Thanks_model0[offsetof(TBoss6Thanks,model0)==0x38?1:-1];
+typedef char Thanks_model1[offsetof(TBoss6Thanks,model1)==0x3c?1:-1];
+typedef char Thanks_texture0[offsetof(TBoss6Thanks,texture0)==0x40?1:-1];
+typedef char Thanks_texture1[offsetof(TBoss6Thanks,texture1)==0x44?1:-1];
+typedef char Thanks_motions[offsetof(TBoss6Thanks,motions)==0x48?1:-1];
+typedef char Thanks_motion1[offsetof(TBoss6Thanks,motion1)==0x50?1:-1];
+extern "C" {
+
+M2C_UNK reset_fish_globals__8TObjFishFv();
+void set_fade_material_color__14TBoss6PlotFalzFf(f32);
+M2C_UNK scale_matrix(int, f32, f32, f32);
+M2C_UNK push_matrix();
+M2C_UNK pop_matrix();
+M2C_UNK post_translate_matrix(void *);
+M2C_UNK set_global_param__8TObjFishFi(s32);
+void draw_model_motion(void *, void *, f32);
+M2C_UNK set_global_flag__10TObjPlayerFv();
+M2C_UNK clear_global_state__10TObjPlayerFv();
+extern u8 TBoss6Thanks__data_80479BA8[];
+extern const f32 lbl_805E019C;
+extern const f32 lbl_805E01A0;
+
+}
+
 typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
 typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 #define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
@@ -137,6 +169,33 @@ int is_player_near__12TBoss6ThanksFPv(void *arg0) {
     }
     return 0;
 }
+
+}
+
+void TBoss6Thanks::render() {
+    TBoss6Thanks *o = this;
+    if (lbl_805E019C == o->opacity) {
+        return;
+    }
+    set_fade_material_color__14TBoss6PlotFalzFf(o->opacity);
+    set_global_flag__10TObjPlayerFv();
+    push_matrix();
+    post_translate_matrix(TBoss6Thanks__data_80479BA8);
+    set_global_param__8TObjFishFi(o->texture0);
+    scale_matrix(0, lbl_805E01A0, lbl_805E01A0, lbl_805E01A0);
+    draw_model_motion(o->model0, o->motions[o->current_motion], o->frame0);
+    pop_matrix();
+    push_matrix();
+    post_translate_matrix(TBoss6Thanks__data_80479BA8);
+    set_global_param__8TObjFishFi(o->texture1);
+    scale_matrix(0, lbl_805E01A0, lbl_805E01A0, lbl_805E01A0);
+    draw_model_motion(o->model1, o->motion1, o->frame1);
+    pop_matrix();
+    clear_global_state__10TObjPlayerFv();
+    reset_fish_globals__8TObjFishFv();
+}
+
+extern "C" {
 
 void update_fade_out__12TBoss6ThanksFPv(void *arg0) {
     s32 temp_r3;

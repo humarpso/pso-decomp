@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/misc/TOTrapAncient02.h"
 typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
 typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 #define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
@@ -201,6 +202,17 @@ void submit_cursor_candidate(void *, s32);
 extern const f32 lbl_805DBA78;
 extern const f32 lbl_805DBA80;
 void TOTrapAncient02R__vt80(void *arg0);
+u16 find_nearest_visible_player(void *, int, f32);
+f32 horizontal_distance_squared(void *, void *);
+f32 TObjPlayer__sub_8017A1A4(void *, s32);
+void submit_cursor_candidate(void *, s32);
+void send_6x2C_impose_hold(void *, void *, s32, s32, f32);
+s32 get_player_by_client_id(u32);
+extern s32 local_client_id;
+extern const f32 lbl_805DBA78;
+extern const f32 lbl_805DBA80;
+extern const f32 lbl_805DBA84;
+extern const f32 lbl_805DBA88;
 }
 
 extern "C" {
@@ -919,6 +931,79 @@ void TOTrapAncient02__vt80(Trap_8017ADC4 *self) {
         break;
     }
 }
+
+}
+
+void TOTrapAncient02::update_hold_trigger() {
+    TOTrapAncient02 *self = this;
+    void *p;
+    f32 d;
+    submit_cursor_candidate(self, -1);
+    switch (self->state) {
+    case 0:
+        if (self->h344 < lbl_805DBA84) {
+            self->h344 += lbl_805DBA78;
+        } else {
+            self->state = 1;
+            self->h344 = lbl_805DBA84;
+        }
+        break;
+    case 1:
+        self->h348 += lbl_805DBA78;
+        if (lbl_805DBA88 <= self->h348) {
+            self->state = 2;
+            self->h348 = lbl_805DBA88;
+        }
+        break;
+    case 2:
+        self->player = find_nearest_visible_player((void *)(self), (int)(0), self->range);
+        if (self->player != 0xFFFF) {
+            p = (void *)get_player_by_client_id((u32)(self->player));
+            self->target = p;
+            if (self->target != NULL) {
+                d = horizontal_distance_squared((u8 *)self->target + 0x38, &self->position);
+                self->dist = self->range - TObjPlayer__sub_8017A1A4(p, 0);
+                if (d < self->dist * self->dist) {
+                    if (self->player == local_client_id) {
+                        send_6x2C_impose_hold(p, &self->position, self->timer, 0, self->dist);
+                    }
+                    self->mode = 3;
+                    self->state = 2;
+                } else {
+                    self->player = 0xFFFF;
+                    self->target = NULL;
+                }
+            }
+        } else {
+            self->target = NULL;
+        }
+        if (self->target == NULL) {
+            self->state = 3;
+        }
+        break;
+    case 3:
+        if (lbl_805DBA80 < self->h348) {
+            self->h348 -= lbl_805DBA78;
+        } else {
+            self->state = 4;
+            self->h348 = lbl_805DBA80;
+        }
+        break;
+    case 4:
+        if (lbl_805DBA80 < self->h344) {
+            self->h344 -= lbl_805DBA78;
+        } else {
+            self->mode = 0;
+            self->state = 0;
+            self->h344 = lbl_805DBA80;
+            self->player = 0xFFFF;
+            self->target = NULL;
+        }
+        break;
+    }
+}
+
+extern "C" {
 
 void render_particle_chain__15TOTrapAncient02FPv(u8 *arg0) {
     u8 *temp_r31;

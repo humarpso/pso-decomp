@@ -1,22 +1,21 @@
 #ifndef PSO_BOSS_TBOSS6THANKS_H
 #define PSO_BOSS_TBOSS6THANKS_H
-
 #include "types.h"
-
-struct TBoss6Thanks
-{
+struct TBoss6Thanks {
+    u8 _object_header[0x1C];
     u32 m_1c;
-    u32 m_20;
+    s32 current_motion;
     u32 m_24;
-    u8 _pad28[0xC];
+    f32 frame0;
+    f32 frame1;
+    f32 opacity;
     u32 m_34;
-    u32 m_38;
-    u32 m_3c;
-    u32 m_40;
-    u32 m_44;
-    u32 m_48;
-    u32 m_4c;
-    u32 m_50;
+    void *model0;
+    void *model1;
+    s32 texture0;
+    s32 texture1;
+    void *motions[2];
+    void *motion1;
+    void render();
 };
-
 #endif
