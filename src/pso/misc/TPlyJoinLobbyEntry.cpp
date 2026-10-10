@@ -3993,7 +3993,7 @@ void bswap_inventory__6TLobbyFPv(void* p);
 void bswap_fields__6TLobbyFPv(void *);
 void bswap_header_3words__6TLobbyFPv(void *);
 void bswap__15disp_data_part2Fv(void *);
-void TLobby__sub_8013A95C(void *);
+void bswap_telepipe_record(void *);
 void TLobby__sub_8013A9C0(void *);
 int bswap_16__FPUs(void*);
 int bswap_32__FPUl(void*);
@@ -4041,7 +4041,7 @@ void bswap_player_data__6TLobbyFi(s32 arg0) {
     bswap_32__FPUl((void*)((void *) (arg0 + 0x64)));
     bswap_fields__6TLobbyFPv((void *) (arg0 + 0x68));
     TLobby__sub_8013A9C0((void *) (arg0 + 0x70));
-    TLobby__sub_8013A95C((void *) (arg0 + 0x78));
+    bswap_telepipe_record((void *) (arg0 + 0x78));
     bswap_32__FPUl((void*)((void *) (arg0 + 0x94)));
     bswap_32__FPUl((void*)((void *) (arg0 + 0xAC)));
     bswap_32__FPUl((void*)((void *) (arg0 + 0x488)));

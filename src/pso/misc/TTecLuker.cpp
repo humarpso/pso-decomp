@@ -161,8 +161,8 @@ extern const f32 lbl_805D7D3C;
 extern s32 lbl_805D5FC0;
 extern s32 lobby_player_count;
 void send_swapped_telepipe_packet__9TTecLukerFPv(void* p);
-void TTecLuker__sub_80235028(void* p);
-void TTecLuker__sub_80235028(void* p);
+void init_telepipe_packet_header(void* p);
+void init_telepipe_packet_header(void* p);
 void TTecLuker__sub_8023503C(void* p);
 void TTecLuker__sub_8023503C(void* p);
 void TTecLuker__sub_80235048(void* p);
@@ -182,7 +182,7 @@ u32 get_player_by_client_id(s32);
 void write_telepipe_record(u8 *arg0, u16 arg1, s16 arg2, u8 *arg3, s32 arg4);
 void VecCopy__FP3VecPC3Vec(void *, void *);
 void send_swapped_telepipe_packet__9TTecLukerFPv(void* p);
-void TTecLuker__sub_80235028(void* p);
+void init_telepipe_packet_header(void* p);
 void send_telepipe_packet__9TTecLukerFPv(u8 *arg0);
 void VecCopy__FP3VecPC3Vec(void *, void *);
 s32 play_sound_effect(int, void *, int, int);
@@ -564,7 +564,7 @@ void init_fields__9TTecLukerFPvs(void *arg0, s16 arg1) {
 
 void send_telepipe_packet__9TTecLukerFPv(u8 *arg0) {
     Stack_802340E4 stack;
-    TTecLuker__sub_80235028((void*)((void *) (&stack.sp8)));
+    init_telepipe_packet_header((void*)((void *) (&stack.sp8)));
     stack.spC = M2C_FIELD(arg0, u16 *, 0);
     stack.sp10 = M2C_FIELD(arg0, s32 *, 4);
     stack.spE = M2C_FIELD(arg0, s16 *, 2);
@@ -1108,7 +1108,7 @@ void byteswap_telepipe_packet__9TTecLukerFPv(void *arg0) {
     bswap_32__FPUl((s32)((void *)((char *)arg0 + 24)));
 }
 
-void TTecLuker__sub_80235028(void* p) { *(u8*)((char*)p + 0x0) = 104; *(u8*)((char*)p + 0x1) = 7; }
+void init_telepipe_packet_header(void* p) { *(u8*)((char*)p + 0x0) = 104; *(u8*)((char*)p + 0x1) = 7; }
 
 void TTecLuker__sub_8023503C(void* p) { *(s32*)((char*)p + 0x38) = 1; }
 

@@ -1589,7 +1589,7 @@ void init_subobject__10TObjPlayerFi(s32 arg0);
 void queue_player_injured_pose(s32 arg0);
 void update_active_state__10TObjPlayerFPv(u8 *arg0);
 s32 handle_revivable__10TObjPlayerFi(s32 arg0);
-void update_lobby_font__10TObjPlayerFi(s32 arg0);
+void send_6x4E_player_revivable__10TObjPlayerFi(s32 arg0);
 void update_action_render__10TObjPlayerFPv(u8 *arg0);
 void restart_death_pose__10TObjPlayerFPv(u8 *arg0);
 void reset_on_death__10TObjPlayerFPv(u8 *arg0);
@@ -3673,7 +3673,7 @@ s32 handle_revivable__10TObjPlayerFi(s32 arg0) {
     return arg0;
 }
 
-void update_lobby_font__10TObjPlayerFi(s32 arg0) {
+void send_6x4E_player_revivable__10TObjPlayerFi(s32 arg0) {
     struct S801CA274 sp8;
 
     if ((arg0 == 0) || (((s32 (*)(void))obj_isState2_324)() == 0)) {

@@ -17,7 +17,7 @@ u8 *TLobby__sub_8013AA64(u8 *arg0, u8 *arg1);
 
 extern "C" {
 
-void TLobby__sub_8013A95C(void* p);
+void bswap_telepipe_record(void* p);
 void TLobby__sub_8013A9C0(void* p);
 void bswap_object_source_record(void* p);
 void bswap_6x6B__6TLobbyFPv(void* p);
@@ -45,7 +45,7 @@ void bswap__15disp_data_part2Fv(s32 arg0) {
     bswap_32__FPUl((void*)(arg0 + 0x4C));
 }
 
-void TLobby__sub_8013A95C(void* p) { bswap_16__FPUs((void*)(p)); bswap_16__FPUs((void*)((char*)p + 0x2)); bswap_32__FPUl((void*)((char*)p + 0x4)); bswap_32__FPUl((void*)((char*)p + 0x8)); bswap_32__FPUl((void*)((char*)p + 0xc)); bswap_32__FPUl((void*)((char*)p + 0x10)); bswap_32__FPUl((void*)((char*)p + 0x14)); bswap_32__FPUl((void*)((char*)p + 0x18)); }
+void bswap_telepipe_record(void* p) { bswap_16__FPUs((void*)(p)); bswap_16__FPUs((void*)((char*)p + 0x2)); bswap_32__FPUl((void*)((char*)p + 0x4)); bswap_32__FPUl((void*)((char*)p + 0x8)); bswap_32__FPUl((void*)((char*)p + 0xc)); bswap_32__FPUl((void*)((char*)p + 0x10)); bswap_32__FPUl((void*)((char*)p + 0x14)); bswap_32__FPUl((void*)((char*)p + 0x18)); }
 
 void TLobby__sub_8013A9C0(void* p) { bswap_32__FPUl((void*)(p)); bswap_32__FPUl((void*)((char*)p + 0x4)); }
 

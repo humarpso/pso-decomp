@@ -2918,7 +2918,7 @@ M2C_UNK update_player_scale_camera(s32);
 s32 request_player_size_restore(void *);
 u32 create_lobby_font_for_player__10TObjPlayerFsc(s32 a0 = 0, s32 a1 = 0);
 s32 get_contact_surface_type(void *);
-M2C_UNK update_lobby_font__10TObjPlayerFi(void *);
+M2C_UNK send_6x4E_player_revivable__10TObjPlayerFi(void *);
 s32 can_guard__10TObjPlayerFPv(s32);
 s32 get_current_target_id__10TObjPlayerFv();
 s32 update_photon_blast_state__10TObjPlayerFv();
@@ -5005,11 +5005,11 @@ void complete_deferred_player_death(void) {
     }
     if (((s32 (*)(void))is_technique_ready__8TTecCtrlFv)() != 0) {
         if (((u8 (*)(void *))TLobby__sub_801D7100)(lobby_rule_settings) == 1) {
-            update_lobby_font__10TObjPlayerFi(p);
+            send_6x4E_player_revivable__10TObjPlayerFi(p);
             return;
         }
         if (((u8 (*)(void *))TLobby__sub_801D7100)(lobby_rule_settings) == 2 && decrement_timer__10TObjPlayerFPv((u8 *)p + 0x754) == 0) {
-            update_lobby_font__10TObjPlayerFi(p);
+            send_6x4E_player_revivable__10TObjPlayerFi(p);
             return;
         }
         send_respawn_position__10TObjPlayerFPv(p);
@@ -5025,7 +5025,7 @@ void complete_deferred_player_death(void) {
         return;
     }
     if (is_camera_mode_active__10TObjPlayerFv() != 0) {
-        update_lobby_font__10TObjPlayerFi(p);
+        send_6x4E_player_revivable__10TObjPlayerFi(p);
         return;
     }
     if (get_main_phase() == 0xE) {
@@ -5041,11 +5041,11 @@ void complete_deferred_player_death(void) {
             return;
         }
         create_return_city_window__10TObjPlayerFPv(p);
-        update_lobby_font__10TObjPlayerFi(p);
+        send_6x4E_player_revivable__10TObjPlayerFi(p);
         return;
     }
     create_return_city_window__10TObjPlayerFPv(p);
-    update_lobby_font__10TObjPlayerFi(p);
+    send_6x4E_player_revivable__10TObjPlayerFi(p);
 }
 
 int stop_battle__10TObjPlayerFPv(void* p) { return set_battle_flag__10TObjPlayerFPvi(p, 0); }
