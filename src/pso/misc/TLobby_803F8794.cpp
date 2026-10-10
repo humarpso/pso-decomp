@@ -2625,7 +2625,7 @@ s32 TLobby__sub_80416008(s32 arg0, s32 arg1);
 
 u8 *alloc_free_entry__6TLobbyFv();
 s16 TLobby__sub_804145D4(void *, void *);
-M2C_UNK TLobby__sub_804147C8(void *, int);
+M2C_UNK init_ipv6_all_routers_multicast_address(void *, int);
 s32 TLobby__sub_80418158(int, void *, void *);
 
 s32 TLobby__sub_804160BC(s32 arg0);

@@ -519,6 +519,7 @@ force_active:
   - apply_room_transform
   - apply_room_transform_to_enemy_rows
   - apply_room_transform_to_object_rows
+  - apply_rule_configuration__19TPlayerBattleCtrl4PFPvi
   - apply_shower_damage_to_players
   - apply_slot_params__8TFogCtrlFPvi
   - apply_to_player__13TItemProArmorFPv
@@ -580,6 +581,7 @@ force_active:
   - byteswap_6x75_packet__6TLobbyFPv
   - byteswap_telepipe_packet__9TTecLukerFPv
   - calc_area_parameters__10TTecRaFoieFPv
+  - calc_battle_score__19TPlayerBattleCtrl4PFPvPv
   - calc_bone_offsets_recursive
   - calc_ci4_tile_offset
   - calc_circle_offset__14TObjEneBm5WolfFPvPvPv
@@ -777,6 +779,7 @@ force_active:
   - destroy_effects__12TBoss4ThanksFPv
   - destroy_free_buffers__20TWindowSubStatusDispFPvs
   - destroy_item_follow_effect
+  - destroy_matching_children__19TPlayerBattleCtrl4PFPvPv
   - destroy_matching_children__6TLobbyFPv
   - destroy_on_phase_change__6TLobbyFPv
   - destroy_s_rank_j_cutter_weapon
@@ -1013,6 +1016,7 @@ force_active:
   - get_selected_blast__13TWindowSubMagFPv
   - get_serial_text__22TAdEnterSerialAccessGCFii
   - get_speaker_balloon_anchor__11TWindowCtrlFPviPvPv
+  - get_split_screen_battle_timer_limit
   - get_state__19TBoss8DragonEffTailFPv
   - get_surface_contact_point
   - get_table_entry_by_clamped_index__10TObjPlayerFPv
@@ -1550,6 +1554,7 @@ force_active:
   - refresh_label__11TChCrEffTagFPv
   - refresh_mail_list__19TWindowSubShortMailFPvPv
   - refresh_names__15TObjDeadListWinFPv
+  - refresh_split_screen_battle_alive_flags
   - register_global_instance_dtor__22TQuestVmDownLoadServerFv
   - register_global_objects__14TObjEneBm5WolfFv
   - reload_floor_scene__6TLobbyFv
@@ -1641,6 +1646,7 @@ force_active:
   - render_with_state_debug__10TObjPlayerFPv
   - repositioning_state__14TObjEneBm5WolfFPvi
   - request_aram_load_state__16TAdWarningBaseGCFPv
+  - request_split_screen_battle_event
   - request_transition__17TAdEnterPPPPassGCFPv
   - request_transition__18TAdEnterPasswordGCFPv
   - request_transition__8TFogCtrlFPvii
@@ -1920,6 +1926,7 @@ force_active:
   - start_entry_timer__6TLobbyFPvUsi
   - start_fade__9TAdFadeGCFPvPv
   - start_get_type_async__16TKeyBoardControlFiiii
+  - start_match__19TPlayerBattleCtrl4PFPv
   - start_quest_mission
   - start_udp_test_game__6TLobbyFv
   - stat__10TTcpSocketFv

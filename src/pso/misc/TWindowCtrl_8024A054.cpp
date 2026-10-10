@@ -18,7 +18,7 @@ struct Obj054_8024A054 { char pad[0x38]; u32 field38; };
 void clear_flag__11TWindowCtrlFv(void);
 s32 is_player_input_active(s32 arg0);
 s32 is_input_phase_active__21TAdMultiChgGameModeGCFv();
-s32 TAdMultiPlyChrSelectGC__sub_802C5530(s32);
+s32 get_multiplayer_controller_active_index(s32);
 u32 get_player_by_client_id(s32);
 M2C_UNK clear_flag1e_bit8__11TWindowCtrlFPv(void*);
 s32 get_map_id__13TRaderMapCoreFPv();
@@ -48,7 +48,7 @@ s32 is_player_input_active(s32 arg0) {
         return 0;
     }
     if (is_input_phase_active__21TAdMultiChgGameModeGCFv() != 0) {
-        return TAdMultiPlyChrSelectGC__sub_802C5530(arg0);
+        return get_multiplayer_controller_active_index(arg0);
     }
     if (get_player_by_client_id(arg0) == 0U) {
         return 0;

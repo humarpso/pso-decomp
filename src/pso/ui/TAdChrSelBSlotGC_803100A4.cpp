@@ -3,7 +3,7 @@ typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
 #define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
 
 extern "C" {
-s32 TPlayerBattleCtrl4P__sub_8031030C(void *);
+s32 are_split_screen_battle_players_tied(void *);
 extern s32 TLobby__battle_ctrl_default_value;
 s32 get_battle_ctrl_default__6TLobbyFPv(void *self);
 }
@@ -30,7 +30,7 @@ int get_global_state__16TAdChrSelBSlotGCFv(void) {  return TAdChrSelBSlotGC__glo
     extern int TAdChrSel__global_slot_data;
 int get_global_slot_data__16TAdChrSelBSlotGCFv(void) {  return TAdChrSel__global_slot_data; }
 s32 get_battle_ctrl_default__6TLobbyFPv(void *self) {
-    return TPlayerBattleCtrl4P__sub_8031030C(self) != 0 ? 0 : TLobby__battle_ctrl_default_value;
+    return are_split_screen_battle_players_tied(self) != 0 ? 0 : TLobby__battle_ctrl_default_value;
 }
 
 }

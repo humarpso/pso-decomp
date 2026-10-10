@@ -32,9 +32,9 @@ int set_score__19TPlayerBattleCtrl4PFPvi(void*, void*);
 void TPlayerBattleCtrl4P__vt20(s32 arg0);
 M2C_UNK notify_lobby__19TPlayerBattleCtrl4PFPvPvPv(void *, void *, int);
 M2C_UNK reset_score_counters__19TPlayerBattleCtrl4PFPv(void *);
-M2C_UNK TPlayerBattleCtrl4P__sub_80310674(void *);
+M2C_UNK record_split_screen_battle_results(void *);
 s32 set_state__19TPlayerBattleCtrl4PFPv(void *, int);
-M2C_UNK TPlayerBattleCtrl4P__sub_80310C08(void *);
+M2C_UNK calculate_split_screen_battle_rankings(void *);
 int set_score__19TPlayerBattleCtrl4PFPvi(void*, void*);
 M2C_UNK update_all_players__19TPlayerBattleCtrl4PFv();
 extern M2C_UNK lbl_80475BC4[];
@@ -54,7 +54,7 @@ void *check_room_seq_4__16TAdChrSelASlotGCFii(void *, int);
 M2C_UNK send_and_handle__6TLobbyFPvii(void *, s32, int);
 void *set_window_mode_4__6TLobbyFPvii(void *, void *, int);
 void *get_window_layout_position(int);
-M2C_UNK TPlayerBattleCtrl4P__sub_803112AC(void *, int);
+M2C_UNK set_split_screen_battle_phase(void *, int);
 M2C_UNK shuffle_order__19TPlayerBattleCtrl4PFPv(void *);
 extern u8 lbl_80475B70[];
 extern s32 local_client_id;
@@ -202,8 +202,8 @@ void TPlayerBattleCtrl4P__vt25(u8 *arg0) {
     M2C_FIELD(arg0, s32 *, 0x24C) = (s32) (temp_r4 - 1);
     if ((set_state__19TPlayerBattleCtrl4PFPv((void *) (arg0), (int) (temp_r4)) != 0) || ((s32) M2C_FIELD(arg0, s32 *, 0x24C) <= 0)) {
         reset_score_counters__19TPlayerBattleCtrl4PFPv((void *) (arg0));
-        TPlayerBattleCtrl4P__sub_80310C08((void *) (arg0));
-        TPlayerBattleCtrl4P__sub_80310674((void *) (arg0));
+        calculate_split_screen_battle_rankings((void *) (arg0));
+        record_split_screen_battle_results((void *) (arg0));
         if ((s32) TPlayerBattleCtrl4P__data_80542E90.value == (s32) local_client_id) {
             notify_lobby__19TPlayerBattleCtrl4PFPvPvPv((void *) (arg0), (void *) (lbl_80475BC4), (int) (0x96));
         } else {
@@ -267,7 +267,7 @@ void TPlayerBattleCtrl4P__vt22(O_80311C2C *o) {
                 case 2:
                     break;
                 case 3:
-                    TPlayerBattleCtrl4P__sub_803112AC(o, 4);
+                    set_split_screen_battle_phase(o, 4);
                     break;
                 }
             } else {

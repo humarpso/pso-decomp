@@ -51,11 +51,27 @@ struct TPlayerBattleCtrl4P_80312818 {
 };
 typedef void (TPlayerBattleCtrl4P_80312818::*Pmf_80312818)();
 
+struct BattleIntroWindowState {
+    u8 pad[0x20];
+    void *intro_window;
+};
+
+struct BattleIntroWindowSize { f32 x, y; };
+
+extern "C" {
+void *get_window_layout_position(s32);
+void *set_window_mode_4__6TLobbyFPvii(void *, void *, s32);
+void set_score__19TPlayerBattleCtrl4PFPvi(void *, int);
+extern const BattleIntroWindowSize lbl_80475B60;
+extern s32 lbl_805D6AB0;
+void open_split_screen_battle_intro_window(BattleIntroWindowState *self);
+}
+
 extern "C" {
 
 void TPlayerBattleCtrl4P__vt0(void* p);
 void TPlayerBattleCtrl4P__vt7(void *arg0);
-int TPlayerBattleCtrl4P__sub_803112AC(void*, void*);
+int set_split_screen_battle_phase(void*, void*);
 int init_battle__19TPlayerBattleCtrl4PFPv(void*);
 void send_and_handle__6TLobbyFPvii(void *, void *, int);
 void set_score__19TPlayerBattleCtrl4PFPvi(void *, int);
@@ -90,7 +106,6 @@ void TPlayerBattleCtrl4P__vt2(C_80312794 *self);
 void TPlayerBattleCtrl4P__vt3(TPlayerBattleCtrl4P_80312620 *self);
 void TPlayerBattleCtrl4P__vt4(C_8031257C *self);
 void TPlayerBattleCtrl4P__vt5(C_803124C0 *self);
-void TPlayerBattleCtrl4P__vt6();
 void TPlayerBattleCtrl4P__vt8();
 void TPlayerBattleCtrl4P__vt9();
 void TPlayerBattleCtrl4P__vt10();
@@ -135,7 +150,18 @@ void TPlayerBattleCtrl4P__vt7(void *arg0) {
     set_score__19TPlayerBattleCtrl4PFPvi(arg0, 2);
 }
 
+void open_split_screen_battle_intro_window(BattleIntroWindowState *self) {
+    if (self->intro_window == NULL) {
+        BattleIntroWindowSize size = lbl_80475B60;
+        self->intro_window = set_window_mode_4__6TLobbyFPvii(
+            get_window_layout_position(0x52), &size, 1);
+    }
+    lbl_805D6AB0 = 0;
+    set_score__19TPlayerBattleCtrl4PFPvi((void *)(self), (int)(1));
+}
+
 #pragma defer_codegen on
+
 void dispatch_mode_action__19TPlayerBattleCtrl4PFPv(Self_80312994 *self) {
     static Action_80312994 tbl[6] = {
         &Self_80312994::m0, &Self_80312994::m1, &Self_80312994::m2,
@@ -144,7 +170,7 @@ void dispatch_mode_action__19TPlayerBattleCtrl4PFPv(Self_80312994 *self) {
     (self->*tbl[self->mode])();
 }
 
-void TPlayerBattleCtrl4P__vt0(void* p) { init_battle__19TPlayerBattleCtrl4PFPv(p); TPlayerBattleCtrl4P__sub_803112AC(p, (void*)1); }
+void TPlayerBattleCtrl4P__vt0(void* p) { init_battle__19TPlayerBattleCtrl4PFPv(p); set_split_screen_battle_phase(p, (void*)1); }
 
 void TPlayerBattleCtrl4P__vt1(TPlayerBattleCtrl4P_80312818 *self) {
     static Pmf_80312818 tbl[9] = {
@@ -218,7 +244,7 @@ s32 get_player_by_client_id(s32);
 s32 get_char_index__23TAdSinglePlyChrSelectGCFUi(s32);
 M2C_UNK __ct__7TObjectFP7TObject(void *, void *);
 M2C_UNK export_character_data__10TObjPlayerFPvPv(s32, s32);
-M2C_UNK TPlayerBattleCtrl4P__sub_803102A4(void *);
+M2C_UNK clear_split_screen_battle_window_slots(void *);
 extern s32 lbl_805D4110;
 extern s32 current_language;
 
@@ -229,10 +255,10 @@ void *TPlayerBattleCtrl4P__ct(void *arg0, void *parent) {
     __ct__7TObjectFP7TObject(arg0, parent);
     M2C_FIELD(arg0, void **, 0x18) = lbl_804E80A8;
     M2C_FIELD(arg0, s32 *, 0) = lbl_805D4110;
-    TPlayerBattleCtrl4P__sub_803112AC(arg0, 0);
+    set_split_screen_battle_phase(arg0, 0);
     M2C_FIELD(arg0, s32 *, 0x20) = 0;
     M2C_FIELD(arg0, s32 *, 0x24) = 0;
-    TPlayerBattleCtrl4P__sub_803102A4(arg0);
+    clear_split_screen_battle_window_slots(arg0);
     p = lbl_804E7D4C;
     if (current_language == 0) {
         p = __vt__19TPlayerBattleCtrl4P;

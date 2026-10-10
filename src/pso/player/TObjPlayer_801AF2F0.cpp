@@ -3299,7 +3299,7 @@ void update_movement_by_screen__10TObjPlayerFv(void) {
 
 struct Ent_801AF868 { u16 id; s16 val; u32 pad; };
 Ent_801AF868 *TWindowDuelResult__sub_801C257C();
-Ent_801AF868 *TPlayerBattleCtrl4P__sub_80310300();
+Ent_801AF868 *get_split_screen_battle_rankings();
 
 s16 TObjPlayer__sub_801AF868(void *arg0) {
     s32 id;
@@ -3308,7 +3308,7 @@ s16 TObjPlayer__sub_801AF868(void *arg0) {
 
     id = obj_getField1c(arg0);
     if (is_single_screen__10TObjPlayerFv() != 0) {
-        e = TPlayerBattleCtrl4P__sub_80310300();
+        e = get_split_screen_battle_rankings();
     } else {
         e = TWindowDuelResult__sub_801C257C();
     }

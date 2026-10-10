@@ -969,6 +969,8 @@ extern s16 lobby_handler_table_desc;
 s32 is_slot_flag_0x20_set__6TLobbyFs(s16 i);
 extern s16 lobby_handler_table_desc;
 s32 invoke_socket_callback__6TLobbyFsi(s16 i, s32 arg);
+M2C_UNK init_ipv6_all_routers_multicast_address(u8 *arg0, s8 arg1);
+bool init_ipv6_all_nodes_multicast_address(u8 *arg0, s8 arg1);
 }
 
 extern "C" {
@@ -4451,7 +4453,6 @@ struct G_80412210 {
 };
 
 void TLobby__sub_80414B98(void *, s32, void *);
-void TLobby__sub_8041481C(void *, s32);
 
 #define G ((G_80412210 *)&lbl_805C1BB8)
 
@@ -4548,9 +4549,9 @@ s16 TLobby__sub_80412210(s16 idx) {
     }
     init_default_packet_header__6TLobbyFPvPv(c, ifc->f4);
     TLobby__sub_80409CE0(idx, ifc->f2, 2, (s32)c);
-    TLobby__sub_8041481C(c, 2);
+    init_ipv6_all_nodes_multicast_address((u8 *)(c), (s8)(2));
     TLobby__sub_80409CE0(idx, ifc->f2, 2, (s32)c);
-    TLobby__sub_8041481C(c, 1);
+    init_ipv6_all_nodes_multicast_address((u8 *)(c), (s8)(1));
     TLobby__sub_80409CE0(idx, ifc->f2, 2, (s32)c);
     call_entry_callback__6TLobbyFsi(idx, ifc->f2);
     ifc->f0 = 0;
@@ -4749,6 +4750,46 @@ s32 init_default_packet_header__6TLobbyFPvPv(u8 *arg0, u8 *arg1) {
     M2C_FIELD(arg0, u8 *, 0xD) = (u8) M2C_FIELD(arg1, u8 *, 0xD);
     M2C_FIELD(arg0, u8 *, 0xE) = (u8) M2C_FIELD(arg1, u8 *, 0xE);
     M2C_FIELD(arg0, u8 *, 0xF) = (u8) M2C_FIELD(arg1, u8 *, 0xF);
+    return 0;
+}
+
+M2C_UNK init_ipv6_all_routers_multicast_address(u8 *address, s8 scope) {
+    address[0] = 0xFF;
+    address[1] = scope;
+    address[2] = 0;
+    address[3] = 0;
+    address[4] = 0;
+    address[5] = 0;
+    address[6] = 0;
+    address[7] = 0;
+    address[8] = 0;
+    address[9] = 0;
+    address[0xA] = 0;
+    address[0xB] = 0;
+    address[0xC] = 0;
+    address[0xD] = 0;
+    address[0xE] = 0;
+    address[0xF] = 2;
+    return 0;
+}
+
+bool init_ipv6_all_nodes_multicast_address(u8 *address, s8 scope) {
+    address[0] = 0xFF;
+    address[1] = scope;
+    address[2] = 0;
+    address[3] = 0;
+    address[4] = 0;
+    address[5] = 0;
+    address[6] = 0;
+    address[7] = 0;
+    address[8] = 0;
+    address[9] = 0;
+    address[0xA] = 0;
+    address[0xB] = 0;
+    address[0xC] = 0;
+    address[0xD] = 0;
+    address[0xE] = 0;
+    address[0xF] = 1;
     return 0;
 }
 
@@ -5254,7 +5295,6 @@ s32 TLobby__sub_80416008(s32 arg0, s32 arg1) {
 
 u8 *alloc_free_entry__6TLobbyFv();
 s16 TLobby__sub_804145D4(void *, void *);
-M2C_UNK TLobby__sub_804147C8(void *, int);
 s32 TLobby__sub_80418158(int, void *, void *);
 
 s32 TLobby__sub_804160BC(s32 arg0) {
@@ -5269,7 +5309,7 @@ s32 TLobby__sub_804160BC(s32 arg0) {
     }
     M2C_FIELD(temp_r3, s32 *, 4) = 0;
     M2C_FIELD(temp_r3, s32 *, 8) = 0;
-    TLobby__sub_804147C8((void *) (sp1C), (int) (2));
+    init_ipv6_all_routers_multicast_address((u8 *)((void *) (sp1C)), (s8)((int) (2)));
     if (TLobby__sub_804145D4((void *) (spC), (void *) (arg0)) < 0) {
         TUdpSocket__sub_803F9EE4((void *) (spC), (int) (0), (int) (0x10));
     }

@@ -203,6 +203,8 @@ M2C_UNK memset(void *, int, int);
 s32 TLobby__sub_803C30E8(u8 *arg0, s32 arg1, s32 arg2);
 s32 get_client_count__6TLobbyFPv(int);
 void copy_byteswapped_pcm_samples__6TLobbyFPv(Snd_803C1DC4 *arg0);
+s32 get_client_count__6TLobbyFPv(int);
+void process_byteswapped_pcm_transfer(Snd_803C1DC4 *arg0);
 }
 
 extern "C" {
@@ -234,7 +236,6 @@ void decode_stream_chunk__6TLobbyFPv(Strm_803C1A8C *o);
 void TLobby__sub_803C2A00(Strm_803C1A8C *o);
 s32 get_client_count__6TLobbyFPv(int);
 extern s16 lbl_804F9B80[];
-M2C_UNK TLobby__sub_803C2D38();
 M2C_UNK clear_record_data__6TLobbyFPv(int);
 M2C_UNK memset(void *, int, int);
 M2C_UNK reset_client_state__6TLobbyFPv(int);
@@ -419,7 +420,7 @@ void dispatch_by_state__6TLobbyFPv(u8 *arg0) {
         TLobby__sub_803C2A00((Strm_803C1A8C *)arg0);
         return;
     }
-    TLobby__sub_803C2D38();
+    process_byteswapped_pcm_transfer((Snd_803C1DC4 *)(arg0));
 }
 
 void decode_stream_chunk__6TLobbyFPv(Strm_803C1A8C *o) {
@@ -495,6 +496,55 @@ void TLobby__sub_803C2A00(Strm_803C1A8C *o) {
         o->done(o->doneArg, o->bytes, o->n);
         o->state = 3;
     }
+}
+
+void process_byteswapped_pcm_transfer(Snd_803C1DC4 *arg0) {
+  u16 *src = (u16 *) arg0->src;
+  u16 *l;
+  s32 new_var;
+  u16 *r;
+  s32 i;
+  s32 n;
+  if ((arg0->state == 1) && (get_client_count__6TLobbyFPv(arg0->lobby) == 0))
+  {
+    arg0->get(arg0->getCtx, &arg0->pos, &arg0->avail, &arg0->unk78);
+    new_var = arg0->size;
+    n = new_var - arg0->pos;
+    if (n > arg0->avail)
+    {
+      n = arg0->avail;
+    }
+    if (n > arg0->max)
+    {
+      n = arg0->max;
+    }
+    l = ((u16 *) arg0->dst) + arg0->pos;
+    if (arg0->channels == 2)
+    {
+      r = ((u16 *) arg0->dst) + (arg0->rofs + arg0->pos);
+      for (i = 0; i < n; i++)
+      {
+        new_var = src[i * 2];
+        l[i] = (src[i * 2] >> 8) | (new_var << 8);
+        r[i] = (src[(i * 2) + 1] >> 8) | (src[(i * 2) + 1] << 8);
+      }
+    }
+    else
+    {
+      for (i = 0; i < n; i++)
+      {
+        l[i] = (src[i] >> 8) | (src[i] << 8);
+      }
+    }
+    arg0->count = n;
+    arg0->bytes = arg0->channels * (n * 2);
+    arg0->state = 2;
+  }
+  if (arg0->state == 2)
+  {
+    arg0->put(arg0->putCtx, arg0->bytes, arg0->count);
+    arg0->state = 3;
+  }
 }
 
 s32 TLobby__sub_803C30E8(u8 *arg0, s32 arg1, s32 arg2) {

@@ -42,11 +42,11 @@ int set_score__19TPlayerBattleCtrl4PFPvi(void*, void*);
 void TPlayerBattleCtrl4P__vt11(u8 *arg0);
 s64 OSGetTime(void);
 void set_timer_window_time__11TWindowCtrlFi(s32);
-M2C_UNK TPlayerBattleCtrl4P__sub_803112AC(void *, M2C_UNK);
+M2C_UNK set_split_screen_battle_phase(void *, M2C_UNK);
 s32 is_battle_decided__19TPlayerBattleCtrl4PFPv(void *);
 void update_timed_events__19TPlayerBattleCtrl4PFPvi(void *, s32);
 void update_player_alive_flags__19TPlayerBattleCtrl4PFPv(void *);
-void TPlayerBattleCtrl4P__sub_80310C08(void *);
+void calculate_split_screen_battle_rankings(void *);
 void TPlayerBattleCtrl4P__vt16(Ctl_80311FA0 *o);
 VObj_18_26c590 *get_player_by_client_id(s32);
 M2C_UNK send_and_handle__6TLobbyFPvii(s32, void *, int);
@@ -80,7 +80,7 @@ void TPlayerBattleCtrl4P__vt19(void *arg0);
 void TPlayerBattleCtrl4P__vt8(void *arg0);
 M2C_UNK __ct__15TDuelEffectCtrlFP7TObjectUc(void *, void *, M2C_UNK);
 u8 get_rule_field_a__6TLobbyFPv(M2C_UNK *);
-M2C_UNK TPlayerBattleCtrl4P__sub_803112AC(void *, M2C_UNK);
+M2C_UNK set_split_screen_battle_phase(void *, M2C_UNK);
 int start_duel__19TPlayerBattleCtrl4PFPv(void*);
 M2C_UNK TWindow__close(void *);
 void *__nw__7TObjectFUl(M2C_UNK);
@@ -145,12 +145,12 @@ void TPlayerBattleCtrl4P__vt16(Ctl_80311FA0 *o) {
     o->remain = r > 0 ? r : 0;
     set_timer_window_time__11TWindowCtrlFi(o->remain);
     if (o->remain == 0) {
-        TPlayerBattleCtrl4P__sub_803112AC(o, 3);
+        set_split_screen_battle_phase(o, 3);
         return;
     }
     if (is_battle_decided__19TPlayerBattleCtrl4PFPv(o) != 0) {
         if (--o->f25C <= 0) {
-            TPlayerBattleCtrl4P__sub_803112AC(o, 3);
+            set_split_screen_battle_phase(o, 3);
         }
     } else {
         o->f25C = 300;
@@ -160,7 +160,7 @@ void TPlayerBattleCtrl4P__vt16(Ctl_80311FA0 *o) {
         update_player_alive_flags__19TPlayerBattleCtrl4PFPv(o);
         o->f248 = 0x5A;
     }
-    TPlayerBattleCtrl4P__sub_80310C08(o);
+    calculate_split_screen_battle_rankings(o);
 }
 
 void TPlayerBattleCtrl4P__vt15(void* p) { start_duel__19TPlayerBattleCtrl4PFPv(p); set_score__19TPlayerBattleCtrl4PFPvi((void*)((void*)(p)), (void*)((void*)((void*)1))); }
@@ -171,7 +171,7 @@ void TPlayerBattleCtrl4P__vt14(void *arg0) {
         TWindow__close(temp_r3);
         M2C_FIELD(arg0, u32 *, 0x20) = 0U;
     }
-    TPlayerBattleCtrl4P__sub_803112AC(arg0, 2);
+    set_split_screen_battle_phase(arg0, 2);
 }
 
 void TPlayerBattleCtrl4P__vt13(void *arg0) {

@@ -214,6 +214,8 @@ extern s32 TAdMultiPlyChrSelectGC__select_mode;
 void update_selection__22TAdMultiPlyChrSelectGCFPv(S_802C6AC8 *o);
 extern void *TAdMultiPlyChrSelectGC__data_804E0A48[4];
 bool is_multiplayer_character_slot_selected(s32 arg0);
+s32 TAdMultiPlyChrSelectGC__sub_802C6848(s32 arg0);
+u32 get_multiplayer_controller_active_index(int param_1);
 }
 
 extern "C" {
@@ -312,6 +314,20 @@ void update__22TAdMultiPlyChrSelectGCFi(s32 arg0) {
             break;
         }
     }
+}
+
+u32 get_multiplayer_controller_active_index(int param_1) {
+  int iVar3;
+  int iVar2;
+  int iVar1;
+  iVar3 = 0;
+  for (iVar2 = 0; iVar2 < param_1 + 1; iVar2 = iVar2 + 1) {
+    iVar1 = TAdMultiPlyChrSelectGC__sub_802C6848(iVar2);
+    if (iVar1 == 0) {
+      iVar3 = iVar3 + 1;
+    }
+  }
+  return param_1 - iVar3 & ~(param_1 - iVar3 >> 0x1f);
 }
 
 void reset_cursor_state__22TAdMultiPlyChrSelectGCFPv(S_802C5594 *arg0) {
