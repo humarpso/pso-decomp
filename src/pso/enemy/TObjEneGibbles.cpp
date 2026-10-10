@@ -125,7 +125,7 @@ extern const f32 lbl_805DE834;
 extern const f32 lbl_805DE85C;
 s32 is_target_in_attack_range__14TObjEneGibblesFPv(u8 *arg0);
 M2C_UNK apply_actor_gravity(void *, int, f32);
-s16 get_id__10TObjPlayerFPv(void *);
+s16 get_attack_params_atp_min(void *);
 s32 get_current_floor();
 s32 get_field_3e4__10TObjPlayerFPv(u32);
 s32 get_enemy_entity();
@@ -495,7 +495,7 @@ M2C_UNK apply_actor_gravity(void *, int, f32);
 f32 enemy_wander_home(void *, s32, f32, f32, f32);
 f32 calc_distance_to_client__10TObjPlayerFiUsUi(void *, u16, Vec_802D8828 *);
 void VecCopy__FP3VecPC3Vec(Vec_800A6B14 *dst, const Vec_800A6B14 *src);
-s16 get_id__10TObjPlayerFPv(void *);
+s16 get_attack_params_atp_min(void *);
 u8 * get_player_data__10TObjPlayerFi(s32);
 u16 obj_getField1c(void *);
 M2C_UNK obj_clearFlags30(void *, int);
@@ -1557,7 +1557,7 @@ void TObjEneGibbles__sub_802D8E8C(u8 *arg0) {
             F_802D(0x328, s16) = 2;
         }
         if (F_802D(0x328, s16) == 1) {
-            TObjEneGibbles__sub_802D9644(arg0, 1, get_id__10TObjPlayerFPv(M2C_FIELD(gibbles_combat_stat_entries, void **, 8)));
+            TObjEneGibbles__sub_802D9644(arg0, 1, get_attack_params_atp_min(M2C_FIELD(gibbles_combat_stat_entries, void **, 8)));
         }
         if (F_802D(0xB4, u32) != 4) {
             F_802D(0x328, s16) = 3;
@@ -1769,7 +1769,7 @@ s32 TObjEneGibbles__sub_802D9A04(void *arg0) {
             if (dist <= get_pos_x__14TObjEneGibblesFPv(M2C_FIELD(gibbles_combat_stat_entries, void **, 4)) * get_pos_x__14TObjEneGibblesFPv(M2C_FIELD(gibbles_combat_stat_entries, void **, 4))) {
                 Arg_802D9A04 tmp;
                 tmp.a = 0;
-                tmp.b = get_id__10TObjPlayerFPv(M2C_FIELD(gibbles_combat_stat_entries, void **, 4));
+                tmp.b = get_attack_params_atp_min(M2C_FIELD(gibbles_combat_stat_entries, void **, 4));
                 Arg_802D9A04 a = tmp;
                 f32 res = pl->m21(arg0, &a, 0, -1, -1);
                 pl->m23(arg0);
@@ -1810,7 +1810,7 @@ void slam_damage_players__14TObjEneGibblesFii(s32 arg0, s32 arg1) {
                 d = horizontal_distance_squared((int)(p + 0x2FC), &v);
                 if (d <= get_pos_x__14TObjEneGibblesFPv(*(void **)gibbles_combat_stat_entries) * get_pos_x__14TObjEneGibblesFPv(*(void **)gibbles_combat_stat_entries)) {
                     a.x = 0;
-                    a.y = get_id__10TObjPlayerFPv(*(void **)gibbles_combat_stat_entries);
+                    a.y = get_attack_params_atp_min(*(void **)gibbles_combat_stat_entries);
                     Hit_802D9B80 h = a;
                     ((VObj_18_22e4b0 *)p)->m21(arg0, &h, 0, -1, -1);
                     ((VObj_18_22e4b0 *)p)->m23(arg0);

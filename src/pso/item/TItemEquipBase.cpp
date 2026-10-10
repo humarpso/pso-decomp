@@ -513,9 +513,9 @@ int memset(void*, void*, void*);
 void subtract_item_stat_bonus__14TItemEquipBaseFPviiPv(Equip_8010AEFC *self, s32 arg1, s32 arg2, s16 *out);
 s32 add_actor_tp_bonus(void *, int);
 s32 add_actor_hp_bonus(void *, int);
-s32 get_id__10TObjPlayerFPv(void *);
+s32 get_attack_params_atp_min(void *);
 s32 TObjPlayer__sub_800194E8(void *);
-s32 get_level__10TObjPlayerFPv(void *);
+s32 get_attack_params_atp_max(void *);
 s32 get_quest_id__12TQuestListVMFPv(void *);
 void copy_to_item_data__5TItemFPvPv(void *, void *);
 void deduct_cap_excess__14TItemEquipBaseFiPvs(s32 unused, s16 *arg1, s16 arg2);
@@ -576,8 +576,8 @@ M2C_UNK fn_8010B7D8(void *, void *);
 M2C_UNK fn_8010B7E8(void *, void *);
 void free_obj_heap__10TObjPlayerFPv(void *);
 s32 get_field_ed__10TObjPlayerFPv(void*);
-s32 get_id__10TObjPlayerFPv(void *);
-s32 get_level__10TObjPlayerFPv(void *);
+s32 get_attack_params_atp_min(void *);
+s32 get_attack_params_atp_max(void *);
 int memset(void*, void*, void*);
 
 void play_target_impact_effect(M2C_UNK arg0, M2C_UNK arg1, s32 arg2, s16 arg3) {
@@ -772,8 +772,8 @@ void deduct_cap_excess__14TItemEquipBaseFiPvs(s32 unused, s16 *arg1, s16 arg2) {
 
 void subtract_equip_stats__14TItemEquipBaseFPviPvPv(u8 *arg0, s32 arg1, u8 *arg2, u8 *arg3) {
     if (arg1 != 0) {
-        subtract_s16_stat((void *) (arg1), (void *) (get_id__10TObjPlayerFPv((void *) (arg0 + 0x11C))));
-        fn_8010B7E8((void *) (arg1), (void *) (get_level__10TObjPlayerFPv((void *) (arg0 + 0x11C))));
+        subtract_s16_stat((void *) (arg1), (void *) (get_attack_params_atp_min((void *) (arg0 + 0x11C))));
+        fn_8010B7E8((void *) (arg1), (void *) (get_attack_params_atp_max((void *) (arg0 + 0x11C))));
         fn_8010B7D8((void *) (arg1), (void *) (TObjPlayer__sub_800194E8((void *) (arg0 + 0x11C))));
     }
     if (arg2 != NULL) {
@@ -880,8 +880,8 @@ void add_equip_stats__14TItemEquipBaseFPvi(VObj_8010B224 *self, s32 arg1) {
         apply_equip_effects__9TItemDataFPviiiii(&item, M2C_FIELD(arg0, s32 *, 0xF0), (s32)(arg0 + 0x11C), (s32)(arg0 + 0x14C), arg0 + 0xF8, arg0 + 0x16C);
         t = TItemData__sub_8010B810(M2C_FIELD(arg0, s32 *, 0xF0));
         if (t != 0) {
-            add_s16__9TItemDataFPvi(t, get_id__10TObjPlayerFPv(arg0 + 0x11C));
-            add_stat__9TItemDataFPvi(t, get_level__10TObjPlayerFPv(arg0 + 0x11C));
+            add_s16__9TItemDataFPvi(t, get_attack_params_atp_min(arg0 + 0x11C));
+            add_stat__9TItemDataFPvi(t, get_attack_params_atp_max(arg0 + 0x11C));
             add_accuracy__9TItemDataFPvi(t, TObjPlayer__sub_800194E8(arg0 + 0x11C));
         }
         p = (u8 *)TItemData__sub_8010B808(M2C_FIELD(arg0, void **, 0xF0));

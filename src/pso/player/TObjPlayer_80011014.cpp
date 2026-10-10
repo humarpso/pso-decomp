@@ -1031,8 +1031,8 @@ void obj_clearArrS16_FC(ObjArrFC* p, int i);
 u8 obj_isState2_324(u8* p);
 s16 obj_getS16_32C(u8* p);
 u8 obj_testFlag_2E4(u8* p, u32 mask);
-s16 get_model_animation_id__10TObjPlayerFPv(void* p);
-s16 get_id__10TObjPlayerFPv(void* p);
+s16 get_actor_attack_params_atp_min(void* p);
+s16 get_attack_params_atp_min(void* p);
 void TObjPlayer__sub_800193FC(O_800193FC *self, s32 i, s32 v);
 void TObjPlayer__sub_8001940C(O_8001940C *self, s32 i, s32 v);
 void TObjPlayer__sub_8001941C(O_8001941C *self, s32 i, f32 v);
@@ -1047,7 +1047,7 @@ s32 add_status_effect_timer__10TObjPlayerFPvii(O_800194AC *self, s32 i, s32 v);
 s16 TObjPlayer__sub_800194C4(void* p);
 s16 TObjPlayer__sub_800194E8(void* p);
 s16 get_stats_atp_max__10TObjPlayerFPv(void* p);
-s16 get_level__10TObjPlayerFPv(void* p);
+s16 get_attack_params_atp_max(void* p);
 void TObjPlayer__sub_8001951C(void* p);
 void add_flags_2e4__10TObjPlayerFPvUi(void* p, u32 v);
 void* init_192dc_return_self__10TObjPlayerFPv(void* p);
@@ -3168,7 +3168,7 @@ void create__12TEffCliticalFPv(void *);
 #define VecCopy__FP3VecPC3Vec(a, b) ((void (*)(void *, void *))VecCopy__FP3VecPC3Vec)(a, b)
 #define is_locally_controlled__10TObjPlayerFPv(a) ((s32 (*)(void *))is_locally_controlled__10TObjPlayerFPv)(a)
 #define obj_isState2_324(a) ((s32 (*)(void *))obj_isState2_324)(a)
-#define get_model_animation_id__10TObjPlayerFPv(a) ((s16 (*)(void *))get_model_animation_id__10TObjPlayerFPv)(a)
+#define get_actor_attack_params_atp_min(a) ((s16 (*)(void *))get_actor_attack_params_atp_min)(a)
 #define obj_testFlags30(a, b) ((s32 (*)(void *, int))obj_testFlags30)(a, b)
 #define obj_getField1c(a) ((u16 (*)(void *))obj_getField1c)(a)
 #define obj_setFlags30(a, b) ((void (*)(void *, u32))obj_setFlags30)(a, b)
@@ -3215,7 +3215,7 @@ f32 receive_physical_attack__10TObjPlayerFv(Obj_80014108 *self, Obj_80014108 *at
     }
     scl0 = calc_boss4_scale__10TObjPlayerFi(self);
     dmg = 0.2f * (att->atpRange * scl0 + att->atp);
-    elem = 0.2f * get_model_animation_id__10TObjPlayerFPv(att);
+    elem = 0.2f * get_actor_attack_params_atp_min(att);
     for (j = 0; j < 3; j++) {
         switch (self->elemKind) {
         case 1:
@@ -3315,7 +3315,7 @@ f32 receive_physical_attack__10TObjPlayerFv(Obj_80014108 *self, Obj_80014108 *at
 #undef VecCopy__FP3VecPC3Vec
 #undef is_locally_controlled__10TObjPlayerFPv
 #undef obj_isState2_324
-#undef get_model_animation_id__10TObjPlayerFPv
+#undef get_actor_attack_params_atp_min
 #undef obj_testFlags30
 #undef obj_getField1c
 #undef obj_setFlags30
@@ -4622,7 +4622,7 @@ s32 recalc_combat_stats__10TObjPlayerFv(Player_80018990 *p, Motion_80018990 *mot
         return 0;
     }
     p->f2c0 = p->f2c8 = p->motion->f0;
-    p->f2c2 = p->f2ca = ((s32 (*)(void *))get_stats_atp_max__10TObjPlayerFPv)(p) - ((s32 (*)(void *))get_model_animation_id__10TObjPlayerFPv)(p);
+    p->f2c2 = p->f2ca = ((s32 (*)(void *))get_stats_atp_max__10TObjPlayerFPv)(p) - ((s32 (*)(void *))get_actor_attack_params_atp_min)(p);
     p->f2c4 = p->f2cc = p->motion->f4 + p->bonus->f0;
     p->f2c6 = p->f2ce = p->motion->f8 + p->bonus->f1c;
     p->f2d0 = (0.1f) * (f32)(p->motion->fa + TObjPlayer__sub_800194C4(p));
@@ -4969,9 +4969,9 @@ void obj_copyVec2_0(u8* d, u8* s) {
 }
 #pragma pop
 
-s16 get_model_animation_id__10TObjPlayerFPv(void* p) { return get_id__10TObjPlayerFPv((void*)(*(void**)((char*)p + 0x318))); }
+s16 get_actor_attack_params_atp_min(void* p) { return get_attack_params_atp_min((void*)(*(void**)((char*)p + 0x318))); }
 
-s16 get_id__10TObjPlayerFPv(void* p) { return *(s16*)((char*)p + 0x0); }
+s16 get_attack_params_atp_min(void* p) { return *(s16*)((char*)p + 0x0); }
 
 void TObjPlayer__sub_800193FC(O_800193FC *self, s32 i, s32 v) {
     self->recs[i].c = v;
@@ -5014,9 +5014,9 @@ s16 TObjPlayer__sub_800194C4(void* p) { return TObjPlayer__sub_800194E8((void*)(
 
 s16 TObjPlayer__sub_800194E8(void* p) { return *(s16*)((char*)p + 0x4); }
 
-s16 get_stats_atp_max__10TObjPlayerFPv(void* p) { return get_level__10TObjPlayerFPv((void*)(*(void**)((char*)p + 0x318))); }
+s16 get_stats_atp_max__10TObjPlayerFPv(void* p) { return get_attack_params_atp_max((void*)(*(void**)((char*)p + 0x318))); }
 
-s16 get_level__10TObjPlayerFPv(void* p) { return *(s16*)((char*)p + 0x2); }
+s16 get_attack_params_atp_max(void* p) { return *(s16*)((char*)p + 0x2); }
 
 void TObjPlayer__sub_8001951C(void* p) { *(s16*)((char*)p + 0x11c) = 0; }
 

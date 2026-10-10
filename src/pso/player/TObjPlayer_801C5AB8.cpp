@@ -102,7 +102,7 @@ void clear_movement_history(Obj_801C5FCC *p);
 extern "C" {
 
 s16 TObjPlayer__sub_800194E8(s32, s16);
-s32 get_level__10TObjPlayerFPv(s32);
+s32 get_attack_params_atp_max(s32);
 
 extern M2C_UNK lbl_80447120;
 extern const f32 lbl_805DC330;
@@ -110,7 +110,7 @@ extern const f32 lbl_805DC330;
 void set_params__10TObjPlayerFPvPvPviPv(void *arg0, void *arg1, void *arg2, s32 arg3, void *arg4) {
     s16 temp_r4;
 
-    M2C_FIELD(arg0, s16 *, 0) = (s16) (M2C_FIELD(arg2, s16 *, 0) + get_level__10TObjPlayerFPv(arg3));
+    M2C_FIELD(arg0, s16 *, 0) = (s16) (M2C_FIELD(arg2, s16 *, 0) + get_attack_params_atp_max(arg3));
     temp_r4 = M2C_FIELD(arg2, s16 *, 8);
     M2C_FIELD(arg0, s16 *, 2) = (s16) (temp_r4 + M2C_FIELD(arg4, s32 *, 0x1C));
     M2C_FIELD(arg0, s16 *, 4) = (s16) M2C_FIELD(arg2, s16 *, 2);

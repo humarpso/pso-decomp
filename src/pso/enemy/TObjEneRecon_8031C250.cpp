@@ -52,7 +52,7 @@ extern u8 *TObjEneRecon__data_805D6AFC;
 extern const f32 lbl_805DF3C8;
 s32 calc_scaled_value__12TObjEneReconFv(void);
 u8 TObjEneRecon__sub_8031C250(T_8031C250 *self);
-s16 get_id__10TObjPlayerFPv(s32);
+s16 get_attack_params_atp_min(s32);
 u8 *get_player_data__10TObjPlayerFi(s32);
 u16 obj_getField1c(void *);
 int get_flag_b4__21TObjEneMe3ShinowaRealFPv(void *);
@@ -1268,7 +1268,7 @@ void TObjEneRecon__sub_8031CF30(u8 *arg0, s32 arg1) {
                         if (d <= get_pos_x__14TObjEneGibblesFPv(F(s32, 0x318)) * get_pos_x__14TObjEneGibblesFPv(F(s32, 0x318))) {
                             Pair_8031CF30 t;
                             t.a = 0;
-                            t.b = (f32)get_id__10TObjPlayerFPv(F(s32, 0x318));
+                            t.b = (f32)get_attack_params_atp_min(F(s32, 0x318));
                             {
                                 Pair_8031CF30 dmg = t;
                                 ((VB_8031CF30 *)p)->m21(arg0, &dmg, 0, -1, -1);

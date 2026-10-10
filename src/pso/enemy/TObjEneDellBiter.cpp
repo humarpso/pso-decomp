@@ -1879,7 +1879,7 @@ struct Vec_80303F04 { f32 x; f32 y; f32 z; };
 f32 calc_boss4_scale__10TObjPlayerFi(s32);
 s32 VecCopy__FP3VecPC3Vec(void *, void *);
 s32 obj_isState2_324(void *);
-s16 get_id__10TObjPlayerFPv(s32);
+s16 get_attack_params_atp_min(s32);
 s32 obj_is_hit_receivable(void);
 Obj_80098FF4 * get_player_data__10TObjPlayerFi(s32);
 s32 obj_testFlags30(void *, s32);
@@ -3692,7 +3692,7 @@ void TObjEneDellBiter__sub_80305E1C(u8 *arg0) {
         ((void (*)(void *, void *))VecCopy__FP3VecPC3Vec)((u8 *)o->b + 0x38, o->pos);
         refresh_collision_body_centers(o->b);
         S_80305E1C sp = lbl_8047528C[0];
-        sp.f = get_id__10TObjPlayerFPv(TObjEneDellBiter__data_805D6A24);
+        sp.f = get_attack_params_atp_min(TObjEneDellBiter__data_805D6A24);
         if (((VObj_18_cf2ce9 *)arg0)->m97() != 0) {
             sp.flags |= 2;
         }

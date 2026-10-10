@@ -297,7 +297,7 @@ void clear_fields__20TWindowSubStatusDispFPv(Stats_802541E0 *);
 s32 get_player_by_client_id(s16);
 u32 get_quest_id__12TQuestListVMFPv();
 s32 get_array_entry__20TWindowSubStatusDispFPvi(void *, M2C_UNK);
-s16 get_model_animation_id__10TObjPlayerFPv(s32);
+s16 get_actor_attack_params_atp_min(s32);
 s16 get_field_2c8__10TObjPlayerFPv(s32);
 s16 TObjPlayer__sub_800A776C(s32);
 s16 get_ata__10TObjPlayerFPv(s32);
@@ -793,7 +793,7 @@ void update_stat_comparison__15TWindowHelpItemFv(Help_802549B0 *self) {
     e4 = get_array_entry__20TWindowSubStatusDispFPvi((void *)(self), (M2C_UNK)(4));
     e2 = get_array_entry__20TWindowSubStatusDispFPvi((void *)(self), (M2C_UNK)(2));
     e5 = get_array_entry__20TWindowSubStatusDispFPvi((void *)(self), (M2C_UNK)(5));
-    set_flag4_and_field1c__15TWindowHelpItemFPvi(e0, get_field_2c8__10TObjPlayerFPv(pl) + get_model_animation_id__10TObjPlayerFPv(pl) + TObjPlayer__sub_800A776C(pl));
+    set_flag4_and_field1c__15TWindowHelpItemFPvi(e0, get_field_2c8__10TObjPlayerFPv(pl) + get_actor_attack_params_atp_min(pl) + TObjPlayer__sub_800A776C(pl));
     set_flag4_and_field1c__15TWindowHelpItemFPvi(e3, get_ata__10TObjPlayerFPv(pl));
     set_flag4_and_field1c__15TWindowHelpItemFPvi(e1, get_value__20TWindowSubStatusDispFPv(pl));
     set_flag4_and_field1c__15TWindowHelpItemFPvi(e4, get_hp__10TObjPlayerFPv(pl));

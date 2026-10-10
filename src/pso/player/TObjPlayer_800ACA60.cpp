@@ -627,7 +627,7 @@ extern const f32 lbl_805D9C28;
 extern const f32 lbl_805D9C2C;
 M2C_UNK move_with_wall_slide(void *);
 M2C_UNK calc_velocity_toward_destination(void *, Vec_800ACFE8, Vec_800ACFE8, f32);
-s16 get_id__10TObjPlayerFPv(s32);
+s16 get_attack_params_atp_min(s32);
 s32 is_split_screen();
 f32 newton_sqrtf(f32);
 M2C_UNK set_shake_preset__11TCameraCtrlFi(int);
@@ -937,7 +937,7 @@ void update_attack_jump__11TObjEneMojaFv(Obj_800ACFE8 *arg0) {
                     if (d <= get_pos_x__14TObjEneGibblesFPv(arg0->f318) * get_pos_x__14TObjEneGibblesFPv(arg0->f318)) {
                         Hit_800ACFE8 hit;
                         hit.a = 0;
-                        hit.b = get_id__10TObjPlayerFPv(arg0->f318);
+                        hit.b = get_attack_params_atp_min(arg0->f318);
                         ((VObj_800ACFE8 *)p)->m21(arg0, hit, 0, -1, -1);
                         ((VObj_800ACFE8 *)p)->m23(arg0);
                     }

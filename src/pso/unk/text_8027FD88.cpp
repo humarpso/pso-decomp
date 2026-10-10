@@ -107,7 +107,7 @@ M2C_UNK set_text_entry_string(void *, s32, M2C_UNK);
 extern M2C_UNK TWindowSubStatusDisp__summary_page_layout[];
 extern const f32 TWindowSubStatusDisp__data_805DD708;
 void vt0__20TWindowSubStatusDispFv(u8 *arg0);
-s16 get_model_animation_id__10TObjPlayerFPv(int);
+s16 get_actor_attack_params_atp_min(int);
 s16 get_ata__10TObjPlayerFPv(int);
 Q_80280F14 *get_quest_id__12TQuestListVMFPv();
 s16 get_field_2c8__10TObjPlayerFPv(int);
@@ -356,7 +356,7 @@ void vt12__20TWindowSubStatusDispFv(u8 *arg0) {
     pl = get_player_by_client_id(*(s16 *)(arg0 + 0x20));
     if (pl != 0) {
         e2 = (Entry_80280B1C *)get_array_entry__20TWindowSubStatusDispFPvi((void *)(arg0), (M2C_UNK)(2));
-        e2->value = TObjPlayer__sub_800A776C(pl) + (get_field_2c8__10TObjPlayerFPv(pl) + get_model_animation_id__10TObjPlayerFPv(pl));
+        e2->value = TObjPlayer__sub_800A776C(pl) + (get_field_2c8__10TObjPlayerFPv(pl) + get_actor_attack_params_atp_min(pl));
         e = (Entry_80280B1C *)get_array_entry__20TWindowSubStatusDispFPvi((void *)(arg0), (M2C_UNK)(8));
         e->value = get_value__20TWindowSubStatusDispFPv(pl);
         e = (Entry_80280B1C *)get_array_entry__20TWindowSubStatusDispFPvi((void *)(arg0), (M2C_UNK)(0x14));

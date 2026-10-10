@@ -37,7 +37,7 @@ struct VObj_18_b27ba1 : VBase_18_b27ba1 {
 
 extern "C" {
 
-s16 get_model_animation_id__10TObjPlayerFPv(void *);
+s16 get_actor_attack_params_atp_min(void *);
 s16 get_ata__10TObjPlayerFPv(void *);
 s16 get_field_2c8__10TObjPlayerFPv(void *);
 int activate_d04_slot__10TObjPlayerFPv(void *);
@@ -146,13 +146,13 @@ f32 calc_photon_blast_power__10TObjPlayerFPvif(u8 *arg0, s32 arg1, f32 farg0) {
         if (mag != 0) {
             switch (arg1) {
             case 0:
-                var_f30 = farg0 + ((lbl_805DC114 * (f32)get_mag_data__10TObjPlayerFPv(mag)) + lbl_805DC118 * (f32)(TObjPlayer__sub_80113D90(mag) * (get_field_2c8__10TObjPlayerFPv(*(u8 **)(arg0 + 0x38)) + get_model_animation_id__10TObjPlayerFPv(*(u8 **)(arg0 + 0x38)))));
+                var_f30 = farg0 + ((lbl_805DC114 * (f32)get_mag_data__10TObjPlayerFPv(mag)) + lbl_805DC118 * (f32)(TObjPlayer__sub_80113D90(mag) * (get_field_2c8__10TObjPlayerFPv(*(u8 **)(arg0 + 0x38)) + get_actor_attack_params_atp_min(*(u8 **)(arg0 + 0x38)))));
                 break;
             case 1:
                 var_f30 = farg0 + ((lbl_805DC11C * (f32)get_mag_data__10TObjPlayerFPv(mag)) + lbl_805DC120 * (f32)(get_hp__10TObjPlayerFPv(*(u8 **)(arg0 + 0x38)) * TObjPlayer__sub_80113D90(mag)));
                 break;
             case 2:
-                var_f30 = farg0 + ((lbl_805DC124 * (f32)get_mag_data__10TObjPlayerFPv(mag)) + lbl_805DC128 * (f32)(TObjPlayer__sub_80113D90(mag) * (get_field_2c8__10TObjPlayerFPv(*(u8 **)(arg0 + 0x38)) + get_model_animation_id__10TObjPlayerFPv(*(u8 **)(arg0 + 0x38)))));
+                var_f30 = farg0 + ((lbl_805DC124 * (f32)get_mag_data__10TObjPlayerFPv(mag)) + lbl_805DC128 * (f32)(TObjPlayer__sub_80113D90(mag) * (get_field_2c8__10TObjPlayerFPv(*(u8 **)(arg0 + 0x38)) + get_actor_attack_params_atp_min(*(u8 **)(arg0 + 0x38)))));
                 break;
             case 3:
                 var_f30 = farg0 + ((lbl_805DC124 * (f32)get_mag_data__10TObjPlayerFPv(mag)) + lbl_805DC128 * (f32)(get_ata__10TObjPlayerFPv(*(u8 **)(arg0 + 0x38)) * TObjPlayer__sub_80113D90(mag)));

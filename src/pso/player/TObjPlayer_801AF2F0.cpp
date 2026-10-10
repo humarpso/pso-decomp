@@ -74,6 +74,58 @@ struct InventoryCreatePacket_801B849C {
     u32 flags;
 };
 
+struct VBase_801B96BC { char pad[0x18]; };
+
+struct VObj_801B96BC : VBase_801B96BC {
+    virtual void m0();
+    virtual void m1();
+    virtual void m2();
+    virtual void m3();
+    virtual void m4();
+    virtual void m5();
+    virtual void m6();
+    virtual void m7();
+    virtual void m8();
+    virtual void m9();
+    virtual void m10();
+    virtual void m11();
+    virtual void m12();
+    virtual void m13();
+    virtual void m14();
+    virtual void m15();
+    virtual void m16();
+    virtual void m17();
+    virtual void m18();
+    virtual void m19();
+    virtual void m20();
+    virtual void m21();
+    virtual void m22();
+    virtual void m23(void *, void *, void *);
+    virtual void m24();
+    virtual void m25();
+    virtual void m26();
+    virtual void m27();
+    virtual void m28();
+    virtual void m29();
+    virtual void m30();
+    virtual s8 m31();
+};
+
+struct Stats_801B96BC { s16 atp; s16 pad2[0x11]; };
+
+struct Out_801B96BC { s16 a; s16 b; };
+
+struct Self_801B96BC {
+    u8 pad0[0x2B0];
+    s32 f2B0;
+    u8 pad2B4[0x318 - 0x2B4];
+    s32 f318;
+    s32 f31C;
+    u8 pad320[0xD00 - 0x320];
+    s32 fD00;
+    u8 fD04[4];
+};
+
 extern "C" {
 void add_to_field_2ce__10TObjPlayerFPvi(void *, int);
 s16 get_atp__10TObjPlayerFPv(void *);
@@ -90,8 +142,6 @@ extern const f64 lbl_80446F38;
 extern const f64 lbl_80446F40;
 s32 calc_stat_threshold__10TObjPlayerFPv(void *arg0);
 f32 TObjPlayer__sub_800192C4(void *, int);
-s16 get_id__10TObjPlayerFPv(void *);
-s16 get_level__10TObjPlayerFPv(void *);
 u8 get_field_ed__10TObjPlayerFPv(void *);
 void copy_entry__6TLobbyFPvPv(void *, void *);
 void copy_from__6TLobbyFPvPv(void *, void *);
@@ -115,6 +165,20 @@ void copy_item_data__6TLobbyFPvPv(TItemData*, const TItemData*);
 void normalize__9TItemDataFv(TItemData*);
 void send_cmd_item_data__10TObjPlayerFPv(void*);
 extern u32 local_client_id;
+f32 TObjPlayer__sub_800192C4(void *, int);
+s16 get_attack_params_atp_min(void *);
+s16 get_attack_params_atp_max(void *);
+u8 get_field_ed__10TObjPlayerFPv(void *);
+void copy_entry__6TLobbyFPvPv(void *, void *);
+void copy_from__6TLobbyFPvPv(void *, void *);
+void copy_data__6TLobbyFPvPv(void *, s32);
+u8 get_field_ec__12TOSwitchItemFPv(void *);
+s32 is_item_equipped(int);
+M2C_UNK set_params__10TObjPlayerFPvPvPviPv(void *, void *, void *, int, int);
+u8 * get_slot_value__10TObjPlayerFPvi(void *, s32);
+u32 start_inventory_update__10TObjPlayerFPvi(s32, s32);
+u32 get_owner_if_alive__10TObjPlayerFPv();
+s32 preview_unequip_stats__10TObjPlayerFv(Self_801B96BC *self, Out_801B96BC *out, s32 arg2);
 }
 
 extern "C" {
@@ -2847,7 +2911,6 @@ void fn_801C19E0(void *, s32);
 M2C_UNK fn_801C19E8(void *);
 M2C_UNK fn_801C19F4(void *);
 void TObjPlayer__sub_801C1A00(void *);
-s32 is_item_equipped(int);
 s32 TObjPlayer__sub_801C1AC8(void *);
 M2C_UNK TObjPlayer__sub_801C1B0C(void *, int);
 void set_flags_bit2__10TObjPlayerFPv(s32);
@@ -3169,6 +3232,10 @@ s32 TObjPlayer__sub_801BE2C8(void *);
 void TObjPlayer__sub_801BE2C0(void *, s32);
 extern "C" {
 s32 get_item_field_6__10TObjPlayerFPv(Pl_801B0B88 *);
+}
+
+extern "C" {
+Equip_801B4CE4 * get_equip_field_d04__10TObjPlayerFPv(void *, s32);
 }
 
 s32 TObjPlayer__sub_801AF290(void *p) {
@@ -7423,6 +7490,56 @@ void send_unequip_held_item__10TObjPlayerFUi(u32 arg0) {
 
 #pragma push
 #pragma fp_contract on
+s32 preview_unequip_stats__10TObjPlayerFv(Self_801B96BC *self, Out_801B96BC *out, s32 arg2) {
+    u8 a[0x34];
+    Stats_801B96BC c;
+    u8 b[0x20];
+    VObj_801B96BC *owner;
+    s32 i;
+    s32 base;
+    f32 k;
+    s16 d;
+    if (start_inventory_update__10TObjPlayerFPvi(self->fD00, arg2) == 0U) {
+        return 0;
+    }
+    owner = ((VObj_801B96BC *)get_owner_if_alive__10TObjPlayerFPv());
+    if (owner == NULL) {
+        return 0;
+    }
+    if (is_item_equipped((int)(owner)) == 0 && ((u32)get_equip_field_d04__10TObjPlayerFPv(self, owner->m31())) == 0U) {
+        return 1;
+    }
+    copy_from__6TLobbyFPvPv((void *)(a), (void *)(self->f318));
+    copy_entry__6TLobbyFPvPv((void *)(b), (void *)(self->f31C));
+    copy_data__6TLobbyFPvPv(&c, self->f2B0);
+    owner->m23(a, b, &c);
+    if (get_field_ec__12TOSwitchItemFPv(owner) == 1 && get_field_ed__10TObjPlayerFPv(owner) == 1) {
+        for (i = 9; i <= 12; i++) {
+            VObj_801B96BC *s = ((VObj_801B96BC *)get_slot_value__10TObjPlayerFPvi(self->fD04, i));
+            if (s != NULL) {
+                s->m23(a, b, &c);
+            }
+        }
+    }
+    set_params__10TObjPlayerFPvPvPviPv((void *)(out), (void *)(self), (void *)(&c), (int)(a), (int)(b));
+    k = TObjPlayer__sub_800192C4((void *)(self), (int)(2));
+    i = c.atp;
+    {
+        s16 sl = i;
+        base = (s32)((f32)sl * k + (f32)(sl + (s16)get_attack_params_atp_min(a)));
+    }
+    d = get_attack_params_atp_max(a) - get_attack_params_atp_min(a);
+    out->a = base + (s32)((f32)d * k + (f32)d);
+    {
+        f32 k2 = TObjPlayer__sub_800192C4((void *)(self), (int)(3));
+        out->b = (f32)out->b * k2 + (f32)out->b;
+    }
+    return 2;
+}
+#pragma pop
+
+#pragma push
+#pragma fp_contract on
 s32 preview_equip_stats__10TObjPlayerFv(u8 *arg0, s16 *out, u8 *incoming) {
     Base_801B9954 b;
     Attack_801B9954 a;
@@ -7476,9 +7593,9 @@ s32 preview_equip_stats__10TObjPlayerFv(u8 *arg0, s16 *out, u8 *incoming) {
         slot = b.field[0];
         {
         s16 sl = slot;
-        atp = (s32)((f32)sl * rate + (f32)(sl + get_id__10TObjPlayerFPv(&a)));
+        atp = (s32)((f32)sl * rate + (f32)(sl + get_attack_params_atp_min(&a)));
         }
-        range = get_level__10TObjPlayerFPv(&a) - get_id__10TObjPlayerFPv(&a);
+        range = get_attack_params_atp_max(&a) - get_attack_params_atp_min(&a);
         out[0] = atp + (s32)((f32)range * rate + (f32)range);
     }
     rate = TObjPlayer__sub_800192C4(arg0, 3);
