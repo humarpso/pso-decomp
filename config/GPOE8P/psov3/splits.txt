@@ -153,7 +153,7 @@ pso/player/TObjPlayer_80020898.cpp:
 
 pso/boss/TBoss1Dragon.cpp:
 	.text       start:0x800208B4 end:0x8002ADC8
-	.rodata     start:0x80435380 end:0x80435388
+	.rodata     start:0x80435360 end:0x80435388
 	.data       start:0x80480CE0 end:0x80481B34
 	.sdata2     start:0x805D7F24 end:0x805D8008
 
@@ -2845,6 +2845,7 @@ pso/player/TObjPlayer_80116578.cpp:
 
 pso/item/TItemProShield_80116634.cpp:
 	.text       start:0x80116634 end:0x80116D90
+	.data       start:0x8049F770 end:0x8049FBC0
 
 pso/unk/text_80116D90.cpp:
 	.text       start:0x80116D90 end:0x80116DE8

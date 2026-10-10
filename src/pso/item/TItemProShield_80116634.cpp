@@ -121,7 +121,7 @@ s32 activate_d04_slot__10TObjPlayerFPv(s32);
 void free_obj_heap__10TObjPlayerFPv(void *);
 s32 get_slot_count__14TItemProShieldFPv(void *);
 
-extern M2C_UNK lbl_8049F770[];
+extern void *item_hp_recovery_vtable[];
 
 typedef struct Obj_80116634 Obj_80116634;
 void apply_mate_hp_recovery(Obj_80116634 *arg0) {
@@ -144,7 +144,7 @@ void apply_mate_hp_recovery(Obj_80116634 *arg0) {
 
 void *TItemProShield__sub_801166B0(void *arg0, s16 arg1) {
     if (arg0 != NULL) {
-        M2C_FIELD(arg0, M2C_UNK **, 0x18) = lbl_8049F770;
+        M2C_FIELD(arg0, M2C_UNK **, 0x18) = (M2C_UNK *)item_hp_recovery_vtable;
         __dt__11TItemObjectFv(arg0, 0);
         if (arg1 > 0) {
             free_obj_heap__10TObjPlayerFPv(arg0);
@@ -153,11 +153,11 @@ void *TItemProShield__sub_801166B0(void *arg0, s16 arg1) {
     return arg0;
 }
 
-extern M2C_UNK lbl_8049F770[];
+extern void *item_hp_recovery_vtable[];
 
 void *TItemProShield__sub_80116708(void *arg0, void * _w1, void * _w2) {
     TItemObject__ct(arg0);
-    M2C_FIELD(arg0, M2C_UNK **, 0x18) = lbl_8049F770;
+    M2C_FIELD(arg0, M2C_UNK **, 0x18) = (M2C_UNK *)item_hp_recovery_vtable;
     return arg0;
 }
 
@@ -184,11 +184,11 @@ void apply_to_equip_slot__14TItemProShieldFPv(void *arg0) {
     }
 }
 
-extern M2C_UNK lbl_8049F828[];
+extern void *item_mag_transform_vtable[];
 
 void *TItemProShield__sub_801167E8(void *arg0, s16 arg1) {
     if (arg0 != NULL) {
-        M2C_FIELD(arg0, M2C_UNK **, 0x18) = lbl_8049F828;
+        M2C_FIELD(arg0, M2C_UNK **, 0x18) = (M2C_UNK *)item_mag_transform_vtable;
         __dt__11TItemObjectFv(arg0, 0);
         if (arg1 > 0) {
             free_obj_heap__10TObjPlayerFPv(arg0);
@@ -248,15 +248,15 @@ void TItemObject__ct(void *);
 void __dt__11TItemObjectFv(void *, int);
 void free_obj_heap__10TObjPlayerFPv(void *);
 
-extern M2C_UNK lbl_8049F828[];
+extern void *item_mag_transform_vtable[];
 
 void *init__14TItemProShieldFPv(void *arg0, void * _w1, void * _w2) {
     TItemObject__ct(arg0);
-    M2C_FIELD(arg0, M2C_UNK **, 0x18) = lbl_8049F828;
+    M2C_FIELD(arg0, M2C_UNK **, 0x18) = (M2C_UNK *)item_mag_transform_vtable;
     return arg0;
 }
 
-extern M2C_UNK lbl_8049F8E0[];
+extern void *item_moon_atomizer_vtable[];
 
 u8 *create__14TItemProShieldFPv(u8 *arg0) {
     u8 *temp_r3;
@@ -297,7 +297,7 @@ void apply_moon_atomizer(void *arg0) {
 
 void *TItemProShield__sub_80116970(void *arg0, s16 arg1) {
     if (arg0 != NULL) {
-        M2C_FIELD(arg0, M2C_UNK **, 0x18) = lbl_8049F8E0;
+        M2C_FIELD(arg0, M2C_UNK **, 0x18) = (M2C_UNK *)item_moon_atomizer_vtable;
         __dt__11TItemObjectFv(arg0, 0);
         if (arg1 > 0) {
             free_obj_heap__10TObjPlayerFPv(arg0);
@@ -306,11 +306,11 @@ void *TItemProShield__sub_80116970(void *arg0, s16 arg1) {
     return arg0;
 }
 
-extern M2C_UNK lbl_8049F8E0[];
+extern void *item_moon_atomizer_vtable[];
 
 void *init_item_object__14TItemProShieldFPv(void *arg0, void * _w1, void * _w2) {
     TItemObject__ct(arg0);
-    M2C_FIELD(arg0, M2C_UNK **, 0x18) = lbl_8049F8E0;
+    M2C_FIELD(arg0, M2C_UNK **, 0x18) = (M2C_UNK *)item_moon_atomizer_vtable;
     return arg0;
 }
 
@@ -429,11 +429,11 @@ int send_star_atomizer_targets(void*);
 void __dt__11TItemObjectFv(void *, int);
 void free_obj_heap__10TObjPlayerFPv(void *);
 
-extern M2C_UNK lbl_8049F998[];
+extern void *item_status_cure_vtable[];
 
 void *TItemProShield__sub_80116AD0(void *arg0, s16 arg1) {
     if (arg0 != NULL) {
-        M2C_FIELD(arg0, M2C_UNK **, 0x18) = lbl_8049F998;
+        M2C_FIELD(arg0, M2C_UNK **, 0x18) = (M2C_UNK *)item_status_cure_vtable;
         __dt__11TItemObjectFv(arg0, 0);
         if (arg1 > 0) {
             free_obj_heap__10TObjPlayerFPv(arg0);
@@ -442,11 +442,11 @@ void *TItemProShield__sub_80116AD0(void *arg0, s16 arg1) {
     return arg0;
 }
 
-extern M2C_UNK lbl_8049F998[];
+extern void *item_status_cure_vtable[];
 
 void *TItemProShield__sub_80116B28(void *arg0, void * _w1, void * _w2) {
     TItemObject__ct(arg0);
-    M2C_FIELD(arg0, M2C_UNK **, 0x18) = lbl_8049F998;
+    M2C_FIELD(arg0, M2C_UNK **, 0x18) = (M2C_UNK *)item_status_cure_vtable;
     return arg0;
 }
 
@@ -469,11 +469,11 @@ void apply_sol_atomizer(void *arg0) {
     o->m48();
 }
 
-extern M2C_UNK lbl_8049FA50[];
+extern void *item_sol_atomizer_vtable[];
 
 void *item_object_variant_deleting_dtor_80116BEC(void *arg0, s16 arg1) {
     if (arg0 != NULL) {
-        M2C_FIELD(arg0, M2C_UNK **, 0x18) = lbl_8049FA50;
+        M2C_FIELD(arg0, M2C_UNK **, 0x18) = (M2C_UNK *)item_sol_atomizer_vtable;
         __dt__11TItemObjectFv(arg0, 0);
         if (arg1 > 0) {
             free_obj_heap__10TObjPlayerFPv(arg0);
@@ -482,11 +482,11 @@ void *item_object_variant_deleting_dtor_80116BEC(void *arg0, s16 arg1) {
     return arg0;
 }
 
-extern M2C_UNK lbl_8049FA50[];
+extern void *item_sol_atomizer_vtable[];
 
 void *TItemProShield__sub_80116C44(void *arg0, void * _w1, void * _w2) {
     TItemObject__ct(arg0);
-    M2C_FIELD(arg0, M2C_UNK **, 0x18) = lbl_8049FA50;
+    M2C_FIELD(arg0, M2C_UNK **, 0x18) = (M2C_UNK *)item_sol_atomizer_vtable;
     return arg0;
 }
 
@@ -506,11 +506,11 @@ u8 *create_sol_atomizer_item(u8 *arg0) {
 
 int apply_star_atomizer(void* p) { return send_star_atomizer_targets(*(void**)((char*)p + 0xf0)); }
 
-extern M2C_UNK lbl_8049FB08[];
+extern void *item_star_atomizer_vtable[];
 
 void *item_object_variant_deleting_dtor_80116CFC(void *arg0, s16 arg1) {
     if (arg0 != NULL) {
-        M2C_FIELD(arg0, M2C_UNK **, 0x18) = lbl_8049FB08;
+        M2C_FIELD(arg0, M2C_UNK **, 0x18) = (M2C_UNK *)item_star_atomizer_vtable;
         __dt__11TItemObjectFv(arg0, 0);
         if (arg1 > 0) {
             free_obj_heap__10TObjPlayerFPv(arg0);
@@ -519,12 +519,344 @@ void *item_object_variant_deleting_dtor_80116CFC(void *arg0, s16 arg1) {
     return arg0;
 }
 
-extern M2C_UNK lbl_8049FB08[];
+extern void *item_star_atomizer_vtable[];
 
 void *TItemProShield__sub_80116D54(void *arg0) {
     TItemObject__ct(arg0);
-    M2C_FIELD(arg0, M2C_UNK **, 0x18) = lbl_8049FB08;
+    M2C_FIELD(arg0, M2C_UNK **, 0x18) = (M2C_UNK *)item_star_atomizer_vtable;
     return arg0;
 }
 
+}
+
+extern "C" {
+void TItemObject__vt12();
+void TItemObject__vt16();
+void TItemObject__vt29();
+void TItemObject__vt35();
+void TItemObject__vt36();
+void TItemObject__vt7();
+void TItem__sub_801005D8();
+void TItem__sub_801005DC();
+void TItem__sub_801005E0();
+void TItem__sub_801005E4();
+void TItem__sub_80100648();
+void TItem__sub_80100674();
+void TItem__sub_80100678();
+void TItem__sub_8010067C();
+void TItem__sub_80100680();
+void TItem__sub_80100688();
+void TItem__sub_8010068C();
+void TItem__sub_80100690();
+void TItem__sub_80100694();
+void TItem__sub_80100698();
+void TItem__sub_80100758();
+void TItem__sub_8010075C();
+void TItem__sub_801007A8();
+void TItem__sub_801007AC();
+void TItem__sub_801007B0();
+void TItem__sub_80100B8C();
+void TLobby__sub_801A1FD8();
+void TObjPlayer__sub_80102BD0();
+void TObjPlayer__sub_80102BD8();
+void apply_object_set_data();
+void classify_actor_view_detail();
+void destroy__5TItemFPv();
+void dispatch_state__5TItemFPv();
+void load_encoded_value__11TItemObjectFv();
+void register_attack__5TItemFPv();
+void release_member_90__10TObjPlayerFPv();
+void render__5TItemFPv();
+void ret_8010064C();
+void ret_8010066C();
+void run_task__5TItemFPv();
+void try_pick_up_item__5TItemFPvi();
+void *item_hp_recovery_vtable[46] = {
+    0,
+    0,
+    (void *)&TItemProShield__sub_801166B0,
+    (void *)&run_task__5TItemFPv,
+    (void *)&dispatch_state__5TItemFPv,
+    (void *)&render__5TItemFPv,
+    (void *)&TLobby__sub_801A1FD8,
+    (void *)&apply_object_set_data,
+    (void *)&release_member_90__10TObjPlayerFPv,
+    (void *)&TItemObject__vt7,
+    (void *)&TItem__sub_80100B8C,
+    (void *)&classify_actor_view_detail,
+    (void *)&register_attack__5TItemFPv,
+    (void *)&try_pick_up_item__5TItemFPvi,
+    (void *)&TItemObject__vt12,
+    (void *)&TItem__sub_801005E0,
+    (void *)&TItem__sub_801005DC,
+    (void *)&TItem__sub_80100678,
+    (void *)&TItemObject__vt16,
+    (void *)&TItem__sub_8010067C,
+    (void *)&TItem__sub_801007B0,
+    (void *)&TItem__sub_801007AC,
+    (void *)&TItem__sub_8010075C,
+    (void *)&TItem__sub_80100758,
+    (void *)&TItem__sub_80100698,
+    (void *)&TItem__sub_80100694,
+    (void *)&TItem__sub_80100690,
+    (void *)&TItem__sub_8010068C,
+    (void *)&TItem__sub_80100688,
+    (void *)&destroy__5TItemFPv,
+    (void *)&TItem__sub_801007A8,
+    (void *)&TItemObject__vt29,
+    (void *)&TItem__sub_80100680,
+    (void *)&TObjPlayer__sub_80102BD0,
+    (void *)&TItem__sub_80100674,
+    (void *)&ret_8010066C,
+    (void *)&load_encoded_value__11TItemObjectFv,
+    (void *)&TItemObject__vt35,
+    (void *)&TItemObject__vt36,
+    (void *)&ret_8010064C,
+    (void *)&TItem__sub_80100648,
+    (void *)&TItem__sub_801005E4,
+    (void *)&TItem__sub_801005D8,
+    (void *)&TObjPlayer__sub_80102BD8,
+    (void *)&apply_mate_hp_recovery,
+    0
+};
+void *item_mag_transform_vtable[46] = {
+    0,
+    0,
+    (void *)&TItemProShield__sub_801167E8,
+    (void *)&run_task__5TItemFPv,
+    (void *)&dispatch_state__5TItemFPv,
+    (void *)&render__5TItemFPv,
+    (void *)&TLobby__sub_801A1FD8,
+    (void *)&apply_object_set_data,
+    (void *)&release_member_90__10TObjPlayerFPv,
+    (void *)&TItemObject__vt7,
+    (void *)&TItem__sub_80100B8C,
+    (void *)&classify_actor_view_detail,
+    (void *)&register_attack__5TItemFPv,
+    (void *)&try_pick_up_item__5TItemFPvi,
+    (void *)&TItemObject__vt12,
+    (void *)&TItem__sub_801005E0,
+    (void *)&TItem__sub_801005DC,
+    (void *)&TItem__sub_80100678,
+    (void *)&TItemObject__vt16,
+    (void *)&TItem__sub_8010067C,
+    (void *)&TItem__sub_801007B0,
+    (void *)&TItem__sub_801007AC,
+    (void *)&TItem__sub_8010075C,
+    (void *)&TItem__sub_80100758,
+    (void *)&TItem__sub_80100698,
+    (void *)&TItem__sub_80100694,
+    (void *)&TItem__sub_80100690,
+    (void *)&TItem__sub_8010068C,
+    (void *)&TItem__sub_80100688,
+    (void *)&destroy__5TItemFPv,
+    (void *)&TItem__sub_801007A8,
+    (void *)&TItemObject__vt29,
+    (void *)&TItem__sub_80100680,
+    (void *)&TObjPlayer__sub_80102BD0,
+    (void *)&TItem__sub_80100674,
+    (void *)&ret_8010066C,
+    (void *)&load_encoded_value__11TItemObjectFv,
+    (void *)&TItemObject__vt35,
+    (void *)&TItemObject__vt36,
+    (void *)&ret_8010064C,
+    (void *)&TItem__sub_80100648,
+    (void *)&TItem__sub_801005E4,
+    (void *)&TItem__sub_801005D8,
+    (void *)&TObjPlayer__sub_80102BD8,
+    (void *)&apply_to_equip_slot__14TItemProShieldFPv,
+    0
+};
+void *item_moon_atomizer_vtable[46] = {
+    0,
+    0,
+    (void *)&TItemProShield__sub_80116970,
+    (void *)&run_task__5TItemFPv,
+    (void *)&dispatch_state__5TItemFPv,
+    (void *)&render__5TItemFPv,
+    (void *)&TLobby__sub_801A1FD8,
+    (void *)&apply_object_set_data,
+    (void *)&release_member_90__10TObjPlayerFPv,
+    (void *)&TItemObject__vt7,
+    (void *)&TItem__sub_80100B8C,
+    (void *)&classify_actor_view_detail,
+    (void *)&register_attack__5TItemFPv,
+    (void *)&try_pick_up_item__5TItemFPvi,
+    (void *)&TItemObject__vt12,
+    (void *)&TItem__sub_801005E0,
+    (void *)&TItem__sub_801005DC,
+    (void *)&TItem__sub_80100678,
+    (void *)&TItemObject__vt16,
+    (void *)&TItem__sub_8010067C,
+    (void *)&TItem__sub_801007B0,
+    (void *)&TItem__sub_801007AC,
+    (void *)&TItem__sub_8010075C,
+    (void *)&TItem__sub_80100758,
+    (void *)&TItem__sub_80100698,
+    (void *)&TItem__sub_80100694,
+    (void *)&TItem__sub_80100690,
+    (void *)&TItem__sub_8010068C,
+    (void *)&TItem__sub_80100688,
+    (void *)&destroy__5TItemFPv,
+    (void *)&TItem__sub_801007A8,
+    (void *)&TItemObject__vt29,
+    (void *)&TItem__sub_80100680,
+    (void *)&TObjPlayer__sub_80102BD0,
+    (void *)&TItem__sub_80100674,
+    (void *)&ret_8010066C,
+    (void *)&load_encoded_value__11TItemObjectFv,
+    (void *)&TItemObject__vt35,
+    (void *)&TItemObject__vt36,
+    (void *)&ret_8010064C,
+    (void *)&TItem__sub_80100648,
+    (void *)&TItem__sub_801005E4,
+    (void *)&TItem__sub_801005D8,
+    (void *)&TObjPlayer__sub_80102BD8,
+    (void *)&apply_moon_atomizer,
+    0
+};
+void *item_status_cure_vtable[46] = {
+    0,
+    0,
+    (void *)&TItemProShield__sub_80116AD0,
+    (void *)&run_task__5TItemFPv,
+    (void *)&dispatch_state__5TItemFPv,
+    (void *)&render__5TItemFPv,
+    (void *)&TLobby__sub_801A1FD8,
+    (void *)&apply_object_set_data,
+    (void *)&release_member_90__10TObjPlayerFPv,
+    (void *)&TItemObject__vt7,
+    (void *)&TItem__sub_80100B8C,
+    (void *)&classify_actor_view_detail,
+    (void *)&register_attack__5TItemFPv,
+    (void *)&try_pick_up_item__5TItemFPvi,
+    (void *)&TItemObject__vt12,
+    (void *)&TItem__sub_801005E0,
+    (void *)&TItem__sub_801005DC,
+    (void *)&TItem__sub_80100678,
+    (void *)&TItemObject__vt16,
+    (void *)&TItem__sub_8010067C,
+    (void *)&TItem__sub_801007B0,
+    (void *)&TItem__sub_801007AC,
+    (void *)&TItem__sub_8010075C,
+    (void *)&TItem__sub_80100758,
+    (void *)&TItem__sub_80100698,
+    (void *)&TItem__sub_80100694,
+    (void *)&TItem__sub_80100690,
+    (void *)&TItem__sub_8010068C,
+    (void *)&TItem__sub_80100688,
+    (void *)&destroy__5TItemFPv,
+    (void *)&TItem__sub_801007A8,
+    (void *)&TItemObject__vt29,
+    (void *)&TItem__sub_80100680,
+    (void *)&TObjPlayer__sub_80102BD0,
+    (void *)&TItem__sub_80100674,
+    (void *)&ret_8010066C,
+    (void *)&load_encoded_value__11TItemObjectFv,
+    (void *)&TItemObject__vt35,
+    (void *)&TItemObject__vt36,
+    (void *)&ret_8010064C,
+    (void *)&TItem__sub_80100648,
+    (void *)&TItem__sub_801005E4,
+    (void *)&TItem__sub_801005D8,
+    (void *)&TObjPlayer__sub_80102BD8,
+    (void *)&dispatch_state_action__14TItemProShieldFPv,
+    0
+};
+void *item_sol_atomizer_vtable[46] = {
+    0,
+    0,
+    (void *)&item_object_variant_deleting_dtor_80116BEC,
+    (void *)&run_task__5TItemFPv,
+    (void *)&dispatch_state__5TItemFPv,
+    (void *)&render__5TItemFPv,
+    (void *)&TLobby__sub_801A1FD8,
+    (void *)&apply_object_set_data,
+    (void *)&release_member_90__10TObjPlayerFPv,
+    (void *)&TItemObject__vt7,
+    (void *)&TItem__sub_80100B8C,
+    (void *)&classify_actor_view_detail,
+    (void *)&register_attack__5TItemFPv,
+    (void *)&try_pick_up_item__5TItemFPvi,
+    (void *)&TItemObject__vt12,
+    (void *)&TItem__sub_801005E0,
+    (void *)&TItem__sub_801005DC,
+    (void *)&TItem__sub_80100678,
+    (void *)&TItemObject__vt16,
+    (void *)&TItem__sub_8010067C,
+    (void *)&TItem__sub_801007B0,
+    (void *)&TItem__sub_801007AC,
+    (void *)&TItem__sub_8010075C,
+    (void *)&TItem__sub_80100758,
+    (void *)&TItem__sub_80100698,
+    (void *)&TItem__sub_80100694,
+    (void *)&TItem__sub_80100690,
+    (void *)&TItem__sub_8010068C,
+    (void *)&TItem__sub_80100688,
+    (void *)&destroy__5TItemFPv,
+    (void *)&TItem__sub_801007A8,
+    (void *)&TItemObject__vt29,
+    (void *)&TItem__sub_80100680,
+    (void *)&TObjPlayer__sub_80102BD0,
+    (void *)&TItem__sub_80100674,
+    (void *)&ret_8010066C,
+    (void *)&load_encoded_value__11TItemObjectFv,
+    (void *)&TItemObject__vt35,
+    (void *)&TItemObject__vt36,
+    (void *)&ret_8010064C,
+    (void *)&TItem__sub_80100648,
+    (void *)&TItem__sub_801005E4,
+    (void *)&TItem__sub_801005D8,
+    (void *)&TObjPlayer__sub_80102BD8,
+    (void *)&apply_sol_atomizer,
+    0
+};
+void *item_star_atomizer_vtable[46] = {
+    0,
+    0,
+    (void *)&item_object_variant_deleting_dtor_80116CFC,
+    (void *)&run_task__5TItemFPv,
+    (void *)&dispatch_state__5TItemFPv,
+    (void *)&render__5TItemFPv,
+    (void *)&TLobby__sub_801A1FD8,
+    (void *)&apply_object_set_data,
+    (void *)&release_member_90__10TObjPlayerFPv,
+    (void *)&TItemObject__vt7,
+    (void *)&TItem__sub_80100B8C,
+    (void *)&classify_actor_view_detail,
+    (void *)&register_attack__5TItemFPv,
+    (void *)&try_pick_up_item__5TItemFPvi,
+    (void *)&TItemObject__vt12,
+    (void *)&TItem__sub_801005E0,
+    (void *)&TItem__sub_801005DC,
+    (void *)&TItem__sub_80100678,
+    (void *)&TItemObject__vt16,
+    (void *)&TItem__sub_8010067C,
+    (void *)&TItem__sub_801007B0,
+    (void *)&TItem__sub_801007AC,
+    (void *)&TItem__sub_8010075C,
+    (void *)&TItem__sub_80100758,
+    (void *)&TItem__sub_80100698,
+    (void *)&TItem__sub_80100694,
+    (void *)&TItem__sub_80100690,
+    (void *)&TItem__sub_8010068C,
+    (void *)&TItem__sub_80100688,
+    (void *)&destroy__5TItemFPv,
+    (void *)&TItem__sub_801007A8,
+    (void *)&TItemObject__vt29,
+    (void *)&TItem__sub_80100680,
+    (void *)&TObjPlayer__sub_80102BD0,
+    (void *)&TItem__sub_80100674,
+    (void *)&ret_8010066C,
+    (void *)&load_encoded_value__11TItemObjectFv,
+    (void *)&TItemObject__vt35,
+    (void *)&TItemObject__vt36,
+    (void *)&ret_8010064C,
+    (void *)&TItem__sub_80100648,
+    (void *)&TItem__sub_801005E4,
+    (void *)&TItem__sub_801005D8,
+    (void *)&TObjPlayer__sub_80102BD8,
+    (void *)&apply_star_atomizer,
+    0
+};
 }

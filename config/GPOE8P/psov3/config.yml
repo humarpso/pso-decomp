@@ -1344,7 +1344,13 @@ force_active:
   - is_within_range__19TContainerAncient01Fii
   - item_follow_effect_vtable
   - item_help_level_requirement_callback
+  - item_hp_recovery_vtable
+  - item_mag_transform_vtable
+  - item_moon_atomizer_vtable
   - item_object_variant_deleting_dtor_80116F10
+  - item_sol_atomizer_vtable
+  - item_star_atomizer_vtable
+  - item_status_cure_vtable
   - item_system_generation
   - jungle_boss_warp_resource_block
   - keyboard_poll_key_codes
