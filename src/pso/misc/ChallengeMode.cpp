@@ -1,4 +1,15 @@
 #include "types.h"
+#include "pso/misc/TChallenge.h"
+#include <stddef.h>
+typedef char TChallenge_state_offset[(offsetof(TChallenge, state) == 0x1C) ? 1 : -1];
+typedef char TChallenge_frame_offset[(offsetof(TChallenge, frame_count) == 0x20) ? 1 : -1];
+typedef char TChallenge_size[(sizeof(TChallenge) == 0x30) ? 1 : -1];
+
+extern "C" {
+s32 challenge_task;
+s32 challenge_task_created;
+s32 TLobby__data_805D4E30;
+}
 typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
 typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 #define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
@@ -72,17 +83,7 @@ struct G_80070254 { u8 pad[0x270]; E_80070254 e[4]; };
 
 struct L_80070254 { u8 pad[0x24]; s32 x24; };
 
-class TLobby_80070674 {
-public:
-    u8 pad0[0x1C];
-    s32 state;
-    s32 count;
-    void step0(void);
-    void step1(void);
-    void step2(void);
-};
-
-typedef void (TLobby_80070674::*Step_80070674)(void);
+typedef void (TChallenge::*Step_80070674)(void);
 struct Q_80070078 { u8 pad[0x48]; s32 x48; };
 struct L_80070078 { u8 pad[0x2C]; s32 x2C; };
 extern "C" {
@@ -97,7 +98,7 @@ s32 get_global_state__14TOKeyMachine01Fv(void);
 void create_obj_tag_challenge(s32);
 void create__14TObjBagWarnWinFPv(s32);
 extern s32 tl_07;
-void TLobby__sub_80070600(O_80070600 *self);
+
 s32 get_main_phase(void);
 void queue_destruction__7TObjectFv(void *);
 s32 get_global_state__14TOKeyMachine01Fv(void);
@@ -121,8 +122,7 @@ void TLobby__sub_80070254(L_80070254 *arg0);
 extern "C" {
 
 void TLobby__sub_80070550(void);
-void TLobby__sub_80070598(u8 *arg0);
-void cleanup_if_inactive__6TLobbyFPv(void* p);
+
 void update_battle_cleanup_flag__6TLobbyFPv(void *arg0);
 s32 is_quest_active();
 M2C_UNK update_card_save_info__6TLobbyFv(void *);
@@ -143,7 +143,7 @@ s32 init__23TAdSinglePlyChrSelectGCFv();
 extern s32 tl_07;
 
 extern "C" {
-void run_step_table__6TLobbyFPv(TLobby_80070674 *);
+void run_task__10TChallengeFv(TChallenge *);
 }
 struct Obj_80070774 { u8 pad0[0x18]; void *vt; };
 Obj_80070774 *TLobby__sub_80070774(Obj_80070774 *arg0, s16 arg1);
@@ -584,8 +584,9 @@ s32 destroy_on_phase_change__6TLobbyFPv(void *self) {
 }
 
 void TLobby__sub_80070550(void) {  }
-void cleanup_if_inactive__6TLobbyFPv(void* p) { if (destroy_on_phase_change__6TLobbyFPv((void *)((void*)(p))) == 0) { TLobby__sub_80070170((void *)(p)); update_battle_cleanup_flag__6TLobbyFPv((void *)(p)); } }
-void TLobby__sub_80070598(u8 *arg0) {
+void TChallenge::update_active() { void *p = this; if (destroy_on_phase_change__6TLobbyFPv((void *)((void*)(p))) == 0) { TLobby__sub_80070170((void *)(p)); update_battle_cleanup_flag__6TLobbyFPv((void *)(p)); } }
+void TChallenge::wait_for_quest() {
+    u8 *arg0 = (u8 *)this;
     if (((s32)destroy_on_phase_change__6TLobbyFPv((void *)((void*)((void*)(arg0))))) == 0) {
         update_quest_challenge_state__6TLobbyFPv((void *) (arg0));
         if (is_quest_active() != 0) {
@@ -597,7 +598,8 @@ void TLobby__sub_80070598(u8 *arg0) {
         }
     }
 }
-void TLobby__sub_80070600(O_80070600 *self) {
+void TChallenge::initialize_windows() {
+    O_80070600 *self = (O_80070600 *)this;
     s32 flag = 0;
     switch (get_main_phase()) {
     case 0xf:
@@ -617,15 +619,16 @@ void TLobby__sub_80070600(O_80070600 *self) {
 }
 s32 TAdPlayerLoadGC__sub_801E1510(void *);
 
-void run_step_table__6TLobbyFPv(TLobby_80070674 *self) {
+void TChallenge::run_task() {
+    TChallenge *self = this;
     if (TAdPlayerLoadGC__sub_801E1510(self) == 1) {
         return;
     }
     TLobby__sub_80070254((L_80070254 *)self);
     static Step_80070674 table[3] = {
-        &TLobby_80070674::step0,
-        &TLobby_80070674::step1,
-        &TLobby_80070674::step2,
+        &TChallenge::initialize_windows,
+        &TChallenge::wait_for_quest,
+        &TChallenge::update_active,
     };
     Step_80070674 step = table[self->state];
     if (step) {
@@ -633,7 +636,7 @@ void run_step_table__6TLobbyFPv(TLobby_80070674 *self) {
     } else {
         return;
     }
-    self->count++;
+    self->frame_count++;
 }
 
 void *lbl_8048D0B0[22] = {
@@ -645,9 +648,29 @@ void *lbl_8048D0B0[22] = {
     (void *)0x0, (void *)0x0,
 };
 void *lbl_8048D108[6] = {
-    (void *)0x0, (void *)0x0, (void *)&TLobby__sub_80070774, (void *)&run_step_table__6TLobbyFPv,
+    (void *)0x0, (void *)0x0, (void *)&TLobby__sub_80070774, (void *)&run_task__10TChallengeFv,
     (void *)&TLobby__sub_80070550, (void *)&render_shadows__7TObjectFv,
 };
+
+void __dt__7TObjectFv(void *, s32);
+void destroy__13TObjTombstoneFv();
+void __dl__7TObjectFPv(void *);
+extern s32 challenge_task;
+
+Obj_80070774 *TLobby__sub_80070774(Obj_80070774 *arg0, s16 arg1) {
+    if (arg0 != NULL) {
+        arg0->vt = lbl_8048D108;
+        destroy__13TObjTombstoneFv();
+        ((void (*)(void *))clear_four_slots__6TLobbyFv)(arg0);
+        copy_challenge_settings__6TLobbyFPvPv((u8 *)challenge_mode_state, (u8 *)challenge_settings_defaults);
+        challenge_task = 0;
+        __dt__7TObjectFv(arg0, 0);
+        if (arg1 > 0) {
+            __dl__7TObjectFPv(arg0);
+        }
+    }
+    return arg0;
+}
 
 void copy_challenge_settings__6TLobbyFPvPv(u8 *arg0, u8 *arg1) {
     u8 *temp_r6;
@@ -680,26 +703,6 @@ void copy_challenge_settings__6TLobbyFPvPv(u8 *arg0, u8 *arg1) {
     *(M2CCopy_54 *)((s32) temp_r8 + 4) = *(const M2CCopy_54 *)((s32) temp_r6 + 4);
     *(M2CCopy_410 *)((s32) (arg0 + 0x26C) + 4) = *(const M2CCopy_410 *)((s32) (arg1 + 0x26C) + 4);
     *(M2CCopy_10 *)((s32) arg0 + 0x680) = *(const M2CCopy_10 *)((s32) arg1 + 0x680);
-}
-
-void __dt__7TObjectFv(void *, s32);
-void destroy__13TObjTombstoneFv();
-void __dl__7TObjectFPv(void *);
-extern s32 challenge_task;
-
-Obj_80070774 *TLobby__sub_80070774(Obj_80070774 *arg0, s16 arg1) {
-    if (arg0 != NULL) {
-        arg0->vt = lbl_8048D108;
-        destroy__13TObjTombstoneFv();
-        ((void (*)(void *))clear_four_slots__6TLobbyFv)(arg0);
-        copy_challenge_settings__6TLobbyFPvPv((u8 *)challenge_mode_state, (u8 *)challenge_settings_defaults);
-        challenge_task = 0;
-        __dt__7TObjectFv(arg0, 0);
-        if (arg1 > 0) {
-            __dl__7TObjectFPv(arg0);
-        }
-    }
-    return arg0;
 }
 
 struct Obj_80070944 { s32 f0; u8 pad4[0x14]; void *vt; s32 f1C, f20, f24, f28, f2C; };

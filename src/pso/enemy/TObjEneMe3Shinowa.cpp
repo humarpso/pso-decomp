@@ -2385,7 +2385,7 @@ void free_collision_body_parts(void *);
 s32 get_stat_by_key_state__10TObjPlayerFPv(int);
 M2C_UNK end_effect_render__13TParticleCtrlFv();
 M2C_UNK play_sound_effect(void *, void *, int, int);
-s32 toggle_flag_9__10TObjPlayerFPv(void *);
+s32 toggle_flag_9_if_flag_10_is_clear__7TObjectFv(void *);
 void __dl__7TObjectFPv(void *);
 s32 create__9TTecRestaFPvPvPv(void *, void *, int);
 M2C_UNK create__10TTecDebandFiii(void *, void *, s32);
@@ -2911,7 +2911,7 @@ void draw_model__23TObjEneMe3ShinowaMirageFPv(u8 *arg0) {
             }
         }
         var_r30 = 1;
-        if ((((VObj_18_82072c *)(arg0))->m107() != 0) && (toggle_flag_9__10TObjPlayerFPv((void *) (arg0)) != 0)) {
+        if ((((VObj_18_82072c *)(arg0))->m107() != 0) && (toggle_flag_9_if_flag_10_is_clear__7TObjectFv((void *) (arg0)) != 0)) {
             var_r30 = 0;
         }
         if (var_r30 != 0) {

@@ -390,7 +390,7 @@ M2C_UNK draw__16TObjEneRe7BeruraFPv(void *);
 M2C_UNK end_effect_render__13TParticleCtrlFv();
 M2C_UNK render_world_model__10TObjPlayerFPv(void *);
 M2C_UNK set_global_param__8TObjFishFi(s32);
-s32 toggle_flag_9__10TObjPlayerFPv(void *);
+s32 toggle_flag_9_if_flag_10_is_clear__7TObjectFv(void *);
 M2C_UNK toggle_particle_effect__10TObjPlayerFv();
 
 void clear_flag__18TObjEneBalClawClawFPv(void *arg0) {
@@ -481,7 +481,7 @@ void render__18TObjEneBalClawClawFPv(u8 *arg0) {
                     if (((VB_80090950 *)(arg0 + 0x390))->m8() != 0) {
                         ((VB_80090950 *)(arg0 + 0x390))->m6();
                         var_r29 = 1;
-                        if (toggle_flag_9__10TObjPlayerFPv(arg0) != 0) {
+                        if (toggle_flag_9_if_flag_10_is_clear__7TObjectFv(arg0) != 0) {
                             var_r29 = 0;
                         }
                         if (var_r29 != 0) {
@@ -1884,7 +1884,7 @@ void render__12TObjEneBeastFPv(Obj_8009211C *o) {
         doDraw = 1;
         if (fade != 0) {
             o->fades[cam].m6();
-            if (toggle_flag_9__10TObjPlayerFPv(o) != 0) {
+            if (toggle_flag_9_if_flag_10_is_clear__7TObjectFv(o) != 0) {
                 doDraw = 0;
             }
         }

@@ -85,7 +85,7 @@ M2C_UNK init_render_globals__10TObjPlayerFv();
 M2C_UNK TObjPlayer__sub_800EBE48(f32);
 M2C_UNK draw_part__15TObjEneSlimeOneFPvi(int, int);
 M2C_UNK end_effect_render__13TParticleCtrlFv();
-s32 toggle_flag_9__10TObjPlayerFPv(void *);
+s32 toggle_flag_9_if_flag_10_is_clear__7TObjectFv(void *);
 M2C_UNK scale_matrix_vec3(int, void *);
 M2C_UNK rotate_matrix_y(int, int);
 M2C_UNK push_matrix();
@@ -1916,7 +1916,7 @@ struct Bomb_800E9090;
 void render__15TObjEneSlimeOneFv(u8 *arg0) {
     s32 temp_r31;
     if ((check_demo_mode__10TObjPlayerFv() == 0) && !(M2C_FIELD(arg0, f32 *, 0x3A0) <= lbl_805DA6B4) && (((VObj_18_26a62c *)(arg0))->m8(lbl_805DA728, lbl_805DA6E4) != 0)) {
-        temp_r31 = toggle_flag_9__10TObjPlayerFPv((void *) (arg0));
+        temp_r31 = toggle_flag_9_if_flag_10_is_clear__7TObjectFv((void *) (arg0));
         if (M2C_FIELD(arg0, f32 *, 0x3A0) < lbl_805DA67C) {
             TObjPlayer__sub_800EBE48(M2C_FIELD(arg0, f32 *, 0x3A0));
         }

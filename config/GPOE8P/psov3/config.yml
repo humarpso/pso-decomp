@@ -279,6 +279,7 @@ force_active:
   - __ct__15TRecvGenerateIDFRC15TRecvGenerateID
   - __ct__16TGenGuildCardTagFRC16TGenGuildCardTag
   - __ct__9TEffGuardFPC3Vec
+  - __cvt_sll_dbl
   - __destroy_global_chain_reference
   - __dt__10TAdTitleGCFv
   - __dt__10TBoss4FadeFv
@@ -429,6 +430,10 @@ force_active:
   - __less_dec
   - __minus_dec
   - __num2dec_internal
+  - __restore_fpr
+  - __restore_gpr
+  - __save_fpr
+  - __save_gpr
   - __start
   - __str2dec
   - __timesdec
@@ -595,6 +600,7 @@ force_active:
   - clear_card_status_flags__6TLobbyFv
   - clear_entry_flags__17TBoss5GryphonDemoFPv
   - clear_flag_in_state7__14TObjEneBalClawFPv
+  - clear_four_slots__6TLobbyFv
   - clear_photon_blast_slots__10TObjPlayerFv
   - clear_pipe_interaction_latch
   - clear_segment_flags__17TBoss1DragonColliFPv
@@ -726,6 +732,7 @@ force_active:
   - destroy_free_buffers__20TWindowSubStatusDispFPvs
   - destroy_item_follow_effect
   - destroy_matching_children__6TLobbyFPv
+  - destroy_on_phase_change__6TLobbyFPv
   - destroy_static_array__10TObjPlayerFv
   - destroy_subobjects_recursive__10TObjPlayerFPv
   - detect_device_type__16TKeyBoardControlFi
@@ -1052,6 +1059,7 @@ force_active:
   - initialize_from_placement__13TObjRaderIconFv
   - initialize_player_data__10TObjPlayerFPv
   - initialize_selection_state__22TAdMultiPlyChrSelectGCFPvi
+  - initialize_windows__10TChallengeFv
   - inpTranslateExCtrl
   - insert_char_slot__19TWindowKeyBoardSoftFPv
   - invoke_callback__10TItemTimerFPv
@@ -1150,6 +1158,8 @@ force_active:
   - lbl_80478088
   - lbl_80483480
   - lbl_80483EEC
+  - lbl_8048D0B0
+  - lbl_8048D108
   - lbl_8048E758
   - lbl_804914C0
   - lbl_80491DE8
@@ -1363,6 +1373,8 @@ force_active:
   - macMakeActive
   - maccmp
   - mag_accumulate_drift
+  - main_task_root1_dtor_registration
+  - main_task_root2_dtor_registration
   - map_pad_buttons__16TKeyBoardControlFUs
   - maybe_handle_destruction__6TLobbyFPv
   - mcmdLoop
@@ -1421,6 +1433,7 @@ force_active:
   - particle_regular_bml_descriptor
   - pick_random_destination__11TODragonflyFPvf
   - place_players_in_warp_circle
+  - play_anti_cast_sound
   - play_door_sound__15TODoorAncient09FPv
   - play_footsteps__14TObjEneBm5WolfFPv
   - play_open_sound__15TODoorAncient08FPv
@@ -1586,6 +1599,7 @@ force_active:
   - run_state_machine__15TBoss3VoloptP01FPv
   - run_task__10TAdADXlogoFv
   - run_task__10TAdTitleGCFv
+  - run_task__10TChallengeFv
   - run_task__10TDPBShowerFv
   - run_task__10TEndingPicFv
   - run_task__10TItemTimerFv
@@ -1867,6 +1881,7 @@ force_active:
   - unlink_list_node__14TObjEneBm5WolfFPvPvPv
   - unregister_from_world__5TItemFi
   - unused_render_func__9TMainTaskFv
+  - update_active__10TChallengeFv
   - update_ai__9TObjGrassFPv
   - update_and_destroy__10TObjPlayerFPv
   - update_anim_if_active__23TObjSeabedSuisoBrakableFPv
@@ -2040,6 +2055,7 @@ force_active:
   - vt5__9TBoss4UroFv
   - vt6__9TBoss4UroFv
   - wait_aram_request__16TAdWarningBaseGCFv
+  - wait_for_quest__10TChallengeFv
   - wait_for_vi_retrace
   - warp_nearby_players__14TBoss6PlotFalzFv
   - window_label_value_part_vtable

@@ -121,7 +121,7 @@ M2C_UNK set_cached_blend_factor(M2C_UNK, M2C_UNK);
 M2C_UNK restore_saved_depth_alpha_state();
 s32 get_state_flag__9TMainTaskFv();
 M2C_UNK set_depth_buffer_settings_2__Fv();
-s32 toggle_flag_9__10TObjPlayerFPv();
+s32 toggle_flag_9_if_flag_10_is_clear__7TObjectFv();
 
 void TAdChrSelSlotGC__sub_802C70AC(void) {  }
 
@@ -168,7 +168,7 @@ void render__15TAdChrSelSlotGCFv(void *arg0) {
         }
         goto block_5;
     }
-    if (toggle_flag_9__10TObjPlayerFPv() == 0) {
+    if (toggle_flag_9_if_flag_10_is_clear__7TObjectFv() == 0) {
         set_depth_buffer_settings_2__Fv();
 block_5:
         set_cached_blend_factor(0, 8);

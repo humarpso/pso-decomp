@@ -611,7 +611,7 @@ s32 is_main_phase_15__9TObjEneDDFv();
 M2C_UNK clear_global_flag_400__9TObjEneDDFv();
 M2C_UNK update_player_state__9TObjEneDDFPv(void *, Vec_80332850 *, s32);
 M2C_UNK update_secondary_light__9TObjEneDDFPv(void *);
-M2C_UNK toggle_flag_9__10TObjPlayerFPv(void *);
+M2C_UNK toggle_flag_9_if_flag_10_is_clear__7TObjectFv(void *);
 void draw_body__13TObjEneMorfosFPv(u8 *arg0);
 s32 render_model_if_visible__13TObjEneMorfosFPv(u8 *arg0);
 extern Vec_80332850 lbl_804775E4;
@@ -2239,7 +2239,7 @@ void render__13TObjEneMorfosFv(u8 *arg0) {
         vis = 0;
     }
     if (vis != 0 && render_model_if_visible__13TObjEneMorfosFPv(arg0) == 0) {
-        toggle_flag_9__10TObjPlayerFPv(arg0);
+        toggle_flag_9_if_flag_10_is_clear__7TObjectFv(arg0);
         render_part__13TObjEneMorfosFPvii((Self_803329E4 *)arg0, cam, vis);
         if (M2C_FIELD(arg0, s16 *, 0x326) != 0xB && !(M2C_FIELD(arg0, u32 *, 0x3C4) & 0x4000)) {
             Vec_80332850 v = lbl_804775E4;

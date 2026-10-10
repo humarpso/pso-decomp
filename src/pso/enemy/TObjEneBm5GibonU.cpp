@@ -2175,7 +2175,7 @@ M2C_UNK direction_to_rotation_xz(void *, s32 *, s32 *);
 M2C_UNK render_world_model__10TObjPlayerFPv(void *);
 M2C_UNK draw__16TObjEneRe7BeruraFPv(void *);
 M2C_UNK end_effect_render__13TParticleCtrlFv();
-s32 toggle_flag_9__10TObjPlayerFPv(void *);
+s32 toggle_flag_9_if_flag_10_is_clear__7TObjectFv(void *);
 M2C_UNK scale_matrix(M2C_UNK, f32, f32, f32);
 M2C_UNK rotate_matrix_y(M2C_UNK, s32);
 M2C_UNK rotate_matrix_z(M2C_UNK, s32);
@@ -2608,7 +2608,7 @@ void TObjEneBm5GibonU__sub_800CD204(u8 *arg0) {
             clear_global_flag_400__9TObjEneDDFv();
             toggle_particle_effect__10TObjPlayerFv();
             if (fade != 0) {
-                if (toggle_flag_9__10TObjPlayerFPv(arg0) == 0) {
+                if (toggle_flag_9_if_flag_10_is_clear__7TObjectFv(arg0) == 0) {
                     if (vis == 1) {
                         draw__16TObjEneRe7BeruraFPv(arg0);
                     } else {

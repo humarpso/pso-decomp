@@ -1843,7 +1843,7 @@ M2C_UNK select_actor_lighting(void *);
 M2C_UNK render_world_model__10TObjPlayerFPv(void *);
 M2C_UNK draw__16TObjEneRe7BeruraFPv(void *);
 M2C_UNK end_effect_render__13TParticleCtrlFv();
-s32 toggle_flag_9__10TObjPlayerFPv(void *);
+s32 toggle_flag_9_if_flag_10_is_clear__7TObjectFv(void *);
 M2C_UNK translate_matrix(int, f32, f32, f32);
 M2C_UNK set_global_param__8TObjFishFi(int);
 M2C_UNK draw_chunk_object(int);
@@ -1888,7 +1888,7 @@ void render__9TObjGrassFv(Grass_800BF19C *self) {
                 lbl_805D5664 = lbl_805D7784;
                 lbl_805D5668 = lbl_805D7780;
                 (&self->sub)->m6(lbl_805D7784, some_id_805c6f74);
-                if (toggle_flag_9__10TObjPlayerFPv(self) == 0) {
+                if (toggle_flag_9_if_flag_10_is_clear__7TObjectFv(self) == 0) {
                     draw__16TObjEneRe7BeruraFPv(self);
                 }
                 (&self->sub)->m7();

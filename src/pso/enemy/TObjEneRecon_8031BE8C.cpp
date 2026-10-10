@@ -142,7 +142,7 @@ M2C_UNK toggle_particle_effect__10TObjPlayerFv();
 M2C_UNK render_world_model__10TObjPlayerFPv(void *);
 M2C_UNK draw__16TObjEneRe7BeruraFPv(void *);
 M2C_UNK end_effect_render__13TParticleCtrlFv();
-s32 toggle_flag_9__10TObjPlayerFPv(void *);
+s32 toggle_flag_9_if_flag_10_is_clear__7TObjectFv(void *);
 s32 render_model_if_visible__12TObjEneReconFPv(void *);
 M2C_UNK rotate_matrix_y(int, int);
 M2C_UNK translate_matrix(int, f32, f32, f32);
@@ -195,7 +195,7 @@ void render__12TObjEneReconFv(u8 *arg0) {
                 lbl_805D5668 = lbl_805D7780;
                 if (((s16) M2C_FIELD(arg0, s16 *, 0x326) == 5) && (((Recon_8031BE8C *)arg0)->fade.m8() != 0)) {
                     ((Recon_8031BE8C *)arg0)->fade.m6();
-                    if (toggle_flag_9__10TObjPlayerFPv((void *) (arg0)) != 0) {
+                    if (toggle_flag_9_if_flag_10_is_clear__7TObjectFv((void *) (arg0)) != 0) {
                         var_r29 = 0;
                     }
                 }

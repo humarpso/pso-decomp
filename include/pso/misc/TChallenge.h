@@ -5,11 +5,17 @@
 
 struct TChallenge
 {
-    u32 m_1c;
-    u32 m_20;
+    u8 _object[0x1C];
+    s32 state;
+    s32 frame_count;
     u32 m_24;
     u32 m_28;
     u32 m_2c;
+
+    void run_task();
+    void update_active();
+    void wait_for_quest();
+    void initialize_windows();
 };
 
 #endif

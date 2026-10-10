@@ -686,7 +686,7 @@ M2C_UNK select_actor_lighting(void *);
 M2C_UNK render_world_model__10TObjPlayerFPv(void *);
 M2C_UNK draw__16TObjEneRe7BeruraFPv(void *);
 M2C_UNK end_effect_render__13TParticleCtrlFv();
-s32 toggle_flag_9__10TObjPlayerFPv(void *);
+s32 toggle_flag_9_if_flag_10_is_clear__7TObjectFv(void *);
 M2C_UNK rotate_matrix_y(int, int);
 M2C_UNK translate_matrix(M2C_UNK, f32, f32, f32);
 M2C_UNK push_matrix();
@@ -1761,7 +1761,7 @@ void render__11TObjEneMojaFv(u8 *arg0) {
     draw = 1;
     if (updateFromCamera__15RenderFadeStateFPCf(fade, arg0 + 0x38) == 1) {
         fade->m6();
-        if (toggle_flag_9__10TObjPlayerFPv(arg0) != 0) {
+        if (toggle_flag_9_if_flag_10_is_clear__7TObjectFv(arg0) != 0) {
             draw = 0;
         } else {
             some_id_805c6f74 &= ~1;

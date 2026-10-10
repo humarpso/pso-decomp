@@ -315,7 +315,7 @@ f32 update_primary_light__9TObjEneDDFPv(void *);
 int update_secondary_light__9TObjEneDDFPv(void *);
 int toggle_particle_effect__10TObjPlayerFv();
 int end_effect_render__13TParticleCtrlFv();
-s32 toggle_flag_9__10TObjPlayerFPv(void *);
+s32 toggle_flag_9_if_flag_10_is_clear__7TObjectFv(void *);
 int scale_matrix(int, f32, f32, f32);
 int rotate_matrix_y(int, int);
 int translate_matrix(int, f32, f32, f32);
@@ -531,7 +531,7 @@ void render__13TObjEneRe4BitFv(Bit_800ECA40 *self) {
     draw = 1;
     if (self->flags & 0x200) {
         self->light.l6();
-        if (toggle_flag_9__10TObjPlayerFPv(self) != 0) {
+        if (toggle_flag_9_if_flag_10_is_clear__7TObjectFv(self) != 0) {
             draw = 0;
         }
     }

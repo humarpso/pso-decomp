@@ -143,7 +143,7 @@ M2C_UNK select_actor_lighting(void *);
 M2C_UNK render_world_model__10TObjPlayerFPv(void *);
 M2C_UNK draw__16TObjEneRe7BeruraFPv(void *);
 M2C_UNK end_effect_render__13TParticleCtrlFv();
-s32 toggle_flag_9__10TObjPlayerFPv(void *);
+s32 toggle_flag_9_if_flag_10_is_clear__7TObjectFv(void *);
 M2C_UNK TObjPlayer__sub_8023DEE0(int, int, int, int);
 M2C_UNK rotate_matrix_y(int, int);
 M2C_UNK push_matrix();
@@ -395,7 +395,7 @@ void draw_actor_model__10TObjPlayerFPv(Player_800A7CA4 *self) {
                 lbl_805D5668 = lbl_805D7780;
                 self->sub.begin();
                 d = 1;
-                if (toggle_flag_9__10TObjPlayerFPv(self) != 0) {
+                if (toggle_flag_9_if_flag_10_is_clear__7TObjectFv(self) != 0) {
                     d = 0;
                 }
                 if (d != 0) {
@@ -410,7 +410,7 @@ void draw_actor_model__10TObjPlayerFPv(Player_800A7CA4 *self) {
             doDraw = 1;
             if (fading != 0) {
                 self->fades[mode].begin();
-                if (toggle_flag_9__10TObjPlayerFPv(self) != 0) {
+                if (toggle_flag_9_if_flag_10_is_clear__7TObjectFv(self) != 0) {
                     doDraw = 0;
                 }
             }

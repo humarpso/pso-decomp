@@ -2218,7 +2218,7 @@ M2C_UNK update_secondary_light__9TObjEneDDFPv(void *);
 s32 updateFromCamera__15RenderFadeStateFPCf(void *, void *);
 M2C_UNK update_obstruction_fade(void *);
 M2C_UNK render_world_model__10TObjPlayerFPv(void *);
-s32 toggle_flag_9__10TObjPlayerFPv(void *);
+s32 toggle_flag_9_if_flag_10_is_clear__7TObjectFv(void *);
 M2C_UNK set_global_state__16TObjEneRe7BeruraFi(void *);
 extern Vec_80303574 lbl_80475294[];
 extern s32 lbl_805D5660;
@@ -2607,12 +2607,12 @@ void render__16TObjEneDellBiterFv(u8 *arg0) {
         cam = updateFromCamera__15RenderFadeStateFPCf(fade, arg0 + 0x2FC);
         if (F(s32, 0x3C0) & 2) {
             ((VObj_14_aa9368 *)(arg0 + 0x3D4))->m6();
-            if (toggle_flag_9__10TObjPlayerFPv(arg0) != 0) {
+            if (toggle_flag_9_if_flag_10_is_clear__7TObjectFv(arg0) != 0) {
                 draw = 0;
             }
         } else if (cam != 0) {
             ((VObj_14_aa9368 *)fade)->m6();
-            if (toggle_flag_9__10TObjPlayerFPv(arg0) != 0) {
+            if (toggle_flag_9_if_flag_10_is_clear__7TObjectFv(arg0) != 0) {
                 draw = 0;
             }
         }

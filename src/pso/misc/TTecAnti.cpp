@@ -2,6 +2,37 @@
 typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
 #define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
 
+struct Obj_8022ACB4 { u8 pad[0xA6]; s16 state; };
+extern "C" {
+s32 update_technique_slot__10TTecRaFoieFi(s32, s32, s32);
+s32 play_sound_effect(int, void *, int, int);
+void play_anti_cast_sound(void *p) {
+    Obj_8022ACB4 *arg0 = (Obj_8022ACB4 *)p;
+    s32 r;
+    switch (arg0->state) {
+    case 0:
+    case 1:
+        r = play_sound_effect(0x4002AB10, (u8 *)arg0 + 0x20, 0, 0);
+        if (r >= 0) {
+            update_technique_slot__10TTecRaFoieFi(r, 0x100, 0);
+        }
+        break;
+    case 2:
+    case 3:
+        play_sound_effect(0x4002AB10, (u8 *)arg0 + 0x20, 0, 0);
+        break;
+    case 4:
+    case 5:
+        r = play_sound_effect(0x4002AB10, (u8 *)arg0 + 0x20, 0, 0);
+        if (r >= 0) {
+            update_technique_slot__10TTecRaFoieFi(r, -0x100, 0);
+        }
+        break;
+    }
+}
+
+}
+
 typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 #define M2C_BITWISE(type, expr) ((type)(expr))
 
@@ -108,7 +139,7 @@ extern "C" {
 void copy_params__8TTecAntiFPvPv(u8 *arg0, u8 *arg1);
 s32 obj_getField1c(int);
 s32 construct_target_cursor_records__10TObjPlayerFi(void *);
-s32 play_anti_cast_sound(void *);
+void play_anti_cast_sound(void *);
 int TTecAnti__sub_8022AD74(void* p);
 void TTecAnti__sub_8022AD94(void *);
 void copy_params__8TTecAntiFPvPv(u8 *arg0, u8 *arg1);

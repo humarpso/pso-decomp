@@ -39,7 +39,9 @@ PowerPC_EABI_Support/Runtime/Src/NMWException.cp
 PowerPC_EABI_Support/Runtime/Src/__init_cpp_exceptions.cpp
 PowerPC_EABI_Support/Runtime/Src/__mem.c
 PowerPC_EABI_Support/Runtime/Src/ptmf.c
+PowerPC_EABI_Support/Runtime/Src/runtime.c
 TRK_MINNOW_DOLPHIN/flush_cache.c
+TRK_MINNOW_DOLPHIN/mem_TRK.c
 TRK_MINNOW_DOLPHIN/msgbuf.c
 TRK_MINNOW_DOLPHIN/notify.c
 TRK_MINNOW_DOLPHIN/nubinit.c
@@ -760,6 +762,7 @@ pso/menu/TChCrEffWall.cpp
 pso/menu/TChCrLoadGmNjReq.cpp
 pso/menu/TObjTagChallenge.cpp
 pso/menu/TQuestBgmCtrl.cpp
+pso/misc/ChallengeMode.cpp
 pso/misc/CreationMotion.cpp
 pso/misc/RenderFadeState.cpp
 pso/misc/ShopWeaponStock.cpp
@@ -2221,12 +2224,11 @@ pso/object/TObjWarpLobby.cpp
 pso/object/TObjWarpLobby_801A0760.cpp
 pso/object/TObjWarpLobby_801A0A34.cpp
 pso/object/TObjWeddingLobby.cpp
+pso/object/TObject.cpp
 pso/object/TObject_80019A50.cpp
 pso/object/TObject_8001A448.cpp
 pso/object/TObject_8003F3DC.cpp
 pso/object/TObject_800F794C.cpp
-pso/object/TObject_8022A5C8.cpp
-pso/object/TObject_8022ACA8.cpp
 pso/object/TObject_802EEE9C.cpp
 pso/object/TObject_803503D0.cpp
 pso/player/THunterGuildSeqOnlineTask.cpp
@@ -2595,7 +2597,6 @@ pso/player/TObjPlayer_801E2D1C.cpp
 pso/player/TObjPlayer_801E483C.cpp
 pso/player/TObjPlayer_802034EC.cpp
 pso/player/TObjPlayer_8022602C.cpp
-pso/player/TObjPlayer_8022A564.cpp
 pso/player/TObjPlayer_8022C6C4.cpp
 pso/player/TObjPlayer_8023355C.cpp
 pso/player/TObjPlayer_8023611C.cpp
@@ -2652,7 +2653,6 @@ pso/system/CityTraffic.cpp
 pso/system/ItemEffects.cpp
 pso/system/ModelDrawContext.cpp
 pso/system/THeap.cpp
-pso/system/TMainTask.cpp
 pso/system/TMemberCheck.cpp
 pso/system/TNECFontEORFunction.cpp
 pso/system/TOChatSensorCapture.cpp

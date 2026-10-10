@@ -111,7 +111,7 @@ M2C_UNK set_cull_none__8TObjFishFv();
 M2C_UNK set_cull_mode_front__8TObjFishFv();
 M2C_UNK set_cull_back__8TObjFishFv();
 M2C_UNK end_effect_render__13TParticleCtrlFv();
-s32 toggle_flag_9__10TObjPlayerFPv();
+s32 toggle_flag_9_if_flag_10_is_clear__7TObjectFv();
 void debug_printf_at(s32 id, const char *fmt, ...);
 M2C_UNK push_matrix();
 M2C_UNK pop_matrix();
@@ -168,7 +168,7 @@ void render__12TObjEneSlimeFv(u8 *arg0) {
     s32 temp_r30;
     s32 temp_r30_2;
     s32 temp_r31;
-    temp_r31 = toggle_flag_9__10TObjPlayerFPv();
+    temp_r31 = toggle_flag_9_if_flag_10_is_clear__7TObjectFv();
     if (check_demo_mode__10TObjPlayerFv() != 0) {
         temp_r30 = (M2C_FIELD(arg0, s32 *, 0x36C) * 4) & 4;
         debug_printf_at((int) (0x130020), lbl_8043D298, (int) (M2C_FIELD(((u8 *)(slime_debug_label_table) + temp_r30), s32 *, 0)));

@@ -1855,7 +1855,7 @@ M2C_UNK toggle_particle_effect__10TObjPlayerFv();
 M2C_UNK render_world_model__10TObjPlayerFPv(void *);
 M2C_UNK draw__16TObjEneRe7BeruraFPv(void *);
 M2C_UNK end_effect_render__13TParticleCtrlFv();
-s32 toggle_flag_9__10TObjPlayerFPv(void *);
+s32 toggle_flag_9_if_flag_10_is_clear__7TObjectFv(void *);
 s32 render_model_if_visible__18TObjEneMe3SinowZoaFPv(u8 *arg0);
 M2C_UNK rotate_matrix_y(int, int);
 M2C_UNK translate_matrix(int, f32, f32, f32);
@@ -1919,14 +1919,14 @@ void render__18TObjEneMe3SinowZoaFPv(u8 *arg0) {
         }
         draw = 1;
         if (v->m107() != 0) {
-            if (toggle_flag_9__10TObjPlayerFPv(arg0) != 0) {
+            if (toggle_flag_9_if_flag_10_is_clear__7TObjectFv(arg0) != 0) {
                 draw = 0;
             } else if (o->f3C0 != 0) {
                 draw = 0;
             }
         } else if (TObjEneMe3SinowZoa__sub_800D72A4(&o->sub) != 0) {
             o->sub.m6();
-            if (toggle_flag_9__10TObjPlayerFPv(arg0) != 0) {
+            if (toggle_flag_9_if_flag_10_is_clear__7TObjectFv(arg0) != 0) {
                 draw = 0;
             }
         } else if (o->f3C0 != 0) {

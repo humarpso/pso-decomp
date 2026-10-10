@@ -486,7 +486,7 @@ M2C_UNK draw_with_alt_model__10TObjPlayerFPvi(void *, int);
 M2C_UNK render_world_model__10TObjPlayerFPv(void *);
 M2C_UNK draw__16TObjEneRe7BeruraFPv(void *);
 M2C_UNK end_effect_render__13TParticleCtrlFv();
-s32 toggle_flag_9__10TObjPlayerFPv(void *);
+s32 toggle_flag_9_if_flag_10_is_clear__7TObjectFv(void *);
 M2C_UNK rotate_matrix_y(int, int);
 M2C_UNK rotate_matrix_z(int, int);
 M2C_UNK translate_matrix(int, f32, f32, f32);
@@ -3781,7 +3781,7 @@ void TObjPlayer__sub_8009BA04(u8 *arg0) {
         var_r29 = 1;
         if ((temp_r0 == 1) || (temp_r0 == 0xB)) {
             ((VObj_14_aa9368 *)((u8 *)(arg0) + (972)))->m6();
-            if (toggle_flag_9__10TObjPlayerFPv((void *) (arg0)) != 0) {
+            if (toggle_flag_9_if_flag_10_is_clear__7TObjectFv((void *) (arg0)) != 0) {
                 var_r29 = 0;
             }
         }

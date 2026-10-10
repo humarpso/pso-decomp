@@ -63,7 +63,7 @@ M2C_UNK init_xyz_limits__10TObjPlayerFv();
 M2C_UNK reset_transform_state__10TObjPlayerFv();
 M2C_UNK set_depth_buffer_settings_2__Fv();
 M2C_UNK set_global_param__8TObjFishFi(void *);
-s32 toggle_flag_9__10TObjPlayerFPv();
+s32 toggle_flag_9_if_flag_10_is_clear__7TObjectFv();
 
 extern s32 TAdMcSelectCursorGC__texture_entry;
 extern const f32 lbl_805DF728;
@@ -83,7 +83,7 @@ void render__19TAdMcSelectCursorGCFv(void *arg0) {
         }
         goto block_5;
     }
-    if (toggle_flag_9__10TObjPlayerFPv() == 0) {
+    if (toggle_flag_9_if_flag_10_is_clear__7TObjectFv() == 0) {
         set_depth_buffer_settings_2__Fv();
 block_5:
         init_xyz_limits__10TObjPlayerFv();

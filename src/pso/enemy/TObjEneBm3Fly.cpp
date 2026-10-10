@@ -3650,7 +3650,7 @@ M2C_UNK spawn_dead_spot_scale15(void *, int);
 M2C_UNK refresh_lobby_state__10TObjPlayerFPv(void *);
 void free_collision_body_parts(void *);
 M2C_UNK send_entity_set_flags__6TLobbyFPv();
-s32 toggle_flag_9__10TObjPlayerFPv(void *);
+s32 toggle_flag_9_if_flag_10_is_clear__7TObjectFv(void *);
 void __dl__7TObjectFPv(void *);
 void * __nw__7TObjectFUl(int);
 s32 all_parents_unqueued_for_destruction__7TObjectFv(int);

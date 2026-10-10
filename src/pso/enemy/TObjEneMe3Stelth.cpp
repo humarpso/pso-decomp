@@ -475,7 +475,7 @@ M2C_UNK draw__16TObjEneRe7BeruraFPv(void *);
 M2C_UNK draw_model__12TObjNpcEnemyFPv(void *);
 M2C_UNK begin_effect_render__13TParticleCtrlFv();
 M2C_UNK end_effect_render__13TParticleCtrlFv();
-s32 toggle_flag_9__10TObjPlayerFPv(void *);
+s32 toggle_flag_9_if_flag_10_is_clear__7TObjectFv(void *);
 s32 dispatch_input_to_instance__18TAdEnterPasswordGCFi(void *);
 #define rotate_matrix_y ((M2C_UNK (*)(s32, s32))rotate_matrix_y)
 M2C_UNK translate_matrix(s32, f32, f32, f32);
@@ -564,11 +564,11 @@ void render__16TObjEneMe3StelthFPv(void *arg0_) {
                     set_chunk_material_color(&c);
                     set_chunk_material_override_pair(0xFF00, 0x800);
                 }
-                if (toggle_flag_9__10TObjPlayerFPv(arg0) != 0) {
+                if (toggle_flag_9_if_flag_10_is_clear__7TObjectFv(arg0) != 0) {
                     draw = 0;
                 }
             } else if (VO->m107() != 0) {
-                if (toggle_flag_9__10TObjPlayerFPv(arg0) != 0) {
+                if (toggle_flag_9_if_flag_10_is_clear__7TObjectFv(arg0) != 0) {
                     draw = 0;
                 }
             } else {

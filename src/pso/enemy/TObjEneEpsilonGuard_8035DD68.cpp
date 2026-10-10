@@ -421,7 +421,7 @@ void advance_camera_ctrl_step__19TObjEneEpsilonGuardFv(void);
 s32 check_demo_mode__10TObjPlayerFv();
 s32 is_main_phase_15__9TObjEneDDFv();
 M2C_UNK update_player_state__9TObjEneDDFPv(void *, int, int);
-M2C_UNK toggle_flag_9__10TObjPlayerFPv(void *);
+M2C_UNK toggle_flag_9_if_flag_10_is_clear__7TObjectFv(void *);
 void render_guard_effect__19TObjEneEpsilonGuardFPv(u8 *arg0);
 M2C_UNK TObjPlayer__sub_803626A8(void *, void *, int);
 extern const f32 TObjEneEpsilonGuard__data_805E01D8;
@@ -756,7 +756,7 @@ void render__19TObjEneEpsilonGuardFv(u8 *arg0) {
         }
         if (var_r31 != 0) {
             update_player_state__9TObjEneDDFPv((void *) (arg0), (int) (0), (int) (0));
-            toggle_flag_9__10TObjPlayerFPv((void *) (arg0));
+            toggle_flag_9_if_flag_10_is_clear__7TObjectFv((void *) (arg0));
             render_with_fade__19TObjEneEpsilonGuardFPvi((u8 *)((u8 *) (arg0)), (s32)((s32) (var_r31)));
             render_guard_effect__19TObjEneEpsilonGuardFPv((u8 *)((void *) (arg0)));
             return;

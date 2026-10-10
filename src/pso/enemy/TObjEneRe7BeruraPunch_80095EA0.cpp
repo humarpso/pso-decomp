@@ -90,7 +90,7 @@ M2C_UNK clear_global_flag_400__9TObjEneDDFv();
 M2C_UNK end_effect_render__13TParticleCtrlFv();
 M2C_UNK init_part__16TObjEneRe7BeruraFi(s32);
 M2C_UNK reset__21TObjEneRe7BeruraPunchFPv(void *);
-s32 toggle_flag_9__10TObjPlayerFPv(void *);
+s32 toggle_flag_9_if_flag_10_is_clear__7TObjectFv(void *);
 M2C_UNK toggle_particle_effect__10TObjPlayerFv();
 
 extern s32 lbl_805D5660;
@@ -106,7 +106,7 @@ void render__21TObjEneRe7BeruraPunchFv(u8 *arg0) {
         clear_global_flag_400__9TObjEneDDFv();
         if ((s32) M2C_FIELD(arg0, s32 *, 0xB4) == 2) {
             ((VObjHang_80095EA0 *)(arg0 + 0xF8))->m6();
-            if (toggle_flag_9__10TObjPlayerFPv(arg0) != 0) {
+            if (toggle_flag_9_if_flag_10_is_clear__7TObjectFv(arg0) != 0) {
                 some_id_805c6f74 = lbl_805D5660;
                 return;
             }

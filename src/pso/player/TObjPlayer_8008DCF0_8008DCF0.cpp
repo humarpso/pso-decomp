@@ -293,7 +293,7 @@ M2C_UNK draw__16TObjEneRe7BeruraFPv(void *);
 M2C_UNK end_effect_render__13TParticleCtrlFv();
 M2C_UNK render_world_model__10TObjPlayerFPv(void *);
 M2C_UNK set_global_param__8TObjFishFi(s32);
-s32 toggle_flag_9__10TObjPlayerFPv(void *);
+s32 toggle_flag_9_if_flag_10_is_clear__7TObjectFv(void *);
 M2C_UNK toggle_particle_effect__10TObjPlayerFv();
 int update_if_active__15TObjEneMe1GiGueFPv(void*, int);
 
@@ -598,7 +598,7 @@ void draw_main__10TObjPlayerFPv(u8 *arg0) {
                     if (((VObj390V_8008e74c_8008DCF0*)(arg0 + 0x390))->m8() != 0) {
                         ((VObj390V_8008e74c_8008DCF0*)(arg0 + 0x390))->m6();
                         var_r29 = 1;
-                        if (toggle_flag_9__10TObjPlayerFPv(arg0) != 0) {
+                        if (toggle_flag_9_if_flag_10_is_clear__7TObjectFv(arg0) != 0) {
                             var_r29 = 0;
                         }
                         if (var_r29 != 0) {

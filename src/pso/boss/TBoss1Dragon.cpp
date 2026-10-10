@@ -1977,7 +1977,7 @@ void TObjLight__sub_801337F8(s32);
 M2C_UNK draw__16TObjEneRe7BeruraFPv(void *);
 u8 *find_entity_by_id(s32);
 void end_effect_render__13TParticleCtrlFv();
-s32 toggle_flag_9__10TObjPlayerFPv(void *);
+s32 toggle_flag_9_if_flag_10_is_clear__7TObjectFv(void *);
 void render_nodes__7TObjectFv(void *);
 f32 sin_table_lookup(s32);
 f32 cos_table_lookup(s32);
@@ -2949,7 +2949,7 @@ void render__12TBoss1DragonFv(u8 *arg0) {
             }
         }
         if (visible == 0) {
-            if (toggle_flag_9__10TObjPlayerFPv(arg0) != 0) {
+            if (toggle_flag_9_if_flag_10_is_clear__7TObjectFv(arg0) != 0) {
                 visible = 0;
             } else {
                 visible = 1;

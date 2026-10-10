@@ -872,7 +872,7 @@ M2C_UNK get_camera_mode__11TCameraCtrlFv();
 s32 check_demo_mode__10TObjPlayerFv();
 s32 is_main_phase_15__9TObjEneDDFv();
 M2C_UNK update_player_state__9TObjEneDDFPv(void *, int, int);
-M2C_UNK toggle_flag_9__10TObjPlayerFPv(void *);
+M2C_UNK toggle_flag_9_if_flag_10_is_clear__7TObjectFv(void *);
 void render_body_effect__19TObjEneEpsilonGuardFPv(u8 *arg0);
 void draw_debug_line__19TObjEneEpsilonGuardFi(s32 arg0);
 void TObjEneEpsilonGuard__sub_803606A0(Obj_803606A0 *, s32);
@@ -1509,7 +1509,7 @@ void TObjEneEpsilonGuard__sub_803607DC(u8 *arg0) {
         }
         if (var_r31 != 0) {
             update_player_state__9TObjEneDDFPv((void *) (arg0), (int) (0), (int) (0));
-            toggle_flag_9__10TObjPlayerFPv((void *) (arg0));
+            toggle_flag_9_if_flag_10_is_clear__7TObjectFv((void *) (arg0));
             draw_with_fade__19TObjEneEpsilonGuardFPvi((u8 *)((void *) (arg0)), (s32)((int) (var_r31)));
             if ((s16) M2C_FIELD(arg0, s16 *, 0x326) == 6) {
                 if (M2C_FIELD(arg0, s32 *, 0x438) & 0x200) {

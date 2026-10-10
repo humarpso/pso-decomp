@@ -859,7 +859,7 @@ M2C_UNK submit_cursor_candidate(void *, M2C_UNK);
 M2C_UNK end_effect_render__13TParticleCtrlFv();
 M2C_UNK minimap_render_dot(void *, M2C_UNK, M2C_UNK, M2C_UNK);
 void send_entity_set_flags__6TLobbyFPv(void *);
-s32 toggle_flag_9__10TObjPlayerFPv(void *);
+s32 toggle_flag_9_if_flag_10_is_clear__7TObjectFv(void *);
 s32 __dl__7TObjectFPv(void *);
 void * __nw__7TObjectFUl(int);
 s32 spawn_npc_enemy__6TLobbyFsiiiff(int, int, int, void *, f32, f32);
@@ -1530,7 +1530,7 @@ void TObjPlayer__sub_800D35D8(u8 *arg0) {
             update_fade_value(var_r30);
             if (updateFromCamera__15RenderFadeStateFPCf(var_r30, (void *) (arg0 + 0x2FC)) != 0) {
                 ((VObj_14_fddec9 *)(var_r30))->m6();
-                if (toggle_flag_9__10TObjPlayerFPv((void *) (arg0)) != 0) {
+                if (toggle_flag_9_if_flag_10_is_clear__7TObjectFv((void *) (arg0)) != 0) {
                     some_id_805c6f74 = lbl_805D5660;
                     return;
                 }

@@ -815,10 +815,10 @@ pso/misc/TLobby_8006F278.cpp:
 pso/misc/TQuestVmDownLoadServer_8006FC34.cpp:
 	.text       start:0x8006FC34 end:0x8006FF4C
 
-pso/misc/TLobby_8006FF4C.cpp:
+pso/misc/ChallengeMode.cpp:
 	.text       start:0x8006FF4C end:0x800709C4
-	.data       start:0x8048C348 end:0x8048C9D8
-	.sbss       start:0x805D4E34 end:0x805D4E38
+	.data       start:0x8048C348 end:0x8048D120
+	.sbss       start:0x805D4E28 end:0x805D4E38
 
 pso/misc/TChallenge.cpp:
 	.text       start:0x800709C4 end:0x80070A00
@@ -8233,26 +8233,16 @@ pso/misc/TSwitch.cpp:
 pso/misc/TMainTask.cpp:
 	.text       start:0x802294E4 end:0x80229890
 
-pso/system/TMainTask.cpp:
-	.text       start:0x80229890 end:0x8022A564
-	.data       start:0x804CC078 end:0x804CC090
-
-pso/player/TObjPlayer_8022A564.cpp:
-	.text       start:0x8022A564 end:0x8022A5C8
-
-pso/object/TObject_8022A5C8.cpp:
-	.text       start:0x8022A5C8 end:0x8022A618
-
 pso/object/TObject.cpp:
-	.text       start:0x8022A618 end:0x8022ACA8
+	.text       start:0x80229890 end:0x8022ACB4
 	.ctors      start:0x80433FAC end:0x80433FB0
-	.bss        start:0x80515F08 end:0x80515F14
-
-pso/object/TObject_8022ACA8.cpp:
-	.text       start:0x8022ACA8 end:0x8022AD74
+	.rodata     start:0x8044CB78 end:0x8044CC68
+	.data       start:0x804CC078 end:0x804CC0A8
+	.bss        start:0x80515F08 end:0x80515F90
+	.sdata      start:0x805D3730 end:0x805D3790
 
 pso/misc/TTecAnti.cpp:
-	.text       start:0x8022AD74 end:0x8022B418
+	.text       start:0x8022ACB4 end:0x8022B418
 
 pso/misc/TTecBarta.cpp:
 	.text       start:0x8022B418 end:0x8022BE64

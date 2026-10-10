@@ -485,7 +485,7 @@ s32 select_actor_lighting(void *);
 s32 render_world_model__10TObjPlayerFPv(void *);
 s32 draw__16TObjEneRe7BeruraFPv(void *);
 s32 end_effect_render__13TParticleCtrlFv();
-s32 toggle_flag_9__10TObjPlayerFPv(void *);
+s32 toggle_flag_9_if_flag_10_is_clear__7TObjectFv(void *);
 s32 rotate_matrix_y(int, int);
 s32 translate_matrix(int, f32, f32, f32);
 s32 push_matrix();
@@ -1589,7 +1589,7 @@ void render__16TObjEneMerillLiaFPv(u8 *arg0) {
       if (var_r29 != 0)
       {
         PSO_VCALL_VObj_14_fddec9_m6(((u8 *) arg0) + 936);
-        if (toggle_flag_9__10TObjPlayerFPv((void *) arg0) != 0)
+        if (toggle_flag_9_if_flag_10_is_clear__7TObjectFv((void *) arg0) != 0)
         {
           var_r30 = 0;
         }

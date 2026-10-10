@@ -372,7 +372,7 @@ u8 * get_player_by_client_id(s32);
 M2C_UNK end_effect_render__13TParticleCtrlFv();
 void minimap_render_dot(void *, s32, s32, s32);
 M2C_UNK play_sound_effect(M2C_UNK, void *, M2C_UNK, M2C_UNK);
-s32 toggle_flag_9__10TObjPlayerFPv(void *);
+s32 toggle_flag_9_if_flag_10_is_clear__7TObjectFv(void *);
 void __dl__7TObjectFPv(void *);
 s32 __nw__7TObjectFUl(M2C_UNK);
 M2C_UNK create__9TTecJelinFiiii(void *, void *, void *, s32);
@@ -1511,7 +1511,7 @@ void draw_with_fade__14TObjEnePanarmsFPv(u8 *arg0) {
     if (updateFromCamera__15RenderFadeStateFPCf((int) (temp_r31), (void *) (arg0 + 0x2FC)) != 0) {
         temp_r31->m6();
         var_r30 = 1;
-        if (toggle_flag_9__10TObjPlayerFPv((void *) (arg0)) != 0) {
+        if (toggle_flag_9_if_flag_10_is_clear__7TObjectFv((void *) (arg0)) != 0) {
             var_r30 = 0;
         }
         if (var_r30 != 0) {

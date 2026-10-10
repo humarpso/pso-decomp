@@ -1577,7 +1577,7 @@ M2C_UNK send_entity_set_flags__6TLobbyFPv();
 M2C_UNK play_effect_if_v2__10TObjPlayerFi(int);
 M2C_UNK play_persistent_sound(s32, void *, s32, s32, s32);
 s32 play_sound_effect(void *, void *, int, int);
-s32 toggle_flag_9__10TObjPlayerFPv(void *);
+s32 toggle_flag_9_if_flag_10_is_clear__7TObjectFv(void *);
 void __dl__7TObjectFPv(void *);
 void * __nw__7TObjectFUl(int);
 s32 all_parents_unqueued_for_destruction__7TObjectFv(int);
@@ -1933,7 +1933,7 @@ void render__17TObjEneBm3FlyNestFPv(u8 *arg0) {
             update_obstruction_fade(cm);
             if (updateFromCamera__15RenderFadeStateFPCf(cm, &self->f2FC) != 0) {
                 ((VObj_14_aa9368 *)(cm))->m6();
-                if (toggle_flag_9__10TObjPlayerFPv(arg0) != 0) {
+                if (toggle_flag_9_if_flag_10_is_clear__7TObjectFv(arg0) != 0) {
                     draw = 0;
                 }
             }

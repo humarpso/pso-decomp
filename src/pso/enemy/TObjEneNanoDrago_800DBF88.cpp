@@ -52,7 +52,7 @@ M2C_UNK select_actor_lighting(void *);
 M2C_UNK render_world_model__10TObjPlayerFPv(void *);
 M2C_UNK draw__16TObjEneRe7BeruraFPv(void *);
 M2C_UNK end_effect_render__13TParticleCtrlFv();
-s32 toggle_flag_9__10TObjPlayerFPv(void *);
+s32 toggle_flag_9_if_flag_10_is_clear__7TObjectFv(void *);
 M2C_UNK scale_matrix(int, f32, f32, f32);
 M2C_UNK rotate_matrix_y(int, int);
 M2C_UNK translate_matrix(int, f32, f32, f32);
@@ -635,7 +635,7 @@ void render_enemy_with_fade__10TObjPlayerFPv(u8 *arg0) {
         update_obstruction_fade((int) (((u8 *)var_r29)));
         if (updateFromCamera__15RenderFadeStateFPCf((int) (((u8 *)var_r29)), (void *) (arg0 + 0x2FC)) != 0) {
             ((VObj_14 *)(((u8 *)var_r29)))->m6();
-            if (toggle_flag_9__10TObjPlayerFPv((void *) (arg0)) != 0) {
+            if (toggle_flag_9_if_flag_10_is_clear__7TObjectFv((void *) (arg0)) != 0) {
                 some_id_805c6f74 = lbl_805D5660;
                 return;
             }

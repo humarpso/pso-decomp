@@ -19,11 +19,11 @@ M2C_UNK restore_saved_depth_alpha_state();
 M2C_UNK draw_character_background_frame(void *, s32, M2C_UNK);
 s32 get_state_flag__9TMainTaskFv();
 M2C_UNK set_depth_buffer_settings_2__Fv();
-s32 toggle_flag_9__10TObjPlayerFPv();
+s32 toggle_flag_9_if_flag_10_is_clear__7TObjectFv();
 
 void render__12TAdBackTxtGCFv(void *arg0) {
     if ((s32) M2C_FIELD(arg0, s32 *, 0x24) == 0) {
-        if (toggle_flag_9__10TObjPlayerFPv() == 0) {
+        if (toggle_flag_9_if_flag_10_is_clear__7TObjectFv() == 0) {
             set_depth_buffer_settings_2__Fv();
             goto block_4;
         }

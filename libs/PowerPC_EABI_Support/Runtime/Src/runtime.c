@@ -150,19 +150,19 @@ asm unsigned __cvt_fp2unsigned(register double d) {
 }
 
 #pragma force_active on
-static asm void __save_fpr(void) {
+asm void __save_fpr(void) {
 #include "orig_asm/PowerPC_EABI_Support/Runtime/Src/runtime/__save_fpr.inc"
 }
 
-static asm void __restore_fpr(void) {
+asm void __restore_fpr(void) {
 #include "orig_asm/PowerPC_EABI_Support/Runtime/Src/runtime/__restore_fpr.inc"
 }
 
-static asm void __save_gpr(void) {
+asm void __save_gpr(void) {
 #include "orig_asm/PowerPC_EABI_Support/Runtime/Src/runtime/__save_gpr.inc"
 }
 
-static asm void __restore_gpr(void) {
+asm void __restore_gpr(void) {
 #include "orig_asm/PowerPC_EABI_Support/Runtime/Src/runtime/__restore_gpr.inc"
 }
 #pragma force_active reset

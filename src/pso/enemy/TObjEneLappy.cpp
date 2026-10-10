@@ -1590,7 +1590,7 @@ void translate_matrix(int, f32, f32, f32);
 void set_global_state__16TObjEneRe7BeruraFi(void *);
 void update_effect_sequence__10TObjPlayerFv(void);
 void draw_with_alt_model__10TObjPlayerFPvi(void *, int);
-s32 toggle_flag_9__10TObjPlayerFPv(void *);
+s32 toggle_flag_9_if_flag_10_is_clear__7TObjectFv(void *);
 extern Vec_800C220C lbl_8043BBB4[];
 extern s32 some_id_805c6f74;
 extern s32 lbl_805D5660;
@@ -2329,7 +2329,7 @@ void TObjPlayer__sub_800C220C(Obj_800C220C *o) {
             if (o->f3C4 & 8) {
                 if (o->sub.m8() != 0) {
                     o->sub.m6();
-                    if (toggle_flag_9__10TObjPlayerFPv(o) == 0) {
+                    if (toggle_flag_9_if_flag_10_is_clear__7TObjectFv(o) == 0) {
                         draw__16TObjEneRe7BeruraFPv(o);
                     }
                     o->sub.m7();

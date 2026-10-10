@@ -519,7 +519,7 @@ M2C_UNK render_world_model__10TObjPlayerFPv(void *);
 M2C_UNK draw__16TObjEneRe7BeruraFPv(void *);
 M2C_UNK end_effect_render__13TParticleCtrlFv();
 M2C_UNK TObjEneRe4Sorcerer__sub_801E3F1C(f32, f32);
-s32 toggle_flag_9__10TObjPlayerFPv(void *);
+s32 toggle_flag_9_if_flag_10_is_clear__7TObjectFv(void *);
 M2C_UNK rotate_matrix_y(int, int);
 M2C_UNK translate_matrix(int, f32, f32, f32);
 M2C_UNK push_matrix();
@@ -1882,12 +1882,12 @@ void render__18TObjEneRe4SorcererFv(u8 *arg0) {
         var_r27 = 1;
         if (M2C_FIELD(arg0, s32 *, 0x3C8) & 4) {
             ((VObj_14 *)(arg0 + 0x3FC))->m6();
-            if (toggle_flag_9__10TObjPlayerFPv((void *) (arg0)) != 0) {
+            if (toggle_flag_9_if_flag_10_is_clear__7TObjectFv((void *) (arg0)) != 0) {
                 var_r27 = 0;
             }
         } else if (temp_r31 != 0) {
             ((VObj_14 *)(((u8 *)var_r30)))->m6();
-            if (toggle_flag_9__10TObjPlayerFPv((void *) (arg0)) != 0) {
+            if (toggle_flag_9_if_flag_10_is_clear__7TObjectFv((void *) (arg0)) != 0) {
                 var_r27 = 0;
             }
         }

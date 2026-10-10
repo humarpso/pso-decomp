@@ -204,7 +204,7 @@ M2C_UNK render_world_model__10TObjPlayerFPv(void *);
 M2C_UNK draw__16TObjEneRe7BeruraFPv(void *);
 M2C_UNK end_effect_render__13TParticleCtrlFv();
 s32 get_global_state__14TOKeyMachine01Fv();
-s32 toggle_flag_9__10TObjPlayerFPv(void *);
+s32 toggle_flag_9_if_flag_10_is_clear__7TObjectFv(void *);
 void update_position__14TObjEneGibblesFPv(u8 *arg0);
 s32 scale_matrix_vec3(int, void *);
 M2C_UNK translate_matrix_vec3(int, void *);
@@ -2508,7 +2508,7 @@ void draw_model__14TObjEneGibblesFPv(u8 *arg0) {
                 lbl_805D5668 = lbl_805D7780;
                 some_id_805c6f74 |= 1;
                 self->sub.m6();
-                if (toggle_flag_9__10TObjPlayerFPv(arg0) == 0) {
+                if (toggle_flag_9_if_flag_10_is_clear__7TObjectFv(arg0) == 0) {
                     draw__16TObjEneRe7BeruraFPv(arg0);
                 }
                 self->sub.m7();
@@ -2523,7 +2523,7 @@ void draw_model__14TObjEneGibblesFPv(u8 *arg0) {
                 lbl_805D5664 = lbl_805D7784;
                 lbl_805D5668 = lbl_805D7780;
                 self->fades[cam].m6();
-                if (toggle_flag_9__10TObjPlayerFPv(arg0) == 0) {
+                if (toggle_flag_9_if_flag_10_is_clear__7TObjectFv(arg0) == 0) {
                     if (vis == 1) {
                         draw__16TObjEneRe7BeruraFPv(arg0);
                     } else {

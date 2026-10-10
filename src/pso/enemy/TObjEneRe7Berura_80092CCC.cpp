@@ -381,7 +381,7 @@ M2C_UNK scroll_strip_uvs(s32, int, int);
 M2C_UNK render_world_model__10TObjPlayerFPv(void *);
 M2C_UNK draw__16TObjEneRe7BeruraFPv(void *);
 M2C_UNK end_effect_render__13TParticleCtrlFv();
-s32 toggle_flag_9__10TObjPlayerFPv(void *);
+s32 toggle_flag_9_if_flag_10_is_clear__7TObjectFv(void *);
 M2C_UNK rotate_matrix_y(int, int);
 M2C_UNK push_matrix();
 M2C_UNK pop_matrix();
@@ -493,7 +493,7 @@ void render__16TObjEneRe7BeruraFv(Berura_80092CCC *o) {
                 berura_demo_flag = 0;
                 ((Fade_80092CCC *)fade)->v.m6();
                 f1 = 1;
-                if (toggle_flag_9__10TObjPlayerFPv(o) != 0) {
+                if (toggle_flag_9_if_flag_10_is_clear__7TObjectFv(o) != 0) {
                     f1 = 0;
                 }
                 if (f1 != 0) {
@@ -518,7 +518,7 @@ void render__16TObjEneRe7BeruraFv(Berura_80092CCC *o) {
                 if (o->f3D8.v.m8() != 0) {
                     o->f3D8.v.m6();
                     f2 = 1;
-                    if (toggle_flag_9__10TObjPlayerFPv(o) != 0) {
+                    if (toggle_flag_9_if_flag_10_is_clear__7TObjectFv(o) != 0) {
                         f2 = 0;
                     }
                     if (f2 != 0) {

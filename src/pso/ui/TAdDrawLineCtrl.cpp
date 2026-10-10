@@ -30,11 +30,11 @@ s32 get_state_flag__9TMainTaskFv();
 M2C_UNK render_nodes__7TObjectFv(void *);
 M2C_UNK reset_transform_state__10TObjPlayerFv();
 M2C_UNK set_depth_buffer_settings_2__Fv();
-s32 toggle_flag_9__10TObjPlayerFPv();
+s32 toggle_flag_9_if_flag_10_is_clear__7TObjectFv();
 
 void render__15TAdDrawLineCtrlFv(void *arg0) {
     if ((s32) M2C_FIELD(arg0, s32 *, 0x28) == 0) {
-        if (toggle_flag_9__10TObjPlayerFPv() == 0) {
+        if (toggle_flag_9_if_flag_10_is_clear__7TObjectFv() == 0) {
             set_depth_buffer_settings_2__Fv();
             goto block_5;
         }

@@ -103,6 +103,19 @@ public:
     TObject *m_down;
 
 public:
+#ifdef TOBJECT_OUT_OF_LINE_HELPERS
+    void allow_rendering_shadows();
+    void disallow_rendering_shadows();
+    void clear_flag_9();
+    void set_flag_9();
+    u32 get_flag_9();
+    void allow_rendering();
+    void disallow_rendering();
+    void clear_flag_3();
+    void set_flag_3();
+    void toggle_flag_3()              { m_flags ^= BIT_3; }
+    void queue_destruction();
+#else
     void allow_rendering_shadows()    { m_flags &= ~DISALLOW_RENDER_SHADOWS; }
     void disallow_rendering_shadows() { m_flags |= DISALLOW_RENDER_SHADOWS; }
     void clear_flag_9()               { m_flags &= ~BIT_9; }
@@ -114,6 +127,8 @@ public:
     void set_flag_3()                 { m_flags |= BIT_3; }
     void toggle_flag_3()              { m_flags ^= BIT_3; }
     void queue_destruction()          { m_flags |= QUEUE_DESTRUCTION; }
+
+#endif
 
     TObject(TObject *parent = NULL);
     virtual ~TObject();

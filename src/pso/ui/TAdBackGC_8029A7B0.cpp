@@ -11,7 +11,7 @@ s32 get_state_flag__9TMainTaskFv();
 M2C_UNK draw_title_background_layer(void *, int, int, f32);
 M2C_UNK set_depth_buffer_settings_2__Fv();
 M2C_UNK restore_saved_depth_alpha_state();
-s32 toggle_flag_9__10TObjPlayerFPv();
+s32 toggle_flag_9_if_flag_10_is_clear__7TObjectFv();
 M2C_UNK fn_8029A6EC(void *);
 M2C_UNK set_cached_blend_factor(int, int);
 extern M2C_UNK lbl_804DBF20[];
@@ -26,7 +26,7 @@ void __ct__7TObjectFP7TObject(void *);
 
 void render__9TAdBackGCFv(u8 *arg0) {
     if ((s32) M2C_FIELD(arg0, s32 *, 0x20) == 0) {
-        if (toggle_flag_9__10TObjPlayerFPv() == 0) {
+        if (toggle_flag_9_if_flag_10_is_clear__7TObjectFv() == 0) {
             set_depth_buffer_settings_2__Fv();
             goto block_4;
         }

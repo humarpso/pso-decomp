@@ -1201,7 +1201,7 @@ M2C_UNK scroll_strip_uvs(int, int, int);
 M2C_UNK render_world_model__10TObjPlayerFPv(void *);
 M2C_UNK draw__16TObjEneRe7BeruraFPv(void *);
 M2C_UNK end_effect_render__13TParticleCtrlFv();
-s32 toggle_flag_9__10TObjPlayerFPv(void *);
+s32 toggle_flag_9_if_flag_10_is_clear__7TObjectFv(void *);
 M2C_UNK rotate_matrix_y(int, int);
 M2C_UNK push_matrix();
 M2C_UNK pop_matrix();
@@ -1507,12 +1507,12 @@ void render__17TObjEneDf2BringerFv(u8 *arg0) {
         temp_r29 = updateFromCamera__15RenderFadeStateFPCf(temp_r28, (void *) ((u8 *)(arg0) + 0x2FC));
         if (M2C_FIELD(arg0, s32 *, 0x3C0) & 2) {
             ((VObj_14_aa9368 *)((u8 *)(arg0) + (964)))->m6();
-            if (toggle_flag_9__10TObjPlayerFPv((void *) (arg0)) != 0) {
+            if (toggle_flag_9_if_flag_10_is_clear__7TObjectFv((void *) (arg0)) != 0) {
                 var_r27 = 0;
             }
         } else if (temp_r29 != 0) {
             ((VObj_14_aa9368 *)(temp_r28))->m6();
-            if (toggle_flag_9__10TObjPlayerFPv((void *) (arg0)) != 0) {
+            if (toggle_flag_9_if_flag_10_is_clear__7TObjectFv((void *) (arg0)) != 0) {
                 var_r27 = 0;
             }
         }

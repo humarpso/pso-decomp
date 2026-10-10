@@ -2204,7 +2204,7 @@ void render_world_model__10TObjPlayerFPv(void *);
 void draw__16TObjEneRe7BeruraFPv(void *);
 void end_effect_render__13TParticleCtrlFv(void);
 s32 get_global_state__14TOKeyMachine01Fv(void);
-s32 toggle_flag_9__10TObjPlayerFPv(void *);
+s32 toggle_flag_9_if_flag_10_is_clear__7TObjectFv(void *);
 #define rotate_matrix_y ((void (*)(s32, s32))rotate_matrix_y)
 #define translate_matrix ((void (*)(s32, f32, f32, f32))translate_matrix)
 void push_matrix(void);
@@ -2238,7 +2238,7 @@ void draw_model__15TObjEneMe1GiGueFPv(Obj_802CD058 *self) {
     lbl_805D5660 = some_id_805c6f74;
     if (updateFromCamera__15RenderFadeStateFPCf(&self->s418, self->f2fc) != 0) {
         self->s418.m6();
-        if (toggle_flag_9__10TObjPlayerFPv(self) != 0) {
+        if (toggle_flag_9_if_flag_10_is_clear__7TObjectFv(self) != 0) {
             some_id_805c6f74 = lbl_805D5660;
             return;
         }

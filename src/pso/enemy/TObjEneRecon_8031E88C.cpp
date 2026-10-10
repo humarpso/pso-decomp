@@ -171,7 +171,7 @@ M2C_UNK toggle_particle_effect__10TObjPlayerFv();
 M2C_UNK render_world_model__10TObjPlayerFPv(void *);
 M2C_UNK draw__16TObjEneRe7BeruraFPv(void *);
 M2C_UNK end_effect_render__13TParticleCtrlFv();
-s32 toggle_flag_9__10TObjPlayerFPv(void *);
+s32 toggle_flag_9_if_flag_10_is_clear__7TObjectFv(void *);
 s32 render_trap_model_if_visible__12TObjEneReconFPv(void *);
 M2C_UNK rotate_matrix_y(int, int);
 M2C_UNK rotate_matrix_x(int, int);
@@ -274,7 +274,7 @@ void render__12TObjEneReconFPv(u8 *arg0) {
                 lbl_805D5668 = lbl_805D7780;
                 if ((s16) M2C_FIELD(arg0, s16 *, 0x326) == 1) {
                     if (((Fade_8031EA70 *)(arg0 + 0x3C0))->m8() != 0) {
-                        if (toggle_flag_9__10TObjPlayerFPv((void *) (arg0)) != 0) {
+                        if (toggle_flag_9_if_flag_10_is_clear__7TObjectFv((void *) (arg0)) != 0) {
                             some_id_805c6f74 = lbl_805D5660;
                             lbl_805D7784 = lbl_805D5664;
                             lbl_805D7780 = lbl_805D5668;
@@ -294,7 +294,7 @@ block_18:
                 update_obstruction_fade((int) (temp_r29));
                 temp_r30 = updateFromCamera__15RenderFadeStateFPCf((int) (temp_r29), (void *) (arg0 + 0x2FC));
                 if ((var_r27 == 0) && (temp_r30 != 0)) {
-                    if (toggle_flag_9__10TObjPlayerFPv((void *) (arg0)) != 0) {
+                    if (toggle_flag_9_if_flag_10_is_clear__7TObjectFv((void *) (arg0)) != 0) {
                         some_id_805c6f74 = lbl_805D5660;
                         lbl_805D7784 = lbl_805D5664;
                         lbl_805D7780 = lbl_805D5668;
