@@ -394,8 +394,8 @@ s16 obj_getS16_32C(void *);
 Actor_8014F140 * get_player_data__10TObjPlayerFi(s32);
 s32 obj_getField1c(void *obj);
 int read_be16_field2__10TObjPlayerFPv(void*);
-f32 get_random_float__8TObjFishFv(f32);
-f64 get_ad_end_text_start__10TObjPlayerFv(int, f32, f32, f32);
+f32 fabs_float(f32);
+f64 atan2_float(int, f32, f32, f32);
 M2C_UNK queue_destruction__7TObjectFv(void *);
 s32 get_game_mode__6TLobbyFv(void);
 M2C_UNK fn_8002B630(void *, void *);
@@ -2840,7 +2840,7 @@ void partner_observe_surroundings(u8 *arg0) {
     ((M2C_UNK (*)(s32))partner_view_update_conditions)((s32)((void *) (M2C_FIELD(arg0, u8 **, 0x78))));
     temp_f3 = M2C_FIELD(arg0, f32 *, 0xDC);
     temp_r3 = (u8 *)(M2C_FIELD(M2C_FIELD(arg0, u8 **, 0x78), void **, 0x94));
-    M2C_FIELD(M2C_FIELD(arg0, u8 **, 0x78), s32 *, 0x98) = (s32) (lbl_8043FFD8 * get_ad_end_text_start__10TObjPlayerFv((int) (temp_r3), (f32) (temp_f3 - M2C_FIELD(temp_r3, f32 *, 0x38)), (f32) (M2C_FIELD(arg0, f32 *, 0xE4) - M2C_FIELD(temp_r3, f32 *, 0x40)), (f32) (temp_f3)));
+    M2C_FIELD(M2C_FIELD(arg0, u8 **, 0x78), s32 *, 0x98) = (s32) (lbl_8043FFD8 * atan2_float((int) (temp_r3), (f32) (temp_f3 - M2C_FIELD(temp_r3, f32 *, 0x38)), (f32) (M2C_FIELD(arg0, f32 *, 0xE4) - M2C_FIELD(temp_r3, f32 *, 0x40)), (f32) (temp_f3)));
     ((M2C_UNK (*)(void *))partner_probe_obstacles)((void *) (M2C_FIELD(arg0, u8 **, 0x78)));
     if (partner_view_update_hp_change((void *) (M2C_FIELD(arg0, u8 **, 0x78))) != 0) {
         if (((s32 (*)(s32))get_condition__10TNpcPlayerFPv)((s32)((void *) (M2C_FIELD(arg0, u8 **, 0x78)))) & 0x40) {
@@ -2988,7 +2988,7 @@ void update_combat_action__10TNpcPlayerFv(Npc_80150B90 *self) {
             alt = 0;
         }
         if (alt == 0) {
-            if (get_random_float__8TObjFishFv(TNpcPlayer__data_805DB1F4 * (lbl_805DB244 * (f32)rand())) >
+            if (fabs_float(TNpcPlayer__data_805DB1F4 * (lbl_805DB244 * (f32)rand())) >
                 (*(const f32 *)&TNpcPlayer__data_805DB22C) * (f32)self->f53) {
                 partner_request_physical_attack(self);
                 return;
@@ -3353,7 +3353,7 @@ void decide_action__10TNpcPlayerFv(u8 *arg0) {
             var_f31 = lbl_805DB24C;
         }
         if ((can_perform_physical_action__10TObjPlayerFi((void *) (M2C_FIELD(M2C_FIELD(arg0, u8 **, 0x78), s32 *, 0x94))) != 0) && (M2C_FIELD(arg0, s16 *, 0x8E) == 0)) {
-            temp_f1 = get_random_float__8TObjFishFv(TNpcPlayer__data_805DB1F4 * (lbl_805DB244 * (f32) rand()));
+            temp_f1 = fabs_float(TNpcPlayer__data_805DB1F4 * (lbl_805DB244 * (f32) rand()));
             temp_f0 = TNpcPlayer__data_805DB22C * (f32) M2C_FIELD(arg0, u8 *, 0x52);
             temp_f0 *= var_f31;
             if (temp_f1 < temp_f0) {

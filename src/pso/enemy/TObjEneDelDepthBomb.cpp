@@ -65,7 +65,7 @@ extern "C" {
 f32 calc_boss4_scale__10TObjPlayerFi(void *);
 M2C_UNK calc_distance_to_client__10TObjPlayerFiUsUi(void *, u16, void *);
 s32 VecCopy__FP3VecPC3Vec(void *, void *);
-f64 get_ad_end_text_start__10TObjPlayerFv(f32, f32);
+f64 atan2_float(f32, f32);
 u32 csnLookAt(void *, void *);
 s32 angle_difference_abs(s32, s32);
 s32 approach_angle_limited(s32, s32, s32);
@@ -92,9 +92,9 @@ void update_animation_frame__15TObjEneDelDepthFPv(s32);
 void run_task__15TObjEneDelDepthFv(Ene_80315720 *o);
 f32 cos_table_lookup(s32);
 f32 sin_table_lookup(s32);
-f32 get_random_float__8TObjFishFv(f32);
+f32 fabs_float(f32);
 f32 vector_length(void *);
-f64 get_ad_end_text_start__10TObjPlayerFv(f32, f32);
+f64 atan2_float(f32, f32);
 M2C_UNK normalize_vector(void *);
 M2C_UNK play_sound_effect(int, void *, int, int);
 s32 VecCopy__FP3VecPC3Vec(void *, void *);
@@ -124,7 +124,7 @@ extern const f32 lbl_805DF2AC;
 void update_movement__15TObjEneDelDepthFPv(Obj_80314758 *arg0);
 u16 find_nearest_visible_player(void *, int, f32);
 M2C_UNK calc_distance_to_client__10TObjPlayerFiUsUi(void *, u16, void *);
-f64 get_ad_end_text_start__10TObjPlayerFv(f32, f32);
+f64 atan2_float(f32, f32);
 u8 *get_bml_motion(s32, s32);
 s32 angle_difference_abs(s32, s32);
 s32 approach_angle_limited(s32, s32, s32);
@@ -136,7 +136,7 @@ extern const float TObjEneDelDepth__data_805DF258;
 extern const f32 TObjEneDelDepth__data_805DF298;
 extern const f32 lbl_805DF29C;
 void TObjEneDelDepth__sub_803142DC(u8 *arg0);
-f64 get_ad_end_text_start__10TObjPlayerFv(f32, f32);
+f64 atan2_float(f32, f32);
 s32 find_nearest_enemy_with_flag__15TObjEneDelDepthFPvif(void *, f32 *, f32);
 s32 angle_difference_abs(s32, s32);
 extern const f64 TObjEneDelDepth__data_80475DD0;
@@ -533,7 +533,7 @@ void destroy_motion_object__10TObjPlayerFPvs(void *, int);
 s32 construct_actor_base__10TObjPlayerFPvPv(void *);
 s32 VecCopy__FP3VecPC3Vec(void *, void *);
 s32 add_flags_2e4__10TObjPlayerFPvUi(void *, int);
-f32 get_random_float__8TObjFishFv(f32);
+f32 fabs_float(f32);
 void queue_destruction__7TObjectFv(void *);
 s32 register_object__6TLobbyFPv(int);
 s32 dispatch_shared_handler_b__6TLobbyFPv(int);
@@ -889,7 +889,7 @@ void TObjEneDelDepth__sub_80313740(Ene_80313740 *o) {
         VecCopy__FP3VecPC3Vec(&a, &o->pos);
         vec3_add_to(&a, &o->f3D4);
         VecCopy__FP3VecPC3Vec(&b, &a);
-        b.y += k + get_random_float__8TObjFishFv(o->f3D8);
+        b.y += k + fabs_float(o->f3D8);
         if (project_actor_to_ground(o, &b, 0) != 0) {
             VecCopy__FP3VecPC3Vec(&o->pos, &a);
             if (!(o->pos.y > b.y)) {
@@ -907,7 +907,7 @@ void TObjEneDelDepth__sub_80313740(Ene_80313740 *o) {
     if (tries == 0) {
         o->f3D4 = o->f3DC = TObjEneDelDepth__data_805DF258;
         VecCopy__FP3VecPC3Vec(&c, &o->pos);
-        c.y += TObjEneDelDepth__data_805DF268 + get_random_float__8TObjFishFv(o->f3D8);
+        c.y += TObjEneDelDepth__data_805DF268 + fabs_float(o->f3D8);
         if (project_actor_to_ground(o, &c, 0) != 0) {
             if (!(o->pos.y > c.y)) {
                 o->pos.y = c.y;
@@ -1117,7 +1117,7 @@ void move_toward_target__15TObjEneDelDepthFPv(u8 *arg0) {
     if (id != 0xFFFF) {
         calc_distance_to_client__10TObjPlayerFiUsUi(arg0, (u16)id, &v);
     }
-    ang = (s32)(TObjEneDelDepth__data_80475DD0 * get_ad_end_text_start__10TObjPlayerFv(v.x, v.z));
+    ang = (s32)(TObjEneDelDepth__data_80475DD0 * atan2_float(v.x, v.z));
     M2C_FIELD(arg0, s32 *, 0x60) = approach_angle_limited(M2C_FIELD(arg0, s32 *, 0x60), ang, 0x200);
     if (angle_difference_abs(M2C_FIELD(arg0, s32 *, 0x60), ang) < 0x200) {
         M2C_FIELD(arg0, s32 *, 0x384) = 0;
@@ -1154,7 +1154,7 @@ void TObjEneDelDepth__sub_803141A8(Obj_800E9DC8 *arg0) {
     s32 t;
     arg0->f60 = arg0->f60 + arg0->f3C4;
     if (find_nearest_enemy_with_flag__15TObjEneDelDepthFPvif(arg0, sp, lbl_805DF294) != 0xFFFF) {
-        t = (s32) (((const f64 *)&TObjEneDelDepth__data_80475DD0)[0] * get_ad_end_text_start__10TObjPlayerFv(sp[0], sp[2]));
+        t = (s32) (((const f64 *)&TObjEneDelDepth__data_80475DD0)[0] * atan2_float(sp[0], sp[2]));
         if (angle_difference_abs(arg0->f60, t) < 0x444) {
             arg0->f60 = t;
             r = 1;
@@ -1191,7 +1191,7 @@ void TObjEneDelDepth__sub_803142DC(u8 *arg0) {
     M2C_FIELD(arg0, s32 *, 0x60) = (s32)(f * (f32)M2C_FIELD(arg0, s32 *, 0x3BC) + (f32)M2C_FIELD(arg0, s32 *, 0x60));
     if (M2C_FIELD(arg0, s32 *, 0x3C4) == 0xFFFF) {
         id = find_nearest_visible_player(arg0, (int)&v, lbl_805DF29C);
-        if (id != 0xFFFF && angle_difference_abs(M2C_FIELD(arg0, s32 *, 0x60), (s32)(TObjEneDelDepth__data_80475DD0 * get_ad_end_text_start__10TObjPlayerFv(v.x, v.z))) < 0x1C71) {
+        if (id != 0xFFFF && angle_difference_abs(M2C_FIELD(arg0, s32 *, 0x60), (s32)(TObjEneDelDepth__data_80475DD0 * atan2_float(v.x, v.z))) < 0x1C71) {
             M2C_FIELD(arg0, s32 *, 0x394) = 0;
             M2C_FIELD(arg0, s32 *, 0x3C4) = id;
         }
@@ -1206,7 +1206,7 @@ void TObjEneDelDepth__sub_803142DC(u8 *arg0) {
             w.y = 0.0f;
             w.z = 0.0f;
             calc_distance_to_client__10TObjPlayerFiUsUi(arg0, (u16)M2C_FIELD(arg0, s32 *, 0x3C4), &w);
-            M2C_FIELD(arg0, s32 *, 0x60) = approach_angle_limited(M2C_FIELD(arg0, s32 *, 0x60), (s32)(TObjEneDelDepth__data_80475DD0 * get_ad_end_text_start__10TObjPlayerFv(w.x, w.z)), 0x280);
+            M2C_FIELD(arg0, s32 *, 0x60) = approach_angle_limited(M2C_FIELD(arg0, s32 *, 0x60), (s32)(TObjEneDelDepth__data_80475DD0 * atan2_float(w.x, w.z)), 0x280);
         }
         if (M2C_FIELD(arg0, s32 *, 0x384) > lim) {
             set_motion__15TObjEneDelDepthFPvi((void *)M2C_FIELD(arg0, s32 *, 0x37C), (void *)0);
@@ -1308,7 +1308,7 @@ void update_movement__15TObjEneDelDepthFPv(Obj_80314758 *arg0) {
             arg0->speed = (*(const f32 *)&TObjEneDelDepth__data_805DF258);
         }
     }
-    arg0->f38c -= get_random_float__8TObjFishFv(arg0->speed);
+    arg0->f38c -= fabs_float(arg0->speed);
     VecCopy__FP3VecPC3Vec(&arg0->prev, &arg0->pos);
     for (k = 1; k < 15; k++) {
         f32 s;
@@ -1342,7 +1342,7 @@ void update_movement__15TObjEneDelDepthFPv(Obj_80314758 *arg0) {
                 d = lbl_805DF2A8 * ((f32 *)TObjEneDelDepth_collision_body_parts)[3];
                 p.x += d * n.x;
                 p.z += d * n.z;
-                arg0->f394 = (s32)(TObjEneDelDepth__data_80475DD0 * get_ad_end_text_start__10TObjPlayerFv(n.x, n.z));
+                arg0->f394 = (s32)(TObjEneDelDepth__data_80475DD0 * atan2_float(n.x, n.z));
                 if (csnVector(&arg0->prev, &p, 0x88E0) == 0) {
                     ang = 1;
                 }
@@ -1368,7 +1368,7 @@ void update_movement__15TObjEneDelDepthFPv(Obj_80314758 *arg0) {
         arg0->dir.y = (*(const f32 *)&TObjEneDelDepth__data_805DF258);
         arg0->dir.z = s * arg0->dir.x + c * arg0->dir.z;
         normalize_vector(&arg0->dir);
-        arg0->rotY = (s32)(TObjEneDelDepth__data_80475DD0 * get_ad_end_text_start__10TObjPlayerFv(arg0->dir.x, arg0->dir.z));
+        arg0->rotY = (s32)(TObjEneDelDepth__data_80475DD0 * atan2_float(arg0->dir.x, arg0->dir.z));
         VecCopy__FP3VecPC3Vec(&arg0->pos, &arg0->prev);
     }
     if (arg0->f38c <= (*(const f32 *)&TObjEneDelDepth__data_805DF258) && (*(const f32 *)&TObjEneDelDepth__data_805DF258) == arg0->speed) {

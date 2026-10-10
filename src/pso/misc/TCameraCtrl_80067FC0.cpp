@@ -96,7 +96,7 @@ extern View_8006835C *camera_ctrl_instance;
 void apply_camera_controller_pose(Cam_80068530 *arg0);
 void VecCopy__FP3VecPC3Vec(void *, void *);
 s32 is_split_screen();
-f32 get_random_float__8TObjFishFv();
+f32 fabs_float();
 s32 get_camera_mode__11TCameraCtrlFv();
 Vec_8006835C *get_position_ptr__10TObjPlayerFPv(void *);
 Vec_8006835C *get_target_ptr__11TCameraCtrlFPv(void *);
@@ -195,7 +195,7 @@ s32 predict_obstruction__11TCameraCtrlFPv(Cam_8006809C *self) {
         matrix_mult_vec(0, &v2, &v2);
         pop_matrices(1);
         vec3_dot(&v1, &v2);
-        if (get_random_float__8TObjFishFv() > lbl_805D8F88) {
+        if (fabs_float() > lbl_805D8F88) {
             dist = TCameraCtrl__data_805D8F84;
         } else {
             dist = len * lbl_805D8F8C;

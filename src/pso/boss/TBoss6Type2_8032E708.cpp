@@ -368,7 +368,7 @@ void compute_random_dir_vec__11TBoss6Type2FiPvii(s32 arg0, u8 *arg1, s32 arg2, s
 f32 vec3_add_to(void *, int);
 void apply_random_drift__11TBoss6Type2FPv(O_8032F5FC *arg0);
 s32 VecCopy__FP3VecPC3Vec(void *, void *);
-f32 get_ad_end_text_start__10TObjPlayerFv(f32, f32);
+f32 atan2_float(f32, f32);
 f32 TBoss5GryphonLightningWing__sub_80324CEC(f32);
 f32 vector_length(void *);
 f32 normalize_vector(void *);
@@ -391,7 +391,7 @@ f32 subtract_vector(void *, int);
 f32 normalize_vector(void *);
 void push_out_from_points__11TBoss6Type2FPv(O_8032EBB4 *arg0);
 s32 VecCopy__FP3VecPC3Vec(void *, void *);
-f32 get_ad_end_text_start__10TObjPlayerFv(f32, f32);
+f32 atan2_float(f32, f32);
 s32 angle_difference_abs(s32, s32);
 u8 *get_player_by_client_id(s32);
 f32 sin_table_lookup(void *);
@@ -427,7 +427,7 @@ f32 cos_table_lookup(void *);
 
 void spawn_falling_rocks__11TBoss6Type2FPv(u8 *arg0);
 s32 VecCopy__FP3VecPC3Vec(void *, void *);
-f32 get_ad_end_text_start__10TObjPlayerFv(f32, f32);
+f32 atan2_float(f32, f32);
 s32 approach_angle_limited(s32, s32, s32);
 s32 project_actor_to_ground(void *, void *, s32);
 void TBoss6Type2__sub_802BD378(void *, s32, void *, void *);
@@ -458,7 +458,7 @@ void update_rotation_ramp__11TBoss6Type2FPv(void *arg0);
 f32 sin_table_lookup(void *);
 f32 cos_table_lookup(void *);
 s32 is_local_client_floor_leader();
-f32 get_random_float__8TObjFishFv(f32);
+f32 fabs_float(f32);
 s32 get_rotation_timer__11TBoss6Type2FPv(u32);
 
 void TBoss6Type2__sub_8032E708(void* p, s32 v) { *(s32*)((char*)p + 0x40c) = v; }
@@ -701,7 +701,7 @@ void compute_random_dir_vec__11TBoss6Type2FiPvii(s32 arg0, u8 *arg1, s32 arg2, s
     f32 temp_f30;
 
     temp_f31 = -sin_table_lookup((void *) (arg3));
-    temp_f30 = (1.0f) - get_random_float__8TObjFishFv((f32) (temp_f31));
+    temp_f30 = (1.0f) - fabs_float((f32) (temp_f31));
     M2C_FIELD(arg1, f32 *, 0) = (f32) (temp_f30 * sin_table_lookup((void *) (arg2)));
     M2C_FIELD(arg1, f32 *, 4) = temp_f31;
     M2C_FIELD(arg1, f32 *, 8) = (f32) (temp_f30 * cos_table_lookup((void *) (arg2)));
@@ -726,7 +726,7 @@ s32 calc_dir_angles__11TBoss6Type2FPvPvPvPv(void *arg0, s32 *arg1, s32 *arg2, Ve
         *arg2 = -0x7FFF;
         return 1;
     }
-    *arg1 = (10430.38043493439) * get_ad_end_text_start__10TObjPlayerFv(v.x, v.z);
+    *arg1 = (10430.38043493439) * atan2_float(v.x, v.z);
     *arg2 = (10430.38043493439) * TBoss5GryphonLightningWing__sub_80324CEC(-v.y);
     return 1;
 }
@@ -746,7 +746,7 @@ s32 is_target_in_front_range__11TBoss6Type2FPv(O_8032F034 *arg0) {
     a.y = 0.0f;
     V3_8032F034 b = arg0->home;
     if (0.0f == arg0->f3b8) {
-        if (angle_difference_abs(arg0->f60, (s32)((10430.38043493439) * get_ad_end_text_start__10TObjPlayerFv(a.x - b.x, a.z - b.z))) > 0x2000) {
+        if (angle_difference_abs(arg0->f60, (s32)((10430.38043493439) * atan2_float(a.x - b.x, a.z - b.z))) > 0x2000) {
             return 0;
         }
     }
@@ -968,7 +968,7 @@ s32 fly_toward_target__11TBoss6Type2FPv(O_8032F824 *o) {
     len = vector_length(&h);
     if (!(len < (1e+02f))) {
         f32 dy;
-        o->f60 = step_angle_toward__11TBoss6Type2FPviii(o, o->f60, (s32)((10430.38043493439) * get_ad_end_text_start__10TObjPlayerFv(d.x, d.z)), 0x5B0);
+        o->f60 = step_angle_toward__11TBoss6Type2FPviii(o, o->f60, (s32)((10430.38043493439) * atan2_float(d.x, d.z)), 0x5B0);
         o->f5c = approach_angle_limited(o->f5c, 0, 0x5B0);
         VecCopy__FP3VecPC3Vec(&a, &o->pos);
         a.x += (4.4444447f) * sin_table_lookup((void *)o->f60);

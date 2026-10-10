@@ -41,7 +41,7 @@ struct Gun_800A0B20 : VBase_800A0B20 {
 
 extern "C" {
 u16 find_nearest_visible_player(void *, s32, f32);
-f32 get_ad_end_text_start__10TObjPlayerFv(f32, f32);
+f32 atan2_float(f32, f32);
 void queue_destruction__7TObjectFv(void *);
 s32 check_demo_mode__10TObjPlayerFv(void);
 void TObjPlayer__sub_800A0654(void *);
@@ -262,7 +262,7 @@ void run_task__20TObjEneDarkGunCenterFv(Gun_800A0B20 *self) {
             id = find_nearest_visible_player(self, 0, lbl_805D9970);
             if (id != 0xFFFF) {
                 self->target = get_player_by_client_id(id);
-                ang = (s32)(lbl_8043A488[0] * get_ad_end_text_start__10TObjPlayerFv(*(f32 *)(self->target + 0x40) - self->f40, *(f32 *)(self->target + 0x38) - self->f38)) + 0x4000;
+                ang = (s32)(lbl_8043A488[0] * atan2_float(*(f32 *)(self->target + 0x40) - self->f40, *(f32 *)(self->target + 0x38) - self->f38)) + 0x4000;
                 for (i = 0; i < self->count; i++) {
                     e = get_enemy_entity(self->ids[i]);
                     if (e != NULL) {

@@ -21,7 +21,7 @@ struct Bringer_8010834C {
 
 extern "C" {
 void VecCopy__FP3VecPC3Vec(void *, const void *);
-f64 get_ad_end_text_start__10TObjPlayerFv(f32, f32);
+f64 atan2_float(f32, f32);
 void disallow_rendering__7TObjectFv(void *);
 void *__ct__10TItemShootFPvPC3VecPC3Vecf(void *, u32, s32, s32, f32);
 f32 sin_table_lookup(s32);
@@ -96,7 +96,7 @@ void *__ct__15TItemEffBringerFv(Bringer_8010834C *self, u32 arg1, Vec_8010834C *
     VecCopy__FP3VecPC3Vec(&w, src);
     subtract_vector((Vec*)((Vec *)&w), (Vec*)((Vec *)&out));
     pop_matrix();
-    r = sin_table_lookup(self->f2C - (s32)(lbl_8043E188[0] * get_ad_end_text_start__10TObjPlayerFv(w.x, w.z)));
+    r = sin_table_lookup(self->f2C - (s32)(lbl_8043E188[0] * atan2_float(w.x, w.z)));
     if (r < lbl_805DAB10) {
         r *= lbl_805DAB14;
     }

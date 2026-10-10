@@ -1275,7 +1275,7 @@ int read_be16_field2__10TObjPlayerFPv(void*);
 s32 get_current_floor(void);
 s16 get_field_3e4__10TObjPlayerFPv(void *);
 Item_801CE928 * get_item_field_6__10TObjPlayerFPv(void *);
-f64 get_ad_end_text_start__10TObjPlayerFv(f32, f32);
+f64 atan2_float(f32, f32);
 f32 newton_sqrtf(f32);
 M2C_UNK queue_destruction__7TObjectFv(void *);
 void set_flags__10TObjPlayerFPvUi(void *, u32);
@@ -3997,7 +3997,7 @@ void begin_fall_reaction__10TObjPlayerFPv(void *arg0) {
     z = M2C_FIELD(arg0, f32 *, 0x310);
     x = M2C_FIELD(arg0, f32 *, 0x308);
     if (newton_sqrtf(x * x + z * z) > lbl_805DC390) {
-        M2C_FIELD(arg0, s32 *, 0x60) = (s32) ((s32) (lbl_80447148 * get_ad_end_text_start__10TObjPlayerFv(x, z)) + 0x8000);
+        M2C_FIELD(arg0, s32 *, 0x60) = (s32) ((s32) (lbl_80447148 * atan2_float(x, z)) + 0x8000);
     }
     if (((s32 (*)(void *, M2C_UNK))obj_testFlags30)(arg0, 0x800) != 0) {
         drop_items_on_death__10TObjPlayerFPv(arg0);

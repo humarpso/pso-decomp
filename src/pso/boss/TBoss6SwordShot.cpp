@@ -92,7 +92,7 @@ extern const f32 lbl_805E0004;
 extern const f32 lbl_805E0008;
 s32 spawn_wave_ring_particles__15TBoss6SwordWaveFPv(void *arg0);
 s32 VecCopy__FP3VecPC3Vec(void *, void *);
-f64 get_ad_end_text_start__10TObjPlayerFv(f32, f32);
+f64 atan2_float(f32, f32);
 s32 get_point__10TBoss6RockFiPvPv(s32, void *, void *);
 M2C_UNK reset_rock_state__10TBoss6RockFi(s32);
 u8 test_rock_bit__15TBoss6SwordWaveFiUc(s32 arg0, u8 arg1);
@@ -109,7 +109,7 @@ extern s32 lbl_805E000C;
 M2C_UNK break_rocks_in_wave__15TBoss6SwordWaveFPv(void *a);
 s32 VecCopy__FP3VecPC3Vec(void *, void *);
 VObj_8035663C *get_player_data__10TObjPlayerFi(s32);
-f64 get_ad_end_text_start__10TObjPlayerFv(f32, f32);
+f64 atan2_float(f32, f32);
 s32 get_game_mode__6TLobbyFv();
 s32 is_active__14TBoss6PlotFalzFPv();
 s32 rand_vary_count__14TBoss6PlotFalzFif(s32, f32);
@@ -366,7 +366,7 @@ M2C_UNK check_player_hits__15TBoss6SwordWaveFPv(void *a) {
                 continue;
             }
             t = ((u8 (*)(void *, s32))TBoss6SwordWave__sub_80356D08)(arg0 + 0x30,
-                        (s32)(lbl_804793B0 * get_ad_end_text_start__10TObjPlayerFv(dir.x, dir.z)));
+                        (s32)(lbl_804793B0 * atan2_float(dir.x, dir.z)));
             if (((s32 (*)(void *, u8))test_rock_bit__15TBoss6SwordWaveFiUc)(arg0 + 0x30, t) == 0) {
                 continue;
             }
@@ -410,7 +410,7 @@ M2C_UNK break_rocks_in_wave__15TBoss6SwordWaveFPv(void *a) {
             continue;
         }
         t = ((u8 (*)(void *, s32))TBoss6SwordWave__sub_80356D08)(arg0 + 0x30,
-                (s32)(lbl_804793B0 * get_ad_end_text_start__10TObjPlayerFv(d.x, d.z)));
+                (s32)(lbl_804793B0 * atan2_float(d.x, d.z)));
         if (((s32 (*)(void *, u8))test_rock_bit__15TBoss6SwordWaveFiUc)(arg0 + 0x30, t) == 0) {
             continue;
         }
@@ -429,8 +429,8 @@ M2C_UNK break_rocks_in_wave__15TBoss6SwordWaveFPv(void *a) {
         vec3_add_to(&va, &n);
         VecCopy__FP3VecPC3Vec(&vb, &pt);
         subtract_vector(&vb, &n);
-        a1 = (s32)(lbl_804793B0 * get_ad_end_text_start__10TObjPlayerFv(va.x - M2C_FIELD(arg0, f32 *, 0x20), va.z - M2C_FIELD(arg0, f32 *, 0x28)));
-        a2 = (s32)(lbl_804793B0 * get_ad_end_text_start__10TObjPlayerFv(vb.x - M2C_FIELD(arg0, f32 *, 0x20), vb.z - M2C_FIELD(arg0, f32 *, 0x28)));
+        a1 = (s32)(lbl_804793B0 * atan2_float(va.x - M2C_FIELD(arg0, f32 *, 0x20), va.z - M2C_FIELD(arg0, f32 *, 0x28)));
+        a2 = (s32)(lbl_804793B0 * atan2_float(vb.x - M2C_FIELD(arg0, f32 *, 0x20), vb.z - M2C_FIELD(arg0, f32 *, 0x28)));
         lo = ((s32 (*)(void *, s32))TBoss6SwordWave__sub_80356D08)(arg0 + 0x30, a1);
         hi = ((s32 (*)(void *, s32))TBoss6SwordWave__sub_80356D08)(arg0 + 0x30, a2);
         if (hi < lo) {

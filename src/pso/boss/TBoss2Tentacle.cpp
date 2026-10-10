@@ -99,7 +99,7 @@ extern s32 lbl_805D4BD8;
 extern const f32 lbl_805D8528;
 void render__14TBoss2TentacleFv(u8 *arg0);
 void VecCopy__FP3VecPC3Vec(void *, void *);
-f64 get_ad_end_text_start__10TObjPlayerFv(f32, f32);
+f64 atan2_float(f32, f32);
 M2C_UNK emit_effect_and_step__13TBoss2DeRolLeFPvPv(void *, void *);
 void *get_instance__13TBoss2DeRolLeFv(void);
 void TBoss2Tentacle__sub_8003998C(void);
@@ -147,7 +147,7 @@ extern const float TBoss2Tentacle__data_805D8534;
 extern const f32 lbl_805D855C;
 extern const f32 lbl_805D8560;
 Obj_80039F50 *__ct__14TBoss2TentacleFP7TObjectii(Obj_80039F50 *self, void *parent, s32 arg2, s32 arg3);
-f64 get_ad_end_text_start__10TObjPlayerFv(f32, f32);
+f64 atan2_float(f32, f32);
 f32 newton_sqrtf(f32);
 void TBoss2Tentacle__sub_80039990(void);
 extern V3_80039DE0 TBoss2Tentacle__segment_points[];
@@ -292,7 +292,7 @@ void run_task__14TBoss2TentacleFv(u8 *arg0) {
         VecCopy__FP3VecPC3Vec(&v, arg0 + 0x12C);
         subtract_vector(&v, arg0 + 0x140);
         len = clamp_velocity__15TObjBoss2TunnelFPv(&v);
-        F(s32, 0x11C) = (s32)(lbl_80435BA8[0] * get_ad_end_text_start__10TObjPlayerFv(v.x, v.z)) + 0x8000;
+        F(s32, 0x11C) = (s32)(lbl_80435BA8[0] * atan2_float(v.x, v.z)) + 0x8000;
         VecCopy__FP3VecPC3Vec(&pos, arg0 + 0x12C);
         switch (F(s32, 0x24)) {
         case 0: {
@@ -407,7 +407,7 @@ void TBoss2Tentacle__sub_80039994(Obj_80039994 *o, f32 len) {
         dy = y - py;
         px = x;
         py = y;
-        ang = (s32)(10430.38043493439 * get_ad_end_text_start__10TObjPlayerFv(dy, dx));
+        ang = (s32)(10430.38043493439 * atan2_float(dy, dx));
         o->vals[j - 1] = ang - prev;
         prev = ang;
         o->pts[j].x = newton_sqrtf(dy * dy + dx * dx);

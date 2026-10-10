@@ -95,7 +95,7 @@ extern s8 pad_recalibration_hold_frames[4];
 extern const f32 lbl_805DC0B4;
 void update_pad_recalibration(void);
 s32 is_split_screen();
-f64 get_ad_end_text_start__10TObjPlayerFv(f32, f32);
+f64 atan2_float(f32, f32);
 f32 newton_sqrtf(f32);
 void update_pad_recalibration(void);
 void bind_controller_devices(void);
@@ -389,15 +389,15 @@ void controller_stuff__Fv(void) {
                     map_c_stick_to_buttons((u8 *)pad, pad->cx, pad->cy, old);
                     if (camera_ctrl_instance != NULL) {
                         if (is_split_screen() != 0) {
-                            a = ((Obj_801A5F1C *)camera_ctrl_instance)->base[i] + (s32)(10430.38043493439 * get_ad_end_text_start__10TObjPlayerFv(fx, fy));
-                            b = ((Obj_801A5F1C *)camera_ctrl_instance)->base[i] + (s32)(10430.38043493439 * get_ad_end_text_start__10TObjPlayerFv(gx, gy));
+                            a = ((Obj_801A5F1C *)camera_ctrl_instance)->base[i] + (s32)(10430.38043493439 * atan2_float(fx, fy));
+                            b = ((Obj_801A5F1C *)camera_ctrl_instance)->base[i] + (s32)(10430.38043493439 * atan2_float(gx, gy));
                         } else {
-                            a = *(s32 *)(camera_ctrl_instance + 0x94) + (s32)(10430.38043493439 * get_ad_end_text_start__10TObjPlayerFv(fx, fy));
-                            b = *(s32 *)(camera_ctrl_instance + 0x94) + (s32)(10430.38043493439 * get_ad_end_text_start__10TObjPlayerFv(gx, gy));
+                            a = *(s32 *)(camera_ctrl_instance + 0x94) + (s32)(10430.38043493439 * atan2_float(fx, fy));
+                            b = *(s32 *)(camera_ctrl_instance + 0x94) + (s32)(10430.38043493439 * atan2_float(gx, gy));
                         }
                     } else {
-                        a = (s32)(10430.38043493439 * get_ad_end_text_start__10TObjPlayerFv(fx, fy));
-                        b = (s32)(10430.38043493439 * get_ad_end_text_start__10TObjPlayerFv(gx, gy));
+                        a = (s32)(10430.38043493439 * atan2_float(fx, fy));
+                        b = (s32)(10430.38043493439 * atan2_float(gx, gy));
                     }
                     pad->ang0 = (u16)a;
                     pad->ang1 = (u16)b;

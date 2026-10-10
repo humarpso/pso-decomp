@@ -771,7 +771,7 @@ s32 add_status_effect_timer__10TObjPlayerFPvii(void *, int, int);
 void add_flags_2e4__10TObjPlayerFPvUi(void *, u32);
 M2C_UNK obj_clearFlags30(void *, int);
 void obj_setFlags30(void *, u32);
-f32 get_random_float__8TObjFishFv();
+f32 fabs_float();
 void queue_destruction__7TObjectFv(void *);
 s32 dispatch_shared_handler_a__6TLobbyFPv(M2C_UNK);
 s32 register_object__6TLobbyFPv(M2C_UNK);
@@ -1501,7 +1501,7 @@ void render__15TBoss3VoloptP01Fv(u8 *arg0) {
             } else {
                 if (temp_r3 & 0x80000) {
                     sin_table_lookup(M2C_FIELD(arg0, s32 *, 0x3B4));
-                    M2C_FIELD(lbl_805D4CCC, s8 *, 7) = (s8) ((255.0f) * get_random_float__8TObjFishFv());
+                    M2C_FIELD(lbl_805D4CCC, s8 *, 7) = (s8) ((255.0f) * fabs_float());
                     M2C_FIELD(lbl_805D4CCC, s8 *, 4) = 0;
                     M2C_FIELD(lbl_805D4CCC, s8 *, 5) = 0;
                 } else {

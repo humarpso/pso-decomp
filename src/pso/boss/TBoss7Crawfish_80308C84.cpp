@@ -15,7 +15,7 @@ struct Craw_80308D1C {
 
 extern "C" {
 u16 find_nearest_visible_player(void *, void *, f32);
-f64 get_ad_end_text_start__10TObjPlayerFv(f32, f32);
+f64 atan2_float(f32, f32);
 M2C_UNK change_state__14TBoss7CrawfishFPvi(void *, int);
 f32 sin_table_lookup(s32);
 f32 cos_table_lookup(s32);
@@ -72,7 +72,7 @@ void aim_at_nearest_player__14TBoss7CrawfishFPv(Craw_80308D1C *o) {
         o->vy = TBoss7Crawfish__data_805DF0D8;
         o->vz = s * cos_table_lookup(o->angle);
     }
-    o->angle = lbl_804755B0[0] * get_ad_end_text_start__10TObjPlayerFv(o->vx, o->vz);
+    o->angle = lbl_804755B0[0] * atan2_float(o->vx, o->vz);
     change_state__14TBoss7CrawfishFPvi((void *)(o), (int)(2));
 }
 

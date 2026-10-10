@@ -508,7 +508,7 @@ extern const f32 lbl_805D98A4;
 extern const f32 lbl_805D9E84;
 extern const f32 lbl_805D9E88;
 void TObjPlayer__sub_8009BA04(u8 *arg0);
-f64 get_ad_end_text_start__10TObjPlayerFv(f32, f32);
+f64 atan2_float(f32, f32);
 s32 rotate_xz_pair_by_angle(void *, void *, int);
 f32 clamp_velocity__15TObjBoss2TunnelFPv(void *);
 s32 try_trigger_action__17TObjEneMe1CanadinFPv(void *arg0);
@@ -2579,7 +2579,7 @@ f32 calc_boss4_scale__10TObjPlayerFi(s32);
 s32 VecCopy__FP3VecPC3Vec(void *, void *);
 s32 obj_isState2_324(void *);
 M2C_UNK obj_getField1c(void *);
-f64 get_ad_end_text_start__10TObjPlayerFv(f32, f32);
+f64 atan2_float(f32, f32);
 f32 newton_sqrtf(f32);
 M2C_UNK queue_destruction__7TObjectFv(void *);
 f32 get_random_float__21TObjEneMe3ShinowaRealFv(f32);
@@ -4246,7 +4246,7 @@ void TObjEneMe1Canadin__sub_8009C91C(void *arg0, s32 arg1) {
                     c = clamp_velocity__15TObjBoss2TunnelFPv(&v);
                     move_to_wall_clamped_destination__9TObjEneDDFPvfff(o, v.x, v.z, c);
                 }
-                o->angle = (s32)(lbl_8043A3C8 * get_ad_end_text_start__10TObjPlayerFv(dir->x, dir->z)) + 0x8000;
+                o->angle = (s32)(lbl_8043A3C8 * atan2_float(dir->x, dir->z)) + 0x8000;
                 push_history_entry__17TObjEneMe1CanadinFPvfPvi(o->f408, TObjEneMe1Canadin__data_805D98B4, o->f414, o->f4B4);
                 break;
             }
@@ -5026,7 +5026,7 @@ void TObjEneMe1Canadin__vt103(u8 *arg0) {
 void update_move__17TObjEneMe1CanadinFPv(void* p) { if (((int (*)(void*))enemy_has_live_target)(p) != 0) { ((int (*)(void*))enemy_copy_target_destination)(p); ((int (*)(void*))update_velocity__9TObjEneDDFPv)(p); ((int (*)(void*))update_angle__17TObjEneMe1CanadinFPv)(p); } }
 
 void update_angle__17TObjEneMe1CanadinFPv(void *arg0) {
-    M2C_FIELD(arg0, s32 *, 0x60) = approach_angle_limited(M2C_FIELD(arg0, s32 *, 0x60), (s32) (lbl_8043A3C8 * get_ad_end_text_start__10TObjPlayerFv(M2C_FIELD(arg0, f32 *, 0x3A0), M2C_FIELD(arg0, f32 *, 0x3A8))), 0x400);
+    M2C_FIELD(arg0, s32 *, 0x60) = approach_angle_limited(M2C_FIELD(arg0, s32 *, 0x60), (s32) (lbl_8043A3C8 * atan2_float(M2C_FIELD(arg0, f32 *, 0x3A0), M2C_FIELD(arg0, f32 *, 0x3A8))), 0x400);
     M2C_FIELD(arg0, s32 *, 0x60) = (s32) (s16) M2C_FIELD(arg0, s32 *, 0x60);
 }
 

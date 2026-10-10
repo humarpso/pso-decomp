@@ -2348,7 +2348,7 @@ extern const f32 TObjEneMe3Stelth__data_805DA848;
 extern const f32 lbl_805DA878;
 void state_chase_target__16TObjEneMe3StelthFPvi(u8 *arg0, s32 arg1);
 M2C_UNK VecCopy__FP3VecPC3Vec(void *, void *);
-f64 get_ad_end_text_start__10TObjPlayerFv(f32, f32);
+f64 atan2_float(f32, f32);
 #define get_flag_b4__21TObjEneMe3ShinowaRealFPv ((s32 (*)())get_flag_b4__21TObjEneMe3ShinowaRealFPv)
 u32 csnVecterUnder(void *, int);
 s32 enemy_check_target_valid(void *);
@@ -2384,7 +2384,7 @@ extern const f32 lbl_805DA86C;
 extern const f32 lbl_805DA870;
 extern const f32 lbl_805DA874;
 void TObjEneMe3Stelth__sub_800F348C(u8 *arg0, s32 arg1);
-f64 get_ad_end_text_start__10TObjPlayerFv(f32, f32);
+f64 atan2_float(f32, f32);
 s32 update_death_check__14TObjEneEpsilonFPv(void *);
 s32 enemy_copy_target_destination(void *);
 s32 update_velocity__9TObjEneDDFPv(void *);
@@ -2405,7 +2405,7 @@ M2C_UNK create__10TTecDebandFiii(void *, void *, s32);
 M2C_UNK create__9TTecSiftaFPvPvPv(void *, void *, s32);
 void update_state_resta_cast__16TObjEneMe3StelthFPvi(u8 *arg0, s32 arg1);
 f32 calc_boss4_scale__10TObjPlayerFi(void *);
-f64 get_ad_end_text_start__10TObjPlayerFv(f32, f32);
+f64 atan2_float(f32, f32);
 s32 enemy_copy_target_destination(void *);
 s32 update_velocity__9TObjEneDDFPv(void *);
 M2C_UNK clear_field_388__9TObjEneDDFPv(void *);
@@ -2496,7 +2496,7 @@ void run_walk_state__16TObjEneMe3StelthFPvi(u8 *arg0, s32 arg1) {
         if (((VObj_18_347dfc *)(arg0))->m102(TObjEneMe3Stelth__data_805DA848) != 0) {
             enemy_copy_target_destination((void *) (arg0));
             update_velocity__9TObjEneDDFPv((void *) (arg0));
-            M2C_FIELD(arg0, s32 *, 0x42C) = (s32) (TObjEneMe3Stelth__data_8043D758 * get_ad_end_text_start__10TObjPlayerFv((f32) (M2C_FIELD(arg0, f32 *, 0x3A0)), (f32) (M2C_FIELD(arg0, f32 *, 0x3A8))));
+            M2C_FIELD(arg0, s32 *, 0x42C) = (s32) (TObjEneMe3Stelth__data_8043D758 * atan2_float((f32) (M2C_FIELD(arg0, f32 *, 0x3A0)), (f32) (M2C_FIELD(arg0, f32 *, 0x3A8))));
             if (test_body_collision__16TObjEneMe3StelthFPvif((void *) (arg0), (int) (M2C_FIELD(arg0, s32 *, 0x42C) + 0x8000), (f32) (lbl_805DA85C)) == 0) {
                 M2C_FIELD(arg0, f32 *, 0x3A0) = (f32) (M2C_FIELD(arg0, f32 *, 0x3A0) * lbl_805DA860);
                 M2C_FIELD(arg0, f32 *, 0x3A8) = (f32) (M2C_FIELD(arg0, f32 *, 0x3A8) * lbl_805DA860);
@@ -2600,7 +2600,7 @@ void TObjEneMe3Stelth__sub_800F3214(u8 *arg0, s32 arg1) {
                 if (update_death_check__14TObjEneEpsilonFPv((void *) (arg0)) != 0) {
                     enemy_copy_target_destination((void *) (arg0));
                     update_velocity__9TObjEneDDFPv((void *) (arg0));
-                    var_r4 = (s32) (TObjEneMe3Stelth__data_8043D758 * get_ad_end_text_start__10TObjPlayerFv((f32) (M2C_FIELD(arg0, f32 *, 0x3A0)), (f32) (M2C_FIELD(arg0, f32 *, 0x3A8))));
+                    var_r4 = (s32) (TObjEneMe3Stelth__data_8043D758 * atan2_float((f32) (M2C_FIELD(arg0, f32 *, 0x3A0)), (f32) (M2C_FIELD(arg0, f32 *, 0x3A8))));
                 } else {
                     var_r4 = M2C_FIELD(arg0, s32 *, 0x60);
                 }
@@ -2675,7 +2675,7 @@ void TObjEneMe3Stelth__sub_800F348C(u8 *arg0, s32 arg1) {
             if (update_death_check__14TObjEneEpsilonFPv(arg0) != 0) {
                 enemy_copy_target_destination(arg0);
                 update_velocity__9TObjEneDDFPv(arg0);
-                ang = (s32)(TObjEneMe3Stelth__data_8043D758 * get_ad_end_text_start__10TObjPlayerFv(F(f32, 0x3A0), F(f32, 0x3A8)));
+                ang = (s32)(TObjEneMe3Stelth__data_8043D758 * atan2_float(F(f32, 0x3A0), F(f32, 0x3A8)));
             } else {
                 ang = F(s32, 0x60);
             }
@@ -3652,7 +3652,7 @@ f32 calc_boss4_scale__10TObjPlayerFi(void *);
 #define VecCopy__FP3VecPC3Vec ((void (*)(void *, void *))VecCopy__FP3VecPC3Vec)
 s32 is_locally_controlled__10TObjPlayerFPv(void *);
 u32 get_item_field_6__10TObjPlayerFPv(void *);
-f32 get_random_float__8TObjFishFv(f32);
+f32 fabs_float(f32);
 #define queue_destruction__7TObjectFv ((void (*)(void *))queue_destruction__7TObjectFv)
 M2C_UNK set_field_dc__10TObjPlayerFPvi(void *, int);
 M2C_UNK set_field_d8__10TObjPlayerFPvi(void *, void *);
@@ -4155,7 +4155,7 @@ void attack_and_unequip__16TObjEneMe3StelthFPv(Stelth_800F4A90 *self) {
 bool TObjEneMe3Stelth__sub_800F4C10(u8 *arg0) {
     f32 temp_f31;
     f32 temp_f31_2;
-    if (get_random_float__8TObjFishFv(M2C_FIELD(M2C_FIELD(arg0, u8 **, 0x390), f32 *, 0x3C) - M2C_FIELD(arg0, f32 *, 0x3C)) >= TObjEneMe3Stelth__data_805DA844) {
+    if (fabs_float(M2C_FIELD(M2C_FIELD(arg0, u8 **, 0x390), f32 *, 0x3C) - M2C_FIELD(arg0, f32 *, 0x3C)) >= TObjEneMe3Stelth__data_805DA844) {
         return 0;
     }
     if (M2C_FIELD(arg0, f32 *, 0x3AC) > 25.0f) {

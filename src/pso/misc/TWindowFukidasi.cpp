@@ -25,8 +25,8 @@ struct Fuki_802506E8 {
 };
 
 extern "C" {
-f32 get_random_float__8TObjFishFv(f32);
-f32 get_ad_end_text_start__10TObjPlayerFv(f32, f32);
+f32 fabs_float(f32);
+f32 atan2_float(f32, f32);
 f32 newton_sqrtf(f32);
 s32 clamp_position__15TWindowFukidasiFPvPvf(void *arg0, void *arg1, f32 farg0);
 int rand(void);
@@ -45,7 +45,7 @@ extern const f32 lbl_805DCD24;
 extern const f32 TWindowFukidasi__data_805DCD28;
 extern const f32 lbl_805DCD2C;
 s32 rest_balloon__15TWindowFukidasiFv(Fuki_80250A24 *b, f32 *rect, f32 *arg2);
-f32 get_ad_end_text_start__10TObjPlayerFv(f32, f32);
+f32 atan2_float(f32, f32);
 s32 clamp_position__15TWindowFukidasiFPvPvf(void *arg0, void *arg1, f32 farg0);
 int rand(void);
 f32 sin_table_lookup(s32);
@@ -211,8 +211,8 @@ struct Ctx_802523CC { u8 pad0[0x20]; f32 pivot; u8 pad24[4]; f32 scale; };
 
 s32 obj_isState3_324();
 s32 is_split_screen();
-f32 get_random_float__8TObjFishFv(f32);
-f32 get_ad_end_text_start__10TObjPlayerFv(f32, f32);
+f32 fabs_float(f32);
+f32 atan2_float(f32, f32);
 void queue_destruction__7TObjectFv(void *);
 f32 get_fov__11TCameraCtrlFv();
 f32 get_view_scale__11TCameraCtrlFv();
@@ -484,7 +484,7 @@ s32 approach__15TWindowFukidasiFPvf(void *arg0, f32 farg0) {
     f32 temp_f31;
 
     temp_f31 = lbl_805DCD00 * (farg0 - M2C_FIELD(arg0, f32 *, 0x80));
-    if (get_random_float__8TObjFishFv(temp_f31) < lbl_805DCD04) {
+    if (fabs_float(temp_f31) < lbl_805DCD04) {
         M2C_FIELD(arg0, f32 *, 0x80) = farg0;
         return 1;
     }
@@ -552,14 +552,14 @@ s32 try_place_bubble__15TWindowFukidasiFPvPvPv(Fuki_802506E8 *b, f32 *rect, f32 
     reach = TWindowFukidasi__data_805DCD08 / xyz_distance((u8 *)camera_ctrl_instance + 0x178, world);
     dx = (TWindowFukidasi__data_805DCD0C * b->rsize[0] + rect[0]) - b->center[0];
     dy = (TWindowFukidasi__data_805DCD0C * b->rsize[1] + rect[1]) - b->center[1];
-    a = (s32) (TWindowFukidasi__data_8044ED70 * ((f64)get_ad_end_text_start__10TObjPlayerFv(dy, dx)));
+    a = (s32) (TWindowFukidasi__data_8044ED70 * ((f64)atan2_float(dy, dx)));
     edge[0] = dx - reach * cos_table_lookup(a);
     edge[1] = dy - reach * sin_table_lookup(a);
     edge[0] /= TWindowFukidasi__data_805DCD18 + b->rsize[0];
     edge[1] /= TWindowFukidasi__data_805DCD1C + b->rsize[1];
-    angle = (s32) (TWindowFukidasi__data_8044ED70 * ((f64)get_ad_end_text_start__10TObjPlayerFv(edge[1], edge[0])));
+    angle = (s32) (TWindowFukidasi__data_8044ED70 * ((f64)atan2_float(edge[1], edge[0])));
     get_boundary_offset__15TWindowFukidasiFPviPv((Fuki_8025181C *)b, angle + 0x8000, edge);
-    a = (s32) (TWindowFukidasi__data_8044ED70 * ((f64)get_ad_end_text_start__10TObjPlayerFv(edge[1], edge[0])));
+    a = (s32) (TWindowFukidasi__data_8044ED70 * ((f64)atan2_float(edge[1], edge[0])));
     edge[0] += reach * cos_table_lookup(a);
     edge[1] += reach * sin_table_lookup(a);
     o[0] = (b->center[0] + edge[0]) - TWindowFukidasi__data_805DCD0C * b->size[0];
@@ -572,7 +572,7 @@ s32 try_place_bubble__15TWindowFukidasiFPvPvPv(Fuki_802506E8 *b, f32 *rect, f32 
     }
     angle = (s32) ((f32) a + (lbl_805DCD20 * (TWindowFukidasi__data_805DCD14 * (f32) rand()) - lbl_805DCD24));
     get_boundary_offset__15TWindowFukidasiFPviPv((Fuki_8025181C *)b, angle, edge);
-    a = (s32) (TWindowFukidasi__data_8044ED70 * ((f64)get_ad_end_text_start__10TObjPlayerFv(edge[1], edge[0])));
+    a = (s32) (TWindowFukidasi__data_8044ED70 * ((f64)atan2_float(edge[1], edge[0])));
     edge[0] += reach * cos_table_lookup(a);
     edge[1] += reach * sin_table_lookup(a);
     o[0] = (b->center[0] + edge[0]) - TWindowFukidasi__data_805DCD0C * b->size[0];
@@ -603,18 +603,18 @@ s32 rest_balloon__15TWindowFukidasiFv(Fuki_80250A24 *b, f32 *rect, f32 *arg2) {
     if (dist < TWindowFukidasi__data_805DCD28) {
         angle = 0xD400;
     } else {
-        a = (s32) (TWindowFukidasi__data_8044ED70 * ((f64)get_ad_end_text_start__10TObjPlayerFv(dy, dx)));
+        a = (s32) (TWindowFukidasi__data_8044ED70 * ((f64)atan2_float(dy, dx)));
         edge[0] = dx - reach * cos_table_lookup(a);
         edge[1] = dy - reach * sin_table_lookup(a);
         edge[0] /= TWindowFukidasi__data_805DCD18 + b->rsize[0];
         edge[1] /= TWindowFukidasi__data_805DCD1C + b->rsize[1];
-        angle = (s32) (TWindowFukidasi__data_8044ED70 * ((f64)get_ad_end_text_start__10TObjPlayerFv(edge[1], edge[0])));
+        angle = (s32) (TWindowFukidasi__data_8044ED70 * ((f64)atan2_float(edge[1], edge[0])));
     }
     get_boundary_offset__15TWindowFukidasiFPviPv((Fuki_8025181C *)b, angle, edge);
-    a = (s32) (TWindowFukidasi__data_8044ED70 * ((f64)get_ad_end_text_start__10TObjPlayerFv(edge[1], edge[0])));
+    a = (s32) (TWindowFukidasi__data_8044ED70 * ((f64)atan2_float(edge[1], edge[0])));
     edge[0] += reach * cos_table_lookup(a);
     edge[1] += reach * sin_table_lookup(a);
-    if (get_random_float__8TObjFishFv(dist - newton_sqrtf(edge[0] * edge[0] + edge[1] * edge[1])) < TWindowFukidasi__data_805DCD1C) {
+    if (fabs_float(dist - newton_sqrtf(edge[0] * edge[0] + edge[1] * edge[1])) < TWindowFukidasi__data_805DCD1C) {
         return 0;
     }
     o->x = (b->center[0] + edge[0]) - TWindowFukidasi__data_805DCD0C * b->size[0];
@@ -635,7 +635,7 @@ s32 rest_balloon__15TWindowFukidasiFv(Fuki_80250A24 *b, f32 *rect, f32 *arg2) {
     }
     angle = (s32) ((f32) a + (lbl_805DCD20 * (TWindowFukidasi__data_805DCD14 * (f32) rand()) - lbl_805DCD24));
     get_boundary_offset__15TWindowFukidasiFPviPv((Fuki_8025181C *)b, angle, edge);
-    a = (s32) (TWindowFukidasi__data_8044ED70 * ((f64)get_ad_end_text_start__10TObjPlayerFv(edge[1], edge[0])));
+    a = (s32) (TWindowFukidasi__data_8044ED70 * ((f64)atan2_float(edge[1], edge[0])));
     edge[0] += reach * cos_table_lookup(a);
     edge[1] += reach * sin_table_lookup(a);
     o->x = (b->center[0] + edge[0]) - TWindowFukidasi__data_805DCD0C * b->size[0];
@@ -648,7 +648,7 @@ s32 rest_balloon__15TWindowFukidasiFv(Fuki_80250A24 *b, f32 *rect, f32 *arg2) {
     }
     angle = (s32) (lbl_805DCD2C * (TWindowFukidasi__data_805DCD14 * (f32) rand()));
     get_boundary_offset__15TWindowFukidasiFPviPv((Fuki_8025181C *)b, angle, edge);
-    a = (s32) (TWindowFukidasi__data_8044ED70 * ((f64)get_ad_end_text_start__10TObjPlayerFv(edge[1], edge[0])));
+    a = (s32) (TWindowFukidasi__data_8044ED70 * ((f64)atan2_float(edge[1], edge[0])));
     edge[0] += reach * cos_table_lookup(a);
     edge[1] += reach * sin_table_lookup(a);
     o->x = (b->center[0] + edge[0]) - TWindowFukidasi__data_805DCD0C * b->size[0];
@@ -840,12 +840,12 @@ void follow_anchor__15TWindowFukidasiFv(Fuki_80251594 *b) {
     } else {
         dx = lbl_805DCD48 * (cx - b->center[0]);
         dy = lbl_805DCD48 * (cy - b->center[1]);
-        if (get_random_float__8TObjFishFv(dx) < TWindowFukidasi__data_805DCCF4) {
+        if (fabs_float(dx) < TWindowFukidasi__data_805DCCF4) {
             b->center[0] = cx;
         } else {
             b->center[0] += dx;
         }
-        if (get_random_float__8TObjFishFv(dy) < TWindowFukidasi__data_805DCCF4) {
+        if (fabs_float(dy) < TWindowFukidasi__data_805DCCF4) {
             b->center[1] = cy;
         } else {
             b->center[1] += dy;
@@ -1103,7 +1103,7 @@ void draw_tail__15TWindowFukidasiFPvPvUiPvf(Fuki_802521E8 *b, void *view, u32 co
         project_anchor__15TWindowFukidasiFv((Fuki_80250F70 *)b, pos, scr);
         cx = b->center[0];
         cy = b->center[1];
-        angle = TWindowFukidasi__data_8044ED70 * get_ad_end_text_start__10TObjPlayerFv(cy - scr[1], cx - scr[0]);
+        angle = TWindowFukidasi__data_8044ED70 * atan2_float(cy - scr[1], cx - scr[0]);
         s = TWindowFukidasi__data_805DCD08 / xyz_distance((*(u8 * *)&camera_ctrl_instance) + 0x178, pos);
         x0 = s * cos_table_lookup(angle) + scr[0];
         y0 = s * sin_table_lookup(angle) + scr[1];

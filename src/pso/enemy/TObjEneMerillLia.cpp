@@ -620,8 +620,8 @@ void enemy_wander_home(void *, s32, f32, f32, f32);
 M2C_UNK VecCopy__FP3VecPC3Vec(void *, void *);
 s32 obj_testFlags30(void *, int);
 M2C_UNK obj_clearFlags30(void *, M2C_UNK);
-f32 get_random_float__8TObjFishFv(f32);
-f64 get_ad_end_text_start__10TObjPlayerFv(f32, f32);
+f32 fabs_float(f32);
+f64 atan2_float(f32, f32);
 M2C_UNK TObjPlayer__sub_800C4E08(void *);
 M2C_UNK update_target_near_flag(void *);
 void reset_state_clear_status__16TObjEneMerillLiaFPv(u8 *arg0);
@@ -1300,7 +1300,7 @@ void TObjEneMerillLia__sub_800D5BCC(u8 *arg0) {
         VecCopy__FP3VecPC3Vec(&lbl_8050BEE0, &o->home);
         subtract_vector(&lbl_8050BEE0, &o->pos);
         d = &lbl_8050BEE0;
-        ang = (s32)(lbl_8043C6E8[0] * get_ad_end_text_start__10TObjPlayerFv(d->x, d->z));
+        ang = (s32)(lbl_8043C6E8[0] * atan2_float(d->x, d->z));
         v = &lbl_8050BF00;
         v->x = v->y = TObjEneMerillLia__data_805DA300;
         v->z = o->f394;
@@ -1314,11 +1314,11 @@ void TObjEneMerillLia__sub_800D5BCC(u8 *arg0) {
             VecCopy__FP3VecPC3Vec(&o->pos, &lbl_8050BF00);
             o->angle = approach_angle_limited(o->angle, ang, o->param->turn);
         } else {
-            f32 rr = get_random_float__8TObjFishFv(d->z);
-            if (get_random_float__8TObjFishFv(lbl_8050BEE0.x) < rr) {
-                ang = (s32)(lbl_8043C6E8[0] * get_ad_end_text_start__10TObjPlayerFv(lbl_8050BEE0.x, TObjEneMerillLia__data_805DA300));
+            f32 rr = fabs_float(d->z);
+            if (fabs_float(lbl_8050BEE0.x) < rr) {
+                ang = (s32)(lbl_8043C6E8[0] * atan2_float(lbl_8050BEE0.x, TObjEneMerillLia__data_805DA300));
             } else {
-                ang = (s32)(lbl_8043C6E8[0] * get_ad_end_text_start__10TObjPlayerFv(TObjEneMerillLia__data_805DA300, d->z));
+                ang = (s32)(lbl_8043C6E8[0] * atan2_float(TObjEneMerillLia__data_805DA300, d->z));
             }
             v->y = TObjEneMerillLia__data_805DA300;
             lbl_8050BF00.x = TObjEneMerillLia__data_805DA300;
@@ -1334,11 +1334,11 @@ void TObjEneMerillLia__sub_800D5BCC(u8 *arg0) {
                 o->angle = approach_angle_limited(o->angle, ang, o->param->turn);
             } else {
                 s32 ang2;
-                rr = get_random_float__8TObjFishFv(d->z);
-                if (get_random_float__8TObjFishFv(lbl_8050BEE0.x) < rr) {
-                    ang2 = (s32)(lbl_8043C6E8[0] * get_ad_end_text_start__10TObjPlayerFv(TObjEneMerillLia__data_805DA300, d->z));
+                rr = fabs_float(d->z);
+                if (fabs_float(lbl_8050BEE0.x) < rr) {
+                    ang2 = (s32)(lbl_8043C6E8[0] * atan2_float(TObjEneMerillLia__data_805DA300, d->z));
                 } else {
-                    ang2 = (s32)(lbl_8043C6E8[0] * get_ad_end_text_start__10TObjPlayerFv(lbl_8050BEE0.x, TObjEneMerillLia__data_805DA300));
+                    ang2 = (s32)(lbl_8043C6E8[0] * atan2_float(lbl_8050BEE0.x, TObjEneMerillLia__data_805DA300));
                 }
                 v->y = TObjEneMerillLia__data_805DA300;
                 lbl_8050BF00.x = TObjEneMerillLia__data_805DA300;

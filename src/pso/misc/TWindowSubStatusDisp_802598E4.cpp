@@ -24,10 +24,10 @@ struct Pos_80259A84
 };
 
 extern "C" {
-f32 get_random_float__8TObjFishFv(f32, f32);
+f32 fabs_float(f32, f32);
 M2C_UNK play_persistent_sound(int, void *, int, int, int);
 void update_pb_counter_approach__20TWindowSubStatusDispFPv(u8 *arg0);
-f32 get_random_float__8TObjFishFv(f32, f32);
+f32 fabs_float(f32, f32);
 extern const f32 lbl_805DCF58;
 extern const f32 lbl_805DCF5C;
 extern const f32 lbl_805DCF60;
@@ -73,7 +73,7 @@ void* reset_entry__20TWindowSubStatusDispFPvii(void* a0, int a1, int a2);
 void set_animated_target__20TWindowSubStatusDispFPvif(void *arg0, s32 arg1, f32 farg0);
 M2C_UNK __dl__FPv(void *);
 M2C_UNK deleting_destructor__20TWindowSubStatusDispFPvs(void *, M2C_UNK);
-f32 get_random_float__8TObjFishFv(f32, f32);
+f32 fabs_float(f32, f32);
 void reset_entry__20TWindowSubStatusDispFPv(void*, int);
 
     extern unsigned char lbl_804CF9B0[];
@@ -244,7 +244,7 @@ void set_animated_target__20TWindowSubStatusDispFPvif(void *arg0, s32 arg1, f32 
         temp_f2 = M2C_FIELD(arg0, f32 *, 0x28);
         var_f31 = temp_f2 - M2C_FIELD(arg0, f32 *, 0x24);
         var_f31 = var_f31 / farg0;
-        if (get_random_float__8TObjFishFv(var_f31, temp_f2) < lbl_805DCF5C) {
+        if (fabs_float(var_f31, temp_f2) < lbl_805DCF5C) {
             if (var_f31 > lbl_805DCF58) {
                 var_f31 = lbl_805DCF5C;
             } else {
@@ -266,7 +266,7 @@ void set_status_entry_target(void *arg0, s32 arg1) {
     temp_f2 = *((f32 *) (((s8 *) arg0) + 0x28));
     var_f31 = temp_f2 - (*((f32 *) (((s8 *) arg0) + 0x24)));
     var_f31 = var_f31 * lbl_805DCF64;
-    if (get_random_float__8TObjFishFv(var_f31, temp_f2) < lbl_805DCF5C)
+    if (fabs_float(var_f31, temp_f2) < lbl_805DCF5C)
     {
       if (var_f31 > lbl_805DCF58)
       {
@@ -293,8 +293,8 @@ void update_pb_counter_approach__20TWindowSubStatusDispFPv(u8 *arg0) {
         }
         temp_f2 = M2C_FIELD(arg0, f32 *, 0x28);
         temp_f30 = temp_f2 - M2C_FIELD(arg0, f32 *, 0x24);
-        temp_f31 = get_random_float__8TObjFishFv((f32) (M2C_FIELD(arg0, f32 *, 0x2C)), (f32) (temp_f2));
-        if (((f32 (*)(f32)) get_random_float__8TObjFishFv)(temp_f30) < temp_f31) {
+        temp_f31 = fabs_float((f32) (M2C_FIELD(arg0, f32 *, 0x2C)), (f32) (temp_f2));
+        if (((f32 (*)(f32)) fabs_float)(temp_f30) < temp_f31) {
             M2C_FIELD(arg0, f32 *, 0x24) = (f32) M2C_FIELD(arg0, f32 *, 0x28);
         } else {
             M2C_FIELD(arg0, f32 *, 0x24) = (f32) (M2C_FIELD(arg0, f32 *, 0x24) + M2C_FIELD(arg0, f32 *, 0x2C));

@@ -120,7 +120,7 @@ extern const f32 TObjVoloptPillar__data_805D88C8;
 extern const f32 lbl_805D88CC;
 void render__16TObjVoloptPillarFv(Obj_8004A0AC *arg0);
 s32 obj_is_hit_receivable(void *);
-f32 get_ad_end_text_start__10TObjPlayerFv(f32, f32);
+f32 atan2_float(f32, f32);
 void queue_destruction__7TObjectFv();
 BP_8004A1CC *get_battle_param__10TObjPlayerFi(s32);
 s32 TObjVoloptPillar__sub_80048118(s32);
@@ -239,7 +239,7 @@ void run_task__16TObjVoloptPillarFv(Self_8004A1CC *self) {
                             {
                                 Vec_8004A1CC v = bp->pos;
                                 subtract_vector(&v, boss3_volopt_spawn_pos);
-                                ang = lbl_80436798[0] * get_ad_end_text_start__10TObjPlayerFv(v.x, v.z);
+                                ang = lbl_80436798[0] * atan2_float(v.x, v.z);
                                 {
                                     Vec_8004A1CC w = lbl_8043673C[0];
                                     w.x = TBoss3Volopt__sub_8004812C(2);

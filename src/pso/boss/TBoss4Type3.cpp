@@ -189,7 +189,7 @@ M2C_UNK play_sound_effect(int, void *, int, int);
 void spawn_effect__11TBoss4Type3Fsss(s32, s32, s32);
 extern const f32 TBoss4Type3__data_805D8C40;
 M2C_UNK VecCopy__FP3VecPC3Vec(void *, void *);
-f64 get_ad_end_text_start__10TObjPlayerFv(f32, f32);
+f64 atan2_float(f32, f32);
 u8 * dispatch_shared_handler_a__6TLobbyFPv(M2C_UNK);
 s32 TBoss4Type2__sub_80057048(void *, int);
 M2C_UNK TBoss4Type2__sub_80057128(void *);
@@ -238,7 +238,7 @@ extern const f32 lbl_805D8BB4;
 extern const f32 lbl_805D8BB8;
 void TBoss4Type2__vt21(Obj_80055BC0 *o);
 M2C_UNK VecCopy__FP3VecPC3Vec(void *, void *);
-f64 get_ad_end_text_start__10TObjPlayerFv(f32, f32);
+f64 atan2_float(f32, f32);
 s32 pick_random_target_player__11TBoss4Type3Fv(void);
 s32 TBoss4Type3__sub_8005254C(u16);
 s32 get_random_scaled__11TBoss4Type3Fv(void *);
@@ -623,7 +623,7 @@ M2C_UNK VecCopy__FP3VecPC3Vec(void *, void *);
 void * get_player_data__10TObjPlayerFi(s32 i);
 u16 obj_getField1c(void *);
 s32 is_split_screen();
-f64 get_ad_end_text_start__10TObjPlayerFv(f32, f32);
+f64 atan2_float(f32, f32);
 void queue_destruction__7TObjectFv(void *);
 u8 * dispatch_shared_handler_a__6TLobbyFPv(M2C_UNK);
 s16 * register_boss__6TLobbyFPv(M2C_UNK);
@@ -2156,7 +2156,7 @@ void turn_toward_player__11TBoss4Type3FPvi(Obj_80059ABC *self, s32 arg1) {
     if ((u16)arg1 != 0xFFFF) {
         p = get_player_by_client_id((u16)((u16)arg1));
         if (p != NULL) {
-            self->f60 = approach_angle_limited(self->f60, (s32)(lbl_80437890[0] * get_ad_end_text_start__10TObjPlayerFv(p->f38 - lbl_805D8C7C, p->f40)), 0x888);
+            self->f60 = approach_angle_limited(self->f60, (s32)(lbl_80437890[0] * atan2_float(p->f38 - lbl_805D8C7C, p->f40)), 0x888);
             calc_grid_index__11TBoss4Type3FPv(self);
         }
     }
@@ -2178,7 +2178,7 @@ s32 choose_attack_heading_sector__11TBoss4Type3Fv(s32 arg0) {
     VecCopy__FP3VecPC3Vec((void *) (&sp8), (void *) (((s32)get_player_by_client_id((int) (temp_r3))) + 0x38));
     temp_f0 = sp8.f.x - lbl_805D8C7C;
     sp8.f.x = temp_f0;
-    return ((u32) ((s32) ((*(const f64 *)&lbl_80437890) * get_ad_end_text_start__10TObjPlayerFv((f32) (-temp_f0), (f32) (sp8.f.z))) + 0x800) >> 0xCU) & 0xF;
+    return ((u32) ((s32) ((*(const f64 *)&lbl_80437890) * atan2_float((f32) (-temp_f0), (f32) (sp8.f.z))) + 0x800) >> 0xCU) & 0xF;
 }
 
 #pragma push
@@ -2775,7 +2775,7 @@ void TObjBs4CutAtk::run_task() {
         if (TBoss4Type3__sub_8005254C(obj_getField1c(p)) == 0) {
             continue;
         }
-        ang = (s32)((*(const f64 *)&lbl_80437890) * get_ad_end_text_start__10TObjPlayerFv(-(M2C_FIELD(p, f32 *, 0x38) - lbl_805D8C7C), M2C_FIELD(p, f32 *, 0x40)));
+        ang = (s32)((*(const f64 *)&lbl_80437890) * atan2_float(-(M2C_FIELD(p, f32 *, 0x38) - lbl_805D8C7C), M2C_FIELD(p, f32 *, 0x40)));
         if (ang >= lo && ang < hi) {
             Dmg_8005B218 d;
             id = M2C_FIELD(this, s32 *, 0x10);

@@ -133,7 +133,7 @@ extern void* TScene__texture_animation_buffer;
 SceneMaterialNode* resolve_indirect_node_record(void*,SceneMaterialStatic*);
 SceneMaterialNode* resolve_indirect_object_record(void*,SceneMaterialAnimated*);
 s32 load_texture_sequence_frame(void*,SceneMaterialCycle*);
-f32 get_random_float__8TObjFishFv(f32);
+f32 fabs_float(f32);
 void offset_position__6TSceneFPvii(void*,s32,s32);
 void free_children__12TObjDoorJungFPvPv(void*,u16);
 void PPCSync();
@@ -144,7 +144,7 @@ extern void* TScene__texture_animation_buffer;
 SceneMaterialNode* resolve_indirect_node_record(void*,SceneMaterialStatic*);
 SceneMaterialNode* resolve_indirect_object_record(void*,SceneMaterialAnimated*);
 s32 load_texture_sequence_frame(void*,SceneMaterialCycle*);
-f32 get_random_float__8TObjFishFv(f32);
+f32 fabs_float(f32);
 void scroll_ginja_mesh_uvs(void *, s32, s32, u16, s32);
 void free_children__12TObjDoorJungFPvPv(void*,u16);
 void PPCSync();
@@ -289,7 +289,7 @@ SceneMaterialNode* resolve_indirect_node_record(void*,SceneMaterialStatic*);
 SceneMaterialNode* resolve_indirect_object_record(void*,SceneMaterialAnimated*);
 s32 load_texture_sequence_frame(void*,SceneMaterialCycle*);
 
-f32 get_random_float__8TObjFishFv(f32);
+f32 fabs_float(f32);
 void offset_position__6TSceneFPvii(void*,s32,s32);
 void free_children__12TObjDoorJungFPvPv(void*,u16);
 void PPCSync();
@@ -349,7 +349,7 @@ void TScene::tick_material_fmt2() {
                 uv = object->uv;
                 uv->u += uv->du;
                 uv->v += uv->dv;
-                if (get_random_float__8TObjFishFv(uv->u) >= lbl_805DC5D4 || get_random_float__8TObjFishFv(uv->v) >= lbl_805DC5D4) {
+                if (fabs_float(uv->u) >= lbl_805DC5D4 || fabs_float(uv->v) >= lbl_805DC5D4) {
                     if (uv->buffer != NULL) {
                         offset_position__6TSceneFPvii((void*)(uv->buffer), (s32)((s32)uv->u), (s32)((s32)uv->v));
                     }
@@ -448,7 +448,7 @@ void TScene::tick_material_fmt1() {
                 uv = object->uv;
                 uv->u += uv->du;
                 uv->v += uv->dv;
-                if (get_random_float__8TObjFishFv(uv->u) >= lbl_805DC5D4 || get_random_float__8TObjFishFv(uv->v) >= lbl_805DC5D4) {
+                if (fabs_float(uv->u) >= lbl_805DC5D4 || fabs_float(uv->v) >= lbl_805DC5D4) {
                     scroll_ginja_mesh_uvs(node->model, (s32)uv->u, (s32)uv->v, uv->texture, 1);
                     uv->u -= (f32)(s32)uv->u;
                     uv->v -= (f32)(s32)uv->v;

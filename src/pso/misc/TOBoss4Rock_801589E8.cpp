@@ -435,7 +435,7 @@ struct Bird_8015959C {
 };
 
 void VecCopy__FP3VecPC3Vec(Vec_8015959C *, Vec_8015959C *);
-f32 get_ad_end_text_start__10TObjPlayerFv(f32, f32);
+f32 atan2_float(f32, f32);
 f32 horizontal_distance_squared(Vec_8015959C *, Vec_8015959C *);
 s32 approach_angle_limited(s32, s32, s32);
 s32 rand(void);
@@ -472,7 +472,7 @@ void run_task__11TOBoss4BirdFv(Bird_8015959C *self) {
     case 1:
         VecCopy__FP3VecPC3Vec(&lbl_8050BEE0, &self->fc4);
         subtract_vector(&lbl_8050BEE0, &self->f38);
-        self->f60 = approach_angle_limited(self->f60, (s32)((10430.38043493439) * get_ad_end_text_start__10TObjPlayerFv(lbl_8050BEE0.x, lbl_8050BEE0.z)), 0x100);
+        self->f60 = approach_angle_limited(self->f60, (s32)((10430.38043493439) * atan2_float(lbl_8050BEE0.x, lbl_8050BEE0.z)), 0x100);
         lbl_8050BF00.x = lbl_8050BF00.y = (0.0f);
         lbl_8050BF00.z = self->fa8;
         push_matrix_from(identity_matrix);

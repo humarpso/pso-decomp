@@ -606,7 +606,7 @@ M2C_UNK clear_child_flags__16TObjEneRe2FlowerFPv(void *);
 extern const f32 lbl_805D9FF0;
 
 s32 get_field_0c__10TObjPlayerFPv(int);
-f64 get_ad_end_text_start__10TObjPlayerFv(f32, f32);
+f64 atan2_float(f32, f32);
 s32 update_death_check__14TObjEneEpsilonFPv(void *);
 M2C_UNK enemy_copy_target_destination(void *);
 M2C_UNK enemy_set_target_id(void *, u16);
@@ -687,7 +687,7 @@ void state_chase_target__9TObjEneDDFPvi(u8 *arg0, s32 arg1) {
         enemy_copy_target_destination(arg0);
         update_velocity__9TObjEneDDFPv(arg0);
         M2C_FIELD(arg0, s32 *, 0x414)++;
-        M2C_FIELD(arg0, s32 *, 0x420) = (s32)(lbl_8043BBD8 * get_ad_end_text_start__10TObjPlayerFv(M2C_FIELD(arg0, f32 *, 0x3A0), M2C_FIELD(arg0, f32 *, 0x3A8)));
+        M2C_FIELD(arg0, s32 *, 0x420) = (s32)(lbl_8043BBD8 * atan2_float(M2C_FIELD(arg0, f32 *, 0x3A0), M2C_FIELD(arg0, f32 *, 0x3A8)));
         M2C_FIELD(arg0, s32 *, 0x60) = approach_angle_limited(M2C_FIELD(arg0, s32 *, 0x60), M2C_FIELD(arg0, s32 *, 0x420), M2C_FIELD(M2C_FIELD(arg0, u8 **, 0x350), void **, 8));
         M2C_FIELD(arg0, s32 *, 0x60) = (s16)M2C_FIELD(arg0, s32 *, 0x60);
         ((VObj_18 *)(arg0))->m100();

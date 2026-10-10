@@ -1070,8 +1070,8 @@ s32 get_player_count__10TObjPlayerFv(void);
 int get_item_field_6__10TObjPlayerFPv(void* p);
 u8 get_field_ed__10TObjPlayerFPv(void* p);
 s32 get_type__10TObjPlayerFPv(void* p);
-f32 get_random_float__8TObjFishFv(void);
-f32 get_ad_end_text_start__10TObjPlayerFv(void);
+f32 fabs_float(f32 x);
+f32 atan2_float(f32 y, f32 x);
 f64 fabs_double(f64 x);
 f32 newton_sqrtf(f32 x);
 s32 register_object__10TObjPlayerFi(s32 arg0);
@@ -1113,7 +1113,7 @@ u32 __nw__7TObjectFUl(M2C_UNK);
 s32 all_parents_unqueued_for_destruction__7TObjectFv(void *);
 M2C_UNK construct_actor_light_task(f32, void *, void *, void *, M2C_UNK, void *, s32);
 s32 rand();
-f64 atan2(void);
+f64 atan2(f64 y, f64 x);
 M2C_UNK vec3_add_to(void *, void *);
 void matrix_mult_vec(s32, void *, void *);
 M2C_UNK scale_matrix(int, f32, f32, f32);
@@ -3410,8 +3410,8 @@ void apply_defense_stat_status__10TObjPlayerFv(s32 arg0, void *arg1) {
         var_f30 = (-0.01f) * ((1.3f) * M2C_FIELD(arg1, f32 *, 4) + (1e+01f));
     }
     temp_f29 = ((f32 (*)(s32, M2C_UNK))TObjPlayer__sub_800192C4)(arg0, 3);
-    temp_f31 = ((f32 (*)(f32))get_random_float__8TObjFishFv)(var_f30);
-    if (!(((f32 (*)(f32))get_random_float__8TObjFishFv)(temp_f29) > temp_f31)) {
+    temp_f31 = ((f32 (*)(f32))fabs_float)(var_f30);
+    if (!(((f32 (*)(f32))fabs_float)(temp_f29) > temp_f31)) {
         temp_f31 = -((f32 (*)(s32, M2C_UNK))TObjPlayer__sub_800192C4)(arg0, 3);
         {
             f32 v = ((s16 (*)(s32))get_atp__10TObjPlayerFPv)(arg0);
@@ -3445,8 +3445,8 @@ void apply_attack_stat_status__10TObjPlayerFv(TObjPlayer *arg0, StatStatusReceip
         var_f31 = (-0.01f) * ((1.3f) * arg1->power + (1e+01f));
     }
     temp_f29 = ((f32 (*)(TObjPlayer*, M2C_UNK))TObjPlayer__sub_800192C4)(arg0, 2);
-    temp_f30 = ((f32 (*)(f32))get_random_float__8TObjFishFv)(var_f31);
-    if (!(((f32 (*)(f32))get_random_float__8TObjFishFv)(temp_f29) > temp_f30)) {
+    temp_f30 = ((f32 (*)(f32))fabs_float)(var_f31);
+    if (!(((f32 (*)(f32))fabs_float)(temp_f29) > temp_f30)) {
         temp_f30 = -((f32 (*)(TObjPlayer*, M2C_UNK))TObjPlayer__sub_800192C4)(arg0, 2);
         {
             f32 v = ((s16 (*)(TObjPlayer*))get_field_2c0__10TObjPlayerFPv)(arg0);
@@ -3842,7 +3842,7 @@ s32 select_melee_contact_body__10TObjPlayerFv(Actor_80016454 *target, Actor_8001
             }
             dist = point.x * point.x + point.z * point.z;
             r = (target->bodies[i].radius + get_target_value__10TObjPlayerFPv(source)) * (target->bodies[i].radius + get_target_value__10TObjPlayerFPv(source));
-            diff = angle_difference_abs(source->yaw, (s32)(TObjPlayer__data_804340B8 * ((f64 (*)(f32, f32))get_ad_end_text_start__10TObjPlayerFv)(point.x, point.z)));
+            diff = angle_difference_abs(source->yaw, (s32)(TObjPlayer__data_804340B8 * ((f64 (*)(f32, f32))atan2_float)(point.x, point.z)));
             if (dist < r && diff < update_field_318__10TObjPlayerFPv(source)) {
                 selected = i;
                 break;
@@ -3858,7 +3858,7 @@ s32 select_melee_contact_body__10TObjPlayerFv(Actor_80016454 *target, Actor_8001
         dist2 = point.x * point.x + point.z * point.z;
         r2 = get_target_value__10TObjPlayerFPv(source) * get_target_value__10TObjPlayerFPv(source);
         r2 = r2 * r2;
-        diff = angle_difference_abs(source->yaw, (s32)(TObjPlayer__data_804340B8 * ((f64 (*)(f32, f32))get_ad_end_text_start__10TObjPlayerFv)(point.x, point.z)));
+        diff = angle_difference_abs(source->yaw, (s32)(TObjPlayer__data_804340B8 * ((f64 (*)(f32, f32))atan2_float)(point.x, point.z)));
         if (r2 < dist2 || update_field_318__10TObjPlayerFPv(source) < diff) {
             return 0;
         }
@@ -4173,7 +4173,7 @@ s32 is_target_in_attack_range__10TObjPlayerFv(Player_8001745C *p) {
                         subtract_vector(&v, &p->pos);
                         dist = v.x * v.x + v.z * v.z;
                         range = (p->target->parts[i].radius + get_target_value__10TObjPlayerFPv(p)) * (p->target->parts[i].radius + get_target_value__10TObjPlayerFPv(p));
-                        ang = ((s32)angle_difference_abs(p->rotY, (s32)(TObjPlayer__data_804340B8 * ((f64 (*)(f32, f32))get_ad_end_text_start__10TObjPlayerFv)(v.x, v.z))));
+                        ang = ((s32)angle_difference_abs(p->rotY, (s32)(TObjPlayer__data_804340B8 * ((f64 (*)(f32, f32))atan2_float)(v.x, v.z))));
                         if (dist < range && ang < update_field_318__10TObjPlayerFPv(p)) {
                             return 1;
                         }
@@ -4181,7 +4181,7 @@ s32 is_target_in_attack_range__10TObjPlayerFv(Player_8001745C *p) {
                 }
             } else {
                 dist = calc_xz_distance_sq__10TObjPlayerFiUiPv((s32)((s32)p), (u32)((u32)t), (void *)(&out));
-                ang = ((s32)angle_difference_abs(p->rotY, (s32)(TObjPlayer__data_804340B8 * ((f64 (*)(f32, f32))get_ad_end_text_start__10TObjPlayerFv)(out.x, out.z))));
+                ang = ((s32)angle_difference_abs(p->rotY, (s32)(TObjPlayer__data_804340B8 * ((f64 (*)(f32, f32))atan2_float)(out.x, out.z))));
                 if (p->target->parts != NULL) {
                     prod = (p->target->parts->radius + get_target_value__10TObjPlayerFPv(p)) * (p->target->parts->radius + get_target_value__10TObjPlayerFPv(p));
                 } else {
@@ -4231,7 +4231,7 @@ f32 enemy_pursue_point(u8 *arg0, s32 arg1, Vec_800180E8 arg2, f32 farg0, f32 far
     if (farg1 * farg1 <= d0 || d1 < (1e-05f) || d2 < (1e-05f) || ((VObj_18_cc39a7 *)(arg0))->m17(0x96) != 0) {
         VecCopy__FP3VecPC3Vec((s32)&d, (s32)&arg2);
         subtract_vector(&d, arg0 + 0x2FC);
-        a = (s32)(TObjPlayer__data_804340B8 * ((f64 (*)(f32, f32))get_ad_end_text_start__10TObjPlayerFv)(d.x, d.z));
+        a = (s32)(TObjPlayer__data_804340B8 * ((f64 (*)(f32, f32))atan2_float)(d.x, d.z));
         d.z = farg1;
         d.x = d.y = (0.0f);
         push_matrix_from(&identity_matrix);
@@ -4389,7 +4389,7 @@ void calc_velocity_toward_destination(Obj_800180E8 *self, Vec_800180E8 *pos, Vec
         self->vz = (0.0f);
         self->vx = (0.0f);
     } else {
-        a = (s32)(TObjPlayer__data_804340B8 * ((f64 (*)(f32, f32))get_ad_end_text_start__10TObjPlayerFv)(d.x, d.z));
+        a = (s32)(TObjPlayer__data_804340B8 * ((f64 (*)(f32, f32))atan2_float)(d.x, d.z));
         d.z = speed;
         d.x = d.y = (0.0f);
         push_matrix_from(&identity_matrix);
@@ -4429,7 +4429,7 @@ M2C_UNK select_enemy_destination(Obj_800182A0 *self, Vec_800182A0 *arg1, int fla
         }
         if (self->fA4 != NULL) {
             subtract_vector(&d, &self->pos);
-            a = (s32)(TObjPlayer__data_804340B8 * ((f64 (*)(f32, f32))get_ad_end_text_start__10TObjPlayerFv)(d.x, d.z));
+            a = (s32)(TObjPlayer__data_804340B8 * ((f64 (*)(f32, f32))atan2_float)(d.x, d.z));
             lbl_8050BEE0.x = lbl_8050BEE0.y = (0.0f);
             lbl_8050BEE0.z = self->fA4->fC;
             push_matrix_from(&identity_matrix);
@@ -4457,7 +4457,7 @@ s32 check_path_obstructed(u8 *arg0, Vec_80018428 *arg1) {
     ((M2C_UNK (*)(void *, void *)) VecCopy__FP3VecPC3Vec)(&d, arg1);
     subtract_vector(&d, arg0 + 0x2FC);
     if ((9e+04f) < (d.x * d.x) + (d.z * d.z)) {
-        a = (s32) (TObjPlayer__data_804340B8 * ((f64 (*)(f32, f32))get_ad_end_text_start__10TObjPlayerFv)(d.x, d.z));
+        a = (s32) (TObjPlayer__data_804340B8 * ((f64 (*)(f32, f32))atan2_float)(d.x, d.z));
         d.y = d.x = (0.0f);
         d.z = (3e+02f);
         push_matrix_from(&identity_matrix);
@@ -4487,7 +4487,7 @@ void enemy_turn_half_toward_dest(Obj_80018570 *self) {
     s32 a;
     VecCopy__FP3VecPC3Vec((s32)&d, (s32)&self->dest);
     subtract_vector(&d, &self->pos);
-    a = (s32)(TObjPlayer__data_804340B8 * ((f64 (*)(f32, f32))get_ad_end_text_start__10TObjPlayerFv)(d.x, d.z));
+    a = (s32)(TObjPlayer__data_804340B8 * ((f64 (*)(f32, f32))atan2_float)(d.x, d.z));
     self->angle = lerp_angle_half__10TObjPlayerFUsUs(self->angle, a);
     angle_difference_abs(self->angle, a);
 }
@@ -4495,7 +4495,7 @@ void enemy_turn_half_toward_dest(Obj_80018570 *self) {
 void update_angle__10TObjPlayerFPviPv(void *arg0, s32 arg1, void *arg2) {
     s32 temp_r31;
 
-    temp_r31 = (s32) (TObjPlayer__data_804340B8 * ((f64 (*)(f32, f32))get_ad_end_text_start__10TObjPlayerFv)(M2C_FIELD(arg2, f32 *, 0), M2C_FIELD(arg2, f32 *, 8)));
+    temp_r31 = (s32) (TObjPlayer__data_804340B8 * ((f64 (*)(f32, f32))atan2_float)(M2C_FIELD(arg2, f32 *, 0), M2C_FIELD(arg2, f32 *, 8)));
     M2C_FIELD(arg0, s32 *, 0x60) = approach_angle_limited(M2C_FIELD(arg0, s32 *, 0x60), temp_r31, arg1);
     angle_difference_abs(M2C_FIELD(arg0, s32 *, 0x60), temp_r31);
 }
@@ -4505,7 +4505,7 @@ void enemy_turn_toward_dest(Obj_80018660 *self, s32 turn) {
     s32 a;
     VecCopy__FP3VecPC3Vec((s32)&d, (s32)&self->dest);
     subtract_vector(&d, &self->pos);
-    a = (s32)(TObjPlayer__data_804340B8 * ((f64 (*)(f32, f32))get_ad_end_text_start__10TObjPlayerFv)(d.x, d.z));
+    a = (s32)(TObjPlayer__data_804340B8 * ((f64 (*)(f32, f32))atan2_float)(d.x, d.z));
     self->angle = approach_angle_limited(self->angle, a, turn);
     angle_difference_abs(self->angle, a);
 }
@@ -5090,12 +5090,12 @@ u8 get_field_ed__10TObjPlayerFPv(void* p) { return *(u8*)((char*)p + 0xed); }
 
 s32 get_type__10TObjPlayerFPv(void* p) { return *(s32*)((char*)p + 0x0); }
 
-f32 get_random_float__8TObjFishFv(void) {
-    return (f32) ((f64 (*)(void))fabs_double)();
+f32 fabs_float(f32 x) {
+    return (f32) fabs_double((f64) x);
 }
 
-f32 get_ad_end_text_start__10TObjPlayerFv(void) {
-    return (f32) atan2();
+f32 atan2_float(f32 y, f32 x) {
+    return (f32) atan2((f64) y, (f64) x);
 }
 
 f64 fabs_double(f64 x) { return __fabs(x); }

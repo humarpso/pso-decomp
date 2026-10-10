@@ -471,7 +471,7 @@ void enemy_pursue_point(void *, s32, void *, f32, f32);
 s32 VecCopy__FP3VecPC3Vec(void *, void *);
 s32 get_field_0c__10TObjPlayerFPv(int);
 void obj_clearFlags30(void *, u32);
-f64 get_ad_end_text_start__10TObjPlayerFv(f32, f32);
+f64 atan2_float(f32, f32);
 M2C_UNK copy_target_state__14TObjEnePanarmsFPvPv(void *, M2C_UNK);
 f32 horizontal_distance_squared(void *, void *);
 s32 angle_difference_abs(s32, s32);
@@ -511,7 +511,7 @@ s32 obj_testFlags30(void *, int);
 void obj_clearFlags30(void *, u32);
 s32 get_current_floor();
 s32 get_field_3e4__10TObjPlayerFPv(int);
-f64 get_ad_end_text_start__10TObjPlayerFv(f32, f32);
+f64 atan2_float(f32, f32);
 f32 newton_sqrtf(f32);
 M2C_UNK spawn_directional_particle(void *, void *, s32);
 M2C_UNK TObjGrassWeb__ct(void *, s32, void *);
@@ -538,8 +538,8 @@ void enemy_turn_toward_dest(void *, s32);
 s32 VecCopy__FP3VecPC3Vec(void *, void *);
 void obj_clearFlags30(void *, u32);
 M2C_UNK obj_setFlags30(void *, u32);
-f32 get_random_float__8TObjFishFv(f32);
-f64 get_ad_end_text_start__10TObjPlayerFv(f32, f32);
+f32 fabs_float(f32);
+f64 atan2_float(f32, f32);
 void TObjEneMe3SinowZoa__sub_800D758C(void *);
 void play_area_sound_effect__12TBoss3VoloptFi(void *);
 f32 horizontal_distance_squared(void *, void *);
@@ -581,7 +581,7 @@ u8 *get_player_by_client_id(u16);
 M2C_UNK subtract_vector(void *, void *);
 s32 update_angle__10TObjPlayerFPviPv(void *, void *, void *);
 s32 get_field_0c__10TObjPlayerFPv(int);
-f64 get_ad_end_text_start__10TObjPlayerFv(f32, f32);
+f64 atan2_float(f32, f32);
 f32 newton_sqrtf(f32);
 M2C_UNK spawn_directional_particle(void *, void *, s32);
 void enemy_set_heading_velocity(void *, s32, f32);
@@ -1044,13 +1044,13 @@ M2C_UNK update_web_attack__9TObjGrassFPv(void *arg0_) {
             s32 d;
             VecCopy__FP3VecPC3Vec(&v2, &arg0->target->p2fc);
             subtract_vector(&v2, &arg0->p2fc);
-            d = angle_difference_abs(arg0->rotY, (s32)((10430.38043493439) * get_ad_end_text_start__10TObjPlayerFv(v2.x, v2.z)));
+            d = angle_difference_abs(arg0->rotY, (s32)((10430.38043493439) * atan2_float(v2.x, v2.z)));
             if (d < get_field_0c__10TObjPlayerFPv(((u32 *)TObjGrass__bml_resource)[1])) {
                 VecCopy__FP3VecPC3Vec(&v2, &arg0->target->pos);
                 subtract_vector(&v2, &arg0->p380);
-                ang[0] = (s32)((10430.38043493439) * get_ad_end_text_start__10TObjPlayerFv(v2.z, newton_sqrtf(v2.x * v2.x + v2.y * v2.y)));
+                ang[0] = (s32)((10430.38043493439) * atan2_float(v2.z, newton_sqrtf(v2.x * v2.x + v2.y * v2.y)));
                 ang[1] = 0;
-                ang[2] = -(s32)((10430.38043493439) * get_ad_end_text_start__10TObjPlayerFv(v2.x, v2.y));
+                ang[2] = -(s32)((10430.38043493439) * atan2_float(v2.x, v2.y));
                 spawn_directional_particle(&arg0->p380, ang, 0xCA);
                 if (arg0->fb4 != 4 && obj_testFlags30(arg0->target, 0x4000000) == 0) {
                     if (enable_v2_features == 1 && game_difficulty_selection == 3) {
@@ -1129,7 +1129,7 @@ void TObjGrass__sub_800BD4D8(void *arg0_) {
             subtract_vector(&v, &o->p2fc);
             d = update_angle__10TObjPlayerFPviPv(o, (void *)(s32)((2.0f) * (f32)o->param->turn), &v);
             if (d < get_field_0c__10TObjPlayerFPv(o->f318)) {
-                s32 ang = (s32)((10430.38043493439) * get_ad_end_text_start__10TObjPlayerFv(v.x, v.z));
+                s32 ang = (s32)((10430.38043493439) * atan2_float(v.x, v.z));
                 o->f398 = (3e+01f) + (newton_sqrtf(calc_distance_to_client__10TObjPlayerFiUsUi(o, o->f338, 0)) + get_collision_body_radius(o, 0));
                 if (o->f398 < (1e+02f)) {
                     o->f398 = (1e+02f);
@@ -1244,9 +1244,9 @@ void TObjGrass__sub_800BD4D8(void *arg0_) {
             rotate_vector_by_matrix(0, &w, &w);
             pop_matrix();
             vec3_add_to(&o->f374, &w);
-            ang[0] = -(s32)((10430.38043493439) * get_ad_end_text_start__10TObjPlayerFv(o->f310, newton_sqrtf(o->f308 * o->f308)));
+            ang[0] = -(s32)((10430.38043493439) * atan2_float(o->f310, newton_sqrtf(o->f308 * o->f308)));
             ang[1] = 0;
-            ang[2] = (s32)((10430.38043493439) * get_ad_end_text_start__10TObjPlayerFv(o->f308, (0.0f)));
+            ang[2] = (s32)((10430.38043493439) * atan2_float(o->f308, (0.0f)));
             spawn_directional_particle(&o->f374, ang, 0x150);
         }
         break;
@@ -1428,7 +1428,7 @@ s32 TObjGrass__vt28(u8 *arg0) {
         BIND(2)
     }
     dist = calc_xz_distance_sq__10TObjPlayerFiUiPv(arg0, M2C_FIELD(arg0, u8 **, 0x2A8), &v);
-    ang = angle_difference_abs(M2C_FIELD(arg0, s32 *, 0x60), (s32)((10430.38043493439) * get_ad_end_text_start__10TObjPlayerFv(v.x, v.z)));
+    ang = angle_difference_abs(M2C_FIELD(arg0, s32 *, 0x60), (s32)((10430.38043493439) * atan2_float(v.x, v.z)));
     t = M2C_FIELD(arg0, u8 **, 0x2A8);
     if (M2C_FIELD(t, u8 **, 0xA4) != NULL) {
         r = M2C_FIELD(M2C_FIELD(t, u8 **, 0xA4), f32 *, 0xC);
@@ -1496,7 +1496,7 @@ void update_chase_target__9TObjGrassFPv(void *arg0_) {
             dist = enemy_move_toward(arg0, turn, &t, 0, (0.125f) * speed);
             VecCopy__FP3VecPC3Vec(&v, M2C_FIELD(arg0, u8 **, 0x2A8) + 0x2FC);
             subtract_vector(&v, arg0 + 0x2FC);
-            turn = angle_difference_abs(M2C_FIELD(arg0, s32 *, 0x60), (s32)((10430.38043493439) * get_ad_end_text_start__10TObjPlayerFv(v.x, v.z)));
+            turn = angle_difference_abs(M2C_FIELD(arg0, s32 *, 0x60), (s32)((10430.38043493439) * atan2_float(v.x, v.z)));
             if (turn < get_field_0c__10TObjPlayerFPv(M2C_FIELD(arg0, s32 *, 0x318))) {
                 M2C_FIELD(arg0, s16 *, 0x328) = 1;
             }
@@ -1608,7 +1608,7 @@ void update_ai__9TObjGrassFPv(void *arg0) {
                 VecCopy__FP3VecPC3Vec(&lbl_8050BEE0, &o->home);
                 subtract_vector(&lbl_8050BEE0, &o->pos);
                 d = &lbl_8050BEE0;
-                ang = (s32)((10430.38043493439) * get_ad_end_text_start__10TObjPlayerFv(d->x, d->z));
+                ang = (s32)((10430.38043493439) * atan2_float(d->x, d->z));
                 v = &lbl_8050BF00;
                 v->x = v->y = (0.0f);
                 v->z = o->param->speed;
@@ -1622,11 +1622,11 @@ void update_ai__9TObjGrassFPv(void *arg0) {
                     VecCopy__FP3VecPC3Vec(&o->pos, &lbl_8050BF00);
                     o->angle = approach_angle_limited(o->angle, ang, o->param->turn);
                 } else {
-                    f32 r = get_random_float__8TObjFishFv(d->z);
-                    if (get_random_float__8TObjFishFv(lbl_8050BEE0.x) < r) {
-                        ang = (s32)((10430.38043493439) * get_ad_end_text_start__10TObjPlayerFv(lbl_8050BEE0.x, (0.0f)));
+                    f32 r = fabs_float(d->z);
+                    if (fabs_float(lbl_8050BEE0.x) < r) {
+                        ang = (s32)((10430.38043493439) * atan2_float(lbl_8050BEE0.x, (0.0f)));
                     } else {
-                        ang = (s32)((10430.38043493439) * get_ad_end_text_start__10TObjPlayerFv((0.0f), d->z));
+                        ang = (s32)((10430.38043493439) * atan2_float((0.0f), d->z));
                     }
                     v->y = (0.0f);
                     lbl_8050BF00.x = (0.0f);
@@ -1642,11 +1642,11 @@ void update_ai__9TObjGrassFPv(void *arg0) {
                         o->angle = approach_angle_limited(o->angle, ang, o->param->turn);
                     } else {
                         s32 ang2;
-                        r = get_random_float__8TObjFishFv(d->z);
-                        if (get_random_float__8TObjFishFv(lbl_8050BEE0.x) < r) {
-                            ang2 = (s32)((10430.38043493439) * get_ad_end_text_start__10TObjPlayerFv((0.0f), d->z));
+                        r = fabs_float(d->z);
+                        if (fabs_float(lbl_8050BEE0.x) < r) {
+                            ang2 = (s32)((10430.38043493439) * atan2_float((0.0f), d->z));
                         } else {
-                            ang2 = (s32)((10430.38043493439) * get_ad_end_text_start__10TObjPlayerFv(lbl_8050BEE0.x, (0.0f)));
+                            ang2 = (s32)((10430.38043493439) * atan2_float(lbl_8050BEE0.x, (0.0f)));
                         }
                         v->y = (0.0f);
                         lbl_8050BF00.x = (0.0f);

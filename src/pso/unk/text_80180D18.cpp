@@ -91,7 +91,7 @@ extern const f32 lbl_805DBBB8;
 extern const f32 lbl_805DBBBC;
 void run_task__18TObjCityAirCar_CarFv(Car_80180E70 *self);
 M2C_UNK VecCopy__FP3VecPC3Vec(void *, void *);
-f64 get_ad_end_text_start__10TObjPlayerFv(f32, f32);
+f64 atan2_float(f32, f32);
 s32 angle_diff_s16(s32, s32);
 s32 sample_aircar_path_position(s32, void *, f32);
 M2C_UNK vec3_add_to(void *, void *);
@@ -198,7 +198,7 @@ s32 update_path_motion__18TObjCityAirCar_CarFv(Car_80181074 *self) {
     self->pos.x *= lbl_805DBBC4;
     self->pos.y *= lbl_805DBBC4;
     self->pos.z *= lbl_805DBBC4;
-    ang = lbl_80443B90 * get_ad_end_text_start__10TObjPlayerFv(b.x - a.x, b.z - a.z);
+    ang = lbl_80443B90 * atan2_float(b.x - a.x, b.z - a.z);
     d = angle_diff_s16(self->heading, ang);
     self->heading = ang;
     p = self->yaw;

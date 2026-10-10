@@ -173,7 +173,7 @@ extern f32 csn_query_nearest_hit_t;
 extern s32 wall_query_hit_result;
 extern const f32 lbl_805D91F4;
 s32 query_wall_segment(void *arg0, void *arg1, void *arg2, s32 arg3);
-f32 get_random_float__8TObjFishFv(f32);
+f32 fabs_float(f32);
 s32 query_wall_segment(void *arg0, void *arg1, void *arg2, s32 arg3);
 extern const f32 lbl_805D9204;
 s32 select_deepest_wall_ray(Query_80079608 *q, Result_80079608 *r);
@@ -333,7 +333,7 @@ s32 select_deepest_wall_ray(Query_80079608 *q, Result_80079608 *r) {
         if (query_wall_segment(&q->origin, &end, q->flags, (s32)hit) != 0) {
             f32 dz = end.z - hit->pos.z;
             f32 dx = end.x - hit->pos.x;
-            d = get_random_float__8TObjFishFv(dx * hit->normal.x + dz * hit->normal.z);
+            d = fabs_float(dx * hit->normal.x + dz * hit->normal.z);
             if (r->best < d) {
                 r->hit = 1;
                 r->best = d;

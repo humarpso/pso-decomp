@@ -409,7 +409,7 @@ int spawn_particle_effect(void *, int);
 int play_sound_effect(int, int, int, int);
 int TBoss6Thanks__sub_8035D270();
 void spawn_player_hit_effects__14TBoss6PlotFalzFv(void);
-f64 get_ad_end_text_start__10TObjPlayerFv(f32, f32);
+f64 atan2_float(f32, f32);
 s32 get_nth_view_player_id__11TCameraCtrlFi();
 s32 angle_diff_s16(s32, s32);
 M2C_UNK get_camera_no__11TCameraCtrlFv();
@@ -670,9 +670,9 @@ s32 TBoss6PlotFalz__sub_802AB6CC(void *arg0, f32 r) {
     vec3_add_to(&a, &dir);
     VecCopy__FP3VecPC3Vec(&b, &p);
     subtract_vector(&b, &dir);
-    ang1 = (s32)(lbl_804705E0[0] * get_ad_end_text_start__10TObjPlayerFv(a.x - c.x, a.z - c.z));
-    ang2 = (s32)(lbl_804705E0[0] * get_ad_end_text_start__10TObjPlayerFv(b.x - c.x, b.z - c.z));
-    ang3 = (s32)(lbl_804705E0[0] * get_ad_end_text_start__10TObjPlayerFv(pl.x - c.x, pl.z - c.z));
+    ang1 = (s32)(lbl_804705E0[0] * atan2_float(a.x - c.x, a.z - c.z));
+    ang2 = (s32)(lbl_804705E0[0] * atan2_float(b.x - c.x, b.z - c.z));
+    ang3 = (s32)(lbl_804705E0[0] * atan2_float(pl.x - c.x, pl.z - c.z));
     s1 = angle_diff_s16(ang1, ang3);
     s2 = angle_diff_s16(ang3, ang2);
     if ((s1 >= 0 && s2 >= 0) || (s1 <= 0 && s2 <= 0)) {

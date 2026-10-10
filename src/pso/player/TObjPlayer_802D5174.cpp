@@ -147,7 +147,7 @@ M2C_UNK TObjPlayer__sub_802D5B78(void *, void *);
 void spawn_hit_particles_at__10TObjPlayerFiii(M2C_UNK arg0, s32 arg1, s32 arg2);
 extern const f64 lbl_804725B8[];
 extern const f32 lbl_805DE794;
-f64 get_ad_end_text_start__10TObjPlayerFv(f32, f32);
+f64 atan2_float(f32, f32);
 void set_position_xy__10TObjPlayerFPvff(f32, f32);
 void create_timed_particle_emitter(s32, s32, s32, s32);
 u32 create_timed_particle_emitter_with_angles(s32, void *, s32, s32, s32, s32);
@@ -176,7 +176,7 @@ void spawn_hit_particles__10TObjPlayerFiPv(s32 arg0, const P_802D5478 *arg1) {
     s32 v[3];
     create_timed_particle_emitter(arg0, 0x1EF, 0, 0xF);
     v[0] = 0;
-    v[1] = (s32)(lbl_804725B8[0] * get_ad_end_text_start__10TObjPlayerFv(arg1->x, arg1->z));
+    v[1] = (s32)(lbl_804725B8[0] * atan2_float(arg1->x, arg1->z));
     v[2] = 0;
     if (create_timed_particle_emitter_with_angles(arg0, v, 0x1B8, 0, 0xF, 4) != 0U) {
         set_position_xy__10TObjPlayerFPvff(lbl_805DE794, lbl_805DE794);

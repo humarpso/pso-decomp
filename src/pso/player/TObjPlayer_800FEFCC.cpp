@@ -68,8 +68,8 @@ extern u8 lbl_8049DCF0[];
 extern s32 lbl_805D2B54;
 void *TObjPlayer__sub_800FF070(void *arg0, void *arg1, void *arg2, void *arg3);
 M2C_UNK VecCopy__FP3VecPC3Vec(void *, void *);
-f32 get_random_float__8TObjFishFv(f32);
-f32 get_ad_end_text_start__10TObjPlayerFv(f32, f32);
+f32 fabs_float(f32);
+f32 atan2_float(f32, f32);
 f32 get_scale_factor__10TObjPlayerFv(f32);
 M2C_UNK scale_matrix(int, f32, f32, f32);
 f32 vector_length(void *);
@@ -231,8 +231,8 @@ void TObjPlayer__sub_800FF2D0(Obj_800FF2D0 *arg0) {
                 normalize_vector(&d);
             }
             yaw = 0;
-            if (lbl_805DAA58 != get_random_float__8TObjFishFv(d.x) + get_random_float__8TObjFishFv(d.z)) {
-                yaw = (s32)(lbl_8043DF40 * get_ad_end_text_start__10TObjPlayerFv(-d.x, -d.z));
+            if (lbl_805DAA58 != fabs_float(d.x) + fabs_float(d.z)) {
+                yaw = (s32)(lbl_8043DF40 * atan2_float(-d.x, -d.z));
                 rotate_matrix_y(0, yaw);
             }
             rotate_matrix_x(0, (s32)(lbl_8043DF40 * get_scale_factor__10TObjPlayerFv(-d.y)));

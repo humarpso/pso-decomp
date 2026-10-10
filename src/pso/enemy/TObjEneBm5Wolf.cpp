@@ -68,7 +68,7 @@ struct O_800B8A24;
 struct Globals_800B8A40;
 extern "C" {
 f32 calc_boss4_scale__10TObjPlayerFi(s32);
-f32 get_ad_end_text_start__10TObjPlayerFv(f64, f64);
+f32 atan2_float(f64, f64);
 void approach_target__14TObjEneBm5WolfFPvf(void *arg0, f32 farg0);
 M2C_UNK transition_enemy_state(void *, M2C_UNK);
 s32 approach_angle_limited(int, int, int);
@@ -2189,7 +2189,7 @@ void circling_state__14TObjEneBm5WolfFv(u8 *arg0, s32 arg1) {
             }
             }
             self->angle = approach_angle_limited(self->angle,
-                (s32)(TObjEneBm5Wolf__data_8043B5B0 * get_ad_end_text_start__10TObjPlayerFv(self->pos.x - self->f44, self->pos.z - self->f4C)),
+                (s32)(TObjEneBm5Wolf__data_8043B5B0 * atan2_float(self->pos.x - self->f44, self->pos.z - self->f4C)),
                 0x200);
             self->angle = (s16)self->angle;
             self->fC8 = TObjEneBm5Wolf__data_805D9DD0 * self->f404;
@@ -3103,7 +3103,7 @@ s32 calc_lunge_aim__14TObjEneBm5WolfFPv(u8 *arg0) {
         M2C_FIELD(arg0, f32 *, 0x394) = (f32) (M2C_FIELD(arg0, f32 *, 0x394) + ((TObjEneBm5Wolf__data_805D9DBC * temp_f4) + (temp_f5 * var_f0)));
         M2C_FIELD(arg0, f32 *, 0x39C) = (f32) (M2C_FIELD(arg0, f32 *, 0x39C) + ((TObjEneBm5Wolf__data_805D9DBC * temp_f5) - (temp_f4 * var_f0)));
         update_velocity__9TObjEneDDFPv((void *) (arg0));
-        return (s32) (TObjEneBm5Wolf__data_8043B5B0 * get_ad_end_text_start__10TObjPlayerFv((f64) M2C_FIELD(arg0, f32 *, 0x3A0), (f64) M2C_FIELD(arg0, f32 *, 0x3A8)));
+        return (s32) (TObjEneBm5Wolf__data_8043B5B0 * atan2_float((f64) M2C_FIELD(arg0, f32 *, 0x3A0), (f64) M2C_FIELD(arg0, f32 *, 0x3A8)));
     }
     M2C_FIELD(arg0, f32 *, 0x3A0) = sin_table_lookup((int) (M2C_FIELD(arg0, s32 *, 0x60)));
     M2C_FIELD(arg0, f32 *, 0x3A4) = (f32) TObjEneBm5Wolf__data_805D9D78;
@@ -3182,7 +3182,7 @@ s32 select_death_direction__14TObjEneBm5WolfFPvPv(Wolf_800B78F8 *s, s32 *heading
     VecCopy__FP3VecPC3Vec(&v, &s->knockback);
     v.y = TObjEneBm5Wolf__data_805D9D78;
     if (TObjEneBm5Wolf__data_805D9D78 != clamp_velocity__15TObjBoss2TunnelFPv(&v)) {
-        *heading = (s32)(TObjEneBm5Wolf__data_8043B5B0 * get_ad_end_text_start__10TObjPlayerFv(v.x, v.z));
+        *heading = (s32)(TObjEneBm5Wolf__data_8043B5B0 * atan2_float(v.x, v.z));
         side.x = sin_table_lookup(s->facing);
         side.z = cos_table_lookup(s->facing);
         if (is_vec_xz_cross_negative(&side, &v) != 0) {
@@ -3325,7 +3325,7 @@ typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
 typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 #define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
 #define M2C_BITWISE(type, expr) ((type)(expr))
-#define get_ad_end_text_start__10TObjPlayerFv ((f64 (*)(f32, f32))get_ad_end_text_start__10TObjPlayerFv)
+#define atan2_float ((f64 (*)(f32, f32))atan2_float)
 #define sin_table_lookup ((f32 (*)(s32))sin_table_lookup)
 #define cos_table_lookup ((f32 (*)(s32))cos_table_lookup)
 
@@ -3339,11 +3339,11 @@ void calc_rotated_vector__14TObjEneBm5WolfFPviPvPv(void *arg0, s32 arg1, void *a
     temp_f1 = cos_table_lookup(arg1);
     M2C_FIELD(arg2, f32 *, 8) = (f32) ((temp_f1 * M2C_FIELD(arg0, f32 *, 0x3A8)) - (temp_f31 * M2C_FIELD(arg0, f32 *, 0x3A0)));
     M2C_FIELD(arg2, f32 *, 0) = (f32) ((temp_f31 * M2C_FIELD(arg0, f32 *, 0x3A8)) + (temp_f1 * M2C_FIELD(arg0, f32 *, 0x3A0)));
-    *arg3 = (s32) (TObjEneBm5Wolf__data_8043B5B0 * get_ad_end_text_start__10TObjPlayerFv(M2C_FIELD(arg2, f32 *, 0), M2C_FIELD(arg2, f32 *, 8)));
+    *arg3 = (s32) (TObjEneBm5Wolf__data_8043B5B0 * atan2_float(M2C_FIELD(arg2, f32 *, 0), M2C_FIELD(arg2, f32 *, 8)));
 }
 
 }
-#undef get_ad_end_text_start__10TObjPlayerFv
+#undef atan2_float
 #undef sin_table_lookup
 #undef cos_table_lookup
 
@@ -3452,7 +3452,7 @@ void turn_pose_to_target__14TObjEneBm5WolfFv(void *arg0) {
     z = M2C_FIELD(arg0, f32 *, 0x40) + TObjEneBm5Wolf__data_805D9D78;
     f32 dx = M2C_FIELD(M2C_FIELD(arg0, u8 **, 0x390), f32 *, 0x38) - x;
     f32 dz = M2C_FIELD(M2C_FIELD(arg0, u8 **, 0x390), f32 *, 0x40) - z;
-    z = get_ad_end_text_start__10TObjPlayerFv((0, dx), dz);
+    z = atan2_float((0, dx), dz);
     advance_pose_turn__14TObjEneBm5WolfFPvi((Wolf_800B7DDC *)arg0, (s32) (TObjEneBm5Wolf__data_8043B5B0 * z));
 }
 

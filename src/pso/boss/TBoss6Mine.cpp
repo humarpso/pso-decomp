@@ -182,7 +182,7 @@ extern const f32 TBoss6Mine__data_805DF580;
 extern const f32 lbl_805DF588;
 void TBoss6Mine__vt3(u8 *arg0);
 M2C_UNK VecCopy__FP3VecPC3Vec(s32, s32);
-f64 get_ad_end_text_start__10TObjPlayerFv(f32, f32);
+f64 atan2_float(f32, f32);
 s32 approach_angle_limited(s32, s32, s32);
 f64 TBoss5GryphonLightningWing__sub_80324CEC(f32);
 f32 vector_length(void *);
@@ -316,7 +316,7 @@ void update_facing_angles__10TBoss6MineFPv(u8 *arg0) {
             b = 0;
         } else {
             normalize_vector(&v);
-            a = lbl_804766A0[0] * get_ad_end_text_start__10TObjPlayerFv(-v.x, -v.z);
+            a = lbl_804766A0[0] * atan2_float(-v.x, -v.z);
             b = lbl_804766A0[0] * TBoss5GryphonLightningWing__sub_80324CEC(v.y);
             if (b < -0x2000) {
                 b = -0x2000;

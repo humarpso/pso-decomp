@@ -303,7 +303,7 @@ typedef struct Obj_800A48C4 {
 
 extern "C" {
 M2C_UNK VecCopy__FP3VecPC3Vec(void *, void *);
-f64 get_ad_end_text_start__10TObjPlayerFv(f32, f32);
+f64 atan2_float(f32, f32);
 s32 angle_difference_abs(s32, s32);
 u8 *get_player_by_client_id(s32);
 M2C_UNK subtract_vector(void *, void *);
@@ -374,7 +374,7 @@ void TObjPlayer__sub_800A48C4(Obj_800A48C4 *o) {
         if (e != NULL) {
             VecCopy__FP3VecPC3Vec(&v, e + 0x2FC);
             subtract_vector(&v, &o->pos);
-            d = angle_difference_abs(o->f60, (s32)(lbl_8043A8D0[0] * get_ad_end_text_start__10TObjPlayerFv(v.x, v.z)));
+            d = angle_difference_abs(o->f60, (s32)(lbl_8043A8D0[0] * atan2_float(v.x, v.z)));
         } else {
             d = 0;
         }
@@ -502,7 +502,7 @@ void TObjPlayer__sub_800A5FA8(u8 *arg0);
 f32 calc_distance_to_client__10TObjPlayerFiUsUi(void *, u16, void *);
 M2C_UNK VecCopy__FP3VecPC3Vec(void *, void *);
 Obj_800A4C4C *get_player_data__10TObjPlayerFi(s32);
-#define get_ad_end_text_start__10TObjPlayerFv ((f32 (*)(f32, f32))(get_ad_end_text_start__10TObjPlayerFv))
+#define atan2_float ((f32 (*)(f32, f32))(atan2_float))
 s32 test_action_mask__10TObjPlayerFPvi(void *, int);
 s32 angle_difference_abs(s32, s32);
 M2C_UNK subtract_vector(void *, void *);
@@ -646,7 +646,7 @@ s32 find_facing_partner__10TObjPlayerFPv(Obj_800A4C4C *self) {
             if (!(calc_distance_to_client__10TObjPlayerFiUsUi(self, i, &v) < lbl_805D9A24)) {
                 continue;
             }
-            if (angle_difference_abs(self->f60, (s32)(lbl_8043A8D0[0] * get_ad_end_text_start__10TObjPlayerFv(v.x, v.z))) >= 0x2AAA) {
+            if (angle_difference_abs(self->f60, (s32)(lbl_8043A8D0[0] * atan2_float(v.x, v.z))) >= 0x2AAA) {
                 continue;
             }
             if (test_action_mask__10TObjPlayerFPvi(p, 0xE0) == 0) {
@@ -654,7 +654,7 @@ s32 find_facing_partner__10TObjPlayerFPv(Obj_800A4C4C *self) {
             }
             VecCopy__FP3VecPC3Vec(&v, &self->pos);
             subtract_vector(&v, &p->pos);
-            if (angle_difference_abs(p->f60, (s32)(lbl_8043A8D0[0] * get_ad_end_text_start__10TObjPlayerFv(v.x, v.z))) < 0x2AAA) {
+            if (angle_difference_abs(p->f60, (s32)(lbl_8043A8D0[0] * atan2_float(v.x, v.z))) < 0x2AAA) {
                 self->f38C = p;
                 self->f374 |= 0x20;
                 return 1;
@@ -1061,7 +1061,7 @@ void TObjPlayer__sub_800A5A68(Obj_800A5A68 *self) {
     default:
         VecCopy__FP3VecPC3Vec(&v, &self->target->pos);
         subtract_vector(&v, &self->pos);
-        f32 a = get_ad_end_text_start__10TObjPlayerFv(v.x, v.z);
+        f32 a = atan2_float(v.x, v.z);
         self->f326 = 4;
         if ((s32)(lbl_8043A8D0[0] * a) < 0x10) {
             self->f328 = 1;
@@ -1102,7 +1102,7 @@ s32 is_target_in_attack_arc__10TObjPlayerFPv(u8 *arg0) {
         tgt = M2C_FIELD(arg0, u8 **, 0x2A8);
         if (tgt != NULL && M2C_FIELD(arg0, u32 *, 0x318) != 0U && !(M2C_FIELD(tgt, s32 *, 0x30) & 0x02000800)) {
             dist = calc_xz_distance_sq__10TObjPlayerFiUiPv(arg0, tgt, &v);
-            ang = angle_difference_abs(M2C_FIELD(arg0, s32 *, 0x60), (s32)(lbl_8043A8D0[0] * get_ad_end_text_start__10TObjPlayerFv(v.x, v.z)));
+            ang = angle_difference_abs(M2C_FIELD(arg0, s32 *, 0x60), (s32)(lbl_8043A8D0[0] * atan2_float(v.x, v.z)));
             p = M2C_FIELD(M2C_FIELD(arg0, u8 **, 0x2A8), u8 **, 0xA4);
             if (p != NULL) {
                 var_f29 = M2C_FIELD(p, f32 *, 0xC);
@@ -1242,7 +1242,7 @@ void advance_motion_state__10TObjPlayerFPv(u8 *arg0) {
 }
 
 #undef advance_animation_playback
-#undef get_ad_end_text_start__10TObjPlayerFv
+#undef atan2_float
 #undef turn_toward_target__10TObjPlayerFPv
 #undef step_angle_clamped__10TObjPlayerFPvi
 #undef copy_target_state__14TObjEnePanarmsFPvPv
@@ -1336,7 +1336,7 @@ extern const f32 lbl_805D9A14;
 void step_cutscene_frame__10TObjPlayerFv(void);
 #define VecCopy__FP3VecPC3Vec ((void (*)(Vec_800A6B14*, const Vec_800A6B14*))(VecCopy__FP3VecPC3Vec))
 #define subtract_vector ((f32 (*)(void*, void*))(subtract_vector))
-f64 get_ad_end_text_start__10TObjPlayerFv(f32, f32);
+f64 atan2_float(f32, f32);
 s32 angle_diff_s16(s32, s32);
 void step_angle_clamped__10TObjPlayerFPvi(void *arg0, s32 arg1);
 #define lbl_8043A8D0 (*(const f64 *)&lbl_8043A8D0)
@@ -1782,7 +1782,7 @@ void turn_toward_target__10TObjPlayerFPv(Obj_800A6B14 *self) {
     VecCopy__FP3VecPC3Vec(&d, &self->target->pos);
     subtract_vector(&d, &self->pos);
     step_angle_clamped__10TObjPlayerFPvi(self,
-        angle_diff_s16(self->angle, (s32)(lbl_8043A8D0 * get_ad_end_text_start__10TObjPlayerFv(d.x, d.z))));
+        angle_diff_s16(self->angle, (s32)(lbl_8043A8D0 * atan2_float(d.x, d.z))));
 }
 
 void step_angle_clamped__10TObjPlayerFPvi(void *arg0, s32 arg1) {

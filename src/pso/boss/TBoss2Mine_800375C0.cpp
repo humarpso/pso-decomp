@@ -387,7 +387,7 @@ V(80)V(81)V(82)V(83)V(84)V(85)V(86)V(87)V(88)V(89)V(90)V(91)V(92)V(93)V(94)V(95)
 extern "C" {
 void TBoss2Mine__sub_80037D4C(u8 *arg0, s32 arg1);
 void set_launch_position_velocity__10TBoss2MineFPvPvPv(u8 *arg0, u8 *arg1, u8 *arg2);
-f64 get_ad_end_text_start__10TObjPlayerFv(f32, f32);
+f64 atan2_float(f32, f32);
 f32 newton_sqrtf(s32, f32, f32, f32);
 f32 clamp_velocity__15TObjBoss2TunnelFPv(void *);
 M2C_UNK subtract_vector(void *, void *);
@@ -470,7 +470,7 @@ void TBoss2Mine__sub_80037EE0(u8 *arg0, s32 arg1) {
         VecCopy__FP3VecPC3Vec(arg0 + 0x39C, arg0 + 0x390);
         subtract_vector(arg0 + 0x39C, arg0 + 0x2FC);
         M2C_FIELD(arg0, f32 *, 0x3DC) = clamp_velocity__15TObjBoss2TunnelFPv(arg0 + 0x39C);
-        temp_r3 = (s32) ((10430.38043493439) * get_ad_end_text_start__10TObjPlayerFv(M2C_FIELD(arg0, f32 *, 0x39C), M2C_FIELD(arg0, f32 *, 0x3A4)));
+        temp_r3 = (s32) ((10430.38043493439) * atan2_float(M2C_FIELD(arg0, f32 *, 0x39C), M2C_FIELD(arg0, f32 *, 0x3A4)));
         M2C_FIELD(arg0, s32 *, 0x60) = temp_r3;
         M2C_FIELD(arg0, s32 *, 0x5C) = 0x4000;
         temp_f2 = M2C_FIELD(arg0, f32 *, 0x300);

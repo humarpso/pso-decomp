@@ -272,7 +272,7 @@ s32 find_nearest_hittable_enemy__10TObjPlayerFiPvf(void *, void *, f32);
 u16 find_nearest_visible_player(void *, Vec_800E0A44 *, f32);
 M2C_UNK VecCopy__FP3VecPC3Vec(void *, void *);
 s32 is_split_screen();
-f64 get_ad_end_text_start__10TObjPlayerFv(f32, f32, f32);
+f64 atan2_float(f32, f32, f32);
 u8 * dispatch_shared_handler_a__6TLobbyFPv(s32);
 s32 get_camera_mode__11TCameraCtrlFv();
 int set_field_b8__14TObjEnePanarmsFPvs(void*, int);
@@ -602,7 +602,7 @@ void TObjEnePanarms__sub_800E0048(u8 *arg0) {
     } else {
         normalize_vector(&v);
     }
-    M2C_FIELD(arg0, s32 *, 0x60) = approach_angle_limited(M2C_FIELD(arg0, s32 *, 0x60), (s32)(TObjEnePanarms__data_8043CDD0 * ((f64 (*)(f32, f32))get_ad_end_text_start__10TObjPlayerFv)(v.x, v.z)), 0x888);
+    M2C_FIELD(arg0, s32 *, 0x60) = approach_angle_limited(M2C_FIELD(arg0, s32 *, 0x60), (s32)(TObjEnePanarms__data_8043CDD0 * ((f64 (*)(f32, f32))atan2_float)(v.x, v.z)), 0x888);
     if (M2C_FIELD(arg0, s32 *, 0x3B4) < 0x87) {
         f32 t = M2C_FIELD(arg0, f32 *, 0x3B0) + lbl_805DA534;
         M2C_FIELD(arg0, f32 *, 0x3B0) = t;
@@ -696,7 +696,7 @@ void update_attack__14TObjEnePanarmsFPv(u8 *arg0) {
     }
     if (M2C_FIELD(arg0, f32 *, 0xC0) < TObjEnePanarms__data_805DA544) {
         temp_f3 = M2C_FIELD(temp_r3, f32 *, 0x38);
-        M2C_FIELD(arg0, s32 *, 0x60) = approach_angle_limited(M2C_FIELD(arg0, s32 *, 0x60), lbl_8043CDA0[M2C_FIELD(arg0, s32 *, 0x380)] + (s32) (TObjEnePanarms__data_8043CDD0 * get_ad_end_text_start__10TObjPlayerFv(temp_f3 - M2C_FIELD(arg0, f32 *, 0x38), M2C_FIELD(temp_r3, f32 *, 0x40) - M2C_FIELD(arg0, f32 *, 0x40), temp_f3)), 0x200);
+        M2C_FIELD(arg0, s32 *, 0x60) = approach_angle_limited(M2C_FIELD(arg0, s32 *, 0x60), lbl_8043CDA0[M2C_FIELD(arg0, s32 *, 0x380)] + (s32) (TObjEnePanarms__data_8043CDD0 * atan2_float(temp_f3 - M2C_FIELD(arg0, f32 *, 0x38), M2C_FIELD(temp_r3, f32 *, 0x40) - M2C_FIELD(arg0, f32 *, 0x40), temp_f3)), 0x200);
     }
     if (M2C_FIELD(arg0, s32 *, 0xB0) & 0x10) {
         TObjEnePanarms__sub_800E1C98((void *)(arg0), (s32)(0xA));
@@ -778,7 +778,7 @@ void update_chase_target__14TObjEnePanarmsFPv(u8 *arg0) {
     } else {
         normalize_vector(&sp8);
     }
-    M2C_FIELD(arg0, s32 *, 0x60) = approach_angle_limited(M2C_FIELD(arg0, s32 *, 0x60), (s32) (TObjEnePanarms__data_8043CDD0 * ((f64 (*)(f32, f32))get_ad_end_text_start__10TObjPlayerFv)(sp8.x, sp8.z)), 0x101);
+    M2C_FIELD(arg0, s32 *, 0x60) = approach_angle_limited(M2C_FIELD(arg0, s32 *, 0x60), (s32) (TObjEnePanarms__data_8043CDD0 * ((f64 (*)(f32, f32))atan2_float)(sp8.x, sp8.z)), 0x101);
     if (M2C_FIELD(arg0, s32 *, 0x3B4) > 0) {
         M2C_FIELD(arg0, f32 *, 0x3B0) = v = M2C_FIELD(arg0, f32 *, 0x3B0) + lbl_805DA534;
         if (v > 1.25f) {
@@ -1004,7 +1004,7 @@ void update_move_to_target__14TObjEnePanarmsFPv(u8 *arg0) {
         sp8.x = sp8.z;
         sp8.z = -t;
     }
-    M2C_FIELD(arg0, s32 *, 0x60) = approach_angle_limited(M2C_FIELD(arg0, s32 *, 0x60), (s32) (TObjEnePanarms__data_8043CDD0 * ((f64 (*)(f32, f32))get_ad_end_text_start__10TObjPlayerFv)(sp8.x, sp8.z)), 0x208);
+    M2C_FIELD(arg0, s32 *, 0x60) = approach_angle_limited(M2C_FIELD(arg0, s32 *, 0x60), (s32) (TObjEnePanarms__data_8043CDD0 * ((f64 (*)(f32, f32))atan2_float)(sp8.x, sp8.z)), 0x208);
     if (dist > lbl_805DA564) {
         M2C_FIELD(arg0, f32 *, 0x3B0) = v = M2C_FIELD(arg0, f32 *, 0x3B0) + TObjEnePanarms__data_805DA550;
         if (v > 0.6f) {
@@ -1067,7 +1067,7 @@ void TObjEnePanarms__sub_800E10D0(u8 *arg0) {
     idx = find_nearest_visible_player(arg0, &v, TObjEnePanarms__data_805DA560);
     ok = 0;
     if (idx != 0xFFFF) {
-        angle = (s32)(TObjEnePanarms__data_8043CDD0 * ((f64 (*)(f32, f32))get_ad_end_text_start__10TObjPlayerFv)(v.x, v.z));
+        angle = (s32)(TObjEnePanarms__data_8043CDD0 * ((f64 (*)(f32, f32))atan2_float)(v.x, v.z));
         if (angle_difference_abs(M2C_FIELD(arg0, s32 *, 0x60), angle) < 0x208) {
             ok = 1;
         }
@@ -1537,7 +1537,7 @@ void run_state_machine__14TObjEnePanarmsFPv(Panarms_800E2200 *self) {
     self->diff.x = self->target->x - self->x;
     self->diff.y = TObjEnePanarms__data_805DA524;
     self->diff.z = self->target->z - self->z;
-    self->angle = ((const f64 *)&TObjEnePanarms__data_8043CDD0)[0] * ((f32 (*)(f32, f32))get_ad_end_text_start__10TObjPlayerFv)(self->diff.x, self->diff.z);
+    self->angle = ((const f64 *)&TObjEnePanarms__data_8043CDD0)[0] * ((f32 (*)(f32, f32))atan2_float)(self->diff.x, self->diff.z);
     self->dist = vector_length(&self->diff);
     self->counter++;
     fn = TObjEnePanarms__state_fn_table[self->state].fn;

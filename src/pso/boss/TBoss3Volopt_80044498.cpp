@@ -682,7 +682,7 @@ extern const f32 TBoss3Volopt__data_805D87D8;
 extern const f32 lbl_805D87DC;
 void spawn_ambient_particles__12TBoss3VoloptFPv(u8 *arg0);
 s32 obj_testFlags30(void*, M2C_UNK);
-f32 get_random_float__8TObjFishFv(f32);
+f32 fabs_float(f32);
 s32 TBoss3Volopt__sub_8003F398(void);
 s32 check_demo_mode__10TObjPlayerFv();
 s32 minimap_render_dot(void *, s32, s16, s32);
@@ -784,7 +784,7 @@ void distribute_part_damage__12TBoss3VoloptFPv(Volopt_80044498 *self);
 void VecCopy__FP3VecPC3Vec(void *, void *);
 void *get_player_data__10TObjPlayerFi(s32);
 u16 obj_getField1c(void *);
-f64 get_ad_end_text_start__10TObjPlayerFv(f32, f32);
+f64 atan2_float(f32, f32);
 s32 TBoss3Volopt__sub_8003F398(void);
 s32 angle_difference_abs(s32, s32);
 void subtract_vector(void *, void *);
@@ -793,7 +793,7 @@ extern s32 lbl_805D586C;
 void collect_targets_in_arc__12TBoss3VoloptFPv(Volopt_80044EDC *self);
 void *get_player_data__10TObjPlayerFi(s32);
 u16 obj_getField1c(void *);
-f64 get_ad_end_text_start__10TObjPlayerFv(f32, f32);
+f64 atan2_float(f32, f32);
 f32 xz_distance_squared(Vec_8004512C *, Vec_8004512C *);
 u16 TObjRoomId__sub_801A1DB8(void);
 f32 sin_table_lookup(s32);
@@ -807,7 +807,7 @@ extern const f32 lbl_805D87C4;
 void push_players_out_of_radius__12TBoss3VoloptFPv(Obj_8004512C *self);
 void *get_player_data__10TObjPlayerFi(s32);
 u16 obj_getField1c(void *);
-f64 get_ad_end_text_start__10TObjPlayerFv(f32, f32);
+f64 atan2_float(f32, f32);
 s32 get_field_3e0__12TBoss3VoloptFPv(void *p);
 s32 angle_difference_abs(s32, s32);
 void subtract_vector(void *, void *);
@@ -816,7 +816,7 @@ extern s32 lbl_805D586C;
 s16 collect_targets_in_front__12TBoss3VoloptFPv(Volopt_8004550C *self);
 void *get_player_data__10TObjPlayerFi(s32);
 u16 obj_getField1c(void *);
-f64 get_ad_end_text_start__10TObjPlayerFv(f32, f32);
+f64 atan2_float(f32, f32);
 s32 get_field_3e0__12TBoss3VoloptFPv(void *p);
 s32 angle_difference_abs(s32, s32);
 void subtract_vector(void *, void *);
@@ -1075,7 +1075,7 @@ void collect_targets_in_arc__12TBoss3VoloptFPv(Volopt_80044EDC *self) {
         {
             Vec_80044EDC v = pl->pos2;
             subtract_vector(&v, &self->pos2);
-            if (angle_difference_abs(self->angle + 0x4000, (s32)(TBoss3Volopt__data_804366B0 * get_ad_end_text_start__10TObjPlayerFv(v.x, v.z))) > limit) {
+            if (angle_difference_abs(self->angle + 0x4000, (s32)(TBoss3Volopt__data_804366B0 * atan2_float(v.x, v.z))) > limit) {
                 continue;
             }
         }
@@ -1136,7 +1136,7 @@ void push_players_out_of_radius__12TBoss3VoloptFPv(Obj_8004512C *self) {
         if (xz_distance_squared(&self->pos, &pl->pos) <= lbl_805D87C0) {
             Vec_8004512C v = pl->pos;
             subtract_vector(&v, &self->pos);
-            ang = (s32)(TBoss3Volopt__data_804366B0 * get_ad_end_text_start__10TObjPlayerFv(v.z, v.x));
+            ang = (s32)(TBoss3Volopt__data_804366B0 * atan2_float(v.z, v.x));
             v.x = lbl_805D87C4 * cos_table_lookup(ang);
             v.z = lbl_805D87C4 * sin_table_lookup(ang);
             vec3_add_to(&v, &self->pos);
@@ -1187,7 +1187,7 @@ u16 find_facing_player__12TBoss3VoloptFPv(Volopt_80045390 *self) {
         {
             Vec_80045390 v = pl->pos2;
             subtract_vector(&v, &self->pos2);
-            d = ABS_80045390(angle_difference_abs(self->angle + 0x8000, (s32)(TBoss3Volopt__data_804366B0 * get_ad_end_text_start__10TObjPlayerFv(v.x, v.z))));
+            d = ABS_80045390(angle_difference_abs(self->angle + 0x8000, (s32)(TBoss3Volopt__data_804366B0 * atan2_float(v.x, v.z))));
             if (d <= best) {
                 best = d;
                 id = obj_getField1c(pl);
@@ -1215,7 +1215,7 @@ s16 collect_targets_in_front__12TBoss3VoloptFPv(Volopt_8004550C *self) {
         {
             Vec_8004550C v = pl->pos2;
             subtract_vector(&v, &self->pos2);
-            if (angle_difference_abs(self->angle + 0x8000, (s32)(TBoss3Volopt__data_804366B0 * get_ad_end_text_start__10TObjPlayerFv(v.x, v.z))) > 0x1C71) {
+            if (angle_difference_abs(self->angle + 0x8000, (s32)(TBoss3Volopt__data_804366B0 * atan2_float(v.x, v.z))) > 0x1C71) {
                 continue;
             }
         }
@@ -1594,7 +1594,7 @@ void TBoss3Volopt__sub_80046260(void *arg0_) {
         if (F(u8 *, 0x2A8) != NULL) {
             Vec_80046260 v = *(Vec_80046260 *)(F(u8 *, 0x2A8) + 0x38);
             subtract_vector(&v, arg0 + 0x38);
-            F(s32, 0x60) = approach_angle_limited(F(s32, 0x60), (s32)(TBoss3Volopt__data_804366B0 * get_ad_end_text_start__10TObjPlayerFv(v.x, v.z)) + 0x8000, 0x566);
+            F(s32, 0x60) = approach_angle_limited(F(s32, 0x60), (s32)(TBoss3Volopt__data_804366B0 * atan2_float(v.x, v.z)) + 0x8000, 0x566);
         }
         if (--F(s16, 0x33C) <= 0) {
             F(s16, 0xB8) = 7;
@@ -1973,9 +1973,9 @@ void TBoss3Volopt__sub_800477A0(u8 *arg0) {
     f32 temp_f1;
     s32 temp_r0;
     temp_f1 = sin_table_lookup(M2C_FIELD(arg0, s32 *, 0x47C));
-    M2C_FIELD(TBoss3Volopt__data_805D4D00, s8 *, 6) = (s8) get_random_float__8TObjFishFv(temp_f1 * M2C_FIELD(arg0, f32 *, 0x484));
-    M2C_FIELD(TBoss3Volopt__data_805D4D00, s8 *, 5) = (s8) get_random_float__8TObjFishFv(temp_f1 * M2C_FIELD(arg0, f32 *, 0x488));
-    M2C_FIELD(TBoss3Volopt__data_805D4D00, s8 *, 4) = (s8) get_random_float__8TObjFishFv(temp_f1 * M2C_FIELD(arg0, f32 *, 0x48C));
+    M2C_FIELD(TBoss3Volopt__data_805D4D00, s8 *, 6) = (s8) fabs_float(temp_f1 * M2C_FIELD(arg0, f32 *, 0x484));
+    M2C_FIELD(TBoss3Volopt__data_805D4D00, s8 *, 5) = (s8) fabs_float(temp_f1 * M2C_FIELD(arg0, f32 *, 0x488));
+    M2C_FIELD(TBoss3Volopt__data_805D4D00, s8 *, 4) = (s8) fabs_float(temp_f1 * M2C_FIELD(arg0, f32 *, 0x48C));
     M2C_FIELD(arg0, s32 *, 0x47C) = (s32) (M2C_FIELD(arg0, s32 *, 0x47C) + M2C_FIELD(arg0, s32 *, 0x480));
     if (check_demo_mode__10TObjPlayerFv() != 1) {
         if (((VObj_18_b8f5cb *)(arg0))->m31() != 0) {

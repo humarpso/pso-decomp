@@ -1062,7 +1062,7 @@ void TObjFish__sub_802EBE50(void* o, u32 k);
 void dispatch_state__8TObjFishFPvUiUi(u8 *arg0, u32 arg1, u32 arg2);
 f32 calc_boss4_scale__10TObjPlayerFi(void *);
 M2C_UNK VecCopy__FP3VecPC3Vec(int, void *);
-f32 get_random_float__8TObjFishFv(f32);
+f32 fabs_float(f32);
 s32 set_field_b8__14TObjEnePanarmsFPvs(void *, int);
 s32 TBoss2DeRolLe__sub_80035FCC(void *);
 void set_move_params__13TBoss2DeRolLeFPvffff(void *, f32, f32, f32, f32);
@@ -1079,7 +1079,7 @@ void update_wobble_angle__8TObjFishFPv(void *);
 
 void TObjFish__sub_802EAAC8(u8 *arg0, u32 arg1, s32 arg2, s32 arg3);
 M2C_UNK VecCopy__FP3VecPC3Vec(int, void *);
-f32 get_random_float__8TObjFishFv(f32);
+f32 fabs_float(f32);
 void *create_particle_controller_with_angles(void *, void *, s32, s32, s32);
 void set_flags__11TBoss4Type2FPvUi(void *, u32);
 void copy_pos__11TNowLoadingFPvPv(void *, void *);
@@ -1158,7 +1158,7 @@ void TObjBoss2Tunnel__sub_802F22DC(void);
 void TBoss7LaserPtcl__sub_8035AE54(u32, void *, void *);
 void TObjFish__sub_802E9DBC(u8 *arg0, u32 arg1, s32 arg2);
 M2C_UNK VecCopy__FP3VecPC3Vec(int, void *);
-f32 get_random_float__8TObjFishFv(f32);
+f32 fabs_float(f32);
 s32 set_field_b8__14TObjEnePanarmsFPvs(void *, int);
 s32 TBoss2DeRolLe__sub_80035FCC(void *);
 void set_move_params__13TBoss2DeRolLeFPvffff(void *, f32, f32, f32, f32);
@@ -2770,7 +2770,7 @@ void TObjFish__sub_802EA4D8(u8 *arg0, u32 arg1) {
                     M2C_FIELD(arg0, f32 *, 0x74C) -= lbl_805DEA74;
                     if (M2C_FIELD(arg0, f32 *, 0x74C) <= lbl_805DEA10) {
                         M2C_FIELD(arg0, f32 *, 0x750) = lbl_805DEA18;
-                        set_move_params__13TBoss2DeRolLeFPvffff(arg0 + 0x670, lbl_805DEA98, get_random_float__8TObjFishFv(lbl_805DEB08 - M2C_FIELD(arg0, f32 *, 0x40)), lbl_805DEA74, lbl_805DEB0C);
+                        set_move_params__13TBoss2DeRolLeFPvffff(arg0 + 0x670, lbl_805DEA98, fabs_float(lbl_805DEB08 - M2C_FIELD(arg0, f32 *, 0x40)), lbl_805DEA74, lbl_805DEB0C);
                         M2C_FIELD(arg0, f32 *, 0x74C) = M2C_FIELD(arg0, f32 *, 0x40);
                     } else {
                         M2C_FIELD(arg0, f32 *, 0x40) += M2C_FIELD(arg0, f32 *, 0x74C);
@@ -2886,7 +2886,7 @@ void TObjFish__sub_802EAAC8(u8 *arg0, u32 arg1, s32 arg2, s32 arg3) {
                 if (self->frame >= lbl_805DEB30) {
                     self->step = 4;
                     self->vx = lbl_805DEB34 * self->dir;
-                    set_move_params__13TBoss2DeRolLeFPvffff(self->mover, lbl_805DEA98, get_random_float__8TObjFishFv(lbl_805DEAAC - self->z), lbl_805DEA74, lbl_805DEB0C);
+                    set_move_params__13TBoss2DeRolLeFPvffff(self->mover, lbl_805DEA98, fabs_float(lbl_805DEAAC - self->z), lbl_805DEA74, lbl_805DEB0C);
                     self->f680 = -(lbl_805DEA14 * self->vy);
                     self->vy = self->z;
                     destroy_child__8TObjFishFPv(self);
@@ -3484,7 +3484,7 @@ void TParticleCtrl__sub_802EC550(PCtrl_802EC550 *o) {
         if (o->idx == 0) {
             for (k = 0; k < 3; k++) {
                 Vec_802EC550 *src = &o->pos[lbl_804E3E3C[k]];
-                r = get_random_float__8TObjFishFv(src->y - lbl_805DEB84);
+                r = fabs_float(src->y - lbl_805DEB84);
                 w = lbl_804E3E48[k];
                 if (r < lbl_805DEB64 * w) {
                     ((void (*)(void *, void *))VecCopy__FP3VecPC3Vec)(&v, src);

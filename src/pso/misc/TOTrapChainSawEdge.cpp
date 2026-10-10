@@ -285,7 +285,7 @@ u16 obj_getField1c(void *);
 M2C_UNK obj_setFlags30(void *, int);
 s8 get_current_floor(int);
 s32 get_field_3e4__10TObjPlayerFPv(s32);
-f32 get_random_float__8TObjFishFv(f32);
+f32 fabs_float(f32);
 s32 check_demo_mode__10TObjPlayerFv();
 M2C_UNK clear_player_status_flag__10TObjPlayerFPviUi(void *, M2C_UNK, M2C_UNK);
 M2C_UNK set_indexed_flags(void *, M2C_UNK, M2C_UNK);
@@ -973,7 +973,7 @@ void update_extension__14TOTrapChainSawFPv(u8 *arg0) {
             self->m26();
         }
     } else {
-        M2C_FIELD(arg0, s32 *, 0xD0) = (s32)get_random_float__8TObjFishFv((f32)M2C_FIELD(arg0, s32 *, 0xD0));
+        M2C_FIELD(arg0, s32 *, 0xD0) = (s32)fabs_float((f32)M2C_FIELD(arg0, s32 *, 0xD0));
         M2C_FIELD(arg0, s32 *, 0xD4) = M2C_FIELD(arg0, s32 *, 0xD4) - M2C_FIELD(arg0, s32 *, 0xD0);
         if (M2C_FIELD(arg0, s32 *, 0xD4) < 0) {
             M2C_FIELD(arg0, s32 *, 0xD4) = 0;

@@ -29,7 +29,7 @@ extern s32 lbl_804DBDC0[];
 extern u8 controller_input_state[];
 extern RecoveredGlobal_8029914C_lbl_805409C8 lbl_805409C8;
 void poll_pad_buttons__16TObjCMProportionFv(void);
-f64 get_ad_end_text_start__10TObjPlayerFv(f32, f32);
+f64 atan2_float(f32, f32);
 f32 newton_sqrtf(f32);
 u8 *get_creation_pad();
 extern const f64 lbl_80465170;
@@ -64,7 +64,7 @@ void get_creation_pad_stick(s32 *arg0, f32 *arg1) {
     s32 ang;
     x = (f32)M2C_FIELD(get_creation_pad(), s16 *, 0x1C);
     y = (f32)M2C_FIELD(get_creation_pad(), s16 *, 0x1E);
-    ang = (s32)(lbl_80465170 * get_ad_end_text_start__10TObjPlayerFv(x, -y));
+    ang = (s32)(lbl_80465170 * atan2_float(x, -y));
     d = newton_sqrtf(x * x + y * y) / lbl_805DDC28;
     if (d > 1.0f) {
         d = 1.0f;

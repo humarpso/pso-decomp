@@ -97,7 +97,7 @@ void spawn_effect__11TBoss4Type3Fsss(s32, s32, s32);
 extern const f32 TBoss4Type3__data_805D8C40;
 void update_capture__11TBoss4Type3Fv(u8 *arg0);
 M2C_UNK VecCopy__FP3VecPC3Vec(void *, void *);
-f64 get_ad_end_text_start__10TObjPlayerFv(f32, f32);
+f64 atan2_float(f32, f32);
 u8 * dispatch_shared_handler_a__6TLobbyFPv(M2C_UNK);
 s32 TBoss4Type2__sub_80057048(void *, int);
 M2C_UNK TBoss4Type2__sub_80057128(void *);
@@ -529,7 +529,7 @@ M2C_UNK VecCopy__FP3VecPC3Vec(void *, void *);
 void * get_player_data__10TObjPlayerFi(s32 i);
 u16 obj_getField1c(void *);
 s32 is_split_screen();
-f64 get_ad_end_text_start__10TObjPlayerFv(f32, f32);
+f64 atan2_float(f32, f32);
 void queue_destruction__7TObjectFv(void *);
 u8 * dispatch_shared_handler_a__6TLobbyFPv(M2C_UNK);
 s16 * register_boss__6TLobbyFPv(M2C_UNK);
@@ -1391,8 +1391,8 @@ void TBoss4Type2__vt15(u8 *arg0) {
             normalize_vector(arg0 + 0x410);
             M2C_FIELD(arg0, f32 *, 0x410) *= lbl_805D8BD0;
             M2C_FIELD(arg0, f32 *, 0x418) *= lbl_805D8BD0;
-            a = (s32)(TBoss4Type2__data_80437750 * get_ad_end_text_start__10TObjPlayerFv(M2C_FIELD(arg0, f32 *, 0x410), M2C_FIELD(arg0, f32 *, 0x418)));
-            b = (s32)(TBoss4Type2__data_80437750 * get_ad_end_text_start__10TObjPlayerFv(M2C_FIELD(arg0, f32 *, 0x3F8), M2C_FIELD(arg0, f32 *, 0x400)));
+            a = (s32)(TBoss4Type2__data_80437750 * atan2_float(M2C_FIELD(arg0, f32 *, 0x410), M2C_FIELD(arg0, f32 *, 0x418)));
+            b = (s32)(TBoss4Type2__data_80437750 * atan2_float(M2C_FIELD(arg0, f32 *, 0x3F8), M2C_FIELD(arg0, f32 *, 0x400)));
             b += angle_diff_s16(b, a);
             M2C_FIELD(arg0, f32 *, 0x3F8) = -sin_table_lookup(b);
             M2C_FIELD(arg0, f32 *, 0x400) = -cos_table_lookup(b);
@@ -1437,7 +1437,7 @@ void TBoss4Type2__vt13(u8 *arg0) {
   {
     normalize_vector((void *) (arg0 + 0x3F8));
   }
-  var_r31 = (s32) (TBoss4Type2__data_80437750 * get_ad_end_text_start__10TObjPlayerFv((f32) (*((f32 *) (((s8 *) arg0) + 0x3F8))), (f32) (*((f32 *) (((s8 *) arg0) + 0x400)))));
+  var_r31 = (s32) (TBoss4Type2__data_80437750 * atan2_float((f32) (*((f32 *) (((s8 *) arg0) + 0x3F8))), (f32) (*((f32 *) (((s8 *) arg0) + 0x400)))));
   temp_r31 = var_r31;
   if (((*((s32 *) (((s8 *) arg0) + 0x374))) - 6) == 0)
   {
@@ -1730,7 +1730,7 @@ void find_target_pos__11TBoss4Type2FPvPv(O_80056C30 *self, Vec_80056C30 *out) {
         return;
     }
     s = lbl_805D8BEC * calc_boss4_scale__10TObjPlayerFi(self);
-    a1 = (s32)(TBoss4Type2__data_80437750 * get_ad_end_text_start__10TObjPlayerFv(-self->pos.x, -self->pos.z));
+    a1 = (s32)(TBoss4Type2__data_80437750 * atan2_float(-self->pos.x, -self->pos.z));
     b = (s32)(lbl_805D8BF0 * calc_boss4_scale__10TObjPlayerFi(self));
     ang = b + a1;
     ang -= 0x6000;

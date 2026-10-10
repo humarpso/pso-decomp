@@ -1379,7 +1379,7 @@ f32 cos_table_lookup(s32);
 M2C_UNK vec3_add_to(void *, s32);
 extern const f32 lbl_805DA0B0;
 extern const f32 TObjEneMe1Gee__data_805DA0B4;
-f64 get_ad_end_text_start__10TObjPlayerFv(f32, f32);
+f64 atan2_float(f32, f32);
 s32 rotate_xz_pair_by_angle(void *, void *, int);
 f32 clamp_velocity__15TObjBoss2TunnelFPv(Vec_800C96B4 *);
 int enemy_copy_target_destination(void*);
@@ -3380,7 +3380,7 @@ struct Gee_800C8788 {
 
 f32 calc_boss4_scale__10TObjPlayerFi(s32);
 M2C_UNK VecCopy__FP3VecPC3Vec(void *, void *);
-f64 get_ad_end_text_start__10TObjPlayerFv(f32, f32);
+f64 atan2_float(f32, f32);
 f32 newton_sqrtf(f32);
 f32 get_random_float__21TObjEneMe3ShinowaRealFv(f32);
 s32 check_demo_mode__10TObjPlayerFv();
@@ -4131,7 +4131,7 @@ void TObjEneMe1Gee__sub_800C9A94(void *arg0, s32 arg1) {
                     c = clamp_velocity__15TObjBoss2TunnelFPv((Vec_800C96B4 *)&v);
                     move_to_wall_clamped_destination__9TObjEneDDFPvfff(o, v.x, v.z, c);
                 }
-                o->angle = (s32)(lbl_8043BF28 * get_ad_end_text_start__10TObjPlayerFv(dir->x, dir->z)) + 0x8000;
+                o->angle = (s32)(lbl_8043BF28 * atan2_float(dir->x, dir->z)) + 0x8000;
                 break;
             }
             case 0:
@@ -5222,7 +5222,7 @@ void TObjEneMe1Gee__vt103(u8 *arg0) {
 void update__13TObjEneMe1GeeFPv(void* p) { if (enemy_has_live_target(p) != 0) { enemy_copy_target_destination(p); update_velocity__9TObjEneDDFPv(p); ((int (*)(void*))update_angle__13TObjEneMe1GeeFPv)(p); } }
 
 void update_angle__13TObjEneMe1GeeFPv(void *arg0) {
-    M2C_FIELD(arg0, s32 *, 0x60) = approach_angle_limited(M2C_FIELD(arg0, s32 *, 0x60), (s32) (lbl_8043BF28 * get_ad_end_text_start__10TObjPlayerFv(M2C_FIELD(arg0, f32 *, 0x3A0), M2C_FIELD(arg0, f32 *, 0x3A8))), 0x400);
+    M2C_FIELD(arg0, s32 *, 0x60) = approach_angle_limited(M2C_FIELD(arg0, s32 *, 0x60), (s32) (lbl_8043BF28 * atan2_float(M2C_FIELD(arg0, f32 *, 0x3A0), M2C_FIELD(arg0, f32 *, 0x3A8))), 0x400);
     M2C_FIELD(arg0, s32 *, 0x60) = (s32) (s16) M2C_FIELD(arg0, s32 *, 0x60);
 }
 

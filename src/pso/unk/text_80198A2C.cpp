@@ -457,7 +457,7 @@ struct Tbl_801990B4 {
     u8 f390[0xC];
 };
 
-f32 get_random_float__8TObjFishFv(f32);
+f32 fabs_float(f32);
 s32 get_minutes__6TLobbyFv(void);
 u8 *TWindowTimer__sub_8019886C(void *, void *, s32, s32, s32, void *);
 u8 *TWindowTimer__sub_801988E8(u8 *arg0, u8 *arg1, s32 arg2, s32 arg3, u8 *arg4);
@@ -567,7 +567,7 @@ void TWindowTimer__sub_801990B4(u8 *arg0) {
         set_timer_value__12TWindowTimerFii(0, 0);
     }
     m = get_minutes__6TLobbyFv();
-    r = (s32)get_random_float__8TObjFishFv((f32)(m - M2C_FIELD(arg0, s32 *, 0x1C)));
+    r = (s32)fabs_float((f32)(m - M2C_FIELD(arg0, s32 *, 0x1C)));
     if (r == 1 || r == 999) {
         M2C_FIELD(&gogo_ball_sync_state.value, s16 *, 0x12) = 1;
         idx = m % 10;
@@ -1143,7 +1143,7 @@ void add_gogo_ball_three_point_score(s32 i);
 void add_gogo_ball_one_point_score(s32 i);
 Player_8019A098 *get_player_by_client_id(s32);
 void open__11TWindowCtrlFiii(s32, void *, int);
-f32 get_ad_end_text_start__10TObjPlayerFv(f32, f32);
+f32 atan2_float(f32, f32);
 extern u8 lbl_80446148[];
 extern const f64 lbl_80446150[];
 void update_goal_checks__12TWindowTimerFPvUs(void *arg0, u16 id);
@@ -1287,7 +1287,7 @@ void update_goal_checks__12TWindowTimerFPvUs(void *arg0, u16 id) {
     }
     if (self->f30 != 1) {
         self->f30 = 1;
-        ang = lbl_80446150[0] * get_ad_end_text_start__10TObjPlayerFv(self->pos.x - p->pos.x, self->pos.z - p->pos.z);
+        ang = lbl_80446150[0] * atan2_float(self->pos.x - p->pos.x, self->pos.z - p->pos.z);
         if ((0.0f) == len) {
             throw_gogo_ball__12TWindowTimerFPvii(&self->pos, ang, self->time);
             ((void (*)(void *))TWindowTimer__sub_8019A098)(self);

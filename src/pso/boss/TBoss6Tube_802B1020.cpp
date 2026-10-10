@@ -12,7 +12,7 @@ typedef struct TBoss6Tube_802B1020 {
 
 extern "C" {
 f32 calc_tube_progress__10TBoss6TubeFi(s32 arg0);
-f32 get_random_float__8TObjFishFv(f32);
+f32 fabs_float(f32);
 s32 rand(void);
 void TBoss6Tube__sub_802B129C(u8 *arg0);
 f32 scale_by_const__10TBoss6TubeFf(f32 farg0);
@@ -144,7 +144,7 @@ void TBoss6Tube__sub_802B129C(u8 *arg0) {
     *((s32 *) (((s8 *) arg0) + 0x24)) = 0x3333;
   }
   ;
-  *((s32 *) (((s8 *) arg0) + 0x24)) = (s32) ((*((s32 *) (((s8 *) arg0) + 0x24))) + ((s32) (((0.075f) * ((2.0f) * (((3.0517578e-05f) * ((f32) rand())) - (0.5f)))) * get_random_float__8TObjFishFv((f32) (*((s32 *) (((s8 *) arg0) + 0x24)))))));
+  *((s32 *) (((s8 *) arg0) + 0x24)) = (s32) ((*((s32 *) (((s8 *) arg0) + 0x24))) + ((s32) (((0.075f) * ((2.0f) * (((3.0517578e-05f) * ((f32) rand())) - (0.5f)))) * fabs_float((f32) (*((s32 *) (((s8 *) arg0) + 0x24)))))));
   *((s32 *) (((s8 *) arg0) + 0x28)) = (s32) ((*((s32 *) (((s8 *) arg0) + 0x28))) + (*((s32 *) (((s8 *) arg0) + 0x24))));
 }
 

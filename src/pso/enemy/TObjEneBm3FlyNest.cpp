@@ -1442,7 +1442,7 @@ struct Vec_800B4388 { f32 x, y, z; };
 M2C_UNK VecCopy__FP3VecPC3Vec(void *, void *);
 u16 obj_getField1c(void *);
 s32 is_split_screen();
-f64 get_ad_end_text_start__10TObjPlayerFv(f32, f32);
+f64 atan2_float(f32, f32);
 void queue_destruction__7TObjectFv(void *);
 s32 dispatch_shared_handler_a__6TLobbyFPv(int);
 s32 register_object__6TLobbyFPv(int);
@@ -2928,7 +2928,7 @@ u8 *construct_carrier__17TObjEneBm3FlyNestFPvPviiiii(u8 *self, void *parent, s32
     VecCopy__FP3VecPC3Vec(&v, M2C_FIELD(self, void **, 0x30));
     subtract_vector(&v, M2C_FIELD(self, void **, 0x34));
     update_scale__15TObjBoss2TunnelFPv(&v);
-    M2C_FIELD(self, s32 *, 0x40) = (s32) (lbl_8043B398[0] * get_ad_end_text_start__10TObjPlayerFv(v.x, v.z));
+    M2C_FIELD(self, s32 *, 0x40) = (s32) (lbl_8043B398[0] * atan2_float(v.x, v.z));
     M2C_FIELD(self, f32 *, 0x1C) = lbl_805D9D6C * v.x;
     M2C_FIELD(self, f32 *, 0x20) = lbl_805D9D6C;
     M2C_FIELD(self, f32 *, 0x24) = lbl_805D9D6C * v.z;

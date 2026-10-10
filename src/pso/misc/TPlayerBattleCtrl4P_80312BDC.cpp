@@ -7,7 +7,7 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 extern "C" {
 
 void init_instance_with_text__19TPlayerBattleCtrl4PFii(s32 arg0, s32 arg1);
-M2C_UNK TPlayerBattleCtrl4P__ct(void *, void *);
+M2C_UNK construct__19TPlayerBattleCtrl4PFP7TObject(void *, void *);
 u32 __nw__7TObjectFUl(int);
 M2C_UNK strncpy(void *, void *, int);
 
@@ -18,7 +18,7 @@ void init_instance_with_text__19TPlayerBattleCtrl4PFii(s32 arg0, s32 arg1) {
     if ((void *) TPlayerBattleCtrl4P__instance == NULL) {
         u32 mem = __nw__7TObjectFUl((int) (0x2A0));
         if (mem != 0U) {
-            TPlayerBattleCtrl4P__ct((void *) mem, (void *) (tl_00));
+            construct__19TPlayerBattleCtrl4PFP7TObject((void *) mem, (void *) (tl_00));
         }
     }
     if ((void *) TPlayerBattleCtrl4P__instance != NULL) {

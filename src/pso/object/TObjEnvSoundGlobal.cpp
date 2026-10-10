@@ -144,7 +144,7 @@ void * TObjEnvSoundEx__create(void *arg0) {
     return o;
 }
 
-f32 get_random_float__8TObjFishFv(f32);
+f32 fabs_float(f32);
 s32 init_sound_params__14TObjEnvSoundExFPv(u8 *arg0);
 s32 disallow_rendering__7TObjectFv(void *);
 extern M2C_UNK __vt__14TObjEnvSoundEx[];
@@ -170,7 +170,7 @@ s32 init_sound_params__14TObjEnvSoundExFPv(u8 *arg0) {
         M2C_FIELD(arg0, s32 *, 0x9C) = -1;
         M2C_FIELD(arg0, s32 *, 0xA0) = -1;
     }
-    M2C_FIELD(arg0, f32 *, 0x98) = get_random_float__8TObjFishFv(M2C_FIELD(arg0, f32 *, 0x6C));
+    M2C_FIELD(arg0, f32 *, 0x98) = fabs_float(M2C_FIELD(arg0, f32 *, 0x6C));
     M2C_FIELD(arg0, f32 *, 0xA4) = (f32) M2C_FIELD(arg0, f32 *, 0x70);
     if (M2C_FIELD(arg0, f32 *, 0xA4) <= lbl_805DBE18) {
         M2C_FIELD(arg0, f32 *, 0xA4) = (f32) lbl_805DBE1C;

@@ -689,7 +689,7 @@ void TObjEneMe1GiGue__sub_802CB03C(u8 *arg0);
 s32 get_player_data__10TObjPlayerFi(int);
 extern s32 lbl_805D586C;
 s32 TObjEneMe1GiGue__sub_802CB10C(S_802CB10C *arg0);
-f64 get_ad_end_text_start__10TObjPlayerFv(f32, f32);
+f64 atan2_float(f32, f32);
 u8 *csnVector(void *, void *, s32);
 f32 horizontal_distance__10TObjPlayerFPvPv(void *, s32);
 void vec3_add_to(void *, void *);
@@ -703,7 +703,7 @@ extern const f64 TObjEneMe1GiGue__data_80472298;
 extern RecoveredGlobal_802CB03C_lbl_8058D490 identity_matrix;
 void find_open_direction__15TObjEneMe1GiGueFPvPv(u8 *arg0, Vec_802CAD98 *arg1);
 s16 obj_getField1c(void *);
-f64 get_ad_end_text_start__10TObjPlayerFv(f32, f32);
+f64 atan2_float(f32, f32);
 s32 angle_difference_abs(s32, s32);
 void subtract_vector(Vec_802CB170 *, Vec_802CB170 *);
 extern const f64 TObjEneMe1GiGue__data_80472298;
@@ -769,7 +769,7 @@ void find_open_direction__15TObjEneMe1GiGueFPvPv(u8 *arg0, Vec_802CAD98 *arg1) {
     s32 i;
     u8 *hit;
     f32 d;
-    ang = (s32) (TObjEneMe1GiGue__data_80472298 * get_ad_end_text_start__10TObjPlayerFv(arg1->x, arg1->z));
+    ang = (s32) (TObjEneMe1GiGue__data_80472298 * atan2_float(arg1->x, arg1->z));
     best = 0.0f;
     bestAng = ang;
     push_matrix_from((u32) &identity_matrix);
@@ -853,7 +853,7 @@ void add_target_in_cone__15TObjEneMe1GiGueFPvPv(Gi_802CB170 *self, Tgt_802CB170 
     subtract_vector(&v, &self->pos);
     if (!(((v.x * v.x) + (v.z * v.z)) > (self->range * self->range)))
     {
-      new_var = (-((s32) (((const f64 *)&TObjEneMe1GiGue__data_80472298)[0] * get_ad_end_text_start__10TObjPlayerFv(v.z, v.x)))) + 0x4000;
+      new_var = (-((s32) (((const f64 *)&TObjEneMe1GiGue__data_80472298)[0] * atan2_float(v.z, v.x)))) + 0x4000;
       if (angle_difference_abs(new_var, self->angle) <= (self->fov / 2))
       {
         self->list[self->count++] = obj_getField1c(t);
@@ -1116,7 +1116,7 @@ M2C_UNK check_enemy_body_collisions(void *);
 M2C_UNK check_object_collisions__10TObjPlayerFPv(void *);
 M2C_UNK enemy_wander_home(void *, s32, f32, f32, f32);
 #define subtract_vector ((void (*)(void *, void *))subtract_vector)
-f64 get_ad_end_text_start__10TObjPlayerFv(f32, f32);
+f64 atan2_float(f32, f32);
 s32 angle_difference_abs(s32, s32);
 extern const f64 TObjEneMe1GiGue__data_80472298;
 void TObjEneMe1GiGue__sub_802CCBAC(Obj_802CCBAC *o);
@@ -1940,7 +1940,7 @@ void TObjEneMe1GiGue__sub_802CCBAC(Obj_802CCBAC *o) {
             Vec_802CCBAC d = o->f2A8->pos;
             subtract_vector(&d, &o->pos);
             if (d.x * d.x + d.z * d.z <= o->f438 * o->f438 &&
-                angle_difference_abs(-(s32)(TObjEneMe1GiGue__data_80472298 * get_ad_end_text_start__10TObjPlayerFv(d.z, d.x)) + 0x4000, o->f60) < o->f434 / 2) {
+                angle_difference_abs(-(s32)(TObjEneMe1GiGue__data_80472298 * atan2_float(d.z, d.x)) + 0x4000, o->f60) < o->f434 / 2) {
                 s32 st;
                 o->f3F8++;
                 if (o->f3F8 > 2) {

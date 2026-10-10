@@ -673,7 +673,7 @@ struct V_800936A8 : V_800936A8Base {
 };
 
 extern "C" {
-f64 get_ad_end_text_start__10TObjPlayerFv(f32, f32);
+f64 atan2_float(f32, f32);
 s32 check_death_trigger__16TObjEneRe7BeruraFPv();
 M2C_UNK play_band_sound__16TObjEneRe7BeruraFPv(void *);
 s32 is_over_limit__16TObjEneRe7BeruraFPv(void *);
@@ -1053,7 +1053,7 @@ void TObjEneRe7Berura__sub_80093888(u8 *arg0, s32 arg1) {
             if (enemy_validate_retained_target(arg0) != 0) {
                 enemy_copy_target_destination((void *) (arg0));
                 update_velocity__9TObjEneDDFPv((void *) (arg0));
-                if (step_toward_target__16TObjEneRe7BeruraFPvii(arg0, (s32) (lbl_80439EF0 * get_ad_end_text_start__10TObjPlayerFv(M2C_FIELD(arg0, f32 *, 0x3A0), M2C_FIELD(arg0, f32 *, 0x3A8))), 0x100) != 0) {
+                if (step_toward_target__16TObjEneRe7BeruraFPvii(arg0, (s32) (lbl_80439EF0 * atan2_float(M2C_FIELD(arg0, f32 *, 0x3A0), M2C_FIELD(arg0, f32 *, 0x3A8))), 0x100) != 0) {
                     M2C_FIELD(arg0, s32 *, 0x4C0) = 1;
                     M2C_FIELD(arg0, s16 *, 0xB8) = 2;
                     init_fields4B8__16TObjEneRe7BeruraFPv((void *) (arg0));
@@ -1272,7 +1272,7 @@ void TObjEneRe7Berura__sub_800940E8(u8 *arg0, s32 arg1) {
         switch (temp_r0) {
         case 0:
             if (enemy_has_live_target((void *) (arg0)) != 0) {
-                M2C_FIELD(arg0, s32 *, 0x4C8) = (s32) (u16) (s32) (lbl_80439EF0 * get_ad_end_text_start__10TObjPlayerFv((f32) (M2C_FIELD(arg0, f32 *, 0x3A0)), (f32) (M2C_FIELD(arg0, f32 *, 0x3A8))));
+                M2C_FIELD(arg0, s32 *, 0x4C8) = (s32) (u16) (s32) (lbl_80439EF0 * atan2_float((f32) (M2C_FIELD(arg0, f32 *, 0x3A0)), (f32) (M2C_FIELD(arg0, f32 *, 0x3A8))));
             } else {
                 M2C_FIELD(arg0, s32 *, 0x4C8) = (s32) M2C_FIELD(arg0, s32 *, 0x60);
             }
@@ -1294,7 +1294,7 @@ void TObjEneRe7Berura__sub_800940E8(u8 *arg0, s32 arg1) {
                     M2C_FIELD(arg0, s32 *, 0x4C4) = 3;
                 } else {
                     if (enemy_has_live_target((void *) (arg0)) != 0) {
-                        M2C_FIELD(arg0, s32 *, 0x4C8) = (s32) (u16) (s32) (lbl_80439EF0 * get_ad_end_text_start__10TObjPlayerFv((f32) (M2C_FIELD(arg0, f32 *, 0x3A0)), (f32) (M2C_FIELD(arg0, f32 *, 0x3A8))));
+                        M2C_FIELD(arg0, s32 *, 0x4C8) = (s32) (u16) (s32) (lbl_80439EF0 * atan2_float((f32) (M2C_FIELD(arg0, f32 *, 0x3A0)), (f32) (M2C_FIELD(arg0, f32 *, 0x3A8))));
                     } else {
                         M2C_FIELD(arg0, s32 *, 0x4C8) = (s32) M2C_FIELD(arg0, s32 *, 0x60);
                     }

@@ -1448,7 +1448,7 @@ void TObjEneEpsilonGuard__vt60(void);
 void TObjEneEpsilonGuard__vt61(void);
 void * create__19TObjEneEpsilonGuardFPvPvPvPvPv(void *arg0, void *arg1, void *arg2, void *arg3, void *arg4);
 void *__nw__7TObjectFUl(int);
-f64 get_ad_end_text_start__10TObjPlayerFv(f32, f32, f32);
+f64 atan2_float(f32, f32, f32);
 
 extern const f64 lbl_80479C88;
 
@@ -1595,7 +1595,7 @@ s32 calc_angle_to_target__19TObjEneEpsilonGuardFPv(u8 *arg0) {
 
     enemy_copy_target_destination((void *)(arg0));
     temp_f3 = M2C_FIELD(arg0, f32 *, 0x38);
-    return (s32) (lbl_80479C88 * get_ad_end_text_start__10TObjPlayerFv((f32) (temp_f3 - M2C_FIELD(arg0, f32 *, 0x394)), (f32) (M2C_FIELD(arg0, f32 *, 0x40) - M2C_FIELD(arg0, f32 *, 0x39C)), (f32) (temp_f3)));
+    return (s32) (lbl_80479C88 * atan2_float((f32) (temp_f3 - M2C_FIELD(arg0, f32 *, 0x394)), (f32) (M2C_FIELD(arg0, f32 *, 0x40) - M2C_FIELD(arg0, f32 *, 0x39C)), (f32) (temp_f3)));
 }
 
 #pragma push

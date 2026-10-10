@@ -8,7 +8,7 @@ struct RecoveredGlobal_8006754C___vt__13TObjCollision { M2C_UNK value; u8 remain
 typedef char RecoveredGlobal_8006754C___vt__13TObjCollision_size[sizeof(RecoveredGlobal_8006754C___vt__13TObjCollision) == 0x38 ? 1 : -1];
 
 extern "C" {
-f32 get_random_float__8TObjFishFv(f32);
+f32 fabs_float(f32);
 u32 init_collision_body_parts(void *, s32, s32);
 u8 * construct_collider_proxy__10TObjPlayerFPv(void *);
 M2C_UNK VecCopy__FP3VecPC3Vec(void *, void *);
@@ -81,7 +81,7 @@ u8 *TObjCollision__ct(u8 *arg0, M2C_UNK arg1, s32 arg2) {
     }
     M2C_FIELD(arg0, s32 *, 0xC0) = var_r0;
     M2C_FIELD(arg0, s32 *, 0xC4) = 0x10001;
-    if (get_random_float__8TObjFishFv(M2C_FIELD(arg0, f32 *, 0x70)) < lbl_805D8F24) {
+    if (fabs_float(M2C_FIELD(arg0, f32 *, 0x70)) < lbl_805D8F24) {
         M2C_FIELD(arg0, s32 *, 0xC4) = (s32) (M2C_FIELD(arg0, s32 *, 0xC4) & 0xFFFFFEFF);
     } else {
         M2C_FIELD(arg0, s32 *, 0xC4) = (s32) (M2C_FIELD(arg0, s32 *, 0xC4) | 0x100);

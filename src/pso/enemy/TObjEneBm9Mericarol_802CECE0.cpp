@@ -764,7 +764,7 @@ void queue_destruction__7TObjectFv(void *self);
 void handle_state_message__19TObjEneBm9MericarolFPvi(void *self, s32 msg);
 extern s32 game_difficulty_selection;
 s32 get_clamped_level__19TObjEneBm9MericarolFPv(Obj_800ACA10 *self);
-f64 get_ad_end_text_start__10TObjPlayerFv(f32, f32);
+f64 atan2_float(f32, f32);
 M2C_UNK fill_value_array(int, int, int, f32);
 s32 enemy_validate_retained_target(void *);
 M2C_UNK enemy_copy_target_destination(void *);
@@ -792,7 +792,7 @@ extern const f32 lbl_805DE728;
 void TObjEneDD__sub_802CF7B4(u8 *arg0, s32 arg1);
 M2C_UNK VecCopy__FP3VecPC3Vec(void *, void *);
 s32 obj_is_hit_receivable();
-f64 get_ad_end_text_start__10TObjPlayerFv(f32, f32);
+f64 atan2_float(f32, f32);
 u8 *get_battle_param__10TObjPlayerFi(s32);
 s32 enemy_validate_retained_target(void *);
 M2C_UNK enemy_copy_target_destination(void *);
@@ -845,7 +845,7 @@ extern const f32 lbl_805DE704;
 extern const f32 lbl_805DE710;
 void TObjEneBm9Mericarol__sub_802CEDA0(u8 *arg0, s32 arg1);
 f32 calc_boss4_scale__10TObjPlayerFi(s32);
-f64 get_ad_end_text_start__10TObjPlayerFv(f32, f32);
+f64 atan2_float(f32, f32);
 void queue_destruction__7TObjectFv(void *self);
 s32 get_flag_b4__21TObjEneMe3ShinowaRealFPv(void *);
 M2C_UNK enemy_copy_target_destination(void *);
@@ -870,7 +870,7 @@ extern const f32 lbl_805DE710;
 extern const f32 lbl_805DE720;
 void handle_shot_state__19TObjEneBm9MericarolFPvi(u8 *arg0, s32 arg1);
 f32 calc_boss4_scale__10TObjPlayerFi(s32);
-f64 get_ad_end_text_start__10TObjPlayerFv(f32, f32);
+f64 atan2_float(f32, f32);
 s32 update_death_check__14TObjEneEpsilonFPv(void *);
 M2C_UNK enemy_copy_target_destination(void *);
 M2C_UNK enemy_set_target_id(void *, u16);
@@ -1342,7 +1342,7 @@ void TObjEneDD__sub_802CF7B4(u8 *arg0, s32 arg1) {
                 enemy_copy_target_destination((void *) (arg0));
                 update_velocity__9TObjEneDDFPv((void *) (arg0));
             }
-            M2C_FIELD(arg0, s32 *, 0x4A0) = (s32) (lbl_804724B8 * get_ad_end_text_start__10TObjPlayerFv((f32) (M2C_FIELD(arg0, f32 *, 0x3A0)), (f32) (M2C_FIELD(arg0, f32 *, 0x3A8))));
+            M2C_FIELD(arg0, s32 *, 0x4A0) = (s32) (lbl_804724B8 * atan2_float((f32) (M2C_FIELD(arg0, f32 *, 0x3A0)), (f32) (M2C_FIELD(arg0, f32 *, 0x3A8))));
             M2C_FIELD(arg0, s32 *, 0x60) = approach_angle_limited((int) (M2C_FIELD(arg0, s32 *, 0x60)), (int) (M2C_FIELD(arg0, s32 *, 0x4A0)), (void *) (M2C_FIELD(M2C_FIELD(arg0, u8 **, 0x350), s32 *, 8)));
             ((VObj_18_313dd8 *)(arg0))->m87();
             return;
@@ -1481,7 +1481,7 @@ void TObjPlayer__sub_802CFB64(u8 *arg0, s32 arg1) {
         }
         enemy_copy_target_destination(arg0);
         update_velocity__9TObjEneDDFPv(arg0);
-        M2C_FIELD(arg0, s32 *, 0x4A0) = (s32)(lbl_804724B8 * get_ad_end_text_start__10TObjPlayerFv(M2C_FIELD(arg0, f32 *, 0x3A0), M2C_FIELD(arg0, f32 *, 0x3A8)));
+        M2C_FIELD(arg0, s32 *, 0x4A0) = (s32)(lbl_804724B8 * atan2_float(M2C_FIELD(arg0, f32 *, 0x3A0), M2C_FIELD(arg0, f32 *, 0x3A8)));
         M2C_FIELD(arg0, s32 *, 0x60) = approach_angle_limited(M2C_FIELD(arg0, s32 *, 0x60), M2C_FIELD(arg0, s32 *, 0x4A0), (void *)M2C_FIELD(M2C_FIELD(arg0, u8 **, 0x350), s32 *, 8));
         M2C_FIELD(arg0, s32 *, 0x60) = (s16)M2C_FIELD(arg0, s32 *, 0x60);
         ((VObj_18 *)(arg0))->m100();
@@ -1530,7 +1530,7 @@ void handle_shot_state__19TObjEneBm9MericarolFPvi(u8 *arg0, s32 arg1) {
         }
         enemy_copy_target_destination(arg0);
         update_velocity__9TObjEneDDFPv(arg0);
-        M2C_FIELD(arg0, s32 *, 0x4A0) = (s32)(lbl_804724B8 * get_ad_end_text_start__10TObjPlayerFv(M2C_FIELD(arg0, f32 *, 0x3A0), M2C_FIELD(arg0, f32 *, 0x3A8)));
+        M2C_FIELD(arg0, s32 *, 0x4A0) = (s32)(lbl_804724B8 * atan2_float(M2C_FIELD(arg0, f32 *, 0x3A0), M2C_FIELD(arg0, f32 *, 0x3A8)));
         M2C_FIELD(arg0, s32 *, 0x60) = approach_angle_limited(M2C_FIELD(arg0, s32 *, 0x60), M2C_FIELD(arg0, s32 *, 0x4A0), (void *)M2C_FIELD(M2C_FIELD(arg0, u8 **, 0x350), s32 *, 8));
         M2C_FIELD(arg0, s32 *, 0x60) = (s16)M2C_FIELD(arg0, s32 *, 0x60);
         ((VObj_18_9e83f9 *)(arg0))->m100();
@@ -1610,7 +1610,7 @@ void TObjEneBm9Mericarol__sub_802D01D8(u8 *arg0, s32 arg1) {
         enemy_copy_target_destination((void *) (arg0));
         update_velocity__9TObjEneDDFPv((void *) (arg0));
         M2C_FIELD(arg0, s32 *, 0x494)++;
-        M2C_FIELD(arg0, s32 *, 0x4A0) = (s32) (lbl_804724B8 * get_ad_end_text_start__10TObjPlayerFv(M2C_FIELD(arg0, f32 *, 0x3A0), M2C_FIELD(arg0, f32 *, 0x3A8)));
+        M2C_FIELD(arg0, s32 *, 0x4A0) = (s32) (lbl_804724B8 * atan2_float(M2C_FIELD(arg0, f32 *, 0x3A0), M2C_FIELD(arg0, f32 *, 0x3A8)));
         M2C_FIELD(arg0, s32 *, 0x60) = approach_angle_limited(M2C_FIELD(arg0, s32 *, 0x60), M2C_FIELD(arg0, s32 *, 0x4A0), (void *) (M2C_FIELD(M2C_FIELD(arg0, u8 **, 0x350), s32 *, 8)));
         M2C_FIELD(arg0, s32 *, 0x60) = (s32) (s16) M2C_FIELD(arg0, s32 *, 0x60);
         ((VObj_18_9aa5d1 *)(arg0))->m100();

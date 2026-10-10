@@ -316,8 +316,8 @@ extern u8 lbl_804824D0[];
 extern s32 TBoss2DeRolLe__instance;
 u8 *__dt__13TBoss2DeRolLeFPvs(u8 *arg0, s16 arg1);
 void VecCopy__FP3VecPC3Vec(void *, void *);
-f32 get_random_float__8TObjFishFv(f32);
-f32 get_ad_end_text_start__10TObjPlayerFv(f32, f32);
+f32 fabs_float(f32);
+f32 atan2_float(f32, f32);
 f32 get_scale_factor__10TObjPlayerFv(f32);
 M2C_UNK TObjLight__sub_801337F8(s32);
 M2C_UNK scale_matrix(int, f32, f32, f32);
@@ -870,8 +870,8 @@ void render__9TBoss2FinFv(u8 *arg0) {
                 normalize_vector(&v);
             }
             yaw = 0;
-            if (TBoss2Fin__data_805D8450 != get_random_float__8TObjFishFv(v.x) + get_random_float__8TObjFishFv(v.z)) {
-                yaw = lbl_80435A50[0] * get_ad_end_text_start__10TObjPlayerFv(-v.x, -v.z);
+            if (TBoss2Fin__data_805D8450 != fabs_float(v.x) + fabs_float(v.z)) {
+                yaw = lbl_80435A50[0] * atan2_float(-v.x, -v.z);
                 rotate_matrix_y(0, yaw);
             }
             rotate_matrix_x(0, lbl_80435A50[0] * get_scale_factor__10TObjPlayerFv(-v.y));

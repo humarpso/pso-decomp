@@ -162,7 +162,7 @@ u16 find_nearest_visible_player(void *, int, f32);
 s32 VecCopy__FP3VecPC3Vec(void *, void *);
 s32 get_current_floor(void);
 s32 get_field_3e4__10TObjPlayerFPv(void *);
-f64 get_ad_end_text_start__10TObjPlayerFv(f32, f32);
+f64 atan2_float(f32, f32);
 f32 update_scale__15TObjBoss2TunnelFPv(void *);
 s32 spawn_particle_effect(void *, int);
 f32 horizontal_distance_squared(void *, void *);
@@ -621,7 +621,7 @@ void TOTrapAncient02R__vt79(Obj_8017A3C0 *o) {
                         rotate_vector_by_matrix(0, lbl_8050BF00, lbl_8050BF00);
                         pop_matrix();
                     }
-                    ang = lbl_80442F38 * get_ad_end_text_start__10TObjPlayerFv(lbl_8050BF00->x, lbl_8050BF00->z);
+                    ang = lbl_80442F38 * atan2_float(lbl_8050BF00->x, lbl_8050BF00->z);
                     switch (o->kind) {
                     case 1: {
                         Dmg_8017A3C0 dmg;

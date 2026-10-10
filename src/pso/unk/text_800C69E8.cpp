@@ -13,7 +13,7 @@ struct Vec_800C6A48 { f32 x, y, z; };
 extern "C" {
 void release_destroyed_target__10TObjPlayerFPv(O_800C6A18 *self);
 M2C_UNK VecCopy__FP3VecPC3Vec(void *, void *);
-f64 get_ad_end_text_start__10TObjPlayerFv(f32, f32);
+f64 atan2_float(f32, f32);
 void *csnVector(void *, void *, s32);
 f32 horizontal_distance__10TObjPlayerFPvPv(void *, s32);
 M2C_UNK vec3_add_to(void *, void *);
@@ -73,7 +73,7 @@ void pick_open_direction__10TObjPlayerFPvPvff(u8 *self, f32 *dir, f32 a, f32 b) 
     void *p;
     f32 d;
     {
-        f64 r = get_ad_end_text_start__10TObjPlayerFv(dir[0], dir[2]);
+        f64 r = atan2_float(dir[0], dir[2]);
         best = lbl_805DA068;
         ang = (s32) (lbl_8043BCC8[0] * r);
     }

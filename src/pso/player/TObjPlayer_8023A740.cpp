@@ -8,7 +8,7 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 extern "C" {
 u16 obj_getField1c(s32);
 s32 get_type__10TObjPlayerFPv(s32);
-f64 get_ad_end_text_start__10TObjPlayerFv(f32, f32);
+f64 atan2_float(f32, f32);
 M2C_UNK register_object__10TObjPlayerFi(void *);
 void *__ct__7TEffectFv(void *);
 M2C_UNK direction_to_rotation_xz(void *, void *, void *);
@@ -90,7 +90,7 @@ u8 *construct_aimed_technique_projectile(u8 *arg0, s32 arg1, u8 *arg2, u8 *arg3,
     dx = M2C_FIELD(arg3, f32 *, 0) - M2C_FIELD(arg2, f32 *, 0);
     dz = M2C_FIELD(arg3, f32 *, 8) - M2C_FIELD(arg2, f32 *, 8);
     dy = M2C_FIELD(arg3, f32 *, 4) - M2C_FIELD(arg2, f32 *, 4);
-    t = get_ad_end_text_start__10TObjPlayerFv(dx, dz);
+    t = atan2_float(dx, dz);
     ang = (s32)(lbl_8044DC00 * t);
     M2C_FIELD(arg0, f32 *, 0x20) = M2C_FIELD(arg2, f32 *, 0);
     M2C_FIELD(arg0, f32 *, 0x24) = M2C_FIELD(arg2, f32 *, 4);

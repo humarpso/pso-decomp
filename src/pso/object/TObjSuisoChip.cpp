@@ -159,7 +159,7 @@ void *__nw__7TObjectFUl(int);
 extern RecoveredGlobal_802A6438_lbl_804DD388 lbl_804DD388;
 extern const f32 lbl_805DDFFC;
 void TObjSeabedSuisoBrakable__sub_802A6438(u8 *arg0);
-f32 get_random_float__8TObjFishFv(f32);
+f32 fabs_float(f32);
 void reset_photon_effect__10TObjPlayerFPv(void *);
 u8 * TORockCaveBrakable__ct(void *);
 M2C_UNK init_collision_body_parts(void *, int, int);
@@ -336,7 +336,7 @@ u8 *TObjSeabedSuisoBrakable__ct(u8 *arg0, s32 arg1) {
     M2C_FIELD(arg0, M2C_UNK **, 0x18) = &(*(RecoveredGlobal_802A6668___vt__23TObjSeabedSuisoBrakable *)&__vt__23TObjSeabedSuisoBrakable).value;
     M2C_FIELD(arg0, s32 *, 0) = (s32) lbl_805D3E04;
     ((VObj_18_1a504b *)(arg0))->m5(arg1);
-    M2C_FIELD(arg0, s32 *, 0xBC) = (s32) get_random_float__8TObjFishFv((f32) M2C_FIELD(arg0, s32 *, 0x88));
+    M2C_FIELD(arg0, s32 *, 0xBC) = (s32) fabs_float((f32) M2C_FIELD(arg0, s32 *, 0x88));
     if ((s32) M2C_FIELD(arg0, s32 *, 0xBC) > 2) {
         M2C_FIELD(arg0, s32 *, 0xBC) = 2;
     }
@@ -617,7 +617,7 @@ void init_kind_params__23TObjSeabedSuisoBrakableFPv(void *arg0) {
     Obj_802A6BD0 *self = (Obj_802A6BD0 *)arg0;
     u32 v;
 
-    self->kind = (s32)get_random_float__8TObjFishFv((f32)self->f84);
+    self->kind = (s32)fabs_float((f32)self->f84);
     if (self->kind > 3) {
         self->kind = 3;
     }
@@ -655,7 +655,7 @@ Obj_802A6DA8 *init__23TObjSeabedSuisoBrakableFPvii(Obj_802A6DA8 *self, s32 arg1,
     *(s32 *)self = lbl_805D3E00;
     self->m5(arg2);
     init_kind_params__23TObjSeabedSuisoBrakableFPv(self);
-    self->kind = (s32)get_random_float__8TObjFishFv((f32)self->f84);
+    self->kind = (s32)fabs_float((f32)self->f84);
     if (self->kind > 3) {
         self->kind = 3;
     }

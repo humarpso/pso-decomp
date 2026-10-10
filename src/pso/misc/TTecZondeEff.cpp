@@ -200,7 +200,7 @@ s32 build_lightning_strip(Obj_8023CED4 *self, Vtx_8023CED4 *out, Vec_8023CED4 *p
 extern "C" {
 
 void clear_zonde_beam_vertex_pointer(void);
-f32 get_random_float__8TObjFishFv(f32);
+f32 fabs_float(f32);
 
 struct Vec_8023D294 { f32 x, y, z; };
 struct Obj_8023D294 { u8 pad[0x28]; Vec_8023D294 d; };
@@ -390,9 +390,9 @@ s32 calc_dominant_axis__12TTecZondeEffFPv(void *arg0) {
     f32 temp_f30;
     f32 temp_f31;
 
-    temp_f30 = get_random_float__8TObjFishFv(M2C_FIELD(arg0, f32 *, 0x28));
-    temp_f31 = get_random_float__8TObjFishFv(M2C_FIELD(arg0, f32 *, 0x2C));
-    temp_f1 = get_random_float__8TObjFishFv(M2C_FIELD(arg0, f32 *, 0x30));
+    temp_f30 = fabs_float(M2C_FIELD(arg0, f32 *, 0x28));
+    temp_f31 = fabs_float(M2C_FIELD(arg0, f32 *, 0x2C));
+    temp_f1 = fabs_float(M2C_FIELD(arg0, f32 *, 0x30));
     if (temp_f30 > temp_f31) {
         if (temp_f30 > temp_f1) {
             return 0;

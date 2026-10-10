@@ -16,7 +16,7 @@ struct Stack_800BB218
 #include <stddef.h>
 
 extern "C" {
-f32 get_random_float__8TObjFishFv(f32);
+f32 fabs_float(f32);
 s32 csnVector(void *, void *, int);
 extern const f32 lbl_805D9EA4;
 s32 enemy_probe_wall_ahead(u8 *arg0, f32 farg0, f32 farg1, f32 farg2);
@@ -51,7 +51,7 @@ s32 enemy_probe_wall_ahead(u8 *arg0, f32 farg0, f32 farg1, f32 farg2) {
   f32 temp_f30;
   temp_f30 = farg0 * farg2;
   temp_f31 = farg1 * farg2;
-  if ((get_random_float__8TObjFishFv(temp_f30) < lbl_805D9EA4) && (get_random_float__8TObjFishFv(temp_f31) < lbl_805D9EA4))
+  if ((fabs_float(temp_f30) < lbl_805D9EA4) && (fabs_float(temp_f31) < lbl_805D9EA4))
   {
     return farg0 * 0;
   }

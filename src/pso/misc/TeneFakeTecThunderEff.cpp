@@ -157,7 +157,7 @@ struct Obj_800A39A8 {
     s32 n;
 };
 
-f32 get_random_float__8TObjFishFv(f32);
+f32 fabs_float(f32);
 f32 rand_signed_unit();
 M2C_UNK update_scale__15TObjBoss2TunnelFPv(void *);
 f32 vector_length(void *);
@@ -200,9 +200,9 @@ void build_beam_points__12TTecZondeEffFPv(Obj_800A39A8 *o) {
         o->pts[i].z = dz * tt + az;
     }
     o->count = o->n;
-    fx = get_random_float__8TObjFishFv(o->d.x);
-    fy = get_random_float__8TObjFishFv(o->d.y);
-    fz = get_random_float__8TObjFishFv(o->d.z);
+    fx = fabs_float(o->d.x);
+    fy = fabs_float(o->d.y);
+    fz = fabs_float(o->d.z);
     if (fx > fy) {
         if (fx > fz) {
             axis = 0;

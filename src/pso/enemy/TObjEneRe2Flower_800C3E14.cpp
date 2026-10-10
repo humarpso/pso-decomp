@@ -210,7 +210,7 @@ s32 handle_state__9TObjEneDDFPvi(void *, void *);
 s32 dispatch_action__9TObjEneDDFPvi(void *, void *);
 void dispatch_action__16TObjEneRe2FlowerFiUii(s32 arg0, u32 arg1, s32 arg2);
 s32 obj_is_hit_receivable(void *);
-f32 get_random_float__8TObjFishFv(f32);
+f32 fabs_float(f32);
 s32 get_battle_param__10TObjPlayerFi(s32);
 s32 is_area_attack_target_eligible(M2C_UNK, s32);
 s32 attack_target_history_add(s32, s32);
@@ -418,7 +418,7 @@ s32 hit_area_targets__10TObjPlayerFPvPviUif(u8 *arg0, u8 *arg1, s32 arg2, u32 ar
             }
             if (obj_is_hit_receivable((void *)p) != 0 && (u32)p != M2C_FIELD(arg0, u32 *, 0xAC) &&
                 is_area_attack_target_eligible((s32)arg0, M2C_FIELD(p, s32 *, 0x30)) != 0 &&
-                !(get_random_float__8TObjFishFv(M2C_FIELD(arg0, f32 *, 0xB8) - M2C_FIELD(p, f32 *, 0x300)) > lbl_805DA000)) {
+                !(fabs_float(M2C_FIELD(arg0, f32 *, 0xB8) - M2C_FIELD(p, f32 *, 0x300)) > lbl_805DA000)) {
                 ok = 1;
                 if (arg3 != 0 && attack_target_history_add((s32)arg3, p) == 0) {
                     ok = 0;

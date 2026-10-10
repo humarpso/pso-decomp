@@ -215,7 +215,7 @@ void set_move_direction__13TBoss2DeRolLeFPv(void *arg0);
 void update_angle__13TBoss2DeRolLeFPv(void *arg0);
 s32 VecCopy__FP3VecPC3Vec(s32, s32);
 void emit_effect__9TObjEneDDFPvii(void *, void *, void *);
-f32 get_random_float__8TObjFishFv(f32);
+f32 fabs_float(f32);
 M2C_UNK init_params__13TBoss2DeRolLeFPvfff(void *, f32, f32, f32);
 
 extern const f32 TBoss2DeRolLe__data_805D82D8;
@@ -225,8 +225,8 @@ extern const f32 TBoss2DeRolLe__data_805D8330;
 
 void init_head_params__13TBoss2DeRolLeFPv(u8 *arg0) {
     M2C_FIELD(arg0, s32 *, 0x65C) = 0;
-    init_params__13TBoss2DeRolLeFPvfff(arg0 + 0x664, TBoss2DeRolLe__data_805D82F0, get_random_float__8TObjFishFv(-M2C_FIELD(arg0, f32 *, 0x38)), TBoss2DeRolLe__data_805D8330);
-    init_params__13TBoss2DeRolLeFPvfff(arg0 + 0x684, TBoss2DeRolLe__data_805D82D8, get_random_float__8TObjFishFv(TBoss2DeRolLe__data_805D82E8 - M2C_FIELD(arg0, f32 *, 0x40)), TBoss2DeRolLe__data_805D8330);
+    init_params__13TBoss2DeRolLeFPvfff(arg0 + 0x664, TBoss2DeRolLe__data_805D82F0, fabs_float(-M2C_FIELD(arg0, f32 *, 0x38)), TBoss2DeRolLe__data_805D8330);
+    init_params__13TBoss2DeRolLeFPvfff(arg0 + 0x684, TBoss2DeRolLe__data_805D82D8, fabs_float(TBoss2DeRolLe__data_805D82E8 - M2C_FIELD(arg0, f32 *, 0x40)), TBoss2DeRolLe__data_805D8330);
 }
 
 extern const f32 TBoss2DeRolLe__data_805D827C;

@@ -111,7 +111,7 @@ extern const f32 lbl_805DA478;
 void update_projectile__10TObjPlayerFPv(Me_800DC648 *arg0);
 M2C_UNK VecCopy__FP3VecPC3Vec(void *, int);
 u16 obj_getField1c(void *);
-f32 get_ad_end_text_start__10TObjPlayerFv(f32, f32);
+f32 atan2_float(f32, f32);
 s32 spawn_particle_effect_with_rotation(void *, void *, int, int);
 s32 spawn_continuous_particle_effect_with_flags(void *, int, int);
 s32 snap_to_ground__10TObjPlayerFii(M2C_UNK arg0, s32 arg1);
@@ -288,8 +288,8 @@ u8 *construct_beam_effect__10TObjPlayerFPvPvPviPv(u8 *arg0, Vec_800DC83C *arg1, 
     M2C_FIELD(arg0, f32 *, 0xC0) *= s;
     M2C_FIELD(arg0, s16 *, 0xFC) = obj_getField1c(arg4);
     ang.x = 0;
-    ang.y = (s32)(10430.38043493439 * get_ad_end_text_start__10TObjPlayerFv(arg2->x - arg1->x, arg2->z - arg1->z)) + 0x4000;
-    ang.z = 0x4000 - (s32)(10430.38043493439 * get_ad_end_text_start__10TObjPlayerFv(arg2->y - arg1->y, horizontal_distance__10TObjPlayerFPvPv(arg2, arg1)));
+    ang.y = (s32)(10430.38043493439 * atan2_float(arg2->x - arg1->x, arg2->z - arg1->z)) + 0x4000;
+    ang.z = 0x4000 - (s32)(10430.38043493439 * atan2_float(arg2->y - arg1->y, horizontal_distance__10TObjPlayerFPvPv(arg2, arg1)));
     M2C_FIELD(arg0, s32 *, 0xE0) = spawn_particle_effect_with_rotation(arg1, &ang, 0xF5, 2);
     if (M2C_FIELD(arg0, s32 *, 0xF4) != 0) {
         VecCopy__FP3VecPC3Vec(arg0 + 0xE8, (int)(arg0 + 0xAC));

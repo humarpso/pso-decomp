@@ -217,7 +217,7 @@ M2C_UNK vec3_add_to(void *, void *);
 extern const f32 lbl_805D9B5C;
 extern const f32 lbl_805D9B60;
 void TObjPlayer__sub_800AB1C8(u8 *arg0);
-f32 get_random_float__8TObjFishFv(f32);
+f32 fabs_float(f32);
 M2C_UNK VecCopy__FP3VecPC3Vec(void *, void *);
 extern const f32 lbl_805D9B10;
 s32 TObjPlayer__sub_800AB068(u8 *arg0);
@@ -283,7 +283,7 @@ extern Pair_800AB0EC lbl_8043ACEC[];
 extern const f32 lbl_805D9B58;
 M2C_UNK try_hit_target__10TObjPlayerFPvi(void *arg0, int arg1);
 M2C_UNK VecCopy__FP3VecPC3Vec(void *, void *);
-f32 get_random_float__8TObjFishFv(f32);
+f32 fabs_float(f32);
 f32 newton_sqrtf();
 f32 xz_distance_squared(void *, void *);
 s32 project_actor_to_ground(void *, Vec_800AB4F4 *, int);
@@ -408,7 +408,7 @@ s32 TObjPlayer__sub_800AB068(u8 *arg0) {
   u8 *new_var;
   f32 temp_f31;
   ;
-  if ((get_random_float__8TObjFishFv((*((f32 *) (((s8 *) arg0) + 0x38))) - (*((f32 *) (((s8 *) arg0) + 0x44)))) + get_random_float__8TObjFishFv((*((f32 *) (((s8 *) arg0) + 0x40))) - (*((f32 *) (((s8 *) arg0) + 0x4C))))) > lbl_805D9B10)
+  if ((fabs_float((*((f32 *) (((s8 *) arg0) + 0x38))) - (*((f32 *) (((s8 *) arg0) + 0x44)))) + fabs_float((*((f32 *) (((s8 *) arg0) + 0x40))) - (*((f32 *) (((s8 *) arg0) + 0x4C))))) > lbl_805D9B10)
   {
     VecCopy__FP3VecPC3Vec((void *) ((new_var = arg0) + 0x38), (void *) (arg0 + 0x44));
     return 1;
@@ -543,7 +543,7 @@ void TObjPlayer__sub_800AB4F4(u8 *arg0) {
             M2C_FIELD(arg0, f32 *, 0xF8) = v.z;
             if (M2C_FIELD(arg0, f32 *, 0xF4) < v.y) {
                 M2C_FIELD(arg0, f32 *, 0xF4) = v.y;
-                M2C_FIELD(arg0, f32 *, 0xB4) = lbl_805D9B70 * get_random_float__8TObjFishFv(M2C_FIELD(arg0, f32 *, 0xB4));
+                M2C_FIELD(arg0, f32 *, 0xB4) = lbl_805D9B70 * fabs_float(M2C_FIELD(arg0, f32 *, 0xB4));
             }
             if ((v.y - M2C_FIELD(arg0, f32 *, 0xE8)) > lbl_805D9B74) {
                 M2C_FIELD(arg0, s16 *, 0xAE) = 1;
@@ -570,7 +570,7 @@ void TObjPlayer__sub_800AB4F4(u8 *arg0) {
             t = lbl_805D9B84 / newton_sqrtf();
             M2C_FIELD(arg0, f32 *, 0xF0) = M2C_FIELD(arg0, f32 *, 0xB0) * t + M2C_FIELD(arg0, f32 *, 0xF0);
             M2C_FIELD(arg0, f32 *, 0xF8) = M2C_FIELD(arg0, f32 *, 0xB8) * t + M2C_FIELD(arg0, f32 *, 0xF8);
-        } else if (get_random_float__8TObjFishFv(M2C_FIELD(arg0, f32 *, 0xB4)) > lbl_805D9B6C) {
+        } else if (fabs_float(M2C_FIELD(arg0, f32 *, 0xB4)) > lbl_805D9B6C) {
             if (M2C_FIELD(arg0, f32 *, 0xB4) > lbl_805D9B7C) {
                 var_f1 = lbl_805D9B84;
             } else {

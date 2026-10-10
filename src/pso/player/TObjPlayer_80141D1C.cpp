@@ -7,15 +7,15 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 struct DS_80142108 { u16 y; u8 b2; u8 b3; u8 b4; u8 b5; u8 b6; u8 b7; };
 
 extern "C" {
-f64 get_ad_end_text_start__10TObjPlayerFv(f32, f32);
+f64 atan2_float(f32, f32);
 f32 newton_sqrtf(f32);
 extern const f64 lbl_8043F2C0;
 void direction_to_rotation_yx(u8 *arg0, s32 *arg1, s32 *arg2);
-f64 get_ad_end_text_start__10TObjPlayerFv(f32, f32);
+f64 atan2_float(f32, f32);
 f32 newton_sqrtf(f32);
 extern const f64 lbl_8043F2C0;
 void direction_to_rotation_xz(u8 *arg0, s32 *arg1, s32 *arg2);
-f64 get_ad_end_text_start__10TObjPlayerFv(f32, f32);
+f64 atan2_float(f32, f32);
 f32 newton_sqrtf(f32);
 extern const f64 lbl_8043F2C0;
 void direction_to_rotation_xy(u8 *arg0, s32 *arg1, s32 *arg2);
@@ -50,7 +50,7 @@ f32 sin_table_lookup();
 f32 vec_squared_length();
 M2C_UNK normalize_vector(s32);
 int set_cached_blend_factor(int, int);
-f64 get_ad_end_text_start__10TObjPlayerFv(f32, f32);
+f64 atan2_float(f32, f32);
 
 extern f32 lbl_805DB158;
 
@@ -88,7 +88,7 @@ s32 calc_angle_to__10TObjPlayerFPvPv(void *arg0, void *arg1) {
     f32 temp_f3;
 
     temp_f3 = M2C_FIELD(arg1, f32 *, 0);
-    return (s32) (lbl_8043F2C0 * get_ad_end_text_start__10TObjPlayerFv(temp_f3 - M2C_FIELD(arg0, f32 *, 0), M2C_FIELD(arg1, f32 *, 8) - M2C_FIELD(arg0, f32 *, 8)));
+    return (s32) (lbl_8043F2C0 * atan2_float(temp_f3 - M2C_FIELD(arg0, f32 *, 0), M2C_FIELD(arg1, f32 *, 8) - M2C_FIELD(arg0, f32 *, 8)));
 }
 
 s32 TAdSinglePlyChrSelectGC__sub_80141E8C(f32 v) {
@@ -148,10 +148,10 @@ void get_current_date_stamp__23TAdSinglePlyChrSelectGCFPv(DS_80142108 *arg0) {
 void direction_to_rotation_yx(u8 *arg0, s32 *arg1, s32 *arg2) {
     f32 temp_f0;
     f32 temp_f1;
-    *arg1 = -(s32) (lbl_8043F2C0 * get_ad_end_text_start__10TObjPlayerFv((f32) (M2C_FIELD(arg0, f32 *, 8)), (f32) (M2C_FIELD(arg0, f32 *, 0))));
+    *arg1 = -(s32) (lbl_8043F2C0 * atan2_float((f32) (M2C_FIELD(arg0, f32 *, 8)), (f32) (M2C_FIELD(arg0, f32 *, 0))));
     temp_f1 = M2C_FIELD(arg0, f32 *, 8);
     temp_f0 = M2C_FIELD(arg0, f32 *, 0);
-    *arg2 = (s32) (lbl_8043F2C0 * get_ad_end_text_start__10TObjPlayerFv((f32) (M2C_FIELD(arg0, f32 *, 4)), (f32) (newton_sqrtf((f32) ((temp_f1 * temp_f1) + (temp_f0 * temp_f0))))));
+    *arg2 = (s32) (lbl_8043F2C0 * atan2_float((f32) (M2C_FIELD(arg0, f32 *, 4)), (f32) (newton_sqrtf((f32) ((temp_f1 * temp_f1) + (temp_f0 * temp_f0))))));
 }
 #pragma pop
 
@@ -160,10 +160,10 @@ void direction_to_rotation_yx(u8 *arg0, s32 *arg1, s32 *arg2) {
 void direction_to_rotation_xz(u8 *arg0, s32 *arg1, s32 *arg2) {
     f32 temp_f0;
     f32 temp_f1;
-    *arg2 = -(s32) (lbl_8043F2C0 * get_ad_end_text_start__10TObjPlayerFv((f32) (M2C_FIELD(arg0, f32 *, 0)), (f32) (M2C_FIELD(arg0, f32 *, 4))));
+    *arg2 = -(s32) (lbl_8043F2C0 * atan2_float((f32) (M2C_FIELD(arg0, f32 *, 0)), (f32) (M2C_FIELD(arg0, f32 *, 4))));
     temp_f1 = M2C_FIELD(arg0, f32 *, 0);
     temp_f0 = M2C_FIELD(arg0, f32 *, 4);
-    *arg1 = (s32) (lbl_8043F2C0 * get_ad_end_text_start__10TObjPlayerFv((f32) (M2C_FIELD(arg0, f32 *, 8)), (f32) (newton_sqrtf((f32) ((temp_f1 * temp_f1) + (temp_f0 * temp_f0))))));
+    *arg1 = (s32) (lbl_8043F2C0 * atan2_float((f32) (M2C_FIELD(arg0, f32 *, 8)), (f32) (newton_sqrtf((f32) ((temp_f1 * temp_f1) + (temp_f0 * temp_f0))))));
 }
 #pragma pop
 
@@ -172,10 +172,10 @@ void direction_to_rotation_xz(u8 *arg0, s32 *arg1, s32 *arg2) {
 void direction_to_rotation_xy(u8 *arg0, s32 *arg1, s32 *arg2) {
     f32 temp_f0;
     f32 temp_f1;
-    *arg1 = -(s32) (lbl_8043F2C0 * get_ad_end_text_start__10TObjPlayerFv((f32) (M2C_FIELD(arg0, f32 *, 4)), (f32) (M2C_FIELD(arg0, f32 *, 8))));
+    *arg1 = -(s32) (lbl_8043F2C0 * atan2_float((f32) (M2C_FIELD(arg0, f32 *, 4)), (f32) (M2C_FIELD(arg0, f32 *, 8))));
     temp_f1 = M2C_FIELD(arg0, f32 *, 4);
     temp_f0 = M2C_FIELD(arg0, f32 *, 8);
-    *arg2 = (s32) (lbl_8043F2C0 * get_ad_end_text_start__10TObjPlayerFv((f32) (M2C_FIELD(arg0, f32 *, 0)), (f32) (newton_sqrtf((f32) ((temp_f1 * temp_f1) + (temp_f0 * temp_f0))))));
+    *arg2 = (s32) (lbl_8043F2C0 * atan2_float((f32) (M2C_FIELD(arg0, f32 *, 0)), (f32) (newton_sqrtf((f32) ((temp_f1 * temp_f1) + (temp_f0 * temp_f0))))));
 }
 #pragma pop
 

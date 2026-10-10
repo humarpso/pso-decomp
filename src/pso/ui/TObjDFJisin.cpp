@@ -175,7 +175,7 @@ M2C_UNK construct_actor_base__10TObjPlayerFPvPv(void *, M2C_UNK);
 void VecCopy__FP3VecPC3Vec(void *, void *);
 Player_80050D74 * get_player_data__10TObjPlayerFi(s32);
 s16 obj_getField1c(void *);
-f64 get_ad_end_text_start__10TObjPlayerFv(f32, f32);
+f64 atan2_float(f32, f32);
 f32 newton_sqrtf(f32);
 void queue_destruction__7TObjectFv(void *);
 u8 * dispatch_shared_handler_a__6TLobbyFPv(s32);
@@ -362,7 +362,7 @@ u8 *TObjDFHorming__ct(u8 *arg0, M2C_UNK arg1, s32 arg2, u16 arg3) {
     if (p != NULL) {
         ang = 0;
     } else {
-        ang += (s32)(lbl_804374F0 * get_ad_end_text_start__10TObjPlayerFv(M2C_FIELD(p, f32 *, 0x38) - lbl_805D8A74, M2C_FIELD(p, f32 *, 0x40)));
+        ang += (s32)(lbl_804374F0 * atan2_float(M2C_FIELD(p, f32 *, 0x38) - lbl_805D8A74, M2C_FIELD(p, f32 *, 0x40)));
     }
     M2C_FIELD(arg0, f32 *, 0x348) = lbl_805D8A78 * sin_table_lookup(ang) / scale;
     M2C_FIELD(arg0, f32 *, 0x350) = lbl_805D8A78 * cos_table_lookup(ang) / scale;

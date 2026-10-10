@@ -303,7 +303,7 @@ M2C_UNK VecCopy__FP3VecPC3Vec(void *, void *);
 extern const f32 TBoss6Type2__data_805DE410;
 
 M2C_UNK VecCopy__FP3VecPC3Vec(void *, void *);
-f64 get_ad_end_text_start__10TObjPlayerFv(f32, f32);
+f64 atan2_float(f32, f32);
 s32 angle_difference_abs(int, int);
 s32 approach_angle_limited(s32, s32, s32);
 M2C_UNK play_sound_effect(s32, void *, s32, s32);
@@ -635,7 +635,7 @@ u16 obj_getArrU16_FC(void *obj, s32 i);
 u8 * get_player_data__10TObjPlayerFi(s32);
 u16 obj_getField1c(void *);
 s32 is_split_screen();
-f64 get_ad_end_text_start__10TObjPlayerFv(f32, f32);
+f64 atan2_float(f32, f32);
 s32 copy_entry__6TLobbyFPvPv(void *, void *);
 u8 * dispatch_shared_handler_a__6TLobbyFPv(s32);
 s32 TObjFish__sub_8001EDB0(s32, M2C_UNK);
@@ -715,7 +715,7 @@ void request_default_follow_camera__11TBoss6Type2Fv(void);
 void init_range__11TBoss6Type2Fv(void);
 struct Obj_802BB1E0 { u8 pad0[0x38]; Vec_802B9A68 pos; };
 M2C_UNK request_player_camera_offsets__11TBoss6Type2FPvff(Obj_802BB1E0 *, f32, f32);
-f32 get_random_float__8TObjFishFv(f32);
+f32 fabs_float(f32);
 extern Vec_802B9A68 lbl_80471344[];
 extern const f32 lbl_805DE480;
 extern const f32 lbl_805DE484;
@@ -1150,7 +1150,7 @@ void aim_toward_point__11TBoss6Type2FPvPv(Boss_802B9F3C *arg0, Vec_802B9A68 *arg
     } else {
         ((void (*)(Vec_802B9A68 *, Vec_802B9A68 *))VecCopy__FP3VecPC3Vec)(&v, arg1);
         subtract_vector(&v, &arg0->pos);
-        ang = (s16)((s32)(TBoss6Type2__data_804713C0 * get_ad_end_text_start__10TObjPlayerFv(v.x, v.z)) - arg0->f60);
+        ang = (s16)((s32)(TBoss6Type2__data_804713C0 * atan2_float(v.x, v.z)) - arg0->f60);
     }
     if (ang < -0x2800 || ang > 0x2800) {
         ang = 0;
@@ -1472,7 +1472,7 @@ s32 TBoss6Type2::turn_toward_target_position() {
             var_r31 = 0x369;
         }
         temp_r30 = (s32)m_60;
-        m_60 = approach_angle_limited((s32)((int) ((s32)m_60)), (s32)((s32) ((s32) (TBoss6Type2__data_804713C0 * get_ad_end_text_start__10TObjPlayerFv((f32) (sp8.f.x), (f32) (sp8.f.z))))), (s32)((int) (var_r31)));
+        m_60 = approach_angle_limited((s32)((int) ((s32)m_60)), (s32)((s32) ((s32) (TBoss6Type2__data_804713C0 * atan2_float((f32) (sp8.f.x), (f32) (sp8.f.z))))), (s32)((int) (var_r31)));
         if (var_r31 == angle_difference_abs((int) (temp_r30), (int) ((s32)m_60))) {
             if ((s32) m_508 == 0) {
                 play_sound_effect((s32)((int) (0x4006A602)), (void *)((void *) (&position)), (s32)((int) (0)), (s32)((int) (0)));
@@ -1663,13 +1663,13 @@ M2C_UNK request_player_camera_offsets__11TBoss6Type2FPvff(Obj_802BB1E0 *self, f3
     n = get_game_mode__6TLobbyFv();
     step = lbl_805DE480 * b;
     for (i = 0; i < n; i++) {
-        lim = get_random_float__8TObjFishFv(b);
+        lim = fabs_float(b);
         p = get_player_data__10TObjPlayerFi(i);
         if (p == NULL) {
             continue;
         }
         t = TBoss6Type2__data_805DE410;
-        while (get_random_float__8TObjFishFv(t) <= lim) {
+        while (fabs_float(t) <= lim) {
             flag = 0;
             VecCopy__FP3VecPC3Vec(&off, lbl_80471344);
             VecCopy__FP3VecPC3Vec(&pp, p + 0x38);
@@ -1696,7 +1696,7 @@ M2C_UNK request_player_camera_offsets__11TBoss6Type2FPvff(Obj_802BB1E0 *self, f3
                         sum = lbl_805DE498 + dist;
                         cam.z = lbl_805DE498;
                         dy = lbl_805DE498 * dy - k;
-                        if (get_random_float__8TObjFishFv(sum) > TBoss6Type2__data_805DE490) {
+                        if (fabs_float(sum) > TBoss6Type2__data_805DE490) {
                             adj = dy / sum;
                             if (adj > lbl_805DE49C) {
                                 adj = lbl_805DE49C;
@@ -1999,7 +1999,7 @@ s32 choose_turn_motion__11TBoss6Type2FPv(void *arg0) {
         return var_r31_2;
     }
     temp_f3 = M2C_FIELD(temp_r3, f32 *, 0x38);
-    temp_f0 = ((f64 (*)(f32, f32, f32))get_ad_end_text_start__10TObjPlayerFv)(temp_f3 - M2C_FIELD(arg0, f32 *, 0x38), M2C_FIELD(temp_r3, f32 *, 0x40) - M2C_FIELD(arg0, f32 *, 0x40), temp_f3);
+    temp_f0 = ((f64 (*)(f32, f32, f32))atan2_float)(temp_f3 - M2C_FIELD(arg0, f32 *, 0x38), M2C_FIELD(temp_r3, f32 *, 0x40) - M2C_FIELD(arg0, f32 *, 0x40), temp_f3);
     var_r31 = 0xF;
     if (angle_diff_s16(M2C_FIELD(arg0, s32 *, 0x60), (s32) (TBoss6Type2__data_804713C0 * temp_f0)) < 0) {
         var_r31 = 0x10;

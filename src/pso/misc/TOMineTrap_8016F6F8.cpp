@@ -368,7 +368,7 @@ extern const f32 TOMineTrap__data_805DB868;
 extern const f32 lbl_805DB884;
 extern const f32 lbl_805DB888;
 void update_float_height__10TOMineTrapFPv(u8 *arg0);
-f32 get_ad_end_text_start__10TObjPlayerFv(f64, f64);
+f32 atan2_float(f64, f64);
 void calc_attach_pos__10TObjPlayerFPv(void *);
 M2C_UNK VecCopy__FP3VecPC3Vec(void *, void *);
 int refresh_collision_body_centers(void*);
@@ -796,7 +796,7 @@ void follow_target__10TOMineTrapFPv(u8 *arg0) {
   temp_f2 = *((f32 *) (((s8 *) arg0) + 0x48));
   *((f32 *) (((s8 *) arg0) + 0x3C)) = (f32) ((lbl_805DB884 * ((lbl_805DB888 + (*((f32 *) (((s8 *) (*((u8 **) (((s8 *) arg0) + 0x2A8)))) + 0x3C)))) - temp_f2)) + temp_f2);
   calc_attach_pos__10TObjPlayerFPv((void *) arg0);
-  *((s32 *) (((s8 *) arg0) + 0x60)) = (s32) (lbl_80442200 * get_ad_end_text_start__10TObjPlayerFv((f64) stack.sp8, (f64) stack.sp10));
+  *((s32 *) (((s8 *) arg0) + 0x60)) = (s32) (lbl_80442200 * atan2_float((f64) stack.sp8, (f64) stack.sp10));
   refresh_collision_body_centers((void*)((void *) arg0));
 }
 

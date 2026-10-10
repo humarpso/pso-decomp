@@ -124,7 +124,7 @@ struct Obj_801A0224 {
     f32 fC4;
 };
 
-f32 get_random_float__8TObjFishFv(f32);
+f32 fabs_float(f32);
 void queue_destruction__7TObjectFv(void *);
 s32 get_bml_model(s32, s32);
 s32 is_visible__17TWindowSubComCardFPv(void *);
@@ -277,7 +277,7 @@ Obj_8019FF24 *TObjWarpJungMain__ct(Obj_8019FF24 *self) {
     self->vt18 = __vt__16TObjWarpJungMain;
     self->f0 = lbl_805D349C;
     self->fC4 = lbl_805DC04C;
-    self->f8C = get_random_float__8TObjFishFv(self->f8C % 2);
+    self->f8C = fabs_float(self->f8C % 2);
     if (get_game_play_mode() == 1 && self->f8C == 0) {
         queue_destruction__7TObjectFv(self);
         return self;
@@ -358,7 +358,7 @@ Obj_801A0224 *TObjWarpJung__ct(Obj_801A0224 *self) {
     self->vt18 = __vt__12TObjWarpJung;
     self->f0 = lbl_805D3498;
     self->fC4 = lbl_805DC04C;
-    self->f8C = get_random_float__8TObjFishFv(self->f8C % 2);
+    self->f8C = fabs_float(self->f8C % 2);
     if (get_game_play_mode() == 1 && self->f8C == 1) {
         queue_destruction__7TObjectFv(self);
         return self;

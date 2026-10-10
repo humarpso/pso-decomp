@@ -54,7 +54,7 @@ extern u32 TMotorcycle__texture_list;
 extern const f32 lbl_805DBED8;
 extern const f32 lbl_805DBEDC;
 void load_resources__11TMotorcycleFv(void);
-f32 get_random_float__8TObjFishFv(f32);
+f32 fabs_float(f32);
 void reset_photon_effect__10TObjPlayerFPv(void *);
 s32 init_collision_body_parts(void *, void *, int);
 M2C_UNK TObjMesBase__ct(void *, void *, void *);
@@ -156,7 +156,7 @@ void *TMotorcycle__ct(void *arg0, void *arg1, void *arg2) {
     TObjMesBase__ct(arg0, arg1, arg2);
     M2C_FIELD(arg0, M2C_UNK **, 0x18) = __vt__11TMotorcycle;
     self->x0 = motorcycle_class_name;
-    self->xBC = get_random_float__8TObjFishFv(self->x68);
+    self->xBC = fabs_float(self->x68);
     self->xBC = self->xBC % 2;
     self->xBC = lbl_80445DF4[self->xBC];
     init_collision_body_parts(arg0, TMotorcycle__collision_parts, 1);

@@ -192,7 +192,7 @@ f32 sin_table_lookup(s32);
 s32 check_flag_or_state__15TObjBoss2TunnelFi(s32 arg0);
 s32 is_flag_set__15TObjBoss2TunnelFv(s32 _w0);
 void TObjBoss2Tunnel__sub_8007DEE4(void *, f32, f32, f32, f32, f32);
-f32 get_random_float__8TObjFishFv(f32);
+f32 fabs_float(f32);
 f32 update_position__15TObjBoss2TunnelFPv(void *);
 s32 advance_phase__15TObjBoss2TunnelFPv(void *, f32 *);
 void set_global_flag_100__15TObjBoss2TunnelFv(void);
@@ -407,7 +407,7 @@ void run_task__15TObjBoss2TunnelFv(Tunnel_8003B6E8 *o) {
     case 1:
         if (check_flag_or_state__15TObjBoss2TunnelFi(o) == 0) {
             o->f64 = 3;
-            tmp = get_random_float__8TObjFishFv(o->f98);
+            tmp = fabs_float(o->f98);
             TObjBoss2Tunnel__sub_8007DEE4(o->f68, (0.1f), (-0.1f), o->f98, -update_position__15TObjBoss2TunnelFPv(o->f68), (2.0f));
         } else {
             if (advance_phase__15TObjBoss2TunnelFPv(o->f68, &tmp) != 0) {

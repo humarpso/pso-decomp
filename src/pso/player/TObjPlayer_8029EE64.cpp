@@ -62,7 +62,7 @@ void set_active_scene__6TSceneFi(void *f);
 int set_instance__6TSceneFi(void *f);
 int set_scene_callbacks__6TSceneFv(void);
 void VecCopy__FP3VecPC3Vec(Vec_8029EFFC *, Vec_8029EFFC *);
-f32 get_random_float__8TObjFishFv(f32);
+f32 fabs_float(f32);
 Pl_8029EFFC *get_player_by_client_id(s32);
 s32 is_boss_area();
 s32 get_global_state__14TOKeyMachine01Fv();
@@ -229,8 +229,8 @@ void render_reflections__10TSceneSoraFPv(Sora_8029EFFC *o) {
         v.x = p->pos38.x - ((G_8029EFFC *)camera_ctrl_instance)->x178;
         v.y = k;
         v.z = p->pos38.z - ((G_8029EFFC *)camera_ctrl_instance)->z180;
-        len = get_random_float__8TObjFishFv(v.z);
-        if (get_random_float__8TObjFishFv(v.x) >= len) {
+        len = fabs_float(v.z);
+        if (fabs_float(v.x) >= len) {
             if (i != 0) {
                 if (lbl_805DDD8C != v.z) {
                     v.x = lbl_805DDD8C;

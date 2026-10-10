@@ -61,7 +61,7 @@ extern "C" {
 M2C_UNK VecCopy__FP3VecPC3Vec(void *, void *);
 M2C_UNK check_technique_projectile_wall_hit(void *, f32, f32);
 void move_technique_projectile(u8 *arg0);
-f32 get_random_float__8TObjFishFv(f32);
+f32 fabs_float(f32);
 M2C_UNK VecCopy__FP3VecPC3Vec(void *, void *);
 s32 queue_destruction__7TObjectFv(void *);
 u8 *csnVecterUnder(M2C_UNK *, s32);
@@ -138,7 +138,7 @@ void step_ground_technique_projectile(RecoveredFields_8023A510_arg0 *arg0) {
     if (temp_r3 != NULL) {
         arg0->field_24 = (f32) (lbl_805DC91C + M2C_FIELD(((RecoveredFields_8023A510_temp_r3 *)temp_r3)->field_4, f32 *, 4));
     }
-    if (get_random_float__8TObjFishFv(arg0->field_7C - arg0->field_24) > lbl_805DC920) {
+    if (fabs_float(arg0->field_7C - arg0->field_24) > lbl_805DC920) {
         arg0->field_24 = (f32) arg0->field_7C;
         queue_destruction__7TObjectFv((void *)((void *) (((u8 *)arg0))));
         return;

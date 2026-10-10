@@ -64,7 +64,7 @@ extern const f32 lbl_805DF994;
 O_80337824 *TObjEneMorfos__sub_80337824(O_80337824 *arg0, Vec_80337824 *arg1, s32 arg2, void *arg3);
 M2C_UNK VecCopy__FP3VecPC3Vec(void *, int);
 u8 *get_player_data__10TObjPlayerFi(s32);
-f32 get_random_float__8TObjFishFv(f32);
+f32 fabs_float(f32);
 void queue_destruction__7TObjectFv(void *);
 u32 csnVector(void *, void *, int);
 void copy_pos__11TNowLoadingFPvPv(void *, void *);
@@ -144,7 +144,7 @@ void update_projectile__13TObjEneMorfosFPv(O_80337644 *arg0) {
     if (k != 0) {
         for (i = 0; i < lbl_805D586C; i++) {
             p = get_player_data__10TObjPlayerFi(i);
-            if (is_valid_and_active__10TObjPlayerFUi(p) != 0 && get_random_float__8TObjFishFv(arg0->pos.y - *(f32 *)(p + 0x300)) < lbl_805DF990) {
+            if (is_valid_and_active__10TObjPlayerFUi(p) != 0 && fabs_float(arg0->pos.y - *(f32 *)(p + 0x300)) < lbl_805DF990) {
                 hit_target_in_range__13TObjEneMorfosFPvPvPv((O_80337500 *)arg0, (V_80337500 *)p, (V_80337500 *)k);
             }
         }

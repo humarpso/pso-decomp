@@ -38,7 +38,7 @@ extern "C" {
 extern M2C_UNK lbl_804CF918[];
 void TWindowSubStatusDisp__sub_80256BDC(u8 *arg0, s16 arg1);
 void calc_bar_width__20TWindowSubStatusDispFPv(struct Bar_80256C00 *bar);
-f32 get_random_float__8TObjFishFv(f32);
+f32 fabs_float(f32);
 extern const f32 lbl_805DCE58;
 extern const f32 lbl_805DCECC;
 void step_gauge_bar_width(Gauge_802571B4 *g);

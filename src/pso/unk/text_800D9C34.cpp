@@ -127,7 +127,7 @@ extern s32 lbl_805D5870;
 void *get_player_data__10TObjPlayerFi(s32 i);
 s32 is_valid_and_active__10TObjPlayerFUi(void *p);
 s32 TObjPlayer__sub_800D9F4C(Obj_800D9F4C *self);
-f64 get_ad_end_text_start__10TObjPlayerFv(f32, f32);
+f64 atan2_float(f32, f32);
 Hit_800D9C7C *csnVector(void *, void *, s32);
 f32 horizontal_distance__10TObjPlayerFPvPv(void *, s32);
 M2C_UNK vec3_add_to(void *, void *);
@@ -143,7 +143,7 @@ extern const f32 lbl_805DA3F8;
 extern const f32 lbl_805DA3FC;
 void find_open_direction__10TObjPlayerFPvPv(u8 *arg0, f32 *arg1);
 s16 obj_getField1c(void *);
-f64 get_ad_end_text_start__10TObjPlayerFv(f32, f32);
+f64 atan2_float(f32, f32);
 s32 angle_difference_abs(s32, s32);
 void subtract_vector(Vec_800D9FC4 *, Vec_800D9FC4 *);
 extern const f64 lbl_8043C900[];
@@ -175,7 +175,7 @@ void find_open_direction__10TObjPlayerFPvPv(u8 *arg0, f32 *arg1) {
     f32 bestv;
     f32 d;
     Hit_800D9C7C *h;
-    ang = (s32)(lbl_8043C900[0] * get_ad_end_text_start__10TObjPlayerFv(arg1[0], arg1[2]));
+    ang = (s32)(lbl_8043C900[0] * atan2_float(arg1[0], arg1[2]));
     bestv = lbl_805DA3F8;
     best = ang;
     push_matrix_from((u32) &identity_matrix.value);
@@ -259,7 +259,7 @@ void add_target_in_front_arc__10TObjPlayerFPvPv(void *self, void *p) {
     if (!(((v.x * v.x) + (v.z * v.z)) > lbl_805DA400))
     {
       new_var = v.x;
-      new_var2 = (-((s32) (lbl_8043C900[0] * get_ad_end_text_start__10TObjPlayerFv(v.z, new_var)))) + 0x4000;
+      new_var2 = (-((s32) (lbl_8043C900[0] * atan2_float(v.z, new_var)))) + 0x4000;
       if (angle_difference_abs(new_var2, ((Obj_800D9FC4 *) self)->angle) <= 0xAAA)
       {
         s16 id = obj_getField1c(p);

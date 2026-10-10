@@ -2093,7 +2093,7 @@ s32 get_player_count__10TObjPlayerFv();
 s32 get_item_field_6__10TObjPlayerFPv(Pl_801B0B88 *);
 u8 get_field_ed__10TObjPlayerFPv(void *);
 s32 get_type__10TObjPlayerFPv(void *);
-f64 get_ad_end_text_start__10TObjPlayerFv(f32, f32);
+f64 atan2_float(f32, f32);
 M2C_UNK queue_destruction__7TObjectFv(u32);
 M2C_UNK set_flags__10TObjPlayerFPvUi(s32, M2C_UNK);
 M2C_UNK clear_flags__11TAdRicoRingFPvUi(void *, int);
@@ -6572,7 +6572,7 @@ void calc_move_velocity__10TObjPlayerFPvPvf(void *arg0, void *arg1, f32 farg0) {
     f32 temp_f1;
     s32 temp_r31;
 
-    temp_r31 = (s32) (lbl_80446F68 * get_ad_end_text_start__10TObjPlayerFv(M2C_FIELD(arg0, f32 *, 0), M2C_FIELD(arg0, f32 *, 8)));
+    temp_r31 = (s32) (lbl_80446F68 * atan2_float(M2C_FIELD(arg0, f32 *, 0), M2C_FIELD(arg0, f32 *, 8)));
     temp_f1 = farg0 * sin_table_lookup(temp_r31);
     M2C_FIELD(arg1, f32 *, 0) = temp_f1;
     M2C_FIELD(arg1, f32 *, 4) = (f32) TObjPlayer__data_805DC278;

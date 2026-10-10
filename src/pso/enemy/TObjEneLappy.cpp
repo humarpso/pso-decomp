@@ -409,7 +409,7 @@ M2C_UNK enemy_backstep_from_point(void *, void *, f32);
 M2C_UNK enemy_wander_home(void *, int, f32, f32, f32);
 f32 update_enemy_wander_move(void *, void *, int, f32);
 M2C_UNK update_angle__10TObjPlayerFPviPv(void *, void *, void *);
-f64 get_ad_end_text_start__10TObjPlayerFv(f32, f32);
+f64 atan2_float(f32, f32);
 M2C_UNK queue_destruction__7TObjectFv(void *);
 M2C_UNK spawn_particle_effect(void *, int);
 s32 advance_flee_step__12TObjEneLappyFv(void *);
@@ -903,7 +903,7 @@ void update_moving__12TObjEneLappyFv(u8 *arg0) {
             if (temp_r3 == 1U) {
                 enemy_set_heading_velocity((void *) (arg0), (int) (M2C_FIELD(arg0, s32 *, 0x60)), (f32) (lbl_805D9F74 * M2C_FIELD(M2C_FIELD(arg0, u8 **, 0x350), f32 *, 4)));
                 M2C_FIELD(arg0, s16 *, 0x394) = (s16) (M2C_FIELD(arg0, s16 *, 0x394) + 1);
-                if (((f32) M2C_FIELD(arg0, s16 *, 0x394) > lbl_805D9F78) && (((u16 (*)(void *, void *, f32))find_nearest_visible_player)((void *) (arg0), (void *) (&probe.x), (f32) (lbl_805D9F7C)) != 0xFFFFU) && (angle_difference_abs((int) (M2C_FIELD(arg0, s32 *, 0x60)), (int) ((s32) (lbl_8043BA18 * get_ad_end_text_start__10TObjPlayerFv((f32) (probe.x), (f32) (probe.z))))) < 0xAAA)) {
+                if (((f32) M2C_FIELD(arg0, s16 *, 0x394) > lbl_805D9F78) && (((u16 (*)(void *, void *, f32))find_nearest_visible_player)((void *) (arg0), (void *) (&probe.x), (f32) (lbl_805D9F7C)) != 0xFFFFU) && (angle_difference_abs((int) (M2C_FIELD(arg0, s32 *, 0x60)), (int) ((s32) (lbl_8043BA18 * atan2_float((f32) (probe.x), (f32) (probe.z))))) < 0xAAA)) {
                     if (calc_boss4_scale__10TObjPlayerFi((void *) (arg0)) >= lbl_805D9F24) {
                         var_r4 = -0x4000;
                     } else {

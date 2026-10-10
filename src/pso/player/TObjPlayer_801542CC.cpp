@@ -163,7 +163,7 @@ M2C_UNK push_matrix_from(void *);
 M2C_UNK rotate_matrix_y(int, int);
 M2C_UNK rotate_vector_by_current_matrix(void *, void *);
 M2C_UNK pop_matrix();
-f64 get_ad_end_text_start__10TObjPlayerFv(f32, f32);
+f64 atan2_float(f32, f32);
 extern const f64 lbl_804400F0;
 s32 angle_difference_abs(s32, s32);
 extern const f32 TObjPlayer__data_805DB270;
@@ -233,7 +233,7 @@ M2C_UNK copy_short_fields__6TLobbyFPvPv(void *, void *);
 extern s32 TLobby__data_805D6140;
 s32 access_object_saved_state(u8 *arg0, void *arg1, s16 arg2);
 M2C_UNK VecCopy__FP3VecPC3Vec(void *, void *);
-f64 get_ad_end_text_start__10TObjPlayerFv(f32, f32);
+f64 atan2_float(f32, f32);
 f32 horizontal_distance_squared(void *, void *);
 s32 angle_diff_s16(s32, s32);
 M2C_UNK vec3_add_to(void *, void *);
@@ -732,7 +732,7 @@ s32 resolve_actor_sphere_contact(u8 *arg0, M2C_UNK arg1, s32 arg2) {
     }
     VecCopy__FP3VecPC3Vec((void *) (&displacement), (void *) (arg2 + 0x1C));
     subtract_vector((void *) (&displacement), (void *) (arg0 + 0x44));
-    temp_r3 = angle_diff_s16((s32) (lbl_804400F0 * get_ad_end_text_start__10TObjPlayerFv(displacement.x, displacement.z)), (int) (M2C_FIELD(arg0, s32 *, 0x60)));
+    temp_r3 = angle_diff_s16((s32) (lbl_804400F0 * atan2_float(displacement.x, displacement.z)), (int) (M2C_FIELD(arg0, s32 *, 0x60)));
     if ((s32) temp_r3 < 0x4000) {
         tangentScale = lbl_805DB280;
         var_r31 = 0x4000;
@@ -854,7 +854,7 @@ s32 resolve_player_box_contact(u8 *arg0, u8 *arg1, u8 *arg2) {
             return moved;
         }
     }
-    if (angle_difference_abs((s32)(lbl_804400F0 * get_ad_end_text_start__10TObjPlayerFv(radial.x, radial.z)), *(s32 *)(arg0 + 0x60)) < 0x3000) {
+    if (angle_difference_abs((s32)(lbl_804400F0 * atan2_float(radial.x, radial.z)), *(s32 *)(arg0 + 0x60)) < 0x3000) {
         return 0;
     }
     if (PATG_80155294(arg0, arg0 + 0x44, 0) != 0) {

@@ -299,7 +299,7 @@ M2C_UNK __destroy_arr(void *, void *, u32, u32);
 void TObjPlayer__sub_800D7C58(void);
 u8 *__dt__19TObjEneBm9MericarolFPvs(u8 *arg0, s16 arg1);
 s32 obj_is_hit_receivable(u32);
-f32 get_random_float__8TObjFishFv(f32);
+f32 fabs_float(f32);
 s32 get_battle_param__10TObjPlayerFi(s32);
 s32 is_area_attack_target_eligible(void *, u32);
 s32 attack_target_history_add(s32, s32);
@@ -951,7 +951,7 @@ s32 apply_area_attack_hits__10TObjPlayerFPvPviUif(u8 *arg0, u8 *arg1, s32 arg2, 
             }
             if (obj_is_hit_receivable(obj) != 0 && (u32)obj != M2C_FIELD(arg0, u32 *, 0xAC) &&
                 is_area_attack_target_eligible(arg0, M2C_FIELD(obj, u32 *, 0x30)) != 0 &&
-                !(get_random_float__8TObjFishFv(M2C_FIELD(arg0, f32 *, 0xB8) - M2C_FIELD(obj, f32 *, 0x300)) > lbl_805DE758)) {
+                !(fabs_float(M2C_FIELD(arg0, f32 *, 0xB8) - M2C_FIELD(obj, f32 *, 0x300)) > lbl_805DE758)) {
                 ok = 1;
                 if (arg3 != 0 && attack_target_history_add(arg3, obj) == 0) {
                     ok = 0;

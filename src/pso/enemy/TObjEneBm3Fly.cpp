@@ -1200,7 +1200,7 @@ M2C_UNK noop__12TBoss8DragonFv(void *);
 M2C_UNK set_field_378__9TObjEneDDFPvi(void *, s16);
 void update_recoil_state__13TObjEneBm3FlyFv(u8 *arg0, s32 arg1);
 M2C_UNK VecCopy__FP3VecPC3Vec(void *, void *);
-f32 get_ad_end_text_start__10TObjPlayerFv(f32, f32);
+f32 atan2_float(f32, f32);
 f32 update_scale__15TObjBoss2TunnelFPv(void *);
 void update_collide_flag__13TObjEneBm3FlyFPv(void *arg0);
 M2C_UNK enemy_clear_target(void *);
@@ -1446,7 +1446,7 @@ void state_circle_target__13TObjEneBm3FlyFPvi(u8 *arg0, s32 arg1) {
         update_dd_flag__13TObjEneBm3FlyFPv(arg0, R(0x430), R(0x438), speed);
         R(0x42C) = approach_value__13TObjEneBm3FlyFff(arg0, R(0x42C), R(0x398) + vertical);
         clamp_flight_height__13TObjEneBm3FlyFPv(arg0);
-        I(0x60) = (s32)(TObjEneBm3Fly__data_8043B118[0] * get_ad_end_text_start__10TObjPlayerFv(
+        I(0x60) = (s32)(TObjEneBm3Fly__data_8043B118[0] * atan2_float(
             M2C_FIELD(P(0x390), f32 *, 0x38) - R(0x38), M2C_FIELD(P(0x390), f32 *, 0x40) - R(0x40)));
         V->m87();
         play_pitched_cue__13TObjEneBm3FlyFi((s32)arg0);
@@ -1678,7 +1678,7 @@ void TObjEneBm3Fly__sub_800B0B20(u8 *arg0, s32 arg1) {
         R(0x42C) = approach_value__13TObjEneBm3FlyFff(arg0, pos->y, R(0x398));
         pos->y = R(0x42C);
         clamp_flight_height__13TObjEneBm3FlyFPv(arg0);
-        I(0x60) = (s32)(TObjEneBm3Fly__data_8043B118[0] * get_ad_end_text_start__10TObjPlayerFv(R(0x430), R(0x438)));
+        I(0x60) = (s32)(TObjEneBm3Fly__data_8043B118[0] * atan2_float(R(0x430), R(0x438)));
         V->m87();
         pos->x -= R(0x38);
         pos->y -= R(0x42C);
@@ -1781,7 +1781,7 @@ void TObjEneBm3Fly__sub_800B1214(u8 *arg0, s32 arg1) {
         p[0] = (3e+01f) * sin_table_lookup(F_800B(0x448, s32)) + F_800B(0x41C, f32);
         p[1] = F_800B(0x444, f32);
         p[2] = (3e+01f) * cos_table_lookup(F_800B(0x448, s32)) + F_800B(0x424, f32);
-        F_800B(0x60, s32) = (s32)(TObjEneBm3Fly__data_8043B118[0] * get_ad_end_text_start__10TObjPlayerFv(F_800B(0x40C, f32), F_800B(0x414, f32)));
+        F_800B(0x60, s32) = (s32)(TObjEneBm3Fly__data_8043B118[0] * atan2_float(F_800B(0x40C, f32), F_800B(0x414, f32)));
         enemy_clear_target(arg0);
         break;
     case 3:
@@ -1825,7 +1825,7 @@ void TObjEneBm3Fly__sub_800B1214(u8 *arg0, s32 arg1) {
                 F_800B(0x42C, f32) = F_800B(0x434, f32) * F_800B(0x43C, f32) + F_800B(0x42C, f32);
                 F_800B(0x40, f32) = F_800B(0x438, f32) * F_800B(0x43C, f32) + F_800B(0x40, f32);
             }
-            F_800B(0x60, s32) = (s32)(TObjEneBm3Fly__data_8043B118[0] * get_ad_end_text_start__10TObjPlayerFv(F_800B(0x430, f32), F_800B(0x438, f32)));
+            F_800B(0x60, s32) = (s32)(TObjEneBm3Fly__data_8043B118[0] * atan2_float(F_800B(0x430, f32), F_800B(0x438, f32)));
             break;
         }
         update_collide_flag__13TObjEneBm3FlyFPv(arg0);
@@ -2005,7 +2005,7 @@ extern "C" {
 void TObjEneBm3Fly__vt86(u8 *arg0);
 M2C_UNK get_field_0c__10TObjPlayerFPv(int);
 f32 get_pos_x__10TObjPlayerFPv(int);
-f32 get_random_float__8TObjFishFv(f32);
+f32 fabs_float(f32);
 extern s32 TObjEneBm3Fly__data_805D50E4;
 s32 get_random_scaled__9TObjEneDDFv(void *);
 s32 has_free_attack_slot__17TObjEneBm3FlyNestFPvUs(void *, u16);
@@ -2064,7 +2064,7 @@ void choose_attack__13TObjEneBm3FlyFPv(Fly_800B1684 *s) {
 
 s32 can_attack_target__13TObjEneBm3FlyFPv(u8 *arg0) {
     f32 temp_f31;
-    if ((M2C_FIELD(arg0, f32 *, 0x3AC) < ((5.0f) + get_pos_x__10TObjPlayerFPv((int) (TObjEneBm3Fly__data_805D50E4)))) && (get_random_float__8TObjFishFv((f32) (M2C_FIELD(arg0, f32 *, 0x42C) - M2C_FIELD(arg0, f32 *, 0x398))) < (1.0f))) {
+    if ((M2C_FIELD(arg0, f32 *, 0x3AC) < ((5.0f) + get_pos_x__10TObjPlayerFPv((int) (TObjEneBm3Fly__data_805D50E4)))) && (fabs_float((f32) (M2C_FIELD(arg0, f32 *, 0x42C) - M2C_FIELD(arg0, f32 *, 0x398))) < (1.0f))) {
         temp_f31 = vec3_dot((void *) (arg0 + 0x430), (void *) (arg0 + 0x3A0));
         get_field_0c__10TObjPlayerFPv((int) (M2C_FIELD(arg0, s32 *, 0x318)));
         if (temp_f31 >= cos_table_lookup()) {
@@ -2080,7 +2080,7 @@ f32 approach_value__13TObjEneBm3FlyFff(f32 farg0, f32 farg1) {
     f32 cap;
 
     temp_f31 = farg1 - farg0;
-    if (get_random_float__8TObjFishFv(temp_f31) < (0.2f)) {
+    if (fabs_float(temp_f31) < (0.2f)) {
         return farg1;
     }
     var_f1 = (0.1f);
@@ -3908,7 +3908,7 @@ void clamp_flight_height__13TObjEneBm3FlyFPv(u8 *arg0) {
     if ((M2C_FIELD(arg0, f32 *, 0x42C) - M2C_FIELD(arg0, f32 *, 0x3C)) < (1.2f)) {
         M2C_FIELD(arg0, f32 *, 0x42C) = (1.2f) + M2C_FIELD(arg0, f32 *, 0x3C);
     }
-#define get_ad_end_text_start__10TObjPlayerFv (*(f64 (*)(f32, f32))&get_ad_end_text_start__10TObjPlayerFv)
+#define atan2_float (*(f64 (*)(f32, f32))&atan2_float)
 #define queue_destruction__7TObjectFv (*(void (*)(void *))&queue_destruction__7TObjectFv)
 #define update_scale__15TObjBoss2TunnelFPv (*(M2C_UNK (*)(void *))&update_scale__15TObjBoss2TunnelFPv)
 #define handle_message__13TObjEneBm3FlyFPvi (*(s32 (*)(void *, void *))&handle_message__13TObjEneBm3FlyFPvi)
@@ -4313,7 +4313,7 @@ void load_resources__13TObjEneBm3FlyFv(void) {
 
 }
 
-#undef get_ad_end_text_start__10TObjPlayerFv
+#undef atan2_float
 #undef queue_destruction__7TObjectFv
 #undef update_scale__15TObjBoss2TunnelFPv
 #undef handle_message__13TObjEneBm3FlyFPvi

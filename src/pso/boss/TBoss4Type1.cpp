@@ -264,7 +264,7 @@ f32 calc_boss4_scale__10TObjPlayerFi(void *);
 void VecCopy__FP3VecPC3Vec(void *, void *);
 O_80053914 * get_player_data__10TObjPlayerFi(s32);
 u16 obj_getField1c(void *);
-f64 get_ad_end_text_start__10TObjPlayerFv(f32, f32);
+f64 atan2_float(f32, f32);
 u8 * dispatch_shared_handler_a__6TLobbyFPv(M2C_UNK);
 s32 get_bml_motion(s32, s32);
 M2C_UNK TObjFish__sub_8001EDB0(s32, s32);
@@ -1279,7 +1279,7 @@ void pick_target_position__13TRaderMapCoreFPvPv(O_80053914 *self, Vec_80053914 *
         return;
     }
     s = lbl_805D8B50 * calc_boss4_scale__10TObjPlayerFi(self);
-    a1 = (s32)(lbl_80437630 * get_ad_end_text_start__10TObjPlayerFv(-self->pos.x, -self->pos.z));
+    a1 = (s32)(lbl_80437630 * atan2_float(-self->pos.x, -self->pos.z));
     b = (s32)(lbl_805D8B54 * calc_boss4_scale__10TObjPlayerFi(self));
     ang = b + a1;
     ang -= 0x6000;

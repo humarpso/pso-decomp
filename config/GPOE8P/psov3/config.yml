@@ -237,6 +237,7 @@ force_active:
   - TObjSinBoard__texture_name
   - TObjSinBoard__texture_surface
   - TParticleCtrl__particle_entry_path
+  - TPlayerBattleCtrl4P__message_table_language0
   - TQuestListChallenge__active_instance
   - TQuestListChallenge__stage_table
   - TRKEXICallBack
@@ -778,6 +779,7 @@ force_active:
   - destroy__12T_OWEHMS_ExpFs
   - destroy__15TWindowHelpItemFPvs
   - destroy__16TBoss3VoloptCoreFPvs
+  - destroy__19TPlayerBattleCtrl4PFs
   - destroy__19TQuestListChallengeFv
   - destroy_arrays__14TPlyDispConfigFii
   - destroy_char_data_array__10TObjPlayerFv
@@ -1138,6 +1140,7 @@ force_active:
   - init_vertex_table__17TObjEneBm3FlyNestFv
   - initialize__16TItemWeaponRifleFlPUc
   - initialize__21TItemProArmorParticleFPvPvPvPvPv
+  - initialize_battle__19TPlayerBattleCtrl4PFv
   - initialize_from_placement__13TObjRaderIconFv
   - initialize_player_data__10TObjPlayerFPv
   - initialize_selection_state__22TAdMultiPlyChrSelectGCFPvi
@@ -1498,6 +1501,7 @@ force_active:
   - open_greeting__22THunterGuildSeqOfflineFPv
   - open_greeting__22TShopEquipmentSequenceFPv
   - open_greeting__26TShopEquipmentGearSequenceFPv
+  - open_intro_window__19TPlayerBattleCtrl4PFv
   - open_item_list_window__20TShopItemTecSequenceFPv
   - open_judgment_window__17TJudgmentSequenceFPv
   - open_keyboard_window__17TAdEnterPPPPassGCFPv
@@ -1782,6 +1786,7 @@ force_active:
   - run_task__19TOChatSensorCaptureFv
   - run_task__19TObjBoss2RaftSplashFv
   - run_task__19TObjBoss7RaftSplashFv
+  - run_task__19TPlayerBattleCtrl4PFv
   - run_task__20TAdChrSelMovePlateGCFv
   - run_task__20TAdGameStartShadowGCFv
   - run_task__20TObjChallenge4PRetryFv
@@ -1891,6 +1896,7 @@ force_active:
   - shop_weapon_stock_target_counts
   - should_show_warning__14TObjBagWarnWinFPv
   - show_guide_button__12TAdDialingGCFPv
+  - show_intro_text__19TPlayerBattleCtrl4PFv
   - show_part__9TObjLukerFii
   - shuffle_shop_pool
   - skip_name_prefix__11TWindowCtrlFPvPv
@@ -2000,6 +2006,7 @@ force_active:
   - update_attack_jump__11TObjEneMojaFv
   - update_attacking__12TObjEneLappyFPv
   - update_backdrop_transition__17TWindowMainMenu1PFPv
+  - update_battle_phase__19TPlayerBattleCtrl4PFv
   - update_battle_sync__6TLobbyFPvi
   - update_blink_state__16TOCakeshopCave01FPvPv
   - update_breakup__15TBoss3VoloptP01FPv
@@ -2048,6 +2055,7 @@ force_active:
   - update_idle_state__11TObjEneMojaFv
   - update_idle_state__12TObjEneLappyFv
   - update_input_number__18TShopGetItemWindowFPv
+  - update_intro_phase__19TPlayerBattleCtrl4PFv
   - update_inward_orbit_point
   - update_item_follow_effect
   - update_judge_confirm__23TShopJudgmentItemWindowFPv
@@ -2088,7 +2096,10 @@ force_active:
   - update_punch_attack__11TObjEneMojaFPv
   - update_random_shake__14TBoss6PlotFalzFPv
   - update_reaction_animation__10TObjPlayerFPv
+  - update_reload_phase__19TPlayerBattleCtrl4PFv
   - update_resistance_rows__15TWindowHelpItemFPv
+  - update_results_phase__19TPlayerBattleCtrl4PFv
+  - update_return_phase__19TPlayerBattleCtrl4PFv
   - update_rise_state__10TBoss4ZakoFv
   - update_rush_attack__15TObjEneMe1GiGueFPv
   - update_scroll_offset__20TWindowSubStatusDispFPv

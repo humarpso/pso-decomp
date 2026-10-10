@@ -28,7 +28,7 @@ extern void* tl_00;
 void* __nw__7TObjectFUl(unsigned long);
 void* __ct__12TQuestThreadFv(void*, void*, s32);
 void set_parent__7TObjectFP7TObject(void*, void*);
-f32 get_random_float__8TObjFishFv(f32);
+f32 fabs_float(f32);
 void set_global_count__12TObjNpcEnemyFi(int);
 void debug_printf_at(int, void *, ...);
 extern s32 lbl_80445DF4[];
@@ -184,7 +184,7 @@ s32 TMotorcycle__vt8(s32 arg0, f32 farg0, f32 farg1) {
 }
 void TMotorcycle__vt14(Mc_80194EC4 *arg0) {
     debug_draw_label__11TObjMesBaseFPv((Mes_80194AEC *)(arg0));
-    arg0->fBC = (s32)get_random_float__8TObjFishFv(arg0->f68);
+    arg0->fBC = (s32)fabs_float(arg0->f68);
     arg0->fBC = arg0->fBC % 2;
     arg0->fBC = lbl_80445DF4[arg0->fBC];
     set_global_count__12TObjNpcEnemyFi(0xFF00FF);

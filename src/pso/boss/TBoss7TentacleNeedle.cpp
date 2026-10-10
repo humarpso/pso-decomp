@@ -9,7 +9,7 @@ typedef s32 M2C_UNK;
 struct Ten_802F08A8;
 extern "C" {
 void VecCopy__FP3VecPC3Vec(void *, void *);
-f64 get_ad_end_text_start__10TObjPlayerFv(f32, f32);
+f64 atan2_float(f32, f32);
 f32 clamp_velocity__15TObjBoss2TunnelFPv(void *);
 s32 approach_angle_limited(s32, s32, s32);
 M2C_UNK play_sound_effect(int, void *, int, int);
@@ -516,7 +516,7 @@ void run_task__14TBoss7TentacleFv(u8 *arg0) {
         VecCopy__FP3VecPC3Vec(&v, arg0 + 0x14C);
         subtract_vector(&v, arg0 + 0x40);
         len = clamp_velocity__15TObjBoss2TunnelFPv(&v);
-        M2C_FIELD(arg0, s32 *, 0x13C) = (s32)(lbl_804740D8[0] * get_ad_end_text_start__10TObjPlayerFv(v.x, v.z)) + 0x8000;
+        M2C_FIELD(arg0, s32 *, 0x13C) = (s32)(lbl_804740D8[0] * atan2_float(v.x, v.z)) + 0x8000;
         VecCopy__FP3VecPC3Vec(&p, arg0 + 0x14C);
         switch (M2C_FIELD(arg0, s32 *, 0x38)) {
         case 0:

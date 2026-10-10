@@ -12,7 +12,7 @@ struct Obj_8032E400 { u8 pad[0x18]; void *vt; u8 pad1[0xC]; u8 col[0xC]; s16 f34
 extern "C" {
 void VecCopy__FP3VecPC3Vec(void *, void *);
 s16 obj_getField1c(void *);
-f32 get_ad_end_text_start__10TObjPlayerFv(f32, f32);
+f32 atan2_float(f32, f32);
 void __ct__7TObjectFP7TObject(void *, void *);
 void copy_pos__14TItemAttackColFPvPv(void *, void *);
 void TItemWpnCardEffect__ct(void *);
@@ -31,7 +31,7 @@ Obj_8032E400 *TObjPlayer__sub_8032E400(Obj_8032E400 *arg0, void *arg1, Ref_8032E
     copy_pos__14TItemAttackColFPvPv(arg0->col, arg2);
     VecCopy__FP3VecPC3Vec(&arg0->pos, arg3);
     VecCopy__FP3VecPC3Vec(&arg0->rpos, &arg2->owner->recs[arg2->idx].pos);
-    arg0->f58 = lbl_804773A8[0] * get_ad_end_text_start__10TObjPlayerFv(arg3->x, arg3->z);
+    arg0->f58 = lbl_804773A8[0] * atan2_float(arg3->x, arg3->z);
     arg0->f50 = arg4;
     TItemWpnCardEffect__ct(arg0);
     return arg0;

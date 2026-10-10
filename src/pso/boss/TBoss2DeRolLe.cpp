@@ -327,7 +327,7 @@ void init_movement__13TBoss2DeRolLeFPv(u8 *arg0);
 u8 update_phase_is_done__13TBoss2DeRolLeFPv(u8 *arg0);
 void TBoss2DeRolLe__sub_800344A4(DeRolLe_800344A4 *self, s32 idx, s32 arg2);
 M2C_UNK VecCopy__FP3VecPC3Vec(int, void *);
-f32 get_random_float__8TObjFishFv(f32);
+f32 fabs_float(f32);
 void TBoss2DeRolLe__sub_80033A80(M2C_UNK arg0, s32 arg1);
 void *create_particle_controller_with_angles(void *, void *, int, int, int);
 M2C_UNK set_flags__11TBoss4Type2FPvUi(void *, u32);
@@ -386,7 +386,7 @@ extern const f32 lbl_805D836C;
 extern const f32 lbl_805D8370;
 void TBoss2DeRolLe__sub_800313F8(DR_800313F8 *o, u32 arg1, s32 arg2);
 M2C_UNK VecCopy__FP3VecPC3Vec(int, void *);
-f32 get_ad_end_text_start__10TObjPlayerFv(f32, f32);
+f32 atan2_float(f32, f32);
 void queue_destruction__7TObjectFv(void *);
 s32 get_flag_b4__21TObjEneMe3ShinowaRealFPv(void *);
 void fill_value_array(s32);
@@ -549,7 +549,7 @@ extern const f32 lbl_805D8428;
 void TBoss2DeRolLe__sub_80032E38(void *arg0, void *arg1);
 f32 calc_boss4_scale__10TObjPlayerFi(void *);
 M2C_UNK VecCopy__FP3VecPC3Vec(int, void *);
-f32 get_random_float__8TObjFishFv(f32);
+f32 fabs_float(f32);
 int play_sound(void* p, int a1);
 void spawn_ceil_junk__13TBoss2DeRolLeFii(s32 arg1, s32 arg2);
 M2C_UNK update_angle__13TBoss2DeRolLeFPv(void *);
@@ -1190,7 +1190,7 @@ void TBoss2DeRolLe__sub_8002FE60(void *arg0, u32 arg1) {
                 subtract_vector(vel, &self->pos);
                 clamp_velocity__15TObjBoss2TunnelFPv(vel);
                 vel->y = 0.0f;
-                self->f6F4 = lbl_80435A10[0] * get_ad_end_text_start__10TObjPlayerFv(vel->x, vel->z);
+                self->f6F4 = lbl_80435A10[0] * atan2_float(vel->x, vel->z);
                 self->speed = 80.0f;
                 spawn_particle_effect_with_flags(&self->pos, 0x126, 0x40);
             }
@@ -1872,7 +1872,7 @@ f32 calc_node_height__13TBoss2DeRolLeFPv(void *);
 s32 TBoss2DeRolLe__sub_80035FCC(void *);
 M2C_UNK update_angle__13TBoss2DeRolLeFPv(void *);
 void set_move_params__13TBoss2DeRolLeFPvffff(void *, f32, f32, f32, f32);
-f32 get_random_float__8TObjFishFv(f32);
+f32 fabs_float(f32);
 void advance_animation_playback(void *);
 f32 calc_elapsed_scaled__9TObjEneDDFv(void *);
 void spawn_ceil_junk__13TBoss2DeRolLeFii(s32 arg1, s32 arg2);
@@ -2259,7 +2259,7 @@ void TBoss2DeRolLe__sub_80031AD4(void *arg0, void *arg1) {
                     o->f704 -= TBoss2DeRolLe__data_805D8300;
                     if (o->f704 <= TBoss2DeRolLe__data_805D827C) {
                         o->f708 = TBoss2DeRolLe__data_805D82BC;
-                        set_move_params__13TBoss2DeRolLeFPvffff(o->f684, TBoss2DeRolLe__data_805D8348, get_random_float__8TObjFishFv(TBoss2DeRolLe__data_805D82E8 - o->pos.z), TBoss2DeRolLe__data_805D8300, TBoss2DeRolLe__data_805D83AC);
+                        set_move_params__13TBoss2DeRolLeFPvffff(o->f684, TBoss2DeRolLe__data_805D8348, fabs_float(TBoss2DeRolLe__data_805D82E8 - o->pos.z), TBoss2DeRolLe__data_805D8300, TBoss2DeRolLe__data_805D83AC);
                         o->f704 = o->pos.z;
                     } else {
                         o->pos.z += o->f704;
@@ -2367,7 +2367,7 @@ void TBoss2DeRolLe__sub_800320B4(void *arg0, void *arg1, int arg2, int arg3) {
                 if (self->frame >= lbl_805D83D0) {
                     self->step = 4;
                     self->vx = lbl_805D83D4 * self->dir;
-                    set_move_params__13TBoss2DeRolLeFPvffff(self->mover, TBoss2DeRolLe__data_805D8348, get_random_float__8TObjFishFv(TBoss2DeRolLe__data_805D8358 - self->z), TBoss2DeRolLe__data_805D8300, TBoss2DeRolLe__data_805D83AC);
+                    set_move_params__13TBoss2DeRolLeFPvffff(self->mover, TBoss2DeRolLe__data_805D8348, fabs_float(TBoss2DeRolLe__data_805D8358 - self->z), TBoss2DeRolLe__data_805D8300, TBoss2DeRolLe__data_805D83AC);
                     self->f694 = -(TBoss2DeRolLe__data_805D8288 * self->vy);
                     self->vy = self->z;
                 }
@@ -3149,7 +3149,7 @@ void update_particle_ctrls__13TBoss2DeRolLeFPv(Obj_80033AA4 *o) {
         if (o->f758 == 0) {
             for (k = 0; k < 3; k++) {
                 Vec_80033AA4 *v = &o->pos[boss2_derolle_particle_node_indices[k]];
-                f32 r = get_random_float__8TObjFishFv(v->y - lbl_805D82E0);
+                f32 r = fabs_float(v->y - lbl_805D82E0);
                 f32 lim = boss2_derolle_particle_limits[k];
                 if (r < TBoss2DeRolLe__data_805D8328 * lim) {
                     ((M2C_UNK (*)(void *, void *))VecCopy__FP3VecPC3Vec)(&t, v);
@@ -3458,7 +3458,7 @@ u8 update_state__13TBoss2DeRolLeFPv(u8 *arg0);
 s32 TBoss2DeRolLe__sub_80035FCC(void *);
 M2C_UNK TBoss2LaserLight__sub_80037474(void *);
 M2C_UNK TBoss2LaserLight__sub_80037480(void *);
-f32 get_random_float__8TObjFishFv(f32);
+f32 fabs_float(f32);
 M2C_UNK init_params__13TBoss2DeRolLeFPvfff(void *, f32, f32, f32);
 
 void free_laser__13TBoss2DeRolLeFPv(void *arg0, s32 _w1) {
@@ -3544,8 +3544,8 @@ u8 TBoss2DeRolLe__sub_80034574(u8 *arg0) {
 
 void init_wave_params__13TBoss2DeRolLeFPv(u8 *arg0) {
     M2C_FIELD(arg0, s32 *, 0x660) = 1;
-    init_params__13TBoss2DeRolLeFPvfff(arg0 + 0x664, TBoss2DeRolLe__data_805D82F0, get_random_float__8TObjFishFv(TBoss2DeRolLe__data_805D83DC - M2C_FIELD(arg0, f32 *, 0x38)), TBoss2DeRolLe__data_805D8330);
-    init_params__13TBoss2DeRolLeFPvfff(arg0 + 0x684, TBoss2DeRolLe__data_805D82D8, get_random_float__8TObjFishFv(TBoss2DeRolLe__data_805D8358 - M2C_FIELD(arg0, f32 *, 0x40)), TBoss2DeRolLe__data_805D8330);
+    init_params__13TBoss2DeRolLeFPvfff(arg0 + 0x664, TBoss2DeRolLe__data_805D82F0, fabs_float(TBoss2DeRolLe__data_805D83DC - M2C_FIELD(arg0, f32 *, 0x38)), TBoss2DeRolLe__data_805D8330);
+    init_params__13TBoss2DeRolLeFPvfff(arg0 + 0x684, TBoss2DeRolLe__data_805D82D8, fabs_float(TBoss2DeRolLe__data_805D8358 - M2C_FIELD(arg0, f32 *, 0x40)), TBoss2DeRolLe__data_805D8330);
 }
 
 extern const f32 TBoss2DeRolLe__data_805D8280;
@@ -3585,8 +3585,8 @@ extern const f32 lbl_805D8434;
 
 void init_move_params__13TBoss2DeRolLeFPv(u8 *arg0) {
     M2C_FIELD(arg0, s32 *, 0x65C) = 0;
-    init_params__13TBoss2DeRolLeFPvfff(arg0 + 0x664, TBoss2DeRolLe__data_805D82F0, get_random_float__8TObjFishFv(-M2C_FIELD(arg0, f32 *, 0x38)), TBoss2DeRolLe__data_805D8330);
-    set_move_params__13TBoss2DeRolLeFPvffff(arg0 + 0x684, TBoss2DeRolLe__data_805D8348, get_random_float__8TObjFishFv(lbl_805D8434 - M2C_FIELD(arg0, f32 *, 0x40)), TBoss2DeRolLe__data_805D8300, TBoss2DeRolLe__data_805D83AC);
+    init_params__13TBoss2DeRolLeFPvfff(arg0 + 0x664, TBoss2DeRolLe__data_805D82F0, fabs_float(-M2C_FIELD(arg0, f32 *, 0x38)), TBoss2DeRolLe__data_805D8330);
+    set_move_params__13TBoss2DeRolLeFPvffff(arg0 + 0x684, TBoss2DeRolLe__data_805D8348, fabs_float(lbl_805D8434 - M2C_FIELD(arg0, f32 *, 0x40)), TBoss2DeRolLe__data_805D8300, TBoss2DeRolLe__data_805D83AC);
 }
 
 extern const f32 TBoss2DeRolLe__data_805D82F0;
@@ -3634,8 +3634,8 @@ u8 TBoss2DeRolLe__sub_80034800(u8 *arg0) {
 
 void init_movement__13TBoss2DeRolLeFPv(u8 *arg0) {
     M2C_FIELD(arg0, s32 *, 0x660) = 0;
-    init_params__13TBoss2DeRolLeFPvfff(arg0 + 0x664, TBoss2DeRolLe__data_805D82F0, get_random_float__8TObjFishFv(TBoss2DeRolLe__data_805D83DC - M2C_FIELD(arg0, f32 *, 0x38)), TBoss2DeRolLe__data_805D8330);
-    set_move_params__13TBoss2DeRolLeFPvffff(arg0 + 0x684, TBoss2DeRolLe__data_805D8348, get_random_float__8TObjFishFv(TBoss2DeRolLe__data_805D8358 - M2C_FIELD(arg0, f32 *, 0x40)), TBoss2DeRolLe__data_805D8300, TBoss2DeRolLe__data_805D83AC);
+    init_params__13TBoss2DeRolLeFPvfff(arg0 + 0x664, TBoss2DeRolLe__data_805D82F0, fabs_float(TBoss2DeRolLe__data_805D83DC - M2C_FIELD(arg0, f32 *, 0x38)), TBoss2DeRolLe__data_805D8330);
+    set_move_params__13TBoss2DeRolLeFPvffff(arg0 + 0x684, TBoss2DeRolLe__data_805D8348, fabs_float(TBoss2DeRolLe__data_805D8358 - M2C_FIELD(arg0, f32 *, 0x40)), TBoss2DeRolLe__data_805D8300, TBoss2DeRolLe__data_805D83AC);
 }
 #pragma push
 #pragma opt_common_subs off

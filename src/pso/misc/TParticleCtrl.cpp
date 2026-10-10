@@ -232,7 +232,7 @@ M2C_UNK set_constant_material_color(int);
 extern Cam_80085EE4 lbl_8058D4F8;
 extern const f32 lbl_805D94C0;
 extern const f32 lbl_805D94C8;
-f32 get_random_float__8TObjFishFv(f32);
+f32 fabs_float(f32);
 u32 csnVector(void *, void *, int);
 f32 vec3_dot(void *, void *);
 f32 vec_squared_length(void *);
@@ -359,9 +359,9 @@ void TParticleCtrl__sub_80085CB0(Ctrl_80085CB0 *self) {
         rotate_vector_by_matrix(0, &t, &out);
         pop_matrix();
         self->f94 = vec3_dot(&out, &d);
-        r = get_random_float__8TObjFishFv(self->f94);
+        r = fabs_float(self->f94);
         if (self->f94 >= 0.0f) {
-            v = get_random_float__8TObjFishFv(lbl_805D94AC - r);
+            v = fabs_float(lbl_805D94AC - r);
             if (v > lbl_805D94B4) {
                 v = lbl_805D94B4;
             }

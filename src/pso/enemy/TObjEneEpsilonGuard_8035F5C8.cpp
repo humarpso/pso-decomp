@@ -797,7 +797,7 @@ struct Induction_8035FAA8_var_r31_2 { u8 bytes[0x2]; };
 struct Induction_8035FAA8_var_r31_2_owner { u8 padding[0x4DC]; Induction_8035FAA8_var_r31_2 elements[4]; };
 
 extern "C" {
-f64 get_ad_end_text_start__10TObjPlayerFv(f32, f32);
+f64 atan2_float(f32, f32);
 M2C_UNK render_anim_model__10TObjPlayerFPvf(void *, f32);
 s32 matrix_mult_vec(int, void *, void *);
 M2C_UNK push_matrix_from(void *);
@@ -1037,7 +1037,7 @@ extern const f32 lbl_805E022C;
 extern const f32 lbl_805E0230;
 extern const f32 lbl_805E0234;
 void TObjEneEpsilonGuard__sub_803616E4(void *arg0_, s32 arg1);
-f64 get_ad_end_text_start__10TObjPlayerFv(f32, f32);
+f64 atan2_float(f32, f32);
 void get_camera_ctrl__9TObjEneDDFPv(void *, void *);
 extern const f64 lbl_80479E90[];
 extern u8 lbl_805439F0[];
@@ -1337,7 +1337,7 @@ void record_camera_angle_samples__19TObjEneEpsilonGuardFv(void) {
     case 0x30:
     case 0x3A:
         get_camera_ctrl__9TObjEneDDFPv(lbl_805439F0, (*(f32 * *)&lbl_805D6F98));
-        *(*(s32 * *)&lbl_805D6F94) = (s32)((*(const f64 *)&lbl_80479E90) * get_ad_end_text_start__10TObjPlayerFv(
+        *(*(s32 * *)&lbl_805D6F94) = (s32)((*(const f64 *)&lbl_80479E90) * atan2_float(
             (*(f32 * *)&lbl_805D6F98)[0] - (*(f32 * *)&lbl_805D6F9C)[0],
             (*(f32 * *)&lbl_805D6F98)[2] - (*(f32 * *)&lbl_805D6F9C)[2]));
         (*(f32 * *)&lbl_805D6F98) += 3;
@@ -1481,7 +1481,7 @@ void TObjEneEpsilonGuard__sub_803606A0(Obj_803606A0 *g6, s32 i) {
         matrix_mult_vec(0, &v, &g6->pts[i]);
     }
     pop_matrix();
-    g6->ang[i] = (s32)(lbl_80479E90[0] * get_ad_end_text_start__10TObjPlayerFv(g6->pts[i].x - g6->pos.x, g6->pts[i].z - g6->pos.z));
+    g6->ang[i] = (s32)(lbl_80479E90[0] * atan2_float(g6->pts[i].x - g6->pos.x, g6->pts[i].z - g6->pos.z));
 }
 
 #pragma push

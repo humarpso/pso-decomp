@@ -43,8 +43,8 @@ struct TNeedleShoot_802A47C8 {
 };
 
 extern "C" {
-f32 get_random_float__8TObjFishFv(f32);
-f32 get_ad_end_text_start__10TObjPlayerFv(f32, f32);
+f32 fabs_float(f32);
+f32 atan2_float(f32, f32);
 void init_collision_body_parts(void *, void *, int);
 void *construct_collider_proxy__10TObjPlayerFPv(void *, void *);
 void *__nw__7TObjectFUl(u32);
@@ -103,9 +103,9 @@ TNeedleShoot_802A47C8 *TNeedleShoot__ct(TNeedleShoot_802A47C8 *self, s32 arg1, V
     self->pos.x = from->x;
     self->pos.y = from->y;
     self->pos.z = from->z;
-    self->fa0 = lbl_80466688[0] * get_ad_end_text_start__10TObjPlayerFv(get_random_float__8TObjFishFv(dy), get_random_float__8TObjFishFv(dz));
-    self->fa4 = lbl_80466688[0] * get_ad_end_text_start__10TObjPlayerFv(dx, dz);
-    self->fa8 = lbl_80466688[0] * get_ad_end_text_start__10TObjPlayerFv(dx, dy);
+    self->fa0 = lbl_80466688[0] * atan2_float(fabs_float(dy), fabs_float(dz));
+    self->fa4 = lbl_80466688[0] * atan2_float(dx, dz);
+    self->fa8 = lbl_80466688[0] * atan2_float(dx, dy);
     self->fb4 = lbl_805DDF6C;
     self->f88 = lbl_805DDF70;
     self->f8c = lbl_805DDF70;

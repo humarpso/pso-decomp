@@ -5,7 +5,7 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 #define M2C_BITWISE(type, expr) ((type)(expr))
 
 extern "C" {
-f32 get_ad_end_text_start__10TObjPlayerFv(f64, f64);
+f32 atan2_float(f64, f64);
 f32 sin_table_lookup(s32);
 f32 cos_table_lookup(s32);
 extern const f64 lbl_8044ECF0;
@@ -43,7 +43,7 @@ s32 step_toward_target__18TWindowEffectPartyFPvff(u8 *arg0, f32 farg0, f32 farg1
     *((f32 *) (((s8 *) arg0) + 0x20)) = farg0;
  do { *((f32 *) (((s8 *) arg0) + 0x24)) = farg1; return 1; } while (0);
   }
-  temp_r31 = (s32) (lbl_8044ECF0 * get_ad_end_text_start__10TObjPlayerFv((f64) temp_f5, (f64) temp_f4));
+  temp_r31 = (s32) (lbl_8044ECF0 * atan2_float((f64) temp_f5, (f64) temp_f4));
   *((f32 *) (((s8 *) arg0) + 0x20)) = (f32) ((lbl_805DCCBC * cos_table_lookup(temp_r31)) + (*((f32 *) (((s8 *) arg0) + 0x20))));
   *((f32 *) (((s8 *) arg0) + 0x24)) = (f32) ((lbl_805DCCBC * sin_table_lookup(temp_r31)) + (*((f32 *) (((s8 *) arg0) + 0x24))));
   return 0;

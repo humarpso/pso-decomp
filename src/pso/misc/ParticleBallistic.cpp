@@ -294,7 +294,7 @@ extern const f32 lbl_805D9540;
 void draw_orbit_particle_sprite(u8 *arg0);
 void VecCopy__FP3VecPC3Vec(void *, const void *);
 s32 is_split_screen();
-f64 get_ad_end_text_start__10TObjPlayerFv(f32, f32);
+f64 atan2_float(f32, f32);
 M2C_UNK disable_if_single_screen__13TParticleCtrlFv();
 M2C_UNK setup_particle_tev(M2C_UNK);
 M2C_UNK load_projected_texture_matrix(f32);
@@ -341,7 +341,7 @@ extern const f32 lbl_805D9520;
 u8 *construct_ballistic_particle(void *a0, void *a1, void *a2, void *a3, s32 arg4, u16 arg5, s16 arg6);
 void VecCopy__FP3VecPC3Vec(void *, const void *);
 s32 is_split_screen();
-f64 get_ad_end_text_start__10TObjPlayerFv(f32, f32);
+f64 atan2_float(f32, f32);
 M2C_UNK disable_if_single_screen__13TParticleCtrlFv();
 M2C_UNK setup_particle_tev(M2C_UNK);
 M2C_UNK load_projected_texture_matrix(f32);
@@ -562,7 +562,7 @@ void draw_ballistic_sprite_particle(Part_800890F4 *p) {
         project_world_to_screen(0, &b, &s1);
         s1.x -= s0.x;
         s1.y -= s0.y;
-        p->angle = lbl_80439528 * get_ad_end_text_start__10TObjPlayerFv(s1.y, s1.x);
+        p->angle = lbl_80439528 * atan2_float(s1.y, s1.x);
         p->sw = p->def->sx * len;
         p->sh = p->def->sy * len;
     } else if (p->def->flags & 0x40) {

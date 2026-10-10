@@ -2643,7 +2643,7 @@ extern const f32 TBoss1Dragon__data_805D7FA4;
 extern const f32 lbl_805D7FA8;
 M2C_UNK set_speed__12TBoss8DragonFPvf(void *, f32);
 extern const f32 lbl_805D7FB0;
-f64 get_ad_end_text_start__10TObjPlayerFv(f32, f32);
+f64 atan2_float(f32, f32);
 M2C_UNK saveCurrentDestination__12TBoss1DragonFv(void *);
 M2C_UNK restorePosition__12TBoss1DragonFv(void *);
 void TBoss1Dragon__sub_80028AFC(u8 *);
@@ -2690,7 +2690,7 @@ M2C_UNK update_velocity__9TObjEneDDFPv(void *);
 M2C_UNK direction_to_rotation_xz(void *, void *, void *);
 extern const f32 lbl_805D8074;
 s32 VecCopy__FP3VecPC3Vec(s32, s32);
-f64 get_ad_end_text_start__10TObjPlayerFv(f32, f32);
+f64 atan2_float(f32, f32);
 s32 isV2Mode__12TBoss1DragonFv(void);
 void TBoss1Dragon__sub_800277D8(u8 *arg0);
 void clear_work__12TBoss1DragonFi(s32 arg0);
@@ -3555,7 +3555,7 @@ void handle_fall_state__12TBoss1DragonFPvUi(u8 *arg0, u32 arg1) {
         ext->dir.y = TBoss1Dragon__data_805D7F28;
         ext->dir.z = -self->positionZ;
         ((void (*)(void *))clamp_velocity__15TObjBoss2TunnelFPv)(arg0 + 0x3A0);
-        M2C_FIELD(arg0, s32 *, 0x60) = (s32) (TBoss1Dragon__data_80435378 * get_ad_end_text_start__10TObjPlayerFv(ext->dir.x, ext->dir.z));
+        M2C_FIELD(arg0, s32 *, 0x60) = (s32) (TBoss1Dragon__data_80435378 * atan2_float(ext->dir.x, ext->dir.z));
         set_field_3c__12TBoss8DragonFPv(M2C_FIELD(arg0, s32 *, 0x6D8));
         return;
     case 2:
@@ -4502,9 +4502,9 @@ void update_emergence_state__12TBoss1DragonFv(u8 *arg0, u32 arg1) {
                     f32 k = lbl_805D7FC8;
                     k += newton_sqrtf(lbl_805D7FCC);
                     M2C_FIELD(arg0, f32 *, 0x87C) = len / k;
-                    M2C_FIELD(arg0, s32 *, 0x5C) = (s32) (TBoss1Dragon__data_80435378 * get_ad_end_text_start__10TObjPlayerFv(M2C_FIELD(arg0, f32 *, 0x87C), lbl_805D7FD0));
+                    M2C_FIELD(arg0, s32 *, 0x5C) = (s32) (TBoss1Dragon__data_80435378 * atan2_float(M2C_FIELD(arg0, f32 *, 0x87C), lbl_805D7FD0));
                 }
-                M2C_FIELD(arg0, s32 *, 0x60) = (s32) (TBoss1Dragon__data_80435378 * get_ad_end_text_start__10TObjPlayerFv(v->x, v->z));
+                M2C_FIELD(arg0, s32 *, 0x60) = (s32) (TBoss1Dragon__data_80435378 * atan2_float(v->x, v->z));
                 M2C_FIELD(arg0, f32 *, 0x880) = lbl_805D7FD0;
                 v->x *= M2C_FIELD(arg0, f32 *, 0x87C);
                 v->z *= M2C_FIELD(arg0, f32 *, 0x87C);
@@ -4655,7 +4655,7 @@ void TBoss1Dragon__sub_80023A2C(u8 *arg0, u32 arg1) {
                 M2C_FIELD(arg0, s32 *, 0x864) = 1;
                 set_field_3c__12TBoss8DragonFPv((int) (M2C_FIELD(arg0, s32 *, 0x6D8)));
                 restorePosition__12TBoss1DragonFv((void *) (arg0));
-                M2C_FIELD(arg0, s32 *, 0x874) = (s32) (TBoss1Dragon__data_80435378 * get_ad_end_text_start__10TObjPlayerFv((f32) (M2C_FIELD(arg0, f32 *, 0x38)), (f32) (M2C_FIELD(arg0, f32 *, 0x40))));
+                M2C_FIELD(arg0, s32 *, 0x874) = (s32) (TBoss1Dragon__data_80435378 * atan2_float((f32) (M2C_FIELD(arg0, f32 *, 0x38)), (f32) (M2C_FIELD(arg0, f32 *, 0x40))));
                 return;
             }
             break;
@@ -4750,7 +4750,7 @@ void update_burrow_outward_run__12TBoss1DragonFPvUi(u8 *arg0, u32 arg1) {
         break;
     case 0:
         update_velocity__9TObjEneDDFPv(arg0);
-        M2C_FIELD(arg0, s32 *, 0x60) = approach_angle_limited(M2C_FIELD(arg0, s32 *, 0x60), (s32) (TBoss1Dragon__data_80435378 * get_ad_end_text_start__10TObjPlayerFv(M2C_FIELD(arg0, f32 *, 0x3A0), M2C_FIELD(arg0, f32 *, 0x3A8))), 0x600);
+        M2C_FIELD(arg0, s32 *, 0x60) = approach_angle_limited(M2C_FIELD(arg0, s32 *, 0x60), (s32) (TBoss1Dragon__data_80435378 * atan2_float(M2C_FIELD(arg0, f32 *, 0x3A0), M2C_FIELD(arg0, f32 *, 0x3A8))), 0x600);
         M2C_FIELD(arg0, f32 *, 0x38) += M2C_FIELD(arg0, f32 *, 0x880) * sin_table_lookup(M2C_FIELD(arg0, s32 *, 0x60));
         M2C_FIELD(arg0, f32 *, 0x40) += M2C_FIELD(arg0, f32 *, 0x880) * cos_table_lookup(M2C_FIELD(arg0, s32 *, 0x60));
         TBoss1Dragon__sub_800277D8(arg0);
@@ -4834,7 +4834,7 @@ void update_burrow_inward_run__12TBoss1DragonFPvUii(u8 *arg0, u32 arg1, s32 arg2
                 M2C_FIELD(arg0, s32 *, 0x864) = 1;
                 set_field_1c__12TBoss8DragonFPv((int) (M2C_FIELD(arg0, s32 *, 0x6D8)));
                 restorePosition__12TBoss1DragonFv((void *) (arg0));
-                M2C_FIELD(arg0, s32 *, 0x60) = (s32) ((s32) (TBoss1Dragon__data_80435378 * get_ad_end_text_start__10TObjPlayerFv((f32) (M2C_FIELD(arg0, f32 *, 0x38)), (f32) (M2C_FIELD(arg0, f32 *, 0x40)))) + 0x8000);
+                M2C_FIELD(arg0, s32 *, 0x60) = (s32) ((s32) (TBoss1Dragon__data_80435378 * atan2_float((f32) (M2C_FIELD(arg0, f32 *, 0x38)), (f32) (M2C_FIELD(arg0, f32 *, 0x40)))) + 0x8000);
                 M2C_FIELD(arg0, f32 *, 0x3A0) = sin_table_lookup((int) (M2C_FIELD(arg0, s32 *, 0x60)));
                 M2C_FIELD(arg0, f32 *, 0x3A8) = cos_table_lookup((int) (M2C_FIELD(arg0, s32 *, 0x60)));
             }
@@ -4901,7 +4901,7 @@ void update_dive_state__12TBoss1DragonFv(u8 *arg0, u32 arg1) {
         F(f32, 0x888) = TBoss1Dragon__data_805D7F28;
         F(s32, 0x8A8) = 0;
         F(s32, 0x878) = 0;
-        F(s32, 0x874) = TBoss1Dragon__data_80435378 * get_ad_end_text_start__10TObjPlayerFv(F(f32, 0x3A0), F(f32, 0x3A8));
+        F(s32, 0x874) = TBoss1Dragon__data_80435378 * atan2_float(F(f32, 0x3A0), F(f32, 0x3A8));
         F(f32, 0x3AC) = F(f32, 0x3AC) + TBoss1Dragon__data_805D7FF8;
         init_air_turn__12TBoss1DragonFv(arg0, F(s32, 0x874));
         k = -(13.0f / lbl_805D4AF8);
@@ -4982,7 +4982,7 @@ void update_dive_state__12TBoss1DragonFv(u8 *arg0, u32 arg1) {
             F(f32, 0x5DC) = F(f32, 0x5DC) + F(f32, 0x888);
             F(f32, 0x5D8) = F(f32, 0x3C) + F(f32, 0x5DC);
             if (F(f32, 0x888) < TBoss1Dragon__data_805D7F28) {
-                a = -(s32)(TBoss1Dragon__data_80435378 * get_ad_end_text_start__10TObjPlayerFv(F(f32, 0x888), F(f32, 0x880)));
+                a = -(s32)(TBoss1Dragon__data_80435378 * atan2_float(F(f32, 0x888), F(f32, 0x880)));
                 if (a > F(s32, 0x5C)) {
                     F(s32, 0x5C) = a;
                 }
@@ -5310,7 +5310,7 @@ void update_air_fire_state__12TBoss1DragonFv(u8 *arg0, u32 arg1) {
         switch (M2C_FIELD(arg0, s32 *, 0x864)) {
         case 0:
             if (select_air_fire_target__12TBoss1DragonFv((s32)((s32)arg0), (void *)(tgt)) != 0) {
-                M2C_FIELD(arg0, s32 *, 0x874) = (s32)(TBoss1Dragon__data_80435378 * get_ad_end_text_start__10TObjPlayerFv(tgt->x - M2C_FIELD(arg0, f32 *, 0x38), tgt->z - M2C_FIELD(arg0, f32 *, 0x40)));
+                M2C_FIELD(arg0, s32 *, 0x874) = (s32)(TBoss1Dragon__data_80435378 * atan2_float(tgt->x - M2C_FIELD(arg0, f32 *, 0x38), tgt->z - M2C_FIELD(arg0, f32 *, 0x40)));
             } else {
                 M2C_FIELD(arg0, s32 *, 0x874) = get_random_scaled__9TObjEneDDFv(arg0);
                 tgt->x = lbl_805D8044 * sin_table_lookup(M2C_FIELD(arg0, s32 *, 0x874));
@@ -5452,7 +5452,7 @@ void update_flight_state__12TBoss1DragonFv(u8 *arg0, u32 arg1) {
             break;
         }
         VecCopy__FP3VecPC3Vec((s32)base, (s32)(arg0 + 0x38));
-        var = angle_diff_s16(M2C_FIELD(arg0, s32 *, 0x60), (s32)(TBoss1Dragon__data_80435378 * get_ad_end_text_start__10TObjPlayerFv(M2C_FIELD(arg0, f32 *, 0x3A0), M2C_FIELD(arg0, f32 *, 0x3A8))));
+        var = angle_diff_s16(M2C_FIELD(arg0, s32 *, 0x60), (s32)(TBoss1Dragon__data_80435378 * atan2_float(M2C_FIELD(arg0, f32 *, 0x3A0), M2C_FIELD(arg0, f32 *, 0x3A8))));
         if (var >= 0) {
             M2C_FIELD(arg0, s32 *, 0x65C) = 1;
         } else {
@@ -5714,7 +5714,7 @@ void update_breath_attack_state__12TBoss1DragonFPvUi(u8 *arg0, u32 arg1) {
         case 0:
             update_velocity__9TObjEneDDFPv((void *) (arg0));
             calc_target_vector__12TBoss1DragonFPv(arg0);
-            M2C_FIELD(arg0, s32 *, 0x60) = approach_angle_limited((int) (M2C_FIELD(arg0, s32 *, 0x60)), ((s32) (TBoss1Dragon__data_80435378 * get_ad_end_text_start__10TObjPlayerFv((f32) (M2C_FIELD(arg0, f32 *, 0x3A0)), (f32) (M2C_FIELD(arg0, f32 *, 0x3A8))))), (int) (0xA0));
+            M2C_FIELD(arg0, s32 *, 0x60) = approach_angle_limited((int) (M2C_FIELD(arg0, s32 *, 0x60)), ((s32) (TBoss1Dragon__data_80435378 * atan2_float((f32) (M2C_FIELD(arg0, f32 *, 0x3A0)), (f32) (M2C_FIELD(arg0, f32 *, 0x3A8))))), (int) (0xA0));
             M2C_FIELD(arg0, s32 *, 0x60) = (s32) (s16) M2C_FIELD(arg0, s32 *, 0x60);
             if (get_flag_b4__21TObjEneMe3ShinowaRealFPv((void *) (arg0)) != 0) {
                 M2C_FIELD(arg0, s16 *, 0xB8) = 5;

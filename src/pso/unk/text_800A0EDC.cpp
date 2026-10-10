@@ -354,7 +354,7 @@ s32 obj_is_hit_receivable();
 s32 obj_testFlags30(s32, s32);
 s16 obj_getField1c(void *, f32);
 M2C_UNK obj_clearFlags30(void *, s32);
-f32 get_ad_end_text_start__10TObjPlayerFv(f32, f32);
+f32 atan2_float(f32, f32);
 M2C_UNK queue_destruction__7TObjectFv(void *);
 int TObjFish__sub_8001EDB0(void*, void*);
 int get_bml_model(void*);
@@ -927,9 +927,9 @@ void step_along_ground__10TObjPlayerFPv(u8 *arg0) {
     ((void (*)(void *, void *))vec3_add_to)(&pos, &vel);
     hit = ((u8 * (*)(void *, void *, s32))csnVector)(arg0 + 0x2FC, &pos, -1);
     if (hit != NULL) {
-        a = lbl_8043A6B0[0] * ((f64 (*)(f32, f32))get_ad_end_text_start__10TObjPlayerFv)(*(f32 *)(arg0 + 0x308), *(f32 *)(arg0 + 0x310));
+        a = lbl_8043A6B0[0] * ((f64 (*)(f32, f32))atan2_float)(*(f32 *)(arg0 + 0x308), *(f32 *)(arg0 + 0x310));
         q = *(u8 **)(hit + 4);
-        b = lbl_8043A6B0[0] * ((f64 (*)(f32, f32))get_ad_end_text_start__10TObjPlayerFv)(*(f32 *)(q + 0xC), *(f32 *)(q + 0x14));
+        b = lbl_8043A6B0[0] * ((f64 (*)(f32, f32))atan2_float)(*(f32 *)(q + 0xC), *(f32 *)(q + 0x14));
         *(s32 *)(arg0 + 0x3A8) = b - (0x8000 - angle_diff_s16(a, b));
     }
     if (lbl_805D997C * (f32)rand() < lbl_805D9980) {
@@ -1706,7 +1706,7 @@ u8 *TObjPlayer__sub_800A34E8(u8 *arg0, u8 *arg1, s32 arg2, s32 arg3) {
     M2C_FIELD(arg0, f32 *, 0xB0) = lbl_805D99D8;
     scale_velocity__19TObjGyaranzoMissileFPvf((void *) (arg0 + 0xAC), lbl_805D5008);
     M2C_FIELD(arg0, s32 *, 0xB8) = 0;
-    M2C_FIELD(arg0, s32 *, 0xBC) = (s32) (lbl_8043A6F8[0] * get_ad_end_text_start__10TObjPlayerFv(M2C_FIELD(arg0, f32 *, 0xAC), M2C_FIELD(arg0, f32 *, 0xB4))) + 0x4000;
+    M2C_FIELD(arg0, s32 *, 0xBC) = (s32) (lbl_8043A6F8[0] * atan2_float(M2C_FIELD(arg0, f32 *, 0xAC), M2C_FIELD(arg0, f32 *, 0xB4))) + 0x4000;
     M2C_FIELD(arg0, s32 *, 0xC0) = 0x4000;
     M2C_FIELD(arg0, s32 *, 0xD0) = spawn_particle_effect_with_rotation((void *) (arg0 + 0x38), (void *) (arg0 + 0xB8), M2C_FIELD(arg0, s32 *, 0xCC), 0x42);
     {

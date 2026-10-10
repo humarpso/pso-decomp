@@ -582,7 +582,7 @@ void obj_clearFlags30(void *, u32);
 M2C_UNK obj_setFlags30(void *, M2C_UNK);
 s32 get_current_floor();
 s32 get_field_3e4__10TObjPlayerFPv(int);
-f32 get_random_float__8TObjFishFv(f32);
+f32 fabs_float(f32);
 u8 *get_enemy_entity(u32);
 f32 horizontal_distance_squared(void *, void *);
 void clear_player_status_flag__10TObjPlayerFPviUi(void *, s32, u32);
@@ -628,7 +628,7 @@ extern const f32 lbl_805DEF88;
 extern const f32 lbl_805DEF8C;
 void render_body__14TObjEneDolmOlmFPv(Ene_803021AC *arg0);
 f32 calc_boss4_scale__10TObjPlayerFi();
-f32 get_random_float__8TObjFishFv(f32);
+f32 fabs_float(f32);
 f32 horizontal_distance_squared(void *, void *);
 M2C_UNK VecCopy__FP3VecPC3Vec(void *, void *);
 s32 copy_target_state__14TObjEnePanarmsFPvPv(void *, int);
@@ -645,7 +645,7 @@ M2C_UNK apply_actor_gravity(void *, int, f32);
 s32 update_angle__10TObjPlayerFPviPv(void *, s32, void *);
 s32 is_locally_controlled__10TObjPlayerFPv(void *);
 s32 obj_getField1c(void *);
-f64 get_ad_end_text_start__10TObjPlayerFv(f32, f32);
+f64 atan2_float(f32, f32);
 s32 check_player_flag1__6TLobbyFPv(void *);
 s32 angle_difference_abs(s32, s32);
 s32 objInBand__FP7GameObjf(void *, f32);
@@ -1319,7 +1319,7 @@ void check_target_in_range__14TObjEneDolmOlmFPv(u8 *arg0) {
             temp_r3_2 = get_player_by_client_id(id);
             if (temp_r3_2 != NULL) {
                 temp_f31 = horizontal_distance_squared((void *) (temp_r3_2 + 0x38), (void *) (arg0 + 0x38));
-                var_f30 = get_random_float__8TObjFishFv(M2C_FIELD(temp_r3_2, f32 *, 0x3C) - M2C_FIELD(arg0, f32 *, 0x3C));
+                var_f30 = fabs_float(M2C_FIELD(temp_r3_2, f32 *, 0x3C) - M2C_FIELD(arg0, f32 *, 0x3C));
                 if (get_field_3e4__10TObjPlayerFPv((int) (temp_r3_2)) == get_current_floor()) {
                     if ((temp_f31 < (M2C_FIELD(M2C_FIELD(TObjEneDolmOlm__data_805D6A0C, M2C_UNK *, (M2C_FIELD(arg0, s32 *, 0x368) * 4)), f32 *, 0x10) * M2C_FIELD(M2C_FIELD(TObjEneDolmOlm__data_805D6A0C, M2C_UNK *, (M2C_FIELD(arg0, s32 *, 0x368) * 4)), f32 *, 0x10))) && (((f32 (*)(void *)) calc_boss4_scale__10TObjPlayerFi)(arg0) < M2C_FIELD(arg0, f32 *, 0x3D0))) {
                         var_r29 = 1;
@@ -1329,7 +1329,7 @@ void check_target_in_range__14TObjEneDolmOlmFPv(u8 *arg0) {
         } else if (id < 0x4000U) {
             temp_r3_3 = get_enemy_entity(id);
             if (temp_r3_3 != NULL) {
-                var_f30 = get_random_float__8TObjFishFv(M2C_FIELD(temp_r3_3, f32 *, 0x3C) - M2C_FIELD(arg0, f32 *, 0x3C));
+                var_f30 = fabs_float(M2C_FIELD(temp_r3_3, f32 *, 0x3C) - M2C_FIELD(arg0, f32 *, 0x3C));
             }
         }
         if (var_r29 == 1) {
@@ -1456,7 +1456,7 @@ M2C_UNK TObjEneDolmOlm__sub_8030177C(void *arg0_) {
         } else {
             Obj_8030177C *p = arg0->target;
             if (check_player_flag1__6TLobbyFPv(p) != 0) {
-                if (get_random_float__8TObjFishFv(p->pos.y - arg0->pos.y) < TObjEneDolmOlm__data_805DEF6C) {
+                if (fabs_float(p->pos.y - arg0->pos.y) < TObjEneDolmOlm__data_805DEF6C) {
                     arg0->f326 = 5;
                     arg0->f328 = 1;
                     if (TObjEneDolmOlm__data_805DEF5C < ((f32 (*)(void *))calc_boss4_scale__10TObjPlayerFi)(arg0)) {
@@ -1503,7 +1503,7 @@ M2C_UNK TObjEneDolmOlm__sub_8030177C(void *arg0_) {
             Param_8030177C *t;
             VecCopy__FP3VecPC3Vec(&v, &arg0->target->f2fc);
             subtract_vector(&v, &arg0->f2fc);
-            a = angle_difference_abs(arg0->rotY, (s32)(lbl_804750C8[0] * get_ad_end_text_start__10TObjPlayerFv(v.x, v.z)));
+            a = angle_difference_abs(arg0->rotY, (s32)(lbl_804750C8[0] * atan2_float(v.x, v.z)));
             d = horizontal_distance_squared(&arg0->target->pos, &arg0->pos);
             t = (*(Param_8030177C ** *)&TObjEneDolmOlm__data_805D6A0C)[arg0->kind];
             if (a < t->angle && d < t->range * t->range) {

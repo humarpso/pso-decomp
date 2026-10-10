@@ -951,8 +951,8 @@ f32 get_collision_body_radius(void *, s32);
 M2C_UNK pop_matrix();
 M2C_UNK enemy_wander_home(void *, int, f32, f32, f32);
 M2C_UNK VecCopy__FP3VecPC3Vec(void *, void *);
-f32 get_random_float__8TObjFishFv(f32);
-f64 get_ad_end_text_start__10TObjPlayerFv(f32, f32);
+f32 fabs_float(f32);
+f64 atan2_float(f32, f32);
 M2C_UNK link_chain_nodes__10TObjPlayerFPvPvPv(void *, void *, void *);
 M2C_UNK link_into_group_chain__10TObjPlayerFPv(void *);
 s32 is_action_available__10TObjPlayerFv(void *);
@@ -1111,7 +1111,7 @@ M2C_UNK apply_actor_gravity(void *, int, f32);
 M2C_UNK update_angle__10TObjPlayerFPviPv(void *, void *, void *);
 M2C_UNK VecCopy__FP3VecPC3Vec(void *, void *);
 s32 get_field_0c__10TObjPlayerFPv(s32);
-f64 get_ad_end_text_start__10TObjPlayerFv(f32, f32);
+f64 atan2_float(f32, f32);
 s32 angle_difference_abs(s32, s32);
 s32 objInBand__FP7GameObjf(void *, f32);
 M2C_UNK advance_animation_playback();
@@ -1507,7 +1507,7 @@ void update_turn_toward_target__10TObjPlayerFPv(Player_800C5B10 *arg0) {
             Vec_800C5B10 d;
             VecCopy__FP3VecPC3Vec(&d, &arg0->target->pos2);
             subtract_vector(&d, &arg0->pos2);
-            ang = angle_difference_abs(arg0->field_60, (s32)(lbl_8043BC88 * get_ad_end_text_start__10TObjPlayerFv(d.x, d.z)));
+            ang = angle_difference_abs(arg0->field_60, (s32)(lbl_8043BC88 * atan2_float(d.x, d.z)));
             if (d.x * d.x + d.z * d.z < lbl_805DA030 || arg0->field_34C == 0) {
                 arg0->field_326 = 3;
                 arg0->field_328 = 1;
@@ -1598,7 +1598,7 @@ void beast_idle_update(u8 *arg0) {
         VecCopy__FP3VecPC3Vec(arg0 + 0x44, arg0 + 0x38);
         VecCopy__FP3VecPC3Vec(&lbl_8050BEE0, arg0 + 0x50);
         subtract_vector(&lbl_8050BEE0, arg0 + 0x38);
-        angle = lbl_8043BC88 * get_ad_end_text_start__10TObjPlayerFv(lbl_8050BEE0.x, lbl_8050BEE0.z);
+        angle = lbl_8043BC88 * atan2_float(lbl_8050BEE0.x, lbl_8050BEE0.z);
         lbl_8050BF00.x = lbl_8050BF00.y = lbl_805DA034;
         lbl_8050BF00.z = M2C_FIELD(arg0, f32 *, 0x394);
         push_matrix_from(identity_matrix);
@@ -1612,11 +1612,11 @@ void beast_idle_update(u8 *arg0) {
             M2C_FIELD(arg0, s32 *, 0x60) = approach_angle_limited(M2C_FIELD(arg0, s32 *, 0x60), angle, M2C_FIELD(M2C_FIELD(arg0, u8 **, 0x350), s32 *, 8));
             goto end;
         }
-        r = get_random_float__8TObjFishFv(lbl_8050BEE0.z);
-        if (get_random_float__8TObjFishFv(lbl_8050BEE0.x) < r) {
-            angle = lbl_8043BC88 * get_ad_end_text_start__10TObjPlayerFv(lbl_8050BEE0.x, lbl_805DA034);
+        r = fabs_float(lbl_8050BEE0.z);
+        if (fabs_float(lbl_8050BEE0.x) < r) {
+            angle = lbl_8043BC88 * atan2_float(lbl_8050BEE0.x, lbl_805DA034);
         } else {
-            angle = lbl_8043BC88 * get_ad_end_text_start__10TObjPlayerFv(lbl_805DA034, lbl_8050BEE0.z);
+            angle = lbl_8043BC88 * atan2_float(lbl_805DA034, lbl_8050BEE0.z);
         }
         lbl_8050BF00.x = lbl_8050BF00.y = lbl_805DA034;
         lbl_8050BF00.z = M2C_FIELD(arg0, f32 *, 0x394);
@@ -1631,11 +1631,11 @@ void beast_idle_update(u8 *arg0) {
             M2C_FIELD(arg0, s32 *, 0x60) = approach_angle_limited(M2C_FIELD(arg0, s32 *, 0x60), angle, M2C_FIELD(M2C_FIELD(arg0, u8 **, 0x350), s32 *, 8));
             goto end;
         }
-        r = get_random_float__8TObjFishFv(lbl_8050BEE0.z);
-        if (get_random_float__8TObjFishFv(lbl_8050BEE0.x) < r) {
-            angle2 = lbl_8043BC88 * get_ad_end_text_start__10TObjPlayerFv(lbl_805DA034, lbl_8050BEE0.z);
+        r = fabs_float(lbl_8050BEE0.z);
+        if (fabs_float(lbl_8050BEE0.x) < r) {
+            angle2 = lbl_8043BC88 * atan2_float(lbl_805DA034, lbl_8050BEE0.z);
         } else {
-            angle2 = lbl_8043BC88 * get_ad_end_text_start__10TObjPlayerFv(lbl_8050BEE0.x, lbl_805DA034);
+            angle2 = lbl_8043BC88 * atan2_float(lbl_8050BEE0.x, lbl_805DA034);
         }
         lbl_8050BF00.x = lbl_8050BF00.y = lbl_805DA034;
         lbl_8050BF00.z = M2C_FIELD(arg0, f32 *, 0x394);

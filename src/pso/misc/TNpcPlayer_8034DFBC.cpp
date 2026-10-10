@@ -195,7 +195,7 @@ void send_inter_level_warp_all__10TNpcPlayerFi(s32 arg0);
 void VecCopy__FP3VecPC3Vec(void *, void *);
 s32 obj_isState3_324();
 s32 obj_testFlags30(void *, int);
-f32 get_ad_end_text_start__10TObjPlayerFv(f32, f32);
+f32 atan2_float(f32, f32);
 void send_6x3E__10TNpcPlayerFi(void *);
 void init_6x3E_packet__10TNpcPlayerFPv(void *);
 s32 get_player_by_client_id(s32);
@@ -226,12 +226,12 @@ void handle_6x69_npc_control(Pkt_8034E814 *pkt);
 s32 get_player_by_client_id(s32);
 void VecCopy__FP3VecPC3Vec(void *, void *);
 s32 obj_testFlags30(void *, int);
-f32 get_ad_end_text_start__10TObjPlayerFv(f32, f32);
+f32 atan2_float(f32, f32);
 void send_6x3E__10TNpcPlayerFi(void *);
 void init_6x3E_packet__10TNpcPlayerFPv(void *);
 extern const f64 lbl_80478CB0[];
 void quest_player_face_actor(u16 src, u16 dst);
-f32 get_ad_end_text_start__10TObjPlayerFv(f32, f32);
+f32 atan2_float(f32, f32);
 u16 get_action_flags__10TNpcPlayerFPv(s32);
 s32 get_player_by_client_id(s32);
 void send_6x55_intra_map_warp(u16, f32 *, s32);
@@ -288,7 +288,7 @@ void send_warp_toward_player__10TNpcPlayerFUsPv(u16 arg0, f32 *arg1) {
     if (me == NULL || arg0 == 0) return;
     if (get_action_flags__10TNpcPlayerFPv(npc) != 0xFFFF) {
         send_6x55_intra_map_warp(arg0, arg1,
-            (s32)(lbl_80478CB0[0] * get_ad_end_text_start__10TObjPlayerFv(arg1[0] - me->x, arg1[2] - me->z)));
+            (s32)(lbl_80478CB0[0] * atan2_float(arg1[0] - me->x, arg1[2] - me->z)));
     }
 }
 
@@ -327,7 +327,7 @@ void quest_player_face_actor(u16 src, u16 dst) {
     }
     init_6x3E_packet__10TNpcPlayerFPv(&pkt);
     obj_testFlags30(a, 0x100000);
-    heading = (s32) (lbl_80478CB0[0] * get_ad_end_text_start__10TObjPlayerFv(c->x - a->x, c->z - a->z));
+    heading = (s32) (lbl_80478CB0[0] * atan2_float(c->x - a->x, c->z - a->z));
     pkt.id = src;
     VecCopy__FP3VecPC3Vec(&pkt.x, &a->x);
     pkt.arg = heading;
@@ -372,7 +372,7 @@ void quest_player_look_at_partner(u16 src) {
     if (obj_testFlags30(a, 0x100000) != 0) {
         flag = 1;
     }
-    heading = (s32) (lbl_80478CB0[0] * get_ad_end_text_start__10TObjPlayerFv(c->x - a->x, c->z - a->z));
+    heading = (s32) (lbl_80478CB0[0] * atan2_float(c->x - a->x, c->z - a->z));
     pkt.id = src;
     VecCopy__FP3VecPC3Vec(&pkt.x, &a->x);
     pkt.arg = heading;

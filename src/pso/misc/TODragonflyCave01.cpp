@@ -175,7 +175,7 @@ extern const f32 lbl_805DB57C;
 extern const f32 lbl_805DB58C;
 extern const f32 lbl_805DB590;
 void update_idle__11TODragonflyFi(s32 arg0);
-f32 get_ad_end_text_start__10TObjPlayerFv(f64, f64);
+f32 atan2_float(f64, f64);
 s32 VecCopy__FP3VecPC3Vec(void *, void *);
 s32 check_camera_distance__10TObjPlayerFi(void *);
 s32 rand(void);
@@ -302,7 +302,7 @@ s32 pick_random_destination__11TODragonflyFPvf(u8 *arg0, f32 farg0) {
     if (check_camera_distance__10TObjPlayerFi((void *) (&lbl_8050BEE0.value)) == 1) {
         M2C_FIELD(arg0, s32 *, 0xAC) = 1;
         M2C_FIELD(arg0, s32 *, 0xCC) = 0;
-        M2C_FIELD(arg0, s32 *, 0x60) = (s32) (lbl_804411B0 * get_ad_end_text_start__10TObjPlayerFv((f64) M2C_FIELD(&lbl_8050BEE0.value, f32 *, 0), (f64) M2C_FIELD(&lbl_8050BEE0.value, f32 *, 8)));
+        M2C_FIELD(arg0, s32 *, 0x60) = (s32) (lbl_804411B0 * atan2_float((f64) M2C_FIELD(&lbl_8050BEE0.value, f32 *, 0), (f64) M2C_FIELD(&lbl_8050BEE0.value, f32 *, 8)));
         M2C_FIELD(arg0, f32 *, 0xE0) = (f32) (M2C_FIELD(&lbl_8050BEE0.value, f32 *, 0) * M2C_FIELD(arg0, f32 *, 0x70));
         M2C_FIELD(arg0, f32 *, 0xE4) = (f32) (M2C_FIELD(&lbl_8050BEE0.value, f32 *, 4) * M2C_FIELD(arg0, f32 *, 0x70));
         M2C_FIELD(arg0, f32 *, 0xE8) = (f32) (M2C_FIELD(&lbl_8050BEE0.value, f32 *, 8) * M2C_FIELD(arg0, f32 *, 0x70));

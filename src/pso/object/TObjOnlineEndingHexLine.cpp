@@ -97,7 +97,7 @@ extern s32 lbl_805D3FA0;
 extern M2C_UNK __vt__23TObjOnlineEndingHexMove[];
 
 int rand(void);
-f32 get_random_float__8TObjFishFv(f32);
+f32 fabs_float(f32);
 s32 angle_difference_abs(int, int);
 s32 angle_diff_s16(s32, s32);
 u32 get_player_by_client_id(int);
@@ -391,8 +391,8 @@ void update_line_params__23TObjOnlineEndingHexLineFv(void) {
         if (d * online_ending_hex_line_state.a < lbl_805DE958) {
             online_ending_hex_line_state.a = lbl_805DE958;
         } else {
-            t = get_random_float__8TObjFishFv(online_ending_hex_line_state.a);
-            if (get_random_float__8TObjFishFv(d) < t) {
+            t = fabs_float(online_ending_hex_line_state.a);
+            if (fabs_float(d) < t) {
                 CUR_802E5CB0.a = online_ending_hex_line_param.a;
                 online_ending_hex_line_state.a = lbl_805DE958;
             } else {
@@ -405,8 +405,8 @@ void update_line_params__23TObjOnlineEndingHexLineFv(void) {
         if (d * online_ending_hex_line_state.b < lbl_805DE958) {
             online_ending_hex_line_state.b = lbl_805DE958;
         } else {
-            t = get_random_float__8TObjFishFv(online_ending_hex_line_state.b);
-            if (get_random_float__8TObjFishFv(d) < t) {
+            t = fabs_float(online_ending_hex_line_state.b);
+            if (fabs_float(d) < t) {
                 CUR_802E5CB0.b = online_ending_hex_line_param.b;
                 online_ending_hex_line_state.b = lbl_805DE958;
             } else {
@@ -428,8 +428,8 @@ void update_line_params__23TObjOnlineEndingHexLineFv(void) {
         if (d * online_ending_hex_line_state.d < lbl_805DE958) {
             online_ending_hex_line_state.d = lbl_805DE958;
         } else {
-            t = get_random_float__8TObjFishFv(online_ending_hex_line_state.d);
-            if (get_random_float__8TObjFishFv(d) < t) {
+            t = fabs_float(online_ending_hex_line_state.d);
+            if (fabs_float(d) < t) {
                 CUR_802E5CB0.d = online_ending_hex_line_param.d;
                 online_ending_hex_line_state.d = lbl_805DE958;
             } else {

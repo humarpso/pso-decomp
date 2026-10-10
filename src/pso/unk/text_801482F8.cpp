@@ -317,7 +317,7 @@ extern const f32 lbl_805DB1DC;
 void update_wandering__11TObjNpcBaseFPv(u8 *arg0);
 void VecCopy__FP3VecPC3Vec(void *, void *);
 u16 obj_getField1c(void *);
-f64 get_ad_end_text_start__10TObjPlayerFv(f32, f32);
+f64 atan2_float(f32, f32);
 M2C_UNK queue_destruction__7TObjectFv(void *);
 s32 check_player_flag1__6TLobbyFPv(void *);
 M2C_UNK update_active_player__11TCameraCtrlFv(void);
@@ -441,7 +441,7 @@ void update_conversation__11TObjNpcBaseFPv(u8 *arg0) {
     case 0:
         VecCopy__FP3VecPC3Vec(&d, F(u8 *, 0x2A8) + 0x38);
         subtract_vector(&d, arg0 + 0x38);
-        ang = lbl_8043F550[0] * get_ad_end_text_start__10TObjPlayerFv(d.x, d.z);
+        ang = lbl_8043F550[0] * atan2_float(d.x, d.z);
         switch (F(s32, 0x3AC)) {
         case 0x3E9:
         case 0x3EA:

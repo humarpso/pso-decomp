@@ -311,7 +311,7 @@ extern const f32 lbl_805D9540;
 void draw_orbit_particle_sprite(u8 *arg0);
 void VecCopy__FP3VecPC3Vec(void *, const void *);
 s32 is_split_screen();
-f32 get_ad_end_text_start__10TObjPlayerFv(f32, f32);
+f32 atan2_float(f32, f32);
 M2C_UNK disable_if_single_screen__13TParticleCtrlFv();
 M2C_UNK setup_particle_tev(M2C_UNK);
 M2C_UNK load_projected_texture_matrix(f32);

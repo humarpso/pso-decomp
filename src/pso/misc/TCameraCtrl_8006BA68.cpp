@@ -233,12 +233,12 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 #define M2C_BITWISE(type, expr) ((type)(expr))
 
 extern "C" {
-f32 get_random_float__8TObjFishFv(f32);
+f32 fabs_float(f32);
 extern const f32 lbl_805D901C;
-f32 get_random_float__8TObjFishFv(f32);
+f32 fabs_float(f32);
 extern const f32 lbl_805D9018;
 s32 approach_camera_scalar(f32 *arg0, f32 *arg1, f32 farg0);
-f32 get_ad_end_text_start__10TObjPlayerFv(f64, f64);
+f32 atan2_float(f64, f64);
 f32 newton_sqrtf(f32);
 extern const f64 lbl_804383D0;
 void direction_to_pitch_yaw(u8 *arg0, s32 *arg1, s32 *arg2);
@@ -262,7 +262,7 @@ s32 approach_camera_scalar(f32 *arg0, f32 *arg1, f32 farg0) {
   f32 temp_f0;
   f32 new_var;
   f32 temp_f1;
-  temp_f1 = get_random_float__8TObjFishFv((*arg0) - (*arg1));
+  temp_f1 = fabs_float((*arg0) - (*arg1));
   temp_f0 = (lbl_805D9018 * temp_f1) * (new_var = farg0);
   if (temp_f1 > temp_f0)
   {
@@ -274,7 +274,7 @@ s32 approach_camera_scalar(f32 *arg0, f32 *arg1, f32 farg0) {
 }
 
 void step_camera_scalar(const f32* current, const f32* target, f32* output, f32 step) {
-    f32 distance = get_random_float__8TObjFishFv(*current - *target);
+    f32 distance = fabs_float(*current - *target);
     if (lbl_805D901C == distance || distance <= step) {
         *output = *target;
         return;
@@ -291,11 +291,11 @@ void direction_to_pitch_yaw(u8 *arg0, s32 *arg1, s32 *arg2) {
   f32 new_var;
   f32 temp_f0;
   f32 temp_f1;
-  *arg2 = (s32) (lbl_804383D0 * get_ad_end_text_start__10TObjPlayerFv(-(*((f32 *) (((s8 *) arg0) + 0))), -(*((f32 *) (((s8 *) arg0) + 8)))));
+  *arg2 = (s32) (lbl_804383D0 * atan2_float(-(*((f32 *) (((s8 *) arg0) + 0))), -(*((f32 *) (((s8 *) arg0) + 8)))));
   temp_f1 = *((f32 *) (((s8 *) arg0) + 0));
   temp_f0 = *((f32 *) (((s8 *) arg0) + 8));
   new_var = newton_sqrtf((temp_f1 * temp_f1) + (temp_f0 * temp_f0));
-  *arg1 = (s32) (lbl_804383D0 * get_ad_end_text_start__10TObjPlayerFv((f64) (*((f32 *) (((s8 *) arg0) + 4))), new_var));
+  *arg1 = (s32) (lbl_804383D0 * atan2_float((f64) (*((f32 *) (((s8 *) arg0) + 4))), new_var));
 }
 
 BOOL approach_camera_vector(Vec *current, Vec *target, f32 rate) {

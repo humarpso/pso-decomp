@@ -114,7 +114,7 @@ extern const f32 lbl_805DDAA8;
 extern const f32 lbl_805DDAAC;
 extern const f32 lbl_805DDB80;
 void run_task__16TObjCMAssignMenuFv(void *arg0);
-f32 get_random_float__8TObjFishFv(f32);
+f32 fabs_float(f32);
 void TCameraCtrl__sub_80068EF0(void);
 void restore_full_screen_view__11TCameraCtrlFv(void);
 const char *TQuestVmDownLoadServer__sub_8006EF6C(s32);
@@ -146,7 +146,7 @@ s32 TAdSinglePlyChrSelectGC__sub_802905B8();
 M2C_UNK reset_proportions__15TChCrCharSelectFv();
 M2C_UNK rand();
 extern const f32 lbl_805DDC10;
-f32 get_random_float__8TObjFishFv(f32);
+f32 fabs_float(f32);
 s32 is_active__23TAdSinglePlyChrSelectGCFv();
 void TObjCMMainMenu__sub_80298DA0(int a0);
 f32 get_ratio__16TObjCMProportionFv();
@@ -420,7 +420,7 @@ struct M_802983F8 { u8 pad[0x3c]; f32 f3c; };
 
 struct M_80298450 { u8 pad[0x38]; f32 f38; };
 
-f32 get_random_float__8TObjFishFv(f32);
+f32 fabs_float(f32);
 M2C_UNK queue_destruction__7TObjectFv(void *);
 M2C_UNK copy_vec2__28TWindowSubSymbolChatPartsSetFPvPv(void *, int);
 void copy_player_visual_record(void *, void *);
@@ -730,7 +730,7 @@ void TObjCMProportion::run_task() {
         var_f30 = lbl_805DDAE4 * temp_f1_3;
         temp_f2 = sp8 * -cos_table_lookup(spC);
         var_f29 = lbl_805DDAE4 * temp_f2;
-        if (lbl_805DDA90 == (get_random_float__8TObjFishFv(var_f30) + get_random_float__8TObjFishFv(var_f29))) {
+        if (lbl_805DDA90 == (fabs_float(var_f30) + fabs_float(var_f29))) {
             if (((s32 (*)(s32))TObjCMProportion__sub_8029914C)(0x80) != 0) {
                 var_f30 = lbl_805DDAE8;
             } else if (((s32 (*)(s32))TObjCMProportion__sub_8029914C)(0x40) != 0) {
@@ -1270,7 +1270,7 @@ void render__16TObjCMAssignMenuFv(Menu_80296928 *self) {
             if (i == self->cursor) {
                 sprite = 0x20;
                 if (creation_resource_ready_state != 2) {
-                    s = alpha * (0.2f * get_random_float__8TObjFishFv(sin_table_lookup(self->frame << 12)) + 0.2f);
+                    s = alpha * (0.2f * fabs_float(sin_table_lookup(self->frame << 12)) + 0.2f);
                 } else {
                     s = alpha * pulse;
                 }
@@ -1741,7 +1741,7 @@ void TObjCMMainMenu__sub_80297B18(Menu_80297B18 *m) {
     f32 step;
     f32 y;
     if (m->ids[m->sel] == 9 && validate_character_name__14TObjCMMainMenuFPv(m->f1C) == 0) {
-        color = ((u32)(TObjCMMainMenu__data_805DDB44 * (lbl_805DDA70 - lbl_805DDBA8 * get_random_float__8TObjFishFv(sin_table_lookup(m->pulse << 10)))) << 24) | 0xFFFFFF;
+        color = ((u32)(TObjCMMainMenu__data_805DDB44 * (lbl_805DDA70 - lbl_805DDBA8 * fabs_float(sin_table_lookup(m->pulse << 10)))) << 24) | 0xFFFFFF;
         s = get_scale__14TObjCMMainMenuFv();
         step = lbl_805DDBAC * s;
         y = lbl_805DDBA4 * s - step;
@@ -1841,7 +1841,7 @@ void update_random_proportion_action__14TObjCMMainMenuFPv(void * _w0) {
         case 1:
             temp_f31 = get_right_trigger_ratio__16TObjCMProportionFv();
             temp_f31_2 = get_ratio__16TObjCMProportionFv() - temp_f31;
-            if (get_random_float__8TObjFishFv(temp_f31_2) > lbl_805DDBF4) {
+            if (fabs_float(temp_f31_2) > lbl_805DDBF4) {
                 TObjCMMainMenu__sub_80298DA0((s32) (lbl_805DDBF8 * temp_f31_2));
             }
             break;

@@ -231,7 +231,7 @@ extern const f32 lbl_805D9540;
 void draw_orbit_particle_sprite(u8 *arg0);
 void VecCopy__FP3VecPC3Vec(void *, const void *);
 s32 is_split_screen();
-f32 get_ad_end_text_start__10TObjPlayerFv(f32, f32);
+f32 atan2_float(f32, f32);
 M2C_UNK disable_if_single_screen__13TParticleCtrlFv();
 M2C_UNK setup_particle_tev(M2C_UNK);
 M2C_UNK load_projected_texture_matrix(f32);
@@ -431,7 +431,7 @@ void draw_radial_sprite_particle(u8 *arg0) {
         project_world_to_screen(0, &end, &s2);
         s2.x = s2.x - s1.x;
         s2.y = s2.y - s1.y;
-        M2C_FIELD(arg0, s16 *, 0x96) = (s16)(lbl_80439560[0] * get_ad_end_text_start__10TObjPlayerFv(s2.y, s2.x));
+        M2C_FIELD(arg0, s16 *, 0x96) = (s16)(lbl_80439560[0] * atan2_float(s2.y, s2.x));
         M2C_FIELD(arg0, f32 *, 0x88) = M2C_FIELD(M2C_FIELD(arg0, u8 **, 0x20), f32 *, 0x60) * len;
         M2C_FIELD(arg0, f32 *, 0x8C) = M2C_FIELD(M2C_FIELD(arg0, u8 **, 0x20), f32 *, 0x64) * len;
     } else {

@@ -74,7 +74,7 @@ void TObjBoss2Tunnel__sub_802F273C(void);
 M2C_UNK TObjBoss2Tunnel__sub_8007DEE4(void *, f32, f32, f32, f32, f32);
 s32 advance_phase__15TObjBoss2TunnelFPv(void *, void *);
 s32 check_both__15TObjBoss2TunnelFi(s32 arg0);
-f32 get_random_float__8TObjFishFv(f32);
+f32 fabs_float(f32);
 s32 is_phase_active__15TObjBoss2TunnelFv(s32 _w0);
 f32 update_position__15TObjBoss2TunnelFPv(void *);
 extern const f32 lbl_805DEC98;
@@ -321,7 +321,7 @@ void update_phase_motion__15TObjBoss2TunnelFPv(u8 *arg0) {
     case 1:
         if (check_both__15TObjBoss2TunnelFi((s32)(arg0)) == 0) {
             M2C_FIELD(arg0, s32 *, 0x4C) = 3;
-            sp8 = get_random_float__8TObjFishFv((f32) (M2C_FIELD(arg0, f32 *, 0x54)));
+            sp8 = fabs_float((f32) (M2C_FIELD(arg0, f32 *, 0x54)));
             TObjBoss2Tunnel__sub_8007DEE4((void *) (arg0 + 0x20), (f32) (lbl_805DECC4), (f32) (lbl_805DED00), (f32) (M2C_FIELD(arg0, f32 *, 0x54)), (f32) (-update_position__15TObjBoss2TunnelFPv((void *) (arg0 + 0x20))), (f32) (lbl_805DECF8));
             return;
         }

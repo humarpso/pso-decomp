@@ -288,7 +288,7 @@ u16 obj_getField1c(void *);
 M2C_UNK obj_clearFlags30(void *, int);
 M2C_UNK obj_setFlags30(void *, M2C_UNK);
 int read_be16_field2__10TObjPlayerFPv(void* a0 = 0);
-f32 get_random_float__8TObjFishFv(f32);
+f32 fabs_float(f32);
 f32 newton_sqrtf(f32);
 M2C_UNK queue_destruction__7TObjectFv(void *);
 s32 dispatch_shared_handler_a__6TLobbyFPv(s32);
@@ -636,7 +636,7 @@ void TBoss3Volopt__sub_8003CE38(s32 arg0) {
         if (check_value_equals__13TQuestColCtrlFPvi(p, lbl_805D2ECC) != 0) continue;
         if (check_value_equals__13TQuestColCtrlFPvi(p, TODoorVoShip__class_name) != 0) continue;
         if (!(M2C_FIELD(M2C_FIELD(p, u8 **, 0xA4), u32 *, 0x18) & 0x20000)) continue;
-        if (get_random_float__8TObjFishFv(M2C_FIELD(p, f32 *, 0x40) - base) > lbl_805D865C) {
+        if (fabs_float(M2C_FIELD(p, f32 *, 0x40) - base) > lbl_805D865C) {
             V3_8003CC18 pos = *(V3_8003CC18 *)(p + 0x38);
             pos.z += (f32)((arg0 != 0) ? -5000 : 5000);
             if (arg0 == 1) {

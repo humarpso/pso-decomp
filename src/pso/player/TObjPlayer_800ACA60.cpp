@@ -589,7 +589,7 @@ M2C_UNK copy_position_if_valid__10TObjPlayerFii(void *, Vec_800AE18C *);
 f32 calc_xz_distance_sq__10TObjPlayerFiUiPv(void *, void *, Vec_800AE18C *);
 s32 get_field_0c__10TObjPlayerFPv(u32);
 f32 get_pos_x__10TObjPlayerFPv(u32);
-f32 get_ad_end_text_start__10TObjPlayerFv(f32, f32);
+f32 atan2_float(f32, f32);
 s32 angle_difference_abs(s32, s32);
 extern const f64 lbl_8043B0C8[];
 extern u32 *lbl_805D50CC;
@@ -649,7 +649,7 @@ M2C_UNK VecCopy__FP3VecPC3Vec(void *, void *);
 u8 *get_player_data__10TObjPlayerFi(s32);
 s32 obj_getField1c(void *);
 M2C_UNK subtract_vector(void *, void *);
-f32 get_ad_end_text_start__10TObjPlayerFv(f32, f32);
+f32 atan2_float(f32, f32);
 extern const f64 lbl_8043B0C8[];
 
 M2C_UNK rotate_matrix_y(int, int);
@@ -716,7 +716,7 @@ s32 obj_is_hit_receivable();
 u8 *get_player_data__10TObjPlayerFi(s32);
 s32 obj_getField1c(void *);
 s32 is_split_screen();
-f32 get_ad_end_text_start__10TObjPlayerFv(f32, f32);
+f32 atan2_float(f32, f32);
 f32 newton_sqrtf(f32);
 M2C_UNK set_shake_preset__11TCameraCtrlFi(int);
 
@@ -773,7 +773,7 @@ void create_ex__11TTecGiBartaFPvPvPvPv(void *, void *, s32, s32);
 void create_ex__8TTecFoieFPvPvPvPv(void *, void *, void *, s32);
 void create__8TTecFoieFPvPvPvPv(void *, void *, s32, s32);
 f32 newton_sqrtf(f32);
-f32 get_ad_end_text_start__10TObjPlayerFv(f32, f32);
+f32 atan2_float(f32, f32);
 void spawn_directional_particle(void *, void *, s32);
 
 M2C_UNK update_collisions__10TObjPlayerFPv(void *);
@@ -1106,10 +1106,10 @@ M2C_UNK update_technique_state__11TObjEneMojaFv(void *self_800AD3D8) {
                 {
                     f32 xx = dir.x * dir.x;
                     f32 yy = dir.y * dir.y;
-                    ang.x = (s32) (lbl_8043B0C8[0] * get_ad_end_text_start__10TObjPlayerFv(dir.z, newton_sqrtf(xx + yy)));
+                    ang.x = (s32) (lbl_8043B0C8[0] * atan2_float(dir.z, newton_sqrtf(xx + yy)));
                 }
                 ang.y = 0;
-                ang.z = -(s32) (lbl_8043B0C8[0] * get_ad_end_text_start__10TObjPlayerFv(dir.x, dir.y));
+                ang.z = -(s32) (lbl_8043B0C8[0] * atan2_float(dir.x, dir.y));
                 spawn_directional_particle(&pos, &ang, 0xCC);
                 ((M2C_UNK (*)(void *, void *, int, int))play_sound_effect)(((void * (*)(void *, int))copy_target_state__14TObjEnePanarmsFPvPv)(self, 0x3E405), &pos, 0, 0);
             }
@@ -1269,7 +1269,7 @@ s32 select_attack__11TObjEneMojaFPv(u8 *arg0) {
         M2C_FIELD(arg0, u32 *, 0x318) != 0 && !(M2C_FIELD(t, u32 *, 0x30) & 0x02000800)) {
         dist = calc_xz_distance_sq__10TObjPlayerFiUiPv(arg0, t, &d);
         angd = angle_difference_abs(M2C_FIELD(arg0, s32 *, 0x60),
-                                    (s32)(lbl_8043B0C8[0] * get_ad_end_text_start__10TObjPlayerFv(d.x, d.z)));
+                                    (s32)(lbl_8043B0C8[0] * atan2_float(d.x, d.z)));
         c = M2C_FIELD(M2C_FIELD(arg0, u8 **, 0x2A8), u8 **, 0xA4);
         if (c != NULL) {
             radius = M2C_FIELD(c, f32 *, 0xC);
@@ -1426,7 +1426,7 @@ void update_appearance_drop__11TObjEneMojaFv(Moja_800AE450 *self) {
         VecCopy__FP3VecPC3Vec(&lbl_8050BEE0, &self->home);
         subtract_vector(&lbl_8050BEE0, &self->pos);
         self->angle = approach_angle_limited(self->angle,
-            (s32)(lbl_8043B0C8[0] * get_ad_end_text_start__10TObjPlayerFv(lbl_8050BEE0.x, lbl_8050BEE0.z)),
+            (s32)(lbl_8043B0C8[0] * atan2_float(lbl_8050BEE0.x, lbl_8050BEE0.z)),
             self->turn->step);
         if (self->angle >= self->turn->step) {
             return;
@@ -1521,7 +1521,7 @@ void update_appearance_jump__11TObjEneMojaFv(Moja_800AE7F4 *self) {
         VecCopy__FP3VecPC3Vec(&self->from, &self->pos);
         VecCopy__FP3VecPC3Vec(&delta, &self->dest);
         subtract_vector(&delta, &self->pos);
-        self->angle = (s32)(lbl_8043B0C8[0] * get_ad_end_text_start__10TObjPlayerFv(delta.x, delta.z));
+        self->angle = (s32)(lbl_8043B0C8[0] * atan2_float(delta.x, delta.z));
         self->speed = newton_sqrtf(delta.x * delta.x + delta.z * delta.z);
         ticks = lbl_805D9C04 / self->fC8;
         self->speed = self->speed / ticks;

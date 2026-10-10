@@ -185,7 +185,7 @@ M2C_UNK calc_wall_slide_destination(void *, s32, f32, f32, f32);
 s16 approach_angle_limited(s32, s32, s32);
 int VecCopy__FP3VecPC3Vec(void*);
 M2C_UNK calc_shot_position__9TObjEneDDFPvPvfff(void *, s32, f32, f32, f32);
-f64 get_ad_end_text_start__10TObjPlayerFv(f32, f32);
+f64 atan2_float(f32, f32);
 
 void TObjEneEpsilon__sub_800B92AC(u8 *arg0, s32 arg1, f32 farg0) {
     M2C_UNK sp8;
@@ -244,7 +244,7 @@ void fire_attack_c__14TObjEneEpsilonFPviif(void *arg0, s32 arg1, s32 arg2, f32 f
 extern const f64 lbl_8043B698;
 
 void update_angle__14TObjEneEpsilonFPvi(void *arg0, s32 arg1) {
-    M2C_FIELD(arg0, s32 *, 0x60) = (s32) approach_angle_limited(M2C_FIELD(arg0, s32 *, 0x60), (s32) (lbl_8043B698 * get_ad_end_text_start__10TObjPlayerFv(M2C_FIELD(arg0, f32 *, 0x3A0), M2C_FIELD(arg0, f32 *, 0x3A8))), arg1);
+    M2C_FIELD(arg0, s32 *, 0x60) = (s32) approach_angle_limited(M2C_FIELD(arg0, s32 *, 0x60), (s32) (lbl_8043B698 * atan2_float(M2C_FIELD(arg0, f32 *, 0x3A0), M2C_FIELD(arg0, f32 *, 0x3A8))), arg1);
 }
 
 s32 update_death_check__14TObjEneEpsilonFPv(void *arg0) {

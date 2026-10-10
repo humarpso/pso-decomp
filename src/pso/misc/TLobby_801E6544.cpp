@@ -2041,7 +2041,7 @@ u16 obj_getField1c(void *);
 s32 is_split_screen();
 s32 get_current_floor();
 s32 get_field_3e4__10TObjPlayerFPv(u8 *);
-f64 get_ad_end_text_start__10TObjPlayerFv(void *, f32, f32);
+f64 atan2_float(void *, f32, f32);
 void broadcast__6TLobbyFPv(void *);
 void TLobby__sub_8001DE30(void *);
 void copy_all_entries__6TLobbyFPv(void *);
@@ -3490,7 +3490,7 @@ void update_card_window_slot__6TLobbyFv(void) {
 void TLobby__sub_801E85B4(void) {
     u8 temp_r31;
     temp_r31 = (u8) M2C_FIELD(&(*(RecoveredGlobal_801E85B4_TLobby__data_80512220 *)&TLobby__quest_argument_stack).value, s32 *, 0);
-    M2C_FIELD(((*(s32 *)&TLobby__script_reg_array) + ((temp_r31 * 4) & 0x3FC)), s32 *, 0) = (s32) (lbl_80449CC0 * get_ad_end_text_start__10TObjPlayerFv((void *) (&(*(RecoveredGlobal_801E85B4_TLobby__data_80512220 *)&TLobby__quest_argument_stack).value), (f32) (M2C_FIELD(&(*(RecoveredGlobal_801E85B4_TLobby__data_80512220 *)&TLobby__quest_argument_stack).value, f32 *, 4)), (f32) (M2C_FIELD(&(*(RecoveredGlobal_801E85B4_TLobby__data_80512220 *)&TLobby__quest_argument_stack).value, f32 *, 8))));
+    M2C_FIELD(((*(s32 *)&TLobby__script_reg_array) + ((temp_r31 * 4) & 0x3FC)), s32 *, 0) = (s32) (lbl_80449CC0 * atan2_float((void *) (&(*(RecoveredGlobal_801E85B4_TLobby__data_80512220 *)&TLobby__quest_argument_stack).value), (f32) (M2C_FIELD(&(*(RecoveredGlobal_801E85B4_TLobby__data_80512220 *)&TLobby__quest_argument_stack).value, f32 *, 4)), (f32) (M2C_FIELD(&(*(RecoveredGlobal_801E85B4_TLobby__data_80512220 *)&TLobby__quest_argument_stack).value, f32 *, 8))));
 }
 #pragma pop
 

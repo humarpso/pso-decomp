@@ -22,7 +22,7 @@ typedef struct Obj_8005063C {
 } Obj_8005063C;
 
 extern "C" {
-f32 get_random_float__8TObjFishFv(f32);
+f32 fabs_float(f32);
 extern const f32 lbl_805D8A30;
 extern const f32 lbl_805D8A58;
 extern const f32 lbl_805D8A5C;
@@ -76,7 +76,7 @@ void fn_8005076C(u8 *arg0) {
     } else {
         M2C_FIELD(arg0, f32 *, 0x34C) = (f32) (M2C_FIELD(arg0, f32 *, 0x34C) - lbl_805D8A58);
     }
-    if (get_random_float__8TObjFishFv(temp_f1) < lbl_805D8A5C) {
+    if (fabs_float(temp_f1) < lbl_805D8A5C) {
         M2C_FIELD(arg0, s32 *, 0x368) = 1;
     }
 }

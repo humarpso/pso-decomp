@@ -274,7 +274,7 @@ extern const f32 lbl_805D9540;
 void draw_orbit_particle_sprite(u8 *arg0);
 void VecCopy__FP3VecPC3Vec(void *, const void *);
 s32 is_split_screen();
-f32 get_ad_end_text_start__10TObjPlayerFv(f32, f32);
+f32 atan2_float(f32, f32);
 M2C_UNK disable_if_single_screen__13TParticleCtrlFv();
 M2C_UNK setup_particle_tev(M2C_UNK);
 M2C_UNK load_projected_texture_matrix(f32);
@@ -323,7 +323,7 @@ void mark_active__13TParticleCtrlFPv(void *);
 f32 horizontal_distance_squared(void *, void *);
 u8 *get_player_by_client_id(s32);
 f32 sin_table_lookup(s32);
-f32 get_random_float__8TObjFishFv(f32);
+f32 fabs_float(f32);
 extern GenEntry_8008767C particle_ctrl_generator_table[];
 extern u8 *camera_ctrl_instance;
 extern void *tl_07;
@@ -396,7 +396,7 @@ void run_task__13TParticleCtrlFv(Ctrl_8008767C *self) {
         self->accum += def->amp * self->rate;
     } else {
         self->angle += (s32)(182.04445f * def->freq);
-        self->accum += self->rate * (self->def->amp * get_random_float__8TObjFishFv(sin_table_lookup(self->angle)));
+        self->accum += self->rate * (self->def->amp * fabs_float(sin_table_lookup(self->angle)));
     }
     if (camera_ctrl_instance != NULL && !(self->flags & 0x40)) {
         if (is_split_screen() != 0) {

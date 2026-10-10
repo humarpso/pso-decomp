@@ -49,7 +49,7 @@ struct Stack_800EAEE8 {
 extern "C" {
 void calc_distance_to_client__10TObjPlayerFiUsUi(void *, u16, void *);
 M2C_UNK VecCopy__FP3VecPC3Vec(void *, void *);
-f64 get_ad_end_text_start__10TObjPlayerFv(f32, f32);
+f64 atan2_float(f32, f32);
 u32 csnLookAt(void *, void *);
 s32 angle_difference_abs(s32, s32);
 s32 approach_angle_limited(s32, s32, s32);
@@ -403,7 +403,7 @@ u16 find_nearest_visible_player(void *, void *, f32);
 void calc_distance_to_client__10TObjPlayerFiUsUi(void *, u16, void *);
 M2C_UNK VecCopy__FP3VecPC3Vec(void *, void *);
 s32 add_flags_2e4__10TObjPlayerFPvUi(void *, int);
-f64 get_ad_end_text_start__10TObjPlayerFv(f32, f32);
+f64 atan2_float(f32, f32);
 void queue_destruction__7TObjectFv(void *);
 f32 * dispatch_shared_handler_a__6TLobbyFPv(s32);
 u8 * get_bml_motion(s32, s32);
@@ -1142,7 +1142,7 @@ void draw_stretched_segment__10TObjPlayerFPvPvPvf(u8 *arg0, Vec_800E82B8 *arg1, 
         p.z += k * d.z;
         post_translate_matrix(&p);
     }
-    rotate_matrix_y(0, (s32)(lbl_8043D280[0] * get_ad_end_text_start__10TObjPlayerFv(d.x, d.z)));
+    rotate_matrix_y(0, (s32)(lbl_8043D280[0] * atan2_float(d.x, d.z)));
     {
         f32 r = lbl_805DA67C - t;
         scale_matrix(0, lbl_805DA67C, lbl_805DA678, r * len / lbl_805DA66C);
@@ -1484,7 +1484,7 @@ void TObjPlayer__sub_800E9090(Bomb_800E9090 *self) {
     VecCopy__FP3VecPC3Vec(&c, &self->vel);
     vec3_add_to(&c, &a);
     c.y += lbl_805DA6E8;
-    ang = (*(const f64 *)&lbl_8043D280) * ((f32 (*)(f32, f32))get_ad_end_text_start__10TObjPlayerFv)(a.x, a.z);
+    ang = (*(const f64 *)&lbl_8043D280) * ((f32 (*)(f32, f32))atan2_float)(a.x, a.z);
     b.x = lbl_805DA6EC;
     b.y = lbl_805DA6F0;
     b.z = lbl_805DA6EC * vector_length(&a) / lbl_805DA6F4;
@@ -1706,7 +1706,7 @@ void TObjPlayer__sub_800E9BCC(Obj_800E9BCC *o) {
     if (o->f3CC != 0xFFFF) {
         calc_distance_to_client__10TObjPlayerFiUsUi((void *)(o), (u16)(o->f3CC), (void *)(v));
     }
-    t = (s32) (lbl_8043D280[0] * get_ad_end_text_start__10TObjPlayerFv(v[0], v[2]));
+    t = (s32) (lbl_8043D280[0] * atan2_float(v[0], v[2]));
     o->f60 = approach_angle_limited(o->f60, t, 0x200);
     if (angle_difference_abs(o->f60, t) < 0x200) {
         o->f390 = 0;
@@ -1743,7 +1743,7 @@ void TObjPlayer__sub_800E9DC8(Obj_800E9DC8 *arg0) {
     s32 t;
     arg0->f60 = arg0->f60 + arg0->f3C4;
     if (find_nearest_enemy_with_flag__15TObjEneSlimeOneFPvif(arg0, sp, lbl_805DA728) != 0xFFFF) {
-        t = (s32) (lbl_8043D280[0] * get_ad_end_text_start__10TObjPlayerFv(sp[0], sp[2]));
+        t = (s32) (lbl_8043D280[0] * atan2_float(sp[0], sp[2]));
         if (angle_difference_abs(arg0->f60, t) < 0x444) {
             arg0->f60 = t;
             r = 1;
@@ -1782,7 +1782,7 @@ void TObjPlayer__sub_800E9EFC(u8 *arg0) {
     if (M2C_FIELD(arg0, s32 *, 0x3CC) == 0xFFFF) {
         r = find_nearest_visible_player(arg0, &sp14, lbl_805DA72C);
         if (r != 0xFFFF &&
-            angle_difference_abs(M2C_FIELD(arg0, s32 *, 0x60), (s32)(lbl_8043D280[0] * ((f32 (*)(f32, f32))get_ad_end_text_start__10TObjPlayerFv)(sp14.x, sp14.z))) < 0x1C71) {
+            angle_difference_abs(M2C_FIELD(arg0, s32 *, 0x60), (s32)(lbl_8043D280[0] * ((f32 (*)(f32, f32))atan2_float)(sp14.x, sp14.z))) < 0x1C71) {
             M2C_FIELD(arg0, s32 *, 0x39C) = 0;
             M2C_FIELD(arg0, s32 *, 0x3CC) = r;
         }
@@ -1796,7 +1796,7 @@ void TObjPlayer__sub_800E9EFC(u8 *arg0) {
             sp8.y = 0.0f;
             sp8.z = 0.0f;
             calc_distance_to_client__10TObjPlayerFiUsUi(arg0, M2C_FIELD(arg0, s32 *, 0x3CC), &sp8);
-            M2C_FIELD(arg0, s32 *, 0x60) = approach_angle_limited(M2C_FIELD(arg0, s32 *, 0x60), (s32)(lbl_8043D280[0] * ((f32 (*)(f32, f32))get_ad_end_text_start__10TObjPlayerFv)(sp8.x, sp8.z)), 0x280);
+            M2C_FIELD(arg0, s32 *, 0x60) = approach_angle_limited(M2C_FIELD(arg0, s32 *, 0x60), (s32)(lbl_8043D280[0] * ((f32 (*)(f32, f32))atan2_float)(sp8.x, sp8.z)), 0x280);
         }
         if (M2C_FIELD(arg0, s32 *, 0x390) > n) {
             set_motion_state__15TObjEneSlimeOneFPvi((void *)M2C_FIELD(arg0, s32 *, 0x388), (void *)0);
