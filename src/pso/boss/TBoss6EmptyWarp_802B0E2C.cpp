@@ -23,9 +23,9 @@ int render__15TBoss6EmptyWarpFv(void* p);
 void end_cutscene_camera__14TBoss6PlotFalzFPv(void);
 void __dl__7TObjectFPv(void *);
 void __dt__7TObjectFv(void *, int);
-int fn_802B0DCC(void*);
+int draw_empty_warp_overlay(void*);
 
-int render__15TBoss6EmptyWarpFv(void* p) { return fn_802B0DCC(p); }
+int render__15TBoss6EmptyWarpFv(void* p) { return draw_empty_warp_overlay(p); }
 
 extern M2C_UNK __vt__15TBoss6EmptyWarp[];
 

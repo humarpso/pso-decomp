@@ -23,6 +23,51 @@ struct Vec_8003933C { f32 x, y, z; };
 
 struct Ten_8003933C { char pad0[0x30]; Vec_8003933C pos[14]; s32 vals[14]; };
 
+typedef s32 M2C_UNK;
+struct Obj_80039F50 {
+    s32 f0;
+    u8 pad4[0x18 - 4];
+    void *vt;
+    s32 f1C;
+    s32 f20;
+    s32 f24;
+    u8 pad28[0x2C - 0x28];
+    s32 f2C;
+    V3_80039DE0 pts[14];
+    s32 vals[14];
+    s32 f110;
+    f32 f114;
+    f32 f118;
+    s32 f11C;
+    s32 f120;
+    s32 f124;
+    s32 f128;
+    f32 f12C;
+    f32 f130;
+    f32 f134;
+    f32 f138;
+    f32 f13C;
+    u8 pad140[0x14C - 0x140];
+    s32 f14C;
+    u8 pad150[4];
+    s32 f154;
+};
+
+struct V3_80039994 { f32 x, y, z; };
+
+struct Obj_80039994 {
+    u8 pad0[0x30];
+    V3_80039994 pts[14];
+    s32 vals[14];
+    u8 pad110[0x138 - 0x110];
+    f32 f138;
+    f32 f13C;
+    u8 pad140[0x144 - 0x140];
+    f32 f144;
+    u8 pad148[0x150 - 0x148];
+    f32 f150;
+};
+
 extern "C" {
 u8 TBoss2Tentacle__sub_80039CA0(u8 *arg0);
 void VecCopy__FP3VecPC3Vec(void *, void *);
@@ -58,7 +103,6 @@ f64 get_ad_end_text_start__10TObjPlayerFv(f32, f32);
 M2C_UNK emit_effect_and_step__13TBoss2DeRolLeFPvPv(void *, void *);
 void *get_instance__13TBoss2DeRolLeFv(void);
 void TBoss2Tentacle__sub_8003998C(void);
-M2C_UNK TBoss2Tentacle__sub_80039994(void *, f32);
 void advance_motion_position__14TBoss2TentacleFPv(Obj_80039C44 *self);
 void TBoss2Tentacle__sub_80039CB4(void* p);
 void TBoss2Tentacle__sub_80039D50(void* p);
@@ -90,6 +134,30 @@ extern const f32 lbl_805D8538;
 extern const f32 lbl_805D853C;
 extern const f32 lbl_805D8540;
 void run_task__14TBoss2TentacleFv(u8 *arg0);
+void VecCopy__FP3VecPC3Vec(void *, void *);
+s32 calc_random_scaled__10TObjPlayerFv();
+void __ct__7TObjectFP7TObject(void *, void *);
+s32 rand();
+extern M2C_UNK __vt__14TBoss2Tentacle[];
+extern V3_80039DE0 TBoss2Tentacle__segment_points[];
+extern s32 TBoss2Tentacle__segment_point_defaults[];
+extern s32 lbl_805D26E0;
+extern G_80039C44 *TBoss2Tentacle__motion_data;
+extern const float TBoss2Tentacle__data_805D8534;
+extern const f32 lbl_805D855C;
+extern const f32 lbl_805D8560;
+Obj_80039F50 *__ct__14TBoss2TentacleFP7TObjectii(Obj_80039F50 *self, void *parent, s32 arg2, s32 arg3);
+f64 get_ad_end_text_start__10TObjPlayerFv(f32, f32);
+f32 newton_sqrtf(f32);
+void TBoss2Tentacle__sub_80039990(void);
+extern V3_80039DE0 TBoss2Tentacle__segment_points[];
+extern const float TBoss2Tentacle__data_805D8530;
+extern const float TBoss2Tentacle__data_805D8534;
+extern const f32 lbl_805D8548;
+extern const f32 lbl_805D854C;
+extern const f32 lbl_805D8550;
+extern const f32 lbl_805D8554;
+void TBoss2Tentacle__sub_80039994(Obj_80039994 *o, f32 len);
 }
 
 extern "C" {
@@ -260,7 +328,7 @@ void run_task__14TBoss2TentacleFv(u8 *arg0) {
                 F(f32, 0x13C) = F(f32, 0x138) / (lbl_805D8540 * len);
             }
             F(s32, 0x120) = approach_angle_limited(F(s32, 0x120), lbl_80435B88[F(s32, 0x2C)], 0x100);
-            TBoss2Tentacle__sub_80039994(arg0, len);
+            TBoss2Tentacle__sub_80039994((Obj_80039994 *)(arg0), len);
             break;
         case 2:
             F(s32, 0x14C)++;
@@ -284,7 +352,7 @@ void run_task__14TBoss2TentacleFv(u8 *arg0) {
                 F(f32, 0x13C) = F(f32, 0x138) / (lbl_805D8540 * len);
             }
             F(s32, 0x120) = approach_angle_limited(F(s32, 0x120), 0, 0x100);
-            TBoss2Tentacle__sub_80039994(arg0, len);
+            TBoss2Tentacle__sub_80039994((Obj_80039994 *)(arg0), len);
             break;
         }
         break;
@@ -305,6 +373,63 @@ void run_task__14TBoss2TentacleFv(u8 *arg0) {
 
 void TBoss2Tentacle__sub_8003998C(void) {  }
 void TBoss2Tentacle__sub_80039990(void) {  }
+
+#pragma push
+#pragma fp_contract on
+void TBoss2Tentacle__sub_80039994(Obj_80039994 *o, f32 len) {
+    s32 i;
+    s32 prev, ang;
+    s32 j;
+    f32 scale = lbl_805D8548;
+    f32 half = scale * len;
+    f32 h = lbl_805D854C - o->f144;
+    f32 a = -(h / (half * half));
+    f32 step = o->f138 / lbl_805D8550;
+    f32 dx, dy, px, py, w, k;
+    for (i = 0; i < 10; i++) {
+        f32 t = step * (f32)i;
+        f32 d = t - half;
+        u8 *q = (u8 *)o + (i + 2) * 12;
+        *(f32 *)(q + 0x30) = scale * t;
+        *(f32 *)(q + 0x34) = scale * (d * (a * d) + h);
+    }
+    ((void (*)(void *))TBoss2Tentacle__sub_80039990)(o);
+    o->pts[2].x = (*(const f32 *)&TBoss2Tentacle__data_805D8534);
+    o->pts[2].y = (*(const f32 *)&TBoss2Tentacle__data_805D8534);
+    o->pts[2].z = (*(const f32 *)&TBoss2Tentacle__data_805D8534);
+    px = (*(const f32 *)&TBoss2Tentacle__data_805D8534);
+    py = (*(const f32 *)&TBoss2Tentacle__data_805D8534);
+    prev = 0;
+    for (j = 3; j <= 11; j++) {
+        f32 x = o->pts[j].x;
+        f32 y = o->pts[j].y;
+        dx = x - px;
+        dy = y - py;
+        px = x;
+        py = y;
+        ang = (s32)(10430.38043493439 * get_ad_end_text_start__10TObjPlayerFv(dy, dx));
+        o->vals[j - 1] = ang - prev;
+        prev = ang;
+        o->pts[j].x = newton_sqrtf(dy * dy + dx * dx);
+        o->pts[j].y = (*(const f32 *)&TBoss2Tentacle__data_805D8534);
+        o->pts[j].z = (*(const f32 *)&TBoss2Tentacle__data_805D8534);
+    }
+    o->vals[11] = o->vals[10];
+    ((void (*)(void *))TBoss2Tentacle__sub_80039990)(o);
+    w = o->f13C;
+    if (w < (*(const f32 *)&TBoss2Tentacle__data_805D8530)) {
+        k = (*(const f32 *)&TBoss2Tentacle__data_805D8530) - w;
+        k *= o->f150;
+        for (i = 2; i < 12; i++) {
+            o->pts[i].x = o->pts[i].x * w + k * ((V3_80039994 *)&TBoss2Tentacle__segment_points)[i].x;
+        }
+        o->vals[2] = (s32)(lbl_805D8554 * ((*(const f32 *)&TBoss2Tentacle__data_805D8530) - o->f13C) + (f32)o->vals[2] * w);
+        for (i = 3; i < 12; i++) {
+            o->vals[i] = (s32)((f32)o->vals[i] * w);
+        }
+    }
+}
+#pragma pop
 
 void advance_motion_position__14TBoss2TentacleFPv(Obj_80039C44 *self) {
     f32 n = (f32)(TBoss2Tentacle__motion_data->count - 1);
@@ -367,6 +492,36 @@ void start_attack_at_target__14TBoss2TentacleFPvPvi(u8 *arg0, u8 *arg1, s32 arg2
 }
 
 void forward_80039DC8__14TBoss2TentacleFPv(void* p) { TBoss2Tentacle__sub_80039DC8((void*)(p)); }
+
+Obj_80039F50 *__ct__14TBoss2TentacleFP7TObjectii(Obj_80039F50 *self, void *parent, s32 arg2, s32 arg3) {
+    s32 i;
+    __ct__7TObjectFP7TObject(self, parent);
+    self->vt = __vt__14TBoss2Tentacle;
+    self->f0 = lbl_805D26E0;
+    self->f110 = arg2;
+    self->f2C = arg3;
+    self->f1C = 0;
+    self->f20 = 0;
+    self->f24 = 0;
+    for (i = 0; i < 14; i++) {
+        VecCopy__FP3VecPC3Vec(&self->pts[i], &TBoss2Tentacle__segment_points[i]);
+        self->vals[i] = TBoss2Tentacle__segment_point_defaults[i];
+    }
+    self->f114 = (f32)(TBoss2Tentacle__motion_data->count - 1) * (lbl_805D855C * (f32)rand());
+    self->f118 = lbl_805D8560;
+    self->f11C = 0;
+    self->f120 = 0;
+    self->f124 = 0x5EF;
+    self->f128 = calc_random_scaled__10TObjPlayerFv();
+    self->f138 = TBoss2Tentacle__data_805D8534;
+    self->f13C = TBoss2Tentacle__data_805D8534;
+    self->f14C = 0;
+    self->f154 = 0x78;
+    self->f12C = TBoss2Tentacle__data_805D8534;
+    self->f130 = TBoss2Tentacle__data_805D8534;
+    self->f134 = TBoss2Tentacle__data_805D8534;
+    return self;
+}
 
 void TBoss2Tentacle__sub_8003A0A8(void) {  }
 

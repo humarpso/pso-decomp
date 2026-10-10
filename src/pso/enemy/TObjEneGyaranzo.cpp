@@ -1,4 +1,8 @@
 #include "types.h"
+#include "pso/enemy/TObjEneGyaranzo.h"
+#include <stddef.h>
+typedef char GyaranzoPositionOffset[offsetof(TObjEneGyaranzo, position) == 0x38 ? 1 : -1];
+typedef char GyaranzoYawOffset[offsetof(TObjEneGyaranzo, yaw) == 0x60 ? 1 : -1];
 typedef s32 M2C_UNK;
 
 typedef struct Vec_800D1E4C {
@@ -37,6 +41,25 @@ typedef struct Ene_800D1E4C {
     u8 pad354[0x37C - 0x354];
     s32 state;
 } Ene_800D1E4C;
+
+#include "dolphin/mtx.h"
+typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
+typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
+#define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
+#define M2C_BITWISE(type, expr) ((type)(expr))
+extern "C" {
+f32 calc_boss4_scale__10TObjPlayerFi(s32);
+M2C_UNK spawn_particle_effect(void *, int);
+u8 * TObjGyaranzoMissile__sub_800D4668(void *, void *, void *, s32, s32);
+M2C_UNK play_sound_effect(int, void *, int, int);
+M2C_UNK render_anim_model_at_pos__12TBoss3VoloptFPv(void *);
+s32 copy_target_state__14TObjEnePanarmsFPvPv(void *, s32);
+void * __nw__7TObjectFUl(int);
+extern const f32 lbl_805DA268;
+extern const f32 lbl_805DA26C;
+extern const f32 lbl_805DA270;
+
+}
 
 extern "C" {
 s32 VecCopy__FP3VecPC3Vec(void *, void *);
@@ -206,7 +229,6 @@ extern const f32 lbl_805DA258;
 extern const f32 lbl_805DA260;
 void select_targets__19TObjGyaranzoMissileFPv(u8 *arg0);
 M2C_UNK spawn_particle_effect(void *, int);
-M2C_UNK render_anim_model_at_pos__12TBoss3VoloptFPv(void *);
 s32 TObjGyaranzoMissile__sub_800D40FC(int);
 M2C_UNK TObjGyaranzoMissile__ct(void *, void *, void *, u16);
 s32 copy_target_state__14TObjEnePanarmsFPvPv(void *, s32);
@@ -572,7 +594,6 @@ void TBoss3VoloptMonitor__sub_8004292C(u8 *arg0);
 M2C_UNK spawn_particle_effect(void *, int);
 void move_along_ground_avoiding_walls__10TObjPlayerFPviff(void *, Vec_800D3314, void *, f32, f32);
 #define render_anim_model_at_pos__12TBoss3VoloptFPv ((void (*)(void *))render_anim_model_at_pos__12TBoss3VoloptFPv)
-void fn_800D2C24(void *);
 #define TObjGyaranzoMissile__sub_800D40EC ((f32 (*)(int))TObjGyaranzoMissile__sub_800D40EC)
 u8 *find_active_entity_by_id(u16);
 #define copy_target_state__14TObjEnePanarmsFPvPv ((s32 (*)(void *, int))copy_target_state__14TObjEnePanarmsFPvPv)
@@ -1227,6 +1248,26 @@ void *lbl_80494288[83] = {
 #define lbl_8049426C ((u8 *)lbl_8049426C)
 #define lbl_80494288 ((u8 *)lbl_80494288)
 
+#pragma push
+#pragma fp_contract on
+void TObjEneGyaranzo::spawn_missile() {
+    Vec launch_position;
+    f32 temp_f1;
+    s32 temp_r31;
+    u8 *temp_r3;
+    render_anim_model_at_pos__12TBoss3VoloptFPv((void *)(this));
+    ((VObj_18_f1aa6a *)(this))->m63(0x18, &launch_position);
+    temp_f1 = (lbl_805DA26C * calc_boss4_scale__10TObjPlayerFi((s32) this)) - lbl_805DA270;
+    temp_r31 = (s32) (lbl_805DA268 * temp_f1);
+    temp_r3 = (u8 *)(((u8 *)__nw__7TObjectFUl((int)(0xF0))));
+    if (temp_r3 != NULL) {
+        TObjGyaranzoMissile__sub_800D4668(temp_r3, this, &launch_position, yaw, temp_r31);
+    }
+    spawn_particle_effect((void *)((s32) &launch_position), (int)(0xF3));
+    play_sound_effect((void *)(copy_target_state__14TObjEnePanarmsFPvPv((void *)((void *) (this)), (s32)((int) (0x4003B20D)))), &position, (int)(0), (int)(0));
+}
+#pragma pop
+
 void update_aim_and_fire__10TObjPlayerFPv(u8 *arg0) {
     s32 temp_r0;
     s32 temp_r3;
@@ -1445,7 +1486,7 @@ void TObjPlayer__sub_800D3314(u8 *arg0) {
             M2C_FIELD(arg0, f32 *, 0x3A4) += M2C_FIELD(M2C_FIELD(arg0, u8 **, 0x350), f32 *, 4);
             if (M2C_FIELD(arg0, f32 *, 0x3A4) >= 20.0f) {
                 M2C_FIELD(arg0, f32 *, 0x3A4) -= 20.0f;
-                fn_800D2C24(arg0);
+                ((TObjEneGyaranzo *)arg0)->spawn_missile();
             }
         }
         if (!(actor_frame_tick & 3)) {

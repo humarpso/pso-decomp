@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/boss/TBoss6Type2.h"
 typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
 typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 #define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
@@ -53,7 +54,6 @@ M2C_UNK destroy_part__11TBoss6Type2Fii(int, int);
 s32 spawn_particle_slot__11TBoss6Type2FPvi(void *, s32);
 s32 TBoss6Type2__sub_802BA944(void *);
 s32 TBoss6Type2__sub_802BA9E4();
-s32 TBoss6Type2__sub_802BAA74();
 u16 TBoss6Type2__sub_802BB694();
 s32 TBoss6Type2__sub_802BB768();
 s32 TBoss6Type2__sub_802BB7C0(void *);
@@ -105,7 +105,7 @@ void start_death_sequence__11TBoss6Type2FPv(u8 *arg0) {
 void update_zako_spawn_timer__11TBoss6Type2FPv(void *arg0) {
     s32 temp_r0;
 
-    if (((s32) M2C_FIELD(arg0, s32 *, 0x504) == 0) && (TBoss6Type2__sub_802BAA74() == 0)) {
+    if (((s32) M2C_FIELD(arg0, s32 *, 0x504) == 0) && (((TBoss6Type2 *)arg0)->turn_toward_target_position() == 0)) {
         M2C_FIELD(arg0, s32 *, 0x504) = 1;
     }
     update_zako__11TBoss6Type2FPv(arg0);
@@ -153,7 +153,7 @@ void reset_timers_and_spawn_particle__11TBoss6Type2FPv(S_802BF6CC *arg0) {
 void update_zako_phase__11TBoss6Type2FPv(void *arg0) {
     s32 temp_r0;
 
-    if (((s32) M2C_FIELD(arg0, s32 *, 0x504) == 0) && (TBoss6Type2__sub_802BAA74() == 0)) {
+    if (((s32) M2C_FIELD(arg0, s32 *, 0x504) == 0) && (((TBoss6Type2 *)arg0)->turn_toward_target_position() == 0)) {
         M2C_FIELD(arg0, s32 *, 0x504) = 1;
     }
     update_zako__11TBoss6Type2FPv(arg0);

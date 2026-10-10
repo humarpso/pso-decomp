@@ -154,6 +154,43 @@ struct Pos_8019EFF0
   f32 y;
 };
 
+struct Wb_8019E4E8;
+struct Obj_8019E6C0;
+typedef s32 M2C_UNK;
+struct Obj_8019F578 {
+    s32 f0;
+    u8 pad4[0x18 - 4];
+    void *vt18;
+    u8 pad1C[0x88 - 0x1C];
+    s32 f88;
+    u8 pad8C[0xA4 - 0x8C];
+    s32 fA4;
+    u8 padA8[0xAC - 0xA8];
+    f32 fAC;
+    u8 padB0[0xB4 - 0xB0];
+    void *fB4;
+    u8 padB8[0xBC - 0xB8];
+    s32 fBC;
+    u8 padC0[0xC4 - 0xC0];
+    f32 fC4;
+    u8 padC8[0xD0 - 0xC8];
+    s32 fD0;
+    s32 fD4;
+    u8 padD8[0xDC - 0xD8];
+    s16 fDC;
+    s16 fDE;
+    s16 fE0;
+    s16 fE2;
+    u8 padE4[0x144 - 0xE4];
+    s32 f144[4];
+    u8 pad154[0x164 - 0x154];
+    s32 f164;
+    s32 f168;
+    s32 f16C;
+    u8 pad170[0x180 - 0x170];
+    s32 f180;
+};
+
 extern "C" {
 s32 check_player_flag1__6TLobbyFPv(void);
 s32 is_lobby_active__17TObjWarpBossMultiFv(void);
@@ -178,7 +215,697 @@ extern s32 local_client_id;
 extern const f32 lbl_805DC020;
 extern const f32 lbl_805DC024;
 extern const f32 lbl_805DC028;
-void update_warp_dialogs__17TObjWarpBossMultiFPv(u8 *arg0);
+s32 get_main_phase();
+s32 is_local_client_floor_leader();
+s32 get_warp_state__19TWindowSubTradeMainFv();
+s32 TObjWarpBossMulti__sub_8019E418(u8 *arg0);
+s32 are_all_players_in_range__17TObjWarpBossMultiFPv(Wb_8019E4E8 *arg0);
+s32 TObjWarpBossMulti__sub_8019E570(s32 arg0, f32 farg0);
+void close_windows__17TObjWarpBossMultiFPv(void *arg0);
+void send_cmd_6A__17TObjWarpBossMultiFPvUs(Obj_8019E6C0 *self, u16 value);
+void notify_player__17TObjWarpBossMultiFPvi(void *arg0, s32 arg1);
+void warp_player__17TObjWarpBossMultiFPvi(void *arg0, s32 arg1);
+M2C_UNK update_warp_dialogs__17TObjWarpBossMultiFPv(u8 *arg0);
+M2C_UNK TWindow__close(void *);
+s32 get_slot_or_neg1__17TWindowSubComCardFPv(void *);
+s32 get_card_data__17TWindowSubComCardFPv(void *);
+s32 is_child_visible__17TWindowSubComCardFPv(void *);
+extern s32 local_client_id;
+extern s32 lbl_805D5C90;
+extern s32 warp_boss_motion;
+void update_warp_confirmation__12TObjWarpBossFv(u8 *arg0);
+extern M2C_UNK __vt__12TObjWarpBoss[];
+extern "C" {
+extern u8 lbl_80446480[];
+void queue_destruction__7TObjectFv(void *);
+void register_entity_by_id(void *);
+void TObjAreaWarp__ct(void *);
+s32 get_global_state__14TOKeyMachine01Fv();
+s32 get_boss_warp_destination(void);
+extern M2C_UNK __vt__12TObjWarpBoss[];
+extern s32 lbl_805D3488;
+extern const f32 lbl_805DC000;
+extern const f32 lbl_805DC018;
+extern "C" {
+extern u8 lbl_80446480[];
+s32 get_main_phase();
+void *create__17TObjWarpBossMultiFPv(void *arg0);
+void *__nw__7TObjectFUl(int);
+s32 is_not_split_screen__13TRaderMapCoreFv(void);
+extern void *tl_05;
+Obj_8019F578 *TObjWarpBoss__ct(Obj_8019F578 *self, int _w1, void * _w2);
+extern "C" {
+extern u8 lbl_80446480[];
+extern u32 lbl_805D5C88;
+extern "C" {
+extern u8 lbl_80446480[];
+s32 get_global_state__14TOKeyMachine01Fv();
+s32 get_bml_motion(s32, M2C_UNK);
+s32 TObjFish__sub_8001EDB0(s32, M2C_UNK);
+s32 get_bml_model(s32, M2C_UNK);
+s32 load_resource_from_descriptor(M2C_UNK, void *, M2C_UNK, M2C_UNK, M2C_UNK);
+void *alloc__23TAdSinglePlyChrSelectGCFPv(s32);
+s32 is_global_state_in_table__19TContainerAncient01Fv();
+extern u32 lbl_805D5C88;
+extern s32 lbl_805D5C8C;
+extern s32 lbl_805D5C90;
+extern s32 warp_boss_model;
+extern s32 warp_boss_motion;
+extern s32 warp_boss_bml_motion;
+extern s32 warp_boss_model_handle;
+extern s32 lbl_805D5CA4;
+extern "C" {
+extern u8 lbl_80446480[];
+extern s32 lbl_805D5CA4;
+extern "C" {
+extern u8 lbl_80446480[];
+extern s32 warp_boss_model_handle;
+extern "C" {
+extern u8 lbl_80446480[];
+extern s32 warp_boss_bml_motion;
+extern "C" {
+extern u8 lbl_80446480[];
+extern s32 warp_boss_motion;
+extern "C" {
+extern u8 lbl_80446480[];
+extern s32 warp_boss_model;
+extern "C" {
+extern u8 lbl_80446480[];
+extern s32 lbl_805D5C90;
+extern "C" {
+extern u8 lbl_80446480[];
+extern s32 lbl_805D5C8C;
+extern "C" u8 lbl_80446480[];
+extern "C" u8 lbl_80446494[];
+extern "C" u8 lbl_804464AC[];
+extern "C" u8 lbl_804464C8[];
+extern "C" u8 lbl_804464E4[];
+extern "C" u8 lbl_80446500[];
+extern "C" u8 lbl_80446514[];
+extern "C" u8 lbl_8044652C[];
+extern "C" u8 lbl_80446544[];
+extern "C" u8 lbl_8044655C[];
+extern "C" u8 lbl_80446574[];
+extern "C" u8 lbl_80446590[];
+extern "C" u8 lbl_804465AC[];
+extern "C" u8 lbl_804465C4[];
+extern "C" u8 lbl_804465E0[];
+extern "C" u8 lbl_804465FC[];
+extern void *boss_warp_model_names[4];
+extern void *boss_warp_motion_names[3];
+extern void *lbl_804B94BC[4];
+extern void *ancient_boss_warp_resource_block[3];
+extern void *lbl_804B94E8[3];
+extern __declspec(section ".data") void *jungle_boss_warp_resource_block[2];
+int fn_8019F9DC(void);
+}
+extern "C" {
+extern u8 lbl_80446494[];
+}
+extern "C" {
+extern u8 lbl_804464AC[];
+}
+extern "C" {
+extern u8 lbl_804464C8[];
+}
+extern "C" {
+extern u8 lbl_804464E4[];
+}
+extern "C" {
+extern u8 lbl_80446500[];
+}
+extern "C" {
+extern u8 lbl_80446514[];
+}
+extern "C" {
+extern u8 lbl_8044652C[];
+}
+extern "C" {
+extern u8 lbl_80446544[];
+}
+extern "C" {
+extern u8 lbl_8044655C[];
+}
+extern "C" {
+extern u8 lbl_80446574[];
+}
+extern "C" {
+extern u8 lbl_80446590[];
+}
+extern "C" {
+extern u8 lbl_804465AC[];
+}
+extern "C" {
+extern u8 lbl_804465C4[];
+}
+extern "C" {
+extern u8 lbl_804465E0[];
+}
+extern "C" {
+extern u8 lbl_804465FC[];
+}
+extern void *boss_warp_model_names[4];
+extern void *boss_warp_motion_names[3];
+extern void *lbl_804B94BC[4];
+extern void *ancient_boss_warp_resource_block[3];
+extern void *lbl_804B94E8[3];
+extern __declspec(section ".data") void *jungle_boss_warp_resource_block[2];
+int fn_8019F9D4(void);
+}
+extern "C" {
+extern u8 lbl_80446494[];
+}
+extern "C" {
+extern u8 lbl_804464AC[];
+}
+extern "C" {
+extern u8 lbl_804464C8[];
+}
+extern "C" {
+extern u8 lbl_804464E4[];
+}
+extern "C" {
+extern u8 lbl_80446500[];
+}
+extern "C" {
+extern u8 lbl_80446514[];
+}
+extern "C" {
+extern u8 lbl_8044652C[];
+}
+extern "C" {
+extern u8 lbl_80446544[];
+}
+extern "C" {
+extern u8 lbl_8044655C[];
+}
+extern "C" {
+extern u8 lbl_80446574[];
+}
+extern "C" {
+extern u8 lbl_80446590[];
+}
+extern "C" {
+extern u8 lbl_804465AC[];
+}
+extern "C" {
+extern u8 lbl_804465C4[];
+}
+extern "C" {
+extern u8 lbl_804465E0[];
+}
+extern "C" {
+extern u8 lbl_804465FC[];
+}
+extern void *boss_warp_model_names[4];
+extern void *boss_warp_motion_names[3];
+extern void *lbl_804B94BC[4];
+extern void *ancient_boss_warp_resource_block[3];
+extern void *lbl_804B94E8[3];
+extern __declspec(section ".data") void *jungle_boss_warp_resource_block[2];
+int fn_8019F9CC(void);
+}
+extern "C" {
+extern u8 lbl_80446494[];
+}
+extern "C" {
+extern u8 lbl_804464AC[];
+}
+extern "C" {
+extern u8 lbl_804464C8[];
+}
+extern "C" {
+extern u8 lbl_804464E4[];
+}
+extern "C" {
+extern u8 lbl_80446500[];
+}
+extern "C" {
+extern u8 lbl_80446514[];
+}
+extern "C" {
+extern u8 lbl_8044652C[];
+}
+extern "C" {
+extern u8 lbl_80446544[];
+}
+extern "C" {
+extern u8 lbl_8044655C[];
+}
+extern "C" {
+extern u8 lbl_80446574[];
+}
+extern "C" {
+extern u8 lbl_80446590[];
+}
+extern "C" {
+extern u8 lbl_804465AC[];
+}
+extern "C" {
+extern u8 lbl_804465C4[];
+}
+extern "C" {
+extern u8 lbl_804465E0[];
+}
+extern "C" {
+extern u8 lbl_804465FC[];
+}
+extern void *boss_warp_model_names[4];
+extern void *boss_warp_motion_names[3];
+extern void *lbl_804B94BC[4];
+extern void *ancient_boss_warp_resource_block[3];
+extern void *lbl_804B94E8[3];
+extern __declspec(section ".data") void *jungle_boss_warp_resource_block[2];
+int fn_8019F9C4(void);
+}
+extern "C" {
+extern u8 lbl_80446494[];
+}
+extern "C" {
+extern u8 lbl_804464AC[];
+}
+extern "C" {
+extern u8 lbl_804464C8[];
+}
+extern "C" {
+extern u8 lbl_804464E4[];
+}
+extern "C" {
+extern u8 lbl_80446500[];
+}
+extern "C" {
+extern u8 lbl_80446514[];
+}
+extern "C" {
+extern u8 lbl_8044652C[];
+}
+extern "C" {
+extern u8 lbl_80446544[];
+}
+extern "C" {
+extern u8 lbl_8044655C[];
+}
+extern "C" {
+extern u8 lbl_80446574[];
+}
+extern "C" {
+extern u8 lbl_80446590[];
+}
+extern "C" {
+extern u8 lbl_804465AC[];
+}
+extern "C" {
+extern u8 lbl_804465C4[];
+}
+extern "C" {
+extern u8 lbl_804465E0[];
+}
+extern "C" {
+extern u8 lbl_804465FC[];
+}
+extern void *boss_warp_model_names[4];
+extern void *boss_warp_motion_names[3];
+extern void *lbl_804B94BC[4];
+extern void *ancient_boss_warp_resource_block[3];
+extern void *lbl_804B94E8[3];
+extern __declspec(section ".data") void *jungle_boss_warp_resource_block[2];
+int fn_8019F9BC(void);
+}
+extern "C" {
+extern u8 lbl_80446494[];
+}
+extern "C" {
+extern u8 lbl_804464AC[];
+}
+extern "C" {
+extern u8 lbl_804464C8[];
+}
+extern "C" {
+extern u8 lbl_804464E4[];
+}
+extern "C" {
+extern u8 lbl_80446500[];
+}
+extern "C" {
+extern u8 lbl_80446514[];
+}
+extern "C" {
+extern u8 lbl_8044652C[];
+}
+extern "C" {
+extern u8 lbl_80446544[];
+}
+extern "C" {
+extern u8 lbl_8044655C[];
+}
+extern "C" {
+extern u8 lbl_80446574[];
+}
+extern "C" {
+extern u8 lbl_80446590[];
+}
+extern "C" {
+extern u8 lbl_804465AC[];
+}
+extern "C" {
+extern u8 lbl_804465C4[];
+}
+extern "C" {
+extern u8 lbl_804465E0[];
+}
+extern "C" {
+extern u8 lbl_804465FC[];
+}
+extern void *boss_warp_model_names[4];
+extern void *boss_warp_motion_names[3];
+extern void *lbl_804B94BC[4];
+extern void *ancient_boss_warp_resource_block[3];
+extern void *lbl_804B94E8[3];
+extern __declspec(section ".data") void *jungle_boss_warp_resource_block[2];
+int fn_8019F9B4(void);
+}
+extern "C" {
+extern u8 lbl_80446494[];
+}
+extern "C" {
+extern u8 lbl_804464AC[];
+}
+extern "C" {
+extern u8 lbl_804464C8[];
+}
+extern "C" {
+extern u8 lbl_804464E4[];
+}
+extern "C" {
+extern u8 lbl_80446500[];
+}
+extern "C" {
+extern u8 lbl_80446514[];
+}
+extern "C" {
+extern u8 lbl_8044652C[];
+}
+extern "C" {
+extern u8 lbl_80446544[];
+}
+extern "C" {
+extern u8 lbl_8044655C[];
+}
+extern "C" {
+extern u8 lbl_80446574[];
+}
+extern "C" {
+extern u8 lbl_80446590[];
+}
+extern "C" {
+extern u8 lbl_804465AC[];
+}
+extern "C" {
+extern u8 lbl_804465C4[];
+}
+extern "C" {
+extern u8 lbl_804465E0[];
+}
+extern "C" {
+extern u8 lbl_804465FC[];
+}
+extern void *boss_warp_model_names[4];
+extern void *boss_warp_motion_names[3];
+extern void *lbl_804B94BC[4];
+extern void *ancient_boss_warp_resource_block[3];
+extern void *lbl_804B94E8[3];
+extern __declspec(section ".data") void *jungle_boss_warp_resource_block[2];
+int fn_8019F9AC(void);
+}
+extern "C" {
+extern u8 lbl_80446494[];
+}
+extern "C" {
+extern u8 lbl_804464AC[];
+}
+extern "C" {
+extern u8 lbl_804464C8[];
+}
+extern "C" {
+extern u8 lbl_804464E4[];
+}
+extern "C" {
+extern u8 lbl_80446500[];
+}
+extern "C" {
+extern u8 lbl_80446514[];
+}
+extern "C" {
+extern u8 lbl_8044652C[];
+}
+extern "C" {
+extern u8 lbl_80446544[];
+}
+extern "C" {
+extern u8 lbl_8044655C[];
+}
+extern "C" {
+extern u8 lbl_80446574[];
+}
+extern "C" {
+extern u8 lbl_80446590[];
+}
+extern "C" {
+extern u8 lbl_804465AC[];
+}
+extern "C" {
+extern u8 lbl_804465C4[];
+}
+extern "C" {
+extern u8 lbl_804465E0[];
+}
+extern "C" {
+extern u8 lbl_804465FC[];
+}
+extern void *boss_warp_model_names[4];
+extern void *boss_warp_motion_names[3];
+extern void *lbl_804B94BC[4];
+extern void *ancient_boss_warp_resource_block[3];
+extern void *lbl_804B94E8[3];
+extern __declspec(section ".data") void *jungle_boss_warp_resource_block[2];
+void load_models__8TObjFishFv(void);
+}
+extern "C" {
+extern u8 lbl_80446494[];
+}
+extern "C" {
+extern u8 lbl_804464AC[];
+}
+extern "C" {
+extern u8 lbl_804464C8[];
+}
+extern "C" {
+extern u8 lbl_804464E4[];
+}
+extern "C" {
+extern u8 lbl_80446500[];
+}
+extern "C" {
+extern u8 lbl_80446514[];
+}
+extern "C" {
+extern u8 lbl_8044652C[];
+}
+extern "C" {
+extern u8 lbl_80446544[];
+}
+extern "C" {
+extern u8 lbl_8044655C[];
+}
+extern "C" {
+extern u8 lbl_80446574[];
+}
+extern "C" {
+extern u8 lbl_80446590[];
+}
+extern "C" {
+extern u8 lbl_804465AC[];
+}
+extern "C" {
+extern u8 lbl_804465C4[];
+}
+extern "C" {
+extern u8 lbl_804465E0[];
+}
+extern "C" {
+extern u8 lbl_804465FC[];
+}
+extern void *boss_warp_model_names[4];
+extern void *boss_warp_motion_names[3];
+extern void *lbl_804B94BC[4];
+extern void *ancient_boss_warp_resource_block[3];
+extern void *lbl_804B94E8[3];
+extern __declspec(section ".data") void *jungle_boss_warp_resource_block[2];
+void TLobby__sub_8001FE7C(void*, int);
+void TObjFish__sub_8019F72C(void);
+}
+extern "C" {
+extern u8 lbl_80446494[];
+}
+extern "C" {
+extern u8 lbl_804464AC[];
+}
+extern "C" {
+extern u8 lbl_804464C8[];
+}
+extern "C" {
+extern u8 lbl_804464E4[];
+}
+extern "C" {
+extern u8 lbl_80446500[];
+}
+extern "C" {
+extern u8 lbl_80446514[];
+}
+extern "C" {
+extern u8 lbl_8044652C[];
+}
+extern "C" {
+extern u8 lbl_80446544[];
+}
+extern "C" {
+extern u8 lbl_8044655C[];
+}
+extern "C" {
+extern u8 lbl_80446574[];
+}
+extern "C" {
+extern u8 lbl_80446590[];
+}
+extern "C" {
+extern u8 lbl_804465AC[];
+}
+extern "C" {
+extern u8 lbl_804465C4[];
+}
+extern "C" {
+extern u8 lbl_804465E0[];
+}
+extern "C" {
+extern u8 lbl_804465FC[];
+}
+extern void *boss_warp_model_names[4];
+extern void *boss_warp_motion_names[3];
+extern void *lbl_804B94BC[4];
+extern void *ancient_boss_warp_resource_block[3];
+extern void *lbl_804B94E8[3];
+extern __declspec(section ".data") void *jungle_boss_warp_resource_block[2];
+s32 TObjWarpBossMulti__create(s32 arg0);
+}
+extern "C" {
+extern u8 lbl_80446494[];
+}
+extern "C" {
+extern u8 lbl_804464AC[];
+}
+extern "C" {
+extern u8 lbl_804464C8[];
+}
+extern "C" {
+extern u8 lbl_804464E4[];
+}
+extern "C" {
+extern u8 lbl_80446500[];
+}
+extern "C" {
+extern u8 lbl_80446514[];
+}
+extern "C" {
+extern u8 lbl_8044652C[];
+}
+extern "C" {
+extern u8 lbl_80446544[];
+}
+extern "C" {
+extern u8 lbl_8044655C[];
+}
+extern "C" {
+extern u8 lbl_80446574[];
+}
+extern "C" {
+extern u8 lbl_80446590[];
+}
+extern "C" {
+extern u8 lbl_804465AC[];
+}
+extern "C" {
+extern u8 lbl_804465C4[];
+}
+extern "C" {
+extern u8 lbl_804465E0[];
+}
+extern "C" {
+extern u8 lbl_804465FC[];
+}
+extern void *boss_warp_model_names[4];
+extern void *boss_warp_motion_names[3];
+extern void *lbl_804B94BC[4];
+extern void *ancient_boss_warp_resource_block[3];
+extern void *lbl_804B94E8[3];
+extern __declspec(section ".data") void *jungle_boss_warp_resource_block[2];
+Obj_8019F578 *TObjWarpBoss__ct(Obj_8019F578 *self, int _w1, void * _w2);
+}
+extern "C" {
+extern u8 lbl_80446494[];
+}
+extern "C" {
+extern u8 lbl_804464AC[];
+}
+extern "C" {
+extern u8 lbl_804464C8[];
+}
+extern "C" {
+extern u8 lbl_804464E4[];
+}
+extern "C" {
+extern u8 lbl_80446500[];
+}
+extern "C" {
+extern u8 lbl_80446514[];
+}
+extern "C" {
+extern u8 lbl_8044652C[];
+}
+extern "C" {
+extern u8 lbl_80446544[];
+}
+extern "C" {
+extern u8 lbl_8044655C[];
+}
+extern "C" {
+extern u8 lbl_80446574[];
+}
+extern "C" {
+extern u8 lbl_80446590[];
+}
+extern "C" {
+extern u8 lbl_804465AC[];
+}
+extern "C" {
+extern u8 lbl_804465C4[];
+}
+extern "C" {
+extern u8 lbl_804465E0[];
+}
+extern "C" {
+extern u8 lbl_804465FC[];
+}
+extern void *boss_warp_model_names[4];
+extern void *boss_warp_motion_names[3];
+extern void *lbl_804B94BC[4];
+extern void *ancient_boss_warp_resource_block[3];
+extern void *lbl_804B94E8[3];
+extern __declspec(section ".data") void *jungle_boss_warp_resource_block[2];
+void unregister_object_by_id(void *);
+void __dl__7TObjectFPv(void *);
+void __dt__12TObjAreaWarpFv(void *, int);
+void close_windows__17TObjWarpBossMultiFPv(void *arg0);
+void *__dt__12TObjWarpBossFv(void *arg0, s16 arg1);
 }
 
 extern "C" {
@@ -238,13 +965,6 @@ M2C_UNK clear_flag4_bit4__22TQuestVmDownLoadServerFPv(void *);
 M2C_UNK disallow_rendering__7TObjectFv(u32);
 M2C_UNK end_effect_render__13TParticleCtrlFv();
 f32 xz_distance_squared(s32, void *);
-int fn_8019F9AC(void);
-int fn_8019F9B4(void);
-int fn_8019F9BC(void);
-int fn_8019F9C4(void);
-int fn_8019F9CC(void);
-int fn_8019F9D4(void);
-int fn_8019F9DC(void);
 M2C_UNK set_flag_4__9TObjLukerFPv(void *);
 M2C_UNK set_global_param__8TObjFishFi(s32);
 s32 get_current_floor();
@@ -280,7 +1000,6 @@ M2C_UNK request_active_window_close();
 M2C_UNK send_code_45_1__10TObjPlayerFi();
 M2C_UNK set_flag_40__16TAdChrSelASlotGCFPv(u32);
 M2C_UNK play_sound_effect(M2C_UNK, void *, M2C_UNK, M2C_UNK);
-void TObjWarpBossMulti__sub_8019EB94(void *);
 s32 get_warp_state__19TWindowSubTradeMainFv();
 char *strcpy(char *, const char *);
 s32 check_demo_mode__10TObjPlayerFv();
@@ -321,6 +1040,80 @@ void TObjWarpBoss__vt18(Wb_8019F2C0 *arg0);
 void render__12TObjWarpBossFv(u8 *arg0);
 void run_task__12TObjWarpBossFv(u8 *arg0);
 
+void render_shadows__7TObjectFv();
+void TLobby__sub_801A1FD8();
+void apply_object_set_data();
+void release_member_90__10TObjPlayerFPv();
+void TParticleCtrl__sub_801A2124();
+void update_object_view_visibility();
+void classify_actor_view_detail();
+void TObjRoomId__sub_801A1E2C();
+void TObjPlayer__sub_80019568();
+void TObjWarpBase__vt12();
+void open_confirm_window__12TObjAreaWarpFPvUs();
+void is_warp_enabled__12TObjAreaWarpFi();
+void TObjWarpBase__vt14();
+void TObjWarpBase__vt15();
+void confirm_area_transfer__12TObjAreaWarpFPvi();
+void *boss_warp_model_names[4] = {
+    (void *)&lbl_80446480, (void *)&lbl_80446494, (void *)&lbl_804464AC, (void *)0x0,
+};
+
+void *boss_warp_motion_names[3] = {
+    (void *)&lbl_804464C8, (void *)&lbl_804464E4, (void *)0x0,
+};
+
+void *lbl_804B94AC[4] = {
+    (void *)&lbl_80446500, (void *)&boss_warp_model_names, (void *)&boss_warp_motion_names, (void *)0x30002,
+};
+
+void *lbl_804B94BC[4] = {
+    (void *)&lbl_80446514, (void *)&lbl_8044652C, (void *)&lbl_80446544, (void *)0x0,
+};
+
+void *ancient_boss_warp_resource_block[3] = {
+    (void *)&lbl_8044655C, (void *)&lbl_80446574, (void *)0x0,
+};
+
+void *lbl_804B94D8[4] = {
+    (void *)&lbl_80446590, (void *)&lbl_804B94BC, (void *)&ancient_boss_warp_resource_block, (void *)0x30002,
+};
+
+void *lbl_804B94E8[3] = {
+    (void *)&lbl_804465AC, (void *)&lbl_804465C4, (void *)0x0,
+};
+
+__declspec(section ".data") void *jungle_boss_warp_resource_block[2] = {
+    (void *)&lbl_804465E0, (void *)0x0,
+};
+
+void *lbl_804B94FC[4] = {
+    (void *)&lbl_804465FC, (void *)&lbl_804B94E8, (void *)&jungle_boss_warp_resource_block, (void *)0x20001,
+};
+
+M2C_UNK __vt__17TObjWarpBossMulti[21] = {
+    0,
+    0,
+    (s32)&__dt__17TObjWarpBossMultiFv,
+    (s32)&run_task__17TObjWarpBossMultiFv,
+    (s32)&render__17TObjWarpBossMultiFv,
+    (s32)&render_shadows__7TObjectFv,
+    (s32)&TLobby__sub_801A1FD8,
+    (s32)&apply_object_set_data,
+    (s32)&release_member_90__10TObjPlayerFPv,
+    (s32)&TParticleCtrl__sub_801A2124,
+    (s32)&update_object_view_visibility,
+    (s32)&classify_actor_view_detail,
+    (s32)&TObjRoomId__sub_801A1E2C,
+    (s32)&TObjPlayer__sub_80019568,
+    (s32)&TObjWarpBase__vt12,
+    (s32)&open_confirm_window__12TObjAreaWarpFPvUs,
+    (s32)&is_warp_enabled__12TObjAreaWarpFi,
+    (s32)&TObjWarpBase__vt14,
+    (s32)&TObjWarpBase__vt15,
+    (s32)&confirm_area_transfer__12TObjAreaWarpFPvi,
+    (s32)&TObjWarpBossMulti__vt18
+};
 void *create__17TObjWarpBossMultiFPv(void *arg0) {
     void *o = __nw__7TObjectFUl(0x100);
     if (o != NULL) {
@@ -776,9 +1569,11 @@ void update_warp_state__17TObjWarpBossMultiFPv(u8 *arg0) {
 }
 
 #define arg0 ((u8 *)arg0_)
-void TObjWarpBossMulti__sub_8019EB94(void *arg0_) {
-    s32 r;
 
+#undef arg0
+
+void update_warp_confirmation__12TObjWarpBossFv(u8 *arg0) {
+    s32 r;
     if (M2C_FIELD(arg0, s32 *, 0x15C) == 1) {
         M2C_FIELD(arg0, s16 *, 0xDC) = 3;
         return;
@@ -856,7 +1651,6 @@ void TObjWarpBossMulti__sub_8019EB94(void *arg0_) {
         break;
     }
 }
-#undef arg0
 
 void update_warp_occupants__10TObjPlayerFPv(u8 *arg0) {
     Warp_8019EE14 *self = (Warp_8019EE14 *)arg0;
@@ -912,7 +1706,7 @@ void update_warp_occupants__10TObjPlayerFPv(u8 *arg0) {
 
 typedef struct Pos_8019EFF0 Pos_8019EFF0;
 typedef struct Warp_8019EFF0 Warp_8019EFF0;
-void update_warp_dialogs__17TObjWarpBossMultiFPv(u8 *arg0) {
+M2C_UNK update_warp_dialogs__17TObjWarpBossMultiFPv(u8 *arg0) {
   s32 i;
   int j;
   Warp_8019EFF0 *self = (Warp_8019EFF0 *) arg0;
@@ -985,7 +1779,7 @@ void update__12TObjWarpBossFPv(void *arg0) {
     temp_r0 = M2C_FIELD(arg0, s16 *, 0xDE);
     switch (temp_r0) {
     case 0:
-        TObjWarpBossMulti__sub_8019EB94(arg0);
+        update_warp_confirmation__12TObjWarpBossFv((u8 *)(arg0));
         return;
     case 1:
         ((M2C_UNK (*)(void *))update_warp_state__17TObjWarpBossMultiFPv)(arg0);
@@ -1060,5 +1854,133 @@ void run_task__12TObjWarpBossFv(u8 *arg0) {
         }
     }
 }
+void *__dt__12TObjWarpBossFv(void *arg0, s16 arg1) {
+    if (arg0 != NULL) {
+        M2C_FIELD(arg0, M2C_UNK **, 0x18) = __vt__12TObjWarpBoss;
+        unregister_object_by_id((void *)((M2C_UNK *)arg0));
+        close_windows__17TObjWarpBossMultiFPv(arg0);
+        __dt__12TObjAreaWarpFv((void *)(arg0), (int)(0));
+        if (arg1 > 0) {
+            __dl__7TObjectFPv(arg0);
+        }
+    }
+    return arg0;
+}
+Obj_8019F578 *TObjWarpBoss__ct(Obj_8019F578 *self, int _w1, void * _w2) {
+    int i;
+    TObjAreaWarp__ct(self);
+    self->vt18 = ((s32 *)&__vt__12TObjWarpBoss);
+    self->f0 = lbl_805D3488;
+    self->fC4 = lbl_805DC000;
+    self->fAC = lbl_805DC018;
+    self->fBC = get_boss_warp_destination();
+    self->fA4 = 0;
+    register_entity_by_id(self);
+    self->f164 = 0;
+    self->f168 = 0;
+    self->f180 = 0;
+    if (get_global_state__14TOKeyMachine01Fv() == 0) {
+        self->f16C = -1;
+    } else if (self->f88 < 0 || self->f88 > 0xFF) {
+        self->f16C = -1;
+    } else {
+        self->f16C = self->f88;
+    }
+    if (self->f16C >= 0) {
+        self->fDC = 4;
+        self->fDE = 4;
+    } else {
+        self->fDC = 0;
+        self->fDE = 0;
+    }
+    self->fE0 = 0;
+    self->fE2 = 0;
+    self->fD0 = 0;
+    self->fD4 = 0;
+    if (self->fB4 != NULL) {
+        queue_destruction__7TObjectFv(self->fB4);
+        self->fB4 = NULL;
+    }
+    for (i = 0; i < 4; i++) {
+        self->f144[i] = 0;
+    }
+    return self;
+}
+s32 TObjWarpBossMulti__create(s32 arg0) {
+    s32 temp_r3;
+    s32 var_r0;
+    if ((is_not_split_screen__13TRaderMapCoreFv() == 0) && (get_main_phase() == 0xE)) {
+        return ((s32)create__17TObjWarpBossMultiFPv((void *) (arg0)));
+    }
+    if (is_not_split_screen__13TRaderMapCoreFv() == 1) {
+        return ((s32)create__17TObjWarpBossMultiFPv((void *) (arg0)));
+    }
+    temp_r3 = ((s32)__nw__7TObjectFUl((int) (0x184)));
+    var_r0 = temp_r3;
+    if (var_r0 != 0) {
+        var_r0 = ((s32)TObjWarpBoss__ct((Obj_8019F578 *)((int) (temp_r3)), (int)((int) ((*(s32 *)&tl_05))), (void *)((void *) (arg0))));
+    }
+    return var_r0;
+}
+void TObjFish__sub_8019F72C(void) {
+    if ((u32) lbl_805D5C88 != 0U) {
+        TLobby__sub_8001FE7C((void*)lbl_805D5C88, 1);
+        lbl_805D5C88 = 0U;
+    }
+}
+void load_models__8TObjFishFv(void) {
+    s32 st;
+    s32 r;
+    st = get_global_state__14TOKeyMachine01Fv();
+    if (st >= 8 && st <= 0xA) {
+        r = ((s32)alloc__23TAdSinglePlyChrSelectGCFPv((s32)(0x440)));
+        if (r != 0) {
+            r = ((s32 (*)(s32, M2C_UNK, void *, M2C_UNK, M2C_UNK, M2C_UNK)) load_resource_from_descriptor)(r, 5, lbl_804B94D8, 0, 0, 0);
+        }
+        (*(s32 *)&lbl_805D5C88) = r;
+        (*(s32 *)&lbl_805D5C8C) = get_bml_model(r, 0);
+        (*(s32 *)&lbl_805D5C90) = get_bml_model((*(s32 *)&lbl_805D5C88), 2);
+        (*(s32 *)&warp_boss_model) = get_bml_model((*(s32 *)&lbl_805D5C88), 1);
+        (*(s32 *)&warp_boss_motion) = get_bml_motion((*(s32 *)&lbl_805D5C88), 1);
+        (*(s32 *)&warp_boss_bml_motion) = get_bml_motion((*(s32 *)&lbl_805D5C88), 0);
+        (*(s32 *)&warp_boss_model_handle) = TObjFish__sub_8001EDB0((*(s32 *)&lbl_805D5C88), 2);
+        (*(s32 *)&lbl_805D5CA4) = TObjFish__sub_8001EDB0((*(s32 *)&lbl_805D5C88), 2);
+        return;
+    }
+    if (is_global_state_in_table__19TContainerAncient01Fv() != 0 || st == 0x1C || st == 0x1D) {
+        r = ((s32)alloc__23TAdSinglePlyChrSelectGCFPv((s32)(0x440)));
+        if (r != 0) {
+            r = ((s32 (*)(s32, M2C_UNK, void *, M2C_UNK, M2C_UNK, M2C_UNK)) load_resource_from_descriptor)(r, 5, lbl_804B94FC, 0, 0, 0);
+        }
+        (*(s32 *)&lbl_805D5C88) = r;
+        (*(s32 *)&lbl_805D5C8C) = get_bml_model(r, 0);
+        (*(s32 *)&lbl_805D5C90) = get_bml_model((*(s32 *)&lbl_805D5C88), 1);
+        (*(s32 *)&warp_boss_model) = get_bml_model((*(s32 *)&lbl_805D5C88), 1);
+        (*(s32 *)&warp_boss_motion) = get_bml_motion((*(s32 *)&lbl_805D5C88), 0);
+        (*(s32 *)&warp_boss_bml_motion) = get_bml_motion((*(s32 *)&lbl_805D5C88), 0);
+        (*(s32 *)&warp_boss_model_handle) = TObjFish__sub_8001EDB0((*(s32 *)&lbl_805D5C88), 0);
+        (*(s32 *)&lbl_805D5CA4) = TObjFish__sub_8001EDB0((*(s32 *)&lbl_805D5C88), 0);
+        return;
+    }
+    r = ((s32)alloc__23TAdSinglePlyChrSelectGCFPv((s32)(0x440)));
+    if (r != 0) {
+        r = ((s32 (*)(s32, M2C_UNK, void *, M2C_UNK, M2C_UNK, M2C_UNK)) load_resource_from_descriptor)(r, 5, lbl_804B94AC, 0, 0, 0);
+    }
+    (*(s32 *)&lbl_805D5C88) = r;
+    (*(s32 *)&lbl_805D5C8C) = get_bml_model(r, 0);
+    (*(s32 *)&lbl_805D5C90) = get_bml_model((*(s32 *)&lbl_805D5C88), 2);
+    (*(s32 *)&warp_boss_model) = get_bml_model((*(s32 *)&lbl_805D5C88), 1);
+    (*(s32 *)&warp_boss_motion) = get_bml_motion((*(s32 *)&lbl_805D5C88), 1);
+    (*(s32 *)&warp_boss_bml_motion) = get_bml_motion((*(s32 *)&lbl_805D5C88), 0);
+    (*(s32 *)&warp_boss_model_handle) = TObjFish__sub_8001EDB0((*(s32 *)&lbl_805D5C88), 2);
+    (*(s32 *)&lbl_805D5CA4) = TObjFish__sub_8001EDB0((*(s32 *)&lbl_805D5C88), 2);
+}
+int fn_8019F9AC(void) {  return (*(int *)&lbl_805D5CA4); }
+int fn_8019F9B4(void) {  return (*(int *)&warp_boss_model_handle); }
+int fn_8019F9BC(void) {  return (*(int *)&warp_boss_bml_motion); }
+int fn_8019F9C4(void) {  return (*(int *)&warp_boss_motion); }
+int fn_8019F9CC(void) {  return (*(int *)&warp_boss_model); }
+int fn_8019F9D4(void) {  return (*(int *)&lbl_805D5C90); }
+int fn_8019F9DC(void) {  return (*(int *)&lbl_805D5C8C); }
 
 }

@@ -454,6 +454,7 @@ force_active:
   - apply_unit_immunity__18TItemLockCountCtrlFi
   - apply_uv_offset__6TSceneFPvss
   - aramQueueCallback
+  - are_all_players_in_range__17TObjWarpBossMultiFPv
   - area_gsl_filename_table
   - assert_light_id__9TObjLightFi
   - attach_model__13TParticleCtrlFPviiiif
@@ -611,7 +612,6 @@ force_active:
   - copy_from__11TMainCursorFPvPv
   - copy_gauge_warn_vec__10TObjPlayerFv
   - copy_global_value_block__6TLobbyFv
-  - copy_rotation_to_current_matrix
   - copy_motion_pair
   - copy_node_record__10TObjPlayerFii
   - copy_origin_with_y_offset__8TObjFishFv
@@ -619,6 +619,7 @@ force_active:
   - copy_record__13TObjTombstoneFPvi
   - copy_resource_desc__9TObjEneDDFPvPv
   - copy_ring_buffer_window__15TObjBoss2TunnelFPv
+  - copy_rotation_to_current_matrix
   - copy_stat_block__17TWindowSetLevelUpFii
   - copy_state__12TWindowTimerFPvPv
   - copy_state__16TKeyBoardControlFPvPv
@@ -677,6 +678,7 @@ force_active:
   - destroy_arrays__14TPlyDispConfigFii
   - destroy_char_data_array__10TObjPlayerFv
   - destroy_free_buffers__20TWindowSubStatusDispFPvs
+  - destroy_item_follow_effect
   - destroy_matching_children__6TLobbyFPv
   - destroy_static_array__10TObjPlayerFv
   - destroy_subobjects_recursive__10TObjPlayerFPv
@@ -842,6 +844,7 @@ force_active:
   - generate_shop_weapon_stock
   - get_area_table_value__17TOTrapChainSawKeyFii
   - get_bml_motion_by_index__23TObjSeabedSuisoBrakableFi
+  - get_boss_warp_flag__17TObjWarpBossMultiFv
   - get_card_serial_and_code__15TAdPlayerLoadGCFiPv
   - get_clamped_level__19TObjEneBm9MericarolFPv
   - get_config_line__22TQuestVmDownLoadServerFPvUi
@@ -1005,6 +1008,7 @@ force_active:
   - is_visible__8TObjDoorFiff
   - is_within_camera_distance
   - is_within_range__19TContainerAncient01Fii
+  - item_follow_effect_vtable
   - item_help_level_requirement_callback
   - item_object_variant_deleting_dtor_80116F10
   - jungle_boss_warp_resource_block
@@ -1595,6 +1599,7 @@ force_active:
   - select_death_direction__14TObjEneBm5WolfFPvPv
   - send_battle_mode_params__6TLobbyFcii
   - send_battle_mode_state__6TLobbyFPv
+  - send_cmd_6A__17TObjWarpBossMultiFPvUs
   - send_login3__9TProtocolFv
   - send_obj_position_event__10TEndingPicFPvi
   - send_partner_attack_stage_request
@@ -1662,13 +1667,13 @@ force_active:
   - some_stub__9TProtocolFv
   - spawn_concentrate__12TPhotonGollaFPv
   - spawn_decorations_in_range
-  - spawn_effect__10TObjPlayerFiUiii
   - spawn_effect__19TContainerAncient01FPvPvPv
   - spawn_effects__20TBoss3VoloptHiraisinFPv
   - spawn_fire_explosion__10TObjPlayerFUii
   - spawn_fire_explosion_at_item__10TObjPlayerFii
   - spawn_fire_explosion_for_item__10TObjPlayerFii
   - spawn_hit_particle_trio__10TObjPlayerFPv
+  - spawn_item_follow_effect
   - spawn_laser__12TPhotonPillaFPv
   - spawn_lightning_at_angle__16TBGLightningCtrlFPvi
   - spawn_line__13TPhotonEstllaFPv
@@ -1785,6 +1790,7 @@ force_active:
   - update_falling_projectile__10TObjPlayerFPv
   - update_farthest_target__18TObjEneRe4SorcererFPviPv
   - update_floor_name_windows__9TObjLukerFPv
+  - update_floor_switch_state__17TObjWarpBossMultiFPv
   - update_follow__11TItemMagSubFv
   - update_follow_parent__18TObjEneBalClawClawFPv
   - update_giveup__6TLobbyFPv
@@ -1796,6 +1802,7 @@ force_active:
   - update_idle_state__11TObjEneMojaFv
   - update_input_number__18TShopGetItemWindowFPv
   - update_inward_orbit_point
+  - update_item_follow_effect
   - update_judge_confirm__23TShopJudgmentItemWindowFPv
   - update_key_events__16TKeyBoardControlFi
   - update_letterbox_hide__9TCineCtrlFPv
@@ -1876,6 +1883,9 @@ force_active:
   - update_transition__11TItemMagSubFPv
   - update_transition_anim__22TAdMultiPlyChrSelectGCFPv
   - update_wait_switch__19TObjLazerFenceExtraFPv
+  - update_warp_confirmation__12TObjWarpBossFv
+  - update_warp_dialogs__17TObjWarpBossMultiFPv
+  - update_warp_occupants__10TObjPlayerFPv
   - update_web_attack__9TObjGrassFPv
   - update_when_camera_active__13TObjWarnChimeFPv
   - update_with_default_state__14TObjEneBm5WolfFi

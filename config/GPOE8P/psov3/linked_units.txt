@@ -2198,7 +2198,7 @@ pso/object/TObjWaitEntryHairMoveSim.cpp
 pso/object/TObjWarpBase.cpp
 pso/object/TObjWarpBoss03.cpp
 pso/object/TObjWarpBoss03_801A2AEC.cpp
-pso/object/TObjWarpBoss_8019F510.cpp
+pso/object/TObjWarpBossMulti.cpp
 pso/object/TObjWarpJungMain.cpp
 pso/object/TObjWarpJung_801A03D8.cpp
 pso/object/TObjWarpLobby.cpp
@@ -2348,8 +2348,6 @@ pso/player/TObjPlayer_801254D8.cpp
 pso/player/TObjPlayer_80125550.cpp
 pso/player/TObjPlayer_801255A8.cpp
 pso/player/TObjPlayer_80125780.cpp
-pso/player/TObjPlayer_8012599C.cpp
-pso/player/TObjPlayer_80125B80.cpp
 pso/player/TObjPlayer_80125DD4.cpp
 pso/player/TObjPlayer_80125E88.cpp
 pso/player/TObjPlayer_80125F24.cpp
@@ -2635,6 +2633,7 @@ pso/protocol/subcommand_validation_player.cpp
 pso/protocol/subcommand_validation_technique.cpp
 pso/system/ChunkMaterialState.cpp
 pso/system/CityTraffic.cpp
+pso/system/ItemEffects.cpp
 pso/system/ModelDrawContext.cpp
 pso/system/THeap.cpp
 pso/system/TMainTask.cpp

@@ -295,7 +295,7 @@ pso/boss/TBoss2PhotonBullet_80038DCC.cpp:
 
 pso/boss/TBoss2Tentacle.cpp:
 	.text       start:0x8003933C end:0x8003A1B4
-	.rodata     start:0x80435BB8 end:0x80435BC0
+	.rodata     start:0x80435BA8 end:0x80435BC0
 	.sdata2     start:0x805D853C end:0x805D8548
 
 pso/boss/TObjBoss2CeilJunk.cpp:
@@ -3517,14 +3517,9 @@ pso/player/TObjPlayer_80125780.cpp:
 pso/unk/text_801258A0.cpp:
 	.text       start:0x801258A0 end:0x8012599C
 
-pso/player/TObjPlayer_8012599C.cpp:
-	.text       start:0x8012599C end:0x80125AF8
-
-pso/unk/text_80125AF8.cpp:
-	.text       start:0x80125AF8 end:0x80125B80
-
-pso/player/TObjPlayer_80125B80.cpp:
-	.text       start:0x80125B80 end:0x80125D7C
+pso/system/ItemEffects.cpp:
+	.text       start:0x8012599C end:0x80125D7C
+	.data       start:0x804A2660 end:0x804A2678
 
 pso/item/TItemEquipVariant_80125D7C.cpp:
 	.text       start:0x80125D7C end:0x80125DD4
@@ -6389,12 +6384,9 @@ pso/object/TObjAreaWarpQuest.cpp:
 	.text       start:0x8019DCD0 end:0x8019DD34
 
 pso/object/TObjWarpBossMulti.cpp:
-	.text       start:0x8019DD34 end:0x8019F510
+	.text       start:0x8019DD34 end:0x8019F9E4
 	.rodata     start:0x80446660 end:0x80446668
-
-pso/object/TObjWarpBoss_8019F510.cpp:
-	.text       start:0x8019F510 end:0x8019F9E4
-	.data       start:0x804B9490 end:0x804B950C
+	.data       start:0x804B9490 end:0x804B957C
 
 pso/unk/text_8019F9E4.cpp:
 	.text       start:0x8019F9E4 end:0x8019FA48

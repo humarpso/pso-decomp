@@ -2,16 +2,22 @@
 #define PSO_ENEMY_TOBJENEGYARANZO_H
 
 #include "types.h"
+#include "dolphin/mtx.h"
 
 struct TObjEneGyaranzo
 {
+    void spawn_missile();
+
+    u8 _pad00[0x1C];
     u8 _pad1C[0x8];
     u32 m_24;
     u8 _pad28[0x8];
     u32 m_30;
     u32 m_34;
-    void* m_38;
-    u8 _pad3C[0x7C];
+    Vec position;
+    u8 _pad44[0x1C];
+    s32 yaw;
+    u8 _pad64[0x54];
     s16 m_b8;
     u8 _padBA[0x1E];
     u32 m_d8;
