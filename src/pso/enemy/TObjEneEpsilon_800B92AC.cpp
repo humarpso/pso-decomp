@@ -409,8 +409,8 @@ extern "C" {
 
 int VecCopy__FP3VecPC3Vec(void*);
 
-void update_linked_position__14TObjEneEpsilonFPv(void *p, f32 scale) {
-    enemy_tick_target_acquisition((u8 *)p, (s32 *)((u8 *)p + 0x3B0),
+s32 update_linked_position__14TObjEneEpsilonFPv(void *p, f32 scale) {
+    return enemy_tick_target_acquisition((u8 *)p, (s32 *)((u8 *)p + 0x3B0),
                                M2C_FIELD(p, s32 *, 0x3B4), scale);
 }
 s32 enemy_tick_target_acquisition(u8 *arg0, s32 *counter, s32 limit, f32 scale) {

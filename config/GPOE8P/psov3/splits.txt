@@ -2693,7 +2693,7 @@ pso/item/TItemEquipBase_8010B76C.cpp:
 pso/item/TItemData.cpp:
 	.text       start:0x8010B7F8 end:0x8010ECD0
 	.rodata     start:0x8043E348 end:0x8043E358
-	.data       start:0x8049F268 end:0x8049F39C
+	.data       start:0x8049F268 end:0x8049F3A0
 
 pso/player/TObjPlayer_8010ECD0.cpp:
 	.text       start:0x8010ECD0 end:0x8010ED0C
@@ -7393,6 +7393,8 @@ pso/menu/TQuestBgmCtrl.cpp:
 	.text       start:0x801E63A4 end:0x801E6544
 	.rodata     start:0x804498B8 end:0x804499A8
 	.data       start:0x804C6970 end:0x804C69D0
+	.sdata      start:0x805D35C8 end:0x805D35D0
+	.sbss       start:0x805D5E60 end:0x805D5E70
 
 pso/quest/QuestOpcodeTables.cpp:
 	.data       start:0x804C69D0 end:0x804C81D8
@@ -7715,6 +7717,9 @@ pso/slices/pso_carve_8020bf88.cpp:
 
 pso/misc/TLobby_8020BFC4.cpp:
 	.text       start:0x8020BFC4 end:0x8020BFE4
+
+pso/object/ObjectFactoryTables.cpp:
+	.data       start:0x804BB1A8 end:0x804C1F68
 
 pso/unk/text_8020BFE4.cpp:
 	.text       start:0x8020BFE4 end:0x8020C2DC

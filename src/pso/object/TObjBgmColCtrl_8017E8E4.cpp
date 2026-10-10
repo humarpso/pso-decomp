@@ -13,6 +13,6 @@ u8 is_active__14TObjBgmColCtrlFv(void) {
 }
 
     extern int TQuestBgmCtrl__bgm_issued_flag;
-int get_bgm_object__13TQuestBgmCtrlFv(void) {  return TQuestBgmCtrl__bgm_issued_flag; }
+int get_quest_bgm_issued_flag(void) {  return TQuestBgmCtrl__bgm_issued_flag; }
 
 }

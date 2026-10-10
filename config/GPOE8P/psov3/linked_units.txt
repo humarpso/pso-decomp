@@ -2065,6 +2065,7 @@ pso/npc/TObjNpcSoldierMacho.cpp
 pso/npc/TObjNpcSoutokufu.cpp
 pso/object/LobbyPigeonPath.cpp
 pso/object/LobbyPigeonTheme.cpp
+pso/object/ObjectFactoryTables.cpp
 pso/object/TObjAreaWarpQuest.cpp
 pso/object/TObjAreaWarp_80307B70.cpp
 pso/object/TObjBagWarnWin4P.cpp

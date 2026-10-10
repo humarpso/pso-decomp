@@ -6,7 +6,7 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 
 extern "C" {
 
-s32 get_bgm_object__13TQuestBgmCtrlFv();
+s32 get_quest_bgm_issued_flag();
 void *__nw__7TObjectFUl(M2C_UNK);
 M2C_UNK fn_80350440(void *, void *, u32);
 extern void *tl_05;
@@ -25,7 +25,7 @@ void create_quest_bgm_object(s32 arg0, u32 arg1) {
     if (var_r31 >= 7U) {
         var_r31 = 0U;
     }
-    if (get_bgm_object__13TQuestBgmCtrlFv() == 0) {
+    if (get_quest_bgm_issued_flag() == 0) {
         void *obj = __nw__7TObjectFUl(0x1C);
         if (obj != 0) {
             fn_80350440(obj, tl_05, var_r31);

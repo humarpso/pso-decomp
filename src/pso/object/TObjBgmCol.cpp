@@ -9,7 +9,7 @@ struct Zone_8017E748 { u8 pad[0x9C]; s32 category; };
 extern "C" {
 void play_lobby_theme_music__14TObjBgmColCtrlFv();
 s32 check__10TObjBgmColFPv(void *arg0);
-s32 get_bgm_object__13TQuestBgmCtrlFv();
+s32 get_quest_bgm_issued_flag();
 void play_area_music(s32);
 extern s32 lbl_804B5780[];
 extern s32 bgm_zone_category;
@@ -41,7 +41,7 @@ s32 check__10TObjBgmColFPv(void *arg0) {
     return 3;
 }
 void run_task__10TObjBgmColFv(Zone_8017E748 *zone) {
-    if (get_bgm_object__13TQuestBgmCtrlFv() == 0) {
+    if (get_quest_bgm_issued_flag() == 0) {
         switch (check__10TObjBgmColFPv(zone)) {
         case 1:
             if (bgm_zone_category != zone->category) {

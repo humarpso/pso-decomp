@@ -1,3 +1,5 @@
+#include "pso/object/ObjectFactoryTables.h"
+
 #include "types.h"
 typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
 typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
@@ -11,7 +13,7 @@ struct QuestSavedEnemyFloor_8020C1F0 { s32 reserved; s32 count; u32 fields[3]; Q
 
 struct Ent_8020BFE4 { s16 id; u8 pad[0xA]; s32 fC; };
 
-struct Ent_8020C030 { s16 id; u8 pad[0xA]; s32 fC; };
+typedef ObjectFactoryEntry Ent_8020C030;
 
 struct Ent_8020C07C { u8 pad0[2]; s16 flags; u8 pad1[6]; s16 a; s16 b; u8 pad2[0x36]; };
 
@@ -23,7 +25,6 @@ extern s32 TLobby__current_floor_enemy_set_count;
 s32 is_room_enemy_set_cleared(s32 floor, s16 room);
 extern Ent_8020BFE4 *enemy_factory_area_table[];
 s32 get_enemy_factory_child_count(s32 arg0, s16 *arg1);
-extern Ent_8020C030 *TLobby__floor_object_factory_tables[];
 s32 find_floor_object_factory__6TLobbyFiPv(s32 arg0, s16 *arg1);
 s32 get_current_floor(void);
 extern Ent_8020C07C *TLobby__data_805D610C;
@@ -50,11 +51,11 @@ s32 get_enemy_factory_child_count(s32 arg0, s16 *arg1) {
 }
 
 s32 find_floor_object_factory__6TLobbyFiPv(s32 arg0, s16 *arg1) {
-    Ent_8020C030 *base = TLobby__floor_object_factory_tables[arg0];
+    Ent_8020C030 *base = floor_object_factory_tables[arg0];
     Ent_8020C030 *p = base;
-    for (; base != 0 && p->id != -1; p++) {
-        if (p->id == *arg1) {
-            return p->fC;
+    for (; base != 0 && p->type != -1; p++) {
+        if (p->type == *arg1) {
+            return p->extra_object_ids;
         }
     }
     return 0;

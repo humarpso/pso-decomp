@@ -1,9 +1,9 @@
 #include "pso/menu/TQuestBgmCtrl.h"
 
-extern s32 TQuestBgmCtrl__bgm_issued_flag;
-extern s32 TQuestBgmCtrl__bgm_forced_flag;
-extern s32 TQuestBgmCtrl__area_bgm_index;
-extern TQuestBgmCtrl* TQuestBgmCtrl__instance;
+s32 TQuestBgmCtrl__bgm_issued_flag;
+s32 TQuestBgmCtrl__bgm_forced_flag;
+s32 TQuestBgmCtrl__area_bgm_index;
+TQuestBgmCtrl* TQuestBgmCtrl__instance;
 extern "C" const char* TQuestBgmCtrl__class_name;
 
 extern "C" {
@@ -74,3 +74,5 @@ TQuestBgmCtrl::TQuestBgmCtrl(TObject* parent) : TObject(parent) {
     TQuestBgmCtrl__area_bgm_index = 0;
     TQuestBgmCtrl__instance = this;
 }
+
+extern "C" const char* TQuestBgmCtrl__class_name = TQuestBgmCtrl_class_name_string;

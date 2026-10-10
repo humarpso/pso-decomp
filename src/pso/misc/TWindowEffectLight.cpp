@@ -18,7 +18,7 @@ extern const f32 lbl_805DE0E0;
 extern const f32 lbl_805DE0E8;
 extern const f32 lbl_805DE0EC;
 extern const f32 lbl_805DE0F0;
-void calc_alpha__18TWindowEffectLightFPv(u8 *arg0);
+u32 calc_alpha__18TWindowEffectLightFPv(u8 *arg0);
 extern const f32 lbl_805DE0E0;
 extern const f32 TWindowEffectLight__data_805DE0E4;
 extern const f32 lbl_805DE0E8;
@@ -52,7 +52,7 @@ extern s32 lbl_805D3E60;
 extern s32 tl_window;
 s32 get_camera_id__11TCameraCtrlFv();
 f32 calc_scale__18TWindowEffectLightFPv(u8 *arg0);
-void calc_alpha__18TWindowEffectLightFPv(u8 *arg0);
+u32 calc_alpha__18TWindowEffectLightFPv(u8 *arg0);
 s32 draw_textured_quad_at_depth(void *, f32);
 s32 set_draw_texture_and_color(int, int);
 extern const f32 TWindowEffectLight__data_805DE0E4;
@@ -118,10 +118,10 @@ f32 calc_scale__18TWindowEffectLightFPv(u8 *arg0) {
   return (new_var2 * lbl_805DE0E8) + lbl_805DE0E0;
 }
 
-void calc_alpha__18TWindowEffectLightFPv(u8 *arg0) {
+u32 calc_alpha__18TWindowEffectLightFPv(u8 *arg0) {
   float new_var;
   new_var = lbl_805DE0F0 * ((f32) (*((s16 *) (((s8 *) arg0) + 0x26))));
-  __cvt_fp2unsigned(lbl_805DE0EC * ((new_var * lbl_805DE0E8) + lbl_805DE0E0));
+  return (u32)__cvt_fp2unsigned(lbl_805DE0EC * ((new_var * lbl_805DE0E8) + lbl_805DE0E0));
 }
 
 void render__18TWindowEffectLightFv(u8 *arg0) {

@@ -1,3 +1,5 @@
+#include "pso/object/ObjectFactoryTables.h"
+
 #include "types.h"
 
 typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
@@ -42,7 +44,7 @@ struct Ent_8020D4E8 { u8 d[0xC]; };
 
 struct Obj_8020D4E8 { u8 p0[0xD4]; Ent_8020D4E8 ents[13]; u8 p1[0x8]; Ent_8020D4E8 single; };
 
-struct Ent_8020D5AC { s32 a; void *fn; f32 range; s32 d; };
+typedef ObjectFactoryEntry Ent_8020D5AC;
 
 struct Rec_8020D5AC {
     s16 id;
@@ -96,7 +98,6 @@ s32 TLobby__sub_801C2614();
 s32 get_global_state__14TOKeyMachine01Fv();
 u8 *call_area_set_factory(void *, void *);
 s32 is_within_camera_distance(void *arg0, void *arg1, f32 farg0);
-extern Ent_8020D5AC *TLobby__floor_object_factory_tables[];
 extern s32 TLobby__data_805D611C;
 extern s32 TLobby__data_805D6120;
 void spawn_decorations_in_range(void *arg0);
@@ -196,7 +197,7 @@ void spawn_decorations_in_range(void *arg0) {
     Rec_8020D5AC *p;
     s32 i;
     u8 *obj;
-    tbl = TLobby__floor_object_factory_tables[get_global_state__14TOKeyMachine01Fv()];
+    tbl = floor_object_factory_tables[get_global_state__14TOKeyMachine01Fv()];
     if (tbl == NULL) {
         return;
     }
@@ -206,7 +207,7 @@ void spawn_decorations_in_range(void *arg0) {
     p = (Rec_8020D5AC *)TLobby__data_805D611C;
     for (i = 0; i < TLobby__data_805D6120; i++, p++) {
         if (p->id != -1 && !(p->flags & 2) && !(p->flags & 8)
-            && is_within_camera_distance(arg0, p->data, tbl[p->id].range) == 1) {
+            && is_within_camera_distance(arg0, p->data, tbl[p->id].creation_distance_squared) == 1) {
             p->s8 = 0xFFFF;
             p->s4 = -1;
             obj = call_area_set_factory(arg0, p);

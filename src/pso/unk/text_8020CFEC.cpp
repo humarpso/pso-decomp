@@ -1,15 +1,16 @@
+#include "pso/object/ObjectFactoryTables.h"
+
 #include "types.h"
 
 extern "C" {
-typedef s32 (*Fn_8020CFEC)(void *);
-struct Ent_8020CFEC { s32 a; Fn_8020CFEC fn; s32 b; s32 c; };
+typedef ObjectFactoryFunction Fn_8020CFEC;
+typedef ObjectFactoryEntry Ent_8020CFEC;
 struct Msg_8020CFEC { s16 id; s16 pad; u8 data[1]; };
 s32 get_global_state__14TOKeyMachine01Fv();
-extern Ent_8020CFEC *TLobby__floor_object_factory_tables[];
 s32 call_area_set_factory(s32 arg0, Msg_8020CFEC *arg1) {
-    Fn_8020CFEC f = TLobby__floor_object_factory_tables[get_global_state__14TOKeyMachine01Fv()][arg1->id].fn;
+    Fn_8020CFEC f = floor_object_factory_tables[get_global_state__14TOKeyMachine01Fv()][arg1->id].create;
     if (f != 0) {
-        return f(arg1->data);
+        return (s32) f(arg1->data);
     }
     return 0;
 }

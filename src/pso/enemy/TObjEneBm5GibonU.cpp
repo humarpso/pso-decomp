@@ -2063,13 +2063,13 @@ extern "C" {
 void enemy_copy_target_destination(void *);
 void enemy_clear_target(void *);
 M2C_UNK set_field_378__9TObjEneDDFPvi(void *, M2C_UNK);
-void play_sound_variant__16TObjEneBm5GibonUFPv(void *);
+s32 play_sound_variant__16TObjEneBm5GibonUFPv(void *);
 void set_flag__16TObjEneBm5GibonUFPv(void *);
 void set_anim_by_state__16TObjEneBm5GibonUFPv(void *);
 M2C_UNK advance_animation_playback(void *);
 void TObjEneBm5GibonU__sub_800D01DC(u8 *arg0, s32 arg1);
 M2C_UNK set_field_378__9TObjEneDDFPvi(void *, M2C_UNK);
-void play_sound_variant__16TObjEneBm5GibonUFPv(void *);
+s32 play_sound_variant__16TObjEneBm5GibonUFPv(void *);
 void set_anim_by_state__16TObjEneBm5GibonUFPv(void *);
 M2C_UNK advance_animation_playback(void *);
 void TObjEneBm5GibonU__sub_800D00F0(u8 *arg0, s32 arg1);
@@ -2085,7 +2085,7 @@ s32 enemy_validate_retained_target(void *);
 void enemy_copy_target_destination(void *);
 s32 update_velocity__9TObjEneDDFPv(void *);
 M2C_UNK set_field_378__9TObjEneDDFPvi(void *, M2C_UNK);
-void play_sound_variant__16TObjEneBm5GibonUFPv(void *);
+s32 play_sound_variant__16TObjEneBm5GibonUFPv(void *);
 M2C_UNK copy_target_state__14TObjEnePanarmsFPvPv(void *, M2C_UNK);
 s32 objInBand__FP7GameObjf(void *, f32);
 M2C_UNK advance_animation_playback(void *);
@@ -2133,7 +2133,7 @@ void action__16TObjEneBm5GibonUFPvi(u8 *arg0, s32 arg1);
 void handle_message__16TObjEneBm5GibonUFPvi(void *self, s32 msg);
 s32 enemy_validate_retained_target(void *);
 M2C_UNK set_field_378__9TObjEneDDFPvi(void *, M2C_UNK);
-void play_sound_variant__16TObjEneBm5GibonUFPv(void *);
+s32 play_sound_variant__16TObjEneBm5GibonUFPv(void *);
 void set_flag__16TObjEneBm5GibonUFPv(void *);
 M2C_UNK copy_target_state__14TObjEnePanarmsFPvPv(void *, M2C_UNK);
 s32 objInBand__FP7GameObjf(void *, f32);
@@ -2254,7 +2254,7 @@ u32 enemy_probe_wall_ahead(void *, f32, f32, f32);
 u8 check_hit_sphere__16TObjEneBm5GibonUFPvif(Ene_800CCB74 *arg0, s32 arg1, f32 scale);
 void approach_target__16TObjEneBm5GibonUFPvf(void *, f32);
 void enemy_copy_target_destination(void *);
-void play_sound_variant__16TObjEneBm5GibonUFPv(void *);
+s32 play_sound_variant__16TObjEneBm5GibonUFPv(void *);
 void TObjEneBm5GibonU__sub_800CCD8C(u8 *arg0);
 void init_all_slots__10TObjPlayerFv(void);
 void check_object_collisions__10TObjPlayerFPv(void *);
@@ -4502,11 +4502,11 @@ f32 calc_xz_direction_to__16TObjEneBm5GibonUFPvPvPv(Obj_800D0BD8 *arg0, Vec_800D
 
 extern "C" {
 
-void play_sound_variant__16TObjEneBm5GibonUFPv(void *arg0);
+s32 play_sound_variant__16TObjEneBm5GibonUFPv(void *arg0);
 void set_anim_by_state__16TObjEneBm5GibonUFPv(void *arg0);
 void set_flag__16TObjEneBm5GibonUFPv(void* p);
 M2C_UNK select_and_apply_target__14TObjEneEpsilonFPvf(f32);
-M2C_UNK update_linked_position__14TObjEneEpsilonFPv(f32);
+s32 update_linked_position__14TObjEneEpsilonFPv(void *, f32);
 
 int is_active__16TObjEneBm5GibonUFPv(void* p) { return *(u16*)((char*)p + 0x1c) & 0x1; }
 
@@ -4525,12 +4525,11 @@ void TObjEneBm5GibonU__sub_800D0AE8(Obj_800D0AE8 *self, Vec_800D0AE8 *dir) {
 }
 #pragma pop
 
-void play_sound_variant__16TObjEneBm5GibonUFPv(void *arg0) {
+s32 play_sound_variant__16TObjEneBm5GibonUFPv(void *arg0) {
     if ((s32) M2C_FIELD(arg0, s32 *, 0x464) != 0) {
-        update_linked_position__14TObjEneEpsilonFPv(lbl_805DA244);
-        return;
+        return update_linked_position__14TObjEneEpsilonFPv(arg0, lbl_805DA244);
     }
-    update_linked_position__14TObjEneEpsilonFPv(lbl_805DA248);
+    return update_linked_position__14TObjEneEpsilonFPv(arg0, lbl_805DA248);
 }
 
 void update_target__16TObjEneBm5GibonUFPv(void *arg0) {
