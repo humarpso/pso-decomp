@@ -7,7 +7,7 @@ struct Cap_8015A99C {
 };
 
 extern "C" {
-s32 fn_80225CD8(s32, char *, void *);
+s32 find_chat_keyword(s32, char *, void *);
 char *strncpy(char *dest, const char *src, size_t num);
 extern void *current_language;
 extern u8 *TOChatSensorCapture__instance;
@@ -35,7 +35,7 @@ s32 store_player_name__19TOChatSensorCaptureFUsPv(u16 arg0, const char *arg1) {
                 break;
             }
         }
-        if (fn_80225CD8(((s32 *)(TOChatSensorCapture__instance + 0x2C))[arg0], buf, current_language) > -1) {
+        if (find_chat_keyword(((s32 *)(TOChatSensorCapture__instance + 0x2C))[arg0], buf, current_language) > -1) {
             return 1;
         }
     }
