@@ -380,7 +380,7 @@ void TWindow__close(TWin_8020F070 *);
 extern u8 __vt__18TCheckRoomSequence[];
 u8 *__dt__18TCheckRoomSequenceFv(u8 *arg0, s16 arg1);
 s32 is_ready__23TAdSinglePlyChrSelectGCFv(void);
-Card_8021118C *get_card_window__17TWindowSubComCardFUi(s32);
+Card_8021118C *get_character_save_record(s32);
 void move_data__6TLobbyFv(void *, void *, s32);
 void copy_bank_to_card_window(s32 slot);
 extern u32 bank_item_records_by_slot[4];
@@ -1223,7 +1223,7 @@ s32 store_item_in_bank(u8 *item, s32 arg1, s32 slot) {
 void copy_bank_to_card_window(s32 slot) {
     Card_8021118C *w;
     if (is_ready__23TAdSinglePlyChrSelectGCFv() != 0) {
-        w = get_card_window__17TWindowSubComCardFUi(slot);
+        w = get_character_save_record(slot);
         if (w != 0) {
             w->meseta = lbl_80513DA8[slot];
             w->count = lbl_80513D98[slot];
@@ -1236,7 +1236,7 @@ void copy_bank_to_card_window(s32 slot) {
 #pragma push
 #pragma optimization_level 1
 void copy_bank_from_card_window(s32 slot) {
-    Card_8021118C *w = get_card_window__17TWindowSubComCardFUi(slot);
+    Card_8021118C *w = get_character_save_record(slot);
     if (w != 0) {
         lbl_80513DA8[slot] = w->meseta;
         lbl_80513D98[slot] = w->count;

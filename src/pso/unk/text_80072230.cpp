@@ -54,7 +54,7 @@ void send_challenge_with_value__6TLobbyFii(M2C_UNK arg0, s32 arg1);
 s32 TLobby__sub_800703D0(void *, void *);
 s32 send_6x7C_packet__6TLobbyFi(void *);
 s32 init_pkt_cmd_7C__6TLobbyFPv(void *);
-s32 get_card_window__17TWindowSubComCardFUi(int);
+s32 get_character_save_record(int);
 extern s32 local_client_id;
 s32 mix_seed_checked__6TLobbyFi(void *);
 s32 send_state__6TLobbyFPv(void *);
@@ -81,7 +81,7 @@ void TLobby__sub_800722AC(s32 arg0);
 s32 TLobby__sub_800703D0(void *, void *);
 s32 is_flag_set__6TLobbyFv();
 void send_challenge_records__6TLobbyFUi(u32);
-s32 get_card_window__17TWindowSubComCardFUi(int);
+s32 get_character_save_record(int);
 extern M2C_UNK challenge_mode_state[];
 extern void *challenge_task;
 extern s32 local_client_id;
@@ -256,8 +256,8 @@ void TLobby__sub_80072618(void) {
     s32 *q;
     if (is_flag_set__6TLobbyFv() != 0) {
         q = (s32 *)(((u8 *)&challenge_mode_state) + local_client_id * 0x104 + 0x270);
-        if (((u32)get_card_window__17TWindowSubComCardFUi((int)(0xFFFF))) != 0) {
-            TLobby__sub_800703D0(q + 1, (void *)(((u32)get_card_window__17TWindowSubComCardFUi((int)(0xFFFF))) + 0x21C4));
+        if (((u32)get_character_save_record((int)(0xFFFF))) != 0) {
+            TLobby__sub_800703D0(q + 1, (void *)(((u32)get_character_save_record((int)(0xFFFF))) + 0x21C4));
             if ((*(u32 *)&challenge_task) != 0) {
                 send_challenge_records__6TLobbyFUi((u32)((*(u32 *)&challenge_task)));
             }
@@ -269,7 +269,7 @@ void send_challenge_records__6TLobbyFUi(u32 _w0) {
     G_SetChallengeRecords_V3_6x7C packet;
     init_pkt_cmd_7C__6TLobbyFPv((void *) (&packet.__base_G_SetChallengeRecordsBase_6x7C.header));
     packet.__base_G_SetChallengeRecordsBase_6x7C.client_id = (s16) local_client_id;
-    TLobby__sub_800703D0((void *) (&packet.records[0]), (void *) (get_card_window__17TWindowSubComCardFUi((int) (0xFFFF)) + 0x21C4));
+    TLobby__sub_800703D0((void *) (&packet.records[0]), (void *) (get_character_save_record((int) (0xFFFF)) + 0x21C4));
     send_6x7C_packet__6TLobbyFi((void *) (&packet.__base_G_SetChallengeRecordsBase_6x7C.header));
 }
 

@@ -93,7 +93,7 @@ void send_selected_symbol_chat__20TWindowSubSymbolChatFPv(s32 *arg0);
 s32 play_sound_effect(s32, u32, s16, s32);
 extern RecoveredGlobal_800773BC_lbl_80438830 lbl_80438830;
 void play_symbol_sound__20TWindowSubSymbolChatFi(s32 arg0);
-E_80077480 *get_card_window__17TWindowSubComCardFUi(u32 id);
+E_80077480 *get_character_save_record(u32 id);
 u8 *TWindowSubSymbolChat__sub_80077480(s32 i);
 s32 find_free_entry__20TWindowSubSymbolChatFPvi(Obj_80077108 *self, s32 i);
 void set_entry_bits__20TWindowSubSymbolChatFPvUsiiii(Obj_8007728C *self, u16 v, s32 a, s32 idx, s32 b, s32 c);
@@ -320,7 +320,7 @@ s32 TWindowSubSymbolChat__sub_80077464(u32 *arg0) {
 }
 
 u8 *TWindowSubSymbolChat__sub_80077480(s32 i) {
-    E_80077480 *e = &get_card_window__17TWindowSubComCardFUi(0xFFFF)[i];
+    E_80077480 *e = &get_character_save_record(0xFFFF)[i];
     return ((X_80077480 *)e)->sub;
 }
 

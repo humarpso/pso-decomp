@@ -87,7 +87,7 @@ typedef void (TChallenge::*Step_80070674)(void);
 struct Q_80070078 { u8 pad[0x48]; s32 x48; };
 struct L_80070078 { u8 pad[0x2C]; s32 x2C; };
 extern "C" {
-s32 get_card_window__17TWindowSubComCardFUi(u32);
+s32 get_character_save_record(u32);
 extern s32 local_client_id;
 void TLobby__sub_80070358(void);
 void clear_four_slots__6TLobbyFv(void);
@@ -554,9 +554,9 @@ void TLobby__sub_80070358(void) {
     s32 *temp_r31;
     clear_four_slots__6TLobbyFv();
     temp_r31 = (s32 *)((u8 *)(((u8 *)(&(*(RecoveredGlobal_80070358_lbl_8048C9D8 *)&challenge_mode_state).value) + (local_client_id * 0x104))) + 0x270);
-    if (get_card_window__17TWindowSubComCardFUi(0xFFFFU) != 0U) {
+    if (get_character_save_record(0xFFFFU) != 0U) {
         M2C_FIELD(temp_r31, s32 *, 0) = 1;
-        TLobby__sub_800703D0((Info_800703D0 *)((void *)((void *) ((u8 *)(temp_r31) + 4))), (Info_800703D0 *)((void *)((void *) (get_card_window__17TWindowSubComCardFUi(0xFFFFU) + 0x21C4))));
+        TLobby__sub_800703D0((Info_800703D0 *)((void *)((void *) ((u8 *)(temp_r31) + 4))), (Info_800703D0 *)((void *)((void *) (get_character_save_record(0xFFFFU) + 0x21C4))));
     }
 }
 

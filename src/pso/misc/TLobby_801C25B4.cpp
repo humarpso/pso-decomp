@@ -809,7 +809,7 @@ void handle_6x7E(void);
 extern void *TLobby__battle_mode_data_ptr;
 void TLobby__sub_801C38A4(void);
 int TLobby__sub_801B09A4(void);
-int inc_player_count__10TObjPlayerFv(void);
+int advance_item_system_generation(void);
     extern int lbl_805D5DB4;
 void init_and_set_flag__6TLobbyFv(void);
 u32 __nw__7TObjectFUl(M2C_UNK);
@@ -1300,7 +1300,7 @@ void TLobby__sub_801C38A4(void) {
         M2C_FIELD(TLobby__battle_mode_data_ptr, s32 *, 0x24) = 0;
     }
 }
-void init_and_set_flag__6TLobbyFv(void) { TLobby__sub_801B09A4(); inc_player_count__10TObjPlayerFv(); lbl_805D5DB4 = 1; }
+void init_and_set_flag__6TLobbyFv(void) { TLobby__sub_801B09A4(); advance_item_system_generation(); lbl_805D5DB4 = 1; }
 
 void TLobby__sub_801C38E8(void *arg0) {
     u32 t;

@@ -108,7 +108,7 @@ s32 TAdSinglePlyChrSelectGC__sub_80076D9C(s32 arg0, s32 arg1);
 s32 fn_80076D68(s32 arg0, s32 arg1);
 bool TWindowKeyBoardSoft__sub_80076E00(s32 arg0);
 void fn_80076D40(s32 i);
-s32 get_card_window__17TWindowSubComCardFUi(u32);
+s32 get_character_save_record(u32);
 int TWindowKeyBoardSoft__sub_80076E2C(s32 arg0);
 }
 
@@ -138,7 +138,7 @@ bool TWindowKeyBoardSoft__sub_80076E00(s32 arg0) {
 }
 typedef struct { u8 b[0x54]; } Rec_80076E2C;
 int TWindowKeyBoardSoft__sub_80076E2C(s32 arg0) {
-    u8 *p = (u8 *)((Rec_80076E2C *)get_card_window__17TWindowSubComCardFUi(0xFFFF) + arg0);
+    u8 *p = (u8 *)((Rec_80076E2C *)get_character_save_record(0xFFFF) + arg0);
     return (s32)(p + 0x19C0);
 }
 

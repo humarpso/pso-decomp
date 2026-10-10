@@ -2478,43 +2478,31 @@ void *lbl_80480DD8[9] = {
     (void *)0x16, (void *)0x17, (void *)0x11, (void *)0x12,
     (void *)0x13,
 };
-void *lbl_80480DFC[5] = {
-    (void *)0x0, (void *)0x0, (void *)0x0, (void *)0x0,
-    (void *)0x0,
-};
-void *lbl_80480E10[5] = {
-    (void *)0x0, (void *)0x1, (void *)0x2, (void *)0x3,
-    (void *)0x4,
-};
-void *lbl_80480E24[5] = {
-    (void *)0x0, (void *)0x0, (void *)0x0, (void *)0x0,
-    (void *)0x0,
-};
+s32 boss1_dragon_base_stat_indices[5] = { 0, 0, 0, 0, 0 };
+s32 boss1_dragon_attack_stat_indices[5] = { 0, 1, 2, 3, 4 };
+s32 boss1_dragon_resistance_stat_indices[5] = { 0, 0, 0, 0, 0 };
 void *lbl_80480E38[7] = {
     (void *)0x43610000, (void *)0x0, (void *)0x600, (void *)0x0,
     (void *)0x0, (void *)0x0, (void *)0x0,
 };
-void *lbl_80480E54[77] = {
-    (void *)0x0, (void *)0x0, (void *)0x0, (void *)0x41200000,
-    (void *)0x0, (void *)0x0, (void *)0x8003, (void *)0x0,
-    (void *)0x0, (void *)0x0, (void *)0x0, (void *)0x0,
-    (void *)0x0, (void *)0x0, (void *)0x41200000, (void *)0x0,
-    (void *)0x0, (void *)0x8003, (void *)0x0, (void *)0x0,
-    (void *)0x0, (void *)0x0, (void *)0x0, (void *)0x0,
-    (void *)0x0, (void *)0x41200000, (void *)0x0, (void *)0x0,
-    (void *)0x8003, (void *)0x0, (void *)0x0, (void *)0x0,
-    (void *)0x0, (void *)0x0, (void *)0x0, (void *)0x0,
-    (void *)0x41700000, (void *)0x0, (void *)0x0, (void *)0x8003,
-    (void *)0x0, (void *)0x0, (void *)0x0, (void *)0x0,
-    (void *)0x0, (void *)0x0, (void *)0x0, (void *)0x41700000,
-    (void *)0x0, (void *)0x0, (void *)0x8003, (void *)0x0,
-    (void *)0x0, (void *)0x0, (void *)0x0, (void *)0x0,
-    (void *)0x0, (void *)0x0, (void *)0x41200000, (void *)0x0,
-    (void *)0x0, (void *)0x8003, (void *)0x0, (void *)0x0,
-    (void *)0x0, (void *)0x0, (void *)0x0, (void *)0x0,
-    (void *)0x0, (void *)0x41200000, (void *)0x0, (void *)0x0,
-    (void *)0x8003, (void *)0x0, (void *)0x0, (void *)0x0,
-    (void *)0x0,
+struct DragonCollisionBodyPartInit {
+    f32 local_center[3];
+    f32 radius;
+    f32 field_10;
+    s32 field_14;
+    u32 flags;
+    f32 world_center[3];
+    f32 field_28;
+};
+typedef char DragonCollisionBodyPartInit_size[(sizeof(DragonCollisionBodyPartInit) == 0x2C) ? 1 : -1];
+DragonCollisionBodyPartInit boss1_dragon_collision_body_parts[7] = {
+    { { 0.0f, 0.0f, 0.0f }, 10.0f, 0.0f, 0, 0x8003, { 0.0f, 0.0f, 0.0f }, 0.0f },
+    { { 0.0f, 0.0f, 0.0f }, 10.0f, 0.0f, 0, 0x8003, { 0.0f, 0.0f, 0.0f }, 0.0f },
+    { { 0.0f, 0.0f, 0.0f }, 10.0f, 0.0f, 0, 0x8003, { 0.0f, 0.0f, 0.0f }, 0.0f },
+    { { 0.0f, 0.0f, 0.0f }, 15.0f, 0.0f, 0, 0x8003, { 0.0f, 0.0f, 0.0f }, 0.0f },
+    { { 0.0f, 0.0f, 0.0f }, 15.0f, 0.0f, 0, 0x8003, { 0.0f, 0.0f, 0.0f }, 0.0f },
+    { { 0.0f, 0.0f, 0.0f }, 10.0f, 0.0f, 0, 0x8003, { 0.0f, 0.0f, 0.0f }, 0.0f },
+    { { 0.0f, 0.0f, 0.0f }, 10.0f, 0.0f, 0, 0x8003, { 0.0f, 0.0f, 0.0f }, 0.0f },
 };
 void *lbl_80480F88[3] = {
     (void *)&lbl_80434FAC, (void *)&lbl_80434FC4, (void *)0x0,
@@ -6944,11 +6932,11 @@ typedef char RecoveredGlobal_80064CFC_lbl_804FF5A0_size[sizeof(RecoveredGlobal_8
 typedef char RecoveredGlobal_8002885C_TBoss1Dragon__data_804FE168_size[sizeof(RecoveredGlobal_8002885C_TBoss1Dragon__data_804FE168) == 0x14 ? 1 : -1];
 
 void reload_impact_stats__12TBoss1DragonFPv(void *arg0) {
-    reload_stats_keep_hp_tp__9TObjEneDDFPv(arg0, (&TBoss1Dragon__data_805D4B00)[((s32 *)lbl_80480DFC)[3]], ((s32 *)&TBoss1Dragon__part_hp_stats)[((s32 *)lbl_80480E10)[3]], (&TBoss1Dragon__data_805D4B04)[((s32 *)lbl_80480E24)[3]]);
+    reload_stats_keep_hp_tp__9TObjEneDDFPv(arg0, (&TBoss1Dragon__data_805D4B00)[boss1_dragon_base_stat_indices[3]], ((s32 *)&TBoss1Dragon__part_hp_stats)[boss1_dragon_attack_stat_indices[3]], (&TBoss1Dragon__data_805D4B04)[boss1_dragon_resistance_stat_indices[3]]);
 }
 
 void reload_stats_for_phase__12TBoss1DragonFPvi(void *arg0, int _w1) {
-    reload_stats_keep_hp_tp__9TObjEneDDFPv(arg0, (&TBoss1Dragon__data_805D4B00)[((s32 *)lbl_80480DFC)[2]], ((s32 *)&TBoss1Dragon__part_hp_stats)[((s32 *)lbl_80480E10)[2]], (&TBoss1Dragon__data_805D4B04)[((s32 *)lbl_80480E24)[2]]);
+    reload_stats_keep_hp_tp__9TObjEneDDFPv(arg0, (&TBoss1Dragon__data_805D4B00)[boss1_dragon_base_stat_indices[2]], ((s32 *)&TBoss1Dragon__part_hp_stats)[boss1_dragon_attack_stat_indices[2]], (&TBoss1Dragon__data_805D4B04)[boss1_dragon_resistance_stat_indices[2]]);
 }
 
 void reset_tail_hp__12TBoss1DragonFi(s32 arg0) {
@@ -7729,16 +7717,16 @@ u8 *TBoss1Dragon__ct(u8 *arg0, void *arg1, void *arg2) {
     init_position_vectors__9TObjEneDDFPv(arg0);
     F_29DE4(arg0, s32, 0x34) = F_29DE4(F_29DE4(TBoss1Dragon__data_805D4B08, u8 *, 0x42C), s32, 8);
     F_29DE4(arg0, s32, 0x24) = F_29DE4(F_29DE4(TBoss1Dragon__data_805D4B08, u8 *, 0x42C), s32, 0xC);
-    init_model__9TObjEneDDFPv(arg0, (void *)lbl_80480E54, 7);
+    init_model__9TObjEneDDFPv(arg0, (void *)boss1_dragon_collision_body_parts, 7);
     F_29DE4(arg0, s32, 0xB0) = 0;
     set_field_d8__10TObjPlayerFPvi(arg0, (void *)lbl_80481010);
     set_field_dc__10TObjPlayerFPvi(arg0, F_29DE4(TBoss1Dragon__data_805D4B08, u32, 0x430));
     F_29DE4(arg0, s16, 0xB8) = 0;
     set_animation__10TObjPlayerFPvs(arg0, F_29DE4(arg0, s16, 0xB8));
     set_field_b8__14TObjEnePanarmsFPvs(arg0, F_29DE4(arg0, s16, 0xB8));
-    reset_hp__9TObjEneDDFPv(arg0, (&TBoss1Dragon__data_805D4B00)[((s32 *)lbl_80480DFC)[0]],
-                            ((s32 *)&TBoss1Dragon__part_hp_stats)[((s32 *)lbl_80480E10)[0]],
-                            (&TBoss1Dragon__data_805D4B04)[((s32 *)lbl_80480E24)[0]]);
+    reset_hp__9TObjEneDDFPv(arg0, (&TBoss1Dragon__data_805D4B00)[boss1_dragon_base_stat_indices[0]],
+                            ((s32 *)&TBoss1Dragon__part_hp_stats)[boss1_dragon_attack_stat_indices[0]],
+                            (&TBoss1Dragon__data_805D4B04)[boss1_dragon_resistance_stat_indices[0]]);
     check_state_flag_1__9TObjEneDDFPv(arg0);
     F_29DE4(arg0, s32, 0x350) = (s32)lbl_80480E38;
     initialize_enemy_state__9TObjEneDDFPv(arg0, 0x2C);

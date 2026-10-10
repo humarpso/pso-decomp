@@ -10,7 +10,7 @@ extern "C" {
 s32 disallow_rendering__7TObjectFv(void *);
 s32 create_particle_emitter(void *, void *);
 s32 get_field_d8__10TObjPlayerFPv(void *);
-u32 get_item_ctrl__10TObjPlayerFv();
+u32 get_item_system_generation();
 s32 draw_icon__10TObjPlayerFPvii(s32, s32, M2C_UNK *);
 s32 __ct__7TObjectFP7TObject(void *, void *);
 extern M2C_UNK item_follow_effect_vtable[];
@@ -46,7 +46,7 @@ void update_item_follow_effect(void *arg0);
 void *destroy_item_follow_effect(void *arg0, s16 arg1);
 s32 get_flag_40__8TItemMagFPv(s32);
 s32 find_item_by_id(s32);
-u32 get_item_ctrl__10TObjPlayerFv();
+u32 get_item_system_generation();
 s8 TObjPlayer__sub_80102C30();
 s32 draw_icon__10TObjPlayerFPvii(s32, s32, M2C_UNK *);
 M2C_UNK clear_active_flag__13TParticleCtrlFPv(u32);
@@ -65,7 +65,7 @@ void update_item_follow_effect(void *arg0) {
     s32 var_r31;
     s32 var_r30;
 
-    if ((u32) M2C_FIELD(arg0, u32 *, 0x28) != get_item_ctrl__10TObjPlayerFv()) {
+    if ((u32) M2C_FIELD(arg0, u32 *, 0x28) != get_item_system_generation()) {
         queue_destruction__7TObjectFv((void *)(arg0));
         return;
     }
@@ -113,7 +113,7 @@ u8 *construct_item_follow_effect(u8 *arg0, s32 arg1, s32 arg2, s32 arg3, s32 arg
     M2C_FIELD(arg0, s32 *, 0x20) = arg3;
     draw_icon__10TObjPlayerFPvii((s32)((void *) (arg2)), (s32)((int) (M2C_FIELD(arg0, s32 *, 0x20))), (M2C_UNK *)((void *) (&position)));
     M2C_FIELD(arg0, s32 *, 0x24) = create_particle_emitter((void *) (&position), (void *) (arg4));
-    M2C_FIELD(arg0, s32 *, 0x28) = ((s32)get_item_ctrl__10TObjPlayerFv());
+    M2C_FIELD(arg0, s32 *, 0x28) = ((s32)get_item_system_generation());
     return arg0;
 }
 void spawn_item_follow_effect(s32 arg0, u32 arg1, s32 arg2, s32 arg3) {

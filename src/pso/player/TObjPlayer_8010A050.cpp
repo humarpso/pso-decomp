@@ -86,7 +86,7 @@ struct VObj_8010A26C : Base_8010A26C {
 };
 
 extern "C" {
-u32 get_item_ctrl__10TObjPlayerFv();
+u32 get_item_system_generation();
 void __ct__7TObjectFP7TObject(void *, void *);
 extern const s32 lbl_8043E280[];
 extern const s32 lbl_8043E2A0[];
@@ -103,7 +103,7 @@ void *TObjPlayer__sub_8010A178(void *arg0, s16 arg1);
 M2C_UNK get_field_3e0__12TBoss3VoloptFPv();
 M2C_UNK create_timed_particle_emitter(s32, s32, M2C_UNK, M2C_UNK);
 M2C_UNK spawn_particle_effect(s32, s32);
-u32 get_item_ctrl__10TObjPlayerFv();
+u32 get_item_system_generation();
 s32 is_item_area_enabled();
 VObj_8010A26C *get_player_by_client_id(u16);
 void __dl__7TObjectFPv(void *);
@@ -135,7 +135,7 @@ void update_dropped_item__10TObjPlayerFPv(void *arg0) {
     struct TItemData8_8010a060 sp8;
     s32 temp_r3;
 
-    if ((u32) M2C_FIELD(arg0, u32 *, 0x2C) != get_item_ctrl__10TObjPlayerFv()) {
+    if ((u32) M2C_FIELD(arg0, u32 *, 0x2C) != get_item_system_generation()) {
         queue_destruction__7TObjectFv(arg0);
         return;
     }
@@ -182,7 +182,7 @@ Obj_8010A1D0 *TObjPlayer__sub_8010A1D0(Obj_8010A1D0 *self, void *parent, s16 a, 
     self->f_24 = lbl_8043E280[(b - 0x53) % 8];
     self->f_28 = a;
     self->f_2A = b;
-    self->f_2C = get_item_ctrl__10TObjPlayerFv();
+    self->f_2C = get_item_system_generation();
     return self;
 }
 
@@ -192,7 +192,7 @@ void update_indicator_particle__10TObjPlayerFPv(void *arg0) {
     u32 temp_r3_3;
     VObj_8010A26C *temp_r3;
 
-    if ((u32) M2C_FIELD(arg0, u32 *, 0x28) != get_item_ctrl__10TObjPlayerFv()) {
+    if ((u32) M2C_FIELD(arg0, u32 *, 0x28) != get_item_system_generation()) {
         queue_destruction__7TObjectFv(arg0);
         return;
     }

@@ -2042,7 +2042,7 @@ int bswap_16__FPUs(void*);
 int bswap_32__FPUl(void*);
 int TLobby__send_and_handle_60(void*);
 int update_players__6TLobbyFi(void*);
-u8 * get_card_window__17TWindowSubComCardFUi(u16);
+u8 * get_character_save_record(u16);
 s32 reset_key_machine_state__10TObjPlayerFv();
 s32 get_player_floor__6TLobbyFi(s32);
 M2C_UNK play_persistent_sound(int, void *, int, int, int);
@@ -3786,11 +3786,11 @@ void enter_death_state__10TObjPlayerFPv(u8 *arg0) {
     }
     if ((is_locally_controlled__10TObjPlayerFPv((void *) (arg0)) != 0) && (is_camera_mode_active__10TObjPlayerFv() == 0) && (is_technique_ready__8TTecCtrlFv() == 0)) {
         if (is_single_screen__10TObjPlayerFv() != 0) {
-            temp_r3_2 = get_card_window__17TWindowSubComCardFUi(((s32 (*)(void *))obj_getField1c)((void *) (arg0)));
+            temp_r3_2 = get_character_save_record(((s32 (*)(void *))obj_getField1c)((void *) (arg0)));
             M2C_FIELD(temp_r3_2, s32 *, 0x244) = (s32) (M2C_FIELD(temp_r3_2, s32 *, 0x244) + 1);
             return;
         }
-        temp_r3_3 = get_card_window__17TWindowSubComCardFUi(0xFFFFU);
+        temp_r3_3 = get_character_save_record(0xFFFFU);
         M2C_FIELD(temp_r3_3, s32 *, 0x244) = (s32) (M2C_FIELD(temp_r3_3, s32 *, 0x244) + 1);
     }
 }

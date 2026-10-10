@@ -149,7 +149,7 @@ extern RecoveredGlobal_80310300_TPlayerBattleCtrl4P__data_80542E90 split_screen_
 s32 are_split_screen_battle_players_tied(void);
 void *get_player_by_client_id(s32);
 M2C_UNK TAdSinglePlyChrSelectGC__sub_801FCE6C();
-void *get_card_window__17TWindowSubComCardFUi(u16);
+void *get_character_save_record(u16);
 s32 are_split_screen_battle_players_tied(void);
 extern RecoveredGlobal_80310300_TPlayerBattleCtrl4P__data_80542E90 split_screen_battle_rankings;
 void record_split_screen_battle_results(void);
@@ -267,7 +267,7 @@ M2C_UNK TLobby__sub_801B09A4();
 int play_cue_stream_file(void*);
 void *get_player_by_client_id(s32);
 int show_duel_result_window(void*, void*);
-M2C_UNK inc_player_count__10TObjPlayerFv();
+M2C_UNK advance_item_system_generation();
 
 s32 check_all_players_flag__19TPlayerBattleCtrl4PFv(void);
 void remove_player__19TPlayerBattleCtrl4PFPvUsi(void *arg0, u16 arg1, s32 arg2);
@@ -423,7 +423,7 @@ extern s32 TPlayerBattleCtrl4P__init_flag;
 
 void init__19TPlayerBattleCtrl4PFv(void) {
     TLobby__sub_801B09A4();
-    inc_player_count__10TObjPlayerFv();
+    advance_item_system_generation();
     TPlayerBattleCtrl4P__init_flag = 1;
 }
 
@@ -443,7 +443,7 @@ void record_split_screen_battle_results(void) {
     do {
         entry = base + off;
         if (get_player_by_client_id(M2C_FIELD(entry, u16 *, 0)) != NULL) {
-            obj = get_card_window__17TWindowSubComCardFUi(M2C_FIELD(entry, u16 *, 0));
+            obj = get_character_save_record(M2C_FIELD(entry, u16 *, 0));
             if (obj != NULL) {
                 s16 field2 = M2C_FIELD(entry, s16 *, 2);
                 if (are_split_screen_battle_players_tied() == 0) {

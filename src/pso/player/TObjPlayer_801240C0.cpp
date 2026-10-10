@@ -10,7 +10,7 @@ void update_item_camera_target__10TObjPlayerFPv(void *arg0);
 void *TObjPlayer__sub_8012417C(void *arg0, s16 arg1);
 s32 get_flag_40__8TItemMagFPv(s32);
 s32 find_item_by_id(s32);
-u32 get_item_ctrl__10TObjPlayerFv();
+u32 get_item_system_generation();
 s8 TObjPlayer__sub_80102C30();
 s32 draw_icon__10TObjPlayerFPvii(s32, s32, M2C_UNK *);
 void __dl__7TObjectFPv(void *);
@@ -23,7 +23,7 @@ void update_item_camera_target__10TObjPlayerFPv(void *arg0) {
     M2C_UNK sp8;
     s32 temp_r3;
 
-    if ((u32) M2C_FIELD(arg0, u32 *, 0x28) != get_item_ctrl__10TObjPlayerFv()) {
+    if ((u32) M2C_FIELD(arg0, u32 *, 0x28) != get_item_system_generation()) {
         queue_destruction__7TObjectFv(arg0);
         return;
     }

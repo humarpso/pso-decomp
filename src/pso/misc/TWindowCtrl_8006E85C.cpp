@@ -15,7 +15,7 @@ u32 get_player_by_client_id(s32);
 s32 has_player_active_menu__11TWindowCtrlFi(u16);
 s32 is_slot_visible__11TWindowCtrlFi(u16);
 int check_flag__10TObjPlayerFPvi(void*, int);
-u32 get_card_window__17TWindowSubComCardFUi(s32);
+u32 get_character_save_record(s32);
 s32 is_active__19THunterGuildWarningFv();
 s32 is_level_capped__23TAdSinglePlyChrSelectGCFPv();
 s32 is_not_split_screen__13TRaderMapCoreFv();

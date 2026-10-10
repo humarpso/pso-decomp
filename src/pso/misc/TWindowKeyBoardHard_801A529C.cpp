@@ -21,7 +21,7 @@ void copy_packet__FP6packet(void *arg0);
 void set_fresh_card_flag(void *arg0);
 void set_card_window_flags__19TWindowKeyBoardHardFPvii(void *arg0, s32 arg1, s32 arg2);
 s32 test_card_flag__19TWindowKeyBoardHardFii(s32 arg1, s32 arg2);
-void *get_card_window__17TWindowSubComCardFUi();
+void *get_character_save_record();
 M2C_UNK memcpy(s32, void *, u16);
 M2C_UNK memset(s32, M2C_UNK, M2C_UNK);
 u16 to_be_uint16_t__FUs(u16);
@@ -29,7 +29,7 @@ u16 to_be_uint16_t__FUs(u16);
 s32 test_card_flag__19TWindowKeyBoardHardFii(s32 arg1, s32 arg2) {
     void *temp_r3;
 
-    temp_r3 = get_card_window__17TWindowSubComCardFUi();
+    temp_r3 = get_character_save_record();
     if (temp_r3 == NULL) {
         return 0;
     }
@@ -39,7 +39,7 @@ s32 test_card_flag__19TWindowKeyBoardHardFii(s32 arg1, s32 arg2) {
 void set_card_window_flags__19TWindowKeyBoardHardFPvii(void *arg0, s32 arg1, s32 arg2) {
     void *temp_r3;
 
-    temp_r3 = get_card_window__17TWindowSubComCardFUi();
+    temp_r3 = get_character_save_record();
     if (temp_r3 != NULL) {
         M2C_FIELD(temp_r3, s32 *, 0x10) = (s32) (M2C_FIELD(temp_r3, s32 *, 0x10) & arg2);
         M2C_FIELD(temp_r3, s32 *, 0x10) = (s32) (M2C_FIELD(temp_r3, s32 *, 0x10) | arg1);

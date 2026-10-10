@@ -69,9 +69,9 @@ void TWindowShortListCtrl__sub_8026EA48(u8 *arg0);
 void set_card_window_flags__20TWindowShortListCtrlFii(s32 arg0, s32 arg1);
 extern RecoveredGlobal_8026EA60_lbl_8050E208 controller_input_state;
 void cycle_list_page__20TWindowShortListCtrlFPv(u8 *arg0);
-s32 get_card_window__17TWindowSubComCardFUi(int);
+s32 get_character_save_record(int);
 void swap_card_entries__20TWindowShortListCtrlFPvii(u8 *arg0, s32 arg1, s32 arg2);
-s32 get_card_window__17TWindowSubComCardFUi(int);
+s32 get_character_save_record(int);
 void reset_entries__17TWindowSubComCardFPv(void *);
 void set_selected_index__17TWindowSubComCardFPvs(void *, s16);
 void align_menu_entry_positions(void *);
@@ -185,7 +185,7 @@ s32 is_technique_usable__20TWindowShortListCtrlFPv(u8 *arg0) {
 }
 
 void swap_card_entries__20TWindowShortListCtrlFPvii(u8 *arg0, s32 arg1, s32 arg2) {
-    s16 *p = (s16 *)(get_card_window__17TWindowSubComCardFUi(*(s32 *)(arg0 + 0x24)) + 0x22C4);
+    s16 *p = (s16 *)(get_character_save_record(*(s32 *)(arg0 + 0x24)) + 0x22C4);
     s16 t = p[arg1];
     p[arg1] = p[arg2];
     p[arg2] = t;
@@ -315,7 +315,7 @@ void refresh_technique_rows__20TWindowShortListCtrlFPviPv(Wn_8026EBB0 *arg0, s32
     s32 i;
     s16 cur;
     Tb_8026EBB0 *tbl;
-    tbl = (Tb_8026EBB0 *)(get_card_window__17TWindowSubComCardFUi(arg0->card) + 0x22C4);
+    tbl = (Tb_8026EBB0 *)(get_character_save_record(arg0->card) + 0x22C4);
     cur = get_cursor_pos__20TWindowShortListCtrlFPv((void*)((void *)arg1));
     reset_entries__17TWindowSubComCardFPv((void *)arg1);
     for (i = 0; i < 0x13; i++) {

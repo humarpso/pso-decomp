@@ -115,8 +115,8 @@ s32 parse_f_index(s32 a0);
 int sscanf(M2C_UNK, M2C_UNK *, ...);
 M2C_UNK capture_message__19TOChatSensorCaptureFUsPv(u16, s32);
 M2C_UNK dispatch_chat_message_to_children__12TOChatSensorFi();
-namespace pf2_p0 { extern "C" { u32 get_card_window__17TWindowSubComCardFUi(int); } }
-#define get_card_window__17TWindowSubComCardFUi pf2_p0::get_card_window__17TWindowSubComCardFUi
+namespace pf2_p0 { extern "C" { u32 get_character_save_record(int); } }
+#define get_character_save_record pf2_p0::get_character_save_record
 
 extern s32 local_client_id;
 
@@ -207,7 +207,7 @@ void TLobby__sub_801E677C(void) {
 void append_card_window_text__6TLobbyFv(void) {
     u32 temp_r3;
 
-    temp_r3 = get_card_window__17TWindowSubComCardFUi((int) (0xFFFF));
+    temp_r3 = get_character_save_record((int) (0xFFFF));
     if (temp_r3 != 0U) {
         append_string((void *) (temp_r3 + 0x2254));
         return;
@@ -267,7 +267,7 @@ s32 parse_f_index(s32 a0) {
 #undef TLobby__sub_801E6BB8
 #undef TLobby__sub_801E6C40
 #undef append_string
-#undef get_card_window__17TWindowSubComCardFUi
+#undef get_character_save_record
 #undef get_unit_list__6TLobbyFv
 #undef parse_r_index
 #undef read_byte_advance__6TLobbyFv
@@ -2705,7 +2705,7 @@ int hide_radar__13TRaderMapCoreFv(void);
 int show_radar__13TRaderMapCoreFv(void);
 M2C_UNK free_map_data__13TRaderMapCoreFv();
 s32 find_entry__23TAdSinglePlyChrSelectGCFii(s32, ItemData_801E7810 *);
-s32 get_card_window__17TWindowSubComCardFUi(u32);
+s32 get_character_save_record(u32);
 s32 get_floor_map_terrain(int);
 M2C_UNK request_story_select_state(int);
 s32 set_state__16TAdStorySelectGCFi(s32);
@@ -3131,7 +3131,7 @@ void TLobby__sub_801E7810(u8 i, u8 out) {
     ItemData_801E7810 item;
     s32 card;
     ((s32 *)(*(s32 *)&TLobby__script_reg_array))[out] = -1;
-    card = get_card_window__17TWindowSubComCardFUi(0xFFFF);
+    card = get_character_save_record(0xFFFF);
     if (card != 0) {
         ((void (*)(ItemData_801E7810 *))init__9TItemDataFv)(&item);
         item.data1[0] = ((s32 *)(*(s32 *)&TLobby__script_reg_array))[i++];
@@ -3149,7 +3149,7 @@ void TLobby__sub_801E7810(u8 i, u8 out) {
 void set_card_window_entry__6TLobbyFv(void) {
     s32 idx = (*(Glob_801E78D4 *)&TLobby__quest_argument_stack).f0;
     s32 val = (*(Glob_801E78D4 *)&TLobby__quest_argument_stack).f4;
-    Win_801E78D4 *w = ((Win_801E78D4 *)get_card_window__17TWindowSubComCardFUi(0xFFFFU));
+    Win_801E78D4 *w = ((Win_801E78D4 *)get_character_save_record(0xFFFFU));
     if (w != NULL && idx >= 0 && idx < 0x10) {
         w->t[idx] = val;
     }
@@ -3162,7 +3162,7 @@ void TLobby__sub_801E7934(void) {
   u8 temp_r30;
   temp_r31 = *((s32 *) (((s8 *) (&(*(RecoveredGlobal_801E7934_TLobby__data_80512220 *)&TLobby__quest_argument_stack).value)) + 0));
   temp_r30 = (u8) (*((s32 *) (((s8 *) (&(*(RecoveredGlobal_801E7934_TLobby__data_80512220 *)&TLobby__quest_argument_stack).value)) + 4)));
-  temp_r3 = get_card_window__17TWindowSubComCardFUi(0xFFFFU);
+  temp_r3 = get_character_save_record(0xFFFFU);
   if (temp_r3 != 0U)
   {
     if ((temp_r31 >= 0) && (temp_r31 < 0x10))
@@ -3264,7 +3264,7 @@ void TLobby__sub_801E7D7C(u8 i) {
     } else {
         (*(s32 * *)&TLobby__script_reg_array)[i] = -1;
     }
-    w = ((Card_801E7D7C *)get_card_window__17TWindowSubComCardFUi(0xFFFF));
+    w = ((Card_801E7D7C *)get_character_save_record(0xFFFF));
     if (w != 0) {
         (&(*(s32 * *)&TLobby__script_reg_array)[i])[1] = w->v;
     } else {
@@ -3276,7 +3276,7 @@ void set_handler_entry__6TLobbyFi(int a0) { TLobby__script_reg_array[(unsigned c
 
 void TLobby__sub_801E7E50(s32 arg0) {
     u8 *temp_r3;
-    temp_r3 = (u8 *)(get_card_window__17TWindowSubComCardFUi(0xFFFFU));
+    temp_r3 = (u8 *)(get_character_save_record(0xFFFFU));
     if (temp_r3 != NULL) {
         M2C_FIELD((*(s32 *)&TLobby__script_reg_array), M2C_UNK *, ((arg0 * 4) & 0x3FC)) = M2C_FIELD(temp_r3, s32 *, 0xC);
         return;
@@ -4466,7 +4466,7 @@ s32 get_slot_clamped__6TLobbyFv(int);
 void TLobby__sub_801EA094(s32 arg0) {
     u32 temp_r3;
 
-    temp_r3 = get_card_window__17TWindowSubComCardFUi(0xFFFF);
+    temp_r3 = get_character_save_record(0xFFFF);
     if (temp_r3 != 0U) {
         M2C_FIELD(TLobby__script_reg_array, M2C_UNK *, ((arg0 * 4) & 0x3FC)) = get_slot_clamped__6TLobbyFv((int) (M2C_FIELD(TWindowSubStatusDisp__sub_8006F134(temp_r3 + 0x21C4, -1), s32 *, 4)));
     }
@@ -4486,7 +4486,7 @@ void TLobby__sub_801EA094(s32 arg0) {
 #pragma auto_inline off
 #pragma dont_inline off
 void store_card_stats__6TLobbyFUc(u8 i) {
-    Card_801EA0F0 *card = (Card_801EA0F0 *)get_card_window__17TWindowSubComCardFUi(0xFFFF);
+    Card_801EA0F0 *card = (Card_801EA0F0 *)get_character_save_record(0xFFFF);
     if (card != NULL) {
         (*(int * *)&TLobby__script_reg_array)[i++] = card->stats[0];
         (*(int * *)&TLobby__script_reg_array)[i++] = card->stats[1];
@@ -4514,7 +4514,7 @@ void store_card_stats__6TLobbyFUc(u8 i) {
 #pragma dont_inline off
 void TLobby__sub_801EA1B4(s32 arg0) {
     u32 temp_r3;
-    temp_r3 = get_card_window__17TWindowSubComCardFUi(0xFFFFU);
+    temp_r3 = get_character_save_record(0xFFFFU);
     if (temp_r3 != 0U) {
         if (strncmp((void *) (temp_r3 + 0x2254), (void *) (&TLobby__data_805DC4A0), (int) (0x20)) == 0) {
             M2C_FIELD((*(s32 *)&TLobby__script_reg_array), M2C_UNK *, ((arg0 * 4) & 0x3FC)) = 0;

@@ -15,7 +15,7 @@ s32 copy_pos__11TNowLoadingFPvPv(int, void *);
 s32 clear_active_flag__13TParticleCtrlFPv(int);
 s32 enable__13TParticleCtrlFPv(int);
 u32 find_item_by_id(int);
-s32 get_item_ctrl__10TObjPlayerFv();
+s32 get_item_system_generation();
 s8 TObjPlayer__sub_80102C30();
 s32 get_flag_40__8TItemMagFPv(int);
 void *get_player_by_client_id(u16);
@@ -25,7 +25,7 @@ void TItemEffArmorParticle::run_task() {
     s32 active;
     u32 player, item;
 
-    if (m_item_ctrl != (u32)get_item_ctrl__10TObjPlayerFv()) {
+    if (m_item_ctrl != (u32)get_item_system_generation()) {
         queue_destruction__7TObjectFv(this);
         return;
     }
@@ -86,7 +86,7 @@ M2C_UNK set_owner_id__13TParticleCtrlFPvUs(u32, u16);
 void *get_player_by_client_id(u16);
 M2C_UNK __ct__7TObjectFP7TObject(void *, void *);
 M2C_UNK disallow_rendering__7TObjectFv(void *);
-s32 get_item_ctrl__10TObjPlayerFv();
+s32 get_item_system_generation();
 
 extern void* __vt__21TItemEffArmorParticle[];
 extern s32 TItemEffArmorParticle__class_name;
@@ -101,7 +101,7 @@ void *TItemEffArmorParticle__ct(void *arg0, void *arg1, s32 arg2, s32 arg3, s32 
     disallow_rendering__7TObjectFv(arg0);
     M2C_FIELD(arg0, s32 *, 0x1C) = arg2;
     M2C_FIELD(arg0, s16 *, 0x24) = (s16) arg3;
-    M2C_FIELD(arg0, s32 *, 0x28) = get_item_ctrl__10TObjPlayerFv();
+    M2C_FIELD(arg0, s32 *, 0x28) = get_item_system_generation();
     temp_r3 = get_player_by_client_id((u16) arg3);
     if (temp_r3 != NULL) {
         M2C_FIELD(arg0, u32 *, 0x20) = spawn_continuous_particle_effect_with_flags(((V_A_80364364 *) temp_r3)->m7(), arg4, 0x10);

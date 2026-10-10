@@ -28,7 +28,7 @@ s32 is_slot_visible__11TWindowCtrlFi(u16);
 M2C_UNK get_window_layout_position(M2C_UNK);
 void __ct__7TObjectFP7TObject(void *);
 int check_flag__10TObjPlayerFPvi(void*, int);
-u32 get_card_window__17TWindowSubComCardFUi(s32);
+u32 get_character_save_record(s32);
 s32 is_active__19THunterGuildWarningFv();
 s32 is_level_capped__23TAdSinglePlyChrSelectGCFPv();
 s32 is_not_split_screen__13TRaderMapCoreFv();
@@ -57,7 +57,7 @@ s32 check_can_open__16TObjBagWarnWin4PFv(void * _w0) {
     var_r31 = 0;
     var_r30 = 0;
     do {
-        if ((get_player_by_client_id(var_r30) != 0U) && (get_card_window__17TWindowSubComCardFUi(var_r30) != 0U) && (is_level_capped__23TAdSinglePlyChrSelectGCFPv() != 0)) {
+        if ((get_player_by_client_id(var_r30) != 0U) && (get_character_save_record(var_r30) != 0U) && (is_level_capped__23TAdSinglePlyChrSelectGCFPv() != 0)) {
             var_r31 = 1;
         }
         var_r30 += 1;

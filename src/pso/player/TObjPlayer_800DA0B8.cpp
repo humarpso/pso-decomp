@@ -1,3 +1,21 @@
+#include "pso/enemy/TObjEneNanoDrago.h"
+#include <stddef.h>
+typedef char NanoDrago_flags30_offset[offsetof(TObjEneNanoDrago, flags30) == 0x30 ? 1 : -1];
+typedef char NanoDrago_pos_offset[offsetof(TObjEneNanoDrago, pos) == 0x38 ? 1 : -1];
+typedef char NanoDrago_angle_offset[offsetof(TObjEneNanoDrago, angle) == 0x60 ? 1 : -1];
+typedef char NanoDrago_fb8_offset[offsetof(TObjEneNanoDrago, fb8) == 0xb8 ? 1 : -1];
+typedef char NanoDrago_home_offset[offsetof(TObjEneNanoDrago, home) == 0x29c ? 1 : -1];
+typedef char NanoDrago_target_offset[offsetof(TObjEneNanoDrago, target) == 0x2a8 ? 1 : -1];
+typedef char NanoDrago_hpmax_offset[offsetof(TObjEneNanoDrago, hpmax) == 0x2b8 ? 1 : -1];
+typedef char NanoDrago_hp_offset[offsetof(TObjEneNanoDrago, hp) == 0x32c ? 1 : -1];
+typedef char NanoDrago_params_offset[offsetof(TObjEneNanoDrago, params) == 0x350 ? 1 : -1];
+typedef char NanoDrago_state_offset[offsetof(TObjEneNanoDrago, state) == 0x37c ? 1 : -1];
+typedef char NanoDrago_flags388_offset[offsetof(TObjEneNanoDrago, flags388) == 0x388 ? 1 : -1];
+typedef char NanoDrago_accum_offset[offsetof(TObjEneNanoDrago, accum) == 0x3d0 ? 1 : -1];
+typedef char NanoDrago_t_offset[offsetof(TObjEneNanoDrago, t) == 0x3d4 ? 1 : -1];
+typedef char NanoDrago_speed_offset[offsetof(TObjEneNanoDrago, speed) == 0x3d8 ? 1 : -1];
+typedef char NanoDrago_toggle_offset[offsetof(TObjEneNanoDrago, toggle) == 0x3e0 ? 1 : -1];
+
 #include "types.h"
 typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
 typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
@@ -35,13 +53,33 @@ struct Ene_800DA2A0 : Base_800DA2A0 {
     u32 f388;
 };
 
+typedef NanoDragoVector Vec_800DB5A8;
 extern "C" {
 u16 find_nearest_visible_player(void *, s32, f32);
-M2C_UNK update_if_active__15TObjEneMe1GiGueFPv(void *, M2C_UNK, s32);
 s32 select_nearest_target__10TObjPlayerFPvf(void *, f32);
 void TObjPlayer__sub_800DA1F4(Obj_800DA1F4 *arg0);
 extern const f32 lbl_805DA408;
 void TObjPlayer__sub_800DA2A0(Ene_800DA2A0 *arg0);
+M2C_UNK apply_actor_gravity(void *, int, f32);
+M2C_UNK enemy_wander_home(void *, int, f32, f32, f32);
+void move_with_wall_slide(void *);
+void enemy_set_heading_velocity(void *, f32, s32);
+void VecCopy__FP3VecPC3Vec(void *, void *);
+f32 atan2_float(f32 y, f32 x);
+M2C_UNK update_if_active__15TObjEneMe1GiGueFPv(void *, M2C_UNK, s32);
+M2C_UNK TBoss3VoloptMonitor__sub_8004292C();
+s32 select_nearest_target__10TObjPlayerFPvf(void *, f32);
+s32 angle_difference_abs(s32, s32);
+s32 objInBand__FP7GameObjf(void *, f32);
+M2C_UNK advance_animation_playback(void *);
+M2C_UNK check_enemy_body_collisions(void *);
+void check_object_collisions__10TObjPlayerFPv(void *);
+s32 play_sound_effect(int, void *, int, int);
+void subtract_vector(void *, void *);
+extern const f64 lbl_8043C900[];
+extern const f32 lbl_805DA400;
+extern const f32 lbl_805DA460;
+extern const f32 lbl_805DA464;
 }
 
 extern "C" {
@@ -59,7 +97,6 @@ void refresh_collision_body_centers(void *);
 void update_death_state__10TObjPlayerFPv(u8 *arg0);
 void trigger_hit_camera_shake__10TObjPlayerFPvUi(void *arg0, u32 arg1);
 M2C_UNK advance_animation_playback(void *);
-M2C_UNK update_if_active__15TObjEneMe1GiGueFPv(void *, M2C_UNK, s32);
 M2C_UNK TObjEneMe3SinowZoa__sub_800D758C(void *);
 M2C_UNK update_collisions__10TObjPlayerFPv(void *);
 u32 get_player_by_client_id(M2C_UNK);
@@ -803,6 +840,90 @@ void TObjPlayer__sub_800DB390(u8 *arg0) {
         break;
     }
 }
+
+#pragma push
+#pragma dont_inline off
+#pragma inline_depth(4)
+inline f32 xz_sq_800DB5A8(Vec_800DB5A8 *v) { return v->x * v->x + v->z * v->z; }
+}
+
+void TObjEneNanoDrago::update_circling_state() {
+    u8 *arg0 = (u8 *)this;
+    TObjEneNanoDrago *e = this;
+    e->flags30 &= ~0x01000000;
+    switch (e->state) {
+    case -1:
+        break;
+    case 0:
+        e->flags388 &= ~0x00040000;
+        ((void (*)(void *))TBoss3VoloptMonitor__sub_8004292C)(arg0);
+        e->fb8 = 1;
+        e->accum = 0;
+        if (e->target != NULL) {
+            VecCopy__FP3VecPC3Vec(&e->home, e->target + 0x2FC);
+        }
+        e->state = 1;
+    case 1:
+        advance_animation_playback(arg0);
+        apply_actor_gravity(arg0, 0, 0.0f);
+        if (objInBand__FP7GameObjf(arg0, lbl_805DA464) != 0 || objInBand__FP7GameObjf(arg0, 20.0f) != 0) {
+            play_sound_effect(0x4003AD23, &e->pos, 0, 0);
+        }
+        if (e->target != NULL) {
+            Vec_800DB5A8 d = *(Vec_800DB5A8 *)(e->target + 0x38);
+            subtract_vector(&d, &e->pos);
+            if (xz_sq_800DB5A8(&d) <= lbl_805DA400 &&
+                angle_difference_abs(-(s32)(lbl_8043C900[0] * atan2_float(d.z, d.x)) + 0x4000, e->angle) < 0xAAA) {
+                s32 next;
+                if (e->hp <= e->hpmax / 4) {
+                    next = 10;
+                } else {
+                    s32 n = 9;
+                    if (e->toggle != 0) {
+                        n = 10;
+                    }
+                    next = n;
+                    e->toggle ^= 1;
+                }
+                ((void (*)(void *, s32))update_if_active__15TObjEneMe1GiGueFPv)(arg0, next);
+                break;
+            }
+        }
+        e->angle += e->params->turn / 2;
+        enemy_set_heading_velocity(arg0, e->speed, e->angle);
+        move_with_wall_slide(arg0);
+        e->accum += e->params->turn / 2;
+        if (e->accum > 0x10000) {
+            e->t = 0.0f;
+            e->state = 2;
+        }
+        check_object_collisions__10TObjPlayerFPv(arg0);
+        check_enemy_body_collisions(arg0);
+        break;
+    case 2:
+        ((M2C_UNK (*)(void *, f32, f32, f32, int))enemy_wander_home)(arg0, e->speed, lbl_805DA460, 50.0f, e->params->turn);
+        advance_animation_playback(arg0);
+        apply_actor_gravity(arg0, 0, 0.0f);
+        if (objInBand__FP7GameObjf(arg0, lbl_805DA464) != 0 || objInBand__FP7GameObjf(arg0, 20.0f) != 0) {
+            play_sound_effect(0x4003AD23, &e->pos, 0, 0);
+        }
+        e->t += e->speed;
+        if (e->t > lbl_805DA460) {
+            if (select_nearest_target__10TObjPlayerFPvf(arg0, e->params->f0) != 0) {
+                e->accum = 0;
+                e->state = 1;
+            } else {
+                ((void (*)(void *, s32))update_if_active__15TObjEneMe1GiGueFPv)(arg0, 0);
+            }
+        }
+        check_object_collisions__10TObjPlayerFPv(arg0);
+        check_enemy_body_collisions(arg0);
+        break;
+    }
+}
+extern "C" {
+
+#pragma pop
 
 void enter_state_5__10TObjPlayerFPv(u8 *arg0) {
     set_state__15TObjEneMe1GiGueFPvi(arg0, 5);

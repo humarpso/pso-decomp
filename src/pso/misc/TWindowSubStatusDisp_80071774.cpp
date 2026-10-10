@@ -19,26 +19,26 @@ extern "C" {
 s32 get_layout_id__20TWindowSubStatusDispFv(void *);
 s32 TWindowSubStatusDisp__sub_8006F0D8(void *, void *);
 s32 get_valid_slot__6TLobbyFi(int);
-u32 get_card_window__17TWindowSubComCardFUi(u32);
+u32 get_character_save_record(u32);
 s32 TWindowSubStatusDisp__sub_80071A24(s32 arg0, u16 arg1, s32 arg2);
 s32 decode_obfuscated_string__6TLobbyFPvPvi(void *, void *, int);
 extern RecoveredGlobal_80071820_lbl_804FF820 lbl_804FF820;
 extern M2C_UNK lbl_805D2858;
 M2C_UNK *TWindowSubStatusDisp__sub_80071820(u32 arg0);
-u32 get_card_window__17TWindowSubComCardFUi(u32);
+u32 get_character_save_record(u32);
 s32 resolve_player_slot__20TWindowSubStatusDispFi(s32 slot);
 s32 get_slot_clamped__6TLobbyFv(s32);
 s32 TWindowSubStatusDisp__sub_80071868(u16 id, s32 slot);
 s32 get_layout_id__20TWindowSubStatusDispFv(void *);
 s32 TWindowSubStatusDisp__sub_8006F0D8(void *, void *);
 s32 get_valid_slot__6TLobbyFi(int);
-u32 get_card_window__17TWindowSubComCardFUi(u32);
+u32 get_character_save_record(u32);
 s32 TWindowSubStatusDisp__sub_80071988(s32 arg0, s32 arg1);
 s32 calc_layout_hash__20TWindowSubStatusDispFv(int);
 s32 get_layout_id__20TWindowSubStatusDispFv(void *);
 s32 is_flag_set__6TLobbyFv();
 s32 TWindowSubStatusDisp__sub_80071A24(s32 arg0, u16 arg1, s32 arg2);
-u32 get_card_window__17TWindowSubComCardFUi(u32);
+u32 get_character_save_record(u32);
 extern G_800718D0 challenge_mode_state;
 s32 TWindowSubStatusDisp__sub_800718D0(void);
 }
@@ -49,12 +49,12 @@ s32 get_status_index__20TWindowSubStatusDispFi(int arg0);
 s32 get_status_index_or_default__20TWindowSubStatusDispFPv(u16 *arg0);
 M2C_UNK *get_status_window__20TWindowSubStatusDispFi(int arg0);
 s32 TLobby__sub_80071654(u16);
-u32 get_card_window__17TWindowSubComCardFUi(u32);
+u32 get_character_save_record(u32);
 
 s32 get_status_index__20TWindowSubStatusDispFi(int arg0) {
     u32 temp_r3;
 
-    temp_r3 = get_card_window__17TWindowSubComCardFUi((u16)arg0);
+    temp_r3 = get_character_save_record((u16)arg0);
     if (temp_r3 == 0U) {
         return -1;
     }
@@ -73,7 +73,7 @@ extern M2C_UNK lbl_805D285C;
 M2C_UNK *get_status_window__20TWindowSubStatusDispFi(int arg0) {
     u32 temp_r3;
 
-    temp_r3 = get_card_window__17TWindowSubComCardFUi((u16)arg0);
+    temp_r3 = get_character_save_record((u16)arg0);
     if (temp_r3 == 0U) {
         return &lbl_805D285C;
     }
@@ -90,7 +90,7 @@ M2C_UNK *TWindowSubStatusDisp__sub_80071820(u32 arg0) {
 }
 
 s32 TWindowSubStatusDisp__sub_80071868(u16 id, s32 slot) {
-    W_80071868 *w = (W_80071868 *)get_card_window__17TWindowSubComCardFUi(id);
+    W_80071868 *w = (W_80071868 *)get_character_save_record(id);
     s32 idx;
     s32 v;
     if (w == 0) {
@@ -112,7 +112,7 @@ s32 TWindowSubStatusDisp__sub_800718D0(void) {
     s32 i;
     s32 r;
     hash = calc_layout_hash__20TWindowSubStatusDispFv(-1);
-    if (is_flag_set__6TLobbyFv() == 0 || get_card_window__17TWindowSubComCardFUi(0xFFFF) == 0) {
+    if (is_flag_set__6TLobbyFv() == 0 || get_character_save_record(0xFFFF) == 0) {
         return hash;
     }
     sum = 0;
@@ -135,7 +135,7 @@ s32 TWindowSubStatusDisp__sub_80071988(s32 arg0, s32 arg1) {
     s32 sum;
     s32 i;
     u32 w;
-    w = get_card_window__17TWindowSubComCardFUi((u16)arg0);
+    w = get_character_save_record((u16)arg0);
     if (w == 0U) {
         return 0;
     }
@@ -155,7 +155,7 @@ s32 TWindowSubStatusDisp__sub_80071988(s32 arg0, s32 arg1) {
 s32 TWindowSubStatusDisp__sub_80071A24(s32 arg0, u16 arg1, s32 arg2) {
     s32 temp_r3;
     u32 temp_r31;
-    temp_r31 = get_card_window__17TWindowSubComCardFUi((u32)arg1);
+    temp_r31 = get_character_save_record((u32)arg1);
     temp_r3 = get_layout_id__20TWindowSubStatusDispFv((void *) (arg2));
     if ((arg0 < 0) || (arg0 >= temp_r3) || (temp_r31 == 0U)) {
         return 0;

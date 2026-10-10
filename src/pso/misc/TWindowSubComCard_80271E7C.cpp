@@ -321,7 +321,7 @@ void open_layout_window__17TWindowSubComCardFv(void);
 M2C_UNK set_flag70_bit10__16TObjCityMainWarpFPv(int);
 s32 draw_card_icon__17TWindowSubComCardFiii(int, int, void *);
 s32 TWindowSubComCard__sub_80273004(void);
-u8 *get_card_window__17TWindowSubComCardFUi(u32);
+u8 *get_character_save_record(u32);
 s32 create_choice_setting_window__17TWindowSubComCardFiii(s32, void *, s32);
 void update_next_entry__17TWindowSubComCardFPviii(s32, void *, void *, u32);
 void create_sub_window__20TWindowChoiceSettingFPvi(s32, void *);
@@ -591,7 +591,7 @@ s32 create_entry_list_window__17TWindowSubComCardFPv(u8 *arg0) {
     s32 w;
     Ent_80272CB0 *e;
     List_80272CB0 *l;
-    card = get_card_window__17TWindowSubComCardFUi(0xFFFF);
+    card = get_character_save_record(0xFFFF);
     hard = open_hard_keyboard__6TLobbyFPv(*(void **)(arg0 + 0x20));
     w = create_choice_setting_window__17TWindowSubComCardFiii(get_window_layout_position(0x8C), lbl_8044F6BC, 6);
     create_sub_window__20TWindowChoiceSettingFPvi(w, ((void* (*)(int))get_message_10__20TWindowSubStatusDispFPv)(0x6D));
@@ -1416,7 +1416,7 @@ void run_task__17TWindowSubComCardFv(u8 *arg0) {
         if (((u32 (*)(void))get_chr_select__17TWindowSubComCardFv)() != 0U) {
             if ((u32) M2C_FIELD(arg0, u32 *, 0x58) == 0U) {
                 M2C_FIELD(arg0, u32 *, 0x58) = ((u32 (*)(void))get_chr_select__17TWindowSubComCardFv)();
-                temp_r29_4 = ((s32 (*)(int))get_card_window__17TWindowSubComCardFUi)((int) (0xFFFF));
+                temp_r29_4 = ((s32 (*)(int))get_character_save_record)((int) (0xFFFF));
                 TWindowSubComCard__sub_800778B4((void *) ((u8 *)(arg0) + 0x30), (int) (M2C_FIELD(arg0, u32 *, 0x58)));
                 TWindowSubComCard__sub_800778B4((void *) (temp_r29_4 + 0x22EC), (int) (M2C_FIELD(arg0, u32 *, 0x58)));
             }
@@ -1556,7 +1556,7 @@ void run_task__17TWindowSubComCardFv(u8 *arg0) {
         break;
     case 0x37:
         TWindowSubComCard__sub_80249144((int) (M2C_FIELD(arg0, u32 *, 0x7C)));
-        temp_r29_7 = ((s32 (*)(int))get_card_window__17TWindowSubComCardFUi)((int) (0xFFFF));
+        temp_r29_7 = ((s32 (*)(int))get_character_save_record)((int) (0xFFFF));
         M2C_FIELD(arg0, u32 *, 0x64) = ((u32 (*)(void*, void*, int))create_option_list_window__17TWindowSubComCardFPvii)((void *) (arg0), (void *) (temp_r29_7 + 0x22EC), (int) (update_selected_entry__17TWindowSubComCardFPv((int) (M2C_FIELD(arg0, u32 *, 0x7C)))));
         M2C_FIELD(arg0, u8 *, 0x1C) = 0x38U;
     case 0x38:
@@ -1565,7 +1565,7 @@ void run_task__17TWindowSubComCardFv(u8 *arg0) {
             return;
         }
         if (is_visible__17TWindowSubComCardFPv((int) (M2C_FIELD(arg0, u32 *, 0x64))) != 0) {
-            temp_r29_8 = ((s32 (*)(int))get_card_window__17TWindowSubComCardFUi)((int) (0xFFFF));
+            temp_r29_8 = ((s32 (*)(int))get_character_save_record)((int) (0xFFFF));
             ((s32 (*)(void*, void*, int, int))TWindowSubComCard__sub_80271F04)((void *) (arg0), (void *) (temp_r29_8 + 0x22EC), (int) (update_selected_entry__17TWindowSubComCardFPv((int) (M2C_FIELD(arg0, u32 *, 0x7C)))), (int) (((s32 (*)(int))get_selected_menu_value)((int) (M2C_FIELD(arg0, u32 *, 0x64)))));
             M2C_FIELD(arg0, u8 *, 0x1C) = 0x35U;
             return;

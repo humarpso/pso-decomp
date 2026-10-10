@@ -34,7 +34,7 @@ void *__ct__9TAdBackGCFv(void *, void *);
 void __dl__7TObjectFPv(void *);
 void __dt__7TObjectFv(void *, int);
 void *__nw__7TObjectFUl(int);
-void *get_card_window__17TWindowSubComCardFUi();
+void *get_character_save_record();
 void queue_destruction__7TObjectFv(void *);
 
 extern M2C_UNK lbl_804C2298[];
@@ -95,7 +95,7 @@ int TWindowShortListCtrl__sub_801A5144(void* p) { return *(u8*)((char*)p + 0x1d)
 s32 get_card_window_flags__20TWindowShortListCtrlFv(void) {
     void *temp_r3;
 
-    temp_r3 = get_card_window__17TWindowSubComCardFUi();
+    temp_r3 = get_character_save_record();
     if (temp_r3 == NULL) {
         return 0;
     }
@@ -104,7 +104,7 @@ s32 get_card_window_flags__20TWindowShortListCtrlFv(void) {
 s32 get_card_status_bits__20TWindowShortListCtrlFv(void) {
     void *temp_r3;
 
-    temp_r3 = get_card_window__17TWindowSubComCardFUi();
+    temp_r3 = get_character_save_record();
     if (temp_r3 == NULL) {
         return 0;
     }
@@ -119,7 +119,7 @@ s32 get_table_entry_by_index__6TLobbyFv(void) {
 s32 fn_801A51F0(void) {
     void *temp_r3;
 
-    temp_r3 = get_card_window__17TWindowSubComCardFUi();
+    temp_r3 = get_character_save_record();
     if (temp_r3 == NULL) {
         return 0;
     }

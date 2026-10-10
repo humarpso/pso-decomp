@@ -99,7 +99,7 @@ struct Shield_8010A4C0 {
 extern "C" {
 s32 create_oneshot_particle_emitter(void *, void *, int, int);
 void spawn_recipe_particles__14TItemEffShieldFPv(u8 *arg0);
-s32 get_item_ctrl__10TObjPlayerFv(void);
+s32 get_item_system_generation(void);
 void __ct__7TObjectFP7TObject(void *, void *);
 extern M2C_UNK lbl_8049F148[];
 u8 *ct_init__14TItemEffShieldFPvPvs(u8 *arg0, u8 *arg1, s16 arg2);
@@ -144,7 +144,7 @@ u8 *ct_init__14TItemEffShieldFPvPvs(u8 *arg0, u8 *arg1, s16 arg2) {
     M2C_FIELD(arg0, s16 *, 0x24) = arg2;
     M2C_FIELD(arg0, s32 *, 0x20) = -1;
     M2C_FIELD(arg0, s32 *, 0x1C) = 0;
-    M2C_FIELD(arg0, s32 *, 0x28) = get_item_ctrl__10TObjPlayerFv();
+    M2C_FIELD(arg0, s32 *, 0x28) = get_item_system_generation();
     return arg0;
 }
 

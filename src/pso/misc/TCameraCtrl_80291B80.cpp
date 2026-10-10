@@ -19,7 +19,7 @@ extern M2C_UNK lbl_804DAB08[];
 void* construct_creation_camera(void* a0);
     extern int TObjCMMainMenu__selected_entry_id;
 int get_character_creation_selected_entry_id(void);
-s32 get_card_window__17TWindowSubComCardFUi(u32);
+s32 get_character_save_record(u32);
 M2C_UNK decode_obfuscated_string__6TLobbyFPvPvi(void *, void *, int, int);
 extern RecoveredGlobal_80291D4C_lbl_80540958 lbl_80540958;
 M2C_UNK *TLobby__sub_80291D4C(void);
@@ -48,7 +48,7 @@ int get_character_creation_selected_entry_id(void) {  return TObjCMMainMenu__sel
 typedef char RecoveredGlobal_80291D4C_lbl_80540958_size[sizeof(RecoveredGlobal_80291D4C_lbl_80540958) == 0x10 ? 1 : -1];
 M2C_UNK *TLobby__sub_80291D4C(void) {
     s32 temp_r3;
-    temp_r3 = get_card_window__17TWindowSubComCardFUi(0xFFFFU);
+    temp_r3 = get_character_save_record(0xFFFFU);
     decode_obfuscated_string__6TLobbyFPvPvi((void *) (&lbl_80540958.value), (void *) (temp_r3 + 0x229C), (int) (0xC), (int) (temp_r3));
     return &lbl_80540958.value;
 }

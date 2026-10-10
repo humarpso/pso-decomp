@@ -301,7 +301,7 @@ s32 get_player_by_client_id(u32);
 extern M2C_UNK challenge_mode_state[];
 extern u32 challenge_task;
 s32 TLobby__sub_80070FD8(void);
-s32 get_card_window__17TWindowSubComCardFUi(u32);
+s32 get_character_save_record(u32);
 M2C_UNK decode_obfuscated_string__6TLobbyFPvPvi(void *, void *, int, int);
 extern RecoveredGlobal_800713C8_lbl_804FF82C lbl_804FF82C;
 M2C_UNK *TLobby__sub_800713C8(void);
@@ -322,12 +322,12 @@ s32 check_challenge_time_range__6TLobbyFi(s32);
 s32 TLobby__sub_8006F6B0(int);
 
 s32 calc_remaining_char_slots__6TLobbyFv();
-s32 get_card_window__17TWindowSubComCardFUi(u32);
+s32 get_character_save_record(u32);
 extern M2C_UNK challenge_mode_state[];
 s32 TLobby__sub_8007119C(s32 arg0);
 M2C_UNK **TWindowSubStatusDisp__sub_8006F134(s32, s32);
 s32 forward_to_global_instance__23TAdSinglePlyChrSelectGCFi(int);
-s32 get_card_window__17TWindowSubComCardFUi(u32);
+s32 get_character_save_record(u32);
 extern M2C_UNK challenge_mode_state[];
 s32 TLobby__sub_800710D8(s32 arg0);
 s32 calc_layout_hash__20TWindowSubStatusDispFv(int);
@@ -508,7 +508,7 @@ s32 TLobby__sub_800710D8(s32 arg0) {
     }
     var_r3 = 0x10000;
     var_r3 = 0xFFFF;
-    if (((u32)get_card_window__17TWindowSubComCardFUi((u32)((int) (0xFFFF)))) == 0U) {
+    if (((u32)get_character_save_record((u32)((int) (0xFFFF)))) == 0U) {
         var_r3 = 0;
         return 0;
     }
@@ -520,7 +520,7 @@ s32 TLobby__sub_800710D8(s32 arg0) {
         var_r3 = 0xFFFF;
         var_r4 = (M2C_UNK *)((u8 *)(&(*(RecoveredGlobal_800710D8_lbl_8048C9D8 *)&challenge_mode_state).value) + var_r5);
         var_r31 = (M2C_UNK *)((u8 *)(var_r4) + 0x21C);
-        var_r3 = ((u32)get_card_window__17TWindowSubComCardFUi((u32)((int) (0xFFFF)))) + 0x21C4;
+        var_r3 = ((u32)get_character_save_record((u32)((int) (0xFFFF)))) + 0x21C4;
         var_r4 = (M2C_UNK *)((u8 *)((M2C_UNK *)-1));
         temp_r3 = (M2C_UNK **)(TWindowSubStatusDisp__sub_8006F134(var_r3, -1));
         var_r4 = (M2C_UNK *)(M2C_FIELD(temp_r3, M2C_UNK **, 0));
@@ -536,7 +536,7 @@ s32 TLobby__sub_8007119C(s32 arg0) {
     s32 temp_r3;
     s32 var_r31;
     var_r31 = arg0;
-    if ((((s32 (*)(void))is_flag_set__6TLobbyFv)() == 0) || ((s32) M2C_FIELD(&(*(RecoveredGlobal_8007119C_lbl_8048C9D8 *)&challenge_mode_state).value, s32 *, 0) == -1) || (((u32)get_card_window__17TWindowSubComCardFUi((u32)((int) (0xFFFF)))) == 0U)) {
+    if ((((s32 (*)(void))is_flag_set__6TLobbyFv)() == 0) || ((s32) M2C_FIELD(&(*(RecoveredGlobal_8007119C_lbl_8048C9D8 *)&challenge_mode_state).value, s32 *, 0) == -1) || (((u32)get_character_save_record((u32)((int) (0xFFFF)))) == 0U)) {
         M2C_FIELD(&(*(RecoveredGlobal_8007119C_lbl_8048C9D8 *)&challenge_mode_state).value, s32 *, 0x14) = -4;
         return -4;
     }
@@ -595,7 +595,7 @@ s32 TLobby__sub_800712D8(s32 idx, s32 value, s32 arg) {
 
 M2C_UNK *TLobby__sub_800713C8(void) {
     s32 temp_r3;
-    temp_r3 = get_card_window__17TWindowSubComCardFUi(0xFFFFU);
+    temp_r3 = get_character_save_record(0xFFFFU);
     decode_obfuscated_string__6TLobbyFPvPvi((void *) (&lbl_804FF82C.value), (void *) (temp_r3 + 0x229C), (int) (0xC), (int) (temp_r3));
     return &lbl_804FF82C.value;
 }

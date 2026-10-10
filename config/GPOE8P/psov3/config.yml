@@ -1201,6 +1201,7 @@ force_active:
   - item_follow_effect_vtable
   - item_help_level_requirement_callback
   - item_object_variant_deleting_dtor_80116F10
+  - item_system_generation
   - jungle_boss_warp_resource_block
   - keyboard_poll_key_codes
   - labo_design_entry_table

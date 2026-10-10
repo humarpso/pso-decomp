@@ -3,50 +3,61 @@
 
 #include "types.h"
 
-struct TObjEneNanoDrago
-{
-    u8 _pad1C[0x1C];
-    void* m_38;
-    u8 _pad3C[0x8];
-    void* m_44;
-    u8 _pad48[0x8];
-    void* m_50;
-    u8 _pad54[0x50];
+struct NanoDragoVector { f32 x, y, z; };
+struct NanoDragoMovementParams { f32 f0; u8 unknown04[4]; s32 turn; };
+
+struct TObjEneNanoDrago {
+    u8 unknown00[0x30];
+    s32 flags30;
+    u8 unknown34[4];
+    NanoDragoVector pos;
+    NanoDragoVector m_44;
+    NanoDragoVector m_50;
+    u8 unknown5C[4];
+    s32 angle;
+    u8 unknown64[0xA4 - 0x64];
     u32 m_a4;
-    u8 _padA8[0x10];
-    s16 m_b8;
-    u8 _padBA[0x1E];
+    u8 unknownA8[0x10];
+    s16 fb8;
+    u8 unknownBA[0x1E];
     u32 m_d8;
     u32 m_dc;
-    u8 _padE0[0x1B0];
-    void* m_290;
-    u8 _pad294[0x8];
-    void* m_29c;
-    u8 _pad2A0[0x18];
-    s16 m_2b8;
+    u8 unknownE0[0x1B0];
+    NanoDragoVector m_290;
+    NanoDragoVector home;
+    u8 *target;
+    u8 unknown2AC[0xC];
+    s16 hpmax;
     s16 m_2ba;
-    u8 _pad2BC[0x70];
-    s16 m_32c;
+    u8 unknown2BC[0x70];
+    s16 hp;
     u16 m_32e;
-    u8 _pad330[0xE];
+    u8 unknown330[0xE];
     u16 m_33e;
-    u8 _pad340[0x10];
-    u32 m_350;
-    u8 _pad354[0x14];
+    u8 unknown340[0x10];
+    NanoDragoMovementParams *params;
+    u8 unknown354[0x14];
     u32 m_368;
     u32 m_36c;
-    u8 _pad370[0x18];
-    u32 m_388;
+    u8 unknown370[0xC];
+    s32 state;
+    u8 unknown380[8];
+    s32 flags388;
     u16 m_38c;
-    u8 _pad38E[0x2];
-    void* m_390;
-    u8 _pad394[0x48];
+    u8 unknown38E[2];
+    NanoDragoVector m_390;
+    u8 unknown39C[0x34];
+    s32 accum;
+    f32 t;
+    f32 speed;
     u32 m_3dc;
-    u32 m_3e0;
-    u8 _pad3E4[0x4];
-    void* m_3e8;
-    u8 _pad3EC[0x20];
-    void* m_40c;
+    s32 toggle;
+    u8 unknown3E4[4];
+    void *m_3e8;
+    u8 unknown3EC[0x20];
+    void *m_40c;
+
+    void update_circling_state();
 };
 
 #endif

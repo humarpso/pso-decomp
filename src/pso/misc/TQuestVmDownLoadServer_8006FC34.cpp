@@ -63,7 +63,7 @@ char *TLobby__sub_80070ACC(u8, u8, s32);
 Unit_8006FC7C *find_entity_by_id(void);
 void *get_player_by_client_id(s32);
 void getDateStamp__FP9DateStamp(Date_8006FC7C *);
-Card_8006FC7C *get_card_window__17TWindowSubComCardFUi(u32);
+Card_8006FC7C *get_character_save_record(u32);
 void fn_8026A1C4(char *, char *, s32);
 char *strncpy(char *, const char *, u32);
 char *strcpy(char *, const char *);
@@ -101,10 +101,10 @@ void update_card_save_info__6TLobbyFv(void) {
     char *s;
     char *unit;
     s32 id;
-    if (get_card_window__17TWindowSubComCardFUi(0xFFFF) == NULL) {
+    if (get_character_save_record(0xFFFF) == NULL) {
         return;
     }
-    card = get_card_window__17TWindowSubComCardFUi(0xFFFF);
+    card = get_character_save_record(0xFFFF);
     ply = (Ply_8006FC7C *)get_player_by_client_id(local_client_id);
     if (ply == NULL) {
         return;

@@ -2455,21 +2455,12 @@ pso/unk/text_801021AC.cpp:
 pso/item/TItem_801023A8.cpp:
 	.text       start:0x801022FC end:0x80102424
 
-pso/item/TItem_80102424.cpp:
-	.text       start:0x80102424 end:0x80102864
-	.rodata     start:0x8043E020 end:0x8043E028
-	.data       start:0x8049E8F8 end:0x8049E958
-	.sbss       start:0x805D540C end:0x805D5410
-
-pso/item/TItem_80102864.cpp:
-	.text       start:0x80102864 end:0x801028D8
-
-pso/unk/text_801028D8.cpp:
-	.text       start:0x801028D8 end:0x80102A58
-
-pso/player/TObjPlayer_80102A58.cpp:
-	.text       start:0x80102A58 end:0x80102C3C
+pso/item/TItemDispatch.cpp:
+	.text       start:0x80102424 end:0x80102C3C
 	.ctors      start:0x80433F74 end:0x80433F78
+	.rodata     start:0x8043E020 end:0x8043E028
+	.data       start:0x8049E8F8 end:0x8049EA0C
+	.sbss       start:0x805D5408 end:0x805D5410
 
 pso/item/TItemProArmor_80102C3C.cpp:
 	.text       start:0x80102C3C end:0x80102C44

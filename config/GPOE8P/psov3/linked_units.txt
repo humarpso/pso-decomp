@@ -515,6 +515,7 @@ pso/item/TItemData_8010EDA8.cpp
 pso/item/TItemData_801146A4.cpp
 pso/item/TItemDisconnectCtrl.cpp
 pso/item/TItemDisconnectCtrl_80105BE8.cpp
+pso/item/TItemDispatch.cpp
 pso/item/TItemDrop.cpp
 pso/item/TItemDropSub.cpp
 pso/item/TItemDropSub_80107B74.cpp
@@ -745,7 +746,6 @@ pso/item/TItem_80101ED4.cpp
 pso/item/TItem_80101F38.cpp
 pso/item/TItem_80102088.cpp
 pso/item/TItem_801023A8.cpp
-pso/item/TItem_80102864.cpp
 pso/item/TItem_80363AF4.cpp
 pso/item/TObjContainerAbeEnemy.cpp
 pso/item/TObjContainerBase.cpp
@@ -2297,7 +2297,6 @@ pso/player/TObjPlayer_800FFA88.cpp
 pso/player/TObjPlayer_80100CC8.cpp
 pso/player/TObjPlayer_80100E00.cpp
 pso/player/TObjPlayer_80101824.cpp
-pso/player/TObjPlayer_80102A58.cpp
 pso/player/TObjPlayer_80102C78.cpp
 pso/player/TObjPlayer_80104860.cpp
 pso/player/TObjPlayer_80105874.cpp
@@ -3008,7 +3007,6 @@ pso/unk/text_800FE154.cpp
 pso/unk/text_800FEA34.cpp
 pso/unk/text_800FFC6C.cpp
 pso/unk/text_80100BB0.cpp
-pso/unk/text_801028D8.cpp
 pso/unk/text_80103674.cpp
 pso/unk/text_801036CC.cpp
 pso/unk/text_80104F4C.cpp

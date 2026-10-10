@@ -115,7 +115,7 @@ s32 get_localized_text_entry(int, int);
 Save_8033F6A8 *TAdSinglePlyChrSelectGC__sub_801FE3E4(u32);
 u8 *get_entry__23TAdSinglePlyChrSelectGCFi(s32);
 s32 TAdSinglePlyChrSelectGC__sub_801FE800(s32);
-Save_8033F6A8 *get_card_window__17TWindowSubComCardFUi(u32);
+Save_8033F6A8 *get_character_save_record(u32);
 u8 *get_char_index__23TAdSinglePlyChrSelectGCFUi(u32);
 u32 get_class_name_text(int);
 s32 TAdMultiPlyChrSelectGC__sub_802DFFE8(s32);
@@ -257,7 +257,7 @@ void format_status_strings__14TAdPlyStatusGCFPv(char *buf) {
     switch (TAdPlyStatusGC__window_offset_index) {
     case 0:
     case 2:
-        p = get_card_window__17TWindowSubComCardFUi(0xFFFF);
+        p = get_character_save_record(0xFFFF);
         if (p != 0) {
             time = p->fC;
         }

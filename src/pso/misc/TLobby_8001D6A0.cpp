@@ -42,7 +42,7 @@ extern s32 aram_dma_pending;
 void TLobby__sub_8001D9DC(void);
 s32 set_flag_bit0__6TLobbyFi(s32);
 s32 is_active__6TLobbyFv(void);
-s32 get_card_window__17TWindowSubComCardFUi(M2C_UNK);
+s32 get_character_save_record(M2C_UNK);
 
 M2C_UNK TWindowSubComCard__sub_80225E80(void *, int);
 M2C_UNK strncpy(int, int, int);
@@ -73,7 +73,7 @@ M2C_UNK aram_read_sync__6TLobbyFiiii(M2C_UNK, s32);
 M2C_UNK aram_transfer_sync__6TLobbyFiUiii(M2C_UNK, void *, s32);
 M2C_UNK __dl__FPv(u32 *);
 u8 *fn_803DE864(s32, M2C_UNK);
-s32 get_card_window__17TWindowSubComCardFUi(M2C_UNK);
+s32 get_character_save_record(M2C_UNK);
 M2C_UNK xfree__FPv(u32);
 
 void send_or_handle_packet__6TLobbyFPvPvPvPvUi(void *arg0, void *arg1, void *arg2, void *arg3, u32 arg4) {
@@ -221,11 +221,11 @@ void sync_auto_reply_state__6TLobbyFv(void) {
 }
 
 s32 get_card_window_area__6TLobbyFv(void) {
-    return get_card_window__17TWindowSubComCardFUi(0xFFFF) + 0x2050;
+    return get_character_save_record(0xFFFF) + 0x2050;
 }
 void set_short_mail_text__6TLobbyFi(s32 arg0) {
     u8 *temp_r31;
-    temp_r31 = (u8 *)(get_card_window__17TWindowSubComCardFUi((M2C_UNK)(0xFFFFU)) + 0x2050);
+    temp_r31 = (u8 *)(get_character_save_record((M2C_UNK)(0xFFFFU)) + 0x2050);
     TWindowSubComCard__sub_80225E80((void *) (arg0), (int) (((s32 (*)(void))get_shared_text_buffer)()));
     strncpy((int) (temp_r31), (int) (((s32 (*)(void))get_shared_text_buffer)()), (int) (0xAB));
     M2C_FIELD(temp_r31, s8 *, 0xAB) = 0;

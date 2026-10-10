@@ -7,13 +7,13 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 extern "C" {
 
 s16 get_card_window_value__16TObjOnlineEndingFv(void);
-void *get_card_window__17TWindowSubComCardFUi(M2C_UNK);
+void *get_character_save_record(M2C_UNK);
 
 s16 get_card_window_value__16TObjOnlineEndingFv(void) {
-    if (get_card_window__17TWindowSubComCardFUi(0xFFFF) == NULL) {
+    if (get_character_save_record(0xFFFF) == NULL) {
         return 0x3E7;
     }
-    return M2C_FIELD(get_card_window__17TWindowSubComCardFUi(0xFFFF), s16 *, 0x2228);
+    return M2C_FIELD(get_character_save_record(0xFFFF), s16 *, 0x2228);
 }
 
 }

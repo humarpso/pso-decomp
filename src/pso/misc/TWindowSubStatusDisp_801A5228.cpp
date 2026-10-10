@@ -17,7 +17,7 @@ f32 get_card_window_scale__20TWindowSubStatusDispFi(s32 _w0);
 
 extern "C" {
 
-void *get_card_window__17TWindowSubComCardFUi(s32);
+void *get_character_save_record(s32);
 
 extern s32 local_client_id;
 
@@ -34,7 +34,7 @@ s32 get_card_window_flags__20TWindowSubStatusDispFi(s32 arg0) {
     if (var_r3 >= 4) {
         var_r3 = local_client_id;
     }
-    temp_r3 = get_card_window__17TWindowSubComCardFUi(var_r3);
+    temp_r3 = get_character_save_record(var_r3);
     if (temp_r3 == NULL) {
         return 1;
     }

@@ -102,7 +102,7 @@ s32 TWindowSubStatusDisp__sub_8006F0D8(void *, int);
 s32 resolve_player_slot__20TWindowSubStatusDispFi(int);
 s32 is_id_out_of_range__6TLobbyFi(s32 arg0);
 s32 mix_seed_checked__6TLobbyFi(s32);
-u32 get_card_window__17TWindowSubComCardFUi(int);
+u32 get_character_save_record(int);
 extern RecoveredGlobal_8006F5B0_lbl_8048C9D8 challenge_mode_state;
 s32 TLobby__sub_8006F5B0(s32 arg0);
 M2C_UNK strncpy(void *, void *, int);
@@ -114,7 +114,7 @@ s32 get_valid_slot__6TLobbyFi(int id);
 void encode_name_xor__6TLobbyFPvPvi(u8 *dst, u8 *src, s32 n);
 s32 resolve_player_slot__20TWindowSubStatusDispFi(int);
 s16 TLobby__sub_80071640(int);
-u32 get_card_window__17TWindowSubComCardFUi(int);
+u32 get_character_save_record(int);
 s32 strncmp(void *, void *, int);
 M2C_UNK strncpy(void *, void *, int);
 extern RecoveredGlobal_8006F5B0_lbl_8048C9D8 challenge_mode_state;
@@ -122,7 +122,7 @@ void TLobby__sub_8006F48C(void);
 s32 calc_layout_hash__20TWindowSubStatusDispFv(int);
 s32 calc_entry_offset__20TWindowSubStatusDispFv(int);
 u32 *TWindowSubStatusDisp__sub_8006F134(void *, s32);
-u32 get_card_window__17TWindowSubComCardFUi(int);
+u32 get_character_save_record(int);
 extern RecoveredGlobal_8006F5B0_lbl_8048C9D8 challenge_mode_state;
 s32 TLobby__sub_8006F38C(s32 arg0);
 void decode_obfuscated_string__6TLobbyFPvPvi(void *arg0, void *arg1, int arg2);
@@ -160,13 +160,13 @@ s32 TLobby__sub_8006F38C(s32 arg0) {
     u32 w;
     lo = calc_entry_offset__20TWindowSubStatusDispFv(-1);
     hi = calc_layout_hash__20TWindowSubStatusDispFv(-1);
-    if (get_card_window__17TWindowSubComCardFUi(0xFFFF) == 0) {
+    if (get_character_save_record(0xFFFF) == 0) {
         return -4;
     }
     if (arg0 < lo || arg0 > hi) {
         return -4;
     }
-    w = get_card_window__17TWindowSubComCardFUi(0xFFFF) + 0x21C4;
+    w = get_character_save_record(0xFFFF) + 0x21C4;
     flags = TWindowSubStatusDisp__sub_8006F134((void *)w, -1);
     for (i = 2, e = &TBL_8006F38C.entries[2]; i >= 0; i--, e--) {
         if (e->value != 0 && e->value >= arg0) {
@@ -190,7 +190,7 @@ void TLobby__sub_8006F48C(void) {
     Win_8006F48C *win;
     s32 i;
     Entry_8006F48C *e;
-    win = (Win_8006F48C *)get_card_window__17TWindowSubComCardFUi(0xFFFF);
+    win = (Win_8006F48C *)get_character_save_record(0xFFFF);
     if (resolve_player_slot__20TWindowSubStatusDispFi(-1) != 0) {
         return;
     }
@@ -223,7 +223,7 @@ s32 TLobby__sub_8006F5B0(s32 arg0) {
     s32 temp_r3_4;
     s32 var_r28;
     u32 temp_r29;
-    temp_r29 = get_card_window__17TWindowSubComCardFUi((int) (0xFFFF));
+    temp_r29 = get_character_save_record((int) (0xFFFF));
     temp_r3 = get_layout_id__20TWindowSubStatusDispFv((int) (-1));
     if ((temp_r29 == 0U) || ((s32) challenge_mode_state.value < 0) || ((s32) challenge_mode_state.value >= temp_r3)) {
         return 0;

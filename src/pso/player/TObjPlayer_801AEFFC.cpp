@@ -10,7 +10,7 @@ int is_locally_controlled__10TObjPlayerFPv(void*);
 s32 obj_getField1c(void *);
 M2C_UNK init_pad_binding(void *, void *, int);
 void init_local_pad_binding__10TObjPlayerFPv(u8 *arg0);
-s32 get_card_window__17TWindowSubComCardFUi(u32);
+s32 get_character_save_record(u32);
 s32 get_card_window_field_244__10TObjPlayerFPv(u8 *arg0);
 }
 
@@ -42,7 +42,7 @@ void TObjPlayer__sub_801AEB80(void);
 int get_max_level__10TObjPlayerFv(void);
 
 s32 get_card_window_field_244__10TObjPlayerFPv(u8 *arg0) {
-    return M2C_FIELD(get_card_window__17TWindowSubComCardFUi((u32) ((u16)obj_getField1c(arg0))), s32 *, 0x244);
+    return M2C_FIELD(get_character_save_record((u32) ((u16)obj_getField1c(arg0))), s32 *, 0x244);
 }
 
 void init_local_pad_binding__10TObjPlayerFPv(u8 *arg0) {

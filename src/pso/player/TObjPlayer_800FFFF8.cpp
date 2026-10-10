@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/item/TItem.h"
 typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
 typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 #define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
@@ -40,8 +41,8 @@ M2C_UNK pop_matrix();
 M2C_UNK post_translate_matrix(void *);
 s32 draw_ginja_model(void *);
 s32 set_chunk_material_color(int);
-extern RecoveredGlobal_80100070_lbl_8049E8F8 player_chunk_material_color_table;
-extern RecoveredGlobal_80100070_lbl_8049E958 lbl_8049E958;
+extern RecoveredGlobal_80100070_lbl_8049E8F8 item_box_primary_colors;
+extern RecoveredGlobal_80100070_lbl_8049E958 item_box_secondary_colors;
 extern RecoveredGlobal_80100070_lbl_8050BEC0 saved_model_draw_color;
 extern RecoveredGlobal_80100070_lbl_8058D4C0 lbl_8058D4C0;
 extern s32 lbl_805D5660;
@@ -56,8 +57,6 @@ void TObjPlayer__sub_8010043C(u8 *arg0, u8 arg1);
 
 extern "C" {
 
-void TObjPlayer__sub_80100068(void);
-void TObjPlayer__sub_8010006C(void);
 u16 TObjPlayer__sub_80100474(void* p);
 void apply_item_flags__10TObjPlayerFPvi(void *arg0, s32 arg1);
 void draw_item_model__10TObjPlayerFPv(u8 *arg0);
@@ -100,8 +99,12 @@ void apply_item_flags__10TObjPlayerFPvi(void *arg0, s32 arg1) {
         M2C_FIELD(arg0, s32 *, 0xDC) = (s32) (M2C_FIELD(arg0, s32 *, 0xDC) | 0x400);
     }
 }
-void TObjPlayer__sub_80100068(void) {  }
-void TObjPlayer__sub_8010006C(void) {  }
+}
+void TItem::render_following_owner() { }
+extern "C" {
+}
+void TItem::render_owned() { }
+extern "C" {
 
 typedef char RecoveredGlobal_80100070_lbl_8049E8F8_size[sizeof(RecoveredGlobal_80100070_lbl_8049E8F8) == 0x60 ? 1 : -1];
 typedef char RecoveredGlobal_80100070_lbl_8049E958_size[sizeof(RecoveredGlobal_80100070_lbl_8049E958) == 0x138 ? 1 : -1];
@@ -123,9 +126,9 @@ void TObjPlayer__sub_80100070(u8 *arg0) {
         push_matrix();
         post_translate_matrix((void *) (arg0 + 0x38));
         rotate_matrix_y((M2C_UNK)((int) (0)), (s32)((int) (M2C_FIELD(arg0, s32 *, 0x60))));
-        set_chunk_material_color((int) ((u8 *)&player_chunk_material_color_table.value + ((s8) M2C_FIELD(arg0, u8 *, 0xEA) * 0x10)));
+        set_chunk_material_color((int) ((u8 *)&item_box_primary_colors.value + ((s8) M2C_FIELD(arg0, u8 *, 0xEA) * 0x10)));
         draw_ginja_model((void *) (M2C_FIELD(spC, s32 *, 4)));
-        set_chunk_material_color((int) ((u8 *)&lbl_8049E958.value + ((s8) M2C_FIELD(arg0, u8 *, 0xEA) * 0x10)));
+        set_chunk_material_color((int) ((u8 *)&item_box_secondary_colors.value + ((s8) M2C_FIELD(arg0, u8 *, 0xEA) * 0x10)));
         draw_ginja_model((void *) (M2C_FIELD(M2C_FIELD(spC, u8 **, 0x2C), s32 *, 4)));
         pop_matrix();
         end_effect_render__13TParticleCtrlFv();
