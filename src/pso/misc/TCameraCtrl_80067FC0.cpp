@@ -79,7 +79,7 @@ void set_camera_look_at(void *, void *, void *);
 f32 vector_length(void *);
 void normalize_vector(void *);
 extern Vec_8006835C lbl_804FF5E8;
-extern Flags_8006835C TCameraCtrl__data_804FF628;
+extern Flags_8006835C TCameraCtrl__view_state;
 extern Scissor_8006835C TCameraCtrl__data_804FF634;
 extern u8 TCameraCtrl__data_804FF6C4[];
 extern View_8006835C *camera_ctrl_instance;
@@ -91,7 +91,7 @@ extern const f32 lbl_805D8F9C;
 void post_update_view__11TCameraCtrlFv(void);
 void VecCopy__FP3VecPC3Vec(void *, void *);
 s32 get_camera_no__11TCameraCtrlFv(void);
-extern Flags_8006835C TCameraCtrl__data_804FF628;
+extern Flags_8006835C TCameraCtrl__view_state;
 extern View_8006835C *camera_ctrl_instance;
 void apply_camera_controller_pose(Cam_80068530 *arg0);
 void VecCopy__FP3VecPC3Vec(void *, void *);
@@ -267,7 +267,7 @@ void post_update_view__11TCameraCtrlFv(void) {
     lbl_804FF5E8.x = camera_ctrl_instance->pos.x;
     lbl_804FF5E8.y = camera_ctrl_instance->pos.y;
     lbl_804FF5E8.z = camera_ctrl_instance->pos.z;
-    if (TCameraCtrl__data_804FF628.flags & 0x200) {
+    if (TCameraCtrl__view_state.flags & 0x200) {
         GXSetScissorBoxOffset((s32)-(TCameraCtrl__data_804FF634.x - lbl_805D8F98), (s32)-(TCameraCtrl__data_804FF634.y - lbl_805D8F9C));
         TCameraCtrl__sub_801E32D8(TCameraCtrl__data_804FF634.x, TCameraCtrl__data_804FF634.y);
         set_viewport_scissor__11TCameraCtrlFiPv(2, TCameraCtrl__data_804FF634.f30);
@@ -278,7 +278,7 @@ void post_update_view__11TCameraCtrlFv(void) {
 void apply_camera_controller_pose(Cam_80068530 *arg0) {
     s32 no;
     s32 id;
-    if ((TCameraCtrl__data_804FF628.flags & 4) || (TCameraCtrl__data_804FF628.flags & 8)) {
+    if ((TCameraCtrl__view_state.flags & 4) || (TCameraCtrl__view_state.flags & 8)) {
         V->curPos.x = arg0->pos.x;
         V->curPos.y = arg0->pos.y;
         V->curPos.z = arg0->pos.z;
@@ -305,7 +305,7 @@ void apply_camera_controller_pose(Cam_80068530 *arg0) {
     V->f1b8 = arg0->f58;
     V->f1bc = arg0->f5c;
     if (V->f19c != arg0->f54) {
-        TCameraCtrl__data_804FF628.flags |= 0x40;
+        TCameraCtrl__view_state.flags |= 0x40;
         V->f19c = arg0->f54;
     }
 }

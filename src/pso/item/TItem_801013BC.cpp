@@ -13,9 +13,9 @@ M2C_UNK push_matrix();
 M2C_UNK pop_matrix();
 M2C_UNK scale_current_matrix(void *);
 M2C_UNK post_translate_matrix(void *);
-extern M2C_UNK (*lbl_805D53F8)(s32);
-extern M2C_UNK (*lbl_805D53FC)(void *);
-extern u8 *lbl_805D5404;
+extern M2C_UNK (*model_node_draw_callback)(s32);
+extern M2C_UNK (*model_node_visit_callback)(void *);
+extern u8 *model_node_matrix_output_cursor;
 void draw_model_node_tree(u8 *arg0);
 u16 obj_getField1c(void *);
 M2C_UNK set_item_count__6TLobbyFPvs(s32, s32);
@@ -157,15 +157,15 @@ void draw_model_node_tree(u8 *arg0) {
         temp_r30 = M2C_FIELD(var_r31, s32 *, 0);
         if ((u32) (temp_r30 & 7) == 7) {
             push_matrix();
-            if (lbl_805D5404 != NULL) {
-                get_current_matrix(lbl_805D5404);
-                lbl_805D5404 += 0x30;
+            if (model_node_matrix_output_cursor != NULL) {
+                get_current_matrix(model_node_matrix_output_cursor);
+                model_node_matrix_output_cursor += 0x30;
             }
-            if (((M2C_UNK (*)(void *)) lbl_805D53FC) != NULL) {
-                lbl_805D53FC(var_r31);
+            if (((M2C_UNK (*)(void *)) model_node_visit_callback) != NULL) {
+                model_node_visit_callback(var_r31);
             }
-            if (!(temp_r30 & 8) && (((M2C_UNK (*)(s32)) lbl_805D53F8) != NULL)) {
-                lbl_805D53F8(M2C_FIELD(var_r31, s32 *, 4));
+            if (!(temp_r30 & 8) && (((M2C_UNK (*)(s32)) model_node_draw_callback) != NULL)) {
+                model_node_draw_callback(M2C_FIELD(var_r31, s32 *, 4));
             }
             if (!(temp_r30 & 0x10)) {
                 draw_model_node_tree(M2C_FIELD(var_r31, u8 **, 0x2C));
@@ -182,15 +182,15 @@ void draw_model_node_tree(u8 *arg0) {
             if (!(temp_r30 & 4)) {
                 scale_current_matrix((void *) (var_r31 + 0x20));
             }
-            if (((M2C_UNK (*)(void *)) lbl_805D53FC) != NULL) {
-                lbl_805D53FC(var_r31);
+            if (((M2C_UNK (*)(void *)) model_node_visit_callback) != NULL) {
+                model_node_visit_callback(var_r31);
             }
-            if (lbl_805D5404 != NULL) {
-                get_current_matrix(lbl_805D5404);
-                lbl_805D5404 += 0x30;
+            if (model_node_matrix_output_cursor != NULL) {
+                get_current_matrix(model_node_matrix_output_cursor);
+                model_node_matrix_output_cursor += 0x30;
             }
-            if (!(temp_r30 & 8) && (((M2C_UNK (*)(s32)) lbl_805D53F8) != NULL)) {
-                lbl_805D53F8(M2C_FIELD(var_r31, s32 *, 4));
+            if (!(temp_r30 & 8) && (((M2C_UNK (*)(s32)) model_node_draw_callback) != NULL)) {
+                model_node_draw_callback(M2C_FIELD(var_r31, s32 *, 4));
             }
             if (!(temp_r30 & 0x10)) {
                 draw_model_node_tree(M2C_FIELD(var_r31, u8 **, 0x2C));

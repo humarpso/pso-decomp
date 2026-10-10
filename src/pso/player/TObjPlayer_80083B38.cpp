@@ -125,7 +125,7 @@ M2C_UNK load_gx_light_slot(int);
 extern M2C_UNK lbl_8048E5C8[];
 extern M2C_UNK lbl_8058CA60[];
 extern u32 camera_ctrl_instance;
-extern u8 *lbl_805D7734;
+extern u8 *active_gx_render_mode;
 extern const f32 lbl_805D93D0;
 extern const f32 lbl_805D93D8;
 extern const f32 lbl_805D9404;
@@ -259,7 +259,7 @@ void func_80083a00__Fv(void) {
         GXSetTexCopyDst((int) (0x100), (int) (0x100), (int) (2), (int) (0));
         GXCopyTex((void *) (M2C_FIELD(M2C_FIELD(M2C_FIELD(((u8 **)lbl_8048E5C8)[0], u8 **, 8), void **, 0xC), s32 *, 0x20)), (int) (1));
         GXPixModeSync();
-        temp_r31 = (u8 *)(lbl_805D7734);
+        temp_r31 = (u8 *)(active_gx_render_mode);
         Dolphin_GXSetCopyFilter((int) (M2C_FIELD(temp_r31, u8 *, 0x19)), (void *) (temp_r31 + 0x1A), (int) (TObjBoss2Tunnel__sub_8036EF44()), (void *) (temp_r31 + 0x32));
         GXSetViewport((f32) (lbl_805D93D0), (f32) (lbl_805D93D0), (f32) (lbl_805D9404), (f32) (lbl_805D9408), (f32) (lbl_805D93D0), (f32) (lbl_805D93D8));
         GXSetScissor((int) (0), (int) (0), (int) (0x280), (int) (0x1E0));

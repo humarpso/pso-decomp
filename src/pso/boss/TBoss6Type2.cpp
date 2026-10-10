@@ -203,7 +203,7 @@ s32 rand_vary_count__14TBoss6PlotFalzFif(s32, f32);
 s32 push_players_away__11TBoss6Type2FPvPvf(void *self, void *target, f32 range);
 M2C_UNK break_rocks_in_radius__10TBoss6RockFPvf(void *, f32);
 f32 xyz_distance(void *, void *);
-extern s32 lbl_80471324[];
+extern s32 TBoss6Type2__player_hit_rock_indices[];
 extern const f32 TBoss6Type2__data_805DE40C;
 extern const f32 TBoss6Type2__data_805DE430;
 extern const f32 TBoss6Type2__data_805DE434;
@@ -275,7 +275,7 @@ void create_rock_pool__10TBoss6RockFi(void *);
 void capture_player_snapshots__11TBoss6Type2Fv();
 extern u8 lbl_80471068[];
 extern u8 lbl_80471074[];
-extern int lbl_804710BC[];
+extern int TBoss6Type2__initial_actor_flag_masks[];
 extern u8 lbl_8047113C[];
 extern s32 lbl_8047127C[];
 extern s32 lbl_8047128C[];
@@ -826,10 +826,10 @@ extern const f32 TBoss6Type2__data_805DE45C;
 extern const f32 TBoss6Type2__data_805DE460;
 extern const f32 TBoss6Type2__data_805DE468;
 extern const f32 TBoss6Type2__data_805DE490;
-extern const RecoveredGlobal_802BC754_lbl_80471080 lbl_80471080;
-extern int lbl_804710BC[];
-extern Tbl_802B9C00 lbl_804710CC[];
-extern RecoveredGlobal_802BC4CC_lbl_804712FC lbl_804712FC;
+extern const RecoveredGlobal_802BC754_lbl_80471080 TBoss6Type2__default_battle_parameters;
+extern int TBoss6Type2__initial_actor_flag_masks[];
+extern Tbl_802B9C00 TBoss6Type2__particle_attachment_table[];
+extern RecoveredGlobal_802BC4CC_lbl_804712FC TBoss6Type2__no_target_sound_ids;
 extern s32 lbl_80471350[];
 extern Ent_802BA7BC lbl_80471360[];
 extern s32 lbl_804713A8[];
@@ -991,7 +991,7 @@ void spawn_particle_slot__11TBoss6Type2FPvi(u8 *arg0, s32 arg1) {
     u8 *p = arg0 + arg1 * 4;
     if (*(u32 *)(p + 0x77C) == 0U) {
         V3_802B9C00 v = ((T1_802B9C00 *)arg0)->pos;
-        *(u32 *)(p + 0x77C) = create_particle_emitter(&v, lbl_804710CC[arg1].a);
+        *(u32 *)(p + 0x77C) = create_particle_emitter(&v, TBoss6Type2__particle_attachment_table[arg1].a);
         if (*(u32 *)(p + 0x77C) != 0U) {
             set_flags__11TBoss4Type2FPvUi(*(u32 *)(p + 0x77C), 0x40);
         }
@@ -1002,7 +1002,7 @@ void update_part_positions__11TBoss6Type2FPv(Boss_802B9C80 *o) {
     s32 i = 0;
     do {
         Vec_802B9C80 v = o->pos;
-        Tb_802B9C80 *e = &((Tb_802B9C80 *)&lbl_804710CC)[i];
+        Tb_802B9C80 *e = &((Tb_802B9C80 *)&TBoss6Type2__particle_attachment_table)[i];
         if (o->arr[i] != 0) {
             s32 idx = e->b;
             if (idx >= 0) {
@@ -1832,11 +1832,11 @@ void apply_rock_hits_to_players__11TBoss6Type2FPv(Obj_802BBAB0 *self) {
     s32 v;
     range = TBoss6Type2__data_805DE434;
     for (i = 0; i < 6; i++) {
-        rock = &self->rock[lbl_80471324[i]];
+        rock = &self->rock[TBoss6Type2__player_hit_rock_indices[i]];
         break_rocks_in_radius__10TBoss6RockFPvf(rock, TBoss6Type2__data_805DE434);
         if (!(rock->y - self->f3C > range)) {
             hit = 0;
-            if (xyz_distance(rock, &self->v680[lbl_80471324[i]]) >= TBoss6Type2__data_805DE40C) {
+            if (xyz_distance(rock, &self->v680[TBoss6Type2__player_hit_rock_indices[i]]) >= TBoss6Type2__data_805DE40C) {
                 hit = 1;
             }
             r = push_players_away__11TBoss6Type2FPvPvf(self, rock, TBoss6Type2__data_805DE434);
@@ -2084,7 +2084,7 @@ void play_phase_sound__11TBoss6Type2FPv(u8 *arg0) {
 
 void play_sound_if_no_target__11TBoss6Type2FPv(u8 *arg0) {
     if (is_target_valid__11TBoss6Type2FPv((void *)(arg0)) == 0) {
-        play_sound_effect((M2C_UNK)(M2C_FIELD(&lbl_804712FC.value, M2C_UNK *, (find_index_in_table__11TBoss6Type2FUi(M2C_FIELD(arg0, u32 *, 0x2E4)) * 4))), (void *)((u32) (arg0 + 0x38)), (M2C_UNK)(0), (M2C_UNK)(1));
+        play_sound_effect((M2C_UNK)(M2C_FIELD(&TBoss6Type2__no_target_sound_ids.value, M2C_UNK *, (find_index_in_table__11TBoss6Type2FUi(M2C_FIELD(arg0, u32 *, 0x2E4)) * 4))), (void *)((u32) (arg0 + 0x38)), (M2C_UNK)(0), (M2C_UNK)(1));
     }
 }
 
@@ -2219,64 +2219,64 @@ void load_battle_params__11TBoss6Type2FPv(u8 *arg0) {
     temp_r3 = (u8 *)(dispatch_shared_handler_a__6TLobbyFPv(0x2C));
     ((RecoveredFields_802BC754_arg0 *)arg0)->field_4B4 = (s32) ((RecoveredFields_802BC754_temp_r3 *)temp_r3)->field_4;
     if ((f32) ((RecoveredFields_802BC754_arg0 *)arg0)->field_4B4 <= TBoss6Type2__data_805DE410) {
-        ((RecoveredFields_802BC754_arg0 *)arg0)->field_4B4 = (s32) M2C_FIELD(&lbl_80471080.value, s32 *, 0);
+        ((RecoveredFields_802BC754_arg0 *)arg0)->field_4B4 = (s32) M2C_FIELD(&TBoss6Type2__default_battle_parameters.value, s32 *, 0);
     }
     ((RecoveredFields_802BC754_arg0 *)arg0)->field_4B8 = (s32) ((RecoveredFields_802BC754_temp_r3 *)temp_r3)->field_10;
     if ((f32) ((RecoveredFields_802BC754_arg0 *)arg0)->field_4B8 <= TBoss6Type2__data_805DE410) {
-        ((RecoveredFields_802BC754_arg0 *)arg0)->field_4B8 = (s32) M2C_FIELD(&lbl_80471080.value, s32 *, 4);
+        ((RecoveredFields_802BC754_arg0 *)arg0)->field_4B8 = (s32) M2C_FIELD(&TBoss6Type2__default_battle_parameters.value, s32 *, 4);
     }
     ((RecoveredFields_802BC754_arg0 *)arg0)->field_4D4 = (s32) ((RecoveredFields_802BC754_temp_r3 *)temp_r3)->field_14;
     if ((f32) ((RecoveredFields_802BC754_arg0 *)arg0)->field_4D4 <= TBoss6Type2__data_805DE410) {
-        ((RecoveredFields_802BC754_arg0 *)arg0)->field_4D4 = (s32) M2C_FIELD(&lbl_80471080.value, s32 *, 0x20);
+        ((RecoveredFields_802BC754_arg0 *)arg0)->field_4D4 = (s32) M2C_FIELD(&TBoss6Type2__default_battle_parameters.value, s32 *, 0x20);
     }
     ((RecoveredFields_802BC754_arg0 *)arg0)->field_4BC = (s32) ((RecoveredFields_802BC754_temp_r3 *)temp_r3)->field_18;
     if ((s32) ((RecoveredFields_802BC754_arg0 *)arg0)->field_4BC <= 0) {
-        ((RecoveredFields_802BC754_arg0 *)arg0)->field_4BC = (s32) M2C_FIELD(&lbl_80471080.value, s32 *, 8);
+        ((RecoveredFields_802BC754_arg0 *)arg0)->field_4BC = (s32) M2C_FIELD(&TBoss6Type2__default_battle_parameters.value, s32 *, 8);
     }
     ((RecoveredFields_802BC754_arg0 *)arg0)->field_4C0 = (s32) ((RecoveredFields_802BC754_temp_r3 *)temp_r3)->field_1C;
     if ((s32) ((RecoveredFields_802BC754_arg0 *)arg0)->field_4C0 <= 0) {
-        ((RecoveredFields_802BC754_arg0 *)arg0)->field_4C0 = (s32) M2C_FIELD(&lbl_80471080.value, s32 *, 0xC);
+        ((RecoveredFields_802BC754_arg0 *)arg0)->field_4C0 = (s32) M2C_FIELD(&TBoss6Type2__default_battle_parameters.value, s32 *, 0xC);
     }
     ((RecoveredFields_802BC754_arg0 *)arg0)->field_4C4 = (s32) ((RecoveredFields_802BC754_temp_r3 *)temp_r3)->field_20;
     if ((s32) ((RecoveredFields_802BC754_arg0 *)arg0)->field_4C4 <= 0) {
-        ((RecoveredFields_802BC754_arg0 *)arg0)->field_4C4 = (s32) M2C_FIELD(&lbl_80471080.value, s32 *, 0x10);
+        ((RecoveredFields_802BC754_arg0 *)arg0)->field_4C4 = (s32) M2C_FIELD(&TBoss6Type2__default_battle_parameters.value, s32 *, 0x10);
     }
     ((RecoveredFields_802BC754_arg0 *)arg0)->field_4C8 = (s32) ((RecoveredFields_802BC754_temp_r3 *)temp_r3)->field_24;
     if ((s32) ((RecoveredFields_802BC754_arg0 *)arg0)->field_4C8 <= 0) {
-        ((RecoveredFields_802BC754_arg0 *)arg0)->field_4C8 = (s32) M2C_FIELD(&lbl_80471080.value, s32 *, 0x14);
+        ((RecoveredFields_802BC754_arg0 *)arg0)->field_4C8 = (s32) M2C_FIELD(&TBoss6Type2__default_battle_parameters.value, s32 *, 0x14);
     }
     ((RecoveredFields_802BC754_arg0 *)arg0)->field_4CC = (s32) ((RecoveredFields_802BC754_temp_r3 *)temp_r3)->field_28;
     ((RecoveredFields_802BC754_arg0 *)arg0)->field_4D0 = (s32) ((RecoveredFields_802BC754_temp_r3 *)temp_r3)->field_2C;
     temp_r0 = ((RecoveredFields_802BC754_arg0 *)arg0)->field_4CC;
     if ((temp_r0 < 0) || (temp_r0 > 0x64) || (temp_r3_2 = ((RecoveredFields_802BC754_arg0 *)arg0)->field_4D0, ((temp_r3_2 < 0) != 0)) || (temp_r3_2 > 0x64) || ((s32) (temp_r0 + temp_r3_2) > 0x64)) {
-        ((RecoveredFields_802BC754_arg0 *)arg0)->field_4CC = (s32) M2C_FIELD(&lbl_80471080.value, s32 *, 0x18);
-        ((RecoveredFields_802BC754_arg0 *)arg0)->field_4D0 = (s32) M2C_FIELD(&lbl_80471080.value, s32 *, 0x1C);
+        ((RecoveredFields_802BC754_arg0 *)arg0)->field_4CC = (s32) M2C_FIELD(&TBoss6Type2__default_battle_parameters.value, s32 *, 0x18);
+        ((RecoveredFields_802BC754_arg0 *)arg0)->field_4D0 = (s32) M2C_FIELD(&TBoss6Type2__default_battle_parameters.value, s32 *, 0x1C);
     }
     temp_r3_3 = (u8 *)(dispatch_shared_handler_a__6TLobbyFPv(0x2F));
     ((RecoveredFields_802BC754_arg0 *)arg0)->field_4D8 = (f32) ((RecoveredFields_802BC754_temp_r3_3 *)temp_r3_3)->field_0;
     if (((RecoveredFields_802BC754_arg0 *)arg0)->field_4D8 <= TBoss6Type2__data_805DE410) {
-        ((RecoveredFields_802BC754_arg0 *)arg0)->field_4D8 = (f32) M2C_FIELD(&lbl_80471080.value, f32 *, 0x24);
+        ((RecoveredFields_802BC754_arg0 *)arg0)->field_4D8 = (f32) M2C_FIELD(&TBoss6Type2__default_battle_parameters.value, f32 *, 0x24);
     }
     ((RecoveredFields_802BC754_arg0 *)arg0)->field_4DC = (f32) ((RecoveredFields_802BC754_temp_r3_3 *)temp_r3_3)->field_4;
     if (((RecoveredFields_802BC754_arg0 *)arg0)->field_4DC <= TBoss6Type2__data_805DE410) {
-        ((RecoveredFields_802BC754_arg0 *)arg0)->field_4DC = (f32) M2C_FIELD(&lbl_80471080.value, f32 *, 0x28);
+        ((RecoveredFields_802BC754_arg0 *)arg0)->field_4DC = (f32) M2C_FIELD(&TBoss6Type2__default_battle_parameters.value, f32 *, 0x28);
     }
     ((RecoveredFields_802BC754_arg0 *)arg0)->field_4E8 = (f32) ((RecoveredFields_802BC754_temp_r3_3 *)temp_r3_3)->field_8;
     if (((RecoveredFields_802BC754_arg0 *)arg0)->field_4E8 <= TBoss6Type2__data_805DE410) {
-        ((RecoveredFields_802BC754_arg0 *)arg0)->field_4E8 = (f32) M2C_FIELD(&lbl_80471080.value, f32 *, 0x34);
+        ((RecoveredFields_802BC754_arg0 *)arg0)->field_4E8 = (f32) M2C_FIELD(&TBoss6Type2__default_battle_parameters.value, f32 *, 0x34);
     }
     ((RecoveredFields_802BC754_arg0 *)arg0)->field_4EC = (s32) ((RecoveredFields_802BC754_temp_r3_3 *)temp_r3_3)->field_C;
     if ((f32) ((RecoveredFields_802BC754_arg0 *)arg0)->field_4EC <= TBoss6Type2__data_805DE410) {
-        ((RecoveredFields_802BC754_arg0 *)arg0)->field_4EC = (s32) M2C_FIELD(&lbl_80471080.value, s32 *, 0x38);
+        ((RecoveredFields_802BC754_arg0 *)arg0)->field_4EC = (s32) M2C_FIELD(&TBoss6Type2__default_battle_parameters.value, s32 *, 0x38);
     }
     temp_r3_4 = (u8 *)(dispatch_shared_handler_a__6TLobbyFPv(0x2E));
     ((RecoveredFields_802BC754_arg0 *)arg0)->field_4E0 = (f32) ((RecoveredFields_802BC754_temp_r3_4 *)temp_r3_4)->field_8;
     if (((RecoveredFields_802BC754_arg0 *)arg0)->field_4E0 <= TBoss6Type2__data_805DE410) {
-        ((RecoveredFields_802BC754_arg0 *)arg0)->field_4E0 = (f32) M2C_FIELD(&lbl_80471080.value, f32 *, 0x2C);
+        ((RecoveredFields_802BC754_arg0 *)arg0)->field_4E0 = (f32) M2C_FIELD(&TBoss6Type2__default_battle_parameters.value, f32 *, 0x2C);
     }
     ((RecoveredFields_802BC754_arg0 *)arg0)->field_4E4 = (f32) ((RecoveredFields_802BC754_temp_r3_4 *)temp_r3_4)->field_C;
     if (((RecoveredFields_802BC754_arg0 *)arg0)->field_4E4 <= TBoss6Type2__data_805DE410) {
-        ((RecoveredFields_802BC754_arg0 *)arg0)->field_4E4 = (f32) M2C_FIELD(&lbl_80471080.value, f32 *, 0x30);
+        ((RecoveredFields_802BC754_arg0 *)arg0)->field_4E4 = (f32) M2C_FIELD(&TBoss6Type2__default_battle_parameters.value, f32 *, 0x30);
     }
 }
 extern int fold_flush_13;
@@ -2802,7 +2802,7 @@ s32 pick_random_other_index__11TBoss6Type2FPv(Boss_802BD7EC *o) {
 s32 find_index_in_table__11TBoss6Type2FUi(u32 v) {
     s32 i;
     for (i = 0; i < 4; i++) {
-        if (v == ((u32 *)&lbl_804710BC)[i]) return i;
+        if (v == ((u32 *)&TBoss6Type2__initial_actor_flag_masks)[i]) return i;
     }
     return 0;
 }
@@ -2816,7 +2816,7 @@ extern int fold_flush_27;
 #pragma inline_depth(1)
 #pragma auto_inline off
 #pragma dont_inline off
-int get_table_entry__11TBoss6Type2Fi(int a0) {  return lbl_804710BC[a0]; }
+int get_table_entry__11TBoss6Type2Fi(int a0) {  return TBoss6Type2__initial_actor_flag_masks[a0]; }
 #pragma pop
 
 #pragma push
@@ -3130,7 +3130,7 @@ s32 TBoss6Type2__ct(s32 arg0_, s32 arg1, s32 arg2_) {
     reset_photon_effect__12TBoss3VoloptFPv(arg0);
     set_param__12TObjEneLappyFPvi(arg0, 0x4E);
     id = (s8)((u8 *)arg2)[0x44] % 4;
-    add_flags_2e4__10TObjPlayerFPvUi(arg0, lbl_804710BC[id]);
+    add_flags_2e4__10TObjPlayerFPvUi(arg0, TBoss6Type2__initial_actor_flag_masks[id]);
     M2C_FIELD(arg0, s32 *, 0x428) = id;
     M2C_FIELD(arg0, s32 *, 0x42C) = M2C_FIELD(arg0, s32 *, 0x430) = lbl_8047127C[((s8)((u8 *)arg2)[0x44] >> 2) % 4];
     init_segment_range__11TBoss6Type2FPv((Obj_802BC050 *)arg0);

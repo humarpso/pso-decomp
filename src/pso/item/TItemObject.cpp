@@ -37,11 +37,11 @@ s32 is_item_stackable(s32 arg0, s32 arg1) {
     return 0;
 }
 
-    extern int* lbl_805D53F4;
-int fn_80101A98(int a0) {  return lbl_805D53F4[a0]; }
+    extern int* item_registry_sorted_entries;
+int fn_80101A98(int a0) {  return item_registry_sorted_entries[a0]; }
 
-    extern int lbl_805D53F0;
-int fn_80101AA8(void) {  return lbl_805D53F0; }
+    extern int item_registry_count;
+int fn_80101AA8(void) {  return item_registry_count; }
 
 u8 *find_item_by_id(s32 id) {
     s32 lo;
@@ -50,16 +50,16 @@ u8 *find_item_by_id(s32 id) {
     u8 *item;
 
     lo = 0;
-    hi = lbl_805D53F0 - 1;
+    hi = item_registry_count - 1;
     while (lo < hi) {
         mid = (lo + hi) >> 1;
-        if (M2C_FIELD((u8 *) lbl_805D53F4[mid], s32 *, 0xD8) < id) {
+        if (M2C_FIELD((u8 *) item_registry_sorted_entries[mid], s32 *, 0xD8) < id) {
             lo = mid + 1;
         } else {
             hi = mid;
         }
     }
-    item = (u8 *) lbl_805D53F4[lo];
+    item = (u8 *) item_registry_sorted_entries[lo];
     if (item != NULL && M2C_FIELD(item, s32 *, 0xD8) == id) {
         return item;
     }

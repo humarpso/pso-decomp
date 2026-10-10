@@ -95,7 +95,7 @@ u8 * TOKey__ct(void *);
 s32 is_not_split_screen__13TRaderMapCoreFv(void);
 M2C_UNK init_switch_id__5TOKeyFPv(void *);
 extern M2C_UNK __vt__11TOKeyCave01[];
-extern s32 lbl_805D3038;
+extern s32 TOKeyCave01__class_name;
 extern u32 lbl_805D5A18;
 extern s32 *TOKeyCave01__data_805D5A1C;
 extern const f32 lbl_805DB73C;
@@ -296,7 +296,7 @@ void *__dt__11TOKeyCave01Fv(void *arg0, s16 arg1) {
 u8 *TOKeyCave01__ct(u8 *arg0, M2C_UNK arg1, s32 arg2) {
     TOKey__ct(arg0);
     M2C_FIELD(arg0, M2C_UNK **, 0x18) = &(*(RecoveredGlobal_8016C5F8___vt__11TOKeyCave01 *)&__vt__11TOKeyCave01).value;
-    M2C_FIELD(arg0, s32 *, 0) = (s32) lbl_805D3038;
+    M2C_FIELD(arg0, s32 *, 0) = (s32) TOKeyCave01__class_name;
     ((VObj_18_1a504b *)(arg0))->m5(arg2);
     init_switch_id__5TOKeyFPv((void *) (arg0));
     M2C_FIELD(arg0, s32 *, 0x24) = (s32) *TOKeyCave01__data_805D5A1C;

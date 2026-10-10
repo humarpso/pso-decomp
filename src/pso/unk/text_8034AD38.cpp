@@ -39,8 +39,8 @@ M2C_UNK copy_xyz__10TObjPlayerFPvPv(void *, void *);
 void *create_particle_controller_with_angles(void *, void *, int, int, int);
 M2C_UNK __ct__7TObjectFP7TObject(void *);
 void *memset(void *, int, u32);
-extern Vec_8034ADE0 lbl_80478A28[];
-extern Ang_8034ADE0 lbl_80478AB8[];
+extern Vec_8034ADE0 floor_load_particle_positions[];
+extern Ang_8034ADE0 TAdFloorLoadPrtGC__emitter_angles[];
 extern Vec_8034ADE0 lbl_80478B48[];
 extern Ang_8034ADE0 lbl_80478B54[];
 extern void *__vt__17TAdFloorLoadPrtGC[];
@@ -84,8 +84,8 @@ Prt_8034ADE0 *TAdFloorLoadPrtGC__ct(Prt_8034ADE0 *arg0) {
     memset(arg0->slots, 0, sizeof(arg0->slots));
     arg0->bg = 0;
     for (i = 0; i < 12; i++) {
-        VecCopy__FP3VecPC3Vec(&arg0->slots[i].pos, p = &lbl_80478A28[i]);
-        copy_xyz__10TObjPlayerFPvPv(&arg0->slots[i].ang, a = &lbl_80478AB8[i]);
+        VecCopy__FP3VecPC3Vec(&arg0->slots[i].pos, p = &floor_load_particle_positions[i]);
+        copy_xyz__10TObjPlayerFPvPv(&arg0->slots[i].ang, a = &TAdFloorLoadPrtGC__emitter_angles[i]);
         arg0->slots[i].ctrl = create_particle_controller_with_angles(p, a, 0x65, 1, 0x40);
     }
     arg0->bg = create_particle_controller_with_angles(lbl_80478B48, lbl_80478B54, 0x2F, 1, 0x40);

@@ -292,7 +292,7 @@ void activate_camera_mode(s32);
 void set_scripted_camera_pose(void *, void *, void *);
 void cache_target_and_forward__11TCameraCtrlFii(void *, s32);
 void construct_world_actor_base(void *, void *);
-extern u8 lbl_804372BC[];
+extern u8 TObjDFDemo0__model_node_entries[];
 extern s32 lbl_80485EB0[];
 extern s32 lbl_805D2778;
 
@@ -339,7 +339,7 @@ Obj_8004DEE0 *TObjDFDemo0__ct(void *arg0, void *arg1) {
     for (j = 0; j < 5; j++) {
         self->fa8[j] = 0;
     }
-    init_model_node_tables(self->f94, lbl_804372BC, 7);
+    init_model_node_tables(self->f94, TObjDFDemo0__model_node_entries, 7);
     activate_camera_mode(5);
     set_scripted_camera_pose(lbl_804854F0, lbl_804854F0, lbl_804854FC);
     cache_target_and_forward__11TCameraCtrlFii(lbl_80485508, 0x416C);

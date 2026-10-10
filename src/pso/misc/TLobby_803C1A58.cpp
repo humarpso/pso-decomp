@@ -109,7 +109,7 @@ struct Obj_803C2174 {
     s16 fa8; s16 faa;
 };
 
-#define TBL_803C3E88 ((Rec_803C3E88 *)&lbl_80571480)
+#define TBL_803C3E88 ((Rec_803C3E88 *)&adx_channel_record_pool)
 struct Rec_803C3E88 {
     s16 used; u8 pad_2[6]; u32 f8; u8 pad_c[0x38 - 0xC];
     s32 f38; s32 f3c; s32 f40; s32 f44; u8 pad_48[0x88 - 0x48];
@@ -148,7 +148,7 @@ void TLobby__sub_803C4020(u8 *arg0, s32 arg1, s32 arg2);
 s8 TLobby__sub_803C3B38(u8 *arg0);
 M2C_UNK memset(void *, int, int);
 void clear_buffer_340__6TLobbyFv(void);
-extern RecoveredGlobal_803C0B08_lbl_80570AC0 lbl_80571480;
+extern RecoveredGlobal_803C0B08_lbl_80570AC0 adx_channel_record_pool;
 void TLobby__sub_803C406C(void);
 int memcmp(const void *a, const void *b, unsigned long n);
 extern const char lbl_805E0CE0[4];
@@ -847,7 +847,7 @@ typedef char RecoveredGlobal_803C0B08_lbl_80570AC0_size[sizeof(RecoveredGlobal_8
 typedef char RecoveredGlobal_803C0AD8_lbl_80570AC0_size[sizeof(RecoveredGlobal_803C0AD8_lbl_80570AC0) == 0x9C0 ? 1 : -1];
 void TLobby__sub_803C406C(void) {
     clear_buffer_340__6TLobbyFv();
-    memset((void *) (&lbl_80571480.value), (int) (0), (int) (0xb80));
+    memset((void *) (&adx_channel_record_pool.value), (int) (0), (int) (0xb80));
 }
 s32 is_spsd_header__6TLobbyFPv(void *p) {
     if (memcmp(p, lbl_805E0CE0, 4) == 0) {

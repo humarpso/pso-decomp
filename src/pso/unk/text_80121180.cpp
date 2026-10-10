@@ -20,10 +20,10 @@ struct RecoveredGlobal_80121180_lbl_804C43C0 {
 
 extern "C" {
 s16 get_validated_attack_stage();
-extern RecoveredGlobal_80121198_lbl_804C43CC lbl_804C43CC;
-extern RecoveredGlobal_80121198_lbl_804C43D8 lbl_804C43D8;
+extern RecoveredGlobal_80121198_lbl_804C43CC attack_type_accuracy_scales;
+extern RecoveredGlobal_80121198_lbl_804C43D8 attack_combo_accuracy_multipliers;
 f32 get_attack_accuracy_scale(s16 *arg0);
-extern RecoveredGlobal_80121180_lbl_804C43C0 lbl_804C43C0;
+extern RecoveredGlobal_80121180_lbl_804C43C0 attack_damage_scale_table;
 f32 get_attack_damage_scale(s16 *arg0);
 }
 
@@ -34,11 +34,11 @@ typedef char RecoveredGlobal_80121198_lbl_804C43D8_size[sizeof(RecoveredGlobal_8
 
 typedef char RecoveredGlobal_80121180_lbl_804C43C0_size[sizeof(RecoveredGlobal_80121180_lbl_804C43C0) == 0xC ? 1 : -1];
 f32 get_attack_damage_scale(s16 *arg0) {
-    return M2C_FIELD(((u8 *)(&lbl_804C43C0.value) + (M2C_FIELD(arg0, s16 *, 0) * 4)), f32 *, 0);
+    return M2C_FIELD(((u8 *)(&attack_damage_scale_table.value) + (M2C_FIELD(arg0, s16 *, 0) * 4)), f32 *, 0);
 }
 
 f32 get_attack_accuracy_scale(s16 *arg0) {
-    return M2C_FIELD(((u8 *)(&lbl_804C43CC.value) + (M2C_FIELD(arg0, s16 *, 0) * 4)), f32 *, 0) * M2C_FIELD(((u8 *)(&lbl_804C43D8.value) + (get_validated_attack_stage() * 4)), f32 *, 0);
+    return M2C_FIELD(((u8 *)(&attack_type_accuracy_scales.value) + (M2C_FIELD(arg0, s16 *, 0) * 4)), f32 *, 0) * M2C_FIELD(((u8 *)(&attack_combo_accuracy_multipliers.value) + (get_validated_attack_stage() * 4)), f32 *, 0);
 }
 
 }

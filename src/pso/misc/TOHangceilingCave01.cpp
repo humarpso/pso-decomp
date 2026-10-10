@@ -330,10 +330,10 @@ extern u8 lbl_804416C0[];
 extern u8 lbl_804416D8[];
 extern u8 TOFenceAncient04_resource_descriptor[];
 extern RecoveredGlobal_80167878_lbl_804B1F80 ofence_ancient04_collision_parts;
-extern s32 lbl_805D2FE0;
-extern void *lbl_805D2FE8;
-extern void *lbl_805D2FEC;
-extern s32 lbl_805D2FF0;
+extern s32 TOFenceAncient04__class_name;
+extern void *TOHangceilingCave01Normal__class_name;
+extern void *TOHangceilingCave01Key__class_name;
+extern s32 TOHangceilingCave01KeyQuick__class_name;
 extern s32 game_difficulty_selection;
 extern u32 TOFenceAncient04__model_archive;
 extern void *TOFenceAncient04__resource_bundle;
@@ -373,7 +373,7 @@ extern const char lbl_804417D0[] = "bm_obj_ruins_turiten.bml";
 __declspec(section ".rodata") extern Q_801681D0 lbl_804417EC = { 1.0f, 2.0f, 3.0f, 6.0f };
 extern const char lbl_804417FC[] = "TOHangceilingCave01Normal";
 extern const char lbl_80441818[] = "TOHangceilingCave01Key";
-extern const char lbl_80441830[] = "TOHangceilingCave01KeyQuick";
+extern const char TOHangceilingCave01KeyQuick__class_name_string[] = "TOHangceilingCave01KeyQuick";
 
 void TOHangceilingCave01KeyQuick__vt77(void *arg0) {
     u8 *p;
@@ -458,7 +458,7 @@ void *__dt__27TOHangceilingCave01KeyQuickFv(void *arg0, s16 arg1) {
 u8 *TOHangceilingCave01KeyQuick__ct(u8 *arg0, s32 arg1) {
     ((u8 * (*)(void *, s32))init_base__27TOHangceilingCave01KeyQuickFPvii)(arg0, arg1);
     M2C_FIELD(arg0, M2C_UNK **, 0x18) = &(*(RecoveredGlobal_80167C78___vt__27TOHangceilingCave01KeyQuick *)&__vt__27TOHangceilingCave01KeyQuick).value;
-    M2C_FIELD(arg0, s32 *, 0) = (s32) lbl_805D2FF0;
+    M2C_FIELD(arg0, s32 *, 0) = (s32) TOHangceilingCave01KeyQuick__class_name;
     init_geometry__19TOHangceilingCave01FPv(arg0);
     set_scale__27TOHangceilingCave01KeyQuickFPvf(arg0, lbl_805DB688 + M2C_FIELD(arg0, f32 *, 0x70));
     return arg0;
@@ -522,7 +522,7 @@ void *__dt__22TOHangceilingCave01KeyFv(void *arg0, s16 arg1) {
 void *TOHangceilingCave01Key__ct(void *arg0) {
     init_base__27TOHangceilingCave01KeyQuickFPvii(arg0);
     M2C_FIELD(arg0, M2C_UNK **, 0x18) = __vt__22TOHangceilingCave01Key;
-    M2C_FIELD(arg0, void **, 0x0) = lbl_805D2FEC;
+    M2C_FIELD(arg0, void **, 0x0) = TOHangceilingCave01Key__class_name;
     init_geometry__19TOHangceilingCave01FPv(arg0);
     return arg0;
 }
@@ -592,7 +592,7 @@ void *__dt__25TOHangceilingCave01NormalFv(void *arg0, s16 arg1) {
 void *TOHangceilingCave01Normal__ct(void *arg0) {
     init_base__27TOHangceilingCave01KeyQuickFPvii(arg0);
     M2C_FIELD(arg0, M2C_UNK **, 0x18) = __vt__25TOHangceilingCave01Normal;
-    M2C_FIELD(arg0, void **, 0x0) = lbl_805D2FE8;
+    M2C_FIELD(arg0, void **, 0x0) = TOHangceilingCave01Normal__class_name;
     init_geometry__19TOHangceilingCave01FPv(arg0);
     return arg0;
 }

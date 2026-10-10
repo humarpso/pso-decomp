@@ -265,7 +265,7 @@ extern s32 forest_rel_filename_table[];
 extern s32 TLobby__data_805D6068;
 extern s32 lbl_805D606C;
 extern s32 *lbl_805D6070;
-extern u32 lbl_805D6074;
+extern u32 forest_rel_work_buffer;
 
 void update_drop_item__6TLobbyFv(void) {
     s32 *temp_r3;
@@ -274,10 +274,10 @@ void update_drop_item__6TLobbyFv(void) {
 
     lbl_805D606C = 0;
     lbl_805D6070 = NULL;
-    if ((u32) lbl_805D6074 != 0U) {
+    if ((u32) forest_rel_work_buffer != 0U) {
         temp_r30 = get_drop_item_mode__6TLobbyFv();
         if (update_lobby_scene__6TSceneFPv(forest_rel_filename_table[temp_r30]) <= 0x24B8) {
-            temp_r3 = load_relocatable_file(forest_rel_filename_table[temp_r30], lbl_805D6074);
+            temp_r3 = load_relocatable_file(forest_rel_filename_table[temp_r30], forest_rel_work_buffer);
             lbl_805D6070 = temp_r3;
             if (temp_r3 != NULL) {
                 temp_r0 = *temp_r3;
@@ -304,12 +304,12 @@ void safe_free__23TAdSinglePlyChrSelectGCFUi(void*);
 extern s32 TLobby__data_805D6068;
 extern s32 lbl_805D606C;
 #define lbl_805D6070 (*(s32 *)&lbl_805D6070)
-extern u32 lbl_805D6074;
+extern u32 forest_rel_work_buffer;
 
 void TLobby__sub_802083C0(void) {
-    if ((u32) lbl_805D6074 != 0U) {
-        safe_free__23TAdSinglePlyChrSelectGCFUi((void*)lbl_805D6074);
-        lbl_805D6074 = 0U;
+    if ((u32) forest_rel_work_buffer != 0U) {
+        safe_free__23TAdSinglePlyChrSelectGCFUi((void*)forest_rel_work_buffer);
+        forest_rel_work_buffer = 0U;
         lbl_805D6070 = 0;
         lbl_805D606C = 0;
         TLobby__data_805D6068 = 0;
@@ -374,7 +374,7 @@ extern s32 forest_rel_filename_table[];
 extern s32 TLobby__data_805D6068;
 extern s32 lbl_805D606C;
 extern s32 *lbl_805D6070;
-extern u32 lbl_805D6074;
+extern u32 forest_rel_work_buffer;
 
 void load_item_data__6TLobbyFv(void) {
     s32 *temp_r3_2;
@@ -385,11 +385,11 @@ void load_item_data__6TLobbyFv(void) {
     lbl_805D606C = 0;
     lbl_805D6070 = NULL;
     temp_r3 = alloc__22TQuestVmDownLoadServerFPv(0x24B8);
-    lbl_805D6074 = temp_r3;
+    forest_rel_work_buffer = temp_r3;
     if (temp_r3 != 0U) {
         temp_r30 = get_drop_item_mode__6TLobbyFv();
         if (update_lobby_scene__6TSceneFPv(forest_rel_filename_table[temp_r30]) <= 0x24B8) {
-            temp_r3_2 = load_relocatable_file(forest_rel_filename_table[temp_r30], lbl_805D6074);
+            temp_r3_2 = load_relocatable_file(forest_rel_filename_table[temp_r30], forest_rel_work_buffer);
             lbl_805D6070 = temp_r3_2;
             if (temp_r3_2 != NULL) {
                 temp_r0 = *temp_r3_2;
@@ -711,8 +711,8 @@ void *__nw__7TObjectFUl(M2C_UNK);
 #define wave_event_stream_cursor (*(int *)&wave_event_stream_cursor)
 void TLobby__sub_80208884(void* a0) { wave_event_stream_base = *(int*)((char*)a0 + 0x0); wave_event_stream_cursor = *(int*)((char*)a0 + 0x4); }
 
-    extern int lbl_805D6090;
-void set_destroy_event__6TLobbyFi(int a0) { lbl_805D6090 = a0; }
+    extern int set_event_destroy_id;
+void set_destroy_event__6TLobbyFi(int a0) { set_event_destroy_id = a0; }
 
 extern s32 tl_01;
 
@@ -1086,7 +1086,7 @@ void TItemDrop__sub_800FDE7C(void *);
 s32 load_all_floor_event_sets__6TLobbyFv();
 extern u8 lbl_8044BAD0[];
 #define lobby_slot_ptr_table (*(s32 (*)[1])&lobby_slot_ptr_table)
-extern int lbl_805D6090;
+extern int set_event_destroy_id;
 extern s32 lbl_805D6098;
 void load_set_event_gsl__6TLobbyFv(void);
 }
@@ -1108,7 +1108,7 @@ void load_set_event_gsl__6TLobbyFv(void) {
     for (i = 0; i < 0x12; i++) {
         lobby_slot_ptr_table[i] = 0;
     }
-    (*(s32 *)&lbl_805D6090) = -1;
+    (*(s32 *)&set_event_destroy_id) = -1;
     lbl_805D6098 = 0;
     TItemDrop__sub_800FDE7C(lbl_8044BAD0);
     if (load_all_floor_event_sets__6TLobbyFv() == 0) {
@@ -1120,7 +1120,7 @@ void load_set_event_gsl__6TLobbyFv(void) {
 
 void free_heap__6TLobbyFv(void) { __dt__5THeapFv((void*)(area_event_set_heap), (void*)1); area_event_set_heap = 0; }
 
-    extern int lbl_805D6090;
+    extern int set_event_destroy_id;
 
 void create_heap_8000__6TLobbyFv(void) {
     u8 *temp_r3;
@@ -1133,7 +1133,7 @@ void create_heap_8000__6TLobbyFv(void) {
     (*(u8 * *)&area_event_set_heap) = var_r0;
 }
 
-int get_destroy_event_obj__6TLobbyFv(void) {  return lbl_805D6090; }
+int get_destroy_event_obj__6TLobbyFv(void) {  return set_event_destroy_id; }
 
 }
 

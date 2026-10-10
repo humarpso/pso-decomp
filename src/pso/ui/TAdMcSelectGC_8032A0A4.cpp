@@ -34,7 +34,7 @@ void *__nw__7TObjectFUl(int);
 int init_memorycard__15TAdMcSelectMcGCFv(void);
 int init_resource__19TAdMcSelectCursorGCFv(void);
 
-extern void *lbl_805D6C88;
+extern void *TAdMcSelectGC__instance;
 
 void * create__13TAdMcSelectGCFPv(void *arg0) {
     void *o;
@@ -42,7 +42,7 @@ void * create__13TAdMcSelectGCFPv(void *arg0) {
     if (o != NULL) {
         o = TAdMcSelectGC__ct(o, arg0);
     }
-    lbl_805D6C88 = o;
+    TAdMcSelectGC__instance = o;
     return o;
 }
 
@@ -50,8 +50,8 @@ void open__13TAdMcSelectGCFv(void) { TLobby__sub_802C78EC(); release_selected_en
 void close__13TAdMcSelectGCFv(void) { init_resource__19TAdMcSelectCursorGCFv(); init_memorycard__15TAdMcSelectMcGCFv(); TLobby__sub_802C7920(); }
 void TAdMcSelectGC__sub_8032A140(void* p) { *(s32*)((char*)p + 0x1c) = 0; }
 
-    extern int lbl_805D6C94;
-int get_mc_count__13TAdMcSelectGCFv(void) {  return lbl_805D6C94; }
+    extern int TAdMcSelectCursorGC__instance;
+int get_mc_count__13TAdMcSelectGCFv(void) {  return TAdMcSelectCursorGC__instance; }
 
 s32 get_slot_index__13TAdMcSelectGCFPv(void* p) { return *(s32*)((char*)p + 0x20); }
 void TAdMcSelectGC__sub_8032A15C(void* p) { *(s32*)((char*)p + 0x1c) = 1; }

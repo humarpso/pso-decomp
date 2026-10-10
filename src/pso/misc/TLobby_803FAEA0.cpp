@@ -921,6 +921,22 @@ B_803FADA0 *init_net_buffer_entry__6TLobbyFUs(s32);
 u8 *TLobby__sub_80402B3C(u8 *p, u32 v);
 extern u8 lbl_805D7A74[1];
 void TLobby__sub_803FADA0(B_803FADA0 **arg0, A_803FADA0 *arg1, s32 arg2, s32 arg3, void *arg4);
+void NetStoreTick(s32 *arg0);
+void unlock_mutex__10TUdpSocketFi(int);
+void lock_mutex__6TLobbyFi(int);
+void TLobby__sub_803F9F04(void * _w0, void * _w1, int _w2);
+extern u32 lbl_805BFF68[];
+extern RecoveredGlobal_803FD520_lbl_805C0310 lobby_net_buffer_desc_b;
+extern RecoveredGlobal_804050DC_lbl_805C18A0 lbl_805C18A0;
+extern s16 lbl_805D7A7A;
+extern s16 lbl_805D7A7C;
+extern s16 lbl_805D7A82;
+extern s16 lbl_805D7A84;
+extern s16 lbl_805D7A88;
+extern s16 lbl_805D7A8A;
+extern s32 lbl_805D7A8C;
+extern s32 lbl_805D7A90;
+s32 NetApplyConnectionConfig(u8 *arg0);
 }
 
 extern "C" {
@@ -1232,6 +1248,53 @@ u8 *copy_name_buffer__6TLobbyFPv(void *src) {
 
 void TLobby__sub_803FB184(u8 *arg0) {
     TLobby__sub_803FB358(arg0);
+}
+
+s32 NetApplyConnectionConfig(u8 *arg0) {
+  u8 *g = (u8 *) &lbl_805BFF68;
+  NetStoreTick((s32 *)((void *) (arg0 + 0x38)));
+  lock_mutex__6TLobbyFi((int)((void *) ((s32 *)&lbl_805C18A0)[0]));
+  if (((s16) lbl_805D7A84) == 0)
+  {
+    *((u16 *) (((s8 *) g) + 0)) = (u16) (*((u16 *) (((s8 *) arg0) + 0)));
+    *((s16 *) (((s8 *) g) + 2)) = (s16) (*((s16 *) (((s8 *) arg0) + 2)));
+    lbl_805D7A7C = *((s16 *) (((s8 *) arg0) + 2));
+    *((s16 *) (((s8 *) g) + 4)) = (s16) (*((s16 *) (((s8 *) arg0) + 4)));
+    *((s32 *) (((s8 *) g) + 0xC)) = (s32) (*((s32 *) (((s8 *) arg0) + 8)));
+    *((s32 *) (((s8 *) g) + 0x10)) = (s32) (*((s32 *) (((s8 *) arg0) + 0xC)));
+    *((s32 *) (((s8 *) g) + 0x14)) = (s32) (*((s32 *) (((s8 *) arg0) + 0x10)));
+    *((s32 *) (((s8 *) g) + 0x18)) = (s32) (*((s32 *) (((s8 *) arg0) + 0x14)));
+    TLobby__sub_803F9F04((void *) (g + 0x7C), (void *) (arg0 + 0x18), (int) 0xA);
+    TLobby__sub_803F9F04((void *) (g + 0x88), (void *) (arg0 + 0x24), (int) 0x10);
+    TLobby__sub_803F9F04((void *) (g + 0x98), (void *) (arg0 + 0x34), (int) 0x10);
+    if (((s16) (*((s16 *) (((s8 *) g) + 0x9A)))) == 0)
+    {
+      *((s16 *) (((s8 *) g) + 0x9A)) = (s16) (*((s16 *) (((s8 *) ((M2C_UNK *)&lobby_net_buffer_desc_b)) + 0x14)));
+    }
+    *((s32 *) (((s8 *) g) + 0xA8)) = (s32) (*((s32 *) (((s8 *) arg0) + 0x44)));
+    *((s32 *) (((s8 *) g) + 0xAC)) = (s32) (*((s32 *) (((s8 *) arg0) + 0x48)));
+    *((s32 *) (((s8 *) g) + 0xB0)) = (s32) (*((s32 *) (((s8 *) arg0) + 0x4C)));
+    *((s32 *) (((s8 *) g) + 0xB4)) = (s32) (*((s32 *) (((s8 *) arg0) + 0x50)));
+    *((s32 *) (((s8 *) g) + 0xB8)) = (s32) (*((s32 *) (((s8 *) arg0) + 0x54)));
+    *((s32 *) (((s8 *) g) + 0xBC)) = (s32) (*((s32 *) (((s8 *) arg0) + 0x58)));
+    TLobby__sub_803F9F04((void *) (g + 0xC0), (void *) (arg0 + 0x5C), (int) 8);
+    TLobby__sub_803F9F04((void *) (g + 0xC8), (void *) (arg0 + 0x64), (int) 8);
+    lbl_805D7A82 = 0;
+    lbl_805D7A8A = 1;
+    lbl_805D7A88 = 1;
+    lbl_805D7A90 = (s32) (*((u16 *) (((s8 *) g) + 0)));
+    lbl_805D7A8C = *((s32 *) (((s8 *) g) + 0x18));
+    if ((*((u16 *) (((s8 *) g) + 0))) & 4)
+    {
+      lbl_805D7A7A = 1;
+    }
+    else
+    {
+      lbl_805D7A7A = 0;
+    }
+  }
+  unlock_mutex__10TUdpSocketFi((int)((void *) ((s32 *)&lbl_805C18A0)[0]));
+  return 0;
 }
 
 s32 get_remaining__6TLobbyFi(s32 arg0) {

@@ -61,7 +61,7 @@ s32 init_collision_body_parts(void *, void *, int);
 s32 init_map_object_base(void *, int);
 extern RecoveredGlobal_8016904C_lbl_804B26D8 hanger_machine01_collision_body_parts;
 extern M2C_UNK __vt__17TOHangerMachine01[];
-extern s32 lbl_805D2FFC;
+extern s32 TOHangerMachine01__class_name;
 extern u32 TOHangerMachine01__bml_resource;
 extern s32 tl_05;
 extern const f32 lbl_805DB6AC;
@@ -196,7 +196,7 @@ typedef char RecoveredGlobal_8016904C___vt__17TOHangerMachine01_size[sizeof(Reco
 u8 *TOHangerMachine01__ct(u8 *arg0, s32 arg1) {
     init_map_object_base((void *) (arg0), (int) (tl_05));
     M2C_FIELD(arg0, M2C_UNK **, 0x18) = &(*(RecoveredGlobal_8016904C___vt__17TOHangerMachine01 *)&__vt__17TOHangerMachine01).value;
-    M2C_FIELD(arg0, s32 *, 0) = (s32) lbl_805D2FFC;
+    M2C_FIELD(arg0, s32 *, 0) = (s32) TOHangerMachine01__class_name;
     ((VObj_18_1a504b *)(arg0))->m5(arg1);
     M2C_FIELD(arg0, s32 *, 0x34) = (s32) M2C_FIELD(M2C_FIELD((*(u8 * *)&TOHangerMachine01__bml_resource), u8 **, 0x42C), s32 *, 8);
     M2C_FIELD(arg0, s32 *, 0x24) = (s32) M2C_FIELD(M2C_FIELD((*(u8 * *)&TOHangerMachine01__bml_resource), u8 **, 0x42C), s32 *, 0xC);

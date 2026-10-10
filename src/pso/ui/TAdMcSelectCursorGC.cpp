@@ -65,12 +65,12 @@ M2C_UNK set_depth_buffer_settings_2__Fv();
 M2C_UNK set_global_param__8TObjFishFi(void *);
 s32 toggle_flag_9__10TObjPlayerFPv();
 
-extern s32 TAdMcSelectCursorGC__data_805D6C90;
+extern s32 TAdMcSelectCursorGC__texture_entry;
 extern const f32 lbl_805DF728;
 
 void render_cursor__19TAdMcSelectCursorGCFPv(u8 *arg0) {
     begin_screen_draw((int) (1));
-    set_global_param__8TObjFishFi((void *) (TAdMcSelectCursorGC__data_805D6C90));
+    set_global_param__8TObjFishFi((void *) (TAdMcSelectCursorGC__texture_entry));
     set_draw_texture_and_color((int) (0), (int) ((M2C_FIELD(arg0, s32 *, 0x128) << 0x18) | 0xFF0000 | 0xFFFF));
     draw_textured_quad_at_depth((void *) (arg0 + 0x28), (f32) (lbl_805DF728));
     get_player__20TWindowSubStatusDispFv();
@@ -96,7 +96,7 @@ block_5:
 }
 
 extern M2C_UNK __vt__19TAdMcSelectCursorGC[];
-extern u32 lbl_805D6C94;
+extern u32 TAdMcSelectCursorGC__instance;
 
 #pragma fp_contract on
 void run_task__19TAdMcSelectCursorGCFv(Self_8032A2A4 *self) {
@@ -151,8 +151,8 @@ void run_task__19TAdMcSelectCursorGCFv(Self_8032A2A4 *self) {
 void *__dt__19TAdMcSelectCursorGCFv(void *arg0, s16 arg1) {
     if (arg0 != NULL) {
         M2C_FIELD(arg0, M2C_UNK **, 0x18) = __vt__19TAdMcSelectCursorGC;
-        if ((u32) lbl_805D6C94 != 0U) {
-            lbl_805D6C94 = 0U;
+        if ((u32) TAdMcSelectCursorGC__instance != 0U) {
+            TAdMcSelectCursorGC__instance = 0U;
         }
         __dt__7TObjectFv(arg0, 0);
         if (arg1 > 0) {

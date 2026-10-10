@@ -22,7 +22,7 @@ u32 __ct__14TAdSelectCurGCFv(int, int, void *, void *);
 extern RecoveredGlobal_8032B390_lbl_80477198 lbl_80477198;
 extern RecoveredGlobal_8032B390_lbl_804771B8 lbl_804771B8;
 extern s32 tl_clipout;
-extern int lbl_805D6CA8;
+extern int TAdEnterBaseGC__entry_mode;
 void create_parts__14TAdEnterBaseGCFPv(u8 *arg0);
 }
 
@@ -40,8 +40,8 @@ void queue_destruction__7TObjectFv(void *);
 
 void run_task__14TAdEnterBaseGCFv(void) {  }
 
-    extern int lbl_805D6CA0;
-    extern int lbl_805D6CA8;
+    extern int password_entry_keyboard_control;
+    extern int TAdEnterBaseGC__entry_mode;
 
 typedef char RecoveredGlobal_8032B390_lbl_80477198_size[sizeof(RecoveredGlobal_8032B390_lbl_80477198) == 0x20 ? 1 : -1];
 typedef char RecoveredGlobal_8032B390_lbl_804771B8_size[sizeof(RecoveredGlobal_8032B390_lbl_804771B8) == 0x10 ? 1 : -1];
@@ -60,7 +60,7 @@ void create_parts__14TAdEnterBaseGCFPv(u8 *arg0) {
     if (temp_r3_2 != 0U) {
         __ct__12TAdBackTxtGCFv((int) (temp_r3_2), (void *) (arg0));
     }
-    if ((s32) (*(s32 *)&lbl_805D6CA8) == 3) {
+    if ((s32) (*(s32 *)&TAdEnterBaseGC__entry_mode) == 3) {
         temp_r3_3 = __nw__7TObjectFUl((int) (0x708));
         var_r0 = temp_r3_3;
         if (var_r0 != 0U) {
@@ -77,7 +77,7 @@ void create_parts__14TAdEnterBaseGCFPv(u8 *arg0) {
     M2C_FIELD(arg0, u32 *, 0x2C) = var_r0_2;
 }
 
-void reset__14TAdEnterBaseGCFPvi(void* a0, int a1) { *(int*)((char*)a0 + 0x24) = 0; *(int*)((char*)a0 + 0x20) = 0; lbl_805D6CA8 = a1; *(int*)((char*)a0 + 0x38) = 0; *(int*)((char*)a0 + 0x3c) = 0; *(int*)((char*)a0 + 0x28) = 0; *(int*)((char*)a0 + 0x2c) = 0; *(int*)((char*)a0 + 0x30) = 0; *(int*)((char*)a0 + 0x34) = 0; lbl_805D6CA0 = 0; }
+void reset__14TAdEnterBaseGCFPvi(void* a0, int a1) { *(int*)((char*)a0 + 0x24) = 0; *(int*)((char*)a0 + 0x20) = 0; TAdEnterBaseGC__entry_mode = a1; *(int*)((char*)a0 + 0x38) = 0; *(int*)((char*)a0 + 0x3c) = 0; *(int*)((char*)a0 + 0x28) = 0; *(int*)((char*)a0 + 0x2c) = 0; *(int*)((char*)a0 + 0x30) = 0; *(int*)((char*)a0 + 0x34) = 0; password_entry_keyboard_control = 0; }
 
 extern M2C_UNK __vt__14TAdEnterBaseGC[];
 

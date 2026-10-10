@@ -9,7 +9,7 @@ void draw_masked_password_field(void *);
 void fn_8032AC24();
 void fn_8032AC94();
 extern P2_8032AC9C lbl_804ED9F0[];
-extern s32 lbl_805D6CA8;
+extern s32 TAdEnterBaseGC__entry_mode;
 extern const f32 lbl_805DF778;
 void fn_8032AC9C(void *arg0, void *arg1);
 }
@@ -19,7 +19,7 @@ extern "C" {
 void fn_8032AC9C(void *arg0, void *arg1) {
     draw_window_frame();
     render_status_line__15TAdSubPlyItemGCFPvi(get_localized_text_entry(0x17, 4), -1, lbl_804ED9F0[0].x, lbl_804ED9F0[0].y, lbl_805DF778);
-    switch (lbl_805D6CA8) {
+    switch (TAdEnterBaseGC__entry_mode) {
     case 0:
     case 1:
         fn_8032AC94();

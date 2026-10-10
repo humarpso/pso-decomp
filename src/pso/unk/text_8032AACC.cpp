@@ -33,7 +33,7 @@ extern u8 lbl_80477210[];
 extern f32 lbl_80477218[];
 extern f32 lbl_80477220[];
 extern s32 tl_clipout;
-extern void *lbl_805D6CA0;
+extern void *password_entry_keyboard_control;
 extern Word_8032AACC lbl_805DF76C;
 extern char lbl_805DF774[4];
 void draw_masked_password_field(s32 arg0);
@@ -56,14 +56,14 @@ void draw_masked_password_field(s32 arg0) {
     s32 len;
     s32 i;
     char *q;
-    if (lbl_805D6CA0 != 0) {
+    if (password_entry_keyboard_control != 0) {
         Arg_8032AACC p1;
         p1.x = lbl_80477218[0];
         p1.y = lbl_80477218[1];
         __ct__19TAdPlyChrSelPlateGCFv(&plate, tl_clipout, &p1);
         Word_8032AACC w = lbl_805DF76C;
         TAdEnterSerialAccessGC__sub_802C4B64(&plate, lbl_80477210, &w, 0);
-        str = realloc_buffer__17TWindowSubComCardFPv(lbl_805D6CA0);
+        str = realloc_buffer__17TWindowSubComCardFPv(password_entry_keyboard_control);
         len = strlen(str);
         free__11TOBoss4RockFUi(str);
         memset(buf, 0, 0x80);
@@ -75,7 +75,7 @@ void draw_masked_password_field(s32 arg0) {
         len = calc_text_width(lbl_805DF774);
         render_status_disp__23TAdSinglePlyChrSelectGCFPvff(buf, lbl_80477220[0], lbl_80477220[1]);
         Pos_8032AACC p2;
-        p2.x = lbl_80477220[0] + (f32) (len * get_field20_state__22TAdEnterSerialAccessGCFPv(lbl_805D6CA0));
+        p2.x = lbl_80477220[0] + (f32) (len * get_field20_state__22TAdEnterSerialAccessGCFPv(password_entry_keyboard_control));
         p2.y = lbl_80477220[1];
         fn_8025DE10(arg0, &p2);
         __dt__19TAdPlyChrSelPlateGCFv(&plate, -1);

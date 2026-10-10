@@ -431,7 +431,7 @@ extern M2C_UNK *lbl_805D78D0;
 extern M2C_UNK *lbl_805D78D4;
 extern M2C_UNK *lbl_805D78D8;
 void init_buffer_pointers__22TQuestVmDownLoadServerFv(void);
-extern RecoveredGlobal_803E721C_lbl_8047E698 lbl_8047E698;
+extern RecoveredGlobal_803E721C_lbl_8047E698 single_byte_to_jis_table;
 u16 TQuestVmDownLoadServer__sub_803E721C(u16 arg0);
 s32 strcpy(void *, void *);
 extern RecoveredGlobal_803E8710_lbl_8058DE08 quest_vm_download_server_file_info;
@@ -480,7 +480,7 @@ void TQuestVmDownLoadServer__sub_803ECD8C(Node_803ECD8C *p);
 extern s32 lbl_805D78AC;
 extern M2C_UNK *lbl_805D78B0;
 void TQuestVmDownLoadServer__sub_803ECE5C(Node_803ECE5C *p);
-extern E_803E6F48 lbl_8047E974[];
+extern E_803E6F48 jis_to_single_byte_symbol_table[];
 s32 lookup_value_by_key__22TQuestVmDownLoadServerFUs(u16 arg0);
 extern R_803E76A4 quest_download_slot_table[];
 s32 release_ref_slot__22TQuestVmDownLoadServerFUi(u32 arg0);
@@ -684,7 +684,7 @@ u32 aram_dma_read__22TQuestVmDownLoadServerFPvPvi(void *h, void *dst, int size);
 int strncmp(const char *, const char *, u32);
 u32 strlen(const char *);
 extern RecoveredGlobal_803E8710_lbl_8058DE08 quest_vm_download_server_file_info;
-extern char lbl_8047F0D0[];
+extern char ask_header_signature[];
 extern s32 lbl_805D7820;
 extern s32 lbl_805D7850;
 extern s32 lbl_805D7854;
@@ -955,7 +955,7 @@ typedef char RecoveredGlobal_803E6F98_lbl_8047F8B8_size[sizeof(RecoveredGlobal_8
 
 s32 lookup_value_by_key__22TQuestVmDownLoadServerFUs(u16 arg0) {
     E_803E6F48 *p;
-    for (p = lbl_8047E974; p < lbl_8047E974 + 45; p++) {
+    for (p = jis_to_single_byte_symbol_table; p < jis_to_single_byte_symbol_table + 45; p++) {
         if (p->key == arg0) {
             return p->val;
         }
@@ -1058,7 +1058,7 @@ u16 map_key_to_code__22TQuestVmDownLoadServerFUi(u32 arg0) {
 
 u16 TQuestVmDownLoadServer__sub_803E721C(u16 arg0) {
     u16 temp_r3;
-    temp_r3 = M2C_FIELD(((u8 *)(&lbl_8047E698.value) + ((arg0 * 2) & 0x1FE)), u16 *, 0);
+    temp_r3 = M2C_FIELD(((u8 *)(&single_byte_to_jis_table.value) + ((arg0 * 2) & 0x1FE)), u16 *, 0);
     if (((s32) (temp_r3 & 0xFF00) == 0x2500) && !(arg0 & 0x100)) {
         return (u8) temp_r3 | 0x2400;
     }
@@ -1625,7 +1625,7 @@ s32 read_ask_header__22TQuestVmDownLoadServerFv(void) {
         return -1;
     }
     h = (b)->hdr;
-    if (strncmp((char *)h, lbl_8047F0D0, strlen(lbl_8047F0D0)) != 0) {
+    if (strncmp((char *)h, ask_header_signature, strlen(ask_header_signature)) != 0) {
         return -1;
     }
     lbl_805D785C = 0;

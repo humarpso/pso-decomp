@@ -64,7 +64,7 @@ void invert_matrix_in_place__10TObjPlayerFUi(s32);
 void concat_matrix__10TObjPlayerFUiUi(s32, void *);
 void push_matrix(void);
 void pop_matrix(void);
-extern u8 lbl_8049DD20[];
+extern u8 TObjEZBoneRotPlayer__chain_gravity[];
 void update_bone_attach_points__10TObjPlayerFPv(Self_800FEEA4 *self);
 }
 
@@ -109,7 +109,7 @@ void update_bone_attach_points__10TObjPlayerFPv(Self_800FEEA4 *self) {
         pd++;
     }
     pop_matrix();
-    fn_800FF788(self, lbl_8049DD20);
+    fn_800FF788(self, TObjEZBoneRotPlayer__chain_gravity);
 }
 
 }

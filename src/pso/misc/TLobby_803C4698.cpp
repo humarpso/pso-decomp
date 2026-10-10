@@ -24,16 +24,16 @@ struct Fmt_803C46DC { s16 a; s16 b; s16 c; s16 d; s32 e; s32 f; s32 g; s32 h; };
 
 extern "C" {
 M2C_UNK memset(void *, int, int);
-extern RecoveredGlobal_803C5850_lbl_80572020 lbl_80572020;
+extern RecoveredGlobal_803C5850_lbl_80572020 adx_error_message_buffer;
 extern s32 lobby_error_callback;
 extern s32 tlobby_error_callback_arg;
 void clear_error_callback__6TLobbyFv(void);
 M2C_UNK memset(void *, int, int);
-extern RecoveredGlobal_803C5850_lbl_80572020 lbl_80572020;
+extern RecoveredGlobal_803C5850_lbl_80572020 adx_error_message_buffer;
 extern s32 lobby_error_callback;
 extern s32 tlobby_error_callback_arg;
 void clear_error_callback_state__6TLobbyFv(void);
-extern RecoveredGlobal_803C5850_lbl_80572020 lbl_80572020;
+extern RecoveredGlobal_803C5850_lbl_80572020 adx_error_message_buffer;
 extern s32 lobby_error_callback;
 extern s32 tlobby_error_callback_arg;
 char *strncpy(char *dst, const char *src, u32 n);
@@ -44,7 +44,7 @@ s32 parse_packet_header_len__6TLobbyFPviPv(Hdr_803C46A4 *p, s32 size, s16 *out);
 s32 find_terminator_index__6TLobbyFPviPv(s16 *arg0, s32 arg1, s16 *arg2);
 char *strncpy(char *dst, const char *src, u32 n);
 void TLobby__sub_803D38B4(const char *fmt, ...);
-extern RecoveredGlobal_803C5850_lbl_80572020 lbl_80572020;
+extern RecoveredGlobal_803C5850_lbl_80572020 adx_error_message_buffer;
 extern s32 lobby_error_callback;
 extern s32 tlobby_error_callback_arg;
 void notify_error__6TLobbyFPv(const char *arg0);
@@ -80,7 +80,7 @@ void init_and_add_ref__6TLobbyFv(void);
 s32 __DVDPrepareResetAsync(u8 *hdr, s32 size, s32 *o1, s16 *o2, s16 *o3, s32 *o4, s32 *o5, s32 *o6, s32 *o7);
 void strncat(char *buf, s32 arg, s32 n);
 s32 strlen(const char *);
-extern char lbl_80572000[];
+extern char number_format_digit_buffer[];
 extern const char lbl_805E0D28[2];
 void format_number_pair__6TLobbyFiiPvi(s32 arg0, s32 arg1, char *arg2, s32 arg3);
 s32 TLobby__sub_803C48C8(u8 *arg0, s32 arg1, u16 *arg2);
@@ -305,13 +305,13 @@ inline void num_to_str_803C526C(s32 v, char *out, s32 n) {
             break;
         }
     }
-    s32 sl = strlen(lbl_80572000);
+    s32 sl = strlen(number_format_digit_buffer);
     len = n - 1;
     if (sl < len) {
         len = sl;
     }
     for (i = 0; i < len; i++) {
-        out[i] = lbl_80572000[len - 1 - i];
+        out[i] = number_format_digit_buffer[len - 1 - i];
     }
     out[i] = 0;
 }
@@ -323,20 +323,20 @@ void format_number_pair__6TLobbyFiiPvi(s32 arg0, s32 arg1, char *arg2, s32 arg3)
 #pragma pop
 
 void report_adx_error__6TLobbyFPvi(const char *msg, s32 arg) {
-    strncpy(((char *)&lbl_80572020), msg, 0xFF);
-    strncat(((char *)&lbl_80572020), arg, 0xFF);
+    strncpy(((char *)&adx_error_message_buffer), msg, 0xFF);
+    strncat(((char *)&adx_error_message_buffer), arg, 0xFF);
     if ((*(Callback_803C5744 *)&lobby_error_callback) != 0) {
-        (*(Callback_803C5744 *)&lobby_error_callback)(tlobby_error_callback_arg, ((char *)&lbl_80572020));
+        (*(Callback_803C5744 *)&lobby_error_callback)(tlobby_error_callback_arg, ((char *)&adx_error_message_buffer));
     }
-    TLobby__sub_803D38B4(((char *)&lbl_80572020));
+    TLobby__sub_803D38B4(((char *)&adx_error_message_buffer));
 }
 
 void notify_error__6TLobbyFPv(const char *arg0) {
-    strncpy(((char *)&lbl_80572020), arg0, 0xFF);
+    strncpy(((char *)&adx_error_message_buffer), arg0, 0xFF);
     if ((*(RecoveredCallback_e2efd47cbcab *)&lobby_error_callback) != NULL) {
-        (*(RecoveredCallback_e2efd47cbcab *)&lobby_error_callback)(tlobby_error_callback_arg, ((char *)&lbl_80572020));
+        (*(RecoveredCallback_e2efd47cbcab *)&lobby_error_callback)(tlobby_error_callback_arg, ((char *)&adx_error_message_buffer));
     }
-    TLobby__sub_803D38B4(((char *)&lbl_80572020));
+    TLobby__sub_803D38B4(((char *)&adx_error_message_buffer));
 }
 
 void set_params__6TLobbyFii(s32 arg0, s32 arg1) {
@@ -349,14 +349,14 @@ extern s32 lbl_805D7530;
 
 typedef char RecoveredGlobal_803C5850_lbl_80572020_size[sizeof(RecoveredGlobal_803C5850_lbl_80572020) == 0x100 ? 1 : -1];
 void clear_error_callback__6TLobbyFv(void) {
-    memset((void *) (&lbl_80572020.value), (int) (0), (int) (0x100));
+    memset((void *) (&adx_error_message_buffer.value), (int) (0), (int) (0x100));
     lobby_error_callback = 0;
     tlobby_error_callback_arg = 0;
 }
 
 typedef char RecoveredGlobal_803C588C_lbl_80572020_size[sizeof(RecoveredGlobal_803C588C_lbl_80572020) == 0x100 ? 1 : -1];
 void clear_error_callback_state__6TLobbyFv(void) {
-    memset((void *) (&(*(RecoveredGlobal_803C588C_lbl_80572020 *)&lbl_80572020).value), (int) (0), (int) (0x100));
+    memset((void *) (&(*(RecoveredGlobal_803C588C_lbl_80572020 *)&adx_error_message_buffer).value), (int) (0), (int) (0x100));
     lobby_error_callback = 0;
     tlobby_error_callback_arg = 0;
 }

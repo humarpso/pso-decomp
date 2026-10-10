@@ -25,7 +25,7 @@ s32 is_on_current_screen__11TCameraCtrlFPv(void *, M2C_UNK);
 M2C_UNK refresh_equipment_slot__10TObjPlayerFv(u32);
 u32 get_player_by_client_id(s32);
 s32 get_global_state__14TOKeyMachine01Fv();
-extern Sel_8006A13C TCameraCtrl__data_804FF628;
+extern Sel_8006A13C TCameraCtrl__view_state;
 extern Big_8006A13C controller_input_state;
 extern s32 local_client_id;
 void cycle_spectate_target__11TCameraCtrlFv(void);
@@ -95,7 +95,7 @@ void cycle_spectate_target__11TCameraCtrlFv(void) {
         TWindowShortListCtrl__check_controller_button(pad, 0x10) == 0 ||
         is_on_current_screen__11TCameraCtrlFPv(pad, 0x10000) == 0 ||
         (pl = get_player_by_client_id(local_client_id)) == 0 ||
-        (tries = 0, TCameraCtrl__data_804FF628.busy != 0) ||
+        (tries = 0, TCameraCtrl__view_state.busy != 0) ||
         get_global_state__14TOKeyMachine01Fv() == 0xB ||
         get_global_state__14TOKeyMachine01Fv() == 0xC ||
         get_global_state__14TOKeyMachine01Fv() == 0xD ||
@@ -109,7 +109,7 @@ void cycle_spectate_target__11TCameraCtrlFv(void) {
         get_global_state__14TOKeyMachine01Fv() == 0) {
         return;
     }
-    slot = TCameraCtrl__data_804FF628.slot;
+    slot = TCameraCtrl__view_state.slot;
     while (tries <= 3) {
         slot++;
         tries++;
@@ -119,7 +119,7 @@ void cycle_spectate_target__11TCameraCtrlFv(void) {
         q = get_player_by_client_id(slot);
         if (q != 0) {
             if (get_field_3e4__10TObjPlayerFPv(q) == get_field_3e4__10TObjPlayerFPv(pl) && obj_testFlags30(q, 0x02000000) == 0) {
-                TCameraCtrl__data_804FF628.slot = slot;
+                TCameraCtrl__view_state.slot = slot;
                 reset_cameras_to_actor(q, 0);
                 for (i = 0; i < 4; i++) {
                     u32 p = get_player_by_client_id(i);

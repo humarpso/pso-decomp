@@ -13,7 +13,7 @@ extern "C" {
 u8 * __dt__7TObjectFv(void *, s16);
 void __dl__7TObjectFPv(s32);
 extern RecoveredGlobal_80328D50___vt__12TAdDialingGC __vt__12TAdDialingGC;
-extern s32 TAdDialingGC__data_805D6C78;
+extern s32 TAdDialingGC__instance;
 u8 *__dt__12TAdDialingGCFv(u8 *arg0, s16 arg1);
 }
 
@@ -56,7 +56,7 @@ typedef char RecoveredGlobal_80328D50___vt__12TAdDialingGC_size[sizeof(Recovered
 u8 *__dt__12TAdDialingGCFv(u8 *arg0, s16 arg1) {
     if (arg0 != NULL) {
         M2C_FIELD(arg0, M2C_UNK **, 0x18) = &__vt__12TAdDialingGC.value;
-        TAdDialingGC__data_805D6C78 = 0;
+        TAdDialingGC__instance = 0;
         __dt__7TObjectFv(arg0, 0);
         if (arg1 > 0) {
             __dl__7TObjectFPv((s32) arg0);

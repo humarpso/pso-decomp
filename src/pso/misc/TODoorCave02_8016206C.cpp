@@ -56,7 +56,7 @@ s32 load_gvm_texture_file(void *);
 s32 is_online_ready__6TLobbyFv();
 extern u8 lbl_80440E24[];
 extern u8 lbl_80440E3C[];
-extern u8 lbl_804B1458[];
+extern u8 TODoorCave02__resource_descriptor[];
 extern u8 TODoorCave02_resource_descriptor[];
 extern s32 enable_v2_features;
 extern u32 lbl_805D5960;
@@ -120,7 +120,7 @@ void load_resources__12TODoorCave02Fv(void) {
     } else {
         o = alloc__23TAdSinglePlyChrSelectGCFPv(0x440);
         if (o != NULL) {
-            o = load_resource_from_descriptor(o, 1, lbl_804B1458, 0, 0, 0);
+            o = load_resource_from_descriptor(o, 1, TODoorCave02__resource_descriptor, 0, 0, 0);
         }
         lbl_805D5960 = (u32)o;
         TODoorCave02__data_805D5964[0] = load_gvm_texture_file(lbl_80440E3C);

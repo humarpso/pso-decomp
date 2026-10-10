@@ -36,11 +36,11 @@ void tick_switch_attack_timer__10TObjPlayerFPv(void *arg0) {
     }
 }
 
-extern M2C_UNK lbl_804C3FC0[];
+extern M2C_UNK switch_attack_timer_vtable[];
 
 void *TObjPlayer__sub_801C62F0(void *arg0, s16 arg1) {
     if (arg0 != NULL) {
-        M2C_FIELD(arg0, M2C_UNK **, 0x18) = lbl_804C3FC0;
+        M2C_FIELD(arg0, M2C_UNK **, 0x18) = switch_attack_timer_vtable;
         __dt__7TObjectFv(arg0, 0);
         if (arg1 > 0) {
             __dl__7TObjectFPv(arg0);
@@ -49,13 +49,13 @@ void *TObjPlayer__sub_801C62F0(void *arg0, s16 arg1) {
     return arg0;
 }
 
-extern M2C_UNK lbl_804C3FC0[];
+extern M2C_UNK switch_attack_timer_vtable[];
 
 void *init_attack_ctrl__10TObjPlayerFPvUsUs(void *arg0, u16 arg1, u16 arg2) {
     u32 temp_r3;
 
     __ct__7TObjectFP7TObject();
-    M2C_FIELD(arg0, M2C_UNK **, 0x18) = lbl_804C3FC0;
+    M2C_FIELD(arg0, M2C_UNK **, 0x18) = switch_attack_timer_vtable;
     M2C_FIELD(arg0, u16 *, 0x1C) = arg2;
     M2C_FIELD(arg0, s32 *, 0x20) = 0xA;
     temp_r3 = get_player_by_client_id(M2C_FIELD(arg0, u16 *, 0x1C));

@@ -154,20 +154,20 @@ s32 collect_node_positions__11TBreakUpMdlFPvPvi(u8 *arg0, u8 *arg1, s32 arg2);
 void bind_motion_context(s32, f32);
 s32 push_matrix_from(u32);
 M2C_UNK pop_matrix();
-extern M2C_UNK TBreakUpMdl__data_8048FA00[];
+extern M2C_UNK TBreakUpMdl__vtable[];
 extern RecoveredGlobal_80096F54_lbl_8058D490 identity_matrix;
 u8 *setup_pieces__11TBreakUpMdlFPviif(u8 *arg0, s32 arg1, s32 arg2, f32 farg0);
 s32 collect_node_positions__11TBreakUpMdlFPvPvi(u8 *arg0, u8 *arg1, s32 arg2);
 void bind_motion_context(s32, f32);
 s32 push_matrix_from(u32);
 M2C_UNK pop_matrix();
-extern M2C_UNK TBreakUpMdl__data_8048FA00[];
+extern M2C_UNK TBreakUpMdl__vtable[];
 extern RecoveredGlobal_80096F54_lbl_8058D490 identity_matrix;
 u8 *init__11TBreakUpMdlFPviif(u8 *arg0, s32 arg1, s32 arg2, f32 farg0);
 s32 build_node_records__11TBreakUpMdlFPvPvi(u8 *arg0, u8 *arg1, s32 arg2);
 s32 push_matrix_from(u32);
 M2C_UNK pop_matrix();
-extern M2C_UNK TBreakUpMdl__data_8048FA00[];
+extern M2C_UNK TBreakUpMdl__vtable[];
 extern RecoveredGlobal_80096F54_lbl_8058D490 identity_matrix;
 u8 *init_from_model__11TBreakUpMdlFPvi(u8 *arg0, s32 arg1);
 extern const f32 lbl_805D97C8;
@@ -321,7 +321,7 @@ void *__dt__11TBreakUpMdlFv(void *arg0, s16 arg1) {
     return arg0;
 }
 
-extern M2C_UNK TBreakUpMdl__data_8048FA00[];
+extern M2C_UNK TBreakUpMdl__vtable[];
 
 #pragma push
 #pragma fp_contract on
@@ -436,7 +436,7 @@ s32 build_node_records__11TBreakUpMdlFPvPvi(u8 *arg0, u8 *arg1, s32 arg2) {
 
 void *__dt_deleting__11TBreakUpMdlFPvs(void *arg0, s16 arg1) {
     if (arg0 != NULL) {
-        M2C_FIELD(arg0, M2C_UNK **, 0xC) = TBreakUpMdl__data_8048FA00;
+        M2C_FIELD(arg0, M2C_UNK **, 0xC) = TBreakUpMdl__vtable;
         free__11TOBoss4RockFUi((void *)(M2C_FIELD(arg0, s32 *, 4)));
         M2C_FIELD(arg0, s32 *, 4) = 0;
         if (arg1 > 0) {
@@ -459,7 +459,7 @@ void alloc_breakup_piece_records(Brk_80096EBC *arg0, void *arg1) {
 }
 
 u8 *setup_pieces__11TBreakUpMdlFPviif(u8 *arg0, s32 arg1, s32 arg2, f32 farg0) {
-    M2C_FIELD(arg0, M2C_UNK **, 0xC) = &(*(RecoveredGlobal_80096F54_TBreakUpMdl__data_8048FA00 *)&TBreakUpMdl__data_8048FA00).value;
+    M2C_FIELD(arg0, M2C_UNK **, 0xC) = &(*(RecoveredGlobal_80096F54_TBreakUpMdl__data_8048FA00 *)&TBreakUpMdl__vtable).value;
     M2C_FIELD(arg0, s32 *, 8) = 1;
     alloc_breakup_piece_records((Brk_80096EBC *)(arg0), (void *)(arg1));
     bind_motion_context(arg2, farg0);
@@ -470,7 +470,7 @@ u8 *setup_pieces__11TBreakUpMdlFPviif(u8 *arg0, s32 arg1, s32 arg2, f32 farg0) {
 }
 
 u8 *init__11TBreakUpMdlFPviif(u8 *arg0, s32 arg1, s32 arg2, f32 farg0) {
-    M2C_FIELD(arg0, M2C_UNK **, 0xC) = &(*(RecoveredGlobal_80096FD8_TBreakUpMdl__data_8048FA00 *)&TBreakUpMdl__data_8048FA00).value;
+    M2C_FIELD(arg0, M2C_UNK **, 0xC) = &(*(RecoveredGlobal_80096FD8_TBreakUpMdl__data_8048FA00 *)&TBreakUpMdl__vtable).value;
     M2C_FIELD(arg0, s32 *, 8) = 0;
     alloc_breakup_piece_records((Brk_80096EBC *)(arg0), (void *)(arg1));
     bind_motion_context(arg2, farg0);
@@ -483,7 +483,7 @@ u8 *init__11TBreakUpMdlFPviif(u8 *arg0, s32 arg1, s32 arg2, f32 farg0) {
 typedef char RecoveredGlobal_8009705C_TBreakUpMdl__data_8048FA00_size[sizeof(RecoveredGlobal_8009705C_TBreakUpMdl__data_8048FA00) == 0x10 ? 1 : -1];
 typedef char RecoveredGlobal_8009705C_lbl_8058D490_size[sizeof(RecoveredGlobal_8009705C_lbl_8058D490) == 0x30 ? 1 : -1];
 u8 *init_from_model__11TBreakUpMdlFPvi(u8 *arg0, s32 arg1) {
-    M2C_FIELD(arg0, M2C_UNK **, 0xC) = &(*(RecoveredGlobal_8009705C_TBreakUpMdl__data_8048FA00 *)&TBreakUpMdl__data_8048FA00).value;
+    M2C_FIELD(arg0, M2C_UNK **, 0xC) = &(*(RecoveredGlobal_8009705C_TBreakUpMdl__data_8048FA00 *)&TBreakUpMdl__vtable).value;
     alloc_breakup_piece_records((Brk_80096EBC *)(arg0), (void *)(arg1));
     push_matrix_from((u32) &(*(RecoveredGlobal_8009705C_lbl_8058D490 *)&identity_matrix).value);
     build_node_records__11TBreakUpMdlFPvPvi((u8 *)(arg0), (u8 *)((void *) arg1), (s32)(0));

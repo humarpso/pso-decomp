@@ -377,16 +377,16 @@ extern "C" void update_flag30_timer__10TObjPlayerFPv();
 extern "C" void update_movement_status__10TObjPlayerFv();
 extern "C" void update_object_view_visibility();
 extern "C" void update_poison_status__10TObjPlayerFv();
-void *lbl_804EC3F0[7] = {
+void *TObjEneRecon__ai_parameters[7] = {
     (void *)0x43610000, (void *)0x3f6d097b, (void *)0x600, (void *)0x0,
     (void *)0x0, (void *)0x0, (void *)0x0,
 };
-void *lbl_804EC40C[11] = {
+void *TObjEneRecon__collision_body_template[11] = {
     (void *)0x0, (void *)0x0, (void *)0x0, (void *)0x40a00000,
     (void *)0x0, (void *)0x0, (void *)0x8003, (void *)0x0,
     (void *)0x0, (void *)0x0, (void *)0x0,
 };
-void *lbl_804EC438[24] = {
+void *TObjEneRecon__animation_entries[24] = {
     (void *)0x10000, (void *)0x8, (void *)0x3f333333, (void *)0x0,
     (void *)0x10001, (void *)0x9, (void *)0x3f333333, (void *)0x0,
     (void *)0x30002, (void *)0x4, (void *)0x3f4ccccd, (void *)0x0,
@@ -553,15 +553,15 @@ void init_state__12TObjEneReconFPv(u8 *arg0) {
     M2C_FIELD(arg0, s32 *, 0x34) = (s32) M2C_FIELD(M2C_FIELD(TObjEneRecon__recobox_static_instance, u8 **, 0x42C), s32 *, 8);
     temp_r6 = (u8 *)(M2C_FIELD(TObjEneRecon__recobox_static_instance, u8 **, 0x42C));
     M2C_FIELD(arg0, s32 *, 0x24) = (s32) M2C_FIELD(temp_r6, s32 *, 0xC);
-    init_model__9TObjEneDDFPv((void *) (arg0), (void *) lbl_804EC40C, (int) (1), (int) (temp_r6));
-    set_field_d8__10TObjPlayerFPvi((void *) (arg0), (void *) lbl_804EC438);
+    init_model__9TObjEneDDFPv((void *) (arg0), (void *) TObjEneRecon__collision_body_template, (int) (1), (int) (temp_r6));
+    set_field_d8__10TObjPlayerFPvi((void *) (arg0), (void *) TObjEneRecon__animation_entries);
     set_field_dc__10TObjPlayerFPvi((void *) (arg0), (int) (M2C_FIELD(TObjEneRecon__recobox_static_instance, s32 *, 0x430)));
     M2C_FIELD(arg0, s16 *, 0xB8) = 0;
     set_animation__10TObjPlayerFPvs((void *) (arg0), (int) (M2C_FIELD(arg0, s16 *, 0xB8)));
     set_field_b8__14TObjEnePanarmsFPvs((void *) (arg0), (int) (M2C_FIELD(arg0, s16 *, 0xB8)));
     reset_hp__9TObjEneDDFPv((void *) (arg0), (void *) (lbl_805D6AF0), (int) (TObjEneRecon__attack_params), (void *) (TObjEneRecon__resistance_params));
     check_state_flag_4__9TObjEneDDFPv((void *) (arg0));
-    M2C_FIELD(arg0, void **, 0x350) = (void *) lbl_804EC3F0;
+    M2C_FIELD(arg0, void **, 0x350) = (void *) TObjEneRecon__ai_parameters;
     initialize_enemy_state__9TObjEneDDFPv((void *) (arg0), (int) (0x44));
     M2C_FIELD(arg0, f32 *, 0x37C) = (f32) TObjEneRecon__data_805DF3D4;
     enemy_init_acquire_period((void *) (arg0), (int) (0xA));

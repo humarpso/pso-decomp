@@ -24,7 +24,7 @@ M2C_UNK set_global_param__8TObjFishFi(void *);
 M2C_UNK set_entry_index__9TLanguageFii(int, int);
 extern M2C_UNK lbl_8044E658[];
 extern M2C_UNK lbl_8044E688[];
-extern M2C_UNK lbl_8044E69C[];
+extern M2C_UNK hud_palette_texture_filename[];
 extern M2C_UNK lbl_8044E6B0[];
 extern M2C_UNK lbl_8044E6C4[];
 extern M2C_UNK lbl_8044E6D8[];
@@ -61,7 +61,7 @@ void load_hud_palette_textures(void) {
     s32 sp8[3];
     sp8[0] = tmp_buf_use_req__6TLobbyFPv((void *) (lbl_8044E658));
     draw_string__9TLanguageFPvPvi((void *) (lbl_8044E688), (void *) (sp8), (int) (0x40));
-    draw_string__9TLanguageFPvPvi((void *) (lbl_8044E69C), (void *) (sp8), (int) (0x41));
+    draw_string__9TLanguageFPvPvi((void *) (hud_palette_texture_filename), (void *) (sp8), (int) (0x41));
     draw_string__9TLanguageFPvPvi((void *) (lbl_8044E6B0), (void *) (sp8), (int) (0x42));
     draw_string__9TLanguageFPvPvi((void *) (lbl_8044E6C4), (void *) (sp8), (int) (0x44));
     draw_string__9TLanguageFPvPvi((void *) (lbl_8044E6D8), (void *) (sp8), (int) (0x45));

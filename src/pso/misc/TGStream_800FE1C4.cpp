@@ -36,7 +36,7 @@ M2C_UNK strncpy(void *, void *, M2C_UNK);
 extern M2C_UNK lbl_8043DAF8[];
 extern s32 gstream_tmp_buffer;
 extern s32 TItemDrop__gsl_adxf_handle;
-extern s32 lbl_805D53E0;
+extern s32 gstream_file_size;
 
 void *open__8TGStreamFPvPvi(void *arg0, void *arg1, s32 arg2) {
     s32 temp_r3;
@@ -48,16 +48,16 @@ void *open__8TGStreamFPvPvi(void *arg0, void *arg1, s32 arg2) {
     if ((void *) M2C_FIELD(arg0, void **, 0x28) != NULL) {
         M2C_FIELD(arg0, s32 *, 0x20) = (s32) TItemDrop__gsl_adxf_handle;
         TLobby__sub_803CC578(M2C_FIELD(arg0, s32 *, 0x20), M2C_FIELD(M2C_FIELD(arg0, void **, 0x28), s32 *, 0x20), 0);
-        lbl_805D53E0 = M2C_FIELD(M2C_FIELD(arg0, void **, 0x28), s32 *, 0x24);
+        gstream_file_size = M2C_FIELD(M2C_FIELD(arg0, void **, 0x28), s32 *, 0x24);
         strncpy(arg0, M2C_FIELD(arg0, void **, 0x28), 0x20);
     } else {
         temp_r3 = get_file_size__6TLobbyFv(arg1);
-        lbl_805D53E0 = temp_r3;
+        gstream_file_size = temp_r3;
         if (temp_r3 > 0) {
             M2C_FIELD(arg0, s32 *, 0x20) = adxf_open__6TLobbyFUii(arg1, 0);
             strncpy(arg0, arg1, 0x20);
         } else {
-            lbl_805D53E0 = 0;
+            gstream_file_size = 0;
             M2C_FIELD(arg0, s8 *, 0) = 0;
         }
     }

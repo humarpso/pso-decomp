@@ -34,7 +34,7 @@ u16 obj_getField1c(void *);
 void init__21TObjEneRe7BeruraPunchFPv(u8 *arg0);
 s32 init_vtable_and_field18__10TObjPlayerFPv(void *);
 s32 init_instance__16TObjEneDellBiterFPvPvPvPvPv(void *, void *, void *, void *, int);
-extern RecoveredGlobal_80096750_lbl_8048F930 lbl_8048F930;
+extern RecoveredGlobal_80096750_lbl_8048F930 TObjEneRe7BeruraPunch__collision_body_templates;
 extern M2C_UNK __vt__21TObjEneRe7BeruraPunch[];
 extern s32 lbl_805D2990;
 u8 *TObjEneRe7BeruraPunch__ct(u8 *arg0, s32 arg1, s32 arg2);
@@ -235,7 +235,7 @@ void init__21TObjEneRe7BeruraPunchFPv(u8 *arg0) {
 typedef char RecoveredGlobal_80096750_lbl_8048F930_size[sizeof(RecoveredGlobal_80096750_lbl_8048F930) == 0x58 ? 1 : -1];
 typedef char RecoveredGlobal_80096750___vt__21TObjEneRe7BeruraPunch_size[sizeof(RecoveredGlobal_80096750___vt__21TObjEneRe7BeruraPunch) == 0x60 ? 1 : -1];
 u8 *TObjEneRe7BeruraPunch__ct(u8 *arg0, s32 arg1, s32 arg2) {
-    init_instance__16TObjEneDellBiterFPvPvPvPvPv((void *) (arg0), (void *) (arg1), (void *) (arg2), (void *) (&lbl_8048F930.value), (int) (2));
+    init_instance__16TObjEneDellBiterFPvPvPvPvPv((void *) (arg0), (void *) (arg1), (void *) (arg2), (void *) (&TObjEneRe7BeruraPunch__collision_body_templates.value), (int) (2));
     M2C_FIELD(arg0, M2C_UNK **, 0x18) = &(*(RecoveredGlobal_80096750___vt__21TObjEneRe7BeruraPunch *)&__vt__21TObjEneRe7BeruraPunch).value;
     init_vtable_and_field18__10TObjPlayerFPv((void *) (arg0 + 0xF8));
     M2C_FIELD(arg0, s32 *, 0) = (s32) lbl_805D2990;

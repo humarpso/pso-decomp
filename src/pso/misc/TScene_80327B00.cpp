@@ -72,8 +72,8 @@ void *destroy_buffers__6TSceneFPvs(void *arg0, s16 arg1) {
     return arg0;
 }
 
-extern s32 lbl_805D6C70;
-extern s32 lbl_805D6C74;
+extern s32 scroll_uv_entry_write_cursor;
+extern s32 scroll_uv_coordinate_write_cursor;
 
 void *init_buffers__6TSceneFPvii(void *arg0, s32 arg1, s32 arg2) {
     s32 temp_r0;
@@ -87,8 +87,8 @@ void *init_buffers__6TSceneFPvii(void *arg0, s32 arg1, s32 arg2) {
     if (temp_r0 > 0) {
         M2C_FIELD(arg0, s32 *, 8) = alloc_buffer__11TOBoss4RockFPv(temp_r0 * 8);
         M2C_FIELD(arg0, s32 *, 0xC) = alloc_buffer__11TOBoss4RockFPv(M2C_FIELD(arg0, s32 *, 0) * 4);
-        lbl_805D6C70 = M2C_FIELD(arg0, s32 *, 8);
-        lbl_805D6C74 = M2C_FIELD(arg0, s32 *, 0xC);
+        scroll_uv_entry_write_cursor = M2C_FIELD(arg0, s32 *, 8);
+        scroll_uv_coordinate_write_cursor = M2C_FIELD(arg0, s32 *, 0xC);
         visit_matching_models(arg0, arg1, arg2);
     }
     M2C_FIELD(arg0, s16 *, 0x10) = 0;

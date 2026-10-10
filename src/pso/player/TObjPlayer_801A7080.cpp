@@ -27,7 +27,7 @@ s32 select_active_controller__11TCameraCtrlFc(int);
 s32 set_scripted_camera_pose(int, int, void *);
 s32 cache_target_and_forward__11TCameraCtrlFii(void *, int);
 s32 get_global_state__14TOKeyMachine01Fv();
-extern RecoveredGlobal_801A7310_TCameraCtrl__data_804FF628 TCameraCtrl__data_804FF628;
+extern RecoveredGlobal_801A7310_TCameraCtrl__data_804FF628 TCameraCtrl__view_state;
 extern const f32 lbl_805DC0D0;
 extern const f32 lbl_805DC0D4;
 void begin_photon_summon_camera(u8 *arg0, s8 arg1);
@@ -146,7 +146,7 @@ void begin_photon_summon_camera(u8 *arg0, s8 arg1) {
     stack.spA = 0;
     stack.spC = lbl_805DC0D0;
     stack.sp10 = lbl_805DC0D4;
-    if ((M2C_FIELD(&TCameraCtrl__data_804FF628.value, s32 *, 8) & 4) || (M2C_FIELD(&TCameraCtrl__data_804FF628.value, s32 *, 8) & 8)) {
+    if ((M2C_FIELD(&TCameraCtrl__view_state.value, s32 *, 8) & 4) || (M2C_FIELD(&TCameraCtrl__view_state.value, s32 *, 8) & 8)) {
         select_active_controller__11TCameraCtrlFc((int) (5));
     }
     cache_target_and_forward__11TCameraCtrlFii((void *) (&stack.sp8), (int) (0x4222));

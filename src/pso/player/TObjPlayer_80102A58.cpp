@@ -13,8 +13,8 @@ void alloc_and_init_object_b4__10TObjPlayerFv(void);
 void alloc_and_run_object__10TObjPlayerFv(void);
 void init_game_resources__10TObjPlayerFv(void);
 void inc_player_count__10TObjPlayerFv(void);
-extern s32 lbl_805D53F0;
-extern u32 lbl_805D53F4;
+extern s32 item_registry_count;
+extern u32 item_registry_sorted_entries;
 extern u32 lbl_805D5400;
 void alloc_game_systems__10TObjPlayerFv(void);
 }
@@ -77,8 +77,8 @@ void inc_player_count__10TObjPlayerFv(void) {
 
 int lookup_inventory_item__10TObjPlayerFPv(void* p) { return dispatch_item_by_type__6TLobbyFPv(p); }
 
-extern s32 lbl_805D53F0;
-extern u32 lbl_805D53F4;
+extern s32 item_registry_count;
+extern u32 item_registry_sorted_entries;
 extern u32 lbl_805D5400;
 
 void free_globals__10TObjPlayerFv(void) {
@@ -89,20 +89,20 @@ void free_globals__10TObjPlayerFv(void) {
         free_rock_objects__6TLobbyFis((void*)lbl_805D5400, 1);
         lbl_805D5400 = 0U;
     }
-    if ((u32) lbl_805D53F4 != 0U) {
-        free__11TOBoss4RockFUi((void*)lbl_805D53F4);
-        lbl_805D53F4 = 0U;
+    if ((u32) item_registry_sorted_entries != 0U) {
+        free__11TOBoss4RockFUi((void*)item_registry_sorted_entries);
+        item_registry_sorted_entries = 0U;
     }
-    lbl_805D53F0 = 0;
+    item_registry_count = 0;
 }
 
 extern M2C_UNK lbl_805D53EC;
 
 void alloc_game_systems__10TObjPlayerFv(void) {
     void *p;
-    lbl_805D53F0 = 0;
-    lbl_805D53F4 = alloc_buffer__11TOBoss4RockFPv(0x1000);
-    memset((void *)lbl_805D53F4, 0, 0x1000);
+    item_registry_count = 0;
+    item_registry_sorted_entries = alloc_buffer__11TOBoss4RockFPv(0x1000);
+    memset((void *)item_registry_sorted_entries, 0, 0x1000);
     p = alloc__23TAdSinglePlyChrSelectGCFPv(1);
     if (p != NULL) {
         p = (void *)init_bosses__6TLobbyFPv(p);

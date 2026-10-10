@@ -24,7 +24,7 @@ struct RecoveredGlobal_8009048C_lbl_8048F11C {
 extern "C" {
 s32 spawn_npc_enemy__6TLobbyFsiiiff(int, int, int, void *, f32, f32);
 extern RecoveredGlobal_8009048C_lbl_80439B8C lbl_80439B8C;
-extern void *lbl_8048F11C[11];
+extern void *TObjEneBalClawClaw__collision_body_template[11];
 extern u8 *lbl_805D4F20;
 void spawn_lobby_npc_enemy(void);
 }
@@ -46,7 +46,7 @@ void spawn_lobby_npc_enemy(void) {
     stack.sp14 = M2C_FIELD(&lbl_80439B8C.value, s32 *, 0xC);
     stack.sp8 = M2C_FIELD(lbl_805D4F20, s32 *, 0x430);
     temp_r5 = (u8 *)(M2C_FIELD(lbl_805D4F20, u8 **, 0x42C));
-    spawn_npc_enemy__6TLobbyFsiiiff((int) (0x14), (int) (M2C_FIELD(temp_r5, s32 *, 0x28)), (int) (M2C_FIELD(temp_r5, s32 *, 0x2C)), (void *) (&stack.sp8), (f32) (M2C_FIELD((M2C_UNK *)lbl_8048F11C, f32 *, 0xC)), (f32) ((15.0f)));
+    spawn_npc_enemy__6TLobbyFsiiiff((int) (0x14), (int) (M2C_FIELD(temp_r5, s32 *, 0x28)), (int) (M2C_FIELD(temp_r5, s32 *, 0x2C)), (void *) (&stack.sp8), (f32) (M2C_FIELD((M2C_UNK *)TObjEneBalClawClaw__collision_body_template, f32 *, 0xC)), (f32) ((15.0f)));
 }
 
 }
@@ -1400,7 +1400,7 @@ void *lbl_8048F100[7] = {
     (void *)0x43160000, (void *)0x3f0e38e3, (void *)0x400, (void *)0x1e0000,
     (void *)0x0, (void *)0x1, (void *)0x0,
 };
-void *lbl_8048F11C[11] = {
+void *TObjEneBalClawClaw__collision_body_template[11] = {
     (void *)0x0, (void *)0x41900000, (void *)0x0, (void *)0x40a00000,
     (void *)0x0, (void *)0x0, (void *)0x8003, (void *)0x0,
     (void *)0x0, (void *)0x0, (void *)0x0,
@@ -1661,7 +1661,7 @@ M2C_UNK TObjEneBalClawClaw__ct(void *arg0) {
     M2C_FIELD(self, s32 *, 0xDC) = M2C_FIELD(lbl_805D4F20, s32 *, 0x430);
     M2C_FIELD(self, u8 **, 0xD8) = (u8 *)lbl_8048F090;
     set_field_d8__10TObjPlayerFPvi(self, M2C_FIELD(self, u8 **, 0xD8));
-    init_collision_body_parts(self, lbl_8048F11C, 1);
+    init_collision_body_parts(self, TObjEneBalClawClaw__collision_body_template, 1);
     M2C_FIELD(self, s32 *, 0x368) = 0;
     M2C_FIELD(self, u8 **, 0x350) = (u8 *)lbl_8048F100;
     bind_enemy_combat_stats(self, lbl_805D4F28, lbl_805D4F2C, lbl_805D4F30);

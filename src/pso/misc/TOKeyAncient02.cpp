@@ -95,7 +95,7 @@ s32 init_switch_id__5TOKeyFPv(void *);
 s32 TOKey__ct(void *);
 extern RecoveredGlobal_8016B6A4_lbl_804B2A8C lbl_804B2A8C;
 extern M2C_UNK __vt__14TOKeyAncient02[];
-extern s32 lbl_805D3024;
+extern s32 TOKeyAncient02__class_name;
 extern u32 TOKeyAncient02__model_archive;
 extern const f32 TOKeyAncient02__data_805DB70C;
 extern const f32 lbl_805DB710;
@@ -287,7 +287,7 @@ void *__dt__14TOKeyAncient02Fv(void *arg0, s16 arg1) {
 u8 *TOKeyAncient02__ct(u8 *arg0, M2C_UNK arg1, s32 arg2) {
     TOKey__ct((void *) (arg0));
     M2C_FIELD(arg0, M2C_UNK **, 0x18) = &(*(RecoveredGlobal_8016B6A4___vt__14TOKeyAncient02 *)&__vt__14TOKeyAncient02).value;
-    M2C_FIELD(arg0, s32 *, 0) = (s32) lbl_805D3024;
+    M2C_FIELD(arg0, s32 *, 0) = (s32) TOKeyAncient02__class_name;
     ((VObj_18_1a504b *)(arg0))->m5(arg2);
     init_switch_id__5TOKeyFPv((void *) (arg0));
     M2C_FIELD(arg0, u8 **, 0x34) = ((u8 *)get_bml_model((void *)((*(s32 *)&TOKeyAncient02__model_archive)), (s32)(1)));

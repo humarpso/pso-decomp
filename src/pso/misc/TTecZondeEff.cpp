@@ -111,6 +111,31 @@ struct Obj_8023D128
   f32 f244;
 };
 
+struct Vec_8023CED4
+{
+  f32 x;
+  f32 y;
+  f32 z;
+};
+
+struct Vtx_8023CED4
+{
+  f32 x;
+  f32 y;
+  f32 z;
+  f32 u;
+  f32 v;
+  u32 color;
+};
+
+struct Obj_8023CED4
+{
+  u8 pad0[0x38];
+  s32 count;
+  u8 pad3C[0x24C - 0x3C];
+  u32 color;
+};
+
 extern "C" {
 void __ct__7TObjectFP7TObject(void *, void *);
 extern RecoveredGlobal_8023D988___vt__12TTecZondeEff __vt__12TTecZondeEff;
@@ -155,7 +180,6 @@ void end_effect_render__13TParticleCtrlFv();
 void draw_transformed_primitive__9TWindowDDFPvPvPvPv(void *, s32, s32, s32);
 s32 get_global_state__14TOKeyMachine01Fv();
 s32 all_parents_unqueued_for_destruction__7TObjectFv(void *);
-s32 build_lightning_strip(void *, void *, void *, void *, void *);
 void set_chunk_material_color(f32 *argb);
 extern f32 chunk_material_color_half_alpha_f32[];
 extern u32 lbl_805D5660;
@@ -168,6 +192,9 @@ extern const f32 TTecZondeEff__data_805DC994;
 extern const f32 lbl_805DC998;
 extern const f32 lbl_805DC99C;
 s32 project_lightning_points(Obj_8023D128 *self, Vec_8023D128 *out, f32 *a, f32 *b);
+f32 newton_sqrtf(f32);
+extern const f32 TTecZondeEff__data_805DC994;
+s32 build_lightning_strip(Obj_8023CED4 *self, Vtx_8023CED4 *out, Vec_8023CED4 *pts, f32 *widths, f32 *heights);
 }
 
 extern "C" {
@@ -190,6 +217,86 @@ extern const f32 lbl_805DC9A0;
 typedef struct Cam_8023D128 Cam_8023D128;
 typedef struct Obj_8023D128 Obj_8023D128;
 typedef struct Vec_8023D128 Vec_8023D128;
+
+typedef struct Obj_8023CED4 Obj_8023CED4;
+typedef struct Vec_8023CED4 Vec_8023CED4;
+typedef struct Vtx_8023CED4 Vtx_8023CED4;
+#pragma fp_contract on
+s32 build_lightning_strip(Obj_8023CED4 *self, Vtx_8023CED4 *out, Vec_8023CED4 *pts, f32 *widths, f32 *heights) {
+  f32 px;
+  f32 py;
+  f32 pz;
+  f32 nx;
+  f32 ny;
+  f32 dx;
+  f32 dy;
+  f32 v;
+  f32 inv;
+  f32 ox;
+  f32 oy;
+  u32 color;
+  Vtx_8023CED4 *o;
+  Vec_8023CED4 *p;
+  s32 i;
+  v = TTecZondeEff__data_805DC990;
+  px = pts->x;
+  py = pts->y;
+  pz = pts->z;
+  color = 0xFFFFFF | self->color;
+  p = pts + 1;
+  o = out;
+  for (i = 0; i < (self->count - 1); i++)
+  {
+    ny = p->y;
+    nx = p->x;
+    dy = ny - py;
+    dx = nx - px;
+    if (((dx * dx) + (dy * dy)) == TTecZondeEff__data_805DC990)
+    {
+      return 0;
+    }
+    inv = TTecZondeEff__data_805DC994 / newton_sqrtf((dx * dx) + (dy * dy));
+    dx *= inv;
+    p->z = p->z;
+    dy *= inv;
+    ox = TTecZondeEff__data_805DC994 * (dy * widths[i]);
+    oy = TTecZondeEff__data_805DC994 * ((-dx) * heights[i]);
+    o[0].x = px + ox;
+    o[0].y = py + oy;
+    o[0].z = pz;
+    o[0].u = TTecZondeEff__data_805DC990;
+    o[0].v = v;
+    o[0].color = color;
+    o[1].x = px - ox;
+    o[1].y = py - oy;
+    o[1].z = pz;
+    o[1].u = TTecZondeEff__data_805DC994;
+    o[1].v = v;
+    v += TTecZondeEff__data_805DC994;
+    o[1].color = color;
+    o += 2;
+    px = nx;
+    py = ny;
+    pz = p->z;
+    p++;
+  }
+  ox = TTecZondeEff__data_805DC994 * (dy * widths[self->count - 1]);
+  oy = TTecZondeEff__data_805DC994 * ((-dx) * heights[self->count - 1]);
+  o[0].x = px + ox;
+  o[0].y = py + oy;
+  o[0].z = pz;
+  o[0].u = TTecZondeEff__data_805DC990;
+  o[0].v = v;
+  o[0].color = color;
+  o[1].x = px - ox;
+  o[1].y = py - oy;
+  o[1].z = pz;
+  o[1].u = TTecZondeEff__data_805DC994;
+  o[1].v = v;
+  o[1].color = color;
+  return 1;
+}
+
 s32 project_lightning_points(Obj_8023D128 *self, Vec_8023D128 *out, f32 *a, f32 *b) {
   f32 sy0;
   f32 sx0;
@@ -360,7 +467,7 @@ void render__12TTecZondeEffFv(Zonde_8023D6B0 *self) {
     some_id_805c6f74 = id | 0x10;
     begin_effect_render__13TParticleCtrlFv();
     set_depth_buffer_settings_1__Fv();
-    if (project_lightning_points((Obj_8023D128 *)(self), (Vec_8023D128 *)(m70), (f32 *)(m3c), (f32 *)(m8)) != 0 && build_lightning_strip(self, verts, m70, m3c, m8) != 0) {
+    if (project_lightning_points((Obj_8023D128 *)(self), (Vec_8023D128 *)(m70), (f32 *)(m3c), (f32 *)(m8)) != 0 && build_lightning_strip((Obj_8023CED4 *)(self), (Vtx_8023CED4 *)(verts), (Vec_8023CED4 *)(m70), (f32 *)(m3c), (f32 *)(m8)) != 0) {
         init_xyz_limits__10TObjPlayerFv();
         draw_transformed_primitive__9TWindowDDFPvPvPvPv(verts, self->count * 2, TTecZondeEff__beam_vertex_data, 1);
         reset_transform_state__10TObjPlayerFv();

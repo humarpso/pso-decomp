@@ -115,7 +115,7 @@ void begin_screen_draw(s32);
 void get_player__20TWindowSubStatusDispFv();
 M2C_UNK draw_textured_quad_at_depth(void *, f32);
 void set_draw_texture_and_color(s32, s32);
-extern UVPair_8024503C lbl_8044E664;
+extern UVPair_8024503C selection_bar_texture_coordinates;
 extern s32 lbl_805D63F0;
 extern const f32 lbl_805DCAE4;
 extern const f32 lbl_805DCAE8;
@@ -495,7 +495,7 @@ void TWindowBase__ct(u8 *arg0, u8 *arg1, u8 *arg2, s16 arg3) {
 }
 
 void draw_selection_bar(u8 *arg0, u8 *arg1, s32 arg2) {
-    UVPair_8024503C uv = lbl_8044E664;
+    UVPair_8024503C uv = selection_bar_texture_coordinates;
     UV_8024503C *p;
     Quad_802455CC q;
     f32 x1;

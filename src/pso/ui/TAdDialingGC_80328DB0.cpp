@@ -13,13 +13,13 @@ s32 TLobby__sub_8014618C();
 
 extern M2C_UNK __vt__12TAdDialingGC[];
 extern s32 lbl_805D41B0;
-extern void *TAdDialingGC__data_805D6C78;
+extern void *TAdDialingGC__instance;
 
 void *TAdDialingGC__ct(void *arg0) {
     __ct__7TObjectFP7TObject();
     M2C_FIELD(arg0, M2C_UNK **, 0x18) = __vt__12TAdDialingGC;
     M2C_FIELD(arg0, s32 *, 0) = (s32) lbl_805D41B0;
-    TAdDialingGC__data_805D6C78 = arg0;
+    TAdDialingGC__instance = arg0;
     if (is_state_active__6TLobbyFv() != 0) {
         M2C_FIELD(arg0, s32 *, 0x1C) = 1;
     } else if (TLobby__sub_8014618C() == 1) {

@@ -317,7 +317,7 @@ void report_adx_error__6TLobbyFPvi(const char *, const char *);
 s32 get_afs_file_info__6TLobbyFiiPvPvPvPv(s32 arg0, s32 arg1, char *arg2, s32 *arg3, s32 *arg4, s32 *arg5);
 void TLobby__sub_803D16BC(s32, char *, s32, s32, s32);
 extern char lbl_8047C5D8[];
-extern char lbl_80572FE0[];
+extern char music_stream_afs_filename_buffer[];
 void append_music_stream_segment(u8 *arg0, s32 arg1, s32 arg2);
 }
 
@@ -459,8 +459,8 @@ void append_music_stream_segment(u8 *arg0, s32 arg1, s32 arg2) {
     s32 c;
     s32 h;
     h = *(s32 *)(arg0 + 0x94);
-    if (get_afs_file_info__6TLobbyFiiPvPvPvPv(arg1, arg2, lbl_80572FE0, &a, &b, &c) == 0) {
-        TLobby__sub_803D16BC(h, lbl_80572FE0, a, b, c);
+    if (get_afs_file_info__6TLobbyFiiPvPvPvPv(arg1, arg2, music_stream_afs_filename_buffer, &a, &b, &c) == 0) {
+        TLobby__sub_803D16BC(h, music_stream_afs_filename_buffer, a, b, c);
         return;
     }
     format_number_pair__6TLobbyFiiPvi(arg1, arg2, buf, 0x10);

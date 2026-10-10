@@ -141,8 +141,8 @@ M2C_UNK play_container_break_sound(void *);
 void dispatch_fish_event__6TLobbyFPv(void *a0);
 extern s32 lbl_805D5B8C;
 void *__nw__7TObjectFUl(int);
-extern Spawn_80188B3C lbl_80444DAC;
-extern Spawn_80188B3C lbl_80444DF8;
+extern Spawn_80188B3C container_break_particle_parameters;
+extern Spawn_80188B3C container_break_small_debris_parameters;
 extern void *tl_05;
 void TObjContainerBase__vt77(const Obj_80188B3C *self);
 }
@@ -233,7 +233,7 @@ void TObjContainerBase__vt4(u8 *arg0, s16 *arg1, s32 arg2) {
 #pragma push
 #pragma opt_propagation off
 void TObjContainerBase__vt77(const Obj_80188B3C *self) {
-    Spawn_80188B3C a = lbl_80444DAC;
+    Spawn_80188B3C a = container_break_particle_parameters;
     f32 za;
     f32 ya;
     f32 xa;
@@ -246,7 +246,7 @@ void TObjContainerBase__vt77(const Obj_80188B3C *self) {
     a.f38 = ya;
     a.f40 = ((s32 (*)(void *))dispatch_fish_event__6TLobbyFPv)((void *)0);
     a.f44 = lbl_805D5B8C;
-    Spawn_80188B3C b = lbl_80444DF8;
+    Spawn_80188B3C b = container_break_small_debris_parameters;
     f32 zb;
     f32 yb;
     f32 xb;

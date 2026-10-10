@@ -15,10 +15,10 @@ s32 select_dial_image__12TAdDialingGCFPvi(s32, s32);
     extern int lbl_805D6688;
 void TAdDialingGC__sub_801A4C90(void) { lbl_805D6688 = 1; }
 
-extern s32 TAdDialingGC__data_805D6C78;
+extern s32 TAdDialingGC__instance;
 
 s32 TAdDialingGC__sub_801A4C9C(void) {
-    return TAdDialingGC__data_805D6C78;
+    return TAdDialingGC__instance;
 }
 
 void TAdDialingGC__sub_801A4CA4(void *arg0) {

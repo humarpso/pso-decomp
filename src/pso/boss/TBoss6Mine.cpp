@@ -209,8 +209,8 @@ M2C_UNK initialize__9TObjEnemyFPv(s32, s32);
 s32 init_collision_body_parts(void *, void *, int);
 f32 next_random_float__10TBoss6MineFPv(void *);
 s32 get_fish_count__8TObjFishFv();
-extern u8 __vt__10TBoss6Mine[];
-extern M2C_UNK lbl_804ECBAC[];
+extern u8 TBoss6Mine__collision_body_template[];
+extern M2C_UNK __vt__10TBoss6Mine[];
 extern s32 lbl_805D4178;
 extern const f32 TBoss6Mine__data_805DF580;
 extern const float TBoss6Mine__data_805DF584;
@@ -468,7 +468,7 @@ void TBoss6Mine__vt1(void *arg0) {
     }
 }
 
-extern M2C_UNK lbl_804ECBAC[];
+extern M2C_UNK __vt__10TBoss6Mine[];
 
 #pragma push
 #pragma fp_contract on
@@ -501,7 +501,7 @@ void TBoss6Mine__vt0(u8 *arg0) {
 
 void *__dt__10TBoss6MineFPvs(void *arg0, s16 arg1) {
     if (arg0 != NULL) {
-        M2C_FIELD(arg0, M2C_UNK **, 0x18) = lbl_804ECBAC;
+        M2C_FIELD(arg0, M2C_UNK **, 0x18) = __vt__10TBoss6Mine;
         if (M2C_FIELD(arg0, void **, 0x3CC) != NULL) { request_destroy__11TBoss4Type2FUi(M2C_FIELD(arg0, void **, 0x3CC)); M2C_FIELD(arg0, M2C_UNK *, 0x3CC) = 0; }
         free_collision_body_parts(arg0);
         if (M2C_FIELD(arg0, void **, 0x378) != NULL) { TBoss6Type1__sub_802B5DD4(M2C_FIELD(arg0, void **, 0x378)); }
@@ -525,7 +525,7 @@ s32 TBoss6Mine__ct(s32 arg0, s32 arg1, s32 arg2) {
     f32 f;
     self = (u8 *)arg0;
     initialize__9TObjEnemyFPv(arg0, arg1);
-    M2C_FIELD(THIS, M2C_UNK **, 0x18) = lbl_804ECBAC;
+    M2C_FIELD(THIS, M2C_UNK **, 0x18) = __vt__10TBoss6Mine;
     M2C_FIELD(THIS, s32 *, 0) = lbl_805D4178;
     M2C_FIELD(THIS, s32 *, 0x378) = M2C_FIELD(arg2, s32 *, 0x40);
     VecCopyP(THIS + 0x38, (u8 *)arg2 + 0x44);
@@ -543,7 +543,7 @@ s32 TBoss6Mine__ct(s32 arg0, s32 arg1, s32 arg2) {
     M2C_FIELD(THIS, s32 *, 0x24) = 0;
     M2C_FIELD(THIS, s32 *, 0x34) = 0;
     VecCopyP(THIS + 0x44, VecCopyP(THIS + 0x50, VecCopyP(THIS + 0x74, THIS + 0x38)));
-    init_collision_body_parts(THIS, __vt__10TBoss6Mine, 1);
+    init_collision_body_parts(THIS, TBoss6Mine__collision_body_template, 1);
     VecCopyP(THIS + 0x2FC, THIS + 0x38);
     M2C_FIELD(THIS, f32 *, 0x310) = TBoss6Mine__data_805DF580;
     M2C_FIELD(THIS, f32 *, 0x30C) = TBoss6Mine__data_805DF580;

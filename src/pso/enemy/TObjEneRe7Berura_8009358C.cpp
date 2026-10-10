@@ -769,7 +769,7 @@ M2C_UNK advance_animation_playback();
 M2C_UNK play_effect_if_v2__10TObjPlayerFi(M2C_UNK);
 s32 play_sound_effect(s32, u32, s16, s32);
 M2C_UNK vec3_add_to(void *, void *);
-extern f32 lbl_8048F6D4[];
+extern f32 TObjEneRe7Berura__animation_definitions[];
 extern Tbl_80093C80 TObjEneRe7Berura__data_805007DC[];
 extern const f32 TObjEneRe7Berura__data_805D9738;
 extern const f32 lbl_805D975C;
@@ -1143,11 +1143,11 @@ void TObjEneRe7Berura__sub_80093C80(u8 *arg0, s32 arg1) {
             EMIT_(i) = 0;
         }
         if (check_v2_mode__9TObjEneDDFv() != 0) {
-            lbl_8048F6D4[0x48 / 4] = lbl_805D975C;
-            lbl_8048F6D4[0x38 / 4] = lbl_805D975C;
+            TObjEneRe7Berura__animation_definitions[0x48 / 4] = lbl_805D975C;
+            TObjEneRe7Berura__animation_definitions[0x38 / 4] = lbl_805D975C;
         } else {
-            lbl_8048F6D4[0x48 / 4] = TObjEneRe7Berura__data_805D9738;
-            lbl_8048F6D4[0x38 / 4] = TObjEneRe7Berura__data_805D9738;
+            TObjEneRe7Berura__animation_definitions[0x48 / 4] = TObjEneRe7Berura__data_805D9738;
+            TObjEneRe7Berura__animation_definitions[0x38 / 4] = TObjEneRe7Berura__data_805D9738;
         }
         play_sound_effect(copy_target_state__14TObjEnePanarmsFPvPv(arg0, 0x4003BC20), (u32)(arg0 + 0x38), 0, 0);
         play_effect_if_v2__10TObjPlayerFi(-0x100);

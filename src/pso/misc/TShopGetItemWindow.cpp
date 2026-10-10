@@ -108,7 +108,7 @@ void TShopGetItemWindow__vt9(u8 *arg0);
 s32 obj_getField1c(s32);
 M2C_UNK set_field_20__12TQuestListVMFPvi(void *, M2C_UNK);
 M2C_UNK set_ready_flag__18TCheckRoomSequenceFPv(u32);
-s32 TCheckRoomSequence__sub_80210F78(s32, u8 *, s32 *, s32);
+s32 copy_bank_item_with_stack_limit(s32, u8 *, s32 *, s32);
 s32 copy_item_record__18TCheckRoomSequenceFiPvi(int, void *, int);
 void set_position__18TCheckRoomSequenceFPvff(u32, f32, f32);
 f32 get_scale__15TShopWindowBaseFv(void *);
@@ -129,7 +129,7 @@ s32 handle_withdraw_list_input__18TShopGetItemWindowFPv(void *p);
 s32 obj_getField1c(s32);
 M2C_UNK set_field_20__12TQuestListVMFPvi(void *, M2C_UNK);
 M2C_UNK clear_selected_and_update_entry__14TWindowSubItemFPv(void *);
-s32 TCheckRoomSequence__sub_80210F78(s32, u8 *, s32 *, s32);
+s32 copy_bank_item_with_stack_limit(s32, u8 *, s32 *, s32);
 s32 copy_item_record__18TCheckRoomSequenceFiPvi(int, void *, int);
 s32 get_room_table_entry__18TCheckRoomSequenceFi(void);
 void set_position__6TLobbyFPvff(u32, f32, f32);
@@ -287,7 +287,7 @@ s32 handle_withdraw_list_input__18TShopGetItemWindowFPv(void *p) {
         return;
     }
     if (TShopWindowBase__sub_80223A48(arg0) != 0) {
-        if (TCheckRoomSequence__sub_80210F78(select_cursor_entry__6TLobbyFPv(arg0->f28), &kind.kind, &count, x) != 0) {
+        if (copy_bank_item_with_stack_limit(select_cursor_entry__6TLobbyFPv(arg0->f28), &kind.kind, &count, x) != 0) {
             if (kind.kind == 3 && count > 1) {
                 void *obj = __nw__7TObjectFUl(0x7C);
                 if (obj != NULL) {
@@ -334,7 +334,7 @@ void rebuild_item_list__18TShopGetItemWindowFv(void *p) {
         arg0->f28 = create_item_list_window(get_shop_text(0x30), 0xC8, obj_getField1c(arg0->f24));
         TWindowSetLevelUp__sub_8026DE28(arg0->f28, 0xC8);
         for (i = 0; i < 0xC8; i++) {
-            if (TCheckRoomSequence__sub_80210F78(i, (u8 *)&item, &count, x) != 0) {
+            if (copy_bank_item_with_stack_limit(i, (u8 *)&item, &count, x) != 0) {
                 if (count > 1) {
                     add_item_info_entry__20TWindowSubStatusDispFPviii(arg0->f28, &item, i, count);
                 } else {
@@ -351,7 +351,7 @@ void rebuild_item_list__18TShopGetItemWindowFv(void *p) {
         save_cursor_selection__20TShopArmorListWindowFPv(arg0->f28);
         reset_list__20TShopArmorListWindowFPv(arg0->f28);
         for (j = 0; j < 0xC8; j++) {
-            if (TCheckRoomSequence__sub_80210F78(j, (u8 *)&item, &count, x) != 0) {
+            if (copy_bank_item_with_stack_limit(j, (u8 *)&item, &count, x) != 0) {
                 if (count > 1) {
                     add_item_info_entry__20TWindowSubStatusDispFPviii(arg0->f28, &item, j, count);
                 } else {

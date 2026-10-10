@@ -99,7 +99,7 @@ M2C_UNK refresh_collision_body_centers(void *);
 M2C_UNK init_switch_id__5TOKeyFPv(void *);
 extern RecoveredGlobal_8016B0A0_lbl_804B29D0 lbl_804B29D0;
 extern M2C_UNK __vt__14TOKeyAncient01[];
-extern s32 lbl_805D3018;
+extern s32 TOKeyAncient01__class_name;
 extern u8 *TOKeyAncient01__shared_resource_object;
 extern u32 TOKeyAncient01__texture_lists;
 extern const f32 lbl_805DB6E8;
@@ -245,7 +245,7 @@ u8 *TOKeyAncient01__ct(u8 *arg0, M2C_UNK arg1, s32 arg2) {
     s32 temp_r0;
     TOKey__ct(arg0);
     M2C_FIELD(arg0, M2C_UNK **, 0x18) = &(*(RecoveredGlobal_8016B0A0___vt__14TOKeyAncient01 *)&__vt__14TOKeyAncient01).value;
-    M2C_FIELD(arg0, s32 *, 0) = (s32) lbl_805D3018;
+    M2C_FIELD(arg0, s32 *, 0) = (s32) TOKeyAncient01__class_name;
     ((VObj_18_1a504b *)(arg0))->m5(arg2);
     init_switch_id__5TOKeyFPv((void *) (arg0));
     temp_r0 = M2C_FIELD(arg0, s32 *, 0x88);

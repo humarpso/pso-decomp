@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/boss/TBoss4Thanks.h"
 typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
 typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 #define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
@@ -75,6 +76,17 @@ void mark_done__12TBoss4ThanksFPv(void* p);
 extern const f32 lbl_805E018C;
 extern const f32 lbl_805E0194;
 void run_task__12TBoss4ThanksFv(void *arg0);
+void sync_player_globals__10TObjPlayerFv(void);
+void TObjPlayer__sub_80052390(void);
+void push_matrix(void);
+void pop_matrix(void);
+void post_translate_matrix(void *);
+void set_global_param__8TObjFishFi(s32);
+void draw_model_motion(s32, s32, f32);
+void set_global_flag__10TObjPlayerFv(void);
+void clear_global_state__10TObjPlayerFv(void);
+extern u8 TBoss4Thanks__data_80479B40[];
+extern const f32 lbl_805E0184;
 }
 
 extern "C" {
@@ -160,6 +172,33 @@ int is_player_nearby__12TBoss4ThanksFPv(void *arg0) {
     }
     return 0;
 }
+
+}
+
+void TBoss4Thanks::render() {
+  f32 fade;
+  int hidden;
+  fade = fade_amount;
+  fade = fade;
+  hidden = lbl_805E0184 == fade;
+  if (hidden)
+  {
+    return;
+  }
+  {
+    TObjPlayer__sub_80052390();
+    push_matrix();
+    set_global_flag__10TObjPlayerFv();
+    post_translate_matrix(TBoss4Thanks__data_80479B40);
+    set_global_param__8TObjFishFi(texture_list);
+    draw_model_motion(model, motions[current_motion], motion_frame);
+    clear_global_state__10TObjPlayerFv();
+    pop_matrix();
+    sync_player_globals__10TObjPlayerFv();
+  }
+}
+
+extern "C" {
 
 void update_fade_out__12TBoss4ThanksFPv(void *arg0) {
     s32 temp_r3;

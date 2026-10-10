@@ -12,8 +12,8 @@ struct Ref_803278B0 { Ent_803278B0 *ent; s16 *pts; };
 extern "C" {
 s32 has_texture_scroll_entry(void *, u16);
 void set_ginja_texture_wrap_repeat(void *);
-extern Ref_803278B0 *lbl_805D6C70;
-extern s16 *lbl_805D6C74;
+extern Ref_803278B0 *scroll_uv_entry_write_cursor;
+extern s16 *scroll_uv_coordinate_write_cursor;
 void collect_scroll_uv_entries__19TOComputerMachine01FiPvi(s32 arg0, Hdr_803278B0 *arg1, s32 arg2);
 }
 
@@ -37,14 +37,14 @@ void collect_scroll_uv_entries__19TOComputerMachine01FiPvi(s32 arg0, Hdr_803278B
     if (hit != 0) {
         for (e = arg1->ents; e != 0 && e->type != 0xFF; e++) {
             if (e->type == 5 || e->type == 6) {
-                lbl_805D6C70->ent = e;
-                lbl_805D6C70->pts = lbl_805D6C74;
-                lbl_805D6C70++;
+                scroll_uv_entry_write_cursor->ent = e;
+                scroll_uv_entry_write_cursor->pts = scroll_uv_coordinate_write_cursor;
+                scroll_uv_entry_write_cursor++;
                 n = e->count;
                 q = e->pts;
                 for (i = 0; i < n; i++) {
-                    *lbl_805D6C74++ = q[0];
-                    *lbl_805D6C74++ = q[1];
+                    *scroll_uv_coordinate_write_cursor++ = q[0];
+                    *scroll_uv_coordinate_write_cursor++ = q[1];
                     q += 2;
                 }
             }

@@ -6,6 +6,8 @@
 class TTecZondeEff : public TObject {
 public:
     virtual ~TTecZondeEff();
+    virtual void run_task();
+    virtual void render();
 };
 
 #endif

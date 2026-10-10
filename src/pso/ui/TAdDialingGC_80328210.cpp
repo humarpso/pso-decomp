@@ -33,7 +33,7 @@ s32 TWindowShortListCtrl__check_controller_button(void *, int);
 extern RecoveredGlobal_803284F8_lbl_8050E208 controller_input_state;
 s32 TAdDialingGC__sub_803284F8(s32 _w0);
 struct Obj_80328730 { u8 pad[0x1C]; s32 state; s32 f20; u8 pad2[0x9C - 0x24]; s32 f9C; };
-extern Obj_80328730 *TAdDialingGC__data_805D6C78;
+extern Obj_80328730 *TAdDialingGC__instance;
 void update_dialing_display__12TAdDialingGCFv(s32);
 void update_status_display__12TAdDialingGCFPv(void *);
 void init_dialog__12TAdDialingGCFv(void *);
@@ -269,13 +269,13 @@ void show_guide_button__12TAdDialingGCFPv(u8 *arg0) {
 }
 
 void TAdDialingGC__sub_80328730(s32 arg0) {
-    if (TAdDialingGC__data_805D6C78 != 0) {
-        TAdDialingGC__data_805D6C78->f9C = arg0;
-        TAdDialingGC__data_805D6C78->f20 = 2;
-        switch (TAdDialingGC__data_805D6C78->state) {
+    if (TAdDialingGC__instance != 0) {
+        TAdDialingGC__instance->f9C = arg0;
+        TAdDialingGC__instance->f20 = 2;
+        switch (TAdDialingGC__instance->state) {
         case 0:
-            ((void (*)(void *))spawn_title_screen__12TAdDialingGCFPvi)(TAdDialingGC__data_805D6C78);
-            show_guide_button__12TAdDialingGCFPv((u8 *)TAdDialingGC__data_805D6C78);
+            ((void (*)(void *))spawn_title_screen__12TAdDialingGCFPvi)(TAdDialingGC__instance);
+            show_guide_button__12TAdDialingGCFPv((u8 *)TAdDialingGC__instance);
             break;
         case 1:
         case 2:
@@ -285,8 +285,8 @@ void TAdDialingGC__sub_80328730(s32 arg0) {
             case 17:
                 return;
             }
-            ((void (*)(void *))spawn_title_screen__12TAdDialingGCFPvi)(TAdDialingGC__data_805D6C78);
-            show_guide_button__12TAdDialingGCFPv((u8 *)TAdDialingGC__data_805D6C78);
+            ((void (*)(void *))spawn_title_screen__12TAdDialingGCFPvi)(TAdDialingGC__instance);
+            show_guide_button__12TAdDialingGCFPv((u8 *)TAdDialingGC__instance);
             break;
         }
     }

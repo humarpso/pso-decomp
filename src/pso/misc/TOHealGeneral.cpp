@@ -97,7 +97,7 @@ void init_map_object_base(void *, s32);
 s32 all_parents_unqueued_for_destruction__7TObjectFv(u32);
 extern u8 lbl_804B2770[];
 extern void *__vt__13TOHealGeneral[];
-extern s32 lbl_805D3008;
+extern s32 TOHealGeneral__class_name;
 extern u32 TOHealGeneral__model_archive;
 extern s32 tl_05;
 extern const f32 lbl_805DB6BC;
@@ -278,7 +278,7 @@ void *TOHealGeneral__ct(void *arg0, void *arg1) {
     u8 *model;
     init_map_object_base(self, tl_05);
     self->vtable = __vt__13TOHealGeneral;
-    self->f0 = lbl_805D3008;
+    self->f0 = TOHealGeneral__class_name;
     ((VObj_80169858 *)self)->m5(arg1);
     self->f34 = M2C_FIELD(M2C_FIELD(TOHealGeneral__model_archive, u8 **, 0x42C), s32 *, 8);
     model = M2C_FIELD(TOHealGeneral__model_archive, u8 **, 0x42C);

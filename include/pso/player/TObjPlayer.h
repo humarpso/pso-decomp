@@ -102,7 +102,14 @@ struct TObjPlayer
     u8 _pad850[0x8];
     void* m_858;
     void* m_85c;
-    u8 _pad860[0x4A0];
+    u8 _pad860[0x18];
+    u8 m_878;
+    u8 _pad879[0x15];
+    s8 m_88e;
+    u8 _pad88F[0x1D];
+    void* m_8ac;
+    u8 _pad8B0[0x44C];
+    s32 m_cfc;
     void* inventory_objects;
     void* m_d04;
     u8 _padD08[0xA4];
@@ -116,6 +123,10 @@ typedef char PlayerHeaderSize[(offsetof(TObjPlayer, m_1c) == 0x1C) ? 1 : -1];
 typedef char PlayerPaletteModifierOffset[(offsetof(TObjPlayer, m_4ac) == 0x4AC) ? 1 : -1];
 typedef char PlayerActionPalettesOffset[(offsetof(TObjPlayer, action_palettes) == 0x500) ? 1 : -1];
 typedef char PlayerStateAfterPalettes[(offsetof(TObjPlayer, m_550) == 0x550) ? 1 : -1];
+typedef char PlayerHairSelectorOffset[(offsetof(TObjPlayer, m_878) == 0x878) ? 1 : -1];
+typedef char PlayerHairFlagsOffset[(offsetof(TObjPlayer, m_88e) == 0x88E) ? 1 : -1];
+typedef char PlayerHairTargetOffset[(offsetof(TObjPlayer, m_8ac) == 0x8AC) ? 1 : -1];
+typedef char PlayerHairWaitOffset[(offsetof(TObjPlayer, m_cfc) == 0xCFC) ? 1 : -1];
 typedef char PlayerInventoryObjectOffset[(offsetof(TObjPlayer, inventory_objects) == 0xD00) ? 1 : -1];
 
 #endif

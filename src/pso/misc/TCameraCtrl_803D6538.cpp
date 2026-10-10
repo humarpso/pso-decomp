@@ -139,7 +139,7 @@ f32 cos_table_lookup(s32);
 extern Proj_803D676C lbl_8058CA60;
 extern RecoveredGlobal_803D662C_lbl_8058D4D0 camera_clip_parameters;
 extern G_803D6688 lbl_8058D4F8;
-extern Disp_803D676C *lbl_805D7734;
+extern Disp_803D676C *active_gx_render_mode;
 extern const f32 lbl_805E0E18;
 extern const f64 lbl_805E0E20;
 extern const f64 lbl_805E0E28;
@@ -367,7 +367,7 @@ void set_perspective_projection_from_fov(s32 arg0, f32 farg0, f32 farg1, f32 far
     lbl_8058CA60.f44 = farg1;
     lbl_8058CA60.f48 = farg2;
     lbl_8058CA60.f4C = farg0;
-    sc = lbl_805E0E30 * ((f32)lbl_805D7734->h * lbl_8058CA60.m[1][1]);
+    sc = lbl_805E0E30 * ((f32)active_gx_render_mode->h * lbl_8058CA60.m[1][1]);
     lbl_8058CA60.f50 = sc;
     one = lbl_805E0E34;
     lbl_8058CA60.f54 = one / sc;

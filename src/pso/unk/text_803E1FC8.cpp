@@ -7,7 +7,7 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 struct Rgb_803E1FC8 { u8 r, g, b; };
 
 extern "C" {
-extern f32 lbl_805D77BC;
+extern f32 scene_fog_end_distance;
 extern f32 lbl_805D77C0;
 void fn_803E1FFC(f32 farg0, f32 farg1);
 extern Rgb_803E1FC8 lbl_805D77C4;
@@ -28,7 +28,7 @@ void fn_803E1FC8(u32 c) {
 
 void fn_803E1FFC(f32 farg0, f32 farg1) {
     lbl_805D77C0 = farg0;
-    lbl_805D77BC = farg1;
+    scene_fog_end_distance = farg1;
 }
 
 }

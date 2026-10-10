@@ -41,7 +41,7 @@ struct Ent_80243968 { u8 pad[0x2c]; s32 color; };
 extern "C" {
 void* get_array_entry__20TWindowSubStatusDispFPvi(TWindowActionPalette*,int);
 void set_sprite_uv_from_pixels(void*,float,float);
-extern float lbl_8044E604[][2];
+extern float TWindowActionPalette__bank_panel_uv_origins[][2];
 void set_bank_panel_art__20TWindowActionPaletteFPvi(TWindowActionPalette* self,unsigned short state);
 s32 is_split_screen();
 s32 fn_8002AE08(s32);
@@ -151,7 +151,7 @@ extern u32 __vt__20TWindowActionPalette[6];
 
 void set_bank_panel_art__20TWindowActionPaletteFPvi(TWindowActionPalette* self,unsigned short state) {
     void* sprite=get_array_entry__20TWindowSubStatusDispFPvi(self,1);
-    set_sprite_uv_from_pixels(sprite,lbl_8044E604[state][0],lbl_8044E604[state][1]);
+    set_sprite_uv_from_pixels(sprite,TWindowActionPalette__bank_panel_uv_origins[state][0],TWindowActionPalette__bank_panel_uv_origins[state][1]);
 }
 
 extern "C" {

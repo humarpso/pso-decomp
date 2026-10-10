@@ -387,7 +387,7 @@ extern "C" void update_poison_status__10TObjPlayerFv();
 extern void *lbl_804EC6B0[7];
 extern void *lbl_804EC6CC[11];
 extern void *lbl_804EC708[7];
-extern void *lbl_804EC724[11];
+extern void *TObjEneRecobox__resource_bundle[11];
 void *lbl_804EC668[7] = {
     (void *)0x43610000, (void *)0x0, (void *)0x600, (void *)0x0,
     (void *)0x0, (void *)0x0, (void *)0x0,
@@ -413,21 +413,21 @@ void *lbl_804EC708[7] = {
     (void *)&lbl_80476288, (void *)&lbl_80476298, (void *)&lbl_80476134, (void *)&lbl_80476144,
     (void *)&lbl_8047615C, (void *)&lbl_80476174, (void *)0x0,
 };
-void *lbl_804EC724[11] = {
+void *TObjEneRecobox__resource_bundle[11] = {
     (void *)&lbl_8047618C, (void *)&lbl_804761A4, (void *)&lbl_804761C0, (void *)&lbl_804761D8,
     (void *)&lbl_804761F4, (void *)&lbl_80476208, (void *)&lbl_80476220, (void *)&lbl_80476234,
     (void *)&lbl_8047624C, (void *)&lbl_80476260, (void *)0x0,
 };
 void *lbl_804EC750[4] = {
-    (void *)&lbl_804762AC, (void *)&lbl_804EC708, (void *)&lbl_804EC724, (void *)0x6000a,
+    (void *)&lbl_804762AC, (void *)&lbl_804EC708, (void *)&TObjEneRecobox__resource_bundle, (void *)0x6000a,
 };
-void *lbl_804EC760[16] = {
+void *TObjEneRecobox__animation_entries[16] = {
     (void *)0x10000, (void *)0x1, (void *)0x3dcccccd, (void *)0x0,
     (void *)0x30000, (void *)0x2, (void *)0x3f19999a, (void *)0x0,
     (void *)0x10000, (void *)0x3, (void *)0x3dcccccd, (void *)0x0,
     (void *)0x30000, (void *)0x0, (void *)0x3f19999a, (void *)0x0,
 };
-void *lbl_804EC7A0[107] = {
+void *TObjEneRecobox__vtable[107] = {
     (void *)0x0, (void *)0x0, (void *)&fn_8031FE14, (void *)&fn_8031FD3C,
     (void *)&render__12TObjEneReconFPv, (void *)&render_actor_shadows_default, (void *)&TLobby__sub_801A1FD8, (void *)&apply_object_set_data,
     (void *)&reset_actor_action_state, (void *)&get_actor_body_center, (void *)&update_object_view_visibility, (void *)&classify_actor_view_detail,
@@ -458,8 +458,8 @@ void *lbl_804EC7A0[107] = {
 };
 #define lbl_804EC668 ((u8 *)lbl_804EC668)
 #define lbl_804EC684 ((u8 *)lbl_804EC684)
-#define lbl_804EC760 ((u8 *)lbl_804EC760)
-#define lbl_804EC7A0 ((u8 *)lbl_804EC7A0)
+#define TObjEneRecobox__animation_entries ((u8 *)TObjEneRecobox__animation_entries)
+#define TObjEneRecobox__vtable ((u8 *)TObjEneRecobox__vtable)
 
 void dispatch_state__12TObjEneReconFiUii(s32 arg0, u32 arg1, s32 arg2) {
     switch (arg1) {
@@ -507,7 +507,7 @@ void fn_8031FD3C(u8 *arg0) {
 
 Obj_8031FE14 *fn_8031FE14(Obj_8031FE14 *arg0, s16 arg1) {
     if (arg0 != 0) {
-        arg0->vt = lbl_804EC7A0;
+        arg0->vt = TObjEneRecobox__vtable;
         free_collision_body_parts(arg0);
         __destroy_arr((u8 *)arg0 + 0x460, ((u8 *)TObjPlayer__sub_800D7C58), 0x1C, 4);
         __dt__18TObjEneMe3SinowZoaFPvs((u8 *)arg0 + 0x3C0, -1);
@@ -524,7 +524,7 @@ u8 *TObjEneRecobox__ct(u8 *arg0, s32 arg1, u8 *arg2) {
     s32 i;
     s32 n;
     init_object__9TObjEneDDFPv(arg0, arg1, arg2);
-    M2C_FIELD(arg0, u8 **, 0x18) = lbl_804EC7A0;
+    M2C_FIELD(arg0, u8 **, 0x18) = TObjEneRecobox__vtable;
     init_common__18TObjEneMe3SinowZoaFPv(arg0 + 0x3C0);
     __construct_array(arg0 + 0x460, (void *)&init_and_activate__10TObjPlayerFPv, (void *)&TObjPlayer__sub_800D7C58, 0x1C, 4);
     M2C_FIELD(arg0, s32 *, 0) = lbl_805D4138;
@@ -535,7 +535,7 @@ u8 *TObjEneRecobox__ct(u8 *arg0, s32 arg1, u8 *arg2) {
     init_model__9TObjEneDDFPv(arg0, lbl_804EC684, 1);
     M2C_FIELD(arg0, f32 *, 0x300) = lbl_805DF464 + M2C_FIELD(arg0, f32 *, 0x3C);
     ((VObj_18_b2458f *)arg0)->m86();
-    set_field_d8__10TObjPlayerFPvi(arg0, lbl_804EC760);
+    set_field_d8__10TObjPlayerFPvi(arg0, TObjEneRecobox__animation_entries);
     set_field_dc__10TObjPlayerFPvi(arg0, M2C_FIELD(TObjEneRecobox__static_instance, s32 *, 0x430));
     M2C_FIELD(arg0, s16 *, 0xB8) = 0;
     set_animation__10TObjPlayerFPvs(arg0, M2C_FIELD(arg0, s16 *, 0xB8));

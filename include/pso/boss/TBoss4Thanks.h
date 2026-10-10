@@ -3,17 +3,35 @@
 
 #include "types.h"
 
-struct TBoss4Thanks
-{
-    u32 m_1c;
-    u32 m_20;
-    u32 m_24;
-    u8 _pad28[0x8];
-    u32 m_30;
-    u32 m_34;
-    u32 m_38;
-    u32 m_3c;
-    u32 m_40;
+struct TBoss4Thanks {
+    void render();
+
+    u8 unknown00[0x18];
+    void *virtualTable;
+    s32 state;
+    s32 current_motion;
+    s32 next_motion;
+    f32 motion_frame;
+    f32 fade_amount;
+    s32 fade_frame;
+    s32 model;
+    s32 texture_list;
+    s32 motions[2];
+    void *particle_emitters[4];
 };
+
+#include <stddef.h>
+typedef char TBoss4Thanks_virtualTable_offset[(offsetof(TBoss4Thanks, virtualTable) == 0x18) ? 1 : -1];
+typedef char TBoss4Thanks_state_offset[(offsetof(TBoss4Thanks, state) == 0x1C) ? 1 : -1];
+typedef char TBoss4Thanks_current_motion_offset[(offsetof(TBoss4Thanks, current_motion) == 0x20) ? 1 : -1];
+typedef char TBoss4Thanks_next_motion_offset[(offsetof(TBoss4Thanks, next_motion) == 0x24) ? 1 : -1];
+typedef char TBoss4Thanks_motion_frame_offset[(offsetof(TBoss4Thanks, motion_frame) == 0x28) ? 1 : -1];
+typedef char TBoss4Thanks_fade_amount_offset[(offsetof(TBoss4Thanks, fade_amount) == 0x2C) ? 1 : -1];
+typedef char TBoss4Thanks_fade_frame_offset[(offsetof(TBoss4Thanks, fade_frame) == 0x30) ? 1 : -1];
+typedef char TBoss4Thanks_model_offset[(offsetof(TBoss4Thanks, model) == 0x34) ? 1 : -1];
+typedef char TBoss4Thanks_texture_list_offset[(offsetof(TBoss4Thanks, texture_list) == 0x38) ? 1 : -1];
+typedef char TBoss4Thanks_motions_offset[(offsetof(TBoss4Thanks, motions) == 0x3C) ? 1 : -1];
+typedef char TBoss4Thanks_particle_emitters_offset[(offsetof(TBoss4Thanks, particle_emitters) == 0x44) ? 1 : -1];
+typedef char TBoss4Thanks_size[(sizeof(TBoss4Thanks) == 0x54) ? 1 : -1];
 
 #endif

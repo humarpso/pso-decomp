@@ -86,7 +86,7 @@ extern u8 main_task[];
 extern s32 TSceneSora__sky_active_flag;
 extern u32 camera_ctrl_instance;
 extern s32 local_client_id;
-extern u32 TSceneSora__data_805D6050;
+extern u32 TSceneSora__instance;
 extern s16 scene_sora_reflect_active;
 extern u8 scene_sora_recon_active_flag;
 extern const f32 lbl_805DDD8C;
@@ -165,7 +165,7 @@ void render_reflections__10TSceneSoraFPv(Sora_8029EFFC *o) {
     }
     TScene__sub_8029F5EC();
     TScene__sub_8029F5E4(lbl_805DDDAC);
-    if (TSceneSora__data_805D6050 != 0) {
+    if (TSceneSora__instance != 0) {
         TSceneSora__sky_active_flag = 0;
     }
     copy_reflection_vec__10TSceneSoraFPv(&v);
@@ -265,7 +265,7 @@ void render_reflections__10TSceneSoraFPv(Sora_8029EFFC *o) {
     }
     TScene__sub_8029F5D8();
     TScene__sub_8029F5E4(lbl_805DDD8C);
-    if (TSceneSora__data_805D6050 != 0) {
+    if (TSceneSora__instance != 0) {
         TSceneSora__sky_active_flag = 1;
     }
     copy_efb_to_texture__10TObjPlayerFPv(o->f1C);

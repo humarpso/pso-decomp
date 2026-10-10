@@ -526,7 +526,7 @@ s32 set_matrix_identity(int);
 s32 rotate_matrix_y(int, int);
 s32 push_matrix();
 s32 pop_matrix();
-extern Tbl_802B79DC lbl_80470F28[];
+extern Tbl_802B79DC TBoss6Type1__part_position_sources[];
 void update_part_positions__11TBoss6Type1FPv(Boss_802B79DC *arg0);
 void set_motion_set__11TBoss6Type1FPvi(void *, s32);
 extern Entry_802B865C lbl_804DED14[];
@@ -547,7 +547,7 @@ void apply_radial_effect_to_players__14TBoss6PlotFalzFPvssf(void *, int, int, f3
 int TBoss6Type1__sub_802B60E8(void*);
 void fn_8035648C(void *, void *, int, f32);
 f32 subtract_vector(void *, void *);
-extern f32 lbl_80470F60[];
+extern f32 TBoss6Type1__sword_shot_hit_radii[];
 extern s32 game_difficulty_selection;
 extern const f32 TBoss6Type1__data_805DE2D0;
 extern const f32 TBoss6Type1__data_805DE2E4;
@@ -1562,7 +1562,7 @@ void TBoss6Type1__sub_802B73AC(Boss_802B73AC *self) {
         if (idx < 0 || idx >= 4) {
             idx = 0;
         }
-        sc = lbl_80470F60[idx];
+        sc = TBoss6Type1__sword_shot_hit_radii[idx];
         flag = 0;
         if ((self->f408 & 3) == 0) {
             flag = 1;
@@ -1772,7 +1772,7 @@ void update_part_positions__11TBoss6Type1FPv(Boss_802B79DC *arg0) {
         for (i = 0; i < 7; i++) {
             Tbl_802B79DC *t;
             e = &arg0->ents[i];
-            t = &lbl_80470F28[i];
+            t = &TBoss6Type1__part_position_sources[i];
             base = NULL;
             switch (t->kind) {
             case 1:

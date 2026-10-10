@@ -2114,8 +2114,8 @@ extern M2C_UNK fn_80152EF8[];
 extern const f64 lbl_80447128;
 extern u8 lbl_80447138[0x20];
 extern const f64 lbl_80447148;
-extern RecoveredGlobal_801D2CF4_lbl_804C43CC lbl_804C43CC;
-extern RecoveredGlobal_801D2CF4_lbl_804C43D8 lbl_804C43D8;
+extern RecoveredGlobal_801D2CF4_lbl_804C43CC attack_type_accuracy_scales;
+extern RecoveredGlobal_801D2CF4_lbl_804C43D8 attack_combo_accuracy_multipliers;
 extern f32 lbl_8050BEE0[];
 extern f32 lbl_8050BFE0[];
 extern void *player_slot_table[];
@@ -7999,7 +7999,7 @@ void* get_anim_field_c__10TObjPlayerFPv(void* p) { return (char*)p + 0xc; }
 #pragma auto_inline off
 #pragma dont_inline off
 f32 calc_attack_stage_multiplier__10TObjPlayerFii(M2C_UNK arg0, s32 arg1) {
-    return M2C_FIELD(((u8 *)(&lbl_804C43CC.value) + (arg1 * 4)), f32 *, 0) * M2C_FIELD(((u8 *)(&lbl_804C43D8.value) + (get_validated_attack_stage((u8 *)(arg0)) * 4)), f32 *, 0);
+    return M2C_FIELD(((u8 *)(&attack_type_accuracy_scales.value) + (arg1 * 4)), f32 *, 0) * M2C_FIELD(((u8 *)(&attack_combo_accuracy_multipliers.value) + (get_validated_attack_stage((u8 *)(arg0)) * 4)), f32 *, 0);
 }
 extern int fold_flush_29;
 #pragma pop

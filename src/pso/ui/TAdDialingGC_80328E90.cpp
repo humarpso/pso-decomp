@@ -22,18 +22,18 @@ M2C_UNK TLobby__sub_802A5154();
 M2C_UNK free_dialing_gc__6TLobbyFv();
 M2C_UNK free_dialog_global__6TLobbyFv();
 
-extern s32 TAdDialingGC__data_805D6C78;
+extern s32 TAdDialingGC__instance;
 
 void close__12TAdDialingGCFv(void) {
     free_dialing_gc__6TLobbyFv();
     free_dialog_global__6TLobbyFv();
-    TAdDialingGC__data_805D6C78 = 0;
+    TAdDialingGC__instance = 0;
 }
 
-extern s32 TAdDialingGC__data_805D6C78;
+extern s32 TAdDialingGC__instance;
 
 void open__12TAdDialingGCFv(void) {
-    TAdDialingGC__data_805D6C78 = 0;
+    TAdDialingGC__instance = 0;
     TLobby__sub_802A0F70();
     TLobby__sub_802A5154();
 }

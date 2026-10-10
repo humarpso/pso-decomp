@@ -231,12 +231,12 @@ void *__dt__5TOKeyFv(void *arg0, s16 arg1) {
 
 extern M2C_UNK __vt__5TOKey[];
 extern const f32 lbl_805DB6E0;
-extern void *lbl_805D3010;
+extern void *TOKey__class_name;
 
 void *TOKey__ct(void *arg0) {
     init_map_object_base(arg0);
     M2C_FIELD(arg0, M2C_UNK **, 0x18) = __vt__5TOKey;
-    M2C_FIELD(arg0, void **, 0x0) = lbl_805D3010;
+    M2C_FIELD(arg0, void **, 0x0) = TOKey__class_name;
     M2C_FIELD(arg0, u32 *, 0xC8) = -1;
     M2C_FIELD(arg0, f32 *, 0xCC) = lbl_805DB6E0;
     M2C_FIELD(arg0, u32 *, 0xD0) = 2;

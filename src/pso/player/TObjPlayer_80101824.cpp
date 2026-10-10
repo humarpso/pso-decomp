@@ -25,29 +25,29 @@ M2C_UNK init__9TItemDataFv(void *);
 int reset_transform_state__10TObjPlayerFv(void);
 
     extern unsigned char draw_ginja_model[];
-    extern int lbl_805D53F8;
-    extern int lbl_805D53FC;
-    extern int lbl_805D5404;
-void run_with_transform_context__10TObjPlayerFiii(int a0, int a1, int a2) { lbl_805D53FC = a1; lbl_805D5404 = 0; lbl_805D53F8 = (int)draw_ginja_model; draw_model_node_tree((void*)(a0)); lbl_805D53F8 = 0; lbl_805D5404 = 0; lbl_805D53FC = 0; reset_transform_state__10TObjPlayerFv(); }
+    extern int model_node_draw_callback;
+    extern int model_node_visit_callback;
+    extern int model_node_matrix_output_cursor;
+void run_with_transform_context__10TObjPlayerFiii(int a0, int a1, int a2) { model_node_visit_callback = a1; model_node_matrix_output_cursor = 0; model_node_draw_callback = (int)draw_ginja_model; draw_model_node_tree((void*)(a0)); model_node_draw_callback = 0; model_node_matrix_output_cursor = 0; model_node_visit_callback = 0; reset_transform_state__10TObjPlayerFv(); }
 
 int check_boss2tunnel_field_f4__10TObjPlayerFPv(void* p) { return draw_ginja_object(*(void**)((char*)p + 0xf4)); }
 
     extern unsigned char draw_ginja_model[];
-    extern int lbl_805D53F8;
-    extern int lbl_805D53FC;
-    extern int lbl_805D5404;
-void run_with_callback__10TObjPlayerFPvi(void* a0, int a1) { lbl_805D53FC = *(int*)((char*)a0 + 0xe0); lbl_805D5404 = a1; lbl_805D53F8 = (int)draw_ginja_model; draw_model_node_tree((void*)((void*)(*(int*)((char*)a0 + 0xf4)))); lbl_805D53F8 = 0; lbl_805D5404 = 0; lbl_805D53FC = 0; reset_transform_state__10TObjPlayerFv(); }
+    extern int model_node_draw_callback;
+    extern int model_node_visit_callback;
+    extern int model_node_matrix_output_cursor;
+void run_with_callback__10TObjPlayerFPvi(void* a0, int a1) { model_node_visit_callback = *(int*)((char*)a0 + 0xe0); model_node_matrix_output_cursor = a1; model_node_draw_callback = (int)draw_ginja_model; draw_model_node_tree((void*)((void*)(*(int*)((char*)a0 + 0xf4)))); model_node_draw_callback = 0; model_node_matrix_output_cursor = 0; model_node_visit_callback = 0; reset_transform_state__10TObjPlayerFv(); }
 
     extern unsigned char draw_ginja_model[];
-    extern int lbl_805D53F8;
-    extern int lbl_805D53FC;
-    extern int lbl_805D5404;
-void apply_sign_effect__10TObjPlayerFPvi(void* a0, int a1) { lbl_805D53FC = *(int*)((char*)a0 + 0xe0); lbl_805D5404 = a1; lbl_805D53F8 = (int)draw_ginja_model; draw_model_node_tree((void*)((void*)(*(int*)((char*)a0 + 0xf4)))); lbl_805D53F8 = 0; lbl_805D5404 = 0; lbl_805D53FC = 0; reset_transform_state__10TObjPlayerFv(); }
+    extern int model_node_draw_callback;
+    extern int model_node_visit_callback;
+    extern int model_node_matrix_output_cursor;
+void apply_sign_effect__10TObjPlayerFPvi(void* a0, int a1) { model_node_visit_callback = *(int*)((char*)a0 + 0xe0); model_node_matrix_output_cursor = a1; model_node_draw_callback = (int)draw_ginja_model; draw_model_node_tree((void*)((void*)(*(int*)((char*)a0 + 0xf4)))); model_node_draw_callback = 0; model_node_matrix_output_cursor = 0; model_node_visit_callback = 0; reset_transform_state__10TObjPlayerFv(); }
 
-    extern int lbl_805D53F8;
-    extern int lbl_805D53FC;
-    extern int lbl_805D5404;
-void apply_to_child__10TObjPlayerFPvi(void* a0, int a1) { lbl_805D53FC = *(int*)((char*)a0 + 0xe0); lbl_805D5404 = a1; lbl_805D53F8 = 0; draw_model_node_tree((void*)((void*)(*(int*)((char*)a0 + 0xf4)))); lbl_805D53F8 = 0; lbl_805D5404 = 0; lbl_805D53FC = 0; reset_transform_state__10TObjPlayerFv(); }
+    extern int model_node_draw_callback;
+    extern int model_node_visit_callback;
+    extern int model_node_matrix_output_cursor;
+void apply_to_child__10TObjPlayerFPvi(void* a0, int a1) { model_node_visit_callback = *(int*)((char*)a0 + 0xe0); model_node_matrix_output_cursor = a1; model_node_draw_callback = 0; draw_model_node_tree((void*)((void*)(*(int*)((char*)a0 + 0xf4)))); model_node_draw_callback = 0; model_node_matrix_output_cursor = 0; model_node_visit_callback = 0; reset_transform_state__10TObjPlayerFv(); }
 
 void set_owner_client__5TItemFPvUs(u8 *arg0, u16 arg1) {
     M2C_FIELD(arg0, u16 *, 0xE4) = arg1;

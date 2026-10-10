@@ -24,7 +24,7 @@ struct Out_803DAFA8 {
 };
 
 extern "C" {
-extern void *lbl_805D7754;
+extern void *locked_cache_heap_handle;
 void OSFreeToHeap(void *heap, void *p);
 s32 fn_803DB20C(Obj_803DB20C *o);
 void GXInitTlutObj(void *, void *, s32, s32, s32);
@@ -32,7 +32,7 @@ void GXLoadTlut(void *, s32);
 void init_and_load_tlut(s32 arg0, s32 arg1, u16 arg2, void *arg3);
 s32 GXGetTexBufferSize(u16, u16, u32, u8, u8);
 void fn_803DB15C(Tex_803DB15C *arg0);
-extern void *lbl_805D7754;
+extern void *locked_cache_heap_handle;
 void *OSAllocFromHeap(void *, u32);
 s32 alloc_buffer_from_heap(Buf_803DB1B4 *arg0);
 void TObjPlayer__sub_803DA7E0(void);
@@ -108,7 +108,7 @@ void fn_803DB15C(Tex_803DB15C *arg0) {
 
 s32 alloc_buffer_from_heap(Buf_803DB1B4 *arg0) {
     s32 ret = 0;
-    void *p = OSAllocFromHeap(lbl_805D7754, arg0->size);
+    void *p = OSAllocFromHeap(locked_cache_heap_handle, arg0->size);
     if (p == 0) {
         ret = 3;
     } else {
@@ -121,7 +121,7 @@ s32 alloc_buffer_from_heap(Buf_803DB1B4 *arg0) {
 #pragma scheduling off
 #pragma peephole off
 s32 fn_803DB20C(Obj_803DB20C *o) {
-    OSFreeToHeap(lbl_805D7754, o->p);
+    OSFreeToHeap(locked_cache_heap_handle, o->p);
     return 0;
 }
 #pragma pop

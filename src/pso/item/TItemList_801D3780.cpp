@@ -84,7 +84,7 @@ void VecCopy__FP3VecPC3Vec(void *, void *);
 u16 obj_getField1c(void *);
 s16 get_stat_by_key_state__10TObjPlayerFPv(void *);
 void __ct__7TObjectFP7TObject(void *, void *);
-extern M2C_UNK lbl_804C4498[];
+extern M2C_UNK placement_search_base_vtable[];
 extern const f32 lbl_805DC3D4;
 u8 *construct_placement_search_base(u8 *arg0, u8 *arg1, u8 *arg2, u8 *arg3, s8 arg4);
 u8 *construct_placement_search_base(u8 *arg0, u8 *arg1, u8 *arg2, u8 *arg3, s8 arg4);
@@ -95,11 +95,11 @@ M2C_UNK queue_destruction__7TObjectFv(void *);
 M2C_UNK remove_list_entry_by_id(int);
 M2C_UNK TItemList__sub_801D5884(void *, int);
 u8 *run_item_count_update__9TItemListFPv(void *);
-extern M2C_UNK lbl_804C4468[];
+extern M2C_UNK item_drop_search_task_vtable[];
 u8 *TItemList__sub_801D39C8(u8 *arg0, s32 arg1, s32 arg2, u8 *arg3, s32 arg4, s8 arg5);
 u8 *construct_placement_search_base(u8 *arg0, u8 *arg1, u8 *arg2, u8 *arg3, s8 arg4);
 M2C_UNK TItemList__sub_801D5884(void *, int);
-extern M2C_UNK lbl_804C4480[];
+extern M2C_UNK placement_search_task_vtable[];
 u8 *ct_init_placement_ring__9TItemListFPvPviPvPvc(u8 *arg0, u8 *arg1, s32 arg2, u8 *arg3, u8 *arg4, s8 arg5);
 s32 get_lobby_flag__6TLobbyFv(void);
 s32 get_enemy_count__9TObjEneDDFv(void);
@@ -143,8 +143,8 @@ s32 TAdPlayerLoadGC__sub_801E1B50(s32);
 s32 probe_card_slot__15TAdPlayerLoadGCFi(s32);
 f32 sin_table_lookup(s32);
 f32 cos_table_lookup(s32);
-extern Shape_801D3C38 lbl_804C43E8;
-extern Body_801D3E20 lbl_804C4414;
+extern Shape_801D3C38 placement_search_collision_body;
+extern Body_801D3E20 placement_search_collision_probe;
 extern const f32 lbl_805DC3C8;
 extern const f32 lbl_805DC3CC;
 s32 step_placement_search(Search_801D3C38 *s);
@@ -209,11 +209,11 @@ void * create_node__9TItemListFPvPvPvPv(void *arg0, void *arg1, void *arg2, s8 a
     return o;
 }
 
-extern M2C_UNK lbl_804C4468[];
+extern M2C_UNK item_drop_search_task_vtable[];
 
 void *destroy__9TItemListFPvs(void *arg0, s16 arg1) {
     if (arg0 != NULL) {
-        M2C_FIELD(arg0, M2C_UNK **, 0x18) = lbl_804C4468;
+        M2C_FIELD(arg0, M2C_UNK **, 0x18) = item_drop_search_task_vtable;
         clear_placement_search_slot(arg0, M2C_FIELD(arg0, s32 *, 0x54));
         decrement_placement_search_pending(arg0, M2C_FIELD(arg0, s32 *, 0x54));
         TItemList__sub_801D3FC4((void *)(arg0), (s16)(0));
@@ -230,7 +230,7 @@ typedef char RecoveredGlobal_801D39C8_lbl_804C4468_size[sizeof(RecoveredGlobal_8
 u8 *TItemList__sub_801D39C8(u8 *arg0, s32 arg1, s32 arg2, u8 *arg3, s32 arg4, s8 arg5) {
     u8 *temp_r3;
     construct_placement_search_base((u8 *)(arg0), (u8 *)(arg1), (u8 *)(arg3), (u8 *)(arg4), arg5);
-    M2C_FIELD(arg0, M2C_UNK **, 0x18) = &(*(RecoveredGlobal_801D39C8_lbl_804C4468 *)&lbl_804C4468).value;
+    M2C_FIELD(arg0, M2C_UNK **, 0x18) = &(*(RecoveredGlobal_801D39C8_lbl_804C4468 *)&item_drop_search_task_vtable).value;
     M2C_FIELD(arg0, s32 *, 0x54) = arg2;
     TItemList__sub_801D5884((void *) (arg0), (int) (1));
     reset_placement_search_ring((void *)((void *) (arg0)));
@@ -274,11 +274,11 @@ void * TItemList__sub_801D3B00(void *arg0, void *arg1, void *arg2, s8 arg3) {
     return o;
 }
 
-extern M2C_UNK lbl_804C4480[];
+extern M2C_UNK placement_search_task_vtable[];
 
 void *destroy_placement_search_task(void *arg0, s16 arg1) {
     if (arg0 != NULL) {
-        M2C_FIELD(arg0, M2C_UNK **, 0x18) = lbl_804C4480;
+        M2C_FIELD(arg0, M2C_UNK **, 0x18) = placement_search_task_vtable;
         clear_placement_search_slot(arg0, M2C_FIELD(arg0, s32 *, 0x54));
         decrement_placement_search_pending(arg0, M2C_FIELD(arg0, s32 *, 0x54));
         TItemList__sub_801D3FC4((void *)(arg0), (s16)(0));
@@ -289,12 +289,12 @@ void *destroy_placement_search_task(void *arg0, s16 arg1) {
     return arg0;
 }
 
-extern M2C_UNK lbl_804C4498[];
+extern M2C_UNK placement_search_base_vtable[];
 
 typedef char RecoveredGlobal_801D3BD4_lbl_804C4480_size[sizeof(RecoveredGlobal_801D3BD4_lbl_804C4480) == 0x18 ? 1 : -1];
 u8 *ct_init_placement_ring__9TItemListFPvPviPvPvc(u8 *arg0, u8 *arg1, s32 arg2, u8 *arg3, u8 *arg4, s8 arg5) {
     construct_placement_search_base((u8 *)(arg0), (u8 *)(arg1), (u8 *)(arg3), (u8 *)(arg4), arg5);
-    M2C_FIELD(arg0, M2C_UNK **, 0x18) = &(*(RecoveredGlobal_801D3BD4_lbl_804C4480 *)&lbl_804C4480).value;
+    M2C_FIELD(arg0, M2C_UNK **, 0x18) = &(*(RecoveredGlobal_801D3BD4_lbl_804C4480 *)&placement_search_task_vtable).value;
     M2C_FIELD(arg0, s32 *, 0x54) = arg2;
     TItemList__sub_801D5884((void *)(arg0), (int)(0U));
     reset_placement_search_ring((void *)(arg0));
@@ -330,11 +330,11 @@ s32 step_placement_search(Search_801D3C38 *s) {
         return 0;
     }
     s->candidate.y = lbl_805DC3C8 + g->pos->y;
-    lbl_804C43E8.radius = lbl_805DC3CC;
-    lbl_804C43E8.f14 = 0;
-    lbl_804C43E8.mask = 0x31F03;
-    VecCopy__FP3VecPC3Vec(&lbl_804C4414.position, &s->candidate);
-    if (find_placement_obstruction(s, &lbl_804C4414) != NULL) {
+    placement_search_collision_body.radius = lbl_805DC3CC;
+    placement_search_collision_body.f14 = 0;
+    placement_search_collision_body.mask = 0x31F03;
+    VecCopy__FP3VecPC3Vec(&placement_search_collision_probe.position, &s->candidate);
+    if (find_placement_obstruction(s, &placement_search_collision_probe) != NULL) {
         s->angle += s->step;
         s->sample++;
         return 0;
@@ -385,7 +385,7 @@ s32 reset_placement_search_ring(void *arg0) {
 
 void *TItemList__sub_801D3FC4(void *arg0, s16 arg1) {
     if (arg0 != NULL) {
-        M2C_FIELD(arg0, M2C_UNK **, 0x18) = lbl_804C4498;
+        M2C_FIELD(arg0, M2C_UNK **, 0x18) = placement_search_base_vtable;
         __dt__7TObjectFv(arg0, 0);
         if (arg1 > 0) {
             __dl__7TObjectFPv((void *)(arg0));
@@ -395,7 +395,7 @@ void *TItemList__sub_801D3FC4(void *arg0, s16 arg1) {
 }
 u8 *construct_placement_search_base(u8 *arg0, u8 *arg1, u8 *arg2, u8 *arg3, s8 arg4) {
     __ct__7TObjectFP7TObject(arg0, arg1);
-    M2C_FIELD(arg0, M2C_UNK **, 0x18) = &(*(RecoveredGlobal_801D401C_lbl_804C4498 *)&lbl_804C4498).value;
+    M2C_FIELD(arg0, M2C_UNK **, 0x18) = &(*(RecoveredGlobal_801D401C_lbl_804C4498 *)&placement_search_base_vtable).value;
     if (arg2 == NULL) {
         M2C_FIELD(arg0, u16 *, 0x20) = 0xFFFFU;
         M2C_FIELD(arg0, s32 *, 0x24) = 0;

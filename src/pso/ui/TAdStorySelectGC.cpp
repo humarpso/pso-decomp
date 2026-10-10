@@ -21,10 +21,10 @@ s32 TAdStorySelectGC__sub_80207D44(s32 arg0) {
     return 0;
 }
 
-extern s32 lbl_805D6060;
+extern s32 selected_episode;
 
 void set_state__16TAdStorySelectGCFi(s32 arg0) {
-    lbl_805D6060 = arg0;
+    selected_episode = arg0;
     switch (arg0) {
     case 0:
         init_floor_map_registry();

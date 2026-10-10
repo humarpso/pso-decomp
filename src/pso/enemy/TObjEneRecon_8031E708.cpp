@@ -46,7 +46,7 @@ s32 spawn_npc_enemy__6TLobbyFsiiiff(int, int, int, void *, f32, f32);
 s32 TObjEneRecon__sub_8031BC94();
 u8 *TObjEneRecobox__sub_803201D0();
 extern RecoveredGlobal_8031E708_lbl_804760EC lbl_804760EC;
-extern RecoveredGlobal_8031E708_lbl_804EC40C lbl_804EC40C;
+extern RecoveredGlobal_8031E708_lbl_804EC40C TObjEneRecon__collision_body_template;
 extern s32 lbl_805D6AF0;
 extern s32 TObjEneRecon__attack_params;
 extern s32 TObjEneRecon__resistance_params;
@@ -93,7 +93,7 @@ void load_resources__12TObjEneReconFv(void) {
   stack.sp14 = *((s32 *) (((s8 *) (&lbl_804760EC.value)) + 0xC));
   stack.sp8 = ((RecoveredFields_8031E708_TObjEneRecon__data_805D6B00 *) TObjEneRecon__recobox_static_instance)->field_430;
   temp_r5 = (u8 *) ((RecoveredFields_8031E708_TObjEneRecon__data_805D6B00 *) TObjEneRecon__recobox_static_instance)->field_42C;
-  spawn_npc_enemy__6TLobbyFsiiiff((int) 0xC, (int) ((RecoveredFields_8031E708_temp_r5 *) temp_r5)->field_8, (int) ((RecoveredFields_8031E708_temp_r5 *) temp_r5)->field_C, (void *) (&stack.sp8), (f32) (*((f32 *) (((s8 *) (&lbl_804EC40C.value)) + 0xC))), (f32) TObjEneRecon__data_805DF3C0);
+  spawn_npc_enemy__6TLobbyFsiiiff((int) 0xC, (int) ((RecoveredFields_8031E708_temp_r5 *) temp_r5)->field_8, (int) ((RecoveredFields_8031E708_temp_r5 *) temp_r5)->field_C, (void *) (&stack.sp8), (f32) (*((f32 *) (((s8 *) (&TObjEneRecon__collision_body_template.value)) + 0xC))), (f32) TObjEneRecon__data_805DF3C0);
 }
 
 }

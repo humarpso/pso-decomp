@@ -86,7 +86,7 @@ void *create_yes_no_window(void *, int, int, int);
 void *get_window_layout_position(int);
 void handle_number_input__21TShopDeleteItemWindowFPv(u8 *arg0);
 s32 copy_item_record__18TCheckRoomSequenceFiPvi(int, void *, int);
-s32 TCheckRoomSequence__sub_80210F78(int, void *, void *, int);
+s32 copy_bank_item_with_stack_limit(int, void *, void *, int);
 s32 TShopWindowBase__sub_8022397C(void *);
 s32 TShopWindowBase__sub_802239EC(void *);
 s32 TShopWindowBase__sub_80223A48(void *);
@@ -239,7 +239,7 @@ s32 update_item_select__21TShopDeleteItemWindowFPv(void *arg0) {
     if (TShopWindowBase__sub_802239EC(self) != 0) {
         set_field_20__12TQuestListVMFPvi(self, 7);
     } else if (TShopWindowBase__sub_80223A48(self) != 0) {
-        if (TCheckRoomSequence__sub_80210F78(select_cursor_entry__6TLobbyFPv((int)self->f30), &kind, &count, base) != 0) {
+        if (copy_bank_item_with_stack_limit(select_cursor_entry__6TLobbyFPv((int)self->f30), &kind, &count, base) != 0) {
             if (kind.kind == 3 && count > 1) {
                 p = __nw__7TObjectFUl(0x7C);
                 if (p != NULL) {

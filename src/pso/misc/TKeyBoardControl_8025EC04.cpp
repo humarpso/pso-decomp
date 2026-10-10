@@ -63,7 +63,7 @@ s32 TKeyBoardControl__sub_801A58B0(void);
 extern M2C_UNK TKeyBoardControl__global_key_state[];
 s32 has_non_modifier_key__16TKeyBoardControlFv(void);
 extern u8 lbl_8049DD78[];
-extern u8 lbl_8049DDF8[];
+extern u8 keyboard_shifted_character_table[];
 extern u16 lbl_8049DE78[];
 extern u16 lbl_8049DF78[];
 extern u16 lbl_8049E078[];
@@ -179,7 +179,7 @@ s32 translate_key_char__16TKeyBoardControlFPviPv(void *arg0_, s32 arg1, u16 *arg
             if ((arg0->flags & 4) && current_language == 0) {
                 *arg2 = lbl_8049E078[(u8)arg1];
             } else if (shift != 0) {
-                *arg2 = lbl_8049DDF8[(u8)arg1];
+                *arg2 = keyboard_shifted_character_table[(u8)arg1];
             } else {
                 *arg2 = lbl_8049DD78[(u8)arg1];
             }
@@ -239,7 +239,7 @@ s32 translate_key_char__16TKeyBoardControlFPviPv(void *arg0_, s32 arg1, u16 *arg
             if (arg0->flags & 4) {
                 *arg2 = lbl_8049E078[(u8)arg1];
             } else if (shift != 0) {
-                *arg2 = lbl_8049DDF8[(u8)arg1];
+                *arg2 = keyboard_shifted_character_table[(u8)arg1];
             } else {
                 *arg2 = lbl_8049DD78[(u8)arg1];
             }

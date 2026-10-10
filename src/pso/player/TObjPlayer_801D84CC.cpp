@@ -406,7 +406,7 @@ s8 get_class_index__10TObjPlayerFPv(s32 _w0);
 extern RecoveredGlobal_801D92F4_lbl_804475B0 lbl_804475B0;
 u8 *get_class_attack_template(u8 *arg0);
 s8 TObjPlayer__sub_801AFDBC(s8);
-extern RecoveredGlobal_801D935C_lbl_804C4680 lbl_804C4680;
+extern RecoveredGlobal_801D935C_lbl_804C4680 player_class_base_stat_tables;
 s32 get_class_base_stats(s8 arg0);
 s8 get_class_index__10TObjPlayerFPv(s32 _w0);
 extern RecoveredGlobal_801D9390_lbl_804471C0 lbl_804471C0;
@@ -457,7 +457,7 @@ M2C_UNK translate_matrix_vec3(int, void *);
 M2C_UNK rotate_matrix_y(int, int);
 void push_matrix(void);
 void pop_matrix(void);
-extern M2C_UNK lbl_804C4540[];
+extern M2C_UNK ending_sequence_player_vtable[];
 extern u8 *TObjPlayer__shared_model_buffer;
 extern int player_ending_motion_object;
 extern const float lbl_805DC3F8;
@@ -505,11 +505,11 @@ M2C_UNK init__17TPlyInventoryItemFv(s32);
     extern int player_ending_motion_object;
 void create_player_ending_motion(void) { alloc_shared_buffers__10TObjPlayerFv(); player_ending_motion_object = create_named_object(lbl_80447190); }
 
-extern M2C_UNK lbl_804C4540[];
+extern M2C_UNK ending_sequence_player_vtable[];
 
 Player_801D88C8 *create_ending_sequence_player(Player_801D88C8 *self, void *parent, Src_801D88C8 *src) {
     TObjPlayer__ct(self, parent);
-    self->vt = ((s32 *)&lbl_804C4540);
+    self->vt = ((s32 *)&ending_sequence_player_vtable);
     set_floor_index__10TObjPlayerFPvi(self, 1);
     set_floor_index__10TObjPlayerFPvi(self, 1);
     VecCopy__FP3VecPC3Vec(self->pos, get_sub_object__10TObjPlayerFPv(src->sub));
@@ -531,7 +531,7 @@ Player_801D88C8 *create_ending_sequence_player(Player_801D88C8 *self, void *pare
 
 void *TObjPlayer__sub_801D89E0(void *arg0, s16 arg1) {
     if (arg0 != NULL) {
-        M2C_FIELD(arg0, M2C_UNK **, 0x18) = lbl_804C4540;
+        M2C_FIELD(arg0, M2C_UNK **, 0x18) = ending_sequence_player_vtable;
         __dt__10TObjPlayerFv(arg0, 0);
         if (arg1 > 0) {
             __dl__7TObjectFPv(arg0);
@@ -801,7 +801,7 @@ typedef char RecoveredGlobal_801D9390_lbl_804471C0_size[sizeof(RecoveredGlobal_8
 
 typedef char RecoveredGlobal_801D935C_lbl_804C4680_size[sizeof(RecoveredGlobal_801D935C_lbl_804C4680) == 0x30 ? 1 : -1];
 s32 get_class_base_stats(s8 arg0) {
-    return M2C_FIELD(&lbl_804C4680.value, M2C_UNK *, (TObjPlayer__sub_801AFDBC(arg0) * 4));
+    return M2C_FIELD(&player_class_base_stat_tables.value, M2C_UNK *, (TObjPlayer__sub_801AFDBC(arg0) * 4));
 }
 
 u8 *get_class_stat_caps(s8 arg0) {

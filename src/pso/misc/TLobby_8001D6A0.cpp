@@ -811,10 +811,10 @@ s32 TLobby__sub_8001E75C(void *arg0);
 
 extern "C" {
 
-extern s32 lbl_805D6060;
+extern s32 selected_episode;
 
 s32 get_instance__6TLobbyFv(void) {
-    return lbl_805D6060;
+    return selected_episode;
 }
 s32 calc_time_from_hms__6TLobbyFi(s32 arg0) {
   s32 *new_var;

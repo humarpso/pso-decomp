@@ -42,7 +42,7 @@ s32 reset_photon_effect__10TObjPlayerFPv(void *);
 s32 refresh_collision_body_centers(void *);
 s32 init_collision_body_parts(void *, void *, int);
 s32 init_door_base(void *);
-extern RecoveredGlobal_80161BE4_lbl_804B13C8 lbl_804B13C8;
+extern RecoveredGlobal_80161BE4_lbl_804B13C8 TODoorCave01__collision_body_template;
 extern M2C_UNK __vt__12TODoorCave01[];
 extern s32 lbl_805D2F60;
 extern u32 lbl_805D5958;
@@ -56,8 +56,8 @@ s32 load_gvm_texture_file(void *);
 s32 is_online_ready__6TLobbyFv();
 extern u8 lbl_80440D7C[];
 extern u8 lbl_80440D94[];
-extern u8 lbl_804B1398[];
-extern u8 lbl_804B13B8[];
+extern u8 TODoorCave01__resource_descriptor[];
+extern u8 cave_door01_resource_descriptor[];
 extern s32 enable_v2_features;
 extern u32 lbl_805D5958;
 extern s32 *TODoorCave01__data_805D595C;
@@ -101,14 +101,14 @@ void load_resources__12TODoorCave01Fv(void) {
     if (enable_v2_features != 0 && is_online_ready__6TLobbyFv() != 0) {
         o = alloc__23TAdSinglePlyChrSelectGCFPv(0x440);
         if (o != NULL) {
-            o = load_resource_from_descriptor(o, 1, lbl_804B13B8, 0, 0, 0);
+            o = load_resource_from_descriptor(o, 1, cave_door01_resource_descriptor, 0, 0, 0);
         }
         lbl_805D5958 = (u32)o;
         TODoorCave01__data_805D595C[0] = load_gvm_texture_file(lbl_80440D7C);
     } else {
         o = alloc__23TAdSinglePlyChrSelectGCFPv(0x440);
         if (o != NULL) {
-            o = load_resource_from_descriptor(o, 1, lbl_804B1398, 0, 0, 0);
+            o = load_resource_from_descriptor(o, 1, TODoorCave01__resource_descriptor, 0, 0, 0);
         }
         lbl_805D5958 = (u32)o;
         TODoorCave01__data_805D595C[0] = load_gvm_texture_file(lbl_80440D94);
@@ -141,7 +141,7 @@ u8 *TODoorCave01__ct(u8 *arg0, M2C_UNK arg1, s32 arg2) {
     M2C_FIELD(arg0, u8 **, 0xBC) = (unsigned char *) ((void *) M2C_FIELD(M2C_FIELD((*(u8 * *)&lbl_805D5958), u8 **, 0x430), void **, 4));
     M2C_FIELD(arg0, f32 *, 0xB4) = (f32) ((f32) M2C_FIELD(M2C_FIELD(arg0, u8 **, 0xBC), u32 *, 4) - lbl_805DB49C);
     M2C_FIELD(arg0, f32 *, 0xB8) = (f32) lbl_805DB4A8;
-    init_collision_body_parts((void *) (arg0), (void *) (&lbl_804B13C8.value), (int) (1));
+    init_collision_body_parts((void *) (arg0), (void *) (&TODoorCave01__collision_body_template.value), (int) (1));
     refresh_collision_body_centers((void *) (arg0));
     reset_photon_effect__10TObjPlayerFPv((void *) (arg0));
     ((VObj_18_4a4f5b *)(arg0))->m17();

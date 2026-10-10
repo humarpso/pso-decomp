@@ -11,12 +11,12 @@ struct TItem_80101BE4 {
 
 extern "C" {
 void *memcpy(void *, const void *, u32);
-extern s32 lbl_805D53F0;
-extern TItem_80101B20 **lbl_805D53F4;
+extern s32 item_registry_count;
+extern TItem_80101B20 **item_registry_sorted_entries;
 s32 unregister_item__5TItemFPv(TItem_80101B20 *item);
 void *memcpy(void *, const void *, u32);
-extern s32 lbl_805D53F0;
-extern TItem_80101B20 **lbl_805D53F4;
+extern s32 item_registry_count;
+extern TItem_80101B20 **item_registry_sorted_entries;
 extern s32 lbl_805D5450;
 s32 insert_sorted_by_id__5TItemFPv(TItem_80101BE4 *item);
 }
@@ -30,21 +30,21 @@ s32 unregister_item__5TItemFPv(TItem_80101B20 *item) {
     s32 hi;
     lo = 0;
     id = item->id;
-    hi = lbl_805D53F0 - 1;
+    hi = item_registry_count - 1;
     TItem_80101B20 **p;
     while (lo < hi) {
         mid = (lo + hi) >> 1;
-        if (lbl_805D53F4[mid]->id < id) {
+        if (item_registry_sorted_entries[mid]->id < id) {
             lo = mid + 1;
         } else {
             hi = mid;
         }
     }
-    p = &lbl_805D53F4[lo];
+    p = &item_registry_sorted_entries[lo];
     if (*p == item) {
-        memcpy(p, &lbl_805D53F4[lo + 1], (lbl_805D53F0 - (lo + 1)) * 4);
-        lbl_805D53F0--;
-        lbl_805D53F4[lbl_805D53F0] = NULL;
+        memcpy(p, &item_registry_sorted_entries[lo + 1], (item_registry_count - (lo + 1)) * 4);
+        item_registry_count--;
+        item_registry_sorted_entries[item_registry_count] = NULL;
         return id;
     }
     return -1;
@@ -55,33 +55,33 @@ s32 insert_sorted_by_id__5TItemFPv(TItem_80101BE4 *item) {
     s32 mid;
     s32 hi;
     id = item->id;
-    hi = lbl_805D53F0 - 1;
+    hi = item_registry_count - 1;
     TItem_80101BE4 **p;
     if (id == -1) {
         lbl_805D5450 = 1;
         return id;
     }
-    if (hi > -1 && id < (*(TItem_80101BE4 ** *)&lbl_805D53F4)[hi]->id) {
+    if (hi > -1 && id < (*(TItem_80101BE4 ** *)&item_registry_sorted_entries)[hi]->id) {
         lo = 0;
         while (lo < hi) {
             mid = (lo + hi) >> 1;
-            if ((*(TItem_80101BE4 ** *)&lbl_805D53F4)[mid]->id < id) {
+            if ((*(TItem_80101BE4 ** *)&item_registry_sorted_entries)[mid]->id < id) {
                 lo = mid + 1;
             } else {
                 hi = mid;
             }
         }
-        p = &(*(TItem_80101BE4 ** *)&lbl_805D53F4)[lo];
+        p = &(*(TItem_80101BE4 ** *)&item_registry_sorted_entries)[lo];
         if (id == (*p)->id) {
             lbl_805D5450 = 1;
             return id;
         }
-        memcpy(&(*(TItem_80101BE4 ** *)&lbl_805D53F4)[lo + 1], p, (lbl_805D53F0 - lo) * 4);
+        memcpy(&(*(TItem_80101BE4 ** *)&item_registry_sorted_entries)[lo + 1], p, (item_registry_count - lo) * 4);
     } else {
-        lo = lbl_805D53F0;
+        lo = item_registry_count;
     }
-    (*(TItem_80101BE4 ** *)&lbl_805D53F4)[lo] = item;
-    lbl_805D53F0++;
+    (*(TItem_80101BE4 ** *)&item_registry_sorted_entries)[lo] = item;
+    item_registry_count++;
     return id;
 }
 

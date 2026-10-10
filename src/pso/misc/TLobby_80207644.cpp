@@ -54,7 +54,7 @@ s32 rand(void);
 extern RecoveredGlobal_802078A4_lbl_8044B658 lbl_8044B658;
 extern RecoveredGlobal_802078A4_lbl_8044B778 lbl_8044B778;
 extern RecoveredGlobal_80207798_lbl_80513920 floor_map_registry;
-extern int lbl_805D6060;
+extern int selected_episode;
 extern const f32 lbl_805DC610;
 void randomize_adventure_maps(void);
 M2C_UNK memset(void *, int, int);
@@ -73,7 +73,7 @@ extern Tbl_8020765C lbl_8044B928;
 extern Tbl_8020765C lbl_8044B9B8;
 s32 get_boss_warp_destination(void);
 extern RecoveredGlobal_80207798_lbl_80513920 floor_map_registry;
-extern int lbl_805D6060;
+extern int selected_episode;
 void copy_table_entries__6TLobbyFPvUi(s32 *src, u32 size);
 extern RecoveredGlobal_80207798_lbl_80513920 floor_map_registry;
 s32 get_floor_map_terrain(s32 arg0);
@@ -90,12 +90,12 @@ void sync_story_select__6TLobbyFv(void);
 M2C_UNK set_state__16TAdStorySelectGCFi(void*);
 
     extern int story_select_current;
-    extern int lbl_805D6060;
-void backup_story_select__6TLobbyFv(void) { lbl_805D6060 = story_select_current; }
+    extern int selected_episode;
+void backup_story_select__6TLobbyFv(void) { selected_episode = story_select_current; }
 
     extern int story_select_current;
-    extern int lbl_805D6060;
-void sync_story_select__6TLobbyFv(void) { story_select_current = lbl_805D6060; }
+    extern int selected_episode;
+void sync_story_select__6TLobbyFv(void) { story_select_current = selected_episode; }
 
 s32 get_boss_warp_destination(void) {
     Tbl_8020765C a = lbl_8044B928;
@@ -182,7 +182,7 @@ void copy_table_entries__6TLobbyFPvUi(s32 *src, u32 size) {
     s32 n = size >> 3;
     s32 i;
     if (n <= 0x12) {
-        switch ((*(s32 *)&lbl_805D6060)) {
+        switch ((*(s32 *)&selected_episode)) {
         case 1:
             for (i = 0; i < n; i++, src += 2) {
                 ((Ent_8020780C *)&floor_map_registry)[i].a = src[0];
@@ -205,7 +205,7 @@ void randomize_adventure_maps(void) {
   s32 var_r30;
   s32 var_r29;
   var_r31 = (M2C_UNK *) (&(*(RecoveredGlobal_802078A4_lbl_80513920 *)&floor_map_registry).value);
-  set_state__16TAdStorySelectGCFi((void*)((*(s32 *)&lbl_805D6060)));
+  set_state__16TAdStorySelectGCFi((void*)((*(s32 *)&selected_episode)));
   var_r30 = get_main_phase();
   if (is_not_split_screen__13TRaderMapCoreFv() == 1)
   {

@@ -316,10 +316,10 @@ extern u16 TCameraCtrl__camera_override_client_id;
 extern u8 TCameraCtrl__override_flags;
 void set_override_position_and_angle__11TCameraCtrlFPvs(u8 *arg0, s16 arg1);
 extern RecoveredGlobal_8006D494_camera_controller_registry camera_controller_registry;
-extern RecoveredGlobal_8006D494_TCameraCtrl__data_804FF628 TCameraCtrl__data_804FF628;
+extern RecoveredGlobal_8006D494_TCameraCtrl__data_804FF628 TCameraCtrl__view_state;
 void end_conversation_camera(void);
 extern RecoveredGlobal_8006D494_camera_controller_registry camera_controller_registry;
-extern RecoveredGlobal_8006D494_TCameraCtrl__data_804FF628 TCameraCtrl__data_804FF628;
+extern RecoveredGlobal_8006D494_TCameraCtrl__data_804FF628 TCameraCtrl__view_state;
 void set_active_camera_flag__11TCameraCtrlFv(void);
 void VecCopy__FP3VecPC3Vec(void *, void *);
 u8 * csnVector(void *, void *, u32);
@@ -327,7 +327,7 @@ void recenter_with_obstruction__11TCameraCtrlFPvPvPv(struct RecoveredFields_8006
 M2C_UNK set_field_100__11TCameraCtrlFPvi(void* p, s32 v);
 s32 angle_difference_abs(int, void *);
 extern RecoveredGlobal_8006D494_camera_controller_registry camera_controller_registry;
-extern RecoveredGlobal_8006D494_TCameraCtrl__data_804FF628 TCameraCtrl__data_804FF628;
+extern RecoveredGlobal_8006D494_TCameraCtrl__data_804FF628 TCameraCtrl__view_state;
 void begin_conversation_camera(void);
 extern u8 TCameraCtrl__override_flags;
 extern u16 TCameraCtrl__camera_override_client_id;
@@ -358,7 +358,7 @@ u16 get_nth_view_player_id__11TCameraCtrlFi(s32 n);
 void set_pos_target__11TCameraCtrlFPvPvPvi(void *arg0, void *arg1, void *arg2, s32 arg3);
 s32 get_player_by_client_id(u32);
 extern RecoveredGlobal_8006D494_camera_controller_registry camera_controller_registry;
-extern RecoveredGlobal_8006D494_TCameraCtrl__data_804FF628 TCameraCtrl__data_804FF628;
+extern RecoveredGlobal_8006D494_TCameraCtrl__data_804FF628 TCameraCtrl__view_state;
 void apply_follow_camera_offsets(void *arg0, void *arg1, s32 arg2, u16 arg3);
 void set_target__11TCameraCtrlFPvUi(void *, s32);
 int TCameraCtrl__sub_80068714(void);
@@ -684,11 +684,11 @@ void apply_follow_camera_offsets(void *arg0, void *arg1, s32 arg2, u16 arg3) {
     Ply_8006D344 *p;
     s32 i;
     s32 v;
-    if (TCameraCtrl__data_804FF628.value <= 2 || TCameraCtrl__data_804FF628.value == 3) {
+    if (TCameraCtrl__view_state.value <= 2 || TCameraCtrl__view_state.value == 3) {
         if (is_split_screen() != 0) {
             if (arg3 == 0xFFFF) {
                 for (i = 0; i < 4; i++) {
-                    cam = REG_8006D344[TCameraCtrl__data_804FF628.value + i];
+                    cam = REG_8006D344[TCameraCtrl__view_state.value + i];
                     p = (Ply_8006D344 *)get_player_by_client_id(get_nth_view_player_id__11TCameraCtrlFi(i));
                     v = arg2;
                     if (p != 0) {
@@ -698,9 +698,9 @@ void apply_follow_camera_offsets(void *arg0, void *arg1, s32 arg2, u16 arg3) {
                 }
                 return;
             }
-            cam = REG_8006D344[TCameraCtrl__data_804FF628.value + arg3];
+            cam = REG_8006D344[TCameraCtrl__view_state.value + arg3];
         } else {
-            cam = REG_8006D344[TCameraCtrl__data_804FF628.value];
+            cam = REG_8006D344[TCameraCtrl__view_state.value];
         }
         if (cam != 0) {
             set_pos_target__11TCameraCtrlFPvPvPvi(cam, arg0, arg1, arg2);
@@ -711,8 +711,8 @@ void apply_follow_camera_offsets(void *arg0, void *arg1, s32 arg2, u16 arg3) {
 
 void set_active_camera_flag__11TCameraCtrlFv(void) {
     u8 *temp_r3;
-    if ((u8) (*(RecoveredGlobal_8006D460_TCameraCtrl__data_804FF628 *)&TCameraCtrl__data_804FF628).value == 0) {
-        temp_r3 = (u8 *)(M2C_FIELD(&(*(RecoveredGlobal_8006D460_camera_controller_registry *)&camera_controller_registry).value, M2C_UNK *, (((*(RecoveredGlobal_8006D460_TCameraCtrl__data_804FF628 *)&TCameraCtrl__data_804FF628).value * 4) & 0x3FC)));
+    if ((u8) (*(RecoveredGlobal_8006D460_TCameraCtrl__data_804FF628 *)&TCameraCtrl__view_state).value == 0) {
+        temp_r3 = (u8 *)(M2C_FIELD(&(*(RecoveredGlobal_8006D460_camera_controller_registry *)&camera_controller_registry).value, M2C_UNK *, (((*(RecoveredGlobal_8006D460_TCameraCtrl__data_804FF628 *)&TCameraCtrl__view_state).value * 4) & 0x3FC)));
         if (temp_r3 != NULL) {
             M2C_FIELD(temp_r3, s32 *, 0x104) = 1;
         }
@@ -721,8 +721,8 @@ void set_active_camera_flag__11TCameraCtrlFv(void) {
 
 void end_conversation_camera(void) {
     u32 temp_r3;
-    if ((u8) TCameraCtrl__data_804FF628.value == 0) {
-        temp_r3 = M2C_FIELD(&camera_controller_registry.value, M2C_UNK *, ((TCameraCtrl__data_804FF628.value * 4) & 0x3FC));
+    if ((u8) TCameraCtrl__view_state.value == 0) {
+        temp_r3 = M2C_FIELD(&camera_controller_registry.value, M2C_UNK *, ((TCameraCtrl__view_state.value * 4) & 0x3FC));
         if (temp_r3 != 0U) {
             set_field_100__11TCameraCtrlFPvi((void*)((int) (temp_r3)), (s32)((int) (0)));
         }
@@ -763,7 +763,7 @@ void begin_conversation_camera(void) {
     s32 var_r31;
     u8 *temp_r29;
     u8 *temp_r3;
-    if (((u8) (*(RecoveredGlobal_8006D610_TCameraCtrl__data_804FF628 *)&TCameraCtrl__data_804FF628).value == 0) && (temp_r29 = M2C_FIELD(((u8 *)(&(*(RecoveredGlobal_8006D610_camera_controller_registry *)&camera_controller_registry).value) + (((*(RecoveredGlobal_8006D610_TCameraCtrl__data_804FF628 *)&TCameraCtrl__data_804FF628).value * 4) & 0x3FC)), u8 **, 0), set_field_100__11TCameraCtrlFPvi((void*)((int) (temp_r29)), (s32)((int) (1))), temp_r3 = M2C_FIELD(temp_r29, u8 **, 0x1C), ((temp_r3 == NULL) == 0))) {
+    if (((u8) (*(RecoveredGlobal_8006D610_TCameraCtrl__data_804FF628 *)&TCameraCtrl__view_state).value == 0) && (temp_r29 = M2C_FIELD(((u8 *)(&(*(RecoveredGlobal_8006D610_camera_controller_registry *)&camera_controller_registry).value) + (((*(RecoveredGlobal_8006D610_TCameraCtrl__data_804FF628 *)&TCameraCtrl__view_state).value * 4) & 0x3FC)), u8 **, 0), set_field_100__11TCameraCtrlFPvi((void*)((int) (temp_r29)), (s32)((int) (1))), temp_r3 = M2C_FIELD(temp_r29, u8 **, 0x1C), ((temp_r3 == NULL) == 0))) {
         temp_r30 = M2C_FIELD(temp_r3, s32 *, 0x60);
         temp_r31 = angle_difference_abs((int) (M2C_FIELD(temp_r29, s32 *, 0x30)), (void *) (temp_r30 + 0x6000));
         if (temp_r31 > angle_difference_abs((int) (M2C_FIELD(temp_r29, s32 *, 0x30)), (void *) (temp_r30 - 0x6000))) {

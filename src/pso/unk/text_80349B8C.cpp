@@ -49,9 +49,9 @@ struct Item_80349C54 {
 
 typedef s32 M2C_UNK;
 extern "C" {
-extern RecoveredGlobal_80349E5C_lbl_8047890C lbl_8047890C;
+extern RecoveredGlobal_80349E5C_lbl_8047890C TAdLoadQuestLineGC__rectangle_groups;
 void fn_80349E5C(s32 arg0);
-extern RecoveredGlobal_80349DC8_lbl_804788B8 lbl_804788B8;
+extern RecoveredGlobal_80349DC8_lbl_804788B8 quest_line_color_quad_coordinates;
 extern RecoveredGlobal_80349DC8_lbl_804788D8 lbl_804788D8;
 extern RecoveredGlobal_80349DC8_lbl_8047896C lbl_8047896C;
 void init_quest_line_draw_colors(s32 arg0);
@@ -137,13 +137,13 @@ void init_quest_line_draw_colors(s32 arg0) {
     M2CCopy_20 sp8;
     sp8 = *(const M2CCopy_20 *)((s32) ((u8 *)&lbl_8047896C.value - 4) + 4);
     draw_filled_rects_2d((void *)((void *) (arg0)), (void *)((void *) (&sp8)), (int)((int) (2)));
-    draw_color_quad_2d((void *)((void *) (arg0)), (void *)((void *) (&lbl_804788B8.value)), (int)((int) (0x777777FF)));
+    draw_color_quad_2d((void *)((void *) (arg0)), (void *)((void *) (&quest_line_color_quad_coordinates.value)), (int)((int) (0x777777FF)));
     draw_color_quad_2d((void *)((void *) (arg0)), (void *)((void *) (&lbl_804788D8.value)), (int)((int) (0x777777FF)));
 }
 
 void fn_80349E5C(s32 arg0) {
     M2CCopy_60 sp8;
-    sp8 = *(const M2CCopy_60 *)((s32) ((u8 *)&lbl_8047890C.value - 4) + 4);
+    sp8 = *(const M2CCopy_60 *)((s32) ((u8 *)&TAdLoadQuestLineGC__rectangle_groups.value - 4) + 4);
     draw_filled_rects_2d((void *)((void *) (arg0)), (void *)((void *) (&sp8)), (int)((int) (6)));
 }
 

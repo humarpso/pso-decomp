@@ -77,7 +77,7 @@ u8 *alloc__23TAdSinglePlyChrSelectGCFPv(s32);
 s32 *alloc_buffer__11TOBoss4RockFPv(s32);
 s32 load_gvm_texture_file(void *);
 extern RecoveredGlobal_8016BC84_lbl_80441ACC lbl_80440CEC;
-extern RecoveredGlobal_8016BC84_lbl_804B2B30 lbl_804B1238;
+extern RecoveredGlobal_8016BC84_lbl_804B2B30 ancient_door09_resource_descriptor;
 extern u32 door_ancient09_bml_resource;
 extern void *TODoorAncient09__data_805D5954;
 void load_resources__15TODoorAncient09Fv(void);
@@ -429,7 +429,7 @@ void load_resources__15TODoorAncient09Fv(void) {
     temp_r3 = (u8 *)(alloc__23TAdSinglePlyChrSelectGCFPv(0x440));
     var_r0 = (u8 *)(temp_r3);
     if (var_r0 != NULL) {
-        var_r0 = (u8 *)(load_resource_from_descriptor(temp_r3, 1, &lbl_804B1238.value, 0, 0, 0));
+        var_r0 = (u8 *)(load_resource_from_descriptor(temp_r3, 1, &ancient_door09_resource_descriptor.value, 0, 0, 0));
     }
     (*(u8 * *)&door_ancient09_bml_resource) = var_r0;
     temp_r3_2 = (s32 *)(alloc_buffer__11TOBoss4RockFPv(8));

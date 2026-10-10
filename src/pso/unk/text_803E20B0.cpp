@@ -15,7 +15,7 @@ typedef struct Vp_803E20B0 { u8 pad0[4]; u16 w; u16 h; } Vp_803E20B0;
 M2C_UNK PSMTXIdentity(Mtx_803E20B0);
 M2C_UNK GXSetCurrentMtx(u32);
 extern Cam_803E20B0 lbl_8058CA60;
-extern Vp_803E20B0 *lbl_805D7734;
+extern Vp_803E20B0 *active_gx_render_mode;
 }
 
 extern "C" {
@@ -27,11 +27,11 @@ void load_screen_space_matrix__10TObjPlayerFv(void) {
 
     PSMTXIdentity(m);
     z = lbl_8058CA60.f54;
-    s = lbl_8058CA60.f4C / ((f32)lbl_805D7734->w / (f32)lbl_805D7734->h);
+    s = lbl_8058CA60.f4C / ((f32)active_gx_render_mode->w / (f32)active_gx_render_mode->h);
     m[0][0] = -z * s;
-    m[0][2] = s * ((0.5f * (f32)lbl_805D7734->w) * z);
+    m[0][2] = s * ((0.5f * (f32)active_gx_render_mode->w) * z);
     m[1][1] = z;
-    m[1][2] = (0.5f * (f32)(-lbl_805D7734->h)) * z;
+    m[1][2] = (0.5f * (f32)(-active_gx_render_mode->h)) * z;
     GXLoadPosMtxImm((int)m, 0);
     GXSetCurrentMtx(0);
 }

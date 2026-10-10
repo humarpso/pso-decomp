@@ -10,17 +10,17 @@ void TGStream__sub_800FDD50(void);
 void TGStream__sub_800FDD64(void);
 int get_instance__8TGStreamFv(void);
 
-extern s32 lbl_805D53D8;
-extern s32 lbl_805D53DC;
+extern s32 gstream_buffer_read_offset;
+extern s32 gstream_buffer_valid_size;
 
 void TGStream__sub_800FDD50(void) {
-    lbl_805D53DC = 0;
-    lbl_805D53D8 = 0x40000;
+    gstream_buffer_valid_size = 0;
+    gstream_buffer_read_offset = 0x40000;
 }
 
 void TGStream__sub_800FDD64(void) {  }
 
-    extern int lbl_805D53E0;
-int get_instance__8TGStreamFv(void) {  return lbl_805D53E0; }
+    extern int gstream_file_size;
+int get_instance__8TGStreamFv(void) {  return gstream_file_size; }
 
 }

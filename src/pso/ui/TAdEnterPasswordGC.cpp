@@ -63,7 +63,7 @@ typedef void (TAdEnterPasswordGC_8032B984::*Pmf_8032B984)();
 extern "C" {
 void fn_8032B318(void *, void *);
 extern u8 lbl_804ED9F0[];
-extern s32 lbl_805D6CA4;
+extern s32 password_entry_dispatch_state;
 #pragma explicit_zero_data on
 RecoveredGlobal_8032BA8C_TAdEnterPasswordGC__data_804EDA20 TAdEnterPasswordGC__data_804EDA20 = { 0 };
 #pragma explicit_zero_data off
@@ -73,8 +73,8 @@ extern "C" {
 void TAdEnterPasswordGC__sub_8032BC94(u8 *arg0, s32 arg1);
 void queue_destruction__7TObjectFv(void *);
 void TWindow__close(void *);
-extern u8 *lbl_805D6CA0;
-extern s32 lbl_805D6CA4;
+extern u8 *password_entry_keyboard_control;
+extern s32 password_entry_dispatch_state;
 extern const f32 lbl_805DF780;
 void close_window_and_destroy__18TAdEnterPasswordGCFPv(u8 *arg0);
 u32 create_keyboard_control__22TAdEnterSerialAccessGCFii(s32, s32);
@@ -84,8 +84,8 @@ M2C_UNK add_item_rect__12TLevelSelectFPvPv(int, void *);
 M2C_UNK set_active__22TAdEnterSerialAccessGCFPv(int);
 s32 create_default_callback__22TAdEnterSerialAccessGCFv(void *);
 extern RecoveredGlobal_8032B904_lbl_80477278 enter_password_item_rect_table;
-extern u8 *lbl_805D6CA0;
-extern s32 lbl_805D6CA4;
+extern u8 *password_entry_keyboard_control;
+extern s32 password_entry_dispatch_state;
 void open_keyboard_window__18TAdEnterPasswordGCFPv(s32 arg0);
 void strncpy(s32, s32, s32);
 M2C_UNK memset(void *, int, int);
@@ -102,7 +102,7 @@ s32 TAdEnterBaseGC__ct(void *);
 void set_password__18TAdEnterPasswordGCFi(s32 arg0);
 extern M2C_UNK __vt__18TAdEnterPasswordGC[];
 extern s32 TAdEnterPasswordGC__class_name;
-extern s32 lbl_805D6CA4;
+extern s32 password_entry_dispatch_state;
 u8 *TAdEnterPasswordGC__ct(u8 *arg0);
 s32 get_state_flag__9TMainTaskFv();
 void render__18TAdEnterPasswordGCFv(void *self);
@@ -131,8 +131,8 @@ extern RecoveredGlobal_8032B904_lbl_80477278 enter_password_item_rect_table;
 extern RecoveredGlobal_8032BA8C_TAdEnterPasswordGC__data_804EDA20 TAdEnterPasswordGC__data_804EDA20;
 extern u8 controller_input_state[];
 extern u8 controller_physical_port_bank[];
-extern u8 *lbl_805D6CA0;
-extern s32 lbl_805D6CA4;
+extern u8 *password_entry_keyboard_control;
+extern s32 password_entry_dispatch_state;
 void update_password_input__18TAdEnterPasswordGCFPv(Pw_8032B6A0 *self);
 }
 
@@ -167,14 +167,14 @@ void close_window_and_destroy__18TAdEnterPasswordGCFPv(u8 *arg0) {
         TWindow__close(temp_r3_2);
         M2C_FIELD(arg0, u8 **, 0x34) = NULL;
     }
-    if ((void *) lbl_805D6CA0 != NULL) {
-        queue_destruction__7TObjectFv(lbl_805D6CA0);
-        lbl_805D6CA0 = NULL;
+    if ((void *) password_entry_keyboard_control != NULL) {
+        queue_destruction__7TObjectFv(password_entry_keyboard_control);
+        password_entry_keyboard_control = NULL;
     }
     temp_r4 = M2C_FIELD(arg0, s32 *, 0x24) + 1;
     M2C_FIELD(arg0, s32 *, 0x24) = temp_r4;
     if ((f32) temp_r4 > lbl_805DF780) {
-        lbl_805D6CA4 = M2C_FIELD(arg0, s32 *, 0x20);
+        password_entry_dispatch_state = M2C_FIELD(arg0, s32 *, 0x20);
     }
 }
 
@@ -187,7 +187,7 @@ typedef struct Pw_8032B6A0 Pw_8032B6A0;
 typedef struct RecoveredGlobal_8032B904_lbl_80477278 RecoveredGlobal_8032B904_lbl_80477278;
 typedef struct RecoveredGlobal_8032BA8C_TAdEnterPasswordGC__data_804EDA20 RecoveredGlobal_8032BA8C_TAdEnterPasswordGC__data_804EDA20;
 void update_password_input__18TAdEnterPasswordGCFPv(Pw_8032B6A0 *self) {
-  s32 buf = realloc_buffer__17TWindowSubComCardFPv(lbl_805D6CA0);
+  s32 buf = realloc_buffer__17TWindowSubComCardFPv(password_entry_keyboard_control);
   s32 prev;
   int cur;
   if (((self->len == 0) && (TWindowShortListCtrl__check_controller_button(controller_physical_port_bank + 0x20, 2) != 0)) || ((self->len == 0) && (test_flag_4c__23TAdSinglePlyChrSelectGCFPv(controller_input_state + 0x160, 2) != 0)))
@@ -195,17 +195,17 @@ void update_password_input__18TAdEnterPasswordGCFPv(Pw_8032B6A0 *self) {
     free__11TOBoss4RockFUi(buf);
     memset(&TAdEnterPasswordGC__data_804EDA20.value, 0, 9);
     self->f20 = 2;
-    lbl_805D6CA4 = 4;
+    password_entry_dispatch_state = 4;
     return;
   }
   self->f3C = self->f38;
-  if (lbl_805D6CA0 != 0)
+  if (password_entry_keyboard_control != 0)
   {
-    if (update_keyboard__17TWindowSubComCardFPv(lbl_805D6CA0) != 0)
+    if (update_keyboard__17TWindowSubComCardFPv(password_entry_keyboard_control) != 0)
     {
       if ((TWindowShortListCtrl__check_controller_button(controller_physical_port_bank + 0x20, 2) != 0) || (test_flag_4c__23TAdSinglePlyChrSelectGCFPv(controller_input_state + 0x160, 2) != 0))
       {
-        free_menu_object(lbl_805D6CA0);
+        free_menu_object(password_entry_keyboard_control);
         self->f38 = 0;
         if (self->serial != 0)
         {
@@ -215,7 +215,7 @@ void update_password_input__18TAdEnterPasswordGCFPv(Pw_8032B6A0 *self) {
       else
         if (forward_input__22TAdEnterSerialAccessGCFPv(self, 2, buf) == 0)
       {
-        free_menu_object(lbl_805D6CA0);
+        free_menu_object(password_entry_keyboard_control);
         play_sound_effect(0x53F06, 0, 0, 0);
       }
       else
@@ -255,12 +255,12 @@ void update_password_input__18TAdEnterPasswordGCFPv(Pw_8032B6A0 *self) {
       add_item_rect__12TLevelSelectFPvPv(self->serial, &enter_password_item_rect_table.value);
     }
   }
-  if ((get_selected_slot__23TAdSinglePlyChrSelectGCFPv(self->serial) == 1) && (update_keyboard__17TWindowSubComCardFPv(lbl_805D6CA0) != 0))
+  if ((get_selected_slot__23TAdSinglePlyChrSelectGCFPv(self->serial) == 1) && (update_keyboard__17TWindowSubComCardFPv(password_entry_keyboard_control) != 0))
   {
     strncpy((s32) (&TAdEnterPasswordGC__data_804EDA20.value), buf, 9);
     TAdEnterSerialAccessGC__sub_80322418(get_field_118__22TAdEnterSerialAccessGCFv(), 2);
     self->f20 = 3;
-    lbl_805D6CA4 = 4;
+    password_entry_dispatch_state = 4;
   }
   self->len = strlen(buf);
   free__11TOBoss4RockFUi(buf);
@@ -274,13 +274,13 @@ void open_keyboard_window__18TAdEnterPasswordGCFPv(s32 arg0) {
         add_item_rect__12TLevelSelectFPvPv((int) (M2C_FIELD(arg0, u32 *, 0x2C)), (void *) (&enter_password_item_rect_table.value));
         set_active__22TAdEnterSerialAccessGCFPv((int) (M2C_FIELD(arg0, u32 *, 0x2C)));
     }
-    (*(u32 *)&lbl_805D6CA0) = create_keyboard_control__22TAdEnterSerialAccessGCFii(arg0, 2);
-    lbl_805D6CA4 = 1;
+    (*(u32 *)&password_entry_keyboard_control) = create_keyboard_control__22TAdEnterSerialAccessGCFii(arg0, 2);
+    password_entry_dispatch_state = 1;
 }
 
 void run_task__18TAdEnterPasswordGCFv(TAdEnterPasswordGC_8032B984 *self) {
     fn_8032B318(self, lbl_804ED9F0);
-    self->state = lbl_805D6CA4;
+    self->state = password_entry_dispatch_state;
     static Pmf_8032B984 tbl[5] = {
         (Pmf_8032B984)&TAdEnterPasswordGC::open_keyboard_window,
         (Pmf_8032B984)&TAdEnterPasswordGC::update_password_input,
@@ -288,8 +288,8 @@ void run_task__18TAdEnterPasswordGCFv(TAdEnterPasswordGC_8032B984 *self) {
         (Pmf_8032B984)&TAdEnterPasswordGC::set_multi_chg_game_mode_0x14,
         (Pmf_8032B984)&TAdEnterPasswordGC::close_window_and_destroy,
     };
-    (self->*tbl[lbl_805D6CA4])();
-    if (self->state != lbl_805D6CA4) {
+    (self->*tbl[password_entry_dispatch_state])();
+    if (self->state != password_entry_dispatch_state) {
         self->f24 = 0;
     }
 }
@@ -319,7 +319,7 @@ u8 *TAdEnterPasswordGC__ct(u8 *arg0) {
     M2C_FIELD(arg0, M2C_UNK **, 0x18) = &(*(RecoveredGlobal_8032BB34___vt__18TAdEnterPasswordGC *)&__vt__18TAdEnterPasswordGC).value;
     M2C_FIELD(arg0, s32 *, 0) = (s32) TAdEnterPasswordGC__class_name;
     reset__14TAdEnterBaseGCFPvi((void *) (arg0), (int) (2));
-    lbl_805D6CA4 = 0;
+    password_entry_dispatch_state = 0;
     M2C_FIELD(arg0, s32 *, 0x40) = 0;
     if ((s8) M2C_FIELD(get_instance__23TAdSinglePlyChrSelectGCFv(), u8 *, 0x1154C) != 0) {
         set_password__18TAdEnterPasswordGCFi((s32)((void *) (get_instance__23TAdSinglePlyChrSelectGCFv() + 0x1154C)));

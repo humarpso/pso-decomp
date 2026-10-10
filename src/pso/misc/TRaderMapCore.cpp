@@ -339,7 +339,7 @@ s32 check_flag_100__10TObjPlayerFPv(u32);
 u32 get_player_by_client_id(s32);
 s32 get_flag_bit0__11TWindowCtrlFv();
 s32 all_parents_unqueued_for_destruction__7TObjectFv(void *);
-extern u8 TCameraCtrl__data_804FF628[];
+extern u8 TCameraCtrl__view_state[];
 extern s32 TRaderMapCore__data_805D5F3C;
 extern s32 TRaderMapCore__data_805D5F44;
 s32 is_render_admitted__13TRaderMapCoreFPvPv(void *arg0v, void *arg1);
@@ -1173,7 +1173,7 @@ s32 is_render_admitted__13TRaderMapCoreFPvPv(void *arg0v, void *arg1) {
     if (TCameraCtrl__sub_80069304() != 0 && get_flag_bit0__11TWindowCtrlFv() == 0) {
         return 0;
     }
-    if (TCameraCtrl__data_804FF628[0] == 5 || TCameraCtrl__data_804FF628[0] == 9) {
+    if (TCameraCtrl__view_state[0] == 5 || TCameraCtrl__view_state[0] == 9) {
         ((Radar_801FADF0 *)arg0v)->f184 = 0;
         return 0;
     }

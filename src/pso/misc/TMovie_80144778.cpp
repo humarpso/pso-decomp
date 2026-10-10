@@ -53,8 +53,8 @@ M2C_UNK run_callback__6TMovieFv();
 extern Vec_80144778 lbl_8043F2E8;
 extern Vec_80144778 lbl_8043F2F4;
 extern Vec_80144778 lbl_8043F300;
-extern s32 lbl_805D773C;
-extern s32 lbl_805D7740;
+extern s32 video_initial_draw_framebuffer;
+extern s32 video_initial_display_framebuffer;
 extern const f32 lbl_805DB180;
 extern const f32 lbl_805DB184;
 extern const f32 lbl_805DB188;
@@ -72,7 +72,7 @@ void run_task__6TMovieFv(u8 *arg0) {
     }
     render_tick__Fv();
     render_tick__Fv();
-    calc_frame_buffer_size__6TMovieFii((void *)lbl_805D7740, (void *)lbl_805D773C);
+    calc_frame_buffer_size__6TMovieFii((void *)video_initial_display_framebuffer, (void *)video_initial_draw_framebuffer);
     txt = NULL;
     if (TAdEndText__sub_8001B41C() != 0) {
         p = __nw__7TObjectFUl(0x197C);

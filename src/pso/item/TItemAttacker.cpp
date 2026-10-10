@@ -17,7 +17,7 @@ extern "C" {
 s32 tmp_buf_release__6TLobbyFi(s32);
 void free__11TOBoss4RockFUi(u32);
 extern M2C_UNK lbl_8043E038[];
-extern s32 lbl_805D5410;
+extern s32 item_buffer_temp_mode;
 extern s32 lbl_805D5414;
 void TItemBuff__ct(void);
 M2C_UNK VecCopy__FP3VecPC3Vec(void *, void *);
@@ -96,12 +96,12 @@ void run_task__13TItemAttackerFv(void* p) { if (*(int*)((char*)p + 0x34) != 0) {
 int TItemAttacker__sub_80103548(int a0) {  return item_nj_chunk_buffer_table[a0]; }
 
 extern M2C_UNK lbl_8043E038[];
-extern s32 lbl_805D5410;
+extern s32 item_buffer_temp_mode;
 extern s32 lbl_805D5414;
 
 void TItemBuff__ct(void) {
     if ((u32) (*(u32 *)&lbl_805D5414) != 0) {
-        if ((s32) lbl_805D5410 != 0) {
+        if ((s32) item_buffer_temp_mode != 0) {
             tmp_buf_release__6TLobbyFi((s32) &(*(RecoveredGlobal_8010355C_lbl_8043E038 *)&lbl_8043E038).value);
         } else {
             free__11TOBoss4RockFUi((*(u32 *)&lbl_805D5414));
@@ -116,7 +116,7 @@ s32 create_item_buff(s32 arg0) {
     if (arg0 != 0) {
         TItemBuff__ct();
         temp_r3 = TLobby__sub_8001EEF4();
-        lbl_805D5410 = temp_r3;
+        item_buffer_temp_mode = temp_r3;
         if ((temp_r3 != 0) && (arg0 < 0x40000)) {
             lbl_805D5414 = tmp_buf_use_req__6TLobbyFPv(lbl_8043E038);
         } else {

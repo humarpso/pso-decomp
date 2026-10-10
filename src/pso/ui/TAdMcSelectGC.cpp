@@ -106,13 +106,13 @@ void run_task__13TAdMcSelectGCFv(void *arg0) {
 }
 
 extern M2C_UNK __vt__13TAdMcSelectGC[];
-extern u32 lbl_805D6C88;
+extern u32 TAdMcSelectGC__instance;
 
 void *__dt__13TAdMcSelectGCFv(void *arg0, s16 arg1) {
     if (arg0 != NULL) {
         M2C_FIELD(arg0, M2C_UNK **, 0x18) = __vt__13TAdMcSelectGC;
-        if ((u32) lbl_805D6C88 != 0U) {
-            lbl_805D6C88 = 0U;
+        if ((u32) TAdMcSelectGC__instance != 0U) {
+            TAdMcSelectGC__instance = 0U;
         }
         __dt__7TObjectFv(arg0, 0);
         if (arg1 > 0) {

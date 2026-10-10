@@ -5,13 +5,13 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 #define M2C_BITWISE(type, expr) ((type)(expr))
 
 extern "C" {
-extern s32 lbl_805D53D8;
+extern s32 gstream_buffer_read_offset;
 void TLobby__sub_800FDFEC(void *self, s32 n);
 s32 fn_800FE0A8();
 s32 fn_800FE0C8(s32);
 M2C_UNK move_data__6TLobbyFv(s32, s32, s32);
 extern s32 gstream_tmp_buffer;
-extern s32 lbl_805D53D8;
+extern s32 gstream_buffer_read_offset;
 s32 read_data__8TGStreamFPvii(void *arg0, s32 dst, s32 size);
 }
 
@@ -24,7 +24,7 @@ M2C_UNK run_frame__6TLobbyFv();
 s32 TLobby__sub_803CC4C0(s32);
 M2C_UNK read_checked_align__6TLobbyFiii();
 
-extern s32 lbl_805D53D4;
+extern s32 gstream_read_offset;
 
 void read_data_sync__6TLobbyFiii(s32 arg0, s32 arg1, s32 arg2) {
     s32 sp8;
@@ -38,10 +38,10 @@ loop_1:
         goto loop_1;
     }
     reset_read_state__6TLobbyFv();
-    lbl_805D53D4 += arg1 << 0xB;
+    gstream_read_offset += arg1 << 0xB;
 }
 void TLobby__sub_800FDFEC(void *self, s32 n) {
-    lbl_805D53D8 = n * ((lbl_805D53D8 + n - 1) / n);
+    gstream_buffer_read_offset = n * ((gstream_buffer_read_offset + n - 1) / n);
 }
 s32 read_data__8TGStreamFPvii(void *arg0, s32 dst, s32 size) {
     s32 total;
@@ -56,11 +56,11 @@ s32 read_data__8TGStreamFPvii(void *arg0, s32 dst, s32 size) {
         } else {
             n = fn_800FE0A8();
         }
-        move_data__6TLobbyFv(dst, gstream_tmp_buffer + lbl_805D53D8, n);
+        move_data__6TLobbyFv(dst, gstream_tmp_buffer + gstream_buffer_read_offset, n);
         dst += n;
         size -= n;
         total += n;
-        lbl_805D53D8 += n;
+        gstream_buffer_read_offset += n;
     }
     return total;
 }

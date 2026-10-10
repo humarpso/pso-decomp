@@ -323,7 +323,7 @@ char *strcpy(char *, const char *);
 void TAdSinglePlyChrSelectGC__sub_8042D49C(char *);
 extern Names_8042E628 TAdSinglePlyChrSelectGC__modem_error_correction_names;
 extern char lbl_805D48AC[2];
-extern char lbl_805D4970[7];
+extern char modem_error_correction_command_prefix[7];
 s32 send_at_error_correction_cmd__23TAdSinglePlyChrSelectGCFi(s32 arg0);
 char *strcat(char *, const char *);
 char *strcpy(char *, const char *);

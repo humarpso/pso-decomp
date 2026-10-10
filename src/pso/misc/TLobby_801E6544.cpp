@@ -90,7 +90,7 @@ void append_float_value__6TLobbyFi(s32);
 void append_int_param__6TLobbyFi(s32);
 namespace pf2_p0 { extern "C" { int strcmp(const char *, const char *); } }
 #define strcmp pf2_p0::strcmp
-extern CmdTable_801E6604 lbl_80449C04;
+extern CmdTable_801E6604 message_substitution_handlers;
 void parse_message_tag__6TLobbyFv();
 namespace pf2_p0 { extern "C" { char *get_unit_list__6TLobbyFv(); } }
 #define get_unit_list__6TLobbyFv pf2_p0::get_unit_list__6TLobbyFv
@@ -150,7 +150,7 @@ s32 expand_message_substitutions(s32 arg0, s32 arg1) {
 
 void parse_message_tag__6TLobbyFv() {
     char buf[64];
-    CmdTable_801E6604 tbl = lbl_80449C04;
+    CmdTable_801E6604 tbl = message_substitution_handlers;
     u32 i;
     s32 idx;
     s8 c;
@@ -2874,12 +2874,12 @@ extern int TLobby__menu_state_object;
 extern s32 TLobby__quest_state_object_168;
 extern u32 TLobby__quest_state_object_16c;
 extern u32 TLobby__data_805D5EC4;
-extern s32 TLobby__data_805D6CC0;
-extern s32 TLobby__data_805D6CC8;
+extern s32 gba_download_data_buffer;
+extern s32 gba_download_data_size;
 extern M2C_UNK TLobby__data_805DC4A0;
 extern int evt2_random_enemies_mode;
 extern RecoveredGlobal_8000F7FC_lbl_80515F48 fn_801F3480;
-extern RecoveredGlobal_801F196C_lbl_804499A8 lbl_804499A8;
+extern RecoveredGlobal_801F196C_lbl_804499A8 quest_sound_effect_ids;
 extern Pair_801F1838 lbl_80449A38[];
 extern Tbl_801EDC98 lbl_80449A40;
 extern RecoveredGlobal_801EDC24_lbl_80449A88 lbl_80449A88;
@@ -3112,7 +3112,7 @@ void send_data__6TLobbyFv(void) {
     temp_r31 = (*(struct Glob_80512220 *)&TLobby__quest_argument_stack).field0;
     free_luker_object__6TLobbyFv();
     send_data__6TLobbyFi(temp_r31);
-    set_send_buffer__6TLobbyFPvi(TLobby__data_805D6CC0, TLobby__data_805D6CC8);
+    set_send_buffer__6TLobbyFPvi(gba_download_data_buffer, gba_download_data_size);
     clear_quest_vm_flag__6TLobbyFv();
 }
 
@@ -4220,7 +4220,7 @@ void TLobby__sub_801E9AF8(s32 idx) {
 #pragma inline_depth(1)
 #pragma auto_inline off
 #pragma dont_inline off
-void update_and_apply_alloc__6TLobbyFv(void) { update_alloc_size__6TLobbyFv((void*)0); ((int (*)(void*, void*))set_send_buffer__6TLobbyFPvi)((void*)((*(int *)&TLobby__data_805D6CC0)), (void*)((*(int *)&TLobby__data_805D6CC8))); }
+void update_and_apply_alloc__6TLobbyFv(void) { update_alloc_size__6TLobbyFv((void*)0); ((int (*)(void*, void*))set_send_buffer__6TLobbyFPvi)((void*)((*(int *)&gba_download_data_buffer)), (void*)((*(int *)&gba_download_data_size))); }
 #pragma pop
 
 #pragma push
@@ -8984,7 +8984,7 @@ void qst_op_bgm(void) {
 }
 
 void qst_op_se(void) {
-    play_sound_effect((int) (M2C_FIELD(((u8 *)(&lbl_804499A8.value) + ((*(RecoveredGlobal_801F196C_TLobby__data_80512220 *)&TLobby__quest_argument_stack).value * 4)), s32 *, 0)), (int) (0), (int) (0), (int) (0));
+    play_sound_effect((int) (M2C_FIELD(((u8 *)(&quest_sound_effect_ids.value) + ((*(RecoveredGlobal_801F196C_TLobby__data_80512220 *)&TLobby__quest_argument_stack).value * 4)), s32 *, 0)), (int) (0), (int) (0), (int) (0));
 }
 
 void qst_op_fadeout(void) { init_fadeout_state__6TLobbyFi((void*)0); TLobby__quest_window_state = 8; }

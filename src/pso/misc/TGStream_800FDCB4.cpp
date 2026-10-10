@@ -13,7 +13,7 @@ M2C_UNK run_frame__6TLobbyFv();
 s32 TLobby__sub_803CC4C0(s32);
 M2C_UNK read_checked_align__6TLobbyFiii(s32);
 
-extern s32 lbl_805D53D4;
+extern s32 gstream_read_offset;
 
 void read_sectors_sync__8TGStreamFPvii(u8 *arg0, s32 arg1, s32 arg2) {
     read_checked_align__6TLobbyFiii(M2C_FIELD(arg0, s32 *, 0x20));
@@ -24,7 +24,7 @@ loop_1:
         goto loop_1;
     }
     reset_read_state__6TLobbyFv();
-    lbl_805D53D4 += arg1 << 0xB;
+    gstream_read_offset += arg1 << 0xB;
 }
 
 }

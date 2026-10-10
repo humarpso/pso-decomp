@@ -76,18 +76,18 @@ void GXSetPixelFmt(int, int);
 void GXSetScissor(u32, u32, u32, u32);
 Tlut_803DD0D8 *fn_803DD3C8(s32);
 
-extern s32 *lbl_805D7734;
-extern void *lbl_805D7738;
-extern void *lbl_805D773C;
-extern void *lbl_805D7740;
+extern s32 *active_gx_render_mode;
+extern void *video_current_framebuffer;
+extern void *video_initial_draw_framebuffer;
+extern void *video_initial_display_framebuffer;
 extern u8 lbl_805D46C8;
-extern RecoveredCallback_2be3cacebb2e lbl_805D7718;
-extern u32 lbl_805D772C;
-extern s32 lbl_805D7730;
-extern s32 lbl_805D7724;
-extern s32 lbl_805D7728;
-extern s32 lbl_805D7750;
-extern s32 lbl_805D7754;
+extern RecoveredCallback_2be3cacebb2e frame_update_callback;
+extern u32 last_present_retrace_count;
+extern s32 video_present_interval_retraces;
+extern s32 gx_fifo_buffer_size;
+extern s32 gx_fifo_buffer;
+extern s32 display_heap_size;
+extern s32 locked_cache_heap_handle;
 extern M2C_UNK lbl_8058D340[];
 extern Tlut_803DD0D8 lbl_8058CE40[];
 extern void *lbl_805D771C;
@@ -107,10 +107,10 @@ void fn_803DD294(void);
 extern "C" {
 
 
-#define lbl_805D7734 ((RMode_803DCDFC *)lbl_805D7734)
+#define active_gx_render_mode ((RMode_803DCDFC *)active_gx_render_mode)
 
 void func_803DCDFC__Fv(void) {
-    RMode_803DCDFC *rmode = lbl_805D7734;
+    RMode_803DCDFC *rmode = active_gx_render_mode;
     if (rmode->field_rendering) {
         GXSetViewportJitter(0.0f, 0.0f, rmode->fbWidth, rmode->efbHeight, 0.0f, 1.0f, VIGetNextField());
     } else {
@@ -119,14 +119,14 @@ void func_803DCDFC__Fv(void) {
     GXInvalidateVtxCache();
     GXInvalidateTexAll();
 }
-#undef lbl_805D7734
+#undef active_gx_render_mode
 
 
 
 void fn_803DCEC8(void) {
     GXSetZMode(1, 3, 1);
     GXSetColorUpdate(1);
-    GXCopyDisp(lbl_805D7738, 1);
+    GXCopyDisp(video_current_framebuffer, 1);
     GXDrawDone();
 }
 
@@ -139,33 +139,33 @@ void fn_803DCF0C(void) {
 
 void present_frame_and_wait_vsync(void) {
     s32 level;
-    VISetNextFrameBuffer(lbl_805D7738);
+    VISetNextFrameBuffer(video_current_framebuffer);
     if (lbl_805D46C8 != 0) {
         VISetBlack(0);
         lbl_805D46C8 = 0;
     }
     level = OSDisableInterrupts();
-    while (VIGetRetraceCount() < lbl_805D772C + lbl_805D7730 - 1) {
+    while (VIGetRetraceCount() < last_present_retrace_count + video_present_interval_retraces - 1) {
         VIWaitForRetrace();
     }
     OSRestoreInterrupts(level);
     VIFlush();
     VIWaitForRetrace();
-    lbl_805D772C = VIGetRetraceCount();
-    if (lbl_805D7718 != NULL) {
-        lbl_805D7718();
+    last_present_retrace_count = VIGetRetraceCount();
+    if (frame_update_callback != NULL) {
+        frame_update_callback();
     }
-    lbl_805D7738 = (lbl_805D7738 == lbl_805D7740) ? lbl_805D773C : lbl_805D7740;
+    video_current_framebuffer = (video_current_framebuffer == video_initial_display_framebuffer) ? video_initial_draw_framebuffer : video_initial_display_framebuffer;
 }
 
 
-#define lbl_805D7718 (*(M2C_UNK (**)())&lbl_805D7718)
-#define lbl_805D7738 (*(s32 *)&lbl_805D7738)
-#define lbl_805D773C (*(s32 *)&lbl_805D773C)
-#define lbl_805D7740 (*(s32 *)&lbl_805D7740)
+#define frame_update_callback (*(M2C_UNK (**)())&frame_update_callback)
+#define video_current_framebuffer (*(s32 *)&video_current_framebuffer)
+#define video_initial_draw_framebuffer (*(s32 *)&video_initial_draw_framebuffer)
+#define video_initial_display_framebuffer (*(s32 *)&video_initial_display_framebuffer)
 void run_callback__6TMovieFv(void) {
-    if (((M2C_UNK (*)()) lbl_805D7718) != NULL) {
-        lbl_805D7718();
+    if (((M2C_UNK (*)()) frame_update_callback) != NULL) {
+        frame_update_callback();
     }
 }
 
@@ -174,42 +174,42 @@ void init_locked_cache_heap(u8 *arg0) {
     s32 temp_r3;
 
     LCEnable();
-    lbl_805D7740 = M2C_FIELD(arg0, s32 *, 8);
+    video_initial_display_framebuffer = M2C_FIELD(arg0, s32 *, 8);
     temp_r0 = M2C_FIELD(arg0, s32 *, 0xC);
-    lbl_805D773C = temp_r0;
-    lbl_805D7738 = temp_r0;
-    lbl_805D7728 = M2C_FIELD(arg0, s32 *, 0x10);
-    lbl_805D7724 = M2C_FIELD(arg0, s32 *, 0x14);
+    video_initial_draw_framebuffer = temp_r0;
+    video_current_framebuffer = temp_r0;
+    gx_fifo_buffer = M2C_FIELD(arg0, s32 *, 0x10);
+    gx_fifo_buffer_size = M2C_FIELD(arg0, s32 *, 0x14);
     temp_r3 = M2C_FIELD(arg0, s32 *, 0x18);
-    lbl_805D7754 = OSCreateHeap((int) (temp_r3), (int) (temp_r3 + M2C_FIELD(arg0, s32 *, 0x1C)));
-    lbl_805D7750 = M2C_FIELD(arg0, s32 *, 0x1C);
+    locked_cache_heap_handle = OSCreateHeap((int) (temp_r3), (int) (temp_r3 + M2C_FIELD(arg0, s32 *, 0x1C)));
+    display_heap_size = M2C_FIELD(arg0, s32 *, 0x1C);
 }
 
 
-#define lbl_805D772C (*(s32 *)&lbl_805D772C)
+#define last_present_retrace_count (*(s32 *)&last_present_retrace_count)
 
 void set_present_interval(M2C_UNK *arg0, s32 arg1) {
     s32 var_r4;
     var_r4 = arg1;
     if (arg0 != NULL) {
-        (*(M2C_UNK * *)&lbl_805D7734) = arg0;
+        (*(M2C_UNK * *)&active_gx_render_mode) = arg0;
     } else {
-        get_render_mode_for_tv_format((GXRenderModeObj_803DD430 *) ((*(M2C_UNK * *)&lbl_805D7734)), (GXRenderModeObj_803DD430 *) (lbl_8058D340));
-        (*(M2C_UNK * *)&lbl_805D7734) = lbl_8058D340;
+        get_render_mode_for_tv_format((GXRenderModeObj_803DD430 *) ((*(M2C_UNK * *)&active_gx_render_mode)), (GXRenderModeObj_803DD430 *) (lbl_8058D340));
+        (*(M2C_UNK * *)&active_gx_render_mode) = lbl_8058D340;
         var_r4 = 1;
     }
-    lbl_805D7730 = var_r4;
-    lbl_805D772C = VIGetRetraceCount();
+    video_present_interval_retraces = var_r4;
+    last_present_retrace_count = VIGetRetraceCount();
 }
 
-#define rmode ((RMode_803DD0D8 *)lbl_805D7734)
+#define rmode ((RMode_803DD0D8 *)active_gx_render_mode)
 
 void init_gx_display(void) {
     s32 i;
     s32 n;
     u32 addr;
 
-    lbl_805D771C = lbl_805D7720 = GXInit(lbl_805D7728, lbl_805D7724);
+    lbl_805D771C = lbl_805D7720 = GXInit(gx_fifo_buffer, gx_fifo_buffer_size);
     GXSetViewport(0.0f, 0.0f, rmode->fbWidth, rmode->efbHeight, 0.0f, 1.0f);
     GXSetScissor(0, 0, rmode->fbWidth, rmode->efbHeight);
     GXSetDispCopySrc(0, 0, rmode->fbWidth, rmode->efbHeight);
@@ -232,25 +232,25 @@ void init_gx_display(void) {
         addr += 0x2000;
     }
     GXSetTlutRegionCallback((void *)fn_803DD3C8);
-    GXCopyDisp((void *)lbl_805D7738, 1);
+    GXCopyDisp((void *)video_current_framebuffer, 1);
 }
 #undef rmode
 
 
 void fn_803DD294(void) {
-    VISetNextFrameBuffer((void *) (lbl_805D7740));
-    lbl_805D7738 = lbl_805D773C;
+    VISetNextFrameBuffer((void *) (video_initial_display_framebuffer));
+    video_current_framebuffer = video_initial_draw_framebuffer;
     VIFlush();
     VIWaitForRetrace();
-    if ((u32) (*lbl_805D7734 & 1) != 0) {
+    if ((u32) (*active_gx_render_mode & 1) != 0) {
         VIWaitForRetrace();
     }
 }
-#undef lbl_805D772C
-#undef lbl_805D7718
-#undef lbl_805D7738
-#undef lbl_805D773C
-#undef lbl_805D7740
+#undef last_present_retrace_count
+#undef frame_update_callback
+#undef video_current_framebuffer
+#undef video_initial_draw_framebuffer
+#undef video_initial_display_framebuffer
 
 }
 
@@ -410,7 +410,7 @@ void set_key_state__16TKeyBoardControlFi(s32 arg0);
 
 
 void set_key_state__16TKeyBoardControlFi(s32 arg0) {
-    *(s32 *)&lbl_805D7718 = arg0;
+    *(s32 *)&frame_update_callback = arg0;
 }
 
 }

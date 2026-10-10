@@ -24,7 +24,7 @@ extern "C" {
 void VecCopy__FP3VecPC3Vec(void *, void *);
 void init_xyz_limits__10TObjPlayerFv(void);
 void draw_trail_strip__10TObjPlayerFPvPvi(void *, s32, s32);
-extern Vec_8009F7AC lbl_804FF61C;
+extern Vec_8009F7AC camera_pitch_rotated_up_vector;
 extern const f32 lbl_805D9938;
 void TCameraCtrl__sub_8009F7AC(Trail_8009F7AC *o);
 }
@@ -48,7 +48,7 @@ void TCameraCtrl__sub_8009F7AC(Trail_8009F7AC *o) {
     if (o->head == last) {
         return;
     }
-    VecCopy__FP3VecPC3Vec(&up, &lbl_804FF61C);
+    VecCopy__FP3VecPC3Vec(&up, &camera_pitch_rotated_up_vector);
     v = o->verts;
     if (o->head > last) {
         n = o->count + (o->cap - o->head);

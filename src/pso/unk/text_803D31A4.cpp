@@ -56,7 +56,7 @@ int vsprintf(char *s, const char *fmt, va_list ap);
 extern M2C_UNK lbl_805D765C;
 void TLobby__sub_803D38B4(const char *fmt, ...);
 char *strncpy(char *, const char *, unsigned long);
-extern char lbl_8047DEF0[];
+extern char svm_invalid_callback_server_id_error[];
 extern char lbl_8047DF14[];
 extern P_803D33D4 lbl_805D7664;
 extern P_803D33E4 lbl_805D766C;
@@ -167,7 +167,7 @@ void TLobby__sub_803D34B0(s32 arg0, void (*arg1)(s32), s32 arg2) {
 void SVM_SetCbSvrId__6TLobbyFiiii(s32 arg0, s32 arg1, s32 fn, s32 arg) {
     Cb_803D3678 *c;
     if (arg1 < 0 || arg1 >= 4) {
-        strncpy((char *)svm_callback_message_buffer, lbl_8047DEF0, 0xFF);
+        strncpy((char *)svm_callback_message_buffer, svm_invalid_callback_server_id_error, 0xFF);
         if (CB765C.fn != 0) {
             CB765C.fn(CB765C.arg, svm_callback_message_buffer);
         }

@@ -109,8 +109,8 @@ void GXLoadLightObjImm(void *lt_obj, int light);
 void GXSetChanAmbColor(int chan, GXColor_8000FA00 amb_color);
 void GXSetChanMatColor(int chan, GXColor_8000FA00 mat_color);
 extern u8 gx_default_light_obj[];
-extern void *lbl_805D773C;
-extern void *lbl_805D7740;
+extern void *video_initial_draw_framebuffer;
+extern void *video_initial_display_framebuffer;
 extern GXColor_8000FA00 lbl_805D7D00;
 extern GXColor_8000FA00 lbl_805D7D04;
 extern GXColor_8000FA00 lbl_805D7D08;
@@ -375,8 +375,8 @@ void init_gx_lighting_defaults(void) {
     GXSetChanAmbColor(0, c0);
     GXSetChanAmbColor(2, c2);
     GXSetChanMatColor(4, c1);
-    GXCopyDisp(lbl_805D7740, 1);
-    GXCopyDisp(lbl_805D773C, 1);
+    GXCopyDisp(video_initial_display_framebuffer, 1);
+    GXCopyDisp(video_initial_draw_framebuffer, 1);
     set_cull_none__8TObjFishFv();
 }
 void init_game_systems(void) {

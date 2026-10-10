@@ -21,7 +21,7 @@ void *load_resource_from_descriptor(void *, s32, void *, s32, s32, s32);
 void *alloc__23TAdSinglePlyChrSelectGCFPv(s32);
 u32 load_gvm_texture_file(void *);
 s32 get_global_state__14TOKeyMachine01Fv();
-extern u8 lbl_80444F30[];
+extern u8 seabed_rare_console_texture_filename[];
 extern u8 lbl_80444F48[];
 extern u8 lbl_804B636C[];
 extern u8 lbl_804B63AC[];
@@ -63,7 +63,7 @@ void load_console_resources__6TLobbyFv(void) {
             p = load_resource_from_descriptor(p, 5, lbl_804B63AC, 0, 0, 0);
         }
         lbl_805D5B88 = (u32)p;
-        lbl_805D5B8C = load_gvm_texture_file(lbl_80444F30);
+        lbl_805D5B8C = load_gvm_texture_file(seabed_rare_console_texture_filename);
         break;
     case 30:
     default:

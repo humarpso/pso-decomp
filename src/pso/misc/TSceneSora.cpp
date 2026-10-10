@@ -41,13 +41,13 @@ struct Res_80207478 { void *buf; s32 n; };
 extern "C" {
 u8 * TLobby__sub_8001FE7C(void *, s16);
 extern s32 TSceneSora__sky_active_flag;
-extern s32 TSceneSora__data_805D6050;
-extern u32 TSceneSora__data_805D6054;
+extern s32 TSceneSora__instance;
+extern u32 TSceneSora__sky_bml_resource;
 void TSceneSora__sub_80207430(void);
 u8 * destroy_particle__13TParticleCtrlFPvs(void *, s16);
 M2C_UNK __dl__7TObjectFPv(void *);
 extern RecoveredGlobal_802072E0___vt__10TSceneSora __vt__10TSceneSora;
-extern s32 TSceneSora__data_805D6050;
+extern s32 TSceneSora__instance;
 u8 *__dt__10TSceneSoraFv(u8 *arg0, s16 arg1);
 void TLobby__sub_80141038(void *, s32, s32);
 s32 get_floor_map_terrain(s32);
@@ -61,8 +61,8 @@ s32 get_bml_model(int, int);
 s32 construct_world_actor_base(void *);
 extern RecoveredGlobal_802072E0___vt__10TSceneSora __vt__10TSceneSora;
 extern s32 lbl_805D3624;
-extern u32 TSceneSora__data_805D6054;
-extern s32 lbl_805D6058;
+extern u32 TSceneSora__sky_bml_resource;
+extern s32 TSceneSora__has_sky_motion;
 extern const f32 lbl_805DC608;
 extern const f32 lbl_805DC60C;
 u8 *TSceneSora__ct(u8 *arg0, s32 _w1);
@@ -76,7 +76,7 @@ M2C_UNK begin_effect_render__13TParticleCtrlFv();
 M2C_UNK end_effect_render__13TParticleCtrlFv();
 M2C_UNK set_global_param__8TObjFishFi();
 extern s32 TSceneSora__sky_active_flag;
-extern u32 TSceneSora__data_805D6054;
+extern u32 TSceneSora__sky_bml_resource;
 void render__10TSceneSoraFv(u8 *arg0);
 s32 get_global_state__14TOKeyMachine01Fv();
 extern const f32 lbl_805DC608;
@@ -95,9 +95,9 @@ extern char lbl_8044A9D0[];
 extern char lbl_8044A9D8[];
 extern char lbl_8044A9E0[];
 extern s32 TSceneSora__sky_active_flag;
-extern s32 TSceneSora__data_805D6050;
-extern u32 TSceneSora__data_805D6054;
-extern s32 lbl_805D6058;
+extern s32 TSceneSora__instance;
+extern u32 TSceneSora__sky_bml_resource;
+extern s32 TSceneSora__has_sky_motion;
 void load_sky_resources__10TSceneSoraFv(void);
 }
 
@@ -107,8 +107,8 @@ void TLobby__sub_802075F4(void);
 void create_instance__10TSceneSoraFv(void);
 s32 __nw__7TObjectFUl(M2C_UNK);
 
-extern s32 TSceneSora__data_805D6050;
-extern u32 TSceneSora__data_805D6054;
+extern s32 TSceneSora__instance;
+extern u32 TSceneSora__sky_bml_resource;
 extern s32 tl_05;
 
 typedef char RecoveredGlobal_802072E0___vt__10TSceneSora_size[sizeof(RecoveredGlobal_802072E0___vt__10TSceneSora) == 0x38 ? 1 : -1];
@@ -116,7 +116,7 @@ typedef char RecoveredGlobal_802072E0___vt__10TSceneSora_size[sizeof(RecoveredGl
 void render__10TSceneSoraFv(u8 *arg0) {
     if ((s32) TSceneSora__sky_active_flag != 0) {
         begin_effect_render__13TParticleCtrlFv();
-        TObjFish__sub_8001EDB0((int) ((*(s32 *)&TSceneSora__data_805D6054)), (int) (0));
+        TObjFish__sub_8001EDB0((int) ((*(s32 *)&TSceneSora__sky_bml_resource)), (int) (0));
         set_global_param__8TObjFishFi();
         push_matrix();
         rotate_matrix_y((int) (0), (int) (M2C_FIELD(arg0, s32 *, 0x60)));
@@ -149,7 +149,7 @@ void run_task__10TSceneSoraFv(TSceneSora_80207238 *sky) {
 u8 *__dt__10TSceneSoraFv(u8 *arg0, s16 arg1) {
     if (arg0 != NULL) {
         M2C_FIELD(arg0, M2C_UNK **, 0x18) = &__vt__10TSceneSora.value;
-        TSceneSora__data_805D6050 = 0;
+        TSceneSora__instance = 0;
         destroy_particle__13TParticleCtrlFPvs(arg0, 0);
         if (arg1 > 0) {
             __dl__7TObjectFPv((void *) (arg0));
@@ -163,13 +163,13 @@ u8 *TSceneSora__ct(u8 *arg0, s32 _w1) {
     construct_world_actor_base((void *) (arg0));
     M2C_FIELD(arg0, M2C_UNK **, 0x18) = &(*(RecoveredGlobal_80207340___vt__10TSceneSora *)&__vt__10TSceneSora).value;
     M2C_FIELD(arg0, s32 *, 0) = lbl_805D3624;
-    M2C_FIELD(arg0, s32 *, 0x90) = get_bml_model((int) ((*(s32 *)&TSceneSora__data_805D6054)), (int) (0));
-    if (lbl_805D6058 != 0) {
-        M2C_FIELD(arg0, s32 *, 0x94) = get_bml_motion((int) ((*(s32 *)&TSceneSora__data_805D6054)), (int) (0));
+    M2C_FIELD(arg0, s32 *, 0x90) = get_bml_model((int) ((*(s32 *)&TSceneSora__sky_bml_resource)), (int) (0));
+    if (TSceneSora__has_sky_motion != 0) {
+        M2C_FIELD(arg0, s32 *, 0x94) = get_bml_motion((int) ((*(s32 *)&TSceneSora__sky_bml_resource)), (int) (0));
     } else {
         M2C_FIELD(arg0, s32 *, 0x94) = 0;
     }
-    M2C_FIELD(arg0, s32 *, 0x98) = TObjFish__sub_8001EDB0((int) ((*(s32 *)&TSceneSora__data_805D6054)), (int) (0));
+    M2C_FIELD(arg0, s32 *, 0x98) = TObjFish__sub_8001EDB0((int) ((*(s32 *)&TSceneSora__sky_bml_resource)), (int) (0));
     M2C_FIELD(arg0, f32 *, 0x9C) = lbl_805DC60C;
     M2C_FIELD(arg0, f32 *, 0xA0) = lbl_805DC608;
     return arg0;
@@ -178,24 +178,24 @@ u8 *TSceneSora__ct(u8 *arg0, s32 _w1) {
 void create_instance__10TSceneSoraFv(void) {
     s32 var_r3;
 
-    if ((u32) TSceneSora__data_805D6054 != 0U) {
+    if ((u32) TSceneSora__sky_bml_resource != 0U) {
         var_r3 = __nw__7TObjectFUl(0xA4);
         if (var_r3 != 0) {
             var_r3 = ((s32)TSceneSora__ct((u8 *)(var_r3), (s32)(tl_05)));
         }
-        TSceneSora__data_805D6050 = var_r3;
+        TSceneSora__instance = var_r3;
         return;
     }
-    TSceneSora__data_805D6050 = 0;
+    TSceneSora__instance = 0;
 }
 
 void TSceneSora__sub_80207430(void) {
     TSceneSora__sky_active_flag = 1;
-    if ((void *) (*(u8 * *)&TSceneSora__data_805D6054) != NULL) {
-        TLobby__sub_8001FE7C((*(u8 * *)&TSceneSora__data_805D6054), 1);
-        (*(u8 * *)&TSceneSora__data_805D6054) = NULL;
+    if ((void *) (*(u8 * *)&TSceneSora__sky_bml_resource) != NULL) {
+        TLobby__sub_8001FE7C((*(u8 * *)&TSceneSora__sky_bml_resource), 1);
+        (*(u8 * *)&TSceneSora__sky_bml_resource) = NULL;
     }
-    TSceneSora__data_805D6050 = 0;
+    TSceneSora__instance = 0;
 }
 
 void load_sky_resources__10TSceneSoraFv(void) {
@@ -208,9 +208,9 @@ void load_sky_resources__10TSceneSoraFv(void) {
     s32 ok;
     void *p;
     u32 o;
-    TSceneSora__data_805D6050 = 0;
-    TSceneSora__data_805D6054 = 0;
-    lbl_805D6058 = 0;
+    TSceneSora__instance = 0;
+    TSceneSora__sky_bml_resource = 0;
+    TSceneSora__has_sky_motion = 0;
     if (lookup_scene_object__6TLobbyFPv(get_current_floor(), &ref) != 0) {
         ok = 0;
         tbl = get_floor_scene_table(ref.id);
@@ -232,7 +232,7 @@ void load_sky_resources__10TSceneSoraFv(void) {
         p = adxf_open__6TLobbyFUii(name1, 0);
         if (p != NULL) {
             a.buf = name1;
-            lbl_805D6058 = 1;
+            TSceneSora__has_sky_motion = 1;
             close_adxf_handle__6TLobbyFPv(p);
         } else {
             a.buf = NULL;
@@ -243,7 +243,7 @@ void load_sky_resources__10TSceneSoraFv(void) {
         if (o != 0) {
             o = TLobby__sub_8002058C((void *)o, 1, &b, &a, 0, 0, 0);
         }
-        TSceneSora__data_805D6054 = o;
+        TSceneSora__sky_bml_resource = o;
         TSceneSora__sky_active_flag = 1;
     }
 }
