@@ -60,7 +60,7 @@ extern u8 TODoorCave01__resource_descriptor[];
 extern u8 cave_door01_resource_descriptor[];
 extern s32 enable_v2_features;
 extern u32 lbl_805D5958;
-extern s32 *TODoorCave01__data_805D595C;
+extern s32 *TODoorCave01__texture_lists;
 void load_resources__12TODoorCave01Fv(void);
 }
 
@@ -77,14 +77,14 @@ M2C_UNK free__11TOBoss4RockFUi(void*);
 M2C_UNK free_if_valid__10TObjPlayerFi(s32);
 
 extern u32 lbl_805D5958;
-extern s32 *TODoorCave01__data_805D595C;
+extern s32 *TODoorCave01__texture_lists;
 
 void free_resources__12TODoorCave01Fv(void) {
-    if ((s32 *) TODoorCave01__data_805D595C != NULL) {
-        free_if_valid__10TObjPlayerFi(*TODoorCave01__data_805D595C);
-        if ((s32 *) TODoorCave01__data_805D595C != NULL) {
-            free__11TOBoss4RockFUi((void*)TODoorCave01__data_805D595C);
-            TODoorCave01__data_805D595C = NULL;
+    if ((s32 *) TODoorCave01__texture_lists != NULL) {
+        free_if_valid__10TObjPlayerFi(*TODoorCave01__texture_lists);
+        if ((s32 *) TODoorCave01__texture_lists != NULL) {
+            free__11TOBoss4RockFUi((void*)TODoorCave01__texture_lists);
+            TODoorCave01__texture_lists = NULL;
         }
     }
     if ((u32) lbl_805D5958 != 0U) {
@@ -97,23 +97,23 @@ extern M2C_UNK __vt__12TODoorCave01[];
 
 void load_resources__12TODoorCave01Fv(void) {
     void *o;
-    TODoorCave01__data_805D595C = alloc_buffer__11TOBoss4RockFPv(8);
+    TODoorCave01__texture_lists = alloc_buffer__11TOBoss4RockFPv(8);
     if (enable_v2_features != 0 && is_online_ready__6TLobbyFv() != 0) {
         o = alloc__23TAdSinglePlyChrSelectGCFPv(0x440);
         if (o != NULL) {
             o = load_resource_from_descriptor(o, 1, cave_door01_resource_descriptor, 0, 0, 0);
         }
         lbl_805D5958 = (u32)o;
-        TODoorCave01__data_805D595C[0] = load_gvm_texture_file(lbl_80440D7C);
+        TODoorCave01__texture_lists[0] = load_gvm_texture_file(lbl_80440D7C);
     } else {
         o = alloc__23TAdSinglePlyChrSelectGCFPv(0x440);
         if (o != NULL) {
             o = load_resource_from_descriptor(o, 1, TODoorCave01__resource_descriptor, 0, 0, 0);
         }
         lbl_805D5958 = (u32)o;
-        TODoorCave01__data_805D595C[0] = load_gvm_texture_file(lbl_80440D94);
+        TODoorCave01__texture_lists[0] = load_gvm_texture_file(lbl_80440D94);
     }
-    TODoorCave01__data_805D595C[1] = M2C_FIELD(M2C_FIELD(lbl_805D5958, void **, 0x42C), s32 *, 0xC);
+    TODoorCave01__texture_lists[1] = M2C_FIELD(M2C_FIELD(lbl_805D5958, void **, 0x42C), s32 *, 0xC);
 }
 
 void *__dt__12TODoorCave01Fv(void *arg0, s16 arg1) {

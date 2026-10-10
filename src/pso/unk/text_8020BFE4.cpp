@@ -19,7 +19,7 @@ extern "C" {
 s32 get_current_floor(void);
 extern QuestSavedEnemyFloor_8020C1F0 TLobby__floor_enemy_group_table[];
 extern QuestEnemyRow_8020C1F0 *TLobby__data_805D6114;
-extern s32 TLobby__data_805D6118;
+extern s32 TLobby__current_floor_enemy_set_count;
 s32 is_room_enemy_set_cleared(s32 floor, s16 room);
 extern Ent_8020BFE4 *enemy_factory_area_table[];
 s32 get_enemy_factory_child_count(s32 arg0, s16 *arg1);
@@ -27,12 +27,12 @@ extern Ent_8020C030 *TLobby__floor_object_factory_tables[];
 s32 find_floor_object_factory__6TLobbyFiPv(s32 arg0, s16 *arg1);
 s32 get_current_floor(void);
 extern Ent_8020C07C *TLobby__data_805D610C;
-extern s32 TLobby__data_805D6110;
+extern s32 TLobby__current_floor_object_set_count;
 void TLobby__sub_8020C07C(s32 pl, s16 b, s16 a, s32 mask, s32 set);
 s32 get_current_floor(void);
 extern QuestSavedEnemyFloor_8020C1F0 TLobby__floor_enemy_group_table[];
 extern QuestEnemyRow_8020C1F0 *TLobby__data_805D6114;
-extern s32 TLobby__data_805D6118;
+extern s32 TLobby__current_floor_enemy_set_count;
 s32 count_quest_enemies_flag8__6TLobbyFv(void);
 }
 
@@ -64,7 +64,7 @@ void TLobby__sub_8020C07C(s32 pl, s16 b, s16 a, s32 mask, s32 set) {
     if (pl == get_current_floor()) {
         Ent_8020C07C *p = TLobby__data_805D610C;
         s32 i;
-        for (i = 0; i < TLobby__data_805D6110; i++, p++) {
+        for (i = 0; i < TLobby__current_floor_object_set_count; i++, p++) {
             if (p->b == b && p->a == a) {
                 p->flags &= mask;
                 p->flags |= set;
@@ -78,7 +78,7 @@ s32 count_quest_enemies_flag8__6TLobbyFv(void) {
     s32 i;
     s32 j;
     if (TLobby__data_805D6114 != NULL) {
-        for (j = 0; j < TLobby__data_805D6118; j++) {
+        for (j = 0; j < TLobby__current_floor_enemy_set_count; j++) {
             QuestEnemyRow_8020C1F0 *a = &TLobby__data_805D6114[j];
             if (*(s16 *)&a->type != -1 && (a->flags & 8)) {
                 n++;
@@ -106,7 +106,7 @@ s32 is_room_enemy_set_cleared(s32 floor, s16 room) {
     s32 i;
     if (floor == get_current_floor()) {
         if (TLobby__data_805D6114 != NULL) {
-            for (i = 0; i < TLobby__data_805D6118; i++) {
+            for (i = 0; i < TLobby__current_floor_enemy_set_count; i++) {
                 QuestEnemyRow_8020C1F0 *row = &TLobby__data_805D6114[i];
                 if (room == row->room && !(row->flags & 8)) {
                     return 0;

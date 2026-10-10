@@ -6,7 +6,7 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 
 extern "C" {
 extern s32 gstream_buffer_read_offset;
-void TLobby__sub_800FDFEC(void *self, s32 n);
+void align_gstream_read_offset(void *self, s32 n);
 s32 fn_800FE0A8();
 s32 fn_800FE0C8(s32);
 M2C_UNK move_data__6TLobbyFv(s32, s32, s32);
@@ -40,7 +40,7 @@ loop_1:
     reset_read_state__6TLobbyFv();
     gstream_read_offset += arg1 << 0xB;
 }
-void TLobby__sub_800FDFEC(void *self, s32 n) {
+void align_gstream_read_offset(void *self, s32 n) {
     gstream_buffer_read_offset = n * ((gstream_buffer_read_offset + n - 1) / n);
 }
 s32 read_data__8TGStreamFPvii(void *arg0, s32 dst, s32 size) {

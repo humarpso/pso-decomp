@@ -108,7 +108,7 @@ s32 check_flag_100__10TObjPlayerFPv();
 s32 is_flag_400_set__10TObjPlayerFPv(void *);
 s32 test_flag_2000000__10TObjPlayerFPv(void *);
 
-extern s32 lbl_805D3458;
+extern s32 quest_warp_enabled;
 extern s32 lbl_805D55C0;
 
 u8 can_warp__11TObjMapWarpFiUs(s32 arg0, u16 arg1) {
@@ -120,7 +120,7 @@ u8 can_warp__11TObjMapWarpFiUs(s32 arg0, u16 arg1) {
     if ((id != 0xFFFF) &&((var_r31 = get_player_by_client_id(id), ((var_r31 == NULL) != 0)) || (check_flag_100__10TObjPlayerFPv() != 0))) {
         return 0U;
     }
-    if ((s32) lbl_805D3458 == 0) {
+    if ((s32) quest_warp_enabled == 0) {
         return 0U;
     }
     if ((s32) lbl_805D55C0 != 0) {
@@ -189,7 +189,7 @@ void *__dt__11TObjMapWarpFv(void *arg0, s16 arg1) {
     return arg0;
 }
 
-extern s32 lbl_805D3458;
+extern s32 quest_warp_enabled;
 extern s32 lbl_805D55C0;
 
 typedef char RecoveredGlobal_8019D850_lbl_8050E208_size[sizeof(RecoveredGlobal_8019D850_lbl_8050E208) == 0x1B0 ? 1 : -1];
@@ -228,7 +228,7 @@ u8 TObjWarpBase__vt13(void *arg0) {
     if ((id != 0xFFFF) && ((var_r31 = get_player_by_client_id(id), ((var_r31 == NULL) != 0)) || (check_flag_100__10TObjPlayerFPv() != 0))) {
         return 0U;
     }
-    if ((s32) lbl_805D3458 == 0) {
+    if ((s32) quest_warp_enabled == 0) {
         return 0U;
     }
     if ((s32) lbl_805D55C0 != 0) {

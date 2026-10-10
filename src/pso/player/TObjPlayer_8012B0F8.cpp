@@ -8,11 +8,11 @@ void *TObjPlayer__sub_8012B0F8(void *arg0);
 void TItemWeapon__ct(void *);
 void set_status_flags__10TObjPlayerFPvUi(void *, int);
 
-extern M2C_UNK lbl_804A4C78[];
+extern M2C_UNK p_arms_blade_weapon_vtable[];
 
 void *TObjPlayer__sub_8012B0F8(void *arg0) {
     TItemWeapon__ct(arg0);
-    M2C_FIELD(arg0, M2C_UNK **, 0x18) = lbl_804A4C78;
+    M2C_FIELD(arg0, M2C_UNK **, 0x18) = p_arms_blade_weapon_vtable;
     set_status_flags__10TObjPlayerFPvUi(arg0, 513);
     return arg0;
 }

@@ -187,7 +187,7 @@ M2C_UNK check_object_collisions__10TObjPlayerFPv(void *);
 M2C_UNK submit_cursor_candidate(void *, int);
 M2C_UNK minimap_render_dot(void *, int, int, int);
 void TObjEneGibbles__sub_802D7DAC(s32 arg0);
-extern u8 *TObjEneGibbles__data_805D68B4;
+extern u8 *TObjEneGibbles__ai_parameters;
 extern const f32 TObjEneGibbles__data_805DE7E4;
 extern const f32 lbl_805DE860;
 extern const f32 lbl_805DE864;
@@ -213,12 +213,12 @@ s32 push_matrix_from(void *);
 s32 pop_matrix();
 M2C_UNK set_global_param__8TObjFishFi(s32);
 M2C_UNK set_global_state__16TObjEneRe7BeruraFi(void *);
-void update_spawn_timer__14TObjEneGibblesFv(void);
+void gibbles_render_node_callback(void);
 extern s32 lbl_805D5660;
 extern s32 lbl_805D5664;
 extern s32 lbl_805D5668;
-extern s32 TObjEneGibbles__data_805D68BC;
-extern s32 TObjEneGibbles__data_805D68C0;
+extern s32 TObjEneGibbles__render_node_index;
+extern s32 TObjEneGibbles__render_rotation_x;
 extern s32 lbl_805D7780;
 extern s32 lbl_805D7784;
 extern s32 some_id_805c6f74;
@@ -265,7 +265,7 @@ int TObjEneGibbles__sub_802D7F94(void *, int);
 s32 TObjEneGibbles__sub_802D9A04(void *arg0);
 void clamp_angle__14TObjEneGibblesFPvi(void *arg0, s32 arg1);
 f32 subtract_vector(void *, void *);
-extern u8 *TObjEneGibbles__data_805D68B4;
+extern u8 *TObjEneGibbles__ai_parameters;
 extern const f32 TObjEneGibbles__data_805DE7E4;
 extern const f32 TObjEneGibbles__data_805DE7E8;
 extern const f32 TObjEneGibbles__data_805DE7EC;
@@ -289,10 +289,10 @@ extern Spawn_802DB7C0 lbl_80472758;
 extern s32 lbl_805D68A8;
 extern u32 TObjEneGibbles__data_805D68AC;
 extern s32 lbl_805D68B0;
-extern u8 *TObjEneGibbles__data_805D68B4;
-extern u32 TObjEneGibbles__data_805D68B8;
-extern s32 TObjEneGibbles__data_805D68BC;
-extern s32 TObjEneGibbles__data_805D68C0;
+extern u8 *TObjEneGibbles__ai_parameters;
+extern u32 TObjEneGibbles__resource_bundle;
+extern s32 TObjEneGibbles__render_node_index;
+extern s32 TObjEneGibbles__render_rotation_x;
 extern const f32 TObjEneGibbles__data_805DE7E4;
 void load_resources__14TObjEneGibblesFv(void);
 void add_flags_2e4__10TObjPlayerFPvUi(void *, u32);
@@ -320,7 +320,7 @@ extern s32 lbl_805D3F60;
 extern s32 lbl_805D68A8;
 extern u32 TObjEneGibbles__data_805D68AC;
 extern s32 lbl_805D68B0;
-extern u32 TObjEneGibbles__data_805D68B8;
+extern u32 TObjEneGibbles__resource_bundle;
 extern const f32 TObjEneGibbles__data_805DE7EC;
 u8 *TObjEneGibbles__ct(u8 *arg0, void *arg1, s32 arg2);
 s32 update_movement_status__10TObjPlayerFv();
@@ -571,7 +571,7 @@ void init_state__14TObjEneGibblesFPv(u8 *arg0);
 void TObjEneGibbles__sub_802DAAC8(u8 *arg0);
 void turn_toward_target__14TObjEneGibblesFPv(Obj_800A6B14 *self);
 void clamp_angle__14TObjEneGibblesFPvi(void *arg0, s32 arg1);
-void update_spawn_timer__14TObjEneGibblesFv(void);
+void gibbles_render_node_callback(void);
 void run_task__14TObjEneGibblesFPv(u8 *arg0);
 void init_params__14TObjEneGibblesFPv(void *arg0);
 void * create__14TObjEneGibblesFPv(void *arg0);
@@ -592,9 +592,9 @@ s32 clear_global_state__10TObjPlayerFv();
 
 extern const f64 TObjEneGibbles__data_80472798;
 extern u32 TObjEneGibbles__data_805D68AC;
-extern u32 TObjEneGibbles__data_805D68B8;
-extern s32 TObjEneGibbles__data_805D68BC;
-extern s32 TObjEneGibbles__data_805D68C0;
+extern u32 TObjEneGibbles__resource_bundle;
+extern s32 TObjEneGibbles__render_node_index;
+extern s32 TObjEneGibbles__render_rotation_x;
 extern const f32 TObjEneGibbles__data_805DE7E4;
 extern const f32 TObjEneGibbles__data_805DE7E8;
 extern const f32 TObjEneGibbles__data_805DE7EC;
@@ -1394,7 +1394,7 @@ inline void to_idle_802D8984(Gib_802D8984 *o) {
     o->fB8 = 1;
     o->f30 &= 0xF9FBFFFF;
 }
-#define PRM ((Prm_802D8984 *)TObjEneGibbles__data_805D68B4)
+#define PRM ((Prm_802D8984 *)TObjEneGibbles__ai_parameters)
 void TObjEneGibbles__sub_802D8984(u8 *arg0) {
     Gib_802D8984 *o = (Gib_802D8984 *)arg0;
     if (o->idx < 0x1000) {
@@ -1735,7 +1735,7 @@ void TObjEneGibbles__sub_802D9110(Gib_802D9110 *self) {
         if (((s32 (*)(void *, f32, f32))objInBand__FP7GameObjf)(self, (self->frameEnd - TObjEneGibbles__data_805DE7EC) - self->frameStep, self->frameEnd) != 0) {
             self->motion = 0;
             self->state = 7;
-            self->timer = (s16)*(f32 *)(TObjEneGibbles__data_805D68B4 + 4);
+            self->timer = (s16)*(f32 *)(TObjEneGibbles__ai_parameters + 4);
         }
         break;
     case 7:
@@ -1927,7 +1927,7 @@ void TObjEneGibbles__sub_802DA0BC(u8 *arg0) {
     }
     case 1:
         {
-            f32 dt = M2C_FIELD(TObjEneGibbles__data_805D68B4, f32 *, 8);
+            f32 dt = M2C_FIELD(TObjEneGibbles__ai_parameters, f32 *, 8);
             M2C_FIELD(arg0, f32 *, 0x3A0) += dt;
             Vec_802DA0BC v = *(Vec_802DA0BC *)(M2C_FIELD(arg0, u8 **, 0x2A8) + 0x2FC);
             enemy_move_toward(arg0, M2C_FIELD(M2C_FIELD(arg0, u8 **, 0x350), s32 *, 8), &v, 0, dt);
@@ -2453,11 +2453,11 @@ void clamp_angle__14TObjEneGibblesFPvi(void *arg0, s32 arg1) {
     M2C_FIELD(arg0, s32 *, 0x3BC) = lerp_angle_half__10TObjPlayerFUsUs(M2C_FIELD(arg0, s32 *, 0x3BC), var_r4);
 }
 
-void update_spawn_timer__14TObjEneGibblesFv(void) {
-    if ((s32) TObjEneGibbles__data_805D68BC == 0x18) {
-        rotate_matrix_x(0, TObjEneGibbles__data_805D68C0);
+void gibbles_render_node_callback(void) {
+    if ((s32) TObjEneGibbles__render_node_index == 0x18) {
+        rotate_matrix_x(0, TObjEneGibbles__render_rotation_x);
     }
-    TObjEneGibbles__data_805D68BC += 1;
+    TObjEneGibbles__render_node_index += 1;
 }
 
 void draw_model__14TObjEneGibblesFPv(u8 *arg0) {
@@ -2492,9 +2492,9 @@ void draw_model__14TObjEneGibblesFPv(u8 *arg0) {
         translate_matrix_vec3(0, &v);
         rotate_matrix_y(0, M2C_FIELD(arg0, s32 *, 0x60));
         scale_matrix_vec3(0, arg0 + 0x68);
-        TObjEneGibbles__data_805D68BC = 0;
-        TObjEneGibbles__data_805D68C0 = M2C_FIELD(arg0, s32 *, 0x3BC);
-        set_global_state__16TObjEneRe7BeruraFi((void *)update_spawn_timer__14TObjEneGibblesFv);
+        TObjEneGibbles__render_node_index = 0;
+        TObjEneGibbles__render_rotation_x = M2C_FIELD(arg0, s32 *, 0x3BC);
+        set_global_state__16TObjEneRe7BeruraFi((void *)gibbles_render_node_callback);
         toggle_particle_effect__10TObjPlayerFv();
         switch (M2C_FIELD(arg0, s16 *, 0x326)) {
         case 0:
@@ -2653,9 +2653,9 @@ void free_static__14TObjEneGibblesFv(void) {
         free__11TOBoss4RockFUi((void*)TObjEneGibbles__data_805D68AC);
         TObjEneGibbles__data_805D68AC = 0U;
     }
-    if ((u32) TObjEneGibbles__data_805D68B8 != 0U) {
-        TLobby__sub_8001FE7C((void*)TObjEneGibbles__data_805D68B8, 1);
-        TObjEneGibbles__data_805D68B8 = 0U;
+    if ((u32) TObjEneGibbles__resource_bundle != 0U) {
+        TLobby__sub_8001FE7C((void*)TObjEneGibbles__resource_bundle, 1);
+        TObjEneGibbles__resource_bundle = 0U;
     }
 }
 
@@ -2666,28 +2666,28 @@ void load_resources__14TObjEneGibblesFv(void) {
         if (p != NULL) {
             p = load_resource_from_descriptor(p, 1, lbl_804E28A0, 0, 0, 0);
         }
-        TObjEneGibbles__data_805D68B8 = (u32) p;
+        TObjEneGibbles__resource_bundle = (u32) p;
     } else {
         p = alloc__23TAdSinglePlyChrSelectGCFPv(0x440);
         if (p != NULL) {
             p = load_resource_from_descriptor(p, 1, lbl_804E285C, 0, 0, 0);
         }
-        TObjEneGibbles__data_805D68B8 = (u32) p;
+        TObjEneGibbles__resource_bundle = (u32) p;
     }
-    TObjEneGibbles__data_805D68BC = 0;
-    TObjEneGibbles__data_805D68C0 = 0;
+    TObjEneGibbles__render_node_index = 0;
+    TObjEneGibbles__render_rotation_x = 0;
     TObjEneGibbles__data_805D68AC = (u32) alloc_buffer__11TOBoss4RockFPv(0xC);
     lbl_805D68A8 = register_boss__6TLobbyFPv(0x3D);
     ((s32 *) TObjEneGibbles__data_805D68AC)[0] = dispatch_shared_handler_b__6TLobbyFPv(0x3D);
     ((s32 *) TObjEneGibbles__data_805D68AC)[2] = dispatch_shared_handler_b__6TLobbyFPv(0x3E);
     ((s32 *) TObjEneGibbles__data_805D68AC)[1] = dispatch_shared_handler_b__6TLobbyFPv(0x3F);
     lbl_805D68B0 = register_object__6TLobbyFPv(0x3D);
-    (*(s32 *)&TObjEneGibbles__data_805D68B4) = dispatch_shared_handler_a__6TLobbyFPv(0x3D);
+    (*(s32 *)&TObjEneGibbles__ai_parameters) = dispatch_shared_handler_a__6TLobbyFPv(0x3D);
     Spawn_802DB7C0 s = lbl_80472758;
-    s.a = M2C_FIELD(TObjEneGibbles__data_805D68B8, s32 *, 0x430);
+    s.a = M2C_FIELD(TObjEneGibbles__resource_bundle, s32 *, 0x430);
     spawn_npc_enemy__6TLobbyFsiiiff(0x44,
-        M2C_FIELD(M2C_FIELD(TObjEneGibbles__data_805D68B8, u8 **, 0x42C), s32 *, 8),
-        M2C_FIELD(M2C_FIELD(TObjEneGibbles__data_805D68B8, u8 **, 0x42C), s32 *, 0xC),
+        M2C_FIELD(M2C_FIELD(TObjEneGibbles__resource_bundle, u8 **, 0x42C), s32 *, 8),
+        M2C_FIELD(M2C_FIELD(TObjEneGibbles__resource_bundle, u8 **, 0x42C), s32 *, 0xC),
         &s, ((f32 *)lbl_804E296C)[3], TObjEneGibbles__data_805DE7E4);
 }
 
@@ -2757,7 +2757,7 @@ u8 *TObjEneGibbles__ct(u8 *arg0, void *arg1, s32 arg2) {
     TObjEneGibbles__sub_802DBC94((O_802DBC94 *)arg0, M2C_FIELD(arg0, s32 *, 0x368));
     M2C_FIELD(arg0, void **, 0xD8) = (void *)&lbl_804E28B0;
     set_field_d8__10TObjPlayerFPvi(arg0, M2C_FIELD(arg0, void **, 0xD8));
-    M2C_FIELD(arg0, s32 *, 0xDC) = M2C_FIELD(TObjEneGibbles__data_805D68B8, s32 *, 0x430);
+    M2C_FIELD(arg0, s32 *, 0xDC) = M2C_FIELD(TObjEneGibbles__resource_bundle, s32 *, 0x430);
     M2C_FIELD(arg0, s16 *, 0xB8) = 0;
     set_animation__10TObjPlayerFPvs(arg0, M2C_FIELD(arg0, s16 *, 0xB8));
     set_field_b8__14TObjEnePanarmsFPvs(arg0, M2C_FIELD(arg0, s16 *, 0xB8));
@@ -2801,8 +2801,8 @@ u8 *TObjEneGibbles__ct(u8 *arg0, void *arg1, s32 arg2) {
 void* TObjEneGibbles__sub_802DBC8C(void* p) { return (char*)p + 0x2fc; }
 
 void TObjEneGibbles__sub_802DBC94(O_802DBC94 *self, s32 i) {
-    self->f34 = (*(G_802DBC94 * *)&TObjEneGibbles__data_805D68B8)->e[i].c;
-    self->f24 = (*(G_802DBC94 * *)&TObjEneGibbles__data_805D68B8)->e[i].d;
+    self->f34 = (*(G_802DBC94 * *)&TObjEneGibbles__resource_bundle)->e[i].c;
+    self->f24 = (*(G_802DBC94 * *)&TObjEneGibbles__resource_bundle)->e[i].d;
 }
 
 }

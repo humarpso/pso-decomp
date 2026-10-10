@@ -30,11 +30,11 @@ u8 *get_bml_model(s32, s32);
 s32 set_viewport_scissor__11TCameraCtrlFiPv(int, int);
 void TObjPlayer__sub_8030A9B0();
 extern RecoveredGlobal_8030ABF4_TCameraCtrl__data_804FF634 TCameraCtrl__data_804FF634;
-extern RecoveredGlobal_8030ABF4_lbl_80541E58 lbl_80541E58;
+extern RecoveredGlobal_8030ABF4_lbl_80541E58 boss4_zako_draw_buffers;
 extern s32 TBoss4ZakoDraw__draw_buffer_index;
 extern s32 TBoss4ZakoDraw__rotation_phase;
 void TCameraCtrl__sub_8030ABF4(void);
-extern RecoveredGlobal_8030ABF4_lbl_80541E58 lbl_80541E58;
+extern RecoveredGlobal_8030ABF4_lbl_80541E58 boss4_zako_draw_buffers;
 extern s32 TBoss4ZakoDraw__draw_buffer_index;
 void clear_uro_link_state__14TBoss4DarkFalzFv(void);
 u8 *get_bml_model(s32, s32);
@@ -48,13 +48,13 @@ void pop_matrix(void);
 void post_translate_matrix(void *);
 void set_global_param__8TObjFishFi(int);
 void draw_chunk_object(int);
-extern RecoveredGlobal_8030ABF4_lbl_80541E58 lbl_80541E58;
+extern RecoveredGlobal_8030ABF4_lbl_80541E58 boss4_zako_draw_buffers;
 extern s32 falz_zako_texture_list;
 extern s32 TBoss4ZakoDraw__draw_buffer_index;
 extern const f32 lbl_805DF148;
 void draw_area_chunk_objects__10TObjPlayerFv(void);
 void VecCopy__FP3VecPC3Vec(void *, void *);
-extern RecoveredGlobal_8030ABF4_lbl_80541E58 lbl_80541E58;
+extern RecoveredGlobal_8030ABF4_lbl_80541E58 boss4_zako_draw_buffers;
 extern s32 TBoss4ZakoDraw__draw_buffer_index;
 s32 queue_entry__10TBoss4ZakoFPvii(void *v, s32 a, s32 b);
 struct Raw_8030A9B0 { u8 b[12]; };
@@ -125,7 +125,7 @@ void TObjPlayer__sub_8030A9B0() {
     lbl_805D5668 = lbl_805D7780;
     some_id_805c6f74 |= lbl_805DF138;
     ((void (*)(int, int, u32, s32, s32, u32))set_chunk_material_override_pair)(0xFF00, 0x900, old & ~0x10, lbl_805D7780, lbl_805D7784, old);
-    tbl = (Tbl_8030A9B0 *)((u8 *)&lbl_80541E58 + TBoss4ZakoDraw__draw_buffer_index * 0x784);
+    tbl = (Tbl_8030A9B0 *)((u8 *)&boss4_zako_draw_buffers + TBoss4ZakoDraw__draw_buffer_index * 0x784);
     e = tbl->ents;
     rot = (TBoss4ZakoDraw__rotation_phase << 16) / 16;
     VecCopy__FP3VecPC3Vec(&pos, camera_ctrl_instance + 0x178);
@@ -162,7 +162,7 @@ void TObjPlayer__sub_8030A9B0();
 #pragma pop
 
 void draw_area_chunk_objects__10TObjPlayerFv(void) {
-    Tbl_8030AB48 *t = &((Tbl_8030AB48 *)&lbl_80541E58)[TBoss4ZakoDraw__draw_buffer_index];
+    Tbl_8030AB48 *t = &((Tbl_8030AB48 *)&boss4_zako_draw_buffers)[TBoss4ZakoDraw__draw_buffer_index];
     Ent_8030AB48 *p = t->ents;
     s32 r31;
     s32 i;
@@ -184,9 +184,9 @@ void TCameraCtrl__sub_8030ABF4(void) {
     M2C_UNK *var_r3;
     u8 *var_r31;
     u8 *var_r4;
-    var_r3 = (M2C_UNK *)(&lbl_80541E58.value);
-    var_r3 = (M2C_UNK *)(&lbl_80541E58.value);
-    if ((s32) M2C_FIELD(((u8 *)(&lbl_80541E58.value) + (TBoss4ZakoDraw__draw_buffer_index * 0x784)), s32 *, 0) != 0) {
+    var_r3 = (M2C_UNK *)(&boss4_zako_draw_buffers.value);
+    var_r3 = (M2C_UNK *)(&boss4_zako_draw_buffers.value);
+    if ((s32) M2C_FIELD(((u8 *)(&boss4_zako_draw_buffers.value) + (TBoss4ZakoDraw__draw_buffer_index * 0x784)), s32 *, 0) != 0) {
         var_r3 = (M2C_UNK *)(&TCameraCtrl__data_804FF634.value);
         var_r3 = (M2C_UNK *)(&TCameraCtrl__data_804FF634.value);
         var_r31 = (u8 *)(&TCameraCtrl__data_804FF634.value) + 0x30;
@@ -204,7 +204,7 @@ void TCameraCtrl__sub_8030ABF4(void) {
 }
 
 s32 queue_entry__10TBoss4ZakoFPvii(void *v, s32 a, s32 b) {
-    Tbl_8030AC7C *t = &((Tbl_8030AC7C *)&lbl_80541E58)[TBoss4ZakoDraw__draw_buffer_index ^ 1];
+    Tbl_8030AC7C *t = &((Tbl_8030AC7C *)&boss4_zako_draw_buffers)[TBoss4ZakoDraw__draw_buffer_index ^ 1];
     s32 n = t->count;
     Ent_8030AC7C *e = &t->ents[n];
     if (n >= 0x60) {
@@ -220,7 +220,7 @@ s32 queue_entry__10TBoss4ZakoFPvii(void *v, s32 a, s32 b) {
 void clear_uro_link_state__14TBoss4DarkFalzFv(void) {
     s32 i;
     for (i = 0; i < 2; i++) {
-        ((E_8030AD08 *)&lbl_80541E58)[i].a = 0;
+        ((E_8030AD08 *)&boss4_zako_draw_buffers)[i].a = 0;
     }
     TBoss4ZakoDraw__draw_buffer_index = 0;
 }

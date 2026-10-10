@@ -36,8 +36,8 @@ void *memset(void *, int, u32);
 extern void *TLobby__data_805D6104;
 extern ObjRow_8020E08C *TLobby__data_805D610C;
 extern EneRow_8020E08C *TLobby__data_805D6114;
-extern s32 TLobby__data_805D6110;
-extern s32 TLobby__data_805D6118;
+extern s32 TLobby__current_floor_object_set_count;
+extern s32 TLobby__current_floor_enemy_set_count;
 void arrive_floor_population(void);
 }
 
@@ -55,8 +55,8 @@ void arrive_floor_population(void) {
     s32 j;
     TLobby__data_805D610C = 0;
     TLobby__data_805D6114 = 0;
-    TLobby__data_805D6110 = 0;
-    TLobby__data_805D6118 = 0;
+    TLobby__current_floor_object_set_count = 0;
+    TLobby__current_floor_enemy_set_count = 0;
     index = get_current_floor();
     floor = &TLobby__floor_enemy_group_table[index];
     bytes = floor->objects * 0x44;
@@ -74,7 +74,7 @@ void arrive_floor_population(void) {
             }
         }
         floor->objectPlacement &= ~2U;
-        TLobby__data_805D6110 = floor->objects;
+        TLobby__current_floor_object_set_count = floor->objects;
     }
     bytes = floor->enemies * 0x48;
     if (bytes > 0) {
@@ -91,7 +91,7 @@ void arrive_floor_population(void) {
             }
         }
         floor->enemyPlacement &= ~4U;
-        TLobby__data_805D6118 = floor->enemies;
+        TLobby__current_floor_enemy_set_count = floor->enemies;
     }
 }
 

@@ -493,7 +493,7 @@ extern Hdr_800F6464 *TLobby__data_805D6144;
 extern M2C_UNK __vt__11TObjControl[];
 extern u8 lobby_rule_settings[];
 extern void *lbl_805D2B04;
-extern s32 lbl_805D5328;
+extern s32 area_random_seed;
 extern s32 game_difficulty_selection;
 extern const f32 lbl_805DA8C0;
 extern const f32 lbl_805DA8C4;
@@ -766,7 +766,7 @@ void apply_set_data__9TObjEnemyFPvPv(A_800F698C *arg0, B_800F698C *arg1) {
     arg0->f28 = arg1->f8;
     arg0->f2A = arg1->fA;
     arg0->f2C = arg1->f0;
-    subtractive_rng_seed(arg0->f160, arg0->f1C + lbl_805D5328);
+    subtractive_rng_seed(arg0->f160, arg0->f1C + area_random_seed);
 }
 
 u32 get_enemy_entity(u16 arg0) {

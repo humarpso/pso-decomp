@@ -47,8 +47,8 @@ M2C_UNK queue_destruction__7TObjectFv(int);
 u32 __ct__11TAdSEGAlogoFv(void *, void *);
 u32 __ct__12TAdSoniclogoFv(void *, void *);
 int TLogo__sub_8013F7E8(int);
-int TLogo__sub_8013F7F0(int);
-int TLogo__sub_8013F7F8(int);
+int is_logo_exit_requested(int);
+int is_sega_logo_done(int);
 s32 TLogo__sub_8013F800(void* p);
 int TLogo__sub_8013F808(void);
 s32 TLobby__sub_80145DB4(int);
@@ -185,7 +185,7 @@ void run_task__5TLogoFv(u8 *arg0) {
         M2C_FIELD(arg0, u32 *, 0x20) = 4U;
         return;
     case 4:
-        if (((s32)TLogo__sub_8013F7F8((int)((int) (M2C_FIELD(arg0, u32 *, 0x2C))))) != 0) {
+        if (((s32)is_sega_logo_done((int)((int) (M2C_FIELD(arg0, u32 *, 0x2C))))) != 0) {
             queue_destruction__7TObjectFv((int) (M2C_FIELD(arg0, u32 *, 0x2C)));
             M2C_FIELD(arg0, u32 *, 0x2C) = 0U;
             var_r0_7 = __nw__7TObjectFUl((int) (0x20));
@@ -198,7 +198,7 @@ void run_task__5TLogoFv(u8 *arg0) {
         }
         break;
     case 5:
-        if (((s32)TLogo__sub_8013F7F0((int)((int) (M2C_FIELD(arg0, u32 *, 0x30))))) != 0) {
+        if (((s32)is_logo_exit_requested((int)((int) (M2C_FIELD(arg0, u32 *, 0x30))))) != 0) {
             queue_destruction__7TObjectFv((int) (M2C_FIELD(arg0, u32 *, 0x30)));
             M2C_FIELD(arg0, u32 *, 0x30) = 0U;
             var_r0_8 = __nw__7TObjectFUl((int) (0x20));
@@ -310,10 +310,10 @@ void init_logo_scene__5TLogoFv(void) {
 int TLogo__sub_8013F7E8(int _w0) {  return lbl_805D49D0; }
 
     extern int TLogo__exit_requested_flag;
-int TLogo__sub_8013F7F0(int _w0) {  return TLogo__exit_requested_flag; }
+int is_logo_exit_requested(int _w0) {  return TLogo__exit_requested_flag; }
 
     extern int sega_logo_done_flag;
-int TLogo__sub_8013F7F8(int _w0) {  return sega_logo_done_flag; }
+int is_sega_logo_done(int _w0) {  return sega_logo_done_flag; }
 
 s32 TLogo__sub_8013F800(void* p) { return *(s32*)((char*)p + 0x48); }
 

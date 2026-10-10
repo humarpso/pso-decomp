@@ -9,19 +9,19 @@ extern "C" {
 void TQuestVmDownLoadServer__sub_801F6B98(void);
 void clear_field2A0__22TQuestVmDownLoadServerFv(void);
 
-extern void *TQuestVmDownLoadServer__data_805D5F24;
+extern void *TQuestVmDownLoadServer__instance;
 
 void clear_field2A0__22TQuestVmDownLoadServerFv(void) {
-    if ((void *) TQuestVmDownLoadServer__data_805D5F24 != NULL) {
-        M2C_FIELD(TQuestVmDownLoadServer__data_805D5F24, s32 *, 0x2A0) = 0;
+    if ((void *) TQuestVmDownLoadServer__instance != NULL) {
+        M2C_FIELD(TQuestVmDownLoadServer__instance, s32 *, 0x2A0) = 0;
     }
 }
 
-extern void *TQuestVmDownLoadServer__data_805D5F24;
+extern void *TQuestVmDownLoadServer__instance;
 
 void TQuestVmDownLoadServer__sub_801F6B98(void) {
-    if ((void *) TQuestVmDownLoadServer__data_805D5F24 != NULL) {
-        M2C_FIELD(TQuestVmDownLoadServer__data_805D5F24, s32 *, 0x2A0) = 0;
+    if ((void *) TQuestVmDownLoadServer__instance != NULL) {
+        M2C_FIELD(TQuestVmDownLoadServer__instance, s32 *, 0x2A0) = 0;
     }
 }
 

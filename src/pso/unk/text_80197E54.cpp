@@ -10,11 +10,11 @@ struct Hdr_80197E64 { u8 pad0[0x58]; s32 f58; s32 f5C; u8 pad60[0xC]; };
 
 extern "C" {
 extern s32 TObjSinBoard__texture_buffer;
-bool fn_80197E54(void);
+bool is_signboard_texture_buffer_missing(void);
 void safe_free__23TAdSinglePlyChrSelectGCFUi(void *);
 void *alloc__22TQuestVmDownLoadServerFPv(s32);
 void run_frame__6TLobbyFv(void);
-bool fn_80197E54(void);
+bool is_signboard_texture_buffer_missing(void);
 void fn_80197FD0(s32, s32);
 s32 TAdPlayerLoadGC__sub_801E1538(Hdr_80197E64 *, void *);
 s32 TAdPlayerLoadGC__sub_801E1B50(s32);
@@ -29,7 +29,7 @@ void load_memcard_file(void);
 
 extern "C" {
 
-bool fn_80197E54(void) {
+bool is_signboard_texture_buffer_missing(void) {
     return TObjSinBoard__texture_buffer == 0;
 }
 void load_memcard_file(void) {
@@ -41,7 +41,7 @@ void load_memcard_file(void) {
     if (get_global_state__14TOKeyMachine01Fv() != 0 && get_global_state__14TOKeyMachine01Fv() != 0x12) {
         return;
     }
-    if (((s32 (*)(void))fn_80197E54)() == 0) {
+    if (((s32 (*)(void))is_signboard_texture_buffer_missing)() == 0) {
         return;
     }
     while (1) {

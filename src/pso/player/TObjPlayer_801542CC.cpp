@@ -189,7 +189,7 @@ u8 * TObjPlayer__sub_80155028(s32 arg0, s32 arg1);
 M2C_UNK TObjPlayer__sub_8015434C(s32, s32, s32);
 extern s32 lbl_805D586C;
 extern s32 lbl_805D5870;
-extern s32 TObjPlayer__data_805D5874;
+extern s32 registered_entity_count;
 void TObjPlayer__sub_8015431C(u8 *arg0);
 M2C_UNK VecCopy__FP3VecPC3Vec(void *, void *);
 void TObjPlayer__sub_801550B8(u8 *arg0, u8 *arg1);
@@ -221,7 +221,7 @@ void init_all_slots__10TObjPlayerFv(void);
 extern s32 lbl_805D5868;
 extern s32 lbl_805D586C;
 extern s32 lbl_805D5870;
-extern s32 TObjPlayer__data_805D5874;
+extern s32 registered_entity_count;
 void reset__10TObjPlayerFv(void);
 void __dl__7TObjectFPv(void *);
 void destroy_particle__13TParticleCtrlFPvs(void *, int);
@@ -310,7 +310,7 @@ extern s32 TObjPlayer__data_8050D460[];
 extern s32 lbl_805D5868;
 extern s32 lbl_805D586C;
 extern s32 lbl_805D5870;
-extern s32 TObjPlayer__data_805D5874;
+extern s32 registered_entity_count;
 u16 unregister_object_by_id(Obj_80154A00 *self);
 M2C_UNK VecCopy__FP3VecPC3Vec(void *, void *);
 Hit_80156844 *csnVectorUnder(Vec_80156844 *, void *, s32);
@@ -368,7 +368,7 @@ void TObjPlayer__sub_801542F4(s32 a) {
     extern int lbl_805D5878;
 
 void TObjPlayer__sub_8015431C(u8 *arg0) {
-    TObjPlayer__sub_8015434C((s32)(arg0), (s32)(lbl_805D586C + lbl_805D5870), (s32)(TObjPlayer__data_805D5874));
+    TObjPlayer__sub_8015434C((s32)(arg0), (s32)(lbl_805D586C + lbl_805D5870), (s32)(registered_entity_count));
 }
 
 void add_unique_pair_entry__10TObjPlayerFUii(u32 arg0, s32 arg1) {
@@ -514,7 +514,7 @@ u16 unregister_object_by_id(Obj_80154A00 *self) {
         } else if (k < 0x4000) {
             lbl_805D5870--;
         } else {
-            TObjPlayer__data_805D5874--;
+            registered_entity_count--;
         }
         TObjPlayer__data_8050D460[lbl_805D5868] = 0;
         return id;
@@ -563,7 +563,7 @@ u16 register_entity_by_id(void *ov) {
     } else if (t < 0x4000) {
         lbl_805D5870++;
     } else {
-        TObjPlayer__data_805D5874++;
+        registered_entity_count++;
     }
     return id;
 }
@@ -1286,7 +1286,7 @@ s32 project_actor_to_ground(Obj_80156844 *self, Vec_80156844 *pos, Vec_80156844 
 
 void release_member_90__10TObjPlayerFPv(void* p) { void* m = *(void**)((char*)p + 0x90); if (m) clear_ground_candidates__10TObjPlayerFPv(m); }
 void TObjPlayer__sub_80156934(void) { clear_item_table__10TObjPlayerFv(); init_all_slots__10TObjPlayerFv(); }
-void reset__10TObjPlayerFv(void) { (*(int *)&lbl_805D5868) = 0; (*(int *)&lbl_805D586C) = 0; (*(int *)&lbl_805D5870) = 0; (*(int *)&TObjPlayer__data_805D5874) = 0; clear_item_table__10TObjPlayerFv(); init_all_slots__10TObjPlayerFv(); }
+void reset__10TObjPlayerFv(void) { (*(int *)&lbl_805D5868) = 0; (*(int *)&lbl_805D586C) = 0; (*(int *)&lbl_805D5870) = 0; (*(int *)&registered_entity_count) = 0; clear_item_table__10TObjPlayerFv(); init_all_slots__10TObjPlayerFv(); }
 void *destroy_particle_controller__10TObjPlayerFPvs(void *arg0, s16 arg1) {
     if (arg0 != NULL) {
         M2C_FIELD(arg0, M2C_UNK **, 0x18) = lbl_804AF8A0;

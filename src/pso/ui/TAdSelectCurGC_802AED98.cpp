@@ -53,7 +53,7 @@ void TLobby__sub_8023E4B4(s32, s32);
 extern const s32 lbl_80470764[];
 extern const s32 lbl_80470778[];
 extern const s32 current_language;
-extern u32 lbl_805D6700;
+extern u32 menu_selection_cursor_texture_list;
 void apply_menu_cursor_selection__6TLobbyFv(void);
 s32 test_flag_4c__23TAdSinglePlyChrSelectGCFPv(void *, int);
 s32 TWindowShortListCtrl__check_controller_button(void *, int);
@@ -83,7 +83,7 @@ void TLobby__sub_803DA16C(void*);
 void *TOCapsuleLabo__ct(void *, void *, void *);
 void *__nw__7TObjectFUl(int);
 
-extern u32 lbl_805D6700;
+extern u32 menu_selection_cursor_texture_list;
 
 void run_task__14TAdSelectCurGCFv(TAdSelectCurGC_802AED98 *o) {
     s32 ok;
@@ -178,9 +178,9 @@ TAdSelectCurGC_802AF0E0 *__ct__14TAdSelectCurGCFv(TAdSelectCurGC_802AF0E0 *o, vo
 }
 
 void TLobby__sub_802AF198(void) {
-    if ((u32) lbl_805D6700 != 0U) {
-        TLobby__sub_803DA16C((void*)lbl_805D6700);
-        lbl_805D6700 = 0U;
+    if ((u32) menu_selection_cursor_texture_list != 0U) {
+        TLobby__sub_803DA16C((void*)menu_selection_cursor_texture_list);
+        menu_selection_cursor_texture_list = 0U;
     }
 }
 
@@ -189,7 +189,7 @@ void apply_menu_cursor_selection__6TLobbyFv(void) {
     M2CCopy_14 a = *(const M2CCopy_14 *)lbl_80470764;
     M2CCopy_14 b = *(const M2CCopy_14 *)lbl_80470778;
     s32 r4 = b.v[current_language];
-    lbl_805D6700 = r4;
+    menu_selection_cursor_texture_list = r4;
     TLobby__sub_8023E4B4(a.v[current_language], r4);
 }
 

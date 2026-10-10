@@ -482,7 +482,7 @@ M2C_UNK move_with_wall_slide_commit__9TObjEneDDFPvfff(void *, void *, f32, f32, 
 M2C_UNK set_field_378__9TObjEneDDFPvi(void *, M2C_UNK);
 M2C_UNK advance_animation_playback(void *);
 s32 calc_angle_to_target__19TObjEneEpsilonGuardFPv(u8 *);
-extern void *TObjEneEpsilonGuard__data_805D6F74;
+extern void *TObjEneEpsilonGuard__movement_params;
 void TObjEneEpsilonGuard__sub_8035E8C0(void *, s32);
 M2C_UNK VecCopy__FP3VecPC3Vec(void *);
 s32 obj_is_hit_receivable();
@@ -495,7 +495,7 @@ M2C_UNK init_all_slots__10TObjPlayerFv();
 M2C_UNK check_object_collisions__10TObjPlayerFPv(void *);
 s16 get_table_value_by_index__19TObjEneEpsilonGuardFPv(u32);
 extern void *TObjEneEpsilonGuard__model_desc[];
-extern void *TObjEneEpsilonGuard__data_805D6F74;
+extern void *TObjEneEpsilonGuard__movement_params;
 extern const f32 TObjEneEpsilonGuard__data_805E01D8;
 extern const f32 lbl_805E01F4;
 extern const f32 lbl_805E01F8;
@@ -791,7 +791,7 @@ void handle_message__19TObjEneEpsilonGuardFPvi(void *arg0, s32 arg1) {
     }
 }
 
-extern void *TObjEneEpsilonGuard__data_805D6F74;
+extern void *TObjEneEpsilonGuard__movement_params;
 extern const f32 lbl_805E01E8;
 extern const f32 lbl_805E01EC;
 extern const f32 lbl_805E01F0;
@@ -892,9 +892,9 @@ void state_orbit__19TObjEneEpsilonGuardFPvi(void *arg0, s32 arg1) {
         switch (temp_r0) {
         case 0:
             if (M2C_FIELD(arg0, s32 *, 0x46C) & 0x100) {
-                M2C_FIELD(arg0, s32 *, 0x43C) = (s32) ((lbl_805E01E8 * M2C_FIELD(TObjEneEpsilonGuard__data_805D6F74, f32 *, 8)) / (lbl_805E01EC * M2C_FIELD(TObjEneEpsilonGuard__data_805D6F74, f32 *, 0)));
+                M2C_FIELD(arg0, s32 *, 0x43C) = (s32) ((lbl_805E01E8 * M2C_FIELD(TObjEneEpsilonGuard__movement_params, f32 *, 8)) / (lbl_805E01EC * M2C_FIELD(TObjEneEpsilonGuard__movement_params, f32 *, 0)));
             } else {
-                M2C_FIELD(arg0, s32 *, 0x43C) = (s32) ((lbl_805E01F0 * M2C_FIELD(TObjEneEpsilonGuard__data_805D6F74, f32 *, 8)) / (lbl_805E01EC * M2C_FIELD(TObjEneEpsilonGuard__data_805D6F74, f32 *, 0)));
+                M2C_FIELD(arg0, s32 *, 0x43C) = (s32) ((lbl_805E01F0 * M2C_FIELD(TObjEneEpsilonGuard__movement_params, f32 *, 8)) / (lbl_805E01EC * M2C_FIELD(TObjEneEpsilonGuard__movement_params, f32 *, 0)));
             }
             M2C_FIELD(arg0, s32 *, 0x430) = 1;
             break;
@@ -912,7 +912,7 @@ block_23:
                 M2C_FIELD(arg0, s32 *, 0x438) = (s32) (M2C_FIELD(arg0, s32 *, 0x438) + M2C_FIELD(arg0, s32 *, 0x43C));
                 ((M2C_UNK (*)(void *, s32))set_orbit_destination__19TObjEneEpsilonGuardFPvi)(arg0, M2C_FIELD(arg0, s32 *, 0x438));
                 update_velocity__9TObjEneDDFPv(arg0);
-                move_with_wall_slide_commit__9TObjEneDDFPvfff(arg0, TObjEneEpsilonGuard__data_805D6F74, M2C_FIELD(arg0, f32 *, 0x3A0), M2C_FIELD(arg0, f32 *, 0x3A8), M2C_FIELD(TObjEneEpsilonGuard__data_805D6F74, f32 *, 8));
+                move_with_wall_slide_commit__9TObjEneDDFPvfff(arg0, TObjEneEpsilonGuard__movement_params, M2C_FIELD(arg0, f32 *, 0x3A0), M2C_FIELD(arg0, f32 *, 0x3A8), M2C_FIELD(TObjEneEpsilonGuard__movement_params, f32 *, 8));
             }
             break;
         case 2:
@@ -949,7 +949,7 @@ void TObjEneEpsilonGuard__sub_8035E8C0(void *arg0, s32 arg1) {
         enemy_copy_target_destination(arg0);
         update_velocity__9TObjEneDDFPv(arg0);
         if (!(M2C_FIELD(arg0, s32 *, 0x46C) & 0x200)) {
-            f32 *d = (f32 *)TObjEneEpsilonGuard__data_805D6F74;
+            f32 *d = (f32 *)TObjEneEpsilonGuard__movement_params;
             if (M2C_FIELD(arg0, f32 *, 0x3AC) > d[0] + d[1]) {
                 M2C_FIELD(arg0, s32 *, 0x46C) |= 0x200;
             } else {
@@ -1013,7 +1013,7 @@ void TObjEneEpsilonGuard__sub_8035EA90(u8 *arg0) {
             if (M2C_FIELD(arg0, void **, 0x440) != NULL) {
                 copy_pos__11TNowLoadingFPvPv(M2C_FIELD(arg0, void **, 0x440), arg0 + 0x2FC);
             }
-            if (M2C_FIELD(arg0, s32 *, 0x450) >= M2C_FIELD(TObjEneEpsilonGuard__data_805D6F74, s32 *, 0x18)) {
+            if (M2C_FIELD(arg0, s32 *, 0x450) >= M2C_FIELD(TObjEneEpsilonGuard__movement_params, s32 *, 0x18)) {
                 M2C_FIELD(arg0, f32 *, 0x458) = lbl_805E01F8;
                 M2C_FIELD(arg0, s32 *, 0x44C) = 3;
             }
@@ -1060,7 +1060,7 @@ void TObjEneEpsilonGuard__sub_8035EA90(u8 *arg0) {
                     if (t != 0 && p->m31() == 0) {
                         Pair_8035EA90 pr;
                         pr.a = get_table_value_by_index__19TObjEneEpsilonGuardFPv(t);
-                        pr.b = M2C_FIELD(TObjEneEpsilonGuard__data_805D6F74, f32 *, 0xC);
+                        pr.b = M2C_FIELD(TObjEneEpsilonGuard__movement_params, f32 *, 0xC);
                         p->m21(arg0, pr, 0, -1, -1);
                         p->m23(arg0);
                     }
@@ -1602,8 +1602,8 @@ s32 calc_angle_to_target__19TObjEneEpsilonGuardFPv(u8 *arg0) {
 #pragma fp_contract on
 void set_orbit_destination__19TObjEneEpsilonGuardFPvi(u8 *arg0, s32 arg1) {
     enemy_copy_target_destination((void *)(arg0));
-    M2C_FIELD(arg0, f32 *, 0x394) = (f32) ((M2C_FIELD((*(f32 * *)&TObjEneEpsilonGuard__data_805D6F74), f32 *, 0) * sin_table_lookup(arg1)) + M2C_FIELD(arg0, f32 *, 0x394));
-    M2C_FIELD(arg0, f32 *, 0x39C) = (f32) ((M2C_FIELD((*(f32 * *)&TObjEneEpsilonGuard__data_805D6F74), f32 *, 0) * cos_table_lookup(arg1)) + M2C_FIELD(arg0, f32 *, 0x39C));
+    M2C_FIELD(arg0, f32 *, 0x394) = (f32) ((M2C_FIELD((*(f32 * *)&TObjEneEpsilonGuard__movement_params), f32 *, 0) * sin_table_lookup(arg1)) + M2C_FIELD(arg0, f32 *, 0x394));
+    M2C_FIELD(arg0, f32 *, 0x39C) = (f32) ((M2C_FIELD((*(f32 * *)&TObjEneEpsilonGuard__movement_params), f32 *, 0) * cos_table_lookup(arg1)) + M2C_FIELD(arg0, f32 *, 0x39C));
 }
 #pragma pop
 

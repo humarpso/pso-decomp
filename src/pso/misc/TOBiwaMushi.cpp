@@ -402,7 +402,7 @@ void *__dt__12TOMekaFish00Fv(void *arg0, s16 arg1) {
     return arg0;
 }
 
-extern u32 TBoss6PlotFalz__data_805D66EC;
+extern u32 TBoss6PlotFalz__instance;
 
 #pragma push
 #pragma fp_contract on
@@ -429,11 +429,11 @@ u8 *TOMekaFish00__ct(u8 *arg0, s32 arg1) {
 #pragma pop
 
 s32 is_phase_reached__14TBoss6PlotFalzFv(void) {
-    u32 p = TBoss6PlotFalz__data_805D66EC;
+    u32 p = TBoss6PlotFalz__instance;
     if (!p) {
         return 0;
     }
-    return get_phase__8TObjFishFPv((void*)TBoss6PlotFalz__data_805D66EC) >= 7 ? 1 : 0;
+    return get_phase__8TObjFishFPv((void*)TBoss6PlotFalz__instance) >= 7 ? 1 : 0;
 }
 
 }

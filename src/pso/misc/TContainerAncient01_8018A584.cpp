@@ -198,7 +198,7 @@ M2C_UNK TContainerAncient01__sub_8018A688(void *);
 void check_open_trigger__19TContainerAncient01FPv(void *);
 M2C_UNK submit_cursor_candidate(void *, int, f32);
 M2C_UNK run_task__7TObjectFv(void *);
-extern s32 TContainerAncient01R__data_805D5B94;
+extern s32 TContainerAncient01R__bml_resource;
 extern const f32 TContainerAncient01__data_805DBD10;
 extern const float TContainerAncient01__data_805DBD1C;
 extern const f32 lbl_805DBD50;
@@ -723,11 +723,11 @@ void update_state_machine__19TContainerAncient01FPv(u8 *arg0) {
             }
         }
     }
-    if ((u32) M2C_FIELD(arg0, u32 *, 0xF8) == get_bml_motion((int) (TContainerAncient01R__data_805D5B94), (int) (0))) {
-        M2C_FIELD(arg0, s32 *, 0x34) = get_bml_model((int) (TContainerAncient01R__data_805D5B94), (int) (0));
+    if ((u32) M2C_FIELD(arg0, u32 *, 0xF8) == get_bml_motion((int) (TContainerAncient01R__bml_resource), (int) (0))) {
+        M2C_FIELD(arg0, s32 *, 0x34) = get_bml_model((int) (TContainerAncient01R__bml_resource), (int) (0));
     }
-    if ((u32) M2C_FIELD(arg0, u32 *, 0xF8) == get_bml_motion((int) (TContainerAncient01R__data_805D5B94), (int) (1))) {
-        M2C_FIELD(arg0, s32 *, 0x34) = get_bml_model((int) (TContainerAncient01R__data_805D5B94), (int) (1));
+    if ((u32) M2C_FIELD(arg0, u32 *, 0xF8) == get_bml_motion((int) (TContainerAncient01R__bml_resource), (int) (1))) {
+        M2C_FIELD(arg0, s32 *, 0x34) = get_bml_model((int) (TContainerAncient01R__bml_resource), (int) (1));
     }
     run_task__7TObjectFv((void *) (arg0));
 }
@@ -742,10 +742,10 @@ void *TContainerAncient01R__create(void *arg0) {
     return o;
 }
 
-void TContainerAncient01R__sub_8018AF74(void) { TContainerAncient01R__data_805D5B94 = 0; }
+void TContainerAncient01R__sub_8018AF74(void) { TContainerAncient01R__bml_resource = 0; }
 
 void init_table_entries__20TContainerAncient01RFv(void) {
-    TContainerAncient01R__data_805D5B94 = TContainerAncient01__sub_8018BE90();
+    TContainerAncient01R__bml_resource = TContainerAncient01__sub_8018BE90();
     TContainerAncient01__open_effect_table[0] = get_table_entry__19TContainerAncient01Fi(0);
     TContainerAncient01__open_effect_table[1] = get_table_entry__19TContainerAncient01Fi(1);
 }
@@ -772,11 +772,11 @@ void *TContainerAncient01R__ct(Obj_8018B030 *self, void *arg1, void *arg2) {
     *(void **)((u8 *)self + 0x18) = (void *)lbl_804B6E1C;
     *(s32 *)self = lbl_805D3304;
     self->m5(arg2);
-    self->x34 = get_bml_model(TContainerAncient01R__data_805D5B94, 0);
-    self->x24 = TObjFish__sub_8001EDB0(TContainerAncient01R__data_805D5B94, 0);
+    self->x34 = get_bml_model(TContainerAncient01R__bml_resource, 0);
+    self->x24 = TObjFish__sub_8001EDB0(TContainerAncient01R__bml_resource, 0);
     self->animTbl = (void *)TContainerAncient01__anim_table;
     set_field_d8__10TObjPlayerFPvi(self, self->animTbl);
-    self->xdc = ((Res_8018B030 *)TContainerAncient01R__data_805D5B94)->x430;
+    self->xdc = ((Res_8018B030 *)TContainerAncient01R__bml_resource)->x430;
     self->anim = 0;
     set_animation__10TObjPlayerFPvs(self, self->anim);
     set_field_b8__14TObjEnePanarmsFPvs(self, self->anim);

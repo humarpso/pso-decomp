@@ -135,7 +135,7 @@ struct Holder_8031EA70 { u8 pad[0x460]; Fade_8031EA70 arr[4]; };
 extern "C" {
 M2C_UNK clear_global_flag_400__9TObjEneDDFv();
 s32 get_target_info__9TObjEneDDFPv();
-s32 TObjEneDD__sub_800BB878(s32, s32);
+s32 pack_debug_text_position(s32, s32);
 M2C_UNK toggle_particle_effect__10TObjPlayerFv();
 M2C_UNK end_effect_render__13TParticleCtrlFv();
 M2C_UNK debug_printf_at(s32, const char *, ...);
@@ -203,19 +203,19 @@ void draw_with_debug_info__12TObjEneReconFPv(u8 *arg0) {
         temp_r0 = M2C_FIELD(arg0, s32 *, 0x3DC);
         switch (temp_r0) {
         case 0:
-            debug_printf_at(TObjEneDD__sub_800BB878(0, 9), lbl_804763D4);
+            debug_printf_at(pack_debug_text_position(0, 9), lbl_804763D4);
             break;
         case 1:
-            debug_printf_at(TObjEneDD__sub_800BB878(0, 9), lbl_804763E4);
+            debug_printf_at(pack_debug_text_position(0, 9), lbl_804763E4);
             break;
         case 2:
-            debug_printf_at(TObjEneDD__sub_800BB878(0, 9), lbl_804763F4);
+            debug_printf_at(pack_debug_text_position(0, 9), lbl_804763F4);
             break;
         }
-        debug_printf_at(TObjEneDD__sub_800BB878(0, 0xA), lbl_80476400);
-        debug_printf_at(TObjEneDD__sub_800BB878(0, 2), lbl_80476410);
-        debug_printf_at(TObjEneDD__sub_800BB878(0, 3), lbl_80476428);
-        debug_printf_at(TObjEneDD__sub_800BB878(0, 5), lbl_80476440);
+        debug_printf_at(pack_debug_text_position(0, 0xA), lbl_80476400);
+        debug_printf_at(pack_debug_text_position(0, 2), lbl_80476410);
+        debug_printf_at(pack_debug_text_position(0, 3), lbl_80476428);
+        debug_printf_at(pack_debug_text_position(0, 5), lbl_80476440);
     }
     if (((VObj_18_26a62c *)(arg0))->m8(TObjEneRecon__data_805DF438, lbl_805DF43C) != 0) {
         set_global_param__8TObjFishFi((int) (M2C_FIELD(arg0, s32 *, 0x24)));

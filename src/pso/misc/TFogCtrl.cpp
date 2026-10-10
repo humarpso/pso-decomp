@@ -264,8 +264,8 @@ s32 get_player__20TWindowSubStatusDispFv();
 s32 draw_textured_quad_at_depth(void *, f32);
 s32 set_draw_texture_and_color(int, void *);
 void fn_803E1FC8(u32);
-void fn_803E1FFC(f32, f32);
-void TParticleCtrl__sub_803E2008(s32);
+void set_scene_fog_distances(f32, f32);
+void set_scene_fog_type(s32);
 void reset_scene_fog(void);
 
 extern M2C_UNK TFogCtrl__fog_instance_table[];
@@ -274,7 +274,7 @@ extern u8 lbl_8043DA20[];
 extern u8 lbl_8043DA30[];
 extern RecoveredGlobal_800FBB68_lbl_8049C670 area_fog_row_table;
 extern u8 fog_default_entry[];
-extern u8 lbl_8058CA60[];
+extern u8 scene_projection_state[];
 extern s32 lbl_805D2B18;
 extern u32 fog_entry_array;
 extern s32 fog_update_flags;
@@ -432,16 +432,16 @@ extern int fold_flush_5;
 s32 apply_fog_entry(void *arg0) {
     TFogCtrl_800FAE1C *self = (TFogCtrl_800FAE1C *)arg0;
     GXFogAdjTable_800FAE1C tbl;
-    TParticleCtrl__sub_803E2008(2);
+    set_scene_fog_type(2);
     fn_803E1FC8((self->color << 8) | (self->color >> 24));
-    fn_803E1FFC(self->start, self->end);
+    set_scene_fog_distances(self->start, self->end);
     if (is_split_screen() == 0) {
         if (self->width >= FOG_MAX) {
             self->width = FOG_MAX;
         } else if (self->width <= FOG_ZERO) {
             self->width = FOG_ZERO;
         }
-        GXInitFogAdjTable(&tbl, (s32)self->width, lbl_8058CA60);
+        GXInitFogAdjTable(&tbl, (s32)self->width, scene_projection_state);
         GXSetFogRangeAdj(1, 0x140, &tbl);
     } else {
         if (self->width >= (3.2e+02f)) {
@@ -449,7 +449,7 @@ s32 apply_fog_entry(void *arg0) {
         } else if (self->width <= FOG_ZERO) {
             self->width = FOG_ZERO;
         }
-        GXInitFogAdjTable(&tbl, (s32)self->width, lbl_8058CA60);
+        GXInitFogAdjTable(&tbl, (s32)self->width, scene_projection_state);
         GXSetFogRangeAdj(1, 0xA0, &tbl);
     }
     end_effect_render__13TParticleCtrlFv();
@@ -885,7 +885,7 @@ void reset__8TFogCtrlFv(void) {
     }
     fog_entry_array = 0U;
     ((M2C_UNK (*)(M2C_UNK))fn_803E1FC8)(-1);
-    ((M2C_UNK (*)(f32, f32))fn_803E1FFC)((1e+03f), (1e+04f));
+    ((M2C_UNK (*)(f32, f32))set_scene_fog_distances)((1e+03f), (1e+04f));
     ((M2C_UNK (*)(void))reset_scene_fog)();
     begin_effect_render__13TParticleCtrlFv();
 }

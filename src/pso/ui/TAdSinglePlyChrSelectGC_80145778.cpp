@@ -14,7 +14,7 @@ extern "C" {
 M2C_UNK TLobby__sub_803DA16C(M2C_UNK *);
 M2C_UNK free__11TOBoss4RockFUi(s32);
 M2C_UNK safe_free__23TAdSinglePlyChrSelectGCFUi(s32);
-extern M2C_UNK lbl_804A74E8[];
+extern M2C_UNK menu_font_texture_list[];
 extern s32 menu_font_glyph_data;
 extern s32 lbl_805D56B4;
 extern s32 menu_font_glyph_table;
@@ -38,7 +38,7 @@ void free_resources__23TAdSinglePlyChrSelectGCFv(void) {
     if (menu_font_object != NULL) {
         menu_font_object->m0(1);
     }
-    TLobby__sub_803DA16C(lbl_804A74E8);
+    TLobby__sub_803DA16C(menu_font_texture_list);
     free__11TOBoss4RockFUi(menu_font_glyph_table);
     free__11TOBoss4RockFUi(lbl_805D56B4);
     safe_free__23TAdSinglePlyChrSelectGCFUi(menu_font_glyph_data);

@@ -18,22 +18,22 @@ u8 is_floor_switch_set(u32 id, s16 floor);
 s16 get_current_floor();
 void is_current_floor_switch_set(s32 arg0);
 M2C_UNK memcpy(void *, void *, void *);
-extern u8 TSwitch__data_80515CC8[18][32];
+extern u8 TSwitch__floor_switch_table[18][32];
 void restore_switch_table(s32 arg0, s32 arg1);
 M2C_UNK memset(void *, int, int);
-extern u8 TSwitch__data_80515CC8[18][32];
+extern u8 TSwitch__floor_switch_table[18][32];
 void clear_switch_table(void);
 M2C_UNK memset(void *, int, int);
-extern u8 TSwitch__data_80515CC8[18][32];
+extern u8 TSwitch__floor_switch_table[18][32];
 void init_switch_table(void);
-extern u8 TSwitch__data_80515CC8[18][32];
+extern u8 TSwitch__floor_switch_table[18][32];
 M2C_UNK memcpy(void *, void *, void *);
 u32 copy_switch_table(void* destination);
-extern u8 TSwitch__data_80515CC8[18][32];
+extern u8 TSwitch__floor_switch_table[18][32];
 s32 get_floor_switch_flag(u32 id, s16 floor);
-extern u8 TSwitch__data_80515CC8[18][32];
+extern u8 TSwitch__floor_switch_table[18][32];
 void clear_floor_switch_flag(u32 id, s16 floor);
-extern u8 TSwitch__data_80515CC8[18][32];
+extern u8 TSwitch__floor_switch_table[18][32];
 void set_floor_switch_flag(u32 id, s16 floor);
 }
 
@@ -48,11 +48,11 @@ void render__7TSwitchFv(void) {  }
 void run_task__7TSwitchFv(void) {  }
 
 void restore_switch_table(s32 arg0, s32 arg1) {
-    memcpy((void *) TSwitch__data_80515CC8, (void *) (arg0), (void *) (arg1));
+    memcpy((void *) TSwitch__floor_switch_table, (void *) (arg0), (void *) (arg1));
 }
 
 u32 copy_switch_table(void* destination) {
-    memcpy((void *)(destination), (void *)(TSwitch__data_80515CC8), (void *)(0x240));
+    memcpy((void *)(destination), (void *)(TSwitch__floor_switch_table), (void *)(0x240));
     return 0x240;
 }
 
@@ -67,7 +67,7 @@ s32 get_floor_switch_flag(u32 id, s16 floor) {
         return -1;
     }
     id++;
-    row = TSwitch__data_80515CC8[floor];
+    row = TSwitch__floor_switch_table[floor];
     idx = (u16)id / 8;
     bit = (u16)id % 8;
     if (bit > 0) {
@@ -103,7 +103,7 @@ void clear_floor_switch_flag(u32 id, s16 floor) {
         return;
     }
     id++;
-    row = TSwitch__data_80515CC8[floor];
+    row = TSwitch__floor_switch_table[floor];
     idx = (u16)id / 8;
     bit = (u16)id % 8;
     if (bit != 0) {
@@ -131,7 +131,7 @@ void set_floor_switch_flag(u32 id, s16 floor) {
         return;
     }
     id++;
-    row = TSwitch__data_80515CC8[floor];
+    row = TSwitch__floor_switch_table[floor];
     idx = (u16)id / 8;
     bit = (u16)id % 8;
     if (bit > 0) {
@@ -156,10 +156,10 @@ void *__ct__7TSwitchFv(void *arg0) {
     return arg0;
 }
 void clear_switch_table(void) {
-    memset((void *) TSwitch__data_80515CC8, (int) (0), (int) (0x240));
+    memset((void *) TSwitch__floor_switch_table, (int) (0), (int) (0x240));
 }
 void init_switch_table(void) {
-    memset((void *) TSwitch__data_80515CC8, (int) (0), (int) (0x240));
+    memset((void *) TSwitch__floor_switch_table, (int) (0), (int) (0x240));
 }
 TSwitch::~TSwitch() {}
 

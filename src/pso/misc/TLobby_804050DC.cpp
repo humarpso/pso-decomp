@@ -626,7 +626,7 @@ M2C_UNK TLobby__sub_803F79B0(void *);
 extern RecoveredGlobal_804050DC_lbl_805C18A0 lbl_805C18A0;
 s32 run_net_init_step__6TLobbyFv(void);
 extern s32 lobby_timer_list_head;
-s16 TLobby__sub_80405140(void);
+s16 reset_network_timer_list(void);
 void TLobby__sub_803F8A08(void *);
 extern s16 lobby_udp_socket_table;
 s32 shutdown_network_handle__6TLobbyFv(void);
@@ -789,13 +789,13 @@ void TLobby__sub_80401CAC(Outer_80401CAC *o, u16 v);
 void TLobby__sub_804050DC(s16 arg0);
 s32 TLobby__sub_803FAEA0(s32 cmd, s32 arg);
 s32 mark_sub_ready__6TLobbyFPv(Obj_803FC480 *self);
-u16 TLobby__sub_80402ADC(u8 *p);
+u16 read_network_u16_be(u8 *p);
 extern u16 lbl_805D7A78;
 void set_ppp_auth_protocol__6TLobbyFUs(u16 v);
 u32 TLobby__sub_80402AFC(u8 *p);
-u8 *TLobby__sub_80402B3C(u8 *p, u32 v);
+u8 *write_network_u32_be(u8 *p, u32 v);
 void TLobby__sub_80405000(u32 arg0);
-u8 *TLobby__sub_80402B28(u8 *p, u16 v);
+u8 *write_network_u16_be(u8 *p, u16 v);
 extern Tbl_80408718 lbl_805C1AB0;
 Ent_80408718 *find_free_peer_entry__6TLobbyFv(void);
 s32 TLobby__sub_80405304(void *arg0);
@@ -915,7 +915,7 @@ void insert_item_at__6TLobbyFPvsii(O_8041D2B8 *o, s16 idx, s32 a, s32 b);
 void get_time_ms__6TLobbyFPv(s32 *out);
 void set_ppp_auth_protocol__6TLobbyFUs(u16 v);
 s16 TLobby__sub_80401BCC(void *, void *, int);
-u16 TLobby__sub_80402ADC(u8 *p);
+u16 read_network_u16_be(u8 *p);
 u32 TLobby__sub_80402AFC(u8 *p);
 extern s16 lbl_805D7A7A;
 extern u8 lcp_read_value_buffer[4];
@@ -927,8 +927,8 @@ s32 TLobby__sub_803FE6CC(void *, int, int, void *);
 void TLobby__sub_8040098C(Self_8040098C *self);
 u8 *alloc_from_buffer__6TLobbyFPvs(struct RecoveredFields_80401B8C_arg0 *arg0, s16 arg1);
 s16 TLobby__sub_80401BCC(void *, void *, int);
-u16 TLobby__sub_80402ADC(u8 *p);
-u8 *TLobby__sub_80402B28(u8 *p, u16 v);
+u16 read_network_u16_be(u8 *p);
+u8 *write_network_u16_be(u8 *p, u16 v);
 M2C_UNK PADRead(void *, Strm_80405A74 *);
 s16 TLobby__sub_80403F4C(void *, Strm_80405A74 **);
 s16 TLobby__sub_804040E0(void *, Strm_80405A74 **);
@@ -943,7 +943,7 @@ void TUdpSocket__sub_803F9EE4(void * _w0, int _w1, int _w2);
 void MD5Transform(u32 *state, u8 *block);
 s16 TLobby__sub_80401BCC(void *, void *, int);
 B_803FADA0 *init_net_buffer_entry__6TLobbyFUs(s32);
-u8 *TLobby__sub_80402B3C(u8 *p, u32 v);
+u8 *write_network_u32_be(u8 *p, u32 v);
 extern u8 lbl_805D7A74[1];
 void TLobby__sub_803FADA0(B_803FADA0 **arg0, A_803FADA0 *arg1, s32 arg2, s32 arg3, void *arg4);
 s32 TLobby__sub_80414D54(u8 *arg0, u8 *arg1, s16 arg2);
@@ -1385,7 +1385,7 @@ typedef char RecoveredGlobal_80401A68_lbl_805C04A8_size[sizeof(RecoveredGlobal_8
 
 void save_timer_state__6TLobbyFPv(u8 *arg0);
 
-#define rd16_804012E0(src) (TLobby__sub_80401BCC((void *)(src), lcp_read_value_buffer, 2) != 2 ? -1 : TLobby__sub_80402ADC(lcp_read_value_buffer))
+#define rd16_804012E0(src) (TLobby__sub_80401BCC((void *)(src), lcp_read_value_buffer, 2) != 2 ? -1 : read_network_u16_be(lcp_read_value_buffer))
 #define rd32_804012E0(src) (TLobby__sub_80401BCC((void *)(src), lcp_read_value_buffer, 4) != 4 ? 0 : TLobby__sub_80402AFC(lcp_read_value_buffer))
 #define rd8_804012E0(src) (TLobby__sub_80401BCC((void *)(src), lobby_read_byte_buffer, 1) != 1 ? -1 : (s16)lobby_read_byte_buffer[0])
 #define F(t, o) M2C_FIELD(arg2, t *, o)
@@ -1472,13 +1472,13 @@ void MD5Transform(u32 *state, u8 *block);
 #undef H_80401FE8
 #undef I_80401FE8
 
-u16 TLobby__sub_80402ADC(u8 *p);
+u16 read_network_u16_be(u8 *p);
 
 u32 TLobby__sub_80402AFC(u8 *p);
 
-u8 *TLobby__sub_80402B28(u8 *p, u16 v);
+u8 *write_network_u16_be(u8 *p, u16 v);
 
-u8 *TLobby__sub_80402B3C(u8 *p, u32 v);
+u8 *write_network_u32_be(u8 *p, u32 v);
 
 void init_net_block_620__6TLobbyFv(void);
 
@@ -1596,7 +1596,7 @@ s32 run_net_init_step__6TLobbyFv(void) {
     return 0;
 }
 
-s16 TLobby__sub_80405140(void) {
+s16 reset_network_timer_list(void) {
     lobby_timer_list_head = 0;
     return 0;
 }
@@ -1769,14 +1769,14 @@ inline s32 get_80405A74(Strm_80405A74 **s) {
     p = t->p;                                                                \
     *p++ = 0xFF;                                                             \
     *p++ = 3;                                                                \
-    TLobby__sub_80402B28(p, code);                                           \
+    write_network_u16_be(p, code);                                           \
     u = t;                                                                   \
     if (u == NULL) {                                                         \
         M2C_FIELD(G, s16 *, 0x142)++;                                        \
         return;                                                              \
     }                                                                        \
     if (TLobby__sub_80401BCC(&u, &lobby_ppp_read_buf, 2) == 2) {                   \
-        TLobby__sub_80402ADC(&lobby_ppp_read_buf);                                 \
+        read_network_u16_be(&lobby_ppp_read_buf);                                 \
     }                                                                        \
     TLobby__sub_803FE6CC(G + 4, 8, 0, u);                                    \
     return;
@@ -1793,7 +1793,7 @@ void ppp_input_packet__6TLobbyFPv(Strm_80405A74 *arg0) {
     G = lbl_805C0038;
     if (lbl_805D7A7A == 0 && arg0->p[0] == 0xFF && arg0->p[1] == 3 &&
         TLobby__sub_80401BCC(&arg0, &lobby_ppp_read_buf, 2) == 2) {
-        TLobby__sub_80402ADC(&lobby_ppp_read_buf);
+        read_network_u16_be(&lobby_ppp_read_buf);
     }
     code = (u16)get_80405A74(&arg0);
     if (!(code & 1)) {

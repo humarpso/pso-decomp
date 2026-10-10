@@ -366,7 +366,7 @@ void reset_state_fields__9TObjEneDDFPv(Obj_800BB88C *self);
 
 extern "C" {
 
-s32 TObjEneDD__sub_800BB878(s32 arg0, s32 arg1);
+s32 pack_debug_text_position(s32 arg0, s32 arg1);
 void copy_resource_desc__9TObjEneDDFPvPv(u8 *arg0, u8 *arg1);
 void TObjEneDD__sub_800BBA0C(u8 *arg0);
 void TObjEneDD__vt77(void *arg0);
@@ -382,18 +382,18 @@ M2C_UNK call_vt78__10TObjPlayerFPv();
 int fn_800FD8A0(void*);
 M2C_UNK reset_photon_effect__12TBoss3VoloptFPv(void *);
 
-extern s32 lbl_805D5328;
+extern s32 area_random_seed;
 
 void init_common_from__9TObjEneDDFPvPv(u8 *arg0, u8 *arg1) {
     reset_state_fields__9TObjEneDDFPv((Obj_800BB88C *)(arg0));
     M2C_FIELD(arg0, s16 *, 0x28) = (s16) M2C_FIELD(arg1, s16 *, 0x28);
     M2C_FIELD(arg0, s16 *, 0x2A) = (s16) M2C_FIELD(arg1, s16 *, 0x2A);
-    subtractive_rng_seed((void *) (arg0 + 0x160), (int) (M2C_FIELD(arg0, u16 *, 0x1C) + lbl_805D5328));
+    subtractive_rng_seed((void *) (arg0 + 0x160), (int) (M2C_FIELD(arg0, u16 *, 0x1C) + area_random_seed));
 }
 
 int get_target_info__9TObjEneDDFPv(void* p) { return fn_800FD8A0(p); }
 
-s32 TObjEneDD__sub_800BB878(s32 arg0, s32 arg1) {
+s32 pack_debug_text_position(s32 arg0, s32 arg1) {
     return ((arg0 + 0x13) << 0x10) | (arg1 + 0x1A);
 }
 

@@ -1862,7 +1862,7 @@ M2C_UNK translate_matrix(int, f32, f32, f32);
 M2C_UNK push_matrix();
 M2C_UNK post_translate_matrix(void *);
 M2C_UNK set_global_param__8TObjFishFi(int);
-extern u8 lbl_8050BEC0[];
+extern u8 saved_model_draw_color[];
 extern s32 *lbl_80542FF0[];
 extern u8 lbl_8058D4C0[];
 extern s32 lbl_805D5660;
@@ -1905,7 +1905,7 @@ void render__18TObjEneMe3SinowZoaFPv(u8 *arg0) {
         lbl_805D5660 = some_id_805c6f74;
         lbl_805D5664 = lbl_805D7784;
         lbl_805D5668 = lbl_805D7780;
-        copy_vec4__13TRaderMapCoreFPvPv(lbl_8050BEC0, lbl_8058D4C0);
+        copy_vec4__13TRaderMapCoreFPvPv(saved_model_draw_color, lbl_8058D4C0);
         if (!(o->f3D0 & 0x4000)) {
             v->m106();
             clear_global_flag_400__9TObjEneDDFv();
@@ -1948,7 +1948,7 @@ void render__18TObjEneMe3SinowZoaFPv(u8 *arg0) {
         if (v->m108() == 0 && TObjEneMe3SinowZoa__sub_800D72A4(&o->sub) != 0) {
             o->sub.m7();
         }
-        copy_vec4__13TRaderMapCoreFPvPv(lbl_8058D4C0, lbl_8050BEC0);
+        copy_vec4__13TRaderMapCoreFPvPv(lbl_8058D4C0, saved_model_draw_color);
         lbl_805D7784 = lbl_805D5664;
         lbl_805D7780 = lbl_805D5668;
         some_id_805c6f74 = lbl_805D5660;

@@ -38,7 +38,7 @@ void TOMonumentAncient02__vt11(u8 *arg0, u16 arg1);
 u8 * load_resource_from_descriptor(void *, s32, void *, s32, s32, s32);
 int alloc__23TAdSinglePlyChrSelectGCFPv(void *);
 extern RecoveredGlobal_80172758_lbl_804B38E0 lbl_804B38E0;
-extern u32 TOMonumentAncient01__data_805D5A60;
+extern u32 TOMonumentAncient01__resource_bundle;
 void load_resource_instance__19TOMonumentAncient01Fv(void);
 s32 TObjFish__sub_8001EDB0(int, int);
 s32 get_bml_model(int, int);
@@ -50,7 +50,7 @@ s32 init__5TOKeyFPv(void *);
 extern RecoveredGlobal_80172810_lbl_804B38F0 lbl_804B38F0;
 extern M2C_UNK __vt__19TOMonumentAncient01[];
 extern s32 lbl_805D30BC;
-extern u32 TOMonumentAncient01__data_805D5A60;
+extern u32 TOMonumentAncient01__resource_bundle;
 extern const f32 lbl_805DB918;
 extern const f32 lbl_805DB91C;
 u8 *TOMonumentAncient01__ct(u8 *arg0, M2C_UNK arg1, s32 arg2);
@@ -82,12 +82,12 @@ void *create__19TOMonumentAncient01FPv(void *arg0) {
     return o;
 }
 
-extern u32 TOMonumentAncient01__data_805D5A60;
+extern u32 TOMonumentAncient01__resource_bundle;
 
 void release_static_resource__19TOMonumentAncient01Fv(void) {
-    if ((u32) TOMonumentAncient01__data_805D5A60 != 0U) {
-        TLobby__sub_8001FE7C((void*)TOMonumentAncient01__data_805D5A60, 1);
-        TOMonumentAncient01__data_805D5A60 = 0U;
+    if ((u32) TOMonumentAncient01__resource_bundle != 0U) {
+        TLobby__sub_8001FE7C((void*)TOMonumentAncient01__resource_bundle, 1);
+        TOMonumentAncient01__resource_bundle = 0U;
     }
 }
 
@@ -101,7 +101,7 @@ void load_resource_instance__19TOMonumentAncient01Fv(void) {
     if (var_r0 != 0) {
         var_r0 = (long) (load_resource_from_descriptor((void *) temp_r3, 5, &lbl_804B38E0.value, 0, 0, 0));
     }
-    (*(s32 *)&TOMonumentAncient01__data_805D5A60) = var_r0;
+    (*(s32 *)&TOMonumentAncient01__resource_bundle) = var_r0;
 }
 
 void *__dt__19TOMonumentAncient01Fv(void *arg0, s16 arg1) {
@@ -124,8 +124,8 @@ u8 *TOMonumentAncient01__ct(u8 *arg0, M2C_UNK arg1, s32 arg2) {
     M2C_FIELD(arg0, M2C_UNK **, 0x18) = &(*(RecoveredGlobal_80172810___vt__19TOMonumentAncient01 *)&__vt__19TOMonumentAncient01).value;
     M2C_FIELD(arg0, s32 *, 0) = (s32) lbl_805D30BC;
     ((VObj_18_1a504b *)(arg0))->m5(arg2);
-    M2C_FIELD(arg0, s32 *, 0x34) = get_bml_model((int) ((*(s32 *)&TOMonumentAncient01__data_805D5A60)), (int) (2));
-    M2C_FIELD(arg0, s32 *, 0x24) = TObjFish__sub_8001EDB0((int) ((*(s32 *)&TOMonumentAncient01__data_805D5A60)), (int) (2));
+    M2C_FIELD(arg0, s32 *, 0x34) = get_bml_model((int) ((*(s32 *)&TOMonumentAncient01__resource_bundle)), (int) (2));
+    M2C_FIELD(arg0, s32 *, 0x24) = TObjFish__sub_8001EDB0((int) ((*(s32 *)&TOMonumentAncient01__resource_bundle)), (int) (2));
     init_collision_body_parts((void *) (arg0), (void *) (&lbl_804B38F0.value), (int) (1));
     refresh_collision_body_centers((void *) (arg0));
     reset_photon_effect__10TObjPlayerFPv((void *) (arg0));

@@ -30,13 +30,13 @@ M2C_UNK pop_matrix();
 void *__nw__7TObjectFUl(int);
 M2C_UNK set_global_param__8TObjFishFi(int);
 
-extern u8 *TOAirconCave02__data_805D5888;
+extern u8 *TOAirconCave02__bml_resource;
 
 void render__14TOAirconCave02Fv(u8 *arg0) {
     s32 temp_r31;
     u8 *temp_r4;
 
-    temp_r4 = (unsigned char *) (M2C_FIELD(TOAirconCave02__data_805D5888, void **, 0x42C));
+    temp_r4 = (unsigned char *) (M2C_FIELD(TOAirconCave02__bml_resource, void **, 0x42C));
     temp_r31 = M2C_FIELD(temp_r4, s32 *, 8);
     if (((VObj570D4_801570d4 *) arg0)->m8(M2C_FIELD(arg0, f32 *, 0xC0), M2C_FIELD(arg0, f32 *, 0xC4)) != 0) {
         push_matrix();

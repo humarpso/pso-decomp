@@ -73,8 +73,8 @@ void load_symbol_chat_data__20TWindowSubSymbolChatFPv(struct Win_80077544 *w) {
 
 void TLobby__sub_80077608(void) {  }
 
-    extern unsigned char lbl_804FF968[];
-    extern unsigned char lbl_805D4E54;
-void TLobby__sub_8007760C(void) { lbl_805D4E54 = 0; clear_entries__20TWindowSubSymbolChatFPv((Obj_800774E4 *)(lbl_804FF968)); }
+    extern unsigned char symbol_chat_receive_buffer[];
+    extern unsigned char pending_symbol_chat_count;
+void TLobby__sub_8007760C(void) { pending_symbol_chat_count = 0; clear_entries__20TWindowSubSymbolChatFPv((Obj_800774E4 *)(symbol_chat_receive_buffer)); }
 
 }

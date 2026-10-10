@@ -45,9 +45,9 @@ s32 get_bml_model(void *, s32);
 u8 * load_resource_from_descriptor(void *, s32, void *, s32, s32, s32);
 int alloc__23TAdSinglePlyChrSelectGCFPv(void *);
 extern RecoveredGlobal_8018E1E0_lbl_804B7588 TObjDoaEx01__resource_descriptor;
-extern u32 TObjDoaEx01__data_805D5BB0;
-extern u8 *TObjDoaEx01__data_805D5BB4;
-extern s32 TObjDoaEx01__data_805D5BB8;
+extern u32 TObjDoaEx01__resource_bundle;
+extern u8 *TObjDoaEx01__alpha_model_node;
+extern s32 TObjDoaEx01__alpha_model_sibling;
 void load_resources__11TObjDoaEx01Fv(void);
 u8 *get_bml_motion(s32, s32);
 s32 reset_photon_effect__10TObjPlayerFPv(void *);
@@ -57,7 +57,7 @@ s32 init_door_base(void *);
 extern RecoveredGlobal_8018E064_lbl_804B7598 TObjDoaEx01__collision_body_parts;
 extern M2C_UNK __vt__11TObjDoaEx01[];
 extern s32 lbl_805D3328;
-extern u32 TObjDoaEx01__data_805D5BB0;
+extern u32 TObjDoaEx01__resource_bundle;
 extern const f32 TObjDoaEx01__data_805DBDA0;
 extern const f32 TObjDoaEx01__data_805DBDA8;
 extern const f32 lbl_805DBDBC;
@@ -106,7 +106,7 @@ u8 *TObjDoaEx01__ct(u8 *arg0, M2C_UNK arg1, s32 arg2) {
     reset_photon_effect__10TObjPlayerFPv((void *) (arg0));
     M2C_FIELD(arg0, f32 *, 0xB0) = (f32) TObjDoaEx01__data_805DBDA0;
     M2C_FIELD(arg0, f32 *, 0xB8) = (f32) lbl_805DBDBC;
-    M2C_FIELD(arg0, f32 *, 0xB4) = (f32) M2C_FIELD(get_bml_motion((*(s32 *)&TObjDoaEx01__data_805D5BB0), 0), u32 *, 4);
+    M2C_FIELD(arg0, f32 *, 0xB4) = (f32) M2C_FIELD(get_bml_motion((*(s32 *)&TObjDoaEx01__resource_bundle), 0), u32 *, 4);
     M2C_FIELD(arg0, s32 *, 0xD0) = 0x100001;
     M2C_FIELD(arg0, f32 *, 0xD4) = (f32) TObjDoaEx01__data_805DBDA8;
     M2C_FIELD(arg0, f32 *, 0xD8) = (f32) TObjDoaEx01__data_805DBDA8;
@@ -123,12 +123,12 @@ void *TObjDoaEx01__create(void *arg0) {
     return o;
 }
 
-extern u32 TObjDoaEx01__data_805D5BB0;
+extern u32 TObjDoaEx01__resource_bundle;
 
 void free_resource__11TObjDoaEx01Fv(void) {
-    if ((u32) TObjDoaEx01__data_805D5BB0 != 0U) {
-        TLobby__sub_8001FE7C((void*)TObjDoaEx01__data_805D5BB0, 1);
-        TObjDoaEx01__data_805D5BB0 = 0U;
+    if ((u32) TObjDoaEx01__resource_bundle != 0U) {
+        TLobby__sub_8001FE7C((void*)TObjDoaEx01__resource_bundle, 1);
+        TObjDoaEx01__resource_bundle = 0U;
     }
 }
 void load_resources__11TObjDoaEx01Fv(void) {
@@ -140,10 +140,10 @@ void load_resources__11TObjDoaEx01Fv(void) {
     if (var_r0 != 0) {
         var_r0 = (long) (load_resource_from_descriptor((void *) temp_r3, 1, &TObjDoaEx01__resource_descriptor.value, 0, 0, 0));
     }
-    (*(u8 * *)&TObjDoaEx01__data_805D5BB0) = (unsigned char *) ((void *) var_r0);
+    (*(u8 * *)&TObjDoaEx01__resource_bundle) = (unsigned char *) ((void *) var_r0);
     temp_r3_2 = (u8 *)(M2C_FIELD(M2C_FIELD(M2C_FIELD(M2C_FIELD(get_bml_model((void *) var_r0, 0), void **, 0x2C), void **, 0x30), void **, 0x2C), void **, 0x2C));
-    TObjDoaEx01__data_805D5BB4 = temp_r3_2;
-    TObjDoaEx01__data_805D5BB8 = M2C_FIELD(temp_r3_2, s32 *, 0x30);
+    TObjDoaEx01__alpha_model_node = temp_r3_2;
+    TObjDoaEx01__alpha_model_sibling = M2C_FIELD(temp_r3_2, s32 *, 0x30);
 }
 
 }

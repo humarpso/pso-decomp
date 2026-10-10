@@ -38,7 +38,7 @@ void *get_window_layout_position(s32);
 int sprintf(char *, const char *, ...);
 extern char lbl_8044A638[];
 extern u8 __vt__16TObjItemOKWindow[];
-extern s32 lbl_805D35E0;
+extern s32 TObjItemOKWindow__class_name;
 extern const f32 lbl_805DC4E0;
 extern const f32 lbl_805DC4E4;
 extern char lbl_805DC4E8[4];
@@ -53,7 +53,7 @@ Self_801F4B10 *TObjItemOKWindow__ct(Self_801F4B10 *self, void *parent) {
 
     __ct__7TObjectFP7TObject(self, parent);
     self->vtable = __vt__16TObjItemOKWindow;
-    self->name = lbl_805D35E0;
+    self->name = TObjItemOKWindow__class_name;
     self->win60 = init_shop_judgment_window(get_window_layout_position(0x57));
     if (self->win60 != NULL) {
         set_scroll_target__17TWindowSubComCardFPvff(self->win60, lbl_805DC4E0, lbl_805DC4E4);

@@ -45,18 +45,18 @@ extern M2C_UNK lbl_804AF7B0[];
 u8 *init_base__22TObjFogCollisionPoisonFPvPvs(u8 *arg0, u8 *arg1, s16 arg2);
 void __ct__7TObjectFP7TObject(void *, void *);
 extern RecoveredGlobal_801532C8_lbl_804AF7C8 lbl_804AF7C8;
-extern RecoveredGlobal_801532C8_TObjFogCollisionPoison__data_8050D430 TObjFogCollisionPoison__data_8050D430;
+extern RecoveredGlobal_801532C8_TObjFogCollisionPoison__data_8050D430 TObjFogCollisionPoison__instances;
 extern s32 lbl_805D2E84;
 u8 *construct_with_index__22TObjFogCollisionPoisonFPvPvi(u8 *arg0, u8 *arg1, s32 arg2);
 void record_hit__22TObjFogCollisionPoisonFPvii(void *arg0, s32 arg1, s32 arg2);
-extern RecoveredGlobal_801532C8_TObjFogCollisionPoison__data_8050D430 TObjFogCollisionPoison__data_8050D430;
+extern RecoveredGlobal_801532C8_TObjFogCollisionPoison__data_8050D430 TObjFogCollisionPoison__instances;
 void record_fog_collision_hit(s32 arg0, s32 arg1, s32 arg2);
 void __dt__7TObjectFv(void *, int);
 void __dl__7TObjectFPv(void *);
 extern RecoveredGlobal_801532C8_lbl_804AF7C8 lbl_804AF7C8;
-extern RecoveredGlobal_801532C8_TObjFogCollisionPoison__data_8050D430 TObjFogCollisionPoison__data_8050D430;
+extern RecoveredGlobal_801532C8_TObjFogCollisionPoison__data_8050D430 TObjFogCollisionPoison__instances;
 u8 *TObjFogCollisionPoison__sub_80153258(u8 *arg0, s16 arg1);
-extern RecoveredGlobal_801532C8_TObjFogCollisionPoison__data_8050D430 TObjFogCollisionPoison__data_8050D430;
+extern RecoveredGlobal_801532C8_TObjFogCollisionPoison__data_8050D430 TObjFogCollisionPoison__instances;
 void clear_state_array__22TObjFogCollisionPoisonFv(void);
 void TObjFogCollisionSwitch__vt12(void *self);
 void debug_printf_at(s32 id, const char *fmt, ...);
@@ -161,7 +161,7 @@ typedef char RecoveredGlobal_801531EC_TObjFogCollisionPoison__data_8050D430_size
 void record_fog_collision_hit(s32 arg0, s32 arg1, s32 arg2) {
     u32 temp_r3;
     if ((arg0 >= 0) && (arg0 < 0xC)) {
-        temp_r3 = M2C_FIELD(&(*(RecoveredGlobal_801531EC_TObjFogCollisionPoison__data_8050D430 *)&TObjFogCollisionPoison__data_8050D430).value, M2C_UNK *, (arg0 * 4));
+        temp_r3 = M2C_FIELD(&(*(RecoveredGlobal_801531EC_TObjFogCollisionPoison__data_8050D430 *)&TObjFogCollisionPoison__instances).value, M2C_UNK *, (arg0 * 4));
         if (temp_r3 != 0U) {
             record_hit__22TObjFogCollisionPoisonFPvii((void *)((int) (temp_r3)), (s32)((void *) (arg1)), (s32)((void *) (arg2)));
         }
@@ -187,7 +187,7 @@ typedef char RecoveredGlobal_80153258_TObjFogCollisionPoison__data_8050D430_size
 u8 *TObjFogCollisionPoison__sub_80153258(u8 *arg0, s16 arg1) {
     if (arg0 != NULL) {
         M2C_FIELD(arg0, M2C_UNK **, 0x18) = &(*(RecoveredGlobal_80153258_lbl_804AF7C8 *)&lbl_804AF7C8).value;
-        M2C_FIELD(&(*(RecoveredGlobal_80153258_TObjFogCollisionPoison__data_8050D430 *)&TObjFogCollisionPoison__data_8050D430).value, M2C_UNK *, (M2C_FIELD(arg0, s32 *, 0x28) * 4)) = 0;
+        M2C_FIELD(&(*(RecoveredGlobal_80153258_TObjFogCollisionPoison__data_8050D430 *)&TObjFogCollisionPoison__instances).value, M2C_UNK *, (M2C_FIELD(arg0, s32 *, 0x28) * 4)) = 0;
         __dt__7TObjectFv((void *)(arg0), (int)(0));
         if (arg1 > 0) {
             __dl__7TObjectFPv((void *)((s32) arg0));
@@ -201,7 +201,7 @@ u8 *construct_with_index__22TObjFogCollisionPoisonFPvPvi(u8 *arg0, u8 *arg1, s32
     M2C_FIELD(arg0, M2C_UNK **, 0x18) = &lbl_804AF7C8.value;
     M2C_FIELD(arg0, s32 *, 0) = (s32) lbl_805D2E84;
     M2C_FIELD(arg0, s32 *, 0x28) = arg2;
-    M2C_FIELD(&TObjFogCollisionPoison__data_8050D430.value, M2C_UNK *, (M2C_FIELD(arg0, s32 *, 0x28) * 4)) = (long) (arg0);
+    M2C_FIELD(&TObjFogCollisionPoison__instances.value, M2C_UNK *, (M2C_FIELD(arg0, s32 *, 0x28) * 4)) = (long) (arg0);
     M2C_FIELD(arg0, s32 *, 0x1C) = 0;
     M2C_FIELD(arg0, s32 *, 0x20) = 0;
     M2C_FIELD(arg0, s32 *, 0x24) = 1;
@@ -235,7 +235,7 @@ void TObjFogCollisionPoison__sub_801533BC(void) {  }
 void clear_state_array__22TObjFogCollisionPoisonFv(void) {
     s32 i;
     for (i = 0; i < 12; i++) {
-        ((s32 *)&TObjFogCollisionPoison__data_8050D430)[i] = 0;
+        ((s32 *)&TObjFogCollisionPoison__instances)[i] = 0;
     }
 }
 

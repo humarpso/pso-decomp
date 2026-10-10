@@ -19,8 +19,8 @@ s32 update_object_view_visibility(s32, f32, f32);
 int read_be16_field2__10TObjPlayerFPv(void* a0 = 0);
 
     extern unsigned char lbl_804404B0[];
-    extern int lbl_805D58D4;
-void load_chat_sensor(void) { lbl_805D58D4 = load_encrypted_archive_data(lbl_804404B0); }
+    extern int chat_sensor_table;
+void load_chat_sensor(void) { chat_sensor_table = load_encrypted_archive_data(lbl_804404B0); }
 
 void send_state__12TOChatSensorFPv(void* p) { swap_state_endian__12TOChatSensorFPv((void*)(p)); TLobby__send_and_handle_60(p); }
 

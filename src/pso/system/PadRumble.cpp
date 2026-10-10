@@ -28,18 +28,18 @@ struct Sp_802430F4 { u32 a; u32 b; };
 
 extern "C" {
 extern RecoveredGlobal_802430E8_lbl_80518580 pad_rumble_effect_slots;
-M2C_UNK *TAdSinglePlyChrSelectGC__sub_802430E8(void);
+M2C_UNK *get_pad_rumble_effect_slots(void);
 s32 is_active__12TBoss3VoloptFPv(int);
 extern RecoveredGlobal_802430E8_lbl_80518580 pad_rumble_effect_slots;
-M2C_UNK *find_active_node_by_id__12TBoss3VoloptFUi(u32 arg0);
+M2C_UNK *find_active_pad_rumble_effect_by_id(u32 arg0);
 s32 is_active__12TBoss3VoloptFPv(int);
 extern RecoveredGlobal_802430E8_lbl_80518580 pad_rumble_effect_slots;
-M2C_UNK *find_free_effect_slot__12TBoss3VoloptFv(void);
+M2C_UNK *find_free_pad_rumble_effect_slot(void);
 void reset_state__23TAdSinglePlyChrSelectGCFPv(void *);
 extern RecoveredGlobal_802430E8_lbl_80518580 pad_rumble_effect_slots;
 extern Pt_80243070 pad_rumble_channel_states[];
 extern const f32 lbl_805DCA04;
-void reset_all_slots__23TAdSinglePlyChrSelectGCFs(s16 arg0);
+void reset_pad_rumble_effects_and_channels(s16 arg0);
 void accumulate_rumble_strength__23TAdSinglePlyChrSelectGCFPvi(Sp_802430F4 *, u32, s32);
 void TAdSinglePlyChrSelectGC__sub_80242B24(Sp_802430F4 *);
 s32 update_rumble_pattern__23TAdSinglePlyChrSelectGCFPvPv(Pt_80243070 *, Sp_802430F4 *);
@@ -56,7 +56,7 @@ extern "C" {
 typedef char RecoveredGlobal_802430E8_lbl_80518580_size[sizeof(RecoveredGlobal_802430E8_lbl_80518580) == 0x180 ? 1 : -1];
 
 typedef char RecoveredGlobal_80242F94_lbl_80518580_size[sizeof(RecoveredGlobal_80242F94_lbl_80518580) == 0x180 ? 1 : -1];
-M2C_UNK *find_active_node_by_id__12TBoss3VoloptFUi(u32 arg0) {
+M2C_UNK *find_active_pad_rumble_effect_by_id(u32 arg0) {
     M2C_UNK *var_r31;
     s32 var_r30;
     var_r30 = 0;
@@ -74,7 +74,7 @@ loop_1:
 }
 
 typedef char RecoveredGlobal_80243010_lbl_80518580_size[sizeof(RecoveredGlobal_80243010_lbl_80518580) == 0x180 ? 1 : -1];
-M2C_UNK *find_free_effect_slot__12TBoss3VoloptFv(void) {
+M2C_UNK *find_free_pad_rumble_effect_slot(void) {
     M2C_UNK *var_r31;
     s32 var_r30;
     var_r30 = 0;
@@ -91,7 +91,7 @@ loop_1:
     goto loop_1;
 }
 
-void reset_all_slots__23TAdSinglePlyChrSelectGCFs(s16 arg0) {
+void reset_pad_rumble_effects_and_channels(s16 arg0) {
     Ent_80243070 *p = ((Ent_80243070 *)&pad_rumble_effect_slots);
     s32 i;
     Pt_80243070 *q;
@@ -106,7 +106,7 @@ void reset_all_slots__23TAdSinglePlyChrSelectGCFs(s16 arg0) {
     }
 }
 
-M2C_UNK *TAdSinglePlyChrSelectGC__sub_802430E8(void) {
+M2C_UNK *get_pad_rumble_effect_slots(void) {
     return &pad_rumble_effect_slots.value;
 }
 void update_pad_rumble(void) {

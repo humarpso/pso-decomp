@@ -8,11 +8,11 @@ extern "C" {
 
 void clear_if_current__26TWindowSubInformationBoardFUi(u32 arg0);
 
-extern u32 lbl_805D6E9C;
+extern u32 information_board_response_buffer;
 
 void clear_if_current__26TWindowSubInformationBoardFUi(u32 arg0) {
-    if ((u32) lbl_805D6E9C == arg0) {
-        lbl_805D6E9C = 0U;
+    if ((u32) information_board_response_buffer == arg0) {
+        information_board_response_buffer = 0U;
     }
 }
 

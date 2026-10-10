@@ -23,7 +23,7 @@ struct A_803E4BDC { u8 pad[0xC]; s32 fc; };
 struct B_803E4BDC { u8 pad[0x28]; s32 f28; };
 void draw_motion_tree__10TObjPlayerFPvPvi(void *arg0, void *arg1, s32 arg2);
 void bind_motion_context(void *);
-extern s32 lbl_804FA50C[];
+extern s32 motion_angle_sampler_table[];
 extern A_803E4BDC *model_draw_context;
 extern B_803E4BDC *current_motion_context;
 void draw_model_motion(void *arg0, void *arg1, f32 farg0);
@@ -43,13 +43,13 @@ s32 apply_motion_node_transform__10TObjPlayerFPv(int);
 s32 push_matrix();
 s32 pop_matrix();
 extern A_803E4BDC *model_draw_context;
-extern RecoveredCallback_1268626c296b lbl_805D7810;
+extern RecoveredCallback_1268626c296b chunk_model_node_callback;
 s32 draw_object_tree_recursive(void *arg);
 s32 compose_motion_node_matrix(int);
 s32 push_matrix();
 s32 pop_matrix();
 extern A_803E4BDC *model_draw_context;
-extern RecoveredCallback_1268626c296b lbl_805D7810;
+extern RecoveredCallback_1268626c296b chunk_model_node_callback;
 void traverse_animated_node_tree(void *arg);
 }
 
@@ -60,10 +60,10 @@ void clear_move_state_bits__10TObjPlayerFv(void);
 void set_global_flag__10TObjPlayerFv(void);
 void set_global_state__10TObjPlayerFi(s32 arg0);
 
-extern s32 lbl_805D77F8;
+extern s32 chunk_render_flags;
 
 void clear_move_state_bits__10TObjPlayerFv(void) {
-    lbl_805D77F8 &= 0xFFFFF9FF;
+    chunk_render_flags &= 0xFFFFF9FF;
 }
 
 extern s32 lbl_805D77DC;
@@ -72,15 +72,15 @@ void set_global_state__10TObjPlayerFi(s32 arg0) {
     lbl_805D77DC = arg0;
 }
 
-extern s32 lbl_805D7808;
+extern s32 motion_packed_rotation_mode;
 
 void draw_blend_motion_tree__10TObjPlayerFiii(s32 arg0, s32 arg1, s32 arg2) {
     bind_motion_blend_channels((void *) (arg1));
-    if ((s32) lbl_805D7808 != 0) {
+    if ((s32) motion_packed_rotation_mode != 0) {
         select_motion_context((int) (1));
-        M2C_FIELD(current_motion_context, s32 *, 0x28) = (s32) M2C_FIELD(lbl_804FA50C, s32 *, 0xC);
+        M2C_FIELD(current_motion_context, s32 *, 0x28) = (s32) M2C_FIELD(motion_angle_sampler_table, s32 *, 0xC);
         select_motion_context((int) (0));
-        M2C_FIELD(current_motion_context, s32 *, 0x28) = (s32) M2C_FIELD(lbl_804FA50C, s32 *, 0xC);
+        M2C_FIELD(current_motion_context, s32 *, 0x28) = (s32) M2C_FIELD(motion_angle_sampler_table, s32 *, 0xC);
     }
     M2C_FIELD(model_draw_context, s32 *, 0xC) = arg2;
     draw_object_tree_recursive((void *)((void *) (arg0)));
@@ -92,8 +92,8 @@ s32 draw_object_tree_recursive(void *arg) {
     do {
         push_matrix();
         apply_motion_node_transform__10TObjPlayerFPv((int) arg0);
-        if (lbl_805D7810 != NULL) {
-            lbl_805D7810(arg0);
+        if (chunk_model_node_callback != NULL) {
+            chunk_model_node_callback(arg0);
         }
         t = arg0->f4;
         if (t != 0 && (arg0->flags & 8) == 0) {
@@ -126,19 +126,19 @@ void TObjEneSlimeOne__sub_803E4B54(void *arg0, void *arg1, void *arg2, f32 farg0
 }
 
 void set_global_flag__10TObjPlayerFv(void) {
-    lbl_805D7808 = 1;
+    motion_packed_rotation_mode = 1;
 }
 
-extern s32 lbl_805D7808;
+extern s32 motion_packed_rotation_mode;
 
 void clear_global_state__10TObjPlayerFv(void) {
-    lbl_805D7808 = 0;
+    motion_packed_rotation_mode = 0;
 }
 void draw_motion_tree__10TObjPlayerFPvPvi(void *arg0, void *arg1, s32 arg2) {
     bind_motion_context(arg1);
     model_draw_context->fc = arg2;
-    if (lbl_805D7808 != 0) {
-        current_motion_context->f28 = lbl_804FA50C[3];
+    if (motion_packed_rotation_mode != 0) {
+        current_motion_context->f28 = motion_angle_sampler_table[3];
     }
     traverse_animated_node_tree((void *)(arg0));
 }
@@ -148,8 +148,8 @@ void traverse_animated_node_tree(void *arg) {
     do {
         push_matrix();
         compose_motion_node_matrix((int) arg0);
-        if (lbl_805D7810 != NULL) {
-            lbl_805D7810(arg0);
+        if (chunk_model_node_callback != NULL) {
+            chunk_model_node_callback(arg0);
         }
         t = arg0->f4;
         if (t != 0 && (arg0->flags & 8) == 0) {

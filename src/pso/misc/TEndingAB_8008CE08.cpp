@@ -17,7 +17,7 @@ extern RecoveredGlobal_8008CE80___vt__9TEndingAB __vt__9TEndingAB;
 extern s32 lbl_805D2958;
 extern s32 TEndingAB__fade_sequence_state;
 u8 *__ct__9TEndingABFv(u8 *arg0, u8 *arg1);
-s32 fn_8001A988(void);
+s32 get_ending_scene_active(void);
 void bind_gvm_texture_list(void *, void *);
 extern u8 lbl_8043988C[];
 extern u8 lbl_804398A4[];
@@ -73,7 +73,7 @@ void destroy_instance__9TEndingABFv(void) {
 void bind_ending_wall_textures__6TSceneFv(void) {
     u8 *base = ending_wall_texture_table;
     u8 *t;
-    if (fn_8001A988() != 0) {
+    if (get_ending_scene_active() != 0) {
         t = base + 0x2B8;
         (*(u8 * *)&ending_ab_wall_texture_list) = t;
         bind_gvm_texture_list(lbl_8043988C, t);

@@ -29,7 +29,7 @@ extern unsigned char window_layout_rect_table[];
 V2_8026CBB8 *get_window_layout_position(s32 idx);
 s32 TWindowCtrlMain__sub_8024CE58(void);
 void get_scale__20TWindowSubStatusDispFPv(void *);
-extern f32 lbl_805D6418;
+extern f32 window_depth_order_cursor;
 extern const f32 lbl_805DD2C8;
 void TWindowCtrlMain__sub_8026CC28(Win_8026CC28 *w);
 }
@@ -52,7 +52,7 @@ void TWindowCtrlMain__sub_8026CC28(Win_8026CC28 *w) {
     f32 t;
     if (TWindowCtrlMain__sub_8024CE58() != 0) {
         get_scale__20TWindowSubStatusDispFPv(w);
-        lbl_805D6418 -= lbl_805DD2C8;
+        window_depth_order_cursor -= lbl_805DD2C8;
         lim = w->f54;
         for (n = w->f10->f14; n != NULL; n = n->fC) {
             t = n->f54;
@@ -87,7 +87,7 @@ void resort_window_order__15TWindowCtrlMainFPv(Node_8026CCA4 *w) {
         }
     }
     scale = ((f32 (*)(void *))get_scale__20TWindowSubStatusDispFPv)(w);
-    lbl_805D6418 += lbl_805DD2C8;
+    window_depth_order_cursor += lbl_805DD2C8;
     for (n = g->head; n != NULL; n = n->next) {
         last = n;
         if (!(scale < ((f32 (*)(void *))get_scale__20TWindowSubStatusDispFPv)(n))) {

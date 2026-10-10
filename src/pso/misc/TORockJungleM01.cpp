@@ -103,7 +103,7 @@ s32 refresh_collision_body_centers(void *);
 s32 init_collision_body_parts(void *, void *, int);
 s32 TORockCaveBrakable__ct(void *);
 s32 create__10TObjMapCsnFi(void *);
-s32 TORockJungleS01__sub_8029CAE8(int);
+s32 get_jungle_rock_texture_resource(int);
 u8 *get_model__15TORockJungleS01Fi(s32);
 extern RecoveredGlobal_8029C588_lbl_804DC3A0 rock_jungle_collision_body_parts;
 extern RecoveredGlobal_8029C588_lbl_804DC424 rock_jungle_vec3_table;
@@ -122,7 +122,7 @@ void TORockJungleM01__vt12(Rd_8029C6FC *arg0);
 s32 VecCopy__FP3VecPC3Vec(void *, void *);
 void *construct_debris__8TObjChipFPvPvPv(void *, void *, void *);
 void *__nw__7TObjectFUl(int);
-s32 TORockJungleS01__sub_8029CAE8(int);
+s32 get_jungle_rock_texture_resource(int);
 u8 *get_model__15TORockJungleS01Fi(s32);
 int vec3_add_to(void *, void *);
 int rotate_vector_by_matrix(int, void *, void *);
@@ -180,7 +180,7 @@ void TORockJungleM01__vt14(Rock_8029C390 *self) {
         VecCopy__FP3VecPC3Vec(&chip.pos, &self->pos);
         vec3_add_to(&chip.pos, &v);
         chip.res = (s32)get_model__15TORockJungleS01Fi(3);
-        chip.res2 = TORockJungleS01__sub_8029CAE8(3);
+        chip.res2 = get_jungle_rock_texture_resource(3);
         o = __nw__7TObjectFUl(0x234);
         if (o != NULL) {
             construct_debris__8TObjChipFPvPvPv(o, tl_05, &chip);
@@ -227,7 +227,7 @@ u8 *TORockJungleM01__ct(u8 *arg0, s32 arg1) {
     M2C_FIELD(arg0, s32 *, 0) = (s32) lbl_805D3D40;
     ((VObj_18_1a504b *)(arg0))->m5(arg1);
     M2C_FIELD(arg0, u8 **, 0x34) = get_model__15TORockJungleS01Fi(2);
-    M2C_FIELD(arg0, s32 *, 0x24) = TORockJungleS01__sub_8029CAE8((int) (2));
+    M2C_FIELD(arg0, s32 *, 0x24) = get_jungle_rock_texture_resource((int) (2));
     M2C_FIELD(arg0, f32 *, 0xB0) = (f32) (lbl_805DDD1C + M2C_FIELD(M2C_FIELD(M2C_FIELD(arg0, u8 **, 0x34), void **, 4), f32 *, 0x14));
     init_collision_body_parts((void *) (arg0), (void *) ((u8 *)&rock_jungle_collision_body_parts.value + 0x2C), (int) (1));
     refresh_collision_body_centers((void *) (arg0));

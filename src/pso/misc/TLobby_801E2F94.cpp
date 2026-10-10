@@ -82,10 +82,10 @@ struct Rect_801E317C { f32 x0, y0, x1, y1; };
 
 extern "C" {
 extern f32 lbl_805D3588;
-extern f32 lbl_805D358C;
+extern f32 camera_viewport_center_y;
 void TCameraCtrl__sub_801E32D8(f32 farg0, f32 farg1);
 extern f32 lbl_805D3588;
-extern f32 lbl_805D358C;
+extern f32 camera_viewport_center_y;
 void GXSetScissor(u32, u32, u32, u32);
 void set_viewport_scissor__11TCameraCtrlFiPv(s32 mode, Rect_801E317C *r);
 }
@@ -116,7 +116,7 @@ void set_viewport_scissor__11TCameraCtrlFiPv(s32 mode, Rect_801E317C *r) {
             w = 640.0f;
         }
         ox = lbl_805D3588 - 320.0f;
-        oy = lbl_805D358C - 240.0f;
+        oy = camera_viewport_center_y - 240.0f;
         if (oy >= 0.0f) {
             adj = -oy;
             oy = 0.0f;
@@ -129,7 +129,7 @@ void set_viewport_scissor__11TCameraCtrlFiPv(s32 mode, Rect_801E317C *r) {
 
 void TCameraCtrl__sub_801E32D8(f32 farg0, f32 farg1) {
     lbl_805D3588 = farg0;
-    lbl_805D358C = farg1;
+    camera_viewport_center_y = farg1;
 }
 
 void camera_renderer_setup_nop(void) {  }
@@ -202,7 +202,7 @@ void GXSetLineWidth(s32, s32);
 void load_camera_view_matrix(void);
 void setup_opaque_color_draw(void);
 void TObjPlayer__sub_803E21DC(void);
-extern int lbl_805D3580;
+extern int current_line_width;
 void draw_line_list(Lines_801E341C *l, s32 n, u32 flags);
 void TObjEneRe4Sorcerer__sub_801E3F20(void);
 void TObjPlayer__sub_801E3F24(u32);
@@ -241,7 +241,7 @@ void camera_renderer_setup_nop(void);
 int TObjPlayer__sub_803DAD28(void*);
 int draw_textured_vertices__10TObjPlayerFPvii(void*, void*, void*);
 
-    extern int lbl_805D3580;
+    extern int current_line_width;
 
 void draw_color_lines(Lines_801E3330 *l, s32 n, s32 flags, f32 scale) {
     u32 c;
@@ -275,7 +275,7 @@ void draw_line_list(Lines_801E341C *l, s32 n, u32 flags) {
     } else {
         setup_opaque_color_draw();
     }
-    GXSetLineWidth((u8)lbl_805D3580, 0);
+    GXSetLineWidth((u8)current_line_width, 0);
     if (flags & 0x10) {
         GXBegin(0xB0, 4, n * 2);
     } else {
@@ -300,10 +300,10 @@ void draw_line_list(Lines_801E341C *l, s32 n, u32 flags) {
     reset_line_width();
 }
 
-void reset_line_width(void) { lbl_805D3580 = 12; }
+void reset_line_width(void) { current_line_width = 12; }
 
-    extern int lbl_805D3580;
-void set_line_width(int a0) { lbl_805D3580 = a0; }
+    extern int current_line_width;
+void set_line_width(int a0) { current_line_width = a0; }
 void draw_strip_swap_color__15TWindowCtrlMainFPviif(Ctrl_801E352C *c, s32 n, s32 flags, f32 _w3) {
     s32 i;
     u32 x;
@@ -587,7 +587,7 @@ void render_tick__Fv(void);
 void render_tree__10TObjPlayerFPv(void *arg0);
 M2C_UNK GXSetViewport(f32, f32, f32, f32, f32, f32);
 M2C_UNK GXSetZMode(M2C_UNK, M2C_UNK, M2C_UNK);
-extern M2C_UNK (*lbl_805D7810)(void *);
+extern M2C_UNK (*chunk_model_node_callback)(void *);
 M2C_UNK restore_full_screen_view__11TCameraCtrlFv();
 M2C_UNK TKeyBoardControl__sub_8000F7FC();
 M2C_UNK compose_motion_node_matrix(void *);
@@ -608,8 +608,8 @@ void render_tree__10TObjPlayerFPv(void *arg0) {
     do {
         push_matrix();
         compose_motion_node_matrix(var_r31);
-        if (((M2C_UNK (*)(void *)) lbl_805D7810) != NULL) {
-            lbl_805D7810(var_r31);
+        if (((M2C_UNK (*)(void *)) chunk_model_node_callback) != NULL) {
+            chunk_model_node_callback(var_r31);
         }
         if ((u32) M2C_FIELD(var_r31, u32 *, 0x2C) != 0U) {
             render_tree__10TObjPlayerFPv((void *)(M2C_FIELD(var_r31, void **, 0x2C)));

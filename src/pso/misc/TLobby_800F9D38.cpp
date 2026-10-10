@@ -7,10 +7,10 @@ void set_stream_state__6TLobbyFi(int a0);
 int load_sct_file__8TGStreamFii(void);
 int load_file__8TGStreamFi(void);
 
-    extern int lbl_805D5338;
-void set_stream_and_load_file__6TLobbyFi(int a0) { lbl_805D5338 = a0; load_file__8TGStreamFi(); }
+    extern int disc_read_filename;
+void set_stream_and_load_file__6TLobbyFi(int a0) { disc_read_filename = a0; load_file__8TGStreamFi(); }
 
-    extern int lbl_805D5338;
-void set_stream_state__6TLobbyFi(int a0) { lbl_805D5338 = a0; load_sct_file__8TGStreamFii(); }
+    extern int disc_read_filename;
+void set_stream_state__6TLobbyFi(int a0) { disc_read_filename = a0; load_sct_file__8TGStreamFii(); }
 
 }

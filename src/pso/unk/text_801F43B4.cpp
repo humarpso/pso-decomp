@@ -12,7 +12,7 @@ u32 get_card_window__17TWindowSubComCardFUi(M2C_UNK);
 M2C_UNK notify_quest_thread__22THunterGuildSeqOfflineFv();
 s32 is_not_split_screen__13TRaderMapCoreFv();
 M2C_UNK memcpy(s32, M2C_UNK *, M2C_UNK);
-extern u8 lbl_805127F8[4][128];
+extern u8 quest_story_flags_by_difficulty[4][128];
 extern s32 game_difficulty_selection;
 
 void copy_card_window_data(void) {
@@ -24,7 +24,7 @@ void copy_card_window_data(void) {
         }
         temp_r3 = get_card_window__17TWindowSubComCardFUi(0);
         if (temp_r3 != 0U) {
-            memcpy(temp_r3 + 0x44, (M2C_UNK *)lbl_805127F8, 0x200);
+            memcpy(temp_r3 + 0x44, (M2C_UNK *)quest_story_flags_by_difficulty, 0x200);
         }
     }
 }
@@ -42,9 +42,9 @@ s32 get_difficulty_flag_bit__12TLevelSelectFii(s32 n, s32 flag) {
     bit = v % 8;
     if (bit > 0) {
         shift = 8 - bit;
-        return (lbl_805127F8[n][byteIdx] & (1 << shift)) >> shift;
+        return (quest_story_flags_by_difficulty[n][byteIdx] & (1 << shift)) >> shift;
     }
-    return lbl_805127F8[n][byteIdx - 1] & 1;
+    return quest_story_flags_by_difficulty[n][byteIdx - 1] & 1;
 }
 
 s32 get_story_flag(s32 flag) {
@@ -62,9 +62,9 @@ s32 get_story_flag(s32 flag) {
     bit = v % 8;
     if (bit > 0) {
         shift = 8 - bit;
-        return (lbl_805127F8[n][byteIdx] & (1 << shift)) >> shift;
+        return (quest_story_flags_by_difficulty[n][byteIdx] & (1 << shift)) >> shift;
     }
-    return lbl_805127F8[n][byteIdx - 1] & 1;
+    return quest_story_flags_by_difficulty[n][byteIdx - 1] & 1;
 }
 
 }

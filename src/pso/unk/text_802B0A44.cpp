@@ -16,7 +16,7 @@ void set_depth_buffer_settings_1__Fv(void);
 void restore_saved_depth_alpha_state(void);
 void draw_strip_swap_color__15TWindowCtrlMainFPviif(void *, s32, s32, f32);
 extern M2C_UNK lbl_804709D0[];
-extern M2C_UNK lbl_804DE840[];
+extern M2C_UNK empty_warp_overlay_vertices[];
 extern const f32 lbl_805DE228;
 void draw_empty_warp_overlay(void);
 }
@@ -32,7 +32,7 @@ void draw_empty_warp_overlay(void) {
     stack.spC = (M2C_UNK *)(lbl_804709D0);
     stack.sp10 = 0;
     stack.sp14 = 4;
-    stack.sp8 = (M2C_UNK *)(lbl_804DE840);
+    stack.sp8 = (M2C_UNK *)(empty_warp_overlay_vertices);
     set_depth_buffer_settings_1__Fv();
     draw_strip_swap_color__15TWindowCtrlMainFPviif(&stack.sp8, 4, 2, lbl_805DE228);
     restore_saved_depth_alpha_state();

@@ -81,7 +81,7 @@ extern "C" void update_equip__14TItemEquipBaseFPv();
 extern "C" void update_model_flags__11TItemWeaponFPv();
 extern "C" void update_pickup_flag__5TItemFi();
 extern "C" void update_weapon_trails__11TItemWeaponFPv();
-void *lbl_804A4948[63] = {
+void *s_rank_weapon_vtable[63] = {
     (void *)0x0, (void *)0x0, (void *)&item_equip_variant_deleting_dtor_8012A82C, (void *)&run_task__5TItemFPv,
     (void *)&dispatch_state__5TItemFPv, (void *)&render__5TItemFPv, (void *)&TLobby__sub_801A1FD8, (void *)&apply_object_set_data,
     (void *)&release_member_90__10TObjPlayerFPv, (void *)&get_motion_ptr__11TItemWeaponFPv, (void *)&TItem__sub_80100B8C, (void *)&classify_actor_view_detail,
@@ -99,13 +99,13 @@ void *lbl_804A4948[63] = {
     (void *)&TItemWeapon__sub_8011E5D0, (void *)&create_armor_item__10TObjPlayerFPv, (void *)&TItemWeapon__sub_8011E5C8, (void *)&TItemWeapon__sub_8011E5C4,
     (void *)&TItemWeapon__sub_8011E5C0, (void *)&TObjPlayer__sub_8012A5E8, (void *)&TObjPlayer__sub_801283B8,
 };
-#define lbl_804A4948 ((u8 *)lbl_804A4948)
+#define s_rank_weapon_vtable ((u8 *)s_rank_weapon_vtable)
 
 u8 *TObjPlayer__sub_8012A884(void *arg0, s32 arg1, void *arg2) {
     Self_8012A884 *self = (Self_8012A884 *)arg0;
     Inc_8012A884 *p;
     TItemWeapon__ct(self);
-    self->vt = lbl_804A4948;
+    self->vt = s_rank_weapon_vtable;
     set_status_flags__10TObjPlayerFPvUi(self, 2);
     self->kind = get_slot_count__14TItemProShieldFPv(self);
     p = (Inc_8012A884 *)arg0;

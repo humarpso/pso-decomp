@@ -36,8 +36,8 @@ M2C_UNK update_warp_flags_from_story__16TObjCityMainWarpFPv();
 M2C_UNK init_visible_mask__16TObjCityMainWarpFPv();
 void update_unlock_flags__16TObjCityMainWarpFv(void);
 s32 get_story_flag(M2C_UNK);
-extern s32 TObjCityMainWarp__data_805D5B50;
-extern s32 TObjCityMainWarp__data_805D5B54;
+extern s32 TObjCityMainWarp__enabled_destinations;
+extern s32 TObjCityMainWarp__visible_destination_mask;
 void update_main_warp_visible_mask(s32 arg0);
 }
 
@@ -53,14 +53,14 @@ int clear_enabled_main_warps(void);
 s32 is_main_phase_15__9TObjEneDDFv();
 s32 is_split_screen();
 
-extern s32 TObjCityMainWarp__data_805D5B54;
+extern s32 TObjCityMainWarp__visible_destination_mask;
 
 void update_unlock_flags__16TObjCityMainWarpFv(void) {
     M2C_UNK var_r31;
     M2C_UNK var_r30;
     M2C_UNK var_r3;
 
-    TObjCityMainWarp__data_805D5B54 |= 1;
+    TObjCityMainWarp__visible_destination_mask |= 1;
     if ((is_main_phase_15__9TObjEneDDFv() != 0) || (is_split_screen() != 0)) {
         var_r3 = 0x4C;
         var_r31 = 0x4F;
@@ -71,26 +71,26 @@ void update_unlock_flags__16TObjCityMainWarpFv(void) {
         var_r30 = 0x53;
     }
     if (get_story_flag(var_r3) != 0) {
-        TObjCityMainWarp__data_805D5B54 |= 4;
+        TObjCityMainWarp__visible_destination_mask |= 4;
     }
     if (get_story_flag(var_r31) != 0) {
-        TObjCityMainWarp__data_805D5B54 |= 0x10;
+        TObjCityMainWarp__visible_destination_mask |= 0x10;
     }
     if (get_story_flag(var_r30) != 0) {
-        TObjCityMainWarp__data_805D5B54 |= 0x200;
+        TObjCityMainWarp__visible_destination_mask |= 0x200;
     }
 }
 
-extern s32 TObjCityMainWarp__data_805D5B50;
+extern s32 TObjCityMainWarp__enabled_destinations;
 
 void update_main_warp_visible_mask(s32 arg0) {
     s32 b;
     s32 c;
     s32 a;
     s32 i;
-    TObjCityMainWarp__data_805D5B54 = TObjCityMainWarp__data_805D5B50;
+    TObjCityMainWarp__visible_destination_mask = TObjCityMainWarp__enabled_destinations;
     if (get_instance__6TLobbyFv() == 0) {
-        TObjCityMainWarp__data_805D5B54 |= 1;
+        TObjCityMainWarp__visible_destination_mask |= 1;
         if ((is_main_phase_15__9TObjEneDDFv() != 0) || (is_split_screen() != 0)) {
             a = 0x17;
             b = 0x20;
@@ -101,16 +101,16 @@ void update_main_warp_visible_mask(s32 arg0) {
             c = 0x30;
         }
         if (get_story_flag(a) != 0) {
-            TObjCityMainWarp__data_805D5B54 |= 4;
+            TObjCityMainWarp__visible_destination_mask |= 4;
         }
         if (get_story_flag(b) != 0) {
-            TObjCityMainWarp__data_805D5B54 |= 0x20;
+            TObjCityMainWarp__visible_destination_mask |= 0x20;
         }
         if (get_story_flag(c) != 0) {
-            TObjCityMainWarp__data_805D5B54 |= 0x80;
+            TObjCityMainWarp__visible_destination_mask |= 0x80;
         }
         for (i = 10; i < 17; i++) {
-            TObjCityMainWarp__data_805D5B54 &= ~(1 << i);
+            TObjCityMainWarp__visible_destination_mask &= ~(1 << i);
         }
         return;
     }
@@ -126,7 +126,7 @@ void update_main_warp_visible_mask(s32 arg0) {
         break;
     }
     for (i = 11; i < 15; i++) {
-        TObjCityMainWarp__data_805D5B54 &= ~(1 << i);
+        TObjCityMainWarp__visible_destination_mask &= ~(1 << i);
     }
 }
 
@@ -135,7 +135,7 @@ void set_active_bit__16TObjCityMainWarpFv(s32 _w0) {
 
     temp_r3 = get_floor_warp_bit__16TObjCityMainWarpFi((s32)(_w0));
     if (temp_r3 >= 0) {
-        TObjCityMainWarp__data_805D5B50 |= 1 << temp_r3;
+        TObjCityMainWarp__enabled_destinations |= 1 << temp_r3;
     }
 }
 

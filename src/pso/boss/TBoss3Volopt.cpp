@@ -101,7 +101,7 @@ void fn_8003F468(void *, u16, s32);
 void TBoss3VoloptHiraisin__ct(void *, void *, u16, s32);
 void init_with_slot__19TBoss3VoloptMonitorFPvPviiii(void *, void *, u16, s32, s32, s32);
 void TBoss3VoloptP01__ct(void *, void *, s32, u16, s32);
-extern u16 lbl_805D4C18;
+extern u16 boss3_volopt_monitor_base_actor_id;
 extern const f32 lbl_805D866C;
 extern const f32 lbl_805D8674;
 void update_volopt_seq__11TCameraCtrlFPv(void *arg0);
@@ -301,7 +301,7 @@ void handle_6x85_vol_opt_phase2_boss_actions(Obj_8003CA2C *self);
 void update_phase__12TBoss3VoloptFv(void);
 int TBoss3Volopt__sub_8003CB48(void);
 void alloc_idle_event__12TBoss3VoloptFv(void);
-bool TBoss3Volopt__sub_8003CB94(void);
+bool is_volopt_death_active(void);
 void handle_6x17_set_entity_position_and_angle(u8 *arg0);
 void send_position_message__12TBoss3VoloptFPvPvi(void *obj, V3_8003CC18 *pos, s32 arg);
 void handle_6x16_vol_opt_boss_actions(void *arg0);
@@ -343,7 +343,7 @@ void TBoss3Volopt__sub_8003F384(void* p);
 int TBoss3Volopt__sub_8003F398(void);
 s32 get_adjusted_angle__11TCameraCtrlFPvi(void *, int);
 u16 get_param_offset__11TCameraCtrlFPvi(void *, int);
-M2C_UNK fn_8003F3BC();
+M2C_UNK clear_volopt_cage_flag();
 s32 check_value_equals__13TQuestColCtrlFPvi(void *, s32);
 s32 is_photon_blast_active__11TCameraCtrlFPv();
 s32 fn_8003F3F8();
@@ -435,7 +435,7 @@ extern s32 lbl_805D2720;
 extern s32 lbl_805D2ECC;
 extern s32 TODoorVoShip__class_name;
 extern u32 boss3_volopt_resources;
-extern int lbl_805D4C14;
+extern int vol_opt_active_hit_zone;
 extern int lbl_805D4C1C;
 extern int lbl_805D4C20;
 extern int volopt_death_active;
@@ -526,7 +526,7 @@ int TBoss3Volopt__sub_8003CB48(void) { return update_if_active__12TBoss3VoloptFv
 
 void alloc_idle_event__12TBoss3VoloptFv(void) { alloc_event__12TBoss3VoloptFsi((void*)160, (void*)0); }
 
-bool TBoss3Volopt__sub_8003CB94(void) {
+bool is_volopt_death_active(void) {
     return (*(s32 *)&volopt_death_active) != 0;
 }
 
@@ -772,12 +772,12 @@ void TCameraCtrl__sub_8003D340(u8 *arg0) {
                 TBoss3VoloptP01__ct(o, arg0, i, volopt_target_entity_ids[i], GAA(arg0, i + 1));
             }
         }
-        lbl_805D4C18 = GPO(arg0, 7);
+        boss3_volopt_monitor_base_actor_id = GPO(arg0, 7);
         for (j = 0; j < 0x18; j++) {
             r = (s32)(lbl_805D8670 * (lbl_805D8674 * (lbl_805D8658 * (f32)rand())) + lbl_805D866C);
             o = (void *)__nw__7TObjectFUl(0x394);
             if (o != NULL) {
-                init_with_slot__19TBoss3VoloptMonitorFPvPviiii(o, arg0, lbl_805D4C18 + j, GAA(arg0, j + 7), j, r);
+                init_with_slot__19TBoss3VoloptMonitorFPvPviiii(o, arg0, boss3_volopt_monitor_base_actor_id + j, GAA(arg0, j + 7), j, r);
             }
         }
         lbl_805D271C = GPO(arg0, 0x22);
@@ -1041,14 +1041,14 @@ void start_phase2__12TBoss3VoloptFPv(u8 *arg0) {
     ((M2C_UNK * (*)(void *, M2C_UNK *))VecCopy__FP3VecPC3Vec)(arg0 + 0x38, ((M2C_UNK * (*)(void *, M2C_UNK *))VecCopy__FP3VecPC3Vec)(arg0 + 0x2FC, &boss3_volopt_spawn_pos.value));
     M2C_FIELD(arg0, s16 *, 0x3F0) = 0;
     M2C_FIELD(arg0, s16 *, 0x3F2) = 0;
-    fn_8003F3BC();
+    clear_volopt_cage_flag();
     play_area_music((void*)((void *) (&lbl_80436318.value)));
     M2C_FIELD(arg0, s32 *, 0x404) = 0;
 }
 
 void reset_vol_opt_state(void* a0) {
     *(int*)((char*)a0 + 0x3a8) = 0;
-    lbl_805D4C14 = -1;
+    vol_opt_active_hit_zone = -1;
     TBoss3Volopt__sub_8003EA2C((void*)0);
     *(int*)((char*)a0 + 0x3a4) = 4;
     *(short*)((char*)a0 + 0x3f0) = 0;
@@ -1558,10 +1558,10 @@ S_8003EF38 *__dt__12TBoss3VoloptFv(S_8003EF38 *o, s16 flag) {
     s32 i;
     if (o != 0) {
         o->vt = ((u8 *)&__vt__12TBoss3Volopt);
-        if (((s32 (*)(void))TBoss3Volopt__sub_8003CB94)() != 0) {
+        if (((s32 (*)(void))is_volopt_death_active)() != 0) {
             send_entity_set_flags__6TLobbyFPv(o);
         }
-        (*(s32 *)&lbl_805D4C14) = 0xFFFF;
+        (*(s32 *)&vol_opt_active_hit_zone) = 0xFFFF;
         TBoss3Volopt__cage_entity_id = 0xFFFF;
         lbl_805D2714 = 0xFFFF;
         lbl_805D2718 = 0xFFFF;

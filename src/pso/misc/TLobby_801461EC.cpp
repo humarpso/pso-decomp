@@ -603,7 +603,7 @@ struct Cfg_801471A0 { u8 pad[0x558]; u32 dns1; u32 dns2; };
 
 extern "C" {
 extern RecoveredGlobal_80147A74_lbl_804EF500 ppp_password_buffer;
-M2C_UNK *TAdEnterPPPPassGC__sub_80147A74(void);
+M2C_UNK *get_ppp_password_buffer(void);
 void TLobby__sub_801472F8(s16 *arg0, s16 *arg1);
 void OSReport(const char *, ...);
 s16 init_net_tables__6TLobbyFv();
@@ -729,7 +729,7 @@ void fn_80147A60(int a0) { lbl_805D56D0 = a0; }
     extern int lbl_805D56D0;
 void fn_80147A68(void) { lbl_805D56D0 = 0; }
 typedef char RecoveredGlobal_80147A74_lbl_804EF500_size[sizeof(RecoveredGlobal_80147A74_lbl_804EF500) == 0x98 ? 1 : -1];
-M2C_UNK *TAdEnterPPPPassGC__sub_80147A74(void) {
+M2C_UNK *get_ppp_password_buffer(void) {
     return &ppp_password_buffer.value;
 }
 

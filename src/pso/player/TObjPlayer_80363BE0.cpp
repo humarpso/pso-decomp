@@ -137,7 +137,7 @@ VObj_18_1419ea *query_game_join_id__10TObjPlayerFv(s32);
 void func_80141618__Fv(void);
 void set_depth_buffer_settings_id__FUl(u32);
 void reset_transform_state__10TObjPlayerFv(void);
-extern u8 lbl_8050BEC0[];
+extern u8 saved_model_draw_color[];
 extern u8 lbl_8058D4C0[];
 extern s32 lbl_805D5660;
 extern s32 lbl_805D5664;
@@ -171,7 +171,7 @@ void TObjPlayer__sub_80363D4C(void) {
     lbl_805D5660 = some_id_805c6f74;
     lbl_805D5664 = lbl_805D7784;
     lbl_805D5668 = lbl_805D7780;
-    copy_vec4__13TRaderMapCoreFPvPv(lbl_8050BEC0, lbl_8058D4C0);
+    copy_vec4__13TRaderMapCoreFPvPv(saved_model_draw_color, lbl_8058D4C0);
     n = *(s32 *)(lbl_805D6FB8 + 0xB0);
     p = (s32 *)(lbl_805D6FB8 + 0x30);
     while (n != 0) {
@@ -180,14 +180,14 @@ void TObjPlayer__sub_80363D4C(void) {
             set_depth_buffer_settings_id__FUl(1);
             obj->m26();
             reset_transform_state__10TObjPlayerFv();
-            copy_vec4__13TRaderMapCoreFPvPv(lbl_8058D4C0, lbl_8050BEC0);
+            copy_vec4__13TRaderMapCoreFPvPv(lbl_8058D4C0, saved_model_draw_color);
             lbl_805D7784 = lbl_805D5664;
             lbl_805D7780 = lbl_805D5668;
             some_id_805c6f74 = lbl_805D5660;
             set_depth_buffer_settings_id__FUl(2);
             obj->m26();
             reset_transform_state__10TObjPlayerFv();
-            copy_vec4__13TRaderMapCoreFPvPv(lbl_8058D4C0, lbl_8050BEC0);
+            copy_vec4__13TRaderMapCoreFPvPv(lbl_8058D4C0, saved_model_draw_color);
             lbl_805D7784 = lbl_805D5664;
             lbl_805D7780 = lbl_805D5668;
             some_id_805c6f74 = lbl_805D5660;

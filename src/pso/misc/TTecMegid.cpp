@@ -249,7 +249,7 @@ M2C_UNK queue_destruction__7TObjectFv(void *);
 void free__11TOBoss4RockFUi(void **);
 void __dl__7TObjectFPv(void *);
 void destroy_technique_effect_resources__10TObjPlayerFPvs(void *, s16);
-extern TTecGiBartaData_80230B48 TTecMegid__data_8044D874[];
+extern TTecGiBartaData_80230B48 TTecMegid__emitter_bands[];
 extern void *__vt__9TTecMegid[];
 TTecGiBarta_80230B48 *__dt__9TTecMegidFv(TTecGiBarta_80230B48 *self, s16 deleting);
 u16 obj_getField1c(void *);
@@ -275,7 +275,7 @@ s32 play_sound_effect(M2C_UNK, s32, M2C_UNK, M2C_UNK);
 s32 get_technique_caster_flags(s32, u16);
 void TTecMegid__vt6(Obj_80235490 *self, VObj_80235490 *target);
 M2C_UNK queue_destruction__7TObjectFv(void *);
-extern TTecGiBartaData_80230B48 TTecMegid__data_8044D874[];
+extern TTecGiBartaData_80230B48 TTecMegid__emitter_bands[];
 void *find_entity_by_id(u16);
 void push_matrix_from(void *);
 void rotate_matrix_y(s32, s32);
@@ -294,7 +294,7 @@ M2C_UNK set_position_xy__10TObjPlayerFPvff(void *, f32, f32);
 void *spawn_particle_effect_with_rotation(void *, void *, u32, u16);
 void *spawn_continuous_particle_effect_with_flags(void *, u32, u16);
 void **alloc_buffer__11TOBoss4RockFPv(u32, s32);
-extern TTecGiBartaData_80230B48 TTecMegid__data_8044D874[];
+extern TTecGiBartaData_80230B48 TTecMegid__emitter_bands[];
 extern s32 technique_effect_bml;
 extern s32 lbl_805D63B0;
 extern const f32 lbl_805DC880;
@@ -373,11 +373,11 @@ void spawn_particle_emitters__9TTecMegidFPv(void *arg0) {
   sp8.a = self->f54;
   sp8.b = 0;
   sp8.c = self->f5c;
-  self->emitters = alloc_buffer__11TOBoss4RockFPv(TTecMegid__data_8044D874[self->band].count * 4, self->f54);
-  for (i = 0; i < ((Data_802351B4 *) TTecMegid__data_8044D874)[self->band].count; i++)
+  self->emitters = alloc_buffer__11TOBoss4RockFPv(TTecMegid__emitter_bands[self->band].count * 4, self->f54);
+  for (i = 0; i < ((Data_802351B4 *) TTecMegid__emitter_bands)[self->band].count; i++)
   {
     mode = 0;
-    row = &((Data_802351B4 *) TTecMegid__data_8044D874)[self->band].rows[i];
+    row = &((Data_802351B4 *) TTecMegid__emitter_bands)[self->band].rows[i];
     flags = row->flags;
     if (flags & 0x1000)
     {
@@ -393,14 +393,14 @@ void spawn_particle_emitters__9TTecMegidFPv(void *arg0) {
     }
     if (self->emitters[i] != 0)
     {
-      row = &((Data_802351B4 *) TTecMegid__data_8044D874)[self->band].rows[i];
+      row = &((Data_802351B4 *) TTecMegid__emitter_bands)[self->band].rows[i];
       if (row->flags & 0x40)
       {
         set_position_xy__10TObjPlayerFPvff(self->emitters[i], row->scale, row->scale);
       }
-      if (((Data_802351B4 *) TTecMegid__data_8044D874)[self->band].rows[i].flags & 0x20)
+      if (((Data_802351B4 *) TTecMegid__emitter_bands)[self->band].rows[i].flags & 0x20)
       {
-        new_var = ((Data_802351B4 *) TTecMegid__data_8044D874)[self->band].rows[i].flags >> 16;
+        new_var = ((Data_802351B4 *) TTecMegid__emitter_bands)[self->band].rows[i].flags >> 16;
         attach_particle_model(self->emitters[i], get_bml_model(technique_effect_bml, new_var), lbl_805D63B0, 0, 1, lbl_805DC880);
       }
     }
@@ -483,7 +483,7 @@ typedef char RecoveredGlobal_802308A0_lbl_804CC55C_size[((sizeof(RecoveredGlobal
 TTecGiBarta_80230B48 *__dt__9TTecMegidFv(TTecGiBarta_80230B48 *self, s16 deleting) {
     if (self) {
         self->vtable = __vt__9TTecMegid;
-        for (u32 i = 0; i < TTecMegid__data_8044D874[self->band].count; ++i) {
+        for (u32 i = 0; i < TTecMegid__emitter_bands[self->band].count; ++i) {
             if (self->emitters[i]) {
                 queue_destruction__7TObjectFv((void *)(self->emitters[i]));
             }
@@ -502,8 +502,8 @@ void run_task__9TTecMegidFv(Obj_80235740 *self) {
         queue_destruction__7TObjectFv(self);
         return;
     }
-    for (i = 0; i < ((Data_80235740 *)TTecMegid__data_8044D874)[self->band].count; i++) {
-        if (((Data_80235740 *)TTecMegid__data_8044D874)[self->band].rows[i].flags & 4) {
+    for (i = 0; i < ((Data_80235740 *)TTecMegid__emitter_bands)[self->band].count; i++) {
+        if (((Data_80235740 *)TTecMegid__emitter_bands)[self->band].rows[i].flags & 4) {
             Vec_80235740 off = lbl_8044D8B0;
             Vec_80235740 p;
             push_matrix_from(identity_matrix);

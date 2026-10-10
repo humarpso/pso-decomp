@@ -40,8 +40,8 @@ s32 calc_remaining_slots__20TWindowSubSymbolChatFv(void) {
 }
 void* get_keyboard_ptr__20TWindowSubSymbolChatFPv(void* p) { return (char*)p + 0x4; }
 
-    extern unsigned char lbl_805D4E54;
-unsigned char get_global_4e54__20TWindowSubSymbolChatFv(void) {  return lbl_805D4E54; }
+    extern unsigned char pending_symbol_chat_count;
+unsigned char get_global_4e54__20TWindowSubSymbolChatFv(void) {  return pending_symbol_chat_count; }
 
 void set_flag_bit1__20TWindowSubSymbolChatFPv(s32 *arg0) {
     *arg0 |= 1;

@@ -31,13 +31,13 @@ struct Req_803E5D20
 extern "C" {
 void init_buffer_pointers__22TQuestVmDownLoadServerFv(void);
 s32 TQuestVmDownLoadServer__sub_803F0890(void);
-extern s32 lbl_805D782C;
+extern s32 quest_download_initialized;
 extern s32 lbl_805D7834;
 s32 reset_download_buffers__22TQuestVmDownLoadServerFv(void);
 M2C_UNK TQuestVmDownLoadServer__sub_803E6ACC(int);
 s32 TQuestVmDownLoadServer__sub_803F08E4(void *);
 extern RecoveredGlobal_803E5EFC_lbl_8058DD88 lbl_8058DD88;
-extern s32 lbl_805D782C;
+extern s32 quest_download_initialized;
 extern s32 lbl_805D7834;
 s32 poll_download_status__22TQuestVmDownLoadServerFv(void);
 u8 * TQuestVmDownLoadServer__sub_803EE828(void);
@@ -119,7 +119,7 @@ extern u8 lbl_80596258[];
 extern s32 lbl_805D7820;
 extern u8 *lbl_805D7824;
 extern s32 lbl_805D7828;
-extern s32 lbl_805D782C;
+extern s32 quest_download_initialized;
 extern s32 lbl_805D7830;
 extern s32 lbl_805D7834;
 extern s32 lbl_805D7838;
@@ -298,7 +298,7 @@ s32 TQuestVmDownLoadServer__sub_803E5B94(s32 *arg0) {
     }
     lbl_805D7834 = 0;
     lbl_805D7830 = 0;
-    lbl_805D782C = 1;
+    quest_download_initialized = 1;
     lbl_805D7828 = 0;
     lbl_805D7824 = lbl_80591AC4 + 0x4E;
     lbl_805D7904 = -1;
@@ -415,7 +415,7 @@ s32 TQuestVmDownLoadServer__sub_803E5D20(s32 *arg0) {
 }
 
 s32 reset_download_buffers__22TQuestVmDownLoadServerFv(void) {
-    if ((s32) lbl_805D782C == 0) {
+    if ((s32) quest_download_initialized == 0) {
         return -1;
     }
     init_buffer_pointers__22TQuestVmDownLoadServerFv();
@@ -425,7 +425,7 @@ s32 reset_download_buffers__22TQuestVmDownLoadServerFv(void) {
 }
 typedef char RecoveredGlobal_803E5EFC_lbl_8058DD88_size[sizeof(RecoveredGlobal_803E5EFC_lbl_8058DD88) == 0x80 ? 1 : -1];
 s32 poll_download_status__22TQuestVmDownLoadServerFv(void) {
-    if ((s32) lbl_805D782C == 0) {
+    if ((s32) quest_download_initialized == 0) {
         return -1;
     }
     if (TQuestVmDownLoadServer__sub_803F08E4((void *) (&lbl_8058DD88.value)) == -7) {

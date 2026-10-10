@@ -16,8 +16,8 @@ void bswap_symbol_chat_packet__20TWindowSubSymbolChatFPv(Pkt_80076E98 *);
 s32 get_player_by_client_id(s32);
 void open_balloon__11TWindowCtrlFUsPvii(s32, void *, s32, s32);
 void dispatch_by_index__6TLobbyFUsi(u16, void *);
-extern u8 lbl_804FF968[];
-extern s8 lbl_805D4E54;
+extern u8 symbol_chat_receive_buffer[];
+extern s8 pending_symbol_chat_count;
 extern s32 local_client_id;
 void handle_6x07_symbol_chat(Pkt_80076E98 *arg0);
 }
@@ -37,10 +37,10 @@ void handle_6x07_symbol_chat(Pkt_80076E98 *arg0) {
         dispatch_by_index__6TLobbyFUsi(arg0->f4, p);
         open_balloon__11TWindowCtrlFUsPvii(obj_getField1c(ply), p, 2, local_client_id);
         if (*p & 0x200) {
-            for (; lbl_805D4E54 >= 1; lbl_805D4E54--) {
+            for (; pending_symbol_chat_count >= 1; pending_symbol_chat_count--) {
             }
-            lbl_805D4E54++;
-            copy_symbol_chat_entry__6TLobbyFPvPv(get_data_ptr__20TWindowSubSymbolChatFPv(lbl_804FF968), p);
+            pending_symbol_chat_count++;
+            copy_symbol_chat_entry__6TLobbyFPvPv(get_data_ptr__20TWindowSubSymbolChatFPv(symbol_chat_receive_buffer), p);
         }
     }
 }

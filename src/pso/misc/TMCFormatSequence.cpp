@@ -24,7 +24,7 @@ void *TMCFormatSequence__ct(void *arg0, void *arg1, void *arg2);
 void __ct__7TObjectFP7TObject(void *);
 
 extern M2C_UNK __vt__17TMCFormatSequence[];
-extern void *lbl_805D35EC;
+extern void *TMCFormatSequence__class_name;
 
 char TQuestVmDownLoadServer__data_804C8690[] = "\xB8\xB4\xBD\xC4\xCC\xA7\xB2\xD9";
 
@@ -57,7 +57,7 @@ TMCFormatSequence::~TMCFormatSequence() {
 void *TMCFormatSequence__ct(void *arg0, void *arg1, void *arg2) {
     __ct__7TObjectFP7TObject(arg0);
     M2C_FIELD(arg0, M2C_UNK **, 0x18) = __vt__17TMCFormatSequence;
-    M2C_FIELD(arg0, void **, 0x0) = lbl_805D35EC;
+    M2C_FIELD(arg0, void **, 0x0) = TMCFormatSequence__class_name;
     M2C_FIELD(arg0, u32 *, 0x24) = 0;
     M2C_FIELD(arg0, void **, 0x28) = arg2;
     M2C_FIELD(arg0, u32 *, 0x1C) = 0;

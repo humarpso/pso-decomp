@@ -46,13 +46,13 @@ M2C_UNK update_pan_zoom_input__13TRaderMapCoreFPv();
 M2C_UNK update_target__13TRaderMapCoreFPv(void *);
 void advance_scroll__13TRaderMapCoreFPv(void *arg0);
 s32 is_not_split_screen__13TRaderMapCoreFv();
-extern u32 TRaderMapCore__data_805D5F28;
-extern s32 TRaderMapCore__data_805D5F3C;
+extern u32 TRaderMapCore__floor_map_resource;
+extern s32 TRaderMapCore__view_mode;
 void run_task__13TRaderMapCoreFv(u8 *arg0);
 u8 * destroy_particle__13TParticleCtrlFPvs(void *, s16);
 M2C_UNK __dl__7TObjectFPv(void *);
 extern RecoveredGlobal_801FB430___vt__13TRaderMapCore __vt__13TRaderMapCore;
-extern s32 TRaderMapCore__data_805D5F40;
+extern s32 TRaderMapCore__instance;
 u8 *__dt__13TRaderMapCoreFv(u8 *arg0, s16 arg1);
 M2C_UNK queue_destruction__7TObjectFv(void *);
 M2C_UNK construct_world_actor_base(void *, void *);
@@ -64,9 +64,9 @@ extern GRec_801FB490 TRaderMapCore__map_view_state[];
 extern f32 lbl_805D35F0;
 extern f32 lbl_805D35FC;
 extern s32 rader_map_core_name_ptr;
-extern u32 TRaderMapCore__data_805D5F28;
-extern s32 TRaderMapCore__data_805D5F3C;
-extern s32 TRaderMapCore__data_805D5F40;
+extern u32 TRaderMapCore__floor_map_resource;
+extern s32 TRaderMapCore__view_mode;
+extern s32 TRaderMapCore__instance;
 extern const f32 TRaderMapCore__data_805DC528;
 extern const f32 lbl_805DC52C;
 extern const f32 lbl_805DC530;
@@ -96,13 +96,13 @@ void run_task__13TRaderMapCoreFv(u8 *arg0) {
     s32 temp_r3;
     s32 temp_r4;
     s32 var_r31;
-    if ((u32) TRaderMapCore__data_805D5F28 != 0U) {
+    if ((u32) TRaderMapCore__floor_map_resource != 0U) {
         temp_r4 = M2C_FIELD(arg0, s32 *, 0x90);
         if (temp_r4 > 0) {
             M2C_FIELD(arg0, s32 *, 0x90) = (s32) (temp_r4 - 1);
             return;
         }
-        switch ((s32) TRaderMapCore__data_805D5F3C) {
+        switch ((s32) TRaderMapCore__view_mode) {
         case 0:
             update_target__13TRaderMapCoreFPv(arg0);
             break;
@@ -117,7 +117,7 @@ void run_task__13TRaderMapCoreFv(u8 *arg0) {
         if ((is_not_split_screen__13TRaderMapCoreFv() == 1) && ((u32) M2C_FIELD(arg0, u32 *, 0x184) != 0U)) {
             M2C_FIELD(arg0, s32 *, 0x134) = (s32) obj_getField1c(M2C_FIELD(arg0, void **, 0x184));
         }
-        update_follow_projection__13TRaderMapCoreFv((void *) (arg0), (void *) (TRaderMapCore__data_805D5F3C));
+        update_follow_projection__13TRaderMapCoreFv((void *) (arg0), (void *) (TRaderMapCore__view_mode));
         if (is_not_split_screen__13TRaderMapCoreFv() == 1) {
             var_r31 = 0;
             do {
@@ -137,7 +137,7 @@ typedef char RecoveredGlobal_801FB430___vt__13TRaderMapCore_size[sizeof(Recovere
 u8 *__dt__13TRaderMapCoreFv(u8 *arg0, s16 arg1) {
     if (arg0 != NULL) {
         M2C_FIELD(arg0, M2C_UNK **, 0x18) = &__vt__13TRaderMapCore.value;
-        TRaderMapCore__data_805D5F40 = 0;
+        TRaderMapCore__instance = 0;
         destroy_particle__13TParticleCtrlFPvs(arg0, 0);
         if (arg1 > 0) {
             __dl__7TObjectFPv((void *) (arg0));
@@ -184,9 +184,9 @@ Core_801FB490 *TRaderMapCore__ct(Core_801FB490 *arg0, void *parent) {
     arg0->f168 = 2;
     arg0->f16c = 0;
     arg0->f170 = lbl_805D35FC;
-    TRaderMapCore__data_805D5F3C = 0;
+    TRaderMapCore__view_mode = 0;
     arg0->f174 = 0;
-    TRaderMapCore__data_805D5F40 = (s32) arg0;
+    TRaderMapCore__instance = (s32) arg0;
     arg0->f90 = 0x3C;
     arg0->f198 = 0;
     arg0->f19c = TRaderMapCore__data_805DC528;
@@ -196,7 +196,7 @@ Core_801FB490 *TRaderMapCore__ct(Core_801FB490 *arg0, void *parent) {
     arg0->f190 = TRaderMapCore__data_805DC528;
     if (is_not_split_screen__13TRaderMapCoreFv() == 1) {
         arg0->f194 = 0x800810;
-        TRaderMapCore__data_805D5F3C = 2;
+        TRaderMapCore__view_mode = 2;
     } else {
         arg0->f194 = 0x800810;
     }
@@ -205,7 +205,7 @@ Core_801FB490 *TRaderMapCore__ct(Core_801FB490 *arg0, void *parent) {
     } else {
         arg0->f1a0 = TRaderMapCore__data_805DC58C;
     }
-    if (TRaderMapCore__data_805D5F28 == 0) {
+    if (TRaderMapCore__floor_map_resource == 0) {
         queue_destruction__7TObjectFv(arg0);
         return arg0;
     }

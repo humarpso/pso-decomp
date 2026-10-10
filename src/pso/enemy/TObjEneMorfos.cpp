@@ -1752,7 +1752,7 @@ extern u8 *lbl_805D6D20;
 extern u8 *lbl_805D6D24;
 extern s32 lbl_805D6D28;
 extern s32 lbl_805D6D2C;
-extern float lbl_805D6D30;
+extern float morfos_projectile_speed;
 extern float lbl_805D6D34;
 extern const f32 lbl_805DF878;
 extern const f32 lbl_805DF888;
@@ -3098,7 +3098,7 @@ s32 select_target_in_view__13TObjEneMorfosFPv(O_80334588 *arg0) {
 extern int fold_flush_1;
 #pragma pop
 
-int TObjEneMorfos__sub_80334704(void) { lbl_805D6D30 = *(float*)((char*)TObjEneMorfos__param_table + 0x0); lbl_805D6D34 = *(float*)((char*)TObjEneMorfos__param_table + 0x4); return TObjEneMorfos__param_table; }
+int TObjEneMorfos__sub_80334704(void) { morfos_projectile_speed = *(float*)((char*)TObjEneMorfos__param_table + 0x0); lbl_805D6D34 = *(float*)((char*)TObjEneMorfos__param_table + 0x4); return TObjEneMorfos__param_table; }
 
 #pragma push
 #pragma opt_common_subs off

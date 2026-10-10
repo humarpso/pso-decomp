@@ -25,7 +25,7 @@ extern "C" {
 u8 * load_resource_from_descriptor(void *, s32, void *, s32, s32, s32);
 int alloc__23TAdSinglePlyChrSelectGCFPv(void *);
 extern RecoveredGlobal_8017DDA8_lbl_804B53D0 lbl_804B53D0;
-extern RecoveredGlobal_8017DDA8_lbl_804B5408 lbl_804B5408;
+extern RecoveredGlobal_8017DDA8_lbl_804B5408 TOWreckAncient__resource_descriptor;
 extern u32 wreck_ancient_bml_resource;
 extern u32 wreck_ancient_brakable_bml_resource;
 void load_resources__14TOWreckAncientFv(void);
@@ -100,7 +100,7 @@ void load_resources__14TOWreckAncientFv(void) {
     temp_r3_2 = alloc__23TAdSinglePlyChrSelectGCFPv((void *)0x440);
     var_r0_2 = temp_r3_2;
     if (var_r0_2 != 0) {
-        var_r0_2 = (long) (load_resource_from_descriptor((void *) temp_r3_2, 1, &lbl_804B5408.value, 0, 0, 0));
+        var_r0_2 = (long) (load_resource_from_descriptor((void *) temp_r3_2, 1, &TOWreckAncient__resource_descriptor.value, 0, 0, 0));
     }
     (*(s32 *)&wreck_ancient_brakable_bml_resource) = var_r0_2;
 }

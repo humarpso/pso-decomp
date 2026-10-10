@@ -27,12 +27,12 @@ extern "C" {
 u8 * load_resource_from_descriptor(void *, s32, void *, s32, s32, s32);
 int alloc__23TAdSinglePlyChrSelectGCFPv(void *);
 extern RecoveredGlobal_80156F9C_lbl_804AF910 TOAirconCave01__shared_resource_desc;
-extern u32 TOAirconCave01__data_805D5880;
+extern u32 TOAirconCave01__model_archive;
 void load_shared_resource__14TOAirconCave01Fv(void);
 s32 init_map_object_base(void *, void *);
 extern M2C_UNK __vt__14TOAirconCave01[];
 extern s32 lbl_805D2E8C;
-extern u32 TOAirconCave01__data_805D5880;
+extern u32 TOAirconCave01__model_archive;
 extern const f32 lbl_805DB2B8;
 extern const f32 lbl_805DB2BC;
 u8 *TOAirconCave01__ct(u8 *arg0, s32 arg1, s32 arg2);
@@ -46,12 +46,12 @@ void TLobby__sub_8001FE7C(void*, int);
 void __dl__7TObjectFPv(void *);
 void destroy_key_base__5TOKeyFPvs(void *, int);
 
-extern u32 TOAirconCave01__data_805D5880;
+extern u32 TOAirconCave01__model_archive;
 
 void release_static_resource__14TOAirconCave01Fv(void) {
-    if ((u32) TOAirconCave01__data_805D5880 != 0U) {
-        TLobby__sub_8001FE7C((void*)TOAirconCave01__data_805D5880, 1);
-        TOAirconCave01__data_805D5880 = 0U;
+    if ((u32) TOAirconCave01__model_archive != 0U) {
+        TLobby__sub_8001FE7C((void*)TOAirconCave01__model_archive, 1);
+        TOAirconCave01__model_archive = 0U;
     }
 }
 
@@ -65,7 +65,7 @@ void load_shared_resource__14TOAirconCave01Fv(void) {
     if (var_r0 != 0) {
         var_r0 = (long) (load_resource_from_descriptor((void *) temp_r3, 1, &TOAirconCave01__shared_resource_desc.value, 0, 0, 0));
     }
-    (*(s32 *)&TOAirconCave01__data_805D5880) = var_r0;
+    (*(s32 *)&TOAirconCave01__model_archive) = var_r0;
 }
 
 void *__dt__14TOAirconCave01Fv(void *arg0, s16 arg1) {
@@ -84,8 +84,8 @@ u8 *TOAirconCave01__ct(u8 *arg0, s32 arg1, s32 arg2) {
     M2C_FIELD(arg0, M2C_UNK **, 0x18) = &(*(RecoveredGlobal_80157044___vt__14TOAirconCave01 *)&__vt__14TOAirconCave01).value;
     M2C_FIELD(arg0, s32 *, 0) = (s32) lbl_805D2E8C;
     ((VObj_18_1a504b *)(arg0))->m5(arg2);
-    M2C_FIELD(arg0, s32 *, 0x34) = (s32) M2C_FIELD(M2C_FIELD((*(u8 * *)&TOAirconCave01__data_805D5880), u8 **, 0x42C), s32 *, 8);
-    M2C_FIELD(arg0, s32 *, 0x24) = (s32) M2C_FIELD(M2C_FIELD((*(u8 * *)&TOAirconCave01__data_805D5880), u8 **, 0x42C), s32 *, 0xC);
+    M2C_FIELD(arg0, s32 *, 0x34) = (s32) M2C_FIELD(M2C_FIELD((*(u8 * *)&TOAirconCave01__model_archive), u8 **, 0x42C), s32 *, 8);
+    M2C_FIELD(arg0, s32 *, 0x24) = (s32) M2C_FIELD(M2C_FIELD((*(u8 * *)&TOAirconCave01__model_archive), u8 **, 0x42C), s32 *, 0xC);
     M2C_FIELD(arg0, f32 *, 0xC0) = (f32) lbl_805DB2B8;
     M2C_FIELD(arg0, f32 *, 0xC4) = (f32) lbl_805DB2BC;
     return arg0;

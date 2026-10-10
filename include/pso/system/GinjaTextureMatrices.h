@@ -11,7 +11,7 @@ struct GinjaModelQueue {
 extern "C" {
 extern GinjaMatrix* current_matrix;
 extern u32 some_id_805c6f74;
-extern GinjaModelQueue lbl_8058CD70;
+extern GinjaModelQueue model_draw_queue_state;
 extern GinjaMatrix lbl_8058CB68[10];
 void GXLoadPosMtxImm(const GinjaMatrix,u32);
 void GXLoadNrmMtxImm(const GinjaMatrix,u32);

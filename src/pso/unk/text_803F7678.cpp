@@ -170,11 +170,11 @@ void NetYieldThread(void);
 void NetSuspendCurrentThread(void);
 s32 TAdSinglePlyChrSelectGC__sub_8042DD70(s32, s32, void *);
 s32 TAdSinglePlyChrSelectGC__sub_8042E184(void);
-void TLobby__sub_803F7D5C(s32 arg0);
+void subtract_network_queue_timeout(s32 arg0);
 void queue_thread_main__6TLobbyFv(void);
 s32 TAdSinglePlyChrSelectGC__sub_8042E320(s32, s32, void *);
 extern s32 lobby_map_state_code;
-void TLobby__sub_803F7D54(s32 arg0);
+void set_lobby_map_state_code(s32 arg0);
 s32 map_state_to_code__6TLobbyFis(s32 arg0, s16 arg1);
 s16 get_slot_id__6TLobbyFs(s16);
 s16 pppoe_recv_packet__6TLobbyFPvUsPv(void *, u16, void *);
@@ -265,8 +265,8 @@ void TLobby__sub_803F7980(void);
 void TLobby__sub_803F79AC(void);
 void TLobby__sub_803F79B0(u8 *arg0);
 void TLobby__sub_803F79BC(void);
-void TLobby__sub_803F7D54(s32 arg0);
-void TLobby__sub_803F7D5C(s32 arg0);
+void set_lobby_map_state_code(s32 arg0);
+void subtract_network_queue_timeout(s32 arg0);
 void TLobby__sub_803F808C(void);
 s32 TLobby__sub_803F811C(s16 *arg0);
 void TLobby__sub_803F86BC(void);
@@ -493,7 +493,7 @@ void queue_thread_main__6TLobbyFv(void) {
         TLobby__queue_timeout_remaining = p->b;
         for (;;) {
             if (TAdSinglePlyChrSelectGC__sub_8042E184() == 0) {
-                if (TAdSinglePlyChrSelectGC__sub_8042DD70(p->a, p->b, (void *)TLobby__sub_803F7D5C) == 1) {
+                if (TAdSinglePlyChrSelectGC__sub_8042DD70(p->a, p->b, (void *)subtract_network_queue_timeout) == 1) {
                     break;
                 }
             }
@@ -572,13 +572,13 @@ s32 write_ring_buffer__6TLobbyFPvi(u8 *src, s32 len) {
     return 1;
 }
 
-void TLobby__sub_803F7D54(s32 arg0) {
+void set_lobby_map_state_code(s32 arg0) {
     lobby_map_state_code = arg0;
 }
 
 extern s32 TLobby__queue_timeout_remaining;
 
-void TLobby__sub_803F7D5C(s32 arg0) {
+void subtract_network_queue_timeout(s32 arg0) {
     TLobby__queue_timeout_remaining -= arg0;
 }
 
@@ -618,7 +618,7 @@ s32 map_state_to_code__6TLobbyFis(s32 arg0, s16 arg1) {
         return -1;
     }
     lobby_map_state_code = 4;
-    if (TAdSinglePlyChrSelectGC__sub_8042E320(arg0, v, (void *)TLobby__sub_803F7D54) != 1) {
+    if (TAdSinglePlyChrSelectGC__sub_8042E320(arg0, v, (void *)set_lobby_map_state_code) != 1) {
         return -1;
     }
     return 0;

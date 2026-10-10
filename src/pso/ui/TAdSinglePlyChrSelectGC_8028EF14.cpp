@@ -1649,7 +1649,7 @@ void *alloc__23TAdSinglePlyChrSelectGCFPv(int);
 M2C_UNK set_animation__10TObjPlayerFPvs(void *, s16);
 M2C_UNK TObjMotion__ct(void *, void *);
 s32 alloc_buffer__11TOBoss4RockFPv(M2C_UNK);
-M2C_UNK fn_80290BE0();
+M2C_UNK reset_character_creation_figure_rotation();
 extern s32 lbl_805D3BBC;
 extern void *creation_menu_main_obj;
 extern const f32 lbl_805DD940;
@@ -1700,7 +1700,7 @@ void *TCMCharacter__ct(void *arg0, void *arg1) {
     M2C_FIELD(arg0, s32 *, 0x60) = 0;
     M2C_FIELD(arg0, s32 *, 0x5C) = 0;
     load_creation_shape_rel((W_80290250 *)arg0);
-    fn_80290BE0();
+    reset_character_creation_figure_rotation();
     creation_resource_ready_state = 0;
     return arg0;
 }

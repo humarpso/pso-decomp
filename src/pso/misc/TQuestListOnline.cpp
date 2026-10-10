@@ -129,12 +129,12 @@ extern u8 *TQuestListOnline__quest_list_buffer;
 extern s32 lbl_805D61F8;
 extern u8 lbl_805DC6A0;
 void TQuestListOnline__sub_80217C1C(Obj_80217C1C *arg0);
-extern T_80217B30 TQuestListOnline__data_80513E24;
-extern T_80217B30 TQuestListOnline__data_80513DE8;
-extern s32 TQuestListOnline__data_805D61E4;
-extern s32 lbl_805D61E8;
-extern s32 lbl_805D61EC;
-extern s32 lbl_805D61F0;
+extern T_80217B30 TQuestListOnline__bin_download_state;
+extern T_80217B30 TQuestListOnline__dat_download_state;
+extern s32 TQuestListOnline__decompression_cursor;
+extern s32 online_quest_bin_data;
+extern s32 online_quest_dat_buffer;
+extern s32 quest_bin_decompressed_size;
 extern s32 lbl_805D61F4;
 s32 prs_decompress_buffer(s32, s32);
 int set_field_20__12TQuestListVMFPvi(void*, int);
@@ -162,7 +162,7 @@ void invoke_callback_30_and_queue_destruction__16TQuestListOnlineFPv(void *arg0)
 }
 
 extern M2C_UNK lbl_8044BEB0[];
-extern s32 TQuestListOnline__data_805D61E4;
+extern s32 TQuestListOnline__decompression_cursor;
 
 void handle_quest_confirm__16TQuestListOnlineFPv(u8 *arg0) {
     s32 v;
@@ -242,18 +242,18 @@ void handle_quest_confirm__16TQuestListOnlineFPv(u8 *arg0) {
 #pragma optimization_level 2
 #pragma dont_inline on
 void decompress_quest_list_buffers__16TQuestListOnlineFPv(void *self) {
-    lbl_805D61F0 = prs_decompress_buffer(TQuestListOnline__data_80513E24.f38, TQuestListOnline__data_805D61E4);
-    lbl_805D61E8 = TQuestListOnline__data_805D61E4;
-    TQuestListOnline__data_805D61E4 += lbl_805D61F0;
-    lbl_805D61F4 = prs_decompress_buffer(TQuestListOnline__data_80513DE8.f38, TQuestListOnline__data_805D61E4);
-    lbl_805D61EC = TQuestListOnline__data_805D61E4;
+    quest_bin_decompressed_size = prs_decompress_buffer(TQuestListOnline__bin_download_state.f38, TQuestListOnline__decompression_cursor);
+    online_quest_bin_data = TQuestListOnline__decompression_cursor;
+    TQuestListOnline__decompression_cursor += quest_bin_decompressed_size;
+    lbl_805D61F4 = prs_decompress_buffer(TQuestListOnline__dat_download_state.f38, TQuestListOnline__decompression_cursor);
+    online_quest_dat_buffer = TQuestListOnline__decompression_cursor;
     set_field_20__12TQuestListVMFPvi((void*)(self), (int)((void *)7));
 }
 #pragma pop
 
 void request_quest_list__16TQuestListOnlineFi(s32 arg0) {
     if (TLobby__sub_8001EEF4() != 0) {
-        TQuestListOnline__data_805D61E4 = tmp_buf_use_req__6TLobbyFPv(lbl_8044BEB0);
+        TQuestListOnline__decompression_cursor = tmp_buf_use_req__6TLobbyFPv(lbl_8044BEB0);
         set_field_20__12TQuestListVMFPvi((void*)(arg0), (int)(6));
     }
 }

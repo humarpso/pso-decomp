@@ -55,7 +55,7 @@ s32 end_effect_render__13TParticleCtrlFv();
 s32 draw_shadow_quad__10TObjPlayerFPvii(void *, int, int);
 s32 set_cached_blend_factor(int, int);
 extern RecoveredGlobal_800F09E8_lbl_804976B0 lbl_804976B0;
-extern s32 lbl_805D52F8;
+extern s32 blob_shadow_texture_list;
 extern const f32 lbl_805DA7F8;
 extern const f32 lbl_805DA7FC;
 extern const f32 lbl_805DA800;
@@ -127,7 +127,7 @@ block_2:
         stack.sp14 = lbl_805DA800;
         stack.sp18 = lbl_805DA800;
         stack.sp1C = 0;
-        stack.sp20 = lbl_805D52F8;
+        stack.sp20 = blob_shadow_texture_list;
         stack.sp24 = (M2C_UNK *)(&lbl_804976B0.value);
         set_depth_buffer_settings_1__Fv();
         set_cached_blend_factor((int) (0), (int) (8));

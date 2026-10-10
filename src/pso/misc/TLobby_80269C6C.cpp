@@ -28,11 +28,11 @@ extern G_80269DA4 lbl_804D06F8[];
 u8 * TWindowMessage__ct(void *, s32, u32, s16);
 u8 *__nw__7TObjectFUl(M2C_UNK);
 u8 *create_message_window__6TLobbyFiiUis(s32 arg0, s32 arg1, u32 arg2, s16 arg3);
-extern RecoveredGlobal_80269CA4_lbl_804D071C lbl_804D071C;
+extern RecoveredGlobal_80269CA4_lbl_804D071C message_window_settings;
 void TLobby__sub_80269CA4(s32 arg0);
-extern RecoveredGlobal_80269CA4_lbl_804D071C lbl_804D071C;
+extern RecoveredGlobal_80269CA4_lbl_804D071C message_window_settings;
 M2C_UNK *TLobby__sub_80269CB4(void);
-extern RecoveredGlobal_80269CA4_lbl_804D071C lbl_804D071C;
+extern RecoveredGlobal_80269CA4_lbl_804D071C message_window_settings;
 void TLobby__sub_80269C90(void);
 }
 
@@ -50,16 +50,16 @@ typedef char RecoveredGlobal_80269CA4_lbl_804D071C_size[sizeof(RecoveredGlobal_8
 
 typedef char RecoveredGlobal_80269C90_lbl_804D071C_size[sizeof(RecoveredGlobal_80269C90_lbl_804D071C) == 0x14 ? 1 : -1];
 void TLobby__sub_80269C90(void) {
-    M2C_FIELD(&(*(RecoveredGlobal_80269C90_lbl_804D071C *)&lbl_804D071C).value, s32 *, 0x10) = 3;
+    M2C_FIELD(&(*(RecoveredGlobal_80269C90_lbl_804D071C *)&message_window_settings).value, s32 *, 0x10) = 3;
 }
 
 void TLobby__sub_80269CA4(s32 arg0) {
-    M2C_FIELD(&lbl_804D071C.value, s32 *, 0x10) = arg0;
+    M2C_FIELD(&message_window_settings.value, s32 *, 0x10) = arg0;
 }
 
 typedef char RecoveredGlobal_80269CB4_lbl_804D071C_size[sizeof(RecoveredGlobal_80269CB4_lbl_804D071C) == 0x14 ? 1 : -1];
 M2C_UNK *TLobby__sub_80269CB4(void) {
-    return &(*(RecoveredGlobal_80269CB4_lbl_804D071C *)&lbl_804D071C).value;
+    return &(*(RecoveredGlobal_80269CB4_lbl_804D071C *)&message_window_settings).value;
 }
 
 u8 *create_message_window__6TLobbyFiiUis(s32 arg0, s32 arg1, u32 arg2, s16 arg3) {
@@ -85,7 +85,7 @@ void update_window_mode_from_progress__6TLobbyFiPv(s32 arg0, void *arg1) {
 }
 
 M2C_UNK TLobby__sub_80269DA4(V2_80269DA4 size, void *arg1) {
-    V2_80269DA4 *dst = (V2_80269DA4 *)&lbl_804D071C;
+    V2_80269DA4 *dst = (V2_80269DA4 *)&message_window_settings;
     dst->x = size.x;
     dst->y = size.y;
     lbl_804D06F8[0].b = (s32)arg1;

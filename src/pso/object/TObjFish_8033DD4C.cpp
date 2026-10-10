@@ -135,7 +135,7 @@ extern "C" {
 
 void update__8TObjFishFPv(void* p);
 void TObjFish__sub_8033DE60(void*);
-int TObjPlayer__sub_803078B0(void);
+int get_shared_capture_texture_list(void);
 int load_list_texture(int, int, int, int);
 void init_particle_effect__10TObjPlayerFv(void);
 int render_effect__8TObjFishFPv(void*);

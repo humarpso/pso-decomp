@@ -72,9 +72,9 @@ extern unsigned char camera_capture_flags;
 s32 get_camera_flag__10TObjPlayerFv(void);
 extern unsigned char camera_capture_flags;
 void TObjPlayer__sub_80084780(void);
-extern u8 lbl_805D2910;
+extern u8 camera_capture_overlay_alpha;
 extern unsigned char camera_capture_flags;
-void TObjPlayer__sub_80084790(void);
+void disable_camera_capture_overlay(void);
 void **TLobby__sub_803DA16C();
 extern M2C_UNK lbl_8048E5C8[];
 void **TObjPlayer__sub_80083F04(void);
@@ -123,7 +123,7 @@ M2C_UNK set_light_ambient_color(f32, f32, f32);
 M2C_UNK submit_light0(int, int);
 M2C_UNK load_gx_light_slot(int);
 extern M2C_UNK lbl_8048E5C8[];
-extern M2C_UNK lbl_8058CA60[];
+extern M2C_UNK scene_projection_state[];
 extern u32 camera_ctrl_instance;
 extern u8 *active_gx_render_mode;
 extern const f32 lbl_805D93D0;
@@ -263,7 +263,7 @@ void func_80083a00__Fv(void) {
         Dolphin_GXSetCopyFilter((int) (M2C_FIELD(temp_r31, u8 *, 0x19)), (void *) (temp_r31 + 0x1A), (int) (TObjBoss2Tunnel__sub_8036EF44()), (void *) (temp_r31 + 0x32));
         GXSetViewport((f32) (lbl_805D93D0), (f32) (lbl_805D93D0), (f32) (lbl_805D9404), (f32) (lbl_805D9408), (f32) (lbl_805D93D0), (f32) (lbl_805D93D8));
         GXSetScissor((int) (0), (int) (0), (int) (0x280), (int) (0x1E0));
-        GXSetProjection((void *) (lbl_8058CA60), (int) (0));
+        GXSetProjection((void *) (scene_projection_state), (int) (0));
         set_light_ambient_color((f32) (lbl_805D9430), (f32) (lbl_805D9430), (f32) (lbl_805D9430));
         submit_light0((int) (0), (int) (1));
         load_gx_light_slot((int) (0));
@@ -550,10 +550,10 @@ s32 get_camera_flag__10TObjPlayerFv(void) {
     return ((u8) (*(u8 *)&camera_capture_flags) >> 4U) & 1;
 }
 void TObjPlayer__sub_80084780(void) { (*(u8 *)&camera_capture_flags) = ((*(u8 *)&camera_capture_flags) | 0x1); }
-void TObjPlayer__sub_80084790(void) {
+void disable_camera_capture_overlay(void) {
   int temp = (*(u8 *)&camera_capture_flags);
   (*(u8 *)&camera_capture_flags) = temp & (~2);
-  lbl_805D2910 = 0x8F;
+  camera_capture_overlay_alpha = 0x8F;
 }
 
 }

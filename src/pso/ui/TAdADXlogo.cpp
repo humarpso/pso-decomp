@@ -10,7 +10,7 @@ extern "C" {
 void TLogo__sub_80019A28(void);
 void TLogo__sub_80019A2C(void);
 void *__ct__10TAdADXlogoFv(void *arg0);
-int TObject__sub_80019A60(void);
+int get_logo_texture_e_handle(void);
 void __ct__7TObjectFP7TObject(void *);
 void *__nw__7TObjectFUl(int);
 void *init_fade__6TLobbyFPvPvPv(void *, void *, void *);
@@ -40,6 +40,6 @@ void *__ct__10TAdADXlogoFv(void *arg0) {
 void TLogo__sub_80019A28(void) {  }
 
     extern int lbl_805D49C8;
-void TLogo__sub_80019A2C(void) { lbl_805D49C8 = TObject__sub_80019A60(); }
+void TLogo__sub_80019A2C(void) { lbl_805D49C8 = get_logo_texture_e_handle(); }
 
 }

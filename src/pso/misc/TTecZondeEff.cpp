@@ -154,7 +154,7 @@ extern s32 TTecZondeEff_class_name;
 u8 *construct_bolt_effect__9TTecZondeFPvPvPvPviiff(u8 *arg0, u8 *arg1, u8 *arg2, u8 *arg3, s32 arg4, s32 arg5, f32 farg0, f32 farg1);
 extern P_8023DBB4 lbl_805161D8;
 extern char lbl_804CC8C8[];
-extern A_8023DBB4 *lbl_8048E5A0[];
+extern A_8023DBB4 *shared_effect_texture_list[];
 extern s32 TTecZondeEff__beam_vertex_data;
 void init_resources__12TTecZondeEffFv(void);
 f32 rand_signed_unit();
@@ -199,7 +199,7 @@ s32 build_lightning_strip(Obj_8023CED4 *self, Vtx_8023CED4 *out, Vec_8023CED4 *p
 
 extern "C" {
 
-void TTecZondeEff__sub_8023DBA8(void);
+void clear_zonde_beam_vertex_pointer(void);
 f32 get_random_float__8TObjFishFv(f32);
 
 struct Vec_8023D294 { f32 x, y, z; };
@@ -580,13 +580,13 @@ u8 *construct__12TTecZondeEffFPvPvPvPvf(u8 *arg0, u8 *arg1, u8 *arg2, u8 *arg3, 
     return arg0;
 }
 
-void TTecZondeEff__sub_8023DBA8(void) {
+void clear_zonde_beam_vertex_pointer(void) {
     TTecZondeEff__beam_vertex_data = 0;
 }
 void init_resources__12TTecZondeEffFv(void) {
     lbl_805161D8.vt = lbl_804CC8C8;
     lbl_805161D8.n = 0x10;
-    TTecZondeEff__beam_vertex_data = lbl_8048E5A0[0]->b->c->v;
+    TTecZondeEff__beam_vertex_data = shared_effect_texture_list[0]->b->c->v;
 }
 
 }

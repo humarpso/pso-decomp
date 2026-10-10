@@ -139,7 +139,7 @@ u8 *TObjGyaranzoMissile__ct(u8 *arg0, u8 *arg1, u8 *arg2, s16 arg3);
 void queue_destruction__7TObjectFv(void *);
 Obj_800D47B4 *get_battle_param__10TObjPlayerFi(s32);
 s32 spawn_particle_effect(void *, int);
-s32 TObjGyaranzoMissile__sub_800D40FC(int);
+s32 get_gyaranzo_missile_int_parameter(int);
 s32 remap_area_sound_id(int, int);
 void *find_entity_by_id(u16);
 void init_all_slots__10TObjPlayerFv(void *);
@@ -262,7 +262,7 @@ void TObjGyaranzoMissile__sub_800D47B4(Missile_800D47B4 *arg0) {
             }
             if (is_valid_and_active__10TObjPlayerFUi(q) != 0) {
                 Parm_800D47B4 parm = lbl_8043C464[0];
-                parm.b = TObjGyaranzoMissile__sub_800D40FC(2);
+                parm.b = get_gyaranzo_missile_int_parameter(2);
                 q->v21(owner, parm, 0, -1, -1);
             }
         }

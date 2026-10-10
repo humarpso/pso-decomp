@@ -23,7 +23,7 @@ M2C_UNK set_global_param__8TObjFishFi(s32);
 
 void TOMonumentAncient01__vt14(void) {  }
 
-extern s32 TOMonumentAncient01__data_805D5A60;
+extern s32 TOMonumentAncient01__resource_bundle;
 
 void render__19TOMonumentAncient01Fv(u8 *arg0) {
     if (((VObj1_8017262C*)arg0)->m8(M2C_FIELD(arg0, f32 *, 0xC0), M2C_FIELD(arg0, f32 *, 0xC4)) == 1) {
@@ -31,12 +31,12 @@ void render__19TOMonumentAncient01Fv(u8 *arg0) {
         push_matrix();
         post_translate_matrix(arg0 + 0x38);
         rotate_matrix_y(0, M2C_FIELD(arg0, s32 *, 0x60));
-        get_bml_model(TOMonumentAncient01__data_805D5A60, 2);
+        get_bml_model(TOMonumentAncient01__resource_bundle, 2);
         draw_ginja_object();
         begin_effect_render__13TParticleCtrlFv();
-        get_bml_model(TOMonumentAncient01__data_805D5A60, 1);
+        get_bml_model(TOMonumentAncient01__resource_bundle, 1);
         draw_ginja_object();
-        get_bml_model(TOMonumentAncient01__data_805D5A60, 0);
+        get_bml_model(TOMonumentAncient01__resource_bundle, 0);
         draw_ginja_object();
         end_effect_render__13TParticleCtrlFv();
         pop_matrix();

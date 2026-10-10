@@ -112,7 +112,7 @@ extern RecoveredGlobal_8022B6FC_lbl_804CC510 tech_high_level_linear_power_table;
 extern RecoveredGlobal_8022B6FC_lbl_804CC55C lbl_804CC55C;
 void init_parameters__9TTecBartaFPv(u8 *arg0);
 extern TechniqueContactVtable __vt__9TTecBarta;
-extern TechniqueEmitterSourceTable TTecBarta__data_8044CD98[];
+extern TechniqueEmitterSourceTable TTecBarta__emitter_bands[];
 void queue_destruction__7TObjectFv(TechniqueParticleEmitter*);
 void free__11TOBoss4RockFUi(TechniqueParticleEmitter**);
 void destroy_technique_effect_resources__10TObjPlayerFPvs(TTecBarta*,s16);
@@ -136,7 +136,7 @@ extern s32 lbl_805D3798;
 extern const f32 lbl_805DC7A8;
 u8 *construct_tec_barta_facing(u8 *arg0, void * _w1, void * _w2, void * _w3, void * _w4);
 void queue_destruction__7TObjectFv(TechniqueParticleEmitter*);
-extern TechniqueEmitterSourceTable TTecBarta__data_8044CD98[];
+extern TechniqueEmitterSourceTable TTecBarta__emitter_bands[];
 s32 get_bml_model(s32, s32);
 void attach_particle_model(TechniqueParticleEmitter *, s32, s32, s32, s32, f32);
 TechniqueParticleEmitter *create_timed_particle_emitter(f32 *, s32, s32, s32);
@@ -157,7 +157,7 @@ void set_position_xy__10TObjPlayerFPvff(TechniqueParticleEmitter *, f32, f32);
 TechniqueParticleEmitter *spawn_continuous_particle_with_direction(f32 *, s32 *, u32);
 TechniqueParticleEmitter *create_particle_emitter(f32 *, u32);
 TechniqueParticleEmitter **alloc_buffer__11TOBoss4RockFPv(u32);
-extern TechniqueEmitterSourceTable TTecBarta__data_8044CD98[];
+extern TechniqueEmitterSourceTable TTecBarta__emitter_bands[];
 extern s32 technique_effect_bml;
 extern s32 lbl_805D63B0;
 extern const f32 lbl_805DC7A0;
@@ -235,9 +235,9 @@ void create_particle_emitters__9TTecBartaFPv(void *arg) {
     angles[0] = self->angles[0];
     angles[1] = 0;
     angles[2] = self->angles[2];
-    self->emitters = alloc_buffer__11TOBoss4RockFPv(TTecBarta__data_8044CD98[self->band].count * 4);
-    for (i = 0; i < TTecBarta__data_8044CD98[self->band].count; i++) {
-        row = &TTecBarta__data_8044CD98[self->band].rows[i];
+    self->emitters = alloc_buffer__11TOBoss4RockFPv(TTecBarta__emitter_bands[self->band].count * 4);
+    for (i = 0; i < TTecBarta__emitter_bands[self->band].count; i++) {
+        row = &TTecBarta__emitter_bands[self->band].rows[i];
         flags = row->flags;
         if (flags & 2) {
             self->emitters[i] = spawn_continuous_particle_with_direction((f32 *)(base + 0x20), angles, row->entry);
@@ -245,12 +245,12 @@ void create_particle_emitters__9TTecBartaFPv(void *arg) {
             reverse[0] = self->angles[0] + 0x8000;
             reverse[1] = 0;
             reverse[2] = self->angles[2];
-            self->emitters[i] = spawn_continuous_particle_with_direction((f32 *)(base + 0x20), reverse, TTecBarta__data_8044CD98[self->band].rows[i].entry);
+            self->emitters[i] = spawn_continuous_particle_with_direction((f32 *)(base + 0x20), reverse, TTecBarta__emitter_bands[self->band].rows[i].entry);
         } else {
             self->emitters[i] = create_particle_emitter((f32 *)(base + 0x20), row->entry);
         }
         if (self->emitters[i] != NULL) {
-            row = &TTecBarta__data_8044CD98[self->band].rows[i];
+            row = &TTecBarta__emitter_bands[self->band].rows[i];
             if (row->flags & 0x20) {
                 attach_particle_model(self->emitters[i], get_bml_model(technique_effect_bml, 0), lbl_805D63B0, get_bml_motion(technique_effect_bml, 0), 0, lbl_805DC7A0);
             } else {
@@ -322,7 +322,7 @@ void TTecBarta__vt6(Obj_8022B8F4 *self, VObj_8022B8F4 *target) {
 TTecBarta* __dt__9TTecBartaFv(TTecBarta* self,s16 deleting) {
     if(self) {
         self->vtable=&__vt__9TTecBarta;
-        for(u32 i=0;i<TTecBarta__data_8044CD98[self->band].count;++i) {
+        for(u32 i=0;i<TTecBarta__emitter_bands[self->band].count;++i) {
             if(self->emitters[i]) {
                 queue_destruction__7TObjectFv(self->emitters[i]);
                 self->emitters[i]=0;
@@ -342,9 +342,9 @@ void run_task__9TTecBartaFv(TTecBarta *self) {
         queue_destruction__7TObjectFv((TechniqueParticleEmitter *)self);
         return;
     }
-    for (i = 0; i < TTecBarta__data_8044CD98[self->band].count; i++) {
+    for (i = 0; i < TTecBarta__emitter_bands[self->band].count; i++) {
         Vec_8022BA98 pos = *(Vec_8022BA98 *)self->position;
-        if (TTecBarta__data_8044CD98[self->band].rows[i].flags & 0x20) {
+        if (TTecBarta__emitter_bands[self->band].rows[i].flags & 0x20) {
             pos.y -= lbl_805DC7A4;
         }
         if (self->emitters[i] != NULL) {

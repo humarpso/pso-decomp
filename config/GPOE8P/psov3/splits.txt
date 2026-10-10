@@ -3835,32 +3835,10 @@ pso/unk/text_8012934C.cpp:
 pso/item/TItemEquipVariant_801293A4.cpp:
 	.text       start:0x801293A4 end:0x801293FC
 
-pso/unk/text_801293FC.cpp:
-	.text       start:0x801293FC end:0x801294E8
-
-pso/item/TItemEquipVariant_801294E8.cpp:
-	.text       start:0x801294E8 end:0x80129540
-
-pso/player/TObjPlayer_80129540.cpp:
-	.text       start:0x80129540 end:0x80129588
-
-pso/unk/text_80129588.cpp:
-	.text       start:0x80129588 end:0x801295E0
-
-pso/player/TObjPlayer_801295E0.cpp:
-	.text       start:0x801295E0 end:0x801295FC
-
-pso/unk/text_801295FC.cpp:
-	.text       start:0x801295FC end:0x80129724
-
-pso/player/TObjPlayer_80129724.cpp:
-	.text       start:0x80129724 end:0x8012976C
-
-pso/unk/text_8012976C.cpp:
-	.text       start:0x8012976C end:0x801297C4
-
-pso/item/TItemEquipVariant_801297C4.cpp:
-	.text       start:0x801297C4 end:0x8012981C
+pso/item/SRankSlicerWeapons.cpp:
+	.text       start:0x801293FC end:0x8012981C
+	.data       start:0x804A4238 end:0x804A4438
+	.sdata2     start:0x805DAE18 end:0x805DAE40
 
 pso/player/TObjPlayer_8012981C.cpp:
 	.text       start:0x8012981C end:0x80129878
@@ -8527,7 +8505,7 @@ pso/boss/TBoss3Volopt_80242D74.cpp:
 pso/unk/text_80242F0C.cpp:
 	.text       start:0x80242F0C end:0x80242F94
 
-pso/unk/text_80242F94.cpp:
+pso/system/PadRumble.cpp:
 	.text       start:0x80242F94 end:0x802431D0
 
 pso/ui/TAdSinglePlyChrSelectGC_802431D0.cpp:

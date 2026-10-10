@@ -9,10 +9,10 @@ s32 get_card_window__17TWindowSubComCardFUi(M2C_UNK);
 s32 get_shared_text_buffer();
 M2C_UNK TWindowSubComCard__sub_80225E80(void *, int);
 M2C_UNK strncpy(int, int, int);
-extern s32 lbl_805D6E98;
+extern s32 info_board_state_flags;
 void set_info_board_text__6TLobbyFi(s32 arg0);
-extern s32 lbl_805D6E98;
-extern u32 lbl_805D6E9C;
+extern s32 info_board_state_flags;
+extern u32 information_board_response_buffer;
 void reset_info_board__6TLobbyFv(void);
 }
 
@@ -26,13 +26,13 @@ M2C_UNK send_info_board_request__9TProtocolFv(u32);
 s32 get_card_window__17TWindowSubComCardFUi(M2C_UNK);
 
 extern u32 TLobby__protocol_instance;
-extern s32 lbl_805D6E98;
-extern u32 lbl_805D6E9C;
+extern s32 info_board_state_flags;
+extern u32 information_board_response_buffer;
 
 void init_once_data__6TLobbyFUi(u32 arg0) {
-    if ((u32) lbl_805D6E9C == 0U) {
-        lbl_805D6E9C = arg0;
-        lbl_805D6E98 &= 0xFFFFFFFD;
+    if ((u32) information_board_response_buffer == 0U) {
+        information_board_response_buffer = arg0;
+        info_board_state_flags &= 0xFFFFFFFD;
         if ((u32) TLobby__protocol_instance != 0U) {
             send_info_board_request__9TProtocolFv(TLobby__protocol_instance);
         }
@@ -40,14 +40,14 @@ void init_once_data__6TLobbyFUi(u32 arg0) {
 }
 
 extern u32 TLobby__protocol_instance;
-extern s32 lbl_805D6E98;
+extern s32 info_board_state_flags;
 
 void flush_pending_send__6TLobbyFv(void) {
-    if (lbl_805D6E98 & 1) {
+    if (info_board_state_flags & 1) {
         if ((u32) TLobby__protocol_instance != 0U) {
             send_text_packet_D9__6TLobbyFPvPv(TLobby__protocol_instance, get_card_window_field__6TLobbyFv());
         }
-        lbl_805D6E98 &= 0xFFFFFFFE;
+        info_board_state_flags &= 0xFFFFFFFE;
     }
 }
 
@@ -60,8 +60,8 @@ void set_info_board_text__6TLobbyFi(s32 arg0) {
     TWindowSubComCard__sub_80225E80((void *) (arg0), (int) (get_shared_text_buffer()));
     strncpy((int) (temp_r31), (int) (get_shared_text_buffer()), (int) (0xAB));
     M2C_FIELD(temp_r31, s8 *, 0xAB) = 0;
-    lbl_805D6E98 |= 1;
+    info_board_state_flags |= 1;
 }
-void reset_info_board__6TLobbyFv(void) { (*(int *)&lbl_805D6E98) = 0; (*(int *)&lbl_805D6E9C) = 0; }
+void reset_info_board__6TLobbyFv(void) { (*(int *)&info_board_state_flags) = 0; (*(int *)&information_board_response_buffer) = 0; }
 
 }

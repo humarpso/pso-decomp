@@ -20,16 +20,16 @@ s32 get_quest_id__12TQuestListVMFPv(u8 *arg0) {
     return M2C_FIELD(arg0, s32 *, 0x2B0);
 }
 
-    extern int TQuestListVM__data_805D6200;
-int get_instance__12TQuestListVMFv(void) {  return TQuestListVM__data_805D6200; }
+    extern int TQuestListVM__decrypted_quest_buffer;
+int get_instance__12TQuestListVMFv(void) {  return TQuestListVM__decrypted_quest_buffer; }
 
-    extern int TQuestListVM__data_805D6200;
-void reset__12TQuestListVMFv(void) { TQuestListVM__data_805D6200 = 0; }
+    extern int TQuestListVM__decrypted_quest_buffer;
+void reset__12TQuestListVMFv(void) { TQuestListVM__decrypted_quest_buffer = 0; }
 
-extern s32 TQuestVmDownLoadServer__data_805D5F24;
+extern s32 TQuestVmDownLoadServer__instance;
 
 s32 TQuestVmDownLoadServer__sub_8007EB14(void) {
-    return TQuestVmDownLoadServer__data_805D5F24;
+    return TQuestVmDownLoadServer__instance;
 }
 
 void debug_print__FPCc(void) {

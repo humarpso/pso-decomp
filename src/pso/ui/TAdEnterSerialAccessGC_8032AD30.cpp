@@ -27,8 +27,8 @@ extern char lbl_80477260[];
 extern char lbl_80477268[];
 extern char serial_access_hex_string_buf[];
 char *serial_to_hex_string__22TAdEnterSerialAccessGCFi(int arg0);
-u8 *TAdEnterSerialAccessGC__sub_8013AD80();
-u8 *TAdEnterSerialAccessGC__sub_8013ADB0();
+u8 *get_access_key_input_buffer();
+u8 *get_raw_serial_input_buffer();
 u8 *TAdEnterPasswordGC__sub_8013ADE4();
 u32 get_field_118__22TAdEnterSerialAccessGCFv();
 extern u32 lbl_804ED9F8[];
@@ -118,9 +118,9 @@ u8 *get_serial_text__22TAdEnterSerialAccessGCFii(s32 arg0, s32 arg1) {
     } else if (lbl_804ED9F8[arg1] == get_field_118__22TAdEnterSerialAccessGCFv()) {
         switch (arg1) {
         case 0:
-            return TAdEnterSerialAccessGC__sub_8013ADB0();
+            return get_raw_serial_input_buffer();
         case 1:
-            return TAdEnterSerialAccessGC__sub_8013AD80();
+            return get_access_key_input_buffer();
         case 2:
             return TAdEnterPasswordGC__sub_8013ADE4();
         }

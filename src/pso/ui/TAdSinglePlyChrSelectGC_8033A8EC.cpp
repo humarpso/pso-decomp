@@ -69,8 +69,8 @@ M2C_UNK render_tick__Fv();
 M2C_UNK set_and_notify__6TLobbyFi(int);
 M2C_UNK stop_audio_streams__6TLobbyFv();
 M2C_UNK delete_all_task_children__9TMainTaskFv(void *);
-extern void *lbl_804EF728[];
-#define lbl_804EF728 (*(RecoveredGlobal_8033B264_lbl_804EF728 *)&lbl_804EF728)
+extern void *character_select_scene_resource_callbacks[];
+#define character_select_scene_resource_callbacks (*(RecoveredGlobal_8033B264_lbl_804EF728 *)&character_select_scene_resource_callbacks)
 extern RecoveredGlobal_8033B264_main_task main_task;
 void TAdSinglePlyChrSelectGC__sub_8033B264(void);
 M2C_UNK TWindow__close(void *);
@@ -196,7 +196,7 @@ s32 get_instance__23TAdSinglePlyChrSelectGCFv();
 s32 send_and_handle__6TLobbyFPvii(s32, s32, s32);
 void init_warp__23TAdSinglePlyChrSelectGCFPv(void* a0);
 void init_warps__23TAdSinglePlyChrSelectGCFPv(void* a0);
-void TAdSinglePlyChrSelectGC__sub_8033B9C4(s32);
+void seed_character_select_serial_rng(s32);
 M2C_UNK memcpy(int, void *, int);
 extern s32 lbl_805D6D90;
 void handle_load_result__23TAdSinglePlyChrSelectGCFPv(u8 *arg0);
@@ -382,7 +382,7 @@ void handle_load_result__23TAdSinglePlyChrSelectGCFPv(u8 *arg0) {
     s32 src;
     switch (TAdPlayerLoadGC__sub_801E1B50(M2C_FIELD(arg0, s32 *, 0x24))) {
     case 0:
-        TAdSinglePlyChrSelectGC__sub_8033B9C4(get_field_118__22TAdEnterSerialAccessGCFv());
+        seed_character_select_serial_rng(get_field_118__22TAdEnterSerialAccessGCFv());
         src = M2C_FIELD(arg0, s32 *, 0x20);
         obj = alloc__23TAdSinglePlyChrSelectGCFPv(0x1156C);
         if (obj != 0U) {
@@ -410,7 +410,7 @@ void handle_load_result__23TAdSinglePlyChrSelectGCFPv(u8 *arg0) {
                     init_warps__23TAdSinglePlyChrSelectGCFPv((void*)(arg0));
                 }
             } else {
-                TAdSinglePlyChrSelectGC__sub_8033B9C4(get_field_118__22TAdEnterSerialAccessGCFv());
+                seed_character_select_serial_rng(get_field_118__22TAdEnterSerialAccessGCFv());
                 encrypt_save_data__23TAdSinglePlyChrSelectGCFPvPv(get_instance__23TAdSinglePlyChrSelectGCFv());
                 save_character_file__23TAdSinglePlyChrSelectGCFi(1);
                 M2C_FIELD(arg0, s32 *, 0x2C) = 4;
@@ -470,7 +470,7 @@ void TAdSinglePlyChrSelectGC__sub_8033B264(void) {
     delete_all_task_children__9TMainTaskFv((void *) (&main_task.value));
     stop_audio_streams__6TLobbyFv();
     set_and_notify__6TLobbyFi((int) (0));
-    call_funcs_reverse__6TLobbyFPvUi((void *) (&lbl_804EF728.value), (int) (0x30));
+    call_funcs_reverse__6TLobbyFPvUi((void *) (&character_select_scene_resource_callbacks.value), (int) (0x30));
     render_tick__Fv();
 }
 
@@ -506,7 +506,7 @@ void init_single_player_char_select_scene(void) {
     u32 p;
     set_copy_clear_color_argb(0, 0, 0);
     reset_controller_input_state();
-    run_load_callback_table(&lbl_804EF728, 0x30);
+    run_load_callback_table(&character_select_scene_resource_callbacks, 0x30);
     init_menu_scene_lights(default_scene_light_config, 4);
     p = __nw__7TObjectFUl(0x1D4);
     if (p != 0) {
@@ -551,7 +551,7 @@ typedef char RecoveredGlobal_8033B264_main_task_size[sizeof(RecoveredGlobal_8033
 
 #pragma pop
 
-#undef lbl_804EF728
+#undef character_select_scene_resource_callbacks
 #pragma push
 
 #include "types.h"
@@ -623,13 +623,13 @@ s32 all_parents_unqueued_for_destruction__7TObjectFv(void *);
 extern void* lbl_804EF8C0[];
 void TAdSinglePlyChrSelectGC__sub_8033B5F0(void *arg0);
 extern RecoveredGlobal_8033B9C4_lbl_80513910 chr_select_serial_seeds;
-void TAdSinglePlyChrSelectGC__sub_8033B9C4(s32 arg0);
+void seed_character_select_serial_rng(s32 arg0);
 s32 find_card_file__15TAdPlayerLoadGCFiPv(void *, void *);
-extern char lbl_804C8914[];
+extern char pso_system_card_filename[];
 bool TAdSinglePlyChrSelectGC__sub_8033BA84(void *self);
 s32 find_card_file__15TAdPlayerLoadGCFiPv(void *, void *);
 extern u8 lbl_804C88C0[];
-extern char lbl_804C8914[];
+extern char pso_system_card_filename[];
 extern u8 lbl_804C89BC[];
 s32 has_no_save_files__23TAdSinglePlyChrSelectGCFPv(void *arg0);
 }
@@ -663,7 +663,7 @@ extern "C" void register_texture_f256_ad_pic_2();
 extern "C" void register_texture_f256_backtext();
 extern "C" void reset__11TCameraCtrlFv();
 extern "C" void update_keyboard_menu__6TLobbyFv();
-void *lbl_804EF728[12] = {
+void *character_select_scene_resource_callbacks[12] = {
     (void *)&reset_view_state__11TCameraCtrlFv, (void *)&reset__11TCameraCtrlFv, (void *)&init_default_view__11TCameraCtrlFv, (void *)&reset_default_view__11TCameraCtrlFv,
     (void *)&register_texture_f256_ad_pic_2, (void *)&free_global__23TAdSinglePlyChrSelectGCFv, (void *)&register_texture_f256_backtext, (void *)&free_singleton_805D65C0__23TAdSinglePlyChrSelectGCFv,
     (void *)&TWindowCtrlMain__sub_8024D838, (void *)&free_all_windows__15TWindowCtrlMainFv, (void *)&update_keyboard_menu__6TLobbyFv, (void *)&free_keyboard_soft_resources__6TLobbyFv,
@@ -731,7 +731,7 @@ void *construct__23TAdSinglePlyChrSelectGCFPv(void *arg0) {
 }
 
 typedef char RecoveredGlobal_8033B9C4_lbl_80513910_size[sizeof(RecoveredGlobal_8033B9C4_lbl_80513910) == 0x10 ? 1 : -1];
-void TAdSinglePlyChrSelectGC__sub_8033B9C4(s32 arg0) {
+void seed_character_select_serial_rng(s32 arg0) {
     M2C_FIELD(&chr_select_serial_seeds.value, s32 *, 4) = arg0;
     M2C_FIELD(&chr_select_serial_seeds.value, s32 *, 0) = arg0;
 }
@@ -747,14 +747,14 @@ u8 TAdSinglePlyChrSelectGC__sub_8033B9F8(u8 *arg0) {
 }
 
 s32 has_no_save_files__23TAdSinglePlyChrSelectGCFPv(void *arg0) {
-    if (find_card_file__15TAdPlayerLoadGCFiPv(arg0, ((u8 *)&lbl_804C8914)) != 0 || find_card_file__15TAdPlayerLoadGCFiPv(arg0, lbl_804C88C0) != 0 || find_card_file__15TAdPlayerLoadGCFiPv(arg0, lbl_804C89BC) != 0) {
+    if (find_card_file__15TAdPlayerLoadGCFiPv(arg0, ((u8 *)&pso_system_card_filename)) != 0 || find_card_file__15TAdPlayerLoadGCFiPv(arg0, lbl_804C88C0) != 0 || find_card_file__15TAdPlayerLoadGCFiPv(arg0, lbl_804C89BC) != 0) {
         return 0;
     }
     return 1;
 }
 
 bool TAdSinglePlyChrSelectGC__sub_8033BA84(void *self) {
-    return !find_card_file__15TAdPlayerLoadGCFiPv(self, lbl_804C8914);
+    return !find_card_file__15TAdPlayerLoadGCFiPv(self, pso_system_card_filename);
 }
 
 }

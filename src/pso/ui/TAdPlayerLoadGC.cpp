@@ -39,10 +39,10 @@ s32 TAdPlayerLoadGC__sub_801FD770();
 s32 TAdPlayerLoadGC__sub_801FD814();
 s32 check_system_load_result__23TAdSinglePlyChrSelectGCFv();
 s32 load_system_file_flag__23TAdSinglePlyChrSelectGCFv();
-int fn_802D6BDC(void);
-void fn_802D6BE4(int a0);
+int get_player_load_state(void);
+void set_character_select_b_slot_state(int a0);
 extern M2C_UNK lbl_804C88C0[];
-extern M2C_UNK lbl_804C8914[];
+extern M2C_UNK pso_system_card_filename[];
 void run_task__15TAdPlayerLoadGCFv(u8 *arg0);
 void __ct__7TObjectFP7TObject(void *);
 void *memset(void *, int, u32);
@@ -55,8 +55,8 @@ extern "C" {
 
 void *TAdPlayerLoadGC__sub_802D655C(void *arg0, s16 arg1);
 void *__ct__15TAdPlayerLoadGCFv(void *arg0, void *arg1, void *arg2);
-int fn_802D6BDC(void);
-void fn_802D6BE4(int a0);
+int get_player_load_state(void);
+void set_character_select_b_slot_state(int a0);
 void render__15TAdPlayerLoadGCFv(void);
 void __ct__7TObjectFP7TObject(void *);
 void free_obj_heap__10TObjPlayerFPv(void *);
@@ -88,7 +88,7 @@ extern void *lbl_805D3F48;
 
 void run_task__15TAdPlayerLoadGCFv(u8 *arg0) {
     u32 temp_r0;
-    fn_802D6BE4((int) (M2C_FIELD(arg0, u32 *, 0x1C)));
+    set_character_select_b_slot_state((int) (M2C_FIELD(arg0, u32 *, 0x1C)));
     if (probe_card_slot__15TAdPlayerLoadGCFi((int) (0)) == 0) {
         M2C_FIELD(arg0, u32 *, 0x1C) = 0U;
     }
@@ -133,7 +133,7 @@ void run_task__15TAdPlayerLoadGCFv(u8 *arg0) {
         }
         break;
     case 7:
-        if ((u32)find_card_file__15TAdPlayerLoadGCFiPv((int) (0), (void *) (lbl_804C8914)) != 0xFFFFFF41U) {
+        if ((u32)find_card_file__15TAdPlayerLoadGCFiPv((int) (0), (void *) (pso_system_card_filename)) != 0xFFFFFF41U) {
             M2C_FIELD(arg0, u32 *, 0x1C) = 8U;
         }
         break;
@@ -213,7 +213,7 @@ void run_task__15TAdPlayerLoadGCFv(u8 *arg0) {
     case 20:
         if (probe_card_slot__15TAdPlayerLoadGCFi((int) (1)) == 0) {
             M2C_FIELD(arg0, u32 *, 0x1C) = 0xDU;
-        } else if ((u32)find_card_file__15TAdPlayerLoadGCFiPv((int) (1), (void *) (lbl_804C8914)) != 0xFFFFFF41U) {
+        } else if ((u32)find_card_file__15TAdPlayerLoadGCFiPv((int) (1), (void *) (pso_system_card_filename)) != 0xFFFFFF41U) {
             M2C_FIELD(arg0, u32 *, 0x1C) = 0x15U;
         }
         break;
@@ -251,7 +251,7 @@ void run_task__15TAdPlayerLoadGCFv(u8 *arg0) {
         }
         break;
     }
-    if (fn_802D6BDC() != 0) {
+    if (get_player_load_state() != 0) {
         set_state__15TAdPlayerLoadGCFi((int) (0));
         M2C_FIELD(arg0, u32 *, 0x1C) = 0U;
     }
@@ -271,10 +271,10 @@ void *__ct__15TAdPlayerLoadGCFv(void *arg0, void *arg1, void *arg2) {
 }
 
     extern int TAdPlayerLoadGC__load_state;
-int fn_802D6BDC(void) {  return TAdPlayerLoadGC__load_state; }
+int get_player_load_state(void) {  return TAdPlayerLoadGC__load_state; }
 
     extern int TAdChrSelBSlotGC__global_state;
-void fn_802D6BE4(int a0) { TAdChrSelBSlotGC__global_state = a0; }
+void set_character_select_b_slot_state(int a0) { TAdChrSelBSlotGC__global_state = a0; }
 
 }
 

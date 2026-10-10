@@ -11,10 +11,10 @@ M2C_UNK reset__6TLobbyFv();
 M2C_UNK send_trade_proposal_result__6TLobbyFcc(M2C_UNK, M2C_UNK);
 M2C_UNK close_request_window__19TWindowTradeRequestFv();
 
-extern u8 TLobby__data_805D688B;
+extern u8 TLobby__trade_proposal_state;
 
 void reset_trade__19TWindowTradeRequestFv(void) {
-    if ((s32) TLobby__data_805D688B == 2) {
+    if ((s32) TLobby__trade_proposal_state == 2) {
         send_trade_proposal_result__6TLobbyFcc(0, 3);
         close_request_window__19TWindowTradeRequestFv();
         reset__6TLobbyFv();

@@ -101,7 +101,7 @@ M2C_UNK set_chunk_material_override_pair(u32, u32);
 M2C_UNK set_chunk_material_color(void *);
 M2C_UNK draw_chunk_object(s32);
 extern u8 chunk_material_color_half_alpha_f32[];
-extern u8 lbl_8050BEC0[];
+extern u8 saved_model_draw_color[];
 extern u8 lbl_8058D4C0[];
 extern int TEneEffHamon__fish_model;
 extern int TEneEffHamon__fish_effect_param;
@@ -152,7 +152,7 @@ void render__12TEneEffHamonFv(Hamon_800A36A8 *o) {
         return;
     }
     lbl_805D5660 = some_id_805c6f74;
-    copy_vec4__13TRaderMapCoreFPvPv(lbl_8050BEC0, lbl_8058D4C0);
+    copy_vec4__13TRaderMapCoreFPvPv(saved_model_draw_color, lbl_8058D4C0);
     lbl_805D5664 = lbl_805D7784;
     lbl_805D5668 = lbl_805D7780;
     some_id_805c6f74 |= 0x810;
@@ -168,7 +168,7 @@ void render__12TEneEffHamonFv(Hamon_800A36A8 *o) {
     set_chunk_material_color(chunk_material_color_half_alpha_f32);
     lbl_805D7784 = lbl_805D5664;
     lbl_805D7780 = lbl_805D5668;
-    copy_vec4__13TRaderMapCoreFPvPv(lbl_8058D4C0, lbl_8050BEC0);
+    copy_vec4__13TRaderMapCoreFPvPv(lbl_8058D4C0, saved_model_draw_color);
     some_id_805c6f74 = lbl_805D5660;
 }
 

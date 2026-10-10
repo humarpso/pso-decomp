@@ -59,11 +59,11 @@ void post_translate_matrix(void *);
 M2C_UNK set_global_param__8TObjFishFi(void *);
 M2C_UNK draw_ginja_object();
 M2C_UNK draw_ginja_model_with_motion(s32, s32, f32);
-extern void *TObjLobbyMain__data_805D6EC8;
+extern void *TObjLobbyMain__bml_resource;
 extern void *lbl_805D6ECC;
 void render__13TObjLobbyMainFv(u8 *arg0);
 s32 get_bml_motion(void *, s32);
-extern void *TObjLobbyMain__data_805D6EC8;
+extern void *TObjLobbyMain__bml_resource;
 void advance_motion_frame__13TObjLobbyMainFPv(Obj_8035255C *o);
 }
 
@@ -234,10 +234,10 @@ void render__13TObjLobbyMainFv(u8 *arg0) {
         idx = M2C_FIELD(arg0, s16 *, 0xD0);
         r = lbl_80479078[idx];
         if (r != 5) {
-            r = get_bml_motion(TObjLobbyMain__data_805D6EC8, r);
-            draw_ginja_model_with_motion(get_bml_model(TObjLobbyMain__data_805D6EC8, M2C_FIELD(arg0, s16 *, 0xD0)), r, M2C_FIELD(arg0, f32 *, 0xB0));
+            r = get_bml_motion(TObjLobbyMain__bml_resource, r);
+            draw_ginja_model_with_motion(get_bml_model(TObjLobbyMain__bml_resource, M2C_FIELD(arg0, s16 *, 0xD0)), r, M2C_FIELD(arg0, f32 *, 0xB0));
         } else {
-            get_bml_model(TObjLobbyMain__data_805D6EC8, idx);
+            get_bml_model(TObjLobbyMain__bml_resource, idx);
             draw_ginja_object();
         }
         pop_matrix();
@@ -257,7 +257,7 @@ void advance_motion_frame__13TObjLobbyMainFPv(Obj_8035255C *o) {
     f32 a, b;
     s32 v = lbl_80479078[o->idx];
     if (v != 5) {
-        a = (f32)((Fish_8035255C *)get_bml_motion(TObjLobbyMain__data_805D6EC8, v))->cnt;
+        a = (f32)((Fish_8035255C *)get_bml_motion(TObjLobbyMain__bml_resource, v))->cnt;
         b = a - 1.0f;
         o->f_b0 += 1.0f;
         if (b < o->f_b0) {
@@ -305,7 +305,7 @@ void reset_state__13TObjLobbyMainFPv(void *arg0) {
 #define update_computer_machines__13TObjLobbyMainFv ((M2C_UNK (*)(void *))update_computer_machines__13TObjLobbyMainFv)
 #define update_particles__13TObjLobbyMainFPv ((M2C_UNK (*)(void *))update_particles__13TObjLobbyMainFPv)
 #define enable__13TParticleCtrlFPv ((s32 (*)(int))enable__13TParticleCtrlFPv)
-#define TObjLobbyMain__data_805D6EC8 (*(u32 *)&TObjLobbyMain__data_805D6EC8)
+#define TObjLobbyMain__bml_resource (*(u32 *)&TObjLobbyMain__bml_resource)
 #define lbl_805D6ECC (*(s32 *)&lbl_805D6ECC)
 struct RecoveredGlobal_803527F0_lbl_804F0F24 { M2C_UNK value; u8 remaining[0xC]; };
 typedef char RecoveredGlobal_803527F0_lbl_804F0F24_size[sizeof(RecoveredGlobal_803527F0_lbl_804F0F24) == 0x10 ? 1 : -1];
@@ -402,9 +402,9 @@ void *create__13TObjLobbyMainFPv(void *arg0) {
 }
 
 void release_static_instance__13TObjLobbyMainFv(void) {
-    if ((u32) TObjLobbyMain__data_805D6EC8 != 0U) {
-        TLobby__sub_8001FE7C((void*)TObjLobbyMain__data_805D6EC8, 1);
-        TObjLobbyMain__data_805D6EC8 = 0U;
+    if ((u32) TObjLobbyMain__bml_resource != 0U) {
+        TLobby__sub_8001FE7C((void*)TObjLobbyMain__bml_resource, 1);
+        TObjLobbyMain__bml_resource = 0U;
     }
 }
 
@@ -418,10 +418,10 @@ void load_resources__13TObjLobbyMainFv(void) {
     if (var_r0 != 0) {
         var_r0 = (long) (load_resource_from_descriptor((void *) temp_r3, 5, &lbl_804F0F24.value, 0, 0, 0));
     }
-    (*(u8 * *)&TObjLobbyMain__data_805D6EC8) = (unsigned char *) ((void *) var_r0);
+    (*(u8 * *)&TObjLobbyMain__bml_resource) = (unsigned char *) ((void *) var_r0);
     lbl_805D6ECC = get_lobby_type__6TLobbyFv();
-    lbl_805D6ED0 = M2C_FIELD(M2C_FIELD(M2C_FIELD(M2C_FIELD(M2C_FIELD(M2C_FIELD(M2C_FIELD(M2C_FIELD(get_bml_model((*(u8 * *)&TObjLobbyMain__data_805D6EC8), 6), void **, 0x2C), void **, 0x30), void **, 0x30), void **, 0x30), void **, 0x30), void **, 0x30), void **, 0x30), s32 *, 4);
-    lbl_805D6ED4 = M2C_FIELD(M2C_FIELD(M2C_FIELD(M2C_FIELD(M2C_FIELD(get_bml_model((*(u8 * *)&TObjLobbyMain__data_805D6EC8), 2), void **, 0x2C), void **, 0x30), void **, 0x30), void **, 0x30), s32 *, 4);
+    lbl_805D6ED0 = M2C_FIELD(M2C_FIELD(M2C_FIELD(M2C_FIELD(M2C_FIELD(M2C_FIELD(M2C_FIELD(M2C_FIELD(get_bml_model((*(u8 * *)&TObjLobbyMain__bml_resource), 6), void **, 0x2C), void **, 0x30), void **, 0x30), void **, 0x30), void **, 0x30), void **, 0x30), void **, 0x30), s32 *, 4);
+    lbl_805D6ED4 = M2C_FIELD(M2C_FIELD(M2C_FIELD(M2C_FIELD(M2C_FIELD(get_bml_model((*(u8 * *)&TObjLobbyMain__bml_resource), 2), void **, 0x2C), void **, 0x30), void **, 0x30), void **, 0x30), s32 *, 4);
     lbl_805D6ED8 = 0;
 }
 
@@ -486,5 +486,5 @@ u8 *TObjLobbyMain__ct(u8 *arg0, M2C_UNK arg1, s32 arg2) {
 #undef update_computer_machines__13TObjLobbyMainFv
 #undef update_particles__13TObjLobbyMainFPv
 #undef enable__13TParticleCtrlFPv
-#undef TObjLobbyMain__data_805D6EC8
+#undef TObjLobbyMain__bml_resource
 #undef lbl_805D6ECC

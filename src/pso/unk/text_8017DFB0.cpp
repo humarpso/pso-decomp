@@ -28,7 +28,7 @@ extern "C" {
 void reset_photon_effect__10TObjPlayerFPv(s32);
 u32 init_collision_body_parts(void *, s32, s32);
 u8 * TOWreckAncient__ct(void *, s32);
-extern RecoveredGlobal_8017DFB0_lbl_804B5418 lbl_804B5418;
+extern RecoveredGlobal_8017DFB0_lbl_804B5418 TOWreckAncient__collision_body_templates;
 extern RecoveredGlobal_8017DFB0___vt__16TOWreckAncient02 __vt__16TOWreckAncient02;
 extern s32 lbl_805D3218;
 u8 *TOWreckAncient02__ct(u8 *arg0, s32 arg1);
@@ -43,7 +43,7 @@ u8 *TOWreckAncient02__ct(u8 *arg0, s32 arg1) {
     M2C_FIELD(arg0, M2C_UNK **, 0x18) = &__vt__16TOWreckAncient02.value;
     M2C_FIELD(arg0, s32 *, 0) = (s32) lbl_805D3218;
     ((VObj_18_1a504b *)(arg0))->m5(arg1);
-    init_collision_body_parts(arg0, (s32) &lbl_804B5418.value, 1);
+    init_collision_body_parts(arg0, (s32) &TOWreckAncient__collision_body_templates.value, 1);
     reset_photon_effect__10TObjPlayerFPv((s32) arg0);
     return arg0;
 }

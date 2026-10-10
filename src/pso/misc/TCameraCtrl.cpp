@@ -22,7 +22,7 @@ M2C_UNK set_camera_look_at(void *, void *, void *);
 M2C_UNK set_perspective_projection_from_fov(int, f32, f32, f32);
 f32 vec_squared_length(void *);
 extern f32 lbl_804FF5E8[10];
-extern u32 TCameraCtrl__data_804FF6C4[3];
+extern u32 TCameraCtrl__up_vector[3];
 extern const f32 TCameraCtrl__data_805D8FA8;
 extern const f32 TCameraCtrl__data_805D8FAC;
 extern const f32 TCameraCtrl__data_805D8FDC;
@@ -38,9 +38,9 @@ RecoveredGlobal_8006ABAC_lbl_804FF61C camera_pitch_rotated_up_vector;
 u8 TCameraCtrl__view_state[12];
 u32 TCameraCtrl__data_804FF634[18];
 u32 lbl_804FF67C[18];
-u32 TCameraCtrl__data_804FF6C4[3];
-u8 TCameraCtrl__data_804FF6D0[0x30];
-C30_8006AD34 TCameraCtrl__data_804FF700[4];
+u32 TCameraCtrl__up_vector[3];
+u8 TCameraCtrl__view_matrix[0x30];
+C30_8006AD34 TCameraCtrl__view_matrices[4];
 extern void *camera_controller_registry[13];
 extern void *lbl_80488AC0[6];
 }
@@ -197,7 +197,7 @@ void VecCopy__FP3VecPC3Vec(void *, void *);
 s32 obj_getField1c(void *);
 s32 is_split_screen();
 void set_target__11TCameraCtrlFPvUi(Ctrl_8006A410 *, void *);
-M2C_UNK *TCameraCtrl__sub_8006B324(void);
+M2C_UNK *get_character_select_request_buffer(void);
 s32 is_boss_area(void);
 extern u8 *camera_ctrl_instance;
 void reset_cameras_to_actor(void *actor);
@@ -240,8 +240,8 @@ void reset_view_state__11TCameraCtrlFv(void) {
     pb->f40 = TCameraCtrl__data_805D8FAC;
     pb->f44 = TCameraCtrl__data_805D8FD8;
     TCameraCtrl__sub_80068358(pb, pa, TCameraCtrl__data_805D8FAC, TCameraCtrl__data_805D8FA8);
-    ((C_8006A35C *)TCameraCtrl__data_804FF6C4)->f0 = TCameraCtrl__data_805D8FA8;
-    pc = (C_8006A35C *)TCameraCtrl__data_804FF6C4;
+    ((C_8006A35C *)TCameraCtrl__up_vector)->f0 = TCameraCtrl__data_805D8FA8;
+    pc = (C_8006A35C *)TCameraCtrl__up_vector;
     pc->f4 = TCameraCtrl__data_805D8FAC;
     pc->f8 = TCameraCtrl__data_805D8FA8;
     camera_view_state_flag = 0;
@@ -274,7 +274,7 @@ void reset_cameras_to_actor(void *actor) {
   }
   else
   {
-    Views_8006A410 *v = (Views_8006A410 *) TCameraCtrl__sub_8006B324();
+    Views_8006A410 *v = (Views_8006A410 *) get_character_select_request_buffer();
     for (i = 0; i < 4; i++)
     {
       s32 p = v->players[i];
@@ -926,15 +926,15 @@ void update_view__11TCameraCtrlFPv(u8 *arg0) {
     }
     if (is_split_screen() != 0) {
         if (TCameraCtrl__view_state[0] == 5) {
-            render__15TObjBoss2TunnelFPvPv(lbl_804FF5E8, &TCameraCtrl__data_804FF700[get_camera_no__11TCameraCtrlFv()]);
+            render__15TObjBoss2TunnelFPvPv(lbl_804FF5E8, &TCameraCtrl__view_matrices[get_camera_no__11TCameraCtrlFv()]);
             for (i = 1; i < 4; i++) {
-                ((u8 *(*)(C30_8006AD34 &, const C30_8006AD34 &))copy_view_params__11TCameraCtrlFii)(TCameraCtrl__data_804FF700[i], TCameraCtrl__data_804FF700[0]);
+                ((u8 *(*)(C30_8006AD34 &, const C30_8006AD34 &))copy_view_params__11TCameraCtrlFii)(TCameraCtrl__view_matrices[i], TCameraCtrl__view_matrices[0]);
             }
         } else {
-            render__15TObjBoss2TunnelFPvPv(lbl_804FF5E8, &TCameraCtrl__data_804FF700[get_camera_no__11TCameraCtrlFv()]);
+            render__15TObjBoss2TunnelFPvPv(lbl_804FF5E8, &TCameraCtrl__view_matrices[get_camera_no__11TCameraCtrlFv()]);
         }
     } else {
-        render__15TObjBoss2TunnelFPvPv(lbl_804FF5E8, TCameraCtrl__data_804FF6D0);
+        render__15TObjBoss2TunnelFPvPv(lbl_804FF5E8, TCameraCtrl__view_matrix);
     }
     calc_rotated_axes__11TCameraCtrlFPv(arg0);
 }
@@ -976,7 +976,7 @@ void setup_default_view__11TCameraCtrlFPvPv(Obj_8006AF9C *arg0, Vec_8006AF9C *ar
         pat->z += TCameraCtrl__data_805D8FAC;
     }
     set_perspective_projection_from_fov(arg0->f19c, TCameraCtrl__data_805D8FDC, TCameraCtrl__data_805D8FAC, TCameraCtrl__data_805D8FE0);
-    set_camera_look_at(&eye, &at, TCameraCtrl__data_804FF6C4);
+    set_camera_look_at(&eye, &at, TCameraCtrl__up_vector);
 }
 
 #pragma push
@@ -1078,7 +1078,7 @@ u8 *TCameraCtrl__ct(u8 *arg0, void *parent) {
 #undef self
 
 typedef char RecoveredGlobal_8006B324_lbl_805137F8_size[sizeof(RecoveredGlobal_8006B324_lbl_805137F8) == 0x24 ? 1 : -1];
-M2C_UNK *TCameraCtrl__sub_8006B324(void) {
+M2C_UNK *get_character_select_request_buffer(void) {
     return &chr_select_request_buffer.value;
 }
 

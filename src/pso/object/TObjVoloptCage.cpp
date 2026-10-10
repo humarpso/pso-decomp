@@ -109,7 +109,7 @@ M2C_UNK update_prev_position__10TObjPlayerFPv(void *);
 M2C_UNK submit_cursor_candidate(void *, int);
 void run_task__14TObjVoloptCageFv(u8 *arg0);
 s32 is_locally_controlled__10TObjPlayerFPv();
-M2C_UNK fn_8003F3BC();
+M2C_UNK clear_volopt_cage_flag();
 void obj_clear_flag30_20000(void *arg0);
 s32 check_player_flag1__6TLobbyFPv(int);
 M2C_UNK __dt__15TObjEnemyCustomFv(void *, int);
@@ -132,7 +132,7 @@ extern RecoveredGlobal_8004938C___vt__14TObjVoloptCage __vt__14TObjVoloptCage;
 extern s32 lbl_805D2758;
 extern u8 *lbl_805D4CE4;
 extern s32 lbl_805D4D18;
-extern s32 TObjVoloptCage__data_805D4D28;
+extern s32 TObjVoloptCage__texture_list;
 extern const f32 lbl_805D8884;
 extern const f32 lbl_805D8888;
 Obj_80049430 *TObjVoloptCage__ct(Obj_80049430 *arg0, Obj_80049430 *arg1, u16 arg2, s16 arg3, s16 arg4);
@@ -210,7 +210,7 @@ u8 *__dt__14TObjVoloptCageFv(u8 *arg0, s16 arg1) {
             }
             obj_clear_flag30_20000((void *)((int) (temp_r3)));
         }
-        fn_8003F3BC();
+        clear_volopt_cage_flag();
         free_collision_body_parts((void *) (arg0));
         __dt__15TObjEnemyCustomFv((void *) (arg0), (int) (0));
         if (arg1 > 0) {
@@ -247,7 +247,7 @@ Obj_80049430 *TObjVoloptCage__ct(Obj_80049430 *arg0, Obj_80049430 *arg1, u16 arg
     arg0->flags &= ~0xA00;
     arg0->f374 = 7;
     arg0->f326 = 7;
-    TObjVoloptCage__data_805D4D28 = *(s32 *)(*(u8 **)(lbl_805D4CE4 + 0x42C) + 0x12C);
+    TObjVoloptCage__texture_list = *(s32 *)(*(u8 **)(lbl_805D4CE4 + 0x42C) + 0x12C);
     arg0->f390 = 0;
     return arg0;
 }

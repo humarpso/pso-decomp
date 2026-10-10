@@ -43,15 +43,15 @@ void update_plot_timer__14TBoss6PlotFalzFPv(void *arg0) {
     }
 }
 
-extern u32 TBoss6PlotFalz__data_805D66F4;
+extern u32 TBoss6PlotFalz__type2_instance;
 
 void finish_and_dispatch_next_phase__14TBoss6PlotFalzFPv(u8 *arg0) {
     s32 sp10[2];
     u16 sp8[4];
     s32 var_r29;
 
-    if ((u32) TBoss6PlotFalz__data_805D66F4 != 0U) {
-        get_phase_values__11TBoss6Type2FPvPvPvPv((void *) (TBoss6PlotFalz__data_805D66F4), (void *) (arg0 + 0x2D6), (void *) (arg0 + 0x2D4), (void *) (sp8));
+    if ((u32) TBoss6PlotFalz__type2_instance != 0U) {
+        get_phase_values__11TBoss6Type2FPvPvPvPv((void *) (TBoss6PlotFalz__type2_instance), (void *) (arg0 + 0x2D6), (void *) (arg0 + 0x2D4), (void *) (sp8));
         var_r29 = 0;
         do {
             obj_setArrS16_FC((void *) (arg0), (int) (var_r29), (void *) (sp8[var_r29]));

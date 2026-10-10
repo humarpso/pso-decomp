@@ -25,14 +25,14 @@ M2C_UNK pop_matrix();
 void *__nw__7TObjectFUl(int);
 M2C_UNK set_global_param__8TObjFishFi(int);
 
-extern u8 *TOAirconCave01__data_805D5880;
+extern u8 *TOAirconCave01__model_archive;
 
 void render__14TOAirconCave01Fv(u8 *arg0) {
     s32 temp_r3;
     u8 *temp_r31;
     u8 *temp_r4;
 
-    temp_r4 = (unsigned char *) (M2C_FIELD(TOAirconCave01__data_805D5880, void **, 0x42C));
+    temp_r4 = (unsigned char *) (M2C_FIELD(TOAirconCave01__model_archive, void **, 0x42C));
     temp_r31 = (unsigned char *) (M2C_FIELD(temp_r4, void **, 8));
     if (((AirV_80156e8c *)arg0)->m8(temp_r4, M2C_FIELD(arg0, f32 *, 0xC0), M2C_FIELD(arg0, f32 *, 0xC4)) != 0) {
         temp_r3 = M2C_FIELD(arg0, s32 *, 0x5C);

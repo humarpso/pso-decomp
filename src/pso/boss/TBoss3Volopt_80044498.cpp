@@ -827,7 +827,7 @@ void queue_destruction__7TObjectFv(void *);
 M2C_UNK update_phase__12TBoss3VoloptFv();
 M2C_UNK TBoss3Volopt__sub_8003CB48();
 M2C_UNK alloc_idle_event__12TBoss3VoloptFv();
-s32 TBoss3Volopt__sub_8003CB94();
+s32 is_volopt_death_active();
 void destroy_children__12TBoss3VoloptFPv(void *arg0);
 void spawn_ambient_particles__12TBoss3VoloptFPv(u8 *arg0);
 M2C_UNK restore_player_cameras();
@@ -1399,7 +1399,7 @@ void update_death_sequence__12TBoss3VoloptFPv(void *arg0_) {
             trigger_dell_biter_events__10TObjPlayerFPv(arg0 + 0x2FC);
             refresh_lobby_state__10TObjPlayerFPv(arg0);
             volopt_death_active = 1;
-            if (TBoss3Volopt__sub_8003CB94() != 0) {
+            if (is_volopt_death_active() != 0) {
                 send_entity_set_flags__6TLobbyFPv(arg0);
             }
             update_phase__12TBoss3VoloptFv();

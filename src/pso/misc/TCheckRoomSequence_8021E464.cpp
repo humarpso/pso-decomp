@@ -4,7 +4,7 @@ typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
 
 extern "C" {
 
-int TCheckRoomSequence__sub_8021E4B0(int a0);
+int get_check_room_slot_active_flag(int a0);
 void *create__18TCheckRoomSequenceFPv(void *arg0);
 void *TCheckRoomSequence__ct(void *, void *, void *);
 void *__nw__7TObjectFUl(int);
@@ -20,6 +20,6 @@ void *create__18TCheckRoomSequenceFPv(void *arg0) {
 }
 
     extern int TCheckRoomSequence__slot_active_flags[];
-int TCheckRoomSequence__sub_8021E4B0(int a0) {  return TCheckRoomSequence__slot_active_flags[a0]; }
+int get_check_room_slot_active_flag(int a0) {  return TCheckRoomSequence__slot_active_flags[a0]; }
 
 }

@@ -1,6 +1,6 @@
 #include "pso/TWindowCtrlSub.h"
 
-extern s32 TWindowCtrlMain__data_805D6410;
+extern s32 TWindowCtrlMain__sub_controller;
 
 #include "types.h"
 typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
@@ -13,7 +13,7 @@ void run_task__14TWindowCtrlSubFv(void);
 M2C_UNK update_fade_alphas__15TWindowCtrlMainFv();
 M2C_UNK resolve_chat_balloon_overlaps();
 M2C_UNK run_tasks__7TObjectFv(s32);
-extern s32 TWindowCtrlMain__data_805D6408;
+extern s32 TWindowCtrlMain__window_task_root;
 void run_task__14TWindowCtrlSubFv(void);
 }
 
@@ -28,11 +28,11 @@ extern void *lbl_805D38D8;
 void run_task__14TWindowCtrlSubFv(void) {
     resolve_chat_balloon_overlaps();
     update_fade_alphas__15TWindowCtrlMainFv();
-    run_tasks__7TObjectFv(TWindowCtrlMain__data_805D6408);
+    run_tasks__7TObjectFv(TWindowCtrlMain__window_task_root);
 }
 
 TWindowCtrlSub::~TWindowCtrlSub() {
-    TWindowCtrlMain__data_805D6410 = 0;
+    TWindowCtrlMain__sub_controller = 0;
 }
 void *TWindowCtrlSub__ct(void *arg0) {
     __ct__7TObjectFP7TObject(arg0);

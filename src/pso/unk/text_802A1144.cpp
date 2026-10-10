@@ -2,10 +2,10 @@
 
 extern "C" {
 
-    extern unsigned char lbl_805D6639;
-unsigned char get_opening_movie_purpose(void) {  return lbl_805D6639; }
+    extern unsigned char opening_movie_purpose;
+unsigned char get_opening_movie_purpose(void) {  return opening_movie_purpose; }
 
-    extern unsigned char lbl_805D6639;
-void set_opening_movie_purpose(int a0) { lbl_805D6639 = a0; }
+    extern unsigned char opening_movie_purpose;
+void set_opening_movie_purpose(int a0) { opening_movie_purpose = a0; }
 
 }

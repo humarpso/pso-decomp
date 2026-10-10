@@ -8,11 +8,11 @@ extern "C" {
 
 s32 get_field230__22TQuestVmDownLoadServerFv(void);
 
-extern void *TQuestVmDownLoadServer__data_805D5F24;
+extern void *TQuestVmDownLoadServer__instance;
 
 s32 get_field230__22TQuestVmDownLoadServerFv(void) {
-    if ((void *) TQuestVmDownLoadServer__data_805D5F24 != NULL) {
-        return M2C_FIELD(TQuestVmDownLoadServer__data_805D5F24, s32 *, 0x230);
+    if ((void *) TQuestVmDownLoadServer__instance != NULL) {
+        return M2C_FIELD(TQuestVmDownLoadServer__instance, s32 *, 0x230);
     }
     return 0;
 }

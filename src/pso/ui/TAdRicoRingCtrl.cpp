@@ -11,7 +11,7 @@ extern "C" {
 u8 * load_resource_from_descriptor(void *, s32, void *, s32, s32, s32);
 int alloc__23TAdSinglePlyChrSelectGCFPv(void *);
 extern RecoveredGlobal_8001BE80_lbl_804809C0 TAdRicoRingCtrl__resource_descriptor;
-extern u32 lbl_805D4A00;
+extern u32 TAdRicoRing__resource_bundle;
 void load_static_resource__15TAdRicoRingCtrlFv(void);
 }
 
@@ -35,12 +35,12 @@ void *create__15TAdRicoRingCtrlFPv(void *arg0) {
     return o;
 }
 
-extern u32 lbl_805D4A00;
+extern u32 TAdRicoRing__resource_bundle;
 
 void release_global_805D4A00__15TAdRicoRingCtrlFv(void) {
-    if ((u32) lbl_805D4A00 != 0U) {
-        TLobby__sub_8001FE7C((void*)lbl_805D4A00, 1);
-        lbl_805D4A00 = 0U;
+    if ((u32) TAdRicoRing__resource_bundle != 0U) {
+        TLobby__sub_8001FE7C((void*)TAdRicoRing__resource_bundle, 1);
+        TAdRicoRing__resource_bundle = 0U;
     }
 }
 
@@ -52,7 +52,7 @@ void load_static_resource__15TAdRicoRingCtrlFv(void) {
     if (var_r0 != 0) {
         var_r0 = (long) (load_resource_from_descriptor((void *) temp_r3, 1, &TAdRicoRingCtrl__resource_descriptor.value, 0, 0, 0));
     }
-    (*(s32 *)&lbl_805D4A00) = var_r0;
+    (*(s32 *)&TAdRicoRing__resource_bundle) = var_r0;
 }
 
 void TAdRicoRingCtrl__sub_8001BED0(void* p, f32 v) { *(f32*)((char*)p + 0x34) = v; }

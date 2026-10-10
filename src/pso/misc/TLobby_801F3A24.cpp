@@ -25,11 +25,11 @@ void bswap_enemy_set_rows__6TLobbyFPvUi(u8* arg0, u32 arg1);
 bool load_quest_encounter_section(s32 arg0);
 s32 handle_msg_type2__6TLobbyFi(s32 arg0);
 M2C_UNK init_buffers__6TLobbyFii(s32, s32);
-extern s16 TLobby__data_805127D0[];
+extern s16 quest_floor_designations[];
 extern s32 TLobby__data_805D5EE0;
 void init_floor_encounter_sections__6TLobbyFv(void);
 s32 handle_msg_type1__6TLobbyFi(s32 arg0);
-extern s16 TLobby__data_805127D0[];
+extern s16 quest_floor_designations[];
 void handle_msg_type1_for_idle_slots__6TLobbyFv(void);
 }
 
@@ -83,7 +83,7 @@ void init_floor_encounter_sections__6TLobbyFv(void) {
     s32 ok;
     for (i = 0; i < 0x12; i++) {
         ok = 0;
-        switch (TLobby__data_805127D0[i]) {
+        switch (quest_floor_designations[i]) {
         case 0:
             if (handle_msg_type2__6TLobbyFi(i) != 0) {
                 ok = 1;
@@ -105,7 +105,7 @@ void init_floor_encounter_sections__6TLobbyFv(void) {
 void handle_msg_type1_for_idle_slots__6TLobbyFv(void) {
     s32 i;
     for (i = 0; i < 0x12; i++) {
-        switch (TLobby__data_805127D0[i]) {
+        switch (quest_floor_designations[i]) {
         case 0:
             handle_msg_type1__6TLobbyFi(i);
             break;
@@ -186,15 +186,15 @@ void set_quest_floor_designation_ex(s16 mode, s32 floor, s32 area, s32 layout, s
     switch (mode) {
     case 0:
         set_floor_map_selection(floor, area, layout, 0);
-        ((s16 *) &TLobby__data_805127D0)[floor] = mode;
+        ((s16 *) &quest_floor_designations)[floor] = mode;
         break;
     case 2:
         set_floor_map_selection(floor, area, layout, entities);
-        ((s16 *) &TLobby__data_805127D0)[floor] = mode;
+        ((s16 *) &quest_floor_designations)[floor] = mode;
         break;
     case 1:
     case 3:
-        ((s16 *) &TLobby__data_805127D0)[floor] = mode;
+        ((s16 *) &quest_floor_designations)[floor] = mode;
         break;
     default:
         return;
@@ -208,21 +208,21 @@ void set_quest_floor_designation(s16 mode, s32 floor, s32 terrain, s32 unused) {
     switch (mode) {
     case 0:
         set_floor_map_selection(floor, floor, terrain, 0);
-        ((s16 *)&TLobby__data_805127D0)[floor] = mode;
+        ((s16 *)&quest_floor_designations)[floor] = mode;
         break;
     case 2:
         set_floor_map_selection(floor, floor, terrain, 0);
-        ((s16 *)&TLobby__data_805127D0)[floor] = mode;
+        ((s16 *)&quest_floor_designations)[floor] = mode;
         break;
     case 1:
     case 3:
-        ((s16 *)&TLobby__data_805127D0)[floor] = mode;
+        ((s16 *)&quest_floor_designations)[floor] = mode;
         break;
     }
 }
 
 void clear_quest_floor_designations(void) {
-    memset((void *) (&TLobby__data_805127D0), (int) (0), (int) (0x24));
+    memset((void *) (&quest_floor_designations), (int) (0), (int) (0x24));
 }
 
 void populate_quest_floor_sets(void) {
@@ -230,7 +230,7 @@ void populate_quest_floor_sets(void) {
     Sel_801F3E1C sel;
     init_handle__6TLobbyFi(0x8000);
     for (i = 0; i < 18; i++) {
-        switch (((s16 *)&TLobby__data_805127D0)[i]) {
+        switch (((s16 *)&quest_floor_designations)[i]) {
         case 0:
             handle_msg_type1__6TLobbyFi(i);
             handle_msg_type2__6TLobbyFi(i);
@@ -404,18 +404,18 @@ block_6:
 }
 
 extern s32 evt2_random_enemies_mode;
-extern s32 TLobby__data_805D60E0;
-extern s32 TLobby__data_805D60E4;
-extern s32 TLobby__data_805D60E8;
-extern s32 TLobby__data_805D60EC;
+extern s32 map_set_object_id_counter;
+extern s32 TLobby__next_enemy_set_actor_id;
+extern s32 map_object_id_counter;
+extern s32 map_set_enemy_id_counter;
 extern s32 TLobby__data_805D6148;
 extern s32 TLobby__data_805D614C;
 
 void setup_quest_list__6TLobbyFv(void) {
-    TLobby__data_805D60E0 = 0;
-    TLobby__data_805D60E4 = 0;
-    TLobby__data_805D60E8 = 0;
-    TLobby__data_805D60EC = 0;
+    map_set_object_id_counter = 0;
+    TLobby__next_enemy_set_actor_id = 0;
+    map_object_id_counter = 0;
+    map_set_enemy_id_counter = 0;
     switch ((s32) evt2_random_enemies_mode) {
     case 1:
         fn_801F43A8();
@@ -438,11 +438,11 @@ void setup_quest_list__6TLobbyFv(void) {
         ((void (*)())refresh_quest_list__6TLobbyFi)();
         break;
     }
-    advance_object_id_counter((u16) TLobby__data_805D60E8);
-    advance_enemy_id_counter((u16) TLobby__data_805D60EC);
-    TLobby__data_805D6148 = TLobby__data_805D60E0;
-    TLobby__data_805D614C = TLobby__data_805D60E4;
-    TLobby__sub_8020B308(TLobby__data_805D60E0);
+    advance_object_id_counter((u16) map_object_id_counter);
+    advance_enemy_id_counter((u16) map_set_enemy_id_counter);
+    TLobby__data_805D6148 = map_set_object_id_counter;
+    TLobby__data_805D614C = TLobby__next_enemy_set_actor_id;
+    TLobby__sub_8020B308(map_set_object_id_counter);
     sum_floor_enemy_counts__6TLobbyFv();
 }
 

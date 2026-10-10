@@ -52,7 +52,7 @@ extern RecoveredGlobal_8000F7FC_lbl_80515F48 TLobby__sub_80227A6C;
 void set_pre_retrace_callback__6TLobbyFv(void);
 M2C_UNK stop_audio_stream(int);
 extern s32 lbl_804CB850[];
-extern f32 lbl_80514CF8[];
+extern f32 music_fade_volumes[];
 extern s32 lbl_805D62E0;
 extern s32 lbl_805D62E4;
 extern s32 music_fade_frames_remaining;
@@ -65,7 +65,7 @@ void set_field_40_and_notify__6TLobbyFPvs(s32, s32);
 s32 TLobby__sub_803C9CB0(s32);
 M2C_UNK stop_audio_stream(int);
 extern s32 lbl_804CB850[];
-extern f32 lbl_80514CF8[];
+extern f32 music_fade_volumes[];
 extern s32 lbl_805D62B8;
 extern s32 lbl_805D62E4;
 extern s32 music_fade_slot_index;
@@ -81,7 +81,7 @@ void strncpy(void *, void *, s32);
 void TLobby__sub_803C94DC(s32, s32);
 void start_audio_stream_file(s32, char *);
 extern s32 lbl_804CB850[];
-extern f32 lbl_80514CF8[];
+extern f32 music_fade_volumes[];
 extern char lbl_80514D00[][0x20];
 extern s32 lbl_805D3714;
 extern f32 lbl_805D3718;
@@ -94,7 +94,7 @@ extern s32 music_fade_frames_remaining;
 extern const f32 lbl_805DC764;
 void play_area_music(char *name);
 void stop_audio_streams__6TLobbyFv(void);
-extern f32 lbl_80514CF8[];
+extern f32 music_fade_volumes[];
 extern f32 lbl_805D3718;
 extern s32 lbl_805D62E0;
 extern s32 music_fade_slot_index;
@@ -128,7 +128,7 @@ void TWindowOptionCtrl__sub_802273B4(s32 arg0) {
     }
     music_fade_slot_index = 1 - music_fade_slot_index;
     music_fade_frames_remaining = arg0;
-    lbl_80514CF8[1 - music_fade_slot_index] = lbl_805DC764;
+    music_fade_volumes[1 - music_fade_slot_index] = lbl_805DC764;
     music_fade_step = lbl_805D3718 / (f32)arg0;
 }
 
@@ -136,7 +136,7 @@ void stop_audio_streams__6TLobbyFv(void) {
     s32 i;
     for (i = 0; i < 2; i++) {
         stop_audio_stream(lbl_804CB850[i]);
-        lbl_80514CF8[i] = lbl_805DC764;
+        music_fade_volumes[i] = lbl_805DC764;
     }
     music_fade_frames_remaining = 0;
     lbl_805D62E0 = 0;
@@ -151,10 +151,10 @@ void play_area_music(char *name) {
     if (lbl_805D62E4 != 0) {
         if (lbl_805D62E0 == 0) {
             music_fade_slot_index = 1 - music_fade_slot_index;
-            lbl_80514CF8[music_fade_slot_index] = -lbl_805D3718;
+            music_fade_volumes[music_fade_slot_index] = -lbl_805D3718;
             flag = 0;
             music_fade_frames_remaining = lbl_805D3714;
-            lbl_80514CF8[1 - music_fade_slot_index] = lbl_805DC764;
+            music_fade_volumes[1 - music_fade_slot_index] = lbl_805DC764;
             music_fade_step = lbl_805D3718 / (f32)lbl_805D3714;
         } else {
             stop_audio_streams__6TLobbyFv();
@@ -181,12 +181,12 @@ void update_music_fade(void) {
         set_and_notify__6TLobbyFi(-999);
     }
     if (music_fade_frames_remaining > 0) {
-        lbl_80514CF8[music_fade_slot_index] += music_fade_step;
-        lbl_80514CF8[1 - music_fade_slot_index] -= music_fade_step;
+        music_fade_volumes[music_fade_slot_index] += music_fade_step;
+        music_fade_volumes[1 - music_fade_slot_index] -= music_fade_step;
         for (i = 0; i < 2; i++) {
             s32 v;
-            if ((s32)lbl_80514CF8[i] + get_music_base_gain() > -999) {
-                v = (s32)lbl_80514CF8[i] + get_music_base_gain();
+            if ((s32)music_fade_volumes[i] + get_music_base_gain() > -999) {
+                v = (s32)music_fade_volumes[i] + get_music_base_gain();
             } else {
                 v = -999;
             }

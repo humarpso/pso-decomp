@@ -22,7 +22,7 @@ extern s32 opening_movie_selector;
 extern s32 current_language;
 extern u8 *tl_00;
 extern u8 *tl_01;
-extern u8 lbl_805D6639;
+extern u8 opening_movie_purpose;
 u8 *create_opening_movie_sequence(u8 *arg0);
 }
 
@@ -39,7 +39,7 @@ u8 *create_opening_movie_sequence(u8 *arg0) {
         set_movie_finished_flag(0);
         return arg0;
     }
-    if ((s8) lbl_805D6639 == 0) {
+    if ((s8) opening_movie_purpose == 0) {
         temp_r3 = (u8 *)(__nw__7TObjectFUl(0x4C));
         if (temp_r3 != NULL) {
             TMovie__ct(temp_r3, tl_00, opening_movie_path_table[current_language + (opening_movie_selector * 5)], set_movie_finished_flag, 1, 1, 0);

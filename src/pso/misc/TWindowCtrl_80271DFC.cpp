@@ -22,10 +22,10 @@ void clear_active_flag__11TWindowCtrlFv(void) {
     }
 }
 
-    extern int TRaderMapCore__data_805D5F3C;
-void clear__13TRaderMapCoreFv(void) { TRaderMapCore__data_805D5F3C = 0; }
+    extern int TRaderMapCore__view_mode;
+void clear__13TRaderMapCoreFv(void) { TRaderMapCore__view_mode = 0; }
 
     extern int TWindowSubStatusDisp__count_ratio_value;
-int fn_80271E40(void) {  return TWindowSubStatusDisp__count_ratio_value; }
+int get_window_count_ratio_value(void) {  return TWindowSubStatusDisp__count_ratio_value; }
 
 }

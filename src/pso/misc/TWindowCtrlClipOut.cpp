@@ -13,7 +13,7 @@ extern "C" {
 u8 * __dt__7TObjectFv(void *, s16);
 void __dl__7TObjectFPv(s32);
 extern M2C_UNK __vt__18TWindowCtrlClipOut[];
-extern s32 TWindowCtrlMain__data_805D6414;
+extern s32 window_clip_out_instance;
 u8 *__dt__18TWindowCtrlClipOutFv(u8 *arg0, s16 arg1);
 }
 
@@ -40,7 +40,7 @@ typedef char RecoveredGlobal_8024C8E8___vt__18TWindowCtrlClipOut_size[sizeof(Rec
 u8 *__dt__18TWindowCtrlClipOutFv(u8 *arg0, s16 arg1) {
     if (arg0 != NULL) {
         M2C_FIELD(arg0, M2C_UNK **, 0x18) = &(*(RecoveredGlobal_8024C8E8___vt__18TWindowCtrlClipOut *)&__vt__18TWindowCtrlClipOut).value;
-        TWindowCtrlMain__data_805D6414 = 0;
+        window_clip_out_instance = 0;
         __dt__7TObjectFv(arg0, 0);
         if (arg1 > 0) {
             __dl__7TObjectFPv((s32) arg0);

@@ -391,7 +391,7 @@ M2C_UNK set_global_state__16TObjEneRe7BeruraFi(void *);
 void advance_state__16TObjEneRe7BeruraFv(void);
 void demo_frame_callback__16TObjEneRe7BeruraFv(void);
 extern Vec_80092CCC lbl_80439EC4[];
-extern Elem_80092CCC TObjEneRe7Berura__data_805007DC[];
+extern Elem_80092CCC TObjEneRe7Berura__detached_part_states[];
 extern s32 re7_berura_demo_state;
 extern s32 lbl_805D4F6C;
 extern s32 re7_berura_demo_camera_ptr;
@@ -400,7 +400,7 @@ extern s32 re7_berura_demo_flag;
 extern void *TObjEneRe7Berura__demo_target;
 extern s32 *lbl_805D4F84;
 extern s16 *lbl_805D4F88;
-extern s32 lbl_805D4F8C;
+extern s32 belra_uv_animation_buffer;
 extern s32 lbl_805D5660;
 extern s32 some_id_805c6f74;
 extern const f32 TObjEneRe7Berura__data_805D9724;
@@ -461,13 +461,13 @@ void render__16TObjEneRe7BeruraFv(Berura_80092CCC *o) {
         toggle_particle_effect__10TObjPlayerFv();
         for (i = 0; i < 2; i++) {
             if (o->f418[i] & 1) {
-                fn_80095DF4(&TObjEneRe7Berura__data_805007DC[i]);
+                fn_80095DF4(&TObjEneRe7Berura__detached_part_states[i]);
             }
         }
         *lbl_805D4F84 = o->f3C4;
         lbl_805D4F88[0] = o->f3C8;
         lbl_805D4F88[1] = o->f3C8 >> 16;
-        scroll_strip_uvs(lbl_805D4F8C, (s16)o->f3D0, 0);
+        scroll_strip_uvs(belra_uv_animation_buffer, (s16)o->f3D0, 0);
         fade = (s32)&o->fades[cam];
         update_obstruction_fade((void *)fade);
         cam = updateFromCamera__15RenderFadeStateFPCf((void *)fade, &o->f2FC);
@@ -544,7 +544,7 @@ void render__16TObjEneRe7BeruraFv(Berura_80092CCC *o) {
         update_primary_light__9TObjEneDDFPv(o);
         for (l3 = 0; l3 < 2; l3++) {
             if (o->f418[l3] & 1) {
-                fn_80095DD0(&TObjEneRe7Berura__data_805007DC[l3]);
+                fn_80095DD0(&TObjEneRe7Berura__detached_part_states[l3]);
             }
         }
         end_effect_render__13TParticleCtrlFv();

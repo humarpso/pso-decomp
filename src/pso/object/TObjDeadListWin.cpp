@@ -39,7 +39,7 @@ extern s32 local_client_id;
 void run_task__15TObjDeadListWinFv(u8 *arg0);
 void *__ct__7TObjectFP7TObject(void *, void *);
 extern char __vt__15TObjDeadListWin[];
-extern const char *lbl_805D2868;
+extern const char *TObjDeadListWin__class_name;
 void *TObjDeadListWin__ct(Obj_80073CEC *self, void *parent);
 s32 obj_testFlags30(M2C_UNK, M2C_UNK);
 s32 get_flagged_table_entry__6TLobbyFi(s32);
@@ -166,7 +166,7 @@ void *TObjDeadListWin__ct(Obj_80073CEC *self, void *parent) {
     s32 i;
     __ct__7TObjectFP7TObject(self, parent);
     self->vt = __vt__15TObjDeadListWin;
-    self->name = lbl_805D2868;
+    self->name = TObjDeadListWin__class_name;
     self->f20 = 0;
     self->f24 = 0x12C;
     for (i = 0; i < 4; i++) {

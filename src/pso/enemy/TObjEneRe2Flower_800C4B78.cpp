@@ -1159,12 +1159,12 @@ void update_equip_effect_if_active__10TObjPlayerFPv(u8 *arg0);
 void TObjPlayer__sub_800C4B78(struct Obj_800C4B78 *o);
 extern const char lbl_8043BC48[0x1C] = "TObjEneRe2Flower_EffCurse3";
 s32 lbl_805D2A58 = (s32)lbl_8043BC48;
-void *lbl_80493438[6] = {
+void *TObjEneRe2Flower_EffCurse3__vtable[6] = {
     (void *)0x0, (void *)0x0, (void *)&dt_with_child_destroy__10TObjPlayerFPvs, (void *)&TObjPlayer__sub_800C4B78,
     (void *)&render__7TObjectFv, (void *)&render_shadows__7TObjectFv,
 };
 }
-#define lbl_80493438 ((M2C_UNK *)lbl_80493438)
+#define TObjEneRe2Flower_EffCurse3__vtable ((M2C_UNK *)TObjEneRe2Flower_EffCurse3__vtable)
 extern "C" {
 
 #pragma push
@@ -1193,7 +1193,7 @@ void TObjPlayer__sub_800C4B78(Obj_800C4B78 *o) {
 
 void *dt_with_child_destroy__10TObjPlayerFPvs(void *arg0, s16 arg1) {
     if (arg0 != NULL) {
-        M2C_FIELD(arg0, M2C_UNK **, 0x18) = lbl_80493438;
+        M2C_FIELD(arg0, M2C_UNK **, 0x18) = TObjEneRe2Flower_EffCurse3__vtable;
         if (M2C_FIELD(arg0, void **, 0x24) != NULL) { queue_destruction__7TObjectFv((void*)(M2C_FIELD(arg0, void **, 0x24))); M2C_FIELD(arg0, M2C_UNK *, 0x24) = 0; }
         __dt__7TObjectFv(arg0, 0);
         if (arg1 > 0) {
@@ -1205,7 +1205,7 @@ void *dt_with_child_destroy__10TObjPlayerFPvs(void *arg0, s16 arg1) {
 
 void *init_target_ref__10TObjPlayerFPvii(void *arg0, s32 arg1, s32 arg2) {
     __ct__7TObjectFP7TObject();
-    M2C_FIELD(arg0, M2C_UNK **, 0x18) = lbl_80493438;
+    M2C_FIELD(arg0, M2C_UNK **, 0x18) = TObjEneRe2Flower_EffCurse3__vtable;
     M2C_FIELD(arg0, s32 *, 0) = (s32) lbl_805D2A58;
     M2C_FIELD(arg0, s32 *, 0x1C) = 0;
     M2C_FIELD(arg0, s32 *, 0x20) = arg2;

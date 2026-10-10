@@ -65,13 +65,13 @@ void TKeyBoardControl__sub_8000F950(void);
 extern s32 lbl_805D49C0;
 void TKeyBoardControl__sub_8000F95C(void);
 extern s32 keyboard_active_flag;
-void TKeyBoardControl__sub_8000F978(void);
+void activate_keyboard(void);
 extern s32 keyboard_active_flag;
-void TKeyBoardControl__sub_8000F984(void);
+void deactivate_keyboard(void);
 extern s32 keyboard_key_state;
 void mark_area_change_pending(void);
 extern s32 keyboard_key_state;
-void TKeyBoardControl__sub_8000F9A4(void);
+void clear_keyboard_key_state(void);
 s32 flush_input__16TKeyBoardControlFv(void);
 M2C_UNK reset_state_byte__6TLobbyFv();
 M2C_UNK disable_disconnected_ports__16TKeyBoardControlFv(void *);
@@ -95,7 +95,7 @@ s32 TKeyBoardControl__sub_8000F8EC(void);
 extern RecoveredGlobal_8000F9E4_lbl_804FE120 main_phase_state;
 void TKeyBoardControl__sub_8000F91C(s32 arg0);
 extern s32 keyboard_active_flag;
-bool TKeyBoardControl__sub_8000F968(void);
+bool is_keyboard_active(void);
 extern RecoveredGlobal_8000F9E4_lbl_804FE120 main_phase_state;
 s32 TKeyBoardControl__sub_8000F92C(void);
 extern RecoveredGlobal_8000F9E4_lbl_804FE120 main_phase_state;
@@ -321,15 +321,15 @@ void TKeyBoardControl__sub_8000F95C(void) {
     lbl_805D49C0 = 0;
 }
 
-bool TKeyBoardControl__sub_8000F968(void) {
+bool is_keyboard_active(void) {
     return keyboard_active_flag != 0;
 }
 
-void TKeyBoardControl__sub_8000F978(void) {
+void activate_keyboard(void) {
     keyboard_active_flag = 1;
 }
 
-void TKeyBoardControl__sub_8000F984(void) {
+void deactivate_keyboard(void) {
     keyboard_active_flag = 0;
 }
 
@@ -341,7 +341,7 @@ void mark_area_change_pending(void) {
     keyboard_key_state = 1;
 }
 
-void TKeyBoardControl__sub_8000F9A4(void) {
+void clear_keyboard_key_state(void) {
     keyboard_key_state = 0;
 }
 typedef char RecoveredGlobal_8000F9E4_lbl_804FE120_size[sizeof(RecoveredGlobal_8000F9E4_lbl_804FE120) == 0x18 ? 1 : -1];

@@ -12,8 +12,8 @@ struct Body_8034C1D0 { u32 w[0x234]; };
 struct Big_8034C1D0 { u32 a; Body_8034C1D0 b; };
 
 extern "C" {
-extern s32 lbl_805D6E98;
-extern u32 lbl_805D6E9C;
+extern s32 info_board_state_flags;
+extern u32 information_board_response_buffer;
 void *get_info_board_ptr__6TLobbyFv(void);
 s32 TLobby__sub_8034C1D0(u32 dst, s32 src);
 }
@@ -22,13 +22,13 @@ extern "C" {
 
 void init_once__6TLobbyFi(s32 arg0);
 
-extern s32 lbl_805D6E98;
-extern u32 lbl_805D6E9C;
+extern s32 info_board_state_flags;
+extern u32 information_board_response_buffer;
 
 void init_once__6TLobbyFi(s32 arg0) {
-    if (!(lbl_805D6E98 & 2) && (lbl_805D6E9C != 0U)) {
-        lbl_805D6E98 |= 2;
-        TLobby__sub_8034C1D0((u32)(lbl_805D6E9C), (s32)(arg0));
+    if (!(info_board_state_flags & 2) && (information_board_response_buffer != 0U)) {
+        info_board_state_flags |= 2;
+        TLobby__sub_8034C1D0((u32)(information_board_response_buffer), (s32)(arg0));
     }
 }
 
@@ -38,10 +38,10 @@ s32 TLobby__sub_8034C1D0(u32 dst, s32 src) {
 
 void *get_info_board_ptr__6TLobbyFv(void) {
     void *p;
-    if (!(lbl_805D6E98 & 2)) {
+    if (!(info_board_state_flags & 2)) {
         return NULL;
     }
-    p = (void *)lbl_805D6E9C;
+    p = (void *)information_board_response_buffer;
     if (p != NULL) {
         return p;
     }

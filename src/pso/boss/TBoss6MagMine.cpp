@@ -641,7 +641,7 @@ void spawn_mag_mine_at__13TBoss6MagMineFPvPv(void *arg0, void *arg1) {
 
 s32 get_field_0x42c__13TBoss6MagMineFPv(void* p) { return *(s32*)((char*)p + 0x42c); }
 
-    extern int TBoss6PlotFalz__data_805D66F4;
-int TBoss6PlotFalz__sub_8036964C(void) {  return TBoss6PlotFalz__data_805D66F4; }
+    extern int TBoss6PlotFalz__type2_instance;
+int TBoss6PlotFalz__sub_8036964C(void) {  return TBoss6PlotFalz__type2_instance; }
 
 }

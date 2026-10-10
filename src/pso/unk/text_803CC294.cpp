@@ -86,14 +86,14 @@ M2C_UNK strncpy(void *, void *, int);
 M2C_UNK notify_error__6TLobbyFPv(void *);
 extern M2C_UNK adx_afs_partition_id_range_error[];
 extern M2C_UNK afs_file_id_out_of_range_error[];
-extern Ent_803CC294 *lbl_8057C7D0[];
+extern Ent_803CC294 *afs_archive_toc_table[];
 s32 get_afs_file_info__6TLobbyFiiPvPvPvPv(s32 arg0, s32 arg1, char *arg2, s32 *arg3, s32 *arg4, s32 *arg5);
 s32 memcmp(void *, void *, int);
 M2C_UNK notify_error__6TLobbyFPv(void *);
 s32 TLobby__sub_803CCB98();
 M2C_UNK TLobby__sub_803CD804();
 extern M2C_UNK lbl_8047C818[];
-extern Ent_803CC294 *lbl_8057C7D0[];
+extern Ent_803CC294 *afs_archive_toc_table[];
 extern s32 lobby_adxf_current_file_id;
 extern Strm_803CD5C4 *lobby_adxf_open_file_handle;
 extern s32 lobby_afs_toc_entry_index;
@@ -108,7 +108,7 @@ s32 get_afs_file_info__6TLobbyFiiPvPvPvPv(s32 arg0, s32 arg1, char *arg2, s32 *a
 extern M2C_UNK lbl_8047CB7C[];
 extern LogHdr_803CD16C lbl_8057B7B0;
 extern LogEnt_803CD16C lbl_8057B7D0[];
-extern Slot_803CD16C lbl_8057CBD0[];
+extern Slot_803CD16C adxf_file_handle_pool[];
 extern s32 adxf_log_write_index;
 Slot_803CD16C *adxf_open_afs__6TLobbyFii(s32 arg0, s32 arg1);
 M2C_UNK release_ref__6TLobbyFv();
@@ -120,7 +120,7 @@ extern M2C_UNK lbl_8047CBA4[];
 extern M2C_UNK lbl_8047CBD8[];
 extern LogHdr_803CD16C lbl_8057B7B0;
 extern LogEnt_803CD16C lbl_8057B7D0[];
-extern Slot_803CD16C lbl_8057CBD0[];
+extern Slot_803CD16C adxf_file_handle_pool[];
 extern s32 adxf_log_write_index;
 Slot_803CD16C *adxf_open__6TLobbyFUii(u32 arg0, s32 arg1);
 M2C_UNK release_ref__6TLobbyFv();
@@ -141,10 +141,10 @@ M2C_UNK init_once__6TLobbyFv();
 M2C_UNK TLobby__sub_803C85AC(u32, s32 *);
 s8 TLobby__sub_803C8B2C(u32);
 M2C_UNK invalidate_cache__6TLobbyFv(s32, s32);
-extern Slot_803CD16C lbl_8057CBD0[];
+extern Slot_803CD16C adxf_file_handle_pool[];
 extern s32 lbl_805D75E4;
 void TLobby__sub_803CC884(void);
-extern Slot_803CD16C lbl_8057CBD0[];
+extern Slot_803CD16C adxf_file_handle_pool[];
 void release_used_slots__6TLobbyFv(void);
 M2C_UNK release_ref__6TLobbyFv();
 M2C_UNK init_once__6TLobbyFv();
@@ -175,11 +175,11 @@ inline s32 check_803CC294(s32 arg0, s32 arg1) {
         notify_error__6TLobbyFPv(adx_afs_partition_id_range_error);
         return -3;
     }
-    if (lbl_8057C7D0[arg0] == NULL) {
+    if (afs_archive_toc_table[arg0] == NULL) {
         notify_error__6TLobbyFPv(adx_afs_partition_id_range_error);
         return -3;
     }
-    if (arg1 < 0 || arg1 >= lbl_8057C7D0[arg0]->f8) {
+    if (arg1 < 0 || arg1 >= afs_archive_toc_table[arg0]->f8) {
         notify_error__6TLobbyFPv(afs_file_id_out_of_range_error);
         return -3;
     }
@@ -199,7 +199,7 @@ s32 get_afs_file_info__6TLobbyFiiPvPvPvPv(s32 arg0, s32 arg1, char *arg2, s32 *a
         *arg5 = -1;
         return st;
     }
-    e = lbl_8057C7D0[arg0];
+    e = afs_archive_toc_table[arg0];
     while ((next = e->next) != NULL) {
         Chunk_803CC294 *c = (Chunk_803CC294 *)&e->f114;
         for (i = 0; i < e->fc; i++, c++) {
@@ -261,7 +261,7 @@ void TLobby__sub_803CC884(void) {
     s32 sp8;
     init_once__6TLobbyFv();
     for (i = 0; i < 0x10; i++) {
-        p = (Ent_803CC884 *)&lbl_8057CBD0[i];
+        p = (Ent_803CC884 *)&adxf_file_handle_pool[i];
         if (p->used == 1 && p->state == 2) {
             p->state = TLobby__sub_803C8B2C(p->f4);
             TLobby__sub_803C85AC(p->f4, &sp8);
@@ -370,8 +370,8 @@ inline Slot_803CD16C *find_803CD16C(void) {
     Slot_803CD16C *r = NULL;
     s32 i;
     for (i = 0; i < 16; i++) {
-        if (lbl_8057CBD0[i].used == 0) {
-            r = &lbl_8057CBD0[i];
+        if (adxf_file_handle_pool[i].used == 0) {
+            r = &adxf_file_handle_pool[i];
             break;
         }
     }
@@ -418,7 +418,7 @@ void release_used_slots__6TLobbyFv(void) {
     s32 i;
     Slot_803CD16C *p;
     for (i = 0; i < 0x10; i++) {
-        p = &lbl_8057CBD0[i];
+        p = &adxf_file_handle_pool[i];
         if (p->used == 1) {
             close_adxf_handle__6TLobbyFPv((Slot_803CD16C *)(p));
         }
@@ -577,8 +577,8 @@ inline Slot_803CD16C *find_803CD3A8(void) {
     Slot_803CD16C *r = NULL;
     s32 i;
     for (i = 0; i < 16; i++) {
-        if (lbl_8057CBD0[i].used == 0) {
-            r = &lbl_8057CBD0[i];
+        if (adxf_file_handle_pool[i].used == 0) {
+            r = &adxf_file_handle_pool[i];
             break;
         }
     }
@@ -674,7 +674,7 @@ s32 read_afs_toc__6TLobbyFi(s32 arg0) {
     if (st != 3) {
         return st;
     }
-    e = ((Ent_803CD5C4 * *)&lbl_8057C7D0)[arg0];
+    e = ((Ent_803CD5C4 * *)&afs_archive_toc_table)[arg0];
     arr = e->arr;
     if (e->f8 == 0) {
         s32 n;

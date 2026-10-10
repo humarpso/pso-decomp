@@ -19,7 +19,7 @@ extern Param_8018BB64 lbl_80445084[];
 extern u8 TContainerAncient01__resource_descriptor[];
 extern u8 TContainerAncient01__resource_descriptor_2[];
 extern s32 TContainerAncient01__effect_id_table[];
-extern u32 TContainerAncient01__data_805D5B90;
+extern u32 TContainerAncient01__bml_resource;
 extern const f32 TContainerAncient01__data_805DBD14;
 extern const f32 TContainerAncient01__data_805DBD20;
 void load_resources__19TContainerAncient01Fv(void);
@@ -43,24 +43,24 @@ void *create__19TContainerAncient01FPv(void *arg0) {
     return o;
 }
 
-extern u32 TContainerAncient01__data_805D5B90;
+extern u32 TContainerAncient01__bml_resource;
 
 void release_static_resource__19TContainerAncient01Fv(void) {
-    if ((u32) TContainerAncient01__data_805D5B90 != 0U) {
-        TLobby__sub_8001FE7C((void*)TContainerAncient01__data_805D5B90, 1);
-        TContainerAncient01__data_805D5B90 = 0U;
+    if ((u32) TContainerAncient01__bml_resource != 0U) {
+        TLobby__sub_8001FE7C((void*)TContainerAncient01__bml_resource, 1);
+        TContainerAncient01__bml_resource = 0U;
     }
 }
 void load_resources__19TContainerAncient01Fv(void) {
     void *p;
-    TContainerAncient01__data_805D5B90 = 0;
+    TContainerAncient01__bml_resource = 0;
     if (is_global_state_in_table__19TContainerAncient01Fv() != 0) {
         p = alloc__23TAdSinglePlyChrSelectGCFPv(0x440);
         if (p != NULL) {
             p = load_resource_from_descriptor(p, 5, TContainerAncient01__resource_descriptor_2, 0, 0, 0);
         }
         TContainerAncient01__effect_id_table[0] = 0x230;
-        TContainerAncient01__data_805D5B90 = (u32)p;
+        TContainerAncient01__bml_resource = (u32)p;
         TContainerAncient01__effect_id_table[1] = 0x231;
     } else {
         p = alloc__23TAdSinglePlyChrSelectGCFPv(0x440);
@@ -68,13 +68,13 @@ void load_resources__19TContainerAncient01Fv(void) {
             p = load_resource_from_descriptor(p, 5, TContainerAncient01__resource_descriptor, 0, 0, 0);
         }
         TContainerAncient01__effect_id_table[0] = 0x45;
-        TContainerAncient01__data_805D5B90 = (u32)p;
+        TContainerAncient01__bml_resource = (u32)p;
         TContainerAncient01__effect_id_table[1] = 0x46;
     }
     Param_8018BB64 prm = lbl_80445084[0];
-    prm.a = ((Res_8018BB64 *)TContainerAncient01__data_805D5B90)->x430;
-    spawn_attack__16TObjEneMe3StelthFsiiiff(0x3B, get_bml_model(TContainerAncient01__data_805D5B90, 0),
-                                            TObjFish__sub_8001EDB0(TContainerAncient01__data_805D5B90, 0), &prm,
+    prm.a = ((Res_8018BB64 *)TContainerAncient01__bml_resource)->x430;
+    spawn_attack__16TObjEneMe3StelthFsiiiff(0x3B, get_bml_model(TContainerAncient01__bml_resource, 0),
+                                            TObjFish__sub_8001EDB0(TContainerAncient01__bml_resource, 0), &prm,
                                             TContainerAncient01__data_805DBD20, TContainerAncient01__data_805DBD14);
 }
 

@@ -43,7 +43,7 @@ u8 *TObjEnvSoundGlobal__ct(u8 *arg0, s32 arg1, s32 arg2);
 u8 *TObjEnvSoundEx__ct(u8 *arg0, M2C_UNK arg1, s32 arg2);
 void copy_pair__18TObjEnvSoundGlobalFPvPv(void* p, void* q);
 s32 get_global_state__14TOKeyMachine01Fv();
-extern RecoveredGlobal_801902D8_lbl_804B7A70 lbl_804B7A70;
+extern RecoveredGlobal_801902D8_lbl_804B7A70 environment_sound_tables_by_area;
 extern const f32 lbl_805DBE18;
 extern const f32 lbl_805DBE1C;
 s32 setup_sound__18TObjEnvSoundGlobalFPv(u8 *arg0);
@@ -72,7 +72,7 @@ s32 setup_sound__18TObjEnvSoundGlobalFPv(u8 *arg0) {
     s32 var_r31;
     u32 temp_r4;
     var_r31 = 1;
-    temp_r4 = M2C_FIELD(&lbl_804B7A70.value, M2C_UNK *, (get_global_state__14TOKeyMachine01Fv() * 4));
+    temp_r4 = M2C_FIELD(&environment_sound_tables_by_area.value, M2C_UNK *, (get_global_state__14TOKeyMachine01Fv() * 4));
     if (temp_r4 != 0U) {
         copy_pair__18TObjEnvSoundGlobalFPvPv((void*)((void *) (arg0 + 0x94)), (void*)((int) (temp_r4 + (M2C_FIELD(arg0, s32 *, 0x84) * 8))));
     } else {
@@ -162,7 +162,7 @@ s32 init_sound_params__14TObjEnvSoundExFPv(u8 *arg0) {
     s32 var_r31;
     u32 temp_r4;
     var_r31 = 1;
-    temp_r4 = M2C_FIELD(&lbl_804B7A70.value, M2C_UNK *, (get_global_state__14TOKeyMachine01Fv() * 4));
+    temp_r4 = M2C_FIELD(&environment_sound_tables_by_area.value, M2C_UNK *, (get_global_state__14TOKeyMachine01Fv() * 4));
     if (temp_r4 != 0U) {
         ((M2C_UNK (*)(void *, int))copy_pair__18TObjEnvSoundGlobalFPvPv)((void *) (arg0 + 0x9C), (int) (temp_r4 + (M2C_FIELD(arg0, s32 *, 0x84) * 8)));
     } else {

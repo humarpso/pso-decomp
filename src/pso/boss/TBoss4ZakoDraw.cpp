@@ -8,8 +8,8 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 #define M2C_BITWISE(type, expr) ((type)(expr))
 extern "C" {
 M2C_UNK queue_destruction__7TObjectFv(void *);
-extern u8 lbl_80541E58[];
-extern u32 lbl_805D4D74;
+extern u8 boss4_zako_draw_buffers[];
+extern u32 dark_falz_controller_instance;
 extern s32 TBoss4ZakoDraw__draw_buffer_index;
 extern s32 TBoss4ZakoDraw__rotation_phase;
 void run_task__14TBoss4ZakoDrawFv(void *arg0);
@@ -25,12 +25,12 @@ int toggle_particle_effect__10TObjPlayerFv(void);
 void render__14TBoss4ZakoDrawFv(void) { toggle_particle_effect__10TObjPlayerFv(); TCameraCtrl__sub_8030ABF4(); end_effect_render__13TParticleCtrlFv(); }
 void run_task__14TBoss4ZakoDrawFv(void *arg0) {
     s32 old;
-    if (lbl_805D4D74 == 0U) {
+    if (dark_falz_controller_instance == 0U) {
         queue_destruction__7TObjectFv(arg0);
         return;
     }
     old = TBoss4ZakoDraw__draw_buffer_index;
-    *(s32 *)(lbl_80541E58 + old * 0x784) = 0;
+    *(s32 *)(boss4_zako_draw_buffers + old * 0x784) = 0;
     TBoss4ZakoDraw__draw_buffer_index = old ^ 1;
     if (++TBoss4ZakoDraw__rotation_phase >= 4) {
         TBoss4ZakoDraw__rotation_phase = 0;

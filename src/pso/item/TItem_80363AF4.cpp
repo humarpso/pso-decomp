@@ -39,7 +39,7 @@ void copy_vec4__13TRaderMapCoreFPvPv(Color *, const Color *);
 DrawTarget *query_game_join_id__10TObjPlayerFv(u32);
 extern u32 some_id_805c6f74, lbl_805D7784, lbl_805D7780;
 extern u32 lbl_805D5660, lbl_805D5664, lbl_805D5668;
-extern Color lbl_8050BEC0, lbl_8058D4C0;
+extern Color saved_model_draw_color, lbl_8058D4C0;
 extern EquippedItemDrawQueue *player_item_id_list;
 void render_equipped_item_queue();
 }
@@ -56,7 +56,7 @@ void render_equipped_item_queue() {
     lbl_805D5660 = some_id_805c6f74;
     lbl_805D5664 = lbl_805D7784;
     lbl_805D5668 = lbl_805D7780;
-    copy_vec4__13TRaderMapCoreFPvPv(&lbl_8050BEC0, &lbl_8058D4C0);
+    copy_vec4__13TRaderMapCoreFPvPv(&saved_model_draw_color, &lbl_8058D4C0);
     u32 *id = player_item_id_list->item_ids;
     s32 remaining = player_item_id_list->count;
     while (remaining != 0) {
@@ -64,7 +64,7 @@ void render_equipped_item_queue() {
         if (item) {
             item->render();
             reset_transform_state__10TObjPlayerFv();
-            copy_vec4__13TRaderMapCoreFPvPv(&lbl_8058D4C0, &lbl_8050BEC0);
+            copy_vec4__13TRaderMapCoreFPvPv(&lbl_8058D4C0, &saved_model_draw_color);
             lbl_805D7784 = lbl_805D5664;
             lbl_805D7780 = lbl_805D5668;
             some_id_805c6f74 = lbl_805D5660;

@@ -86,7 +86,7 @@ s32 load_gvm_texture_file(void *);
 extern RecoveredGlobal_80176308_lbl_80442A80 lbl_804410E0;
 extern RecoveredGlobal_80176308_lbl_804B4278 lbl_804B17E0;
 extern u32 lbl_805D5988;
-extern s32 *TODoorVS2Door01__data_805D598C;
+extern s32 *TODoorVS2Door01__texture_lists;
 void load_resources__15TODoorVS2Door01Fv(void);
 s32 reset_photon_effect__10TObjPlayerFPv(void *);
 s32 refresh_collision_body_centers(void *);
@@ -96,7 +96,7 @@ extern RecoveredGlobal_80164340_lbl_804B17F0 todoor_vs2_door01_collision_parts;
 extern M2C_UNK __vt__15TODoorVS2Door01[];
 extern s32 TODoorVS2Door01__class_name;
 extern u32 lbl_805D5988;
-extern s32 *TODoorVS2Door01__data_805D598C;
+extern s32 *TODoorVS2Door01__texture_lists;
 u8 *TODoorVS2Door01__ct(u8 *arg0, M2C_UNK arg1, s32 arg2);
 void TODoorVS2Door01__vt16(u8 *arg0);
 u8 is_open__15TODoorVS2Door01FPv(void *arg0);
@@ -109,7 +109,7 @@ M2C_UNK pop_matrix();
 M2C_UNK post_translate_matrix(void *);
 M2C_UNK set_global_param__8TObjFishFi(int);
 M2C_UNK draw_ginja_model(int);
-extern s32 *TODoorVS2Door01__data_805D598C;
+extern s32 *TODoorVS2Door01__texture_lists;
 void render__15TODoorVS2Door01Fv(Door_80163FB4 *self);
 }
 
@@ -193,7 +193,7 @@ void render__15TODoorVS2Door01Fv(Door_80163FB4 *self) {
         push_matrix();
         post_translate_matrix(self->mtx);
         rotate_matrix_y(0, self->f60);
-        set_global_param__8TObjFishFi(TODoorVS2Door01__data_805D598C[self->fD0 & 1]);
+        set_global_param__8TObjFishFi(TODoorVS2Door01__texture_lists[self->fD0 & 1]);
         n = self->model;
         post_translate_matrix(n->mtx);
         push_matrix();
@@ -261,14 +261,14 @@ void *create__15TODoorVS2Door01FPv(void *arg0) {
 }
 
 extern u32 lbl_805D5988;
-extern s32 *TODoorVS2Door01__data_805D598C;
+extern s32 *TODoorVS2Door01__texture_lists;
 
 void free_resources__15TODoorVS2Door01Fv(void) {
-    if ((s32 *) TODoorVS2Door01__data_805D598C != NULL) {
-        free_if_valid__10TObjPlayerFi(*TODoorVS2Door01__data_805D598C);
-        if ((s32 *) TODoorVS2Door01__data_805D598C != NULL) {
-            free__11TOBoss4RockFUi((void*)TODoorVS2Door01__data_805D598C);
-            TODoorVS2Door01__data_805D598C = NULL;
+    if ((s32 *) TODoorVS2Door01__texture_lists != NULL) {
+        free_if_valid__10TObjPlayerFi(*TODoorVS2Door01__texture_lists);
+        if ((s32 *) TODoorVS2Door01__texture_lists != NULL) {
+            free__11TOBoss4RockFUi((void*)TODoorVS2Door01__texture_lists);
+            TODoorVS2Door01__texture_lists = NULL;
         }
     }
     if ((u32) lbl_805D5988 != 0U) {
@@ -292,9 +292,9 @@ void load_resources__15TODoorVS2Door01Fv(void) {
     }
     (*(u8 * *)&lbl_805D5988) = var_r0;
     temp_r3_2 = (s32 *)(alloc_buffer__11TOBoss4RockFPv(8));
-    TODoorVS2Door01__data_805D598C = temp_r3_2;
+    TODoorVS2Door01__texture_lists = temp_r3_2;
     M2C_FIELD(temp_r3_2, s32 *, 4) = (s32) M2C_FIELD(M2C_FIELD((*(u8 * *)&lbl_805D5988), u8 **, 0x42C), s32 *, 0xC);
-    *TODoorVS2Door01__data_805D598C = load_gvm_texture_file((void *) (&lbl_804410E0.value));
+    *TODoorVS2Door01__texture_lists = load_gvm_texture_file((void *) (&lbl_804410E0.value));
 }
 
 void *__dt__15TODoorVS2Door01Fv(void *arg0, s16 arg1) {
@@ -317,7 +317,7 @@ u8 *TODoorVS2Door01__ct(u8 *arg0, M2C_UNK arg1, s32 arg2) {
     M2C_FIELD(arg0, s32 *, 0) = (s32) TODoorVS2Door01__class_name;
     ((VObj_18_4a4f5b *)(arg0))->m5(arg2);
     M2C_FIELD(arg0, s32 *, 0x34) = (s32) M2C_FIELD(M2C_FIELD((*(u8 * *)&lbl_805D5988), u8 **, 0x42C), s32 *, 8);
-    M2C_FIELD(arg0, s32 *, 0x24) = (s32) M2C_FIELD((*(u8 * *)&TODoorVS2Door01__data_805D598C), s32 *, 4);
+    M2C_FIELD(arg0, s32 *, 0x24) = (s32) M2C_FIELD((*(u8 * *)&TODoorVS2Door01__texture_lists), s32 *, 4);
     M2C_FIELD(arg0, f32 *, 0xB4) = (f32) 30.0f;
     M2C_FIELD(arg0, f32 *, 0xB8) = (f32) ((19.0f) / M2C_FIELD(arg0, f32 *, 0xB4));
     M2C_FIELD(arg0, f32 *, 0xD4) = (f32) (0.0f);

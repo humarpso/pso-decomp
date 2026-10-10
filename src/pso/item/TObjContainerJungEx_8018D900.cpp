@@ -31,15 +31,15 @@ struct Obj_8018DBCC {
 
 extern "C" {
 u8 * TObjFish__sub_8001EDB0(void *, int);
-extern u32 TObjContainerJungEx__data_805D5BA8;
+extern u32 TObjContainerJungEx__resource_bundle;
 u8 *TObjContainerJungEx__sub_8018D900(s32 arg0);
 u8 * get_bml_model(void *, int);
-extern u32 TObjContainerJungEx__data_805D5BA8;
+extern u32 TObjContainerJungEx__resource_bundle;
 u8 *get_model__19TObjContainerJungExFi(s32 arg0);
 u8 * load_resource_from_descriptor(void *, s32, void *, s32, s32, s32);
 int alloc__23TAdSinglePlyChrSelectGCFPv(void *);
 extern RecoveredGlobal_8018D9B0_lbl_804B7158 lbl_804B7158;
-extern u32 TObjContainerJungEx__data_805D5BA8;
+extern u32 TObjContainerJungEx__resource_bundle;
 void load_resource_instance__19TObjContainerJungExFv(void);
 void clear_player_status_flag__10TObjPlayerFPviUi(void *, s32, s32);
 extern const f32 TObjDoaEx01__data_805DBDA0;
@@ -67,26 +67,26 @@ extern "C" {
 void free_data__19TObjContainerJungExFv(void);
 void TLobby__sub_8001FE7C(void*, int);
 
-extern u32 TObjContainerJungEx__data_805D5BA8;
+extern u32 TObjContainerJungEx__resource_bundle;
 
 u8 *TObjContainerJungEx__sub_8018D900(s32 arg0) {
-    if ((void *) (*(u8 * *)&TObjContainerJungEx__data_805D5BA8) != NULL) {
-        return TObjFish__sub_8001EDB0((*(u8 * *)&TObjContainerJungEx__data_805D5BA8), arg0);
+    if ((void *) (*(u8 * *)&TObjContainerJungEx__resource_bundle) != NULL) {
+        return TObjFish__sub_8001EDB0((*(u8 * *)&TObjContainerJungEx__resource_bundle), arg0);
     }
     return NULL;
 }
 
 u8 *get_model__19TObjContainerJungExFi(s32 arg0) {
-    if ((void *) (*(u8 * *)&TObjContainerJungEx__data_805D5BA8) != NULL) {
-        return get_bml_model((*(u8 * *)&TObjContainerJungEx__data_805D5BA8), arg0);
+    if ((void *) (*(u8 * *)&TObjContainerJungEx__resource_bundle) != NULL) {
+        return get_bml_model((*(u8 * *)&TObjContainerJungEx__resource_bundle), arg0);
     }
     return NULL;
 }
 
 void free_data__19TObjContainerJungExFv(void) {
-    if ((u32) TObjContainerJungEx__data_805D5BA8 != 0U) {
-        TLobby__sub_8001FE7C((void*)TObjContainerJungEx__data_805D5BA8, 1);
-        TObjContainerJungEx__data_805D5BA8 = 0U;
+    if ((u32) TObjContainerJungEx__resource_bundle != 0U) {
+        TLobby__sub_8001FE7C((void*)TObjContainerJungEx__resource_bundle, 1);
+        TObjContainerJungEx__resource_bundle = 0U;
     }
 }
 void load_resource_instance__19TObjContainerJungExFv(void) {
@@ -97,7 +97,7 @@ void load_resource_instance__19TObjContainerJungExFv(void) {
     if (var_r0 != 0) {
         var_r0 = (long) (load_resource_from_descriptor((void *) temp_r3, 5, &lbl_804B7158.value, 0, 0, 0));
     }
-    (*(s32 *)&TObjContainerJungEx__data_805D5BA8) = var_r0;
+    (*(s32 *)&TObjContainerJungEx__resource_bundle) = var_r0;
 }
 #pragma push
 #pragma opt_common_subs off

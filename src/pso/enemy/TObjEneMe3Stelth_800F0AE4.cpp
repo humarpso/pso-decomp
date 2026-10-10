@@ -14,7 +14,7 @@ struct Stack_800F0B4C
 extern "C" {
 int load_gvm_texture_file(void*);
     extern unsigned char lbl_8043D438[];
-extern u32 lbl_805D52F8;
+extern u32 blob_shadow_texture_list;
 void load_ha_u032_kage(void);
 s32 VecCopy__FP3VecPC3Vec(void *, void *);
 s32 attach_particle_model(int, int, int, int, int, f32);
@@ -43,16 +43,16 @@ void destroy_resources__16TObjEneMe3StelthFv(void);
 M2C_UNK TLobby__sub_803DA16C(void*);
 M2C_UNK safe_free__23TAdSinglePlyChrSelectGCFUi(u32);
 
-extern u32 lbl_805D52F8;
+extern u32 blob_shadow_texture_list;
 
 void destroy_resources__16TObjEneMe3StelthFv(void) {
-    if ((u32) lbl_805D52F8 != 0U) {
-        TLobby__sub_803DA16C((void*)lbl_805D52F8);
-        safe_free__23TAdSinglePlyChrSelectGCFUi(lbl_805D52F8);
-        lbl_805D52F8 = 0U;
+    if ((u32) blob_shadow_texture_list != 0U) {
+        TLobby__sub_803DA16C((void*)blob_shadow_texture_list);
+        safe_free__23TAdSinglePlyChrSelectGCFUi(blob_shadow_texture_list);
+        blob_shadow_texture_list = 0U;
     }
 }
-void load_ha_u032_kage(void) { (*(int *)&lbl_805D52F8) = load_gvm_texture_file(lbl_8043D438); }
+void load_ha_u032_kage(void) { (*(int *)&blob_shadow_texture_list) = load_gvm_texture_file(lbl_8043D438); }
 s32 try_spawn_ground_effect__16TObjEneMe3StelthFii(s32 arg0, s32 arg1) {
   Stack_800F0B4C stack;
   s32 temp_r31;

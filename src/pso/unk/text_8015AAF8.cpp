@@ -5,7 +5,7 @@ s32 alloc_buffer__11TOBoss4RockFPv(int);
 void *memset(s32, int, u32);
 extern char __vt__19TOChatSensorCapture[];
 extern s32 lbl_805D2EE0;
-extern u8 *TOChatSensorCapture__data_805D58D8;
+extern u8 *TOChatSensorCapture__instance;
 u8 *TOChatSensorCapture__ct(u8 *arg0);
 }
 
@@ -26,7 +26,7 @@ u8 *TOChatSensorCapture__ct(u8 *arg0) {
         memset(w[i + 11], 0, 4);
         i += 1;
     } while (i != 4);
-    TOChatSensorCapture__data_805D58D8 = arg0;
+    TOChatSensorCapture__instance = arg0;
     return arg0;
 }
 #pragma pop

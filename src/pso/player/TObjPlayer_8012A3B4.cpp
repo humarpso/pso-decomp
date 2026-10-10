@@ -8,11 +8,11 @@ void *TObjPlayer__sub_8012A3B4(void *arg0);
 void set_status_flags__10TObjPlayerFPvUi(void *, int);
 void TObjPlayer__sub_8012A884(void *);
 
-extern M2C_UNK lbl_804A4848[];
+extern M2C_UNK s_rank_windmill_weapon_vtable[];
 
 void *TObjPlayer__sub_8012A3B4(void *arg0) {
     TObjPlayer__sub_8012A884(arg0);
-    M2C_FIELD(arg0, M2C_UNK **, 0x18) = lbl_804A4848;
+    M2C_FIELD(arg0, M2C_UNK **, 0x18) = s_rank_windmill_weapon_vtable;
     set_status_flags__10TObjPlayerFPvUi(arg0, 35);
     M2C_FIELD(arg0, u32 *, 0x1FC) = 0;
     M2C_FIELD(arg0, u32 *, 0x200) = 3276;

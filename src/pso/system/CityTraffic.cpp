@@ -67,7 +67,7 @@ s32 get_city_common_model(s32 i);
 void bind_motion_context(s32, f32);
 void sample_motion_node_transform(void *, void *, void *, void *, void *);
 extern s32 lbl_80443B18[];
-extern s32 lbl_80443B2C[];
+extern s32 city_aircar_model_indices[];
 s32 sample_aircar_path_position(s32 arg0, void *arg1, f32 farg0);
 void VecCopy__FP3VecPC3Vec(Vec_801817AC *, const Vec_801817AC *);
 f32 update_scale__15TObjBoss2TunnelFPv(void *);
@@ -81,7 +81,7 @@ void bind_motion_context(s32, f32);
 void sample_motion_node_transform(void *, void *, void *, void *, void *);
 void subtract_vector(Vec_801817AC *, Vec_801817AC *);
 extern s32 lbl_80443B18[];
-extern s32 lbl_80443B2C[];
+extern s32 city_aircar_model_indices[];
 extern s32 lbl_80443B54[];
 extern Lob_801817AC *lbl_805D5B20;
 extern s32 lbl_805D5B24;
@@ -133,7 +133,7 @@ s32 sample_aircar_path_position(s32 arg0, void *arg1, f32 farg0) {
         r = 0;
     }
     bind_motion_context((s32)m, farg0);
-    void *t = ((void * (*)(s32))get_city_common_model)(lbl_80443B2C[arg0]);
+    void *t = ((void * (*)(s32))get_city_common_model)(city_aircar_model_indices[arg0]);
     sample_motion_node_transform(t, arg1, &sp24, &sp18, &sp8);
     return r;
 }
@@ -164,9 +164,9 @@ struct E_801819E4 { s32 a; s32 b; s32 c; s32 d; };
 struct O_801819E4 { u8 pad[0x42c]; E_801819E4 *entries; };
 
 extern "C" {
-extern O_801819CC *lbl_805D5B28;
+extern O_801819CC *city_common_model_archive;
 s32 get_city_common_motion(s32 i);
-extern O_801819CC *lbl_805D5B28;
+extern O_801819CC *city_common_model_archive;
 s32 get_city_common_model(s32 i);
 }
 
@@ -197,11 +197,11 @@ void measure_traffic_path_lengths(void) {
     frame = lbl_805DBBC8;
     f32 total = frame;
     ((void (*)(Motion_801817AC *, f32))bind_motion_context)(m, frame);
-    sample_motion_node_transform((void *)(get_city_common_model(lbl_80443B2C[i])), (void *)(&prev), (void *)(&a), (void *)(&b), (void *)(&q));
+    sample_motion_node_transform((void *)(get_city_common_model(city_aircar_model_indices[i])), (void *)(&prev), (void *)(&a), (void *)(&b), (void *)(&q));
     for (frame += lbl_805DBBC4; frame < end; frame += lbl_805DBBC4)
     {
       ((void (*)(Motion_801817AC *, f32))bind_motion_context)(m, frame);
-      sample_motion_node_transform((void *)(get_city_common_model(lbl_80443B2C[i])), (void *)(&cur), (void *)(&a2), (void *)(&b2), (void *)(&q2));
+      sample_motion_node_transform((void *)(get_city_common_model(city_aircar_model_indices[i])), (void *)(&cur), (void *)(&a2), (void *)(&b2), (void *)(&q2));
       subtract_vector(&prev, &cur);
       total += update_scale__15TObjBoss2TunnelFPv(&prev);
       VecCopy__FP3VecPC3Vec(&prev, &cur);
@@ -233,10 +233,10 @@ void measure_traffic_path_lengths(void) {
 }
 
 s32 get_city_common_motion(s32 i) {
-    return lbl_805D5B28->entries[i].b;
+    return city_common_model_archive->entries[i].b;
 }
 s32 get_city_common_model(s32 i) {
-    return (*(O_801819E4 * *)&lbl_805D5B28)->entries[i].c;
+    return (*(O_801819E4 * *)&city_common_model_archive)->entries[i].c;
 }
 
 }

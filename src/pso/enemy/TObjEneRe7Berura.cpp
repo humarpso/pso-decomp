@@ -592,11 +592,11 @@ extern s32 TObjEneRe7Berura__data_80439DA8[];
 extern s32 TObjEneRe7Berura__data_80439DB0[];
 extern s32 TObjEneRe7Berura__data_80439DB8[];
 extern s32 TObjEneRe7Berura__data_805007D4[];
-extern Elem_800959F8 TObjEneRe7Berura__data_805007DC[];
+extern Elem_800959F8 TObjEneRe7Berura__detached_part_states[];
 extern s32 TObjEneRe7Berura__stat_handle_table[1];
 extern s32 TObjEneRe7Berura__shared_object_handles[1];
 extern u32 TObjEneRe7Berura__shared_resource;
-extern s32 TObjEneRe7Berura__data_805D4F98;
+extern s32 TObjEneRe7Berura__node_matrix_cursor;
 extern const f32 TObjEneRe7Berura__data_805D9724;
 extern const f32 TObjEneRe7Berura__data_805D972C;
 extern const f32 TObjEneRe7Berura__data_805D9730;
@@ -620,7 +620,7 @@ extern s32 TObjEneRe7Berura__demo_target;
 extern u32 re7_berura_static_buffer;
 extern s32 lbl_805D4F84;
 extern s32 lbl_805D4F88;
-extern u32 lbl_805D4F8C;
+extern u32 belra_uv_animation_buffer;
 extern s32 lbl_805D4F90;
 extern s32 lbl_805D4F94;
 extern s32 lbl_805D4F9C;
@@ -1005,11 +1005,11 @@ void init_part__16TObjEneRe7BeruraFi(s32 arg0) {
     s32 *temp_r3;
 
     set_global_param__8TObjFishFi(M2C_FIELD(M2C_FIELD((*(void * *)&TObjEneRe7Berura__shared_resource), void **, 0x42C), s32 *, 0xC), (*(void * *)&TObjEneRe7Berura__shared_resource));
-    temp_r3 = (s32 *)((s8 *)((M2C_UNK *)TObjEneRe7Berura__data_805007DC) + (arg0 * 0x64));
+    temp_r3 = (s32 *)((s8 *)((M2C_UNK *)TObjEneRe7Berura__detached_part_states) + (arg0 * 0x64));
     ((M2C_UNK (*)(void *, s32))set_data_and_draw_node_tree__16TObjEneRe7BeruraFii)((s32 *)((s8 *)temp_r3 + 0x20), *temp_r3);
 }
 
-void set_data_and_draw_node_tree__16TObjEneRe7BeruraFii(int a0, int a1) { (*(int *)&TObjEneRe7Berura__data_805D4F98) = a1; ((int (*)(void))draw_node_tree__16TObjEneRe7BeruraFPv)(); }
+void set_data_and_draw_node_tree__16TObjEneRe7BeruraFii(int a0, int a1) { (*(int *)&TObjEneRe7Berura__node_matrix_cursor) = a1; ((int (*)(void))draw_node_tree__16TObjEneRe7BeruraFPv)(); }
 
 void draw_node_tree__16TObjEneRe7BeruraFPv(void *arg0) {
     s32 temp_r31;
@@ -1019,8 +1019,8 @@ void draw_node_tree__16TObjEneRe7BeruraFPv(void *arg0) {
     var_r30 = arg0;
     do {
         push_matrix();
-        temp_r4 = TObjEneRe7Berura__data_805D4F98;
-        TObjEneRe7Berura__data_805D4F98 = temp_r4 + 0x30;
+        temp_r4 = TObjEneRe7Berura__node_matrix_cursor;
+        TObjEneRe7Berura__node_matrix_cursor = temp_r4 + 0x30;
         concat_matrix__10TObjPlayerFUiUi(0, temp_r4);
         temp_r31 = M2C_FIELD(var_r30, s32 *, 0);
         if (!(temp_r31 & 8)) {
@@ -1040,7 +1040,7 @@ void apply_attack_params__16TObjEneRe7BeruraFiPv(s32 arg0, u8 *arg1) {
     s32 temp_r6;
 
     temp_r6 = M2C_FIELD(arg1, s32 *, 0);
-    TObjEneRe7Berura__data_805D4F98 = temp_r6;
+    TObjEneRe7Berura__node_matrix_cursor = temp_r6;
     temp_r5 = M2C_FIELD(arg1, s32 *, 4);
     lbl_805D4F90 = temp_r5;
     temp_r4 = M2C_FIELD(arg1, s32 *, 8);
@@ -1076,8 +1076,8 @@ M2C_UNK collect_node_matrices__16TObjEneRe7BeruraFPvi(void *arg0, int idx) {
             copy_matrix__10TObjPlayerFUiUi(0, &m);
         }
         if (idx >= lbl_805D4F90 && idx <= lbl_805D4F94) {
-            s32 p = TObjEneRe7Berura__data_805D4F98;
-            TObjEneRe7Berura__data_805D4F98 = p + 0x30;
+            s32 p = TObjEneRe7Berura__node_matrix_cursor;
+            TObjEneRe7Berura__node_matrix_cursor = p + 0x30;
             get_current_matrix((void *)p);
         }
         idx++;
@@ -1289,9 +1289,9 @@ void destroy_children__16TObjEneRe7BeruraFv(void) {
         __dt__11TBoss4Type3FPvs((void*)lbl_805D4FA0, 1);
         lbl_805D4FA0 = 0U;
     }
-    if ((u32) lbl_805D4F8C != 0U) {
-        destroy_buffer_pair((void*)lbl_805D4F8C, 1);
-        lbl_805D4F8C = 0U;
+    if ((u32) belra_uv_animation_buffer != 0U) {
+        destroy_buffer_pair((void*)belra_uv_animation_buffer, 1);
+        belra_uv_animation_buffer = 0U;
     }
     if ((u32) re7_berura_static_buffer != 0U) {
         free__11TOBoss4RockFUi((void*)re7_berura_static_buffer);
@@ -1315,7 +1315,7 @@ f32 lbl_805007C8[3];
 
 __declspec(section ".data") s32 TObjEneRe7Berura__data_805007D4[2];
 
-Elem_800959F8 TObjEneRe7Berura__data_805007DC[2];
+Elem_800959F8 TObjEneRe7Berura__detached_part_states[2];
 
 #define RES ((Res_800959F8 *)TObjEneRe7Berura__shared_resource)
 void load_static_resources__16TObjEneRe7BeruraFv(void) {
@@ -1344,20 +1344,20 @@ void load_static_resources__16TObjEneRe7BeruraFv(void) {
     m = *(u32 *)(r->f42C + 8);
     buf = alloc_buffer__11TOBoss4RockFPv(0x660);
     re7_berura_static_buffer = (u32)buf;
-    TObjEneRe7Berura__data_805007DC[0].buf = buf;
-    TObjEneRe7Berura__data_805007DC[1].buf = buf + 0x330;
-    TObjEneRe7Berura__data_805007DC[0].f4 = 0x21;
-    TObjEneRe7Berura__data_805007DC[0].f8 = 0x31;
-    TObjEneRe7Berura__data_805007DC[1].f4 = 0x38;
-    TObjEneRe7Berura__data_805007DC[1].f8 = 0x48;
-    TObjEneRe7Berura__data_805007DC[0].fC = 3;
-    TObjEneRe7Berura__data_805007DC[0].f10 = TObjEneRe7Berura__data_805D9764;
-    TObjEneRe7Berura__data_805007DC[0].f14 = TObjEneRe7Berura__data_805D9740;
-    TObjEneRe7Berura__data_805007DC[1].fC = 4;
-    TObjEneRe7Berura__data_805007DC[1].f10 = lbl_805D9778;
-    TObjEneRe7Berura__data_805007DC[1].f14 = lbl_805D977C;
+    TObjEneRe7Berura__detached_part_states[0].buf = buf;
+    TObjEneRe7Berura__detached_part_states[1].buf = buf + 0x330;
+    TObjEneRe7Berura__detached_part_states[0].f4 = 0x21;
+    TObjEneRe7Berura__detached_part_states[0].f8 = 0x31;
+    TObjEneRe7Berura__detached_part_states[1].f4 = 0x38;
+    TObjEneRe7Berura__detached_part_states[1].f8 = 0x48;
+    TObjEneRe7Berura__detached_part_states[0].fC = 3;
+    TObjEneRe7Berura__detached_part_states[0].f10 = TObjEneRe7Berura__data_805D9764;
+    TObjEneRe7Berura__detached_part_states[0].f14 = TObjEneRe7Berura__data_805D9740;
+    TObjEneRe7Berura__detached_part_states[1].fC = 4;
+    TObjEneRe7Berura__detached_part_states[1].f10 = lbl_805D9778;
+    TObjEneRe7Berura__detached_part_states[1].f14 = lbl_805D977C;
     for (i = 0; i < 2; i++) {
-        Elem_800959F8 *e = &TObjEneRe7Berura__data_805007DC[i];
+        Elem_800959F8 *e = &TObjEneRe7Berura__detached_part_states[i];
         u8 *ent = RES->f430[TObjEneRe7Berura__animation_definitions[e->fC].f4].f4;
         set_global_flag__10TObjPlayerFv();
         bind_motion_context(ent, e->f14);
@@ -1385,7 +1385,7 @@ void load_static_resources__16TObjEneRe7BeruraFv(void) {
     if (p != NULL) {
         p = alloc_tables__6TLobbyFPvii(p, *(s32 *)(RES->f42C + 8), 2);
     }
-    lbl_805D4F8C = (u32)p;
+    belra_uv_animation_buffer = (u32)p;
     p = alloc__23TAdSinglePlyChrSelectGCFPv(0x18);
     if (p != NULL) {
         p = init_trail_buffer__11TBoss4Type3FPvifff(p, 4, lbl_805D9780, lbl_805D9784, TObjEneRe7Berura__data_805D9738);

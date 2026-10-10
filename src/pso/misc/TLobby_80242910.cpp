@@ -34,7 +34,7 @@ s32 update_rumble_pattern__23TAdSinglePlyChrSelectGCFPvPv(Anim_80242B30 *o, s16 
 f32 update_scale__15TObjBoss2TunnelFPv(void *, f32);
 u8 *get_player_by_client_id(s32);
 s32 is_active__12TBoss3VoloptFPv(int);
-u8 *TAdSinglePlyChrSelectGC__sub_802430E8();
+u8 *get_pad_rumble_effect_slots();
 extern const f32 lbl_805DCA00;
 void accumulate_rumble_strength__23TAdSinglePlyChrSelectGCFPvi(s16 *arg0, s32 arg1);
 }
@@ -76,7 +76,7 @@ void accumulate_rumble_strength__23TAdSinglePlyChrSelectGCFPvi(s16 *arg0, s32 ar
     s32 var_r29;
     temp_r3 = (u8 *)(get_player_by_client_id(arg1));
     if (temp_r3 != NULL) {
-        var_r30 = (u8 *)(TAdSinglePlyChrSelectGC__sub_802430E8());
+        var_r30 = (u8 *)(get_pad_rumble_effect_slots());
         var_r29 = 0;
         do {
             if ((is_active__12TBoss3VoloptFPv((int) (var_r30)) != 0) && ((temp_r3_2 = M2C_FIELD(var_r30, u8 *, 0), (((temp_r3_2 & 0x10) == 0) == 0)) || (arg1 == (s16) M2C_FIELD(var_r30, s16 *, 2)))) {

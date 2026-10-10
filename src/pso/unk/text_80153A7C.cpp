@@ -94,7 +94,7 @@ M2C_UNK draw_chunk_object(s32);
 extern Color_80153B64 lbl_8044002C;
 extern Color_80153B64 lbl_8044003C;
 extern Color_80153B64 lbl_8044004C;
-extern M2C_UNK lbl_8050BEC0[];
+extern M2C_UNK saved_model_draw_color[];
 extern M2C_UNK lbl_8058D4C0[];
 extern s32 lbl_805D28BC;
 extern s32 lbl_805D5660;
@@ -149,7 +149,7 @@ void draw_volume__16TObjFogCollisionFPv(u8 *arg0) {
         Color_80153B64 c3 = lbl_8044003C;
         Color_80153B64 cd = lbl_8044004C;
         lbl_805D5660 = some_id_805c6f74;
-        copy_vec4__13TRaderMapCoreFPvPv(lbl_8050BEC0, lbl_8058D4C0);
+        copy_vec4__13TRaderMapCoreFPvPv(saved_model_draw_color, lbl_8058D4C0);
         lbl_805D5664 = lbl_805D7784;
         lbl_805D5668 = lbl_805D7780;
         some_id_805c6f74 |= 0x810;
@@ -176,7 +176,7 @@ void draw_volume__16TObjFogCollisionFPv(u8 *arg0) {
         pop_matrix();
         lbl_805D7784 = lbl_805D5664;
         lbl_805D7780 = lbl_805D5668;
-        copy_vec4__13TRaderMapCoreFPvPv(lbl_8058D4C0, lbl_8050BEC0);
+        copy_vec4__13TRaderMapCoreFPvPv(lbl_8058D4C0, saved_model_draw_color);
         some_id_805c6f74 = lbl_805D5660;
     }
 }

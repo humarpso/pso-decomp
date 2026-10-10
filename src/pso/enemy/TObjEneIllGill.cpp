@@ -685,7 +685,7 @@ void *lbl_804F2F40[11] = {
     (void *)0x0, (void *)0x0, (void *)0x8003, (void *)0x0,
     (void *)0x0, (void *)0x0, (void *)0x0,
 };
-void *lbl_804F2F6C[4] = {
+void *ill_gill_combat_parameter_variants[4] = {
     (void *)0x0, (void *)0x0, (void *)0x0, (void *)0x0,
 };
 void *__vt__15TObjIllGillKage[13] = {
@@ -694,7 +694,7 @@ void *__vt__15TObjIllGillKage[13] = {
     (void *)&reset_motion_fields__10TObjPlayerFPv, (void *)&TParticleCtrl__sub_801A2124, (void *)&update_object_view_visibility, (void *)&classify_actor_view_detail,
     (void *)&TObjRoomId__sub_801A1E2C,
 };
-#define lbl_804F2F6C ((s32 *)lbl_804F2F6C)
+#define ill_gill_combat_parameter_variants ((s32 *)ill_gill_combat_parameter_variants)
 
 void update_ai__14TObjEneIllGillFPv(void *arg0_) {
     Gill_80365688 *o = (Gill_80365688 *)arg0_;
@@ -932,7 +932,7 @@ void TObjEneIllGill__sub_803660A4(void *arg0_) {
             subtract_vector(&v, arg0 + 0x2FC);
             a = update_angle__10TObjPlayerFPviPv(arg0, (void *)M2C_FIELD(M2C_FIELD(arg0, u8 **, 0x350), s32 *, 8), &v);
             apply_actor_gravity(arg0, 0, TObjEneIllGill__data_805E02BC);
-            if (a < get_field_0c__10TObjPlayerFPv(lbl_804F2F6C[2])) {
+            if (a < get_field_0c__10TObjPlayerFPv(ill_gill_combat_parameter_variants[2])) {
                 M2C_FIELD(arg0, s16 *, 0x328) = 1;
                 M2C_FIELD(arg0, s16 *, 0xB8) = 4;
                 M2C_FIELD(arg0, s32 *, 0x39C) = 0;
@@ -966,7 +966,7 @@ void TObjEneIllGill__sub_803660A4(void *arg0_) {
             VecCopy__FP3VecPC3Vec(&w, M2C_FIELD(arg0, u8 **, 0x2A8) + 0x2FC);
             subtract_vector(&w, arg0 + 0x2FC);
             a = angle_difference_abs(M2C_FIELD(arg0, s32 *, 0x60), (s32)(TObjEneIllGill__data_8047A348 * get_ad_end_text_start__10TObjPlayerFv(w.x, w.z)));
-            if (a < get_field_0c__10TObjPlayerFPv(lbl_804F2F6C[2])) {
+            if (a < get_field_0c__10TObjPlayerFPv(ill_gill_combat_parameter_variants[2])) {
                 VecCopy__FP3VecPC3Vec(&w, M2C_FIELD(arg0, u8 **, 0x2A8) + 0x38);
                 subtract_vector(&w, arg0 + 0x3BC);
                 get_ad_end_text_start__10TObjPlayerFv(w.z, newton_sqrtf(w.x * w.x + w.y * w.y));
@@ -1432,7 +1432,7 @@ s32 TObjEneIllGill__vt28(u8 *arg0) {
     if (F(u8 *, 0x2A8) != NULL && F(u32, 0x318) != 0 && !(M2C_FIELD(F(u8 *, 0x2A8), s32 *, 0x30) & 0x02000800)) {
         if (obj_testFlags30(arg0, 0x2000) != 0) {
             F(s32, 0x394) = 3;
-            bind_enemy_combat_stats(arg0, 0, lbl_804F2F6C[F(s32, 0x394)], 0);
+            bind_enemy_combat_stats(arg0, 0, ill_gill_combat_parameter_variants[F(s32, 0x394)], 0);
             return 1;
         }
         dist = calc_xz_distance_sq__10TObjPlayerFiUiPv(arg0, F(u8 *, 0x2A8), &v);
@@ -1448,11 +1448,11 @@ s32 TObjEneIllGill__vt28(u8 *arg0) {
             s32 i;
             pl = F(u8 *, 0x2A8);
             if (check_player_flag1__6TLobbyFPv(pl) == 1 || (enable_v2_features == 1 && obj_testFlags30(pl, 0x20) != 0)) {
-                F(s32, 0x318) = lbl_804F2F6C[0];
+                F(s32, 0x318) = ill_gill_combat_parameter_variants[0];
                 if (dist <= (rad + get_pos_x__10TObjPlayerFPv(F(s32, 0x318))) * (rad + get_pos_x__10TObjPlayerFPv(F(s32, 0x318))) &&
                     ang <= get_field_0c__10TObjPlayerFPv(F(s32, 0x318))) {
                     F(s32, 0x394) = 0;
-                    bind_enemy_combat_stats(arg0, 0, lbl_804F2F6C[F(s32, 0x394)], 0);
+                    bind_enemy_combat_stats(arg0, 0, ill_gill_combat_parameter_variants[F(s32, 0x394)], 0);
                     return 1;
                 }
                 return 0;
@@ -1460,21 +1460,21 @@ s32 TObjEneIllGill__vt28(u8 *arg0) {
             for (i = 0; i < 4; i++) {
                 f32 r2;
                 s32 m;
-                F(s32, 0x318) = lbl_804F2F6C[i];
+                F(s32, 0x318) = ill_gill_combat_parameter_variants[i];
                 r2 = (rad + get_pos_x__10TObjPlayerFPv(F(s32, 0x318))) * (rad + get_pos_x__10TObjPlayerFPv(F(s32, 0x318)));
                 m = get_field_0c__10TObjPlayerFPv(F(s32, 0x318));
                 if (dist <= r2 && ang <= m) {
                     F(s32, 0x394) = i;
-                    bind_enemy_combat_stats(arg0, 0, lbl_804F2F6C[F(s32, 0x394)], 0);
+                    bind_enemy_combat_stats(arg0, 0, ill_gill_combat_parameter_variants[F(s32, 0x394)], 0);
                     return 1;
                 }
             }
         } else if (id < 0x4000) {
-            F(s32, 0x318) = lbl_804F2F6C[0];
+            F(s32, 0x318) = ill_gill_combat_parameter_variants[0];
             if (dist <= (rad + get_pos_x__10TObjPlayerFPv(F(s32, 0x318))) * (rad + get_pos_x__10TObjPlayerFPv(F(s32, 0x318))) &&
                 ang <= get_field_0c__10TObjPlayerFPv(F(s32, 0x318))) {
                 F(s32, 0x394) = 0;
-                bind_enemy_combat_stats(arg0, 0, lbl_804F2F6C[F(s32, 0x394)], 0);
+                bind_enemy_combat_stats(arg0, 0, ill_gill_combat_parameter_variants[F(s32, 0x394)], 0);
                 return 1;
             }
         }
@@ -1993,7 +1993,7 @@ u8 *TObjEneIllGill__ct(u8 *self, s32 arg1, u8 *arg2) {
     reset_photon_effect__10TObjPlayerFPv(self);
     FIG_8036858C(void *, 0x350) = lbl_804F2F24;
     FIG_8036858C(s32, 0x394) = 0;
-    bind_enemy_combat_stats((void *)(self), (int)(TObjEneIllGill__boss_registration_id), (int)(((s32 *)lbl_804F2F6C)[FIG_8036858C(s32, 0x394)]), (int)(lbl_805D6FD8));
+    bind_enemy_combat_stats((void *)(self), (int)(TObjEneIllGill__boss_registration_id), (int)(((s32 *)ill_gill_combat_parameter_variants)[FIG_8036858C(s32, 0x394)]), (int)(lbl_805D6FD8));
     FIG_8036858C(s32, 0x3A0) = 0;
     FIG_8036858C(s16, 0x326) = 0;
     FIG_8036858C(s16, 0x328) = 0;
@@ -2059,10 +2059,10 @@ void load_shared_resources__14TObjEneIllGillFv(void) {
     }
     TObjEneIllGill__shared_effect = (int)p;
     TObjEneIllGill__boss_registration_id = register_boss__6TLobbyFPv(0x26);
-    lbl_804F2F6C[0] = dispatch_shared_handler_b__6TLobbyFPv(0x26);
-    lbl_804F2F6C[1] = dispatch_shared_handler_b__6TLobbyFPv(0x27);
-    lbl_804F2F6C[2] = dispatch_shared_handler_b__6TLobbyFPv(0x28);
-    lbl_804F2F6C[3] = dispatch_shared_handler_b__6TLobbyFPv(0x29);
+    ill_gill_combat_parameter_variants[0] = dispatch_shared_handler_b__6TLobbyFPv(0x26);
+    ill_gill_combat_parameter_variants[1] = dispatch_shared_handler_b__6TLobbyFPv(0x27);
+    ill_gill_combat_parameter_variants[2] = dispatch_shared_handler_b__6TLobbyFPv(0x28);
+    ill_gill_combat_parameter_variants[3] = dispatch_shared_handler_b__6TLobbyFPv(0x29);
     lbl_805D6FD8 = register_object__6TLobbyFPv(0x26);
     TObjEneIllGill__data_805D6FDC = (u8 *)dispatch_shared_handler_a__6TLobbyFPv(0x26);
     TObjEneIllGill__data_805D6FE0 = 0;

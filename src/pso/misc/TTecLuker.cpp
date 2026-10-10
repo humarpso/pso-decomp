@@ -158,7 +158,7 @@ s32 TLobby__send_and_handle_60(s32);
 int init_packet_9a__10TObjPlayerFPv(void);
 extern M2C_UNK lbl_80434088;
 extern const f32 lbl_805D7D3C;
-extern s32 lbl_805D5FC0;
+extern s32 current_floor_index;
 extern s32 lobby_player_count;
 void send_swapped_telepipe_packet__9TTecLukerFPv(void* p);
 void init_telepipe_packet_header(void* p);
@@ -187,7 +187,7 @@ void send_telepipe_packet__9TTecLukerFPv(u8 *arg0);
 void VecCopy__FP3VecPC3Vec(void *, void *);
 s32 play_sound_effect(int, void *, int, int);
 s32 __ct__7TObjectFP7TObject(void *, void *);
-extern M2C_UNK lbl_804CC990[];
+extern M2C_UNK recovery_technique_charge_vtable[];
 u8 *construct_resta_charge_sound(u8 *arg0, s32 arg1, s32 arg2);
 void VecCopy__FP3VecPC3Vec(void *, void *);
 s32 obj_setFlags30(void *, int);
@@ -195,22 +195,22 @@ s32 reset_photon_effect__10TObjPlayerFPv(void *);
 s32 init_collision_body_parts(void *, void *, int);
 s32 construct_collider_proxy__10TObjPlayerFPv(void *, void *);
 void TTecLuker__sub_80234F68(void* p);
-extern RecoveredGlobal_80233D18_lbl_804CC9A8 lbl_804CC9A8;
-extern M2C_UNK lbl_804CC9D4[];
+extern RecoveredGlobal_80233D18_lbl_804CC9A8 telepipe_field_collision_body_template;
+extern M2C_UNK telepipe_field_collider_vtable[];
 u8 *construct_field_collider__9TTecLukerFPviii(u8 *arg0, s32 arg1, s32 arg2, s32 arg3);
 bool TTecLuker__sub_8023401C(u8 *arg0);
-extern u32 lbl_804CC988[];
+extern u32 recovery_technique_charge_particle_ids[];
 void* spawn_particle_effect(float*,u32);
 int check_flag_0x80__10TObjPlayerFPv(void*);
 M2C_UNK queue_destruction__7TObjectFv(void *);
 void TTecLuker__updateRecoveryTechniqueCharge(TechniqueChargeEmitter* state);
-extern u8 TTecLuker__data_805D37E0[4];
+extern u8 TTecLuker__visit_counts[4];
 void reset_telepipe_visit_counts(void);
-extern u8 TTecLuker__data_805D37E0[4];
+extern u8 TTecLuker__visit_counts[4];
 void TTecLuker__sub_80234F08(void);
 extern const f32 lbl_805DC85C;
 void reset_telepipe_record(O_802340A0 *o);
-extern u8 TTecLuker__data_805D37E0[4];
+extern u8 TTecLuker__visit_counts[4];
 void TTecLuker__sub_80234F48(void);
 u32 get_player_by_client_id(s32);
 u32 TObjPlayer__sub_801BFFA0(void *p);
@@ -304,7 +304,7 @@ M2C_UNK offset_point_toward_camera(void *, M2C_UNK *, f32);
 M2C_UNK init_all_slots__11TWindowCtrlFv();
 M2C_UNK init_all_slots2__11TWindowCtrlFv();
 extern M2C_UNK lbl_80515BA0[];
-extern u8 TTecLuker__data_805D37E0[4];
+extern u8 TTecLuker__visit_counts[4];
 extern const f32 lbl_805DC858;
 void run_task__9TTecLukerFv(u8 *arg0);
 s32 is_split_screen();
@@ -370,12 +370,12 @@ M2C_UNK destroy_technique_base__9TTecLukerFPvs(void *, M2C_UNK);
 s32 is_split_screen();
 M2C_UNK queue_destruction__7TObjectFv(void *);
 
-extern M2C_UNK lbl_804CC990[];
+extern M2C_UNK recovery_technique_charge_vtable[];
 
 void TTecLuker__updateRecoveryTechniqueCharge(TechniqueChargeEmitter* state) {
     ++state->age;
     if(state->age%10==0) {
-        for(int i=0;i<2;++i)spawn_particle_effect(state->position,lbl_804CC988[i]);
+        for(int i=0;i<2;++i)spawn_particle_effect(state->position,recovery_technique_charge_particle_ids[i]);
     }
     if(!check_flag_0x80__10TObjPlayerFPv(state->actor))queue_destruction__7TObjectFv((void *)(state));
     else if(state->age>=180)queue_destruction__7TObjectFv((void *)(state));
@@ -383,7 +383,7 @@ void TTecLuker__updateRecoveryTechniqueCharge(TechniqueChargeEmitter* state) {
 
 void *destroy__9TTecLukerFPvs(void *arg0, s16 arg1) {
     if (arg0 != NULL) {
-        M2C_FIELD(arg0, M2C_UNK **, 0x18) = lbl_804CC990;
+        M2C_FIELD(arg0, M2C_UNK **, 0x18) = recovery_technique_charge_vtable;
         stop_sound_request(M2C_FIELD(arg0, void **, 0x30));
         __dt__7TObjectFv(arg0, 0);
         if (arg1 > 0) {
@@ -395,7 +395,7 @@ void *destroy__9TTecLukerFPvs(void *arg0, s16 arg1) {
 
 u8 *construct_resta_charge_sound(u8 *arg0, s32 arg1, s32 arg2) {
     __ct__7TObjectFP7TObject((void *) (arg0), (void *) (arg2));
-    M2C_FIELD(arg0, M2C_UNK **, 0x18) = &(*(RecoveredGlobal_80233B9C_lbl_804CC990 *)&lbl_804CC990).value;
+    M2C_FIELD(arg0, M2C_UNK **, 0x18) = &(*(RecoveredGlobal_80233B9C_lbl_804CC990 *)&recovery_technique_charge_vtable).value;
     M2C_FIELD(arg0, s32 *, 0x1C) = arg1;
     VecCopy__FP3VecPC3Vec((void *)((void *) (arg0 + 0x20)), (void *)((int) (M2C_FIELD(arg0, s32 *, 0x1C) + 0x2FC)));
     M2C_FIELD(arg0, s32 *, 0x2C) = 0;
@@ -421,11 +421,11 @@ void update_player_target__9TTecLukerFPv(u8 *arg0) {
     }
 }
 
-extern M2C_UNK lbl_804CC9D4[];
+extern M2C_UNK telepipe_field_collider_vtable[];
 
 void *__dt__9TTecLukerFPvs(void *arg0, s16 arg1) {
     if (arg0 != NULL) {
-        M2C_FIELD(arg0, M2C_UNK **, 0x18) = lbl_804CC9D4;
+        M2C_FIELD(arg0, M2C_UNK **, 0x18) = telepipe_field_collider_vtable;
         unregister_object_by_id(arg0);
         free_collision_body_parts(arg0);
         M2C_FIELD(arg0, s32 *, 0xB0) = 0;
@@ -441,9 +441,9 @@ typedef char RecoveredGlobal_80233D18_lbl_804CC9A8_size[sizeof(RecoveredGlobal_8
 typedef char RecoveredGlobal_80233D18_lbl_804CC9D4_size[sizeof(RecoveredGlobal_80233D18_lbl_804CC9D4) == 0x38 ? 1 : -1];
 u8 *construct_field_collider__9TTecLukerFPviii(u8 *arg0, s32 arg1, s32 arg2, s32 arg3) {
     construct_collider_proxy__10TObjPlayerFPv((void *) (arg0), (void *) (arg2));
-    M2C_FIELD(arg0, M2C_UNK **, 0x18) = &(*(RecoveredGlobal_80233D18_lbl_804CC9D4 *)&lbl_804CC9D4).value;
+    M2C_FIELD(arg0, M2C_UNK **, 0x18) = &(*(RecoveredGlobal_80233D18_lbl_804CC9D4 *)&telepipe_field_collider_vtable).value;
     VecCopy__FP3VecPC3Vec((void *) (arg0 + 0x38), (void *) (arg1));
-    init_collision_body_parts((void *) (arg0), (void *) (&lbl_804CC9A8.value), (int) (1));
+    init_collision_body_parts((void *) (arg0), (void *) (&telepipe_field_collision_body_template.value), (int) (1));
     obj_setFlags30((void *) (arg0), (int) (0x40000000));
     reset_photon_effect__10TObjPlayerFPv((void *) (arg0));
     TTecLuker__sub_80234F68((void*)((void *) (arg0 + 0x98)));
@@ -883,7 +883,7 @@ void run_task__9TTecLukerFv(u8 *arg0) {
             }
             if (TTecLuker__sub_80235054((void*)(tgt)) != 0) {
                 VecCopy__FP3VecPC3Vec(arg0 + 0xFC, M2C_FIELD(arg0, u8 **, 0x1C) + 0x38);
-                if ((telepipe_record_differs((Rec_8023402C *)(M2C_FIELD(arg0, u8 **, 0x1C) + 0x830), M2C_FIELD(arg0, s16 *, 0xF4), (Vec_8023402C *)(arg0 + 0xFC), M2C_FIELD(arg0, u16 *, 0xF6)) == 0) && ((s8) *(TTecLuker__data_805D37E0 + M2C_FIELD(arg0, u16 *, 0xB4)) >= 1)) {
+                if ((telepipe_record_differs((Rec_8023402C *)(M2C_FIELD(arg0, u8 **, 0x1C) + 0x830), M2C_FIELD(arg0, s16 *, 0xF4), (Vec_8023402C *)(arg0 + 0xFC), M2C_FIELD(arg0, u16 *, 0xF6)) == 0) && ((s8) *(TTecLuker__visit_counts + M2C_FIELD(arg0, u16 *, 0xB4)) >= 1)) {
                     queue_destruction__7TObjectFv(arg0);
                     return;
                 }
@@ -894,7 +894,7 @@ void run_task__9TTecLukerFv(u8 *arg0) {
     case 1:
         temp_r5 = M2C_FIELD(arg0, u16 *, 0xB4);
         if (temp_r5 < 4U) {
-            *(TTecLuker__data_805D37E0 + temp_r5) = *(TTecLuker__data_805D37E0 + temp_r5) + 1;
+            *(TTecLuker__visit_counts + temp_r5) = *(TTecLuker__visit_counts + temp_r5) + 1;
         }
         if (telepipe_record_differs((Rec_8023402C *)(M2C_FIELD(arg0, u8 **, 0x1C) + 0x830), M2C_FIELD(arg0, s16 *, 0xF4), (Vec_8023402C *)(arg0 + 0xFC), M2C_FIELD(arg0, u16 *, 0xF6)) != 0) {
             queue_destruction__7TObjectFv(arg0);
@@ -1070,21 +1070,21 @@ void *TTecLuker__ct(void *arg0, void *arg1, void *arg2, void *arg3, void *arg4) 
 void TTecLuker__sub_80234F08(void) {
     s32 i;
     for (i = 0; i < 4; i++) {
-        TTecLuker__data_805D37E0[i] = 0;
+        TTecLuker__visit_counts[i] = 0;
     }
 }
 
 void reset_telepipe_visit_counts(void) {
     s32 i;
     for (i = 0; i < 4; i++) {
-        TTecLuker__data_805D37E0[i] = 0;
+        TTecLuker__visit_counts[i] = 0;
     }
 }
 
 void TTecLuker__sub_80234F48(void) {
     s32 i;
     for (i = 0; i < 4; i++) {
-        TTecLuker__data_805D37E0[i] = 0;
+        TTecLuker__visit_counts[i] = 0;
     }
 }
 

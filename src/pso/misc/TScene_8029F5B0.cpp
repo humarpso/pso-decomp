@@ -6,7 +6,7 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 
 typedef struct { u8 r, g, b, a; } GXColor_8029F5F8;
 extern "C" {
-extern f32 TScene__data_805D5FE4;
+extern f32 TScene__visibility_radius_margin;
 void TScene__sub_8029F5E4(f32 farg0);
 M2C_UNK GXPixModeSync();
 M2C_UNK GXSetTexCopySrc(M2C_UNK, M2C_UNK, M2C_UNK, M2C_UNK);
@@ -35,7 +35,7 @@ void TScene__sub_8029F5D8(void) { TScene__data_805D5FE0 = 0; }
     extern int TScene__data_805D5FE0;
 
 void TScene__sub_8029F5E4(f32 farg0) {
-    TScene__data_805D5FE4 = farg0;
+    TScene__visibility_radius_margin = farg0;
 }
 
 void TScene__sub_8029F5EC(void) { TScene__data_805D5FE0 = 1; }

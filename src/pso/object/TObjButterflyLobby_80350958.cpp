@@ -67,7 +67,7 @@ M2C_UNK VecCopy__FP3VecPC3Vec(void *, void *);
 s32 rand();
 M2C_UNK set_global_param__8TObjFishFi(s32);
 
-extern s32 lbl_805D6EB8;
+extern s32 lobby_butterfly_bml_resource;
 
 void render__18TObjButterflyLobbyFPv(u8 *arg0) {
     f32 temp_f1;
@@ -80,7 +80,7 @@ void render__18TObjButterflyLobbyFPv(u8 *arg0) {
         temp_f1 = M2C_FIELD(arg0, f32 *, 0x94);
         scale_matrix((int) (0), (f32) (temp_f1), (f32) (temp_f1), (f32) (temp_f1));
     }
-    draw_ginja_model_with_motion((int) (M2C_FIELD(arg0, s32 *, 0xC4)), (void *) (get_bml_motion((void *) (lbl_805D6EB8), (int) (0))), (f32) (M2C_FIELD(arg0, f32 *, 0xB0)));
+    draw_ginja_model_with_motion((int) (M2C_FIELD(arg0, s32 *, 0xC4)), (void *) (get_bml_motion((void *) (lobby_butterfly_bml_resource), (int) (0))), (f32) (M2C_FIELD(arg0, f32 *, 0xB0)));
     pop_matrix();
 }
 
@@ -343,11 +343,11 @@ u8 *TObjButterflyLobby__ct(u8 *arg0, int arg1, u8 *arg2) {
     }
     M2C_FIELD(arg0, f32 *, 0x94) = 1.0f;
     if ((s32) M2C_FIELD(arg2, s32 *, 0x30) < 1) {
-        M2C_FIELD(arg0, s32 *, 0xC4) = get_bml_model((void *) (lbl_805D6EB8), (int) (0));
-        M2C_FIELD(arg0, s32 *, 0xC8) = TObjFish__sub_8001EDB0((void *) (lbl_805D6EB8), (int) (0));
+        M2C_FIELD(arg0, s32 *, 0xC4) = get_bml_model((void *) (lobby_butterfly_bml_resource), (int) (0));
+        M2C_FIELD(arg0, s32 *, 0xC8) = TObjFish__sub_8001EDB0((void *) (lobby_butterfly_bml_resource), (int) (0));
     } else {
-        M2C_FIELD(arg0, s32 *, 0xC4) = get_bml_model((void *) (lbl_805D6EB8), (int) (1));
-        M2C_FIELD(arg0, s32 *, 0xC8) = TObjFish__sub_8001EDB0((void *) (lbl_805D6EB8), (int) (1));
+        M2C_FIELD(arg0, s32 *, 0xC4) = get_bml_model((void *) (lobby_butterfly_bml_resource), (int) (1));
+        M2C_FIELD(arg0, s32 *, 0xC8) = TObjFish__sub_8001EDB0((void *) (lobby_butterfly_bml_resource), (int) (1));
     }
     init_params__18TObjButterflyLobbyFPv((u8 *) (arg0));
     return arg0;
@@ -362,9 +362,9 @@ void *TObjButterflyLobby__create(void *arg0) {
 }
 
 void destroy_instance__18TObjButterflyLobbyFv(void) {
-    if ((u32) lbl_805D6EB8 != 0U) {
-        TLobby__sub_8001FE7C((void*)lbl_805D6EB8, 1);
-        lbl_805D6EB8 = 0U;
+    if ((u32) lobby_butterfly_bml_resource != 0U) {
+        TLobby__sub_8001FE7C((void*)lobby_butterfly_bml_resource, 1);
+        lobby_butterfly_bml_resource = 0U;
     }
 }
 

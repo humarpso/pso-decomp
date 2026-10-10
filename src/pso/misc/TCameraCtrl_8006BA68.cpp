@@ -194,7 +194,7 @@ void apply_look_at_from_target__11TCameraCtrlFPv(u8 *arg0);
 s32 get_global_state__14TOKeyMachine01Fv();
 extern void* camera_controller_registry[];
 extern RecoveredGlobal_8006C140_lbl_80488C50 camera_path_bank_table;
-extern RecoveredGlobal_8006C140_TCameraCtrl__data_804FF7C0 TCameraCtrl__data_804FF7C0;
+extern RecoveredGlobal_8006C140_TCameraCtrl__data_804FF7C0 TCameraCtrl__camera_banks;
 }
 
 extern "C" {
@@ -408,7 +408,7 @@ void configure_scripted_camera_playback(u8* playback_data, s32 unused) {
         camera->playback.frame = playback->frame;
         camera->playback.frame_step = playback->frame_step;
         const PathBank* paths = (const PathBank*)&camera_path_bank_table.value;
-        const MotionBank* motions = (const MotionBank*)&TCameraCtrl__data_804FF7C0.value;
+        const MotionBank* motions = (const MotionBank*)&TCameraCtrl__camera_banks.value;
         camera->mode = &paths[get_global_state__14TOKeyMachine01Fv()].modes[camera->playback.bank];
         camera->motion_data = motions[playback->bank].directory->entries[camera->playback.index];
     }
@@ -468,7 +468,7 @@ struct Stack_8006C28C {
 };
 
 void sample_camera_motion(void *, Motion_8006C28C *, void **, f32);
-void set_active_player__10TObjPlayerFi(int);
+void set_camera_capture_overlay_alpha(int);
 f32 vec_squared_length(Vec_8006C28C *);
 void normalize_vector(Vec_8006C28C *);
 void push_matrix_from(void *);
@@ -491,7 +491,7 @@ void update_scripted_camera(Cam_8006C28C *s) {
     st.ptrs[3] = &st.sp58;
     sample_camera_motion(st.out, s->motion, st.ptrs, s->frame);
     s->projection = scripted_camera_projection_angle;
-    set_active_player__10TObjPlayerFi(0x8F);
+    set_camera_capture_overlay_alpha(0x8F);
     if (s->mode->flags & 4) {
         if (s->mode->flags & 0x80) {
             s->projection = 0x36C1;

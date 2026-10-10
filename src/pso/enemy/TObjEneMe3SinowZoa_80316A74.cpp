@@ -344,7 +344,7 @@ void advance_animation_playback(void *);
 void clear_player_status_flag__10TObjPlayerFPviUi(void *, s32, u32);
 void TObjEneMe3SinowZoa__sub_803170F0(u8 *arg0, s32 arg1);
 s32 get_target_info__9TObjEneDDFPv(void *);
-s32 TObjEneDD__sub_800BB878(s32, s32);
+s32 pack_debug_text_position(s32, s32);
 M2C_UNK toggle_particle_effect__10TObjPlayerFv();
 s32 TObjEneMe3SinowZoa__sub_8031A454(void *);
 s32 is_outside_visible_range__18TObjEneMe3SinowZoaFPv(void *);
@@ -690,23 +690,23 @@ void render_with_stealth_debug__18TObjEneMe3SinowZoaFPv(Obj_803173D0 *arg0) {
     f32 frame;
     if (get_target_info__9TObjEneDDFPv(arg0) != 0) {
         if (TObjEneMe3SinowZoa__sub_8031A4D0(arg0) != 0) {
-            debug_printf_at(TObjEneDD__sub_800BB878(0, 2), lbl_80475FD4);
+            debug_printf_at(pack_debug_text_position(0, 2), lbl_80475FD4);
         } else {
-            debug_printf_at(TObjEneDD__sub_800BB878(0, 2), lbl_80475FE4);
+            debug_printf_at(pack_debug_text_position(0, 2), lbl_80475FE4);
         }
         if (is_outside_visible_range__18TObjEneMe3SinowZoaFPv(arg0) != 0) {
-            debug_printf_at(TObjEneDD__sub_800BB878(0xF, 2), lbl_80475FF4);
+            debug_printf_at(pack_debug_text_position(0xF, 2), lbl_80475FF4);
         } else {
-            debug_printf_at(TObjEneDD__sub_800BB878(0xF, 2), lbl_80476004);
+            debug_printf_at(pack_debug_text_position(0xF, 2), lbl_80476004);
         }
-        queue_debug_text__13TObjEneMe1GeeFiPv(TObjEneDD__sub_800BB878(0, 4), lbl_80476010);
-        queue_debug_text__13TObjEneMe1GeeFiPv(TObjEneDD__sub_800BB878(0, 3), lbl_80476028);
-        queue_debug_text__13TObjEneMe1GeeFiPv(TObjEneDD__sub_800BB878(0, 6), lbl_80476040);
-        queue_debug_text__13TObjEneMe1GeeFiPv(TObjEneDD__sub_800BB878(0, 5), lbl_80476058);
+        queue_debug_text__13TObjEneMe1GeeFiPv(pack_debug_text_position(0, 4), lbl_80476010);
+        queue_debug_text__13TObjEneMe1GeeFiPv(pack_debug_text_position(0, 3), lbl_80476028);
+        queue_debug_text__13TObjEneMe1GeeFiPv(pack_debug_text_position(0, 6), lbl_80476040);
+        queue_debug_text__13TObjEneMe1GeeFiPv(pack_debug_text_position(0, 5), lbl_80476058);
         if (TObjEneMe3SinowZoa__sub_8031A454(arg0) != 0) {
-            debug_printf_at(TObjEneDD__sub_800BB878(0, 9), lbl_80476070);
+            debug_printf_at(pack_debug_text_position(0, 9), lbl_80476070);
         } else {
-            debug_printf_at(TObjEneDD__sub_800BB878(0, 9), lbl_80476084);
+            debug_printf_at(pack_debug_text_position(0, 9), lbl_80476084);
         }
     }
     flag = TObjEneMe3SinowZoa__sub_8031A454(arg0);
@@ -755,7 +755,7 @@ void render_with_stealth_debug__18TObjEneMe3SinowZoaFPv(Obj_803173D0 *arg0) {
             arg0->fF8 = motion;
             arg0->fc0 = frame;
             frame = get_node_height__18TObjEneMe3SinowZoaFPv(arg0);
-            print_float_padded(TObjEneDD__sub_800BB878(0, 7), 5, frame);
+            print_float_padded(pack_debug_text_position(0, 7), 5, frame);
         } else {
             some_id_805c6f74 &= ~0x400;
         }

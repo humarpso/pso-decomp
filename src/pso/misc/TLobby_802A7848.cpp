@@ -66,13 +66,13 @@ s32 get_param__6TLobbyFPv(void* p);
 s32 get_field_04__6TLobbyFPv(void* p);
 void TLobby__sub_802A7BC8(void* p);
 M2C_UNK free__11TOBoss4RockFUi(s32);
-extern u32 lbl_805D6694;
+extern u32 snapshot_image_buffer;
 void TLobby__sub_802A7BD8(void);
 s32 fn_802A5C3C(s32);
 s32 get_size__15TWindowSnapShotFPv(s32);
 M2C_UNK memcpy(s32, s32, s32);
 extern s32 lbl_805D6690;
-extern u32 lbl_805D6694;
+extern u32 snapshot_image_buffer;
 extern s32 lbl_805D6698;
 s32 copy_if_space(void);
 s32 fn_802A5B2C(s32);
@@ -80,7 +80,7 @@ s32 fn_802A5B50(s32, s32);
 s32 rlc_get_directory_offset(s32);
 M2C_UNK fn_802A6070(s32, s32);
 M2C_UNK fn_802A6078(s32, s32);
-extern u32 lbl_805D6694;
+extern u32 snapshot_image_buffer;
 extern s32 lbl_805D669C;
 void set_slot_position__6TLobbyFii(s32 arg0, s32 arg1);
 M2C_UNK aram_dma_blocking__6TLobbyFiiii(M2C_UNK, s32, s32, s32, s32);
@@ -89,7 +89,7 @@ s32 alloc_buffer__11TOBoss4RockFPv(s32);
 int get_width__15TWindowSnapShotFv(void);
 int get_max_players__6TLobbyFv(void);
 int get_height__15TWindowSnapShotFv(void);
-extern u32 lbl_805D6694;
+extern u32 snapshot_image_buffer;
 extern s32 lbl_805D6698;
 void alloc_snapshot_buffer__6TLobbyFv(void);
 s32 free_if_positive__6TLobbyFis(s32, s16);
@@ -214,16 +214,16 @@ s32 get_param__6TLobbyFPv(void* p) { return *(s32*)((char*)p + 0x0); }
 s32 get_field_04__6TLobbyFPv(void* p) { return *(s32*)((char*)p + 0x4); }
 void TLobby__sub_802A7BC8(void* p) { *(s32*)((char*)p + 0x0) = 0; *(s32*)((char*)p + 0x4) = 0; }
 void TLobby__sub_802A7BD8(void) {
-    if ((u32) lbl_805D6694 != 0U) {
-        free__11TOBoss4RockFUi((s32)((void*)lbl_805D6694));
-        lbl_805D6694 = 0U;
+    if ((u32) snapshot_image_buffer != 0U) {
+        free__11TOBoss4RockFUi((s32)((void*)snapshot_image_buffer));
+        snapshot_image_buffer = 0U;
     }
 }
 s32 copy_if_space(void) {
     if (fn_802A5C3C(lbl_805D6690) >= 0x258) {
         return 0;
     }
-    memcpy((*(s32 *)&lbl_805D6694), get_size__15TWindowSnapShotFPv(lbl_805D6690), lbl_805D6698);
+    memcpy((*(s32 *)&snapshot_image_buffer), get_size__15TWindowSnapShotFPv(lbl_805D6690), lbl_805D6698);
     return 1;
 }
 
@@ -232,7 +232,7 @@ void alloc_snapshot_buffer__6TLobbyFv(void) {
   s32 temp_r31_2;
   u32 temp_r3;
   u8 *temp_r31_3;
-  if (((u32) lbl_805D6694) == 0U)
+  if (((u32) snapshot_image_buffer) == 0U)
   {
     temp_r31 = get_height__15TWindowSnapShotFv();
     temp_r31_2 = get_max_players__6TLobbyFv();
@@ -240,7 +240,7 @@ void alloc_snapshot_buffer__6TLobbyFv(void) {
     temp_r31 = get_width__15TWindowSnapShotFv();
     temp_r31_3 = (u8 *) (temp_r31 + temp_r31_2);
     temp_r3 = ((int)alloc_buffer__11TOBoss4RockFPv((s32)(temp_r31_3)));
-    lbl_805D6694 = temp_r3;
+    snapshot_image_buffer = temp_r3;
     if (temp_r3 != 0U)
     {
       (*(u8 * *)&lbl_805D6698) = temp_r31_3;
@@ -250,10 +250,10 @@ void alloc_snapshot_buffer__6TLobbyFv(void) {
 
 void set_slot_position__6TLobbyFii(s32 arg0, s32 arg1) {
     s32 temp_r31;
-    temp_r31 = rlc_get_directory_offset((*(s32 *)&lbl_805D6694));
-    temp_r31 = (*(s32 *)&lbl_805D6694) + temp_r31;
+    temp_r31 = rlc_get_directory_offset((*(s32 *)&snapshot_image_buffer));
+    temp_r31 = (*(s32 *)&snapshot_image_buffer) + temp_r31;
     temp_r31 = temp_r31 + arg0 * 8;
-    fn_802A6078(arg1, lbl_805D669C + fn_802A5B50(temp_r31, (*(s32 *)&lbl_805D6694)));
+    fn_802A6078(arg1, lbl_805D669C + fn_802A5B50(temp_r31, (*(s32 *)&snapshot_image_buffer)));
     fn_802A6070(arg1, fn_802A5B2C(temp_r31));
 }
 void send_type2_event__6TLobbyFiii(s32 arg0, s32 arg1, s32 arg2) {

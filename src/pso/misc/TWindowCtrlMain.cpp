@@ -32,10 +32,10 @@ extern void *tl_window;
 extern void *tl_clipout;
 extern void *tl_fadeafter;
 extern void *TWindowCtrlMain__instance;
-extern void *TWindowCtrlMain__data_805D6408;
-extern void *TWindowCtrlMain__data_805D640C;
-extern void *TWindowCtrlMain__data_805D6410;
-extern void *TWindowCtrlMain__data_805D6414;
+extern void *TWindowCtrlMain__window_task_root;
+extern void *TWindowCtrlMain__screen_controller;
+extern void *TWindowCtrlMain__sub_controller;
+extern void *window_clip_out_instance;
 Obj_8024D520 *TWindowCtrlMain__ct(Obj_8024D520 *arg0);
 M2C_UNK __dt__7TObjectFv(void *, M2C_UNK);
 M2C_UNK __dl__7TObjectFPv(void *);
@@ -43,20 +43,20 @@ M2C_UNK release_ptr__15TWindowCtrlMainFPv(void *);
 extern u8 __vt__15TWindowCtrlMain[];
 extern Ent_8024D520 TWindowCtrlMain__viewport_states[6];
 extern void *TWindowCtrlMain__instance;
-extern void *TWindowCtrlMain__data_805D6408;
-extern void *TWindowCtrlMain__data_805D640C;
-extern void *TWindowCtrlMain__data_805D6410;
-extern void *TWindowCtrlMain__data_805D6414;
+extern void *TWindowCtrlMain__window_task_root;
+extern void *TWindowCtrlMain__screen_controller;
+extern void *TWindowCtrlMain__sub_controller;
+extern void *window_clip_out_instance;
 void *__dt__15TWindowCtrlMainFv(void *arg0, s16 arg1);
 M2C_UNK free_window__15TWindowCtrlMainFv();
 M2C_UNK release_ptr__15TWindowCtrlMainFPv(void *);
 M2C_UNK free_keyboard_soft__15TWindowCtrlMainFv();
 extern Ent_8024D520 TWindowCtrlMain__viewport_states[6];
 extern void *TWindowCtrlMain__instance;
-extern void *TWindowCtrlMain__data_805D6408;
-extern void *TWindowCtrlMain__data_805D640C;
-extern void *TWindowCtrlMain__data_805D6410;
-extern void *TWindowCtrlMain__data_805D6414;
+extern void *TWindowCtrlMain__window_task_root;
+extern void *TWindowCtrlMain__screen_controller;
+extern void *TWindowCtrlMain__sub_controller;
+extern void *window_clip_out_instance;
 void free_all_windows__15TWindowCtrlMainFv(void);
 M2C_UNK load_hud_palette_textures();
 void init_fields__15TWindowCtrlMainFPv(void *);
@@ -65,11 +65,11 @@ M2C_UNK TWindowCtrlMain__sub_8024EF30();
 extern Ent_8024D520 TWindowCtrlMain__viewport_states[6];
 extern void *TWindowCtrlMain__display_flags;
 extern void *TWindowCtrlMain__instance;
-extern void *TWindowCtrlMain__data_805D6408;
-extern void *TWindowCtrlMain__data_805D640C;
-extern void *TWindowCtrlMain__data_805D6410;
-extern void *TWindowCtrlMain__data_805D6414;
-extern f32 lbl_805D6418;
+extern void *TWindowCtrlMain__window_task_root;
+extern void *TWindowCtrlMain__screen_controller;
+extern void *TWindowCtrlMain__sub_controller;
+extern void *window_clip_out_instance;
+extern f32 window_depth_order_cursor;
 extern const f32 lbl_805DCC58;
 void reset_all__15TWindowCtrlMainFPv(void* _w0);
 }
@@ -108,19 +108,19 @@ void *__dt__15TWindowCtrlMainFv(void *arg0, s16 arg1) {
     s32 i;
     if (arg0 != NULL) {
         M2C_FIELD(arg0, u8 **, 0x18) = __vt__15TWindowCtrlMain;
-        root = (W_8024D3C0 *)TWindowCtrlMain__data_805D6408;
-        TWindowCtrlMain__data_805D6408 = NULL;
-        if (TWindowCtrlMain__data_805D6414 != NULL) {
-            delete (W_8024D3C0 *)TWindowCtrlMain__data_805D6414;
-            TWindowCtrlMain__data_805D6414 = NULL;
+        root = (W_8024D3C0 *)TWindowCtrlMain__window_task_root;
+        TWindowCtrlMain__window_task_root = NULL;
+        if (window_clip_out_instance != NULL) {
+            delete (W_8024D3C0 *)window_clip_out_instance;
+            window_clip_out_instance = NULL;
         }
-        if (TWindowCtrlMain__data_805D6410 != NULL) {
-            delete (W_8024D3C0 *)TWindowCtrlMain__data_805D6410;
-            TWindowCtrlMain__data_805D6410 = NULL;
+        if (TWindowCtrlMain__sub_controller != NULL) {
+            delete (W_8024D3C0 *)TWindowCtrlMain__sub_controller;
+            TWindowCtrlMain__sub_controller = NULL;
         }
-        if (TWindowCtrlMain__data_805D640C != NULL) {
-            delete (W_8024D3C0 *)TWindowCtrlMain__data_805D640C;
-            TWindowCtrlMain__data_805D640C = NULL;
+        if (TWindowCtrlMain__screen_controller != NULL) {
+            delete (W_8024D3C0 *)TWindowCtrlMain__screen_controller;
+            TWindowCtrlMain__screen_controller = NULL;
         }
         for (i = 5; i >= 0; i--) {
             release_ptr__15TWindowCtrlMainFPv(&TWindowCtrlMain__viewport_states[i]);
@@ -147,17 +147,17 @@ Obj_8024D520 *TWindowCtrlMain__ct(Obj_8024D520 *arg0) {
     __ct__7TObjectFP7TObject(arg0, tl_fadeafter);
     arg0->vt = __vt__15TWindowCtrlMain;
     arg0->id = lbl_805D38D0;
-    if (TWindowCtrlMain__data_805D6408 == 0) {
+    if (TWindowCtrlMain__window_task_root == 0) {
         p = __nw__7TObjectFUl(0x1C);
         if (p != 0) {
             p = __ct__7TObjectFP7TObject(p, 0);
         }
-        TWindowCtrlMain__data_805D6408 = p;
+        TWindowCtrlMain__window_task_root = p;
     }
     if (TWindowCtrlMain__instance == 0) {
         p = __nw__7TObjectFUl(0x1C);
         if (p != 0) {
-            p = __ct__7TObjectFP7TObject(p, TWindowCtrlMain__data_805D6408);
+            p = __ct__7TObjectFP7TObject(p, TWindowCtrlMain__window_task_root);
         }
         TWindowCtrlMain__instance = p;
     }
@@ -166,30 +166,30 @@ Obj_8024D520 *TWindowCtrlMain__ct(Obj_8024D520 *arg0) {
         init_fields__15TWindowCtrlMainFPv(e);
         p = __nw__7TObjectFUl(0x1C);
         if (p != 0) {
-            p = __ct__7TObjectFP7TObject(p, TWindowCtrlMain__data_805D6408);
+            p = __ct__7TObjectFP7TObject(p, TWindowCtrlMain__window_task_root);
         }
         e->obj = p;
     }
-    if (TWindowCtrlMain__data_805D640C == 0) {
+    if (TWindowCtrlMain__screen_controller == 0) {
         p = __nw__7TObjectFUl(0x1C);
         if (p != 0) {
             p = TWindowCtrlScreen__ct(p, tl_window);
         }
-        TWindowCtrlMain__data_805D640C = p;
+        TWindowCtrlMain__screen_controller = p;
     }
-    if (TWindowCtrlMain__data_805D6410 == 0) {
+    if (TWindowCtrlMain__sub_controller == 0) {
         p = __nw__7TObjectFUl(0x1C);
         if (p != 0) {
             p = TWindowCtrlSub__ct(p, tl_01);
         }
-        TWindowCtrlMain__data_805D6410 = p;
+        TWindowCtrlMain__sub_controller = p;
     }
-    if (TWindowCtrlMain__data_805D6414 == 0) {
+    if (window_clip_out_instance == 0) {
         p = __nw__7TObjectFUl(0x1C);
         if (p != 0) {
             p = TWindowCtrlClipOut__ct(p, tl_clipout);
         }
-        TWindowCtrlMain__data_805D6414 = p;
+        window_clip_out_instance = p;
     }
     return arg0;
 }
@@ -197,19 +197,19 @@ Obj_8024D520 *TWindowCtrlMain__ct(Obj_8024D520 *arg0) {
 void free_all_windows__15TWindowCtrlMainFv(void) {
     W_8024D690 *root;
     s32 i;
-    root = (W_8024D690 *)TWindowCtrlMain__data_805D6408;
-    TWindowCtrlMain__data_805D6408 = NULL;
-    if (TWindowCtrlMain__data_805D6414 != NULL) {
-        delete (W_8024D690 *)TWindowCtrlMain__data_805D6414;
-        TWindowCtrlMain__data_805D6414 = NULL;
+    root = (W_8024D690 *)TWindowCtrlMain__window_task_root;
+    TWindowCtrlMain__window_task_root = NULL;
+    if (window_clip_out_instance != NULL) {
+        delete (W_8024D690 *)window_clip_out_instance;
+        window_clip_out_instance = NULL;
     }
-    if (TWindowCtrlMain__data_805D6410 != NULL) {
-        delete (W_8024D690 *)TWindowCtrlMain__data_805D6410;
-        TWindowCtrlMain__data_805D6410 = NULL;
+    if (TWindowCtrlMain__sub_controller != NULL) {
+        delete (W_8024D690 *)TWindowCtrlMain__sub_controller;
+        TWindowCtrlMain__sub_controller = NULL;
     }
-    if (TWindowCtrlMain__data_805D640C != NULL) {
-        delete (W_8024D690 *)TWindowCtrlMain__data_805D640C;
-        TWindowCtrlMain__data_805D640C = NULL;
+    if (TWindowCtrlMain__screen_controller != NULL) {
+        delete (W_8024D690 *)TWindowCtrlMain__screen_controller;
+        TWindowCtrlMain__screen_controller = NULL;
     }
     for (i = 5; i >= 0; i--) {
         release_ptr__15TWindowCtrlMainFPv(&TWindowCtrlMain__viewport_states[i]);
@@ -231,12 +231,12 @@ void reset_all__15TWindowCtrlMainFPv(void* _w0) {
     TWindowCtrlMain__sub_8024EF30();
     get_or_create_instance__19TWindowKeyBoardSoftFv();
     TWindowCtrlMain__display_flags = 0;
-    TWindowCtrlMain__data_805D6408 = 0;
-    TWindowCtrlMain__data_805D640C = 0;
-    TWindowCtrlMain__data_805D6410 = 0;
-    TWindowCtrlMain__data_805D6414 = 0;
+    TWindowCtrlMain__window_task_root = 0;
+    TWindowCtrlMain__screen_controller = 0;
+    TWindowCtrlMain__sub_controller = 0;
+    window_clip_out_instance = 0;
     TWindowCtrlMain__instance = 0;
-    lbl_805D6418 = lbl_805DCC58;
+    window_depth_order_cursor = lbl_805DCC58;
     for (i = 0; i < 6; i++) {
         init_fields__15TWindowCtrlMainFPv(&TWindowCtrlMain__viewport_states[i]);
     }

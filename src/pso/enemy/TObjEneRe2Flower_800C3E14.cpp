@@ -184,7 +184,7 @@ s32 spawn_npc_enemy__6TLobbyFsiiiff(int, int, int, void *, f32, f32);
 extern RecoveredGlobal_800C44C4_lbl_8043BB90 lbl_8043BB90;
 extern RecoveredGlobal_800C44C4_lbl_8043BBE0 lbl_8043BBE0;
 extern RecoveredGlobal_800C44C4_lbl_8043BBF4 lbl_8043BBF4;
-extern RecoveredGlobal_800C44C4_lbl_8049316C lbl_8049316C;
+extern RecoveredGlobal_800C44C4_lbl_8049316C TObjEneRe2Flower__resource_descriptor;
 extern s32 lbl_805D5178;
 extern s32 lbl_805D517C;
 extern s32 lbl_805D5180;
@@ -371,11 +371,11 @@ void TObjPlayer__sub_800C44C4(void) {
     u8 *temp_r5;
 
     if (get_global_state__14TOKeyMachine01Fv() == 0x23) {
-        lbl_805D5174 = (u32) load_enemy_bml_resource_named(&lbl_8049316C.value, &lbl_8043BBE0.value);
+        lbl_805D5174 = (u32) load_enemy_bml_resource_named(&TObjEneRe2Flower__resource_descriptor.value, &lbl_8043BBE0.value);
     } else if (check_v2_mode__9TObjEneDDFv() != 0) {
-        lbl_805D5174 = (u32) load_enemy_bml_resource_named(&lbl_8049316C.value, &lbl_8043BBF4.value);
+        lbl_805D5174 = (u32) load_enemy_bml_resource_named(&TObjEneRe2Flower__resource_descriptor.value, &lbl_8043BBF4.value);
     } else {
-        lbl_805D5174 = (u32) load_enemy_bml_resource(&lbl_8049316C.value);
+        lbl_805D5174 = (u32) load_enemy_bml_resource(&TObjEneRe2Flower__resource_descriptor.value);
     }
     lbl_805D5178 = 0;
     lbl_805D517C = 0;

@@ -184,7 +184,7 @@ void set_state_3__22TAdEnterSerialAccessGCFPv(void* p);
 s32 forward_input__22TAdEnterSerialAccessGCFPv(void *, void *, int);
 void strncpy(s32, s32, s32);
 s32 strlen(int);
-extern RecoveredGlobal_80321B28_TAdEnterSerialAccessGC__data_804764E8 TAdEnterSerialAccessGC__data_804764E8;
+extern RecoveredGlobal_80321B28_TAdEnterSerialAccessGC__data_804764E8 TAdEnterSerialAccessGC__selection_positions;
 extern RecoveredGlobal_80321874_TAdEnterSerialAccessGC__data_804EC9B8 TAdEnterSerialAccessGC__raw_serial_buffer;
 extern RecoveredGlobal_803217B8_TAdEnterSerialAccessGC__data_804EC9C4 TAdEnterSerialAccessGC__access_key_input_buffer;
 extern RecoveredGlobal_80321B28_lbl_8050E208 controller_input_state;
@@ -232,7 +232,7 @@ void init__22TAdEnterSerialAccessGCFv(void);
 void TAdEnterSerialAccessGC__sub_8032190C(s32 arg0);
 void TAdEnterSerialAccessGC__sub_80322418(s32 arg0, s32 arg1);
 void TAdEnterBaseGC__ct(void *);
-extern RecoveredGlobal_80321B28_TAdEnterSerialAccessGC__data_804764E8 TAdEnterSerialAccessGC__data_804764E8;
+extern RecoveredGlobal_80321B28_TAdEnterSerialAccessGC__data_804764E8 TAdEnterSerialAccessGC__selection_positions;
 extern u8 lbl_804764F8[];
 extern M2C_UNK __vt__22TAdEnterSerialAccessGC[];
 extern s32 lbl_805D4158;
@@ -655,7 +655,7 @@ void TAdEnterSerialAccessGC__sub_80321B28(u8 *arg0, int arg1) {
       if (temp_r3_9 != 0U)
       {
         reset_input_state__22TAdEnterSerialAccessGCFPv((int) temp_r3_9);
-        add_item_rect__12TLevelSelectFPvPv((int) (*((unsigned int *) (((s8 *) arg0) + 0x54))), (void *) (((u8 *) (&TAdEnterSerialAccessGC__data_804764E8.value)) + 8));
+        add_item_rect__12TLevelSelectFPvPv((int) (*((unsigned int *) (((s8 *) arg0) + 0x54))), (void *) (((u8 *) (&TAdEnterSerialAccessGC__selection_positions.value)) + 8));
       }
     }
     else
@@ -664,7 +664,7 @@ void TAdEnterSerialAccessGC__sub_80321B28(u8 *arg0, int arg1) {
       if (temp_r3_10 != 0U)
       {
         reset_input_state__22TAdEnterSerialAccessGCFPv((int) temp_r3_10);
-        add_item_rect__12TLevelSelectFPvPv((int) (*((unsigned int *) (((s8 *) arg0) + 0x54))), (void *) (&TAdEnterSerialAccessGC__data_804764E8.value));
+        add_item_rect__12TLevelSelectFPvPv((int) (*((unsigned int *) (((s8 *) arg0) + 0x54))), (void *) (&TAdEnterSerialAccessGC__selection_positions.value));
       }
     }
   }
@@ -760,7 +760,7 @@ void run_task__22TAdEnterSerialAccessGCFv(TAdEnterSerialAccessGC_80321F60 *self)
         self->field_5C = ((s32 (*)(void *))create_draw_callback__22TAdEnterSerialAccessGCFv)(self);
         if (self->field_54 != NULL) {
             reset_input_state__22TAdEnterSerialAccessGCFPv((int)self->field_54);
-            add_item_rect__12TLevelSelectFPvPv((int)self->field_54, &TAdEnterSerialAccessGC__data_804764E8);
+            add_item_rect__12TLevelSelectFPvPv((int)self->field_54, &TAdEnterSerialAccessGC__selection_positions);
             set_active__22TAdEnterSerialAccessGCFPv((int)self->field_54);
         }
         TAdEnterSerialAccessGC__keyboard_control = create_keyboard_control__22TAdEnterSerialAccessGCFii(self, 0);
@@ -773,7 +773,7 @@ void run_task__22TAdEnterSerialAccessGCFv(TAdEnterSerialAccessGC_80321F60 *self)
         self->field_60 = 0;
         if (self->field_54 != NULL) {
             reset_input_state__22TAdEnterSerialAccessGCFPv((int)self->field_54);
-            add_item_rect__12TLevelSelectFPvPv((int)self->field_54, &TAdEnterSerialAccessGC__data_804764E8);
+            add_item_rect__12TLevelSelectFPvPv((int)self->field_54, &TAdEnterSerialAccessGC__selection_positions);
             set_active__22TAdEnterSerialAccessGCFPv((int)self->field_54);
         }
         p = __nw__7TObjectFUl(0x138);
@@ -870,7 +870,7 @@ u8 *TAdEnterSerialAccessGC__ct(u8 *arg0) {
     }
     p = __nw__7TObjectFUl(0x708);
     if (p != 0) {
-        p = __ct__14TAdSelectCurGCFv(p, tl_clipout, &TAdEnterSerialAccessGC__data_804764E8, lbl_804764F8);
+        p = __ct__14TAdSelectCurGCFv(p, tl_clipout, &TAdEnterSerialAccessGC__selection_positions, lbl_804764F8);
     }
     M2C_FIELD(arg0, void **, 0x54) = p;
     return arg0;

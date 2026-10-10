@@ -31,10 +31,10 @@ void reset_photon_effect__10TObjPlayerFPv(s32);
 void refresh_collision_body_centers(void *);
 u32 init_collision_body_parts(void *, s32, s32);
 u8 * TORockCave__ct(void *);
-extern RecoveredGlobal_80174698_lbl_804B3BA8 lbl_804B3BA8;
+extern RecoveredGlobal_80174698_lbl_804B3BA8 cave_rock_collision_body_templates;
 extern RecoveredGlobal_80174698___vt__13TORockCaveM02 __vt__13TORockCaveM02;
 extern s32 lbl_805D3118;
-extern u8 *lbl_805D5A80;
+extern u8 *cave_rock_resource_bundle;
 extern const f32 lbl_805DB970;
 u8 *TORockCaveM02__ct(u8 *arg0, s32 arg1);
 }
@@ -48,10 +48,10 @@ u8 *TORockCaveM02__ct(u8 *arg0, s32 arg1) {
     M2C_FIELD(arg0, M2C_UNK **, 0x18) = &__vt__13TORockCaveM02.value;
     M2C_FIELD(arg0, s32 *, 0) = (s32) lbl_805D3118;
     ((VObj_18_1a504b *)(arg0))->m5(arg1);
-    M2C_FIELD(arg0, s32 *, 0x34) = get_bml_model(lbl_805D5A80, 1);
-    M2C_FIELD(arg0, s32 *, 0x24) = TObjFish__sub_8001EDB0(lbl_805D5A80, 1);
+    M2C_FIELD(arg0, s32 *, 0x34) = get_bml_model(cave_rock_resource_bundle, 1);
+    M2C_FIELD(arg0, s32 *, 0x24) = TObjFish__sub_8001EDB0(cave_rock_resource_bundle, 1);
     M2C_FIELD(arg0, f32 *, 0xB0) = (f32) lbl_805DB970;
-    init_collision_body_parts(arg0, (s32) ((u8 *)&lbl_804B3BA8.value + 0x2C), 1);
+    init_collision_body_parts(arg0, (s32) ((u8 *)&cave_rock_collision_body_templates.value + 0x2C), 1);
     refresh_collision_body_centers(arg0);
     reset_photon_effect__10TObjPlayerFPv((s32) arg0);
     return arg0;

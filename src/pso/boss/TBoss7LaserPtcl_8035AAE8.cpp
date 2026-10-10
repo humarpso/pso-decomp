@@ -26,7 +26,7 @@ s32 spawn_continuous_particle_effect_with_flags(s32, s32, s32);
 void __ct__7TObjectFP7TObject(void *, void *);
 void update_position__15TBoss7LaserPtclFPv(void *);
 extern M2C_UNK __vt__15TBoss7LaserPtcl[];
-extern s32 lbl_805D4410;
+extern s32 TBoss7LaserPtcl__class_name;
 extern const f32 lbl_805E010C;
 u8 *TBoss7LaserPtcl__ct(u8 *arg0, u8 *arg1, u8 *arg2, u8 *arg3);
 void VecCopy__FP3VecPC3Vec(void *, void *);
@@ -79,7 +79,7 @@ void *__dt__15TBoss7LaserPtclFv(void *arg0, s16 arg1) {
 u8 *TBoss7LaserPtcl__ct(u8 *arg0, u8 *arg1, u8 *arg2, u8 *arg3) {
     __ct__7TObjectFP7TObject(arg0, arg1);
     M2C_FIELD(arg0, M2C_UNK **, 0x18) = &(*(RecoveredGlobal_8035ACBC___vt__15TBoss7LaserPtcl *)&__vt__15TBoss7LaserPtcl).value;
-    M2C_FIELD(arg0, s32 *, 0) = (s32) lbl_805D4410;
+    M2C_FIELD(arg0, s32 *, 0) = (s32) TBoss7LaserPtcl__class_name;
     M2C_FIELD(arg0, f32 *, 0x4C) = (f32) lbl_805E010C;
     M2C_FIELD(arg0, s32 *, 0x54) = 0;
     M2C_FIELD(arg0, s32 *, 0x1C) = 0;

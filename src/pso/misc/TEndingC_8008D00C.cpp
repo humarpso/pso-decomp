@@ -420,8 +420,8 @@ s32 update_action_hold_status__10TObjPlayerFv();
     extern int TEndingAB__fade_sequence_state;
 void TEndingAB__sub_8008D5A0(void) { TEndingAB__fade_sequence_state = 1; }
 
-    extern int TEndingPic__data_805D6EE0;
-void TEndingPic__sub_8008D5AC(void) { TEndingPic__data_805D6EE0 = 1; }
+    extern int TEndingPic__animation_state;
+void TEndingPic__sub_8008D5AC(void) { TEndingPic__animation_state = 1; }
 
     extern int ending_frame_counter;
 int TEnding__sub_8008D5B8(void) {  return ending_frame_counter; }

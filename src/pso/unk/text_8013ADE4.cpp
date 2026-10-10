@@ -9,7 +9,7 @@ struct RecoveredGlobal_8013ADE4_TAdEnterPasswordGC__data_804EDA20 {
 };
 
 extern "C" {
-extern RecoveredGlobal_8013ADE4_TAdEnterPasswordGC__data_804EDA20 TAdEnterPasswordGC__data_804EDA20;
+extern RecoveredGlobal_8013ADE4_TAdEnterPasswordGC__data_804EDA20 TAdEnterPasswordGC__input_buffer;
 M2C_UNK *TAdEnterPasswordGC__sub_8013ADE4(void);
 }
 
@@ -17,7 +17,7 @@ extern "C" {
 
 typedef char RecoveredGlobal_8013ADE4_TAdEnterPasswordGC__data_804EDA20_size[sizeof(RecoveredGlobal_8013ADE4_TAdEnterPasswordGC__data_804EDA20) == 0x84 ? 1 : -1];
 M2C_UNK *TAdEnterPasswordGC__sub_8013ADE4(void) {
-    return &TAdEnterPasswordGC__data_804EDA20.value;
+    return &TAdEnterPasswordGC__input_buffer.value;
 }
 
 }

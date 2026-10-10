@@ -15,7 +15,7 @@ struct RecoveredGlobal_8028EBCC_TObjCMMainMenu__data_804DB9C8 {
 };
 
 extern "C" {
-extern RecoveredGlobal_8028EC24_lbl_8051C07C lbl_8051C07C;
+extern RecoveredGlobal_8028EC24_lbl_8051C07C character_creation_name_buffer;
 void TObjCMMainMenu__sub_8028EC24(void);
 extern RecoveredGlobal_8028EBCC_TObjCMMainMenu__data_804DB9C8 TObjCMMainMenu__data_804DB9C8;
 s32 TObjCMMainMenu__sub_8028EBCC(u8 *arg0);
@@ -137,7 +137,7 @@ void TObjCMMainMenu__sub_8028EC18(void) { creation_dressing_room_mode_flag = 1; 
 
 typedef char RecoveredGlobal_8028EC24_lbl_8051C07C_size[sizeof(RecoveredGlobal_8028EC24_lbl_8051C07C) == 0x18 ? 1 : -1];
 void TObjCMMainMenu__sub_8028EC24(void) {
-    lbl_8051C07C.value = 0;
+    character_creation_name_buffer.value = 0;
 }
 
 void TObjCMMainMenu__sub_8028EC34(void) { creation_dressing_room_mode_flag = 0; }

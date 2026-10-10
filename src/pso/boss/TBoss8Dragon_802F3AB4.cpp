@@ -7,9 +7,9 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 extern "C" {
 s32 TBoss8Dragon__sub_802F3C94(void *arg0, s32 arg1);
 u16 get_part_count_plus__12TBoss8DragonFPvi(void *arg0, s32 arg1);
-void TBoss8Dragon__sub_802F3C78(void);
+void clear_boss8_dragon_leader_part(void);
     extern void* boss8_dragon_leader_part;
-void TBoss8Dragon__sub_802F3C78(void);
+void clear_boss8_dragon_leader_part(void);
 void TBoss8Dragon__sub_802F3C74(void);
 void TBoss8Dragon__sub_802F3C74(void);
 void *__nw__7TObjectFUl(int);
@@ -105,7 +105,7 @@ void * TBoss8Dragon__sub_802F3C24(void *arg0, void *arg1) {
 
 void TBoss8Dragon__sub_802F3C74(void) {  }
 
-void TBoss8Dragon__sub_802F3C78(void) { boss8_dragon_leader_part = 0; }
+void clear_boss8_dragon_leader_part(void) { boss8_dragon_leader_part = 0; }
 
 u16 get_part_count_plus__12TBoss8DragonFPvi(void *arg0, s32 arg1) {
     return (u16) (M2C_FIELD(arg0, u16 *, 0x22) + arg1);

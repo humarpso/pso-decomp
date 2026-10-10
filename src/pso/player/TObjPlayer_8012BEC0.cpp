@@ -7,11 +7,11 @@ extern "C" {
 void *ct_variant__10TObjPlayerFPv(void *arg0);
 void TItemWeapon__ct(void *);
 
-extern M2C_UNK lbl_804A5058[];
+extern M2C_UNK rabbit_wand_weapon_vtable[];
 
 void *ct_variant__10TObjPlayerFPv(void *arg0) {
     TItemWeapon__ct(arg0);
-    M2C_FIELD(arg0, M2C_UNK **, 0x18) = lbl_804A5058;
+    M2C_FIELD(arg0, M2C_UNK **, 0x18) = rabbit_wand_weapon_vtable;
     return arg0;
 }
 

@@ -19,7 +19,7 @@ struct Bank_8006C6CC {
 };
 
 extern "C" {
-extern G_8006C668 TCameraCtrl__data_804FF7C0;
+extern G_8006C668 TCameraCtrl__camera_banks;
 void xfree__FPv(void *);
 void free_entries__11TCameraCtrlFv(void);
 s32 load_relocatable_file(s32, void *);
@@ -27,7 +27,7 @@ s32 update_lobby_scene__6TSceneFPv(s32);
 s32 get_global_state__14TOKeyMachine01Fv();
 void *xmalloc__FUl(s32);
 extern Bank_8006C6CC camera_path_bank_table[];
-extern G_8006C668 TCameraCtrl__data_804FF7C0;
+extern G_8006C668 TCameraCtrl__camera_banks;
 void load_camera_banks__11TCameraCtrlFv(void);
 }
 
@@ -54,9 +54,9 @@ void* reset__11TCameraCtrlFPv(void* a0) { TCameraCtrl__sub_80068714(); *(int*)((
 void free_entries__11TCameraCtrlFv(void) {
     s32 i;
     for (i = 0; i < 8; i++) {
-        if (TCameraCtrl__data_804FF7C0.e[i].p != 0) {
-            xfree__FPv(TCameraCtrl__data_804FF7C0.e[i].p);
-            TCameraCtrl__data_804FF7C0.e[i].p = 0;
+        if (TCameraCtrl__camera_banks.e[i].p != 0) {
+            xfree__FPv(TCameraCtrl__camera_banks.e[i].p);
+            TCameraCtrl__camera_banks.e[i].p = 0;
         }
     }
 }
@@ -69,7 +69,7 @@ void load_camera_banks__11TCameraCtrlFv(void) {
     s32 i;
     s32 sz;
     for (i = 0; i < 8; i++) {
-        TCameraCtrl__data_804FF7C0.e[i].p = 0;
+        TCameraCtrl__camera_banks.e[i].p = 0;
     }
     b = &camera_path_bank_table[get_global_state__14TOKeyMachine01Fv()];
     if (b->entries == 0) {
@@ -84,10 +84,10 @@ void load_camera_banks__11TCameraCtrlFv(void) {
         if (sz <= -1) {
             return;
         }
-        TCameraCtrl__data_804FF7C0.e[j].p = xmalloc__FUl(sz);
+        TCameraCtrl__camera_banks.e[j].p = xmalloc__FUl(sz);
     }
     for (k = 0; k < n; k++) {
-        TCameraCtrl__data_804FF7C0.e[k].a = load_relocatable_file(b->entries[k].id, TCameraCtrl__data_804FF7C0.e[k].p);
+        TCameraCtrl__camera_banks.e[k].a = load_relocatable_file(b->entries[k].id, TCameraCtrl__camera_banks.e[k].p);
     }
 }
 

@@ -1,7 +1,7 @@
 #include "pso/TOChatSensorCapture.h"
 
 extern "C" void free__11TOBoss4RockFUi(void*);
-extern s32 TOChatSensorCapture__data_805D58D8;
+extern s32 TOChatSensorCapture__instance;
 
 #include "types.h"
 typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
@@ -41,7 +41,7 @@ TOChatSensorCapture::~TOChatSensorCapture() {
     for (int i = 0; i != 4; i++) {
         free__11TOBoss4RockFUi(m_arr[i]);
     }
-    TOChatSensorCapture__data_805D58D8 = 0;
+    TOChatSensorCapture__instance = 0;
 }
 #pragma pop
 

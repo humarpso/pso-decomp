@@ -389,7 +389,7 @@ u16 obj_getField1c(void *);
 M2C_UNK fn_8002B630(void *, void *);
 u32 get_valid_target_player__10TNpcPlayerFv(int);
 M2C_UNK init_all_slots__10TObjPlayerFv();
-extern u8 lbl_804976E4[];
+extern u8 TObjEneMe3Stelth__collision_body_template[];
 s32 TObjEneMe3Stelth__sub_800F0F84(u8 *arg0, Vec_800F0F84 *arg1);
 }
 
@@ -435,7 +435,7 @@ s32 TObjEneMe3Stelth__sub_800F0F84(u8 *arg0, Vec_800F0F84 *arg1) {
     result = (ent->f18 & 0x200000) != 0;
     VecCopy__FP3VecPC3Vec(arg0 + 0x38, &sp);
     init_all_slots__10TObjPlayerFv();
-    fn_8002B630(ent, lbl_804976E4);
+    fn_8002B630(ent, TObjEneMe3Stelth__collision_body_template);
     ent->f18 = saved;
     return result;
 }

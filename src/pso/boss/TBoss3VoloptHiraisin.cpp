@@ -25,9 +25,9 @@ s32 lbl_805D4C70;
 s32 lbl_805D4C74;
 s32 lbl_805D4C78;
 s32 lbl_805D4C7C;
-s32 TBoss3VoloptHiraisin__data_805D4C80;
+s32 TBoss3VoloptHiraisin__resource_bundle;
 u8 *lbl_805D4C84;
-s32 lbl_805D4C88;
+s32 TBoss3VoloptHiraisin__breakup_model;
 }
 
 struct VBase_18_345191 { char pad[0x18]; };
@@ -240,7 +240,7 @@ void start_attack__20TBoss3VoloptHiraisinFPv(u8 *arg0) {
     s16 temp_r4;
     s32 temp_r4_2;
 
-    create_breakup_mdl__12TBoss3VoloptFiiiii(lbl_805D4C88, lbl_80483BB8, TObjFish__sub_8001EDB0(TBoss3VoloptHiraisin__data_805D4C80, 0x10), arg0 + 0x2FC, M2C_FIELD(arg0, s32 *, 0x60));
+    create_breakup_mdl__12TBoss3VoloptFiiiii(TBoss3VoloptHiraisin__breakup_model, lbl_80483BB8, TObjFish__sub_8001EDB0(TBoss3VoloptHiraisin__resource_bundle, 0x10), arg0 + 0x2FC, M2C_FIELD(arg0, s32 *, 0x60));
     trigger_dell_biter_events__10TObjPlayerFPv(arg0 + 0x2FC);
     play_sound_effect(0x4001C112, arg0 + 0x38, 0, 0);
     M2C_FIELD(arg0, s32 *, 0x388) = (s32) (M2C_FIELD(arg0, s32 *, 0x388) & 0xFFFFFFFE);
@@ -364,8 +364,8 @@ void render__20TBoss3VoloptHiraisinFv(u8 *arg0) {
             temp_f31 = (1.0f) - ((0.02202643f) * (((RecoveredFields_800413C8_arg0 *)arg0)->field_3C - (4.6f)));
             translate_matrix((int) (0), (f32) (((RecoveredFields_800413C8_arg0 *)arg0)->field_38), (f32) ((4.5f)), (f32) (((RecoveredFields_800413C8_arg0 *)arg0)->field_40));
             scale_matrix((int) (0), (f32) (temp_f31), (f32) (temp_f31), (f32) (temp_f31));
-            set_global_param__8TObjFishFi((int) (TObjFish__sub_8001EDB0((s32)((int) (TBoss3VoloptHiraisin__data_805D4C80)), (M2C_UNK)((int) (0)))));
-            draw_chunk_object((int) (get_bml_model((int) (TBoss3VoloptHiraisin__data_805D4C80), (int) (0))));
+            set_global_param__8TObjFishFi((int) (TObjFish__sub_8001EDB0((s32)((int) (TBoss3VoloptHiraisin__resource_bundle)), (M2C_UNK)((int) (0)))));
+            draw_chunk_object((int) (get_bml_model((int) (TBoss3VoloptHiraisin__resource_bundle), (int) (0))));
             pop_matrix();
         }
     }
@@ -381,7 +381,7 @@ void render__20TBoss3VoloptHiraisinFv(u8 *arg0) {
 #define update_drop__20TBoss3VoloptHiraisinFPv ((M2C_UNK (*)())update_drop__20TBoss3VoloptHiraisinFPv)
 #define TBoss3VoloptHiraisin__sub_80041314 ((M2C_UNK (*)())TBoss3VoloptHiraisin__sub_80041314)
 #define fn_80040FDC ((M2C_UNK (*)())fn_80040FDC)
-#define lbl_805D4C88 (*(void **)&lbl_805D4C88)
+#define TBoss3VoloptHiraisin__breakup_model (*(void **)&TBoss3VoloptHiraisin__breakup_model)
 
 struct Base_8004172C_8004155C { char pad[0xC]; };
 struct VObj_8004172C_8004155C : Base_8004172C_8004155C {
@@ -545,11 +545,11 @@ void run_task__20TBoss3VoloptHiraisinFv(u8 *arg0) {
 }
 
 void destroy__20TBoss3VoloptHiraisinFv(void) {
-    struct VObj_8004172C_8004155C *o = (struct VObj_8004172C_8004155C *)lbl_805D4C88;
+    struct VObj_8004172C_8004155C *o = (struct VObj_8004172C_8004155C *)TBoss3VoloptHiraisin__breakup_model;
     if (o != NULL) {
         o->m0(1);
     }
-    lbl_805D4C88 = NULL;
+    TBoss3VoloptHiraisin__breakup_model = NULL;
 }
 
 }
@@ -558,7 +558,7 @@ void destroy__20TBoss3VoloptHiraisinFv(void) {
 #undef update_drop__20TBoss3VoloptHiraisinFPv
 #undef TBoss3VoloptHiraisin__sub_80041314
 #undef fn_80040FDC
-#undef lbl_805D4C88
+#undef TBoss3VoloptHiraisin__breakup_model
 #define __vt__20TBoss3VoloptHiraisin ((M2C_UNK *)__vt__20TBoss3VoloptHiraisin)
 #define VecCopy__FP3VecPC3Vec ((int (*)(s32, s32))VecCopy__FP3VecPC3Vec)
 #define TObjEnemyCustom__sub_800C7860 ((void (*)(void *))TObjEnemyCustom__sub_800C7860)
@@ -857,7 +857,7 @@ void spawn_effects__20TBoss3VoloptHiraisinFPv(u8 *arg0);
 void damage_player_if_aligned__20TBoss3VoloptHiraisinFPv(void *arg0);
 u8 *find_entity_by_id(u16);
 extern s8 volopt_target_slot_used[];
-extern u16 lbl_805D4C18;
+extern u16 boss3_volopt_monitor_base_actor_id;
 void TBoss3VoloptHiraisin__sub_80041D3C(Hira_80041D3C *self);
 }
 
@@ -889,15 +889,15 @@ void init_models__20TBoss3VoloptHiraisinFv(void) {
     s32 *temp_r3;
     s32 var_r31;
 
-    TBoss3VoloptHiraisin__data_805D4C80 = boss3_volopt_resources;
+    TBoss3VoloptHiraisin__resource_bundle = boss3_volopt_resources;
     temp_r3 = collect_and_count__12TBoss3VoloptFUii(get_bml_model(boss3_volopt_resources, 0x10), 0xB);
     lbl_805D4C84 = temp_r3;
     *temp_r3 &= 0xFFFFFFFD;
     var_r31 = alloc__23TAdSinglePlyChrSelectGCFPv(0x10);
     if (var_r31 != 0) {
-        var_r31 = init_from_model__11TBreakUpMdlFPvi(var_r31, get_bml_model(TBoss3VoloptHiraisin__data_805D4C80, 0x10));
+        var_r31 = init_from_model__11TBreakUpMdlFPvi(var_r31, get_bml_model(TBoss3VoloptHiraisin__resource_bundle, 0x10));
     }
-    lbl_805D4C88 = var_r31;
+    TBoss3VoloptHiraisin__breakup_model = var_r31;
     lbl_805D4C70 = register_boss__6TLobbyFPv(0x24);
     lbl_805D4C74 = dispatch_shared_handler_b__6TLobbyFPv(0x24);
     lbl_805D4C78 = register_object__6TLobbyFPv(0x24);
@@ -934,7 +934,7 @@ void init_params__20TBoss3VoloptHiraisinFPv(Hira_800418C8 *self) {
     VecCopy__FP3VecPC3Vec((s32)self->home, (s32)self->pos);
     self->home[1] -= (3e+01f);
     copy_position__20TBoss3VoloptHiraisinFi((s32)self);
-    self->unkDC = *(s32 *)(TBoss3VoloptHiraisin__data_805D4C80 + 0x430);
+    self->unkDC = *(s32 *)(TBoss3VoloptHiraisin__resource_bundle + 0x430);
     self->unkD8 = prm->unk1C;
     set_field_d8__10TObjPlayerFPvi(self, self->unkD8);
     init_collision_body_parts(self, prm->unk88, 1);
@@ -988,11 +988,11 @@ void copy_position__20TBoss3VoloptHiraisinFi(s32 arg0) {
     VecCopy__FP3VecPC3Vec(arg0 + 0x74, arg0 + 0x2FC);
 }
 
-extern s32 lbl_805D4C14;
+extern s32 vol_opt_active_hit_zone;
 
 void load_params_from_table__20TBoss3VoloptHiraisinFPvi(O_80041B34 *self, s32 i) {
-    self->f34 = (*(G_80041B34 * *)&TBoss3VoloptHiraisin__data_805D4C80)->entries[i].f8;
-    self->f24 = (*(G_80041B34 * *)&TBoss3VoloptHiraisin__data_805D4C80)->entries[i].fc;
+    self->f34 = (*(G_80041B34 * *)&TBoss3VoloptHiraisin__resource_bundle)->entries[i].f8;
+    self->f24 = (*(G_80041B34 * *)&TBoss3VoloptHiraisin__resource_bundle)->entries[i].fc;
 }
 
 void set_hit_flags_and_notify__20TBoss3VoloptHiraisinFPv(u8 *arg0) {
@@ -1014,7 +1014,7 @@ void spawn_effects__20TBoss3VoloptHiraisinFPv(u8 *arg0) {
 }
 
 void damage_player_if_aligned__20TBoss3VoloptHiraisinFPv(void *arg0) {
-    if (!(M2C_FIELD(arg0, s32 *, 0x388) & 0x40000) && ((s32) lbl_805D4C14 >= 0) && ((s32) ((s32) lbl_805D4C14 / 4) == (s32) ((s16) M2C_FIELD(arg0, s16 *, 0x38C) / 4))) {
+    if (!(M2C_FIELD(arg0, s32 *, 0x388) & 0x40000) && ((s32) vol_opt_active_hit_zone >= 0) && ((s32) ((s32) vol_opt_active_hit_zone / 4) == (s32) ((s16) M2C_FIELD(arg0, s16 *, 0x38C) / 4))) {
         link_photon__10TObjPlayerFUs(M2C_FIELD(arg0, u16 *, 0x2D4), 0);
     }
 }
@@ -1073,14 +1073,14 @@ void TBoss3VoloptHiraisin__sub_80041D3C(Hira_80041D3C *self) {
                 }
             }
             if (all != 0) {
-                p = find_entity_by_id(lbl_805D4C18 + base);
+                p = find_entity_by_id(boss3_volopt_monitor_base_actor_id + base);
                 if (p != NULL) {
                     set_hit_flags_and_notify__20TBoss3VoloptHiraisinFPv(p);
                 }
             }
         } else {
             for (j = self->idx + 1; j < self->idx + 4; j++) {
-                p = find_entity_by_id(lbl_805D4C18 + j);
+                p = find_entity_by_id(boss3_volopt_monitor_base_actor_id + j);
                 if (p != NULL) {
                     set_hit_flags_and_notify__20TBoss3VoloptHiraisinFPv(p);
                 }

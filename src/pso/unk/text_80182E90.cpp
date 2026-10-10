@@ -41,7 +41,7 @@ M2C_UNK pop_matrix();
 M2C_UNK post_translate_matrix(void *);
 M2C_UNK set_global_param__8TObjFishFi(void *);
 M2C_UNK draw_ginja_object();
-extern s32 lbl_805D5B2C;
+extern s32 city_common_texture_list;
 extern const f32 lbl_805DBC00;
 extern const f32 lbl_805DBC04;
 extern const f32 lbl_805DBC08;
@@ -66,7 +66,7 @@ void fn_80182E90(u8 *arg0) {
       ((RecoveredFields_80182E90_arg0 *) arg0)->field_9C = ((RecoveredFields_80182E90_arg0 *) arg0)->field_9C;
       return;
     }
-    set_global_param__8TObjFishFi((void *) lbl_805D5B2C);
+    set_global_param__8TObjFishFi((void *) city_common_texture_list);
     push_matrix();
     post_translate_matrix((void *) (arg0 + 0x38));
     translate_matrix((int) 0, (f32) lbl_805DBC00, (f32) ((RecoveredFields_80182E90_arg0 *) arg0)->field_9C, (f32) lbl_805DBC00);

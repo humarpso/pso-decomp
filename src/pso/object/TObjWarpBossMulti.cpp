@@ -231,7 +231,7 @@ s32 get_slot_or_neg1__17TWindowSubComCardFPv(void *);
 s32 get_card_data__17TWindowSubComCardFPv(void *);
 s32 is_child_visible__17TWindowSubComCardFPv(void *);
 extern s32 local_client_id;
-extern s32 lbl_805D5C90;
+extern s32 boss_warp_confirmation_model;
 extern s32 warp_boss_motion;
 void update_warp_confirmation__12TObjWarpBossFv(u8 *arg0);
 extern M2C_UNK __vt__12TObjWarpBoss[];
@@ -256,7 +256,7 @@ extern void *tl_05;
 Obj_8019F578 *TObjWarpBoss__ct(Obj_8019F578 *self, int _w1, void * _w2);
 extern "C" {
 extern u8 lbl_80446480[];
-extern u32 lbl_805D5C88;
+extern u32 boss_warp_resource_bundle;
 extern "C" {
 extern u8 lbl_80446480[];
 s32 get_global_state__14TOKeyMachine01Fv();
@@ -266,9 +266,9 @@ s32 get_bml_model(s32, M2C_UNK);
 s32 load_resource_from_descriptor(M2C_UNK, void *, M2C_UNK, M2C_UNK, M2C_UNK);
 void *alloc__23TAdSinglePlyChrSelectGCFPv(s32);
 s32 is_global_state_in_table__19TContainerAncient01Fv();
-extern u32 lbl_805D5C88;
-extern s32 lbl_805D5C8C;
-extern s32 lbl_805D5C90;
+extern u32 boss_warp_resource_bundle;
+extern s32 boss_warp_base_model;
+extern s32 boss_warp_confirmation_model;
 extern s32 warp_boss_model;
 extern s32 warp_boss_motion;
 extern s32 warp_boss_bml_motion;
@@ -291,10 +291,10 @@ extern u8 lbl_80446480[];
 extern s32 warp_boss_model;
 extern "C" {
 extern u8 lbl_80446480[];
-extern s32 lbl_805D5C90;
+extern s32 boss_warp_confirmation_model;
 extern "C" {
 extern u8 lbl_80446480[];
-extern s32 lbl_805D5C8C;
+extern s32 boss_warp_base_model;
 extern "C" u8 lbl_80446480[];
 extern "C" u8 lbl_80446494[];
 extern "C" u8 lbl_804464AC[];
@@ -317,7 +317,7 @@ extern void *lbl_804B94BC[4];
 extern void *ancient_boss_warp_resource_block[3];
 extern void *lbl_804B94E8[3];
 extern __declspec(section ".data") void *jungle_boss_warp_resource_block[2];
-int fn_8019F9DC(void);
+int get_boss_warp_base_model(void);
 }
 extern "C" {
 extern u8 lbl_80446494[];
@@ -370,7 +370,7 @@ extern void *lbl_804B94BC[4];
 extern void *ancient_boss_warp_resource_block[3];
 extern void *lbl_804B94E8[3];
 extern __declspec(section ".data") void *jungle_boss_warp_resource_block[2];
-int fn_8019F9D4(void);
+int get_boss_warp_confirmation_model(void);
 }
 extern "C" {
 extern u8 lbl_80446494[];
@@ -423,7 +423,7 @@ extern void *lbl_804B94BC[4];
 extern void *ancient_boss_warp_resource_block[3];
 extern void *lbl_804B94E8[3];
 extern __declspec(section ".data") void *jungle_boss_warp_resource_block[2];
-int fn_8019F9CC(void);
+int get_boss_warp_model(void);
 }
 extern "C" {
 extern u8 lbl_80446494[];
@@ -476,7 +476,7 @@ extern void *lbl_804B94BC[4];
 extern void *ancient_boss_warp_resource_block[3];
 extern void *lbl_804B94E8[3];
 extern __declspec(section ".data") void *jungle_boss_warp_resource_block[2];
-int fn_8019F9C4(void);
+int get_boss_warp_motion(void);
 }
 extern "C" {
 extern u8 lbl_80446494[];
@@ -529,7 +529,7 @@ extern void *lbl_804B94BC[4];
 extern void *ancient_boss_warp_resource_block[3];
 extern void *lbl_804B94E8[3];
 extern __declspec(section ".data") void *jungle_boss_warp_resource_block[2];
-int fn_8019F9BC(void);
+int get_boss_warp_bml_motion(void);
 }
 extern "C" {
 extern u8 lbl_80446494[];
@@ -582,7 +582,7 @@ extern void *lbl_804B94BC[4];
 extern void *ancient_boss_warp_resource_block[3];
 extern void *lbl_804B94E8[3];
 extern __declspec(section ".data") void *jungle_boss_warp_resource_block[2];
-int fn_8019F9B4(void);
+int get_boss_warp_model_handle(void);
 }
 extern "C" {
 extern u8 lbl_80446494[];
@@ -921,7 +921,7 @@ extern s32 lbl_805D348C;
 extern s32 camera_ctrl_instance;
 extern s32 local_client_id;
 extern s32 lbl_805D55C0;
-extern s32 lbl_805D5C8C;
+extern s32 boss_warp_base_model;
 extern s32 warp_boss_model;
 extern s32 warp_boss_bml_motion;
 extern s32 warp_boss_model_handle;
@@ -1028,7 +1028,7 @@ s32 is_local_client_floor_leader();
 s32 get_slot_or_neg1__17TWindowSubComCardFPv(void *);
 s32 get_card_data__17TWindowSubComCardFPv(void *);
 s32 is_child_visible__17TWindowSubComCardFPv(void *);
-extern s32 lbl_805D5C90;
+extern s32 boss_warp_confirmation_model;
 extern s32 warp_boss_motion;
 void update_floor_switch_state__17TObjWarpBossMultiFPv(u8 *arg0);
 void warp_boss_handle_window(void *arg0);
@@ -1122,7 +1122,7 @@ void *create__17TObjWarpBossMultiFPv(void *arg0) {
     return o;
 }
 
-void init_warp_params__17TObjWarpBossMultiFPv(void* a0) { *(int*)((char*)a0 + 0xd4) = fn_8019F9DC(); *(int*)((char*)a0 + 0xd8) = fn_8019F9D4(); *(int*)((char*)a0 + 0xdc) = fn_8019F9CC(); *(int*)((char*)a0 + 0xe0) = fn_8019F9C4(); *(int*)((char*)a0 + 0xe4) = fn_8019F9BC(); *(int*)((char*)a0 + 0xe8) = fn_8019F9B4(); *(int*)((char*)a0 + 0xec) = fn_8019F9AC(); *(float*)((char*)a0 + 0xf8) = lbl_805DC000; *(float*)((char*)a0 + 0xfc) = lbl_805DC004; }
+void init_warp_params__17TObjWarpBossMultiFPv(void* a0) { *(int*)((char*)a0 + 0xd4) = get_boss_warp_base_model(); *(int*)((char*)a0 + 0xd8) = get_boss_warp_confirmation_model(); *(int*)((char*)a0 + 0xdc) = get_boss_warp_model(); *(int*)((char*)a0 + 0xe0) = get_boss_warp_motion(); *(int*)((char*)a0 + 0xe4) = get_boss_warp_bml_motion(); *(int*)((char*)a0 + 0xe8) = get_boss_warp_model_handle(); *(int*)((char*)a0 + 0xec) = fn_8019F9AC(); *(float*)((char*)a0 + 0xf8) = lbl_805DC000; *(float*)((char*)a0 + 0xfc) = lbl_805DC004; }
 
 void update__17TObjWarpBossMultiFPv(void *arg0) {
     s32 temp_r0;
@@ -1583,7 +1583,7 @@ void update_warp_confirmation__12TObjWarpBossFv(u8 *arg0) {
         M2C_FIELD(arg0, s32 *, 0x170) = 0;
         M2C_FIELD(arg0, s32 *, 0x174) = 0;
         M2C_FIELD(arg0, s16 *, 0xE0) = 1;
-        M2C_FIELD(arg0, s32 *, 0xD0) = lbl_805D5C90;
+        M2C_FIELD(arg0, s32 *, 0xD0) = boss_warp_confirmation_model;
         M2C_FIELD(arg0, s32 *, 0xD4) = warp_boss_motion;
         break;
     case 1:
@@ -1823,7 +1823,7 @@ block_4:
         post_translate_matrix(arg0 + 0x38);
         rotate_matrix_y(0, M2C_FIELD(arg0, s32 *, 0x60));
         set_global_param__8TObjFishFi(warp_boss_model_handle);
-        draw_ginja_object(lbl_805D5C8C);
+        draw_ginja_object(boss_warp_base_model);
         if (M2C_FIELD(arg0, void **, 0xD0) != 0) {
             begin_effect_render__13TParticleCtrlFv();
             set_global_param__8TObjFishFi(lbl_805D5CA4);
@@ -1923,9 +1923,9 @@ s32 TObjWarpBossMulti__create(s32 arg0) {
     return var_r0;
 }
 void TObjFish__sub_8019F72C(void) {
-    if ((u32) lbl_805D5C88 != 0U) {
-        TLobby__sub_8001FE7C((void*)lbl_805D5C88, 1);
-        lbl_805D5C88 = 0U;
+    if ((u32) boss_warp_resource_bundle != 0U) {
+        TLobby__sub_8001FE7C((void*)boss_warp_resource_bundle, 1);
+        boss_warp_resource_bundle = 0U;
     }
 }
 void load_models__8TObjFishFv(void) {
@@ -1937,14 +1937,14 @@ void load_models__8TObjFishFv(void) {
         if (r != 0) {
             r = ((s32 (*)(s32, M2C_UNK, void *, M2C_UNK, M2C_UNK, M2C_UNK)) load_resource_from_descriptor)(r, 5, lbl_804B94D8, 0, 0, 0);
         }
-        (*(s32 *)&lbl_805D5C88) = r;
-        (*(s32 *)&lbl_805D5C8C) = get_bml_model(r, 0);
-        (*(s32 *)&lbl_805D5C90) = get_bml_model((*(s32 *)&lbl_805D5C88), 2);
-        (*(s32 *)&warp_boss_model) = get_bml_model((*(s32 *)&lbl_805D5C88), 1);
-        (*(s32 *)&warp_boss_motion) = get_bml_motion((*(s32 *)&lbl_805D5C88), 1);
-        (*(s32 *)&warp_boss_bml_motion) = get_bml_motion((*(s32 *)&lbl_805D5C88), 0);
-        (*(s32 *)&warp_boss_model_handle) = TObjFish__sub_8001EDB0((*(s32 *)&lbl_805D5C88), 2);
-        (*(s32 *)&lbl_805D5CA4) = TObjFish__sub_8001EDB0((*(s32 *)&lbl_805D5C88), 2);
+        (*(s32 *)&boss_warp_resource_bundle) = r;
+        (*(s32 *)&boss_warp_base_model) = get_bml_model(r, 0);
+        (*(s32 *)&boss_warp_confirmation_model) = get_bml_model((*(s32 *)&boss_warp_resource_bundle), 2);
+        (*(s32 *)&warp_boss_model) = get_bml_model((*(s32 *)&boss_warp_resource_bundle), 1);
+        (*(s32 *)&warp_boss_motion) = get_bml_motion((*(s32 *)&boss_warp_resource_bundle), 1);
+        (*(s32 *)&warp_boss_bml_motion) = get_bml_motion((*(s32 *)&boss_warp_resource_bundle), 0);
+        (*(s32 *)&warp_boss_model_handle) = TObjFish__sub_8001EDB0((*(s32 *)&boss_warp_resource_bundle), 2);
+        (*(s32 *)&lbl_805D5CA4) = TObjFish__sub_8001EDB0((*(s32 *)&boss_warp_resource_bundle), 2);
         return;
     }
     if (is_global_state_in_table__19TContainerAncient01Fv() != 0 || st == 0x1C || st == 0x1D) {
@@ -1952,35 +1952,35 @@ void load_models__8TObjFishFv(void) {
         if (r != 0) {
             r = ((s32 (*)(s32, M2C_UNK, void *, M2C_UNK, M2C_UNK, M2C_UNK)) load_resource_from_descriptor)(r, 5, lbl_804B94FC, 0, 0, 0);
         }
-        (*(s32 *)&lbl_805D5C88) = r;
-        (*(s32 *)&lbl_805D5C8C) = get_bml_model(r, 0);
-        (*(s32 *)&lbl_805D5C90) = get_bml_model((*(s32 *)&lbl_805D5C88), 1);
-        (*(s32 *)&warp_boss_model) = get_bml_model((*(s32 *)&lbl_805D5C88), 1);
-        (*(s32 *)&warp_boss_motion) = get_bml_motion((*(s32 *)&lbl_805D5C88), 0);
-        (*(s32 *)&warp_boss_bml_motion) = get_bml_motion((*(s32 *)&lbl_805D5C88), 0);
-        (*(s32 *)&warp_boss_model_handle) = TObjFish__sub_8001EDB0((*(s32 *)&lbl_805D5C88), 0);
-        (*(s32 *)&lbl_805D5CA4) = TObjFish__sub_8001EDB0((*(s32 *)&lbl_805D5C88), 0);
+        (*(s32 *)&boss_warp_resource_bundle) = r;
+        (*(s32 *)&boss_warp_base_model) = get_bml_model(r, 0);
+        (*(s32 *)&boss_warp_confirmation_model) = get_bml_model((*(s32 *)&boss_warp_resource_bundle), 1);
+        (*(s32 *)&warp_boss_model) = get_bml_model((*(s32 *)&boss_warp_resource_bundle), 1);
+        (*(s32 *)&warp_boss_motion) = get_bml_motion((*(s32 *)&boss_warp_resource_bundle), 0);
+        (*(s32 *)&warp_boss_bml_motion) = get_bml_motion((*(s32 *)&boss_warp_resource_bundle), 0);
+        (*(s32 *)&warp_boss_model_handle) = TObjFish__sub_8001EDB0((*(s32 *)&boss_warp_resource_bundle), 0);
+        (*(s32 *)&lbl_805D5CA4) = TObjFish__sub_8001EDB0((*(s32 *)&boss_warp_resource_bundle), 0);
         return;
     }
     r = ((s32)alloc__23TAdSinglePlyChrSelectGCFPv((s32)(0x440)));
     if (r != 0) {
         r = ((s32 (*)(s32, M2C_UNK, void *, M2C_UNK, M2C_UNK, M2C_UNK)) load_resource_from_descriptor)(r, 5, lbl_804B94AC, 0, 0, 0);
     }
-    (*(s32 *)&lbl_805D5C88) = r;
-    (*(s32 *)&lbl_805D5C8C) = get_bml_model(r, 0);
-    (*(s32 *)&lbl_805D5C90) = get_bml_model((*(s32 *)&lbl_805D5C88), 2);
-    (*(s32 *)&warp_boss_model) = get_bml_model((*(s32 *)&lbl_805D5C88), 1);
-    (*(s32 *)&warp_boss_motion) = get_bml_motion((*(s32 *)&lbl_805D5C88), 1);
-    (*(s32 *)&warp_boss_bml_motion) = get_bml_motion((*(s32 *)&lbl_805D5C88), 0);
-    (*(s32 *)&warp_boss_model_handle) = TObjFish__sub_8001EDB0((*(s32 *)&lbl_805D5C88), 2);
-    (*(s32 *)&lbl_805D5CA4) = TObjFish__sub_8001EDB0((*(s32 *)&lbl_805D5C88), 2);
+    (*(s32 *)&boss_warp_resource_bundle) = r;
+    (*(s32 *)&boss_warp_base_model) = get_bml_model(r, 0);
+    (*(s32 *)&boss_warp_confirmation_model) = get_bml_model((*(s32 *)&boss_warp_resource_bundle), 2);
+    (*(s32 *)&warp_boss_model) = get_bml_model((*(s32 *)&boss_warp_resource_bundle), 1);
+    (*(s32 *)&warp_boss_motion) = get_bml_motion((*(s32 *)&boss_warp_resource_bundle), 1);
+    (*(s32 *)&warp_boss_bml_motion) = get_bml_motion((*(s32 *)&boss_warp_resource_bundle), 0);
+    (*(s32 *)&warp_boss_model_handle) = TObjFish__sub_8001EDB0((*(s32 *)&boss_warp_resource_bundle), 2);
+    (*(s32 *)&lbl_805D5CA4) = TObjFish__sub_8001EDB0((*(s32 *)&boss_warp_resource_bundle), 2);
 }
 int fn_8019F9AC(void) {  return (*(int *)&lbl_805D5CA4); }
-int fn_8019F9B4(void) {  return (*(int *)&warp_boss_model_handle); }
-int fn_8019F9BC(void) {  return (*(int *)&warp_boss_bml_motion); }
-int fn_8019F9C4(void) {  return (*(int *)&warp_boss_motion); }
-int fn_8019F9CC(void) {  return (*(int *)&warp_boss_model); }
-int fn_8019F9D4(void) {  return (*(int *)&lbl_805D5C90); }
-int fn_8019F9DC(void) {  return (*(int *)&lbl_805D5C8C); }
+int get_boss_warp_model_handle(void) {  return (*(int *)&warp_boss_model_handle); }
+int get_boss_warp_bml_motion(void) {  return (*(int *)&warp_boss_bml_motion); }
+int get_boss_warp_motion(void) {  return (*(int *)&warp_boss_motion); }
+int get_boss_warp_model(void) {  return (*(int *)&warp_boss_model); }
+int get_boss_warp_confirmation_model(void) {  return (*(int *)&boss_warp_confirmation_model); }
+int get_boss_warp_base_model(void) {  return (*(int *)&boss_warp_base_model); }
 
 }

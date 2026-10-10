@@ -32,7 +32,7 @@ u8 *__ct__13TItemAttackerFv(u8 *arg0, M2C_UNK arg1, s32 arg2, M2C_UNK arg3, s32 
 extern "C" {
 
 void TItemAttacker__sub_8010349C(u32 arg0);
-int TItemAttacker__sub_80103548(int a0);
+int get_item_chunk_buffer(int a0);
 void copy_from__13TItemAttackerFPvPv(void *arg0, void *arg1);
 s32 create_item_buff(s32 arg0);
 void run_task__13TItemAttackerFv(void* p);
@@ -93,7 +93,7 @@ TItemAttacker::~TItemAttacker() {}
 void run_task__13TItemAttackerFv(void* p) { if (*(int*)((char*)p + 0x34) != 0) { queue_destruction__7TObjectFv(p); } }
 
     extern int item_nj_chunk_buffer_table[];
-int TItemAttacker__sub_80103548(int a0) {  return item_nj_chunk_buffer_table[a0]; }
+int get_item_chunk_buffer(int a0) {  return item_nj_chunk_buffer_table[a0]; }
 
 extern M2C_UNK lbl_8043E038[];
 extern s32 item_buffer_temp_mode;

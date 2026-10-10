@@ -81,12 +81,12 @@ extern s32 lbl_805D3D3C;
 extern const f32 lbl_805DDD1C;
 u8 *TORockJungleS01__ct(u8 *arg0, s32 arg1);
 extern u32 TORockJungleS01__texture_resource;
-s32 TORockJungleS01__sub_8029CAE8(s32 a);
+s32 get_jungle_rock_texture_resource(s32 a);
 void *load_resource_from_descriptor(void *, M2C_UNK, void *, M2C_UNK, M2C_UNK, M2C_UNK);
 void *alloc__23TAdSinglePlyChrSelectGCFPv(M2C_UNK);
 s32 load_gvm_texture_file(void *);
 s32 get_global_state__14TOKeyMachine01Fv();
-s32 TORockJungleS01__sub_8029CAE8(s32 a);
+s32 get_jungle_rock_texture_resource(s32 a);
 u8 *get_model__15TORockJungleS01Fi(s32 arg0);
 M2C_UNK add_entry__11TMotorcycleFsiiff(M2C_UNK, void *, s32, f32, f32);
 extern u8 lbl_804658EC[];
@@ -101,7 +101,7 @@ void load_resources__15TORockJungleS01Fv(void);
 s32 VecCopy__FP3VecPC3Vec(void *, void *);
 M2C_UNK construct_debris__8TObjChipFPvPvPv(void *, s32, void *);
 void *__nw__7TObjectFUl(int);
-s32 TORockJungleS01__sub_8029CAE8(s32 a);
+s32 get_jungle_rock_texture_resource(s32 a);
 u8 *get_model__15TORockJungleS01Fi(s32 arg0);
 M2C_UNK vec3_add_to(void *, void *);
 M2C_UNK rotate_vector_by_matrix(int, void *, void *);
@@ -155,7 +155,7 @@ void TORockJungleS01__vt14(Rock_8029C7DC *self) {
         VecCopy__FP3VecPC3Vec(&p.pos, &self->pos);
         vec3_add_to(&p.pos, &v);
         p.f40 = (s32)get_model__15TORockJungleS01Fi(1);
-        p.f44 = TORockJungleS01__sub_8029CAE8(1);
+        p.f44 = get_jungle_rock_texture_resource(1);
         o = __nw__7TObjectFUl(0x234);
         if (o != NULL) {
             construct_debris__8TObjChipFPvPvPv(o, tl_05, &p);
@@ -203,7 +203,7 @@ u8 *TORockJungleS01__ct(u8 *arg0, s32 arg1) {
     M2C_FIELD(arg0, s32 *, 0) = (s32) lbl_805D3D3C;
     ((VObj_18_1a504b *)(arg0))->m5(arg1);
     M2C_FIELD(arg0, u8 **, 0x34) = get_model__15TORockJungleS01Fi(0);
-    M2C_FIELD(arg0, s32 *, 0x24) = TORockJungleS01__sub_8029CAE8((s32)((int) (0)));
+    M2C_FIELD(arg0, s32 *, 0x24) = get_jungle_rock_texture_resource((s32)((int) (0)));
     M2C_FIELD(arg0, f32 *, 0xB0) = (f32) (lbl_805DDD1C + M2C_FIELD(M2C_FIELD(M2C_FIELD(arg0, u8 **, 0x34), void **, 4), f32 *, 0x14));
     init_collision_body_parts((void *) (arg0), (void *) (&rock_jungle_collision_body_parts.value), (int) (1));
     refresh_collision_body_centers((void *) (arg0));
@@ -220,7 +220,7 @@ u8 *TORockJungleS01__ct(u8 *arg0, s32 arg1) {
     return arg0;
 }
 
-s32 TORockJungleS01__sub_8029CAE8(s32 a) {
+s32 get_jungle_rock_texture_resource(s32 a) {
     if ((*(void * *)&TORockJungleS01__texture_resource) != 0) return (s32)(*(void * *)&TORockJungleS01__texture_resource);
     return 0;
 }
@@ -262,7 +262,7 @@ void load_resources__15TORockJungleS01Fv(void) {
         TORockJungleS01__texture_resource = load_gvm_texture_file(lbl_8046591C);
         break;
     }
-    add_entry__11TMotorcycleFsiiff(0x3E, get_model__15TORockJungleS01Fi(0), TORockJungleS01__sub_8029CAE8(0), lbl_805DDD20, lbl_805DDD24);
+    add_entry__11TMotorcycleFsiiff(0x3E, get_model__15TORockJungleS01Fi(0), get_jungle_rock_texture_resource(0), lbl_805DDD20, lbl_805DDD24);
 }
 
 }

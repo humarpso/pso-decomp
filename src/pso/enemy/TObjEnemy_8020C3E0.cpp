@@ -19,11 +19,11 @@ struct Grp_8020C500 { s32 count; u8 pad[0xC]; Sub_8020C500 *recs; u8 pad2[4]; };
 extern "C" {
 extern Grp_8020C458 TLobby__floor_enemy_group_table[];
 extern Rec_8020C458 *TLobby__data_805D6114;
-extern s32 TLobby__data_805D6118;
+extern s32 TLobby__current_floor_enemy_set_count;
 s32 clear_record_flags_a__6TLobbyFv(void);
 extern Grp_8020C458 TLobby__floor_enemy_group_table[];
 extern Rec_8020C500 *TLobby__data_805D610C;
-extern s32 TLobby__data_805D6110;
+extern s32 TLobby__current_floor_object_set_count;
 s32 clear_record_flags_b__6TLobbyFv(void);
 }
 
@@ -66,7 +66,7 @@ s32 clear_record_flags_a__6TLobbyFv(void) {
     s32 j;
     s32 k;
     if (TLobby__data_805D6114 != NULL) {
-        for (i = 0; i < TLobby__data_805D6118; i++) {
+        for (i = 0; i < TLobby__current_floor_enemy_set_count; i++) {
             TLobby__data_805D6114[i].flags = 0;
         }
     }
@@ -84,7 +84,7 @@ s32 clear_record_flags_b__6TLobbyFv(void) {
     s32 j;
     s32 k;
     if (TLobby__data_805D610C != NULL) {
-        for (i = 0; i < TLobby__data_805D6110; i++) {
+        for (i = 0; i < TLobby__current_floor_object_set_count; i++) {
             TLobby__data_805D610C[i].flags = 0;
         }
     }

@@ -12,7 +12,7 @@ struct RecoveredGlobal_80227AA8_lbl_80514F64 {
 extern "C" {
 void get_menu_field_280__6TLobbyFv(void);
 M2C_UNK fn_8023F660(void *, void *, void *, int, int, int);
-extern unsigned char lbl_80514F64[];
+extern unsigned char sound_control_state[];
 void TLobby__sub_80227AA8(s32 arg0);
 }
 
@@ -43,7 +43,7 @@ void TLobby__sub_80227A94(void) { lbl_805D6314 = lbl_805D3710; }
 int get_music_base_gain(void) {  return music_stream_base_gain; }
 typedef char RecoveredGlobal_80227AA8_lbl_80514F64_size[sizeof(RecoveredGlobal_80227AA8_lbl_80514F64) == 0xC3C ? 1 : -1];
 void TLobby__sub_80227AA8(s32 arg0) {
-    fn_8023F660((void *) (&(*(RecoveredGlobal_80227AA8_lbl_80514F64 *)lbl_80514F64).value), (void *) (arg0), (void *) (((s32 (*)())get_menu_field_280__6TLobbyFv)() + 0x55), (int) (0x40), (int) (0x40), (int) (0));
+    fn_8023F660((void *) (&(*(RecoveredGlobal_80227AA8_lbl_80514F64 *)sound_control_state).value), (void *) (arg0), (void *) (((s32 (*)())get_menu_field_280__6TLobbyFv)() + 0x55), (int) (0x40), (int) (0x40), (int) (0));
 }
 
 }
@@ -311,7 +311,7 @@ s32 is_special_sound_id(u32 x) {
 }
 
 void apply_clamped_field_27c__6TLobbyFv(void) {
-    set_clamped_field27c__6TLobbyFPvf((M2C_UNK *)(&(*(RecoveredGlobal_8000F7FC_lbl_80515F48 *)&lbl_80514F64).value));
+    set_clamped_field27c__6TLobbyFPvf((M2C_UNK *)(&(*(RecoveredGlobal_8000F7FC_lbl_80515F48 *)&sound_control_state).value));
 }
 typedef char RecoveredGlobal_8000F90C_lbl_804FE120_size[sizeof(RecoveredGlobal_8000F90C_lbl_804FE120) == 0x18 ? 1 : -1];
 typedef char RecoveredGlobal_8000F8FC_lbl_804FE120_size[sizeof(RecoveredGlobal_8000F8FC_lbl_804FE120) == 0x18 ? 1 : -1];
@@ -355,18 +355,18 @@ void set_mode__6TLobbyFi(s32 arg0) {
         on_set_mode__6TLobbyFv(0);
         break;
     }
-    set_mode__6TLobbyFPvi((M2C_UNK *)lbl_80514F64, arg0);
+    set_mode__6TLobbyFPvi((M2C_UNK *)sound_control_state, arg0);
 }
 
 void get_menu_field_280__6TLobbyFv(void) {
-    get_field_0x280__6TLobbyFPv((M2C_UNK *)(&(*(RecoveredGlobal_8000F7FC_lbl_80515F48 *)&lbl_80514F64).value));
+    get_field_0x280__6TLobbyFPv((M2C_UNK *)(&(*(RecoveredGlobal_8000F7FC_lbl_80515F48 *)&sound_control_state).value));
 }
 
 typedef char RecoveredGlobal_80069094_camera_controller_registry_size[sizeof(RecoveredGlobal_80069094_camera_controller_registry) == 0x68 ? 1 : -1];
 typedef char RecoveredGlobal_800687E4_TCameraCtrl__data_804FF6C4_size[sizeof(RecoveredGlobal_800687E4_TCameraCtrl__data_804FF6C4) == 0xC ? 1 : -1];
 typedef char RecoveredGlobal_800687C8_TCameraCtrl__data_804FF6C4_size[sizeof(RecoveredGlobal_800687C8_TCameraCtrl__data_804FF6C4) == 0xC ? 1 : -1];
 void set_menu_index_main__6TLobbyFPv(u8 *arg0) {
-    set_menu_index__6TLobbyFPvi((void *)(&(*(RecoveredGlobal_800687E4_TCameraCtrl__data_804FF6C4 *)&lbl_80514F64).value), (int)(arg0));
+    set_menu_index__6TLobbyFPvi((void *)(&(*(RecoveredGlobal_800687E4_TCameraCtrl__data_804FF6C4 *)&sound_control_state).value), (int)(arg0));
 }
 typedef char RecoveredGlobal_80069024_TCameraCtrl__data_804FF634_size[sizeof(RecoveredGlobal_80069024_TCameraCtrl__data_804FF634) == 0x48 ? 1 : -1];
 typedef char RecoveredGlobal_80069024_lbl_804FF67C_size[sizeof(RecoveredGlobal_80069024_lbl_804FF67C) == 0x48 ? 1 : -1];
@@ -482,7 +482,7 @@ s32 play_packed_sound_once(u32 arg0, s32 arg1, s32 arg2, s32 arg3) {
 }
 
 void is_sound_enabled(void) {
-    is_ready__6TLobbyFPv((M2C_UNK *)(&(*(RecoveredGlobal_8000F7FC_lbl_80515F48 *)&lbl_80514F64).value));
+    is_ready__6TLobbyFPv((M2C_UNK *)(&(*(RecoveredGlobal_8000F7FC_lbl_80515F48 *)&sound_control_state).value));
 }
 
 }
@@ -555,13 +555,13 @@ M2C_UNK set_current_floor_area(int);
 extern RecoveredGlobal_80228634_lbl_804CBE98 area_initializer_dispatch_table;
 void load_area_scene_and_init(u8 *arg0);
 M2C_UNK TLobby__sub_802401C8(void *);
-extern unsigned char lbl_80514F64[];
+extern unsigned char sound_control_state[];
 void TLobby__sub_8022804C(void);
 M2C_UNK update_sound_frame(void *);
-extern unsigned char lbl_80514F64[];
+extern unsigned char sound_control_state[];
 void update_global_sound_frame(void);
 M2C_UNK reset_sound_state__6TLobbyFPv(void *);
-extern unsigned char lbl_80514F64[];
+extern unsigned char sound_control_state[];
 void TLobby__sub_8022809C(void);
 M2C_UNK run_disk_error_check__6TLobbyFv();
 int render_tick__Fv(void);
@@ -569,7 +569,7 @@ M2C_UNK init_sound_aux_effects(void *);
 M2C_UNK validate_and_set_selection__6TLobbyFPvi(void *, int);
 M2C_UNK TLobby__sub_803382E4();
 M2C_UNK TLobby__sub_803CB81C();
-extern unsigned char lbl_80514F64[];
+extern unsigned char sound_control_state[];
 void wait_for_sound_init__6TLobbyFv(void);
 s32 init_range_zero__6TLobbyFPv(void* arg0);
 extern RecoveredGlobal_802287F0_lbl_80515BA0 lbl_80515BA0;
@@ -577,7 +577,7 @@ s32 init_range_zero_global__6TLobbyFv(void);
 void *reset_sound_owner_state(void *self);
 void TLobby__sub_80240808(void *self, s32 x);
 void *__register_global_object(void *obj, void *dtor, void *entry);
-extern unsigned char lbl_80514F64[];
+extern unsigned char sound_control_state[];
 extern char lbl_80514F58[];
 void TLobby__sub_80228118(void);
 char *strcpy(char *dst, const char *src);
@@ -617,9 +617,9 @@ M2C_UNK init_range__6TLobbyFPvi(void*, int);
 void memset(void *, int, int);
 int render_tick__Fv(void);
 
-    extern unsigned char lbl_80514F64[];
+    extern unsigned char sound_control_state[];
     extern float lbl_805DC76C;
-void refresh_render_state__6TLobbyFv(void) { pop_sound_groups__6TLobbyFPvi(lbl_80514F64, (void*)0); ((int (*)(float))apply_clamped_field_27c__6TLobbyFv)(lbl_805DC76C); render_tick__Fv(); }
+void refresh_render_state__6TLobbyFv(void) { pop_sound_groups__6TLobbyFPvi(sound_control_state, (void*)0); ((int (*)(float))apply_clamped_field_27c__6TLobbyFv)(lbl_805DC76C); render_tick__Fv(); }
 
 void load_floor_sound_bank(s32 arg0) {
     s32 temp_r0;
@@ -632,12 +632,12 @@ void load_floor_sound_bank(s32 arg0) {
             if (arg0 < 0x24) {
                 ((M2C_UNK (*)(void *, f32))apply_clamped_field_27c__6TLobbyFv)((void *) (floor_sound_bank_volume_table), (f32) (M2C_FIELD(((u8 *)(floor_sound_bank_volume_table) + temp_r0), f32 *, 0)));
             }
-            validate_and_set_selection__6TLobbyFPvi((void *) (lbl_80514F64), (int) (temp_r31));
+            validate_and_set_selection__6TLobbyFPvi((void *) (sound_control_state), (int) (temp_r31));
             do {
                 run_disk_error_check__6TLobbyFv();
                 TLobby__sub_803CB81C();
                 run_frame__6TLobbyFv();
-            } while (((s32 (*)(void *))is_ready__6TLobbyFPv)((void *) (lbl_80514F64)) == 0);
+            } while (((s32 (*)(void *))is_ready__6TLobbyFPv)((void *) (sound_control_state)) == 0);
             TLobby__sub_80226B64((int) (0));
         }
     }
@@ -646,25 +646,25 @@ void load_floor_sound_bank(s32 arg0) {
 typedef char RecoveredGlobal_8022804C_lbl_80514F64_size[sizeof(RecoveredGlobal_8022804C_lbl_80514F64) == 0xC3C ? 1 : -1];
 void TLobby__sub_8022804C(void) {
     M2C_UNK *var_r3;
-    var_r3 = (M2C_UNK *)(&(*(RecoveredGlobal_8022804C_lbl_80514F64 *)&lbl_80514F64).value);
-    var_r3 = (M2C_UNK *)(&(*(RecoveredGlobal_8022804C_lbl_80514F64 *)&lbl_80514F64).value);
-    TLobby__sub_802401C8((void *) (&(*(RecoveredGlobal_8022804C_lbl_80514F64 *)&lbl_80514F64).value));
+    var_r3 = (M2C_UNK *)(&(*(RecoveredGlobal_8022804C_lbl_80514F64 *)&sound_control_state).value);
+    var_r3 = (M2C_UNK *)(&(*(RecoveredGlobal_8022804C_lbl_80514F64 *)&sound_control_state).value);
+    TLobby__sub_802401C8((void *) (&(*(RecoveredGlobal_8022804C_lbl_80514F64 *)&sound_control_state).value));
 }
 
 typedef char RecoveredGlobal_80228074_lbl_80514F64_size[sizeof(RecoveredGlobal_80228074_lbl_80514F64) == 0xC3C ? 1 : -1];
 void update_global_sound_frame(void) {
-    update_sound_frame((void *) (&(*(RecoveredGlobal_80228074_lbl_80514F64 *)&lbl_80514F64).value));
+    update_sound_frame((void *) (&(*(RecoveredGlobal_80228074_lbl_80514F64 *)&sound_control_state).value));
 }
 
 typedef char RecoveredGlobal_8022809C_lbl_80514F64_size[sizeof(RecoveredGlobal_8022809C_lbl_80514F64) == 0xC3C ? 1 : -1];
 void TLobby__sub_8022809C(void) {
-    reset_sound_state__6TLobbyFPv((void *) (&(*(RecoveredGlobal_8022809C_lbl_80514F64 *)&lbl_80514F64).value));
+    reset_sound_state__6TLobbyFPv((void *) (&(*(RecoveredGlobal_8022809C_lbl_80514F64 *)&sound_control_state).value));
 }
 
 typedef char RecoveredGlobal_802280C4_lbl_80514F64_size[sizeof(RecoveredGlobal_802280C4_lbl_80514F64) == 0xC3C ? 1 : -1];
 void wait_for_sound_init__6TLobbyFv(void) {
-    init_sound_aux_effects((void *) (&(*(RecoveredGlobal_802280C4_lbl_80514F64 *)&lbl_80514F64).value));
-    validate_and_set_selection__6TLobbyFPvi((void *) (&(*(RecoveredGlobal_802280C4_lbl_80514F64 *)&lbl_80514F64).value), (int) (0));
+    init_sound_aux_effects((void *) (&(*(RecoveredGlobal_802280C4_lbl_80514F64 *)&sound_control_state).value));
+    validate_and_set_selection__6TLobbyFPvi((void *) (&(*(RecoveredGlobal_802280C4_lbl_80514F64 *)&sound_control_state).value), (int) (0));
     do {
         TLobby__sub_803382E4();
         run_disk_error_check__6TLobbyFv();
@@ -674,7 +674,7 @@ void wait_for_sound_init__6TLobbyFv(void) {
 }
 
 void TLobby__sub_80228118(void) {
-    __register_global_object(reset_sound_owner_state(((char *)&lbl_80514F64)), (void *)TLobby__sub_80240808, lbl_80514F58);
+    __register_global_object(reset_sound_owner_state(((char *)&sound_control_state)), (void *)TLobby__sub_80240808, lbl_80514F58);
 }
 
 void clear_ready_flag_unless_locked__6TLobbyFPv(void *arg0) {

@@ -140,7 +140,7 @@ void play_container_break_sound(s32 arg0);
 extern Desc_8015C234 lbl_80440700;
 extern Desc_8015C234 lbl_8044074C;
 extern s32 lbl_805D2F00;
-extern Ids_8015C234 *lbl_805D58EC;
+extern Ids_8015C234 *ancient_container_fragment_texture_lists;
 extern u8 *tl_05;
 }
 
@@ -236,7 +236,7 @@ void *TOContainerAncientItemCommon__ct(void *arg0, void * _w1) {
     return arg0;
 }
 void spawn_break_debris__8TObjFishFPv(Obj_8015C234 *self) {
-    extern const u32 lbl_805D58E8;
+    extern const u32 ancient_container_resource_bundle;
     if (self->f326 == 1) {
         return;
     }
@@ -245,18 +245,18 @@ void spawn_break_debris__8TObjFishFPv(Obj_8015C234 *self) {
     a.y = self->y;
     a.z = self->z;
     a.y2 = a.y;
-    a.a = get_bml_model((void *)lbl_805D58E8, 1);
-    a.b = TObjFish__sub_8001EDB0((void *)lbl_805D58E8, 1);
+    a.a = get_bml_model((void *)ancient_container_resource_bundle, 1);
+    a.b = TObjFish__sub_8001EDB0((void *)ancient_container_resource_bundle, 1);
     Desc_8015C234 b = lbl_8044074C;
     b.x = self->x;
     b.y = self->y;
     b.z = self->z;
     b.y2 = b.y;
-    b.a = get_bml_model((void *)lbl_805D58E8, 2);
-    b.b = TObjFish__sub_8001EDB0((void *)lbl_805D58E8, 2);
+    b.a = get_bml_model((void *)ancient_container_resource_bundle, 2);
+    b.b = TObjFish__sub_8001EDB0((void *)ancient_container_resource_bundle, 2);
     if (check_value_equals__13TQuestColCtrlFPvi(self, lbl_805D2F00) != 0) {
-        a.b = lbl_805D58EC->a;
-        b.b = lbl_805D58EC->b;
+        a.b = ancient_container_fragment_texture_lists->a;
+        b.b = ancient_container_fragment_texture_lists->b;
     }
     {
         u8 *o = (u8 *)__nw__7TObjectFUl(0x234);
@@ -276,11 +276,11 @@ void spawn_break_debris__8TObjFishFPv(Obj_8015C234 *self) {
 }
 
 void TObjPlayer__sub_8015C3C8(u8 *arg0) {
-    extern u32 lbl_805D58E8;
+    extern u32 ancient_container_resource_bundle;
     u8 *temp_r31;
     u8 *temp_r31_2;
     u8 *temp_r31_3;
-    if ((u32) lbl_805D58E8 != 0U) {
+    if ((u32) ancient_container_resource_bundle != 0U) {
         switch (M2C_FIELD(arg0, s16 *, 0x326)) {
         case 0:
             push_matrix();

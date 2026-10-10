@@ -491,6 +491,7 @@ pso/enemy/TObjEnemyCustom_800C7D18.cpp
 pso/enemy/TObjEnemyCustom_800C8018.cpp
 pso/enemy/TObjEnemyCustom_800C8040.cpp
 pso/enemy/TObjEnemy_8020C3E0.cpp
+pso/item/SRankSlicerWeapons.cpp
 pso/item/TItem.cpp
 pso/item/TItemAttackCol_802E4798.cpp
 pso/item/TItemAttacker.cpp
@@ -598,8 +599,6 @@ pso/item/TItemEquipVariant_801287A4.cpp
 pso/item/TItemEquipVariant_80128A18.cpp
 pso/item/TItemEquipVariant_80128F08.cpp
 pso/item/TItemEquipVariant_801293A4.cpp
-pso/item/TItemEquipVariant_801294E8.cpp
-pso/item/TItemEquipVariant_801297C4.cpp
 pso/item/TItemEquipVariant_80129B08.cpp
 pso/item/TItemEquipVariant_80129D7C.cpp
 pso/item/TItemEquipVariant_80129FF0.cpp
@@ -2409,9 +2408,6 @@ pso/player/TObjPlayer_80128E80.cpp
 pso/player/TObjPlayer_80128F60.cpp
 pso/player/TObjPlayer_80129048.cpp
 pso/player/TObjPlayer_80129308.cpp
-pso/player/TObjPlayer_80129540.cpp
-pso/player/TObjPlayer_801295E0.cpp
-pso/player/TObjPlayer_80129724.cpp
 pso/player/TObjPlayer_8012981C.cpp
 pso/player/TObjPlayer_801299DC.cpp
 pso/player/TObjPlayer_80129B60.cpp
@@ -2652,6 +2648,7 @@ pso/system/ChunkMaterialState.cpp
 pso/system/CityTraffic.cpp
 pso/system/ItemEffects.cpp
 pso/system/ModelDrawContext.cpp
+pso/system/PadRumble.cpp
 pso/system/THeap.cpp
 pso/system/TMemberCheck.cpp
 pso/system/TNECFontEORFunction.cpp
@@ -3118,10 +3115,6 @@ pso/unk/text_80128CE8.cpp
 pso/unk/text_80128FF0.cpp
 pso/unk/text_80129170.cpp
 pso/unk/text_8012934C.cpp
-pso/unk/text_801293FC.cpp
-pso/unk/text_80129588.cpp
-pso/unk/text_801295FC.cpp
-pso/unk/text_8012976C.cpp
 pso/unk/text_80129878.cpp
 pso/unk/text_80129AB0.cpp
 pso/unk/text_80129BB0.cpp
@@ -3474,7 +3467,6 @@ pso/unk/text_8023F160.cpp
 pso/unk/text_8023F1B8.cpp
 pso/unk/text_8023F660.cpp
 pso/unk/text_80242F0C.cpp
-pso/unk/text_80242F94.cpp
 pso/unk/text_802432F0.cpp
 pso/unk/text_802437C4.cpp
 pso/unk/text_80244238.cpp

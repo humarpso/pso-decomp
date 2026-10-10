@@ -41,7 +41,7 @@ M2C_UNK post_translate_matrix(void *);
 M2C_UNK set_global_param__8TObjFishFi(int);
 M2C_UNK draw_ginja_model(void *);
 M2C_UNK set_chunk_material_color(void *);
-extern M2C_UNK lbl_8050BEC0[];
+extern M2C_UNK saved_model_draw_color[];
 extern M2C_UNK lbl_8058D4C0[];
 extern s32 lbl_805D5660;
 extern s32 lbl_805D5664;
@@ -104,7 +104,7 @@ void draw_effect_models__10TItemEffPGFPv(u8 *arg0) {
             lbl_805D5660 = some_id_805c6f74;
             lbl_805D5664 = lbl_805D7784;
             lbl_805D5668 = lbl_805D7780;
-            copy_vec4__13TRaderMapCoreFPvPv((void *) (lbl_8050BEC0), (void *) (lbl_8058D4C0));
+            copy_vec4__13TRaderMapCoreFPvPv((void *) (saved_model_draw_color), (void *) (lbl_8058D4C0));
             some_id_805c6f74 |= 0x20;
             set_chunk_material_color((void *) (arg0 + 0x28));
             begin_effect_render__13TParticleCtrlFv();
@@ -123,7 +123,7 @@ void draw_effect_models__10TItemEffPGFPv(u8 *arg0) {
             pop_matrix();
             pop_matrix();
             end_effect_render__13TParticleCtrlFv();
-            copy_vec4__13TRaderMapCoreFPvPv((void *) (lbl_8058D4C0), (void *) (lbl_8050BEC0));
+            copy_vec4__13TRaderMapCoreFPvPv((void *) (lbl_8058D4C0), (void *) (saved_model_draw_color));
             lbl_805D7784 = lbl_805D5664;
             lbl_805D7780 = lbl_805D5668;
             some_id_805c6f74 = lbl_805D5660;

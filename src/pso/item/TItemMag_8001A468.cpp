@@ -133,7 +133,7 @@ s32 get_flag890_state__10TObjPlayerFPv(void *arg0);
 void update_flag890_state__10TObjPlayerFi(s32 arg0);
 void __dl__7TObjectFPv(void *);
 void __dt__7TObjectFv(void *, int);
-s32 fn_8001A988();
+s32 get_ending_scene_active();
 
 s32 get_flag890_state__10TObjPlayerFPv(void *arg0) {
     s32 temp_r4;
@@ -179,7 +179,7 @@ int TObjPlayer__sub_8001A77C(void *p) {
 }
 
 void update_flag890_state__10TObjPlayerFi(s32 arg0) {
-    if (((s32) game_difficulty_selection != 3) && (fn_8001A988() == 0)) {
+    if (((s32) game_difficulty_selection != 3) && (get_ending_scene_active() == 0)) {
         s32 temp;
         player_light_index = (s8) arg0;
         temp = get_flag890_state__10TObjPlayerFPv((void *)(lbl_805D49E0));

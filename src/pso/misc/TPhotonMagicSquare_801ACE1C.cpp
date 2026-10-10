@@ -156,7 +156,7 @@ extern "C" {
 s32 VecCopy__FP3VecPC3Vec(void *, void *);
 s32 copy_vec4__13TRaderMapCoreFPvPv(void *, void *);
 s32 construct_world_actor_base(void *);
-extern RecoveredGlobal_801AD0F0_TPhotonMagicSquare__data_804C3940 TPhotonMagicSquare__data_804C3940;
+extern RecoveredGlobal_801AD0F0_TPhotonMagicSquare__data_804C3940 TPhotonMagicSquare__color_palette;
 extern RecoveredGlobal_801AD0F0___vt__18TPhotonMagicSquare __vt__18TPhotonMagicSquare;
 extern s32 TPhotonMagicSquare__data_805D3508;
 extern u8 *photon_blast_shared_resource;
@@ -164,7 +164,7 @@ u8 *TPhotonMagicSquare__ct(u8 *arg0, M2C_UNK arg1, s32 arg2, s32 arg3, s32 arg4,
 s32 VecCopy__FP3VecPC3Vec(void *, void *);
 s32 copy_vec4__13TRaderMapCoreFPvPv(void *, void *);
 s32 construct_world_actor_base(void *);
-extern RecoveredGlobal_801AD0F0_TPhotonMagicSquare__data_804C3940 TPhotonMagicSquare__data_804C3940;
+extern RecoveredGlobal_801AD0F0_TPhotonMagicSquare__data_804C3940 TPhotonMagicSquare__color_palette;
 extern RecoveredGlobal_801AD0F0___vt__18TPhotonMagicSquare __vt__18TPhotonMagicSquare;
 extern s32 TPhotonMagicSquare__data_805D3508;
 extern u8 *photon_blast_shared_resource;
@@ -174,7 +174,7 @@ s32 copy_vec4__13TRaderMapCoreFPvPv(void *, void *);
 s32 find_entity_by_id(void *);
 s32 construct_world_actor_base(void *);
 s32 play_sound_effect(int, int, int, int);
-extern RecoveredGlobal_801AD0F0_TPhotonMagicSquare__data_804C3940 TPhotonMagicSquare__data_804C3940;
+extern RecoveredGlobal_801AD0F0_TPhotonMagicSquare__data_804C3940 TPhotonMagicSquare__color_palette;
 extern RecoveredGlobal_801AD0F0___vt__18TPhotonMagicSquare __vt__18TPhotonMagicSquare;
 extern s32 TPhotonMagicSquare__data_805D3508;
 extern u8 *photon_blast_shared_resource;
@@ -215,7 +215,7 @@ u8 *TPhotonMagicSquare__ct(u8 *arg0, M2C_UNK arg1, s32 arg2, s32 arg3, s32 arg4,
     M2C_FIELD(arg0, f32 *, 0x68) = (f32) (0.0f);
     M2C_FIELD(arg0, f32 *, 0x6C) = (f32) (0.0f);
     M2C_FIELD(arg0, f32 *, 0x70) = (f32) (0.0f);
-    copy_vec4__13TRaderMapCoreFPvPv((void *) (arg0 + 0xA0), (void *) ((u8 *)&TPhotonMagicSquare__data_804C3940.value + (arg2 * 0x10)));
+    copy_vec4__13TRaderMapCoreFPvPv((void *) (arg0 + 0xA0), (void *) ((u8 *)&TPhotonMagicSquare__color_palette.value + (arg2 * 0x10)));
     VecCopy__FP3VecPC3Vec((void *) (arg0 + 0xB8), (void *) (arg3));
     M2C_FIELD(arg0, s32 *, 0xB0) = 0;
     M2C_FIELD(arg0, s32 *, 0xB4) = 0;
@@ -237,7 +237,7 @@ u8 *construct_photon_magic_square_normal(u8 *arg0, M2C_UNK arg1, s32 arg2, s32 a
     M2C_FIELD(arg0, f32 *, 0x68) = (f32) (0.0f);
     M2C_FIELD(arg0, f32 *, 0x6C) = (f32) (0.0f);
     M2C_FIELD(arg0, f32 *, 0x70) = (f32) (0.0f);
-    copy_vec4__13TRaderMapCoreFPvPv((void *) (arg0 + 0xA0), (void *) ((u8 *)&(*(RecoveredGlobal_801AD218_TPhotonMagicSquare__data_804C3940 *)&TPhotonMagicSquare__data_804C3940).value + (arg2 * 0x10)));
+    copy_vec4__13TRaderMapCoreFPvPv((void *) (arg0 + 0xA0), (void *) ((u8 *)&(*(RecoveredGlobal_801AD218_TPhotonMagicSquare__data_804C3940 *)&TPhotonMagicSquare__color_palette).value + (arg2 * 0x10)));
     VecCopy__FP3VecPC3Vec((void *) (arg0 + 0xB8), (void *) (arg3));
     M2C_FIELD(arg0, s32 *, 0xB0) = 0;
     M2C_FIELD(arg0, s32 *, 0xB4) = 0;
@@ -260,7 +260,7 @@ u8 *construct_at_owner__18TPhotonMagicSquareFPviii(u8 *arg0, M2C_UNK arg1, s32 a
     M2C_FIELD(arg0, f32 *, 0x68) = (f32) (0.0f);
     M2C_FIELD(arg0, f32 *, 0x6C) = (f32) (0.0f);
     M2C_FIELD(arg0, f32 *, 0x70) = (f32) (0.0f);
-    copy_vec4__13TRaderMapCoreFPvPv((void *) (arg0 + 0xA0), (void *) ((u8 *)&(*(RecoveredGlobal_801AD330_TPhotonMagicSquare__data_804C3940 *)&TPhotonMagicSquare__data_804C3940).value + (arg2 * 0x10)));
+    copy_vec4__13TRaderMapCoreFPvPv((void *) (arg0 + 0xA0), (void *) ((u8 *)&(*(RecoveredGlobal_801AD330_TPhotonMagicSquare__data_804C3940 *)&TPhotonMagicSquare__color_palette).value + (arg2 * 0x10)));
     temp_r3 = find_entity_by_id((void *) (arg3));
     if (temp_r3 != 0) {
         VecCopy__FP3VecPC3Vec((void *) (arg0 + 0xB8), (void *) (temp_r3 + 0x38));

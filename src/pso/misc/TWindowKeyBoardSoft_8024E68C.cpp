@@ -36,7 +36,7 @@ struct Win_8024EA50 {
 extern "C" {
 u32 alloc__23TAdSinglePlyChrSelectGCFPv(int);
 u32 init_layout__19TWindowKeyBoardSoftFPv(void* a0);
-extern u32 lbl_805D6420;
+extern u32 soft_keyboard_instance;
 u32 get_or_create_instance__19TWindowKeyBoardSoftFv(void);
 s32 __cvt_fp2unsigned(f32);
 extern const f32 lbl_805DCC84;
@@ -70,7 +70,7 @@ f32 get_fov__11TCameraCtrlFv();
 f32 get_view_scale__11TCameraCtrlFv();
 s32 get_camera_no__11TCameraCtrlFv();
 void adjust_pos_for_split_screen__19TWindowKeyBoardSoftFPvi(Vec2_8024EC34 *arg0, s32 arg1);
-extern u32 lbl_805D6420;
+extern u32 soft_keyboard_instance;
 extern const float lbl_805DCC94;
 extern const f32 lbl_805DCC98;
 extern const f32 lbl_805DCC9C;
@@ -211,7 +211,7 @@ s32 try_open__19TWindowKeyBoardSoftFii(s32 arg0, s32 arg1) {
     return 1;
 }
 
-extern u32 lbl_805D6420;
+extern u32 soft_keyboard_instance;
 
 #pragma push
 #pragma fp_contract on
@@ -261,7 +261,7 @@ u32 init_text_window_layout(Win_8024EA50 *win, f32 *pos, f32 *size, f32 *scale, 
     win->y40 = win->y + my;
     win->x44 = (win->x + win->w) - mx;
     win->y48 = (win->y + win->h) - my;
-    return lbl_805D6420;
+    return soft_keyboard_instance;
 }
 #pragma pop
 
@@ -301,34 +301,34 @@ Vec2_8024EC34 *get_viewport_offset__19TWindowKeyBoardSoftFi(s32 i) {
 }
 
 u32 open_singleton__19TWindowKeyBoardSoftFiiii(s32 arg0, s32 arg1, s32 arg2, s32 arg3, u32 _w4, f32 _w5) {
-    if ((u32) lbl_805D6420 == 0U) {
+    if ((u32) soft_keyboard_instance == 0U) {
         return 0U;
     }
-    init_text_window_layout((Win_8024EA50 *)(lbl_805D6420), (f32 *)(arg0), (f32 *)(arg1), (f32 *)(arg2), (u32)(arg3), _w5);
-    return lbl_805D6420;
+    init_text_window_layout((Win_8024EA50 *)(soft_keyboard_instance), (f32 *)(arg0), (f32 *)(arg1), (f32 *)(arg2), (u32)(arg3), _w5);
+    return soft_keyboard_instance;
 }
 
-extern u32 lbl_805D6420;
+extern u32 soft_keyboard_instance;
 
 u32 get_or_create_instance__19TWindowKeyBoardSoftFv(void) {
     u32 temp_r3;
     u32 var_r0;
-    if ((u32) lbl_805D6420 != 0U) {
-        return lbl_805D6420;
+    if ((u32) soft_keyboard_instance != 0U) {
+        return soft_keyboard_instance;
     }
     temp_r3 = alloc__23TAdSinglePlyChrSelectGCFPv((int) (0x4C));
     var_r0 = temp_r3;
     if (var_r0 != 0U) {
         var_r0 = init_layout__19TWindowKeyBoardSoftFPv((void*)((int) (temp_r3)));
     }
-    lbl_805D6420 = var_r0;
+    soft_keyboard_instance = var_r0;
     return var_r0;
 }
 
 u32 free_singleton__19TWindowKeyBoardSoftFUis(u32 arg0, s16 arg1) {
     if (arg0 != 0U) {
-        if ((u32) lbl_805D6420 == arg0) {
-            lbl_805D6420 = 0U;
+        if ((u32) soft_keyboard_instance == arg0) {
+            soft_keyboard_instance = 0U;
         }
         if (arg1 > 0) {
             __dl__FPv(arg0);

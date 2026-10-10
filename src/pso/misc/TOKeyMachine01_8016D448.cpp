@@ -58,8 +58,8 @@ int alloc_buffer__11TOBoss4RockFPv(void *);
 u8 * load_gvm_texture_file(s32);
 extern RecoveredGlobal_8016D714_lbl_80441E24 lbl_80441E24;
 extern RecoveredGlobal_8016D714_lbl_804B2DD8 lbl_804B2DD8;
-extern u32 lbl_805D5A30;
-extern s32 *TOKeyMachine01__data_805D5A34;
+extern u32 key_machine_model_archive;
+extern s32 *TOKeyMachine01__texture_lists;
 void load_assets__14TOKeyMachine01Fv(void);
 s32 get_main_phase(void);
 s32 is_split_screen(void);
@@ -67,8 +67,8 @@ u8 * TOKey__ct(void *);
 M2C_UNK init_switch_id__5TOKeyFPv(void *);
 extern M2C_UNK __vt__14TOKeyMachine01[];
 extern s32 lbl_805D305C;
-extern u32 lbl_805D5A30;
-extern s32 *TOKeyMachine01__data_805D5A34;
+extern u32 key_machine_model_archive;
+extern s32 *TOKeyMachine01__texture_lists;
 extern const f32 lbl_805DB784;
 extern const f32 lbl_805DB788;
 extern const f32 lbl_805DB794;
@@ -85,7 +85,7 @@ M2C_UNK draw_ginja_model(int);
 M2C_UNK set_chunk_material_color(void *);
 extern u8 chunk_material_color_half_alpha_f32[];
 extern s32 lbl_805D5660;
-extern s32 *TOKeyMachine01__data_805D5A34;
+extern s32 *TOKeyMachine01__texture_lists;
 extern s32 some_id_805c6f74;
 void render__14TOKeyMachine01Fv(u8 *arg0);
 }
@@ -129,7 +129,7 @@ void render__14TOKeyMachine01Fv(u8 *arg0) {
     u8 *temp_r31_2;
     u8 *temp_r31_3;
     if (((VObj_8016D540 *)arg0)->m8(M2C_FIELD(arg0, f32 *, 0xC0), M2C_FIELD(arg0, f32 *, 0xC4)) != 0) {
-        set_global_param__8TObjFishFi(TOKeyMachine01__data_805D5A34[M2C_FIELD(arg0, s32 *, 0xD4)]);
+        set_global_param__8TObjFishFi(TOKeyMachine01__texture_lists[M2C_FIELD(arg0, s32 *, 0xD4)]);
         push_matrix();
         post_translate_matrix((void *) (arg0 + 0x38));
         rotate_matrix_y((int) (0), (int) (M2C_FIELD(arg0, s32 *, 0x60)));
@@ -171,21 +171,21 @@ void *create__14TOKeyMachine01FPv(void *arg0) {
     return o;
 }
 
-extern u32 lbl_805D5A30;
-extern s32 *TOKeyMachine01__data_805D5A34;
+extern u32 key_machine_model_archive;
+extern s32 *TOKeyMachine01__texture_lists;
 
 void free_statics__14TOKeyMachine01Fv(void) {
-    if ((s32 *) TOKeyMachine01__data_805D5A34 != NULL) {
-        free_if_valid__10TObjPlayerFi(*TOKeyMachine01__data_805D5A34);
-        *TOKeyMachine01__data_805D5A34 = 0;
-        if ((s32 *) TOKeyMachine01__data_805D5A34 != NULL) {
-            free__11TOBoss4RockFUi((void*)TOKeyMachine01__data_805D5A34);
-            TOKeyMachine01__data_805D5A34 = NULL;
+    if ((s32 *) TOKeyMachine01__texture_lists != NULL) {
+        free_if_valid__10TObjPlayerFi(*TOKeyMachine01__texture_lists);
+        *TOKeyMachine01__texture_lists = 0;
+        if ((s32 *) TOKeyMachine01__texture_lists != NULL) {
+            free__11TOBoss4RockFUi((void*)TOKeyMachine01__texture_lists);
+            TOKeyMachine01__texture_lists = NULL;
         }
     }
-    if ((u32) lbl_805D5A30 != 0U) {
-        TLobby__sub_8001FE7C((void*)lbl_805D5A30, 1);
-        lbl_805D5A30 = 0U;
+    if ((u32) key_machine_model_archive != 0U) {
+        TLobby__sub_8001FE7C((void*)key_machine_model_archive, 1);
+        key_machine_model_archive = 0U;
     }
 }
 
@@ -199,10 +199,10 @@ void load_assets__14TOKeyMachine01Fv(void) {
     if (var_r0 != 0) {
         var_r0 = (long) (load_resource_from_descriptor((void *) temp_r3, 1, &lbl_804B2DD8.value, 0, 0, 0));
     }
-    (*(u8 * *)&lbl_805D5A30) = (unsigned char *) ((void *) var_r0);
-    (*(s32 *)&TOKeyMachine01__data_805D5A34) = alloc_buffer__11TOBoss4RockFPv((void *)8);
-    M2C_FIELD((*(s32 *)&TOKeyMachine01__data_805D5A34), u8 **, 0) = load_gvm_texture_file((s32) &lbl_80441E24.value);
-    M2C_FIELD((*(s32 *)&TOKeyMachine01__data_805D5A34), s32 *, 4) = (s32) M2C_FIELD(M2C_FIELD((*(u8 * *)&lbl_805D5A30), u8 **, 0x42C), s32 *, 0xC);
+    (*(u8 * *)&key_machine_model_archive) = (unsigned char *) ((void *) var_r0);
+    (*(s32 *)&TOKeyMachine01__texture_lists) = alloc_buffer__11TOBoss4RockFPv((void *)8);
+    M2C_FIELD((*(s32 *)&TOKeyMachine01__texture_lists), u8 **, 0) = load_gvm_texture_file((s32) &lbl_80441E24.value);
+    M2C_FIELD((*(s32 *)&TOKeyMachine01__texture_lists), s32 *, 4) = (s32) M2C_FIELD(M2C_FIELD((*(u8 * *)&key_machine_model_archive), u8 **, 0x42C), s32 *, 0xC);
 }
 
 void *__dt__14TOKeyMachine01Fv(void *arg0, s16 arg1) {
@@ -221,8 +221,8 @@ u8 *TOKeyMachine01__ct(u8 *arg0, M2C_UNK arg1, s32 arg2) {
     M2C_FIELD(arg0, s32 *, 0) = (s32) lbl_805D305C;
     ((VObj_18_1a504b *)(arg0))->m5(arg2);
     init_switch_id__5TOKeyFPv((void *) (arg0));
-    M2C_FIELD(arg0, s32 *, 0x24) = (s32) *TOKeyMachine01__data_805D5A34;
-    M2C_FIELD(arg0, s32 *, 0x34) = (s32) M2C_FIELD(M2C_FIELD((*(u8 * *)&lbl_805D5A30), u8 **, 0x42C), s32 *, 8);
+    M2C_FIELD(arg0, s32 *, 0x24) = (s32) *TOKeyMachine01__texture_lists;
+    M2C_FIELD(arg0, s32 *, 0x34) = (s32) M2C_FIELD(M2C_FIELD((*(u8 * *)&key_machine_model_archive), u8 **, 0x42C), s32 *, 8);
     M2C_FIELD(arg0, f32 *, 0xC0) = (f32) lbl_805DB794;
     M2C_FIELD(arg0, f32 *, 0xC4) = (f32) lbl_805DB798;
     M2C_FIELD(arg0, f32 *, 0xCC) = (f32) lbl_805DB798;

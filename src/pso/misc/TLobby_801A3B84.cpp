@@ -14,7 +14,7 @@ void TLobby__sub_801A3B98(void) { camera_split_screen_selector = 1; }
     extern int lbl_805D5FDC;
 void clear_quest_state__6TLobbyFv(void) { lbl_805D5FDC = 0; }
 
-    extern int lbl_805D5FC8;
-void set_scene__6TSceneFi(int a0) { lbl_805D5FC8 = a0; }
+    extern int scene_resource_index;
+void set_scene__6TSceneFi(int a0) { scene_resource_index = a0; }
 
 }

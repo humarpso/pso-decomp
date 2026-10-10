@@ -17,7 +17,7 @@ void begin_screen_draw(int);
 void get_player__20TWindowSubStatusDispFv();
 void draw_textured_quad_at_depth(void *, f32);
 void set_draw_texture_and_color(int, int);
-extern s32 lbl_805D6700;
+extern s32 menu_selection_cursor_texture_list;
 void draw_select_cursor_quads(Obj_802AE978 *o);
 }
 
@@ -27,7 +27,7 @@ void draw_select_cursor_quads(Obj_802AE978 *o) {
     u32 i;
     for (i = 0; i < o->count; i++) {
         begin_screen_draw(1);
-        set_global_param__8TObjFishFi(lbl_805D6700);
+        set_global_param__8TObjFishFi(menu_selection_cursor_texture_list);
         set_draw_texture_and_color(0, (o->colors[i] << 24) | 0xFFFFFF);
         draw_textured_quad_at_depth(&o->cards[i], o->scale);
         draw_textured_quad_at_depth(&o->cards[i + 16], o->scale);

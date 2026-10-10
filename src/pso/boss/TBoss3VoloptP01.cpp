@@ -857,8 +857,8 @@ extern s32 lbl_805D4CB0;
 extern s32 lbl_805D4CB4;
 extern s32 lbl_805D4CB8;
 extern s32 lbl_805D4CBC;
-extern void *lbl_805D4CC0;
-extern s32 lbl_805D4CC4;
+extern void *TBoss3VoloptP01__resource_bundle;
+extern s32 TBoss3VoloptP01__breakup_model;
 extern void *lbl_805D4CC8;
 extern u8 *lbl_805D4CCC;
 extern void *tl_04;
@@ -1401,7 +1401,7 @@ void update_breakup__15TBoss3VoloptP01FPv(u8 *arg0) {
         advance_animation_playback(arg0);
         M2C_FIELD(arg0, s16 *, 0x33C) -= 1;
         if (M2C_FIELD(arg0, s16 *, 0x33C) < 0) {
-            create_breakup_mdl__12TBoss3VoloptFiiiii(lbl_805D4CC4, lbl_80484218, M2C_FIELD(arg0, s32 *, 0x24), arg0 + 0x2FC, M2C_FIELD(arg0, s32 *, 0x60));
+            create_breakup_mdl__12TBoss3VoloptFiiiii(TBoss3VoloptP01__breakup_model, lbl_80484218, M2C_FIELD(arg0, s32 *, 0x24), arg0 + 0x2FC, M2C_FIELD(arg0, s32 *, 0x60));
             trigger_dell_biter_events__10TObjPlayerFPv(arg0 + 0x2FC);
             M2C_FIELD(arg0, s32 *, 0x388) |= 0x40000;
             play_sound_effect(0x4003AD07, arg0 + 0x38, 0, 0);
@@ -1571,22 +1571,22 @@ void run_task__15TBoss3VoloptP01Fv(u8 *arg0) {
 }
 
 void destroy__15TBoss3VoloptP01Fv(void) {
-    if ((*(struct VObj_80043EA4 * *)&lbl_805D4CC4) != NULL) {
-        (*(struct VObj_80043EA4 * *)&lbl_805D4CC4)->m0(1);
+    if ((*(struct VObj_80043EA4 * *)&TBoss3VoloptP01__breakup_model) != NULL) {
+        (*(struct VObj_80043EA4 * *)&TBoss3VoloptP01__breakup_model)->m0(1);
     }
-    (*(struct VObj_80043EA4 * *)&lbl_805D4CC4) = NULL;
+    (*(struct VObj_80043EA4 * *)&TBoss3VoloptP01__breakup_model) = NULL;
 }
 
 void init_breakup_effect__15TBoss3VoloptP01Fv(void) {
     s32 temp_r3;
 
-    lbl_805D4CC0 = boss3_volopt_resources;
+    TBoss3VoloptP01__resource_bundle = boss3_volopt_resources;
     temp_r3 = alloc__23TAdSinglePlyChrSelectGCFPv(0x10);
     if (temp_r3 != 0) {
-        temp_r3 = init_from_model__11TBreakUpMdlFPvi(temp_r3, M2C_FIELD(M2C_FIELD(lbl_805D4CC0, void **, 0x42C), s32 *, 0x118));
+        temp_r3 = init_from_model__11TBreakUpMdlFPvi(temp_r3, M2C_FIELD(M2C_FIELD(TBoss3VoloptP01__resource_bundle, void **, 0x42C), s32 *, 0x118));
     }
-    lbl_805D4CC4 = temp_r3;
-    lbl_805D4CC8 = collect_and_count__12TBoss3VoloptFUii(M2C_FIELD(M2C_FIELD(lbl_805D4CC0, void **, 0x42C), s32 *, 0x118), 0xD);
+    TBoss3VoloptP01__breakup_model = temp_r3;
+    lbl_805D4CC8 = collect_and_count__12TBoss3VoloptFUii(M2C_FIELD(M2C_FIELD(TBoss3VoloptP01__resource_bundle, void **, 0x42C), s32 *, 0x118), 0xD);
     lbl_805D4CB0 = register_boss__6TLobbyFPv(0x22);
     lbl_805D4CB4 = dispatch_shared_handler_b__6TLobbyFPv(0x22);
     lbl_805D4CB8 = register_object__6TLobbyFPv(0x22);
@@ -1616,7 +1616,7 @@ void *__dt__15TBoss3VoloptP01Fv(void *arg0, s16 arg1) {
 
 void init_params__15TBoss3VoloptP01FPv(VObj_80044038 *arg0) {
     void *p;
-    F(arg0, s32, 0xDC) = F(lbl_805D4CC0, s32, 0x430);
+    F(arg0, s32, 0xDC) = F(TBoss3VoloptP01__resource_bundle, s32, 0x430);
     F(arg0, s32, 0xD8) = (s32) lbl_80484170;
     set_field_d8__10TObjPlayerFPvi(arg0, F(arg0, s32, 0xD8));
     init_collision_body_parts(arg0, (void *) lbl_804841EC, 1);

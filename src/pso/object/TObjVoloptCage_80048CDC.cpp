@@ -189,7 +189,7 @@ f32 sin_table_lookup(s32);
 f32 cos_table_lookup(s32);
 extern u8 lbl_804848FC[];
 extern struct VObj_800490E8_80048F40 *volopt_cage_breakup_model;
-extern s32 TObjVoloptCage__data_805D4D28;
+extern s32 TObjVoloptCage__texture_list;
 extern const f32 lbl_805D8860;
 extern const f32 lbl_805D8864;
 extern const f32 lbl_805D8868;
@@ -311,8 +311,8 @@ void update_breakup__14TObjVoloptCageFPv(u8 *arg0) {
         break;
     case 0:
         play_sound_effect(0x4001C112, (u32)(arg0 + 0x38), 0, 0);
-        create_breakup_mdl__12TBoss3VoloptFiiiii(volopt_cage_breakup_model, lbl_804848FC, TObjVoloptCage__data_805D4D28, arg0 + 0x2FC, M2C_FIELD(arg0, s32 *, 0x60));
-        create_breakup_mdl__12TBoss3VoloptFiiiii(volopt_cage_breakup_model, lbl_804848FC, TObjVoloptCage__data_805D4D28, arg0 + 0x2FC, M2C_FIELD(arg0, s32 *, 0x60));
+        create_breakup_mdl__12TBoss3VoloptFiiiii(volopt_cage_breakup_model, lbl_804848FC, TObjVoloptCage__texture_list, arg0 + 0x2FC, M2C_FIELD(arg0, s32 *, 0x60));
+        create_breakup_mdl__12TBoss3VoloptFiiiii(volopt_cage_breakup_model, lbl_804848FC, TObjVoloptCage__texture_list, arg0 + 0x2FC, M2C_FIELD(arg0, s32 *, 0x60));
         trigger_dell_biter_events__10TObjPlayerFPv(arg0 + 0x2FC);
         M2C_FIELD(arg0, s16 *, 0x33C) = 0xC;
         disallow_rendering__7TObjectFv(arg0);

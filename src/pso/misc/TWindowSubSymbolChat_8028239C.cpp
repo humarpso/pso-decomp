@@ -28,7 +28,7 @@ struct VObj_18_204a81 : VBase_18_204a81 {
 };
 
 extern "C" {
-extern RecoveredGlobal_8028379C_lbl_804FF968 lbl_804FF968;
+extern RecoveredGlobal_8028379C_lbl_804FF968 symbol_chat_receive_buffer;
 M2C_UNK *TWindowSubSymbolChat__sub_8028379C(void);
 s32 __dt__7TObjectFv(void *, int);
 s32 queue_destruction__7TObjectFv(int);
@@ -911,7 +911,7 @@ void *TWindowSubSymbolChat__ct(void *arg0, s32 arg1, s32 arg2) {
 }
 typedef char RecoveredGlobal_8028379C_lbl_804FF968_size[sizeof(RecoveredGlobal_8028379C_lbl_804FF968) == 0x58 ? 1 : -1];
 M2C_UNK *TWindowSubSymbolChat__sub_8028379C(void) {
-    return &lbl_804FF968.value;
+    return &symbol_chat_receive_buffer.value;
 }
 
 }

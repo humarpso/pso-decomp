@@ -58,7 +58,7 @@ void play_particle_effect_once__10TObjPlayerFv(void);
 M2C_UNK clear_flags__11TAdRicoRingFPvUi(M2C_UNK *, M2C_UNK);
 s32 test_flags_any(M2C_UNK *, M2C_UNK);
 M2C_UNK copy_vec4__13TRaderMapCoreFPvPv(void *, void *);
-extern RecoveredGlobal_80101088_lbl_8050BEC0 lbl_8050BEC0;
+extern RecoveredGlobal_80101088_lbl_8050BEC0 saved_model_draw_color;
 extern RecoveredGlobal_80101088_lbl_8058D4C0 lbl_8058D4C0;
 extern M2C_UNK lbl_805D53EC;
 extern s32 lbl_805D5660;
@@ -200,7 +200,7 @@ void play_particle_effect_once__10TObjPlayerFv(void) {
 }
 void TObjPlayer__sub_80101088(void) {
     if (test_flags_any((M2C_UNK *)((void *) (&lbl_805D53EC)), (M2C_UNK)((int) (1))) != 0) {
-        copy_vec4__13TRaderMapCoreFPvPv((void *) (&lbl_8058D4C0.value), (void *) (&lbl_8050BEC0.value));
+        copy_vec4__13TRaderMapCoreFPvPv((void *) (&lbl_8058D4C0.value), (void *) (&saved_model_draw_color.value));
         some_id_805c6f74 = lbl_805D5660;
         clear_flags__11TAdRicoRingFPvUi((M2C_UNK *)((void *) (&lbl_805D53EC)), (M2C_UNK)((int) (1)));
     }

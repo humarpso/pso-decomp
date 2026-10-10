@@ -31,12 +31,12 @@ M2C_UNK post_translate_matrix(void *);
 M2C_UNK set_global_param__8TObjFishFi(int);
 M2C_UNK draw_ginja_object();
 M2C_UNK draw_chunk_object(int, void *);
-extern M2C_UNK lbl_80443B2C[];
+extern M2C_UNK city_aircar_model_indices[];
 extern M2C_UNK lbl_80443B40[];
 extern M2C_UNK lbl_80443B54[];
 extern M2C_UNK air_car_buffer_pair_table[];
 extern void **lbl_805D5B24;
-extern void **lbl_805D5B2C;
+extern void **city_common_texture_list;
 extern const f32 lbl_805DBBA0;
 extern const f32 lbl_805DBBA4;
 void render__18TObjCityAirCar_CarFPv(u8 *arg0);
@@ -114,8 +114,8 @@ void render__18TObjCityAirCar_CarFPv(u8 *arg0) {
         if ((s32) M2C_FIELD(arg0, s32 *, 0x9C) != 0) {
             rotate_matrix_z((int) (0), (int) (M2C_FIELD(arg0, s32 *, 0x64)));
         }
-        set_global_param__8TObjFishFi((int) (lbl_805D5B2C));
-        get_city_common_model((int) (M2C_FIELD(((u8 *)(lbl_80443B2C) + (M2C_FIELD(arg0, s32 *, 0x9C) * 4)), s32 *, 0)));
+        set_global_param__8TObjFishFi((int) (city_common_texture_list));
+        get_city_common_model((int) (M2C_FIELD(((u8 *)(city_aircar_model_indices) + (M2C_FIELD(arg0, s32 *, 0x9C) * 4)), s32 *, 0)));
         ((void (*)()) draw_chunk_object)();
         begin_effect_render__13TParticleCtrlFv();
         get_city_common_model((int) (M2C_FIELD(((u8 *)(lbl_80443B40) + (M2C_FIELD(arg0, s32 *, 0x9C) * 4)), s32 *, 0)));

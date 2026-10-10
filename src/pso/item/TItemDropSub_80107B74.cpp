@@ -8,11 +8,11 @@ extern "C" {
 
 s32 TItemDropSub__sub_80107B74(void);
 
-extern void *TItemDropSub__data_805D5478;
+extern void *TItemDropSub__instance;
 
 s32 TItemDropSub__sub_80107B74(void) {
-    if ((void *) TItemDropSub__data_805D5478 != NULL) {
-        return M2C_FIELD(TItemDropSub__data_805D5478, s32 *, 0x1C);
+    if ((void *) TItemDropSub__instance != NULL) {
+        return M2C_FIELD(TItemDropSub__instance, s32 *, 0x1C);
     }
     return 0xA;
 }

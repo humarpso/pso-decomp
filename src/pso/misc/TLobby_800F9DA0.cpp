@@ -47,8 +47,8 @@ s32 get_file_size__6TLobbyFv(void) {
     return temp_r31;
 }
 
-    extern int lbl_805D5338;
-void read_disc_file(int a0) { lbl_805D5338 = a0; read_whole_file__8TGStreamFiPv(); }
+    extern int disc_read_filename;
+void read_disc_file(int a0) { disc_read_filename = a0; read_whole_file__8TGStreamFiPv(); }
 
 extern s32 tl_su;
 extern s32 tl_camera;

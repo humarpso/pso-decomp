@@ -138,7 +138,7 @@ extern u32 lbl_805D7BC4;
 void TLobby__sub_803F95E4(u32);
 extern u32 lbl_805D7BA8;
 void cancel_alarm_a__6TLobbyFv(void);
-extern s16 lbl_805D4828;
+extern s16 network_link_status_cache;
 extern s32 lbl_805D7BB8;
 extern u32 lbl_805D7BBC;
 extern u32 lbl_805D7BC0;
@@ -196,7 +196,7 @@ void TAdSinglePlyChrSelectGC__sub_8042D6A4(void *);
 extern M2C_UNK lbl_805D4918;
 extern s32 lbl_805D7C98;
 s32 send_modem_hangup__23TAdSinglePlyChrSelectGCFi(s32 arg0);
-extern s16 lbl_805D4828;
+extern s16 network_link_status_cache;
 s16 query_link_status__6TLobbyFv(void);
 extern RecoveredGlobal_80427D0C_lbl_805CFC20 lobby_pppoe_slot_table;
 s16 get_slot_id__6TLobbyFs(s16 arg0);
@@ -404,7 +404,7 @@ void cancel_thread_if_running__6TLobbyFi(void *);
 void deactivate_entry_by_key__6TLobbyFUi(void *);
 void TLobby__sub_80419DDC(void *);
 void update_exi_status__6TLobbyFv(void);
-extern s16 lbl_805D4828;
+extern s16 network_link_status_cache;
 extern s32 lbl_805D7BB0;
 extern s32 lobby_message_thread_handle;
 extern s32 lbl_805D7BB8;
@@ -650,7 +650,7 @@ void reset_message_thread__6TLobbyFv(void) {
         lobby_message_thread_handle = 0;
     }
     TLobby__sub_80419DDC((void *)update_exi_status__6TLobbyFv);
-    lbl_805D4828 = -1;
+    network_link_status_cache = -1;
     lbl_805D7BB8 = 0;
     lbl_805D7BBC = 0;
     lbl_805D7BB0 = 0;
@@ -667,9 +667,9 @@ void update_exi_status__6TLobbyFv(void) {
         }
         if ((u32) lbl_805D7BBC >= (u32) lbl_805D7BC0) {
             if ((s32) lbl_805D7BB8 == 1) {
-                lbl_805D4828 = 1;
+                network_link_status_cache = 1;
             } else {
-                lbl_805D4828 = 0;
+                network_link_status_cache = 0;
             }
             lbl_805D7BBC = 0U;
             lbl_805D7BC0 = 0xAU;
@@ -782,7 +782,7 @@ s16 TLobby__sub_804262CC(void *argp) {
     }
     TLobby__sub_803F9B28((void *) (lobby_message_thread_handle));
     lbl_805D7BB0 = 1;
-    lbl_805D4828 = -1;
+    network_link_status_cache = -1;
     lbl_805D7BB8 = 0;
     lbl_805D7BBC = 1;
     lbl_805D7BC0 = 1;
@@ -985,8 +985,8 @@ s32 TLobby__sub_80426B88(s16 arg0) {
 
 s16 query_link_status__6TLobbyFv(void) {
     s32 sp8;
-    if ((s16) lbl_805D4828 != -1) {
-        return lbl_805D4828;
+    if ((s16) network_link_status_cache != -1) {
+        return network_link_status_cache;
     }
     if (poll_exi_status__6TLobbyFPv((void *)((void *) (&sp8))) == 1) {
         if (sp8 == 1) {

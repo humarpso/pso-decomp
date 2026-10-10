@@ -94,10 +94,10 @@ s32 load_action_motion_pairs(void *, s32, s32, s32);
 M2C_UNK forward_801C210C__10TObjPlayerFPv(void *, s32);
 s32 handle_message__6TLobbyFPviii(void *arg0, s32 arg1, s32 arg2, s32 arg3);
 void free__11TOBoss4RockFUi(void*);
-extern s32 lbl_805D6680;
+extern s32 player_action_motion_buffer;
 void TLobby__sub_802A7640(void);
 s32 alloc_buffer__11TOBoss4RockFPv(M2C_UNK);
-extern s32 lbl_805D6680;
+extern s32 player_action_motion_buffer;
 void alloc_boss4rock_buffer__6TLobbyFv(void);
 void TLobby__sub_802A7640(void);
 int set_photon_chair_flag__6TLobbyFi(int);
@@ -114,7 +114,7 @@ extern M2C_UNK lbl_804DDBF0[];
 void *ct_variant__6TLobbyFPv(void *arg0);
 void* TLobby__sub_802A7780(void* p);
 void* TLobby__sub_802A7788(void* p);
-extern s32 lbl_805D6680;
+extern s32 player_action_motion_buffer;
 int TLobby__sub_802A7790(void);
 extern RecoveredGlobal_802A7444_lbl_804DDBD8 player_motion_clip_roots_b;
 s32 TLobby__sub_802A7420(void *self, s32 a, s32 b, s32 c);
@@ -149,11 +149,11 @@ s32 validate_handle__6TLobbyFPv(s32 *arg0) {
 }
 void TLobby__sub_802A7318(void* p) { *(s32*)((char*)p + 0x0) = 0; *(s32*)((char*)p + 0x4) = 0; }
 
-extern s32 lbl_805D6680;
+extern s32 player_action_motion_buffer;
 
 s32 calc_cell_offset__6TLobbyFPvii(void *arg0, s32 arg1, s32 arg2) {
     struct VObj_802A7328_802A7290 *o = (struct VObj_802A7328_802A7290 *)arg0;
-    return lbl_805D6680 + ((arg2 + (arg1 * o->m73())) << 0xE);
+    return player_action_motion_buffer + ((arg2 + (arg1 * o->m73())) << 0xE);
 }
 typedef char RecoveredGlobal_802A7444_lbl_804DDBD8_size[sizeof(RecoveredGlobal_802A7444_lbl_804DDBD8) == 0x18 ? 1 : -1];
 
@@ -212,13 +212,13 @@ s32 TLobby__sub_802A75C8(void *arg0, s32 arg1) {
 }
 
 void TLobby__sub_802A7640(void) {
-    if ((u32) (*(u32 *)&lbl_805D6680) != 0U) {
-        free__11TOBoss4RockFUi((void*)(*(u32 *)&lbl_805D6680));
-        (*(u32 *)&lbl_805D6680) = 0U;
+    if ((u32) (*(u32 *)&player_action_motion_buffer) != 0U) {
+        free__11TOBoss4RockFUi((void*)(*(u32 *)&player_action_motion_buffer));
+        (*(u32 *)&player_action_motion_buffer) = 0U;
     }
 }
 void alloc_boss4rock_buffer__6TLobbyFv(void) {
-    lbl_805D6680 = alloc_buffer__11TOBoss4RockFPv(0x100000);
+    player_action_motion_buffer = alloc_buffer__11TOBoss4RockFPv(0x100000);
 }
 void TLobby__sub_802A769C(void) { TLobby__sub_802A7640(); set_photon_chair_flag__6TLobbyFi(0); }
 void enable_and_refresh__6TLobbyFv(void) { set_photon_chair_flag__6TLobbyFi(1); alloc_boss4rock_buffer__6TLobbyFv(); }
@@ -239,6 +239,6 @@ void *ct_variant__6TLobbyFPv(void *arg0) {
 }
 void* TLobby__sub_802A7780(void* p) { return (char*)p + 0xc; }
 void* TLobby__sub_802A7788(void* p) { return (char*)p + 0xc; }
-int TLobby__sub_802A7790(void) {  return (*(int *)&lbl_805D6680); }
+int TLobby__sub_802A7790(void) {  return (*(int *)&player_action_motion_buffer); }
 
 }

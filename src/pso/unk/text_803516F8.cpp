@@ -10,7 +10,7 @@ extern "C" {
 u8 * load_resource_from_descriptor(void *, s32, void *, s32, s32, s32);
 int alloc__23TAdSinglePlyChrSelectGCFPv(void *);
 extern RecoveredGlobal_803516F8_lbl_804F0E4C lbl_804F0E4C;
-extern s32 lbl_805D6EB8;
+extern s32 lobby_butterfly_bml_resource;
 void fn_803516F8(void);
 }
 
@@ -24,7 +24,7 @@ void fn_803516F8(void) {
     if (var_r0 != 0) {
         var_r0 = (long) (load_resource_from_descriptor((void *) temp_r3, 1, &lbl_804F0E4C.value, 0, 0, 0));
     }
-    lbl_805D6EB8 = var_r0;
+    lobby_butterfly_bml_resource = var_r0;
 }
 
 }

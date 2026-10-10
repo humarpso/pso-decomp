@@ -322,7 +322,7 @@ void *load_resource_from_descriptor(void *, s32, void *, s32, s32, s32);
 void *alloc__23TAdSinglePlyChrSelectGCFPv(s32);
 void *alloc_buffer__11TOBoss4RockFPv(s32);
 s32 load_gvm_texture_file(const void *);
-extern u8 lbl_804B41F0[];
+extern u8 TOSensorAncient01__resource_descriptor[];
 extern u32 lbl_805D5A88;
 extern void *lbl_805D5A8C;
 extern s32 lbl_805D5A90;
@@ -475,7 +475,7 @@ void load_resources__17TOSensorAncient01Fv(void) {
     void *p;
     p = alloc__23TAdSinglePlyChrSelectGCFPv(0x440);
     if (p != NULL) {
-        p = load_resource_from_descriptor(p, 1, lbl_804B41F0, 0, 0, 0);
+        p = load_resource_from_descriptor(p, 1, TOSensorAncient01__resource_descriptor, 0, 0, 0);
     }
     lbl_805D5A88 = (u32)p;
     lbl_805D5A8C = alloc_buffer__11TOBoss4RockFPv(0x10);

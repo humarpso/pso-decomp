@@ -27,7 +27,7 @@ M2C_UNK draw_with_camera__6TLobbyFiiif(void *, int, int, f32);
 s32 TCharaMaking__resolve_creation_sprite_table(void *, void *);
 M2C_UNK set_chunk_material_color(void *);
 extern M2C_UNK lbl_804D9668[];
-extern M2C_UNK lbl_8050BEC0[];
+extern M2C_UNK saved_model_draw_color[];
 extern M2C_UNK lbl_8058D4C0[];
 extern const f32 ui_sprite_scale;
 extern const f32 lbl_805DD960;
@@ -64,10 +64,10 @@ void draw_ui_sprite_tinted(s32 arg0, f32 *arg1, f32 *arg2, f32 *arg3, f32 farg0)
         st.q.h = ui_sprite_scale * arg2[1];
         st.q.tbl = lbl_804D9668;
         TCharaMaking__resolve_creation_sprite_table(&st.table, &arg0);
-        copy_vec4__13TRaderMapCoreFPvPv(lbl_8050BEC0, lbl_8058D4C0);
+        copy_vec4__13TRaderMapCoreFPvPv(saved_model_draw_color, lbl_8058D4C0);
         set_chunk_material_color(arg3);
         draw_with_camera__6TLobbyFiiif(&st.q, arg0, 0x22, farg0);
-        copy_vec4__13TRaderMapCoreFPvPv(lbl_8058D4C0, lbl_8050BEC0);
+        copy_vec4__13TRaderMapCoreFPvPv(lbl_8058D4C0, saved_model_draw_color);
     }
 }
 

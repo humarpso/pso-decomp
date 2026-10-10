@@ -7,7 +7,7 @@ extern "C" {
 void TLogo__sub_8001C360(void);
 void TLogo__sub_8001C364(void);
 void *__ct__12TAdSoniclogoFv(void *arg0);
-int TObject__sub_80019A60(void);
+int get_logo_texture_e_handle(void);
 void __ct__7TObjectFP7TObject(void *);
 void *__nw__7TObjectFUl(int);
 void *init_fade__6TLobbyFPvPvPv(void *, void *, void *);
@@ -39,6 +39,6 @@ void *__ct__12TAdSoniclogoFv(void *arg0) {
 void TLogo__sub_8001C360(void) {  }
 
     extern int sonic_logo_object;
-void TLogo__sub_8001C364(void) { sonic_logo_object = TObject__sub_80019A60(); }
+void TLogo__sub_8001C364(void) { sonic_logo_object = get_logo_texture_e_handle(); }
 
 }

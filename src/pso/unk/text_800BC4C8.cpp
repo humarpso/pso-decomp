@@ -18,7 +18,7 @@ s32 fn_800BC3E8(void *, void *);
 s32 init_collision_body_parts(void *, void *, int);
 s32 construct_collider_proxy__10TObjPlayerFPv(void *);
 extern RecoveredGlobal_800BC4C8_lbl_804928A0 lbl_804928A0;
-extern RecoveredGlobal_800BC4C8_lbl_804928CC lbl_804928CC;
+extern RecoveredGlobal_800BC4C8_lbl_804928CC collision_body_vtable;
 u8 *construct_collision_body(u8 *arg0, M2C_UNK arg1, u32 arg2);
 }
 
@@ -28,7 +28,7 @@ typedef char RecoveredGlobal_800BC4C8_lbl_804928A0_size[sizeof(RecoveredGlobal_8
 typedef char RecoveredGlobal_800BC4C8_lbl_804928CC_size[sizeof(RecoveredGlobal_800BC4C8_lbl_804928CC) == 0x5C ? 1 : -1];
 u8 *construct_collision_body(u8 *arg0, M2C_UNK arg1, u32 arg2) {
     construct_collider_proxy__10TObjPlayerFPv((void *) (arg0));
-    M2C_FIELD(arg0, M2C_UNK **, 0x18) = &lbl_804928CC.value;
+    M2C_FIELD(arg0, M2C_UNK **, 0x18) = &collision_body_vtable.value;
     init_collision_body_parts((void *) (arg0), (void *) (&lbl_804928A0.value), (int) (1));
     if (arg2 != 0U) {
         fn_800BC3E8((void *) (arg0), (void *) (arg2));

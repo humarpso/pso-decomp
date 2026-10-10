@@ -437,7 +437,7 @@ s32 validate_character_name__14TObjCMMainMenuFPv(void *);
 u8 calc_section_id_from_name();
 s32 get_display_index__12TCharaMakingFPv(s32);
 s32 is_active__23TAdSinglePlyChrSelectGCFv();
-M2C_UNK fn_80290BE0();
+M2C_UNK reset_character_creation_figure_rotation();
 M2C_UNK draw_creation_ruler_lines(f32);
 s32 get_creation_sprite_id__14TObjCMMainMenuFi(int);
 void draw_ui_sprite_scaled(s32, void *, void *, f32, f32);
@@ -530,7 +530,7 @@ extern Quad_80297DB8 lbl_804DBC88[2];
 extern u8 lbl_804DBCC8[];
 extern M2C_UNK lbl_804DBDA8[];
 extern RecoveredGlobal_80298F08_lbl_8050E3B8 controller_physical_port_bank;
-extern RecoveredGlobal_80298DD4_lbl_8051C07C lbl_8051C07C;
+extern RecoveredGlobal_80298DD4_lbl_8051C07C character_creation_name_buffer;
 extern f32 ui_sprite_scale;
 extern f32 lbl_805D3CA0;
 extern const char *lbl_805D3CD0;
@@ -1578,7 +1578,7 @@ void confirm_selection__14TObjCMMainMenuFPv(void *arg0) {
         try_pay_fee__14TObjCMMainMenuFv();
     }
     ((M2C_UNK (*)(M2C_UNK))set_selection__14TObjCMMainMenuFi)(1);
-    fn_80290BE0();
+    reset_character_creation_figure_rotation();
     M2C_FIELD(arg0, s32 *, 0x30) = 0x3C;
     TObjCMMainMenu__data_805D659C = 2;
 }
@@ -2204,7 +2204,7 @@ u8 is_not_dressing_room_mode__14TObjCMMainMenuFv(void) {
 }
 
 M2C_UNK *TObjCMMainMenu__sub_80298DD4(void) {
-    return &lbl_8051C07C.value;
+    return &character_creation_name_buffer.value;
 }
 
 s32 get_creation_pad(void) {

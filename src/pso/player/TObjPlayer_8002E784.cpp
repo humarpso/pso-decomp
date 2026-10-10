@@ -104,7 +104,7 @@ extern u8 *lbl_805D4BA4;
 void TObjPlayer__sub_8002E7C8(void);
 int alloc__23TAdSinglePlyChrSelectGCFPv(void *);
 u8 * init_from_model__11TBreakUpMdlFPvi(void *, s32);
-extern struct VObj8002EB88_8002eb88_8002E784 *lbl_805D4B88;
+extern struct VObj8002EB88_8002eb88_8002E784 *shared_breakup_model;
 extern u8 *lbl_805D4BA4;
 void create_breakup_model__10TObjPlayerFv(void);
 M2C_UNK queue_destruction__7TObjectFv(void *);
@@ -144,7 +144,7 @@ void *init_base__10TObjPlayerFPv(void *arg0);
 s32 calc_random_scaled__10TObjPlayerFv(void);
 f32 vec3_add_to(void *, void *);
 extern M2C_UNK lbl_804820A8[];
-extern struct VObj8002EB88_8002eb88_8002E784 *lbl_805D4B88;
+extern struct VObj8002EB88_8002eb88_8002E784 *shared_breakup_model;
 extern const f32 lbl_805D8228;
 extern const f32 lbl_805D8234;
 extern const f32 lbl_805D8238;
@@ -253,7 +253,7 @@ void *TObjPlayer__sub_8002EA0C(void *arg0, s16 arg1) {
     return arg0;
 }
 
-extern struct VObj8002EB88_8002eb88_8002E784 *lbl_805D4B88;
+extern struct VObj8002EB88_8002eb88_8002E784 *shared_breakup_model;
 
 struct VObj8002EB88_8002eb88_8002E784;
 Obj_8002EA64 *TObjPlayer__sub_8002EA64(Obj_8002EA64 *arg0, void *arg1, Vec_8002EA64 *arg2) {
@@ -268,9 +268,9 @@ Obj_8002EA64 *TObjPlayer__sub_8002EA64(Obj_8002EA64 *arg0, void *arg1, Vec_8002E
     arg0->vtbl = lbl_804820A8;
     for (i = 0, p = arg0->parts; i < 19; i++, p++) {
         VecCopy__FP3VecPC3Vec(&p->pos, arg2);
-        vec3_add_to(&p->pos, &(*(Src_8002EA64 **)((u8 *)lbl_805D4B88 + 4))[i].a);
+        vec3_add_to(&p->pos, &(*(Src_8002EA64 **)((u8 *)shared_breakup_model + 4))[i].a);
         v = &p->vel;
-        VecCopy__FP3VecPC3Vec(v, &(*(Src_8002EA64 **)((u8 *)lbl_805D4B88 + 4))[i].b);
+        VecCopy__FP3VecPC3Vec(v, &(*(Src_8002EA64 **)((u8 *)shared_breakup_model + 4))[i].b);
         v->y = lerp__9TDeadSpotFff(lbl_805D8234, lbl_805D8238);
         v->z -= lerp__9TDeadSpotFff(lbl_805D8228, lbl_805D823C);
         p->unk18 = calc_random_scaled__10TObjPlayerFv();
@@ -283,10 +283,10 @@ Obj_8002EA64 *TObjPlayer__sub_8002EA64(Obj_8002EA64 *arg0, void *arg1, Vec_8002E
 }
 
 void TObjPlayer__sub_8002EB88(void) {
-    if (lbl_805D4B88 != NULL) {
-        lbl_805D4B88->m0(1);
+    if (shared_breakup_model != NULL) {
+        shared_breakup_model->m0(1);
     }
-    lbl_805D4B88 = NULL;
+    shared_breakup_model = NULL;
 }
 
 extern M2C_UNK lbl_804820C0[];
@@ -299,9 +299,9 @@ void create_breakup_model__10TObjPlayerFv(void) {
     if (var_r0 != 0) {
         var_r0 = (long) (init_from_model__11TBreakUpMdlFPvi((void *) temp_r3, M2C_FIELD(M2C_FIELD(lbl_805D4BA4, u8 **, 0x42C), s32 *, 0x68)));
     }
-    (*(u8 * *)&lbl_805D4B88) = (unsigned char *) ((void *) var_r0);
+    (*(u8 * *)&shared_breakup_model) = (unsigned char *) ((void *) var_r0);
     TObjPlayer__sub_8002ED48((Obj_8002ED48 *)((void *) var_r0), (s32)(0x13));
-    TObjPlayer__sub_8002ECC4((Obj_8002ECC4 *)((*(u8 * *)&lbl_805D4B88)), (s32)(0x13));
+    TObjPlayer__sub_8002ECC4((Obj_8002ECC4 *)((*(u8 * *)&shared_breakup_model)), (s32)(0x13));
 }
 
 void *deleting_dtor__10TObjPlayerFPvs(void *arg0, s16 arg1) {

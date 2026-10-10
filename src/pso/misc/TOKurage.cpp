@@ -107,7 +107,7 @@ extern M2C_UNK __vt__8TOKurage[];
 extern s32 lbl_805D3060;
 extern u32 TOKurage__data_805D5A38;
 u8 *TOKurage__ct(u8 *arg0, M2C_UNK arg1, s32 arg2);
-s32 fn_800FD8B4(void *);
+s32 is_current_room(void *);
 void debug_printf_at(s32 id, const char *fmt, ...);
 extern const char lbl_80441EA0[];
 extern const char lbl_80441EB0[];
@@ -147,7 +147,7 @@ void update_state__8TOKurageFPv(void *arg0) {
 }
 
 void debug_print_ranges__8TOKurageFPv(void *self) {
-    if (fn_800FD8B4(self) == 1) {
+    if (is_current_room(self) == 1) {
         debug_printf_at(0x13001C, lbl_80441EA0);
         debug_printf_at(0x13001D, lbl_80441EB0);
         debug_printf_at(0x13001E, lbl_80441EBC);

@@ -51,7 +51,7 @@ s32 set_global_param__8TObjFishFi(int);
 s32 draw_ginja_model(int);
 u8 * load_resource_from_descriptor(void *, s32, void *, s32, s32, s32);
 int alloc__23TAdSinglePlyChrSelectGCFPv(void *);
-extern RecoveredGlobal_80176758_lbl_804B4300 lbl_804B4300;
+extern RecoveredGlobal_80176758_lbl_804B4300 TOSignCave01__resource_descriptor;
 extern u32 TOSignCave01__shared_resource;
 void load_shared_resource__12TOSignCave01Fv(void);
 s32 init_map_object_base(void *, void *);
@@ -172,7 +172,7 @@ void load_shared_resource__12TOSignCave01Fv(void) {
     temp_r3 = alloc__23TAdSinglePlyChrSelectGCFPv((void *)0x440);
     var_r0 = temp_r3;
     if (var_r0 != 0) {
-        var_r0 = (long) (load_resource_from_descriptor((void *) temp_r3, 1, &lbl_804B4300.value, 0, 0, 0));
+        var_r0 = (long) (load_resource_from_descriptor((void *) temp_r3, 1, &TOSignCave01__resource_descriptor.value, 0, 0, 0));
     }
     (*(s32 *)&TOSignCave01__shared_resource) = var_r0;
 }

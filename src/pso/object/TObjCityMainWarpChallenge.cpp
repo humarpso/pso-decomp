@@ -26,7 +26,7 @@ M2C_UNK TObjAreaWarp__ct();
 s32 get_global_state__14TOKeyMachine01Fv();
 extern M2C_UNK __vt__25TObjCityMainWarpChallenge[];
 extern s32 lbl_805D32B8;
-extern u8 *lbl_805D5B28;
+extern u8 *city_common_model_archive;
 extern s32 lbl_805D5B60;
 extern const f32 lbl_805DBCCC;
 extern const f32 lbl_805DBCD0;
@@ -88,8 +88,8 @@ void update_state__25TObjCityMainWarpChallengeFPv(void *arg0) {
 }
 
 extern s32 camera_ctrl_instance;
-extern u8 *lbl_805D5B28;
-extern s32 lbl_805D5B2C;
+extern u8 *city_common_model_archive;
+extern s32 city_common_texture_list;
 extern const f32 lbl_805DBCB8;
 extern const f32 lbl_805DBCBC;
 extern const f32 lbl_805DBCC0;
@@ -117,13 +117,13 @@ void render__25TObjCityMainWarpChallengeFv(u8 *arg0) {
     }
     if (((CityMainWarpChalVObj_80187824*)arg0)->m8(lbl_805DBCBC, lbl_805DBCC0) != 0) {
 block_4:
-        set_global_param__8TObjFishFi(lbl_805D5B2C);
+        set_global_param__8TObjFishFi(city_common_texture_list);
         push_matrix();
         post_translate_matrix(arg0 + 0x38);
         rotate_matrix_y(0, M2C_FIELD(arg0, s32 *, 0x60));
-        draw_ginja_object(M2C_FIELD(M2C_FIELD(lbl_805D5B28, void **, 0x42C), s32 *, 0xC8));
+        draw_ginja_object(M2C_FIELD(M2C_FIELD(city_common_model_archive, void **, 0x42C), s32 *, 0xC8));
         begin_effect_render__13TParticleCtrlFv();
-        draw_ginja_model_with_motion(M2C_FIELD(M2C_FIELD(lbl_805D5B28, void **, 0x42C), s32 *, 8), M2C_FIELD(M2C_FIELD(lbl_805D5B28, void **, 0x430), s32 *, 0x2C), M2C_FIELD(arg0, f32 *, 0xC4));
+        draw_ginja_model_with_motion(M2C_FIELD(M2C_FIELD(city_common_model_archive, void **, 0x42C), s32 *, 8), M2C_FIELD(M2C_FIELD(city_common_model_archive, void **, 0x430), s32 *, 0x2C), M2C_FIELD(arg0, f32 *, 0xC4));
         end_effect_render__13TParticleCtrlFv();
         pop_matrix();
     }
@@ -201,8 +201,8 @@ u8 *TObjCityMainWarpChallenge__ct(u8 *arg0) {
     }
     M2C_FIELD(arg0, s16 *, 0xE0) = 0;
     M2C_FIELD(arg0, s16 *, 0xE2) = 0;
-    M2C_FIELD(arg0, s32 *, 0xD0) = (s32) M2C_FIELD(M2C_FIELD(lbl_805D5B28, u8 **, 0x42C), s32 *, 8);
-    M2C_FIELD(arg0, s32 *, 0xD4) = (s32) M2C_FIELD(M2C_FIELD(lbl_805D5B28, u8 **, 0x430), s32 *, 0x2C);
+    M2C_FIELD(arg0, s32 *, 0xD0) = (s32) M2C_FIELD(M2C_FIELD(city_common_model_archive, u8 **, 0x42C), s32 *, 8);
+    M2C_FIELD(arg0, s32 *, 0xD4) = (s32) M2C_FIELD(M2C_FIELD(city_common_model_archive, u8 **, 0x430), s32 *, 0x2C);
     if ((u32) M2C_FIELD(arg0, u32 *, 0xB4) != 0U) {
         queue_destruction__7TObjectFv(M2C_FIELD(arg0, void **, 0xB4));
         M2C_FIELD(arg0, u32 *, 0xB4) = 0U;

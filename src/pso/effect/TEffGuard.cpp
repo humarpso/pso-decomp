@@ -3,7 +3,7 @@ extern "C" {
 void queue_destruction__7TObjectFv(void*);
 s32 spawn_particle_effect(const Vec*, s32);
 void VecCopy__FP3VecPC3Vec(Vec*, const Vec*);
-extern const char* lbl_805D2918;
+extern const char* TEffGuard__class_name;
 s32 play_sound_effect(u32, const Vec*, s32, s32);
 }
 
@@ -30,7 +30,7 @@ void TEffGuard::run_task() {
 TEffGuard::~TEffGuard() {}
 
 TEffGuard::TEffGuard(const Vec* initial_position) : TEffect() {
-    m_name = lbl_805D2918;
+    m_name = TEffGuard__class_name;
     VecCopy__FP3VecPC3Vec(&position, initial_position);
     state = 0;
 }

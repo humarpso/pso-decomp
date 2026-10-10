@@ -44,7 +44,7 @@ extern "C" {
 
 s32 get_hp__14TBoss6PlotFalzFv(void);
 
-extern s32 TBoss6PlotFalz__data_805D66EC;
+extern s32 TBoss6PlotFalz__instance;
 
 #pragma push
 #pragma opt_common_subs off
@@ -115,7 +115,7 @@ void spawn_crush_rocks__10TBoss6RockFPvi(Vec_8035A460 *self, s32 kind) {
 #pragma pop
 
 s32 get_hp__14TBoss6PlotFalzFv(void) {
-    return TBoss6PlotFalz__data_805D66EC;
+    return TBoss6PlotFalz__instance;
 }
 
 }

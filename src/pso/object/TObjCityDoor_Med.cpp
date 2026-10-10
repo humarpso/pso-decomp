@@ -67,12 +67,12 @@ M2C_UNK push_matrix();
 M2C_UNK pop_matrix();
 M2C_UNK set_global_param__8TObjFishFi(s32);
 
-extern s32 lbl_805D5B2C;
+extern s32 city_common_texture_list;
 extern const f32 lbl_805DBBF4;
 
 void render_lobby_door__10TObjPlayerFPv(u8 *arg0) {
     if (((VObj_80181ff4 *)arg0)->m20() != 0) {
-        set_global_param__8TObjFishFi(lbl_805D5B2C);
+        set_global_param__8TObjFishFi(city_common_texture_list);
         push_matrix();
         post_translate_matrix(arg0 + 0x38);
         rotate_matrix_y(0, M2C_FIELD(arg0, s32 *, 0x60));
@@ -212,7 +212,7 @@ virtual void closeSound();virtual void openSound();virtual void tick();virtual s
 extern "C" {
 
 void refresh_radar_map_flags(u8 *arg0);
-extern s32 lbl_805D5B2C;
+extern s32 city_common_texture_list;
 M2C_UNK draw_ginja_model_with_motion(s32, s32, f32);
 void render_door__17TObjCityDoor_WarpFPv(void* o);
 }
@@ -224,7 +224,7 @@ M2C_UNK set_global_param__8TObjFishFi(s32);M2C_UNK push_matrix();M2C_UNK pop_mat
 M2C_UNK post_translate_matrix(void *);M2C_UNK rotate_matrix_y(M2C_UNK, s32);
 void render_door__17TObjCityDoor_WarpFPv(void* o) {
  if(((CityDoorProbe*)o)->visible()!=0) {
-  set_global_param__8TObjFishFi(lbl_805D5B2C);push_matrix();
+  set_global_param__8TObjFishFi(city_common_texture_list);push_matrix();
   post_translate_matrix((u8*)o+0x38);rotate_matrix_y(0,F(o,s32,0x60));
   draw_ginja_model_with_motion(get_city_common_model(9),get_city_common_motion(8),F(o,f32,0xB4));
   draw_ginja_model_with_motion(get_city_common_model(10),get_city_common_motion(9),F(o,f32,0xB4));
@@ -402,12 +402,12 @@ void *TObjCityDoor_Warp__ct(void *o, void *parent, void *set) {
  return o;
 }
 
-extern s32 lbl_805D5B2C;
+extern s32 city_common_texture_list;
 
 void teardown_door__17TObjCityDoor_WarpFPv(u8 *arg0) {
 
     if (((VObj_8018257c_8018245C *)arg0)->m20() != 0) {
-        set_global_param__8TObjFishFi(lbl_805D5B2C);
+        set_global_param__8TObjFishFi(city_common_texture_list);
         push_matrix();
         post_translate_matrix(arg0 + 0x38);
         rotate_matrix_y(0, M2C_FIELD(arg0, s32 *, 0x60));
@@ -504,16 +504,16 @@ void *TObjCityDoor_Guild__ct(void *o, void *parent, void *set) {
  return o;
 }
 
-extern u8 *lbl_805D5B28;
-extern s32 lbl_805D5B2C;
+extern u8 *city_common_model_archive;
+extern s32 city_common_texture_list;
 
 void render_door__18TObjCityDoor_GuildFPv(u8 *arg0) {
     if (((VObj_8018274C_8018262C *)arg0)->m20() != 0) {
-        set_global_param__8TObjFishFi(lbl_805D5B2C);
+        set_global_param__8TObjFishFi(city_common_texture_list);
         push_matrix();
         post_translate_matrix(arg0 + 0x38);
         rotate_matrix_y(0, M2C_FIELD(arg0, s32 *, 0x60));
-        draw_ginja_model_with_motion(M2C_FIELD(M2C_FIELD(lbl_805D5B28, void **, 0x42C), s32 *, 0xB8), M2C_FIELD(M2C_FIELD(lbl_805D5B28, void **, 0x430), s32 *, 0x54), M2C_FIELD(arg0, f32 *, 0xB4));
+        draw_ginja_model_with_motion(M2C_FIELD(M2C_FIELD(city_common_model_archive, void **, 0x42C), s32 *, 0xB8), M2C_FIELD(M2C_FIELD(city_common_model_archive, void **, 0x430), s32 *, 0x54), M2C_FIELD(arg0, f32 *, 0xB4));
         pop_matrix();
     }
 }
@@ -542,7 +542,7 @@ u8 *init_city_door(u8 *, M2C_UNK, s32, u8 *);
 extern RecoveredGlobal_8018289C_lbl_80443F4C TObjCityDoor_Shop__params;
 extern RecoveredGlobal_8018289C_lbl_804B5B4C lbl_804B5B4C;
 extern s32 lbl_805D3250;
-extern u8 *lbl_805D5B28;
+extern u8 *city_common_model_archive;
 u8 *TObjCityDoor_Shop__ct(u8 *arg0, s32 arg1, s32 arg2);
 }
 
@@ -591,7 +591,7 @@ u8 *TObjCityDoor_Shop__ct(u8 *arg0, s32 arg1, s32 arg2) {
   *((M2C_UNK **) (((s8 *) arg0) + 0x18)) = new_var;
   *((s32 *) (((s8 *) arg0) + 0)) = (s32) lbl_805D3250;
   new_var2 = 1;
-  *((f32 *) (((s8 *) arg0) + 0xB0)) = (f32) ((*((s32 *) (((s8 *) (*((void **) (((s8 *) (*((u8 **) (((s8 *) lbl_805D5B28) + 0x430)))) + 0x54)))) + 4))) - new_var2);
+  *((f32 *) (((s8 *) arg0) + 0xB0)) = (f32) ((*((s32 *) (((s8 *) (*((void **) (((s8 *) (*((u8 **) (((s8 *) city_common_model_archive) + 0x430)))) + 0x54)))) + 4))) - new_var2);
   return arg0;
 }
 

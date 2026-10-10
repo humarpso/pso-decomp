@@ -488,8 +488,8 @@ void set_global_805D3614__6TLobbyFi(int a0) { lbl_805D3614 = a0; }
     extern int lbl_805D5C80;
 void TLobby__sub_801F36D8(void) { lbl_805D5C80 = 1; }
 
-    extern int lbl_805D3458;
-void TLobby__sub_801F36E4(void) { lbl_805D3458 = 0; }
+    extern int quest_warp_enabled;
+void TLobby__sub_801F36E4(void) { quest_warp_enabled = 0; }
 
 int TLobby__sub_801F36F0(void) { return -1; }
 int TLobby__sub_801F36F8(void) { return 0; }

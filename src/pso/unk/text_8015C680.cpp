@@ -30,8 +30,8 @@ extern char lbl_80440900[];
 extern char lbl_80440920[];
 extern u8 lbl_804B0068[];
 extern s32 enable_v2_features;
-extern void *lbl_805D58E8;
-extern u32 *lbl_805D58EC;
+extern void *ancient_container_resource_bundle;
+extern u32 *ancient_container_fragment_texture_lists;
 void load_container_fragment_textures__9TLanguageFv(void);
 }
 
@@ -52,32 +52,32 @@ void load_container_fragment_textures__9TLanguageFv(void) {
         if (p != NULL) {
             p = load_resource_from_descriptor(p, 1, tbl + 0x50, 0, 0, 0);
         }
-        lbl_805D58E8 = p;
-        lbl_805D58EC = alloc_buffer__11TOBoss4RockFPv(0xC);
-        lbl_805D58EC[0] = load_gvm_texture_file(lbl_8044083C);
-        lbl_805D58EC[1] = load_gvm_texture_file(lbl_80440850);
-        lbl_805D58EC[2] = load_gvm_texture_file(lbl_8044086C);
+        ancient_container_resource_bundle = p;
+        ancient_container_fragment_texture_lists = alloc_buffer__11TOBoss4RockFPv(0xC);
+        ancient_container_fragment_texture_lists[0] = load_gvm_texture_file(lbl_8044083C);
+        ancient_container_fragment_texture_lists[1] = load_gvm_texture_file(lbl_80440850);
+        ancient_container_fragment_texture_lists[2] = load_gvm_texture_file(lbl_8044086C);
     } else if (enable_v2_features == 1 &&
                (state == 0x11 || state == 0x13 || state == 0x14 || state == 0x20)) {
         p = alloc__23TAdSinglePlyChrSelectGCFPv(0x440);
         if (p != NULL) {
             p = load_resource_from_descriptor(p, 1, tbl + 0x30, 0, 0, 0);
         }
-        lbl_805D58E8 = p;
-        lbl_805D58EC = alloc_buffer__11TOBoss4RockFPv(0xC);
-        lbl_805D58EC[0] = load_gvm_texture_file(lbl_80440888);
-        lbl_805D58EC[1] = load_gvm_texture_file(lbl_804408A4);
-        lbl_805D58EC[2] = load_gvm_texture_file(lbl_804408C4);
+        ancient_container_resource_bundle = p;
+        ancient_container_fragment_texture_lists = alloc_buffer__11TOBoss4RockFPv(0xC);
+        ancient_container_fragment_texture_lists[0] = load_gvm_texture_file(lbl_80440888);
+        ancient_container_fragment_texture_lists[1] = load_gvm_texture_file(lbl_804408A4);
+        ancient_container_fragment_texture_lists[2] = load_gvm_texture_file(lbl_804408C4);
     } else {
         p = alloc__23TAdSinglePlyChrSelectGCFPv(0x440);
         if (p != NULL) {
             p = load_resource_from_descriptor(p, 1, tbl + 0x10, 0, 0, 0);
         }
-        lbl_805D58E8 = p;
-        lbl_805D58EC = alloc_buffer__11TOBoss4RockFPv(0xC);
-        lbl_805D58EC[0] = load_gvm_texture_file(lbl_804408E4);
-        lbl_805D58EC[1] = load_gvm_texture_file(lbl_80440900);
-        lbl_805D58EC[2] = load_gvm_texture_file(lbl_80440920);
+        ancient_container_resource_bundle = p;
+        ancient_container_fragment_texture_lists = alloc_buffer__11TOBoss4RockFPv(0xC);
+        ancient_container_fragment_texture_lists[0] = load_gvm_texture_file(lbl_804408E4);
+        ancient_container_fragment_texture_lists[1] = load_gvm_texture_file(lbl_80440900);
+        ancient_container_fragment_texture_lists[2] = load_gvm_texture_file(lbl_80440920);
     }
 }
 

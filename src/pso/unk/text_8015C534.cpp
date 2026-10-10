@@ -18,8 +18,8 @@ extern "C" {
 M2C_UNK TLobby__sub_8001FE7C(u32, int);
 M2C_UNK free__11TOBoss4RockFUi(u32);
 M2C_UNK free_if_valid__10TObjPlayerFi(int);
-extern u32 lbl_805D58E8;
-extern u32 lbl_805D58EC;
+extern u32 ancient_container_resource_bundle;
+extern u32 ancient_container_fragment_texture_lists;
 void fn_8015C5F8(void);
 s32 VecCopy__FP3VecPC3Vec(void *, void *);
 s32 TObjFish__sub_8001EDB0(void *, int);
@@ -29,7 +29,7 @@ s32 init_collision_body_parts(void *, void *, int);
 s32 init_container_base(void *, int, void *);
 extern RecoveredGlobal_8015C534_lbl_804B00C8 lbl_804B00C8;
 extern RecoveredGlobal_8015C534_lbl_804B08BC lbl_804B08BC;
-extern u32 lbl_805D58E8;
+extern u32 ancient_container_resource_bundle;
 extern s32 tl_05;
 u8 *init_ancient_container(u8 *arg0, s32 arg1);
 }
@@ -48,8 +48,8 @@ u8 *init_ancient_container(u8 *arg0, s32 arg1) {
     VecCopy__FP3VecPC3Vec((void *) (arg0 + 0x74), (void *) (arg0 + 0x38));
     VecCopy__FP3VecPC3Vec((void *) (arg0 + 0x2FC), (void *) (arg0 + 0x38));
     M2C_FIELD(arg0, f32 *, 0x78) = (f32) (M2C_FIELD(arg0, f32 *, 0x78) + M2C_FIELD(&lbl_804B00C8.value, f32 *, 4));
-    M2C_FIELD(arg0, s32 *, 0x34) = get_bml_model((void *) ((*(s32 *)&lbl_805D58E8)), (int) (0));
-    M2C_FIELD(arg0, s32 *, 0x24) = TObjFish__sub_8001EDB0((void *) ((*(s32 *)&lbl_805D58E8)), (int) (0));
+    M2C_FIELD(arg0, s32 *, 0x34) = get_bml_model((void *) ((*(s32 *)&ancient_container_resource_bundle)), (int) (0));
+    M2C_FIELD(arg0, s32 *, 0x24) = TObjFish__sub_8001EDB0((void *) ((*(s32 *)&ancient_container_resource_bundle)), (int) (0));
     return arg0;
 }
 
@@ -59,24 +59,24 @@ void fn_8015C5F8(void) {
     s32 var_r31;
     s32 var_r30;
     u32 p;
-    if ((u32) lbl_805D58EC != 0U) {
+    if ((u32) ancient_container_fragment_texture_lists != 0U) {
         var_r30 = 0;
         var_r31 = 0;
         do {
-            free_if_valid__10TObjPlayerFi((int) (M2C_FIELD(lbl_805D58EC, M2C_UNK *, var_r31)));
+            free_if_valid__10TObjPlayerFi((int) (M2C_FIELD(ancient_container_fragment_texture_lists, M2C_UNK *, var_r31)));
             var_r30 += 1;
             var_r31 += 4;
         } while (var_r30 < 3);
-        p = lbl_805D58EC;
+        p = ancient_container_fragment_texture_lists;
         if (p != 0U) {
             free__11TOBoss4RockFUi(p);
-            lbl_805D58EC = 0U;
+            ancient_container_fragment_texture_lists = 0U;
         }
     }
-    p = lbl_805D58E8;
+    p = ancient_container_resource_bundle;
     if (p != 0U) {
         TLobby__sub_8001FE7C(p, (int) (1));
-        lbl_805D58E8 = 0U;
+        ancient_container_resource_bundle = 0U;
     }
 }
 #pragma pop

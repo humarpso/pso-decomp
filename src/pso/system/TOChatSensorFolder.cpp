@@ -1,7 +1,7 @@
 #include "pso/TOChatSensorFolder.h"
 
-extern s32 lbl_805D58D0;
+extern s32 TOChatSensorFolder__instance;
 
 TOChatSensorFolder::~TOChatSensorFolder() {
-    lbl_805D58D0 = 0;
+    TOChatSensorFolder__instance = 0;
 }

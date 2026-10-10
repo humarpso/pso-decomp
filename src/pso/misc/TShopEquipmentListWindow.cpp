@@ -660,7 +660,7 @@ void *__dt__24TShopEquipmentListWindowFv(void *arg0, s16 arg1) {
     return arg0;
 }
 
-    extern int lbl_80513F40[];
+    extern int shop_weapon_stock_counts[];
 
 typedef char RecoveredGlobal_8021C7C0___vt__24TShopEquipmentListWindow_size[sizeof(RecoveredGlobal_8021C7C0___vt__24TShopEquipmentListWindow) == 0x30 ? 1 : -1];
 u8 *TShopEquipmentListWindow__ct(u8 *arg0, M2C_UNK arg1, s32 arg2, s32 arg3) {
@@ -685,6 +685,6 @@ u8 *TShopEquipmentListWindow__ct(u8 *arg0, M2C_UNK arg1, s32 arg2, s32 arg3) {
     return arg0;
 }
 
-int TShopEquipmentListWindow__sub_8021C85C(int a0) {  return lbl_80513F40[a0]; }
+int TShopEquipmentListWindow__sub_8021C85C(int a0) {  return shop_weapon_stock_counts[a0]; }
 
 }

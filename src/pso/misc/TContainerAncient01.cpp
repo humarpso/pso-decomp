@@ -77,7 +77,7 @@ extern RecoveredGlobal_8018BD00_TContainerAncient01__data_804B6DC0 TContainerAnc
 extern RecoveredGlobal_8018BD00_lbl_804B6DEC TContainerAncient01__anim_table;
 extern M2C_UNK __vt__19TContainerAncient01[];
 extern s32 lbl_805D3300;
-extern s32 TContainerAncient01__data_805D5B90;
+extern s32 TContainerAncient01__bml_resource;
 extern const f32 lbl_805DBD5C;
 u8 *TContainerAncient01__ct(u8 *arg0, M2C_UNK arg1, s32 arg2);
 extern const f32 TContainerAncient01__data_805DBD10;
@@ -137,11 +137,11 @@ u8 *TContainerAncient01__ct(u8 *arg0, M2C_UNK arg1, s32 arg2) {
     M2C_FIELD(arg0, M2C_UNK **, 0x18) = &(*(RecoveredGlobal_8018BD00___vt__19TContainerAncient01 *)&__vt__19TContainerAncient01).value;
     M2C_FIELD(arg0, s32 *, 0) = (s32) lbl_805D3300;
     ((VObj_18_1a504b *)(arg0))->m5(arg2);
-    M2C_FIELD(arg0, s32 *, 0x34) = get_bml_model((int) ((*(u8 * *)&TContainerAncient01__data_805D5B90)), (int) (0));
-    M2C_FIELD(arg0, s32 *, 0x24) = TObjFish__sub_8001EDB0((int) ((*(u8 * *)&TContainerAncient01__data_805D5B90)), (int) (0));
+    M2C_FIELD(arg0, s32 *, 0x34) = get_bml_model((int) ((*(u8 * *)&TContainerAncient01__bml_resource)), (int) (0));
+    M2C_FIELD(arg0, s32 *, 0x24) = TObjFish__sub_8001EDB0((int) ((*(u8 * *)&TContainerAncient01__bml_resource)), (int) (0));
     M2C_FIELD(arg0, M2C_UNK **, 0xD8) = &TContainerAncient01__anim_table.value;
     set_field_d8__10TObjPlayerFPvi((void *) (arg0), (void *) (M2C_FIELD(arg0, M2C_UNK **, 0xD8)));
-    M2C_FIELD(arg0, s32 *, 0xDC) = (s32) M2C_FIELD((*(u8 * *)&TContainerAncient01__data_805D5B90), s32 *, 0x430);
+    M2C_FIELD(arg0, s32 *, 0xDC) = (s32) M2C_FIELD((*(u8 * *)&TContainerAncient01__bml_resource), s32 *, 0x430);
     M2C_FIELD(arg0, s16 *, 0xB8) = 0;
     set_animation__10TObjPlayerFPvs((void *) (arg0), (int) (M2C_FIELD(arg0, s16 *, 0xB8)));
     set_field_b8__14TObjEnePanarmsFPvs((void *) (arg0), (int) (M2C_FIELD(arg0, s16 *, 0xB8)));
@@ -169,10 +169,10 @@ int TContainerAncient01__sub_8018BE74(void) { return 1; }
     extern int TContainerAncient01__effect_id_table[];
 int get_table_entry__19TContainerAncient01Fi(int a0) {  return TContainerAncient01__effect_id_table[a0]; }
 
-extern s32 TContainerAncient01__data_805D5B90;
+extern s32 TContainerAncient01__bml_resource;
 
 s32 TContainerAncient01__sub_8018BE90(void) {
-    return TContainerAncient01__data_805D5B90;
+    return TContainerAncient01__bml_resource;
 }
 
 f32 TContainerAncient01__vt22(V_8018BE98 *self) {

@@ -37,14 +37,14 @@ void apply_conveyor_move__10TObjPlayerFPv(void *arg0) {
     }
 }
 
-extern M2C_UNK lbl_804A5150[];
+extern M2C_UNK holy_ray_weapon_vtable[];
 extern M2C_UNK spawn_shoot_particle_attached__10TItemShootFiiif[];
 extern M2C_UNK spawn_target_needle[];
 extern M2C_UNK spawn_needle_wall_impact[];
 
 void *init_vtable_and_handlers__10TObjPlayerFPv(void *arg0) {
     TItemWeapon__ct(arg0);
-    M2C_FIELD(arg0, M2C_UNK **, 0x18) = lbl_804A5150;
+    M2C_FIELD(arg0, M2C_UNK **, 0x18) = holy_ray_weapon_vtable;
     M2C_FIELD(arg0, M2C_UNK **, 0x1F0) = spawn_shoot_particle_attached__10TItemShootFiiif;
     M2C_FIELD(arg0, M2C_UNK **, 0x1F4) = spawn_target_needle;
     M2C_FIELD(arg0, M2C_UNK **, 0x1EC) = spawn_needle_wall_impact;

@@ -209,7 +209,7 @@ struct Ids_800D23D4 { u16 v[4]; };
 struct Idx_800D23D4 { s32 v[4]; };
 
 extern "C" {
-f32 TObjGyaranzoMissile__sub_800D40EC(s32);
+f32 get_gyaranzo_missile_float_parameter(s32);
 extern f32 lbl_805D51F0;
 extern f32 TObjGyaranzoMissile__speed_scale;
 extern f32 TObjGyaranzoMissile__max_range;
@@ -229,7 +229,7 @@ extern const f32 lbl_805DA258;
 extern const f32 lbl_805DA260;
 void select_targets__19TObjGyaranzoMissileFPv(u8 *arg0);
 M2C_UNK spawn_particle_effect(void *, int);
-s32 TObjGyaranzoMissile__sub_800D40FC(int);
+s32 get_gyaranzo_missile_int_parameter(int);
 M2C_UNK TObjGyaranzoMissile__ct(void *, void *, void *, u16);
 s32 copy_target_state__14TObjEnePanarmsFPvPv(void *, s32);
 M2C_UNK play_sound_effect(int, void *, int, int);
@@ -247,10 +247,10 @@ M2C_UNK TBoss3Volopt__sub_800D8D88(void *, s32);
 M2C_UNK TObjEneMe3SinowZoa__sub_800D758C(void *);
 
 void init_params_from_table__19TObjGyaranzoMissileFPv(u8 *arg0) {
-    M2C_FIELD(M2C_FIELD(arg0, u8 **, 0x350), f32 *, 4) = TObjGyaranzoMissile__sub_800D40EC(1);
-    lbl_805D51F0 = TObjGyaranzoMissile__sub_800D40EC(2);
-    TObjGyaranzoMissile__speed_scale = TObjGyaranzoMissile__sub_800D40EC(3);
-    TObjGyaranzoMissile__max_range = TObjGyaranzoMissile__sub_800D40EC(4);
+    M2C_FIELD(M2C_FIELD(arg0, u8 **, 0x350), f32 *, 4) = get_gyaranzo_missile_float_parameter(1);
+    lbl_805D51F0 = get_gyaranzo_missile_float_parameter(2);
+    TObjGyaranzoMissile__speed_scale = get_gyaranzo_missile_float_parameter(3);
+    TObjGyaranzoMissile__max_range = get_gyaranzo_missile_float_parameter(4);
 }
 
 void update__19TObjGyaranzoMissileFPv(u8 *arg0) {
@@ -363,7 +363,7 @@ void copy_from__19TObjGyaranzoMissileFPvPv(void* p, void* q) { *(u32*)((char*)p 
 void spawn_missile_volley__19TObjGyaranzoMissileFPv(u8 *arg0) {
     Vec_800D23D4 pos;
     s32 i;
-    gyaranzo_missile_volley_end_time = TObjGyaranzoMissile__sub_800D40FC(1) + 0x96;
+    gyaranzo_missile_volley_end_time = get_gyaranzo_missile_int_parameter(1) + 0x96;
     render_anim_model_at_pos__12TBoss3VoloptFPv(arg0);
     {
         Desc_800D23D4 d1 = { &pos, -0x1000, M2C_FIELD(arg0, s32 *, 0x60) + 0x800, 1024.0f, 3.0f, 0.0f };
@@ -594,7 +594,7 @@ void TBoss3VoloptMonitor__sub_8004292C(u8 *arg0);
 M2C_UNK spawn_particle_effect(void *, int);
 void move_along_ground_avoiding_walls__10TObjPlayerFPviff(void *, Vec_800D3314, void *, f32, f32);
 #define render_anim_model_at_pos__12TBoss3VoloptFPv ((void (*)(void *))render_anim_model_at_pos__12TBoss3VoloptFPv)
-#define TObjGyaranzoMissile__sub_800D40EC ((f32 (*)(int))TObjGyaranzoMissile__sub_800D40EC)
+#define get_gyaranzo_missile_float_parameter ((f32 (*)(int))get_gyaranzo_missile_float_parameter)
 u8 *find_active_entity_by_id(u16);
 #define copy_target_state__14TObjEnePanarmsFPvPv ((s32 (*)(void *, int))copy_target_state__14TObjEnePanarmsFPvPv)
 s32 advance_animation_playback(void *);
@@ -607,7 +607,7 @@ void TObjPlayer__sub_800D3314(u8 *arg0);
 s32 update_angle__10TObjPlayerFPviPv(void *, void *, void *);
 M2C_UNK find_target_in_range__10TObjPlayerFPvf(void *, f32);
 #define spawn_missile_volley__19TObjGyaranzoMissileFPv ((M2C_UNK (*)())spawn_missile_volley__19TObjGyaranzoMissileFPv)
-#define TObjGyaranzoMissile__sub_800D40FC ((s16 (*)(int))TObjGyaranzoMissile__sub_800D40FC)
+#define get_gyaranzo_missile_int_parameter ((s16 (*)(int))get_gyaranzo_missile_int_parameter)
 M2C_UNK subtract_vector(void *, void *);
 extern const f32 lbl_805DA258;
 extern const f32 lbl_805DA274;
@@ -1300,7 +1300,7 @@ void update_aim_and_fire__10TObjPlayerFPv(u8 *arg0) {
             var_r30 = 1;
         }
         if (var_r30 != 0) {
-            M2C_FIELD(arg0, s16 *, 0x33C) = TObjGyaranzoMissile__sub_800D40FC((int) (0));
+            M2C_FIELD(arg0, s16 *, 0x33C) = get_gyaranzo_missile_int_parameter((int) (0));
             M2C_FIELD(arg0, s16 *, 0xB8) = 2;
             M2C_FIELD(arg0, s32 *, 0x37C) = 2;
         }
@@ -1458,7 +1458,7 @@ void TObjPlayer__sub_800D3314(u8 *arg0) {
         M2C_FIELD(arg0, f32 *, 0x3A4) = lbl_805DA258;
         M2C_FIELD(arg0, s16 *, 0xB8) = 1;
         if (M2C_FIELD(arg0, s16 *, 0x326) == 1) {
-            M2C_FIELD(arg0, f32 *, 0x3A0) = TObjGyaranzoMissile__sub_800D40EC(0);
+            M2C_FIELD(arg0, f32 *, 0x3A0) = get_gyaranzo_missile_float_parameter(0);
         } else {
             M2C_FIELD(arg0, f32 *, 0x3A0) = lbl_805DA270;
             M2C_FIELD(arg0, s32 *, 0x3B4)++;

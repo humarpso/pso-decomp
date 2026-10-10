@@ -49,11 +49,11 @@ void confirm_input__18TWindowInputNumberFPv(void *arg0) {
     }
 }
 
-extern M2C_UNK lbl_8044EE0C[];
+extern M2C_UNK number_input_decimal_place_values[];
 
 void update__18TWindowInputNumberFPv(void *arg0) {
     play_sound_effect((s32)(0x54100), (s32)(0), (s32)(0), (s32)(0));
-    M2C_FIELD(arg0, s32 *, 0x6C) = (s32) (M2C_FIELD(arg0, s32 *, 0x6C) - lbl_8044EE0C[(s8) M2C_FIELD(arg0, u8 *, 0x63)]);
+    M2C_FIELD(arg0, s32 *, 0x6C) = (s32) (M2C_FIELD(arg0, s32 *, 0x6C) - number_input_decimal_place_values[(s8) M2C_FIELD(arg0, u8 *, 0x63)]);
     if ((s32) M2C_FIELD(arg0, s32 *, 0x6C) < (s32) M2C_FIELD(arg0, s32 *, 0x64)) {
         M2C_FIELD(arg0, s32 *, 0x6C) = (s32) M2C_FIELD(arg0, s32 *, 0x68);
     }
@@ -61,11 +61,11 @@ void update__18TWindowInputNumberFPv(void *arg0) {
     align_digits__18TWindowInputNumberFv(arg0);
 }
 
-extern M2C_UNK lbl_8044EE0C[];
+extern M2C_UNK number_input_decimal_place_values[];
 
 void update_value__18TWindowInputNumberFPv(void *arg0) {
     play_sound_effect((s32)(0x54100), (s32)(0), (s32)(0), (s32)(0));
-    M2C_FIELD(arg0, s32 *, 0x6C) = (s32) (M2C_FIELD(arg0, s32 *, 0x6C) + lbl_8044EE0C[(s8) M2C_FIELD(arg0, u8 *, 0x63)]);
+    M2C_FIELD(arg0, s32 *, 0x6C) = (s32) (M2C_FIELD(arg0, s32 *, 0x6C) + number_input_decimal_place_values[(s8) M2C_FIELD(arg0, u8 *, 0x63)]);
     if ((s32) M2C_FIELD(arg0, s32 *, 0x6C) > (s32) M2C_FIELD(arg0, s32 *, 0x68)) {
         M2C_FIELD(arg0, s32 *, 0x6C) = (s32) M2C_FIELD(arg0, s32 *, 0x64);
     }

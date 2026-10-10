@@ -23,8 +23,8 @@ void bswap_6x6A_packet__19TWindowSubTradeMainFPv(void* p) { read_be16_field2__10
 
 void init_pkt_cmd_6A__19TWindowSubTradeMainFPv(void* p) { *(u8*)((char*)p + 0x0) = 106; *(u8*)((char*)p + 0x1) = 2; }
 
-    extern int lbl_805D3458;
-int get_warp_state__19TWindowSubTradeMainFv(void) {  return lbl_805D3458; }
+    extern int quest_warp_enabled;
+int get_warp_state__19TWindowSubTradeMainFv(void) {  return quest_warp_enabled; }
 
 void set_close_flag__19TWindowSubTradeMainFPv(void* p) { *(u16*)((char*)p + 0x70) |= 0x80; }
 void set_visible__19TWindowSubTradeMainFPv(void* p) { *(u16*)((char*)p + 0x70) |= 0x40; }

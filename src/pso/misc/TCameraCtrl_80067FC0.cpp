@@ -81,7 +81,7 @@ void normalize_vector(void *);
 extern Vec_8006835C lbl_804FF5E8;
 extern Flags_8006835C TCameraCtrl__view_state;
 extern Scissor_8006835C TCameraCtrl__data_804FF634;
-extern u8 TCameraCtrl__data_804FF6C4[];
+extern u8 TCameraCtrl__up_vector[];
 extern View_8006835C *camera_ctrl_instance;
 extern const f32 TCameraCtrl__data_805D8F80;
 extern const f32 TCameraCtrl__data_805D8F84;
@@ -263,7 +263,7 @@ void post_update_view__11TCameraCtrlFv(void) {
     e.x = camera_ctrl_instance->target.x + t->x;
     e.y = camera_ctrl_instance->target.y + t->y;
     e.z = camera_ctrl_instance->target.z + t->z;
-    set_camera_look_at(&camera_ctrl_instance->pos, &e, TCameraCtrl__data_804FF6C4);
+    set_camera_look_at(&camera_ctrl_instance->pos, &e, TCameraCtrl__up_vector);
     lbl_804FF5E8.x = camera_ctrl_instance->pos.x;
     lbl_804FF5E8.y = camera_ctrl_instance->pos.y;
     lbl_804FF5E8.z = camera_ctrl_instance->pos.z;

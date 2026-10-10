@@ -573,7 +573,7 @@ extern const f32 TNpcPlayer__data_805DB20C;
 extern f32 TNpcPlayer__data_805DB218;
 extern const f32 TNpcPlayer__data_805DB22C;
 extern const f32 TNpcPlayer__data_805DB23C;
-extern int TObjPlayer__data_805D5874;
+extern int registered_entity_count;
 extern V3_80150050 lbl_8043FFAC;
 extern const f64 lbl_8043FFD8;
 extern Text_8014E250 npc_partner_dialogue_state[];
@@ -3828,7 +3828,7 @@ void TFontSmallLobby__sub_80152F28(Obj_80152F28 *self) {
     self->b = 0;
 }
 
-int get_registered_object_count(void) {  return TObjPlayer__data_805D5874; }
+int get_registered_object_count(void) {  return registered_entity_count; }
 
 u16 get_action_flags__10TNpcPlayerFPv(void* p) { return *(u16*)((char*)p + 0x678); }
 

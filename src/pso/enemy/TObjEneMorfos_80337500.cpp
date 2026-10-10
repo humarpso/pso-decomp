@@ -46,7 +46,7 @@ s32 snap_to_ground__13TObjEneMorfosFii(M2C_UNK arg0, s32 arg1);
 f32 xz_distance_squared(void *, void *);
 void subtract_vector(void *, void *);
 extern P_80337500 lbl_80477B70[];
-extern const f32 lbl_805D6D30;
+extern const f32 morfos_projectile_speed;
 extern const f32 lbl_805D6D34;
 extern const f32 lbl_805DF988;
 void hit_target_in_range__13TObjEneMorfosFPvPvPv(O_80337500 *arg0, V_80337500 *arg1, V_80337500 *arg2);
@@ -59,7 +59,7 @@ f32 sin_table_lookup(s32);
 f32 cos_table_lookup(s32);
 extern M2C_UNK lbl_804EF130[];
 extern s32 tl_06;
-extern const f32 lbl_805D6D30;
+extern const f32 morfos_projectile_speed;
 extern const f32 lbl_805DF994;
 O_80337824 *TObjEneMorfos__sub_80337824(O_80337824 *arg0, Vec_80337824 *arg1, s32 arg2, void *arg3);
 M2C_UNK VecCopy__FP3VecPC3Vec(void *, int);
@@ -74,7 +74,7 @@ void hit_target_in_range__13TObjEneMorfosFPvPvPv(O_80337500 *arg0, V_80337500 *a
 s32 snap_to_ground__13TObjEneMorfosFii(M2C_UNK arg0, s32 arg1);
 void vec3_add_to(void *, void *);
 extern s32 lbl_805D586C;
-extern const f32 lbl_805D6D30;
+extern const f32 morfos_projectile_speed;
 extern const f32 lbl_805DF98C;
 extern const f32 lbl_805DF990;
 void update_projectile__13TObjEneMorfosFPv(O_80337644 *arg0);
@@ -93,7 +93,7 @@ void hit_target_in_range__13TObjEneMorfosFPvPvPv(O_80337500 *arg0, V_80337500 *a
     Vec_80337500 v = arg0->pos;
     subtract_vector(&v, arg0->b8);
     if (arg1 != 0 && arg1 != arg2 && !(*(s32 *)((u8 *)arg1 + 0x30) & 0x04000A00)) {
-        if (!(xz_distance_squared(&v, (u8 *)arg1 + 0x2FC) > (lbl_805DF988 * lbl_805D6D30) * (lbl_805DF988 * lbl_805D6D30))) {
+        if (!(xz_distance_squared(&v, (u8 *)arg1 + 0x2FC) > (lbl_805DF988 * morfos_projectile_speed) * (lbl_805DF988 * morfos_projectile_speed))) {
             P_80337500 tmp = lbl_80477B70[0];
             tmp.f = lbl_805D6D34;
             P_80337500 p = tmp;
@@ -123,7 +123,7 @@ void update_projectile__13TObjEneMorfosFPv(O_80337644 *arg0) {
     if (arg0->fE0 != 0) {
         copy_pos__11TNowLoadingFPvPv(arg0->fE0, &arg0->pos);
     }
-    arg0->fDC += lbl_805D6D30;
+    arg0->fDC += morfos_projectile_speed;
     if (arg0->fF0 != 0) {
         VecCopy__FP3VecPC3Vec(&arg0->pos2, (int)&arg0->pos);
         arg0->fF4++;
@@ -172,9 +172,9 @@ O_80337824 *TObjEneMorfos__sub_80337824(O_80337824 *arg0, Vec_80337824 *arg1, s3
     a.x = 0;
     a.y = arg2 - 0x4000;
     a.z = 0x4000;
-    arg0->vel.x = lbl_805D6D30 * sin_table_lookup(arg2);
+    arg0->vel.x = morfos_projectile_speed * sin_table_lookup(arg2);
     arg0->vel.y = lbl_805DF994;
-    arg0->vel.z = lbl_805D6D30 * cos_table_lookup(arg2);
+    arg0->vel.z = morfos_projectile_speed * cos_table_lookup(arg2);
     arg0->fE0 = spawn_particle_effect_with_rotation(arg1, &a, 0x213, 2);
     VecCopy__FP3VecPC3Vec((void *)(&arg0->pos2), (int)(&arg0->pos));
     snap_to_ground__13TObjEneMorfosFii((M2C_UNK)(arg0), (s32)(&arg0->pos2));

@@ -69,7 +69,7 @@ void check_player_proximity__12TOChatSensorFPv(u8 *arg0) {
     }
 }
 
-extern s32 *lbl_805D58D4;
+extern s32 *chat_sensor_table;
 
 void set_trigger_text__12TOChatSensorFPvPv(C_8015ACE4 *arg0, void *arg1) {
     s32 i;
@@ -145,7 +145,7 @@ void init_params__12TOChatSensorFPv(void *arg0) {
     }
     M2C_FIELD(arg0, s32 *, 0xCC) = (s32) M2C_FIELD(arg0, s32 *, 0x88);
     temp_r5 = M2C_FIELD(arg0, s32 *, 0xCC);
-    if ((temp_r5 != 0) && ((temp_r5 < 0) || ((s32) *lbl_805D58D4 <= temp_r5))) {
+    if ((temp_r5 != 0) && ((temp_r5 < 0) || ((s32) *chat_sensor_table <= temp_r5))) {
         M2C_FIELD(arg0, s32 *, 0xCC) = 0;
     }
     M2C_FIELD(arg0, s32 *, 0xC8) = 0;

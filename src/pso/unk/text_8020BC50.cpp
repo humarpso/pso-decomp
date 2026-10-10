@@ -39,9 +39,9 @@ s32 get_current_floor();
 void bswap_player_fields__6TLobbyFPv(void *);
 extern Area_8020BD50 TLobby__floor_enemy_group_table[];
 extern ObjB_8020BD50 *TLobby__data_805D610C;
-extern s32 TLobby__data_805D6110;
+extern s32 TLobby__current_floor_object_set_count;
 extern ObjA_8020BD50 *TLobby__data_805D6114;
-extern s32 TLobby__data_805D6118;
+extern s32 TLobby__current_floor_enemy_set_count;
 void handle_6x76_set_entity_set_flags(Pkt_8020BD50 *pkt);
 }
 
@@ -102,7 +102,7 @@ void handle_6x76_set_entity_set_flags(Pkt_8020BD50 *pkt) {
             }
         }
         if (pkt->area == get_current_floor()) {
-            for (i = 0; i < TLobby__data_805D6118; i++) {
+            for (i = 0; i < TLobby__current_floor_enemy_set_count; i++) {
                 if (pkt->id == TLobby__data_805D6114[i].id) {
                     TLobby__data_805D6114[i].flags |= pkt->flags;
                     break;
@@ -123,7 +123,7 @@ void handle_6x76_set_entity_set_flags(Pkt_8020BD50 *pkt) {
             }
         }
         if (pkt->area == get_current_floor()) {
-            for (i = 0; i < TLobby__data_805D6110; i++) {
+            for (i = 0; i < TLobby__current_floor_object_set_count; i++) {
                 if (pkt->id == TLobby__data_805D610C[i].id) {
                     TLobby__data_805D610C[i].flags |= pkt->flags;
                     break;

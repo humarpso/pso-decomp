@@ -47,7 +47,7 @@ struct Sock_80078264 { u8 pad[0x28]; s16 x28; };
 
 extern "C" {
 struct Rec_8007841C *copy_udp_socket_event_record(struct Rec_8007841C *dst, struct Rec_8007841C *src);
-extern RecoveredGlobal_80078378_lbl_8048D3B8 lbl_8048D3B8;
+extern RecoveredGlobal_80078378_lbl_8048D3B8 udp_socket_slots;
 s32 handle_socket_event__10TUdpSocketFsPv(s16 arg0, u8 *arg1);
 void TLobby__sub_8014672C(void *);
 void bswap_16__FPUs(void *);
@@ -60,10 +60,10 @@ void TUdpSocket__sub_800781B8(Sock_800781B8 *arg0, s32 arg1);
 void bswap_16__FPUs(void *);
 s16 TUdpSocket__sub_80421DEC(void *, int, void *, int, int, s32 (*)(s16, u8 *));
 s32 handle_socket_event__10TUdpSocketFsPv(s16 arg0, u8 *arg1);
-extern RecoveredGlobal_80078378_lbl_8048D3B8 lbl_8048D3B8;
+extern RecoveredGlobal_80078378_lbl_8048D3B8 udp_socket_slots;
 s16 open_socket__10TUdpSocketFPv(Sock_800782B8 *arg0);
 void TLobby__sub_80421B3C(s32);
-extern RecoveredGlobal_80078378_lbl_8048D3B8 lbl_8048D3B8;
+extern RecoveredGlobal_80078378_lbl_8048D3B8 udp_socket_slots;
 void free_socket_slot__10TUdpSocketFPv(Sock_80078264 *arg0);
 }
 
@@ -86,7 +86,7 @@ void render_shadows__7TObjectFv();
 }
 TTcpSocket *tcp_socket_table[16] = {0};
 extern "C" {
-RecoveredGlobal_80078378_lbl_8048D3B8 lbl_8048D3B8 = {0};
+RecoveredGlobal_80078378_lbl_8048D3B8 udp_socket_slots = {0};
 }
 const char *sock_status_names[17] = {
     "SUCCESS", "API_PENDING", "API_PORTFULL", "API_DUPSOCK", "API_INVALIDHANDLE",
@@ -168,7 +168,7 @@ void TUdpSocket__sub_800781B8(Sock_800781B8 *arg0, s32 arg1) {
 void free_socket_slot__10TUdpSocketFPv(Sock_80078264 *arg0) {
     if (arg0->x28 >= 0x400) {
         TLobby__sub_80421B3C(arg0->x28);
-        (&lbl_8048D3B8.value)[arg0->x28 - 0x400] = 0;
+        (&udp_socket_slots.value)[arg0->x28 - 0x400] = 0;
     }
 }
 
@@ -192,14 +192,14 @@ s16 open_socket__10TUdpSocketFPv(Sock_800782B8 *arg0) {
     if (arg0->fd < 0) {
         return -1;
     }
-    (&lbl_8048D3B8.value)[arg0->fd - 0x400] = (M2C_UNK)arg0;
+    (&udp_socket_slots.value)[arg0->fd - 0x400] = (M2C_UNK)arg0;
     return arg0->fd;
 }
 
 s32 handle_socket_event__10TUdpSocketFsPv(s16 arg0, u8 *arg1) {
     M2C_UNK (*temp_r12)(void *);
     u8 *temp_r5;
-    temp_r5 = (u8 *)(M2C_FIELD(&lbl_8048D3B8.value, M2C_UNK *, ((M2C_FIELD(arg1, s16 *, 0) - 0x400) * 4)));
+    temp_r5 = (u8 *)(M2C_FIELD(&udp_socket_slots.value, M2C_UNK *, ((M2C_FIELD(arg1, s16 *, 0) - 0x400) * 4)));
     if (temp_r5 == NULL) {
         return 1;
     }

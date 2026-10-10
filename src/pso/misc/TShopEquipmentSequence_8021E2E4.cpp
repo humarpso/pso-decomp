@@ -6,7 +6,7 @@ extern "C" {
 
 void *create_medical_center_sequence(void *arg0);
 int TMedicalCenterSequence__sub_8021E390(int a0);
-int TShopEquipmentSequence__sub_8021E330(int a0);
+int get_equipment_shop_slot_active_flag(int a0);
 void *create_instance__22TShopEquipmentSequenceFPv(void *arg0);
 void *TMedicalCenterSequence__ct(void *, void *, void *);
 void *TShopEquipmentSequence__ct(void *, void *, void *);
@@ -23,7 +23,7 @@ void *create_instance__22TShopEquipmentSequenceFPv(void *arg0) {
 }
 
     extern int TShopEquipmentSequence__slot_active_flags[];
-int TShopEquipmentSequence__sub_8021E330(int a0) {  return TShopEquipmentSequence__slot_active_flags[a0]; }
+int get_equipment_shop_slot_active_flag(int a0) {  return TShopEquipmentSequence__slot_active_flags[a0]; }
 
 extern void *tl_05;
 

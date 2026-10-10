@@ -28,31 +28,31 @@ M2C_UNK get_message_10__20TWindowSubStatusDispFPv(M2C_UNK);
 M2C_UNK refresh_player_status__6TLobbyFv(int);
 M2C_UNK text_builder_append();
 M2C_UNK text_builder_reset();
-extern s8 TLobby__data_805D688A;
+extern s8 TLobby__trade_partner_client_id;
 void TLobby__sub_802D268C(void);
 s32 get_quest_id__12TQuestListVMFPv(void *);
 s32 get_player_by_client_id(u32);
 void prepare_and_send_trade_packet__6TLobbyFPvPv(s32, s32);
 void build_6xA6_modify_trade_proposal(void *);
 extern u32 local_client_id;
-extern s8 TLobby__data_805D688A;
-extern u8 TLobby__data_805D688B;
+extern s8 TLobby__trade_partner_client_id;
+extern u8 TLobby__trade_proposal_state;
 void send_trade_proposal_modify__6TLobbyFv(void);
 M2C_UNK send_trade_list__6TLobbyFPvPv(s32, M2C_UNK *);
 M2C_UNK clear_flag400__6TLobbyFv();
 M2C_UNK build_trade_item_list__6TLobbyFPv(M2C_UNK *);
 M2C_UNK TWindowSubTradeMain__sub_80330A84();
 extern s32 TLobby__protocol_instance;
-extern u16 lbl_805D6888;
-extern u8 TLobby__data_805D688B;
-extern u32 TLobby__data_805D6898;
+extern u16 trade_protocol_flags;
+extern u8 TLobby__trade_proposal_state;
+extern u32 TLobby__trade_main_window;
 void update_trade_list_send__6TLobbyFv(void);
 M2C_UNK send_trade_proposal_result__6TLobbyFcc(M2C_UNK, M2C_UNK);
 M2C_UNK forward_to_child__19TWindowSubTradeMainFPvi(u32, M2C_UNK);
-extern u16 lbl_805D6888;
-extern u8 TLobby__data_805D688B;
-extern s32 lbl_805D6890;
-extern u32 TLobby__data_805D6898;
+extern u16 trade_protocol_flags;
+extern u8 TLobby__trade_proposal_state;
+extern s32 trade_proposal_delay;
+extern u32 TLobby__trade_main_window;
 void update_trade_proposal_state__6TLobbyFv(void);
 s32 TLobby__sub_802D1D48(void *, void *);
 M2C_UNK update_both_halves__6TLobbyFPv(void *);
@@ -60,7 +60,7 @@ u8 * copy_struct_f8__6TLobbyFii(s32 arg0, s32 arg1);
 s32 show_event_message__6TLobbyFiii(void *, int, int);
 extern Half_802D26C8 TLobby__trade_window_state[4];
 extern u32 local_client_id;
-extern s8 TLobby__data_805D688A;
+extern s8 TLobby__trade_partner_client_id;
 s32 check_trade_items_and_show_error__6TLobbyFv(void);
 }
 
@@ -72,7 +72,7 @@ void send_trade_proposal_modify__6TLobbyFv(void) {
   u8 *temp_r3;
   u8 *temp_r3_2;
   build_6xA6_modify_trade_proposal(&stack.sp8);
-  if (((s32) TLobby__data_805D688B) == 2)
+  if (((s32) TLobby__trade_proposal_state) == 2)
   {
     temp_r3 = (u8 *) get_player_by_client_id(local_client_id);
     if (temp_r3)
@@ -83,11 +83,11 @@ void send_trade_proposal_modify__6TLobbyFv(void) {
         stack.spC = 0;
         stack.spD = 2;
         stack.sp14 = *((s32 *) (((s8 *) temp_r3_2) - -0x20));
-        if (((*(u8 *)&TLobby__data_805D688A) && (*(u8 *)&TLobby__data_805D688A)) && (*(u8 *)&TLobby__data_805D688A))
+        if (((*(u8 *)&TLobby__trade_partner_client_id) && (*(u8 *)&TLobby__trade_partner_client_id)) && (*(u8 *)&TLobby__trade_partner_client_id))
         {
         }
-        prepare_and_send_trade_packet__6TLobbyFPvPv((s32) (&stack.sp8), (s32) ((s8) (*(u8 *)&TLobby__data_805D688A)));
-        TLobby__data_805D688B = 3;
+        prepare_and_send_trade_packet__6TLobbyFPvPv((s32) (&stack.sp8), (s32) ((s8) (*(u8 *)&TLobby__trade_partner_client_id)));
+        TLobby__trade_proposal_state = 3;
       }
     }
   }
@@ -95,24 +95,24 @@ void send_trade_proposal_modify__6TLobbyFv(void) {
 
 void update_trade_list_send__6TLobbyFv(void) {
     u8 sp8[0x288];
-    switch ((s8) TLobby__data_805D688B) {
+    switch ((s8) TLobby__trade_proposal_state) {
     case 5:
-        if ((lbl_805D6888 & 0x100) && (lbl_805D6888 & 0x200)) {
-            TLobby__data_805D688B = 6;
+        if ((trade_protocol_flags & 0x100) && (trade_protocol_flags & 0x200)) {
+            TLobby__trade_proposal_state = 6;
         }
         break;
     case 6:
         build_trade_item_list__6TLobbyFPv((M2C_UNK *)sp8);
         send_trade_list__6TLobbyFPvPv(TLobby__protocol_instance, (M2C_UNK *)sp8);
-        lbl_805D6888 |= 0x400;
-        if ((u32) TLobby__data_805D6898 != 0U) {
-            ((void (*)(u32))TWindowSubTradeMain__sub_80330A84)(TLobby__data_805D6898);
+        trade_protocol_flags |= 0x400;
+        if ((u32) TLobby__trade_main_window != 0U) {
+            ((void (*)(u32))TWindowSubTradeMain__sub_80330A84)(TLobby__trade_main_window);
         }
-        TLobby__data_805D688B = 7;
+        TLobby__trade_proposal_state = 7;
         break;
     case 7:
     case 8:
-        if (!(lbl_805D6888 & 0x100) || !(lbl_805D6888 & 0x200)) {
+        if (!(trade_protocol_flags & 0x100) || !(trade_protocol_flags & 0x200)) {
             clear_flag400__6TLobbyFv();
         }
         break;
@@ -120,45 +120,45 @@ void update_trade_list_send__6TLobbyFv(void) {
 }
 
 void update_trade_proposal_state__6TLobbyFv(void) {
-    if (!(lbl_805D6888 & 0x10)) {
-        lbl_805D6890 = 0;
-        if (lbl_805D6888 & 0x20) {
+    if (!(trade_protocol_flags & 0x10)) {
+        trade_proposal_delay = 0;
+        if (trade_protocol_flags & 0x20) {
             send_trade_proposal_result__6TLobbyFcc(3, 4);
-            lbl_805D6888 &= 0xFFFFFFDF;
-            if ((u32) TLobby__data_805D6898 != 0U) {
-                forward_to_child__19TWindowSubTradeMainFPvi(TLobby__data_805D6898, 0);
+            trade_protocol_flags &= 0xFFFFFFDF;
+            if ((u32) TLobby__trade_main_window != 0U) {
+                forward_to_child__19TWindowSubTradeMainFPvi(TLobby__trade_main_window, 0);
             }
-            TLobby__data_805D688B = 3;
+            TLobby__trade_proposal_state = 3;
         }
-    } else if (!(lbl_805D6888 & 0x20)) {
-        if (lbl_805D6890++ >= 0x1E) {
+    } else if (!(trade_protocol_flags & 0x20)) {
+        if (trade_proposal_delay++ >= 0x1E) {
             send_trade_proposal_result__6TLobbyFcc(3, 0);
-            lbl_805D6888 |= 0x20;
-            if ((u32) TLobby__data_805D6898 != 0U) {
-                forward_to_child__19TWindowSubTradeMainFPvi(TLobby__data_805D6898, 1);
+            trade_protocol_flags |= 0x20;
+            if ((u32) TLobby__trade_main_window != 0U) {
+                forward_to_child__19TWindowSubTradeMainFPvi(TLobby__trade_main_window, 1);
             }
-            lbl_805D6890 = 0;
-            TLobby__data_805D688B = 4;
+            trade_proposal_delay = 0;
+            TLobby__trade_proposal_state = 4;
         }
-    } else if (!(lbl_805D6888 & 0x80)) {
-        lbl_805D6890 = 0;
-        if (lbl_805D6888 & 0x100) {
+    } else if (!(trade_protocol_flags & 0x80)) {
+        trade_proposal_delay = 0;
+        if (trade_protocol_flags & 0x100) {
             send_trade_proposal_result__6TLobbyFcc(4, 4);
-            if ((u32) TLobby__data_805D6898 != 0U) {
-                forward_to_child__19TWindowSubTradeMainFPvi(TLobby__data_805D6898, 1);
+            if ((u32) TLobby__trade_main_window != 0U) {
+                forward_to_child__19TWindowSubTradeMainFPvi(TLobby__trade_main_window, 1);
             }
-            lbl_805D6888 &= 0xFFFFFEFF;
-            TLobby__data_805D688B = 4;
+            trade_protocol_flags &= 0xFFFFFEFF;
+            TLobby__trade_proposal_state = 4;
         }
-    } else if (!(lbl_805D6888 & 0x100)) {
-        if (lbl_805D6890++ >= 0x1E) {
+    } else if (!(trade_protocol_flags & 0x100)) {
+        if (trade_proposal_delay++ >= 0x1E) {
             send_trade_proposal_result__6TLobbyFcc(4, 0);
-            lbl_805D6888 |= 0x100;
-            if ((u32) TLobby__data_805D6898 != 0U) {
-                forward_to_child__19TWindowSubTradeMainFPvi(TLobby__data_805D6898, 2);
+            trade_protocol_flags |= 0x100;
+            if ((u32) TLobby__trade_main_window != 0U) {
+                forward_to_child__19TWindowSubTradeMainFPvi(TLobby__trade_main_window, 2);
             }
-            lbl_805D6890 = 0;
-            TLobby__data_805D688B = 5;
+            trade_proposal_delay = 0;
+            TLobby__trade_proposal_state = 5;
         }
     }
 }
@@ -167,7 +167,7 @@ void update_trade_proposal_state__6TLobbyFv(void) {
 #pragma scheduling off
 void TLobby__sub_802D268C(void) {
     text_builder_reset();
-    refresh_player_status__6TLobbyFv(TLobby__data_805D688A);
+    refresh_player_status__6TLobbyFv(TLobby__trade_partner_client_id);
     get_message_10__20TWindowSubStatusDispFPv(0xF6);
     text_builder_append();
     get_shared_text_buffer();
@@ -194,10 +194,10 @@ s32 check_trade_items_and_show_error__6TLobbyFv(void) {
     r = TLobby__sub_802D1D48(&buf, &code);
     if (r == 4) {
         if (flag) {
-            return show_event_message__6TLobbyFiii((void *)(s32)TLobby__data_805D688A, 4, code);
+            return show_event_message__6TLobbyFiii((void *)(s32)TLobby__trade_partner_client_id, 4, code);
         }
     } else if (r != 0) {
-        return show_event_message__6TLobbyFiii((void *)(s32)TLobby__data_805D688A, r, code);
+        return show_event_message__6TLobbyFiii((void *)(s32)TLobby__trade_partner_client_id, r, code);
     }
     return 0;
 }

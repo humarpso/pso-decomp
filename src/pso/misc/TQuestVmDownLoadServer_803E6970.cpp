@@ -440,7 +440,7 @@ extern RecoveredGlobal_803E9764_lbl_80591EC8 lbl_80591EC8;
 u8 *get_buffer_ptr__22TQuestVmDownLoadServerFi(s32 arg0);
 s32 dispatch_request_0x20__19TWindowKeyBoardSoftFii(void *, void *);
 s32 dispatch_request_0x1c__19TWindowKeyBoardSoftFv();
-extern s32 lbl_805D782C;
+extern s32 quest_download_initialized;
 extern s32 lbl_805D7834;
 extern s32 lbl_805D7908;
 extern s32 lbl_805D790C;
@@ -660,7 +660,7 @@ void *TQuestVmDownLoadServer__sub_803ECED0(void);
 void free_node_list__22TQuestVmDownLoadServerFPv(Node_803ECD54 *p);
 s32 is_sjis_lead_byte__22TQuestVmDownLoadServerFUc(u8 arg0);
 void *build_text_node_chain__22TQuestVmDownLoadServerFPvPviPvPv(void *sp, void *a1, s32 a2, void *hp, void *tp);
-extern u8 *lbl_805D7858;
+extern u8 *file_page_cache_head;
 extern RecoveredGlobal_803E8710_lbl_8058DE08 quest_vm_download_server_file_info;
 void init_page_cache__22TQuestVmDownLoadServerFv(void);
 int strncmp(const char *, const char *, u32);
@@ -715,7 +715,7 @@ u16 map_key_to_code__22TQuestVmDownLoadServerFUi(u32 arg0);
 s32 TQuestVmDownLoadServer__sub_803F09FC(void *arg0, int arg1, int arg2);
 s32 TQuestVmDownLoadServer__sub_803F0BE0(void * _w0, void * _w1);
 extern RecoveredGlobal_803E8710_lbl_8058DE08 quest_vm_download_server_file_info;
-extern u8 *lbl_805D7858;
+extern u8 *file_page_cache_head;
 extern s32 lbl_805D78F8;
 extern s32 lbl_805D7904;
 void retry_seek_active_entries__22TQuestVmDownLoadServerFv(void);
@@ -1033,7 +1033,7 @@ s32 TQuestVmDownLoadServer__sub_803E719C(u8 arg0, s32 arg1) {
     return arg0 | ((arg1 & 0x100) + 0x2400);
 }
 
-extern u8 *lbl_805D7858;
+extern u8 *file_page_cache_head;
 
 typedef char RecoveredGlobal_803E721C_lbl_8047E698_size[sizeof(RecoveredGlobal_803E721C_lbl_8047E698) == 0x200 ? 1 : -1];
 
@@ -1235,8 +1235,8 @@ struct Page_803E7B9C {
     Page_803E7B9C *next;
     u8 data[0x400];
 };
-extern u8 *lbl_805D7858;
-#define HEAD_803E7B9C (*(Page_803E7B9C **)&lbl_805D7858)
+extern u8 *file_page_cache_head;
+#define HEAD_803E7B9C (*(Page_803E7B9C **)&file_page_cache_head)
 extern s32 lbl_805D7904;
 extern s32 lbl_805D78F8;
 extern RecoveredGlobal_803E8710_lbl_8058DE08 quest_vm_download_server_file_info;
@@ -1301,7 +1301,7 @@ inline s32 SeekRetry_803E7ACC(s32 pos) {
 void retry_seek_active_entries__22TQuestVmDownLoadServerFv(void) {
     Ent_803E7ACC *e;
     u8 unused[0x18];
-    for (e = (Ent_803E7ACC *)lbl_805D7858; e != NULL; e = e->next) {
+    for (e = (Ent_803E7ACC *)file_page_cache_head; e != NULL; e = e->next) {
         if (e->state == 1) {
             SeekRetry_803E7ACC((e->index << 10) + 0x3400);
         }
@@ -1347,7 +1347,7 @@ u8 *get_cached_page__22TQuestVmDownLoadServerFi(s32 page) {
 #pragma pop
 
 void set_active__22TQuestVmDownLoadServerFv(void) {
-    M2C_FIELD(lbl_805D7858, s32 *, 4) = 1;
+    M2C_FIELD(file_page_cache_head, s32 *, 4) = 1;
 }
 
 typedef struct RecoveredGlobal_803E8084_lbl_8058DE08 RecoveredGlobal_803E8084_lbl_8058DE08;
@@ -1643,7 +1643,7 @@ void init_page_cache__22TQuestVmDownLoadServerFv(void) {
     Ent_803E840C *e;
     u32 i;
     c = (Cache_803E840C *)&quest_vm_download_server_file_info;
-    *(Page_803E840C **)&lbl_805D7858 = p = c->pages;
+    *(Page_803E840C **)&file_page_cache_head = p = c->pages;
     for (; p < &c->pages[9]; p++) {
         p->page = -1;
         p->dirty = 0;
@@ -4268,7 +4268,7 @@ s32 TQuestVmDownLoadServer__sub_803F08E4(s8 *arg0) {
 s32 TQuestVmDownLoadServer__sub_803F09A4(void) {
     s32 var_r3;
     lbl_805D7834 = 0;
-    lbl_805D782C = 1;
+    quest_download_initialized = 1;
     lbl_805D7908 = 0;
     lbl_805D790C = 0;
     var_r3 = dispatch_request_0x20__19TWindowKeyBoardSoftFii((void *) (&lbl_805E10D8), (void *) (&lbl_805E10E0));

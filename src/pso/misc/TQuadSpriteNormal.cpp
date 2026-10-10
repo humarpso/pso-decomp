@@ -176,12 +176,12 @@ void *__dt__17TQuadSpriteNormalFv(void *arg0, s16 arg1) {
 }
 
 extern M2C_UNK __vt__17TQuadSpriteNormal[];
-extern void *lbl_805D35A8;
+extern void *TQuadSpriteNormal__class_name;
 
 void *TQuadSpriteNormal__ct(void *arg0) {
     quad_sprite_base_ct(arg0);
     M2C_FIELD(arg0, M2C_UNK **, 0x18) = __vt__17TQuadSpriteNormal;
-    M2C_FIELD(arg0, void **, 0x0) = lbl_805D35A8;
+    M2C_FIELD(arg0, void **, 0x0) = TQuadSpriteNormal__class_name;
     return arg0;
 }
 

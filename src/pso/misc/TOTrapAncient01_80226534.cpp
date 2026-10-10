@@ -24,7 +24,7 @@ int TLobby__sub_80227AF8(void *p);
 s32 play_packed_sound_once(u32 arg0, s32 arg1, s32 arg2, s32 arg3);
 s32 normalize_sound_request(u32 arg0, s32 arg1, s32 arg2, s32 arg3, s32 arg4);
 extern SndEnt_8022675C lbl_805145F0[40];
-extern s32 lbl_805D370C;
+extern s32 last_sound_effect_slot;
 extern s32 lbl_805D62B0;
 extern s32 lbl_805DC748;
 s32 play_sound_effect(s32 id, Vec_8022675C *src, s32 a2, s32 flags);
@@ -54,7 +54,7 @@ s32 play_persistent_sound(s32 id, s32 a1, u32 src, s32 a3, s32 flags) {
     s32 ok;
     SndEnt_8022675C *e;
 
-    lbl_805D370C = -1;
+    last_sound_effect_slot = -1;
     if (lbl_805D62B0 == 0) {
         return -1;
     }
@@ -73,7 +73,7 @@ s32 play_persistent_sound(s32 id, s32 a1, u32 src, s32 a3, s32 flags) {
         } else {
             ok = fn_802264B8(idx, 1);
         }
-        lbl_805D370C = idx;
+        last_sound_effect_slot = idx;
         if (ok != 0) {
             e = &lbl_805145F0[idx];
             e->src = (Vec_8022675C *)src;
@@ -85,7 +85,7 @@ s32 play_persistent_sound(s32 id, s32 a1, u32 src, s32 a3, s32 flags) {
     }
     if (check_trigger_flag__15TOTrapAncient01Fii(src, flags) != 0) {
         idx = normalize_sound_request(id, a1, src, a3, flags);
-        lbl_805D370C = idx;
+        last_sound_effect_slot = idx;
         if (idx >= 0) {
             lbl_805145F0[idx].flags &= lbl_805DC748;
             if (flags & 1) {
@@ -107,7 +107,7 @@ s32 play_sound_effect(s32 id, Vec_8022675C *src, s32 a2, s32 flags) {
     s32 i;
     s32 idx;
     Vec_8022675C *pos;
-    lbl_805D370C = -1;
+    last_sound_effect_slot = -1;
     if (lbl_805D62B0 == 0) {
         return -1;
     }
@@ -139,7 +139,7 @@ s32 play_sound_effect(s32 id, Vec_8022675C *src, s32 a2, s32 flags) {
         lbl_805145F0[idx].id = id;
         lbl_805145F0[idx].x1c = 0;
         if (fn_802264B8(idx, 0) == 1) {
-            lbl_805D370C = idx;
+            last_sound_effect_slot = idx;
             lbl_805145F0[idx].flags |= 0x600;
             return idx;
         }

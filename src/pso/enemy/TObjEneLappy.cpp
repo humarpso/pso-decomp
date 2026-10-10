@@ -1630,7 +1630,7 @@ M2C_UNK init_collision_body_parts(void *, void *, int);
 
 extern s32 lbl_805D2A40;
 extern s32 lbl_805D5160;
-extern void *lbl_805D5164;
+extern void *rappy_bml_resource;
 extern const f32 lbl_805D9F2C;
 extern const f32 lbl_805D9F60;
 extern const f32 lbl_805D9F84;
@@ -1919,7 +1919,7 @@ extern const f32 lbl_805D9F4C;
 extern s32 game_difficulty_selection;
 extern s32 TLobby__event_theme_id;
 extern s32 lbl_805D516C;
-#define lbl_805D5164 (*(u32 *)&lbl_805D5164)
+#define rappy_bml_resource (*(u32 *)&rappy_bml_resource)
 #define lbl_805D516C (*(u32 *)&lbl_805D516C)
 
 void cleanup_handles__6TLobbyFv(void) {
@@ -1932,13 +1932,13 @@ void cleanup_handles__6TLobbyFv(void) {
     } else {
         lbl_805D516C = 0U;
     }
-    if ((u32) lbl_805D5164 != 0U) {
-        TLobby__sub_8001FE7C((void*)lbl_805D5164, 1);
-        lbl_805D5164 = 0U;
+    if ((u32) rappy_bml_resource != 0U) {
+        TLobby__sub_8001FE7C((void*)rappy_bml_resource, 1);
+        rappy_bml_resource = 0U;
     }
 }
 
-#define RES_800C17B8 ((u8 *)lbl_805D5164)
+#define RES_800C17B8 ((u8 *)rappy_bml_resource)
 
 void load_resources__12TObjEneLappyFv(void) {
     int rare;
@@ -1955,13 +1955,13 @@ void load_resources__12TObjEneLappyFv(void) {
                 if (p != 0) {
                     p = load_resource_from_descriptor(p, 1, lbl_80492E08, 0, 0, 0);
                 }
-                lbl_805D5164 = p;
+                rappy_bml_resource = p;
             } else {
                 p = alloc__23TAdSinglePlyChrSelectGCFPv((void *)0x440);
                 if (p != 0) {
                     p = load_resource_from_descriptor(p, 1, lbl_80492DC0, 0, 0, 0);
                 }
-                lbl_805D5164 = p;
+                rappy_bml_resource = p;
             }
             break;
         case 4:
@@ -1971,13 +1971,13 @@ void load_resources__12TObjEneLappyFv(void) {
                 if (p != 0) {
                     p = load_resource_from_descriptor(p, 1, lbl_80492CE8, 0, 0, 0);
                 }
-                lbl_805D5164 = p;
+                rappy_bml_resource = p;
             } else {
                 p = alloc__23TAdSinglePlyChrSelectGCFPv((void *)0x440);
                 if (p != 0) {
                     p = load_resource_from_descriptor(p, 1, lbl_80492CA0, 0, 0, 0);
                 }
-                lbl_805D5164 = p;
+                rappy_bml_resource = p;
             }
             break;
         case 5:
@@ -1987,13 +1987,13 @@ void load_resources__12TObjEneLappyFv(void) {
                 if (p != 0) {
                     p = load_resource_from_descriptor(p, 1, lbl_80492D78, 0, 0, 0);
                 }
-                lbl_805D5164 = p;
+                rappy_bml_resource = p;
             } else {
                 p = alloc__23TAdSinglePlyChrSelectGCFPv((void *)0x440);
                 if (p != 0) {
                     p = load_resource_from_descriptor(p, 1, lbl_80492D30, 0, 0, 0);
                 }
-                lbl_805D5164 = p;
+                rappy_bml_resource = p;
             }
             break;
         default:
@@ -2003,13 +2003,13 @@ void load_resources__12TObjEneLappyFv(void) {
                 if (p != 0) {
                     p = load_resource_from_descriptor(p, 1, lbl_80492C58, 0, 0, 0);
                 }
-                lbl_805D5164 = p;
+                rappy_bml_resource = p;
             } else {
                 p = alloc__23TAdSinglePlyChrSelectGCFPv((void *)0x440);
                 if (p != 0) {
                     p = load_resource_from_descriptor(p, 1, lbl_80492C10, 0, 0, 0);
                 }
-                lbl_805D5164 = p;
+                rappy_bml_resource = p;
             }
             break;
         }
@@ -2020,13 +2020,13 @@ void load_resources__12TObjEneLappyFv(void) {
             if (p != 0) {
                 p = load_resource_from_descriptor(p, 1, lbl_80492C58, 0, 0, 0);
             }
-            lbl_805D5164 = p;
+            rappy_bml_resource = p;
         } else {
             p = alloc__23TAdSinglePlyChrSelectGCFPv((void *)0x440);
             if (p != 0) {
                 p = load_resource_from_descriptor(p, 1, lbl_80492C10, 0, 0, 0);
             }
-            lbl_805D5164 = p;
+            rappy_bml_resource = p;
         }
     }
     if (get_instance__6TLobbyFv() == 0) {
@@ -2062,7 +2062,7 @@ void load_resources__12TObjEneLappyFv(void) {
 }
 
 #undef RES_800C17B8
-#undef lbl_805D5164
+#undef rappy_bml_resource
 #undef lbl_805D516C
 
 void *destroy__12TObjEneLappyFPvs(void *arg0, s16 arg1) {
@@ -2087,7 +2087,7 @@ u8 *TObjEneLappy__ct(u8 *self, s32 arg1, Set_800C1C4C *set) {
     *(void **)(self + 0x18) = (u8 *)lbl_80492F28;
     *(s32 *)(self + 0) = lbl_805D2A40;
     ((VObj_18_fe72f9 *)self)->m79(set);
-    *(s32 *)(self + 0xDC) = *(s32 *)((u8 *)lbl_805D5164 + 0x430);
+    *(s32 *)(self + 0xDC) = *(s32 *)((u8 *)rappy_bml_resource + 0x430);
     VecCopy__FP3VecPC3Vec(self + 0x38, set->pos);
     copy_xyz__10TObjPlayerFPvPv(self + 0x5C, set->rot);
     for (i = 0; i < 5; i++) {
@@ -2097,7 +2097,7 @@ u8 *TObjEneLappy__ct(u8 *self, s32 arg1, Set_800C1C4C *set) {
     if (calc_boss4_scale__10TObjPlayerFi(self) < lbl_805D9F94) {
         *(s32 *)(self + 0x368) = 1;
         if (get_instance__6TLobbyFv() == 1) {
-            lbl_805D5168 = collect_and_count__12TBoss3VoloptFUii(*(void **)(*(u8 **)((u8 *)lbl_805D5164 + 0x42C) + 0x18), 0x12);
+            lbl_805D5168 = collect_and_count__12TBoss3VoloptFUii(*(void **)(*(u8 **)((u8 *)rappy_bml_resource + 0x42C) + 0x18), 0x12);
         }
     }
     if (*(s32 *)(self + 0x368) == 0) {
@@ -2169,7 +2169,7 @@ u8 *TObjEneLappy__ct(u8 *self, s32 arg1, Set_800C1C4C *set) {
 
 int is_lying_down__12TObjEneLappyFv(void) { return 0; }
 
-extern void *lbl_805D5164;
+extern void *rappy_bml_resource;
 extern s32 lbl_805D516C;
 
 void set_speed_params__12TObjEneLappyFPvi(void *arg0, s32 arg1) {
@@ -2177,17 +2177,17 @@ void set_speed_params__12TObjEneLappyFPvi(void *arg0, s32 arg1) {
     s32 var_r0_2;
 
     if (get_instance__6TLobbyFv() == 0) {
-        M2C_FIELD(arg0, s32 *, 0x34) = (s32) M2C_FIELD(M2C_FIELD(lbl_805D5164, void **, 0x42C), s32 *, 8);
+        M2C_FIELD(arg0, s32 *, 0x34) = (s32) M2C_FIELD(M2C_FIELD(rappy_bml_resource, void **, 0x42C), s32 *, 8);
     } else {
         if (arg1 == 0) {
-            var_r0 = M2C_FIELD(M2C_FIELD(lbl_805D5164, void **, 0x42C), s32 *, 8);
+            var_r0 = M2C_FIELD(M2C_FIELD(rappy_bml_resource, void **, 0x42C), s32 *, 8);
         } else {
-            var_r0 = M2C_FIELD(M2C_FIELD(lbl_805D5164, void **, 0x42C), s32 *, 0x18);
+            var_r0 = M2C_FIELD(M2C_FIELD(rappy_bml_resource, void **, 0x42C), s32 *, 0x18);
         }
         M2C_FIELD(arg0, s32 *, 0x34) = var_r0;
     }
     if (arg1 == 0) {
-        var_r0_2 = M2C_FIELD(M2C_FIELD(lbl_805D5164, void **, 0x42C), s32 *, 0xC);
+        var_r0_2 = M2C_FIELD(M2C_FIELD(rappy_bml_resource, void **, 0x42C), s32 *, 0xC);
     } else {
         var_r0_2 = lbl_805D516C;
     }

@@ -27,10 +27,10 @@ u32 get_global_state__14TOKeyMachine01Fv(void);
 void *get_bml_model(void *, s32);
 extern void *TOKeyAncient03__model_archive;
 extern Pair_80165940 *TOKeyAncient03__texture_variants;
-extern void *lbl_805D5A18;
-extern Pair_80165940 *TOKeyCave01__data_805D5A1C;
-extern void *lbl_805D5A30;
-extern Pair_80165940 *TOKeyMachine01__data_805D5A34;
+extern void *TOKeyCave01__resource_bundle;
+extern Pair_80165940 *TOKeyCave01__texture_lists;
+extern void *key_machine_model_archive;
+extern Pair_80165940 *TOKeyMachine01__texture_lists;
 void fn_80165940(Key_80165940 *self);
 }
 
@@ -59,17 +59,17 @@ void fn_80165940(Key_80165940 *self) {
     case 3:
     case 4:
     case 5:
-        self->f34 = get_bml_model(lbl_805D5A18, 0);
-        self->f90 = TOKeyCave01__data_805D5A1C->a;
-        self->f94 = TOKeyCave01__data_805D5A1C->b;
+        self->f34 = get_bml_model(TOKeyCave01__resource_bundle, 0);
+        self->f90 = TOKeyCave01__texture_lists->a;
+        self->f94 = TOKeyCave01__texture_lists->b;
         break;
     case 1:
     case 2:
     case 6:
     case 7:
-        self->f34 = get_bml_model(lbl_805D5A30, 0);
-        self->f90 = TOKeyMachine01__data_805D5A34->a;
-        self->f94 = TOKeyMachine01__data_805D5A34->b;
+        self->f34 = get_bml_model(key_machine_model_archive, 0);
+        self->f90 = TOKeyMachine01__texture_lists->a;
+        self->f94 = TOKeyMachine01__texture_lists->b;
         break;
     case 8:
     case 9:
@@ -85,13 +85,13 @@ void fn_80165940(Key_80165940 *self) {
     case 21:
     case 22:
         if (self->fBC == 0) {
-            self->f34 = get_bml_model(lbl_805D5A18, 0);
-            self->f90 = TOKeyCave01__data_805D5A1C->a;
-            self->f94 = TOKeyCave01__data_805D5A1C->b;
+            self->f34 = get_bml_model(TOKeyCave01__resource_bundle, 0);
+            self->f90 = TOKeyCave01__texture_lists->a;
+            self->f94 = TOKeyCave01__texture_lists->b;
         } else {
-            self->f34 = get_bml_model(lbl_805D5A30, 0);
-            self->f90 = TOKeyMachine01__data_805D5A34->a;
-            self->f94 = TOKeyMachine01__data_805D5A34->b;
+            self->f34 = get_bml_model(key_machine_model_archive, 0);
+            self->f90 = TOKeyMachine01__texture_lists->a;
+            self->f94 = TOKeyMachine01__texture_lists->b;
         }
         break;
     case 23:
@@ -103,9 +103,9 @@ void fn_80165940(Key_80165940 *self) {
     case 29:
     case 34:
     case 35:
-        self->f34 = get_bml_model(lbl_805D5A18, 0);
-        self->f90 = TOKeyCave01__data_805D5A1C->a;
-        self->f94 = TOKeyCave01__data_805D5A1C->b;
+        self->f34 = get_bml_model(TOKeyCave01__resource_bundle, 0);
+        self->f90 = TOKeyCave01__texture_lists->a;
+        self->f94 = TOKeyCave01__texture_lists->b;
         self->fD0 = 1;
         break;
     default:

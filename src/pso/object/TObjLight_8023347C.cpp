@@ -15,11 +15,11 @@ M2C_UNK __ct__7TObjectFP7TObject(void *, void *);
 void __dl__7TObjectFPv(void *);
 void __dt__7TObjectFv(void *, int);
 
-extern M2C_UNK lbl_804CC948[];
+extern M2C_UNK ice_technique_charge_vtable[];
 
 void *TObjLight__sub_8023347C(void *arg0, s16 arg1) {
     if (arg0 != NULL) {
-        M2C_FIELD(arg0, M2C_UNK **, 0x18) = lbl_804CC948;
+        M2C_FIELD(arg0, M2C_UNK **, 0x18) = ice_technique_charge_vtable;
         stop_sound_request(M2C_FIELD(arg0, void **, 0x30));
         __dt__7TObjectFv(arg0, 0);
         if (arg1 > 0) {
@@ -29,11 +29,11 @@ void *TObjLight__sub_8023347C(void *arg0, s16 arg1) {
     return arg0;
 }
 
-extern M2C_UNK lbl_804CC948[];
+extern M2C_UNK ice_technique_charge_vtable[];
 
 u8 *init__9TObjLightFPvii(u8 *arg0, s32 arg1, s32 arg2) {
     __ct__7TObjectFP7TObject(arg0, (void *) (arg2));
-    M2C_FIELD(arg0, M2C_UNK **, 0x18) = lbl_804CC948;
+    M2C_FIELD(arg0, M2C_UNK **, 0x18) = ice_technique_charge_vtable;
     M2C_FIELD(arg0, s32 *, 0x1C) = arg1;
     VecCopy__FP3VecPC3Vec((void *) (arg0 + 0x20), (int) (M2C_FIELD(arg0, s32 *, 0x1C) + 0x2FC));
     M2C_FIELD(arg0, s32 *, 0x2C) = 0;

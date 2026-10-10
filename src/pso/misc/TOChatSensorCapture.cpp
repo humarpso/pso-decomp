@@ -8,11 +8,11 @@ void create_instance__19TOChatSensorCaptureFPv(void *arg0);
 void *TOChatSensorCapture__ct(void *, void *);
 void *__nw__7TObjectFUl(int);
 
-extern void *TOChatSensorCapture__data_805D58D8;
+extern void *TOChatSensorCapture__instance;
 
 void create_instance__19TOChatSensorCaptureFPv(void *arg0) {
     void *o;
-    if (TOChatSensorCapture__data_805D58D8 == NULL) {
+    if (TOChatSensorCapture__instance == NULL) {
         o = __nw__7TObjectFUl(0x3C);
         if (o != NULL) {
             TOChatSensorCapture__ct(o, arg0);

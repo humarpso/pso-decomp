@@ -50,7 +50,7 @@ void disallow_rendering__7TObjectFv(void *);
 void copy_pair__18TObjEnvSoundGlobalFPvPv(Row_80190AA0 *, Row_80190AA0 *);
 void construct_world_actor_base(void *, void *);
 s32 get_global_state__14TOKeyMachine01Fv(void);
-extern Row_80190AA0 *lbl_804B7A70[];
+extern Row_80190AA0 *environment_sound_tables_by_area[];
 extern M2C_UNK __vt__12TObjEnvSound[];
 extern s32 TObjEnvSound__class_name;
 extern const f32 lbl_805DBE18;
@@ -105,7 +105,7 @@ void *TObjEnvSound__ct(Obj_80190AA0 *self, void *parent, void *arg2) {
     self->vtbl = __vt__12TObjEnvSound;
     self->unk0 = TObjEnvSound__class_name;
     ((VObj_80190AA0 *)self)->m5(arg2);
-    table = lbl_804B7A70[get_global_state__14TOKeyMachine01Fv()];
+    table = environment_sound_tables_by_area[get_global_state__14TOKeyMachine01Fv()];
     if (table != NULL) {
         copy_pair__18TObjEnvSoundGlobalFPvPv(&self->sound, &table[self->index]);
     } else {

@@ -52,7 +52,7 @@ extern char lbl_80438630[];
 extern char lbl_80438638[];
 extern RecoveredGlobal_800739BC_lbl_8048C9D8 challenge_mode_state;
 extern u8 challenge_window_extent[];
-extern char lbl_804FF838[];
+extern char challenge_progress_text_buffer[];
 extern char lbl_805D912C[2];
 extern const f32 lbl_805D9134;
 extern const f32 lbl_805D9138;
@@ -74,7 +74,7 @@ extern char lbl_804385F4[];
 extern char lbl_80438604[];
 extern char lbl_80438618[];
 extern s32 challenge_grade_letter_table[];
-extern char lbl_804FF838[];
+extern char challenge_progress_text_buffer[];
 extern char lbl_805D9128[2];
 extern char lbl_805D912C[2];
 extern char lbl_805D9130[2];
@@ -88,7 +88,7 @@ void *set_window_mode_4__6TLobbyFPvii(void *, void *, s32);
 void *get_window_layout_position(s32);
 extern RecoveredGlobal_800739BC_lbl_8048C9D8 challenge_mode_state;
 extern u8 challenge_window_extent[];
-extern char lbl_804FF838[];
+extern char challenge_progress_text_buffer[];
 extern const f32 lbl_805D9134;
 extern const f32 lbl_805D9138;
 void open_challenge_window__6TLobbyFii(s32 arg0, s32 arg1);
@@ -137,21 +137,21 @@ void format_challenge_stage_times__23TAdSinglePlyChrSelectGCFii(M2C_UNK arg0, s3
         kind = 1;
         idx = arg1 - 0xC;
     }
-    sprintf(lbl_804FF838, lbl_804385E0, TQuestVmDownLoadServer__sub_8006EF6C(0x53), idx + 1, 0xFF);
+    sprintf(challenge_progress_text_buffer, lbl_804385E0, TQuestVmDownLoadServer__sub_8006EF6C(0x53), idx + 1, 0xFF);
     for (i = 0, rec = CHAL_80073428->recs; i < 4; i++, rec++) {
         if (rec->flag != 0) {
-            strcat(lbl_804FF838, (char *)(get_player_by_client_id(i) + 0x85C));
-            strcat(lbl_804FF838, lbl_805D9128);
+            strcat(challenge_progress_text_buffer, (char *)(get_player_by_client_id(i) + 0x85C));
+            strcat(challenge_progress_text_buffer, lbl_805D9128);
             data = rec->data;
             slot = TWindowSubStatusDisp__sub_8006F134(data, kind);
             t = get_valid_slot__6TLobbyFi(TWindowSubStatusDisp__sub_8006F0D8(data, kind)[idx]);
             if (t == 0) {
-                strcat(lbl_804FF838, lbl_804385EC);
-                strcat(lbl_804FF838, TQuestVmDownLoadServer__sub_8006EF6C(0x51));
-                strcat(lbl_804FF838, lbl_805D912C);
+                strcat(challenge_progress_text_buffer, lbl_804385EC);
+                strcat(challenge_progress_text_buffer, TQuestVmDownLoadServer__sub_8006EF6C(0x51));
+                strcat(challenge_progress_text_buffer, lbl_805D912C);
             } else {
                 if (get_slot_clamped__6TLobbyFv(slot->slot) == 0) {
-                    strcat(lbl_804FF838, lbl_804385F4);
+                    strcat(challenge_progress_text_buffer, lbl_804385F4);
                 } else {
                     p = TWindowSubStatusDisp__sub_8006F0D8(data, kind);
                     sum = 0;
@@ -162,12 +162,12 @@ void format_challenge_stage_times__23TAdSinglePlyChrSelectGCFii(M2C_UNK arg0, s3
                     sl = get_slot_clamped__6TLobbyFv(slot->slot);
                     split_time_hms__22TQuestVmDownLoadServerFiPvPvPv(sum, &h1, &m1, &s1);
                     sprintf(buf2, lbl_80438604, h1, m1, s1, challenge_grade_letter_table[sl]);
-                    strcat(lbl_804FF838, buf2);
+                    strcat(challenge_progress_text_buffer, buf2);
                 }
-                strcat(lbl_804FF838, lbl_805D9130);
+                strcat(challenge_progress_text_buffer, lbl_805D9130);
                 split_time_hms__22TQuestVmDownLoadServerFiPvPvPv(t, &h2, &m2, &s2);
                 sprintf(buf1, lbl_80438618, h2, m2, s2);
-                strcat(lbl_804FF838, buf1);
+                strcat(challenge_progress_text_buffer, buf1);
             }
         }
     }
@@ -185,7 +185,7 @@ void open_challenge_window__6TLobbyFii(s32 arg0, s32 arg1) {
         set_position_xy((*(Chal_8007369C *)&challenge_mode_state).window, lbl_805D9138, lbl_805D9138);
     }
     format_challenge_stage_times__23TAdSinglePlyChrSelectGCFii((M2C_UNK)(arg0), (s32)(arg1));
-    send_and_handle__6TLobbyFPvii((*(Chal_8007369C *)&challenge_mode_state).window, lbl_804FF838, 0);
+    send_and_handle__6TLobbyFPvii((*(Chal_8007369C *)&challenge_mode_state).window, challenge_progress_text_buffer, 0);
 }
 
 void open_challenge_progress_window__6TLobbyFPvPv(void *arg0, void *arg1) {
@@ -203,25 +203,25 @@ void open_challenge_progress_window__6TLobbyFPvPv(void *arg0, void *arg1) {
     if (get_camera_id__11TCameraCtrlFv() >= 2) {
         set_position_xy(CHAL->window, lbl_805D9138, lbl_805D9138);
     }
-    sprintf(lbl_804FF838, lbl_80438628, TQuestVmDownLoadServer__sub_8006EF6C(0x4F));
+    sprintf(challenge_progress_text_buffer, lbl_80438628, TQuestVmDownLoadServer__sub_8006EF6C(0x4F));
     rec = CHAL->recs;
     for (i = 0; i < 4; i++, rec++) {
         if (rec->flag != 0) {
-            strcat(lbl_804FF838, (char *)(get_player_by_client_id(i) + 0x85C));
-            strcat(lbl_804FF838, lbl_80438630);
+            strcat(challenge_progress_text_buffer, (char *)(get_player_by_client_id(i) + 0x85C));
+            strcat(challenge_progress_text_buffer, lbl_80438630);
             n = fn_80071A9C(arg0, rec->data, arg1);
             if (n >= get_layout_id__20TWindowSubStatusDispFv(arg1)) {
-                strcat(lbl_804FF838, TQuestVmDownLoadServer__sub_8006EF6C(0x52));
+                strcat(challenge_progress_text_buffer, TQuestVmDownLoadServer__sub_8006EF6C(0x52));
             } else if (n == 0) {
-                strcat(lbl_804FF838, TQuestVmDownLoadServer__sub_8006EF6C(0x51));
+                strcat(challenge_progress_text_buffer, TQuestVmDownLoadServer__sub_8006EF6C(0x51));
             } else {
                 sprintf(tmp, lbl_80438638, TQuestVmDownLoadServer__sub_8006EF6C(0x50), n);
-                strcat(lbl_804FF838, tmp);
+                strcat(challenge_progress_text_buffer, tmp);
             }
-            strcat(lbl_804FF838, lbl_805D912C);
+            strcat(challenge_progress_text_buffer, lbl_805D912C);
         }
     }
-    send_and_handle__6TLobbyFPvii(CHAL->window, lbl_804FF838, 0);
+    send_and_handle__6TLobbyFPvii(CHAL->window, challenge_progress_text_buffer, 0);
 }
 
 void TLobby__sub_800738F4(void *arg0, s32 arg1) {

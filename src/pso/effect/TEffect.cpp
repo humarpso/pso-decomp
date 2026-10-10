@@ -68,7 +68,7 @@ void copy_screen_to_texture__10TObjPlayerFiPv(s32 mode, void *src);
 
 extern "C" {
 extern TObject* tl_particle;
-extern const char* lbl_805D2908;
+extern const char* TEffect__class_name;
 extern const f32 lbl_805D93B8;
 extern const f32 lbl_805D93BC;
 }
@@ -78,7 +78,7 @@ TEffect::~TEffect() {
 }
 
 TEffect::TEffect() : TObject(tl_particle) {
-    m_name = lbl_805D2908;
+    m_name = TEffect__class_name;
     position.x = lbl_805D93B8;
     position.y = lbl_805D93B8;
     position.z = lbl_805D93B8;

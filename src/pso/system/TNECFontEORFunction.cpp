@@ -21,7 +21,7 @@ extern u8 lbl_805D56C0;
 extern "C" {
 
 extern "C" u8 lbl_8050C090[];
-__declspec(section ".data") void *lbl_804A74E8[2] = {
+__declspec(section ".data") void *menu_font_texture_list[2] = {
     (void *)&lbl_8050C090, (void *)0x2,
 };
 s32 lbl_804A74F0[191] = {

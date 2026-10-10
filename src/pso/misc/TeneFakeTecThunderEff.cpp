@@ -95,7 +95,7 @@ M2C_UNK set_chunk_material_override_pair(u32, u32);
 M2C_UNK set_chunk_material_color(void *);
 M2C_UNK draw_chunk_object(s32);
 extern u8 chunk_material_color_half_alpha_f32[];
-extern u8 lbl_8050BEC0[];
+extern u8 saved_model_draw_color[];
 extern u8 lbl_8058D4C0[];
 extern int TEneEffHamon__fish_model;
 extern int TEneEffHamon__fish_effect_param;

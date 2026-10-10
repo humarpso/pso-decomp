@@ -25,11 +25,11 @@ int set_field_20__12TQuestListVMFPvi(void*, void*);
 int fn_801DB6F0(void*);
 
     extern int TLobby__protocol_instance;
-    extern int lbl_805D61E8;
-    extern int lbl_805D61EC;
-    extern int lbl_805D61F0;
+    extern int online_quest_bin_data;
+    extern int online_quest_dat_buffer;
+    extern int quest_bin_decompressed_size;
     extern int lbl_805D61F4;
-void reset_state__16TQuestListOnlineFPv(void* a0) { fn_801DB6F0((void*)(TLobby__protocol_instance)); lbl_805D61E8 = 0; lbl_805D61F0 = 0; lbl_805D61EC = 0; lbl_805D61F4 = 0; set_field_20__12TQuestListVMFPvi(a0, (void*)12); }
+void reset_state__16TQuestListOnlineFPv(void* a0) { fn_801DB6F0((void*)(TLobby__protocol_instance)); online_quest_bin_data = 0; quest_bin_decompressed_size = 0; online_quest_dat_buffer = 0; lbl_805D61F4 = 0; set_field_20__12TQuestListVMFPvi(a0, (void*)12); }
 void TQuestListOnline__vt9(Obj_802181B0 *arg0) {
     switch (arg0->state) {
     case 0: reset_state__16TQuestListOnlineFPv((void*)(arg0)); break;

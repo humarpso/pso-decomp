@@ -477,7 +477,7 @@ u32 is_part_active__11TBoss7JointFPv(int);
 s32 draw_node_tree_if_visible__10TObjPlayerFPv(int);
 s32 push_matrix();
 s32 pop_matrix();
-extern RecoveredGlobal_802E80F4_lbl_8050BEC0 lbl_8050BEC0;
+extern RecoveredGlobal_802E80F4_lbl_8050BEC0 saved_model_draw_color;
 extern RecoveredGlobal_802E80F4_main_task main_task;
 extern RecoveredGlobal_802E80F4_lbl_805412C0 boss7_derolle_light_pool;
 extern RecoveredGlobal_802E80F4_lbl_8058D4C0 lbl_8058D4C0;
@@ -545,7 +545,7 @@ void TObjPlayer__sub_802E80F4(u8 *arg0) {
         lbl_805D5660 = some_id_805c6f74;
         lbl_805D5664 = lbl_805D7784;
         lbl_805D5668 = lbl_805D7780;
-        copy_vec4__13TRaderMapCoreFPvPv((void *) (&lbl_8050BEC0.value), (void *) (&lbl_8058D4C0.value));
+        copy_vec4__13TRaderMapCoreFPvPv((void *) (&saved_model_draw_color.value), (void *) (&lbl_8058D4C0.value));
         clear_global_flag_400__9TObjEneDDFv();
         begin_effect_render__13TParticleCtrlFv();
         push_matrix();
@@ -560,7 +560,7 @@ void TObjPlayer__sub_802E80F4(u8 *arg0) {
         }
         pop_matrix();
         end_effect_render__13TParticleCtrlFv();
-        copy_vec4__13TRaderMapCoreFPvPv((void *) (&lbl_8058D4C0.value), (void *) (&lbl_8050BEC0.value));
+        copy_vec4__13TRaderMapCoreFPvPv((void *) (&lbl_8058D4C0.value), (void *) (&saved_model_draw_color.value));
         lbl_805D7784 = lbl_805D5664;
         lbl_805D7780 = lbl_805D5668;
         some_id_805c6f74 = lbl_805D5660;

@@ -38,7 +38,7 @@ struct Node_8001D6E0 { Node_8001D6E0 *next; Node_8001D6E0 *prev; u32 addr; u32 s
 struct Pool_8001D6E0 { u8 pad[0x2C]; Node_8001D6E0 *head; };
 
 extern "C" {
-extern s32 lbl_805D4A90;
+extern s32 aram_dma_pending;
 void TLobby__sub_8001D9DC(void);
 s32 set_flag_bit0__6TLobbyFi(s32);
 s32 is_active__6TLobbyFv(void);
@@ -46,7 +46,7 @@ s32 get_card_window__17TWindowSubComCardFUi(M2C_UNK);
 
 M2C_UNK TWindowSubComCard__sub_80225E80(void *, int);
 M2C_UNK strncpy(int, int, int);
-extern s32 TLobby__data_805D4A98;
+extern s32 auto_reply_flags;
 void set_short_mail_text__6TLobbyFi(s32 arg0);
 Ent_8001D768 *find_free_pool_entry__6TLobbyFPv(Obj_8001D768 *self);
 void archive_pool_free(Pool_8001D7AC *pool, Node_8001D7AC *node);
@@ -57,7 +57,7 @@ void merge_adjacent_free_blocks__6TLobbyFPv(Pool_8001D6E0 *pool);
 
 void send_disable_auto_reply__9TProtocolFv(s32);
 void send_text_packet_c7__6TLobbyFPvPv(s32, s32);
-extern s32 TLobby__data_805D4A98;
+extern s32 auto_reply_flags;
 extern s32 TLobby__protocol_instance;
 void sync_auto_reply_state__6TLobbyFv(void);
 }
@@ -203,20 +203,20 @@ u8 *init_memory_pool__6TLobbyFPviii(u8 *arg0, s32 arg1, s32 arg2, s32 arg3) {
 }
 
 void TLobby__sub_8001D9DC(void) {
-    lbl_805D4A90 = 0;
+    aram_dma_pending = 0;
 }
 
 void TLobby__sub_8001D9E8(void* p) { *(s32*)((char*)p + 0x4) = 0; *(s32*)((char*)p + 0x0) = 0; *(s32*)((char*)p + 0xc) = 0; *(s32*)((char*)p + 0x8) = 0; }
 
 void sync_auto_reply_state__6TLobbyFv(void) {
-    if ((TLobby__data_805D4A98 & 4) || (TLobby__data_805D4A98 & 1) != ((TLobby__data_805D4A98 >> 1) & 1)) {
+    if ((auto_reply_flags & 4) || (auto_reply_flags & 1) != ((auto_reply_flags >> 1) & 1)) {
         if (((s32 (*)(void))get_flag_bit0__6TLobbyFv)() != 0) {
             send_text_packet_c7__6TLobbyFPvPv(TLobby__protocol_instance, get_card_window_area__6TLobbyFv());
         } else {
             send_disable_auto_reply__9TProtocolFv(TLobby__protocol_instance);
         }
-        TLobby__data_805D4A98 &= ~4;
-        TLobby__data_805D4A98 = ((s32 (*)(void))get_flag_bit0__6TLobbyFv)() != 0 ? (TLobby__data_805D4A98 | 2) : (TLobby__data_805D4A98 & ~2);
+        auto_reply_flags &= ~4;
+        auto_reply_flags = ((s32 (*)(void))get_flag_bit0__6TLobbyFv)() != 0 ? (auto_reply_flags | 2) : (auto_reply_flags & ~2);
     }
 }
 
@@ -229,7 +229,7 @@ void set_short_mail_text__6TLobbyFi(s32 arg0) {
     TWindowSubComCard__sub_80225E80((void *) (arg0), (int) (((s32 (*)(void))get_shared_text_buffer)()));
     strncpy((int) (temp_r31), (int) (((s32 (*)(void))get_shared_text_buffer)()), (int) (0xAB));
     M2C_FIELD(temp_r31, s8 *, 0xAB) = 0;
-    TLobby__data_805D4A98 |= 4;
+    auto_reply_flags |= 4;
     if (is_active__6TLobbyFv() != 0) {
         set_flag_bit0__6TLobbyFi(1);
         return;
@@ -241,7 +241,7 @@ void set_short_mail_text__6TLobbyFi(s32 arg0) {
 
 extern "C" {
 
-int get_flag_bit0__6TLobbyFv(void) {  return (TLobby__data_805D4A98 & 0x1); }
+int get_flag_bit0__6TLobbyFv(void) {  return (auto_reply_flags & 0x1); }
 
 }
 
@@ -254,7 +254,7 @@ extern "C" {
 
 s32 set_flag_bit0__6TLobbyFi(s32 arg0);
 
-extern s32 TLobby__data_805D4A98;
+extern s32 auto_reply_flags;
 
 s32 set_flag_bit0__6TLobbyFi(s32 arg0) {
     s32 var_r3;
@@ -264,11 +264,11 @@ s32 set_flag_bit0__6TLobbyFi(s32 arg0) {
     if (ret == arg0) {
         return 0;
     }
-    var_r3 = TLobby__data_805D4A98 & 0xFFFFFFFE;
+    var_r3 = auto_reply_flags & 0xFFFFFFFE;
     if (arg0 != 0) {
-        var_r3 = TLobby__data_805D4A98 | 1;
+        var_r3 = auto_reply_flags | 1;
     }
-    TLobby__data_805D4A98 = var_r3;
+    auto_reply_flags = var_r3;
     return 1;
 }
 
@@ -285,9 +285,9 @@ struct RecoveredGlobal_8001DC24_lbl_80515BC8 {
 };
 
 extern "C" {
-extern s32 TLobby__data_805D4A98;
+extern s32 auto_reply_flags;
 void TLobby__sub_8001DBD8(s32 _w0);
-extern RecoveredGlobal_8001DC24_lbl_80515BC8 lbl_80515BC8;
+extern RecoveredGlobal_8001DC24_lbl_80515BC8 text_builder_buffer;
 
 }
 
@@ -303,7 +303,7 @@ s32 is_active__6TLobbyFv(void) {
 }
 
 void TLobby__sub_8001DBD8(s32 _w0) {
-    TLobby__data_805D4A98 = 0;
+    auto_reply_flags = 0;
 }
 
 void forward_8001DBD8__6TLobbyFPv(void* p) { TLobby__sub_8001DBD8((s32)(p)); }
@@ -313,7 +313,7 @@ void TLobby__sub_8001DC04(void* p) { TLobby__sub_8001DBD8((s32)(p)); }
 
 typedef char RecoveredGlobal_8001DC24_lbl_80515BC8_size[sizeof(RecoveredGlobal_8001DC24_lbl_80515BC8) == 0x100 ? 1 : -1];
 M2C_UNK *get_shared_text_buffer(void) {
-    return &lbl_80515BC8.value;
+    return &text_builder_buffer.value;
 }
 
 typedef struct File_8001DC30 File_8001DC30;
@@ -367,10 +367,10 @@ extern const char lbl_80434A20[];
 extern const char lbl_80434A38[];
 extern const char lbl_80434A50[];
 extern const char lbl_80434A6C[];
-extern s32 TLobby__data_805D4AB8;
+extern s32 battle_param_lab_variant;
 void load_battle_param_entry(void) {
-  extern Params_8001DC30 *TLobby__data_805D4AA0;
-  extern s32 TLobby__data_805D4AB4;
+  extern Params_8001DC30 *TLobby__battle_parameter_buffer;
+  extern s32 battle_parameter_difficulty;
   s32 idx;
   const char *name;
   File_8001DC30 *file;
@@ -386,7 +386,7 @@ void load_battle_param_entry(void) {
   {
     name = lbl_80434A38;
   }
-  if (TLobby__data_805D4AB8 == 1)
+  if (battle_param_lab_variant == 1)
   {
     name = lbl_80434A50;
     if (is_main_phase_15__9TObjEneDDFv() != 0)
@@ -402,8 +402,8 @@ void load_battle_param_entry(void) {
   if (file != 0)
   {
     read_disc_file(name, file);
-    idx = TLobby__data_805D4AB4;
-    new_var = (dst = TLobby__data_805D4AA0);
+    idx = battle_parameter_difficulty;
+    new_var = (dst = TLobby__battle_parameter_buffer);
     move_data__6TLobbyFv(dst->stats, file->stats[idx], sizeof(dst->stats));
     {
       Stats_8001DC30 *p = ((0, dst))->stats;
@@ -649,34 +649,34 @@ u8 is_valid_player_index__6TLobbyFi(s32 arg0) {
     return (u8)var_r0;
 }
 
-    extern int TLobby__data_805D4AB4;
-void dispatch_shared_handler_a__6TLobbyFPv(void* a0) { get_player_entry__6TLobbyFii((int)((void*)(TLobby__data_805D4AB4)), (int)(a0)); }
+    extern int battle_parameter_difficulty;
+void dispatch_shared_handler_a__6TLobbyFPv(void* a0) { get_player_entry__6TLobbyFii((int)((void*)(battle_parameter_difficulty)), (int)(a0)); }
 
-    extern int TLobby__data_805D4AB0;
-void* get_player_entry__6TLobbyFii(int a0, int a1) {  return (char*)(TLobby__data_805D4AB0) + a1 * 48; }
+    extern int battle_param_movement;
+void* get_player_entry__6TLobbyFii(int a0, int a1) {  return (char*)(battle_param_movement) + a1 * 48; }
 
-    extern int TLobby__data_805D4AB4;
-void register_object__6TLobbyFPv(void* a0) { get_entry__6TLobbyFii((int)((void*)(TLobby__data_805D4AB4)), (int)(a0)); }
+    extern int battle_parameter_difficulty;
+void register_object__6TLobbyFPv(void* a0) { get_entry__6TLobbyFii((int)((void*)(battle_parameter_difficulty)), (int)(a0)); }
 
     extern int TLobby__data_805D4AAC;
 void* get_entry__6TLobbyFii(int a0, int a1) {  return (char*)(TLobby__data_805D4AAC) + a1 * 32; }
 
-    extern int TLobby__data_805D4AB4;
-void dispatch_shared_handler_b__6TLobbyFPv(void* a0) { TLobby__sub_8001E270((int)((void*)(TLobby__data_805D4AB4)), (int)(a0)); }
+    extern int battle_parameter_difficulty;
+void dispatch_shared_handler_b__6TLobbyFPv(void* a0) { TLobby__sub_8001E270((int)((void*)(battle_parameter_difficulty)), (int)(a0)); }
 
     extern int TLobby__data_805D4AA8;
 void* TLobby__sub_8001E270(int a0, int a1) {  return (char*)(TLobby__data_805D4AA8) + a1 * 48; }
 
-    extern int TLobby__data_805D4AB4;
-void register_boss__6TLobbyFPv(void* a0) { TLobby__sub_8001E2A8((int)((void*)(TLobby__data_805D4AB4)), (int)(a0)); }
+    extern int battle_parameter_difficulty;
+void register_boss__6TLobbyFPv(void* a0) { TLobby__sub_8001E2A8((int)((void*)(battle_parameter_difficulty)), (int)(a0)); }
 
-    extern int TLobby__data_805D4AA4;
-void* TLobby__sub_8001E2A8(int a0, int a1) {  return (char*)(TLobby__data_805D4AA4) + a1 * 36; }
+    extern int battle_param_stats;
+void* TLobby__sub_8001E2A8(int a0, int a1) {  return (char*)(battle_param_stats) + a1 * 36; }
 
-extern s32 TLobby__data_805D4AB8;
+extern s32 battle_param_lab_variant;
 
 void set_difficulty__6TLobbyFi(s32 arg0) {
-    TLobby__data_805D4AB8 = arg0;
+    battle_param_lab_variant = arg0;
 }
 
 }
@@ -691,7 +691,7 @@ u8 *alloc_buffer__11TOBoss4RockFPv(u32 size);
 void clamp_difficulty__6TLobbyFi(s32 arg0);
 
 void load_battle_param_entry(void);
-extern u32 TLobby__data_805D4AA0;
+extern u32 TLobby__battle_parameter_buffer;
 
 extern s32 game_difficulty_selection;
 void alloc_battle_param_tables(void);
@@ -725,37 +725,37 @@ void clamp_difficulty__6TLobbyFi(s32 arg0) {
     } else if (var_r3 >= 3) {
         var_r3 = 2;
     }
-    TLobby__data_805D4AB4 = var_r3;
+    battle_parameter_difficulty = var_r3;
 }
 
-extern s32 TLobby__data_805D4AB8;
+extern s32 battle_param_lab_variant;
 extern s32 game_difficulty_selection;
 
 void update_difficulty__6TLobbyFv(void) {
     s32 temp_r31;
     s32 temp_r30;
 
-    temp_r31 = TLobby__data_805D4AB4;
-    temp_r30 = TLobby__data_805D4AB8;
+    temp_r31 = battle_parameter_difficulty;
+    temp_r30 = battle_param_lab_variant;
     clamp_difficulty__6TLobbyFi((s32)(game_difficulty_selection));
     ((M2C_UNK (*)(void))get_instance__6TLobbyFv)();
     ((M2C_UNK (*)(void))set_difficulty__6TLobbyFi)();
-    if (((s32) TLobby__data_805D4AB4 != temp_r31) || ((s32) TLobby__data_805D4AB8 != temp_r30)) {
+    if (((s32) battle_parameter_difficulty != temp_r31) || ((s32) battle_param_lab_variant != temp_r30)) {
         load_battle_param_entry();
     }
 }
 
-extern u32 TLobby__data_805D4AA0;
+extern u32 TLobby__battle_parameter_buffer;
 
 void free_boss4_rock__6TLobbyFv(void) {
-    if ((u32) TLobby__data_805D4AA0 != 0U) {
-        free__11TOBoss4RockFUi((void*)TLobby__data_805D4AA0);
-        TLobby__data_805D4AA0 = 0U;
+    if ((u32) TLobby__battle_parameter_buffer != 0U) {
+        free__11TOBoss4RockFUi((void*)TLobby__battle_parameter_buffer);
+        TLobby__battle_parameter_buffer = 0U;
     }
-    TLobby__data_805D4AA4 = 0;
+    battle_param_stats = 0;
     TLobby__data_805D4AA8 = 0;
     TLobby__data_805D4AAC = 0;
-    TLobby__data_805D4AB0 = 0;
+    battle_param_movement = 0;
 }
 
 void alloc_battle_param_tables(void) {
@@ -764,11 +764,11 @@ void alloc_battle_param_tables(void) {
     for (i = 0; i < 0x3d80; i++) {
         buf[i] = 0;
     }
-    TLobby__data_805D4AA0 = (u32)buf;
-    TLobby__data_805D4AA4 = (s32)buf;
+    TLobby__battle_parameter_buffer = (u32)buf;
+    battle_param_stats = (s32)buf;
     TLobby__data_805D4AA8 = (s32)(buf + 0xd80);
     TLobby__data_805D4AAC = (s32)(buf + 0x1f80);
-    TLobby__data_805D4AB0 = (s32)(buf + 0x2b80);
+    battle_param_movement = (s32)(buf + 0x2b80);
     clamp_difficulty__6TLobbyFi(game_difficulty_selection);
     ((M2C_UNK (*)(void))get_instance__6TLobbyFv)();
     ((M2C_UNK (*)(void))set_difficulty__6TLobbyFi)();

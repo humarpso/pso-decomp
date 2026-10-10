@@ -27,7 +27,7 @@ void render__17TWindowCtrlScreenFv(void);
 u8 * __dt__7TObjectFv(void *, s16);
 void __dl__7TObjectFPv(s32);
 extern RecoveredGlobal_8024CAD0___vt__17TWindowCtrlScreen __vt__17TWindowCtrlScreen;
-extern s32 TWindowCtrlMain__data_805D640C;
+extern s32 TWindowCtrlMain__screen_controller;
 u8 *__dt__17TWindowCtrlScreenFv(u8 *arg0, s16 arg1);
 }
 
@@ -52,7 +52,7 @@ typedef char RecoveredGlobal_8024CAD0___vt__17TWindowCtrlScreen_size[sizeof(Reco
 u8 *__dt__17TWindowCtrlScreenFv(u8 *arg0, s16 arg1) {
     if (arg0 != NULL) {
         M2C_FIELD(arg0, M2C_UNK **, 0x18) = &__vt__17TWindowCtrlScreen.value;
-        TWindowCtrlMain__data_805D640C = 0;
+        TWindowCtrlMain__screen_controller = 0;
         __dt__7TObjectFv(arg0, 0);
         if (arg1 > 0) {
             __dl__7TObjectFPv((s32) arg0);

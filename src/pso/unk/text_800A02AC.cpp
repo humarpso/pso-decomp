@@ -12,7 +12,7 @@ extern "C" {
 void VecCopy__FP3VecPC3Vec(void *, void *);
 void __ct__7TObjectFP7TObject(void *, void *);
 extern RecoveredGlobal_800A02AC_lbl_80490458 lbl_80490458;
-extern s32 lbl_805D29B8;
+extern s32 TObjEneMe1Canadin_EffLineFade__class_name;
 u8 *fn_800A02AC(u8 *arg0, u8 *arg1, u8 *arg2, u8 *arg3);
 }
 
@@ -22,7 +22,7 @@ typedef char RecoveredGlobal_800A02AC_lbl_80490458_size[sizeof(RecoveredGlobal_8
 u8 *fn_800A02AC(u8 *arg0, u8 *arg1, u8 *arg2, u8 *arg3) {
     __ct__7TObjectFP7TObject(arg0, arg1);
     M2C_FIELD(arg0, M2C_UNK **, 0x18) = &lbl_80490458.value;
-    M2C_FIELD(arg0, s32 *, 0) = (s32) lbl_805D29B8;
+    M2C_FIELD(arg0, s32 *, 0) = (s32) TObjEneMe1Canadin_EffLineFade__class_name;
     VecCopy__FP3VecPC3Vec(arg0 + 0x1C, arg2);
     VecCopy__FP3VecPC3Vec(arg0 + 0x28, arg3);
     M2C_FIELD(arg0, s32 *, 0x34) = 0xFFFF0033;

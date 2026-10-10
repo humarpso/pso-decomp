@@ -493,7 +493,7 @@ s32 is_ready_to_draw__6TLobbyFv();
 void *fn_800733C4(void *arg0);
 void *__ct__7TObjectFP7TObject(void *, void *);
 extern M2C_UNK __vt__18TObjChallengeRetry[];
-extern s32 lbl_805D2860;
+extern s32 TObjChallengeRetry__class_name;
 void *TObjChallengeRetry__ct(void *, void *);
 void *__nw__7TObjectFUl(int);
 void *fn_800733C4(void *arg0);
@@ -539,7 +539,7 @@ TObjChallengeRetry::~TObjChallengeRetry() {
 void *TObjChallengeRetry__ct(void *arg0, void *parent) {
     __ct__7TObjectFP7TObject(arg0, parent);
     M2C_FIELD(arg0, M2C_UNK **, 0x18) = __vt__18TObjChallengeRetry;
-    M2C_FIELD(arg0, s32 *, 0) = (s32) lbl_805D2860;
+    M2C_FIELD(arg0, s32 *, 0) = (s32) TObjChallengeRetry__class_name;
     M2C_FIELD(arg0, s32 *, 0x20) = ((s32 (*)(void *))is_challenge_lobby__6TLobbyFv)(arg0);
     M2C_FIELD(arg0, s32 *, 0x24) = 0;
     M2C_FIELD(arg0, s32 *, 0x2C) = 0;

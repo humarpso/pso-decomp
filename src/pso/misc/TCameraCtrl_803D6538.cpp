@@ -136,7 +136,7 @@ M2C_UNK GXSetProjection(void *, int);
 f64 atan(f32);
 f32 sin_table_lookup(s32);
 f32 cos_table_lookup(s32);
-extern Proj_803D676C lbl_8058CA60;
+extern Proj_803D676C scene_projection_state;
 extern RecoveredGlobal_803D662C_lbl_8058D4D0 camera_clip_parameters;
 extern G_803D6688 lbl_8058D4F8;
 extern Disp_803D676C *active_gx_render_mode;
@@ -185,10 +185,10 @@ extern const f32 lbl_805E0E04;
 void set_clamped_offsets__11TCameraCtrlFff(f32 farg0, f32 farg1);
 extern RecoveredGlobal_803D77C0_lbl_8047E3C8 lbl_8047E3C8;
 extern RecoveredGlobal_803D77C0_lbl_804FA500 lbl_804FA500;
-extern RecoveredGlobal_803D77C0_lbl_804FA50C lbl_804FA50C;
+extern RecoveredGlobal_803D77C0_lbl_804FA50C motion_angle_sampler_table;
 extern RecoveredGlobal_803D77C0_lbl_804FA51C lbl_804FA51C;
 extern u8 *current_motion_context;
-extern s32 lbl_805D7808;
+extern s32 motion_packed_rotation_mode;
 void select_motion_sampler(M2C_UNK *arg0, f32 farg0);
 void bind_motion_context(s32 arg0, f32 farg0);
 extern RecoveredGlobal_803D78A8_lbl_8058CAB8 lbl_8058CAB8;
@@ -361,16 +361,16 @@ void set_perspective_projection_from_fov(s32 arg0, f32 farg0, f32 farg1, f32 far
     h = (s32)((f32)arg0 * lbl_805E0E18) / 2;
     c = cos_table_lookup(h);
     r = atan((sin_table_lookup(h) / c) / farg0);
-    C_MTXPerspective(&lbl_8058CA60, lbl_805E0E20 * ((s32)(lbl_805E0E28 * r) * 2), farg0, farg1, farg2);
-    GXSetProjection(&lbl_8058CA60, 0);
-    lbl_8058CA60.f40 = 0;
-    lbl_8058CA60.f44 = farg1;
-    lbl_8058CA60.f48 = farg2;
-    lbl_8058CA60.f4C = farg0;
-    sc = lbl_805E0E30 * ((f32)active_gx_render_mode->h * lbl_8058CA60.m[1][1]);
-    lbl_8058CA60.f50 = sc;
+    C_MTXPerspective(&scene_projection_state, lbl_805E0E20 * ((s32)(lbl_805E0E28 * r) * 2), farg0, farg1, farg2);
+    GXSetProjection(&scene_projection_state, 0);
+    scene_projection_state.f40 = 0;
+    scene_projection_state.f44 = farg1;
+    scene_projection_state.f48 = farg2;
+    scene_projection_state.f4C = farg0;
+    sc = lbl_805E0E30 * ((f32)active_gx_render_mode->h * scene_projection_state.m[1][1]);
+    scene_projection_state.f50 = sc;
     one = lbl_805E0E34;
-    lbl_8058CA60.f54 = one / sc;
+    scene_projection_state.f54 = one / sc;
     lbl_8058D4F8.f18 = sc;
     x = farg0 / lbl_805E0E38;
     lbl_8058D4F8.f1c = x;
@@ -785,10 +785,10 @@ void select_motion_sampler(M2C_UNK *arg0, f32 farg0) {
     set_motion_row_stride((s32)((int) (M2C_FIELD(var_r3, u16 *, 0xA) & 0xFFFFFF3F)));
     temp_r4 = temp_r31 * 4;
     M2C_FIELD(current_motion_context, s32 *, 0x24) = (s32) M2C_FIELD(&lbl_804FA500.value, M2C_UNK *, temp_r4);
-    if ((s32) lbl_805D7808 != 0) {
-        M2C_FIELD(current_motion_context, s32 *, 0x28) = (s32) M2C_FIELD(&lbl_804FA50C.value, s32 *, 0xC);
+    if ((s32) motion_packed_rotation_mode != 0) {
+        M2C_FIELD(current_motion_context, s32 *, 0x28) = (s32) M2C_FIELD(&motion_angle_sampler_table.value, s32 *, 0xC);
     } else {
-        M2C_FIELD(current_motion_context, s32 *, 0x28) = (s32) M2C_FIELD(&lbl_804FA50C.value, M2C_UNK *, temp_r4);
+        M2C_FIELD(current_motion_context, s32 *, 0x28) = (s32) M2C_FIELD(&motion_angle_sampler_table.value, M2C_UNK *, temp_r4);
     }
     M2C_FIELD(current_motion_context, s32 *, 0x2C) = (s32) lbl_804FA51C.value;
 }

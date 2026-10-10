@@ -1153,7 +1153,7 @@ extern s32 actor_frame_tick;
 extern s32 game_difficulty_selection;
 extern s32 lbl_805D586C;
 extern s32 lobby_player_count;
-extern s32 lbl_805D5FC0;
+extern s32 current_floor_index;
 extern M2C_UNK tl_07;
 
 extern "C" {
@@ -5075,7 +5075,7 @@ f32 calc_random_ratio__10TObjPlayerFv(void) {
 }
 
 s32 get_current_floor(void) {
-    return lbl_805D5FC0;
+    return current_floor_index;
 }
 
 s32 get_field_3e4__10TObjPlayerFPv(void* p) { return *(s32*)((char*)p + 0x3e4); }

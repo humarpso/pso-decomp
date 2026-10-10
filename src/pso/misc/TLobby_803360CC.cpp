@@ -58,7 +58,7 @@ M2C_UNK __dl__7TObjectFPv(void *);
 M2C_UNK __dt__7TObjectFv(void *, M2C_UNK);
 M2C_UNK queue_destruction__7TObjectFv(void*);
 extern M2C_UNK lbl_804EEF64[];
-extern u32 lbl_805D6D40;
+extern u32 title_scene_instance;
 void *destroy__6TLobbyFPvs(void *arg0, s16 arg1);
     extern int lbl_805D68C8;
 void TAdMultiPlyChrSelectGC__sub_803367E8(void);
@@ -123,7 +123,7 @@ extern const Tbl_80336750 title_texture_filename_table;
 extern u8 title_texture_list[];
 extern RecoveredGlobal_8033670C_lbl_804EE58C lobby_load_callback_table;
 extern const s32 current_language;
-extern u32 lbl_805D6D40;
+extern u32 title_scene_instance;
 extern u8 *lobby_title_texture_list;
 void initialize_lobby_title_scene(void);
 s32 TAdTrialAgreementGC__sub_80335958(int);
@@ -139,21 +139,21 @@ void queue_destruction_and_cleanup__6TLobbyFv(void* _w0);
 void set_flag_and_clear_download__6TLobbyFPv(void *arg0);
 s32 clear_flag4_bit4__22TQuestVmDownLoadServerFPv(void *);
 
-extern u32 lbl_805D6D40;
+extern u32 title_scene_instance;
 
 void queue_destruction_and_cleanup__6TLobbyFv(void* _w0) {
     queue_destruction__7TObjectFv((void*)(_w0));
-    if ((u32) lbl_805D6D40 != 0U) {
-        hide_title_layers_and_release((O_8033612C *)((void*)((void*)lbl_805D6D40)));
+    if ((u32) title_scene_instance != 0U) {
+        hide_title_layers_and_release((O_8033612C *)((void*)((void*)title_scene_instance)));
     }
 }
 
-extern u32 lbl_805D6D40;
+extern u32 title_scene_instance;
 
 void destroy_download_server__6TLobbyFv(void* _w0) {
     queue_destruction__7TObjectFv((void*)(_w0));
-    if ((u32) lbl_805D6D40 != 0U) {
-        set_flag_and_clear_download__6TLobbyFPv((void *)((void*)lbl_805D6D40));
+    if ((u32) title_scene_instance != 0U) {
+        set_flag_and_clear_download__6TLobbyFPv((void *)((void*)title_scene_instance));
     }
 }
 
@@ -238,7 +238,7 @@ void TLobby__sub_8033645C(void* p) { if (*(unsigned int*)((char*)p + 0x2c) != 0)
 void *destroy__6TLobbyFPvs(void *arg0, s16 arg1) {
     if (arg0 != NULL) {
         M2C_FIELD(arg0, M2C_UNK **, 0x18) = lbl_804EEF64;
-        (*(s32 *)&lbl_805D6D40) = 0;
+        (*(s32 *)&title_scene_instance) = 0;
         if ((u32) M2C_FIELD(arg0, u32 *, 0x20) != 0U) {
             queue_destruction__7TObjectFv((void*)(M2C_FIELD(arg0, void **, 0x20)));
         }
@@ -257,7 +257,7 @@ u8 *construct_title_scene__6TLobbyFPv(u8 *arg0) {
 
     __ct__7TObjectFP7TObject(arg0);
     M2C_FIELD(arg0, M2C_UNK **, 0x18) = lbl_804EEF64;
-    lbl_805D6D40 = (u32)arg0;
+    title_scene_instance = (u32)arg0;
     M2C_FIELD(arg0, s32 *, 0x30) = 0;
     M2C_FIELD(arg0, s32 *, 0x34) = 0;
     M2C_FIELD(arg0, s32 *, 0x2C) = 0;
@@ -330,7 +330,7 @@ void destroy_global_object__6TLobbyFv(void) {
 }
 
 void initialize_lobby_title_scene(void) {
-    lbl_805D6D40 = 0;
+    title_scene_instance = 0;
     update_menu_cursor__6TLobbyFv();
     Tbl_80336750 t = title_texture_filename_table;
     lobby_title_texture_list = title_texture_list;

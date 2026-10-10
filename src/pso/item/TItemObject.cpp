@@ -8,8 +8,8 @@ extern "C" {
 
 void copy_and_register_item_data__11TItemObjectFPv(void *arg0);
 s32 is_item_stackable(s32 arg0, s32 arg1);
-int fn_80101A98(int a0);
-int fn_80101AA8(void);
+int get_sorted_item_registry_entry(int a0);
+int get_item_registry_count(void);
 void copy_to_item_data__5TItemFPvPv(void *, void *);
 void get_item_use_result__9TItemDataFPv(void *);
 u8 *find_item_by_id(s32 id);
@@ -38,10 +38,10 @@ s32 is_item_stackable(s32 arg0, s32 arg1) {
 }
 
     extern int* item_registry_sorted_entries;
-int fn_80101A98(int a0) {  return item_registry_sorted_entries[a0]; }
+int get_sorted_item_registry_entry(int a0) {  return item_registry_sorted_entries[a0]; }
 
     extern int item_registry_count;
-int fn_80101AA8(void) {  return item_registry_count; }
+int get_item_registry_count(void) {  return item_registry_count; }
 
 u8 *find_item_by_id(s32 id) {
     s32 lo;

@@ -192,7 +192,7 @@ extern s32 epsilon_guard_part_color_table[9];
 extern s32 lbl_805D6F68;
 extern s32 lbl_805D6F6C;
 extern s32 lbl_805D6F70;
-extern s32 TObjEneEpsilonGuard__data_805D6F74;
+extern s32 TObjEneEpsilonGuard__movement_params;
 extern s32 lbl_805D6F80;
 extern s32 lbl_805D6F84;
 extern s32 lbl_805D6F88;
@@ -292,7 +292,7 @@ void load_assets__19TObjEneEpsilonGuardFv(void) {
     lbl_805D6F68 = register_boss__6TLobbyFPv(0x24);
     lbl_805D6F6C = dispatch_shared_handler_b__6TLobbyFPv(0x24);
     lbl_805D6F70 = register_object__6TLobbyFPv(0x24);
-    TObjEneEpsilonGuard__data_805D6F74 = dispatch_shared_handler_a__6TLobbyFPv(0x24);
+    TObjEneEpsilonGuard__movement_params = dispatch_shared_handler_a__6TLobbyFPv(0x24);
     epsilon_guard_part_color_table[0] = get_bml_model(lbl_805D6FA0, 0)->child->leaf->v;
     epsilon_guard_part_color_table[1] = get_bml_model(lbl_805D6FA0, 0)->child->next->child->child->next->child->child->next->next->child->leaf->v;
     epsilon_guard_part_color_table[2] = get_bml_model(lbl_805D6FA0, 0)->child->next->child->child->next->child->child->next->next->next->child->leaf->v;

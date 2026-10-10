@@ -17,7 +17,7 @@ struct O_802E0024 { u8 pad[0x4ac]; s32 tbl[4][3]; u8 pad2[0x4ec - 0x4ac - 0x30];
 
 extern "C" {
 u8 *__nw__7TObjectFUl(M2C_UNK);
-extern u8 *lbl_805D68D0;
+extern u8 *TAdMultiPlyChrSelectGC__instance;
 u8 *get_or_create__22TAdMultiPlyChrSelectGCFii(s32 arg0, s32 arg1);
 void __ct__7TObjectFP7TObject(void *, void *);
 void create_widgets__22TAdMultiPlyChrSelectGCFPv(void *);
@@ -31,7 +31,7 @@ void __dl__7TObjectFPv(s32);
 int get_global_state__22TAdMultiPlyChrSelectGCFv(void);
 M2C_UNK __dt__7TObjectFv(void *, int);
 extern RecoveredGlobal_802DFF0C___vt__22TAdMultiPlyChrSelectGC __vt__22TAdMultiPlyChrSelectGC;
-extern u8 *lbl_805D68D0;
+extern u8 *TAdMultiPlyChrSelectGC__instance;
 u8 *__dt__22TAdMultiPlyChrSelectGCFv(u8 *arg0, s16 arg1);
 extern s32 TAdMultiPlyChrSelectGC__data_805D67D8;
 s32 TAdMultiPlyChrSelectGC__sub_802DFFE8(O_802DFFE8 *self);
@@ -207,8 +207,8 @@ u8 *__dt__22TAdMultiPlyChrSelectGCFv(u8 *arg0, s16 arg1) {
             queue_destruction__7TObjectFv(temp_r3_11);
             M2C_FIELD(arg0, u8 **, 0x84) = NULL;
         }
-        if ((u32) (*(u32 *)&lbl_805D68D0) != 0U) {
-            (*(u32 *)&lbl_805D68D0) = 0U;
+        if ((u32) (*(u32 *)&TAdMultiPlyChrSelectGC__instance) != 0U) {
+            (*(u32 *)&TAdMultiPlyChrSelectGC__instance) = 0U;
         }
         __dt__7TObjectFv((void *) (arg0), (int) (0));
         if (arg1 > 0) {
@@ -231,15 +231,15 @@ u8 *TAdMultiPlyChrSelectGC__ct(u8 *arg0, u8 *arg1, s32 arg2) {
 u8 *get_or_create__22TAdMultiPlyChrSelectGCFii(s32 arg0, s32 arg1) {
     u8 *temp_r3;
     u8 *var_r0;
-    if ((void *) lbl_805D68D0 != NULL) {
-        return lbl_805D68D0;
+    if ((void *) TAdMultiPlyChrSelectGC__instance != NULL) {
+        return TAdMultiPlyChrSelectGC__instance;
     }
     temp_r3 = (u8 *)(__nw__7TObjectFUl(0xA0));
     var_r0 = (u8 *)(temp_r3);
     if (var_r0 != NULL) {
         var_r0 = (u8 *)(TAdMultiPlyChrSelectGC__ct((u8 *)(temp_r3), (u8 *)(arg0), (s32)(arg1)));
     }
-    lbl_805D68D0 = var_r0;
+    TAdMultiPlyChrSelectGC__instance = var_r0;
     return var_r0;
 }
 

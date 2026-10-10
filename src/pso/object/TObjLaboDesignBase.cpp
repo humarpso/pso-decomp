@@ -70,8 +70,8 @@ M2C_UNK reset_photon_effect__10TObjPlayerFPv(void *);
 M2C_UNK init_collision_body_parts(void *, int, int);
 M2C_UNK construct_collider_proxy__10TObjPlayerFPv();
 s32 create__10TObjMapCsnFi(void *, f32, f32);
-void* fn_80365320(int a0);
-int fn_80365334(int a0);
+void* get_labo_design_entry(int a0);
+int get_labo_design_object(int a0);
 extern M2C_UNK __vt__18TObjLaboDesignBase[];
 extern s32 TObjLaboDesignBase_class_name;
 extern const f32 lbl_805E02A0;
@@ -91,8 +91,8 @@ void *TObjLaboDesignBase__sub_80364D38(void *arg0);
 void *__dt__18TObjLaboDesignBaseFv(void *arg0, s16 arg1);
 void *alloc_and_construct__18TObjLaboDesignBaseFPv(void *arg0);
 void *create_instance__18TObjLaboDesignBaseFPv(void *arg0);
-void* fn_80365320(int a0);
-int fn_80365334(int a0);
+void* get_labo_design_entry(int a0);
+int get_labo_design_object(int a0);
 void render__18TObjLaboDesignBaseFPv(u8 *arg0);
 void run_task__18TObjLaboDesignBaseFv(void);
 M2C_UNK post_translate_matrix(void *);
@@ -369,8 +369,8 @@ u8 *TObjLaboDesignBase__ct(u8 *arg0, M2C_UNK arg1, s32 arg2, s32 arg3) {
     M2C_FIELD(arg0, s32 *, 0) = (s32) TObjLaboDesignBase_class_name;
     ((VObj_18_1a504b *)(arg0))->m5(arg2);
     M2C_FIELD(arg0, s32 *, 0xB0) = arg3;
-    M2C_FIELD(arg0, s32 *, 0xAC) = ((s32)fn_80365334((int) (M2C_FIELD(arg0, s32 *, 0xB0))));
-    init_collision_body_parts((void *) (arg0), (int) (((s32)fn_80365320((int) (M2C_FIELD(arg0, s32 *, 0xB0))))), (int) (1));
+    M2C_FIELD(arg0, s32 *, 0xAC) = ((s32)get_labo_design_object((int) (M2C_FIELD(arg0, s32 *, 0xB0))));
+    init_collision_body_parts((void *) (arg0), (int) (((s32)get_labo_design_entry((int) (M2C_FIELD(arg0, s32 *, 0xB0))))), (int) (1));
     reset_photon_effect__10TObjPlayerFPv((void *) (arg0));
     M2C_FIELD(arg0, f32 *, 0xB4) = (f32) lbl_805E02A0;
     M2C_FIELD(arg0, f32 *, 0xB8) = (f32) lbl_805E02A4;
@@ -387,9 +387,9 @@ u8 *TObjLaboDesignBase__ct(u8 *arg0, M2C_UNK arg1, s32 arg2, s32 arg3) {
     return arg0;
 }
 
-void* fn_80365320(int a0) {  return (char*)labo_design_entry_table + a0 * 44; }
+void* get_labo_design_entry(int a0) {  return (char*)labo_design_entry_table + a0 * 44; }
 
     extern int labo_design_object_table[];
-int fn_80365334(int a0) {  return labo_design_object_table[a0]; }
+int get_labo_design_object(int a0) {  return labo_design_object_table[a0]; }
 
 }

@@ -454,7 +454,7 @@ extern "C" {
 
 int link_matching_objects__6TLobbyFPv(void* p);
 int spawn_objects_at_pos__6TLobbyFPv(void* p);
-void TLobby__sub_8020863C(void);
+void request_wave_event_stop(void);
 void TLobby__sub_80208648(void);
 void TLobby__sub_8020864C(s32 arg0);
 void dispatch_opcode_two_u16__6TLobbyFUc(u8 arg0);
@@ -464,7 +464,7 @@ int link_matching_objects__6TLobbyFPv(void* p) { return ((int (*)(void *))link_m
 int spawn_objects_at_pos__6TLobbyFPv(void* p) { return spawn_objects_at_pos__6TLobbyFss(p); }
 
     extern int wave_event_stop_requested;
-void TLobby__sub_8020863C(void) { wave_event_stop_requested = 1; }
+void request_wave_event_stop(void) { wave_event_stop_requested = 1; }
 
 void TLobby__sub_80208648(void) {  }
 

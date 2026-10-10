@@ -28,7 +28,7 @@ void GXClearVtxDesc(void);
 void GXSetVtxAttrFmt(int, int, int, int, u8);
 void GXBegin(int, int, u16);
 void clear_move_state_bits__10TObjPlayerFv(void);
-extern u32 lbl_805D77F8;
+extern u32 chunk_render_flags;
 
 void set_global_7778__10TObjPlayerFi(s32 arg0);
 void update_render_state__10TObjPlayerFv(void);
@@ -57,13 +57,13 @@ void draw_chunk_color_tex_strips(s16 *p, Vtx_803E549C *verts, u32 flags, s32 big
     draw = 1;
     extra = (flags >> 14) & 3;
     count = flags & 0x3FFF;
-    if (lbl_805D77F8 != 0) {
-        if (lbl_805D77F8 & 1) {
-            if (lbl_805D77F8 & 0x200) {
+    if (chunk_render_flags != 0) {
+        if (chunk_render_flags & 1) {
+            if (chunk_render_flags & 0x200) {
                 clear_move_state_bits__10TObjPlayerFv();
                 draw = 0;
             }
-        } else if ((lbl_805D77F8 & 2) && (lbl_805D77F8 & 0x400)) {
+        } else if ((chunk_render_flags & 2) && (chunk_render_flags & 0x400)) {
             clear_move_state_bits__10TObjPlayerFv();
             draw = 0;
         }

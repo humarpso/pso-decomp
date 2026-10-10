@@ -12,7 +12,7 @@ extern "C" {
 u8 * init_ancient_container(void *, s32);
 extern RecoveredGlobal_8015C048___vt__26TOContainerAncientItemRare __vt__26TOContainerAncientItemRare;
 extern s32 lbl_805D2F00;
-extern s32 *lbl_805D58EC;
+extern s32 *ancient_container_fragment_texture_lists;
 u8 *TOContainerAncientItemRare__ct(u8 *arg0, s32 arg1);
 }
 
@@ -23,7 +23,7 @@ u8 *TOContainerAncientItemRare__ct(u8 *arg0, s32 arg1) {
     init_ancient_container(arg0, arg1);
     M2C_FIELD(arg0, M2C_UNK **, 0x18) = &__vt__26TOContainerAncientItemRare.value;
     M2C_FIELD(arg0, s32 *, 0) = (s32) lbl_805D2F00;
-    M2C_FIELD(arg0, s32 *, 0x24) = (s32) *lbl_805D58EC;
+    M2C_FIELD(arg0, s32 *, 0x24) = (s32) *ancient_container_fragment_texture_lists;
     return arg0;
 }
 

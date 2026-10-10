@@ -388,7 +388,7 @@ M2C_UNK build_6x7D_set_battle_mode_data(void *);
 extern s32 local_client_id;
 void TLobby__sub_801C2C34(void);
 extern u8 TLobby__battle_player_ready_flags;
-void TLobby__sub_801C2C70(void);
+void clear_battle_player_ready_flags(void);
 u64 OSGetTime(void);
 void obj_clear_flag30_20000(void *);
 s32 update_battle_controller__10TObjPlayerFv();
@@ -496,7 +496,7 @@ void TLobby__sub_801C2C34(void) {
     send_set_battle_mode_data__6TLobbyFPv((void *) (&stack.sp8));
 }
 
-void TLobby__sub_801C2C70(void) {
+void clear_battle_player_ready_flags(void) {
     s32 i;
     for (i = 0; i < 4; i++) {
         (&TLobby__battle_player_ready_flags)[i] = 0;
@@ -842,7 +842,7 @@ void __destroy_new_array(void *, void *);
 void TLobby__sub_801C3A40(void);
 s32 TKeyBoardControl__sub_8000F828(void);
 void *alloc_buffer__11TOBoss4RockFPv(s32);
-void TLobby__sub_801C2C70(void);
+void clear_battle_player_ready_flags(void);
 void TAdSinglePlyChrSelectGC__sub_801C5120(void);
 void TAdSinglePlyChrSelectGC__sub_801C5158(void);
 void *__construct_new_array(void *, void *, void *, s32, s32);
@@ -976,7 +976,7 @@ u32 get_player_by_client_id(u16);
 s32 check_all_battle_flags__6TLobbyFv(void *);
 s32 check_all_players_ready__6TLobbyFv(void *);
 void TLobby__sub_801C2C34(void *);
-void TLobby__sub_801C2C70(void);
+void clear_battle_player_ready_flags(void);
 u8 get_rule_field_a__6TLobbyFPv(void *);
 u32 __nw__7TObjectFUl(M2C_UNK);
 void TWindow__close(void *);
@@ -1365,7 +1365,7 @@ void init_char_slots__6TLobbyFv(void) {
     lbl_805D5D9C = TKeyBoardControl__sub_8000F828() == 1 ? 0x19 : 0x1E;
     lobby_char_slot_array = __construct_new_array(alloc_buffer__11TOBoss4RockFPv(0x3220), (void *)init_char_data__10TObjPlayerFPv, (void *)destroy_char_data__10TObjPlayerFis, 0x42C, 0xC);
     TAdSinglePlyChrSelectGC__sub_801C5158();
-    TLobby__sub_801C2C70();
+    clear_battle_player_ready_flags();
     TLobby__battle_ctrl_default_value = 1;
     TAdSinglePlyChrSelectGC__sub_801C5120();
 }
@@ -1887,7 +1887,7 @@ void update_battle_intro__6TLobbyFPv(Lobby_801C49B8 *self) {
             TWindow__close(self->window);
             self->window = NULL;
         }
-        TLobby__sub_801C2C70();
+        clear_battle_player_ready_flags();
         break;
     }
 }

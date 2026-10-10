@@ -76,14 +76,14 @@ extern "C" {
 void free_indexed_entry__10TObjPlayerFPv(void *arg0, s32 _w1);
 void init_particle_effect__10TObjPlayerFv(void);
 void reset_effects__10TObjPlayerFv(void);
-int TObjPlayer__sub_803078B0(void);
+int get_shared_capture_texture_list(void);
 int set_ginja_post_texgen_count(void*);
 int set_ginja_post_tev_stage_count(void*);
 int load_list_texture(int, int, int, int);
 int set_global_effect_state__10TObjPlayerFi(void*);
 int set_global_param__8TObjFishFi(void);
 
-void init_particle_effect__10TObjPlayerFv(void) { TObjPlayer__sub_803078B0(); set_global_param__8TObjFishFi(); load_list_texture(0, 0, 0, 2); }
+void init_particle_effect__10TObjPlayerFv(void) { get_shared_capture_texture_list(); set_global_param__8TObjFishFi(); load_list_texture(0, 0, 0, 2); }
 
     extern int some_id_805c6f74;
 void reset_effects__10TObjPlayerFv(void) { set_ginja_post_tev_stage_count((void*)0); set_ginja_post_texgen_count((void*)0); set_global_effect_state__10TObjPlayerFi((void*)0); some_id_805c6f74 = (some_id_805c6f74 & 0xfff7ffff); }

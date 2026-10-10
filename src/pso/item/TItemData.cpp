@@ -960,7 +960,7 @@ s32 get_item_star_count(s32);
 s32 get_base_rarity__9TItemDataFPv(u8 *item);
 s32 get_base_rarity__9TItemDataFPv(u8 *item);
 s32 is_rare_item__9TItemDataFPv(u8 *item);
-char *TItemAttacker__sub_80103548(s32);
+char *get_item_chunk_buffer(s32);
 s32 is_rare_item__9TItemDataFPv(u8 *item);
 s32 check_item_flags__9TItemDataFPv(void *arg0);
 s32 get_item_description_text(s32);
@@ -1843,7 +1843,7 @@ s32 format_item_description(u8 *item) {
     char *out;
     s32 name;
     p = (Params_8010E414 *)lookup_item_pmt_record(item);
-    out = TItemAttacker__sub_80103548(0);
+    out = get_item_chunk_buffer(0);
     if (p != NULL && out != NULL) {
         format = NULL;
         if (((s32 (*)(u8 *))is_wrapped__9TItemDataFPv)(item) != 0) {

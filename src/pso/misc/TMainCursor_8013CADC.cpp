@@ -61,7 +61,7 @@ M2C_UNK push_matrix();
 M2C_UNK pop_matrix();
 M2C_UNK set_global_param__8TObjFishFi(void *);
 M2C_UNK draw_chunk_object();
-extern u8 lbl_8048E5A0[];
+extern u8 shared_effect_texture_list[];
 extern RecoveredGlobal_8013D7E0_lbl_804A7164 target_cursor_color_table;
 extern u8 *camera_ctrl_instance;
 extern const f32 TMainCursor__data_805DB0C0;
@@ -521,7 +521,7 @@ void TLockOnCursor::renderSecondaryCursor(u8 *arg1, s32 arg2, s32 arg3) {
         if (temp_r3 != 0U) {
             temp_r3_2 = check_visible__11TMainCursorFPv((void *) (temp_r3 + 0x500), (int) (temp_r3), (void *) (arg2), (void *) (arg3));
             if (temp_r3_2 != -1) {
-                set_global_param__8TObjFishFi((void *) (&lbl_8048E5A0));
+                set_global_param__8TObjFishFi((void *) (&shared_effect_texture_list));
                 temp_f31 = M2C_FIELD(arg1, f32 *, 0xC);
                 push_matrix();
                 offset_point_toward_camera((void *) (arg1 + 0x1C), (void *) (&sp8), (f32) (temp_f31));

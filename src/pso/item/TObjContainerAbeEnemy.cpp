@@ -132,7 +132,7 @@ s32 rotate_matrix_y(s32, s32);
 void dispatch_fish_event__6TLobbyFPv(void *a0);
 void draw_ginja_box_tree(void);
 s32 pop_matrix();
-extern void *lbl_805D5B88;
+extern void *container_breakup_model_archive;
 extern s32 lbl_805D5B8C;
 void TObjContainerBase__vt79(Obj_80188C8C *self);
 M2C_UNK spawn_particle_effect_with_flags(void *, int, int);
@@ -274,7 +274,7 @@ void TObjContainerBase__vt77(const Obj_80188B3C *self) {
 #pragma pop
 
 void TObjContainerBase__vt79(Obj_80188C8C *self) {
-    if (lbl_805D5B88 != 0) {
+    if (container_breakup_model_archive != 0) {
         switch (self->state) {
         case 0:
             set_global_param__8TObjFishFi(lbl_805D5B8C);

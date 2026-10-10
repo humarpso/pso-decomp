@@ -9,13 +9,13 @@ void __ct__7TObjectFP7TObject(void *);
 
 extern M2C_UNK __vt__18TOChatSensorFolder[];
 extern void *chat_sensor_folder_name_ptr;
-extern void * lbl_805D58D0;
+extern void * TOChatSensorFolder__instance;
 
 void *TOChatSensorFolder__ct(void *arg0) {
     __ct__7TObjectFP7TObject(arg0);
     M2C_FIELD(arg0, M2C_UNK **, 0x18) = __vt__18TOChatSensorFolder;
     M2C_FIELD(arg0, void **, 0x0) = chat_sensor_folder_name_ptr;
-    lbl_805D58D0 = arg0;
+    TOChatSensorFolder__instance = arg0;
     return arg0;
 }
 

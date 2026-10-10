@@ -24,14 +24,14 @@ struct RecoveredGlobal_8028D9F8_lbl_8051C094 {
 
 extern "C" {
 u8 * copy_player_visual_record(void *, void *);
-extern RecoveredGlobal_8028D9B4_lbl_8051C094 lbl_8051C094;
+extern RecoveredGlobal_8028D9B4_lbl_8051C094 character_creation_visual_record;
 void TObjCMMainMenu__sub_8028D9B4(u8 *arg0);
-extern RecoveredGlobal_8028D9B4_lbl_8051C094 lbl_8051C094;
+extern RecoveredGlobal_8028D9B4_lbl_8051C094 character_creation_visual_record;
 M2C_UNK *TObjCMMainMenu__sub_8028D9A8(void);
 M2C_UNK strncpy(void *, void *, int);
-extern RecoveredGlobal_8028DA0C_lbl_8051C07C lbl_8051C07C;
+extern RecoveredGlobal_8028DA0C_lbl_8051C07C character_creation_name_buffer;
 void copy_char_name__14TObjCMMainMenuFi(s32 arg0);
-extern RecoveredGlobal_8028D9B4_lbl_8051C094 lbl_8051C094;
+extern RecoveredGlobal_8028D9B4_lbl_8051C094 character_creation_visual_record;
 void TObjCMMainMenu__sub_8028D9F8(void);
 s32 get_char_index__23TAdSinglePlyChrSelectGCFUi(M2C_UNK);
 s32 get_current_char_flag__14TObjCMMainMenuFv(void);
@@ -55,7 +55,7 @@ s32 get_char_index__23TAdSinglePlyChrSelectGCFUi(M2C_UNK);
 
 typedef char RecoveredGlobal_8028D9A8_lbl_8051C094_size[sizeof(RecoveredGlobal_8028D9A8_lbl_8051C094) == 0x54 ? 1 : -1];
 M2C_UNK *TObjCMMainMenu__sub_8028D9A8(void) {
-    return &(*(RecoveredGlobal_8028D9A8_lbl_8051C094 *)&lbl_8051C094).value;
+    return &(*(RecoveredGlobal_8028D9A8_lbl_8051C094 *)&character_creation_visual_record).value;
 }
 
 void TObjCMMainMenu__sub_8028D9B4(u8 *arg0) {
@@ -63,19 +63,19 @@ void TObjCMMainMenu__sub_8028D9B4(u8 *arg0) {
         TObjCMMainMenu__sub_8028D9F8();
         return;
     }
-    copy_player_visual_record(&lbl_8051C094.value, arg0);
+    copy_player_visual_record(&character_creation_visual_record.value, arg0);
 }
 
 typedef char RecoveredGlobal_8028DA0C_lbl_8051C07C_size[sizeof(RecoveredGlobal_8028DA0C_lbl_8051C07C) == 0x18 ? 1 : -1];
 
 typedef char RecoveredGlobal_8028D9F8_lbl_8051C094_size[sizeof(RecoveredGlobal_8028D9F8_lbl_8051C094) == 0x54 ? 1 : -1];
 void TObjCMMainMenu__sub_8028D9F8(void) {
-    M2C_FIELD(&(*(RecoveredGlobal_8028D9F8_lbl_8051C094 *)&lbl_8051C094).value, s8 *, 0x31) = -1;
+    M2C_FIELD(&(*(RecoveredGlobal_8028D9F8_lbl_8051C094 *)&character_creation_visual_record).value, s8 *, 0x31) = -1;
 }
 
 void copy_char_name__14TObjCMMainMenuFi(s32 arg0) {
-    strncpy((void *) (&lbl_8051C07C.value), (void *) (arg0), (int) (0xC));
-    M2C_FIELD(&lbl_8051C07C.value, s8 *, 0xC) = 0;
+    strncpy((void *) (&character_creation_name_buffer.value), (void *) (arg0), (int) (0xC));
+    M2C_FIELD(&character_creation_name_buffer.value, s8 *, 0xC) = 0;
 }
 
 void select_char_menu__14TObjCMMainMenuFv(void) {

@@ -51,13 +51,13 @@ void create__22TQuestVmDownLoadServerFv(void);
 M2C_UNK TQuestVmDownLoadServer__ct(void *, s32);
 void *__nw__7TObjectFUl(M2C_UNK);
 
-extern u32 TQuestVmDownLoadServer__data_805D5F24;
+extern u32 TQuestVmDownLoadServer__instance;
 extern s32 tl_00;
 
 void create__22TQuestVmDownLoadServerFv(void) {
     void *temp_r3;
 
-    if ((u32) TQuestVmDownLoadServer__data_805D5F24 == 0U) {
+    if ((u32) TQuestVmDownLoadServer__instance == 0U) {
         temp_r3 = __nw__7TObjectFUl(0x2A8);
         if (temp_r3 != 0) {
             TQuestVmDownLoadServer__ct(temp_r3, tl_00);

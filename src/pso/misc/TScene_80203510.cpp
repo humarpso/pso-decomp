@@ -89,7 +89,7 @@ s32 TScene__sub_802040D4(void *arg0, Obj_802040D4 *o, f32 f0, f32 f1);
 f32 xz_distance_squared(void *, void *);
 extern Root_80204024 *camera_ctrl_instance;
 extern SceneMaterialRoot* TScene__data_805D5FCC;
-extern f32 TScene__data_805D5FE4;
+extern f32 TScene__visibility_radius_margin;
 void update_records_in_range__6TSceneFv(void);
 SceneMaterialNode* resolve_indirect_node_record(void*,SceneMaterialStatic*);
 SceneMaterialNode* resolve_indirect_object_record(void*,SceneMaterialAnimated*);
@@ -110,7 +110,7 @@ void rotate_vector_by_matrix(s32, void *, Vec_80204024 *);
 void pop_matrix(void);
 s32 check_object_in_view_cone__6TSceneFiPvPvPvi(s32 arg0, Obj_80204B78 *obj, Vec_80204024 *pos, void *arg3, s32 arg4);
 extern SceneMaterialRoot* TScene__data_805D5FCC;
-extern RecoveredCallback_2be3cacebb2e TScene__data_805D5FF4;
+extern RecoveredCallback_2be3cacebb2e TScene__render_callback;
 extern s32 some_id_805c6f74;
 extern s32 lbl_805D5660;
 void draw_if_all_ready__10TObjPlayerFv(void);
@@ -129,7 +129,7 @@ extern SceneMaterialRoot* TScene__data_805D5FCC;
 extern const f32 TScene__data_805DC5D8;
 void advance_scene_object_animations(void);
 extern SceneMaterialRoot* TScene__data_805D5FCC;
-extern void* TScene__data_805D6004;
+extern void* TScene__texture_animation_buffer;
 SceneMaterialNode* resolve_indirect_node_record(void*,SceneMaterialStatic*);
 SceneMaterialNode* resolve_indirect_object_record(void*,SceneMaterialAnimated*);
 s32 load_texture_sequence_frame(void*,SceneMaterialCycle*);
@@ -140,7 +140,7 @@ void PPCSync();
 extern const f32 lbl_805DC5D4;
 
 extern SceneMaterialRoot* TScene__data_805D5FCC;
-extern void* TScene__data_805D6004;
+extern void* TScene__texture_animation_buffer;
 SceneMaterialNode* resolve_indirect_node_record(void*,SceneMaterialStatic*);
 SceneMaterialNode* resolve_indirect_object_record(void*,SceneMaterialAnimated*);
 s32 load_texture_sequence_frame(void*,SceneMaterialCycle*);
@@ -284,7 +284,7 @@ s32 get_player_ctrl_field__6TSceneFUs(u16 arg0) {
 #include "pso/misc/TSceneMaterial.h"
 extern "C" {
 extern SceneMaterialRoot* TScene__data_805D5FCC;
-extern void* TScene__data_805D6004;
+extern void* TScene__texture_animation_buffer;
 SceneMaterialNode* resolve_indirect_node_record(void*,SceneMaterialStatic*);
 SceneMaterialNode* resolve_indirect_object_record(void*,SceneMaterialAnimated*);
 s32 load_texture_sequence_frame(void*,SceneMaterialCycle*);
@@ -314,7 +314,7 @@ void TScene::tick_material_fmt2() {
     SceneMaterialAnimated *anim;
     SceneMaterialNode *node;
     SceneMaterialUv *uv;
-    if ((*(void * *)&TScene__data_805D6004) == NULL || (*(SceneMaterialRoot * *)&TScene__data_805D5FCC) == NULL) {
+    if ((*(void * *)&TScene__texture_animation_buffer) == NULL || (*(SceneMaterialRoot * *)&TScene__data_805D5FCC) == NULL) {
         return;
     }
     room = (*(SceneMaterialRoot * *)&TScene__data_805D5FCC)->sections;
@@ -413,7 +413,7 @@ void TScene::tick_material_fmt1() {
     SceneMaterialAnimated *anim;
     SceneMaterialNode *node;
     SceneMaterialUv *uv;
-    if ((*(void * *)&TScene__data_805D6004) == NULL || (*(SceneMaterialRoot * *)&TScene__data_805D5FCC) == NULL) {
+    if ((*(void * *)&TScene__texture_animation_buffer) == NULL || (*(SceneMaterialRoot * *)&TScene__data_805D5FCC) == NULL) {
         return;
     }
     room = (*(SceneMaterialRoot * *)&TScene__data_805D5FCC)->sections;
@@ -609,7 +609,7 @@ void update_records_in_range__6TSceneFv(void) {
     W_8020430C v = (*(Cam_8020430C * *)&camera_ctrl_instance)->pos;
     i = 0;
     off = 0;
-    r = (*(Root_8020430C * *)&TScene__data_805D5FCC)->radius + TScene__data_805D5FE4;
+    r = (*(Root_8020430C * *)&TScene__data_805D5FCC)->radius + TScene__visibility_radius_margin;
     r2 = r * r;
     for (; i < (*(Root_8020430C * *)&TScene__data_805D5FCC)->count; i++, off += 0x34) {
         Rec_8020430C *rec = (Rec_8020430C *)((u8 *)(*(Root_8020430C * *)&TScene__data_805D5FCC)->recs + off);
@@ -1056,8 +1056,8 @@ void render_map_sections__6TSceneFPv(void *scene) {
     s32 i;
     if (TScene__data_805D5FCC != NULL) {
         draw_if_all_ready__10TObjPlayerFv();
-        if (TScene__data_805D5FF4 != NULL) {
-            TScene__data_805D5FF4();
+        if (TScene__render_callback != NULL) {
+            TScene__render_callback();
         }
         if (*(void **)((u8 *)TScene__data_805D5FCC + 0x14) != NULL) {
             set_global_param__8TObjFishFi(*(void **)((u8 *)TScene__data_805D5FCC + 0x14));

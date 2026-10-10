@@ -177,10 +177,10 @@ s32 tmp_buf_use_req__6TLobbyFPv(M2C_UNK *);
 s32 TQuestVmDownLoadServer__sub_8006EF6C(s32);
 int set_field_20__12TQuestListVMFPvi(void*, void*);
 extern M2C_UNK TQuestListVM__data_8044BF20[];
-extern s32 TQuestListVM__data_805D6200;
-extern s32 TQuestListVM__data_805D6204;
+extern s32 TQuestListVM__decrypted_quest_buffer;
+extern s32 TQuestListVM__decompression_capacity;
 extern RecoveredGlobal_8033B9C4_lbl_80513910 download_rng_seed_pair;
-void TQuestVmDownLoadServer__sub_80219ED4(s32 arg0);
+void seed_download_rng(s32 arg0);
 M2C_UNK tmp_buf_release__6TLobbyFi(M2C_UNK *);
 s32 TLobby__sub_8001EEF4();
 extern M2C_UNK TQuestListVM__data_8044BF20[];
@@ -191,9 +191,9 @@ int set_field_20__12TQuestListVMFPvi(void*, void*);
 s32 alloc__22TQuestVmDownLoadServerFPv(int);
 extern M2C_UNK __vt__12TQuestListVM[];
 extern s32 TQuestListVM__class_name;
-extern s32 TQuestListVM__data_805D6200;
-extern s32 TQuestListVM__data_805D6204;
-extern s32 TQuestListVM__data_805D6208;
+extern s32 TQuestListVM__decrypted_quest_buffer;
+extern s32 TQuestListVM__decompression_capacity;
+extern s32 TQuestListVM__quest_data_output_cursor;
 extern s32 TQuestListVM__data_805D620C;
 extern s32 lbl_805D6210;
 u8 *TQuestListVM__ct(u8 *arg0, M2C_UNK arg1, s32 arg2, s32 arg3);
@@ -236,7 +236,7 @@ void send_and_handle__6TLobbyFPvii(u32, void *, int);
 u32 create_message_window__6TLobbyFiiUis(int, Pair_80218D40 *, int, u16);
 int get_window_layout_position(int);
 extern Pair_80218D40 lbl_8044BF48[];
-extern s32 TQuestListVM__data_805D6200;
+extern s32 TQuestListVM__decrypted_quest_buffer;
 extern const f32 lbl_805DC6B8;
 extern const f32 lbl_805DC6BC;
 void open_confirm_window__12TQuestListVMFPv(u8 *arg0);
@@ -244,30 +244,30 @@ s32 select_cursor_entry__6TLobbyFPv(u32);
 s32 TAdPlayerLoadGC__sub_801E1B50(s32);
 s32 TAdPlayerLoadGC__sub_801E1538(Dl_80218E94 *, s32);
 s32 poll_download__12TQuestListVMFv(void *);
-void TQuestVmDownLoadServer__sub_80219ED4(s32 arg0);
+void seed_download_rng(s32 arg0);
 void unshuffle_and_decrypt__22TQuestVmDownLoadServerFPvi(u8 *, s32);
 s32 verify_checksum__22TQuestVmDownLoadServerFii(u8 *, s32);
 u32 decrypt_quest_data__12TQuestListVMFPviiUi(u8 *, s32, s32, s32);
 void set_selected_entry__12TQuestListVMFPvPv(void *, void *);
 void close_windows__12TQuestListVMFPv(void *arg0);
 int set_field_20__12TQuestListVMFPvi(void*, void*);
-extern s32 TQuestListVM__data_805D6200;
-extern s32 TQuestListVM__data_805D6204;
-extern s32 TQuestListVM__data_805D6208;
+extern s32 TQuestListVM__decrypted_quest_buffer;
+extern s32 TQuestListVM__decompression_capacity;
+extern s32 TQuestListVM__quest_data_output_cursor;
 extern s32 TQuestListVM__data_805D620C;
 void poll_quest_download__12TQuestListVMFPv(void *p);
 s32 select_cursor_entry__6TLobbyFPv(u32);
 s32 TAdPlayerLoadGC__sub_801E1B50(s32);
 s32 TAdPlayerLoadGC__sub_801E1538(Dl_80218E94 *, s32);
 s32 poll_download__12TQuestListVMFv(void *);
-void TQuestVmDownLoadServer__sub_80219ED4(s32 arg0);
+void seed_download_rng(s32 arg0);
 void unshuffle_and_decrypt__22TQuestVmDownLoadServerFPvi(u8 *, s32);
 s32 verify_checksum__22TQuestVmDownLoadServerFii(u8 *, s32);
 u32 decrypt_quest_data__12TQuestListVMFPviiUi(u8 *, s32, s32, s32);
 void set_selected_entry__12TQuestListVMFPvPv(void *, void *);
 void close_windows__12TQuestListVMFPv(void *arg0);
 int set_field_20__12TQuestListVMFPvi(void*, void*);
-extern s32 TQuestListVM__data_805D6208;
+extern s32 TQuestListVM__quest_data_output_cursor;
 extern s32 TQuestListVM__data_805D620C;
 void load_downloaded_quest__12TQuestListVMFPv(void *p);
 s32 is_visible__17TWindowSubComCardFPv(void *);
@@ -277,8 +277,8 @@ M2C_UNK clear_selected_and_update_entry__14TWindowSubItemFPv(void *);
 void close_windows__12TQuestListVMFPv(void *arg0);
 M2C_UNK TWindow__close(void *);
 s32 get_selected_menu_value(void *);
-extern s32 TQuestListVM__data_805D6200;
-extern s32 TQuestListVM__data_805D6204;
+extern s32 TQuestListVM__decrypted_quest_buffer;
+extern s32 TQuestListVM__decompression_capacity;
 void handle_confirm_window__12TQuestListVMFPv(u8 *arg0);
 int obj_getField1c(int);
 int set_field_20__12TQuestListVMFPvi(void*, void*);
@@ -489,7 +489,7 @@ void load_downloaded_quest__12TQuestListVMFPv(void *p) {
     if (TAdPlayerLoadGC__sub_801E1B50(*(s32 *)(e + 0xDC)) == 0) {
     switch (TAdPlayerLoadGC__sub_801E1538(&dl, *(s32 *)(arg0 + 0x2388))) {
     case 0:
-        TQuestVmDownLoadServer__sub_80219ED4(poll_download__12TQuestListVMFv(arg0));
+        seed_download_rng(poll_download__12TQuestListVMFv(arg0));
         unshuffle_and_decrypt__22TQuestVmDownLoadServerFPvi(dl.data, dl.size);
         if (verify_checksum__22TQuestVmDownLoadServerFii(dl.data, dl.size) == 0) {
             *(s32 *)(arg0 + 0x2398) += 2;
@@ -497,7 +497,7 @@ void load_downloaded_quest__12TQuestListVMFPv(void *p) {
             set_selected_entry__12TQuestListVMFPvPv(arg0, (void *)5);
             close_windows__12TQuestListVMFPv(arg0);
         } else {
-            r = decrypt_quest_data__12TQuestListVMFPviiUi(dl.data + 8, dl.size - 8, TQuestListVM__data_805D6208, TQuestListVM__data_805D620C);
+            r = decrypt_quest_data__12TQuestListVMFPviiUi(dl.data + 8, dl.size - 8, TQuestListVM__quest_data_output_cursor, TQuestListVM__data_805D620C);
             if (r != 0) {
                 TQuestListVM__data_805D620C = r;
                 set_field_20__12TQuestListVMFPvi(arg0, (void *)0xD);
@@ -562,8 +562,8 @@ void handle_confirm_window__12TQuestListVMFPv(u8 *arg0) {
                 if (M2C_FIELD(arg0, void **, 0x2374) != NULL) {
                     clear_selected_and_update_entry__14TWindowSubItemFPv(M2C_FIELD(arg0, void **, 0x2374));
                 }
-                TQuestListVM__data_805D6200 = M2C_FIELD(arg0, s32 *, 0x2384);
-                TQuestListVM__data_805D6204 = 0x40000;
+                TQuestListVM__decrypted_quest_buffer = M2C_FIELD(arg0, s32 *, 0x2384);
+                TQuestListVM__decompression_capacity = 0x40000;
                 ((VObj_80218BBC *)arg0)->m7(0x19, 1);
                 close_windows__12TQuestListVMFPv(arg0);
                 ((int (*)(void *, int))set_field_20__12TQuestListVMFPvi)(arg0, 5);
@@ -580,8 +580,8 @@ void handle_confirm_window__12TQuestListVMFPv(u8 *arg0) {
             if (M2C_FIELD(arg0, void **, 0x2374) != NULL) {
                 clear_selected_and_update_entry__14TWindowSubItemFPv(M2C_FIELD(arg0, void **, 0x2374));
             }
-            TQuestListVM__data_805D6200 = M2C_FIELD(arg0, s32 *, 0x2384);
-            TQuestListVM__data_805D6204 = 0x40000;
+            TQuestListVM__decrypted_quest_buffer = M2C_FIELD(arg0, s32 *, 0x2384);
+            TQuestListVM__decompression_capacity = 0x40000;
             ((VObj_80218BBC *)arg0)->m7(0x19, 1);
             close_windows__12TQuestListVMFPv(arg0);
             ((int (*)(void *, int))set_field_20__12TQuestListVMFPvi)(arg0, 5);
@@ -594,7 +594,7 @@ void open_confirm_window__12TQuestListVMFPv(u8 *arg0) {
         Pair_80218D40 sp8 = lbl_8044BF48[0];
         u16 id = obj_getField1c(*(s32 *)(arg0 + 0x24));
         *(u32 *)(arg0 + 0x2380) = create_message_window__6TLobbyFiiUis(get_window_layout_position(0x2E), &sp8, 1, id);
-        send_and_handle__6TLobbyFPvii(*(u32 *)(arg0 + 0x2380), (void *)(TQuestListVM__data_805D6200 + 0xB4), 1);
+        send_and_handle__6TLobbyFPvii(*(u32 *)(arg0 + 0x2380), (void *)(TQuestListVM__decrypted_quest_buffer + 0xB4), 1);
         set_field_1c__6TLobbyFPvf(*(u32 *)(arg0 + 0x2380), lbl_805DC6B8);
         if (get_camera_id__11TCameraCtrlFv() >= 2) {
             set_position_xy(*(u32 *)(arg0 + 0x2380), lbl_805DC6BC, lbl_805DC6BC);
@@ -625,7 +625,7 @@ void poll_quest_download__12TQuestListVMFPv(void *p) {
     if (TAdPlayerLoadGC__sub_801E1B50(*(s32 *)(e + 0xDC)) == 0) {
     switch (TAdPlayerLoadGC__sub_801E1538(&dl, *(s32 *)(arg0 + 0x2388))) {
     case 0:
-        TQuestVmDownLoadServer__sub_80219ED4(poll_download__12TQuestListVMFv(arg0));
+        seed_download_rng(poll_download__12TQuestListVMFv(arg0));
         unshuffle_and_decrypt__22TQuestVmDownLoadServerFPvi(dl.data, dl.size);
         if (verify_checksum__22TQuestVmDownLoadServerFii(dl.data, dl.size) == 0) {
             *(s32 *)(arg0 + 0x2398) += 2;
@@ -633,10 +633,10 @@ void poll_quest_download__12TQuestListVMFPv(void *p) {
             set_selected_entry__12TQuestListVMFPvPv(arg0, (void *)5);
             close_windows__12TQuestListVMFPv(arg0);
         } else {
-            r = decrypt_quest_data__12TQuestListVMFPviiUi(dl.data + 8, dl.size - 8, TQuestListVM__data_805D6200, TQuestListVM__data_805D6204);
+            r = decrypt_quest_data__12TQuestListVMFPviiUi(dl.data + 8, dl.size - 8, TQuestListVM__decrypted_quest_buffer, TQuestListVM__decompression_capacity);
             if (r != 0) {
-                TQuestListVM__data_805D6208 = TQuestListVM__data_805D6200 + r;
-                TQuestListVM__data_805D620C = TQuestListVM__data_805D6204 - r;
+                TQuestListVM__quest_data_output_cursor = TQuestListVM__decrypted_quest_buffer + r;
+                TQuestListVM__data_805D620C = TQuestListVM__decompression_capacity - r;
                 set_field_20__12TQuestListVMFPvi(arg0, (void *)0xF);
             } else {
                 ((VObj_802186E4_80218570 *)arg0)->m7(0x1A, 1);
@@ -790,14 +790,14 @@ void process_download_entry__12TQuestListVMFPv(QL_802194BC *q) {
     if (TAdPlayerLoadGC__sub_801E1B50(q->recs[count].slot) == 0) {
         switch (TAdPlayerLoadGC__sub_801E1538((Dl_80218E94 *)&dl, *(s32 *)(arg0 + 0x2388))) {
         case 0:
-            TQuestVmDownLoadServer__sub_80219ED4(poll_download__12TQuestListVMFv(arg0));
+            seed_download_rng(poll_download__12TQuestListVMFv(arg0));
             unshuffle_and_decrypt__22TQuestVmDownLoadServerFPvi(dl.data, dl.size);
             if (verify_checksum__22TQuestVmDownLoadServerFii(dl.data, dl.size) == 0) {
                 *(s32 *)(arg0 + 0x23B0) = 1;
                 *(s32 *)(arg0 + 0x2398) += 2;
                 set_field_20__12TQuestListVMFPvi(arg0, (void *)2);
-            } else if (decrypt_quest_data__12TQuestListVMFPviiUi(dl.data + 8, dl.size - 8, TQuestListVM__data_805D6200, TQuestListVM__data_805D6204) != 0) {
-                e = (Ent_802194BC *)TQuestListVM__data_805D6200;
+            } else if (decrypt_quest_data__12TQuestListVMFPviiUi(dl.data + 8, dl.size - 8, TQuestListVM__decrypted_quest_buffer, TQuestListVM__decompression_capacity) != 0) {
+                e = (Ent_802194BC *)TQuestListVM__decrypted_quest_buffer;
                 if (is_downloadable_new_entry__12TQuestListVMFPvPv((QL_802193F0 *)arg0, (Ent_802193F0 *)e) != 0) {
                     memcpy(q->recs[count].name, e->name, 0x20);
                     memcpy(q->recs[count].desc, e->desc, 0x80);
@@ -938,8 +938,8 @@ void scan_memcard_quest_files__12TQuestListVMFPv(void *arg0) {
 M2C_UNK load_quest_vm__12TQuestListVMFPv(u8 *arg0) {
     if (TLobby__sub_8001EEF4() != 0) {
         M2C_FIELD(arg0, s32 *, 0x2384) = tmp_buf_use_req__6TLobbyFPv((M2C_UNK *)((s32) &(*(RecoveredGlobal_80219A9C_TQuestListVM__data_8044BF20 *)&TQuestListVM__data_8044BF20).value));
-        TQuestListVM__data_805D6200 = M2C_FIELD(arg0, s32 *, 0x2384);
-        TQuestListVM__data_805D6204 = 0x40000;
+        TQuestListVM__decrypted_quest_buffer = M2C_FIELD(arg0, s32 *, 0x2384);
+        TQuestListVM__decompression_capacity = 0x40000;
         set_field_20__12TQuestListVMFPvi((void*)(arg0), (void*)(2));
         ((VObj_18_a70a39 *)(arg0))->m5(TQuestVmDownLoadServer__sub_8006EF6C(0x3F), 1);
     }
@@ -1070,9 +1070,9 @@ u8 *TQuestListVM__ct(u8 *arg0, M2C_UNK arg1, s32 arg2, s32 arg3) {
     M2C_FIELD(arg0, s32 *, 0x2384) = 0;
     M2C_FIELD(arg0, s32 *, 0x2388) = alloc__22TQuestVmDownLoadServerFPv((int) ((void *)0x20000));
     M2C_FIELD(arg0, s32 *, 0x2390) = 0;
-    TQuestListVM__data_805D6200 = 0;
-    TQuestListVM__data_805D6204 = 0;
-    TQuestListVM__data_805D6208 = 0;
+    TQuestListVM__decrypted_quest_buffer = 0;
+    TQuestListVM__decompression_capacity = 0;
+    TQuestListVM__quest_data_output_cursor = 0;
     TQuestListVM__data_805D620C = 0;
     M2C_FIELD(arg0, s32 *, 0x2398) = 4;
     M2C_FIELD(arg0, s32 *, 0x239C) = 0;
@@ -1094,7 +1094,7 @@ u8 *TQuestListVM__ct(u8 *arg0, M2C_UNK arg1, s32 arg2, s32 arg3) {
 
 void TQuestVmDownLoadServer__sub_80219EC4(void* p) { *(u16*)((char*)p + 0x70) |= 0x8; }
 typedef char RecoveredGlobal_8033B9C4_lbl_80513910_size[sizeof(RecoveredGlobal_8033B9C4_lbl_80513910) == 0x10 ? 1 : -1];
-void TQuestVmDownLoadServer__sub_80219ED4(s32 arg0) {
+void seed_download_rng(s32 arg0) {
     M2C_FIELD(&download_rng_seed_pair.value, s32 *, 4) = arg0;
     M2C_FIELD(&download_rng_seed_pair.value, s32 *, 0) = arg0;
 }

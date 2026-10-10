@@ -64,7 +64,7 @@ void TAdSinglePlyChrSelectGC__sub_801FBB7C(void);
 s32 probe_and_check_card__15TAdPlayerLoadGCFi(s32);
 s32 find_card_file__15TAdPlayerLoadGCFiPv(s32, char *);
 void poll_load_status__15TAdPlayerLoadGCFi(s32, void *);
-extern char lbl_804C8914[];
+extern char pso_system_card_filename[];
 void try_load_system_file__23TAdSinglePlyChrSelectGCFv(void);
 }
 
@@ -133,9 +133,9 @@ void TAdSinglePlyChrSelectGC__sub_801FBB7C(void) {
 void try_load_system_file__23TAdSinglePlyChrSelectGCFv(void) {
     s32 r;
     if (probe_and_check_card__15TAdPlayerLoadGCFi(0) != 0) {
-        r = find_card_file__15TAdPlayerLoadGCFiPv(0, lbl_804C8914);
+        r = find_card_file__15TAdPlayerLoadGCFiPv(0, pso_system_card_filename);
         if (r == 0 || (u32)r == 0xFFFFFF41U) {
-            poll_load_status__15TAdPlayerLoadGCFi(0, lbl_804C8914);
+            poll_load_status__15TAdPlayerLoadGCFi(0, pso_system_card_filename);
         }
     }
 }

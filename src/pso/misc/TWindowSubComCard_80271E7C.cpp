@@ -26,7 +26,7 @@ void free__11TOBoss4RockFUi(u32);
 void send_simple_mail__6TLobbyFiPv(s32, s32);
 void TWindowSubComCard__sub_80225E80(void *, void *);
 s32 get_id__6TLobbyFPv(void *);
-M2C_UNK *TWindowSubComCard__sub_80275228(void);
+M2C_UNK *get_selected_guild_card_record(void);
 void TWindowSubComCard__sub_802721D8(u8 *arg0);
 u8 *find_entry_rest__17TWindowSubComCardFPvPvi(Win_80272034 *arg0, Key_80272034 *arg1, s32 arg2);
 void set_value_by_key(void *, u16, s32);
@@ -149,7 +149,7 @@ void TWindowSubComCard__sub_802721D8(u8 *arg0) {
   u8 *temp_r29;
   u8 *temp_r31;
   temp_r30 = realloc_buffer__17TWindowSubComCardFPv(*((u8 **) (((s8 *) arg0) + 0x80)));
-  temp_r29 = (u8 *) ((u8* (*)(void))TWindowSubComCard__sub_80275228)();
+  temp_r29 = (u8 *) ((u8* (*)(void))get_selected_guild_card_record)();
   TWindowSubComCard__sub_80225E80((void *) temp_r30, get_shared_text_buffer());
   new_var = get_shared_text_buffer();
   temp_r31 = (u8 *) new_var;
@@ -207,7 +207,7 @@ void set_selected_card__17TWindowSubComCardFPvi(u8 *arg0, s32 arg1) {
         cnt = get_com_count__17TWindowSubComCardFv();
         temp_r31 = cnt[arg1].f4;
         load_selected_guild_card_record((int)temp_r31, arg1 * 0xD4);
-        temp_r30 = ((s32 (*)(void))TWindowSubComCard__sub_80275228)();
+        temp_r30 = ((s32 (*)(void))get_selected_guild_card_record)();
         text_builder_reset();
         text_builder_append((void *)(temp_r31 + 0x14));
         text_builder_append(((void* (*)(int))get_name__17TWindowSubComCardFPv)(temp_r30));
@@ -1301,7 +1301,7 @@ void run_task__17TWindowSubComCardFv(u8 *arg0) {
             M2C_FIELD(arg0, u32 *, 0x68) = 0U;
         }
         if ((u32) M2C_FIELD(arg0, u32 *, 0x78) == 0U) {
-            var_r29 = ((s32 (*)(void))TWindowSubComCard__sub_80275228)();
+            var_r29 = ((s32 (*)(void))get_selected_guild_card_record)();
             temp_r30_2 = ((u32 (*)(int))__nw__7TObjectFUl)((int) (0x64));
             if (temp_r30_2 != 0U) {
                 temp_r30_2 = TWindowUserSort__ct((int) (temp_r30_2), (int) (get_window_layout_position((int) (0x8A))), (int) (var_r29));
@@ -1381,7 +1381,7 @@ void run_task__17TWindowSubComCardFv(u8 *arg0) {
         }
         break;
     case 0x25:
-        ((s32 (*)(void))TWindowSubComCard__sub_80275228)();
+        ((s32 (*)(void))get_selected_guild_card_record)();
         TLobby__sub_8024259C();
         fn_8024AB54((int) (M2C_FIELD(arg0, s32 *, 0x20)));
         M2C_FIELD(arg0, s32 *, 0x2C) = 0;
@@ -1957,7 +1957,7 @@ struct RecoveredGlobal_80275228_lbl_80517EE0 {
 
 extern "C" {
 extern RecoveredGlobal_80275228_lbl_80517EE0 selected_guild_card_record;
-M2C_UNK *TWindowSubComCard__sub_80275228(void);
+M2C_UNK *get_selected_guild_card_record(void);
 }
 
 extern "C" {
@@ -1979,7 +1979,7 @@ void set_com_param__17TWindowSubComCardFii(s32 arg0, s32 arg1) {
 }
 
 typedef char RecoveredGlobal_80275228_lbl_80517EE0_size[sizeof(RecoveredGlobal_80275228_lbl_80517EE0) == 0xBC ? 1 : -1];
-M2C_UNK *TWindowSubComCard__sub_80275228(void) {
+M2C_UNK *get_selected_guild_card_record(void) {
     return &selected_guild_card_record.value;
 }
 

@@ -5,13 +5,13 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 #define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
 #define M2C_BITWISE(type, expr) ((type)(expr))
 extern "C" {
-extern char *lbl_805D6338;
-extern char lbl_80515BC8[];
+extern char *text_builder_write_cursor;
+extern char text_builder_buffer[];
 void append_comma__20TWindowSubStatusDispFv(void);
-extern char *lbl_805D6338;
-extern char lbl_80515BC8[];
+extern char *text_builder_write_cursor;
+extern char text_builder_buffer[];
 void append_text_space(void);
-extern char *lbl_805D6338;
+extern char *text_builder_write_cursor;
 void append_padded_number(s32 v, u8 n);
 void append_padded_number(s32 v, u8 n);
 M2C_UNK text_builder_append(void *);
@@ -40,15 +40,15 @@ void append_play_time__20TWindowSubStatusDispFUi(u32 arg0) {
 }
 
 void append_comma__20TWindowSubStatusDispFv(void) {
-    if (lbl_805D6338 != lbl_80515BC8) {
-        *lbl_805D6338++ = 0x2c;
-        *lbl_805D6338 = 0;
+    if (text_builder_write_cursor != text_builder_buffer) {
+        *text_builder_write_cursor++ = 0x2c;
+        *text_builder_write_cursor = 0;
     }
 }
 void append_text_space(void) {
-    if (lbl_805D6338 != lbl_80515BC8) {
-        *lbl_805D6338++ = 0x20;
-        *lbl_805D6338 = 0;
+    if (text_builder_write_cursor != text_builder_buffer) {
+        *text_builder_write_cursor++ = 0x20;
+        *text_builder_write_cursor = 0;
     }
 }
 void append_padded_number(s32 v, u8 n) {
@@ -56,23 +56,23 @@ void append_padded_number(s32 v, u8 n) {
     u32 i;
     if (v == 0) {
         for (i = 0; i < n; i++) {
-            *lbl_805D6338++ = '0';
+            *text_builder_write_cursor++ = '0';
         }
-        *lbl_805D6338 = 0;
+        *text_builder_write_cursor = 0;
         return;
     }
     if (v < 0) {
         v *= -1;
-        *lbl_805D6338++ = '-';
+        *text_builder_write_cursor++ = '-';
     }
     for (i = 0; i < n; i++) {
         buf[i] = v % 10;
         v /= 10;
     }
     for (i = 0; i < n; i++) {
-        *lbl_805D6338++ = buf[n - i - 1] + '0';
+        *text_builder_write_cursor++ = buf[n - i - 1] + '0';
     }
-    *lbl_805D6338 = 0;
+    *text_builder_write_cursor = 0;
 }
 
 }

@@ -40,7 +40,7 @@ void destroy__5TItemFPv(void* p);
 s32 register_attack__5TItemFPv(void *arg0);
 void set_mode__5TItemFPvc(void *arg0, s8 arg1);
 void update_item_data__5TItemFPv(void *arg0);
-s32 TItemAttacker__sub_80103548(M2C_UNK);
+s32 get_item_chunk_buffer(M2C_UNK);
 void is_custom_name_srank__9TItemDataFPv(void *);
 void is_rare_item__9TItemDataFPv(void *);
 M2C_UNK format_item_name__9TItemDataFv(M2C_UNK *, s32);
@@ -138,7 +138,7 @@ s32 register_attack__5TItemFPv(void *arg0) {
     s32 temp_r3;
 
     copy_to_item_data__5TItemFPvPv((void *)(arg0), (void *)(sp8));
-    temp_r3 = TItemAttacker__sub_80103548(0);
+    temp_r3 = get_item_chunk_buffer(0);
     format_item_name__9TItemDataFv(sp8, temp_r3);
     return temp_r3;
 }

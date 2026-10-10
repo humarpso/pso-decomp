@@ -12,7 +12,7 @@ extern "C" {
 s32 get_array_entry__20TWindowSubStatusDispFPvi(void *, s32);
 void measure_message_text_width(void *, f32);
 void set_text_entry_string(void *, u32, s32);
-extern RecoveredGlobal_8027D230_lbl_805129F8 lbl_805129F8;
+extern RecoveredGlobal_8027D230_lbl_805129F8 quest_board_handlers;
 extern const f32 lbl_805DD690;
 extern const f32 lbl_805DD694;
 void fn_8027D230(u8 *arg0);
@@ -24,7 +24,7 @@ typedef char RecoveredGlobal_8027D230_lbl_805129F8_size[sizeof(RecoveredGlobal_8
 void fn_8027D230(u8 *arg0) {
     u8 *temp_r31;
     u8 *temp_r3;
-    temp_r31 = (u8 *)&lbl_805129F8.value + ((s8) M2C_FIELD(arg0, u8 *, 0x61) * 0x24);
+    temp_r31 = (u8 *)&quest_board_handlers.value + ((s8) M2C_FIELD(arg0, u8 *, 0x61) * 0x24);
     temp_r3 = (u8 *)(get_array_entry__20TWindowSubStatusDispFPvi(arg0, 1));
     set_text_entry_string(temp_r3, (u32) temp_r31, 0);
     measure_message_text_width(temp_r3, lbl_805DD690);

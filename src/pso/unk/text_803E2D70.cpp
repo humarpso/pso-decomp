@@ -137,7 +137,7 @@ void GXSetAlphaCompare(int comp0, int ref0, int op, int comp1, int ref1);
 s32 set_chunk_alpha_compare_ref(int ref);
 extern s32 lbl_805D7800;
 extern s32 lbl_805D77FC;
-extern s32 lbl_805D77F8;
+extern s32 chunk_render_flags;
 void TObjPlayer__sub_803E492C(s32 a, s32 b);
 s32 draw_chunk_vertices_cached__10TObjPlayerFPv(void *);
 void transform_chunk_object_tree(void *, void (*)(void *));
@@ -175,7 +175,7 @@ void Dolphin_GXSetVtxDesc(int, int);
 void GXClearVtxDesc(void);
 void GXBegin(int, int, u16);
 void clear_move_state_bits__10TObjPlayerFv(void);
-extern s32 lbl_805D77F8;
+extern s32 chunk_render_flags;
 void draw_triangle_strips__10TObjPlayerFPvPvUi(s16 *list, Vtx_803E47E0 *verts, u32 info);
 M2C_UNK GXSetBlendMode(int, int, int, int);
 M2C_UNK GXSetZMode(int, int, int);
@@ -189,7 +189,7 @@ extern s32 ginja_draw_flags;
 extern s32 some_id_805c6f74;
 extern s32 lbl_805D77EC;
 extern u32 lbl_805D77F0;
-extern s32 lbl_805D77F8;
+extern s32 chunk_render_flags;
 extern u32 lbl_805E1094;
 extern const u32 lbl_805E1098;
 extern const f32 lbl_805E109C;
@@ -200,7 +200,7 @@ void GXClearVtxDesc(void);
 void GXSetVtxAttrFmt(int, int, int, int, u8);
 void GXBegin(int, int, u16);
 void clear_move_state_bits__10TObjPlayerFv(void);
-extern s32 lbl_805D77F8;
+extern s32 chunk_render_flags;
 void draw_chunk_textured_strips(s16 *list, Vtx_803E352C *verts, u32 info, s32 large);
 struct ChunkModel_803E44D4 { u32 *vertices; u16 *polygons; };
 struct ChunkBuffer_803E44D4 { void *vertices; s32 bytes; };
@@ -238,7 +238,7 @@ extern "C" {
 void func_803e11e8__FUl(s32 arg0);
 void func_803e11f0__Fv(void);
 
-extern s32 lbl_805D77F8;
+extern s32 chunk_render_flags;
 
 #pragma push
 #pragma dont_inline off
@@ -404,14 +404,14 @@ void draw_chunk_textured_strips(s16 *list, Vtx_803E352C *verts, u32 info, s32 la
     draw = 1;
     skip = (info >> 14) & 3;
     count = info & 0x3FFF;
-    if ((u32)lbl_805D77F8 != 0) {
-        if ((u32)lbl_805D77F8 & 1) {
-            if ((u32)lbl_805D77F8 & 0x200) {
+    if ((u32)chunk_render_flags != 0) {
+        if ((u32)chunk_render_flags & 1) {
+            if ((u32)chunk_render_flags & 0x200) {
                 clear_move_state_bits__10TObjPlayerFv();
                 draw = 0;
             }
-        } else if ((u32)lbl_805D77F8 & 2) {
-            if ((u32)lbl_805D77F8 & 0x400) {
+        } else if ((u32)chunk_render_flags & 2) {
+            if ((u32)chunk_render_flags & 0x400) {
                 clear_move_state_bits__10TObjPlayerFv();
                 draw = 0;
             }
@@ -607,7 +607,7 @@ void set_chunk_blend_depth_mode(s32 arg0, s32 arg1) {
     }
     temp_r30 = (u32) (lbl_805D77F0 & 0x3800) >> 0xBU;
     temp_r29 = (u32) (lbl_805D77F0 & 0x700) >> 8U;
-    if ((u32) lbl_805D77F8 != 0) {
+    if ((u32) chunk_render_flags != 0) {
         clear_move_state_bits__10TObjPlayerFv();
     }
     if (arg1 == 0) {
@@ -638,8 +638,8 @@ void set_chunk_blend_depth_mode(s32 arg0, s32 arg1) {
             var_r6 |= lbl_805E1098;
         }
         if ((var_r28 != 0U) && (var_r6 != 0) && (temp_r30 == 4) && (temp_r29 == 5)) {
-            if ((u32) lbl_805D77F8 != 0) {
-                lbl_805D77F8 |= 0x200;
+            if ((u32) chunk_render_flags != 0) {
+                chunk_render_flags |= 0x200;
             }
             GXSetBlendMode((int) (var_r31), (int) (temp_r30), (int) (temp_r29), (int) (0));
             if ((u32) (some_id_805c6f74 & 0x200000) != 0) {
@@ -652,8 +652,8 @@ void set_chunk_blend_depth_mode(s32 arg0, s32 arg1) {
                 set_chunk_alpha_compare_ref((u8) lbl_805D46D0);
             }
         } else {
-            if ((u32) lbl_805D77F8 != 0) {
-                lbl_805D77F8 |= 0x200;
+            if ((u32) chunk_render_flags != 0) {
+                chunk_render_flags |= 0x200;
             }
             if (((u32) (id & 0x01000000) != 0) && ((u32) (ginja_draw_flags & 2) == 0)) {
                 GXSetBlendMode((int) (var_r31), (int) (temp_r30), (int) (temp_r29), (int) (0));
@@ -672,8 +672,8 @@ void set_chunk_blend_depth_mode(s32 arg0, s32 arg1) {
             }
         }
     } else {
-        if ((u32) lbl_805D77F8 != 0) {
-            lbl_805D77F8 |= 0x400;
+        if ((u32) chunk_render_flags != 0) {
+            chunk_render_flags |= 0x400;
         }
         temp_r3 = (u8 *)((*(Holder_803E3B6C **)(current_render_context + 0x20))->recs[lbl_805D77EC].p->q);
         if (((u32) M2C_FIELD(temp_r3, u32 *, 4) == 0xEU) && ((u32) (M2C_FIELD(temp_r3, s32 *, 0x1C) & 0x40000000) != 0)) {
@@ -739,7 +739,7 @@ s32 draw_chunk_vertices_cached__10TObjPlayerFPv(void* arg) {
     ChunkModel_803E44D4* model = (ChunkModel_803E44D4*)arg;
     s32 cache;
     s32 count = 0;
-    if ((u32)lbl_805D77F8 & 4) return 0;
+    if ((u32)chunk_render_flags & 4) return 0;
     lbl_805D77E0 = 0;
     cache = lbl_805D7800;
     if (lbl_805D77E4 & 4) {
@@ -851,14 +851,14 @@ void draw_triangle_strips__10TObjPlayerFPvPvUi(s16 *list, Vtx_803E47E0 *verts, u
     draw = 1;
     skip = (info >> 14) & 3;
     count = info & 0x3FFF;
-    if ((u32)lbl_805D77F8 != 0) {
-        if ((u32)lbl_805D77F8 & 1) {
-            if ((u32)lbl_805D77F8 & 0x200) {
+    if ((u32)chunk_render_flags != 0) {
+        if ((u32)chunk_render_flags & 1) {
+            if ((u32)chunk_render_flags & 0x200) {
                 clear_move_state_bits__10TObjPlayerFv();
                 draw = 0;
             }
-        } else if ((u32)lbl_805D77F8 & 2) {
-            if ((u32)lbl_805D77F8 & 0x400) {
+        } else if ((u32)chunk_render_flags & 2) {
+            if ((u32)chunk_render_flags & 0x400) {
                 clear_move_state_bits__10TObjPlayerFv();
                 draw = 0;
             }
@@ -893,18 +893,18 @@ void draw_triangle_strips__10TObjPlayerFPvPvUi(s16 *list, Vtx_803E47E0 *verts, u
 void TObjPlayer__sub_803E492C(s32 a, s32 b) {
     lbl_805D7800 = a;
     lbl_805D77FC = b;
-    lbl_805D77F8 = 0;
+    chunk_render_flags = 0;
 }
 #pragma pop
 
 void func_803e11e8__FUl(s32 arg0) {
-    lbl_805D77F8 = arg0;
+    chunk_render_flags = arg0;
 }
 
-extern s32 lbl_805D77F8;
+extern s32 chunk_render_flags;
 
 void func_803e11f0__Fv(void) {
-    lbl_805D77F8 = 0;
+    chunk_render_flags = 0;
 }
 
 }

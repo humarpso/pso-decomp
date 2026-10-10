@@ -18,14 +18,14 @@ M2C_UNK TLobby__sub_8001EA5C(s32, f32, f32, f32, f32);
 
 s32 get_field_20__22TAdMultiPlyChrSelectGCFPv(void* p) { return *(s32*)((char*)p + 0x20); }
 
-    extern int lbl_805D68D0;
-int get_state__22TAdMultiPlyChrSelectGCFv(void) {  return lbl_805D68D0; }
+    extern int TAdMultiPlyChrSelectGC__instance;
+int get_state__22TAdMultiPlyChrSelectGCFv(void) {  return TAdMultiPlyChrSelectGC__instance; }
 
     extern int lbl_805D6F08;
 int get_selected_slot__22TAdMultiPlyChrSelectGCFv(void) {  return lbl_805D6F08; }
 
-    extern int lbl_805D6700;
-int get_global_6700__22TAdMultiPlyChrSelectGCFv(void) {  return lbl_805D6700; }
+    extern int menu_selection_cursor_texture_list;
+int get_global_6700__22TAdMultiPlyChrSelectGCFv(void) {  return menu_selection_cursor_texture_list; }
 
     extern int lbl_805D6668;
 int TAdMultiPlyChrSelectGC__sub_802C6FA8(void) {  return lbl_805D6668; }

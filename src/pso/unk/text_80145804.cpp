@@ -40,7 +40,7 @@ void set_global_param__8TObjFishFi(void *);
 void set_entry_index__9TLanguageFii(u32, int);
 void load_texture_list(void *);
 extern u8 lbl_8043F3D8[];
-extern TexList_80145804 lbl_804A74E8[];
+extern TexList_80145804 menu_font_texture_list[];
 extern s32 menu_font_glyph_data;
 extern s16 *lbl_805D56B4;
 extern s32 menu_font_upload_flags;
@@ -83,9 +83,9 @@ void load_menu_font(void) {
         set_render_rect__10TObjPlayerFPviiii(lbl_8050C048 + i, 0, 0x208, 0x100, 0x100);
         set_texture_name(lbl_8050C090 + i, lbl_8050C048 + i, i + 0xDCF28, 0x08800000);
     }
-    load_texture_list(lbl_804A74E8);
+    load_texture_list(menu_font_texture_list);
     for (m = 0; m < 2; m++) {
-        *(lbl_8050C040 + m) = lbl_804A74E8[0].ents[m].obj->img->pixels;
+        *(lbl_8050C040 + m) = menu_font_texture_list[0].ents[m].obj->img->pixels;
         clear_words_80145804(*(lbl_8050C040 + m), 0x2000);
     }
     lbl_805D56B4 = (s16 *)alloc_buffer__11TOBoss4RockFPv(0x100);
@@ -94,7 +94,7 @@ void load_menu_font(void) {
     lbl_805D56B4[1] = 0x3FFF;
     lbl_805D56B4[2] = 0x5FFF;
     lbl_805D56B4[3] = 0x7FFF;
-    set_global_param__8TObjFishFi(lbl_804A74E8);
+    set_global_param__8TObjFishFi(menu_font_texture_list);
     for (i = 0; i < 2; i++) {
         set_entry_index__9TLanguageFii(i, 0);
     }

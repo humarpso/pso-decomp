@@ -54,9 +54,9 @@ u8 *alloc__23TAdSinglePlyChrSelectGCFPv(s32);
 s32 *alloc_buffer__11TOBoss4RockFPv(s32);
 s32 load_gvm_texture_file(void *);
 extern RecoveredGlobal_80176308_lbl_80442A80 lbl_80442A80;
-extern RecoveredGlobal_80176308_lbl_804B4278 lbl_804B4278;
+extern RecoveredGlobal_80176308_lbl_804B4278 TOSensorGeneral01__resource_descriptor;
 extern u32 lbl_805D5AA0;
-extern s32 *TOSensorGeneral01__data_805D5AA4;
+extern s32 *TOSensorGeneral01__texture_lists;
 void load_assets__17TOSensorGeneral01Fv(void);
 M2C_UNK begin_effect_render__13TParticleCtrlFv();
 M2C_UNK end_effect_render__13TParticleCtrlFv();
@@ -67,14 +67,14 @@ M2C_UNK pop_matrix();
 M2C_UNK post_translate_matrix(void *);
 M2C_UNK set_global_param__8TObjFishFi(int);
 M2C_UNK draw_ginja_model(int);
-extern s32 *TOSensorGeneral01__data_805D5AA4;
+extern s32 *TOSensorGeneral01__texture_lists;
 void render__17TOSensorGeneral01Fv(u8 *arg0);
 M2C_UNK init_switch_id__5TOKeyFPv(void *);
 M2C_UNK TOSensor__ct(void *, void *);
 extern M2C_UNK __vt__17TOSensorGeneral01[];
 extern s32 lbl_805D3154;
 extern u32 lbl_805D5AA0;
-extern s32 *TOSensorGeneral01__data_805D5AA4;
+extern s32 *TOSensorGeneral01__texture_lists;
 void *TOSensorGeneral01__ct(void *arg0, void *arg1, void *arg2);
 }
 
@@ -142,27 +142,27 @@ void render__17TOSensorGeneral01Fv(u8 *arg0) {
         rotate_matrix_y(0, M2C_FIELD(arg0, s32 *, 0x60));
         n = M2C_FIELD(arg0, Node_801760A8 **, 0x34);
         translate_matrix(0, n->x, n->y, n->z);
-        set_global_param__8TObjFishFi(TOSensorGeneral01__data_805D5AA4[0]);
+        set_global_param__8TObjFishFi(TOSensorGeneral01__texture_lists[0]);
         draw_ginja_model(n->model);
         begin_effect_render__13TParticleCtrlFv();
         n = n->child;
         translate_matrix(0, n->x, n->y, n->z);
-        set_global_param__8TObjFishFi(TOSensorGeneral01__data_805D5AA4[M2C_FIELD(arg0, s32 *, 0xEC) < 1]);
+        set_global_param__8TObjFishFi(TOSensorGeneral01__texture_lists[M2C_FIELD(arg0, s32 *, 0xEC) < 1]);
         draw_ginja_model(n->model);
         n = n->next;
         translate_matrix(0, n->x, n->y, n->z);
-        set_global_param__8TObjFishFi(TOSensorGeneral01__data_805D5AA4[M2C_FIELD(arg0, s32 *, 0xEC) < 2]);
+        set_global_param__8TObjFishFi(TOSensorGeneral01__texture_lists[M2C_FIELD(arg0, s32 *, 0xEC) < 2]);
         draw_ginja_model(n->model);
         n = n->next;
         translate_matrix(0, n->x, n->y, n->z);
-        set_global_param__8TObjFishFi(TOSensorGeneral01__data_805D5AA4[M2C_FIELD(arg0, s32 *, 0xEC) < 3]);
+        set_global_param__8TObjFishFi(TOSensorGeneral01__texture_lists[M2C_FIELD(arg0, s32 *, 0xEC) < 3]);
         draw_ginja_model(n->model);
         end_effect_render__13TParticleCtrlFv();
         n = n->next;
         push_matrix();
         translate_matrix(0, n->x, n->y, n->z);
         rotate_matrix_y(0, M2C_FIELD(arg0, s32 *, 0xE8));
-        set_global_param__8TObjFishFi(TOSensorGeneral01__data_805D5AA4[1]);
+        set_global_param__8TObjFishFi(TOSensorGeneral01__texture_lists[1]);
         draw_ginja_model(n->model);
         pop_matrix();
         pop_matrix();
@@ -178,14 +178,14 @@ void *create__17TOSensorGeneral01FPv(void *arg0) {
 }
 
 extern u32 lbl_805D5AA0;
-extern s32 *TOSensorGeneral01__data_805D5AA4;
+extern s32 *TOSensorGeneral01__texture_lists;
 
 void free_rocks__17TOSensorGeneral01Fv(void) {
-    if ((s32 *) TOSensorGeneral01__data_805D5AA4 != NULL) {
-        free_if_valid__10TObjPlayerFi(*TOSensorGeneral01__data_805D5AA4);
-        if ((s32 *) TOSensorGeneral01__data_805D5AA4 != NULL) {
-            free__11TOBoss4RockFUi((void*)TOSensorGeneral01__data_805D5AA4);
-            TOSensorGeneral01__data_805D5AA4 = NULL;
+    if ((s32 *) TOSensorGeneral01__texture_lists != NULL) {
+        free_if_valid__10TObjPlayerFi(*TOSensorGeneral01__texture_lists);
+        if ((s32 *) TOSensorGeneral01__texture_lists != NULL) {
+            free__11TOBoss4RockFUi((void*)TOSensorGeneral01__texture_lists);
+            TOSensorGeneral01__texture_lists = NULL;
         }
     }
     if ((u32) lbl_805D5AA0 != 0U) {
@@ -205,13 +205,13 @@ void load_assets__17TOSensorGeneral01Fv(void) {
     temp_r3 = (u8 *)(alloc__23TAdSinglePlyChrSelectGCFPv(0x440));
     var_r0 = (u8 *)(temp_r3);
     if (var_r0 != NULL) {
-        var_r0 = (u8 *)(load_resource_from_descriptor(temp_r3, 1, &lbl_804B4278.value, 0, 0, 0));
+        var_r0 = (u8 *)(load_resource_from_descriptor(temp_r3, 1, &TOSensorGeneral01__resource_descriptor.value, 0, 0, 0));
     }
     (*(u8 * *)&lbl_805D5AA0) = var_r0;
     temp_r3_2 = (s32 *)(alloc_buffer__11TOBoss4RockFPv(8));
-    TOSensorGeneral01__data_805D5AA4 = temp_r3_2;
+    TOSensorGeneral01__texture_lists = temp_r3_2;
     M2C_FIELD(temp_r3_2, s32 *, 4) = (s32) M2C_FIELD(M2C_FIELD((*(u8 * *)&lbl_805D5AA0), u8 **, 0x42C), s32 *, 0xC);
-    *TOSensorGeneral01__data_805D5AA4 = load_gvm_texture_file((void *) (&lbl_80442A80.value));
+    *TOSensorGeneral01__texture_lists = load_gvm_texture_file((void *) (&lbl_80442A80.value));
 }
 
 void *__dt__17TOSensorGeneral01Fv(void *arg0, s16 arg1) {
@@ -230,7 +230,7 @@ void *TOSensorGeneral01__ct(void *arg0, void *arg1, void *arg2) {
     M2C_FIELD(arg0, s32 *, 0) = (s32) lbl_805D3154;
     ((VObj_801763E4 *)arg0)->m5(arg2);
     init_switch_id__5TOKeyFPv(arg0);
-    M2C_FIELD(arg0, s32 *, 0x24) = (s32) *TOSensorGeneral01__data_805D5AA4;
+    M2C_FIELD(arg0, s32 *, 0x24) = (s32) *TOSensorGeneral01__texture_lists;
     M2C_FIELD(arg0, void **, 0x34) = (void *) M2C_FIELD(M2C_FIELD((*(void * *)&lbl_805D5AA0), void **, 0x42C), void **, 8);
     M2C_FIELD(arg0, f32 *, 0xC0) = 400.0f;
     M2C_FIELD(arg0, f32 *, 0xC4) = (f32) M2C_FIELD(M2C_FIELD(M2C_FIELD(arg0, void **, 0x34), void **, 4), f32 *, 0x14);

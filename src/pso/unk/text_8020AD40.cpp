@@ -29,16 +29,16 @@ M2C_UNK advance_enemy_id_counter(int);
 s32 get_floor_map_selection(int, void *);
 M2C_UNK load_area_enemy_set(int, int, int, int);
 M2C_UNK sum_floor_enemy_counts__6TLobbyFv();
-extern s32 TLobby__data_805D60E4;
-extern s32 TLobby__data_805D60EC;
+extern s32 TLobby__next_enemy_set_actor_id;
+extern s32 map_set_enemy_id_counter;
 extern s32 TLobby__data_805D614C;
 s32 load_all_floor_enemy_sets__6TLobbyFv(void);
 s32 is_area_transfer_pending();
 M2C_UNK advance_object_id_counter(int);
 s32 get_floor_map_selection(int, void *);
 M2C_UNK TLobby__sub_8020B308();
-extern s32 TLobby__data_805D60E0;
-extern s32 TLobby__data_805D60E8;
+extern s32 map_set_object_id_counter;
+extern s32 map_object_id_counter;
 extern s32 TLobby__data_805D6148;
 s32 load_all_floor_object_sets__6TLobbyFv(void);
 s32 read_disc_file(void *, Rec_8020AD40 *);
@@ -53,8 +53,8 @@ extern u8 lbl_8044BBB8[];
 extern u8 lbl_8044BBDC[];
 extern u8 lbl_8044BBE8[];
 extern Grp_8020AD40 *TLobby__data_805D6068;
-extern Rec_8020AD40 *TLobby__data_805D60F0;
-extern s32 TLobby__data_805D60F4;
+extern Rec_8020AD40 *TLobby__map_set_file_buffer;
+extern s32 TLobby__map_set_file_buffer_size;
 s32 load_area_object_set(s32 arg0, s32 arg1, s32 arg2, s32 arg3);
 }
 
@@ -95,21 +95,21 @@ s32 load_area_object_set(s32 arg0, s32 arg1, s32 arg2, s32 arg3) {
     } else {
         replace_file_extension__6TLobbyFPvPvPv(name, id, lbl_8044BBB0);
     }
-    len = read_disc_file(name, TLobby__data_805D60F0);
+    len = read_disc_file(name, TLobby__map_set_file_buffer);
     if (len < 0) {
         return 0;
     }
-    if (len > TLobby__data_805D60F4) {
+    if (len > TLobby__map_set_file_buffer_size) {
         return 0;
     }
-    r = TLobby__data_805D60F0;
+    r = TLobby__map_set_file_buffer;
     n = len / sizeof(Rec_8020AD40);
     for (i = 0; i < n; i++, r++) {
         swap_object_row_endian(r);
         r->f2 = 0;
     }
-    assign_object_ids__6TLobbyFPviPv(TLobby__data_805D60F0, n, arg1);
-    load_object_set_entries__6TLobbyFiPvUi(arg0, TLobby__data_805D60F0, len);
+    assign_object_ids__6TLobbyFPviPv(TLobby__map_set_file_buffer, n, arg1);
+    load_object_set_entries__6TLobbyFiPvUi(arg0, TLobby__map_set_file_buffer, len);
     return 1;
 }
 
@@ -128,8 +128,8 @@ loop_1:
 block_6:
     var_r31 += 1;
     if (var_r31 >= 0x12) {
-        advance_enemy_id_counter((int) ((u16) TLobby__data_805D60EC));
-        TLobby__data_805D614C = TLobby__data_805D60E4;
+        advance_enemy_id_counter((int) ((u16) map_set_enemy_id_counter));
+        TLobby__data_805D614C = TLobby__next_enemy_set_actor_id;
         sum_floor_enemy_counts__6TLobbyFv();
         return 1;
     }
@@ -150,8 +150,8 @@ loop_1:
 block_6:
     var_r31 += 1;
     if (var_r31 >= 0x12) {
-        advance_object_id_counter((int) ((u16) TLobby__data_805D60E8));
-        TLobby__data_805D6148 = TLobby__data_805D60E0;
+        advance_object_id_counter((int) ((u16) map_object_id_counter));
+        TLobby__data_805D6148 = map_set_object_id_counter;
         TLobby__sub_8020B308();
         return 1;
     }

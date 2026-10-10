@@ -944,7 +944,7 @@ extern const f32 lbl_805D8AA0;
 u8 *TObjDFTenchuFuru__ct(u8 *arg0, u8 *arg1, u8 *arg2);
 M2C_UNK get_current_matrix(void *);
 extern RecoveredGlobal_80051A18_lbl_804FF240 df_captured_matrix_pair;
-extern int lbl_805D4D78;
+extern int TObjDFTenchuFuru__matrix_node_index;
 void capture_matrix_by_frame__16TObjDFTenchuFuruFv(void);
 s32 matrix_mult_vec(int, void *, void *);
 f32 rotate_matrix_by_node_angles(void *, int);
@@ -955,7 +955,7 @@ f32 post_translate_matrix(void *);
 extern RecoveredGlobal_80051AD0_lbl_804858B4 lbl_804858B4;
 extern RecoveredGlobal_80051AD0_lbl_804FF228 lbl_804FF228;
 extern RecoveredGlobal_80051AD0_lbl_804FF234 lbl_804FF234;
-extern int lbl_805D4D78;
+extern int TObjDFTenchuFuru__matrix_node_index;
 void transform_node_tree__16TObjDFTenchuFuruFPv(u8 *arg0);
 }
 
@@ -1030,7 +1030,7 @@ void * create__16TObjDFTenchuFuruFPvPv(void *arg0, void *arg1) {
 
 typedef char RecoveredGlobal_80051A18_lbl_804FF240_size[sizeof(RecoveredGlobal_80051A18_lbl_804FF240) == 0x60 ? 1 : -1];
 void capture_matrix_by_frame__16TObjDFTenchuFuruFv(void) {
-    switch ((s32) (*(s32 *)&lbl_805D4D78)) {
+    switch ((s32) (*(s32 *)&TObjDFTenchuFuru__matrix_node_index)) {
     case 0x3B:
         get_current_matrix((void *) (&df_captured_matrix_pair.value));
         break;
@@ -1038,13 +1038,13 @@ void capture_matrix_by_frame__16TObjDFTenchuFuruFv(void) {
         get_current_matrix((void *) ((u8 *)&df_captured_matrix_pair.value + 0x30));
         break;
     }
-    (*(s32 *)&lbl_805D4D78) += 1;
+    (*(s32 *)&TObjDFTenchuFuru__matrix_node_index) += 1;
 }
 
 int TObjDFTenchuFuru__sub_80051A7C(void) { return set_global_state__16TObjEneRe7BeruraFi((void*)(0)); }
 
-    extern int lbl_805D4D78;
-void register_callback__16TObjDFTenchuFuruFv(void) { lbl_805D4D78 = 0; set_global_state__16TObjEneRe7BeruraFi(((unsigned char *)capture_matrix_by_frame__16TObjDFTenchuFuruFv)); }
+    extern int TObjDFTenchuFuru__matrix_node_index;
+void register_callback__16TObjDFTenchuFuruFv(void) { TObjDFTenchuFuru__matrix_node_index = 0; set_global_state__16TObjEneRe7BeruraFi(((unsigned char *)capture_matrix_by_frame__16TObjDFTenchuFuruFv)); }
 typedef char RecoveredGlobal_80051AD0_lbl_804858B4_size[sizeof(RecoveredGlobal_80051AD0_lbl_804858B4) == 0xC ? 1 : -1];
 typedef char RecoveredGlobal_80051AD0_lbl_804FF228_size[sizeof(RecoveredGlobal_80051AD0_lbl_804FF228) == 0xC ? 1 : -1];
 typedef char RecoveredGlobal_80051AD0_lbl_804FF234_size[sizeof(RecoveredGlobal_80051AD0_lbl_804FF234) == 0xC ? 1 : -1];
@@ -1060,7 +1060,7 @@ void transform_node_tree__16TObjDFTenchuFuruFPv(u8 *arg0) {
         post_translate_matrix((void *) (var_r31 + 8));
         rotate_matrix_by_node_angles((void *) (var_r31 + 0x14), (int) (((RecoveredFields_80051AD0_var_r31 *)var_r31)->field_0 & 0x20));
         scale_current_matrix((void *) (var_r31 + 0x20));
-        switch ((s32) (*(s32 *)&lbl_805D4D78)) {
+        switch ((s32) (*(s32 *)&TObjDFTenchuFuru__matrix_node_index)) {
         case 0x3B:
             matrix_mult_vec((int) (0), (void *) (&lbl_804858B4.value), (void *) (&lbl_804FF228.value));
             break;
@@ -1068,7 +1068,7 @@ void transform_node_tree__16TObjDFTenchuFuruFPv(u8 *arg0) {
             matrix_mult_vec((int) (0), (void *) (&lbl_804858B4.value), (void *) (&lbl_804FF234.value));
             break;
         }
-        (*(s32 *)&lbl_805D4D78) += 1;
+        (*(s32 *)&TObjDFTenchuFuru__matrix_node_index) += 1;
         temp_r3 = (u8 *)(((RecoveredFields_80051AD0_var_r31 *)var_r31)->field_2C);
         if (temp_r3 != NULL) {
             transform_node_tree__16TObjDFTenchuFuruFPv(temp_r3);

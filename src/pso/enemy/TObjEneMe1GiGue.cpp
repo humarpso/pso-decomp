@@ -668,8 +668,8 @@ M2C_UNK VecCopy__FP3VecPC3Vec(void *, void *);
 M2C_UNK update_if_active__15TObjEneMe1GiGueFPv(void *, M2C_UNK);
 M2C_UNK project_actor_to_ground(void *, void *, M2C_UNK);
 void TObjEneMe1GiGue__sub_802CACD8(u8 *arg0);
-s32 TObjEneMe1GiGue__sub_802CDAC4(M2C_UNK, s32);
-f32 TObjEneMe1GiGue__sub_802CDAD8(M2C_UNK, s32);
+s32 get_gigue_int_parameter(M2C_UNK, s32);
+f32 get_gigue_float_parameter(M2C_UNK, s32);
 extern f32 lbl_805D6840;
 extern f32 lbl_805D6844;
 extern f32 lbl_805D6848;
@@ -805,14 +805,14 @@ void find_open_direction__15TObjEneMe1GiGueFPvPv(u8 *arg0, Vec_802CAD98 *arg1) {
 #pragma push
 #pragma fp_contract on
 void load_params__15TObjEneMe1GiGueFi(s32 arg0) {
-    lbl_805D6840 = TObjEneMe1GiGue__sub_802CDAD8(arg0, 1);
-    lbl_805D6844 = TObjEneMe1GiGue__sub_802CDAD8(arg0, 2);
-    lbl_805D6848 = TObjEneMe1GiGue__sub_802CDAD8(arg0, 3);
-    lbl_805D684C = TObjEneMe1GiGue__sub_802CDAD8(arg0, 4);
-    lbl_805D6850 = TObjEneMe1GiGue__sub_802CDAC4(arg0, 0);
-    lbl_805D6854 = TObjEneMe1GiGue__sub_802CDAC4(arg0, 1);
-    M2C_FIELD(arg0, s32 *, 0x44C) = (s32) (30.0f * (f32) TObjEneMe1GiGue__sub_802CDAC4(arg0, 3));
-    M2C_FIELD(arg0, s32 *, 0x450) = TObjEneMe1GiGue__sub_802CDAC4(arg0, 4);
+    lbl_805D6840 = get_gigue_float_parameter(arg0, 1);
+    lbl_805D6844 = get_gigue_float_parameter(arg0, 2);
+    lbl_805D6848 = get_gigue_float_parameter(arg0, 3);
+    lbl_805D684C = get_gigue_float_parameter(arg0, 4);
+    lbl_805D6850 = get_gigue_int_parameter(arg0, 0);
+    lbl_805D6854 = get_gigue_int_parameter(arg0, 1);
+    M2C_FIELD(arg0, s32 *, 0x44C) = (s32) (30.0f * (f32) get_gigue_int_parameter(arg0, 3));
+    M2C_FIELD(arg0, s32 *, 0x450) = get_gigue_int_parameter(arg0, 4);
 }
 #pragma pop
 
@@ -1090,7 +1090,7 @@ M2C_UNK create__9TTecJelinFiiii(void *, void *, void *, s32);
 M2C_UNK create_instance__9TTecZaruaFiiii(void *, void *, void *, s32);
 #define TObjEneMe1GiGue__sub_802CB03C ((M2C_UNK (*)(void *))TObjEneMe1GiGue__sub_802CB03C)
 #define TObjEneMe1GiGue__sub_802CB10C ((s32 (*)(void *))TObjEneMe1GiGue__sub_802CB10C)
-#define TObjEneMe1GiGue__sub_802CDAC4 ((s32 (*)(void *, int))TObjEneMe1GiGue__sub_802CDAC4)
+#define get_gigue_int_parameter ((s32 (*)(void *, int))get_gigue_int_parameter)
 void TObjEneMe1GiGue__sub_802CC45C(u8 *arg0);
 M2C_UNK advance_animation_playback(void *);
 M2C_UNK update_enemy_collision_flags__10TObjPlayerFPv(void *);
@@ -1204,7 +1204,7 @@ void TObjEneMe1GiGue__sub_802CB824(void *arg0_, s32 arg1) {
         v.z = 0;
         p = __nw__7TObjectFUl((int)(0x10C));
         if (p != 0) {
-            f32 lim = TObjEneMe1GiGue__sub_802CDAD8((M2C_UNK)((s32)arg0), (s32)(5));
+            f32 lim = get_gigue_float_parameter((M2C_UNK)((s32)arg0), (s32)(5));
             TObjPlayer__sub_802CDEB4(p, arg0 + 0x3A8, *(u16 *)(slot + 0x3C4), &v, arg1 * 3,
                                      calc_boss4_scale__10TObjPlayerFi((void *)(arg0)) <= lim, *(u16 *)(arg0 + 0x1C));
         }
@@ -1318,7 +1318,7 @@ void update_hit_reaction__15TObjEneMe1GiGueFPv(u8 *arg0) {
 #undef TBoss3VoloptMonitor__sub_8004292C
 #undef TObjEneMe1GiGue__sub_802CB03C
 #undef TObjEneMe1GiGue__sub_802CB10C
-#undef TObjEneMe1GiGue__sub_802CDAC4
+#undef get_gigue_int_parameter
 #undef subtract_vector
 #include "types.h"
 typedef s32 M2C_UNK;
@@ -1396,7 +1396,7 @@ M2C_UNK play_persistent_sound(int, void *, void *, int, int);
 #define check_vector_bit__15TObjEneMe1GiGueFii ((s32 (*)(void *, void *))check_vector_bit__15TObjEneMe1GiGueFii)
 #define find_open_direction__15TObjEneMe1GiGueFPvPv ((M2C_UNK (*)(void *, void *))find_open_direction__15TObjEneMe1GiGueFPvPv)
 #define remap_sound_id__15TObjEneMe1GiGueFPvi ((s32 (*)(void *, int))remap_sound_id__15TObjEneMe1GiGueFPvi)
-f32 TObjEneMe1GiGue__sub_802CDAD8(M2C_UNK, s32);
+f32 get_gigue_float_parameter(M2C_UNK, s32);
 void vec3_add_to(void *, void *);
 #define subtract_vector ((void (*)(void *, void *))subtract_vector)
 
@@ -1441,7 +1441,7 @@ void update_rush_attack__15TObjEneMe1GiGueFPv(Obj_802CBCC0 *o) {
         s32 ok;
         o->f30 &= ~0x800000;
         advance_animation_playback(o);
-        calc_velocity_toward_destination(o, TObjEneMe1GiGue__sub_802CDAD8((M2C_UNK)o, 0), o->pos, o->dest);
+        calc_velocity_toward_destination(o, get_gigue_float_parameter((M2C_UNK)o, 0), o->pos, o->dest);
         ok = 1;
         if (o->fB8 == 6 && o->fC0 < 22.0f) {
             ok = 0;
@@ -1461,7 +1461,7 @@ void update_rush_attack__15TObjEneMe1GiGueFPv(Obj_802CBCC0 *o) {
     }
     case 3:
         advance_animation_playback(o);
-        calc_velocity_toward_destination(o, TObjEneMe1GiGue__sub_802CDAD8((M2C_UNK)o, 0), o->pos, o->dest);
+        calc_velocity_toward_destination(o, get_gigue_float_parameter((M2C_UNK)o, 0), o->pos, o->dest);
         o->v308.y = 0.0f;
         VecCopy__FP3VecPC3Vec(&o->prev, &o->pos);
         vec3_add_to(&o->pos, &o->v308);
@@ -1548,7 +1548,7 @@ void update_rush_attack__15TObjEneMe1GiGueFPv(Obj_802CBCC0 *o) {
 #define TBoss3VoloptMonitor__sub_8004292C ((M2C_UNK (*)())TBoss3VoloptMonitor__sub_8004292C)
 #define TObjEneMe1GiGue__sub_802CB03C ((M2C_UNK (*)(void *))TObjEneMe1GiGue__sub_802CB03C)
 #define TObjEneMe1GiGue__sub_802CB10C ((s32 (*)(void *))TObjEneMe1GiGue__sub_802CB10C)
-#define TObjEneMe1GiGue__sub_802CDAC4 ((s32 (*)(void *, int))TObjEneMe1GiGue__sub_802CDAC4)
+#define get_gigue_int_parameter ((s32 (*)(void *, int))get_gigue_int_parameter)
 #define subtract_vector ((void (*)(void *, void *))subtract_vector)
 extern "C" {
 void action__15TObjEneMe1GiGueFPv(void *arg0) {
@@ -1621,8 +1621,8 @@ void TObjEneMe1GiGue__sub_802CC45C(u8 *arg0) {
             if (M2C_FIELD(arg0, f32 *, 0xC0) >= 10.0f) {
                 TObjEneMe1GiGue__sub_802CB03C(arg0);
                 M2C_FIELD(arg0, s32 *, 0x37C) = 3;
-                create_instance__9TTecZaruaFiiii(arg0, arg0 + 0x2FC, arg0 + 0x2FC, TObjEneMe1GiGue__sub_802CDAC4(arg0, 2));
-                create__9TTecJelinFiiii(arg0, arg0 + 0x2FC, arg0 + 0x2FC, TObjEneMe1GiGue__sub_802CDAC4(arg0, 2));
+                create_instance__9TTecZaruaFiiii(arg0, arg0 + 0x2FC, arg0 + 0x2FC, get_gigue_int_parameter(arg0, 2));
+                create__9TTecJelinFiiii(arg0, arg0 + 0x2FC, arg0 + 0x2FC, get_gigue_int_parameter(arg0, 2));
             }
             break;
     }
@@ -1644,7 +1644,7 @@ void TObjEneMe1GiGue__sub_802CC45C(u8 *arg0) {
 #undef TBoss3VoloptMonitor__sub_8004292C
 #undef TObjEneMe1GiGue__sub_802CB03C
 #undef TObjEneMe1GiGue__sub_802CB10C
-#undef TObjEneMe1GiGue__sub_802CDAC4
+#undef get_gigue_int_parameter
 #undef subtract_vector
 #include "types.h"
 typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
@@ -1771,8 +1771,8 @@ void TObjEneMe1GiGue__sub_802CC614(u8 *arg0) {
 #undef TObjEneMe1GiGue__sub_802CB03C
 #define TObjEneMe1GiGue__sub_802CB10C ((s32 (*)(void *))TObjEneMe1GiGue__sub_802CB10C)
 #undef TObjEneMe1GiGue__sub_802CB10C
-#define TObjEneMe1GiGue__sub_802CDAC4 ((s32 (*)(void *, int))TObjEneMe1GiGue__sub_802CDAC4)
-#undef TObjEneMe1GiGue__sub_802CDAC4
+#define get_gigue_int_parameter ((s32 (*)(void *, int))get_gigue_int_parameter)
+#undef get_gigue_int_parameter
 #define subtract_vector ((void (*)(void *, void *))subtract_vector)
 #undef subtract_vector
 #include "types.h"
@@ -1918,7 +1918,7 @@ void TObjEneMe1GiGue__sub_802CC900(u8 *arg0) {
 #define TBoss3VoloptMonitor__sub_8004292C ((M2C_UNK (*)())TBoss3VoloptMonitor__sub_8004292C)
 #define TObjEneMe1GiGue__sub_802CB03C ((M2C_UNK (*)(void *))TObjEneMe1GiGue__sub_802CB03C)
 #define TObjEneMe1GiGue__sub_802CB10C ((s32 (*)(void *))TObjEneMe1GiGue__sub_802CB10C)
-#define TObjEneMe1GiGue__sub_802CDAC4 ((s32 (*)(void *, int))TObjEneMe1GiGue__sub_802CDAC4)
+#define get_gigue_int_parameter ((s32 (*)(void *, int))get_gigue_int_parameter)
 #define subtract_vector ((void (*)(void *, void *))subtract_vector)
 extern "C" {
 void TObjEneMe1GiGue__sub_802CCBAC(Obj_802CCBAC *o) {
@@ -2069,7 +2069,7 @@ void TObjEneMe1GiGue__sub_802CCF2C(u8 *arg0) {
 #undef TBoss3VoloptMonitor__sub_8004292C
 #undef TObjEneMe1GiGue__sub_802CB03C
 #undef TObjEneMe1GiGue__sub_802CB10C
-#undef TObjEneMe1GiGue__sub_802CDAC4
+#undef get_gigue_int_parameter
 #undef subtract_vector
 extern "C" {
 M2C_UNK VecCopy__FP3VecPC3Vec(void *, void *);
@@ -2660,11 +2660,11 @@ void TObjEneMe1GiGue__sub_802CDAB8(void) {  }
 void TObjEneMe1GiGue__sub_802CDABC(void) {  }
 void TObjEneMe1GiGue__sub_802CDAC0(void) {  }
 
-s32 TObjEneMe1GiGue__sub_802CDAC4(M2C_UNK self, s32 i) {
+s32 get_gigue_int_parameter(M2C_UNK self, s32 i) {
     return (*(G_802CDAC4 * *)&TObjEneMe1GiGue__param_table)->v[i];
 }
 
-f32 TObjEneMe1GiGue__sub_802CDAD8(M2C_UNK arg0, s32 arg1) {
+f32 get_gigue_float_parameter(M2C_UNK arg0, s32 arg1) {
     return M2C_FIELD((TObjEneMe1GiGue__param_table + (arg1 * 4)), f32 *, 0);
 }
 

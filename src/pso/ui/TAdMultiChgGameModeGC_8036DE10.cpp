@@ -113,7 +113,7 @@ s32 probe_card_slot__15TAdPlayerLoadGCFi(s32);
 s32 check_memcard_status__15TAdPlayerLoadGCFi(s32);
 s32 find_card_file__15TAdPlayerLoadGCFiPv(s32, s32);
 extern RecoveredGlobal_8036E8DC_lbl_804C88C0 lbl_804C88C0;
-extern RecoveredGlobal_8036E8DC_lbl_804C8914 lbl_804C8914;
+extern RecoveredGlobal_8036E8DC_lbl_804C8914 pso_system_card_filename;
 extern RecoveredGlobal_8036E8DC_lbl_804C89BC lbl_804C89BC;
 s32 check_system_file_status__23TAdSinglePlyChrSelectGCFv(void);
 s32 TQuestVmDownLoadServer__sub_8006EF6C(void *);
@@ -514,7 +514,7 @@ s32 check_system_file_status__23TAdSinglePlyChrSelectGCFv(void) {
     if (check_memcard_status__15TAdPlayerLoadGCFi(0) != 0) {
         return 4;
     }
-    if ((find_card_file__15TAdPlayerLoadGCFiPv(0, (s32) &lbl_804C88C0.value) != 0) || (find_card_file__15TAdPlayerLoadGCFiPv(0, (s32) &lbl_804C89BC.value) != 0) || (find_card_file__15TAdPlayerLoadGCFiPv(0, (s32) &lbl_804C8914.value) != 0)) {
+    if ((find_card_file__15TAdPlayerLoadGCFiPv(0, (s32) &lbl_804C88C0.value) != 0) || (find_card_file__15TAdPlayerLoadGCFiPv(0, (s32) &lbl_804C89BC.value) != 0) || (find_card_file__15TAdPlayerLoadGCFiPv(0, (s32) &pso_system_card_filename.value) != 0)) {
         return 8;
     }
     return 0;

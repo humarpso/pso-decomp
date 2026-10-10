@@ -26,7 +26,7 @@ void set_draw_line_param_all_nodes(Obj_80019AB0 *self, f32 v);
 extern "C" {
 
 void TAdDrawLineTask__sub_80019A8C(void* p, void* q);
-s32 TObject__sub_80019A60(void);
+s32 get_logo_texture_e_handle(void);
 void func_80019A68__Fv(void);
 void queue_destruction__7TObjectFv(void *arg0);
 M2C_UNK TBoss8Dragon__sub_8036B088();
@@ -38,7 +38,7 @@ void queue_destruction__7TObjectFv(void *arg0) {
 
 extern s32 logo_texture_e_handle;
 
-s32 TObject__sub_80019A60(void) {
+s32 get_logo_texture_e_handle(void) {
     return logo_texture_e_handle;
 }
 

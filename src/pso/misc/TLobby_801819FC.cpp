@@ -51,8 +51,8 @@ struct VObj_80181AE8 : Base_80181AE8 {
 };
 
 extern "C" {
-extern s32 lbl_805D5B28;
-extern u32 lbl_805D5B2C;
+extern s32 city_common_model_archive;
+extern u32 city_common_texture_list;
 u8 * load_resource_from_descriptor(void *, s32, void *, s32, s32, s32);
 int alloc__23TAdSinglePlyChrSelectGCFPv(void *);
 u8 * load_gvm_texture_file(s32);
@@ -68,7 +68,7 @@ M2C_UNK set_global_param__8TObjFishFi(s32);
 M2C_UNK rotate_matrix_y(M2C_UNK, s32);
 M2C_UNK push_matrix();
 M2C_UNK pop_matrix();
-extern u32 lbl_805D5B2C;
+extern u32 city_common_texture_list;
 extern const f32 lbl_805DBBE0;
 extern const f32 lbl_805DBBE4;
 void process_lobby_action_14__6TLobbyFPv(u8 *arg0);
@@ -81,17 +81,17 @@ M2C_UNK TLobby__sub_8001FE7C(s32, M2C_UNK);
 M2C_UNK TLobby__sub_803DA16C(void*);
 M2C_UNK safe_free__23TAdSinglePlyChrSelectGCFUi(u32);
 
-extern s32 lbl_805D5B28;
-extern u32 lbl_805D5B2C;
+extern s32 city_common_model_archive;
+extern u32 city_common_texture_list;
 
 void free_map_resources__6TLobbyFv(void) {
-    if ((u32) lbl_805D5B2C != 0U) {
-        TLobby__sub_803DA16C((void*)lbl_805D5B2C);
-        safe_free__23TAdSinglePlyChrSelectGCFUi(lbl_805D5B2C);
-        lbl_805D5B2C = 0U;
+    if ((u32) city_common_texture_list != 0U) {
+        TLobby__sub_803DA16C((void*)city_common_texture_list);
+        safe_free__23TAdSinglePlyChrSelectGCFUi(city_common_texture_list);
+        city_common_texture_list = 0U;
     }
-    TLobby__sub_8001FE7C(lbl_805D5B28, 1);
-    lbl_805D5B28 = 0;
+    TLobby__sub_8001FE7C(city_common_model_archive, 1);
+    city_common_model_archive = 0;
 }
 typedef char RecoveredGlobal_8019A880_lbl_804B8F70_size[sizeof(RecoveredGlobal_8019A880_lbl_804B8F70) == 0x2C ? 1 : -1];
 typedef char RecoveredGlobal_8019A880___vt__8TObjTank_size[sizeof(RecoveredGlobal_8019A880___vt__8TObjTank) == 0x3C ? 1 : -1];
@@ -105,13 +105,13 @@ void load_city_common_resources(void) {
     if (var_r0 != 0) {
         var_r0 = (long) (load_resource_from_descriptor((void *) temp_r3, 5, &lbl_804B59EC.value, 0, 0, 0));
     }
-    (*(s32 *)&lbl_805D5B28) = var_r0;
-    (*(u8 * *)&lbl_805D5B2C) = load_gvm_texture_file((s32) &lbl_80443F04.value);
+    (*(s32 *)&city_common_model_archive) = var_r0;
+    (*(u8 * *)&city_common_texture_list) = load_gvm_texture_file((s32) &lbl_80443F04.value);
 }
 void run_action_14_if_ready__6TLobbyFPv(void* p) { if (is_phase_e__9TObjEneDDFPv(p) != 0) { process_lobby_action_14__6TLobbyFPv((u8 *)((u8 *)(p))); } }
 void process_lobby_action_14__6TLobbyFPv(u8 *arg0) {
     if (((VObj_80181AE8 *)arg0)->m8(lbl_805DBBE0, lbl_805DBBE4) != 0) {
-        set_global_param__8TObjFishFi((*(s32 *)&lbl_805D5B2C));
+        set_global_param__8TObjFishFi((*(s32 *)&city_common_texture_list));
         push_matrix();
         post_translate_matrix(arg0 + 0x38);
         rotate_matrix_y(0, M2C_FIELD(arg0, s32 *, 0x60));

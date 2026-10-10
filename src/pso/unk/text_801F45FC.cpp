@@ -1,6 +1,6 @@
 #include "types.h"
 extern "C" {
-extern u8 lbl_805127F8[4][128];
+extern u8 quest_story_flags_by_difficulty[4][128];
 extern s32 game_difficulty_selection;
 void clear_story_flag(s32 flag);
 }
@@ -17,10 +17,10 @@ void clear_story_flag(s32 flag) {
     byteIdx = v / 8;
     bit = v % 8;
     if (bit > 0) {
-        lbl_805127F8[game_difficulty_selection][byteIdx] &= ~(1 << (8 - bit));
+        quest_story_flags_by_difficulty[game_difficulty_selection][byteIdx] &= ~(1 << (8 - bit));
         return;
     }
-    lbl_805127F8[game_difficulty_selection][byteIdx - 1] &= 0xFE;
+    quest_story_flags_by_difficulty[game_difficulty_selection][byteIdx - 1] &= 0xFE;
 }
 
 }

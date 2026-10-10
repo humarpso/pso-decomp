@@ -16,7 +16,7 @@ extern s32 TItemDrop__gsl_adxf_handle;
 extern s32 TItemDrop__gsl_entry_count;
 extern s32 TItemDrop__data_805D53CC;
 extern s32 TItemDrop__data_805D53D0;
-void TItemDrop__sub_800FE2DC(void);
+void reset_gstream_globals(void);
 }
 
 extern "C" {
@@ -73,7 +73,7 @@ void *open__8TGStreamFPvPvi(void *arg0, void *arg1, s32 arg2) {
 
 void TItemDrop__sub_800FE2D8(void) {  }
 typedef char RecoveredGlobal_800FE2DC_TItemDrop__data_805041E0_size[sizeof(RecoveredGlobal_800FE2DC_TItemDrop__data_805041E0) == 0x20 ? 1 : -1];
-void TItemDrop__sub_800FE2DC(void) {
+void reset_gstream_globals(void) {
     gstream_tmp_buffer = 0;
     TItemDrop__gsl_adxf_handle = 0;
     TItemDrop__file_name_buf.value = 0;

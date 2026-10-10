@@ -111,8 +111,8 @@ void init_npc_animation__10TObjPlayerFPvPvPvPv(void *, void *, s32, s32);
 void TObjNpcBase__ct(void *, void *);
 void reset_photon_effect__10TObjPlayerFPv(void *);
 void init_collision_body_parts(void *, void *, s32);
-extern u8 lbl_804A7CB8[];
-extern u8 lbl_804A7CDC[];
+extern u8 npc_default_battle_stats[];
+extern u8 npc_movement_parameters[];
 extern "C" void TLobby__sub_801A1FD8();
 extern "C" void draw_debug_info__12TObjNpcEnemyFPv();
 extern "C" void TObjNpcFemaleBase__sub_80147CD4();
@@ -248,7 +248,7 @@ void *lbl_804A9DD4[95] = {
     (void *)&TObjNpcFemaleBase__sub_801480F4, (void *)&draw_debug_info__12TObjNpcEnemyFPv, (void *)0x0,
 };
 extern s32 lbl_805D2DD8;
-extern u8 *lbl_805D5164;
+extern u8 *rappy_bml_resource;
 
 void *dt__12TObjNpcLappyFPvs(void *arg0, s16 arg1) {
     if (arg0 != NULL) {
@@ -268,11 +268,11 @@ u8 *TObjNpcLappy__ct(u8 *self, void *parent, s32 arg2) {
     ((VObj_8014B704 *)self)->m79(arg2);
     init_position_vectors__10TObjPlayerFi(self);
     ((VObj_8014B704 *)self)->m85(0, 1);
-    *(s32 *)(self + 0x34) = *(s32 *)(*(u8 **)(lbl_805D5164 + 0x42C) + 8);
-    *(s32 *)(self + 0x24) = *(s32 *)(*(u8 **)(lbl_805D5164 + 0x42C) + 0xC);
-    init_npc_animation__10TObjPlayerFPvPvPvPv(self, lbl_804A9D08, *(s32 *)(lbl_805D5164 + 0x430), *(s16 *)(self + 0xB8));
-    *(u8 **)(self + 0x350) = lbl_804A7CDC;
-    set_motion_params__10TObjPlayerFPvPv(self, lbl_804A7CB8);
+    *(s32 *)(self + 0x34) = *(s32 *)(*(u8 **)(rappy_bml_resource + 0x42C) + 8);
+    *(s32 *)(self + 0x24) = *(s32 *)(*(u8 **)(rappy_bml_resource + 0x42C) + 0xC);
+    init_npc_animation__10TObjPlayerFPvPvPvPv(self, lbl_804A9D08, *(s32 *)(rappy_bml_resource + 0x430), *(s16 *)(self + 0xB8));
+    *(u8 **)(self + 0x350) = npc_movement_parameters;
+    set_motion_params__10TObjPlayerFPvPv(self, npc_default_battle_stats);
     init_collision_body_parts(self, lbl_804A9DA8, 1);
     reset_photon_effect__10TObjPlayerFPv(self);
     update_prev_position__10TObjPlayerFPv(self);

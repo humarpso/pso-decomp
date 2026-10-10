@@ -42,7 +42,7 @@ s32 draw_ginja_model(void *);
 s32 set_chunk_material_color(int);
 extern RecoveredGlobal_80100070_lbl_8049E8F8 player_chunk_material_color_table;
 extern RecoveredGlobal_80100070_lbl_8049E958 lbl_8049E958;
-extern RecoveredGlobal_80100070_lbl_8050BEC0 lbl_8050BEC0;
+extern RecoveredGlobal_80100070_lbl_8050BEC0 saved_model_draw_color;
 extern RecoveredGlobal_80100070_lbl_8058D4C0 lbl_8058D4C0;
 extern s32 lbl_805D5660;
 extern s32 lbl_805D5664;
@@ -115,7 +115,7 @@ void TObjPlayer__sub_80100070(u8 *arg0) {
         lbl_805D5660 = some_id_805c6f74;
         lbl_805D5664 = lbl_805D7784;
         lbl_805D5668 = lbl_805D7780;
-        copy_vec4__13TRaderMapCoreFPvPv((void *) (&lbl_8050BEC0.value), (void *) (&lbl_8058D4C0.value));
+        copy_vec4__13TRaderMapCoreFPvPv((void *) (&saved_model_draw_color.value), (void *) (&lbl_8058D4C0.value));
         some_id_805c6f74 |= 0x10;
         set_depth_buffer_settings_id__FUl((M2C_UNK)((int) (3)));
         begin_effect_render__13TParticleCtrlFv();
@@ -131,7 +131,7 @@ void TObjPlayer__sub_80100070(u8 *arg0) {
         end_effect_render__13TParticleCtrlFv();
         reset_transform_state__10TObjPlayerFv();
         func_80141618__Fv();
-        copy_vec4__13TRaderMapCoreFPvPv((void *) (&lbl_8058D4C0.value), (void *) (&lbl_8050BEC0.value));
+        copy_vec4__13TRaderMapCoreFPvPv((void *) (&lbl_8058D4C0.value), (void *) (&saved_model_draw_color.value));
         lbl_805D7784 = lbl_805D5664;
         lbl_805D7780 = lbl_805D5668;
         some_id_805c6f74 = lbl_805D5660;

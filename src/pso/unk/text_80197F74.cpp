@@ -20,7 +20,7 @@ void **free_global_buffer__6TLobbyFv(void);
 extern "C" {
 
 void TLobby__sub_80197F74(void);
-void TLobby__sub_80197FC4(void);
+void clear_signboard_texture_buffer_pointer(void);
 
 void TLobby__sub_80197F74(void) {  }
 
@@ -41,6 +41,6 @@ void **free_global_buffer__6TLobbyFv(void) {
     return var_r3;
 }
 
-void TLobby__sub_80197FC4(void) { TObjSinBoard__texture_buffer = 0; }
+void clear_signboard_texture_buffer_pointer(void) { TObjSinBoard__texture_buffer = 0; }
 
 }

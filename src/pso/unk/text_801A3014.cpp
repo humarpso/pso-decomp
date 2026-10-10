@@ -252,7 +252,7 @@ void rebuild_area_keep_players__6TLobbyFv(void);
 s32 get_input__16TKeyBoardControlFv();
 M2C_UNK TKeyBoardControl__sub_8000F95C();
 s32 get_key_state__16TKeyBoardControlFv();
-M2C_UNK TKeyBoardControl__sub_8000F9A4();
+M2C_UNK clear_keyboard_key_state();
 M2C_UNK TKeyBoardControl__sub_8000F9CC(M2C_UNK);
 s32 is_split_screen(void);
 M2C_UNK TObjBoss2Tunnel__sub_8007D1D0();
@@ -278,7 +278,7 @@ void run_offline_game_frame(void);
 s32 get_input__16TKeyBoardControlFv();
 M2C_UNK TKeyBoardControl__sub_8000F95C();
 s32 get_key_state__16TKeyBoardControlFv();
-M2C_UNK TKeyBoardControl__sub_8000F9A4();
+M2C_UNK clear_keyboard_key_state();
 M2C_UNK TKeyBoardControl__sub_8000F9CC(M2C_UNK);
 s32 is_split_screen(void);
 M2C_UNK TLobby__sub_8006EF90();
@@ -325,7 +325,7 @@ void run_split_screen_frame(void);
 M2C_UNK update__16TKeyBoardControlFv();
 M2C_UNK TKeyBoardControl__sub_8000F90C(M2C_UNK);
 M2C_UNK TKeyBoardControl__sub_8000F91C(M2C_UNK);
-M2C_UNK TKeyBoardControl__sub_8000F9A4();
+M2C_UNK clear_keyboard_key_state();
 void *get_player_data__10TObjPlayerFi(s32);
 void cleanup_scene__9TLoadCtrlFv();
 M2C_UNK poll_default__9TLoadCtrlFv();
@@ -621,7 +621,7 @@ void run_offline_game_frame(void) {
     }
     if (get_key_state__16TKeyBoardControlFv() != 0) {
         run_offline_area_transfer();
-        TKeyBoardControl__sub_8000F9A4();
+        clear_keyboard_key_state();
     }
     if (get_input__16TKeyBoardControlFv() != 0) {
         reload_offline_area__6TLobbyFv();
@@ -659,7 +659,7 @@ void run_offline_transfer_frame(void) {
     }
     if (get_key_state__16TKeyBoardControlFv() != 0) {
         run_offline_area_transfer();
-        TKeyBoardControl__sub_8000F9A4();
+        clear_keyboard_key_state();
     }
     render_tick__Fv();
 }
@@ -738,7 +738,7 @@ void init_offline_game_scene(void) {
     set_copy_clear_color_argb(0, 0, 0);
     update__16TKeyBoardControlFv();
     reset_controller_input_state();
-    TKeyBoardControl__sub_8000F9A4();
+    clear_keyboard_key_state();
     clear_resource_load_tasks();
     create_map_csn_ctrl__6TLobbyFv();
     create_quad_sprites__13TParticleCtrlFv();

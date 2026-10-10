@@ -16,7 +16,7 @@ struct RecoveredGlobal_8022F068_lbl_804CC934 {
 extern "C" {
 u8 * TLobby__sub_8001FE7C(void *, s16);
 void safe_free__23TAdSinglePlyChrSelectGCFUi(u32);
-void TTecZondeEff__sub_8023DBA8(void);
+void clear_zonde_beam_vertex_pointer(void);
 s32 TLobby__sub_803DA16C(void *, M2C_UNK);
 extern RecoveredGlobal_8022F068_lbl_804CC934 technique_ringwave_texture_list;
 extern u8 *technique_effect_bml;
@@ -79,7 +79,7 @@ void *__ct__8TTecCtrlFv(void *arg0) {
 typedef char RecoveredGlobal_8022F068_lbl_804CC934_size[sizeof(RecoveredGlobal_8022F068_lbl_804CC934) == 0xC ? 1 : -1];
 void TLobby__sub_8022F068(void) {
     u8 *temp_r4;
-    TTecZondeEff__sub_8023DBA8();
+    clear_zonde_beam_vertex_pointer();
     if ((u32) M2C_FIELD(technique_ringwave_texture_list.value, u32 *, 8) != 0U) {
         TLobby__sub_803DA16C(&technique_ringwave_texture_list.value, (s32) technique_ringwave_texture_list.value);
     }

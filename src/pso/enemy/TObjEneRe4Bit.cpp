@@ -1670,7 +1670,7 @@ extern s32 lbl_8043D2C0[];
 extern s32 lbl_8043D2C8[];
 extern s32 TObjEneRe4Bit__model;
 extern s32 re4_bit_texture_list;
-extern Obj_800EDAB4 *lbl_805D52E0;
+extern Obj_800EDAB4 *sorcerer_bml_resource;
 }
 
 extern "C" {
@@ -1703,8 +1703,8 @@ void * create__13TObjEneRe4BitFPvPvPvPvPv(void *arg0, void *arg1, void *arg2, vo
 void TObjEneRe4Bit__sub_800EDAB0(void) {  }
 void TObjEneRe4Bit__sub_800EDAB4(void) {
     s32 i;
-    TObjEneRe4Bit__model = lbl_805D52E0->f42C->f18;
-    re4_bit_texture_list = lbl_805D52E0->f42C->fC;
+    TObjEneRe4Bit__model = sorcerer_bml_resource->f42C->f18;
+    re4_bit_texture_list = sorcerer_bml_resource->f42C->fC;
     for (i = 0; i < 2; i++) {
         TObjEneRe4Bit_boss_handles[i] = register_boss__6TLobbyFPv(lbl_8043D2B0[i]);
         lbl_80501058[i] = dispatch_shared_handler_b__6TLobbyFPv(lbl_8043D2B8[i]);

@@ -668,9 +668,9 @@ namespace pf2_p4 { extern "C" { extern s32 TLobby__quest_script_pc; } }
 extern int TLobby__quest_arg_stack_count;
 void load_op_arg_window__6TLobbyFi(s32 arg0);
 extern int TLobby__quest_arg_stack_count;
-void TLobby__sub_801E6FF0(u16 a0);
+void quest_vm_push_u16_argument(u16 a0);
 extern int TLobby__quest_arg_stack_count;
-void TLobby__sub_801E7014(u8 a0);
+void quest_vm_push_u8_argument(u8 a0);
 extern int TLobby__quest_arg_stack_count;
 void push_reg_ref_by_index__6TLobbyFUc(u8 a0);
 extern int TLobby__quest_arg_stack_count;
@@ -714,11 +714,11 @@ void push_reg_ref_by_index__6TLobbyFUc(u8 a0) {
     TLobby__quest_argument_stack[TLobby__quest_arg_stack_count++] = (int)(TLobby__script_reg_array + a0 * 4);
 }
 
-void TLobby__sub_801E6FF0(u16 a0) {
+void quest_vm_push_u16_argument(u16 a0) {
     TLobby__quest_argument_stack[TLobby__quest_arg_stack_count++] = a0;
 }
 
-void TLobby__sub_801E7014(u8 a0) {
+void quest_vm_push_u8_argument(u8 a0) {
     TLobby__quest_argument_stack[TLobby__quest_arg_stack_count++] = a0;
 }
 
@@ -2055,7 +2055,7 @@ M2C_UNK setControlOverride__12TBoss1DragonFs(int, void *);
 s32 get_game_mode__6TLobbyFv(void);
 s32 is_boss_phase_reached__6TLobbyFv();
 f32 * get_position_ptr__10TObjPlayerFPv();
-int set_active_player__10TObjPlayerFi(void*);
+int set_camera_capture_overlay_alpha(void*);
 int set_shake_preset__11TCameraCtrlFi(void*);
 M2C_UNK reset_cameras_to_actor(M2C_UNK, M2C_UNK);
 s32 is_quest_active();
@@ -2251,7 +2251,7 @@ void TLobby__sub_801E7CFC(void);
 void TLobby__sub_801E7D7C(u8 i);
 void set_handler_entry__6TLobbyFi(int a0);
 void TLobby__sub_801E7E50(s32 arg0);
-void TLobby__sub_801E7EB0(void);
+void quest_vm_get_language(void);
 void copy_item_data_to_quest_buffer__6TLobbyFv(void);
 void notify_player_battle__6TLobbyFv(void);
 int get_selected_slot__6TLobbyFPv(void* p);
@@ -2324,11 +2324,11 @@ void update_by_screen_mode__6TLobbyFv(void);
 void update_split_screen__6TLobbyFv(void);
 void TLobby__sub_801E9D94(s32 arg0);
 void TLobby__sub_801E9DEC(u8 out);
-void TLobby__sub_801E9EE4(void);
-void TLobby__sub_801E9EFC(void);
-void TLobby__sub_801E9F14(void);
-void TLobby__sub_801E9F2C(void);
-void TLobby__sub_801E9F50(void);
+void quest_vm_store_s32_indirect(void);
+void quest_vm_store_s16_indirect(void);
+void quest_vm_store_s8_indirect(void);
+void quest_vm_load_s32_indirect(void);
+void quest_vm_load_s16_indirect(void);
 void load_reg_from_signed_byte__6TLobbyFv(void);
 void set_unit_list_flag__6TLobbyFi(s32 arg0);
 void set_unit_name_flag__6TLobbyFi(s32 arg0);
@@ -2351,8 +2351,8 @@ void draw_or_send__6TLobbyFv(void);
 void TLobby__sub_801EA84C(s32 arg0);
 void TLobby__sub_801EA8E8(void);
 void roll_random_in_range__6TLobbyFii(s32 arg0, s32 arg1);
-void TLobby__sub_801EA9F4(s32 arg0, s32 arg1);
-void TLobby__sub_801EAA14(s32 arg0, s32 arg1);
+void quest_vm_shift_right_arithmetic_register(s32 arg0, s32 arg1);
+void quest_vm_shift_left_register(s32 arg0, s32 arg1);
 void copy_script_register_from_buffer__6TLobbyFUcUc(u8 a0, u8 a1);
 void load_chr_select_word__6TLobbyFUcUc(u8 a0, u8 a1);
 void broadcast_entry__6TLobbyFi(s32 arg0);
@@ -2473,8 +2473,8 @@ void store_status__6TLobbyFi(int a0);
 void qst_op_get_difficulty_level2__6TLobbyFi(s32 arg0);
 void create_quest_bgm_ctrl__6TLobbyFv(void);
 void send_switch_changed_from_args__6TLobbyFi(s32 arg0);
-void TLobby__sub_801EDFE0(u8 reg);
-void TLobby__sub_801EDFF4(u8 reg);
+void quest_vm_get_designated_client_id(u8 reg);
+void quest_vm_get_local_client_id(u8 reg);
 int forward_801F36E4__6TLobbyFPv(void* p);
 int qst_op_warp_on(void* p);
 void send_packet_67_04__6TLobbyFv(void);
@@ -2615,7 +2615,7 @@ void qst_op_jmp_eq(s32 arg0, s32 arg1, s32 arg2);
 void qst_op_jmp_off(s32 arg0, u8 arg1, u8 *arg2);
 void qst_op_jmp_on(s32 arg0, u8 arg1, u8 *arg2);
 void qst_op_call(u16 arg0);
-void TLobby__sub_801F2214(s32 arg0, u32 arg1);
+void quest_vm_modulo_unsigned_immediate(s32 arg0, u32 arg1);
 void op_mod_reg__6TLobbyFii(s32 arg0, s32 arg1);
 void qst_op_jmp(int a0);
 void qst_op_xori(s32 arg0, s32 arg1);
@@ -2707,7 +2707,7 @@ M2C_UNK free_map_data__13TRaderMapCoreFv();
 s32 find_entry__23TAdSinglePlyChrSelectGCFii(s32, ItemData_801E7810 *);
 s32 get_card_window__17TWindowSubComCardFUi(u32);
 s32 get_floor_map_terrain(int);
-M2C_UNK TAdStorySelectGC__sub_80207D44(int);
+M2C_UNK request_story_select_state(int);
 s32 set_state__16TAdStorySelectGCFi(s32);
 void TLobby__sub_80207F30(Spawn_801EA508 *);
 M2C_UNK clear_floor_event_flags();
@@ -2905,7 +2905,7 @@ extern E_801E93B4 controller_input_state[];
 extern s16 battle_event_second_table[];
 extern RecoveredGlobal_801EB73C_lbl_80512340 quest_player_name_buffer;
 extern RecoveredGlobal_801EB6B8_lbl_80512350 quest_player_class_name_buffer;
-extern RecoveredGlobal_801EE5A4_lbl_805129F8 lbl_805129F8;
+extern RecoveredGlobal_801EE5A4_lbl_805129F8 quest_board_handlers;
 extern u8 lbl_80515BA0[];
 extern f32 lbl_805D3538;
 extern f32 lbl_805D353C;
@@ -3005,10 +3005,10 @@ void dispatch_story_select_by_op__6TLobbyFi(s32 arg0) {
     temp_r0 = M2C_FIELD((*(s32 *)&TLobby__script_reg_array), M2C_UNK *, ((arg0 * 4) & 0x3FC));
     switch (temp_r0) {
     case 0:
-        TAdStorySelectGC__sub_80207D44((int) (0));
+        request_story_select_state((int) (0));
         return;
     case 1:
-        TAdStorySelectGC__sub_80207D44((int) (1));
+        request_story_select_state((int) (1));
         return;
     }
 }
@@ -3284,7 +3284,7 @@ void TLobby__sub_801E7E50(s32 arg0) {
     M2C_FIELD((*(s32 *)&TLobby__script_reg_array), M2C_UNK *, ((arg0 * 4) & 0x3FC)) = -1;
 }
 
-void TLobby__sub_801E7EB0(void) {
+void quest_vm_get_language(void) {
     M2C_FIELD(((*(s32 *)&TLobby__script_reg_array) + ((*(RecoveredGlobal_801E7EB0_TLobby__data_80512220 *)&TLobby__quest_argument_stack).value * 4)), s32 *, 0) = current_language;
 }
 
@@ -3974,7 +3974,7 @@ int TLobby__sub_801E95B0(void* p) { return TLobby__sub_801F3568(p); }
 #pragma inline_depth(1)
 #pragma auto_inline off
 #pragma dont_inline off
-int find_player_143__6TLobbyFv(void) { return set_active_player__10TObjPlayerFi((void*)(143)); }
+int find_player_143__6TLobbyFv(void) { return set_camera_capture_overlay_alpha((void*)(143)); }
 #pragma pop
 
 #pragma push
@@ -4369,7 +4369,7 @@ void TLobby__sub_801E9DEC(u8 out) {
 #pragma inline_depth(1)
 #pragma auto_inline off
 #pragma dont_inline off
-void TLobby__sub_801E9EE4(void) {
+void quest_vm_store_s32_indirect(void) {
     *M2C_FIELD(&(*(RecoveredGlobal_801E9EE4_TLobby__data_80512220 *)&TLobby__quest_argument_stack).value, s32 **, 0) = M2C_FIELD(&(*(RecoveredGlobal_801E9EE4_TLobby__data_80512220 *)&TLobby__quest_argument_stack).value, s32 *, 4);
 }
 #pragma pop
@@ -4378,7 +4378,7 @@ void TLobby__sub_801E9EE4(void) {
 #pragma inline_depth(1)
 #pragma auto_inline off
 #pragma dont_inline off
-void TLobby__sub_801E9EFC(void) {
+void quest_vm_store_s16_indirect(void) {
     *M2C_FIELD(&(*(RecoveredGlobal_801E9EFC_TLobby__data_80512220 *)&TLobby__quest_argument_stack).value, s16 **, 0) = (s16) M2C_FIELD(&(*(RecoveredGlobal_801E9EFC_TLobby__data_80512220 *)&TLobby__quest_argument_stack).value, s32 *, 4);
 }
 #pragma pop
@@ -4387,7 +4387,7 @@ void TLobby__sub_801E9EFC(void) {
 #pragma inline_depth(1)
 #pragma auto_inline off
 #pragma dont_inline off
-void TLobby__sub_801E9F14(void) {
+void quest_vm_store_s8_indirect(void) {
     *M2C_FIELD(&(*(RecoveredGlobal_801E9F14_TLobby__data_80512220 *)&TLobby__quest_argument_stack).value, s8 **, 0) = (s8) M2C_FIELD(&(*(RecoveredGlobal_801E9F14_TLobby__data_80512220 *)&TLobby__quest_argument_stack).value, s32 *, 4);
 }
 #pragma pop
@@ -4396,7 +4396,7 @@ void TLobby__sub_801E9F14(void) {
 #pragma inline_depth(1)
 #pragma auto_inline off
 #pragma dont_inline off
-void TLobby__sub_801E9F2C(void) {
+void quest_vm_load_s32_indirect(void) {
     M2C_FIELD(((*(s32 *)&TLobby__script_reg_array) + ((M2C_FIELD(&(*(RecoveredGlobal_801E9F2C_TLobby__data_80512220 *)&TLobby__quest_argument_stack).value, s32 *, 0) * 4) & 0x3FC)), s32 *, 0) = M2C_FIELD(M2C_FIELD(&(*(RecoveredGlobal_801E9F2C_TLobby__data_80512220 *)&TLobby__quest_argument_stack).value, s32 **, 4), s32 *, 0);
 }
 #pragma pop
@@ -4405,7 +4405,7 @@ void TLobby__sub_801E9F2C(void) {
 #pragma inline_depth(1)
 #pragma auto_inline off
 #pragma dont_inline off
-void TLobby__sub_801E9F50(void) {
+void quest_vm_load_s16_indirect(void) {
     M2C_FIELD(((*(s32 *)&TLobby__script_reg_array) + ((M2C_FIELD(&(*(RecoveredGlobal_801E9F50_TLobby__data_80512220 *)&TLobby__quest_argument_stack).value, s32 *, 0) * 4) & 0x3FC)), s32 *, 0) = (s32) M2C_FIELD(M2C_FIELD(&(*(RecoveredGlobal_801E9F50_TLobby__data_80512220 *)&TLobby__quest_argument_stack).value, s16 **, 4), s16 *, 0);
 }
 #pragma pop
@@ -4947,7 +4947,7 @@ void roll_random_in_range__6TLobbyFii(s32 arg0, s32 arg1) {
 #pragma inline_depth(1)
 #pragma auto_inline off
 #pragma dont_inline off
-void TLobby__sub_801EA9F4(s32 arg0, s32 arg1) {
+void quest_vm_shift_right_arithmetic_register(s32 arg0, s32 arg1) {
     s32 temp_r5;
     temp_r5 = (arg0 * 4) & 0x3FC;
     M2C_FIELD((*(s32 *)&TLobby__script_reg_array), M2C_UNK *, temp_r5) = (s32) M2C_FIELD((*(s32 *)&TLobby__script_reg_array), M2C_UNK *, temp_r5) >> M2C_FIELD((*(s32 *)&TLobby__script_reg_array), M2C_UNK *, ((arg1 * 4) & 0x3FC));
@@ -4967,7 +4967,7 @@ void TLobby__sub_801EA9F4(s32 arg0, s32 arg1) {
 #pragma inline_depth(1)
 #pragma auto_inline off
 #pragma dont_inline off
-void TLobby__sub_801EAA14(s32 arg0, s32 arg1) {
+void quest_vm_shift_left_register(s32 arg0, s32 arg1) {
     s32 temp_r5;
     temp_r5 = (arg0 * 4) & 0x3FC;
     M2C_FIELD((*(s32 *)&TLobby__script_reg_array), M2C_UNK *, temp_r5) = M2C_FIELD((*(s32 *)&TLobby__script_reg_array), M2C_UNK *, temp_r5) << M2C_FIELD((*(s32 *)&TLobby__script_reg_array), M2C_UNK *, ((arg1 * 4) & 0x3FC));
@@ -7746,11 +7746,11 @@ void send_switch_changed_from_args__6TLobbyFi(s32 arg0) {
     finalize_and_send_60__6TLobbyFPv(&pkt);
 }
 
-void TLobby__sub_801EDFE0(u8 reg) {
+void quest_vm_get_designated_client_id(u8 reg) {
     (*(s32 * *)&TLobby__script_reg_array)[reg] = TLobby__designated_client_id;
 }
 
-void TLobby__sub_801EDFF4(u8 reg) {
+void quest_vm_get_local_client_id(u8 reg) {
     (*(s32 * *)&TLobby__script_reg_array)[reg] = local_client_id;
 }
 
@@ -7905,7 +7905,7 @@ void TLobby__sub_801EE54C(void) {
 
 void qst_op_clear_quest_board_handler(void) {
     if ((u32) (*(RecoveredGlobal_801EE5A4_TLobby__data_80512220 *)&TLobby__quest_argument_stack).value <= 5U) {
-        memset((void *) ((u8 *)&lbl_805129F8.value + ((*(RecoveredGlobal_801EE5A4_TLobby__data_80512220 *)&TLobby__quest_argument_stack).value * 0x24)), (int) (0), (int) (0x24));
+        memset((void *) ((u8 *)&quest_board_handlers.value + ((*(RecoveredGlobal_801EE5A4_TLobby__data_80512220 *)&TLobby__quest_argument_stack).value * 0x24)), (int) (0), (int) (0x24));
     }
 }
 
@@ -7914,7 +7914,7 @@ void qst_op_set_quest_board_handler(void) {
     s32 v = ((s32 *)&TLobby__quest_argument_stack)[1];
     s32 n = ((s32 *)&TLobby__quest_argument_stack)[2];
     if (i <= 5) {
-        Ent_801EE5EC* e = &((Ent_801EE5EC *)&lbl_805129F8)[i];
+        Ent_801EE5EC* e = &((Ent_801EE5EC *)&quest_board_handlers)[i];
         e->v = v;
         ((void* (*)(void*, s32, s32))strncpy)(e, n, 0x20);
     }
@@ -9253,7 +9253,7 @@ void qst_op_call(u16 arg0) {
 }
 #pragma pop
 
-void TLobby__sub_801F2214(s32 arg0, u32 arg1) {
+void quest_vm_modulo_unsigned_immediate(s32 arg0, u32 arg1) {
     s32 temp_r5;
     temp_r5 = (arg0 * 4) & 0x3FC;
     M2C_FIELD((*(s32 *)&TLobby__script_reg_array), M2C_UNK *, temp_r5) = M2C_FIELD((*(s32 *)&TLobby__script_reg_array), M2C_UNK *, temp_r5) % arg1;
@@ -9412,13 +9412,13 @@ void qst_op_set(s32 arg0);
 namespace pf2_p6 { extern "C" { extern s32 TLobby__data_805D5E74; } }
 #define TLobby__data_805D5E74 pf2_p6::TLobby__data_805D5E74
 void TLobby__sub_801F2570(s32 arg0, s32 arg1);
-void TLobby__sub_801F258C(s32 arg0, s32 arg1);
+void quest_vm_get_register_address(s32 arg0, s32 arg1);
 void qst_op_let(s32 arg0, s32 arg1);
 }
 
 extern "C" {
 
-void TLobby__sub_801F25A4(int a0, int a1);
+void quest_vm_assign_u16_immediate(int a0, int a1);
 void qst_op_exit(void);
 void qst_op_grev(s32 arg0);
 void qst_op_leta_letb(int a0, int a1);
@@ -9473,11 +9473,11 @@ void TLobby__sub_801F2570(s32 arg0, s32 arg1) {
     M2C_FIELD((*(s32 *)&TLobby__script_reg_array), M2C_UNK *, ((arg0 * 4) & 0x3FC)) = TLobby__data_805D5E74 + ((arg1 * 4) & 0x3FFFC);
 }
 
-void TLobby__sub_801F258C(s32 arg0, s32 arg1) {
+void quest_vm_get_register_address(s32 arg0, s32 arg1) {
     M2C_FIELD((*(s32 *)&TLobby__script_reg_array), M2C_UNK *, ((arg0 * 4) & 0x3FC)) = (*(s32 *)&TLobby__script_reg_array) + ((arg1 * 4) & 0x3FC);
 }
 
-void TLobby__sub_801F25A4(int a0, int a1) { TLobby__script_reg_array[(unsigned char)(a0)] = (a1 & 0xffff); }
+void quest_vm_assign_u16_immediate(int a0, int a1) { TLobby__script_reg_array[(unsigned char)(a0)] = (a1 & 0xffff); }
 
     extern int* TLobby__script_reg_array;
 void qst_op_leta_letb(int a0, int a1) { TLobby__script_reg_array[(unsigned char)(a0)] = (a1 & 0xff); }

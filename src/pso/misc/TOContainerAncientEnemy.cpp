@@ -274,7 +274,7 @@ void *__nw__7TObjectFUl(int);
 extern Spawn_8015B94C lbl_80440798;
 extern Spawn_8015B94C lbl_804407E4;
 extern s32 lbl_805D2F10;
-extern Ref_8015B94C *lbl_805D58EC;
+extern Ref_8015B94C *ancient_container_fragment_texture_lists;
 }
 
 extern "C" {
@@ -302,7 +302,7 @@ void check_and_destroy__23TOContainerAncientEnemyFPvPvi(void *arg0, s16 *arg1, s
 extern M2C_UNK __vt__23TOContainerAncientEnemy[];
 
 void spawn_break_debris__23TOContainerAncientEnemyFPv(Obj_8015B94C *self) {
-    extern const u32 lbl_805D58E8;
+    extern const u32 ancient_container_resource_bundle;
     void *o;
     if (self->f326 != 1) {
         Spawn_8015B94C a = lbl_80440798;
@@ -310,18 +310,18 @@ void spawn_break_debris__23TOContainerAncientEnemyFPv(Obj_8015B94C *self) {
         a.y = self->y;
         a.z = self->z;
         a.f38 = self->y;
-        a.f40 = get_bml_model((void *)lbl_805D58E8, 1);
-        a.f44 = TObjFish__sub_8001EDB0((void *)lbl_805D58E8, 1);
+        a.f40 = get_bml_model((void *)ancient_container_resource_bundle, 1);
+        a.f44 = TObjFish__sub_8001EDB0((void *)ancient_container_resource_bundle, 1);
         Spawn_8015B94C b = lbl_804407E4;
         b.x = self->x;
         b.y = self->y;
         b.z = self->z;
         b.f38 = self->y;
-        b.f40 = get_bml_model((void *)lbl_805D58E8, 2);
-        b.f44 = TObjFish__sub_8001EDB0((void *)lbl_805D58E8, 2);
+        b.f40 = get_bml_model((void *)ancient_container_resource_bundle, 2);
+        b.f44 = TObjFish__sub_8001EDB0((void *)ancient_container_resource_bundle, 2);
         if (check_value_equals__13TQuestColCtrlFPvi(self, lbl_805D2F10) != 0) {
-            a.f44 = lbl_805D58EC->a;
-            b.f44 = lbl_805D58EC->b;
+            a.f44 = ancient_container_fragment_texture_lists->a;
+            b.f44 = ancient_container_fragment_texture_lists->b;
         }
         spawn_particle_effect(&self->x, 0x45);
         spawn_particle_effect(&self->x, 0x46);
@@ -364,11 +364,11 @@ void draw_debug_event_no__23TOContainerAncientEnemyFPv(Obj_80188814 *self) {
 }
 
 void draw_model__23TOContainerAncientEnemyFPv(u8 *arg0) {
-    extern u32 lbl_805D58E8;
+    extern u32 ancient_container_resource_bundle;
     u8 *temp_r31;
     u8 *temp_r31_2;
     u8 *temp_r31_3;
-    if ((u32) lbl_805D58E8 != 0U) {
+    if ((u32) ancient_container_resource_bundle != 0U) {
         switch (M2C_FIELD(arg0, s16 *, 0x326)) {
         case 0:
             push_matrix();
@@ -423,7 +423,7 @@ void *__dt__23TOContainerAncientEnemyFv(void *arg0, s16 arg1) {
 typedef char RecoveredGlobal_8015BD68_lbl_804B00C8_size[sizeof(RecoveredGlobal_8015BD68_lbl_804B00C8) == 0x2C ? 1 : -1];
 typedef char RecoveredGlobal_8015BD68___vt__23TOContainerAncientEnemy_size[sizeof(RecoveredGlobal_8015BD68___vt__23TOContainerAncientEnemy) == 0x14C ? 1 : -1];
 u8 *TOContainerAncientEnemy__ct(u8 *arg0, s32 arg1) {
-    extern u32 lbl_805D58E8;
+    extern u32 ancient_container_resource_bundle;
     init_container_base((void *) (arg0), (int) (tl_05), (void *) (arg1));
     M2C_FIELD(arg0, M2C_UNK **, 0x18) = &(*(RecoveredGlobal_8015BD68___vt__23TOContainerAncientEnemy *)&__vt__23TOContainerAncientEnemy).value;
     M2C_FIELD(arg0, s32 *, 0) = (s32) lbl_805D2F08;
@@ -434,8 +434,8 @@ u8 *TOContainerAncientEnemy__ct(u8 *arg0, s32 arg1) {
     VecCopy__FP3VecPC3Vec((void *) (arg0 + 0x74), (void *) (arg0 + 0x38));
     VecCopy__FP3VecPC3Vec((void *) (arg0 + 0x2FC), (void *) (arg0 + 0x38));
     M2C_FIELD(arg0, f32 *, 0x78) = (f32) (M2C_FIELD(arg0, f32 *, 0x78) + M2C_FIELD(&lbl_804B00C8.value, f32 *, 4));
-    M2C_FIELD(arg0, s32 *, 0x34) = get_bml_model((void *) ((*(s32 *)&lbl_805D58E8)), (int) (0));
-    M2C_FIELD(arg0, s32 *, 0x24) = TObjFish__sub_8001EDB0((void *) ((*(s32 *)&lbl_805D58E8)), (int) (0));
+    M2C_FIELD(arg0, s32 *, 0x34) = get_bml_model((void *) ((*(s32 *)&ancient_container_resource_bundle)), (int) (0));
+    M2C_FIELD(arg0, s32 *, 0x24) = TObjFish__sub_8001EDB0((void *) ((*(s32 *)&ancient_container_resource_bundle)), (int) (0));
     return arg0;
 }
 

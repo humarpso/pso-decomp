@@ -133,7 +133,7 @@ struct Ctx_8001F128 {
 };
 
 extern "C" {
-M2C_UNK TItemDrop__sub_800FE2DC();
+M2C_UNK reset_gstream_globals();
 s32 alloc__22TQuestVmDownLoadServerFPv(M2C_UNK);
 s32 xmalloc__FUl(M2C_UNK);
 extern s8 TLobby__tmp_buf_name[];
@@ -217,7 +217,7 @@ void open__8TGStreamFPvPvi(void *, s32, s32);
 s32 get_instance__8TGStreamFv(void *);
 void read_data__8TGStreamFPvii(void *, void *, s32);
 void TGStream__ct(void *, s32);
-void TLobby__sub_800FDFEC(void *, s32);
+void align_gstream_read_offset(void *, s32);
 void prs_decompress_buffer(s32, void *);
 void add_named_entry__6TLobbyFii(void *, s32);
 void debug_printf_nop(void *, ...);
@@ -225,7 +225,7 @@ void *alloc_buffer__11TOBoss4RockFPv(s32);
 char *strncpy(char *dest, const char *src, unsigned long num);
 extern u8 *resource_decompress_buffer;
 extern u8 bml_load_state;
-extern s32 lbl_805D5338;
+extern s32 disc_read_filename;
 extern s32 lbl_805D2B10;
 extern M2C_UNK lbl_80434B70[];
 extern M2C_UNK lbl_80434DB8[];
@@ -563,7 +563,7 @@ void free_chr_select_data__6TLobbyFv(void) {
 void init_download_buffers__6TLobbyFv(void) {
     (*(s32 *)&bml_load_buffer) = xmalloc__FUl(0x4000);
     lobby_download_buffer = alloc__22TQuestVmDownLoadServerFPv(0x40000);
-    TItemDrop__sub_800FE2DC();
+    reset_gstream_globals();
     tmp_buf_in_use_flag = 1;
     TLobby__tmp_buf_name[0] = 0;
 }
@@ -848,10 +848,10 @@ Lobby_80020004 *load_resource_from_descriptor(Lobby_80020004 *self, s32 kind, De
             case 1:
                 buf = alloc__22TQuestVmDownLoadServerFPv(size + 0x800);
                 if (buf != 0) {
-                    lbl_805D5338 = desc->name;
+                    disc_read_filename = desc->name;
                     read_data__8TGStreamFPvii(&st, (void *)buf, size);
-                    TLobby__sub_800FDFEC(&st, blk);
-                    lbl_805D5338 = lbl_805D2B10;
+                    align_gstream_read_offset(&st, blk);
+                    disc_read_filename = lbl_805D2B10;
                     prs_decompress_buffer(buf, resource_decompress_buffer);
                     safe_free__23TAdSinglePlyChrSelectGCFUi(buf);
                     bind_bml_model((Lobby_8001FBEC *)(self), (u32)(size), (s32)(i), (s32)((s32)resource_decompress_buffer));
@@ -861,8 +861,8 @@ Lobby_80020004 *load_resource_from_descriptor(Lobby_80020004 *self, s32 kind, De
                 break;
             default:
                 read_data__8TGStreamFPvii(&st, resource_decompress_buffer, size);
-                TLobby__sub_800FDFEC(&st, blk);
-                lbl_805D5338 = lbl_805D2B10;
+                align_gstream_read_offset(&st, blk);
+                disc_read_filename = lbl_805D2B10;
                 bind_bml_model((Lobby_8001FBEC *)(self), (u32)(size), (s32)(i), (s32)((s32)resource_decompress_buffer));
                 break;
             }
@@ -873,7 +873,7 @@ Lobby_80020004 *load_resource_from_descriptor(Lobby_80020004 *self, s32 kind, De
                     if (tsize != 0) {
                         s32 tbuf = alloc__22TQuestVmDownLoadServerFPv(tsize + 0x800);
                         read_data__8TGStreamFPvii(&st, (void *)tbuf, tsize);
-                        TLobby__sub_800FDFEC(&st, blk);
+                        align_gstream_read_offset(&st, blk);
                         prs_decompress_buffer(tbuf, resource_decompress_buffer);
                         safe_free__23TAdSinglePlyChrSelectGCFUi(tbuf);
                         if (load_gvm_texture_archive((s32)resource_decompress_buffer, (s32)self->ents16[i].b) > 0) {
@@ -900,7 +900,7 @@ Lobby_80020004 *load_resource_from_descriptor(Lobby_80020004 *self, s32 kind, De
             case 1: {
                 s32 mb = alloc__22TQuestVmDownLoadServerFPv(sz + 0x800);
                 read_data__8TGStreamFPvii(&st, (void *)mb, sz);
-                TLobby__sub_800FDFEC(&st, blk);
+                align_gstream_read_offset(&st, blk);
                 prs_decompress_buffer(mb, resource_decompress_buffer);
                 safe_free__23TAdSinglePlyChrSelectGCFUi(mb);
                 bind_bml_motion((struct Lobby_8001FB6C *)self, j, resource_decompress_buffer);
@@ -908,7 +908,7 @@ Lobby_80020004 *load_resource_from_descriptor(Lobby_80020004 *self, s32 kind, De
             }
             default:
                 read_data__8TGStreamFPvii(&st, resource_decompress_buffer, sz);
-                TLobby__sub_800FDFEC(&st, blk);
+                align_gstream_read_offset(&st, blk);
                 bind_bml_motion((struct Lobby_8001FB6C *)self, j, resource_decompress_buffer);
                 break;
             }

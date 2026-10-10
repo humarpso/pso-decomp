@@ -20,7 +20,7 @@ s32 TOContainerAncientEnemyCommon__create(s32 arg0);
 u8 * TOContainerAncientEnemy__ct(void *, s32);
 extern M2C_UNK __vt__27TOContainerAncientEnemyRare[];
 extern s32 lbl_805D2F10;
-extern s32 *lbl_805D58EC;
+extern s32 *ancient_container_fragment_texture_lists;
 u8 *TOContainerAncientEnemyRare__ct(u8 *arg0, s32 arg1);
 }
 
@@ -51,7 +51,7 @@ u8 *TOContainerAncientEnemyRare__ct(u8 *arg0, s32 arg1) {
     TOContainerAncientEnemy__ct(arg0, arg1);
     M2C_FIELD(arg0, M2C_UNK **, 0x18) = &(*(RecoveredGlobal_8015B76C___vt__27TOContainerAncientEnemyRare *)&__vt__27TOContainerAncientEnemyRare).value;
     M2C_FIELD(arg0, s32 *, 0) = (s32) lbl_805D2F10;
-    M2C_FIELD(arg0, s32 *, 0x24) = (s32) *lbl_805D58EC;
+    M2C_FIELD(arg0, s32 *, 0x24) = (s32) *ancient_container_fragment_texture_lists;
     return arg0;
 }
 

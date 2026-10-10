@@ -93,7 +93,7 @@ M2C_UNK activate_warp__14TBoss6PlotFalzFPv(s32);
 M2C_UNK free_child__14TBoss6PlotFalzFPv(s32);
 void update_camera_target__14TBoss6PlotFalzFv();
 void TBoss6PlotFalz__sub_802AC008(f32, f32);
-s32 TBoss6PlotFalz__sub_802AC17C();
+s32 is_normal_difficulty();
 void enter_flag800_state__11TBoss6Type1FPv(void *arg0);
 void update_attack_countdown__11TBoss6Type1FPv(void *arg0);
 void init_charge_attack__11TBoss6Type1FPv(u8 *arg0);
@@ -302,7 +302,7 @@ void update_countdown__11TBoss6Type1FPv(void *arg0) {
 
 void update_state__11TBoss6Type1FPv(void *arg0) {
     if ((s32) M2C_FIELD(arg0, s32 *, 0x410) == 0) {
-        if (TBoss6PlotFalz__sub_802AC17C() != 0) {
+        if (is_normal_difficulty() != 0) {
             TBoss6Type1__sub_802B8E1C((void*)(arg0));
             return;
         }
@@ -539,13 +539,13 @@ void update_phase__11TBoss6Type1FPv(void *arg0) {
     interpolate_pos_to_target__11TBoss6Type1FPvii(arg0, M2C_FIELD(arg0, s32 *, 0x410), M2C_FIELD(arg0, s32 *, 0x40C));
     temp_r0 = M2C_FIELD(arg0, s32 *, 0x410) - 1;
     M2C_FIELD(arg0, s32 *, 0x410) = temp_r0;
-    if ((temp_r0 < 0) && (TBoss6PlotFalz__sub_802AC17C() == 0)) {
+    if ((temp_r0 < 0) && (is_normal_difficulty() == 0)) {
         set_action_state__11TBoss6Type1FPvi((void *)(arg0), (int)(0x1D));
     }
 }
 
 void trigger_falz_phase__11TBoss6Type1FPv(void *arg0) {
-    if (((s32) M2C_FIELD(arg0, s32 *, 0x410) == 0) && (TBoss6PlotFalz__sub_802AC17C() != 0)) {
+    if (((s32) M2C_FIELD(arg0, s32 *, 0x410) == 0) && (is_normal_difficulty() != 0)) {
         TBoss6Type1__sub_802B8E1C((void*)(arg0));
     }
 }

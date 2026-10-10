@@ -272,8 +272,8 @@ M2C_UNK rotate_matrix_y(M2C_UNK, s32);
 M2C_UNK push_matrix();
 M2C_UNK pop_matrix();
 M2C_UNK post_translate_matrix(void *);
-extern u32 lbl_805D50BC;
-extern u32 lbl_805D50C0;
+extern u32 TObjEneShark__attack_motion_3_trail;
+extern u32 shark_attack4_trail_buffer;
 extern const f32 lbl_805D9BAC;
 void TObjPlayer__sub_800ABB38(Obj_800ABB38 *o);
 void queue_destruction__7TObjectFv(void *);
@@ -456,11 +456,11 @@ void TObjPlayer__sub_800ABB38(Obj_800ABB38 *o) {
     }
     switch (o->fB8) {
     case 3:
-        e = lookup_entry_by_value__10TObjPlayerFPvf((void *)lbl_805D50BC, o->fC0);
+        e = lookup_entry_by_value__10TObjPlayerFPvf((void *)TObjEneShark__attack_motion_3_trail, o->fC0);
         idx = 0;
         break;
     case 4:
-        e = lookup_entry_by_value__10TObjPlayerFPvf((void *)lbl_805D50C0, o->fC0);
+        e = lookup_entry_by_value__10TObjPlayerFPvf((void *)shark_attack4_trail_buffer, o->fC0);
         idx = 1;
         break;
     default:
@@ -758,7 +758,7 @@ struct Res_800AC318 { u8 pad[0x42C]; Bodies_800AC318 *bodies; Pair_800AC318 *mot
 struct Act_800AC318 { s32 a; s32 idx; f32 c; s32 d; };
 
 extern "C" {
-extern u32 lbl_805D50B8;
+extern u32 shark_bml_resource;
 void TObjPlayer__sub_800AC9DC(O_800AC9DC *self, s32 i);
 extern s32 game_difficulty_selection;
 s32 calc_technique_level__11TObjEneMojaFPv(Obj_800ACA10 *self);
@@ -788,9 +788,9 @@ extern u32 TObjEneShark__resource_node;
 extern u32 TObjEneShark__resource_buf;
 extern u32 shark_resource_data;
 extern u32 shark_resource_buffer;
-extern u32 lbl_805D50B8;
-extern u32 lbl_805D50BC;
-extern u32 lbl_805D50C0;
+extern u32 shark_bml_resource;
+extern u32 TObjEneShark__attack_motion_3_trail;
+extern u32 shark_attack4_trail_buffer;
 extern s32 lbl_805D50C4;
 extern const f32 lbl_805D9BA0;
 extern const f32 lbl_805D9BAC;
@@ -1019,9 +1019,9 @@ extern u32 TObjEneShark__resource_node;
 extern u32 TObjEneShark__resource_buf;
 extern u32 shark_resource_data;
 extern u32 shark_resource_buffer;
-extern u32 lbl_805D50B8;
-extern u32 lbl_805D50BC;
-extern u32 lbl_805D50C0;
+extern u32 shark_bml_resource;
+extern u32 TObjEneShark__attack_motion_3_trail;
+extern u32 shark_attack4_trail_buffer;
 
 void free_resources__12TObjEneSharkFv(void) {
     if ((u32) TObjEneShark__resource_node != 0U) {
@@ -1040,17 +1040,17 @@ void free_resources__12TObjEneSharkFv(void) {
         free__11TOBoss4RockFUi((void*)shark_resource_buffer);
         shark_resource_buffer = 0U;
     }
-    if ((u32) lbl_805D50C0 != 0U) {
-        __dt__11TBoss4Type3FPvs((void*)lbl_805D50C0, 1);
-        lbl_805D50C0 = 0U;
+    if ((u32) shark_attack4_trail_buffer != 0U) {
+        __dt__11TBoss4Type3FPvs((void*)shark_attack4_trail_buffer, 1);
+        shark_attack4_trail_buffer = 0U;
     }
-    if ((u32) lbl_805D50BC != 0U) {
-        __dt__11TBoss4Type3FPvs((void*)lbl_805D50BC, 1);
-        lbl_805D50BC = 0U;
+    if ((u32) TObjEneShark__attack_motion_3_trail != 0U) {
+        __dt__11TBoss4Type3FPvs((void*)TObjEneShark__attack_motion_3_trail, 1);
+        TObjEneShark__attack_motion_3_trail = 0U;
     }
-    if ((u32) lbl_805D50B8 != 0U) {
-        TLobby__sub_8001FE7C((void*)lbl_805D50B8, 1);
-        lbl_805D50B8 = 0U;
+    if ((u32) shark_bml_resource != 0U) {
+        TLobby__sub_8001FE7C((void*)shark_bml_resource, 1);
+        shark_bml_resource = 0U;
     }
 }
 
@@ -1058,9 +1058,9 @@ void free_resources__12TObjEneSharkFv(void) {
 #define G_AC (*(s32 **)&TObjEneShark__resource_buf)
 #define G_B0 (*(s32 **)&shark_resource_data)
 #define G_B4 (*(s32 **)&shark_resource_buffer)
-#define G_B8 (*(u8 **)&lbl_805D50B8)
-#define G_BC (*(void **)&lbl_805D50BC)
-#define G_C0 (*(void **)&lbl_805D50C0)
+#define G_B8 (*(u8 **)&shark_bml_resource)
+#define G_BC (*(void **)&TObjEneShark__attack_motion_3_trail)
+#define G_C0 (*(void **)&shark_attack4_trail_buffer)
 #define RES ((Res_800AC318 *)G_B8)
 void load_shark_resources__6TLobbyFv(void) {
     void *p;
@@ -1256,7 +1256,7 @@ void *TObjEneShark__ct(void *arg0, void *arg1, void *arg2) {
     TObjPlayer__sub_800AC9DC((O_800AC9DC *)self, self->f368);
     self->fD8 = TObjEneShark__action_table;
     set_field_d8__10TObjPlayerFPvi(self, self->fD8);
-    self->fDC = *(s32 *)(lbl_805D50B8 + 0x430);
+    self->fDC = *(s32 *)(shark_bml_resource + 0x430);
     self->fB8 = 0;
     set_animation__10TObjPlayerFPvs(self, self->fB8);
     set_field_b8__14TObjEnePanarmsFPvs(self, self->fB8);
@@ -1327,8 +1327,8 @@ extern "C" {
 void TObjPlayer__sub_800AC9D8(void) {  }
 
 void TObjPlayer__sub_800AC9DC(O_800AC9DC *self, s32 i) {
-    self->x34 = (*(G_800AC9DC * *)&lbl_805D50B8)->tbl[i].x8;
-    self->x24 = (*(G_800AC9DC * *)&lbl_805D50B8)->tbl[i].xc;
+    self->x34 = (*(G_800AC9DC * *)&shark_bml_resource)->tbl[i].x8;
+    self->x24 = (*(G_800AC9DC * *)&shark_bml_resource)->tbl[i].xc;
 }
 
 void TObjPlayer__sub_800ACA0C(void) {  }

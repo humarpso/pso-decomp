@@ -24,7 +24,7 @@ struct Copy_800829E0 {
 };
 
 extern "C" {
-extern E_80082AA8 *lbl_8048E5A0[];
+extern E_80082AA8 *shared_effect_texture_list[];
 extern s32 lbl_80500620[];
 extern void *lbl_805D4ED8;
 extern char lbl_80438EF8[];
@@ -69,7 +69,7 @@ void load_critical_effect_resources(void) {
     s32 i;
     lbl_805D4ED8 = create_named_object(lbl_80438EF8);
     bind_gvm_texture_list((const char *)lbl_80438EE8[1], lbl_80438EE8[0]);
-    e = lbl_8048E5A0[0];
+    e = shared_effect_texture_list[0];
     for (i = 0; i < 0x36; i++) {
         lbl_80500620[i] = e[i].node->c->v;
     }

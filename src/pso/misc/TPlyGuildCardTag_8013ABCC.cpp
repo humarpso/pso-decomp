@@ -11,10 +11,10 @@ void TPlyGuildCardTag__sub_8013ACA4(void *arg0, void *arg1);
 void __ct__16TPlyGuildCardTagFRC16TPlyGuildCardTag(void *arg0, void *arg1);
     extern int lbl_805D60D0;
 void fn_8013ACE4(int a0);
-    extern int lbl_805D5328;
+    extern int area_random_seed;
 void set_area_random_seed(int a0);
 void set_field_20__12TQuestListVMFPvi(void *, s32);
-extern u8 *TQuestListOnline__data_805D61E0;
+extern u8 *TQuestListOnline__instance;
 void TQuestListOnline__sub_8013ACF4(s32 arg0);
 }
 
@@ -40,10 +40,10 @@ void __ct__16TPlyGuildCardTagFRC16TPlyGuildCardTag(void *arg0, void *arg1) {
     M2C_FIELD(arg0, s32 *, 4) = (s32) M2C_FIELD(arg1, s32 *, 4);
 }
 void fn_8013ACE4(int a0) { lbl_805D60D0 = a0; }
-void set_area_random_seed(int a0) { lbl_805D5328 = a0; }
+void set_area_random_seed(int a0) { area_random_seed = a0; }
 void TQuestListOnline__sub_8013ACF4(s32 arg0) {
-    if ((void *) TQuestListOnline__data_805D61E0 != NULL) {
-        set_field_20__12TQuestListVMFPvi(TQuestListOnline__data_805D61E0, arg0);
+    if ((void *) TQuestListOnline__instance != NULL) {
+        set_field_20__12TQuestListVMFPvi(TQuestListOnline__instance, arg0);
     }
 }
 

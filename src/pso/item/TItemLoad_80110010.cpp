@@ -37,13 +37,13 @@ void init__9TItemLoadFPvPvPvPvPv(void *, void *, s32, s32, s32);
 void *__nw__7TObjectFUl(u32);
 extern s16 lbl_8043E4C0[];
 extern s16 lbl_8043E4C8[];
-extern void *TItemLoad__data_805D5484;
-extern s32 *TItemLoad__data_805D548C;
+extern void *TItemLoad__model_load_task_root;
+extern s32 *TItemLoad__model_slot_in_use;
 s32 request_item_model_load(u8 *item);
 s32 TItemLoad__sub_801107E4(void *p);
 extern u32 TItemLoad__data_805D5488;
-extern void *TItemLoad__data_805D5484;
-extern s32 *TItemLoad__data_805D548C;
+extern void *TItemLoad__model_load_task_root;
+extern s32 *TItemLoad__model_slot_in_use;
 void release_resource_by_id__9TItemLoadFi(s32 id);
 void *alloc_buffer__11TOBoss4RockFPv(u32);
 void TLobby__sub_801E3E9C(s32, s32, void *, s32);
@@ -83,7 +83,7 @@ void *TItemLoad__sub_80110010(void *arg0, s16 arg1) {
     return arg0;
 }
 
-extern s32 TItemLoad__data_805D5480;
+extern s32 TItemLoad__bml_resource;
 
 Load_8011006C *init_buffer__9TItemLoadFPviii(Load_8011006C *self, s32 arg1, s32 arg2, s32 count) {
     s32 n = (count + 1) * 2;
@@ -111,38 +111,38 @@ s32 has_resource_id__9TItemLoadFi(s32 id) {
 
 void get_data_entry__9TItemLoadFiPv(s32 arg0, s32 *arg1) {
     if (arg1 != NULL) {
-        *arg1 = TObjFish__sub_8001EDB0(TItemLoad__data_805D5480, 0);
+        *arg1 = TObjFish__sub_8001EDB0(TItemLoad__bml_resource, 0);
     }
 }
 
-extern s32 TItemLoad__data_805D5480;
+extern s32 TItemLoad__bml_resource;
 
 void lookup_item_data__9TItemLoadFiPv(s32 arg0, s32 *arg1) {
     if (arg1 != NULL) {
-        *arg1 = get_bml_model((s32)(TItemLoad__data_805D5480), (s32)(arg0));
+        *arg1 = get_bml_model((s32)(TItemLoad__bml_resource), (s32)(arg0));
     }
 }
 
-extern s32 TItemLoad__data_805D5480;
+extern s32 TItemLoad__bml_resource;
 
 void get_item_params__9TItemLoadFPvPvPv(s32 *arg0, s32 *arg1, s32 *arg2) {
     if ((arg0 != NULL) && (arg1 != NULL) && (arg2 != NULL)) {
-        *arg0 = get_bml_model((s32)(TItemLoad__data_805D5480), (s32)(1));
-        *arg1 = TObjFish__sub_8001EDB0(TItemLoad__data_805D5480, 0);
-        *arg2 = get_bml_motion(TItemLoad__data_805D5480, 0);
+        *arg0 = get_bml_model((s32)(TItemLoad__bml_resource), (s32)(1));
+        *arg1 = TObjFish__sub_8001EDB0(TItemLoad__bml_resource, 0);
+        *arg2 = get_bml_motion(TItemLoad__bml_resource, 0);
     }
 }
 
-extern s32 TItemLoad__data_805D5480;
+extern s32 TItemLoad__bml_resource;
 
 void get_model_ids__9TItemLoadFUcPvPv(u8 arg0, s32 *arg1, s32 *arg2) {
     if ((arg1 != NULL) && (arg2 != NULL)) {
-        *arg1 = get_bml_model((s32)(TItemLoad__data_805D5480), (s32)(arg0 + 2));
-        *arg2 = TObjFish__sub_8001EDB0(TItemLoad__data_805D5480, 0);
+        *arg1 = get_bml_model((s32)(TItemLoad__bml_resource), (s32)(arg0 + 2));
+        *arg2 = TObjFish__sub_8001EDB0(TItemLoad__bml_resource, 0);
     }
 }
 
-extern void *TItemLoad__data_805D5484;
+extern void *TItemLoad__model_load_task_root;
 extern u32 TItemLoad__data_805D5488;
 
 s32 request_item_model_load(u8 *item) {
@@ -159,13 +159,13 @@ s32 request_item_model_load(u8 *item) {
             if (a != -1 && b != -1) {
                 a += lbl_8043E4C0[item[0]];
                 b += lbl_8043E4C8[item[0]];
-                if (TItemLoad__data_805D5484 != NULL && TItemLoad__data_805D548C != NULL) {
+                if (TItemLoad__model_load_task_root != NULL && TItemLoad__model_slot_in_use != NULL) {
                     for (i = 0; i < 12; i++) {
-                        if (TItemLoad__data_805D548C[i] == 0) {
-                            TItemLoad__data_805D548C[i] = 1;
+                        if (TItemLoad__model_slot_in_use[i] == 0) {
+                            TItemLoad__model_slot_in_use[i] = 1;
                             obj = __nw__7TObjectFUl(0x44);
                             if (obj != NULL) {
-                                init__9TItemLoadFPvPvPvPvPv(obj, TItemLoad__data_805D5484, i, a, b);
+                                init__9TItemLoadFPvPvPvPvPv(obj, TItemLoad__model_load_task_root, i, a, b);
                             }
                             return i;
                         }
@@ -190,7 +190,7 @@ void *find_node_by_id__9TItemLoadFi(s32 id) {
 }
 
 void release_resource_by_id__9TItemLoadFi(s32 id) {
-    Node_801103F4 *roots[2] = { (Node_801103F4 *)TItemLoad__data_805D5488, (Node_801103F4 *)TItemLoad__data_805D5484 };
+    Node_801103F4 *roots[2] = { (Node_801103F4 *)TItemLoad__data_805D5488, (Node_801103F4 *)TItemLoad__model_load_task_root };
     s32 i;
     Node_801103F4 *n;
     for (i = 0; i != 2; i++) {
@@ -200,7 +200,7 @@ void release_resource_by_id__9TItemLoadFi(s32 id) {
                     if (n != NULL) {
                         n->m0(1);
                     }
-                    TItemLoad__data_805D548C[id] = 0;
+                    TItemLoad__model_slot_in_use[id] = 0;
                     return;
                 }
             }
@@ -212,8 +212,8 @@ void update__9TItemLoadFv(void) {
     void *temp_r31;
 
     update_all__9TItemLoadFv();
-    if (((void *) TItemLoad__data_805D5484 != NULL) && ((u32) TItemLoad__data_805D5488 != 0U)) {
-        temp_r31 = M2C_FIELD(TItemLoad__data_805D5484, void **, 0x14);
+    if (((void *) TItemLoad__model_load_task_root != NULL) && ((u32) TItemLoad__data_805D5488 != 0U)) {
+        temp_r31 = M2C_FIELD(TItemLoad__model_load_task_root, void **, 0x14);
         if (temp_r31 != NULL) {
             ((VObj_801104C4_80110010 *)temp_r31)->m1();
             if (TItemLoad__sub_801107F4(temp_r31) == 1) {

@@ -41,8 +41,8 @@ M2C_UNK draw_ginja_model(int);
 M2C_UNK set_chunk_material_color(void *);
 extern u8 chunk_material_color_half_alpha_f32[];
 extern s32 lbl_805D5660;
-extern u8 *TObjDoaEx01__data_805D5BB4;
-extern u8 *TObjDoaEx01__data_805D5BB8;
+extern u8 *TObjDoaEx01__alpha_model_node;
+extern u8 *TObjDoaEx01__alpha_model_sibling;
 extern s32 some_id_805c6f74;
 M2C_UNK draw_object_tree__11TObjDoaEx01FPvi(void *arg0, s32 arg1);
 s32 get_bml_motion(s32, M2C_UNK);
@@ -56,9 +56,9 @@ M2C_UNK pop_matrix();
 M2C_UNK post_translate_matrix(void *);
 M2C_UNK set_global_param__8TObjFishFi();
 M2C_UNK draw_ginja_model_with_motion(s32, s32, f32);
-extern s32 TObjDoaEx01__data_805D5BB0;
-extern u8 *TObjDoaEx01__data_805D5BB4;
-extern u8 *TObjDoaEx01__data_805D5BB8;
+extern s32 TObjDoaEx01__resource_bundle;
+extern u8 *TObjDoaEx01__alpha_model_node;
+extern u8 *TObjDoaEx01__alpha_model_sibling;
 extern const f32 TObjDoaEx01__data_805DBDA0;
 extern const f32 lbl_805DBDB4;
 extern const f32 lbl_805DBDB8;
@@ -89,9 +89,9 @@ struct TObjDoaEx01_VObj : TObjDoaEx01_base {
     virtual void m7();
     virtual M2C_UNK m8(f32, f32);
 };
-extern s32 TObjDoaEx01__data_805D5BB0;
-extern u8 *TObjDoaEx01__data_805D5BB4;
-extern u8 *TObjDoaEx01__data_805D5BB8;
+extern s32 TObjDoaEx01__resource_bundle;
+extern u8 *TObjDoaEx01__alpha_model_node;
+extern u8 *TObjDoaEx01__alpha_model_sibling;
 extern const f32 lbl_805DBDB4;
 extern const f32 lbl_805DBDB8;
 
@@ -109,7 +109,7 @@ M2C_UNK draw_object_tree__11TObjDoaEx01FPvi(void *arg0, s32 arg1) {
         scale_current_matrix(obj->scl);
     }
     if (!(flags & 8) && obj->model != 0) {
-        if ((u8 *)obj == TObjDoaEx01__data_805D5BB4 || (u8 *)obj == TObjDoaEx01__data_805D5BB8) {
+        if ((u8 *)obj == TObjDoaEx01__alpha_model_node || (u8 *)obj == TObjDoaEx01__alpha_model_sibling) {
             begin_effect_render__13TParticleCtrlFv();
             lbl_805D5660 = some_id_805c6f74;
             some_id_805c6f74 = some_id_805c6f74 | 0x10;
@@ -134,11 +134,11 @@ M2C_UNK draw_object_tree__11TObjDoaEx01FPvi(void *arg0, s32 arg1) {
 void try_open__11TObjDoaEx01FPv(u8 *arg0) {
     s32 temp_r31;
 
-    temp_r31 = get_bml_model(TObjDoaEx01__data_805D5BB0, 0);
+    temp_r31 = get_bml_model(TObjDoaEx01__resource_bundle, 0);
     if (((TObjDoaEx01_VObj*)arg0)->m8(lbl_805DBDB4, lbl_805DBDB8) != 0) {
-        free_children__12TObjDoorJungFPvPv(M2C_FIELD(TObjDoaEx01__data_805D5BB4, s32 *, 4), 1);
-        free_children__12TObjDoorJungFPvPv(M2C_FIELD(TObjDoaEx01__data_805D5BB8, s32 *, 4), 1);
-        TObjFish__sub_8001EDB0(TObjDoaEx01__data_805D5BB0, 0);
+        free_children__12TObjDoorJungFPvPv(M2C_FIELD(TObjDoaEx01__alpha_model_node, s32 *, 4), 1);
+        free_children__12TObjDoorJungFPvPv(M2C_FIELD(TObjDoaEx01__alpha_model_sibling, s32 *, 4), 1);
+        TObjFish__sub_8001EDB0(TObjDoaEx01__resource_bundle, 0);
         set_global_param__8TObjFishFi();
         push_matrix();
         post_translate_matrix(arg0 + 0x38);
@@ -152,18 +152,18 @@ void draw_model__11TObjDoaEx01FPv(u8 *arg0) {
     s32 temp_r31;
     s32 temp_r31_2;
     if (((VObj_18_26a62c *)(arg0))->m8(lbl_805DBDB4, lbl_805DBDB8) != 0) {
-        free_children__12TObjDoorJungFPvPv((M2C_FIELD(TObjDoaEx01__data_805D5BB4, s32 *, 4)), (0));
-        free_children__12TObjDoorJungFPvPv((M2C_FIELD(TObjDoaEx01__data_805D5BB8, s32 *, 4)), (0));
-        temp_r31 = get_bml_model((TObjDoaEx01__data_805D5BB0), (0));
-        TObjFish__sub_8001EDB0((TObjDoaEx01__data_805D5BB0), (0));
+        free_children__12TObjDoorJungFPvPv((M2C_FIELD(TObjDoaEx01__alpha_model_node, s32 *, 4)), (0));
+        free_children__12TObjDoorJungFPvPv((M2C_FIELD(TObjDoaEx01__alpha_model_sibling, s32 *, 4)), (0));
+        temp_r31 = get_bml_model((TObjDoaEx01__resource_bundle), (0));
+        TObjFish__sub_8001EDB0((TObjDoaEx01__resource_bundle), (0));
         set_global_param__8TObjFishFi();
         push_matrix();
         post_translate_matrix((void *) (arg0 + 0x38));
         rotate_matrix_y((0), (M2C_FIELD(arg0, s32 *, 0x60)));
         temp_f31 = M2C_FIELD(arg0, f32 *, 0xB0);
         if (temp_f31 > TObjDoaEx01__data_805DBDA0) {
-            temp_r31 = get_bml_motion((TObjDoaEx01__data_805D5BB0), (0));
-            draw_ginja_model_with_motion(get_bml_model((TObjDoaEx01__data_805D5BB0), (0)), temp_r31, temp_f31);
+            temp_r31 = get_bml_motion((TObjDoaEx01__resource_bundle), (0));
+            draw_ginja_model_with_motion(get_bml_model((TObjDoaEx01__resource_bundle), (0)), temp_r31, temp_f31);
         } else {
             draw_object_tree__11TObjDoaEx01FPvi(arg0, (temp_r31));
         }

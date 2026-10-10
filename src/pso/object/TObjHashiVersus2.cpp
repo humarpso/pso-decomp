@@ -17,7 +17,7 @@ extern "C" {
 u8 * load_resource_from_descriptor(void *, s32, void *, s32, s32, s32);
 int alloc__23TAdSinglePlyChrSelectGCFPv(void *);
 extern RecoveredGlobal_80191340_lbl_804B7C90 TObjHashiVersus2__resource_descriptor;
-extern u32 TObjHashiVersus2__data_805D5C18;
+extern u32 TObjHashiVersus2__resource_bundle;
 void load_shared_resource__16TObjHashiVersus2Fv(void);
 s32 TObjFish__sub_8001EDB0(void *, s32);
 s32 get_bml_model(void *, s32);
@@ -28,7 +28,7 @@ u8 is_current_floor_switch_set(int);
 extern RecoveredGlobal_801913F8_lbl_804B7D24 TObjHashiVersus2__collision_body_parts;
 extern M2C_UNK __vt__16TObjHashiVersus2[];
 extern s32 lbl_805D3380;
-extern u32 TObjHashiVersus2__data_805D5C18;
+extern u32 TObjHashiVersus2__resource_bundle;
 extern const f32 lbl_805DBE20;
 u8 *TObjHashiVersus2__ct(u8 *arg0, s32 arg1, s32 _w2);
 }
@@ -55,12 +55,12 @@ void *TObjHashiVersus2__create(void *arg0) {
     return o;
 }
 
-extern u32 TObjHashiVersus2__data_805D5C18;
+extern u32 TObjHashiVersus2__resource_bundle;
 
 void free_static_data__16TObjHashiVersus2Fv(void) {
-    if ((u32) TObjHashiVersus2__data_805D5C18 != 0U) {
-        TLobby__sub_8001FE7C((void*)TObjHashiVersus2__data_805D5C18, 1);
-        TObjHashiVersus2__data_805D5C18 = 0U;
+    if ((u32) TObjHashiVersus2__resource_bundle != 0U) {
+        TLobby__sub_8001FE7C((void*)TObjHashiVersus2__resource_bundle, 1);
+        TObjHashiVersus2__resource_bundle = 0U;
     }
 }
 
@@ -74,7 +74,7 @@ void load_shared_resource__16TObjHashiVersus2Fv(void) {
     if (var_r0 != 0) {
         var_r0 = (long) (load_resource_from_descriptor((void *) temp_r3, 1, &TObjHashiVersus2__resource_descriptor.value, 0, 0, 0));
     }
-    (*(s32 *)&TObjHashiVersus2__data_805D5C18) = var_r0;
+    (*(s32 *)&TObjHashiVersus2__resource_bundle) = var_r0;
 }
 
 void *__dt__16TObjHashiVersus2Fv(void *arg0, s16 arg1) {
@@ -98,8 +98,8 @@ u8 *TObjHashiVersus2__ct(u8 *arg0, s32 arg1, s32 _w2) {
     }
     M2C_FIELD(arg0, f32 *, 0xD0) = (f32) M2C_FIELD(arg0, f32 *, 0x6C);
     M2C_FIELD(arg0, f32 *, 0xC4) = (f32) lbl_805DBE20;
-    M2C_FIELD(arg0, s32 *, 0x34) = get_bml_model((*(u8 * *)&TObjHashiVersus2__data_805D5C18), 0);
-    M2C_FIELD(arg0, s32 *, 0x24) = TObjFish__sub_8001EDB0((*(u8 * *)&TObjHashiVersus2__data_805D5C18), 0);
+    M2C_FIELD(arg0, s32 *, 0x34) = get_bml_model((*(u8 * *)&TObjHashiVersus2__resource_bundle), 0);
+    M2C_FIELD(arg0, s32 *, 0x24) = TObjFish__sub_8001EDB0((*(u8 * *)&TObjHashiVersus2__resource_bundle), 0);
     init_collision_body_parts(arg0, (s32) &TObjHashiVersus2__collision_body_parts.value, 2);
     M2C_FIELD(arg0, s32 *, 0x30) = (s32) (M2C_FIELD(arg0, s32 *, 0x30) | 0x40000000);
     reset_photon_effect__10TObjPlayerFPv((void *) (arg0));

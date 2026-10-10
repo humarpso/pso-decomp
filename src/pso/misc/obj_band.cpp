@@ -141,7 +141,7 @@ extern s32 anim_model_matrix_array;
 extern s32 player_joint_matrix_write_ptr;
 extern u8 *lbl_805D5684;
 extern s32 model_node_callback;
-extern s32 lbl_805D7810;
+extern s32 chunk_model_node_callback;
 extern const f32 lbl_805DB168;
 extern const f32 lbl_805DB16C;
 
@@ -366,7 +366,7 @@ void render_world_model__10TObjPlayerFPv(u8 *arg0) {
     if (M2C_FIELD(arg0, s32 *, 0xB0) & 4) {
         draw_model_blend_motion(M2C_FIELD(arg0, s32 *, 0x34), arg0 + 0xE4, M2C_FIELD(arg0, f32 *, 0xC0));
     } else {
-        set_global_state__16TObjEneRe7BeruraFi((M2C_UNK *)(lbl_805D7810));
+        set_global_state__16TObjEneRe7BeruraFi((M2C_UNK *)(chunk_model_node_callback));
         draw_model_motion(M2C_FIELD(arg0, s32 *, 0x34), M2C_FIELD(arg0, s32 *, 0xF8), M2C_FIELD(arg0, f32 *, 0xC0));
         set_global_state__16TObjEneRe7BeruraFi((M2C_UNK *)(0));
     }
@@ -380,7 +380,7 @@ void draw__16TObjEneRe7BeruraFPv(u8 *arg0) {
     if (M2C_FIELD(arg0, s32 *, 0xB0) & 4) {
         draw_model_blend_motion(M2C_FIELD(arg0, s32 *, 0x34), arg0 + 0xE4, M2C_FIELD(arg0, f32 *, 0xC0));
     } else {
-        ((M2C_UNK (*)(s32))set_global_state__16TObjEneRe7BeruraFi)(lbl_805D7810);
+        ((M2C_UNK (*)(s32))set_global_state__16TObjEneRe7BeruraFi)(chunk_model_node_callback);
         draw_model_motion(M2C_FIELD(arg0, s32 *, 0x34), M2C_FIELD(arg0, s32 *, 0xF8), M2C_FIELD(arg0, f32 *, 0xC0));
         ((M2C_UNK (*)(s32))set_global_state__16TObjEneRe7BeruraFi)(0);
     }

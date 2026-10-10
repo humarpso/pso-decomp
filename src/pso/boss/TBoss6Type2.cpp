@@ -665,7 +665,7 @@ s32 is_state_1f__14TBoss6PlotFalzFUi(void *);
 s32 rand_vary_count__14TBoss6PlotFalzFif(s32, f32);
 f32 TBoss6PlotFalz__sub_802AB684(void *);
 void apply_radial_effect_to_players__14TBoss6PlotFalzFPvssf(s32, s16, s32, f32);
-s32 TBoss6PlotFalz__sub_802AC17C();
+s32 is_normal_difficulty();
 s32 get_phase__14TBoss6PlotFalzFv();
 void TBoss6PlotFalz__sub_802AC724(void *, void *);
 s32 update_and_send__11TBoss6Type2FPv(void *);
@@ -1404,7 +1404,7 @@ s32 is_ready_to_attack__11TBoss6Type2FPv(void *arg0) {
     if ((s32) M2C_FIELD(arg0, s32 *, 0x418) != 0) {
         return 0;
     }
-    if (TBoss6PlotFalz__sub_802AC17C() != 0) {
+    if (is_normal_difficulty() != 0) {
         return 0;
     }
     temp = calc_field4f0_delta__11TBoss6Type2FPv(arg0);

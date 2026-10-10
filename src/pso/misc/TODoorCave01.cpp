@@ -27,7 +27,7 @@ M2C_UNK draw_ginja_model(int);
 M2C_UNK set_chunk_material_color(void *, int);
 extern u8 chunk_material_color_half_alpha_f32[];
 extern s32 lbl_805D5660;
-extern u8 *TODoorCave01__data_805D595C;
+extern u8 *TODoorCave01__texture_lists;
 extern s32 some_id_805c6f74;
 M2C_UNK draw_door_model__12TODoorCave01FPvii(void *p0, int p1, int arg2);
 }
@@ -46,14 +46,14 @@ void *__nw__7TObjectFUl(int);
 s32 is_in_view_depth(void *, f32);
 M2C_UNK set_global_param__8TObjFishFi(int);
 
-extern u8 *TODoorCave01__data_805D595C;
+extern u8 *TODoorCave01__texture_lists;
 extern const f32 lbl_805DB4A4;
 
 M2C_UNK draw_door_model__12TODoorCave01FPvii(void *p0, int p1, int arg2) {
     s32 temp_r4;
     u8 *temp_r31;
     u8 *temp_r31_2;
-    set_global_param__8TObjFishFi((int) (M2C_FIELD(TODoorCave01__data_805D595C, M2C_UNK *, (arg2 * 4))));
+    set_global_param__8TObjFishFi((int) (M2C_FIELD(TODoorCave01__texture_lists, M2C_UNK *, (arg2 * 4))));
     push_matrix();
     translate_matrix((int) (0), (f32) (M2C_FIELD(((u8 *) p1), f32 *, 8)), (f32) (M2C_FIELD(((u8 *) p1), f32 *, 0xC)), (f32) (M2C_FIELD(((u8 *) p1), f32 *, 0x10)));
     draw_ginja_model((int) (M2C_FIELD(((u8 *) p1), s32 *, 4)));
@@ -99,7 +99,7 @@ void render__12TODoorCave01Fv(u8 *arg0) {
                 var_r30 = (unsigned char *) (M2C_FIELD(var_r30, void **, 0x30));
             } while (var_r29 < 4);
         } else {
-            set_global_param__8TObjFishFi((int) (M2C_FIELD(TODoorCave01__data_805D595C, s32 *, 4)));
+            set_global_param__8TObjFishFi((int) (M2C_FIELD(TODoorCave01__texture_lists, s32 *, 4)));
             draw_ginja_model_with_motion((void *) (M2C_FIELD(arg0, void **, 0x34)), (int) (M2C_FIELD(arg0, s32 *, 0xBC)), (f32) (M2C_FIELD(arg0, f32 *, 0xB0)));
         }
         pop_matrix();

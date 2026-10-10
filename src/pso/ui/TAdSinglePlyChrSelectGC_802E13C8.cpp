@@ -77,10 +77,10 @@ s32 TWindowShortListCtrl__check_controller_button(void *, int);
 extern RecoveredGlobal_802E1868_lbl_8050E208 controller_input_state;
 extern RecoveredGlobal_802E1868_lbl_8050E3B8 controller_physical_port_bank;
 s32 find_card_file__15TAdPlayerLoadGCFiPv(s32, s32);
-extern RecoveredGlobal_802E14B8_lbl_804C89BC lbl_804C8914;
+extern RecoveredGlobal_802E14B8_lbl_804C89BC pso_system_card_filename;
 s32 TAdSinglePlyChrSelectGC__sub_802E1528(void);
 s32 find_card_file__15TAdPlayerLoadGCFiPv(s32, s32);
-extern RecoveredGlobal_802E14B8_lbl_804C89BC lbl_804C8914;
+extern RecoveredGlobal_802E14B8_lbl_804C89BC pso_system_card_filename;
 s32 TAdSinglePlyChrSelectGC__sub_802E15C8(void);
 void *get_message_10__20TWindowSubStatusDispFPv(int);
 int set_selected_index__17TWindowSubComCardFPvs(void *, s16);
@@ -182,7 +182,7 @@ s32 is_card_file_missing_b__23TAdSinglePlyChrSelectGCFv(void) {
 typedef char RecoveredGlobal_802E1560_lbl_804C89BC_size[sizeof(RecoveredGlobal_802E1560_lbl_804C89BC) == 0x78 ? 1 : -1];
 
 s32 TAdSinglePlyChrSelectGC__sub_802E1528(void) {
-    return (u8) (find_card_file__15TAdPlayerLoadGCFiPv(0, (s32) &lbl_804C8914.value) == -0xBF);
+    return (u8) (find_card_file__15TAdPlayerLoadGCFiPv(0, (s32) &pso_system_card_filename.value) == -0xBF);
 }
 
 s32 is_card_file_absent_a__23TAdSinglePlyChrSelectGCFv(void) {
@@ -195,7 +195,7 @@ s32 is_card_file_absent_b__23TAdSinglePlyChrSelectGCFv(void) {
 }
 
 s32 TAdSinglePlyChrSelectGC__sub_802E15C8(void) {
-    return (u8) (find_card_file__15TAdPlayerLoadGCFiPv(0, (s32) &(*(RecoveredGlobal_802E1560_lbl_804C89BC *)&lbl_804C8914).value) == 0);
+    return (u8) (find_card_file__15TAdPlayerLoadGCFiPv(0, (s32) &(*(RecoveredGlobal_802E1560_lbl_804C89BC *)&pso_system_card_filename).value) == 0);
 }
 
 s32 is_load_complete__23TAdSinglePlyChrSelectGCFv(void) {

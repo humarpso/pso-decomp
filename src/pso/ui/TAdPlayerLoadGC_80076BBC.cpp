@@ -8,10 +8,10 @@ extern "C" {
 
 s32 get_instance__15TAdPlayerLoadGCFv(void);
 
-extern s32 lbl_805D5F78;
+extern s32 card_load_sequence_state;
 
 s32 get_instance__15TAdPlayerLoadGCFv(void) {
-    return lbl_805D5F78;
+    return card_load_sequence_state;
 }
 
 }

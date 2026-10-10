@@ -45,7 +45,7 @@ void TAdVIConfigGC__vt5(void* p);
 void set_field48_clear_global__13TAdVIConfigGCFPv(void *arg0);
 extern M2C_UNK lbl_80434088;
 extern const f32 lbl_805D7D3C;
-extern s32 lbl_805D5FC0;
+extern s32 current_floor_index;
 extern s32 lobby_player_count;
 void TAdVIConfigGC__vt5(void* p);
 void *VIGetDTVStatus(void *);

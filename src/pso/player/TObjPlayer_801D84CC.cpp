@@ -428,7 +428,7 @@ extern RecoveredGlobal_801D8E1C_lbl_804C498C lbl_804C498C;
 long get_anim_table_entry__10TObjPlayerFPvi(u8 *arg0, s32 arg1);
 s16 get_handle_value__10TObjPlayerFPv(void *);
 int has_valid_handle__10TObjPlayerFPv(void *);
-extern RecoveredGlobal_801D8FB4_lbl_804C495C lbl_804C495C;
+extern RecoveredGlobal_801D8FB4_lbl_804C495C photon_blast_motion_timing_tables;
 f32 get_photon_blast_hold_frame__10TObjPlayerFi(s32 arg0);
 u16 obj_getField1c(void *);
 s32 get_instance__6TLobbyFv(void);
@@ -470,11 +470,11 @@ extern s32 (*lbl_804C4974[])[5];
 s32 get_footstep_floor_index__10TObjPlayerFv(void *arg0);
 s16 get_handle_value__10TObjPlayerFPv(void *);
 int has_valid_handle__10TObjPlayerFPv(void *);
-extern RecoveredGlobal_801D8FB4_lbl_804C495C lbl_804C495C;
+extern RecoveredGlobal_801D8FB4_lbl_804C495C photon_blast_motion_timing_tables;
 f32 get_photon_blast_complete_threshold__10TObjPlayerFv(void *arg0);
 s16 get_handle_value__10TObjPlayerFPv(void *);
 int has_valid_handle__10TObjPlayerFPv(void *);
-extern RecoveredGlobal_801D8FB4_lbl_804C495C lbl_804C495C;
+extern RecoveredGlobal_801D8FB4_lbl_804C495C photon_blast_motion_timing_tables;
 f32 get_photon_blast_upper_bound__10TObjPlayerFv(void *arg0);
 }
 
@@ -707,18 +707,18 @@ s32 get_footstep_floor_index__10TObjPlayerFv(void *arg0) {
 }
 
 f32 get_photon_blast_complete_threshold__10TObjPlayerFv(void *arg0) {
-  return ((Rec_801D8F0C * *)&lbl_804C495C)[has_valid_handle__10TObjPlayerFPv(arg0)][get_handle_value__10TObjPlayerFPv(arg0)].c;
+  return ((Rec_801D8F0C * *)&photon_blast_motion_timing_tables)[has_valid_handle__10TObjPlayerFPv(arg0)][get_handle_value__10TObjPlayerFPv(arg0)].c;
 }
 
 f32 get_photon_blast_upper_bound__10TObjPlayerFv(void *arg0) {
-  return ((Rec_801D8F60 * *)&lbl_804C495C)[has_valid_handle__10TObjPlayerFPv(arg0)][get_handle_value__10TObjPlayerFPv(arg0)].b;
+  return ((Rec_801D8F60 * *)&photon_blast_motion_timing_tables)[has_valid_handle__10TObjPlayerFPv(arg0)][get_handle_value__10TObjPlayerFPv(arg0)].b;
 }
 
 f32 get_photon_blast_hold_frame__10TObjPlayerFi(s32 arg0) {
   s32 temp_r31;
   s32 *new_var;
   temp_r31 = get_handle_value__10TObjPlayerFPv((void *)(arg0)) * 0xC;
-  new_var = (s32 *) (((s8 *) (((u8 *) (&lbl_804C495C.value)) + (((s32)has_valid_handle__10TObjPlayerFPv((void *) arg0)) * 4))) + 0);
+  new_var = (s32 *) (((s8 *) (((u8 *) (&photon_blast_motion_timing_tables.value)) + (((s32)has_valid_handle__10TObjPlayerFPv((void *) arg0)) * 4))) + 0);
   return *((f32 *) (((s8 *) ((*new_var) + temp_r31)) + 0));
 }
 

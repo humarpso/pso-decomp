@@ -45,7 +45,7 @@ s32 text_builder_append(int);
 s32 text_builder_reset();
 s32 construct_base__9TWindowDDFPvPvsPv(void *, void *, void *, int);
 s32 get_window_layout_position(int);
-s32 fn_80271E40();
+s32 get_window_count_ratio_value();
 s32 construct_type1_heading__20TWindowSubStatusDispFPvii(int, int, int);
 s32 get_game_play_mode();
 s32 strncpy(int, int, void *);
@@ -258,7 +258,7 @@ u8 *TWindowSubAreaMapDisp__ct(u8 *arg0) {
         text_builder_reset();
         text_builder_append((int) (TQuestVmDownLoadServer__sub_8006EF6C((int) (0x67))));
         append_text_space();
-        append_padded_number((int) (fn_80271E40()), (int) (2U));
+        append_padded_number((int) (get_window_count_ratio_value()), (int) (2U));
         var_r30 = (u8 *)(get_shared_text_buffer());
     } else {
         var_r30 = (u8 *)(get_floor_destination_name(get_global_state__14TOKeyMachine01Fv()));

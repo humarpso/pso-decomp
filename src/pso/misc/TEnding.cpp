@@ -5,7 +5,7 @@ void TEnding__sub_8008C9F8();
 void set_default_camera__21TAdMultiChgGameModeGCFv();
 void TObjPlayer__sub_8001A8F0(void *, TEnding *);
 void TAdRicoRingCtrl__sub_8001B4A0(TAdRicoRingCtrl *, f32);
-s32 TAdEndText__sub_8001A990();
+s32 get_end_text_font_loaded_flag();
 u32 __cvt_fp2unsigned(f32);
 void destroy_keyboard_objects();
 void init__22THunterGuildSeqOfflineFPvPvPv(void *, TObject *, void *);
@@ -49,7 +49,7 @@ void TEnding::run_task() {
     case 2:
         break;
     case 1:
-        if (TAdEndText__sub_8001A990() != 0) {
+        if (get_end_text_font_loaded_flag() != 0) {
             s32 ticks = elapsed_ticks + 1;
             elapsed_ticks = ticks;
             if (ticks > timing_rate * 10) {

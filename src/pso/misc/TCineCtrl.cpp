@@ -22,7 +22,7 @@ extern "C" {
 u8 * __dt__7TObjectFv(void *, s16);
 void __dl__7TObjectFPv(s32);
 extern M2C_UNK __vt__9TCineCtrl[];
-extern void * lbl_805D4E60;
+extern void * TCineCtrl__instance;
 u8 *__dt__9TCineCtrlFv(u8 *arg0, s16 arg1);
 extern const f32 lbl_805D91E0;
 extern const f32 lbl_805D91E4;
@@ -54,7 +54,7 @@ void reset__9TCineCtrlFi(s32 arg0);
 void reset_state__9TCineCtrlFi(s32 arg0);
 void __ct__7TObjectFP7TObject(void *, void *);
 
-extern void *lbl_805D4E60;
+extern void *TCineCtrl__instance;
 extern const f32 lbl_805D91E8;
 extern const f32 lbl_805D91EC;
 
@@ -122,18 +122,18 @@ void update_letterbox_hide__9TCineCtrlFPv(u8 *arg0) {
 #pragma pop
 
 void reset_state__9TCineCtrlFi(s32 arg0) {
-    if ((void *) lbl_805D4E60 != NULL) {
-        M2C_FIELD(lbl_805D4E60, s32 *, 0x2C) = arg0;
-        M2C_FIELD(lbl_805D4E60, f32 *, 0x1C) = (f32) lbl_805D91E8;
-        M2C_FIELD(lbl_805D4E60, f32 *, 0x20) = (f32) lbl_805D91EC;
-        M2C_FIELD(lbl_805D4E60, s8 *, 0x26) = 0;
-        M2C_FIELD(lbl_805D4E60, s8 *, 0x25) = 0;
-        M2C_FIELD(lbl_805D4E60, s8 *, 0x24) = 0;
-        M2C_FIELD(lbl_805D4E60, s32 *, 0x28) = 2;
+    if ((void *) TCineCtrl__instance != NULL) {
+        M2C_FIELD(TCineCtrl__instance, s32 *, 0x2C) = arg0;
+        M2C_FIELD(TCineCtrl__instance, f32 *, 0x1C) = (f32) lbl_805D91E8;
+        M2C_FIELD(TCineCtrl__instance, f32 *, 0x20) = (f32) lbl_805D91EC;
+        M2C_FIELD(TCineCtrl__instance, s8 *, 0x26) = 0;
+        M2C_FIELD(TCineCtrl__instance, s8 *, 0x25) = 0;
+        M2C_FIELD(TCineCtrl__instance, s8 *, 0x24) = 0;
+        M2C_FIELD(TCineCtrl__instance, s32 *, 0x28) = 2;
     }
 }
 
-extern void *lbl_805D4E60;
+extern void *TCineCtrl__instance;
 extern const f32 TCineCtrl__data_805D91D0;
 
 #pragma push
@@ -157,14 +157,14 @@ void update_letterbox_show__9TCineCtrlFPv(u8 *arg0) {
 #pragma pop
 
 void reset__9TCineCtrlFi(s32 arg0) {
-    if ((void *) lbl_805D4E60 != NULL) {
-        M2C_FIELD(lbl_805D4E60, s32 *, 0x2C) = arg0;
-        M2C_FIELD(lbl_805D4E60, f32 *, 0x1C) = (f32) TCineCtrl__data_805D91D0;
-        M2C_FIELD(lbl_805D4E60, f32 *, 0x20) = (f32) TCineCtrl__data_805D91D0;
-        M2C_FIELD(lbl_805D4E60, s8 *, 0x26) = 0;
-        M2C_FIELD(lbl_805D4E60, s8 *, 0x25) = 0;
-        M2C_FIELD(lbl_805D4E60, s8 *, 0x24) = 0;
-        M2C_FIELD(lbl_805D4E60, s32 *, 0x28) = 1;
+    if ((void *) TCineCtrl__instance != NULL) {
+        M2C_FIELD(TCineCtrl__instance, s32 *, 0x2C) = arg0;
+        M2C_FIELD(TCineCtrl__instance, f32 *, 0x1C) = (f32) TCineCtrl__data_805D91D0;
+        M2C_FIELD(TCineCtrl__instance, f32 *, 0x20) = (f32) TCineCtrl__data_805D91D0;
+        M2C_FIELD(TCineCtrl__instance, s8 *, 0x26) = 0;
+        M2C_FIELD(TCineCtrl__instance, s8 *, 0x25) = 0;
+        M2C_FIELD(TCineCtrl__instance, s8 *, 0x24) = 0;
+        M2C_FIELD(TCineCtrl__instance, s32 *, 0x28) = 1;
     }
 }
 
@@ -172,7 +172,7 @@ extern void *tl_fade;
 extern const f32 TCineCtrl__data_805D91D0;
 extern M2C_UNK __vt__9TCineCtrl[];
 extern void *TCineCtrl__class_name;
-extern void * lbl_805D4E60;
+extern void * TCineCtrl__instance;
 
 typedef char RecoveredGlobal_80077FA0___vt__9TCineCtrl_size[sizeof(RecoveredGlobal_80077FA0___vt__9TCineCtrl) == 0x18 ? 1 : -1];
 
@@ -192,7 +192,7 @@ void run_task__9TCineCtrlFv(Obj_80077F58 *self) {
 u8 *__dt__9TCineCtrlFv(u8 *arg0, s16 arg1) {
     if (arg0 != NULL) {
         M2C_FIELD(arg0, M2C_UNK **, 0x18) = &(*(RecoveredGlobal_80077FA0___vt__9TCineCtrl *)&__vt__9TCineCtrl).value;
-        (*(s32 *)&lbl_805D4E60) = 0;
+        (*(s32 *)&TCineCtrl__instance) = 0;
         __dt__7TObjectFv(arg0, 0);
         if (arg1 > 0) {
             __dl__7TObjectFPv((s32) arg0);
@@ -209,7 +209,7 @@ void *TCineCtrl__ct(void *arg0) {
     M2C_FIELD(arg0, f32 *, 0x20) = TCineCtrl__data_805D91D0;
     M2C_FIELD(arg0, u32 *, 0x24) = 0;
     M2C_FIELD(arg0, u32 *, 0x28) = 0;
-    lbl_805D4E60 = arg0;
+    TCineCtrl__instance = arg0;
     return arg0;
 }
 

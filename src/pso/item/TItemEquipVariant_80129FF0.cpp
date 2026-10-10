@@ -8,11 +8,11 @@ void *item_equip_variant_deleting_dtor_80129FF0(void *arg0, s16 arg1);
 void item_equip_variant_deleting_dtor_8012A82C(void *, int);
 void free_obj_heap__10TObjPlayerFPv(void *);
 
-extern M2C_UNK lbl_804A4648[];
+extern M2C_UNK s_rank_needle_weapon_vtable[];
 
 void *item_equip_variant_deleting_dtor_80129FF0(void *arg0, s16 arg1) {
     if (arg0 != NULL) {
-        M2C_FIELD(arg0, M2C_UNK **, 0x18) = lbl_804A4648;
+        M2C_FIELD(arg0, M2C_UNK **, 0x18) = s_rank_needle_weapon_vtable;
         item_equip_variant_deleting_dtor_8012A82C(arg0, 0);
         if (arg1 > 0) {
             free_obj_heap__10TObjPlayerFPv(arg0);

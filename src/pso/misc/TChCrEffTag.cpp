@@ -21,7 +21,7 @@ extern "C" {
 s32 TChCrEffTagStr__sub_8029AED0(int);
 u32 create_str__11TChCrEffTagFPvPvPv(void *, int, void *);
 extern RecoveredGlobal_8029AA74_lbl_804652A4 lbl_804652A4;
-extern s32 TChCrEffTag__data_805D3D0C;
+extern s32 TChCrEffTag__selected_heading;
 extern const f32 lbl_805DDC90;
 extern const f32 lbl_805DDC94;
 void refresh_label__11TChCrEffTagFPv(u8 *arg0);
@@ -48,7 +48,7 @@ void refresh_label__11TChCrEffTagFPv(u8 *arg0) {
         TChCrEffTagStr__sub_8029AED0((int) (temp_r3));
         M2C_FIELD(arg0, u32 *, 0x28) = 0U;
     }
-    M2C_FIELD(arg0, s32 *, 0x1C) = (s32) TChCrEffTag__data_805D3D0C;
+    M2C_FIELD(arg0, s32 *, 0x1C) = (s32) TChCrEffTag__selected_heading;
     temp_r0 = M2C_FIELD(arg0, s32 *, 0x1C);
     if (temp_r0 >= 0) {
         stack.sp8 = lbl_805DDC90;
@@ -73,7 +73,7 @@ void TChCrEffTag::run_task()
   f32 temp_f2;
   f32 temp_f3;
   s32 temp_r0;
-  if (((s32) heading) != ((s32) TChCrEffTag__data_805D3D0C))
+  if (((s32) heading) != ((s32) TChCrEffTag__selected_heading))
   {
     refresh_label__11TChCrEffTagFPv((u8*)this);
   }

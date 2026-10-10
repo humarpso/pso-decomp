@@ -51,7 +51,7 @@ void *TLobby__sub_802936AC(void *arg0, s16 arg1);
 void update_destruction_countdown__6TLobbyFPv(void *arg0);
 void render__7TObjectFv();
 void render_shadows__7TObjectFv();
-void *lbl_804DAB60[420] = {
+void *challenge_default_settings[420] = {
     (void *)0xffffffff, (void *)0x3f800000, (void *)0xffffffff, (void *)0x0,
     (void *)0x39383814, (void *)0xfffffff6, (void *)0xffffffff, (void *)0x0,
     (void *)0x0, (void *)0xffffffff, (void *)0x0, (void *)0x0,
@@ -347,7 +347,7 @@ f32 get_random_float__8TObjFishFv(f32);
 s32 is_value_out_of_range__6TLobbyFi(s32);
 void TLobby__sub_80292200(s32 arg0);
 f32 get_random_float__8TObjFishFv(f32);
-void TObjCHTimeWin__sub_80071DF4(int);
+void set_challenge_time_window_timer(int);
 #define is_challenge_mode_active ((s32 (*)())is_challenge_mode_active)
 void update_challenge_timer__6TLobbyFi(s32 arg0);
 s32 TWindowSubStatusDisp__sub_8006F134(s32, s32);
@@ -618,7 +618,7 @@ void update_challenge_timer__6TLobbyFi(s32 arg0) {
     if (is_challenge_mode_active() != 0) {
         get_random_float__8TObjFishFv((f32) (arg0 - M2C_FIELD(&(*(RecoveredGlobal_80292604_lbl_804DB1F0 *)&lbl_804DB1F0).value, s32 *, 0xC)));
         M2C_FIELD(&(*(RecoveredGlobal_80292604_lbl_804DB1F0 *)&lbl_804DB1F0).value, s32 *, 0xC) = arg0;
-        TObjCHTimeWin__sub_80071DF4(arg0);
+        set_challenge_time_window_timer(arg0);
     }
 }
 
@@ -1202,14 +1202,14 @@ s32 is_challenge_mode_active(void) {
 extern "C" {
 
 void TLobby__sub_802930A8(void);
-void TLobby__sub_802930B8(void);
+void enable_split_screen_challenge_mode(void);
 
     extern int split_screen_flag;
 #define challenge_mode_active_flag (*(int *)&challenge_mode_active_flag)
 void TLobby__sub_802930A8(void) { challenge_mode_active_flag = 0; split_screen_flag = 0; }
 
     extern int split_screen_flag;
-void TLobby__sub_802930B8(void) { challenge_mode_active_flag = 1; split_screen_flag = 1; }
+void enable_split_screen_challenge_mode(void) { challenge_mode_active_flag = 1; split_screen_flag = 1; }
 
 }
 
@@ -1409,7 +1409,7 @@ extern s32 lbl_805D6584;
 extern "C" void *TLobby__sub_802936AC(void *arg0, s16 arg1);
 extern "C" void render__7TObjectFv();
 extern "C" void render_shadows__7TObjectFv();
-#define lbl_804DAB60 (*(RecoveredGlobal_8029379C_lbl_804DAB60 *)lbl_804DAB60)
+#define challenge_default_settings (*(RecoveredGlobal_8029379C_lbl_804DAB60 *)challenge_default_settings)
 #define lbl_804DB1F0 (*(M2C_UNK (*)[422])lbl_804DB1F0)
 
 void setup_split_screen(void) {
@@ -1577,7 +1577,7 @@ void copy_challenge_settings__6TLobbyFPvPv(void *, void *);
 void *TLobby__sub_802936AC(void *arg0, s16 arg1) {
     if (arg0 != NULL) {
         *(void **)((u8 *)arg0 + 0x18) = (void *)lbl_804DB888;
-        copy_challenge_settings__6TLobbyFPvPv(lbl_804DB1F0, &lbl_804DAB60);
+        copy_challenge_settings__6TLobbyFPvPv(lbl_804DB1F0, &challenge_default_settings);
         challenge_retry_object = 0;
         __dt__7TObjectFv(arg0, 0);
         if (arg1 > 0) {
@@ -1595,7 +1595,7 @@ C_80293720 *TChallenge4P__ct(C_80293720 *arg0, void *parent) {
     __ct__7TObjectFP7TObject(arg0, parent);
     arg0->f18 = lbl_804DB888;
     arg0->f0 = lbl_805D3CA8;
-    copy_challenge_settings__6TLobbyFPvPv(lbl_804DB1F0, &lbl_804DAB60);
+    copy_challenge_settings__6TLobbyFPvPv(lbl_804DB1F0, &challenge_default_settings);
     ((void (*)(void *))snapshot_player_card_status__6TLobbyFv)(arg0);
     arg0->f1c = 0;
     arg0->f20 = 0;
@@ -1607,7 +1607,7 @@ C_80293720 *TChallenge4P__ct(C_80293720 *arg0, void *parent) {
 typedef char RecoveredGlobal_8029379C_lbl_804DAB60_size[sizeof(RecoveredGlobal_8029379C_lbl_804DAB60) == 0x690 ? 1 : -1];
 typedef char RecoveredGlobal_8029379C_lbl_804DB1F0_size[sizeof(RecoveredGlobal_8029379C_lbl_804DB1F0) == 0x6B0 ? 1 : -1];
 void copy_global_value_block__6TLobbyFv(void) {
-    *(M2CCopy_690 *)(&(*(RecoveredGlobal_8029379C_lbl_804DB1F0 *)&lbl_804DB1F0).value) = *(const M2CCopy_690 *)(&lbl_804DAB60.value);
+    *(M2CCopy_690 *)(&(*(RecoveredGlobal_8029379C_lbl_804DB1F0 *)&lbl_804DB1F0).value) = *(const M2CCopy_690 *)(&challenge_default_settings.value);
 }
 
 }

@@ -55,7 +55,7 @@ s8 get_page_index__20TWindowSubQuestBoardFPv(s32);
 s32 is_open__20TWindowSubQuestBoardFPv(s32);
 s32 TWindowSubQuestBoard__sub_8027D1DC(s32);
 M2C_UNK fn_8027D1E8(s32);
-extern Ent_8027CFC8 lbl_805129F8[];
+extern Ent_8027CFC8 quest_board_handlers[];
 void run_task__20TWindowSubQuestBoardFv(void *arg0);
 }
 
@@ -175,7 +175,7 @@ void run_task__20TWindowSubQuestBoardFv(void *arg0) {
         break;
     case 3:
         M2C_FIELD(arg0, s32 *, 0x2C) = create_instance__17TQuestThreadBoardFi(
-            lbl_805129F8[get_page_index__20TWindowSubQuestBoardFPv(M2C_FIELD(arg0, s32 *, 0x28))].f20);
+            quest_board_handlers[get_page_index__20TWindowSubQuestBoardFPv(M2C_FIELD(arg0, s32 *, 0x28))].f20);
         M2C_FIELD(arg0, u8 *, 0x1C) = 4;
     case 4:
         if (all_parents_unqueued_for_destruction__7TObjectFv(M2C_FIELD(arg0, s32 *, 0x2C)) == 0) {

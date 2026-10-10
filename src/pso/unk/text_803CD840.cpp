@@ -91,7 +91,7 @@ s32 TLobby__sub_803CCB98(void *, int, int);
 void close_adxf_handle__6TLobbyFPv(void *);
 void *adxf_open__6TLobbyFUii(const char *, s32);
 extern char lbl_8047C818[];
-extern Ent_803CD840 *lbl_8057C7D0[256];
+extern Ent_803CD840 *afs_archive_toc_table[256];
 extern u8 lbl_8057DF50[];
 extern s32 lobby_adxf_current_file_id;
 extern void *lobby_adxf_open_file_handle;
@@ -145,7 +145,7 @@ s32 adxf_open_file__6TLobbyFiPviPv(s32 id, const char *name, s32 arg2, Ent_803CD
     lobby_adxf_current_file_id = id;
     lobby_afs_toc_entry_index = 0;
     memset(e, 0, 0x118);
-    lbl_8057C7D0[id] = e;
+    afs_archive_toc_table[id] = e;
     e->f0 = 0;
     strncpy(e->name, name, 0x100);
     e->f110 = arg2;

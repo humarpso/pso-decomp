@@ -15,10 +15,10 @@ extern "C" {
 
 u8 is_active__11TBoss4Type2Fv(void);
 
-extern s32 lbl_805D4D74;
+extern s32 dark_falz_controller_instance;
 
 u8 is_active__11TBoss4Type2Fv(void) {
-    return (u8) (lbl_805D4D74 != 0);
+    return (u8) (dark_falz_controller_instance != 0);
 }
 void scroll_strips__11TBoss4Type2FPv(Obj_8004A98C *self) {
     s32 i;

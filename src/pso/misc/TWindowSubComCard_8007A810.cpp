@@ -338,7 +338,7 @@ s32 TWindowSubComCard__sub_8007B0D0(Card_8007B0D0 *, Card_8007B0D0 *, s32);
 void TWindowSubComCard__sub_8007B1AC(void *, u8 *, s32);
 M2C_UNK bswap_guild_card__17TWindowSubComCardFPv();
 M2C_UNK TWindowSubShortMail__sub_8007B824();
-extern RecoveredGlobal_8007AE8C_TWindowGetComCard__data_80500158 TWindowGetComCard__data_80500158;
+extern RecoveredGlobal_8007AE8C_TWindowGetComCard__data_80500158 TWindowGetComCard__received_guild_card_tags;
 void handle_6x06_send_guild_card(s32 arg0);
 }
 
@@ -362,8 +362,8 @@ void handle_6x06_send_guild_card(s32 arg0) {
     temp_r31 = arg0 + 4;
     if ((((s32 (*)(int))TWindowSubComCard__sub_8007B070)((int)((int) (temp_r31))) == 0) && (((s32 (*)(int))send_guild_card__17TWindowSubComCardFi)((int) (temp_r31)) == 0)) {
         TWindowSubShortMail__sub_8007B824();
-        if (((s32 (*)(int, void *, int))TWindowSubComCard__sub_8007B0D0)((int) (temp_r31), (void *) (&TWindowGetComCard__data_80500158.value), (int) (4)) == 0) {
-            ((M2C_UNK (*)(int, void *, int))TWindowSubComCard__sub_8007B1AC)((int) (temp_r31), (void *) (&TWindowGetComCard__data_80500158.value), (int) (4));
+        if (((s32 (*)(int, void *, int))TWindowSubComCard__sub_8007B0D0)((int) (temp_r31), (void *) (&TWindowGetComCard__received_guild_card_tags.value), (int) (4)) == 0) {
+            ((M2C_UNK (*)(int, void *, int))TWindowSubComCard__sub_8007B1AC)((int) (temp_r31), (void *) (&TWindowGetComCard__received_guild_card_tags.value), (int) (4));
         }
     }
 }

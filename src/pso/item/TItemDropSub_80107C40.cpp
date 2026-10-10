@@ -10,19 +10,19 @@ void create_instance__12TItemDropSubFi(s32 arg0);
 M2C_UNK TItemDropSub__ct(void *, s32);
 void *__nw__7TObjectFUl(u32);
 
-extern void *TItemDropSub__data_805D5478;
+extern void *TItemDropSub__instance;
 extern s32 tl_05;
 
 void create_instance__12TItemDropSubFi(s32 arg0) {
     void *obj;
-    if (TItemDropSub__data_805D5478 == NULL) {
+    if (TItemDropSub__instance == NULL) {
         obj = __nw__7TObjectFUl(0x20);
         if (obj != NULL) {
             TItemDropSub__ct(obj, tl_05);
         }
     }
-    if (TItemDropSub__data_805D5478 != NULL) {
-        M2C_FIELD(TItemDropSub__data_805D5478, s32 *, 0x1C) = arg0;
+    if (TItemDropSub__instance != NULL) {
+        M2C_FIELD(TItemDropSub__instance, s32 *, 0x1C) = arg0;
     }
 }
 

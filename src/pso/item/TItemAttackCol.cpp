@@ -197,8 +197,8 @@ M2C_UNK pop_matrix();
 M2C_UNK scale_current_matrix(void *);
 M2C_UNK post_translate_matrix(void *);
 void add_to_active_list__14TItemAttackColFPv(void* a0);
-extern int lbl_805D68E8;
-extern int lbl_805D68EC;
+extern int attack_collider_render_owner;
+extern int attack_collider_active_count;
 void render__14TItemAttackColFv(u8 *arg0);
 }
 
@@ -219,9 +219,9 @@ void destroy_attack_collision__14TItemAttackColFPvs(void *, int);
 int fn_802E3BA8(void*, void*);
 void queue_destruction__7TObjectFv(void *);
 
-    extern int lbl_805D68E8;
-    extern int lbl_805D68EC;
-void add_to_active_list__14TItemAttackColFPv(void* a0) { fn_802E3BA8((void*)(lbl_805D68E8), a0); lbl_805D68EC = (lbl_805D68EC + 0x1); }
+    extern int attack_collider_render_owner;
+    extern int attack_collider_active_count;
+void add_to_active_list__14TItemAttackColFPv(void* a0) { fn_802E3BA8((void*)(attack_collider_render_owner), a0); attack_collider_active_count = (attack_collider_active_count + 0x1); }
 
 void shift_collision_bounds__14TItemAttackColFPv(void *arg0) {
     M2C_FIELD(arg0, s32 *, 0x104) = (s32) (M2C_FIELD(arg0, s32 *, 0x104) + 0xCCC);
@@ -289,8 +289,8 @@ void render__14TItemAttackColFv(u8 *arg0) {
                 notify_fish_if_valid__10TObjPlayerFUi(M2C_FIELD(arg0, void **, 0xEC));
             }
             begin_effect_render__13TParticleCtrlFv();
-            lbl_805D68E8 = (int)arg0;
-            lbl_805D68EC = 0;
+            attack_collider_render_owner = (int)arg0;
+            attack_collider_active_count = 0;
             push_matrix();
             post_translate_matrix((void *) (arg0 + 0x24));
             rotate_matrix_by_node_angles((void *) (arg0 + 0xF0), (int) (1));
@@ -298,7 +298,7 @@ void render__14TItemAttackColFv(u8 *arg0) {
             scale_current_matrix((void *) (arg0 + 0x108));
             run_with_transform_context__10TObjPlayerFiii((int) (M2C_FIELD(arg0, u32 *, 0xE8)), (void *) add_to_active_list__14TItemAttackColFPv);
             pop_matrix();
-            lbl_805D68E8 = 0;
+            attack_collider_render_owner = 0;
             end_effect_render__13TParticleCtrlFv();
         }
     }

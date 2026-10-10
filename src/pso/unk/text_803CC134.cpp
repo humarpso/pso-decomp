@@ -14,8 +14,8 @@ extern const char *const volatile lbl_805E0D80;
 
 u8 lbl_8057B7B0[0x20];
 u8 lbl_8057B7D0[0x1000];
-u8 lbl_8057C7D0[0x400];
-u8 lbl_8057CBD0[0x1380];
+u8 afs_archive_toc_table[0x400];
+u8 adxf_file_handle_pool[0x1380];
 
 void dec_ref_and_reset_tables__6TLobbyFv(void) {
     if (--lbl_805D75D0 == 0) {
@@ -27,16 +27,16 @@ void dec_ref_and_reset_tables__6TLobbyFv(void) {
         adxf_log_write_index = 0;
         memset(lbl_8057B7B0, 0, 0x20);
         memset(lbl_8057B7D0, 0xFF, 0x1000);
-        memset(lbl_8057C7D0, 0, 0x400);
-        memset(lbl_8057CBD0, 0, 0x1380);
+        memset(afs_archive_toc_table, 0, 0x400);
+        memset(adxf_file_handle_pool, 0, 0x1380);
     }
 }
 
 void init_afs_adxf_state__6TLobbyFv(void) {
     lbl_805E0D80;
     if (lbl_805D75D0 == 0) {
-        memset(lbl_8057CBD0, 0, 0x1380);
-        memset(lbl_8057C7D0, 0, 0x400);
+        memset(adxf_file_handle_pool, 0, 0x1380);
+        memset(afs_archive_toc_table, 0, 0x400);
         memset(lbl_8057B7D0, 0xFF, 0x1000);
         memset(lbl_8057B7B0, 0, 0x20);
         adxf_log_write_index = 0;

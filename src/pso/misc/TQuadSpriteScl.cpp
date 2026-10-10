@@ -179,12 +179,12 @@ void *__dt__14TQuadSpriteSclFv(void *arg0, s16 arg1) {
 }
 
 extern M2C_UNK __vt__14TQuadSpriteScl[];
-extern void *lbl_805D35B0;
+extern void *TQuadSpriteScl__class_name;
 
 void *TQuadSpriteScl__ct(void *arg0) {
     quad_sprite_base_ct(arg0);
     M2C_FIELD(arg0, M2C_UNK **, 0x18) = __vt__14TQuadSpriteScl;
-    M2C_FIELD(arg0, void **, 0x0) = lbl_805D35B0;
+    M2C_FIELD(arg0, void **, 0x0) = TQuadSpriteScl__class_name;
     return arg0;
 }
 

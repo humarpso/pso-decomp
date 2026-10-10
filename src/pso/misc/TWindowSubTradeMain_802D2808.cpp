@@ -15,10 +15,10 @@ void set_trade_field_4__6TLobbyFii(s32, s32);
 M2C_UNK TLobby__sub_802D1F30(void *, void *);
 extern M2C_UNK TLobby__trade_window_state[];
 extern s32 local_client_id;
-extern u8 TLobby__data_805D688A;
+extern u8 TLobby__trade_partner_client_id;
 extern s32 TLobby__data_805D688C;
 void TWindowSubTradeMain__sub_802D2870(void);
-extern u16 lbl_805D6888;
+extern u16 trade_protocol_flags;
 s32 TWindowSubTradeMain__sub_802D2808(void);
 }
 
@@ -36,10 +36,10 @@ void move_trade_item_amount__6TLobbyFPvUii(void *, void *, void *);
 void send_modify_trade_proposal__6TLobbyFcii(int, void *, void *);
 void draw_item_slot__19TWindowSubTradeMainFPv(void *);
 
-extern u16 lbl_805D6888;
+extern u16 trade_protocol_flags;
 
 s32 TWindowSubTradeMain__sub_802D2808(void) {
-    u16 v = lbl_805D6888;
+    u16 v = trade_protocol_flags;
     if (!(v & 0x20)) {
         return 0;
     }
@@ -47,35 +47,35 @@ s32 TWindowSubTradeMain__sub_802D2808(void) {
 }
 
 void TWindowSubTradeMain__sub_802D2824(void) {
-    lbl_805D6888 &= 0xFFFFFF7F;
+    trade_protocol_flags &= 0xFFFFFF7F;
 }
 
-extern u16 lbl_805D6888;
+extern u16 trade_protocol_flags;
 
 void TWindowSubTradeMain__sub_802D2834(void) {
-    lbl_805D6888 |= 0x80;
+    trade_protocol_flags |= 0x80;
 }
 
-extern u16 lbl_805D6888;
+extern u16 trade_protocol_flags;
 
 s32 TWindowSubTradeMain__sub_802D2844(void) {
-    return ((u16) lbl_805D6888 >> 4U) & 1;
+    return ((u16) trade_protocol_flags >> 4U) & 1;
 }
 
-extern u16 lbl_805D6888;
+extern u16 trade_protocol_flags;
 
 void TWindowSubTradeMain__sub_802D2850(void) {
-    lbl_805D6888 &= 0xFFFFFFEF;
+    trade_protocol_flags &= 0xFFFFFFEF;
 }
 
-extern u16 lbl_805D6888;
+extern u16 trade_protocol_flags;
 
 void TWindowSubTradeMain__sub_802D2860(void) {
-    lbl_805D6888 |= 0x10;
+    trade_protocol_flags |= 0x10;
 }
 
 extern M2C_UNK TLobby__trade_window_state[];
-extern void *TLobby__data_805D6898;
+extern void *TLobby__trade_main_window;
 
 typedef struct RecoveredGlobal_802D2870_TLobby__data_80540BD0 RecoveredGlobal_802D2870_TLobby__data_80540BD0;
 typedef char RecoveredGlobal_802D2870_TLobby__data_80540BD0_size[((sizeof(RecoveredGlobal_802D2870_TLobby__data_80540BD0)) == 0x3E0) ? (1) : (-1)];
@@ -83,26 +83,26 @@ void TWindowSubTradeMain__sub_802D2870(void) {
   M2C_UNK *temp_r31;
   TLobby__sub_802D1F30((void *) (&(*(RecoveredGlobal_802D2870_TLobby__data_80540BD0 *)&TLobby__trade_window_state).value), (void *) local_client_id);
   temp_r31 = (M2C_UNK *) ((u8 *) ((M2C_UNK *) (((u8 *) (&(*(RecoveredGlobal_802D2870_TLobby__data_80540BD0 *)&TLobby__trade_window_state).value)) + 0x1F0)));
-  TLobby__sub_802D1F30((void *) temp_r31, (void *) ((s32) ((s8) (TLobby__data_805D688A & 0xFFFFFFFFFFFFFFFFu))));
+  TLobby__sub_802D1F30((void *) temp_r31, (void *) ((s32) ((s8) (TLobby__trade_partner_client_id & 0xFFFFFFFFFFFFFFFFu))));
   set_trade_field_4__6TLobbyFii((s32) temp_r31, TLobby__data_805D688C);
 }
 
 void draw_offer__19TWindowSubTradeMainFPvPv(void *arg0, void *arg1) {
     send_modify_trade_proposal__6TLobbyFcii(2, arg0, arg1);
     transfer_trade_item_amount__6TLobbyFPvUii(TLobby__trade_window_state, arg0, arg1);
-    if (TLobby__data_805D6898 != NULL) {
-        draw_item_slot__19TWindowSubTradeMainFPv(TLobby__data_805D6898);
+    if (TLobby__trade_main_window != NULL) {
+        draw_item_slot__19TWindowSubTradeMainFPv(TLobby__trade_main_window);
     }
 }
 
 extern M2C_UNK TLobby__trade_window_state[];
-extern void *TLobby__data_805D6898;
+extern void *TLobby__trade_main_window;
 
 void draw_request__19TWindowSubTradeMainFPvPv(void *arg0, void *arg1) {
     send_modify_trade_proposal__6TLobbyFcii(1, arg0, arg1);
     move_trade_item_amount__6TLobbyFPvUii(TLobby__trade_window_state, arg0, arg1);
-    if (TLobby__data_805D6898 != NULL) {
-        draw_item_slot__19TWindowSubTradeMainFPv(TLobby__data_805D6898);
+    if (TLobby__trade_main_window != NULL) {
+        draw_item_slot__19TWindowSubTradeMainFPv(TLobby__trade_main_window);
     }
 }
 

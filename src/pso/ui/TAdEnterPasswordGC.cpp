@@ -65,7 +65,7 @@ void fn_8032B318(void *, void *);
 extern u8 lbl_804ED9F0[];
 extern s32 password_entry_dispatch_state;
 #pragma explicit_zero_data on
-RecoveredGlobal_8032BA8C_TAdEnterPasswordGC__data_804EDA20 TAdEnterPasswordGC__data_804EDA20 = { 0 };
+RecoveredGlobal_8032BA8C_TAdEnterPasswordGC__data_804EDA20 TAdEnterPasswordGC__input_buffer = { 0 };
 #pragma explicit_zero_data off
 }
 
@@ -89,7 +89,7 @@ extern s32 password_entry_dispatch_state;
 void open_keyboard_window__18TAdEnterPasswordGCFPv(s32 arg0);
 void strncpy(s32, s32, s32);
 M2C_UNK memset(void *, int, int);
-extern RecoveredGlobal_8032BA8C_TAdEnterPasswordGC__data_804EDA20 TAdEnterPasswordGC__data_804EDA20;
+extern RecoveredGlobal_8032BA8C_TAdEnterPasswordGC__data_804EDA20 TAdEnterPasswordGC__input_buffer;
 void set_password__18TAdEnterPasswordGCFi(s32 arg0);
 s32 TKeyBoardControl__sub_8000F9CC(int);
 void queue_destruction__7TObjectFv(void *);
@@ -128,7 +128,7 @@ void strncpy(s32, s32, s32);
 M2C_UNK memset(void *, int, int);
 s32 strlen(s32);
 extern RecoveredGlobal_8032B904_lbl_80477278 enter_password_item_rect_table;
-extern RecoveredGlobal_8032BA8C_TAdEnterPasswordGC__data_804EDA20 TAdEnterPasswordGC__data_804EDA20;
+extern RecoveredGlobal_8032BA8C_TAdEnterPasswordGC__data_804EDA20 TAdEnterPasswordGC__input_buffer;
 extern u8 controller_input_state[];
 extern u8 controller_physical_port_bank[];
 extern u8 *password_entry_keyboard_control;
@@ -193,7 +193,7 @@ void update_password_input__18TAdEnterPasswordGCFPv(Pw_8032B6A0 *self) {
   if (((self->len == 0) && (TWindowShortListCtrl__check_controller_button(controller_physical_port_bank + 0x20, 2) != 0)) || ((self->len == 0) && (test_flag_4c__23TAdSinglePlyChrSelectGCFPv(controller_input_state + 0x160, 2) != 0)))
   {
     free__11TOBoss4RockFUi(buf);
-    memset(&TAdEnterPasswordGC__data_804EDA20.value, 0, 9);
+    memset(&TAdEnterPasswordGC__input_buffer.value, 0, 9);
     self->f20 = 2;
     password_entry_dispatch_state = 4;
     return;
@@ -257,7 +257,7 @@ void update_password_input__18TAdEnterPasswordGCFPv(Pw_8032B6A0 *self) {
   }
   if ((get_selected_slot__23TAdSinglePlyChrSelectGCFPv(self->serial) == 1) && (update_keyboard__17TWindowSubComCardFPv(password_entry_keyboard_control) != 0))
   {
-    strncpy((s32) (&TAdEnterPasswordGC__data_804EDA20.value), buf, 9);
+    strncpy((s32) (&TAdEnterPasswordGC__input_buffer.value), buf, 9);
     TAdEnterSerialAccessGC__sub_80322418(get_field_118__22TAdEnterSerialAccessGCFv(), 2);
     self->f20 = 3;
     password_entry_dispatch_state = 4;
@@ -295,8 +295,8 @@ void run_task__18TAdEnterPasswordGCFv(TAdEnterPasswordGC_8032B984 *self) {
 }
 
 void set_password__18TAdEnterPasswordGCFi(s32 arg0) {
-    memset((void *) (&TAdEnterPasswordGC__data_804EDA20.value), (int) (0), (int) (9));
-    strncpy((s32) &TAdEnterPasswordGC__data_804EDA20.value, arg0, 9);
+    memset((void *) (&TAdEnterPasswordGC__input_buffer.value), (int) (0), (int) (9));
+    strncpy((s32) &TAdEnterPasswordGC__input_buffer.value, arg0, 9);
 }
 
 void *__dt__18TAdEnterPasswordGCFv(void *arg0, s16 arg1) {

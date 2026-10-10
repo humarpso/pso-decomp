@@ -9,16 +9,16 @@ extern "C" {
 s32 get_field_118__22TAdEnterSerialAccessGCFv(void);
 s32 get_serial_result__22TAdEnterSerialAccessGCFv(void);
 
-extern u8 *lbl_805D5F70;
+extern u8 *secondary_card_system_save_payload;
 
 s32 get_serial_result__22TAdEnterSerialAccessGCFv(void) {
-    return M2C_FIELD(lbl_805D5F70, s32 *, 0x118);
+    return M2C_FIELD(secondary_card_system_save_payload, s32 *, 0x118);
 }
 
-extern void *lbl_805D5F6C;
+extern void *system_save_payload;
 
 s32 get_field_118__22TAdEnterSerialAccessGCFv(void) {
-    return M2C_FIELD(lbl_805D5F6C, s32 *, 0x118);
+    return M2C_FIELD(system_save_payload, s32 *, 0x118);
 }
 
 }

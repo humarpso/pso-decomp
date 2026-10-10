@@ -46,7 +46,7 @@ s32 approach_alpha_clamped(void *, void *, f32);
 s32 spawn_particle_effect(void *, int);
 extern RecoveredGlobal_800823E0_lbl_80438EB8 lbl_80438EB8;
 extern RecoveredGlobal_800823E0_lbl_80438EC8 lbl_80438EC8;
-extern const f32 lbl_805D2900;
+extern const f32 TEffClitical__alpha_approach_step;
 extern const f32 lbl_805D93A8;
 extern const f32 lbl_805D93AC;
 void run_task__12TEffCliticalFv(u8 *arg0);
@@ -84,7 +84,7 @@ void VecCopy__FP3VecPC3Vec(void *, void *);
 void *__nw__7TObjectFUl(int);
 
 extern M2C_UNK __vt__12TEffClitical[];
-extern void *lbl_805D2904;
+extern void *TEffClitical__class_name;
 extern const f32 lbl_805D93B0;
 
 #pragma push
@@ -167,7 +167,7 @@ void run_task__12TEffCliticalFv(u8 *arg0) {
         M2C_FIELD(arg0, s32 *, 0x74) = 1;
         break;
     }
-    if (approach_alpha_clamped((void *) (arg0 + 0x2C), (void *) (&stack.sp20), (f32) (lbl_805D2900)) != 0) {
+    if (approach_alpha_clamped((void *) (arg0 + 0x2C), (void *) (&stack.sp20), (f32) (TEffClitical__alpha_approach_step)) != 0) {
         queue_destruction__7TObjectFv((void *) (arg0));
         return;
     }
@@ -183,7 +183,7 @@ TEffClitical::~TEffClitical() {}
 void *__ct__12TEffCliticalFv(void *arg0, void *arg1) {
     __ct__7TEffectFv(arg0);
     M2C_FIELD(arg0, M2C_UNK **, 0x18) = __vt__12TEffClitical;
-    M2C_FIELD(arg0, void **, 0x0) = lbl_805D2904;
+    M2C_FIELD(arg0, void **, 0x0) = TEffClitical__class_name;
     VecCopy__FP3VecPC3Vec((void *)((char *)arg0 + 32), arg1);
     M2C_FIELD(arg0, u32 *, 0x70) = 0;
     M2C_FIELD(arg0, f32 *, 0x2C) = lbl_805D93B0;

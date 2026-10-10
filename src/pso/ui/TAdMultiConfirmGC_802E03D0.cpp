@@ -104,7 +104,7 @@ s32 set_field_dc__10TObjPlayerFPvi(void *, int);
 s32 set_field_d8__10TObjPlayerFPvi(void *, void *);
 s32 set_animation__10TObjPlayerFPvs(void *, int);
 extern RecoveredGlobal_802E0784_lbl_804E2F78 lbl_804E2F78;
-extern u8 *lbl_805D68D8;
+extern u8 *TAdMultiPlyChrSelectGC__resource_bundle;
 }
 
 extern "C" {
@@ -457,7 +457,7 @@ void update_model_load__10TNpcPlayerFPv(u8 *arg0) {
 
 void fn_802E0784(u8 *arg0) {
     set_field_d8__10TObjPlayerFPvi((void *) (arg0), (void *) (&lbl_804E2F78.value));
-    set_field_dc__10TObjPlayerFPvi((void *) (arg0), (int) (M2C_FIELD(lbl_805D68D8, s32 *, 0x430)));
+    set_field_dc__10TObjPlayerFPvi((void *) (arg0), (int) (M2C_FIELD(TAdMultiPlyChrSelectGC__resource_bundle, s32 *, 0x430)));
     set_cursor_index__17TAdMultiConfirmGCFPvi((void *) (arg0), (int) (0));
     set_animation__10TObjPlayerFPvs((void *) (arg0), (int) (M2C_FIELD(arg0, s16 *, 0xB8)));
 }

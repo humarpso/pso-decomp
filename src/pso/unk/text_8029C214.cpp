@@ -36,7 +36,7 @@ s32 refresh_collision_body_centers(void *);
 s32 init_collision_body_parts(void *, void *, int);
 s32 TORockCave__ct(void *);
 s32 create__10TObjMapCsnFi(void *);
-s32 TORockJungleS01__sub_8029CAE8(s32 a);
+s32 get_jungle_rock_texture_resource(s32 a);
 u8 *get_model__15TORockJungleS01Fi(s32 arg0);
 extern "C" void TAdRayGC__sub_8029C054();
 extern "C" void update_near_fade__12TBoss8DragonFPv();
@@ -104,7 +104,7 @@ u8 *TORockJungleL01__ct(u8 *arg0, s32 arg1) {
     M2C_FIELD(arg0, s32 *, 0) = lbl_805D3D44;
     ((VObj_8029C214 *)(arg0))->m5(arg1);
     M2C_FIELD(arg0, u8 **, 0x34) = get_model__15TORockJungleS01Fi(4);
-    M2C_FIELD(arg0, s32 *, 0x24) = TORockJungleS01__sub_8029CAE8(4);
+    M2C_FIELD(arg0, s32 *, 0x24) = get_jungle_rock_texture_resource(4);
     M2C_FIELD(arg0, f32 *, 0xB0) = lbl_805DDD1C + M2C_FIELD(M2C_FIELD(M2C_FIELD(arg0, u8 **, 0x34), void **, 4), f32 *, 0x14);
     ((s32 (*)(void *, void *, int, f32))init_collision_body_parts)(arg0, &rock_jungle_collision_body_parts.v, 1, lbl_805DDD1C);
     refresh_collision_body_centers(arg0);

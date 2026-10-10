@@ -42,7 +42,7 @@ void run_frame__6TLobbyFv(void);
 void DCInvalidateRange(void *, u32);
 void ARQPostRequest(void *, u32, u32, u32, u32, u32, u32, void *);
 void TLobby__sub_8001D9DC(void);
-extern s32 lbl_805D4A90;
+extern s32 aram_dma_pending;
 s32 aram_read_sync__6TLobbyFiiii(s32 arg0, s32 arg1, s32 arg2, s32 arg3);
 M2C_UNK VecCopy__FP3VecPC3Vec(void *, void *);
 M2C_UNK TLoadingCur__ct(void *, void *, void *);
@@ -58,13 +58,13 @@ TNowLoading_8001D3A8 *TNowLoading__ct(TNowLoading_8001D3A8 *arg0, void *arg1, Ve
 void DCInvalidateRange(void *, u32);
 void ARQPostRequest(void *, u32, u32, u32, u32, u32, u32, void *);
 void TLobby__sub_8001D9DC(void);
-extern s32 lbl_805D4A90;
+extern s32 aram_dma_pending;
 s32 aram_dma_blocking__6TLobbyFiiii(s32 arg0, s32 arg1, s32 arg2, s32 arg3);
 void DCFlushRange(void *, u32);
 void run_frame__6TLobbyFv(void);
 void ARQPostRequest(void *, u32, u32, u32, u32, u32, u32, void *);
 void TLobby__sub_8001D9DC(void);
-extern s32 lbl_805D4A90;
+extern s32 aram_dma_pending;
 s32 aram_transfer_sync__6TLobbyFiUiii(s32 arg0, u32 arg1, s32 arg2, s32 arg3);
 }
 
@@ -202,11 +202,11 @@ s32 aram_dma_blocking__6TLobbyFiiii(s32 arg0, s32 arg1, s32 arg2, s32 arg3) {
     u8 sp8[0x20];
     s32 len;
     len = (arg3 + 0x1F) & ~0x1F;
-    (*(volatile s32 *)&lbl_805D4A90) = 1;
+    (*(volatile s32 *)&aram_dma_pending) = 1;
     DCInvalidateRange((void *)arg2, len);
     ARQPostRequest(sp8, arg0, 1, 1, arg1, arg2, len, (void *)TLobby__sub_8001D9DC);
     for (;;) {
-        if ((*(volatile s32 *)&lbl_805D4A90) == 0) break;
+        if ((*(volatile s32 *)&aram_dma_pending) == 0) break;
     }
     DCInvalidateRange((void *)arg2, len);
     return 1;
@@ -216,11 +216,11 @@ s32 aram_read_sync__6TLobbyFiiii(s32 arg0, s32 arg1, s32 arg2, s32 arg3) {
     u8 sp8[0x20];
     s32 len;
     len = (arg3 + 0x1F) & ~0x1F;
-    lbl_805D4A90 = 1;
+    aram_dma_pending = 1;
     DCInvalidateRange((void *)arg2, len);
     ARQPostRequest(sp8, arg0, 1, 1, arg1, arg2, len, (void *)TLobby__sub_8001D9DC);
     for (;;) {
-        if (lbl_805D4A90 == 0) break;
+        if (aram_dma_pending == 0) break;
         run_frame__6TLobbyFv();
     }
     DCInvalidateRange((void *)arg2, len);
@@ -233,11 +233,11 @@ s32 aram_transfer_sync__6TLobbyFiUiii(s32 arg0, u32 arg1, s32 arg2, s32 arg3) {
         return 0;
     }
     len = (arg3 + 0x1F) & ~0x1F;
-    (*(volatile s32 *)&lbl_805D4A90) = 1;
+    (*(volatile s32 *)&aram_dma_pending) = 1;
     DCFlushRange((void *)arg1, len);
     ARQPostRequest(sp8, arg0, 0, 1, arg1, arg2, len, (void *)TLobby__sub_8001D9DC);
     for (;;) {
-        if ((*(volatile s32 *)&lbl_805D4A90) == 0) break;
+        if ((*(volatile s32 *)&aram_dma_pending) == 0) break;
         run_frame__6TLobbyFv();
     }
     return 1;

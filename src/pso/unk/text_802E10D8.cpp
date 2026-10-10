@@ -10,7 +10,7 @@ extern "C" {
 u8 * load_resource_from_descriptor(void *, s32, void *, s32, s32, s32);
 int alloc__23TAdSinglePlyChrSelectGCFPv(void *);
 extern RecoveredGlobal_802E10D8_lbl_804D3900 creation_menu_resource_descriptor;
-extern s32 lbl_805D68D8;
+extern s32 TAdMultiPlyChrSelectGC__resource_bundle;
 void fn_802E10D8(void);
 }
 
@@ -24,7 +24,7 @@ void fn_802E10D8(void) {
     if (var_r0 != 0) {
         var_r0 = (long) (load_resource_from_descriptor((void *) temp_r3, 1, &creation_menu_resource_descriptor.value, 0, 0, 0));
     }
-    lbl_805D68D8 = var_r0;
+    TAdMultiPlyChrSelectGC__resource_bundle = var_r0;
 }
 
 }

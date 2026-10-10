@@ -81,7 +81,7 @@ extern "C" {
 u8 * load_resource_from_descriptor(void *, s32, void *, s32, s32, s32);
 int alloc__23TAdSinglePlyChrSelectGCFPv(void *);
 extern RecoveredGlobal_8017FC78_lbl_804B5888 lbl_804B5888;
-extern u32 TObjCamera__data_805D5B18;
+extern u32 TObjCamera__bml_resource;
 extern s32 TObjCamera__data_805D5B1C;
 void load_shared_resource__10TObjCameraFv(void);
 s32 get_bml_motion(u32, int);
@@ -97,7 +97,7 @@ void set_model_node_callback(void *);
 void draw_ginja_model_with_motion(s32, s32, f32);
 void update_camera_slots__10TObjCameraFv(void);
 extern Vec_8017F80C camera_slot_positions[];
-extern u32 TObjCamera__data_805D5B18;
+extern u32 TObjCamera__bml_resource;
 extern s32 TObjCamera__data_805D5B1C;
 extern const f32 lbl_805DBB60;
 extern const f32 lbl_805DBB64;
@@ -140,7 +140,7 @@ void *__nw__7TObjectFUl(int);
 extern Copy_8017FA9C lbl_80443AA4;
 extern M2C_UNK __vt__10TObjCamera[];
 extern s32 lbl_805D3238;
-extern u32 TObjCamera__data_805D5B18;
+extern u32 TObjCamera__bml_resource;
 extern const f32 TObjCamera__data_805DBB58;
 extern const f32 lbl_805DBB70;
 u8 *TObjCamera__ct(u8 *arg0, M2C_UNK arg1, s32 arg2);
@@ -161,15 +161,15 @@ extern M2C_UNK __vt__10TObjCamera[];
 void render__10TObjCameraFv(Obj_8017F80C *self) {
     s32 i;
     if (self->m8(lbl_805DBB60, lbl_805DBB64) != 0) {
-        TObjFish__sub_8001EDB0(TObjCamera__data_805D5B18, 0);
+        TObjFish__sub_8001EDB0(TObjCamera__bml_resource, 0);
         set_global_param__8TObjFishFi();
         push_matrix();
         post_translate_matrix(&self->pos);
         rotate_matrix_y(0, self->x60);
         TObjCamera__data_805D5B1C = 0;
         set_model_node_callback((void *)update_camera_slots__10TObjCameraFv);
-        draw_ginja_model_with_motion(get_bml_model(TObjCamera__data_805D5B18, 0),
-                               get_bml_motion(TObjCamera__data_805D5B18, 0), self->xb0);
+        draw_ginja_model_with_motion(get_bml_model(TObjCamera__bml_resource, 0),
+                               get_bml_motion(TObjCamera__bml_resource, 0), self->xb0);
         set_model_node_callback(NULL);
         pop_matrix();
         if (self->count != 0) {
@@ -242,7 +242,7 @@ u8 *TObjCamera__ct(u8 *arg0, M2C_UNK arg1, s32 arg2) {
     ((VObj_8017FA9C *)(arg0))->m5(arg2);
     M2C_FIELD(arg0, f32 *, 0xB0) = TObjCamera__data_805DBB58;
     M2C_FIELD(arg0, f32 *, 0xB8) = lbl_805DBB70;
-    M2C_FIELD(arg0, f32 *, 0xB4) = *(u32 *)(get_bml_motion(TObjCamera__data_805D5B18, 0) + 4);
+    M2C_FIELD(arg0, f32 *, 0xB4) = *(u32 *)(get_bml_motion(TObjCamera__bml_resource, 0) + 4);
     if (is_split_screen() != 0) {
         for (i = 0; i < 8; i++) {
             ((Cam_8017FA9C *)arg0)->arr[i] = 0;
@@ -269,12 +269,12 @@ void *create__10TObjCameraFPv(void *arg0) {
     return o;
 }
 
-extern u32 TObjCamera__data_805D5B18;
+extern u32 TObjCamera__bml_resource;
 
 void release_static_resource__10TObjCameraFv(void) {
-    if ((u32) TObjCamera__data_805D5B18 != 0U) {
-        TLobby__sub_8001FE7C((void*)TObjCamera__data_805D5B18, 1);
-        TObjCamera__data_805D5B18 = 0U;
+    if ((u32) TObjCamera__bml_resource != 0U) {
+        TLobby__sub_8001FE7C((void*)TObjCamera__bml_resource, 1);
+        TObjCamera__bml_resource = 0U;
     }
 }
 void load_shared_resource__10TObjCameraFv(void) {
@@ -286,7 +286,7 @@ void load_shared_resource__10TObjCameraFv(void) {
     if (var_r0 != 0) {
         var_r0 = (long) (load_resource_from_descriptor((void *) temp_r3, 1, &lbl_804B5888.value, 0, 0, 0));
     }
-    (*(s32 *)&TObjCamera__data_805D5B18) = var_r0;
+    (*(s32 *)&TObjCamera__bml_resource) = var_r0;
 }
 void TObjChip__vt10(u8 *arg0) {
     Piece_8017FCD0 *p = (Piece_8017FCD0 *)(arg0 + 0x70);

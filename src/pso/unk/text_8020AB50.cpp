@@ -19,8 +19,8 @@ extern char lbl_8044BBB8[];
 extern char lbl_8044BBC8[];
 extern char lbl_8044BBD4[];
 extern E1_8020AB50 *TLobby__data_805D6068;
-extern u8 *TLobby__data_805D60F0;
-extern s32 TLobby__data_805D60F4;
+extern u8 *TLobby__map_set_file_buffer;
+extern s32 TLobby__map_set_file_buffer_size;
 s32 load_area_enemy_set(s32 arg0, s32 arg1, s32 arg2, s32 arg3);
 }
 
@@ -61,21 +61,21 @@ s32 load_area_enemy_set(s32 arg0, s32 arg1, s32 arg2, s32 arg3) {
     } else {
         replace_file_extension__6TLobbyFPvPvPv(buf, name, lbl_8044BBA8);
     }
-    size = read_disc_file(buf, TLobby__data_805D60F0);
+    size = read_disc_file(buf, TLobby__map_set_file_buffer);
     if (size < 0) {
         return 0;
     }
-    if (size > TLobby__data_805D60F4) {
+    if (size > TLobby__map_set_file_buffer_size) {
         return 0;
     }
-    p = TLobby__data_805D60F0;
+    p = TLobby__map_set_file_buffer;
     count = (u32)size / 0x48;
     for (i = 0; i < (s32)count; i++, p += 0x48) {
         bswap_enemy_set_row(p);
         *(s16 *)(p + 2) = 0;
     }
-    reserve_enemy_set_actor_ids(TLobby__data_805D60F0, count, arg1);
-    init_floor_enemy_count__6TLobbyFiPvUi(arg0, TLobby__data_805D60F0, size);
+    reserve_enemy_set_actor_ids(TLobby__map_set_file_buffer, count, arg1);
+    init_floor_enemy_count__6TLobbyFiPvUi(arg0, TLobby__map_set_file_buffer, size);
     return 1;
 }
 

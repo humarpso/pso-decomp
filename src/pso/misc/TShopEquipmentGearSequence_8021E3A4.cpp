@@ -5,8 +5,8 @@ typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
 extern "C" {
 
 void *create_shop_item_tec_sequence(void *arg0);
-int TShopEquipmentGearSequence__sub_8021E3F0(int a0);
-int TShopItemTecSequence__sub_8021E450(int a0);
+int get_equipment_gear_shop_window_slot(int a0);
+int get_item_technique_shop_slot(int a0);
 void *create_instance__26TShopEquipmentGearSequenceFPv(void *arg0);
 void *TShopEquipmentGearSequence__ct(void *, void *, void *);
 void *TShopItemTecSequence__ct(void *, void *, void *);
@@ -23,7 +23,7 @@ void *create_instance__26TShopEquipmentGearSequenceFPv(void *arg0) {
 }
 
     extern int TShopEquipmentGearSequence__window_slot_table[];
-int TShopEquipmentGearSequence__sub_8021E3F0(int a0) {  return TShopEquipmentGearSequence__window_slot_table[a0]; }
+int get_equipment_gear_shop_window_slot(int a0) {  return TShopEquipmentGearSequence__window_slot_table[a0]; }
 
 extern void *tl_05;
 
@@ -36,6 +36,6 @@ void *create_shop_item_tec_sequence(void *arg0) {
 }
 
     extern int TShopItemTecSequence__slot_table[];
-int TShopItemTecSequence__sub_8021E450(int a0) {  return TShopItemTecSequence__slot_table[a0]; }
+int get_item_technique_shop_slot(int a0) {  return TShopItemTecSequence__slot_table[a0]; }
 
 }

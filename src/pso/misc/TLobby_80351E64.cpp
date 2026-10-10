@@ -14,7 +14,7 @@ M2C_UNK __dl__7TObjectFPv(void *);
 M2C_UNK __dt__7TObjectFv(void *, M2C_UNK);
 M2C_UNK queue_destruction__7TObjectFv(void *);
 extern const M2C_UNK lbl_804F0EA8[];
-extern void *lbl_805D6EC0;
+extern void *lobby_event_theme_controller;
 void *destroy_and_clear_instance__6TLobbyFPvs(void *arg0, s16 arg1);
 M2C_UNK TLobby__sub_803DA16C(void*);
 M2C_UNK safe_free__23TAdSinglePlyChrSelectGCFUi(u32);
@@ -44,20 +44,20 @@ s32 is_connected__6TLobbyFv(void);
 s32 is_lobby_obj_active__6TLobbyFv(void);
 void *__nw__7TObjectFUl(int);
 
-extern void *lbl_805D6EC0;
+extern void *lobby_event_theme_controller;
 
 s32 is_connected__6TLobbyFv(void) {
-    if ((void *) lbl_805D6EC0 != NULL) {
-        return ((u32) M2C_FIELD(lbl_805D6EC0, u32 *, 0x1C) >> 2U) & 1;
+    if ((void *) lobby_event_theme_controller != NULL) {
+        return ((u32) M2C_FIELD(lobby_event_theme_controller, u32 *, 0x1C) >> 2U) & 1;
     }
     return 0;
 }
 
-extern void *lbl_805D6EC0;
+extern void *lobby_event_theme_controller;
 
 s32 is_lobby_obj_active__6TLobbyFv(void) {
-    if ((void *) lbl_805D6EC0 != NULL) {
-        return ((u32) M2C_FIELD(lbl_805D6EC0, u32 *, 0x1C) >> 1U) & 1;
+    if ((void *) lobby_event_theme_controller != NULL) {
+        return ((u32) M2C_FIELD(lobby_event_theme_controller, u32 *, 0x1C) >> 1U) & 1;
     }
     return 0;
 }
@@ -65,7 +65,7 @@ s32 is_lobby_obj_active__6TLobbyFv(void) {
     extern int lbl_805D6EC4;
 int get_lobby_type__6TLobbyFv(void) {  return lbl_805D6EC4; }
 
-extern void *lbl_805D6EC0;
+extern void *lobby_event_theme_controller;
 
 void update_event_theme_flags__6TLobbyFPv(L_80351EAC *arg0) {
     s32 mode = get_filtered_event_theme__6TLobbyFv();
@@ -88,13 +88,13 @@ void TLobby__sub_80351F3C(void) {
     if (o != NULL) {
         o = TLobby__sub_80351FDC((u8 *)(o));
     }
-    lbl_805D6EC0 = o;
+    lobby_event_theme_controller = o;
 }
 void *destroy_and_clear_instance__6TLobbyFPvs(void *arg0, s16 arg1) {
     if (arg0 != NULL) {
         M2C_FIELD(arg0, const M2C_UNK **, 0x18) = lbl_804F0EA8;
         queue_destruction__7TObjectFv(arg0);
-        (*(s32 *)&lbl_805D6EC0) = 0;
+        (*(s32 *)&lobby_event_theme_controller) = 0;
         __dt__7TObjectFv(arg0, 0);
         if (arg1 > 0) {
             __dl__7TObjectFPv(arg0);

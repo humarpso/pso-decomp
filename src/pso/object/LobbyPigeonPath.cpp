@@ -40,7 +40,7 @@ f64 get_ad_end_text_start__10TObjPlayerFv(f32, f32);
 void direction_to_rotation_xz(Vec_802C0CAC *, s32 *, s32 *);
 s32 sample_clamped_path_position(void *arg0, s32 arg1, void *arg2, s32 arg3, f32 farg0);
 f32 subtract_vector(Vec_802C0CAC *, Vec_802C0CAC *);
-extern Entry_802C0CAC lbl_80471914[];
+extern Entry_802C0CAC lobby_pigeon_path_profiles[];
 extern const f64 lbl_80471960[];
 s32 initialize_lobby_pigeon_path(Obj_802C0CAC *self);
 void VecCopy__FP3VecPC3Vec(Vec_802C0CAC *, Vec_802C0CAC *);
@@ -50,7 +50,7 @@ void direction_to_rotation_xz(Vec_802C0CAC *, s32 *, s32 *);
 f32 subtract_vector(Vec_802C0CAC *, Vec_802C0CAC *);
 s32 approach_angle_limited(s32, s32, s32);
 s32 angle_diff_s16(s32, s32);
-extern Entry_802C0CAC lbl_80471914[];
+extern Entry_802C0CAC lobby_pigeon_path_profiles[];
 extern const f64 lbl_80471960[];
 s32 advance_lobby_pigeon_path(Obj_802C0A74 *self);
 }
@@ -68,14 +68,14 @@ s32 advance_lobby_pigeon_path(Obj_802C0A74 *self) {
     s32 diff;
     ((s32 (*)(void *, s32, s32, Vec_802C0CAC *, f32))sample_clamped_path_position)(self, self->f98, self->fA0, &a, self->fA4);
     VecCopy__FP3VecPC3Vec(&self->vAC, &a);
-    r = ((s32 (*)(void *, s32, s32, Vec_802C0CAC *, f32))sample_clamped_path_position)(self, self->f98, self->fA0, &b, self->fA4 + lbl_80471914[self->fC8].d);
+    r = ((s32 (*)(void *, s32, s32, Vec_802C0CAC *, f32))sample_clamped_path_position)(self, self->f98, self->fA0, &b, self->fA4 + lobby_pigeon_path_profiles[self->fC8].d);
     VecCopy__FP3VecPC3Vec(&d, &b);
     subtract_vector(&d, &a);
     direction_to_rotation_xz(&d, &tmp, &tmp2);
-    self->fBC = approach_angle_limited(self->fBC, tmp, lbl_80471914[self->fC8].e);
+    self->fBC = approach_angle_limited(self->fBC, tmp, lobby_pigeon_path_profiles[self->fC8].e);
     old = self->fB8;
     tmp = (s32)(lbl_80471960[0] * get_ad_end_text_start__10TObjPlayerFv(b.x - a.x, b.z - a.z));
-    self->fB8 = approach_angle_limited(old, tmp, lbl_80471914[self->fC8].e);
+    self->fB8 = approach_angle_limited(old, tmp, lobby_pigeon_path_profiles[self->fC8].e);
     diff = angle_diff_s16(old, tmp);
     if (diff > 0x30) {
         if (self->fC4 > 0) {
@@ -126,7 +126,7 @@ s32 initialize_lobby_pigeon_path(Obj_802C0CAC *self) {
     self->fC4 = 0;
     ((s32 (*)(void *, s32, s32, Vec_802C0CAC *, f32))sample_clamped_path_position)(self, self->f98, self->fA0, &a, (0.0f));
     VecCopy__FP3VecPC3Vec(&self->vAC, &a);
-    r = ((s32 (*)(void *, s32, s32, Vec_802C0CAC *, f32))sample_clamped_path_position)(self, self->f98, self->fA0, &b, lbl_80471914[self->fC8].d);
+    r = ((s32 (*)(void *, s32, s32, Vec_802C0CAC *, f32))sample_clamped_path_position)(self, self->f98, self->fA0, &b, lobby_pigeon_path_profiles[self->fC8].d);
     VecCopy__FP3VecPC3Vec(&d, &b);
     subtract_vector(&d, &a);
     direction_to_rotation_xz(&d, &self->fBC, &tmp);
@@ -605,11 +605,11 @@ M2C_UNK clear_global_state__10TObjPlayerFv();
 
 extern Entry_802C2C48 lbl_804717D4[];
 extern u8 lbl_80471838[];
-extern Entry_802C2548 lbl_80471848[];
-extern Entry_802C1E34 lbl_80471890[];
+extern Entry_802C2548 jungle_ebi_path_profiles[];
+extern Entry_802C1E34 lobby_pigeon_path_parameters[];
 extern Entry_802C1660 lbl_804718CC[];
 extern Vec_802C17FC lbl_80471908;
-extern Ent_802C0F3C lbl_80471914[];
+extern Ent_802C0F3C lobby_pigeon_path_profiles[];
 extern Vec_802C0F3C lbl_80471950;
 extern const f64 lbl_80471960[];
 extern RecoveredGlobal_8019A9B8_lbl_80446184 lbl_80471978;
@@ -639,12 +639,12 @@ extern void *tl_05;
 #pragma fp_contract on
 extern "C" {
 
-extern Entry_802C2548 lbl_80471848[];
+extern Entry_802C2548 jungle_ebi_path_profiles[];
 s32 update_path_follow_rotation__10TObjPlayerFPvPvf(Pl_802C26E4 *arg0_, Ent_802C26E4 *, f32);
 }
 
 extern "C" {
-extern Ent_802C0F3C lbl_80471914[];
+extern Ent_802C0F3C lobby_pigeon_path_profiles[];
 }
 
 void draw_lobby_pigeon(LobbyPigeon *self) {
@@ -670,11 +670,11 @@ void draw_lobby_pigeon(LobbyPigeon *self) {
 
 void update_lobby_pigeon(Obj_802C0F3C *self) {
   update_lobby_pigeon_visibility((LobbyPigeon *)(self));
-  self->b4 += lbl_80471914[self->d8].pa;
+  self->b4 += lobby_pigeon_path_profiles[self->d8].pa;
   if (((s32 (*)(void *))advance_lobby_pigeon_path)(self) == 0) {
     self->b4 = (0.0f);
   }
-  self->b8 += lbl_80471914[self->d8].pb;
+  self->b8 += lobby_pigeon_path_profiles[self->d8].pb;
   if (self->b8 > (f32)(u32)(self->ac->n - 1)) {
     self->b8 = (0.0f);
   }
@@ -754,7 +754,7 @@ LobbyPigeon* construct_lobby_pigeon(LobbyPigeon* self, void* parent, const void*
         if (selector <= 2) movement = selector;
     }
     self->movement = movement;
-    self->path = ((void*)get_bml_motion((void *)(lbl_805D67B8), (s32)(((PigeonMovement *)&lbl_80471914)[self->movement].motion)));
+    self->path = ((void*)get_bml_motion((void *)(lbl_805D67B8), (s32)(((PigeonMovement *)&lobby_pigeon_path_profiles)[self->movement].motion)));
     self->pathFrame = (0.0f);
     self->animationFrame = (0.0f);
     ((void (*)(LobbyPigeon *))initialize_lobby_pigeon_path)(self);
@@ -1009,14 +1009,14 @@ s32 TObjPlayer__sub_802C1BFC(Obj_802C1BFC *self) {
     ((void (*)(Vec_802C1E34 *, Vec_802C1E34 *))VecCopy__FP3VecPC3Vec)(&self->vAC, &a);
     r = ((s32 (*)(void *, s32, s32, Vec_802C1E34 *,
                   f32))sample_clamped_path_position)(
-        self, self->f98, self->fA0, &b, self->fA4 + lbl_80471890[self->fC8].d);
+        self, self->f98, self->fA0, &b, self->fA4 + lobby_pigeon_path_parameters[self->fC8].d);
     ((void (*)(Vec_802C1E34 *, Vec_802C1E34 *))VecCopy__FP3VecPC3Vec)(&d, &b);
     ((f32 (*)(Vec_802C1E34 *, Vec_802C1E34 *))subtract_vector)(&d, &a);
     ((void (*)(Vec_802C1E34 *, s32 *, s32 *))direction_to_rotation_xz)(&d, &tmp, &tmp2);
-    self->fBC = approach_angle_limited(self->fBC, tmp, lbl_80471890[self->fC8].e);
+    self->fBC = approach_angle_limited(self->fBC, tmp, lobby_pigeon_path_parameters[self->fC8].e);
     old = self->fB8;
     tmp = (s32)(lbl_80471960[0] * get_ad_end_text_start__10TObjPlayerFv(b.x - a.x, b.z - a.z));
-    self->fB8 = approach_angle_limited(old, tmp, lbl_80471890[self->fC8].e);
+    self->fB8 = approach_angle_limited(old, tmp, lobby_pigeon_path_parameters[self->fC8].e);
     diff = angle_diff_s16(old, tmp);
     if (diff > 0x30) {
         if (self->fC4 > 0) {
@@ -1071,7 +1071,7 @@ s32 TObjPlayer__sub_802C1E34(Obj_802C1E34 *self) {
     ((void (*)(Vec_802C1E34 *, Vec_802C1E34 *))VecCopy__FP3VecPC3Vec)(&self->vAC, &a);
     r = ((s32 (*)(void *, s32, s32, Vec_802C1E34 *,
                   f32))sample_clamped_path_position)(
-        self, self->f98, self->fA0, &b, lbl_80471890[self->fC8].d);
+        self, self->f98, self->fA0, &b, lobby_pigeon_path_parameters[self->fC8].d);
     ((void (*)(Vec_802C1E34 *, Vec_802C1E34 *))VecCopy__FP3VecPC3Vec)(&d, &b);
     ((f32 (*)(Vec_802C1E34 *, Vec_802C1E34 *))subtract_vector)(&d, &a);
     ((void (*)(Vec_802C1E34 *, s32 *, s32 *))direction_to_rotation_xz)(&d, &self->fBC, &tmp);
@@ -1095,7 +1095,7 @@ void draw_demo_lines_and_meshes__10TObjPlayerFPv(u8 *arg0) {
 }
 
 void advance_path_step__10TObjPlayerFPv(Pl_802C1FD0 *arg0) {
-    u8 *t = (u8 *)lbl_80471890;
+    u8 *t = (u8 *)lobby_pigeon_path_parameters;
     t = t + arg0->idx * 0x14;
     Ent_802C1FD0 *e = (Ent_802C1FD0 *)t;
     f32 ox = arg0->x;
@@ -1103,7 +1103,7 @@ void advance_path_step__10TObjPlayerFPv(Pl_802C1FD0 *arg0) {
     if (((s32 (*)(Pl_802C1FD0 *, Ent_802C1FD0 *, f32))TObjPlayer__sub_802C1BFC)(arg0, e, ox) == 0) {
         arg0->x = (0.0f);
     }
-    arg0->y = arg0->y + lbl_80471890[arg0->idx].c;
+    arg0->y = arg0->y + lobby_pigeon_path_parameters[arg0->idx].c;
     if (arg0->y > (f32)(arg0->sub->n - 1)) {
         arg0->y = (0.0f);
     }
@@ -1141,7 +1141,7 @@ u8 *TObjPlayer__sub_802C20E8(u8 *arg0, s32 arg1, const void* _w2) {
     }
   }
   *((s32 *) (((s8 *) arg0) + 0xC8)) = var_r0;
-  *((s32 *) (((s8 *) arg0) + 0xA0)) = get_bml_motion((*(u8 * *)&lbl_805D67A8), *((M2C_UNK *) (((s8 *) (&(*(RecoveredGlobal_802C20E8_lbl_80471890 *)&lbl_80471890).value)) + ((*((s32 *) (((s8 *) arg0) + 0xC8))) * 0x14))));
+  *((s32 *) (((s8 *) arg0) + 0xA0)) = get_bml_motion((*(u8 * *)&lbl_805D67A8), *((M2C_UNK *) (((s8 *) (&(*(RecoveredGlobal_802C20E8_lbl_80471890 *)&lobby_pigeon_path_parameters).value)) + ((*((s32 *) (((s8 *) arg0) + 0xC8))) * 0x14))));
   *((f32 *) (((s8 *) arg0) + 0xA4)) = (f32) (0.0f);
   *((f32 *) (((s8 *) arg0) + 0xA8)) = (f32) (0.0f);
   ((s32 (*)(void *))TObjPlayer__sub_802C1E34)(arg0);
@@ -1193,7 +1193,7 @@ s32 update_path_follow_rotation__10TObjPlayerFPvPvf(Pl_802C26E4 *arg0_, Ent_802C
     Vec_802C22A4 b;
     s32 tmp;
     s32 tmp2;
-    e = &lbl_80471848[self->fC8];
+    e = &jungle_ebi_path_profiles[self->fC8];
     if (!(e->f & 1)) {
         return 1;
     }
@@ -1282,7 +1282,7 @@ s32 TObjPlayer__sub_802C2548(Obj_802C2548 *self) {
     ((void (*)(Vec_802C2548 *, Vec_802C2548 *))VecCopy__FP3VecPC3Vec)(&self->vAC, &a);
     r = ((s32 (*)(void *, s32, s32, Vec_802C2548 *,
                   f32))sample_clamped_path_position)(
-        self, self->f98, self->fA0, &b, lbl_80471848[self->fC8].d);
+        self, self->f98, self->fA0, &b, jungle_ebi_path_profiles[self->fC8].d);
     ((void (*)(Vec_802C2548 *, Vec_802C2548 *))VecCopy__FP3VecPC3Vec)(&d, &b);
     ((f32 (*)(Vec_802C2548 *, Vec_802C2548 *))subtract_vector)(&d, &a);
     ((void (*)(Vec_802C2548 *, s32 *, s32 *))direction_to_rotation_xz)(&d, &self->fBC, &tmp);
@@ -1306,14 +1306,14 @@ void draw_demo_trajectory__10TObjPlayerFPv(u8 *arg0) {
 }
 
 void advance_path_follow__10TObjPlayerFPv(Pl_802C26E4 *arg0) {
-    Ent_802C26E4 *e = (Ent_802C26E4 *)lbl_80471848;
+    Ent_802C26E4 *e = (Ent_802C26E4 *)jungle_ebi_path_profiles;
     e += arg0->idx;
     f32 ox = arg0->x;
     arg0->x = ox + e->b;
     if (update_path_follow_rotation__10TObjPlayerFPvPvf((Pl_802C26E4 *)(arg0), (Ent_802C26E4 *)(e), ox) == 0) {
         arg0->x = (0.0f);
     }
-    arg0->y = arg0->y + lbl_80471848[arg0->idx].c;
+    arg0->y = arg0->y + jungle_ebi_path_profiles[arg0->idx].c;
     if (arg0->y > (f32)(arg0->sub->n - 1)) {
         arg0->y = (0.0f);
     }
@@ -1351,7 +1351,7 @@ u8 *TObjPlayer__sub_802C27FC(u8 *arg0, s32 arg1, const void* _w2) {
     }
   }
   *((s32 *) (((s8 *) arg0) + 0xC8)) = var_r0;
-  *((s32 *) (((s8 *) arg0) + 0xA0)) = get_bml_motion((*(u8 * *)&lbl_805D67A0), *((M2C_UNK *) (((s8 *) (&(*(RecoveredGlobal_802C27FC_lbl_80471848 *)&lbl_80471848).value)) + ((*((s32 *) (((s8 *) arg0) + 0xC8))) * 0x18))));
+  *((s32 *) (((s8 *) arg0) + 0xA0)) = get_bml_motion((*(u8 * *)&lbl_805D67A0), *((M2C_UNK *) (((s8 *) (&(*(RecoveredGlobal_802C27FC_lbl_80471848 *)&jungle_ebi_path_profiles).value)) + ((*((s32 *) (((s8 *) arg0) + 0xC8))) * 0x18))));
   *((f32 *) (((s8 *) arg0) + 0xA4)) = (f32) (0.0f);
   *((f32 *) (((s8 *) arg0) + 0xA8)) = (f32) (0.0f);
   ((s32 (*)(void *))TObjPlayer__sub_802C2548)(arg0);

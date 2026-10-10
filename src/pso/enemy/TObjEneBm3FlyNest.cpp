@@ -1552,7 +1552,7 @@ M2C_UNK TBoss8Dragon__sub_800BB7D4(void *, M2C_UNK);
 s32 set_player_state_default__12TBoss8DragonFPv(void *);
 M2C_UNK init_common_from__9TObjEneDDFPvPv(void *, void *);
 s32 get_target_info__9TObjEneDDFPv(void *);
-s32 TObjEneDD__sub_800BB878(s32, s32);
+s32 pack_debug_text_position(s32, s32);
 u32 load_enemy_bml_resource_named(void *, void *);
 u32 load_enemy_bml_resource(void *);
 M2C_UNK set_field_378__9TObjEneDDFPvi(void *, M2C_UNK);
@@ -1777,11 +1777,11 @@ typedef struct Ctl_800B47C4 {
     s32 e;
     s32 f;
 } Ctl_800B47C4;
-f32 lbl_80500B00[3];
+f32 TObjEneBm3FlyNest__attachment_sample_origin[3];
 f32 lbl_80500B0C[6];
 __declspec(section ".data") s32 lbl_80500B24[2];
 Ctl_800B47C4 lbl_80500B2C;
-#define lbl_80500B00 (*(RecoveredGlobal_800B2948_lbl_80500B00 *)lbl_80500B00)
+#define TObjEneBm3FlyNest__attachment_sample_origin (*(RecoveredGlobal_800B2948_lbl_80500B00 *)TObjEneBm3FlyNest__attachment_sample_origin)
 extern s32 lbl_805D28B8;
 extern s32 lbl_805D2A10;
 extern s32 lbl_805D2A1C;
@@ -1845,17 +1845,17 @@ void render_with_state_debug__10TObjPlayerFPv(u8 *arg0) {
         switch (M2C_FIELD(arg0, s32 *, 0x38C)) {
         default:
         case 2:
-            debug_printf_at(TObjEneDD__sub_800BB878(0, 0), lbl_8043B328);
+            debug_printf_at(pack_debug_text_position(0, 0), lbl_8043B328);
             break;
         case 9:
-            debug_printf_at(TObjEneDD__sub_800BB878(0, 0), lbl_8043B338);
+            debug_printf_at(pack_debug_text_position(0, 0), lbl_8043B338);
             break;
         case 5:
-            debug_printf_at(TObjEneDD__sub_800BB878(0, 0), lbl_8043B348);
+            debug_printf_at(pack_debug_text_position(0, 0), lbl_8043B348);
             break;
         }
-        debug_printf_at(TObjEneDD__sub_800BB878(0, 1), lbl_8043B358, M2C_FIELD(arg0, s32 *, 0x390));
-        debug_printf_at(TObjEneDD__sub_800BB878(0, 2), lbl_8043B368, M2C_FIELD(arg0, s32 *, 0x394));
+        debug_printf_at(pack_debug_text_position(0, 1), lbl_8043B358, M2C_FIELD(arg0, s32 *, 0x390));
+        debug_printf_at(pack_debug_text_position(0, 2), lbl_8043B368, M2C_FIELD(arg0, s32 *, 0x394));
     }
     switch (M2C_FIELD(arg0, s32 *, 0x38C)) {
     default:
@@ -1992,7 +1992,7 @@ void handle_attachment_sample__17TObjEneBm3FlyNestFi(s32 arg0) {
         temp_r4 = lbl_805D5114;
         bm3_fly_nest_attachment_index += 1;
         lbl_805D5114 = temp_r4 + 0xC;
-        get_camera_ctrl__9TObjEneDDFPv((s32) &lbl_80500B00.value, temp_r4);
+        get_camera_ctrl__9TObjEneDDFPv((s32) &TObjEneBm3FlyNest__attachment_sample_origin.value, temp_r4);
     }
     capture_attachment__17TObjEneBm3FlyNestFv((void *)((void *) (arg0)));
 }
@@ -2000,7 +2000,7 @@ void handle_attachment_sample__17TObjEneBm3FlyNestFi(s32 arg0) {
 void capture_attachment__17TObjEneBm3FlyNestFv(void * _w0) {
     switch (lbl_805D510C) {
     case 36: case 45:
-        get_camera_ctrl__9TObjEneDDFPv((s32)(&lbl_80500B00), (s32)(TObjEneBm3FlyNest_attachment_point_ptr++));
+        get_camera_ctrl__9TObjEneDDFPv((s32)(&TObjEneBm3FlyNest__attachment_sample_origin), (s32)(TObjEneBm3FlyNest_attachment_point_ptr++));
         break;
     }
     ++lbl_805D510C;
@@ -2795,9 +2795,9 @@ void *create__17TObjEneBm3FlyNestFPv(void *arg0) {
 
 void load_resources__17TObjEneBm3FlyNestFv(void) {
     Bodies_800B41E8 *bodies;
-    (*(Vec_800B41E8 *)&lbl_80500B00).x = 0.0f;
-    (*(Vec_800B41E8 *)&lbl_80500B00).y = 0.0f;
-    (*(Vec_800B41E8 *)&lbl_80500B00).z = 0.0f;
+    (*(Vec_800B41E8 *)&TObjEneBm3FlyNest__attachment_sample_origin).x = 0.0f;
+    (*(Vec_800B41E8 *)&TObjEneBm3FlyNest__attachment_sample_origin).y = 0.0f;
+    (*(Vec_800B41E8 *)&TObjEneBm3FlyNest__attachment_sample_origin).z = 0.0f;
     lbl_805D510C = 0;
     (*(s32 *)&TObjEneBm3FlyNest_attachment_point_ptr) = 0;
     lbl_805D5114 = 0;

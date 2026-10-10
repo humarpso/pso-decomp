@@ -33,7 +33,7 @@ M2C_UNK begin_effect_render__13TParticleCtrlFv();
 M2C_UNK end_effect_render__13TParticleCtrlFv();
 M2C_UNK set_global_param__8TObjFishFi(s32);
 
-extern u8 *TOBarrierEnergy01__data_805D5894;
+extern u8 *TOBarrierEnergy01__texture_lists;
 extern s32 lbl_805D5898;
 
 void render__17TOBarrierEnergy01Fv(u8 *arg0) {
@@ -45,7 +45,7 @@ void render__17TOBarrierEnergy01Fv(u8 *arg0) {
         begin_effect_render__13TParticleCtrlFv();
         draw_ginja_model_with_motion(M2C_FIELD(arg0, s32 *, 0x34), M2C_FIELD(arg0, s32 *, 0xBC), M2C_FIELD(arg0, f32 *, 0xB0));
         end_effect_render__13TParticleCtrlFv();
-        set_global_param__8TObjFishFi(M2C_FIELD(TOBarrierEnergy01__data_805D5894, s32 *, 8));
+        set_global_param__8TObjFishFi(M2C_FIELD(TOBarrierEnergy01__texture_lists, s32 *, 8));
         draw_ginja_object(lbl_805D5898);
         pop_matrix();
     }

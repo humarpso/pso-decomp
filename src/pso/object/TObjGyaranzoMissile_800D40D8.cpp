@@ -72,14 +72,14 @@ extern const f32 lbl_805DA2A0;
 extern const f32 lbl_805DA2A4;
 void update_ground_fall__19TObjGyaranzoMissileFPvPvf(u8 *arg0, M2C_UNK *arg1, f32 farg0);
 extern s32 gyaranzo_missile_param_table;
-f32 TObjGyaranzoMissile__sub_800D40EC(s32 arg0);
+f32 get_gyaranzo_missile_float_parameter(s32 arg0);
 extern s32 gyaranzo_missile_param_table;
-s32 TObjGyaranzoMissile__sub_800D40FC(s32 i);
+s32 get_gyaranzo_missile_int_parameter(s32 i);
 s32 obj_is_hit_receivable();
 M2C_UNK queue_destruction__7TObjectFv(void *);
 u8 *get_battle_param__10TObjPlayerFi(s32);
 M2C_UNK spawn_particle_effect(void *, int);
-s32 TObjGyaranzoMissile__sub_800D40FC(s32 i);
+s32 get_gyaranzo_missile_int_parameter(s32 i);
 M2C_UNK remap_area_sound_id(int, int);
 u8 *find_entity_by_id(u16);
 M2C_UNK init_all_slots__10TObjPlayerFv();
@@ -129,11 +129,11 @@ void TObjGyaranzoMissile__sub_800D40E8(void) {  }
 
 extern s32 some_id_805c6f74;
 
-f32 TObjGyaranzoMissile__sub_800D40EC(s32 arg0) {
+f32 get_gyaranzo_missile_float_parameter(s32 arg0) {
     return M2C_FIELD((gyaranzo_missile_param_table + (arg0 * 4)), f32 *, 0);
 }
 
-s32 TObjGyaranzoMissile__sub_800D40FC(s32 i) {
+s32 get_gyaranzo_missile_int_parameter(s32 i) {
     return (*(D_800D40FC * *)&gyaranzo_missile_param_table)->arr[i];
 }
 
@@ -180,7 +180,7 @@ void TObjGyaranzoMissile__sub_800D4200(u8 *arg0) {
             }
             if (obj_is_hit_receivable() != 0 && t != self) {
                 Hit_800D4200 tmp = lbl_8043C440[0];
-                tmp.b = TObjGyaranzoMissile__sub_800D40FC(3);
+                tmp.b = get_gyaranzo_missile_int_parameter(3);
                 {
                     Hit_800D4200 h = tmp;
                     ((VObj_18_e08757 *)(t))->m21(self, &h, 0, -1, -1);

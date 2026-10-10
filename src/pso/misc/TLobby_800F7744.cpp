@@ -12,11 +12,11 @@ s32 get_main_phase();
 
 void TLobby__sub_800F7744(void) {  }
 
-extern s32 lbl_805D5328;
+extern s32 area_random_seed;
 
 void clear_flag_on_phase_e__6TLobbyFv(void) {
     if (get_main_phase() == 0xE) {
-        lbl_805D5328 = 0;
+        area_random_seed = 0;
     }
 }
 

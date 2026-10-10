@@ -24,7 +24,7 @@ s32 test_flag_2_at_20__11TMainCursorFPv(void *);
 s32 init_render_flags__11TMainCursorFPv(void *);
 s32 get_camera_no__11TCameraCtrlFv();
 M2C_UNK set_global_param__8TObjFishFi(void *);
-extern u8 lbl_8048E5A0[];
+extern u8 shared_effect_texture_list[];
 extern u8 main_task[];
 void render__11TMainCursorFv(u8 *arg0);
 s32 obj_testFlags30(M2C_UNK, M2C_UNK);
@@ -238,7 +238,7 @@ void render__11TMainCursorFv(u8 *arg0) {
     default:
         return;
     }
-    set_global_param__8TObjFishFi(lbl_8048E5A0);
+    set_global_param__8TObjFishFi(shared_effect_texture_list);
     render__11TMainCursorFPv(arg0);
 }
 

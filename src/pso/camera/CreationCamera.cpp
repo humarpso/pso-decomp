@@ -37,7 +37,7 @@ extern const f32 lbl_805DD96C,lbl_805DD978,lbl_805DD998;
 void advance_creation_review_camera(CreationCameraFields* camera);
 f32 calc_character_height(void *);
 void approach_creation_camera_target(void *, int, int, f32, f32);
-u32 TObjCMMainMenu__sub_80291D44();
+u32 get_character_creation_selected_entry_id();
 extern u8 *creation_player_character;
 extern const f32 lbl_805DD96C;
 extern const f32 lbl_805DD998;
@@ -125,7 +125,7 @@ void begin_creation_review_camera(u8 *arg0) {
 
 void update_creation_camera_auto(Cam_80291784 *arg0) {
     s32 want;
-    switch (TObjCMMainMenu__sub_80291D44()) {
+    switch (get_character_creation_selected_entry_id()) {
     case 0:
     case 1:
     case 2:

@@ -70,7 +70,7 @@ extern void *__vt__14TOKeyGenericSw[];
 extern M2C_UNK lbl_804B2D30[];
 extern void *TOKeyGenericSw__shared_resource_ptrs[];
 extern s32 lbl_805D3050;
-extern u32 *TOKeyGenericSw__data_805D5A28;
+extern u32 *TOKeyGenericSw__texture_lists;
 extern const f32 lbl_805DB768;
 extern const f32 lbl_805DB76C;
 extern const f32 lbl_805DB770;
@@ -93,7 +93,7 @@ void *TOKeyGenericSw__ct(void *arg0, void *parent, void *source) {
     M2C_FIELD(arg0, void **, 0xBC) = M2C_FIELD(M2C_FIELD(TOKeyGenericSw__shared_resource_ptrs[1], void **, 0x430), void **, 4);
     M2C_FIELD(arg0, f32 *, 0xB4) = (f32) M2C_FIELD(M2C_FIELD(arg0, void **, 0xBC), u32 *, 4) - lbl_805DB768;
     M2C_FIELD(arg0, f32 *, 0xB8) = lbl_805DB76C;
-    M2C_FIELD(arg0, u32 *, 0x24) = TOKeyGenericSw__data_805D5A28[1];
+    M2C_FIELD(arg0, u32 *, 0x24) = TOKeyGenericSw__texture_lists[1];
     init_collision_body_parts(arg0, lbl_804B2D30, 1);
     refresh_collision_body_centers(arg0);
     reset_photon_effect__10TObjPlayerFPv(arg0);

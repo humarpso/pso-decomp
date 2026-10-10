@@ -8,12 +8,12 @@ extern "C" {
 s32 is_split_screen();
 int is_main_phase_15__9TObjEneDDFv(void*);
 s32 get_story_flag(M2C_UNK);
-extern s32 TObjCityMainWarp__data_805D5B54;
+extern s32 TObjCityMainWarp__visible_destination_mask;
 void update_warp_flags_from_story__16TObjCityMainWarpFPv(void *self);
 s32 is_split_screen();
 int is_main_phase_15__9TObjEneDDFv(void*);
 s32 get_story_flag(M2C_UNK);
-extern s32 TObjCityMainWarp__data_805D5B54;
+extern s32 TObjCityMainWarp__visible_destination_mask;
 void init_visible_mask__16TObjCityMainWarpFPv(void *self);
 }
 
@@ -250,8 +250,8 @@ extern void set_scroll_target__17TWindowSubComCardFPvff(void *, f32, f32);
 extern void update_layout_height__17TWindowSubComCardFPvf(void *, f32);
 extern void forward_trade_action_default__16TObjCityMainWarpFPviii(void *, int, int, int);
 extern s16 TLobby__data_805D5CE8;
-extern s32 TObjCityMainWarp__data_805D5B50;
-extern s32 TObjLaboMapWarp__data_805D5B58;
+extern s32 TObjCityMainWarp__enabled_destinations;
+extern s32 TObjLaboMapWarp__resource_bundle;
 extern M2C_UNK __vt__15TObjCityMapWarp[];
 extern M2C_UNK __vt__15TObjLaboMapWarp[];
 extern M2C_UNK __vt__16TObjCityAreaWarp[];
@@ -272,8 +272,8 @@ extern s32 lbl_805D32A8;
 extern void *lbl_805D32AC;
 extern void *lbl_805D32B0;
 extern void *lbl_805D32B4;
-extern u8 *lbl_805D5B28;
-extern s32 lbl_805D5B2C;
+extern u8 *city_common_model_archive;
+extern s32 city_common_texture_list;
 extern const f32 lbl_805DBC80;
 extern const f32 lbl_805DBC84;
 extern const f32 lbl_805DBC88;
@@ -288,20 +288,20 @@ void render__15TObjLaboMapWarpFv(u8 *arg0) {
     s32 temp_r31;
 
     if (((VObj_80185248 *)arg0)->m8(lbl_805DBC80, lbl_805DBC84) != 0) {
-        TObjFish__sub_8001EDB0(TObjLaboMapWarp__data_805D5B58, 1);
+        TObjFish__sub_8001EDB0(TObjLaboMapWarp__resource_bundle, 1);
         ((M2C_UNK (*)(void))set_global_param__8TObjFishFi)();
         push_matrix();
         post_translate_matrix(arg0 + 0x38);
         rotate_matrix_y(0, M2C_FIELD(arg0, s32 *, 0x60));
         if (is_field88_zero__15TObjLaboMapWarpFPv((void*)(arg0)) != 0) {
-            get_bml_model(TObjLaboMapWarp__data_805D5B58, 1);
+            get_bml_model(TObjLaboMapWarp__resource_bundle, 1);
             ((M2C_UNK (*)(void))draw_ginja_object)();
             begin_effect_render__13TParticleCtrlFv();
-            draw_ginja_model_with_motion(get_bml_model(TObjLaboMapWarp__data_805D5B58, 0), get_bml_motion(TObjLaboMapWarp__data_805D5B58, 0), M2C_FIELD(arg0, f32 *, 0xFC));
+            draw_ginja_model_with_motion(get_bml_model(TObjLaboMapWarp__resource_bundle, 0), get_bml_motion(TObjLaboMapWarp__resource_bundle, 0), M2C_FIELD(arg0, f32 *, 0xFC));
             end_effect_render__13TParticleCtrlFv();
         } else {
             begin_effect_render__13TParticleCtrlFv();
-            draw_ginja_model_with_motion(get_bml_model(TObjLaboMapWarp__data_805D5B58, 0), get_bml_motion(TObjLaboMapWarp__data_805D5B58, 0), M2C_FIELD(arg0, f32 *, 0xFC));
+            draw_ginja_model_with_motion(get_bml_model(TObjLaboMapWarp__resource_bundle, 0), get_bml_motion(TObjLaboMapWarp__resource_bundle, 0), M2C_FIELD(arg0, f32 *, 0xFC));
             end_effect_render__13TParticleCtrlFv();
         }
         pop_matrix();
@@ -310,7 +310,7 @@ void render__15TObjLaboMapWarpFv(u8 *arg0) {
 
 void run_task__15TObjLaboMapWarpFv(u8 *arg0) {
     f32 lim;
-    lim = (f32)(u32)(M2C_FIELD(get_bml_motion(TObjLaboMapWarp__data_805D5B58, 0), s32 *, 4) - 1);
+    lim = (f32)(u32)(M2C_FIELD(get_bml_motion(TObjLaboMapWarp__resource_bundle, 0), s32 *, 4) - 1);
     M2C_FIELD(arg0, f32 *, 0xFC) += lbl_805DBC88;
     if (M2C_FIELD(arg0, f32 *, 0xFC) >= lim) {
         M2C_FIELD(arg0, f32 *, 0xFC) -= lim;
@@ -352,9 +352,9 @@ void TObjLaboMapWarp__vt13(u8 *arg0, s32 arg1) {
 #pragma pop
 
 void release_static_resource__15TObjLaboMapWarpFv(void) {
-    if ((u32) (*(u32 *)&TObjLaboMapWarp__data_805D5B58) != 0U) {
-        TLobby__sub_8001FE7C((void*)(*(u32 *)&TObjLaboMapWarp__data_805D5B58), 1);
-        (*(u32 *)&TObjLaboMapWarp__data_805D5B58) = 0U;
+    if ((u32) (*(u32 *)&TObjLaboMapWarp__resource_bundle) != 0U) {
+        TLobby__sub_8001FE7C((void*)(*(u32 *)&TObjLaboMapWarp__resource_bundle), 1);
+        (*(u32 *)&TObjLaboMapWarp__resource_bundle) = 0U;
     }
 }
 
@@ -366,7 +366,7 @@ void load_static_resource__15TObjLaboMapWarpFv(void) {
     if (var_r0 != 0) {
         var_r0 = (long) (load_resource_from_descriptor((void *) temp_r3, 5, &lbl_804B600C.value, 0, 0, 0));
     }
-    (*(s32 *)&TObjLaboMapWarp__data_805D5B58) = var_r0;
+    (*(s32 *)&TObjLaboMapWarp__resource_bundle) = var_r0;
 }
 
 void *create__15TObjLaboMapWarpFPv(void *arg0) {
@@ -412,18 +412,18 @@ void TObjCityMapWarp__vt17(Obj_80185664 *self) {
 
 void render__15TObjCityMapWarpFv(u8 *arg0) {
     if (((VObj_8018574C*)arg0)->m8(lbl_805DBC80, lbl_805DBC84) != 0) {
-        set_global_param__8TObjFishFi(lbl_805D5B2C);
+        set_global_param__8TObjFishFi(city_common_texture_list);
         push_matrix();
         post_translate_matrix(arg0 + 0x38);
         rotate_matrix_y(0, M2C_FIELD(arg0, s32 *, 0x60));
         if (is_field88_zero__15TObjCityMapWarpFPv((void*)(arg0)) != 0) {
-            draw_ginja_object(M2C_FIELD(M2C_FIELD(lbl_805D5B28, void **, 0x42C), s32 *, 0xD8));
+            draw_ginja_object(M2C_FIELD(M2C_FIELD(city_common_model_archive, void **, 0x42C), s32 *, 0xD8));
             begin_effect_render__13TParticleCtrlFv();
-            draw_ginja_model_with_motion(M2C_FIELD(M2C_FIELD(lbl_805D5B28, void **, 0x42C), s32 *, 0x38), M2C_FIELD(M2C_FIELD(lbl_805D5B28, void **, 0x430), s32 *, 0x3C), M2C_FIELD(arg0, f32 *, 0xFC));
+            draw_ginja_model_with_motion(M2C_FIELD(M2C_FIELD(city_common_model_archive, void **, 0x42C), s32 *, 0x38), M2C_FIELD(M2C_FIELD(city_common_model_archive, void **, 0x430), s32 *, 0x3C), M2C_FIELD(arg0, f32 *, 0xFC));
             end_effect_render__13TParticleCtrlFv();
         } else {
             begin_effect_render__13TParticleCtrlFv();
-            draw_ginja_model_with_motion(M2C_FIELD(M2C_FIELD(lbl_805D5B28, void **, 0x42C), s32 *, 0x18), M2C_FIELD(M2C_FIELD(lbl_805D5B28, void **, 0x430), s32 *, 0x34), M2C_FIELD(arg0, f32 *, 0xFC));
+            draw_ginja_model_with_motion(M2C_FIELD(M2C_FIELD(city_common_model_archive, void **, 0x42C), s32 *, 0x18), M2C_FIELD(M2C_FIELD(city_common_model_archive, void **, 0x430), s32 *, 0x34), M2C_FIELD(arg0, f32 *, 0xFC));
             end_effect_render__13TParticleCtrlFv();
         }
         pop_matrix();
@@ -431,7 +431,7 @@ void render__15TObjCityMapWarpFv(u8 *arg0) {
 }
 
 void run_task__15TObjCityMapWarpFv(Obj_80185824 *arg0) {
-    u32 n = *(u32 *)(*(u8 **)(*(u8 **)(lbl_805D5B28 + 0x430) + 0x3C) + 4);
+    u32 n = *(u32 *)(*(u8 **)(*(u8 **)(city_common_model_archive + 0x430) + 0x3C) + 4);
     f32 lim = (f32)(n - 1);
     arg0->fFC += lbl_805DBC88;
     if (arg0->fFC >= lim) {
@@ -513,12 +513,12 @@ void render__16TObjCityAreaWarpFv(void* p) { if (is_main_phase_15__9TObjEneDDFv(
 
 void do_warp__16TObjCityAreaWarpFPv(u8 *arg0) {
     if (((VObj80185B58_80185AFC *) arg0)->m8(lbl_805DBC80, lbl_805DBC84) != 0) {
-        set_global_param__8TObjFishFi(lbl_805D5B2C);
+        set_global_param__8TObjFishFi(city_common_texture_list);
         push_matrix();
         post_translate_matrix(arg0 + 0x38);
         rotate_matrix_y(0, M2C_FIELD(arg0, s32 *, 0x60));
         begin_effect_render__13TParticleCtrlFv();
-        draw_ginja_model_with_motion(M2C_FIELD(M2C_FIELD(lbl_805D5B28, void **, 0x42C), s32 *, 0x18), M2C_FIELD(M2C_FIELD(lbl_805D5B28, void **, 0x430), s32 *, 0x34), M2C_FIELD(arg0, f32 *, 0xC4));
+        draw_ginja_model_with_motion(M2C_FIELD(M2C_FIELD(city_common_model_archive, void **, 0x42C), s32 *, 0x18), M2C_FIELD(M2C_FIELD(city_common_model_archive, void **, 0x430), s32 *, 0x34), M2C_FIELD(arg0, f32 *, 0xC4));
         end_effect_render__13TParticleCtrlFv();
         pop_matrix();
     }
@@ -527,7 +527,7 @@ void do_warp__16TObjCityAreaWarpFPv(u8 *arg0) {
 void run_task__16TObjCityAreaWarpFv(Obj_80185BE8 *arg0) {
     f32 lim;
     if (is_main_phase_15__9TObjEneDDFv(arg0) != 0) {
-        lim = (f32)(((Root_80185BE8 *)lbl_805D5B28)->anim->info->n - 1);
+        lim = (f32)(((Root_80185BE8 *)city_common_model_archive)->anim->info->n - 1);
         arg0->t += lbl_805DBC88;
         if (arg0->t >= lim) {
             arg0->t -= lim;
@@ -593,20 +593,20 @@ void TObjCityMainWarp__vt18(Obj_80185E14 *arg0) {
 
 void render__16TObjCityMainWarpFv(u8 *arg0) {
     if (((VObj80185EC8_80185EC8 *) arg0)->m8(lbl_805DBC80, lbl_805DBC98) != 0) {
-        set_global_param__8TObjFishFi(lbl_805D5B2C);
+        set_global_param__8TObjFishFi(city_common_texture_list);
         push_matrix();
         post_translate_matrix(arg0 + 0x38);
         rotate_matrix_y(0, M2C_FIELD(arg0, s32 *, 0x60));
-        draw_ginja_object(M2C_FIELD(M2C_FIELD(lbl_805D5B28, void **, 0x42C), s32 *, 0xC8));
+        draw_ginja_object(M2C_FIELD(M2C_FIELD(city_common_model_archive, void **, 0x42C), s32 *, 0xC8));
         begin_effect_render__13TParticleCtrlFv();
-        draw_ginja_model_with_motion(M2C_FIELD(M2C_FIELD(lbl_805D5B28, void **, 0x42C), s32 *, 8), M2C_FIELD(M2C_FIELD(lbl_805D5B28, void **, 0x430), s32 *, 0x2C), M2C_FIELD(arg0, f32 *, 0xC4));
+        draw_ginja_model_with_motion(M2C_FIELD(M2C_FIELD(city_common_model_archive, void **, 0x42C), s32 *, 8), M2C_FIELD(M2C_FIELD(city_common_model_archive, void **, 0x430), s32 *, 0x2C), M2C_FIELD(arg0, f32 *, 0xC4));
         end_effect_render__13TParticleCtrlFv();
         pop_matrix();
     }
 }
 
 void run_task__16TObjCityMainWarpFv(u8 *arg0) {
-    f32 lim = (f32)(M2C_FIELD(M2C_FIELD(M2C_FIELD(lbl_805D5B28, void **, 0x430), void **, 0x3C), u32 *, 4) - 1);
+    f32 lim = (f32)(M2C_FIELD(M2C_FIELD(M2C_FIELD(city_common_model_archive, void **, 0x430), void **, 0x3C), u32 *, 4) - 1);
 
     M2C_FIELD(arg0, f32 *, 0xC4) += lbl_805DBC88;
     if (M2C_FIELD(arg0, f32 *, 0xC4) >= lim) {
@@ -679,7 +679,7 @@ void TObjCityMainWarp__vt13(Warp_8018615C *w, s16 arg1) {
     if (is_quest_active() == 0) {
         ((void (*)(int))update_main_warp_visible_mask)(w->f150);
     } else {
-        TObjCityMainWarp__data_805D5B54 = TObjCityMainWarp__data_805D5B50;
+        TObjCityMainWarp__visible_destination_mask = TObjCityMainWarp__enabled_destinations;
     }
     if (get_instance__6TLobbyFv() == 0) {
         for (i = 0; i < 17; i++) {
@@ -687,7 +687,7 @@ void TObjCityMainWarp__vt13(Warp_8018615C *w, s16 arg1) {
         }
         n = 0;
         for (i = 0; i < 17; i++) {
-            if (TObjCityMainWarp__data_805D5B54 & (1 << i)) {
+            if (TObjCityMainWarp__visible_destination_mask & (1 << i)) {
                 w->fC8[n++] = i;
             }
         }
@@ -697,7 +697,7 @@ void TObjCityMainWarp__vt13(Warp_8018615C *w, s16 arg1) {
         }
         n = 0;
         for (i = 0; i < 17; i++) {
-            if (TObjCityMainWarp__data_805D5B54 & (1 << i)) {
+            if (TObjCityMainWarp__visible_destination_mask & (1 << i)) {
                 w->f10C[n++] = i;
             }
         }
@@ -707,7 +707,7 @@ void TObjCityMainWarp__vt13(Warp_8018615C *w, s16 arg1) {
         if (w->win != NULL) {
             if (get_instance__6TLobbyFv() == 0) {
                 for (j = 0, k = 0; j < 17; j++) {
-                    if (TObjCityMainWarp__data_805D5B54 & (1 << j)) {
+                    if (TObjCityMainWarp__visible_destination_mask & (1 << j)) {
                         if (get_game_play_mode() == 1) {
                             ((void (*)(void *, int, int, int))forward_trade_action_default__16TObjCityMainWarpFPviii)(w->win, ((s32 (*)())TObjCityMainWarp__sub_80186AF4)(), 0xE, k);
                         } else {
@@ -718,7 +718,7 @@ void TObjCityMainWarp__vt13(Warp_8018615C *w, s16 arg1) {
                 }
             } else {
                 for (j2 = 0, k2 = 0; j2 < 17; j2++) {
-                    if (TObjCityMainWarp__data_805D5B54 & (1 << j2)) {
+                    if (TObjCityMainWarp__visible_destination_mask & (1 << j2)) {
                         if (get_game_play_mode() == 1) {
                             ((void (*)(void *, int, int, int))forward_trade_action_default__16TObjCityMainWarpFPviii)(w->win, ((s32 (*)())TObjCityMainWarp__sub_80186AF4)(), 0xE, k2);
                         } else {
@@ -814,14 +814,14 @@ void unlock_main_warp_destination(s32 id) {
     }
 }
 
-void clear_enabled_main_warps(void) { TObjCityMainWarp__data_805D5B50 = 0; }
+void clear_enabled_main_warps(void) { TObjCityMainWarp__enabled_destinations = 0; }
 
 void clear_active_bit__16TObjCityMainWarpFv(void) {
     s32 temp_r3;
 
     temp_r3 = get_floor_warp_bit__16TObjCityMainWarpFi();
     if (temp_r3 >= 0) {
-        TObjCityMainWarp__data_805D5B50 &= ~(1 << temp_r3);
+        TObjCityMainWarp__enabled_destinations &= ~(1 << temp_r3);
     }
 }
 void update_warp_flags_from_story__16TObjCityMainWarpFPv(void *self) {
@@ -842,16 +842,16 @@ void update_warp_flags_from_story__16TObjCityMainWarpFPv(void *self) {
         var_r31 = 0x53;
     }
     if (get_story_flag(var_r3) != 0) {
-        TObjCityMainWarp__data_805D5B54 |= 0x10;
+        TObjCityMainWarp__visible_destination_mask |= 0x10;
     }
     if (get_story_flag(var_r31) != 0) {
-        TObjCityMainWarp__data_805D5B54 |= 0x200;
+        TObjCityMainWarp__visible_destination_mask |= 0x200;
     }
     for (var_r5 = 0; var_r5 < 4; var_r5++) {
-        TObjCityMainWarp__data_805D5B54 &= ~(1 << var_r5);
+        TObjCityMainWarp__visible_destination_mask &= ~(1 << var_r5);
     }
     for (var_r5 = 0xF; var_r5 < 0x11; var_r5++) {
-        TObjCityMainWarp__data_805D5B54 &= ~(1 << var_r5);
+        TObjCityMainWarp__visible_destination_mask &= ~(1 << var_r5);
     }
 }
 void init_visible_mask__16TObjCityMainWarpFPv(void *self) {
@@ -863,20 +863,20 @@ void init_visible_mask__16TObjCityMainWarpFPv(void *self) {
     s32 var_r4;
     s32 var_r5;
     s32 var_r5_2;
-    TObjCityMainWarp__data_805D5B54 |= 1;
+    TObjCityMainWarp__visible_destination_mask |= 1;
     if ((is_main_phase_15__9TObjEneDDFv(self) != 0) || (is_split_screen() != 0)) {
         var_r3 = 0x4C;
     } else {
         var_r3 = 0x4D;
     }
     if (get_story_flag(var_r3) != 0) {
-        TObjCityMainWarp__data_805D5B54 |= 4;
+        TObjCityMainWarp__visible_destination_mask |= 4;
     }
     for (var_r5 = 4; var_r5 < 11; var_r5++) {
-        TObjCityMainWarp__data_805D5B54 &= ~(1 << var_r5);
+        TObjCityMainWarp__visible_destination_mask &= ~(1 << var_r5);
     }
     for (var_r5 = 0xF; var_r5 < 0x11; var_r5++) {
-        TObjCityMainWarp__data_805D5B54 &= ~(1 << var_r5);
+        TObjCityMainWarp__visible_destination_mask &= ~(1 << var_r5);
     }
 }
 

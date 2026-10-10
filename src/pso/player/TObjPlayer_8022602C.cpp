@@ -10,11 +10,11 @@ void play_effect_if_v2__10TObjPlayerFi(s32 arg0);
 M2C_UNK update_technique_slot__10TTecRaFoieFi(s32, s32, M2C_UNK);
 s32 check_v2_mode__9TObjEneDDFv();
 
-extern s32 lbl_805D370C;
+extern s32 last_sound_effect_slot;
 
 void play_effect_if_v2__10TObjPlayerFi(s32 arg0) {
     if (check_v2_mode__9TObjEneDDFv() != 0) {
-        update_technique_slot__10TTecRaFoieFi(lbl_805D370C, arg0, 0);
+        update_technique_slot__10TTecRaFoieFi(last_sound_effect_slot, arg0, 0);
     }
 }
 

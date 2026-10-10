@@ -309,7 +309,7 @@ extern M2C_UNK challenge_mode_state[];
 s32 TLobby__sub_80070DA8(void);
 f32 get_random_float__8TObjFishFv(f32);
 
-M2C_UNK TObjCHTimeWin__sub_80071DF4(void *);
+M2C_UNK set_challenge_time_window_timer(void *);
 extern M2C_UNK challenge_mode_state[];
 void TLobby__sub_80071064(s32 arg0);
 f32 get_random_float__8TObjFishFv(f32);
@@ -485,7 +485,7 @@ void TLobby__sub_80071064(s32 arg0) {
     if (((s32 (*)(void))is_flag_set__6TLobbyFv)() != 0) {
         get_random_float__8TObjFishFv((f32) (arg0 - M2C_FIELD(&(*(RecoveredGlobal_80071064_lbl_8048C9D8 *)&challenge_mode_state).value, s32 *, 0xC)));
         M2C_FIELD(&(*(RecoveredGlobal_80071064_lbl_8048C9D8 *)&challenge_mode_state).value, s32 *, 0xC) = arg0;
-        TObjCHTimeWin__sub_80071DF4((void *) (arg0));
+        set_challenge_time_window_timer((void *) (arg0));
     }
 }
 

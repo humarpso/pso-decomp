@@ -19,15 +19,15 @@ struct Def_80206058 { u16 id, texture; f32 u, v, du, dv; };
 extern "C" {
 u8 *construct_pvr_wave__6TSceneFPvPvPvii(void *, M2C_UNK, s32, s32, s32);
 u8 *__nw__7TObjectFUl(M2C_UNK);
-extern void **TScene__data_805D5FD0;
+extern void **TScene__texture_wave_resource;
 void create_texture_wave_tasks__6TSceneFi(s32 arg0);
-extern void* TScene__data_805D6004;
+extern void* TScene__texture_animation_buffer;
 s32 load_texture_sequence_frame(void *task, Cyc_80205D24 *c);
 void copy_header_and_vec__6TSceneFPvPv(void* p, void* q);
-extern void* TScene__data_805D6004;
+extern void* TScene__texture_animation_buffer;
 s32 find_uv_animation__6TSceneFPvPv(void *task, Uv_80205DE4 *uv);
 extern SceneMaterialRoot* TScene__data_805D5FCC;
-extern void* TScene__data_805D6004;
+extern void* TScene__texture_animation_buffer;
 s32 load_texture_sequence_frame(void *task, Cyc_80205D24 *c);
 s32 find_uv_animation__6TSceneFPvPv(void *task, Uv_80205DE4 *uv);
 void initialize_fmt1_materials__6TSceneFPv(void *task);
@@ -39,7 +39,7 @@ extern u32 lbl_8044A800[];
 extern u8 lbl_8044A80C[];
 void init_material_nodes__6TSceneFPv(void *scene);
 extern SceneMaterialRoot* TScene__data_805D5FCC;
-extern void* TScene__data_805D6004;
+extern void* TScene__texture_animation_buffer;
 s32 load_texture_sequence_frame(void *task, Cyc_80205D24 *c);
 s32 find_uv_animation__6TSceneFPvPv(void *task, Uv_80205DE4 *uv);
 SceneMaterialNode* resolve_indirect_node_record(void*,SceneMaterialStatic*);
@@ -126,7 +126,7 @@ void create_texture_wave_tasks__6TSceneFi(s32 arg0) {
   s16 temp_r0;
   u8 *temp_r3;
   u8 *var_r31;
-  var_r31 = (u8 *) (*TScene__data_805D5FD0);
+  var_r31 = (u8 *) (*TScene__texture_wave_resource);
   do
   {
     new_var = (s8 *) var_r31;
@@ -142,7 +142,7 @@ void create_texture_wave_tasks__6TSceneFi(s32 arg0) {
 }
 
 s32 load_texture_sequence_frame(void *task, Cyc_80205D24 *c) {
-    s16 *p = (*(s16 * *)&TScene__data_805D6004);
+    s16 *p = (*(s16 * *)&TScene__texture_animation_buffer);
     while (p[0] != -1) {
         if (p[0] & 1) {
             p += p[1] / 2 + 2;
@@ -170,7 +170,7 @@ s32 find_uv_animation__6TSceneFPvPv(void *task, Uv_80205DE4 *uv) {
     s16 *p;
     s16 n = 0;
     u16 *rec = NULL;
-    p = (*(s16 * *)&TScene__data_805D6004);
+    p = (*(s16 * *)&TScene__texture_animation_buffer);
     while (p[0] != -1) {
         if (p[0] & 1) {
             n = p[2];
@@ -203,7 +203,7 @@ void TScene__sub_80205FD0(void) {  }
 #include "pso/misc/TSceneMaterial.h"
 extern "C" {
 extern SceneMaterialRoot* TScene__data_805D5FCC;
-extern void* TScene__data_805D6004;
+extern void* TScene__texture_animation_buffer;
 SceneMaterialNode* resolve_indirect_node_record(void*,SceneMaterialStatic*);
 SceneMaterialNode* resolve_indirect_object_record(void*,SceneMaterialAnimated*);
 
@@ -220,7 +220,7 @@ void TScene::initialize_fmt2_materials() {
     void *task = this;
     SceneMaterialAnimated *anim;
     s32 j;
-    if (!TScene__data_805D6004 || !TScene__data_805D5FCC) return;
+    if (!TScene__texture_animation_buffer || !TScene__data_805D5FCC) return;
     room = TScene__data_805D5FCC->sections;
     for (section = 0; section < TScene__data_805D5FCC->count; section++, room++) {
         object = room->objects;
@@ -275,7 +275,7 @@ void initialize_fmt1_materials__6TSceneFPv(void *task) {
     s32 i;
     SceneMaterialAnimated *anim;
     s32 j;
-    if (!TScene__data_805D6004 || !TScene__data_805D5FCC) return;
+    if (!TScene__texture_animation_buffer || !TScene__data_805D5FCC) return;
     room = TScene__data_805D5FCC->sections;
     for (section = 0; section < TScene__data_805D5FCC->count; section++, room++) {
         object = room->objects;

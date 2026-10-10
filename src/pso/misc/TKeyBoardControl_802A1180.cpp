@@ -53,7 +53,7 @@ M2C_UNK render_tick__Fv();
 M2C_UNK update_keyboard_menu__6TLobbyFv();
 
 extern s8 lbl_805D6638;
-extern u8 lbl_805D6639;
+extern u8 opening_movie_purpose;
 
 typedef char RecoveredGlobal_802A1180_main_task_size[sizeof(RecoveredGlobal_802A1180_main_task) == 0x34 ? 1 : -1];
 void update_movie_phase(void) {
@@ -92,7 +92,7 @@ void update_menu_scene__16TKeyBoardControlFv(void) {
     set_copy_clear_color_argb(0, 0, 0);
     reset_controller_input_state();
     TKeyBoardControl__sub_8000F90C(2);
-    switch ((s8) lbl_805D6639) {
+    switch ((s8) opening_movie_purpose) {
     case 0:
         TKeyBoardControl__sub_8000F91C(1);
         TKeyBoardControl__sub_8000F90C(9);

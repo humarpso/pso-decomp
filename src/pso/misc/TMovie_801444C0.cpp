@@ -12,7 +12,7 @@ s32 TWindowShortListCtrl__check_controller_button(void *, M2C_UNK);
 M2C_UNK TKeyBoardControl__sub_8000F91C(M2C_UNK);
 s32 TAdEndText__sub_8001B41C();
 s32 run_disk_error_check__6TLobbyFv();
-M2C_UNK fn_801449E4();
+M2C_UNK activate_main_menu_scene();
 M2C_UNK fn_801449F0();
 s32 check_reset_button__16TKeyBoardControlFv();
 s32 test_flag_4c__23TAdSinglePlyChrSelectGCFPv(void *, M2C_UNK);
@@ -76,7 +76,7 @@ block_fn_8000F91C:
         if (is_playback_finished__6TMovieFPv(M2C_FIELD(arg0, s32 *, 0x20)) == 0) goto block_return0;
 block_call_func:
         if ((func_801A5E54__Fv() != 0) || (var_r30 != 0)) {
-            fn_801449E4();
+            activate_main_menu_scene();
         }
         return 1;
     }

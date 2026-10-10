@@ -10,7 +10,7 @@ M2C_UNK draw_window_frame(void *, int);
 M2C_UNK draw_visible_window_entries(void *, void *, int);
 u8 *alloc_buffer__11TOBoss4RockFPv(s32);
 void *construct_with_parent__15TWindowAdditionFPvPv(void *, void *, s16, s32);
-extern u8 lbl_804D071C[];
+extern u8 message_window_settings[];
 extern M2C_UNK __vt__14TWindowMessage[];
 extern s32 lbl_805D3980;
 extern const f32 lbl_805DD21C;
@@ -68,7 +68,7 @@ void *__dt__14TWindowMessageFv(void *arg0, s16 arg1) {
 u8 *TWindowMessage__ct(u8 *arg0, s32 arg1, u32 arg2, s32 arg3) {
     u32 i;
     u8 *p;
-    construct_with_parent__15TWindowAdditionFPvPv(arg0, lbl_804D071C, arg3, arg1);
+    construct_with_parent__15TWindowAdditionFPvPv(arg0, message_window_settings, arg3, arg1);
     *(void **)(arg0 + 0x18) = ((u8 *)&__vt__14TWindowMessage);
     *(s32 *)arg0 = lbl_805D3980;
     *(s32 *)(arg0 + 0x70) = 0;

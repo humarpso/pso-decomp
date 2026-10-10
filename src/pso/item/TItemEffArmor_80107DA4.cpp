@@ -41,7 +41,7 @@ M2C_UNK pop_matrix();
 M2C_UNK post_translate_matrix(void *);
 M2C_UNK draw_ginja_model_with_motion(int, int, f32);
 M2C_UNK set_chunk_material_color(void *);
-extern RecoveredGlobal_80107DF0_lbl_8050BEC0 lbl_8050BEC0;
+extern RecoveredGlobal_80107DF0_lbl_8050BEC0 saved_model_draw_color;
 extern RecoveredGlobal_80107DF0_lbl_8058D4C0 lbl_8058D4C0;
 extern s32 lbl_805D5660;
 extern s32 some_id_805c6f74;
@@ -71,11 +71,11 @@ void render__13TItemEffArmorFv(u8 *arg0) {
     scale_matrix((int) (0), (f32) (temp_f1), (f32) (TItemEffArmor__data_805DAAEC), (f32) (temp_f1));
     lbl_805D5660 = some_id_805c6f74;
     some_id_805c6f74 |= 0x10;
-    copy_vec4__13TRaderMapCoreFPvPv(&lbl_8050BEC0.value, &lbl_8058D4C0.value);
+    copy_vec4__13TRaderMapCoreFPvPv(&saved_model_draw_color.value, &lbl_8058D4C0.value);
     set_chunk_material_color((void *) ((u8 *)(arg0) + 0x38));
     notify_fish_if_valid__10TObjPlayerFUi(M2C_FIELD(arg0, u32 *, 0x78));
     draw_ginja_model_with_motion((int) (M2C_FIELD(arg0, s32 *, 0x70)), (int) (M2C_FIELD(arg0, s32 *, 0x74)), (f32) (M2C_FIELD(arg0, f32 *, 0x24)));
-    copy_vec4__13TRaderMapCoreFPvPv(&lbl_8058D4C0.value, &lbl_8050BEC0.value);
+    copy_vec4__13TRaderMapCoreFPvPv(&lbl_8058D4C0.value, &saved_model_draw_color.value);
     some_id_805c6f74 = lbl_805D5660;
     pop_matrix();
 }

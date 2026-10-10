@@ -11,7 +11,7 @@ M2C_UNK play_ambient_loop_sound__17TOBarrierEnergy01Fi(void *);
 M2C_UNK clear_player_status_flag__10TObjPlayerFPviUi(void *, M2C_UNK, M2C_UNK);
 M2C_UNK update_anim_phase__17TOBarrierEnergy01FPv();
 
-extern s32 *TOBarrierEnergy01__data_805D5894;
+extern s32 *TOBarrierEnergy01__texture_lists;
 
 void TOBarrierEnergy01__vt15(void *arg0) {
     update_anim_phase__17TOBarrierEnergy01FPv();
@@ -19,7 +19,7 @@ void TOBarrierEnergy01__vt15(void *arg0) {
     if (!(M2C_FIELD(arg0, s32 *, 0xD0) & 1)) {
         M2C_FIELD(arg0, s32 *, 0xAC) = 3;
         clear_player_status_flag__10TObjPlayerFPviUi(arg0, 0, 8);
-        M2C_FIELD(arg0, s32 *, 0x24) = (s32) *TOBarrierEnergy01__data_805D5894;
+        M2C_FIELD(arg0, s32 *, 0x24) = (s32) *TOBarrierEnergy01__texture_lists;
     }
 }
 

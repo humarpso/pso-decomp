@@ -99,7 +99,7 @@ extern RecoveredGlobal_800F8428_lbl_80499988 lbl_80499988;
 extern M2C_UNK lbl_804999A0[];
 extern M2C_UNK lbl_804999B8[];
 extern M2C_UNK lbl_804999D0[];
-extern void *lbl_805D5330;
+extern void *screen_fade_controller;
 extern s32 local_client_id;
 extern void *tl_fade;
 
@@ -232,13 +232,13 @@ extern int fold_flush_2;
 #pragma pop
 
 void init_fadeout_state__6TLobbyFi(s32 arg0) {
-    if ((void *) lbl_805D5330 != NULL) {
-        M2C_FIELD(lbl_805D5330, s32 *, 0x28) = arg0;
-        M2C_FIELD(lbl_805D5330, f32 *, 0x1C) = (f32) (0.0f);
-        M2C_FIELD(lbl_805D5330, s8 *, 0x20) = 0;
-        M2C_FIELD(lbl_805D5330, s8 *, 0x21) = 0;
-        M2C_FIELD(lbl_805D5330, s8 *, 0x22) = 0;
-        M2C_FIELD(lbl_805D5330, s32 *, 0x24) = 2;
+    if ((void *) screen_fade_controller != NULL) {
+        M2C_FIELD(screen_fade_controller, s32 *, 0x28) = arg0;
+        M2C_FIELD(screen_fade_controller, f32 *, 0x1C) = (f32) (0.0f);
+        M2C_FIELD(screen_fade_controller, s8 *, 0x20) = 0;
+        M2C_FIELD(screen_fade_controller, s8 *, 0x21) = 0;
+        M2C_FIELD(screen_fade_controller, s8 *, 0x22) = 0;
+        M2C_FIELD(screen_fade_controller, s32 *, 0x24) = 2;
     }
 }
 
@@ -260,19 +260,19 @@ extern int fold_flush_3;
 #pragma pop
 
 void set_fade_params__6TLobbyFi(s32 arg0) {
-    if ((void *) lbl_805D5330 != NULL) {
-        M2C_FIELD(lbl_805D5330, s32 *, 0x28) = arg0;
-        M2C_FIELD(lbl_805D5330, f32 *, 0x1C) = (f32) (255.0f);
-        M2C_FIELD(lbl_805D5330, s8 *, 0x20) = 0;
-        M2C_FIELD(lbl_805D5330, s8 *, 0x21) = 0;
-        M2C_FIELD(lbl_805D5330, s8 *, 0x22) = 0;
-        M2C_FIELD(lbl_805D5330, s32 *, 0x24) = 1;
+    if ((void *) screen_fade_controller != NULL) {
+        M2C_FIELD(screen_fade_controller, s32 *, 0x28) = arg0;
+        M2C_FIELD(screen_fade_controller, f32 *, 0x1C) = (f32) (255.0f);
+        M2C_FIELD(screen_fade_controller, s8 *, 0x20) = 0;
+        M2C_FIELD(screen_fade_controller, s8 *, 0x21) = 0;
+        M2C_FIELD(screen_fade_controller, s8 *, 0x22) = 0;
+        M2C_FIELD(screen_fade_controller, s32 *, 0x24) = 1;
     }
 }
 
 s32 get_quest_thread_state__6TLobbyFv(void) {
-    if ((void *) lbl_805D5330 != NULL) {
-        return M2C_FIELD(lbl_805D5330, s32 *, 0x24);
+    if ((void *) screen_fade_controller != NULL) {
+        return M2C_FIELD(screen_fade_controller, s32 *, 0x24);
     }
     return 0;
 }
@@ -280,7 +280,7 @@ s32 get_quest_thread_state__6TLobbyFv(void) {
 u8 *dtor_clear_singleton__6TLobbyFPvs(u8 *arg0, s16 arg1) {
     if (arg0 != NULL) {
         M2C_FIELD(arg0, M2C_UNK **, 0x18) = &lbl_80499970.value;
-        (*(s32 *)&lbl_805D5330) = 0;
+        (*(s32 *)&screen_fade_controller) = 0;
         __dt__7TObjectFv((void *) (arg0), (int) (0));
         if (arg1 > 0) {
             ((s32 (*)(void *))__dl__7TObjectFPv)((void *) (arg0));
@@ -292,7 +292,7 @@ u8 *dtor_clear_singleton__6TLobbyFPvs(u8 *arg0, s16 arg1) {
 void *ct_register__6TLobbyFPv(void *arg0) {
     __ct__7TObjectFP7TObject(arg0);
     M2C_FIELD(arg0, M2C_UNK **, 0x18) = ((M2C_UNK *)&lbl_80499970);
-    lbl_805D5330 = arg0;
+    screen_fade_controller = arg0;
     M2C_FIELD(arg0, u32 *, 0x24) = 0;
     return arg0;
 }

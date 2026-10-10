@@ -75,7 +75,7 @@ M2C_UNK TObjCityMainWarp__sub_801875F8(void *);
 s32 get_warp_state__19TWindowSubTradeMainFv();
 M2C_UNK play_sound_effect(M2C_UNK, void *, M2C_UNK, M2C_UNK);
 extern s32 local_client_id;
-extern void *lbl_805D5B28;
+extern void *city_common_model_archive;
 void update_warp_sequence__16TObjCityMainWarpFPv(u8 *arg0);
 s32 get_main_phase();
 s32 is_local_client_floor_leader(s32);
@@ -92,7 +92,7 @@ s32 get_slot_or_neg1__17TWindowSubComCardFPv(u32);
 s32 get_card_data__17TWindowSubComCardFPv(u32);
 s32 is_child_visible__17TWindowSubComCardFPv(u32);
 extern s32 local_client_id;
-extern void *lbl_805D5B28;
+extern void *city_common_model_archive;
 void update_challenge_state__16TObjCityMainWarpFPv(u8 *arg0);
 }
 
@@ -104,7 +104,7 @@ s32 find_local_player_in_range__16TObjCityMainWarpFif(void *, f32);
 M2C_UNK notify_player_warp__16TObjCityMainWarpFPvi(void *, s32);
 
 extern s32 local_client_id;
-extern void *lbl_805D5B28;
+extern void *city_common_model_archive;
 extern s32 lbl_805D5B60;
 
 void update_state__16TObjCityMainWarpFPv(void *arg0) {
@@ -118,8 +118,8 @@ void update_state__16TObjCityMainWarpFPv(void *arg0) {
         M2C_FIELD(arg0, s32 *, 0x17C) = 0x96;
         M2C_FIELD(arg0, s16 *, 0xE0) = 1;
         M2C_FIELD(arg0, s16 *, 0xE2) = (s16) (M2C_FIELD(arg0, s16 *, 0xE2) | 1);
-        M2C_FIELD(arg0, s32 *, 0xD0) = (s32) M2C_FIELD(M2C_FIELD(lbl_805D5B28, void **, 0x42C), s32 *, 8);
-        M2C_FIELD(arg0, s32 *, 0xD4) = (s32) M2C_FIELD(M2C_FIELD(lbl_805D5B28, void **, 0x430), s32 *, 0x2C);
+        M2C_FIELD(arg0, s32 *, 0xD0) = (s32) M2C_FIELD(M2C_FIELD(city_common_model_archive, void **, 0x42C), s32 *, 8);
+        M2C_FIELD(arg0, s32 *, 0xD4) = (s32) M2C_FIELD(M2C_FIELD(city_common_model_archive, void **, 0x430), s32 *, 0x2C);
         return;
     case 1:
         if (get_phase_flag__16TObjCityMainWarpFv() == 0) {
@@ -152,8 +152,8 @@ void update_warp_sequence__16TObjCityMainWarpFPv(u8 *arg0) {
         M2C_FIELD(arg0, s32 *, 0x160) = 0x12C;
         play_sound_effect(0x40003205, arg0 + 0x38, 0, 0);
         M2C_FIELD(arg0, s16 *, 0xE0) = 1;
-        M2C_FIELD(arg0, s32 *, 0xD0) = M2C_FIELD(M2C_FIELD(lbl_805D5B28, void **, 0x42C), s32 *, 8);
-        M2C_FIELD(arg0, s32 *, 0xD4) = M2C_FIELD(M2C_FIELD(lbl_805D5B28, void **, 0x430), s32 *, 0x2C);
+        M2C_FIELD(arg0, s32 *, 0xD0) = M2C_FIELD(M2C_FIELD(city_common_model_archive, void **, 0x42C), s32 *, 8);
+        M2C_FIELD(arg0, s32 *, 0xD4) = M2C_FIELD(M2C_FIELD(city_common_model_archive, void **, 0x430), s32 *, 0x2C);
         break;
     case 1:
         if (((u32 (*)(f32))find_local_player_in_range__16TObjCityMainWarpFif)(M2C_FIELD(arg0, f32 *, 0xAC)) != 0) {
@@ -196,8 +196,8 @@ void update_challenge_state__16TObjCityMainWarpFPv(u8 *arg0) {
         M2C_FIELD(arg0, s32 *, 0x170) = 0;
         M2C_FIELD(arg0, s32 *, 0x174) = 0;
         M2C_FIELD(arg0, s16 *, 0xE0) = 1;
-        M2C_FIELD(arg0, s32 *, 0xD0) = M2C_FIELD(M2C_FIELD(lbl_805D5B28, void **, 0x42C), s32 *, 8);
-        M2C_FIELD(arg0, s32 *, 0xD4) = M2C_FIELD(M2C_FIELD(lbl_805D5B28, void **, 0x430), s32 *, 0x2C);
+        M2C_FIELD(arg0, s32 *, 0xD0) = M2C_FIELD(M2C_FIELD(city_common_model_archive, void **, 0x42C), s32 *, 8);
+        M2C_FIELD(arg0, s32 *, 0xD4) = M2C_FIELD(M2C_FIELD(city_common_model_archive, void **, 0x430), s32 *, 0x2C);
         break;
     case 1:
         if (((u32 (*)(f32))find_local_player_in_range__16TObjCityMainWarpFif)(M2C_FIELD(arg0, f32 *, 0xAC)) != 0) {

@@ -23,7 +23,7 @@ struct VObj_8021E55C_8021E4C4 : Base_8021E55C_8021E4C4 {
 
 extern "C" {
 
-int TJudgmentSequence__sub_8021E510(int a0);
+int get_judgment_shop_slot_flags(int a0);
 void TShopGetItemWindow__vt4(void *arg0);
 void TShopGetItemWindow__vt5(void *arg0);
 void *create__17TJudgmentSequenceFPv(void *arg0);
@@ -41,7 +41,7 @@ void *create__17TJudgmentSequenceFPv(void *arg0) {
 }
 
     extern int TJudgmentSequence__slot_flags[];
-int TJudgmentSequence__sub_8021E510(int a0) {  return TJudgmentSequence__slot_flags[a0]; }
+int get_judgment_shop_slot_flags(int a0) {  return TJudgmentSequence__slot_flags[a0]; }
 
 void TShopGetItemWindow__vt5(void *arg0) {
     struct VObj_8021E524_8021E4C4 *o = (struct VObj_8021E524_8021E4C4 *)M2C_FIELD(arg0, void **, 0x5C);

@@ -770,7 +770,7 @@ M2C_UNK play_effect_if_v2__10TObjPlayerFi(M2C_UNK);
 s32 play_sound_effect(s32, u32, s16, s32);
 M2C_UNK vec3_add_to(void *, void *);
 extern f32 TObjEneRe7Berura__animation_definitions[];
-extern Tbl_80093C80 TObjEneRe7Berura__data_805007DC[];
+extern Tbl_80093C80 TObjEneRe7Berura__detached_part_states[];
 extern const f32 TObjEneRe7Berura__data_805D9738;
 extern const f32 lbl_805D975C;
 void TObjEneRe7Berura__sub_80093C80(u8 *arg0, s32 arg1);
@@ -1134,7 +1134,7 @@ void TObjEneRe7Berura__sub_80093C80(u8 *arg0, s32 arg1) {
         F(s32, 0x3C0) &= ~3;
         F(s32, 0x3C0) |= 4;
         set_field_378__9TObjEneDDFPvi(arg0, 5);
-        t = &TObjEneRe7Berura__data_805007DC[F(s32, 0x3F4)];
+        t = &TObjEneRe7Berura__detached_part_states[F(s32, 0x3F4)];
         F(s16, 0xB8) = t->anim;
         F(f32, 0x4D0) = t->lo;
         F(f32, 0x4D4) = t->hi;
@@ -1190,7 +1190,7 @@ void TObjEneRe7Berura__sub_80093C80(u8 *arg0, s32 arg1) {
             if (objInBand__FP7GameObjf(arg0, F(f32, 0x4D0)) != 0) {
                 ARMF[F(s32, 0x3F4)] |= 3;
                 SUB->m3();
-                VecCopy__FP3VecPC3Vec(&v, &TObjEneRe7Berura__data_805007DC[F(s32, 0x3F4)].ofs);
+                VecCopy__FP3VecPC3Vec(&v, &TObjEneRe7Berura__detached_part_states[F(s32, 0x3F4)].ofs);
                 rotate_xz_pair_by_angle(&v.x, &v.z, F(s32, 0x60));
                 vec3_add_to(&v, arg0 + 0x38);
                 launch__21TObjEneRe7BeruraPunchFPvii(F(s32, 0x3F8), F(s32, 0x3F4), &v, arg0 + 0x394);

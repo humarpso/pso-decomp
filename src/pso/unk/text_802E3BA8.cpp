@@ -8,10 +8,10 @@ extern "C" {
 
 M2C_UNK rotate_matrix_by_node_angles(void *, int);
 M2C_UNK scale_current_matrix(void *);
-extern s32 lbl_805D68EC;
+extern s32 attack_collider_active_count;
 
 void fn_802E3BA8(u8 *arg0) {
-    if ((M2C_FIELD(arg0, s32 *, 0xE4) & 8) && ((s32) lbl_805D68EC == 1)) {
+    if ((M2C_FIELD(arg0, s32 *, 0xE4) & 8) && ((s32) attack_collider_active_count == 1)) {
         rotate_matrix_by_node_angles(arg0 + 0x114, 1);
         scale_current_matrix(arg0 + 0x120);
     }

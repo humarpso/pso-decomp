@@ -19,9 +19,9 @@ extern "C" {
 extern u8 *text_language_group_table;
 s32 TAdDialingGC__sub_8013ADBC(s32 arg0);
 extern RecoveredGlobal_8013ADB0_TAdEnterSerialAccessGC__data_804EC9B8 TAdEnterSerialAccessGC__raw_serial_buffer;
-M2C_UNK *TAdEnterSerialAccessGC__sub_8013ADB0(void);
+M2C_UNK *get_raw_serial_input_buffer(void);
 extern RecoveredGlobal_8013AD80_TAdEnterSerialAccessGC__data_804EC9C4 TAdEnterSerialAccessGC__access_key_input_buffer;
-M2C_UNK *TAdEnterSerialAccessGC__sub_8013AD80(void);
+M2C_UNK *get_access_key_input_buffer(void);
 }
 
 extern "C" {
@@ -46,14 +46,14 @@ u8 TLobby__sub_8013AD6C(void* p) { return *(u8*)((char*)p + 0x1e); }
 int TLobby__sub_8013AD74(void* p) { return *(u8*)((char*)p + 0x1d) & 0x1; }
 
 typedef char RecoveredGlobal_8013AD80_TAdEnterSerialAccessGC__data_804EC9C4_size[sizeof(RecoveredGlobal_8013AD80_TAdEnterSerialAccessGC__data_804EC9C4) == 0x10 ? 1 : -1];
-M2C_UNK *TAdEnterSerialAccessGC__sub_8013AD80(void) {
+M2C_UNK *get_access_key_input_buffer(void) {
     return &TAdEnterSerialAccessGC__access_key_input_buffer.value;
 }
 
-void init_serial_access__6TLobbyFv(void) { TAdEnterSerialAccessGC__sub_8013ADB0(); hex_to_decimal_string__22TAdEnterSerialAccessGCFi(); }
+void init_serial_access__6TLobbyFv(void) { get_raw_serial_input_buffer(); hex_to_decimal_string__22TAdEnterSerialAccessGCFi(); }
 
 typedef char RecoveredGlobal_8013ADB0_TAdEnterSerialAccessGC__data_804EC9B8_size[sizeof(RecoveredGlobal_8013ADB0_TAdEnterSerialAccessGC__data_804EC9B8) == 0xC ? 1 : -1];
-M2C_UNK *TAdEnterSerialAccessGC__sub_8013ADB0(void) {
+M2C_UNK *get_raw_serial_input_buffer(void) {
     return &TAdEnterSerialAccessGC__raw_serial_buffer.value;
 }
 

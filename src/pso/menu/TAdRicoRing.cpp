@@ -26,7 +26,7 @@ s32 get_bml_model(void *, int);
 M2C_UNK __ct__7TObjectFP7TObject();
 extern RecoveredGlobal_8001BD0C___vt__11TAdRicoRing __vt__11TAdRicoRing;
 extern s32 TAdRicoRing__class_name;
-extern s32 lbl_805D4A00;
+extern s32 TAdRicoRing__resource_bundle;
 extern const f32 lbl_805D7E4C;
 u8 *__ct__11TAdRicoRingFv(u8 *arg0);
 }
@@ -109,8 +109,8 @@ u8 *__ct__11TAdRicoRingFv(u8 *arg0) {
     M2C_FIELD(arg0, M2C_UNK **, 0x18) = &__vt__11TAdRicoRing.value;
     init_forward__10TObjPlayerFPv(arg0 + 0x2C);
     M2C_FIELD(arg0, s32 *, 0) = (s32) TAdRicoRing__class_name;
-    M2C_FIELD(arg0, s32 *, 0x4C) = get_bml_model((void *) (lbl_805D4A00), (int) (0));
-    M2C_FIELD(arg0, s32 *, 0x50) = TObjFish__sub_8001EDB0((void *) (lbl_805D4A00), (int) (0));
+    M2C_FIELD(arg0, s32 *, 0x4C) = get_bml_model((void *) (TAdRicoRing__resource_bundle), (int) (0));
+    M2C_FIELD(arg0, s32 *, 0x50) = TObjFish__sub_8001EDB0((void *) (TAdRicoRing__resource_bundle), (int) (0));
     M2C_FIELD(arg0, f32 *, 0x28) = (f32) lbl_805D7E4C;
     M2C_FIELD(arg0, f32 *, 0x24) = (f32) lbl_805D7E4C;
     M2C_FIELD(arg0, f32 *, 0x20) = (f32) lbl_805D7E4C;

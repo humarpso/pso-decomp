@@ -24,12 +24,12 @@ void *__dt__20TQuadSpriteSclColRotFv(void *arg0, s16 arg1) {
 }
 
 extern M2C_UNK __vt__20TQuadSpriteSclColRot[];
-extern void *lbl_805D35C0;
+extern void *TQuadSpriteSclColRot__class_name;
 
 void *TQuadSpriteSclColRot__ct(void *arg0) {
     quad_sprite_base_ct(arg0);
     M2C_FIELD(arg0, M2C_UNK **, 0x18) = __vt__20TQuadSpriteSclColRot;
-    M2C_FIELD(arg0, void **, 0x0) = lbl_805D35C0;
+    M2C_FIELD(arg0, void **, 0x0) = TQuadSpriteSclColRot__class_name;
     return arg0;
 }
 

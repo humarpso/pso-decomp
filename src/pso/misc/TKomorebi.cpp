@@ -33,12 +33,12 @@ s32 copy_xyz__10TObjPlayerFPvPv(void *, void *);
 s32 construct_world_actor_base(void *);
 extern M2C_UNK __vt__9TKomorebi[];
 extern s32 komorebi_class_name;
-extern u32 lbl_805D5C20;
+extern u32 TKomorebi__resource_bundle;
 u8 *TKomorebi__ct(u8 *arg0, M2C_UNK arg1, s32 arg2);
 int alloc__23TAdSinglePlyChrSelectGCFPv(void *);
 u8 *load_resource_from_descriptor(void *, s32, void *, s32, s32, s32);
 extern u8 TKomorebi__resource_descriptor[];
-extern u32 lbl_805D5C20;
+extern u32 TKomorebi__resource_bundle;
 extern s32 komorebi_last_uv_update_frame;
 void load_resources__9TKomorebiFv(void);
 s32 get_bml_motion(s32, s32);
@@ -123,8 +123,8 @@ u8 *TKomorebi__ct(u8 *arg0, M2C_UNK arg1, s32 arg2) {
     VecCopy__FP3VecPC3Vec((void *) (arg0 + 0x38), (void *) (arg2 + 0xC));
     copy_xyz__10TObjPlayerFPvPv((void *) (arg0 + 0x5C), (void *) (arg2 + 0x18));
     VecCopy__FP3VecPC3Vec((void *) (arg0 + 0x68), (void *) (arg2 + 0x24));
-    M2C_FIELD(arg0, s32 *, 0x34) = get_bml_model((void *) ((*(s32 *)&lbl_805D5C20)), (int) (0));
-    M2C_FIELD(arg0, s32 *, 0x24) = TObjFish__sub_8001EDB0((void *) ((*(s32 *)&lbl_805D5C20)), (int) (0));
+    M2C_FIELD(arg0, s32 *, 0x34) = get_bml_model((void *) ((*(s32 *)&TKomorebi__resource_bundle)), (int) (0));
+    M2C_FIELD(arg0, s32 *, 0x24) = TObjFish__sub_8001EDB0((void *) ((*(s32 *)&TKomorebi__resource_bundle)), (int) (0));
     return arg0;
 }
 
@@ -136,13 +136,13 @@ void *TKomorebi__create(void *arg0) {
     return o;
 }
 
-extern u32 lbl_805D5C20;
+extern u32 TKomorebi__resource_bundle;
 extern s32 komorebi_last_uv_update_frame;
 
 void free_static__9TKomorebiFv(void) {
-    if ((u32) lbl_805D5C20 != 0U) {
-        TLobby__sub_8001FE7C((void*)lbl_805D5C20, 1);
-        lbl_805D5C20 = 0U;
+    if ((u32) TKomorebi__resource_bundle != 0U) {
+        TLobby__sub_8001FE7C((void*)TKomorebi__resource_bundle, 1);
+        TKomorebi__resource_bundle = 0U;
     }
     komorebi_last_uv_update_frame = 0;
 }
@@ -151,7 +151,7 @@ void load_resources__9TKomorebiFv(void) {
     if (p != 0) {
         p = load_resource_from_descriptor(p, 1, TKomorebi__resource_descriptor, 0, 0, 0);
     }
-    lbl_805D5C20 = (u32)p;
+    TKomorebi__resource_bundle = (u32)p;
     komorebi_last_uv_update_frame = 0;
 }
 void init_models__8TObjFishFPv(Fish_80192434 *arg0) {

@@ -61,7 +61,7 @@ void __dt__18TAdAgreementBaseGCFv(void *, int);
 s32 check_memcard_status__15TAdPlayerLoadGCFi(M2C_UNK);
 M2C_UNK wait_for_load__19TAdTrialAgreementGCFv(s32);
 
-extern M2C_UNK lbl_804C8914[];
+extern M2C_UNK pso_system_card_filename[];
 
 s32 check_card_file__19TAdTrialAgreementGCFi(s32 arg0) {
     s32 temp_r3;
@@ -77,7 +77,7 @@ s32 check_card_file__19TAdTrialAgreementGCFi(s32 arg0) {
         return 0;
     }
     wait_for_load__19TAdTrialAgreementGCFv(arg0);
-    temp_r3 = find_card_file__15TAdPlayerLoadGCFiPv(0, lbl_804C8914);
+    temp_r3 = find_card_file__15TAdPlayerLoadGCFiPv(0, pso_system_card_filename);
     if ((temp_r3 == 0) || ((u32) (temp_r3 + 0x10000) == 0xFF41U)) {
         return 1;
     }

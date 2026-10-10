@@ -33,7 +33,7 @@ extern "C" {
 extern RecoveredGlobal_8020ECD8_lbl_80513D78 lbl_80513D78;
 void copy_armor_shop_entry__6TLobbyFiii(s32 arg0, s32 arg1, s32 arg2);
 M2C_UNK memset(void *, int, int);
-extern RecoveredGlobal_8020ECA8_lbl_80513D58 lbl_80513D58;
+extern RecoveredGlobal_8020ECA8_lbl_80513D58 shop_armor_stock_generated_flags;
 void clear_shop_armor_flags(void);
 extern RecoveredGlobal_8020ECD8_lbl_80513D78 lbl_80513D78;
 void clear_shop_entry_value__6TLobbyFii(s32 i, s32 j);
@@ -150,7 +150,7 @@ void clear_shop_entry_value__6TLobbyFii(s32 i, s32 j) {
 }
 
 void clear_shop_armor_flags(void) {
-    memset((void *) (&lbl_80513D58.value), (int) (0), (int) (0x10));
+    memset((void *) (&shop_armor_stock_generated_flags.value), (int) (0), (int) (0x10));
 }
 
 void copy_armor_shop_entry__6TLobbyFiii(s32 arg0, s32 arg1, s32 arg2) {

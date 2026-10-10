@@ -46,11 +46,11 @@ extern s32 lbl_805D49C0;
 void TKeyBoardControl__sub_8000F950(void);
 void TKeyBoardControl__sub_8000F95C(void);
 extern s32 keyboard_active_flag;
-void TKeyBoardControl__sub_8000F978(void);
-void TKeyBoardControl__sub_8000F984(void);
+void activate_keyboard(void);
+void deactivate_keyboard(void);
 extern s32 keyboard_key_state;
 void mark_area_change_pending(void);
-void TKeyBoardControl__sub_8000F9A4(void);
+void clear_keyboard_key_state(void);
 extern M2C_UNK lbl_80515F70[];
 extern s32 lbl_805D62B0;
     extern int lbl_805D49A0;
@@ -87,7 +87,7 @@ s32 get_window_layout_position(s32);
 s32 set_trade_state__19TWindowSubTradeMainFPvs(u32, s32);
 s32 refresh_item_list__19TWindowSubTradeMainFPvPv(u32, s32);
 s32 create_equip_kind_window(M2C_UNK, M2C_UNK *, s32);
-s32 TLobby__sub_802D29AC();
+s32 get_trade_window_state();
 extern M2C_UNK lbl_8047748C[];
 s32 open_trade_equip_window__19TWindowSubTradeMainFPv(Self_803310BC *arg0);
 Plr_803310BC *get_player_by_client_id(s32);
@@ -127,7 +127,7 @@ void update_trade_window__19TWindowSubTradeMainFPv(void *arg0);
 s32 TLobby__sub_802D268C();
 s32 TLobby__sub_802D298C();
 s32 TLobby__sub_802D299C();
-s32 TLobby__sub_802D29AC();
+s32 get_trade_window_state();
 s32 __ct__15TWindowHelpItemFPvUs(s32, s32, s32);
 M2C_UNK TWindowHelpItem__set_displayed_item_by_id(u32);
 s32 TWindowInputNumber__ct(s32, s32, M2C_UNK, s32, M2C_UNK, s16);
@@ -159,7 +159,7 @@ void notify_child_if_present__19TWindowSubTradeMainFPvi(void *arg0, s32 arg1) {
 }
 void draw_item_slot__19TWindowSubTradeMainFPv(void *arg0) {
     if ((u32) M2C_FIELD(arg0, u32 *, 0x40) != 0U) {
-        refresh_item_list__19TWindowSubTradeMainFPvPv((u32)(M2C_FIELD(arg0, u32 *, 0x40)), (s32)(TLobby__sub_802D29AC()));
+        refresh_item_list__19TWindowSubTradeMainFPvPv((u32)(M2C_FIELD(arg0, u32 *, 0x40)), (s32)(get_trade_window_state()));
     }
 }
 void update_trade_window__19TWindowSubTradeMainFPv(void *arg0) {
@@ -358,7 +358,7 @@ s32 open_trade_equip_window__19TWindowSubTradeMainFPv(Self_803310BC *arg0) {
     w = create_equip_kind_window(get_window_layout_position(0x61), lbl_8047748C, arg0->f28);
     ensure_status_display__20TWindowSubStatusDispFPvi(w, p->m10());
     set_trade_state__19TWindowSubTradeMainFPvs(w, 0);
-    refresh_item_list__19TWindowSubTradeMainFPvPv(w, TLobby__sub_802D29AC());
+    refresh_item_list__19TWindowSubTradeMainFPvPv(w, get_trade_window_state());
     close__19TWindowSubTradeMainFPv(w);
     TWindowSubEquip__sub_80263AF8(arg0->f2c, 1);
     set_field_1c__6TLobbyFPvf(w);
@@ -753,7 +753,7 @@ void run_task__19TWindowSubTradeMainFv(TWindowSubTradeMain_8033162C *o) {
             o->help = 0;
         }
         entry = select_cursor_entry__6TLobbyFPv(o->request);
-        n = get_state__19TWindowSubTradeMainFv(((void * (*)())TLobby__sub_802D29AC)(), entry);
+        n = get_state__19TWindowSubTradeMainFv(((void * (*)())get_trade_window_state)(), entry);
         if (n <= 1) {
             draw_offer__19TWindowSubTradeMainFPvPv(entry, 1);
             o->state = 0x10;

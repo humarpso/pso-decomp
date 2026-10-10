@@ -59,7 +59,7 @@ extern "C" {
 u8 * load_resource_from_descriptor(void *, s32, void *, s32, s32, s32);
 int alloc__23TAdSinglePlyChrSelectGCFPv(void *);
 extern RecoveredGlobal_80166614_lbl_804B1AA0 explosive_machine_resource_desc;
-extern u32 lbl_805D59A8;
+extern u32 explosive_machine_model_archive;
 void load_shared_resource__18TOExplosiveMachineFv(void);
 void destroy_particle__13TParticleCtrlFPvs(void *, int);
 void __dl__7TObjectFPv(void *);
@@ -110,12 +110,12 @@ void explode__18TOExplosiveMachineFPv(u8 *arg0) {
     }
 }
 
-extern u32 lbl_805D59A8;
+extern u32 explosive_machine_model_archive;
 
 void destroy_static_lobby__18TOExplosiveMachineFv(void) {
-    if ((u32) lbl_805D59A8 != 0U) {
-        TLobby__sub_8001FE7C((void*)lbl_805D59A8, 1);
-        lbl_805D59A8 = 0U;
+    if ((u32) explosive_machine_model_archive != 0U) {
+        TLobby__sub_8001FE7C((void*)explosive_machine_model_archive, 1);
+        explosive_machine_model_archive = 0U;
     }
 }
 
@@ -129,7 +129,7 @@ void load_shared_resource__18TOExplosiveMachineFv(void) {
     if (var_r0 != 0) {
         var_r0 = (long) (load_resource_from_descriptor((void *) temp_r3, 1, &explosive_machine_resource_desc.value, 0, 0, 0));
     }
-    (*(s32 *)&lbl_805D59A8) = var_r0;
+    (*(s32 *)&explosive_machine_model_archive) = var_r0;
 }
 
 O_80166664 *__dt__18TOExplosiveMachineFv(O_80166664 *arg0, s16 arg1) {

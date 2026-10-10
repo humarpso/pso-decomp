@@ -85,8 +85,8 @@ extern s32 lbl_805D3180;
 u8 *TOSwitchItem__ct(u8 *arg0, M2C_UNK arg1, s32 arg2);
 u8 get_field_ed__10TObjPlayerFPv(int);
 s32 copy_item_data_and_process__5TItemFPv(int);
-u8 *fn_80101A98(s32);
-s32 fn_80101AA8();
+u8 *get_sorted_item_registry_entry(s32);
+s32 get_item_registry_count();
 s8 TObjPlayer__sub_80102C30(u8 *);
 u8 get_field_ec__12TOSwitchItemFPv(int);
 f32 horizontal_distance_squared(Pos_80177E24 *, Pos_80177E24 *);
@@ -145,10 +145,10 @@ void run_task__12TOSwitchItemFv(u8 *arg0) {
     u8 *temp_r27;
     ((VObj_18_1753c2 *)(arg0))->m22();
     var_r30 = 0;
-    temp_r31 = fn_80101AA8();
+    temp_r31 = get_item_registry_count();
     var_r29 = 0;
     while (var_r29 != temp_r31) {
-        temp_r27 = (u8 *)(fn_80101A98(var_r29));
+        temp_r27 = (u8 *)(get_sorted_item_registry_entry(var_r29));
         if ((TObjPlayer__sub_80102C30(temp_r27) == 0) && (horizontal_distance_squared(&((Obj_80177E24 *)temp_r27)->pos, &((Obj_80177E24 *)arg0)->pos) < M2C_FIELD(arg0, f32 *, 0xE8))) {
             temp_r0 = M2C_FIELD(arg0, u32 *, 0xF0);
             switch (temp_r0) {

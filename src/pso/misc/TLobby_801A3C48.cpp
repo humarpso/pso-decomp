@@ -119,10 +119,10 @@ void set_value__6TLobbyFPvi(void* p, s32 v);
 void reset_counter__6TLobbyFv(void);
 s32 get_input__16TKeyBoardControlFv();
 int TKeyBoardControl__sub_8000F95C(void);
-s32 TKeyBoardControl__sub_8000F968();
-M2C_UNK TKeyBoardControl__sub_8000F984();
+s32 is_keyboard_active();
+M2C_UNK deactivate_keyboard();
 s32 get_key_state__16TKeyBoardControlFv();
-M2C_UNK TKeyBoardControl__sub_8000F9A4();
+M2C_UNK clear_keyboard_key_state();
 int TKeyBoardControl__sub_8000F9CC(int);
 s8 get_chr_select_state__23TAdSinglePlyChrSelectGCFv();
 M2C_UNK TLobby__sub_8006EF90();
@@ -156,10 +156,10 @@ extern s32 TLobby__online_lobby_frame_counter;
 void run_main_frame__6TLobbyFv(void);
 s32 get_input__16TKeyBoardControlFv();
 int TKeyBoardControl__sub_8000F95C(void);
-s32 TKeyBoardControl__sub_8000F968();
-M2C_UNK TKeyBoardControl__sub_8000F984();
+s32 is_keyboard_active();
+M2C_UNK deactivate_keyboard();
 s32 get_key_state__16TKeyBoardControlFv();
-M2C_UNK TKeyBoardControl__sub_8000F9A4();
+M2C_UNK clear_keyboard_key_state();
 int TKeyBoardControl__sub_8000F9CC(int);
 s8 get_chr_select_state__23TAdSinglePlyChrSelectGCFv();
 M2C_UNK TObjBoss2Tunnel__sub_8007D1D0();
@@ -355,7 +355,7 @@ M2C_UNK change_floor_reload_area(void);
 M2C_UNK update__16TKeyBoardControlFv();
 M2C_UNK TKeyBoardControl__sub_8000F90C(int);
 int TKeyBoardControl__sub_8000F91C(int);
-M2C_UNK TKeyBoardControl__sub_8000F9A4();
+M2C_UNK clear_keyboard_key_state();
 int TKeyBoardControl__sub_8000F9CC(int);
 M2C_UNK set_field1C__9TLoadCtrlFi(int);
 M2C_UNK cleanup_scene__9TLoadCtrlFv();
@@ -938,11 +938,11 @@ void run_lobby_frame__6TLobbyFv(void) {
     }
     if (get_key_state__16TKeyBoardControlFv() != 0) {
         change_floor_reload_area();
-        TKeyBoardControl__sub_8000F9A4();
+        clear_keyboard_key_state();
     }
-    if (TKeyBoardControl__sub_8000F968() != 0) {
+    if (is_keyboard_active() != 0) {
         reload_floor_scene__6TLobbyFv();
-        TKeyBoardControl__sub_8000F984();
+        deactivate_keyboard();
     }
     if (get_input__16TKeyBoardControlFv() != 0) {
         reload_lobby_floor_scene();
@@ -985,11 +985,11 @@ void run_main_frame__6TLobbyFv(void) {
     }
     if (get_key_state__16TKeyBoardControlFv() != 0) {
         change_floor_reload_area();
-        TKeyBoardControl__sub_8000F9A4();
+        clear_keyboard_key_state();
     }
-    if (TKeyBoardControl__sub_8000F968() != 0) {
+    if (is_keyboard_active() != 0) {
         reload_floor_scene__6TLobbyFv();
-        TKeyBoardControl__sub_8000F984();
+        deactivate_keyboard();
     }
     if ((s16) TLobby__data_805D5CE8 == 1) {
         reload_lobby_floor_scene();
@@ -1021,7 +1021,7 @@ void run_online_lobby_scene(void) {
     update__16TKeyBoardControlFv();
     TLobby__sub_801F3774();
     reset_controller_input_state();
-    TKeyBoardControl__sub_8000F9A4();
+    clear_keyboard_key_state();
     TKeyBoardControl__sub_8000F90C(2);
     TKeyBoardControl__sub_8000F91C(0xF);
     clear_resource_load_tasks();

@@ -44,7 +44,7 @@ M2C_UNK TContainerAncient01__sub_8018B48C(void *);
 M2C_UNK update_wait_for_player__19TContainerAncient01FPv(void *);
 M2C_UNK submit_cursor_candidate(void *, int, f32);
 M2C_UNK run_task__7TObjectFv(void *);
-extern s32 TContainerAncient01__data_805D5B90;
+extern s32 TContainerAncient01__bml_resource;
 extern f32 TContainerAncient01__data_805DBD10;
 extern const f32 TContainerAncient01__data_805DBD1C;
 extern const f32 lbl_805DBD50;
@@ -170,11 +170,11 @@ void run_task__19TContainerAncient01Fv(u8 *arg0) {
             }
         }
     }
-    if ((u32) M2C_FIELD(arg0, u32 *, 0xF8) == get_bml_motion((int) (TContainerAncient01__data_805D5B90), (int) (0))) {
-        M2C_FIELD(arg0, s32 *, 0x34) = get_bml_model((int) (TContainerAncient01__data_805D5B90), (int) (0));
+    if ((u32) M2C_FIELD(arg0, u32 *, 0xF8) == get_bml_motion((int) (TContainerAncient01__bml_resource), (int) (0))) {
+        M2C_FIELD(arg0, s32 *, 0x34) = get_bml_model((int) (TContainerAncient01__bml_resource), (int) (0));
     }
-    if ((u32) M2C_FIELD(arg0, u32 *, 0xF8) == get_bml_motion((int) (TContainerAncient01__data_805D5B90), (int) (1))) {
-        M2C_FIELD(arg0, s32 *, 0x34) = get_bml_model((int) (TContainerAncient01__data_805D5B90), (int) (1));
+    if ((u32) M2C_FIELD(arg0, u32 *, 0xF8) == get_bml_motion((int) (TContainerAncient01__bml_resource), (int) (1))) {
+        M2C_FIELD(arg0, s32 *, 0x34) = get_bml_model((int) (TContainerAncient01__bml_resource), (int) (1));
     }
     run_task__7TObjectFv((void *) (arg0));
 }

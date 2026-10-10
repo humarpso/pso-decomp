@@ -2,7 +2,7 @@
 struct S_803DB390 { void *a; void *b; s32 c; };
 
 extern "C" {
-extern S_803DB390 lbl_8058CD70;
+extern S_803DB390 model_draw_queue_state;
 void draw_queued_models(void *p);
 void flush_model_draw_queue(void);
 typedef f32 Mtx_803DB3C4[3][4];
@@ -18,8 +18,8 @@ extern "C" {
 #pragma scheduling off
 #pragma peephole off
 void flush_model_draw_queue(void) {
-    if (lbl_8058CD70.b) {
-        draw_queued_models(lbl_8058CD70.b);
+    if (model_draw_queue_state.b) {
+        draw_queued_models(model_draw_queue_state.b);
     }
 }
 #pragma pop
@@ -34,7 +34,7 @@ void draw_queued_models(void *p) {
         if (some_id_805c6f74 & 0x100000) {
             GXLoadTexMtxImm(&lbl_8058CB68[i], 0x2A, 0);
         }
-        ((void (*)(s32))lbl_8058CD70.c)(((s32 *)lbl_8058CD70.a)[i]);
+        ((void (*)(s32))model_draw_queue_state.c)(((s32 *)model_draw_queue_state.a)[i]);
     }
     GXSetCurrentMtx(0);
 }

@@ -17,7 +17,7 @@ s32 is_global_state_in_table__19TContainerAncient01Fv(void);
 
 extern "C" {
 
-    extern int TScene__data_805D5FF4;
+    extern int TScene__render_callback;
 
 M2C_UNK *resolve_indirect_object_record(M2C_UNK arg0, u8 *arg1) {
     if (M2C_FIELD(arg1, s32 *, 0x1C) & 0x200) {
@@ -33,7 +33,7 @@ M2C_UNK *resolve_indirect_node_record(M2C_UNK arg0, u8 *arg1) {
     return M2C_FIELD(arg1, M2C_UNK **, 0);
 }
 
-void set_instance__6TSceneFi(int a0) { TScene__data_805D5FF4 = a0; }
+void set_instance__6TSceneFi(int a0) { TScene__render_callback = a0; }
 
     extern int TScene__data_805D5FF0;
 void set_active_scene__6TSceneFi(int a0) { TScene__data_805D5FF0 = a0; }

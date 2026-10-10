@@ -20,12 +20,12 @@ extern "C" {
 }
 
 extern "C" {
-u8 * TQuestVmDownLoadServer__sub_801F84AC(void);
+u8 * get_quest_download_file_header(void);
 void request_aram_load_state__16TAdWarningBaseGCFPv(u8 *arg0);
 void DCInvalidateRange(void *, u32);
 void run_frame__6TLobbyFv(void);
 void ARQPostRequest(void *, u32, u32, u32, u32, u32, u32, void (*)(u32));
-void TAdWarningBaseGC__sub_8032D1E4(u32);
+void clear_aram_request_busy(u32);
 extern u8 ad_warning_arq_request[];
 extern u32 ad_warning_aram_base;
 extern s32 warning_aram_load_done_flag;
@@ -34,7 +34,7 @@ extern s32 aram_request_busy_flag;
 s32 load_from_aram_sync__16TAdWarningBaseGCFi(s32 arg0);
 void DCFlushRange(void *, u32);
 void ARQPostRequest(void *, u32, u32, u32, u32, u32, u32, void (*)(u32));
-void TAdWarningBaseGC__sub_8032D1E4(u32);
+void clear_aram_request_busy(u32);
 extern u8 ad_warning_arq_request[];
 extern u32 ad_warning_aram_base;
 extern u32 TAdWarningBaseGC__aram_capacity;
@@ -69,7 +69,7 @@ void request_aram_load_state__16TAdWarningBaseGCFPv(u8 *arg0) {
     s32 temp_r4;
     u32 temp_r3_2;
     u8 *temp_r3;
-    temp_r3 = (u8 *)(TQuestVmDownLoadServer__sub_801F84AC());
+    temp_r3 = (u8 *)(get_quest_download_file_header());
     if (temp_r3 != NULL) {
         temp_r4 = M2C_FIELD(temp_r3, s32 *, 0x34);
         if (temp_r4 > 0) {
@@ -105,7 +105,7 @@ s32 load_from_aram_sync__16TAdWarningBaseGCFi(s32 arg0) {
     size = ((*(s32 *)&TAdWarningBaseGC__aram_alloc_size) + 0x1F) & ~0x1F;
     DCInvalidateRange((void *)arg0, size);
     aram_request_busy_flag = 1;
-    ARQPostRequest(ad_warning_arq_request, 4, 1, 1, ad_warning_aram_base, arg0, size, TAdWarningBaseGC__sub_8032D1E4);
+    ARQPostRequest(ad_warning_arq_request, 4, 1, 1, ad_warning_aram_base, arg0, size, clear_aram_request_busy);
 loop:
     if (aram_request_busy_flag != 0) {
         run_frame__6TLobbyFv();
@@ -131,7 +131,7 @@ s32 post_aram_request__16TAdWarningBaseGCFii(s32 arg0, s32 arg1) {
     }
     DCFlushRange((void *)arg0, size);
     aram_request_busy_flag = 1;
-    ARQPostRequest(ad_warning_arq_request, 4, 0, 1, arg0, ad_warning_aram_base, size, TAdWarningBaseGC__sub_8032D1E4);
+    ARQPostRequest(ad_warning_arq_request, 4, 0, 1, arg0, ad_warning_aram_base, size, clear_aram_request_busy);
     return 1;
 }
 

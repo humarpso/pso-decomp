@@ -43,7 +43,7 @@ struct Cam_800665FC { s8 f8; s8 f9; s16 fa; f32 fc; f32 f10; };
 
 extern "C" {
 M2C_UNK queue_destruction__7TObjectFv(void *);
-M2C_UNK set_active_player__10TObjPlayerFi(int);
+M2C_UNK set_camera_capture_overlay_alpha(int);
 M2C_UNK restore_player_cameras();
 u8 *get_scripted_camera_playback();
 void run_task__17TBoss5GryphonDemoFv(u8 *arg0);
@@ -164,7 +164,7 @@ void render__17TBoss5GryphonDemoFv(void) {  }
 void run_task__17TBoss5GryphonDemoFv(u8 *arg0) {
     u8 *temp_r31;
     temp_r31 = get_scripted_camera_playback();
-    set_active_player__10TObjPlayerFi((int) (0x8F));
+    set_camera_capture_overlay_alpha((int) (0x8F));
     if ((M2C_FIELD(temp_r31, u16 *, 2) & 1) || ((s32) *M2C_FIELD(arg0, s32 **, 0x24) == 0)) {
         restore_player_cameras();
         queue_destruction__7TObjectFv((void *) (arg0));

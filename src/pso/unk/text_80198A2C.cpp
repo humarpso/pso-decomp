@@ -425,7 +425,7 @@ M2C_UNK scale_current_matrix(void *);
 M2C_UNK post_translate_matrix(void *);
 M2C_UNK set_chunk_material_color(void *);
 extern const f32 chunk_material_color_half_alpha_f32[];
-extern u32 lbl_805D52F8;
+extern u32 blob_shadow_texture_list;
 void TObjPlayer__sub_801994DC(M2C_UNK arg0, void *arg1, void *arg2, s32 arg3, void *arg4, f32 farg0);
 }
 
@@ -655,7 +655,7 @@ void TObjPlayer__sub_801994DC(M2C_UNK arg0, void *arg1, void *arg2, s32 arg3, vo
     Ang_801994DC ang;
     Col_801994DC col;
     Fx_801994DC fx;
-    if (lbl_805D52F8 == 0) {
+    if (blob_shadow_texture_list == 0) {
         return;
     }
     direction_to_rotation_xz(arg2, &ang.x, &ang.z);
@@ -675,7 +675,7 @@ void TObjPlayer__sub_801994DC(M2C_UNK arg0, void *arg1, void *arg2, s32 arg3, vo
     fx.d = 1.0f;
     fx.e = 1.0f;
     fx.f = 0;
-    fx.g = lbl_805D52F8;
+    fx.g = blob_shadow_texture_list;
     fx.h = lbl_804B8D80;
     col.r = farg0;
     col.g = 1.0f;
@@ -720,7 +720,7 @@ struct Hit_80199674 { u32 f0; Seg_80199674 *seg; };
 s32 copy_vec4__13TRaderMapCoreFPvPv(void *, void *);
 Hit_80199674 *csnVectorUnder(void *, void *, s32);
 f32 xyz_distance(Vec_80199674 *, void *);
-extern u8 lbl_8050BEC0[];
+extern u8 saved_model_draw_color[];
 extern u8 lbl_8058D4C0[];
 
 #pragma push
@@ -746,13 +746,13 @@ void draw_shadow_on_ground(u8 *arg0) {
         scale.x = s;
         scale.y = s;
         scale.z = s;
-        copy_vec4__13TRaderMapCoreFPvPv(lbl_8050BEC0, lbl_8058D4C0);
+        copy_vec4__13TRaderMapCoreFPvPv(saved_model_draw_color, lbl_8058D4C0);
         k = 2.0f * t + 0.5f;
         if (k >= 1.0f) {
             k = 1.0f;
         }
         TObjPlayer__sub_801994DC(arg0, &seg.a, &seg.b, 0, &scale, k);
-        copy_vec4__13TRaderMapCoreFPvPv(lbl_8058D4C0, lbl_8050BEC0);
+        copy_vec4__13TRaderMapCoreFPvPv(lbl_8058D4C0, saved_model_draw_color);
     }
 }
 #pragma pop
@@ -904,7 +904,7 @@ M2C_UNK draw_chunk_object(s32);
 extern Color_80199A44 lbl_80446060[];
 extern const f32 chunk_material_color_half_alpha_f32[];
 extern s32 lobby_gvm_texture_handles[];
-extern u8 lbl_8050BEC0[];
+extern u8 saved_model_draw_color[];
 extern u8 identity_matrix[];
 extern u8 lbl_8058D4C0[];
 extern s32 lbl_805D5660;
@@ -944,7 +944,7 @@ void draw_model__8TObjFishFPv(u8 *arg0) {
     matrix_mult_vec(0, &dir, &dir);
     pop_matrices(1);
     lbl_805D5660 = some_id_805c6f74;
-    copy_vec4__13TRaderMapCoreFPvPv(lbl_8050BEC0, lbl_8058D4C0);
+    copy_vec4__13TRaderMapCoreFPvPv(saved_model_draw_color, lbl_8058D4C0);
     lbl_805D5664 = lbl_805D7784;
     lbl_805D5668 = lbl_805D7780;
     some_id_805c6f74 |= 0x821;
@@ -1013,7 +1013,7 @@ void draw_model__8TObjFishFPv(u8 *arg0) {
     pop_matrices(1);
     lbl_805D7784 = lbl_805D5664;
     lbl_805D7780 = lbl_805D5668;
-    copy_vec4__13TRaderMapCoreFPvPv(lbl_8058D4C0, lbl_8050BEC0);
+    copy_vec4__13TRaderMapCoreFPvPv(lbl_8058D4C0, saved_model_draw_color);
     some_id_805c6f74 = lbl_805D5660;
     draw_shadow_on_ground(arg0);
 }
@@ -1119,8 +1119,8 @@ s32 initialize_linked_object_reference(void *, s32);
 extern M2C_UNK lbl_804B8E18[];
 u8 *TWindowTimer__sub_8019A574(u8 *arg0);
 s16 get_timer_value__12TWindowTimerFi(s32 i);
-void TWindowTimer__sub_8019A738(s32 i);
-void TWindowTimer__sub_8019A754(s32 i);
+void add_gogo_ball_three_point_score(s32 i);
+void add_gogo_ball_one_point_score(s32 i);
 void init_6x40_walk_packet(void *cmd);
 Player_8019A098 *get_player_by_client_id(s32);
 void calc_movement_target__10TObjPlayerFPviPvPv(void *arg0, s32 arg1, f32 *arg2, f32 *arg3);
@@ -1139,8 +1139,8 @@ extern s32 local_client_id;
 void update_motion__12TWindowTimerFPv(Timer_80199F14 *self);
 s32 obj_getField1c(void *);
 void TWindowTimer__sub_8019A098(void);
-void TWindowTimer__sub_8019A738(s32 i);
-void TWindowTimer__sub_8019A754(s32 i);
+void add_gogo_ball_three_point_score(s32 i);
+void add_gogo_ball_one_point_score(s32 i);
 Player_8019A098 *get_player_by_client_id(s32);
 void open__11TWindowCtrlFiii(s32, void *, int);
 f32 get_ad_end_text_start__10TObjPlayerFv(f32, f32);
@@ -1241,28 +1241,28 @@ void update_goal_checks__12TWindowTimerFPvUs(void *arg0, u16 id) {
     if (xyz_distance(&CFG.p2C, &self->pos) <= CFG.f44 && (0.0f) == ((f32 (*)(void *))vector_length)(&self->vel)) {
         ST.flags |= 2;
         if (self->f360 == 0) {
-            TWindowTimer__sub_8019A754(1);
+            add_gogo_ball_one_point_score(1);
             self->f360 = 1;
         }
     }
     if (xyz_distance(&CFG.p38, &self->pos) <= CFG.f44 && (0.0f) == ((f32 (*)(void *))vector_length)(&self->vel)) {
         ST.flags |= 1;
         if (self->f360 == 0) {
-            TWindowTimer__sub_8019A754(0);
+            add_gogo_ball_one_point_score(0);
             self->f360 = 1;
         }
     }
     if (xyz_distance(&lbl_804B8D94, &self->pos) <= CFG.f44 && (0.0f) == ((f32 (*)(void *))vector_length)(&self->vel)) {
         ST.flags |= 0x10;
         if (self->f360 == 0) {
-            TWindowTimer__sub_8019A738(0);
+            add_gogo_ball_three_point_score(0);
             self->f360 = 1;
         }
     }
     if (xyz_distance(&lbl_804B8DA0, &self->pos) <= CFG.f44 && (0.0f) == ((f32 (*)(void *))vector_length)(&self->vel)) {
         ST.flags |= 0x20;
         if (self->f360 == 0) {
-            TWindowTimer__sub_8019A738(1);
+            add_gogo_ball_three_point_score(1);
             self->f360 = 1;
         }
     }
@@ -1392,11 +1392,11 @@ s16 get_timer_value__12TWindowTimerFi(s32 i) {
 
 int set_timer_value__12TWindowTimerFii(int a0, int a1) { gogo_ball_team_scores[a0] = a1; return (int)gogo_ball_team_scores; }
 
-void TWindowTimer__sub_8019A738(s32 i) {
+void add_gogo_ball_three_point_score(s32 i) {
     ((s32 *)&gogo_ball_team_scores)[i] += 3;
 }
 
-void TWindowTimer__sub_8019A754(s32 i) {
+void add_gogo_ball_one_point_score(s32 i) {
     ((s32 *)&gogo_ball_team_scores)[i] += 1;
 }
 

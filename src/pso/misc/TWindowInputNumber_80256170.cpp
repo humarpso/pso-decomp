@@ -56,7 +56,7 @@ extern const f32 lbl_805DCE1C;
 extern const f32 lbl_805DCE20;
 extern const f32 lbl_805DCE24;
 void align_digits__18TWindowInputNumberFv(InNum_802561E8 *self);
-extern const s32 lbl_8044EE0C[];
+extern const s32 number_input_decimal_place_values[];
 void calc_digit_count__18TWindowInputNumberFv(void *arg0);
 }
 
@@ -160,7 +160,7 @@ void calc_digit_count__18TWindowInputNumberFv(void *arg0) {
     s32 i = 0;
     w->f62 = 0;
     while (i < 6) {
-        if (w->f68 < lbl_8044EE0C[i]) {
+        if (w->f68 < number_input_decimal_place_values[i]) {
             break;
         }
         w->f62 = i;

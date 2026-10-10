@@ -3638,7 +3638,7 @@ M2C_UNK TBoss8Dragon__sub_800BB7D4(void *, M2C_UNK);
 s32 set_player_state_default__12TBoss8DragonFPv(void *);
 M2C_UNK init_common_from__9TObjEneDDFPvPv(void *, void *);
 s32 get_target_info__9TObjEneDDFPv(void *);
-s32 TObjEneDD__sub_800BB878(s32, s32);
+s32 pack_debug_text_position(s32, s32);
 u32 load_enemy_bml_resource_named(void *, void *);
 u32 load_enemy_bml_resource(void *);
 void TObjEneDD__vt0(void *, int);

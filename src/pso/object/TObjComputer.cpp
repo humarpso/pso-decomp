@@ -150,7 +150,7 @@ s32 rotate_matrix_y(s32, s32);
 void dispatch_fish_event__6TLobbyFPv(void *a0);
 void draw_ginja_box_tree(void);
 s32 pop_matrix();
-extern void *lbl_805D5B88;
+extern void *container_breakup_model_archive;
 extern s32 lbl_805D5B8C;
 void TObjContainerAbeEnemy__vt79(Obj_80188884 *self);
 void set_global_count__12TObjNpcEnemyFi(s32 arg0);
@@ -169,7 +169,7 @@ void *TObjMesBase__ct(void *, void *, void *);
 extern M2C_UNK lbl_804B6254[];
 extern M2C_UNK __vt__12TObjComputer[];
 extern s32 lbl_805D32CC;
-extern u32 TObjComputer__data_805D5B68;
+extern u32 TObjComputer__model_archive;
 extern s16 TObjComputer__data_805DBCD8[2];
 extern const f32 lbl_805DBCEC;
 void *TObjComputer__ct(void *arg0, void *parent, void *row);
@@ -181,7 +181,7 @@ extern char lbl_80444B60[];
 extern char lbl_80444B78[];
 extern M2C_UNK lbl_804B6204[];
 extern M2C_UNK lbl_804B6244[];
-extern u32 TObjComputer__data_805D5B68;
+extern u32 TObjComputer__model_archive;
 extern u32 lbl_805D5B6C;
 extern s16 lbl_805D5B70;
 void load_computer_resources(void);
@@ -300,7 +300,7 @@ void *create__12TObjComputerFPv(void *arg0) {
     return o;
 }
 
-extern u32 TObjComputer__data_805D5B68;
+extern u32 TObjComputer__model_archive;
 extern u32 lbl_805D5B6C;
 
 void free_resources__12TObjComputerFv(void) {
@@ -309,9 +309,9 @@ void free_resources__12TObjComputerFv(void) {
         safe_free__23TAdSinglePlyChrSelectGCFUi(lbl_805D5B6C);
         lbl_805D5B6C = 0U;
     }
-    if ((u32) TObjComputer__data_805D5B68 != 0U) {
-        TLobby__sub_8001FE7C((void*)TObjComputer__data_805D5B68, 1);
-        TObjComputer__data_805D5B68 = 0U;
+    if ((u32) TObjComputer__model_archive != 0U) {
+        TLobby__sub_8001FE7C((void*)TObjComputer__model_archive, 1);
+        TObjComputer__model_archive = 0U;
     }
 }
 
@@ -326,7 +326,7 @@ void load_computer_resources(void) {
         if (p != NULL) {
             p = load_resource_from_descriptor(p, 5, lbl_804B6244, 0, 0, 0);
         }
-        TObjComputer__data_805D5B68 = (u32) p;
+        TObjComputer__model_archive = (u32) p;
         lbl_805D5B6C = load_gvm_texture_file(lbl_80444B60);
         lbl_805D5B70 = 0;
         break;
@@ -335,7 +335,7 @@ void load_computer_resources(void) {
         if (p != NULL) {
             p = load_resource_from_descriptor(p, 5, lbl_804B6204, 0, 0, 0);
         }
-        TObjComputer__data_805D5B68 = (u32) p;
+        TObjComputer__model_archive = (u32) p;
         lbl_805D5B6C = load_gvm_texture_file(lbl_80444B78);
         lbl_805D5B70 = 1;
         break;
@@ -366,8 +366,8 @@ void *TObjComputer__ct(void *arg0, void *parent, void *row) {
     if (self->selector > 1) {
         self->selector = 1;
     }
-    if (TObjComputer__data_805D5B68 != 0U) {
-        self->model = (void *)get_bml_model((void *)TObjComputer__data_805D5B68, TObjComputer__data_805DBCD8[self->selector]);
+    if (TObjComputer__model_archive != 0U) {
+        self->model = (void *)get_bml_model((void *)TObjComputer__model_archive, TObjComputer__data_805DBCD8[self->selector]);
     } else {
         queue_destruction__7TObjectFv(self);
         return self;
@@ -421,7 +421,7 @@ void TObjContainerAbeEnemy__vt80(Obj_80188814 *self) {
 }
 
 void TObjContainerAbeEnemy__vt79(Obj_80188884 *self) {
-    if (lbl_805D5B88 != 0) {
+    if (container_breakup_model_archive != 0) {
         switch (self->state) {
         case 0:
             set_global_param__8TObjFishFi(lbl_805D5B8C);
