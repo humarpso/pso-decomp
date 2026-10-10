@@ -61,7 +61,7 @@ void TLobby__sub_803CC114(void);
 void init_afs_adxf_state__6TLobbyFv(void);
 void TLobby__sub_803D1CC0(void);
 void TLobby__sub_803D25DC(void);
-void add_ref_and_clear_buffer_3000__6TLobbyFv(void);
+void sj_ring_buffer_init(void);
 void TLobby__sub_803D2ED4(void);
 void SVM_SetCbSvrId__6TLobbyFiiii(int, int, void *, int);
 s32 svm_set_cb_svr__6TLobbyFiii(int, void *, int);
@@ -103,7 +103,7 @@ M2C_UNK TLobby__sub_803CC884();
 M2C_UNK TLobby__sub_803CEF60();
 M2C_UNK release_and_close_all_slots__6TLobbyFv();
 M2C_UNK release_ref_and_clear_buffer__6TLobbyFv();
-M2C_UNK release_ref_and_clear_buffer_3000__6TLobbyFv();
+M2C_UNK sj_ring_buffer_shutdown();
 M2C_UNK dec_ref_and_clear_buffer__6TLobbyFv();
 M2C_UNK TLobby__sub_803D3194();
 M2C_UNK set_callback_params__6TLobbyFii();
@@ -400,7 +400,7 @@ void dec_ref_and_shutdown__6TLobbyFv(void) {
         clear_session_buffer__6TLobbyFv();
         clear_error_callback__6TLobbyFv();
         release_ref_and_clear_buffer__6TLobbyFv();
-        release_ref_and_clear_buffer_3000__6TLobbyFv();
+        sj_ring_buffer_shutdown();
         dec_ref_and_clear_buffer__6TLobbyFv();
         release_ref__6TLobbyFv();
     }
@@ -411,7 +411,7 @@ void init_and_add_ref__6TLobbyFv(void) {
         ((void (*)(s32))TLobby__sub_803C4698)(v);
         init_once__6TLobbyFv();
         TLobby__sub_803D2ED4();
-        add_ref_and_clear_buffer_3000__6TLobbyFv();
+        sj_ring_buffer_init();
         TLobby__sub_803D25DC();
         clear_error_callback_state__6TLobbyFv();
         clear_buffer_a00__6TLobbyFv();

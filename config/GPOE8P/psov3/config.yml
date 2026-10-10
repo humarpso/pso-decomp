@@ -147,7 +147,6 @@ force_active:
   - TLobby__sub_800F9F08
   - TLobby__sub_803CBE40
   - TLobby__sub_803D0F1C
-  - TLobby__sub_803D2E90
   - TLobby__sub_803D346C
   - TLockOnCursor__sub_8013EBBC
   - TLockOnCursor__sub_8013EBE8
@@ -302,6 +301,8 @@ force_active:
   - TObjSoloPlayWin_name
   - TObjStendGlassLobby__resource_descriptor
   - TObjTreeLobby_resource_descriptor
+  - TObjWarnChime_class_name
+  - TObjWarnChime_name
   - TObjWarpBossMulti__name
   - TObjWarpBoss__name
   - TParticleCtrl__particle_entry_path
@@ -372,6 +373,7 @@ force_active:
   - __ct__11TPlayerSoulFP7TObjectUs
   - __ct__12TChatMessageFRC12TChatMessage
   - __ct__12TItemTexLoadFP7TObject
+  - __ct__13TObjWarnChimeFP7TObject
   - __ct__14LobbyListEntryFv
   - __ct__14QuestListEntryFRC14QuestListEntry
   - __ct__14QuestListEntryFv
@@ -922,7 +924,6 @@ force_active:
   - calc_lunge_aim__14TObjEneBm5WolfFPv
   - calc_parameters__11TTecRaBartaFv
   - calc_params__11TTecGiBartaFPv
-  - calc_ring_buffer_available__6TLobbyFPviiPv
   - calc_rotated_hex_point__23TObjOnlineEndingHexLineFPvPv
   - calc_rumble_intensity__23TAdSinglePlyChrSelectGCFPv
   - calc_rumble_strength__23TAdSinglePlyChrSelectGCFPv
@@ -1048,7 +1049,6 @@ force_active:
   - collect_body_contacts__10TObjPlayerFPviPvPv
   - collect_node_positions__11TBreakUpMdlFPvPvi
   - commit_composition_text__19TWindowKeyBoardSoftFPv
-  - commit_ring_buffer_read__6TLobbyFPviPv
   - compute_range_end__6TLobbyFPviUi
   - configure_scripted_camera_playback
   - construct__12T_OWEHMS_ExpFP10TObjPlayer
@@ -2160,7 +2160,6 @@ force_active:
   - rappy_variant_na_name
   - re_b_mark_base_model_names
   - read_byte__24TMessageWindowControllerFv
-  - read_ring_buffer_span__6TLobbyFPviiPv
   - read_stream_u8
   - read_u16_le__9TLanguageFv
   - read_u32_le__9TLanguageFv
@@ -2277,7 +2276,7 @@ force_active:
   - reset_leader_selection_static__6TLobbyFv
   - reset_placement_search_ring
   - reset_request__12TChCrLoadReqFPv
-  - reset_state__13TObjWarnChimeFPv
+  - reset_state__13TObjWarnChimeFv
   - reset_state__15TFontSmallLobbyFPv
   - reset_state_fields__9TObjEneDDFPv
   - reset_telepipe_record
@@ -2520,9 +2519,19 @@ force_active:
   - show_part__9TObjLukerFii
   - shuffle_event_entries
   - shuffle_shop_pool
+  - sj_ring_buffer_destroy
+  - sj_ring_buffer_error_halt
+  - sj_ring_buffer_get_available
+  - sj_ring_buffer_get_chunk
+  - sj_ring_buffer_get_uuid
   - sj_ring_buffer_init_count
   - sj_ring_buffer_interface
+  - sj_ring_buffer_is_chunk_available
   - sj_ring_buffer_pool
+  - sj_ring_buffer_put_chunk
+  - sj_ring_buffer_reset
+  - sj_ring_buffer_set_error_callback
+  - sj_ring_buffer_unget_chunk
   - sj_ring_buffer_uuid
   - sj_version_pointer
   - sj_version_string
@@ -2882,6 +2891,7 @@ force_active:
   - update_chase_state__18TObjEneBalClawClawFPv
   - update_chase_target__9TObjGrassFPv
   - update_child_window_visibility__11TWindowCtrlFPv
+  - update_chime_countdown__13TObjWarnChimeFv
   - update_close_timer__15TObjSoloPlayWinFv
   - update_countdown__15TObjDeadListWinFv
   - update_customize_help_text
@@ -2949,7 +2959,7 @@ force_active:
   - update_path_follow_rotation__10TObjPlayerFPvPvf
   - update_path_steering__10TObjPlayerFPv
   - update_player_battle_ctrl_state
-  - update_player_hp_ratios
+  - update_player_hp_ratios__13TObjWarnChimeFv
   - update_position_from_velocity__20TItemEffOrgaFlowShotFPv
   - update_position_if_changed__19TWindowSubTradeMainFiPvPv
   - update_pressed_keys__16TKeyBoardControlFPv
@@ -3020,7 +3030,7 @@ force_active:
   - update_warp_dialogs__17TObjWarpBossMultiFPv
   - update_warp_occupants__10TObjPlayerFPv
   - update_web_attack__9TObjGrassFPv
-  - update_when_camera_active__13TObjWarnChimeFPv
+  - update_when_camera_active__13TObjWarnChimeFv
   - update_with_default_state__14TObjEneBm5WolfFi
   - upload_font_glyph
   - upload_glyph_if_needed__20TWindowSubStatusDispFUsPvPv

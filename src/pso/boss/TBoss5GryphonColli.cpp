@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/TBoss5GryphonColli.h"
 extern "C" {
 s32 lbl_80488668[11] = { 0, 0, 0, 0x3F800000, 0, 0, 0x8003, 0, 0, 0, 0 };
 }
@@ -8,12 +9,12 @@ s32 lbl_80488668[11] = { 0, 0, 0, 0x3F800000, 0, 0, 0x8003, 0, 0, 0, 0 };
 extern "C" {
 
 int get_state__17TBoss5GryphonDemoFPv(void* p);
-int draw_linked_model__17TBoss5GryphonDemoFPv(void* p);
+void draw_linked_model__17TBoss5GryphonDemoFPv(TBoss5GryphonColli* p, void* position, s32 yaw);
 void TBoss5GryphonDemo__sub_8006626C(void* p);
-void draw_model__17TBoss5GryphonDemoFPvPvPv(void* p, void* a1, void* a2);
+void draw_model__17TBoss5GryphonDemoFPvPvPv(void* p, void* a1, s32 a2);
 
 int get_state__17TBoss5GryphonDemoFPv(void* p) { return ((int (*)(void*))TBoss5GryphonDemo__sub_8006626C)(*(void**)((char*)p + 0x1c)); }
-int draw_linked_model__17TBoss5GryphonDemoFPv(void* p) { return ((int (*)(void*))draw_model__17TBoss5GryphonDemoFPvPvPv)(*(void**)((char*)p + 0x1c)); }
+void draw_linked_model__17TBoss5GryphonDemoFPv(TBoss5GryphonColli* p, void* position, s32 yaw) { draw_model__17TBoss5GryphonDemoFPvPvPv(p->objects[0], position, yaw); }
 
 }
 

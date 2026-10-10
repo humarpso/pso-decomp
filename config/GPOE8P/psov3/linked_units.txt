@@ -2225,6 +2225,7 @@ pso/object/TObjVoloptCage_8004912C.cpp
 pso/object/TObjVoloptPillar.cpp
 pso/object/TObjVoloptShutter.cpp
 pso/object/TObjWaitEntryHairMoveSim.cpp
+pso/object/TObjWarnChime.cpp
 pso/object/TObjWarpBase.cpp
 pso/object/TObjWarpBoss03.cpp
 pso/object/TObjWarpBoss03_801A2AEC.cpp
@@ -2919,7 +2920,6 @@ pso/unk/text_80074C20.cpp
 pso/unk/text_80074C70.cpp
 pso/unk/text_80074E04.cpp
 pso/unk/text_80074E48.cpp
-pso/unk/text_80076760.cpp
 pso/unk/text_80076BC4.cpp
 pso/unk/text_80076E84.cpp
 pso/unk/text_800779A0.cpp

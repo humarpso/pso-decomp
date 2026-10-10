@@ -43,7 +43,7 @@ M2C_UNK reset_entries_and_format_name__13TObjTombstoneFPv(void *);
 void setup__13TObjTombstoneFPvii(u8 *arg0, s32 arg1, s32 arg2);
 M2C_UNK construct_collider_proxy__10TObjPlayerFPv();
 extern RecoveredGlobal_8007643C___vt__13TObjTombstone __vt__13TObjTombstone;
-extern s32 TObjTombstone__class_name;
+extern const char* TObjTombstone__class_name;
 extern s32 TObjTombstone__shared_resource_object;
 u8 *TObjTombstone__ct(u8 *arg0, M2C_UNK arg1, s32 arg2, u8 *arg3);
 s32 copy_record__13TObjTombstoneFPvi(void *arg0, s32 arg1);

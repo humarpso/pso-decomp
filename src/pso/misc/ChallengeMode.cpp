@@ -1,3 +1,4 @@
+#include "pso/object/TObjWarnChime.h"
 #include "pso/object/TObjSoloPlayWin.h"
 
 #include "types.h"
@@ -139,7 +140,6 @@ u32 get_player_by_client_id(s32);
 s32 check_player_state_flag_2__6TLobbyFPv();
 M2C_UNK create_ch_time_win(s32);
 
-s32 fn_80076B14(void *);
 s32 init__23TAdSinglePlyChrSelectGCFv();
 
 extern s32 tl_07;
@@ -595,7 +595,7 @@ void TChallenge::wait_for_quest() {
             ((M2C_UNK)init__23TAdSinglePlyChrSelectGCFv());
             ((M2C_UNK)TLobby__sub_800739BC((void *) (arg0)));
             ((M2C_UNK)TLobby__sub_8026A328());
-            ((M2C_UNK)fn_80076B14((void *) (arg0)));
+            TObjWarnChime::create((TObject*)arg0);
             M2C_FIELD(arg0, s32 *, 0x1C) = 2;
         }
     }

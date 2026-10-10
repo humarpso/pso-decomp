@@ -35,4 +35,19 @@ struct SjRingBuffer {
 };
 typedef char SjRingBuffer_size[sizeof(SjRingBuffer)==0x30 ? 1 : -1];
 typedef char SjRingBufferInterface_size[sizeof(SjRingBufferInterface)==0x30 ? 1 : -1];
+
+extern "C" {
+SjRingBuffer* sj_ring_buffer_create(void* buffer, s32 buffer_size, s32 extra_buffer_size);
+void sj_ring_buffer_destroy(SjRingBuffer* buffer);
+void sj_ring_buffer_reset(SjRingBuffer* buffer);
+void sj_ring_buffer_get_chunk(SjRingBuffer* buffer, s32 side, s32 requested_size, SjChunk* chunk);
+void sj_ring_buffer_unget_chunk(SjRingBuffer* buffer, s32 side, SjChunk* chunk);
+void sj_ring_buffer_put_chunk(SjRingBuffer* buffer, s32 side, SjChunk* chunk);
+s32 sj_ring_buffer_get_available(SjRingBuffer* buffer, s32 side);
+bool sj_ring_buffer_is_chunk_available(SjRingBuffer* buffer, s32 side, s32 requested_size, s32* available_size);
+void sj_ring_buffer_set_error_callback(SjRingBuffer* buffer, SjErrorCallback callback, void* context);
+const u8* sj_ring_buffer_get_uuid(SjRingBuffer* buffer);
+void sj_ring_buffer_init(void);
+void sj_ring_buffer_shutdown(void);
+}
 #endif

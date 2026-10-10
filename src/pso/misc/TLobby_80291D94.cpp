@@ -1,3 +1,4 @@
+#include "pso/object/TObjWarnChime.h"
 #include "pso/object/TObjSoloPlayWin.h"
 #include "types.h"
 
@@ -1590,7 +1591,7 @@ void *TLobby__sub_802936AC(void *arg0, s16 arg1) {
 struct C_80293720 { s32 f0; u8 pad4[0x14]; void *f18; s32 f1c; s32 f20; s32 f24; s32 f28; };
 void __ct__7TObjectFP7TObject(void *, void *);
 void copy_challenge_settings__6TLobbyFPvPv(void *, void *);
-void fn_80076B14(void *);
+
 extern s32 lbl_805D3CA8;
 C_80293720 *TChallenge4P__ct(C_80293720 *arg0, void *parent) {
     __ct__7TObjectFP7TObject(arg0, parent);
@@ -1602,7 +1603,7 @@ C_80293720 *TChallenge4P__ct(C_80293720 *arg0, void *parent) {
     arg0->f20 = 0;
     arg0->f24 = 1;
     arg0->f28 = 0;
-    fn_80076B14(arg0);
+    TObjWarnChime::create((TObject*)arg0);
     return arg0;
 }
 typedef char RecoveredGlobal_8029379C_lbl_804DAB60_size[sizeof(RecoveredGlobal_8029379C_lbl_804DAB60) == 0x690 ? 1 : -1];

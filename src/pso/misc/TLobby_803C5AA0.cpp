@@ -305,7 +305,7 @@ void TLobby__sub_803C60F0(u8 *arg0, s32 arg1, s32 arg2, s32 arg3);
 void TLobby__sub_803C610C(u8 *arg0);
 void TLobby__sub_803C6118(u8 *arg0);
 u8 *TLobby__sub_803C61C4(s32, Strm_803C5B50 **, Strm_803C5B50 *);
-Strm_803C5B50 *TLobby__sub_803D2C84(void *, s32, s32);
+Strm_803C5B50 *sj_ring_buffer_create(void *, s32, s32);
 void *memcpy(void *, const void *, u32);
 extern u8 lbl_80572BA0[];
 extern u8 lbl_80572BE0[];
@@ -398,9 +398,9 @@ void TLobby__sub_803C5B50(Obj_803C5B50 *arg0, s32 arg1, s32 arg2, s32 arg3) {
     Strm_803C5B50 *dst;
     u8 *ctx;
     clear_buffer_1680__6TLobbyFv();
-    src = TLobby__sub_803D2C84(lbl_80572BE0, 0x400, 0);
-    arr[0] = TLobby__sub_803D2C84(lbl_80572BA0, 0x400, 0);
-    arr[1] = TLobby__sub_803D2C84(lbl_80572BA0 + 0x20, 0x400, 0);
+    src = sj_ring_buffer_create(lbl_80572BE0, 0x400, 0);
+    arr[0] = sj_ring_buffer_create(lbl_80572BA0, 0x400, 0);
+    arr[1] = sj_ring_buffer_create(lbl_80572BA0 + 0x20, 0x400, 0);
     dst = arg0->f14;
     ctx = TLobby__sub_803C61C4(2, arr, src);
     TLobby__sub_803C60F0(ctx, arg1, arg2, arg3);
@@ -2239,13 +2239,13 @@ Ch_803CA3C4 *TLobby__sub_803CA3C4(s32 n, s32 base, s32 size) {
     c->f30 = 0x2000;
     c->f34 = 0x2060;
     c->f14 = 0;
-    c->f10 = TLobby__sub_803D2C84((void *)c->f20, c->f24, c->f28);
+    c->f10 = sj_ring_buffer_create((void *)c->f20, c->f24, c->f28);
     if (c->f10 == NULL) {
         TLobby__sub_803CA194((Obj_803CA194 *)c);
         return NULL;
     }
     for (i = 0; i < n; i++) {
-        c->f18[i] = TLobby__sub_803D2C84((void *)(c->f2c + c->f34 * i * 2), c->f30 * 2, (c->f34 - c->f30) * 2);
+        c->f18[i] = sj_ring_buffer_create((void *)(c->f2c + c->f34 * i * 2), c->f30 * 2, (c->f34 - c->f30) * 2);
         if (c->f18[i] == NULL) {
             TLobby__sub_803CA194((Obj_803CA194 *)c);
             return NULL;

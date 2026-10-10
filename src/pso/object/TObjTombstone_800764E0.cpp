@@ -35,7 +35,7 @@ M2C_UNK init_parts__13TObjTombstoneFPv(void *);
 M2C_UNK setup__13TObjTombstoneFPvii(void *, s32, s32);
 
 extern M2C_UNK __vt__13TObjTombstone[];
-extern s32 TObjTombstone__class_name;
+extern const char* TObjTombstone__class_name;
 extern u32 TObjTombstone__shared_resource_object;
 extern s32 local_client_id;
 extern s32 TLobby__designated_client_id;
@@ -85,4 +85,9 @@ extern "C" {
 __declspec(section ".data") const char *re_b_mark_base_model_names[2] = { lbl_80438748, NULL };
 BmlResourceDescriptor tombstone_resource_descriptor = { lbl_8043875C, re_b_mark_base_model_names, re_b_mark_base_motion_names, 1, 0 };
 __declspec(section ".sdata") const char *re_b_mark_base_motion_names[1] = { NULL };
+}
+
+extern "C" {
+extern const char TObjTombstone__class_name_string[];
+const char* TObjTombstone__class_name = TObjTombstone__class_name_string;
 }

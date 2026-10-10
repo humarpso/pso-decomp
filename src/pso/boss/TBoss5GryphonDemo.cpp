@@ -78,7 +78,7 @@ extern "C" {
 void TBoss5GryphonDemo__sub_80066268(void);
 void TBoss5GryphonDemo__sub_8006626C(void* p);
 void *destroy__17TBoss5GryphonDemoFPvs(void *arg0, s16 arg1);
-void draw_model__17TBoss5GryphonDemoFPvPvPv(void* p, void* a1, void* a2);
+void draw_model__17TBoss5GryphonDemoFPvPvPv(void* p, void* a1, s32 a2);
 void render__17TBoss5GryphonDemoFv(void);
 int matrix_mult_vec(void*, void*, void*);
 int post_translate_matrix(void*);
@@ -86,7 +86,7 @@ M2C_UNK free_collision_body_parts(void *);
 M2C_UNK unregister_object_by_id(void *);
 int refresh_collision_body_centers(void*);
 int set_matrix_identity(void*);
-int rotate_matrix_y(void*, void*);
+int rotate_matrix_y(void*, s32);
 int push_matrix(void*);
 int pop_matrix(void);
 M2C_UNK __dl__7TObjectFPv(void *);
@@ -94,7 +94,7 @@ M2C_UNK destroy_particle_controller__10TObjPlayerFPvs(void *, M2C_UNK);
 
 void TBoss5GryphonDemo__sub_80066268(void) {  }
 void TBoss5GryphonDemo__sub_8006626C(void* p) { clear_entry_flags__17TBoss5GryphonDemoFPv((O_80066304 *)((void*)(p))); }
-void draw_model__17TBoss5GryphonDemoFPvPvPv(void* p, void* a1, void* a2) { push_matrix(p); set_matrix_identity((void*)0); post_translate_matrix(a1); rotate_matrix_y((void*)0, a2); matrix_mult_vec((void*)0, (char*)p + 0xac, (char*)p + 0x38); pop_matrix(); *(void**)((char*)p + 0x60) = a2; refresh_collision_body_centers(p); set_all_entry_flags__17TBoss5GryphonDemoFPv((O_8006633C *)((void*)(p))); }
+void draw_model__17TBoss5GryphonDemoFPvPvPv(void* p, void* a1, s32 a2) { push_matrix(p); set_matrix_identity((void*)0); post_translate_matrix(a1); rotate_matrix_y((void*)0, a2); matrix_mult_vec((void*)0, (char*)p + 0xac, (char*)p + 0x38); pop_matrix(); *(s32*)((char*)p + 0x60) = a2; refresh_collision_body_centers(p); set_all_entry_flags__17TBoss5GryphonDemoFPv((O_8006633C *)((void*)(p))); }
 
 void clear_entry_flags__17TBoss5GryphonDemoFPv(O_80066304 *self) {
     s32 i;

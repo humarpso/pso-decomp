@@ -6,11 +6,11 @@ typedef s32 M2C_UNK;
 extern "C" {
 void restore_interrupts_nested__6TLobbyFv(void);
 void lock_enter__6TLobbyFv(void);
-void read_ring_buffer_span__6TLobbyFPviiPv(SjRingBuffer *r, s32 which, s32 max, SjChunk *out);
-bool calc_ring_buffer_available__6TLobbyFPviiPv(SjRingBuffer *o, s32 mode, s32 n, s32 *out);
-void commit_ring_buffer_read__6TLobbyFPviPv(SjRingBuffer *arg0, s32 arg1, SjChunk *arg2);
+void sj_ring_buffer_get_chunk(SjRingBuffer *r, s32 which, s32 max, SjChunk *out);
+bool sj_ring_buffer_is_chunk_available(SjRingBuffer *o, s32 mode, s32 n, s32 *out);
+void sj_ring_buffer_unget_chunk(SjRingBuffer *arg0, s32 arg1, SjChunk *arg2);
 void *memcpy(void *, const void *, unsigned long);
-void TLobby__sub_803D28D8(SjRingBuffer *o, s32 mode, SjChunk *b);
+void sj_ring_buffer_put_chunk(SjRingBuffer *o, s32 mode, SjChunk *b);
 }
 
 extern "C" {
@@ -18,7 +18,7 @@ extern "C" {
 #define MIN_803D2A14(a, b) ((a) < (b) ? (a) : (b))
 
 #define MIN_803D2640(a, b) ((a) < (b) ? (a) : (b))
-bool calc_ring_buffer_available__6TLobbyFPviiPv(SjRingBuffer *o, s32 mode, s32 n, s32 *out) {
+bool sj_ring_buffer_is_chunk_available(SjRingBuffer *o, s32 mode, s32 n, s32 *out) {
     s32 t;
     lock_enter__6TLobbyFv();
     if (mode == 0) {
@@ -38,7 +38,7 @@ bool calc_ring_buffer_available__6TLobbyFPviiPv(SjRingBuffer *o, s32 mode, s32 n
     return !(n - mode);
 }
 
-void commit_ring_buffer_read__6TLobbyFPviPv(SjRingBuffer *arg0, s32 arg1, SjChunk *arg2) {
+void sj_ring_buffer_unget_chunk(SjRingBuffer *arg0, s32 arg1, SjChunk *arg2) {
     SjErrorCallback temp_r12;
     SjErrorCallback temp_r12_2;
     SjErrorCallback temp_r12_3;
@@ -86,7 +86,7 @@ void commit_ring_buffer_read__6TLobbyFPviPv(SjRingBuffer *arg0, s32 arg1, SjChun
     }
 
 #define MIN_803D28D8(a, b) ((a) < (b) ? (a) : (b))
-void TLobby__sub_803D28D8(SjRingBuffer *o, s32 mode, SjChunk *b) {
+void sj_ring_buffer_put_chunk(SjRingBuffer *o, s32 mode, SjChunk *b) {
     s32 d;
     s32 n;
     s32 e;
@@ -118,7 +118,7 @@ void TLobby__sub_803D28D8(SjRingBuffer *o, s32 mode, SjChunk *b) {
     restore_interrupts_nested__6TLobbyFv();
 }
 
-void read_ring_buffer_span__6TLobbyFPviiPv(SjRingBuffer *r, s32 which, s32 max, SjChunk *out) {
+void sj_ring_buffer_get_chunk(SjRingBuffer *r, s32 which, s32 max, SjChunk *out) {
     lock_enter__6TLobbyFv();
     if (which == 0) {
         out->size = MIN_803D2A14(r->writable_bytes, r->extra_buffer_size + (r->buffer_size - r->write_position));
@@ -148,14 +148,14 @@ void read_ring_buffer_span__6TLobbyFPviiPv(SjRingBuffer *r, s32 which, s32 max, 
 
 extern "C" {
 
-s32 get_slot_count__6TLobbyFPvi(SjRingBuffer *arg0, s32 arg1);
-void TLobby__sub_803D2C04(SjRingBuffer *arg0);
-void TLobby__sub_803D2C20(SjRingBuffer *arg0, SjErrorCallback arg1, void* arg2);
-const u8* TLobby__sub_803D2C2C(SjRingBuffer *arg0);
-void clear_entry__6TLobbyFPv(SjRingBuffer *arg0);
+s32 sj_ring_buffer_get_available(SjRingBuffer *arg0, s32 arg1);
+void sj_ring_buffer_reset(SjRingBuffer *arg0);
+void sj_ring_buffer_set_error_callback(SjRingBuffer *arg0, SjErrorCallback arg1, void* arg2);
+const u8* sj_ring_buffer_get_uuid(SjRingBuffer *arg0);
+void sj_ring_buffer_destroy(SjRingBuffer *arg0);
 M2C_UNK memset(void *, int, int);
 
-s32 get_slot_count__6TLobbyFPvi(SjRingBuffer *arg0, s32 arg1) {
+s32 sj_ring_buffer_get_available(SjRingBuffer *arg0, s32 arg1) {
     SjErrorCallback temp_r12;
 
     if (arg1 == 1) {
@@ -171,23 +171,23 @@ s32 get_slot_count__6TLobbyFPvi(SjRingBuffer *arg0, s32 arg1) {
     return 0;
 }
 
-void TLobby__sub_803D2C04(SjRingBuffer *arg0) {
+void sj_ring_buffer_reset(SjRingBuffer *arg0) {
     arg0->readable_bytes = 0;
     arg0->writable_bytes = (s32) arg0->buffer_size;
     arg0->write_position = 0;
     arg0->read_position = 0;
 }
 
-void TLobby__sub_803D2C20(SjRingBuffer *arg0, SjErrorCallback arg1, void* arg2) {
+void sj_ring_buffer_set_error_callback(SjRingBuffer *arg0, SjErrorCallback arg1, void* arg2) {
     arg0->error_callback = arg1;
     arg0->error_context = arg2;
 }
 
-const u8* TLobby__sub_803D2C2C(SjRingBuffer *arg0) {
+const u8* sj_ring_buffer_get_uuid(SjRingBuffer *arg0) {
     return arg0->type_uuid;
 }
 
-void clear_entry__6TLobbyFPv(SjRingBuffer *arg0) {
+void sj_ring_buffer_destroy(SjRingBuffer *arg0) {
     lock_enter__6TLobbyFv();
     if (arg0 != NULL) {
         memset((void *) (arg0), (int) (0), (int) (0x30));
@@ -203,19 +203,19 @@ void clear_entry__6TLobbyFPv(SjRingBuffer *arg0) {
 extern "C" {
 extern SjRingBuffer sj_ring_buffer_pool[256];
 extern s32 sj_ring_buffer_init_count;
-void release_ref_and_clear_buffer_3000__6TLobbyFv(void);
+void sj_ring_buffer_shutdown(void);
 
-void TLobby__sub_803D2E90(void*, s32);
+void sj_ring_buffer_error_halt(void*, s32);
 extern SjRingBufferInterface sj_ring_buffer_interface;
 __declspec(section ".rodata") extern const u8 sj_ring_buffer_uuid[16];
-SjRingBuffer *TLobby__sub_803D2C84(s32 data, s32 bsize, s32 x24);
+SjRingBuffer *sj_ring_buffer_create(void* data, s32 bsize, s32 x24);
 __declspec(section ".sdata2") extern const char *const volatile sj_version_pointer;
-void add_ref_and_clear_buffer_3000__6TLobbyFv(void);
+void sj_ring_buffer_init(void);
 }
 
 extern "C" {
 
-SjRingBuffer *TLobby__sub_803D2C84(s32 data, s32 bsize, s32 x24) {
+SjRingBuffer *sj_ring_buffer_create(void* data, s32 bsize, s32 x24) {
     SjRingBuffer *s;
     s32 i;
     lock_enter__6TLobbyFv();
@@ -234,7 +234,7 @@ SjRingBuffer *TLobby__sub_803D2C84(s32 data, s32 bsize, s32 x24) {
         s->buffer_size = bsize;
         s->extra_buffer_size = x24;
         s->type_uuid = sj_ring_buffer_uuid;
-        s->error_callback = TLobby__sub_803D2E90;
+        s->error_callback = sj_ring_buffer_error_halt;
         s->error_context = s;
         s->readable_bytes = 0;
         s->writable_bytes = s->buffer_size;
@@ -245,7 +245,7 @@ SjRingBuffer *TLobby__sub_803D2C84(s32 data, s32 bsize, s32 x24) {
     return s;
 }
 
-void release_ref_and_clear_buffer_3000__6TLobbyFv(void) {
+void sj_ring_buffer_shutdown(void) {
     s32 temp_r0;
     temp_r0 = sj_ring_buffer_init_count - 1;
     sj_ring_buffer_init_count = temp_r0;
@@ -254,7 +254,7 @@ void release_ref_and_clear_buffer_3000__6TLobbyFv(void) {
     }
 }
 
-void add_ref_and_clear_buffer_3000__6TLobbyFv(void) {
+void sj_ring_buffer_init(void) {
     const char *ver = sj_version_pointer;
     if (sj_ring_buffer_init_count == 0) {
         memset(&sj_ring_buffer_pool, 0, 0x3000);
@@ -262,7 +262,7 @@ void add_ref_and_clear_buffer_3000__6TLobbyFv(void) {
     sj_ring_buffer_init_count += 1;
 }
 
-void TLobby__sub_803D2E90(void*, s32) {
+void sj_ring_buffer_error_halt(void*, s32) {
     while (1) {
     }
 }
@@ -277,14 +277,14 @@ __declspec(section ".rodata") extern const u8 sj_ring_buffer_uuid[16] = {0x3B,0x
 __declspec(section ".sdata2") extern const char* const volatile sj_version_pointer = sj_version_string;
 SjRingBufferInterface sj_ring_buffer_interface = {
     0,0,0,
-    clear_entry__6TLobbyFPv,
-    TLobby__sub_803D2C2C,
-    TLobby__sub_803D2C04,
-    read_ring_buffer_span__6TLobbyFPviiPv,
-    commit_ring_buffer_read__6TLobbyFPviPv,
-    TLobby__sub_803D28D8,
-    get_slot_count__6TLobbyFPvi,
-    calc_ring_buffer_available__6TLobbyFPviiPv,
-    TLobby__sub_803D2C20
+    sj_ring_buffer_destroy,
+    sj_ring_buffer_get_uuid,
+    sj_ring_buffer_reset,
+    sj_ring_buffer_get_chunk,
+    sj_ring_buffer_unget_chunk,
+    sj_ring_buffer_put_chunk,
+    sj_ring_buffer_get_available,
+    sj_ring_buffer_is_chunk_available,
+    sj_ring_buffer_set_error_callback
 };
 }

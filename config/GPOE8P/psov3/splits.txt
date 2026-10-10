@@ -967,7 +967,7 @@ pso/object/TObjTombstone_800762F0.cpp:
 pso/object/TObjTombstone_800764E0.cpp:
 	.text       start:0x800764E0 end:0x80076614
 	.data       start:0x8048D238 end:0x8048D250
-	.sdata      start:0x805D2898 end:0x805D289C
+	.sdata      start:0x805D2898 end:0x805D28A0
 
 pso/misc/TLobby_80076614.cpp:
 	.text       start:0x80076614 end:0x8007666C
@@ -978,10 +978,11 @@ pso/object/TObjTombstone_8007666C.cpp:
 pso/misc/TCameraCtrl_800766C4.cpp:
 	.text       start:0x800766C4 end:0x80076760
 
-pso/unk/text_80076760.cpp:
+pso/object/TObjWarnChime.cpp:
 	.text       start:0x80076760 end:0x80076B5C
-	.rodata     start:0x80438828 end:0x80438830
+	.rodata     start:0x80438818 end:0x80438830
 	.data       start:0x8048D348 end:0x8048D360
+	.sdata      start:0x805D28A0 end:0x805D28A8
 	.sdata2     start:0x805D91C0 end:0x805D91D0
 
 pso/item/TItemProShield_80076B5C.cpp:
