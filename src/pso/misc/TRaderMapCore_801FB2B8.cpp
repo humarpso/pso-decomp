@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/misc/TRaderMapCore.h"
 typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
 typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 #define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
@@ -68,8 +69,8 @@ extern u32 TRaderMapCore__floor_map_resource;
 extern s32 TRaderMapCore__view_mode;
 extern s32 TRaderMapCore__instance;
 extern const f32 TRaderMapCore__data_805DC528;
-extern const f32 lbl_805DC52C;
-extern const f32 lbl_805DC530;
+extern const f32 radar_screen_width_f32;
+extern const f32 radar_screen_height_f32;
 extern const f32 lbl_805DC560;
 extern const f32 TRaderMapCore__data_805DC568;
 extern const f32 TRaderMapCore__data_805DC58C;
@@ -168,8 +169,8 @@ Core_801FB490 *TRaderMapCore__ct(Core_801FB490 *arg0, void *parent) {
         g->f18 = 0x8000;
     }
     arg0->f150 = lbl_805DC594;
-    arg0->f160 = lbl_805DC52C;
-    arg0->f164 = lbl_805DC530;
+    arg0->f160 = radar_screen_width_f32;
+    arg0->f164 = radar_screen_height_f32;
     arg0->f140 = lbl_805DC5A4;
     arg0->f144 = lbl_805DC5A8;
     for (j = 0; j < 4; j++) {

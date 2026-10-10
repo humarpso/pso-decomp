@@ -54,6 +54,12 @@
     "use_lmw_stmw": "on",
     "opt": "nocse"
   },
+  "pso/network/NetworkMessageTransport.cpp": {
+    "mw_version": "GC/1.2.5n",
+    "optimization": "-O4,p",
+    "inline": "off",
+    "use_lmw_stmw": "on"
+  },
   "pso/misc/TLobby_804245DC.cpp": {
     "mw_version": "GC/1.2.5n",
     "optimization": "-O4,p",

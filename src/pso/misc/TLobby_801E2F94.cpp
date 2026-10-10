@@ -1,3 +1,4 @@
+#include "pso/render/DebugFont.h"
 #include "types.h"
 typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
 typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
@@ -591,7 +592,7 @@ extern M2C_UNK (*chunk_model_node_callback)(void *);
 M2C_UNK restore_full_screen_view__11TCameraCtrlFv();
 M2C_UNK TKeyBoardControl__sub_8000F7FC();
 M2C_UNK compose_motion_node_matrix(void *);
-M2C_UNK TObjPlayer__sub_803D85D8(s32);
+
 M2C_UNK push_matrix();
 M2C_UNK pop_matrix();
 M2C_UNK begin_effect_render__13TParticleCtrlFv();
@@ -627,7 +628,7 @@ void render_tick__Fv(void) {
     GXSetZMode(1, 7, 0);
     restore_full_screen_view__11TCameraCtrlFv();
     set_cull_none__8TObjFishFv();
-    TObjPlayer__sub_803D85D8(lbl_805D3584);
+    render_debug_text(lbl_805D3584);
     GXSetZMode(1, 3, 1);
     GXSetViewport((0.0f), (0.0f), (6.4e+02f), (4.8e+02f), (0.0f), (1.0f));
     set_cull_none__8TObjFishFv();

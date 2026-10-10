@@ -13991,6 +13991,8 @@ pso/npc/TObjNpcEnemy_803D8090.cpp:
 
 pso/unk/text_803D853C.cpp:
 	.text       start:0x803D853C end:0x803D8BAC
+	.data       start:0x804FA540 end:0x804FC540
+	.bss        start:0x8058CB48 end:0x8058CB68
 
 pso/math/MatrixVector.cpp:
 	.text       start:0x803D8BAC end:0x803D8DE0
@@ -14271,8 +14273,12 @@ pso/unk/text_80421620.cpp:
 	.text       start:0x80421620 end:0x804245DC
 
 pso/misc/TLobby_804245DC.cpp:
-	.text       start:0x804245DC end:0x80426CAC
-	.bss        start:0x805CF240 end:0x805CF2E0
+	.text       start:0x804245DC end:0x80425B70
+	.bss        start:0x805C30C0 end:0x805CF240
+
+pso/network/NetworkMessageTransport.cpp:
+	.text       start:0x80425B70 end:0x80426CAC
+	.bss        start:0x805CF240 end:0x805CF3C8
 
 pso/misc/TLobby_80426CAC.cpp:
 	.text       start:0x80426CAC end:0x80428374

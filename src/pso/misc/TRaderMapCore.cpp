@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/misc/TRaderMapCore.h"
 typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
 typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 #define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
@@ -23,15 +24,7 @@ struct Stack_801FA9D8 {
     s32 sp18;
     s32 sp1C;
     s32 sp20;
-    M2C_UNK sp24;
-    u8 pad_28[0x4];
-    f32 sp2C;
-    f32 sp30;
-    u8 pad_34[0x8];
-    f32 sp3C;
-    u8 pad_40[0xC];
-    f32 sp4C;
-    f32 sp50;
+    RadarViewportParameters viewport;
 };
 
 struct RecoveredGlobal_801FA9D8_lbl_8044A770 {
@@ -287,8 +280,8 @@ M2C_UNK TCameraCtrl__sub_801E32D8(f32, f32);
 M2C_UNK GXSetScissorBoxOffset(int, int);
 extern RecoveredGlobal_801FA964_lbl_804C8784 radar_map_view_scissor_table;
 extern s32 camera_ctrl_instance;
-extern const f32 TRaderMapCore__data_805DC538;
-extern const f32 TRaderMapCore__data_805DC53C;
+extern const f32 radar_screen_center_x_f32;
+extern const f32 radar_screen_center_y_f32;
 void setup_view__13TRaderMapCoreFii(s32 arg0, s32 arg1);
 extern RecoveredGlobal_801F9720_TRaderMapCore__data_80513708 TRaderMapCore__map_view_state;
 extern const f32 lbl_805D35F4;
@@ -299,7 +292,6 @@ M2C_UNK memset(void *, int, int);
 M2C_UNK restore_full_screen_view__11TCameraCtrlFv();
 s32 set_light__9TObjLightFPvPvf(void *, void *, f32);
 s32 begin_effect_render__13TParticleCtrlFv();
-s32 TRaderMapCore__sub_801F9178(void *, void *);
 extern RecoveredGlobal_801FA9D8_lbl_8044A770 lbl_8044A770;
 extern RecoveredGlobal_801FA9D8_lbl_8044A77C lbl_8044A77C;
 extern RecoveredGlobal_801FA9D8_lbl_804C8748 radar_map_view_rect_table;
@@ -330,8 +322,8 @@ void TRaderMapCore__sub_801F95CC(void);
 extern u32 TRaderMapCore__floor_map_resource;
 void set_piece_flags__13TRaderMapCoreFi(s32 arg0);
 void GXSetScissor(u32, u32, u32, u32);
-extern const f32 TRaderMapCore__data_805DC538;
-extern const f32 TRaderMapCore__data_805DC53C;
+extern const f32 radar_screen_center_x_f32;
+extern const f32 radar_screen_center_y_f32;
 s32 set_view_scissor__13TRaderMapCoreFPviPv(void *self, int mode, void *arg2);
 s32 TCameraCtrl__sub_80069304();
 s32 test_flag_2000000__10TObjPlayerFPv(u32);
@@ -488,6 +480,16 @@ extern const f32 TRaderMapCore__data_805DC528;
 extern const f32 TRaderMapCore__data_805DC58C;
 extern const f32 lbl_805DC598;
 void update_pan_zoom_input__13TRaderMapCoreFPv(u8 *arg0);
+M2C_UNK TCameraCtrl__sub_801E32D8(f32, f32);
+void GXSetViewport(f32, f32, f32, f32, f32, f32);
+M2C_UNK GXSetScissorBoxOffset(int, int);
+extern const f32 TRaderMapCore__data_805DC528;
+extern const f32 radar_screen_width_f32;
+extern const f32 radar_screen_height_f32;
+extern const f32 TRaderMapCore__data_805DC534;
+extern const f32 radar_screen_center_x_f32;
+extern const f32 radar_screen_center_y_f32;
+
 }
 
 extern "C" {
@@ -547,6 +549,26 @@ void show_radar__13TRaderMapCoreFv(void) {
 }
 
 #pragma fp_contract on
+
+}
+
+void TRaderMapCore::configure_viewport(const RadarViewportParameters* view) {
+    f32 temp_f31;
+    f32 temp_f2;
+    f32 temp_f30;
+    f32 temp_f1;
+    GXSetViewport(TRaderMapCore__data_805DC528, TRaderMapCore__data_805DC528, radar_screen_width_f32, radar_screen_height_f32, TRaderMapCore__data_805DC528, TRaderMapCore__data_805DC534);
+    GXSetScissorBoxOffset((int)(0), (int)(0));
+    temp_f1 = view->center_x;
+    temp_f2 = view->center_y;
+    temp_f31 = -(temp_f1 - radar_screen_center_x_f32);
+    temp_f30 = -(temp_f2 - radar_screen_center_y_f32);
+    TCameraCtrl__sub_801E32D8(temp_f1, temp_f2);
+    GXSetScissorBoxOffset((int)((s32) temp_f31), (int)((s32) temp_f30));
+}
+
+extern "C" {
+
 s32 set_view_scissor__13TRaderMapCoreFPviPv(void *self, int mode, void *arg2) {
     Rect_801F9228 *rect = (Rect_801F9228 *)arg2;
     u32 w;
@@ -555,8 +577,8 @@ s32 set_view_scissor__13TRaderMapCoreFPviPv(void *self, int mode, void *arg2) {
     if (mode == 2) {
         w = 32.0f * (rect->x1 - rect->x0);
         h = 32.0f * (rect->y1 - rect->y0);
-        y = TRaderMapCore__data_805DC53C - 0.5f * h;
-        GXSetScissor((u32)(TRaderMapCore__data_805DC538 - 0.5f * w), y, w, h);
+        y = radar_screen_center_y_f32 - 0.5f * h;
+        GXSetScissor((u32)(radar_screen_center_x_f32 - 0.5f * w), y, w, h);
     } else {
         GXSetScissor(0, 0, 0x280, 0x1E0);
     }
@@ -1016,7 +1038,7 @@ extern s32 lbl_805DC56C;
 typedef char RecoveredGlobal_801FA964_lbl_804C8784_size[sizeof(RecoveredGlobal_801FA964_lbl_804C8784) == 0x30 ? 1 : -1];
 void setup_view__13TRaderMapCoreFii(s32 arg0, s32 arg1) {
     GXSetScissorBoxOffset((int) (0), (int) (0));
-    TCameraCtrl__sub_801E32D8((f32) (TRaderMapCore__data_805DC538), (f32) (TRaderMapCore__data_805DC53C));
+    TCameraCtrl__sub_801E32D8((f32) (radar_screen_center_x_f32), (f32) (radar_screen_center_y_f32));
     setup_default_view__11TCameraCtrlFPvPv((void *) (camera_ctrl_instance), (int) (0));
     set_view_scissor__13TRaderMapCoreFPviPv((void *)((void *) (arg0)), (int)((int) (0)), (void *)((void *) ((u8 *)&radar_map_view_scissor_table.value + (arg1 * 0x10))));
     apply_distant_light__9TObjLightFv();
@@ -1038,23 +1060,18 @@ void begin_map_view__13TRaderMapCoreFii(s32 arg0, s32 arg1) {
     typedef char sp18_offset[(offsetof(Stack_801FA9D8, sp18) == 0x10) ? 1 : -1];
     typedef char sp1C_offset[(offsetof(Stack_801FA9D8, sp1C) == 0x14) ? 1 : -1];
     typedef char sp20_offset[(offsetof(Stack_801FA9D8, sp20) == 0x18) ? 1 : -1];
-    typedef char sp24_offset[(offsetof(Stack_801FA9D8, sp24) == 0x1C) ? 1 : -1];
-    typedef char sp2C_offset[(offsetof(Stack_801FA9D8, sp2C) == 0x24) ? 1 : -1];
-    typedef char sp30_offset[(offsetof(Stack_801FA9D8, sp30) == 0x28) ? 1 : -1];
-    typedef char sp3C_offset[(offsetof(Stack_801FA9D8, sp3C) == 0x34) ? 1 : -1];
-    typedef char sp4C_offset[(offsetof(Stack_801FA9D8, sp4C) == 0x44) ? 1 : -1];
-    typedef char sp50_offset[(offsetof(Stack_801FA9D8, sp50) == 0x48) ? 1 : -1];
+    typedef char viewport_offset[(offsetof(Stack_801FA9D8, viewport) == 0x1C) ? 1 : -1];
     Stack_801FA9D8 stack;
     u8 *temp_r5;
     restore_full_screen_view__11TCameraCtrlFv();
-    memset((void *) (&stack.sp24), (int) (0), (int) (0x30));
+    memset((void *) (&stack.viewport), (int) (0), (int) (0x30));
     temp_r5 = (u8 *)&radar_map_view_rect_table.value + (arg1 * 0x14);
-    stack.sp2C = M2C_FIELD(temp_r5, f32 *, 0);
-    stack.sp30 = M2C_FIELD(temp_r5, f32 *, 4);
-    stack.sp4C = M2C_FIELD(temp_r5, f32 *, 8);
-    stack.sp50 = M2C_FIELD(temp_r5, f32 *, 0xC);
-    stack.sp3C = M2C_FIELD(temp_r5, f32 *, 0x10);
-    TRaderMapCore__sub_801F9178((void *) (arg0), (void *) (&stack.sp24));
+    stack.viewport.center_x = M2C_FIELD(temp_r5, f32 *, 0);
+    stack.viewport.center_y = M2C_FIELD(temp_r5, f32 *, 4);
+    stack.viewport.screen_width = M2C_FIELD(temp_r5, f32 *, 8);
+    stack.viewport.screen_height = M2C_FIELD(temp_r5, f32 *, 0xC);
+    stack.viewport.value18 = M2C_FIELD(temp_r5, f32 *, 0x10);
+    ((TRaderMapCore*)arg0)->configure_viewport(&stack.viewport);
     set_view_scissor__13TRaderMapCoreFPviPv((void *)((void *) (arg0)), (int)((int) (2)), (void *)((void *) ((u8 *)&(*(RecoveredGlobal_801FA9D8_lbl_804C8784 *)&radar_map_view_scissor_table).value + (arg1 * 0x10))));
     setup_overhead_projection__13TRaderMapCoreFv((s32)((void *) (arg0)), (Cam_801F9314 *)((void *) ((u8 *)&(*(RecoveredGlobal_801FA9D8_TRaderMapCore__data_80513708 *)&TRaderMapCore__map_view_state).value + (arg1 * 0x28))));
     stack.sp18 = M2C_FIELD(&lbl_8044A770.value, s32 *, 0);

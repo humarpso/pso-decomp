@@ -366,9 +366,9 @@ extern s32 lbl_805D7C80;
 extern s32 lbl_805D7C84;
 extern s32 lbl_805D7C88;
 M2C_UNK exi_start_send_dma__6TLobbyFii(int, int);
-extern Ent_804253F8 lbl_805C30C0[0x20];
+
 void release_entry_by_id__6TLobbyFUi(u32 arg0);
-extern Ent_804253F8 lbl_805C30C0[0x20];
+
 u8 *find_entry_by_address__6TLobbyFi(s32 arg0);
 extern G_804249F0 lbl_805C1E00;
 extern s32 lbl_805D7B0C;
