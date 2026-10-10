@@ -45,6 +45,11 @@ struct SJIf_803D1A98 {
 
 struct SJ_803D1A98 { SJIf_803D1A98 *vt; };
 
+typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
+typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
+#define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
+#define M2C_BITWISE(type, expr) ((type)(expr))
+
 extern "C" {
 void log_printf__6TLobbyFPvi(const char *fmt, ...);
 extern char lbl_8047DCF0[];
@@ -68,9 +73,6 @@ extern char lbl_8047DCF0[];
 extern char lbl_8047DD58[];
 s32 get_queue_entry_key__6TLobbyFPvi(Obj_803D1330 *arg0, s32 arg1);
 void set_callback__6TLobbyFUii(u32 arg0, s32 arg1);
-void notify_dvd_read__6TLobbyFv(void);
-void enter_lock__6TLobbyFv(void);
-void TLobby__sub_803D198C(Ent_803D1C24 *e);
 void *memset(void *dst, int val, unsigned long n);
 extern Ent_803D1C24 lsc_slot_table[];
 extern s32 lobby_slot_refcount;
@@ -90,30 +92,37 @@ s32 TLobby__sub_803D1034(Obj_803D1034 *arg0, s32 arg1);
 void TLobby__sub_803C89C4(void *);
 void TLobby__sub_803C8B38(void *);
 void log_printf__6TLobbyFPvi(const char *fmt, ...);
-void notify_dvd_read__6TLobbyFv(void);
-void enter_lock__6TLobbyFv(void);
 extern char lbl_8047DCF0[];
 void reset_lsc_state__6TLobbyFPv(Obj_803D158C *o);
 void log_printf__6TLobbyFPvi(const char *fmt, ...);
-void notify_dvd_read__6TLobbyFv(void);
-void enter_lock__6TLobbyFv(void);
 extern Ent_803D1C24 lsc_slot_table[];
 extern char lbl_8047DDB8[];
 extern char lbl_8047DDE4[];
 Obj_803D1A98 *lsc_create__6TLobbyFPv(SJ_803D1A98 *sj);
 void set_callback__6TLobbyFUii(u32 arg0, s32 arg1);
-void notify_dvd_read__6TLobbyFv(void);
-void enter_lock__6TLobbyFv(void);
 void *memset(void *dst, int val, unsigned long n);
 extern Ent_803D1C24 lsc_slot_table[];
 extern s32 lobby_slot_refcount;
 extern const char *volatile lbl_805E0DB0;
 void TLobby__sub_803D1CC0(void);
-void notify_dvd_read__6TLobbyFv(void);
-void enter_lock__6TLobbyFv(void);
 void TLobby__sub_803D1D28(Ent_803D1C24 *);
 extern Ent_803D1C24 lsc_slot_table[];
 void poll_active_connections__6TLobbyFv(void);
+void TLobby__sub_803C89C4(void *);
+void TLobby__sub_803C8B38(void *);
+void log_printf__6TLobbyFPvi(const char *fmt, ...);
+void notify_dvd_read__6TLobbyFv(void *);
+void enter_lock__6TLobbyFv(void *);
+extern char lbl_8047DCF0[];
+void stop_lsc_read(u8 *arg0);
+void TLobby__sub_803C89C4(void *);
+void TLobby__sub_803C8B38(void *);
+void log_printf__6TLobbyFPvi(const char *fmt, ...);
+void notify_dvd_read__6TLobbyFv(void *);
+void enter_lock__6TLobbyFv(void *);
+void *memset(void *dst, int val, unsigned long n);
+extern char lbl_8047DCF0[];
+void release_lsc_slot(u8 *arg0);
 }
 
 extern "C" {
@@ -232,6 +241,36 @@ void poll_active_connections__6TLobbyFv(void) {
     ((void (*)(void *))notify_dvd_read__6TLobbyFv)(sp8);
 }
 
+void stop_lsc_read(u8 *arg0) {
+    M2C_UNK sp8;
+    if (arg0 == NULL) {
+        log_printf__6TLobbyFPvi((const char *) (((M2C_UNK *)&lbl_8047DCF0)));
+        return;
+    }
+    if ((s8) M2C_FIELD(arg0, u8 *, 1) != 0) {
+        enter_lock__6TLobbyFv((void *)((void *) (&sp8)));
+        M2C_FIELD(arg0, u8 *, 1) = 0U;
+        if ((u32) M2C_FIELD(arg0, u32 *, 0x28) != 0U) {
+            if ((s32) M2C_FIELD(arg0, u8 *, 2) == 1) {
+                TLobby__sub_803C89C4(M2C_FIELD(arg0, void **, 0x28));
+                M2C_FIELD(arg0, u8 *, 2) = 0U;
+            }
+            TLobby__sub_803C8B38((void *)((int) (M2C_FIELD(arg0, u32 *, 0x28))));
+            M2C_FIELD(arg0, u32 *, 0x28) = 0U;
+        }
+        M2C_FIELD(arg0, s32 *, 0x2C) = 0;
+        if (arg0 == NULL) {
+            log_printf__6TLobbyFPvi((const char *) (((M2C_UNK *)&lbl_8047DCF0)));
+        } else if ((s8) M2C_FIELD(arg0, u8 *, 1) == 0) {
+            M2C_FIELD(arg0, s32 *, 0x1C) = 0;
+            M2C_FIELD(arg0, s32 *, 0x20) = 0;
+            M2C_FIELD(arg0, s32 *, 0x24) = 0;
+        }
+        M2C_FIELD(arg0, s32 *, 0x34) = 0;
+        notify_dvd_read__6TLobbyFv((void *)((void *) (&sp8)));
+    }
+}
+
 void reset_lsc_state__6TLobbyFPv(Obj_803D158C *o) {
     u8 lk0[4];
     u8 lk1[4];
@@ -288,6 +327,42 @@ inline Obj_803D1A98 *find_free_803D1A98(void) {
     }
     return o;
 }
+
+void release_lsc_slot(u8 *arg0) {
+    M2C_UNK spC;
+    M2C_UNK sp8;
+    if (arg0 != NULL) {
+        enter_lock__6TLobbyFv((void *) (&spC));
+        if (arg0 == NULL) {
+            log_printf__6TLobbyFPvi((const char *) (((M2C_UNK *)&lbl_8047DCF0)));
+        } else if ((s8) M2C_FIELD(arg0, u8 *, 1) != 0) {
+            enter_lock__6TLobbyFv((void *) (&sp8));
+            M2C_FIELD(arg0, u8 *, 1) = 0U;
+            if ((u32) M2C_FIELD(arg0, u32 *, 0x28) != 0U) {
+                if ((s32) M2C_FIELD(arg0, u8 *, 2) == 1) {
+                    TLobby__sub_803C89C4(M2C_FIELD(arg0, void **, 0x28));
+                    M2C_FIELD(arg0, u8 *, 2) = 0U;
+                }
+                TLobby__sub_803C8B38((void *)((int) (M2C_FIELD(arg0, u32 *, 0x28))));
+                M2C_FIELD(arg0, u32 *, 0x28) = 0U;
+            }
+            M2C_FIELD(arg0, s32 *, 0x2C) = 0;
+            if (arg0 == NULL) {
+                log_printf__6TLobbyFPvi((const char *) (((M2C_UNK *)&lbl_8047DCF0)));
+            } else if ((s8) M2C_FIELD(arg0, u8 *, 1) == 0) {
+                M2C_FIELD(arg0, s32 *, 0x1C) = 0;
+                M2C_FIELD(arg0, s32 *, 0x20) = 0;
+                M2C_FIELD(arg0, s32 *, 0x24) = 0;
+            }
+            M2C_FIELD(arg0, s32 *, 0x34) = 0;
+            notify_dvd_read__6TLobbyFv((void *) (&sp8));
+        }
+        M2C_FIELD(arg0, s8 *, 0) = 0;
+        memset((void *)((void *) (arg0)), (int)((int) (0)), (unsigned long)((int) (0x438)));
+        notify_dvd_read__6TLobbyFv((void *) (&spC));
+    }
+}
+
 Obj_803D1A98 *lsc_create__6TLobbyFPv(SJ_803D1A98 *sj) {
     u8 lk[4];
     s32 i;
@@ -322,7 +397,7 @@ void release_and_close_all_slots__6TLobbyFv(void) {
     if (--lobby_slot_refcount == 0) {
         for (i = 0; i < 16; i++) {
             if ((s32)lsc_slot_table[i].state == 1) {
-                TLobby__sub_803D198C(&lsc_slot_table[i]);
+                release_lsc_slot((u8 *)(&lsc_slot_table[i]));
             }
         }
         memset(lsc_slot_table, 0, 0x4380);

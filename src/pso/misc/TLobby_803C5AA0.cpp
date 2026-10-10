@@ -1618,7 +1618,7 @@ void TLobby__sub_803C9DB4(u8 *arg0);
 M2C_UNK reset_flag__6TLobbyFPv(int);
 M2C_UNK TLobby__sub_803CC030(int, int);
 M2C_UNK dispatch_packet__6TLobbyFv(int, int);
-M2C_UNK DVDReadAbsAsyncPrio(int);
+M2C_UNK stop_lsc_read(int);
 void stop_audio_stream(u8 *arg0);
 M2C_UNK calc_adx_predictor_coeffs(void *, void *, void *, void *);
 void calc_adx_coeffs_at_offset__6TLobbyFiPvi(s32 arg0, void *arg1, s32 arg2);
@@ -1718,7 +1718,7 @@ void TLobby__sub_803C94DC(u8 *arg0, s32 arg1);
 M2C_UNK reset_flag__6TLobbyFPv(int);
 M2C_UNK TLobby__sub_803CC030(int, int);
 M2C_UNK dispatch_packet__6TLobbyFv(int, int);
-M2C_UNK DVDReadAbsAsyncPrio(int);
+M2C_UNK stop_lsc_read(int);
 extern s32 lbl_805D7540;
 void set_param_and_notify__6TLobbyFPvi(void *, int);
 void TLobby__sub_803C0758(void *);
@@ -1726,12 +1726,12 @@ void TLobby__sub_803C9E38(Obj_803C9E38 *arg0, VObj_803C9E38 *arg1);
 M2C_UNK reset_flag__6TLobbyFPv(int);
 M2C_UNK TLobby__sub_803CC030(int, int);
 M2C_UNK dispatch_packet__6TLobbyFv(int, int);
-M2C_UNK DVDReadAbsAsyncPrio(int);
+M2C_UNK stop_lsc_read(int);
 M2C_UNK memset(void *, int, int);
 M2C_UNK reset_entry__6TLobbyFPv(void *);
 M2C_UNK clear_entry__6TLobbyFi(void *);
 M2C_UNK unregister_si_polling__6TLobbyFPv(void *);
-M2C_UNK TLobby__sub_803D198C(void *);
+M2C_UNK release_lsc_slot(void *);
 extern RecoveredCallback_2be3cacebb2e lbl_805D7574;
 void TLobby__sub_803CA194(Obj_803CA194 *arg0);
 void *TLobby__sub_803C0848(void *, s32, void *);
@@ -1981,7 +1981,7 @@ void stop_audio_stream(u8 *arg0) {
     }
     init_once__6TLobbyFv();
     if ((s32) M2C_FIELD(arg0, u8 *, 2) == 4) {
-        DVDReadAbsAsyncPrio((int) (M2C_FIELD(arg0, s32 *, 0x94)));
+        stop_lsc_read((int) (M2C_FIELD(arg0, s32 *, 0x94)));
         temp_r3_2 = M2C_FIELD(arg0, void ***, 0x14);
         if (temp_r3_2 != NULL) {
             temp_r4_2 = (u8 *)(*temp_r3_2);
@@ -2040,7 +2040,7 @@ void TLobby__sub_803C9E38(Obj_803C9E38 *arg0, VObj_803C9E38 *arg1) {
     }
     init_once__6TLobbyFv();
     if ((s32)arg0->f2 == 4) {
-        DVDReadAbsAsyncPrio(arg0->f94);
+        stop_lsc_read(arg0->f94);
         if (arg0->f14 != NULL) {
             arg0->f14->vt->f14(arg0->f14);
         }
@@ -2146,7 +2146,7 @@ void TLobby__sub_803CA194(Obj_803CA194 *arg0) {
         }
         init_once__6TLobbyFv();
         if ((s32)arg0->f2 == 4) {
-            DVDReadAbsAsyncPrio((int)arg0->f94);
+            stop_lsc_read((int)arg0->f94);
             if (arg0->f14 != NULL) {
                 arg0->f14->vt->f14(arg0->f14);
             }
@@ -2175,7 +2175,7 @@ void TLobby__sub_803CA194(Obj_803CA194 *arg0) {
         TLobby__sub_803C8B38((u8 *)((int)arg0->f8));
     }
     if (arg0->f94 != NULL) {
-        TLobby__sub_803D198C(arg0->f94);
+        release_lsc_slot(arg0->f94);
     }
     init_once__6TLobbyFv();
     if (arg0->f10 != NULL) {

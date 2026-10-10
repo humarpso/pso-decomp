@@ -473,6 +473,20 @@ struct Can_8009D320 {
     void *f4A0;
 };
 
+struct VBase_18_26a62c { char pad[0x18]; };
+
+struct VObj_18_26a62c : VBase_18_26a62c {
+    virtual void m0();
+    virtual void m1();
+    virtual void m2();
+    virtual void m3();
+    virtual void m4();
+    virtual void m5();
+    virtual void m6();
+    virtual void m7();
+    virtual s32 m8(f32, f32);
+};
+
 extern "C" {
 s32 VecCopy__FP3VecPC3Vec(void *, void *);
 s32 check_demo_mode__10TObjPlayerFv();
@@ -572,6 +586,25 @@ u32 __cvt_fp2unsigned(f32);
 extern const f32 TObjEneMe1Canadin__data_805D98B4;
 extern const f32 lbl_805D9914;
 void pack_color_rgba__17TObjEneMe1CanadinFPv(u8 *arg0);
+M2C_UNK clear_global_flag_400__9TObjEneDDFv();
+M2C_UNK update_player_state__9TObjEneDDFPv(void *, int, int);
+int get_target_info__9TObjEneDDFPv(void*);
+M2C_UNK pack_debug_text_position(int, int);
+M2C_UNK toggle_particle_effect__10TObjPlayerFv();
+M2C_UNK end_effect_render__13TParticleCtrlFv();
+void queue_debug_text__13TObjEneMe1GeeFiPv(s32, void *);
+M2C_UNK rotate_matrix_y(int, int);
+M2C_UNK push_matrix();
+M2C_UNK pop_matrix();
+M2C_UNK post_translate_matrix(void *);
+M2C_UNK set_global_param__8TObjFishFi(int);
+M2C_UNK draw_chunk_object(int);
+extern M2C_UNK lbl_8043A398[];
+extern M2C_UNK lbl_8043A3A8[];
+extern M2C_UNK lbl_8043A3BC[];
+extern const f32 lbl_805D98A0;
+extern const f32 lbl_805D98A4;
+void render_canadin_model_with_debug_type(u8 *arg0);
 }
 
 extern "C" {
@@ -2821,7 +2854,6 @@ extern "C" {
 void TLobby__sub_801A1FD8();
 }
 extern "C" {
-void TObjEneDD__sub_8009B8B8();
 }
 extern "C" {
 void TObjEneDD__vt100();
@@ -3206,7 +3238,7 @@ void *__vt__23TObjEneMe1CanadinLeader[118] = {
     (void *)&TObjEneDD__vt97, (void *)&update_dd_flag__17TObjEneMe1CanadinFPv, (void *)&TObjEneDD__vt99, (void *)&TObjEneDD__vt100,
     (void *)&select_and_apply_target__17TObjEneMe1CanadinFPv, (void *)&TObjEneMe1CanadinLeader__vt103, (void *)&TObjEneMe1CanadinLeader__vt104, (void *)&TObjEneMe1CanadinLeader__vt105,
     (void *)&TObjEneMe1CanadinLeader__vt106, (void *)&TObjEneMe1CanadinLeader__vt107, (void *)&TObjEneMe1CanadinLeader__vt108, (void *)&TObjEneMe1CanadinLeader__vt109,
-    (void *)&TObjEneMe1CanadinLeader__vt110, (void *)&TObjEneMe1CanadinLeader__vt111, (void *)&update_if_ready__17TObjEneMe1CanadinFPv, (void *)&TObjEneDD__sub_8009B8B8,
+    (void *)&TObjEneMe1CanadinLeader__vt110, (void *)&TObjEneMe1CanadinLeader__vt111, (void *)&update_if_ready__17TObjEneMe1CanadinFPv, (void *)&render_canadin_model_with_debug_type,
     (void *)&TObjEneMe1CanadinLeader__vt114, (void *)&TObjEneMe1CanadinLeader__vt115,
 };
 #define lbl_8048FEB0 ((u8 *)lbl_8048FEB0)
@@ -3687,6 +3719,32 @@ void *create__23TObjEneMe1CanadinLeaderFPv(void *arg0) {
         o = TObjEneMe1CanadinLeader__ct(o, tl_04, arg0);
     }
     return o;
+}
+
+void render_canadin_model_with_debug_type(u8 *arg0) {
+    s32 temp_r3;
+    if ((((s32)get_target_info__9TObjEneDDFPv((void*)(arg0))) != 0) && ((s32) M2C_FIELD(arg0, s32 *, 0x3C4) == 0)) {
+        temp_r3 = M2C_FIELD(arg0, s32 *, 0x3C8);
+        if (temp_r3 & 0x100) {
+            queue_debug_text__13TObjEneMe1GeeFiPv(pack_debug_text_position(0, 0), (void *) (lbl_8043A398));
+        } else if (temp_r3 & 0x200) {
+            queue_debug_text__13TObjEneMe1GeeFiPv(pack_debug_text_position(0, 0), (void *) (lbl_8043A3A8));
+        } else {
+            queue_debug_text__13TObjEneMe1GeeFiPv(pack_debug_text_position(0, 0), (void *) (lbl_8043A3BC));
+        }
+    }
+    if (((VObj_18_26a62c *)(arg0))->m8(lbl_805D98A0, lbl_805D98A4) != 0) {
+        update_player_state__9TObjEneDDFPv((void *) (arg0), (int) (0), (int) (0));
+        toggle_particle_effect__10TObjPlayerFv();
+        set_global_param__8TObjFishFi((int) (M2C_FIELD(arg0, s32 *, 0x24)));
+        push_matrix();
+        post_translate_matrix((void *) (arg0 + 0x38));
+        rotate_matrix_y((int) (0), (int) (M2C_FIELD(arg0, s32 *, 0x60)));
+        clear_global_flag_400__9TObjEneDDFv();
+        draw_chunk_object((int) (M2C_FIELD(arg0, s32 *, 0x34)));
+        pop_matrix();
+        end_effect_render__13TParticleCtrlFv();
+    }
 }
 
 void update_if_ready__17TObjEneMe1CanadinFPv(void* p) { if (get_target_info__9TObjEneDDFPv(p) != 0) { ((int (*)(void*))update_by_field_0x354__17TObjEneMe1CanadinFPv)(p); } }
