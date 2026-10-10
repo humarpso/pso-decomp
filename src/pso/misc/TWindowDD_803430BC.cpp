@@ -243,7 +243,7 @@ extern const f32 TWindowDD__data_805DFBFC;
 extern const f32 lbl_805DFC0C;
 extern const f32 TWindowDD__data_805DFC10;
 void TWindowDD__sub_803435A0(u8 *arg0);
-M2C_UNK TWindowDD__sub_8034734C(DD_803461CC *, char *, s32 *);
+M2C_UNK format_type6_message__9TWindowDDFPvPvPv(DD_803461CC *, char *, s32 *);
 M2C_UNK TWindowDD__sub_8034740C(DD_803461CC *, char *, s32 *);
 M2C_UNK TWindowDD__sub_80347474(DD_803461CC *, s32, char *, s32 *);
 M2C_UNK append_prompt_newline__9TWindowDDFPvPv(char *, s32 *);
@@ -256,7 +256,7 @@ List_803467CC *get_entry__9TWindowDDFi(s32, s16);
 extern s32 TWindowDD__window_mode;
 extern u32 TWindowDD__word_select_lists;
 void build_item_list__9TWindowDDFPv(u8 *arg0);
-M2C_UNK TWindowDD__sub_8034734C(DD_803461CC *, char *, s32 *);
+M2C_UNK format_type6_message__9TWindowDDFPvPvPv(DD_803461CC *, char *, s32 *);
 M2C_UNK TWindowDD__sub_8034740C(DD_803461CC *, char *, s32 *);
 M2C_UNK TWindowDD__sub_80347474(DD_803461CC *, s32, char *, s32 *);
 M2C_UNK append_prompt_newline__9TWindowDDFPvPv(char *, s32 *);
@@ -1412,7 +1412,7 @@ s32 format_message_text__9TWindowDDFPvPvUs(DD_803461CC *arg0, char *arg1, u16 ar
         break;
     }
     case 6:
-        TWindowDD__sub_8034734C(arg0, arg1, &pos);
+        format_type6_message__9TWindowDDFPvPvPv(arg0, arg1, &pos);
         break;
     }
     arg1[pos++] = 0;
@@ -1492,7 +1492,7 @@ s32 format_entry_text__9TWindowDDFPvPv(DD_803461CC *arg0, char *arg1) {
         }
         break;
     case 6:
-        TWindowDD__sub_8034734C(arg0, arg1, &pos);
+        format_type6_message__9TWindowDDFPvPvPv(arg0, arg1, &pos);
         break;
     }
     arg1[pos++] = 0;

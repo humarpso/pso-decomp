@@ -35,6 +35,7 @@ struct W_80347B70 {
 
 extern "C" {
 void append_prompt_newline__9TWindowDDFPvPv(s32, void *);
+void show_message_by_count__9TWindowDDFii(s32, void *);
 void TWindowDD__sub_8034886C(s32, s32, void *);
 void TWindowDD__sub_8034740C(u8 *arg0, s32 arg1, s32 arg2);
 s32 get_current_child_index__9TWindowDDFPv(u8 *arg0);
@@ -152,6 +153,27 @@ s32 get_player_battle_flag_state__9TWindowDDFUs(u16 arg0) {
     }
 block_5:
     return 0;
+}
+
+void format_type6_message__9TWindowDDFPvPvPv(M_80347758 *arg0, s32 arg1, void *arg2) {
+    s32 count;
+    s32 n;
+    s32 i;
+
+    count = arg0->n;
+    n = count;
+    if (n > 3) {
+        n = 3;
+    }
+    for (i = 0; i < n - 1; i++) {
+        TWindowDD__sub_8034886C(arg0->a[i], arg1, arg2);
+        show_message_by_count__9TWindowDDFii(arg1, arg2);
+    }
+    TWindowDD__sub_8034886C(arg0->a[n - 1], arg1, arg2);
+    if (count > 3) {
+        append_prompt_newline__9TWindowDDFPvPv(arg1, arg2);
+        TWindowDD__sub_8034886C(arg0->a[3], arg1, arg2);
+    }
 }
 
 void TWindowDD__sub_8034740C(u8 *arg0, s32 arg1, s32 arg2) {
