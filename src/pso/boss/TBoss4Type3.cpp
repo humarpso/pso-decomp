@@ -1,4 +1,9 @@
 #include "types.h"
+#include "pso/boss/TBoss4Type3.h"
+
+typedef void (TBoss4Type3::*Type3Handler)();
+struct Type3MotionView { s32 f0, f4, f8, fC, f10; };
+
 #include "pso/TBoss4Zanzo.h"
 #include <stddef.h>
 #include "pso/TObjBs4CutAtk.h"
@@ -534,7 +539,8 @@ class TBoss4Type3_8005A398 { public: u8 pad[0x374]; s32 f374; };
 
 union MemberAction_8005A398 { s32 words[3]; void (TBoss4Type3_8005A398::*action)(); };
 
-struct Row_8005A398 { void *f0; s32 f4; s32 f8; s32 fc; s32 f10; u8 pad[0x18]; };
+struct Row_8005A398 { void *f0; s32 f4; s32 f8; s32 fc; s32 f10; Type3Handler begin; Type3Handler update; };
+typedef char Type3RowSize[(sizeof(Row_8005A398)==0x2C)?1:-1];
 
 struct Obj_8005A438 { u8 pad[0x3B0]; f32 f3b0; };
 
@@ -950,15 +956,15 @@ extern const f32 lbl_805D8C50;
 extern const f32 lbl_805D8C54;
 extern const f32 lbl_805D8C58;
 extern const f32 lbl_805D8C5C;
-extern f32 lbl_805D8C60;
+extern const f32 lbl_805D8C60;
 extern const f32 lbl_805D8C64;
 extern const f32 lbl_805D8C68;
 extern const f32 lbl_805D8C6C;
 extern const f32 lbl_805D8C7C;
-extern f32 lbl_805D8C80;
+extern const f32 lbl_805D8C80;
 extern const f32 lbl_805D8C84;
 extern const f32 lbl_805D8C88;
-extern f32 lbl_805D8C8C;
+extern const f32 lbl_805D8C8C;
 extern const f32 lbl_805D8C90;
 extern const f32 lbl_805D8C94;
 extern const f32 lbl_805D8C98;
@@ -992,7 +998,7 @@ extern "C" {
 void TBoss4Bishi__sub_8005BAD4();
 }
 extern "C" {
-void TBoss4Type3__sub_8005A88C();
+void run_task__11TBoss4Type3Fv();
 }
 extern "C" {
 void TLobby__sub_801A1FD8();
@@ -1226,7 +1232,7 @@ extern "C" {
 extern u8 lbl_804377F4[];
 }
 extern "C" {
-extern u8 lbl_805D8C30[];
+extern const u8 lbl_805D8C30[];
 }
 extern "C" {
 void reset_pose__10TObjPlayerFPv();
@@ -1292,23 +1298,23 @@ void *__vt__11TBoss4Type3[138] = {
     (void *)0xffffffff, (void *)&TBoss4Type3__vt45,
 };
 Row_8005A398 lbl_80486C98[17] = {
-    { &lbl_80437774, 0x0, 0x0, 0x0, 0x0, { 0 } },
-    { &lbl_8043777C, 0x0, 0x0, 0x0, 0x0, { 0 } },
-    { &lbl_80437788, -1, 0x0, 0x0, 0x0, { 0 } },
-    { &lbl_80437794, 0x9, 0x0, 0x0, 0x0, { 0 } },
-    { &lbl_805D8C30, 0x3, 0x0, 0x0, 0x0, { 0 } },
-    { &lbl_8043779C, 0x4, 0x0, 0x0, 0x0, { 0 } },
-    { &lbl_804377A4, 0x3, 0x0, 0x0, 0x0, { 0 } },
-    { &lbl_804377AC, 0x4, 0x0, 0x0, 0x0, { 0 } },
-    { &lbl_804377B4, 0x3, 0x0, 0x0, 0x0, { 0 } },
-    { &lbl_804377BC, 0x1, 0x0, 0x0, 0x0, { 0 } },
-    { &lbl_804377C4, 0x2, 0x0, 0x0, 0x0, { 0 } },
-    { &lbl_804377CC, 0x0, 0x0, 0x0, 0x0, { 0 } },
-    { &lbl_804377D4, 0x0, 0x0, 0x0, 0x0, { 0 } },
-    { &lbl_804377DC, 0x7, 0x0, 0x0, 0x0, { 0 } },
-    { &lbl_804377E4, 0x0, 0x0, 0x0, 0x0, { 0 } },
-    { &lbl_804377EC, 0x0, 0x0, 0x0, 0x0, { 0 } },
-    { &lbl_804377F4, 0x0, 0x0, 0x0, 0x0, { 0 } },
+    { &lbl_80437774, 0x0, 0x0, 0x0, 0x0, 0, 0 },
+    { &lbl_8043777C, 0x0, 0x0, 0x0, 0x0, 0, 0 },
+    { &lbl_80437788, -1, 0x0, 0x0, 0x0, 0, 0 },
+    { &lbl_80437794, 0x9, 0x0, 0x0, 0x0, 0, 0 },
+    { (void *)&lbl_805D8C30, 0x3, 0x0, 0x0, 0x0, 0, 0 },
+    { &lbl_8043779C, 0x4, 0x0, 0x0, 0x0, 0, 0 },
+    { &lbl_804377A4, 0x3, 0x0, 0x0, 0x0, 0, 0 },
+    { &lbl_804377AC, 0x4, 0x0, 0x0, 0x0, 0, 0 },
+    { &lbl_804377B4, 0x3, 0x0, 0x0, 0x0, 0, 0 },
+    { &lbl_804377BC, 0x1, 0x0, 0x0, 0x0, 0, 0 },
+    { &lbl_804377C4, 0x2, 0x0, 0x0, 0x0, 0, 0 },
+    { &lbl_804377CC, 0x0, 0x0, 0x0, 0x0, 0, 0 },
+    { &lbl_804377D4, 0x0, 0x0, 0x0, 0x0, 0, 0 },
+    { &lbl_804377DC, 0x7, 0x0, 0x0, 0x0, 0, 0 },
+    { &lbl_804377E4, 0x0, 0x0, 0x0, 0x0, 0, 0 },
+    { &lbl_804377EC, 0x0, 0x0, 0x0, 0x0, 0, 0 },
+    { &lbl_804377F4, 0x0, 0x0, 0x0, 0x0, 0, 0 },
 };
 void *lbl_80486F84[11] = {
     (void *)0x0, (void *)0x41a00000, (void *)0x0, (void *)0x42340000,
@@ -1321,20 +1327,17 @@ void *lbl_80486FB0[3] = {
 void *boss4_type3_index_table[3] = {
     (void *)0xe, (void *)0xf, (void *)0xf,
 };
-void *TBoss4Type3__anim_state_table[50] = {
-    (void *)0x0, (void *)0x0, (void *)0x53, (void *)0x54,
-    (void *)0x55, (void *)0x0, (void *)0x0, (void *)0x34,
-    (void *)0x35, (void *)0x36, (void *)0x0, (void *)0x0,
-    (void *)0x37, (void *)0x38, (void *)0x39, (void *)0x2,
-    (void *)0x0, (void *)0x40, (void *)0x41, (void *)0x42,
-    (void *)0x2, (void *)0x0, (void *)0x48, (void *)0x49,
-    (void *)0x4a, (void *)0x2, (void *)0x0, (void *)0x59,
-    (void *)0x54, (void *)0x55, (void *)0x2, (void *)0x0,
-    (void *)0x3a, (void *)0x3b, (void *)0x3c, (void *)0x2,
-    (void *)0x0, (void *)0x25, (void *)0x54, (void *)0x55,
-    (void *)0x2, (void *)0x0, (void *)0xe, (void *)0xf,
-    (void *)0x10, (void *)0x1, (void *)0x0, (void *)0x13,
-    (void *)0x54, (void *)0x55,
+Type3MotionView TBoss4Type3__anim_state_table[10] = {
+    { 0, 0, 83, 84, 85 },
+    { 0, 0, 52, 53, 54 },
+    { 0, 0, 55, 56, 57 },
+    { 2, 0, 64, 65, 66 },
+    { 2, 0, 72, 73, 74 },
+    { 2, 0, 89, 84, 85 },
+    { 2, 0, 58, 59, 60 },
+    { 2, 0, 37, 84, 85 },
+    { 2, 0, 14, 15, 16 },
+    { 1, 0, 19, 84, 85 },
 };
 void *lbl_80487090[28] = {
     (void *)0x38, (void *)0x0, (void *)0x0, (void *)0x0,
@@ -1372,7 +1375,7 @@ void *lbl_80487174[4] = {
     (void *)0xffff0000, (void *)0xff00ff00, (void *)0xffffff00, (void *)0xff0000ff,
 };
 void *lbl_80487184[83] = {
-    (void *)0x0, (void *)0x0, (void *)&destroy__11TBoss4Type3FPvs, (void *)&TBoss4Type3__sub_8005A88C,
+    (void *)0x0, (void *)0x0, (void *)&destroy__11TBoss4Type3FPvs, (void *)&run_task__11TBoss4Type3Fv,
     (void *)&TBoss4Type3__sub_8005A86C, (void *)&TObjPlayer__sub_800F5E08, (void *)&TLobby__sub_801A1FD8, (void *)&fn_801A1F48,
     (void *)&TObjPlayer__sub_80018F64, (void *)&TObjPlayer__sub_80018F5C, (void *)&fn_801A2340, (void *)&fn_801A212C,
     (void *)&get_enemy_name__14TObjEnePanarmsFPv, (void *)&TObjPlayer__sub_80019568, (void *)&TObjPlayer__sub_80011210, (void *)&consume_timer_field__10TObjPlayerFPvi,
@@ -2435,6 +2438,149 @@ void advance_afterimage__11TBoss4Type3FPv(u8 *arg0) {
 }
 
 void TBoss4Type3__sub_8005A86C(void* p) { draw__11TBoss4Type3FPv((void *)(p)); }
+
+}
+#undef TBoss4Type3__anim_state_table
+
+extern "C" { extern const f32 lbl_805D8CAC; }
+namespace Type3Tick {
+extern "C" {
+s32 TBoss4Type3__sub_8005254C(u16);
+s32 is_field378_zero__14TBoss4DarkFalzFPv(void *);
+void update_phase_timer__11TBoss4Type3FPv(u8 *arg0);
+void advance_afterimage__11TBoss4Type3FPv(u8 *arg0);
+void update_collisions__10TObjPlayerFPv(void *);
+void submit_cursor_candidate(void *, int);
+void update_radar_markers__11TBoss4Type3FPv(u8 *arg0);
+void update_scale_sound__11TBoss4Type3FPv(u8 *arg0);
+struct O_80059618;
+struct Obj_8005A1AC;
+struct Ply_80059ABC;
+void handle_damage_taken__11TBoss4Type3FPv(O_80059618 *o);
+void copy_positions_to_parts__11TBoss4Type3FPv(Obj_8005A1AC *arg0);
+void scroll_strips__11TBoss4Type2FPv(void *);
+Ply_80059ABC * get_player_by_client_id(u16);
+void update_target_effect_timer__11TBoss4Type3FPv(void *arg0);
+void request_follow_camera_default_offsets__11TBoss4Type3FPv(u8 *arg0);
+void draw_motion_trail__11TBoss4Type3FPviiii(void *, s32, s32, void *, s32);
+u8 * lookup_entry_by_value__10TObjPlayerFPvf(s32);
+s32 push_matrix();
+M2C_UNK set_matrix_identity(int);
+f32 post_translate_matrix(void *);
+s32 rotate_matrix_y(int, int);
+M2C_UNK matrix_mult_vec(int, void *, void *);
+s32 pop_matrix();
+void copy_pos__11TNowLoadingFPvPv(void *, void *);
+void __dt__11TBoss4Type3FPvs(void *, s16);
+void *alloc__23TAdSinglePlyChrSelectGCFPv(int);
+s32 init_trail_buffer__11TBoss4Type3FPvifff(void *, s32, f32, f32, f32);
+s32 get_bml_motion(s32, s32);
+s32 get_bml_model(s32, s32);
+s32 set_global_flag__10TObjPlayerFv();
+s32 clear_global_state__10TObjPlayerFv();
+
+}
+}
+
+#pragma push
+#pragma fp_contract on
+void TBoss4Type3::run_task() {
+    u8 v[2][0xC];
+    Type3Handler fn;
+    void *p;
+    f32 lim;
+    u8 *e;
+
+    if (this->m_3ba != 0xFFFF && Type3Tick::TBoss4Type3__sub_8005254C(this->m_3ba) == 0) {
+        this->m_3ba = 0xFFFF;
+    }
+    if (this->m_3b8 != 0xFFFF && Type3Tick::TBoss4Type3__sub_8005254C(this->m_3b8) == 0) {
+        this->m_3b8 = 0xFFFF;
+    }
+    if (Type3Tick::is_field378_zero__14TBoss4DarkFalzFPv((void *)this->m_38c)) {
+        fn = lbl_80486C98[this->m_374].begin;
+        if (fn) {
+            (this->*fn)();
+        }
+    }
+    fn = lbl_80486C98[this->m_374].update;
+    if (fn) {
+        (this->*fn)();
+    }
+    Type3Tick::update_phase_timer__11TBoss4Type3FPv((u8 *)this);
+    Type3Tick::advance_afterimage__11TBoss4Type3FPv((u8 *)this);
+    if (this->m_3a0 != 17) {
+        this->m_394->flags |= 1;
+        Type3Tick::update_collisions__10TObjPlayerFPv(this);
+        Type3Tick::submit_cursor_candidate(this, -1);
+    } else {
+        this->m_394->flags &= ~1;
+    }
+    Type3Tick::update_radar_markers__11TBoss4Type3FPv((u8 *)this);
+    Type3Tick::update_scale_sound__11TBoss4Type3FPv((u8 *)this);
+    this->m_394->radius = this->m_3b0 * (f32)(this->m_3cc - this->m_3d0) + (f32)this->m_3d0;
+    Type3Tick::handle_damage_taken__11TBoss4Type3FPv((Type3Tick::O_80059618 *)this);
+    if (this->m_374 != 2) {
+        Type3Tick::copy_positions_to_parts__11TBoss4Type3FPv((Type3Tick::Obj_8005A1AC *)this);
+        Type3Tick::scroll_strips__11TBoss4Type2FPv(&this->m_378);
+    }
+    if (this->m_3ba == 0xFFFF) {
+        if ((this->m_3c8 -= 0.06666667f) < 0.0f) {
+            this->m_3c8 = 0.0f;
+        }
+    } else {
+        if ((this->m_3c8 += 0.06666667f) > 1.0f) {
+            this->m_3c8 = 1.0f;
+        }
+        if (Type3Tick::get_player_by_client_id(this->m_3ba) == 0) {
+            this->m_3c8 = 0.0f;
+        }
+    }
+    Type3Tick::update_target_effect_timer__11TBoss4Type3FPv(this);
+    this->m_3d4 = this->m_32c;
+    Type3Tick::request_follow_camera_default_offsets__11TBoss4Type3FPv((u8 *)this);
+    if ((this->m_3dc += 0.022222223f) >= 1.0f) {
+        this->m_3dc -= 1.0f;
+    }
+    lim = this->m_3f4;
+    if (lim > lbl_805D8CA0) {
+        lim = lbl_805D8CA0;
+    }
+    p = Type3Tick::alloc__23TAdSinglePlyChrSelectGCFPv(0x18);
+    if (p != 0) {
+        p = (void *)Type3Tick::init_trail_buffer__11TBoss4Type3FPvifff(p, 2, lim, lim, lbl_805D8CAC);
+    }
+    Type3Tick::set_global_flag__10TObjPlayerFv();
+    Type3Tick::draw_motion_trail__11TBoss4Type3FPviiii(p, Type3Tick::get_bml_model(this->m_390, ((s32 *)lbl_80486FB0)[0]),
+        Type3Tick::get_bml_motion(this->m_390, TBoss4Type3__anim_state_table[this->m_3f0].f8),
+        lbl_80487148, 0);
+    Type3Tick::clear_global_state__10TObjPlayerFv();
+    e = ((u8 *(*)(void *, f32))Type3Tick::lookup_entry_by_value__10TObjPlayerFPvf)(p, lim);
+    Type3Tick::push_matrix();
+    Type3Tick::set_matrix_identity(0);
+    Type3Tick::post_translate_matrix(&this->m_38);
+    Type3Tick::rotate_matrix_y(0, this->m_60);
+    Type3Tick::matrix_mult_vec(0, e, v[0]);
+    Type3Tick::matrix_mult_vec(0, e + 0xC, v[1]);
+    Type3Tick::pop_matrix();
+    if (e != 0) {
+        if (this->m_418 != 0) {
+            Type3Tick::copy_pos__11TNowLoadingFPvPv(this->m_418, v[0]);
+        }
+        if (this->m_41c != 0) {
+            Type3Tick::copy_pos__11TNowLoadingFPvPv(this->m_41c, v[1]);
+        }
+    }
+    Type3Tick::__dt__11TBoss4Type3FPvs(p, 1);
+    this->m_3e8 += -0.06666667f;
+    if (this->m_3e8 < 0.0f) {
+        this->m_3e8 = 0.0f;
+    }
+    this->m_3ec = (f32)this->m_32c / (f32)this->m_33e;
+}
+
+#pragma pop
+extern "C" {
 
 void reset_action_to_3__11TBoss4Type3FPv(Obj_8005ACBC *self) {
     if (self->f374 != 3 && self->f374 != 2) {

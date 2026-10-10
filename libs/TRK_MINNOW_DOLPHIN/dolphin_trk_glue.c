@@ -1,3 +1,4 @@
+#define PSO_SDK_COMPACT_MATH
 #include "PowerPC_EABI_Support/MetroTRK/trk.h"
 #include "OdemuExi2/odemuexi/DebuggerDriver.h"
 #include "amcstubs/AmcExi2Stubs.h"

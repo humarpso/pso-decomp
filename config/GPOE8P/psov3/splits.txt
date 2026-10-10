@@ -628,6 +628,7 @@ pso/boss/TBoss4Type3.cpp:
 	.ctors      start:0x80433F40 end:0x80433F44
 	.rodata     start:0x80437758 end:0x80437890
 	.data       start:0x80486A70 end:0x804872E8
+	.sdata2     start:0x805D8C30 end:0x805D8CB8
 
 pso/boss/TBoss4Zako.cpp:
 	.text       start:0x8005BABC end:0x8005D6F4
@@ -12932,6 +12933,7 @@ os/OSSync.c:
 os/OSThread.c:
 	.text       start:0x80374D64 end:0x80375F08
 	.bss        start:0x80543BB8 end:0x805445A0
+	.sbss       start:0x805D70D0 end:0x805D70E0
 
 os/OSTime.c:
 	.text       start:0x80375F08 end:0x8037632C
@@ -12992,6 +12994,7 @@ dvd/fstload.c:
 	.data       start:0x804F4790 end:0x804F4800
 	.bss        start:0x80544778 end:0x805447E8
 	.sdata      start:0x805D4548 end:0x805D4558
+	.sbss       start:0x805D7190 end:0x805D71A0
 
 vi/vi.c:
 	.text       start:0x8037B2A4 end:0x8037CD24
@@ -13228,7 +13231,9 @@ TRK_MINNOW_DOLPHIN/main_TRK.c:
 
 TRK_MINNOW_DOLPHIN/dolphin_trk_glue.c:
 	.text       start:0x80395E2C end:0x803962D8
-	.bss        start:0x805470D0 end:0x805481EC
+	.rodata     start:0x8047B9B0 end:0x8047B9F8
+	.data       start:0x804F5538 end:0x804F5558
+	.bss        start:0x805470D0 end:0x805492F8
 
 TRK_MINNOW_DOLPHIN/targcont.c:
 	.text       start:0x803962D8 end:0x8039630C
@@ -13249,6 +13254,7 @@ PowerPC_EABI_Support/Runtime/Src/__va_arg.c:
 PowerPC_EABI_Support/Runtime/Src/global_destructor_chain.c:
 	.text       start:0x803965EC end:0x8039664C
 	.dtors      start:0x80434028 end:0x8043402C
+	.sbss       start:0x805D7310 end:0x805D7318
 
 PowerPC_EABI_Support/Runtime/Src/CPlusLibPPC.cp:
 	.text       start:0x8039664C end:0x8039667C

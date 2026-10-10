@@ -1,3 +1,4 @@
+#define PSO_SDK_COMPACT_MATH
 #include <dolphin/dolphin.h>
 #include <dolphin/os.h>
 
@@ -90,8 +91,6 @@ static void UnsetRun(OSThread* thread);
 static OSThread* SetEffectivePriority(OSThread* thread, s32 priority);
 static void UpdatePriority(OSThread* thread);
 static OSThread* SelectThread(int yield);
-static int CheckThreadQueue(OSThreadQueue* queue);
-static int IsMember(OSThreadQueue* queue, OSThread* thread);
 static void OSSetCurrentThread(OSThread* thread);
 
 static inline void OSSetCurrentThread(OSThread* thread) {
@@ -690,114 +689,4 @@ OSThread* OSGetIdleFunction(void) {
         return &IdleThread;
     }
     return NULL;
-}
-
-static int CheckThreadQueue(OSThreadQueue* queue) {
-    OSThread* thread;
-
-    if ((queue->head != NULL) && (queue->head->link.prev != NULL)) {
-        return 0;
-    }
-    if ((queue->tail != NULL) && (queue->tail->link.next != NULL)) {
-        return 0;
-    }
-    thread = queue->head;
-    while (thread) {
-        if ((thread->link.next != NULL) && (thread != thread->link.next->link.prev)) {
-            return 0;
-        }
-        if ((thread->link.prev != NULL) && (thread != thread->link.prev->link.next)) {
-            return 0;
-        }
-        thread = thread->link.next;
-    }
-    return 1;
-}
-
-static BOOL IsMember(OSThreadQueue* queue, OSThread* thread) {
-    OSThread* member = queue->head;
-
-    while (member) {
-        if (thread == member) {
-            return TRUE;
-        }
-        member = member->link.next;
-    }
-    return FALSE;
-}
-
-
-#define ASSERTREPORT(line, cond) \
-    if (!(cond)) { \
-        OSReport("OSCheckActiveThreads: Failed " #cond " in %d\n", line); \
-        OSPanic(__FILE__, line, ""); \
-    }
-
-s32 OSCheckActiveThreads(void) {
-    OSThread* thread;
-    s32 prio;
-    s32 cThread;
-    BOOL enabled;
-
-    cThread = 0;
-    enabled = OSDisableInterrupts();
-
-    for (prio = 0; prio <= OS_PRIORITY_MAX; prio++) {
-        if (RunQueueBits & (1 << (OS_PRIORITY_MAX - prio))) {
-            ASSERTREPORT(LINE(1473, 1504, 1504), RunQueue[prio].head != NULL && RunQueue[prio].tail != NULL);
-        } else {
-            ASSERTREPORT(LINE(1478, 1509, 1509), RunQueue[prio].head == NULL && RunQueue[prio].tail == NULL);
-        }
-        ASSERTREPORT(LINE(1480, 1511, 1511), CheckThreadQueue(&RunQueue[prio]));
-    }
-
-    ASSERTREPORT(LINE(1485, 1516, 1516), __OSActiveThreadQueue.head == NULL || __OSActiveThreadQueue.head->linkActive.prev == NULL);
-    ASSERTREPORT(LINE(1487, 1518, 1518), __OSActiveThreadQueue.tail == NULL || __OSActiveThreadQueue.tail->linkActive.next == NULL);
-
-    thread = __OSActiveThreadQueue.head;
-    while (thread) {
-        cThread++;
-        ASSERTREPORT(LINE(1495, 1526, 1526), thread->linkActive.next == NULL || thread == thread->linkActive.next->linkActive.prev);
-        ASSERTREPORT(LINE(1497, 1528, 1528), thread->linkActive.prev == NULL || thread == thread->linkActive.prev->linkActive.next);
-        ASSERTREPORT(LINE(1500, 1531, 1531), *(thread->stackEnd) == OS_THREAD_STACK_MAGIC);
-        ASSERTREPORT(LINE(1503, 1534, 1534), OS_PRIORITY_MIN <= thread->priority && thread->priority <= OS_PRIORITY_MAX+1);
-        ASSERTREPORT(LINE(1504, 1535, 1535), 0 <= thread->suspend);
-        ASSERTREPORT(LINE(1505, 1536, 1536), CheckThreadQueue(&thread->queueJoin));
-
-        switch(thread->state) {
-        case OS_THREAD_STATE_READY:
-            if (thread->suspend <= 0) {
-                ASSERTREPORT(LINE(1511, 1542, 1542), thread->queue == &RunQueue[thread->priority]);
-                ASSERTREPORT(LINE(1512, 1543, 1543), IsMember(&RunQueue[thread->priority], thread));
-                ASSERTREPORT(LINE(1513, 1544, 1544), thread->priority == __OSGetEffectivePriority(thread));
-            }
-            break;
-        case OS_THREAD_STATE_RUNNING:
-            ASSERTREPORT(LINE(1517, 1548, 1548), !IsSuspended(thread->suspend));
-            ASSERTREPORT(LINE(1518, 1549, 1549), thread->queue == NULL);
-            ASSERTREPORT(LINE(1519, 1550, 1550), thread->priority == __OSGetEffectivePriority(thread));
-            break;
-        case OS_THREAD_STATE_WAITING:
-            ASSERTREPORT(LINE(1522, 1553, 1553), thread->queue != NULL);
-            ASSERTREPORT(LINE(1523, 1554, 1554), CheckThreadQueue(thread->queue));
-            ASSERTREPORT(LINE(1524, 1555, 1555), IsMember(thread->queue, thread));
-            if (thread->suspend <= 0) {
-                ASSERTREPORT(LINE(1527, 1558, 1558), thread->priority == __OSGetEffectivePriority(thread));
-            } else {
-                ASSERTREPORT(LINE(1531, 1562, 1562), thread->priority == 32);
-            }
-            ASSERTREPORT(LINE(1533, 1564, 1564), !__OSCheckDeadLock(thread));
-            break;
-        case OS_THREAD_STATE_MORIBUND:
-            ASSERTREPORT(LINE(1537, 1568, 1568), thread->queueMutex.head == NULL && thread->queueMutex.tail == NULL);
-            break;
-        default:
-            OSReport("OSCheckActiveThreads: Failed. unkown thread state (%d) of thread %p\n", thread->state, thread);
-            OSPanic(__FILE__, LINE(1543, 1574, 1574), "");
-        }
-        ASSERTREPORT(LINE(1548, 1579, 1579), __OSCheckMutexes(thread));
-        thread = thread->linkActive.next;
-    }
-    OSRestoreInterrupts(enabled);
-    return cThread;
 }

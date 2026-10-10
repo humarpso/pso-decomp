@@ -70,6 +70,7 @@ force_active:
   - InsertGlobalEvent
   - KeyOffNotes
   - L2GlobalInvalidate
+  - OSExitThread
   - OSNotifyLink
   - OSNotifyUnlink
   - PADSetSamplingCallback
@@ -237,6 +238,8 @@ force_active:
   - TParticleCtrl__particle_entry_path
   - TQuestListChallenge__active_instance
   - TQuestListChallenge__stage_table
+  - TRKEXICallBack
+  - TRKLoadContext
   - TRecvGenerateID__sub_801DFBC4
   - TTecRaBarta_class_name
   - TTecRaFoie_class_name
@@ -267,6 +270,7 @@ force_active:
   - UnYieldMacro
   - UpdateRoomDistances
   - _GetInputValue
+  - _MetroTRK_Has_Framing
   - __ARQCallbackHack
   - __ARQInterruptServiceRoutine
   - __ARQServiceQueueLo
@@ -967,7 +971,12 @@ force_active:
   - freeze_shell_grow
   - freeze_shell_hold
   - fxcmp
+  - gReadBuf
+  - gReadCount
+  - gReadPos
   - gTRKMsgBufs
+  - gWriteBuf
+  - gWritePos
   - gather_player_contacts__10TObjPlayerFiUiii
   - generate_shop_weapon_stock
   - get_area_table_value__17TOTrapChainSawKeyFii

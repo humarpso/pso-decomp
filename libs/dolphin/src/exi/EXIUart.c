@@ -1,9 +1,4 @@
-#define BarnacleEnabled lbl_805D7CDC
-#define Chan lbl_805D7CD0
-#define Dev lbl_805D7CD4
 #define EXIGetID Dolphin_EXIGetID
-#define EXIGetType fn_80430A10
-#define Enabled lbl_805D7CD8
 
 #include <dolphin/exi.h>
 #include <dolphin/os.h>

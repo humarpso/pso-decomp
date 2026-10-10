@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/item/TItemMag.h"
 typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
 typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 #define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
@@ -295,13 +296,13 @@ extern "C" void unequip__14TItemEquipBaseFPv();
 extern "C" void update_equip__14TItemEquipBaseFPv();
 extern "C" void update_pickup_flag__5TItemFi();
 struct TItemMag_801138F0; struct Self_801134CC; struct Self_80113310; struct Self_801135E0;
-extern "C" { void *__dt__8TItemMagFv(void *, s16); void TItemMag__vt12(s32); int TItemMag__vt13(void*); void TItemMag__vt14(Self_80113310*); void TItemMag__vt16(s32,s32); void TItemMag__vt24(Self_801135E0*); void TItemMag__vt25(Self_801134CC*); void TItemMag__vt42(u8*); void TItemMag__vt43(u8*); void TItemMag__vt44(s32); void TItemMag__vt45(TItemMag_801138F0*); }
+extern "C" { void *__dt__8TItemMagFv(void *, s16); void TItemMag__vt12(s32); int TItemMag__vt13(void*); void TItemMag__vt14(Self_80113310*); void serialize_to_item__8TItemMagFPv(TItemMag *, void *); void TItemMag__vt24(Self_801135E0*); void TItemMag__vt25(Self_801134CC*); void TItemMag__vt42(u8*); void TItemMag__vt43(u8*); void TItemMag__vt44(s32); void TItemMag__vt45(TItemMag_801138F0*); }
 void *__vt__8TItemMag[51] = {
     (void *)0x0, (void *)0x0, (void *)&__dt__8TItemMagFv, (void *)&run_task__5TItemFPv,
     (void *)&dispatch_state__5TItemFPv, (void *)&render__5TItemFPv, (void *)&TLobby__sub_801A1FD8, (void *)&apply_object_set_data,
     (void *)&release_member_90__10TObjPlayerFPv, (void *)&TParticleCtrl__sub_801A2124, (void *)&TItem__sub_80100B8C, (void *)&classify_actor_view_detail,
     (void *)&register_attack__5TItemFPv, (void *)&try_pick_up_item__5TItemFPvi, (void *)&TItemMag__vt12, (void *)&TItemMag__vt13,
-    (void *)&TItemMag__vt14, (void *)&TItemMag__vt15, (void *)&TItemMag__vt16, (void *)&set_attach_slot__14TItemEquipBaseFPvc,
+    (void *)&TItemMag__vt14, (void *)&TItemMag__vt15, (void *)&serialize_to_item__8TItemMagFPv, (void *)&set_attach_slot__14TItemEquipBaseFPvc,
     (void *)&equip__14TItemEquipBaseFPv, (void *)&unequip__14TItemEquipBaseFPv, (void *)&add_equip_stats__14TItemEquipBaseFPvi, (void *)&remove_equip_stats__14TItemEquipBaseFPvi,
     (void *)&subtract_item_stat_bonus__14TItemEquipBaseFPviiPv, (void *)&subtract_equip_stats__14TItemEquipBaseFPviPvPv, (void *)&TItemMag__vt24, (void *)&TItemMag__vt25,
     (void *)&TItem__sub_80100688, (void *)&update_equip__14TItemEquipBaseFPv, (void *)&TItem__sub_801007A8, (void *)&update_pickup_flag__5TItemFi,
@@ -1620,7 +1621,7 @@ extern "C" {
 
 void TItemMag__sub_80113CB8(u8 *arg0, s32 arg1, u32 arg2);
 int TItemMag__vt13(void* p);
-void TItemMag__vt16(s32 arg0, s32 arg1);
+void serialize_to_item__8TItemMagFPv(TItemMag *, void *);
 void TItemMag__vt44(s32 arg0);
 void *__dt__8TItemMagFv(void *arg0, s16 arg1);
 void cleanup__8TItemMagFv(void);
@@ -1629,7 +1630,7 @@ void scale_field_c8__8TItemMagFPvf(void* p, f32 v);
 void set_flags64__8TItemMagFPvUi(void* p, u32 v);
 void set_target__8TItemMagFPviiPv(void *arg0, s32 arg1, s32 arg2, void *arg3);
 void update__8TItemMagFPv(void *arg0);
-M2C_UNK serialize_mag__9TItemDataFPvPv(s32, s32, s32);
+void serialize_mag__9TItemDataFPvPv(void *, const void *);
 int get_mag_mind_level__9TItemDataFPv(void*);
 M2C_UNK request_model_load__14TItemEquipBaseFPvi(s32, u8);
 void TItemMag__sub_80113E3C(void* p);
@@ -1770,8 +1771,8 @@ void TItemMag__vt24(Self_801135E0 *self) {
     }
 }
 
-void TItemMag__vt16(s32 arg0, s32 arg1) {
-    serialize_mag__9TItemDataFPvPv(arg1, arg0 + 0x198, arg0);
+void TItemMag::serialize_to_item(void *item) {
+    serialize_mag__9TItemDataFPvPv(item, &m_198);
 }
 
 void TItemMag__vt43(u8 *arg0) {

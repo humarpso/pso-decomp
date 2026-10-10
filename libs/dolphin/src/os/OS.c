@@ -38,7 +38,7 @@ void __OSExceptionVector(void);
 void __DBVECTOR(void);
 void __OSDBINTSTART(void);
 void __OSDBINTEND(void);
-void __OSDBJUMPSTART(void);
+static asm void __OSDBJump(void);
 void __OSDBJUMPEND(void);
 
 #define NOP 0x60000000
@@ -260,11 +260,11 @@ static void OSExceptionInit(void)
 	{
 		DBPrintf("Installing OSDBIntegrator\n");
 		memcpy(destAddr, (void*)__OSDBINTSTART,
-		       (u32)__OSDBJUMPSTART - (u32)__OSDBINTSTART);
+		       (u32)__OSDBJump - (u32)__OSDBINTSTART);
 		DCFlushRangeNoSync(destAddr,
-		                   (u32)__OSDBJUMPSTART - (u32)__OSDBINTSTART);
+		                   (u32)__OSDBJump - (u32)__OSDBINTSTART);
 		__sync();
-		ICInvalidateRange(destAddr, (u32)__OSDBJUMPSTART - (u32)__OSDBINTSTART);
+		ICInvalidateRange(destAddr, (u32)__OSDBJump - (u32)__OSDBINTSTART);
 	}
 
 	for (exception = 0; exception < __OS_EXCEPTION_MAX; exception++) {
@@ -280,13 +280,13 @@ static void OSExceptionInit(void)
 		if (__DBIsExceptionMarked(exception)) {
 			DBPrintf(">>> OSINIT: exception %d vectored to debugger\n",
 			         exception);
-			memcpy((void*)__DBVECTOR, (void*)__OSDBJUMPSTART,
-			       (u32)__OSDBJUMPEND - (u32)__OSDBJUMPSTART);
+			memcpy((void*)__DBVECTOR, (void*)__OSDBJump,
+			       (u32)__OSDBJUMPEND - (u32)__OSDBJump);
 		} else {
 			u32* ops = (u32*)__DBVECTOR;
 			int cb;
 
-			for (cb = 0; cb < (u32)__OSDBJUMPEND - (u32)__OSDBJUMPSTART;
+			for (cb = 0; cb < (u32)__OSDBJUMPEND - (u32)__OSDBJump;
 			     cb += sizeof(u32)) {
 				*ops++ = NOP;
 			}

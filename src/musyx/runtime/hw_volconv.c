@@ -79,6 +79,7 @@ static f32 pan_tab_dpl2[4] = {
 #pragma inline_depth(4)
 #pragma auto_inline on
 #pragma opt_common_subs on
+#pragma exceptions off
 inline f32 fmodf_803B8CA0(f32 x, f32 m) {
     f32 a = __fabsf(m);
     f32 b = __fabsf(x);
@@ -122,6 +123,7 @@ static void CalcBusDPL2_803B8CA0(f32 *vol_tab, f32 *fvl, f32 *fvr, f32 *rvl, f32
     *rvl = vs * ((1.f - pi->rpan_fm) * pan_tab_dpl2[pi->rpan_im] + pi->rpan_fm * pan_tab[pi->rpan_im + 1]);
 }
 
+#pragma exceptions on
 void salCalcVolume(u8 voltab_index, VolInfo_803B8CA0 *vi, f32 vol, u32 pan, u32 span, f32 auxa,
                            f32 auxb, u32 itd, u32 dpl2) {
     f32 *vol_tab;

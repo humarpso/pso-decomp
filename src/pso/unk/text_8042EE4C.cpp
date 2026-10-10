@@ -6,7 +6,7 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 
 extern "C" {
 u32 exi_read_status_byte__6TLobbyFv();
-s32 fn_80430A10(int, int, void *);
+s32 EXIGetType(int, int, void *);
 extern u32 lbl_805D7CC8;
 s32 TLobby__sub_8042EE4C(s32 *arg0);
 }
@@ -38,7 +38,7 @@ s32 TLobby__sub_8042EE4C(s32 *arg0) {
         *arg0 = 5;
         goto block_18;
     }
-    if (fn_80430A10((int) (0), (int) (2), (void *) (&sp8)) != 0) {
+    if (EXIGetType((int) (0), (int) (2), (void *) (&sp8)) != 0) {
         switch (sp8) {
         case -1:
             *arg0 = 0;

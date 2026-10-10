@@ -98,7 +98,7 @@ void close_window__11TAdEp3ExistFPv(void* p);
 extern u8 controller_input_state[];
 extern u8 controller_physical_port_bank[];
 extern const f32 lbl_805E044C;
-void __OSEnableBarnacle(Ep3_8036F10C *o);
+void run_task__11TAdEp3ExistFv(Ep3_8036F10C *o);
 u8 TAdEp3Exist__sub_8036F590(u8 *arg0);
 int prs_read_control_bit(Obj_8036F4DC *arg0);
 void TAdEp3Exist__sub_8036F5A4(void* p);
@@ -146,7 +146,7 @@ void close_window__11TAdEp3ExistFPv(void* p) { if (*(unsigned int*)((char*)p + 0
 
 extern M2C_UNK __vt__11TAdEp3Exist[];
 
-void __OSEnableBarnacle(Ep3_8036F10C *o) {
+void run_task__11TAdEp3ExistFv(Ep3_8036F10C *o) {
     o->prev = o->state;
     switch (o->state) {
     case 0:

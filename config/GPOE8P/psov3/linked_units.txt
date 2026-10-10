@@ -38,9 +38,11 @@ PowerPC_EABI_Support/Runtime/Src/CPlusLibPPC.cp
 PowerPC_EABI_Support/Runtime/Src/NMWException.cp
 PowerPC_EABI_Support/Runtime/Src/__init_cpp_exceptions.cpp
 PowerPC_EABI_Support/Runtime/Src/__mem.c
+PowerPC_EABI_Support/Runtime/Src/global_destructor_chain.c
 PowerPC_EABI_Support/Runtime/Src/ptmf.c
 PowerPC_EABI_Support/Runtime/Src/runtime.c
 TRK_MINNOW_DOLPHIN/dolphin_trk.c
+TRK_MINNOW_DOLPHIN/dolphin_trk_glue.c
 TRK_MINNOW_DOLPHIN/flush_cache.c
 TRK_MINNOW_DOLPHIN/mem_TRK.c
 TRK_MINNOW_DOLPHIN/msgbuf.c
@@ -74,7 +76,9 @@ dsp/dsp_task.c
 dvd/dvd.c
 dvd/dvdfs.c
 dvd/dvdlow.c
+dvd/fstload.c
 exi/EXIBios.c
+exi/EXIUart.c
 gba/GBA.c
 gba/GBAGetProcessStatus.c
 gba/GBAJoyBoot.c
@@ -107,6 +111,7 @@ musyx/runtime/hw_aramdma.c
 musyx/runtime/hw_dolphin.c
 musyx/runtime/hw_dspctrl.c
 musyx/runtime/hw_memory.c
+musyx/runtime/hw_volconv.c
 musyx/runtime/s_data.c
 musyx/runtime/seq.c
 musyx/runtime/seq_api.c
@@ -123,6 +128,7 @@ musyx/runtime/synthdata.c
 musyx/runtime/synthmacros.c
 musyx/runtime/synthvoice.c
 odemuexi2/DebuggerDriver.c
+os/OS.c
 os/OSCache.c
 os/OSContext.c
 os/OSError.c
@@ -130,6 +136,7 @@ os/OSFont.c
 os/OSLink.c
 os/OSMemory.c
 os/OSRtc.c
+os/OSThread.c
 os/OSTime.c
 os/__start.c
 pad/Pad.c

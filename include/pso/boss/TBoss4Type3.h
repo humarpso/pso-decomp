@@ -2,9 +2,16 @@
 #define PSO_BOSS_TBOSS4TYPE3_H
 
 #include "types.h"
+#include <stddef.h>
+
+struct TBoss4Type3CollisionState {
+    u8 unknown00[0x18]; u32 flags;
+    u8 unknown1c[0xC]; f32 radius;
+};
 
 struct TBoss4Type3
 {
+    u8 unknown00[0x1C];
     u8 _pad1C[0x8];
     u32 m_24;
     u8 _pad28[0x8];
@@ -17,7 +24,7 @@ struct TBoss4Type3
     u8 _pad48[0x8];
     void* m_50;
     u8 _pad54[0xC];
-    u32 m_60;
+    s32 m_60;
     u8 _pad64[0x10];
     void* m_74;
     u8 _pad78[0x230];
@@ -27,40 +34,45 @@ struct TBoss4Type3
     u8 _pad300[0x2C];
     s16 m_32c;
     u8 _pad32E[0x10];
-    u16 m_33e;
+    s16 m_33e;
     u8 _pad340[0x34];
-    u32 m_374;
+    s32 m_374;
     void* m_378;
     u8 _pad37C[0x10];
     u32 m_38c;
-    u32 m_390;
-    u32 m_394;
+    s32 m_390;
+    TBoss4Type3CollisionState *m_394;
     u32 m_398;
     u8 _pad39C[0x4];
-    u32 m_3a0;
+    s32 m_3a0;
     u32 m_3a4;
     u32 m_3a8;
     u32 m_3ac;
-    u8 _pad3B0[0x4];
+    f32 m_3b0;
     u32 m_3b4;
     u16 m_3b8;
     u16 m_3ba;
     u32 m_3bc;
     u8 _pad3C0[0x4];
     u32 m_3c4;
-    u8 _pad3C8[0x4];
-    u32 m_3cc;
-    u32 m_3d0;
-    u32 m_3d4;
+    f32 m_3c8;
+    s32 m_3cc;
+    s32 m_3d0;
+    s32 m_3d4;
     u32 m_3d8;
-    u8 _pad3DC[0x4];
+    f32 m_3dc;
     u32 m_3e0;
     u32 m_3e4;
-    u8 _pad3E8[0x8];
-    u32 m_3f0;
-    u8 _pad3F4[0x8];
+    f32 m_3e8;
+    f32 m_3ec;
+    s32 m_3f0;
+    f32 m_3f4;
+    u8 _pad3F8[4];
     u32 m_3fc;
-    u8 _pad400[0x24];
+    u8 _pad400[0x18];
+    void *m_418;
+    void *m_41c;
+    u8 _pad420[4];
     u32 m_424;
     u32 m_428;
     u32 m_42c;
@@ -78,6 +90,35 @@ struct TBoss4Type3
     u32 m_524;
     u32 m_528;
     u32 m_52c;
+
+    void run_task();
+
 };
+
+typedef char Type3Offset_38[(offsetof(TBoss4Type3,m_38) == 0x38)?1:-1];
+typedef char Type3Offset_60[(offsetof(TBoss4Type3,m_60) == 0x60)?1:-1];
+typedef char Type3Offset_32c[(offsetof(TBoss4Type3,m_32c) == 0x32c)?1:-1];
+typedef char Type3Offset_33e[(offsetof(TBoss4Type3,m_33e) == 0x33e)?1:-1];
+typedef char Type3Offset_374[(offsetof(TBoss4Type3,m_374) == 0x374)?1:-1];
+typedef char Type3Offset_378[(offsetof(TBoss4Type3,m_378) == 0x378)?1:-1];
+typedef char Type3Offset_38c[(offsetof(TBoss4Type3,m_38c) == 0x38c)?1:-1];
+typedef char Type3Offset_390[(offsetof(TBoss4Type3,m_390) == 0x390)?1:-1];
+typedef char Type3Offset_394[(offsetof(TBoss4Type3,m_394) == 0x394)?1:-1];
+typedef char Type3Offset_3a0[(offsetof(TBoss4Type3,m_3a0) == 0x3a0)?1:-1];
+typedef char Type3Offset_3b0[(offsetof(TBoss4Type3,m_3b0) == 0x3b0)?1:-1];
+typedef char Type3Offset_3b8[(offsetof(TBoss4Type3,m_3b8) == 0x3b8)?1:-1];
+typedef char Type3Offset_3ba[(offsetof(TBoss4Type3,m_3ba) == 0x3ba)?1:-1];
+typedef char Type3Offset_3c8[(offsetof(TBoss4Type3,m_3c8) == 0x3c8)?1:-1];
+typedef char Type3Offset_3cc[(offsetof(TBoss4Type3,m_3cc) == 0x3cc)?1:-1];
+typedef char Type3Offset_3d0[(offsetof(TBoss4Type3,m_3d0) == 0x3d0)?1:-1];
+typedef char Type3Offset_3d4[(offsetof(TBoss4Type3,m_3d4) == 0x3d4)?1:-1];
+typedef char Type3Offset_3dc[(offsetof(TBoss4Type3,m_3dc) == 0x3dc)?1:-1];
+typedef char Type3Offset_3e8[(offsetof(TBoss4Type3,m_3e8) == 0x3e8)?1:-1];
+typedef char Type3Offset_3ec[(offsetof(TBoss4Type3,m_3ec) == 0x3ec)?1:-1];
+typedef char Type3Offset_3f0[(offsetof(TBoss4Type3,m_3f0) == 0x3f0)?1:-1];
+typedef char Type3Offset_3f4[(offsetof(TBoss4Type3,m_3f4) == 0x3f4)?1:-1];
+typedef char Type3Offset_418[(offsetof(TBoss4Type3,m_418) == 0x418)?1:-1];
+typedef char Type3Offset_41c[(offsetof(TBoss4Type3,m_41c) == 0x41c)?1:-1];
+typedef char Type3Size[(sizeof(TBoss4Type3)==0x530)?1:-1];
 
 #endif
