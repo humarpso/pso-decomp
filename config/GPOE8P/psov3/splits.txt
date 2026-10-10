@@ -1631,7 +1631,7 @@ pso/misc/TeneFakeTecThunderEff.cpp:
 pso/player/TObjPlayer_800A4288.cpp:
 	.text       start:0x800A4288 end:0x800A73F8
 	.rodata     start:0x8043A8C8 end:0x8043A8D0
-	.data       start:0x80490CBC end:0x80490D0C
+	.data       start:0x80490A30 end:0x80490D0C
 
 pso/unk/text_800A73F8.cpp:
 	.text       start:0x800A73F8 end:0x800A749C

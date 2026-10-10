@@ -8,7 +8,7 @@ void *TObjPlayer__sub_800A05B8(void *, s16);
 void __dt__9TObjEnemyFv(void *, int);
 s32 free_collision_body_parts(void *);
 s32 __dl__7TObjectFPv(void *);
-extern u8 lbl_80490B70[];
+extern u8 TObjEneSaver__vtable[];
 Obj_800A73F8 *fn_800A73F8(Obj_800A73F8 *arg0, s16 arg1);
 }
 
@@ -18,7 +18,7 @@ Obj_800A73F8 *fn_800A73F8(Obj_800A73F8 *arg0, s16 arg1) {
     s32 i;
     if (arg0 != NULL) {
         i = 0;
-        arg0->vt = lbl_80490B70;
+        arg0->vt = TObjEneSaver__vtable;
         do {
             if (arg0->items[i] != NULL) {
                 queue_destruction__7TObjectFv(arg0->items[i]);

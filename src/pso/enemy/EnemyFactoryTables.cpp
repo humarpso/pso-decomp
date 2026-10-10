@@ -20,7 +20,7 @@ void* create__23TObjEneMe1CanadinLeaderFPv(void* placement);
 void* create__17TObjEneMe1CanadinFPv(void* placement);
 void* create__20TObjEneDarkGunCenterFPv(void* placement);
 void* create_instance__10TObjPlayerFPv(void* placement);
-void* create_ene_saver__10TObjPlayerFPv(void* placement);
+void* create_ene_saver(void* placement);
 void* create__15TObjEneDimedianFPv(void* placement);
 void* create_dubchik__10TObjPlayerFPv(void* placement);
 void* create__12TObjEneSharkFPv(void* placement);
@@ -225,7 +225,7 @@ EnemyFactoryEntry enemy_factories_floors_06_07[8] = {
 };
 
 EnemyFactoryEntry enemy_factories_floor_08[8] = {
-    { 0x00A0, create_ene_saver__10TObjPlayerFPv, 250000.0f, 0 },
+    { 0x00A0, create_ene_saver, 250000.0f, 0 },
     { 0x00A1, create__18TObjEneRe4SorcererFPv, 250000.0f, 2 },
     { 0x00A5, create__16TObjEneRe7BeruraFPv, 250000.0f, 0 },
     { 0x00A6, create__15TObjEneDimedianFPv, 250000.0f, 0 },
@@ -236,7 +236,7 @@ EnemyFactoryEntry enemy_factories_floor_08[8] = {
 };
 
 EnemyFactoryEntry enemy_factories_floor_09[10] = {
-    { 0x00A0, create_ene_saver__10TObjPlayerFPv, 250000.0f, 0 },
+    { 0x00A0, create_ene_saver, 250000.0f, 0 },
     { 0x00A2, create_instance__10TObjPlayerFPv, 250000.0f, 0 },
     { 0x00A3, create__20TObjEneDarkGunCenterFPv, 250000.0f, 0 },
     { 0x00A4, create__17TObjEneDf2BringerFPv, 250000.0f, 0 },
@@ -320,7 +320,7 @@ EnemyFactoryEntry enemy_factories_floor_16[8] = {
     { 0x0063, create__12TObjEneSharkFPv, 250000.0f, 0 },
     { 0x0060, create__9TObjGrassFPv, 250000.0f, 0 },
     { 0x0082, TObjEneMe3ShinowaMirage__sub_800E7B74, 250000.0f, 4 },
-    { 0x00A0, create_ene_saver__10TObjPlayerFPv, 250000.0f, 0 },
+    { 0x00A0, create_ene_saver, 250000.0f, 0 },
     { 0x00A4, create__17TObjEneDf2BringerFPv, 250000.0f, 0 },
     { 0x0033, TObjNpcEnemy__create, 250000.0f, 0 },
     { -1, 0, 250000.0f, 0 },
@@ -331,7 +331,7 @@ EnemyFactoryEntry enemy_factories_floor_17[8] = {
     { 0x0063, create__12TObjEneSharkFPv, 250000.0f, 0 },
     { 0x0060, create__9TObjGrassFPv, 250000.0f, 0 },
     { 0x0082, TObjEneMe3ShinowaMirage__sub_800E7B74, 250000.0f, 4 },
-    { 0x00A0, create_ene_saver__10TObjPlayerFPv, 250000.0f, 0 },
+    { 0x00A0, create_ene_saver, 250000.0f, 0 },
     { 0x00A4, create__17TObjEneDf2BringerFPv, 250000.0f, 0 },
     { 0x0033, TObjNpcEnemy__create, 250000.0f, 0 },
     { -1, 0, 250000.0f, 0 },
@@ -385,7 +385,7 @@ EnemyFactoryEntry enemy_factories_floor_21[8] = {
     { 0x0081, create__15TObjEneGyaranzoFPv, 250000.0f, 0 },
     { 0x0043, create__14TObjEneBm5WolfFPv, 250000.0f, 0 },
     { 0x0065, create__14TObjEnePanarmsFi, 250000.0f, 2 },
-    { 0x00A0, create_ene_saver__10TObjPlayerFPv, 250000.0f, 0 },
+    { 0x00A0, create_ene_saver, 250000.0f, 0 },
     { 0x0033, TObjNpcEnemy__create, 250000.0f, 0 },
     { -1, 0, 250000.0f, 0 },
 };
@@ -395,7 +395,7 @@ EnemyFactoryEntry enemy_factories_floor_22[8] = {
     { 0x0080, create_dubchik__10TObjPlayerFPv, 250000.0f, 0 },
     { 0x0043, create__14TObjEneBm5WolfFPv, 250000.0f, 0 },
     { 0x0065, create__14TObjEnePanarmsFi, 250000.0f, 2 },
-    { 0x00A0, create_ene_saver__10TObjPlayerFPv, 250000.0f, 0 },
+    { 0x00A0, create_ene_saver, 250000.0f, 0 },
     { 0x00A1, create__18TObjEneRe4SorcererFPv, 250000.0f, 2 },
     { 0x0033, TObjNpcEnemy__create, 250000.0f, 0 },
     { -1, 0, 250000.0f, 0 },
