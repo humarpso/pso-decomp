@@ -14,7 +14,7 @@ f32 update_scale__15TObjBoss2TunnelFPv(void *);
 M2C_UNK __ct__7TObjectFP7TObject();
 M2C_UNK subtract_vector(void *, void *);
 extern RecoveredGlobal_8009A398_lbl_8048FE64 lbl_8048FE64;
-extern s32 lbl_805D29AC;
+extern s32 bringer_tp_absorb_effect_name;
 extern const f32 lbl_805D9860;
 u8 *fn_8009A398(u8 *arg0, M2C_UNK arg1, u8 *arg2, u8 *arg3);
 }
@@ -25,7 +25,7 @@ typedef char RecoveredGlobal_8009A398_lbl_8048FE64_size[sizeof(RecoveredGlobal_8
 u8 *fn_8009A398(u8 *arg0, M2C_UNK arg1, u8 *arg2, u8 *arg3) {
     __ct__7TObjectFP7TObject();
     M2C_FIELD(arg0, M2C_UNK **, 0x18) = &lbl_8048FE64.value;
-    M2C_FIELD(arg0, s32 *, 0) = (s32) lbl_805D29AC;
+    M2C_FIELD(arg0, s32 *, 0) = (s32) bringer_tp_absorb_effect_name;
     VecCopy__FP3VecPC3Vec((void *) (arg0 + 0x28), (void *) (arg2));
     VecCopy__FP3VecPC3Vec((void *) (arg0 + 0x34), (void *) (arg3));
     VecCopy__FP3VecPC3Vec((void *) (arg0 + 0x1C), (void *) (arg0 + 0x28));

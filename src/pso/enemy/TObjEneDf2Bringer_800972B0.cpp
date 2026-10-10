@@ -1276,7 +1276,7 @@ M2C_UNK enable__13TParticleCtrlFPv(void *);
 #define attack_visible_players__17TObjEneDf2BringerFPv ((s32 (*)(void *))attack_visible_players__17TObjEneDf2BringerFPv)
 #define TObjEneDf2Bringer__sub_80098FF4 ((s32 (*)(void *))TObjEneDf2Bringer__sub_80098FF4)
 M2C_UNK setup_dir_shot__17TObjEneDf2BringerFPvPvif(void *, void *, int, f32);
-M2C_UNK fn_8009A704(void *, void *, void *, f32);
+M2C_UNK construct_bringer_tp_absorb_ring(void *, void *, void *, f32);
 M2C_UNK enemy_copy_target_destination(void *);
 M2C_UNK update_velocity__9TObjEneDDFPv(void *);
 s32 check_v2_mode__9TObjEneDDFv();
@@ -1673,7 +1673,7 @@ void TObjEneDf2Bringer__sub_80097820(u8 *arg0, s32 arg1) {
                     v.y += lbl_805D97E8;
                     o = __nw__7TObjectFUl(0x100);
                     if (o != 0) {
-                        fn_8009A704(o, arg0, &v, lbl_805D97EC);
+                        construct_bringer_tp_absorb_ring(o, arg0, &v, lbl_805D97EC);
                     }
                 }
                 if (objInBand__FP7GameObjf(arg0, lbl_805D97F0) != 0) {
@@ -3314,7 +3314,7 @@ void TLobby__sub_8001FE7C(void*, int);
 #define TObjEneDf2Bringer__sub_800994F8 ((void (*)(void *))TObjEneDf2Bringer__sub_800994F8)
 void init_enemy__17TObjEneDf2BringerFPv(u8 *);
 void TObjEneDf2Bringer__vt59(void);
-M2C_UNK TObjEneMe1CanadinLeader__sub_8009A7A0();
+M2C_UNK bringer_effect_cleanup_noop();
 void __construct_array(void *, void *, void *, int, int);
 void __dt__11TBoss4Type3FPvs(void*, int);
 #define __nw__7TObjectFUl ((void * (*)(int))__nw__7TObjectFUl)
@@ -3512,7 +3512,7 @@ void set_entry_value_clamped__17TObjEneDf2BringerFif(s32 arg0, f32 farg0) {
 }
 
 void free_resources__17TObjEneDf2BringerFv(void) {
-    TObjEneMe1CanadinLeader__sub_8009A7A0();
+    bringer_effect_cleanup_noop();
     if ((u32) TObjEneDf2Bringer__uv_scroll_buffer != 0U) {
         destroy_buffer_pair((void*)TObjEneDf2Bringer__uv_scroll_buffer, 1);
         TObjEneDf2Bringer__uv_scroll_buffer = 0U;
@@ -3578,7 +3578,7 @@ s32 register_object__6TLobbyFPv(int);
 s32 dispatch_shared_handler_b__6TLobbyFPv(int);
 s32 register_boss__6TLobbyFPv(int);
 f32 update_scale__15TObjBoss2TunnelFPv(void *);
-M2C_UNK TObjEneMe1CanadinLeader__sub_8009A7A4();
+M2C_UNK init_bringer_effect_tables();
 u32 load_enemy_bml_resource_named(void *, void *);
 u32 load_enemy_bml_resource(void *);
 M2C_UNK draw_motion_trail__11TBoss4Type3FPviiii(void *, s32, s32, s32 *, Vec_80099BD4 *);
@@ -3680,7 +3680,7 @@ void load_resources__17TObjEneDf2BringerFv(void) {
     o = alloc_tables__6TLobbyFPvii(o, *((s32 *) ((*((u8 **) (((u8 *) TObjEneDf2Bringer__resource_bundle) + 0x42C))) + 8)), 1);
   }
   TObjEneDf2Bringer__uv_scroll_buffer = (u32) o;
-  TObjEneMe1CanadinLeader__sub_8009A7A4();
+  init_bringer_effect_tables();
   {
     Sp_80099BD4 sp = lbl_8043A0BC[0];
     sp.a = *((s32 *) (((u8 *) TObjEneDf2Bringer__resource_bundle) + 0x430));

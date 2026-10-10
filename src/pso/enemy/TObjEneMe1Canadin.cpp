@@ -2593,11 +2593,11 @@ f32 clamp_velocity__15TObjBoss2TunnelFPv(void *);
 s32 check_demo_mode__10TObjPlayerFv();
 f32 get_status_value_f32__23TObjEneMe1CanadinLeaderFv(f32);
 M2C_UNK create_timed_particle_emitter(void *, int, int, int);
-void TObjEneMe1CanadinLeader__sub_8009A7A0(void);
-void TObjEneMe1CanadinLeader__sub_8009A934(void);
-void TObjEneMe1CanadinLeader__sub_8009A938(u8 *arg0);
-void * TObjEneMe1CanadinLeader__sub_8009AA0C(void *arg0, s16 arg1);
-u8 * TObjEneMe1CanadinLeader__sub_8009AA64(u8 *arg0, s32 arg1, u8 *arg2, s32 arg3, f32 farg0);
+void bringer_effect_cleanup_noop(void);
+void render_bringer_rush_effect_noop(void);
+void update_bringer_rush_effect(u8 *arg0);
+void * destroy_bringer_rush_effect(void *arg0, s16 arg1);
+u8 * construct_bringer_rush_effect(u8 *arg0, s32 arg1, u8 *arg2, s32 arg3, f32 farg0);
 void TObjEneMe1CanadinLeader__vt110(Leader_8009AB4C *obj, s32 mode);
 void update_formation_state__23TObjEneMe1CanadinLeaderFPv(void *arg0);
 u8 TObjEneMe1CanadinLeader__vt107(void *arg0);
@@ -2780,9 +2780,9 @@ extern RecoveredGlobal_8009E4AC_lbl_8043A2A0 canadin_formation_fade_start_color;
 extern RecoveredGlobal_8009E1D4_lbl_8043A32C lbl_8043A32C;
 extern u8 lbl_8043A340[];
 extern const f64 lbl_8043A3C8;
-extern M2C_UNK lbl_8048FE94[];
+extern M2C_UNK bringer_rush_effect_vtable[];
 extern RecoveredGlobal_8009BD00_lbl_80500960 lbl_80500960;
-extern s32 lbl_805D29A8;
+extern s32 bringer_rush_effect_name;
 extern void *TObjEneMe1Canadin__class_name;
 extern void *lbl_805D4FD0;
 extern u32 lbl_805D4FD4;
@@ -3223,69 +3223,15 @@ u32 lbl_80500954[3];
 #define lbl_80500948 ((s32 *)lbl_80500948)
 #define lbl_80500954 ((s32 *)lbl_80500954)
 
-void TObjEneMe1CanadinLeader__sub_8009A7A0(void) {  }
+void bringer_effect_cleanup_noop(void);
 
-void TObjEneMe1CanadinLeader__sub_8009A934(void) {  }
+void render_bringer_rush_effect_noop(void);
 
-void TObjEneMe1CanadinLeader__sub_8009A938(u8 *arg0) {
-    f32 temp_f1;
-    obj_getField1c((void *) (M2C_FIELD(arg0, u8 **, 0x1C)));
-    if (is_player_entity_id() != 0) {
-        queue_destruction__7TObjectFv((void *) (arg0));
-        return;
-    }
-    if (is_alive__9TObjEneDDFPv((void *) (M2C_FIELD(arg0, u8 **, 0x1C))) == 0) {
-        queue_destruction__7TObjectFv((void *) (arg0));
-        return;
-    }
-    if (obj_isState2_324((void *) (M2C_FIELD(arg0, u8 **, 0x1C))) != 0) {
-        queue_destruction__7TObjectFv((void *) (arg0));
-        return;
-    }
-    temp_f1 = M2C_FIELD(arg0, f32 *, 0x2C);
-    if (temp_f1 <= lbl_805D9880) {
-        queue_destruction__7TObjectFv((void *) (arg0));
-        return;
-    }
-    M2C_FIELD(M2C_FIELD(arg0, u8 **, 0x1C), f32 *, 0x308) = (f32) (M2C_FIELD(arg0, f32 *, 0x20) * temp_f1);
-    M2C_FIELD(M2C_FIELD(arg0, u8 **, 0x1C), f32 *, 0x310) = (f32) (M2C_FIELD(arg0, f32 *, 0x28) * M2C_FIELD(arg0, f32 *, 0x2C));
-    M2C_FIELD(arg0, f32 *, 0x2C) = (f32) (M2C_FIELD(arg0, f32 *, 0x2C) * lbl_805D9884);
-}
+void update_bringer_rush_effect(u8 *arg0);
 
-void *TObjEneMe1CanadinLeader__sub_8009AA0C(void *arg0, s16 arg1) {
-    if (arg0 != NULL) {
-        M2C_FIELD(arg0, M2C_UNK **, 0x18) = lbl_8048FE94;
-        __dt__7TObjectFv(arg0, 0);
-        if (arg1 > 0) {
-            __dl__7TObjectFPv(arg0);
-        }
-    }
-    return arg0;
-}
+void *destroy_bringer_rush_effect(void *arg0, s16 arg1);
 
-u8 *TObjEneMe1CanadinLeader__sub_8009AA64(u8 *arg0, s32 arg1, u8 *arg2, s32 arg3, f32 farg0) {
-    typedef char sp8_offset[(offsetof(Stack_8009AA64, sp8) == 0x0) ? 1 : -1];
-    typedef char spC_offset[(offsetof(Stack_8009AA64, spC) == 0x4) ? 1 : -1];
-    Stack_8009AA64 stack;
-    __ct__7TObjectFP7TObject((void *) (arg0), (void *) (arg1));
-    M2C_FIELD(arg0, M2C_UNK **, 0x18) = &(*(RecoveredGlobal_8009AA64_lbl_8048FE94 *)&lbl_8048FE94).value;
-    M2C_FIELD(arg0, s32 *, 0) = (s32) lbl_805D29A8;
-    M2C_FIELD(arg0, s32 *, 0x1C) = arg3;
-    M2C_FIELD(arg0, f32 *, 0x2C) = farg0;
-    M2C_FIELD(arg0, s32 *, 0x30) = 0;
-    VecCopy__FP3VecPC3Vec((void *) (&stack.sp8), (void *) (arg3 + 0x38));
-    subtract_vector((void *) (&stack.sp8), (void *) (arg2 + 0x38));
-    stack.spC = lbl_805D9860;
-    M2C_FIELD(arg0, f32 *, 0x20) = sin_table_lookup((int) (M2C_FIELD(arg2, s32 *, 0x60)));
-    M2C_FIELD(arg0, f32 *, 0x24) = (f32) lbl_805D9860;
-    M2C_FIELD(arg0, f32 *, 0x28) = cos_table_lookup((int) (M2C_FIELD(arg2, s32 *, 0x60)));
-    if (is_vec_xz_cross_negative((void *) (arg0 + 0x20), (void *) (&stack.sp8)) != 0) {
-        rotate_xz_pair_by_angle((void *) (arg0 + 0x20), (void *) (arg0 + 0x28), (int) (-0x1800));
-    } else {
-        rotate_xz_pair_by_angle((void *) (arg0 + 0x20), (void *) (arg0 + 0x28), (int) (0x1800));
-    }
-    return arg0;
-}
+u8 *construct_bringer_rush_effect(u8 *arg0, s32 arg1, u8 *arg2, s32 arg3, f32 farg0);
 
 void TObjEneMe1CanadinLeader__vt110(Leader_8009AB4C *obj, s32 mode) {
     s32 i;

@@ -343,6 +343,7 @@ pso/effect/TEffHit.cpp
 pso/effect/TEffect.cpp
 pso/encryption/PSOV3Encryption.cpp
 pso/encryption/PSOV3EncryptionTCP.cpp
+pso/enemy/BringerEffects.cpp
 pso/enemy/TEnemyTaskList.cpp
 pso/enemy/TObjEneBalClawBody.cpp
 pso/enemy/TObjEneBalClawClaw.cpp
@@ -2956,7 +2957,6 @@ pso/unk/text_80092B10.cpp
 pso/unk/text_8009A398.cpp
 pso/unk/text_8009A434.cpp
 pso/unk/text_8009A6AC.cpp
-pso/unk/text_8009A704.cpp
 pso/unk/text_8009F410.cpp
 pso/unk/text_8009F7AC.cpp
 pso/unk/text_800A01C0.cpp

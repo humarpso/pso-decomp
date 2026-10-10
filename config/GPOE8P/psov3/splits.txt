@@ -1538,11 +1538,12 @@ pso/unk/text_8009A4B8.cpp:
 pso/unk/text_8009A6AC.cpp:
 	.text       start:0x8009A6AC end:0x8009A704
 
-pso/unk/text_8009A704.cpp:
-	.text       start:0x8009A704 end:0x8009A7A0
+pso/enemy/BringerEffects.cpp:
+	.text       start:0x8009A704 end:0x8009AB4C
+	.rodata     start:0x8043A178 end:0x8043A180
 
 pso/enemy/TObjEneMe1Canadin.cpp:
-	.text       start:0x8009A7A0 end:0x8009F410
+	.text       start:0x8009AB4C end:0x8009F410
 	.rodata     start:0x8043A390 end:0x8043A398
 	.data       start:0x8048FEB0 end:0x80490238
 	.bss        start:0x80500930 end:0x80500960
