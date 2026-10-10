@@ -39,8 +39,8 @@ extern M2C_UNK lbl_80466CF8[];
 extern M2C_UNK lbl_804DD180[];
 extern M2C_UNK lbl_804DD268[];
 
-int lbl_80540AC0[5];
-int lbl_80540AD4[3];
+int TObjSeabedSuisoBrakable__break_model_entries[5];
+int TObjSeabedSuisoBrakable__model12_render_nodes[3];
 int lbl_80540AE0[4];
 
 extern u32 TObjSeabedSuisoBrakable__data_805D6670;
@@ -80,7 +80,7 @@ void load_resources__23TObjSeabedSuisoBrakableFv(void) {
         if ((lbl_805D6674 = load_gvm_texture_file(lbl_80466CE0)) != 0) {
             t1 = seabed_suiso_texture_name_table;
             for (i = 0; i < 5; i++) {
-                lbl_80540AC0[i] = find_entry_by_name__12TObjDoorJungFPvPv(lbl_805D6674, t1.w[i]);
+                TObjSeabedSuisoBrakable__break_model_entries[i] = find_entry_by_name__12TObjDoorJungFPvPv(lbl_805D6674, t1.w[i]);
             }
         }
         break;
@@ -94,15 +94,15 @@ void load_resources__23TObjSeabedSuisoBrakableFv(void) {
         if ((lbl_805D6674 = load_gvm_texture_file(lbl_80466CF8)) != 0) {
             t2 = lbl_80466C80;
             for (i = 0; i < 5; i++) {
-                lbl_80540AC0[i] = find_entry_by_name__12TObjDoorJungFPvPv(lbl_805D6674, t2.w[i]);
+                TObjSeabedSuisoBrakable__break_model_entries[i] = find_entry_by_name__12TObjDoorJungFPvPv(lbl_805D6674, t2.w[i]);
             }
         }
         break;
     }
     if ((item = get_bml_model(TObjSeabedSuisoBrakable__data_805D6670, 0xC)) != NULL) {
-        lbl_80540AD4[0] = count_linked_switches__23TObjSeabedSuisoBrakableFUii(item, 1);
-        lbl_80540AD4[1] = count_linked_switches__23TObjSeabedSuisoBrakableFUii(item, 2);
-        lbl_80540AD4[2] = count_linked_switches__23TObjSeabedSuisoBrakableFUii(item, 4);
+        TObjSeabedSuisoBrakable__model12_render_nodes[0] = count_linked_switches__23TObjSeabedSuisoBrakableFUii(item, 1);
+        TObjSeabedSuisoBrakable__model12_render_nodes[1] = count_linked_switches__23TObjSeabedSuisoBrakableFUii(item, 2);
+        TObjSeabedSuisoBrakable__model12_render_nodes[2] = count_linked_switches__23TObjSeabedSuisoBrakableFUii(item, 4);
     }
     if ((p = get_bml_model(TObjSeabedSuisoBrakable__data_805D6670, 0xD)) != NULL) {
         lbl_80540AE0[0] = (int) count_linked_switches__23TObjSeabedSuisoBrakableFUii(p, 1);
@@ -119,11 +119,11 @@ void load_resources__23TObjSeabedSuisoBrakableFv(void) {
 extern int fold_flush_802A6F98;
 #pragma pop
 
-    extern int lbl_80540AC0[];
-int get_break_data__23TObjSeabedSuisoBrakableFi(int a0) {  return lbl_80540AC0[a0]; }
+    extern int TObjSeabedSuisoBrakable__break_model_entries[];
+int get_break_data__23TObjSeabedSuisoBrakableFi(int a0) {  return TObjSeabedSuisoBrakable__break_model_entries[a0]; }
 
-    extern int lbl_80540AD4[];
-int get_table0_entry__23TObjSeabedSuisoBrakableFi(int a0) {  return lbl_80540AD4[a0]; }
+    extern int TObjSeabedSuisoBrakable__model12_render_nodes[];
+int get_table0_entry__23TObjSeabedSuisoBrakableFi(int a0) {  return TObjSeabedSuisoBrakable__model12_render_nodes[a0]; }
 
     extern int lbl_80540AE0[];
 int get_table1_entry__23TObjSeabedSuisoBrakableFi(int a0) {  return lbl_80540AE0[a0]; }

@@ -24,10 +24,10 @@ M2C_UNK __dl__7TObjectFPv(void *);
 M2C_UNK __dt__7TObjectFv(void *, M2C_UNK);
 M2C_UNK free__11TOBoss4RockFUi(s32);
 extern M2C_UNK lbl_804F3640[];
-extern u32 lbl_805D7008;
+extern u32 slot_entity_dispatcher_instance;
 void *destroy_boss4_rock__6TLobbyFPvs(void *arg0, s16 arg1);
 void *__nw__7TObjectFUl(int);
-extern u32 lbl_805D7008;
+extern u32 slot_entity_dispatcher_instance;
 void create_singleton__6TLobbyFPv(void *arg0);
 void TLobby__sub_8036B50C(void);
 void TLobby__sub_8036B510(void);
@@ -36,7 +36,7 @@ void *alloc_buffer__11TOBoss4RockFPv(s32);
 void __ct__7TObjectFP7TObject(void *);
 M2C_UNK TLobby__sub_8036B1AC(s32);
 extern M2C_UNK lbl_804F3640[];
-extern u32 lbl_805D7008;
+extern u32 slot_entity_dispatcher_instance;
 Mgr_8036B424 *TLobby__sub_8036B424(Mgr_8036B424 *arg0, void * _w1);
 }
 
@@ -48,21 +48,21 @@ M2C_UNK TLobby__sub_8036B1AC(s32);
 void start_entry_timer__6TLobbyFPvUsi(Obj_8036B2E8 *arg0, u16 arg1, s32 arg2);
 void TLobby__sub_8036B340(Obj_8036B340 *arg0);
 
-extern u32 lbl_805D7008;
+extern u32 slot_entity_dispatcher_instance;
 
 void send_slot_entity_or_local__6TLobbyFUsi(u16 arg0, s32 arg1) {
-    if (((u32) lbl_805D7008 != 0U) && (arg0 < 4U)) {
-        send_slot_entity__6TLobbyFPvUsi((void *)(lbl_805D7008), arg0, (s32)(arg1));
+    if (((u32) slot_entity_dispatcher_instance != 0U) && (arg0 < 4U)) {
+        send_slot_entity__6TLobbyFPvUsi((void *)(slot_entity_dispatcher_instance), arg0, (s32)(arg1));
         return;
     }
     TLobby__sub_8036B1AC(arg1);
 }
 
-extern u32 lbl_805D7008;
+extern u32 slot_entity_dispatcher_instance;
 
 void dispatch_by_index__6TLobbyFUsi(u16 arg0, s32 arg1) {
-    if (((u32) lbl_805D7008 != 0U) && (arg0 < 4U)) {
-        start_entry_timer__6TLobbyFPvUsi((Obj_8036B2E8 *)lbl_805D7008, arg0, arg1);
+    if (((u32) slot_entity_dispatcher_instance != 0U) && (arg0 < 4U)) {
+        start_entry_timer__6TLobbyFPvUsi((Obj_8036B2E8 *)slot_entity_dispatcher_instance, arg0, arg1);
     }
 }
 void send_slot_entity__6TLobbyFPvUsi(void *arg0, u16 arg1, s32 arg2) {
@@ -97,7 +97,7 @@ void *destroy_boss4_rock__6TLobbyFPvs(void *arg0, s16 arg1) {
     if (arg0 != NULL) {
         M2C_FIELD(arg0, M2C_UNK **, 0x18) = lbl_804F3640;
         free__11TOBoss4RockFUi(M2C_FIELD(arg0, s32 *, 0x1C));
-        (*(s32 *)&lbl_805D7008) = 0;
+        (*(s32 *)&slot_entity_dispatcher_instance) = 0;
         __dt__7TObjectFv(arg0, 0);
         if (arg1 > 0) {
             __dl__7TObjectFPv(arg0);
@@ -119,13 +119,13 @@ Mgr_8036B424 *TLobby__sub_8036B424(Mgr_8036B424 *arg0, void * _w1) {
     } else {
         queue_destruction__7TObjectFv(arg0);
     }
-    lbl_805D7008 = (u32)arg0;
+    slot_entity_dispatcher_instance = (u32)arg0;
     return arg0;
 }
 
 void create_singleton__6TLobbyFPv(void *arg0) {
     void *o;
-    if ((*(void * *)&lbl_805D7008) == NULL) {
+    if ((*(void * *)&slot_entity_dispatcher_instance) == NULL) {
         o = __nw__7TObjectFUl(0x30);
         if (o != NULL) {
             TLobby__sub_8036B424((Mgr_8036B424 *)(o), (void *)(arg0));

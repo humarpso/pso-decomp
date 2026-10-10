@@ -16,13 +16,13 @@ void *__ct__13TObjCHTimeWinFv(void *arg0);
 void __ct__7TObjectFP7TObject(void *);
 void *__nw__7TObjectFUl(int);
 
-extern s32 lbl_805D4E40;
+extern s32 TObjCHTimeWin__timer_value;
 extern M2C_UNK __vt__13TObjCHTimeWin[];
 extern void *TObjCHTimeWin__class_name;
 
 void run_task__13TObjCHTimeWinFv(void *arg0) {
     if ((s32) M2C_FIELD(arg0, s32 *, 0x1C) != 0) {
-        set_timer_window_time__11TWindowCtrlFi(lbl_805D4E40);
+        set_timer_window_time__11TWindowCtrlFi(TObjCHTimeWin__timer_value);
         return;
     }
     if (TWindowCtrlMain__sub_8024CE58() == 1) {
@@ -31,7 +31,7 @@ void run_task__13TObjCHTimeWinFv(void *arg0) {
     }
 }
 
-void init_timer__13TObjCHTimeWinFv(void) { create_alt_timer__11TWindowCtrlFv(); set_timer_window_time__11TWindowCtrlFi(lbl_805D4E40); }
+void init_timer__13TObjCHTimeWinFv(void) { create_alt_timer__11TWindowCtrlFv(); set_timer_window_time__11TWindowCtrlFi(TObjCHTimeWin__timer_value); }
 
 }
 

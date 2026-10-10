@@ -89,7 +89,7 @@ M2C_UNK disallow_rendering__7TObjectFv(void *);
 s32 get_item_ctrl__10TObjPlayerFv();
 
 extern void* __vt__21TItemEffArmorParticle[];
-extern s32 lbl_805D447C;
+extern s32 TItemEffArmorParticle__class_name;
 
 void *TItemEffArmorParticle__ct(void *arg0, void *arg1, s32 arg2, s32 arg3, s32 arg4) {
     void *temp_r3;
@@ -97,7 +97,7 @@ void *TItemEffArmorParticle__ct(void *arg0, void *arg1, s32 arg2, s32 arg3, s32 
 
     __ct__7TObjectFP7TObject(arg0, arg1);
     M2C_FIELD(arg0, void **, 0x18) = (void *) __vt__21TItemEffArmorParticle;
-    M2C_FIELD(arg0, s32 *, 0) = (s32) lbl_805D447C;
+    M2C_FIELD(arg0, s32 *, 0) = (s32) TItemEffArmorParticle__class_name;
     disallow_rendering__7TObjectFv(arg0);
     M2C_FIELD(arg0, s32 *, 0x1C) = arg2;
     M2C_FIELD(arg0, s16 *, 0x24) = (s16) arg3;

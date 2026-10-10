@@ -117,7 +117,7 @@ s32 TShopSequence__ct(void *);
 s32 TShopWindowBase__sub_8022397C(void *);
 extern RecoveredGlobal_8021DA90___vt__22TShopEquipmentSequence __vt__22TShopEquipmentSequence;
 extern RecoveredGlobal_8021DA90_TShopEquipmentSequence__data_80513EC0 TShopEquipmentSequence__slot_active_flags;
-extern s32 lbl_805D36B8;
+extern s32 TShopEquipmentSequence__class_name;
 extern u8 *lbl_805D6228;
 extern s32 lbl_805D622C;
 extern s32 lbl_805D6230;
@@ -368,7 +368,7 @@ typedef char RecoveredGlobal_8021DB58_TShopEquipmentSequence__data_80513EC0_size
 u8 *TShopEquipmentSequence__ct(u8 *arg0, M2C_UNK arg1, s32 arg2) {
     TShopSequence__ct((void *) (arg0));
     M2C_FIELD(arg0, M2C_UNK **, 0x18) = &(*(RecoveredGlobal_8021DB58___vt__22TShopEquipmentSequence *)&__vt__22TShopEquipmentSequence).value;
-    M2C_FIELD(arg0, s32 *, 0) = (s32) lbl_805D36B8;
+    M2C_FIELD(arg0, s32 *, 0) = (s32) TShopEquipmentSequence__class_name;
     M2C_FIELD(arg0, s32 *, 0x20) = 0;
     M2C_FIELD(arg0, s32 *, 0x24) = arg2;
     M2C_FIELD(arg0, s32 *, 0x2C) = 0;

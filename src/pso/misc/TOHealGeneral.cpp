@@ -76,7 +76,7 @@ int alloc__23TAdSinglePlyChrSelectGCFPv(void *);
 s32 get_global_state__14TOKeyMachine01Fv(void);
 extern RecoveredGlobal_80169710_lbl_804B2748 lbl_804B2748;
 extern RecoveredGlobal_80169710_lbl_804B2760 lbl_804B2760;
-extern u32 TOHealGeneral__data_805D59F0;
+extern u32 TOHealGeneral__model_archive;
 void load_resources__13TOHealGeneralFv(void);
 void request_destroy__11TBoss4Type2FUi(u32);
 void unregister_object_by_id(void *);
@@ -98,7 +98,7 @@ s32 all_parents_unqueued_for_destruction__7TObjectFv(u32);
 extern u8 lbl_804B2770[];
 extern void *__vt__13TOHealGeneral[];
 extern s32 lbl_805D3008;
-extern u32 TOHealGeneral__data_805D59F0;
+extern u32 TOHealGeneral__model_archive;
 extern s32 tl_05;
 extern const f32 lbl_805DB6BC;
 extern const f32 lbl_805DB6C0;
@@ -198,12 +198,12 @@ void *create__13TOHealGeneralFPv(void *arg0) {
     return o;
 }
 
-extern u32 TOHealGeneral__data_805D59F0;
+extern u32 TOHealGeneral__model_archive;
 
 void close_dialog_window__13TOHealGeneralFv(void) {
-    if ((u32) TOHealGeneral__data_805D59F0 != 0U) {
-        TLobby__sub_8001FE7C((void*)TOHealGeneral__data_805D59F0, 1);
-        TOHealGeneral__data_805D59F0 = 0U;
+    if ((u32) TOHealGeneral__model_archive != 0U) {
+        TLobby__sub_8001FE7C((void*)TOHealGeneral__model_archive, 1);
+        TOHealGeneral__model_archive = 0U;
     }
 }
 
@@ -240,7 +240,7 @@ void load_resources__13TOHealGeneralFv(void) {
     {
       var_r0 = (long) load_resource_from_descriptor((void *) temp_r3_2, 1, &lbl_804B2760.value, 0, 0, 0);
     }
-    (*(s32 *)&TOHealGeneral__data_805D59F0) = var_r0;
+    (*(s32 *)&TOHealGeneral__model_archive) = var_r0;
     return;
   }
   block_8:
@@ -250,7 +250,7 @@ void load_resources__13TOHealGeneralFv(void) {
   {
     var_r0_2 = (long) load_resource_from_descriptor((void *) temp_r3_3, 1, &lbl_804B2748.value, 0, 0, 0);
   }
-  (*(s32 *)&TOHealGeneral__data_805D59F0) = var_r0_2;
+  (*(s32 *)&TOHealGeneral__model_archive) = var_r0_2;
 }
 
 TOHealGeneral_801697C0 *__dt__13TOHealGeneralFv(TOHealGeneral_801697C0 *self, s16 flag) {
@@ -280,8 +280,8 @@ void *TOHealGeneral__ct(void *arg0, void *arg1) {
     self->vtable = __vt__13TOHealGeneral;
     self->f0 = lbl_805D3008;
     ((VObj_80169858 *)self)->m5(arg1);
-    self->f34 = M2C_FIELD(M2C_FIELD(TOHealGeneral__data_805D59F0, u8 **, 0x42C), s32 *, 8);
-    model = M2C_FIELD(TOHealGeneral__data_805D59F0, u8 **, 0x42C);
+    self->f34 = M2C_FIELD(M2C_FIELD(TOHealGeneral__model_archive, u8 **, 0x42C), s32 *, 8);
+    model = M2C_FIELD(TOHealGeneral__model_archive, u8 **, 0x42C);
     self->f24 = M2C_FIELD(model, s32 *, 0xC);
     self->fC4 = lbl_805DB6CC;
     init_collision_body_parts(self, lbl_804B2770, 1, model);

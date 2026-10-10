@@ -89,7 +89,7 @@ s32 fn_8013F288(void* p) { return *(s32*)((char*)p + 0x0); }
 void render__5TLogoFv(void) {  }
 
 extern void *__vt__5TLogo[];
-extern void *lbl_805D2CC8;
+extern void *TLogo__class_name;
 
 extern "C" {
 void reset_view_state__11TCameraCtrlFv(); void reset__11TCameraCtrlFv(); void init_default_view__11TCameraCtrlFv(); void reset_default_view__11TCameraCtrlFv();
@@ -228,7 +228,7 @@ TLogo::~TLogo() {}
 void *__ct__5TLogoFv(void *arg0) {
     __ct__7TObjectFP7TObject(arg0);
     M2C_FIELD(arg0, M2C_UNK **, 0x18) = (M2C_UNK *)__vt__5TLogo;
-    M2C_FIELD(arg0, void **, 0x0) = lbl_805D2CC8;
+    M2C_FIELD(arg0, void **, 0x0) = TLogo__class_name;
     M2C_FIELD(arg0, u32 *, 0x20) = 0;
     M2C_FIELD(arg0, u32 *, 0x24) = 0;
     M2C_FIELD(arg0, u32 *, 0x28) = 0;

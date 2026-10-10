@@ -36,21 +36,21 @@ M2C_UNK load_resources__13TObjTombstoneFv();
 
 s32 get_main_phase();
 extern M2C_UNK lbl_804385B0[];
-extern u32 lbl_805D4E28;
-extern s32 lbl_805D4E2C;
+extern u32 challenge_task;
+extern s32 challenge_task_created;
 extern s32 TLobby__data_805D4E30;
 
 void init_on_main_phase__6TLobbyFv(void) {
-    lbl_805D4E2C = 0;
-    if ((u32) lbl_805D4E28 == 0U) {
+    challenge_task_created = 0;
+    if ((u32) challenge_task == 0U) {
         if (get_main_phase() != 0xF) {
             TLobby__data_805D4E30 = 0;
             return;
         }
         start_lobby_name_request__6TLobbyFv();
         if ((s32) TLobby__data_805D4E30 != 0) {
-            lbl_805D4E28 = create__10TChallengeFv();
-            lbl_805D4E2C = 1;
+            challenge_task = create__10TChallengeFv();
+            challenge_task_created = 1;
             load_resources__13TObjTombstoneFv();
             set_name_string__6TLobbyFi(lbl_804385B0);
         }
@@ -110,10 +110,10 @@ void set_split_screen_flag__6TLobbyFv(void);
 
 extern "C" {
 
-#define lbl_805D4E28 (*(s32 *)&lbl_805D4E28)
+#define challenge_task (*(s32 *)&challenge_task)
 
 u8 is_flag_set__6TLobbyFv(void) {
-    return (u8) (lbl_805D4E28 != 0);
+    return (u8) (challenge_task != 0);
 }
 
     extern int chat_last_line_buffer;
@@ -149,7 +149,7 @@ typedef char RecoveredGlobal_80399928_lbl_804F5900_size[sizeof(RecoveredGlobal_8
 }
 
 #undef challenge_mode_state
-#undef lbl_805D4E28
+#undef challenge_task
 
 #include "types.h"
 typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
@@ -172,7 +172,7 @@ extern M2C_UNK challenge_mode_state[];
 void TLobby__sub_80070BE8(s32 arg0);
 void TLobby__sub_8026A328(void *);
 extern M2C_UNK challenge_mode_state[];
-#define lbl_805D4E28 (*(H_80070C50 **)&lbl_805D4E28)
+#define challenge_task (*(H_80070C50 **)&challenge_task)
 void TLobby__sub_80070C50(void);
 }
 
@@ -207,7 +207,7 @@ void TLobby__sub_80070BE8(s32 arg0) {
 void TLobby__sub_80070C50(void) {
     s32 i;
     H_80070C50 *q;
-    H_80070C50 *p = lbl_805D4E28;
+    H_80070C50 *p = challenge_task;
     if (p != NULL) {
         (*(G_80070C50 *)&challenge_mode_state).fc = 0;
         (*(G_80070C50 *)&challenge_mode_state).f20 = 0;
@@ -219,8 +219,8 @@ void TLobby__sub_80070C50(void) {
             (*(G_80070C50 *)&challenge_mode_state).a680[i] = 0;
         }
         p->f20 = 0;
-        lbl_805D4E28->f24 = 0;
-        q = lbl_805D4E28;
+        challenge_task->f24 = 0;
+        q = challenge_task;
         q->f28 = 1;
         TLobby__sub_8026A328(q);
     }
@@ -228,7 +228,7 @@ void TLobby__sub_80070C50(void) {
 
 }
 
-#undef lbl_805D4E28
+#undef challenge_task
 
 #include "types.h"
 typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
@@ -294,12 +294,12 @@ extern "C" {
 int check_player_state_flag_2__6TLobbyFPv(void *);
 s32 get_player_by_client_id(u32);
 extern M2C_UNK challenge_mode_state[];
-extern u32 lbl_805D4E28;
+extern u32 challenge_task;
 s32 TLobby__sub_80070F4C(void);
 int check_player_state_flag_2__6TLobbyFPv(void *);
 s32 get_player_by_client_id(u32);
 extern M2C_UNK challenge_mode_state[];
-extern u32 lbl_805D4E28;
+extern u32 challenge_task;
 s32 TLobby__sub_80070FD8(void);
 s32 get_card_window__17TWindowSubComCardFUi(u32);
 M2C_UNK decode_obfuscated_string__6TLobbyFPvPvi(void *, void *, int, int);
@@ -339,8 +339,8 @@ s32 check_challenge_time_range__6TLobbyFi(s32);
 s32 get_valid_slot__6TLobbyFi(s32);
 s32 get_player_by_client_id(u32);
 extern M2C_UNK challenge_mode_state[];
-extern s32 lbl_805D4E38;
-extern s8 lbl_805D4E3C;
+extern s32 challenge_time_limit_sentinel;
+extern s8 challenge_time_limit_initialized;
 s32 get_max_challenge_time__6TLobbyFv(void);
 }
 
@@ -354,19 +354,19 @@ s32 is_ready_to_draw__6TLobbyFv();
 M2C_UNK fn_800733C4(void*);
 M2C_UNK create__15TObjDeadListWinFPv(void*);
 
-extern u32 lbl_805D4E28;
+extern u32 challenge_task;
 
 void update_dead_list_win__6TLobbyFv(void) {
-    if ((((s32 (*)(void))is_flag_set__6TLobbyFv)() != 0) && (is_ready_to_draw__6TLobbyFv() != 0) && ((u32) lbl_805D4E28 != 0U)) {
-        create__15TObjDeadListWinFPv((void*)lbl_805D4E28);
+    if ((((s32 (*)(void))is_flag_set__6TLobbyFv)() != 0) && (is_ready_to_draw__6TLobbyFv() != 0) && ((u32) challenge_task != 0U)) {
+        create__15TObjDeadListWinFPv((void*)challenge_task);
     }
 }
 
-extern u32 lbl_805D4E28;
+extern u32 challenge_task;
 
 void draw_if_ready__6TLobbyFv(void) {
-    if ((((s32 (*)(void))is_flag_set__6TLobbyFv)() != 0) && (is_ready_to_draw__6TLobbyFv() != 0) && ((u32) lbl_805D4E28 != 0U)) {
-        fn_800733C4((void*)lbl_805D4E28);
+    if ((((s32 (*)(void))is_flag_set__6TLobbyFv)() != 0) && (is_ready_to_draw__6TLobbyFv() != 0) && ((u32) challenge_task != 0U)) {
+        fn_800733C4((void*)challenge_task);
     }
 }
 
@@ -417,17 +417,17 @@ s32 get_max_challenge_time__6TLobbyFv(void) {
             times[i] = t;
         }
     }
-    if (lbl_805D4E3C == 0) {
-        lbl_805D4E38 = calc_challenge_time_limit__6TLobbyFv() - 1;
-        lbl_805D4E3C = 1;
+    if (challenge_time_limit_initialized == 0) {
+        challenge_time_limit_sentinel = calc_challenge_time_limit__6TLobbyFv() - 1;
+        challenge_time_limit_initialized = 1;
     }
-    best = lbl_805D4E38;
+    best = challenge_time_limit_sentinel;
     for (i = 0; i < 4; i++) {
         if (times[i] != 0 && best < times[i]) {
             best = times[i];
         }
     }
-    if (best == lbl_805D4E38) {
+    if (best == challenge_time_limit_sentinel) {
         return -2;
     }
     return best;
@@ -442,7 +442,7 @@ void TLobby__sub_80070EE4(s32 arg0) {
 s32 TLobby__sub_80070F4C(void) {
     u32 var_r31;
     u8 *temp_r3;
-    if (((void *) (*(u8 * *)&lbl_805D4E28) == NULL) || ((s32) M2C_FIELD((*(u8 * *)&lbl_805D4E28), s32 *, 0x1C) != 2)) {
+    if (((void *) (*(u8 * *)&challenge_task) == NULL) || ((s32) M2C_FIELD((*(u8 * *)&challenge_task), s32 *, 0x1C) != 2)) {
         return 0;
     }
     var_r31 = 0;
@@ -462,7 +462,7 @@ typedef char RecoveredGlobal_80070FD8_lbl_8048C9D8_size[sizeof(RecoveredGlobal_8
 s32 TLobby__sub_80070FD8(void) {
     u32 var_r31;
     u8 *temp_r3;
-    if (((void *) (*(u8 * *)&lbl_805D4E28) == NULL) || ((s32) M2C_FIELD((*(u8 * *)&lbl_805D4E28), s32 *, 0x1C) != 2)) {
+    if (((void *) (*(u8 * *)&challenge_task) == NULL) || ((s32) M2C_FIELD((*(u8 * *)&challenge_task), s32 *, 0x1C) != 2)) {
         return 0;
     }
     var_r31 = 0;

@@ -135,12 +135,12 @@ void *__dt__17TItemEffectWeaponFv(void *self, s32 flag) {
 }
 
 extern void *__vt__17TItemEffectWeapon[];
-extern s32 lbl_805D4470;
+extern s32 TItemEffectWeapon__class_name;
 
 void *__ct__17TItemEffectWeaponFv(void *self, s32 arg1, s32 param) {
     init_object__21TItemEffArmorParticleFPv(self);
     M2C_FIELD(self, void **, 0x18) = __vt__17TItemEffectWeapon;
-    M2C_FIELD(self, s32 *, 0) = lbl_805D4470;
+    M2C_FIELD(self, s32 *, 0) = TItemEffectWeapon__class_name;
     M2C_FIELD(self, s32 *, 0x1C) = (s32)TItemEffectWeapon::allocate_trail_buffer();
     M2C_FIELD(self, s32 *, 0x24) = param;
     M2C_FIELD(self, s32 *, 0x20) = 0;

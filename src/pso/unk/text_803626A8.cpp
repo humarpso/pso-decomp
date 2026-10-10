@@ -226,7 +226,7 @@ void *item_equip_variant_deleting_dtor_80362D90(void *arg0, s16 arg1);
 extern M2C_UNK __vt__14TObjEneEpsilon[];
 extern M2C_UNK TObjPlayer__sub_800D7C58[];
 extern M2C_UNK init_and_activate__10TObjPlayerFPv[];
-extern void *lbl_805D4468;
+extern void *TObjEneEpsilon__class_name;
 
 typedef char RecoveredGlobal_803626A8_lbl_80479FBC_size[sizeof(RecoveredGlobal_803626A8_lbl_80479FBC) == 0xC ? 1 : -1];
 typedef char RecoveredGlobal_803626A8_lbl_8058D490_size[sizeof(RecoveredGlobal_803626A8_lbl_8058D490) == 0x30 ? 1 : -1];
@@ -326,7 +326,7 @@ void *TObjEneEpsilon__ct(void *arg0) {
     init_object__9TObjEneDDFPv(arg0);
     M2C_FIELD(arg0, M2C_UNK **, 0x18) = __vt__14TObjEneEpsilon;
     __construct_array((void *)((char *)arg0 + 960), init_and_activate__10TObjPlayerFPv, TObjPlayer__sub_800D7C58, 28, 4);
-    M2C_FIELD(arg0, void **, 0x0) = lbl_805D4468;
+    M2C_FIELD(arg0, void **, 0x0) = TObjEneEpsilon__class_name;
     check_state_flag_4__9TObjEneDDFPv(arg0);
     return arg0;
 }

@@ -31,16 +31,16 @@ void change_file_extension__6TLobbyFPvPvPv(s32, char *, char *);
 s32 compare_file_extension__6TLobbyFPvPv(char *, char *);
 char *strncpy(char *, const char *, u32);
 s32 load_gvm_texture_archive(void *, s32);
-extern char lbl_80449798[];
+extern char texture_pvm_not_found_format[];
 extern char lbl_804497C4[];
-extern char lbl_804497D4[];
+extern char texture_pvm_load_error_format[];
 extern char lbl_805DC448[4];
 s32 load_texture_pvm_file__6TLobbyFPvi(const char *name, s32 arg1);
 void run_frame__6TLobbyFv(void);
 void pump_frames__6TLobbyFv(void);
 void debug_print__6TLobbyFii(const char *, ...);
 s32 load_texture_list(s32 **);
-extern char lbl_804497FC[];
+extern char pso_texture_load_error_format[];
 s32 pso_load_texture__6TLobbyFPv(s32 **arg0);
 }
 
@@ -177,7 +177,7 @@ s32 load_texture_pvm_file__6TLobbyFPvi(const char *name, s32 arg1) {
     }
     size = get_resource_file_size__6TLobbyFPv(path);
     if (size <= 0) {
-        debug_print__6TLobbyFii(lbl_80449798, name);
+        debug_print__6TLobbyFii(texture_pvm_not_found_format, name);
         return -1;
     }
     allocated = 0;
@@ -198,7 +198,7 @@ s32 load_texture_pvm_file__6TLobbyFPvi(const char *name, s32 arg1) {
         tmp_buf_release__6TLobbyFi(lbl_804497C4);
     }
     if (ret < 0) {
-        debug_print__6TLobbyFii(lbl_804497D4, name);
+        debug_print__6TLobbyFii(texture_pvm_load_error_format, name);
     }
     return ret;
 }
@@ -214,7 +214,7 @@ s32 pso_load_texture__6TLobbyFPv(s32 **arg0) {
         }
         if (r == -1) {
             ret = -1;
-            debug_print__6TLobbyFii(lbl_804497FC, **arg0);
+            debug_print__6TLobbyFii(pso_texture_load_error_format, **arg0);
             break;
         }
         run_frame__6TLobbyFv();

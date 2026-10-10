@@ -108,7 +108,7 @@ s32 TShopWindowBase__sub_8022397C(void *);
 s32 __ct__15TShopWindowBaseFv(void *);
 s32 set_6264_and_call_2244B0__6TLobbyFii(void *, int);
 extern M2C_UNK __vt__19TShopItemListWindow[];
-extern s32 lbl_805D36D0;
+extern s32 TShopItemListWindow__class_name;
 u8 *TShopItemListWindow__ct(u8 *arg0, M2C_UNK arg1, s32 arg2, s32 arg3);
 s32 queue_destruction__7TObjectFv(void *);
 s32 set_field_20__12TQuestListVMFPvi(void *, s32);
@@ -397,7 +397,7 @@ u8 *TShopItemListWindow__ct(u8 *arg0, M2C_UNK arg1, s32 arg2, s32 arg3) {
     s32 sp8;
     __ct__15TShopWindowBaseFv((void *) (arg0));
     M2C_FIELD(arg0, M2C_UNK **, 0x18) = &(*(RecoveredGlobal_8021FDC8___vt__19TShopItemListWindow *)&__vt__19TShopItemListWindow).value;
-    M2C_FIELD(arg0, s32 *, 0) = (s32) lbl_805D36D0;
+    M2C_FIELD(arg0, s32 *, 0) = (s32) TShopItemListWindow__class_name;
     M2C_FIELD(arg0, s32 *, 0x24) = arg3;
     M2C_FIELD(arg0, s32 *, 0x2C) = arg2;
     M2C_FIELD(arg0, s32 *, 0x28) = 0;

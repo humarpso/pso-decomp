@@ -32,7 +32,7 @@ void push_matrix(void);
 void pop_matrix(void);
 extern const f64 lbl_8043E188[];
 extern void *__vt__15TItemEffBringer[];
-extern s32 lbl_805D2B90;
+extern s32 TItemEffBringer__class_name;
 extern f32 lbl_805DAB10;
 extern const f32 lbl_805DAB14;
 extern const f32 lbl_805DAB18;
@@ -88,7 +88,7 @@ void *__ct__15TItemEffBringerFv(Bringer_8010834C *self, u32 arg1, Vec_8010834C *
     s32 i;
     __ct__10TItemShootFPvPC3VecPC3Vecf(self, arg1, (s32)src, arg3, farg0);
     self->vt = __vt__15TItemEffBringer;
-    self->f0 = lbl_805D2B90;
+    self->f0 = TItemEffBringer__class_name;
     push_matrix();
     z.x = z.y = z.z = lbl_805DAB10;
     invert_matrix_in_place__10TObjPlayerFUi(0);

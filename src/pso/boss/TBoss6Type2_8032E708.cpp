@@ -457,7 +457,7 @@ void set_target_nodes__11TBoss6Type2FPvPvPv(void* p, void* a1, void* a2);
 void update_rotation_ramp__11TBoss6Type2FPv(void *arg0);
 f32 sin_table_lookup(void *);
 f32 cos_table_lookup(void *);
-s32 TLobby__sub_800C6C10();
+s32 is_local_client_floor_leader();
 f32 get_random_float__8TObjFishFv(f32);
 s32 get_rotation_timer__11TBoss6Type2FPv(u32);
 
@@ -783,7 +783,7 @@ void update_rotation_ramp__11TBoss6Type2FPv(void *arg0) {
             M2C_FIELD(arg0, f32 *, 0x3BC) = (f32) (1.0f);
         }
         if ((1.0f) == M2C_FIELD(arg0, f32 *, 0x3BC)) {
-            if (TLobby__sub_800C6C10() != 0) {
+            if (is_local_client_floor_leader() != 0) {
                 u32 tmp378 = (u32) M2C_FIELD(arg0, u32 *, 0x378);
                 if (tmp378 != 0U) {
                     if (get_rotation_timer__11TBoss6Type2FPv(tmp378) == 0) {

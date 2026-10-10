@@ -1,10 +1,13 @@
 #include "types.h"
+#include "pso/enemy/TObjEnePanarms.h"
 #include "dolphin/mtx.h"
 #include <stddef.h>
 typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
 typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 #define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
 #define M2C_BITWISE(type, expr) ((type)(expr))
+
+typedef char PanarmsActionTimerOffset[offsetof(TObjEnePanarms, action_timer) == 0x3B4 ? 1 : -1];
 
 struct Stack_800E0D1C {
     f32 sp8;
@@ -29,6 +32,7 @@ extern const f32 lbl_805DA54C;
 extern const f32 lbl_805DA574;
 extern const f32 lbl_805DA578;
 extern const f32 lbl_805DA57C;
+f32 calc_boss4_scale__10TObjPlayerFi(void *);
 }
 
 extern "C" {
@@ -341,7 +345,6 @@ u8 check_can_attack__14TObjEnePanarmsFPv(void *arg0);
 u8 TObjEnePanarms__sub_800E2E54(void *arg0);
 u8 TObjEnePanarms__sub_800E2E68(void *arg0);
 u8 is_below_half_hp__14TObjEnePanarmsFPv(void *arg0);
-void TObjEnePanarms__sub_800E2EF0(void*, s32, s32);
 int find_nearest_enemy_with_flag_alt_target__14TObjEnePanarmsFPvif(u8 *arg0, s32 arg1, f32 farg0);
 s32 TObjEnePanarms__sub_800E2FB4(O_800E2FB4 *self);
 int clear_render_callback__8TObjFishFv(void);
@@ -747,7 +750,7 @@ void TObjEnePanarms__sub_800E055C(u8 *arg0) {
 void init_action__14TObjEnePanarmsFPv(void* a0) {
     void* t = *(void**)((char*)a0 + 0x37c);
     *(int*)((char*)t + 0x18) = (*(int*)((char*)t + 0x18) | 0x1);
-    TObjEnePanarms__sub_800E2EF0((void*)(a0), (s32)(0xf), (s32)(0x1e));
+    ((TObjEnePanarms *)a0)->set_random_action_timer(0xF, 0x1E);
     *(int*)((char*)a0 + 0x384) = 1;
     *(int*)((char*)a0 + 0x388) = 1;
     *(float*)((char*)a0 + 0x3b0) = TObjEnePanarms__data_805DA524;
@@ -1128,7 +1131,7 @@ void TObjEnePanarms__sub_800E10D0(u8 *arg0) {
 void start_action__14TObjEnePanarmsFPv(void *arg0) {
     void *temp_r4;
 
-    TObjEnePanarms__sub_800E2EF0((void*)(arg0), (s32)(0xF), (s32)(0x3C));
+    ((TObjEnePanarms *)arg0)->set_random_action_timer(0xF, 0x3C);
     temp_r4 = M2C_FIELD(arg0, void **, 0x37C);
     M2C_FIELD(temp_r4, s32 *, 0x18) = (s32) (M2C_FIELD(temp_r4, s32 *, 0x18) | 1);
     M2C_FIELD(arg0, s32 *, 0x388) = 1;
@@ -1658,6 +1661,13 @@ u8 is_below_half_hp__14TObjEnePanarmsFPv(void *arg0) {
     }
     return var_r31;
 }
+
+#pragma push
+#pragma fp_contract on
+void TObjEnePanarms::set_random_action_timer(int minimum, int range) {
+    action_timer = (s32)((f32)range * calc_boss4_scale__10TObjPlayerFi(this) + (f32)minimum);
+}
+#pragma pop
 
 int find_nearest_enemy_with_flag_alt_target__14TObjEnePanarmsFPvif(u8 *arg0, s32 arg1, f32 farg0) {
     u16 temp_r3;

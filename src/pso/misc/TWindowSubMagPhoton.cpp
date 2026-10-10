@@ -46,7 +46,7 @@ M2C_UNK copy_vec2__28TWindowSubSymbolChatPartsSetFPvPv(void *, void *);
 M2C_UNK save_position__17TWindowSubComCardFPv(void *);
 M2C_UNK init_photon_blast_entries__19TWindowSubMagPhotonFPv(void *, int);
 s32 construct_base__9TWindowDDFPvPvsPv(void *, void *, void *, void *);
-extern RecoveredGlobal_8027C6B4_lbl_804D17E8 lbl_804D17E8;
+extern RecoveredGlobal_8027C6B4_lbl_804D17E8 TWindowSubMagPhoton__layout_descriptor;
 extern M2C_UNK __vt__19TWindowSubMagPhoton[];
 extern s32 TWindowSubMagPhoton__class_name;
 u8 *TWindowSubMagPhoton__ct(u8 *arg0, s32 arg1, s32 arg2, s16 arg3);
@@ -204,7 +204,7 @@ typedef char RecoveredGlobal_8027C6B4_lbl_804D17E8_size[sizeof(RecoveredGlobal_8
 typedef char RecoveredGlobal_8027C6B4___vt__19TWindowSubMagPhoton_size[sizeof(RecoveredGlobal_8027C6B4___vt__19TWindowSubMagPhoton) == 0x1C ? 1 : -1];
 u8 *TWindowSubMagPhoton__ct(u8 *arg0, s32 arg1, s32 arg2, s16 arg3) {
     s16 temp_r4;
-    construct_base__9TWindowDDFPvPvsPv((void *) (arg0), (void *) (&lbl_804D17E8.value), (void *) (arg3), (void *) (arg1));
+    construct_base__9TWindowDDFPvPvsPv((void *) (arg0), (void *) (&TWindowSubMagPhoton__layout_descriptor.value), (void *) (arg3), (void *) (arg1));
     M2C_FIELD(arg0, M2C_UNK **, 0x18) = &(*(RecoveredGlobal_8027C6B4___vt__19TWindowSubMagPhoton *)&__vt__19TWindowSubMagPhoton).value;
     M2C_FIELD(arg0, s32 *, 0) = (s32) TWindowSubMagPhoton__class_name;
     copy_vec2__28TWindowSubSymbolChatPartsSetFPvPv((void *) (arg0 + 0x30), (void *) (arg1));

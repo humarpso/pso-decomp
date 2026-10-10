@@ -17,7 +17,7 @@ extern "C" {
 void debug_print__FPCc(const char *);
 s32 get_global_state__14TOKeyMachine01Fv(void);
 int sprintf(char *, const char *, ...);
-extern char lbl_80449770[];
+extern char pso_data_receive_log_format[];
 extern u8 subcommand_area_masks[];
 extern Handler_801E416C pso_command_dispatch_table[];
 void dispatch_pso_data_commands(Buf_801E416C *b);
@@ -33,7 +33,7 @@ void dispatch_pso_data_commands(Buf_801E416C *b) {
         pkt = &b->data[b->pos];
         for (i = 0; pso_command_dispatch_table[i].cmd != 0; i++) {
             if (pkt[0] == pso_command_dispatch_table[i].cmd) {
-                sprintf(msg, lbl_80449770, pkt[0], pkt[1]);
+                sprintf(msg, pso_data_receive_log_format, pkt[0], pkt[1]);
                 debug_print__FPCc(msg);
                 if (pso_command_dispatch_table[i].mask & subcommand_area_masks[get_global_state__14TOKeyMachine01Fv()]) {
                     pso_command_dispatch_table[i].fn(pkt);

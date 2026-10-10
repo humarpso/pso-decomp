@@ -99,11 +99,11 @@ struct Pkt_801DA734 {
 extern "C" {
 void bswap_cmd_D3_item_bank(void *);
 int sprintf(char *, const char *, ...);
-extern char lbl_804495E8[];
+extern char TProtocol__recv_trade_list_log_format[];
 void handle_cmd_D3__9TProtocolFR6packet(u8 *arg0, Pkt_801DA35C *src);
 void bswap_cmd_D3_item_bank(void *);
 int sprintf(char *, const char *, ...);
-extern char lbl_804495FC[];
+extern char TProtocol__send_trade_list_log_format[];
 void send_trade_list__6TLobbyFPvPv(VObj_18_801DA4A0 *obj, Pkt_801DA4A0 *src);
 int TLobby__sub_801DF024(void *);
 void send_text_packet_D9__6TLobbyFPvPv(VObj_18_801DA548 *obj, char *str);
@@ -148,7 +148,7 @@ void handle_cmd_D3__9TProtocolFR6packet(u8 *arg0, Pkt_801DA35C *src) {
     void (*cb)(void *);
     pkt = *src;
     bswap_cmd_D3_item_bank(&pkt);
-    sprintf(buf, lbl_804495E8, ((PktHdr_801DA35C *)&pkt)->b, ((PktHdr_801DA35C *)&pkt)->a);
+    sprintf(buf, TProtocol__recv_trade_list_log_format, ((PktHdr_801DA35C *)&pkt)->b, ((PktHdr_801DA35C *)&pkt)->a);
     cb = *(void (**)(void *))(arg0 + 0xBC98);
     if (cb != NULL) {
         cb(&pkt);
@@ -176,7 +176,7 @@ extern "C" {
 void send_trade_list__6TLobbyFPvPv(VObj_18_801DA4A0 *obj, Pkt_801DA4A0 *src) {
     char buf[0x80];
     Pkt_801DA4A0 pkt;
-    sprintf(buf, lbl_804495FC, ((PktHdr_801DA4A0 *)src)->b, ((PktHdr_801DA4A0 *)src)->a);
+    sprintf(buf, TProtocol__send_trade_list_log_format, ((PktHdr_801DA4A0 *)src)->b, ((PktHdr_801DA4A0 *)src)->a);
     pkt = *src;
     ((PktHdr_801DA4A0 *)&pkt)->cmd = 0xD0;
     ((PktHdr_801DA4A0 *)&pkt)->flag = 0;

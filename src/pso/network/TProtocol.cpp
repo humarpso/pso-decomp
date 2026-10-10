@@ -210,12 +210,12 @@ struct Pkt_801DC084 {
 
 extern "C" {
 void bswap__12TRecvPsoDataFv(void *);
-extern char lbl_80449610[];
-extern char lbl_80449628[];
+extern char TProtocol__send_pso_data2_log_format[];
+extern char TProtocol__send_pso_data_log_format[];
 
 void send_subcommand_to_client__9TProtocolFPviPvi(VObj_18_801DC084 *obj, s32 flag, s8 *src, s32 len) {
     char buf[0x80];
-    sprintf(buf, lbl_80449610, *src, len, flag);
+    sprintf(buf, TProtocol__send_pso_data2_log_format, *src, len, flag);
     if (*(s32 *)((char *)obj + 0x1910) != 0) {
         Pkt_801DC084 pkt;
         int size;
@@ -231,7 +231,7 @@ void send_subcommand_to_client__9TProtocolFPviPvi(VObj_18_801DC084 *obj, s32 fla
 
 void TProtocol__send_60(VObj_18_801DC084 *obj, s8 *src, u32 len) {
     char buf[0x80];
-    sprintf(buf, lbl_80449628, *src, len);
+    sprintf(buf, TProtocol__send_pso_data_log_format, *src, len);
     if (*(s32 *)((char *)obj + 0x1910) != 0) {
         Pkt_801DC084 pkt;
         int size;

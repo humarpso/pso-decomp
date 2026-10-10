@@ -1,3 +1,17 @@
+#include "pso/TAdMultiOkGC.h"
+struct E_80306AC8 { u8 pad[0x1c]; u32 flags; u8 pad2[0xc4 - 0x20]; };
+struct O_80306AC8 { E_80306AC8 e[12]; u8 pad[0x97c - 12 * 0xc4]; s32 count; };
+extern "C" {
+void TLobby__sub_803DA16C(void *);
+int TLobby__sub_8023E4B4(void *, void *);
+}
+
+extern "C" {
+extern unsigned char multi_confirm_texture_archive_name[];
+void *multi_confirm_texture_entries[3] = { multi_confirm_texture_archive_name, 0, 0 };
+struct MultiConfirmTextureList { void *entries; u32 count; };
+__declspec(section ".data") MultiConfirmTextureList multi_confirm_texture_descriptor = { multi_confirm_texture_entries, 1 };
+}
 #include "types.h"
 struct Ok_80306C10 { u8 pad[0x97C]; s32 count; };
 
@@ -24,6 +38,41 @@ struct Pad_80306DF4 { u8 pad[0x20]; u8 btn[0x30]; };
 struct Q_80306B04 { f32 a; f32 b; f32 c; f32 d; u8 pad[0x10]; };
 
 struct E_80306B04 { u8 pad0[0x1C]; s32 flags; s32 t; f32 x; f32 y; s32 vals[5]; Q_80306B04 q[4]; u8 pad2[4]; };
+
+typedef struct {
+    f32 x, y, x2, y2;
+    f32 u0, v0, u1, v1;
+} Quad_80307034;
+
+typedef struct {
+    s32 f0;
+    s32 f4;
+    f32 x;
+    f32 y;
+    u32 col[5];
+    Quad_80307034 q[5];
+} Item_80307034;
+
+typedef struct {
+    const char *name;
+    u8 pad4[0x18 - 0x04];
+    void *vt;
+    Item_80307034 items[12];
+    s32 idx[12];
+    s32 count;
+    s32 f980;
+} Ok_80307034;
+
+typedef struct {
+    s32 count;
+    u32 mask;
+} Cfg_80307034;
+
+typedef struct { f32 x, y, step; } P3_80307034;
+
+typedef struct { P3_80307034 v[11]; } Pos_80307034;
+
+typedef struct { u32 c[12]; } Col_80307034;
 
 extern "C" {
 s32 get_state_flag__9TMainTaskFv(void);
@@ -54,9 +103,31 @@ extern const f32 lbl_805DF040;
 extern const f32 lbl_805DF044;
 extern const f32 lbl_805DF048;
 void draw_entry__12TAdMultiOkGCFPvi(void *arg0, int arg1);
+void __ct__7TObjectFP7TObject(void *, void *);
+extern void *__vt__12TAdMultiOkGC[];
+extern Pos_80307034 ad_multi_ok_layout_table;
+extern Col_80307034 lbl_804753E0;
+extern const char *lbl_805D4080;
+extern const f32 lbl_805DF05C;
+extern const f32 lbl_805DF060;
+extern const f32 lbl_805DF064;
+extern const f32 lbl_805DF068;
+extern const f32 lbl_805DF06C;
+extern const f32 lbl_805DF070;
+Ok_80307034 *__ct__12TAdMultiOkGCFv(Ok_80307034 *self, void *parent, Cfg_80307034 *cfg);
 }
 
 extern "C" {
+
+int multi_confirm_cancel_requested(void* p) { return *(u32*)((char*)p + 0x980) & 0x1; }
+
+s32 are_all_entries_finished(O_80306AC8 *self) {
+    s32 i;
+    for (i = 0; i < self->count; i++) {
+        if (!(self->e[i].flags & 4)) return 0;
+    }
+    return 1;
+}
 
 #pragma push
 #pragma fp_contract on
@@ -92,7 +163,6 @@ void render__12TAdMultiOkGCFv(Ok_80306C10 *o) {
         reset_transform_state__10TObjPlayerFv();
     }
 }
-
 #pragma push
 #pragma fp_contract on
 void update_entry_animation__12TAdMultiOkGCFPvi(void *arg0, int arg1) {
@@ -160,9 +230,75 @@ void run_task__12TAdMultiOkGCFv(Ok_80306F84 *o) {
         update_entry_animation__12TAdMultiOkGCFPvi((void *)(o), (int)(i));
     }
 }
+}
+TAdMultiOkGC::~TAdMultiOkGC() {}
+extern "C" {
+#pragma push
+#pragma fp_contract on
+Ok_80307034 *__ct__12TAdMultiOkGCFv(Ok_80307034 *self, void *parent, Cfg_80307034 *cfg) {
+    __ct__7TObjectFP7TObject(self, parent);
+    self->vt = __vt__12TAdMultiOkGC;
+    Pos_80307034 pos = ad_multi_ok_layout_table;
+    Col_80307034 cols = lbl_804753E0;
+    s32 n;
+    s32 i;
+    s32 k;
+    self->name = lbl_805D4080;
+    self->count = cfg->count;
+    self->f980 = 0;
+    if (self->count < 2) {
+        self->count = 2;
+    } else if (self->count > 12) {
+        self->count = 12;
+    }
+    n = 0;
+    for (i = 0; i < 12; i++) {
+        if (cfg->mask & (1 << i)) {
+            self->idx[n++] = i;
+            if (n >= self->count) {
+                break;
+            }
+        }
+    }
+    if (n < self->count) {
+        self->count = n;
+    }
+    for (i = 0; i < self->count; i++) {
+        f32 y = pos.v[self->count - 2].y;
+        f32 x = pos.v[self->count - 2].x + (f32)i * pos.v[self->count - 2].step;
+        u32 a = ((cols.c[self->idx[i]] >> 24) / 5) << 24;
+        self->items[i].f0 = 0;
+        self->items[i].f4 = -1;
+        self->items[i].x = lbl_805DF05C + x;
+        self->items[i].y = lbl_805DF060 + y;
+        f32 x2;
+        f32 y2;
+        y2 = lbl_805DF05C + y;
+        x2 = lbl_805DF068 + x;
+        for (k = 0; k < 5; k++) {
+            self->items[i].col[k] = a | (cols.c[self->idx[i]] & 0xFFFFFF);
+            self->items[i].q[k].x = x;
+            self->items[i].q[k].y = y;
+            self->items[i].q[k].x2 = x2;
+            self->items[i].q[k].y2 = y2;
+            self->items[i].q[k].u0 = lbl_805DF06C;
+            self->items[i].q[k].v0 = lbl_805DF06C;
+            self->items[i].q[k].u1 = lbl_805DF064;
+            self->items[i].q[k].v1 = lbl_805DF070;
+        }
+    }
+    return self;
+}
+#pragma pop
 
 }
 
-#include "pso/TAdMultiOkGC.h"
-
-TAdMultiOkGC::~TAdMultiOkGC() {}
+extern "C" {
+void free_multi_confirm_textures(void) {
+    if ((u32) multi_confirm_texture_list != 0U) {
+        TLobby__sub_803DA16C((void*)multi_confirm_texture_list);
+        multi_confirm_texture_list = 0U;
+    }
+}
+void load_multi_confirm_textures(void) { multi_confirm_texture_list = (int)&multi_confirm_texture_descriptor; TLobby__sub_8023E4B4(multi_confirm_texture_archive_name, &multi_confirm_texture_descriptor); }
+}

@@ -301,19 +301,19 @@ extern "C" {
 void VecCopy__FP3VecPC3Vec(void *, void *);
 extern RecoveredGlobal_8006CD78_TCameraCtrl__data_80488DE8 TCameraCtrl__data_80488DE8;
 extern RecoveredGlobal_8006CD78_lbl_80488DF4 camera_fixed_target_position;
-extern u8 TCameraCtrl__data_805D4E20;
+extern u8 TCameraCtrl__override_flags;
 void set_fixed_position_and_target__11TCameraCtrlFPvPv(u8 *arg0, u8 *arg1);
 void VecCopy__FP3VecPC3Vec(void *, void *);
 s32 get_player_by_client_id(u32);
 extern RecoveredGlobal_8006CD78_TCameraCtrl__data_80488DE8 TCameraCtrl__data_80488DE8;
 extern RecoveredGlobal_8006CD78_lbl_80488DF4 camera_fixed_target_position;
 extern u16 TCameraCtrl__camera_override_client_id;
-extern u8 TCameraCtrl__data_805D4E20;
+extern u8 TCameraCtrl__override_flags;
 s32 TCameraCtrl__sub_8006CDD0(u8 *arg0);
 void VecCopy__FP3VecPC3Vec(void *, void *);
 extern RecoveredGlobal_8006CD78_TCameraCtrl__data_80488DE8 TCameraCtrl__data_80488DE8;
 extern u16 TCameraCtrl__camera_override_client_id;
-extern u8 TCameraCtrl__data_805D4E20;
+extern u8 TCameraCtrl__override_flags;
 void set_override_position_and_angle__11TCameraCtrlFPvs(u8 *arg0, s16 arg1);
 extern RecoveredGlobal_8006D494_camera_controller_registry camera_controller_registry;
 extern RecoveredGlobal_8006D494_TCameraCtrl__data_804FF628 TCameraCtrl__data_804FF628;
@@ -329,7 +329,7 @@ s32 angle_difference_abs(int, void *);
 extern RecoveredGlobal_8006D494_camera_controller_registry camera_controller_registry;
 extern RecoveredGlobal_8006D494_TCameraCtrl__data_804FF628 TCameraCtrl__data_804FF628;
 void begin_conversation_camera(void);
-extern u8 TCameraCtrl__data_805D4E20;
+extern u8 TCameraCtrl__override_flags;
 extern u16 TCameraCtrl__camera_override_client_id;
 extern void *local_client_id;
 s32 get_player_by_client_id(u32);
@@ -366,7 +366,7 @@ void TCameraCtrl__sub_8006E804(void* a0);
 s32 get_player_by_client_id(u32);
 extern M2C_UNK follow_camera_vtable[];
 extern u16 TCameraCtrl__camera_override_client_id;
-extern u8 TCameraCtrl__data_805D4E20;
+extern u8 TCameraCtrl__override_flags;
 extern void *local_client_id;
 void *construct_view_controller__11TCameraCtrlFPv(void *arg0);
 s32 is_split_screen();
@@ -490,19 +490,19 @@ typedef char RecoveredGlobal_8006CD78_lbl_80488DF4_size[sizeof(RecoveredGlobal_8
 typedef char RecoveredGlobal_8006CD2C_TCameraCtrl__data_80488DE8_size[sizeof(RecoveredGlobal_8006CD2C_TCameraCtrl__data_80488DE8) == 0xC ? 1 : -1];
 
 void reset_to_local_player__11TCameraCtrlFv(void) {
-    TCameraCtrl__data_805D4E20 = 0;
+    TCameraCtrl__override_flags = 0;
     TCameraCtrl__camera_override_client_id = 0xFFFF;
     reset_cameras_to_actor(((void *)get_player_by_client_id((u32)(local_client_id))), 0);
 }
 
 void set_override_position_and_angle__11TCameraCtrlFPvs(u8 *arg0, s16 arg1) {
-    TCameraCtrl__data_805D4E20 |= 2;
+    TCameraCtrl__override_flags |= 2;
     VecCopy__FP3VecPC3Vec(&(*(RecoveredGlobal_8006CD2C_TCameraCtrl__data_80488DE8 *)&TCameraCtrl__data_80488DE8).value, arg0);
     (*(s16 *)&TCameraCtrl__camera_override_client_id) = arg1;
 }
 
 void set_fixed_position_and_target__11TCameraCtrlFPvPv(u8 *arg0, u8 *arg1) {
-    TCameraCtrl__data_805D4E20 |= 1;
+    TCameraCtrl__override_flags |= 1;
     VecCopy__FP3VecPC3Vec(&TCameraCtrl__data_80488DE8.value, arg0);
     VecCopy__FP3VecPC3Vec(&camera_fixed_target_position.value, arg1);
 }
@@ -511,10 +511,10 @@ typedef char RecoveredGlobal_8006CDD0_TCameraCtrl__data_80488DE8_size[sizeof(Rec
 typedef char RecoveredGlobal_8006CDD0_lbl_80488DF4_size[sizeof(RecoveredGlobal_8006CDD0_lbl_80488DF4) == 0xC ? 1 : -1];
 s32 TCameraCtrl__sub_8006CDD0(u8 *arg0) {
     u8 *temp_r3;
-    if ((u8) TCameraCtrl__data_805D4E20 != 0) {
+    if ((u8) TCameraCtrl__override_flags != 0) {
         M2C_FIELD(arg0, s32 *, 0x38) = 0;
         VecCopy__FP3VecPC3Vec(arg0 + 0x3C, &(*(RecoveredGlobal_8006CDD0_TCameraCtrl__data_80488DE8 *)&TCameraCtrl__data_80488DE8).value);
-        if (TCameraCtrl__data_805D4E20 & 2) {
+        if (TCameraCtrl__override_flags & 2) {
             temp_r3 = (u8 *)(get_player_by_client_id((u32) TCameraCtrl__camera_override_client_id));
             if (temp_r3 != NULL) {
                 M2C_FIELD(arg0, f32 *, 0x48) = (f32) M2C_FIELD(temp_r3, f32 *, 0x38);
@@ -1218,7 +1218,7 @@ void *construct_view_controller__11TCameraCtrlFPv(void *arg0) {
     s32 i;
     TCameraCtrl__sub_80068714();
     O_8006E714->vt = ((u8 *)&follow_camera_vtable);
-    TCameraCtrl__data_805D4E20 = 0;
+    TCameraCtrl__override_flags = 0;
     TCameraCtrl__camera_override_client_id = 0xFFFF;
     O_8006E714->ffc = 0;
     O_8006E714->ff4 = 0;

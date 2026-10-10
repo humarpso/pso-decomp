@@ -47,7 +47,7 @@ void update_state_move__22TAdMultiPlyChrSelectGCFPv(void *arg0);
 M2C_UNK clear_entries__18TAdChrMoveEffectGCFPv();
 M2C_UNK setup_move_effect_params__18TAdChrMoveEffectGCFPvii(u32, s32, u32);
 M2C_UNK create_effects__14TAdGameStartGCFPv(s32);
-s32 TAdMultiPlyChrSelectGC__sub_802C64D0(M2C_UNK);
+s32 is_multiplayer_character_slot_selected(M2C_UNK);
 s32 TAdMultiPlyChrSelectGC__sub_802C6558();
 M2C_UNK reset_slot_selections__22TAdMultiPlyChrSelectGCFv();
 u32 TAdMultiPlyChrSelectGC__sub_802DBE4C(void *, M2C_UNK *);
@@ -115,7 +115,7 @@ void update_confirm_start__22TAdMultiPlyChrSelectGCFPv(void *arg0) {
     s32 temp_r31;
     s32 temp_r3;
 
-    if ((get_ready_state__22TAdMultiPlyChrSelectGCFPv(M2C_FIELD(arg0, s32 *, 0x78)) == 0) && (TAdMultiPlyChrSelectGC__sub_802C6558() > 1) && (TAdMultiPlyChrSelectGC__sub_802C64D0(0) != 0)) {
+    if ((get_ready_state__22TAdMultiPlyChrSelectGCFPv(M2C_FIELD(arg0, s32 *, 0x78)) == 0) && (TAdMultiPlyChrSelectGC__sub_802C6558() > 1) && (is_multiplayer_character_slot_selected(0) != 0)) {
         temp_r31 = count_ready__22TAdMultiPlyChrSelectGCFv();
         temp_r3 = TAdMultiPlyChrSelectGC__sub_802C6558();
         if (temp_r3 != temp_r31) {

@@ -59,7 +59,7 @@ void __dl__7TObjectFPv(void *);
 void destroy_key_base__5TOKeyFPvs(void *, int);
 M2C_UNK init_map_object_base();
 extern M2C_UNK __vt__16TObjCurtainLobby[];
-extern s32 lbl_805D4424;
+extern s32 TObjCurtainLobby__class_name;
 
 #pragma push
 #pragma opt_propagation off
@@ -168,7 +168,7 @@ void *__dt__16TObjCurtainLobbyFv(void *arg0, s16 arg1) {
 void *TObjCurtainLobby__ct(void *arg0, s32 arg1, s32 arg2) {
     init_map_object_base();
     M2C_FIELD(arg0, M2C_UNK **, 0x18) = __vt__16TObjCurtainLobby;
-    M2C_FIELD(arg0, s32 *, 0) = (s32) lbl_805D4424;
+    M2C_FIELD(arg0, s32 *, 0) = (s32) TObjCurtainLobby__class_name;
     ((TObjCurtainLobby8035BB_8035BB24 *)arg0)->ct(arg2);
     if (((s32 (*)(void *))get_lobby_theme_clamped__16TObjCurtainLobbyFv)(arg0) == 0xC) {
         M2C_FIELD(arg0, s32 *, 0xC8) = 3;

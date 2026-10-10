@@ -15,8 +15,8 @@ void set_entry_index__9TLanguageFii(int, int);
 extern u8 lbl_8047AD08[];
 extern u8 lbl_8047AD14[];
 extern u8 lbl_8047AD20[];
-extern u32 lbl_805D7018;
-extern s32 lbl_805D701C;
+extern u32 TBGMulti__textures;
+extern s32 split_screen_hud_animation_frame;
 void TBGMulti__ct(void);
 }
 
@@ -26,13 +26,13 @@ void free_singleton_805D7018__6TLobbyFv(void);
 M2C_UNK safe_free__23TAdSinglePlyChrSelectGCFUi(u32);
 M2C_UNK TLobby__sub_803DA16C(void*);
 
-extern u32 lbl_805D7018;
+extern u32 TBGMulti__textures;
 
 void free_singleton_805D7018__6TLobbyFv(void) {
-    if ((u32) lbl_805D7018 != 0U) {
-        TLobby__sub_803DA16C((void*)lbl_805D7018);
-        safe_free__23TAdSinglePlyChrSelectGCFUi(lbl_805D7018);
-        lbl_805D7018 = 0U;
+    if ((u32) TBGMulti__textures != 0U) {
+        TLobby__sub_803DA16C((void*)TBGMulti__textures);
+        safe_free__23TAdSinglePlyChrSelectGCFUi(TBGMulti__textures);
+        TBGMulti__textures = 0U;
     }
 }
 void TBGMulti__ct(void) {
@@ -41,11 +41,11 @@ void TBGMulti__ct(void) {
         sp8[0] = tmp_buf_use_req__6TLobbyFPv(lbl_8047AD08);
         draw_string__9TLanguageFPvPvi(lbl_8047AD14, sp8, 0x4D);
         tmp_buf_release__6TLobbyFi(lbl_8047AD08);
-        (*(s32 *)&lbl_805D7018) = load_gvm_texture_file(lbl_8047AD20);
+        (*(s32 *)&TBGMulti__textures) = load_gvm_texture_file(lbl_8047AD20);
         set_global_param__8TObjFishFi();
         set_entry_index__9TLanguageFii(0, 0x4D);
     }
-    lbl_805D701C = 0x384;
+    split_screen_hud_animation_frame = 0x384;
 }
 
 }

@@ -22,7 +22,7 @@ u8 is_main_phase_15__9TObjEneDDFv(void);
 u8 is_phase_e__9TObjEneDDFv(void);
 int query_teammate_state__9TObjEneDDFPv(void* p);
 int update_lobby_state__9TObjEneDDFPv(void* p);
-int TLobby__sub_800C6C10(void*);
+int is_local_client_floor_leader(void*);
 int TObjPlayer__sub_801BA42C(void*);
 int freeze_all_players__10TObjPlayerFv(void*);
 s32 get_main_phase();
@@ -53,7 +53,7 @@ void project_sound_origin_from_camera(s32 arg0, u8 *arg1, f32 farg0) {
 }
 
 int query_teammate_state__9TObjEneDDFPv(void* p) { return is_any_teammate_in_state__10TObjPlayerFv(p); }
-int update_lobby_state__9TObjEneDDFPv(void* p) { return TLobby__sub_800C6C10(p); }
+int update_lobby_state__9TObjEneDDFPv(void* p) { return is_local_client_floor_leader(p); }
 u8 is_phase_e__9TObjEneDDFv(void) {
     return (u8) (get_main_phase() == 0xE);
 }

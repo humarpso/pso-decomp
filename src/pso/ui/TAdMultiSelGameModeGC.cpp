@@ -45,7 +45,7 @@ struct Obj_8030095C {
 extern "C" {
 extern s32 TAdMultiSelGameModeGC__data_805D69F0;
 s32 TObjEneDolmOlm__sub_80300CF0(void);
-s32 TAdMultiPlyChrSelectGC__sub_802C64D0(u32);
+s32 is_multiplayer_character_slot_selected(u32);
 Ent_80300850 *get_char_table_entry__23TAdSinglePlyChrSelectGCFi(int);
 s32 get_max_difficulty_for_party_level(void);
 s32 get_instance__6TLobbyFv(void);
@@ -194,7 +194,7 @@ s32 get_max_difficulty_for_party_level(void) {
     }
     m = TObjEneDolmOlm__sub_80300CF0();
     for (i = 0; i < 4; i++) {
-        if (TAdMultiPlyChrSelectGC__sub_802C64D0(i) != 0) {
+        if (is_multiplayer_character_slot_selected(i) != 0) {
             s32 t = get_char_table_entry__23TAdSinglePlyChrSelectGCFi(i)->f364 + 1;
             if ((u32)t < (u32)m) {
                 m = t;

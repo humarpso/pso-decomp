@@ -277,7 +277,7 @@ void reset_cameras_to_actor(void *, s32);
 void refresh_equipment_slot__10TObjPlayerFv(void *p);
 f32 sin_table_lookup(s32);
 f32 cos_table_lookup(s32);
-extern Vec_8004B7DC lbl_804371C8;
+extern Vec_8004B7DC dark_falz_player_ring_center;
 extern s32 lbl_805D586C;
 extern const f32 lbl_805D892C;
 void TBoss4DarkFalz__sub_8004B7DC(void *arg0);
@@ -305,7 +305,7 @@ s32 calc_rate_from_field__14TBoss4DarkFalzFPv(void *arg0);
 u8 is_ending_or_split_screen__14TBoss4DarkFalzFv(void);
 s32 is_timer_expired__14TBoss4DarkFalzFPv(void *arg0);
 void update_visible_flag__14TBoss4DarkFalzFPv(void *arg0);
-s32 TLobby__sub_800C6C10();
+s32 is_local_client_floor_leader();
 void *dispatch_shared_handler_a__6TLobbyFPv(M2C_UNK);
 s32 get_main_phase();
 s32 is_split_screen();
@@ -426,7 +426,7 @@ void change_state__14TBoss4DarkFalzFPvi(Boss_8004B20C *arg0, s32 arg1) {
 }
 
 void update_visible_flag__14TBoss4DarkFalzFPv(void *arg0) {
-    if (TLobby__sub_800C6C10() != 0) {
+    if (is_local_client_floor_leader() != 0) {
         M2C_FIELD(arg0, s32 *, 0x378) = 0;
         return;
     }
@@ -617,7 +617,7 @@ void refresh_player_equipment__14TBoss4DarkFalzFPv(void *self) {
 
 #pragma fp_contract on
 void TBoss4DarkFalz__sub_8004B7DC(void *arg0) {
-    Vec_8004B7DC base = lbl_804371C8;
+    Vec_8004B7DC base = dark_falz_player_ring_center;
     s32 rate;
     s32 ang;
     s32 i;

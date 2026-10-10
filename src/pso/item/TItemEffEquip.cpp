@@ -84,7 +84,7 @@ M2C_UNK spawn_equip_particle_effect(void *, void *);
 M2C_UNK __ct__7TObjectFP7TObject(void *, void *);
 extern M2C_UNK TItemEffEquip__sub_801088D0[];
 extern M2C_UNK TItemEffEquip__sub_801088F8[];
-extern s32 lbl_805D2BA0;
+extern s32 TItemEffEquip__class_name;
 Obj_80108C90 *TItemEffFlame__sub_80108C90(Obj_80108C90 *self, void *parent, s16 a, s32 b);
 
 #define self ((Equip_80108A20 *)arg0)
@@ -93,7 +93,7 @@ void *TItemEffEquip__ct(void *arg0, void *arg1, void *arg2, void *arg3, void *ar
 
     __ct__7TObjectFP7TObject(arg0, arg1);
     self->vt = __vt__13TItemEffEquip;
-    self->x0 = lbl_805D2BA0;
+    self->x0 = TItemEffEquip__class_name;
     disallow_rendering__7TObjectFv(arg0);
     mem = __nw__7TObjectFUl(0xE0);
     if (mem != NULL) {

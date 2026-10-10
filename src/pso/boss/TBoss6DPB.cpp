@@ -84,7 +84,7 @@ u8 *dispatch_shared_handler_a__6TLobbyFPv(s32);
 s32 play_sound_effect(s32, u32, int, s32);
 s32 __ct__7TObjectFP7TObject(void *, void *);
 extern RecoveredGlobal_8035DB70___vt__9TBoss6DPB __vt__9TBoss6DPB;
-extern s32 lbl_805D4450;
+extern s32 TBoss6DPB__class_name;
 extern const f32 lbl_805E01CC;
 extern const f32 lbl_805E01D4;
 u8 *__ct__9TBoss6DPBFv(u8 *arg0, s32 arg1, s32 arg2, f32 farg0);
@@ -176,7 +176,7 @@ u8 *__ct__9TBoss6DPBFv(u8 *arg0, s32 arg1, s32 arg2, f32 farg0) {
     f32 temp_f2;
     __ct__7TObjectFP7TObject((void *) (arg0), (void *) (arg1));
     M2C_FIELD(arg0, M2C_UNK **, 0x18) = &__vt__9TBoss6DPB.value;
-    M2C_FIELD(arg0, s32 *, 0) = (s32) lbl_805D4450;
+    M2C_FIELD(arg0, s32 *, 0) = (s32) TBoss6DPB__class_name;
     M2C_FIELD(arg0, s32 *, 0x1C) = arg1;
     VecCopy__FP3VecPC3Vec((void *) (arg0 + 0x20), (void *) (arg2));
     M2C_FIELD(arg0, f32 *, 0x24) = (f32) lbl_805E01CC;

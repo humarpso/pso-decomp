@@ -53,7 +53,7 @@ void TLobby__sub_80141038(void *, s32, s32);
 s32 get_floor_map_terrain(s32);
 void randomize_adventure_maps(void);
 extern RecoveredGlobal_802075F8_lbl_80515BA0 lbl_80515BA0;
-extern s32 lbl_805D2CD8;
+extern s32 pending_adventure_map_floor;
 void prepare_adventure_maps(void);
 s32 get_bml_motion(int, int);
 s32 TObjFish__sub_8001EDB0(int, int);
@@ -252,9 +252,9 @@ void TLobby__sub_802075F4(void) {  }
 typedef char RecoveredGlobal_802075F8_lbl_80515BA0_size[sizeof(RecoveredGlobal_802075F8_lbl_80515BA0) == 0x28 ? 1 : -1];
 void prepare_adventure_maps(void) {
     randomize_adventure_maps();
-    if ((s32) lbl_805D2CD8 != -1) {
-        TLobby__sub_80141038(&lbl_80515BA0.value, lbl_805D2CD8, get_floor_map_terrain(lbl_805D2CD8));
-        lbl_805D2CD8 = -1;
+    if ((s32) pending_adventure_map_floor != -1) {
+        TLobby__sub_80141038(&lbl_80515BA0.value, pending_adventure_map_floor, get_floor_map_terrain(pending_adventure_map_floor));
+        pending_adventure_map_floor = -1;
     }
 }
 

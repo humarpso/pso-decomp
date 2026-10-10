@@ -17,19 +17,19 @@ struct RecoveredGlobal_80222CBC_lbl_8044C308
 };
 
 extern "C" {
-extern s32 lbl_805D36F0;
+extern s32 quest_and_shop_error_text;
 extern s32 **lbl_805D6258;
 s32 get_shop_text(s32 arg0);
-extern s32 lbl_805D36F0;
+extern s32 quest_and_shop_error_text;
 extern s32 **lbl_805D6258;
 s32 get_quest_list_text(s32 arg0, s32 arg1);
 s32 get_game_play_mode();
 extern RecoveredGlobal_80222C54_lbl_8044C330 lbl_8044C330;
-extern s32 lbl_805D36F0;
+extern s32 quest_and_shop_error_text;
 extern s32 **lbl_805D6258;
 s32 get_guild_text(s32 arg0);
 extern RecoveredGlobal_80222CBC_lbl_8044C308 lbl_8044C308;
-extern s32 lbl_805D36F0;
+extern s32 quest_and_shop_error_text;
 extern s32 lbl_805D6238;
 extern s32 **lbl_805D6258;
 s32 TLobby__sub_80222CBC(s32 arg0);
@@ -41,7 +41,7 @@ s32 get_quest_list_text(s32 arg0, s32 arg1) {
     if ((s32 *) (*(s32 * *)&lbl_805D6258) != NULL) {
         return M2C_FIELD((M2C_FIELD((M2C_FIELD((*(s32 * *)&lbl_805D6258), s32 *, 0) + (arg0 * 4)), s32 *, 0) + (arg1 * 4)), s32 *, 0);
     }
-    return lbl_805D36F0;
+    return quest_and_shop_error_text;
 }
 
 typedef struct RecoveredGlobal_80222C54_lbl_8044C330 RecoveredGlobal_80222C54_lbl_8044C330;
@@ -53,7 +53,7 @@ s32 get_guild_text(s32 arg0) {
     new_var = *((s32 *) (((s8 *) (((u8 *) (&lbl_8044C330.value)) + (get_game_play_mode() * 4))) + 0));
     return *((s32 *) (((s8 *) ((*((s32 *) (((s8 *) ((*((s32 *) (((s8 *) (*(s32 * *)&lbl_805D6258)) + 0))) + (new_var * 4))) + 0))) + (arg0 * 4))) + 0));
   }
-  return lbl_805D36F0;
+  return quest_and_shop_error_text;
 }
 
 typedef struct RecoveredGlobal_80222CBC_lbl_8044C308 RecoveredGlobal_80222CBC_lbl_8044C308;
@@ -63,14 +63,14 @@ s32 TLobby__sub_80222CBC(s32 arg0) {
   {
     return *((s32 *) (((s8 *) ((*((s32 *) (((s8 *) ((*((s32 *) (((s8 *) (*(s32 * *)&lbl_805D6258)) + 0))) + ((*((s32 *) (((s8 *) (((u8 *) (&lbl_8044C308.value)) + (lbl_805D6238 * 4))) + 0))) * 4))) + 0))) + (2 * (2 * arg0)))) + 0));
   }
-  return lbl_805D36F0;
+  return quest_and_shop_error_text;
 }
 
 s32 get_shop_text(s32 arg0) {
     if ((s32 **) lbl_805D6258 != NULL) {
         return M2C_FIELD(**lbl_805D6258, M2C_UNK *, (arg0 * 4));
     }
-    return lbl_805D36F0;
+    return quest_and_shop_error_text;
 }
 
 }

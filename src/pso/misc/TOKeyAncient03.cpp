@@ -112,8 +112,8 @@ s32 *alloc_buffer__11TOBoss4RockFPv(s32);
 s32 load_gvm_texture_file(void *);
 extern RecoveredGlobal_8016BC84_lbl_80441ACC lbl_80441ACC;
 extern RecoveredGlobal_8016BC84_lbl_804B2B30 lbl_804B2B30;
-extern u32 lbl_805D5A10;
-extern void *TOKeyAncient03__data_805D5A14;
+extern u32 TOKeyAncient03__model_archive;
+extern void *TOKeyAncient03__texture_variants;
 void load_resources__14TOKeyAncient03Fv(void);
 s32 get_main_phase(void);
 s32 is_split_screen();
@@ -121,8 +121,8 @@ u8 * TOKey__ct(void *);
 M2C_UNK init_switch_id__5TOKeyFPv(void *);
 extern M2C_UNK __vt__14TOKeyAncient03[];
 extern s32 lbl_805D302C;
-extern u32 lbl_805D5A10;
-extern void *TOKeyAncient03__data_805D5A14;
+extern u32 TOKeyAncient03__model_archive;
+extern void *TOKeyAncient03__texture_variants;
 extern const f32 lbl_805DB71C;
 extern const f32 lbl_805DB720;
 extern const f32 lbl_805DB72C;
@@ -147,7 +147,7 @@ M2C_UNK draw_ginja_model(int);
 M2C_UNK set_chunk_material_color(void *);
 extern u8 chunk_material_color_half_alpha_f32[];
 extern s32 lbl_805D5660;
-extern void *TOKeyAncient03__data_805D5A14;
+extern void *TOKeyAncient03__texture_variants;
 extern s32 some_id_805c6f74;
 void render__14TOKeyAncient03Fv(u8 *arg0);
 }
@@ -228,7 +228,7 @@ void render__14TOKeyAncient03Fv(u8 *arg0) {
     u8 *temp_r31_2;
     u8 *temp_r31_3;
     if (((VObj_18_8016BABC *)arg0)->m8(M2C_FIELD(arg0, f32 *, 0xC0), M2C_FIELD(arg0, f32 *, 0xC4)) != 0) {
-        set_global_param__8TObjFishFi((int) (M2C_FIELD(TOKeyAncient03__data_805D5A14, M2C_UNK *, (M2C_FIELD(arg0, s32 *, 0xD4) * 4))));
+        set_global_param__8TObjFishFi((int) (M2C_FIELD(TOKeyAncient03__texture_variants, M2C_UNK *, (M2C_FIELD(arg0, s32 *, 0xD4) * 4))));
         push_matrix();
         post_translate_matrix((void *) (arg0 + 0x38));
         rotate_matrix_y((int) (0), (int) (M2C_FIELD(arg0, s32 *, 0x60)));
@@ -270,20 +270,20 @@ void *create__14TOKeyAncient03FPv(void *arg0) {
     return o;
 }
 
-extern u32 lbl_805D5A10;
-extern void *TOKeyAncient03__data_805D5A14;
+extern u32 TOKeyAncient03__model_archive;
+extern void *TOKeyAncient03__texture_variants;
 
 void cleanup_refs__14TOKeyAncient03Fv(void) {
-    if ((void *) TOKeyAncient03__data_805D5A14 != NULL) {
-        free_if_valid__10TObjPlayerFi(M2C_FIELD(TOKeyAncient03__data_805D5A14, s32 *, 4));
-        if ((void *) TOKeyAncient03__data_805D5A14 != NULL) {
-            free__11TOBoss4RockFUi((void*)TOKeyAncient03__data_805D5A14);
-            TOKeyAncient03__data_805D5A14 = NULL;
+    if ((void *) TOKeyAncient03__texture_variants != NULL) {
+        free_if_valid__10TObjPlayerFi(M2C_FIELD(TOKeyAncient03__texture_variants, s32 *, 4));
+        if ((void *) TOKeyAncient03__texture_variants != NULL) {
+            free__11TOBoss4RockFUi((void*)TOKeyAncient03__texture_variants);
+            TOKeyAncient03__texture_variants = NULL;
         }
     }
-    if ((u32) lbl_805D5A10 != 0U) {
-        TLobby__sub_8001FE7C((void*)lbl_805D5A10, 1);
-        lbl_805D5A10 = 0U;
+    if ((u32) TOKeyAncient03__model_archive != 0U) {
+        TLobby__sub_8001FE7C((void*)TOKeyAncient03__model_archive, 1);
+        TOKeyAncient03__model_archive = 0U;
     }
 }
 
@@ -300,11 +300,11 @@ void load_resources__14TOKeyAncient03Fv(void) {
     if (var_r0 != NULL) {
         var_r0 = (u8 *)(load_resource_from_descriptor(temp_r3, 1, &lbl_804B2B30.value, 0, 0, 0));
     }
-    (*(u8 * *)&lbl_805D5A10) = var_r0;
+    (*(u8 * *)&TOKeyAncient03__model_archive) = var_r0;
     temp_r3_2 = (s32 *)(alloc_buffer__11TOBoss4RockFPv(8));
-    (*(s32 * *)&TOKeyAncient03__data_805D5A14) = temp_r3_2;
-    *temp_r3_2 = M2C_FIELD(M2C_FIELD((*(u8 * *)&lbl_805D5A10), u8 **, 0x42C), s32 *, 0xC);
-    M2C_FIELD((*(s32 * *)&TOKeyAncient03__data_805D5A14), s32 *, 4) = load_gvm_texture_file((void *) (&lbl_80441ACC.value));
+    (*(s32 * *)&TOKeyAncient03__texture_variants) = temp_r3_2;
+    *temp_r3_2 = M2C_FIELD(M2C_FIELD((*(u8 * *)&TOKeyAncient03__model_archive), u8 **, 0x42C), s32 *, 0xC);
+    M2C_FIELD((*(s32 * *)&TOKeyAncient03__texture_variants), s32 *, 4) = load_gvm_texture_file((void *) (&lbl_80441ACC.value));
 }
 
 void *__dt__14TOKeyAncient03Fv(void *arg0, s16 arg1) {
@@ -324,8 +324,8 @@ u8 *TOKeyAncient03__ct(u8 *arg0, M2C_UNK arg1, s32 arg2) {
     M2C_FIELD(arg0, s32 *, 0) = (s32) lbl_805D302C;
     ((VObj_18_1a504b *)(arg0))->m5(arg2);
     init_switch_id__5TOKeyFPv((void *) (arg0));
-    M2C_FIELD(arg0, s32 *, 0x24) = (s32) *(*(s32 * *)&TOKeyAncient03__data_805D5A14);
-    M2C_FIELD(arg0, u8 **, 0x34) = (unsigned char *) ((void *) M2C_FIELD(M2C_FIELD((*(u8 * *)&lbl_805D5A10), u8 **, 0x42C), void **, 8));
+    M2C_FIELD(arg0, s32 *, 0x24) = (s32) *(*(s32 * *)&TOKeyAncient03__texture_variants);
+    M2C_FIELD(arg0, u8 **, 0x34) = (unsigned char *) ((void *) M2C_FIELD(M2C_FIELD((*(u8 * *)&TOKeyAncient03__model_archive), u8 **, 0x42C), void **, 8));
     M2C_FIELD(arg0, f32 *, 0xC0) = (f32) lbl_805DB72C;
     M2C_FIELD(arg0, f32 *, 0xC4) = (f32) M2C_FIELD(M2C_FIELD(M2C_FIELD(arg0, u8 **, 0x34), void **, 4), f32 *, 0x14);
     M2C_FIELD(arg0, f32 *, 0xCC) = (f32) lbl_805DB730;

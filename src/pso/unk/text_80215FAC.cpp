@@ -35,7 +35,7 @@ s32 TShopSequence__ct(void *);
 s32 TShopWindowBase__sub_8022397C(void *);
 extern RecoveredGlobal_80215FAC___vt__17TJudgmentSequence __vt__17TJudgmentSequence;
 extern RecoveredGlobal_80215FAC_TJudgmentSequence__data_80513E80 TJudgmentSequence__slot_flags;
-extern s32 lbl_805D3670;
+extern s32 TJudgmentSequence__class_name;
 extern u8 *lbl_805D61D0;
 u8 *TJudgmentSequence__ct(u8 *arg0, M2C_UNK arg1, s32 arg2);
 s32 TShopGenerator__sub_80222DAC(s32);
@@ -63,7 +63,7 @@ s32 TShopGenerator__sub_80222DAC(s32);
 s32 __ct__7TObjectFP7TObject(void *, void *);
 extern u8 __vt__17TMedicalCenterMes[];
 extern RecoveredGlobal_80216084_TMedicalCenterMes__data_80513EA0 TMedicalCenterMes__slot_flags;
-extern s32 lbl_805D367C;
+extern s32 TMedicalCenterMes__class_name;
 Med_80216320 *TMedicalCenterMes__ct(Med_80216320 *arg0, void *arg1, void *arg2);
 void *obj_getField1c(void *);
 void queue_destruction__7TObjectFv(void *);
@@ -96,7 +96,7 @@ typedef char RecoveredGlobal_80215FAC_TJudgmentSequence__data_80513E80_size[size
 u8 *TJudgmentSequence__ct(u8 *arg0, M2C_UNK arg1, s32 arg2) {
     TShopSequence__ct((void *) (arg0));
     M2C_FIELD(arg0, M2C_UNK **, 0x18) = &__vt__17TJudgmentSequence.value;
-    M2C_FIELD(arg0, s32 *, 0) = (s32) lbl_805D3670;
+    M2C_FIELD(arg0, s32 *, 0) = (s32) TJudgmentSequence__class_name;
     M2C_FIELD(arg0, s32 *, 0x24) = arg2;
     M2C_FIELD(arg0, s32 *, 0x2C) = 0;
     M2C_FIELD(arg0, s32 *, 0x30) = 0;
@@ -197,7 +197,7 @@ Med_80216320 *TMedicalCenterMes__ct(Med_80216320 *arg0, void *arg1, void *arg2) 
     fn_80222BCC(&arg0->sub);
     arg0->vt = __vt__17TMedicalCenterMes;
     arg0->sub = __vt__17TMedicalCenterMes + 0x18;
-    arg0->f0 = lbl_805D367C;
+    arg0->f0 = TMedicalCenterMes__class_name;
     arg0->f230 = 0;
     arg0->f22c = arg2;
     if (arg0->f22c != 0) {

@@ -16,14 +16,14 @@ M2C_UNK rotate_matrix_y(int, int);
 M2C_UNK push_matrix();
 M2C_UNK pop_matrix();
 
-extern u32 TObjTombstone__data_805D4E48;
+extern u32 TObjTombstone__shared_resource_object;
 extern s32 lbl_805D4E4C;
 
 void update_render_flags__13TObjTombstoneFPv(u8 *arg0) {
     u8 *temp_r3;
     s32 *temp_r4;
 
-    if ((u32) TObjTombstone__data_805D4E48 != 0U) {
+    if ((u32) TObjTombstone__shared_resource_object != 0U) {
         if ((s32) lbl_805D4E4C == 0) {
             scroll_ginja_mesh_uvs((void *) (M2C_FIELD(M2C_FIELD(M2C_FIELD(M2C_FIELD(arg0, void **, 0x34), void **, 0x2C), void **, 0x30), s32 *, 4)), (int) (-8), (int) (0), (int) (0), (int) (1));
             lbl_805D4E4C = 1;

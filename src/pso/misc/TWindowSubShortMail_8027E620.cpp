@@ -813,11 +813,11 @@ void update__19TWindowSubShortMailFPv(void *arg0) {
     fn_8027FD94(M2C_FIELD(arg0, s32 *, 0x28), get_selected_menu_value(M2C_FIELD(arg0, s32 *, 0x24)));
 }
 
-extern M2C_UNK lbl_804D1AD0[];
+extern M2C_UNK status_category_window_vtable[];
 
 void *destroy__19TWindowSubShortMailFPvs(void *arg0, s16 arg1) {
     if (arg0 != NULL) {
-        M2C_FIELD(arg0, M2C_UNK **, 0x18) = lbl_804D1AD0;
+        M2C_FIELD(arg0, M2C_UNK **, 0x18) = status_category_window_vtable;
         if (M2C_FIELD(arg0, void **, 0x28) != NULL) { ((void (*)(void *)) TWindow__close)((void *)(M2C_FIELD(arg0, void **, 0x28))); M2C_FIELD(arg0, M2C_UNK *, 0x28) = 0; }
         if (M2C_FIELD(arg0, void **, 0x24) != NULL) { ((void (*)(void *)) TWindow__close)((void *)(M2C_FIELD(arg0, void **, 0x24))); M2C_FIELD(arg0, M2C_UNK *, 0x24) = 0; }
         __dt__7TObjectFv((void *)(arg0), (int)(0));

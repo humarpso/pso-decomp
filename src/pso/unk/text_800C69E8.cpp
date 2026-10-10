@@ -28,6 +28,13 @@ extern u8 identity_matrix[];
 extern const f32 lbl_805DA068;
 extern const f32 lbl_805DA06C;
 void pick_open_direction__10TObjPlayerFPvPvff(u8 *self, f32 *dir, f32 a, f32 b);
+s32 get_main_phase();
+s32 get_current_floor();
+s32 get_field_3e4__10TObjPlayerFPv(s32);
+s32 get_player_by_client_id(s32);
+extern s32 local_client_id;
+extern s32 TLobby__designated_client_id;
+u8 is_local_client_floor_leader(void);
 }
 
 extern "C" {
@@ -106,5 +113,36 @@ void pick_open_direction__10TObjPlayerFPvPvff(u8 *self, f32 *dir, f32 a, f32 b) 
     vec3_add_to(self + 0x29C, &sp20);
     pop_matrix();
 }
+#pragma push
+#pragma opt_propagation off
+u8 is_local_client_floor_leader(void) {
+    s32 p;
+    s32 floor;
+    s32 id;
+    s32 i;
+    s32 n;
+    if (get_main_phase() == 0xF) {
+        p = get_player_by_client_id(TLobby__designated_client_id);
+        if (p != 0) {
+            if (get_field_3e4__10TObjPlayerFPv(p) == get_current_floor()) {
+                return local_client_id == TLobby__designated_client_id;
+            }
+        }
+        for (i = 0; i < 4; i++) {
+            s32 t = TLobby__designated_client_id;
+            n = i + 1;
+            id = (t + n) % 4;
+            p = get_player_by_client_id(id);
+            if (p != 0) {
+                if (get_field_3e4__10TObjPlayerFPv(p) == get_current_floor()) {
+                    break;
+                }
+            }
+        }
+        return local_client_id == id;
+    }
+    return 1;
+}
+#pragma pop
 
 }

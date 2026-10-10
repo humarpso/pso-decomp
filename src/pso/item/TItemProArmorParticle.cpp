@@ -19,7 +19,7 @@ u8 get_slot_count__14TItemProShieldFPv(void *);
 u8 * TItemProArmor__ct(void *, void *);
 extern RecoveredGlobal_803646F0_lbl_8047A020 TItemProArmorParticle__particle_id_table;
 extern M2C_UNK __vt__21TItemProArmorParticle[];
-extern s32 lbl_805D4478;
+extern s32 TItemProArmorParticle__class_name;
 u8 *TItemProArmorParticle__ct(u8 *arg0, u8 *arg1);
 }
 
@@ -95,7 +95,7 @@ u8 *TItemProArmorParticle__ct(u8 *arg0, u8 *arg1) {
     u8 temp_r0;
     TItemProArmor__ct(arg0, arg1);
     M2C_FIELD(arg0, M2C_UNK **, 0x18) = &(*(RecoveredGlobal_803646F0___vt__21TItemProArmorParticle *)&__vt__21TItemProArmorParticle).value;
-    M2C_FIELD(arg0, s32 *, 0) = (s32) lbl_805D4478;
+    M2C_FIELD(arg0, s32 *, 0) = (s32) TItemProArmorParticle__class_name;
     M2C_FIELD(arg0, s32 *, 0x198) = -1;
     temp_r0 = get_slot_count__14TItemProShieldFPv(arg0) - 0x29;
     if (temp_r0 < 0xCU) {

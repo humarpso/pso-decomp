@@ -70,6 +70,34 @@ struct Card_80245F98
   f32 f4C;
 };
 
+struct QFrameQuad_80245808
+{
+  f32 x;
+  f32 y;
+  f32 right;
+  f32 bottom;
+  f32 u;
+  f32 v;
+  f32 uRight;
+  f32 vBottom;
+};
+
+struct QFrameWindow_80245808
+{
+  u8 pad[0x4c];
+  f32 height;
+};
+
+struct QFrameCtx_80245808
+{
+  f32 x;
+  f32 y;
+  u8 pad[0x1c];
+  f32 pivotY;
+  u8 pad2[4];
+  f32 scaleY;
+};
+
 extern "C" {
 M2C_UNK reset_transform_state__10TObjPlayerFv();
 M2C_UNK init_xyz_limits__10TObjPlayerFv();
@@ -108,6 +136,17 @@ void set_draw_texture_and_color(s32, s32);
 extern s32 lbl_805D63F0;
 extern const f32 lbl_805DCB10;
 void draw_window_frame(Card_80245F98 *a, Rect_80245F98 *r);
+void set_global_param__8TObjFishFi(s32);
+void begin_screen_draw(s32);
+void get_player__20TWindowSubStatusDispFv();
+void set_draw_texture_and_color(s32, s32);
+extern s32 lbl_805D63F0;
+extern const f32 lbl_805DCAD4;
+extern const f32 lbl_805DCAFC;
+extern const f32 lbl_805DCB10;
+extern const f32 lbl_805DCB28;
+extern const f32 lbl_805DCB2C;
+void draw_quest_message_frame(struct QFrameWindow_80245808 *w, struct QFrameCtx_80245808 *c);
 }
 
 extern "C" {
@@ -211,6 +250,10 @@ extern const f32 lbl_805DCB24;
 
 extern "C" {
 s32 try_open__19TWindowKeyBoardSoftFii(void *, Quad_802455CC *);
+}
+
+extern "C" {
+void draw_message_frame_row(u8 *a, Quad_802455CC *q, Rect_802455CC *r);
 }
 
 int TWindowSubComCard__sub_80244774(void) {  return lbl_805D3614; }
@@ -575,6 +618,62 @@ void draw_message_frame_row(u8 *a, Quad_802455CC *q, Rect_802455CC *r) {
     }
 }
 #pragma pop
+
+typedef struct QFrameCtx_80245808 QFrameCtx_80245808;
+typedef struct QFrameQuad_80245808 QFrameQuad_80245808;
+typedef struct QFrameWindow_80245808 QFrameWindow_80245808;
+#pragma fp_contract on
+void draw_quest_message_frame(struct QFrameWindow_80245808 *w, struct QFrameCtx_80245808 *c) {
+  struct QFrameQuad_80245808 q;
+  f32 step;
+  f32 rem;
+  f32 half;
+  begin_screen_draw((s32)(1));
+  set_global_param__8TObjFishFi((s32)((*(void * *)&lbl_805D63F0)));
+  set_draw_texture_and_color((s32)(1), (s32)(-1));
+  if (w->height < 64.0f)
+  {
+    half = 0.5f * w->height;
+  }
+  else
+  {
+    half = 32.0f;
+  }
+  q.y = c->y;
+  q.bottom = c->y + half;
+  q.v = 0.0f;
+  q.vBottom = 0.125f;
+  q.y = (c->scaleY * (q.y - c->pivotY)) + c->pivotY;
+  q.bottom = (c->scaleY * (q.bottom - c->pivotY)) + c->pivotY;
+  draw_message_frame_row((u8 *)(w), (Quad_802455CC *)(&q), (Rect_802455CC *)(c));
+  q.bottom = c->y + w->height;
+  q.y = q.bottom - half;
+  q.v = 0.25f;
+  q.vBottom = 0.375f;
+  q.y = (c->scaleY * (q.y - c->pivotY)) + c->pivotY;
+  q.bottom = (c->scaleY * (q.bottom - c->pivotY)) + c->pivotY;
+  draw_message_frame_row((u8 *)(w), (Quad_802455CC *)(&q), (Rect_802455CC *)(c));
+  q.y = lbl_805DCAFC + c->y;
+  q.v = lbl_805DCB28;
+  q.vBottom = lbl_805DCB2C;
+  step = lbl_805DCAFC * c->scaleY;
+  rem = w->height - lbl_805DCB10;
+  q.y = (c->scaleY * (q.y - c->pivotY)) + c->pivotY;
+  step = lbl_805DCAFC * c->scaleY;
+  while (rem >= lbl_805DCAD4)
+  {
+    if (rem < lbl_805DCAFC)
+    {
+      step = rem * ((float) c->scaleY);
+      q.vBottom = (lbl_805DCAFC + rem) / 256.0f;
+    }
+    q.bottom = q.y + step;
+    draw_message_frame_row((u8 *)(w), (Quad_802455CC *)(&q), (Rect_802455CC *)(c));
+    rem -= lbl_805DCAFC;
+    q.y += step;
+  }
+  get_player__20TWindowSubStatusDispFv();
+}
 
 #pragma push
 #pragma fp_contract on

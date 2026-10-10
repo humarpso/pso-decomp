@@ -25,8 +25,8 @@ extern "C" {
 u8 is_current_floor_switch_set(u16);
 u32 get_global_state__14TOKeyMachine01Fv(void);
 void *get_bml_model(void *, s32);
-extern void *lbl_805D5A10;
-extern Pair_80165940 *TOKeyAncient03__data_805D5A14;
+extern void *TOKeyAncient03__model_archive;
+extern Pair_80165940 *TOKeyAncient03__texture_variants;
 extern void *lbl_805D5A18;
 extern Pair_80165940 *TOKeyCave01__data_805D5A1C;
 extern void *lbl_805D5A30;
@@ -74,9 +74,9 @@ void fn_80165940(Key_80165940 *self) {
     case 8:
     case 9:
     case 10:
-        self->f34 = get_bml_model(lbl_805D5A10, 0);
-        self->f90 = TOKeyAncient03__data_805D5A14->a;
-        self->f94 = TOKeyAncient03__data_805D5A14->b;
+        self->f34 = get_bml_model(TOKeyAncient03__model_archive, 0);
+        self->f90 = TOKeyAncient03__texture_variants->a;
+        self->f94 = TOKeyAncient03__texture_variants->b;
         break;
     case 16:
     case 17:

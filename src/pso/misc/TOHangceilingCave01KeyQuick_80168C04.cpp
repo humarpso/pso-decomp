@@ -35,9 +35,9 @@ s32 init_collision_body_parts(void *, void *, int);
 s32 reset_state(void *);
 extern RecoveredGlobal_80168C6C_lbl_804B2174 lbl_804B2174;
 extern M2C_UNK lbl_804B2578[];
-extern s32 lbl_805D59D0;
-extern s32 lbl_805D59E0;
-extern s32 lbl_805D59E4;
+extern s32 TOHangceilingCave01__model_archive;
+extern s32 turiten_singo_key_model_index;
+extern s32 hanging_ceiling_motion_index;
 u8 *init_base__27TOHangceilingCave01KeyQuickFPvii(u8 *arg0, M2C_UNK arg1, s32 arg2);
 }
 
@@ -75,8 +75,8 @@ u8 *init_base__27TOHangceilingCave01KeyQuickFPvii(u8 *arg0, M2C_UNK arg1, s32 ar
     construct_actor_base__10TObjPlayerFPvPv((void *) (arg0));
     M2C_FIELD(arg0, M2C_UNK **, 0x18) = &(*(RecoveredGlobal_80168C6C_lbl_804B2578 *)&lbl_804B2578).value;
     ((VObj_18_1a504b *)(arg0))->m5(arg2);
-    M2C_FIELD(arg0, s32 *, 0x34) = get_bml_model((void *) (lbl_805D59D0), (void *) (lbl_805D59E0));
-    M2C_FIELD(arg0, s32 *, 0xF8) = get_bml_motion((void *) (lbl_805D59D0), (void *) (lbl_805D59E4));
+    M2C_FIELD(arg0, s32 *, 0x34) = get_bml_model((void *) (TOHangceilingCave01__model_archive), (void *) (turiten_singo_key_model_index));
+    M2C_FIELD(arg0, s32 *, 0xF8) = get_bml_motion((void *) (TOHangceilingCave01__model_archive), (void *) (hanging_ceiling_motion_index));
     init_collision_body_parts((void *) (arg0), (void *) (&lbl_804B2174.value), (int) (1));
     refresh_collision_body_centers((void *) (arg0));
     reset_photon_effect__10TObjPlayerFPv((void *) (arg0));

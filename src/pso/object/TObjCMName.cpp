@@ -545,7 +545,7 @@ extern int creation_figure_rotation_y;
 extern void *creation_figure_object;
 extern s32 creation_resource_ready_state;
 extern int creation_camera_mode;
-extern s32 lbl_805D6598;
+extern s32 TObjCMMainMenu__selected_entry_id;
 extern const f32 lbl_805DDA70;
 extern const f32 lbl_805DDA74;
 extern const f32 lbl_805DDA78;
@@ -2041,7 +2041,7 @@ void run_task__14TObjCMMainMenuFv(Menu_802987AC *arg0) {
         &Menu_802987AC::s6,
     };
     (arg0->*table[TObjCMMainMenu__data_805D659C])();
-    lbl_805D6598 = arg0->f24[arg0->f2c];
+    TObjCMMainMenu__selected_entry_id = arg0->f24[arg0->f2c];
     update_random_proportion_action__14TObjCMMainMenuFPv((void *)(arg0));
     ((void (*)(void *))TObjCMMainMenu__sub_80298310)(arg0);
     switch (TObjCMMainMenu__data_805D659C) {
@@ -2158,7 +2158,7 @@ void *TObjCMMainMenu__ct(void *arg0, void *parent) {
     ((Menu_80298B70 *)arg0)->list = __vt__14TObjCMMainMenu[((Menu_80298B70 *)arg0)->mode].b;
     (*(int *)&TObjCMMainMenu__data_805D659C) = 0;
     ((Menu_80298B70 *)arg0)->f2C = 0;
-    lbl_805D6598 = ((Menu_80298B70 *)arg0)->list[((Menu_80298B70 *)arg0)->f2C];
+    TObjCMMainMenu__selected_entry_id = ((Menu_80298B70 *)arg0)->list[((Menu_80298B70 *)arg0)->f2C];
     fn_802993F0();
     ((Menu_80298B70 *)arg0)->f38 = lbl_805DDA90;
     ((Menu_80298B70 *)arg0)->f3C = lbl_805DDA90;

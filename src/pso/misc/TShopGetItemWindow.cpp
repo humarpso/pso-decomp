@@ -441,12 +441,12 @@ void *__dt__18TShopGetItemWindowFv(void *arg0, s16 arg1) {
 }
 
 extern M2C_UNK __vt__18TShopGetItemWindow[];
-extern void *lbl_805D36C8;
+extern void *TShopGetItemWindow__class_name;
 
 void *TShopGetItemWindow__ct(void *arg0, void *arg1, void *arg2, void *arg3) {
     __ct__15TShopWindowBaseFv(arg0);
     M2C_FIELD(arg0, M2C_UNK **, 0x18) = __vt__18TShopGetItemWindow;
-    M2C_FIELD(arg0, void **, 0x0) = lbl_805D36C8;
+    M2C_FIELD(arg0, void **, 0x0) = TShopGetItemWindow__class_name;
     M2C_FIELD(arg0, u32 *, 0x20) = 0;
     M2C_FIELD(arg0, void **, 0x24) = arg3;
     M2C_FIELD(arg0, u32 *, 0x54) = 1;

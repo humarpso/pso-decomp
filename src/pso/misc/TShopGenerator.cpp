@@ -227,7 +227,7 @@ void *__dt__14TShopGeneratorFv(void *arg0, s16 arg1) {
 }
 
 extern M2C_UNK __vt__14TShopGenerator[];
-extern s32 lbl_805D36C0;
+extern s32 TShopGenerator__class_name;
 extern s32 tl_05;
 
 void *TShopGenerator__ct(void *arg0, s32 arg1) {
@@ -235,7 +235,7 @@ void *TShopGenerator__ct(void *arg0, s32 arg1) {
 
     construct_world_actor_base(arg0, tl_05);
     M2C_FIELD(arg0, M2C_UNK **, 0x18) = __vt__14TShopGenerator;
-    M2C_FIELD(arg0, s32 *, 0) = (s32) lbl_805D36C0;
+    M2C_FIELD(arg0, s32 *, 0) = (s32) TShopGenerator__class_name;
     ((VObj_8021E068_8021E010 *)arg0)->m5(arg1);
     M2C_FIELD(arg0, s32 *, 0x90) = 0;
     M2C_FIELD(arg0, s32 *, 0x94) = 5;

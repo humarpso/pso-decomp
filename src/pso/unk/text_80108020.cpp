@@ -116,7 +116,7 @@ extern u8 lbl_8043E140[];
 extern Vec_80108020 lbl_8043E160[];
 extern void *__vt__13TItemEffArmor[];
 extern Parm_80108020 default_scene_light_config;
-extern s32 lbl_805D2B88;
+extern s32 TItemEffArmor__class_name;
 extern s32 tl_07;
 extern const f32 TItemEffArmor__data_805DAAEC;
 extern const f32 lbl_805DAAF8;
@@ -131,7 +131,7 @@ Self_80108020 *TItemEffArmor__ct(Self_80108020 *self, u8 *obj, f32 a, f32 b) {
     void *p;
     __ct__7TObjectFP7TObject(self, tl_07);
     self->vt = __vt__13TItemEffArmor;
-    self->f0 = lbl_805D2B88;
+    self->f0 = TItemEffArmor__class_name;
     self->f24 = lbl_805DAAF8;
     get_item_params__9TItemLoadFPvPvPv(self->f70, self->f78, self->f74);
     self->f28 = a;

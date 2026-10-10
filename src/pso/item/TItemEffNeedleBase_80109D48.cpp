@@ -58,7 +58,7 @@ M2C_UNK __ct__7TObjectFP7TObject();
 s32 get_field_d8__10TObjPlayerFPv(void *);
 
 extern M2C_UNK __vt__18TItemEffNeedleBase[];
-extern s32 lbl_805D2BC8;
+extern s32 TItemEffNeedleBase__class_name;
 extern const f32 lbl_805DAB4C;
 
 void draw_model__18TItemEffNeedleBaseFPv(Needle_80109D48 *self) {
@@ -104,7 +104,7 @@ u8 *__ct__18TItemEffNeedleBaseFv(u8 *arg0, void *arg1, u8 *arg2) {
 
     __ct__7TObjectFP7TObject();
     M2C_FIELD(arg0, M2C_UNK **, 0x18) = __vt__18TItemEffNeedleBase;
-    M2C_FIELD(arg0, s32 *, 0) = (s32) lbl_805D2BC8;
+    M2C_FIELD(arg0, s32 *, 0) = (s32) TItemEffNeedleBase__class_name;
     M2C_FIELD(arg0, s32 *, 0x2C) = get_field_d8__10TObjPlayerFPv(arg2);
     temp_r4 = M2C_FIELD(arg2, s32 *, 0x60);
     M2C_FIELD(arg0, s32 *, 0x48) = temp_r4;

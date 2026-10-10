@@ -33,8 +33,8 @@ extern "C" {
 
 int get_selected_index__15TChCrCharSelectFv(void);
 
-    extern int TChCrCharSelect__data_805D6590;
-int get_selected_index__15TChCrCharSelectFv(void) {  return TChCrCharSelect__data_805D6590; }
+    extern int TChCrCharSelect__input_mode;
+int get_selected_index__15TChCrCharSelectFv(void) {  return TChCrCharSelect__input_mode; }
 void draw_char_info_sprites__16TObjCMAssignMenuFPv(Self_802A1C04 *self) {
     f32 alpha;
     s32 c;

@@ -6,6 +6,8 @@
 class TAdMultiOkGC : public TObject {
 public:
     virtual ~TAdMultiOkGC();
+    virtual void run_task();
+    virtual void render();
 };
 
 #endif

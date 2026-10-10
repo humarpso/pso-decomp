@@ -1430,7 +1430,7 @@ extern s32 lbl_805D6F70;
 extern u8 *lbl_805D6FA0;
 extern const f32 TObjEneEpsilonGuard__data_805E01D8;
 M2C_UNK TObjEneEpsilon__ct();
-extern s32 lbl_805D4458;
+extern s32 TObjEneEpsilonGuard__class_name;
 void *TObjEneEpsilonGuard__ct(void *arg0, void *arg1, void *arg2, void *arg3, void *arg4, void *arg5, void *arg6);
 M2C_UNK queue_destruction__7TObjectFv(void *);
 M2C_UNK __dt__18TObjEneMe3SinowZoaFPvs(void *, int);
@@ -1744,7 +1744,7 @@ void *TObjEneEpsilonGuard__ct(void *arg0, void *arg1, void *arg2, void *arg3, vo
     TObjEneEpsilon__ct();
     M2C_FIELD(arg0, void ***, 0x18) = __vt__19TObjEneEpsilonGuard;
     init_common__18TObjEneMe3SinowZoaFPv((void *) ((u8 *)(arg0) + 0x4BC));
-    M2C_FIELD(arg0, s32 *, 0) = (s32) lbl_805D4458;
+    M2C_FIELD(arg0, s32 *, 0) = (s32) TObjEneEpsilonGuard__class_name;
     M2C_FIELD(arg0, s16 *, 0x470) = ((s16 (*)(void *))obj_getField1c)((void *) (arg2));
     init_common_from__9TObjEneDDFPvPv((void *) (arg0), (void *) (arg2));
     M2C_FIELD(arg0, s16 *, 0x1C) = (s16)(s32)arg3;

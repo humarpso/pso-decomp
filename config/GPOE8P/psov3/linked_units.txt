@@ -498,6 +498,7 @@ pso/item/TItemDropSub_80107B74.cpp
 pso/item/TItemDropSub_80107BF0.cpp
 pso/item/TItemDropSub_80107C40.cpp
 pso/item/TItemDrop_800F93F0.cpp
+pso/item/TItemDrop_800F9C00.cpp
 pso/item/TItemDrop_800FDD70.cpp
 pso/item/TItemEffArmor.cpp
 pso/item/TItemEffArmorParticle.cpp
@@ -742,6 +743,7 @@ pso/item/TObjItemOKWindow_801F4A6C.cpp
 pso/menu/TAdEndText_80307A34.cpp
 pso/menu/TAdEndText_80399904.cpp
 pso/menu/TAdGuideTxtGC.cpp
+pso/menu/TAdMultiOkGC.cpp
 pso/menu/TAdPlyChrSelPlateGC.cpp
 pso/menu/TAdRicoRing.cpp
 pso/menu/TAdRicoRing_8001BEE8.cpp
@@ -2689,8 +2691,6 @@ pso/ui/TAdFloorLoadCamGC.cpp
 pso/ui/TAdFloorLoadGC.cpp
 pso/ui/TAdFloorLoadPrtGC.cpp
 pso/ui/TAdGameStartBackGC.cpp
-pso/ui/TAdGameStartBackGC_80307298.cpp
-pso/ui/TAdGameStartBackGC_803072CC.cpp
 pso/ui/TAdGameStartGC.cpp
 pso/ui/TAdGameStartLineGC.cpp
 pso/ui/TAdGameStartShadowGC.cpp
@@ -2945,6 +2945,7 @@ pso/unk/text_800C2CE0.cpp
 pso/unk/text_800C3088.cpp
 pso/unk/text_800C3A60.cpp
 pso/unk/text_800C3B80.cpp
+pso/unk/text_800C69E8.cpp
 pso/unk/text_800D7824.cpp
 pso/unk/text_800D7950.cpp
 pso/unk/text_800D79A8.cpp
@@ -3611,7 +3612,6 @@ pso/unk/text_80302DC0.cpp
 pso/unk/text_80302F6C.cpp
 pso/unk/text_80302FD8.cpp
 pso/unk/text_80306A64.cpp
-pso/unk/text_80306ABC.cpp
 pso/unk/text_80307964.cpp
 pso/unk/text_80307BE8.cpp
 pso/unk/text_80308294.cpp

@@ -19,7 +19,7 @@ M2C_UNK retire_scrolled_lines__14TWindowMessageFPv(f32);
 void run_task__20TWindowMessageScrollFv(u8 *arg0);
 s32 TWindowMessageQuest__ct(void *, void *);
 extern M2C_UNK __vt__20TWindowMessageScroll[];
-extern s32 lbl_805D4448;
+extern s32 TWindowMessageScroll__class_name;
 extern const f32 lbl_805E01B8;
 u8 *TWindowMessageScroll__ct(u8 *arg0, s32 arg1, s32 *arg2);
 }
@@ -64,7 +64,7 @@ typedef char RecoveredGlobal_8035D694___vt__20TWindowMessageScroll_size[sizeof(R
 u8 *TWindowMessageScroll__ct(u8 *arg0, s32 arg1, s32 *arg2) {
     TWindowMessageQuest__ct((void *) (arg0), (void *) (arg1));
     M2C_FIELD(arg0, M2C_UNK **, 0x18) = &(*(RecoveredGlobal_8035D694___vt__20TWindowMessageScroll *)&__vt__20TWindowMessageScroll).value;
-    M2C_FIELD(arg0, s32 *, 0) = (s32) lbl_805D4448;
+    M2C_FIELD(arg0, s32 *, 0) = (s32) TWindowMessageScroll__class_name;
     M2C_FIELD(arg0, f32 *, 0x94) = (f32) lbl_805E01B8;
     M2C_FIELD(arg0, s32 **, 0x98) = arg2;
     *M2C_FIELD(arg0, s32 **, 0x98) = 0;

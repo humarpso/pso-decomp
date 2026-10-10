@@ -148,7 +148,7 @@ s32 TShopSequence__ct(void *);
 s32 TShopWindowBase__sub_8022397C(void *);
 extern RecoveredGlobal_802169A8___vt__22TMedicalCenterSequence __vt__22TMedicalCenterSequence;
 extern RecoveredGlobal_802169A8_TMedicalCenterSequence__data_80513E90 TMedicalCenterSequence__data_80513E90;
-extern s32 lbl_805D3678;
+extern s32 TMedicalCenterSequence__class_name;
 u8 *TMedicalCenterSequence__ct(u8 *arg0, M2C_UNK arg1, s32 arg2);
 M2C_UNK handle_window_input__22TMedicalCenterSequenceFPv(void *arg0);
 void exec_heal__22TMedicalCenterSequenceFPv(void *arg0);
@@ -374,7 +374,7 @@ typedef char RecoveredGlobal_80216A70_TMedicalCenterSequence__data_80513E90_size
 u8 *TMedicalCenterSequence__ct(u8 *arg0, M2C_UNK arg1, s32 arg2) {
     TShopSequence__ct((void *) (arg0));
     M2C_FIELD(arg0, M2C_UNK **, 0x18) = &(*(RecoveredGlobal_80216A70___vt__22TMedicalCenterSequence *)&__vt__22TMedicalCenterSequence).value;
-    M2C_FIELD(arg0, s32 *, 0) = (s32) lbl_805D3678;
+    M2C_FIELD(arg0, s32 *, 0) = (s32) TMedicalCenterSequence__class_name;
     M2C_FIELD(arg0, s32 *, 0x20) = 0;
     M2C_FIELD(arg0, s32 *, 0x24) = arg2;
     M2C_FIELD(arg0, s32 *, 0x2C) = 0;

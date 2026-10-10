@@ -190,7 +190,7 @@ u8 * __ct__15TShopWindowBaseFv(void *);
 int set_field_20__12TQuestListVMFPvi(void*, void*);
 s32 alloc__22TQuestVmDownLoadServerFPv(int);
 extern M2C_UNK __vt__12TQuestListVM[];
-extern s32 lbl_805D3690;
+extern s32 TQuestListVM__class_name;
 extern s32 TQuestListVM__data_805D6200;
 extern s32 TQuestListVM__data_805D6204;
 extern s32 TQuestListVM__data_805D6208;
@@ -1060,7 +1060,7 @@ typedef char RecoveredGlobal_80219DE0___vt__12TQuestListVM_size[sizeof(Recovered
 u8 *TQuestListVM__ct(u8 *arg0, M2C_UNK arg1, s32 arg2, s32 arg3) {
     __ct__15TShopWindowBaseFv(arg0);
     M2C_FIELD(arg0, M2C_UNK **, 0x18) = &(*(RecoveredGlobal_80219DE0___vt__12TQuestListVM *)&__vt__12TQuestListVM).value;
-    M2C_FIELD(arg0, s32 *, 0) = (s32) lbl_805D3690;
+    M2C_FIELD(arg0, s32 *, 0) = (s32) TQuestListVM__class_name;
     M2C_FIELD(arg0, s32 *, 0x2368) = 0;
     M2C_FIELD(arg0, s32 *, 0x2370) = 0;
     M2C_FIELD(arg0, s32 *, 0x2374) = 0;

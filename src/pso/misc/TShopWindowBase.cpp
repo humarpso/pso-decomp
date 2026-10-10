@@ -110,7 +110,7 @@ void draw_if_ready__15TShopWindowBaseFPv(void *arg0) {
 }
 
 extern M2C_UNK __vt__15TShopWindowBase[];
-extern void *lbl_805D3700;
+extern void *TShopWindowBase__class_name;
 
 void *__dt__7TObjectFv(void *, s16);
 void __dl__7TObjectFPv(void *);
@@ -128,7 +128,7 @@ void *__dt__15TShopWindowBaseFv(void *self, s16 m) {
 void *__ct__15TShopWindowBaseFv(void *arg0) {
     __ct__7TObjectFP7TObject(arg0);
     M2C_FIELD(arg0, M2C_UNK **, 0x18) = __vt__15TShopWindowBase;
-    M2C_FIELD(arg0, void **, 0x0) = lbl_805D3700;
+    M2C_FIELD(arg0, void **, 0x0) = TShopWindowBase__class_name;
     M2C_FIELD(arg0, u32 *, 0x1C) = 0;
     M2C_FIELD(arg0, u32 *, 0x20) = 0;
     M2C_FIELD(arg0, u32 *, 0x24) = 0;

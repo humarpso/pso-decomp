@@ -28,6 +28,11 @@ u16 obj_getField1c(void *);
 extern s32 lbl_805D586C;
 extern s32 lbl_805D5870;
 void link_into_group_chain__10TObjPlayerFPv(Ply_800F7118 *self);
+u16 obj_getField1c(void *);
+extern u32 TObjPlayer__data_8050D460[];
+extern s32 lbl_805D586C;
+extern s32 lbl_805D5870;
+u32 get_enemy_entity(u16 arg0);
 }
 
 extern "C" {
@@ -455,7 +460,6 @@ s32 TObjPlayer__sub_800F65D0(u8 *self, s32 kind);
 void apply_hit_message_flags__10TObjPlayerFPvPv(VObj_800F673C *arg0, Msg_800F673C *arg1);
 void call_vt78__10TObjPlayerFPv(void *arg0);
 void apply_set_data__9TObjEnemyFPvPv(A_800F698C *arg0, B_800F698C *arg1);
-Ene_800F6464 * get_enemy_entity(u16);
 void refresh_lobby_state__10TObjPlayerFPv(void* p);
 int query_lobby_state__10TObjPlayerFPv(void* p);
 void distribute_experience(TObjPlayer_800F6B68 *self);
@@ -665,7 +669,7 @@ void handle_6x0A_update_enemy_state(Msg_800F6464 *arg0) {
         sp.w = arg0->f8;
     }
     apply_by_index__9TObjEnemyFs(idx, &sp);
-    e = get_enemy_entity(arg0->f2);
+    e = ((Ene_800F6464 *)get_enemy_entity((u16)(arg0->f2)));
     if (e != NULL) {
         e->m78(&sp);
     }
@@ -763,6 +767,29 @@ void apply_set_data__9TObjEnemyFPvPv(A_800F698C *arg0, B_800F698C *arg1) {
     arg0->f2A = arg1->fA;
     arg0->f2C = arg1->f0;
     subtractive_rng_seed(arg0->f160, arg0->f1C + lbl_805D5328);
+}
+
+u32 get_enemy_entity(u16 arg0) {
+    s32 low;
+    s32 mid;
+    s32 high;
+    if (arg0 >= 0x1000 && arg0 < 0x4000) {
+        high = (lbl_805D586C + lbl_805D5870) - 1;
+        low = lbl_805D586C;
+        while (low < high) {
+            mid = (low + high) / 2;
+            if (obj_getField1c((void *)(TObjPlayer__data_8050D460[mid])) < arg0) {
+                low = mid + 1;
+            } else {
+                high = mid;
+            }
+        }
+        u32 e = TObjPlayer__data_8050D460[low];
+        if (e != 0 && arg0 == obj_getField1c((void *)(e))) {
+            return e;
+        }
+    }
+    return 0;
 }
 
 void refresh_lobby_state__10TObjPlayerFPv(void* p) { distribute_experience((TObjPlayer_800F6B68 *)((void*)(p))); query_lobby_state__10TObjPlayerFPv((void*)(p)); }

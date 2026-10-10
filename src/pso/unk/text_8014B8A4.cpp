@@ -17,7 +17,7 @@ extern "C" {
 u8 * TObjNpcBase__ct(void *);
 M2C_UNK init_npc_animation__10TObjPlayerFPvPvPvPv(void *, void *, void *, int);
 M2C_UNK set_motion_interpolation_flag(void *);
-extern RecoveredGlobal_8014B8A4_lbl_8043FB50 lbl_8043FB50;
+extern RecoveredGlobal_8014B8A4_lbl_8043FB50 male_npc_idle_animation_parameters;
 extern RecoveredGlobal_8014B8A4_lbl_804A9F50 lbl_804A9F50;
 extern s32 *npc_town_motion_data;
 u8 *construct_male_npc_base(u8 *arg0);
@@ -30,7 +30,7 @@ typedef char RecoveredGlobal_8014B8A4_lbl_804A9F50_size[sizeof(RecoveredGlobal_8
 u8 *construct_male_npc_base(u8 *arg0) {
     TObjNpcBase__ct(arg0);
     M2C_FIELD(arg0, M2C_UNK **, 0x18) = &lbl_804A9F50.value;
-    init_npc_animation__10TObjPlayerFPvPvPvPv((void *) (arg0), (void *) (&lbl_8043FB50.value), (void *) (*npc_town_motion_data), (int) (0));
+    init_npc_animation__10TObjPlayerFPvPvPvPv((void *) (arg0), (void *) (&male_npc_idle_animation_parameters.value), (void *) (*npc_town_motion_data), (int) (0));
     set_motion_interpolation_flag((void *) (arg0));
     return arg0;
 }

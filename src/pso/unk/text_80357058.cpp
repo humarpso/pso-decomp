@@ -47,7 +47,7 @@ u8 *TItemEffOrgaFlowShot__ct(u8 *arg0, s32 arg1, u8 *arg2);
 extern const f32 lbl_805E0028;
 extern const f32 lbl_805E002C;
 void update_position_from_velocity__20TItemEffOrgaFlowShotFPv(u8 *arg0);
-s32 TLobby__sub_800C6C10();
+s32 is_local_client_floor_leader();
 void bswap_6xAD_subordinate_action__20TItemEffOrgaFlowShotFPv(void* p);
 void build_6xAD_olga_flow_subordinate_boss_actions(void* p);
 void send_6xAD_olga_flow_subordinate_boss_actions(u8 *arg0);
@@ -101,7 +101,7 @@ M2C_UNK set_depth_buffer_settings_1__Fv();
 void send_6xAD_olga_flow_subordinate_boss_actions(u8 *arg0) {
     B_80357058 b;
     s32 i;
-    if (TLobby__sub_800C6C10() != 0) {
+    if (is_local_client_floor_leader() != 0) {
         build_6xAD_olga_flow_subordinate_boss_actions((void*)(&b));
         for (i = 0; i < 0x40; i++) {
             b.d[i] = arg0[i];

@@ -115,7 +115,7 @@ extern s32 TLobby__lobby_state_flags;
 void update_periodic_tick__6TLobbyFv(void);
 void TLobby__sub_801A4C6C(void* p);
 void set_value__6TLobbyFPvi(void* p, s32 v);
-    extern int lbl_805D4E2C;
+    extern int challenge_task_created;
 void reset_counter__6TLobbyFv(void);
 s32 get_input__16TKeyBoardControlFv();
 int TKeyBoardControl__sub_8000F95C(void);
@@ -1114,6 +1114,6 @@ void update_periodic_tick__6TLobbyFv(void) {
 }
 void TLobby__sub_801A4C6C(void* p) { *(u32*)((char*)p + 0x20) |= 0x1; }
 void set_value__6TLobbyFPvi(void* p, s32 v) { *(s32*)((char*)p + 0xc) = v; }
-void reset_counter__6TLobbyFv(void) { lbl_805D4E2C = 0; }
+void reset_counter__6TLobbyFv(void) { challenge_task_created = 0; }
 
 }

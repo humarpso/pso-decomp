@@ -37,7 +37,7 @@ extern void *lbl_805D4278;
 void *__dt__20TWindowSubQuestBoardFv(void *arg0, s16 arg1);
 void __ct__7TObjectFP7TObject(void *, void *);
 s32 create_option_menu_window(void *);
-extern M2C_UNK lbl_804D1818[];
+extern M2C_UNK __vt__19TWindowSubQuestBoard[];
 u8 *TWindowSubQuestBoard__sub_8027CE74(u8 *arg0, u8 *arg1, s32 arg2);
 s32 is_visible__17TWindowSubComCardFPv(s32);
 s32 get_status_flag__17TWindowSubComCardFPv(s32);
@@ -77,7 +77,7 @@ int set_card_window_flags__19TWindowKeyBoardHardFPvii(void*, int, int);
 
 void TWindowSubQuestBoard__sub_8027CCC8(void) {  }
 
-extern M2C_UNK lbl_804D1818[];
+extern M2C_UNK __vt__19TWindowSubQuestBoard[];
 
 void TWindowSubQuestBoard__sub_8027CCCC(void *arg0) {
     s32 t;
@@ -116,7 +116,7 @@ void TWindowSubQuestBoard__sub_8027CCCC(void *arg0) {
 
 void *dt__20TWindowSubQuestBoardFPvs(void *arg0, s16 arg1) {
     if (arg0 != NULL) {
-        M2C_FIELD(arg0, M2C_UNK **, 0x18) = lbl_804D1818;
+        M2C_FIELD(arg0, M2C_UNK **, 0x18) = __vt__19TWindowSubQuestBoard;
         if (M2C_FIELD(arg0, void **, 0x2C) != NULL) { TWindow__close(M2C_FIELD(arg0, void **, 0x2C)); M2C_FIELD(arg0, M2C_UNK *, 0x2C) = 0; }
         if (M2C_FIELD(arg0, void **, 0x28) != NULL) { TWindow__close(M2C_FIELD(arg0, void **, 0x28)); M2C_FIELD(arg0, M2C_UNK *, 0x28) = 0; }
         __dt__7TObjectFv(arg0, 0);
@@ -130,7 +130,7 @@ void *dt__20TWindowSubQuestBoardFPvs(void *arg0, s16 arg1) {
 typedef char RecoveredGlobal_8027CE74_lbl_804D1818_size[sizeof(RecoveredGlobal_8027CE74_lbl_804D1818) == 0x18 ? 1 : -1];
 u8 *TWindowSubQuestBoard__sub_8027CE74(u8 *arg0, u8 *arg1, s32 arg2) {
     __ct__7TObjectFP7TObject(arg0, arg1);
-    M2C_FIELD(arg0, M2C_UNK **, 0x18) = &(*(RecoveredGlobal_8027CE74_lbl_804D1818 *)&lbl_804D1818).value;
+    M2C_FIELD(arg0, M2C_UNK **, 0x18) = &(*(RecoveredGlobal_8027CE74_lbl_804D1818 *)&__vt__19TWindowSubQuestBoard).value;
     M2C_FIELD(arg0, u8 **, 0x24) = arg1;
     M2C_FIELD(arg0, s32 *, 0x20) = arg2;
     M2C_FIELD(arg0, s32 *, 0x28) = create_option_menu_window(arg0);

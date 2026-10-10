@@ -33,7 +33,7 @@ void debug_print__6TLobbyFii(void *, ...);
 u16 read_file_header__9TLanguageFiPv(s32 arg0, u8 *arg1);
 void read_into_buffer__9TLanguageFii(s32 arg0, s32 arg1);
 void load_gvm_texture_archive(u32, u8 *);
-extern u8 lbl_8044981C[];
+extern u8 texture_file_load_error_format[];
 extern u8 lbl_8044983C[];
 extern s32 TLanguage__read_cursor;
 u8 *load_gvm_texture_file(s32 arg0);
@@ -73,7 +73,7 @@ u8 *load_gvm_texture_file(s32 arg0) {
     pump_frames__6TLobbyFv();
     size = get_resource_file_size__6TLobbyFPv(arg0);
     if (size <= 0) {
-        debug_print__6TLobbyFii(lbl_8044981C, arg0);
+        debug_print__6TLobbyFii(texture_file_load_error_format, arg0);
         return NULL;
     }
     if (((size + 0x7FF) / 2048) * 2048 > 0x40000) {

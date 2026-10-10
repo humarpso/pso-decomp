@@ -14,7 +14,7 @@ void TObjPlayer__sub_80362C54(u8 *arg0);
 extern M2C_UNK __vt__14TObjEneEpsilon[];
 extern M2C_UNK TObjPlayer__sub_800D7C58[];
 extern M2C_UNK init_and_activate__10TObjPlayerFPv[];
-extern void *lbl_805D4468;
+extern void *TObjEneEpsilon__class_name;
 extern M2C_UNK lbl_804F26E0[];
 void TObjPlayer__sub_80362C54(u8 *arg0);
 extern M2C_UNK lbl_804F26E0[];

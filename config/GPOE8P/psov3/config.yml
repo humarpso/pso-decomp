@@ -90,6 +90,7 @@ force_active:
   - TBoss8DragonDemo__sub_802F2CC4
   - TBoss8Dragon__sub_802FDF10
   - TBoss8Dragon__sub_8036AF50
+  - TChCrLoadAfsTextureReq__active_load_count
   - TChCrTagName__class_name
   - TChCrTagName__sub_802A226C
   - TChCrTagName__vt4
@@ -131,6 +132,10 @@ force_active:
   - TOTrapChainSawDamage_class_name
   - TOTrapChainSawEdge_class_name
   - TOTrapChainSaw__level_scale_table
+  - TObjBoss7DustCtrl__helix_points
+  - TObjBoss7DustCtrl__rotation_pairs
+  - TObjBoss7DustCtrl__transformed_vertices
+  - TObjBoss7DustCtrl__vertical_phase_angles
   - TObjDFDemo0__entry_table
   - TObjDFDemo2__motion_index_table
   - TObjDFDemoF__bml_model_id_table
@@ -190,6 +195,8 @@ force_active:
   - TObjPlayer__sub_803E5378
   - TObjPlayer__sub_803E53F8
   - TObjPlayer__sub_803E5458
+  - TObjSeabedSuisoBrakable__break_model_entries
+  - TObjSeabedSuisoBrakable__model12_render_nodes
   - TObjSeabedSuisoBrakable__vt12
   - TObjSeabedSuisoBrakable__vt14
   - TObjSeabedSuisoBrakable__vt15
@@ -262,6 +269,7 @@ force_active:
   - __dt__11TMapCsnCtrlFv
   - __dt__11TObjDFYutaiFv
   - __dt__12TAdBackTxtGCFv
+  - __dt__12TAdMultiOkGCFv
   - __dt__12TAdSoniclogoFv
   - __dt__12TBGLightningFv
   - __dt__12TChCrEffFadeFv
@@ -406,6 +414,7 @@ force_active:
   - accumulate_key_bits
   - ad_game_start_name_ptr
   - add_item_purpose_actions
+  - add_meseta_purpose_actions__14TWindowSubItemFii
   - add_target_in_cone__15TObjEneMe1GiGueFPvPv
   - add_target_in_front_arc__10TObjPlayerFPvPv
   - advance_animation_state__10TEndingPicFPv
@@ -705,6 +714,7 @@ force_active:
   - draw_cursor__19TWindowSubMagPhotonFPvi
   - draw_cursor__22TWindowSubCustomSelectFPvPv
   - draw_door_model__12TODoorCave01FPvii
+  - draw_entry__12TAdMultiOkGCFPvi
   - draw_entry_tab__20TWindowSubStatusDispFPvPv
   - draw_fade__9TAdFadeGCFPv
   - draw_fade_in__8TObjFishFPv
@@ -875,6 +885,7 @@ force_active:
   - handle_pad_transfer_done__16TKeyBoardControlFiUiPv
   - handle_page_input__24TWindowSubSymbolChatHelpFPv
   - handle_pay_confirm__23TShopJudgmentItemWindowFPv
+  - handle_player_buttons__12TAdMultiOkGCFPvi
   - handle_selection__20TShopArmorListWindowFv
   - handle_selection__24TShopEquipmentListWindowFv
   - handle_selection__24TShopEquipmentSellWindowFv
@@ -1209,8 +1220,6 @@ force_active:
   - lbl_8050DCF8
   - lbl_8050EA64
   - lbl_80540BBC
-  - lbl_80541990
-  - lbl_80541DA0
   - lerp_follow_anchor
   - load_downloaded_quest__12TQuestListVMFPv
   - load_entry_params_volopt__10TObjPlayerFPvi
@@ -1258,6 +1267,8 @@ force_active:
   - mcmdVibrato
   - mcmdWait
   - move_around_center__15TObjEneMe1GiGueFPvPvf
+  - multi_confirm_texture_descriptor
+  - multi_confirm_texture_entries
   - notify__10TTcpSocketFss
   - offline_quest_catalog_ep1
   - online_ending_hex_line_param
@@ -1347,6 +1358,7 @@ force_active:
   - render__11TAdSEGAlogoFv
   - render__11TChCrEffTagFv
   - render__12TAdBackTxtGCFv
+  - render__12TAdMultiOkGCFv
   - render__12TAdSoniclogoFv
   - render__12TBGLightningFv
   - render__12TChCrEffFadeFv
@@ -1466,6 +1478,7 @@ force_active:
   - run_task__11TAdSEGAlogoFv
   - run_task__11TChCrEffTagFv
   - run_task__12TAdBackTxtGCFv
+  - run_task__12TAdMultiOkGCFv
   - run_task__12TAdSoniclogoFv
   - run_task__12TBGLightningFv
   - run_task__12TChCrEffFadeFv
@@ -1763,6 +1776,7 @@ force_active:
   - update_dying_state__14TObjEneBm5WolfFPvi
   - update_effects__14TOSwitchAttackFPv
   - update_emitter_positions__13TObjLobbyMainFPv
+  - update_entry_animation__12TAdMultiOkGCFPvi
   - update_entry_color__20TWindowSubStatusDispFPv
   - update_extension__14TOTrapChainSawFPv
   - update_fade__13TObjLobbyMainFPv

@@ -534,12 +534,12 @@ void *__dt__24TShopEquipmentSellWindowFv(void *arg0, s16 arg1) {
 }
 
 extern M2C_UNK __vt__24TShopEquipmentSellWindow[];
-extern void *lbl_805D36B0;
+extern void *TShopEquipmentSellWindow__class_name;
 
 void *TShopEquipmentSellWindow__ct(void *arg0, void *arg1, void *arg2, void *arg3, void *arg4) {
     __ct__15TShopWindowBaseFv(arg0);
     M2C_FIELD(arg0, M2C_UNK **, 0x18) = __vt__24TShopEquipmentSellWindow;
-    M2C_FIELD(arg0, void **, 0x0) = lbl_805D36B0;
+    M2C_FIELD(arg0, void **, 0x0) = TShopEquipmentSellWindow__class_name;
     M2C_FIELD(arg0, u32 *, 0x370) = 0;
     M2C_FIELD(arg0, u32 *, 0x374) = 0;
     M2C_FIELD(arg0, void **, 0x378) = arg4;

@@ -53,7 +53,7 @@ void render__17TOHangerMachine01Fv(u8 *arg0);
 u8 * load_resource_from_descriptor(void *, s32, void *, s32, s32, s32);
 int alloc__23TAdSinglePlyChrSelectGCFPv(void *);
 extern RecoveredGlobal_80168F94_lbl_804B26C8 lbl_804B26C8;
-extern u32 TOHangerMachine01__data_805D59E8;
+extern u32 TOHangerMachine01__bml_resource;
 void load_shared_resource__17TOHangerMachine01Fv(void);
 s32 reset_photon_effect__10TObjPlayerFPv(void *);
 s32 refresh_collision_body_centers(void *);
@@ -62,7 +62,7 @@ s32 init_map_object_base(void *, int);
 extern RecoveredGlobal_8016904C_lbl_804B26D8 hanger_machine01_collision_body_parts;
 extern M2C_UNK __vt__17TOHangerMachine01[];
 extern s32 lbl_805D2FFC;
-extern u32 TOHangerMachine01__data_805D59E8;
+extern u32 TOHangerMachine01__bml_resource;
 extern s32 tl_05;
 extern const f32 lbl_805DB6AC;
 extern const f32 lbl_805DB6B0;
@@ -154,12 +154,12 @@ void *create__17TOHangerMachine01FPv(void *arg0) {
     return o;
 }
 
-extern u32 TOHangerMachine01__data_805D59E8;
+extern u32 TOHangerMachine01__bml_resource;
 
 void free_static_model__17TOHangerMachine01Fv(void) {
-    if ((u32) TOHangerMachine01__data_805D59E8 != 0U) {
-        TLobby__sub_8001FE7C((void*)TOHangerMachine01__data_805D59E8, 1);
-        TOHangerMachine01__data_805D59E8 = 0U;
+    if ((u32) TOHangerMachine01__bml_resource != 0U) {
+        TLobby__sub_8001FE7C((void*)TOHangerMachine01__bml_resource, 1);
+        TOHangerMachine01__bml_resource = 0U;
     }
 }
 
@@ -173,7 +173,7 @@ void load_shared_resource__17TOHangerMachine01Fv(void) {
     if (var_r0 != 0) {
         var_r0 = (long) (load_resource_from_descriptor((void *) temp_r3, 1, &lbl_804B26C8.value, 0, 0, 0));
     }
-    (*(s32 *)&TOHangerMachine01__data_805D59E8) = var_r0;
+    (*(s32 *)&TOHangerMachine01__bml_resource) = var_r0;
 }
 
 void *__dt__17TOHangerMachine01Fv(void *arg0, s16 arg1) {
@@ -198,8 +198,8 @@ u8 *TOHangerMachine01__ct(u8 *arg0, s32 arg1) {
     M2C_FIELD(arg0, M2C_UNK **, 0x18) = &(*(RecoveredGlobal_8016904C___vt__17TOHangerMachine01 *)&__vt__17TOHangerMachine01).value;
     M2C_FIELD(arg0, s32 *, 0) = (s32) lbl_805D2FFC;
     ((VObj_18_1a504b *)(arg0))->m5(arg1);
-    M2C_FIELD(arg0, s32 *, 0x34) = (s32) M2C_FIELD(M2C_FIELD((*(u8 * *)&TOHangerMachine01__data_805D59E8), u8 **, 0x42C), s32 *, 8);
-    M2C_FIELD(arg0, s32 *, 0x24) = (s32) M2C_FIELD(M2C_FIELD((*(u8 * *)&TOHangerMachine01__data_805D59E8), u8 **, 0x42C), s32 *, 0xC);
+    M2C_FIELD(arg0, s32 *, 0x34) = (s32) M2C_FIELD(M2C_FIELD((*(u8 * *)&TOHangerMachine01__bml_resource), u8 **, 0x42C), s32 *, 8);
+    M2C_FIELD(arg0, s32 *, 0x24) = (s32) M2C_FIELD(M2C_FIELD((*(u8 * *)&TOHangerMachine01__bml_resource), u8 **, 0x42C), s32 *, 0xC);
     M2C_FIELD(arg0, f32 *, 0xC0) = (f32) lbl_805DB6AC;
     M2C_FIELD(arg0, f32 *, 0xC4) = (f32) lbl_805DB6B0;
     M2C_FIELD(arg0, s32 *, 0x30) = (s32) (M2C_FIELD(arg0, s32 *, 0x30) | 0x40000000);

@@ -7,11 +7,11 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 extern "C" {
 M2C_UNK SIRegisterPollingHandler(void *);
 M2C_UNK Dolphin_SIUnregisterPollingHandler(void *);
-extern u32 lbl_805D7938;
+extern u32 si_polling_callback;
 u32 fn_803F1864(u32 arg0);
 void OSClearContext(void *);
 void OSSetCurrentContext(void *);
-extern u32 lbl_805D7938;
+extern u32 si_polling_callback;
 void fn_803F1804(s32 arg0, void *arg1);
 }
 
@@ -19,10 +19,10 @@ extern "C" {
 
 void fn_803F1804(s32 arg0, void *arg1) {
     u8 ctx[0x2C8];
-    if (lbl_805D7938 != 0) {
+    if (si_polling_callback != 0) {
         OSClearContext(ctx);
         OSSetCurrentContext(ctx);
-        ((void (*)(void))lbl_805D7938)();
+        ((void (*)(void))si_polling_callback)();
         OSClearContext(ctx);
         OSSetCurrentContext(arg1);
     }
@@ -30,8 +30,8 @@ void fn_803F1804(s32 arg0, void *arg1) {
 
 u32 fn_803F1864(u32 arg0) {
     u32 temp_r31;
-    temp_r31 = lbl_805D7938;
-    lbl_805D7938 = arg0;
+    temp_r31 = si_polling_callback;
+    si_polling_callback = arg0;
     if (arg0 != 0U) {
         SIRegisterPollingHandler((void *) (((M2C_UNK *)fn_803F1804)));
     } else {

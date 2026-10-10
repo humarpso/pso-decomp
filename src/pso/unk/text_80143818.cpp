@@ -18,7 +18,7 @@ struct VObj_18_409d1e : VBase_18_409d1e {
 extern "C" {
 M2C_UNK construct_collider_proxy__10TObjPlayerFPv();
 extern M2C_UNK __vt__10TObjMotion[];
-extern s32 lbl_805D2CE0;
+extern s32 TObjMotion__class_name;
 u8 *TObjMotion__ct(u8 *arg0);
 }
 
@@ -27,7 +27,7 @@ extern "C" {
 u8 *TObjMotion__ct(u8 *arg0) {
     construct_collider_proxy__10TObjPlayerFPv();
     M2C_FIELD(arg0, M2C_UNK **, 0x18) = __vt__10TObjMotion;
-    M2C_FIELD(arg0, s32 *, 0) = (s32) lbl_805D2CE0;
+    M2C_FIELD(arg0, s32 *, 0) = (s32) TObjMotion__class_name;
     ((VObj_18_409d1e *)(arg0))->m6();
     M2C_FIELD(arg0, s32 *, 0xD8) = 0;
     M2C_FIELD(arg0, s32 *, 0xF8) = 0;

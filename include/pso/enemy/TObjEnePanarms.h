@@ -5,6 +5,9 @@
 
 struct TObjEnePanarms
 {
+    void set_random_action_timer(int minimum, int range);
+
+    u8 _pad00[0x1C];
     u16 m_1c;
     u8 _pad1E[0x6];
     u32 m_24;
@@ -35,7 +38,9 @@ struct TObjEnePanarms
     u8 _pad394[0x8];
     u32 m_39c;
     void* m_3a0;
-    u8 _pad3A4[0x40];
+    u8 _pad3A4[0x10];
+    s32 action_timer;
+    u8 _pad3B8[0x2C];
     u32 m_3e4;
     u32 m_3e8;
     u32 m_3ec;

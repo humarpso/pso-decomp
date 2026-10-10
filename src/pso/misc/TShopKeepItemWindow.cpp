@@ -269,12 +269,12 @@ void *__dt__19TShopKeepItemWindowFv(void *arg0, s16 arg1) {
 }
 
 extern M2C_UNK __vt__19TShopKeepItemWindow[];
-extern void *lbl_805D36E8;
+extern void *TShopKeepItemWindow__class_name;
 
 void *TShopKeepItemWindow__ct(void *arg0, void *arg1, void *arg2, void *arg3) {
     __ct__15TShopWindowBaseFv(arg0);
     M2C_FIELD(arg0, M2C_UNK **, 0x18) = __vt__19TShopKeepItemWindow;
-    M2C_FIELD(arg0, void **, 0x0) = lbl_805D36E8;
+    M2C_FIELD(arg0, void **, 0x0) = TShopKeepItemWindow__class_name;
     M2C_FIELD(arg0, u32 *, 0x370) = 0;
     M2C_FIELD(arg0, u32 *, 0x374) = 0;
     M2C_FIELD(arg0, u32 *, 0x378) = 1;

@@ -16,7 +16,7 @@ s32 set_position_xy(int, f32, f32);
 s32 create_status_category_menu(void *);
 s32 fn_8027FD88(int, f32, f32);
 s32 TWindowSubStatusDisp__ct(int, int);
-extern RecoveredGlobal_8027FCE4_lbl_804D1AD0 lbl_804D1AD0;
+extern RecoveredGlobal_8027FCE4_lbl_804D1AD0 status_category_window_vtable;
 extern const f32 lbl_805DD6DC;
 u8 *construct_status_category_window(u8 *arg0, s32 arg1, s32 arg2);
 }
@@ -28,7 +28,7 @@ u8 *construct_status_category_window(u8 *arg0, s32 arg1, s32 arg2) {
     s32 temp_r3;
     s32 var_r0;
     __ct__7TObjectFP7TObject((void *) (arg0), (void *) (arg1));
-    M2C_FIELD(arg0, M2C_UNK **, 0x18) = &lbl_804D1AD0.value;
+    M2C_FIELD(arg0, M2C_UNK **, 0x18) = &status_category_window_vtable.value;
     M2C_FIELD(arg0, s32 *, 0x20) = arg1;
     M2C_FIELD(arg0, s32 *, 0x1C) = arg2;
     M2C_FIELD(arg0, s32 *, 0x24) = create_status_category_menu((void *) (arg0));

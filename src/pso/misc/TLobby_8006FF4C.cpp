@@ -685,7 +685,7 @@ void copy_challenge_settings__6TLobbyFPvPv(u8 *arg0, u8 *arg1) {
 void __dt__7TObjectFv(void *, s32);
 void destroy__13TObjTombstoneFv();
 void __dl__7TObjectFPv(void *);
-extern s32 lbl_805D4E28;
+extern s32 challenge_task;
 
 Obj_80070774 *TLobby__sub_80070774(Obj_80070774 *arg0, s16 arg1) {
     if (arg0 != NULL) {
@@ -693,7 +693,7 @@ Obj_80070774 *TLobby__sub_80070774(Obj_80070774 *arg0, s16 arg1) {
         destroy__13TObjTombstoneFv();
         ((void (*)(void *))clear_four_slots__6TLobbyFv)(arg0);
         copy_challenge_settings__6TLobbyFPvPv((u8 *)challenge_mode_state, (u8 *)challenge_settings_defaults);
-        lbl_805D4E28 = 0;
+        challenge_task = 0;
         __dt__7TObjectFv(arg0, 0);
         if (arg1 > 0) {
             __dl__7TObjectFPv(arg0);

@@ -72,7 +72,7 @@ void send_6x7c_reset__6TLobbyFv(void);
 s32 is_flag_set__6TLobbyFv();
 s32 byteswap_challenge_packet__6TLobbyFPv(void *);
 void set_challenge_record_page__6TLobbyFPvi(void *, s32);
-extern void *lbl_805D4E28;
+extern void *challenge_task;
 void handle_6x8A_show_challenge_time_records_window(Pkt_80072494 *pkt);
 s32 is_flag_set__6TLobbyFv();
 s32 TLobby__sub_80072758(void *);
@@ -83,7 +83,7 @@ s32 is_flag_set__6TLobbyFv();
 void send_challenge_records__6TLobbyFUi(u32);
 s32 get_card_window__17TWindowSubComCardFUi(int);
 extern M2C_UNK challenge_mode_state[];
-extern void *lbl_805D4E28;
+extern void *challenge_task;
 extern s32 local_client_id;
 void TLobby__sub_80072618(void);
 s32 TLobby__sub_800703D0(void *, void *);
@@ -91,7 +91,7 @@ s32 is_flag_set__6TLobbyFv();
 void send_challenge_records__6TLobbyFUi(u32 _w0);
 M2C_UNK bswap_6x7C_packet__6TLobbyFi(void *);
 extern M2C_UNK challenge_mode_state[];
-extern void *lbl_805D4E28;
+extern void *challenge_task;
 extern s32 local_client_id;
 void handle_6x7C_set_challenge_records(Pkt7C_80072230 *pkt);
 s32 is_flag_set__6TLobbyFv();
@@ -207,7 +207,7 @@ void handle_6x8A_show_challenge_time_records_window(Pkt_80072494 *pkt) {
     if (pkt->idx < 0 || pkt->idx >= 0x11) {
         return;
     }
-    set_challenge_record_page__6TLobbyFPvi(lbl_805D4E28, pkt->idx);
+    set_challenge_record_page__6TLobbyFPvi(challenge_task, pkt->idx);
 }
 
 void send_challenge_with_value__6TLobbyFii(M2C_UNK arg0, s32 arg1) {
@@ -231,7 +231,7 @@ void handle_6x7C_set_challenge_records(Pkt7C_80072230 *pkt) {
         return;
     }
     if (id == 0xFFFF) {
-        send_challenge_records__6TLobbyFUi((u32)lbl_805D4E28);
+        send_challenge_records__6TLobbyFUi((u32)challenge_task);
         return;
     }
     if (id < 0 || id >= 4) {
@@ -239,7 +239,7 @@ void handle_6x7C_set_challenge_records(Pkt7C_80072230 *pkt) {
     }
     rec = &(*(Chal_80072230 *)&challenge_mode_state).recs[id];
     if (rec->flag == 0) {
-        send_challenge_records__6TLobbyFUi((u32)lbl_805D4E28);
+        send_challenge_records__6TLobbyFUi((u32)challenge_task);
     }
     rec->flag = 1;
     TLobby__sub_800703D0(rec->data, pkt->recs);
@@ -258,8 +258,8 @@ void TLobby__sub_80072618(void) {
         q = (s32 *)(((u8 *)&challenge_mode_state) + local_client_id * 0x104 + 0x270);
         if (((u32)get_card_window__17TWindowSubComCardFUi((int)(0xFFFF))) != 0) {
             TLobby__sub_800703D0(q + 1, (void *)(((u32)get_card_window__17TWindowSubComCardFUi((int)(0xFFFF))) + 0x21C4));
-            if ((*(u32 *)&lbl_805D4E28) != 0) {
-                send_challenge_records__6TLobbyFUi((u32)((*(u32 *)&lbl_805D4E28)));
+            if ((*(u32 *)&challenge_task) != 0) {
+                send_challenge_records__6TLobbyFUi((u32)((*(u32 *)&challenge_task)));
             }
         }
     }

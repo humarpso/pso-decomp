@@ -44,9 +44,9 @@ struct Cell_802A8FD8
 };
 
 extern "C" {
-extern RecoveredGlobal_802A9234_TEffIndirectCtrl__data_80540AF0 TEffIndirectCtrl__data_80540AF0;
+extern RecoveredGlobal_802A9234_TEffIndirectCtrl__data_80540AF0 TEffIndirectCtrl__source_buffers;
 s32 get_indirect_source_pixels(u8 arg0);
-extern RecoveredGlobal_802A9234_TEffIndirectCtrl__data_80540AF0 TEffIndirectCtrl__data_80540AF0;
+extern RecoveredGlobal_802A9234_TEffIndirectCtrl__data_80540AF0 TEffIndirectCtrl__source_buffers;
 s32 get_indirect_source_id(u8 arg0);
 u32 calc_i8_tiled_texel_offset(u32 x, u32 y, u32 w);
 f32 sin_table_lookup(s32);
@@ -335,7 +335,7 @@ s32 get_indirect_source_pixels(u8 arg0) {
     if (var_r3 >= 8U) {
         var_r3 = 0;
     }
-    return M2C_FIELD(&TEffIndirectCtrl__data_80540AF0.value, M2C_UNK *, ((var_r3 * 4) & 0x3FC)) + 0x20;
+    return M2C_FIELD(&TEffIndirectCtrl__source_buffers.value, M2C_UNK *, ((var_r3 * 4) & 0x3FC)) + 0x20;
 }
 typedef char RecoveredGlobal_802A925C_TEffIndirectCtrl__data_80540AF0_size[sizeof(RecoveredGlobal_802A925C_TEffIndirectCtrl__data_80540AF0) == 0x20 ? 1 : -1];
 s32 get_indirect_source_id(u8 arg0) {
@@ -344,7 +344,7 @@ s32 get_indirect_source_id(u8 arg0) {
     if (var_r3 >= 8U) {
         var_r3 = 0;
     }
-    return M2C_FIELD(M2C_FIELD(&(*(RecoveredGlobal_802A925C_TEffIndirectCtrl__data_80540AF0 *)&TEffIndirectCtrl__data_80540AF0).value, M2C_UNK *, ((var_r3 * 4) & 0x3FC)), s32 *, 8);
+    return M2C_FIELD(M2C_FIELD(&(*(RecoveredGlobal_802A925C_TEffIndirectCtrl__data_80540AF0 *)&TEffIndirectCtrl__source_buffers).value, M2C_UNK *, ((var_r3 * 4) & 0x3FC)), s32 *, 8);
 }
 
 }

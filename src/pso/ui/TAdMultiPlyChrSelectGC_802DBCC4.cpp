@@ -75,7 +75,7 @@ u8 *format_player_number_text__22TAdMultiPlyChrSelectGCFii(s32 arg0, s32 arg1);
 s32 TAdMultiPlyChrSelectGC__sub_802DFFE8(s32);
 s32 TAdMultiPlyChrSelectGC__sub_802DC294(S_802DC294 *arg0, s32 arg1);
 M2C_UNK copy_selected_characters__23TAdSinglePlyChrSelectGCFPv(void *);
-s32 TAdMultiPlyChrSelectGC__sub_802C64D0(u32);
+s32 is_multiplayer_character_slot_selected(u32);
 s32 TAdMultiPlyChrSelectGC__sub_802C6558();
 s32 TAdMultiPlyChrSelectGC__sub_802C658C(u32);
 void collect_player_slots__22TAdMultiPlyChrSelectGCFv(void);
@@ -170,7 +170,7 @@ void collect_player_slots__22TAdMultiPlyChrSelectGCFv(void) {
     u32 i;
     info.count = TAdMultiPlyChrSelectGC__sub_802C6558();
     for (i = 0; i < 4; i++) {
-        if (TAdMultiPlyChrSelectGC__sub_802C64D0(i) != 0) {
+        if (is_multiplayer_character_slot_selected(i) != 0) {
             info.val[i] = TAdMultiPlyChrSelectGC__sub_802C658C(i);
             info.idx[i] = i;
         } else {

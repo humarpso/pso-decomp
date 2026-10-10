@@ -33,10 +33,10 @@ void translate_matrix(s32, f32, f32, f32);
 void rotate_matrix_x(s32, s32);
 void push_matrix(void);
 void pop_matrix(void);
-Vec_802F127C lbl_80541948[6];
-Rot_802F127C lbl_80541990[10];
-Out_802F127C lbl_805419E0[60];
-s32 lbl_80541DA0[10];
+Vec_802F127C TObjBoss7DustCtrl__helix_points[6];
+Rot_802F127C TObjBoss7DustCtrl__rotation_pairs[10];
+Out_802F127C TObjBoss7DustCtrl__transformed_vertices[60];
+s32 TObjBoss7DustCtrl__vertical_phase_angles[10];
 extern const f32 lbl_805DEC70;
 extern const f32 lbl_805DEC74;
 typedef struct Out_802F1454 { f32 x, y, z; u32 c; } Out_802F1454;
@@ -75,9 +75,9 @@ void boss7_dust_draw_at(M2C_UNK *arg0, s32 arg1) {
     var_r3 = (M2C_UNK *)(var_r30);
     post_translate_matrix((int) (var_r3));
     var_r5 = var_r31 * 0x60;
-    var_r3 = (M2C_UNK *)((M2C_UNK *)lbl_805419E0);
+    var_r3 = (M2C_UNK *)((M2C_UNK *)TObjBoss7DustCtrl__transformed_vertices);
     var_r4 = 6;
-    var_r3 = (M2C_UNK *)((u8 *)(M2C_UNK *)lbl_805419E0 + var_r5);
+    var_r3 = (M2C_UNK *)((u8 *)(M2C_UNK *)TObjBoss7DustCtrl__transformed_vertices + var_r5);
     var_r5 = 0;
     draw_trail_strip__10TObjPlayerFPvPvi((int) (var_r3), (int) (6), (int) (0));
     pop_matrix();
@@ -109,11 +109,11 @@ void TObjBoss7DustCtrl::run_task() {
     s32 i;
     s32 j;
 
-    rot = &lbl_80541990[0].a;
-    out = lbl_805419E0;
+    rot = &TObjBoss7DustCtrl__rotation_pairs[0].a;
+    out = TObjBoss7DustCtrl__transformed_vertices;
     push_matrix();
     scale = lbl_805DEC74;
-    ang = lbl_80541DA0;
+    ang = TObjBoss7DustCtrl__vertical_phase_angles;
     for (i = 0; i < 10; i++) {
         set_matrix_identity(0);
         translate_matrix(0, lbl_805DEC70, scale * sin_table_lookup(ang[i]), lbl_805DEC70);
@@ -128,7 +128,7 @@ void TObjBoss7DustCtrl::run_task() {
         *rot += 0x555;
         rotate_matrix_x(0, *rot++);
         for (j = 0; j < 6; j++) {
-            matrix_mult_vec(0, &lbl_80541948[j], out++);
+            matrix_mult_vec(0, &TObjBoss7DustCtrl__helix_points[j], out++);
         }
     }
     pop_matrix();
@@ -196,18 +196,18 @@ void fn_802F1454(void) {
     for (i = 0; i < 6; i++) {
         s32 a = (s32)(lbl_805DEC78 * (f32)i);
         f32 s = lbl_805DEC7C * sin_table_lookup(a);
-        lbl_80541948[i].x = s;
-        lbl_80541948[i].y = lbl_805DEC80 * (f32)i;
-        lbl_80541948[i].z = lbl_805DEC7C * cos_table_lookup(a, s);
+        TObjBoss7DustCtrl__helix_points[i].x = s;
+        TObjBoss7DustCtrl__helix_points[i].y = lbl_805DEC80 * (f32)i;
+        TObjBoss7DustCtrl__helix_points[i].z = lbl_805DEC7C * cos_table_lookup(a, s);
     }
     {
-        s32 *p = &lbl_80541990[0].a;
+        s32 *p = &TObjBoss7DustCtrl__rotation_pairs[0].a;
         for (i = 0; i < 20; i++) {
             *p++ = calc_random_scaled__10TObjPlayerFv();
         }
     }
     {
-        Out_802F1454 *o = (Out_802F1454 *)lbl_805419E0;
+        Out_802F1454 *o = (Out_802F1454 *)TObjBoss7DustCtrl__transformed_vertices;
         for (i = 0; i < 60; i++) {
             o->x = lbl_805DEC70;
             o->y = lbl_805DEC70;
@@ -217,7 +217,7 @@ void fn_802F1454(void) {
         }
     }
     for (j = 0; j < 10; j++) {
-        lbl_80541DA0[j] = calc_random_scaled__10TObjPlayerFv();
+        TObjBoss7DustCtrl__vertical_phase_angles[j] = calc_random_scaled__10TObjPlayerFv();
     }
     lbl_805D6958 = 0;
 }

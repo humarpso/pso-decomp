@@ -12,7 +12,7 @@ u8 * load_resource_from_descriptor(void *, s32, void *, s32, s32, s32);
 int alloc__23TAdSinglePlyChrSelectGCFPv(void *);
 M2C_UNK reset_matrix__13TObjTombstoneFv();
 extern RecoveredGlobal_800765B4_lbl_8048D240 tombstone_resource_descriptor;
-extern u32 TObjTombstone__data_805D4E48;
+extern u32 TObjTombstone__shared_resource_object;
 void load_resources__13TObjTombstoneFv(void);
 }
 
@@ -28,7 +28,7 @@ M2C_UNK setup__13TObjTombstoneFPvii(void *, s32, s32);
 
 extern M2C_UNK __vt__13TObjTombstone[];
 extern s32 TObjTombstone__class_name;
-extern u32 TObjTombstone__data_805D4E48;
+extern u32 TObjTombstone__shared_resource_object;
 extern s32 local_client_id;
 extern s32 TLobby__designated_client_id;
 
@@ -36,7 +36,7 @@ void *init__13TObjTombstoneFPviii(void *arg0, s32 arg1, s32 arg2, s32 arg3) {
     construct_collider_proxy__10TObjPlayerFPv();
     M2C_FIELD(arg0, M2C_UNK **, 0x18) = __vt__13TObjTombstone;
     M2C_FIELD(arg0, s32 *, 0) = (s32) TObjTombstone__class_name;
-    if ((u32) TObjTombstone__data_805D4E48 == 0U) {
+    if ((u32) TObjTombstone__shared_resource_object == 0U) {
         return arg0;
     }
     setup__13TObjTombstoneFPvii(arg0, arg2, arg3);
@@ -48,25 +48,25 @@ void *init__13TObjTombstoneFPviii(void *arg0, s32 arg1, s32 arg2, s32 arg3) {
     return arg0;
 }
 
-extern u32 TObjTombstone__data_805D4E48;
+extern u32 TObjTombstone__shared_resource_object;
 
 void destroy__13TObjTombstoneFv(void) {
-    if ((u32) TObjTombstone__data_805D4E48 != 0U) {
-        TLobby__sub_8001FE7C((void*)TObjTombstone__data_805D4E48, 1);
-        TObjTombstone__data_805D4E48 = 0U;
+    if ((u32) TObjTombstone__shared_resource_object != 0U) {
+        TLobby__sub_8001FE7C((void*)TObjTombstone__shared_resource_object, 1);
+        TObjTombstone__shared_resource_object = 0U;
         reset_matrix__13TObjTombstoneFv();
     }
 }
 void load_resources__13TObjTombstoneFv(void) {
     s32 temp_r3;
     s32 var_r0;
-    if ((void *) (*(u8 * *)&TObjTombstone__data_805D4E48) == NULL) {
+    if ((void *) (*(u8 * *)&TObjTombstone__shared_resource_object) == NULL) {
         temp_r3 = alloc__23TAdSinglePlyChrSelectGCFPv((void *)0x440);
         var_r0 = temp_r3;
         if (var_r0 != 0) {
             var_r0 = (long) (load_resource_from_descriptor((void *) temp_r3, 1, &tombstone_resource_descriptor.value, 0, 0, 0));
         }
-        (*(u8 * *)&TObjTombstone__data_805D4E48) = (unsigned char *) ((void *) var_r0);
+        (*(u8 * *)&TObjTombstone__shared_resource_object) = (unsigned char *) ((void *) var_r0);
         reset_matrix__13TObjTombstoneFv();
     }
 }

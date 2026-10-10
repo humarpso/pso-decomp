@@ -25,7 +25,7 @@ void __ct__18TItemEffNeedleBaseFv(void *, void *, void *);
 s32 rand();
 extern const f64 lbl_8043E260[];
 extern void *__vt__17TItemEffNeedlePos[];
-extern s32 lbl_805D2BD0;
+extern s32 TItemEffNeedlePos__class_name;
 extern const f32 lbl_805DAB48;
 extern const f32 lbl_805DAB4C;
 TItemEffNeedlePos_801097F0 *__ct__17TItemEffNeedlePosFv(TItemEffNeedlePos_801097F0 *self, void *a1, void *a2, Vec_801097F0 *pos, Vec_801097F0 *dir);
@@ -38,7 +38,7 @@ extern "C" {
 TItemEffNeedlePos_801097F0 *__ct__17TItemEffNeedlePosFv(TItemEffNeedlePos_801097F0 *self, void *a1, void *a2, Vec_801097F0 *pos, Vec_801097F0 *dir) {
     __ct__18TItemEffNeedleBaseFv(self, a1, a2);
     self->vt = __vt__17TItemEffNeedlePos;
-    self->name = lbl_805D2BD0;
+    self->name = TItemEffNeedlePos__class_name;
     VecCopy__FP3VecPC3Vec(&self->pos, pos);
     self->pos.x += lbl_805DAB48 * (f32)rand();
     self->pos.y += lbl_805DAB48 * (f32)rand();

@@ -15,11 +15,11 @@ s32 check_player_state_flag_2__6TLobbyFPv();
 s32 get_global_state__14TOKeyMachine01Fv();
 s32 is_split_screen();
 
-    extern short TCameraCtrl__data_805D4DFC;
-short get_screen_width__11TCameraCtrlFv(void) {  return TCameraCtrl__data_805D4DFC; }
+    extern short TCameraCtrl__viewport_y;
+short get_screen_width__11TCameraCtrlFv(void) {  return TCameraCtrl__viewport_y; }
 
-    extern short TCameraCtrl__data_805D4DFA;
-short get_screen_height__11TCameraCtrlFv(void) {  return TCameraCtrl__data_805D4DFA; }
+    extern short TCameraCtrl__viewport_x;
+short get_screen_height__11TCameraCtrlFv(void) {  return TCameraCtrl__viewport_x; }
 
 extern s32 local_client_id;
 

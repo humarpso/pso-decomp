@@ -31,8 +31,8 @@ void* init_lockon__11TMainCursorFPv(void* a0);
 int init__13TLockOnCursorFPvPvPv(void);
 
     extern unsigned char lbl_804A71C4[];
-    extern int lbl_805D2CC4;
-void* init_lockon__11TMainCursorFPv(void* a0) { init__13TLockOnCursorFPvPvPv(); *(int*)((char*)a0 + 0x18) = (int)lbl_804A71C4; *(int*)((char*)a0 + 0x0) = lbl_805D2CC4; return a0; }
+    extern int lockon_list_clear_task_name;
+void* init_lockon__11TMainCursorFPv(void* a0) { init__13TLockOnCursorFPvPvPv(); *(int*)((char*)a0 + 0x18) = (int)lbl_804A71C4; *(int*)((char*)a0 + 0x0) = lockon_list_clear_task_name; return a0; }
 void refresh_all_lists__11TMainCursorFi(s32 arg0) {
     s32 i;
     if (TObjPlayer__sub_801C6DAC(arg0 + 0x1C) == 0) {

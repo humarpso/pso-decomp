@@ -57,7 +57,7 @@ extern const f32 lbl_805DAB30;
 void disallow_rendering__7TObjectFv(void *);
 void __ct__7TObjectFP7TObject(void *, void *);
 extern u8 __vt__14TItemEffHeaven[];
-extern s32 lbl_805D2BB0;
+extern s32 TItemEffHeaven__class_name;
 extern const f32 lbl_805DAB34;
 Obj_801092A8 *TItemEffHeaven__ct(Obj_801092A8 *self, void *parent, s32 a, s16 b, s32 c);
 }
@@ -142,7 +142,7 @@ Obj_801092A8 *TItemEffHeaven__ct(Obj_801092A8 *self, void *parent, s32 a, s16 b,
     s32 i;
     __ct__7TObjectFP7TObject(self, parent);
     self->vt = __vt__14TItemEffHeaven;
-    *(s32 *)self = lbl_805D2BB0;
+    *(s32 *)self = TItemEffHeaven__class_name;
     self->f_1C = b;
     self->f_20 = 0;
     self->f_3C = a;

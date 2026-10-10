@@ -184,7 +184,7 @@ s32 TShopWindowBase__sub_8022397C(void *);
 s32 __ct__15TShopWindowBaseFv(void *);
 s32 TLobby__sub_80225238(void *, int);
 extern M2C_UNK __vt__24TShopEquipmentListWindow[];
-extern s32 lbl_805D36A8;
+extern s32 TShopEquipmentListWindow__class_name;
 u8 *TShopEquipmentListWindow__ct(u8 *arg0, M2C_UNK arg1, s32 arg2, s32 arg3);
 s32 queue_destruction__7TObjectFv(void *);
 int set_field_20__12TQuestListVMFPvi(void*, int);
@@ -667,7 +667,7 @@ u8 *TShopEquipmentListWindow__ct(u8 *arg0, M2C_UNK arg1, s32 arg2, s32 arg3) {
     s32 sp8;
     __ct__15TShopWindowBaseFv((void *) (arg0));
     M2C_FIELD(arg0, M2C_UNK **, 0x18) = &(*(RecoveredGlobal_8021C7C0___vt__24TShopEquipmentListWindow *)&__vt__24TShopEquipmentListWindow).value;
-    M2C_FIELD(arg0, s32 *, 0) = (s32) lbl_805D36A8;
+    M2C_FIELD(arg0, s32 *, 0) = (s32) TShopEquipmentListWindow__class_name;
     M2C_FIELD(arg0, s32 *, 0x24) = arg3;
     M2C_FIELD(arg0, s32 *, 0x28) = arg2;
     M2C_FIELD(arg0, s32 *, 0x2C) = 0;

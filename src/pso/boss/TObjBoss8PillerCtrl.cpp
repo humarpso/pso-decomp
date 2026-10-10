@@ -33,7 +33,7 @@ M2C_UNK __ct__7TObjectFP7TObject();
 void TObjBoss8PillerCtrl__sub_8035C034(void *, void *);
 extern RecoveredGlobal_8035C22C_lbl_804799DC boss8_piller_ctrl_params;
 extern M2C_UNK __vt__19TObjBoss8PillerCtrl[];
-extern s32 lbl_805D4430;
+extern s32 TObjBoss8PillerCtrl__class_name;
 extern const f32 lbl_805E017C;
 u8 *TObjBoss8PillerCtrl__ct(u8 *arg0, M2C_UNK arg1, s32 arg2, s16 arg3);
 M2C_UNK VecCopy__FP3VecPC3Vec(void *, void *);
@@ -110,7 +110,7 @@ typedef char RecoveredGlobal_8035C22C___vt__19TObjBoss8PillerCtrl_size[sizeof(Re
 u8 *TObjBoss8PillerCtrl__ct(u8 *arg0, M2C_UNK arg1, s32 arg2, s16 arg3) {
     __ct__7TObjectFP7TObject();
     M2C_FIELD(arg0, M2C_UNK **, 0x18) = &(*(RecoveredGlobal_8035C22C___vt__19TObjBoss8PillerCtrl *)&__vt__19TObjBoss8PillerCtrl).value;
-    M2C_FIELD(arg0, s32 *, 0) = (s32) lbl_805D4430;
+    M2C_FIELD(arg0, s32 *, 0) = (s32) TObjBoss8PillerCtrl__class_name;
     VecCopy__FP3VecPC3Vec((void *) (arg0 + 0x1C), (void *) (arg2));
     TObjBoss8PillerCtrl__sub_8035C034((void *)((void *) (arg0)), (void *)((void *) (arg0 + 0x1C)));
     M2C_FIELD(arg0, f32 *, 0x20) = (f32) lbl_805E017C;

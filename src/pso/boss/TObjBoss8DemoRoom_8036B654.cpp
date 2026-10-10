@@ -12,7 +12,7 @@ extern "C" {
 u8 * load_resource_from_descriptor(void *, s32, void *, s32, s32, s32);
 int alloc__23TAdSinglePlyChrSelectGCFPv(void *);
 extern RecoveredGlobal_8036B6D0_lbl_804F3660 TObjBoss8DemoRoom__resource_desc;
-extern u32 TObjBoss8DemoRoom__data_805D7010;
+extern u32 TObjBoss8DemoRoom__shared_resource_object;
 void load_resource__17TObjBoss8DemoRoomFv(void);
 }
 
@@ -33,12 +33,12 @@ void *__ct__17TObjBoss8DemoRoomFv(void *arg0) {
     return arg0;
 }
 
-extern u32 TObjBoss8DemoRoom__data_805D7010;
+extern u32 TObjBoss8DemoRoom__shared_resource_object;
 
 void free_static_instance__17TObjBoss8DemoRoomFv(void) {
-    if ((u32) TObjBoss8DemoRoom__data_805D7010 != 0U) {
-        TLobby__sub_8001FE7C((void*)TObjBoss8DemoRoom__data_805D7010, 1);
-        TObjBoss8DemoRoom__data_805D7010 = 0U;
+    if ((u32) TObjBoss8DemoRoom__shared_resource_object != 0U) {
+        TLobby__sub_8001FE7C((void*)TObjBoss8DemoRoom__shared_resource_object, 1);
+        TObjBoss8DemoRoom__shared_resource_object = 0U;
     }
 }
 
@@ -50,7 +50,7 @@ void load_resource__17TObjBoss8DemoRoomFv(void) {
     if (var_r0 != 0) {
         var_r0 = (long) (load_resource_from_descriptor((void *) temp_r3, 1, &TObjBoss8DemoRoom__resource_desc.value, 0, 0, 0));
     }
-    (*(s32 *)&TObjBoss8DemoRoom__data_805D7010) = var_r0;
+    (*(s32 *)&TObjBoss8DemoRoom__shared_resource_object) = var_r0;
 }
 
 s32 validate_6x0E_clear_negative_status_effects(G_ClientIDHeader *packet) {

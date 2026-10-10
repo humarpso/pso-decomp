@@ -16,7 +16,7 @@ s32 create_particle_emitter(s32, s32);
 void set_flags__11TBoss4Type2FPvUi(void *, s32);
 void __ct__7TObjectFP7TObject(void *, void *);
 extern RecoveredGlobal_8035D7D0___vt__10TDPBShower __vt__10TDPBShower;
-extern s32 lbl_805D4454;
+extern s32 TDPBShower__class_name;
 extern const f32 lbl_805E01C4;
 u8 *TDPBShower__ct(u8 *arg0, u8 *arg1, u8 *arg2);
 }
@@ -51,7 +51,7 @@ u8 *TDPBShower__ct(u8 *arg0, u8 *arg1, u8 *arg2) {
     u8 *temp_r3;
     __ct__7TObjectFP7TObject(arg0, arg1);
     M2C_FIELD(arg0, M2C_UNK **, 0x18) = &__vt__10TDPBShower.value;
-    M2C_FIELD(arg0, s32 *, 0) = (s32) lbl_805D4454;
+    M2C_FIELD(arg0, s32 *, 0) = (s32) TDPBShower__class_name;
     M2C_FIELD(arg0, s32 *, 0x28) = 5;
     VecCopy__FP3VecPC3Vec(arg0 + 0x1C, arg2);
     M2C_FIELD(arg0, f32 *, 0x20) = (f32) (M2C_FIELD(arg0, f32 *, 0x20) + lbl_805E01C4);

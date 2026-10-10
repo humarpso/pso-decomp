@@ -84,8 +84,8 @@ extern char lbl_8047C88C[];
 s32 TLobby__sub_803CC4C0(Obj_803CC4C0 *p);
 M2C_UNK strncpy(void *, void *, int);
 M2C_UNK notify_error__6TLobbyFPv(void *);
-extern M2C_UNK lbl_8047C844[];
-extern M2C_UNK lbl_8047C868[];
+extern M2C_UNK adx_afs_partition_id_range_error[];
+extern M2C_UNK afs_file_id_out_of_range_error[];
 extern Ent_803CC294 *lbl_8057C7D0[];
 s32 get_afs_file_info__6TLobbyFiiPvPvPvPv(s32 arg0, s32 arg1, char *arg2, s32 *arg3, s32 *arg4, s32 *arg5);
 s32 memcmp(void *, void *, int);
@@ -172,15 +172,15 @@ typedef char RecoveredGlobal_803CC500_lbl_8047C910_size[sizeof(RecoveredGlobal_8
 #pragma dont_inline off
 inline s32 check_803CC294(s32 arg0, s32 arg1) {
     if (arg0 < 0 || arg0 >= 0x100) {
-        notify_error__6TLobbyFPv(lbl_8047C844);
+        notify_error__6TLobbyFPv(adx_afs_partition_id_range_error);
         return -3;
     }
     if (lbl_8057C7D0[arg0] == NULL) {
-        notify_error__6TLobbyFPv(lbl_8047C844);
+        notify_error__6TLobbyFPv(adx_afs_partition_id_range_error);
         return -3;
     }
     if (arg1 < 0 || arg1 >= lbl_8057C7D0[arg0]->f8) {
-        notify_error__6TLobbyFPv(lbl_8047C868);
+        notify_error__6TLobbyFPv(afs_file_id_out_of_range_error);
         return -3;
     }
     return 0;

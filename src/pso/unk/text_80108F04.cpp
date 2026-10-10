@@ -26,7 +26,7 @@ void disallow_rendering__7TObjectFv(void *);
 void *create_particle_emitter(void *, s32);
 void __ct__7TObjectFP7TObject(void *, void *);
 extern void *__vt__13TItemEffFlame[];
-extern s32 lbl_805D2BA8;
+extern s32 TItemEffFlame__class_name;
 void *TItemEffFlame__ct(void *arg0, void *parent, void *target);
 }
 
@@ -37,7 +37,7 @@ extern "C" {
 void *TItemEffFlame__ct(void *arg0, void *parent, void *target) {
     __ct__7TObjectFP7TObject(arg0, parent);
     self->vt = __vt__13TItemEffFlame;
-    self->name = lbl_805D2BA8;
+    self->name = TItemEffFlame__class_name;
     self->x20 = obj_getField1c(arg2->src);
     self->idx = arg2->idx;
     {

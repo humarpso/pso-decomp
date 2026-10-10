@@ -10,7 +10,7 @@ void __ct__15TShopWindowBaseFv(void *);
 void set_field_20__12TQuestListVMFPvi(void *, int);
 
 extern M2C_UNK __vt__16TQuestListOnline[];
-extern void *lbl_805D3688;
+extern void *TQuestListOnline__class_name;
 void memset(void *, int, int);
 extern void * TQuestListOnline__data_805D61E0;
 struct VOff_80218310_arg0 { char pad_0[0x4C]; char f_4C[1]; };
@@ -20,7 +20,7 @@ void *TQuestListOnline__ct(void *arg0, void *arg1, void *arg2, void *arg3) {
     __ct__15TShopWindowBaseFv(arg0);
     M2C_FIELD(arg0, M2C_UNK **, 0x18) = __vt__16TQuestListOnline;
     __ct__13GameListEntryFv(self->f_4C);
-    M2C_FIELD(arg0, void **, 0x0) = lbl_805D3688;
+    M2C_FIELD(arg0, void **, 0x0) = TQuestListOnline__class_name;
     M2C_FIELD(arg0, u32 *, 0x38) = 0;
     M2C_FIELD(arg0, u32 *, 0x3C) = 0;
     M2C_FIELD(arg0, u32 *, 0x40) = 0;

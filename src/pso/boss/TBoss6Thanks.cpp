@@ -27,7 +27,7 @@ s32 get_bml_model(void *, s32);
 void __ct__7TObjectFP7TObject(void *, void *);
 int get_fish_count__8TObjFishFv(void);
 extern RecoveredGlobal_8035D10C___vt__12TBoss6Thanks __vt__12TBoss6Thanks;
-extern s32 lbl_805D4440;
+extern s32 TBoss6Thanks__class_name;
 extern const f32 lbl_805E019C;
 extern const f32 lbl_805E01A4;
 u8 *TBoss6Thanks__ct(u8 *arg0, u8 *arg1);
@@ -183,7 +183,7 @@ u8 *TBoss6Thanks__ct(u8 *arg0, u8 *arg1) {
     u8 *temp_r3;
     __ct__7TObjectFP7TObject(arg0, arg1);
     M2C_FIELD(arg0, M2C_UNK **, 0x18) = &__vt__12TBoss6Thanks.value;
-    M2C_FIELD(arg0, s32 *, 0) = (s32) lbl_805D4440;
+    M2C_FIELD(arg0, s32 *, 0) = (s32) TBoss6Thanks__class_name;
     temp_r3 = (u8 *)(get_fish_count__8TObjFishFv());
     M2C_FIELD(arg0, s32 *, 0x38) = get_bml_model(temp_r3, 7);
     M2C_FIELD(arg0, s32 *, 0x40) = TObjFish__sub_8001EDB0(temp_r3, 7);

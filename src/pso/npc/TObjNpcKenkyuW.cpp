@@ -171,9 +171,9 @@ extern u32 TObjNpcKenkyuW__data_805D6658;
 u8 *TObjNpcKenkyuW__ct(u8 *arg0, M2C_UNK arg1, s32 arg2);
 s32 obj_is_hit_receivable(void *);
 bool is_hit_receivable_target__10TObjPlayerFiUi(M2C_UNK arg0, u32 arg1);
-extern RecoveredGlobal_80236290_lbl_80516150 lbl_80540A38;
+extern RecoveredGlobal_80236290_lbl_80516150 technique_contact_list;
 void clear_technique_contacts__10TObjPlayerFv();
-extern RecoveredGlobal_80236290_lbl_80516150 lbl_80540A38;
+extern RecoveredGlobal_80236290_lbl_80516150 technique_contact_list;
 void clear_technique_contacts__10TObjPlayerFv();
 void VecCopy__FP3VecPC3Vec(void *, const void *);
 Vec_802A3DE8 *get_shoot_data__12TNeedleShootFPv(void *);
@@ -186,7 +186,7 @@ s32 get_lobby_flag__6TLobbyFv(void);
 extern const f32 lbl_805DDF60;
 extern const f32 lbl_805DDF64;
 TechniqueContactList *TObjPlayer__sub_802A3DE8(Obj_802A3DE8 *self, void *src);
-extern RecoveredGlobal_80236290_lbl_80516150 lbl_80540A38;
+extern RecoveredGlobal_80236290_lbl_80516150 technique_contact_list;
 void clear_technique_contacts__10TObjPlayerFv();
 void VecCopy__FP3VecPC3Vec(void *, const void *);
 Vec_802A3DE8 *get_shoot_data__12TNeedleShootFPv(void *);
@@ -200,7 +200,7 @@ Pl_802A41CC *find_entity_by_id(u16);
 extern const f32 lbl_805DDF60;
 extern const f32 lbl_805DDF64;
 TechniqueContactList *collect_technique_contacts__10TObjPlayerFPvPv(Obj_802A41CC *self, void *src);
-extern RecoveredGlobal_80236290_lbl_80516150 lbl_80540A38;
+extern RecoveredGlobal_80236290_lbl_80516150 technique_contact_list;
 void clear_technique_contacts__10TObjPlayerFv();
 void VecCopy__FP3VecPC3Vec(void *, const void *);
 Vec_802A3DE8 *get_shoot_data__12TNeedleShootFPv(void *);
@@ -272,10 +272,10 @@ u8 *TObjNpcKenkyuW__ct(u8 *arg0, M2C_UNK arg1, s32 arg2) {
 typedef char RecoveredGlobal_80236290_lbl_80516150_size[sizeof(RecoveredGlobal_80236290_lbl_80516150) == 0x88 ? 1 : -1];
 void clear_technique_contacts__10TObjPlayerFv() {
     for (s32 i=0;i<16;++i) {
-        (*(TechniqueContactList *)&lbl_80540A38).actors[i]=0;
-        (*(TechniqueContactList *)&lbl_80540A38).bodies[i]=0;
+        (*(TechniqueContactList *)&technique_contact_list).actors[i]=0;
+        (*(TechniqueContactList *)&technique_contact_list).bodies[i]=0;
     }
-    (*(TechniqueContactList *)&lbl_80540A38).count=0;
+    (*(TechniqueContactList *)&technique_contact_list).count=0;
 }
 
 bool is_hit_receivable_target__10TObjPlayerFiUi(M2C_UNK arg0, u32 arg1) {
@@ -284,7 +284,7 @@ bool is_hit_receivable_target__10TObjPlayerFiUi(M2C_UNK arg0, u32 arg1) {
     }
     return obj_is_hit_receivable((void *) (arg1)) != 0;
 }
-#define L_802A3DE8 (*(TechniqueContactList *)&lbl_80540A38)
+#define L_802A3DE8 (*(TechniqueContactList *)&technique_contact_list)
 TechniqueContactList *TObjPlayer__sub_802A3DE8(Obj_802A3DE8 *self, void *src) {
     Vec_802A3DE8 a;
     Vec_802A3DE8 d;
@@ -326,9 +326,9 @@ TechniqueContactList *TObjPlayer__sub_802A3DE8(Obj_802A3DE8 *self, void *src) {
 }
 struct Vec_802A3DE8;
 struct Pl_802A3DE8;
-#define L_802A41CC (*(TechniqueContactList *)&lbl_80540A38)
+#define L_802A41CC (*(TechniqueContactList *)&technique_contact_list)
 
-#define L_802A3FDC (*(TechniqueContactList *)&lbl_80540A38)
+#define L_802A3FDC (*(TechniqueContactList *)&technique_contact_list)
 TechniqueContactList *TObjPlayer__sub_802A3FDC(Obj_802A3FDC *self, void *src) {
     Vec_802A3FDC a;
     Vec_802A3FDC d;

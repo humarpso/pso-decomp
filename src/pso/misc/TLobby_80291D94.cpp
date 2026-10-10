@@ -341,7 +341,7 @@ void encode_name_xor__6TLobbyFPvPvi(void *, void *, s32);
 void set_encoded_name_and_color__6TLobbyFPvi(u8 *arg0, s32 arg1);
 s32 TLobby__sub_80291F9C(void);
 M2C_UNK strncpy(void *, void *, int);
-extern RecoveredGlobal_802925C4_lbl_80540968 lbl_80540968;
+extern RecoveredGlobal_802925C4_lbl_80540968 split_screen_player_name;
 void set_split_screen_name__6TLobbyFi(s32 arg0);
 f32 get_random_float__8TObjFishFv(f32);
 s32 is_value_out_of_range__6TLobbyFi(s32);
@@ -610,8 +610,8 @@ void set_encoded_name_and_color__6TLobbyFPvi(u8 *arg0, s32 arg1) {
 }
 typedef char RecoveredGlobal_802925C4_lbl_80540968_size[sizeof(RecoveredGlobal_802925C4_lbl_80540968) == 0x20 ? 1 : -1];
 void set_split_screen_name__6TLobbyFi(s32 arg0) {
-    strncpy((void *) (&lbl_80540968.value), (void *) (arg0), (int) (0x20));
-    M2C_FIELD(&lbl_80540968.value, s8 *, 0x1F) = 0;
+    strncpy((void *) (&split_screen_player_name.value), (void *) (arg0), (int) (0x20));
+    M2C_FIELD(&split_screen_player_name.value, s8 *, 0x1F) = 0;
 }
 typedef char RecoveredGlobal_80292604_lbl_804DB1F0_size[sizeof(RecoveredGlobal_80292604_lbl_804DB1F0) == 0x6B0 ? 1 : -1];
 void update_challenge_timer__6TLobbyFi(s32 arg0) {

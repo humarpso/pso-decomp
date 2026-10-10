@@ -1582,7 +1582,7 @@ M2C_UNK set_field_40__6TLobbyFPvi(int, int);
 M2C_UNK set_field_3c__6TLobbyFPvi(int, int);
 M2C_UNK set_count__6TLobbyFPvi(int, int);
 M2C_UNK notify_error__6TLobbyFPv(void *);
-extern char lbl_8047C758[];
+extern char adxt_trap_entry_data_shortage_error[];
 void adxt_trap_entry_update__6TLobbyFPv(Obj_803CB20C *arg0);
 M2C_UNK OSResumeThread(void *);
 M2C_UNK VIWaitForRetrace();
@@ -1637,7 +1637,7 @@ extern s32 lbl_805D7540;
 void set_param_and_notify__6TLobbyFPvi(void *, int);
 void TLobby__sub_803C0758(void *);
 void configure_audio_stream_output(Stream_803C9FCC *self);
-extern char lbl_8047C6F0[];
+extern char adxt_start_filename_open_error[];
 void stop_audio_stream(u8 *arg0);
 void report_adx_error__6TLobbyFPvi(const char *msg, const char *arg);
 void configure_audio_stream_output(Stream_803C9FCC *self);
@@ -1651,7 +1651,7 @@ extern const char *const volatile lbl_805E0D78;
 void TLobby__sub_803CB81C(void);
 M2C_UNK TLobby__sub_803CBF50(void *);
 M2C_UNK notify_error__6TLobbyFPv(void *);
-extern u8 lbl_8047C690[];
+extern u8 adx_out_pan_parameter_error[];
 void adxt_set_out_pan__6TLobbyFPvis(S_803C96F0 *arg0, s32 arg1, s16 arg2);
 M2C_UNK GXFlush();
 M2C_UNK TLobby__sub_803CA8B4(Ent_803C9608 *);
@@ -1662,7 +1662,7 @@ void TLobby__sub_803C9608(void);
 M2C_UNK notify_error__6TLobbyFPv(void *);
 void stop_audio_stream(u8 *arg0);
 s32 alloc_adx_stream_slot__6TLobbyFii(void *, int);
-extern char lbl_8047C6C0[];
+extern char adxt_start_mem_idx_stream_create_error[];
 void adxt_start_mem_idx__6TLobbyFPvPvi(u8 *arg0, u8 *arg1, s32 arg2);
 void TLobby__sub_803CE544(void *, int);
 void cvFsSetDefDev__6TLobbyFPv(const char *);
@@ -1692,7 +1692,7 @@ void start_stream_playback__6TLobbyFPvi(Stream_803CA0C8 *self, s32 arg1);
 M2C_UNK OSResumeThread(void *);
 M2C_UNK OSSetThreadPriority(void *, int);
 M2C_UNK set_message_and_notify__6TLobbyFPv(char *);
-extern char lbl_8047C7B4[];
+extern char adxm_idle_border_internal_error[];
 extern Cfg_803CBA58 lbl_804F9D80;
 extern u8 lbl_80575E80[];
 extern s32 lbl_805D7598;
@@ -1912,7 +1912,7 @@ void adxt_set_out_pan__6TLobbyFPvis(S_803C96F0 *arg0, s32 arg1, s16 arg2) {
         TLobby__sub_803CBF50(arg0->p);
         return;
     }
-    notify_error__6TLobbyFPv(lbl_8047C690);
+    notify_error__6TLobbyFPv(adx_out_pan_parameter_error);
 }
 
 s32 TLobby__sub_803C9740(u8 *arg0) {
@@ -2296,7 +2296,7 @@ void adxt_start_mem_idx__6TLobbyFPvPvi(u8 *arg0, u8 *arg1, s32 arg2) {
     r = alloc_adx_stream_slot__6TLobbyFii(arg1 + *(s32 *)(arg1 + (arg2 + 1) * 8), 0x40000000);
     if (r == 0) {
         release_ref__6TLobbyFv();
-        notify_error__6TLobbyFPv(lbl_8047C6C0);
+        notify_error__6TLobbyFPv(adxt_start_mem_idx_stream_create_error);
         return;
     }
     start_stream_playback__6TLobbyFPvi((Stream_803CA0C8 *)(arg0), (s32)(r));
@@ -2312,7 +2312,7 @@ void start_audio_stream_file(Stream_803CA824 *self, const char *name) {
     init_once__6TLobbyFv();
     if ((self->handle = TLobby__sub_803C8BAC(name, self->f10)) == 0) {
         release_ref__6TLobbyFv();
-        report_adx_error__6TLobbyFPvi(lbl_8047C6F0, name);
+        report_adx_error__6TLobbyFPvi(adxt_start_filename_open_error, name);
         self->f60 = -1;
         self->state = 6;
     } else {
@@ -2367,7 +2367,7 @@ M2C_UNK TLobby__sub_803CBF90(int, int);
 M2C_UNK TLobby__sub_803CBFB0(int, int);
 struct Conn_803CAEB4;
 void TLobby__sub_803CAEB4(Conn_803CAEB4 *arg0);
-extern char lbl_8047C718[];
+extern char adx_decoder_channel_count_error[];
 
 #define SBF50 TLobby__sub_803CBF50
 
@@ -2386,7 +2386,7 @@ void TLobby__sub_803CAB38(Strm_803CAB38 *self) {
         s32 v = send_with_offset4__6TLobbyFPv(t);
         if (v > self->f3) {
             format_number_pair__6TLobbyFiiPvi(v, self->f3, buf, 0x10);
-            report_adx_error__6TLobbyFPvi(lbl_8047C718, buf);
+            report_adx_error__6TLobbyFPvi(adx_decoder_channel_count_error, buf);
             stop_audio_stream(arg0);
             return;
         }
@@ -2638,7 +2638,7 @@ void adxt_trap_entry_update__6TLobbyFPv(Obj_803CB20C *arg0) {
     }
     s->vt->lock(s, 1, arg0->f50, &b);
     if (b.size < arg0->f50) {
-        notify_error__6TLobbyFPv(lbl_8047C758);
+        notify_error__6TLobbyFPv(adxt_trap_entry_data_shortage_error);
     }
     s->vt->commit(s, 0, &b);
     set_field_40__6TLobbyFPvi(id, 0);
@@ -2861,7 +2861,7 @@ void adxm_goto_mwidle_border__6TLobbyFv(void) {
         }
     }
     if (i == 200000000) {
-        set_message_and_notify__6TLobbyFPv(lbl_8047C7B4);
+        set_message_and_notify__6TLobbyFPv(adxm_idle_border_internal_error);
     }
     OSSetThreadPriority(lbl_80575E80, (*(Cfg_803CBBD8 *)&lbl_804F9D80).prio);
 }

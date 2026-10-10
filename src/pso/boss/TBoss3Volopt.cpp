@@ -52,7 +52,7 @@ M2C_UNK init_fade_color__12TBoss3VoloptFPvPvPv(void *, void *, void *);
 M2C_UNK init_fade__12TBoss3VoloptFPvPvPv(void *, void *, void *);
 M2C_UNK TCameraCtrl__sub_8006A044(int, f32);
 M2C_UNK spawn_particle_effect(void *, int);
-s32 TLobby__sub_800C6C10();
+s32 is_local_client_floor_leader();
 void * find_entity_by_id(u16);
 M2C_UNK play_persistent_sound(M2C_UNK, void *, M2C_UNK, M2C_UNK, M2C_UNK);
 u32 __nw__7TObjectFUl(M2C_UNK);
@@ -387,7 +387,7 @@ s32 cache_target_and_forward__11TCameraCtrlFii(void *, int);
 u8 * get_scripted_camera_playback();
 void * alloc__23TAdSinglePlyChrSelectGCFPv(u32);
 s32 check_v2_mode__9TObjEneDDFv();
-s32 TLobby__sub_800C6C10();
+s32 is_local_client_floor_leader();
 M2C_UNK TObjEnemyCustom__sub_800C7860();
 void __dt__15TObjEnemyCustomFv(void *, s32);
 s32 TObjEnemyCustom__ct(void *, int);
@@ -805,7 +805,7 @@ void update_volopt_seq__11TCameraCtrlFPv(void *arg0) {
         M2C_FIELD(arg0, s32 *, 0x37C) = 1;
     case 1:
         if (get_main_phase() == 0xF) {
-            if (TLobby__sub_800C6C10() != 0) {
+            if (is_local_client_floor_leader() != 0) {
                 select_and_send_attack__12TBoss3VoloptFPv((void *)(arg0));
             }
         } else {
@@ -911,7 +911,7 @@ void TBoss3Volopt__sub_8003D7BC(u8 *arg0) {
         M2C_FIELD(arg0, s32 *, 0x37C) = 1;
     case 1:
         if (get_main_phase() == 0xF) {
-            if (TLobby__sub_800C6C10() != 0) {
+            if (is_local_client_floor_leader() != 0) {
                 TBoss3Volopt__sub_8003E584(arg0);
             }
         } else {

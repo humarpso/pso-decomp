@@ -107,8 +107,8 @@ void *create_named_object(const char *name);
 void *load_gvm_texture_file(const char *name);
 extern u32 TObjNpcHRM00__data_805D57C0;
 extern u32 TObjNpcHRM00__data_805D57C4;
-extern char lbl_8043FAE0[];
-extern char lbl_8043FAF4[];
+extern char TObjNpcHRM00__data_filename[];
+extern char TObjNpcHRM00__body_texture_filename[];
 void load_resources__12TObjNpcHRM00Fv(void);
 }
 
@@ -144,8 +144,8 @@ void destroy_resources__12TObjNpcHRM00Fv(void) {
 extern M2C_UNK __vt__12TObjNpcHRM00[];
 
 void load_resources__12TObjNpcHRM00Fv(void) {
-    TObjNpcHRM00__data_805D57C0 = (u32)create_named_object(lbl_8043FAE0);
-    TObjNpcHRM00__data_805D57C4 = (u32)load_gvm_texture_file(lbl_8043FAF4);
+    TObjNpcHRM00__data_805D57C0 = (u32)create_named_object(TObjNpcHRM00__data_filename);
+    TObjNpcHRM00__data_805D57C4 = (u32)load_gvm_texture_file(TObjNpcHRM00__body_texture_filename);
 }
 
 void *__dt__12TObjNpcHRM00Fv(void *arg0, s16 arg1) {

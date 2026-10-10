@@ -11,7 +11,7 @@ s32 draw_icon__10TObjPlayerFPvii(TItem* item, s32 attachment, f32* position);
 void copy_pos__11TNowLoadingFPvPv(void* effect, const f32* position);
 s32 get_field_d8__10TObjPlayerFPv(TItem* item);
 void* create_particle_emitter(const f32* position, s32 effect_id);
-extern const char* lbl_805D2B98;
+extern const char* TItemEffCane__class_name;
 }
 
 void TItemEffCane::run_task() {
@@ -37,7 +37,7 @@ TItemEffCane::~TItemEffCane() {
 TItemEffCane::TItemEffCane(TObject* parent, TItem* item, s32 attachment, s32 effect_id)
     : TObject(parent) {
     f32 position[3];
-    m_name = lbl_805D2B98;
+    m_name = TItemEffCane__class_name;
     item_id = get_field_d8__10TObjPlayerFPv(item);
     attachment_index = attachment;
     draw_icon__10TObjPlayerFPvii(item, attachment_index, position);

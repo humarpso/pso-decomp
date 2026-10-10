@@ -97,7 +97,7 @@ f64 log();
 
 void try_begin_load__22TChCrLoadAfsTextureReqFPv(void* p) { if (try_acquire_load_slot__22TChCrLoadAfsTextureReqFPv((void *)(p)) != 0) { *(int*)((char*)p + 0x2c) = 1; } }
 
-s32 lbl_805D64E0;
+s32 TChCrLoadAfsTextureReq__active_load_count;
 
 void run_task__22TChCrLoadAfsTextureReqFv(Req_8028C090 *arg0) {
     if (arg0->done == 1) {
@@ -118,33 +118,33 @@ void run_task__22TChCrLoadAfsTextureReqFv(Req_8028C090 *arg0) {
     (arg0->*tbl[arg0->state])();
 }
 
-extern s32 lbl_805D64E0;
+extern s32 TChCrLoadAfsTextureReq__active_load_count;
 
 void finish_request__22TChCrLoadAfsTextureReqFPv(void *arg0) {
     s32 temp_r0;
 
-    if (((s32) M2C_FIELD(arg0, s32 *, 0x68) != 0) && ((s32) lbl_805D64E0 <= 3)) {
-        temp_r0 = lbl_805D64E0 - 1;
-        lbl_805D64E0 = temp_r0;
+    if (((s32) M2C_FIELD(arg0, s32 *, 0x68) != 0) && ((s32) TChCrLoadAfsTextureReq__active_load_count <= 3)) {
+        temp_r0 = TChCrLoadAfsTextureReq__active_load_count - 1;
+        TChCrLoadAfsTextureReq__active_load_count = temp_r0;
         if (temp_r0 >= 0) {
             M2C_FIELD(arg0, s32 *, 0x68) = 0;
         }
     }
 }
 
-extern s32 lbl_805D64E0;
+extern s32 TChCrLoadAfsTextureReq__active_load_count;
 
 s32 try_acquire_load_slot__22TChCrLoadAfsTextureReqFPv(void *arg0) {
-    if (((s32) lbl_805D64E0 < 0) || ((s32) lbl_805D64E0 > 3)) {
+    if (((s32) TChCrLoadAfsTextureReq__active_load_count < 0) || ((s32) TChCrLoadAfsTextureReq__active_load_count > 3)) {
         return 0;
     }
     if ((s32) M2C_FIELD(arg0, s32 *, 0x68) == 1) {
         return 0;
     }
-    if ((s32) lbl_805D64E0 >= 3) {
+    if ((s32) TChCrLoadAfsTextureReq__active_load_count >= 3) {
         return 0;
     }
-    lbl_805D64E0 += 1;
+    TChCrLoadAfsTextureReq__active_load_count += 1;
     M2C_FIELD(arg0, s32 *, 0x68) = 1;
     return 1;
 }

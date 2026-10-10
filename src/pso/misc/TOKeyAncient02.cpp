@@ -71,8 +71,8 @@ M2C_UNK pop_matrix();
 M2C_UNK post_translate_matrix(void *);
 M2C_UNK set_global_param__8TObjFishFi(int);
 M2C_UNK draw_ginja_model(int);
-extern s32 lbl_805D5A04;
-extern void *lbl_805D5A08;
+extern s32 TOKeyAncient02__model_root;
+extern void *TOKeyAncient02__texture_lists;
 void render__14TOKeyAncient02Fv(u8 *arg0);
 s32 TObjFish__sub_8001EDB0(void *, s32);
 s32 get_bml_model(void *, s32);
@@ -82,9 +82,9 @@ int alloc_buffer__11TOBoss4RockFPv(void *);
 u8 * load_gvm_texture_file(s32);
 extern RecoveredGlobal_8016B5A4_lbl_80441A74 lbl_80441A74;
 extern RecoveredGlobal_8016B5A4_lbl_804B2A7C lbl_804B2A7C;
-extern u32 lbl_805D5A00;
-extern s32 lbl_805D5A04;
-extern void *lbl_805D5A08;
+extern u32 TOKeyAncient02__model_archive;
+extern s32 TOKeyAncient02__model_root;
+extern void *TOKeyAncient02__texture_lists;
 void load_resources__14TOKeyAncient02Fv(void);
 s32 TObjFish__sub_8001EDB0(void *, s32);
 s32 get_bml_model(void *, s32);
@@ -96,7 +96,7 @@ s32 TOKey__ct(void *);
 extern RecoveredGlobal_8016B6A4_lbl_804B2A8C lbl_804B2A8C;
 extern M2C_UNK __vt__14TOKeyAncient02[];
 extern s32 lbl_805D3024;
-extern u32 lbl_805D5A00;
+extern u32 TOKeyAncient02__model_archive;
 extern const f32 TOKeyAncient02__data_805DB70C;
 extern const f32 lbl_805DB710;
 extern const f32 lbl_805DB714;
@@ -167,9 +167,9 @@ void render__14TOKeyAncient02Fv(u8 *arg0) {
         draw_ginja_model((int) (M2C_FIELD(temp_r31_3, s32 *, 4)));
         pop_matrix();
         pop_matrix();
-        set_global_param__8TObjFishFi((int) (M2C_FIELD((*(s32 *)&lbl_805D5A08), M2C_UNK *, (M2C_FIELD(arg0, s32 *, 0xD4) * 4))));
+        set_global_param__8TObjFishFi((int) (M2C_FIELD((*(s32 *)&TOKeyAncient02__texture_lists), M2C_UNK *, (M2C_FIELD(arg0, s32 *, 0xD4) * 4))));
         begin_effect_render__13TParticleCtrlFv();
-        temp_r31_4 = (u8 *)((*(u8 * *)&lbl_805D5A04));
+        temp_r31_4 = (u8 *)((*(u8 * *)&TOKeyAncient02__model_root));
         push_matrix();
         post_translate_matrix((void *) (temp_r31_4 + 8));
         draw_ginja_model((int) (M2C_FIELD(temp_r31_4, s32 *, 4)));
@@ -233,23 +233,23 @@ void *create__14TOKeyAncient02FPv(void *arg0) {
     return o;
 }
 
-extern u32 lbl_805D5A00;
-extern s32 lbl_805D5A04;
-extern void *lbl_805D5A08;
+extern u32 TOKeyAncient02__model_archive;
+extern s32 TOKeyAncient02__model_root;
+extern void *TOKeyAncient02__texture_lists;
 
 void free_static__14TOKeyAncient02Fv(void) {
-    if ((void *) lbl_805D5A08 != NULL) {
-        free_if_valid__10TObjPlayerFi(M2C_FIELD(lbl_805D5A08, s32 *, 4));
-        if ((void *) lbl_805D5A08 != NULL) {
-            free__11TOBoss4RockFUi((void*)lbl_805D5A08);
-            lbl_805D5A08 = NULL;
+    if ((void *) TOKeyAncient02__texture_lists != NULL) {
+        free_if_valid__10TObjPlayerFi(M2C_FIELD(TOKeyAncient02__texture_lists, s32 *, 4));
+        if ((void *) TOKeyAncient02__texture_lists != NULL) {
+            free__11TOBoss4RockFUi((void*)TOKeyAncient02__texture_lists);
+            TOKeyAncient02__texture_lists = NULL;
         }
     }
-    if ((u32) lbl_805D5A00 != 0U) {
-        TLobby__sub_8001FE7C((void*)lbl_805D5A00, 1);
-        lbl_805D5A00 = 0U;
+    if ((u32) TOKeyAncient02__model_archive != 0U) {
+        TLobby__sub_8001FE7C((void*)TOKeyAncient02__model_archive, 1);
+        TOKeyAncient02__model_archive = 0U;
     }
-    lbl_805D5A04 = 0;
+    TOKeyAncient02__model_root = 0;
 }
 
 extern M2C_UNK __vt__14TOKeyAncient02[];
@@ -264,11 +264,11 @@ void load_resources__14TOKeyAncient02Fv(void) {
     if (var_r0 != 0) {
         var_r0 = (long) (load_resource_from_descriptor((void *) temp_r3, 1, &lbl_804B2A7C.value, 0, 0, 0));
     }
-    (*(u8 * *)&lbl_805D5A00) = (unsigned char *) ((void *) var_r0);
-    (*(s32 *)&lbl_805D5A08) = alloc_buffer__11TOBoss4RockFPv((void *)8);
-    M2C_FIELD((*(s32 *)&lbl_805D5A08), s32 *, 0) = TObjFish__sub_8001EDB0((*(u8 * *)&lbl_805D5A00), 0);
-    M2C_FIELD((*(s32 *)&lbl_805D5A08), u8 **, 4) = load_gvm_texture_file((s32) &lbl_80441A74.value);
-    lbl_805D5A04 = get_bml_model((*(u8 * *)&lbl_805D5A00), 0);
+    (*(u8 * *)&TOKeyAncient02__model_archive) = (unsigned char *) ((void *) var_r0);
+    (*(s32 *)&TOKeyAncient02__texture_lists) = alloc_buffer__11TOBoss4RockFPv((void *)8);
+    M2C_FIELD((*(s32 *)&TOKeyAncient02__texture_lists), s32 *, 0) = TObjFish__sub_8001EDB0((*(u8 * *)&TOKeyAncient02__model_archive), 0);
+    M2C_FIELD((*(s32 *)&TOKeyAncient02__texture_lists), u8 **, 4) = load_gvm_texture_file((s32) &lbl_80441A74.value);
+    TOKeyAncient02__model_root = get_bml_model((*(u8 * *)&TOKeyAncient02__model_archive), 0);
 }
 
 void *__dt__14TOKeyAncient02Fv(void *arg0, s16 arg1) {
@@ -290,8 +290,8 @@ u8 *TOKeyAncient02__ct(u8 *arg0, M2C_UNK arg1, s32 arg2) {
     M2C_FIELD(arg0, s32 *, 0) = (s32) lbl_805D3024;
     ((VObj_18_1a504b *)(arg0))->m5(arg2);
     init_switch_id__5TOKeyFPv((void *) (arg0));
-    M2C_FIELD(arg0, u8 **, 0x34) = ((u8 *)get_bml_model((void *)((*(s32 *)&lbl_805D5A00)), (s32)(1)));
-    M2C_FIELD(arg0, s32 *, 0x24) = TObjFish__sub_8001EDB0((void *)((void *) ((*(s32 *)&lbl_805D5A00))), (s32)((int) (1)));
+    M2C_FIELD(arg0, u8 **, 0x34) = ((u8 *)get_bml_model((void *)((*(s32 *)&TOKeyAncient02__model_archive)), (s32)(1)));
+    M2C_FIELD(arg0, s32 *, 0x24) = TObjFish__sub_8001EDB0((void *)((void *) ((*(s32 *)&TOKeyAncient02__model_archive))), (s32)((int) (1)));
     init_collision_body_parts((void *) (arg0), (void *) (&lbl_804B2A8C.value), (int) (1));
     refresh_collision_body_centers((void *) (arg0));
     reset_photon_effect__10TObjPlayerFPv((void *) (arg0));

@@ -22,7 +22,7 @@ void fn_801E3F44(f32 farg0, f32 farg1);
 void debug_print__FPCc(const char *);
 s32 get_global_state__14TOKeyMachine01Fv();
 int sprintf(char *, const char *, ...);
-extern char lbl_80449748[];
+extern char pso_data2_receive_log_format[];
 extern u8 subcommand_area_masks[];
 extern Ent_801E3FA4 pso_command_dispatch_table[];
 void dispatch_6x_subcommand(Msg_801E3FA4 *arg0);
@@ -76,7 +76,7 @@ void dispatch_6x_subcommand(Msg_801E3FA4 *arg0) {
     s32 key = arg0->a;
     for (i = 0; pso_command_dispatch_table[i].id != 0; i++) {
         if (key == pso_command_dispatch_table[i].id && (pso_command_dispatch_table[i].mask & subcommand_area_masks[get_global_state__14TOKeyMachine01Fv()])) {
-            sprintf(buf, lbl_80449748, arg0->a, arg0->b);
+            sprintf(buf, pso_data2_receive_log_format, arg0->a, arg0->b);
             debug_print__FPCc(buf);
             pso_command_dispatch_table[i].fn(arg0);
             return;

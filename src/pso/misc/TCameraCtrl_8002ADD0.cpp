@@ -8,10 +8,10 @@ extern "C" {
 
 s16 get_camera_mode__11TCameraCtrlFv(void);
 
-extern s16 lbl_805D4E08;
+extern s16 TCameraCtrl__camera_mode;
 
 s16 get_camera_mode__11TCameraCtrlFv(void) {
-    return lbl_805D4E08;
+    return TCameraCtrl__camera_mode;
 }
 
 }

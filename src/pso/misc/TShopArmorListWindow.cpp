@@ -190,7 +190,7 @@ s32 calc_item_count__18TShopGetItemWindowFPvPv(int, void *);
 s32 TShopWindowBase__sub_8022397C(void *);
 s32 __ct__15TShopWindowBaseFv(void *);
 extern M2C_UNK __vt__20TShopArmorListWindow[];
-extern s32 lbl_805D3698;
+extern s32 TShopArmorListWindow__class_name;
 u8 *TShopArmorListWindow__ct(u8 *arg0, M2C_UNK arg1, s32 arg2, s32 arg3);
 s32 queue_destruction__7TObjectFv(void *);
 int set_field_20__12TQuestListVMFPvi(void*, int);
@@ -670,7 +670,7 @@ u8 *TShopArmorListWindow__ct(u8 *arg0, M2C_UNK arg1, s32 arg2, s32 arg3) {
     s32 sp8;
     __ct__15TShopWindowBaseFv((void *) (arg0));
     M2C_FIELD(arg0, M2C_UNK **, 0x18) = &(*(RecoveredGlobal_8021B1CC___vt__20TShopArmorListWindow *)&__vt__20TShopArmorListWindow).value;
-    M2C_FIELD(arg0, s32 *, 0) = (s32) lbl_805D3698;
+    M2C_FIELD(arg0, s32 *, 0) = (s32) TShopArmorListWindow__class_name;
     M2C_FIELD(arg0, s32 *, 0x24) = arg3;
     M2C_FIELD(arg0, s32 *, 0x28) = arg2;
     M2C_FIELD(arg0, s32 *, 0x2C) = 0;

@@ -12,7 +12,7 @@ M2C_UNK copy_xyz__10TObjPlayerFPvPv(void *, void *);
 M2C_UNK __ct__18TItemEffNeedleBaseFv(void *, s32, s32);
 u8 *find_entity_by_id(u16);
 extern M2C_UNK __vt__14TItemEffNeedle[];
-extern s32 lbl_805D2BCC;
+extern s32 TItemEffNeedle__class_name;
 void *__ct__14TItemEffNeedleFv(void *arg0, s32 arg1, s32 arg2, s32 arg3, s32 arg4);
 }
 
@@ -34,7 +34,7 @@ void *__ct__14TItemEffNeedleFv(void *arg0, s32 arg1, s32 arg2, s32 arg3, s32 arg
     u8 *temp_r3;
     __ct__18TItemEffNeedleBaseFv(arg0, arg1, arg2);
     M2C_FIELD(self, M2C_UNK **, 0x18) = __vt__14TItemEffNeedle;
-    M2C_FIELD(self, s32 *, 0) = (s32) lbl_805D2BCC;
+    M2C_FIELD(self, s32 *, 0) = (s32) TItemEffNeedle__class_name;
     M2C_FIELD(self, u16 *, 0x50) = arg3;
     M2C_FIELD(self, s32 *, 0x54) = arg4;
     temp_r3 = find_entity_by_id(M2C_FIELD(self, u16 *, 0x50));

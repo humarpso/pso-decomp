@@ -10,7 +10,7 @@ struct Base_801A2E00 { u8 pad0[0x18]; };
 struct Ctrl_801A2E00 : Base_801A2E00 { virtual void v0(int); };
 
 extern "C" {
-s32 TAdMultiPlyChrSelectGC__sub_802C64D0(s32);
+s32 is_multiplayer_character_slot_selected(s32);
 M2C_UNK create_player_object(s32, s32, u32);
 u32 get_char_index__23TAdSinglePlyChrSelectGCFUi(s32);
 s32 is_split_screen();
@@ -86,7 +86,7 @@ void apply_char_to_players__6TLobbyFv(void) {
     if (is_split_screen() != 0) {
         var_r31 = 0;
         do {
-            if (TAdMultiPlyChrSelectGC__sub_802C64D0(var_r31) != 0) {
+            if (is_multiplayer_character_slot_selected(var_r31) != 0) {
                 temp_r3 = get_char_index__23TAdSinglePlyChrSelectGCFUi(var_r31);
                 if (temp_r3 != 0U) {
                     create_player_object(var_r31, lbl_805D53A8 + var_r31, temp_r3);

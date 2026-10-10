@@ -57,7 +57,7 @@ s32 fn_80140EA8(int, void *);
 s32 construct_collider_proxy__10TObjPlayerFPv(void *);
 void update_state__10TObjMapCsnFPv(void *arg0);
 extern RecoveredGlobal_80194988___vt__10TObjMapCsn __vt__10TObjMapCsn;
-extern s32 lbl_805D2CD0;
+extern s32 TObjMapCsn__class_name;
 u8 *TObjMapCsn__ct(u8 *arg0, M2C_UNK arg1, s32 arg2);
 s32 VecCopy__FP3VecPC3Vec(void *, void *);
 M2C_UNK matrix_mult_vec(int, void *, void *);
@@ -202,7 +202,7 @@ u8 *TObjMapCsn__ct(u8 *arg0, M2C_UNK arg1, s32 arg2) {
     f32 temp_f1;
     construct_collider_proxy__10TObjPlayerFPv((void *) (arg0));
     M2C_FIELD(arg0, M2C_UNK **, 0x18) = &(*(RecoveredGlobal_801949FC___vt__10TObjMapCsn *)&__vt__10TObjMapCsn).value;
-    M2C_FIELD(arg0, s32 *, 0) = (s32) lbl_805D2CD0;
+    M2C_FIELD(arg0, s32 *, 0) = (s32) TObjMapCsn__class_name;
     ((VObj_18_1a504b *)(arg0))->m5(arg2);
     M2C_FIELD(arg0, s32 *, 0x30) = (s32) (M2C_FIELD(arg0, s32 *, 0x30) | 0x40000000);
     update_state__10TObjMapCsnFPv((void *) (arg0));

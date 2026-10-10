@@ -128,10 +128,10 @@ u8 TKeyBoardControl__sub_803F1548(s32 arg0);
 extern RecoveredGlobal_803F1548_lbl_805A2720 keyboard_pad_state_table;
 void parse_pad_event__16TKeyBoardControlFiUi(s32 arg0, u32 arg1);
 s32 SIDisablePolling(u32);
-extern s32 lbl_805D793C;
+extern s32 TKeyBoardControl__polling_channel_mask;
 void disable_channel_polling__16TKeyBoardControlFi(s32 arg0);
-extern s32 lbl_805D793C;
-extern s32 lbl_805D7930;
+extern s32 TKeyBoardControl__polling_channel_mask;
+extern s32 TKeyBoardControl__polling_disabled;
 void disable_channel_polling__16TKeyBoardControlFi(s32 arg0);
 s32 disable_all_channels__16TKeyBoardControlFv(void);
 extern RecoveredGlobal_803F1548_lbl_805A2720 keyboard_pad_state_table;
@@ -146,7 +146,7 @@ s32 SIRefreshSamplingRate(void);
 void *memset(void *, int, u32);
 extern u8 lbl_804FCD38[];
 extern RecoveredGlobal_803F1548_lbl_805A2720 keyboard_pad_state_table;
-extern s32 lbl_805D7930;
+extern s32 TKeyBoardControl__polling_disabled;
 void init_pad_states__16TKeyBoardControlFv(void);
 extern RecoveredGlobal_803F1548_lbl_805A2720 keyboard_pad_state_table;
 s32 OSDisableInterrupts(void);
@@ -155,10 +155,10 @@ s32 start_get_type_async__16TKeyBoardControlFiiii(s32 arg0, s32 arg1, s32 arg2, 
 void TKeyBoardControl__sub_803F0E8C(void);
 s32 TKeyBoardControl__sub_803F0E90(s32 arg0, void *arg1);
 extern RecoveredGlobal_803F1548_lbl_805A2720 keyboard_pad_state_table;
-extern s32 lbl_805D7930;
+extern s32 TKeyBoardControl__polling_disabled;
 void detect_device_type__16TKeyBoardControlFi(s32 chan);
 extern RecoveredGlobal_803F1548_lbl_805A2720 keyboard_pad_state_table;
-extern s32 lbl_805D7930;
+extern s32 TKeyBoardControl__polling_disabled;
 void OSClearContext(OSContext_803F0F84 *);
 void OSSetCurrentContext(OSContext_803F0F84 *);
 void handle_pad_transfer_done__16TKeyBoardControlFiUiPv(s32 chan, u32 status, OSContext_803F0F84 *ctx);
@@ -170,14 +170,14 @@ s32 __OSReschedule(void);
 void SISetCommand(s32, u32);
 void SIEnablePolling(u32);
 s32 SIGetResponse(s32, void *);
-extern s32 lbl_805D793C;
+extern s32 TKeyBoardControl__polling_channel_mask;
 void enable_keyboard_polling__16TKeyBoardControlFi(s32 arg0);
 extern RecoveredGlobal_803F1548_lbl_805A2720 keyboard_pad_state_table;
 void *memset(void *, int, u32);
 void update_pressed_keys__16TKeyBoardControlFPv(Kbd_803F1210 *p);
 void update_key_events__16TKeyBoardControlFi(s32 chan);
 extern RecoveredGlobal_803F1548_lbl_805A2720 keyboard_pad_state_table;
-extern s32 lbl_805D793C;
+extern s32 TKeyBoardControl__polling_channel_mask;
 s32 OSDisableInterrupts(void);
 void OSRestoreInterrupts(s32);
 void *memmove(void *, const void *, u32);
@@ -210,7 +210,7 @@ void init_pad_states__16TKeyBoardControlFv(void) {
         OSInitThreadQueue(p->queue);
     }
     SIRefreshSamplingRate();
-    lbl_805D7930 = 0;
+    TKeyBoardControl__polling_disabled = 0;
     OSRegisterResetFunction(lbl_804FCD38);
 }
 
@@ -279,7 +279,7 @@ void detect_device_type__16TKeyBoardControlFi(s32 chan) {
         p->x1c = -3;
         return;
     }
-    if (p->x3 == 0xFF && lbl_805D7930 == 0) {
+    if (p->x3 == 0xFF && TKeyBoardControl__polling_disabled == 0) {
         enable_keyboard_polling__16TKeyBoardControlFi((s32)(chan));
     }
 }
@@ -312,10 +312,10 @@ s32 TKeyBoardControl__sub_803F0E90(s32 arg0, void *arg1) {
 
 s32 disable_all_channels__16TKeyBoardControlFv(void) {
     u32 v;
-    while ((v = (u32)lbl_805D793C) != 0) {
+    while ((v = (u32)TKeyBoardControl__polling_channel_mask) != 0) {
         disable_channel_polling__16TKeyBoardControlFi(__cntlzw(v));
     }
-    lbl_805D7930 = 1;
+    TKeyBoardControl__polling_disabled = 1;
     return 1;
 }
 
@@ -325,7 +325,7 @@ void handle_pad_transfer_done__16TKeyBoardControlFiUiPv(s32 chan, u32 status, OS
     OSContext_803F0F84 tmp;
     void (*cb)(s32);
     void (*cb2)(s32, s32);
-    if (lbl_805D7930 != 0) {
+    if (TKeyBoardControl__polling_disabled != 0) {
         return;
     }
     if (status & 8) {
@@ -359,7 +359,7 @@ void TKeyBoardControl__sub_803F107C(s32 chan, u32 type) {
     void (*cb)(s32);
     void (*cb2)(s32, s32);
 
-    if (lbl_805D7930 != 0) {
+    if (TKeyBoardControl__polling_disabled != 0) {
         return;
     }
     parse_pad_event__16TKeyBoardControlFiUi(chan, type);
@@ -499,12 +499,12 @@ void enable_keyboard_polling__16TKeyBoardControlFi(s32 arg0) {
     u32 cmd;
     u32 buf[2];
     u32 bit = 0x80000000U >> arg0;
-    if (!(lbl_805D793C & bit)) {
-        lbl_805D793C |= bit;
+    if (!(TKeyBoardControl__polling_channel_mask & bit)) {
+        TKeyBoardControl__polling_channel_mask |= bit;
         SIGetResponse(arg0, buf);
         cmd = 0x540000;
         SISetCommand(arg0, cmd);
-        SIEnablePolling(lbl_805D793C);
+        SIEnablePolling(TKeyBoardControl__polling_channel_mask);
     }
 }
 
@@ -512,7 +512,7 @@ void disable_channel_polling__16TKeyBoardControlFi(s32 arg0) {
     u32 temp_r31;
     temp_r31 = 0x80000000U >> arg0;
     SIDisablePolling(temp_r31);
-    lbl_805D793C &= ~temp_r31;
+    TKeyBoardControl__polling_channel_mask &= ~temp_r31;
 }
 #pragma push
 #pragma dont_inline off
@@ -543,12 +543,12 @@ s32 poll_keyboard_port(s32 chan, u8 *out) {
         k->err = -1;
     } else if (SIIsChanBusy(chan)) {
         k->err = -2;
-    } else if (!(lbl_805D793C & bit)) {
+    } else if (!(TKeyBoardControl__polling_channel_mask & bit)) {
         k->err = -1;
     } else if (SIGetStatus(chan) & 8) {
         SIGetResponse(chan, resp);
         SIDisablePolling(bit);
-        lbl_805D793C &= ~bit;
+        TKeyBoardControl__polling_channel_mask &= ~bit;
         k->type = 0;
         k->err = -1;
     } else if (!SIGetResponse(chan, resp) || (resp[0] & 0x80000000)) {
@@ -569,7 +569,7 @@ s32 poll_keyboard_port(s32 chan, u8 *out) {
         switch (k->err) {
         case -128:
             SIDisablePolling(bit);
-            lbl_805D793C &= ~bit;
+            TKeyBoardControl__polling_channel_mask &= ~bit;
             k->type = 0;
             break;
         case 0:

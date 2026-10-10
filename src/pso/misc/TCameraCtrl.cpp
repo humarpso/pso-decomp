@@ -59,7 +59,7 @@ extern "C" {
 void TCameraCtrl__sub_80068358(void *, void *, f32, f32);
 extern s32 camera_view_state_flag;
 extern s8 lbl_805D4DF8;
-extern s32 TCameraCtrl__data_805D4E00;
+extern s32 TCameraCtrl__pose_snap_flags;
 extern const f32 TCameraCtrl__data_805D8FA8;
 extern const f32 TCameraCtrl__data_805D8FD8;
 }
@@ -223,7 +223,7 @@ void reset_view_state__11TCameraCtrlFv(void) {
     B_8006A35C *pb = (B_8006A35C *)TCameraCtrl__data_804FF634;
     C_8006A35C *pc;
 
-    TCameraCtrl__data_805D4E00 = 0;
+    TCameraCtrl__pose_snap_flags = 0;
     ((A_8006A35C *)TCameraCtrl__data_804FF628)->f0 = 0;
     pa->f2 = 0;
     pa->f4 = 0;
@@ -1084,16 +1084,16 @@ M2C_UNK *TCameraCtrl__sub_8006B324(void) {
 
 int get_instance__11TCameraCtrlFv(void) {  return camera_split_screen_selector; }
 
-    extern int lbl_805D4E04;
-int get_camera_id__11TCameraCtrlFv(void) {  return lbl_805D4E04; }
+    extern int TCameraCtrl__camera_id;
+int get_camera_id__11TCameraCtrlFv(void) {  return TCameraCtrl__camera_id; }
 
     extern short TCameraCtrl__viewport_size;
     extern short TCameraCtrl__viewport_height;
 void set_target__11TCameraCtrlFii(int a0, int a1) { TCameraCtrl__viewport_size = a0; TCameraCtrl__viewport_height = a1; }
 
-    extern short TCameraCtrl__data_805D4DFA;
-    extern short TCameraCtrl__data_805D4DFC;
-void set_target_coords__11TCameraCtrlFii(int a0, int a1) { TCameraCtrl__data_805D4DFA = a0; TCameraCtrl__data_805D4DFC = a1; }
+    extern short TCameraCtrl__viewport_x;
+    extern short TCameraCtrl__viewport_y;
+void set_target_coords__11TCameraCtrlFii(int a0, int a1) { TCameraCtrl__viewport_x = a0; TCameraCtrl__viewport_y = a1; }
 
 u16 TCameraCtrl__sub_8006B358(void* p) { return *(u16*)((char*)p + 0x20); }
 s32 get_mode__11TCameraCtrlFPv(void* p) { return *(s32*)((char*)p + 0x1c); }

@@ -53,10 +53,10 @@ void *__nw__7TObjectFUl(int);
 void *init_defaults__11TCameraCtrlFPv(void *);
 
     extern unsigned char lbl_80488B08[];
-    extern int TCameraCtrl__data_805D4E10;
-void* TCameraCtrl__sub_8006BA68(void* a0) { TCameraCtrl__sub_80068714(); *(int*)((char*)a0 + 0x18) = (int)lbl_80488B08; *(int*)((char*)a0 + 0x38) = 4; TCameraCtrl__data_805D4E10 = 0; return a0; }
+    extern int TCameraCtrl__fixed_npc_camera_active;
+void* TCameraCtrl__sub_8006BA68(void* a0) { TCameraCtrl__sub_80068714(); *(int*)((char*)a0 + 0x18) = (int)lbl_80488B08; *(int*)((char*)a0 + 0x38) = 4; TCameraCtrl__fixed_npc_camera_active = 0; return a0; }
 
-    extern unsigned char TCameraCtrl__data_805D4E20;
+    extern unsigned char TCameraCtrl__override_flags;
 
 E_8006BAB4 *TCameraCtrl__sub_8006BAB4(O_8006BAB4 *self, s32 i) {
     return &self->arr[i];
@@ -66,7 +66,7 @@ E_8006BAC8 *TCameraCtrl__sub_8006BAC8(O_8006BAC8 *self, s32 i) {
     return &self->arr[i];
 }
 
-unsigned char TCameraCtrl__sub_8006BADC(void) {  return TCameraCtrl__data_805D4E20; }
+unsigned char TCameraCtrl__sub_8006BADC(void) {  return TCameraCtrl__override_flags; }
 
 void *TCameraCtrl__vt4(void) {
     void *o = __nw__7TObjectFUl(0x70);
@@ -337,8 +337,8 @@ void set_scripted_camera_pose(const Vec* position, const Vec* target, const Came
 }
 
 extern void *camera_ctrl_instance;
-extern s32 lbl_805D4E18;
-extern s32 lbl_805D4E1C;
+extern s32 TCameraCtrl__saved_projection_angle;
+extern s32 scripted_camera_projection_angle;
 
 #pragma push
 #pragma opt_common_subs off
@@ -386,8 +386,8 @@ void apply_look_at_from_target__11TCameraCtrlFPv(u8 *arg0) {
 
 void cache_target_and_forward__11TCameraCtrlFii(s32 arg0, s32 arg1) {
     if ((void *) camera_ctrl_instance != NULL) {
-        lbl_805D4E18 = M2C_FIELD(camera_ctrl_instance, s32 *, 0x19C);
-        lbl_805D4E1C = arg1;
+        TCameraCtrl__saved_projection_angle = M2C_FIELD(camera_ctrl_instance, s32 *, 0x19C);
+        scripted_camera_projection_angle = arg1;
     }
     configure_scripted_camera_playback((u8 *)(arg0), (s32)(arg1));
 }
@@ -490,7 +490,7 @@ void update_scripted_camera(Cam_8006C28C *s) {
     st.ptrs[2] = &st.sp54;
     st.ptrs[3] = &st.sp58;
     sample_camera_motion(st.out, s->motion, st.ptrs, s->frame);
-    s->projection = lbl_805D4E1C;
+    s->projection = scripted_camera_projection_angle;
     set_active_player__10TObjPlayerFi(0x8F);
     if (s->mode->flags & 4) {
         if (s->mode->flags & 0x80) {

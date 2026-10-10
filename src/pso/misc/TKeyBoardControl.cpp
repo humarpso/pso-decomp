@@ -20,6 +20,26 @@ struct Quad_80262038 {
     f32 v2;
 };
 
+#include <stddef.h>
+struct RecoveredGlobal_8026088C_lbl_8050E208 {
+    M2C_UNK value;
+    u8 remaining[0x1AC];
+};
+
+struct RecoveredFields_8026088C_arg0 {
+    u8 unknown_0[0x60];
+    s32 field_60;
+    u8 unknown_64[0x8];
+    u32 field_6C;
+};
+
+extern "C" {
+s32 TWindowShortListCtrl__check_controller_button(void *, int, int);
+s32 update_input_state2__19TWindowKeyBoardSoftFPv(int);
+s32 is_key_state_2__19TWindowKeyBoardSoftFPv(int);
+void update_keyboard_child_input_from_controller(u8 *arg0, s32 arg1);
+}
+
 extern "C" {
 
 struct RecoveredGlobal_80260808_lbl_8050E208 {
@@ -56,7 +76,6 @@ struct Vec2_802615B8 {
     f32 y;
 };
 
-s32 TWindowShortListCtrl__check_controller_button(void *, int, int);
 M2C_UNK play_sound_effect(int, int, int, int);
 s32 draw_default_entry__9TWindowDDFi();
 M2C_UNK handle_backspace__19TWindowKeyBoardSoftFPv(int);
@@ -113,6 +132,10 @@ void set_constant_material_color(u32);
 extern UV_80262038 lbl_8044F14C[];
 extern const f32 TWindowKeyBoardSoft__data_805DD090;
 extern const f32 lbl_805DD0C8;
+
+extern "C" {
+extern RecoveredGlobal_80260808_lbl_8050E208 controller_input_state;
+}
 
 void calc_cursor_step__19TWindowKeyBoardSoftFiPvPv(s32 arg0, s32 *arg1, s32 *arg2) {
     switch ((s32) current_language) {
@@ -222,6 +245,22 @@ void TWindowKeyBoardSoft__sub_80260808(u8 *arg0, s32 arg1) {
 }
 extern int fold_flush_5;
 #pragma pop
+
+typedef char RecoveredGlobal_8026088C_lbl_8050E208_size[sizeof(RecoveredGlobal_8026088C_lbl_8050E208) == 0x1B0 ? 1 : -1];
+typedef char RecoveredFields_8026088C_arg0_60_offset[offsetof(RecoveredFields_8026088C_arg0, field_60) == 0x60 ? 1 : -1];
+typedef char RecoveredFields_8026088C_arg0_6C_offset[offsetof(RecoveredFields_8026088C_arg0, field_6C) == 0x6C ? 1 : -1];
+void update_keyboard_child_input_from_controller(u8 *arg0, s32 arg1) {
+    u32 temp_r3;
+    if (((s32 (*)(void *, int))TWindowShortListCtrl__check_controller_button)((void *)((void *) ((u8 *)&(*(RecoveredGlobal_8026088C_lbl_8050E208 *)&controller_input_state).value + (arg1 * 0x50) + 0x20)), (int)((int) (0x400))) != 0) {
+        temp_r3 = ((RecoveredFields_8026088C_arg0 *)arg0)->field_6C;
+        if (temp_r3 != 0U) {
+            update_input_state2__19TWindowKeyBoardSoftFPv((int) (temp_r3));
+            if (is_key_state_2__19TWindowKeyBoardSoftFPv((int) (((RecoveredFields_8026088C_arg0 *)arg0)->field_6C)) != 0) {
+                ((RecoveredFields_8026088C_arg0 *)arg0)->field_60 = (s32) (((RecoveredFields_8026088C_arg0 *)arg0)->field_60 | 0x10);
+            }
+        }
+    }
+}
 
 #pragma push
 #pragma fp_contract on

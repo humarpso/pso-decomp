@@ -22,7 +22,7 @@ int alloc__23TAdSinglePlyChrSelectGCFPv(void *);
 u8 * fn_80222BCC(void *);
 u8 * __ct__15TShopWindowBaseFv(void *);
 extern RecoveredGlobal_802238D8___vt__13TShopSequence __vt__13TShopSequence;
-extern s32 lbl_805D36F8;
+extern s32 TShopSequence__class_name;
 u8 *TShopSequence__ct(u8 *arg0);
 M2C_UNK __dt__15TShopWindowBaseFv(void *, M2C_UNK);
 M2C_UNK __dl__7TObjectFPv(void *);
@@ -155,7 +155,7 @@ u8 *TShopSequence__ct(u8 *arg0) {
     s32 var_r0;
     __ct__15TShopWindowBaseFv(arg0);
     M2C_FIELD(arg0, M2C_UNK **, 0x18) = &__vt__13TShopSequence.value;
-    M2C_FIELD(arg0, s32 *, 0) = (s32) lbl_805D36F8;
+    M2C_FIELD(arg0, s32 *, 0) = (s32) TShopSequence__class_name;
     temp_r3 = alloc__23TAdSinglePlyChrSelectGCFPv((void *)0x210);
     var_r0 = temp_r3;
     if (var_r0 != 0) {

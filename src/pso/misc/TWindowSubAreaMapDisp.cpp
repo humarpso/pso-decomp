@@ -49,7 +49,7 @@ s32 fn_80271E40();
 s32 construct_type1_heading__20TWindowSubStatusDispFPvii(int, int, int);
 s32 get_game_play_mode();
 s32 strncpy(int, int, void *);
-extern RecoveredGlobal_80271D00_lbl_804D0FC0 lbl_804D0FC0;
+extern RecoveredGlobal_80271D00_lbl_804D0FC0 TWindowSubAreaMapDisp__window_parameters;
 extern RecoveredGlobal_80271C6C___vt__21TWindowSubAreaMapDisp __vt__21TWindowSubAreaMapDisp;
 extern s32 lbl_805D3A08;
 extern s32 local_client_id;
@@ -251,7 +251,7 @@ u8 *TWindowSubAreaMapDisp__ct(u8 *arg0) {
     s32 temp_r3_2;
     s32 var_r0;
     u8 *var_r30;
-    construct_base__9TWindowDDFPvPvsPv((void *) (arg0), (void *) (&lbl_804D0FC0.value), (void *) ((s16) local_client_id), (int) (get_window_layout_position((int) (0x59))));
+    construct_base__9TWindowDDFPvPvsPv((void *) (arg0), (void *) (&TWindowSubAreaMapDisp__window_parameters.value), (void *) ((s16) local_client_id), (int) (get_window_layout_position((int) (0x59))));
     M2C_FIELD(arg0, M2C_UNK **, 0x18) = &(*(RecoveredGlobal_80271D00___vt__21TWindowSubAreaMapDisp *)&__vt__21TWindowSubAreaMapDisp).value;
     M2C_FIELD(arg0, s32 *, 0) = (s32) lbl_805D3A08;
     if (get_game_play_mode() == 1) {

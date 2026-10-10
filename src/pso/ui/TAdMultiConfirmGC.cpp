@@ -35,7 +35,7 @@ void set_field_100__22TAdMultiPlyChrSelectGCFPvi(void *, s32);
 void TAdMultiConfirmGC__sub_802E03D0(void *);
 void TAdMultiConfirmGC__sub_802E0448(void *);
 s32 fn_802E0454(void *);
-s32 TAdMultiConfirmGC__sub_80306ABC(s32);
+s32 multi_confirm_cancel_requested(s32);
 s32 are_all_entries_finished(s32);
 void run_task__17TAdMultiConfirmGCFv(Obj_802FF87C *arg0);
 void *get_localized_text_entry(s32, s32);
@@ -47,7 +47,7 @@ void __ct__10TAdTitleGCFv(void *, void *, s32);
 void __ct__13TAdTitleTexGCFv(void *, void *);
 void set_entry_value__22TAdMultiPlyChrSelectGCFiiUi(void *, s32, void *);
 void *__ct__13TAdGuideTxtGCFv(void *, void *);
-s32 TAdMultiPlyChrSelectGC__sub_802C64D0(u32);
+s32 is_multiplayer_character_slot_selected(u32);
 void *get_or_create_player__22TAdMultiPlyChrSelectGCFiiii(void *, u32, u32, s32);
 void fn_802FF7EC(void *);
 void *__ct__12TAdMultiOkGCFv(void *, void *, OkArg_802FFA3C *);
@@ -104,7 +104,7 @@ void run_task__17TAdMultiConfirmGCFv(Obj_802FF87C *arg0) {
         }
         break;
     case 3:
-        if (TAdMultiConfirmGC__sub_80306ABC(arg0->x48) != 0) {
+        if (multi_confirm_cancel_requested(arg0->x48) != 0) {
             set_change_game_mode__21TAdMultiChgGameModeGCFv();
         } else if (are_all_entries_finished(arg0->x48) != 0) {
             set_state_0xc__21TAdMultiChgGameModeGCFv();
@@ -157,7 +157,7 @@ TAdMultiConfirmGC_802FFA3C *TAdMultiConfirmGC__ct(TAdMultiConfirmGC_802FFA3C *se
         self->ids[i] = 0;
     }
     for (i = 0; i < 4; i++) {
-        if (TAdMultiPlyChrSelectGC__sub_802C64D0(i) != 0) {
+        if (is_multiplayer_character_slot_selected(i) != 0) {
             self->ids[self->count] = i;
             self->count++;
         }

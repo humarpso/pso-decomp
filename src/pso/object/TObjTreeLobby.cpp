@@ -97,7 +97,7 @@ void destroy_key_base__5TOKeyFPvs(void *, int);
 M2C_UNK init_map_object_base();
 s32 is_lobby_event_active();
 extern M2C_UNK __vt__13TObjTreeLobby[];
-extern s32 lbl_805D4484;
+extern s32 TObjTreeLobby__class_name;
 extern M2C_UNK lbl_804F2B60[];
 
 void render__13TObjTreeLobbyFv(u8 *arg0) {
@@ -192,7 +192,7 @@ void *__dt__13TObjTreeLobbyFv(void *arg0, s16 arg1) {
 void *TObjTreeLobby__ct(void *arg0, s32 arg1, s32 arg2) {
     init_map_object_base();
     M2C_FIELD(arg0, M2C_UNK **, 0x18) = __vt__13TObjTreeLobby;
-    M2C_FIELD(arg0, s32 *, 0) = (s32) lbl_805D4484;
+    M2C_FIELD(arg0, s32 *, 0) = (s32) TObjTreeLobby__class_name;
     ((TObjTreeLobby80364A_80364A74 *)arg0)->ct(arg2);
     if (is_lobby_event_active() != 0) {
         M2C_FIELD(arg0, s32 *, 0xC8) = 0;

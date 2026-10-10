@@ -600,7 +600,7 @@ extern File_803F09FC lbl_805D7914;
 extern u32 lbl_805D791C;
 extern u32 lbl_805D7920;
 extern u32 lbl_805D7924;
-extern s32 lbl_805D7928;
+extern s32 quest_download_aram_dma_pending;
 extern u32 lbl_805D792C;
 u32 aram_dma_read__22TQuestVmDownLoadServerFPvPvi(void *h, void *dst, int size);
 void TQuestVmDownLoadServer__sub_803EADD4(Obj_803EADD4 *arg0, s32 arg1);
@@ -4326,17 +4326,17 @@ u32 aram_dma_read__22TQuestVmDownLoadServerFPvPvi(void *h, void *dst, int size) 
         len = (n | 3) + 1;
     }
     DCInvalidateRange(base + 0x40, 0x2000);
-    (*(u32 *)&lbl_805D7928) = 1;
+    (*(u32 *)&quest_download_aram_dma_pending) = 1;
     ARQPostRequest(base + 0x2040, lbl_805D7924, 1, lbl_805D7920, lbl_805D792C + lbl_805D7914.pos,
                    (u32)(base + 0x40), len, TQuestVmDownLoadServer__sub_803F0BE8);
     start = OSGetTick();
     for (;;) {
-        if ((*(u32 *)&lbl_805D7928) == 0) {
+        if ((*(u32 *)&quest_download_aram_dma_pending) == 0) {
             memcpy(dst, base + 0x40, n);
             break;
         }
         if (OSGetTick() - start > lbl_805D791C) {
-            (*(u32 *)&lbl_805D7928) = 0;
+            (*(u32 *)&quest_download_aram_dma_pending) = 0;
             ARQRemoveRequest(base + 0x2040);
             OSReport(lbl_8047FCB8);
             return -1;
@@ -4356,11 +4356,11 @@ s32 TQuestVmDownLoadServer__sub_803F0BE0(void * _w0, void * _w1) {
 }
 
 extern u32 lbl_805D7924;
-extern s32 lbl_805D7928;
+extern s32 quest_download_aram_dma_pending;
 
 void TQuestVmDownLoadServer__sub_803F0BE8(u8 *arg0) {
     if ((u32) M2C_FIELD(arg0, u32 *, 4) == (u32) lbl_805D7924) {
-        lbl_805D7928 = 0;
+        quest_download_aram_dma_pending = 0;
     }
 }
 

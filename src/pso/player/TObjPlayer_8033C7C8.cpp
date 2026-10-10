@@ -51,7 +51,7 @@ int build_tables__14TBoss6PlotFalzFPvPvi(void *, void *, int);
 s32 get_fish_count__8TObjFishFv();
 extern M2C_UNK lbl_80477DEC[];
 extern M2C_UNK lbl_80477DF8[];
-extern M2C_UNK lbl_80477E18[];
+extern M2C_UNK boss6_type1_appear_model_node_descriptors[];
 extern M2C_UNK lbl_80477E30[];
 extern M2C_UNK lbl_80477E3C[];
 extern s32 lbl_804DF614[];
@@ -229,7 +229,7 @@ Fish_8033CB4C *TObjFish__sub_8033CB4C(Fish_8033CB4C *self, void *parent) {
   }
   self->x60 = TObjFish__sub_800E3124(lbl_80477DF8, self->x54);
   self->x64 = 0;
-  build_tables__14TBoss6PlotFalzFPvPvi(self->x40, lbl_80477E18, 2);
+  build_tables__14TBoss6PlotFalzFPvPvi(self->x40, boss6_type1_appear_model_node_descriptors, 2);
   activate_camera_mode(5);
   set_scripted_camera_pose(lbl_80477DEC, lbl_80477DEC, lbl_80477E30);
   cache_target_and_forward__11TCameraCtrlFii(lbl_80477E3C, 0x416C);

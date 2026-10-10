@@ -8,7 +8,7 @@ extern "C" {
 
 void calc_frame_buffer_size__6TMovieFii(s32 arg0, s32 arg1);
 
-extern void *lbl_805D2CE8;
+extern void *TMovie__framebuffer_video_mode;
 extern s32 movie_frame_buffer_size;
 extern s32 lbl_805D5690;
 extern s32 lbl_805D5694;
@@ -16,7 +16,7 @@ extern s32 lbl_805D5694;
 void calc_frame_buffer_size__6TMovieFii(s32 arg0, s32 arg1) {
     movie_frame_buffer_size = arg0;
     lbl_805D5690 = arg1;
-    lbl_805D5694 = ((M2C_FIELD(lbl_805D2CE8, u16 *, 4) + 0xF) & 0xFFF0) * M2C_FIELD(lbl_805D2CE8, u16 *, 8) * 2;
+    lbl_805D5694 = ((M2C_FIELD(TMovie__framebuffer_video_mode, u16 *, 4) + 0xF) & 0xFFF0) * M2C_FIELD(TMovie__framebuffer_video_mode, u16 *, 8) * 2;
 }
 
 }

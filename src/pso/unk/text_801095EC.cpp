@@ -14,7 +14,7 @@ void disallow_rendering__7TObjectFv(void *);
 s32 get_field_d8__10TObjPlayerFPv(void *);
 void __ct__7TObjectFP7TObject(void *, void *);
 extern RecoveredGlobal_801095EC___vt__15TItemEffLandHit __vt__15TItemEffLandHit;
-extern s32 lbl_805D2BB8;
+extern s32 TItemEffLandHit__class_name;
 u8 *TItemEffLandHit__ct(u8 *arg0, u8 *arg1, u8 *arg2, u8 *arg3, u8 *arg4);
 }
 
@@ -24,7 +24,7 @@ typedef char RecoveredGlobal_801095EC___vt__15TItemEffLandHit_size[sizeof(Recove
 u8 *TItemEffLandHit__ct(u8 *arg0, u8 *arg1, u8 *arg2, u8 *arg3, u8 *arg4) {
     __ct__7TObjectFP7TObject(arg0, arg1);
     M2C_FIELD(arg0, M2C_UNK **, 0x18) = &__vt__15TItemEffLandHit.value;
-    M2C_FIELD(arg0, s32 *, 0) = (s32) lbl_805D2BB8;
+    M2C_FIELD(arg0, s32 *, 0) = (s32) TItemEffLandHit__class_name;
     VecCopy__FP3VecPC3Vec(arg0 + 0x28, arg4);
     VecCopy__FP3VecPC3Vec(arg0 + 0x1C, arg3);
     M2C_FIELD(arg0, s32 *, 0x34) = get_field_d8__10TObjPlayerFPv(arg2);

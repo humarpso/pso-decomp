@@ -32,7 +32,7 @@ s32 get_fish_count__8TObjFishFv(void);
 extern u8 lbl_80477F38[];
 extern u8 lbl_80478058[];
 extern u8 lbl_80478064[];
-extern u8 lbl_80478070[];
+extern u8 boss6_type2_appear_camera_script[];
 extern s32 lbl_804DF614[];
 extern s32 lbl_804EFA14[];
 extern M2C_UNK lbl_804EFA1C[];
@@ -101,7 +101,7 @@ u8 *construct_scene_object__8TObjFishFPvi(u8 *arg0, s32 arg1) {
     }
     activate_camera_mode(5);
     set_scripted_camera_pose(lbl_80478058, lbl_80478058, lbl_80478064);
-    cache_target_and_forward__11TCameraCtrlFii(lbl_80478070, 0x416C);
+    cache_target_and_forward__11TCameraCtrlFii(boss6_type2_appear_camera_script, 0x416C);
     M2C_FIELD(arg0, f32 *, 0xE0) = lbl_805DFA70;
     M2C_FIELD(arg0, f32 *, 0xE4) = lbl_805DFA70;
     M2C_FIELD(arg0, s32 *, 0xE8) = 0;

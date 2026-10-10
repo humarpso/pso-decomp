@@ -38,7 +38,7 @@ void play_sound_effect(int, void *, int, int);
 void queue_event_1D__12TBoss3VoloptFss(int, int);
 s32 get_phase__8TObjFishFPv(s32);
 extern u8 lbl_80477F2C[];
-extern Ent_8033D6DC lbl_80477FC8[];
+extern Ent_8033D6DC boss6_type2_appear_particle_schedule[];
 extern u8 lbl_804EFA08[];
 void fn_8033D6DC(O_8033D6DC *self);
 }
@@ -80,7 +80,7 @@ void fn_8033D6DC(O_8033D6DC *self) {
         break;
     }
     for (i = 0; i < 9; i++) {
-        Ent_8033D6DC *e = &lbl_80477FC8[i];
+        Ent_8033D6DC *e = &boss6_type2_appear_particle_schedule[i];
         if (self->frame >= e->start && self->frame < e->end) {
             void *p = lbl_80477F2C;
             if (e->src == -2) {

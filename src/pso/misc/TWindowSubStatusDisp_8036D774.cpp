@@ -35,7 +35,7 @@ M2C_UNK begin_screen_draw(int);
 M2C_UNK get_player__20TWindowSubStatusDispFv();
 M2C_UNK draw_textured_quad_at_depth(void *, f32);
 M2C_UNK set_draw_texture_and_color(int, int);
-extern s32 lbl_805D7018;
+extern s32 TBGMulti__textures;
 void draw_bottom_bar__20TWindowSubStatusDispFv(void);
 M2C_UNK TCameraCtrl__sub_80068EF0();
 M2C_UNK restore_full_screen_view__11TCameraCtrlFv();
@@ -45,8 +45,8 @@ M2C_UNK reset_transform_state__10TObjPlayerFv();
 M2C_UNK begin_effect_render__13TParticleCtrlFv();
 M2C_UNK end_effect_render__13TParticleCtrlFv();
 void draw_bottom_bar__20TWindowSubStatusDispFv(void);
-extern s32 lbl_805D7018;
-extern s32 lbl_805D701C;
+extern s32 TBGMulti__textures;
+extern s32 split_screen_hud_animation_frame;
 void draw_split_screen_hud__20TWindowSubStatusDispFv(void);
 void draw_strip_swap_color__15TWindowCtrlMainFPviif(Desc_8036D774 *, int, int, f32);
 void draw_split_screen_dividers__20TWindowSubStatusDispFv(void);
@@ -55,7 +55,7 @@ M2C_UNK begin_screen_draw(int);
 M2C_UNK get_player__20TWindowSubStatusDispFv();
 M2C_UNK draw_textured_quad_at_depth(void *, f32);
 M2C_UNK set_draw_texture_and_color(int, int);
-extern s32 lbl_805D7018;
+extern s32 TBGMulti__textures;
 void draw_tiled_background__20TWindowSubStatusDispFv(void);
 M2C_UNK reset_transform_state__10TObjPlayerFv();
 M2C_UNK init_xyz_limits__10TObjPlayerFv();
@@ -64,8 +64,8 @@ M2C_UNK begin_screen_draw(int);
 M2C_UNK get_player__20TWindowSubStatusDispFv();
 M2C_UNK draw_textured_quad_at_depth(void *, f32);
 M2C_UNK set_draw_texture_and_color(int, int);
-extern s32 lbl_805D7018;
-extern s32 lbl_805D701C;
+extern s32 TBGMulti__textures;
+extern s32 split_screen_hud_animation_frame;
 void TWindowSubStatusDisp__sub_8036D994(void);
 }
 
@@ -108,7 +108,7 @@ void draw_tiled_background__20TWindowSubStatusDispFv(void) {
     s32 j;
     f32 buf[8];
     begin_screen_draw((int) (1));
-    set_global_param__8TObjFishFi((void *) (lbl_805D7018));
+    set_global_param__8TObjFishFi((void *) (TBGMulti__textures));
     set_draw_texture_and_color((int) (0), (int) (-1));
     i = 0;
     buf[4] = 0.5f;
@@ -139,14 +139,14 @@ void draw_tiled_background__20TWindowSubStatusDispFv(void) {
 void TWindowSubStatusDisp__sub_8036D994(void) {
     s32 i;
     f32 buf[8];
-    if (lbl_805D701C <= 0x1E) {
+    if (split_screen_hud_animation_frame <= 0x1E) {
         init_xyz_limits__10TObjPlayerFv();
         begin_screen_draw((int) (1));
-        set_global_param__8TObjFishFi((void *) (lbl_805D7018));
+        set_global_param__8TObjFishFi((void *) (TBGMulti__textures));
         set_draw_texture_and_color((int) (0), (int) (-1));
         i = 0;
         buf[0] = 0.0f;
-        buf[1] = 10.133333f * lbl_805D701C + 176.0f;
+        buf[1] = 10.133333f * split_screen_hud_animation_frame + 176.0f;
         buf[2] = 64.0f;
         buf[3] = buf[1] + 64.0f;
         buf[4] = 0.5f;
@@ -170,7 +170,7 @@ void draw_bottom_bar__20TWindowSubStatusDispFv(void) {
   f32 buffer_8[8];
   f32 temp_f31;
   begin_screen_draw((int) 1);
-  set_global_param__8TObjFishFi((void *) lbl_805D7018);
+  set_global_param__8TObjFishFi((void *) TBGMulti__textures);
   set_draw_texture_and_color((int) 0, (int) (-1));
   var_r31 = 0;
   ;
@@ -194,7 +194,7 @@ void draw_bottom_bar__20TWindowSubStatusDispFv(void) {
 }
 void draw_split_screen_hud__20TWindowSubStatusDispFv(void) {
     s32 var_r3;
-    if ((u32) (*(u32 *)&lbl_805D7018) != 0U) {
+    if ((u32) (*(u32 *)&TBGMulti__textures) != 0U) {
         set_depth_buffer_settings_2__Fv();
         reset_transform_state__10TObjPlayerFv();
         begin_effect_render__13TParticleCtrlFv();
@@ -206,10 +206,10 @@ void draw_split_screen_hud__20TWindowSubStatusDispFv(void) {
         TCameraCtrl__sub_80068EF0();
         end_effect_render__13TParticleCtrlFv();
         restore_saved_depth_alpha_state();
-        var_r3 = lbl_805D701C;
-        lbl_805D701C = var_r3 + 1;
+        var_r3 = split_screen_hud_animation_frame;
+        split_screen_hud_animation_frame = var_r3 + 1;
         if (var_r3 > 0x708) {
-            lbl_805D701C = 0;
+            split_screen_hud_animation_frame = 0;
         }
     }
 }

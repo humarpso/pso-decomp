@@ -12,7 +12,7 @@ M2C_UNK load_indirect_info();
 u8 *xmalloc__FUl(u32);
 M2C_UNK xfree__FPv(s32);
 void *memcpy(void *, const void *, u32);
-extern M2C_UNK TEffIndirectCtrl__data_80540AF0[];
+extern M2C_UNK TEffIndirectCtrl__source_buffers[];
 extern s32 lbl_805D3E20;
 void load_indirect_dat(void);
 }
@@ -24,7 +24,7 @@ M2C_UNK free_buffers__16TEffIndirectCtrlFv();
 M2C_UNK TObjPlayer__sub_802A83F4();
 M2C_UNK xfree__FPv(s32);
 
-extern M2C_UNK TEffIndirectCtrl__data_80540AF0[];
+extern M2C_UNK TEffIndirectCtrl__source_buffers[];
 
 void free_all__16TEffIndirectCtrlFv(void) {
     s32 var_r28;
@@ -38,10 +38,10 @@ void free_all__16TEffIndirectCtrlFv(void) {
     var_r30 = var_r31;
     var_r28 = 0;
     do {
-        temp_r3 = *(TEffIndirectCtrl__data_80540AF0 + var_r31);
+        temp_r3 = *(TEffIndirectCtrl__source_buffers + var_r31);
         if ((u32)temp_r3 != 0U) {
             xfree__FPv(temp_r3);
-            *(TEffIndirectCtrl__data_80540AF0 + var_r31) = var_r30;
+            *(TEffIndirectCtrl__source_buffers + var_r31) = var_r30;
         }
         var_r28 += 1;
         var_r31 += 1;
@@ -56,19 +56,19 @@ void load_indirect_dat(void) {
     s32 k;
     fail = 0;
     for (i = 0; i < 8; i++) {
-        TEffIndirectCtrl__data_80540AF0[i] = 0;
+        TEffIndirectCtrl__source_buffers[i] = 0;
     }
     for (i = 0; i < 8; i++) {
-        TEffIndirectCtrl__data_80540AF0[i] = (s32)xmalloc__FUl(0x1020);
-        if ((u32)TEffIndirectCtrl__data_80540AF0[i] == 0) {
+        TEffIndirectCtrl__source_buffers[i] = (s32)xmalloc__FUl(0x1020);
+        if ((u32)TEffIndirectCtrl__source_buffers[i] == 0) {
             fail = 1;
         }
     }
     if (fail != 0) {
         for (j = 0; j < 8; j++) {
-            if ((u32)TEffIndirectCtrl__data_80540AF0[j] != 0) {
-                xfree__FPv(TEffIndirectCtrl__data_80540AF0[j]);
-                TEffIndirectCtrl__data_80540AF0[j] = 0;
+            if ((u32)TEffIndirectCtrl__source_buffers[j] != 0) {
+                xfree__FPv(TEffIndirectCtrl__source_buffers[j]);
+                TEffIndirectCtrl__source_buffers[j] = 0;
             }
         }
     }
@@ -77,7 +77,7 @@ void load_indirect_dat(void) {
         buf = p;
         if (read_disc_file(lbl_805D3E20, p) == 0x8100) {
             for (k = 0; k < 8; k++) {
-                memcpy((void *)TEffIndirectCtrl__data_80540AF0[k], p, 0x1020);
+                memcpy((void *)TEffIndirectCtrl__source_buffers[k], p, 0x1020);
                 p += 0x1020;
             }
             if (buf != NULL) {

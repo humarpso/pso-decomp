@@ -44,7 +44,7 @@ void setup__13TObjTombstoneFPvii(u8 *arg0, s32 arg1, s32 arg2);
 M2C_UNK construct_collider_proxy__10TObjPlayerFPv();
 extern RecoveredGlobal_8007643C___vt__13TObjTombstone __vt__13TObjTombstone;
 extern s32 TObjTombstone__class_name;
-extern s32 TObjTombstone__data_805D4E48;
+extern s32 TObjTombstone__shared_resource_object;
 u8 *TObjTombstone__ct(u8 *arg0, M2C_UNK arg1, s32 arg2, u8 *arg3);
 s32 copy_record__13TObjTombstoneFPvi(void *arg0, s32 arg1);
 }
@@ -57,12 +57,12 @@ s32 get_bml_model(s32, M2C_UNK);
 M2C_UNK VecCopy__FP3VecPC3Vec(void *, void *);
 M2C_UNK fn_80074E04(s32, void *);
 
-extern s32 TObjTombstone__data_805D4E48;
+extern s32 TObjTombstone__shared_resource_object;
 extern const f32 TObjTombstone__data_805D9174;
 
 void setup__13TObjTombstoneFPvii(u8 *arg0, s32 arg1, s32 arg2) {
-    M2C_FIELD(arg0, s32 *, 0x24) = TObjFish__sub_8001EDB0(TObjTombstone__data_805D4E48, 0);
-    M2C_FIELD(arg0, s32 *, 0x34) = get_bml_model(TObjTombstone__data_805D4E48, 0);
+    M2C_FIELD(arg0, s32 *, 0x24) = TObjFish__sub_8001EDB0(TObjTombstone__shared_resource_object, 0);
+    M2C_FIELD(arg0, s32 *, 0x34) = get_bml_model(TObjTombstone__shared_resource_object, 0);
     M2C_FIELD(arg0, s32 *, 0xAC) = arg1;
     copy_record__13TObjTombstoneFPvi((void *)(arg0 + 0xC0), (s32)(arg2));
     VecCopy__FP3VecPC3Vec(arg0 + 0x38, arg0 + 0xD0);
@@ -103,7 +103,7 @@ u8 *TObjTombstone__ct(u8 *arg0, M2C_UNK arg1, s32 arg2, u8 *arg3) {
     construct_collider_proxy__10TObjPlayerFPv();
     M2C_FIELD(arg0, M2C_UNK **, 0x18) = &__vt__13TObjTombstone.value;
     M2C_FIELD(arg0, s32 *, 0) = (s32) TObjTombstone__class_name;
-    if ((u32) (*(u32 *)&TObjTombstone__data_805D4E48) == 0U) {
+    if ((u32) (*(u32 *)&TObjTombstone__shared_resource_object) == 0U) {
         return arg0;
     }
     stack.sp8 = M2C_FIELD(arg3, u8 *, 0);

@@ -59,7 +59,7 @@ void load_resources__16TObjWeddingLobbyFv(void);
 s32 init_map_object_base(void *, void *);
 s32 get_filtered_event_theme__6TLobbyFv();
 extern M2C_UNK __vt__16TObjWeddingLobby[];
-extern s32 lbl_805D4428;
+extern s32 TObjWeddingLobby__class_name;
 u8 *TObjWeddingLobby__ct(u8 *arg0, s32 arg1, s32 arg2);
 s32 get_bml_motion(void *, int);
 s32 check_demo_mode__10TObjPlayerFv();
@@ -192,7 +192,7 @@ typedef char RecoveredGlobal_8035BF68___vt__16TObjWeddingLobby_size[sizeof(Recov
 u8 *TObjWeddingLobby__ct(u8 *arg0, s32 arg1, s32 arg2) {
     init_map_object_base((void *) (arg0), (void *) (arg1));
     M2C_FIELD(arg0, M2C_UNK **, 0x18) = &(*(RecoveredGlobal_8035BF68___vt__16TObjWeddingLobby *)&__vt__16TObjWeddingLobby).value;
-    M2C_FIELD(arg0, s32 *, 0) = (s32) lbl_805D4428;
+    M2C_FIELD(arg0, s32 *, 0) = (s32) TObjWeddingLobby__class_name;
     ((VObj_18_1a504b *)(arg0))->m5(arg2);
     if (get_filtered_event_theme__6TLobbyFv() == 0xA) {
         M2C_FIELD(arg0, s32 *, 0xC8) = 3;

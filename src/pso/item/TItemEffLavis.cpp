@@ -14,12 +14,12 @@ void *TItemEffLavis__ct(void *arg0);
 void __ct__15TItemShootModelFPvPC3VecPC3Vecf(void *);
 
 extern M2C_UNK __vt__13TItemEffLavis[];
-extern void *lbl_805D2BC0;
+extern void *TItemEffLavis__class_name;
 
 void *TItemEffLavis__ct(void *arg0) {
     __ct__15TItemShootModelFPvPC3VecPC3Vecf(arg0);
     M2C_FIELD(arg0, M2C_UNK **, 0x18) = __vt__13TItemEffLavis;
-    M2C_FIELD(arg0, void **, 0x0) = lbl_805D2BC0;
+    M2C_FIELD(arg0, void **, 0x0) = TItemEffLavis__class_name;
     return arg0;
 }
 

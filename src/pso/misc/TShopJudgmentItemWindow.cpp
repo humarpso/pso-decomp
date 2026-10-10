@@ -754,12 +754,12 @@ void *__dt__23TShopJudgmentItemWindowFv(void *arg0, s16 arg1) {
 }
 
 extern M2C_UNK __vt__23TShopJudgmentItemWindow[];
-extern void *lbl_805D36E0;
+extern void *TShopJudgmentItemWindow__class_name;
 
 void *TShopJudgmentItemWindow__ct(void *arg0, void *arg1, void *arg2, void *arg3) {
     __ct__15TShopWindowBaseFv(arg0);
     M2C_FIELD(arg0, M2C_UNK **, 0x18) = __vt__23TShopJudgmentItemWindow;
-    M2C_FIELD(arg0, void **, 0x0) = lbl_805D36E0;
+    M2C_FIELD(arg0, void **, 0x0) = TShopJudgmentItemWindow__class_name;
     M2C_FIELD(arg0, u32 *, 0x144) = 0;
     M2C_FIELD(arg0, u32 *, 0x148) = 0;
     M2C_FIELD(arg0, u32 *, 0x150) = 0;

@@ -106,7 +106,7 @@ u8 *ct_init__14TItemEffShieldFPvPvs(u8 *arg0, u8 *arg1, s16 arg2);
 void disallow_rendering__7TObjectFv(void *);
 void __ct__7TObjectFP7TObject(void *, void *);
 extern RecoveredGlobal_8010A5E0___vt__14TItemEffShield __vt__14TItemEffShield;
-extern s32 lbl_805D2BD8;
+extern s32 TItemEffShield__class_name;
 u8 *__ct__14TItemEffShieldFv(u8 *arg0, u8 *arg1, s16 arg2, s32 arg3);
 void queue_destruction__7TObjectFv(void *);
 void copy_xyz__10TObjPlayerFPvPv(void *, void *);
@@ -208,7 +208,7 @@ void run_task__14TItemEffShieldFv(Shield_8010A4C0 *self) {
 u8 *__ct__14TItemEffShieldFv(u8 *arg0, u8 *arg1, s16 arg2, s32 arg3) {
     __ct__7TObjectFP7TObject(arg0, arg1);
     M2C_FIELD(arg0, M2C_UNK **, 0x18) = &__vt__14TItemEffShield.value;
-    M2C_FIELD(arg0, s32 *, 0) = (s32) lbl_805D2BD8;
+    M2C_FIELD(arg0, s32 *, 0) = (s32) TItemEffShield__class_name;
     M2C_FIELD(arg0, s32 *, 0x34) = arg3;
     M2C_FIELD(arg0, s16 *, 0x44) = arg2;
     M2C_FIELD(arg0, s32 *, 0x38) = 0;

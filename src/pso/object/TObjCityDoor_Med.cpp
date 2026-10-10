@@ -702,7 +702,7 @@ void __dl__7TObjectFPv(void *);
 M2C_UNK destroy_particle_controller__10TObjPlayerFPvs(void *, M2C_UNK);
 extern M2C_UNK lbl_804B5BA8[];
 void *TObjPlayer__sub_80182D24(void *arg0, s16 arg1);
-extern void *lbl_805D4E28;
+extern void *challenge_task;
 s32 TLobby__sub_80182E60(void);
     extern const float lbl_805DBC00;
 void fn_80182E7C(void* a0);
@@ -895,10 +895,10 @@ u8 *init_city_door(u8 *arg0, M2C_UNK arg1, s32 arg2, u8 *arg3) {
 }
 
 s32 TLobby__sub_80182E60(void) {
-    if ((void *) lbl_805D4E28 == NULL) {
+    if ((void *) challenge_task == NULL) {
         return -1;
     }
-    return M2C_FIELD(lbl_805D4E28, s32 *, 0x1C);
+    return M2C_FIELD(challenge_task, s32 *, 0x1C);
 }
 void fn_80182E7C(void* a0) { *(float*)((char*)a0 + 0x9c) = lbl_805DBC00; *(int*)((char*)a0 + 0x90) = 1; }
 

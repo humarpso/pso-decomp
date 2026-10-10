@@ -11180,18 +11180,10 @@ pso/enemy/TObjEneDellBiter.cpp:
 pso/unk/text_80306A64.cpp:
 	.text       start:0x80306A64 end:0x80306ABC
 
-pso/unk/text_80306ABC.cpp:
-	.text       start:0x80306ABC end:0x80306B04
-
 pso/menu/TAdMultiOkGC.cpp:
-	.text       start:0x80306B04 end:0x80307298
+	.text       start:0x80306ABC end:0x80307300
 	.rodata     start:0x80475420 end:0x80475428
-
-pso/ui/TAdGameStartBackGC_80307298.cpp:
-	.text       start:0x80307298 end:0x803072CC
-
-pso/ui/TAdGameStartBackGC_803072CC.cpp:
-	.text       start:0x803072CC end:0x80307300
+	.data       start:0x804E7060 end:0x804E708C
 
 pso/ui/TAdGameStartBackGC.cpp:
 	.text       start:0x80307300 end:0x80307618

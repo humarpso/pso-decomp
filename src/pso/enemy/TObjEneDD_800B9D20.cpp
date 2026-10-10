@@ -48,7 +48,7 @@ int update_primary_light__9TObjEneDDFPv(void* p);
 int update_secondary_light__9TObjEneDDFPv(void* p);
 int transform_to_view__11TCameraCtrlFii(void*);
 int apply_split_screen_view_matrix__11TCameraCtrlFv(void*);
-int TLobby__sub_800C6C10(void*);
+int is_local_client_floor_leader(void*);
 int restore_scene_lighting(void*);
 int select_actor_lighting(void*);
 int bind_enemy_combat_stats(void*);

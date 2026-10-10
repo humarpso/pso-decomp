@@ -24,7 +24,7 @@ M2C_UNK TAdMultiPlyChrSelectGC__sub_802C561C(s32);
 M2C_UNK TAdMultiPlyChrSelectGC__sub_802C5688(s32);
 M2C_UNK split_slot_index__22TAdMultiPlyChrSelectGCFiPvPv(M2C_UNK, s32 *, s32 *);
 M2C_UNK init__22TAdMultiPlyChrSelectGCFv();
-s32 TAdMultiPlyChrSelectGC__sub_802C64D0(s32);
+s32 is_multiplayer_character_slot_selected(s32);
 s32 count_ready__22TAdMultiPlyChrSelectGCFv();
 s32 TAdMultiPlyChrSelectGC__sub_802C6558();
 M2C_UNK TAdMultiPlyChrSelectGC__sub_802C65C0(s32);
@@ -389,7 +389,7 @@ void TAdMultiPlyChrSelectGC__sub_802DE7D0(void *arg0) {
     } else {
         var_r30 = 0;
         do {
-            if ((TAdMultiPlyChrSelectGC__sub_802C64D0(var_r30) != 0) && (TAdMultiPlyChrSelectGC__sub_802C6848((s32)(var_r30)) == 0)) {
+            if ((is_multiplayer_character_slot_selected(var_r30) != 0) && (TAdMultiPlyChrSelectGC__sub_802C6848((s32)(var_r30)) == 0)) {
                 TAdMultiPlyChrSelectGC__sub_802C65C0(var_r30);
             }
             var_r30 += 1;
@@ -453,13 +453,13 @@ void TAdMultiPlyChrSelectGC__sub_802DE7D0(void *arg0) {
             M2C_FIELD(arg0, s32 *, 0x20) = 4;
             return;
         }
-        if ((get_field_0x530__22TAdMultiPlyChrSelectGCFPv(M2C_FIELD(arg0, s32 *, 0x5C)) != 0) && (TAdMultiPlyChrSelectGC__sub_802C6558() > 1) && (TAdMultiPlyChrSelectGC__sub_802C64D0(0) != 0)) {
+        if ((get_field_0x530__22TAdMultiPlyChrSelectGCFPv(M2C_FIELD(arg0, s32 *, 0x5C)) != 0) && (TAdMultiPlyChrSelectGC__sub_802C6558() > 1) && (is_multiplayer_character_slot_selected(0) != 0)) {
             M2C_FIELD(arg0, s32 *, 0x28) = 0x1C;
             M2C_FIELD(arg0, s32 *, 0x20) = 0x1A;
             M2C_FIELD(arg0, s32 *, 0x2C) = 1;
             return;
         }
-        if ((count_ready__22TAdMultiPlyChrSelectGCFv() == TAdMultiPlyChrSelectGC__sub_802C6558()) && (TAdMultiPlyChrSelectGC__sub_802C64D0(0) != 0) && (TAdMultiPlyChrSelectGC__sub_802C6558() > 1)) {
+        if ((count_ready__22TAdMultiPlyChrSelectGCFv() == TAdMultiPlyChrSelectGC__sub_802C6558()) && (is_multiplayer_character_slot_selected(0) != 0) && (TAdMultiPlyChrSelectGC__sub_802C6558() > 1)) {
             M2C_FIELD(arg0, s32 *, 0x28) = 0x1C;
             M2C_FIELD(arg0, s32 *, 0x20) = 0x1A;
             M2C_FIELD(arg0, s32 *, 0x2C) = 1;
