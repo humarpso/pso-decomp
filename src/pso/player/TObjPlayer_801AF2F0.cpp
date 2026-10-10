@@ -2512,7 +2512,7 @@ void drop_items_on_death__10TObjPlayerFPv(TObjPlayer* player);
 void handle_6x2A_drop_item(void *arg0);
 void send_6x2A_drop_item__10TObjPlayerFv(void *arg0, s32 arg1, void *arg2, s32 arg3);
 s32 send_trap_packet__10TObjPlayerFPvi(void *, int);
-void TObjPlayer__sub_801B8A80(u8 *arg0, s32 arg1);
+void request_meseta_drop__10TObjPlayerFPvi(u8 *arg0, s32 arg1);
 void request_item_drop__10TObjPlayerFPvii(u8 *arg0, s32 arg1, s32 arg2);
 s32 count_items_of_type__10TObjPlayerFPvccc(u8 *arg0, s8 arg1, s8 arg2, s8 arg3);
 void dispatch_input__10TObjPlayerFPvii(void *arg0, s32 arg1, s32 arg2);
@@ -7074,7 +7074,7 @@ s32 send_trap_packet__10TObjPlayerFPvi(void *arg0_, int arg1_) {
     return 1;
 }
 
-void TObjPlayer__sub_801B8A80(u8 *arg0, s32 arg1) {
+void request_meseta_drop__10TObjPlayerFPvi(u8 *arg0, s32 arg1) {
     typedef char sp8_offset[(offsetof(Stack_801B8A80, sp8) == 0x0) ? 1 : -1];
     typedef char sp14_offset[(offsetof(Stack_801B8A80, sp14) == 0xC) ? 1 : -1];
     Stack_801B8A80 stack;
