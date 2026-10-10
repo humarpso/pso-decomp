@@ -1373,6 +1373,7 @@ pso/misc/TOSwitchTimer.cpp
 pso/misc/TOSymbolchatColli.cpp
 pso/misc/TOTrap.cpp
 pso/misc/TOTrapAncient01_80226534.cpp
+pso/misc/TOTrapAncient02.cpp
 pso/misc/TOTrapAncient02R.cpp
 pso/misc/TOTrapChainSawDamage_802C9BF8.cpp
 pso/misc/TOTrapChainSawEdge.cpp
@@ -3001,6 +3002,7 @@ pso/unk/text_800F9990.cpp
 pso/unk/text_800F9B84.cpp
 pso/unk/text_800F9FD0.cpp
 pso/unk/text_800FA260.cpp
+pso/unk/text_800FA464.cpp
 pso/unk/text_800FA7E0.cpp
 pso/unk/text_800FCC78.cpp
 pso/unk/text_800FD8A0.cpp

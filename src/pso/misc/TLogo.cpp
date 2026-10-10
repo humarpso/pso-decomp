@@ -62,7 +62,7 @@ M2C_UNK TKeyBoardControl__sub_8000F9CC(int);
 M2C_UNK set_active_camera_pose(void *, void *);
 M2C_UNK activate_camera_mode(int);
 s32 is_ready__22TQuestVmDownLoadServerFv();
-M2C_UNK TLobby__sub_800FA464();
+M2C_UNK process_async_file_reads();
 s8 func_801A5E54__Fv();
 M2C_UNK update_input_frame__16TKeyBoardControlFv();
 M2C_UNK controller_stuff__Fv();
@@ -258,7 +258,7 @@ void run_frame__5TLogoFv(void) {
     main_task.run_task();
     main_task.render();
     main_task.render_screen_overlay();
-    TLobby__sub_800FA464();
+    process_async_file_reads();
     update_sound_request_slots();
     if (func_801A5E54__Fv() != 0) {
         TKeyBoardControl__sub_8000F92C();

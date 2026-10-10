@@ -2520,7 +2520,7 @@ M2C_UNK set_field_44__6TLobbyFPvi(int, int);
 M2C_UNK set_field_40__6TLobbyFPvi(int, int);
 M2C_UNK set_field_3c__6TLobbyFPvi(int, int);
 s32 TLobby__sub_803C0010(int);
-M2C_UNK TLobby__sub_803C0074(int);
+M2C_UNK process_audio_stream_input(int);
 M2C_UNK reset_flag__6TLobbyFPv(int);
 void TLobby__sub_803C0758(void *);
 M2C_UNK set_network_result__6TLobbyFPvi(int, int);
@@ -2589,7 +2589,7 @@ void TLobby__sub_803CAEB4(Conn_803CAEB4 *o) {
     o->fA4 += TLobby__sub_803C0010(lobby);
     reset_flag__6TLobbyFPv(lobby);
     TLobby__sub_803C0758((void *) lobby);
-    TLobby__sub_803C0074(lobby);
+    process_audio_stream_input(lobby);
     if (TLobby__sub_803C07E8(lobby) != 2)
     {
       o->active = 0;

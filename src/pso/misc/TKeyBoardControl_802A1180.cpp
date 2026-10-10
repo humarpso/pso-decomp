@@ -14,7 +14,7 @@ M2C_UNK TKeyBoardControl__sub_8000F92C();
 M2C_UNK request_queued_main_phase();
 M2C_UNK TKeyBoardControl__sub_8000F9CC(int);
 s32 is_ready__22TQuestVmDownLoadServerFv();
-M2C_UNK TLobby__sub_800FA464();
+M2C_UNK process_async_file_reads();
 s8 func_801A5E54__Fv();
 M2C_UNK update_input_frame__16TKeyBoardControlFv();
 M2C_UNK controller_stuff__Fv();
@@ -72,7 +72,7 @@ void update_movie_phase(void) {
     var_r3 = (M2C_UNK *)(&main_task.value);
     var_r3 = (M2C_UNK *)(&main_task.value);
     render_screen_overlay__9TMainTaskFv((void *) (&main_task.value));
-    TLobby__sub_800FA464();
+    process_async_file_reads();
     update_sound_request_slots();
     noop__23TAdSinglePlyChrSelectGCFv();
     if ((s32) (*(u8 *)&lbl_805D6638) == 1) {

@@ -7,7 +7,7 @@ void alloc_from_heap__6TLobbyFPv(void* a0);
 void pump_frames__6TLobbyFv(void);
 int run_frame__6TLobbyFv();
 s32 TLobby__sub_800F9FD0();
-int TLobby__sub_800FA464();
+int process_async_file_reads();
 int heap_alloc__5THeapFUl(void*, void*);
 int heap_free__5THeapFPv(void*, void*);
 
@@ -20,7 +20,7 @@ void alloc_from_heap__6TLobbyFPv(void* a0) { heap_alloc__5THeapFUl((void*)(game_
 void pump_frames__6TLobbyFv(void) {
 loop_1:
     if (TLobby__sub_800F9FD0() != 0) {
-        TLobby__sub_800FA464();
+        process_async_file_reads();
         run_frame__6TLobbyFv();
         goto loop_1;
     }

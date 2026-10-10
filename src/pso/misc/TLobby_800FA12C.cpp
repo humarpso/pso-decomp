@@ -9,14 +9,14 @@ extern "C" {
 void pop_and_close__6TLobbyFv(void);
 M2C_UNK pop_stack_entry__6TLobbyFPvs(void *, M2C_UNK);
 
-extern void *lbl_805D5360;
+extern void *async_file_read_current_request;
 
 void pop_and_close__6TLobbyFv(void) {
     void *temp_r31;
 
-    temp_r31 = M2C_FIELD(lbl_805D5360, void **, 0x38);
-    pop_stack_entry__6TLobbyFPvs(lbl_805D5360, 1);
-    lbl_805D5360 = temp_r31;
+    temp_r31 = M2C_FIELD(async_file_read_current_request, void **, 0x38);
+    pop_stack_entry__6TLobbyFPvs(async_file_read_current_request, 1);
+    async_file_read_current_request = temp_r31;
 }
 
 }

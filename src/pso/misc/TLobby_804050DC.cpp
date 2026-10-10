@@ -971,6 +971,11 @@ extern s16 lobby_handler_table_desc;
 s32 invoke_socket_callback__6TLobbyFsi(s16 i, s32 arg);
 M2C_UNK init_ipv6_all_routers_multicast_address(u8 *arg0, s8 arg1);
 bool init_ipv6_all_nodes_multicast_address(u8 *arg0, s8 arg1);
+M2C_UNK TLobby__sub_8041A9AC(int);
+M2C_UNK TLobby__sub_8041FFF8(int, int);
+s32 TLobby__sub_80420BD0(void *, void *, s32);
+extern RecoveredGlobal_8041E178_lbl_805C1D48 lbl_805C1D48;
+s32 tcp_start_send(s16 arg0, u8 *arg1, void (*completion)(s16, s16), u8 arg3);
 }
 
 extern "C" {
@@ -6495,6 +6500,45 @@ s32 TLobby__sub_8041DBD4(s16 arg0, s32 arg1, s32 arg2, s32 arg3) {
 s32 get_adjusted_slot_count__6TLobbyFPv(u8 *arg0);
 s32 get_field_d8__6TLobbyFPv(u8 *arg0);
 extern RecoveredGlobal_8041E178_lbl_805C1D48 lbl_805C1D48;
+
+#pragma push
+#pragma opt_propagation off
+s32 tcp_start_send(s16 arg0, u8 *arg1, void (*completion)(s16, s16), u8 arg3) {
+    s16 r;
+    s16 v;
+    s32 ret;
+    E_805C1D48 *e;
+    if (arg0 < 0 || arg0 >= lbl_805C1D48.n) {
+        r = -4;
+    } else if (lbl_805C1D48.p[arg0].f4 != 1) {
+        r = -4;
+    } else {
+        r = 0;
+    }
+    if (r < 0) {
+        return -4;
+    }
+    e = lbl_805C1D48.p;
+    e += arg0;
+    v = e->f6;
+    if (v <= 1) {
+        return -4;
+    }
+    if (v < 4) {
+        return -4;
+    }
+    if (v > 5 && (M2C_FIELD(e, u8 *, 0xA) & 8)) {
+        return -4;
+    }
+    TLobby__sub_80420BD0(arg1, e, (s32)completion);
+    if (arg3 != 0) {
+        M2C_FIELD(e, s32 *, 0x210) = M2C_FIELD(e, s32 *, 0x20C) + M2C_FIELD(arg1, s32 *, 8);
+    }
+    ret = ((s32)TLobby__sub_8041A9AC((int)e));
+    TLobby__sub_8041FFF8(0, (int)e);
+    return ret;
+}
+#pragma pop
 
 #pragma push
 #pragma opt_propagation off

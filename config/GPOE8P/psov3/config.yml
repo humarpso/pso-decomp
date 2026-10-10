@@ -162,6 +162,11 @@ force_active:
   - TOMineIcon04__vt82
   - TOSensor__sub_8017546C
   - TOSensor__sub_80175514
+  - TOTrapAncient02R__vt20
+  - TOTrapAncient02R__vt77
+  - TOTrapAncient02R__vt78
+  - TOTrapAncient02R__vt79
+  - TOTrapAncient02R__vt80
   - TOTrapChainSawDamage_class_name
   - TOTrapChainSawEdge_class_name
   - TOTrapChainSaw__level_scale_table
@@ -424,6 +429,7 @@ force_active:
   - __dt__16TBoss8DragonDemoFv
   - __dt__16TChCrLoadGmNjReqFv
   - __dt__16TItemReverseTechFv
+  - __dt__16TOTrapAncient02RFv
   - __dt__16TObjBagWarnWin4PFv
   - __dt__16TObjItemOKWindowFv
   - __dt__17TAdGameStartSubGCFv
@@ -2149,6 +2155,10 @@ force_active:
   - to_le_uint16_t__FUs
   - toggle_selected_part__28TWindowSubSymbolChatPartsSetFPv
   - transfer_to_town__9TObjLukerFv
+  - trap_ancient02_collision_body
+  - trap_ancient02_ruins_pillar_resources
+  - trap_ancient02_seabed_pillar_resources
+  - trap_ancient02_torabasami_resources
   - traverse_animated_node_tree
   - try_begin_load__22TChCrLoadAfsTextureReqFPv
   - try_hit_target__10TObjPlayerFPvi

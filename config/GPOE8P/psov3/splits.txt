@@ -5728,7 +5728,7 @@ pso/misc/TOTrapAncient02R.cpp:
 pso/misc/TOTrapAncient02.cpp:
 	.text       start:0x8017A210 end:0x8017B878
 	.rodata     start:0x80442F30 end:0x80442F38
-	.data       start:0x804B4CB4 end:0x804B4D10
+	.data       start:0x804B4AD8 end:0x804B4D10
 
 pso/misc/pso_const_ids7.cpp:
 	.text       start:0x8017B878 end:0x8017B8A0

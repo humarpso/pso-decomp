@@ -101,6 +101,23 @@ struct Snd_803C0BE8 {
 
 struct Rec_803C0018 { u8 state; u8 pad[0x9B]; };
 
+struct AudioStreamSource;
+struct AudioStreamChunk { void *data; s32 size; };
+
+struct AudioStreamSourceVtable {
+    void *pad[6];
+    void (*lock)(AudioStreamSource *, s32, s32, AudioStreamChunk *);
+    void (*unlock)(AudioStreamSource *, s32, AudioStreamChunk *);
+    void (*f20)(AudioStreamSource *, s32, AudioStreamChunk *);
+};
+
+struct AudioStreamSource { AudioStreamSourceVtable *vt; };
+
+struct AudioStreamInputState {
+    u8 f0; s8 state; u8 f2; s8 f3; s32 f4; AudioStreamSource *f8; u8 pad_c[0x58 - 0xC];
+    u8 f58[0x40]; s32 f98;
+};
+
 extern "C" {
 extern s8 lbl_805D74B8;
 void hwSetTimeOffset(s8 arg0);
@@ -193,9 +210,14 @@ s32 get_client_count__6TLobbyFPv(int);
 void convert_pcm_u8_to_s16__6TLobbyFPv(Snd_803C0F98 *arg0);
 s32 get_client_count__6TLobbyFPv(int);
 void EXIGetID(Snd_803C0BE8 *arg0);
-void TLobby__sub_803C0074(void *);
 extern RecoveredGlobal_803C0B08_lbl_80570AC0 lbl_80570AC0;
 void GXFlush(void);
+M2C_UNK TLobby__sub_803C0238();
+M2C_UNK get_field_a8__6TLobbyFPv(int);
+s32 TLobby__sub_803C3B68(s32, void *, s32);
+M2C_UNK TLobby__sub_803D3130(AudioStreamChunk *, s32, AudioStreamChunk *, AudioStreamChunk *);
+void *memcpy(void *, const void *, u32);
+void process_audio_stream_input(AudioStreamInputState *arg0);
 }
 
 extern "C" {
@@ -266,10 +288,54 @@ void GXFlush(void) {
     s32 i;
     for (i = 0; i < 0x10; i++) {
         if ((s32)((Rec_803C0018 *)&lbl_80570AC0)[i].state == 1) {
-            TLobby__sub_803C0074(&((Rec_803C0018 *)&lbl_80570AC0)[i]);
+            process_audio_stream_input((AudioStreamInputState *)(&((Rec_803C0018 *)&lbl_80570AC0)[i]));
         }
     }
 }
+
+#pragma push
+#pragma inline_depth(4)
+#pragma dont_inline off
+inline void parse_audio_stream_input_header(AudioStreamInputState *arg0) {
+    AudioStreamChunk b;
+    AudioStreamChunk b2;
+    AudioStreamSource *s = arg0->f8;
+    s32 h = arg0->f4;
+    s32 n;
+    s->vt->lock(s, 1, 0x1000, &b);
+    if (b.size < 0x10) {
+        s->vt->unlock(s, 1, &b);
+        return;
+    }
+    n = TLobby__sub_803C3B68(h, b.data, b.size);
+    if (n == 0 || n > b.size) {
+        s->vt->unlock(s, 1, &b);
+        return;
+    }
+    arg0->f98 = n;
+    if (get_field_a8__6TLobbyFPv(h) == 4) {
+        arg0->f3 = 1;
+    }
+    if (get_field_a8__6TLobbyFPv(h) == 2) {
+        memcpy(arg0->f58, b.data, b.size < 0x40 ? b.size : 0x40);
+    }
+    if (get_field_a8__6TLobbyFPv(h) == 10) {
+        s->vt->unlock(s, 1, &b);
+    } else {
+        TLobby__sub_803D3130(&b, n, &b, &b2);
+        s->vt->f20(s, 0, &b);
+        s->vt->unlock(s, 1, &b2);
+    }
+    arg0->state = 2;
+}
+void process_audio_stream_input(AudioStreamInputState *arg0) {
+    if (arg0->state == 2) {
+        TLobby__sub_803C0238();
+    } else if (arg0->state == 1) {
+        parse_audio_stream_input_header(arg0);
+    }
+}
+#pragma pop
 
 void TLobby__sub_803C0628(void *arg0_, s32 *arg1, s32 *arg2, s32 *arg3) {
     S_803C0628 *arg0 = (S_803C0628 *)arg0_;

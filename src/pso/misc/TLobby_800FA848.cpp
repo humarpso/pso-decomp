@@ -8,14 +8,14 @@ extern "C" {
 
 void link_into_list__6TLobbyFPv(void *arg0);
 
-extern void *lbl_805D5360;
+extern void *async_file_read_current_request;
 extern void *lbl_805D5364;
 extern s32 lbl_805D5368;
 extern s32 lobby_list_next_id;
 
 void link_into_list__6TLobbyFPv(void *arg0) {
-    if ((void *) lbl_805D5360 == NULL) {
-        lbl_805D5360 = arg0;
+    if ((void *) async_file_read_current_request == NULL) {
+        async_file_read_current_request = arg0;
     }
     if ((void *) lbl_805D5364 != NULL) {
         M2C_FIELD(lbl_805D5364, void **, 0x38) = arg0;

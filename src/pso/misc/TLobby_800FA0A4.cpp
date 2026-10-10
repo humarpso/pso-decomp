@@ -9,23 +9,23 @@ extern "C" {
 void notify_and_close__6TLobbyFv(void);
 M2C_UNK pop_and_close__6TLobbyFv();
 
-extern u8 *lbl_805D5360;
-extern s32 lbl_805D536C;
+extern u8 *async_file_read_current_request;
+extern s32 async_file_read_state;
 
 void notify_and_close__6TLobbyFv(void) {
     M2C_UNK (*temp_r12)(void *);
     s32 *temp_r3;
 
-    temp_r3 = M2C_FIELD(lbl_805D5360, s32 **, 0x34);
+    temp_r3 = M2C_FIELD(async_file_read_current_request, s32 **, 0x34);
     if (temp_r3 != NULL) {
         *temp_r3 = 1;
     }
-    temp_r12 = M2C_FIELD(lbl_805D5360, M2C_UNK (**)(void *), 0x40);
+    temp_r12 = M2C_FIELD(async_file_read_current_request, M2C_UNK (**)(void *), 0x40);
     if (temp_r12 != NULL) {
-        temp_r12(lbl_805D5360 + 0x44);
+        temp_r12(async_file_read_current_request + 0x44);
     }
     pop_and_close__6TLobbyFv();
-    lbl_805D536C = 0;
+    async_file_read_state = 0;
 }
 
 }

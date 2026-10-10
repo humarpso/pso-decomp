@@ -258,7 +258,7 @@ s32 is_split_screen(void);
 M2C_UNK TObjBoss2Tunnel__sub_8007D1D0();
 void TLobby__sub_8007EB20(const char *, ...);
 s32 is_ready__22TQuestVmDownLoadServerFv();
-M2C_UNK TLobby__sub_800FA464();
+M2C_UNK process_async_file_reads();
 M2C_UNK shutdown_keyboard_control__6TLobbyFv();
 void reload_offline_area__6TLobbyFv(void);
 void run_offline_area_transfer(void);
@@ -285,7 +285,7 @@ M2C_UNK TLobby__sub_8006EF90();
 M2C_UNK TObjBoss2Tunnel__sub_8007D1D0();
 void TLobby__sub_8007EB20(const char *, ...);
 s32 is_ready__22TQuestVmDownLoadServerFv();
-M2C_UNK TLobby__sub_800FA464();
+M2C_UNK process_async_file_reads();
 M2C_UNK reset_keyboard_input__6TLobbyFv();
 void rebuild_area_keep_players__6TLobbyFv(void);
 void run_offline_area_transfer(void);
@@ -609,7 +609,7 @@ void run_offline_game_frame(void) {
     } else {
         run_single_view_frame();
     }
-    TLobby__sub_800FA464();
+    process_async_file_reads();
     update_sound_request_slots();
     run_save_load_sequence__23TAdSinglePlyChrSelectGCFv();
     TObjBoss2Tunnel__sub_8007D1D0();
@@ -641,7 +641,7 @@ void run_offline_transfer_frame(void) {
     } else {
         run_single_view_frame();
     }
-    TLobby__sub_800FA464();
+    process_async_file_reads();
     update_sound_request_slots();
     run_save_load_sequence__23TAdSinglePlyChrSelectGCFv();
     noop__23TAdSinglePlyChrSelectGCFv();
