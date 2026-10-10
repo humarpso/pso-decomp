@@ -6,7 +6,7 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 
 extern "C" {
 
-void TLobby__sub_80102EBC(void* p);
+void init_6x5E_buy_item_header(void* p);
 void bswap_6x5D__6TLobbyFPv(void* p);
 void bswap_shop_item__6TLobbyFPv(void* p);
 void copy_item_data__6TLobbyFPvPv(void* p, void* q);
@@ -37,7 +37,7 @@ u8 is_matching_id__6TLobbyFiUs(s32 arg0, u16 arg1) {
 void bswap_shop_item__6TLobbyFPv(void* p) { ((int (*)(void*))read_be16_field2__10TObjPlayerFPv)(p); bswap__9TItemDataFv((char*)p + 0x4); }
 void send_item_and_handle_60__6TLobbyFPv(void* p) { bswap_shop_item__6TLobbyFPv((void*)(p)); TLobby__send_and_handle_60(p); }
 void copy_item_data__6TLobbyFPvPv(void* p, void* q) { *(u8*)((char*)p + 0x0) = *(u8*)((char*)q + 0x0); *(u8*)((char*)p + 0x1) = *(u8*)((char*)q + 0x1); *(u8*)((char*)p + 0x2) = *(u8*)((char*)q + 0x2); *(u8*)((char*)p + 0x3) = *(u8*)((char*)q + 0x3); *(u8*)((char*)p + 0x4) = *(u8*)((char*)q + 0x4); *(u8*)((char*)p + 0x5) = *(u8*)((char*)q + 0x5); *(u32*)((char*)p + 0x6) = *(u32*)((char*)q + 0x6); *(u16*)((char*)p + 0xa) = *(u16*)((char*)q + 0xa); *(u32*)((char*)p + 0xc) = *(u32*)((char*)q + 0xc); *(u32*)((char*)p + 0x10) = *(u32*)((char*)q + 0x10); }
-void TLobby__sub_80102EBC(void* p) { *(u8*)((char*)p + 0x0) = 94; *(u8*)((char*)p + 0x1) = 6; }
+void init_6x5E_buy_item_header(void* p) { *(u8*)((char*)p + 0x0) = 94; *(u8*)((char*)p + 0x1) = 6; }
 void bswap_6x5D__6TLobbyFPv(void* p) { ((int (*)(void*))read_be16_field2__10TObjPlayerFPv)(p); bswap_16__FPUs((s32)((char*)p + 0x4)); bswap_16__FPUs((s32)((char*)p + 0x6)); bswap_pkt_u32x2__10TObjPlayerFPv((char*)p + 0x8); bswap__9TItemDataFv((char*)p + 0x10); }
 void send_6x5D__6TLobbyFPv(void* p) { bswap_6x5D__6TLobbyFPv((void*)(p)); TLobby__send_and_handle_60(p); }
 void* init_fields__6TLobbyFPv(void* p) { init_default_fields__6TLobbyFPv((void*)((void*)(p))); *(unsigned char*)((char*)p + 0x24) = 2; *(unsigned char*)((char*)p + 0x25) = 0; *(unsigned char*)((char*)p + 0x26) = 0; *(unsigned char*)((char*)p + 0x27) = 0; *(unsigned char*)((char*)p + 0x1) = 10; return p; }
