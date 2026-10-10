@@ -1,60 +1,87 @@
-#include "pso/TObjSoloPlayWin.h"
+#include "pso/object/TObjSoloPlayWin.h"
 
 extern "C" {
-void start_win_timer__15TObjSoloPlayWinFPv(void*);
-void update_close_timer__15TObjSoloPlayWinFPv(void*);
+s32 TLobby__sub_8006FBE4();
+s32 get_global_state__14TOKeyMachine01Fv();
+u32 get_player_by_client_id(s32);
+s32 TWindowCtrlMain__sub_8024CE58();
+s32 obj_testFlags30(u32, s32);
+void* get_window_layout_position(s32);
+void* set_window_mode_4__6TLobbyFPvii(void*, void*, s32);
+s32 set_field_1c__6TLobbyFPvf(void*, f32);
+void* TQuestVmDownLoadServer__sub_8006EF6C(s32);
+s32 send_and_handle__6TLobbyFPvii(void*, void*, s32);
+s32 TWindow__close(u32);
+s32 mark_solo_win_closing__6TLobbyFv();
+s32 queue_destruction__7TObjectFv(void*);
+extern s32 local_client_id;
+extern const char TObjSoloPlayWin_class_name[] = "TObjSoloPlayWin";
+const char* TObjSoloPlayWin_name = TObjSoloPlayWin_class_name;
+__declspec(section ".data") float solo_play_result_window_extent[2] = {240.0f, 180.0f};
+__declspec(section ".sdata2") extern const f32 solo_play_result_window_depth;
 }
 
-#include "types.h"
-typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
-typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
-#define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
-#define M2C_BITWISE(type, expr) ((type)(expr))
-
-extern "C" {
-
-void *TObjSoloPlayWin__ct(void *arg0);
-void start_win_timer__15TObjSoloPlayWinFPv(void *arg0);
-M2C_UNK open_result_window__15TObjSoloPlayWinFPv(void *);
-void __ct__7TObjectFP7TObject(void *);
-s32 can_start_win_timer__15TObjSoloPlayWinFi();
-s32 fn_80074724(void *);
-
-void start_win_timer__15TObjSoloPlayWinFPv(void *arg0) {
-    if (((u32) M2C_FIELD(arg0, u32 *, 0x20) == 0U) && (can_start_win_timer__15TObjSoloPlayWinFi() != 0) && (fn_80074724(arg0) != 0)) {
-        open_result_window__15TObjSoloPlayWinFPv(arg0);
-        M2C_FIELD(arg0, s32 *, 0x24) = 0x12C;
-        M2C_FIELD(arg0, s32 *, 0x1C) = 1;
+s32 TObjSoloPlayWin::has_at_most_one_player() {
+    return (TLobby__sub_8006FBE4() <= 1) ? 1 : 0;
+}
+s32 TObjSoloPlayWin::area_allows_win_timer() {
+    switch (get_global_state__14TOKeyMachine01Fv()) {
+    case 0: case 0xB: case 0xC: case 0xD: case 0xE: case 0x12:
+    case 0x1E: case 0x1F: case 0x20: case 0x21:
+        return 0;
+    }
+    return 1;
+}
+s32 TObjSoloPlayWin::can_start_win_timer() {
+    u32 player = get_player_by_client_id(local_client_id);
+    if (TWindowCtrlMain__sub_8024CE58() == 1 && area_allows_win_timer() != 0 &&
+        player != 0U && obj_testFlags30(player, 0x02000000) == 0) {
+        return 1;
+    }
+    return 0;
+}
+void TObjSoloPlayWin::open_result_window() {
+    m_result_window = set_window_mode_4__6TLobbyFPvii(get_window_layout_position(0x3E), solo_play_result_window_extent, 1);
+    if (m_result_window != 0) {
+        set_field_1c__6TLobbyFPvf(m_result_window, solo_play_result_window_depth);
+        send_and_handle__6TLobbyFPvii(m_result_window, TQuestVmDownLoadServer__sub_8006EF6C(0x5F), 2);
     }
 }
-
-extern M2C_UNK __vt__15TObjSoloPlayWin[];
-extern void *TObjSoloPlayWin__class_name;
-
+void TObjSoloPlayWin::update_close_timer() {
+    s32 countdown = m_countdown - 1;
+    m_countdown = countdown;
+    if (countdown < 0) {
+        if (m_result_window != 0) {
+            TWindow__close((u32)m_result_window);
+            m_result_window = 0;
+        }
+        mark_solo_win_closing__6TLobbyFv();
+        queue_destruction__7TObjectFv(this);
+    }
 }
-
+void TObjSoloPlayWin::start_win_timer() {
+    if (m_result_window == 0 && can_start_win_timer() != 0 && has_at_most_one_player() != 0) {
+        open_result_window();
+        m_countdown = 300;
+        m_state = 1;
+    }
+}
 void TObjSoloPlayWin::run_task() {
     switch (m_state) {
-    case 0:
-        start_win_timer__15TObjSoloPlayWinFPv(this);
-        return;
-    case 1:
-        update_close_timer__15TObjSoloPlayWinFPv(this);
-        return;
+    case 0: start_win_timer(); return;
+    case 1: update_close_timer(); return;
     }
 }
-
 TObjSoloPlayWin::~TObjSoloPlayWin() {}
-
-extern "C" {
-
-void *TObjSoloPlayWin__ct(void *arg0) {
-    __ct__7TObjectFP7TObject(arg0);
-    M2C_FIELD(arg0, M2C_UNK **, 0x18) = __vt__15TObjSoloPlayWin;
-    M2C_FIELD(arg0, void **, 0x0) = TObjSoloPlayWin__class_name;
-    M2C_FIELD(arg0, u32 *, 0x20) = 0;
-    M2C_FIELD(arg0, u32 *, 0x1C) = 0;
-    return arg0;
+TObjSoloPlayWin::TObjSoloPlayWin(TObject* parent) : TObject(parent) {
+    m_name = TObjSoloPlayWin_name;
+    m_result_window = 0;
+    m_state = 0;
+}
+TObjSoloPlayWin* TObjSoloPlayWin::create(TObject* parent) {
+    return new TObjSoloPlayWin(parent);
 }
 
+extern "C" {
+__declspec(section ".sdata2") extern const f32 solo_play_result_window_depth = 70200.0f;
 }

@@ -937,7 +937,6 @@ pso/misc/TLobby_80072048.cpp
 pso/misc/TLobby_800726F0.cpp
 pso/misc/TLobby_8007340C.cpp
 pso/misc/TLobby_80073DAC.cpp
-pso/misc/TLobby_80074A5C.cpp
 pso/misc/TLobby_80076614.cpp
 pso/misc/TLobby_80077B60.cpp
 pso/misc/TLobby_8007B858.cpp
@@ -1126,8 +1125,6 @@ pso/misc/TLobby_803D2010.cpp
 pso/misc/TLobby_803D23B0.cpp
 pso/misc/TLobby_803D25DC.cpp
 pso/misc/TLobby_803D2628.cpp
-pso/misc/TLobby_803D2BA8.cpp
-pso/misc/TLobby_803D2ED4.cpp
 pso/misc/TLobby_803D3194.cpp
 pso/misc/TLobby_803D3988.cpp
 pso/misc/TLobby_803D3B84.cpp
@@ -1987,6 +1984,7 @@ pso/misc/pso_const_ids5.cpp
 pso/misc/pso_const_ids6.cpp
 pso/misc/pso_const_ids7.cpp
 pso/misc/pso_date.cpp
+pso/network/NetworkTransport.cpp
 pso/network/TGameProtocol.cpp
 pso/network/TProtocol.cpp
 pso/network/TProtocolChoiceSearch.cpp
@@ -2207,7 +2205,6 @@ pso/object/TObjSeabedSuisoBrakable.cpp
 pso/object/TObjSeabedSuisoBrakable_801315D4.cpp
 pso/object/TObjSinBoard.cpp
 pso/object/TObjSoloPlayWin.cpp
-pso/object/TObjSoloPlayWin_800747C4.cpp
 pso/object/TObjStendGlassLobby.cpp
 pso/object/TObjSuisoChip.cpp
 pso/object/TObjSuisouLobby.cpp
@@ -2668,6 +2665,8 @@ pso/system/CityTraffic.cpp
 pso/system/ItemEffects.cpp
 pso/system/ModelDrawContext.cpp
 pso/system/PadRumble.cpp
+pso/system/RefCountedWorkBuffer.cpp
+pso/system/SjRingBuffer.cpp
 pso/system/THeap.cpp
 pso/system/TMemberCheck.cpp
 pso/system/TNECFontEORFunction.cpp
@@ -2915,7 +2914,6 @@ pso/unk/text_80071B30.cpp
 pso/unk/text_80071F90.cpp
 pso/unk/text_80072004.cpp
 pso/unk/text_80072230.cpp
-pso/unk/text_80074724.cpp
 pso/unk/text_80074BD0.cpp
 pso/unk/text_80074C20.cpp
 pso/unk/text_80074C70.cpp
@@ -3739,8 +3737,6 @@ pso/unk/text_803D0F1C.cpp
 pso/unk/text_803D204C.cpp
 pso/unk/text_803D2434.cpp
 pso/unk/text_803D2624.cpp
-pso/unk/text_803D2640.cpp
-pso/unk/text_803D2C84.cpp
 pso/unk/text_803D2F1C.cpp
 pso/unk/text_803D31A4.cpp
 pso/unk/text_803D39F8.cpp
@@ -3785,7 +3781,6 @@ pso/unk/text_803F4D10.cpp
 pso/unk/text_803F4D84.cpp
 pso/unk/text_803F632C.cpp
 pso/unk/text_803F71BC.cpp
-pso/unk/text_803F7678.cpp
 pso/unk/text_8042EE4C.cpp
 si/SIBios.c
 si/SISamplingRate.c

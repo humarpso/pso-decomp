@@ -1,3 +1,4 @@
+#include "pso/object/TObjSoloPlayWin.h"
 #include "types.h"
 
 typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
@@ -1396,7 +1397,7 @@ M2C_UNK create_new_floor_windows__6TLobbyFi(s32);
 M2C_UNK export_character_data__10TObjPlayerFPvPv(u32, u32);
 M2C_UNK create_ch_time_win(s32);
 #define create_challenge4p__6TLobbyFv ((u32 (*)())create_challenge4p__6TLobbyFv)
-M2C_UNK create_solo_play_win__6TLobbyFPv(s32);
+
 u32 get_char_index__23TAdSinglePlyChrSelectGCFUi(u32);
 s32 is_split_screen();
 M2C_UNK queue_destruction__7TObjectFv(void *);
@@ -1493,7 +1494,7 @@ void create_time_window2__6TLobbyFv(void * _w0) {
     create_ch_time_win(tl_07);
     create_new_floor_windows__6TLobbyFi(tl_07);
     if ((s32) M2C_FIELD(lbl_804DB1F0, s32 *, 0x30) == 0) {
-        create_solo_play_win__6TLobbyFPv(tl_07);
+        TObjSoloPlayWin::create((TObject*)tl_07);
     }
 }
 

@@ -207,6 +207,8 @@ force_active:
   - TObjDFJisin__name
   - TObjDFRecBall__name
   - TObjDFRecover__name
+  - TObjDeadListWin_class_name
+  - TObjDeadListWin_name
   - TObjDoaEx01__resource_descriptor
   - TObjDoorKey__resource_descriptor
   - TObjDoor__collision_desc
@@ -296,6 +298,8 @@ force_active:
   - TObjSeabedSuisoBrakable__vt15
   - TObjSinBoard__texture_name
   - TObjSinBoard__texture_surface
+  - TObjSoloPlayWin_class_name
+  - TObjSoloPlayWin_name
   - TObjStendGlassLobby__resource_descriptor
   - TObjTreeLobby_resource_descriptor
   - TObjWarpBossMulti__name
@@ -372,6 +376,8 @@ force_active:
   - __ct__14QuestListEntryFRC14QuestListEntry
   - __ct__14QuestListEntryFv
   - __ct__15TBoss6CrushRockFv
+  - __ct__15TObjDeadListWinFP7TObject
+  - __ct__15TObjSoloPlayWinFP7TObject
   - __ct__15TRecvGenerateIDFRC15TRecvGenerateID
   - __ct__16TAdGuideButtonGCFP7TObject
   - __ct__16TGenGuildCardTagFRC16TGenGuildCardTag
@@ -612,6 +618,7 @@ force_active:
   - apply_variant_speeds__12TObjEneLappyFPv
   - aramQueueCallback
   - are_all_players_in_range__17TObjWarpBossMultiFPv
+  - area_allows_win_timer__15TObjSoloPlayWinFv
   - area_dialogue_file_ancient_e
   - area_dialogue_file_ancient_e_u
   - area_dialogue_file_ancient_f
@@ -892,6 +899,7 @@ force_active:
   - bswap_udp_test_header__6TLobbyFPv
   - build_beam_points__12TTecZondeEffFPv
   - build_box_triangles__10TObjMapCsnFPv
+  - build_dead_list_window__15TObjDeadListWinFv
   - build_download_list__12TQuestListVMFPv
   - build_item_list__23TShopJudgmentItemWindowFPv
   - build_menu__19TWindowSubShortMailFv
@@ -914,6 +922,7 @@ force_active:
   - calc_lunge_aim__14TObjEneBm5WolfFPv
   - calc_parameters__11TTecRaBartaFv
   - calc_params__11TTecGiBartaFPv
+  - calc_ring_buffer_available__6TLobbyFPviiPv
   - calc_rotated_hex_point__23TObjOnlineEndingHexLineFPvPv
   - calc_rumble_intensity__23TAdSinglePlyChrSelectGCFPv
   - calc_rumble_strength__23TAdSinglePlyChrSelectGCFPv
@@ -923,6 +932,7 @@ force_active:
   - calc_text_pos__10TAdTitleGCFiPvi
   - calc_tube_progress__10TBoss6TubeFi
   - call_state_action__14TBoss6PlotFalzFPv
+  - can_start_win_timer__15TObjSoloPlayWinFv
   - cancel_trade_for_member_out_of_range
   - capture_attachment__17TObjEneBm3FlyNestFv
   - capture_matrix_by_frame__16TObjDFTenchuFuruFv
@@ -1038,6 +1048,7 @@ force_active:
   - collect_body_contacts__10TObjPlayerFPviPvPv
   - collect_node_positions__11TBreakUpMdlFPvPvi
   - commit_composition_text__19TWindowKeyBoardSoftFPv
+  - commit_ring_buffer_read__6TLobbyFPviPv
   - compute_range_end__6TLobbyFPviUi
   - configure_scripted_camera_playback
   - construct__12T_OWEHMS_ExpFP10TObjPlayer
@@ -1142,6 +1153,9 @@ force_active:
   - damage_players_in_range__15TBoss6RockChaseFPv
   - damage_players_near_point
   - date_month_start_days
+  - dead_list_name_separator
+  - dead_list_text_prefix
+  - dead_list_window_position
   - deallocate_from_fixed_pools
   - debug_print_ranges__8TOKurageFPv
   - deduct_cap_excess__14TItemEquipBaseFiPvs
@@ -1556,6 +1570,7 @@ force_active:
   - handle_withdraw_confirm__18TShopGetItemWindowFPv
   - handle_withdraw_list_input__18TShopGetItemWindowFPv
   - has_armor_with_unit_slot
+  - has_at_most_one_player__15TObjSoloPlayWinFv
   - has_inactive_card__17TWindowSubComCardFPvi
   - has_serial_input__22TAdEnterSerialAccessGCFv
   - hide_part__9TObjLukerFPvUs
@@ -1982,6 +1997,16 @@ force_active:
   - mcmdVibrato
   - mcmdWait
   - message_tag_error
+  - modem_answer_command
+  - modem_busy_response
+  - modem_connect_response
+  - modem_default_connect_argument
+  - modem_delayed_response
+  - modem_error_response
+  - modem_ok_response
+  - modem_pulse_dial_command
+  - modem_ring_response
+  - modem_tone_dial_command
   - monument_ancient02_resource_table
   - motorcycle_resource_descriptor
   - move_around_center__15TObjEneMe1GiGueFPvPvf
@@ -2058,6 +2083,7 @@ force_active:
   - open_message_window__9TSaveChCrFPvUi
   - open_player_names_window__13TAdVIConfigGCFPv
   - open_purpose_window__14TWindowSubItemFPvi
+  - open_result_window__15TObjSoloPlayWinFv
   - open_sell_window__20TShopItemTecSequenceFPv
   - open_sell_window__22TShopEquipmentSequenceFPv
   - open_sell_window__26TShopEquipmentGearSequenceFPv
@@ -2134,6 +2160,7 @@ force_active:
   - rappy_variant_na_name
   - re_b_mark_base_model_names
   - read_byte__24TMessageWindowControllerFv
+  - read_ring_buffer_span__6TLobbyFPviiPv
   - read_stream_u8
   - read_u16_le__9TLanguageFv
   - read_u32_le__9TLanguageFv
@@ -2145,7 +2172,7 @@ force_active:
   - refresh_item_list__20TShopArmorListWindowFPv
   - refresh_label__11TChCrEffTagFPv
   - refresh_mail_list__19TWindowSubShortMailFPvPv
-  - refresh_names__15TObjDeadListWinFPv
+  - refresh_names__15TObjDeadListWinFv
   - refresh_split_screen_battle_alive_flags
   - register_global_instance_dtor__22TQuestVmDownLoadServerFv
   - register_global_objects__14TObjEneBm5WolfFv
@@ -2493,6 +2520,12 @@ force_active:
   - show_part__9TObjLukerFii
   - shuffle_event_entries
   - shuffle_shop_pool
+  - sj_ring_buffer_init_count
+  - sj_ring_buffer_interface
+  - sj_ring_buffer_pool
+  - sj_ring_buffer_uuid
+  - sj_version_pointer
+  - sj_version_string
   - skip_name_prefix__11TWindowCtrlFPvPv
   - sleeping_state__14TObjEneBm5WolfFPvi
   - smpcmp
@@ -2500,6 +2533,7 @@ force_active:
   - snap_to_ground__13TObjEneMorfosFii
   - snapshot_player_card_status__6TLobbyFv
   - snd_handle_irq
+  - solo_play_result_window_depth
   - some_stub__9TProtocolFv
   - sound_bank_file_crc16
   - sound_bank_filename_a_enemy_pool
@@ -2752,6 +2786,7 @@ force_active:
   - start_match__19TPlayerBattleCtrl4PFPv
   - start_quest_mission
   - start_udp_test_game__6TLobbyFv
+  - start_win_timer__15TObjSoloPlayWinFv
   - stat__10TTcpSocketFv
   - state_chase__16TObjEneMe3StelthFPvi
   - state_chase__18TObjEneMe3SinowZoaFPvi
@@ -2847,6 +2882,8 @@ force_active:
   - update_chase_state__18TObjEneBalClawClawFPv
   - update_chase_target__9TObjGrassFPv
   - update_child_window_visibility__11TWindowCtrlFPv
+  - update_close_timer__15TObjSoloPlayWinFv
+  - update_countdown__15TObjDeadListWinFv
   - update_customize_help_text
   - update_death_state__11TObjEneMojaFv
   - update_demo_if_in_range__14TOTrapChainSawFPv

@@ -677,7 +677,7 @@ void render__11TBoss6Type2Fv(void* p);
 s32 get_phase__11TBoss6Type2FPv(void* p);
 void world_to_grid_pos__11TBoss6Type2FPvPvPv(f32 *arg0, s8 *arg1, s8 *arg2);
 void grid_to_world_pos__11TBoss6Type2FccPv(s8 arg0, s8 arg1, f32 *arg2);
-void call_9A24_plus_1__11TBoss6Type2Fi(s32 arg0);
+void call_9A24_plus_1__11TBoss6Type2Fi(u8 *arg0, s32 *arg1);
 void unpack_path_entry__11TBoss6Type2FPvPv(u8 *arg0, s32 *arg1);
 s32 is_player_in_rock_area__11TBoss6Type2Fi(s32 id);
 void spawn_hit_effects__11TBoss6Type2FPv(Boss_802B9B20 *o);
@@ -917,8 +917,8 @@ void grid_to_world_pos__11TBoss6Type2FccPv(s8 arg0, s8 arg1, f32 *arg2) {
 extern int fold_flush_0;
 #pragma pop
 
-void call_9A24_plus_1__11TBoss6Type2Fi(s32 arg0) {
-    ((M2C_UNK (*)(s32))unpack_path_entry__11TBoss6Type2FPvPv)(arg0 + 1);
+void call_9A24_plus_1__11TBoss6Type2Fi(u8 *arg0, s32 *arg1) {
+    unpack_path_entry__11TBoss6Type2FPvPv(arg0 + 1, arg1);
 }
 
 void unpack_path_entry__11TBoss6Type2FPvPv(u8 *arg0, s32 *arg1) {

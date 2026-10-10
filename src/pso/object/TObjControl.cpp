@@ -32,7 +32,7 @@ u16 obj_getField1c(void *);
 extern u32 TObjPlayer__data_8050D460[];
 extern s32 lbl_805D586C;
 extern s32 lbl_805D5870;
-u32 get_enemy_entity(u16 arg0);
+u8 *get_enemy_entity(u16 arg0);
 }
 
 extern "C" {
@@ -769,7 +769,7 @@ void apply_set_data__9TObjEnemyFPvPv(A_800F698C *arg0, B_800F698C *arg1) {
     subtractive_rng_seed(arg0->f160, arg0->f1C + area_random_seed);
 }
 
-u32 get_enemy_entity(u16 arg0) {
+u8 *get_enemy_entity(u16 arg0) {
     s32 low;
     s32 mid;
     s32 high;
@@ -786,7 +786,7 @@ u32 get_enemy_entity(u16 arg0) {
         }
         u32 e = TObjPlayer__data_8050D460[low];
         if (e != 0 && arg0 == obj_getField1c((void *)(e))) {
-            return e;
+            return (u8 *)e;
         }
     }
     return 0;

@@ -1,3 +1,5 @@
+#include "pso/network/NetworkTransport.h"
+
 #include "types.h"
 typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
 typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
@@ -150,9 +152,7 @@ s32 write_name_field__6TLobbyFPvPv(s32 *arg0, u8 *arg1);
 M2C_UNK TLobby__sub_803F77E0(void *);
 extern RecoveredGlobal_80428374_lbl_805D0A40 lobby_net_session_state;
 void reset_boot_state__6TLobbyFv(void);
-M2C_UNK __OSBootDol(void *);
 extern RecoveredGlobal_80428374_lbl_805D0A40 lobby_net_session_state;
-s32 boot_dol__6TLobbyFv(void);
 void TLobby__sub_803F95E4(u32);
 extern u32 lbl_805D7C00;
 void cancel_alarm_b__6TLobbyFv(void);
@@ -1053,7 +1053,6 @@ s32 TLobby__sub_80428360(void);
 void reset_boot_state__6TLobbyFv(void);
 
 typedef char RecoveredGlobal_8042839C_lbl_805D0A40_size[sizeof(RecoveredGlobal_8042839C_lbl_805D0A40) == 0x60 ? 1 : -1];
-s32 boot_dol__6TLobbyFv(void);
 
 s32 wait_timeout_loop__6TLobbyFPv(u8 *arg0);
 

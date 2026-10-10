@@ -1,3 +1,5 @@
+#include "pso/object/TObjSoloPlayWin.h"
+
 #include "types.h"
 #include "pso/misc/TChallenge.h"
 #include <stddef.h>
@@ -136,7 +138,7 @@ s32 TLobby__sub_8026A328();
 u32 get_player_by_client_id(s32);
 s32 check_player_state_flag_2__6TLobbyFPv();
 M2C_UNK create_ch_time_win(s32);
-M2C_UNK create_solo_play_win__6TLobbyFPv(s32);
+
 s32 fn_80076B14(void *);
 s32 init__23TAdSinglePlyChrSelectGCFv();
 
@@ -407,7 +409,7 @@ void create_time_window__6TLobbyFv(void * _w0) {
     create_ch_time_win(tl_07);
     create_new_floor_windows__6TLobbyFi(tl_07);
     if ((s32) M2C_FIELD(challenge_mode_state, s32 *, 0x30) == 0) {
-        create_solo_play_win__6TLobbyFPv(tl_07);
+        TObjSoloPlayWin::create((TObject*)tl_07);
     }
 }
 

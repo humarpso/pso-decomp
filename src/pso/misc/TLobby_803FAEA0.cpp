@@ -1,3 +1,5 @@
+#include "pso/network/NetworkTransport.h"
+
 #include "types.h"
 #include "pso/protocol/NetworkRuntime.h"
 typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
@@ -1184,7 +1186,6 @@ void TLobby__sub_803F767C(void);
 void TLobby__sub_803F7A90(void);
 s16 TLobby__sub_803FD10C(void);
 void TLobby__sub_804061FC(int);
-void boot_dol__6TLobbyFv(void);
 extern s16 lbl_805D7A7E;
 extern s16 lbl_805D7A82;
 extern s16 lbl_805D7A84;
@@ -1206,7 +1207,7 @@ s16 init_net_session__6TLobbyFv(void) {
     if (ret < 0) {
         return -1;
     }
-    boot_dol__6TLobbyFv();
+    init_modem_session_config();
     TLobby__sub_803F767C();
     init_net_block_620_secondary__6TLobbyFv();
     init_net_state_b__6TLobbyFv();

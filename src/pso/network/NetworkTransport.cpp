@@ -1,3 +1,5 @@
+#include "pso/network/NetworkTransport.h"
+
 #include "types.h"
 typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
 typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
@@ -226,7 +228,6 @@ extern s32 queue_thread_handle;
 extern u32 TLobby__send_ring_mutex;
 extern s32 send_ring_buffer_base;
 extern s16 lbl_805D7A34;
-extern char lbl_805E1148[4];
 s32 TLobby__sub_803F8314(A_803F8314 *arg0);
 u32 compute_range_end__6TLobbyFPviUi(u8 *arg0, s32 arg1, u32 arg2);
 u32 layout_buffers__6TLobbyFPvPvPv(u8 *, u32, u32);
@@ -282,17 +283,18 @@ void TLobby__sub_803F808C(void);
 s32 TLobby__sub_803F811C(s16 *arg0);
 void TLobby__sub_803F86BC(void);
 
-void __OSBootDol(u8 *arg0);
 extern M2C_UNK lbl_805D79F8;
-extern M2C_UNK lbl_805E1108;
-extern M2C_UNK lbl_805E1110;
-extern M2C_UNK lbl_805E1118;
-extern M2C_UNK lbl_805E111C;
-extern M2C_UNK lbl_805E1120;
-extern M2C_UNK lbl_805E1128;
-extern M2C_UNK lbl_805E1130;
-extern M2C_UNK lbl_805E1138;
-extern M2C_UNK lbl_805E1140;
+
+__declspec(section ".sdata2") extern const char modem_tone_dial_command[] = "ATDT";
+__declspec(section ".sdata2") extern const char modem_pulse_dial_command[] = "ATDP";
+__declspec(section ".sdata2") extern const char modem_answer_command[] = "ATA";
+__declspec(section ".sdata2") extern const char modem_ok_response[] = "OK";
+__declspec(section ".sdata2") extern const char modem_connect_response[] = "CONNECT";
+__declspec(section ".sdata2") extern const char modem_busy_response[] = "BUSY";
+__declspec(section ".sdata2") extern const char modem_error_response[] = "ERROR";
+__declspec(section ".sdata2") extern const char modem_delayed_response[] = "DELAYED";
+__declspec(section ".sdata2") extern const char modem_ring_response[] = "RING";
+__declspec(section ".sdata2") extern const char modem_default_connect_argument[] = "00";
 
 u8 lbl_805A9008[0xA88];
 u8 lbl_805A9A90[0x60];
@@ -384,7 +386,7 @@ void TLobby__sub_803F77E0(void) {
 
 }
 
-void __OSBootDol(u8 *arg0) {
+void init_modem_buffer_config(void *arg0) {
     Obj_803F77E4 *o = (Obj_803F77E4 *)arg0;
 
     o->f0 = lbl_805AA080;
@@ -416,17 +418,17 @@ void __OSBootDol(u8 *arg0) {
     o->f4C->f4 = 1;
     o->f4C->f6 = 0;
     o->f4C->f8 = 1;
-    o->f4C->fC = &lbl_805E1108;
-    o->f4C->f10 = &lbl_805E1110;
-    o->f4C->f14 = &lbl_805E1118;
-    o->f4C->f18 = &lbl_805E111C;
-    o->f4C->f1C = &lbl_805E1120;
-    o->f4C->f20 = &lbl_805E1128;
-    o->f4C->f24 = &lbl_805E1130;
-    o->f4C->f28 = &lbl_805E1138;
+    o->f4C->fC = (void *)modem_tone_dial_command;
+    o->f4C->f10 = (void *)modem_pulse_dial_command;
+    o->f4C->f14 = (void *)modem_answer_command;
+    o->f4C->f18 = (void *)modem_ok_response;
+    o->f4C->f1C = (void *)modem_connect_response;
+    o->f4C->f20 = (void *)modem_busy_response;
+    o->f4C->f24 = (void *)modem_error_response;
+    o->f4C->f28 = (void *)modem_delayed_response;
     o->f4C->f2C = (void *)modem_no_carrier_response;
     o->f4C->f30 = (void *)modem_no_dialtone_response;
-    o->f4C->f34 = &lbl_805E1140;
+    o->f4C->f34 = (void *)modem_ring_response;
     o->f4C->f38 = 0xD;
     o->f4C->f3C = (void *)modem_initialization_script;
     o->f4C->f40 = (void *)modem_dial_script;
@@ -823,7 +825,7 @@ s32 TLobby__sub_803F8314(A_803F8314 *arg0) {
         if (arg0->name != NULL) {
             name = arg0->name;
         } else {
-            name = lbl_805E1148;
+            name = (char *)modem_default_connect_argument;
         }
         unlock_mutex__10TUdpSocketFi(lbl_805C18A0.value);
         ret = TAdSinglePlyChrSelectGC__sub_8042CEF8(name);

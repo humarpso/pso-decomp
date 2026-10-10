@@ -122,7 +122,7 @@
     "use_lmw_stmw": "on",
     "opt": "nopeephole"
   },
-  "pso/unk/text_803F7678.cpp": {
+  "pso/network/NetworkTransport.cpp": {
     "mw_version": "GC/1.2.5n",
     "optimization": "-O4,p",
     "inline": "off",
@@ -332,18 +332,6 @@
     "use_lmw_stmw": "on"
   },
   "pso/unk/text_803D204C.cpp": {
-    "mw_version": "GC/2.6",
-    "optimization": "-O4,p",
-    "inline": "off",
-    "use_lmw_stmw": "on"
-  },
-  "pso/unk/text_803D2640.cpp": {
-    "mw_version": "GC/2.6",
-    "optimization": "-O4,p",
-    "inline": "off",
-    "use_lmw_stmw": "on"
-  },
-  "pso/unk/text_803D2C84.cpp": {
     "mw_version": "GC/2.6",
     "optimization": "-O4,p",
     "inline": "off",
@@ -1022,5 +1010,19 @@
     "optimization": "-O4,s",
     "inline": "off",
     "use_lmw_stmw": "on"
+  },
+  "pso/system/SjRingBuffer.cpp": {
+    "mw_version": "GC/2.6",
+    "optimization": "-O4,p",
+    "inline": "off",
+    "use_lmw_stmw": "on",
+    "sdata2": 4
+  },
+  "pso/system/RefCountedWorkBuffer.cpp": {
+    "mw_version": "GC/2.6",
+    "optimization": "-O4,s",
+    "inline": "off",
+    "use_lmw_stmw": "on",
+    "sdata2": 4
   }
 }

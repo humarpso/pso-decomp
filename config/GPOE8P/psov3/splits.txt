@@ -889,7 +889,10 @@ pso/misc/TWindowSubComCard_8007341C.cpp:
 
 pso/object/TObjDeadListWin.cpp:
 	.text       start:0x800739D4 end:0x80073DAC
-	.data       start:0x8048D170 end:0x8048D188
+	.rodata     start:0x80438640 end:0x80438650
+	.data       start:0x8048D168 end:0x8048D188
+	.sdata      start:0x805D2868 end:0x805D2870
+	.sdata2     start:0x805D9140 end:0x805D9148
 
 pso/misc/TLobby_80073DAC.cpp:
 	.text       start:0x80073DAC end:0x80073DB8
@@ -911,18 +914,12 @@ pso/object/TObjResultWin.cpp:
 	.text       start:0x8007445C end:0x80074724
 	.data       start:0x8048D1B8 end:0x8048D1D0
 
-pso/unk/text_80074724.cpp:
-	.text       start:0x80074724 end:0x800747C4
-
-pso/object/TObjSoloPlayWin_800747C4.cpp:
-	.text       start:0x800747C4 end:0x80074908
-
 pso/object/TObjSoloPlayWin.cpp:
-	.text       start:0x80074908 end:0x80074A5C
-	.data       start:0x8048D1D8 end:0x8048D1F0
-
-pso/misc/TLobby_80074A5C.cpp:
-	.text       start:0x80074A5C end:0x80074AA4
+	.text       start:0x80074724 end:0x80074AA4
+	.rodata     start:0x80438710 end:0x80438720
+	.data       start:0x8048D1D0 end:0x8048D1F0
+	.sdata      start:0x805D2880 end:0x805D2888
+	.sdata2     start:0x805D9168 end:0x805D9170
 
 pso/menu/TObjTagChallenge.cpp:
 	.text       start:0x80074AA4 end:0x80074BD0
@@ -13913,17 +13910,18 @@ pso/unk/text_803D2624.cpp:
 pso/misc/TLobby_803D2628.cpp:
 	.text       start:0x803D2628 end:0x803D2640
 
-pso/unk/text_803D2640.cpp:
-	.text       start:0x803D2640 end:0x803D2BA8
+pso/system/SjRingBuffer.cpp:
+	.text       start:0x803D2640 end:0x803D2E94
+	.rodata     start:0x8047DEB0 end:0x8047DEF0
+	.data       start:0x804F9E30 end:0x804F9E60
+	.bss        start:0x80587880 end:0x8058A880
+	.sbss       start:0x805D7648 end:0x805D7650
+	.sdata2     start:0x805E0DB8 end:0x805E0DC0
 
-pso/misc/TLobby_803D2BA8.cpp:
-	.text       start:0x803D2BA8 end:0x803D2C84
-
-pso/unk/text_803D2C84.cpp:
-	.text       start:0x803D2C84 end:0x803D2ED4
-
-pso/misc/TLobby_803D2ED4.cpp:
-	.text       start:0x803D2ED4 end:0x803D2F1C
+pso/system/RefCountedWorkBuffer.cpp:
+	.text       start:0x803D2E94 end:0x803D2F1C
+	.bss        start:0x8058A880 end:0x8058B480
+	.sbss       start:0x805D7650 end:0x805D7658
 
 pso/unk/text_803D2F1C.cpp:
 	.text       start:0x803D2F1C end:0x803D3194
@@ -14243,11 +14241,12 @@ pso/misc/TQuestVmDownLoadServer_803F63F0.cpp:
 pso/unk/text_803F71BC.cpp:
 	.text       start:0x803F71BC end:0x803F7678
 
-pso/unk/text_803F7678.cpp:
+pso/network/NetworkTransport.cpp:
 	.text       start:0x803F7678 end:0x803F8794
 	.rodata     start:0x8047FD38 end:0x8047FDE0
 	.data       start:0x804FD360 end:0x804FD380
 	.bss        start:0x805A9008 end:0x805AEEB0
+	.sdata2     start:0x805E1108 end:0x805E1150
 
 pso/misc/TLobby_803F8794.cpp:
 	.text       start:0x803F8794 end:0x803F8E08

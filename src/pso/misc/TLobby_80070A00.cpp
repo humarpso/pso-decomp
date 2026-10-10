@@ -1,3 +1,5 @@
+#include "pso/object/TObjDeadListWin.h"
+
 #include "types.h"
 typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
 typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
@@ -352,13 +354,12 @@ s32 check_ready_state__6TLobbyFv(void);
 
 s32 is_ready_to_draw__6TLobbyFv();
 M2C_UNK fn_800733C4(void*);
-M2C_UNK create__15TObjDeadListWinFPv(void*);
 
 extern u32 challenge_task;
 
 void update_dead_list_win__6TLobbyFv(void) {
     if ((((s32 (*)(void))is_flag_set__6TLobbyFv)() != 0) && (is_ready_to_draw__6TLobbyFv() != 0) && ((u32) challenge_task != 0U)) {
-        create__15TObjDeadListWinFPv((void*)challenge_task);
+        TObjDeadListWin::create((TObject*)challenge_task);
     }
 }
 
