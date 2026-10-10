@@ -29,7 +29,7 @@ M2C_UNK free__11TOBoss4RockFUi(s32);
 M2C_UNK clear_obj_links(void *);
 M2C_UNK __dl__7TObjectFPv(void *);
 M2C_UNK destroy_child__8TObjFishFPv(void *);
-extern M2C_UNK lbl_804E3E54[];
+extern M2C_UNK TBoss7DeRolLeC__vtable[];
 extern u32 boss7_joint_state;
 u8 *fn_802EDCF0(u8 *arg0, s16 arg1);
 }
@@ -40,7 +40,7 @@ u8 *fn_802EDCF0(u8 *arg0, s16 arg1) {
     Obj_802EDCF0 *o = (Obj_802EDCF0 *) arg0;
     s32 i;
     if (arg0 != NULL) {
-        M2C_FIELD(arg0, M2C_UNK **, 0x18) = lbl_804E3E54;
+        M2C_FIELD(arg0, M2C_UNK **, 0x18) = TBoss7DeRolLeC__vtable;
         if (o->f784 != 0) {
             queue_destruction__7TObjectFv(o->f784);
             o->f784 = 0;

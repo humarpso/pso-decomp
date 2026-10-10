@@ -1,5 +1,15 @@
 #include "types.h"
 #include <stddef.h>
+typedef s32 M2C_UNK;
+#define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
+extern "C" {
+s32 set_field_b8__14TObjEnePanarmsFPvs(void *, int);
+s32 advance_animation_playback(void *);
+s32 TBoss7DeRolLeC__try_spawn_pattern_crawfish(void *, s32, s32);
+void advance_action_sequence__8TObjFishFPv(u8 *arg0);
+void TBoss7DeRolLeC__handle_crawfish_spawn_state(u8 *arg0, u32 arg1, s32 arg2);
+}
+
 extern "C" {
 extern const f32 lbl_805DEA10[1];
 extern const f32 lbl_805DEA14[1];
@@ -1050,7 +1060,6 @@ void TObjFish__sub_802E8584(void* o, u32 k);
 void TObjFish__sub_802E85E0(u8 *arg0, u32 arg1, s32 arg2);
 void TObjFish__sub_802E88F8(u8 *arg0, u32 arg1);
 void TObjFish__sub_802E8990(u8 *arg0, u32 arg1);
-void TObjFish__sub_802E8A14(u8 *, u32, s32);
 void TObjFish__sub_802E8E34(u8 *arg0, u32 arg1);
 void TObjFish__sub_802E8EEC(u8 *arg0, u32 arg1, s32);
 void TBoss7LaserPtcl__sub_802E8FCC(u8 *arg0, u32 arg1);
@@ -1059,7 +1068,7 @@ void TObjFish__sub_802E95F8(u8 *arg0, u32 arg1, s32 arg2);
 void TObjFish__sub_802EB270(u8 *, u32, s32, s32);
 void TObjFish__sub_802EBBC8(u8 *arg0, u32 arg1);
 void TObjFish__sub_802EBE50(void* o, u32 k);
-void dispatch_state__8TObjFishFPvUiUi(u8 *arg0, u32 arg1, u32 arg2);
+void TBoss7DeRolLeC__dispatch_state(u8 *arg0, u32 arg1, u32 arg2);
 f32 calc_boss4_scale__10TObjPlayerFi(void *);
 M2C_UNK VecCopy__FP3VecPC3Vec(int, void *);
 f32 fabs_float(f32);
@@ -1716,6 +1725,41 @@ void TObjFish__sub_802E8990(u8 *arg0, u32 arg1) {
     case 1: return;
     case 2: return;
     case 3: return;
+    case 6: return;
+    case 7: return;
+    case 8: return;
+    case 9: return;
+    }
+}
+
+void TBoss7DeRolLeC__handle_crawfish_spawn_state(u8 *self, u32 event, s32 variant) {
+    s32 index;
+    switch (event) {
+    case 4:
+        M2C_FIELD(self, s32 *, 0x72C) = 9;
+        M2C_FIELD(self, s32 *, 0x728) = 0;
+        M2C_FIELD(self, s32 *, 0x730) = 0;
+        set_field_b8__14TObjEnePanarmsFPvs(self, 1);
+        return;
+    case 0:
+        advance_animation_playback(self);
+        index = M2C_FIELD(self, s32 *, 0x728);
+        if (index < M2C_FIELD(self, s32 *, 0x72C)) {
+            if (M2C_FIELD(self, s32 *, 0x730) <= 0) {
+                M2C_FIELD(self, s32 *, 0x728) = index + 1;
+                TBoss7DeRolLeC__try_spawn_pattern_crawfish(self, variant, index);
+                M2C_FIELD(self, s32 *, 0x730) = 5;
+            } else {
+                M2C_FIELD(self, s32 *, 0x730)--;
+            }
+            return;
+        }
+        advance_action_sequence__8TObjFishFPv((u8 *)(self));
+        return;
+    case 1: return;
+    case 2: return;
+    case 3: return;
+    case 5: return;
     case 6: return;
     case 7: return;
     case 8: return;
@@ -3202,7 +3246,7 @@ void TObjFish__sub_802EBE50(void* o, u32 k) {
 }
 
 struct Fish_802E8AD4;
-void dispatch_state__8TObjFishFPvUiUi(u8 *arg0, u32 arg1, u32 arg2) {
+void TBoss7DeRolLeC__dispatch_state(u8 *arg0, u32 arg1, u32 arg2) {
     s32 temp_r6;
     switch (arg1) {
     case 0x0:
@@ -3350,16 +3394,16 @@ void dispatch_state__8TObjFishFPvUiUi(u8 *arg0, u32 arg1, u32 arg2) {
         TObjFish__sub_802EB270(arg0, arg2, 9, 5);
         return;
     case 0x3A:
-        TObjFish__sub_802E8A14(arg0, arg2, 0);
+        TBoss7DeRolLeC__handle_crawfish_spawn_state((u8 *)(arg0), (u32)(arg2), (s32)(0));
         return;
     case 0x3B:
-        TObjFish__sub_802E8A14(arg0, arg2, 1);
+        TBoss7DeRolLeC__handle_crawfish_spawn_state((u8 *)(arg0), (u32)(arg2), (s32)(1));
         return;
     case 0x3C:
-        TObjFish__sub_802E8A14(arg0, arg2, 2);
+        TBoss7DeRolLeC__handle_crawfish_spawn_state((u8 *)(arg0), (u32)(arg2), (s32)(2));
         return;
     case 0x3D:
-        TObjFish__sub_802E8A14(arg0, arg2, 3);
+        TBoss7DeRolLeC__handle_crawfish_spawn_state((u8 *)(arg0), (u32)(arg2), (s32)(3));
         return;
     case 0x3E:
         TObjFish__sub_802E8990(arg0, arg2);
