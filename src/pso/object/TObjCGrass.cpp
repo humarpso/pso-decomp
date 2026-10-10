@@ -63,7 +63,7 @@ struct Grass_800B8EFC {
 
 extern "C" {
 s32 reset_transform_state__10TObjPlayerFv();
-s32 set_position_vec3__10TObjPlayerFPvPv(int, void *);
+s32 translate_matrix_vec3(int, void *);
 s32 rotate_matrix_y(int, int);
 s32 push_matrix_from(int);
 s32 pop_matrices(int);
@@ -92,7 +92,7 @@ s32 push_matrix_from(int);
 s32 pop_matrices(int);
 extern M2C_UNK lbl_80492510[];
 extern M2C_UNK __vt__10TObjCGrass[];
-extern u8 lbl_8058D490[];
+extern u8 identity_matrix[];
 extern s32 lbl_805D2A28;
 extern u32 TObjCGrass_bml_resource;
 extern s32 tl_06;
@@ -158,7 +158,7 @@ void render__10TObjCGrassFv(Obj_800B8B08 *arg0) {
     for (i = 0; i < arg0->count; i++) {
         if (!(arg0->recs[i].flags & 1)) {
             push_matrix_from(0);
-            set_position_vec3__10TObjPlayerFPvPv(0, &arg0->recs[i]);
+            translate_matrix_vec3(0, &arg0->recs[i]);
             rotate_matrix_y(0, arg0->recs[i].f18);
             draw_model_motion(arg0->f34, arg0->ff8, arg0->fc0);
             reset_transform_state__10TObjPlayerFv();
@@ -295,7 +295,7 @@ u8 *TObjCGrass__ct(Grass_800B8EFC *self, u8 *arg1, s32 arg2, s32 arg3) {
         v.z = lbl_805D9E70 * (f32)rand() + lbl_805D9E6C;
         a = (s32)(lbl_805D9E74 * (lbl_805D9E78 * (lbl_805D9E70 * (f32)rand())));
         self->recs[i].f18 = a;
-        ((s32 (*)(void *))push_matrix_from)(lbl_8058D490);
+        ((s32 (*)(void *))push_matrix_from)(identity_matrix);
         rotate_matrix_y(0, a);
         rotate_vector_by_matrix(0, &v, &self->recs[i].v2);
         pop_matrices(1);

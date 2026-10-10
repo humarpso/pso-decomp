@@ -440,7 +440,7 @@ void *OSGetArenaLo(void);
 void OSSetArenaLo(void *);
 f64 cos(f64);
 f64 sin(f64);
-extern SinCos_803DD4EC *lbl_805D7748;
+extern SinCos_803DD4EC *sin_cos_table;
 void init_sin_cos_table(void);
 }
 
@@ -477,7 +477,7 @@ void init_sin_cos_table(void) {
     f32 a;
     base = (SinCos_803DD4EC *) OSGetArenaLo();
     OSSetArenaLo((u8 *) base + 0x80000);
-    lbl_805D7748 = base;
+    sin_cos_table = base;
     p = base;
     for (i = 0, j = 0; i < 0x10000; j += 2, i++) {
         a = (3.14159203f * (f32) j) / 65536.0f;

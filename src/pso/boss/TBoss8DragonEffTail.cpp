@@ -106,7 +106,7 @@ f32 sin_table_lookup(s32);
 f32 cos_table_lookup(s32);
 M2C_UNK vec3_add_to(s32, s32, s32);
 void matrix_mult_vec(s32, void *, void *);
-void set_matrix_identity__10TObjPlayerFPv(s32);
+void set_matrix_identity(s32);
 void rotate_matrix_y(s32, s32);
 void translate_matrix(s32, f32, f32, f32);
 void push_matrix(void);
@@ -155,7 +155,7 @@ void run_task__19TBoss8DragonEffTailFv(u8 *arg0p) {
     self->x60 = *(s32 *)(self->xB0 + 0x60);
     p = self->xB4;
     push_matrix();
-    set_matrix_identity__10TObjPlayerFPv(0);
+    set_matrix_identity(0);
     rotate_matrix_y(0, -self->x60);
     translate_matrix(0, -self->x38, -self->x3C, -self->x40);
     for (i = 0, off = 0; i < 0x11; i++, off += 0x2C) {

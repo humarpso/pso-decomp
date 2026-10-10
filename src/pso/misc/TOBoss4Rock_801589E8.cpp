@@ -447,7 +447,7 @@ void push_matrix_from(void *);
 void pop_matrices(s32);
 extern Vec_8015959C lbl_8050BEE0;
 extern Vec_8015959C lbl_8050BF00;
-extern u8 lbl_8058D490[];
+extern u8 identity_matrix[];
 
 void run_task__11TOBoss4BirdFv(Bird_8015959C *self) {
     self->fa4 += self->fa0;
@@ -462,7 +462,7 @@ void run_task__11TOBoss4BirdFv(Bird_8015959C *self) {
         lbl_8050BEE0.x = (0.0f);
         lbl_8050BEE0.y = self->fac * ((3.0517578e-05f) * (f32)rand());
         lbl_8050BEE0.z = self->fb0 * ((3.0517578e-05f) * (f32)rand());
-        push_matrix_from(lbl_8058D490);
+        push_matrix_from(identity_matrix);
         rotate_matrix_y(0, (s32)((182.04445f) * ((3.6e+02f) * ((3.0517578e-05f) * (f32)rand()))));
         rotate_vector_by_matrix(0, &lbl_8050BEE0, &lbl_8050BEE0);
         pop_matrices(1);
@@ -475,7 +475,7 @@ void run_task__11TOBoss4BirdFv(Bird_8015959C *self) {
         self->f60 = approach_angle_limited(self->f60, (s32)((10430.38043493439) * get_ad_end_text_start__10TObjPlayerFv(lbl_8050BEE0.x, lbl_8050BEE0.z)), 0x100);
         lbl_8050BF00.x = lbl_8050BF00.y = (0.0f);
         lbl_8050BF00.z = self->fa8;
-        push_matrix_from(lbl_8058D490);
+        push_matrix_from(identity_matrix);
         rotate_matrix_y(0, self->f60);
         rotate_vector_by_matrix(0, &lbl_8050BF00, &lbl_8050BF00);
         pop_matrices(1);

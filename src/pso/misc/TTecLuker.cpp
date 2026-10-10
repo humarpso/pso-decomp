@@ -272,7 +272,7 @@ M2C_UNK push_matrix_from(void *);
 M2C_UNK pop_matrices(int);
 extern Vec_80234D50 lbl_8044D72C;
 extern void* __vt__9TTecLuker[];
-extern u8 lbl_8058D490[];
+extern u8 identity_matrix[];
 extern s32 lbl_805D37E4;
 extern s32 local_client_id;
 extern const f32 lbl_805DC878;
@@ -1050,7 +1050,7 @@ void *TTecLuker__ct(void *arg0, void *arg1, void *arg2, void *arg3, void *arg4) 
             L->fx = p;
             if (L->fx != NULL) {
                 Vec_80234D50 v = lbl_8044D72C;
-                push_matrix_from(lbl_8058D490);
+                push_matrix_from(identity_matrix);
                 rotate_matrix_y(0, L->owner->f60);
                 matrix_mult_vec(0, &v, &v);
                 pop_matrices(1);

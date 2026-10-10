@@ -61,14 +61,14 @@ extern s32 lbl_805D2CD0;
 u8 *TObjMapCsn__ct(u8 *arg0, M2C_UNK arg1, s32 arg2);
 s32 VecCopy__FP3VecPC3Vec(void *, void *);
 M2C_UNK matrix_mult_vec(int, void *, void *);
-M2C_UNK set_position_vec3__10TObjPlayerFPvPv(int, void *);
+M2C_UNK translate_matrix_vec3(int, void *);
 M2C_UNK rotate_vector_by_matrix(int, void *, void *);
 M2C_UNK rotate_matrix_y(int, int);
 M2C_UNK push_matrix_from(void *);
 M2C_UNK pop_matrix();
 extern s8 lbl_804B8448[];
 extern Vec_801946D0 lbl_804B8460[];
-extern M2C_UNK lbl_8058D490[];
+extern M2C_UNK identity_matrix[];
 s32 build_box_triangles__10TObjMapCsnFPv(void *self);
 }
 
@@ -141,8 +141,8 @@ s32 build_box_triangles__10TObjMapCsnFPv(void *self) {
     corners[7].x = (0.5f * arg0->f68);
     corners[7].y = 0.0f;
     corners[7].z = -(0.5f * arg0->f70);
-    push_matrix_from(lbl_8058D490);
-    set_position_vec3__10TObjPlayerFPvPv(0, &arg0->pos);
+    push_matrix_from(identity_matrix);
+    translate_matrix_vec3(0, &arg0->pos);
     rotate_matrix_y(0, arg0->f60);
     for (i = 0; i < 8; i++) {
         matrix_mult_vec(0, &corners[i], &arg0->verts[i]);

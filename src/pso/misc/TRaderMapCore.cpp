@@ -367,7 +367,7 @@ void rotate_matrix_y(void *, s32);
 void push_matrix_from(void *);
 void pop_matrix(void);
 extern Vec3_801F9314 lbl_8044A794;
-extern u8 lbl_8058D490[];
+extern u8 identity_matrix[];
 extern f32 lbl_805D3608;
 extern f32 radar_overhead_projection_scale;
 extern const f32 TRaderMapCore__data_805DC534;
@@ -573,7 +573,7 @@ void setup_overhead_projection__13TRaderMapCoreFv(s32 arg0, Cam_801F9314 *arg1) 
     at.x = arg1->pos.x + eye.x;
     at.y = arg1->pos.y + eye.y;
     at.z = arg1->pos.z + eye.z;
-    push_matrix_from(lbl_8058D490);
+    push_matrix_from(identity_matrix);
     rotate_matrix_y(0, 0x8000 - arg1->rot);
     rotate_vector_by_matrix(0, &up, &up);
     pop_matrix();

@@ -175,7 +175,7 @@ void find_motion_key_interval(void *, s32, s32 count, f32 t, void *, void *, voi
 extern const f32 lbl_805E0E50;
 void interpolate_motion_vector_keys_xy(u8 *arg0, s32 arg1, u8 *arg2, f32 farg0);
 void C_MTXLookAt(void *, void *, void *, void *);
-extern u8 *lbl_805D7774;
+extern u8 *current_matrix;
 void set_camera_look_at(u8 *arg0, u8 *arg1, u8 *arg2);
 extern f32 motion_blend_factor;
 void bind_motion_blend_channels(u8 *arg0, f32 farg0);
@@ -215,7 +215,7 @@ void post_translate_matrix(void *);
 void apply_motion_node_transform__10TObjPlayerFPv(void *arg0);
 void TCameraCtrl__sub_803D65F8(u8 *);
 void set_camera_look_at(u8* eye, u8* target, u8* up);
-void set_matrix_identity__10TObjPlayerFPv(s32);
+void set_matrix_identity(s32);
 extern u8 lbl_804FA4F0[];
 void look_at_position__11TCameraCtrlFfff(f32 farg0, f32 farg1, f32 farg2);
 extern G_803D6688 lbl_8058D4F8;
@@ -265,7 +265,7 @@ void look_at_position__11TCameraCtrlFfff(f32 farg0, f32 farg1, f32 farg2) {
     v.x = farg0;
     v.y = farg1;
     v.z = farg2;
-    set_matrix_identity__10TObjPlayerFPv(0);
+    set_matrix_identity(0);
     set_camera_look_at((u8*)(sp14), (u8*)((u8 *)&v), (u8*)(lbl_804FA4F0));
 }
 
@@ -283,7 +283,7 @@ void TCameraCtrl__sub_803D65F8(u8 * _w0) {
 #pragma push
 #pragma scheduling off
 void set_camera_look_at(u8* eye, u8* target, u8* up) {
-    C_MTXLookAt(lbl_805D7774, eye, up, target);
+    C_MTXLookAt(current_matrix, eye, up, target);
 }
 #pragma pop
 

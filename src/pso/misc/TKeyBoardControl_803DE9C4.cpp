@@ -72,10 +72,10 @@ extern const f32 lbl_805E0FBC;
 void GXInitLightAttnK(void *, f32, f32, f32);
 void reset_scene_fog(void);
 void init_light_globals(void);
-extern u8 lbl_8058D490[];
+extern u8 identity_matrix[];
 extern u32 matrix_stack_limit;
-extern u32 lbl_805D7770;
-extern u32 lbl_805D7774;
+extern u32 matrix_stack_base;
+extern u32 current_matrix;
 void PSMTXIdentity(void *);
 void move_data__6TLobbyFv(u32, void *, s32);
 void init_matrix_stack__10TObjPlayerFii(s32 arg0, s32 arg1);
@@ -234,11 +234,11 @@ void clamp_axes__16TKeyBoardControlFPv(u8 *arg0) {
 extern s32 some_id_805c6f74;
 
 void init_matrix_stack__10TObjPlayerFii(s32 arg0, s32 arg1) {
-    lbl_805D7770 = 0xE0000000;
-    lbl_805D7774 = 0xE0000000;
+    matrix_stack_base = 0xE0000000;
+    current_matrix = 0xE0000000;
     matrix_stack_limit = (arg1 - 1) * 0x30 + 0xE0000000;
-    PSMTXIdentity(lbl_8058D490 == 0 ? (u8 *)0xE0000000 : lbl_8058D490);
-    move_data__6TLobbyFv(lbl_805D7770, lbl_8058D490, 0x30);
+    PSMTXIdentity(identity_matrix == 0 ? (u8 *)0xE0000000 : identity_matrix);
+    move_data__6TLobbyFv(matrix_stack_base, identity_matrix, 0x30);
 }
 
 void init_light_globals(void) {

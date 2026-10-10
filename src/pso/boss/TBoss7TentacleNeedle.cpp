@@ -22,7 +22,7 @@ void TBoss7Tentacle__sub_802F09FC(u8 *arg0);
 void TBoss7Tentacle__sub_802F0A2C(u8 *arg0);
 void TBoss7Tentacle__sub_802F0A44(u8 *arg0);
 f32 sin_table_lookup(s32);
-M2C_UNK set_matrix_identity__10TObjPlayerFPv(int);
+M2C_UNK set_matrix_identity(int);
 M2C_UNK subtract_vector(void *, void *);
 M2C_UNK concat_matrix__10TObjPlayerFUiUi(int, int);
 M2C_UNK transform_point_by_current_matrix(void *, void *);
@@ -509,7 +509,7 @@ void run_task__14TBoss7TentacleFv(u8 *arg0) {
         v.y = TBoss7Tentacle__data_805DEC04;
         v.z = TBoss7Tentacle__data_805DEC04;
         push_matrix();
-        set_matrix_identity__10TObjPlayerFPv(0);
+        set_matrix_identity(0);
         concat_matrix__10TObjPlayerFUiUi(0, M2C_FIELD(arg0, s32 *, 0x130));
         transform_point_by_current_matrix(&v, arg0 + 0x40);
         pop_matrix();

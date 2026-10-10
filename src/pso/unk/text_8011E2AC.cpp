@@ -84,7 +84,7 @@ M2C_UNK subtract_vector(void *, void *);
 M2C_UNK push_matrix_from(void *);
 M2C_UNK transform_point_by_current_matrix(void *, void *);
 M2C_UNK pop_matrix();
-extern M2C_UNK lbl_8058D490[];
+extern M2C_UNK identity_matrix[];
 extern s32 tl_05;
 extern const f32 lbl_805DAC94;
 void fire_shot_at_target__11TItemWeaponFv(u8 *arg0, Vec_8011EB84 *origin, void *owner, s32 angle);
@@ -446,7 +446,7 @@ M2C_UNK transform_point_by_current_matrix(void *, void *);
 M2C_UNK pop_matrix();
 f32 xyz_distance(void *, void *);
 
-extern M2C_UNK lbl_8058D490[];
+extern M2C_UNK identity_matrix[];
 extern const f32 lbl_805DAC8C;
 extern const f32 lbl_805DAC90;
 extern const f32 lbl_805DAC98;
@@ -688,7 +688,7 @@ void fire_shot_at_target__11TItemWeaponFv(u8 *arg0, Vec_8011EB84 *origin, void *
                 if ((ph = ((u8 *(*)(s32))find_entity_by_id)(((s32 (*)(s32))get_uid__10TObjPlayerFPv)(item))) != NULL && M2C_FIELD(ph, u8 **, 0xA4) != NULL) {
                     VecCopy__FP3VecPC3Vec(&v, &M2C_FIELD(ph, Skel_8011EB84 **, 0xA4)->n[TObjPlayer__sub_80121238((void *)item)]);
                     subtract_vector(&v, origin);
-                    push_matrix_from(((s32 *)&lbl_8058D490));
+                    push_matrix_from(((s32 *)&identity_matrix));
                     ((void (*)(s32, s32))rotate_matrix_y)(0, angle);
                     transform_point_by_current_matrix(&v, &atk.dir);
                     atk.flags |= 1;
@@ -744,7 +744,7 @@ void launch_rare_weapon_special__10TObjPlayerFv(Self_8011EDFC *self, void *origi
     if (found == 0) {
         Vec_8011EDFC v;
         f32 *rec;
-        push_matrix_from(lbl_8058D490);
+        push_matrix_from(identity_matrix);
         rec = get_weapon_range_record(self, 2);
         v.x = v.y = lbl_805DAC98;
         v.z = rec[0];
@@ -833,7 +833,7 @@ s32 launch_shot__11TItemWeaponFPvPviii(u8 *arg0, u8 *arg1, s32 arg2, s32 arg3, s
             }
             if (var_r23 == 0) {
                 ShotVector fallback;
-                push_matrix_from((void *) (lbl_8058D490));
+                push_matrix_from((void *) (identity_matrix));
                 temp_r3_2 = (f32 *)(get_weapon_range_record(arg0, ((s16 (*)(void *))is_status_subsystem_ready__10TObjPlayerFPv)((void *) (M2C_FIELD(arg0, u8 **, 0xF0)))));
                 fallback.y = lbl_805DAC98;
                 fallback.x = lbl_805DAC98;

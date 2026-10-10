@@ -143,7 +143,7 @@ s32 draw_chunk_vertices_cached__10TObjPlayerFPv(void *);
 void transform_chunk_object_tree(void *, void (*)(void *));
 void end_chunk_draw__10TObjPlayerFv(void);
 void draw_chunk_object(void *arg0);
-extern s32 lbl_805D7774;
+extern s32 current_matrix;
 void copy_matrix3x3_for_chunk_tree__10TObjPlayerFPv(struct Mtx_803DC994 *src);
 s32 __cvt_fp2unsigned(f32);
 void get_current_matrix(void *m);
@@ -225,7 +225,7 @@ M2C_UNK GXLoadTexMtxImm(void *, int, int);
 void push_matrix(void);
 M2C_UNK reset_particle_counter__10TObjPlayerFv();
 M2C_UNK apply_scene_fog();
-extern Mtx_803E4354 lbl_8058D490;
+extern Mtx_803E4354 identity_matrix;
 extern s32 ginja_draw_flags;
 extern s32 some_id_805c6f74;
 extern s32 lbl_805D77D0;
@@ -285,7 +285,7 @@ void TLobby__sub_803E2EE4(s32 arg0) {
 #pragma scheduling off
 typedef char RecoveredGlobal_803DCBD8_lbl_8058D380_size[sizeof(RecoveredGlobal_803DCBD8_lbl_8058D380) == 0xF0 ? 1 : -1];
 void copy_matrix3x3_for_chunk_tree__10TObjPlayerFPv(struct Mtx_803DC994 *src) {
-    struct Mtx_803DC994 *dst = (struct Mtx_803DC994 *)lbl_805D7774;
+    struct Mtx_803DC994 *dst = (struct Mtx_803DC994 *)current_matrix;
     dst->m[0][0] = src->m[0][0];
     dst->m[0][1] = src->m[0][1];
     dst->m[0][2] = src->m[0][2];
@@ -705,12 +705,12 @@ void setup_model_draw_state__10TObjPlayerFPv(void *) {
     GXSetNumChans(1);
     lbl_805D77D0 = 0;
     lbl_805D77D4 = -1;
-    GXLoadPosMtxImm(lbl_8058D490, 0);
-    GXLoadNrmMtxImm(lbl_8058D490, 0);
+    GXLoadPosMtxImm(identity_matrix, 0);
+    GXLoadNrmMtxImm(identity_matrix, 0);
     if ((u32) (some_id_805c6f74 & 0x100000) != 0) {
         PSMTXScale(scale, -0.5f, -0.5f, 0.0f);
         PSMTXTrans(trans, 0.5f, 0.5f, 1.0f);
-        PSMTXConcat(scale, lbl_8058D490, m);
+        PSMTXConcat(scale, identity_matrix, m);
         PSMTXConcat(trans, m, m);
         GXLoadTexMtxImm(m, 0x2A, 0);
     }

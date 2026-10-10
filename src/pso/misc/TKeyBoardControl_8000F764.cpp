@@ -171,7 +171,7 @@ M2C_UNK GXSetPixelFmt(int, int);
 M2C_UNK fn_803D8030(s32, int, int);
 M2C_UNK fn_803D8064(int);
 M2C_UNK set_global_count__12TObjNpcEnemyFi(int);
-M2C_UNK set_matrix_identity__10TObjPlayerFPv(int);
+M2C_UNK set_matrix_identity(int);
 M2C_UNK fn_803DA754(s32, int, s32, int);
 M2C_UNK init_video_and_gx(void *);
 M2C_UNK update_camera__16TKeyBoardControlFv();
@@ -420,7 +420,7 @@ void init_game_systems(void) {
     set_key_state__16TKeyBoardControlFi(TKeyBoardControl__sub_8000F764);
     (*(s32 *)&player_matrix_stack_buffer) = xmalloc__FUl(0x600);
     init_matrix_stack__10TObjPlayerFii((*(s32 *)&player_matrix_stack_buffer), 0x20);
-    set_matrix_identity__10TObjPlayerFPv(0);
+    set_matrix_identity(0);
     init_pad_slots_and_read__16TKeyBoardControlFv((int) (0), (int) (0), (int) (0));
     enable_and_trigger__15TObjBoss2TunnelFv();
     TAdSinglePlyChrSelectGC__sub_802431D0();

@@ -684,7 +684,7 @@ M2C_UNK rotate_matrix_y(int, int);
 M2C_UNK translate_matrix(int, f32, f32, f32);
 M2C_UNK set_global_flag__10TObjPlayerFv();
 M2C_UNK clear_global_state__10TObjPlayerFv();
-extern RecoveredGlobal_802CB03C_lbl_8058D490 lbl_8058D490;
+extern RecoveredGlobal_802CB03C_lbl_8058D490 identity_matrix;
 void TObjEneMe1GiGue__sub_802CB03C(u8 *arg0);
 s32 get_player_data__10TObjPlayerFi(int);
 extern s32 lbl_805D586C;
@@ -700,7 +700,7 @@ s32 pop_matrix(void);
 extern Vec_802CAD98 lbl_80472280;
 extern Vec_802CAD98 lbl_8047228C;
 extern const f64 TObjEneMe1GiGue__data_80472298;
-extern RecoveredGlobal_802CB03C_lbl_8058D490 lbl_8058D490;
+extern RecoveredGlobal_802CB03C_lbl_8058D490 identity_matrix;
 void find_open_direction__15TObjEneMe1GiGueFPvPv(u8 *arg0, Vec_802CAD98 *arg1);
 s16 obj_getField1c(void *);
 f64 get_ad_end_text_start__10TObjPlayerFv(f32, f32);
@@ -772,7 +772,7 @@ void find_open_direction__15TObjEneMe1GiGueFPvPv(u8 *arg0, Vec_802CAD98 *arg1) {
     ang = (s32) (TObjEneMe1GiGue__data_80472298 * get_ad_end_text_start__10TObjPlayerFv(arg1->x, arg1->z));
     best = 0.0f;
     bestAng = ang;
-    push_matrix_from((u32) &lbl_8058D490);
+    push_matrix_from((u32) &identity_matrix);
     Vec_802CAD98 v = lbl_80472280;
     rotate_matrix_y(0, ang);
     for (i = 0; i < 3; i++) {
@@ -792,7 +792,7 @@ void find_open_direction__15TObjEneMe1GiGueFPvPv(u8 *arg0, Vec_802CAD98 *arg1) {
         ang += 0x5555;
     }
     pop_matrix();
-    push_matrix_from((u32) &lbl_8058D490);
+    push_matrix_from((u32) &identity_matrix);
     Vec_802CAD98 w = lbl_8047228C;
     w.x = best;
     rotate_matrix_y(0, bestAng);
@@ -822,7 +822,7 @@ void update_direction__15TObjEneMe1GiGueFPv(void *arg0) {
 }
 typedef char RecoveredGlobal_802CB03C_lbl_8058D490_size[sizeof(RecoveredGlobal_802CB03C_lbl_8058D490) == 0x30 ? 1 : -1];
 void TObjEneMe1GiGue__sub_802CB03C(u8 *arg0) {
-    push_matrix_from((u32) &lbl_8058D490.value);
+    push_matrix_from((u32) &identity_matrix.value);
     translate_matrix((int) (0), (f32) (M2C_FIELD(arg0, f32 *, 0x38)), (f32) (M2C_FIELD(arg0, f32 *, 0x3EC) + (M2C_FIELD(arg0, f32 *, 0x3C) + M2C_FIELD(arg0, f32 *, 0x3E8))), (f32) (M2C_FIELD(arg0, f32 *, 0x40)));
     rotate_matrix_y((int) (0), (int) (M2C_FIELD(arg0, s32 *, 0x60)));
     set_global_flag__10TObjPlayerFv();

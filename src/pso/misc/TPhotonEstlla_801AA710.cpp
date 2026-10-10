@@ -72,7 +72,7 @@ s32 rotate_matrix_y(int, int);
 s32 push_matrix_from(void *);
 s32 pop_matrices(int);
 extern const Packet_801AA710 lbl_80446CE8;
-extern u8 lbl_8058D490[];
+extern u8 identity_matrix[];
 extern const f32 lbl_805DC138;
 extern const f32 lbl_805DC13C;
 void spawn_line__13TPhotonEstllaFPv(Self_801AA710 *self);
@@ -115,7 +115,7 @@ void spawn_line__13TPhotonEstllaFPv(Self_801AA710 *self) {
     forward.x = lbl_805DC138;
     forward.y = lbl_805DC138;
     forward.z = lbl_805DC13C;
-    push_matrix_from(lbl_8058D490);
+    push_matrix_from(identity_matrix);
     if (owner) {
         rotate_matrix_y(0, owner->f60);
     }

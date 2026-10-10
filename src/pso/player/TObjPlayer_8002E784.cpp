@@ -123,7 +123,7 @@ extern const f32 lbl_805D8270;
 extern const f32 lbl_805D8274;
 s32 TObjPlayer__sub_8002EDCC(u8 *arg0);
 void scale_matrix(int, f32, f32, f32);
-void set_matrix_identity__10TObjPlayerFPv(int);
+void set_matrix_identity(int);
 void rotate_vector_by_matrix(int, void *, void *);
 void push_matrix(void);
 void pop_matrix(void);
@@ -131,7 +131,7 @@ extern const f32 lbl_805D822C;
 extern const f32 lbl_805D824C;
 void TObjPlayer__sub_8002ECC4(Obj_8002ECC4 *self, s32 n);
 void scale_matrix(int, f32, f32, f32);
-void set_matrix_identity__10TObjPlayerFPv(int);
+void set_matrix_identity(int);
 void rotate_vector_by_matrix(int, void *, void *);
 void push_matrix(void);
 void pop_matrix(void);
@@ -331,7 +331,7 @@ extern const f32 lbl_805D8248;
 void TObjPlayer__sub_8002ECC4(Obj_8002ECC4 *self, s32 n) {
     s32 i;
     push_matrix();
-    set_matrix_identity__10TObjPlayerFPv(0);
+    set_matrix_identity(0);
     scale_matrix(0, lbl_805D824C, lbl_805D822C, lbl_805D824C);
     for (i = 0; i < n; i++) {
         rotate_vector_by_matrix(0, self->recs[i].f10, self->recs[i].f10);
@@ -342,7 +342,7 @@ void TObjPlayer__sub_8002ECC4(Obj_8002ECC4 *self, s32 n) {
 void TObjPlayer__sub_8002ED48(Obj_8002ED48 *self, s32 n) {
     s32 i;
     push_matrix();
-    set_matrix_identity__10TObjPlayerFPv(0);
+    set_matrix_identity(0);
     scale_matrix(0, lbl_805D8260, lbl_805D8260, lbl_805D8260);
     for (i = 0; i < n; i++) {
         rotate_vector_by_matrix(0, self->recs[i].f4, self->recs[i].f4);

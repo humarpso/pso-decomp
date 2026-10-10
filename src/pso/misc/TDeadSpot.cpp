@@ -122,7 +122,7 @@ s32 calc_random_scaled__10TObjPlayerFv();
 Ground_800D8314 *csnVecterUnder(void *, s32);
 M2C_UNK direction_to_rotation_yx(void *, s32 *, s32 *);
 s32 rand();
-M2C_UNK set_matrix_identity__10TObjPlayerFPv(int);
+M2C_UNK set_matrix_identity(int);
 M2C_UNK fn_803D8DE0(int, void *, void *, int);
 M2C_UNK rotate_matrix_y(int, int);
 M2C_UNK rotate_matrix_z(int, int);
@@ -423,7 +423,7 @@ Mark_800D8314 *__ct__9TDeadSpotFv(Mark_800D8314 *self, void *parent, Vec_800D831
         return self;
     }
     push_matrix();
-    set_matrix_identity__10TObjPlayerFPv(0);
+    set_matrix_identity(0);
     rotate_matrix_y(0, yaw);
     rotate_matrix_z(0, pitch);
     rotate_matrix_x(0, calc_random_scaled__10TObjPlayerFv());

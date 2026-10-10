@@ -798,7 +798,7 @@ M2C_UNK clear_global_state__10TObjPlayerFv();
 extern Tbl_803606A0 lbl_80479D00;
 extern Vec_803606A0 lbl_80479D10;
 extern const f64 lbl_80479E90[];
-extern u8 lbl_8058D490[];
+extern u8 identity_matrix[];
 extern u8 *anim_model_matrix_array;
 f32 receive_physical_attack__10TObjPlayerFv(void *, void *, f32);
 void try_apply_damage__19TObjEneEpsilonGuardFPvUii(void *, u32, s32);
@@ -1431,7 +1431,7 @@ void TObjEneEpsilonGuard__sub_803606A0(Obj_803606A0 *g6, s32 i) {
     } else if (i > 3) {
         i = 3;
     }
-    push_matrix_from(lbl_8058D490);
+    push_matrix_from(identity_matrix);
     post_translate_matrix(&g6->pos);
     rotate_matrix_y(0, g6->x60);
     set_global_flag__10TObjPlayerFv();

@@ -86,7 +86,7 @@ M2C_UNK normalize_vector(void *);
 M2C_UNK push_matrix_from(void *);
 M2C_UNK pop_matrices(int);
 f32 xyz_distance(void *, void *);
-extern u8 lbl_8058D490[];
+extern u8 identity_matrix[];
 void run_task__8TOKurageFv(TOKurage_8016DB24 *o);
 }
 
@@ -222,7 +222,7 @@ void run_task__8TOKurageFv(TOKurage_8016DB24 *o) {
             dir.x = 2.0f * (0.0015f * (2.0f * (3.0517578125e-05f * (f32)rand()) - 1.0f));
             dir.y = 0.0f;
             dir.z = 2.0f * (0.0015f * (3.0517578125e-05f * (f32)rand())) + 0.05f;
-            push_matrix_from(lbl_8058D490);
+            push_matrix_from(identity_matrix);
             rotate_matrix_y(0, o->angle);
             rotate_vector_by_matrix(0, &dir, &out);
             pop_matrices(1);
@@ -247,7 +247,7 @@ void run_task__8TOKurageFv(TOKurage_8016DB24 *o) {
             dir.x = 2.0f * (0.025f * (2.0f * (3.0517578125e-05f * (f32)rand()) - 1.0f));
             dir.y = 0.0f;
             dir.z = 2.0f * (0.025f * (3.0517578125e-05f * (f32)rand())) + 0.05f;
-            push_matrix_from(lbl_8058D490);
+            push_matrix_from(identity_matrix);
             rotate_matrix_y(0, o->angle);
             rotate_vector_by_matrix(0, &dir, &out);
             pop_matrices(1);
@@ -335,7 +335,7 @@ void run_task__8TOKurageFv(TOKurage_8016DB24 *o) {
                 o->angle = (f32)o->angle - (200.0f * (3.0517578125e-05f * (f32)rand()) + 200.0f);
             }
             if (o->rising == 0) {
-                push_matrix_from(lbl_8058D490);
+                push_matrix_from(identity_matrix);
                 rotate_matrix_y(0, o->angle);
                 pop_matrices(1);
             }

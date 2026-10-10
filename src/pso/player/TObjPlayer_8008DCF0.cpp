@@ -263,7 +263,7 @@ M2C_UNK rotate_matrix_y(int, int);
 void push_matrix_from(void *);
 M2C_UNK pop_matrix();
 M2C_UNK post_translate_matrix(void *);
-extern u8 lbl_8058D490[];
+extern u8 identity_matrix[];
 extern const f32 lbl_805D9620;
 extern const f32 lbl_805D9638;
 extern const f32 lbl_805D9644;
@@ -496,7 +496,7 @@ void TObjPlayer__sub_8008F1DC(void *arg0) {
         }
         break;
     case 2:
-        push_matrix_from(lbl_8058D490);
+        push_matrix_from(identity_matrix);
         post_translate_matrix(&o->pos);
         rotate_matrix_y(0, FLD(s32, 0x60));
         render_anim_model__10TObjPlayerFPvf(o, FLD(f32, 0xC0));

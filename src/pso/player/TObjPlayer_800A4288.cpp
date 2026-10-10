@@ -81,7 +81,7 @@ M2C_UNK apply_actor_gravity(void *, int, f32);
 M2C_UNK check_enemy_body_collisions(void *);
 M2C_UNK submit_cursor_candidate(void *, int);
 M2C_UNK mult_vec_array__10TObjPlayerFUii(int, int, void *, int);
-M2C_UNK set_matrix_identity__10TObjPlayerFPv(int);
+M2C_UNK set_matrix_identity(int);
 M2C_UNK rotate_matrix_y(int, int);
 M2C_UNK push_matrix();
 M2C_UNK pop_matrix();
@@ -113,7 +113,7 @@ void apply_lookup_entry_effect__10TObjPlayerFPv(u8 *arg0) {
     temp_r3 = lookup_entry_by_value__10TObjPlayerFPvf((void *) (lbl_805D5064), (f32) (M2C_FIELD(arg0, f32 *, 0xC0)));
     if (temp_r3 != 0) {
         push_matrix();
-        set_matrix_identity__10TObjPlayerFPv((int) (0));
+        set_matrix_identity((int) (0));
         post_translate_matrix((void *) (arg0 + 0x38));
         rotate_matrix_y((int) (0), (int) (M2C_FIELD(arg0, s32 *, 0x60)));
         mult_vec_array__10TObjPlayerFUii((int) (0), (int) (temp_r3), (void *) (&sp8), (int) (2));
@@ -568,7 +568,7 @@ M2C_UNK check_object_collisions__10TObjPlayerFPv(void *);
 M2C_UNK minimap_render_dot(void *, int, int, int);
 #define play_sound_effect ((s32 (*)(int, void*, int, int))(play_sound_effect))
 #define mult_vec_array__10TObjPlayerFUii ((s32 (*)(int, s32, void*, int))(mult_vec_array__10TObjPlayerFUii))
-M2C_UNK set_matrix_identity__10TObjPlayerFPv(int);
+M2C_UNK set_matrix_identity(int);
 M2C_UNK rotate_matrix_y(int, int);
 M2C_UNK subtract_vector(void *, void *);
 M2C_UNK push_matrix();
@@ -735,7 +735,7 @@ void TObjPlayer__sub_800A4D9C(u8 *arg0) {
         if (lbl_805D9A28 <= F(f32, 0xC0) && F(f32, 0xC0) <= lbl_805D9A34) {
             if ((e = lookup_entry_by_value__10TObjPlayerFPvf(lbl_805D5068, F(f32, 0xC0))) != 0) {
                 push_matrix();
-                set_matrix_identity__10TObjPlayerFPv(0);
+                set_matrix_identity(0);
                 post_translate_matrix(arg0 + 0x38);
                 rotate_matrix_y(0, F(s32, 0x60));
                 mult_vec_array__10TObjPlayerFUii(0, e, m44, 2);
@@ -875,7 +875,7 @@ void TObjPlayer__sub_800A5154(void *arg0) {
             s32 entry = lookup_entry_by_value__10TObjPlayerFPvf((void *)lbl_805D506C, o->fC0);
             if (entry != 0) {
                 push_matrix();
-                set_matrix_identity__10TObjPlayerFPv(0);
+                set_matrix_identity(0);
                 post_translate_matrix(&o->pos);
                 rotate_matrix_y(0, o->angle);
                 mult_vec_array__10TObjPlayerFUii(0, entry, &v, 2);
@@ -1375,8 +1375,8 @@ M2C_UNK draw__16TObjEneRe7BeruraFPv(void *);
 M2C_UNK end_effect_render__13TParticleCtrlFv();
 s32 toggle_flag_9__10TObjPlayerFPv(void *);
 M2C_UNK matrix_mult_vec(int, Vec_800A6C54 *, void *);
-M2C_UNK set_monitor_position_vec3__10TObjPlayerFPvPv(int, void *);
-M2C_UNK set_position_vec3__10TObjPlayerFPvPv(int, void *);
+M2C_UNK scale_matrix_vec3(int, void *);
+M2C_UNK translate_matrix_vec3(int, void *);
 M2C_UNK rotate_matrix_y(int, int);
 M2C_UNK push_matrix_from(void *);
 M2C_UNK pop_matrix();
@@ -1388,7 +1388,7 @@ M2C_UNK set_global_state__16TObjEneRe7BeruraFi(void *);
 void step_cutscene_frame__10TObjPlayerFv(void);
 extern Vec_800A6C54 lbl_8043A8A4;
 extern RecoveredGlobal_800A6BE0_lbl_80500978 lbl_80500978;
-extern u8 lbl_8058D490[];
+extern u8 identity_matrix[];
 extern s32 lbl_805D505C;
 extern s32 lbl_805D5060;
 extern s32 lbl_805D5660;
@@ -1821,7 +1821,7 @@ void TObjPlayer__sub_800A6C54(u8 *arg0) {
         select_actor_lighting(arg0);
         set_global_param__8TObjFishFi(M2C_FIELD(arg0, s32 *, 0x24));
         push_matrix_from(NULL);
-        set_position_vec3__10TObjPlayerFPvPv(0, arg0 + 0x38);
+        translate_matrix_vec3(0, arg0 + 0x38);
         rotate_matrix_y(0, M2C_FIELD(arg0, s32 *, 0x60));
         lbl_805D505C = 0;
         lbl_805D5060 = M2C_FIELD(arg0, s32 *, 0x39C);
@@ -1830,7 +1830,7 @@ void TObjPlayer__sub_800A6C54(u8 *arg0) {
         switch (M2C_FIELD(arg0, s16 *, 0x326)) {
         case 11:
             if (M2C_FIELD(arg0, s16 *, 0x328) == 1) {
-                set_monitor_position_vec3__10TObjPlayerFPvPv(0, arg0 + 0x68);
+                scale_matrix_vec3(0, arg0 + 0x68);
             }
         case 1:
         case 2:
@@ -1873,7 +1873,7 @@ void TObjPlayer__sub_800A6C54(u8 *arg0) {
             render_with_position_override__10TObjPlayerFPvPvi(arg0, 0, 0);
         }
     } else {
-        push_matrix_from(lbl_8058D490);
+        push_matrix_from(identity_matrix);
         post_translate_matrix(arg0 + 0x38);
         rotate_matrix_y(0, M2C_FIELD(arg0, s32 *, 0x60));
         set_global_flag__10TObjPlayerFv();

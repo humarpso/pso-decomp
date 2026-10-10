@@ -891,7 +891,7 @@ M2C_UNK push_matrix_from(void *);
 M2C_UNK pop_matrix();
 extern Vec_80046CB8 lbl_80436660[];
 extern s16 TBoss3Volopt__phase2_position_table[];
-extern u8 lbl_8058D490[];
+extern u8 identity_matrix[];
 extern const f32 lbl_805D87A4;
 extern const f32 TBoss3Volopt__data_805D87A8;
 void TBoss3Volopt__sub_80046CB8(void *arg0_);
@@ -1501,7 +1501,7 @@ void update_pillar_heal_state__12TBoss3VoloptFPv(void *arg0_) {
         lbl_805D4D04[7] = (s8) (lbl_805D8808 * f);
         if (M2C_FIELD(arg0, f32 *, 0xC0) >= lbl_805D87FC) {
             Vec_80045EEC out;
-            push_matrix_from(lbl_8058D490);
+            push_matrix_from(identity_matrix);
             Vec_80045EEC v = lbl_80436684[0];
             rotate_matrix_y(0, M2C_FIELD(arg0, s32 *, 0x60));
             matrix_mult_vec(0, &v, &out);
@@ -1752,7 +1752,7 @@ void TBoss3Volopt__sub_80046CB8(void *arg0_) {
         play_persistent_sound(0x4003C616, (s32)arg0, (u32)(arg0 + 0x38), 0, 0);
         render_anim_model_at_pos__12TBoss3VoloptFPv(arg0);
         SELF->m63(0x3C, arg0 + 0x3D8);
-        push_matrix_from(lbl_8058D490);
+        push_matrix_from(identity_matrix);
         {
             Vec_80046CB8 v = lbl_80436660[0];
             rotate_matrix_y(0, M2C_FIELD(arg0, s32 *, 0x60));

@@ -35,7 +35,7 @@ s32 load_current_pos_matrix(int);
 s32 load_current_tex_matrix(int);
 s32 push_identity_matrix_ps();
 extern RecoveredGlobal_80083914_lbl_8048E5D0 shadow_light_position;
-extern s32 lbl_805D7774;
+extern s32 current_matrix;
 extern s32 some_id_805c6f74;
 extern const f32 lbl_805D93D0;
 extern const f32 lbl_805D93DC;
@@ -89,7 +89,7 @@ void render_projected_shadow_receiver(u8 *arg0, s32 arg1) {
         rotate_matrix_by_node_angles((void *) (arg1), (int) (1));
         stack.sp8 = lbl_805D93DC;
         C_MTXLightFrustum((void *) (&stack.sp10), (f32) (-lbl_805D941C), (f32) (lbl_805D941C), (f32) (lbl_805D9420), (f32) (-lbl_805D9420), (f32) (lbl_805D9424), (f32) (lbl_805D93DC), (f32) (lbl_805D93DC), (f32) (lbl_805D93DC));
-        PSMTXConcat((void *) (&stack.sp10), (void *) (lbl_805D7774), (void *) (lbl_805D7774));
+        PSMTXConcat((void *) (&stack.sp10), (void *) (current_matrix), (void *) (current_matrix));
         load_current_tex_matrix((int) (0));
         pop_matrix();
         load_current_pos_matrix((int) (0));

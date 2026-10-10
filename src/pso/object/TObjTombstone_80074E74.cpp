@@ -99,7 +99,7 @@ void push_matrix_from(void *);
 void push_matrix();
 void pop_matrix();
 extern V_800751BC lbl_80438780;
-extern u8 lbl_8058D490[];
+extern u8 identity_matrix[];
 extern View_800751BC *camera_ctrl_instance;
 extern const f32 TObjTombstone__data_805D9174;
 s32 project_to_screen__13TObjTombstoneFPvPvPv(void *arg0, f32 *arg1, void *arg2);
@@ -194,7 +194,7 @@ s32 is_other_tombstone_closer__13TObjTombstoneFPv(Obj_80075070 *arg0) {
 s32 project_to_screen__13TObjTombstoneFPvPvPv(void *arg0, f32 *arg1, void *arg2) {
     V_800751BC d;
     V_800751BC v = lbl_80438780;
-    push_matrix_from(lbl_8058D490);
+    push_matrix_from(identity_matrix);
     rotate_matrix_y(0, camera_ctrl_instance->f194);
     rotate_matrix_x(0, camera_ctrl_instance->f190);
     rotate_matrix_z(0, camera_ctrl_instance->f198);

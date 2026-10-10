@@ -10,9 +10,9 @@ struct ReflectionPlane { f32 origin[3]; f32 normal[3]; };
 
 extern "C" {
 M2C_UNK matrix_apply_translation(int, f32, f32, f32);
-extern u32 lbl_805D7774;
+extern u32 current_matrix;
 void translate_matrix(u32 arg0, f32 x, f32 y, f32 z);
-extern u32 lbl_805D7774;
+extern u32 current_matrix;
 void copy_matrix__10TObjPlayerFUiUi(u32 arg0, u32 arg1);
 f32 sin_table_lookup(int);
 f32 cos_table_lookup(int);
@@ -20,7 +20,7 @@ void euler_zyx_to_quaternion(u8 *arg0, u8 *arg1);
 f32 sin_table_lookup(int);
 f32 cos_table_lookup(int);
 void euler_yxz_to_quaternion(u8 *arg0, u8 *arg1);
-extern u32 lbl_805D7774;
+extern u32 current_matrix;
 void rotate_matrix_y(Matrix34* matrix, s32 angle);
 
 f64 acos(f32);
@@ -43,7 +43,7 @@ void rotate_matrix_z(Matrix34* matrix, s32 angle) {
     Matrix34 rotation;
     Matrix34* selected;
     if (angle != 0) {
-        if (matrix == NULL) selected = (Matrix34*)lbl_805D7774;
+        if (matrix == NULL) selected = (Matrix34*)current_matrix;
         else selected = matrix;
         PSMTXRotRad(rotation.elements, 'z', (f32)(lbl_805E0F38 * (f64)angle));
         PSMTXConcat(selected->elements, rotation.elements, selected->elements);
@@ -56,12 +56,12 @@ void copy_matrix__10TObjPlayerFUiUi(u32 arg0, u32 arg1) {
     u32 var_r0;
     u32 var_r3;
     if (arg0 == 0U) {
-        var_r0 = lbl_805D7774;
+        var_r0 = current_matrix;
     } else {
         var_r0 = arg0;
     }
     if (arg1 == 0U) {
-        var_r3 = lbl_805D7774;
+        var_r3 = current_matrix;
     } else {
         var_r3 = arg1;
     }
@@ -116,7 +116,7 @@ void translate_matrix(u32 arg0, f32 x, f32 y, f32 z) {
     var_r3 = arg0;
     phi_r3 = var_r3;
     if (var_r3 == 0U) {
-        var_r3_2 = lbl_805D7774;
+        var_r3_2 = current_matrix;
         phi_r3 = var_r3_2;
     }
     matrix_apply_translation((int) (phi_r3), x, y, z);

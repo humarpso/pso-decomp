@@ -86,7 +86,7 @@ M2C_UNK TObjPlayer__sub_800EBE48(f32);
 M2C_UNK draw_part__15TObjEneSlimeOneFPvi(int, int);
 M2C_UNK end_effect_render__13TParticleCtrlFv();
 s32 toggle_flag_9__10TObjPlayerFPv(void *);
-M2C_UNK set_monitor_position_vec3__10TObjPlayerFPvPv(int, void *);
+M2C_UNK scale_matrix_vec3(int, void *);
 M2C_UNK rotate_matrix_y(int, int);
 M2C_UNK push_matrix();
 M2C_UNK pop_matrix();
@@ -491,7 +491,7 @@ f32 sin_table_lookup(s32);
 f32 cos_table_lookup(s32);
 M2C_UNK vec3_add_to(void *, void *);
 M2C_UNK scale_matrix(int, f32, f32, f32);
-M2C_UNK set_monitor_position_vec3__10TObjPlayerFPvPv(int, void *);
+M2C_UNK scale_matrix_vec3(int, void *);
 f32 vector_length(void *);
 M2C_UNK rotate_matrix_y(int, int);
 M2C_UNK rotate_matrix_z(int, int);
@@ -942,7 +942,7 @@ void TObjPlayer__sub_800E841C(u8 *arg0) {
         VecCopy__FP3VecPC3Vec((void *) (arg0 + 0x2FC), (void *) (arg0 + 0x390));
     } else {
         TObjPlayer__sub_800EBE48((f32) (M2C_FIELD(arg0, f32 *, 0x38C)));
-        set_monitor_position_vec3__10TObjPlayerFPvPv((int) (0), (void *) (arg0 + 0x380));
+        scale_matrix_vec3((int) (0), (void *) (arg0 + 0x380));
         TObjPlayer__sub_800E81A8();
         set_global_state__16TObjEneRe7BeruraFi((void *) (TObjPlayer__sub_800E8128));
         draw__16TObjEneRe7BeruraFPv((void *) (arg0));
@@ -1264,7 +1264,7 @@ void TObjPlayer__sub_800E9090(Bomb_800E9090 *self) {
     ((void (*)(void))push_matrix)();
     ((void (*)(void *))post_translate_matrix)(&c);
     rotate_matrix_y(0, ang);
-    ((void (*)(int, void *))set_monitor_position_vec3__10TObjPlayerFPvPv)(0, &b);
+    ((void (*)(int, void *))scale_matrix_vec3)(0, &b);
     t = lbl_804966E4[self->f3F4];
     ((M2C_UNK (*)(int))set_global_param__8TObjFishFi)(TObjFish__sub_8001EDB0(self->f380, t));
     draw_chunk_object(get_bml_model(self->f380, t));
@@ -1928,7 +1928,7 @@ void render__15TObjEneSlimeOneFv(u8 *arg0) {
             post_translate_matrix(&v);
         }
         rotate_matrix_y((int) (0), (int) (M2C_FIELD(arg0, s32 *, 0x60)));
-        set_monitor_position_vec3__10TObjPlayerFPvPv((int) (0), (void *) (arg0 + 0x3A8));
+        scale_matrix_vec3((int) (0), (void *) (arg0 + 0x3A8));
         draw_part__15TObjEneSlimeOneFPvi((int) (M2C_FIELD(arg0, s32 *, 0x388)), (int) (temp_r31));
         pop_matrix();
         end_effect_render__13TParticleCtrlFv();

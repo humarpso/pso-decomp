@@ -342,7 +342,7 @@ void spawn_particle_effect(void *, int);
 int update_obstruction_fade(void*);
 extern const Vec3_8018C18C lbl_80445110;
 extern const Vec3_8018C18C lbl_8044511C;
-extern u8 lbl_8058D490[];
+extern u8 identity_matrix[];
 extern const f32 TObjContainerIdo__data_805DBD64;
 extern const f32 lbl_805DBD6C;
 extern const f32 lbl_805DBD74;
@@ -386,7 +386,7 @@ void run_task__16TObjContainerIdoFv(Ido_8018C18C *self) {
         if (xyz_distance(&self->c0, &self->pos) > self->e4) {
             Vec3_8018C18C v = lbl_80445110;
             v.z = -self->ec;
-            push_matrix_from(lbl_8058D490);
+            push_matrix_from(identity_matrix);
             rotate_matrix_y(0, self->f60);
             rotate_matrix_x(0, self->f5c);
             rotate_vector_by_matrix(0, &v, &v);
@@ -404,7 +404,7 @@ void run_task__16TObjContainerIdoFv(Ido_8018C18C *self) {
         if (xyz_distance(&self->c0, &self->pos) < self->e4) {
             Vec3_8018C18C w = lbl_8044511C;
             w.z = -self->ec;
-            push_matrix_from(lbl_8058D490);
+            push_matrix_from(identity_matrix);
             rotate_matrix_y(0, self->f60);
             rotate_matrix_x(0, self->f5c);
             rotate_vector_by_matrix(0, &w, &w);
@@ -430,7 +430,7 @@ void run_task__16TObjContainerIdoFv(Ido_8018C18C *self) {
             b.x = lbl_805DBD90;
             b.y = lbl_805DBD84;
             b.z = lbl_805DBD88 * (lbl_805DBD74 * (f32)rand()) - lbl_805DBD8C;
-            push_matrix_from(lbl_8058D490);
+            push_matrix_from(identity_matrix);
             post_translate_matrix(&self->pos);
             rotate_matrix_y(0, self->f60);
             rotate_matrix_x(0, self->f5c);

@@ -198,7 +198,7 @@ extern Vec_8023179C lbl_8044D32C;
 extern RecoveredGlobal_80230D9C_lbl_804CC510 tech_high_level_linear_power_table;
 extern RecoveredGlobal_80230D9C_lbl_804CC55C lbl_804CC55C;
 extern void *lbl_804CC800[];
-extern u8 lbl_8058D490[];
+extern u8 identity_matrix[];
 extern u32 lbl_805D37C0;
 extern const f32 lbl_805DC810;
 extern const f32 lbl_805DC818;
@@ -411,7 +411,7 @@ void *TTecGiFoie__ct(void *self_, void *source, void *origin, void *level) {
         void *o;
         step = (s32)(lbl_805DC818 * (f32)(360 / lbl_8044D324[self->band]));
         angle = step * k + 0x4000;
-        push_matrix_from(lbl_8058D490);
+        push_matrix_from(identity_matrix);
         rotate_matrix_y(0, angle);
         matrix_mult_vec(0, &v, &v);
         pop_matrices(1);

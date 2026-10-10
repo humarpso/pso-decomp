@@ -2295,7 +2295,7 @@ void push_matrix_from(void *);
 void pop_matrices(s32);
 M2C_UNK pop_matrix();
 extern const f64 TObjEneBm5GibonU__data_8043C0F8;
-extern u8 lbl_8058D490[];
+extern u8 identity_matrix[];
 extern s32 game_difficulty_selection;
 extern s32 tl_07;
 void state_cast_technique__16TObjEneBm5GibonUFPvi(u8 *arg0, s32 arg1);
@@ -2706,7 +2706,7 @@ void state_cast_technique__16TObjEneBm5GibonUFPvi(u8 *arg0, s32 arg1) {
                 p.x = 0.0f;
                 p.y = TObjEneBm5GibonU__data_805DA164;
                 p.z = lbl_805DA17C;
-                push_matrix_from(lbl_8058D490);
+                push_matrix_from(identity_matrix);
                 rotate_matrix_y(0, F(s32, 0x60));
                 rotate_vector_by_matrix(0, &p, &p);
                 pop_matrices(1);
@@ -2742,7 +2742,7 @@ void state_cast_technique__16TObjEneBm5GibonUFPvi(u8 *arg0, s32 arg1) {
                             v.x = 0.0f;
                             v.y = 0.0f;
                             v.z = TObjEneBm5GibonU__data_805DA168;
-                            push_matrix_from(lbl_8058D490);
+                            push_matrix_from(identity_matrix);
                             rotate_matrix_y(0, F(s32, 0x60));
                             rotate_vector_by_matrix(0, &v, &v);
                             pop_matrix();
@@ -2770,7 +2770,7 @@ void state_cast_technique__16TObjEneBm5GibonUFPvi(u8 *arg0, s32 arg1) {
                     v.x = 0.0f;
                     v.y = 0.0f;
                     v.z = 0.0f;
-                    push_matrix_from(lbl_8058D490);
+                    push_matrix_from(identity_matrix);
                     rotate_matrix_y(0, F(s32, 0x60));
                     rotate_vector_by_matrix(0, &v, &v);
                     pop_matrices(1);

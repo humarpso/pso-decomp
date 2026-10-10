@@ -971,7 +971,7 @@ M2C_UNK pop_matrices(int);
 extern const f64 lbl_8043BC88;
 extern Vec_800C5164 lbl_8050BEE0;
 extern Vec_800C5164 lbl_8050BF00;
-extern u8 lbl_8058D490[];
+extern u8 identity_matrix[];
 
 M2C_UNK apply_actor_gravity(void *, int, f32);
 M2C_UNK move_with_wall_slide(void *);

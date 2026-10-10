@@ -475,7 +475,7 @@ void push_matrix_from(void *);
 void rotate_matrix_y(int, s32);
 void matrix_mult_vec(int, Vec_8006C28C *, Vec_8006C28C *);
 void pop_matrices(int);
-extern u8 lbl_8058D490[];
+extern u8 identity_matrix[];
 extern const f32 lbl_805D9028;
 extern const f32 lbl_805D902C;
 extern const f32 lbl_805D9030;
@@ -526,7 +526,7 @@ void update_scripted_camera(Cam_8006C28C *s) {
         if (vec_squared_length(&v2) != lbl_805D9028) {
             normalize_vector(&v2);
         }
-        push_matrix_from(lbl_8058D490);
+        push_matrix_from(identity_matrix);
         rotate_matrix_y(0, s->yaw);
         matrix_mult_vec(0, &p2, &p2);
         matrix_mult_vec(0, &v2, &v2);

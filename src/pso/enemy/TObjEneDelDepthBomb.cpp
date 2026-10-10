@@ -632,7 +632,7 @@ f32 cos_table_lookup(s32);
 f32 vec3_add_to(void *, void *);
 M2C_UNK matrix_mult_vec(int, void *, void *);
 M2C_UNK rotate_matrix_zyx(int, int, int, int);
-M2C_UNK set_monitor_position_vec3__10TObjPlayerFPvPv(int, void *);
+M2C_UNK scale_matrix_vec3(int, void *);
 f32 vector_length(void *);
 M2C_UNK rotate_matrix_y(int, s32);
 M2C_UNK rotate_matrix_z(int, int);
@@ -668,7 +668,7 @@ extern V3_80313E34 lbl_80475DB0;
 extern M2C_UNK TObjEneDelDepth_collision_body_parts[];
 extern M2C_UNK lbl_804E8194[];
 extern Ent_803154A8 lbl_804E836C[];
-extern M2C_UNK lbl_8058D490[];
+extern M2C_UNK identity_matrix[];
 extern s32 lbl_805D4118;
 extern s32 lbl_805D411C;
 extern s32 actor_frame_tick;
@@ -1066,7 +1066,7 @@ void update_bomb_drop__15TObjEneDelDepthFPv(u8 *arg0) {
     temp_r0 = M2C_FIELD(arg0, s32 *, 0x388);
     if ((temp_r0 <= 0) && (temp_r0 == 0)) {
         set_global_flag__10TObjPlayerFv();
-        push_matrix_from((void *) (lbl_8058D490));
+        push_matrix_from((void *) (identity_matrix));
         post_translate_matrix((void *) (arg0 + 0x38));
         ((M2C_UNK (*)(int, int))rotate_matrix_y)((int) (0), (int) (M2C_FIELD(arg0, s32 *, 0x60)));
         render_anim_model__10TObjPlayerFPvf((void *) (arg0), (f32) (lbl_805DF284));
@@ -1594,7 +1594,7 @@ s32 draw_if_visible__15TObjEneDelDepthFPv(void *arg0) {
             v.y += o->f39C;
             post_translate_matrix(&v);
             rotate_matrix_y(0, o->f60);
-            set_monitor_position_vec3__10TObjPlayerFPvPv(0, o->f3A0);
+            scale_matrix_vec3(0, o->f3A0);
             draw_model_part__15TObjEneDelDepthFPv(o->f37C);
             pop_matrix();
             restore_render_scissor(1);
@@ -1627,7 +1627,7 @@ void render__15TObjEneDelDepthFv(Dep_803155D4 *o) {
     v.y += o->f39C;
     post_translate_matrix(&v);
     rotate_matrix_y(0, o->f60);
-    set_monitor_position_vec3__10TObjPlayerFPvPv(0, o->f3A0);
+    scale_matrix_vec3(0, o->f3A0);
     draw_model_part__15TObjEneDelDepthFPv(o->f37C);
     pop_matrix();
     end_effect_render__13TParticleCtrlFv();

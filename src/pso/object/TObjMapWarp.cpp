@@ -82,7 +82,7 @@ void rotate_matrix_y(void *, s32);
 void matrix_mult_vec(void *, void *, void *);
 void pop_matrix();
 extern M2C_UNK __vt__11TObjMapWarp[];
-extern u8 lbl_8058D490[];
+extern u8 identity_matrix[];
 extern V3_8019D764 lbl_804B910C[];
 extern s32 lbl_805D3460;
 void *TObjMapWarp__ct(W_8019D764 *self, void *parent, void *set);
@@ -202,7 +202,7 @@ void *TObjMapWarp__ct(W_8019D764 *self, void *parent, void *set) {
     self->vt = __vt__11TObjMapWarp;
     self->type = lbl_805D3460;
     for (i = 0; i < 4; i++) {
-        push_matrix_from(lbl_8058D490);
+        push_matrix_from(identity_matrix);
         post_translate_matrix(self->destination);
         rotate_matrix_y(0, self->sourceYaw);
         matrix_mult_vec(0, &lbl_804B910C[i], &self->destinations[i]);

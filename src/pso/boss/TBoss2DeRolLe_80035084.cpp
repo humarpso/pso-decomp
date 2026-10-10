@@ -322,7 +322,7 @@ f32 get_scale_factor__10TObjPlayerFv(f32);
 M2C_UNK TObjLight__sub_801337F8(s32);
 M2C_UNK scale_matrix(int, f32, f32, f32);
 f32 vector_length(void *);
-M2C_UNK set_position_vec3__10TObjPlayerFPvPv(int, void *);
+M2C_UNK translate_matrix_vec3(int, void *);
 M2C_UNK rotate_matrix_y(int, int);
 M2C_UNK subtract_vector(void *, void *);
 M2C_UNK rotate_matrix_x(int, int);
@@ -859,7 +859,7 @@ void render__9TBoss2FinFv(u8 *arg0) {
     for (; seg->n >= 2; pt++, seg++, ang++) {
         for (j = seg->n - 1; j > 0; j--, pt++) {
             push_matrix();
-            set_position_vec3__10TObjPlayerFPvPv(0, pt);
+            translate_matrix_vec3(0, pt);
             VecCopy__FP3VecPC3Vec(&v, pt + 1);
             subtract_vector(&v, pt);
             if (TBoss2Fin__data_805D8450 == vector_length(&v)) {

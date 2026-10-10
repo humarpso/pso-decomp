@@ -45,7 +45,7 @@ f32 newton_sqrtf(f32);
 void calc_triangle_normal__10TObjPlayerFPvPv(Vec_80181BAC *, Vec_80181BAC *);
 void vec3_add_to(Vec_80181BAC *, Vec_80181BAC *);
 void mult_vec_array__10TObjPlayerFUii(s32, Vec_80181BAC *, Vec_80181BAC *, s32);
-void set_matrix_identity__10TObjPlayerFPv(s32);
+void set_matrix_identity(s32);
 s32 rotate_matrix_y(int, int);
 void push_matrix(void);
 void pop_matrix(void);
@@ -71,7 +71,7 @@ s32 build_door_collision_triangles__10TObjPlayerFi(s32 arg0) {
 
     VecCopy__FP3VecPC3Vec(&self->f94, (void *)(arg0 + 0x38));
     push_matrix();
-    set_matrix_identity__10TObjPlayerFPv(0);
+    set_matrix_identity(0);
     post_translate_matrix(self->f38);
     rotate_matrix_y(0, self->f60);
     t1 = self->tris;

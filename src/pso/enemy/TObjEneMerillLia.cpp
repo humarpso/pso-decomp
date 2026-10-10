@@ -455,7 +455,7 @@ s32 rotate_vector_by_matrix(int, void *, void *);
 s32 rotate_matrix_y(int, int);
 s32 push_matrix_from(void *);
 s32 pop_matrix();
-extern RecoveredGlobal_800D5060_lbl_8058D490 lbl_8058D490;
+extern RecoveredGlobal_800D5060_lbl_8058D490 identity_matrix;
 extern const f32 TObjEneMerillLia__data_805DA300;
 extern const f32 lbl_805DA304;
 extern const f32 TObjEneMerillLia__data_805DA308;
@@ -556,7 +556,7 @@ s32 push_matrix_from(void *);
 s32 pop_matrix();
 f32 post_translate_matrix(void *);
 extern Vec_800D57C8 lbl_8043C6D0;
-extern RecoveredGlobal_800D5060_lbl_8058D490 lbl_8058D490;
+extern RecoveredGlobal_800D5060_lbl_8058D490 identity_matrix;
 extern u32 TObjEneMerillLia__rock_param_table;
 extern s32 anim_model_matrix_array;
 extern const f32 lbl_805DA30C;
@@ -645,7 +645,7 @@ M2C_UNK pop_matrices(int);
 extern const f64 lbl_8043C6E8[];
 extern Vec_800D5BCC lbl_8050BEE0;
 extern Vec_800D5BCC lbl_8050BF00;
-extern RecoveredGlobal_800D5060_lbl_8058D490 lbl_8058D490;
+extern RecoveredGlobal_800D5060_lbl_8058D490 identity_matrix;
 extern const f32 TObjEneMerillLia__data_805DA300;
 void TObjEneMerillLia__sub_800D5BCC(u8 *arg0);
 }
@@ -924,7 +924,7 @@ void spawn_front_ground_effect__16TObjEneMerillLiaFPv(u8 *arg0) {
     stack.sp8 = TObjEneMerillLia__data_805DA300;
     stack.spC = lbl_805DA304;
     stack.sp10 = TObjEneMerillLia__data_805DA308 * M2C_FIELD(M2C_FIELD(arg0, u8 **, 0x2B0), f32 *, 0x10);
-    push_matrix_from((void *) (&lbl_8058D490.value));
+    push_matrix_from((void *) (&identity_matrix.value));
     rotate_matrix_y((int) (0), (int) (M2C_FIELD(arg0, s32 *, 0x60)));
     rotate_vector_by_matrix((int) (0), (void *) (&stack.sp8), (void *) (&stack.sp8));
     pop_matrix();
@@ -1217,7 +1217,7 @@ M2C_UNK update_kafun_attack__16TObjEneMerillLiaFPv(void *p) {
     case 1:
         if (objInBand__FP7GameObjf((void *) (arg0), lbl_805DA30C) != 0) {
             advance_animation_playback((void *) (arg0));
-            push_matrix_from((void *) (&lbl_8058D490));
+            push_matrix_from((void *) (&identity_matrix));
             post_translate_matrix((void *) ((u8 *)(arg0) + 0x38));
             rotate_matrix_y(0, M2C_FIELD(arg0, s32 *, 0x60));
             render_anim_model__10TObjPlayerFPvf((void *) (arg0), lbl_805DA30C);
@@ -1304,7 +1304,7 @@ void TObjEneMerillLia__sub_800D5BCC(u8 *arg0) {
         v = &lbl_8050BF00;
         v->x = v->y = TObjEneMerillLia__data_805DA300;
         v->z = o->f394;
-        push_matrix_from(&lbl_8058D490);
+        push_matrix_from(&identity_matrix);
         rotate_matrix_y(0, ang);
         rotate_vector_by_matrix(0, &lbl_8050BF00, &lbl_8050BF00);
         pop_matrices(1);
@@ -1323,7 +1323,7 @@ void TObjEneMerillLia__sub_800D5BCC(u8 *arg0) {
             v->y = TObjEneMerillLia__data_805DA300;
             lbl_8050BF00.x = TObjEneMerillLia__data_805DA300;
             v->z = o->f394;
-            push_matrix_from(&lbl_8058D490);
+            push_matrix_from(&identity_matrix);
             rotate_matrix_y(0, ang);
             rotate_vector_by_matrix(0, &lbl_8050BF00, &lbl_8050BF00);
             pop_matrices(1);
@@ -1343,7 +1343,7 @@ void TObjEneMerillLia__sub_800D5BCC(u8 *arg0) {
                 v->y = TObjEneMerillLia__data_805DA300;
                 lbl_8050BF00.x = TObjEneMerillLia__data_805DA300;
                 v->z = o->f394;
-                push_matrix_from(&lbl_8058D490);
+                push_matrix_from(&identity_matrix);
                 rotate_matrix_y(0, ang2);
                 rotate_vector_by_matrix(0, &lbl_8050BF00, &lbl_8050BF00);
                 pop_matrices(1);

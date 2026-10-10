@@ -93,7 +93,7 @@ void subtract_vector(void *, void *);
 void push_matrix_from(void *);
 void pop_matrices(int);
 extern const f64 lbl_8043BCC8;
-extern M2C_UNK lbl_8058D490[];
+extern M2C_UNK identity_matrix[];
 extern const f32 lbl_805DA070;
 extern const f32 lbl_805DA074;
 extern const f32 lbl_805DA078;
@@ -349,7 +349,7 @@ void move_along_ground_avoiding_walls__10TObjPlayerFPviff(Pl_800C7168 *self, Vec
         if (lbl_805DA070 > vec3_dot(&up, &out)) {
             ang = 0x10000 - ang;
         }
-        push_matrix_from(lbl_8058D490);
+        push_matrix_from(identity_matrix);
         rotate_matrix_y(0, ang);
         rotate_vector_by_matrix(0, &self->vel, &self->vel);
         pop_matrices(1);
@@ -363,7 +363,7 @@ void move_along_ground_avoiding_walls__10TObjPlayerFPviff(Pl_800C7168 *self, Vec
         if (i == 0) {
             VecCopy__FP3VecPC3Vec((Vec_800C6EF8 *)&dir, (Vec_800C6EF8 *)&self->vel);
         } else {
-            push_matrix_from(lbl_8058D490);
+            push_matrix_from(identity_matrix);
             rotate_matrix_y(0, ang * (i * 0x1000));
             rotate_vector_by_matrix(0, &self->vel, &dir);
             pop_matrices(1);

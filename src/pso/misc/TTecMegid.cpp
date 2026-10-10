@@ -286,7 +286,7 @@ void move_technique_projectile(Obj_80235740 *);
 void advance_lifetime_or_destroy(Obj_80235740 *);
 void dispatch_technique_contact(Obj_80235740 *, s32);
 extern Vec_80235740 lbl_8044D8B0;
-extern u8 lbl_8058D490[];
+extern u8 identity_matrix[];
 void run_task__9TTecMegidFv(Obj_80235740 *self);
 void *get_bml_model(s32, u32);
 M2C_UNK attach_particle_model(void *, void *, s32, int, int, f32);
@@ -506,7 +506,7 @@ void run_task__9TTecMegidFv(Obj_80235740 *self) {
         if (((Data_80235740 *)TTecMegid__data_8044D874)[self->band].rows[i].flags & 4) {
             Vec_80235740 off = lbl_8044D8B0;
             Vec_80235740 p;
-            push_matrix_from(lbl_8058D490);
+            push_matrix_from(identity_matrix);
             rotate_matrix_y(0, self->f58);
             matrix_mult_vec(0, &off, &off);
             pop_matrices(1);

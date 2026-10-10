@@ -299,8 +299,8 @@ M2C_UNK clear_player_status_flag__10TObjPlayerFPviUi(void *, int, int);
 M2C_UNK minimap_render_gate(void *, u32, u16, s32, s32);
 M2C_UNK play_persistent_sound(int, void *, void *, int, int);
 M2C_UNK matrix_mult_vec(void *, void *, void *);
-M2C_UNK set_position_vec3__10TObjPlayerFPvPv(void *, void *);
-M2C_UNK set_matrix_identity__10TObjPlayerFPv(void *);
+M2C_UNK translate_matrix_vec3(void *, void *);
+M2C_UNK set_matrix_identity(void *);
 extern Vec_8029B640 lbl_804653E8;
 extern Vec_8029B640 lbl_804653F4;
 extern const f32 lbl_805DDCD4;
@@ -430,8 +430,8 @@ void run_task__16TODoorJungleMainFv(u8 *arg0) {
             if (++M2C_FIELD(arg0, s32 *, 0xD8) % 30 == 0) {
                 a = lbl_804653E8;
                 b = lbl_804653F4;
-                set_matrix_identity__10TObjPlayerFPv(&mtx);
-                set_position_vec3__10TObjPlayerFPvPv(&mtx, arg0 + 0x38);
+                set_matrix_identity(&mtx);
+                translate_matrix_vec3(&mtx, arg0 + 0x38);
                 rotate_matrix_y((int)&mtx, M2C_FIELD(arg0, s32 *, 0x60));
                 matrix_mult_vec(&mtx, &a, &a);
                 matrix_mult_vec(&mtx, &b, &b);

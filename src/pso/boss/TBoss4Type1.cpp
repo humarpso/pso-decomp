@@ -11,8 +11,8 @@ void request_follow_camera_offsets(void *, void *, s32);
 s32 get_camera_no__11TCameraCtrlFv(void);
 void matrix_mult_vec(int, void *, void *);
 f32 vector_length(void *);
-void set_position_vec3__10TObjPlayerFPvPv(int, void *);
-void set_matrix_identity__10TObjPlayerFPv(int);
+void translate_matrix_vec3(int, void *);
+void set_matrix_identity(int);
 int rotate_matrix_y(void *, void *);
 int push_matrix(void);
 int pop_matrix(void);
@@ -370,8 +370,8 @@ f32 cos_table_lookup(s32);
 void vec3_add_to(Vec_80053440 *, Vec_80053440 *);
 void matrix_mult_vec(int, void *, void *);
 f32 vector_length(void *);
-void set_position_vec3__10TObjPlayerFPvPv(int, void *);
-void set_matrix_identity__10TObjPlayerFPv(int);
+void translate_matrix_vec3(int, void *);
+void set_matrix_identity(int);
 int rotate_matrix_y(void *, void *);
 void subtract_vector(Vec_80053D4C *, Vec_80053D4C *);
 void normalize_vector(void *);
@@ -1081,8 +1081,8 @@ void update_follow_camera_offsets__10TObjPlayerFPv(Obj_80053E40 *o) {
     s32 cn;
     best = lbl_805D8B20;
     push_matrix();
-    set_matrix_identity__10TObjPlayerFPv(0);
-    set_position_vec3__10TObjPlayerFPvPv(0, &o->pos);
+    set_matrix_identity(0);
+    translate_matrix_vec3(0, &o->pos);
     rotate_matrix_y(0, o->x60);
     for (i = 0; i < o->count; i++) {
         in.x = boss4_type1_xz_offset_table[i].x;
@@ -1390,8 +1390,8 @@ void push_players_out_of_colliders__10TObjPlayerFPv(Obj_80053E40 *o) {
     s32 j;
 
     push_matrix();
-    set_matrix_identity__10TObjPlayerFPv(0);
-    set_position_vec3__10TObjPlayerFPvPv(0, &o->pos);
+    set_matrix_identity(0);
+    translate_matrix_vec3(0, &o->pos);
     rotate_matrix_y(0, o->x60);
     for (i = 0; i < o->count; i++) {
         in.x = boss4_type1_xz_offset_table[i].x;

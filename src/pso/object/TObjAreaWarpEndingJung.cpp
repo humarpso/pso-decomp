@@ -486,7 +486,7 @@ extern char lbl_80446460[];
 extern Vec_8019D0A8 lbl_804B910C[];
 extern s64 lbl_804B913C[];
 extern RecoveredGlobal_8019CA24_lbl_80515BA0 lbl_80515BA0;
-extern u8 lbl_8058D490[];
+extern u8 identity_matrix[];
 extern s32 lbl_805D3464;
 extern s32 lbl_805D3468;
 extern s32 lbl_805D346C;
@@ -1381,13 +1381,13 @@ void draw_debug_destinations__11TObjMapWarpFPv(u8 *arg0) {
     for (i = 0; i < 4; i++) {
         Vec_8019D0A8 b;
         Vec_8019D0A8 a = lbl_804462FC;
-        push_matrix_from(lbl_8058D490);
+        push_matrix_from(identity_matrix);
         post_translate_matrix(&self->pos);
         rotate_matrix_y((M2C_UNK)(0), (s32)(self->yaw));
         end = &self->ends[i];
         matrix_mult_vec(0, &lbl_804B910C[i], end);
         pop_matrix();
-        push_matrix_from(lbl_8058D490);
+        push_matrix_from(identity_matrix);
         post_translate_matrix(end);
         rotate_matrix_y((M2C_UNK)(0), (s32)(self->yaw2));
         matrix_mult_vec(0, &a, &a);

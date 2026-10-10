@@ -609,7 +609,7 @@ s32 objInBand__FP7GameObjf(void *, f32);
 M2C_UNK advance_animation_playback(void *, s32);
 M2C_UNK play_sound_effect(void *, void *, int, int);
 M2C_UNK mult_vec_array__10TObjPlayerFUii(int, int, void *, int);
-M2C_UNK set_matrix_identity__10TObjPlayerFPv(int);
+M2C_UNK set_matrix_identity(int);
 M2C_UNK rotate_matrix_y(int, int);
 M2C_UNK push_matrix();
 M2C_UNK pop_matrix();
@@ -2396,7 +2396,7 @@ void bind_motion_context(s32, f32);
 s32 compose_motion_node_matrix(void *);
 s32 matrix_mult_vec(int, void *, void *);
 M2C_UNK mult_vec_array__10TObjPlayerFUii(int, int, void *, int);
-M2C_UNK set_matrix_identity__10TObjPlayerFPv(int);
+M2C_UNK set_matrix_identity(int);
 M2C_UNK rotate_matrix_y(int, int);
 M2C_UNK translate_matrix(int, f32, f32, f32);
 s32 push_matrix_from(void *);
@@ -2422,7 +2422,7 @@ extern RecoveredGlobal_800E7324_lbl_8043CF94 lbl_8043CF94;
 extern RecoveredGlobal_800F4758_lbl_8050110C lbl_80500FEC;
 extern RecoveredGlobal_800E4D7C_lbl_80500FF4 lbl_80500FF4;
 extern s32 *lbl_80501000[];
-extern u8 lbl_8058D490[];
+extern u8 identity_matrix[];
 extern void *lbl_805D2AC8;
 extern s32 lbl_805D529C;
 extern s32 lbl_805D5660;
@@ -3618,7 +3618,7 @@ void TObjEneMe3ShinowaMirage__sub_800E5F64(u8 *arg0, s32 arg1) {
             temp_r3_4 = lookup_entry_by_value__10TObjPlayerFPvf((void *)TObjEneMe3ShinowaMirage__data_805D52AC, M2C_FIELD(arg0, f32 *, 0xC0));
             if (temp_r3_4 != 0) {
                 push_matrix();
-                set_matrix_identity__10TObjPlayerFPv(0);
+                set_matrix_identity(0);
                 post_translate_matrix(arg0 + 0x38);
                 rotate_matrix_y(0, M2C_FIELD(arg0, s32 *, 0x60));
                 mult_vec_array__10TObjPlayerFUii(0, temp_r3_4, &sp14, 2);
@@ -4001,7 +4001,7 @@ void apply_effect_pair__23TObjEneMe3ShinowaMirageFPv(u8 *arg0) {
     u8 *temp_r3_4;
 
     push_matrix();
-    set_matrix_identity__10TObjPlayerFPv((int) (0));
+    set_matrix_identity((int) (0));
     post_translate_matrix((void *) (arg0 + 0x38));
     rotate_matrix_y((int) (0), (int) (M2C_FIELD(arg0, s32 *, 0x60)));
     temp_r3 = lookup_entry_by_value__10TObjPlayerFPvf((void *) (TObjEneMe3ShinowaMirage__data_805D52A4), (f32) (M2C_FIELD(arg0, f32 *, 0xC0)));
@@ -4169,7 +4169,7 @@ f32 get_node_world_y__23TObjEneMe3ShinowaMirageFPv(Obj_800E75AC *self) {
     v.x = TObjEneMe3ShinowaMirage__data_805DA5B8;
     v.y = TObjEneMe3ShinowaMirage__data_805DA5B8;
     v.z = TObjEneMe3ShinowaMirage__data_805DA5B8;
-    push_matrix_from(lbl_8058D490);
+    push_matrix_from(identity_matrix);
     bind_motion_context(self->ff8, self->fc0);
     node = self->node;
     compose_motion_node_matrix(node);

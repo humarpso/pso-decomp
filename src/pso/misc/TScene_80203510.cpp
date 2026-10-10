@@ -99,7 +99,7 @@ void update_room_object_visibility__6TSceneFPvPv(void *task, SceneMaterialSectio
 extern SceneMaterialRoot* TScene__data_805D5FCC;
 extern const f32 TScene__data_805DC5D8;
 extern const f32 TScene__data_805DC600;
-extern u8 lbl_8058D490[];
+extern u8 identity_matrix[];
 f32 vec3_dot(void *, void *);
 s32 TScene__sub_80204024(f32 thr, s32 unused, void *a, void *b, Vec_80204024 *c);
 void normalize_vector(Vec_80204024 *);
@@ -187,7 +187,7 @@ void rotate_vector_by_matrix(s32, void *, Vec_80204024 *);
 void pop_matrix(void);
 void subtract_vector(void *, void *);
 extern W_802043CC lbl_8044A858[];
-extern u8 lbl_8058D490[];
+extern u8 identity_matrix[];
 extern Root_80204024 *camera_ctrl_instance;
 extern SceneMaterialRoot* TScene__data_805D5FCC;
 extern Tbl_802043CC *TScene__data_805D6020;
@@ -582,7 +582,7 @@ extern const f32 lbl_805DC5F4;
 extern const f32 lbl_805DC5F8;
 extern const f32 lbl_805DC5FC;
 extern Vec_80204024 lbl_8044A84C[];
-extern u8 lbl_8058D490[];
+extern u8 identity_matrix[];
 extern Root_80204024 *camera_ctrl_instance;
 bool is_in_view_depth__6TSceneFf(f32 farg0);
 s32 TScene__sub_80204024(f32 thr, s32 unused, void *a, void *b, Vec_80204024 *c);
@@ -651,7 +651,7 @@ void update_room_visibility_from_camera__6TSceneFi(s32 arg0) {
                 fwd.x = TScene__data_805DC5D8;
                 fwd.y = TScene__data_805DC5D8;
                 fwd.z = lbl_805DC5E4;
-                push_matrix_from(lbl_8058D490);
+                push_matrix_from(identity_matrix);
                 rotate_matrix_y(0, (*(Cam_802043CC * *)&camera_ctrl_instance)->angY);
                 rotate_vector_by_matrix((s32)(0), (void *)(&fwd), (Vec_80204024 *)(&out));
                 pop_matrix();
@@ -671,7 +671,7 @@ void update_room_visibility_from_camera__6TSceneFi(s32 arg0) {
         Vec_802043CC out2;
         SceneMaterialSection *s;
         s32 k;
-        push_matrix_from(lbl_8058D490);
+        push_matrix_from(identity_matrix);
         rotate_matrix_y(0, (*(Cam_802043CC * *)&camera_ctrl_instance)->angY);
         rotate_vector_by_matrix((s32)(0), (void *)(&w), (Vec_80204024 *)(&out2));
         normalize_vector((Vec_80204024 *)(&out2));
@@ -711,7 +711,7 @@ void cull_sections__6TSceneFPv(Task_80204688 *task) {
         s_far = TScene__data_805D5FCC->radius;
     }
     task->count = 0;
-    push_matrix_from(lbl_8058D490);
+    push_matrix_from(identity_matrix);
     rotate_matrix_y(0, CAM->a194);
     rotate_vector_by_matrix(0, &up, &dir);
     normalize_vector(&dir);
@@ -746,7 +746,7 @@ void cull_sections__6TSceneFPv(Task_80204688 *task) {
                     sec->flags &= ~0x10000;
                     sec++;
                 } else if (dot >= TScene__data_805DC5D8 && dot < TScene__data_805DC600) {
-                    push_matrix_from(lbl_8058D490);
+                    push_matrix_from(identity_matrix);
                     rotate_matrix_y(0, CAM->a19C);
                     rotate_vector_by_matrix(0, &dir, &up);
                     normalize_vector(&up);
@@ -756,7 +756,7 @@ void cull_sections__6TSceneFPv(Task_80204688 *task) {
                         sec++;
                         task->count++;
                     } else {
-                        push_matrix_from(lbl_8058D490);
+                        push_matrix_from(identity_matrix);
                         rotate_matrix_y(0, -CAM->a19C);
                         rotate_vector_by_matrix(0, &dir, &up);
                         normalize_vector(&up);
@@ -859,7 +859,7 @@ s32 check_object_in_view_cone__6TSceneFiPvPvPvi(s32 arg0, Obj_80204B78 *obj, Vec
         return 0;
     }
     if (d >= TScene__data_805DC5D8 && d < TScene__data_805DC600) {
-        push_matrix_from(lbl_8058D490);
+        push_matrix_from(identity_matrix);
         rotate_matrix_y(0, arg4);
         rotate_vector_by_matrix(0, arg3, &c);
         normalize_vector(&c);
@@ -868,7 +868,7 @@ s32 check_object_in_view_cone__6TSceneFiPvPvPvi(s32 arg0, Obj_80204B78 *obj, Vec
             obj->flags |= 0x10000;
             return 1;
         }
-        push_matrix_from(lbl_8058D490);
+        push_matrix_from(identity_matrix);
         rotate_matrix_y(0, -arg4);
         rotate_vector_by_matrix(0, arg3, &c);
         normalize_vector(&c);

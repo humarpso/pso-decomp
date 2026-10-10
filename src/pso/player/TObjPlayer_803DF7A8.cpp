@@ -57,12 +57,12 @@ struct Faces_803E0ED4 { s32 v[6][4]; };
 extern "C" {
 M2C_UNK GXLoadPosMtxImm(void *, int);
 extern RecoveredGlobal_803E1D1C_lbl_804FC780 gx_pos_mtx_index_table;
-extern s32 lbl_805D7774;
+extern s32 current_matrix;
 void load_current_pos_matrix(s32 arg0);
 extern const f32 lbl_805E1038;
 extern const f32 lbl_805E103C;
 f32 xyz_distance(Vec_803E1A58 *a, Vec_803E1A58 *b);
-extern s32 lbl_805D7774;
+extern s32 current_matrix;
 extern s32 tex_matrix_id_table[];
 void GXLoadTexMtxImm(void *mtx, u32 id, s32 type);
 void load_current_tex_matrix(s32 i);
@@ -368,7 +368,7 @@ extern s8 lbl_805D77C8;
 #pragma scheduling off
 typedef char RecoveredGlobal_803E1D1C_lbl_804FC780_size[sizeof(RecoveredGlobal_803E1D1C_lbl_804FC780) == 0x28 ? 1 : -1];
 void load_current_pos_matrix(s32 arg0) {
-    GXLoadPosMtxImm((void *) (lbl_805D7774), (int) (M2C_FIELD(((u8 *)(&gx_pos_mtx_index_table.value) + (arg0 * 4)), s32 *, 0)));
+    GXLoadPosMtxImm((void *) (current_matrix), (int) (M2C_FIELD(((u8 *)(&gx_pos_mtx_index_table.value) + (arg0 * 4)), s32 *, 0)));
 }
 #pragma pop
 
@@ -377,7 +377,7 @@ void load_current_pos_matrix(s32 arg0) {
 #pragma push
 #pragma scheduling off
 void load_current_tex_matrix(s32 i) {
-    GXLoadTexMtxImm((void *)lbl_805D7774, tex_matrix_id_table[i], 0);
+    GXLoadTexMtxImm((void *)current_matrix, tex_matrix_id_table[i], 0);
 }
 #pragma pop
 

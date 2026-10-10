@@ -30,7 +30,7 @@ M2C_UNK rotate_vector_by_matrix(int, void *, void *);
 M2C_UNK rotate_matrix_y(int, int);
 M2C_UNK push_matrix_from(void *);
 M2C_UNK pop_matrix(void);
-extern u8 lbl_8058D490[];
+extern u8 identity_matrix[];
 extern const f32 lbl_805D9BE4;
 extern const f32 lbl_805D9BE8;
 extern const f32 lbl_805D9BEC;
@@ -87,7 +87,7 @@ void update_death_state__11TObjEneMojaFv(u8 *arg0) {
         v.x = lbl_805D9BD8;
         v.y = lbl_805D9BE8;
         v.z = lbl_805D9BEC * M2C_FIELD(M2C_FIELD(arg0, u8 **, 0x2B0), f32 *, 0x10);
-        push_matrix_from(lbl_8058D490);
+        push_matrix_from(identity_matrix);
         rotate_matrix_y(0, M2C_FIELD(arg0, s32 *, 0x60));
         rotate_vector_by_matrix(0, &v, &v);
         pop_matrix();
@@ -609,7 +609,7 @@ M2C_UNK update_collisions__10TObjPlayerFPv(void *);
 M2C_UNK play_effect_if_v2__10TObjPlayerFi(int);
 
 M2C_UNK mult_vec_array__10TObjPlayerFUii(int, int, void *, int);
-M2C_UNK set_matrix_identity__10TObjPlayerFPv(int);
+M2C_UNK set_matrix_identity(int);
 M2C_UNK rotate_matrix_y(int, int);
 M2C_UNK push_matrix();
 
@@ -660,7 +660,7 @@ s32 obj_is_hit_receivable();
 s32 is_split_screen();
 M2C_UNK set_shake_preset__11TCameraCtrlFi(int);
 
-extern u8 lbl_8058D490[];
+extern u8 identity_matrix[];
 extern s32 lbl_805D5868;
 extern s32 local_client_id;
 extern const f32 lbl_805D9BD8;
@@ -777,7 +777,7 @@ void spawn_directional_particle(void *, void *, s32);
 
 M2C_UNK update_collisions__10TObjPlayerFPv(void *);
 extern const f64 lbl_8043B0C8[];
-extern u8 lbl_8058D490[];
+extern u8 identity_matrix[];
 extern s32 game_difficulty_selection;
 extern s32 tl_07;
 extern const f32 lbl_805D9BD8;
@@ -1023,7 +1023,7 @@ M2C_UNK update_technique_state__11TObjEneMojaFv(void *self_800AD3D8) {
             pos.x = lbl_805D9BD8;
             pos.y = lbl_805D9C14;
             pos.z = lbl_805D9C18;
-            ((s32 (*)(void *))push_matrix_from)(lbl_8058D490);
+            ((s32 (*)(void *))push_matrix_from)(identity_matrix);
             rotate_matrix_y(0, self->rot_y);
             ((s32 (*)(int, void *, void *))rotate_vector_by_matrix)((int)(0), (void *)(&pos), (void *)(&pos));
             pop_matrices(1);
@@ -1052,7 +1052,7 @@ M2C_UNK update_technique_state__11TObjEneMojaFv(void *self_800AD3D8) {
                         if (update_scale__15TObjBoss2TunnelFPv(&dir) < lbl_805D9C1C) {
                             dir.y = dir.x = lbl_805D9BD8;
                             dir.z = lbl_805D9BDC;
-                            ((s32 (*)(void *))push_matrix_from)(lbl_8058D490);
+                            ((s32 (*)(void *))push_matrix_from)(identity_matrix);
                             rotate_matrix_y(0, self->rot_y);
                             ((s32 (*)(int, void *, void *))rotate_vector_by_matrix)((int)(0), (void *)(&dir), (void *)(&dir));
                             ((M2C_UNK (*)())pop_matrix)();
@@ -1066,7 +1066,7 @@ M2C_UNK update_technique_state__11TObjEneMojaFv(void *self_800AD3D8) {
                     } else {
                         dir.y = dir.x = lbl_805D9BD8;
                         dir.z = lbl_805D9BDC;
-                        ((s32 (*)(void *))push_matrix_from)(lbl_8058D490);
+                        ((s32 (*)(void *))push_matrix_from)(identity_matrix);
                         rotate_matrix_y(0, self->rot_y);
                         ((s32 (*)(int, void *, void *))rotate_vector_by_matrix)((int)(0), (void *)(&dir), (void *)(&dir));
                         ((M2C_UNK (*)())pop_matrix)();
@@ -1094,7 +1094,7 @@ M2C_UNK update_technique_state__11TObjEneMojaFv(void *self_800AD3D8) {
                 }
                 dir.y = dir.x = lbl_805D9BD8;
                 dir.z = lbl_805D9BDC;
-                ((s32 (*)(void *))push_matrix_from)(lbl_8058D490);
+                ((s32 (*)(void *))push_matrix_from)(identity_matrix);
                 rotate_matrix_y(0, self->rot_y);
                 ((s32 (*)(int, void *, void *))rotate_vector_by_matrix)((int)(0), (void *)(&dir), (void *)(&dir));
                 pop_matrices(1);
@@ -1175,7 +1175,7 @@ M2C_UNK update_punch_attack__11TObjEneMojaFPv(void *self_800ADAAC) {
             e = lookup_entry_by_value__10TObjPlayerFPvf(lbl_805D50DC);
             if (e != 0) {
                 push_matrix();
-                set_matrix_identity__10TObjPlayerFPv(0);
+                set_matrix_identity(0);
                 post_translate_matrix(arg0 + 0x38);
                 rotate_matrix_y(0, *(s32 *)(arg0 + 0x60));
                 mult_vec_array__10TObjPlayerFUii(0, e, &sp8, 2);
@@ -1498,7 +1498,7 @@ void update_appearance_jump__11TObjEneMojaFv(Moja_800AE7F4 *self) {
         off.x = lbl_805D9BD8;
         off.y = lbl_805D9C44;
         off.z = lbl_805D9C48;
-        ((s32 (*)(void *))push_matrix_from)(lbl_8058D490);
+        ((s32 (*)(void *))push_matrix_from)(identity_matrix);
         rotate_matrix_y(0, self->angle);
         ((s32 (*)(int, void *, void *))rotate_vector_by_matrix)(0, &off, &off);
         pop_matrices(1);

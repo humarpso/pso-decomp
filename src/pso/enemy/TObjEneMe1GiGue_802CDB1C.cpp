@@ -74,7 +74,7 @@ M2C_UNK pop_matrix();
 extern Vec_802CDEB4 lbl_804722A8;
 extern const f64 lbl_804722C8[];
 extern M2C_UNK lbl_804E14E8[];
-extern u8 lbl_8058D490[];
+extern u8 identity_matrix[];
 extern s32 tl_04;
 extern f32 lbl_805D6844;
 extern f32 lbl_805D6848;
@@ -228,7 +228,7 @@ u8 *TObjPlayer__sub_802CDEB4(u8 *arg0, Vec_802CDEB4 *arg1, s16 arg2, Rot_802CDEB
     M2C_FIELD(arg0, s32 *, 0x104) = arg5;
     M2C_FIELD(arg0, Vec_802CDEB4 **, 0xF0) = arg1;
     M2C_FIELD(arg0, f32 *, 0xE8) = lbl_805DE6C0;
-    push_matrix_from(lbl_8058D490);
+    push_matrix_from(identity_matrix);
     {
         Vec_802CDEB4 v = lbl_804722A8;
         v.z = lbl_805D6844;

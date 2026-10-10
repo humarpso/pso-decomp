@@ -199,7 +199,7 @@ int TBoss6Type1__sub_802B8E1C(void*);
 void do_attack__11TBoss6Type1FPv(void *);
 int send_flow_action_if_idle__11TBoss6Type1FPvc(void*, void*);
 s32 rand(void);
-M2C_UNK set_matrix_identity__10TObjPlayerFPv(s32);
+M2C_UNK set_matrix_identity(s32);
 M2C_UNK rotate_vector_by_matrix(s32, void *, void *);
 void rotate_matrix_y(int, int);
 void rotate_matrix_x(int, int);
@@ -992,7 +992,7 @@ void spawn_map_csn__11TBoss6Type1FPv(u8 *arg0) {
     Vec_802B49A4 tmp;
     VecCopy__FP3VecPC3Vec(&prm.pos, arg0 + 0x38);
     push_matrix();
-    set_matrix_identity__10TObjPlayerFPv(0);
+    set_matrix_identity(0);
     rotate_matrix_y(0, M2C_FIELD(arg0, s32 *, 0x60));
     rotate_vector_by_matrix(0, lbl_80471020, &tmp);
     prm.pos.x += tmp.x;

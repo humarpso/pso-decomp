@@ -811,7 +811,7 @@ M2C_UNK TObjEneBm9Mericarol__sub_802D073C(void *);
 s32 get_phase__19TObjEneBm9MericarolFPv(void *, int);
 M2C_UNK TObjEneBm9Mericarol__sub_802D0940(void *);
 M2C_UNK mult_vec_array__10TObjPlayerFUii(int, int, void *, int);
-M2C_UNK set_matrix_identity__10TObjPlayerFPv(int);
+M2C_UNK set_matrix_identity(int);
 M2C_UNK rotate_matrix_y(int, int);
 M2C_UNK push_matrix();
 M2C_UNK pop_matrix();
@@ -1458,7 +1458,7 @@ void TObjPlayer__sub_802CFB64(u8 *arg0, s32 arg1) {
                 e0 = lookup_entry_by_value__10TObjPlayerFPvf((void *)TBoss4Type3_shared_instance, M2C_FIELD(arg0, f32 *, 0xC0));
                 e1 = lookup_entry_by_value__10TObjPlayerFPvf((void *)lbl_805D6864, M2C_FIELD(arg0, f32 *, 0xC0));
                 push_matrix();
-                set_matrix_identity__10TObjPlayerFPv(0);
+                set_matrix_identity(0);
                 post_translate_matrix(arg0 + 0x38);
                 rotate_matrix_y(0, M2C_FIELD(arg0, s32 *, 0x60));
                 mult_vec_array__10TObjPlayerFUii(0, e0, &sp20, 2);

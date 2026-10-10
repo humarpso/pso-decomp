@@ -316,6 +316,149 @@ M2C_UNK *get_shared_text_buffer(void) {
     return &lbl_80515BC8.value;
 }
 
+typedef struct File_8001DC30 File_8001DC30;
+typedef struct Pair_8001DC30 Pair_8001DC30;
+typedef struct Params_8001DC30 Params_8001DC30;
+typedef struct Pkt_8001DC30 Pkt_8001DC30;
+typedef struct Stats_8001DC30 Stats_8001DC30;
+typedef struct Sw_8001DC30 Sw_8001DC30;
+struct Stats_8001DC30
+{
+  u8 b[0x24];
+};
+struct Pkt_8001DC30
+{
+  u8 b[0x30];
+};
+struct Sw_8001DC30
+{
+  u8 b[0x20];
+};
+struct Pair_8001DC30
+{
+  u32 a[6];
+  u32 b[6];
+};
+struct Params_8001DC30
+{
+  Stats_8001DC30 stats[0x60];
+  Pkt_8001DC30 pkts[0x60];
+  Sw_8001DC30 sw[0x60];
+  Pair_8001DC30 pairs[0x60];
+};
+struct File_8001DC30
+{
+  Stats_8001DC30 stats[4][0x60];
+  Pkt_8001DC30 pkts[4][0x60];
+  Sw_8001DC30 sw[4][0x60];
+  Pair_8001DC30 pairs[4][0x60];
+};
+void swap_endian__6TLobbyFPv(void *);
+void byteswap_packet__6TLobbyFPv(void *);
+void bswap__12player_statsFv(void *);
+s32 is_main_phase_15__9TObjEneDDFv(void);
+void read_disc_file(const char *, void *);
+void free__11TOBoss4RockFUi(void *);
+u8 *alloc_buffer__11TOBoss4RockFPv(u32);
+int bswap_32__FPUl(void *);
+s32 is_not_split_screen__13TRaderMapCoreFv(void);
+void move_data__6TLobbyFv(void *, void *, u32);
+extern const char lbl_80434A20[];
+extern const char lbl_80434A38[];
+extern const char lbl_80434A50[];
+extern const char lbl_80434A6C[];
+extern s32 TLobby__data_805D4AB8;
+void load_battle_param_entry(void) {
+  extern Params_8001DC30 *TLobby__data_805D4AA0;
+  extern s32 TLobby__data_805D4AB4;
+  s32 idx;
+  const char *name;
+  File_8001DC30 *file;
+  Params_8001DC30 *dst;
+  Params_8001DC30 *new_var;
+  s32 off;
+  name = lbl_80434A20;
+  if (is_main_phase_15__9TObjEneDDFv() != 0)
+  {
+    name = lbl_80434A38;
+  }
+  if (is_not_split_screen__13TRaderMapCoreFv() == 1)
+  {
+    name = lbl_80434A38;
+  }
+  if (TLobby__data_805D4AB8 == 1)
+  {
+    name = lbl_80434A50;
+    if (is_main_phase_15__9TObjEneDDFv() != 0)
+    {
+      name = lbl_80434A6C;
+    }
+    if (is_not_split_screen__13TRaderMapCoreFv() == 1)
+    {
+      name = lbl_80434A6C;
+    }
+  }
+  file = (File_8001DC30 *) alloc_buffer__11TOBoss4RockFPv(0xF600);
+  if (file != 0)
+  {
+    read_disc_file(name, file);
+    idx = TLobby__data_805D4AB4;
+    new_var = (dst = TLobby__data_805D4AA0);
+    move_data__6TLobbyFv(dst->stats, file->stats[idx], sizeof(dst->stats));
+    {
+      Stats_8001DC30 *p = ((0, dst))->stats;
+      s32 i;
+      for (i = 0; i < 0x60; i++)
+      {
+        bswap__12player_statsFv(p);
+        p++;
+      }
+
+    }
+    move_data__6TLobbyFv(new_var->pkts, (void *) ((((s32) file) + 0x3600) + (idx * 0x1200)), sizeof(dst->pkts));
+    {
+      Pkt_8001DC30 *p = new_var->pkts;
+      s32 i;
+      for (i = 0; i < 0x60; i++)
+      {
+        byteswap_packet__6TLobbyFPv(p);
+        p++;
+      }
+
+    }
+    move_data__6TLobbyFv(new_var->sw, (void *) ((((s32) file) + 0x7E00) + (idx * 0xC00)), sizeof(dst->sw));
+    {
+      s32 i;
+      Sw_8001DC30 *p = new_var->sw;
+      for (i = 0; i < 0x60; i++)
+      {
+        swap_endian__6TLobbyFPv(p);
+        p++;
+      }
+
+    }
+    move_data__6TLobbyFv(new_var->pairs, (void *) ((((s32) file) + 0xAE00) + (1152 * (4 * idx))), sizeof(dst->pairs));
+    {
+      s32 i;
+      Pair_8001DC30 *p = new_var->pairs;
+      for (i = 0; i < 0x60; i++)
+      {
+        s32 j;
+        for (j = 0; j < 6; j++)
+        {
+          bswap_32__FPUl(&p->a[j]);
+          bswap_32__FPUl(&p->b[j]);
+        }
+
+        p++;
+      }
+
+    }
+    free__11TOBoss4RockFUi(file);
+ ;
+  }
+}
+
 void broadcast__6TLobbyFPv(void* a0) { ((int (*)(void*, void*))broadcast_to_players__6TLobbyFii)((void*)(TLobby__lobby_instance), a0); }
 
 }
@@ -547,7 +690,7 @@ extern "C" {
 u8 *alloc_buffer__11TOBoss4RockFPv(u32 size);
 void clamp_difficulty__6TLobbyFi(s32 arg0);
 
-M2C_UNK load_battle_param_entry();
+void load_battle_param_entry(void);
 extern u32 TLobby__data_805D4AA0;
 
 extern s32 game_difficulty_selection;
@@ -562,7 +705,7 @@ void clamp_difficulty__6TLobbyFi(s32 arg0);
 void free_boss4_rock__6TLobbyFv(void);
 void swap_endian__6TLobbyFPv(void* p);
 void update_difficulty__6TLobbyFv(void);
-M2C_UNK load_battle_param_entry();
+void load_battle_param_entry(void);
 int bswap_16__FPUs(void*);
 int bswap_32__FPUl(void*);
 void free__11TOBoss4RockFUi(void*);

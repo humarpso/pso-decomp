@@ -197,7 +197,7 @@ M2C_UNK render_with_position_override__10TObjPlayerFPvPvi(void *, int, int);
 M2C_UNK reset_transform_state__10TObjPlayerFv();
 M2C_UNK set_global_flag__10TObjPlayerFv(void *);
 M2C_UNK set_global_param__8TObjFishFi(int);
-M2C_UNK set_position_vec3__10TObjPlayerFPvPv(int, void *);
+M2C_UNK translate_matrix_vec3(int, void *);
 
 typedef char RecoveredGlobal_802D72E4_TObjNpcEnemy__data_80540FF0_size[sizeof(RecoveredGlobal_802D72E4_TObjNpcEnemy__data_80540FF0) == 0x240 ? 1 : -1];
 s16 *get_entry_by_index__12TObjNpcEnemyFs(s16 arg0) {
@@ -379,7 +379,7 @@ void render__12TObjNpcEnemyFv(u8 *arg0) {
         }
         set_global_param__8TObjFishFi((int) (M2C_FIELD(arg0, s32 *, 0x24)));
         push_matrix_from((int) (0));
-        set_position_vec3__10TObjPlayerFPvPv((int) (0), (void *) (arg0 + 0x38));
+        translate_matrix_vec3((int) (0), (void *) (arg0 + 0x38));
         temp_r4 = (unsigned char *) (M2C_FIELD(arg0, void **, 0x3B8));
         translate_matrix((int) (0), (int) (temp_r4), (f32) (lbl_805DE7D8), (f32) (M2C_FIELD(temp_r4, f32 *, 4)), (f32) (lbl_805DE7D8));
         rotate_matrix_y((int) (0), (int) (M2C_FIELD(arg0, s32 *, 0x60)));

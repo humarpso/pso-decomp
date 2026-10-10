@@ -242,7 +242,7 @@ M2C_UNK normalize_vector(void *);
 M2C_UNK push_matrix_from(void *);
 M2C_UNK pop_matrix();
 extern Vec_80085CB0 lbl_804393D0;
-extern M2C_UNK lbl_8058D490[];
+extern M2C_UNK identity_matrix[];
 extern u8 *camera_ctrl_instance;
 extern const f32 lbl_805D9480;
 extern const f32 lbl_805D9488;
@@ -353,7 +353,7 @@ void TParticleCtrl__sub_80085CB0(Ctrl_80085CB0 *self) {
         if (lbl_805D9480 != vec_squared_length(&d)) {
             normalize_vector(&d);
         }
-        push_matrix_from(lbl_8058D490);
+        push_matrix_from(identity_matrix);
         Vec_80085CB0 t = lbl_804393D0;
         rotate_matrix_y((int)(0), (s32)((*(Player_80085CB0 * *)&camera_ctrl_instance)->f194));
         rotate_vector_by_matrix(0, &t, &out);

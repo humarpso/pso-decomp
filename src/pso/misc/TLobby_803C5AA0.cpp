@@ -2322,7 +2322,8 @@ M2C_UNK TLobby__sub_803CBF0C(int, int);
 M2C_UNK TLobby__sub_803CBF30(int, int);
 M2C_UNK TLobby__sub_803CBF90(int, int);
 M2C_UNK TLobby__sub_803CBFB0(int, int);
-void TLobby__sub_803CAEB4(u8 *arg0);
+struct Conn_803CAEB4;
+void TLobby__sub_803CAEB4(Conn_803CAEB4 *arg0);
 extern char lbl_8047C718[];
 
 #define SBF50 TLobby__sub_803CBF50
@@ -2430,6 +2431,138 @@ void TLobby__sub_803CAB38(Strm_803CAB38 *self) {
 
 #pragma push
 #pragma dont_inline on
+#pragma push
+#include "types.h"
+typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
+typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
+
+extern "C" {
+
+typedef struct Buf_803CAEB4 Buf_803CAEB4;
+typedef struct Conn_803CAEB4 Conn_803CAEB4;
+typedef struct RingVt_803CAEB4 RingVt_803CAEB4;
+typedef struct Ring_803CAEB4 Ring_803CAEB4;
+struct Buf_803CAEB4
+{
+  u8 *p;
+  s32 len;
+};
+struct Ring_803CAEB4;
+struct RingVt_803CAEB4
+{
+  u8 pad0[0x18];
+  void (*m4)(Ring_803CAEB4 *, s32, s32, Buf_803CAEB4 *);
+  void (*m5)(Ring_803CAEB4 *, s32, Buf_803CAEB4 *);
+  void (*m6)(Ring_803CAEB4 *, s32, Buf_803CAEB4 *);
+};
+struct Ring_803CAEB4
+{
+  RingVt_803CAEB4 *vt;
+};
+struct Conn_803CAEB4
+{
+  u8 pad0[4];
+  s32 lobby;
+  u8 pad8[0x14 - 0x8];
+  Ring_803CAEB4 *ring;
+  u8 pad18[0x48 - 0x18];
+  s32 f48;
+  u8 pad4C[0x98 - 0x4C];
+  s8 active;
+  u8 pad99[0xA4 - 0x99];
+  s32 fA4;
+};
+s32 send_packet_by_id__6TLobbyFPv(int);
+M2C_UNK set_field_44__6TLobbyFPvi(int, int);
+M2C_UNK set_field_40__6TLobbyFPvi(int, int);
+M2C_UNK set_field_3c__6TLobbyFPvi(int, int);
+s32 TLobby__sub_803C0010(int);
+M2C_UNK TLobby__sub_803C0074(int);
+M2C_UNK reset_flag__6TLobbyFPv(int);
+void TLobby__sub_803C0758(void *);
+M2C_UNK set_network_result__6TLobbyFPvi(int, int);
+s32 TLobby__sub_803C07E8(int);
+s32 parse_packet_header_len__6TLobbyFPviPv(u8 *, s32, s16 *);
+s32 find_terminator_index__6TLobbyFPviPv(u8 *, s32, s16 *);
+
+void TLobby__sub_803CAEB4(Conn_803CAEB4 *o) {
+  s32 lobby = o->lobby;
+  Ring_803CAEB4 *ring = o->ring;
+  Buf_803CAEB4 a;
+  Buf_803CAEB4 c;
+  Buf_803CAEB4 b;
+  Buf_803CAEB4 d;
+  s16 hlen;
+  s16 tlen;
+  s32 r1;
+  s32 r2;
+  s32 n;
+  s32 m;
+  if (o->active != 0)
+  {
+    tlen = 0;
+    ring->vt->m4(ring, 1, 0x7FFFFFFF, &a);
+    ring->vt->m4(ring, 1, 0x7FFFFFFF, &b);
+    if (parse_packet_header_len__6TLobbyFPviPv(a.p, a.len, &hlen) != 0)
+    {
+      o->active = 0;
+      ring->vt->m5(ring, 1, &b);
+      ring->vt->m5(ring, 1, &a);
+      return;
+    }
+    n = hlen;
+    r1 = find_terminator_index__6TLobbyFPviPv(a.p + n, a.len - n, &hlen);
+    if (r1 == 0)
+    {
+      r2 = -1;
+    }
+    else
+    {
+      r2 = find_terminator_index__6TLobbyFPviPv(b.p, b.len, &tlen);
+    }
+    n += hlen;
+    m = tlen & 0xFFFFFFFFFFFFFFFFu;
+    if ((r1 != 0) && (r2 != 0))
+    {
+      ring->vt->m5(ring, 1, &b);
+      ring->vt->m5(ring, 1, &a);
+      o->active = 0;
+      return;
+    }
+    if (r1 == 0)
+    {
+      ring->vt->m5(ring, 1, &b);
+      TLobby__sub_803D3130(&a, n, (Pair_803C8678 *)&a, (Pair_803C8678 *)&c);
+      ring->vt->m6(ring, 0, &a);
+      ring->vt->m5(ring, 1, &c);
+    }
+    else
+    {
+      ring->vt->m6(ring, 0, &a);
+      TLobby__sub_803D3130(&b, m, (Pair_803C8678 *)&b, (Pair_803C8678 *)&d);
+      ring->vt->m6(ring, 0, &b);
+      ring->vt->m5(ring, 1, &d);
+    }
+    o->fA4 += TLobby__sub_803C0010(lobby);
+    reset_flag__6TLobbyFPv(lobby);
+    TLobby__sub_803C0758((void *) lobby);
+    TLobby__sub_803C0074(lobby);
+    if (TLobby__sub_803C07E8(lobby) != 2)
+    {
+      o->active = 0;
+      return;
+    }
+    set_network_result__6TLobbyFPvi(lobby, o->f48);
+    set_field_3c__6TLobbyFPvi(lobby, send_packet_by_id__6TLobbyFPv(lobby));
+    set_field_44__6TLobbyFPvi(lobby, 0);
+    set_field_40__6TLobbyFPvi(lobby, 0);
+  }
+}
+
+}
+
+#pragma pop
+
 void TLobby__sub_803CB194(u8 *arg0) {
     s32 temp_r3;
     u8 *temp_r31;

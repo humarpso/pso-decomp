@@ -66,7 +66,7 @@ void rotate_vector_by_matrix(int, void *, void *);
 void rotate_matrix_y(int, int);
 s32 push_matrix_from(void *);
 void pop_matrices(int);
-extern u8 lbl_8058D490[];
+extern u8 identity_matrix[];
 extern const f32 lbl_805DC1B0;
 extern const f32 lbl_805DC1B4;
 extern const f32 lbl_805DC1B8;
@@ -100,7 +100,7 @@ void run_task__12TPhotonLaserFv(Laser_801AC17C *o) {
     o->f368 += lbl_805DC1B0;
     in.y = in.x = lbl_805DC1B4;
     in.z = lbl_805DC1B8;
-    push_matrix_from(lbl_8058D490);
+    push_matrix_from(identity_matrix);
     rotate_matrix_y(0, (s32)(lbl_805DC1BC * (f32)o->f36C));
     rotate_vector_by_matrix(0, &in, &out);
     pop_matrices(1);

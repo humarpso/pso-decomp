@@ -21,7 +21,7 @@ M2C_UNK begin_effect_render__13TParticleCtrlFv();
 M2C_UNK end_effect_render__13TParticleCtrlFv();
 M2C_UNK offset_point_toward_camera(void *, M2C_UNK *, f32);
 void play_sound__15TPlyPhotonChairFPv(void *);
-M2C_UNK set_position_vec3__10TObjPlayerFPvPv(M2C_UNK, M2C_UNK *);
+M2C_UNK translate_matrix_vec3(M2C_UNK, M2C_UNK *);
 void update_parts2__15TPlyPhotonChairFPv(void *);
 void update_parts__15TPlyPhotonChairFPv(void *);
 M2C_UNK update_photon_chair__11TMainCursorFi(void *);
@@ -46,7 +46,7 @@ void render__11TMainCursorFPv(u8 *arg0) {
     temp_f31 = M2C_FIELD(arg0, f32 *, 0x30);
     push_matrix();
     offset_point_toward_camera(arg0 + 0x40, &sp8, M2C_FIELD(arg0, f32 *, 0x2C));
-    set_position_vec3__10TObjPlayerFPvPv(0, &sp8);
+    translate_matrix_vec3(0, &sp8);
     rotate_matrix_y(0, M2C_FIELD(camera_ctrl_instance, s32 *, 0x194));
     push_matrix();
     rotate_matrix_z(0, 0x2AAA);

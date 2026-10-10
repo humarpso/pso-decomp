@@ -9,9 +9,9 @@ struct S_803DC83C { u8 pad[0x77]; u8 f; };
 struct S_803DC850 { u8 pad[0x78]; u8 f; };
 
 extern "C" {
-extern S_803DC83C lbl_8058CD80;
+extern S_803DC83C ginja_material_cache;
 void TObjPlayer__sub_803DC83C(s32 x);
-extern S_803DC83C lbl_8058CD80;
+extern S_803DC83C ginja_material_cache;
 void TObjPlayer__sub_803DC850(s32 x);
 }
 
@@ -32,7 +32,7 @@ extern s32 lbl_805D76E4;
 #pragma scheduling off
 #pragma peephole off
 void TObjPlayer__sub_803DC83C(s32 x) {
-    lbl_8058CD80.f = (u8)x;
+    ginja_material_cache.f = (u8)x;
 }
 #pragma pop
 
@@ -40,7 +40,7 @@ void TObjPlayer__sub_803DC83C(s32 x) {
 #pragma scheduling off
 #pragma peephole off
 void TObjPlayer__sub_803DC850(s32 x) {
-    (*(S_803DC850 *)&lbl_8058CD80).f = (u8)x;
+    (*(S_803DC850 *)&ginja_material_cache).f = (u8)x;
 }
 #pragma pop
 

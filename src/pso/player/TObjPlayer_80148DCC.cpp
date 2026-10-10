@@ -149,7 +149,7 @@ M2C_UNK restore_scene_lighting();
 M2C_UNK select_actor_lighting(void *);
 M2C_UNK render_with_position_override__10TObjPlayerFPvPvi(void *, M2C_UNK, M2C_UNK);
 u16 find_nearest_visible_player(void *, M2C_UNK, f32 *, f32);
-M2C_UNK set_position_vec3__10TObjPlayerFPvPv(M2C_UNK, void *);
+M2C_UNK translate_matrix_vec3(M2C_UNK, void *);
 M2C_UNK rotate_matrix_y(M2C_UNK, s32);
 M2C_UNK push_matrix_from(M2C_UNK);
 M2C_UNK pop_matrix();
@@ -186,7 +186,7 @@ void draw_model__10TObjPlayerFPv(u8 *arg0) {
         some_id_805c6f74 |= 1;
         set_global_param__8TObjFishFi(M2C_FIELD(arg0, s32 *, 0x24));
         push_matrix_from(0);
-        set_position_vec3__10TObjPlayerFPvPv(0, arg0 + 0x38);
+        translate_matrix_vec3(0, arg0 + 0x38);
         rotate_matrix_y(0, M2C_FIELD(arg0, s32 *, 0x60));
         set_global_flag__10TObjPlayerFv();
         if ((s32) M2C_FIELD(arg0, s32 *, 0x394) != 0) {

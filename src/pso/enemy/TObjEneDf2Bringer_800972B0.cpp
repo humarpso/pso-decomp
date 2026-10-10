@@ -1315,7 +1315,7 @@ M2C_UNK advance_animation_playback(void *);
 s32 play_effect_if_v2__10TObjPlayerFi(int);
 s32 play_sound_effect(void *, void *, int, int);
 M2C_UNK matrix_mult_vec(int, void *, void *);
-M2C_UNK set_matrix_identity__10TObjPlayerFPv(int);
+M2C_UNK set_matrix_identity(int);
 M2C_UNK rotate_matrix_y(int, int);
 M2C_UNK push_matrix();
 M2C_UNK pop_matrix();
@@ -1864,7 +1864,7 @@ void TObjEneDf2Bringer__sub_80097E9C(u8 *arg0, s32 arg1) {
             temp_r3_2 = lookup_entry_by_value__10TObjPlayerFPvf((int) (TObjEneDf2Bringer__data_805D4FC8), (f32) (M2C_FIELD(arg0, f32 *, 0xC0)));
             if (temp_r3_2 != 0) {
                 push_matrix();
-                set_matrix_identity__10TObjPlayerFPv((int) (0));
+                set_matrix_identity((int) (0));
                 post_translate_matrix((void *) (arg0 + 0x38));
                 rotate_matrix_y((int) (0), (int) (M2C_FIELD(arg0, s32 *, 0x60)));
                 matrix_mult_vec((int) (0), (void *) (temp_r3_2 + 0x18), (void *) (&stack.sp8));

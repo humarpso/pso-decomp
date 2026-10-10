@@ -74,7 +74,7 @@ s32 approach_angle_limited(s32, s32, s32);
 M2C_UNK play_sound_effect(int, void *, int, int);
 f32 sin_table_lookup(s32);
 M2C_UNK matrix_mult_vec(int, void *, void *);
-M2C_UNK set_matrix_identity__10TObjPlayerFPv(int);
+M2C_UNK set_matrix_identity(int);
 M2C_UNK subtract_vector(void *, void *);
 M2C_UNK concat_matrix__10TObjPlayerFUiUi(int, int);
 M2C_UNK push_matrix();
@@ -217,7 +217,7 @@ void run_task__14TBoss2TentacleFv(u8 *arg0) {
         f32 len;
         v.z = v.y = v.x = (*(const f32 *)&TBoss2Tentacle__data_805D8534);
         push_matrix();
-        set_matrix_identity__10TObjPlayerFPv(0);
+        set_matrix_identity(0);
         concat_matrix__10TObjPlayerFUiUi(0, F(s32, 0x110));
         matrix_mult_vec(0, &v, arg0 + 0x140);
         pop_matrix();

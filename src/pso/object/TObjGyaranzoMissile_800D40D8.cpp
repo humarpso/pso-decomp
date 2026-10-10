@@ -99,7 +99,7 @@ void push_matrix_from(void *);
 void rotate_vector_by_matrix(int, void *, void *);
 u32 csnVector(void *, void *, int);
 void update_collisions__10TObjPlayerFPv(void *);
-extern u8 lbl_8058D490[];
+extern u8 identity_matrix[];
 extern const f32 lbl_805DA2A4;
 extern const f32 lbl_805DA2A8;
 extern const f32 lbl_805DA2AC;
@@ -215,7 +215,7 @@ void update_flight__19TObjGyaranzoMissileFPv(Missile_800D43B4 *self) {
         self->pos.z += self->vel.z;
         update_ground_fall__19TObjGyaranzoMissileFPvPvf((u8 *)self, NULL, lbl_805DA2A4);
         if (self->flags & 0x800000) {
-            push_matrix_from(lbl_8058D490);
+            push_matrix_from(identity_matrix);
             self->vel.x = lbl_805DA2A4;
             self->vel.y = lbl_805DA2A4;
             self->vel.z = lbl_805DA2AC;

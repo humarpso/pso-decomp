@@ -390,7 +390,7 @@ s32 vec3_add_to(void *, void *);
 s32 rotate_vector_by_matrix(s32, void *, void *);
 s32 push_matrix_from(void *);
 s32 pop_matrices(s32);
-extern f32 lbl_8058D490[3][4];
+extern f32 identity_matrix[3][4];
 extern const f32 lbl_805D9F24;
 M2C_UNK enemy_set_heading_velocity(void *, int, f32);
 M2C_UNK enemy_turn_toward_dest(void *, void *);
@@ -516,7 +516,7 @@ loop_7:
         if (var_r29 == 0) {
             VecCopy__FP3VecPC3Vec(&sp14, &arg0->velocity);
         } else {
-            push_matrix_from(&lbl_8058D490);
+            push_matrix_from(&identity_matrix);
             rotate_matrix_y((int)(0), (int)(var_r30 * var_r31));
             rotate_vector_by_matrix(0, &arg0->velocity, &sp14);
             pop_matrices(1);

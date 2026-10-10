@@ -131,7 +131,7 @@ int push_matrix_from(void *);
 int pop_matrix();
 extern Offs_8029C390 lbl_80465884;
 extern ChipParam_8029C390 lbl_80465890;
-extern u8 lbl_8058D490[];
+extern u8 identity_matrix[];
 extern void *tl_05;
 void TORockJungleM01__vt14(Rock_8029C390 *self);
 }
@@ -173,7 +173,7 @@ void TORockJungleM01__vt14(Rock_8029C390 *self) {
     chip.y2 = chip.pos.y;
     for (i = 0; i < 1; i++) {
         VecCopy__FP3VecPC3Vec(&v, &a.v[i]);
-        push_matrix_from(lbl_8058D490);
+        push_matrix_from(identity_matrix);
         rotate_matrix_y(0, self->x60);
         rotate_vector_by_matrix(0, &v, &v);
         pop_matrix();

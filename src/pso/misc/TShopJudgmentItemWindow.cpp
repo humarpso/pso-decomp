@@ -187,7 +187,7 @@ s32 is_visible__17TWindowSubComCardFPv(void *);
 s32 get_status_flag__17TWindowSubComCardFPv(void *);
 s32 set_field_20__12TQuestListVMFPvi(void *, s32);
 s32 check_equip_requirements(int, void *, int);
-M2C_UNK fn_801B849C(int, void *);
+M2C_UNK request_inventory_item__10TObjPlayerFP9TItemData(int, void *);
 M2C_UNK get_item_record__23TShopJudgmentItemWindowFPv(int, int, int);
 M2C_UNK set_judgment_target_flag(void *, void *);
 s32 get_shop_value__6TLobbyFv();
@@ -413,7 +413,7 @@ void handle_equip_prompt__23TShopJudgmentItemWindowFPv(u8 *arg0) {
                 F(0x158, void *) = NULL;
                 get_item_record__23TShopJudgmentItemWindowFPv(F(0x24, s32), F(0x48, s32), 1);
                 F(0x34, s32) = F(0x48, s32);
-                fn_801B849C(F(0x24, s32), arg0 + 0x28);
+                request_inventory_item__10TObjPlayerFP9TItemData(F(0x24, s32), arg0 + 0x28);
                 set_judgment_target_flag(arg0, arg0 + 0x28);
                 item = find_item_by_id(F(0x34, s32));
                 if (item != NULL && (eq = get_equip_field_d04__10TObjPlayerFPv(F(0x24, s32), item->m31())) != 0) {
@@ -431,7 +431,7 @@ void handle_equip_prompt__23TShopJudgmentItemWindowFPv(u8 *arg0) {
                 F(0x158, void *) = NULL;
                 get_item_record__23TShopJudgmentItemWindowFPv(F(0x24, s32), F(0x48, s32), 1);
                 F(0x34, s32) = F(0x48, s32);
-                fn_801B849C(F(0x24, s32), arg0 + 0x28);
+                request_inventory_item__10TObjPlayerFP9TItemData(F(0x24, s32), arg0 + 0x28);
                 set_judgment_target_flag(arg0, arg0 + 0x28);
                 ((VObj_18 *)(arg0))->m6(0xB, 1);
                 if (get_shop_value__6TLobbyFv() > 0) {
@@ -445,7 +445,7 @@ void handle_equip_prompt__23TShopJudgmentItemWindowFPv(u8 *arg0) {
             F(0x158, void *) = NULL;
             get_item_record__23TShopJudgmentItemWindowFPv(F(0x24, s32), F(0x48, s32), 1);
             F(0x34, s32) = F(0x48, s32);
-            fn_801B849C(F(0x24, s32), arg0 + 0x28);
+            request_inventory_item__10TObjPlayerFP9TItemData(F(0x24, s32), arg0 + 0x28);
             set_judgment_target_flag(arg0, arg0 + 0x28);
             ((VObj_18 *)(arg0))->m6(0xB, 1);
             if (get_shop_value__6TLobbyFv() > 0) {
@@ -493,7 +493,7 @@ void update_judge_confirm__23TShopJudgmentItemWindowFPv(u8 *arg0) {
                 }
                 get_item_record__23TShopJudgmentItemWindowFPv((s32) (M2C_FIELD(arg0, s32 *, 0x24)), (s32) (M2C_FIELD(arg0, s32 *, 0x48)), (s32) (1));
                 M2C_FIELD(arg0, s32 *, 0x34) = (s32) M2C_FIELD(arg0, s32 *, 0x48);
-                fn_801B849C((s32) (M2C_FIELD(arg0, s32 *, 0x24)), (void *) (arg0 + 0x28));
+                request_inventory_item__10TObjPlayerFP9TItemData((s32) (M2C_FIELD(arg0, s32 *, 0x24)), (void *) (arg0 + 0x28));
                 set_judgment_target_flag((void *) (arg0), (void *) (arg0 + 0x28));
                 ((VObj_18 *)(arg0))->m6(0xB, 1);
                 TWindow__close(M2C_FIELD(arg0, void **, 0x158));

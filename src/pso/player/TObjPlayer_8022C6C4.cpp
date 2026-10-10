@@ -87,7 +87,7 @@ void matrix_mult_vec(int, void *, void *);
 void rotate_matrix_y(int, int);
 void push_matrix_from(void *);
 void pop_matrices(int);
-extern u8 lbl_8058D490[];
+extern u8 identity_matrix[];
 extern s32 local_client_id;
 extern const f32 lbl_805DC7D8;
 extern const f32 lbl_805DC7E4;
@@ -391,7 +391,7 @@ void launch_technique__10TObjPlayerFv(s32 tech, s32 unused, Player_8022D27C *pl)
         return;
     }
     n = get_section_clamped__10TObjPlayerFPv(td);
-    push_matrix_from(lbl_8058D490);
+    push_matrix_from(identity_matrix);
     rotate_matrix_y(0, pl->rotY);
     matrix_mult_vec(0, &ofs, &ofs);
     pop_matrices(1);

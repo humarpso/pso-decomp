@@ -135,7 +135,7 @@ void rotate_matrix_y(s32, s32);
 void push_matrix_from(void *);
 void pop_matrices(s32);
 extern Vec_802304A0 lbl_8044D288;
-extern u8 lbl_8058D490[];
+extern u8 identity_matrix[];
 extern void *technique_effect_bml;
 extern void *lbl_805D63B0;
 extern const f32 lbl_805DC800;
@@ -260,7 +260,7 @@ void create_particles__11TTecGiBartaFv(void *arg0) {
             emitter = spawn_continuous_particle_with_direction(&pos, &angles, TTecGiBarta__emitter_profile_table[shot->band].rows[i].entry);
         } else {
             *(Raw_802304A0 *)&off = *(Raw_802304A0 *)&lbl_8044D288;
-            push_matrix_from(lbl_8058D490);
+            push_matrix_from(identity_matrix);
             rotate_matrix_y(0, shot->f58);
             matrix_mult_vec(0, &off, &off);
             pop_matrices(1);

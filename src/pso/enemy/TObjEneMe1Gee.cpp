@@ -1433,7 +1433,7 @@ M2C_UNK set_global_flag__10TObjPlayerFv();
 M2C_UNK clear_global_state__10TObjPlayerFv();
 extern const u8 TObjEneMe1Gee__data_8043BDC0[];
 extern Vec_800CA454 lbl_8043BE7C[];
-extern u8 lbl_8058D490[];
+extern u8 identity_matrix[];
 extern u8 *anim_model_matrix_array;
 extern const f32 TObjEneMe1Gee__data_805DA0A8;
 extern const f32 TObjEneMe1Gee__data_805DA0D4;
@@ -4519,7 +4519,7 @@ void TObjEneMe1Gee__sub_800CA454(void *arg0, s32 arg1) {
                 ((void (*)(void *, const void *))destroy_subobj__13TObjEneMe1GeeFPv)(o, TObjEneMe1Gee__data_8043BDB0);
                 o->f408++;
                 ((void (*)(void *))advance_animation_playback)(o);
-                push_matrix_from(lbl_8058D490);
+                push_matrix_from(identity_matrix);
                 post_translate_matrix(&o->pos38);
                 rotate_matrix_y(0, o->angle);
                 set_global_flag__10TObjPlayerFv();

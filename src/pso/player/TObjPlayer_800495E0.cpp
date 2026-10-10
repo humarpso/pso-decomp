@@ -78,7 +78,7 @@ M2C_UNK pop_matrix();
 extern Vec_800498E8 lbl_804366F8;
 extern u8 lbl_80484A68[];
 extern M2C_UNK lbl_80484A94[];
-extern u8 lbl_8058D490[];
+extern u8 identity_matrix[];
 Obj_800498E8 *TObjPlayer__sub_800498E8(Obj_800498E8 *arg0, Obj_800498E8 *arg1, void *arg2, s32 arg3);
 s32 obj_is_hit_receivable(void *);
 void queue_destruction__7TObjectFv(void *);
@@ -240,7 +240,7 @@ Obj_800498E8 *TObjPlayer__sub_800498E8(Obj_800498E8 *arg0, Obj_800498E8 *arg1, v
     arg0->f5c = 0;
     arg0->fd4 = spawn_particle_effect_with_rotation(&arg0->pos, &arg0->f5c, 0x11C, 2);
     arg0->fd8 = spawn_particle_effect_with_rotation(&arg0->pos, &arg0->f5c, 0x11D, 2);
-    push_matrix_from(lbl_8058D490);
+    push_matrix_from(identity_matrix);
     Vec_800498E8 v = lbl_804366F8;
     v.z = TObjPlayer__sub_800499FC(0);
     rotate_matrix_y(0, arg1->f60);

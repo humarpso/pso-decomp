@@ -43,9 +43,21 @@ extern const f32 lbl_805E03B0;
 s32 is_split_screen(void);
 void queue_destruction__7TObjectFv(void *);
 void run_task__17TObjEneHoldEffectFv(Hold_8036CE20 *o);
+u8 validate_attack_target_count(s32 *count);
 }
 
 extern "C" {
+
+#pragma push
+#pragma opt_common_subs off
+u8 validate_attack_target_count(s32 *count) {
+    s32 valid = 0;
+    if (*count >= 0 && *count <= 10) {
+        valid = 1;
+    }
+    return valid;
+}
+#pragma pop
 
 #pragma push
 #pragma fp_contract on

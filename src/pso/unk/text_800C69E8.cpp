@@ -24,7 +24,7 @@ M2C_UNK pop_matrix();
 extern Vec_800C6A48 lbl_8043BCAC;
 extern Vec_800C6A48 lbl_8043BCB8;
 extern const f64 lbl_8043BCC8[];
-extern u8 lbl_8058D490[];
+extern u8 identity_matrix[];
 extern const f32 lbl_805DA068;
 extern const f32 lbl_805DA06C;
 void pick_open_direction__10TObjPlayerFPvPvff(u8 *self, f32 *dir, f32 a, f32 b);
@@ -73,7 +73,7 @@ void pick_open_direction__10TObjPlayerFPvPvff(u8 *self, f32 *dir, f32 a, f32 b) 
     bestAng = ang;
     VecCopy__FP3VecPC3Vec(&sp20, self + 0x38);
     sp20.y += lbl_805DA06C;
-    push_matrix_from(lbl_8058D490);
+    push_matrix_from(identity_matrix);
     {
         Vec_800C6A48 sp14 = lbl_8043BCAC;
         sp14.x = a + b;
@@ -96,7 +96,7 @@ void pick_open_direction__10TObjPlayerFPvPvff(u8 *self, f32 *dir, f32 a, f32 b) 
         }
     }
     pop_matrix();
-    push_matrix_from(lbl_8058D490);
+    push_matrix_from(identity_matrix);
     {
         Vec_800C6A48 sp8 = lbl_8043BCB8;
         sp8.x = best;

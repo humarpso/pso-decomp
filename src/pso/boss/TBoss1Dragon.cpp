@@ -2236,7 +2236,7 @@ M2C_UNK matrix_mult_vec(int, void *, void *);
 M2C_UNK scale_matrix(M2C_UNK, f32, f32, f32);
 M2C_UNK push_matrix_from(void *);
 M2C_UNK pop_matrix();
-extern u8 lbl_8058D490[];
+extern u8 identity_matrix[];
 extern const f32 TBoss1Dragon__data_805D7F24;
 extern const f32 TBoss1Dragon__data_805D7F28;
 f32 sample_root_height__12TBoss1DragonFPv(u8 *arg0);
@@ -7192,7 +7192,7 @@ f32 sample_root_height__12TBoss1DragonFPv(u8 *arg0) {
     v.x = TBoss1Dragon__data_805D7F28;
     v.y = TBoss1Dragon__data_805D7F28;
     v.z = TBoss1Dragon__data_805D7F28;
-    push_matrix_from(lbl_8058D490);
+    push_matrix_from(identity_matrix);
     scale_matrix((M2C_UNK)(0), TBoss1Dragon__data_805D7F24, TBoss1Dragon__data_805D7F24, TBoss1Dragon__data_805D7F24);
     bind_motion_context(M2C_FIELD(arg0, s32 *, 0xF8), M2C_FIELD(arg0, f32 *, 0xC0));
     compose_motion_node_matrix(M2C_FIELD(arg0, s32 *, 0x34));

@@ -73,7 +73,7 @@ f32 get_ad_end_text_start__10TObjPlayerFv(f32, f32);
 f32 get_scale_factor__10TObjPlayerFv(f32);
 M2C_UNK scale_matrix(int, f32, f32, f32);
 f32 vector_length(void *);
-M2C_UNK set_position_vec3__10TObjPlayerFPvPv(int, void *);
+M2C_UNK translate_matrix_vec3(int, void *);
 M2C_UNK rotate_matrix_y(int, int);
 M2C_UNK subtract_vector(void *, void *);
 M2C_UNK rotate_matrix_x(int, int);
@@ -220,7 +220,7 @@ void TObjPlayer__sub_800FF2D0(Obj_800FF2D0 *arg0) {
     for (; rec->n >= 2; rec++, ang++) {
         for (n = rec->n - 1; n > 0; n--, pt++) {
             push_matrix();
-            set_position_vec3__10TObjPlayerFPvPv(0, pt);
+            translate_matrix_vec3(0, pt);
             VecCopy__FP3VecPC3Vec(&d, &pt[1]);
             subtract_vector(&d, pt);
             if (lbl_805DAA58 == vector_length(&d)) {
@@ -258,7 +258,7 @@ void TObjPlayer__sub_800FF2D0(Obj_800FF2D0 *arg0) {
         for (b = arg0->blobs; b->scale >= lbl_805DAA58; b++) {
             f32 s;
             push_matrix();
-            set_position_vec3__10TObjPlayerFPvPv(0, &b->pos);
+            translate_matrix_vec3(0, &b->pos);
             s = lbl_805DAA60 * b->scale;
             scale_matrix(0, s, s, s);
             draw_chunk_object(lbl_8048DEF4);

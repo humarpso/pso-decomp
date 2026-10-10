@@ -188,7 +188,7 @@ M2C_UNK pop_matrix();
 extern const f64 lbl_804411B0;
 extern RecoveredGlobal_80164764_lbl_8050BEE0 lbl_8050BEE0;
 extern RecoveredGlobal_80164764_lbl_8050BFA0 lbl_8050BFA0;
-extern RecoveredGlobal_80164764_lbl_8058D490 lbl_8058D490;
+extern RecoveredGlobal_80164764_lbl_8058D490 identity_matrix;
 extern const f32 lbl_805DB570;
 extern const f32 lbl_805DB574;
 extern const f32 lbl_805DB57C;
@@ -292,7 +292,7 @@ s32 pick_random_destination__11TODragonflyFPvf(u8 *arg0, f32 farg0) {
     M2C_FIELD(&lbl_8050BEE0.value, f32 *, 4) = farg0;
     M2C_FIELD(&lbl_8050BEE0.value, f32 *, 8) = (f32) (M2C_FIELD(arg0, f32 *, 0xD0) * (lbl_805DB57C * (f32) rand()));
     M2C_FIELD(&lbl_8050BFA0.value, s32 *, 4) = (s32) (lbl_805DB570 * (lbl_805DB574 * (lbl_805DB57C * (f32) rand())));
-    push_matrix_from((void *) (&lbl_8058D490.value));
+    push_matrix_from((void *) (&identity_matrix.value));
     rotate_matrix_y((M2C_UNK)((int) (0)), (s32)((int) (M2C_FIELD(&lbl_8050BFA0.value, s32 *, 4))));
     rotate_vector_by_matrix((int) (0), (void *) (&lbl_8050BEE0.value), (void *) (&lbl_8050BEE0.value));
     pop_matrix();

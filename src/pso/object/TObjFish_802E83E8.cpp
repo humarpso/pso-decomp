@@ -3789,7 +3789,7 @@ M2C_UNK scale_matrix(int, f32, f32, f32);
 M2C_UNK push_matrix_from(void *);
 M2C_UNK transform_point_by_current_matrix(void *, void *);
 M2C_UNK pop_matrix();
-extern u8 lbl_8058D490[];
+extern u8 identity_matrix[];
 M2C_UNK TBoss2DeRolLe__sub_80035FCC(void *);
 u8 update_phase_rising__8TObjFishFPv(u8 *arg0);
 }
@@ -3984,7 +3984,7 @@ f32 TObjFish__sub_802ED3E4(u8 *arg0) {
     v.x = lbl_805DEA10;
     v.y = lbl_805DEA10;
     v.z = lbl_805DEA10;
-    push_matrix_from(lbl_8058D490);
+    push_matrix_from(identity_matrix);
     scale_matrix(0, lbl_805DEB24, lbl_805DEB24, lbl_805DEB24);
     bind_motion_context(M2C_FIELD(arg0, s32 *, 0xF8), M2C_FIELD(arg0, f32 *, 0xC0));
     compose_motion_node_matrix(M2C_FIELD(arg0, s32 *, 0x34));

@@ -456,7 +456,7 @@ M2C_UNK get_bml_model(s32, M2C_UNK);
 M2C_UNK func_80141618__Fv();
 M2C_UNK set_depth_buffer_settings_id__FUl(int);
 u8 update_state__8TObjFishFPv(void *arg0);
-M2C_UNK set_position_vec3__10TObjPlayerFPvPv(int, void *);
+M2C_UNK translate_matrix_vec3(int, void *);
 M2C_UNK rotate_matrix_y(M2C_UNK, s32);
 M2C_UNK push_matrix();
 M2C_UNK pop_matrix();
@@ -495,7 +495,7 @@ void render__8TObjFishFv(u8 *arg0) {
         f = F(Fish_8029D5C8 *, 0xA0);
         n = F(s32, 0x94);
         push_matrix();
-        set_position_vec3__10TObjPlayerFPvPv(0, arg0 + 0x38);
+        translate_matrix_vec3(0, arg0 + 0x38);
         rotate_matrix_y(0, F(s32, 0x60));
         if (camera_ctrl_instance != NULL) {
             d.x = *(f32 *)(camera_ctrl_instance + 0x178) - F(f32, 0x38);

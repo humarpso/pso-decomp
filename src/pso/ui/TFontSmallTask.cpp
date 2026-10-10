@@ -101,7 +101,7 @@ void build_small_font_glyph_quad(u8, Quad_800FCD40 *);
 void draw_textured_quad_at_depth(Quad_800FCD40 *, f32);
 u8 get_small_font_glyph_width(u8);
 void get_player__20TWindowSubStatusDispFv(void);
-extern u8 lbl_8058D490[];
+extern u8 identity_matrix[];
 extern u8 *camera_ctrl_instance;
 extern const f32 lbl_805DAA04;
 extern const f32 lbl_805DAA08;
@@ -141,7 +141,7 @@ void TFontSmallTask::render() {
             return;
         }
     }
-    push_matrix_from(lbl_8058D490);
+    push_matrix_from(identity_matrix);
     rotate_matrix_y(0, *(s32 *)(camera_ctrl_instance + 0x194));
     rotate_matrix_x(0, *(s32 *)(camera_ctrl_instance + 0x190));
     rotate_matrix_z(0, *(s32 *)(camera_ctrl_instance + 0x198));

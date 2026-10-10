@@ -185,7 +185,7 @@ extern s32 lbl_805D5870;
 s32 TObjPlayer__sub_8008E098(Obj_8008E098 *self);
 void vec3_add_to(Vec_8008E18C *, Vec_8008E18C *);
 void matrix_mult_vec(void *, Vec_8008E18C *, Vec_8008E18C *);
-void set_matrix_identity__10TObjPlayerFPv(void *);
+void set_matrix_identity(void *);
 M2C_UNK rotate_matrix_y(M2C_UNK, s32);
 M2C_UNK push_matrix();
 M2C_UNK pop_matrix();
@@ -411,7 +411,7 @@ void calc_slot_offset_position__10TObjPlayerFPviPvPv(Obj_8008E18C *self, s32 slo
     out->x = lbl_805D9620;
     out->y = lbl_805D9620;
     out->z = lbl_805D9630;
-    set_matrix_identity__10TObjPlayerFPv(0);
+    set_matrix_identity(0);
     rotate_matrix_y((M2C_UNK)(0), (s32)(angle));
     matrix_mult_vec(0, out, out);
     vec3_add_to(out, &self->pos);

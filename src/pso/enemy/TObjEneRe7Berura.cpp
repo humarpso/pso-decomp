@@ -608,7 +608,7 @@ extern M2C_UNK init_and_activate__10TObjPlayerFPv[];
 extern s32 lbl_80439DA0[];
 extern Atk_800959F8 ene_re7_berura_attack_def;
 extern u8 lbl_80439EF8[];
-extern M2C_UNK lbl_8058D490[];
+extern M2C_UNK identity_matrix[];
 extern void *lbl_805D2988;
 extern s32 TObjEneRe7Berura__handler_table_a[1];
 extern s32 re7_berura_demo_state;
@@ -1046,7 +1046,7 @@ void apply_attack_params__16TObjEneRe7BeruraFiPv(s32 arg0, u8 *arg1) {
     temp_r4 = M2C_FIELD(arg1, s32 *, 8);
     lbl_805D4F94 = temp_r4;
     lbl_805D4F9C = (long) (arg1 + 0x58);
-    push_matrix_from((void *) (lbl_8058D490), (int) (temp_r4), (int) (temp_r5), (int) (temp_r6));
+    push_matrix_from((void *) (identity_matrix), (int) (temp_r4), (int) (temp_r5), (int) (temp_r6));
     collect_node_matrices__16TObjEneRe7BeruraFPvi((void *)((void *) (arg0)), (int)((int) (0)));
     pop_matrix();
 }
@@ -1068,7 +1068,7 @@ M2C_UNK collect_node_matrices__16TObjEneRe7BeruraFPvi(void *arg0, int idx) {
             V[1] = V[1] + lbl_805D9774;
             V[2] = V[2] + TObjEneRe7Berura__data_805D9764;
             get_current_matrix(&m);
-            ((M2C_UNK (*)(void *))push_matrix_from)(lbl_8058D490);
+            ((M2C_UNK (*)(void *))push_matrix_from)(identity_matrix);
             translate_matrix(0, -V[0], -V[1], -V[2]);
             ((M2C_UNK (*)(M2C_UNK, void *))concat_matrix__10TObjPlayerFUiUi)(0, &m);
             get_current_matrix(&m);

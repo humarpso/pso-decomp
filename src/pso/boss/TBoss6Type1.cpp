@@ -522,7 +522,7 @@ M2C_UNK VecCopy__FP3VecPC3Vec(void *, void *);
 f32 vec3_add_to(void *, void *);
 f32 subtract_vector(void *, void *);
 s32 matrix_mult_vec(int, void *, void *);
-s32 set_matrix_identity__10TObjPlayerFPv(int);
+s32 set_matrix_identity(int);
 s32 rotate_matrix_y(int, int);
 s32 push_matrix();
 s32 pop_matrix();
@@ -1788,7 +1788,7 @@ void update_part_positions__11TBoss6Type1FPv(Boss_802B79DC *arg0) {
             VecCopy__FP3VecPC3Vec(&v, &base[t->idx]);
             subtract_vector(&v, &arg0->pos);
             push_matrix();
-            set_matrix_identity__10TObjPlayerFPv(0);
+            set_matrix_identity(0);
             rotate_matrix_y(0, -arg0->f60);
             matrix_mult_vec(0, &v, e);
             pop_matrix();

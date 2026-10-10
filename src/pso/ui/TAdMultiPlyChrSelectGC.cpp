@@ -22,7 +22,6 @@ u8 *get_or_create__22TAdMultiPlyChrSelectGCFii(s32 arg0, s32 arg1);
 void __ct__7TObjectFP7TObject(void *, void *);
 void create_widgets__22TAdMultiPlyChrSelectGCFPv(void *);
 void handle_event__22TAdMultiPlyChrSelectGCFPvi(void *arg0, s32 arg1);
-void TAdMultiPlyChrSelectGC__sub_802DFCCC(void *, s32);
 s32 get_select_flag__22TAdMultiPlyChrSelectGCFv(void);
 extern RecoveredGlobal_802DFF0C___vt__22TAdMultiPlyChrSelectGC __vt__22TAdMultiPlyChrSelectGC;
 extern s32 lbl_805D3F68;
@@ -38,6 +37,9 @@ extern s32 TAdMultiPlyChrSelectGC__data_805D67D8;
 s32 TAdMultiPlyChrSelectGC__sub_802DFFE8(O_802DFFE8 *self);
 extern s32 TAdMultiPlyChrSelectGC__data_805D67D8;
 void TAdMultiPlyChrSelectGC__sub_802E0024(O_802E0024 *self, s32 v);
+s32 get_clamped_cursor__22TAdMultiPlyChrSelectGCFv(void);
+extern s32 lbl_805D68C8;
+void TAdMultiPlyChrSelectGC__sub_802DFCCC(void *arg0, s32 arg1);
 }
 
 extern "C" {
@@ -92,6 +94,50 @@ void handle_event__22TAdMultiPlyChrSelectGCFPvi(void *arg0, s32 arg1) {
     extern int TAdMultiPlyChrSelectGC__selected_slot;
 
 typedef char RecoveredGlobal_802DFF0C___vt__22TAdMultiPlyChrSelectGC_size[sizeof(RecoveredGlobal_802DFF0C___vt__22TAdMultiPlyChrSelectGC) == 0x18 ? 1 : -1];
+
+#pragma push
+#pragma optimization_level 2
+#pragma opt_propagation off
+#pragma dont_inline on
+void TAdMultiPlyChrSelectGC__sub_802DFCCC(void *arg0, s32 arg1) {
+    s32 v;
+    M2C_FIELD(arg0, s32 *, 0x1C) = 0;
+    M2C_FIELD(arg0, s32 *, 0x30) = -1;
+    M2C_FIELD(arg0, s32 *, 0x34) = -1;
+    M2C_FIELD(arg0, s32 *, 0x44) = 2;
+    M2C_FIELD(arg0, s32 *, 0x38) = 0;
+    M2C_FIELD(arg0, s32 *, 0x58) = 0;
+    v = get_clamped_cursor__22TAdMultiPlyChrSelectGCFv();
+    M2C_FIELD(arg0, s32 *, 0x4C) = v;
+    M2C_FIELD(arg0, s32 *, 0x2C) = 2;
+    v = 0;
+    M2C_FIELD(arg0, s32 *, 0x48) = arg1;
+    M2C_FIELD(arg0, s32 *, 0x74) = v;
+    lbl_805D68C8 = v;
+    M2C_FIELD(arg0, s32 *, 0x50) = v;
+    M2C_FIELD(arg0, s32 *, 0x54) = 1;
+    M2C_FIELD(arg0, s32 *, 0x68) = v;
+    M2C_FIELD(arg0, s32 *, 0x60) = v;
+    M2C_FIELD(arg0, s32 *, 0x5C) = v;
+    M2C_FIELD(arg0, s32 *, 0x78) = v;
+    M2C_FIELD(arg0, s32 *, 0x70) = v;
+    M2C_FIELD(arg0, s32 *, 0x7C) = v;
+    M2C_FIELD(arg0, s32 *, 0x80) = v;
+    M2C_FIELD(arg0, s32 *, 0x84) = v;
+    M2C_FIELD(arg0, s32 *, 0x88) = v;
+    M2C_FIELD(arg0, s32 *, 0x8C) = v;
+    M2C_FIELD(arg0, s32 *, 0x90) = v;
+    M2C_FIELD(arg0, s32 *, 0x94) = v;
+    M2C_FIELD(arg0, s32 *, 0x98) = v;
+    M2C_FIELD(arg0, s32 *, 0x3C) = v;
+    M2C_FIELD(arg0, s32 *, 0x40) = v;
+    M2C_FIELD(arg0, s32 *, 0x9C) = v;
+    if (M2C_FIELD(arg0, s32 *, 0x48) == 1) {
+        v = 0x1D;
+    }
+    M2C_FIELD(arg0, s32 *, 0x20) = v;
+}
+#pragma pop
 
 u8 *__dt__22TAdMultiPlyChrSelectGCFv(u8 *arg0, s16 arg1) {
     u8 *temp_r3;
@@ -176,7 +222,7 @@ u8 *TAdMultiPlyChrSelectGC__ct(u8 *arg0, u8 *arg1, s32 arg2) {
     __ct__7TObjectFP7TObject(arg0, arg1);
     M2C_FIELD(arg0, M2C_UNK **, 0x18) = &__vt__22TAdMultiPlyChrSelectGC.value;
     M2C_FIELD(arg0, s32 *, 0) = (s32) lbl_805D3F68;
-    TAdMultiPlyChrSelectGC__sub_802DFCCC(arg0, arg2);
+    TAdMultiPlyChrSelectGC__sub_802DFCCC((void *)(arg0), (s32)(arg2));
     create_widgets__22TAdMultiPlyChrSelectGCFPv(arg0);
     handle_event__22TAdMultiPlyChrSelectGCFPvi(arg0, get_select_flag__22TAdMultiPlyChrSelectGCFv());
     return arg0;

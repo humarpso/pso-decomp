@@ -41,7 +41,7 @@ s32 rotate_vector_by_matrix(int, void *, void *);
 s32 rotate_matrix_y(int, int);
 s32 push_matrix_from(void *);
 s32 pop_matrix();
-extern RecoveredGlobal_80081CD0_lbl_8058D490 lbl_8058D490;
+extern RecoveredGlobal_80081CD0_lbl_8058D490 identity_matrix;
 extern const f32 lbl_805D9378;
 extern const f32 lbl_805D9388;
 extern const f32 lbl_805D938C;
@@ -127,7 +127,7 @@ void freeze_shell_grow(u8 *arg0) {
         stack.sp8 = lbl_805D9378;
         stack.spC = lbl_805D9378;
         stack.sp10 = lbl_805D938C * M2C_FIELD(arg0, f32 *, 0x68);
-        push_matrix_from((void *) (&lbl_8058D490.value));
+        push_matrix_from((void *) (&identity_matrix.value));
         rotate_matrix_y((int) (0), (int) (M2C_FIELD(arg0, s32 *, 0x60) * 2));
         rotate_vector_by_matrix((int) (0), (void *) (&stack.sp8), (void *) (&stack.sp8));
         pop_matrix();

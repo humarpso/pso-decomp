@@ -117,7 +117,7 @@ int post_translate_matrix(void*);
 M2C_UNK free_collision_body_parts(void *);
 M2C_UNK unregister_object_by_id(void *);
 int refresh_collision_body_centers(void*);
-int set_matrix_identity__10TObjPlayerFPv(void*);
+int set_matrix_identity(void*);
 int rotate_matrix_y(void*, void*);
 int push_matrix(void*);
 int pop_matrix(void);
@@ -173,7 +173,7 @@ void TBoss1DragonColli__sub_8002B358(void) {  }
 
 void TBoss1DragonColli__sub_8002B35C(void* p) { clear_segment_flags__17TBoss1DragonColliFPv((O_8002B3F4 *)((void*)(p))); }
 
-void draw__17TBoss1DragonColliFPvPvPv(void* p, void* a1, void* a2) { push_matrix(p); set_matrix_identity__10TObjPlayerFPv((void*)0); post_translate_matrix(a1); rotate_matrix_y((void*)0, a2); matrix_mult_vec((void*)0, (char*)p + 0xac, (char*)p + 0x38); pop_matrix(); *(void**)((char*)p + 0x60) = a2; refresh_collision_body_centers(p); set_elem_flags__17TBoss1DragonColliFPv((O_8002B42C *)((void*)(p))); }
+void draw__17TBoss1DragonColliFPvPvPv(void* p, void* a1, void* a2) { push_matrix(p); set_matrix_identity((void*)0); post_translate_matrix(a1); rotate_matrix_y((void*)0, a2); matrix_mult_vec((void*)0, (char*)p + 0xac, (char*)p + 0x38); pop_matrix(); *(void**)((char*)p + 0x60) = a2; refresh_collision_body_centers(p); set_elem_flags__17TBoss1DragonColliFPv((O_8002B42C *)((void*)(p))); }
 
 void clear_segment_flags__17TBoss1DragonColliFPv(O_8002B3F4 *self) {
     s32 i;

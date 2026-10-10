@@ -825,7 +825,7 @@ void *lbl_804907EC[83] = {
 };
 
 extern M2C_UNK lbl_804909C4[];
-extern u8 lbl_8058D490[];
+extern u8 identity_matrix[];
 extern s32 lbl_805D29C8;
 extern s32 lbl_805D5004;
 extern f32 lbl_805D5008;
@@ -941,7 +941,7 @@ void step_along_ground__10TObjPlayerFPv(u8 *arg0) {
         if (i == 0) {
             VecCopy__FP3VecPC3Vec(&dir, arg0 + 0x308);
         } else {
-            ((void (*)(void *))push_matrix_from)(lbl_8058D490);
+            ((void (*)(void *))push_matrix_from)(identity_matrix);
             ((void (*)(int, s32))rotate_matrix_y)(0, sign * ang);
             rotate_vector_by_matrix(0, arg0 + 0x308, &dir);
             ((void (*)(void))pop_matrix)();
@@ -1073,7 +1073,7 @@ void TObjPlayer__sub_800A159C(Obj_800A159C *o) {
     o->f390 += o->f394;
     v = o->f390;
     o->f390 = (v < lbl_805D9984) ? lbl_805D9984 : ((v < lbl_805D9990) ? v : lbl_805D9990);
-    push_matrix_from(lbl_8058D490);
+    push_matrix_from(identity_matrix);
     post_translate_matrix((s32)&o->pos);
     rotate_matrix_z(0, o->f64);
     rotate_matrix_y(0, o->f60);

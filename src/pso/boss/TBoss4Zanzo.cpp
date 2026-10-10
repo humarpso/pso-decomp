@@ -728,7 +728,7 @@ f32 cos_table_lookup(s32);
 M2C_UNK vec3_add_to(void *, void *);
 M2C_UNK matrix_mult_vec(int, void *, void *);
 f32 vector_length(void *);
-M2C_UNK set_matrix_identity__10TObjPlayerFPv(int);
+M2C_UNK set_matrix_identity(int);
 s32 rotate_matrix_y(int, int);
 M2C_UNK subtract_vector(void *, void *);
 M2C_UNK normalize_vector(void *);

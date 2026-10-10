@@ -242,7 +242,7 @@ M2C_UNK begin_effect_render__13TParticleCtrlFv();
 M2C_UNK end_effect_render__13TParticleCtrlFv();
 s32 all_parents_unqueued_for_destruction__7TObjectFv();
 M2C_UNK scale_matrix(M2C_UNK, f32, f32, f32);
-M2C_UNK set_position_vec3__10TObjPlayerFPvPv(M2C_UNK, s32);
+M2C_UNK translate_matrix_vec3(M2C_UNK, s32);
 M2C_UNK rotate_matrix_y(M2C_UNK, s32);
 M2C_UNK push_matrix();
 M2C_UNK pop_matrix();
@@ -310,7 +310,7 @@ void draw_marker_model__10TObjPlayerFPv(void *arg0) {
         copy_vec4__13TRaderMapCoreFPvPv(lbl_8050BEC0, lbl_8058D4C0);
         set_global_param__8TObjFishFi(lbl_8048E5A0);
         some_id_805c6f74 |= 0x11;
-        set_position_vec3__10TObjPlayerFPvPv(0, TObjPlayer__sub_801BF914(temp_r3 + 0x84C));
+        translate_matrix_vec3(0, TObjPlayer__sub_801BF914(temp_r3 + 0x84C));
         rotate_matrix_y(0, M2C_FIELD(camera_ctrl_instance, s32 *, 0x194) + M2C_FIELD(arg0, s32 *, 0x20));
         scale_matrix(0, lbl_805DC358, lbl_805DC358, lbl_805DC358);
         set_chunk_material_color(lbl_80447020 + TObjPlayer__sub_801C6BEC(arg0) * 0x10);

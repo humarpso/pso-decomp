@@ -149,7 +149,7 @@ f32 lerp__9TDeadSpotFff(f32, f32);
 f32 rand_signed_unit();
 M2C_UNK init_base__10TObjPlayerFPv(void *);
 M2C_UNK matrix_mult_vec(int, void *, void *);
-M2C_UNK set_matrix_identity__10TObjPlayerFPv(int);
+M2C_UNK set_matrix_identity(int);
 M2C_UNK rotate_vector_by_matrix(int, void *, void *);
 M2C_UNK concat_matrix__10TObjPlayerFUiUi(int, int);
 M2C_UNK push_matrix();
@@ -297,7 +297,7 @@ Obj_8002E62C *construct_piece_controller__10TObjPlayerFPvii(Obj_8002E62C *self, 
     self->vt = lbl_80482090;
     self->f4F0 = arg2;
     push_matrix();
-    set_matrix_identity__10TObjPlayerFPv(0);
+    set_matrix_identity(0);
     concat_matrix__10TObjPlayerFUiUi(0, self->f4F0);
     v = &self->f4F4;
     v->x = lbl_805D822C;

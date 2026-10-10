@@ -408,7 +408,7 @@ s32 rotate_matrix_y(int, void *);
 s32 push_matrix_from(void *);
 s32 pop_matrices(int);
 extern RecoveredGlobal_80367DC8_lbl_8050BF00 lbl_8050BF00;
-extern RecoveredGlobal_80367DC8_lbl_8058D490 lbl_8058D490;
+extern RecoveredGlobal_80367DC8_lbl_8058D490 identity_matrix;
 extern const f32 TObjEneIllGill__data_805E02BC;
 void TObjEneIllGill__sub_80367DC8(u8 *arg0, s32 arg1);
 s32 update_movement_status__10TObjPlayerFv(void *);
@@ -439,7 +439,7 @@ s32 rotate_vector_by_matrix(int, void *, void *);
 s32 rotate_matrix_y(int, void *);
 s32 push_matrix_from(void *);
 s32 pop_matrices(int);
-extern RecoveredGlobal_80367DC8_lbl_8058D490 lbl_8058D490;
+extern RecoveredGlobal_80367DC8_lbl_8058D490 identity_matrix;
 extern const f32 lbl_805E02B8;
 extern const f32 TObjEneIllGill__data_805E02BC;
 extern const f32 TObjEneIllGill__data_805E02CC;
@@ -569,7 +569,7 @@ M2C_UNK obj_setFlags30(void *, int);
 s32 request_destroy__11TBoss4Type2FUi(void *);
 
 extern "C" {
-extern RecoveredGlobal_80367DC8_lbl_8058D490 lbl_8058D490;
+extern RecoveredGlobal_80367DC8_lbl_8058D490 identity_matrix;
 }
 
 #pragma push
@@ -739,7 +739,7 @@ void update_ai__14TObjEneIllGillFPv(void *arg0_) {
                 v.z = TObjEneIllGill__data_805E02BC;
                 v.x = TObjEneIllGill__data_805E02BC;
                 v.z = o->f3ac;
-                push_matrix_from(&lbl_8058D490);
+                push_matrix_from(&identity_matrix);
                 rotate_matrix_y(0, (void *)ang);
                 rotate_vector_by_matrix(0, &v, &v);
                 pop_matrices(1);
@@ -782,7 +782,7 @@ void update_ai__14TObjEneIllGillFPv(void *arg0_) {
                 v.z = TObjEneIllGill__data_805E02BC;
                 v.x = TObjEneIllGill__data_805E02BC;
                 v.z = o->f3ac;
-                push_matrix_from(&lbl_8058D490);
+                push_matrix_from(&identity_matrix);
                 rotate_matrix_y(0, (void *)ang);
                 rotate_vector_by_matrix(0, &v, &v);
                 pop_matrices(1);
@@ -1575,7 +1575,7 @@ void TObjEneIllGill__sub_80367860(u8 *arg0) {
     v.y = TObjEneIllGill__data_805E02BC;
     v.x = TObjEneIllGill__data_805E02BC;
     v.z = TObjEneIllGill__data_805E02CC;
-    push_matrix_from(&lbl_8058D490);
+    push_matrix_from(&identity_matrix);
     rotate_matrix_y(0, M2C_FIELD(arg0, void **, 0x60));
     rotate_vector_by_matrix(0, &v, &v);
     pop_matrices(1);
@@ -1697,7 +1697,7 @@ void TObjEneIllGill__sub_80367DC8(u8 *arg0, s32 arg1) {
     M2C_FIELD(&lbl_8050BF00.value, f32 *, 4) = (f32) TObjEneIllGill__data_805E02BC;
     M2C_FIELD(&lbl_8050BF00.value, f32 *, 0) = (f32) TObjEneIllGill__data_805E02BC;
     M2C_FIELD(&lbl_8050BF00.value, f32 *, 8) = (f32) M2C_FIELD(M2C_FIELD(arg0, u8 **, 0x350), f32 *, 4);
-    push_matrix_from((void *) (&lbl_8058D490.value));
+    push_matrix_from((void *) (&identity_matrix.value));
     rotate_matrix_y((int) (0), (void *) (arg1));
     rotate_vector_by_matrix((int) (0), (void *) (&lbl_8050BF00.value), (void *) (&lbl_8050BF00.value));
     pop_matrices((int) (1));

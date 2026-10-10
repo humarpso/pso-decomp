@@ -5,7 +5,7 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 #define M2C_BITWISE(type, expr) ((type)(expr))
 extern "C" {
 M2C_UNK GXLoadPosMtxImm(int, int);
-extern s32 lbl_805D7774;
+extern s32 current_matrix;
 void load_camera_view_matrix(void);
 
 typedef f32 Mtx_803E20B0[3][4];
@@ -41,7 +41,7 @@ void load_screen_space_matrix__10TObjPlayerFv(void) {
 void load_camera_view_matrix(void) {
     s32 var_r3;
     s32 var_r4;
-    var_r3 = lbl_805D7774;
+    var_r3 = current_matrix;
     var_r4 = 0;
     GXLoadPosMtxImm((int) (var_r3), (int) (0));
 }

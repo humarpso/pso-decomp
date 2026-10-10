@@ -277,7 +277,7 @@ extern Vec_801151E0 lbl_8043E59C[];
 extern RecoveredGlobal_80114DB8_lbl_8043E5A8 lbl_8043E5A8;
 extern M2C_UNK lbl_8049F5A0[];
 extern f32 lbl_8058D4C0[4], lbl_8050BEC0[4];
-extern RecoveredGlobal_80114DB8_lbl_8058D490 lbl_8058D490;
+extern RecoveredGlobal_80114DB8_lbl_8058D490 identity_matrix;
 extern f32 lbl_805D2C08;
 extern f32 item_mag_follow_scale;
 extern u32 lbl_805D2C10;
@@ -374,7 +374,7 @@ s32 get_world_position__11TItemMagSubFPvUi(u8 *arg0, u32 arg1) {
     typedef char sp10_offset[(offsetof(Stack_80114DB8, sp10) == 0x8) ? 1 : -1];
     Stack_80114DB8 stack;
     if ((is_mag_active__11TItemMagSubFPv((int) (M2C_FIELD(arg0, s32 *, 0x1C))) == 0) && (arg1 != 0U)) {
-        push_matrix_from((void *) (&lbl_8058D490.value));
+        push_matrix_from((void *) (&identity_matrix.value));
         apply_placement_matrix__11TItemMagSubFPv((u8 *)((void *) (arg0)));
         stack.sp8 = M2C_FIELD(&lbl_8043E5A8.value, s32 *, 0);
         stack.spC = M2C_FIELD(&lbl_8043E5A8.value, s32 *, 4);
@@ -520,7 +520,7 @@ void update_special_pose__11TItemMagSubFPv(MagSub_801151E0 *self) {
             self->player->get_joint_pos(self->joint->id, &self->posA0);
         }
     }
-    push_matrix_from((void *) (&(*(RecoveredGlobal_801151E0_lbl_8058D490 *)&lbl_8058D490).value));
+    push_matrix_from((void *) (&(*(RecoveredGlobal_801151E0_lbl_8058D490 *)&identity_matrix).value));
     rotate_matrix_y(0, (void *)(calc_feed_level__11TItemMagSubFPv(self) + 0x8000));
     Vec_801151E0 in = lbl_8043E59C[0];
     Vec_801151E0 out;

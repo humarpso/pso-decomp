@@ -347,7 +347,7 @@ void push_matrix_from(void *);
 void rotate_matrix_y(s32, s32);
 void matrix_mult_vec(s32, void *, void *);
 void pop_matrices(s32);
-extern u8 lbl_8058D490[];
+extern u8 identity_matrix[];
 void calc_follow_position__11TCameraCtrlFPv(Cam_8006D95C *self);
 int get_camera_mode__11TCameraCtrlFv();
 extern FollowView *camera_ctrl_instance;
@@ -387,7 +387,7 @@ void normalize_vector(FollowVector *);
 void push_matrix_from(void *);
 void pop_matrices(s32);
 extern FollowVector lbl_80438534;
-extern u8 lbl_8058D490[];
+extern u8 identity_matrix[];
 void reset_follow_camera_after_warp(Cam_8006DD78 *arg0, const Tgt_8006DD78 *arg1);
 s32 get_global_state__14TOKeyMachine01Fv();
 void matrix_mult_vec(s32, void *, void *);
@@ -399,7 +399,7 @@ void VecCopy__FP3VecPC3Vec(void *, void *);
 void set_clamped_offsets__11TCameraCtrlFff(f32, f32);
 void camera_renderer_setup_nop(void *, s32);
 void update_camera_state__11TCameraCtrlFv(f32, f32, f32);
-extern u8 lbl_8058D490[];
+extern u8 identity_matrix[];
 extern void *local_client_id;
 extern FollowVector lbl_80438528;
 extern Preset_8006DEF8 *follow_camera_init_pose_table[];
@@ -416,7 +416,7 @@ f32 vec_squared_length(FollowVector *);
 void rotate_matrix_y(s32, s32);
 void push_matrix_from(void *);
 void pop_matrices(s32);
-extern u8 lbl_8058D490[];
+extern u8 identity_matrix[];
 void compute_follow_target__11TCameraCtrlFPv(Cam_8006E170 *self);
 s32 is_split_screen();
 void get_dragon_follow_camera_offsets(Vec_8006D9F0 *, Vec_8006D9F0 *);
@@ -744,7 +744,7 @@ s32 conversation_camera_obstructed(FollowController *self,s32 heading) {
     VecCopy__FP3VecPC3Vec((void *)(&eye), (void *)(source));
     VecCopy__FP3VecPC3Vec((void *)(&offset), (void *)(&self->position_offset));
     offset.z += (7.0f);
-    push_matrix_from(lbl_8058D490);
+    push_matrix_from(identity_matrix);
     rotate_matrix_y(0,heading);
     matrix_mult_vec(0,&offset,&offset);
     pop_matrices(1);
@@ -868,7 +868,7 @@ void update_follow_motion_state__11TCameraCtrlFPv(u8 *arg0) {
 
 void calc_follow_position__11TCameraCtrlFPv(Cam_8006D95C *self) {
     Vec_8006D95C v;
-    push_matrix_from(lbl_8058D490);
+    push_matrix_from(identity_matrix);
     rotate_matrix_y(0, self->f30);
     matrix_mult_vec(0, self->fdc, &v);
     pop_matrices(1);
@@ -979,7 +979,7 @@ void reset_follow_camera_after_warp(Cam_8006DD78 *arg0, const Tgt_8006DD78 *arg1
     Hit_8006DD78 *hit;
     if (arg1 != NULL) {
         arg0->heading = arg1->heading + 0x8000;
-        push_matrix_from(lbl_8058D490);
+        push_matrix_from(identity_matrix);
         rotate_matrix_y(0, arg0->heading);
         matrix_mult_vec(0, &v, &v);
         pop_matrices(1);
@@ -1014,7 +1014,7 @@ void follow_camera_init_pose(Cam_8006DEF8 *self) {
     state = get_global_state__14TOKeyMachine01Fv();
     if (p != NULL) {
         self->angle = p->angle + 0x8000;
-        push_matrix_from(lbl_8058D490);
+        push_matrix_from(identity_matrix);
         rotate_matrix_y(0, self->angle);
         matrix_mult_vec(0, &v, &v);
         pop_matrices(1);
@@ -1077,7 +1077,7 @@ void compute_follow_target__11TCameraCtrlFPv(Cam_8006E170 *self) {
     d.y = p->y - t->y;
     d.z = p->z - t->z;
     vec_squared_length(&d);
-    push_matrix_from(lbl_8058D490);
+    push_matrix_from(identity_matrix);
     rotate_matrix_y(0, self->actor->angle + 0x8000);
     matrix_mult_vec(0, &self->fE8, &o);
     pop_matrices(1);

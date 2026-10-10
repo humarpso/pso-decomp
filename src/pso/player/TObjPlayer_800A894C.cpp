@@ -735,7 +735,7 @@ M2C_UNK reset_timer__11TBoss4Type3FPv(void *);
 u32 lookup_entry_by_value__10TObjPlayerFPvf(s32, f32);
 s32 objInBand__FP7GameObjf(void *, f32);
 M2C_UNK mult_vec_array__10TObjPlayerFUii(int, u32, void *, int);
-M2C_UNK set_matrix_identity__10TObjPlayerFPv(int);
+M2C_UNK set_matrix_identity(int);
 extern f32 lbl_8043AC84[];
 extern Pair_800A93E4 lbl_8043AC9C[];
 extern s32 lbl_80500AF0[];
@@ -928,7 +928,7 @@ void TObjPlayer__sub_800A93E4(void *arg0_) {
         h0 = lookup_entry_by_value__10TObjPlayerFPvf(lbl_80500AF0[e->kind], e->fc0);
         h1 = lookup_entry_by_value__10TObjPlayerFPvf(lbl_80500AF8[e->kind], e->fc0);
         push_matrix();
-        set_matrix_identity__10TObjPlayerFPv(0);
+        set_matrix_identity(0);
         post_translate_matrix(&e->pos);
         rotate_matrix_y(0, e->angle);
         if (h0 != 0) {

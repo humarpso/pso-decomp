@@ -33,7 +33,7 @@ void push_matrix_from(void *);
 void pop_matrix(void);
 extern Arr_8017D448 TOWreckAncientBrakable__debris_table;
 extern Param_8017D448 TOWreckAncientBrakable__debris_param_table;
-extern u8 lbl_8058D490[];
+extern u8 identity_matrix[];
 extern void *wreck_ancient_brakable_bml_resource;
 extern s32 tl_05;
 void spawn_debris__22TOWreckAncientBrakableFPv(u8 *arg0);
@@ -56,7 +56,7 @@ void spawn_debris__22TOWreckAncientBrakableFPv(u8 *arg0) {
     p.f38 = p.pos.y;
     for (i = 0; i < 9; i++) {
         VecCopy__FP3VecPC3Vec(&tmp, &arr.v[i]);
-        push_matrix_from(lbl_8058D490);
+        push_matrix_from(identity_matrix);
         rotate_matrix_y(0, *(s32 *)(arg0 + 0x60));
         rotate_vector_by_matrix(0, &tmp, &tmp);
         pop_matrix();

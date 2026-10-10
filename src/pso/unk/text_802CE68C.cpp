@@ -103,7 +103,7 @@ f32 post_translate_matrix(void *);
 s32 set_global_flag__10TObjPlayerFv();
 s32 clear_global_state__10TObjPlayerFv();
 extern RecoveredGlobal_802CE68C_lbl_804724A8 lbl_804724A8;
-extern RecoveredGlobal_802CE68C_lbl_8058D490 lbl_8058D490;
+extern RecoveredGlobal_802CE68C_lbl_8058D490 identity_matrix;
 extern s32 anim_model_matrix_array;
 void TObjPlayer__sub_802CE68C(u8 *arg0, s32 arg1, s32 arg2);
 M2C_UNK clear_global_flag_400__9TObjEneDDFv();
@@ -171,7 +171,7 @@ void TObjPlayer__sub_802CE68C(u8 *arg0, s32 arg1, s32 arg2) {
     typedef char sp10_offset[(offsetof(Stack_802CE68C, sp10) == 0x8) ? 1 : -1];
     Stack_802CE68C stack;
     set_global_flag__10TObjPlayerFv();
-    push_matrix_from((void *) (&lbl_8058D490.value));
+    push_matrix_from((void *) (&identity_matrix.value));
     post_translate_matrix((void *) (arg0 + 0x38));
     rotate_matrix_y((int) (0), (int) (M2C_FIELD(arg0, s32 *, 0x60)));
     set_global_flag__10TObjPlayerFv();

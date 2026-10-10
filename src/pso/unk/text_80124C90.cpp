@@ -38,7 +38,7 @@ void push_matrix_from(void *);
 M2C_UNK transform_point_by_current_matrix(void *, void *);
 M2C_UNK pop_matrix();
 f32 xyz_distance(void *, void *);
-extern u8 lbl_8058D490[];
+extern u8 identity_matrix[];
 extern s32 tl_05;
 void TObjPlayer__sub_80124C90(u8 *arg0);
 }
@@ -73,7 +73,7 @@ void TObjPlayer__sub_80124C90(u8 *arg0) {
     }
     if (found == 0) {
         Vec_80124C90 off;
-        push_matrix_from(lbl_8058D490);
+        push_matrix_from(identity_matrix);
         f32 *r1 = get_weapon_range_record(arg0, 2);
         off.x = off.y = 0.0f;
         off.z = *r1;
@@ -110,7 +110,7 @@ void TObjPlayer__sub_80124C90(u8 *arg0) {
         Vec_80124C90 o;
         Vec_80124C90 v;
         for (i = 0; i != 4; i++, ang += 0x4000) {
-            push_matrix_from(lbl_8058D490);
+            push_matrix_from(identity_matrix);
             v.x = v.y = 0.0f;
             v.z = *rec;
             rotate_matrix_y(0, ang);

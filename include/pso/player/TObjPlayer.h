@@ -4,6 +4,8 @@
 #include "types.h"
 #include "pso/player/PlayerScaleState.h"
 
+struct TItemData;
+
 struct TObjPlayer
 {
     struct ActionPalette {
@@ -12,6 +14,7 @@ struct TObjPlayer
     };
 
     u32 find_revival_item();
+    void request_inventory_item(TItemData* item);
     ActionPalette* select_action_palette(int secondary);
     s32 add_meseta(s32 amount);
     void request_normal_attack_stage1();

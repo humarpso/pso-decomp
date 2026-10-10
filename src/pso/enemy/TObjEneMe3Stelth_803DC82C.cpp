@@ -8,10 +8,10 @@ extern "C" {
 
 void set_depth_buffer_id__16TObjEneMe3StelthFi(s32 arg0);
 
-extern s32 lbl_805D7708;
+extern s32 ginja_draw_list_mask;
 
 void set_depth_buffer_id__16TObjEneMe3StelthFi(s32 arg0) {
-    lbl_805D7708 = arg0;
+    ginja_draw_list_mask = arg0;
 }
 
 }

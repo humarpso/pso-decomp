@@ -270,7 +270,7 @@ void translate_matrix(s32, f32, f32, f32);
 void push_matrix_from(void *);
 void pop_matrix();
 extern V_80042ED0 lbl_80436630;
-extern u8 lbl_8058D490[];
+extern u8 identity_matrix[];
 extern E_80042ED0 *anim_model_matrix_array;
 void TObjPlayer__sub_80042ED0(P_80042ED0 *o, s32 idx, s32 arg2);
 void scale_velocity__19TObjGyaranzoMissileFPvf(Vec_80042DE8 *, f32);
@@ -320,7 +320,7 @@ u8 TObjPlayer__sub_80042EC0(void *arg0) {
     return (u8) (M2C_FIELD(arg0, s16 *, 0x326) == 0);
 }
 void TObjPlayer__sub_80042ED0(P_80042ED0 *o, s32 idx, s32 arg2) {
-    push_matrix_from(lbl_8058D490);
+    push_matrix_from(identity_matrix);
     translate_matrix(0, o->f38, o->f3c + o->f38c, o->f40);
     rotate_matrix_y(0, o->f60);
     render_anim_model__10TObjPlayerFPvf(o, o->fc0);

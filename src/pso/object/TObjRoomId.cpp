@@ -79,7 +79,7 @@ s32 matrix_mult_vec(int, void *, void *);
 M2C_UNK pop_matrices(int);
 f32 vec3_dot(Vec_801A1A60 *, Vec_801A1A60 *);
 extern Vec_801A1A60 lbl_8044688C[];
-extern u8 lbl_8058D490[];
+extern u8 identity_matrix[];
 extern const f32 lbl_805DC090;
 }
 
@@ -164,7 +164,7 @@ void TObjRoomId::run_task() {
     if (check_demo_mode__10TObjPlayerFv() == 0 && absent != 0) {
         return;
     }
-    push_matrix_from(lbl_8058D490);
+    push_matrix_from(identity_matrix);
     rotate_matrix_y(0, o->yaw);
     matrix_mult_vec(0, &v, &o->normal);
     pop_matrices(1);

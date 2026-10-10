@@ -106,7 +106,7 @@ struct Box_80154EF8 { u8 pad[0xC]; f32 hx; f32 hz; u8 pad2[0x1C - 0x14]; Vec_801
 
 struct Obj_801547E0;
 #define SHIFT_80155294(yaw)                                              \
-    push_matrix_from(lbl_8058D490);                                      \
+    push_matrix_from(identity_matrix);                                      \
     rotate_matrix_y(0, (yaw));                                           \
     rotate_vector_by_current_matrix(&v, &v);                                    \
     pop_matrix();                                                        \
@@ -126,7 +126,7 @@ M2C_UNK rotate_matrix_y(int, int);
 M2C_UNK push_matrix_from(void *);
 M2C_UNK rotate_vector_by_current_matrix(void *, void *);
 M2C_UNK pop_matrix();
-extern f32 lbl_8058D490[12];
+extern f32 identity_matrix[12];
 void refresh_collision_body_centers(Obj_80154E3C *arg0);
 M2C_UNK VecCopy__FP3VecPC3Vec(void *, void *);
 u8 * TObjPlayer__sub_80155028(s32 arg0, s32 arg1);
@@ -135,14 +135,14 @@ M2C_UNK rotate_matrix_y(int, int);
 M2C_UNK push_matrix_from(void *);
 M2C_UNK rotate_vector_by_current_matrix(void *, void *);
 M2C_UNK pop_matrix();
-extern f32 lbl_8058D490[12];
+extern f32 identity_matrix[12];
 s32 build_collision_box_corners(M2C_UNK arg0, s32 arg1, Box_80154EF8 *box, u32 out);
 M2C_UNK VecCopy__FP3VecPC3Vec(void *, void *);
 M2C_UNK subtract_vector(void *, void *);
 extern s32 enable_v2_features;
 f32 get_collision_body_radius(Obj_801547E0 *self, s32 i);
 extern Vec_80155294 lbl_8050BEE0;
-extern f32 lbl_8058D490[12];
+extern f32 identity_matrix[12];
 M2C_UNK push_matrix_from(void *);
 M2C_UNK rotate_matrix_y(int, int);
 M2C_UNK rotate_vector_by_current_matrix(void *, void *);
@@ -222,7 +222,7 @@ M2C_UNK push_matrix_from(void *);
 M2C_UNK rotate_vector_by_current_matrix(void *, void *);
 M2C_UNK pop_matrix();
 extern const f64 lbl_804400F0;
-extern f32 lbl_8058D490[12];
+extern f32 identity_matrix[12];
 extern const f32 TObjPlayer__data_805DB270;
 extern const f32 lbl_805DB27C;
 extern const f32 lbl_805DB280;
@@ -593,7 +593,7 @@ void refresh_collision_body_centers(Obj_80154E3C *arg0) {
     s32 i;
     if (arg0 != NULL && arg0->ents != NULL && all_parents_unqueued_for_destruction__7TObjectFv(arg0) != 0) {
         n = arg0->count;
-        push_matrix_from(lbl_8058D490);
+        push_matrix_from(identity_matrix);
         rotate_matrix_y(0, arg0->f60);
         for (i = 0; i < n; i++) {
             VecCopy__FP3VecPC3Vec(&sp8, &arg0->ents[i]);
@@ -642,7 +642,7 @@ s32 build_collision_box_corners(M2C_UNK arg0, s32 arg1, Box_80154EF8 *box, u32 o
     c[7].x = x;
     c[7].y = ny;
     c[7].z = z;
-    push_matrix_from(lbl_8058D490);
+    push_matrix_from(identity_matrix);
     rotate_matrix_y(0, arg1);
     for (i = 0; i < 8; i++) {
         rotate_vector_by_current_matrix(&c[i], &c[i]);
@@ -705,7 +705,7 @@ s32 resolve_actor_sphere_contact(u8 *arg0, M2C_UNK arg1, s32 arg2) {
     tangentScale = lbl_805DB280;
 block_7:
     if ((u16) M2C_FIELD(arg0, u16 *, 0x1C) >= 0x1000U) {
-        push_matrix_from((void *) (&lbl_8058D490));
+        push_matrix_from((void *) (&identity_matrix));
         rotate_matrix_y((int) (0), (int) (var_r31));
         rotate_vector_by_current_matrix((void *) (&displacement), (void *) (&displacement));
         pop_matrix();
@@ -756,7 +756,7 @@ s32 resolve_player_box_contact(u8 *arg0, u8 *arg1, u8 *arg2) {
         xl = hw * hw + get_collision_body_radius((Obj_801547E0 *)arg0, 0);
         zl = hd * hd + get_collision_body_radius((Obj_801547E0 *)arg0, 0);
         VecCopy__FP3VecPC3Vec(&lbl_8050BEE0, &radial);
-        push_matrix_from(lbl_8058D490);
+        push_matrix_from(identity_matrix);
         rotate_matrix_y(0, -*(s32 *)(arg1 + 0x60));
         rotate_vector_by_current_matrix(&lbl_8050BEE0, &lbl_8050BEE0);
         pop_matrix();
@@ -961,7 +961,7 @@ void* refresh_actor_body_spheres(CollisionBody_80155FBC a,CollisionBody_80155FBC
         VecCopy__FP3VecPC3Vec(&worldA,&a.position);
         VecCopy__FP3VecPC3Vec(&offsetA,source);
         facingA=a.facing;
-        push_matrix_from(lbl_8058D490);
+        push_matrix_from(identity_matrix);
         rotate_matrix_y(0,facingA);
         rotate_vector_by_current_matrix(&offsetA,&offsetA);
         pop_matrix();
@@ -974,7 +974,7 @@ void* refresh_actor_body_spheres(CollisionBody_80155FBC a,CollisionBody_80155FBC
                 VecCopy__FP3VecPC3Vec(&worldB,&b.position);
                 VecCopy__FP3VecPC3Vec(&offsetB,destination);
                 facingB=b.facing;
-                push_matrix_from(lbl_8058D490);
+                push_matrix_from(identity_matrix);
                 rotate_matrix_y(0,facingB);
                 rotate_vector_by_current_matrix(&offsetB,&offsetB);
                 pop_matrix();

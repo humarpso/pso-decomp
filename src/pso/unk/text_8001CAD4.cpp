@@ -43,7 +43,7 @@ s32 push_matrix_from(void *);
 s32 pop_matrices(int);
 extern RecoveredGlobal_8001CAD4_lbl_804349FC lbl_804349FC;
 extern RecoveredGlobal_8001CAD4_lbl_804FF5E8 lbl_804FF5E8;
-extern RecoveredGlobal_8001CAD4_lbl_8058D490 lbl_8058D490;
+extern RecoveredGlobal_8001CAD4_lbl_8058D490 identity_matrix;
 void update_camera_facing_offset(u8 *arg0);
 extern u32 camera_ctrl_instance;
 extern RecoveredGlobal_8001CAD4_lbl_804FF5E8 lbl_804FF5E8;
@@ -70,7 +70,7 @@ void update_camera_facing_offset(u8 *arg0) {
         M2C_FIELD(arg0, f32 *, 0x54) = (f32) -M2C_FIELD(&lbl_804FF5E8.value, f32 *, 0x10);
         M2C_FIELD(arg0, f32 *, 0x58) = (f32) -M2C_FIELD(&lbl_804FF5E8.value, f32 *, 0x14);
         direction_to_rotation_xy((void *) (arg0 + 0x50), (void *) (&stack.sp8), (void *) (&stack.spC));
-        push_matrix_from((void *) (&lbl_8058D490.value));
+        push_matrix_from((void *) (&identity_matrix.value));
         rotate_matrix_y((int) (0), (int) (stack.spC));
         rotate_matrix_x((int) (0), (int) (stack.sp8));
         rotate_vector_by_matrix((int) (0), (void *) (arg0 + 0x20), (void *) (arg0 + 0x2C));

@@ -116,7 +116,7 @@ s32 check_target_collision__10TObjPlayerFPv(u8 *arg0);
 f32 cos_table_lookup(s32);
 M2C_UNK push_matrix();
 M2C_UNK pop_matrix();
-M2C_UNK set_matrix_identity__10TObjPlayerFPv(int, f32);
+M2C_UNK set_matrix_identity(int, f32);
 M2C_UNK rotate_vector_by_matrix(int, int, int);
 M2C_UNK rotate_matrix_y(M2C_UNK, s32);
 extern const f32 lbl_805D86C0;
@@ -1282,7 +1282,7 @@ void TObjPlayer__sub_8003FCD0(u8 *arg0) {
     temp_f1 = M2C_FIELD(arg0, f32 *, 0x38C);
     M2C_FIELD(arg0, f32 *, 0x38) = temp_f1;
     M2C_FIELD(arg0, f32 *, 0x40) = (f32) lbl_805D86D0;
-    set_matrix_identity__10TObjPlayerFPv((int) (0), (f32) (temp_f1));
+    set_matrix_identity((int) (0), (f32) (temp_f1));
     rotate_matrix_y((M2C_UNK)((int) (0)), (s32)((int) (M2C_FIELD(arg0, s32 *, 0x390))));
     temp_r4 = (u8 *)(arg0 + 0x38);
     rotate_vector_by_matrix((int) (0), (int) (temp_r4), (int) (temp_r4));

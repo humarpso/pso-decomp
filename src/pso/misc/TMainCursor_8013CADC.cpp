@@ -54,7 +54,7 @@ u32 get_player_by_client_id(void *);
 M2C_UNK begin_effect_render__13TParticleCtrlFv();
 M2C_UNK end_effect_render__13TParticleCtrlFv();
 M2C_UNK offset_point_toward_camera(void *, void *, f32);
-M2C_UNK set_position_vec3__10TObjPlayerFPvPv(int, void *);
+M2C_UNK translate_matrix_vec3(int, void *);
 M2C_UNK rotate_matrix_y(int, int);
 M2C_UNK translate_matrix(int, f32, f32, f32);
 M2C_UNK push_matrix();
@@ -525,7 +525,7 @@ void TLockOnCursor::renderSecondaryCursor(u8 *arg1, s32 arg2, s32 arg3) {
                 temp_f31 = M2C_FIELD(arg1, f32 *, 0xC);
                 push_matrix();
                 offset_point_toward_camera((void *) (arg1 + 0x1C), (void *) (&sp8), (f32) (temp_f31));
-                set_position_vec3__10TObjPlayerFPvPv((int) (0), (void *) (&sp8));
+                translate_matrix_vec3((int) (0), (void *) (&sp8));
                 rotate_matrix_y((int) (0), (int) (M2C_FIELD(camera_ctrl_instance, s32 *, 0x194)));
                 begin_effect_render__13TParticleCtrlFv();
                 push_matrix();

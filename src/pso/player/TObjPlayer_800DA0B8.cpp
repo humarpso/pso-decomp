@@ -51,7 +51,7 @@ void rotate_vector_by_matrix(int, void *, void *);
 void rotate_matrix_y(int, int);
 void push_matrix_from(void *, f32);
 void pop_matrix();
-extern u8 lbl_8058D490[];
+extern u8 identity_matrix[];
 extern const f32 lbl_805DA3F8;
 extern const f32 lbl_805DA404;
 void refresh_collision_body_centers(void *);
@@ -109,7 +109,7 @@ void TObjPlayer__sub_800DA1F4(Obj_800DA1F4 *arg0) {
     v.y = lbl_805DA3F8;
     v.x = lbl_805DA3F8;
     v.z = lbl_805DA404;
-    push_matrix_from(lbl_8058D490, lbl_805DA3F8);
+    push_matrix_from(identity_matrix, lbl_805DA3F8);
     rotate_matrix_y(0, arg0->h);
     rotate_vector_by_matrix(0, &v, &v);
     pop_matrix();

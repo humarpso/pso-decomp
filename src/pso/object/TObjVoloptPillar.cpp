@@ -141,7 +141,7 @@ extern Pair_8004A1CC lbl_80436734[];
 extern Vec_8004A1CC lbl_8043673C[];
 extern const f64 lbl_80436798[];
 extern u8 boss3_volopt_spawn_pos[];
-extern u8 lbl_8058D490[];
+extern u8 identity_matrix[];
 extern const f32 lbl_805D88BC;
 extern const f32 TObjVoloptPillar__data_805D88C8;
 extern const f32 lbl_805D88D0;
@@ -235,7 +235,7 @@ void run_task__16TObjVoloptPillarFv(Self_8004A1CC *self) {
                             bp->m21(self->fbc, &arg, 0, -1, -1);
                         }
                         if (!(bp->f30 & 0x04000000)) {
-                            push_matrix_from(lbl_8058D490);
+                            push_matrix_from(identity_matrix);
                             {
                                 Vec_8004A1CC v = bp->pos;
                                 subtract_vector(&v, boss3_volopt_spawn_pos);

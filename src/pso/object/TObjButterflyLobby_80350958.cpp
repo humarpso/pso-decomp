@@ -46,7 +46,7 @@ void rotate_vector_by_matrix(int, void *, void *);
 M2C_UNK rotate_matrix_y(int, int);
 void push_matrix_from(void *);
 void pop_matrices(int);
-extern u8 lbl_8058D490[];
+extern u8 identity_matrix[];
 void run_task__18TObjButterflyLobbyFv(Butterfly_80350BC4 *o);
 }
 
@@ -182,7 +182,7 @@ void run_task__18TObjButterflyLobbyFv(Butterfly_80350BC4 *o) {
             in.x = 2.0f * (0.0015f * (2.0f * FRND() - 1.0f));
             in.y = 0.0f;
             in.z = 2.0f * (0.0015f * FRND()) + 0.05f;
-            push_matrix_from(lbl_8058D490);
+            push_matrix_from(identity_matrix);
             rotate_matrix_y(0, o->angY);
             rotate_vector_by_matrix(0, &in, &out);
             pop_matrices(1);
@@ -207,7 +207,7 @@ void run_task__18TObjButterflyLobbyFv(Butterfly_80350BC4 *o) {
             in.x = 2.0f * (0.025f * (2.0f * FRND() - 1.0f));
             in.y = 0.0f;
             in.z = 2.0f * (0.025f * FRND()) + 0.05f;
-            push_matrix_from(lbl_8058D490);
+            push_matrix_from(identity_matrix);
             rotate_matrix_y(0, o->angY);
             rotate_vector_by_matrix(0, &in, &out);
             pop_matrices(1);

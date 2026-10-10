@@ -306,7 +306,7 @@ void rotate_vector_by_matrix(int, void *, void *);
 void rotate_matrix_y(int, int);
 void push_matrix_from(void *);
 void pop_matrix();
-extern u8 lbl_8058D490[];
+extern u8 identity_matrix[];
 extern const f32 lbl_805DB1C4;
 extern const f32 lbl_805DB1C8;
 extern const f32 lbl_805DB1CC;
@@ -571,7 +571,7 @@ void update_wandering__11TObjNpcBaseFPv(u8 *arg0) {
         v.x = lbl_805DB1C4;
         v.z = lbl_805DB1C8;
         angle = (s32)(lbl_805DB1CC * (lbl_805DB1D0 * calc_boss4_scale__10TObjPlayerFi()));
-        push_matrix_from(lbl_8058D490);
+        push_matrix_from(identity_matrix);
         rotate_matrix_y(0, angle);
         rotate_vector_by_matrix(0, &v, &v);
         pop_matrix();

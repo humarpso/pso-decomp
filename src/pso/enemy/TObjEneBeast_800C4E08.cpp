@@ -970,7 +970,7 @@ M2C_UNK pop_matrices(int);
 extern const f64 lbl_8043BC88;
 extern Vec_800C5164 lbl_8050BEE0;
 extern Vec_800C5164 lbl_8050BF00;
-extern u8 lbl_8058D490[];
+extern u8 identity_matrix[];
 
 M2C_UNK apply_actor_gravity(void *, int, f32);
 M2C_UNK move_with_wall_slide(void *);
@@ -1218,7 +1218,7 @@ void beast_update_hurt(u8 *arg0) {
     VecCopy__FP3VecPC3Vec(&v, &o->f2FC);
     lbl_8050BEE0.x = lbl_8050BEE0.y = lbl_805DA034;
     lbl_8050BEE0.z = get_collision_body_radius(o, 0);
-    ((void (*)(void *, void *))push_matrix_from)(lbl_8058D490, &lbl_8050BEE0);
+    ((void (*)(void *, void *))push_matrix_from)(identity_matrix, &lbl_8050BEE0);
     rotate_matrix_y(0, -o->f60);
     rotate_vector_by_matrix(0, &lbl_8050BEE0, &lbl_8050BEE0);
     pop_matrix();
@@ -1601,7 +1601,7 @@ void beast_idle_update(u8 *arg0) {
         angle = lbl_8043BC88 * get_ad_end_text_start__10TObjPlayerFv(lbl_8050BEE0.x, lbl_8050BEE0.z);
         lbl_8050BF00.x = lbl_8050BF00.y = lbl_805DA034;
         lbl_8050BF00.z = M2C_FIELD(arg0, f32 *, 0x394);
-        push_matrix_from(lbl_8058D490);
+        push_matrix_from(identity_matrix);
         rotate_matrix_y(0, angle);
         rotate_vector_by_matrix(0, &lbl_8050BF00, &lbl_8050BF00);
         pop_matrices(1);
@@ -1620,7 +1620,7 @@ void beast_idle_update(u8 *arg0) {
         }
         lbl_8050BF00.x = lbl_8050BF00.y = lbl_805DA034;
         lbl_8050BF00.z = M2C_FIELD(arg0, f32 *, 0x394);
-        push_matrix_from(lbl_8058D490);
+        push_matrix_from(identity_matrix);
         rotate_matrix_y(0, angle);
         rotate_vector_by_matrix(0, &lbl_8050BF00, &lbl_8050BF00);
         pop_matrices(1);
@@ -1639,7 +1639,7 @@ void beast_idle_update(u8 *arg0) {
         }
         lbl_8050BF00.x = lbl_8050BF00.y = lbl_805DA034;
         lbl_8050BF00.z = M2C_FIELD(arg0, f32 *, 0x394);
-        push_matrix_from(lbl_8058D490);
+        push_matrix_from(identity_matrix);
         rotate_matrix_y(0, angle2);
         rotate_vector_by_matrix(0, &lbl_8050BF00, &lbl_8050BF00);
         pop_matrices(1);

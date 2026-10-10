@@ -433,6 +433,114 @@ struct VObj_803344F0 : Base_803344F0 {
     virtual int m97();
 };
 
+struct VBase_80333290 { char pad[0x18]; };
+
+struct VObj_80333290 : VBase_80333290 {
+    virtual void m0();
+    virtual void m1();
+    virtual void m2();
+    virtual void m3();
+    virtual void m4();
+    virtual void m5();
+    virtual void m6();
+    virtual void m7();
+    virtual void m8();
+    virtual void m9();
+    virtual void m10();
+    virtual void m11();
+    virtual void m12();
+    virtual void m13();
+    virtual void m14();
+    virtual void m15();
+    virtual void m16();
+    virtual void m17();
+    virtual void m18();
+    virtual void m19();
+    virtual void m20();
+    virtual void m21();
+    virtual void m22();
+    virtual void m23();
+    virtual void m24();
+    virtual void m25();
+    virtual void m26();
+    virtual void m27();
+    virtual void m28();
+    virtual void m29();
+    virtual void m30();
+    virtual void m31();
+    virtual void m32();
+    virtual void m33();
+    virtual void m34();
+    virtual void m35();
+    virtual void m36();
+    virtual void m37();
+    virtual void m38();
+    virtual void m39();
+    virtual void m40();
+    virtual void m41();
+    virtual void m42();
+    virtual void m43();
+    virtual void m44();
+    virtual void m45();
+    virtual void m46();
+    virtual void m47();
+    virtual void m48();
+    virtual void m49();
+    virtual void m50();
+    virtual void m51();
+    virtual void m52();
+    virtual void m53();
+    virtual void m54();
+    virtual void m55();
+    virtual void m56();
+    virtual void m57();
+    virtual void m58();
+    virtual void m59();
+    virtual void m60();
+    virtual void m61();
+    virtual void m62();
+    virtual void m63();
+    virtual void m64();
+    virtual void m65();
+    virtual void m66();
+    virtual void m67();
+    virtual void m68();
+    virtual void m69();
+    virtual void m70();
+    virtual void m71();
+    virtual void m72();
+    virtual void m73();
+    virtual void m74();
+    virtual void m75();
+    virtual void m76();
+    virtual void m77();
+    virtual void m78();
+    virtual void m79();
+    virtual void m80();
+    virtual void m81();
+    virtual void m82();
+    virtual void m83();
+    virtual void m84();
+    virtual void m85();
+    virtual void m86();
+    virtual void m87();
+    virtual void m88();
+    virtual void m89();
+    virtual void m90();
+    virtual void m91();
+    virtual void m92();
+    virtual void m93();
+    virtual void m94();
+    virtual void m95();
+    virtual void m96();
+    virtual void m97();
+    virtual void m98();
+    virtual void m99();
+    virtual void m100();
+};
+
+struct D_80333290 { u8 pad0[0x1C]; s32 f1C; u8 pad20[4]; s32 f24; s32 f28; };
+
 extern "C" {
 f32 calc_boss4_scale__10TObjPlayerFi(s32);
 f32 get_ad_end_text_start__10TObjPlayerFv(f32, f32);
@@ -514,7 +622,33 @@ extern const f32 lbl_805D9E88;
 extern const f32 TObjEneMorfos__data_805DF86C;
 extern const f32 TObjEneMorfos__data_805DF870;
 void render__13TObjEneMorfosFv(u8 *arg0);
+u8 * get_player_data__10TObjPlayerFi(int);
+f32 get_ad_end_text_start__10TObjPlayerFv(f32, f32);
+M2C_UNK queue_destruction__7TObjectFv(void *);
+s32 get_game_mode__6TLobbyFv(void);
+s32 get_flag_b4__21TObjEneMe3ShinowaRealFPv();
+void spawn_particle_effect(void *, int);
+u32 create_particle_emitter(void *, int);
+M2C_UNK copy_pos__11TNowLoadingFPvPv(void *, void *);
+M2C_UNK enemy_copy_target_destination(void *);
+M2C_UNK update_velocity__9TObjEneDDFPv(void *);
+s32 is_alive__9TObjEneDDFPv(void *);
+M2C_UNK set_field_378__9TObjEneDDFPvi(void *, M2C_UNK);
+M2C_UNK transition_enemy_state(void *, M2C_UNK);
+s32 objInBand__FP7GameObjf(void *, f32);
+M2C_UNK advance_animation_playback(void *);
+s16 get_stat_by_key_state__10TObjPlayerFPv(void *);
+s32 play_sound_effect(s32, u32, s16, s32);
+void * __nw__7TObjectFUl(int);
+s32 check_value_in_range__13TObjEneMorfosFPvUsUsUs(void *, int, int, int);
 s32 TObjEneMorfos__sub_803344F0(void *arg0);
+u8 * TObjEneMorfos__sub_80337824(void *, void *, s32, s32);
+extern const f64 TObjEneMorfos__data_80477610;
+extern s32 game_difficulty_selection;
+extern int TObjEneMorfos__param_table;
+extern const f32 TObjEneMorfos__data_805DF884;
+extern const f32 lbl_805DF88C;
+void TObjEneMorfos__sub_80333290(u8 *arg0, s32 arg1);
 }
 
 extern "C" {
@@ -1561,7 +1695,6 @@ void record_camera_path_point__13TObjEneMorfosFv(void);
 void state_death__13TObjEneMorfosFPvi(u8 *arg0, s32 arg1);
 void TObjEneMorfos__sub_80332DBC(u8 *arg0, s32 arg1);
 void state_patrol__13TObjEneMorfosFPvi(void *arg0, s32 arg1);
-void TObjEneMorfos__sub_80333290(u8 *, s32);
 void TObjEneMorfos__sub_80333E48(u8 *arg0, s32 arg1);
 void TObjEneMorfos__sub_80334030(u8 *arg0, s32 arg1);
 void state_appear__13TObjEneMorfosFPvi(void *arg0, s32 arg1);
@@ -2400,6 +2533,127 @@ void TObjEneMorfos__sub_80332FD4(u8 *arg0, s32 arg1) {
     }
 }
 
+#pragma push
+#pragma opt_common_subs off
+#define F(o, t) M2C_FIELD(arg0, t *, o)
+#define D (*(D_80333290 * *)&TObjEneMorfos__param_table)
+void TObjEneMorfos__sub_80333290(u8 *arg0, s32 arg1) {
+    s32 old;
+    void *p;
+    s32 n;
+    s32 i;
+    u8 *pl;
+    switch (arg1) {
+    case 4:
+        ((VObj_80333290 *)arg0)->m94();
+        F(0x3C0, s32) &= ~3;
+        F(0x3C0, s32) |= 4;
+        set_field_378__9TObjEneDDFPvi(arg0, 4);
+        F(0x4BC, s32) = 0;
+        F(0x4C0, s32) = 0;
+        F(0x4B0, s32) = 0;
+        F(0x4B8, s32) = 0;
+        F(0xB8, s16) = 0;
+        F(0x494, u32) = create_particle_emitter(arg0 + 0x498, 0x10A);
+        break;
+    case 3:
+        if (F(0x4B0, s32) == 5 && TObjEneMorfos__sub_803344F0((void *)(arg0)) == 0) {
+            transition_enemy_state(arg0, 4);
+        }
+        break;
+    case 0:
+        advance_animation_playback(arg0);
+        switch (F(0x4B0, s32)) {
+        case 0:
+            if (F(0x494, u32) != 0) {
+                copy_pos__11TNowLoadingFPvPv(F(0x494, void *), arg0 + 0x498);
+            }
+            F(0x4C0, s32) = F(0x60, s32);
+            F(0x60, s32) = F(0x60, s32) + D->f28;
+            F(0x4B8, s32) = F(0x4B8, s32) + 1;
+            if (F(0x4B8, s32) >= D->f24) {
+                F(0x4B0, s32) = 1;
+                F(0x4B4, s32) = 0;
+                if (F(0x494, u32) != 0) {
+                    queue_destruction__7TObjectFv(F(0x494, void *));
+                    F(0x494, u32) = 0;
+                }
+            }
+            break;
+        case 1: {
+            old = F(0x60, s32);
+            F(0x60, s32) += D->f1C;
+            n = get_game_mode__6TLobbyFv();
+            for (i = 0; i < n; i++) {
+                pl = get_player_data__10TObjPlayerFi(i);
+                if (is_alive__9TObjEneDDFPv(pl) != 0) {
+                    if (get_stat_by_key_state__10TObjPlayerFPv(arg0) == get_stat_by_key_state__10TObjPlayerFPv(pl)) {
+                        enemy_copy_target_destination(arg0);
+                        update_velocity__9TObjEneDDFPv(arg0);
+                        F(0x4BC, s32) = (u16)((s32)(TObjEneMorfos__data_80477610 * get_ad_end_text_start__10TObjPlayerFv(F(0x3A0, f32), F(0x3A8, f32))) + 0x8000);
+                        if (check_value_in_range__13TObjEneMorfosFPvUsUsUs(arg0, old, F(0x60, s32), F(0x4BC, s32)) != 0) {
+                            F(0x60, s32) = F(0x4BC, s32);
+                            F(0x4B0, s32) = 2;
+                            F(0xB8, s16) = 2;
+                            break;
+                        }
+                    }
+                }
+            }
+            if (F(0x4B0, s32) == 1 && check_value_in_range__13TObjEneMorfosFPvUsUsUs(arg0, old, F(0x60, s32), F(0x4C0, s32)) != 0) {
+                F(0x4B0, s32) = 2;
+                F(0xB8, s16) = 2;
+            }
+            break;
+        }
+        case 2:
+            spawn_particle_effect(arg0 + 0x498, 0x212);
+            if (objInBand__FP7GameObjf(arg0, TObjEneMorfos__data_805DF884) != 0) {
+                F(0x4B0, s32) = 3;
+            }
+            break;
+        case 3:
+            if (objInBand__FP7GameObjf(arg0, lbl_805DF88C) != 0) {
+                play_sound_effect(0x4003AD24, (u32)(arg0 + 0x38), 0, 0);
+                p = __nw__7TObjectFUl(0xFC);
+                if (p != NULL) {
+                    TObjEneMorfos__sub_80337824(p, arg0 + 0x498, (u16)(F(0x60, s32) + 0x8000), (s32)arg0);
+                }
+                F(0x4B0, s32) = 4;
+            }
+            break;
+        case 4:
+            if (((s32 (*)(void *))get_flag_b4__21TObjEneMe3ShinowaRealFPv)(arg0) != 0) {
+                F(0xB8, s16) = 0;
+                F(0x4B4, s32) = F(0x4B4, s32) + 1;
+                if (game_difficulty_selection == 3 || game_difficulty_selection == 2) {
+                    if (F(0x4B4, s32) >= 5) {
+                        F(0x4B0, s32) = 5;
+                        break;
+                    }
+                } else if (F(0x4B4, s32) >= 4) {
+                    F(0x4B0, s32) = 5;
+                    break;
+                }
+                F(0x4C0, s32) = F(0x60, s32);
+                F(0x60, s32) = F(0x60, s32) + D->f1C;
+                F(0x4B0, s32) = 1;
+            }
+            break;
+        }
+        ((VObj_80333290 *)arg0)->m100();
+        ((VObj_80333290 *)arg0)->m87();
+        break;
+    case 5:
+        if (F(0x494, u32) != 0) {
+            queue_destruction__7TObjectFv(F(0x494, void *));
+            F(0x494, u32) = 0;
+        }
+        break;
+    }
+}
+#pragma pop
+
 void TObjEneMorfos__sub_80333690(u8 *arg0, s32 arg1) {
     s32 temp_r0;
     u8 *temp_r3;
@@ -2783,7 +3037,7 @@ void TObjEneMorfos__vt85(u8 *arg0, u32 arg1, s32 arg2) {
     case 4: TObjEneMorfos__sub_80333AD0((u8 *)(arg0), (s32)(arg2)); break;
     case 5: TObjEneMorfos__sub_80332FD4((u8 *)(arg0), (s32)(arg2)); break;
     case 6: TObjEneMorfos__sub_80333690((u8 *)(arg0), (s32)(arg2)); break;
-    case 9: TObjEneMorfos__sub_80333290(arg0, arg2); break;
+    case 9: TObjEneMorfos__sub_80333290((u8 *)(arg0), (s32)(arg2)); break;
     case 8: state_patrol__13TObjEneMorfosFPvi(arg0, arg2); break;
     case 10: TObjEneMorfos__sub_80332DBC(arg0, arg2); break;
     case 11: state_death__13TObjEneMorfosFPvi(arg0, arg2); break;

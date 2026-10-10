@@ -125,7 +125,7 @@ void alloc_breakup_model__10TObjPlayerFPvi(void *arg0, s32 arg1);
 void *init_zeroed_object__10TObjPlayerFPv(void *arg0);
 u8 *queue_boss_effect__10TObjPlayerFPv(s32);
 M2C_UNK matrix_mult_vec(int, void *, void *);
-M2C_UNK set_matrix_identity__10TObjPlayerFPv(int);
+M2C_UNK set_matrix_identity(int);
 M2C_UNK rotate_vector_by_matrix(int, void *, void *);
 M2C_UNK concat_matrix__10TObjPlayerFUiUi(int, s32);
 M2C_UNK push_matrix();
@@ -266,7 +266,7 @@ u8 *init_breakup_pieces__10TObjPlayerFPvPvi(u8 *arg0, void *arg1, s32 arg2) {
     M2C_FIELD(arg0, s32 *, 0x2C) = arg2;
     part = M2C_FIELD(arg0, Part_802E6F10 **, 0x28);
     push_matrix();
-    set_matrix_identity__10TObjPlayerFPv(0);
+    set_matrix_identity(0);
     concat_matrix__10TObjPlayerFUiUi(0, M2C_FIELD(arg0, s32 *, 0x2C));
     M2C_FIELD(arg0, Vec_802E6F10 *, 0x30).z = M2C_FIELD(arg0, Vec_802E6F10 *, 0x30).y = M2C_FIELD(arg0, Vec_802E6F10 *, 0x30).x = lbl_805DE9CC;
     matrix_mult_vec(0, arg0 + 0x30, arg0 + 0x30);

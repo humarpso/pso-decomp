@@ -45,7 +45,7 @@ void init_xyz_limits__10TObjPlayerFv(void);
 void draw_line_list(void *, s32, s32);
 void vec3_add_to(void *, void *);
 void matrix_mult_vec(s32, void *, void *);
-void set_matrix_identity__10TObjPlayerFPv(s32);
+void set_matrix_identity(s32);
 void rotate_matrix_y(s32, s32);
 void rotate_matrix_x(s32, s32);
 void push_matrix(void);
@@ -99,7 +99,7 @@ void draw_direction_line__10TObjPlayerFPv(Obj_80048260 *self) {
     dst = &boss3_volopt_direction_line_points[1];
     VecCopy__FP3VecPC3Vec(dst, self->dir);
     push_matrix();
-    set_matrix_identity__10TObjPlayerFPv(0);
+    set_matrix_identity(0);
     {
         Vec_80048260 v = lbl_804366B8;
         v.z = self->unk40;

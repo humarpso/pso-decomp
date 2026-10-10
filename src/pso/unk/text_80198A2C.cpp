@@ -892,8 +892,8 @@ void direction_to_rotation_yx(void *, void *, void *);
 s32 approach_angle_limited(int, int, int);
 s32 matrix_mult_vec(int, void *, void *);
 M2C_UNK scale_matrix(int, f32, f32, f32);
-M2C_UNK rotate_matrix_about_axis__10TObjPlayerFPvii(int, void *, int);
-M2C_UNK set_position_vec3__10TObjPlayerFPvPv(int, void *);
+M2C_UNK rotate_matrix_about_axis(int, void *, int);
+M2C_UNK translate_matrix_vec3(int, void *);
 f32 vec_squared_length(void *);
 s32 push_matrix_from(void *);
 void pop_matrices(s32);
@@ -905,7 +905,7 @@ extern Color_80199A44 lbl_80446060[];
 extern const f32 chunk_material_color_half_alpha_f32[];
 extern s32 lobby_gvm_texture_handles[];
 extern u8 lbl_8050BEC0[];
-extern u8 lbl_8058D490[];
+extern u8 identity_matrix[];
 extern u8 lbl_8058D4C0[];
 extern s32 lbl_805D5660;
 extern s32 lbl_805D5664;
@@ -939,7 +939,7 @@ void draw_model__8TObjFishFPv(u8 *arg0) {
     } else {
         VecCopy__FP3VecPC3Vec(&dir, arg0 + 0x44);
     }
-    push_matrix_from(lbl_8058D490);
+    push_matrix_from(identity_matrix);
     rotate_matrix_y(0, 0x4000);
     matrix_mult_vec(0, &dir, &dir);
     pop_matrices(1);
@@ -957,12 +957,12 @@ void draw_model__8TObjFishFPv(u8 *arg0) {
     }
     F(s32, 0x5C) += (s32)(182.04445f * (lbl_805DBF40 * len));
     push_matrix_from(0);
-    set_position_vec3__10TObjPlayerFPvPv(0, &pos);
+    translate_matrix_vec3(0, &pos);
     rate = 0.15f * lbl_8050DD58.scale;
     scale_matrix(0, rate, rate, rate);
     set_chunk_material_color(&color);
     if (vec_squared_length(&dir)) {
-        rotate_matrix_about_axis__10TObjPlayerFPvii(0, &dir, F(s32, 0x338));
+        rotate_matrix_about_axis(0, &dir, F(s32, 0x338));
     }
     rotate_matrix_y(0, F(s32, 0x334));
     if (lobby_gvm_texture_handles != 0 && lbl_805D5C60 != 0) {

@@ -2367,7 +2367,7 @@ s32 objInBand__FP7GameObjf(void *, f32);
 s32 find_section_at_position__6TSceneFPv(void *);
 #define play_sound_effect ((M2C_UNK (*)(int, void *, int, int))play_sound_effect)
 M2C_UNK mult_vec_array__10TObjPlayerFUii(int, int, void *, int);
-M2C_UNK set_matrix_identity__10TObjPlayerFPv(int);
+M2C_UNK set_matrix_identity(int);
 M2C_UNK rotate_matrix_y(int, int);
 M2C_UNK push_matrix();
 M2C_UNK pop_matrix();
@@ -2748,7 +2748,7 @@ void TObjEneMe3Stelth__sub_800F348C(u8 *arg0, s32 arg1) {
             entry = lookup_entry_by_value__10TObjPlayerFPvf(TObjEneMe3Stelth__data_805D530C, F(f32, 0xC0));
             if (entry != 0) {
                 push_matrix();
-                set_matrix_identity__10TObjPlayerFPv(0);
+                set_matrix_identity(0);
                 post_translate_matrix(arg0 + 0x38);
                 rotate_matrix_y(0, F(s32, 0x60));
                 mult_vec_array__10TObjPlayerFUii(0, entry, &m, 2);
@@ -3762,7 +3762,7 @@ extern const f32 TObjEneMe3Stelth__data_805DA850;
 extern M2C_UNK __vt__16TObjEneMe3Stelth[];
 #define lbl_805010E0 (*(Tbl_800F5124 *)&lbl_805010E0)
 #define lbl_8050110C (*(RecoveredGlobal_800F4758_lbl_8050110C *)&lbl_8050110C)
-extern u8 lbl_8058D490[];
+extern u8 identity_matrix[];
 extern const f32 lbl_805DA810;
 extern const f32 lbl_805DA814;
 extern const f32 lbl_805DA81C;
@@ -4195,7 +4195,7 @@ f32 get_node_world_y__16TObjEneMe3StelthFPv(Obj_800F4D68 *self) {
     v.x = TObjEneMe3Stelth__data_805DA840;
     v.y = TObjEneMe3Stelth__data_805DA840;
     v.z = TObjEneMe3Stelth__data_805DA840;
-    push_matrix_from(lbl_8058D490);
+    push_matrix_from(identity_matrix);
     bind_motion_context(self->ff8, self->fc0);
     node = self->node;
     compose_motion_node_matrix(node);

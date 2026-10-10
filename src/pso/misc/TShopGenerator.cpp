@@ -63,7 +63,7 @@ f32 normalize_vector(void *);
 s32 push_matrix_from(void *);
 s32 pop_matrix();
 extern RecoveredGlobal_8021DC30_lbl_8044C140 shop_service_facing_vec;
-extern RecoveredGlobal_8021DC30_lbl_8058D490 lbl_8058D490;
+extern RecoveredGlobal_8021DC30_lbl_8058D490 identity_matrix;
 extern const f32 lbl_805DC6E8;
 bool is_player_in_service_range__14TShopGeneratorFPvPvf(u8 *arg0, u8 *arg1, f32 farg0);
 s32 TShopGenerator__sub_80222DAC(s32);
@@ -140,7 +140,7 @@ bool is_player_in_service_range__14TShopGeneratorFPvPvf(u8 *arg0, u8 *arg1, f32 
     stack.sp8 = M2C_FIELD(&shop_service_facing_vec.value, s32 *, 0);
     stack.spC = M2C_FIELD(&shop_service_facing_vec.value, s32 *, 4);
     stack.sp10 = M2C_FIELD(&shop_service_facing_vec.value, s32 *, 8);
-    push_matrix_from((void *) (&lbl_8058D490.value));
+    push_matrix_from((void *) (&identity_matrix.value));
     rotate_matrix_y((int) (0), (int) (M2C_FIELD(arg1, s32 *, 0x60)));
     rotate_vector_by_matrix((int) (0), (void *) (&stack.sp8), (void *) (&stack.sp8));
     pop_matrix();

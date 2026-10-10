@@ -2207,7 +2207,7 @@ M2C_UNK send_code50_packet__10TObjPlayerFi(int);
 M2C_UNK send_code_49_1__10TObjPlayerFi();
 M2C_UNK release_attached_resource__10TObjPlayerFPv(s32);
 M2C_UNK action_enable_if_present__10TObjPlayerFPv(s32);
-void fn_801B849C(void *, Item_801EEE68 *);
+void request_inventory_item__10TObjPlayerFP9TItemData(void *, Item_801EEE68 *);
 void get_item_record__23TShopJudgmentItemWindowFPv(void *, s32, s32);
 M2C_UNK send_6x29_delete_item__10TObjPlayerFPvii(u32, s32, s32);
 s32 can_inventory_accept_item__10TObjPlayerFPvPv(void *, Item_801EEE68 *);
@@ -3310,7 +3310,7 @@ void wrap_item_as_present__6TLobbyFv(void) {
         set_wrapped__9TItemDataFPv(&item);
         set_present_color__9TItemDataFPvi(&item, n);
         if (can_inventory_accept_item__10TObjPlayerFPvPv((void *)player, (Item_801EEE68 *)&item) > 0) {
-            fn_801B849C((void *)player, (Item_801EEE68 *)&item);
+            request_inventory_item__10TObjPlayerFP9TItemData((void *)player, (Item_801EEE68 *)&item);
         }
     }
 }
@@ -3333,7 +3333,7 @@ void wrap_pending_item__6TLobbyFv(void) {
         send_6x29_delete_item__10TObjPlayerFPvii(player, id, 1);
         set_wrapped__9TItemDataFPv(&item);
         if (can_inventory_accept_item__10TObjPlayerFPvPv((void *)player, (Item_801EEE68 *)&item) > 0) {
-            fn_801B849C((void *)player, (Item_801EEE68 *)&item);
+            request_inventory_item__10TObjPlayerFP9TItemData((void *)player, (Item_801EEE68 *)&item);
         }
     }
 }
@@ -6319,7 +6319,7 @@ void give_pending_item_to_local_player__6TLobbyFv(void) {
         if (player != NULL) {
             TItemData__sub_8010CA08(&item, a, (u8)TLobby__script_reg_array[r]);
             if (isValidGroundDrop__9TItemDataFv(&item) == 1 && can_inventory_accept_item__10TObjPlayerFPvPv(player, (Item_801EEE68 *)&item) > 0) {
-                fn_801B849C(player, (Item_801EEE68 *)&item);
+                request_inventory_item__10TObjPlayerFP9TItemData(player, (Item_801EEE68 *)&item);
             }
         }
     }
@@ -8099,7 +8099,7 @@ void qst_op_item_create2(u8 arg0, u8 arg1) {
         item.data[10] = TLobby__script_reg_array[arg0++];
         item.data[11] = TLobby__script_reg_array[arg0];
         if (can_inventory_accept_item__10TObjPlayerFPvPv(player, &item) > 0) {
-            fn_801B849C(player, &item);
+            request_inventory_item__10TObjPlayerFP9TItemData(player, &item);
             TLobby__script_reg_array[arg1] = item.id;
         } else {
             TLobby__script_reg_array[arg1] = -1;
@@ -8120,7 +8120,7 @@ void qst_op_item_create(u8 arg0, u8 arg1) {
         item.data[2] = (*(int * *)&TLobby__script_reg_array)[(u8)arg0];
         item.id = advance_item_id_counter(local_client_id);
         if (can_inventory_accept_item__10TObjPlayerFPvPv(player, &item) > 0) {
-            fn_801B849C(player, &item);
+            request_inventory_item__10TObjPlayerFP9TItemData(player, &item);
             (*(int * *)&TLobby__script_reg_array)[arg1] = item.id;
         } else {
             (*(int * *)&TLobby__script_reg_array)[arg1] = -1;

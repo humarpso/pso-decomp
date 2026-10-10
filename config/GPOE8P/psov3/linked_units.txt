@@ -371,6 +371,7 @@ pso/enemy/TObjEneEpsilon_800B92AC.cpp
 pso/enemy/TObjEneHoldEffect.cpp
 pso/enemy/TObjEneHoldEffect_800FD814.cpp
 pso/enemy/TObjEneHoldEffect_80142478.cpp
+pso/enemy/TObjEneHoldEffect_8036CDFC.cpp
 pso/enemy/TObjEneHoldEffect_8036D070.cpp
 pso/enemy/TObjEneLappy_800F5DE0.cpp
 pso/enemy/TObjEneMe1CanadinLeader.cpp
@@ -1336,6 +1337,7 @@ pso/misc/TOSignCave02.cpp
 pso/misc/TOSignCave03.cpp
 pso/misc/TOSparkMachine01.cpp
 pso/misc/TOSwitchAttack.cpp
+pso/misc/TOSwitchAttack_801778A4.cpp
 pso/misc/TOSwitchItem.cpp
 pso/misc/TOSwitchItem_80102C44.cpp
 pso/misc/TOSwitchTimer.cpp
@@ -2714,6 +2716,7 @@ pso/ui/TAdMultiChgGameModeGC_8036DE10.cpp
 pso/ui/TAdMultiConfirmGC.cpp
 pso/ui/TAdMultiConfirmGC_802E03D0.cpp
 pso/ui/TAdMultiPlayerNoGC.cpp
+pso/ui/TAdMultiPlyChrSelectGC.cpp
 pso/ui/TAdMultiPlyChrSelectGC_801A6EA0.cpp
 pso/ui/TAdMultiPlyChrSelectGC_802B1850.cpp
 pso/ui/TAdMultiPlyChrSelectGC_802C6F88.cpp
@@ -2917,6 +2920,7 @@ pso/unk/text_8009A398.cpp
 pso/unk/text_8009A434.cpp
 pso/unk/text_8009A6AC.cpp
 pso/unk/text_8009A704.cpp
+pso/unk/text_8009F410.cpp
 pso/unk/text_8009F7AC.cpp
 pso/unk/text_800A01C0.cpp
 pso/unk/text_800A02AC.cpp

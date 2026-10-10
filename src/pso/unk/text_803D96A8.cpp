@@ -21,39 +21,39 @@ struct Ent_803D9E38 { u8 *p; s32 a; s32 b; };
 struct Tbl_803D9E38 { u8 pad[8]; Ent_803D9E38 arr[1]; };
 
 extern "C" {
-extern u32 lbl_805D7770;
-extern u32 lbl_805D7774;
+extern u32 matrix_stack_base;
+extern u32 current_matrix;
 s32 pop_matrix(void);
-extern u32 lbl_805D7770;
-extern u32 lbl_805D7774;
+extern u32 matrix_stack_base;
+extern u32 current_matrix;
 s32 pop_matrices(s32 arg0);
 f32 PSMTXConcat(int, int, int);
-extern u32 lbl_805D7774;
+extern u32 current_matrix;
 void concat_matrix__10TObjPlayerFUiUi(u32 arg0, u32 arg1);
 f32 PSMTXConcat(int, int, int);
-extern u32 lbl_805D7774;
+extern u32 current_matrix;
 void concat_matrix__11TCameraCtrlFUiUi(u32 arg0, u32 arg1);
 s32 TObjPlayer__sub_803DB244();
 s32 is_gvm_load_ok__10TObjPlayerFv(void);
 void move_data__6TLobbyFv(void *, void *, int);
-extern u32 lbl_805D7774;
+extern u32 current_matrix;
 extern u32 matrix_stack_limit;
 s32 push_matrix_from(void *src);
 void TObjPlayer__sub_803D9C60(u32 *p);
 f32 PSMTXConcat(int, int, int);
 void PSMTXQuat(void *, void *);
-extern u32 lbl_805D7774;
+extern u32 current_matrix;
 void concat_quaternion_rotation__10TObjPlayerFPv(f32 *arg0);
 f32 PSMTXConcat(int, int, int);
 void PSMTXQuat(void *, void *);
-extern u32 lbl_805D7774;
+extern u32 current_matrix;
 void apply_quat_rotation__10TObjPlayerFPvf(f32 *arg0, f32 farg0);
 s32 fn_803DA12C(u8 *, s32, s32, s32);
 extern G_803D9DA8 lbl_8058D470;
 s32 TObjPlayer__sub_803D9DA8(A_803D9DA8 *arg0, B_803D9DA8 *arg1);
 void PSMTXRotRad(Matrix34*, char, f32);
 f32 PSMTXConcat(int, int, int);
-extern u32 lbl_805D7774;
+extern u32 current_matrix;
 void rotate_matrix_x(Matrix34* matrix, s32 angle);
 void move_data__6TLobbyFv(void *, void *, int);
 void TObjPlayer__sub_803D9C60(u32 *p);
@@ -73,7 +73,7 @@ void rotate_matrix_x(Matrix34* matrix, s32 angle) {
     Matrix34 rotation;
     Matrix34* selected;
     if (angle != 0) {
-        if (matrix == NULL) selected = (Matrix34*)lbl_805D7774;
+        if (matrix == NULL) selected = (Matrix34*)current_matrix;
         else selected = matrix;
         PSMTXRotRad(&rotation, 'x', (f32)(lbl_805E0F48 * (f64)angle));
         PSMTXConcat((int)selected, (int)&rotation, (int)selected);
@@ -88,10 +88,10 @@ void concat_matrix__10TObjPlayerFUiUi(u32 arg0, u32 arg1) {
     var_r3 = arg0;
     var_r4 = arg1;
     if (var_r3 == 0U) {
-        var_r3 = lbl_805D7774;
+        var_r3 = current_matrix;
     }
     if (var_r4 == 0U) {
-        var_r4 = lbl_805D7774;
+        var_r4 = current_matrix;
     }
     PSMTXConcat((int) (var_r3), (int) (var_r4), (int) (var_r3));
 }
@@ -105,12 +105,12 @@ void concat_matrix__11TCameraCtrlFUiUi(u32 arg0, u32 arg1) {
     u32 var_r5;
     var_r4 = arg1;
     if (arg0 == 0U) {
-        var_r5 = lbl_805D7774;
+        var_r5 = current_matrix;
     } else {
         var_r5 = arg0;
     }
     if (var_r4 == 0U) {
-        var_r4 = lbl_805D7774;
+        var_r4 = current_matrix;
     }
     PSMTXConcat((int) (var_r4), (int) (var_r5), (int) (var_r5));
 }
@@ -119,12 +119,12 @@ void concat_matrix__11TCameraCtrlFUiUi(u32 arg0, u32 arg1) {
 #pragma push
 #pragma scheduling off
 s32 push_matrix_from(void *src) {
-    u32 next = lbl_805D7774 + 0x30;
+    u32 next = current_matrix + 0x30;
     if (next > matrix_stack_limit) {
         return 0;
     }
-    move_data__6TLobbyFv((void *)next, (src == 0) ? (void *)lbl_805D7774 : src, 0x30);
-    lbl_805D7774 = next;
+    move_data__6TLobbyFv((void *)next, (src == 0) ? (void *)current_matrix : src, 0x30);
+    current_matrix = next;
     return 1;
 }
 #pragma pop
@@ -133,11 +133,11 @@ s32 push_matrix_from(void *src) {
 #pragma scheduling off
 s32 pop_matrices(s32 arg0) {
     u32 temp_r3;
-    temp_r3 = lbl_805D7774 - (arg0 * 0x30);
-    if (temp_r3 < (u32) lbl_805D7770) {
+    temp_r3 = current_matrix - (arg0 * 0x30);
+    if (temp_r3 < (u32) matrix_stack_base) {
         return 0;
     }
-    lbl_805D7774 = temp_r3;
+    current_matrix = temp_r3;
     return 1;
 }
 #pragma pop
@@ -150,7 +150,7 @@ void concat_quaternion_rotation__10TObjPlayerFPv(f32 *arg0) {
     q.y = arg0[2];
     q.z = arg0[3];
     PSMTXQuat(sp18, &q);
-    PSMTXConcat(lbl_805D7774, (int)sp18, lbl_805D7774);
+    PSMTXConcat(current_matrix, (int)sp18, current_matrix);
 }
 
 void apply_quat_rotation__10TObjPlayerFPvf(f32 *arg0, f32 farg0) {
@@ -161,18 +161,18 @@ void apply_quat_rotation__10TObjPlayerFPvf(f32 *arg0, f32 farg0) {
     q.y = arg0[1];
     q.z = arg0[2];
     PSMTXQuat(sp18, &q);
-    PSMTXConcat(lbl_805D7774, (int)sp18, lbl_805D7774);
+    PSMTXConcat(current_matrix, (int)sp18, current_matrix);
 }
 
 #pragma push
 #pragma scheduling off
 s32 pop_matrix(void) {
     u32 temp_r3;
-    temp_r3 = lbl_805D7774 - 0x30;
-    if (temp_r3 < (u32) lbl_805D7770) {
+    temp_r3 = current_matrix - 0x30;
+    if (temp_r3 < (u32) matrix_stack_base) {
         return 0;
     }
-    lbl_805D7774 = temp_r3;
+    current_matrix = temp_r3;
     return 1;
 }
 #pragma pop

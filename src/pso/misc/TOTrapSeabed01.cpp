@@ -187,8 +187,8 @@ void *__nw__7TObjectFUl(int);
 M2C_UNK __ct__13TObjSuisoChipFv(void *, void *, void *);
 M2C_UNK fn_802C9C18(void *, int);
 M2C_UNK matrix_mult_vec(void *, void *, void *);
-M2C_UNK set_position_vec3__10TObjPlayerFPvPv(void *, void *);
-M2C_UNK set_matrix_identity__10TObjPlayerFPv(void *);
+M2C_UNK translate_matrix_vec3(void *, void *);
+M2C_UNK set_matrix_identity(void *);
 M2C_UNK rotate_matrix_y(void *, int);
 extern u8 TOTrapSeabed01__transform_params[];
 extern Entry_802C9E3C lbl_804E0FE4[];
@@ -239,8 +239,8 @@ void TOTrapSeabed01__vt83(Trap_802C9E3C *self) {
         }
         Vec_802C9E3C v = p.pos;
         v.y = y;
-        set_matrix_identity__10TObjPlayerFPv(&m);
-        set_position_vec3__10TObjPlayerFPvPv(&m, &self->pos);
+        set_matrix_identity(&m);
+        translate_matrix_vec3(&m, &self->pos);
         rotate_matrix_y(&m, self->rotY);
         matrix_mult_vec(&m, &v, &v);
         if (spawn_particle_effect(&v, 0x8B) != 0) {

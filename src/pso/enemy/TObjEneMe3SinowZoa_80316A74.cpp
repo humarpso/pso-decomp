@@ -412,7 +412,7 @@ void create_ex__11TTecGiBartaFPvPvPvPv(void *, void *, s32, s32);
 s32 update_collisions__10TObjPlayerFPv(void *);
 extern Vec_80316C3C lbl_80475FC8[];
 extern Def_80316C3C *TObjEneMe3SinowZoa__kind_param_tbls[];
-extern u8 lbl_8058D490[];
+extern u8 identity_matrix[];
 extern s32 game_difficulty_selection;
 extern u8 *anim_model_matrix_array;
 extern const f32 TObjEneMe3SinowZoa__data_805DF308;
@@ -562,7 +562,7 @@ void TObjEneMe3SinowZoa__sub_80316C3C(Obj_80316C3C *arg0, s32 arg1) {
             }
             if (objInBand__FP7GameObjf(arg0, TObjEneMe3SinowZoa__data_805DF314) != 0) {
                 advance_animation_playback(arg0);
-                push_matrix_from(lbl_8058D490);
+                push_matrix_from(identity_matrix);
                 post_translate_matrix(&arg0->pos);
                 rotate_matrix_y(0, arg0->rotY);
                 set_global_flag__10TObjPlayerFv();

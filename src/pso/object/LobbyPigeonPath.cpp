@@ -589,8 +589,8 @@ s32 rand();
 f32 bind_motion_context(void *, f32);
 M2C_UNK sample_motion_node_transform(s32, s32, M2C_UNK *, M2C_UNK *, M2C_UNK *);
 void matrix_mult_vec(void *, void *, void *);
-void set_position_vec3__10TObjPlayerFPvPv(void *, void *);
-void set_matrix_identity__10TObjPlayerFPv(void *);
+void translate_matrix_vec3(void *, void *);
+void set_matrix_identity(void *);
 M2C_UNK rotate_matrix_y(M2C_UNK, s32);
 M2C_UNK rotate_matrix_z(M2C_UNK, s32);
 
@@ -681,10 +681,10 @@ void update_lobby_pigeon(Obj_802C0F3C *self) {
   if (--self->dc < 0) {
     Mtx_802C0F3C m;
     Vec_802C0F3C v = lbl_80471950;
-    set_matrix_identity__10TObjPlayerFPv(&m);
-    set_position_vec3__10TObjPlayerFPvPv(&m, &self->pos);
+    set_matrix_identity(&m);
+    translate_matrix_vec3(&m, &self->pos);
     ((void (*)(void *, s32))rotate_matrix_y)(&m, self->f60);
-    set_position_vec3__10TObjPlayerFPvPv(&m, &self->bc);
+    translate_matrix_vec3(&m, &self->bc);
     matrix_mult_vec(&m, &v, &v);
     self->dc =
         (s32)((3e+01f) * ((4.0f) * ((3.0517578e-05f) * (f32)rand())) +
@@ -915,10 +915,10 @@ void update_path_motion__10TObjPlayerFPv(u8 *arg0) {
     M2C_FIELD(arg0, s32 *, 0xCC) = temp_r0;
     if (temp_r0 < 0) {
         Vec_802C17FC v = lbl_80471908;
-        ((M2C_UNK (*)(void *))set_matrix_identity__10TObjPlayerFPv)(&m);
-        ((M2C_UNK (*)(void *, void *))set_position_vec3__10TObjPlayerFPvPv)(&m, arg0 + 0x38);
+        ((M2C_UNK (*)(void *))set_matrix_identity)(&m);
+        ((M2C_UNK (*)(void *, void *))translate_matrix_vec3)(&m, arg0 + 0x38);
         ((M2C_UNK (*)(void *, int))rotate_matrix_y)(&m, M2C_FIELD(arg0, s32 *, 0x60));
-        ((M2C_UNK (*)(void *, void *))set_position_vec3__10TObjPlayerFPvPv)(&m, arg0 + 0xAC);
+        ((M2C_UNK (*)(void *, void *))translate_matrix_vec3)(&m, arg0 + 0xAC);
         ((M2C_UNK (*)(void *, void *, void *))matrix_mult_vec)(&m, &v, &v);
         play_sound_effect(0x4BC04, arg0 + 0x38, 0x7F, 0);
         M2C_FIELD(arg0, s32 *, 0xCC) = (s32) (((3e+01f) * ((4.0f) * ((3.0517578e-05f) * (f32) rand()))) + (1.5e+02f));

@@ -166,7 +166,7 @@ void rotate_matrix_x(s32, s32);
 void push_matrix_from(void *);
 void pop_matrix(void);
 extern M2C_UNK lbl_80494E48[];
-extern u8 lbl_8058D490[];
+extern u8 identity_matrix[];
 extern const f32 lbl_805D5260;
 extern f32 lbl_805D5264;
 extern void *tl_04;
@@ -204,7 +204,7 @@ Obj_800DCD04 *TObjPlayer__sub_800DCD04(Obj_800DCD04 *self, Vec_800DCD04 *pos, s1
     self->f102 = arg5;
     self->pos = pos;
     self->fe8 = lbl_805DA480;
-    push_matrix_from(lbl_8058D490);
+    push_matrix_from(identity_matrix);
     {
         Vec_800DCD04 v = lbl_8043C920;
         s32 ang[3];

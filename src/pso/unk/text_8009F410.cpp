@@ -1,3 +1,170 @@
+#include "types.h"
+typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
+#define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
+typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
+#define M2C_BITWISE(type, expr) ((type)(expr))
+#include <stddef.h>
+typedef s32 M2C_UNK;
+struct Stack_803626A8 {
+    s32 sp8;
+    s32 spC;
+    s32 sp10;
+};
+
+struct RecoveredGlobal_803626A8_lbl_80479FBC {
+    M2C_UNK value;
+    u8 remaining[0x8];
+};
+
+struct RecoveredGlobal_803626A8_lbl_8058D490 {
+    M2C_UNK value;
+    u8 remaining[0x2C];
+};
+
+struct RecoveredGlobal_80362B48___vt__14TObjEneEpsilon {
+    M2C_UNK value;
+    u8 remaining[0x1A0];
+};
+
+struct Obj_80362DE8 {
+    u8 pad0[0x40]; u32 flags; u8 pad44[8]; f32 f4C; u8 pad50[8]; s32 i58; u8 pad5C[4]; u8 v60[0x10]; void *fn70; void *fn74;
+};
+
+struct VBase_18_c22f9c
+{
+  char pad[0x18];
+};
+
+struct VObj_18_c22f9c : VBase_18_c22f9c {
+    virtual void m0();
+    virtual void m1();
+    virtual void m2();
+    virtual void m3();
+    virtual void m4();
+    virtual void m5();
+    virtual void m6();
+    virtual void m7();
+    virtual void m8();
+    virtual void m9();
+    virtual void m10();
+    virtual void m11();
+    virtual void m12();
+    virtual void m13();
+    virtual void m14();
+    virtual void m15();
+    virtual void m16();
+    virtual void m17();
+    virtual void m18();
+    virtual void m19();
+    virtual void m20();
+    virtual void m21();
+    virtual void m22();
+    virtual void m23();
+    virtual void m24();
+    virtual void m25();
+    virtual void m26();
+    virtual void m27();
+    virtual void m28();
+    virtual void m29();
+    virtual void m30();
+    virtual void m31();
+    virtual void m32();
+    virtual void m33();
+    virtual void m34();
+    virtual void m35();
+    virtual void m36();
+    virtual void m37();
+    virtual void m38();
+    virtual void m39();
+    virtual void m40();
+    virtual void m41();
+    virtual void m42();
+    virtual void m43();
+    virtual void m44();
+    virtual void m45();
+    virtual void m46();
+    virtual void m47();
+    virtual void m48();
+    virtual void m49();
+    virtual void m50();
+    virtual void m51();
+    virtual void m52();
+    virtual void m53();
+    virtual void m54();
+    virtual void m55();
+    virtual void m56();
+    virtual void m57();
+    virtual void m58();
+    virtual void m59();
+    virtual void m60();
+    virtual void m61();
+    virtual void m62();
+    virtual void m63(s32, void *);
+};
+
+struct T_80362C80
+{
+  u8 pad0[0xF0];
+  VObj_18_c22f9c *obj;
+};
+
+struct S_80362C80
+{
+  s32 v;
+};
+
+struct Leaf_803627DC { u8 pad[4]; s32 v; };
+
+struct Node_803627DC {
+    u8 pad0[4];
+    Leaf_803627DC *leaf;
+    u8 pad8[0x2C - 8];
+    Node_803627DC *child;
+    Node_803627DC *next;
+};
+
+struct Model_803627DC { u8 pad[8]; s32 f8; s32 fC; };
+
+struct Res_803627DC { u8 pad[0x42C]; Model_803627DC *f42c; s32 f430; };
+
+struct Quad_803627DC { s32 a, b, c, d; };
+
+class V_8036274C {
+public:
+    u8 pad[0xC];
+    virtual ~V_8036274C();
+};
+
 extern "C" {
+extern u8 *lbl_805D4FD0;
+extern u8 *lbl_805D4FE0;
+extern u8 *lbl_805D4FDC;
+void TLobby__sub_8001FE7C(void *, int);
+void fn_8009F410(void);
+}
+
+extern "C" {
+
+typedef char RecoveredGlobal_803626A8_lbl_80479FBC_size[sizeof(RecoveredGlobal_803626A8_lbl_80479FBC) == 0xC ? 1 : -1];
+typedef char RecoveredGlobal_803626A8_lbl_8058D490_size[sizeof(RecoveredGlobal_803626A8_lbl_8058D490) == 0x30 ? 1 : -1];
+typedef char RecoveredGlobal_80362B48___vt__14TObjEneEpsilon_size[sizeof(RecoveredGlobal_80362B48___vt__14TObjEneEpsilon) == 0x1A4 ? 1 : -1];
+void fn_8009F410(void) {
+    if ((*(V_8036274C * *)&lbl_805D4FE0) != NULL) {
+        delete (*(V_8036274C * *)&lbl_805D4FE0);
+        (*(V_8036274C * *)&lbl_805D4FE0) = NULL;
+    }
+    if ((*(V_8036274C * *)&lbl_805D4FDC) != NULL) {
+        delete (*(V_8036274C * *)&lbl_805D4FDC);
+        (*(V_8036274C * *)&lbl_805D4FDC) = NULL;
+    }
+    if ((*(u32 *)&lbl_805D4FD0) != 0) {
+        TLobby__sub_8001FE7C((void *)(*(u32 *)&lbl_805D4FD0), 1);
+        (*(u32 *)&lbl_805D4FD0) = 0;
+    }
+}
+typedef struct S_80362C80 S_80362C80;
+typedef struct T_80362C80 T_80362C80;
+typedef struct VBase_18_c22f9c VBase_18_c22f9c;
+typedef struct VObj_18_c22f9c VObj_18_c22f9c;
 
 }

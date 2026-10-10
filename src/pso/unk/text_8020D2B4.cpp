@@ -65,7 +65,7 @@ M2C_UNK rotate_matrix_y(int, int);
 M2C_UNK rotate_matrix_z(int, int);
 M2C_UNK translate_matrix(int, f32, f32, f32);
 M2C_UNK rotate_matrix_x(int, int);
-extern RecoveredGlobal_8020D2B4_lbl_8058D490 lbl_8058D490;
+extern RecoveredGlobal_8020D2B4_lbl_8058D490 identity_matrix;
 void apply_room_transform(s32 arg0, u8 *arg1, u8 *arg2);
 s32 get_current_floor();
 s32 assign_display_objects__6TLobbyFPvi(int, int);
@@ -107,7 +107,7 @@ extern "C" {
 void update_decoration_spawning__11TSetManagerFPv(void* p);
 
 void apply_room_transform(s32 arg0, u8 *arg1, u8 *arg2) {
-    push_matrix_from((u32) &lbl_8058D490.value);
+    push_matrix_from((u32) &identity_matrix.value);
     translate_matrix((int) (0), (f32) (M2C_FIELD(arg2, f32 *, 4)), (f32) (M2C_FIELD(arg2, f32 *, 8)), (f32) (M2C_FIELD(arg2, f32 *, 0xC)));
     rotate_matrix_z((int) (0), (int) (M2C_FIELD(arg2, s32 *, 0x18)));
     rotate_matrix_x((int) (0), (int) (M2C_FIELD(arg2, s32 *, 0x10)));

@@ -422,7 +422,7 @@ extern "C" u8 lbl_804365D4[];
 extern "C" u8 lbl_804365EC[];
 void VecCopy__FP3VecPC3Vec(void *, void *);
 M2C_UNK matrix_mult_vec(int, void *, void *);
-M2C_UNK set_matrix_identity__10TObjPlayerFPv(int);
+M2C_UNK set_matrix_identity(int);
 struct G44_800426EC { u8 pad[0x2C]; };
 struct V12_800426EC { f32 x, y, z; };
 struct Mon_800426EC;
@@ -716,7 +716,7 @@ u8 *init_with_slot__19TBoss3VoloptMonitorFPvPviiii(u8 *arg0, u8 *arg1, s32 arg2,
     M2C_FIELD(arg0, s32 *, 0x60) = (s32)(lbl_805D8754 * (f32)t);
     TBoss3VoloptMonitor__sub_80042944((O_80042944 *)arg0, lbl_80483EB4[M2C_FIELD(arg0, s32 *, 0x368)]);
     push_matrix();
-    set_matrix_identity__10TObjPlayerFPv(0);
+    set_matrix_identity(0);
     rotate_matrix_y(0, M2C_FIELD(arg0, s32 *, 0x60));
     matrix_mult_vec(0, (u8 *)lbl_80483E84 + M2C_FIELD(arg0, s32 *, 0x368) * 0xC, arg0 + 0x38);
     pop_matrix();

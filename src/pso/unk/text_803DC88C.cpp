@@ -53,7 +53,7 @@ s32 push_matrix();
 s32 pop_matrix();
 s32 queue_model_draw_matrix(int, void *);
 extern s32 lbl_805D7710;
-extern s32 lbl_805D7774;
+extern s32 current_matrix;
 void draw_ginja_motion_node_tree(u8 *arg0);
 void bind_motion_context(void *);
 void init_model_draw_queue(void *);
@@ -64,7 +64,7 @@ void draw_ginja_model_lists(void);
 extern struct MotionCtx_803DC894 * const lbl_805D4698;
 extern RecoveredCallback_2be3cacebb2e lbl_805D76E4;
 void draw_ginja_model_with_motion(void *arg0, void *arg1);
-extern s32 lbl_805D7774;
+extern s32 current_matrix;
 void copy_matrix3x3_to_global__10TObjPlayerFPv(struct Mtx_803DC994 *src);
 void GXSetBlendMode(int, int, int, int);
 extern u32 cached_blend_factor_table[];
@@ -129,7 +129,7 @@ void draw_ginja_motion_node_tree(u8 *arg0) {
         }
         temp_r3 = M2C_FIELD(var_r31, u32 *, 4);
         if ((temp_r3 != 0U) && ((u32) (M2C_FIELD(var_r31, s32 *, 0) & 8) == 0)) {
-            queue_model_draw_matrix((int) (temp_r3), (void *) (lbl_805D7774));
+            queue_model_draw_matrix((int) (temp_r3), (void *) (current_matrix));
         }
         temp_r3_2 = (u8 *)(M2C_FIELD(var_r31, u8 **, 0x2C));
         if (temp_r3_2 != NULL) {
@@ -142,7 +142,7 @@ void draw_ginja_motion_node_tree(u8 *arg0) {
 #pragma pop
 
 void copy_matrix3x3_to_global__10TObjPlayerFPv(struct Mtx_803DC994 *src) {
-    struct Mtx_803DC994 *dst = (struct Mtx_803DC994 *)lbl_805D7774;
+    struct Mtx_803DC994 *dst = (struct Mtx_803DC994 *)current_matrix;
     dst->m[0][0] = src->m[0][0];
     dst->m[0][1] = src->m[0][1];
     dst->m[0][2] = src->m[0][2];

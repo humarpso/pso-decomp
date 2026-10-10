@@ -41,7 +41,7 @@ void rotate_matrix_y(int, s32);
 void push_matrix_from(void *);
 void pop_matrix();
 extern Rec_8017F550 lbl_804439D8[];
-extern u8 lbl_8058D490[];
+extern u8 identity_matrix[];
 void fn_8017F550(Obj_8017F550 *arg0);
 }
 
@@ -79,7 +79,7 @@ void fn_8017F550(Obj_8017F550 *arg0) {
     s32 i;
     for (i = 0; i < 8; i++) {
         fn_8017F5F0((u8 *)(&arg0->recs[i]), (u8 *)(&lbl_804439D8[i]));
-        push_matrix_from(lbl_8058D490);
+        push_matrix_from(identity_matrix);
         rotate_matrix_y(0, arg0->f60);
         matrix_mult_vec(0, &arg0->recs[i], &arg0->recs[i]);
         pop_matrix();

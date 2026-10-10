@@ -28,12 +28,12 @@ extern "C" {
 
 void render__16TObjDFTenchuFuruFPv(void* a0);
 int transform_node_tree__16TObjDFTenchuFuruFPv(void*);
-int set_matrix_identity__10TObjPlayerFPv(void*);
+int set_matrix_identity(void*);
 int push_matrix(void);
 int pop_matrix(void);
 
     extern int lbl_805D4D78;
-void render__16TObjDFTenchuFuruFPv(void* a0) { lbl_805D4D78 = 0; push_matrix(); set_matrix_identity__10TObjPlayerFPv((void*)0); transform_node_tree__16TObjDFTenchuFuruFPv(a0); pop_matrix(); }
+void render__16TObjDFTenchuFuruFPv(void* a0) { lbl_805D4D78 = 0; push_matrix(); set_matrix_identity((void*)0); transform_node_tree__16TObjDFTenchuFuruFPv(a0); pop_matrix(); }
 void draw_player_model_by_client__10TObjPlayerFUsiff(u16 arg0, s32 arg1, f32 farg0, f32 farg1) {
     u8 *p;
     u32 a;

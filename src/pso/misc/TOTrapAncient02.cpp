@@ -185,7 +185,7 @@ M2C_UNK pop_matrix();
 extern const f64 lbl_80442F38;
 extern Vec_8017A3C0 lbl_8050BEE0[];
 extern Vec_8017A3C0 lbl_8050BF00[];
-extern u8 lbl_8058D490[];
+extern u8 identity_matrix[];
 extern s32 tl_07;
 extern const f32 lbl_805DBA78;
 extern const f32 lbl_805DBA80;
@@ -616,7 +616,7 @@ void TOTrapAncient02R__vt79(Obj_8017A3C0 *o) {
                     if (update_scale__15TObjBoss2TunnelFPv(lbl_8050BF00) < lbl_805DBA8C) {
                         lbl_8050BF00->x = lbl_8050BF00->y = lbl_805DBA80;
                         lbl_8050BF00->z = lbl_805DBA78;
-                        push_matrix_from(lbl_8058D490);
+                        push_matrix_from(identity_matrix);
                         rotate_matrix_y(0, o->angle);
                         rotate_vector_by_matrix(0, lbl_8050BF00, lbl_8050BF00);
                         pop_matrix();

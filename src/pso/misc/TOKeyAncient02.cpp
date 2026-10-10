@@ -64,7 +64,7 @@ s32 is_local_player_in_range__5TOKeyFPv(void *);
 s32 TOKeyAncient03__vt13(u8 *arg0);
 M2C_UNK begin_effect_render__13TParticleCtrlFv();
 M2C_UNK end_effect_render__13TParticleCtrlFv();
-M2C_UNK set_monitor_position_vec3__10TObjPlayerFPvPv(int, void *);
+M2C_UNK scale_matrix_vec3(int, void *);
 M2C_UNK rotate_matrix_y(int, int);
 M2C_UNK push_matrix();
 M2C_UNK pop_matrix();
@@ -156,7 +156,7 @@ void render__14TOKeyAncient02Fv(u8 *arg0) {
         temp_r31_2 = M2C_FIELD(temp_r31, u8 **, 0x2C);
         push_matrix();
         post_translate_matrix((void *) (temp_r31_2 + 8));
-        set_monitor_position_vec3__10TObjPlayerFPvPv((int) (0), (void *) (arg0 + 0x68));
+        scale_matrix_vec3((int) (0), (void *) (arg0 + 0x68));
         begin_effect_render__13TParticleCtrlFv();
         draw_ginja_model((int) (M2C_FIELD(temp_r31_2, s32 *, 4)));
         end_effect_render__13TParticleCtrlFv();

@@ -7,26 +7,26 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 #include "stdarg.h"
 extern "C" {
 f32 PSMTXMultVecArray(s32, s32);
-extern s32 lbl_805D7774;
+extern s32 current_matrix;
 void mult_vec_array__10TObjPlayerFUii(u32 arg0, s32 arg1);
 s32 PSMTXInverse(int, int);
-extern s32 lbl_805D7774;
+extern s32 current_matrix;
 void invert_matrix_in_place__10TObjPlayerFUi(u32 arg0);
 M2C_UNK PSMTXMultVec(int);
-extern s32 lbl_805D7774;
+extern s32 current_matrix;
 void matrix_mult_vec(u32 arg0);
 void rotate_matrix_z(void *, s32);
 void rotate_matrix_x(void *, s32);
 void rotate_matrix_y(void *, s32);
 void rotate_matrix_zyx(void *m, s32 x, s32 y, s32 z);
-extern s32 lbl_805D7774;
+extern s32 current_matrix;
 void PSMTXCopy(void *src, void *dst);
 void get_current_matrix(void *m);
 void rotate_matrix_y(void *, s32);
 void rotate_matrix_z(void *, s32);
 void rotate_matrix_x(void *, s32);
 void rotate_matrix_yxz(s32 arg0, s32 arg1, s32 arg2, s32 arg3);
-extern s32 lbl_805D7774;
+extern s32 current_matrix;
 void PSMTXScale(f32 (*m)[4], f32 sx, f32 sy, f32 sz);
 void PSMTXConcat(f32 (*a)[4], f32 (*b)[4], f32 (*ab)[4]);
 void scale_matrix(f32 (*m)[4], f32 sx, f32 sy, f32 sz);
@@ -54,7 +54,7 @@ void matrix_mult_vec(u32 arg0) {
     var_r3 = arg0;
     phi_r3 = var_r3;
     if (var_r3 == 0U) {
-        var_r3_2 = (*(u32 *)&lbl_805D7774);
+        var_r3_2 = (*(u32 *)&current_matrix);
         phi_r3 = var_r3_2;
     }
     PSMTXMultVec((int) (phi_r3));
@@ -67,7 +67,7 @@ void mult_vec_array__10TObjPlayerFUii(u32 arg0, s32 arg1) {
     u32 var_r3;
     var_r3 = arg0;
     if (var_r3 == 0U) {
-        var_r3 = (u32) lbl_805D7774;
+        var_r3 = (u32) current_matrix;
     }
     PSMTXMultVecArray((s32) var_r3, arg1);
 }
@@ -77,7 +77,7 @@ void mult_vec_array__10TObjPlayerFUii(u32 arg0, s32 arg1) {
 #pragma scheduling off
 #pragma peephole off
 void get_current_matrix(void *m) {
-    void *src = (*(void * *)&lbl_805D7774);
+    void *src = (*(void * *)&current_matrix);
     if (m == 0) {
         m = src;
     }
@@ -91,7 +91,7 @@ void invert_matrix_in_place__10TObjPlayerFUi(u32 arg0) {
     u32 var_r3;
     var_r3 = arg0;
     if (var_r3 == 0U) {
-        var_r3 = (*(u32 *)&lbl_805D7774);
+        var_r3 = (*(u32 *)&current_matrix);
     }
     PSMTXInverse((int) (var_r3), (int) (var_r3));
 }
@@ -128,7 +128,7 @@ typedef f32 Mtx_803D8B5C[3][4];
 void scale_matrix(f32 (*m)[4], f32 sx, f32 sy, f32 sz) {
     Mtx_803D8B5C tmp;
     f32 (*t)[4];
-    if (m == NULL) t = (f32 (*)[4])lbl_805D7774;
+    if (m == NULL) t = (f32 (*)[4])current_matrix;
     else t = m;
     PSMTXScale(tmp, sx, sy, sz);
     PSMTXConcat(t, tmp, t);

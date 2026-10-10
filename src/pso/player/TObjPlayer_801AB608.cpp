@@ -160,7 +160,7 @@ void normalize_vector(void *);
 void push_matrix_from(void *);
 void pop_matrices(int);
 extern const Packet_801AB6A0 lbl_80446D68;
-extern u8 lbl_8058D490[];
+extern u8 identity_matrix[];
 extern const float lbl_805DC188;
 extern const f32 lbl_805DC18C;
 extern const f32 lbl_805DC190;
@@ -181,7 +181,7 @@ void pop_matrices(int);
 f32 vec3_dot(void *, void *);
 u16 obj_getField1c(void *);
 void queue_photon_blast_hit(u32, int, int, f32);
-extern u8 lbl_8058D490[];
+extern u8 identity_matrix[];
 extern const float lbl_805DC188;
 extern const f32 lbl_805DC190;
 extern const f32 lbl_805DC19C;
@@ -237,7 +237,7 @@ s32 spawn_concentrate__12TPhotonGollaFPv(void *arg0) {
             local.y = owner->y;
         }
         local.z = lbl_805DC18C;
-        push_matrix_from(lbl_8058D490);
+        push_matrix_from(identity_matrix);
         if (owner != NULL) {
             rotate_matrix_y(0, owner->rot);
         }
@@ -308,13 +308,13 @@ void collect_hit_targets__12TPhotonGollaFPv(void *arg0) {
                     normalize_vector(&direction);
                     forward.y = forward.x = lbl_805DC188;
                     forward.z = lbl_805DC190;
-                    push_matrix_from(lbl_8058D490);
+                    push_matrix_from(identity_matrix);
                     if (owner != NULL) {
                         rotate_matrix_y(0, owner->rot + 0x1555);
                     }
                     rotate_vector_by_matrix(0, &forward, &left);
                     pop_matrices(1);
-                    push_matrix_from(lbl_8058D490);
+                    push_matrix_from(identity_matrix);
                     if (owner != NULL) {
                         rotate_matrix_y(0, owner->rot - 0x1555);
                     }

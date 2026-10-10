@@ -110,7 +110,7 @@ M2C_UNK push_matrix_from(void *);
 M2C_UNK pop_matrices(int);
 extern const Vec_8006835C lbl_80438168;
 extern const Vec_8006835C lbl_80438174;
-extern u8 lbl_8058D490[];
+extern u8 identity_matrix[];
 extern View_8006835C *camera_ctrl_instance;
 extern const f32 TCameraCtrl__data_805D8F80;
 extern const f32 TCameraCtrl__data_805D8F84;
@@ -185,12 +185,12 @@ s32 predict_obstruction__11TCameraCtrlFPv(Cam_8006809C *self) {
     if (len < TCameraCtrl__data_805D8F80) {
         Vec_8006835C v1 = lbl_80438168;
         Vec_8006835C v2 = lbl_80438174;
-        push_matrix_from(lbl_8058D490);
+        push_matrix_from(identity_matrix);
         rotate_matrix_y(0, *(s32 *) camera_ctrl_instance->f194);
         matrix_mult_vec(0, &v1, &v1);
         pop_matrices(1);
         v1.y = TCameraCtrl__data_805D8F84;
-        push_matrix_from(lbl_8058D490);
+        push_matrix_from(identity_matrix);
         rotate_matrix_y(0, self->obj->angle);
         matrix_mult_vec(0, &v2, &v2);
         pop_matrices(1);

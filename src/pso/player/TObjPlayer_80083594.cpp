@@ -25,7 +25,7 @@ M2C_UNK pop_matrix();
 M2C_UNK load_current_pos_matrix(int);
 M2C_UNK load_current_tex_matrix(int);
 extern const f64 lbl_80439358;
-extern s32 lbl_805D7774;
+extern s32 current_matrix;
 extern const f32 lbl_805D93DC;
 extern const f32 lbl_805D940C;
 extern const f32 lbl_805D9414;
@@ -41,7 +41,7 @@ M2C_UNK pop_matrix();
 M2C_UNK load_current_pos_matrix(int);
 M2C_UNK load_current_tex_matrix(int);
 extern const f64 lbl_80439358;
-extern s32 lbl_805D7774;
+extern s32 current_matrix;
 extern const f32 lbl_805D93DC;
 extern const f32 lbl_805D9414;
 void load_projected_texture_matrix(f32 farg0);
@@ -111,7 +111,7 @@ void load_projected_texture_matrix(f32 farg0) {
         } else {
             C_MTXLightPerspective((void *) (&stack.sp10), (f32) (temp_f31), (f32) (farg0), (f32) (lbl_805D93DC), (f32) (lbl_805D9414), (f32) (lbl_805D93DC), (f32) (lbl_805D93DC));
         }
-        PSMTXConcat((void *) (&stack.sp10), (void *) (lbl_805D7774), (void *) (lbl_805D7774));
+        PSMTXConcat((void *) (&stack.sp10), (void *) (current_matrix), (void *) (current_matrix));
         load_current_tex_matrix((int) (0));
         pop_matrix();
         load_current_pos_matrix((int) (0));
@@ -133,7 +133,7 @@ void load_projection_tex_matrix__15TOTrapAncient02Fi(s32 arg0) {
         } else {
             C_MTXLightPerspective((void *) (sp10), (f32) (temp_f31), (f32) (lbl_805D940C), (f32) (lbl_805D93DC), (f32) (lbl_805D9414), (f32) (lbl_805D93DC), (f32) (lbl_805D93DC));
         }
-        PSMTXConcat((void *) (sp10), (void *) (lbl_805D7774), (void *) (lbl_805D7774));
+        PSMTXConcat((void *) (sp10), (void *) (current_matrix), (void *) (current_matrix));
         load_current_tex_matrix((int) (0));
         pop_matrix();
         load_current_pos_matrix((int) (0));

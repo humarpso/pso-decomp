@@ -1162,7 +1162,7 @@ extern M2C_UNK __vt__18TObjEneMe3SinowZoa[];
 extern u8 sinow_zoa_breakup_params[];
 extern Tbl_8031AF88 lbl_80542FB0;
 extern RecoveredGlobal_8031A3D8_lbl_80542FDC lbl_80542FDC;
-extern u8 lbl_8058D490[];
+extern u8 identity_matrix[];
 extern s32 game_difficulty_selection;
 extern const f32 lbl_805DF2F8;
 extern const f32 lbl_805DF300;
@@ -4265,7 +4265,7 @@ f32 get_node_height__18TObjEneMe3SinowZoaFPv(Obj_800E75AC *self) {
     v.x = TObjEneMe3SinowZoa__data_805DF31C;
     v.y = TObjEneMe3SinowZoa__data_805DF31C;
     v.z = TObjEneMe3SinowZoa__data_805DF31C;
-    push_matrix_from(lbl_8058D490);
+    push_matrix_from(identity_matrix);
     bind_motion_context(self->ff8, self->fc0);
     node = self->node;
     compose_motion_node_matrix(node);

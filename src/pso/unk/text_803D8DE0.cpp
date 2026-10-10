@@ -10,7 +10,7 @@ typedef struct { f32 x, y, z, w; } Quat_803D8E0C;
 }
 
 extern "C" {
-extern s32 lbl_805D7774;
+extern s32 current_matrix;
 M2C_UNK PSMTXMultVecArraySR(int);
 void fn_803D8DE0(u32 arg0);
 }
@@ -26,7 +26,7 @@ void fn_803D8DE0(u32 arg0) {
     var_r3 = arg0;
     phi_r3 = var_r3;
     if (var_r3 == 0U) {
-        var_r3_2 = (*(u32 *)&lbl_805D7774);
+        var_r3_2 = (*(u32 *)&current_matrix);
         phi_r3 = var_r3_2;
     }
     PSMTXMultVecArraySR((int) (phi_r3));

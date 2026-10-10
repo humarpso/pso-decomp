@@ -93,7 +93,7 @@ f32 sin_table_lookup(s32);
 f32 cos_table_lookup(s32);
 M2C_UNK vec3_add_to(s32, s32, s32);
 M2C_UNK matrix_mult_vec(int, void *, void *);
-M2C_UNK set_matrix_identity__10TObjPlayerFPv(int);
+M2C_UNK set_matrix_identity(int);
 M2C_UNK rotate_matrix_y(int, int);
 M2C_UNK translate_matrix(int, f32, f32, f32);
 M2C_UNK push_matrix(void);
@@ -135,7 +135,7 @@ void run_task__19TBoss1DragonEffTailFv(u8 *arg0) {
     M2C_FIELD(arg0, s32 *, 0x60) = M2C_FIELD(M2C_FIELD(arg0, u8 **, 0xB0), s32 *, 0x60);
     src = M2C_FIELD(arg0, Vec_8002BD38 **, 0xB4);
     push_matrix();
-    set_matrix_identity__10TObjPlayerFPv(0);
+    set_matrix_identity(0);
     rotate_matrix_y(0, -M2C_FIELD(arg0, s32 *, 0x60));
     translate_matrix(0, -M2C_FIELD(arg0, f32 *, 0x38), -M2C_FIELD(arg0, f32 *, 0x3C), -M2C_FIELD(arg0, f32 *, 0x40));
     for (i = 0; i < 0x11; i++) {

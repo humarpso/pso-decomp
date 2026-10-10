@@ -249,6 +249,8 @@ end:
 #pragma dont_inline off
 #pragma inline_depth(4)
 #pragma opt_common_subs on
+#pragma push
+#pragma optimization_level 2
 u32 StartKeymap(u16 keymapID, s16 prio, u8 maxVoices, u16 allocId, u8 key, u8 vol, u8 panning, u8 midi,
                 u8 midiSet, u8 section, u16 step, u16 trackid, u32 vidFlag, u8 vGroup, u8 studio, u32 itd) {
     KEYMAP_SV *dataGetKeymap(u16 keymapID);
@@ -302,6 +304,7 @@ u32 StartKeymap(u16 keymapID, s16 prio, u8 maxVoices, u16 allocId, u8 key, u8 vo
     return 0xFFFFFFFF;
 }
 
+#pragma pop
 static inline void unblockAllAllocatedVoices_SV(u32 vid) {
     u32 id;
 

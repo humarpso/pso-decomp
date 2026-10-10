@@ -117,7 +117,7 @@ void setup_from_data__12TCharaMakingFii(u32, u32);
 void clear_flag_bit0__12TCharaMakingFv();
 void enable_making__12TCharaMakingFv();
 void draw_player_model__23TAdSinglePlyChrSelectGCFPv(void* p);
-void set_position_vec3__10TObjPlayerFPvPv(int, void *);
+void translate_matrix_vec3(int, void *);
 void rotate_matrix_y(int, u32);
 void push_matrix_from();
 void push_matrix();
@@ -1360,7 +1360,7 @@ void draw_creation_figure__23TAdSinglePlyChrSelectGCFPv(u8 *arg0) {
     {
         char_creation_figure_draw_flag = 1;
         push_matrix();
-        set_position_vec3__10TObjPlayerFPvPv(0, arg0 + 0x38);
+        translate_matrix_vec3(0, arg0 + 0x38);
         rotate_matrix_y(0, creation_figure_rotation_y);
         set_global_param__8TObjFishFi((u8 *)char_select_current_entry + 0x460);
         draw_player_model__23TAdSinglePlyChrSelectGCFPv((void*)(arg0));

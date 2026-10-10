@@ -9,7 +9,7 @@ struct GinjaModelQueue {
     void (*draw)(void*);
 };
 extern "C" {
-extern GinjaMatrix* lbl_805D7774;
+extern GinjaMatrix* current_matrix;
 extern u32 some_id_805c6f74;
 extern GinjaModelQueue lbl_8058CD70;
 extern GinjaMatrix lbl_8058CB68[10];

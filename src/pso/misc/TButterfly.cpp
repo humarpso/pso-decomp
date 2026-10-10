@@ -35,7 +35,7 @@ void rotate_vector_by_matrix(void *, Vec_8017EA74 *, Vec_8017EA74 *);
 void rotate_matrix_y(void *, s32);
 s32 push_matrix_from(void *);
 s32 pop_matrices(s32);
-extern u8 lbl_8058D490[];
+extern u8 identity_matrix[];
 void run_task__10TButterflyFv(Butterfly_8017EA74 *self);
 }
 
@@ -129,7 +129,7 @@ void run_task__10TButterflyFv(Butterfly_8017EA74 *self) {
             dir.x = 2.0f * (0.0015f * (2.0f * (3.0517578125e-05f * (f32)rand()) - 1.0f));
             dir.y = 0.0f;
             dir.z = 2.0f * (0.0015f * (3.0517578125e-05f * (f32)rand())) + 0.05f;
-            push_matrix_from(lbl_8058D490);
+            push_matrix_from(identity_matrix);
             rotate_matrix_y(NULL, self->rotY);
             rotate_vector_by_matrix(NULL, &dir, &out);
             pop_matrices(1);
@@ -154,7 +154,7 @@ void run_task__10TButterflyFv(Butterfly_8017EA74 *self) {
             dir.x = 2.0f * (0.025f * (2.0f * (3.0517578125e-05f * (f32)rand()) - 1.0f));
             dir.y = 0.0f;
             dir.z = 2.0f * (0.025f * (3.0517578125e-05f * (f32)rand())) + 0.05f;
-            push_matrix_from(lbl_8058D490);
+            push_matrix_from(identity_matrix);
             rotate_matrix_y(NULL, self->rotY);
             rotate_vector_by_matrix(NULL, &dir, &out);
             pop_matrices(1);

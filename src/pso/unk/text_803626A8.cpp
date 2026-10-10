@@ -155,7 +155,7 @@ s32 push_matrix_from(void *);
 s32 pop_matrix();
 f32 post_translate_matrix(void *);
 extern RecoveredGlobal_803626A8_lbl_80479FBC lbl_80479FBC;
-extern RecoveredGlobal_803626A8_lbl_8058D490 lbl_8058D490;
+extern RecoveredGlobal_803626A8_lbl_8058D490 identity_matrix;
 extern s32 anim_model_matrix_array;
 void TObjPlayer__sub_803626A8(u8 *arg0, s32 arg1, s32 arg2);
 u8 * __dt__9TObjEneDDFv(void *, s16);
@@ -238,7 +238,7 @@ void TObjPlayer__sub_803626A8(u8 *arg0, s32 arg1, s32 arg2) {
     stack.sp8 = M2C_FIELD(&lbl_80479FBC.value, s32 *, 0);
     stack.spC = M2C_FIELD(&lbl_80479FBC.value, s32 *, 4);
     stack.sp10 = M2C_FIELD(&lbl_80479FBC.value, s32 *, 8);
-    push_matrix_from((void *) (&lbl_8058D490.value));
+    push_matrix_from((void *) (&identity_matrix.value));
     post_translate_matrix((void *) (arg0 + 0x38));
     rotate_matrix_y((int) (0), (int) (M2C_FIELD(arg0, s32 *, 0x60)));
     render_anim_model__10TObjPlayerFPvf((void *) (arg0), (f32) (M2C_FIELD(arg0, f32 *, 0xC0)));

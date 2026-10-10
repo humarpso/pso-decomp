@@ -43,7 +43,7 @@ void push_matrix_from(void *);
 void pop_matrix();
 extern Offs_80174CFC lbl_804428DC;
 extern Init_80174CFC lbl_80442924;
-extern u8 lbl_8058D490[];
+extern u8 identity_matrix[];
 extern void *lbl_805D5A84;
 extern s32 tl_05;
 void spawn_debris__18TORockCaveBrakableFPv(u8 *arg0);
@@ -105,7 +105,7 @@ void spawn_debris__18TORockCaveBrakableFPv(u8 *arg0) {
     M2C_FIELD(&init, f32 *, 0x38) = M2C_FIELD(&init, f32 *, 0x10);
     for (i = 0; i < 6; i++) {
         VecCopy__FP3VecPC3Vec(&v, &offs.v[i]);
-        push_matrix_from(lbl_8058D490);
+        push_matrix_from(identity_matrix);
         rotate_matrix_y(0, *(s32 *)(arg0 + 0x60));
         rotate_vector_by_matrix(0, &v, &v);
         pop_matrix();

@@ -43,7 +43,7 @@ void set_mode_index_from_state__13TObjLobbyMainFPv(u8 *arg0);
 void set_param_ptr__11TBoss4Type2FPvi(void *, int);
 void copy_pos__11TNowLoadingFPvPv(void *, void *);
 void matrix_mult_vec(int, Vec3_80352240 *, Vec3_80352240 *);
-void set_matrix_identity__10TObjPlayerFPv(int);
+void set_matrix_identity(int);
 void rotate_matrix_y(int, s32);
 void push_matrix();
 void pop_matrix();
@@ -163,7 +163,7 @@ void update_emitter_positions__13TObjLobbyMainFPv(u8 *arg0) {
         Vec3_80352240 v = {0.0f, 0.0f, 18.0f};
         set_param_ptr__11TBoss4Type2FPvi(*(void **)(arg0 + 0xD8), 0x222);
         push_matrix();
-        set_matrix_identity__10TObjPlayerFPv(0);
+        set_matrix_identity(0);
         post_translate_matrix(arg0 + 0x38);
         rotate_matrix_y(0, *(s32 *)(arg0 + 0x60));
         matrix_mult_vec(0, &v, &v);
@@ -174,7 +174,7 @@ void update_emitter_positions__13TObjLobbyMainFPv(u8 *arg0) {
         Vec3_80352240 v = {0.0f, 0.0f, -18.0f};
         set_param_ptr__11TBoss4Type2FPvi(*(void **)(arg0 + 0xDC), 0x222);
         push_matrix();
-        set_matrix_identity__10TObjPlayerFPv(0);
+        set_matrix_identity(0);
         post_translate_matrix(arg0 + 0x38);
         rotate_matrix_y(0, *(s32 *)(arg0 + 0x60));
         matrix_mult_vec(0, &v, &v);

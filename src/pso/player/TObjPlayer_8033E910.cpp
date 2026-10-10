@@ -44,7 +44,7 @@ M2C_UNK load_current_pos_matrix(int);
 M2C_UNK load_current_tex_matrix(int);
 extern const f64 lbl_804783B0;
 extern u32 camera_ctrl_instance;
-extern s32 lbl_805D7774;
+extern s32 current_matrix;
 extern const f32 lbl_805DFAC8;
 extern const f32 lbl_805DFACC;
 extern const f32 lbl_805DFAD0;
@@ -102,7 +102,7 @@ void setup_projection_tex_matrix__10TObjPlayerFv(void) {
         } else {
             C_MTXLightPerspective((void *) (&sp10), (f32) (temp_f31), (f32) (lbl_805DFAC8), (f32) (lbl_805DFACC), (f32) (lbl_805DFAD0), (f32) (lbl_805DFACC), (f32) (lbl_805DFACC));
         }
-        PSMTXConcat((void *) (&sp10), (void *) (lbl_805D7774), (void *) (lbl_805D7774));
+        PSMTXConcat((void *) (&sp10), (void *) (current_matrix), (void *) (current_matrix));
         load_current_tex_matrix((int) (2));
         pop_matrix();
         load_current_pos_matrix((int) (2));

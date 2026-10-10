@@ -81,7 +81,7 @@ void rotate_matrix_y(s32, s32);
 void push_matrix_from(void *);
 void pop_matrices(s32);
 extern Group_801A7428 photon_blast_attachment_table[];
-extern u8 lbl_8058D490[];
+extern u8 identity_matrix[];
 extern const f32 lbl_805DC0E0;
 void spawn_photon_blast_opening_effects(s32 arg0, s32 arg1);
 }
@@ -118,7 +118,7 @@ void spawn_photon_blast_opening_effects(s32 arg0, s32 arg1) {
     entries = g->entries;
     for (i = 0; i < count; i++) {
         copy_effect_params((u8 *)&rec, entries[i].bytes);
-        push_matrix_from(lbl_8058D490);
+        push_matrix_from(identity_matrix);
         rotate_matrix_y(0, obj->f60);
         matrix_mult_vec(0, &rec.v, &pos);
         pop_matrices(1);

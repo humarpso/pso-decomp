@@ -21,7 +21,7 @@ void GXLoadNrmMtxImm(void *, u32);
 void draw_queued_models(s32);
 extern Mtx_803DB270 lbl_8058CB68[];
 extern S_803DB24C lbl_8058CD70;
-extern void *lbl_805D7774;
+extern void *current_matrix;
 extern u32 some_id_805c6f74;
 void queue_model_draw_matrix(s32 arg0, void *mtx);
 }
@@ -57,7 +57,7 @@ void queue_model_draw_matrix(s32 arg0, void *mtx) {
     if (some_id_805c6f74 & 0x100000) {
         PSMTXScale(scale, -0.5f, -0.5f, 0.0f);
         PSMTXTrans(trans, 0.5f, 0.5f, 1.0f);
-        PSMTXInverse(lbl_805D7774, inv);
+        PSMTXInverse(current_matrix, inv);
         PSMTXTranspose(inv, inv);
         PSMTXConcat(scale, inv, inv);
         PSMTXConcat(trans, inv, lbl_8058CB68[lbl_8058CD70.b]);

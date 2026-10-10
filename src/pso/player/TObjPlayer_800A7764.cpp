@@ -121,7 +121,7 @@ s32 advance_animation_playback();
 void TObjPlayer__sub_800A7BEC(Obj_800A7BEC *arg0);
 u32 lookup_entry_by_value__10TObjPlayerFPvf(void *, f32);
 M2C_UNK mult_vec_array__10TObjPlayerFUii(int, int, void *, int);
-M2C_UNK set_matrix_identity__10TObjPlayerFPv(int);
+M2C_UNK set_matrix_identity(int);
 M2C_UNK rotate_matrix_y(int, int);
 M2C_UNK push_matrix();
 M2C_UNK pop_matrix();
@@ -278,7 +278,7 @@ void TObjPlayer__sub_800A7A14(Obj_800A7A14 *o) {
         return;
     }
     push_matrix();
-    set_matrix_identity__10TObjPlayerFPv(0);
+    set_matrix_identity(0);
     post_translate_matrix(&o->pos);
     rotate_matrix_y(0, o->f60);
     mult_vec_array__10TObjPlayerFUii(0, e, &a, 2);

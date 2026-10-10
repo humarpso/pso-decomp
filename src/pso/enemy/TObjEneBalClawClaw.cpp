@@ -1203,7 +1203,7 @@ s32 spawn_dead_spot_type2__10TObjPlayerFii(void *, int);
 f32 vec3_add_to(void *, void *);
 s32 rotate_vector_by_matrix(int, void *, void *);
 s32 push_matrix_from(void *);
-extern RecoveredGlobal_80091E08_lbl_8058D490 lbl_8058D490;
+extern RecoveredGlobal_80091E08_lbl_8058D490 identity_matrix;
 extern const f32 lbl_805D96D8;
 extern const f32 lbl_805D96DC;
 extern const f32 lbl_805D96E0;
@@ -1216,7 +1216,7 @@ u8 *TObjEneBalClawClaw__sub_80091C58(u8 *arg0, M2C_UNK arg1, u8 *arg2);
 void update_state__18TObjEneBalClawClawFPv(u8 *arg0);
 u32 lookup_entry_by_value__10TObjPlayerFPvf(void *, f32);
 void mult_vec_array__10TObjPlayerFUii(int, u32, void *, int);
-void set_matrix_identity__10TObjPlayerFPv(void *);
+void set_matrix_identity(void *);
 extern void *beast_claw_trail_instance;
 extern void *boss4_type3_instance;
 extern const f32 lbl_805D96E4;
@@ -1750,7 +1750,7 @@ void spawn_death_fire__12TObjEneBeastFPv(u8 *arg0) {
     stack.sp8 = lbl_805D96D8;
     stack.spC = lbl_805D96DC;
     stack.sp10 = lbl_805D96E0 * M2C_FIELD(M2C_FIELD(arg0, u8 **, 0x2B0), f32 *, 0x10);
-    push_matrix_from((void *) (&lbl_8058D490.value));
+    push_matrix_from((void *) (&identity_matrix.value));
     rotate_matrix_y((int) (0), (int) (M2C_FIELD(arg0, s32 *, 0x60)));
     rotate_vector_by_matrix((int) (0), (void *) (&stack.sp8), (void *) (&stack.sp8));
     pop_matrix();
@@ -1781,7 +1781,7 @@ void update_claw_trail__12TObjEneBeastFPv(Obj_80091EA4 *self) {
         }
         if (entry != 0) {
             push_matrix();
-            set_matrix_identity__10TObjPlayerFPv(0);
+            set_matrix_identity(0);
             post_translate_matrix(&self->pos);
             rotate_matrix_y(0, self->angle);
             mult_vec_array__10TObjPlayerFUii(0, entry, &pos, 2);

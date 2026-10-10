@@ -88,7 +88,7 @@ s32 is_visible__17TWindowSubComCardFPv(int);
 s32 get_status_flag__17TWindowSubComCardFPv(int);
 M2C_UNK set_field_20__12TQuestListVMFPvi(void *, M2C_UNK);
 s32 set_stack_count__24TShopEquipmentListWindowFPvc(void *, int);
-s32 fn_801B849C(int, void *);
+s32 request_inventory_item__10TObjPlayerFP9TItemData(int, void *);
 s32 can_inventory_accept_item__10TObjPlayerFPvPv(int, void *);
 s32 compact_items__18TCheckRoomSequenceFi(int);
 s32 remove_bank_item_amount__18TCheckRoomSequenceFiii(int, int, int);
@@ -207,7 +207,7 @@ void handle_withdraw_confirm__18TShopGetItemWindowFPv(u8 *arg0) {
         }
         else
         {
-          fn_801B849C((int) ((RecoveredFields_8021E5D8_arg0 *) arg0)->field_24, (void *) (&stack.sp8));
+          request_inventory_item__10TObjPlayerFP9TItemData((int) ((RecoveredFields_8021E5D8_arg0 *) arg0)->field_24, (void *) (&stack.sp8));
           remove_bank_item_amount__18TCheckRoomSequenceFiii((int) temp_r3_3, (int) ((RecoveredFields_8021E5D8_arg0 *) arg0)->field_54, (int) temp_r30);
           compact_items__18TCheckRoomSequenceFi((int) temp_r30);
           copy_bank_to_card_window((int) temp_r30);

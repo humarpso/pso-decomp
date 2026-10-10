@@ -99,7 +99,7 @@ void push_matrix_from(void *);
 void pop_matrices(s32);
 extern const Vec_80193FE8 lbl_80445D44;
 extern RecoveredGlobal_80194528_TObjLight__data_80506320 TObjLight__scene_light_state;
-extern u8 lbl_8058D490[];
+extern u8 identity_matrix[];
 extern u8 *camera_ctrl_instance;
 void run_task__9TObjLightFv(Light_80193FE8 *self);
 }
@@ -152,7 +152,7 @@ void run_task__9TObjLightFv(Light_80193FE8 *self) {
         self->phase += self->increment;
         self->osc = 70.0f * sin_table_lookup(self->phase);
     }
-    push_matrix_from(lbl_8058D490);
+    push_matrix_from(identity_matrix);
     rotate_matrix_z(NULL, self->angle + (s32)(182.04445f * (f32)self->osc));
     rotate_matrix_y(NULL, self->packed1);
     matrix_mult_vec(NULL, &fwd, &self->dir);

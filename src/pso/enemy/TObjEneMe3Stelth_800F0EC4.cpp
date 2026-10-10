@@ -373,7 +373,7 @@ M2C_UNK set_global_flag__10TObjPlayerFv();
 M2C_UNK clear_global_state__10TObjPlayerFv();
 extern IVec_800F1098 lbl_8043D680;
 extern Tbl_800F1098 *TObjEneMe3Stelth__data_80501104[];
-extern u8 lbl_8058D490[];
+extern u8 identity_matrix[];
 extern s32 game_difficulty_selection;
 extern u8 *anim_model_matrix_array;
 extern const f32 TObjEneMe3Stelth__data_805DA820;
@@ -499,7 +499,7 @@ void TObjEneMe3Stelth__sub_800F1098(u8 *arg0, s32 arg1) {
             }
             if (objInBand__FP7GameObjf(arg0, TObjEneMe3Stelth__data_805DA824) != 0) {
                 advance_animation_playback(arg0);
-                push_matrix_from(lbl_8058D490);
+                push_matrix_from(identity_matrix);
                 post_translate_matrix(arg0 + 0x38);
                 rotate_matrix_y(0, F(s32, 0x60));
                 set_global_flag__10TObjPlayerFv();

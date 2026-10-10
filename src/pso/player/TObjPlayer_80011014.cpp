@@ -1117,7 +1117,7 @@ f64 atan2(void);
 M2C_UNK vec3_add_to(void *, void *);
 void matrix_mult_vec(s32, void *, void *);
 M2C_UNK scale_matrix(int, f32, f32, f32);
-void set_matrix_identity__10TObjPlayerFPv(s32);
+void set_matrix_identity(s32);
 f32 vec_squared_length(void *);
 s32 rotate_vector_by_matrix(int, void *, void *);
 s32 rotate_matrix_y(int, void *);
@@ -1147,7 +1147,7 @@ extern void *lbl_804806E8[];
 extern SceneState_8000FD54 main_phase_state;
 extern Vec_800182A0 lbl_8050BEE0;
 extern RecoveredGlobal_80010E44_lbl_8050EA40 lobby_rule_settings;
-extern RecoveredGlobal_8001806C_lbl_8058D490 lbl_8058D490;
+extern RecoveredGlobal_8001806C_lbl_8058D490 identity_matrix;
 extern s32 camera_split_screen_selector;
 extern s32 actor_frame_tick;
 extern s32 game_difficulty_selection;
@@ -3831,7 +3831,7 @@ s32 select_melee_contact_body__10TObjPlayerFv(Actor_80016454 *target, Actor_8001
     if (source != NULL) {
     if (target->bodies != NULL) {
         ((void (*)(void))push_matrix)();
-        set_matrix_identity__10TObjPlayerFPv(0);
+        set_matrix_identity(0);
         ((void (*)(s32, f32, f32, f32))translate_matrix)(0, -source->pos.x, -source->pos.y, -source->pos.z);
         post_translate_matrix(&target->pos);
         rotate_matrix_y(0, (void *)target->yaw);
@@ -4165,7 +4165,7 @@ s32 is_target_in_attack_range__10TObjPlayerFv(Player_8001745C *p) {
                 for (i = 0; i < p->target->nparts; i++) {
                     if (!(p->target->parts[i].flags & 0x02000000)) {
                         VCOPY(&v, &p->target->parts[i]);
-                        push_matrix_from(&lbl_8058D490);
+                        push_matrix_from(&identity_matrix);
                         rotate_matrix_y(0, (void *)p->target->rotY);
                         rotate_vector_by_matrix(0, &v, &v);
                         pop_matrix();
@@ -4234,7 +4234,7 @@ f32 enemy_pursue_point(u8 *arg0, s32 arg1, Vec_800180E8 arg2, f32 farg0, f32 far
         a = (s32)(TObjPlayer__data_804340B8 * ((f64 (*)(f32, f32))get_ad_end_text_start__10TObjPlayerFv)(d.x, d.z));
         d.z = farg1;
         d.x = d.y = (0.0f);
-        push_matrix_from(&lbl_8058D490);
+        push_matrix_from(&identity_matrix);
         rotate_matrix_y(0, (void *)a);
         rotate_vector_by_matrix(0, &d, &d);
         pop_matrix();
@@ -4268,7 +4268,7 @@ f32 enemy_wander_home(u8 *arg0, s32 arg1, f32 farg0, f32 farg1, f32 farg2) {
         v.x = v.y = (0.0f);
         v.z = (1.0f);
         ang = (s32) ((182.04445f) * ((3.6e+02f) * ((f32 (*)(void *))calc_boss4_scale__10TObjPlayerFi)(arg0)));
-        push_matrix_from(&lbl_8058D490);
+        push_matrix_from(&identity_matrix);
         rotate_matrix_y(0, (void *) ang);
         rotate_vector_by_matrix(0, &v, &v);
         pop_matrix();
@@ -4372,7 +4372,7 @@ void enemy_set_heading_velocity(u8 *arg0, s32 arg1, f32 farg0) {
     stack.sp10 = farg0;
     stack.spC = (0.0f);
     stack.sp8 = (0.0f);
-    push_matrix_from((void *) (&lbl_8058D490.value));
+    push_matrix_from((void *) (&identity_matrix.value));
     rotate_matrix_y((int) (0), (void *) (arg1));
     rotate_vector_by_matrix((int) (0), (void *) (&stack.sp8), (void *) (&stack.sp8));
     pop_matrix();
@@ -4392,7 +4392,7 @@ void calc_velocity_toward_destination(Obj_800180E8 *self, Vec_800180E8 *pos, Vec
         a = (s32)(TObjPlayer__data_804340B8 * ((f64 (*)(f32, f32))get_ad_end_text_start__10TObjPlayerFv)(d.x, d.z));
         d.z = speed;
         d.x = d.y = (0.0f);
-        push_matrix_from(&lbl_8058D490);
+        push_matrix_from(&identity_matrix);
         rotate_matrix_y(0, (void *)a);
         rotate_vector_by_matrix(0, &d, &d);
         pop_matrix();
@@ -4405,7 +4405,7 @@ s32 TObjPlayer__sub_800181DC(u8 *arg0, Vec_800180E8 arg1) {
     Vec_800180E8 d;
     VecCopy__FP3VecPC3Vec((s32) &d, (s32) &arg1);
     subtract_vector(&d, arg0 + 0x2FC);
-    push_matrix_from(&lbl_8058D490);
+    push_matrix_from(&identity_matrix);
     rotate_matrix_y(0, (void *) 0x8000);
     rotate_vector_by_matrix(0, &d, &d);
     pop_matrix();
@@ -4432,7 +4432,7 @@ M2C_UNK select_enemy_destination(Obj_800182A0 *self, Vec_800182A0 *arg1, int fla
             a = (s32)(TObjPlayer__data_804340B8 * ((f64 (*)(f32, f32))get_ad_end_text_start__10TObjPlayerFv)(d.x, d.z));
             lbl_8050BEE0.x = lbl_8050BEE0.y = (0.0f);
             lbl_8050BEE0.z = self->fA4->fC;
-            push_matrix_from(&lbl_8058D490);
+            push_matrix_from(&identity_matrix);
             rotate_matrix_y(0, (void *)a);
             rotate_vector_by_matrix(0, &lbl_8050BEE0, &lbl_8050BEE0);
             pop_matrix();
@@ -4460,7 +4460,7 @@ s32 check_path_obstructed(u8 *arg0, Vec_80018428 *arg1) {
         a = (s32) (TObjPlayer__data_804340B8 * ((f64 (*)(f32, f32))get_ad_end_text_start__10TObjPlayerFv)(d.x, d.z));
         d.y = d.x = (0.0f);
         d.z = (3e+02f);
-        push_matrix_from(&lbl_8058D490);
+        push_matrix_from(&identity_matrix);
         rotate_matrix_y(0, (void *) a);
         rotate_vector_by_matrix(0, &d, &d);
         pop_matrix();
