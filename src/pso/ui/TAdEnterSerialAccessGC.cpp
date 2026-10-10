@@ -138,7 +138,7 @@ struct V_803212F8 { f32 a; f32 b; };
 extern "C" {
 void strncpy(s32, s32, s32);
 M2C_UNK memset(void *, int, int);
-extern RecoveredGlobal_8032BA8C_TAdEnterPasswordGC__data_804EDA20 TAdEnterSerialAccessGC__data_804EC9C4;
+extern RecoveredGlobal_803217B8_TAdEnterSerialAccessGC__data_804EC9C4 TAdEnterSerialAccessGC__data_804EC9C4;
 void TAdEnterSerialAccessGC__sub_8032190C(s32 arg0);
 M2C_UNK memset(void *, int, int);
 s32 get_instance__23TAdSinglePlyChrSelectGCFv();
@@ -147,7 +147,7 @@ extern RecoveredGlobal_803216C0_lbl_805430D0 enter_serial_formatted_buffer;
 M2C_UNK *get_formatted_serial__22TAdEnterSerialAccessGCFv(void);
 M2C_UNK memset(void *, int, int);
 extern RecoveredGlobal_803217B8_lbl_80476524 lbl_80476524;
-extern RecoveredGlobal_8032BA8C_TAdEnterPasswordGC__data_804EDA20 TAdEnterSerialAccessGC__data_804EC9C4;
+extern RecoveredGlobal_803217B8_TAdEnterSerialAccessGC__data_804EC9C4 TAdEnterSerialAccessGC__data_804EC9C4;
 extern RecoveredGlobal_803217B8_lbl_805430A4 lbl_805430A4;
 M2C_UNK *TAdEnterSerialAccessGC__sub_803217B8(void);
 M2C_UNK memset(void *, int, int);
@@ -186,7 +186,7 @@ void strncpy(s32, s32, s32);
 s32 strlen(int);
 extern RecoveredGlobal_80321B28_TAdEnterSerialAccessGC__data_804764E8 TAdEnterSerialAccessGC__data_804764E8;
 extern RecoveredGlobal_80321874_TAdEnterSerialAccessGC__data_804EC9B8 TAdEnterSerialAccessGC__data_804EC9B8;
-extern RecoveredGlobal_8032BA8C_TAdEnterPasswordGC__data_804EDA20 TAdEnterSerialAccessGC__data_804EC9C4;
+extern RecoveredGlobal_803217B8_TAdEnterSerialAccessGC__data_804EC9C4 TAdEnterSerialAccessGC__data_804EC9C4;
 extern RecoveredGlobal_80321B28_lbl_8050E208 controller_input_state;
 extern RecoveredGlobal_80321B28_lbl_8050E3B8 controller_physical_port_bank;
 extern u32 TAdEnterSerialAccessGC__keyboard_control;
@@ -209,7 +209,7 @@ int sprintf(char *, const char *, ...);
 void sscanf(int, const char *, ...);
 M2C_UNK memset(void *, int, int);
 extern char lbl_80543010[];
-extern u32 lbl_805DF508;
+extern const char serial_unsigned_decimal_scan_format[4] = "%lu";
 char *hex_to_decimal_string__22TAdEnterSerialAccessGCFi(int arg0);
 extern char lbl_80543050[];
 char *convert_serial_hex_to_decimal__22TAdEnterSerialAccessGCFi(int arg0);
@@ -303,6 +303,19 @@ extern const f32 lbl_805DF4E4;
 extern const f32 lbl_805DF4E8;
 extern M2C_UNK lbl_805DF4EC;
 extern const f32 lbl_805DF4F0;
+
+__declspec(section ".data") V_803212F8 lbl_804EC9B0[1] = {{0.0f, 0.0f}};
+__declspec(section ".data") RecoveredGlobal_80321874_TAdEnterSerialAccessGC__data_804EC9B8 TAdEnterSerialAccessGC__data_804EC9B8 = {0};
+__declspec(section ".data") RecoveredGlobal_803217B8_TAdEnterSerialAccessGC__data_804EC9C4 TAdEnterSerialAccessGC__data_804EC9C4 = {0};
+struct TAdEnterSerialAccessGC_80321F60;
+void run_task__22TAdEnterSerialAccessGCFv(TAdEnterSerialAccessGC_80321F60 *);
+void render_shadows__7TObjectFv(void *);
+M2C_UNK __vt__22TAdEnterSerialAccessGC[6] = {
+    0, 0, (M2C_UNK)__dt__22TAdEnterSerialAccessGCFv,
+    (M2C_UNK)run_task__22TAdEnterSerialAccessGCFv,
+    (M2C_UNK)render__22TAdEnterSerialAccessGCFv,
+    (M2C_UNK)render_shadows__7TObjectFv
+};
 
 void render__22TAdEnterSerialAccessGCFv(void *self) {
     if (get_state_flag__9TMainTaskFv() == 1) { return;
@@ -513,7 +526,7 @@ char *convert_serial_hex_to_decimal__22TAdEnterSerialAccessGCFi(int arg0) {
 
 char *hex_to_decimal_string__22TAdEnterSerialAccessGCFi(int arg0) {
     s32 v = 0;
-    sscanf(arg0, (const char *)&lbl_805DF508, &v);
+    sscanf(arg0, (const char *)&serial_unsigned_decimal_scan_format, &v);
     memset(lbl_80543010, 0, 0x40);
     sprintf(lbl_80543010, "%08X", v);
     return lbl_80543010;

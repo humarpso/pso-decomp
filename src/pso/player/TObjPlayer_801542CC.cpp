@@ -117,6 +117,22 @@ struct Obj_801547E0;
     }
 struct Vec_80155294 { f32 x, y, z; };
 
+#include "pso/protocol/subcmd_6x.h"
+union ObjectSavedState_801548A8 {
+    u32 word;
+    struct { s16 flags; s16 source; } halves;
+};
+
+struct ObjectBase_801548A8 { u8 pad[0x18]; };
+
+struct StateObject_801548A8 : ObjectBase_801548A8 {
+    virtual void m0();
+    virtual void m1();
+    virtual void m2();
+    virtual void m3();
+    virtual void m4(ObjectSavedState_801548A8 *, s32);
+};
+
 extern "C" {
 s32 test_player_overlap_with_players(void *arg0, Obj_801559D0 *self, CollisionVector_80155FBC *pos, void *out);
 M2C_UNK VecCopy__FP3VecPC3Vec(void *, void *);
@@ -157,6 +173,12 @@ extern const f32 lbl_805DB28C;
 extern const f32 lbl_805DB290;
 extern const f32 lbl_805DB294;
 s32 resolve_player_box_contact(u8 *arg0, u8 *arg1, u8 *arg2);
+void bswap_60_header__6TLobbyFPv(void *);
+void *find_entity_by_id(u16 id);
+s32 access_object_saved_state(u8 *arg0, void *arg1, s16 arg2);
+void apply_table_entry__6TLobbyFs(s16, ObjectSavedState_801548A8 *);
+extern s32 TLobby__data_805D6140;
+void handle_6x0B_update_object_state(G_UpdateObjectState_6x0B *packet);
 }
 
 struct Obj_80156844 { u8 pad[0x1C]; u16 room; u8 pad2[0x90 - 0x1E]; void *f90; };
@@ -209,7 +231,7 @@ void TObjPlayer__sub_80156A68(void* p);
 void TObjPlayer__sub_80156A74(void* p);
 M2C_UNK copy_short_fields__6TLobbyFPvPv(void *, void *);
 extern s32 TLobby__data_805D6140;
-s32 access_object_saved_state(u8 *arg0, s32 arg1, s16 arg2);
+s32 access_object_saved_state(u8 *arg0, void *arg1, s16 arg2);
 M2C_UNK VecCopy__FP3VecPC3Vec(void *, void *);
 f64 get_ad_end_text_start__10TObjPlayerFv(f32, f32);
 f32 horizontal_distance_squared(void *, void *);
@@ -248,7 +270,7 @@ extern s32 TObjPlayer__data_8050D460[];
 extern s32 lbl_805D5868;
 void *find_entity_by_id(u16 id);
 M2C_UNK copy_short_fields__6TLobbyFPvPv(void *, void *);
-s32 access_object_saved_state(u8 *arg0, s32 arg1, s16 arg2);
+s32 access_object_saved_state(u8 *arg0, void *arg1, s16 arg2);
 void TLobby__sub_80156BA8(Pkt_80154954 *pkt);
 void update_and_send_60__6TLobbyFi(Pkt_80154954 *pkt);
 void send_object_state_update(Player_80154954 *self, State_80154954 *src);
@@ -420,13 +442,31 @@ void *resolve_hittable_target(u16 actorId, s16 collider) {
     return target;
 }
 
+void handle_6x0B_update_object_state(G_UpdateObjectState_6x0B *packet) {
+    ObjectSavedState_801548A8 state;
+    ObjectSavedState_801548A8 fallback;
+    StateObject_801548A8 *object;
+    bswap_60_header__6TLobbyFPv(packet);
+    object = ((StateObject_801548A8 *)find_entity_by_id(packet->header.entity_id));
+    if (object != 0) {
+        access_object_saved_state((u8 *)(object), &state, (s16)(1));
+        state.halves.flags = packet->flags;
+        access_object_saved_state((u8 *)(object), &state, (s16)(0));
+        object->m4(&state, 1);
+    } else {
+        fallback.word = (*(ObjectSavedState_801548A8 * *)&TLobby__data_805D6140)[packet->object_index].word;
+        fallback.halves.flags = packet->flags;
+        apply_table_entry__6TLobbyFs(packet->object_index, &fallback);
+    }
+}
+
 void send_object_state_update(Player_80154954 *self, State_80154954 *src) {
     State_80154954 st;
     Obj_80154954 *obj;
     if (src != 0) {
         copy_short_fields__6TLobbyFPvPv(&st, src);
     } else {
-        access_object_saved_state((u8 *)self, (s32)&st, 1);
+        access_object_saved_state((u8 *)self, &st, 1);
     }
     obj = self->obj;
     if (obj != 0) {
@@ -1277,7 +1317,7 @@ u8 *construct_collider_proxy__10TObjPlayerFPv(u8 *arg0) {
 
 void TObjPlayer__sub_80156A68(void* p) { *(s16*)((char*)p + 0x96) = 0; }
 void TObjPlayer__sub_80156A74(void* p) { *(s32*)((char*)p + 0x0) = 0; }
-s32 access_object_saved_state(u8 *arg0, s32 arg1, s16 arg2) {
+s32 access_object_saved_state(u8 *arg0, void *arg1, s16 arg2) {
     s16 temp_r31;
     u8 *temp_r3;
     temp_r3 = M2C_FIELD(arg0, u8 **, 0x80);

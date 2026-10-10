@@ -90,6 +90,7 @@ gx/GXMisc.c
 gx/GXPerf.c
 gx/GXPixel.c
 gx/GXStubs.c
+gx/GXTexture.c
 gx/GXTransform.c
 mtx/mtx.c
 mtx/mtx44.c
@@ -365,6 +366,7 @@ pso/enemy/TObjEneDelDepth_8031624C.cpp
 pso/enemy/TObjEneDellBiter_800BC46C.cpp
 pso/enemy/TObjEneDf2Bringer_80097100.cpp
 pso/enemy/TObjEneDf2Bringer_80099F0C.cpp
+pso/enemy/TObjEneDimedian.cpp
 pso/enemy/TObjEneDubchik.cpp
 pso/enemy/TObjEneEpsilon.cpp
 pso/enemy/TObjEneEpsilonGuard_8035DD68.cpp
@@ -374,6 +376,7 @@ pso/enemy/TObjEneHoldEffect_800FD814.cpp
 pso/enemy/TObjEneHoldEffect_80142478.cpp
 pso/enemy/TObjEneHoldEffect_8036CDFC.cpp
 pso/enemy/TObjEneHoldEffect_8036D070.cpp
+pso/enemy/TObjEneLappy.cpp
 pso/enemy/TObjEneLappy_800F5DE0.cpp
 pso/enemy/TObjEneMe1CanadinLeader.cpp
 pso/enemy/TObjEneMe1CanadinLeader_8009F4A0.cpp
@@ -757,6 +760,7 @@ pso/menu/TChCrLoadGmNjReq.cpp
 pso/menu/TObjTagChallenge.cpp
 pso/menu/TQuestBgmCtrl.cpp
 pso/misc/CreationMotion.cpp
+pso/misc/RenderFadeState.cpp
 pso/misc/ShopWeaponStock.cpp
 pso/misc/TAttackTrace.cpp
 pso/misc/TBGLightningCtrl.cpp
@@ -2186,6 +2190,7 @@ pso/object/TObjSeabedSuisoBrakable_801315D4.cpp
 pso/object/TObjSinBoard.cpp
 pso/object/TObjSoloPlayWin.cpp
 pso/object/TObjSoloPlayWin_800747C4.cpp
+pso/object/TObjStendGlassLobby.cpp
 pso/object/TObjSuisoChip.cpp
 pso/object/TObjSuisouLobby.cpp
 pso/object/TObjTailsTailsMove.cpp
@@ -2689,6 +2694,7 @@ pso/ui/TAdEnterBaseGC.cpp
 pso/ui/TAdEnterBaseGC_8032B38C.cpp
 pso/ui/TAdEnterPPPPassGC.cpp
 pso/ui/TAdEnterPasswordGC.cpp
+pso/ui/TAdEnterSerialAccessGC.cpp
 pso/ui/TAdEnterSerialAccessGC_80202978.cpp
 pso/ui/TAdEnterSerialAccessGC_8023EA94.cpp
 pso/ui/TAdEnterSerialAccessGC_802ACF04.cpp

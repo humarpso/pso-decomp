@@ -1635,7 +1635,7 @@ pso/player/TObjPlayer_800A7764.cpp:
 
 pso/enemy/TObjEneDimedian.cpp:
 	.text       start:0x800A7FE0 end:0x800A884C
-	.rodata     start:0x8043AA8C end:0x8043AAA4
+	.rodata     start:0x8043A8D8 end:0x8043AAA4
 	.data       start:0x80490D10 end:0x80491088
 
 pso/unk/text_800A884C.cpp:
@@ -1804,7 +1804,7 @@ pso/enemy/TObjEneLappy.cpp:
 	.rodata     start:0x8043BA20 end:0x8043BA28
 	.data       start:0x80492BD8 end:0x80493078
 	.bss        start:0x80500BE0 end:0x80500C00
-	.sdata2     start:0x805D9F24 end:0x805D9FAC
+	.sdata2     start:0x805D9F20 end:0x805D9FAC
 
 pso/player/TObjPlayer_800C25A0.cpp:
 	.text       start:0x800C25A0 end:0x800C2614
@@ -11591,8 +11591,8 @@ pso/ui/TAdGameStartLineGC.cpp:
 pso/ui/TAdEnterSerialAccessGC.cpp:
 	.text       start:0x803212D4 end:0x80322438
 	.rodata     start:0x804765D0 end:0x804765F8
-	.data       start:0x804EC9EC end:0x804ECA0C
-	.sdata2     start:0x805DF50C end:0x805DF518
+	.data       start:0x804EC9B0 end:0x804ECA0C
+	.sdata2     start:0x805DF508 end:0x805DF518
 
 pso/boss/TBoss6Kakusan.cpp:
 	.text       start:0x80322438 end:0x80322B50

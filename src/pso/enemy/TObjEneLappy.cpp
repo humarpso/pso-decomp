@@ -1711,7 +1711,7 @@ extern "C" u8 lbl_8043B9A4[];
 extern "C" u8 lbl_8043B9B8[];
 extern "C" u8 lbl_8043B9D0[];
 extern "C" u8 lbl_8043B9DC[];
-extern "C" u8 lbl_805D9F20[];
+extern "C" const u8 rappy_variant_na_name[3] = "NA";
 extern "C" void receive_direct_attack__10TObjPlayerFv();
 extern "C" void receive_physical_attack__10TObjPlayerFv();
 extern "C" void receive_weapon_special_attack__10TObjPlayerFv();
@@ -1848,7 +1848,7 @@ void *rappy_variant_speed_table[40] = {
     (void *)0x20004, (void *)0x7, (void *)0x3f000000, (void *)0x0,
 };
 void *lbl_80492EB8[3] = {
-    (void *)&lbl_8043B9D0, (void *)&lbl_8043B9DC, (void *)&lbl_805D9F20,
+    (void *)&lbl_8043B9D0, (void *)&lbl_8043B9DC, (void *)&rappy_variant_na_name,
 };
 void *lbl_80492EC4[14] = {
     (void *)0x43160000, (void *)0x3f097b42, (void *)0x400, (void *)0x1e0000,

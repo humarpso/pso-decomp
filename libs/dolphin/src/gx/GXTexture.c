@@ -1,15 +1,7 @@
 
 
-#define GX2HWFiltConv lbl_805D45D8
 #define GXInitTexObj Dolphin_GXInitTexObj
 #define GXLoadTexObjPreLoaded Dolphin_GXLoadTexObjPreLoaded
-#define GXTexImage0Ids lbl_805D45B0
-#define GXTexImage1Ids lbl_805D45B8
-#define GXTexImage2Ids lbl_805D45C0
-#define GXTexImage3Ids lbl_805D45C8
-#define GXTexMode0Ids lbl_805D45A0
-#define GXTexMode1Ids lbl_805D45A8
-#define GXTexTlutIds lbl_805D45D0
 #define __SetSURegs GXTexture___SetSURegs
 
 #include <dolphin/gx.h>
@@ -64,7 +56,7 @@ u8 GXTexImage3Ids[8] = { 0x94, 0x95, 0x96, 0x97, 0xB4, 0xB5, 0xB6, 0xB7 };
 u8 GXTexTlutIds[8] = { 0x98, 0x99, 0x9A, 0x9B, 0xB8, 0xB9, 0xBA, 0xBB };
 static u8 GX2HWFiltConv[6] = { 0x00, 0x04, 0x01, 0x05, 0x02, 0x06 };
 
-static void __GXGetTexTileShift(GXTexFmt fmt, u32 *rowTileS, u32 *colTileS) {
+static inline void __GXGetTexTileShift(GXTexFmt fmt, u32 *rowTileS, u32 *colTileS) {
     switch (fmt) {
     case GX_TF_I4:
     case 0x8:

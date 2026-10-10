@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/enemy/TObjEneMoja.h"
 typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
 typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 #define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
@@ -802,36 +803,36 @@ void update_idle_state__11TObjEneMojaFv(Moja_800AEBB8 *self);
 
 extern "C" {
 
-void enter_state_3__10TObjPlayerFPv(void *arg0);
-void update_down_state__10TObjPlayerFPv(void *arg0);
 void update_invincibility__10TObjPlayerFPv(void *arg0);
-void update_meseta_anim_state__10TObjPlayerFPv(void *arg0);
-void update_state_flags__10TObjPlayerFPv(void *arg0);
 
 M2C_UNK update_collisions__10TObjPlayerFPv(void *);
 
-void update_state_flags__10TObjPlayerFPv(void *arg0) {
-    s16 temp_r0;
-    void *temp_r5;
+}
 
-    temp_r0 = M2C_FIELD(arg0, s16 *, 0x326);
+void TObjEneMoja::enter_hurt_state() {
+    s16 temp_r0;
+    MojaCollisionState *temp_r5;
+
+    temp_r0 = mode;
     switch (temp_r0) {
     case 4:
-        M2C_FIELD(arg0, s32 *, 0x30) = (s32) (M2C_FIELD(arg0, s32 *, 0x30) & 0xF9FFF9FF);
-        temp_r5 = M2C_FIELD(arg0, void **, 0xA4);
-        M2C_FIELD(temp_r5, s32 *, 0x18) = (s32) (M2C_FIELD(temp_r5, s32 *, 0x18) & 0xFBFFFFFF);
-        M2C_FIELD(arg0, s16 *, 0x33E) = (s16) M2C_FIELD(arg0, s16 *, 0x32C);
-        M2C_FIELD(arg0, s32 *, 0x388) = 0;
+        actorFlags = (s32) (actorFlags & 0xF9FFF9FF);
+        temp_r5 = collisionState;
+        temp_r5->flags = (s32) (temp_r5->flags & 0xFBFFFFFF);
+        referenceHp = (s16) hp;
+        roar = 0;
         break;
     default:
-        M2C_FIELD(arg0, s16 *, 0x326) = 8;
+        mode = 8;
     case 8:
-        M2C_FIELD(arg0, s16 *, 0xB8) = 6;
-        M2C_FIELD(arg0, s32 *, 0x30) = (s32) (M2C_FIELD(arg0, s32 *, 0x30) & 0xFFDBFFFF);
+        action = 6;
+        actorFlags = (s32) (actorFlags & 0xFFDBFFFF);
         break;
     }
-    M2C_FIELD(arg0, s32 *, 0x374) = 0;
+    appearance = 0;
 }
+
+extern "C" {
 
 extern const f32 lbl_805D9BD8;
 extern const s32 lbl_805D9BFC;
@@ -858,30 +859,34 @@ void update_invincibility__10TObjPlayerFPv(void *arg0) {
 
 extern const s32 lbl_805D9BFC;
 
-void update_down_state__10TObjPlayerFPv(void *arg0) {
+}
+
+void TObjEneMoja::enter_down_state() {
     s16 temp_r0;
     s32 gbits;
-    void *temp_r6;
+    MojaCollisionState *temp_r6;
 
-    temp_r0 = M2C_FIELD(arg0, s16 *, 0x326);
+    temp_r0 = mode;
     switch (temp_r0) {
     case 4:
-        M2C_FIELD(arg0, s32 *, 0x30) &= 0xFFFFFEFF;
-        temp_r6 = M2C_FIELD(arg0, void **, 0xA4);
-        M2C_FIELD(temp_r6, s32 *, 0x18) |= lbl_805D9BFC;
-        M2C_FIELD(arg0, s16 *, 0x33E) = (s16) M2C_FIELD(arg0, s16 *, 0x32C);
-        M2C_FIELD(arg0, s32 *, 0x388) = 0;
+        actorFlags &= 0xFFFFFEFF;
+        temp_r6 = collisionState;
+        temp_r6->flags |= lbl_805D9BFC;
+        referenceHp = (s16) hp;
+        roar = 0;
         break;
     default:
-        M2C_FIELD(arg0, s16 *, 0x326) = 7;
-        M2C_FIELD(arg0, s16 *, 0x33C) = 0xF;
+        mode = 7;
+        timer = 0xF;
     case 7:
-        M2C_FIELD(arg0, s16 *, 0xB8) = 0;
-        M2C_FIELD(arg0, s32 *, 0x30) = (s32) (M2C_FIELD(arg0, s32 *, 0x30) & 0xFF9BFFFF);
+        action = 0;
+        actorFlags = (s32) (actorFlags & 0xFF9BFFFF);
         break;
     }
-    M2C_FIELD(arg0, s32 *, 0x374) = 0;
+    appearance = 0;
 }
+
+extern "C" {
 
 void update_attack_jump__11TObjEneMojaFv(Obj_800ACFE8 *arg0) {
     Vec_800ACFE8 delta;
@@ -1373,28 +1378,32 @@ M2C_UNK update_approach_state__11TObjEneMojaFPv(u8 *arg0) {
     update_collisions__10TObjPlayerFPv((void *) (arg0));
 }
 
-void enter_state_3__10TObjPlayerFPv(void *arg0) {
-    void *temp_r5;
+}
 
-    if ((s16) M2C_FIELD(arg0, s16 *, 0x326) != 3) {
-        M2C_FIELD(arg0, s16 *, 0x326) = 3;
-        switch ((s32) M2C_FIELD(arg0, s32 *, 0x388)) {
+void TObjEneMoja::enter_approach_state() {
+    MojaCollisionState *temp_r5;
+
+    if ((s16) mode != 3) {
+        mode = 3;
+        switch ((s32) roar) {
         case 1:
-            M2C_FIELD(arg0, s16 *, 0x328) = 0;
-            M2C_FIELD(arg0, s16 *, 0xB8) = 1;
+            phase = 0;
+            action = 1;
             break;
         default:
-            M2C_FIELD(arg0, s16 *, 0x328) = 0;
-            M2C_FIELD(arg0, s16 *, 0xB8) = 2;
+            phase = 0;
+            action = 2;
             break;
         }
-        M2C_FIELD(arg0, s32 *, 0x384) = -1;
-        M2C_FIELD(arg0, s32 *, 0x30) = (s32) (M2C_FIELD(arg0, s32 *, 0x30) & 0xF9FBFFFF);
-        temp_r5 = M2C_FIELD(arg0, void **, 0xA4);
-        M2C_FIELD(temp_r5, s32 *, 0x18) = (s32) (M2C_FIELD(temp_r5, s32 *, 0x18) | 1);
-        M2C_FIELD(arg0, s32 *, 0x374) = 0;
+        attackSequence = -1;
+        actorFlags = (s32) (actorFlags & 0xF9FBFFFF);
+        temp_r5 = collisionState;
+        temp_r5->flags = (s32) (temp_r5->flags | 1);
+        appearance = 0;
     }
 }
+
+extern "C" {
 
 #pragma push
 #pragma dont_inline off
@@ -1591,32 +1600,36 @@ void update_idle_state__11TObjEneMojaFv(Moja_800AEBB8 *self) {
     obj_clearFlags30(self, 0x200000);
 }
 
-void update_meseta_anim_state__10TObjPlayerFPv(void *arg0) {
+}
+
+void TObjEneMoja::enter_idle_state() {
     s32 temp_r0;
     s32 temp_r0_2;
 
-    temp_r0 = M2C_FIELD(arg0, s16 *, 0x326);
+    temp_r0 = mode;
     if ((temp_r0 >= 3) || (temp_r0 < 0)) {
-        M2C_FIELD(arg0, s16 *, 0x328) = 0;
-        M2C_FIELD(arg0, s32 *, 0x388) = 1;
-        M2C_FIELD(arg0, s32 *, 0x30) = (s32) (M2C_FIELD(arg0, s32 *, 0x30) | 0x40000);
+        phase = 0;
+        roar = 1;
+        actorFlags = (s32) (actorFlags | 0x40000);
     }
-    temp_r0_2 = M2C_FIELD(arg0, s32 *, 0x374);
+    temp_r0_2 = appearance;
     switch (temp_r0_2) {
     case 0:
-        M2C_FIELD(arg0, s16 *, 0x326) = 0;
-        M2C_FIELD(arg0, s16 *, 0xB8) = 2;
+        mode = 0;
+        action = 2;
         return;
     case 1:
-        M2C_FIELD(arg0, s16 *, 0x326) = 1;
-        M2C_FIELD(arg0, s16 *, 0xB8) = 5;
+        mode = 1;
+        action = 5;
         return;
     default:
-        M2C_FIELD(arg0, s16 *, 0x326) = 0;
-        M2C_FIELD(arg0, s16 *, 0xB8) = 0;
+        mode = 0;
+        action = 0;
         return;
     }
 }
+
+extern "C" {
 s32 update_freeze_timer__11TObjEneMojaFPv(void *arg0) {
     void *temp_r3;
     if (update_movement_status__10TObjPlayerFv() != 0) {

@@ -4,6 +4,24 @@ typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
 typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 #define M2C_BITWISE(type, expr) ((type)(expr))
 
+extern "C" const u8 dimedian_sl_body_model_filename[20] = "df3_sl_wala_body.nj";
+extern "C" const u8 dimedian_ssl_body_model_filename[24] = "df3_ssl_wala_body.nj";
+extern "C" const u8 dimedian_s_body_model_filename[20] = "df3_s_wala_body.nj";
+extern "C" const u8 dimedian_appear_motion_filename[28] = "appear_bm1_s_wala_body.njm";
+extern "C" const u8 dimedian_attack_left_motion_filename[28] = "atackl_bm1_s_wala_body.njm";
+extern "C" const u8 dimedian_attack_right_motion_filename[28] = "atackr_bm1_s_wala_body.njm";
+extern "C" const u8 dimedian_damage_motion_filename[28] = "damage_bm1_s_wala_body.njm";
+extern "C" const u8 dimedian_deadb_motion_filename[28] = "deadb_bm1_s_wala_body.njm";
+extern "C" const u8 dimedian_dead_motion_filename[28] = "dead_bm1_s_wala_body.njm";
+extern "C" const u8 dimedian_leader_motion_filename[28] = "leader_bm1_s_wala_body.njm";
+extern "C" const u8 dimedian_mihari_motion_filename[28] = "mihari_bm1_s_wala_body.njm";
+extern "C" const u8 dimedian_run_motion_filename[24] = "run_bm1_s_wala_body.njm";
+extern "C" const u8 dimedian_stund_motion_filename[28] = "stund_bm1_s_wala_body.njm";
+extern "C" const u8 dimedian_wakeup_motion_filename[28] = "wakeup_bm1_s_wala_body.njm";
+extern "C" const u8 dimedian_walk_motion_filename[28] = "walk_bm1_s_wala_body.njm";
+extern "C" const u8 dimedian_bml_filename[24] = "bm_ene_df3_dimedian.bml";
+extern "C" const u8 dimedian_class_name[16] = "TObjEneDimedian";
+
 typedef struct O_800A846C {
     u8 pad0[0x18];
     void *vptr;
@@ -189,22 +207,7 @@ extern "C" void has_flag_0x800__10TObjPlayerFPv();
 extern "C" void is_actor_cadence_frame();
 extern "C" void is_lying_down__12TObjEneBeastFv();
 extern "C" void is_target_in_attack_range__10TObjPlayerFv();
-extern "C" u8 lbl_8043A8D8[];
-extern "C" u8 lbl_8043A8EC[];
-extern "C" u8 lbl_8043A904[];
-extern "C" u8 lbl_8043A918[];
-extern "C" u8 lbl_8043A934[];
-extern "C" u8 lbl_8043A950[];
-extern "C" u8 lbl_8043A96C[];
-extern "C" u8 lbl_8043A988[];
-extern "C" u8 lbl_8043A9A4[];
-extern "C" u8 lbl_8043A9C0[];
-extern "C" u8 lbl_8043A9DC[];
-extern "C" u8 lbl_8043A9F8[];
-extern "C" u8 lbl_8043AA10[];
-extern "C" u8 lbl_8043AA2C[];
-extern "C" u8 lbl_8043AA48[];
-extern "C" u8 lbl_8043AA64[];
+
 extern "C" void play_hit_sound__10TObjPlayerFi();
 extern "C" void receive_direct_attack__10TObjPlayerFv();
 extern "C" void receive_physical_attack__10TObjPlayerFv();
@@ -231,21 +234,21 @@ extern "C" void update_defense_stat_status();
 extern "C" void update_flag30_timer__10TObjPlayerFPv();
 extern "C" void update_object_view_visibility();
 extern "C" void update_poison_status__10TObjPlayerFv();
-extern void *lbl_80490D10[4];
-extern void *lbl_80490D20[13];
-void *lbl_80490D10[4] = {
-    (void *)&lbl_8043A8D8, (void *)&lbl_8043A8EC, (void *)&lbl_8043A904, (void *)0x0,
+extern void *dimedian_model_name_table[4];
+extern void *dimedian_motion_name_table[13];
+void *dimedian_model_name_table[4] = {
+    (void *)&dimedian_sl_body_model_filename, (void *)&dimedian_ssl_body_model_filename, (void *)&dimedian_s_body_model_filename, (void *)0x0,
 };
-void *lbl_80490D20[13] = {
-    (void *)&lbl_8043A918, (void *)&lbl_8043A934, (void *)&lbl_8043A950, (void *)&lbl_8043A96C,
-    (void *)&lbl_8043A988, (void *)&lbl_8043A9A4, (void *)&lbl_8043A9C0, (void *)&lbl_8043A9DC,
-    (void *)&lbl_8043A9F8, (void *)&lbl_8043AA10, (void *)&lbl_8043AA2C, (void *)&lbl_8043AA48,
+void *dimedian_motion_name_table[13] = {
+    (void *)&dimedian_appear_motion_filename, (void *)&dimedian_attack_left_motion_filename, (void *)&dimedian_attack_right_motion_filename, (void *)&dimedian_damage_motion_filename,
+    (void *)&dimedian_deadb_motion_filename, (void *)&dimedian_dead_motion_filename, (void *)&dimedian_leader_motion_filename, (void *)&dimedian_mihari_motion_filename,
+    (void *)&dimedian_run_motion_filename, (void *)&dimedian_stund_motion_filename, (void *)&dimedian_wakeup_motion_filename, (void *)&dimedian_walk_motion_filename,
     (void *)0x0,
 };
-void *lbl_80490D54[4] = {
-    (void *)&lbl_8043AA64, (void *)&lbl_80490D10, (void *)&lbl_80490D20, (void *)0x3000c,
+void *dimedian_resource_descriptor[4] = {
+    (void *)&dimedian_bml_filename, (void *)&dimedian_model_name_table, (void *)&dimedian_motion_name_table, (void *)0x3000c,
 };
-void *lbl_80490D64[44] = {
+void *dimedian_action_table[44] = {
     (void *)0x10000, (void *)0x9, (void *)0x3f19999a, (void *)0x1,
     (void *)0x20000, (void *)0x7, (void *)0x3f19999a, (void *)0x20,
     (void *)0x10002, (void *)0xb, (void *)0x3f800000, (void *)0x1,
@@ -258,7 +261,7 @@ void *lbl_80490D64[44] = {
     (void *)0x30000, (void *)0x4, (void *)0x3f19999a, (void *)0x10,
     (void *)0x20000, (void *)0x6, (void *)0x3f19999a, (void *)0x20,
 };
-void *lbl_80490E14[21] = {
+void *dimedian_movement_params[21] = {
     (void *)0x43610000, (void *)0x3f400000, (void *)0x400, (void *)0x0,
     (void *)0x1e0000, (void *)0x1, (void *)0x0, (void *)0x437a0000,
     (void *)0x3f666666, (void *)0x400, (void *)0x0, (void *)0x1e0000,
@@ -266,7 +269,7 @@ void *lbl_80490E14[21] = {
     (void *)0x400, (void *)0x0, (void *)0x1e0000, (void *)0x1,
     (void *)0x0,
 };
-void *lbl_80490E68[33] = {
+void *dimedian_collision_body_table[33] = {
     (void *)0x0, (void *)0x41480000, (void *)0x0, (void *)0x40e00000,
     (void *)0x0, (void *)0x0, (void *)0x8003, (void *)0x0,
     (void *)0x0, (void *)0x0, (void *)0x0, (void *)0x0,
@@ -277,7 +280,7 @@ void *lbl_80490E68[33] = {
     (void *)0x8003, (void *)0x0, (void *)0x0, (void *)0x0,
     (void *)0x0,
 };
-void *lbl_80490EEC[103] = {
+void *__vt__15TObjEneDimedian[103] = {
     (void *)0x0, (void *)0x0, (void *)&TObjPlayer__sub_800A846C, (void *)&run_task__12TObjEneBeastFPv,
     (void *)&draw_actor_model__10TObjPlayerFPv, (void *)&render_actor_shadows_default, (void *)&TLobby__sub_801A1FD8, (void *)&apply_object_set_data,
     (void *)&reset_actor_action_state, (void *)&get_actor_body_center, (void *)&update_object_view_visibility, (void *)&classify_actor_view_detail,
@@ -305,7 +308,7 @@ void *lbl_80490EEC[103] = {
     (void *)&TObjPlayer__sub_800A78B8, (void *)&TObjPlayer__sub_800A786C, (void *)&TObjPlayer__sub_800A7820, (void *)&TObjPlayer__sub_800A77D4,
     (void *)&TObjPlayer__sub_80092A7C, (void *)&TObjPlayer__sub_800A77D0, (void *)&request_stand_action__12TObjEneBeastFPv,
 };
-#define lbl_80490EEC ((u8 *)lbl_80490EEC)
+#define __vt__15TObjEneDimedian ((u8 *)__vt__15TObjEneDimedian)
 
 void * create__15TObjEneDimedianFPv(void *arg0) {
     void *o;
@@ -371,9 +374,9 @@ void free_boss_objects__15TObjEneDimedianFv(void) {
 #undef M2C_FIELD
 #define M2C_FIELD(expr, type, offset) (*(type *)((s8 *)(expr) + (offset)))
 #define RES_800A8118 ((Res_800A8118 *)dimedian_resource_ptr)
-#define lbl_80490D54 ((u8 *)lbl_80490D54)
-#define lbl_80490D64 ((Act_800A8118 *)lbl_80490D64)
-#define lbl_80490E68 ((Part_800A8118 *)lbl_80490E68)
+#define dimedian_resource_descriptor ((u8 *)dimedian_resource_descriptor)
+#define dimedian_action_table ((Act_800A8118 *)dimedian_action_table)
+#define dimedian_collision_body_table ((Part_800A8118 *)dimedian_collision_body_table)
 #define CHAIN_800A8118(p) M2C_FIELD(M2C_FIELD(M2C_FIELD(M2C_FIELD(M2C_FIELD(p, u8 *, 0x2C), u8 *, 0x30), u8 *, 0x30), u8 *, 4), s32, 4)
 
 void load_dimedian_resources__6TLobbyFv(void) {
@@ -381,11 +384,11 @@ void load_dimedian_resources__6TLobbyFv(void) {
     void *p;
     s32 i;
     if (check_v2_mode__9TObjEneDDFv() != 0) {
-        dimedian_resource_ptr = load_enemy_bml_resource_named(lbl_80490D54, lbl_8043AAA4);
+        dimedian_resource_ptr = load_enemy_bml_resource_named(dimedian_resource_descriptor, lbl_8043AAA4);
     } else {
         p = alloc__23TAdSinglePlyChrSelectGCFPv(0x440);
         if (p != NULL) {
-            p = load_resource_from_descriptor(p, 1, lbl_80490D54, 0, 0, 0);
+            p = load_resource_from_descriptor(p, 1, dimedian_resource_descriptor, 0, 0, 0);
         }
         dimedian_resource_ptr = (u8 *)p;
     }
@@ -407,9 +410,9 @@ void load_dimedian_resources__6TLobbyFv(void) {
     }
     lbl_805D5088 = p;
     draw_trail_with_colors(dimedian_type3_object, RES_800A8118->bodies->model,
-        RES_800A8118->motions[lbl_80490D64[3].idx].b, 5, 8);
+        RES_800A8118->motions[dimedian_action_table[3].idx].b, 5, 8);
     draw_trail_with_colors(lbl_805D5088, RES_800A8118->bodies->model,
-        RES_800A8118->motions[lbl_80490D64[4].idx].b, 0xA, 0xD);
+        RES_800A8118->motions[dimedian_action_table[4].idx].b, 0xA, 0xD);
     dimedian_boss_object_buf = alloc_buffer__11TOBoss4RockFPv(0xC);
     lbl_805D5074 = alloc_buffer__11TOBoss4RockFPv(0xC);
     TObjEneDimedian__boss_objects = alloc_buffer__11TOBoss4RockFPv(0xC);
@@ -428,25 +431,25 @@ void load_dimedian_resources__6TLobbyFv(void) {
     dimedian_buffer_ptr[2] = dispatch_shared_handler_a__6TLobbyFPv(0x54);
     {
         s16 ids[3] = { 0x1B, 0x1C, 0x1D };
-        Anim_800A8118 anim = { (s32)RES_800A8118->motions, lbl_80490D64, 2, 0xC0000 };
+        Anim_800A8118 anim = { (s32)RES_800A8118->motions, dimedian_action_table, 2, 0xC0000 };
         for (i = 0; i < 3; i++) {
             u8 *b = M2C_FIELD(dimedian_resource_ptr, u8 *, 0x42C) + i * 0x10;
             spawn_npc_enemy__6TLobbyFsiiiff(ids[i], M2C_FIELD(b, s32, 8), M2C_FIELD(b, s32, 0xC), &anim,
-                lbl_80490E68[i].radius, lbl_805D9AC4);
+                dimedian_collision_body_table[i].radius, lbl_805D9AC4);
         }
     }
 }
 #undef CHAIN_800A8118
 #undef RES_800A8118
-#undef lbl_80490D54
-#undef lbl_80490D64
-#undef lbl_80490E68
+#undef dimedian_resource_descriptor
+#undef dimedian_action_table
+#undef dimedian_collision_body_table
 #undef M2C_FIELD
 #define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
 O_800A846C *TObjPlayer__sub_800A846C(O_800A846C *arg0, s16 arg1) {
     s32 i;
     if (arg0 != NULL) {
-        arg0->vptr = lbl_80490EEC;
+        arg0->vptr = __vt__15TObjEneDimedian;
         for (i = 0; i < 2; i++) {
             if (arg0->objs[i] != NULL) {
                 queue_destruction__7TObjectFv(arg0->objs[i]);
@@ -465,9 +468,9 @@ O_800A846C *TObjPlayer__sub_800A846C(O_800A846C *arg0, s16 arg1) {
     return arg0;
 }
 
-#define lbl_80490D64 ((u8 *)lbl_80490D64)
-#define lbl_80490E14 ((u8 *)lbl_80490E14)
-#define lbl_80490E68 ((u8 *)lbl_80490E68)
+#define dimedian_action_table ((u8 *)dimedian_action_table)
+#define dimedian_movement_params ((u8 *)dimedian_movement_params)
+#define dimedian_collision_body_table ((u8 *)dimedian_collision_body_table)
 #define arg0 ((u8 *)arg0_)
 #define arg1 ((s32)arg1_)
 #define arg2 ((s32)arg2_)
@@ -476,7 +479,7 @@ void *TObjEneDimedian__ct(void *arg0_, void *arg1_, void *arg2_) {
     s32 color;
     s32 i;
     ((void (*)(void *, s32, s32))init_enemy_base__10TObjPlayerFPv)(arg0, arg1, arg2);
-    M2C_FIELD(arg0, u8 **, 0x18) = lbl_80490EEC;
+    M2C_FIELD(arg0, u8 **, 0x18) = __vt__15TObjEneDimedian;
     init_vtable_and_field18__10TObjPlayerFPv(arg0 + 0x3A8);
     __construct_array(arg0 + 0x3CC, (void *)&init_and_activate__10TObjPlayerFPv, (void *)&TObjPlayer__sub_800D7C58, 0x1C, 4);
     M2C_FIELD(arg0, s32 *, 0) = lbl_805D29F0;
@@ -485,16 +488,16 @@ void *TObjEneDimedian__ct(void *arg0_, void *arg1_, void *arg2_) {
     M2C_FIELD(arg0, s32 *, 0x334) = M2C_FIELD(arg0, s32 *, 0x368);
     TObjPlayer__sub_800A7B54(arg0);
     load_dimedian_param_entry(arg0, M2C_FIELD(arg0, s32 *, 0x368));
-    M2C_FIELD(arg0, u8 **, 0xD8) = lbl_80490D64;
+    M2C_FIELD(arg0, u8 **, 0xD8) = dimedian_action_table;
     set_field_d8__10TObjPlayerFPvi(arg0, M2C_FIELD(arg0, u8 **, 0xD8));
     M2C_FIELD(arg0, s32 *, 0xDC) = M2C_FIELD(dimedian_resource_ptr, s32 *, 0x430);
     M2C_FIELD(arg0, s16 *, 0xB8) = 0;
     set_animation__10TObjPlayerFPvs(arg0, M2C_FIELD(arg0, s16 *, 0xB8));
     set_field_b8__14TObjEnePanarmsFPvs(arg0, M2C_FIELD(arg0, s16 *, 0xB8));
-    init_collision_body_parts(arg0, lbl_80490E68 + M2C_FIELD(arg0, s32 *, 0x334) * 0x2C, 1);
+    init_collision_body_parts(arg0, dimedian_collision_body_table + M2C_FIELD(arg0, s32 *, 0x334) * 0x2C, 1);
     bind_enemy_combat_stats(arg0, dimedian_boss_object_buf[M2C_FIELD(arg0, s32 *, 0x334)],
         lbl_805D5074[M2C_FIELD(arg0, s32 *, 0x334)], TObjEneDimedian__boss_objects[M2C_FIELD(arg0, s32 *, 0x334)]);
-    M2C_FIELD(arg0, u8 **, 0x350) = lbl_80490E14 + M2C_FIELD(arg0, s32 *, 0x334) * 0x1C;
+    M2C_FIELD(arg0, u8 **, 0x350) = dimedian_movement_params + M2C_FIELD(arg0, s32 *, 0x334) * 0x1C;
     M2C_FIELD(arg0, s16 *, 0x33E) = M2C_FIELD(arg0, s16 *, 0x32C);
     update_prev_position__10TObjPlayerFPv(arg0);
     copy_position__20TBoss3VoloptHiraisinFi(arg0);
