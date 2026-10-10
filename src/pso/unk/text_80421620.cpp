@@ -116,10 +116,10 @@ s32 shutdown_network_handle__6TLobbyFv(void);
 s32 TLobby__sub_80409AA8(void);
 s32 TLobby__sub_8040DD68(void);
 s32 TLobby__sub_8040ED28(void);
-s32 shutdown_ipv6__6TLobbyFv(void);
+s32 NetIPv6Shutdown(void);
 s32 TLobby__sub_8041112C(void);
 s32 reset_net_value__6TLobbyFv(void);
-void TLobby__sub_80415AEC(void);
+void NetIPv6ShutdownNeighborDiscovery(void);
 s32 TLobby__sub_80418A7C(void);
 void TLobby__sub_80419A00(void);
 s32 TLobby__sub_80419A7C(void);
@@ -203,14 +203,14 @@ s32 TLobby__sub_8040DD68(void);
 s16 init_ipv4_interfaces__6TLobbyFv();
 s32 TLobby__sub_8040ED28(void);
 s16 TLobby__sub_8040ED70();
-s32 shutdown_ipv6__6TLobbyFv(void);
-s16 init_ipv6_interfaces__6TLobbyFv();
+s32 NetIPv6Shutdown(void);
+s16 NetIPv6InitInterfaces();
 s32 TLobby__sub_8041112C(void);
 s16 TUdpSocket__sub_8041118C();
 s32 reset_net_value__6TLobbyFv(void);
 s16 TLobby__sub_80415690();
-void TLobby__sub_80415AEC(void);
-s16 TLobby__sub_80415B38();
+void NetIPv6ShutdownNeighborDiscovery(void);
+s16 NetIPv6InitNeighborDiscovery();
 s32 TLobby__sub_80418A7C(void);
 s16 init_packet_fragment_pools__6TLobbyFv();
 void TLobby__sub_80419A00(void);
@@ -328,10 +328,10 @@ extern "C" {
 s32 cleanup_subsystems__6TLobbyFv(void) {
     TLobby__sub_80419A7C();
     TLobby__sub_80409AA8();
-    TLobby__sub_80415AEC();
+    NetIPv6ShutdownNeighborDiscovery();
     TLobby__sub_8041112C();
     TLobby__sub_8040ED28();
-    shutdown_ipv6__6TLobbyFv();
+    NetIPv6Shutdown();
     TLobby__sub_8040DD68();
     TLobby__sub_80418A7C();
     reset_stack_module__6TLobbyFv();
@@ -368,13 +368,13 @@ s16 init_network_stack__6TLobbyFv(void) {
                         if (var_r31 >= 0) {
                             var_r31 = init_ipv4_interfaces__6TLobbyFv();
                             if (var_r31 >= 0) {
-                                var_r31 = init_ipv6_interfaces__6TLobbyFv();
+                                var_r31 = NetIPv6InitInterfaces();
                                 if (var_r31 >= 0) {
                                     var_r31 = TLobby__sub_8040ED70();
                                     if (var_r31 >= 0) {
                                         var_r31 = TUdpSocket__sub_8041118C();
                                         if (var_r31 >= 0) {
-                                            var_r31 = TLobby__sub_80415B38();
+                                            var_r31 = NetIPv6InitNeighborDiscovery();
                                             if (var_r31 >= 0) {
                                                 var_r31 = TLobby__sub_80409AD8();
                                                 if (var_r31 >= 0) {
@@ -386,7 +386,7 @@ s16 init_network_stack__6TLobbyFv(void) {
                                                     goto block_19;
                                                 }
 block_19:
-                                                TLobby__sub_80415AEC();
+                                                NetIPv6ShutdownNeighborDiscovery();
                                                 goto block_20;
                                             }
 block_20:
@@ -398,7 +398,7 @@ block_21:
                                         goto block_22;
                                     }
 block_22:
-                                    shutdown_ipv6__6TLobbyFv();
+                                    NetIPv6Shutdown();
                                     goto block_23;
                                 }
 block_23:
