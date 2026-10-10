@@ -1466,7 +1466,7 @@ s32 is_status_flag_200__10TObjPlayerFPv(void);
 void set_floor__10TObjPlayerFPvi(void *, s32);
 void set_floor_index__10TObjPlayerFPvi(void *, s32);
 M2C_UNK TObjPlayer__sub_801BEEE0(void *, void *);
-M2C_UNK TObjPlayer__sub_801BF414(s32, s32, s32, void (*)(int));
+M2C_UNK __ct__20TPlayerReadyCallbackFP7TObjectUsPFP10TObjPlayer_v(s32, s32, s32, void (*)(int));
 int update_action_palette__10TObjPlayerFPv(void*);
 int set_action_palette_mode__10TObjPlayerFPv(void*);
 M2C_UNK TObjPlayer__sub_801BF690(void *);
@@ -3623,7 +3623,7 @@ void queue_player_injured_pose(s32 arg0) {
     s32 temp_r3;
     temp_r3 = ((s32 (*)(M2C_UNK))__nw__7TObjectFUl)(0x24);
     if (temp_r3 != 0) {
-        TObjPlayer__sub_801BF414(temp_r3, arg0, ((s32 (*)(s32))obj_getField1c)(arg0), (void (*)(int))init_subobject__10TObjPlayerFi);
+        __ct__20TPlayerReadyCallbackFP7TObjectUsPFP10TObjPlayer_v(temp_r3, arg0, ((s32 (*)(s32))obj_getField1c)(arg0), (void (*)(int))init_subobject__10TObjPlayerFi);
     }
 }
 

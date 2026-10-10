@@ -39,7 +39,7 @@ void check_cancel_input__22TQuestVmDownLoadServerFPv(u8 *arg0);
 s32 get_localized_text_entry(int, int);
 s32 TWindowShortListCtrl__check_controller_button(int, int);
 M2C_UNK show_status_message__22TQuestVmDownLoadServerFPvii(void *, int, int);
-s32 poll_field_20c__22TQuestVmDownLoadServerFPv(void *);
+s32 is_ready__24TMessageWindowControllerFv(void *);
 M2C_UNK update_state__13TAdMcSelectGCFv();
 extern RecoveredGlobal_801F6C74_lbl_8050E208 controller_input_state;
 void TQuestVmDownLoadServer__sub_801F6D24(QVm_801F6D24 *self);
@@ -93,7 +93,7 @@ void TQuestVmDownLoadServer__sub_801F6C74(u8 *arg0) {
 }
 void TQuestVmDownLoadServer__sub_801F6D24(QVm_801F6D24 *self) {
     u8 *p;
-    if (self->f294 == 0 || poll_field_20c__22TQuestVmDownLoadServerFPv((u8 *)self + 0x1C) != 0) {
+    if (self->f294 == 0 || is_ready__24TMessageWindowControllerFv((u8 *)self + 0x1C) != 0) {
         p = ((u8 *)&controller_input_state) + 0x20;
         if (TWindowShortListCtrl__check_controller_button((int)(p), (int)(4)) != 0 || TWindowShortListCtrl__check_controller_button((int)(p), (int)(2)) != 0) {
             update_state__13TAdMcSelectGCFv();

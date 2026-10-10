@@ -1,3 +1,6 @@
+#define TOBJECT_OUT_OF_LINE_HELPERS
+#include "pso/player/TPlayerReadyCallback.h"
+
 #include "types.h"
 typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
 typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
@@ -144,8 +147,8 @@ s32 obj_getField1c(int);
 int check_hit_by_id__10TObjPlayerFiii(void*, int, int);
 void emit_shifta_support_effect(u8 *arg0);
 void __ct__7TObjectFP7TObject(void *, void *);
-extern RecoveredGlobal_801BF414_lbl_804C3FA8 lbl_804C3FA8;
-u8 *TObjPlayer__sub_801BF414(u8 *arg0, u8 *arg1, s16 arg2, s32 arg3);
+extern RecoveredGlobal_801BF414_lbl_804C3FA8 __vt__20TPlayerReadyCallback;
+u8 *__ct__20TPlayerReadyCallbackFP7TObjectUsPFP10TObjPlayer_v(u8 *arg0, u8 *arg1, s16 arg2, s32 arg3);
 int TFontSmallLobby__sub_801C0228(void*);
 void *copy_6x0d_status_effect_packet__10TObjPlayerFPvPv(void *arg0, void *arg1);
 }
@@ -378,13 +381,12 @@ int has_water_ground_flag(void* p) { return test_flags_any(p, 4); }
 void TObjPlayer__sub_801BF40C(void* p, u8 v) { *(u8*)((char*)p + 0x1c) = v; }
 
 typedef char RecoveredGlobal_801BF414_lbl_804C3FA8_size[sizeof(RecoveredGlobal_801BF414_lbl_804C3FA8) == 0x18 ? 1 : -1];
-u8 *TObjPlayer__sub_801BF414(u8 *arg0, u8 *arg1, s16 arg2, s32 arg3) {
-    __ct__7TObjectFP7TObject(arg0, arg1);
-    M2C_FIELD(arg0, M2C_UNK **, 0x18) = &lbl_804C3FA8.value;
-    M2C_FIELD(arg0, s16 *, 0x1C) = arg2;
-    M2C_FIELD(arg0, s32 *, 0x20) = arg3;
-    return arg0;
 }
+TPlayerReadyCallback::TPlayerReadyCallback(TObject* parent, u16 id, void (*fn)(TObjPlayer*)) : TObject(parent) {
+    player_id = id;
+    callback = fn;
+}
+extern "C" {
 
 u8 TObjPlayer__sub_801BF460(s32 *arg0, s32 arg1) {
     return (u8) ((*arg0 & (1 << arg1)) == 0);

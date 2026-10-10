@@ -1168,7 +1168,6 @@ pso/misc/TMainTask.cpp
 pso/misc/TMainTask_8001A430.cpp
 pso/misc/TMainTask_80104C40.cpp
 pso/misc/TMapCsnCtrl.cpp
-pso/misc/TMedicalCenterMes.cpp
 pso/misc/TMessageBox.cpp
 pso/misc/TMotorcycle.cpp
 pso/misc/TMotorcycle_802D712C.cpp
@@ -1449,10 +1448,8 @@ pso/misc/TPlyMeetUserExtension.cpp
 pso/misc/TPlyMeetUserExtension_801DAC6C.cpp
 pso/misc/TPlyOnCountOver.cpp
 pso/misc/TPlyOnCountOver_801C5FF8.cpp
-pso/misc/TPlyOnCountOver_801C70BC.cpp
 pso/misc/TPlyOnCreated.cpp
 pso/misc/TPlyOnCreated_801C61D0.cpp
-pso/misc/TPlyOnCreated_801C7114.cpp
 pso/misc/TPlyPhotonChair.cpp
 pso/misc/TPlyPhotonChair_80142524.cpp
 pso/misc/TPlyPhotonChair_80143888.cpp
@@ -2229,6 +2226,7 @@ pso/object/TObject_8003F3DC.cpp
 pso/object/TObject_800F794C.cpp
 pso/object/TObject_802EEE9C.cpp
 pso/object/TObject_803503D0.cpp
+pso/player/PlayerTaskEffects.cpp
 pso/player/THunterGuildSeqOnlineTask.cpp
 pso/player/THunterGuildWarning.cpp
 pso/player/TObjPlayer.cpp
@@ -2566,8 +2564,6 @@ pso/player/TObjPlayer_801C0808.cpp
 pso/player/TObjPlayer_801C1FF8.cpp
 pso/player/TObjPlayer_801C5558.cpp
 pso/player/TObjPlayer_801C5AB8.cpp
-pso/player/TObjPlayer_801C6280.cpp
-pso/player/TObjPlayer_801C675C.cpp
 pso/player/TObjPlayer_801C721C.cpp
 pso/player/TObjPlayer_801D3554.cpp
 pso/player/TObjPlayer_801D4890.cpp
@@ -2637,7 +2633,6 @@ pso/player/TObjPlayer_803DC834.cpp
 pso/player/TObjPlayer_803E21B8.cpp
 pso/player/TObjPlayer_803E4954.cpp
 pso/player/TObjPlayer_803E5470.cpp
-pso/player/TPlayerParticleOwner.cpp
 pso/player/TPlyItem.cpp
 pso/protocol/subcommand_validation_actions.cpp
 pso/protocol/subcommand_validation_movement.cpp
@@ -2838,6 +2833,7 @@ pso/ui/TAdWarningBaseGC_8032D188.cpp
 pso/ui/TAdWarningBaseGC_8032D1A4.cpp
 pso/ui/TAdYesNoBaseGC.cpp
 pso/ui/TFontSmallTask.cpp
+pso/ui/TMessageWindowController.cpp
 pso/ui/TObjBagWarnWin.cpp
 pso/ui/TObjBagWarnWin_8006EED4.cpp
 pso/ui/TObjBagWarnWin_8006EF24.cpp
@@ -3432,7 +3428,6 @@ pso/unk/text_8020EEFC.cpp
 pso/unk/text_80211D58.cpp
 pso/unk/text_80215FAC.cpp
 pso/unk/text_80219F64.cpp
-pso/unk/text_80222BCC.cpp
 pso/unk/text_80222C28.cpp
 pso/unk/text_80222DE8.cpp
 pso/unk/text_802233F8.cpp

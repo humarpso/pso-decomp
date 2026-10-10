@@ -283,6 +283,7 @@ force_active:
   - __as__14LobbyListEntryFRC14LobbyListEntry
   - __as__14QuestListEntryFRC14QuestListEntry
   - __ct__11TMessageBoxFRC11TMessageBox
+  - __ct__11TPlayerSoulFP7TObjectUs
   - __ct__12TChatMessageFRC12TChatMessage
   - __ct__14LobbyListEntryFv
   - __ct__14QuestListEntryFRC14QuestListEntry
@@ -291,6 +292,8 @@ force_active:
   - __ct__15TRecvGenerateIDFRC15TRecvGenerateID
   - __ct__16TAdGuideButtonGCFP7TObject
   - __ct__16TGenGuildCardTagFRC16TGenGuildCardTag
+  - __ct__18TPlayerLobbyMarkerFP7TObjectsSc
+  - __ct__20TPlayerLevelFeedbackFP7TObjectUs
   - __ct__9TEffGuardFPC3Vec
   - __cvt_sll_dbl
   - __destroy_global_chain_reference
@@ -304,6 +307,7 @@ force_active:
   - __dt__11TChCrEffTagFv
   - __dt__11TMapCsnCtrlFv
   - __dt__11TObjDFYutaiFv
+  - __dt__11TPlayerSoulFv
   - __dt__12TAdBackTxtGCFv
   - __dt__12TAdMultiOkGCFv
   - __dt__12TAdSoniclogoFv
@@ -398,6 +402,7 @@ force_active:
   - __dt__18TOChatSensorFolderFv
   - __dt__18TObjItemNameSelectFv
   - __dt__18TObjTailsTailsMoveFv
+  - __dt__18TPlayerLobbyMarkerFv
   - __dt__19THunterGuildWarningFv
   - __dt__19TItemDisconnectCtrlFv
   - __dt__19TNECFontEORFunctionFv
@@ -410,6 +415,9 @@ force_active:
   - __dt__20TAdGameStartShadowGCFv
   - __dt__20TObjChallenge4PRetryFv
   - __dt__20TObjLiveMonitorSmallFv
+  - __dt__20TPlayerLevelFeedbackFv
+  - __dt__20TPlayerParticleOwnerFv
+  - __dt__20TPlayerReadyCallbackFv
   - __dt__21TAdMultiChgGameModeGCFv
   - __dt__21TItemEffArmorParticleFv
   - __dt__21TItemReverseTechPart2Fv
@@ -452,9 +460,13 @@ force_active:
   - __str2dec
   - __timesdec
   - __ull2dec
+  - __vt__11TPlayerSoul
   - __vt__12TObjEneBeast
   - __vt__12T_OWEHMS_Exp
   - __vt__15TObjEneDimedian
+  - __vt__18TPlayerLobbyMarker
+  - __vt__20TPlayerLevelFeedback
+  - __vt__24TMessageWindowController
   - accumulate_key_bits
   - ad_game_start_name_ptr
   - add_gogo_ball_one_point_score
@@ -477,6 +489,13 @@ force_active:
   - anchor_state__14TObjEneBm5WolfFPvi
   - ancient_boss_warp_resource_block
   - appearing_state__14TObjEneBm5WolfFPvi
+  - append_block_space__24TMessageWindowControllerFv
+  - append_byte__24TMessageWindowControllerFUc
+  - append_file_number__24TMessageWindowControllerFv
+  - append_quest_name__24TMessageWindowControllerFv
+  - append_quest_title__24TMessageWindowControllerFv
+  - append_text__24TMessageWindowControllerFPCc
+  - append_title_string__24TMessageWindowControllerFv
   - apply_blend_mode_1__10TObjPlayerFv
   - apply_clamped_mode_param__10TObjPlayerFPv
   - apply_contact_damage__10TBoss4ZakoFv
@@ -507,6 +526,7 @@ force_active:
   - are_all_players_in_range__17TObjWarpBossMultiFPv
   - area_gsl_filename_table
   - assert_light_id__9TObjLightFi
+  - at_end__24TMessageWindowControllerFv
   - attach_model__13TParticleCtrlFPviiiif
   - attack_target_history_contains
   - beast_collision_body_table
@@ -514,6 +534,7 @@ force_active:
   - beast_motion_name_table
   - beast_movement_params
   - beast_resource_descriptor
+  - begin_parse__24TMessageWindowControllerFPCcPc
   - bind_controller_devices
   - blocking_vsync__6TLobbyFPv
   - bm3_fly_collider_params
@@ -973,10 +994,13 @@ force_active:
   - get_labo_design_entry
   - get_labo_design_object
   - get_lobby_theme_clamped__16TObjCurtainLobbyFv
+  - get_material_index__18TPlayerLobbyMarkerFv
   - get_material_limit_for_class
   - get_model__23TObjSeabedSuisoBrakableFi
   - get_move_done_result__24TObjWaitEntryHairMoveSimFPv
+  - get_particle__20TPlayerParticleOwnerFv
   - get_pipe_interaction_latch
+  - get_player__20TPlayerParticleOwnerFv
   - get_selected_blast__13TWindowSubMagFPv
   - get_serial_text__22TAdEnterSerialAccessGCFii
   - get_speaker_balloon_anchor__11TWindowCtrlFPviPvPv
@@ -1065,7 +1089,6 @@ force_active:
   - init_launch_angles__10TTecSlicerFPvPvi
   - init_light_params__15TORainbowCave01FPviff
   - init_light_tables__9TObjLightFv
-  - init_lobby_font_entry__10TObjPlayerFPvPvsc
   - init_map_light__9TObjLightFPvi
   - init_model_and_state__19TObjEneEpsilonGuardFPv
   - init_model_by_type__10TODoorLaboFPv
@@ -1434,6 +1457,7 @@ force_active:
   - mcmdVarCalculation
   - mcmdVibrato
   - mcmdWait
+  - message_tag_error
   - move_around_center__15TObjEneMe1GiGueFPvPvf
   - multi_confirm_texture_descriptor
   - multi_confirm_texture_entries
@@ -1473,8 +1497,10 @@ force_active:
   - open_windows__22TAdMultiPlyChrSelectGCFPv
   - pack_weapon_trail_color
   - parse_config_int__22TQuestVmDownLoadServerFPvUi
+  - parse_message_text__24TMessageWindowControllerFPCcPc
   - parse_packet__9TProtocolFv
   - parse_pad_event__16TKeyBoardControlFiUi
+  - parse_tag_command__24TMessageWindowControllerFv
   - particle_regular_bml_descriptor
   - pick_random_destination__11TODragonflyFPvf
   - place_players_in_warp_circle
@@ -1502,6 +1528,7 @@ force_active:
   - rabarta_band_emitter_table
   - rafoie_burst_table
   - rappy_variant_na_name
+  - read_byte__24TMessageWindowControllerFv
   - read_stream_u8
   - read_u16_le__9TLanguageFv
   - read_u32_le__9TLanguageFv
@@ -1572,6 +1599,7 @@ force_active:
   - render__18TBoss7PhotonBulletFv
   - render__18TChCrTagOccupationFv
   - render__18TItemReverseTechBGFv
+  - render__18TPlayerLobbyMarkerFv
   - render__20TAdChrSelMovePlateGCFv
   - render__20TAdGameStartShadowGCFv
   - render__20TObjLiveMonitorSmallFv
@@ -1652,6 +1680,7 @@ force_active:
   - run_task__11TAdRicoRingFv
   - run_task__11TAdSEGAlogoFv
   - run_task__11TChCrEffTagFv
+  - run_task__11TPlayerSoulFv
   - run_task__12TAdBackTxtGCFv
   - run_task__12TAdMultiOkGCFv
   - run_task__12TAdSoniclogoFv
@@ -1725,6 +1754,7 @@ force_active:
   - run_task__18TBoss7PhotonBulletFv
   - run_task__18TItemReverseTechBGFv
   - run_task__18TObjTailsTailsMoveFv
+  - run_task__18TPlayerLobbyMarkerFv
   - run_task__19THunterGuildWarningFv
   - run_task__19TItemDisconnectCtrlFv
   - run_task__19TNECFontEORFunctionFv
@@ -1735,6 +1765,7 @@ force_active:
   - run_task__20TAdGameStartShadowGCFv
   - run_task__20TObjChallenge4PRetryFv
   - run_task__20TObjLiveMonitorSmallFv
+  - run_task__20TPlayerLevelFeedbackFv
   - run_task__21TAdMultiChgGameModeGCFv
   - run_task__21TItemEffArmorParticleFv
   - run_task__21TODummyKeyCave01SoundFv
@@ -1807,11 +1838,13 @@ force_active:
   - set_node_offsets__10TBoss2MineFPv
   - set_num_tex_gens_zero__10TObjPlayerFv
   - set_orbit_destination__19TObjEneEpsilonGuardFPvi
+  - set_particle__20TPlayerParticleOwnerFP13TParticleCtrl
   - set_particle_draw_scale
   - set_particle_tint_color
   - set_password__17TAdEnterPPPPassGCFi
   - set_password__18TAdEnterPasswordGCFi
   - set_percentage_rows__15TWindowHelpItemFPvPvi
+  - set_player_id__20TPlayerParticleOwnerFUs
   - set_player_room_control_flag
   - set_scene_light_diffuse
   - set_script_entry__13TOHealGeneralFPvi

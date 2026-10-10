@@ -102,9 +102,9 @@ s32 handle_deposit_list_select__19TShopKeepItemWindowFv(void *);
 void TShopKeepItemWindow__vt9(u8 *arg0);
 void memset(void *, int, int);
 int sprintf(char *, const char *, ...);
-M2C_UNK TQuestVmDownLoadServer__sub_80222704(s32, M2C_UNK *);
-extern char lbl_805DC718[4];
-void TQuestVmDownLoadServer__sub_8022236C(s32 arg0);
+M2C_UNK append_text__24TMessageWindowControllerFPCc(s32, M2C_UNK *);
+extern char message_number_format[4];
+void append_file_number__24TMessageWindowControllerFv(s32 arg0);
 s32 is_visible__17TWindowSubComCardFPv(void *);
 s32 get_status_flag__17TWindowSubComCardFPv(void *);
 M2C_UNK set_field_20__12TQuestListVMFPvi(void *, M2C_UNK);
@@ -146,9 +146,9 @@ void *TShopKeepItemWindow__ct(void *arg0, void *arg1, void *arg2, void *arg3);
 void TShopKeepItemWindow__vt4(void *arg0);
 void TShopKeepItemWindow__vt5(void *arg0);
 void *__dt__19TShopKeepItemWindowFv(void *arg0, s16 arg1);
-void show_message_or_error(s32 arg0);
+void append_title_string__24TMessageWindowControllerFv(s32 arg0);
 M2C_UNK TCheckRoomSequence__sub_802109A4();
-M2C_UNK TQuestVmDownLoadServer__sub_80222704(s32, M2C_UNK *);
+M2C_UNK append_text__24TMessageWindowControllerFPCc(s32, M2C_UNK *);
 M2C_UNK TShopWindowBase__sub_8022397C(void *);
 void TWindow__close(void *);
 void __ct__15TShopWindowBaseFv(void *);
@@ -401,25 +401,7 @@ void *TShopKeepItemWindow__ct(void *arg0, void *arg1, void *arg2, void *arg3) {
     return arg0;
 }
 
-extern M2C_UNK lbl_8044C290[];
+extern M2C_UNK message_tag_error[];
 extern s32 local_client_id;
-
-void TQuestVmDownLoadServer__sub_8022236C(s32 arg0) {
-    char buf[0x20];
-    memset(buf, 0, 0x20);
-    sprintf(buf, lbl_805DC718, 2);
-    TQuestVmDownLoadServer__sub_80222704((s32)(arg0), (M2C_UNK *)((s32 *)buf));
-}
-
-void show_message_or_error(s32 arg0) {
-    M2C_UNK *temp_r3;
-
-    temp_r3 = get_status_window__20TWindowSubStatusDispFi((u16) local_client_id);
-    if (temp_r3 != NULL) {
-        TQuestVmDownLoadServer__sub_80222704(arg0, temp_r3);
-        return;
-    }
-    TQuestVmDownLoadServer__sub_80222704(arg0, lbl_8044C290);
-}
 
 }

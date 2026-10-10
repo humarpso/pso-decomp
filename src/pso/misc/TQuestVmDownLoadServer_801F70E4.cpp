@@ -128,7 +128,7 @@ s32 init_single_player_chr_select__6TLobbyFPv(s32);
 void TQuestVmDownLoadServer__sub_801F8FA4(void);
 extern RecoveredGlobal_801F84AC_lbl_80512BDC quest_download_file_header;
 M2C_UNK *get_quest_download_file_header(void);
-void fn_80222BCC(void *);
+void __ct__24TMessageWindowControllerFv(void *);
 void __ct__7TObjectFP7TObject();
 void *memset(void *, int, u32);
 extern M2C_UNK __vt__22TQuestVmDownLoadServer[];
@@ -265,7 +265,7 @@ M2C_UNK disallow_rendering__7TObjectFv(u32);
 s32 TQuestVmDownLoadServer__sub_8006EF6C(M2C_UNK);
 s32 TWindowShortListCtrl__check_controller_button(int, int);
 M2C_UNK reset_counter__6TSceneFv();
-s32 poll_field_20c__22TQuestVmDownLoadServerFPv(void *);
+s32 is_ready__24TMessageWindowControllerFv(void *);
 M2C_UNK select_if_mc_present__13TAdMcSelectGCFv();
 u32 create__13TAdMcSelectGCFPv(s32);
 s32 get_localized_text_entry(M2C_UNK, M2C_UNK);
@@ -317,7 +317,7 @@ M2C_UNK __dt__7TObjectFv(void *, M2C_UNK);
 M2C_UNK clear_selected_and_update_entry__14TWindowSubItemFPv(void *);
 M2C_UNK close_message__22TQuestVmDownLoadServerFPv(void *);
 u32 create__13TAdMcSelectGCFPv(s32);
-M2C_UNK destroy__17TMedicalCenterMesFPvs(void *, M2C_UNK);
+M2C_UNK __dt__24TMessageWindowControllerFv(void *, M2C_UNK);
 M2C_UNK disallow_rendering__7TObjectFv(u32);
 s32 draw_window_bg__23TAdSinglePlyChrSelectGCFiiii(s32, void *, s32, s32);
 s32 get_status_flag__17TWindowSubComCardFPv(u32);
@@ -710,7 +710,7 @@ void open__22TQuestVmDownLoadServerFPv(void *arg0) {
 
 void update_mc_select__22TQuestVmDownLoadServerFPv(u8 *arg0) {
     s32 temp_r0;
-    if (((u32) M2C_FIELD(arg0, u32 *, 0x294) == 0U) || (poll_field_20c__22TQuestVmDownLoadServerFPv(arg0 + 0x1C) != 0)) {
+    if (((u32) M2C_FIELD(arg0, u32 *, 0x294) == 0U) || (is_ready__24TMessageWindowControllerFv(arg0 + 0x1C) != 0)) {
         if ((void *) M2C_FIELD(arg0, u8 **, 0x29C) == NULL) {
             reset_counter__6TSceneFv();
             if (lobby_player_construction_window != 0) {
@@ -940,7 +940,7 @@ u8 *TQuestVmDownLoadServer__vt0(u8 *arg0, s16 arg1) {
         close_message__22TQuestVmDownLoadServerFPv(arg0);
         TQuestVmDownLoadServer__instance = 0;
         TQuestVmDownLoadServer__data_805D5F18 = 0;
-        destroy__17TMedicalCenterMesFPvs(arg0 + 0x1C, 0);
+        __dt__24TMessageWindowControllerFv(arg0 + 0x1C, 0);
         __dt__7TObjectFv(arg0, 0);
         if (arg1 > 0) {
             __dl__7TObjectFPv(arg0);
@@ -953,7 +953,7 @@ typedef char RecoveredGlobal_801F84AC_lbl_80512BDC_size[sizeof(RecoveredGlobal_8
 
 QVmCt_801F83F0 *TQuestVmDownLoadServer__ct(QVmCt_801F83F0 *self) {
     __ct__7TObjectFP7TObject();
-    fn_80222BCC(&self->vt1C);
+    __ct__24TMessageWindowControllerFv(&self->vt1C);
     self->vt18 = ((u8 *)&__vt__22TQuestVmDownLoadServer);
     self->vt1C = ((u8 *)&__vt__22TQuestVmDownLoadServer) + 0x18;
     self->f0 = TQuestVmDownLoadServer__class_name;

@@ -7,8 +7,8 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 struct Pair_801F6E08 { s32 a; s32 b; };
 
 extern "C" {
-void display_message__22TQuestVmDownLoadServerFPvii(void*, s32, s32);
-s32 create_window__17TMedicalCenterMesFPvii(void*, s32, void*);
+void display_message__24TMessageWindowControllerFPCcl(void*, s32, s32);
+s32 create_window__24TMessageWindowControllerFll(void*, s32, void*);
 s32 get_window_layout_position(s32, s32, void*);
 extern s32 lbl_8044A668[];
 void show_status_message__22TQuestVmDownLoadServerFPvii(u8* arg0, s32 arg1, s32 arg2);
@@ -29,7 +29,7 @@ void free_buffers__22TQuestVmDownLoadServerFv(void);
 void allow_rendering__7TObjectFv(void *);
 M2C_UNK clear_flag4_bit4__22TQuestVmDownLoadServerFPv(void *);
 M2C_UNK clear_selected_and_update_entry__14TWindowSubItemFPv(void *);
-int close__17TMedicalCenterMesFPv(void*);
+int close__24TMessageWindowControllerFv(void*);
 void queue_destruction__7TObjectFv(void *);
 M2C_UNK reset_quest_id__23TAdSinglePlyChrSelectGCFv();
 M2C_UNK safe_free__23TAdSinglePlyChrSelectGCFUi(void *);
@@ -37,7 +37,7 @@ M2C_UNK set_flag_4__9TObjLukerFPv(void *);
 void set_ready__6TSceneFv(void *);
 M2C_UNK update_state__13TAdMcSelectGCFv();
 
-void close_message__22TQuestVmDownLoadServerFPv(void* p) { if (*(unsigned int*)((char*)p + 0x294) != 0) { close__17TMedicalCenterMesFPv((char*)p + 0x1c); *(int*)((char*)p + 0x294) = 0; } }
+void close_message__22TQuestVmDownLoadServerFPv(void* p) { if (*(unsigned int*)((char*)p + 0x294) != 0) { close__24TMessageWindowControllerFv((char*)p + 0x1c); *(int*)((char*)p + 0x294) = 0; } }
 
 extern s32 lbl_805D55C0;
 extern s32 TQuestVmDownLoadServer__data_805D5F18;
@@ -47,9 +47,9 @@ void show_status_message__22TQuestVmDownLoadServerFPvii(u8* arg0, s32 arg1, s32 
     if (*(u32*)(arg0 + 0x294) == 0) {
         sp.a = lbl_8044A668[0];
         sp.b = lbl_8044A668[1];
-        *(s32*)(arg0 + 0x294) = create_window__17TMedicalCenterMesFPvii(arg0 + 0x1C, get_window_layout_position(0x2F, lbl_8044A668[0], lbl_8044A668), &sp);
+        *(s32*)(arg0 + 0x294) = create_window__24TMessageWindowControllerFll(arg0 + 0x1C, get_window_layout_position(0x2F, lbl_8044A668[0], lbl_8044A668), &sp);
     }
-    display_message__22TQuestVmDownLoadServerFPvii(arg0 + 0x1C, arg1, arg2 | 0x80);
+    display_message__24TMessageWindowControllerFPCcl(arg0 + 0x1C, arg1, arg2 | 0x80);
 }
 
 void check_client_connections__22TQuestVmDownLoadServerFPv(void *arg0) {

@@ -50,7 +50,7 @@ void TMedicalCenterMes__sub_80216260(void);
 extern RecoveredGlobal_80215FAC_TJudgmentSequence__data_80513E80 TJudgmentSequence__slot_flags;
 void TJudgmentSequence__sub_80216058(void);
 void *obj_getField1c(void *);
-void destroy__17TMedicalCenterMesFPvs(void *, s16);
+void __dt__24TMessageWindowControllerFv(void *, s16);
 s32 TShopGenerator__sub_80222DAC(s32);
 void __dt__7TObjectFv(void *, s16);
 void __dl__7TObjectFPv(void *);
@@ -58,7 +58,7 @@ extern u8 __vt__17TMedicalCenterMes[];
 extern RecoveredGlobal_80216084_TMedicalCenterMes__data_80513EA0 TMedicalCenterMes__slot_flags;
 Med_80216288 *TMedicalCenterMes__vt0(Med_80216288 *arg0, s16 arg1);
 void *obj_getField1c(void *);
-void fn_80222BCC(void *);
+void __ct__24TMessageWindowControllerFv(void *);
 s32 TShopGenerator__sub_80222DAC(s32);
 s32 __ct__7TObjectFP7TObject(void *, void *);
 extern u8 __vt__17TMedicalCenterMes[];
@@ -74,10 +74,10 @@ void init_effect_5f0__10TObjPlayerFPv(void *);
 void *get_player_by_client_id(s32);
 void clear_slot_active__14TShopGeneratorFi(s32);
 void THunterGuildSeqOffline__sub_8021E180(s32);
-s32 poll_field_20c__22TQuestVmDownLoadServerFPv(void *);
-void show_message__17TMedicalCenterMesFPvii(void *, s32, s32);
-void close__17TMedicalCenterMesFPv(void *);
-void create_message_window__17TMedicalCenterMesFPviii(void *, s32, void *, s32);
+s32 is_ready__24TMessageWindowControllerFv(void *);
+void format_shop_message__24TMessageWindowControllerFll(void *, s32, s32);
+void close__24TMessageWindowControllerFv(void *);
+void create_message_window__24TMessageWindowControllerFlll(void *, s32, void *, s32);
 void suppress_slot__11TWindowCtrlFi(u16);
 void unsuppress_slot__11TWindowCtrlFi(u16);
 s32 get_window_layout_position(s32);
@@ -136,8 +136,8 @@ void TMedicalCenterMes__vt1(Med_802160B4 *self) {
         suppress_slot__11TWindowCtrlFi((u16)(s32)obj_getField1c(self->f22c));
         Pair_802160B4 p = lbl_8044BD94[0];
         u16 id = (u16)(s32)obj_getField1c(self->f22c);
-        create_message_window__17TMedicalCenterMesFPviii(self->sub, get_window_layout_position(0x2C), &p, id);
-        show_message__17TMedicalCenterMesFPvii(self->sub, 0x25, 1);
+        create_message_window__24TMessageWindowControllerFlll(self->sub, get_window_layout_position(0x2C), &p, id);
+        format_shop_message__24TMessageWindowControllerFll(self->sub, 0x25, 1);
         if (self->f22c != NULL) {
             init_effect_5f0__10TObjPlayerFPv(self->f22c);
         }
@@ -145,7 +145,7 @@ void TMedicalCenterMes__vt1(Med_802160B4 *self) {
         break;
     }
     case 1:
-        if (poll_field_20c__22TQuestVmDownLoadServerFPv(self->sub) != 0 && self->f22c != NULL) {
+        if (is_ready__24TMessageWindowControllerFv(self->sub) != 0 && self->f22c != NULL) {
             if (TWindowShortListCtrl__check_controller_button(controller_input_state[get_map_id__13TRaderMapCoreFPv(self->f22c)].btn, 4) != 0) {
                 self->f230 = 2;
             }
@@ -155,7 +155,7 @@ void TMedicalCenterMes__vt1(Med_802160B4 *self) {
         if (self->f22c != NULL) {
             clear_lobby_flag__10TObjPlayerFPv(self->f22c);
         }
-        close__17TMedicalCenterMesFPv(self->sub);
+        close__24TMessageWindowControllerFv(self->sub);
         if (self->f22c != NULL) {
             unsuppress_slot__11TWindowCtrlFi((u16)(s32)obj_getField1c(self->f22c));
         }
@@ -184,7 +184,7 @@ Med_80216288 *TMedicalCenterMes__vt0(Med_80216288 *arg0, s16 arg1) {
         if (arg0->f22c != 0) {
             { s32 v = TShopGenerator__sub_80222DAC((s32)(obj_getField1c(arg0->f22c))); ((s32 *)&TMedicalCenterMes__slot_flags)[(u16)v] = 0; }
         }
-        destroy__17TMedicalCenterMesFPvs(&arg0->sub, 0);
+        __dt__24TMessageWindowControllerFv(&arg0->sub, 0);
         __dt__7TObjectFv(arg0, 0);
         if (arg1 > 0) {
             __dl__7TObjectFPv(arg0);
@@ -194,7 +194,7 @@ Med_80216288 *TMedicalCenterMes__vt0(Med_80216288 *arg0, s16 arg1) {
 }
 Med_80216320 *TMedicalCenterMes__ct(Med_80216320 *arg0, void *arg1, void *arg2) {
     __ct__7TObjectFP7TObject(arg0, arg1);
-    fn_80222BCC(&arg0->sub);
+    __ct__24TMessageWindowControllerFv(&arg0->sub);
     arg0->vt = __vt__17TMedicalCenterMes;
     arg0->sub = __vt__17TMedicalCenterMes + 0x18;
     arg0->f0 = TMedicalCenterMes__class_name;

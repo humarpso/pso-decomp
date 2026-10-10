@@ -15,11 +15,11 @@ struct Del_80223850 {
 
 extern "C" {
 s32 obj_getField1c(u32);
-u32 create_message_window__17TMedicalCenterMesFPviii(void *, s32, s32, s32);
-u32 create_window__17TMedicalCenterMesFPvii(void *, s32, s32);
+u32 create_message_window__24TMessageWindowControllerFlll(void *, s32, s32, s32);
+u32 create_window__24TMessageWindowControllerFll(void *, s32, s32);
 u32 create_message_window__13TShopSequenceFPvii(u8 *arg0, s32 arg1, s32 arg2);
 int alloc__23TAdSinglePlyChrSelectGCFPv(void *);
-u8 * fn_80222BCC(void *);
+u8 * __ct__24TMessageWindowControllerFv(void *);
 u8 * __ct__15TShopWindowBaseFv(void *);
 extern RecoveredGlobal_802238D8___vt__13TShopSequence __vt__13TShopSequence;
 extern s32 TShopSequence__class_name;
@@ -46,22 +46,22 @@ u32 get_player_by_client_id(s32);
 s32 suppress_slot__11TWindowCtrlFi(u16);
 s32 unsuppress_slot__11TWindowCtrlFi(u16);
 s32 clear_lobby_flag__10TObjPlayerFPv(u32);
-M2C_UNK close__17TMedicalCenterMesFPv(void *);
-int display_message__22TQuestVmDownLoadServerFPvii(void*);
-int format_and_send_message__22TQuestVmDownLoadServerFPvii(void*);
+M2C_UNK close__24TMessageWindowControllerFv(void *);
+int display_message__24TMessageWindowControllerFPCcl(void*);
+int format_guild_message__24TMessageWindowControllerFll(void*);
 s32 get_game_mode__23TAdSinglePlyChrSelectGCFv();
 s32 init_effect_5f0__10TObjPlayerFPv(void *);
 s32 is_not_split_screen__13TRaderMapCoreFv();
 s32 is_split_screen();
 s32 obj_getField1c(u32);
-s32 poll_field_20c__22TQuestVmDownLoadServerFPv(void *);
-int send_message__22TQuestVmDownLoadServerFPvii(void*);
-int show_message__17TMedicalCenterMesFPvii(void*);
+s32 is_ready__24TMessageWindowControllerFv(void *);
+int send_message__24TMessageWindowControllerFll(void*);
+int format_shop_message__24TMessageWindowControllerFll(void*);
 
 s32 update_download_server__13TShopSequenceFPv(void *arg0) {
     void *temp_r3 = M2C_FIELD(arg0, void **, 0x28);
     if (temp_r3 != NULL) {
-        return poll_field_20c__22TQuestVmDownLoadServerFPv(temp_r3);
+        return is_ready__24TMessageWindowControllerFv(temp_r3);
     }
     return 1;
 }
@@ -70,7 +70,7 @@ void close_message_window__13TShopSequenceFPv(void *arg0) {
     VObj_802235A0_8022356C *temp_r3;
 
     if (M2C_FIELD(arg0, VObj_802235A0_8022356C **, 0x28) != NULL) {
-        close__17TMedicalCenterMesFPv(M2C_FIELD(arg0, VObj_802235A0_8022356C **, 0x28));
+        close__24TMessageWindowControllerFv(M2C_FIELD(arg0, VObj_802235A0_8022356C **, 0x28));
         temp_r3 = M2C_FIELD(arg0, VObj_802235A0_8022356C **, 0x28);
         if (temp_r3 != NULL) {
             temp_r3->m0(1);
@@ -86,17 +86,17 @@ u32 create_message_window__13TShopSequenceFPvii(u8 *arg0, s32 arg1, s32 arg2) {
     if (temp_r0 != NULL) {
         temp_r3 = (u8 *)(M2C_FIELD(arg0, u8 **, 0x24));
         if (temp_r3 != NULL) {
-            return create_message_window__17TMedicalCenterMesFPviii(M2C_FIELD(arg0, u8 **, 0x28), arg1, arg2, (s32) ((u16)obj_getField1c((u32)(temp_r3))));
+            return create_message_window__24TMessageWindowControllerFlll(M2C_FIELD(arg0, u8 **, 0x28), arg1, arg2, (s32) ((u16)obj_getField1c((u32)(temp_r3))));
         }
-        return create_window__17TMedicalCenterMesFPvii(temp_r0, arg1, arg2);
+        return create_window__24TMessageWindowControllerFll(temp_r0, arg1, arg2);
     }
     return 0U;
 }
 
-void free_member_0x28__13TShopSequenceFPv(void* p) { void* m = *(void**)((char*)p + 0x28); if (m) format_and_send_message__22TQuestVmDownLoadServerFPvii(m); }
-void TShopSequence__sub_802236A0(void* p) { void* m = *(void**)((char*)p + 0x28); if (m) send_message__22TQuestVmDownLoadServerFPvii(m); }
-void free_member_0x28_variant__13TShopSequenceFPv(void* p) { void* m = *(void**)((char*)p + 0x28); if (m) display_message__22TQuestVmDownLoadServerFPvii(m); }
-void free_member__13TShopSequenceFPv(void* p) { void* m = *(void**)((char*)p + 0x28); if (m) show_message__17TMedicalCenterMesFPvii(m); }
+void free_member_0x28__13TShopSequenceFPv(void* p) { void* m = *(void**)((char*)p + 0x28); if (m) format_guild_message__24TMessageWindowControllerFll(m); }
+void TShopSequence__sub_802236A0(void* p) { void* m = *(void**)((char*)p + 0x28); if (m) send_message__24TMessageWindowControllerFll(m); }
+void free_member_0x28_variant__13TShopSequenceFPv(void* p) { void* m = *(void**)((char*)p + 0x28); if (m) display_message__24TMessageWindowControllerFPCcl(m); }
+void free_member__13TShopSequenceFPv(void* p) { void* m = *(void**)((char*)p + 0x28); if (m) format_shop_message__24TMessageWindowControllerFll(m); }
 void close_if_single_screen__13TShopSequenceFv(void) {
     if ((get_game_mode__23TAdSinglePlyChrSelectGCFv() != 0) && (is_split_screen() == 0)) {
         load_character_from_card__23TAdSinglePlyChrSelectGCFi(0);
@@ -159,7 +159,7 @@ u8 *TShopSequence__ct(u8 *arg0) {
     temp_r3 = alloc__23TAdSinglePlyChrSelectGCFPv((void *)0x210);
     var_r0 = temp_r3;
     if (var_r0 != 0) {
-        var_r0 = (long) (fn_80222BCC((void *) temp_r3));
+        var_r0 = (long) (__ct__24TMessageWindowControllerFv((void *) temp_r3));
     }
     M2C_FIELD(arg0, s32 *, 0x28) = var_r0;
     return arg0;

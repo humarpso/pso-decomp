@@ -636,9 +636,6 @@ pso/boss/TBoss4Zako.cpp:
 	.sbss       start:0x805D4D88 end:0x805D4D90
 	.sdata2     start:0x805D8D20 end:0x805D8D28
 
-
-
-
 pso/boss/TBoss8Dragon_8005D6F4.cpp:
 	.text       start:0x8005D6F4 end:0x8005D700
 
@@ -6923,23 +6920,9 @@ pso/misc/TPlyOnCreated.cpp:
 pso/misc/TPlyOnCreated_801C61D0.cpp:
 	.text       start:0x801C61D0 end:0x801C6280
 
-pso/player/TObjPlayer_801C6280.cpp:
-	.text       start:0x801C6280 end:0x801C6650
-
-pso/player/TPlayerParticleOwner.cpp:
-	.text       start:0x801C6650 end:0x801C675C
-
-
-pso/player/TObjPlayer_801C675C.cpp:
-	.text       start:0x801C675C end:0x801C70BC
-
-pso/misc/TPlyOnCountOver_801C70BC.cpp:
-	.text       start:0x801C70BC end:0x801C7114
-	.data       start:0x804C3F78 end:0x804C3F90
-
-pso/misc/TPlyOnCreated_801C7114.cpp:
-	.text       start:0x801C7114 end:0x801C721C
-	.data       start:0x804C3F90 end:0x804C3FA8
+pso/player/PlayerTaskEffects.cpp:
+	.text       start:0x801C6280 end:0x801C721C
+	.data       start:0x804C3F78 end:0x804C4020
 
 pso/player/TObjPlayer_801C721C.cpp:
 	.text       start:0x801C721C end:0x801C7430
@@ -8073,19 +8056,14 @@ pso/misc/TWindowShortListCtrl_80221828.cpp:
 	.text       start:0x80221828 end:0x80221844
 
 pso/misc/TShopKeepItemWindow.cpp:
-	.text       start:0x80221844 end:0x8022241C
+	.text       start:0x80221844 end:0x8022236C
 	.data       start:0x804CA220 end:0x804CA240
 
-pso/misc/TQuestVmDownLoadServer_8022241C.cpp:
-	.text       start:0x8022241C end:0x8022297C
-	.rodata     start:0x8044C240 end:0x8044C290
-	.data       start:0x804CA240 end:0x804CA27C
-
-pso/misc/TMedicalCenterMes.cpp:
-	.text       start:0x8022297C end:0x80222BCC
-
-pso/unk/text_80222BCC.cpp:
-	.text       start:0x80222BCC end:0x80222C28
+pso/ui/TMessageWindowController.cpp:
+	.text       start:0x8022236C end:0x80222C28
+	.rodata     start:0x8044C200 end:0x8044C298
+	.data       start:0x804CA240 end:0x804CA288
+	.sdata2     start:0x805DC718 end:0x805DC728
 
 pso/unk/text_80222C28.cpp:
 	.text       start:0x80222C28 end:0x80222D24
@@ -11798,6 +11776,7 @@ pso/ui/TAdWarningBaseGC_8032D1A4.cpp:
 pso/ui/TAdWarningBaseGC.cpp:
 	.text       start:0x8032D1E4 end:0x8032D514
 	.rodata     start:0x80477348 end:0x80477350
+
 pso/ui/TAdGuideButtonGC.cpp:
 	.text       start:0x8032D514 end:0x8032DA60
 	.rodata     start:0x80477350 end:0x80477390
@@ -11805,8 +11784,6 @@ pso/ui/TAdGuideButtonGC.cpp:
 	.sdata      start:0x805D4210 end:0x805D4218
 	.sbss       start:0x805D6D00 end:0x805D6D08
 	.sdata2     start:0x805DF7B8 end:0x805DF7D8
-
-
 
 pso/unk/text_8032DA60.cpp:
 	.text       start:0x8032DA60 end:0x8032DA84

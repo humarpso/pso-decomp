@@ -2680,7 +2680,7 @@ int emit_photon_blast_feedback_from_packet__10TObjPlayerFPv(void*);
 M2C_UNK TObjPlayer__sub_801BF3A0(void *, void *);
 M2C_UNK copy_vec_at_18__10TObjPlayerFPv(void *, void *);
 s32 TObjPlayer__sub_801BF40C(u32 a0 = 0, s32 a1 = 0);
-M2C_UNK TObjPlayer__sub_801BF414(s32, s32, s32, void (*)(int));
+M2C_UNK __ct__20TPlayerReadyCallbackFP7TObjectUsPFP10TObjPlayer_v(s32, s32, s32, void (*)(int));
 int TObjPlayer__sub_801BF460(void*);
 int TObjPlayer__sub_801BF47C(void*);
 int TObjPlayer__sub_801BF488(void*);
@@ -3330,7 +3330,7 @@ void TObjPlayer__sub_801AF904(s32 arg0) {
     s32 temp_r3;
     temp_r3 = ((s32 (*)(M2C_UNK))__nw__7TObjectFUl)(0x24);
     if (temp_r3 != 0) {
-        TObjPlayer__sub_801BF414(temp_r3, arg0, ((s32 (*)(s32))obj_getField1c)(arg0), (void (*)(int))set_flags_a00__10TObjPlayerFPv);
+        __ct__20TPlayerReadyCallbackFP7TObjectUsPFP10TObjPlayer_v(temp_r3, arg0, ((s32 (*)(s32))obj_getField1c)(arg0), (void (*)(int))set_flags_a00__10TObjPlayerFPv);
     }
 }
 
