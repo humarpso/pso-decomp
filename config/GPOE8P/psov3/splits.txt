@@ -7402,6 +7402,10 @@ pso/misc/TLobby_801E6544.cpp:
 	.rodata     start:0x80449CB8 end:0x80449CC0
 	.data       start:0x804C81D8 end:0x804C8230
 
+pso/quest/AreaDialogueScripts.cpp:
+	.rodata     start:0x80449D60 end:0x8044A5D0
+	.data       start:0x804C8230 end:0x804C8410
+
 pso/misc/TLobby_801F2D2C.cpp:
 	.text       start:0x801F2D2C end:0x801F3710
 

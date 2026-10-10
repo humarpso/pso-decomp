@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/quest/AreaDialogueScripts.h"
 #include "pso/TObject.h"
 class TObjItemNameSelect : public TObject {
 public:
@@ -153,10 +154,6 @@ struct TQuestThread_801F5828 {
     u32 state;
 };
 
-typedef char *Row_lbl_804C8230[12];
-
-typedef char *Row_lbl_804C8320[12];
-
 M2C_UNK memcpy(s32, s32, s32);
 int memset(void*, void*, void*);
 s32 get_main_phase();
@@ -273,8 +270,6 @@ extern s32 enable_v2_features;
 extern s32 evt2_random_enemies_mode;
 extern char lbl_8044A5D0[];
 extern u8 lbl_8044A640[];
-extern Row_lbl_804C8230 lbl_804C8230[];
-extern Row_lbl_804C8320 lbl_804C8320[];
 extern Entry_801F4DFC lbl_804C8410[];
 extern Entry_801F4DFC lbl_804C8488[];
 extern u8 controller_input_state[];
@@ -917,12 +912,12 @@ void load_area_dialogue_script(void) {
     if (enable_v2_features == 1 && game_difficulty_selection == 3) {
         mem = ((void *(*)(M2C_UNK))__nw__7TObjectFUl)(0x1A4);
         if (mem != NULL) {
-            load_quest_root_script((u8 *)mem, (void *)tl_04, lbl_804C8320[current_language][bank], 1);
+            load_quest_root_script((u8 *)mem, (void *)tl_04, (void *)area_dialogue_ultimate_script_files[current_language][bank], 1);
         }
     } else {
         mem = ((void *(*)(M2C_UNK))__nw__7TObjectFUl)(0x1A4);
         if (mem != NULL) {
-            load_quest_root_script((u8 *)mem, (void *)tl_04, lbl_804C8230[current_language][bank], 1);
+            load_quest_root_script((u8 *)mem, (void *)tl_04, (void *)area_dialogue_script_files[current_language][bank], 1);
         }
     }
 }
